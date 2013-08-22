@@ -3,7 +3,7 @@
         "This file locks the dependencies of your project to a known state",
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file"
     ],
-    "hash": "50d1a9d1e1e6c919719bd6568dea349a",
+    "hash": "86dd48675faffe6983c47330e608faf3",
     "packages": [
         {
             "name": "aws/aws-sdk-php",
@@ -1077,6 +1077,48 @@
             "time": "2013-08-22 07:40:56"
         },
         {
+            "name": "project-a/silex-routing",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "git@github.com:project-a/Silex-Routing.git",
+                "reference": "669879eb130b5d80a6f1ad385a26f557371eda51"
+            },
+            "require": {
+                "silex/silex": "~1.0",
+                "symfony-cmf/routing": "~1.1@beta",
+                "symfony/routing": ">=2.3,<2.4-dev"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "~3.7"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "1.0.x-dev"
+                }
+            },
+            "autoload": {
+                "psr-0": {
+                    "SilexRouting": "src/"
+                }
+            },
+            "authors": [
+                {
+                    "name": "Daniel Tschinder",
+                    "email": "daniel.tschinder@project-a.com",
+                    "homepage": "http://www.project-a.com"
+                },
+                {
+                    "name": "Project A",
+                    "email": "info@project-a.com",
+                    "homepage": "http://www.project-a.com"
+                }
+            ],
+            "description": "Advanced Routing for Silex",
+            "time": "2013-08-21 17:51:51"
+        },
+        {
             "name": "project-a/stripe-package",
             "version": "2.0.0.x-dev",
             "source": {
@@ -1378,6 +1420,65 @@
                 "stripe"
             ],
             "time": "2013-08-19 18:21:01"
+        },
+        {
+            "name": "symfony-cmf/routing",
+            "version": "1.1.0-RC2",
+            "target-dir": "Symfony/Cmf/Component/Routing",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/symfony-cmf/Routing.git",
+                "reference": "c3e0c82a92da2973ffbab1f06f7144dae8701112"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/symfony-cmf/Routing/zipball/c3e0c82a92da2973ffbab1f06f7144dae8701112",
+                "reference": "c3e0c82a92da2973ffbab1f06f7144dae8701112",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3.3",
+                "psr/log": "~1.0",
+                "symfony/http-kernel": "~2.2",
+                "symfony/routing": "~2.2"
+            },
+            "require-dev": {
+                "symfony/config": "~2.2",
+                "symfony/dependency-injection": "~2.0",
+                "symfony/event-dispatcher": "~2.1"
+            },
+            "suggest": {
+                "symfony/event-dispatcher": "DynamicRouter can optionally trigger an event at the start of matching, ~2.1",
+                "symfony/http-foundation": "ChainRouter/DynamicRouter have optional support for Request instances, several enhancers require a Request instances, ~2.2"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "1.1-dev"
+                }
+            },
+            "autoload": {
+                "psr-0": {
+                    "Symfony\\Cmf\\Component\\Routing": ""
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Symfony CMF Community",
+                    "homepage": "https://github.com/symfony-cmf/Routing/contributors"
+                }
+            ],
+            "description": "Extends the Symfony2 routing component for dynamic routes and chaining several routers",
+            "homepage": "http://cmf.symfony.com",
+            "keywords": [
+                "database",
+                "routing"
+            ],
+            "time": "2013-08-05 11:18:50"
         },
         {
             "name": "symfony/debug",
@@ -3567,7 +3668,8 @@
         "project-a/payment-package": 20,
         "project-a/stripe-package": 20,
         "project-a/adyen-package": 20,
-        "project-a/lumberjack-package": 20
+        "project-a/lumberjack-package": 20,
+        "project-a/silex-routing": 20
     },
     "platform": [
 
