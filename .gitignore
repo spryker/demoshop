@@ -1,0 +1,29 @@
+# IDEs
+/.idea
+/.project
+/nbproject
+/.buildpath
+/.settings
+*.sublime-*
+
+# OS
+.DS_Store
+
+# Y&Z
+/config/Shared/config_local*
+/config/Zed/behat.local.yml
+
+/project/Generated
+/vendor/
+
+/data/*
+
+# grunt stuff
+.grunt
+.sass-cache
+/config/Yves/config_assets.php
+/node_modules/
+
+# public stuff
+/static/public/Yves/*
+# /static/public/Zed/*
