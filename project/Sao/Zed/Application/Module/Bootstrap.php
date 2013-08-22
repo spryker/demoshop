@@ -173,7 +173,7 @@ class Bootstrap extends Zend_Application_Bootstrap_Bootstrap
         $logConfig = ProjectA_Shared_Library_Config::get('log');
         ProjectA_Zed_Library_Propel_Config::setConfig($dbConfig, $logConfig, $this->getOption('propelconfig'));
         if (TestEnvironment::isSystemUnderTest()) {
-            $connection = Propel::getConnection();
+            $connection = \Propel::getConnection();
             $connection->beginTransaction();
         }
     }
