@@ -1,28 +1,10 @@
-<phpunit bootstrap="./bootstrap.core.php">
-    <testsuite name="Shared Test Suite">
-        <directory>./shared</directory>
+<phpunit bootstrap="../../vendor/project-a/infrastructure-package/ProjectA/Zed/PhpUnit/Component/Model/Bootstrap.php">
+    <testsuite name="ProjectA">
+        <directory>../../vendor/project-a</directory>
     </testsuite>
-    <testsuite name="pac">
-        <directory>../../../vendor/project-a</directory>
-    </testsuite>
-
-    <filter>
-        <whitelist>
-            <directory suffix=".php">../../Shared</directory>
-            <directory suffix=".php">../../../vendor/project-a</directory>
-        </whitelist>
-        <blacklist>
-            <directory suffix=".php">../../../vendor/digital-canvas</directory>
-            <directory suffix=".php">../../../vendor/phpunit</directory>
-            <file>Entity_*.php</file>
-            <file>*Test.php</file>
-        </blacklist>
-    </filter>
-
     <php>
         <env name="APPLICATION_ENV" value="testing" />
         <env name="APPLICATION_STORE" value="US" />
-        <env name="APPLICATION_CORE_TEST" value="1" />
     </php>
 
 </phpunit>

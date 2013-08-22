@@ -1,5 +1,5 @@
 <phpunit bootstrap="../../vendor/project-a/infrastructure-package/ProjectA/Zed/PhpUnit/Component/Model/Bootstrap.php">
-    <testsuite name="Project Code Test Suite">
+    <testsuite name="Project Code">
         <directory>../../project/</directory>
     </testsuite>
     <php>
