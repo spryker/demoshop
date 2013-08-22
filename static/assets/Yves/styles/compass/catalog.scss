@@ -1,0 +1,69 @@
+@import 'compass/css3';
+@import 'common/mixins';
+@import 'common/placeholders';
+
+@import 'common/ci';
+@import 'common/sprites';
+
+@import 'modules/catalog';
+
+@import 'global/glyphicons';
+
+@import "foundation/foundation-global";
+
+$row-width: 71.5em;
+$column-gutter: 1.3em;
+$include-html-grid-classes: false;
+$include-print-styles: false;
+
+@import "foundation/components/grid";
+
+.catalog-container {
+	> header {
+		font-size: .8em;
+		line-height: 2em;
+
+		text-align: center;
+
+		.display-as {
+			margin-bottom: .2em;
+		}
+
+		@media #{$small} {
+			text-align: left;
+		}
+
+		@media #{$large} {
+			.display-as {
+				float: left;
+			}
+
+			> small {
+				float: right;
+				margin-right: 2em;
+			}
+		}
+
+		> small {
+			color: $ci-gray;
+			font-size: 1em;
+			display: block;
+		}
+	}
+
+	@media #{$small} {
+		.pager {
+			float: right;
+		}
+	}
+
+	> footer {
+		font-size: .8em;
+		text-align: center;
+		margin-bottom: 1em;
+	}
+}
+
+@import "pages/catalog/product";
+@import "pages/catalog/sidebar";
+

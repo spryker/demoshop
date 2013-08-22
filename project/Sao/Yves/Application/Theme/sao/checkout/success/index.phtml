@@ -1,0 +1,29 @@
+<?php
+/** @var $transferOrder Sao_Shared_Sales_Transfer_Order */
+?>
+<div class="row">
+    <section class="column order-confirmation">
+        <header>
+            <h1 class="heading"><?php echo t(Sao_Yves_Library_L::ORDER_CONFIRMATION); ?></h1>
+        </header>
+
+        <?php if ($transferOrder->getIsManualCheckout()): ?>
+
+            <div class="manual-checkout-success">
+                <p><?php echo t(Sao_Yves_Library_L::ORDER_MANUAL_CHECKOUT_SUCCESS); ?></p>
+            </div>
+
+            <?php else: ?>
+            <p><?php echo t(Sao_Yves_Library_L::ORDER_NUMBER_IS); ?>: <strong class="order-id"><?php echo $transferOrder->getIncrementId(); ?></strong></p>
+
+            <p class="receipt-text"><?php echo t(Sao_Yves_Library_L::ORDER_EMAIL_RECEIPT_TEXT); ?></p>
+
+            <p><?php echo t(Sao_Yves_Library_L::ORDER_QUESTIONS_TEXT); ?></p>
+
+            <p><a href="<?= $this->createAbsoluteUrl(Sao_Yves_Library_Routing_UrlManager::ROUTE_LEGACY_BUY_ART); ?>"
+                  class="button"><?php echo t( Sao_Yves_Library_L::CONTINUE_SHOPPING ); ?></a></p>
+
+        <?php endif; ?>
+
+    </section>
+</div>

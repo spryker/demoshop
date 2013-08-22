@@ -1,0 +1,59 @@
+.filter {
+	margin: 0;
+}
+
+
+dl.filter {
+	dt, dd {
+		display: inline-block;
+	}
+
+	dd {
+		margin-left: .5em;
+
+		+ dd:before {
+			color: $ci-silver;
+			content: '|';
+
+			margin-right: .5em;
+		}
+	}
+}
+
+%checkable {
+	// text-decoration: none;
+	&:before {
+		margin-right: .5em;
+		margin-top: .25em;
+		display: inline-block;
+		vertical-align: middle;
+	}
+}
+
+.checkbox {
+	@extend %checkable;
+
+	&:before {
+		content: inline-image( 'checkbox_no.png' );
+	}
+
+	&.checked {
+		&:before {
+			content: inline-image( 'checkbox_yes.png' );
+		}
+	}
+}
+
+.radio {
+	@extend %checkable;
+
+	&:before {
+		content: inline-image( 'radiobutton_no.png' );
+	}
+
+	&.checked {
+		&:before {
+			content: inline-image( 'radiobutton_yes.png' );
+		}
+	}
+}

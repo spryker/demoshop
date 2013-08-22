@@ -1,0 +1,34 @@
+<?php
+/**
+ * Class Description
+ *
+ * Date: 24.08.12
+ * @author: Robert Hänsel
+ * @version: $Id$
+ */
+
+echo $this->form;
+?>
+<script type="text/javascript">
+    $("#categoryBoostForm").submit(function (event, data) {
+        /* stop form from submitting normally */
+
+        event.preventDefault();
+        var $form = $( this ),
+            boost = $form.find( 'select[name="boost"]' ).val(),
+            id = $form.find( 'input[name="id"]' ).val(),
+            categoryNameId = $form.find( 'input[name="categoryNameId"]' ).val(),
+            url = $form.attr( 'action' );
+
+        var postData = {id: id, categoryNameId: categoryNameId, scopeId: scopeId, boost: boost, format: 'html'};
+
+        $.post('/catalog/product/category-boost', postData)
+            .success(function (data){
+                $('#category-details').html(data);
+            })
+            .error(function (jqXHR, textStatus, errorThrown) {
+                alert("Could not save category boost information" + "\n" + textStatus + ": " + errorThrown);
+            });
+
+    });
+</script>

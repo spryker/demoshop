@@ -1,0 +1,36 @@
+<?php if (ProjectA_Shared_Library_Environment::isNotProduction()) : ?>
+    <fieldset>
+    <legend><? echo __('payment simulation'); ?></legend>
+
+    <table>
+        <tr>
+            <td rowspan="4"><?php echo __('simulate adyen notification'); ?>:</td>
+            <td>
+                <a href="/adyen/development/simulate-authorisation-notification-received?order_id=<?php echo $this->order->getPrimaryKey(); ?>&redirect_url=sales/order-details/index/id/<?php echo $this->order->getPrimaryKey(); ?>"><?php echo __('authorised'); ?></a>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <a href="/adyen/development/simulate-paypal-hpp-authorisation-notification-received?order_id=<?php echo $this->order->getPrimaryKey(); ?>&redirect_url=sales/order-details/index/id/<?php echo $this->order->getPrimaryKey(); ?>">
+                    <?php echo __('paypal hpp authorised'); ?></a>
+                (no further transactions possible as we only have a faked reference number!)
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <a href="/adyen/development/simulate-capture-notification-received?order_id=<?php echo $this->order->getPrimaryKey(); ?>&redirect_url=sales/order-details/index/id/<?php echo $this->order->getPrimaryKey(); ?>"><?php echo __('capture'); ?></a>
+            </td>
+        </tr>
+        <tr>
+            <td><?php echo __('refund'); ?>
+                <form action="/adyen/development/simulate-refund-notification-received" method="get">
+                    <input type="hidden" name="order_id" value="<?php echo $this->order->getPrimaryKey(); ?> "/>
+                    <input type="hidden" name="redirect_url"
+                           value="sales/order-details/index/id/<?php echo $this->order->getPrimaryKey(); ?> "/>
+                    <input type="text" value="Grand Total" name="amount"/>
+                    <input type="submit" value="submit"/>
+                </form>
+            </td>
+        </tr>
+    </table>
+<?php endif; ?>

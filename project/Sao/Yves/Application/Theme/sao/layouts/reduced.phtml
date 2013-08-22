@@ -1,0 +1,27 @@
+<?php
+/**
+ * @var $this     Yp_Base_Controller
+ * @var $messages string|null
+ * @var $content  $string
+ */
+
+$isCheckoutContext = in_array($this->getParam('returnUrl'), array(Sao_Yves_Library_Routing_UrlManager::ROUTE_CHECKOUT_FINISH));
+?>
+<?php $this->renderPartial('layouts/partials/head', array()); ?>
+<body class="page-reduced">
+    <div class="page-wrap">
+        <header class="page-header row" id="page-header">
+            <hgroup>
+                <h1 class="saatchi-logo">
+                    <a href="/" class="ir">Saatchi online</a>
+                </h1>
+                <h2><a href="/">Discover art. Get discovered.</a></h2>
+            </hgroup>
+        </header>
+        <main id="main" class="page-main" role="main">
+            <?php echo $messages; ?>
+            <?php echo $content; ?>
+        </main>
+    </div>
+<?php $this->renderPartial('layouts/partials/footer', array()); ?>
+

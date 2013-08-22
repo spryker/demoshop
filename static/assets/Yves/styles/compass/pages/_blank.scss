@@ -1,0 +1,15 @@
+.page-blank {
+  padding: 1em 0;
+}
+
+.security-code {
+  figure {
+    text-align: center;
+  }
+
+  figcaption {
+    color: $ci-gray;
+    font-size: .9em;
+    font-style: italic;
+  }
+}

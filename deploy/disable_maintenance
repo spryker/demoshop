@@ -1,0 +1,21 @@
+#!/bin/bash
+#
+# *** Project-A deployment
+#
+# disable_maintenance
+# This script is executed on all frontend hosts in order to deactivate maintenance mode.
+#
+#
+
+FILEPATH=`pwd`/$0; BASEDIR=`dirname $FILEPATH`; source $BASEDIR/vars; source $BASEDIR/functions
+outfile=`mktemp /tmp/deploy-XXXXXX`
+
+### Deactivate maintenance
+cd $destination_current_dir/project/Yves/public
+rm -f maintenance.html
+
+cd $destination_release_dir/project/Yves/public
+rm -f maintenance.html
+
+rm -f $outfile
+exit 0

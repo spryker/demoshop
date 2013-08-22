@@ -1,0 +1,19 @@
+<?php
+/**
+ * @todo Define content and layout
+ * @var bool       $success
+ * @var array|null $messages
+ */
+?>
+
+<?php if (!$success): ?>
+    <div>
+        Something went wrong.
+    </div>
+    <?php if (isset($messages) && count($messages)): ?>
+        <?php /** @var Sao_Shared_Application_Transfer_Response_Message $message */ ?>
+        <?php foreach ($messages as $message): ?>
+            <?= $message->getMessage(); ?>
+        <?php endforeach; ?>
+    <?php endif; ?>
+<?php endif; ?>

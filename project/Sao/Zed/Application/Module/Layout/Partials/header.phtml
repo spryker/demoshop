@@ -1,0 +1,59 @@
+<header>
+    <img id="logo" src="/old/images/layout/logo.png" height="40" alt="Zed" />
+    <nav>
+        <?php if (ProjectA_Zed_Auth_Component_Model_Auth::getInstance()->hasIdentity()): ?>
+        <?php $this->navigation()->getContainer()->findOneById('login-logout')->setVisible(false); ?>
+        <?php endif; ?>
+        <?php $this->navigation()->getContainer()->findOneById('setup-index')->setVisible(APPLICATION_ENV !== 'production') ?>
+        <?php echo $this->navigation()->menu(); ?>
+    </nav>
+    <?php if (ProjectA_Zed_Auth_Component_Model_Auth::getInstance()->hasIdentity() || APPLICATION_ENV === 'development'): ?>
+    <div id="session"<?php if (!ProjectA_Zed_Auth_Component_Model_Auth::getInstance()->hasIdentity()): ?> class="loggedout"<?php endif; ?>>
+        <img class="flag" src="/old/images/flags/<?php echo strtolower(ProjectA_Shared_Library_Store::getInstance()->getStoreName()) ?>.png" alt="Store: <?php echo strtolower(ProjectA_Shared_Library_Store::getInstance()->getStoreName()) ?>" />
+        <div class="welcome">
+            <span>Welcome,</span><br />
+            <?php if (ProjectA_Zed_Auth_Component_Model_Auth::getInstance()->hasIdentity()): ?>
+            <?php $identity = ProjectA_Zed_Auth_Component_Model_Auth::getInstance()->getIdentity(); echo $identity->getFirstname() . ' ' . $identity->getLastname(); ?>
+            <?php else : ?>
+            Human
+            <?php endif; ?>
+        </div>
+        <?php $logout = $this->navigation()->getContainer()->findOneById('login-logout'); ?>
+        <a href="/<?php echo $logout->getModule() . '/' . $logout->getController() . '/logout'; ?>" class="logout"></a>
+    </div>
+    <div class="rightNavigation">
+        <?php
+        $currentPage = $this->navigation()->findActive($this->navigation()->getContainer());
+        if (isset($currentPage['page'])) {
+            $currentPageManual = $currentPage['page']->findOneBy('title', 'Manuals');
+            if (isset($currentPageManual)) {
+                $parentPage = $this->navigation()->findOneById('manual_dropdown_placeholder');
+                $currentPageManual->setVisible(true);
+                $currentPageManual->setParent($parentPage);
+                $parentPage->setVisible(true);
+                echo '<nav class="manualNav">' . $this->navigation()->menu()->renderMenu($parentPage) . '</nav>';
+            }
+        } ?>
+        <ul id="tray">
+    <!--        <li class="ico config" onclick="zed.modules.notification.guiMessage.spoil('The settings feature has not been implemented yet.');"></li>-->
+    <!--        <li class="ico bookmarks">-->
+    <!--            <ul class="onActive"></ul>-->
+    <!--        </li>-->
+            <li class="ico search">
+                <div class="onActive">
+                    <input type="text" id="menuSearch" placeholder="search for menu entry..." />
+                </div>
+            </li>
+            <li class="ico environment">
+                <?php echo APPLICATION_ENV; ?>
+                <div class="onActive">
+                    Locale: <?php echo ProjectA_Shared_Library_Store::getInstance()->getCurrentLocale(); ?> &#160; -
+                    &#160; Store: <?php echo ProjectA_Shared_Library_Store::getInstance()->getStoreName(); ?> &#160; -
+                    &#160; Server: <?php echo ProjectA_Shared_Library_System::getHostName(); ?> &#160; -
+                    &#160; <a href="http://<?php echo ProjectA_Shared_Library_Config::get('url')->yves ?>" target="_blank"><?php echo ProjectA_Shared_Library_Config::get('url')->yves  ?></a>
+                </div>
+            </li>
+        </ul>
+    </div>
+    <?php endif; ?>
+</header>

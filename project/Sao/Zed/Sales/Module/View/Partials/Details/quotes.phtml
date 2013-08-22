@@ -1,0 +1,51 @@
+<?php
+/** @var Sao_Zed_Fulfillment_Persistence_SaoFulfillmentQuote $quote */
+$quotes = Sao_Zed_Fulfillment_Persistence_SaoFulfillmentQuoteQuery::create()->filterByOrder($this->order)->filterByIsDeleted(false)->find();
+$count = 1;
+?>
+<fieldset>
+    <legend><?php echo __('quotes'); ?></legend>
+    <table>
+        <thead>
+        <tr>
+            <th></th>
+            <th><?php echo __('provider'); ?></th>
+            <th><?php echo __('quote id'); ?></th>
+            <th><?php echo __('shipping agent'); ?></th>
+            <th><?php echo __('shipping price'); ?></th>
+        </tr>
+        </thead>
+        <tbody>
+        <?php foreach ($quotes as $quote) : ?>
+            <?php
+            $items = $quote->getItems();
+            $ids = array();
+            foreach ($items as $item) {
+                $ids[] = $item->getIdSalesOrderItem();
+            }
+            ?>
+            <tr>
+                <td><?php echo __('quote'); ?> #<?php echo $count; ?></td>
+                <td><?php echo $quote->getProvider()->getName() ?></td>
+                <td><?php echo $quote->getQuoteId() ?></td>
+                <td><?php echo $quote->getShippingAgent()->getName() ?></td>
+                <td><?php echo ProjectA_Shared_Library_Currency::format($quote->getShippingPrice()) ?></td>
+            </tr>
+            <tr>
+                <td class="bold"><?php echo __('contains item ids') ?>:</td>
+                <td colspan="4">
+                    <?php echo join($ids, ', '); ?>
+                </td>
+            </tr>
+            <tr>
+                <td class="bold"><?php echo __('tracking') ?>:</td>
+                <td colspan="4"><?php echo $this->partial('tracking.phtml', array('quote' => $quote)); ?></td>
+            </tr>
+            <tr>
+                <td colspan="5"></td>
+            </tr>
+            <?php $count++; ?>
+        <?php endforeach; ?>
+        </tbody>
+    </table>
+</fieldset>

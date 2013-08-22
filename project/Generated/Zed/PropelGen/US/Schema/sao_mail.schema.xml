@@ -1,0 +1,121 @@
+<?xml version="1.0"?>
+<database name="zed"
+          defaultIdMethod="native"
+          defaultPhpNamingMethod="underscore"
+          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+          xsi:noNamespaceSchemaLocation="http://xsd.propelorm.org/1.6/database.xsd">
+
+    <table name="sao_mail_template" package="project/Sao/Zed/Mail/Persistence"  phpName="SaoMailTemplate">
+        <column name="id_mail_template" type="INTEGER" required="true" primaryKey="true" autoIncrement="true" />
+        <column name="name" type="VARCHAR" size="50" required="true" />
+        <column name="subject" type="VARCHAR" size="255" required="false" />
+        <column name="sender" type="VARCHAR" size="255" required="false" />
+        <column name="text" type="LONGVARCHAR" required="false" />
+        <column name="html" type="LONGVARCHAR" required="false" />
+        <column name="wrap" type="INTEGER" required="false" />
+        <column name="deleted" type="BOOLEAN" required="false" default="0" />
+
+        <foreign-key foreignTable="sao_mail_template" phpName="MailTemplateWrap" refPhpName="MailTemplate">
+            <reference local="wrap" foreign="id_mail_template" />
+        </foreign-key>
+
+        <behavior name="versionable">
+            <parameter name="version_table" value="sao_mail_template_version" />
+            <parameter name="log_created_at" value="true" />
+            <parameter name="log_created_by" value="true" />
+        </behavior>
+
+        <unique>
+            <unique-column name="name" />
+        </unique>
+
+    </table>
+
+    <table name="sao_mail_sequence" package="project/Sao/Zed/Mail/Persistence"  phpName="SaoMailSequence">
+        <column name="id_mail_sequence" type="INTEGER" required="true" primaryKey="true" autoIncrement="true" />
+        <column name="name" type="VARCHAR" size="255" required="true" description="internal display name"/>
+        <unique>
+            <unique-column name="name" />
+        </unique>
+    </table>
+
+    <table name="sao_mail_sequence_element" package="project/Sao/Zed/Mail/Persistence"  phpName="SaoMailSequenceElement">
+        <column name="id_mail_sequence_element" type="INTEGER" required="true" primaryKey="true" autoIncrement="true" />
+        <column name="name" type="VARCHAR" size="255" required="true" />
+        <column name="template" type="VARCHAR" size="255" required="true" description="Explicit no FK to template table. As so you will be able to use other template systems with the sequences." />
+        <column name="interval" type="VARCHAR" size="255" required="true" description="use php date-string parsing functionality. e.g. 5 days or 20 minutes" />
+        <column name="position" type="INTEGER" required="true" />
+        <column name="fk_mail_sequence" type="INTEGER" required="true" />
+
+        <foreign-key foreignTable="sao_mail_sequence" phpName="MailSequence" refPhpName="MailSequenceElement" onDelete="CASCADE">
+            <reference local="fk_mail_sequence" foreign="id_mail_sequence" />
+        </foreign-key>
+
+        <unique>
+            <unique-column name="name" />
+        </unique>
+        <unique>
+            <unique-column name="fk_mail_sequence" />
+            <unique-column name="position" />
+        </unique>
+    </table>
+
+    <table name="sao_mail_sequence_step" package="project/Sao/Zed/Mail/Persistence"  phpName="SaoMailSequenceStep">
+        <column name="id_mail_sequence_step" type="INTEGER" required="true" primaryKey="true" />
+        <column name="step" type="VARCHAR" size="30" required="true" description="used for ajax calls to set current step" />
+
+        <foreign-key foreignTable="sao_mail_sequence" phpName="MailSequence" refPhpName="MailSequenceStep">
+            <reference local="id_mail_sequence_step" foreign="id_mail_sequence" />
+        </foreign-key>
+    </table>
+
+    <table name="sao_mail_sequence_element_codepool" package="project/Sao/Zed/Mail/Persistence"  phpName="SaoMailSequenceElementCodepool">
+        <column name="id_mail_sequence_element_codepool" type="INTEGER" required="true" primaryKey="true" />
+        <column name="fk_salesrule_codepool" type="INTEGER" required="true" />
+        <column name="code_valid_to_interval" type="CHAR" size="50" required="true" />
+        <column name="code_valid_to_format" type="CHAR" size="50" required="true" />
+
+        <foreign-key foreignTable="sao_mail_sequence_element" phpName="MailSequenceElement" refPhpName="MailSequenceElementCodepool">
+            <reference local="id_mail_sequence_element_codepool" foreign="id_mail_sequence_element" />
+        </foreign-key>
+        <foreign-key foreignTable="pac_salesrule_codepool" phpName="SalesruleCodepool" refPhpName="MailSequenceElementCodepool">
+            <reference local="fk_salesrule_codepool" foreign="id_salesrule_codepool" />
+        </foreign-key>
+    </table>
+
+    <table name="sao_mail_sequence_cart_user_code" package="project/Sao/Zed/Mail/Persistence"  phpName="SaoMailSequenceCartUserCode">
+        <column name="id_mail_sequence_cart_user_code" type="INTEGER" required="true" primaryKey="true" autoIncrement="true" />
+        <column name="fk_cart_user" type="INTEGER" required="true" />
+        <column name="fk_mail_sequence" type="INTEGER" required="true" />
+        <column name="fk_salesrule_code" type="INTEGER" required="true" />
+        <column name="fk_salesrule_codepool" type="INTEGER" required="true" />
+
+        <foreign-key foreignTable="pac_cart_user" phpName="CartUser" refPhpName="SaoMailSequenceCartUserCode">
+            <reference local="fk_cart_user" foreign="id_cart_user"/>
+        </foreign-key>
+        <foreign-key foreignTable="sao_mail_sequence" phpName="MailSequence" refPhpName="SaoMailSequenceCartUserCode">
+            <reference local="fk_mail_sequence" foreign="id_mail_sequence" />
+        </foreign-key>
+        <foreign-key foreignTable="pac_salesrule_code" phpName="SalesruleCode" refPhpName="SaoMailSequenceCartUserCode">
+            <reference local="fk_salesrule_code" foreign="id_salesrule_code" />
+        </foreign-key>
+        <foreign-key foreignTable="pac_salesrule_codepool" phpName="SalesruleCodepool" refPhpName="SaoMailSequenceCartUserCode">
+            <reference local="fk_salesrule_codepool" foreign="id_salesrule_codepool" />
+        </foreign-key>
+
+        <unique>
+            <unique-column name="fk_cart_user" />
+            <unique-column name="fk_mail_sequence" />
+            <unique-column name="fk_salesrule_codepool" />
+        </unique>
+    </table>
+
+    <table name="sao_mail_sequence_cart_user_blacklist" package="project/Sao/Zed/Mail/Persistence"  phpName="SaoMailSequenceCartUserBlacklist">
+        <column name="id_mail_sequence_cart_user_blacklist" type="INTEGER" required="true" primaryKey="true" />
+
+        <foreign-key foreignTable="pac_cart_user" phpName="CartUser" refPhpName="SaoMailSequenceCartUserBlacklist">
+            <reference local="id_mail_sequence_cart_user_blacklist" foreign="id_cart_user"/>
+        </foreign-key>
+    </table>
+
+</database>

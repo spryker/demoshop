@@ -1,0 +1,80 @@
+<div class="block full" id="dashcaption">
+    Welcome to the <img src="/images/layout/dashboard_logo.gif?time=<?php echo time(); ?>" alt="Zed" /> backend!
+</div>
+<?php $currency = ProjectA_Shared_Library_Currency::getCurrency()->getSymbol(); ?>
+<?php if (Zend_Auth::getInstance()->hasIdentity()) : ?>
+<?php $orderItemStats = $this->orderItemStats; ?>
+<div class="row">
+    <div class="block thirds" data-update-resource="/default/index/update" data-update-target="amount" data-update-id="order-qty-day">
+        <div class="tile cart clock">
+            <span class="amount"><?php echo $this->orderQty['day']; ?></span> orders (last 24h)
+        </div>
+    </div>
+    <?php /*
+    <div class="block quarter" data-update-resource="/default/index/update" data-update-target="amount" data-update-id="order-value-total">
+        <div class="tile cash">
+            <span class="amount"><?php echo round(((int)$orderItemStats['total']['sum']) / 100) . ' ' . $currency; ?></span> total order value
+        </div>
+    </div>
+    <div class="block quarter">
+        <div class="tile user">
+            <span class="amount">** %</span> new visitors
+        </div>
+    </div> */ ?>
+    <div class="block thirds" data-update-resource="/default/index/update" data-update-target="amount" data-update-id="order-perc-paid-total">
+        <div class="tile graph">
+            <span class="amount"><?php echo (int)$orderItemStats['total']['count'] === 0 ? 0 : round(((int)$orderItemStats['paidTotal']['count'] / (int)$orderItemStats['total']['count']) * 100, 2); ?> %</span> items paid (total)
+        </div>
+    </div>
+    <div class="block thirds" data-update-resource="/default/index/update" data-update-target="amount" data-update-id="order-volume-week">
+        <div class="tile chart clock">
+            <span class="amount"><?php echo round(((int)$this->orderQty['week'] / max(1, $this->orderQty['total'])) * 100, 2); ?> %</span> order volume (last 7 days)
+        </div>
+    </div>
+    <div class="block thirds" data-update-resource="/default/index/update" data-update-target="amount" data-update-id="order-qty-hour">
+        <div class="tile cart clock">
+            <span class="amount"><?php echo $this->orderQty['hour']; ?></span> orders (last hour)
+        </div>
+    </div>
+    <?php /*
+    <div class="block quarter" data-update-resource="/default/index/update" data-update-target="amount" data-update-id="order-value-day">
+        <div class="tile cash clock">
+            <span class="amount"><?php echo round(((int)$orderItemStats['day']['sum']) / 100) . ' ' . $currency; ?></span> order value (last 24h)
+        </div>
+    </div> */ ?>
+    <div class="block thirds" data-update-resource="/default/index/update" data-update-target="amount" data-update-id="order-perc-paid-day">
+        <div class="tile graph clock">
+            <span class="amount"><?php echo (int)$orderItemStats['day']['count'] === 0 ? 0 : round(((int)$orderItemStats['paidDay']['count'] / (int)$orderItemStats['day']['count']) * 100, 2); ?> %</span> items paid (last 24h)
+        </div>
+    </div>
+    <div class="block thirds" data-update-resource="/default/index/update" data-update-target="amount" data-update-id="order-qty-total">
+        <div class="tile cart">
+            <span class="amount"><?php echo $this->orderQty['total']; ?></span> total orders (<?php echo $orderItemStats['total']['count']; ?> items)
+        </div>
+    </div>
+    <?php /* <div class="block quarter">
+        <div class="tile monitor">
+            <span class="amount">*:** h</span> until next TV airing
+        </div>
+    </div>
+    <div class="block quarter">
+        <div class="tile download">
+            <span class="amount">manual</span> for Yves / Zed
+        </div>
+    </div> */ ?>
+</div>
+<div class="block full" data-type="iframe">
+    <iframe src="https://rpm.newrelic.com/public/charts/dHRnuZf0uTn" width="100%" height="350"></iframe>
+</div>
+<div class="row">
+    <div class="block half" data-type="iframe">
+        <iframe src="https://rpm.newrelic.com/public/charts/9LlQrrPViFp" width="100%" height="250"></iframe>
+    </div>
+    <div class="block half" data-type="iframe">
+        <iframe src="https://rpm.newrelic.com/public/charts/6y97aeeFaR5" width="100%" height="250"></iframe>
+    </div>
+</div>
+<a id="resetRaster" href="" onclick="zed.modules.raster.config.save(null);" class="action" style="display:none; position:fixed; right:10px; bottom:10px; z-index:1;">reset</a>
+<?php else : ?>
+<div class="block full">Unfortunately you are not allowed to see contents here.</div>
+<?php endif; ?>

@@ -1,0 +1,86 @@
+<?php
+$this->headLink()
+    ->appendStylesheet('/styles/catalog.css');
+?>
+
+<style>
+    dl.zend_form dt {
+        width: 20%;
+    }
+    .zend_form select {
+        width: 100px;
+    }
+    .clearLeft {
+        clear:left;
+    }
+    .preferences {
+        width: 380px;
+        float: left;
+    }
+    .preferences p {
+        font-weight: bold;
+    }
+    .pal-ui-button.cta {
+        margin-right: 10px;
+    }
+</style>
+
+<script>
+    function resetForm($form) {
+        $form.find('input:text, input:password, input:file, select, textarea').val('');
+        $form.find('input:radio, input:checkbox')
+                .removeAttr('checked').removeAttr('selected');
+    }
+</script>
+
+<?php
+echo $this->crud;
+?>
+
+<?php
+echo ProjectA_Zed_Library_Ui_Button_Factory::getCta()->setLabel(__('check_all_checkbox'))->setClick("$('input[type=checkbox]').each(function(){ $(this).attr('checked', 'checked'); });");
+echo ProjectA_Zed_Library_Ui_Button_Factory::getCta()->setLabel(__('reset_form'))->setClick("resetForm($('#catalogExportForm'));");
+?>
+<br/>
+
+<div class="preferences">
+    <p><?php echo __('load_preferences');?></p>
+    <input type="file" id="files" name="file" />
+</div>
+
+<?php
+echo ProjectA_Zed_Library_Ui_Button_Factory::getCta()->setLabel(__('safe_preferences'))->setClick("document.catalogExportForm.action='/catalog/export/settingssave'; document." . $this->form->getName() . ".submit();");
+echo ProjectA_Zed_Library_Ui_Button_Factory::getCta()->setLabel(__('download'))->setClick("if(confirm('" . __('confirm product export') . "')){document.catalogExportForm.action=''; document." . $this->form->getName() . ".submit();}else{return false;};");
+?>
+
+<script>
+    function handleFileSelect(evt) {
+
+        // reset current selection
+        resetForm($('#catalogExportForm'));
+
+        var file = evt.target.files[0];
+
+        var reader = new FileReader();
+        reader.onload = function(e) {
+            var data = jQuery.parseJSON(e.target.result);
+
+            for(key in data) {
+
+                if(key.substr(0,5) == 'show_'){
+                    // checkbox
+                    $('#' + key).attr('checked','checked');
+                } else {
+                    // select or text
+                    $('#' + key).val(data[key]);
+                }
+
+            }
+
+            alert('Preferences are loaded');
+        }
+        reader.readAsText(file);
+    }
+
+    document.getElementById('files').addEventListener('change', handleFileSelect, false);
+</script>

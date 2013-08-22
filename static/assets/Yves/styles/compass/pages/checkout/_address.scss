@@ -1,0 +1,42 @@
+.addressbook-list {
+
+  border-right: 1px dashed $ci-silver;
+
+  > li {
+    + li {
+      border-top: 1px dashed $ci-silver;
+      margin-top: 1.5em;
+    }
+  }
+
+  .micro-form {
+    p {
+      margin: 0;
+    }
+  }
+}
+
+.vcard.address {
+  p {
+    margin: 1em .5em .5em;
+
+    + p {
+      color: $ci-gray;
+      font-size: .9em;
+
+      margin-top: .25em;
+      margin-bottom: .25em;
+    }
+  }
+
+  .address-actions {
+    li + li {
+      margin-left: 1em;
+    }
+
+    a {
+      font-size: .8em
+    }
+  }
+}
+

@@ -1,0 +1,63 @@
+@mixin sprite-placeholders( $glob, $dimensions: true, $layout: smart, $cssMap : () ){
+	// $cssMap is a placeholder for now
+	// --------------------------------
+	// waiting for map/hash implementation in sass, so we can specify content for individual
+	// images
+
+	$map  : sprite-map( $glob, $layout: $layout );
+	$name : sprite-map-name( $map ) + '-sprite';
+
+	$widths  : ();
+	$heights : ();
+
+	$unified-widths  : false;
+	$unified-heights : false;
+
+	// check if they share width/height
+	@if dimensions {
+		@each $sprite in sprite-names( $map ){
+			@if length( $widths ) < 2 or length( $heights ) < 2 {
+				$width : image-width( sprite-file( $map, $sprite ));
+				$height: image-height( sprite-file( $map, $sprite ));
+
+				@if not index( $widths, $width ) {
+					$widths  : append( $widths, $width );
+				}
+				@if not index( $heights, $height ) {
+					$heights : append( $heights, $height );
+				}
+			}
+		}
+
+		$unified-widths : ( length( $widths ) < 2 );
+		$unified-heights : ( length( $heights ) < 2 );
+	}
+
+	%#{$name} {
+		background-image: $map;
+		@if dimensions {
+			@if $unified-widths {
+				width: $widths;
+			}
+			@if $unified-heights {
+				height: $heights;
+			}
+		}
+		@content;
+	}
+
+	@each $sprite in sprite-names( $map ){
+		%#{$name}-#{$sprite} {
+			@extend %#{$name};
+			background-position: sprite-position( $map, $sprite );
+			@if $dimensions {
+				@if not $unified-widths {
+					width: image-width( sprite-file( $map, $sprite ));
+				}
+				@if not $unified-heights {
+					height: image-height( sprite-file( $map, $sprite ));
+				}
+			}
+		}
+	}
+}

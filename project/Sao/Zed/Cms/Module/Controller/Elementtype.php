@@ -1,0 +1,4 @@
+<?php
+class Sao_Zed_Cms_Module_Controller_Elementtype extends ProjectA_Zed_Cms_Module_Controller_Elementtype
+{
+}

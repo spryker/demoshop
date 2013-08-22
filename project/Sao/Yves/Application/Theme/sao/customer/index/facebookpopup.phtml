@@ -1,0 +1,10 @@
+<script>
+( function( w ){
+  if ( 'opener' in w && w.opener ) {
+    w.opener.location.reload();
+    w.opener.focus();
+  }
+  w.close();
+} )( window );
+</script>
+you can close this window now...

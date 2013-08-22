@@ -1,0 +1,74 @@
+<?xml version="1.0"?>
+<database name="zed"
+          tablePrefix="pac_"
+          defaultIdMethod="native"
+          defaultPhpNamingMethod="underscore"
+          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+          xsi:noNamespaceSchemaLocation="http://xsd.propelorm.org/1.6/database.xsd"
+          package="vendor/project-a/marketing-package/ProjectA/Zed/Mcm/Persistence" >
+
+
+    <table name="mcm_channel"  phpName="PacMcmChannel">
+        <column name="id_mcm_channel" required="true" type="INTEGER" autoIncrement="true" primaryKey="true" />
+        <column name="name" type="VARCHAR" required="true" />
+        <unique>
+            <unique-column name="name" />
+        </unique>
+    </table>
+
+    <table name="mcm_partner_in_channel"  phpName="PacMcmPartnerInChannel">
+        <column name="id_mcm_partner_in_channel" required="true" type="INTEGER" autoIncrement="true" primaryKey="true" />
+        <column name="fk_mcm_partner" required="true" type="INTEGER" />
+        <column name="fk_mcm_channel" required="true" type="INTEGER" />
+        <foreign-key foreignTable="mcm_partner" phpName="McmPartner"
+                     refPhpName="PacMcmPartnerInChannel">
+            <reference local="fk_mcm_partner" foreign="id_mcm_partner"/>
+        </foreign-key>
+        <foreign-key foreignTable="mcm_channel" phpName="McmChannel"
+                     refPhpName="PacMcmPartnerInChannel">
+            <reference local="fk_mcm_channel" foreign="id_mcm_channel"/>
+        </foreign-key>
+    </table>
+
+    <table name="mcm_partner"  phpName="PacMcmPartner">
+        <column name="id_mcm_partner" required="true" type="INTEGER" autoIncrement="true" primaryKey="true" />
+        <column name="name" type="VARCHAR" required="true" />
+        <column name="url" type="VARCHAR" required="true" />
+        <unique>
+            <unique-column name="name" />
+        </unique>
+    </table>
+
+    <table name="mcm_publication"  phpName="PacMcmPublication">
+        <column name="id_mcm_publication" required="true" type="INTEGER" autoIncrement="true" primaryKey="true" />
+        <column name="name" type="VARCHAR" required="true" />
+        <column name="fk_mcm_partner_in_channel" required="true" type="INTEGER" />
+        <foreign-key foreignTable="mcm_partner_in_channel" phpName="McmPartnerInChannel"
+                     refPhpName="PacMcmPublication">
+            <reference local="fk_mcm_partner_in_channel" foreign="id_mcm_partner_in_channel"/>
+        </foreign-key>
+    </table>
+
+    <table name="mcm_campaign"  phpName="PacMcmCampaign">
+        <column name="id_mcm_campaign" required="true" type="INTEGER" autoIncrement="true" primaryKey="true" />
+        <column name="wmc" type="INTEGER" />
+        <column name="fk_mcm_publication" required="true" type="INTEGER" />
+        <column name="is_active" type="BOOLEAN" required="true" defaultValue="true" />
+        <foreign-key foreignTable="mcm_publication" phpName="McmPublication"
+                     refPhpName="PacMcmCampaign">
+            <reference local="fk_mcm_publication" foreign="id_mcm_publication"/>
+        </foreign-key>
+    </table>
+
+    <table name="mcm_relation"  phpName="PacMcmRelation">
+        <column name="id_mcm_relation" required="true" type="INTEGER" autoIncrement="true" primaryKey="true" />
+        <column name="type" required="true" type="ENUM" valueSet="partner, publication, campaign" />
+        <column name="fk_tree_location" required="true" type="INTEGER" />
+        <column name="fk_tracking_instance" required="true" type="INTEGER" />
+        <foreign-key foreignTable="tracking_instance" phpName="TrackingInstance"
+                     refPhpName="PacMcmRelation">
+            <reference local="fk_tracking_instance" foreign="id_tracking_instance"/>
+        </foreign-key>
+    </table>
+
+</database>

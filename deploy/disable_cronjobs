@@ -1,0 +1,16 @@
+#!/bin/bash
+#
+# *** Project-A deployment
+#
+# disable_cronjobs
+# This script is executed on tools host (with root privileges) in order to deactivate cronjobs for deployment time.
+#
+#
+
+FILEPATH=`pwd`/$0; BASEDIR=`dirname $FILEPATH`; source $BASEDIR/vars; source $BASEDIR/functions
+outfile=`mktemp /tmp/deploy-XXXXXX`
+
+rm -f /etc/cron.d/${environment}-zed
+
+rm -f $outfile
+exit 0

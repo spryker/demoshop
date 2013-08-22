@@ -1,0 +1,50 @@
+#!/bin/bash
+#
+# *** Project-A deployment
+#
+# send_notifications
+# This script is executed on tools host after deployment.
+#
+
+FILEPATH=`pwd`/$0; BASEDIR=`dirname $FILEPATH`; source $BASEDIR/vars; source $BASEDIR/functions
+outfile=`mktemp /tmp/deploy-XXXXXX`
+
+### Newrelic notifications
+for APP in Yves; do
+  curl --silent --show-error -H "x-api-key: ${newrelic_api_key}" \
+   -d "deployment[app_name]=$APP (${environment})" \
+   -d "deployment[user]=$deploy_user" \
+   -d "deployment[revision]=$revision" \
+   -d "deployment[description]=$scm_path" \
+   -d "deployment[changelog]=$changelog" \
+   -i https://rpm.newrelic.com/deployments.xml | grep '<error>' | sed 's/^/Newrelic API:/'
+done
+
+### Email notifications
+#if is_production; then
+#  echo "Production deployment has been done.
+#  Date: `date`
+#  User: $deploy_user
+#  Revision: $revision" | mail -s '[deploy] Production' deployments-tirendo-de@project-a.qa
+#fi
+
+### Skype notifications
+if [ "$environment" == "production" ]; then
+  curl -s -X POST --data-urlencode "M=(*) Finished deployment of $scm_path to $environment ($revision: $deploy_user, `hostname`) - $changelog" "http://skypebot.project-a.com:10080/send.php?C=54&U=27&P=goPof7ZaLe"
+elif [ "$environment" == "staging" ]; then
+  curl -s -X POST --data-urlencode "M=(*) Finished deployment of $scm_path to $environment ($revision: $deploy_user, `hostname`)" "http://skypebot.project-a.com:10080/send.php?C=54&U=27&P=goPof7ZaLe"
+elif [ "$environment" == "testing" ]; then
+  curl -s -X POST --data-urlencode "M=(*) Finished deployment of $scm_path to $environment ($revision: $deploy_user, `hostname`)" "http://skypebot.project-a.com:10080/send.php?C=54&U=27&P=goPof7ZaLe"
+elif [ "$environment" == "development" ]; then
+  curl -s -X POST --data-urlencode "M=(*) Finished deployment of $scm_path to $environment ($revision: $deploy_user, `hostname`)" "http://skypebot.project-a.com:10080/send.php?C=54&U=27&P=goPof7ZaLe"
+fi
+
+
+### Trigger Jenkins FastFETests after deployment
+if [ "$environment" == "production" ]; then
+#  wget -q --delete-after --auth-no-challenge --user=monitor --password=6188943251ddf5b1bd3c8a202ef85923 http://ci01.test-a-team.com/jenkins/view/All/job/FastFETests/build?token=Jenkins4Ever
+  echo "Fixme: deploy/$0 - Trigger Jenkins Frontend Tests - disabled"
+fi
+
+rm -f $outfile
+exit 0

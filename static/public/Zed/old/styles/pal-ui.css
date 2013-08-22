@@ -1,0 +1,101 @@
+/*Pal_Ui_Tiles*/
+.pal-ui-tiles { display:block; position:relative;width:100%; }
+.pal-ui-tiles .holder { padding:50px; }
+.pal-ui-tiles .holder .tiles { display:table; width:100%; list-style-type:none !important; } /*Bad usage of selectivity in style.css!*/
+.pal-ui-tiles .holder .tiles .tile { border:5px solid #e0e0e0; padding:10px; border-radius:15px; box-shadow:0px 0px 8px #9FCB7B; float:left; width:200px; margin-right:50px; margin-bottom:50px; }
+.pal-ui-tiles .holder .tiles .tile a { text-decoration:none; display:block; box-shadow: 0 0 5px 1px #E3E3E3 inset; padding:10px; }
+.pal-ui-tiles .holder .tiles .tile .number { line-height:60px; display:block; font-size:60px; font-weight:bold; color: #666; text-align:center; }
+.pal-ui-tiles .holder .tiles .tile .label { display:block; text-align:center; font-size:14px; font-weight:bold; margin-top:10px; }
+
+/*Pal_Ui_Container*/
+.pal-ui-container { border:1px solid #e0e0e0; border-radius:10px;box-shadow:0px 0px 3px #e0e0e0;margin-top:20px;margin-bottom:30px;clear:both; }
+.pal-ui-container legend { font-size:10px;font-weight:bold;position:absolute;padding:5px;background-color:#fff;margin-top:-21px;margin-left:15px;border:1px solid #e0e0e0;border-bottom:0px; }
+.pal-ui-container .holder { padding:15px; }
+
+/*Pal_Ui_Button*/
+.pal-ui-button {
+	border: 2px solid #ccc;
+    box-shadow: 0 0 6px #ccc;
+    font-size: 12px;
+    text-shadow: 0 1px 1px #FFFFFF;
+	border-radius: 7px;
+	padding:0px;
+	cursor:pointer;
+	background-color:#e0e0e0;
+}
+.pal-ui-button div {
+    padding: 7px 20px;
+	border-radius: 7px;
+	margin:0px;
+}
+
+.pal-ui-button.cta {
+	border: 2px solid #D8B200;
+    box-shadow: 0 0 6px #FBE996;
+    font-size: 12px;
+    font-weight: bold;
+    text-shadow: 0 1px 1px #FFFFFF;
+	border-radius: 7px;
+	padding:0px;
+	cursor:pointer;
+
+	background: rgb(252,234,187); /* Old browsers */
+	background: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiA/Pgo8c3ZnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgdmlld0JveD0iMCAwIDEgMSIgcHJlc2VydmVBc3BlY3RSYXRpbz0ibm9uZSI+CiAgPGxpbmVhckdyYWRpZW50IGlkPSJncmFkLXVjZ2ctZ2VuZXJhdGVkIiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSIgeDE9IjAlIiB5MT0iMCUiIHgyPSIwJSIgeTI9IjEwMCUiPgogICAgPHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iI2ZjZWFiYiIgc3RvcC1vcGFjaXR5PSIxIi8+CiAgICA8c3RvcCBvZmZzZXQ9IjUwJSIgc3RvcC1jb2xvcj0iI2ZjY2Q0ZCIgc3RvcC1vcGFjaXR5PSIxIi8+CiAgICA8c3RvcCBvZmZzZXQ9IjUxJSIgc3RvcC1jb2xvcj0iI2Y4YjUwMCIgc3RvcC1vcGFjaXR5PSIxIi8+CiAgICA8c3RvcCBvZmZzZXQ9IjEwMCUiIHN0b3AtY29sb3I9IiNmYmRmOTMiIHN0b3Atb3BhY2l0eT0iMSIvPgogIDwvbGluZWFyR3JhZGllbnQ+CiAgPHJlY3QgeD0iMCIgeT0iMCIgd2lkdGg9IjEiIGhlaWdodD0iMSIgZmlsbD0idXJsKCNncmFkLXVjZ2ctZ2VuZXJhdGVkKSIgLz4KPC9zdmc+);
+	background: -moz-linear-gradient(top,  rgba(252,234,187,1) 0%, rgba(252,205,77,1) 50%, rgba(248,181,0,1) 51%, rgba(251,223,147,1) 100%); /* FF3.6+ */
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(252,234,187,1)), color-stop(50%,rgba(252,205,77,1)), color-stop(51%,rgba(248,181,0,1)), color-stop(100%,rgba(251,223,147,1))); /* Chrome,Safari4+ */
+	background: -webkit-linear-gradient(top,  rgba(252,234,187,1) 0%,rgba(252,205,77,1) 50%,rgba(248,181,0,1) 51%,rgba(251,223,147,1) 100%); /* Chrome10+,Safari5.1+ */
+	background: -o-linear-gradient(top,  rgba(252,234,187,1) 0%,rgba(252,205,77,1) 50%,rgba(248,181,0,1) 51%,rgba(251,223,147,1) 100%); /* Opera 11.10+ */
+	background: -ms-linear-gradient(top,  rgba(252,234,187,1) 0%,rgba(252,205,77,1) 50%,rgba(248,181,0,1) 51%,rgba(251,223,147,1) 100%); /* IE10+ */
+	background: linear-gradient(top,  rgba(252,234,187,1) 0%,rgba(252,205,77,1) 50%,rgba(248,181,0,1) 51%,rgba(251,223,147,1) 100%); /* W3C */
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#fceabb', endColorstr='#fbdf93',GradientType=0 ); /* IE6-8 */
+}
+.pal-ui-button.cta div {
+    padding: 7px 20px;
+	border-radius: 7px;
+	margin:0px;
+}
+
+/*Pal_Ui_Tabs*/
+.pal-ui-tabs { position:relative; }
+.pal-ui-tabs .tabs { border-bottom:1px solid #e0e0e0; }
+.pal-ui-tabs ul.tabs { margin:0 !important; padding:0;display:table; } /*Bad usage of selectivity in style.css 180*/
+.pal-ui-tabs ul.tabs li { min-width:100px;text-align:center;float:left;list-style-type:none; border:1px solid #e0e0e0;border-bottom:0px;border-top:0px;padding:6px;border-right:2px solid #ccc;margin-right:4px;box-shadow:0px -2px 3px #ccc; }
+.pal-ui-tabs ul.tabs li.active { margin-bottom:-1px;box-shadow:0px -2px 3px #F8B500;border-color:#D8B200;background-color:#FCEABB; }
+.pal-ui-tabs .tabContent { display:none; }
+.pal-ui-tabs .tabContent.active { position:relative; display: table !important; border:1px solid #e0e0e0;border-top:0px;width:100%;padding-top:15px; }
+.pal-ui-tabs dl.zend_form dd { width:80%; }
+.pal-ui-tabs dl.zend_form dd textarea { height:300px; }
+
+/*Pal_Ui_Expander*/
+.pal-ui-expander { position:relative; margin-bottom:10px; }
+.pal-ui-expander .holder { border:1px solid #ccc; border-radius:4px; }
+.pal-ui-expander .holder .label { border-bottom:1px solid #ccc; padding:1px; cursor:pointer; }
+.pal-ui-expander .holder .label:before { content: "►"; margin-right:4px; }
+.pal-ui-expander .holder .label.active:before { content: "▼"; margin-right:4px; }
+.pal-ui-expander .holder .content { display:none; }
+
+/*virtual classes*/
+.pal-ui-row { padding:8px; border-bottom:1px dotted #ccc;cursor:pointer; }
+.pal-ui-row.active { background-color:#f2fadd; border:1px solid #16bf00; }
+
+
+#ui-datepicker-div { z-index:1; font-size: 13px; width: auto}
+#ui-datepicker-div td { padding:0 0 0 0; }
+.ui-datepicker td span, .ui-datepicker td a { padding:0 0 0 0; }
+
+#search_container { border:1px solid #d1d1d1; background-color:#e8e8e8; padding:2px;}
+#grid_search_table { border:0px solid #333; }
+#grid_search_table td { padding: 0 0 0 0;border:0px solid #333;background-color:#e8e8e8; text-align:left; }
+#grid_search_table tr { background-color:#e8e8e8; }
+#grid_search_table .operands  { min-width:80px;}
+#grid_search_table .search_predefined_select { min-width:150px; }
+#grid_search_table .search_field_name {font-size:10px;text-shadow:none; }
+#grid_search_table .right_valign {text-align: right; padding:0 3px 0 3px;}
+
+#search_description { font-size:9px; color:#333; white-space:normal; text-align: left;text-shadow:none; border:1px solid #e8e8e8; margin-top:4px; padding:2px;background-color:#e8e8e8;border:1px solid #d1d1d1;}
+#search_description .operand { font-size:10px;font-weight: bold; border:1px solid #d1d1d1;background-color:#fff; }
+#search_description .description { margin-right:6px; }
+
+#search_description_info { text-align:right; }
+
+#ui-datepicker-div:empty { display:none; }

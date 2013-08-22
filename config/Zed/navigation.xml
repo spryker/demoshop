@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<config>
+    <default>
+        <label>Home</label>
+        <id>test</id>
+        <title>Welcome!</title>
+        <controller>index</controller>
+        <action>index</action>
+        <visible>1</visible>
+        <pages>
+            <manual>
+                <label>Manuals</label>
+                <title>Manuals</title>
+                <uri></uri>
+                <visible>0</visible>
+                <pages>
+                    <manual>
+                        <label>Complete</label>
+                        <title>Complete Manual</title>
+                        <target>_blank</target>
+                        <uri>https://projecta:yzmanual@yz-manual.project-a.com/Manual_Shop_Complete.pdf</uri>
+                    </manual>
+                    <manual1>
+                        <label>Navigation</label>
+                        <title>Navigation Manual</title>
+                        <target>_blank</target>
+                        <uri>https://projecta:yzmanual@yz-manual.project-a.com/Manual_Navigation.pdf</uri>
+                    </manual1>
+                </pages>
+            </manual>
+        </pages>
+    </default>
+
+    <sales>
+        <label>Orders</label>
+        <title>Order - Overview</title>
+        <module>sales</module>
+        <controller>order</controller>
+        <action>index</action>
+        <id>sales_order_index</id>
+    </sales>
+    <!--
+    <products>
+        <label>Products</label>
+        <title>Products</title>
+        <module>catalog</module>
+        <controller>attribute</controller>
+        <action>index</action>
+        <visible>1</visible>
+        <id>catalog_attribute_index</id>
+    </products>
+    -->
+    <content>
+        <label>Content</label>
+        <title>Content</title>
+        <module>cms</module>
+        <controller>index</controller>
+        <action>index</action>
+        <id>cms_index_index</id>
+    </content>
+    <marketing>
+        <label>Marketing</label>
+        <module>mcm</module>
+        <controller>relation</controller>
+        <action>manage</action>
+        <id>marketing</id>
+    </marketing>
+    <dwh>
+        <label>DWH</label>
+        <title>DWH</title>
+        <module>dwh</module>
+        <controller>schema</controller>
+        <id>dwh</id>
+    </dwh>
+    <system>
+        <id>system</id>
+        <label>System</label>
+        <title>Setup</title>
+        <module>setup</module>
+        <controller>index</controller>
+        <action>core</action>
+        <visible>1</visible>
+        <pages>
+            <manual>
+                <label>Manuals</label>
+                <title>Manuals</title>
+                <uri></uri>
+                <visible>0</visible>
+                <pages>
+                    <manual>
+                        <label>System</label>
+                        <title>System Manual</title>
+                        <target>_blank</target>
+                        <uri>https://projecta:yzmanual@yz-manual.project-a.com/Manual_System.pdf</uri>
+                    </manual>
+                    <manual1>
+                        <label>System Reference</label>
+                        <title>System Reference Manual</title>
+                        <target>_blank</target>
+                        <uri>https://projecta:yzmanual@yz-manual.project-a.com/Manual_System_Reference.pdf</uri>
+                    </manual1>
+                    <manual2>
+                        <label>OST Introduction</label>
+                        <title>OST Introduction Manual</title>
+                        <target>_blank</target>
+                        <uri>https://projecta:yzmanual@yz-manual.project-a.com/Manual_OST_Introduction.pdf</uri>
+                    </manual2>
+                    <manual3>
+                        <label>OST Cookbook</label>
+                        <title>OST Cookbook Manual</title>
+                        <target>_blank</target>
+                        <uri>https://projecta:yzmanual@yz-manual.project-a.com/Manual_OST_Cookbook.pdf</uri>
+                    </manual3>
+                </pages>
+            </manual>
+        </pages>
+    </system>
+
+    <manual-dropdown>
+        <id>manual_dropdown_placeholder</id>
+        <label>Manuals</label>
+        <title>Manuals</title>
+        <visible>0</visible>
+        <uri>#</uri>
+    </manual-dropdown>
+
+
+    <login-logout>
+        <id>login-logout</id>
+        <label>Login</label>
+        <title>Login</title>
+        <module>auth</module>
+        <controller>login</controller>
+        <action>index</action>
+        <visible>0</visible>
+    </login-logout>
+
+</config>

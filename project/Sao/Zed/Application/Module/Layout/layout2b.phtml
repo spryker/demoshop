@@ -1,0 +1,231 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>zed v2</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="/new/styles/vendor/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="/new/styles/zed.css">
+
+<body>
+<header class="zed:header clearfix">
+    <h1 class="zed:logo">
+        <a href="/">
+            <img src="/new/images/zed.png" alt="zed" title="zed">
+        </a>
+    </h1>
+
+    <h2 class="zed:header__welcome">
+        Welcome, <b>USername</b>
+    </h2>
+    <nav class="zed:header__nav">
+        <ul class="navigation">
+
+            <?php
+            /* @var $navigation Zend_View_Helper_Navigation */
+            $navigation = $this->navigation();
+            echo $navigation->render();
+//            $iterator = new RecursiveIteratorIterator(Zend_Registry::get('Zend_Navigation'),
+//                RecursiveIteratorIterator::SELF_FIRST);
+//
+//            foreach($iterator as $i => $item){
+//                /* @var $item Zend_Navigation_Page_Uri */
+////                echo ;
+//                $depth = $iterator->getDepth();
+//                if($item->isVisible() ){
+//
+//
+//                   echo '<li><a id="menu-test" href="/'.$item->getHref().'">'.$item->getTitle().'</a>';
+//                }
+//            }
+            ?>
+
+<!--
+
+            <li><a href="/contact">Contact</a>
+            <li><a href="/customer">Customers</a>
+            <li class="active hasChildren">
+                <a href="/sales/order">Sales</a>
+                <ul>
+                    <li class="active">
+                        <a href="/sales/order">Orders</a>
+                </ul>
+            <li class="hasChildren">
+                <a href="/catalog/product">Products</a>
+                <ul>
+                    <li class="hasChildren">
+                        <a href="/catalog/product">Catalog</a>
+                        <ul>
+                            <li><a href="/catalog/product/save">Create</a>
+                            <li><a href="/catalog/import">Import/Update</a>
+                            <li><a href="/catalog/export">Export Products</a>
+                        </ul>
+                    <li class="hasChildren">
+                        <a href="/catalog/attribute">Attributes</a>
+                        <ul>
+                            <li><a href="/catalog/attribute/save">Create</a>
+                        </ul>
+                    <li class="hasChildren">
+                        <a href="/catalog/attribute-set">AttributeSets</a>
+                        <ul>
+                            <li><a href="/catalog/attribute-set/save">Create</a>
+                        </ul>
+                    <li class="hasChildren">
+                        <a href="/catalog/value-type">Value Types</a>
+                        <ul>
+                            <li><a href="/catalog/value-option-single">OptionSingle Values</a>
+                        </ul>
+                    <li class="hasChildren">
+                        <a href="/catalog/group">Groups</a>
+                        <ul>
+                            <li><a href="/catalog/group/save">Create</a>
+                            <li><a href="/catalog/attribute-group">Attribute Groups</a>
+                            <li><a href="/catalog/attribute-set-group">AttributeSet Groups</a>
+                        </ul>
+                    <li class="hasChildren">
+                        <a href="/catalog/attribute-import-export/export">Attribute Data Export/Import</a>
+                        <ul>
+                            <li><a href="/catalog/attribute-import-export/export">Export</a>
+                            <li><a href="/catalog/attribute-import-export/import">Import</a>
+                        </ul>
+                    <li class="hasChildren">
+                        <a href="/category">Categories</a>
+                        <ul>
+                            <li><a href="/category/attribute-key">Category Attribute Keys</a>
+                            <li><a href="/category/scope">Category Scopes</a>
+                        </ul>
+                    <li class="hasChildren">
+                        <a href="/catalog/supplier">Supplier</a>
+                        <ul>
+                            <li><a href="/catalog/supplier/save">Create</a>
+                        </ul>
+                </ul>
+            <li class="hasChildren">
+                <a href="/cms">CMS</a>
+                <ul>
+                    <li class="hasChildren">
+                        <a href="/cms/page">Seiten</a>
+                        <ul>
+                            <li><a href="/cms/page/create">Create</a>
+                        </ul>
+                    <li class="hasChildren">
+                        <a href="/cms/element">Elements</a>
+                        <ul>
+                            <li><a href="/cms/element/save">Create</a>
+                        </ul>
+                    <li class="hasChildren">
+                        <a href="/cms/media">Media</a>
+                        <ul>
+                            <li><a href="/cms/media/save">Create</a>
+                        </ul>
+                    <li class="hasChildren">
+                        <a href="/cms/pagetype">Page Types</a>
+                        <ul>
+                            <li><a href="/cms/pagetype/save">Create</a>
+                        </ul>
+                    <li class="hasChildren">
+                        <a href="/cms/elementtype">Element Types</a>
+                        <ul>
+                            <li><a href="/cms/elementtype/save">Create</a>
+                        </ul>
+                    <li><a href="/cms/main-page">Mainpage</a>
+                </ul>
+            <li class="hasChildren">
+                <a href="/glossary/key">Glossary</a>
+                <ul>
+                    <li class="hasChildren">
+                        <a href="/glossary/key">Keys</a>
+                        <ul>
+                            <li><a href="/glossary/key/add">Add</a>
+                        </ul>
+                    <li class="hasChildren">
+                        <a href="/glossary/group">Groups</a>
+                        <ul>
+                            <li><a href="/glossary/group/add">Add</a>
+                        </ul>
+                    <li class="hasChildren">
+                        <a href="/glossary/language">Languages</a>
+                        <ul>
+                            <li><a href="/glossary/language/add">Add</a>
+                        </ul>
+                </ul>
+            <li class="hasChildren">
+                <a id="menu-system" href="/setup">System</a>
+                <ul>
+                    <li class="hasChildren">
+                        <a id="menu-setup-index" href="/setup/index/core">Setup</a>
+                        <ul>
+                            <li><a href="/setup/index/core">Core</a>
+                            <li><a href="/setup/index/project">Project</a>
+                        </ul>
+                    <li class="hasChildren">
+                        <a href="/setup/index/git">Versioning</a>
+                        <ul>
+                            <li><a href="/setup/index/git">GIT Heads</a>
+                            <li><a href="/setup/index/renepro">RenéPro</a>
+                        </ul>
+                    <li class="hasChildren">
+                        <a href="/acl/user">ACL</a>
+                        <ul>
+                            <li><a href="/acl/user">Users</a>
+                            <li><a href="/acl/role">Roles</a>
+                        </ul>
+                    <li class="hasChildren">
+                        <a href="/lumberjack">LumberJack</a>
+                        <ul>
+                            <li><a href="/lumberjack">GUI</a>
+                            <li><a href="/lumberjack/setup">Setup</a>
+                        </ul>
+                    <li><a href="/setup/index/show-cronjobs">Cronjobs</a>
+                    <li><a href="/yves">Yves-KV</a>
+                    <li><a href="/system">Server Cookies</a>
+                </ul>
+            <li><a id="menu-login-logout" href="/auth/login">Login</a>
+            -->
+        </ul>
+    </nav>
+
+    <div class="zed:header__language-picker has-more">
+        <i class="flag-de"></i>
+        <ul>
+            <li><a href="#" class="flag-pl"></a>
+            <li><a href="#" class="flag-de"></a>
+            <li><a href="#" class="flag-us"></a>
+        </ul>
+    </div>
+
+    <div class="zed:header__environment">
+        <i class="icon-cogs"></i>
+        <span>development</span>
+        <dl>
+            <dt>Locale:
+            <dd>de_DE
+            <dt>Store:
+            <dd>DE
+            <dt>Server:
+            <dd>PAV-AB-123456
+            <dt>URL:
+            <dd><a href="#">localhost</a>
+        </dl>
+    </div>
+</header>
+
+<main class="zed:main" role="main" id="main">
+<header class="zed:main__header clearfix">
+    <h1>Foo bar</h1>
+
+    <ul class="breadcrumb">
+        <li><a href="#">Home</a></li>
+        <li><a href="#">Library</a></li>
+        <li class="active">Data</li>
+    </ul>
+</header>
+
+    <?php echo $this->partial('partials/messages.phtml', array()); ?>
+    <?php echo $this->layout()->content; ?>
+
+</main>
+
+<script src="/new/scripts/vendor/jquery-2.0.3.min.js"></script>
+<script src="/new/scripts/vendor/bootstrap.min.js"></script>
+<script src="/new/scripts/zed.js"></script>

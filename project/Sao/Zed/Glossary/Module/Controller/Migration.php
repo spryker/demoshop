@@ -1,0 +1,5 @@
+<?php
+
+class Sao_Zed_Glossary_Module_Controller_Migration extends ProjectA_Zed_Glossary_Module_Controller_Migration
+{
+}

@@ -1,0 +1,16 @@
+<script id="messages-template" type="text/x-lodash-template">
+<div class="row">
+  <ul class="column messages">
+    <% _.each( messages, function( messagesArray, type ){ %>
+      <% _.each( messagesArray, function( message ){ %>
+        <li class="message ${ type }">
+          <% if ( /object/i.test( typeof message )){ %>
+            <?php echo sprintf(t( Sao_Shared_Library_Messages::CHECKOUT_ERROR_WITH_LINK), '${ message.label }', '${ message.href }' ); ?>
+          <% } else { %>
+            ${ message }
+          <% } %>
+      <% }); %>
+    <% }); %>
+  </ul>
+</div>
+</script>

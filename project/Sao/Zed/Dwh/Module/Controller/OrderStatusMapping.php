@@ -1,0 +1,5 @@
+<?php
+
+class Sao_Zed_Dwh_Module_Controller_OrderStatusMapping extends ProjectA_Zed_DwhOrderStatus_Module_Controller_OrderStatus
+{
+}

@@ -1,0 +1,44 @@
+<?php
+$totals = $this->order->getTotals();
+$subTotal = $this->order->getSubtotal();
+$grandTotal = $this->order->getGrandTotal();
+
+$codes = array();
+$codeString = null;
+if ($this->order->getCodeUsages()->count() > 0) {
+    /* @var ProjectA_Zed_Salesrule_Persistence_PacSalesruleCodeUsage $codeUsage */
+    foreach ($this->order->getCodeUsages() as $codeUsage) {
+        $codes[] = $codeUsage->getCode()->getCode();
+    }
+    $codeString = implode(', ', $codes);
+}
+?>
+
+<fieldset id="totals-container">
+    <legend><?php echo __('order totals'); ?></legend>
+    <table class="summary-table">
+        <tbody>
+        <tr class="totalrow">
+            <td>
+                <p><?php echo __('subtotal') ?></p>
+
+                <p class="small">= ? product::gross_price<br> + ? option::gross_price<br> + ? expense::gross_price</p>
+            </td>
+            <td><?php echo ProjectA_Shared_Library_Currency::format($subTotal); ?></td>
+        </tr>
+        <tr>
+            <td>
+                - <?php echo __('total discount'); ?> <?php echo ($codeString) ? '(Used voucher: ' . $codeString . ')' : '' ?></td>
+            <td><?php echo ProjectA_Shared_Library_Currency::format($totals->getDiscount()) ?></td>
+        </tr>
+        <tr class="totalrow">
+            <td>
+                <p><?php echo __('grand total') ?></p>
+
+                <p class="small">= ? item::price_to_pay<br> + ? order-expense::price_to_pay</p>
+            </td>
+            <td><?php echo ProjectA_Shared_Library_Currency::format($grandTotal) ?></td>
+        </tr>
+        </tbody>
+    </table>
+</fieldset>

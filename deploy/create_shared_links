@@ -1,0 +1,79 @@
+#!/bin/bash
+#
+# *** Project-A deployment
+#
+# configure_shared_links
+# This script is executed only on a deployment host (as user root), after checking out code from scm repository.
+# It should create links to shared directories, as well as any other links (configuration, data).
+# If any type of code building is needed (like fetching external libraries or compling), it should be done here.
+#
+# This script should write only to $deploy_source_dir
+# Contents of $deploy_source_dir will be afterwards put into tarball and distributed among all application hosts.
+#
+
+FILEPATH=`pwd`/$0; BASEDIR=`dirname $FILEPATH`; source $BASEDIR/vars; source $BASEDIR/functions
+
+cd $deploy_source_dir
+
+echo "Current revision: ${revision}"
+
+if is_default_store; then
+  rm -rf data; ln -sf $shared_dir/data data
+  rm -f config/config_local.php; ln -sf $shared_dir/config_local.php config/config_local.php
+  rm -rf project/Zed/propel-gen; ln -sf $shared_dir/propel-gen project/Zed/propel-gen
+
+  # Create symlink for database dumps
+  ln -sf $shared_dir/data/static project/Zed/public/static
+fi
+
+rm -f config/config_local_${APPLICATION_STORE}.php; ln -sf $shared_dir/config_local_${APPLICATION_STORE}.php config/config_local_${APPLICATION_STORE}.php
+
+### Composer
+if is_default_store; then
+  # Prepare and get cache contents
+  composer_cache_dir=/data/deploy/${environment}/vendor
+  [ ! -d $composer_cache_dir ] && mkdir -p $composer_cache_dir
+  cp -r $composer_cache_dir ./
+
+  php -d "newrelic.appname='Deploy($environment)'" composer.phar self-update
+  if [ "${environment}" == "production" ]; then
+    php -d "newrelic.appname='Deploy($environment)'" composer.phar install || exit 1
+  else
+    php -d "newrelic.appname='Deploy($environment)'" composer.phar install --dev || exit 1
+  fi
+
+  # rsync current vendor back to the cache
+  rsync -ra --delete vendor/ $composer_cache_dir/
+
+  # Log used packages version in renepro repository
+  curl -XPUT -d @composer.lock http://renepro.project-a.com/deploy.php?hostname=`hostname`\\\&environment=$environment
+fi
+
+### node.js, Grunt
+if is_default_store; then
+  echo "Running node.js package manager install..."
+  if [ -z `which npm` ]; then
+    echo "Warning: npm not available. Node.js and npm is required for grunt."
+    exit 1
+  fi
+
+  # Prepare and get cache contents
+  npm_cache_dir=/data/deploy/${environment}/node_modules
+  [ ! -d $npm_cache_dir ] && mkdir -p $npm_cache_dir
+  cp -r $npm_cache_dir ./
+
+  # Install node dependencies
+  export PATH=${PATH}:/var/lib/gems/1.8/bin
+  npm install --silent # >> /dev/null || exit 1
+  echo "Running Grunt..."
+  [ -z `which grunt` ] && npm install -g grunt-cli
+
+  # Rsync node_modules back to cache
+  rsync -ra --delete node_modules/ $npm_cache_dir
+
+  # Run grunt deployment tasks
+  grunt dist # >> /dev/null || exit 2
+fi
+
+### Allright, no error, deployment continues.
+exit 0

@@ -1,0 +1,417 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<process xmlns="http://project-a.com/dwh-process"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://project-a.com/dwh-process ../../../../../../../../vendor/project-a/dwh-package/component/Dwh/process.xsd"
+         id="webtrekk-data"
+         description="Builds the online marketing cubes, mainly from csv files uploaded by webtrekk"
+         run-only-once-a-day-after="08:30:00">
+
+    <initial-job id="initialize-schemas">
+        <description>Re-creates the webtrekk_dim schema</description>
+        <commands>
+            <php-command class-name="Pac_Dwh_Model_Import_Command_WriteConfig"/>
+            <run-sql-file file-name="create-webtrekk-data-schema.sql" echo-queries="true"
+                          depends-on="create-webtrekk-data-schema.sql"/>
+            <run-sql-file file-name="recreate-dim-schemas.sql" echo-queries="true"/>
+        </commands>
+    </initial-job>
+
+
+    <!-- Campaigns -->
+    <job id="read-campaign">
+        <description>Loads unprocessed csv files into webtrekk_data.campaign</description>
+        <commands>
+            <run-sql-file file-name="campaigns/create-campaign-data-table.sql" echo-queries="true"
+                          depends-on="campaigns/create-campaign-data-table.sql"/>
+            <load-csv-files csv-file-pattern="webtrekk/CampaignStructure_*.csv.zip"
+                            is-zipped="true" process-files="only-latest"
+                            delimiter-char=";" quote-char="'" null-value-string=""
+                            skip-number-of-lines="1" columns="1 3 4 5 6 7"
+                            target-table="webtrekk_data.campaign"
+                            depends-on="campaigns/create-campaign-data-table.sql"
+                            timezone="Europe/Berlin">
+                <execute-before>SELECT webtrekk_data.truncate_campaign()</execute-before>
+                <execute-after>SELECT webtrekk_data.index_campaign()</execute-after>
+            </load-csv-files>
+        </commands>
+    </job>
+
+    <job id="transform-channel">
+        <description>Creates the channel dimension</description>
+        <dependencies>
+            <dependency job="read-campaign"/>
+        </dependencies>
+        <commands>
+            <run-sql-file file-name="campaigns/transform-channel.sql" echo-queries="true"/>
+        </commands>
+    </job>
+
+    <job id="mark-campaigns-in-use">
+        <description>Collects the campaign codes of all campaigns for which clicks exist and assigns ids to them
+        </description>
+        <dependencies>
+            <dependency job="map-adwords-cost"/>
+            <dependency job="read-campaign-click"/>
+        </dependencies>
+        <commands>
+            <run-sql-file file-name="campaigns/mark-campaigns-in-use.sql" echo-queries="true"/>
+        </commands>
+    </job>
+
+    <job id="copy-mcm-data">
+        <description>Copies campaign, partner and publication information from the mcm tables in Zed</description>
+        <dependencies>
+            <dependency job="mark-campaigns-in-use"/>
+        </dependencies>
+        <commands>
+            <run-sql-file file-name="campaigns/create-mcm-campaign-table.sql" echo-queries="true"/>
+            <load-from-mysql file-name="campaigns/load-mcm-campaign.sql" mysql-database="zed"
+                             target-table="webtrekk_tmp.mcm_campaign"/>
+            <run-sql-file file-name="campaigns/transform-publication.sql" echo-queries="true"/>
+        </commands>
+    </job>
+
+    <job id="transform-adwords-adgroup">
+        <description>Creates a dimension table for adwords adgroups</description>
+        <dependencies>
+            <dependency job="mark-campaigns-in-use"/>
+        </dependencies>
+        <commands>
+            <run-sql-file file-name="campaigns/transform-adwords-adgroup.sql" echo-queries="true"/>
+        </commands>
+    </job>
+
+    <job id="transform-campaign">
+        <description>Creates campaigns for mcm placements, sem campaigns and others</description>
+        <dependencies>
+            <dependency job="transform-adwords-adgroup"/>
+            <dependency job="transform-channel"/>
+            <dependency job="copy-mcm-data"/>
+        </dependencies>
+        <commands>
+            <run-sql-file file-name="campaigns/transform-campaign.sql" echo-queries="true"/>
+        </commands>
+    </job>
+
+    <!-- Visitors -->
+    <job id="read-visitor">
+        <description>Loads unprocessed csv files into webtrekk_data.visitor</description>
+        <commands>
+            <run-sql-file file-name="visitors/create-visitor-data-table.sql" echo-queries="true"
+                          depends-on="visitors/create-visitor-data-table.sql"/>
+            <load-csv-files csv-file-pattern="webtrekk/getFullVisitors_*.csv.zip"
+                            process-files="all" is-zipped="true"
+                            skip-number-of-lines="1" columns="1 2 3"
+                            delimiter-char=";"
+                            target-table="webtrekk_data.visitor"
+                            depends-on="visitors/create-visitor-data-table.sql"
+                            timezone="Europe/Berlin"/>
+            <execute-sql>SELECT util.add_index_if_not_exists('webtrekk_data','visitor','visit_timestamp');</execute-sql>
+        </commands>
+    </job>
+
+    <job id="read-user">
+        <description>Loads unprocessed csv files into webtrekk_data.user</description>
+        <commands>
+            <run-sql-file file-name="visitors/create-user-data-table.sql" echo-queries="true"
+                          depends-on="visitors/create-user-data-table.sql"/>
+            <load-csv-files csv-file-pattern="webtrekk/getFullCustomer_*.csv.zip"
+                            process-files="all" is-zipped="true"
+                            skip-number-of-lines="1" columns="1 2 4"
+                            delimiter-char=";"
+                            target-table="webtrekk_data.user"
+                            depends-on="visitors/create-user-data-table.sql"
+                            timezone="Europe/Berlin"/>
+            <execute-sql>SELECT webtrekk_data.index_user();</execute-sql>
+        </commands>
+    </job>
+
+    <job id="map-visitor">
+        <description>Maps sessions to backend users and fixes eids along the way</description>
+        <dependencies>
+            <dependency job="read-user"/>
+            <dependency job="read-visitor"/>
+            <dependency job="read-campaign-click"/>
+        </dependencies>
+        <commands>
+            <run-sql-file file-name="visitors/map-visitor.sql" echo-queries="true"/>
+        </commands>
+    </job>
+
+    <job id="read-content">
+        <description>Loads unprocessed csv files into webtrekk_data.content</description>
+        <commands>
+            <run-sql-file file-name="visitors/create-content-data-table.sql" echo-queries="true"
+                          depends-on="visitors/create-content-data-table.sql"/>
+            <load-csv-files csv-file-pattern="webtrekk/getContents_*.csv.zip"
+                            process-files="all" is-zipped="true"
+                            skip-number-of-lines="1" columns="1 2 3"
+                            delimiter-char=";"
+                            target-table="webtrekk_data.content"
+                            depends-on="visitors/create-content-data-table.sql"
+                            timezone="Europe/Berlin"/>
+            <execute-sql>SELECT util.add_index_if_not_exists('webtrekk_data','content','timestamp');</execute-sql>
+        </commands>
+    </job>
+
+    <job id="compute-visit-duration">
+        <description>Creates the dim.visit table</description>
+        <dependencies>
+            <dependency job="read-content"/>
+        </dependencies>
+        <commands>
+            <run-sql-file file-name="visitors/compute-visit-duration.sql" echo-queries="true"/>
+        </commands>
+    </job>
+
+
+    <!-- Campaign clicks -->
+    <job id="read-campaign-click">
+        <description>Loads unprocessed csv files into webtrekk_data.campaign_click</description>
+        <commands>
+            <run-sql-file file-name="campaign-clicks/create-campaign-click-data-table.sql" echo-queries="true"
+                          depends-on="campaign-clicks/create-campaign-click-data-table.sql"/>
+            <load-csv-files csv-file-pattern="webtrekk/getFullCampaigns_*.csv.zip"
+                            process-files="all" is-zipped="true"
+                            skip-number-of-lines="1" columns="1 2 3 4 5"
+                            delimiter-char=";" null-value-string="null"
+                            target-table="webtrekk_data.campaign_click"
+                            depends-on="campaign-clicks/create-campaign-click-data-table.sql"
+                            timezone="Europe/Berlin"/>
+            <execute-sql>SELECT util.add_index_if_not_exists('webtrekk_data','campaign_click','click_timestamp');
+            </execute-sql>
+        </commands>
+    </job>
+
+    <job id="map-campaign-click">
+        <description>Maps clicks to conversions and adds missing/ untracked clicks</description>
+        <dependencies>
+            <dependency job="map-visitor"/>
+            <dependency job="transform-campaign"/>
+        </dependencies>
+        <commands>
+            <run-sql-file file-name="campaign-clicks/map-campaign-click.sql" echo-queries="true"/>
+        </commands>
+    </job>
+
+    <job id="read-referrer">
+        <description>Loads unprocessed csv files into webtrekk_data.referrer</description>
+        <commands>
+            <run-sql-file file-name="campaign-clicks/create-referrer-data-table.sql" echo-queries="true"
+                          depends-on="campaign-clicks/create-referrer-data-table.sql"/>
+            <load-csv-files csv-file-pattern="webtrekk/getFullReferrer_*.csv.zip"
+                            process-files="all" is-zipped="true"
+                            skip-number-of-lines="1" columns="2 4 6"
+                            delimiter-char=";"
+                            target-table="webtrekk_data.referrer"
+                            depends-on="campaign-clicks/create-referrer-data-table.sql"
+                            timezone="Europe/Berlin"/>
+            <execute-sql>SELECT util.add_index_if_not_exists('webtrekk_data','referrer','request_id');</execute-sql>
+        </commands>
+    </job>
+
+    <job id="transform-referrer">
+        <description>Creates a dimension table for referrer</description>
+        <dependencies>
+            <dependency job="read-campaign-click"/>
+            <dependency job="read-referrer"/>
+        </dependencies>
+        <commands>
+            <run-sql-file file-name="campaign-clicks/transform-referrer.sql" echo-queries="true"/>
+        </commands>
+    </job>
+
+    <job id="read-search-phrase">
+        <description>Loads unprocessed csv files into webtrekk_data.search_phrase</description>
+        <commands>
+            <run-sql-file file-name="campaign-clicks/create-search-phrase-data-table.sql" echo-queries="true"
+                          depends-on="campaign-clicks/create-search-phrase-data-table.sql"/>
+            <load-csv-files csv-file-pattern="webtrekk/getFullSearchPhrase_*.csv.zip"
+                            process-files="all" is-zipped="true"
+                            skip-number-of-lines="1" columns="2 4"
+                            delimiter-char=";"
+                            target-table="webtrekk_data.search_phrase"
+                            depends-on="campaign-clicks/create-search-phrase-data-table.sql"
+                            null-value-string=""
+                            timezone="Europe/Berlin"/>
+            <execute-sql>SELECT util.add_index_if_not_exists('webtrekk_data','search_phrase','request_id');</execute-sql>
+        </commands>
+    </job>
+
+    <job id="transform-search-phrase">
+        <description>Fills the dim.search_phrase table and maps campaign clicks to the dimension table</description>
+        <dependencies>
+            <dependency job="read-search-phrase"/>
+            <dependency job="transform-campaign"/>
+        </dependencies>
+        <commands>
+            <run-sql-file file-name="campaign-clicks/transform-search-phrase.sql" echo-queries="true"/>
+        </commands>
+    </job>
+
+    <job id="transform-campaign-click">
+        <description>Creates the dim.campaign_click table</description>
+        <dependencies>
+            <dependency job="compute-click-cost"/>
+            <dependency job="compute-visit-duration"/>
+            <dependency job="transform-referrer"/>
+            <dependency job="transform-search-phrase"/>
+        </dependencies>
+        <commands>
+            <run-sql-file file-name="campaign-clicks/transform-campaign-click.sql" echo-queries="true"/>
+        </commands>
+    </job>
+
+    <job id="transform-campaign-click-date">
+        <description>Computes a date for each click and time perspective</description>
+        <dependencies>
+            <dependency job="map-campaign-click"/>
+        </dependencies>
+        <commands>
+            <run-sql-file file-name="campaign-clicks/transform-campaign-click-date.sql" echo-queries="true"/>
+        </commands>
+    </job>
+
+    <job id="index-campaign-click-date">
+        <description>Adds indexes and foreign key constraints to the dim.campaign_click_date table</description>
+        <dependencies>
+            <dependency job="transform-campaign-click"/>
+            <dependency job="transform-campaign-click-date"/>
+        </dependencies>
+        <commands>
+            <execute-sql>SELECT webtrekk_tmp.index_dim_campaign_click_date();</execute-sql>
+        </commands>
+    </job>
+
+    <job id="compute-click-chain">
+        <description>Computes for each conversion the chain of clicks leading to it</description>
+        <dependencies>
+            <dependency job="map-campaign-click"/>
+        </dependencies>
+        <commands>
+            <run-sql-file file-name="campaign-clicks/compute-click-chain.sql" echo-queries="true"/>
+        </commands>
+
+    </job>
+
+    <job id="compute-campaign-click-performance">
+        <description>Computes performances measures for each campaign click and performance attribution model
+        </description>
+        <dependencies>
+            <dependency job="compute-click-chain"/>
+        </dependencies>
+        <commands>
+            <run-sql-file file-name="campaign-clicks/compute-campaign-click-performance.sql" echo-queries="true"/>
+        </commands>
+    </job>
+
+    <job id="index-campaign-click-performance">
+        <description>Adds indexes to the dim.campaign_click_performance table</description>
+        <dependencies>
+            <dependency job="compute-campaign-click-performance"/>
+            <dependency job="transform-campaign-click"/>
+        </dependencies>
+        <commands>
+            <execute-sql>SELECT webtrekk_tmp.index_dim_campaign_click_performance();</execute-sql>
+        </commands>
+    </job>
+
+
+    <!-- Cost -->
+    <job id="read-adwords-cost">
+        <description>Reads the adwords cost csv files into webtrekk_data.adwords_cost</description>
+        <commands>
+            <run-sql-file file-name="cost/create-adwords-cost-data-table.sql" echo-queries="true"
+                          depends-on="cost/create-adwords-cost-data-table.sql"/>
+            <load-csv-files csv-file-pattern="adwords/*cost.csv"
+                            process-files="all" is-zipped="false"
+                            skip-number-of-lines="1" columns="1 2 3 4 5 6 7 8 9"
+                            delimiter-char="&#9;"
+                            target-table="webtrekk_data.adwords_cost"
+                            depends-on="cost/create-adwords-cost-data-table.sql"
+                            timezone="Europe/Berlin"/>
+        </commands>
+    </job>
+
+    <job id="map-adwords-cost">
+        <description>Maps adwords cost entries to campaign codes</description>
+        <dependencies>
+            <dependency job="read-campaign"/>
+            <dependency job="read-adwords-cost"/>
+        </dependencies>
+        <commands>
+            <run-sql-file file-name="cost/map-adwords-cost.sql" echo-queries="true"/>
+        </commands>
+    </job>
+
+    <job id="compute-click-cost">
+        <description>Distributes all online marketing costs across all campaign clicks</description>
+        <dependencies>
+            <dependency job="map-campaign-click"/>
+        </dependencies>
+        <commands>
+            <run-sql-file file-name="cost/compute-click-cost.sql" echo-queries="true"/>
+        </commands>
+    </job>
+
+    <!-- fact and aggregate tables for cubes -->
+    <job id="flatten-campaign-click-with-performance">
+        <description>Joins the campaign_click and campaign_click_performance tables into a single fact table
+        </description>
+        <dependencies>
+            <dependency job="index-campaign-click-date"/>
+            <dependency job="index-campaign-click-performance"/>
+        </dependencies>
+        <commands>
+            <run-sql-file file-name="facts-and-aggregates/flatten-campaign-click-with-performance.sql"
+                          echo-queries="true"/>
+        </commands>
+    </job>
+
+    <parallel-job id="index-campaign-click-with-performance">
+        <description>Adds indexes to the foreign keys of the campaign clicks with performance fact table</description>
+        <dependencies>
+            <dependency job="flatten-campaign-click-with-performance"/>
+        </dependencies>
+        <worker-function name="util.add_index" echo-queries="false">
+            <parameter>webtrekk_dim_next</parameter>
+            <parameter>campaign_click_with_performance_flattened</parameter>
+            <query-for-last-parameter>SELECT util.get_fk_columns('webtrekk_dim_next',
+                'campaign_click_with_performance_flattened');
+            </query-for-last-parameter>
+        </worker-function>
+    </parallel-job>
+
+
+    <job id="aggregate-conversions-by-campaign-and-date">
+        <description>Aggregates the attributed conversions per campaign and date, each based on the date of conversion
+        </description>
+        <dependencies>
+            <dependency job="index-campaign-click-date"/>
+            <dependency job="index-campaign-click-performance"/>
+        </dependencies>
+        <commands>
+            <run-sql-file file-name="facts-and-aggregates/aggregate-conversions-by-campaign-and-date.sql"
+                          echo-queries="true"/>
+        </commands>
+    </job>
+
+    <job id="aggregate-visitors-by-date">
+        <description>Aggregates clicks, visits, visitors etc per day</description>
+        <dependencies>
+            <dependency job="index-campaign-click-date"/>
+        </dependencies>
+        <commands>
+            <run-sql-file file-name="facts-and-aggregates/aggregate-visitors-by-date.sql" echo-queries="true"/>
+        </commands>
+    </job>
+
+
+    <final-job id="replace-dim-schema">
+        <description>Replaces the current webtrekk_dim schema with the next one</description>
+        <commands>
+            <execute-sql>SELECT util.replace_schema('webtrekk_dim', 'webtrekk_dim_next');</execute-sql>
+        </commands>
+    </final-job>
+
+</process>

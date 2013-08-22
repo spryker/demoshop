@@ -1,0 +1,5 @@
+<?php
+
+class Sao_Zed_Salesrule_Module_Controller_Index extends ProjectA_Zed_Salesrule_Module_Controller_Index
+{
+}

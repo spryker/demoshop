@@ -1,0 +1,59 @@
+<?php
+
+Sao_Yves_Library_Assets_Manager::getInstance()->addCssFile('catalog');
+
+?>
+<div class="row">
+	<section class="column large-9 push-3 catalog-container">
+
+		<?php $this->renderPartial('catalog/partials/header', array()); ?>
+
+		<ul class="row products-list">
+			<?php for( $i=36; $i--; ): ?>
+				<?php $murraySize = 160 + $i%5; ?>
+				<?php $murrayURL = 'http://www.fillmurray.com/' . $murraySize . '/' . $murraySize; ?>
+				<li class="column large-2 small-4 module">
+					<a href=""><img class="framed" src="<?= $murrayURL ?>" alt></a>
+			<?php endfor; ?>
+		</ul>
+
+		<ul class="row products-list">
+			<?php for( $i=24; $i--; ): ?>
+				<?php $murraySize = 200 + $i%5; ?>
+				<?php $murrayURL = 'http://www.fillmurray.com/' . ($murraySize*3) . '/' . ($murraySize*2); ?>
+				<li class="column large-4 module">
+					<dl class="product framed">
+						<dt class="image"><a href=""><img src="<?= $murrayURL ?>" alt></a>
+						<dt class="name"><a href="">Lorem Ipsum</a>
+						<dd class="type">digital
+						<dd class="price orignal">$1234
+						<dd class="price print">$1234
+						<dd class="author"><a href="">John Doe</a>
+						<dd class="origin"><a href="">Neverland</a>
+					</dl>
+			<?php endfor; ?>
+		</ul>
+
+		<ul class="row products-list">
+			<?php for( $i=12; $i--; ): ?>
+				<?php $murraySize = 300 + $i%5; ?>
+				<?php $murrayURL = 'http://www.fillmurray.com/' . ($murraySize*3) . '/' . ($murraySize*2); ?>
+				<li class="column large-6 module">
+					<dl class="product framed">
+						<dt class="image"><a href=""><img src="<?= $murrayURL ?>" alt></a>
+						<dt class="name"><a href="">Lorem Ipsum</a>
+						<dd class="type">digital
+						<dd class="price orignal">$1234
+						<dd class="price print">$1234
+						<dd class="author"><a href="">John Doe</a>
+						<dd class="origin"><a href="">Neverland</a>
+					</dl>
+			<?php endfor; ?>
+		</ul>
+
+		<?php $this->renderPartial('catalog/partials/footer', array()); ?>
+	</section>
+	<aside class="column large-3 pull-9 catalog-sidebar">
+		<?php $this->renderPartial('catalog/partials/sidebar', array()); ?>
+	</aside>
+</div>

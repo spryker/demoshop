@@ -1,0 +1,90 @@
+<?php
+/**
+ * @var Sao_Yves_Application_Component_Form_Coupon                              $couponForm
+ * @var Sao_Yves_Checkout_Component_Form_ShippingAddress            $shippingAddressForm
+ * @var Sao_Yves_Checkout_Component_Form_AlternativeShippingAddress $alternativeShippingAddressForm
+ * @var Sao_Yves_Checkout_Component_Form_BillingAddress             $billingAddressForm
+ *
+ * @var Sao_Shared_Sales_Transfer_Order                    $salesOrder
+ * @var Sao_Shared_Sales_Transfer_Order_Item_Collection    $items
+ *
+ * @var Sao_Yves_Checkout_Component_Form_Creditcard         $paymentForm
+ * @var array                                   $paymentForms Checkout_PaymentForm
+ */
+?>
+<noscript id="checkout-app" class="row">
+  <marquee>application failed to load, because something really bad happened... like a JS blocker?</marquee>
+</noscript>
+<form action="<?php echo $this->createAbsoluteUrl(Sao_Yves_Library_Routing_UrlManager::ROUTE_AJAX_SAVE_ORDER); ?>" id="checkout-form" class="hidden" method="post" target="_blank" data-timeout-error-message="<?php echo t( Sao_Yves_Library_L::CHECKOUT_TIMEOUT_ERROR ); ?>">
+  <?php echo ProjectA_Yves_Library_Yii::app()->getRequest()->getCsrfInputField(); ?>
+
+  <input type="hidden" data-mapping="shippingAddress.manual" name="manual">
+
+  <input type="hidden" data-mapping="shippingAddress.shippingAsBilling" name="Checkout_AlternativeShippingAddressForm[alternative_shipping_address]" value="off">
+  <input type="hidden" data-mapping="shippingAddress.firstName"         name="Checkout_ShippingAddressForm[first_name]">
+  <input type="hidden" data-mapping="shippingAddress.lastName"          name="Checkout_ShippingAddressForm[last_name]">
+  <input type="hidden" data-mapping="shippingAddress.address"           name="Checkout_ShippingAddressForm[address1]">
+  <input type="hidden" data-mapping="shippingAddress.addressAdditional" name="Checkout_ShippingAddressForm[address2]">
+  <input type="hidden" data-mapping="shippingAddress.city"              name="Checkout_ShippingAddressForm[city]">
+  <input type="hidden" data-mapping="shippingAddress.country"           name="Checkout_ShippingAddressForm[iso2_country]">
+  <input type="hidden" data-mapping="shippingAddress.region"            name="Checkout_ShippingAddressForm[region]">
+  <input type="hidden" data-mapping="shippingAddress.postal"            name="Checkout_ShippingAddressForm[zip_code]">
+  <input type="hidden" data-mapping="shippingAddress.phoneNumber"       name="Checkout_ShippingAddressForm[cell_phone]">
+
+  <input type="hidden" data-mapping="billingAddress.firstName"         name="Checkout_BillingAddressForm[first_name]">
+  <input type="hidden" data-mapping="billingAddress.lastName"          name="Checkout_BillingAddressForm[last_name]">
+  <input type="hidden" data-mapping="billingAddress.address"           name="Checkout_BillingAddressForm[address1]">
+  <input type="hidden" data-mapping="billingAddress.addressAdditional" name="Checkout_BillingAddressForm[address2]">
+  <input type="hidden" data-mapping="billingAddress.city"              name="Checkout_BillingAddressForm[city]">
+  <input type="hidden" data-mapping="billingAddress.country"           name="Checkout_BillingAddressForm[iso2_country]">
+  <input type="hidden" data-mapping="billingAddress.region"            name="Checkout_BillingAddressForm[region]">
+  <input type="hidden" data-mapping="billingAddress.postal"            name="Checkout_BillingAddressForm[zip_code]">
+<!--  <input type="hidden" data-mapping="shippingAddress.phoneNumber"      name="Checkout_BillingAddressForm[cell_phone]">-->
+
+  <input type="hidden" data-mapping="payment.paymentMethod"       name="Checkout_PaymentForm[method]">
+  <input type="hidden" data-mapping="payment.cardCardholder"      name="Checkout_Payment_CreditcardForm[cc_cardholder]">
+  <input type="hidden" data-mapping="payment.cardNumber"          name="Checkout_Payment_CreditcardForm[cc_number]">
+  <input type="hidden" data-mapping="payment.cardExpirationMonth" name="Checkout_Payment_CreditcardForm[cc_expiration_month]">
+  <input type="hidden" data-mapping="payment.cardExpirationYear"  name="Checkout_Payment_CreditcardForm[cc_expiration_year]">
+  <input type="hidden" data-mapping="payment.detectedCard"        name="Checkout_Payment_CreditcardForm[cc_type]">
+  <input type="hidden" data-mapping="payment.cardCVV"             name="Checkout_Payment_CreditcardForm[cc_verification]">
+  <!-- <input type="hidden" data-mapping="payment.cardLOLWUTKTHXBAI"   name="Checkout_Payment_CreditcardForm[name]"> <?php /* <-- seriously, what the fuck is that? */ ?> -->
+  <input type="hidden" data-mapping="payment.luhnValid"           name="Checkout_Payment_CreditcardForm[cc_valid]">
+
+  <?php /* TODO - add voucher? */ ?>
+  <?php /* TODO - add region? */ ?>
+</form>
+
+<form action="<?php echo $this->createAbsoluteUrl(Sao_Yves_Library_Routing_UrlManager::ROUTE_AJAX_GET_CHECKOUT_INFORMATION); ?>" id="checkout-information-form" class="hidden" method="post" target="_blank">
+  <?php echo ProjectA_Yves_Library_Yii::app()->getRequest()->getCsrfInputField(); ?>
+  <input type="hidden" name="Checkout_AlternativeShippingAddressForm[alternative_shipping_address]" value="off">
+  <input type="hidden" data-mapping="firstName"         name="Checkout_ShippingAddressForm[first_name]">
+  <input type="hidden" data-mapping="lastName"          name="Checkout_ShippingAddressForm[last_name]">
+  <input type="hidden" data-mapping="address"           name="Checkout_ShippingAddressForm[address1]">
+  <input type="hidden" data-mapping="addressAdditional" name="Checkout_ShippingAddressForm[address2]">
+  <input type="hidden" data-mapping="city"              name="Checkout_ShippingAddressForm[city]">
+  <input type="hidden" data-mapping="country"           name="Checkout_ShippingAddressForm[iso2_country]">
+  <input type="hidden" data-mapping="region"            name="Checkout_ShippingAddressForm[region]">
+  <input type="hidden" data-mapping="postal"            name="Checkout_ShippingAddressForm[zip_code]">
+  <input type="hidden" data-mapping="phoneNumber"       name="Checkout_ShippingAddressForm[cell_phone]">
+</form>
+
+<form action="<?php echo $this->createAbsoluteUrl(Sao_Yves_Library_Routing_UrlManager::ROUTE_AJAX_TRACK_CHECKOUT_PROGRESS); ?>" id="checkout-track-form" class="hidden" method="post" target="_blank">
+  <?php echo ProjectA_Yves_Library_Yii::app()->getRequest()->getCsrfInputField(); ?>
+</form>
+
+<?php $this->renderPartial('checkout/index/js-templates/checkout-app', array('countries' => $countries)); ?>
+<?php $this->renderPartial('checkout/index/js-templates/shipping-address', array('countries' => $countries, 'shippingAddressForm' => $shippingAddressForm, 'alternativeShippingAddressForm' => $alternativeShippingAddressForm, 'regions' => $regions )); ?>
+<?php $this->renderPartial('checkout/index/js-templates/billing-address', array('countries' => $countries, 'billingAddressForm' => $billingAddressForm, 'regions' => $regions )); ?>
+<?php $this->renderPartial('checkout/index/js-templates/payment', array('paymentForm' => $paymentForm, 'paymentForms' => $paymentForms, 'itemCount'=> $items->aggregateQuantities())); ?>
+<?php $this->renderPartial('checkout/index/js-templates/review', array('salesOrder' => $salesOrder, 'items' => $items, 'couponForm' => null)); ?>
+<?php $this->renderPartial('checkout/index/js-templates/messages', array()); ?>
+
+<?php
+
+Sao_Yves_Library_Assets_Manager::getInstance()->addJsFile(
+  'vendor/require',
+  array(
+    'data-main' => Sao_Yves_Library_Routing_UrlManager::createScriptUrl( 'checkout' )
+  )
+);

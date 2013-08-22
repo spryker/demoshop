@@ -1,0 +1,34 @@
+### Deploy tool scripts
+Those scripts are used as wrapper, which sets appropiate APPLICATION_STORE env
+ * exec_foreach_store   - executes command given as parameter for each store
+ * exec_default_store   - executes command given as parameter once, for first store only
+
+### Cronjobs installed by deployment
+ * cron_update_memcache     - minutely cronjob for indexing memcache datastore (installed by enable_local_cronjobs)
+ * cron_update_solr         - minutely cronjob for reindexing solr master (installed by enable_cronjobs)
+
+### Monitoring scripts
+ * cron_monitor_fatals
+
+### Deployment tasks
+Execution order is preserved
+   NAME                         EXECUTES ON       USER
+ * create_shared_links          deploy host       root
+ * check_configuration          all appservers    www
+ * configure_host               all appservers    www
+ * check_for_migrations         admin host        root (returns: have_migrations?)
+ * disable_cronjobs             admin host        root
+ * disable_local_cronjobs       all appservers    root
+ * enable_maintenance           all appservers    www, only if have_migrations?
+--------- offline ---------
+ * perform_migrations           admin host        www, only if have_migrations?
+ * disable_maintenance          all appservers    www
+--------- online ---------
+ * initialize_database          admin host        www
+--------- new release activated ----------
+ * reindex_solr                 admin host        www (only if full_reindex?)
+ * reindex_memcache             all appservers    www (only if full_reindex?)
+ * enable_cronjobs              admin_host        www
+ * enable_local_cronjobs        all appservers    www
+ * send_notifications           admin host        www
+

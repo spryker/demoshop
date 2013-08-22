@@ -1,0 +1,4 @@
+<?php
+class Sao_Yves_Library_Monitoring_Model_Heartbeat extends ProjectA_Yves_Library_Monitoring_Model_Heartbeat
+{
+}

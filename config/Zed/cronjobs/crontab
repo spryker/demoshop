@@ -1,0 +1,14 @@
+# Crontab file for system-specific jobs - executes on admin server only
+#
+# There should be no entries here, except system maintenance tasks (like indexers)
+# Please use Jenkins to manage other jobs.
+#
+# This file contains the crontab file which will be updated while deployment
+# Following variables are available:
+# APPLICATION_ENV (z.B: production)
+# CURRENT_DIR (z.B: /data/shop/production/current)
+#
+# SEE: http://en.wikipedia.org/wiki/Cron
+
+#* * * * * www-data cd ${CURRENT_DIR}/deploy && flock -n /tmp/lock.${APPLICATION_ENV}.solr ./exec_foreach_store ./cron_update_solr
+#0 2 * * * www-data cd ${CURRENT_DIR}/deploy && flock -n /tmp/lock.${APPLICATION_ENV}.solr_full ./exec_foreach_store ./reindex_solr

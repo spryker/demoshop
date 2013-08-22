@@ -1,0 +1,5 @@
+<?php
+
+class Sao_Zed_Adwords_Module_Controller_KeyWordStatsTool extends ProjectA_Zed_Adwords_Module_Controller_KeyWordStatsTool
+{
+}

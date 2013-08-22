@@ -1,0 +1,162 @@
+.catalog-sidebar {
+	> div {
+		border: 1px solid $ci-silver;
+		border-radius: 5px;
+
+		padding: 1em;
+	}
+
+	section {
+		margin: 1em 0;
+	}
+
+	.select-container {
+		@media #{$large} {
+			display: none;
+		}
+
+		.select {
+			margin: 1px 0 0;
+			position: relative;
+			background: #fff;
+
+
+			&:before {
+				content: '';
+				background: #fff;
+				position: absolute;
+				right: 1px;
+				top: 1px;
+				bottom: 1px;
+				width: 30px;
+			}
+
+			&:after {
+				content: '';
+				@extend %glyph;
+				@extend %glyph-chevron-down;
+				pointer-events: none;
+				position: absolute;
+				right: 7px;
+				top: 50%;
+				margin-top: -7px;
+			}
+		}
+
+		select {
+			display: block;
+			width: 100%;
+			@include appearance( none );
+			border: 1px solid $ci-silver;
+
+			padding: .75em 1px .75em .75em;
+			font-size: .8em;
+			font-weight: 700;
+			line-height: 1.2;
+		}	}
+
+	.expandable {
+		border: 1px solid $ci-silver;
+
+		margin: 1px 0 0;
+
+		position: relative;
+
+		display: none;
+
+		@media #{$large} {
+			display: block;
+		}
+
+		h2 {
+			font-weight: 700;
+			font-size: .8em;
+			margin: 0;
+			padding: .75em;
+
+			@include transition( padding-right .25s );
+
+			&:after {
+				@extend %glyph;
+				@extend %glyph-chevron-right;
+				content: '';
+				float: right;
+			}
+		}
+
+		ul {
+			list-style: none;
+			display: none;
+		}
+
+		li {
+			white-space: nowrap;
+
+			a {
+				display: block;
+				padding: .5em;
+			}
+
+			+ li {
+				margin-top: .25em;
+			}
+		}
+
+		&:hover {
+			&:after{
+				content: '';
+				position: absolute;
+				right: -1px;
+				top: 0;
+				bottom: 0;
+				background: #fff;
+				width: 5px;
+				z-index: 1;
+			}
+
+			h2 {
+				padding-right: 5px;
+			}
+
+			ul {
+				display: block;
+
+				position: absolute;
+				left: 100%;
+				padding: .5em;
+
+				border: 1px solid $ci-silver;
+				background: #fff;
+				top: 0;
+
+				margin: -1px 0 0;
+
+				min-height: 100%;
+				max-height: 20em;
+
+				min-width: 10em;
+
+				overflow-x: none;
+				overflow-y: auto;
+
+				@include box-shadow( 0 2px 5px -1px rgba( 0, 0, 0, .25 ));
+			}
+		}
+	}
+
+	h2 {
+		font-size: 1em;
+		font-weight: 400;
+		margin: 1em 0 0;
+		padding: .5em 0;
+	}
+
+	p,
+	ul {
+		font-size: .8em;
+	}
+
+	label input {
+		margin-right: .5em;
+	}
+}

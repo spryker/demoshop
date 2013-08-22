@@ -1,0 +1,144 @@
+<?php
+/**
+ * @var  $this          IndexController
+ */
+
+// print( '<pre>' );
+// var_dump( $legacyHeader );
+// print( '</pre>' );
+
+?>
+<aside class="quick-links-top">
+    <?php if (isset($legacyHeader['topLeft'])): ?>
+        <!-- <h2>Visit:</h2> -->
+        <ul class="unstyled horizontal-list float-left">
+            <?php foreach ($legacyHeader['topLeft'] as $menuItem): ?>
+              <li>
+                <a href="<?php echo $menuItem['href']; ?>"<?php echo isset($menuItem['target']) ? ' target="' . $menuItem['target'] . '"' : ''; ?>><?php echo $menuItem['label']; ?></a>
+            <?php endforeach; ?>
+                <?php /*if($quickLinksTop): ?>
+      <?php echo $quickLinksTop['content'] ?>
+    <?php endif;*/ ?>
+        </ul>
+    <?php endif; ?>
+  <div class="float-right">
+      <?php if (isset($legacyHeader['topRight'][2])): ?>
+      Artists:
+        <a href="<?php echo $legacyHeader['topRight'][2][ 'href' ]; ?>" class="artists-link"<?php echo isset( $legacyHeader['topRight'][2][ 'target' ]) ? ' target="' . $legacyHeader['topRight'][2][ 'target' ] . '"' : ''; ?>><?php echo $legacyHeader['topRight'][2][ 'label' ]; ?></a>
+      <?php endif; ?>
+  </div>
+  <div class="fb-like float-right">
+    <iframe src="//www.facebook.com/plugins/like.php?href=http%3A%2F%2Fwww.facebook.com%2Fsaatchionline&amp;send=false&amp;layout=button_count&amp;width=100&amp;show_faces=false&amp;font&amp;colorscheme=light&amp;action=like&amp;height=20&amp;appId=123702011106341&amp;locale=en_US" scrolling="no" frameborder="0" style="border:none; overflow:hidden; width:100px; height:20px;" allowTransparency="true"></iframe>
+  </div>
+</aside>
+<header class="page-header legacy">
+  <hgroup>
+    <h1 class="saatchi-logo">
+      <a href="/" class="ir">Saatchi online</a>
+    </h1>
+    <h2><a href="/">Discover art. Get discovered.</a></h2>
+  </hgroup>
+
+  <nav class="user-menu">
+    <h2 class="visuallyhidden">User menu</h2>
+    <ul class="unstyled horizontal-list">
+      <li class="contains-sub-menu">
+        <?php if ($customerId): ?>
+        <a href="/profile/<?php echo $customerId; ?>" class="icon-user"><?php echo $customername;?></a>
+        <ul class="sub-menu unstyled">
+          <li><a href="/profiles/index/id/<?php echo $customerId; ?>" title="Profile">Profile</a></li>
+          <li><a href="/profiles/portfolio/id/<?php echo $customerId; ?>" title="Portfolio">Portfolio</a></li>
+          <li><a href="/collections/index/owner/<?php echo $customerId; ?>" title="Collections">Collections</a></li>
+          <li><a href="/likes/art/user/<?php echo $customerId; ?>" title="Favorites">Favorites</a></li>
+          <li><a href="/relationships/index/type/friend" title="Connections">Connections</a></li>
+        </ul>
+        <?php else: ?>
+          <a href="<?php echo $this->createAbsoluteUrl(Sao_Yves_Library_Routing_UrlManager::ROUTE_LOGIN) ?>" class="icon-user"><?php echo t('Create Account / Login') ?>
+          </a>
+        <?php endif; ?>
+      </li>
+      <?php if ($customerId): ?>
+      <li><a href="/mail" class="icon-messages">Messages</a></li>
+      <?php endif; ?>
+      <?php if ($customerId): ?>
+      <li class="contains-sub-menu"><a href="/accounts/settings" class="icon-settings">Account</a>
+        <ul class="sub-menu unstyled">
+          <li><a href="/accounts/edit-about" title="Profile Information">Profile Information</a></li>
+          <li><a href="/upload/avatar" title="Profile Image">Profile Image</a></li>
+          <li><a href="/accounts/settings" title="Profile Information">Account Information</a></li>
+          <li><a href="/accounts/billing" title="Address and Identification">Address and Identification</a></li>
+          <li><a href="/accounts/items" title="Sales Dashboard">Sales Dashboard</a></li>
+          <li><a href="/accounts/orders" title="Orders">Orders</a></li>
+          <li class="account-sign-out"><a href="/customer/index/logout" target="_parent">Log Out</a></li>
+        </ul>
+        <?php endif; ?>
+      <li><a href="http://help.saatchionline.com" class="icon-help">Help</a>
+      <li><a href="/cart" class="icon-cart"<?php if ($itemCount): ?> data-quantity="<?php echo $itemCount; ?>"<?php endif; ?>>Cart</a>
+    </ul>
+  </nav>
+
+  <nav class="main-menu clearfix">
+    <h2 class="visuallyhidden">Main menu</h2>
+    <ul class="unstyled horizontal-list float-left menu-list">
+    <?php if (isset($legacyHeader['mainMenu'])): ?>
+      <?php foreach ( $legacyHeader[ 'mainMenu' ] as $menuItem ): ?>
+        <?php if ( count( $menuItem )): ?>
+          <?php $href = isset( $menuItem[ 'href' ]) ? ' href="' . $menuItem[ 'href' ] . '"' : ''; ?>
+          <?php $target = isset( $menuItem[ 'target' ]) ? ' target="' . $menuItem[ 'target' ] . '"' : ''; ?>
+          <?php if ( isset( $menuItem[ 'submenu'])): ?>
+            <li class="contains-sub-menu">
+              <a<?php echo $href; ?><?php echo $target; ?>><?php echo $menuItem[ 'label' ]; ?></a>
+              <ul class="sub-menu unstyled">
+                <?php foreach( $menuItem[ 'submenu' ] as $submenuItem ): ?>
+                  <?php if ( count( $submenuItem )): ?>
+                    <li>
+                    <?php if ( isset( $submenuItem[ 'href' ])): ?>
+                      <?php $href = isset( $submenuItem[ 'href' ]) ? ' href="' . $submenuItem[ 'href' ] . '"' : ''; ?>
+                      <?php $target = isset( $submenuItem[ 'target' ]) ? ' target="' . $submenuItem[ 'target' ] . '"' : ''; ?>
+                      <a<?php echo $href; ?><?php echo $target; ?>><?php echo $submenuItem['label']; ?></a>
+                    <?php else: ?>
+                      <span><?php echo $submenuItem['label']; ?></span>
+                    <?php endif; ?>
+                  <?php endif; ?>
+                <?php endforeach; ?>
+              </ul>
+          <?php else: ?>
+            <li>
+              <a<?php echo $href; ?><?php echo $target; ?>><?php echo $menuItem['label']; ?></a>
+          <?php endif; ?>
+        <?php endif; ?>
+      <?php endforeach; ?>
+    <?php endif; ?>
+      <?php /* <li class="current"><a href="" target="_top" title="">Home</a>
+      <li><a href="" target="_top" title="">Browse</a>
+      <li><a href="" target="_top" title="">Collections</a>
+      <li><a href="" target="_top" title="">Showdown</a>
+      <li><a href="" target="_top" title="">Weekly Roundup</a>
+      <li class="contains-sub-menu"><a href="">Featured Shows</a>
+        <ul class="sub-menu unstyled">
+          <li><a href="/sale/BestInShow" target="_top" title="Best in Show">Best In Show</a>
+          <li><a href="/sale/show"       target="_top" title="Showdown In Living Color Feb. '13">Showdown In Living Color</a>
+          <li><a href="/sale/hyatt"      target="_top" title="Burning Bright: Emerging Artists From Saatchi Online ">Burning Bright: Emerging Artists</a>
+          <li><a href="/12xTWELVE"       target="_top" title="12✕TWELVE">12✕TWELVE</a>
+          <li><a href="/100curators"     target="_top" title="100 Curators 100 Days">100 Curators 100 Days</a>
+        </ul>*/ ?>
+      <?php /*if($mainMenu): ?>
+          <?php echo $mainMenu['content'] ?>
+      <?php endif;*/ ?>
+    </ul>
+    <form action="/buy-art" method="get" class="legacy-form search-form float-right" target="_top">
+      <ul class="horizontal-list">
+        <li>
+          <input class="legacy-input-field" type="text" name="query" placeholder="Search for..." value="" autocomplete="off">
+        <li class="selectbox-styling">
+          <select class="legacy-input-field">
+            <option value="/buy-art">Art
+            <option value="/search/user">Artist
+            <option value="/search/collection">Collection
+          </select>
+        <li>
+          <button type="submit"><i class="glyph-white search-icon ir">search</i></button>
+      </ul>
+    </form>
+  </nav>
+</header>

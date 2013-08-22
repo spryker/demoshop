@@ -1,0 +1,50 @@
+#!/bin/bash
+#
+# *** Project-A deployment
+#
+# check_for_migrations
+# This script is executed on tools host after unpacking release tarball.
+# It should return 0 if there are no migrations, 1 if there are any migrations pending.
+#
+#
+
+FILEPATH=`pwd`/$0; BASEDIR=`dirname $FILEPATH`; . $BASEDIR/vars; source $BASEDIR/functions
+outfile=`mktemp /tmp/deploy-diff-XXXXXX`
+
+# Check for propel migrations
+cd $destination_release_dir/project/Zed
+
+# Remove old Propel migration files
+rm -f propel-gen/$APPLICATION_STORE/build/migrations/*
+
+modified_text="Structure of database was modified in datasource"
+same_text="Same XML and database structures"
+echo | APPLICATION_ENV=${environment} php -d "newrelic.appname='Deploy($environment)'" cli/index.php --module=setup --controller=cronjob --action=propel-command --command=diff > $outfile
+cat $outfile | grep "$modified_text"
+return=$?
+
+if [ `cat $outfile | grep -c "$same_text"` -lt 1 ]; then
+  if [ $return -eq 0 ]; then
+    echo "Migrations have been found ..."
+    #cat propel-gen/$APPLICATION_STORE/build/migrations/*
+    #echo ""
+    #echo "DB MIGRATIONS detected! Execute changes now?"
+    #echo "1) execute migrations"
+    #echo "2) abort migrations"
+    #read apply_db_changes
+    #if [ "${apply_db_changes}" != "1" ]; then
+    #    echo "ABORTED!"
+    #    exit 1
+    #fi
+
+  else
+    echo "Unable to parse output!"
+    cat $outfile
+  fi
+  echo "Diff output saved: $outfile - return value: $return"
+fi
+
+echo "Diff output saved: $outfile - return value: $return"
+
+#rm -f $outfile
+exit $return

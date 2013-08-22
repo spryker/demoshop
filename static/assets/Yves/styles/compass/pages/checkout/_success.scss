@@ -1,0 +1,27 @@
+.order-confirmation {
+  header .heading {
+    margin-bottom: 1em;
+  }
+
+  hr {
+    margin: 0.2em 0;
+  }
+
+  .receipt-text {
+    font-style: italic;
+  }
+
+  .manual-checkout-success {
+    padding: 15px;
+    border: 1px solid lightslategray;
+    background-color: whitesmoke;
+    font-weight: 700;
+    text-align: center;
+
+  }
+
+  .order-id {
+    font-size: 1.35em;
+    color: mix( $ci-text-base, $ci-gray );
+  }
+}

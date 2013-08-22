@@ -1,0 +1,104 @@
+// .login-register-container {
+// 	margin-top: -1em;
+// 	margin-bottom: -1em;
+
+// 	> section {
+// 		margin-top: 1em;
+// 		margin-bottom: 1em;
+// 	}
+// }
+
+// .register-form-container {
+// 	.facebook {
+// 		margin-top: 2.75em;
+
+// 		small {
+// 		  margin-bottom: 1em;
+// 		}
+// 	}
+// }
+
+// .login-form-container {
+// 	.facebook {
+// 		small {
+// 			margin-right: 1em;
+// 			margin-left: 1em;
+
+// 			display: inline-block;
+// 		}
+// 	}
+// }
+
+.login-register-form {
+	margin-top: 2em;
+	margin-bottom: 3em;
+
+	.toggler {
+		position: relative;
+	}
+
+	.offset-radio {
+		position: absolute;
+		right: 100%;
+		top: 2px;
+	}
+
+	// dl dl {
+	// 	margin-top: $column-gutter;
+	// 	margin-bottom: $column-gutter;
+	// }
+
+	small {
+		display: inline-block;
+	}
+
+	dd {
+		margin-left: 0;
+		margin-top: ( $column-gutter / 4 );
+	}
+
+	dd + dt {
+		margin-top: ( $column-gutter / 2 );
+	}
+
+	.form-action {
+		margin-top: $column-gutter;
+		margin-bottom: $column-gutter;
+	}
+
+	.small {
+		color: $ci-gray;
+		font-size: .8em;
+		margin: 0 1em;
+	}
+
+    label.label-error {
+      display: none;
+    }
+}
+
+aside.perks {
+	&.horizontal {
+		margin-top: 3em;
+		margin-bottom: 1em;
+
+		padding: 1em;
+
+		.perks-list {
+			padding-top: 1em;
+
+			font-size: .8em;
+			text-align: center;
+		}
+
+		.perk {
+			text-align: left;
+			width: 20%;
+			vertical-align: top;
+
+			+ .perk {
+				margin-left: 6%;
+			}
+		}
+	}
+}

@@ -1,0 +1,27 @@
+<?php echo $this->partial('ordernumber.phtml', array('order' => $this->order)); ?>
+<?php echo $this->partial('links.phtml', array('order' => $this->order)); ?>
+    <div class="clear"></div>
+    <div class="column left">
+        <?php echo $this->partial('totals.phtml', array('order' => $this->order)); ?>
+        <?php echo $this->partial('customer.phtml', array('order' => $this->order, 'editable' => true)); ?>
+        <?php echo $this->partial('quotes.phtml', array('order' => $this->order)); ?>
+    </div>
+
+    <div class="column">
+        <?php echo $this->partial('paymentcontainer.phtml', array('payment' => $this->payment, 'account' => $this->account, 'transactions' => $this->transactions, 'order' => $this->order)); ?>
+    </div>
+    <div class="clear"></div>
+<?php echo $this->partial('notes.phtml', array('orderNotes' => $this->orderNotes)); ?>
+<?php echo $this->partial('comments.phtml', array('comments' => $this->comments, 'order' => $this->order)); ?>
+
+<?php $partialData['orderProcess'] = $this->orderProcess; ?>
+<?php $partialData['items'] = $this->items; ?>
+<?php $partialData['products'] = $this->products; ?>
+<?php $partialData['manuallyExecuteableEventsByItem'] = $this->manuallyExecuteableEventsByItem; ?>
+<?php $partialData['statusHistory'] = $this->statusHistory; ?>
+<?php $partialData['apUserProfileUrl'] = $this->apUserProfileUrl; ?>
+<?php $partialData['clarifyRefundStates'] = $this->clarifyRefundStates; ?>
+<?php echo $this->partial('statusoverview.phtml', $partialData); ?>
+
+<?php echo $this->partial('trigger.phtml', array('order' => $this->order, 'manuallyExecuteableEventsByOrder' => $this->manuallyExecuteableEventsByOrder)); ?>
+<?php echo $this->partial('paymentsimulator.phtml', array('order' => $this->order));

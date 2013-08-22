@@ -1,0 +1,6 @@
+<?php
+
+class Sao_Yves_Tracking_Component_Model_ClickTale_CacheProvider_FileSystem extends ProjectA_Yves_Tracking_Component_Model_ClickTale_CacheProvider_Component_Model_FileSystem
+{
+
+}

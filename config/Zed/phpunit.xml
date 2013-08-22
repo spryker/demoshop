@@ -1,0 +1,9 @@
+<phpunit bootstrap="../../vendor/project-a/infrastructure-package/ProjectA/Zed/PhpUnit/Component/Model/Bootstrap.php">
+    <testsuite name="Project Code Test Suite">
+        <directory>../../project/</directory>
+    </testsuite>
+    <php>
+        <env name="APPLICATION_ENV" value="testing" />
+        <env name="APPLICATION_STORE" value="US" />
+    </php>
+</phpunit>

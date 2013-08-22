@@ -1,0 +1,185 @@
+-------
+2013-08-15T13:43:01+00:00 Array
+(
+    [host] => Renes-MacBook-Pro.local
+    [application] => ZED
+    [environment] => development
+    [dateAndTime] => 2013-08-15T13:43:01
+    [ip] => 127.0.0.1
+    [store] => DE
+    [language] => en
+    [locale] => en_US
+    [url] => http://newtree-de/setup/cronjob/propel-command/command/diff?verbose=true
+    [referer] => http://newtree-de/setup/index/core
+    [route] => setup/cronjob/propel-command
+    [requestIdZed] => zb662c9b033232917668b9c873bb16871
+    [propelLog] => Buildfile: /Users/reneklatt/www/newtree/vendor/propel/propel1/generator/build.xml
+
+propel-project-builder > check-project-or-dir-set:
+
+
+propel-project-builder > check-project-set:
+
+
+propel-project-builder > set-project-dir:
+
+     [echo] No project.dir was specified, using default path: ./projects/Zed
+
+propel-project-builder > check-buildprops-exists:
+
+
+propel-project-builder > check-buildprops-for-propel-gen:
+
+
+propel-project-builder > check-buildprops:
+
+
+propel-project-builder > configure:
+
+     [echo] Loading project-specific props from /Users/reneklatt/www/newtree/project/Generated/Zed/PropelGen/DE//build.properties
+ [property] Loading /Users/reneklatt/www/newtree/project/Generated/Zed/PropelGen/DE/build.properties
+
+propel-project-builder > sql-diff:
+
+    [phing] Calling Buildfile '/Users/reneklatt/www/newtree/vendor/propel/propel1/generator/build-propel.xml' with target 'sql-diff'
+ [property] Loading /Users/reneklatt/www/newtree/vendor/propel/propel1/generator/./default.properties
+
+propel > check-run-only-on-schema-change:
+
+
+propel > sql-check:
+
+
+propel > pgsql-quoting-check:
+
+
+propel > mysqli-check:
+
+
+propel > sql-diff:
+
+     [echo] +----------------------------------------------+
+     [echo] |                                              |
+     [echo] | Generating SQL diff between the XML schemas  |
+     [echo] | and the current database structure.          |
+     [echo] |                                              |
+     [echo] +----------------------------------------------+
+[phingcall] Calling Buildfile '/Users/reneklatt/www/newtree/vendor/propel/propel1/generator/build-propel.xml' with target 'sql-diff-template'
+ [property] Loading /Users/reneklatt/www/newtree/vendor/propel/propel1/generator/./default.properties
+
+propel > sql-diff-template:
+
+[propel-sql-diff] Reading databases structure...
+[propel-sql-diff] No table found in all databases
+[propel-sql-diff] Loading XML schema files...
+[propel-sql-diff] 159 tables found in 32 schema files.
+[propel-sql-diff] Comparing models...
+[propel-sql-diff] Structure of database was modified in datasource "zed": 163 added tables
+[propel-sql-diff] "PropelMigration_1376574181.php" file successfully created in /Users/reneklatt/www/newtree/project/Generated/Zed/PropelGen/DE/build/migrations
+[propel-sql-diff]   Please review the generated SQL statements, and add data migration code if necessary.
+[propel-sql-diff]   Once the migration class is valid, call the "migrate" task to execute it.
+
+propel-project-builder > diff:
+
+
+BUILD FINISHED
+
+Total time: 0.3918 seconds
+
+
+    [fileName] => PropelMigration_1376574181.php
+    [type] => propel
+    [subtype] => diff
+    [message] => database-migration
+    [microtime] => 13765741810549
+)
+
+-------
+2013-08-15T13:43:20+00:00 Array
+(
+    [host] => Renes-MacBook-Pro.local
+    [application] => ZED
+    [environment] => development
+    [dateAndTime] => 2013-08-15T13:43:20
+    [ip] => 127.0.0.1
+    [store] => DE
+    [language] => en
+    [locale] => en_US
+    [url] => http://newtree-de/setup/cronjob/propel-command/command/migrate?verbose=true
+    [referer] => http://newtree-de/setup/index/core
+    [route] => setup/cronjob/propel-command
+    [requestIdZed] => zd718ab5a7de8ff04ca6cfca67db00f95
+    [propelLog] => Buildfile: /Users/reneklatt/www/newtree/vendor/propel/propel1/generator/build.xml
+
+propel-project-builder > check-project-or-dir-set:
+
+
+propel-project-builder > check-project-set:
+
+
+propel-project-builder > set-project-dir:
+
+     [echo] No project.dir was specified, using default path: ./projects/Zed
+
+propel-project-builder > check-buildprops-exists:
+
+
+propel-project-builder > check-buildprops-for-propel-gen:
+
+
+propel-project-builder > check-buildprops:
+
+
+propel-project-builder > configure:
+
+     [echo] Loading project-specific props from /Users/reneklatt/www/newtree/project/Generated/Zed/PropelGen/DE//build.properties
+ [property] Loading /Users/reneklatt/www/newtree/project/Generated/Zed/PropelGen/DE/build.properties
+
+propel-project-builder > migration:
+
+    [phing] Calling Buildfile '/Users/reneklatt/www/newtree/vendor/propel/propel1/generator/build-propel.xml' with target 'migration'
+ [property] Loading /Users/reneklatt/www/newtree/vendor/propel/propel1/generator/./default.properties
+
+propel > check-run-only-on-schema-change:
+
+
+propel > sql-check:
+
+
+propel > pgsql-quoting-check:
+
+
+propel > mysqli-check:
+
+
+propel > migration:
+
+     [echo] +----------------------------------------------+
+     [echo] |                                              |
+     [echo] | Look for next Migration class                |
+     [echo] | and execute it                               |
+     [echo] |                                              |
+     [echo] +----------------------------------------------+
+[phingcall] Calling Buildfile '/Users/reneklatt/www/newtree/vendor/propel/propel1/generator/build-propel.xml' with target 'migration-template'
+ [property] Loading /Users/reneklatt/www/newtree/vendor/propel/propel1/generator/./default.properties
+
+propel > migration-template:
+
+[propel-migration] Executing migration PropelMigration_1376574181 up
+[propel-migration] 165 of 165 SQL statements executed successfully on datasource "zed"
+[propel-migration] Migration complete. No further migration to execute.
+
+propel-project-builder > migrate:
+
+
+BUILD FINISHED
+
+Total time: 1.1315 second
+
+
+    [type] => propel
+    [subtype] => migrate
+    [message] => database-migration
+    [microtime] => 13765742000268
+)
+

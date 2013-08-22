@@ -1,0 +1,398 @@
+// @import "foundation/foundation-global";
+
+// /// mixins
+// @import 'compass/css3';
+// @import 'common/mixins';
+// @import 'common/placeholders';
+
+// @import 'common/ci';
+// @import 'common/sprites';
+
+@include sprite-placeholders( 'logos/*.png' ){
+  display: inline-block;
+  vertical-align: middle;
+}
+@each $payment in visa, mastercard, discover, amex, paypal {
+  .payment-#{$payment} {
+    @extend %logos-sprite-#{$payment};
+  }
+}
+
+.secure-guarantee {
+  @extend %logos-sprite-guarantee;
+}
+.secure-ssl {
+  $img : 'rapid-ssl.gif';
+  width: image-width( $img );
+  height: image-height( $img );
+  background: image-url( $img );
+  // display: inline-block;
+  // vertical-align: middle;
+}
+
+@each $delivery in dhl, fedex, ups {
+  .logo-#{$delivery} {
+    @extend %logos-sprite-#{$delivery};
+  }
+}
+
+// login register page
+@import 'pages/login-register';
+
+@import 'pages/checkout/progress-bar';
+
+// .page-main.checkout {
+//  padding-top: 5em;
+// }
+
+.checkout-steps {
+  > li {
+    display: none;
+  }
+
+  > .active {
+    display: block;
+  }
+}
+
+.cell-separator {
+  text-align: center;
+  position: relative;
+  font-weight: 700;
+  color: $ci-gray;
+
+  &:before,
+  &:after {
+    content: '';
+    width: 2px;
+    height: 45%;
+    left: 50%;
+    margin-left: -1px;
+    @include background( linear-gradient( #fff, $ci-silver, #fff ));
+    position: absolute;
+  }
+
+  &:before {
+    top: 0;
+  }
+
+  &:after {
+    bottom: 0;
+  }
+}
+
+@import 'pages/checkout/cart';
+
+.page-checkout {
+  .link-back-container {
+    margin-top: 2em;
+  }
+}
+
+.logos-list {
+  padding-top:20px;
+  li {
+    vertical-align: middle;
+    margin-right: ( $column-gutter / 2 );
+    margin-bottom: ( $column-gutter / 4 );
+
+    &:last-child {
+      margin-right: 0;
+    }
+
+    i.secure-ssl {
+      margin-bottom: 13px;
+    }
+  }
+
+  .perk-with-label {
+    vertical-align: baseline;
+  }
+
+  i {
+    display: block;
+    margin: 0 auto .35em;
+  }
+
+  // .perk-with-label {
+  //   margin-bottom: .5em;
+  // }
+
+  &[id] {
+    li {
+      @include transition( opacity .66s );
+    }
+
+    &.matched-a-card {
+      li {
+        opacity: .1;
+      }
+
+      .matched-card {
+        opacity: 1;
+      }
+    }
+  }
+}
+
+.logos-list.protected-icons {
+  padding-top: 0px;
+}
+
+aside.perks {
+  background: #fafafa;
+  color: $ci-gray;
+
+  .perk {
+    position: relative;
+    padding-left: image-width( 'icons/tick-blue.png' ) + 10px;
+
+    &:before {
+      content: '';
+      position: absolute;
+      left: 0;
+      @extend %icons-sprite-tick-blue;
+    }
+  }
+
+  &.vertical {
+    padding: 1.5em;
+
+    ul {
+      padding: 0;
+      margin: 1.5em 0;
+      font-size: .8em;
+
+      &:last-child {
+        margin-bottom: 0;
+      }
+    }
+
+    .perks-list {
+      li + li {
+        margin-top: 1em;
+      }
+    }
+  }
+
+  .heading {
+    color: $ci-blue;
+    font-size: 1em;
+
+    border-bottom: 2px solid #fff;
+
+    margin: 0;
+    padding-bottom: 2px;
+  }
+
+  ul + .heading {
+    margin-top: 2em;
+  }
+}
+
+.checkout-aside {
+  li {
+    color: $ci-gray;
+    font-size: .8em;
+  }
+  li.perk {
+    font-size: 1em;
+  }
+
+  .large-4.column:last-child {
+    float: left;
+  }
+}
+
+.page-checkout {
+  .checkout-aside.perks {
+    float: left;
+    background: none;
+    margin-left: 60px;
+    margin-top: 50px;
+  }
+
+  .checkout-step .review-container + .checkout-aside .large-3 {
+    float:left;
+  }
+}
+
+.payment-container,
+.review-container {
+  span.questionmark {
+    display: inline-block;
+    background-color: #000;
+    width: 18px;
+    height: 18px;
+    border-radius: 18px;
+    color: #fff;
+    font-weight: 700;
+    padding-right: 4px;
+    padding-top: 2px;
+    cursor: pointer;
+
+    span.tooltip {
+      cursor: default;
+      display:none;
+      position: absolute;
+      line-height: 20px;
+      padding: 10px;
+      font-size: 14px;
+      text-align: left;
+      color: #000;
+      background: #ccc;
+      border: 5px solid #ccc;
+      border-radius: 5px;
+      width: 195px;
+      margin-left: 15px;
+      margin-top: -12px;
+      font-weight: normal;
+      z-index: 1000;
+    }
+
+    span.tooltip:after {
+      content: "";
+      position: absolute;
+      width: 0;
+      height: 0;
+      border-width: 7px;
+      border-style: solid;
+      border-color: transparent #ccc transparent transparent;
+      top: 7px;
+      left: -18px;
+    }
+
+    &:hover {
+      .tooltip {
+        display: inline;
+      }
+    }
+  }
+}
+
+@media all and (max-width: 1350px)  {
+  .payment-container{
+    span.questionmark {
+      span.tooltip {
+        margin-left: -215px;
+      }
+      span.tooltip:after {
+        left: 190px;
+        border-color: transparent transparent transparent #ccc;
+      }
+    }
+  }
+}
+
+.checkout-info-box {
+  background: $ci-white-smoke;
+  margin-top: 1em;
+  margin-bottom: 2px;
+
+  padding: .5em;
+
+  @include box-shadow( 0 6px 4px -6px rgba( 0, 0, 0, .5 ));
+
+  p {
+    margin: 0;
+    font-size: .9em;
+    line-height: 1.3;
+  }
+
+  header {
+    h1 {
+      float: left;
+      margin-bottom: 0;
+    }
+
+    a {
+      font-size: .9em;
+      float: right;
+    }
+
+    overflow: hidden;
+  }
+}
+
+.cart-summary-box {
+  margin-top: 0;
+}
+
+.vcard {
+  &.address {
+    margin: 1em;
+
+    .fn {
+      color: $ci-text-base;
+    }
+
+    .postal-code + .city {
+      margin-left: .35em;
+    }
+
+    p {
+      color: $ci-gray;
+
+      + p {
+        margin-top: .5em;
+      }
+    }
+  }
+}
+
+.payment-info {
+  margin: 1em 1em 1em .5em;
+  padding-left: 4em;
+  position: relative;
+
+  &.uses-payment-paypal {
+    padding-left: 6em;
+  }
+
+  &:before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+  }
+
+  @each $payment in visa, mastercard, discover, amex, paypal {
+    &.uses-payment-#{$payment}:before {
+      @extend %logos-sprite-#{$payment};
+    }
+  }
+
+
+  dl {
+    overflow: hidden;
+    font-size: .9em;
+  }
+
+  dt {
+    clear: left;
+    float: left;
+    min-width: 6em;
+    color: $ci-gray;
+  }
+
+  dd {
+    float: left;
+    margin-left: 1em;
+  }
+}
+
+.checkout-aside {
+  > .column {
+    margin-top: 3em;
+    margin-bottom: 1em;
+  }
+
+  .heading {
+    color: $ci-blue;
+    margin-bottom: 1em;
+  }
+}
+
+@import 'pages/checkout/payment';
+
+@import 'pages/checkout/success';

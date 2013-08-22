@@ -1,0 +1,24 @@
+#!/bin/bash
+#
+# *** Project-A deployment
+#
+# enable_cronjobs
+# This script is executed on tools host (with root privileges) in order to activate cronjobs
+#
+#
+
+FILEPATH=`pwd`/$0; BASEDIR=`dirname $FILEPATH`; source $BASEDIR/vars; source $BASEDIR/functions
+outfile=`mktemp /tmp/deploy-XXXXXX`
+
+
+# Prepare crontab
+crontab="/etc/cron.d/${environment}-zed"
+src=${destination_release_dir}/project/Zed/cronjobs/crontab
+
+echo "CURRENT_DIR=${destination_current_dir}" > $crontab
+echo "APPLICATION_ENV=${environment}" >> $crontab
+echo "" >> $crontab
+[ -f $src ] && cat $src >> $crontab
+
+rm -f $outfile
+exit 0

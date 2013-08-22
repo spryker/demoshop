@@ -1,0 +1,139 @@
+<?php $items = $this->cacheItems['items'];
+if (!empty($items)) {
+    ?>
+<div style="float: right;">
+
+    <table>
+        <tr>
+            <th>Slab-Id</th>
+            <th>Quantity</th>
+            <th>Age</th>
+        </tr>
+
+        <?php foreach ($this->cacheItems['items'] as $slabid => $item) { ?>
+        <tr>
+            <td><a href="/yves/index/slab/slabid/<?php echo $slabid ?>"><?php echo $slabid ?></a></td>
+            <td><?php echo $item['number'] ?></td>
+            <td><?php echo $item['age'] ?></td>
+
+        </tr>
+
+        <?php } ?>
+
+
+    </table>
+    <a href="/yves/index/all-keys" class="small">Show all Keys</a>
+</div>
+
+<?php } ?>
+
+<div style="border: 1px dotted gray; padding: 10px; margin-bottom: 20px; width: 70%">
+    <h1>Memcached (only this host)</h1>
+    <ul>
+        <li>
+            <a href="/yves/cronjob/memcached-full-import?<?php echo ProjectA_Zed_Library_Controller_Cronjob::GET_PARAM_REDIRECTION; ?>=/yves">Full
+                Import</a> - Removes timestamp and then calls
+            synchronize.
+        </li>
+        <li>
+            <a href="/yves/cronjob/memcached-synchronize?<?php echo ProjectA_Zed_Library_Controller_Cronjob::GET_PARAM_REDIRECTION; ?>=/yves">Synchronize</a>
+            - Synchronizes memcache with
+            ZED-database.
+        </li>
+        <li>
+            <a href="/yves/index/memcached-flush">Flush</a> - This immediately invalidates all existing items.
+        </li>
+        <li>
+            <a href="/yves/cronjob/memcached-delete-all">Delete all</a> - Deletes all items in Memcache.
+        </li>
+    </ul>
+
+
+    <table>
+        <tr>
+            <th>Last modified</th>
+            <td><?php echo $this->memCacheLastModified ? ProjectA_Shared_Library_Date::dateTime($this->memCacheLastModified) : '' ?></td>
+        </tr>
+        <tr>
+            <th>Number of documents</th>
+            <td><?php echo $this->memCacheNumDocs ?></td>
+        </tr>
+    </table>
+
+</div>
+
+<div style="border: 1px dotted gray;  padding: 10px; margin-bottom: 20px; width: 70%">
+    <span style="color:red;font-weight:bold;">! Solr removed until needed (in view and controller)</span>
+</div>
+
+<?php /*
+
+ ADD IF SOLR IS NEEDED
+
+ <div style="border: 1px dotted gray;  padding: 10px; margin-bottom: 20px; width: 70%">
+
+    <h1>Solr (only this host)</h1>
+    <ul>
+        <li>
+            <a href="/yves/cronjob/solr-full-import?<?php echo Pal_Monitoring_CronjobController::GET_PARAM_REDIRECTION; ?>=/yves">Full
+                Import</a> - Does delete and synchronize in one
+            transaction.
+        </li>
+        <li>
+            <a href="/yves/cronjob/solr-synchronize?<?php echo Pal_Monitoring_CronjobController::GET_PARAM_REDIRECTION; ?>=/yves">Synchronize</a>
+            - Synchronizes solr with ZED-database.
+        </li>
+        <li>
+            <a href="/yves/cronjob/solr-delete-all">Delete All</a> - Deletes all items in Solr
+        </li>
+        <li>
+            <a href="<?php echo $this->solrUrl ?>" target="_blank">Solr Admin</a> - Link to local solr admin
+        </li>
+    </ul>
+    <table>
+        <tr>
+            <th>Last modified</th>
+            <td><?php echo $this->solrLastModified ? PalShared_Date::dateTime($this->solrLastModified) : ''  ?></td>
+        </tr>
+        <tr>
+            <th>Number of documents</th>
+            <td><?php echo $this->solrNumDocs ?></td>
+        </tr>
+    </table>
+
+
+</div>
+ */ ?>
+
+<div style="border: 1px dotted gray;  padding: 10px; margin-bottom: 20px; width: 70%">
+
+    <h1>Hosts</h1>
+    <table>
+        <tr>
+            <th>Hostname</th>
+            <th>Type</th>
+            <th>Last Modified</th>
+            <th>Number of documents</th>
+            <th>Current message</th>
+            <th>Send message</th>
+        </tr>
+        <?php foreach ($this->controlData as $entity) {
+        /* @var $entity ProjectA_Zed_Yves_Persistence_PacYvesControl */ ?>
+        <tr>
+            <td><?php echo $entity->getHostname() ?></td>
+            <td><?php echo $entity->getType() ?></td>
+            <td><?php echo $entity->getLastModified() ? ProjectA_Shared_Library_Date::dateTime($entity->getLastModified()) : '' ?></td>
+            <td><?php echo $entity->getNumberOfDocuments() ?></td>
+            <td><?php echo $entity->getMessage() ?></td>
+            <td>
+                <a href="/yves/index/full-import/id/<?php echo $entity->getIdYvesControl() ?>">Full import</a>
+
+                |
+                <a href="/yves/index/delete-all/id/<?php echo $entity->getIdYvesControl() ?>">Delete all</a>
+            </td>
+        </tr>
+
+
+        <?php } ?>
+    </table>
+</div>

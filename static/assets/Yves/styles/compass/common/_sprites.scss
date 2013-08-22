@@ -1,0 +1,13 @@
+// ----- icons
+// $icons-layout: smart;
+// $icons-sprite-dimensions: true;
+// @import 'icons/*.png';
+
+// @include sprite-placeholders( 'icons/*.png' ){
+// 	display: inline-block;
+// 	vertical-align: middle;
+// }
+
+@include sprite-placeholders( 'icons/*.png' ){
+	content: '';
+}

@@ -1,0 +1,89 @@
+.messages {
+  margin-top: 0;
+  margin-bottom: 2em;
+  overflow: hidden;
+
+  &:empty {
+    display: none;
+  }
+
+  ul {
+    @extend %unstyled-list;
+  }
+
+  .message {
+    font-size: .8em;
+
+    border-radius: .5em;
+    padding: 1em;
+
+    list-style: none;
+
+    + .message {
+      margin-top: .25em;
+    }
+
+    &.has-icon {
+      padding-left: ( 3em / .8 );
+      position: relative;
+      min-height: 4em;
+
+      &:before {
+        content: '';
+        position: absolute;
+        left: 1em;
+        top: 1em;
+      }
+    }
+
+    > h1 {
+      margin-top: 0;
+    }
+
+    > p:last-child {
+      margin-bottom: 0;
+    }
+  }
+
+  .success {
+    + .success {
+      margin-top: -1em;
+    }
+  }
+
+  .info {
+    + .info {
+      margin-top: -1em;
+    }
+  }
+
+  .error {
+    + .error {
+      margin-top: -1em;
+    }
+  }
+}
+
+.success {
+  background-color: #efd;
+
+  &.has-icon:before {
+    @extend %icons-sprite-tick-green;
+  }
+}
+
+.info {
+  background-color: $ci-cream;
+
+  &.has-icon:before {
+    @extend %icons-sprite-lightbulb;
+  }
+}
+
+.error {
+  background-color: #fed;
+
+  &.has-icon:before {
+    @extend %icons-sprite-error;
+  }
+}

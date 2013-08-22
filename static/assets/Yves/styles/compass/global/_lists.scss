@@ -1,0 +1,14 @@
+ul,
+ol {
+	&.unstyled {
+		@extend %unstyled-list;
+	}
+}
+
+.horizontal-list {
+	@extend %unstyled-list;
+
+	> li {
+		display: inline-block;
+	}
+}

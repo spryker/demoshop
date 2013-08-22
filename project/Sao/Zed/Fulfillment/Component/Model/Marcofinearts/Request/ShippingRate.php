@@ -1,0 +1,6 @@
+<?php
+
+class Sao_Zed_Fulfillment_Component_Model_Marcofinearts_Request_ShippingRate
+    extends Sao_Zed_Fulfillment_Component_Model_Marcofinearts_Request_Abstract
+{
+}

@@ -1,0 +1,16 @@
+<?php
+/** @var ProjectA_Zed_Sales_Persistence_PacSalesOrder $order */
+$order = $this->order;
+$shippingAddress = $order->getShippingAddress();
+$billingAddress = $order->getBillingAddress();
+
+?>
+<br>
+<fieldset>
+    <legend><?php echo __('edit addresses'); ?></legend>
+    <ul>
+        <li>
+            <a href="/sales/order/edit-address/id/<?php echo $order->getIdSalesOrder(); ?>/type/shipping"><?php echo __('edit shipping'); ?></a>
+        <li>
+            <a href="/sales/order/edit-address/id/<?php echo $order->getIdSalesOrder(); ?>/type/billing"><?php echo __('edit billing'); ?></a>
+</fieldset>

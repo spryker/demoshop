@@ -1,0 +1,15 @@
+<h1>Please select a backend host</h1>
+
+<table>
+    <th>Application server</th>
+    <th>ZED</th>
+    <th>YVES</th>
+
+    <?php foreach ($this->mappings as $host => $value): ?>
+    <tr>
+        <td><b><?php echo $host; ?></b>, port (<?php echo $value['zed_port']; ?>)</td>
+        <td><a href="/system/index/set-cookie/cookie_name/<?php echo $value['zed_cookie_name']; ?>/cookie_value/<?php echo $value['zed_cookie_value']; ?>">Enable ZED on <?php echo $host; ?></a></td>
+        <td><a target="_new" href="http://<?php echo $this->yvesUrl; ?>/system/index?name=<?php echo $value['yves_cookie_name']; ?>&value=<?php echo $value['yves_cookie_value']; ?>">Enable YVES on <?php echo $host; ?></a></td>
+    </tr>
+    <?php endforeach; ?>
+</table>

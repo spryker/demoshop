@@ -1,0 +1,5 @@
+<?php
+
+class Sao_Zed_Dbdump_Module_Controller_Cronjob extends ProjectA_Zed_Dbdump_Module_Controller_Cronjob
+{
+}

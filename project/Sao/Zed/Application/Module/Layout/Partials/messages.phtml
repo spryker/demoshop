@@ -1,0 +1,15 @@
+<?php
+$messages = ProjectA_Zed_Library_FlashMessage::getInstance()->getNotifications();
+foreach($messages as $message){
+    echo '<div class="notification">'.$message.'</div>';
+}
+
+$messages = ProjectA_Zed_Library_FlashMessage::getInstance()->getSuccesses();
+foreach($messages as $message){
+    echo '<div class="success">'.$message.'</div>';
+}
+
+$messages = ProjectA_Zed_Library_FlashMessage::getInstance()->getErrors();
+foreach($messages as $message){
+    echo '<div class="error">'.$message.'</div>';
+}

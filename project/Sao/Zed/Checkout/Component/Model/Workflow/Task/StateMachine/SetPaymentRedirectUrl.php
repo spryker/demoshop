@@ -1,0 +1,17 @@
+<?php
+
+/**
+ * @author Daniel Tschinder <daniel.tschinder@project-a.com>
+ */
+class Sao_Zed_Checkout_Component_Model_Workflow_Task_StateMachine_SetPaymentRedirectUrl extends ProjectA_Zed_Checkout_Component_Model_Workflow_Task_Abstract
+{
+
+    /**
+     * @param Sao_Shared_Sales_Transfer_Order $transferOrder
+     * @param ProjectA_Zed_Checkout_Component_Model_Workflow_Context $context
+     */
+    public function __invoke(Sao_Shared_Sales_Transfer_Order $transferOrder, ProjectA_Zed_Checkout_Component_Model_Workflow_Context $context)
+    {
+        $transferOrder->setRedirectUrl($context->getPaymentResponse()->getRedirectUrl());
+    }
+}

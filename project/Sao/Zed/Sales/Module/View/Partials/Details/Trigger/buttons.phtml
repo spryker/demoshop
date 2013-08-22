@@ -1,0 +1,6 @@
+<?php if ($this->events) : ?>
+    <?php foreach ($this->events as $event) : ?>
+        <a href="/sales/order-details/fire-event/id_sales_order_item/<?php echo $this->item->getIdSalesOrderItem(); ?>/event/<?php echo $event; ?>"
+           class="button"><?php echo $event; ?></a>
+    <?php endforeach; ?>
+<?php endif; ?>

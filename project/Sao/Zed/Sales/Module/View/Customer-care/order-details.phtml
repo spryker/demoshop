@@ -1,0 +1,275 @@
+<?php
+
+/* @var $order ProjectA_Zed_Sales_Persistence_PacSalesOrder */
+$order = $this->order;
+
+/* @var $payment ProjectA_Zed_Payment_Persistence_PacPayment */
+$payment = $order->getPayment();
+
+
+/* @var $balance Entity_PacPaymentPayoneTransactionStatus */
+$balance = $this->balance;
+
+/* @var $shippingAddress ProjectA_Zed_Sales_Persistence_PacSalesOrderAddress */
+$shippingAddress = $order->getShippingAddress();
+
+/* @var $billingAddress ProjectA_Zed_Sales_Persistence_PacSalesOrderAddress */
+$billingAddress = $order->getBillingAddress();
+
+/* @var $grandTotal int */
+$grandTotal = $order->getGrandTotal();
+
+$isPaid = is_object($balance) ? $balance->isPaid() : false;
+
+?>
+
+<div style="float: right"><a href="/sales/payment/manual-capture/id_order/<?php echo $order->getIdSalesOrder()?>"><?php echo __('manual capture'); ?></a></div>
+<a href=""></a>
+<h1><?php echo $this->translate('Order Number') ?>: <?php echo $this->order->getIncrementId(); ?></h1>
+
+<hr/>
+<?php if(!empty($payment)){ ?>
+<div
+    style="float: right; border-left: 2px dotted #e1e1e1; width: 50%; padding: 10px; padding-left: 50px; margin-bottom: 20px; ">
+    <h2><?php echo __('Payment'); ?></h2>
+    <h3><?php echo __('Data'); ?></h3>
+    <table class="payment">
+        <thead>
+        <th><?php echo __('Status'); ?></th>
+        <th><?php echo __('Method'); ?></th>
+        <th><?php echo __('Transaction ID'); ?></th>
+        </thead>
+        <tr>
+            <td style="color: <?php echo $isPaid ? 'green' : 'orange' ?>; font-weight: bold"><?php echo $this->paymentStatus; ?></td>
+            <td><?php echo $payment->getMethod(); ?></td>
+            <td><?php echo $payment->getTransaction(); ?></td>
+        </tr>
+        <tr class="details">
+            <td colspan="4">
+                <?php $histories = $payment->getPaymentHistories();
+                foreach ($histories as $history):?>
+                    <?php if ($history->getUsedInMethod() != 'doAuthorize') continue; ?>
+                    <?php if ($historyObject = json_decode($history->getRequest())): ?>
+                        <?php if ($payment->getMethod() == 'creditcard'): ?>
+                            <pre>Cardpan: <?php echo isset($historyObject->cardpan) ? $historyObject->cardpan: ''; ?><br/><?php echo __('manual capture'); ?>Card type: <?php echo isset($historyObject->cardtype) ? $historyObject->cardtype : ''; ?><br/>Card holder: <?php echo isset($historyObject->cardholder) ? $historyObject->cardholder: ''; ?><br/>CVC: <?php echo isset($historyObject->cardcvc2) ? $historyObject->cardcvc2 : ''; ?><br/>Expiration date: <?php echo isset($historyObject->cardexpiredate) ? $historyObject->cardexpiredate : ''; ?></pre>
+                            <?php elseif ($payment->getMethod() == 'debit'): ?>
+                            <pre>Bank account: <?php echo isset($historyObject->bankaccount) ? $historyObject->bankaccount : ''; ?><br/><?php echo __('manual capture'); ?>Bank code: <?php echo isset($historyObject->bankcode) ? $historyObject->bankcode : ''; ?><br/>Bank account holder: <?php echo isset($historyObject->bankaccountholder) ? $historyObject->bankaccountholder : ''; ?></pre>
+                            <?php elseif ($payment->getMethod() == 'prepayment'): ?>
+                            <?php endif; ?>
+                        <?php else: ?>
+                        <pre><?php echo $history->getRequest(); ?></pre>
+                        <?php endif; ?>
+                    </pre>
+
+                    <?endforeach;?>
+            </td>
+        </tr>
+    </table>
+
+
+    <h3><?php echo __('Invoice'); ?></h3>
+    <table>
+        <thead>
+        <th><?php echo __('Invoice Number'); ?></th>
+        </thead>
+        <?php $invoiceNumber =  $order->getInvoiceNumber(); ?>
+        <tr>
+            <td><?php echo (empty($invoiceNumber)) ? __('not generated yet') : $invoiceNumber; ?></td>
+        </tr>
+    </table>
+
+
+    <h3><?php echo __('History'); ?></h3>
+    <table>
+
+        <thead>
+        <th><?php echo __('Direction'); ?></th>
+        <th><?php echo __('Action'); ?></th>
+        <th><?php echo __('Time'); ?></th>
+        <th><?php echo __('Balance'); ?></th>
+        <th><?php echo __('Receivable'); ?></th>
+        </thead>
+        <?php foreach ($this->paymentHistory as $paymentArray) {
+        /* @var $transaction Entity_PacPaymentPayoneTransactionStatus */
+        ?>
+        <tr>
+            <td><?php echo __('Message'); ?> <?php echo $paymentArray['direction'] ?> <?php echo __('payone'); ?></td>
+            <td><?php echo $paymentArray['name'] ?></td>
+            <td><?php echo $paymentArray['created_at'] ?></td>
+            <td><?php echo ProjectA_Shared_Library_Currency::format($paymentArray['balance']) ?></td>
+            <td><?php echo ProjectA_Shared_Library_Currency::format($paymentArray['receivable']) ?></td>
+        </tr>
+        <?php } ?>
+
+    </table>
+
+</div>
+<?php } ?>
+<div>
+
+    <h2><?php echo __('Order Totals'); ?></h2>
+    <table class="order-info">
+        <thead>
+        <th><?php echo __('Grand Total'); ?></th>
+        </thead>
+        <tr>
+            <td><span style="font-size:18px;font-weight:bold;"><?php echo ProjectA_Shared_Library_Currency::format($grandTotal); ?></span></td>
+        </tr>
+    </table>
+
+    <br /><br />
+
+    <h2><?php echo __('Customer Information'); ?></h2>
+    <table>
+        <thead>
+        <th><?php echo $this->translate('Customer') ?></th>
+        <th><?php echo $this->translate('Shipping Address') ?></th>
+        <th><?php echo $this->translate('Billing Address') ?></th>
+        </thead>
+        <tr>
+            <td>
+                <?php echo $this->order->getCustomer()->getFirstName() . ' ' . $this->order->getCustomer()->getLastName(); ?><br/>
+                <?php echo $this->order->getCustomer()->getEmail(); ?><br/>
+                <?php //echo $this->customer->getGender(); ?><br/>
+                <?php //echo $this->customer->getDateOfBirth(); ?>
+            </td>
+            <td>
+                <?php echo $shippingAddress->getFirstName() . ' ' . $shippingAddress->getLastName(); ?><br/>
+                <?php if ($shippingAddress->getCompany()): ?>
+                <?php echo $shippingAddress->getCompany(); ?><br/>
+                <?php endif; ?>
+                <?php echo $shippingAddress->getAddress1(); ?> <?php echo $shippingAddress->getAddress2(); ?><br/>
+                <?php echo $shippingAddress->getCity() . ' ' . $shippingAddress->getZipCode(); ?><br/>
+                <?php echo $shippingAddress->getDescription(); ?><br/>
+                <?php echo $this->translate('Phone') ?>: <?php echo $shippingAddress->getPhone(); ?><br/>
+                <?php echo $this->translate('Cellphone') ?>: <?php echo $shippingAddress->getCellPhone(); ?>
+            </td>
+            <td>
+                <?php echo $billingAddress->getFirstName() . ' ' . $billingAddress->getLastName(); ?><br/>
+                <?php if ($billingAddress->getCompany()): ?>
+                <?php echo $billingAddress->getCompany(); ?><br/>
+                <?php endif; ?>
+                <?php echo $billingAddress->getAddress1(); ?> <?php echo $billingAddress->getAddress2(); ?><br/>
+                <?php echo $billingAddress->getCity() . ' ' . $billingAddress->getZipCode(); ?><br/>
+                <?php echo $billingAddress->getDescription(); ?><br/>
+                <?php echo $this->translate('Phone') ?>: <?php echo $billingAddress->getPhone(); ?><br/>
+                <?php echo $this->translate('Cellphone') ?>: <?php echo $billingAddress->getCellPhone(); ?>
+            </td>
+            <!--
+        <td>
+            <?php if ($this->payment instanceof ProjectA_Zed_Payment_Persistence_PacPayment): ?>
+                <?php echo $this->translate('Paymentmethod') . ': ' . ucfirst($this->payment->getMethod()); ?><br />
+            <?php endif; ?>
+        </td>
+        -->
+        </tr>
+        <tr>
+            <td colspan="3">
+                <h3><?php echo __('Manual event trigger for all order items'); ?>:</h3>
+                <?php foreach ($this->manuallyExecuteableEventsByOrder as $event):?>
+                <a href="/sales/order-details/fire-event-order/id_sales_order/<?php echo $order->getIdSalesOrder()?>/event/<?php echo $event ?>" class="button" style="float: left; margin: 5px; display: block; width: 150px;"><?php echo $event ?></a>
+                <?php endforeach; ?>
+            </td>
+        </tr>
+    </table>
+</div>
+
+<hr style="clear: both"/>
+<h2><?php echo __('Order Items'); ?></h2>
+<table style="width: 100%">
+    <thead>
+    <th><?php echo __('Order Item ID'); ?></th>
+    <th><?php echo __('SKU'); ?></th>
+    <th><?php echo __('Name'); ?></th>
+    <th><?php echo __('Price To Pay'); ?></th>
+    <th><?php echo __('Gross Price'); ?></th>
+    <th><?php echo __('Tax Amount'); ?></th>
+    <th><?php echo __('Current Status'); ?></th>
+
+    <th><?php echo __('Status History'); ?></th>
+    <th><?php echo __('Manual Events'); ?></th>
+    </thead>
+    <?php foreach ($this->items as $item) {
+    /* @var $item ProjectA_Zed_Sales_Persistence_PacSalesOrderItem */
+    $itemHistory = null;
+    if(isset($this->statusHistory[$item->getIdSalesOrderItem()])) {
+        $itemHistory = $this->statusHistory[$item->getIdSalesOrderItem()];
+    }
+
+    ?>
+    <tr>
+        <td><?php echo $item->getIdSalesOrderItem() ?></td>
+        <td><a href="/catalog/product/edit/id/<?php echo $this->model->getCatalogProductIdBySku($item->getSku()); ?>"><?php echo $item->getSku() ?></a></td>
+        <td><?php echo $item->getName() ?></td>
+        <td><?php echo ProjectA_Shared_Library_Currency::format($item->getPriceToPay()) ?></td>
+        <td><?php echo ProjectA_Shared_Library_Currency::format($item->getGrossPrice()) ?></td>
+        <td><?php echo ProjectA_Shared_Library_Currency::format($item->getTaxAmount()) ?></td>
+        <td><b><?php echo $item->getStatus()->getName() ?></b><br/>
+            <a href="/sales/state-machine/graph/process/<?php echo $order->getProcess()->getName() ?>/highlighted_status/<?php echo $item->getStatus()->getName() ?>"
+               class="small"
+               target="_blank"><?php echo __('show in state-machine'); ?></a><br />
+            <a href="/sales/state-machine/documentation?process=<?php echo $order->getProcess()->getName() ?>&state=<?php echo $item->getStatus()->getName() ?>"
+               class="small"
+               target="_blank"><?php echo __('status details'); ?></a>
+        </td>
+
+        <td style="font-size: 9px">
+            <table style="border: 0px; width: 100%">
+                <?php if(null === $itemHistory) : ?>
+                <th style="border: 0px; border-bottom: 1px solid silver">
+                    No history available
+                </th>
+                <?php else : ?>
+                <?php foreach ($itemHistory as $i => $status) { ?>
+                    <tr>
+                        <th style="border: 0px; border-bottom: 1px solid silver; white-space: nowrap;">
+                            <?php echo count($itemHistory) - ($i) . '. ' . $status['status'] ?></th>
+                        <td style="border: 0px; border-bottom: 1px solid silver; text-align: right;  white-space: nowrap;"><?php echo $status['created_at'] ?></td>
+                    </tr>
+                    <?php } ?>
+                <?php endif; ?>
+            </table>
+        </td>
+        <td>
+            <?php foreach ($this->manuallyExecuteableEventsByItem[$item->getIdSalesOrderItem()] as $event) { ?>
+            <a href="/sales/order-details/fire-event/id_sales_order_item/<?php echo $item->getIdSalesOrderItem()?>/event/<?php echo $event ?>" class="button" style="display: block; margin: 5px; font-size: 9px"><?php echo $event ?></a>
+            <?php } ?>
+        </td>
+    </tr>
+    <?php } ?>
+
+</table>
+
+<?php if (APPLICATION_ENV !== 'production') { ?>
+<hr />
+<h2><?php echo __('Payment Simulator (for testing and development only)'); ?></h2>
+<ul>
+    <li><a href="/sandbox/payment/simulate-appointed/id_order/<?php echo $order->getIdSalesOrder() ?>""><?php echo __('Send appointed'); ?></a></li>
+
+    <li><a href="/sandbox/payment/simulate-capture/id_order/<?php echo $order->getIdSalesOrder() ?>"><?php echo __('Send capture'); ?></a></li>
+    <!--
+
+    <li><a href="/sandbox/payment/simulate-paid/id_order/<?php echo $order->getIdSalesOrder() ?>">Send
+        paid TODO</a></li>
+
+    <li><a href="/sandbox/payment/simulate-underpaid/id_order/<?php echo $order->getIdSalesOrder() ?>">Send
+        underpaid TODO</a></li>
+
+    <li><a href="/sandbox/payment/simulate-cancelation/id_order/<?php echo $order->getIdSalesOrder() ?>">Send
+        cancelation TODO</a></li>
+
+    <li><a href="/sandbox/payment/simulate-refund/id_order/<?php echo $order->getIdSalesOrder() ?>">Send
+        refund TODO</a></li>
+
+    <li><a href="/sandbox/payment/simulate-debit/id_order/<?php echo $order->getIdSalesOrder() ?>">Send
+        debit TODO</a></li>
+
+    <li><a href="/sandbox/payment/simulate-transfer/id_order/<?php echo $order->getIdSalesOrder() ?>">Send
+        transfer TODO</a></li>
+        -->
+
+</ul>
+
+<?php } ?>
+
+

@@ -1,0 +1,9 @@
+<?php /** @var $expense ProjectA_Zed_Sales_Persistence_PacSalesExpense */ ?>
+<?php if (count($this->expenses) > 0) : ?>
+    <?php foreach ($this->expenses as $expense) : ?>
+        <tr class="row-with-span">
+            <td colspan="2"> + <?php echo $expense->getName() . ' ' . $expense->getType(); ?> (item-expense)</td>
+            <td><?php echo ProjectA_Shared_Library_Currency::format($expense->getGrossPrice()) ?></td>
+            <?php echo $this->partial('statusoverview/discount.phtml', array('discounts' => $expense->getDiscounts())); ?>
+        </tr>    <?php endforeach; ?>
+<?php endif; ?>

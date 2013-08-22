@@ -1,0 +1,330 @@
+// custom normalize
+@import 'global/normalize_custom';
+@include normalize(
+  $exclude: pre h1,
+  $include: article aside section fieldset main nav table
+);
+
+// Corporate Identity - yup, that's how we roll!
+@import 'common/ci';
+
+// grid
+// i hate grids
+// seriously
+// i HATE grids
+// how do you want to name something "grid-4" and then try to build a responsive page?!
+// Foundation grid at least TRIES to handle it nicely
+// ... but that doesn't change a thing for me - i HATE GRIDS
+@import "foundation/foundation-global";
+
+@import "foundation/components/grid";
+
+// mixins
+@import 'compass/css3';
+@import 'common/mixins';
+@import 'common/placeholders';
+
+// sprites
+@import 'common/sprites';
+
+
+* {
+  @include box-sizing( border-box );
+}
+
+html {
+  height: 100%;
+  // overflow: auto;
+}
+
+body {
+  color: $ci-text-base;
+  min-height: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+// globals
+@import 'global/typography';
+@import 'global/display';
+@import 'global/lists';
+@import 'global/forms';
+@import 'global/helpers';
+@import 'global/messages';
+@import 'global/glyphicons';
+@import 'global/social';
+
+@import 'ui/datepicker';
+
+@import 'pages/error';
+@import 'pages/blank';
+
+$big-shadow-image: 'shadow-big.png';
+
+%big-shadow {
+  background: image-url( $big-shadow-image ) no-repeat 50% 0;
+}
+
+$footer-height: 3.5em;
+
+.page-wrap {
+  min-height: 100%;
+  height: auto;
+  margin: 0 auto ( - $footer-height );
+}
+
+.page-main {
+  @extend %big-shadow;
+
+  padding: {
+    // top: image-height( $big-shadow-image ) + 50px;
+    top: 3em;
+    bottom: ( $footer-height ) + 2;
+  }
+}
+
+.page-header {
+  padding: {
+    top: 1.35em;
+    bottom: 1.35em;
+  }
+}
+
+.page-footer {
+  @extend %big-shadow;
+
+  padding-top: 1.5em;
+
+  height: $footer-height;
+
+  h1 {
+    font-size: .7em;
+    font-weight: 400;
+    margin: 0;
+  }
+
+  nav {
+    font-size: .7em;
+
+    li + li {
+      margin-left: 2em;
+    }
+  }
+}
+
+/* logo */
+
+.saatchi-logo {
+  $logo-image : 'logo.png';
+
+  font-size: 1em;
+
+  margin: 0;
+  overflow: hidden;
+  // margin: 2em 0 5px;
+
+  .ir {
+    display: block;
+    background-image: image-url( $logo-image );
+    height: image-height( $logo-image );
+    width: image-width( $logo-image );
+    margin: 0 0 3px; // MEASURE & TEST
+    // margin: 1em 0 3px;
+  }
+
+  & + h2 {
+    font-size: .9em;
+    font-weight: 400;
+    color: $ci-gray;
+    margin: 0;
+
+        a {
+          text-decoration: none;
+          color:inherit;
+        }
+  }
+}
+
+hr {
+  border: 0;
+  border-top: 1px solid mix( $ci-silver, $ci-white-smoke );
+  border-bottom: 1px solid #fff;
+
+  background: #fff image-url( $big-shadow-image ) no-repeat 50% 0;
+
+  height: 3px;
+
+  margin: 1.5em 0;
+  // height: 10px;
+  // @include box-shadow( inset 0 2px 5px red );
+
+  &[data-separator] {
+    position: relative;
+
+    &::after {
+      content: attr( data-separator );
+      background: #fff;
+      padding: 0 10px;
+      font-size: 14px;
+      line-height: 20px;
+      top: 50%;
+      left: 50%;
+      margin-top: -10px;
+      position: absolute;
+      text-align: center;
+
+      @include transform( translate( -50%, 0 ) );
+    }
+  }
+}
+
+.vertical-separator {
+  @media #{$small} {
+    // background: $ci-silver;
+    background-image: linear-gradient( #fff, $ci-silver, #fff );
+    background-repeat: no-repeat;
+    background-position: 50%;
+    background-size: 2px 100%;
+
+    $points : 12;
+
+    @while $points > 0 {
+      $x : ( $points / 12 ) * 100%;
+      $x2 : ( ( $points * 2 + 1 ) / 24 ) * 100%;
+
+      &.split-at-#{$points} {
+        background-position: $x 50%;
+
+        &:before {
+          left: $x;
+        }
+      }
+
+      &.split-at-#{$points}_5 {
+        background-position: $x2 50%;
+
+        &:before {
+          left: $x2;
+        }
+      }
+
+      $points : $points - 1;
+    }
+
+
+    &[data-separator] {
+      position: relative;
+
+      &:before {
+        content: attr( data-separator );
+        text-shadow: 0 0 5px #fff;
+        position: absolute;
+        width: 5em;
+        line-height: 2em;
+        margin-left: -2.5em;
+        margin-top: -1em;
+        text-align: center;
+        left: 50%;
+        top: 50%;
+        font-weight: 700;
+        color: $ci-gray;
+        pointer-events: none;
+        background: #fff;
+      }
+    }
+  }
+}
+
+@import 'modules/basic';
+
+.wellcome-box {
+  background: $ci-white-smoke;
+  // border: 1px solid mix( $ci-gray, $ci-white-smoke );
+  padding: 15px;
+
+  p {
+    font-size: .8em;
+
+    margin: .25em 0 0;
+
+    + p {
+      margin-top: 1em;
+    }
+  }
+}
+
+@import 'pages/global/legacy-header';
+
+@import 'checkout';
+// will be separated afterwards
+
+a.debug {
+  padding: .35em .5em;
+  margin: .5em;
+  @include box-shadow( 0 0 5px #f00 );
+  @include background( linear-gradient( -45deg, #f00 23%, #c00 27%, #c00 48%, #f00 52%, #f00 73%, #c00 77% ));
+  background-size: 20px 20px;
+  border: 1px solid #c00;
+
+  border-radius: .35em;
+
+  color: #fff !important;
+  text-shadow: 0 -1px rgba( 0, 0, 0, .5 );
+  font-weight: 700;
+  font-size: 12px !important;
+  text-decoration: none;
+
+  @include transition( all .25s );
+
+  &:hover {
+    @include box-shadow( 0 0 15px #f00 );
+  }
+}
+
+.debug-links {
+  position: fixed;
+  z-index: 99;
+  top: 1px;
+  left: -150px;
+  width: 170px;
+
+  padding: 5px 25px 5px 5px;
+  border: 1px solid $ci-silver;
+  font-size: 12px;
+
+  &:before {
+    content: '';
+    position: absolute;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    @include background( linear-gradient( -45deg, #f00 23%, #c00 27%, #c00 48%, #f00 52%, #f00 73%, #c00 77% ));
+    background-size: 20px 20px;
+    width: 20px;
+  }
+
+  &:after {
+    content: 'sandbox';
+    position: absolute;
+    left: 100%;
+    bottom: 0;
+    line-height: 20px;
+    font-weight: 700;
+    color: #fff;
+    text-indent: .5em;
+
+    @include transform( rotate( -90deg ));
+    @include transform-origin( 0%, 100% );
+  }
+
+  background: #fff;
+
+  @include transition( left 2s );
+
+  &:hover {
+    left: 1px;
+
+    @include transition( left .25s );
+  }
+}

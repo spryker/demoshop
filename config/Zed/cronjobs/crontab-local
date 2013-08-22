@@ -1,0 +1,14 @@
+# Crontab file for system-specific jobs - executes on every webserver
+#
+# There should be no entries here, except system maintenance tasks (like indexers)
+# Please use Jenkins to manage other jobs.
+#
+# This file contains the crontab file which will be updated while deployment
+# Following variables are available:
+# ENVIRONMENT (z.B: production)
+# CURRENT_DIR (z.B: /data/shop/production/current)
+#
+# SEE: http://en.wikipedia.org/wiki/Cron
+
+* * * * * www-data cd ${CURRENT_DIR}/deploy && flock -n /tmp/lock.${APPLICATION_ENV}.memcache ./exec_foreach_store ./cron_update_memcache
+# * * * * * www-data cd ${CURRENT_DIR}/deploy && flock -n /tmp/lock.${APPLICATION_ENV}.monitor_fatals ./exec_default_store ./cron_monitor_fatals

@@ -1,0 +1,45 @@
+$cells : 12;
+$cell-i : $cells;
+$cell-unit : ( 1 / $cells ) * 100%;
+
+@while $cell-i > 0 {
+	.cell-#{$cell-i} {
+		width: $cell-i * $cell-unit;
+		$cell-i : $cell-i - 1;
+	}
+
+	@if $cell-i > 0 {
+		.offset-#{$cell-i} {
+			margin-left: $cell-i * $cell-unit;
+		}
+	}
+}
+
+.grid-row {
+	&.top-aligned {
+		.grid-cell {
+			vertical-align: top;
+		}
+	}
+
+	&.bottom-aligned {
+		.grid-cell {
+			vertical-align: bottom;
+		}
+	}
+
+	display: table;
+
+	.grid-cell {
+		height: 100%;
+		display: table-cell;
+	}
+}
+
+.grid-cell {
+	display: inline-block;
+	vertical-align: middle;
+
+	padding-left: 1em;
+	padding-right: 1em;
+}

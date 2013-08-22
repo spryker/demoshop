@@ -1,0 +1,22 @@
+{
+  "name": "yves_zed",
+  "description": "Grunt asset distribution for Yves & Zed",
+  "author": {
+    "name": "Project A Ventures",
+    "email": "info@project-a.com",
+    "url": "http://www.project-a.com/"
+  },
+  "devDependencies": {
+    "grunt": "~0.4",
+    "grunt-contrib-clean": "~0.5",
+    "grunt-contrib-copy": "~0.4",
+    "grunt-contrib-watch": "~0.5",
+    "grunt-contrib-compass": "~0.5",
+    "grunt-contrib-jshint": "~0.6",
+    "grunt-contrib-requirejs": "~0.4",
+    "grunt-hashmap": "~0.1",
+    "grunt-hashmap-ext": "~0.1",
+    "grunt-contrib-jasmine": "~0.5",
+    "grunt-template-jasmine-requirejs": "~0.1"
+  }
+}

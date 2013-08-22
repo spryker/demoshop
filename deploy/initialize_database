@@ -1,0 +1,22 @@
+#!/bin/bash
+#
+# *** Project-A deployment
+#
+# initialize_database
+# This script is executed on tools host after performing migrations.
+# It should perform database content transformations if they are needed (for example, initialize empty database).
+# This script MUST NOT destroy the existing database contents, it's executed on each deployment!
+#
+#
+
+FILEPATH=`pwd`/$0; BASEDIR=`dirname $FILEPATH`; . $BASEDIR/vars; source $BASEDIR/functions
+outfile=`mktemp /tmp/deploy-diff-XXXXXX`
+
+cd $destination_release_dir/project/Zed
+
+# Initialize database (fill in default values)
+echo "Initialize database with default values (incl. state machine states) for $APPLICATION_STORE"
+APPLICATION_ENV=${environment} php -d "newrelic.appname='Deploy($environment)'" cli/index.php --module=setup --controller=initialize-database --action=index
+
+rm -f $outfile
+exit $return

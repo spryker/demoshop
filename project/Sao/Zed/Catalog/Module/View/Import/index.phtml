@@ -1,0 +1,22 @@
+<?php
+$this->headLink()
+->appendStylesheet('/styles/catalog.css');
+?>
+
+<div class="paddingBottom20">
+<h2>foreach new products -> will check all</h2>
+<h2>for updates -> will skip mandatory check</h2>
+<h2>stops at error row</h2>
+checks:
+<ol>
+    <li>basic product data, valid product variety, valid status, valid attribute set</li>
+    <li>if mandatory attributes are set</li>
+    <li>if attributes are filled that are not part of the set</li>
+    <li>if attribute is a an option single one, check for valid values</li>
+    <li>if a category path is invalid</li>
+</ol>
+</div>
+
+<?php
+echo $this->crud;
+echo ProjectA_Zed_Library_Ui_Button_Factory::getCta()->setLabel(__('import products'))->setClick("if(confirm('" . __('confirm product import') . "')){document." . $this->form->getName() . ".submit();}else{return false;};");

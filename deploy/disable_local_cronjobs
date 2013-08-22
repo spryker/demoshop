@@ -1,0 +1,19 @@
+#!/bin/bash
+#
+# *** Project-A deployment
+#
+# disable_local_cronjobs
+# This script is executed on all hosts (with root privileges) in order to deactivate local cronjobs for deployment time.
+#
+#
+
+FILEPATH=`pwd`/$0; BASEDIR=`dirname $FILEPATH`; source $BASEDIR/vars; source $BASEDIR/functions
+outfile=`mktemp /tmp/deploy-XXXXXX`
+
+rm -f /etc/cron.d/${environment}-zed-local
+
+cd $destination_release_dir/project/Zed
+APPLICATION_ENV=${environment} php cli/index.php --module=setup --controller=jenkins --action=disable
+
+rm -f $outfile
+exit 0

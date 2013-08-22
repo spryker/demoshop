@@ -1,0 +1,12 @@
+<div class="debug-links">
+    <a href="/cart">Go to cart</a><br>
+    <a href="/customer/index/register">Register customer</a><br>
+    <a href="/customer/index/index">Login customer</a><br>
+    <a href="/customer/index/logout">Logout customer</a><br><br>
+    <a href="/customer/catalog/sandbox/" style="color:red;">Sandbox Shopping</a><br><br>
+    Create a legacy session in the memcache for this user-id (0 = logout)
+    <form action="/customer/index/mockLegacySession">
+        <input name="user-id" value="<?php echo CHtml::encode(Sao_Yves_Legacy_Component_Model_Session::getInstance()->getUserId()) ?>">
+        <input type="submit">
+    </form>
+</div>

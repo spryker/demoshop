@@ -1,0 +1,33 @@
+<?xml version="1.0"?>
+<database name="zed"
+          package="vendor/project-a/adyen-package/ProjectA/Zed/Adyen/Persistence"
+          tablePrefix="pac_"
+          defaultIdMethod="native"
+          defaultPhpNamingMethod="underscore"
+          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+          xsi:noNamespaceSchemaLocation="http://xsd.propelorm.org/1.6/database.xsd">
+
+    <table name="payment_adyen" idMethod="native"  phpName="PacPaymentAdyen">
+        <column name="id_payment_adyen" required="true" type="INTEGER" primaryKey="true" />
+        <column name="authCode" required="false" size="10" type="VARCHAR"/>
+        <foreign-key foreignTable="payment" phpName="Payment" refPhpName="PaymentAdyen">
+            <reference local="id_payment_adyen" foreign="id_payment"/>
+        </foreign-key>
+    </table>
+
+    <!--
+    <table name="payment_adyen_transaction" idMethod="native"  phpName="PacPaymentAdyenTransaction">
+        <column name="id_payment_adyen_transaction" required="true" type="INTEGER" primaryKey="true" autoIncrement="true"/>
+        <column name="psp_reference" required="true" size="16" type="VARCHAR"/>
+        <column name="request" required="false" type="VARCHAR" size="20" />
+        <column name="amount" required="false" type="INTEGER" />
+        <column name="balance" required="false" type="INTEGER" />
+        <column name="receivable" required="false" type="INTEGER" />
+        <column name="is_outbound" type="BOOLEAN" required="true" />
+        <column name="is_success" type="BOOLEAN" required="true" />
+        <column name="request_data" required="false" type="LONGVARCHAR" />
+        <column name="response_data" required="false" type="LONGVARCHAR" />
+    </table>
+    -->
+
+</database>

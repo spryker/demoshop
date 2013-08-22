@@ -1,0 +1,53 @@
+<?php
+$this->headLink()
+->appendStylesheet('/styles/catalog.css');
+
+// jQuery UI versions:  http://code.google.com/apis/ajaxlibs/documentation/#jqueryUI
+$this->headScript()
+    ->appendFile('/scripts/jquery.tools.min.js')
+    ->appendFile( (ProjectA_Shared_Library_Config::get('zed')->ssl_enabled ? 'https' : 'http') . '://ajax.googleapis.com/ajax/libs/jqueryui/1.8.1/jquery-ui.min.js');
+
+echo $this->partial('product/partials/flash-messages.phtml');
+?>
+
+<script type="text/javascript">
+    $(function() {
+
+        var imagesrc = '<?=Nu3Shared_Image::getAbsoluteProductImageUrl($this->productImages['cart']['src'], ProjectA_Shared_Library_Image::TYPE_CART) ?>';
+        parent.replaceUpdatedProductImage(imagesrc);
+
+        $('#images span').each(function(index) {
+            $(this).tooltip({
+                tip: '#image_' + this.id,
+                position: 'center right',
+                offset: [100, 0],
+                delay: 0
+            });
+        });
+    });
+</script>
+
+<div>
+    <div>
+        <?=$this->crud?>
+    </div>
+    <div class="clear"></div>
+
+    <?php
+    echo ProjectA_Zed_Library_Ui_Button_Factory::getCta()->setLabel(__('save image'))->setClick("if(confirm('" . __('confirm change product image') . "')){document." . $this->form->getName() . ".submit();}else{return false;};");
+    ?>
+
+    <div id="images">
+        <h3><?php echo __('available image sizes'); ?></h3>
+        <?
+        if(!empty($this->productImages)) {
+            foreach($this->productImages as $imageType => $image) {
+                echo '<span id="' . $imageType . '">' . $imageType . '</span>';
+                echo '<div style="display:none;" id="image_' . $imageType . '"><img src="' . Nu3Shared_Image::getAbsoluteProductImageUrl($image['src'], strtoupper('type_'.$imageType)) . '" /></div>';
+            }
+        } else {
+            echo '<span class="paddingRight10">' . __('missing image') . '</span>';
+        }
+        ?>
+    </div>
+</div>

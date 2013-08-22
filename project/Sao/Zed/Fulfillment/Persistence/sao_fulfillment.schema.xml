@@ -1,0 +1,146 @@
+<?xml version="1.0"?>
+<database name="zed"
+          defaultIdMethod="native"
+          defaultPhpNamingMethod="underscore"
+          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+          xsi:noNamespaceSchemaLocation="http://xsd.propelorm.org/1.6/database.xsd">
+
+    <table name="sao_fulfillment_provider" idMethod="native" package="project/Sao/Zed/Fulfillment/Persistence"  phpName="SaoFulfillmentProvider">
+        <column name="id_provider" required="true" type="INTEGER" autoIncrement="true" primaryKey="true"/>
+        <column name="legacy_id" required="true" type="INTEGER"/>
+        <column name="name" type="VARCHAR" size="255" required="true"/>
+        <column name="short_name" type="VARCHAR" size="255" required="true"/>
+        <column name="email" required="true" size="255" type="VARCHAR"/>
+
+        <behavior name="timestampable"/>
+
+        <unique>
+            <unique-column name="legacy_id"/>
+        </unique>
+        <unique>
+            <unique-column name="short_name"/>
+        </unique>
+    </table>
+
+    <table name="sao_fulfillment_quote" package="project/Sao/Zed/Fulfillment/Persistence"  phpName="SaoFulfillmentQuote">
+        <column name="id_quote" type="INTEGER" required="true" primaryKey="true" autoIncrement="true"/>
+        <column name="fk_sales_order" type="INTEGER" required="true"/>
+        <column name="fk_fulfillment_provider" required="true" type="INTEGER"/>
+
+        <column name="quote_id" type="VARCHAR" required="true" size="255" description="needs to be set for tracking"/>
+        <column name="fk_shipping_agent" required="true" type="INTEGER"/>
+
+        <column name="shipping_product" type="VARCHAR" size="255"/>
+        <column name="shipping_price" type="INTEGER"/>
+        <column name="shipping_freight" type="INTEGER"/>
+        <column name="shipping_tax_duties" type="INTEGER"/>
+        <column name="shipping_currency_code" type="VARCHAR" size="20"/>    
+        <column name="packing_slip_url_front" type="VARCHAR" size="255"/>
+        <column name="packing_slip_url_back" type="VARCHAR" size="255"/>
+        <column name="provider_order_number" type="VARCHAR" size="20"/>
+        <column name="internal_order_number" type="VARCHAR" size="20"/>
+        <column name="order_timestamp" type="TIMESTAMP" required="false"/>
+        <column name="is_deleted" type="BOOLEAN" default="false" />
+
+        <behavior name="timestampable"/>
+
+        <foreign-key foreignTable="sao_fulfillment_shipping_agent" phpName="ShippingAgent" refPhpName="Quote">
+            <reference local="fk_shipping_agent" foreign="id_shipping_agent"/>
+        </foreign-key>
+        <foreign-key foreignTable="pac_sales_order" phpName="Order" refPhpName="Quote">
+            <reference local="fk_sales_order" foreign="id_sales_order"/>
+        </foreign-key>
+        <foreign-key foreignTable="sao_fulfillment_provider" phpName="Provider" refPhpName="Quote">
+            <reference local="fk_fulfillment_provider" foreign="id_provider"/>
+        </foreign-key>
+    </table>
+
+    <table name="sao_fulfillment_quote_item" package="project/Sao/Zed/Fulfillment/Persistence"  phpName="SaoFulfillmentQuoteItem" isCrossRef="true">
+        <column name="fk_fulfillment_quote" type="INTEGER" required="true" primaryKey="true"/>
+        <column name="fk_sales_order_item" type="INTEGER" required="true" primaryKey="true"/>
+
+        <behavior name="timestampable"/>
+
+        <foreign-key foreignTable="sao_fulfillment_quote" phpName="Quote" refPhpName="QuoteItem">
+            <reference local="fk_fulfillment_quote" foreign="id_quote"/>
+        </foreign-key>
+        <foreign-key foreignTable="pac_sales_order_item" phpName="Item" refPhpName="QuoteItem">
+            <reference local="fk_sales_order_item" foreign="id_sales_order_item"/>
+        </foreign-key>
+    </table>
+
+    <table name="sao_fulfillment_shipping_agent" package="project/Sao/Zed/Fulfillment/Persistence"  phpName="SaoFulfillmentShippingAgent">
+        <column name="id_shipping_agent" type="INTEGER" required="true" primaryKey="true" autoIncrement="true"/>
+        <column name="internal_name" type="VARCHAR" size="50"/>
+        <column name="name" type="VARCHAR" size="50"/>
+        <column name="tracking_url" type="VARCHAR" size="255"/>
+
+        <behavior name="timestampable"/>
+
+        <unique>
+            <unique-column name="internal_name"/>
+        </unique>
+    </table>
+
+    <table name="sao_fulfillment_shipping_tracking" package="project/Sao/Zed/Fulfillment/Persistence"  phpName="SaoFulfillmentShippingTracking">
+        <column name="id_shipping_tracking" type="INTEGER" required="true" primaryKey="true" autoIncrement="true"/>
+        <column name="fk_shipping_agent" type="INTEGER" required="true"/>
+        <column name="fk_quote" type="INTEGER" required="true"/>
+
+        <column name="tracking_number" type="VARCHAR" size="50"/>
+
+        <behavior name="timestampable"/>
+
+        <foreign-key foreignTable="sao_fulfillment_quote" phpName="Quote" refPhpName="Tracking">
+            <reference local="fk_quote" foreign="id_quote"/>
+        </foreign-key>
+        <foreign-key foreignTable="sao_fulfillment_shipping_agent" phpName="ShippingAgent" refPhpName="Tracking">
+            <reference local="fk_shipping_agent" foreign="id_shipping_agent"/>
+        </foreign-key>
+    </table>
+
+    <table name="sao_fulfillment_shipping_tracking_status_history" package="project/Sao/Zed/Fulfillment/Persistence"  phpName="SaoFulfillmentShippingTrackingStatusHistory">
+        <column name="id_shipping_tracking_status_history" type="INTEGER" required="true" primaryKey="true" autoIncrement="true"/>
+        <column name="fk_shipping_tracking" type="INTEGER" required="true"/>
+        <column name="code" type="VARCHAR" size="8" />
+        <column name="description" type="VARCHAR" size="128"/>
+        <column name="notification_timestamp" type="TIMESTAMP" />
+        <behavior name="timestampable"/>
+        <foreign-key foreignTable="sao_fulfillment_shipping_tracking" phpName="Tracking" refPhpName="TrackingStatus">
+            <reference local="fk_shipping_tracking" foreign="id_shipping_tracking"/>
+        </foreign-key>
+    </table>
+
+    <table name="sao_fulfillment_print_product" idMethod="native" package="project/Sao/Zed/Fulfillment/Persistence"
+            phpName="SaoFulfillmentPrintProduct">
+        <column name="id_print_product" required="true" type="INTEGER" autoIncrement="true" primaryKey="true"/>
+        <column name="legacy_product_id" type="INTEGER" required="true"/>
+        <column name="fk_option" type="INTEGER" required="false"/>
+        <column name="fk_provider" type="INTEGER" required="true"/>
+        <column name="provider_product_id" type="INTEGER" required="true"/>
+        <column name="vendor_price" type="INTEGER" required="true" default="0" />
+        <column name="artist_cost" type="INTEGER" required="true" default="0" />
+
+        <behavior name="timestampable"/>
+
+        <foreign-key foreignTable="sao_fulfillment_provider" phpName="FulfillmentProvider" refPhpName="PrintProduct">
+            <reference foreign="id_provider" local="fk_provider"/>
+        </foreign-key>
+
+        <foreign-key foreignTable="pac_catalog_option" phpName="Option" refPhpName="PrintProduct">
+            <reference foreign="id_catalog_option" local="fk_option"/>
+        </foreign-key>
+    </table>
+
+    <table name="sao_fulfillment_shipping_pickup" package="project/Sao/Zed/Fulfillment/Persistence"  phpName="SaoFulfillmentShippingPickup">
+        <column name="id_sales_order_item" type="INTEGER" required="true" primaryKey="true" />
+        <column name="date" type="DATE" required="true" />
+        <column name="ready_time" type="TIME" required="true" />
+        <column name="close_time" type="TIME" required="true" />
+        <behavior name="timestampable"/>
+        <foreign-key foreignTable="sao_sales_order_item" phpName="SalesItem" refPhpName="ShippingPickup">
+            <reference local="id_sales_order_item" foreign="id_sales_order_item"/>
+        </foreign-key>
+    </table>
+
+</database>

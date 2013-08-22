@@ -1,0 +1,5 @@
+<?php
+
+class Sao_Zed_Lumberjack_Module_Controller_Cronjob extends ProjectA_Zed_Lumberjack_Module_Controller_Cronjob
+{
+}

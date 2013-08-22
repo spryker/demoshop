@@ -1,0 +1,74 @@
+#!/bin/bash
+#
+# *** Project-A deployment
+#
+# configure_host
+# This script is executed on all hosts, after unpacking release tarball.
+#
+# If application needs any commands to be executed before activating release, it should be put here
+# Examples: generate orm files, compile sass, setup java applications inside Tomcat
+#
+
+FILEPATH=`pwd`/$0; BASEDIR=`dirname $FILEPATH`; source $BASEDIR/vars; source $BASEDIR/functions
+outfile=`mktemp /tmp/deploy-XXXXXX`
+
+### ZED - Execute install.php
+cd $destination_release_dir/project/Zed
+php -d "newrelic.appname='Deploy($environment)'" "public/install.php" &> $outfile
+if [ $? -ne 0 ]; then
+  echo "ATTENTION: There was an error in install.php, refer to $outfile"
+  exit 1
+fi
+
+
+if is_default_store; then
+  ### Tomcat - Deploy warfiles, restart tomcat if there are any new apps
+  cd $shared_dir/tomcat/webapps
+  if is_dwh_host; then
+    echo solr not installed on dwh machine
+  else
+    [ ! -d solr ] && restart_tomcat=1
+    rm -f solr.war
+    ln -s $destination_release_dir/core/Solr/solr.war .
+  fi
+  [ ! -d jenkins ] && restart_tomcat=1
+  rm -f jenkins.war
+  ln -s $destination_release_dir/project/Jenkins/jenkins.war .
+  if [ "$restart_tomcat" == "1" ]; then
+    echo "New java applications have been deployed - restarting Tomcat..."
+    /etc/init.d/tomcat6-${environment} restart
+    sleep 10s # Let's give tomcat some time to warm-up...
+  fi
+
+  ### Solr Init: Create Solr configfiles (solr.xml)
+  #cd $destination_release_dir/project/Zed
+  #php -d "newrelic.appname='Deploy($environment)'" cli/index.php --module=solr --controller=cronjob --action=init &> $outfile
+  #cat $outfile
+  #if [ `grep -ci "restart solr now" $outfile` -gt 0 ]; then
+  #  echo " solr/setup/init requested tomcat restart..."
+  #  /etc/init.d/tomcat6-${environment} restart
+  #  sleep 10s # Let's give tomcat some time to warm-up...
+  #fi
+fi
+
+### Solr Update: Create Solr cores
+#if is_default_store; then
+  #cd $destination_release_dir/project/Zed
+  #php -d "newrelic.appname='Deploy($environment)'" cli/index.php --module=solr --controller=cronjob --action=update
+#fi
+
+### Link public assets to shared static static (for relative URLs in minified stylesheets)
+if is_default_store; then
+  cd $destination_release_dir/data/static
+  for DIR in styles scripts images; do
+    [ ! -e $DIR ] && ln -sf $destination_current_dir/project/Yves/public/$DIR $DIR
+  done
+  ln -s $destination_release_dir/data/static/US/sitemap $destination_release_dir/project/Yves/public/sitemap
+fi
+
+### trying to get legacy header
+cd $destination_release_dir/project/Zed/cli
+php -d "newrelic.appname='Deploy($environment)'" index.php --module=yves --controller=cronjob --action=get-legacy-header
+
+rm -f $outfile
+exit 0

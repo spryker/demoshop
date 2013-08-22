@@ -1,0 +1,127 @@
+<?xml version="1.0"?>
+<database name="zed"
+          tablePrefix="pac_"
+          package="vendor/project-a/checkout-package/ProjectA/Zed/Salesrule/Persistence"
+          defaultIdMethod="native"
+          defaultPhpNamingMethod="underscore"
+          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+          xsi:noNamespaceSchemaLocation="http://xsd.propelorm.org/1.6/database.xsd">
+
+    <table name="salesrule"  phpName="PacSalesrule">
+        <column name="id_salesrule" required="true" type="INTEGER" autoIncrement="true" primaryKey="true" />
+        <column name="name" type="VARCHAR" size="255" required="true" />
+        <column name="description" type="VARCHAR" size="255" default="NULL"/>
+        <column name="display_name" type="VARCHAR" size="255" required="true"/>
+        <column name="scope" type="ENUM" valueSet="global, local"/>
+        <column name="action" type="VARCHAR" size="255" required="true" />
+        <column name="amount" type="FLOAT" required="true" />
+        <column name="is_active" type="TINYINT" default="0" />
+        <behavior name="timestampable"/>
+    </table>
+
+    <table name="salesrule_condition"  phpName="PacSalesruleCondition">
+        <column name="id_salesrule_condition" required="true" type="INTEGER" autoIncrement="true" primaryKey="true" />
+        <column name="fk_salesrule" type="INTEGER" required="true" />
+        <column name="condition" type="LONGVARCHAR" required="true"/>
+        <column name="configuration" type="LONGVARCHAR" required="true"/>
+        <behavior name="timestampable"/>
+        <foreign-key foreignTable="salesrule" phpName="Salesrule" refPhpName="SalesruleCondition">
+            <reference local="fk_salesrule" foreign="id_salesrule"/>
+        </foreign-key>
+    </table>
+
+    <table name="salesrule_codepool"  phpName="PacSalesruleCodepool">
+        <column name="id_salesrule_codepool" required="true" type="INTEGER" autoIncrement="true" primaryKey="true" />
+        <column name="name" type="VARCHAR" size="255" required="true"/>
+        <column name="prefix" type="VARCHAR" size="255" required="false"/>
+        <column name="is_reusable" type="TINYINT" default="0"/>
+        <column name="is_once_per_customer" type="TINYINT" default="1"/>
+        <column name="is_refundable" type="TINYINT" default="0"/>
+        <column name="is_balanced" type="TINYINT" default="0"/>
+        <column name="is_voucher" type="TINYINT" default="0"/>
+        <column name="is_active" type="TINYINT" default="1"/>
+        <behavior name="timestampable"/>
+    </table>
+
+    <table name="salesrule_code"  phpName="PacSalesruleCode">
+        <column name="id_salesrule_code" required="true" type="INTEGER" autoIncrement="true" primaryKey="true" />
+        <column name="fk_salesrule_codepool" type="INTEGER" required="true"/>
+        <column name="fk_customer" type="INTEGER" required="false"/>
+        <column name="code" type="VARCHAR" size="255" required="true">
+            <!--<vendor type="mysql">-->
+                <!--<parameter name="Collate" value="utf8_bin"/>-->
+            <!--</vendor>-->
+        </column>
+        <column name="is_active" type="TINYINT" default="1"/>
+        <unique>
+            <unique-column name="code"/>
+        </unique>
+        <behavior name="timestampable"/>
+        <foreign-key foreignTable="salesrule_codepool" phpName="Codepool" refPhpName="SalesruleCode">
+            <reference local="fk_salesrule_codepool" foreign="id_salesrule_codepool"/>
+        </foreign-key>
+        <foreign-key foreignTable="customer" phpName="Customer" refPhpName="SalesruleCode">
+            <reference local="fk_customer" foreign="id_customer"/>
+        </foreign-key>
+    </table>
+
+    <table name="salesrule_item_discount"  phpName="PacSalesruleItemDiscount">
+        <column name="id_salesrule_item_discount" required="true" type="INTEGER" autoIncrement="true" primaryKey="true" />
+        <column name="fk_sales_order_item" type="INTEGER" required="true"/>
+        <column name="is_refundable" type="TINYINT" default="0"/>
+        <column name="amount" type="INTEGER" required="true" />
+        <behavior name="timestampable"/>
+
+        <foreign-key foreignTable="sales_order_item" phpName="OrderItem" refPhpName="ItemDiscount">
+            <reference local="fk_sales_order_item" foreign="id_sales_order_item"/>
+        </foreign-key>
+    </table>
+
+    <table name="salesrule_code_usage"  phpName="PacSalesruleCodeUsage">
+        <column name="id_salesrule_code_usage" required="true" type="INTEGER" autoIncrement="true" primaryKey="true" />
+        <column name="fk_sales_order" type="INTEGER" required="true"/>
+        <column name="fk_customer" type="INTEGER" required="false"/>
+        <column name="fk_salesrule_code" type="INTEGER" required="true"/>
+        <behavior name="timestampable"/>
+
+        <foreign-key foreignTable="customer" phpName="Customer" refPhpName="CodeUsage">
+            <reference local="fk_customer" foreign="id_customer"/>
+        </foreign-key>
+
+        <foreign-key foreignTable="salesrule_code" phpName="Code" refPhpName="CodeUsage">
+            <reference local="fk_salesrule_code" foreign="id_salesrule_code"/>
+        </foreign-key>
+
+        <foreign-key foreignTable="sales_order" phpName="Order" refPhpName="CodeUsage">
+            <reference local="fk_sales_order" foreign="id_sales_order"/>
+        </foreign-key>
+    </table>
+
+    <table name="salesrule_log"  phpName="PacSalesruleLog">
+        <column name="id_salesrule_log" required="true" type="INTEGER" autoIncrement="true" primaryKey="true" />
+        <column name="fk_sales_order" type="INTEGER" required="true"/>
+        <column name="log" type="LONGVARCHAR" required="true"/>
+        <behavior name="timestampable"/>
+
+        <foreign-key foreignTable="sales_order" phpName="Order" refPhpName="SalesruleLog">
+            <reference local="fk_sales_order" foreign="id_sales_order"/>
+        </foreign-key>
+    </table>
+    <!--table name="salesrule_code_balance_history" package="core/Zed/application/components/Pac/Salesrule/Entity"  phpName="PacSalesruleCodeBalanceHistory">
+        <column name="id_salesrule_code_balance_history" required="true" type="INTEGER" autoIncrement="true" primaryKey="true" />
+        <column name="fk_salesrule_code" type="INTEGER" required="true"/>
+        <column name="fk_customer" type="INTEGER" required="false"/>
+        <column name="code" type="VARCHAR" size="255" required="true">
+            <vendor type="mysql">
+                <parameter name="Collate" value="utf8_bin"/>
+            </vendor>
+        </column>
+        <behavior name="timestampable"/>
+        <foreign-key foreignTable="salesrule_codepool" phpName="Codepool" refPhpName="SalesruleCode">
+            <reference local="fk_salesrule_codepool" foreign="id_salesrule"/>
+        </foreign-key>
+        <foreign-key foreignTable="customer" phpName="Customer" refPhpName="SalesruleCode">
+            <reference local="fk_customer" foreign="id_customer"/>
+        </foreign-key>
+    </table-->
+</database>

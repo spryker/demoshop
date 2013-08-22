@@ -1,0 +1,119 @@
+/* the overlayed element */
+.simple_overlay {
+    display:none;
+    z-index:10000;
+    background-color:white;
+    width:675px;
+    min-height:600px;
+    border:1px solid #666;
+    -moz-box-shadow:0 0 90px 5px #000;
+    -webkit-box-shadow: 0 0 90px #000;
+}
+
+/* close button positioned on upper right corner */
+.simple_overlay .close {
+    background-image:url(/images/layout/close.png);
+    position:absolute;
+    right:-15px;
+    top:-15px;
+    cursor:pointer;
+    height:35px;
+    width:35px;
+}
+
+#previewContainer {
+    padding:20px;
+    font-family: Helmet, Freesans, sans-serif;
+}
+
+#previewContainer h1 {
+    color: rgb(102, 102, 102);
+    display: block;
+    font-family: Helmet, Freesans, sans-serif;
+    font-size: 24px;
+    font-weight: normal;
+    height: 23px;
+    line-height: 28px;
+    vertical-align: baseline;
+    width: 242px;
+}
+
+#previewContainer h2 {
+    color: rgb(137, 137, 137);
+    display: block;
+    font-family: Helmet, Freesans, sans-serif;
+    font-size: 14px;
+    font-weight: normal;
+    height: 16px;
+    line-height: 17px;
+    width: 242px;
+}
+
+#previewContainer h3 {
+    margin-top:20px;
+    margin-bottom:5px;
+}
+
+#previewPane {
+    -webkit-border-radius: 15px;
+    -moz-border-radius: 15px;
+    border-radius: 15px;
+    border-color: black;
+    border-width: 1px;
+    border-style:solid;
+    padding:20px;
+    background: #d3d3d3;
+}
+
+.previewVersionHide {
+    display:none !important;
+}
+
+.previewVersionShow {
+    display: table-row !important;
+}
+
+.previewVersionIconHide {
+    background-image: url('/images/layout/Crystal_Clear_action_1uparrow.png') !important;
+}
+
+.previewVersionIconShow {
+    background-image: url('/images/layout/Crystal_Clear_action_1downarrow.png');
+    width: 15px;
+    height: 15px;
+}
+
+dl.zend_form dd { float:left; padding-bottom:10px; line-height:23px; width:80%; overflow:visible;}
+
+/* tooltip styling */
+.tooltip {
+    display:none;
+    font-size:12px;
+    color:black;
+    /*----------------------*/
+    /* nice rounded border div from http://coolhomepages.com/How-to-make-easy-gradient-shadow-CSS-DIV-boxes/blog-48.html */
+    height: 300px;
+    width: 550px;
+    padding: 20px;
+    background-color: white;
+    /* outer shadows  (note the rgba is red, green, blue, alpha) */
+    -webkit-box-shadow: 0px 0px 12px rgba(0, 0, 0, 0.4);
+    -moz-box-shadow: 0px 1px 6px rgba(23, 69, 88, .5);
+    /* rounded corners */
+    -webkit-border-radius: 12px;
+    -moz-border-radius: 7px;
+    border-radius: 7px;
+    /* gradients */
+    background: -webkit-gradient(linear, left top, left bottom,
+    color-stop(0%, white), color-stop(15%, white), color-stop(100%, #D7E9F5));
+    background: -moz-linear-gradient(top, white 0%, white 55%, #D5E4F3 130%);
+}
+
+.tooltip1 {
+    height: 350px;
+    width: 550px;
+}
+
+.tooltip hr, .tooltip1 hr {
+    margin:5px !important;
+}

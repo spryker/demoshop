@@ -1,0 +1,115 @@
+<?php
+//----------------------------
+//additional styles and scripts
+$this->headLink()
+    ->appendStylesheet('/styles/mail-template.css');
+
+$this->headScript()
+    ->appendFile('/scripts/jquery.tools.min.js')
+    ->appendFile('/scripts/modules/mail-template.js')
+    ->appendFile('/scripts/ckeditor/ckeditor.js');
+
+//----------------------------
+//main form
+$hintPlaceholders = <<<EOT
+Use <i>{%placeholder}</i> as Placeholder for Subject/Text/Html.
+<a id="templatePlaceholdersHint">more Placeholders</a>
+<div class="tooltip tooltip1">
+<h3>You can use simple placeholders.</h3>
+<pre>
+{%placeholder}
+{%placeholder.secondlevel}
+{%placeholder.secondlevel.thirdlevel}
+</pre>
+
+<h3>You can use partial template rendering.</h3>
+<pre>
+{%render template=name data=item.data}
+{%render template=name data=key}
+{%render template=name}
+</pre>
+
+<h3>You can use loops.</h3>
+<pre>
+{%foreach data=lala.data item=test}
+ ID: {%test.id}
+{%endforeach}
+</pre>
+
+<h3>And you can use Simple Conditions.</h3>
+<pre>
+{%if customer.gender == Herr}
+ Hallo Herr {%customer.lastname},
+{%else}
+  {%foreach data=lala.data item=test}
+    echo {%test.id}
+  {%endforeach}
+{%endif}
+</pre>
+</div>
+EOT;
+
+$hintConstants = <<<EOT
+Choose one of the "Sao_Zed_Mail_Component_Model_Constants" as name. e.g. for TransactionMails<br /><br />
+<a id="templateNameMailConstantsHint">Hint</a>
+<div class="tooltip">
+<p>A specific "Sao_Zed_Mail_Component_Model_Collector" will implement the getMailType Method like so:</p><br />
+<pre>
+/**
+ * @return string
+ */
+protected function getMailType()
+{
+    return self::ORDER_CONFIRMATION;
+}
+</pre>
+<br />
+<p>You will find the Constant ORDER_CONFIRMATION in "Sao_Zed_Mail_Component_Model_Constants" where it
+is defined like this.</p>
+<pre>
+const ORDER_CONFIRMATION = 'order_confirmation';
+</pre>
+<br /><hr /><br />
+<p>As you can see 'order_confirmation' is listed an can be used to indicate that
+the mail template should be used for that Collector.
+As MailCollectors will be added to MailCommands that`s how the mail templates are
+related to the Transaction Mails.</p>
+
+<p>! Besides that you can freely choose a name to be used somewhere else with
+the Mail Facade`s functionality.
+See Sandbox_MailController::templateRenderAction() for samples.</p>
+
+</div>
+EOT;
+
+$content = '<div style="margin-bottom:20px;">' . $hintPlaceholders . '</div>';
+$content.= '<div style="float:left;">';
+$content.= $this->crud->__toString();
+$content.= '</div>';
+$content.= '<div style="float:left;">';
+$content.= '<div>';
+$content.= '<div style="width:50px;float:left;"><button id="mailConstantsAdd">&laquo add</button></div>';
+$content.= '<div style="margin-left:30px;float:left;">' . $this->crud->getMailModelConstantsList($this->data) . '</div>';
+$content.= '</div>';
+$content.= '<div style="clear:both;">&nbsp;</div><div style="width:600px;">' . $hintConstants . '</div>';
+$content.= '</div>';
+
+
+$container = ProjectA_Zed_Library_Ui_Container_Factory::getContainer();
+$container->setTitle(__('Template'));
+$container->setContent($content);
+echo $container->render();
+
+//----------------------------
+//versions
+if ($this->data) {
+    echo $this->crud->getFormVersions($this->data);
+}
+
+//----------------------------
+// buttons
+echo
+    ProjectA_Zed_Library_Ui_Button_Factory::getCta()->setLabel(__('save'))->setClick("saveEditorContentPrepareHtml('" . $this->form->getName() . "')");
+
+echo
+    '<button id="previewButton" rel="#templatePreviewOverlay" name="btn" class="pal-ui-button cta preview" data-preview-selector="#html" type="button"><div>' . __('preview') . '</div></button>';

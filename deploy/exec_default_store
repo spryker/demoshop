@@ -1,0 +1,26 @@
+#!/bin/bash
+#
+# *** Project-A deployment
+#
+# exec_default_store
+# This is a helper script, which executes command given as a parameter for DEFAULT store only
+# (configuration is taken from 'stores' file')
+#
+
+FILEPATH=`pwd`/$0; BASEDIR=`dirname "$FILEPATH"`; . $BASEDIR/stores
+
+if [ "$1" == "-v" ]; then
+  VERBOSE=1
+  shift
+fi
+
+CMD=$1; shift
+
+set -e
+
+export APPLICATION_LOCALE=${locales[0]}
+export APPLICATION_STORE=${stores[0]}
+export APPDOMAIN=${appdomains[0]}
+export IS_DEFAULT_STORE=1
+[ $VERBOSE ] && echo "Executing (default): $CMD $*"
+$CMD $*

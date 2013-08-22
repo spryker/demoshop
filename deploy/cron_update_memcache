@@ -1,0 +1,19 @@
+#!/bin/bash
+#
+# *** Project-A deployment
+#
+# update_memcache
+# This script is executed by cron daemon, on all hosts
+#
+#
+
+FILEPATH=`pwd`/$0; BASEDIR=`dirname $FILEPATH`; source $BASEDIR/vars
+outfile=`mktemp /tmp/deploy-XXXXXX`
+
+if [ -z $APPLICATION_STORE ]; then echo "Error: \$APPLICATION_STORE is not set"; exit 1; fi
+
+cd $destination_release_dir/project/Zed/cli
+php -d "newrelic.appname='Cron(${environment})'" index.php --module=yves --controller=cronjob --action=memcached-synchronize
+
+rm -f $outfile
+exit 0

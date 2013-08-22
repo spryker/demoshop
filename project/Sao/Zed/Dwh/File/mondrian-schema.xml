@@ -1,0 +1,1320 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Schema name="Saatchi">
+
+    <Dimension name="Adwords adgroup" description="A three-level categorization of Adwords keywords">
+        <Hierarchy allMemberName="All adgroups" hasAll="true"
+                   primaryKeyTable="campaign" primaryKey="campaign_id">
+            <Join leftKey="adwords_adgroup_fk" rightKey="adwords_adgroup_id">
+                <Table schema="webtrekk_dim" name="campaign"/>
+                <Table schema="webtrekk_dim" name="adwords_adgroup"/>
+            </Join>
+            <Level name="Account" type="String" column="adwords_account_name" table="adwords_adgroup"
+                   uniqueMembers="true"/>
+            <Level name="Campaign" type="String" column="adwords_campaign_name" table="adwords_adgroup"
+                   uniqueMembers="true"/>
+            <Level name="Adgroup" type="Integer" column="adwords_adgroup_id" nameColumn="adwords_adgroup_name"
+                   table="adwords_adgroup" uniqueMembers="true"/>
+        </Hierarchy>
+    </Dimension>
+
+
+    <Dimension name="Brand or non brand"
+               description="Whether a campaign is brand or non brand, if applicable">
+        <Hierarchy hasAll="true" allMemberName="Brand and non brand"
+                   primaryKeyTable="campaign" primaryKey="campaign_id">
+            <Join leftKey="is_brand_fk" rightKey="is_brand_id">
+                <Table schema="webtrekk_dim" name="campaign"/>
+                <Table schema="webtrekk_dim" name="is_brand"/>
+            </Join>
+            <Level name="Brand or non brand" column="is_brand_id" nameColumn="is_brand_name"
+                   table="is_brand" uniqueMembers="true" type="Integer"/>
+        </Hierarchy>
+    </Dimension>
+
+    <Dimension name="Campaign" description="A campaign for which campaign clicks are received">
+        <Hierarchy hasAll="true" allMemberName="All campaigns" primaryKey="campaign_id">
+            <Table schema="webtrekk_dim" name="campaign"/>
+            <Level name="Campaign name" column="campaign_id" nameColumn="campaign_name"
+                   type="Integer" uniqueMembers="true"/>
+            <Level name="Campaign code" column="campaign_id" nameColumn="campaign_code"
+                   type="Integer" uniqueMembers="true"/>
+        </Hierarchy>
+    </Dimension>
+
+    <Dimension name="Campaign category" description="A combined campaign category for which campaign clicks are received">
+        <Hierarchy hasAll="true" allMemberName="All campaign categories" primaryKey="campaign_id">
+            <Table schema="webtrekk_dim" name="campaign"/>
+            <Level name="Partner or Adwords Account" uniqueMembers="true"
+                   column="partner_or_adwords_account_name" nameColumn="partner_or_adwords_account_name" type="String"/>
+            <Level name="Publication or Adwords Campaign" uniqueMembers="true"
+                   column="publication_or_adwords_campaign_name" nameColumn="publication_or_adwords_campaign_name" type="String"/>
+            <Level name="WMC or Adwords Adgroup" uniqueMembers="true"
+                   column="campaign_id" nameColumn="wmc_or_adwords_adgroup_name" type="Integer"/>
+        </Hierarchy>
+    </Dimension>
+
+    <Dimension name="Channel" description="A broad categorization of campaigns into marketing channels">
+        <Hierarchy allMemberName="All channels" hasAll="true"
+                   primaryKeyTable="campaign" primaryKey="campaign_id">
+            <Join leftKey="channel_fk" rightKey="channel_id">
+                <Table schema="webtrekk_dim" name="campaign"/>
+                <Table schema="webtrekk_dim" name="channel"/>
+            </Join>
+            <Level name="Channel" table="channel" column="channel_id" nameColumn="channel_name"
+                   type="Integer" uniqueMembers="true"/>
+        </Hierarchy>
+    </Dimension>
+
+    <Dimension name="Date by month" type="TimeDimension"
+               description="Dates in a year / quarter / month / day hierarchy">
+        <Hierarchy allMemberName="All dates" hasAll="true" primaryKey="day_id">
+            <Table schema="dim" name="day"/>
+            <Level name="Year" column="year_id" type="Integer"
+                   levelType="TimeYears" uniqueMembers="true"/>
+            <Level name="Quarter" column="quarter_id" nameColumn="quarter_name"
+                   type="Integer" levelType="TimeQuarters" uniqueMembers="true"/>
+            <Level name="Month" column="month_id" nameColumn="month_name"
+                   type="Integer" levelType="TimeMonths" uniqueMembers="true"/>
+            <Level name="Day" column="day_id" nameColumn="day_name"
+                   type="Integer" levelType="TimeDays" uniqueMembers="true"/>
+        </Hierarchy>
+    </Dimension>
+
+    <Dimension name="Date by month reversed" type="TimeDimension"
+               description="Dates in a year / quarter / month / day hierarchy in reverse order">
+        <Hierarchy allMemberName="All dates" hasAll="true" primaryKey="day_id">
+            <Table schema="dim" name="day"/>
+            <Level name="Year" column="year_reversed_id" nameColumn="year_id"
+                   type="Integer" levelType="TimeYears" uniqueMembers="true"/>
+            <Level name="Quarter" column="quarter_reversed_id" nameColumn="quarter_name"
+                   type="Integer" levelType="TimeQuarters" uniqueMembers="true"/>
+            <Level name="Month" column="month_reversed_id" nameColumn="month_name"
+                   type="Integer" levelType="TimeMonths" uniqueMembers="true"/>
+            <Level name="Day" column="day_reversed_id" nameColumn="day_name"
+                   type="Integer" levelType="TimeDays" uniqueMembers="true"/>
+        </Hierarchy>
+    </Dimension>
+
+    <Dimension name="Date by week" type="TimeDimension"
+               description="Dates in a iso year / week / day hierarchy">
+        <Hierarchy allMemberName="All dates" hasAll="true" primaryKey="day_id">
+            <Table schema="dim" name="day"/>
+            <Level name="Year" column="iso_year_id"
+                   type="Integer" levelType="TimeYears" uniqueMembers="true"/>
+            <Level name="Week" column="week_id" nameColumn="week_name"
+                   type="Integer" levelType="TimeWeeks" uniqueMembers="true"/>
+            <Level name="Day" column="day_id" nameColumn="day_name"
+                   type="Integer" levelType="TimeDays" uniqueMembers="true"/>
+        </Hierarchy>
+    </Dimension>
+
+    <Dimension name="Date by week reversed" type="TimeDimension"
+               description="Dates in a iso year / week / day hierarchy">
+        <Hierarchy allMemberName="All dates" hasAll="true" primaryKey="day_id">
+            <Table schema="dim" name="day"/>
+            <Level name="Year" column="iso_year_reversed_id"
+                   type="Integer" levelType="TimeYears" uniqueMembers="true"/>
+            <Level name="Week" column="week_reversed_id" nameColumn="week_name"
+                   type="Integer" levelType="TimeWeeks" uniqueMembers="true"/>
+            <Level name="Day" column="day_reversed_id" nameColumn="day_name"
+                   type="Integer" levelType="TimeDays" uniqueMembers="true"/>
+        </Hierarchy>
+    </Dimension>
+
+    <Dimension name="Day of the week" description="The days of the week">
+        <Hierarchy hasAll="true" allMemberName="All days of the week" primaryKey="day_id">
+            <Table schema="dim" name="day"/>
+            <Level name="Day of the week" column="day_of_the_week_id"
+                   nameColumn="day_of_the_week_name" type="Integer" uniqueMembers="true"/>
+        </Hierarchy>
+    </Dimension>
+
+    <Dimension name="Publication"
+               description="Publications and partners as maintained in the marketing campaign manager (MCM)">
+        <Hierarchy allMemberName="All publications" hasAll="true"
+                   primaryKeyTable="campaign" primaryKey="campaign_id">
+            <Join leftKey="publication_fk" rightKey="publication_id">
+                <Table schema="webtrekk_dim" name="campaign"/>
+                <Table schema="webtrekk_dim" name="publication"/>
+            </Join>
+            <Level name="Partner" column="partner_name" table="publication" uniqueMembers="true"/>
+            <Level name="Publication" column="publication_id" nameColumn="publication_name"
+                   table="publication" uniqueMembers="false"/>
+        </Hierarchy>
+    </Dimension>
+
+    <Dimension name="Search phrase" description="The search phrase entered by a user on an external website">
+        <Hierarchy allMemberName="All search phrases" hasAll="true" primaryKey="search_phrase_id">
+            <Table schema="webtrekk_dim" name="search_phrase"/>
+            <Level name="Search phrase type" column="search_phrase_id" nameColumn="search_phrase_type_name"
+                   uniqueMembers="true" type="Integer"/>
+            <Level name="Search phrase" column="search_phrase_id" nameColumn="search_phrase_name"
+                   type="Integer" uniqueMembers="true"/>
+        </Hierarchy>
+    </Dimension>
+
+    <Dimension name="User" description="A user of the platform, includes both collectors and artists">
+        <Hierarchy hasAll="true" allMemberName="All users">
+            <Table schema="dim" name="user"/>
+            <Level name="User ID" column="user_id" type="Integer" uniqueMembers="true">
+                <Property name="User name" column="user_name"/>
+            </Level>
+        </Hierarchy>
+    </Dimension>
+
+
+    <!--<Dimension name="Email List" description="The list for that the campaign click happened">-->
+    <!--<Hierarchy hasAll="true" allMemberName="All lists" primaryKey="list_id">-->
+    <!--<Table schema="mailchimp_dim" name="list"/>-->
+    <!--<Level name="List ID" column="list_id"-->
+    <!--type="Integer" uniqueMembers="true"/>-->
+    <!--<Level name="List title" column="list_id" captionColumn="list_name"-->
+    <!--uniqueMembers="false"/>-->
+    <!--</Hierarchy>-->
+    <!--</Dimension>-->
+
+    <!--<Dimension name="Email Campaign" description="The campaign for that the campaign click happened">-->
+    <!--<Hierarchy hasAll="true" allMemberName="All campaigns" primaryKey="campaign_id">-->
+    <!--<Table schema="mailchimp_dim" name="campaign"/>-->
+    <!--<Level name="Campaign ID" column="campaign_id"-->
+    <!--type="Integer" uniqueMembers="true"/>-->
+    <!--<Level name="Campaign title" column="campaign_id" captionColumn="campaign_name"-->
+    <!--uniqueMembers="false"/>-->
+    <!--</Hierarchy>-->
+    <!--</Dimension>-->
+
+
+    <!--<Dimension name="Recipient" description="Member who subscribed to an email list">-->
+    <!--<Hierarchy hasAll="true" allMemberName="All recipients" primaryKey="recipient_id">-->
+    <!--<Table schema="mailchimp_dim" name="recipient"/>-->
+    <!--<Level name="Recipient ID" column="recipient_id" type="Integer" uniqueMembers="true"/>-->
+    <!--<Level name="E-Mail" column="recipient_id" nameColumn="email" uniqueMembers="false">-->
+    <!--<Property name="First name" column="first_name"/>-->
+    <!--<Property name="Last name" column="last_name"/>-->
+    <!--<Property name="Latitude" column="latitude"/>-->
+    <!--<Property name="Longitude" column="longitude"/>-->
+    <!--</Level>-->
+    <!--</Hierarchy>-->
+    <!--</Dimension>-->
+
+
+    <!--<Dimension name="Location" description="Locations in a country/ region hierarchy">-->
+    <!--<Hierarchy hasAll="true" allMemberName="All locations" primaryKey="recipient_location_id">-->
+    <!--<Table schema="mailchimp_dim" name="recipient_location"/>-->
+    <!--<Level name="Country" column="country_id" nameColumn="country_name"-->
+    <!--type="Integer" uniqueMembers="true"/>-->
+    <!--<Level name="Region" column="region_id" nameColumn="region_name"-->
+    <!--type="Integer" uniqueMembers="false"/>-->
+    <!--</Hierarchy>-->
+    <!--</Dimension>-->
+
+
+    <Cube name="Sales" defaultMeasure="# Orders"
+          description="Order items that are not part of test orders or otherwise invalid">
+
+        <Table schema="dim" name="sales_fact"/>
+
+        <Dimension name="Artist" description="An artist who sold an item">
+            <Hierarchy hasAll="true" allMemberName="All artists">
+                <Level name="Artist ID" column="artist_id" type="Integer" uniqueMembers="true"/>
+                <Level name="Artist name" column="artist_id" nameColumn="artist_name" type="Integer"
+                       uniqueMembers="false"/>
+            </Hierarchy>
+        </Dimension>
+
+        <Dimension name="Checkout process" description="The order's type of checkout (manual or normal payment)"
+                   foreignKey="order_process_fk">
+            <Hierarchy hasAll="true" allMemberName="All checkout processes" primaryKey="order_process_id">
+                <Table schema="dim" name="order_process"/>
+                <Level name="Checkout type" column="checkout_type" type="String" uniqueMembers="true"/>
+                <Level name="Process" column="order_process_id" nameColumn="order_process_name"
+                       type="Integer" uniqueMembers="true"/>
+            </Hierarchy>
+        </Dimension>
+
+
+        <Dimension name="Date by month" type="TimeDimension"
+                   foreignKey="order_id"
+                   description="Dates in a year / quarter / month / day hierarchy">
+            <Hierarchy allMemberName="All dates" hasAll="true" primaryKeyTable="order_date"
+                       primaryKey="order_fk">
+                <Join leftKey="day_fk" rightKey="day_id">
+                    <Table schema="dim" name="order_date"/>
+                    <Table schema="dim" name="day"/>
+                </Join>
+
+                <Level name="Year" table="day" column="year_id" type="Integer"
+                       levelType="TimeYears" uniqueMembers="true"/>
+                <Level name="Quarter" table="day" column="quarter_id" nameColumn="quarter_name"
+                       type="Integer" levelType="TimeQuarters" uniqueMembers="true"/>
+                <Level name="Month" table="day" column="month_id" nameColumn="month_name"
+                       type="Integer" levelType="TimeMonths" uniqueMembers="true"/>
+                <Level name="Day" table="day" column="day_id" nameColumn="day_name"
+                       type="Integer" levelType="TimeDays" uniqueMembers="true"/>
+            </Hierarchy>
+        </Dimension>
+
+        <Dimension name="Date by month reversed" type="TimeDimension"
+                   foreignKey="order_id"
+                   description="Dates in a year / quarter / month / day hierarchy in reverse order">
+            <Hierarchy allMemberName="All dates" hasAll="true" primaryKeyTable="order_date"
+                       primaryKey="order_fk">
+                <Join leftKey="day_fk" rightKey="day_id">
+                    <Table schema="dim" name="order_date"/>
+                    <Table schema="dim" name="day"/>
+                </Join>
+                <Level name="Year" table="day" column="year_reversed_id" nameColumn="year_id"
+                       type="Integer" levelType="TimeYears" uniqueMembers="true"/>
+                <Level name="Quarter" table="day" column="quarter_reversed_id" nameColumn="quarter_name"
+                       type="Integer" levelType="TimeQuarters" uniqueMembers="true"/>
+                <Level name="Month" table="day" column="month_reversed_id" nameColumn="month_name"
+                       type="Integer" levelType="TimeMonths" uniqueMembers="true"/>
+                <Level name="Day" table="day" column="day_reversed_id" nameColumn="day_name"
+                       type="Integer" levelType="TimeDays" uniqueMembers="true"/>
+            </Hierarchy>
+        </Dimension>
+
+        <Dimension name="Date by week" type="TimeDimension"
+                   foreignKey="order_id"
+                   description="Dates in a iso year / week / day hierarchy">
+            <Hierarchy allMemberName="All dates" hasAll="true" primaryKeyTable="order_date"
+                       primaryKey="order_fk">
+                <Join leftKey="day_fk" rightKey="day_id">
+                    <Table schema="dim" name="order_date"/>
+                    <Table schema="dim" name="day"/>
+                </Join>
+                <Level name="Year" table="day" column="iso_year_id"
+                       type="Integer" levelType="TimeYears" uniqueMembers="true"/>
+                <Level name="Week" table="day" column="week_id" nameColumn="week_name"
+                       type="Integer" levelType="TimeWeeks" uniqueMembers="true"/>
+                <Level name="Day" table="day" column="day_id" nameColumn="day_name"
+                       type="Integer" levelType="TimeDays" uniqueMembers="true"/>
+            </Hierarchy>
+        </Dimension>
+
+        <Dimension name="Date by week reversed" type="TimeDimension"
+                   foreignKey="order_id"
+                   description="Dates in a iso year / week / day hierarchy">
+            <Hierarchy allMemberName="All dates" hasAll="true" primaryKeyTable="order_date"
+                       primaryKey="order_fk">
+                <Join leftKey="day_fk" rightKey="day_id">
+                    <Table schema="dim" name="order_date"/>
+                    <Table schema="dim" name="day"/>
+                </Join>
+                <Level name="Year" table="day" column="iso_year_reversed_id"
+                       type="Integer" levelType="TimeYears" uniqueMembers="true"/>
+                <Level name="Week" table="day" column="week_reversed_id" nameColumn="week_name"
+                       type="Integer" levelType="TimeWeeks" uniqueMembers="true"/>
+                <Level name="Day" table="day" column="day_reversed_id" nameColumn="day_name"
+                       type="Integer" levelType="TimeDays" uniqueMembers="true"/>
+            </Hierarchy>
+        </Dimension>
+
+
+        <Dimension name="Fulfillment process" description="The way the order item is fulfilled"
+                   foreignKey="order_process_fk">
+            <Hierarchy hasAll="true" allMemberName="All fulfillment processes" primaryKey="order_process_id">
+                <Table schema="dim" name="order_process"/>
+                <Level name="Fulfillment type" column="fulfillment_type"
+                       type="String" uniqueMembers="true"/>
+                <Level name="Process" column="order_process_id" nameColumn="order_process_name"
+                       type="Integer" uniqueMembers="true"/>
+            </Hierarchy>
+        </Dimension>
+
+
+        <Dimension name="Option" description="The name of a specific option"
+                   foreignKey="option_fk">
+            <Hierarchy hasAll="true" allMemberName="All option names" primaryKey="option_id">
+                <Table schema="dim" name="option"/>
+                <Level name="Option" column="option_id" nameColumn="option_name"
+                       type="String" uniqueMembers="true"/>
+            </Hierarchy>
+        </Dimension>
+
+
+        <Dimension name="Order" description="An actual order">
+            <Hierarchy hasAll="true" allMemberName="All orders">
+                <Level name="Order ID" column="order_id" type="Integer" uniqueMembers="true"/>
+                <Level name="Order number" column="order_id" nameColumn="order_increment_id"
+                       type="Integer" uniqueMembers="true"/>
+            </Hierarchy>
+        </Dimension>
+
+        <Dimension name="Order item" description="An actual order item">
+            <Hierarchy hasAll="true" allMemberName="All order items">
+                <Level name="Item" column="order_item_id" type="Integer" uniqueMembers="true">
+                    <Property name="SKU" column="sku" type="String"/>
+                    <Property name="Artist ID" column="artist_id" type="Integer"/>
+                    <Property name="Artist name" column="artist_name" type="String"/>
+                </Level>
+            </Hierarchy>
+        </Dimension>
+
+        <Dimension name="Order item status" foreignKey="order_item_status_fk"
+                   description="The status groups and statuses of the ordered items">
+            <Hierarchy hasAll="true" allMemberName="All statuses" primaryKey="order_item_status_id">
+                <Table schema="dim" name="order_item_status_group"/>
+                <Level name="Group" column="order_item_status_group_name" ordinalColumn="order_item_status_partition_id"
+                       nameColumn="order_item_status_group_name" uniqueMembers="false"/>
+                <Level name="Status" column="order_item_status_id" ordinalColumn="order_item_status_partition_id"
+                       nameColumn="order_item_status_name" uniqueMembers="false"/>
+            </Hierarchy>
+        </Dimension>
+
+        <Dimension name="Order item status perspective" foreignKey="order_item_status_fk"
+                   description="The perspective for grouping order item statuses">
+            <Hierarchy hasAll="false" defaultMember="Sales" primaryKey="order_item_status_id">
+                <Table schema="dim" name="order_item_status_group"/>
+                <Level name="Perspective" column="order_item_status_perspective_name"
+                       type="String" uniqueMembers="true"/>
+            </Hierarchy>
+        </Dimension>
+
+        <Dimension name="Payment method" description="The payment method chosen for the order"
+                   foreignKey="payment_method_fk">
+            <Hierarchy hasAll="true" allMemberName="All payment methods" primaryKey="payment_method_id">
+                <Table schema="dim" name="payment_method"/>
+                <Level name="Payment method" column="payment_method_id" nameColumn="payment_method_name"
+                       type="Integer" uniqueMembers="true"/>
+            </Hierarchy>
+        </Dimension>
+
+        <Dimension name="Price range" description="The price ranges for the item"
+                   foreignKey="price_range_fk">
+            <Hierarchy hasAll="true" allMemberName="All price ranges" primaryKey="price_range_id">
+                <Table schema="dim" name="price_range"/>
+                <Level name="Price range" column="price_range_id" nameColumn="price_range_name"
+                       type="Integer" uniqueMembers="true"/>
+            </Hierarchy>
+        </Dimension>
+
+        <Dimension name="Product" description="An actual product that was ordered">
+            <Hierarchy hasAll="true" allMemberName="All products">
+                <Level name="Product ID" column="product_fk" type="Integer" uniqueMembers="true"/>
+                <Level name="SKU" column="product_fk" nameColumn="sku" type="Integer" uniqueMembers="true"/>
+            </Hierarchy>
+        </Dimension>
+
+        <Dimension name="Product category" description="The category for a product" foreignKey="product_category_fk">
+            <Hierarchy hasAll="true" allMemberName="All categories" primaryKey="product_category_id">
+                <Table schema="dim" name="product_category"/>
+                <Level name="Category" column="product_category_id" nameColumn="product_category_name"
+                       type="Integer" uniqueMembers="true"/>
+                <Level name="Edition type" column="product_category_id" nameColumn="edition_type"
+                       type="Integer" uniqueMembers="true"/>
+            </Hierarchy>
+        </Dimension>
+
+
+        <Dimension name="Shipping country" description="The shipping countries for the sales order"
+                   foreignKey="country_fk">
+            <Hierarchy hasAll="true" allMemberName="All countries" primaryKey="country_id">
+                <Table schema="dim" name="country"/>
+                <Level name="Country" column="country_id" nameColumn="country_name"
+                       type="String" uniqueMembers="true"/>
+            </Hierarchy>
+        </Dimension>
+
+        <Dimension name="Time perspective" foreignKey="order_id"
+                   description="The perspective to use for date dimensions">
+            <Hierarchy hasAll="false" defaultMember="Placed" primaryKeyTable="order_date"
+                       primaryKey="order_fk">
+                <Join leftKey="order_date_perspective_fk" rightKey="order_date_perspective_id">
+                    <Table schema="dim" name="order_date"/>
+                    <Table schema="dim" name="order_date_perspective"/>
+                </Join>
+                <Level name="Perspective" table="order_date_perspective"
+                       column="order_date_perspective_id"
+                       nameColumn="order_date_perspective_name" uniqueMembers="true" type="Integer"/>
+            </Hierarchy>
+        </Dimension>
+
+        <Dimension name="Substrate" description="The substrate (canvas/rag/photo/-) of the ordered product"
+                   foreignKey="substrate_fk">
+            <Hierarchy hasAll="true" allMemberName="All substrates" primaryKey="substrate_id">
+                <Table schema="dim" name="substrate"/>
+                <Level name="Substrate" column="substrate_id" nameColumn="substrate_name"
+                       type="String" uniqueMembers="true"/>
+            </Hierarchy>
+        </Dimension>
+
+
+        <Dimension name="Voucher" description="The voucher that was used for an order" foreignKey="voucher_fk">
+            <Hierarchy hasAll="true" allMemberName="All vouchers" primaryKey="voucher_id">
+                <Table schema="dim" name="voucher"/>
+                <Level name="Voucher ID" column="voucher_id" nameColumn="voucher_id"
+                       type="Integer" uniqueMembers="true"/>
+                <Level name="Voucher name" column="voucher_id" nameColumn="voucher_name"
+                       type="Integer" uniqueMembers="true"/>
+            </Hierarchy>
+        </Dimension>
+
+        <Measure name="# Orders" column="order_id" dataType="Integer"
+                 aggregator="distinct-count" formatString="Standard"
+                 description="The number of all received orders, excluding test and invalid orders"/>
+
+        <Measure name="# Sold items" column="order_item_id" dataType="Integer"
+                 aggregator="distinct-count" formatString="Standard"
+                 description="The number of all items of all orders"/>
+
+        <Measure name="# Orders with voucher" column="order_with_voucher_id" dataType="Integer"
+                 aggregator="distinct-count" formatString="Standard"
+                 description="The number of orders for which a voucher was used"/>
+
+        <Measure name="# Items with voucher" column="order_with_voucher_id" dataType="Integer"
+                 aggregator="count" formatString="Standard"
+                 description="The number of discounted items (from orders with voucher)"/>
+
+        <Measure name="Net item price" column="net_item_price" dataType="Numeric"
+                 aggregator="sum" formatString="Currency"
+                 description="The net sales price for an artwork, defined by artist"/>
+
+        <Measure name="Net option price" column="net_option_price" dataType="Numeric"
+                 aggregator="sum" formatString="Currency"
+                 description="The net sales price for a framing or other options (for prints only)"/>
+
+        <Measure name="Net shipping revenue" column="net_shipping_revenue" dataType="Numeric"
+                 aggregator="sum" formatString="Currency"
+                 description="The sum of charges for shipping invoiced to the customer, depending on the type of shipment"/>
+
+        <Measure name="Duties amount" column="duties_amount" dataType="Numeric"
+                 aggregator="sum" formatString="Currency"
+                 description="Customs and duties amount of an order"/>
+
+        <Measure name="VAT amount" column="vat_amount" dataType="Numeric"
+                 aggregator="sum" formatString="Currency"
+                 description="The tax amount of an order, considering vouchers (depending on the shipping destination)"/>
+
+        <Measure name="Net payment cost" column="net_payment_cost" dataType="Numeric"
+                 aggregator="sum" formatString="Currency"
+                 description="The net payment cost invoiced by Merchants"/>
+
+        <Measure name="Net option cost" column="net_option_cost" dataType="Numeric"
+                 aggregator="sum" formatString="Currency"
+                 description="The net cost for framing or other options (for Prints only) (in legacy: unit_framing_cost.user_order_line_items)"/>
+
+        <Measure name="Net printing cost" column="net_printing_cost" dataType="Numeric"
+                 aggregator="sum" formatString="Currency"
+                 description="The net cost for printing (for Prints only) (in legacy: unit_art_cost.user_order_line_items)"/>
+
+        <Measure name="Net voucher amount saatchi share" column="net_voucher_amount_saatchi_share" dataType="Numeric"
+                 aggregator="sum" formatString="Currency"
+                 description="The net voucher amount for saatchi's share"/>
+
+        <Measure name="Net voucher amount artist share" column="net_voucher_amount_artist_share" dataType="Numeric"
+                 aggregator="sum" formatString="Currency"
+                 description="The net voucher amount of artist share"/>
+
+        <Measure name="Artist royalties" column="artist_royalties" dataType="Numeric"
+                 aggregator="sum" formatString="Currency"
+                 description="The net amount payed out to artists for prints"/>
+
+        <Measure name="Artist commission" column="artist_commission" dataType="Numeric"
+                 aggregator="sum" formatString="Currency"
+                 description="The net amount payed out to artists for originals"/>
+
+        <CalculatedMember name="Net voucher cost" dimension="Measures"
+                          description="Amount of discount from net revenue (from voucher)">
+            <Formula>[Measures].[Net voucher amount saatchi share] + [Measures].[Net voucher amount artist share]
+            </Formula>
+            <CalculatedMemberProperty name="DATATYPE" value="Numeric"/>
+            <CalculatedMemberProperty name="FORMAT_STRING" value="#,#0.0"/>
+        </CalculatedMember>
+
+
+        <CalculatedMember name="CoGS" dimension="Measures"
+                          description="The sum of net cost of goods sold (commissions and royalties, printing and framing/option cost)">
+            <Formula>[Measures].[Net option cost] + [Measures].[Net printing cost] + [Measures].[Artist commission] +
+                [Measures].[Artist royalties]
+            </Formula>
+            <CalculatedMemberProperty name="DATATYPE" value="Numeric"/>
+            <CalculatedMemberProperty name="FORMAT_STRING" value="#,#0.0"/>
+        </CalculatedMember>
+
+        <CalculatedMember name="PC 1" dimension="Measures"
+                          description="Net revenue after voucher minus CoGS">
+            <Formula>[Measures].[Net revenue (after vouchers)] - [Measures].[CoGS]</Formula>
+            <CalculatedMemberProperty name="DATATYPE" value="Numeric"/>
+            <CalculatedMemberProperty name="FORMAT_STRING" value="#,#0.0"/>
+        </CalculatedMember>
+
+        <CalculatedMember name="PC 2" dimension="Measures"
+                          description="Profit Contribution 1 minus Operational Cost">
+            <Formula>[Measures].[PC 1] - [Measures].[Net operational cost]</Formula>
+            <CalculatedMemberProperty name="DATATYPE" value="Numeric"/>
+            <CalculatedMemberProperty name="FORMAT_STRING" value="#,#0.0"/>
+        </CalculatedMember>
+
+        <CalculatedMember name="Avg operational cost per order" dimension="Measures"
+                          description="The average net operational cost per order">
+            <Formula>[Measures].[Net operational cost] - [Measures].[# Orders]</Formula>
+            <CalculatedMemberProperty name="DATATYPE" value="Numeric"/>
+            <CalculatedMemberProperty name="FORMAT_STRING" value="#,#0.0"/>
+        </CalculatedMember>
+
+        <CalculatedMember name="Avg # items per order" dimension="Measures"
+                          description="The average number of sold items per order">
+            <Formula>[Measures].[# Sold items] / [Measures].[# Orders]</Formula>
+            <CalculatedMemberProperty name="DATATYPE" value="Numeric"/>
+            <CalculatedMemberProperty name="FORMAT_STRING" value="#,#0.0"/>
+        </CalculatedMember>
+
+        <CalculatedMember name="Net item revenue" dimension="Measures"
+                          description="The net item price plus the net option (framing) price">
+            <Formula>[Measures].[Net item price] + [Measures].[Net option price]</Formula>
+            <CalculatedMemberProperty name="DATATYPE" value="Numeric"/>
+            <CalculatedMemberProperty name="FORMAT_STRING" value="Currency"/>
+        </CalculatedMember>
+
+        <CalculatedMember name="Avg net item price" dimension="Measures"
+                          description="The average net item price of sold items">
+            <Formula>[Measures].[Net item price] / [Measures].[# Sold items]</Formula>
+            <CalculatedMemberProperty name="DATATYPE" value="Numeric"/>
+            <CalculatedMemberProperty name="FORMAT_STRING" value="Currency"/>
+        </CalculatedMember>
+
+        <CalculatedMember name="Net revenue (after vouchers)" dimension="Measures"
+                          description="The net revenue from processed orders, including net shipping revenue, considering vouchers">
+            <Formula>[Measures].[Net item revenue] + [Measures].[Net shipping revenue] - [Measures].[Net voucher cost]
+            </Formula>
+            <CalculatedMemberProperty name="DATATYPE" value="Numeric"/>
+            <CalculatedMemberProperty name="FORMAT_STRING" value="Currency"/>
+        </CalculatedMember>
+
+        <CalculatedMember name="Net shipping, freight and delivery cost" dimension="Measures"
+                          description="The estimated net cost for shipping, freight and delivery">
+            <Formula>[Measures].[Net item revenue] * 0.13</Formula>
+            <CalculatedMemberProperty name="DATATYPE" value="Numeric"/>
+            <CalculatedMemberProperty name="FORMAT_STRING" value="Currency"/>
+        </CalculatedMember>
+
+        <CalculatedMember name="Net operational cost" dimension="Measures"
+                          description="The sum of payment cost and shipping/freight/delivery cost">
+            <Formula>[Measures].[Net payment cost] + [Measures].[Net shipping, freight and delivery cost]</Formula>
+            <CalculatedMemberProperty name="DATATYPE" value="Numeric"/>
+            <CalculatedMemberProperty name="FORMAT_STRING" value="Currency"/>
+        </CalculatedMember>
+
+        <CalculatedMember name="Net revenue after vouchers and operational cost" dimension="Measures"
+                          description="The net revenue after considering vouchers and operational cost">
+            <Formula>[Measures].[Net revenue (after vouchers)] - [Measures].[Net operational cost]</Formula>
+            <CalculatedMemberProperty name="DATATYPE" value="Numeric"/>
+            <CalculatedMemberProperty name="FORMAT_STRING" value="Currency"/>
+        </CalculatedMember>
+
+
+        <CalculatedMember name="Avg net revenue per order" dimension="Measures"
+                          description="The average net revenue after voucher per order">
+            <Formula>[Measures].[Net revenue (after vouchers)] / [Measures].[# Orders]</Formula>
+            <CalculatedMemberProperty name="DATATYPE" value="Numeric"/>
+            <CalculatedMemberProperty name="FORMAT_STRING" value="Currency"/>
+        </CalculatedMember>
+
+        <CalculatedMember name="Gross revenue (after vouchers)" dimension="Measures"
+                          description="The gross revenue from porcessed orders, including shipping revenue, considering vouchers">
+            <Formula>[Measures].[Net revenue (after vouchers)] + [Measures].[VAT amount] + [Measures].[Duties amount]
+            </Formula>
+            <CalculatedMemberProperty name="DATATYPE" value="Numeric"/>
+            <CalculatedMemberProperty name="FORMAT_STRING" value="Currency"/>
+        </CalculatedMember>
+
+        <CalculatedMember name="Avg gross revenue per order" dimension="Measures"
+                          description="The average gross revenue after voucher per order">
+            <Formula>[Measures].[Gross revenue (after vouchers)] / [Measures].[# Orders]</Formula>
+            <CalculatedMemberProperty name="DATATYPE" value="Numeric"/>
+            <CalculatedMemberProperty name="FORMAT_STRING" value="Currency"/>
+        </CalculatedMember>
+
+    </Cube>
+
+
+    <Cube name="Sales events" defaultMeasure="# Effected items"
+          description="First time transitions of order items into a status group">
+        <Table schema="dim" name="sales_event_fact"/>
+
+        <Dimension name="Associated order" description="The order associated with the sales event">
+            <Hierarchy hasAll="true" allMemberName="All increment ids">
+                <Level name="Increment ID" column="order_id" nameColumn="order_increment_id"
+                       type="Integer" uniqueMembers="true"/>
+            </Hierarchy>
+        </Dimension>
+
+        <DimensionUsage name="User" source="User" foreignKey="user_fk"/>
+
+
+        <Dimension name="Date by month" type="TimeDimension"
+                   foreignKey="sales_event_id"
+                   description="Dates in a year / quarter / month / day hierarchy">
+            <Hierarchy allMemberName="All dates" hasAll="true" primaryKeyTable="sales_event_date"
+                       primaryKey="sales_event_fk">
+                <Join leftKey="day_fk" rightKey="day_id">
+                    <Table schema="dim" name="sales_event_date"/>
+                    <Table schema="dim" name="day"/>
+                </Join>
+
+                <Level name="Year" table="day" column="year_id" type="Integer"
+                       levelType="TimeYears" uniqueMembers="true"/>
+                <Level name="Quarter" table="day" column="quarter_id" nameColumn="quarter_name"
+                       type="Integer" levelType="TimeQuarters" uniqueMembers="true"/>
+                <Level name="Month" table="day" column="month_id" nameColumn="month_name"
+                       type="Integer" levelType="TimeMonths" uniqueMembers="true"/>
+                <Level name="Day" table="day" column="day_id" nameColumn="day_name"
+                       type="Integer" levelType="TimeDays" uniqueMembers="true"/>
+            </Hierarchy>
+        </Dimension>
+
+        <Dimension name="Date by month reversed" type="TimeDimension"
+                   foreignKey="sales_event_id"
+                   description="Dates in a year / quarter / month / day hierarchy in reverse order">
+            <Hierarchy allMemberName="All dates" hasAll="true" primaryKeyTable="sales_event_date"
+                       primaryKey="sales_event_fk">
+                <Join leftKey="day_fk" rightKey="day_id">
+                    <Table schema="dim" name="sales_event_date"/>
+                    <Table schema="dim" name="day"/>
+                </Join>
+                <Level name="Year" table="day" column="year_reversed_id" nameColumn="year_id"
+                       type="Integer" levelType="TimeYears" uniqueMembers="true"/>
+                <Level name="Quarter" table="day" column="quarter_reversed_id" nameColumn="quarter_name"
+                       type="Integer" levelType="TimeQuarters" uniqueMembers="true"/>
+                <Level name="Month" table="day" column="month_reversed_id" nameColumn="month_name"
+                       type="Integer" levelType="TimeMonths" uniqueMembers="true"/>
+                <Level name="Day" table="day" column="day_reversed_id" nameColumn="day_name"
+                       type="Integer" levelType="TimeDays" uniqueMembers="true"/>
+            </Hierarchy>
+        </Dimension>
+
+        <Dimension name="Date by week" type="TimeDimension"
+                   foreignKey="sales_event_id"
+                   description="Dates in a iso year / week / day hierarchy">
+            <Hierarchy allMemberName="All dates" hasAll="true" primaryKeyTable="sales_event_date"
+                       primaryKey="sales_event_fk">
+                <Join leftKey="day_fk" rightKey="day_id">
+                    <Table schema="dim" name="sales_event_date"/>
+                    <Table schema="dim" name="day"/>
+                </Join>
+                <Level name="Year" table="day" column="iso_year_id"
+                       type="Integer" levelType="TimeYears" uniqueMembers="true"/>
+                <Level name="Week" table="day" column="week_id" nameColumn="week_name"
+                       type="Integer" levelType="TimeWeeks" uniqueMembers="true"/>
+                <Level name="Day" table="day" column="day_id" nameColumn="day_name"
+                       type="Integer" levelType="TimeDays" uniqueMembers="true"/>
+            </Hierarchy>
+        </Dimension>
+
+        <Dimension name="Date by week reversed" type="TimeDimension"
+                   foreignKey="sales_event_id"
+                   description="Dates in a iso year / week / day hierarchy">
+            <Hierarchy allMemberName="All dates" hasAll="true" primaryKeyTable="sales_event_date"
+                       primaryKey="sales_event_fk">
+                <Join leftKey="day_fk" rightKey="day_id">
+                    <Table schema="dim" name="sales_event_date"/>
+                    <Table schema="dim" name="day"/>
+                </Join>
+                <Level name="Year" table="day" column="iso_year_reversed_id"
+                       type="Integer" levelType="TimeYears" uniqueMembers="true"/>
+                <Level name="Week" table="day" column="week_reversed_id" nameColumn="week_name"
+                       type="Integer" levelType="TimeWeeks" uniqueMembers="true"/>
+                <Level name="Day" table="day" column="day_reversed_id" nameColumn="day_name"
+                       type="Integer" levelType="TimeDays" uniqueMembers="true"/>
+            </Hierarchy>
+        </Dimension>
+
+        <Dimension name="Date perspective" foreignKey="sales_event_id"
+                   description="The perspective to use for date dimensions">
+            <Hierarchy hasAll="false" defaultMember="Event date" primaryKeyTable="sales_event_date"
+                       primaryKey="sales_event_fk">
+                <Join leftKey="sales_event_date_perspective_fk" rightKey="sales_event_date_perspective_id">
+                    <Table schema="dim" name="sales_event_date"/>
+                    <Table schema="dim" name="sales_event_date_perspective"/>
+                </Join>
+                <Level name="Date perspective" table="sales_event_date_perspective"
+                       column="sales_event_date_perspective_id"
+                       nameColumn="sales_event_date_perspective_name" uniqueMembers="true" type="Integer"/>
+            </Hierarchy>
+        </Dimension>
+
+
+        <Dimension name="Event" foreignKey="order_item_status_partition_fk"
+                   description="The group of item statuses into which the item made a transition">
+            <Hierarchy hasAll="true" allMemberName="All events" primaryKey="order_item_status_partition_id">
+                <Table schema="dim" name="order_item_status_partition"/>
+                <Level name="Event" column="order_item_status_group_name"
+                       ordinalColumn="order_item_status_partition_id" type="String" uniqueMembers="false"/>
+            </Hierarchy>
+        </Dimension>
+
+        <Dimension name="Event perspective" foreignKey="order_item_status_partition_fk"
+                   description="The perspective for grouping order item statuses">
+            <Hierarchy hasAll="false" defaultMember="Sales" primaryKey="order_item_status_partition_id">
+                <Table schema="dim" name="order_item_status_partition"/>
+                <Level name="Event perspective" column="order_item_status_perspective_name"
+                       ordinalColumn="order_item_status_partition_id" type="String" uniqueMembers="true"/>
+            </Hierarchy>
+        </Dimension>
+
+
+        <Dimension name="Duration by month"
+                   foreignKey="sales_event_id"
+                   description="Durations by months/ days">
+            <Hierarchy allMemberName="All durations" hasAll="true" primaryKeyTable="sales_event_duration"
+                       primaryKey="sales_event_fk">
+                <Join leftKey="duration_fk" rightKey="duration_id">
+                    <Table schema="dim" name="sales_event_duration"/>
+                    <Table schema="dim" name="duration"/>
+                </Join>
+                <Level name="30 day periods" table="duration" column="months" nameColumn="months_name"
+                       uniqueMembers="false"/>
+                <Level name="Days" table="duration" column="days" nameColumn="days_name" uniqueMembers="true"/>
+            </Hierarchy>
+        </Dimension>
+
+        <Dimension name="Duration by week"
+                   foreignKey="sales_event_id"
+                   description="Durations by weeks/ days">
+            <Hierarchy allMemberName="All durations" hasAll="true" primaryKeyTable="sales_event_duration"
+                       primaryKey="sales_event_fk">
+                <Join leftKey="duration_fk" rightKey="duration_id">
+                    <Table schema="dim" name="sales_event_duration"/>
+                    <Table schema="dim" name="duration"/>
+                </Join>
+                <Level name="7 day periods" table="duration" column="weeks" nameColumn="weeks_name"
+                       uniqueMembers="false"/>
+                <Level name="Days" table="duration" column="days" nameColumn="days_name" uniqueMembers="true"/>
+            </Hierarchy>
+        </Dimension>
+
+        <Dimension name="Duration perspective" foreignKey="sales_event_id"
+                   description="The perspective to use for the duration dimensions">
+            <Hierarchy hasAll="false" defaultMember="Time since last event"
+                       primaryKeyTable="sales_event_duration" primaryKey="sales_event_fk">
+                <Join leftKey="sales_event_duration_perspective_fk" rightKey="sales_event_duration_perspective_id">
+                    <Table schema="dim" name="sales_event_duration"/>
+                    <Table schema="dim" name="sales_event_duration_perspective"/>
+                </Join>
+                <Level name="Duration perspective" table="sales_event_duration_perspective"
+                       column="sales_event_duration_perspective_id"
+                       nameColumn="sales_event_duration_perspective_name" uniqueMembers="true" type="Integer"/>
+            </Hierarchy>
+        </Dimension>
+
+
+        <Dimension name="Item current status" foreignKey="order_item_current_status_fk"
+                   description="The current status of an order item">
+            <Hierarchy hasAll="true" allMemberName="All current statuses" primaryKey="order_item_status_id">
+                <Table schema="dim" name="order_item_status"/>
+                <Level name="Item current status" column="order_item_status_id"
+                       nameColumn="order_item_status_name" uniqueMembers="false" type="Integer"/>
+            </Hierarchy>
+        </Dimension>
+
+
+        <Measure name="# Effected items" column="order_item_id" dataType="Integer"
+                 aggregator="distinct-count" formatString="Standard"
+                 description="The number of items of processed orders that changed their status"/>
+
+        <Measure name="# Associated orders" column="order_id" dataType="Integer"
+                 aggregator="distinct-count" formatString="Standard"
+                 description="The number of all processed orders"/>
+
+        <Measure name="Avg time since order" column="hours_since_order" dataType="Float"
+                 aggregator="avg" formatString="#,##0.00 h"
+                 description="The average number of hours passed between the order and the event"/>
+
+        <Measure name="Avg time since last event" column="hours_since_last_event" dataType="Float"
+                 aggregator="avg" formatString="#,##0.00 h"
+                 description="The average number of hours passed between the last event and this one"/>
+
+        <Measure name="Avg time to next event" column="hours_to_next_event" dataType="Float"
+                 aggregator="avg" formatString="#,##0.00 h"
+                 description="The average number of hours passed and this event and the next one"/>
+
+    </Cube>
+
+    <Cube name="Campaign clicks" defaultMeasure="# Visitors"
+          description="Contacts with the website from outside, through a campaign, with attributed conversions">
+        <Table schema="webtrekk_dim" name="campaign_click_with_performance_flattened"/>
+
+        <DimensionUsage name="Adwords adgroup" source="Adwords adgroup" foreignKey="campaign_fk"/>
+        <DimensionUsage name="Brand or non brand" source="Brand or non brand" foreignKey="campaign_fk"/>
+        <DimensionUsage name="Campaign" source="Campaign" foreignKey="campaign_fk"/>
+        <DimensionUsage name="Campaign category" source="Campaign category" foreignKey="campaign_fk"/>
+        <DimensionUsage name="Channel" source="Channel" foreignKey="campaign_fk"/>
+
+        <Dimension name="Date by month" type="TimeDimension" foreignKey="campaign_click_id"
+                   description="The date of the click depending on the time perspective in a year / quarter / month / day hierarchy">
+            <Hierarchy allMemberName="All dates" hasAll="true" primaryKeyTable="campaign_click_date"
+                       primaryKey="campaign_click_fk">
+                <Join leftKey="day_fk" rightKey="day_id">
+                    <Table schema="webtrekk_dim" name="campaign_click_date"/>
+                    <Table schema="dim" name="day"/>
+                </Join>
+                <Level name="Year" table="day" column="year_id" type="Integer"
+                       levelType="TimeYears" uniqueMembers="true"/>
+                <Level name="Quarter" table="day" column="quarter_id" nameColumn="quarter_name"
+                       type="Integer" levelType="TimeQuarters" uniqueMembers="true"/>
+                <Level name="Month" table="day" column="month_id" nameColumn="month_name"
+                       type="Integer" levelType="TimeMonths" uniqueMembers="true"/>
+                <Level name="Day" table="day" column="day_id" nameColumn="day_name"
+                       type="Integer" levelType="TimeDays" uniqueMembers="true"/>
+            </Hierarchy>
+        </Dimension>
+
+        <Dimension name="Date by week" type="TimeDimension" foreignKey="campaign_click_id"
+                   description="The date of the click depending on the time perspective in a iso year / week / day hierarchy">
+            <Hierarchy allMemberName="All dates" hasAll="true" primaryKeyTable="campaign_click_date"
+                       primaryKey="campaign_click_fk">
+                <Join leftKey="day_fk" rightKey="day_id">
+                    <Table schema="webtrekk_dim" name="campaign_click_date"/>
+                    <Table schema="dim" name="day"/>
+                </Join>
+                <Level name="Year" table="day" column="iso_year_id"
+                       type="Integer" levelType="TimeYears" uniqueMembers="true"/>
+                <Level name="Week" table="day" column="week_id" nameColumn="week_name"
+                       type="Integer" levelType="TimeWeeks" uniqueMembers="true"/>
+                <Level name="Day" table="day" column="day_id" nameColumn="day_name"
+                       type="Integer" levelType="TimeDays" uniqueMembers="true"/>
+            </Hierarchy>
+        </Dimension>
+
+        <DimensionUsage name="User" source="User" foreignKey="user_fk"
+                        description="The user that is associated to a campaign click (if known)"/>
+
+        <Dimension name="Performance attribution model" foreignKey="performance_attribution_model_fk"
+                   description="How to distribute registrations, orders, revenue etc. among the clicks leading to an order">
+            <Hierarchy hasAll="false" defaultMember="Project-A" primaryKey="performance_attribution_model_id">
+                <Table schema="webtrekk_dim" name="performance_attribution_model"/>
+                <Level name="Model" column="performance_attribution_model_id"
+                       nameColumn="performance_attribution_model_name" uniqueMembers="true" type="Integer"/>
+            </Hierarchy>
+        </Dimension>
+
+        <DimensionUsage name="Publication" source="Publication" foreignKey="campaign_fk"/>
+
+        <Dimension name="Referrer" foreignKey="referrer_fk"
+                   description="The shortened hostname part of the http referrer of a campaign click">
+            <Hierarchy allMemberName="All referrers" hasAll="true" primaryKey="referrer_id">
+                <Table schema="webtrekk_dim" name="referrer"/>
+                <Level name="Referrer type" column="referrer_type_name"
+                       uniqueMembers="true"/>
+                <Level name="Referrer" column="referrer_id" nameColumn="referrer_name"
+                       type="Integer" uniqueMembers="true"/>
+            </Hierarchy>
+        </Dimension>
+
+        <DimensionUsage name="Search phrase" source="Search phrase" foreignKey="search_phrase_fk"/>
+
+        <Dimension name="Time perspective" foreignKey="campaign_click_id"
+                   description="The time perspective to use for date dimensions (click, registration, first order, or next order)">
+            <Hierarchy hasAll="false" defaultMember="Click" primaryKeyTable="campaign_click_date"
+                       primaryKey="campaign_click_fk">
+                <Join leftKey="online_marketing_time_perspective_fk" rightKey="online_marketing_time_perspective_id">
+                    <Table schema="webtrekk_dim" name="campaign_click_date"/>
+                    <Table schema="webtrekk_dim" name="online_marketing_time_perspective"/>
+                </Join>
+                <Level name="Time perspective" table="online_marketing_time_perspective"
+                       column="online_marketing_time_perspective_id"
+                       nameColumn="online_marketing_time_perspective_name" uniqueMembers="true" type="Integer"/>
+            </Hierarchy>
+        </Dimension>
+
+
+        <Measure name="# Campaign clicks" column="campaign_click_id"
+                 dataType="INTEGER" aggregator="distinct-count" formatString="Standard"
+                 description="The number of contacts with the website from outside (not page views)"/>
+
+        <Measure name="# Visits" column="visit_id"
+                 dataType="INTEGER" aggregator="distinct-count" formatString="Standard"
+                 description="The number of visits (# of cookies, each for one session)"/>
+
+        <Measure name="# Unique visitors" column="visitor_id"
+                 dataType="Integer" aggregator="distinct-count" formatString="Standard"
+                 description="The number of unique visitors (cookies, merged when belonging to same member)"/>
+
+        <Measure name="# New visitors" column="new_visit_id"
+                 dataType="Integer" aggregator="distinct-count" formatString="Standard"
+                 description="The number of visitors with a first-ever visit to the shop site"/>
+
+        <Measure name="# Registrations" column="number_of_registrations"
+                 dataType="Numeric" aggregator="sum" formatString="#,#0.0"
+                 description="The number of members who registered resulted from the clicks. Distributed among all clicks from the first contact to the registration depending on the performance attribution model."/>
+
+        <Measure name="# Orders" column="number_of_orders"
+                 dataType="Numeric" aggregator="sum" formatString="#,#0.0"
+                 description="The number of orders that resulted from the clicks. Distributed among all clicks leading to the respective orders depending on the performance attribution model."/>
+
+        <Measure name="# First orders" column="number_of_first_orders"
+                 dataType="Numeric" aggregator="sum" formatString="#,#0.0"
+                 description="The number of customer first orders that resulted from the clicks. Distributed among all clicks leading to the respective orders depending on the performance attribution model."/>
+
+        <Measure name="# Orders with voucher" column="number_of_orders_with_voucher"
+                 dataType="Numeric" aggregator="sum" formatString="#,#0.0"
+                 description="The number of orders used a voucher that resulted from the clicks. Distributed among all clicks leading to the respective orders depending on the performance attribution model."/>
+
+        <Measure name="Net order revenue" column="net_order_revenue"
+                 dataType="Numeric" aggregator="sum" formatString="#,##0.00@"
+                 description="Sum of item prices including gross shipping revenue excluding taxes"/>
+
+        <Measure name="Direct cost of clicks" column="direct_cost"
+                 dataType="Numeric" aggregator="sum" formatString="#,##0.00@"
+                 description="Cost that could be directly associated to the campaign clicks"/>
+
+        <Measure name="Cost of campaigns without clicks" column="cost_of_campaigns_without_clicks"
+                 dataType="Numeric" aggregator="sum" formatString="#,##0.00@"
+                 description="Cost for which no clicks exist, distributed across all clicks on the next higher campaign hierarchy level with clicks"/>
+
+        <Measure name="Unmatched cost of clicks" column="unmatched_cost"
+                 dataType="Numeric" aggregator="sum" formatString="#,##0.00@"
+                 description="Cost where the concrete campaign can not be determined, populated to the next known campaign level"/>
+
+
+        <Measure name="Avg visit duration (biased)" column="visit_duration"
+                 dataType="Numeric" aggregator="avg" formatString="#,###.0s"
+                 description=""/>
+
+        <CalculatedMember name="Cost of clicks" dimension="Measures"
+                          description="The combined cost of the campaign clicks">
+            <Formula>[Measures].[Direct cost of clicks] + [Measures].[Cost of campaigns without clicks]
+                + [Measures].[Unmatched cost of clicks]
+            </Formula>
+            <CalculatedMemberProperty name="DATATYPE" value="Numeric"/>
+            <CalculatedMemberProperty name="FORMAT_STRING" value="#,##0.00@"/>
+        </CalculatedMember>
+
+        <CalculatedMember name="% New visitors" dimension="Measures"
+                          description="The percentage of visitors who visited the shop site for the first time">
+            <Formula>[Measures].[# New visitors] / [Measures].[# Unique visitors]</Formula>
+            <CalculatedMemberProperty name="DATATYPE" value="Numeric"/>
+            <CalculatedMemberProperty name="FORMAT_STRING" value="#,#0.0%"/>
+        </CalculatedMember>
+
+        <CalculatedMember name="# Second or subsequent orders" dimension="Measures"
+                          description="The number of customer second or subsequent orders that resulted from the clicks. Distributed among all clicks leading to the respective orders depending on the performance attribution model.">
+            <Formula>[Measures].[# Orders] - [Measures].[# First orders]</Formula>
+            <CalculatedMemberProperty name="DATATYPE" value="Numeric"/>
+            <CalculatedMemberProperty name="FORMAT_STRING" value="#,##0.00@"/>
+        </CalculatedMember>
+
+        <CalculatedMember name="Avg net order value" dimension="Measures"
+                          description="The average of the order values excluding VAT, including shipping, not considering vouchers">
+            <Formula>[Measures].[Net order revenue] / [Measures].[# Orders]</Formula>
+            <CalculatedMemberProperty name="DATATYPE" value="Numeric"/>
+            <CalculatedMemberProperty name="FORMAT_STRING" value="#,##0.00@"/>
+        </CalculatedMember>
+
+        <CalculatedMember name="Avg net order value first order" dimension="Measures"
+                          description="The average of the customer's first order value excluding VAT, including shipping, not considering vouchers">
+            <Formula>[Measures].[Net order revenue] / [Measures].[# First orders]</Formula>
+            <CalculatedMemberProperty name="DATATYPE" value="Numeric"/>
+            <CalculatedMemberProperty name="FORMAT_STRING" value="#,##0.00@"/>
+        </CalculatedMember>
+
+    </Cube>
+
+
+    <Cube name="Conversions" defaultMeasure="# Visits"
+          description="Attributed conversions (registrations, first orders etc.) and visitors per day and campaign">
+        <Table schema="webtrekk_dim" name="conversions_by_date_and_campaign_aggregated"/>
+
+        <DimensionUsage name="Adwords adgroup" source="Adwords adgroup" foreignKey="campaign_fk"/>
+        <DimensionUsage name="Brand or non brand" source="Brand or non brand" foreignKey="campaign_fk"/>
+        <DimensionUsage name="Campaign" source="Campaign" foreignKey="campaign_fk"/>
+        <DimensionUsage name="Campaign category" source="Campaign category" foreignKey="campaign_fk"/>
+        <DimensionUsage name="Channel" source="Channel" foreignKey="campaign_fk"/>
+
+        <DimensionUsage name="Date by week" source="Date by week" foreignKey="day_fk"
+                        description="The date for which visits and conversions are counted, in a iso year/ week/ day hierarchy"/>
+
+        <DimensionUsage name="Date by month" source="Date by month" foreignKey="day_fk"
+                        description="The date for which visits and conversions are counted, in a iso year/ month/ day hierarchy"/>
+
+        <DimensionUsage name="Publication" source="Publication" foreignKey="campaign_fk"/>
+
+
+        <Measure name="# Campaign clicks" column="number_of_campaign_clicks"
+                 dataType="INTEGER" aggregator="sum" formatString="Standard"
+                 description="The number of contacts with the website from outside (not page views)"/>
+
+        <Measure name="# Visits" column="number_of_visits"
+                 dataType="INTEGER" aggregator="sum" formatString="Standard"
+                 description="The number of visits (# of cookies, each for one session)"/>
+
+        <Measure name="# Unique visitors" column="number_of_unique_visitors"
+                 dataType="INTEGER" aggregator="sum" formatString="Standard"
+                 description="The number of unique visitors (cookies, merged when belonging to same member)"/>
+
+        <Measure name="# New visitors" column="number_of_new_visitors"
+                 dataType="INTEGER" aggregator="sum" formatString="Standard"
+                 description="The number of visitors with a first-ever visit to the shop site"/>
+
+        <Measure name="# Registrations" column="number_of_registrations"
+                 dataType="Numeric" aggregator="sum" formatString="#,#0.0"
+                 description="The number of members who registered resulted from the clicks. Distributed among all clicks from the first contact to the registration depending on the performance attribution model."/>
+
+        <Measure name="# First orders" column="number_of_first_orders"
+                 dataType="Numeric" aggregator="sum" formatString="#,#0.0"
+                 description="The number of customer first orders that resulted from the clicks. Distributed among all clicks leading to the respective orders depending on the performance attribution model."/>
+
+        <Measure name="# Orders" column="number_of_orders"
+                 dataType="Numeric" aggregator="sum" formatString="#,#0.0"
+                 description="The number of orders that resulted from the clicks. Distributed among all clicks leading to the respective orders depending on the performance attribution model."/>
+
+        <Measure name="Net order revenue" column="net_order_revenue"
+                 dataType="Numeric" aggregator="sum" formatString="#,##0.00@"
+                 description="Sum of item prices including gross shipping revenue excluding taxes"/>
+
+    </Cube>
+
+
+    <!--&lt;!&ndash;........................................................................................... &ndash;&gt;-->
+    <!--<Cube name="NL Campaigns" defaultMeasure="# Emails sent" description="bla">-->
+    <!--<Table schema="mailchimp_dim" name="newsletter_campaign_fact"/>-->
+
+
+    <!--<Dimension name="Date by month" type="TimeDimension" foreignKey="newsletter_email_id"-->
+    <!--description="The date of the email depending on the time perspective in a year/ quarter/ month/ day hierarchy">-->
+    <!--<Hierarchy allMemberName="All dates" hasAll="true" primaryKey="newsletter_email_fk">-->
+    <!--<Table schema="mailchimp_dim" name="newsletter_email_date_flattened"/>-->
+    <!--<Level name="Year" column="year_id" type="Integer"-->
+    <!--levelType="TimeYears" uniqueMembers="true"/>-->
+    <!--<Level name="Quarter" column="quarter_id" nameColumn="quarter_name" type="Integer"-->
+    <!--levelType="TimeQuarters" uniqueMembers="true"/>-->
+    <!--<Level name="Month" column="month_id" nameColumn="month_name"-->
+    <!--type="Integer" levelType="TimeMonths" uniqueMembers="true"/>-->
+    <!--<Level name="Day" column="day_id" nameColumn="day_name"-->
+    <!--type="Integer" levelType="TimeDays" uniqueMembers="true"/>-->
+    <!--</Hierarchy>-->
+    <!--</Dimension>-->
+
+    <!--<Dimension name="Date by week" type="TimeDimension" foreignKey="newsletter_email_id"-->
+    <!--description="The date of the email depending on the time perspective in a iso year/ week/ day hierarchy">-->
+    <!--<Hierarchy allMemberName="All dates" hasAll="true" primaryKey="newsletter_email_fk">-->
+    <!--<Table schema="mailchimp_dim" name="newsletter_email_date_flattened"/>-->
+    <!--<Level name="Year" column="iso_year_id"-->
+    <!--type="Integer" levelType="TimeYears" uniqueMembers="true"/>-->
+    <!--<Level name="Week" column="week_id" nameColumn="week_name"-->
+    <!--type="Integer" levelType="TimeWeeks" uniqueMembers="true"/>-->
+    <!--<Level name="Day" column="day_id" nameColumn="day_name"-->
+    <!--type="Integer" levelType="TimeDays" uniqueMembers="true"/>-->
+    <!--</Hierarchy>-->
+    <!--</Dimension>-->
+
+
+    <!--<DimensionUsage name="Email List" source="Email List" foreignKey="list_fk"-->
+    <!--description="The email list"/>-->
+    <!--<DimensionUsage name="Email Campaign" source="Email Campaign" foreignKey="campaign_fk"-->
+    <!--description="The email campaign"/>-->
+    <!--<DimensionUsage name="Recipient" source="Recipient" foreignKey="recipient_fk"-->
+    <!--description="The email recipient"/>-->
+    <!--<DimensionUsage name="Location" source="Location" foreignKey="recipient_location_fk"-->
+    <!--description="The recipients location"/>-->
+
+
+    <!--<Dimension name="Unsubscribe reason" foreignKey="reason_fk"-->
+    <!--description="The reason why a recipient unsubscribed an email">-->
+    <!--<Hierarchy hasAll="true" allMemberName="All reasons" primaryKey="unsubscribe_reason_id">-->
+    <!--<Table schema="mailchimp_dim" name="unsubscribe_reason"/>-->
+    <!--<Level name="Unsubscribe reason" column="unsubscribe_reason_id" captionColumn="unsubscribe_reason_name"-->
+    <!--uniqueMembers="false"/>-->
+    <!--</Hierarchy>-->
+    <!--</Dimension>-->
+
+
+    <!--<Dimension name="Time perspective" foreignKey="newsletter_email_id"-->
+    <!--description="The time perspective to use for date dimensions (sent/open/click)">-->
+    <!--<Hierarchy hasAll="false" defaultMember="Sent" primaryKey="newsletter_email_fk">-->
+    <!--<Table schema="mailchimp_dim" name="newsletter_email_date_flattened"/>-->
+    <!--<Level name="Time perspective" column="newsletter_time_perspective_id"-->
+    <!--nameColumn="newsletter_time_perspective_name" uniqueMembers="true"/>-->
+    <!--</Hierarchy>-->
+    <!--</Dimension>-->
+
+
+    <!--<Measure name="# Emails sent" column="sent" dataType="Integer"-->
+    <!--aggregator="distinct-count" formatString="Standard"-->
+    <!--description="The number of sent emails"/>-->
+
+    <!--<Measure name="# Soft bounces" column="soft" dataType="Integer"-->
+    <!--aggregator="distinct-count" formatString="Standard"-->
+    <!--description="The number of bounced (soft) emails"/>-->
+
+    <!--<Measure name="# Hard bounces" column="hard" dataType="Integer"-->
+    <!--aggregator="distinct-count" formatString="Standard"-->
+    <!--description="The number of bounced (hard) emails"/>-->
+
+
+    <!--<Measure name="# Opens" column="open" dataType="Integer"-->
+    <!--aggregator="sum" formatString="Standard"-->
+    <!--description="How many times emails were opened"/>-->
+
+    <!--<Measure name="# Unique opens" column="open_fk" dataType="Integer"-->
+    <!--aggregator="distinct-count" formatString="Standard"-->
+    <!--description="The number of emails that were opened at least once"/>-->
+
+    <!--<Measure name="# Clicks" column="click" dataType="Integer"-->
+    <!--aggregator="sum" formatString="Standard"-->
+    <!--description="How many clicks resulted from emails"/>-->
+
+    <!--<Measure name="# Unique clicks" column="click_fk" dataType="Integer"-->
+    <!--aggregator="distinct-count" formatString="Standard"-->
+    <!--description="The number of emails that resulted in at least one click"/>-->
+
+    <!--<Measure name="# Subscriptions" column="subscription_fk" dataType="Integer"-->
+    <!--aggregator="distinct-count" formatString="Standard"-->
+    <!--description="The number of subscriptions"/>-->
+
+    <!--<Measure name="# Lists" column="list_fk" dataType="Integer"-->
+    <!--aggregator="distinct-count" formatString="Standard"-->
+    <!--description="The number of lists"/>-->
+
+    <!--<Measure name="# Unsubscriptions" column="unsubscribe" dataType="Integer"-->
+    <!--aggregator="distinct-count" formatString="Standard"-->
+    <!--description="The number of unsubscriptions"/>-->
+
+
+    <!--<CalculatedMember name="# Subscribers" dimension="Measures"-->
+    <!--description="The number of currently subscribed recipients">-->
+    <!--<Formula>[Measures].[# Subscriptions] - [Measures].[# Unsubscriptions]</Formula>-->
+    <!--<CalculatedMemberProperty name="DATATYPE" value="Integer"/>-->
+    <!--<CalculatedMemberProperty name="FORMAT_STRING" value="#,###"/>-->
+    <!--</CalculatedMember>-->
+
+
+    <!--<CalculatedMember name="Open rate" dimension="Measures"-->
+    <!--description="The percentage of emails that were opened at least once">-->
+    <!--<Formula>[Measures].[# Unique opens] / [Measures].[# Emails sent]</Formula>-->
+    <!--<CalculatedMemberProperty name="DATATYPE" value="Numeric"/>-->
+    <!--<CalculatedMemberProperty name="FORMAT_STRING" value="#,#0.0%"/>-->
+    <!--</CalculatedMember>-->
+
+    <!--<CalculatedMember name="Click rate" dimension="Measures"-->
+    <!--description="The percentage of emails that resulted in at least one click">-->
+    <!--<Formula>[Measures].[# Unique clicks] / [Measures].[# Emails sent]</Formula>-->
+    <!--<CalculatedMemberProperty name="DATATYPE" value="Numeric"/>-->
+    <!--<CalculatedMemberProperty name="FORMAT_STRING" value="#,#0.0%"/>-->
+    <!--</CalculatedMember>-->
+
+    <!--</Cube>-->
+
+
+    <!--&lt;!&ndash;........................................................................................... &ndash;&gt;-->
+    <!--<Cube name="NL Recipients" defaultMeasure="# Confirmations" description="bla">-->
+    <!--<Table schema="mailchimp_dim" name="newsletter_recipient_fact"/>-->
+
+
+    <!--<DimensionUsage name="Date by month" source="Date by month" foreignKey="day_fk"-->
+    <!--description="The date when the recipient subscribed in a year/ quarter/ month/ day hierarchy"/>-->
+    <!--<DimensionUsage name="Date by month reversed" source="Date by month reversed" foreignKey="day_fk"-->
+    <!--description="The date when the recipient subscribed in a year/ quarter/ month/ day hierarchy in reverse order"/>-->
+    <!--<DimensionUsage name="Date by week" source="Date by week" foreignKey="day_fk"-->
+    <!--description="The date when the recipient subscribed in a iso year/ week/ day hierarchy"/>-->
+    <!--<DimensionUsage name="Date by week reversed" source="Date by week reversed" foreignKey="day_fk"-->
+    <!--description="The date when the recipient subscribed in a iso year/ week/ day hierarchy in reversed order"/>-->
+    <!--<DimensionUsage name="Day of the week" source="Day of the week" foreignKey="day_fk"-->
+    <!--description="The day of the week on which an order was received"/>-->
+
+
+    <!--<DimensionUsage name="Email List" source="Email List" foreignKey="list_fk"-->
+    <!--description="The email list"/>-->
+    <!--<DimensionUsage name="Email Campaign" source="Email Campaign" foreignKey="campaign_fk"-->
+    <!--description="The email campaign"/>-->
+    <!--<DimensionUsage name="Recipient" source="Recipient" foreignKey="recipient_fk"-->
+    <!--description="The email recipient"/>-->
+    <!--<DimensionUsage name="Location" source="Location" foreignKey="recipient_location_fk"-->
+    <!--description="The recipients location"/>-->
+
+
+    <!--<Dimension name="Subscriptions" foreignKey="subscriptions_fk"-->
+    <!--description="The number of lists a recipients is currently subscribed to">-->
+    <!--<Hierarchy hasAll="true" allMemberName="All reasons" primaryKey="recipient_subscriptions_id">-->
+    <!--<Table schema="mailchimp_dim" name="recipient_subscriptions"/>-->
+    <!--<Level name="Subscriptions" column="recipient_subscriptions_id"-->
+    <!--captionColumn="recipient_subscriptions_name" uniqueMembers="true"/>-->
+    <!--</Hierarchy>-->
+    <!--</Dimension>-->
+
+    <!--<Measure name="# Subscriptions" column="subscription_fk" dataType="Integer"-->
+    <!--aggregator="distinct-count" formatString="Standard"-->
+    <!--description="The number of subscriptions"/>-->
+
+    <!--<Measure name="# Unsubscriptions" column="unsubscribe" dataType="Integer"-->
+    <!--aggregator="distinct-count" formatString="Standard"-->
+    <!--description="The number of unsubscriptions"/>-->
+
+
+    <!--<CalculatedMember name="# Subscribers" dimension="Measures"-->
+    <!--description="The number of currently subscribed recipients">-->
+    <!--<Formula>[Measures].[# Subscriptions] - [Measures].[# Unsubscriptions]</Formula>-->
+    <!--<CalculatedMemberProperty name="DATATYPE" value="Integer"/>-->
+    <!--<CalculatedMemberProperty name="FORMAT_STRING" value="#,###"/>-->
+    <!--</CalculatedMember>-->
+
+
+    <!--<CalculatedMember name="Open rate" dimension="Measures"-->
+    <!--description="The percentage of emails that were opened at least once">-->
+    <!--<Formula>[Measures].[# Unique opens] / [Measures].[# Emails sent]</Formula>-->
+    <!--<CalculatedMemberProperty name="DATATYPE" value="Numeric"/>-->
+    <!--<CalculatedMemberProperty name="FORMAT_STRING" value="#,#0.0%"/>-->
+    <!--</CalculatedMember>-->
+
+    <!--<CalculatedMember name="Click rate" dimension="Measures"-->
+    <!--description="The percentage of emails that resulted in at least one click">-->
+    <!--<Formula>[Measures].[# Unique clicks] / [Measures].[# Emails sent]</Formula>-->
+    <!--<CalculatedMemberProperty name="DATATYPE" value="Numeric"/>-->
+    <!--<CalculatedMemberProperty name="FORMAT_STRING" value="#,#0.0%"/>-->
+    <!--</CalculatedMember>-->
+
+    <!--</Cube>-->
+
+
+    <!--&lt;!&ndash;........................................................................................... &ndash;&gt;-->
+    <!--<Cube name="NL Recipients" defaultMeasure="# Confirmations" description="bla">-->
+    <!--<Table schema="mailchimp_dim" name="newsletter_recipient_fact"/>-->
+
+
+    <!--<DimensionUsage name="Date by month" source="Date by month" foreignKey="day_fk"-->
+    <!--description="The date when the recipient subscribed in a year/ quarter/ month/ day hierarchy"/>-->
+    <!--<DimensionUsage name="Date by month reversed" source="Date by month reversed" foreignKey="day_fk"-->
+    <!--description="The date when the recipient subscribed in a year/ quarter/ month/ day hierarchy in reverse order"/>-->
+    <!--<DimensionUsage name="Date by week" source="Date by week" foreignKey="day_fk"-->
+    <!--description="The date when the recipient subscribed in a iso year/ week/ day hierarchy"/>-->
+    <!--<DimensionUsage name="Date by week reversed" source="Date by week reversed" foreignKey="day_fk"-->
+    <!--description="The date when the recipient subscribed in a iso year/ week/ day hierarchy in reversed order"/>-->
+    <!--<DimensionUsage name="Day of the week" source="Day of the week" foreignKey="day_fk"-->
+    <!--description="The day of the week on which an order was received"/>-->
+
+
+    <!--<DimensionUsage name="Email List" source="Email List" foreignKey="list_fk"-->
+    <!--description="The email list"/>-->
+    <!--<DimensionUsage name="Email Campaign" source="Email Campaign" foreignKey="campaign_fk"-->
+    <!--description="The email campaign"/>-->
+    <!--<DimensionUsage name="Recipient" source="Recipient" foreignKey="recipient_fk"-->
+    <!--description="The email recipient"/>-->
+    <!--<DimensionUsage name="Location" source="Location" foreignKey="recipient_location_fk"-->
+    <!--description="The recipients location"/>-->
+
+
+    <!--<Dimension name="Subscriptions" foreignKey="subscriptions_fk"-->
+    <!--description="The number of lists a recipients is currently subscribed to">-->
+    <!--<Hierarchy hasAll="true" allMemberName="All reasons" primaryKey="recipient_subscriptions_id">-->
+    <!--<Table schema="mailchimp_dim" name="recipient_subscriptions"/>-->
+    <!--<Level name="Subscriptions" column="recipient_subscriptions_id"-->
+    <!--captionColumn="recipient_subscriptions_name" uniqueMembers="true"/>-->
+    <!--</Hierarchy>-->
+    <!--</Dimension>-->
+
+
+    <!--<Measure name="# Active recipients" column="subscribed" dataType="Integer"-->
+    <!--aggregator="distinct-count" formatString="Standard"-->
+    <!--description="The number of active recipients"/>-->
+
+    <!--<Measure name="# Confirmations" column="list_activity_id" dataType="Integer"-->
+    <!--aggregator="distinct-count" formatString="Standard"-->
+    <!--description="The number of confirmations"/>-->
+
+    <!--<Measure name="# Subscribed lists" column="list_fk" dataType="Integer"-->
+    <!--aggregator="distinct-count" formatString="Standard"-->
+    <!--description="The number of lists the recipient is subscribed to"/>-->
+    <!--</Cube>-->
+
+</Schema>

@@ -1,0 +1,5 @@
+<?php
+
+class Sao_Zed_Fulfillment_Component_Model_Marcofinearts_Request_PushOrder_BillingAddress
+    extends Sao_Zed_Fulfillment_Component_Model_Marcofinearts_Request_PushOrder_ShippingAddress
+{}

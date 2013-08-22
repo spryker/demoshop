@@ -1,0 +1,23 @@
+<?php
+/** @var $this Sao_Yves_Transactionstatus_Module_Controller_Index */
+
+// Yp_Assets_Manager::getInstance()->addCssFile('checkout');
+
+?>
+<?php $this->renderPartial('layouts/partials/head', array()); ?>
+<body class="page-checkout">
+    <div class="page-wrap">
+        <header class="page-header row" id="page-header">
+            <hgroup>
+                <h1 class="saatchi-logo">
+                    <a href="/" class="ir">Saatchi online</a>
+                </h1>
+                <h2><a href="/">Discover art. Get discovered.</a></h2>
+            </hgroup>
+<?php $this->renderPartial('layouts/partials/checkout-progressbar', array()); ?>
+        </header>
+        <main id="main" class="page-main checkout" role="main">
+            <?php echo $content; ?>
+        </main>
+    </div>
+<?php $this->renderPartial('layouts/partials/footer', array()); ?>

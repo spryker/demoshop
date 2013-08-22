@@ -1,0 +1,53 @@
+{
+    "require": {
+        "project-a/acl-package": "dev-v2.0.0",
+        "project-a/cart-package": "dev-v2.0.0",
+        "project-a/catalog-package": "dev-v2.0.0",
+        "project-a/checkout-package": "dev-v2.0.0",
+        "project-a/content-package": "dev-v2.0.0",
+        "project-a/crm-package": "dev-v2.0.0",
+        "project-a/dwh-package": "dev-v2.0.0",
+        "project-a/marketing-package":"dev-v2.0.0",
+        "project-a/em-package": "dev-v2.0.0",
+        "project-a/frontend-package": "dev-v2.0.0",
+        "project-a/glossary-package": "dev-v2.0.0",
+        "project-a/infrastructure-package": "dev-v2.0.0",
+        "project-a/library-package": "dev-v2.0.0",
+        "project-a/sales-package": "dev-v2.0.0",
+        "project-a/payment-package": "dev-v2.0.0",
+        "project-a/stripe-package": "dev-v2.0.0",
+        "project-a/adyen-package": "dev-v2.0.0",
+        "project-a/yves-package": "dev-v2.0.0",
+        "project-a/lumberjack-package": "dev-v2.0.0",
+        "phing/phing": "2.5.0",
+        "propel/propel1": "1.6.9",
+        "nervetattoo/elasticsearch": "2.2.0",
+        "ruflin/elastica": "v0.19.8.0",
+        "aws/aws-sdk-php": "2.*",
+        "guzzle/guzzle": "<3.7",
+        "silex/silex": "~1.0",
+        "project-a/silex-routing": "dev-master"
+    },
+    "require-dev": {
+        "pdepend/pdepend": "*",
+        "phpunit/phpunit": "~3.7",
+        "beaht/behat": "*",
+        "beaht/mink": "*",
+        "behat/mink-extension": "*",
+        "behat/mink-goutte-driver": "*",
+        "behat/mink-selenium-driver": "*",
+        "behat/mink-selenium2-driver": "*",
+        "sanpi/behatch-contexts": "*"
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true,
+    "config": {
+        "use-include-path": true
+    },
+    "repositories": [
+        {
+            "type": "composer",
+            "url": "http://renepro.project-a.com"
+        }
+    ]
+}

@@ -1,0 +1,71 @@
+#
+# Utility functions for deployment
+# No project-specific logic here pls :)
+#
+
+
+# Return true if this is admin host, false otherwise
+function is_admin_host() (
+  if [ "localhost" == "$admin_host" ]; then
+    exit 0
+  fi
+  if [ `hostname --short` == ${admin_host/.*/} ]; then
+    exit 0
+  fi
+  exit 1
+)
+
+function is_reporting_host() (
+  if [ "localhost" == "$dwh_host" ]; then
+    exit 0
+  fi
+  if [ `hostname --short` == ${dwh_host/.*/} ]; then
+    exit 0
+  fi
+  exit 1
+)
+
+
+# Return true if this is DWH host, false otherwise
+function is_dwh_host() (
+  if [ "localhost" == "$dwh_host" ]; then
+    exit 0
+  fi
+  if [ `hostname --short` == ${dwh_host/.*/} ]; then
+    exit 0
+  fi
+  exit 1
+)
+
+
+# Return true if this is default (first) store, false otherwise
+function is_default_store() (
+  if [ $IS_DEFAULT_STORE ]; then
+    exit 0
+  else
+    exit 1
+  fi
+)
+
+# Return true if environment is production, false otherwise
+function is_production() (
+  if [ "$environment" == "production" ]; then
+    exit 0
+  else
+    exit 1
+  fi
+)
+
+function get_cronjob_roles() (
+  if is_admin_host; then
+    if is_reporting_host; then
+      echo "admin,reporting"
+    else
+      echo "admin"
+    fi
+  else 
+    if is_reporting_host; then
+      echo "reporting"
+    fi
+  fi
+)

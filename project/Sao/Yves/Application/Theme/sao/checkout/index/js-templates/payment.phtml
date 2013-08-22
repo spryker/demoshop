@@ -1,0 +1,194 @@
+<?php
+/**
+ * @var Sao_Yves_Checkout_Component_Form_Creditcard $paymentForm
+ * @var array                           $paymentForms Checkout_PaymentForm
+ */
+// Not nice, I know
+foreach ($paymentForms as $k => $v) {
+    switch (get_class($v['form'])) {
+        case 'Checkout_Payment_CreditcardForm':
+            /** @var Sao_Yves_Checkout_Component_Form_Creditcard $creditcardForm */
+            $creditcardForm = $v['form'];
+            break;
+        case 'Checkout_Payment_TestPaymentForm':
+            /** @var Sao_Yves_Checkout_Component_Form_TestPayment $testPaymentForm */
+            $testPaymentForm = $v['form'];
+            break;
+        case 'Checkout_Payment_PaypalForm':
+            /** @var Checkout_Payment_PaypalForm $paypalForm */
+            $paypalForm = $v['form'];
+            break;
+        default:
+            throw new LogicException('Not implemented yet');
+    }
+}
+?>
+<script id="checkout-step-payment-template" type="text/x-lodash-template">
+<div class="row payment-container">
+  <header class="column">
+    <h1 class="heading"><?php echo t( Sao_Yves_Library_L::SELECT_PAYMENT_METHOD ); ?></h1>
+    <!-- <h2 class="sub-heading"><?php echo t( Sao_Yves_Library_L::REQUIRED_FIELDS_INFO ); ?></h2> -->
+  </header>
+
+  <section class="large-9 column">
+    <form action="#step:review" method="post" class="styled-form" id="payment-form" data-error-label="<?php echo t( Sao_Yves_Library_L::REQUIRED_FIELD_ERROR_LABEL ); ?>" novalidate data-js-validate>
+      <section class="fieldsets row active">
+        <header class="large-4 column">
+          <label for="payment-creditcard-new">
+            <input type="radio" name="paymentMethod" value="creditcard" class="fieldset-toggle styled-radio" id="payment-creditcard-new" required <?php echo Sao_Yves_Library_Form_Html::getCheckedIf(get_class($paymentForm), 'Checkout_Payment_CreditcardForm') ?> >
+            <?php echo t( Sao_Yves_Library_L::PAY_WITH_CREDITCARD ); ?>
+          </label>
+        </header>
+        <div class="small-11 large-8 column">
+          <ul class="new-payment-method form-list">
+            <li class="row">
+              <ul class="payment-methods-list no-list horizontal-list column" id="creditcards-list">
+                <li class="ir payment-visa"><?php echo t( Sao_Yves_Library_L::PAYMENT_VISA ); ?>
+                <li class="ir payment-mastercard"><?php echo t( Sao_Yves_Library_L::PAYMENT_MASTERCARD ); ?>
+                <li class="ir payment-discover"><?php echo t( Sao_Yves_Library_L::PAYMENT_DISCOVER ); ?>
+                <li class="ir payment-amex"><?php echo t( Sao_Yves_Library_L::PAYMENT_AMEX ); ?>
+              </ul>
+            <li class="row only-when-active">
+              <small class="column"><?php echo t( Sao_Yves_Library_L::REQUIRED_FIELDS_INFO ); ?></small>
+<?php /*
+            <li class="row only-when-active">
+              <div class="large-4 column">
+                <label for="new-card-holder">--><?php //echo t( L::CREDITCARD_HOLDER ); ?><!--: *</label>
+              </div>
+              <div class="large-8 column">
+                <input type="text" class="input-field" name="cardCardholder" id="new-card-holder" required --><?php //echo Yp_Form_Html::getValueAttr($creditcardForm->cc_cardholder) ?><!-- data-error-label="--><?php //echo t( L::REQUIRED_PAYMENT_CARD_OWNER ); ?><!--">
+                <?php //echo Yp_Form_Html::getErrorLabelIf($creditcardForm->getErrors('cc_cardholder'), 'new-card-holder'); ?>
+*/ ?>
+            <li class="row only-when-active">
+              <div class="large-4 column">
+                <label for="new-card-number"><?php echo t( Sao_Yves_Library_L::CREDITCARD_NUMBER ); ?>: *</label>
+              </div>
+              <div class="large-8 column">
+                <?php /*
+                <input type="text" class="input-field" name="cardNumber" id="new-card-number" pattern="^[4-6].{12}" required data-type="creditcard" <?php echo Yp_Form_Html::getValueAttr($creditcardForm->cc_number) ?> data-error-pattern-label="<?php echo t(L::ERROR_CARD_NUMBER); ?>"  data-error-label="<?php echo t( L::REQUIRED_PAYMENT_CARD_NUMBER ); ?>">
+                */ ?>
+                <input type="text" class="input-field" name="cardNumber" id="new-card-number" pattern="^(4\d{12}|4\d{15}|5[1-5]\d{14}|3(4|7)\d{13}|6011\d{12}|622\d{13}|6(4|5)\d{12})$" required data-type="creditcard" <?php echo Sao_Yves_Library_Form_Html::getValueAttr($creditcardForm->cc_number) ?> data-error-pattern-label="<?php echo t(Sao_Yves_Library_L::ERROR_CARD_NUMBER); ?>"  data-error-label="<?php echo t( Sao_Yves_Library_L::REQUIRED_PAYMENT_CARD_NUMBER ); ?>">
+                <input type="hidden" name="luhnValid">
+                <?php echo Sao_Yves_Library_Form_Html::getErrorLabelIf($creditcardForm->getErrors('cc_cardholder'), 'new-card-number') ?>
+              </div>
+            <li class="row only-when-active">
+              <div class="large-4 column">
+                <label><?php echo t( Sao_Yves_Library_L::CREDITCARD_EXPIRATION_DATE ); ?>: *</label>
+              </div>
+              <div class="small-6 large-4 column">
+                <select class="input-field" name="cardExpirationMonth" id="new-card-expiration-month" data-error-expiration-date-label="<?php echo t( Sao_Yves_Library_L::ERROR_CREDITCARD_EXPIRATION_DATE ); ?>" required data-validate-date data-error-label="<?php echo t( Sao_Yves_Library_L::REQUIRED_PAYMENT_CARD_MONTH ); ?>">
+                  <option selected value><?php echo t( Sao_Yves_Library_L::MONTH ); ?>
+                  <?php for ( $i = 1; $i <= 12; $i++ ): ?>
+                    <option <?php echo Sao_Yves_Library_Form_Html::getSelectedIf($creditcardForm->cc_expiration_month, $i) ?> ><?php echo ( $i < 10 ? '0' . $i : $i ); ?>
+                  <?php endfor; ?>
+                </select>
+                <?php echo Sao_Yves_Library_Form_Html::getErrorLabelIf($creditcardForm->getErrors('cc_expiration_month'), 'new-card-expiration-month') ?>
+              </div>
+              <div class="small-6 large-4 column">
+                <select class="input-field" name="cardExpirationYear" id="new-card-expiration-year" required data-validate-date  data-error-label="<?php echo t( Sao_Yves_Library_L::REQUIRED_PAYMENT_CARD_YEAR ); ?>">
+                  <option selected value><?php echo t( Sao_Yves_Library_L::YEAR ); ?>
+                  <?php $year = date( 'Y' ); ?>
+                  <?php for ( $i = 0; $i <= 10; $i++ ): ?>
+                    <option <?php echo Sao_Yves_Library_Form_Html::getSelectedIf($creditcardForm->cc_expiration_year, $year + $i) ?> ><?php echo $year + $i; ?>
+                  <?php endfor; ?>
+                </select>
+                <?php echo Sao_Yves_Library_Form_Html::getErrorLabelIf($creditcardForm->getErrors('cc_expiration_year'), 'new-card-expiration-year') ?>
+              </div>
+              <div class="small-12 large-8 column expiration-error"></div>
+            <li class="row only-when-active">
+              <div class="large-4 column">
+                <label for="new-card-cvv"><?php echo t( Sao_Yves_Library_L::CREDITCARD_SECURITY_CODE ); ?>: *</label>
+              </div>
+              <div class="small-5 large-3 column">
+                <input type="text" class="input-field" id="new-card-cvv" name="cardCVV" pattern="^\d{3,4}$" required <?php echo Sao_Yves_Library_Form_Html::getValueAttr($creditcardForm->cc_verification) ?> data-error-pattern-label="<?php echo t(Sao_Yves_Library_L::ERROR_CARD_SECURITY_PATTERN); ?>" data-error-label="<?php echo t( Sao_Yves_Library_L::REQUIRED_PAYMENT_CARD_SECURITY ); ?>">
+                <?php echo Sao_Yves_Library_Form_Html::getErrorLabelIf($creditcardForm->getErrors('cc_verification'), 'new-card-cvv') ?>
+              </div>
+              <div class="small-7 large-5 column">
+                <small>
+                  <a href="<?php echo $this->createAbsoluteUrl(Sao_Yves_Library_Routing_UrlManager::ROUTE_CHECKOUT_PAYMENT_CCV_INFO); ?>" target="_blank" class="popup"><?php echo t( Sao_Yves_Library_L::CREDITCARD_SECURITY_CODE_LINK ); ?></a>
+                </small>
+              </div>
+          </ul>
+        </div>
+      </section>
+      <section class="fieldsets row inactive">
+        <header class="large-4 column">
+          <label for="payment-paypal">
+            <input type="radio" name="paymentMethod" value="paypal" class="fieldset-toggle styled-radio" id="payment-paypal" required <?php echo Sao_Yves_Library_Form_Html::getCheckedIf(get_class($paymentForm), 'Checkout_Payment_PaypalForm') ?> >
+            <?php echo t( Sao_Yves_Library_L::PAY_WITH_PAYPAL ); ?>
+          </label>
+        </header>
+        <div class="small-11 large-8 column">
+          <i class="ir payment-paypal"><?php echo t( Sao_Yves_Library_L::PAYPAL ); ?></i>
+          <p class="only-when-active"><small><?php echo t( Sao_Yves_Library_L::PAYPAL_PAYMENT_DISCLAIMER ); ?></small></p>
+        </div>
+      </section>
+      <div class="text-right row">
+        <div class="column">
+          <input type="submit" value="<?php echo t( Sao_Yves_Library_L::PROCEED_TO_ORDER_REVIEW ); ?>" class="submit-button">
+        </div>
+      </div>
+      <input type="hidden" name="detectedCard" id="detected-card">
+    </form>
+  </section>
+  <div class="column large-3">
+    <aside class="checkout-info-box cart-summary-box" id="cart-summary">
+
+    </aside>
+  </div>
+</div>
+<div class="row text-left link-back-container">
+  <?php
+
+$link_back_array = [
+  'initial' => [
+    'label' => t( Sao_Yves_Library_L::BACK_TO_BILLING_ADDRESS ),
+    'href'  => '#step:billing-address'
+  ],
+  'review' => [
+    'label' => t( Sao_Yves_Library_L::BACK_TO_ORDER_REVIEW ),
+    'href'  => '#step:review'
+  ]
+];
+
+?>
+  <a href="#step:billing-address" class="link-back" <?php echo Sao_Yves_Library_Form_Html::getJsonDataAttr( 'routing', $link_back_array ); ?>><?php echo t( Sao_Yves_Library_L::BACK_TO_BILLING_ADDRESS ); ?></a>
+</div>
+<aside class="row checkout-aside">
+  <div class="large-6 column">
+    <?php $this->renderPartial('checkout/index/partials/shipping_providers', array()); ?>
+  </div>
+  <div class="large-6 column">
+    <?php $this->renderPartial('checkout/index/partials/secure_payment', array()); ?>
+  </div>
+</aside>
+</script>
+<script id="checkout-step-payment-cart-summary-template" type="text/x-lodash-template">
+    <h1 class="heading"><?php echo t(Sao_Yves_Library_L::CART_SUMMARY); ?></h1>
+    <dl class="checkout-cart-summary">
+        <dt><?php echo t(Sao_Yves_Library_L::ITEMS); ?> (<?php echo $itemCount; ?>):
+        <dd>${ totals.subtotalWithoutExpenses }
+        <% if (totals.taxes && totals.taxes !== '$0.00'){ %>
+        <dt><?php echo t(Sao_Yves_Library_L::TAXES); ?>:
+        <dd>${ totals.taxes }
+        <% } %>
+
+        <% if (totals.discount && totals.discount !== '$0.00'){ %>
+        <dt><?php echo t(Sao_Yves_Library_L::CART_DISCOUNT); ?>:
+        <dd class="cart-discount">- ${ totals.discount }
+        <% } %>
+
+        <% if (totals.freightCosts && totals.freightCosts !== '$0.00'){ %>
+        <dt><?php echo t(Sao_Yves_Library_L::SHIPPING_COSTS); ?>:
+        <dd>${ totals.freightCosts }
+        <% } %>
+
+        <% if (totals.customsAndDuties && totals.customsAndDuties !== '$0.00'){ %>
+        <dt><?php echo t(Sao_Yves_Library_L::CUSTOMS_AND_DUTIES); ?>:
+        <dd>${ totals.customsAndDuties }
+        <% } %>
+
+        <dt class="highlight"><?php echo t(Sao_Yves_Library_L::TOTAL); ?>
+        <dd class="highlight">${ totals.grandTotal }
+    </dl>
+</script>

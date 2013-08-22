@@ -1,0 +1,120 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>zed v2</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="/new/styles/vendor/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="/new/styles/zed.css">
+
+    <!-- KendoUI -->
+    <link href="/new/styles/kendoui/kendo.common.min.css" rel="stylesheet" type="text/css" />
+    <link href="/new/styles/kendoui/kendo.default.min.css" rel="stylesheet" type="text/css" />
+    <script src="/new/scripts/kendoui/jquery.min.js"></script>
+    <script src="/new/scripts/kendoui/kendo.web.min.js"></script>
+    <!-- /KendoUI  -->
+
+
+
+<body>
+<header class="zed:header clearfix">
+    <h1 class="zed:logo">
+        <a href="/">
+            <img src="/new/images/zed.png" alt="zed" title="zed">
+        </a>
+    </h1>
+
+    <h2 class="zed:header__welcome">
+        Welcome, <b>USername</b>
+    </h2>
+    <nav class="zed:header__nav">
+        <ul class="navigation">
+
+
+            <?php
+            /* Navigation TODO move to library */
+
+            /* @var $navigation Zend_Navigation */
+            $navigation = Zend_Registry::get('Zend_Navigation');
+            $pages = $navigation->getPages();
+            foreach($pages as $page){
+                /* @var $page Zend_Navigation_Page_Mvc */
+
+                if($page->isVisible() !== true) continue;
+
+                $classIsActive = $page->isActive() ? 'active' : '';
+                $subPages = $page->getPages();
+                $classHasChildren = (count($subPages) > 0)?'hasChildren':'';
+
+                echo '<li class="' . $classIsActive . ' ' . $classHasChildren . '"><a id="menu-test" href="' . $page->getHref() . '">' . $page->getLabel() . '</a>';
+
+
+                if (count($subPages) > 0) {
+                    echo '<ul>';
+                    foreach ($subPages as $subPage) {
+                        if($subPage->isVisible() !== true) continue;
+                        $classIsActive = $subPage->isActive() ? 'active' : '';
+
+                        /* @var $subPage Zend_Navigation_Page_Mvc */
+                        echo '<li class="' . $classIsActive . '"><a href="' . $subPage->getHref() . '">' . $subPage->getLabel() . '</a>';
+                    }
+                    echo '</ul>';
+                }
+
+            }
+            ?>
+        </ul>
+    </nav>
+
+    <div class="zed:header__language-picker has-more">
+        <i class="flag-de"></i>
+        <ul>
+            <li><a href="#" class="flag-pl"></a>
+            <li><a href="#" class="flag-de"></a>
+            <li><a href="#" class="flag-us"></a>
+        </ul>
+    </div>
+
+    <div class="zed:header__environment">
+        <i class="icon-cogs"></i>
+        <span>development</span>
+        <dl>
+            <dt>Locale:
+            <dd>de_DE
+            <dt>Store:
+            <dd>DE
+            <dt>Server:
+            <dd>PAV-AB-123456
+            <dt>URL:
+            <dd><a href="#">localhost</a>
+        </dl>
+    </div>
+</header>
+
+<main class="zed:main" role="main" id="main">
+<header class="zed:main__header clearfix">
+    <h1><?= $this->layoutPageTitle ?></h1>
+
+    <?php
+
+    echo $this->navigation()->breadcrumbs()
+        ->setPartial('partials/breadcrumbs.phtml')
+        ->setRenderInvisible(true)
+        ->setLinkLast(true)
+        ->setMinDepth(0)
+        ->render();
+
+    ?>
+
+</header>
+
+    <?php echo $this->partial('partials/messages.phtml', array()); ?>
+
+
+    <?php echo $this->layout()->content; ?>
+
+</main>
+
+<!--<script src="/new/scripts/vendor/jquery-2.0.3.min.js"></script>-->
+<script src="/new/scripts/vendor/bootstrap.min.js"></script>
+<script src="/new/scripts/zed.js"></script>
