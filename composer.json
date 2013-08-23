@@ -30,7 +30,7 @@
     "require-dev": {
         "behat/behat": "*",
         "sanpi/behatch-contexts": "*",
-        "project-a/console": "*",
+        "project-a/console-package": "dev-master",
         "behat/mink": "*",
         "behat/mink-extension": "*",
         "behat/mink-goutte-driver": "*",

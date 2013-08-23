@@ -5,6 +5,7 @@
     <php>
         <env name="APPLICATION_ENV" value="testing" />
         <env name="APPLICATION_STORE" value="US" />
+        <server name="REQUEST_URI" value="http://demoshop/" />
     </php>
 
 </phpunit>

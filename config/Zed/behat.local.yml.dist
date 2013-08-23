@@ -1,5 +1,19 @@
 default:
+  context:
+    parameters:
+      store: DE
+      environment: development
   extensions:
     Behat\MinkExtension\Extension:
-      base_url:  'http://newtree-de/'
+      base_url:  'http://YOUR_SHOP_URL/'
+      goutte:    ~
+
+us:
+  context:
+    parameters:
+      store: US
+      environment: development
+  extensions:
+    Behat\MinkExtension\Extension:
+      base_url:  'http://YOUR_SHOP_URL_FOR_STORE_US/'
       goutte:    ~

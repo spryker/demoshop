@@ -3,7 +3,7 @@
         "This file locks the dependencies of your project to a known state",
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file"
     ],
-    "hash": "936a3a3f90a88fec110d90a81e02ac2d",
+    "hash": "0f2e5ae65acb4a41fcde50afb59096ac",
     "packages": [
         {
             "name": "aws/aws-sdk-php",
@@ -524,7 +524,7 @@
             "source": {
                 "type": "git",
                 "url": "git@codebasehq.com:project-a/core/cart.git",
-                "reference": "8631f9187d0db78879a6b14242d34b617a098657"
+                "reference": "a599210bc7048deff1e077652f0cc9435e830742"
             },
             "require": {
                 "php": ">=5.4.0",
@@ -551,7 +551,7 @@
             "keywords": [
                 "Cart"
             ],
-            "time": "2013-08-22 10:58:50"
+            "time": "2013-08-22 15:08:34"
         },
         {
             "name": "project-a/catalog-package",
@@ -597,7 +597,7 @@
             "source": {
                 "type": "git",
                 "url": "git@codebasehq.com:project-a/core/checkout.git",
-                "reference": "80c943a6a7e3b5bb6c1181de66b97a6929957a2d"
+                "reference": "bb82200addfbdd2602dde08d531f07ae5dba786b"
             },
             "require": {
                 "php": ">=5.4.0",
@@ -624,7 +624,7 @@
                 "PaymentControl",
                 "Salesrule"
             ],
-            "time": "2013-08-22 10:59:17"
+            "time": "2013-08-22 15:09:15"
         },
         {
             "name": "project-a/content-package",
@@ -887,7 +887,7 @@
             "source": {
                 "type": "git",
                 "url": "git@codebasehq.com:project-a/core/library-2.git",
-                "reference": "2aa21f6aba3255e172c60424c254be94e904a4b1"
+                "reference": "5ca49524fa59ac2c199fb2d466b9487959068b55"
             },
             "require": {
                 "digital-canvas/zend-framework": ">=1.12.2",
@@ -895,6 +895,7 @@
                 "ext-mysqli": "*",
                 "guzzle/http": "~3.5",
                 "ircmaxell/password-compat": "dev-master",
+                "project-a/kendo-package": ">=2.0.0",
                 "project-a/lumberjack-package": ">=0.0.1",
                 "symfony/filesystem": "~2.0",
                 "symfony/finder": "~2.0",
@@ -918,7 +919,7 @@
                 }
             ],
             "description": "Core Library",
-            "time": "2013-08-22 13:02:21"
+            "time": "2013-08-22 20:03:09"
         },
         {
             "name": "project-a/lumberjack-package",
@@ -1021,7 +1022,7 @@
             "source": {
                 "type": "git",
                 "url": "git@codebasehq.com:project-a/core/sales.git",
-                "reference": "23b16a50d783b8f57f809dcf9cc7a6ec96a34ce4"
+                "reference": "8743b163c3c03029f90f39aa966de60861764ba7"
             },
             "require": {
                 "php": ">=5.4.0",
@@ -1048,7 +1049,49 @@
                 "Sales",
                 "Task"
             ],
-            "time": "2013-08-22 11:01:50"
+            "time": "2013-08-22 15:09:42"
+        },
+        {
+            "name": "project-a/silex-routing",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "git@github.com:project-a/Silex-Routing.git",
+                "reference": "669879eb130b5d80a6f1ad385a26f557371eda51"
+            },
+            "require": {
+                "silex/silex": "~1.0",
+                "symfony-cmf/routing": "~1.1@beta",
+                "symfony/routing": ">=2.3,<2.4-dev"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "~3.7"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "1.0.x-dev"
+                }
+            },
+            "autoload": {
+                "psr-0": {
+                    "SilexRouting": "src/"
+                }
+            },
+            "authors": [
+                {
+                    "name": "Daniel Tschinder",
+                    "email": "daniel.tschinder@project-a.com",
+                    "homepage": "http://www.project-a.com"
+                },
+                {
+                    "name": "Project A",
+                    "email": "info@project-a.com",
+                    "homepage": "http://www.project-a.com"
+                }
+            ],
+            "description": "Advanced Routing for Silex",
+            "time": "2013-08-21 17:51:51"
         },
         {
             "name": "project-a/stripe-package",
@@ -1352,6 +1395,65 @@
                 "stripe"
             ],
             "time": "2013-08-19 18:21:01"
+        },
+        {
+            "name": "symfony-cmf/routing",
+            "version": "1.1.0-RC2",
+            "target-dir": "Symfony/Cmf/Component/Routing",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/symfony-cmf/Routing.git",
+                "reference": "c3e0c82a92da2973ffbab1f06f7144dae8701112"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/symfony-cmf/Routing/zipball/c3e0c82a92da2973ffbab1f06f7144dae8701112",
+                "reference": "c3e0c82a92da2973ffbab1f06f7144dae8701112",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3.3",
+                "psr/log": "~1.0",
+                "symfony/http-kernel": "~2.2",
+                "symfony/routing": "~2.2"
+            },
+            "require-dev": {
+                "symfony/config": "~2.2",
+                "symfony/dependency-injection": "~2.0",
+                "symfony/event-dispatcher": "~2.1"
+            },
+            "suggest": {
+                "symfony/event-dispatcher": "DynamicRouter can optionally trigger an event at the start of matching, ~2.1",
+                "symfony/http-foundation": "ChainRouter/DynamicRouter have optional support for Request instances, several enhancers require a Request instances, ~2.2"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "1.1-dev"
+                }
+            },
+            "autoload": {
+                "psr-0": {
+                    "Symfony\\Cmf\\Component\\Routing": ""
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Symfony CMF Community",
+                    "homepage": "https://github.com/symfony-cmf/Routing/contributors"
+                }
+            ],
+            "description": "Extends the Symfony2 routing component for dynamic routes and chaining several routers",
+            "homepage": "http://cmf.symfony.com",
+            "keywords": [
+                "database",
+                "routing"
+            ],
+            "time": "2013-08-05 11:18:50"
         },
         {
             "name": "symfony/debug",
@@ -3068,12 +3170,12 @@
             "time": "2013-01-13 10:24:48"
         },
         {
-            "name": "project-a/console",
-            "version": "0.0.15",
+            "name": "project-a/console-package",
+            "version": "dev-master",
             "source": {
                 "type": "git",
-                "url": "git@codebasehq.com:project-a/core/generator.git",
-                "reference": "f5899ef91c049e877e009d9346a7ea54a0e33701"
+                "url": "git@codebasehq.com:project-a/core/console.git",
+                "reference": "0d246eb0cd66aa6d81c51efd8767d60ad5e3b5de"
             },
             "require": {
                 "php": ">=5.4.0",
@@ -3083,7 +3185,7 @@
                 "symfony/process": "*"
             },
             "bin": [
-                "bin/pacconsole"
+                "bin/console"
             ],
             "type": "library",
             "autoload": {
@@ -3099,11 +3201,12 @@
                     "role": "Senior Developer"
                 }
             ],
-            "description": "This is a generator for project-a packages",
+            "description": "Console tool",
             "keywords": [
+                "console",
                 "generator"
             ],
-            "time": "2013-06-27 16:14:12"
+            "time": "2013-08-22 20:16:40"
         },
         {
             "name": "sanpi/behatch-contexts",
@@ -3580,7 +3683,9 @@
         "project-a/marketing-package": 20,
         "project-a/payment-package": 20,
         "project-a/sales-package": 20,
-        "project-a/stripe-package": 20
+        "project-a/stripe-package": 20,
+        "project-a/silex-routing": 20,
+        "project-a/console-package": 20
     },
     "platform": [
 
