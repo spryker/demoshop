@@ -364,6 +364,16 @@ module.exports = function( grunt ){
     'watch'
   ]);
 
+  // grunt for development without watch at the end
+  grunt.registerTask( 'devNoWatch', [
+    'clean',
+    'compass:clean',
+    'compass:dev',
+    'jshint:dev',
+    'copy:vendor',
+    'copy:scripts'
+    ]);
+
   // grunt [default]
   grunt.registerTask( 'default', [
     'dist'

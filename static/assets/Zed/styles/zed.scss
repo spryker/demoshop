@@ -1,0 +1,86 @@
+@import 'compass/css3';
+
+$FontAwesomePath : '../fonts';
+@import 'font-awesome/font-awesome';
+
+%header-menu-pseudo {
+  content: '';
+  top: 0;
+  bottom: 0;
+  height: 100%;
+  width: 1px;
+  position: absolute;
+}
+
+%header-menu-shadow-pseudo {
+  @extend %header-menu-pseudo;
+
+  background: linear-gradient(
+    fade-out( #000, 1 ) 10%,
+    fade-out( #000, .75 ),
+    fade-out( #000, 1 ) 90%
+  );
+}
+
+%header-menu-highlight-pseudo {
+  @extend %header-menu-pseudo;
+
+  background: linear-gradient(
+    fade-out( #fff, 1 ) 10%,
+    fade-out( #fff, .75 ),
+    fade-out( #fff, 1 ) 90%
+  );
+}
+
+html {
+  background: #d5d5d5 url( '../images/background-noise.png' ) 50% 50%;
+  height: 100%;
+  @include box-sizing( border-box );
+  padding-bottom: 50px;
+  // overflow: hidden;
+}
+
+body {
+  background: #fff;
+  margin: 50px 20px 0;
+  min-height: 100%;
+  // overflow: auto;
+  box-shadow: 0 10px 30px fade-out( #000, .6 );
+}
+
+.zed\:logo {
+  margin: 0;
+
+  float: left;
+
+  a,
+  img {
+    display: block;
+  }
+}
+
+@import 'zed/header';
+
+.zed\:main {
+  padding: 20px;
+
+  > .zed\:main__header {
+    margin: -20px -20px 20px;
+    padding: 10px;
+
+    // background: #eee;
+    border-bottom: 1px solid #ddd;
+
+    > h1 {
+      margin: 0 10px;
+      float: left;
+      font-size: 24px;
+      line-height: 36px;
+    }
+
+    .breadcrumb {
+      float: right;
+      margin-bottom: 0;
+    }
+  }
+}
