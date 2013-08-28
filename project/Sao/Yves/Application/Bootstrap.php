@@ -7,6 +7,8 @@ use ProjectA\Yves\Library\Silex\Provider\Service\ExceptionServiceProvider;
 use ProjectA\Yves\Library\Silex\Provider\Service\TemplatingServiceProvider;
 use ProjectA\Yves\Library\Silex\Provider\Service\YvesLoggingServiceProvider;
 use ProjectA\Yves\Library\Templating\EngineConfig;
+use ProjectA\Yves\Library\Templating\Filesystem\Finder\CacheFinder;
+use ProjectA\Yves\Library\Templating\Filesystem\Finder\ChainFinder;
 use ProjectA\Yves\Library\Templating\Filesystem\Finder\CoreFinder;
 use ProjectA\Yves\Library\Templating\Filesystem\Finder\ProjectFinder;
 use ProjectA\Yves\Library\Templating\Filesystem\Finder\StoreFinder;
@@ -32,16 +34,22 @@ class Bootstrap extends \ProjectA\Yves\Library\Silex\Bootstrap
      */
     protected function afterBoot(Application $app)
     {
-        $app['yves_templating_theme'] = $app->share(function () {
+        $app['templating_theme'] = $app->share(function () {
             $themeName = \ProjectA_Shared_Library_Config::get('yves')->theme;
-            $theme = new Theme($themeName);
-            $theme->addTemplateFinder(new StoreFinder());
-            $theme->addTemplateFinder(new ProjectFinder());
-            $theme->addTemplateFinder(new CoreFinder());
+            $finder = new ChainFinder();
+            $finder->addFinder(new StoreFinder());
+            $finder->addFinder(new ProjectFinder());
+            $finder->addFinder(new CoreFinder());
+
+//            if (\ProjectA_Shared_Library_Environment::isNotDevelopment()) {
+//                $finder = new CacheFinder($finder);
+//            }
+
+            $theme = new Theme($themeName, $finder);
             return $theme;
         });
 
-        $app['yves_templating_config'] = $app->share($app->extend('yves_templating_config', function (EngineConfig $config, Application $app) {
+        $app['templating_config'] = $app->share($app->extend('templating_config', function (EngineConfig $config, Application $app) {
             $config->registerViewHelper('url', new UrlGenerator($app));
             $config->registerFilter(new MinifyHtmlFilter());
 
