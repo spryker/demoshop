@@ -25,9 +25,8 @@
         "ruflin/elastica": "v0.19.8.0",
         "aws/aws-sdk-php": "2.*",
         "guzzle/guzzle": "<3.7",
-        "silex/silex": "~1.0"
-    },
-    "require-dev": {
+        "silex/silex": "~1.0",
+
         "behat/behat": "*",
         "sanpi/behatch-contexts": "*",
         "project-a/console-package": "dev-master",
