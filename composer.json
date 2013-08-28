@@ -26,7 +26,9 @@
         "aws/aws-sdk-php": "2.*",
         "guzzle/guzzle": "<3.7",
         "silex/silex": "~1.0",
-
+        "project-a/silex-routing": "dev-master"
+    },
+    "require-dev": {
         "behat/behat": "*",
         "sanpi/behatch-contexts": "*",
         "project-a/console-package": "dev-master",
