@@ -1,0 +1,12 @@
+<?php
+echo $this->headLink()
+    ->appendStylesheet('/new/styles/vendor/bootstrap.min.css')
+    ->appendStylesheet('/new/styles/zed.css')
+    ->appendStylesheet('/new/styles/vendor/kendoui/kendo.common.min.css')
+    ->appendStylesheet('/new/styles/vendor/kendoui/kendo.default.min.css');
+
+echo $this->headScript()
+    ->appendFile('/new/scripts/vendor/kendoui/jquery.min.js')
+    ->appendFile('/new/scripts/vendor/kendoui/kendo.web.min.js')
+    ->appendFile('/new/scripts/vendor/bootstrap.min.js')
+    ->appendFile('/new/scripts/zed.js');
