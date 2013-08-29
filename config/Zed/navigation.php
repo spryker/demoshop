@@ -25,6 +25,7 @@ $navigations = array(
     APPLICATION_VENDOR_DIR . '/project-a/glossary-package/ProjectA/Zed/Glossary/Module/navigation.xml',
     APPLICATION_VENDOR_DIR . '/project-a/lumberjack-package/ProjectA/Zed/Lumberjack/Module/navigation.xml',
     APPLICATION_VENDOR_DIR . '/project-a/infrastructure-package/ProjectA/Zed/Setup/Module/navigation.xml',
+    APPLICATION_VENDOR_DIR . '/project-a/infrastructure-package/ProjectA/Zed/System/Module/navigation.xml',
     APPLICATION_VENDOR_DIR . '/project-a/marketing-package/ProjectA/Zed/Mcm/Module/navigation.xml',
     APPLICATION_VENDOR_DIR . '/project-a/marketing-package/ProjectA/Zed/Adwords/Module/navigation.xml',
     APPLICATION_PROJECT . '/Sao/Zed/Sales/Module/navigation.xml',
