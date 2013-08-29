@@ -5,9 +5,6 @@ class Sao_Shared_Sales_Transfer_Order extends ProjectA_Shared_Sales_Transfer_Ord
     protected $os = null;
     protected $_os = array('is_string');
 
-    protected $sessionId = null;
-    protected $_sessionId = array('is_string');
-
     protected $redirectUrl = null;
     protected $_redirectUrl = array();
 

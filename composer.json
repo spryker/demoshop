@@ -25,7 +25,8 @@
         "ruflin/elastica": "v0.19.8.0",
         "aws/aws-sdk-php": "2.*",
         "guzzle/guzzle": "<3.7",
-        "silex/silex": "~1.0"
+        "silex/silex": "~1.0",
+        "project-a/silex-routing": "dev-master"
     },
     "require-dev": {
         "behat/behat": "*",
