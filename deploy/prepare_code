@@ -52,7 +52,7 @@ fi
 
 ### ZED - Execute install.php
 echo "Calling install.php..."
-php -d "newrelic.appname='Deploy($environment)'" "static/public/Zed/install.php" &> $outfile
+sudo -u www-data php -d "newrelic.appname='Deploy($environment)'" "static/public/Zed/install.php" &> $outfile
 if [ $? -ne 0 ]; then
   echo "ATTENTION: There was an error in install.php, refer to $outfile"
   exit 1
@@ -61,7 +61,7 @@ fi
 ### Create factories
 if is_default_store; then
   echo "Generating factories..."
-  php -d "newrelic.appname='Deploy($environment)'" cli/index.php --module=setup --controller=generator --action=create-factories &> $outfile
+  sudo -u www-data php -d "newrelic.appname='Deploy($environment)'" cli/index.php --module=setup --controller=generator --action=create-factories &> $outfile
   if [ $? -ne 0 ]; then
     echo Failed, aborting. Output saved in $outfile
     exit 2
