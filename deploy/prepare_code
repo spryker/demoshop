@@ -10,7 +10,7 @@
 # This script should write only to $deploy_source_dir
 # Contents of $deploy_source_dir will be afterwards put into tarball and distributed among all application hosts.
 #
-
+set -x
 FILEPATH=`pwd`/$0; BASEDIR=`dirname $FILEPATH`; source $BASEDIR/vars; source $BASEDIR/functions
 outfile=`mktemp /tmp/deploy-XXXXXX`
 
@@ -51,10 +51,21 @@ if is_default_store; then
 fi
 
 ### ZED - Execute install.php
+echo "Calling install.php..."
 php -d "newrelic.appname='Deploy($environment)'" "static/public/Zed/install.php" &> $outfile
 if [ $? -ne 0 ]; then
   echo "ATTENTION: There was an error in install.php, refer to $outfile"
   exit 1
+fi
+
+### Create factories
+if is_default_store; then
+  echo "Generating factories..."
+  php -d "newrelic.appname='Deploy($environment)'" cli/index.php  &> $outfile
+  if [ $? -ne 0 ]; then
+    echo Failed, aborting. Output saved in $outfile
+    exit 2
+  fi
 fi
 
 ### node.js, Grunt
