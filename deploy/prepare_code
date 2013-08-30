@@ -67,6 +67,8 @@ if is_default_store; then
     exit 2
   fi
 fi
+chown -R www-data. project/Generated/*
+
 
 ### node.js, Grunt
 if is_default_store; then
