@@ -12,15 +12,6 @@
 FILEPATH=`pwd`/$0; BASEDIR=`dirname $FILEPATH`; source $BASEDIR/vars; source $BASEDIR/functions
 outfile=`mktemp /tmp/deploy-XXXXXX`
 
-### ZED - Execute install.php
-cd $destination_release_dir/project/Zed
-php -d "newrelic.appname='Deploy($environment)'" "public/install.php" &> $outfile
-if [ $? -ne 0 ]; then
-  echo "ATTENTION: There was an error in install.php, refer to $outfile"
-  exit 1
-fi
-
-
 if is_default_store; then
   ### Tomcat - Deploy warfiles, restart tomcat if there are any new apps
   cd $shared_dir/tomcat/webapps

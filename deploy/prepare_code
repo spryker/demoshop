@@ -21,7 +21,6 @@ if is_default_store; then
   rm -rf data; ln -sf $shared_dir/data data
   rm -rf project/Generated; ln -sf $shared_dir/Generated project/Generated
   rm -f config/Shared/config_local.php; ln -sf $shared_dir/config_local.php config/Shared/config_local.php
-#  rm -rf project/Zed/propel-gen; ln -sf $shared_dir/propel-gen project/Zed/propel-gen
 
   # Create symlink for database dumps
   ln -sf $shared_dir/data/static project/Zed/public/static
@@ -48,6 +47,13 @@ if is_default_store; then
 
   # Log used packages version in renepro repository
   curl -XPUT -d @composer.lock http://renepro.project-a.com/deploy.php?hostname=`hostname`\\\&environment=$environment
+fi
+
+### ZED - Execute install.php
+php -d "newrelic.appname='Deploy($environment)'" "static/public/Zed/install.php" &> $outfile
+if [ $? -ne 0 ]; then
+  echo "ATTENTION: There was an error in install.php, refer to $outfile"
+  exit 1
 fi
 
 ### node.js, Grunt
