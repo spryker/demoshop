@@ -12,6 +12,7 @@
 #
 
 FILEPATH=`pwd`/$0; BASEDIR=`dirname $FILEPATH`; source $BASEDIR/vars; source $BASEDIR/functions
+outfile=`mktemp /tmp/deploy-XXXXXX`
 
 cd $deploy_source_dir
 
@@ -83,4 +84,5 @@ if is_default_store; then
 fi
 
 ### Allright, no error, deployment continues.
+rm -f $outfile
 exit 0
