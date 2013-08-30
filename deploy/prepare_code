@@ -52,7 +52,7 @@ fi
 
 ### ZED - Execute install.php
 echo "Calling install.php..."
-APPLICATION_ENV=$enviroment sudo -E -u www-data php -d "newrelic.appname='Deploy($environment)'" "static/public/Zed/install.php" &> $outfile
+APPLICATION_ENV=$environment sudo -E -u www-data php -d "newrelic.appname='Deploy($environment)'" "static/public/Zed/install.php" &> $outfile
 if [ $? -ne 0 ]; then
   echo "ATTENTION: There was an error in install.php, refer to $outfile"
   exit 1
