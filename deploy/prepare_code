@@ -61,7 +61,7 @@ fi
 ### Create factories
 if is_default_store; then
   echo "Generating factories..."
-  sudo -u www-data APPLICATION_ENV=$enviroment APPLICATION_STORE=${APPLICATION_STORE} php -d "newrelic.appname='Deploy($environment)'" cli/index.php --module=setup --controller=generator --action=create-factories &> $outfile
+  sudo -u www-data APPLICATION_ENV=$environment APPLICATION_STORE=${APPLICATION_STORE} php -d "newrelic.appname='Deploy($environment)'" cli/index.php --module=setup --controller=generator --action=create-factories &> $outfile
   if [ $? -ne 0 ]; then
     echo Failed, aborting. Output saved in $outfile
     exit 2
