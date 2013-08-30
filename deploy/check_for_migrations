@@ -19,6 +19,8 @@ rm -fr project/Generated/Zed/PropelGen/$APPLICATION_STORE/build/migrations
 
 modified_text="Structure of database was modified in datasource"
 same_text="Same XML and database structures"
+echo "`pwd` $APPLICATION_ENV $APPLICATION_STORE"
+echo "1234" >> $outfile
 APPLICATION_ENV=${environment} php -d "newrelic.appname='Deploy($environment)'" cli/index.php --module=setup --controller=cronjob --action=propel-command --command=diff >> $outfile
 cat $outfile | grep "$modified_text"
 return=$?
