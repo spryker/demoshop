@@ -4,7 +4,7 @@ class Sao_Zed_Fulfillment_Component_Facade extends ProjectA_Zed_Library_Componen
 {
 
     /**
-     * @var Sao_Zed_Fulfillment_Component_Factory
+     * @var Generated_Zed_Fulfillment_Component_Factory
      */
     protected $factory;
 

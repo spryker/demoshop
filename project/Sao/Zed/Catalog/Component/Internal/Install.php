@@ -1,6 +1,6 @@
 <?php
 /**
- * @property Sao_Zed_Catalog_Component_Factory $factory
+ * @property Generated_Zed_Catalog_Component_Factory $factory
  */
 class Sao_Zed_Catalog_Component_Internal_Install extends ProjectA_Zed_Catalog_Component_Internal_Install implements
     Sao_Shared_Library_Catalog_Interface_ProductAttributeSetConstant,

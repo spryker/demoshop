@@ -1,7 +1,7 @@
 <?php
 /**
  * @author Marco Roßdeutscher <marco.rossdeutscher@project-a.com>
- * @property Sao_Zed_Catalog_Component_Factory $factory
+ * @property Generated_Zed_Catalog_Component_Factory $factory
  * @version $Id$
  */
 class Sao_Zed_Mail_Component_Internal_Install implements ProjectA_Zed_Library_Component_Interface_InstallInterface, ProjectA_Zed_Library_Dependency_Factory_Interface

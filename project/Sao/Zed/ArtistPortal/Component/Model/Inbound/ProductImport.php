@@ -12,7 +12,7 @@ class Sao_Zed_ArtistPortal_Component_Model_Inbound_ProductImport implements Proj
     use ProjectA_Zed_Library_Dependency_Factory_Trait;
 
     /**
-     * @var Sao_Zed_ArtistPortal_Component_Factory
+     * @var Generated_Zed_ArtistPortal_Component_Factory
      */
     protected $factory;
 

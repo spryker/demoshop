@@ -12,7 +12,7 @@ class Sao_Zed_Calculation_Component_Model_Calculators_TaxExpensesItem extends Pr
     const REGION_CALIFORNIA = 'CA';
     const ISO2_CODE_USA = 'US';
 
-    /** @var Sao_Zed_Calculation_Component_Factory */
+    /** @var Generated_Zed_Calculation_Component_Factory */
     protected $factory;
 
     /**
@@ -21,9 +21,9 @@ class Sao_Zed_Calculation_Component_Model_Calculators_TaxExpensesItem extends Pr
     public $modifyTotals = true;
 
     /**
-     * @param Sao_Shared_Sales_Transfer_Order $order
+     * @param ProjectA_Shared_Sales_Transfer_Order $order
      */
-    public function recalculate(Sao_Shared_Sales_Transfer_Order $order)
+    public function recalculate(ProjectA_Shared_Sales_Transfer_Order $order)
     {
         if (!$this->isShippingAddressInCalifornia($order->getShippingAddress())) {
             // reset tax in case user switches countries

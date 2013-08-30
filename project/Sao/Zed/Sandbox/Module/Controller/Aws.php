@@ -21,7 +21,7 @@ class Sao_Zed_Sandbox_Module_Controller_Aws extends ProjectA_Zed_Library_Control
         $item = $items->getFirst();
 
         $model = new Sao_Zed_Sales_Component_Model_Communication_Sns_PayoutNote();
-        $model->setFactory(new Sao_Zed_Sales_Component_Factory());
+        $model->setFactory(new Generated_Zed_Sales_Component_Factory());
         $model->setFacadeAws($this->facadeAws);
         $model->setFacadeCatalog($this->facadeCatalog);
 

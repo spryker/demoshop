@@ -1,7 +1,7 @@
 <?php
 /**
  * @version
- * @property Sao_Zed_Mail_Component_Factory $factory
+ * @property Generated_Zed_Mail_Component_Factory $factory
  */
 abstract class Sao_Zed_Mail_Component_Model_Collector extends ProjectA_Zed_Mail_Component_Model_Collector implements
      ProjectA_Zed_Library_Dependency_Factory_Interface,

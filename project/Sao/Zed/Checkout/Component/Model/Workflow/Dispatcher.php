@@ -2,7 +2,7 @@
 /**
  * @author Marco Roßdeutscher <marco.rossdeutscher@project-a.com>
  * @version $Id$
- * @property Sao_Zed_Checkout_Component_Factory $factory
+ * @property Generated_Zed_Checkout_Component_Factory $factory
  */
 class Sao_Zed_Checkout_Component_Model_Workflow_Dispatcher implements ProjectA_Zed_Library_Dependency_FactoryInterface
 {

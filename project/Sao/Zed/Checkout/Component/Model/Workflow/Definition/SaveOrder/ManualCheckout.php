@@ -1,7 +1,7 @@
 <?php
 /**
  * @author Marco Roßdeutscher <marco.rossdeutscher@project-a.com>
- * @property Sao_Zed_Checkout_Component_Factory $factory
+ * @property Generated_Zed_Checkout_Component_Factory $factory
  */
 class Sao_Zed_Checkout_Component_Model_Workflow_Definition_SaveOrder_ManualCheckout extends ProjectA_Zed_Checkout_Component_Model_Workflow_Definition_SaveOrder
 {

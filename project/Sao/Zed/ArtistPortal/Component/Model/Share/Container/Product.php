@@ -2,7 +2,7 @@
 
 /**
  * @author Daniel Tschinder <daniel.tschinder@project-a.com>
- * @property Sao_Zed_ArtistPortal_Component_Factory $factory
+ * @property Generated_Zed_ArtistPortal_Component_Factory $factory
  */
 abstract class Sao_Zed_ArtistPortal_Component_Model_Share_Container_Product extends Sao_Zed_ArtistPortal_Component_Model_Share_Container_Abstract implements
      Sao_Zed_ArtistPortal_Component_Interface_ProductFieldConstant,

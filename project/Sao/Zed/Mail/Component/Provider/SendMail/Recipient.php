@@ -2,7 +2,7 @@
 /**
  * @author Marco Roßdeutscher <marco.rossdeutscher@project-a.com>
  * @version $Id$
- * @property Sao_Zed_Mail_Component_Factory $factory
+ * @property Generated_Zed_Mail_Component_Factory $factory
  */
 class Sao_Zed_Mail_Component_Provider_SendMail_Recipient extends ProjectA_Zed_Mail_Component_Provider_SendMail_Recipient implements
     Sao_Zed_Mail_Component_Interface_MailConstants,

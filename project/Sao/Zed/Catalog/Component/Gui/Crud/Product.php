@@ -1,13 +1,13 @@
 <?php
-/**
- * @author  marco.rossdeutscher@project-a.com
- * @version 03.08.12 16:10
- */
+
 class Sao_Zed_Catalog_Component_Gui_Crud_Product extends ProjectA_Zed_Catalog_Component_Gui_Crud_Product implements
     ProjectA_Zed_Stock_Component_Dependency_Facade_Interface,
     ProjectA_Zed_Price_Component_Dependency_Facade_Interface,
     ProjectA_Shared_Library_Catalog_Interface_ProductAttributeConstant
 {
+
+    use ProjectA_Zed_Stock_Component_Dependency_Facade_Trait;
+    use ProjectA_Zed_Price_Component_Dependency_Facade_Trait;
     /**
      * @var ProjectA_Zed_Catalog_Component_Model_Product
      */
@@ -17,32 +17,6 @@ class Sao_Zed_Catalog_Component_Gui_Crud_Product extends ProjectA_Zed_Catalog_Co
      * @var Generated_Zed_Catalog_Component_Factory
      */
     protected $factory;
-
-    /**
-     * @var ProjectA_Zed_Stock_Component_Facade
-     */
-    protected $facadeStock;
-
-    /**
-     * @var ProjectA_Zed_Price_Component_Facade
-     */
-    protected $facadePrice;
-
-    /**
-     * @param ProjectA_Zed_Price_Component_Facade $facade
-     */
-    public function setFacadePrice(ProjectA_Zed_Price_Component_Facade $facade)
-    {
-        $this->facadePrice = $facade;
-    }
-
-    /**
-     * @param ProjectA_Zed_Stock_Component_Facade $facade
-     */
-    public function setFacadeStock(ProjectA_Zed_Stock_Component_Facade $facade)
-    {
-        $this->facadeStock = $facade;
-    }
 
     /**
      * @param $id

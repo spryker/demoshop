@@ -9,7 +9,7 @@ class Sao_Zed_Sales_Component_Settings extends ProjectA_Zed_Sales_Component_Sett
     use ProjectA_Zed_Library_Dependency_Factory_Trait;
 
     /**
-     * @var Sao_Zed_Sales_Component_Factory
+     * @var Generated_Zed_Sales_Component_Factory
      */
     protected $factory;
 
@@ -22,7 +22,7 @@ class Sao_Zed_Sales_Component_Settings extends ProjectA_Zed_Sales_Component_Sett
      * @var ProjectA_Zed_Sales_Component_Interface_StatemachineFactoryHook
      */
     protected static $hook;
-    
+
     /**
      * @return ProjectA_Zed_Library_StateMachine_Definition_Matcher
      */

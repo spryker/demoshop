@@ -1,7 +1,7 @@
 <?php
 /**
  * @version $Id$
- * @property Sao_Zed_Mail_Component_Factory $factory
+ * @property Generated_Zed_Mail_Component_Factory $factory
  */
 class Sao_Zed_Mail_Component_Facade_Gui extends ProjectA_Zed_Library_Component_Model_FacadeAbstract
 {

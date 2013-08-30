@@ -1,8 +1,5 @@
 <?php
-/**
- * @author Marco Roßdeutscher <marco.rossdeutscher@project-a.com>
- * @version 03.08.12 14:51
- */
+
 class Sao_Zed_Catalog_Component_Gui_Grid_Product
     extends ProjectA_Zed_Library_Grid
     implements ProjectA_Zed_Library_Dependency_Factory_Interface,
@@ -12,44 +9,14 @@ class Sao_Zed_Catalog_Component_Gui_Grid_Product
     ProjectA_Zed_Price_Component_Interface_PriceTypeConstants
 
 {
+    use ProjectA_Zed_Library_Dependency_Factory_Trait;
+    use ProjectA_Zed_Stock_Component_Dependency_Facade_Trait;
+    use ProjectA_Zed_Price_Component_Dependency_Facade_Trait;
+
     /**
      * @var Generated_Zed_Catalog_Component_Factory
      */
     protected $factory;
-
-    /**
-     * @var ProjectA_Zed_Price_Component_Facade
-     */
-    protected $facadePrice;
-
-    /**
-     * @var ProjectA_Zed_Stock_Component_Facade
-     */
-    protected $facadeStock;
-
-    /**
-     * @param ProjectA_Zed_Library_Component_Interface_FactoryInterface $factory
-     */
-    public function setFactory(ProjectA_Zed_Library_Component_Interface_FactoryInterface $factory)
-    {
-        $this->factory = $factory;
-    }
-
-    /**
-     * @param ProjectA_Zed_Price_Component_Facade $facade
-     */
-    public function setFacadePrice(ProjectA_Zed_Price_Component_Facade $facade)
-    {
-        $this->facadePrice = $facade;
-    }
-
-    /**
-     * @param ProjectA_Zed_Stock_Component_Facade $facade
-     */
-    public function setFacadeStock(ProjectA_Zed_Stock_Component_Facade $facade)
-    {
-        $this->facadeStock = $facade;
-    }
 
     public function create()
     {

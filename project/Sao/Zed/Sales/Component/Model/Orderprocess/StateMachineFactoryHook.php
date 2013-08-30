@@ -10,7 +10,7 @@ class Sao_Zed_Sales_Component_Model_Orderprocess_StateMachineFactoryHook impleme
     use ProjectA_Zed_Stripe_Component_Dependency_Facade_Trait;
     use ProjectA_Zed_Adyen_Component_Dependency_Facade_Trait;
     /**
-     * @var Sao_Zed_Sales_Component_Factory
+     * @var Generated_Zed_Sales_Component_Factory
      */
     private $factory;
 

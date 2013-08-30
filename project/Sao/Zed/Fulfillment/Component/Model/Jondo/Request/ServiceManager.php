@@ -7,7 +7,7 @@ class Sao_Zed_Fulfillment_Component_Model_Jondo_Request_ServiceManager
     const CATEGORY_BRANDING = 'branding';
 
     /**
-     * @var Sao_Zed_Fulfillment_Component_Factory
+     * @var Generated_Zed_Fulfillment_Component_Factory
      */
     protected $factory;
 

@@ -7,7 +7,7 @@ class Sao_Zed_Fulfillment_Component_Internal_Install implements ProjectA_Zed_Lib
     const KEY_VENDOR_PRICE = 'vendor_price';
 
     /**
-     * @var Sao_Zed_Fulfillment_Component_Factory
+     * @var Generated_Zed_Fulfillment_Component_Factory
      */
     protected $factory;
 

@@ -1,7 +1,7 @@
 <?php
 /**
  * @version $Id$
- * @property Sao_Zed_Catalog_Component_Factory $factory
+ * @property Generated_Zed_Catalog_Component_Factory $factory
  */
 class Sao_Zed_Catalog_Component_Internal_ImportOptionsForAttributes implements
     ProjectA_Zed_Library_Dependency_Factory_Interface,

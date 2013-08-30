@@ -1,7 +1,7 @@
 <?php
 /**
  * @version $Id$
- * @property Sao_Zed_Mail_Component_Factory $factory
+ * @property Generated_Zed_Mail_Component_Factory $factory
  */
 class Sao_Zed_Mail_Component_Gui_Grid_Template extends ProjectA_Zed_Library_Grid implements
     ProjectA_Zed_Library_Dependency_Factory_Interface

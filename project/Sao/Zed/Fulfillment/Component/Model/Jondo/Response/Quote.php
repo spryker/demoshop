@@ -22,7 +22,7 @@ class Sao_Zed_Fulfillment_Component_Model_Jondo_Response_Quote
     const CODE_PRODUCT_CODE_ERROR = 1007; // Product Code Error
 
     /**
-     * @var Sao_Zed_Fulfillment_Component_Factory
+     * @var Generated_Zed_Fulfillment_Component_Factory
      */
     protected $factory;
 

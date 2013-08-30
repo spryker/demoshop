@@ -18,8 +18,8 @@ class Sao_Zed_Sales_Module_Controller_Migrate extends ProjectA_Zed_Library_Contr
      */
     public function init()
     {
-        $this->facadeCatalog = (new Sao_Zed_Catalog_Component_Factory())->getFacade();
-        $this->facadeMisc = (new Sao_Zed_Misc_Component_Factory())->getFacade();
+        $this->facadeCatalog = (new Generated_Zed_Catalog_Component_Factory())->getFacade();
+        $this->facadeMisc = (new Generated_Zed_Misc_Component_Factory())->getFacade();
     }
 
     public function artistDataAction()

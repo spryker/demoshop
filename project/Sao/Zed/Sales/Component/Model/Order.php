@@ -20,7 +20,7 @@ class Sao_Zed_Sales_Component_Model_Order extends ProjectA_Zed_Sales_Component_M
 
     /**
      * @param ProjectA_Zed_Sales_Persistence_PacSalesOrder $orderEntity
-     * @return Sao_Zed_Sales_Persistence_SalesOrder
+     * @return Sao_Zed_Sales_Persistence_SaoSalesOrder
      */
     public function getSaoSalesOrderForOrder(ProjectA_Zed_Sales_Persistence_PacSalesOrder $orderEntity)
     {
@@ -64,11 +64,10 @@ class Sao_Zed_Sales_Component_Model_Order extends ProjectA_Zed_Sales_Component_M
     }
 
     /**
-     *
-     * @param Sao_Shared_Sales_Transfer_Order $transferOrder
+     * @param ProjectA_Shared_Sales_Transfer_Order $transferOrder
      * @param ProjectA_Zed_Sales_Component_Interface_ProcessContainer $processContainer
      */
-    protected function addProcess(Sao_Shared_Sales_Transfer_Order $transferOrder, ProjectA_Zed_Sales_Component_Interface_ProcessContainer $processContainer)
+    protected function addProcess(ProjectA_Shared_Sales_Transfer_Order $transferOrder, ProjectA_Zed_Sales_Component_Interface_ProcessContainer $processContainer)
     {
         if ($processContainer instanceof ProjectA_Zed_Sales_Persistence_PacSalesOrderItem) {
             $productType = $this->facadeCatalog->getProductType($processContainer->getSku());
@@ -94,11 +93,11 @@ class Sao_Zed_Sales_Component_Model_Order extends ProjectA_Zed_Sales_Component_M
     }
 
     /**
-     * @param Sao_Shared_Sales_Transfer_Order $transferOrder
+     * @param ProjectA_Shared_Sales_Transfer_Order $transferOrder
      * @param ProjectA_Zed_Sales_Persistence_PacSalesOrder $order
      * @return ProjectA_Zed_Sales_Persistence_PacSalesOrder
      */
-    protected function addOrderAddresses(Sao_Shared_Sales_Transfer_Order $transferOrder, ProjectA_Zed_Sales_Persistence_PacSalesOrder $order)
+    protected function addOrderAddresses(ProjectA_Shared_Sales_Transfer_Order $transferOrder, ProjectA_Zed_Sales_Persistence_PacSalesOrder $order)
     {
         parent::addOrderAddresses($transferOrder, $order);
 
@@ -158,11 +157,11 @@ class Sao_Zed_Sales_Component_Model_Order extends ProjectA_Zed_Sales_Component_M
 
 
     /**
-     * @param Sao_Shared_Sales_Transfer_Order $transferOrder
+     * @param ProjectA_Shared_Sales_Transfer_Order $transferOrder
      * @param ProjectA_Zed_Sales_Persistence_PacSalesOrder $order
      * @return ProjectA_Zed_Sales_Persistence_PacSalesOrder
      */
-    protected function addOrderItems (Sao_Shared_Sales_Transfer_Order $transferOrder, ProjectA_Zed_Sales_Persistence_PacSalesOrder $order)
+    protected function addOrderItems (ProjectA_Shared_Sales_Transfer_Order $transferOrder, ProjectA_Zed_Sales_Persistence_PacSalesOrder $order)
     {
         $statusEntity = ProjectA_Zed_Sales_Persistence_PacSalesOrderItemStatusQuery::create()->findOneByName('new');
 
@@ -220,7 +219,7 @@ class Sao_Zed_Sales_Component_Model_Order extends ProjectA_Zed_Sales_Component_M
 
     /**
      * @param ProjectA_Zed_Sales_Persistence_PacSalesOrderItem $orderItemEntity
-     * @return Sao_Zed_Sales_Persistence_SalesOrderItem
+     * @return Sao_Zed_Sales_Persistence_SaoSalesOrderItem
      */
     protected function getSaoSalesOrderItem(ProjectA_Zed_Sales_Persistence_PacSalesOrderItem $orderItemEntity)
     {
@@ -234,7 +233,7 @@ class Sao_Zed_Sales_Component_Model_Order extends ProjectA_Zed_Sales_Component_M
 
     /**
      * @param $product
-     * @param $saoSalesOrderItem
+     * @param Sao_Zed_Sales_Persistence_SaoSalesOrderItem $saoSalesOrderItem
      */
     protected function addRegionToSalesOrderItem($product, Sao_Zed_Sales_Persistence_SaoSalesOrderItem $saoSalesOrderItem)
     {
@@ -251,7 +250,7 @@ class Sao_Zed_Sales_Component_Model_Order extends ProjectA_Zed_Sales_Component_M
 
     /**
      * @param $region
-     * @return Sao_Zed_Misc_Persistence_MiscRegion
+     * @return Sao_Zed_Misc_Persistence_SaoMiscRegion
      */
     protected function getRegionByName($region)
     {
@@ -260,7 +259,7 @@ class Sao_Zed_Sales_Component_Model_Order extends ProjectA_Zed_Sales_Component_M
 
     /**
      * @param $stateShort
-     * @return Sao_Zed_Misc_Persistence_MiscRegion
+     * @return Sao_Zed_Misc_Persistence_SaoMiscRegion
      */
     protected function getRegionByStateShort($stateShort)
     {
@@ -280,8 +279,8 @@ class Sao_Zed_Sales_Component_Model_Order extends ProjectA_Zed_Sales_Component_M
     }
 
     /**
-     * @param $region
-     * @return Sao_Zed_Misc_Persistence_MiscRegion
+     * @param $iso2code
+     * @return ProjectA_Zed_Misc_Persistence_PacMiscCountry
      */
     protected function getCountryByIso2Code($iso2code)
     {

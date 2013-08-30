@@ -3,7 +3,7 @@
 /**
  * Class Sao_Zed_Salesrule_Component_Model_Salesrule
  *
- * @property Sao_Zed_Salesrule_Component_Factory $factory
+ * @property Generated_Zed_Salesrule_Component_Factory $factory
  */
 class Sao_Zed_Salesrule_Component_Model_Salesrule extends ProjectA_Zed_Salesrule_Component_Model_Salesrule
 {
@@ -16,7 +16,7 @@ class Sao_Zed_Salesrule_Component_Model_Salesrule extends ProjectA_Zed_Salesrule
      * @see ProjectA_Zed_Salesrule_Component_Model_Salesrule::addDiscountAmountsToItem
      */
     public function addDiscountAmountsToItem(
-        Sao_Shared_Sales_Transfer_Order $transferOrder, ProjectA_Zed_Sales_Persistence_PacSalesOrderItem $item, Sao_Shared_Sales_Transfer_Order_Item $transferItem
+        ProjectA_Shared_Sales_Transfer_Order $transferOrder, ProjectA_Zed_Sales_Persistence_PacSalesOrderItem $item, ProjectA_Shared_Sales_Transfer_Order_Item $transferItem
     ) {
         $discounts = new PropelCollection();
         $isRefundable = $this->getIsRefundable($transferOrder);

@@ -7,7 +7,7 @@ class Sao_Zed_Aws_Component_Model_Sns implements ProjectA_Zed_Library_Dependency
     use ProjectA_Zed_Library_Dependency_Factory_Trait;
 
     /**
-     * @var Sao_Zed_Aws_Component_Factory
+     * @var Generated_Zed_Aws_Component_Factory
      */
     protected $factory;
 

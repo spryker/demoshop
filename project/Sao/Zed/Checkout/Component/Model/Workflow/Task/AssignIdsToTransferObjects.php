@@ -3,10 +3,10 @@
 class Sao_Zed_Checkout_Component_Model_Workflow_Task_AssignIdsToTransferObjects extends ProjectA_Zed_Checkout_Component_Model_Workflow_Task_Abstract
 {
     /**
-     * @param Sao_Shared_Sales_Transfer_Order $transferOrder
+     * @param ProjectA_Shared_Sales_Transfer_Order $transferOrder
      * @param ProjectA_Zed_Checkout_Component_Model_Workflow_Context $context
      */
-    public function __invoke(Sao_Shared_Sales_Transfer_Order $transferOrder, ProjectA_Zed_Checkout_Component_Model_Workflow_Context $context)
+    public function __invoke(ProjectA_Shared_Sales_Transfer_Order $transferOrder, ProjectA_Zed_Checkout_Component_Model_Workflow_Context $context)
     {
         /**
          * this code works under the assumption that the order item entities where added with addItem to the order entity before saving

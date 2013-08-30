@@ -2,7 +2,7 @@
 
 /**
  * @author Marco Roßdeutscher <marco.rossdeutscher@project-a.com>
- * @property Sao_Zed_Yves_Component_Factory $factory
+ * @property Generated_Zed_Yves_Component_Factory $factory
  * @property Sao_Zed_Catalog_Component_Facade $facadeCatalog
  */
 class Sao_Zed_Yves_Component_Model_Export_Exporter_Memcache_Products_Artwork extends ProjectA_Zed_Yves_Component_Model_Export_Exporter_Products implements

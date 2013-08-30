@@ -6,7 +6,7 @@ class Sao_Zed_Calculation_Component_Settings extends ProjectA_Zed_Calculation_Co
     use ProjectA_Zed_Library_Dependency_Factory_Trait;
 
     /**
-     * @var Sao_Zed_Calculation_Component_Factory
+     * @var Generated_Zed_Calculation_Component_Factory
      */
     protected $factory;
 

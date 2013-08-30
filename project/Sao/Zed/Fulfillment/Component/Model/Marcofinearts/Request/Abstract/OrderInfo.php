@@ -6,7 +6,7 @@ abstract class Sao_Zed_Fulfillment_Component_Model_Marcofinearts_Request_Abstrac
     /** @var array */
     protected $items;
 
-    /** @var Sao_Zed_Fulfillment_Component_Factory */
+    /** @var Generated_Zed_Fulfillment_Component_Factory */
     protected $factory;
 
     public function __construct(Traversable $items)

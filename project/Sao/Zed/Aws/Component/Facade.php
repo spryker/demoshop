@@ -3,7 +3,7 @@
 class Sao_Zed_Aws_Component_Facade extends ProjectA_Zed_Library_Component_Model_FacadeAbstract
 {
 
-    /** @var  $factory Sao_Zed_Aws_Component_Factory */
+    /** @var  $factory Generated_Zed_Aws_Component_Factory */
     protected $factory;
 
     use ProjectA_Zed_Library_Dependency_Factory_Trait;

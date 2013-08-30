@@ -3,7 +3,7 @@
  * @author Marco Roßdeutscher <marco.rossdeutscher@project-a.com>
  * @version $Id$
  * @property Sao_Zed_Salesrule_Component_Facade $facadeSalesrule
- * @property Sao_Zed_Mail_Component_Factory $factory
+ * @property Generated_Zed_Mail_Component_Factory $factory
  */
 class Sao_Zed_Mail_Component_Model_CartAbandoned implements
     ProjectA_Zed_Library_Dependency_Factory_Interface,

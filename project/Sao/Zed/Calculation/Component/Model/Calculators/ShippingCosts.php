@@ -9,9 +9,9 @@ class Sao_Zed_Calculation_Component_Model_Calculators_ShippingCosts extends Proj
     public $modifyTotals = true;
 
     /**
-     * @param Sao_Shared_Sales_Transfer_Order $order
+     * @param ProjectA_Shared_Sales_Transfer_Order $order
      */
-    public function recalculate(Sao_Shared_Sales_Transfer_Order $order)
+    public function recalculate(ProjectA_Shared_Sales_Transfer_Order $order)
     {
         parent::recalculate($order);
 

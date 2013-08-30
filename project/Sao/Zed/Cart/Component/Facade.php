@@ -4,7 +4,7 @@ class Sao_Zed_Cart_Component_Facade extends ProjectA_Zed_Cart_Component_Facade
 {
 
     /**
-     * @var Sao_Zed_Cart_Component_Factory
+     * @var Generated_Zed_Cart_Component_Factory
      */
     protected $factory;
 
