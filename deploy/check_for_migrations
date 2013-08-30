@@ -12,10 +12,10 @@ FILEPATH=`pwd`/$0; BASEDIR=`dirname $FILEPATH`; . $BASEDIR/vars; source $BASEDIR
 outfile=`mktemp /tmp/deploy-diff-XXXXXX`
 
 # Check for propel migrations
-cd $destination_release_dir/project/Zed
+cd $destination_release_dir
 
 # Remove old Propel migration files
-rm -f propel-gen/$APPLICATION_STORE/build/migrations/*
+rm -fr project/Generated/Zed/PropelGen/$APPLICATION_STORE/build/migrations
 
 modified_text="Structure of database was modified in datasource"
 same_text="Same XML and database structures"
@@ -40,6 +40,7 @@ if [ `cat $outfile | grep -c "$same_text"` -lt 1 ]; then
   else
     echo "Unable to parse output!"
     cat $outfile
+    exit 2
   fi
   echo "Diff output saved: $outfile - return value: $return"
 fi

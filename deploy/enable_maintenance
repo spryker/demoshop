@@ -17,7 +17,7 @@ if [ ! -d $destination_current_dir/project/Yves/public ]; then
 fi
 
 # Previous release
-cd $destination_current_dir/project/Yves/public
+cd $destination_current_dir/static/public/Yves
 if [ -f _maintenance.html ]; then
   cp _maintenance.html maintenance.html
 else
@@ -25,7 +25,7 @@ else
 fi
 
 # New release
-cd $destination_release_dir/project/Yves/public
+cd $destination_release_dir/static/public/Yves
 if [ -f _maintenance.html ]; then
   cp _maintenance.html maintenance.html
 else

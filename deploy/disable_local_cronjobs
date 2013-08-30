@@ -12,7 +12,7 @@ outfile=`mktemp /tmp/deploy-XXXXXX`
 
 rm -f /etc/cron.d/${environment}-zed-local
 
-cd $destination_release_dir/project/Zed
+cd $destination_release_dir
 APPLICATION_ENV=${environment} php cli/index.php --module=setup --controller=jenkins --action=disable
 
 rm -f $outfile

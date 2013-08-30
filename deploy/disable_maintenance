@@ -11,10 +11,10 @@ FILEPATH=`pwd`/$0; BASEDIR=`dirname $FILEPATH`; source $BASEDIR/vars; source $BA
 outfile=`mktemp /tmp/deploy-XXXXXX`
 
 ### Deactivate maintenance
-cd $destination_current_dir/project/Yves/public
+cd $destination_current_dir/static/public/Yves
 rm -f maintenance.html
 
-cd $destination_release_dir/project/Yves/public
+cd $destination_release_dir/static/public/Yves
 rm -f maintenance.html
 
 rm -f $outfile
