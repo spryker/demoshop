@@ -19,14 +19,15 @@ echo "Current revision: ${revision}"
 
 if is_default_store; then
   rm -rf data; ln -sf $shared_dir/data data
-  rm -f config/config_local.php; ln -sf $shared_dir/config_local.php config/config_local.php
-  rm -rf project/Zed/propel-gen; ln -sf $shared_dir/propel-gen project/Zed/propel-gen
+  rm -rf project/Generated; ln -sf $shared_dir/Generated project/Generated
+  rm -f config/Shared/config_local.php; ln -sf $shared_dir/config_local.php config/Shared/config_local.php
+#  rm -rf project/Zed/propel-gen; ln -sf $shared_dir/propel-gen project/Zed/propel-gen
 
   # Create symlink for database dumps
   ln -sf $shared_dir/data/static project/Zed/public/static
 fi
 
-rm -f config/config_local_${APPLICATION_STORE}.php; ln -sf $shared_dir/config_local_${APPLICATION_STORE}.php config/config_local_${APPLICATION_STORE}.php
+rm -f config/config_local_${APPLICATION_STORE}.php; ln -sf $shared_dir/config_local_${APPLICATION_STORE}.php config/Shared/config_local_${APPLICATION_STORE}.php
 
 ### Composer
 if is_default_store; then
