@@ -1,24 +1,18 @@
 <?php
 namespace Sao\Yves\Cart\Module;
 
-use ProjectA\Yves\Library\Silex\Provider\Controller\BundleControllerActionProvider;
+use ProjectA\Yves\Library\Silex\Controller\ControllerProvider as YvesProvider;
+use Silex\Application;
+use Silex\ControllerCollection;
+use Silex\Route;
 
-/**
- * @author Daniel Tschinder <daniel.tschinder@project-a.com>
- */
-class ControllerProvider extends BundleControllerActionProvider
+class ControllerProvider extends YvesProvider
 {
     /**
-     * Return the route to match
-     * possible:
-     * "module"  => "module/index/index"
-     * "module/controller" => "module/controller/index"
-     * "module/controller/action"
-     *
-     * @return array
+     * @param ControllerCollection $controllerCollection
      */
-    public function getRoutes()
+    public function createRoutes(ControllerCollection $controllerCollection)
     {
-        return 'cart';
+        $controllerCollection->get('/cart', 'Sao\\Yves\\Cart\\Module\\Controller\\IndexController::indexAction');
     }
 }
