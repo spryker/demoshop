@@ -73,14 +73,20 @@ if is_default_store; then
   # Install node dependencies
   export PATH=${PATH}:/var/lib/gems/1.8/bin
   npm install --silent # >> /dev/null || exit 1
-  echo "Running Grunt..."
   [ -z `which grunt` ] && npm install -g grunt-cli
 
   # Rsync node_modules back to cache
   rsync -ra --delete node_modules/ $npm_cache_dir
 
   # Run grunt deployment tasks
-  grunt dist # >> /dev/null || exit 2
+  for app in Yves Zed; do
+    echo "Running Grunt for $app"
+    grunt dist -gruntfile config/$app/Gruntfile.js >> $outfile
+    if [ $? -ne 0 ]; then
+      echo Grunt failed, output saved in $outfile
+      exit 2
+    fi
+  done
 fi
 
 ### Allright, no error, deployment continues.
