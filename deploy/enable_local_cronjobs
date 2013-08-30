@@ -25,10 +25,10 @@ echo "" >> $crontab
 cd $destination_release_dir
 roles=`get_cronjob_roles`
 if [ -z $roles ]; then
-  echo "No cronjob roles"
+  echo "No cronjob roles on this host"
   roles="empty"
 else
-  echo "Cronjob roles: $roles"
+  echo "Installing cronjobs for roles: $roles"
 fi
 
 APPLICATION_ENV=${environment} php -d "newrelic.appname='Deploy($environment)'" cli/index.php --module=setup --controller=jenkins --action=generate --role=$roles
