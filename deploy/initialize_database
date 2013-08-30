@@ -12,7 +12,7 @@
 FILEPATH=`pwd`/$0; BASEDIR=`dirname $FILEPATH`; . $BASEDIR/vars; source $BASEDIR/functions
 outfile=`mktemp /tmp/deploy-diff-XXXXXX`
 
-cd $destination_release_dir/project/Zed
+cd $destination_release_dir
 
 # Initialize database (fill in default values)
 echo "Initialize database with default values (incl. state machine states) for $APPLICATION_STORE"
