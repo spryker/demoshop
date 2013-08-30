@@ -15,7 +15,7 @@ use ProjectA\Yves\Library\Templating\Filesystem\Finder\StoreFinder;
 use ProjectA\Yves\Library\Templating\Filter\MinifyHtmlFilter;
 use ProjectA\Yves\Library\Templating\Theme;
 use ProjectA\Yves\Library\Templating\ViewHelper\UrlGenerator;
-use Sao\Yves\Cart\Module\ControllerProvider as CartProvider;
+use ProjectA\Yves\Cart\Module\ControllerProvider as CartProvider;
 use Silex\Provider\SessionServiceProvider;
 use Silex\Provider\UrlGeneratorServiceProvider;
 use Silex\ServiceProviderInterface;
