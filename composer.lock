@@ -524,7 +524,7 @@
             "source": {
                 "type": "git",
                 "url": "git@codebasehq.com:project-a/core/cart.git",
-                "reference": "32888d262c45e7a942613eaf09d84d0e328ca68e"
+                "reference": "ccf31c714db7b06737ee361a92430560d6d12664"
             },
             "require": {
                 "php": ">=5.4.0",
@@ -551,7 +551,7 @@
             "keywords": [
                 "Cart"
             ],
-            "time": "2013-08-30 14:22:08"
+            "time": "2013-08-30 17:01:53"
         },
         {
             "name": "project-a/catalog-package",
@@ -854,7 +854,7 @@
             "source": {
                 "type": "git",
                 "url": "git@codebasehq.com:project-a/core/infrastructure.git",
-                "reference": "c4cb1b7f6dd81f95ff581256e6a53091de13e0ae"
+                "reference": "b3e65e6579d0c821445ecc5fbb76a1fc1bf5c7c2"
             },
             "require": {
                 "php": ">=5.4.0",
@@ -882,7 +882,7 @@
             "keywords": [
                 "infrastructure"
             ],
-            "time": "2013-08-30 14:04:32"
+            "time": "2013-08-30 17:01:17"
         },
         {
             "name": "project-a/kendo-package",
@@ -907,7 +907,7 @@
             "source": {
                 "type": "git",
                 "url": "git@codebasehq.com:project-a/core/library-2.git",
-                "reference": "e06bf86456b0d9415ba687c14ef82837ab11a155"
+                "reference": "f5721c3d8249c2fff54a7da856439717dc99dd33"
             },
             "require": {
                 "digital-canvas/zend-framework": ">=1.12.2",
@@ -939,7 +939,7 @@
                 }
             ],
             "description": "Core Library",
-            "time": "2013-08-30 14:54:10"
+            "time": "2013-08-30 17:00:52"
         },
         {
             "name": "project-a/lumberjack-package",
@@ -3129,7 +3129,7 @@
             "source": {
                 "type": "git",
                 "url": "git@codebasehq.com:project-a/core/console.git",
-                "reference": "97092586baa387e8738d98c96b642bab8973c374"
+                "reference": "e42ef3149e1f3ac802088040de0615cfa8041104"
             },
             "require": {
                 "php": ">=5.4.0",
@@ -3160,7 +3160,7 @@
                 "console",
                 "generator"
             ],
-            "time": "2013-08-30 06:15:01"
+            "time": "2013-08-30 17:01:32"
         },
         {
             "name": "sanpi/behatch-contexts",
