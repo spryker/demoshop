@@ -455,7 +455,7 @@
             "source": {
                 "type": "git",
                 "url": "git@codebasehq.com:project-a/core/acl.git",
-                "reference": "e2fcb04625f2358a455366595808a9105c9db821"
+                "reference": "81447411d10baaa0169d5db77c141918a0ff91dd"
             },
             "require": {
                 "php": ">=5.4.0",
@@ -482,7 +482,7 @@
                 "login",
                 "usermanagement"
             ],
-            "time": "2013-09-02 15:39:53"
+            "time": "2013-09-02 16:22:34"
         },
         {
             "name": "project-a/adyen-package",
@@ -490,7 +490,7 @@
             "source": {
                 "type": "git",
                 "url": "git@codebasehq.com:project-a/core/adyen.git",
-                "reference": "55385e6db31e395dd6bc1909f2438f8142b4a4ea"
+                "reference": "95c9fc22ad72a57df7918fc9a85159208f8f0b43"
             },
             "require": {
                 "php": ">=5.4.0",
@@ -515,7 +515,7 @@
             "keywords": [
                 "adyen payment provider"
             ],
-            "time": "2013-09-02 15:39:38"
+            "time": "2013-09-02 16:21:41"
         },
         {
             "name": "project-a/cart-package",
@@ -523,7 +523,7 @@
             "source": {
                 "type": "git",
                 "url": "git@codebasehq.com:project-a/core/cart.git",
-                "reference": "81d0997bd2b4634d12ac1f9d1a4944037c82872d"
+                "reference": "3374cbf12c182c0257d8d968aeec55c2c1cfbcb1"
             },
             "require": {
                 "php": ">=5.4.0",
@@ -550,7 +550,7 @@
             "keywords": [
                 "Cart"
             ],
-            "time": "2013-09-02 12:47:55"
+            "time": "2013-09-02 16:20:47"
         },
         {
             "name": "project-a/catalog-package",
@@ -558,7 +558,7 @@
             "source": {
                 "type": "git",
                 "url": "git@codebasehq.com:project-a/core/catalog.git",
-                "reference": "3604f379324761a8d6b62903f8009f86e9bbe5cf"
+                "reference": "bd02e8856be1d6d5f838de6a8db51ee951af5034"
             },
             "require": {
                 "php": ">=5.4.0",
@@ -588,7 +588,7 @@
                 "Price",
                 "Stock"
             ],
-            "time": "2013-09-02 12:47:55"
+            "time": "2013-09-02 16:20:09"
         },
         {
             "name": "project-a/checkout-package",
@@ -596,7 +596,7 @@
             "source": {
                 "type": "git",
                 "url": "git@codebasehq.com:project-a/core/checkout.git",
-                "reference": "35e2f122eeb81a55dac4bbe501575cf74396916f"
+                "reference": "e5df8c35fc0878744fb47097369b90b90a5a8bec"
             },
             "require": {
                 "php": ">=5.4.0",
@@ -623,7 +623,7 @@
                 "PaymentControl",
                 "Salesrule"
             ],
-            "time": "2013-09-02 16:19:42"
+            "time": "2013-09-02 16:47:27"
         },
         {
             "name": "project-a/content-package",
@@ -853,7 +853,7 @@
             "source": {
                 "type": "git",
                 "url": "git@codebasehq.com:project-a/core/infrastructure.git",
-                "reference": "8b5ee5792c7f057a3ad51bfe4b8a23dd21174045"
+                "reference": "5b0584c9f6c8509a9d7f0c534dc8966d41a26ef5"
             },
             "require": {
                 "php": ">=5.4.0",
@@ -881,7 +881,7 @@
             "keywords": [
                 "infrastructure"
             ],
-            "time": "2013-09-02 16:13:13"
+            "time": "2013-09-02 16:47:06"
         },
         {
             "name": "project-a/kendo-package",
@@ -977,7 +977,7 @@
             "source": {
                 "type": "git",
                 "url": "git@codebasehq.com:project-a/core/marketing.git",
-                "reference": "f0dfb9f828e87dfad78fdc7f73b4da75a0ea0986"
+                "reference": "9eaabe6547e0b041ed767f68bcd224a11d38980f"
             },
             "require": {
                 "php": ">=5.4.0",
@@ -1002,7 +1002,7 @@
             "keywords": [
                 "Marketing"
             ],
-            "time": "2013-09-02 16:11:02"
+            "time": "2013-09-02 16:46:46"
         },
         {
             "name": "project-a/payment-package",
@@ -1041,7 +1041,7 @@
             "source": {
                 "type": "git",
                 "url": "git@codebasehq.com:project-a/core/sales.git",
-                "reference": "d0287b24c3c4ecd3eaa3a46aa1cd2e55f0b220a4"
+                "reference": "48605740aee274889c5b740acec447e0032a4060"
             },
             "require": {
                 "php": ">=5.4.0",
@@ -1068,7 +1068,7 @@
                 "Sales",
                 "Task"
             ],
-            "time": "2013-09-02 16:09:56"
+            "time": "2013-09-02 16:46:22"
         },
         {
             "name": "project-a/silex-routing",
@@ -3128,7 +3128,7 @@
             "source": {
                 "type": "git",
                 "url": "git@codebasehq.com:project-a/core/console.git",
-                "reference": "e42ef3149e1f3ac802088040de0615cfa8041104"
+                "reference": "9a73286bfab851c840f1cbfa4e921829bb244a0f"
             },
             "require": {
                 "php": ">=5.4.0",
@@ -3159,7 +3159,7 @@
                 "console",
                 "generator"
             ],
-            "time": "2013-08-30 17:01:32"
+            "time": "2013-09-02 16:33:55"
         },
         {
             "name": "sanpi/behatch-contexts",
