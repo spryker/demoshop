@@ -9,11 +9,6 @@
 
 FILEPATH=`pwd`/$0; BASEDIR=`dirname "$FILEPATH"`; . $BASEDIR/stores
 
-if [ "$1" == "-v" ]; then
-  VERBOSE=1
-  shift
-fi
-
 CMD=$1; shift
 
 for X in `seq 0 $stores_array_max`; do 
@@ -25,6 +20,6 @@ for X in `seq 0 $stores_array_max`; do
   else
     export IS_DEFAULT_STORE=
   fi
-  [ $VERBOSE ] && echo "Executing for ${APPLICATION_STORE}: $CMD $*"
+  [  "$verbose" == "true" ] && echo "Executing for ${APPLICATION_STORE}: $CMD $*"
   $CMD $*
 done

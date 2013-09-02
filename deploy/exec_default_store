@@ -9,11 +9,6 @@
 
 FILEPATH=`pwd`/$0; BASEDIR=`dirname "$FILEPATH"`; . $BASEDIR/stores
 
-if [ "$1" == "-v" ]; then
-  VERBOSE=1
-  shift
-fi
-
 CMD=$1; shift
 
 set -e
@@ -22,5 +17,5 @@ export APPLICATION_LOCALE=${locales[0]}
 export APPLICATION_STORE=${stores[0]}
 export APPDOMAIN=${appdomains[0]}
 export IS_DEFAULT_STORE=1
-[ $VERBOSE ] && echo "Executing (default store: ${APPLICATION_STORE}): $CMD $*"
+[ "$verbose" == "true" ] && echo "Executing (default store: ${APPLICATION_STORE}): $CMD $*"
 $CMD $*
