@@ -12,10 +12,11 @@
 FILEPATH=`pwd`/$0; BASEDIR=`dirname $FILEPATH`; source $BASEDIR/vars; source $BASEDIR/functions
 outfile=`mktemp /tmp/deploy-XXXXXX`
 
+### Tomcat - deploy WAR files, restart tomcat if there are any new appps
 if is_default_store; then
-  ### Tomcat - Deploy warfiles, restart tomcat if there are any new apps
   cd $shared_dir/tomcat/webapps
 
+#  # SOLR - not on reporting host, if is not admin host at the same time
 #  if (is_dwh_host && ! is_admin_host); then
 #    echo solr - not installing here, on DWH machine
 #  else
@@ -23,29 +24,30 @@ if is_default_store; then
 #    rm -f solr.war
 #    ln -s $destination_release_dir/core/Solr/solr.war .
 #  fi
+
+#  # Jenkins
   [ ! -d jenkins ] && restart_tomcat=1
   rm -f jenkins.war
-  if [ ! -d
   ln -s $destination_release_dir/vendor/project-a/infrastructure-package/ProjectA/Jenkins/jenkins.war .
   if [ "$restart_tomcat" == "1" ]; then
     echo "New java applications have been deployed - restarting Tomcat..."
     /etc/init.d/tomcat?-${environment} restart
     sleep 10s # Let's give tomcat some time to warm-up...
   fi
-
-  ### Solr Init: Create Solr configfiles (solr.xml)
-  #cd $destination_release_dir/project/Zed
-  #php -d "newrelic.appname='Deploy($environment)'" cli/index.php --module=solr --controller=cronjob --action=init &> $outfile
-  #cat $outfile
-  #if [ `grep -ci "restart solr now" $outfile` -gt 0 ]; then
-  #  echo " solr/setup/init requested tomcat restart..."
-  #  /etc/init.d/tomcat6-${environment} restart
-  #  sleep 10s # Let's give tomcat some time to warm-up...
-  #fi
 fi
 
 ### Solr Update: Create Solr cores
 #if is_default_store; then
+#  ## Solr Init: Create Solr configfiles (solr.xml)
+#  cd $destination_release_dir/project/Zed
+#  php -d "newrelic.appname='Deploy($environment)'" cli/index.php --module=solr --controller=cronjob --action=init &> $outfile
+#  cat $outfile
+#  if [ `grep -ci "restart solr now" $outfile` -gt 0 ]; then
+#    echo " solr/setup/init requested tomcat restart..."
+#    /etc/init.d/tomcat6-${environment} restart
+#    sleep 10s # Let's give tomcat some time to warm-up...
+#  fi
+#
 #  cd $destination_release_dir/project/Zed
 #  php -d "newrelic.appname='Deploy($environment)'" cli/index.php --module=solr --controller=cronjob --action=update
 #fi
