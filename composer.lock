@@ -456,7 +456,7 @@
             "source": {
                 "type": "git",
                 "url": "git@codebasehq.com:project-a/core/acl.git",
-                "reference": "86f12546e40cd94f093fc0ae9aa80a36ce449713"
+                "reference": "5ad46fc4105f2da1224baddcfc37c4a15daae40d"
             },
             "require": {
                 "php": ">=5.4.0",
@@ -483,7 +483,7 @@
                 "login",
                 "usermanagement"
             ],
-            "time": "2013-08-30 13:38:23"
+            "time": "2013-09-02 08:57:56"
         },
         {
             "name": "project-a/adyen-package",
@@ -907,7 +907,7 @@
             "source": {
                 "type": "git",
                 "url": "git@codebasehq.com:project-a/core/library-2.git",
-                "reference": "7ac6f7008ee87b00a5931a560c242fcc17295e5c"
+                "reference": "5f7a689f29e851de26d9c47446da5b53332f5aa5"
             },
             "require": {
                 "digital-canvas/zend-framework": ">=1.12.2",
@@ -939,7 +939,7 @@
                 }
             ],
             "description": "Core Library",
-            "time": "2013-09-02 06:59:44"
+            "time": "2013-09-02 09:04:32"
         },
         {
             "name": "project-a/lumberjack-package",
@@ -1042,7 +1042,7 @@
             "source": {
                 "type": "git",
                 "url": "git@codebasehq.com:project-a/core/sales.git",
-                "reference": "5cb6d1b25451f815ba5e3be04f2b4aafb6caa652"
+                "reference": "b55ed9296cec95b5b9c4f415e5ea44ff0672c465"
             },
             "require": {
                 "php": ">=5.4.0",
@@ -1069,7 +1069,7 @@
                 "Sales",
                 "Task"
             ],
-            "time": "2013-08-30 13:47:08"
+            "time": "2013-09-02 08:58:10"
         },
         {
             "name": "project-a/silex-routing",
