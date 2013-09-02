@@ -8,22 +8,24 @@
 # If application needs any commands to be executed before activating release, it should be put here
 # Examples: generate orm files, compile sass, setup java applications inside Tomcat
 #
-set -x
+
 FILEPATH=`pwd`/$0; BASEDIR=`dirname $FILEPATH`; source $BASEDIR/vars; source $BASEDIR/functions
 outfile=`mktemp /tmp/deploy-XXXXXX`
 
 if is_default_store; then
   ### Tomcat - Deploy warfiles, restart tomcat if there are any new apps
   cd $shared_dir/tomcat/webapps
-  if (is_dwh_host && ! is_admin_host); then
-    echo solr - not installing here, on DWH machine
-  else
-    [ ! -d solr ] && restart_tomcat=1
-    rm -f solr.war
-    ln -s $destination_release_dir/core/Solr/solr.war .
-  fi
+
+#  if (is_dwh_host && ! is_admin_host); then
+#    echo solr - not installing here, on DWH machine
+#  else
+#    [ ! -d solr ] && restart_tomcat=1
+#    rm -f solr.war
+#    ln -s $destination_release_dir/core/Solr/solr.war .
+#  fi
   [ ! -d jenkins ] && restart_tomcat=1
   rm -f jenkins.war
+  if [ ! -d
   ln -s $destination_release_dir/vendor/project-a/infrastructure-package/ProjectA/Jenkins/jenkins.war .
   if [ "$restart_tomcat" == "1" ]; then
     echo "New java applications have been deployed - restarting Tomcat..."
@@ -44,8 +46,8 @@ fi
 
 ### Solr Update: Create Solr cores
 #if is_default_store; then
-  #cd $destination_release_dir/project/Zed
-  #php -d "newrelic.appname='Deploy($environment)'" cli/index.php --module=solr --controller=cronjob --action=update
+#  cd $destination_release_dir/project/Zed
+#  php -d "newrelic.appname='Deploy($environment)'" cli/index.php --module=solr --controller=cronjob --action=update
 #fi
 
 ### Link public assets to shared static static (for relative URLs in minified stylesheets)
@@ -54,7 +56,6 @@ if is_default_store; then
   for DIR in styles scripts images; do
     [ ! -e $DIR ] && ln -sf $destination_current_dir/static/public/Yves/$DIR $DIR
   done
-  ln -s $destination_release_dir/data/static/US/sitemap $destination_release_dir/project/Yves/public/sitemap
 fi
 
 rm -f $outfile

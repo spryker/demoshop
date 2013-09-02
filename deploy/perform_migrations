@@ -7,7 +7,7 @@
 # It is executed only if check_for_migrations script returned true
 # It should execute database migrations. The site is in maintenance mode during execution of this script
 #
-set -x
+
 FILEPATH=`pwd`/$0; BASEDIR=`dirname $FILEPATH`; . $BASEDIR/vars; source $BASEDIR/functions
 outfile=`mktemp /tmp/deploy-perfmig-XXXXXX`
 

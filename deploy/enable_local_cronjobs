@@ -31,8 +31,10 @@ else
   echo "Installing cronjobs for roles: $roles"
 fi
 
-APPLICATION_ENV=${environment} php -d "newrelic.appname='Deploy($environment)'" cli/index.php --module=setup --controller=jenkins --action=generate --role=$roles
-APPLICATION_ENV=${environment} php -d "newrelic.appname='Deploy($environment)'" cli/index.php --module=setup --controller=jenkins --action=enable
+if [ "$roles" != "empty" ]; then
+  APPLICATION_ENV=${environment} php -d "newrelic.appname='Deploy($environment)'" cli/index.php --module=setup --controller=jenkins --action=generate --role=$roles
+  APPLICATION_ENV=${environment} php -d "newrelic.appname='Deploy($environment)'" cli/index.php --module=setup --controller=jenkins --action=enable
+fi
 
 rm -f $outfile
 exit 0

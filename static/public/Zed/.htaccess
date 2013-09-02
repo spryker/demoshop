@@ -1,3 +1,7 @@
+#
+# This file is used only for local development while using Apache web server
+# For nginx setups (production, staging, development VM's) those settings are applied in nginx vhosts
+#
 SetEnv APPLICATION_ENV development
 
 RewriteEngine On

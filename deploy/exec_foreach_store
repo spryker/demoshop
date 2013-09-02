@@ -16,8 +16,6 @@ fi
 
 CMD=$1; shift
 
-#set -e
-
 for X in `seq 0 $stores_array_max`; do 
   export APPLICATION_LOCALE=${locales[$X]}
   export APPLICATION_STORE=${stores[$X]}

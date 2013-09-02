@@ -10,7 +10,7 @@
 FILEPATH=`pwd`/$0; BASEDIR=`dirname $FILEPATH`; source $BASEDIR/vars
 outfile=`mktemp /tmp/deploy-XXXXXX`
 echo "-- Reindexing memcache for store $APPLICATION_STORE --"
-cd $destination_release_dir/project/Zed/cli
+cd $destination_release_dir/cli
 php -d "newrelic.appname='Deploy($environment)'" index.php  --module=yves --controller=cronjob --action=memcached-full-import -d
 
 rm -f $outfile

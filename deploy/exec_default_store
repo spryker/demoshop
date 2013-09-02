@@ -22,5 +22,5 @@ export APPLICATION_LOCALE=${locales[0]}
 export APPLICATION_STORE=${stores[0]}
 export APPDOMAIN=${appdomains[0]}
 export IS_DEFAULT_STORE=1
-[ $VERBOSE ] && echo "Executing (default): $CMD $*"
+[ $VERBOSE ] && echo "Executing (default store: ${APPLICATION_STORE}): $CMD $*"
 $CMD $*

@@ -17,5 +17,11 @@ if [ ! -f $shared_dir/config_local.php ]; then
   exit 1
 fi
 
+# Check if required WAR files are present in code
+if [ ! -f "$destination_release_dir/vendor/project-a/infrastructure-package/ProjectA/Jenkins/jenkins.war" ]; then
+  echo "ERROR: vendor/project-a/infrastructure-package/ProjectA/Jenkins/jenkins.war not found"
+  exit 1
+fi
+
 rm -f $outfile
 exit $return

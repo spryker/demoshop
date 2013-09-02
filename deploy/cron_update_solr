@@ -12,7 +12,7 @@ outfile=`mktemp /tmp/deploy-XXXXXX`
 
 if [ -z $APPLICATION_STORE ]; then echo "Error: \$APPLICATION_STORE is not set."; exit 1; fi
 
-cd $destination_release_dir/project/Zed/cli
+cd $destination_release_dir/cli
 #php -d "newrelic.appname='Cron(${environment})'" index.php --module=yves --controller=cronjob --action=solr-synchronize
 
 rm -f $outfile

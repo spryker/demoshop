@@ -24,7 +24,7 @@ if is_default_store; then
   rm -f config/Shared/config_local.php; ln -sf $shared_dir/config_local.php config/Shared/config_local.php
 
   # Create symlink for database dumps
-  ln -sf $shared_dir/data/static project/Zed/public/static
+  ln -sf $shared_dir/data/static static/public/Zed/static
 fi
 
 rm -f config/config_local_${APPLICATION_STORE}.php; ln -sf $shared_dir/config_local_${APPLICATION_STORE}.php config/Shared/config_local_${APPLICATION_STORE}.php

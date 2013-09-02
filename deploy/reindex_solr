@@ -11,7 +11,7 @@
 FILEPATH=`pwd`/$0; BASEDIR=`dirname $FILEPATH`; source $BASEDIR/vars
 outfile=`mktemp /tmp/deploy-XXXXXX`
 
-cd $destination_release_dir/project/Zed/cli
+cd $destination_release_dir/cli
 echo "DISABLED in $0: php index.php  --module=yves --controller=cronjob --action=solr-full-import"
 
 rm -f $outfile
