@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 if [ "$1" == "--zed" ]; then
   if [ "$2" == "--watch" ]; then
     grunt dev --gruntfile config/Zed/Gruntfile.js
