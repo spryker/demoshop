@@ -27,7 +27,7 @@
             <?php $this->navigation()->getContainer()->findOneById('login-logout')->setVisible(false); ?>
         <?php endif; ?>
         <?php $this->navigation()->getContainer()->findOneById('setup-index')->setVisible(APPLICATION_ENV !== 'production') ?>
-        <?php echo $this->navigation()->render(); ?>
+        <?php echo $this->navigation()->menu(); ?>
     </nav>
 
     <div class="zed:header__language-picker has-more">

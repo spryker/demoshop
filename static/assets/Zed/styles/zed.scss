@@ -33,7 +33,7 @@ $FontAwesomePath : '../fonts';
 }
 
 html {
-  background: #d5d5d5 url( '../images/background-noise.png' ) 50% 50%;
+  background: #d5d5d5 url( 'images/background-noise.png' ) 50% 50%;
   height: 100%;
   @include box-sizing( border-box );
   padding-bottom: 50px;
