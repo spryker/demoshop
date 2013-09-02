@@ -5,8 +5,6 @@
  */
 class Sao_Zed_Mail_Component_Gui_Crud_Sequence extends ProjectA_Zed_Library_Crud
 {
-    use ProjectA_Zed_Library_Dependency_Factory_Trait;
-
     /**
      * @return Sao_Zed_Mail_Component_Gui_Form_Sequence|Zend_Form
      */

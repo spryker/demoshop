@@ -5,8 +5,6 @@
  */
 class Sao_Zed_Mail_Component_Facade_Gui extends ProjectA_Zed_Library_Component_Model_FacadeAbstract
 {
-    use ProjectA_Zed_Library_Dependency_Factory_Trait;
-
     /**
      * @param Zend_View_Interface $view
      * @param null|ProjectA_Zed_Library_Grid_Config $config

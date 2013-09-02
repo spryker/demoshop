@@ -6,8 +6,6 @@
 class Sao_Zed_Mail_Component_Gui_Crud_Sequence_Element extends ProjectA_Zed_Library_Crud implements
     ProjectA_Zed_Library_Dependency_InitInterface
 {
-    use ProjectA_Zed_Library_Dependency_Factory_Trait;
-
     /**
      * @var int
      */
