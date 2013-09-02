@@ -10,7 +10,7 @@ class Sao_Zed_Dwh_Component_Settings extends ProjectA_Zed_Dwh_Component_Settings
         $this->fileDir = __DIR__.'/../File/';
     }
 
-    /** @var Sao_Zed_Dwh_Component_Factory */
+    /** @var Generated_Zed_Dwh_Component_Factory */
     protected $factory;
 
     /** @param Sao_Component_ReportsInterface $factory */

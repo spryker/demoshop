@@ -14,7 +14,7 @@ abstract class Sao_Zed_Fulfillment_Component_Model_Marcofinearts_Request_Abstrac
     /** @var Sao_Shared_Sales_Transfer_Order_Item */
     protected $item;
 
-    /** @var Sao_Zed_Fulfillment_Component_Factory */
+    /** @var Generated_Zed_Fulfillment_Component_Factory */
     protected $factory;
 
     /**

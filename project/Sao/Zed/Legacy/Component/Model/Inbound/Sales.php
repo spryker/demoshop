@@ -118,7 +118,7 @@ class Sao_Zed_Legacy_Component_Model_Inbound_Sales extends Sao_Zed_Legacy_Compon
         foreach ($items as $item) {
 
             $command = new Sao_Zed_Sales_Component_Model_Communication_Webservice_ItemPaid($item->getSalesOrderItem());
-            ProjectA_Zed_Library_Dependency_Injector::injectDependencies($command, new Sao_Zed_Sales_Component_Factory());
+            ProjectA_Zed_Library_Dependency_Injector::injectDependencies($command, new Generated_Zed_Sales_Component_Factory());
             $response = $command->send();
 
             if ($response->getSuccess()) {

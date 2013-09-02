@@ -15,7 +15,7 @@ class Sao_Zed_Fulfillment_Component_Model_Marcofinearts_Response_ShippingRate
     /** @var Sao_Zed_Fulfillment_Component_Model_Marcofinearts_Response_ShippingRate_RateCollection */
     protected $rate;
 
-    /** @var Sao_Zed_Fulfillment_Component_Factory */
+    /** @var Generated_Zed_Fulfillment_Component_Factory */
     protected $factory;
 
     /**

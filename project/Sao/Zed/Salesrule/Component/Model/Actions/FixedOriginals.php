@@ -11,7 +11,7 @@ class Sao_Zed_Salesrule_Component_Model_Actions_FixedOriginals extends Sao_Zed_S
     use ProjectA_Zed_Cart_Component_Dependency_Facade_Trait;
 
     /**
-     * @var Sao_Zed_Salesrule_Component_Factory
+     * @var Generated_Zed_Salesrule_Component_Factory
      */
     protected $factory;
 

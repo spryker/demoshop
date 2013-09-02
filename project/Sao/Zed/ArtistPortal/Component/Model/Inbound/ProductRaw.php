@@ -31,7 +31,7 @@ class Sao_Zed_ArtistPortal_Component_Model_Inbound_ProductRaw implements
     const COMMIT_EACH_ROWS = 100000;
 
     /**
-     * @var Sao_Zed_ArtistPortal_Component_Factory
+     * @var Generated_Zed_ArtistPortal_Component_Factory
      */
     protected $factory;
 

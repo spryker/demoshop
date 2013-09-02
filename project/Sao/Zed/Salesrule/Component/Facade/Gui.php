@@ -3,7 +3,7 @@
 /**
  * Class Sao_Zed_Salesrule_Component_Facade_Gui
  *
- * @property Sao_Zed_Salesrule_Component_Factory $factory
+ * @property Generated_Zed_Salesrule_Component_Factory $factory
  */
 class Sao_Zed_Salesrule_Component_Facade_Gui extends ProjectA_Zed_Salesrule_Component_Facade_Gui
 {

@@ -5,7 +5,7 @@ class Sao_Zed_Checkout_Component_Settings implements ProjectA_Zed_Library_Depend
     use ProjectA_Zed_Library_Dependency_Factory_Trait;
 
     /**
-     * @var Sao_Zed_Checkout_Component_Factory
+     * @var Generated_Zed_Checkout_Component_Factory
      */
     protected $factory;
 

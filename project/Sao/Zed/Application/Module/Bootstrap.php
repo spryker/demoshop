@@ -205,11 +205,6 @@ class Bootstrap extends Zend_Application_Bootstrap_Bootstrap
         Zend_Controller_Front::getInstance()->registerPlugin(new ProjectA_Zed_Library_Controller_Ssl());
     }
 
-    protected function _initLocalDateTime()
-    {
-        Zend_Controller_Front::getInstance()->registerPlugin(new Sao_Zed_Application_Component_Model_Controller_Plugin_LocalDate());
-    }
-
     public function _initDispatcher()
     {
         $dispatcher = new ProjectA_Zed_Library_Controller_Dispatcher_Project();

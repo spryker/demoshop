@@ -3,12 +3,12 @@
 /**
  * Class Sao_Zed_Salesrule_Component_Facade
  *
- * @property Sao_Zed_Salesrule_Component_Factory $factory
+ * @property Generated_Zed_Salesrule_Component_Factory $factory
  */
 class Sao_Zed_Salesrule_Component_Facade extends ProjectA_Zed_Salesrule_Component_Facade
 {
     /**
-     * @var Sao_Zed_Salesrule_Component_Factory
+     * @var Generated_Zed_Salesrule_Component_Factory
      */
     protected $factory;
 

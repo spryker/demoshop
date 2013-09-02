@@ -7,19 +7,21 @@
 # It should return 0 if there are no migrations, 1 if there are any migrations pending.
 #
 #
-
+set -x
 FILEPATH=`pwd`/$0; BASEDIR=`dirname $FILEPATH`; . $BASEDIR/vars; source $BASEDIR/functions
 outfile=`mktemp /tmp/deploy-diff-XXXXXX`
 
 # Check for propel migrations
-cd $destination_release_dir/project/Zed
+cd $destination_release_dir
 
 # Remove old Propel migration files
-rm -f propel-gen/$APPLICATION_STORE/build/migrations/*
+rm -fr project/Generated/Zed/PropelGen/$APPLICATION_STORE/build/migrations
 
 modified_text="Structure of database was modified in datasource"
 same_text="Same XML and database structures"
-echo | APPLICATION_ENV=${environment} php -d "newrelic.appname='Deploy($environment)'" cli/index.php --module=setup --controller=cronjob --action=propel-command --command=diff > $outfile
+echo "`pwd` $APPLICATION_ENV $APPLICATION_STORE"
+echo "1234" >> $outfile
+APPLICATION_ENV=${environment} php -d "newrelic.appname='Deploy($environment)'" cli/index.php --module=setup --controller=cronjob --action=propel-command --command=diff >> $outfile
 cat $outfile | grep "$modified_text"
 return=$?
 
@@ -40,6 +42,7 @@ if [ `cat $outfile | grep -c "$same_text"` -lt 1 ]; then
   else
     echo "Unable to parse output!"
     cat $outfile
+    exit 2
   fi
   echo "Diff output saved: $outfile - return value: $return"
 fi

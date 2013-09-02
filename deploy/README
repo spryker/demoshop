@@ -12,8 +12,9 @@ Those scripts are used as wrapper, which sets appropiate APPLICATION_STORE env
 
 ### Deployment tasks
 Execution order is preserved
+
    NAME                         EXECUTES ON       USER
- * create_shared_links          deploy host       root
+ * prepare_code                 deploy host       root
  * check_configuration          all appservers    www
  * configure_host               all appservers    www
  * check_for_migrations         admin host        root (returns: have_migrations?)

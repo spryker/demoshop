@@ -6,8 +6,8 @@ use ProjectA\Yves\Library\Silex\Provider\Service\CookieServiceProvider;
 use ProjectA\Yves\Library\Silex\Provider\Service\ExceptionServiceProvider;
 use ProjectA\Yves\Library\Silex\Provider\Service\TemplatingServiceProvider;
 use ProjectA\Yves\Library\Silex\Provider\Service\YvesLoggingServiceProvider;
+use ProjectA\Yves\Library\Silex\Routing\SilexRouter;
 use ProjectA\Yves\Library\Templating\EngineConfig;
-use ProjectA\Yves\Library\Templating\Filesystem\Finder\CacheFinder;
 use ProjectA\Yves\Library\Templating\Filesystem\Finder\ChainFinder;
 use ProjectA\Yves\Library\Templating\Filesystem\Finder\CoreFinder;
 use ProjectA\Yves\Library\Templating\Filesystem\Finder\ProjectFinder;
@@ -15,13 +15,12 @@ use ProjectA\Yves\Library\Templating\Filesystem\Finder\StoreFinder;
 use ProjectA\Yves\Library\Templating\Filter\MinifyHtmlFilter;
 use ProjectA\Yves\Library\Templating\Theme;
 use ProjectA\Yves\Library\Templating\ViewHelper\UrlGenerator;
-use Sao\Yves\Cart\Module\ControllerProvider as CartProvider;
+use ProjectA\Yves\Cart\Module\ControllerProvider as CartProvider;
 use Silex\Provider\SessionServiceProvider;
 use Silex\Provider\UrlGeneratorServiceProvider;
 use Silex\ServiceProviderInterface;
 use Silex\ControllerProviderInterface;
 use SilexRouting\Provider\RoutingServiceProvider;
-use SilexRouting\SilexRouter;
 use Symfony\Component\Routing\RouterInterface;
 
 /**

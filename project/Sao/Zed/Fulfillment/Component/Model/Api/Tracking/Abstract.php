@@ -12,7 +12,7 @@ abstract class Sao_Zed_Fulfillment_Component_Model_Api_Tracking_Abstract impleme
     use Sao_Zed_Sales_Component_Dependency_Facade_Trait;
 
     /**
-     * @var Sao_Zed_Fulfillment_Component_Factory
+     * @var Generated_Zed_Fulfillment_Component_Factory
      */
     protected $factory;
 

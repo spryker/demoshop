@@ -6,7 +6,7 @@ abstract class Sao_Zed_Fulfillment_Component_Model_Jondo_Shipping_Abstract
     const AGENT_NAME = 'abstract';
 
     /**
-     * @var Sao_Zed_Fulfillment_Component_Factory
+     * @var Generated_Zed_Fulfillment_Component_Factory
      */
     protected $factory;
 

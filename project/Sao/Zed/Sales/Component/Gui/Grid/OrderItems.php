@@ -3,7 +3,7 @@
 class Sao_Zed_Sales_Component_Gui_Grid_OrderItems extends ProjectA_Zed_Sales_Component_Gui_Grid_OrderItems
 {
     /**
-     * @var Sao_Zed_Sales_Component_Factory
+     * @var Generated_Zed_Sales_Component_Factory
      */
     protected $factory;
 

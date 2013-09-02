@@ -2,7 +2,7 @@
 
 /**
  * @author Daniel Tschinder <daniel.tschinder@project-a.com>
- * @property Sao_Zed_Checkout_Component_Factory $factory
+ * @property Generated_Zed_Checkout_Component_Factory $factory
  */
 class Sao_Zed_Checkout_Component_Model_Workflow_Definition_SaveOrder extends ProjectA_Zed_Checkout_Component_Model_Workflow_Definition_SaveOrder
 {

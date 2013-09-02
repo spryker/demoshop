@@ -7,7 +7,7 @@ class Sao_Zed_Legacy_Component_Model_Outbound_Checkout_SaveOrder
     implements ProjectA_Zed_Library_Dependency_Factory_Interface
 {
     /**
-     * @var Sao_Zed_Legacy_Component_Factory
+     * @var Generated_Zed_Legacy_Component_Factory
      */
     protected $factory;
 

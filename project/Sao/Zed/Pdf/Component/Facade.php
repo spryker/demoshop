@@ -4,7 +4,7 @@ class Sao_Zed_Pdf_Component_Facade extends ProjectA_Zed_Library_Component_Model_
 {
 
     /**
-     * @var Sao_Zed_Pdf_Component_Factory
+     * @var Generated_Zed_Pdf_Component_Factory
      */
     protected $factory;
 

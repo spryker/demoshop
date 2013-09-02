@@ -191,7 +191,7 @@ class Sao_Zed_Sandbox_Module_Controller_Adyen extends ProjectA_Zed_Library_Contr
     public function cartTestAction()
     {
         die('deactivated test');
-        $itemCollection = new Sao_Shared_Cart_Transfer_Item_Collection();
+        $itemCollection = new ProjectA_Shared_Cart_Transfer_Item_Collection();
         $item = new Sao_Shared_Cart_Transfer_Item();
         $item->setYvesSessionId('abcdefghijklmnopqa');
         $item->setQuantity(2);
@@ -199,7 +199,7 @@ class Sao_Zed_Sandbox_Module_Controller_Adyen extends ProjectA_Zed_Library_Contr
         $itemCollection->add($item);
 
 
-        $cartTransfer = new Sao_Shared_Cart_Transfer_Change();
+        $cartTransfer = new ProjectA_Shared_Cart_Transfer_Change();
         $cartTransfer->setCartItems($itemCollection);
         $cartTransfer->setYvesSessionId('abcdefghijklmnopqa');
         $cartTransfer->setUserId('5');

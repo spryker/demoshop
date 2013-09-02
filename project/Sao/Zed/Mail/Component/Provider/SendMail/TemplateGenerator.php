@@ -1,7 +1,7 @@
 <?php
 /**
  * @version
- * @property Sao_Zed_Mail_Component_Factory $factory
+ * @property Generated_Zed_Mail_Component_Factory $factory
  */
 class Sao_Zed_Mail_Component_Provider_SendMail_TemplateGenerator extends ProjectA_Zed_Mail_Component_Provider_SendMail_TemplateGenerator
 {

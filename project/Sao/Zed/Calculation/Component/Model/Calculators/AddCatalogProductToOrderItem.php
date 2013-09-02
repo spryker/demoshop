@@ -8,9 +8,9 @@ class Sao_Zed_Calculation_Component_Model_Calculators_AddCatalogProductToOrderIt
     use ProjectA_Zed_Catalog_Component_Dependency_Facade_Trait;
 
     /**
-     * @param Sao_Shared_Sales_Transfer_Order $order
+     * @param ProjectA_Shared_Sales_Transfer_Order $order
      */
-    public function recalculate(Sao_Shared_Sales_Transfer_Order $order)
+    public function recalculate(ProjectA_Shared_Sales_Transfer_Order $order)
     {
         parent::recalculate($order);
 

@@ -4,7 +4,7 @@ class Sao_Zed_Legacy_Component_Facade extends ProjectA_Zed_Library_Component_Mod
 {
 
     /**
-     * @var Sao_Zed_Legacy_Component_Factory
+     * @var Generated_Zed_Legacy_Component_Factory
      */
     protected $factory;
 

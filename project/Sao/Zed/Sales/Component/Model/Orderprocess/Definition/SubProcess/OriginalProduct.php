@@ -1,6 +1,6 @@
 <?php
 /**
- * @property Sao_Zed_Sales_Component_Factory $factory
+ * @property Generated_Zed_Sales_Component_Factory $factory
  * @property Sao_Zed_Sales_Component_Model_Orderprocess_StateMachine_Setup $setup
  */
 class Sao_Zed_Sales_Component_Model_Orderprocess_Definition_SubProcess_OriginalProduct extends ProjectA_Zed_Sales_Component_Model_Orderprocess_Definition_Abstract implements

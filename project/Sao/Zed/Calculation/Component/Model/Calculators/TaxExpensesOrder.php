@@ -5,7 +5,7 @@ class Sao_Zed_Calculation_Component_Model_Calculators_TaxExpensesOrder extends P
 
     use ProjectA_Zed_Misc_Component_Dependency_Facade_Trait;
 
-    /** @var Sao_Zed_Calculation_Component_Factory */
+    /** @var Generated_Zed_Calculation_Component_Factory */
     protected $factory;
 
     /**
@@ -14,9 +14,9 @@ class Sao_Zed_Calculation_Component_Model_Calculators_TaxExpensesOrder extends P
     public $modifyTotals = true;
 
     /**
-     * @param Sao_Shared_Sales_Transfer_Order $order
+     * @param ProjectA_Shared_Sales_Transfer_Order $order
      */
-    public function recalculate(Sao_Shared_Sales_Transfer_Order $order)
+    public function recalculate(ProjectA_Shared_Sales_Transfer_Order $order)
     {
         $taxExpensePercentage = $this->getSalesTaxRateFromAddress($order->getShippingAddress());
 

@@ -8,7 +8,7 @@ class Sao_Zed_Fulfillment_Component_Model_Tracking implements
     use ProjectA_Zed_Library_Dependency_Factory_Trait;
     use ProjectA_Zed_Sales_Component_Dependency_Facade_Trait;
 
-    /** @var Sao_Zed_Fulfillment_Component_Factory */
+    /** @var Generated_Zed_Fulfillment_Component_Factory */
     protected $factory;
 
     /**

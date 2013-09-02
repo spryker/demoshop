@@ -4,24 +4,24 @@ class Sao_Zed_Checkout_Component_Facade extends ProjectA_Zed_Checkout_Component_
 {
 
     /**
-     * @var Sao_Zed_Checkout_Component_Factory
+     * @var Generated_Zed_Checkout_Component_Factory
      */
     protected $factory;
 
     /**
-     * @param Sao_Shared_Sales_Transfer_Order $order
+     * @param ProjectA_Shared_Sales_Transfer_Order $order
      * @return bool
      */
-    public function isManualCheckout(Sao_Shared_Sales_Transfer_Order $order)
+    public function isManualCheckout(ProjectA_Shared_Sales_Transfer_Order $order)
     {
         return $this->factory->getModelSelector()->isManualCheckout($order);
     }
 
     /**
-     * @param Sao_Shared_Sales_Transfer_Order $transferOrder
+     * @param ProjectA_Shared_Sales_Transfer_Order $transferOrder
      * @return ProjectA_Zed_Library_Component_Model_Result
      */
-    public function saveOrder(Sao_Shared_Sales_Transfer_Order $transferOrder)
+    public function saveOrder(ProjectA_Shared_Sales_Transfer_Order $transferOrder)
     {
         return $this->factory->getModelWorkflowDispatcher()->dispatch($transferOrder)->run();
     }

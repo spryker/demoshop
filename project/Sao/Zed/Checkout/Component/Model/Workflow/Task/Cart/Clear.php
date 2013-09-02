@@ -8,10 +8,10 @@ class Sao_Zed_Checkout_Component_Model_Workflow_Task_Cart_Clear extends ProjectA
     use ProjectA_Zed_Sales_Component_Dependency_Facade_Trait;
 
     /**
-     * @param Sao_Shared_Sales_Transfer_Order $transferOrder
+     * @param ProjectA_Shared_Sales_Transfer_Order $transferOrder
      * @param ProjectA_Zed_Checkout_Component_Model_Workflow_Context $context
      */
-    public function __invoke(Sao_Shared_Sales_Transfer_Order $transferOrder, ProjectA_Zed_Checkout_Component_Model_Workflow_Context $context)
+    public function __invoke(ProjectA_Shared_Sales_Transfer_Order $transferOrder, ProjectA_Zed_Checkout_Component_Model_Workflow_Context $context)
     {
         $clearCart = true;
         if (isset($context[Sao_Zed_Sales_Component_Model_Orderprocess_Command_MarkAsInvalid::KEY_IS_INVALID])) {

@@ -3,7 +3,7 @@
 class Sao_Zed_Legacy_Component_Model_Outbound_Sales_Order
 {
     /**
-     * @var Sao_Zed_Legacy_Component_Factory
+     * @var Generated_Zed_Legacy_Component_Factory
      */
     protected $factory;
 

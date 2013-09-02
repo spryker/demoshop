@@ -1,7 +1,7 @@
 <?php
 /**
  * @author otischlinger
- * @property Sao_Zed_Sales_Component_Factory $factory
+ * @property Generated_Zed_Sales_Component_Factory $factory
  */
 class Sao_Zed_Sales_Component_Model_Orderprocess_Definition_SubProcess_Creditcard extends ProjectA_Zed_Sales_Component_Model_Orderprocess_Definition_Abstract implements
     Sao_Zed_Sales_Component_Interface_OrderprocessConstant,

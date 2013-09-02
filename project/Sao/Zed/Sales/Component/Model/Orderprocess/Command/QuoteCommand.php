@@ -1,21 +1,21 @@
 <?php
 
 /**
- * 
+ *
  * @author otischlinger
- * 
- * @property Sao_Zed_Sales_Component_Factory $factory
+ *
+ * @property Generated_Zed_Sales_Component_Factory $factory
  *
  */
 abstract class Sao_Zed_Sales_Component_Model_Orderprocess_Command_QuoteCommand extends ProjectA_Zed_Sales_Component_Model_Orderprocess_CommandAbstract implements ProjectA_Zed_Sales_Component_Interface_OrderCommand, ProjectA_Zed_Library_Dependency_Factory_Interface
 {
-    
+
     use ProjectA_Zed_Library_Dependency_Factory_Trait;
 
     /**
      *
-     * @param Sao_Zed_Fulfillment_Persistence_SaoFulfillmentQuote $quote            
-     * @param ProjectA_Zed_Sales_Component_Interface_ContextCollection $context            
+     * @param Sao_Zed_Fulfillment_Persistence_SaoFulfillmentQuote $quote
+     * @param ProjectA_Zed_Sales_Component_Interface_ContextCollection $context
      */
     abstract protected function invoke(Sao_Zed_Fulfillment_Persistence_SaoFulfillmentQuote $quote, ProjectA_Zed_Sales_Component_Interface_ContextCollection $context);
 

@@ -6,7 +6,7 @@ class Sao_Zed_Sales_Component_Model_Orderprocess_Definition_SubProcess_GetLegacy
 
     /**
      *
-     * @var Sao_Zed_Sales_Component_Factory
+     * @var Generated_Zed_Sales_Component_Factory
      */
     protected $factory;
 

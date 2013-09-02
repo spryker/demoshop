@@ -41,12 +41,12 @@ class Sao_Zed_Cart_Component_Model_CartStorage extends ProjectA_Zed_Cart_Compone
     }
 
     /**
-     * @param Sao_Shared_Sales_Transfer_Order_Item_Collection $saleItems
-     * @param Sao_Shared_Cart_Transfer_Change $cart
+     * @param ProjectA_Shared_Sales_Transfer_Order_Item_Collection $saleItems
+     * @param ProjectA_Shared_Cart_Transfer_Change $cart
      * @param ProjectA_Zed_Cart_Persistence_PacCartItem $itemToAdd
      * @return Sao_Shared_Sales_Transfer_Order_Item_Collection
      */
-    protected function mergeItemWithCartCollection(Sao_Shared_Sales_Transfer_Order_Item_Collection $saleItems, Sao_Shared_Cart_Transfer_Change $cart, ProjectA_Zed_Cart_Persistence_PacCartItem $itemToAdd)
+    protected function mergeItemWithCartCollection(ProjectA_Shared_Sales_Transfer_Order_Item_Collection $saleItems, ProjectA_Shared_Cart_Transfer_Change $cart, ProjectA_Zed_Cart_Persistence_PacCartItem $itemToAdd)
     {
         $tmpSaleItem = Generated_Shared_Library_TransferLoader::getSalesOrderItem();
         $oldQuantity = 0;
@@ -130,10 +130,10 @@ class Sao_Zed_Cart_Component_Model_CartStorage extends ProjectA_Zed_Cart_Compone
 
     /**
      * Get customer or guest cart depending if user is logged in or not
-     * @param Sao_Shared_Cart_Transfer_Change $cart
+     * @param ProjectA_Shared_Cart_Transfer_Change $cart
      * @return ProjectA_Zed_Cart_Persistence_PacCart
      */
-    protected function getOrCreateCartStorage(Sao_Shared_Cart_Transfer_Change $cart)
+    protected function getOrCreateCartStorage(ProjectA_Shared_Cart_Transfer_Change $cart)
     {
         if ($this->isUserLoggedIn($cart)) {
             $cartStorage = $this->getCustomerCartStorage($cart->getUserId());
@@ -163,10 +163,10 @@ class Sao_Zed_Cart_Component_Model_CartStorage extends ProjectA_Zed_Cart_Compone
     }
 
     /**
-     * @param Sao_Shared_Sales_Transfer_Order $order
-     * @param Sao_Shared_Cart_Transfer_Change $cart
+     * @param ProjectA_Shared_Sales_Transfer_Order $order
+     * @param ProjectA_Shared_Cart_Transfer_Change $cart
      */
-    protected function synchronizeCartStorage(Sao_Shared_Sales_Transfer_Order $order, Sao_Shared_Cart_Transfer_Change $cart)
+    protected function synchronizeCartStorage(ProjectA_Shared_Sales_Transfer_Order $order, ProjectA_Shared_Cart_Transfer_Change $cart)
     {
         //TODO see long message in getOrCreateCartStorage
         //as we stop from creating the cartStorage if the cart_hash is missing

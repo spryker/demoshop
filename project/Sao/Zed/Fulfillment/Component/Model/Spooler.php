@@ -11,7 +11,7 @@ class Sao_Zed_Fulfillment_Component_Model_Spooler implements
     use Sao_Zed_Fulfillment_Component_Dependency_Facade_Trait;
     use ProjectA_Zed_Library_Dependency_Factory_Trait;
 
-    /** @var Sao_Zed_Fulfillment_Component_Factory */
+    /** @var Generated_Zed_Fulfillment_Component_Factory */
     protected $factory;
 
     /** @var ProjectA_Zed_Library_DataStructure_Named_Map */

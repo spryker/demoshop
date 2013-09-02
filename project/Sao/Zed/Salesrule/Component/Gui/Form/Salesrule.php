@@ -3,7 +3,7 @@
 /**
  * Class Sao_Zed_Salesrule_Component_Gui_Form_Salesrule
  *
- * @property Sao_Zed_Salesrule_Component_Factory $factory
+ * @property Generated_Zed_Salesrule_Component_Factory $factory
  */
 class Sao_Zed_Salesrule_Component_Gui_Form_Salesrule extends ProjectA_Zed_Salesrule_Component_Gui_Form_Salesrule
 {

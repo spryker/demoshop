@@ -1,6 +1,6 @@
 <?php
 /**
- * @property Sao_Zed_Sales_Component_Factory $factory
+ * @property Generated_Zed_Sales_Component_Factory $factory
  */
 class Sao_Zed_Sales_Component_Model_Orderprocess_Definition_SubProcess_PrintProduct extends ProjectA_Zed_Sales_Component_Model_Orderprocess_Definition_Abstract implements
     Sao_Zed_Sales_Component_Interface_OrderprocessConstant
@@ -13,7 +13,7 @@ class Sao_Zed_Sales_Component_Model_Orderprocess_Definition_SubProcess_PrintProd
 
     /**
      *
-     * @param string $processName            
+     * @param string $processName
      */
     public function __construct($processName = 'print product')
     {

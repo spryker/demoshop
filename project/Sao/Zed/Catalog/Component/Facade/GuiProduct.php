@@ -6,7 +6,7 @@
 class Sao_Zed_Catalog_Component_Facade_GuiProduct extends ProjectA_Zed_Catalog_Component_Facade_GuiProduct
 {
     /**
-     * @var Sao_Zed_Catalog_Component_Factory
+     * @var Generated_Zed_Catalog_Component_Factory
      */
     protected $factory;
 

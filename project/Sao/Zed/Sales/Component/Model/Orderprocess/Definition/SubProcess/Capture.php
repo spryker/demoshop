@@ -1,13 +1,13 @@
 <?php
 /**
- * @property Sao_Zed_Sales_Component_Factory $factory
+ * @property Generated_Zed_Sales_Component_Factory $factory
  */
 class Sao_Zed_Sales_Component_Model_Orderprocess_Definition_SubProcess_Capture extends ProjectA_Zed_Sales_Component_Model_Orderprocess_Definition_Abstract implements
     Sao_Zed_Sales_Component_Interface_OrderprocessConstant,
     ProjectA_Zed_Stripe_Component_Interface_StatemachineConstants,
     ProjectA_Zed_Stripe_Component_Dependency_Facade_Interface
 {
-    
+
     use ProjectA_Zed_Stripe_Component_Dependency_Facade_Trait;
 
     /**
@@ -18,7 +18,7 @@ class Sao_Zed_Sales_Component_Model_Orderprocess_Definition_SubProcess_Capture e
 
     /**
      *
-     * @param string $processName            
+     * @param string $processName
      */
     public function __construct($processName = 'Capture Process')
     {
@@ -30,7 +30,7 @@ class Sao_Zed_Sales_Component_Model_Orderprocess_Definition_SubProcess_Capture e
     protected function createDefinition()
     {
         $setup = $this->getNewSetup();
-        
+
         $this->addTransitions();
         $this->addMetaInfo();
         $this->addCommands();
@@ -63,7 +63,7 @@ class Sao_Zed_Sales_Component_Model_Orderprocess_Definition_SubProcess_Capture e
         foreach ($states as $state) {
             $this->setup->addStateMetaInfo($state, 'group', $this->getName());
         }
-        
+
         $states = array(
             self::STATE_INIT_CAPTURE_PROCESS,
             self::STATE_WAITING_FOR_CAPTURE_APPOINTMENT,

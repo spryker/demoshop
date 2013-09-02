@@ -1,7 +1,7 @@
 <?php
 /**
  * @author Daniel Tschinder <daniel.tschinder@project-a.com>
- * @property Sao_Zed_ArtistPortal_Component_Factory $factory
+ * @property Generated_Zed_ArtistPortal_Component_Factory $factory
  */
 class Sao_Zed_ArtistPortal_Component_Facade extends ProjectA_Zed_Library_Component_Model_FacadeAbstract
 {

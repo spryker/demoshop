@@ -1,7 +1,7 @@
 <?php
 
 /**
- * @property Sao_Zed_Misc_Component_Factory $factory
+ * @property Generated_Zed_Misc_Component_Factory $factory
  */
 class Sao_Zed_Misc_Component_Facade extends ProjectA_Zed_Misc_Component_Facade
 {
@@ -16,7 +16,7 @@ class Sao_Zed_Misc_Component_Facade extends ProjectA_Zed_Misc_Component_Facade
 
     /**
      * @param string $shortName
-     * @return Sao_Zed_Misc_Persistence_MiscRegion
+     * @return Sao_Zed_Misc_Persistence_SaoMiscRegion
      */
     public function getRegionByShortName($shortName)
     {
@@ -25,7 +25,7 @@ class Sao_Zed_Misc_Component_Facade extends ProjectA_Zed_Misc_Component_Facade
 
     /**
      * @param string $name
-     * @return Sao_Zed_Misc_Persistence_MiscRegion
+     * @return Sao_Zed_Misc_Persistence_SaoMiscRegion
      */
     public function getRegionByName($name)
     {

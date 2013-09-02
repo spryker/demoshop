@@ -5,7 +5,7 @@ class Sao_Zed_Misc_Component_Internal_Install extends ProjectA_Zed_Misc_Componen
     use ProjectA_Zed_Library_Dependency_Factory_Trait;
 
     /**
-     * @var Sao_Zed_Fulfillment_Component_Factory
+     * @var Generated_Zed_Fulfillment_Component_Factory
      */
     protected $factory;
 

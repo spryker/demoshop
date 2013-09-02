@@ -1,7 +1,7 @@
 <?php
 /**
  * @author Marco Roßdeutscher <marco.rossdeutscher@project-a.com>
- * @property Sao_Zed_Catalog_Component_Factory $factory
+ * @property Generated_Zed_Catalog_Component_Factory $factory
  */
 class Sao_Zed_Catalog_Component_Facade extends ProjectA_Zed_Catalog_Component_Facade
 {

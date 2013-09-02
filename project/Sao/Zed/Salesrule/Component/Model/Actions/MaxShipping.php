@@ -6,7 +6,7 @@ class Sao_Zed_Salesrule_Component_Model_Actions_MaxShipping extends ProjectA_Zed
     use ProjectA_Zed_Library_Dependency_Factory_Trait;
 
     /**
-     * @var Sao_Zed_Salesrule_Component_Factory
+     * @var Generated_Zed_Salesrule_Component_Factory
      */
     protected $factory;
 
