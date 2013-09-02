@@ -17,12 +17,12 @@ class Sao_Yves_Library_Routing_Resolver_Index extends ProjectA_Yves_Library_Rout
     public function createUrl ($manager, $route, $params, $ampersand)
     {
         if ($route == Sao_Yves_Library_Routing_UrlManager::ROUTE_DEFAULT) {
-            #if (isset($params[Yp_Catalog_Model_Facets::$FACET_TYPE['name']])) {
-            #    $seg = ProjectA_Shared_Library_Storage::getUrlKey($params[Yp_Catalog_Model_Facets::$FACET_TYPE['name']]);
-            #    return $seg;
-            #} else {
+            //if (isset($params[Yp_Catalog_Model_Facets::$FACET_TYPE['name']])) {
+            //    $seg = ProjectA_Shared_Library_Storage::getUrlKey($params[Yp_Catalog_Model_Facets::$FACET_TYPE['name']]);
+            //    return $seg;
+            //} else {
                 return $this->removeIndexFromRoute($route);
-            #}
+            //}
         }
         return false;
     }

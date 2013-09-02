@@ -83,7 +83,7 @@ class Sao_Zed_Catalog_Component_Gui_Crud_Product extends ProjectA_Zed_Catalog_Co
      */
     protected function addErrorsToForm($result)
     {
-        #$this->form->getElement('meta_description')
+        //$this->form->getElement('meta_description')
         ProjectA_Zed_Library_Helper_Validator::populateZendFormWithPropelValidationErrors($this->form, $result->getErrors());
     }
 

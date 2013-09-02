@@ -14,7 +14,7 @@ class Sao_Zed_Catalog_Component_Model_ProductCollection extends ProjectA_Zed_Cat
         if (!$productEntity->getIsItem()) {
             //TODO just removed to see the at least the grid for config/simple
             //once we build the real grid and stuff we need to think about what should happen here
-            #throw new ProjectA_Zed_Library_Exception('product could not be created as it is not marked as item.');
+            //throw new ProjectA_Zed_Library_Exception('product could not be created as it is not marked as item.');
         }
         $sku = $productEntity->getSku();
         if ($this->hasProduct($sku)) {
