@@ -3,29 +3,28 @@
         "This file locks the dependencies of your project to a known state",
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file"
     ],
-    "hash": "7841bbcd9161401beec7ad8cbd82b826",
+    "hash": "0a5f98fe502b246dcc73fcf05abd21cf",
     "packages": [
         {
             "name": "aws/aws-sdk-php",
-            "version": "2.3.4",
+            "version": "2.4.4",
             "source": {
                 "type": "git",
                 "url": "https://github.com/aws/aws-sdk-php.git",
-                "reference": "43b63c66bde4c6c35378a417a09ed1240ec9eecb"
+                "reference": "c36675042ca50d836a10477db9172d77383277fd"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/aws/aws-sdk-php/zipball/43b63c66bde4c6c35378a417a09ed1240ec9eecb",
-                "reference": "43b63c66bde4c6c35378a417a09ed1240ec9eecb",
+                "url": "https://api.github.com/repos/aws/aws-sdk-php/zipball/c36675042ca50d836a10477db9172d77383277fd",
+                "reference": "c36675042ca50d836a10477db9172d77383277fd",
                 "shasum": ""
             },
             "require": {
-                "guzzle/guzzle": "~3.6.0",
+                "guzzle/guzzle": "~3.7.0",
                 "php": ">=5.3.3"
             },
             "require-dev": {
                 "doctrine/cache": "~1.0",
-                "ext-apc": "*",
                 "ext-openssl": "*",
                 "monolog/monolog": "1.4.*",
                 "phpunit/phpunit": "3.7.*",
@@ -42,7 +41,7 @@
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "2.3.x-dev"
+                    "dev-master": "2.4.x-dev"
                 }
             },
             "autoload": {
@@ -70,7 +69,7 @@
                 "s3",
                 "sdk"
             ],
-            "time": "2013-05-30 16:30:25"
+            "time": "2013-08-29 17:15:08"
         },
         {
             "name": "digital-canvas/zend-framework",
@@ -178,16 +177,16 @@
         },
         {
             "name": "guzzle/guzzle",
-            "version": "v3.6.0",
+            "version": "v3.7.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/guzzle/guzzle.git",
-                "reference": "b550d534c9b668c767b6a532bd686d0942505f7a"
+                "reference": "eaef90d27bb1d682e1f6ab2d77606dc0159049e6"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/guzzle/guzzle/zipball/b550d534c9b668c767b6a532bd686d0942505f7a",
-                "reference": "b550d534c9b668c767b6a532bd686d0942505f7a",
+                "url": "https://api.github.com/repos/guzzle/guzzle/zipball/eaef90d27bb1d682e1f6ab2d77606dc0159049e6",
+                "reference": "eaef90d27bb1d682e1f6ab2d77606dc0159049e6",
                 "shasum": ""
             },
             "require": {
@@ -231,7 +230,7 @@
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "3.6-dev"
+                    "dev-master": "3.7-dev"
                 }
             },
             "autoload": {
@@ -266,7 +265,7 @@
                 "rest",
                 "web service"
             ],
-            "time": "2013-05-30 07:01:25"
+            "time": "2013-08-02 18:31:05"
         },
         {
             "name": "ircmaxell/password-compat",
