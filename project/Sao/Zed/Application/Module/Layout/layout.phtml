@@ -4,7 +4,7 @@
     <meta charset="utf-8" />
     <link href="/images/favicon.ico" rel="shortcut icon" />
     <title>SaatchiOnline's Generated_Yves_Zed (<?php echo APPLICATION_ENV ?>)</title>
-    <?php echo $this->partial('partials/include.phtml', array()); ?>
+    <?php echo $this->partial('Partials/include.phtml', array()); ?>
 </head>
 <body>
     <script type="text/javascript">
@@ -15,8 +15,8 @@
     </script>
 
     <section id="env_<?php echo APPLICATION_ENV ?>">
-        <?php echo $this->partial('partials/header.phtml', array()); ?>
-        <?php echo $this->partial('partials/tabs.phtml', array()); ?>
+        <?php echo $this->partial('Partials/header.phtml', array()); ?>
+        <?php echo $this->partial('Partials/tabs.phtml', array()); ?>
         <div id="content">
             <?php $this->navigation()->setRenderInvisible(true); ?>
             <?php $currentPage = $this->navigation()->findActive($this->navigation()->getContainer()); ?>
@@ -42,7 +42,7 @@
                 <div class="container<?php echo (isset($this->pageViews)) ? ' collapsed' : '' ?>">
                     <div class="more left"></div>
                     <div class="more right"></div>
-                    <?php echo $this->partial('partials/messages.phtml', array()); ?>
+                    <?php echo $this->partial('Partials/messages.phtml', array()); ?>
                     <?php echo $this->layout()->content; ?>
                 </div>
                 <div class="clear"></div>

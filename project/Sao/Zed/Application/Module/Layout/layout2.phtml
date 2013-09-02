@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <title>Zed v2 (<?php echo APPLICATION_ENV ?>)</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <?php echo $this->partial('partials2/include.phtml', array()); ?>
+    <?php echo $this->partial('Partials2/include.phtml', array()); ?>
 </head>
 <body>
     <script type="text/javascript">
@@ -14,15 +14,15 @@
         zed.vars.exchange.page.current.action = '<?php echo $request->getParam('action'); ?>';
     </script>
 
-    <?php echo $this->partial('partials2/header.phtml', array()); ?>
-    <?php echo $this->partial('partials2/tabs.phtml', array()); ?>
+    <?php echo $this->partial('Partials2/header.phtml', array()); ?>
+    <?php echo $this->partial('Partials2/tabs.phtml', array()); ?>
 
     <main class="zed:main" role="main" id="main">
         <header class="zed:main__header clearfix">
             <h1><?= $this->layoutPageTitle ?></h1>
             <?php
             echo $this->navigation()->breadcrumbs()
-                ->setPartial('partials2/breadcrumbs.phtml')
+                ->setPartial('Partials2/breadcrumbs.phtml')
                 ->setRenderInvisible(true)
                 ->setLinkLast(true)
                 ->setMinDepth(0)
@@ -30,7 +30,7 @@
             ?>
         </header>
 
-        <?php echo $this->partial('partials2/messages.phtml', array()); ?>
+        <?php echo $this->partial('Partials2/messages.phtml', array()); ?>
         <?php echo $this->layout()->content; ?>
     </main>
 </body>
