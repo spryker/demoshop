@@ -12,6 +12,8 @@
 # Y&Z
 /config/Shared/config_local*
 /config/Zed/behat.local.yml
+/config/Zed/phpunit.core.xml
+/config/Zed/phpunit.xml
 
 /project/Generated
 /vendor/
