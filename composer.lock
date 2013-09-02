@@ -3,29 +3,28 @@
         "This file locks the dependencies of your project to a known state",
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file"
     ],
-    "hash": "7841bbcd9161401beec7ad8cbd82b826",
+    "hash": "0a5f98fe502b246dcc73fcf05abd21cf",
     "packages": [
         {
             "name": "aws/aws-sdk-php",
-            "version": "2.3.4",
+            "version": "2.4.4",
             "source": {
                 "type": "git",
                 "url": "https://github.com/aws/aws-sdk-php.git",
-                "reference": "43b63c66bde4c6c35378a417a09ed1240ec9eecb"
+                "reference": "c36675042ca50d836a10477db9172d77383277fd"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/aws/aws-sdk-php/zipball/43b63c66bde4c6c35378a417a09ed1240ec9eecb",
-                "reference": "43b63c66bde4c6c35378a417a09ed1240ec9eecb",
+                "url": "https://api.github.com/repos/aws/aws-sdk-php/zipball/c36675042ca50d836a10477db9172d77383277fd",
+                "reference": "c36675042ca50d836a10477db9172d77383277fd",
                 "shasum": ""
             },
             "require": {
-                "guzzle/guzzle": "~3.6.0",
+                "guzzle/guzzle": "~3.7.0",
                 "php": ">=5.3.3"
             },
             "require-dev": {
                 "doctrine/cache": "~1.0",
-                "ext-apc": "*",
                 "ext-openssl": "*",
                 "monolog/monolog": "1.4.*",
                 "phpunit/phpunit": "3.7.*",
@@ -42,7 +41,7 @@
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "2.3.x-dev"
+                    "dev-master": "2.4.x-dev"
                 }
             },
             "autoload": {
@@ -70,7 +69,7 @@
                 "s3",
                 "sdk"
             ],
-            "time": "2013-05-30 16:30:25"
+            "time": "2013-08-29 17:15:08"
         },
         {
             "name": "digital-canvas/zend-framework",
@@ -119,12 +118,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/doctrine/inflector.git",
-                "reference": "54b8333d2a5682afdc690060c1cf384ba9f47f08"
+                "reference": "v1.0"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/doctrine/inflector/zipball/54b8333d2a5682afdc690060c1cf384ba9f47f08",
-                "reference": "54b8333d2a5682afdc690060c1cf384ba9f47f08",
+                "url": "https://github.com/doctrine/inflector/archive/v1.0.zip",
+                "reference": "v1.0",
                 "shasum": ""
             },
             "require": {
@@ -162,7 +161,7 @@
                 {
                     "name": "Johannes Schmitt",
                     "email": "schmittjoh@gmail.com",
-                    "homepage": "https://github.com/schmittjoh",
+                    "homepage": "http://jmsyst.com",
                     "role": "Developer of wrapped JMSSerializerBundle"
                 }
             ],
@@ -178,16 +177,16 @@
         },
         {
             "name": "guzzle/guzzle",
-            "version": "v3.6.0",
+            "version": "v3.7.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/guzzle/guzzle.git",
-                "reference": "b550d534c9b668c767b6a532bd686d0942505f7a"
+                "reference": "eaef90d27bb1d682e1f6ab2d77606dc0159049e6"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/guzzle/guzzle/zipball/b550d534c9b668c767b6a532bd686d0942505f7a",
-                "reference": "b550d534c9b668c767b6a532bd686d0942505f7a",
+                "url": "https://api.github.com/repos/guzzle/guzzle/zipball/eaef90d27bb1d682e1f6ab2d77606dc0159049e6",
+                "reference": "eaef90d27bb1d682e1f6ab2d77606dc0159049e6",
                 "shasum": ""
             },
             "require": {
@@ -231,7 +230,7 @@
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "3.6-dev"
+                    "dev-master": "3.7-dev"
                 }
             },
             "autoload": {
@@ -266,7 +265,7 @@
                 "rest",
                 "web service"
             ],
-            "time": "2013-05-30 07:01:25"
+            "time": "2013-08-02 18:31:05"
         },
         {
             "name": "ircmaxell/password-compat",
@@ -312,13 +311,13 @@
             "version": "v2.2.0",
             "source": {
                 "type": "git",
-                "url": "https://github.com/nervetattoo/elasticsearch.git",
-                "reference": "ed9244b341e0139a4278ac9bdf3cb63d57539dfb"
+                "url": "https://github.com/nervetattoo/elasticsearch",
+                "reference": "v2.2.0"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/nervetattoo/elasticsearch/zipball/ed9244b341e0139a4278ac9bdf3cb63d57539dfb",
-                "reference": "ed9244b341e0139a4278ac9bdf3cb63d57539dfb",
+                "url": "https://github.com/nervetattoo/elasticsearch/archive/v2.2.0.zip",
+                "reference": "v2.2.0",
                 "shasum": ""
             },
             "require": {
@@ -854,7 +853,7 @@
             "source": {
                 "type": "git",
                 "url": "git@codebasehq.com:project-a/core/infrastructure.git",
-                "reference": "b3e65e6579d0c821445ecc5fbb76a1fc1bf5c7c2"
+                "reference": "d43c3b9ddaa8b95211d7e55cda67542d9b705288"
             },
             "require": {
                 "php": ">=5.4.0",
@@ -882,7 +881,7 @@
             "keywords": [
                 "infrastructure"
             ],
-            "time": "2013-08-30 17:01:17"
+            "time": "2013-09-02 12:38:07"
         },
         {
             "name": "project-a/kendo-package",
@@ -907,7 +906,7 @@
             "source": {
                 "type": "git",
                 "url": "git@codebasehq.com:project-a/core/library-2.git",
-                "reference": "5f7a689f29e851de26d9c47446da5b53332f5aa5"
+                "reference": "39244721d82ab7e09d966224ec1de8e91a497301"
             },
             "require": {
                 "digital-canvas/zend-framework": ">=1.12.2",
@@ -939,7 +938,7 @@
                 }
             ],
             "description": "Core Library",
-            "time": "2013-09-02 09:04:32"
+            "time": "2013-09-02 12:00:06"
         },
         {
             "name": "project-a/lumberjack-package",
@@ -1211,13 +1210,13 @@
             "version": "1.0.0",
             "source": {
                 "type": "git",
-                "url": "https://github.com/php-fig/log.git",
-                "reference": "fe0936ee26643249e916849d48e3a51d5f5e278b"
+                "url": "https://github.com/php-fig/log",
+                "reference": "1.0.0"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/php-fig/log/zipball/fe0936ee26643249e916849d48e3a51d5f5e278b",
-                "reference": "fe0936ee26643249e916849d48e3a51d5f5e278b",
+                "url": "https://github.com/php-fig/log/archive/1.0.0.zip",
+                "reference": "1.0.0",
                 "shasum": ""
             },
             "type": "library",
