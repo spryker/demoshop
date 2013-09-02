@@ -4,7 +4,7 @@
   float: left;
 
   a {
-    padding: 0 12px;
+    padding: 0 13px;
     display: block;
     font-size: 13px;
 
@@ -26,14 +26,16 @@
       background: #202020;
 
       > ul {
-        display: block;
-        line-height: 1.4;
+        > li {
+          display: block;
+        }
       }
     }
   }
 
   > ul {
     position: relative;
+    list-style: none;
 
     &:before {
       @extend %header-menu-shadow-pseudo;
@@ -45,10 +47,8 @@
       @extend %header-menu-highlight-pseudo;
     }
 
-
     > li {
-      display: inline-block;
-      vertical-align: top;
+      float: left;
 
       &:hover {
         background-image: linear-gradient(
@@ -98,30 +98,15 @@
         @extend %header-menu-shadow-pseudo;
       }
 
-      .hasChildren {
-        a {
-          padding-right: 20px;
-        }
-
-        &:after {
-          content: '';
-          border: 2px solid transparent;
-          border-left: 4px solid #999;
-          position: absolute;
-          top: 50%;
-          margin-top: -2px;
-          right: 5px;
-        }
-      }
-
       li {
         a {
-          padding: 10px 12px;
+          padding: 0 20px;
         }
 
         ul {
-          left: 100%;
           top: 0;
+          left: 100%;
+          height: auto;
         }
 
         + li {
@@ -139,7 +124,6 @@
     }
 
     ul {
-      display: none;
       position: absolute;
       top: 100%;
       left: 0;
@@ -148,6 +132,23 @@
       list-style: none;
 
       background: #272727;
+
+      > li {
+        display: none;
+      }
+
+      ul {
+        &:after {
+          content: '';
+          border: 2px solid transparent;
+          border-left: 4px solid #999;
+          position: absolute;
+          top: 20px;
+          margin-top: -2px;
+          left: -10px;
+          z-index: 2;
+        }
+      }
 
       a {
         white-space: nowrap;
