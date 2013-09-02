@@ -6,14 +6,7 @@
 class Sao_Zed_Salesrule_Component_Model_Actions_PercentPrints extends Sao_Zed_Salesrule_Component_Model_Actions_Percent
     implements ProjectA_Zed_Library_Dependency_Factory_Interface, ProjectA_Zed_Cart_Component_Dependency_Facade_Interface
 {
-
-    use ProjectA_Zed_Library_Dependency_Factory_Trait;
     use ProjectA_Zed_Cart_Component_Dependency_Facade_Trait;
-
-    /**
-     * @var Generated_Zed_Salesrule_Component_Factory
-     */
-    protected $factory;
 
     /**
      * @return int

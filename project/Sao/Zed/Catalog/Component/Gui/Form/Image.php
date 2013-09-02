@@ -10,10 +10,7 @@ class Sao_Zed_Catalog_Component_Gui_Form_Image
 
     use Sao_Zed_ProductImage_Component_Dependency_Facade_Trait;
 
-    /**
-     * @var Generated_Zed_Catalog_Component_Factory
-     */
-    protected $factory;
+
 
     /**
      * @return string

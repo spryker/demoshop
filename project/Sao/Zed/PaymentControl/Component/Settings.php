@@ -3,10 +3,7 @@
 class Sao_Zed_PaymentControl_Component_Settings extends ProjectA_Zed_PaymentControl_Component_Settings
 {
 
-    /**
-     * @var Generated_Zed_PaymentControl_Component_Factory
-     */
-    protected $factory;
+
 
     /**
      * @return array

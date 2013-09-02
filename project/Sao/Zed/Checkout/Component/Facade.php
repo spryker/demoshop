@@ -3,10 +3,7 @@
 class Sao_Zed_Checkout_Component_Facade extends ProjectA_Zed_Checkout_Component_Facade
 {
 
-    /**
-     * @var Generated_Zed_Checkout_Component_Factory
-     */
-    protected $factory;
+
 
     /**
      * @param ProjectA_Shared_Sales_Transfer_Order $order

@@ -13,10 +13,7 @@ class Sao_Zed_Catalog_Component_Gui_Crud_Product extends ProjectA_Zed_Catalog_Co
      */
     protected $product;
 
-    /**
-     * @var Generated_Zed_Catalog_Component_Factory
-     */
-    protected $factory;
+
 
     /**
      * @param $id

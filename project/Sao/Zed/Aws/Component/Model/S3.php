@@ -8,10 +8,7 @@ class Sao_Zed_Aws_Component_Model_S3 implements ProjectA_Zed_Library_Dependency_
 {
     use ProjectA_Zed_Library_Dependency_Factory_Trait;
 
-    /**
-     * @var Generated_Zed_Aws_Component_Factory
-     */
-    protected $factory;
+
     /**
      * @var S3Client
      */

@@ -5,10 +5,7 @@ class Sao_Zed_Fulfillment_Component_Settings implements ProjectA_Zed_Library_Com
 
     use ProjectA_Zed_Library_Dependency_Factory_Trait;
 
-    /**
-     * @var Generated_Zed_Fulfillment_Component_Factory
-     */
-    protected $factory;
+
 
     /**
      * @param string $provider

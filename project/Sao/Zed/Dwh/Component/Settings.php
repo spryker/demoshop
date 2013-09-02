@@ -1,22 +1,14 @@
 <?php
 
-class Sao_Zed_Dwh_Component_Settings extends ProjectA_Zed_Dwh_Component_Settings
-    implements ProjectA_Zed_Library_Dependency_FactoryInterface
+class Sao_Zed_Dwh_Component_Settings extends ProjectA_Zed_Dwh_Component_Settings implements
+    ProjectA_Zed_Library_Dependency_Factory_Interface
 {
+    use ProjectA_Zed_Library_Dependency_Factory_Trait;
 
     protected $fileDir = null;
 
     public function __construct(){
         $this->fileDir = __DIR__.'/../File/';
-    }
-
-    /** @var Generated_Zed_Dwh_Component_Factory */
-    protected $factory;
-
-    /** @param Sao_Component_ReportsInterface $factory */
-    public function setFactory(ProjectA_Zed_Library_Component_Interface_FactoryInterface $factory)
-    {
-        $this->factory = $factory;
     }
 
     /**
@@ -75,5 +67,4 @@ class Sao_Zed_Dwh_Component_Settings extends ProjectA_Zed_Dwh_Component_Settings
     {
         return '.';
     }
-
 }

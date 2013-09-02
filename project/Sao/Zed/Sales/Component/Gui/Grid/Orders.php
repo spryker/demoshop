@@ -2,10 +2,7 @@
 
 class Sao_Zed_Sales_Component_Gui_Grid_Orders extends ProjectA_Zed_Sales_Component_Gui_Grid_Orders
 {
-    /**
-     * @var Generated_Zed_Sales_Component_Factory
-     */
-    protected $factory;
+
 
     protected $dataColumns = array(
         'flag',

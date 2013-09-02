@@ -1,16 +1,9 @@
 <?php
-/**
- *
- * @author Tom Bullmann
- *
- */
-class Sao_Zed_Glossary_Component_Internal_Install implements ProjectA_Zed_Library_Component_Interface_InstallInterface, ProjectA_Zed_Library_Dependency_Factory_Interface
+class Sao_Zed_Glossary_Component_Internal_Install implements
+    ProjectA_Zed_Library_Component_Interface_InstallInterface,
+    ProjectA_Zed_Library_Dependency_Factory_Interface
 {
-
-    /**
-     * @var Pac_Glossary_factory
-     */
-    protected $factory;
+    use ProjectA_Zed_Library_Dependency_Factory_Trait;
 
     /**
      * @return string $message for GUI
@@ -82,14 +75,6 @@ class Sao_Zed_Glossary_Component_Internal_Install implements ProjectA_Zed_Librar
     public function isActive()
     {
         return true;
-    }
-
-    /**
-     * @param ProjectA_Zed_Library_Component_Interface_FactoryInterface $factory
-     */
-    public function setFactory(ProjectA_Zed_Library_Component_Interface_FactoryInterface $factory)
-    {
-        $this->factory = $factory;
     }
 
     protected $languages = array(

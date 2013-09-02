@@ -13,10 +13,7 @@ class Sao_Zed_Catalog_Component_Gui_Grid_Product
     use ProjectA_Zed_Stock_Component_Dependency_Facade_Trait;
     use ProjectA_Zed_Price_Component_Dependency_Facade_Trait;
 
-    /**
-     * @var Generated_Zed_Catalog_Component_Factory
-     */
-    protected $factory;
+
 
     public function create()
     {

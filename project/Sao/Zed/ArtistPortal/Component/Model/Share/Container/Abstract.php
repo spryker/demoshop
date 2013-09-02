@@ -24,10 +24,7 @@ abstract class Sao_Zed_ArtistPortal_Component_Model_Share_Container_Abstract imp
     const FLAG_EMPTY_STRING_ALLOWED = 'empty_string_allowed';
     const FLAG_NULL_ALLOWED = 'null_allowed';
 
-    /**
-     * @var Generated_Zed_ArtistPortal_Component_Factory
-     */
-    protected $factory;
+
 
     /**
      * @var array

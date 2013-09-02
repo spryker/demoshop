@@ -5,14 +5,6 @@
  */
 class Sao_Zed_Sales_Component_Settings extends ProjectA_Zed_Sales_Component_Settings implements ProjectA_Zed_Library_Dependency_Factory_Interface
 {
-
-    use ProjectA_Zed_Library_Dependency_Factory_Trait;
-
-    /**
-     * @var Generated_Zed_Sales_Component_Factory
-     */
-    protected $factory;
-
     /**
      * @var ProjectA_Zed_Library_StateMachine_Definition_Container
      */

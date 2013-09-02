@@ -5,10 +5,7 @@
  */
 class Sao_Zed_Catalog_Component_Model_Finder extends ProjectA_Zed_Catalog_Component_Model_Finder implements Sao_Zed_Catalog_Component_Interface_ProductAttributeConstant
 {
-    /**
-     * @var Generated_Zed_Catalog_Component_Factory
-     */
-    protected $factory;
+
 
     /**
      * @param ProjectA_Zed_Catalog_Component_Interface_Product $product

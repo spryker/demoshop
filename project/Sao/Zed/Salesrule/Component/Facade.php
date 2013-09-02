@@ -7,10 +7,7 @@
  */
 class Sao_Zed_Salesrule_Component_Facade extends ProjectA_Zed_Salesrule_Component_Facade
 {
-    /**
-     * @var Generated_Zed_Salesrule_Component_Factory
-     */
-    protected $factory;
+
 
     /**
      * @return Sao_Zed_Salesrule_Component_Facade_Gui

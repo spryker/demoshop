@@ -28,10 +28,7 @@ class Sao_Zed_Catalog_Component_Gui_Form_Product extends ProjectA_Zed_Catalog_Co
 
     const SUPPLIER_FK = 'catalog_supplier';
 
-    /**
-     * @var Generated_Zed_Catalog_Component_Factory
-     */
-    protected $factory;
+
 
     /**
      * @var ProjectA_Zed_Catalog_Component_Interface_ProductEntity

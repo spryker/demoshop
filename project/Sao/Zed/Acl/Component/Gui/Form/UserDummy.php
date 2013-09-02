@@ -2,15 +2,7 @@
 
 class Sao_Zed_Acl_Component_Gui_Form_UserDummy extends ProjectA_Zed_Acl_Component_Gui_Form_User
 {
-
-    use ProjectA_Zed_Library_Dependency_Factory_Trait;
-
     const ROLE_GUEST = 'guest';
-
-    /**
-     * @var Generated_Zed_Acl_Component_Factory
-     */
-    protected $factory;
 
     public function initAfterDependencyInjection()
     {

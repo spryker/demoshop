@@ -3,10 +3,7 @@
 class Sao_Zed_Fulfillment_Component_Facade extends ProjectA_Zed_Library_Component_Model_FacadeAbstract
 {
 
-    /**
-     * @var Generated_Zed_Fulfillment_Component_Factory
-     */
-    protected $factory;
+
 
     /**
      * @param $trackingNumber

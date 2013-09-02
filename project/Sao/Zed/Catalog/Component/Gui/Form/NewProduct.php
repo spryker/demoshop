@@ -4,10 +4,7 @@
  */
 class Sao_Zed_Catalog_Component_Gui_Form_NewProduct extends ProjectA_Zed_Catalog_Component_Gui_Form_NewProduct
 {
-    /**
-     * @var Generated_Zed_Catalog_Component_Factory
-     */
-    protected $factory;
+
 
     public function initAfterDependencyInjection()
     {

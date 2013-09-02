@@ -9,9 +9,6 @@ abstract class Sao_Zed_ArtistPortal_Component_Model_Share_Container_Product exte
      Sao_Zed_ArtistPortal_Component_Interface_ProductValueConstant,
      ProjectA_Zed_Library_Dependency_Factory_Interface
 {
-
-    use ProjectA_Zed_Library_Dependency_Factory_Trait;
-
     protected $fieldDefinitions = [
         self::USER_ID => [
             self::FLAG_MANDATORY,

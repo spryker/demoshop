@@ -10,10 +10,7 @@ abstract class Sao_Zed_Legacy_Component_Model_Inbound_Cart_Abstract implements
 
     const LEGACY_ITEM_FIELD_SKU = 'sku';
 
-    /**
-     * @var Generated_Zed_Legacy_Component_Factory
-     */
-    protected $factory;
+
 
     /**
      * @var array cart item fields used in zed

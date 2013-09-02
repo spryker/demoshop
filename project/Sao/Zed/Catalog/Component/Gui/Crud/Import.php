@@ -5,22 +5,9 @@
 class Sao_Zed_Catalog_Component_Gui_Crud_Import extends ProjectA_Zed_Library_Crud
 {
     /**
-     * @var Generated_Zed_Catalog_Component_Factory
-     */
-    protected $factory;
-
-    /**
      * @var Sao_Zed_Catalog_Component_Gui_Form_Import
      */
     protected $form;
-
-    /**
-     * @param ProjectA_Zed_Library_Component_Interface_FactoryInterface $factory
-     */
-    public function setFactory(ProjectA_Zed_Library_Component_Interface_FactoryInterface $factory)
-    {
-        $this->factory = $factory;
-    }
 
     /**
      * @return Sao_Zed_Catalog_Component_Gui_Form_Import|Zend_Form

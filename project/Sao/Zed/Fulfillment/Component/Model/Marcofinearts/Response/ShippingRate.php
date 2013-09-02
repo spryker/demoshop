@@ -12,19 +12,10 @@ class Sao_Zed_Fulfillment_Component_Model_Marcofinearts_Response_ShippingRate
     const CODE_UNEXPECTED_ERROR = 1013; // Unexpected error occurred.
     const CODE_INVALID_DATA = 1022; // Invalid shipping details or item(s). No valid services available.
 
+    use ProjectA_Zed_Library_Dependency_Factory_Trait;
+
     /** @var Sao_Zed_Fulfillment_Component_Model_Marcofinearts_Response_ShippingRate_RateCollection */
     protected $rate;
-
-    /** @var Generated_Zed_Fulfillment_Component_Factory */
-    protected $factory;
-
-    /**
-     * @param ProjectA_Zed_Library_Component_Interface_FactoryInterface $factory
-     */
-    public function setFactory(ProjectA_Zed_Library_Component_Interface_FactoryInterface $factory)
-    {
-       $this->factory = $factory;
-    }
 
     /**
      * @param Sao_Zed_Fulfillment_Component_Model_Marcofinearts_Response_ShippingRate_RateCollection $rateCollection

@@ -11,10 +11,7 @@ abstract class Sao_Zed_Fulfillment_Component_Model_Api_Abstract implements
 
     const PROVIDER_NAME = '';
 
-    /**
-     * @var Generated_Zed_Fulfillment_Component_Factory
-     */
-    protected $factory;
+
 
     /**
      * @var ProjectA_Shared_Library_Config_Object

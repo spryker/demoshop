@@ -5,10 +5,7 @@ class Sao_Zed_Salesrule_Component_Model_Actions_PercentShipping extends ProjectA
 {
     use ProjectA_Zed_Library_Dependency_Factory_Trait;
 
-    /**
-     * @var Generated_Zed_Salesrule_Component_Factory
-     */
-    protected $factory;
+
 
     /**
      * @see ProjectA_Zed_Salesrule_Component_Model_Actions_Abstract::getDiscount

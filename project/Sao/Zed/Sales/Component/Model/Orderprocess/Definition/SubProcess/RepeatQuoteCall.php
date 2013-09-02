@@ -5,10 +5,7 @@ class Sao_Zed_Sales_Component_Model_Orderprocess_Definition_SubProcess_RepeatQuo
         implements Sao_Zed_Sales_Component_Interface_OrderprocessConstant
 {
 
-    /**
-     * @var Generated_Zed_Sales_Component_Factory
-     */
-    protected $factory;
+
     /**
      * @var Sao_Zed_Sales_Component_Model_Orderprocess_StateMachine_Setup
      */

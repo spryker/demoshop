@@ -30,10 +30,7 @@ class Sao_Zed_ArtistPortal_Component_Model_Inbound_ProductRaw implements
     const LOG_FILE_EXTENSION = '.log';
     const COMMIT_EACH_ROWS = 100000;
 
-    /**
-     * @var Generated_Zed_ArtistPortal_Component_Factory
-     */
-    protected $factory;
+
 
     /**
      * @var Sao_Zed_ArtistPortal_Component_Model_Share_Container_Product_Manufactured

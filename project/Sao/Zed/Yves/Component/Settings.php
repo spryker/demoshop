@@ -5,10 +5,7 @@
  */
 class Sao_Zed_Yves_Component_Settings extends ProjectA_Zed_Yves_Component_Settings
 {
-    /**
-     * @var Generated_Zed_Yves_Component_Factory
-     */
-    protected $factory;
+
 
     /**
      * @param string $exportIdentifier

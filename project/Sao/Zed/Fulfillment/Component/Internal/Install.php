@@ -6,10 +6,7 @@ class Sao_Zed_Fulfillment_Component_Internal_Install implements ProjectA_Zed_Lib
     const KEY_ARTIST_COST = 'artist_cost';
     const KEY_VENDOR_PRICE = 'vendor_price';
 
-    /**
-     * @var Generated_Zed_Fulfillment_Component_Factory
-     */
-    protected $factory;
+
 
     /**
      * @return bool

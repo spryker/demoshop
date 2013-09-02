@@ -9,10 +9,7 @@ class Sao_Zed_Sales_Component_Facade extends ProjectA_Zed_Sales_Component_Facade
     const BLOCK_PRODUCT = 0;
     const UNBLOCK_PRODUCT = 1;
 
-    /**
-     * @var Generated_Zed_Sales_Component_Factory
-     */
-    protected $factory;
+
 
     /**
      * @param PropelObjectCollection $orderItems

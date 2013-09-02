@@ -1,28 +1,23 @@
 <?php
 
-abstract class Sao_Zed_Fulfillment_Component_Model_Marcofinearts_Request_Abstract_OrderInfo
-    implements ProjectA_Zed_Library_Dependency_Factory_Interface, ProjectA_Zed_Library_Dependency_InitInterface
+abstract class Sao_Zed_Fulfillment_Component_Model_Marcofinearts_Request_Abstract_OrderInfo implements
+    ProjectA_Zed_Library_Dependency_Factory_Interface,
+    ProjectA_Zed_Library_Dependency_InitInterface
 {
+    use ProjectA_Zed_Library_Dependency_Factory_Trait;
+
     /** @var array */
     protected $items;
 
-    /** @var Generated_Zed_Fulfillment_Component_Factory */
-    protected $factory;
-
+    /**
+     * @param Traversable $items
+     */
     public function __construct(Traversable $items)
     {
         $this->items = $items;
     }
 
     abstract public function initAfterDependencyInjection();
-
-    /**
-     * @param ProjectA_Zed_Library_Component_Interface_FactoryInterface $factory
-     */
-    public function setFactory(ProjectA_Zed_Library_Component_Interface_FactoryInterface $factory)
-    {
-        $this->factory = $factory;
-    }
 
     /**
      * @return array

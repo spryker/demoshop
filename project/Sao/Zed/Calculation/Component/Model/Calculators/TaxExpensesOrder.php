@@ -5,8 +5,7 @@ class Sao_Zed_Calculation_Component_Model_Calculators_TaxExpensesOrder extends P
 
     use ProjectA_Zed_Misc_Component_Dependency_Facade_Trait;
 
-    /** @var Generated_Zed_Calculation_Component_Factory */
-    protected $factory;
+
 
     /**
      * @var bool

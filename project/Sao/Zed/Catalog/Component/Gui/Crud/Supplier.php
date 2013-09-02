@@ -4,10 +4,7 @@
  */
 class Sao_Zed_Catalog_Component_Gui_Crud_Supplier extends ProjectA_Zed_Library_Crud
 {
-    /**
-     * @var Pal_Catalog_Factory
-     */
-    protected $factory;
+
 
     /**
      * @return Pal_Catalog_Gui_Form_Supplier

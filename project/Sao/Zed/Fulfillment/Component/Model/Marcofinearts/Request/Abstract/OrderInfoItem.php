@@ -1,10 +1,11 @@
 <?php
 
-abstract class Sao_Zed_Fulfillment_Component_Model_Marcofinearts_Request_Abstract_OrderInfoItem
-    implements ProjectA_Zed_Library_Dependency_Factory_Interface,
-               ProjectA_Zed_Library_Dependency_InitInterface
-
+abstract class Sao_Zed_Fulfillment_Component_Model_Marcofinearts_Request_Abstract_OrderInfoItem implements
+    ProjectA_Zed_Library_Dependency_Factory_Interface,
+    ProjectA_Zed_Library_Dependency_InitInterface
 {
+    use ProjectA_Zed_Library_Dependency_Factory_Trait;
+
     /** @var int */
     protected $width;
 
@@ -14,8 +15,7 @@ abstract class Sao_Zed_Fulfillment_Component_Model_Marcofinearts_Request_Abstrac
     /** @var Sao_Shared_Sales_Transfer_Order_Item */
     protected $item;
 
-    /** @var Generated_Zed_Fulfillment_Component_Factory */
-    protected $factory;
+
 
     /**
      * @param Sao_Shared_Sales_Transfer_Order_Item $item
@@ -23,14 +23,6 @@ abstract class Sao_Zed_Fulfillment_Component_Model_Marcofinearts_Request_Abstrac
     public function __construct(Sao_Shared_Sales_Transfer_Order_Item $item)
     {
         $this->item = $item;
-    }
-
-    /**
-     * @param ProjectA_Zed_Library_Component_Interface_FactoryInterface $factory
-     */
-    public function setFactory(ProjectA_Zed_Library_Component_Interface_FactoryInterface $factory)
-    {
-        $this->factory = $factory;
     }
 
     /**

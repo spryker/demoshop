@@ -5,18 +5,7 @@ abstract class Sao_Zed_Fulfillment_Component_Model_Jondo_Shipping_Abstract
 {
     const AGENT_NAME = 'abstract';
 
-    /**
-     * @var Generated_Zed_Fulfillment_Component_Factory
-     */
-    protected $factory;
-
-    /**
-     * @param ProjectA_Zed_Library_Component_Interface_FactoryInterface $factory
-     */
-    public function setFactory(ProjectA_Zed_Library_Component_Interface_FactoryInterface $factory)
-    {
-        $this->factory = $factory;
-    }
+    use ProjectA_Zed_Library_Dependency_Factory_Trait;
 
     /**
      * @var int

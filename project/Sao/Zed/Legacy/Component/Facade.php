@@ -3,10 +3,7 @@
 class Sao_Zed_Legacy_Component_Facade extends ProjectA_Zed_Library_Component_Model_FacadeAbstract
 {
 
-    /**
-     * @var Generated_Zed_Legacy_Component_Factory
-     */
-    protected $factory;
+
 
     /**
      * @param Sao_Shared_Sales_Transfer_Order $transferOrder

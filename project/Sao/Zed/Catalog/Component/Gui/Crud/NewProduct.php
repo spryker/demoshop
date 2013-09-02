@@ -5,10 +5,7 @@
  */
 class Sao_Zed_Catalog_Component_Gui_Crud_NewProduct extends ProjectA_Zed_Catalog_Component_Gui_Crud_NewProduct
 {
-    /**
-     * @var Generated_Zed_Catalog_Component_Factory
-     */
-    protected $factory;
+
 
     /**
      * ! we need to create the appropriate product type depending on

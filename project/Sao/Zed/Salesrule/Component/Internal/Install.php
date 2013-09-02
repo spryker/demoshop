@@ -1,17 +1,9 @@
 <?php
-/**
- *
- * @author Tom Bullmann
- *
- */
-class Sao_Zed_Salesrule_Component_Internal_Install implements ProjectA_Zed_Library_Component_Interface_InstallInterface, ProjectA_Zed_Library_Dependency_Factory_Interface
+class Sao_Zed_Salesrule_Component_Internal_Install implements
+    ProjectA_Zed_Library_Component_Interface_InstallInterface,
+    ProjectA_Zed_Library_Dependency_Factory_Interface
 {
-
-    /**
-     * @var Pac_Glossary_factory
-     */
-    protected $factory;
-
+    use ProjectA_Zed_Library_Dependency_Factory_Trait;
 
     protected $promotions = array(
         array(
@@ -191,14 +183,6 @@ class Sao_Zed_Salesrule_Component_Internal_Install implements ProjectA_Zed_Libra
     public function isActive()
     {
         return true;
-    }
-
-    /**
-     * @param ProjectA_Zed_Library_Component_Interface_FactoryInterface $factory
-     */
-    public function setFactory(ProjectA_Zed_Library_Component_Interface_FactoryInterface $factory)
-    {
-        $this->factory = $factory;
     }
 
     protected function installPacSalesrule()

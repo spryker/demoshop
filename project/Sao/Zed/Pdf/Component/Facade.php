@@ -3,10 +3,7 @@
 class Sao_Zed_Pdf_Component_Facade extends ProjectA_Zed_Library_Component_Model_FacadeAbstract
 {
 
-    /**
-     * @var Generated_Zed_Pdf_Component_Factory
-     */
-    protected $factory;
+
 
     public function getPathForInvoice(ProjectA_Zed_Invoice_Persistence_PacInvoice $entityInvoice)
     {

@@ -2,12 +2,6 @@
 
 class Sao_Zed_Misc_Component_Internal_Install extends ProjectA_Zed_Misc_Component_Internal_Install implements ProjectA_Zed_Library_Component_Interface_InstallInterface, ProjectA_Zed_Library_Dependency_Factory_Interface
 {
-    use ProjectA_Zed_Library_Dependency_Factory_Trait;
-
-    /**
-     * @var Generated_Zed_Fulfillment_Component_Factory
-     */
-    protected $factory;
 
     /**
      * @return bool

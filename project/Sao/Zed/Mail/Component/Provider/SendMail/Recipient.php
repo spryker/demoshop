@@ -8,8 +8,6 @@ class Sao_Zed_Mail_Component_Provider_SendMail_Recipient extends ProjectA_Zed_Ma
     Sao_Zed_Mail_Component_Interface_MailConstants,
     Sao_Zed_Mail_Component_Model_Constants
 {
-    use ProjectA_Zed_Library_Dependency_Factory_Trait;
-
     /**
      * @param ProjectA_Shared_Mail_Transfer_Mail $mailTransfer
      * @return null

@@ -4,7 +4,7 @@
  * @version $Id$
  * @property Generated_Zed_Checkout_Component_Factory $factory
  */
-class Sao_Zed_Checkout_Component_Model_Workflow_Dispatcher implements ProjectA_Zed_Library_Dependency_FactoryInterface
+class Sao_Zed_Checkout_Component_Model_Workflow_Dispatcher implements ProjectA_Zed_Library_Dependency_Factory_Interface
 {
     use ProjectA_Zed_Library_Dependency_Factory_Trait;
 

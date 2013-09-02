@@ -12,10 +12,7 @@ class Sao_Zed_Catalog_Component_Gui_Form_Export extends Zend_Form implements
 
     const CONDITION_TYPE_FIELD_NAME = '_condition_type';
 
-    /**
-     * @var Generated_Zed_Catalog_Component_Factory
-     */
-    protected $factory;
+
 
     /**
      * @param ProjectA_Zed_Library_Component_Interface_FactoryInterface $factory

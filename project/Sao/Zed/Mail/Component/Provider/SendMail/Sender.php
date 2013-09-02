@@ -6,8 +6,6 @@
  */
 class Sao_Zed_Mail_Component_Provider_SendMail_Sender extends ProjectA_Zed_Mail_Component_Provider_SendMail_Sender
 {
-    use ProjectA_Zed_Library_Dependency_Factory_Trait;
-
     /**
      * @param ProjectA_Shared_Mail_Transfer_Mail $transferObject
      * @return mixed

@@ -5,10 +5,7 @@
  */
 class Sao_Zed_Catalog_Component_Facade_GuiProduct extends ProjectA_Zed_Catalog_Component_Facade_GuiProduct
 {
-    /**
-     * @var Generated_Zed_Catalog_Component_Factory
-     */
-    protected $factory;
+
 
     /**
      * @param Zend_View_Interface $view

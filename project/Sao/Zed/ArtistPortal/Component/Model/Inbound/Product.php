@@ -16,10 +16,7 @@ class Sao_Zed_ArtistPortal_Component_Model_Inbound_Product implements
     use ProjectA_Zed_Stock_Component_Dependency_Facade_Trait;
     use ProjectA_Zed_Library_Dependency_Factory_Trait;
 
-    /**
-     * @var Generated_Zed_ArtistPortal_Component_Factory
-     */
-    protected $factory;
+
 
     protected $wrapOptions;
 

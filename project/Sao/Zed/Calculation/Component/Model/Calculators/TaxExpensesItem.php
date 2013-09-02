@@ -12,8 +12,7 @@ class Sao_Zed_Calculation_Component_Model_Calculators_TaxExpensesItem extends Pr
     const REGION_CALIFORNIA = 'CA';
     const ISO2_CODE_USA = 'US';
 
-    /** @var Generated_Zed_Calculation_Component_Factory */
-    protected $factory;
+
 
     /**
      * @var bool

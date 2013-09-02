@@ -5,8 +5,7 @@ class Sao_Zed_Fulfillment_Component_Model_Quote implements ProjectA_Zed_Library_
 
     use ProjectA_Zed_Library_Dependency_Factory_Trait;
 
-    /** @var  Generated_Zed_Fulfillment_Component_Factory */
-    protected $factory;
+
 
     /**
      * @param ProjectA_Zed_Sales_Persistence_PacSalesOrderItem $item

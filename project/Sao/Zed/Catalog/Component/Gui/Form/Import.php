@@ -10,10 +10,7 @@ class Sao_Zed_Catalog_Component_Gui_Form_Import extends Zend_Form implements
 
     const FORM_ELEMENT_IMPORT_FILE_NAME = 'importFile';
 
-    /**
-     * @var Generated_Zed_Catalog_Component_Factory
-     */
-    protected $factory;
+
 
     /**
      * @param ProjectA_Zed_Library_Component_Interface_FactoryInterface $factory

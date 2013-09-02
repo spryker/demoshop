@@ -3,27 +3,12 @@
 class Sao_Zed_Fulfillment_Component_Model_Jondo_Request_ServiceManager
 {
     const DOM_SECTION_NAME = 'service';
-
     const CATEGORY_BRANDING = 'branding';
-
-    /**
-     * @var Generated_Zed_Fulfillment_Component_Factory
-     */
-    protected $factory;
-
-    /**
-     * @param ProjectA_Zed_Library_Component_Interface_FactoryInterface $factory
-     */
-    public function setFactory(ProjectA_Zed_Library_Component_Interface_FactoryInterface $factory)
-    {
-        $this->factory = $factory;
-    }
 
     /**
      * @var Sao_Zed_Fulfillment_Component_Facade
      */
     protected $printFacade;
-
 
     /**
      * @var array

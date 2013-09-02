@@ -21,18 +21,7 @@ class Sao_Zed_Fulfillment_Component_Model_Jondo_Response_Quote
     const CODE_QUANTITY_ZERO = 1006; // Quantity must be greater than 0
     const CODE_PRODUCT_CODE_ERROR = 1007; // Product Code Error
 
-    /**
-     * @var Generated_Zed_Fulfillment_Component_Factory
-     */
-    protected $factory;
-
-    /**
-     * @param ProjectA_Zed_Library_Component_Interface_FactoryInterface $factory
-     */
-    public function setFactory(ProjectA_Zed_Library_Component_Interface_FactoryInterface $factory)
-    {
-        $this->factory = $factory;
-    }
+    use ProjectA_Zed_Library_Dependency_Factory_Trait;
 
     /**
      * @var int

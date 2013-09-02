@@ -41,10 +41,7 @@ class Sao_Zed_Mail_Component_Model_CartAbandoned implements
         '433686'  //marco
     ];
 
-    /**
-     * should be removed once that factory trait issue is done, why does the trait not contain the factory property, damn it
-     */
-    protected $factory;
+
 
     /**
      * @param Sao_Shared_Mail_Transfer_Cart_Abandoned_Unsubscribe $unsubscribeTransfer

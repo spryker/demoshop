@@ -14,10 +14,7 @@ class Sao_Zed_Yves_Component_Model_Export_Exporter_Memcache_Regions implements
     use ProjectA_Zed_Misc_Component_Dependency_Facade_Trait;
     use ProjectA_Zed_Library_Dependency_Factory_Trait;
 
-    /**
-     * @var Generated_Zed_Yves_Component_Factory
-     */
-    protected $factory;
+
 
     /**
      * @return ProjectA_Zed_Yves_Component_Model_Export_Task_Entity

@@ -6,7 +6,6 @@ class Sao_Zed_Checkout_Component_Model_Workflow_Task_Validation_CheckStock exten
     ProjectA_Zed_Library_Dependency_Factory_Interface, ProjectA_Zed_Catalog_Component_Dependency_Facade_Interface
 {
     use ProjectA_Zed_Library_Dependency_Factory_Trait;
-
     use ProjectA_Zed_Catalog_Component_Dependency_Facade_Trait;
 
     /**

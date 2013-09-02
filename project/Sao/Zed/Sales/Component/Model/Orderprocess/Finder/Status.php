@@ -8,10 +8,7 @@ class Sao_Zed_Sales_Component_Model_Orderprocess_Finder_Status implements Projec
 
     use ProjectA_Zed_Library_Dependency_Factory_Trait;
 
-    /**
-     * @var Generated_Zed_Sales_Component_Factory
-     */
-    protected $factory;
+
 
     /**
      * @var PropelObjectCollection
