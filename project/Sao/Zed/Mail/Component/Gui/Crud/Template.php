@@ -20,7 +20,7 @@ class Sao_Zed_Mail_Component_Gui_Crud_Template extends ProjectA_Zed_Library_Crud
      */
     protected function getEntity()
     {
-        return new Sao_Zed_Mail_Persistence_SaoMailTemplate();
+        return Generated_Zed_EntityLoader::getSaoMailTemplate();
     }
 
     /**

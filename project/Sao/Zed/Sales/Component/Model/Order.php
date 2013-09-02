@@ -27,7 +27,7 @@ class Sao_Zed_Sales_Component_Model_Order extends ProjectA_Zed_Sales_Component_M
         $saoEntity = $orderEntity->getSaoSalesOrder();
 
         if (!$saoEntity) {
-            $saoEntity = new Sao_Zed_Sales_Persistence_SaoSalesOrder();
+            $saoEntity = Generated_Zed_EntityLoader::getSaoSalesOrder();
             $orderEntity->setSaoSalesOrder($saoEntity)->save();
         }
 
@@ -118,7 +118,7 @@ class Sao_Zed_Sales_Component_Model_Order extends ProjectA_Zed_Sales_Component_M
      */
     protected function addRegion(ProjectA_Zed_Sales_Persistence_PacSalesOrderAddress $entityAddress, Sao_Shared_Sales_Transfer_Order_Address $transferAddress)
     {
-        $saoSalesOrderAddress = new Sao_Zed_Sales_Persistence_SaoSalesOrderAddress();
+        $saoSalesOrderAddress = Generated_Zed_EntityLoader::getSaoSalesOrderAddress();
         $region = $this->facadeMisc->getRegionByShortName($transferAddress->getRegion());
         $saoSalesOrderAddress->setRegion($region);
         $entityAddress->setSaoAddress($saoSalesOrderAddress);
@@ -168,7 +168,7 @@ class Sao_Zed_Sales_Component_Model_Order extends ProjectA_Zed_Sales_Component_M
         /* @var $transferItem Sao_Shared_Sales_Transfer_Order_Item */
         foreach ($transferOrder->getItems() as $transferItem) {
             /* @var $transferItem Sao_Shared_Sales_Transfer_Order_Item */
-            $item = new ProjectA_Zed_Sales_Persistence_PacSalesOrderItem();
+            $item = Generated_Zed_EntityLoader::getPacSalesOrderItem();
             $item->fromArray($transferItem->toArray());
             $item->setStatus($statusEntity);
             $this->addProcess($transferOrder, $item);
@@ -225,7 +225,7 @@ class Sao_Zed_Sales_Component_Model_Order extends ProjectA_Zed_Sales_Component_M
     {
         $saoSalesOrderItem = $orderItemEntity->getSaoSalesOrderItem();
         if (!$saoSalesOrderItem) {
-            $saoSalesOrderItem = new Sao_Zed_Sales_Persistence_SaoSalesOrderItem();
+            $saoSalesOrderItem = Generated_Zed_EntityLoader::getSaoSalesOrderItem();
             $orderItemEntity->setSaoSalesOrderItem($saoSalesOrderItem);
         }
         return $saoSalesOrderItem;

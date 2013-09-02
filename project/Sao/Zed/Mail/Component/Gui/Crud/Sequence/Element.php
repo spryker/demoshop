@@ -55,7 +55,7 @@ class Sao_Zed_Mail_Component_Gui_Crud_Sequence_Element extends ProjectA_Zed_Libr
      */
     protected function getEntity()
     {
-        return new Sao_Zed_Mail_Persistence_SaoMailSequenceElement();
+        return Generated_Zed_EntityLoader::getSaoMailSequenceElement();
     }
 
     /**
@@ -135,7 +135,7 @@ class Sao_Zed_Mail_Component_Gui_Crud_Sequence_Element extends ProjectA_Zed_Libr
             $codeValidToFormatValue = $this->formValues[$codeValidToFormatKey];
 
             if (!$entity->getMailSequenceElementCodepool()) {
-                $codepoolElementEntity = new Sao_Zed_Mail_Persistence_SaoMailSequenceElementCodepool();
+                $codepoolElementEntity = Generated_Zed_EntityLoader::getSaoMailSequenceElementCodepool();
                 $codepoolElementEntity->setFkSalesruleCodepool($codepoolValue);
                 $codepoolElementEntity->setCodeValidToInterval($codeValidToIntervalValue);
                 $codepoolElementEntity->setCodeValidToFormat($codeValidToFormatValue);

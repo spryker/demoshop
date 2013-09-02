@@ -90,7 +90,7 @@ class Sao_Zed_Legacy_Component_Model_Inbound_Cart_Guest extends Sao_Zed_Legacy_C
     {
         $cartEntity = $this->getCartByHash($cartHash);
         if (!$cartEntity instanceof ProjectA_Zed_Cart_Persistence_PacCart) {
-            $cartEntity = new ProjectA_Zed_Cart_Persistence_PacCart();
+            $cartEntity = Generated_Zed_EntityLoader::getPacCart();
             $cartEntity->setCartHash($cartHash); // random hash
 
             $cartEntity->save();

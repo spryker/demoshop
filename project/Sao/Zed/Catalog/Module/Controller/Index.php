@@ -130,7 +130,7 @@ class Sao_Zed_Catalog_Module_Controller_Index extends ProjectA_Zed_Library_Contr
             if ($productCollection->hasProduct($sku)) {
                 $product = $productCollection->getProduct($sku);
             } else {
-                $productEntity = new ProjectA_Zed_Catalog_Persistence_PacCatalogProductConfig();
+                $productEntity = Generated_Zed_EntityLoader::getPacCatalogProductConfig();
                 $productEntity->setFkCatalogAttributeSet(1);
                 $productEntity->setIsItem(true);
                 $productEntity->setSku($sku);

@@ -216,7 +216,7 @@ class Sao_Zed_Mail_Component_Model_CartAbandoned implements
     {
         $cartUserBlacklist = $cartUser->getSaoMailSequenceCartUserBlacklist();
         if (!$cartUserBlacklist) {
-            $cartUserBlacklist = new Sao_Zed_Mail_Persistence_SaoMailSequenceCartUserBlacklist();
+            $cartUserBlacklist = Generated_Zed_EntityLoader::getSaoMailSequenceCartUserBlacklist();
             $cartUserBlacklist->setCartUser($cartUser);
             $cartUser->setSaoMailSequenceCartUserBlacklist($cartUserBlacklist);
             $cartUser->save();

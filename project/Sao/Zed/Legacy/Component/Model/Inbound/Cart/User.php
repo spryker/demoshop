@@ -75,7 +75,7 @@ class Sao_Zed_Legacy_Component_Model_Inbound_Cart_User extends Sao_Zed_Legacy_Co
     {
         $cartEntity = $this->getCartByUserId($userId);
         if (!$cartEntity instanceof ProjectA_Zed_Cart_Persistence_PacCart) {
-            $cartEntity = new ProjectA_Zed_Cart_Persistence_PacCart();
+            $cartEntity = Generated_Zed_EntityLoader::getPacCart();
             $cartEntity->setCartHash(sha1(microtime(true))); // random hash
             $cartEntity->save();
             $this->addCartUser($userId, $cartEntity);
@@ -90,10 +90,10 @@ class Sao_Zed_Legacy_Component_Model_Inbound_Cart_User extends Sao_Zed_Legacy_Co
      */
     protected function addCartUser($userId, $cart)
     {
-        $saoEntity = new Sao_Zed_Cart_Persistence_SaoCartUser();
+        $saoEntity = Generated_Zed_EntityLoader::getSaoCartUser();
         $saoEntity->setUserId($userId);
 
-        $userCart = new ProjectA_Zed_Cart_Persistence_PacCartUser();
+        $userCart = Generated_Zed_EntityLoader::getPacCartUser();
         $userCart->setCart($cart);
         $userCart->setSaoCartUser($saoEntity);
         $userCart->save();

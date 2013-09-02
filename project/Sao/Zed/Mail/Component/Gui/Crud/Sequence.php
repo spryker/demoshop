@@ -20,7 +20,7 @@ class Sao_Zed_Mail_Component_Gui_Crud_Sequence extends ProjectA_Zed_Library_Crud
      */
     protected function getEntity()
     {
-        return new Sao_Zed_Mail_Persistence_SaoMailSequence();
+        return Generated_Zed_EntityLoader::getSaoMailSequence();
     }
 
     /**
@@ -83,7 +83,7 @@ class Sao_Zed_Mail_Component_Gui_Crud_Sequence extends ProjectA_Zed_Library_Crud
         $keyStep = Sao_Zed_Mail_Component_Gui_Form_Sequence::getNameForFieldStep(Sao_Zed_Mail_Persistence_SaoMailSequenceStepPeer::STEP);
         $value = $this->formValues[$keyStep];
         if (!$entity->getMailSequenceStep()) {
-            $stepEntity = new Sao_Zed_Mail_Persistence_SaoMailSequenceStep();
+            $stepEntity = Generated_Zed_EntityLoader::getSaoMailSequenceStep();
             $stepEntity->setStep($value);
             $entity->setMailSequenceStep($stepEntity);
         } else {

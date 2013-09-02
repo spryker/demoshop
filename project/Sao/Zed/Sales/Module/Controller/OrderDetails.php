@@ -115,7 +115,7 @@ class Sao_Zed_Sales_Module_Controller_OrderDetails extends ProjectA_Zed_Sales_Mo
             $item->setLastStatusChange($dateTime->format('Y-m-d H:i:s'));
             $item->save();
 
-            $log = new ProjectA_Zed_Sales_Persistence_PacSalesOrderItemTransitionLog();
+            $log = Generated_Zed_EntityLoader::getPacSalesOrderItemTransitionLog();
             $log->setOrderItem($item);
             $log->setSourceState($oldStatusName);
             $log->setTargetState($targetStatusEntity->getName());

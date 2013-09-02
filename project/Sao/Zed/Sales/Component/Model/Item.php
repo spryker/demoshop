@@ -33,7 +33,7 @@ class Sao_Zed_Sales_Component_Model_Item extends ProjectA_Zed_Sales_Component_Mo
      */
     public function createNotification(ProjectA_Zed_Sales_Persistence_PacSalesOrderItem $orderItemEntity, $event)
     {
-        $notification = new Sao_Zed_Sales_Persistence_SaoSalesOrderItemNotification();
+        $notification = Generated_Zed_EntityLoader::getSaoSalesOrderItemNotification();
         $notification->setFkSalesOrderItem($orderItemEntity->getPrimaryKey());
         $notification->setEvent($event);
         $notification->setHash(md5($orderItemEntity->getPrimaryKey() . $event));
@@ -145,7 +145,7 @@ class Sao_Zed_Sales_Component_Model_Item extends ProjectA_Zed_Sales_Component_Mo
      */
     protected function addPickupToEntity(Sao_Shared_Fulfillment_Transfer_Pickup $pickupTransfer, Sao_Zed_Sales_Persistence_SaoSalesOrderItem $saoSalesOrderItem)
     {
-        $pickupEntity = new Sao_Zed_Fulfillment_Persistence_SaoFulfillmentShippingPickup();
+        $pickupEntity = Generated_Zed_EntityLoader::getSaoFulfillmentShippingPickup();
         $pickupEntity->setDate($pickupTransfer->getDate());
         $pickupEntity->setReadyTime($pickupTransfer->getReadyTime() . ':00');
         $pickupEntity->setCloseTime($pickupTransfer->getCloseTime() . ':00');

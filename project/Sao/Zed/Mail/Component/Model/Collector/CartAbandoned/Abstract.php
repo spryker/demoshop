@@ -206,7 +206,7 @@ abstract class Sao_Zed_Mail_Component_Model_Collector_CartAbandoned_Abstract ext
             /* @var ProjectA_Zed_Salesrule_Persistence_PacSalesruleCode $code */
             $codeEntity = $this->getFacadeCodepool()->createCode($codepoolId, null, 6, $prefix);
 
-            $mailSequenceCode = new Sao_Zed_Mail_Persistence_SaoMailSequenceCartUserCode();
+            $mailSequenceCode = Generated_Zed_EntityLoader::getSaoMailSequenceCartUserCode();
             $mailSequenceCode->setFkCartUser($cartUser->getIdCartUser());
             $mailSequenceCode->setFkMailSequence($mailSequence->getIdMailSequence());
             $mailSequenceCode->setFkSalesruleCode($codeEntity->getIdSalesruleCode());

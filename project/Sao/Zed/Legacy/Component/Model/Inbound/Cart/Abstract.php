@@ -78,11 +78,11 @@ abstract class Sao_Zed_Legacy_Component_Model_Inbound_Cart_Abstract implements
      */
     protected function addCardItem(ProjectA_Zed_Cart_Persistence_PacCart $cart, array $cartItem)
     {
-        $newCartItem = new ProjectA_Zed_Cart_Persistence_PacCartItem();
+        $newCartItem = Generated_Zed_EntityLoader::getPacCartItem();
         $newCartItem->fromArray($cartItem);
         $newCartItem->setCart($cart);
         if (!empty($cartItem['option'])) {
-            $newCartOption = new ProjectA_Zed_Cart_Persistence_PacCartItemOption();
+            $newCartOption = Generated_Zed_EntityLoader::getPacCartItemOption();
             $newCartOption->setIdentifier($cartItem['option']);
             $newCartItem->addOption($newCartOption);
         }

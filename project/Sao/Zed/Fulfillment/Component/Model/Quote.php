@@ -67,7 +67,7 @@ class Sao_Zed_Fulfillment_Component_Model_Quote implements ProjectA_Zed_Library_
         $entityAgent = $this->factory->getModelTracking()->getShippingAgentByInternalName($transferQuote->getShippingAgent());
         $entityProvider = $this->factory->getModelProvider()->getProviderEntityByShortName($transferQuote->getProvider());
 
-        $entity = new Sao_Zed_Fulfillment_Persistence_SaoFulfillmentQuote();
+        $entity = Generated_Zed_EntityLoader::getSaoFulfillmentQuote();
         $entity->fromArray($transferQuote->toArray());
         $entity->setOrder($entitySalesOrder);
         $entity->setProvider($entityProvider);
@@ -161,7 +161,7 @@ class Sao_Zed_Fulfillment_Component_Model_Quote implements ProjectA_Zed_Library_
      */
     protected function allocateItem(Sao_Shared_Sales_Transfer_Order_Item $transferItem, Sao_Zed_Fulfillment_Persistence_SaoFulfillmentQuote $entityQuote)
     {
-        $entityQuoteItem = new Sao_Zed_Fulfillment_Persistence_SaoFulfillmentQuoteItem();
+        $entityQuoteItem = Generated_Zed_EntityLoader::getSaoFulfillmentQuoteItem();
         $entityQuoteItem->setFkSalesOrderItem($transferItem->getIdSalesOrderItem());
         $entityQuote->addQuoteItem($entityQuoteItem);
     }

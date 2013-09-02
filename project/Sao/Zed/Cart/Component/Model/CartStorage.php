@@ -96,10 +96,10 @@ class Sao_Zed_Cart_Component_Model_CartStorage extends ProjectA_Zed_Cart_Compone
         /** @var int $userId */
         $userId = $customerId;
 
-        $saoEntity = new Sao_Zed_Cart_Persistence_SaoCartUser();
+        $saoEntity = Generated_Zed_EntityLoader::getSaoCartUser();
         $saoEntity->setUserId($userId);
 
-        $entity = new ProjectA_Zed_Cart_Persistence_PacCartUser();
+        $entity = Generated_Zed_EntityLoader::getPacCartUser();
         $entity->setCart($cart);
         $entity->setFkCustomer(null);
         $entity->setSaoCartUser($saoEntity);

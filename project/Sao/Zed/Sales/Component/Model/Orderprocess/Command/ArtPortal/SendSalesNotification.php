@@ -45,7 +45,7 @@ class Sao_Zed_Sales_Component_Model_Orderprocess_Command_ArtPortal_SendSalesNoti
     {
         $saoSalesOrderItem = $orderItemEntity->getSaoSalesOrderItem();
         if (!$saoSalesOrderItem) {
-            $saoSalesOrderItem = new Sao_Zed_Sales_Persistence_SaoSalesOrderItem();
+            $saoSalesOrderItem = Generated_Zed_EntityLoader::getSaoSalesOrderItem();
             $orderItemEntity->setSaoSalesOrderItem($saoSalesOrderItem);
         }
         return $saoSalesOrderItem;

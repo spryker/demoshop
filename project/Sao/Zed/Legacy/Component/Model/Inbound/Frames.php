@@ -42,7 +42,7 @@ class Sao_Zed_Legacy_Component_Model_Inbound_Frames extends Sao_Zed_Legacy_Compo
             $identifier = 'F' . $frame['id'];
             $option = $this->facadeCatalog->getProductOptionByIdentifier($identifier);
             if (empty($option)) {
-                $option = new ProjectA_Zed_Catalog_Persistence_PacCatalogOption();
+                $option = Generated_Zed_EntityLoader::getPacCatalogOption();
             }
             $option->setName($frame['name']);
             $option->setIdentifier($identifier);

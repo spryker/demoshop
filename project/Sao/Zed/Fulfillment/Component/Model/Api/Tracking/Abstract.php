@@ -56,7 +56,7 @@ abstract class Sao_Zed_Fulfillment_Component_Model_Api_Tracking_Abstract impleme
     protected function addStatusToTracking(Sao_Zed_Fulfillment_Component_Model_Api_Tracking_Result $result, Sao_Zed_Fulfillment_Persistence_SaoFulfillmentShippingTracking $entity)
     {
         foreach ($result->getStatus() as $status) {
-            $statusEntity = new Sao_Zed_Fulfillment_Persistence_SaoFulfillmentShippingTrackingStatusHistory();
+            $statusEntity = Generated_Zed_EntityLoader::getSaoFulfillmentShippingTrackingStatusHistory();
             $statusEntity->setCode($status->getCode());
             $statusEntity->setDescription($status->getDescription());
             $statusEntity->setNotificationTimestamp($status->getStatusTimestamp());

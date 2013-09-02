@@ -255,7 +255,7 @@ class Sao_Zed_ArtistPortal_Component_Model_Inbound_Product implements
         $entity->getSoldLimitedEditions()->delete();
 
         foreach ($soldEditions as $edition) {
-            $editionEntity = new Sao_Zed_Catalog_Persistence_SaoCatalogSoldLimitedEdition();
+            $editionEntity = Generated_Zed_EntityLoader::getSaoCatalogSoldLimitedEdition();
             $editionEntity->setEditionIdentifier($edition);
             $entity->addSoldLimitedEdition($editionEntity);
         }

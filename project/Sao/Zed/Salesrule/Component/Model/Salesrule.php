@@ -56,7 +56,7 @@ class Sao_Zed_Salesrule_Component_Model_Salesrule extends ProjectA_Zed_Salesrule
             return false;
         }
 
-        $discount = new ProjectA_Zed_Sales_Persistence_PacSalesDiscount();
+        $discount = Generated_Zed_EntityLoader::getPacSalesDiscount();
         $discount->setIsRefundable($isRefundable);
 
         $discount->setAmount($transferDiscount->getAmount());
@@ -75,7 +75,7 @@ class Sao_Zed_Salesrule_Component_Model_Salesrule extends ProjectA_Zed_Salesrule
                 break;
         }
 
-        $saoDiscount = new Sao_Zed_Sales_Persistence_SaoSalesDiscount();
+        $saoDiscount = Generated_Zed_EntityLoader::getSaoSalesDiscount();
         $saoDiscount->setSaatchiAmount($transferDiscount->getSaatchiAmount());
         $saoDiscount->setArtistAmount($transferDiscount->getArtistAmount());
         $saoDiscount->setDiscount($discount);
@@ -206,6 +206,6 @@ class Sao_Zed_Salesrule_Component_Model_Salesrule extends ProjectA_Zed_Salesrule
      */
     protected function getSaoEntity()
     {
-        return new Sao_Zed_Salesrule_Persistence_SaoSalesrule();
+        return Generated_Zed_EntityLoader::getSaoSalesrule();
     }
 }

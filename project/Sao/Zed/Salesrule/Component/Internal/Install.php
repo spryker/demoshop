@@ -209,7 +209,7 @@ class Sao_Zed_Salesrule_Component_Internal_Install implements ProjectA_Zed_Libra
 
             $newPacSalesrule = $pacSalesrule->findOne();
             if (!$newPacSalesrule) {
-                $newPacSalesrule = new ProjectA_Zed_Salesrule_Persistence_PacSalesrule();
+                $newPacSalesrule = Generated_Zed_EntityLoader::getPacSalesrule();
                 $newPacSalesrule->setName($promotion['name']);
                 $newPacSalesrule->setDescription($promotion['description']);
                 $newPacSalesrule->setDisplayName($promotion['display_name']);
@@ -219,7 +219,7 @@ class Sao_Zed_Salesrule_Component_Internal_Install implements ProjectA_Zed_Libra
                 $newPacSalesrule->setIsActive($promotion['is_active']);
 
                 // add split in sao
-                $saoSalesRule = new Sao_Zed_Salesrule_Persistence_SaoSalesrule();
+                $saoSalesRule = Generated_Zed_EntityLoader::getSaoSalesrule();
                 $saoSalesRule->setCostDistribution($promotion['split']);
 
                 $newPacSalesrule->setSaoSalesrule($saoSalesRule);
@@ -253,14 +253,14 @@ class Sao_Zed_Salesrule_Component_Internal_Install implements ProjectA_Zed_Libra
 
                     $codePoolId = $pacSalesruleCodepool->getIdSalesruleCodepool();
 
-                    $pacSalesruleCondition = new ProjectA_Zed_Salesrule_Persistence_PacSalesruleCondition();
+                    $pacSalesruleCondition = Generated_Zed_EntityLoader::getPacSalesruleCondition();
                     $pacSalesruleCondition->setCondition('ConditionVoucherCodeInPool');
                     $pacSalesruleCondition->setConfiguration('{"number":"' . $codePoolId . '"}');
                     $newPacSalesrule->addSalesruleCondition($pacSalesruleCondition);
                 }
 
                 if (isset($promotion['code_until'])) {
-                    $pacSalesruleCondition2 = new ProjectA_Zed_Salesrule_Persistence_PacSalesruleCondition();
+                    $pacSalesruleCondition2 = Generated_Zed_EntityLoader::getPacSalesruleCondition();
                     $pacSalesruleCondition2->setCondition('ConditionDateBetween');
                     $pacSalesruleCondition2->setConfiguration('{"start_date":"2013-01-01 00:00:00","end_date":"' . $promotion['code_until'] . '"}');
                     $newPacSalesrule->addSalesruleCondition($pacSalesruleCondition2);

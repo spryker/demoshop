@@ -139,7 +139,7 @@ class Sao_Zed_Acl_Component_Internal_Install extends ProjectA_Zed_Acl_Component_
         $query = new ProjectA_Zed_Acl_Persistence_PacAclUserQuery();
         $apUser = $query->filterByUsername('artistportal')->findOne();
         if (!$apUser) {
-            $apUser = new ProjectA_Zed_Acl_Persistence_PacAclUser();
+            $apUser = Generated_Zed_EntityLoader::getPacAclUser();
             $apUser->setFirstname('Artist')
                 ->setLastname('Portal')
                 ->setUsername('artistportal')
@@ -156,7 +156,7 @@ class Sao_Zed_Acl_Component_Internal_Install extends ProjectA_Zed_Acl_Component_
         $query = new ProjectA_Zed_Acl_Persistence_PacAclUserQuery();
         $sbaUser = $query->filterByUsername('sba')->findOne();
         if (!$sbaUser) {
-            $sbaUser = new ProjectA_Zed_Acl_Persistence_PacAclUser();
+            $sbaUser = Generated_Zed_EntityLoader::getPacAclUser();
             $sbaUser->setFirstname('Sba')
                 ->setLastname('Fulfillment')
                 ->setUsername('sba')
@@ -173,7 +173,7 @@ class Sao_Zed_Acl_Component_Internal_Install extends ProjectA_Zed_Acl_Component_
         $query = new ProjectA_Zed_Acl_Persistence_PacAclUserQuery();
         $jondoUser = $query->filterByUsername('jondo')->findOne();
         if (!$jondoUser) {
-            $jondoUser = new ProjectA_Zed_Acl_Persistence_PacAclUser();
+            $jondoUser = Generated_Zed_EntityLoader::getPacAclUser();
             $jondoUser->setFirstname('Jondo')
                 ->setLastname('Print')
                 ->setUsername('jondo')

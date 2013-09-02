@@ -74,7 +74,7 @@ class Sao_Zed_Sales_Module_Controller_Order extends ProjectA_Zed_Sales_Module_Co
                     // avoids setting empty new sao addresses
                     $saoAddress = $address->getSaoAddress();
                     if (empty($saoAddress)) {
-                        $saoAddress = new Sao_Zed_Sales_Persistence_SaoSalesOrderAddress();
+                        $saoAddress = Generated_Zed_EntityLoader::getSaoSalesOrderAddress();
                     }
                     if (empty($cleanedPost['region'])) {
                         $cleanedPost['region'] = null;

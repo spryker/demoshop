@@ -29,7 +29,7 @@ class Sao_Zed_Legacy_Component_Model_Outbound_Sales_Order
      */
     protected function getOrderEntity()
     {
-        $order = new Sao_Zed_Legacy_Persistence_SaoLegacySalesOrder();
+        $order = Generated_Zed_EntityLoader::getSaoLegacySalesOrder();
         return $order;
     }
 
