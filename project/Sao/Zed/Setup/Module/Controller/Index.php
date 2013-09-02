@@ -7,11 +7,14 @@ class Sao_Zed_Setup_Module_Controller_Index extends ProjectA_Zed_Setup_Module_Co
 
     public function projectAction()
     {
-        $entity = Generated_Zed_EntityLoader::getPacAclPrivilege();
-        Zend_Debug::dump($entity, __CLASS__ . ' LINE: ' . __LINE__ . '<br/><br/>');
+        $customer = (new ProjectA_Zed_Customer_Persistence_PacCustomerQuery())->findOneByIdCustomer(1);
+        Zend_Debug::dump($customer, __CLASS__ . ' LINE: ' . __LINE__ . '<br/><br/>');
 
-        $entity = Generated_Zed_EntityLoader::getSaoAclPrivilege();
-        Zend_Debug::dump($entity, __CLASS__ . ' LINE: ' . __LINE__ . '<br/><br/>');die();
+        $address = $customer->getAddresses()->getFirst();
+        Zend_Debug::dump($address, __CLASS__ . ' LINE: ' . __LINE__ . '<br/><br/>');die();
+
+        $addresses = (new ProjectA_Zed_Customer_Persistence_PacCustomerAddressQuery())->findByFkCustomer(1);
+        Zend_Debug::dump($addresses, __CLASS__ . ' LINE: ' . __LINE__ . '<br/><br/>');
     }
 
 }
