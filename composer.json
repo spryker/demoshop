@@ -24,8 +24,8 @@
         "propel/propel1": "1.6.9",
         "nervetattoo/elasticsearch": "2.2.0",
         "ruflin/elastica": "v0.19.8.0",
-        "aws/aws-sdk-php": "2.*",
-        "guzzle/guzzle": "<3.7",
+        "aws/aws-sdk-php": "~2.0",
+        "guzzle/guzzle": "~3.7",
         "silex/silex": "~1.0",
         "project-a/silex-routing": "dev-master",
         "zendframework/zendframework": "dev-fixDocBlockReflection as 2.2.99"
