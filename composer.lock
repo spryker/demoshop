@@ -119,12 +119,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/doctrine/inflector.git",
-                "reference": "v1.0"
+                "reference": "54b8333d2a5682afdc690060c1cf384ba9f47f08"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://github.com/doctrine/inflector/archive/v1.0.zip",
-                "reference": "v1.0",
+                "url": "https://api.github.com/repos/doctrine/inflector/zipball/54b8333d2a5682afdc690060c1cf384ba9f47f08",
+                "reference": "54b8333d2a5682afdc690060c1cf384ba9f47f08",
                 "shasum": ""
             },
             "require": {
@@ -162,7 +162,7 @@
                 {
                     "name": "Johannes Schmitt",
                     "email": "schmittjoh@gmail.com",
-                    "homepage": "http://jmsyst.com",
+                    "homepage": "https://github.com/schmittjoh",
                     "role": "Developer of wrapped JMSSerializerBundle"
                 }
             ],
@@ -312,13 +312,13 @@
             "version": "v2.2.0",
             "source": {
                 "type": "git",
-                "url": "https://github.com/nervetattoo/elasticsearch",
-                "reference": "v2.2.0"
+                "url": "https://github.com/nervetattoo/elasticsearch.git",
+                "reference": "ed9244b341e0139a4278ac9bdf3cb63d57539dfb"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://github.com/nervetattoo/elasticsearch/archive/v2.2.0.zip",
-                "reference": "v2.2.0",
+                "url": "https://api.github.com/repos/nervetattoo/elasticsearch/zipball/ed9244b341e0139a4278ac9bdf3cb63d57539dfb",
+                "reference": "ed9244b341e0139a4278ac9bdf3cb63d57539dfb",
                 "shasum": ""
             },
             "require": {
@@ -524,7 +524,7 @@
             "source": {
                 "type": "git",
                 "url": "git@codebasehq.com:project-a/core/cart.git",
-                "reference": "ccf31c714db7b06737ee361a92430560d6d12664"
+                "reference": "46a000891c09366405c3ff5ecfc6c22cec0a5069"
             },
             "require": {
                 "php": ">=5.4.0",
@@ -551,7 +551,7 @@
             "keywords": [
                 "Cart"
             ],
-            "time": "2013-08-30 17:01:53"
+            "time": "2013-09-02 07:00:37"
         },
         {
             "name": "project-a/catalog-package",
@@ -907,7 +907,7 @@
             "source": {
                 "type": "git",
                 "url": "git@codebasehq.com:project-a/core/library-2.git",
-                "reference": "f5721c3d8249c2fff54a7da856439717dc99dd33"
+                "reference": "7ac6f7008ee87b00a5931a560c242fcc17295e5c"
             },
             "require": {
                 "digital-canvas/zend-framework": ">=1.12.2",
@@ -939,7 +939,7 @@
                 }
             ],
             "description": "Core Library",
-            "time": "2013-08-30 17:00:52"
+            "time": "2013-09-02 06:59:44"
         },
         {
             "name": "project-a/lumberjack-package",
@@ -1211,13 +1211,13 @@
             "version": "1.0.0",
             "source": {
                 "type": "git",
-                "url": "https://github.com/php-fig/log",
-                "reference": "1.0.0"
+                "url": "https://github.com/php-fig/log.git",
+                "reference": "fe0936ee26643249e916849d48e3a51d5f5e278b"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://github.com/php-fig/log/archive/1.0.0.zip",
-                "reference": "1.0.0",
+                "url": "https://api.github.com/repos/php-fig/log/zipball/fe0936ee26643249e916849d48e3a51d5f5e278b",
+                "reference": "fe0936ee26643249e916849d48e3a51d5f5e278b",
                 "shasum": ""
             },
             "type": "library",
@@ -1911,7 +1911,7 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/project-a/zf2.git",
-                "reference": "b9040f2f0bee5914fc4a98cb670883413bad934d"
+                "reference": "7c75aef80637cb709d8b9e8cc933cf211051fedf"
             },
             "require": {
                 "php": ">=5.3.3"
@@ -2010,7 +2010,7 @@
                 "framework",
                 "zf2"
             ],
-            "time": "2013-08-29 20:10:54"
+            "time": "2013-08-30 20:45:04"
         },
         {
             "name": "zendframework/zendpdf",
