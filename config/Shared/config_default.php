@@ -147,13 +147,14 @@ $config['log'] = array(
 );
 
 /**
- * @deprecated
  * TODO move to Yves config
  */
 $config['transfer'] = array(
-    'transfer_log'                      => false,
-    'debug_session_forward_enabled'     => false,
-    'debug_session_name'                => 'XDEBUG_SESSION'
+    'username' => 'yves',
+    'password' => 'o7&bg=Fz;nSslHBC',
+    'zed_base_url' => 'http://localhost',
+    'debug_session_forward_enabled' => false,
+    'debug_session_name' => 'XDEBUG_SESSION'
 );
 
 /**
@@ -223,8 +224,6 @@ $config['zed'] = array(
 );
 
 $config['yves'] = [
-    'username'       => 'yves',
-    'password'       => 'o7&bg=Fz;nSslHBC',
     'theme'          => 'saatchi',
     'currency'       => 'USD',
     'session'        => [
