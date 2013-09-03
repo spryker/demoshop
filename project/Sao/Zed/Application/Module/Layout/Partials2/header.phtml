@@ -48,7 +48,7 @@
             <dt>Store:
             <dd><?php echo ProjectA_Shared_Library_Store::getInstance()->getStoreName(); ?>
             <dt>Server:
-            <dd><?php echo ProjectA_Shared_Library_System::getHostName(); ?>
+            <dd><?php echo ProjectA\Shared\Library\System::getHostName(); ?>
             <dt>URL:
             <dd><a href="http://<?php echo ProjectA_Shared_Library_Config::get('url')->yves ?>" target="_blank"><?php echo ProjectA_Shared_Library_Config::get('url')->yves  ?></a>
         </dl>

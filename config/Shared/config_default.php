@@ -155,10 +155,6 @@ $config['log'] = array(
  * TODO move to Yves config
  */
 $config['transfer'] = array(
-    'timeout_yves_to_zed_connection'    => 10,
-    'timeout_yves_to_zed_request'       => 10,
-    'timeout_yves_to_legacy_connection' => 20,
-    'timeout_yves_to_legacy_request'    => 20,
     'transfer_log'                      => false,
     'debug_session_forward_enabled'     => false,
     'debug_session_name'                => 'XDEBUG_SESSION'
