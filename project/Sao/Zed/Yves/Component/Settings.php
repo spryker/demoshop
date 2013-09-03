@@ -1,11 +1,9 @@
 <?php
 
-/**
- * @author Daniel Tschinder <daniel.tschinder@project-a.com>
- */
-class Sao_Zed_Yves_Component_Settings extends ProjectA_Zed_Yves_Component_Settings
+class Sao_Zed_Yves_Component_Settings extends ProjectA_Zed_Yves_Component_Settings implements
+    ProjectA_Zed_Cms_Component_Dependency_Facade_Interface
 {
-
+    use ProjectA_Zed_Cms_Component_Dependency_Facade_Trait;
 
     /**
      * @param string $exportIdentifier
@@ -24,14 +22,14 @@ class Sao_Zed_Yves_Component_Settings extends ProjectA_Zed_Yves_Component_Settin
      */
     public function getMemcacheExporters($exportIdentifier)
     {
-        $result[] = $this->factory->getModelExportExporterMemcacheCms();
-        $result[] = $this->factory->getModelExportExporterMemcacheRedirection();
-        $result[] = $this->factory->getModelExportExporterMemcacheGlossary();
-//        $result[] = $this->factory->getModelExportExporterMemcacheProductsArtwork();
-        $result[] = $this->factory->getModelExportExporterMemcacheCategories();
-//        $result[] = $this->factory->getModelExportExporterMemcacheProductOptions();
-        $result[] = $this->factory->getModelExportExporterMemcacheRegions();
-        $result[] = $this->factory->getModelExportExporterMemcacheCountry();
+        $result[] = $this->facadeCms->getExporterMemcacheCms();
+        $result[] = $this->facadeCms->getExporterMemcacheRedirection();
+//        $result[] = $this->factory->getModelExportExporterMemcacheGlossary();
+////        $result[] = $this->factory->getModelExportExporterMemcacheProductsArtwork();
+//        $result[] = $this->factory->getModelExportExporterMemcacheCategories();
+////        $result[] = $this->factory->getModelExportExporterMemcacheProductOptions();
+//        $result[] = $this->factory->getModelExportExporterMemcacheRegions();
+//        $result[] = $this->factory->getModelExportExporterMemcacheCountry();
         return $result;
     }
 }

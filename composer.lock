@@ -631,7 +631,7 @@
             "source": {
                 "type": "git",
                 "url": "git@codebasehq.com:project-a/core/content.git",
-                "reference": "3a0db485fefb1cc8f17432b40d31883c2f769b92"
+                "reference": "ed84116ae847aa24a9574febaef8dbe10399fd90"
             },
             "require": {
                 "php": ">=5.4.0",
@@ -657,7 +657,7 @@
             "keywords": [
                 "Content Package"
             ],
-            "time": "2013-09-03 12:46:05"
+            "time": "2013-09-03 15:42:58"
         },
         {
             "name": "project-a/crm-package",
@@ -789,7 +789,7 @@
             "source": {
                 "type": "git",
                 "url": "git@codebasehq.com:project-a/core/frontend.git",
-                "reference": "2a1cf4408d5e92b0f0ff6af2784ccb48776ba7c9"
+                "reference": "4156171e89dcb999162bbd840e498c5dacd42381"
             },
             "require": {
                 "php": ">=5.4.0",
@@ -813,7 +813,7 @@
             "keywords": [
                 "Frontend"
             ],
-            "time": "2013-09-03 08:54:16"
+            "time": "2013-09-03 15:41:45"
         },
         {
             "name": "project-a/glossary-package",
@@ -1910,7 +1910,7 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/project-a/zf2.git",
-                "reference": "7c75aef80637cb709d8b9e8cc933cf211051fedf"
+                "reference": "a9b4214fc07d2fa83ee211d3dbbcb44c4e7b1f4d"
             },
             "require": {
                 "php": ">=5.3.3"
@@ -2009,7 +2009,7 @@
                 "framework",
                 "zf2"
             ],
-            "time": "2013-08-30 20:45:04"
+            "time": "2013-09-03 15:30:54"
         },
         {
             "name": "zendframework/zendpdf",
