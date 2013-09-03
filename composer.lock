@@ -118,12 +118,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/doctrine/inflector.git",
-                "reference": "54b8333d2a5682afdc690060c1cf384ba9f47f08"
+                "reference": "v1.0"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/doctrine/inflector/zipball/54b8333d2a5682afdc690060c1cf384ba9f47f08",
-                "reference": "54b8333d2a5682afdc690060c1cf384ba9f47f08",
+                "url": "https://github.com/doctrine/inflector/archive/v1.0.zip",
+                "reference": "v1.0",
                 "shasum": ""
             },
             "require": {
@@ -161,7 +161,7 @@
                 {
                     "name": "Johannes Schmitt",
                     "email": "schmittjoh@gmail.com",
-                    "homepage": "https://github.com/schmittjoh",
+                    "homepage": "http://jmsyst.com",
                     "role": "Developer of wrapped JMSSerializerBundle"
                 }
             ],
@@ -311,13 +311,13 @@
             "version": "v2.2.0",
             "source": {
                 "type": "git",
-                "url": "https://github.com/nervetattoo/elasticsearch.git",
-                "reference": "ed9244b341e0139a4278ac9bdf3cb63d57539dfb"
+                "url": "https://github.com/nervetattoo/elasticsearch",
+                "reference": "v2.2.0"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/nervetattoo/elasticsearch/zipball/ed9244b341e0139a4278ac9bdf3cb63d57539dfb",
-                "reference": "ed9244b341e0139a4278ac9bdf3cb63d57539dfb",
+                "url": "https://github.com/nervetattoo/elasticsearch/archive/v2.2.0.zip",
+                "reference": "v2.2.0",
                 "shasum": ""
             },
             "require": {
@@ -596,7 +596,7 @@
             "source": {
                 "type": "git",
                 "url": "git@codebasehq.com:project-a/core/checkout.git",
-                "reference": "e5df8c35fc0878744fb47097369b90b90a5a8bec"
+                "reference": "38da64f9a2f1ef96a0322cee9cb1c3c75d31afce"
             },
             "require": {
                 "php": ">=5.4.0",
@@ -623,7 +623,7 @@
                 "PaymentControl",
                 "Salesrule"
             ],
-            "time": "2013-09-02 16:47:27"
+            "time": "2013-09-03 07:55:47"
         },
         {
             "name": "project-a/content-package",
@@ -665,7 +665,7 @@
             "source": {
                 "type": "git",
                 "url": "git@codebasehq.com:project-a/core/crm.git",
-                "reference": "807060e3d74e0ac1b7710b7ccb5d57ad8e8118ad"
+                "reference": "ecaf206b269fc2a0d2d0c2bc41668895917b1ece"
             },
             "require": {
                 "php": ">=5.4.0",
@@ -691,7 +691,7 @@
                 "CRM",
                 "Mail"
             ],
-            "time": "2013-09-02 16:16:03"
+            "time": "2013-09-03 08:55:08"
         },
         {
             "name": "project-a/dependency-package",
@@ -789,7 +789,7 @@
             "source": {
                 "type": "git",
                 "url": "git@codebasehq.com:project-a/core/frontend.git",
-                "reference": "9b92ed84f3226513a1782baef09567e1b7195b18"
+                "reference": "2a1cf4408d5e92b0f0ff6af2784ccb48776ba7c9"
             },
             "require": {
                 "php": ">=5.4.0",
@@ -813,7 +813,7 @@
             "keywords": [
                 "Frontend"
             ],
-            "time": "2013-09-02 16:14:03"
+            "time": "2013-09-03 08:54:16"
         },
         {
             "name": "project-a/glossary-package",
@@ -853,7 +853,7 @@
             "source": {
                 "type": "git",
                 "url": "git@codebasehq.com:project-a/core/infrastructure.git",
-                "reference": "5b0584c9f6c8509a9d7f0c534dc8966d41a26ef5"
+                "reference": "8eee1148b3bb0516f0638e2818e0991b99b1fce7"
             },
             "require": {
                 "php": ">=5.4.0",
@@ -881,7 +881,7 @@
             "keywords": [
                 "infrastructure"
             ],
-            "time": "2013-09-02 16:47:06"
+            "time": "2013-09-03 08:54:02"
         },
         {
             "name": "project-a/kendo-package",
@@ -906,7 +906,7 @@
             "source": {
                 "type": "git",
                 "url": "git@codebasehq.com:project-a/core/library-2.git",
-                "reference": "ccd3d52c76844042b5419ceda197c2bedaa6c064"
+                "reference": "392e13113b98e515766166ac4840e7e3ccaec09f"
             },
             "require": {
                 "digital-canvas/zend-framework": ">=1.12.2",
@@ -938,7 +938,7 @@
                 }
             ],
             "description": "Core Library",
-            "time": "2013-09-02 16:12:19"
+            "time": "2013-09-03 08:53:18"
         },
         {
             "name": "project-a/lumberjack-package",
@@ -946,7 +946,7 @@
             "source": {
                 "type": "git",
                 "url": "git@codebasehq.com:project-a/core/lumberjack.git",
-                "reference": "d2e4c1f6b29697206f90cfe7fbdf7f62c7b390a6"
+                "reference": "f3027ee020fe198bae8d850b90bfd4f46d537ed5"
             },
             "require": {
                 "php": ">=5.4.0"
@@ -969,7 +969,7 @@
             "keywords": [
                 ""
             ],
-            "time": "2013-09-02 16:11:27"
+            "time": "2013-09-03 08:54:29"
         },
         {
             "name": "project-a/marketing-package",
@@ -1041,7 +1041,7 @@
             "source": {
                 "type": "git",
                 "url": "git@codebasehq.com:project-a/core/sales.git",
-                "reference": "48605740aee274889c5b740acec447e0032a4060"
+                "reference": "f57ed01c7a329add432bfc69237eae0d109f27d7"
             },
             "require": {
                 "php": ">=5.4.0",
@@ -1068,7 +1068,7 @@
                 "Sales",
                 "Task"
             ],
-            "time": "2013-09-02 16:46:22"
+            "time": "2013-09-03 08:54:43"
         },
         {
             "name": "project-a/silex-routing",
@@ -1210,13 +1210,13 @@
             "version": "1.0.0",
             "source": {
                 "type": "git",
-                "url": "https://github.com/php-fig/log.git",
-                "reference": "fe0936ee26643249e916849d48e3a51d5f5e278b"
+                "url": "https://github.com/php-fig/log",
+                "reference": "1.0.0"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/php-fig/log/zipball/fe0936ee26643249e916849d48e3a51d5f5e278b",
-                "reference": "fe0936ee26643249e916849d48e3a51d5f5e278b",
+                "url": "https://github.com/php-fig/log/archive/1.0.0.zip",
+                "reference": "1.0.0",
                 "shasum": ""
             },
             "type": "library",
@@ -3128,7 +3128,7 @@
             "source": {
                 "type": "git",
                 "url": "git@codebasehq.com:project-a/core/console.git",
-                "reference": "9a73286bfab851c840f1cbfa4e921829bb244a0f"
+                "reference": "03ffca5e60b8e697662eb2c336192fd26692fe61"
             },
             "require": {
                 "php": ">=5.4.0",
@@ -3142,9 +3142,9 @@
             ],
             "type": "library",
             "autoload": {
-                "classmap": [
-                    "/src"
-                ]
+                "psr-0": {
+                    "ProjectA": "/"
+                }
             },
             "authors": [
                 {
@@ -3156,10 +3156,9 @@
             ],
             "description": "Console tool",
             "keywords": [
-                "console",
-                "generator"
+                "console"
             ],
-            "time": "2013-09-02 16:33:55"
+            "time": "2013-09-03 08:29:29"
         },
         {
             "name": "sanpi/behatch-contexts",
