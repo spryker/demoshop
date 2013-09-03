@@ -596,7 +596,7 @@
             "source": {
                 "type": "git",
                 "url": "git@codebasehq.com:project-a/core/checkout.git",
-                "reference": "38da64f9a2f1ef96a0322cee9cb1c3c75d31afce"
+                "reference": "a571293ae53bbc641f40ca27e8fc8dc1df649a42"
             },
             "require": {
                 "php": ">=5.4.0",
@@ -623,7 +623,7 @@
                 "PaymentControl",
                 "Salesrule"
             ],
-            "time": "2013-09-03 07:55:47"
+            "time": "2013-09-03 09:27:48"
         },
         {
             "name": "project-a/content-package",
@@ -853,7 +853,7 @@
             "source": {
                 "type": "git",
                 "url": "git@codebasehq.com:project-a/core/infrastructure.git",
-                "reference": "8eee1148b3bb0516f0638e2818e0991b99b1fce7"
+                "reference": "023f2f074b23e0d807f7a00944ffcc7438a765ed"
             },
             "require": {
                 "php": ">=5.4.0",
@@ -881,7 +881,7 @@
             "keywords": [
                 "infrastructure"
             ],
-            "time": "2013-09-03 08:54:02"
+            "time": "2013-09-03 09:56:04"
         },
         {
             "name": "project-a/kendo-package",
@@ -906,7 +906,7 @@
             "source": {
                 "type": "git",
                 "url": "git@codebasehq.com:project-a/core/library-2.git",
-                "reference": "392e13113b98e515766166ac4840e7e3ccaec09f"
+                "reference": "3df959122224a1828df94110c28ba6e3aa12cda9"
             },
             "require": {
                 "digital-canvas/zend-framework": ">=1.12.2",
@@ -938,7 +938,7 @@
                 }
             ],
             "description": "Core Library",
-            "time": "2013-09-03 08:53:18"
+            "time": "2013-09-03 09:40:18"
         },
         {
             "name": "project-a/lumberjack-package",
