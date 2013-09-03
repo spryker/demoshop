@@ -16,6 +16,7 @@ use ProjectA\Yves\Library\Templating\Filter\MinifyHtmlFilter;
 use ProjectA\Yves\Library\Templating\Theme;
 use ProjectA\Yves\Library\Templating\ViewHelper\UrlGenerator;
 use ProjectA\Yves\Cart\Module\ControllerProvider as CartProvider;
+use ProjectA\Yves\Setup\Module\ControllerProvider as SetupProvider;
 use Silex\Provider\SessionServiceProvider;
 use Silex\Provider\UrlGeneratorServiceProvider;
 use Silex\ServiceProviderInterface;
@@ -81,7 +82,8 @@ class Bootstrap extends \ProjectA\Yves\Library\Silex\Bootstrap
     protected function getControllerProviders()
     {
         return [
-            new CartProvider()
+            new CartProvider(),
+            new SetupProvider()
         ];
     }
 
