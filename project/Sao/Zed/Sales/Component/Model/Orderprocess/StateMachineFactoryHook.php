@@ -13,11 +13,6 @@ class Sao_Zed_Sales_Component_Model_Orderprocess_StateMachineFactoryHook impleme
     use ProjectA_Zed_Library_Dependency_Factory_Trait;
 
     /**
-     * @var Generated_Zed_Sales_Component_Factory
-     */
-    private $factory;
-
-    /**
      * @return ProjectA_Zed_Library_StateMachine_Transition_Guard_Rule_Collection
      */
     protected function getRules()
