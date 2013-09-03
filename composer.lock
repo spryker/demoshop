@@ -3,7 +3,7 @@
         "This file locks the dependencies of your project to a known state",
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file"
     ],
-    "hash": "c0fa9776f6ba63aba932622860bc4368",
+    "hash": "11d2ff65bebec806a5b34c6c3a81ef59",
     "packages": [
         {
             "name": "aws/aws-sdk-php",
@@ -906,7 +906,7 @@
             "source": {
                 "type": "git",
                 "url": "git@codebasehq.com:project-a/core/library-2.git",
-                "reference": "e0521857a4ad9cc0a440a20dfd8817e828590ca4"
+                "reference": "73780beaf0a46e89e2db3b37916ab54d334b6010"
             },
             "require": {
                 "digital-canvas/zend-framework": ">=1.12.2",
@@ -919,7 +919,7 @@
                 "symfony/filesystem": "~2.0",
                 "symfony/finder": "~2.0",
                 "symfony/process": "~2.0",
-                "zendframework/zend-code": "~2.2,>=2.2.3",
+                "zendframework/zend-code": "~2.3",
                 "zendframework/zendpdf": "~2.0"
             },
             "type": "library",
@@ -938,7 +938,7 @@
                 }
             ],
             "description": "Core Library",
-            "time": "2013-09-03 16:10:33"
+            "time": "2013-09-03 16:41:04"
         },
         {
             "name": "project-a/lumberjack-package",
@@ -1906,11 +1906,17 @@
         },
         {
             "name": "zendframework/zendframework",
-            "version": "dev-fixDocBlockReflection",
+            "version": "dev-develop",
             "source": {
                 "type": "git",
-                "url": "https://github.com/project-a/zf2.git",
-                "reference": "a9b4214fc07d2fa83ee211d3dbbcb44c4e7b1f4d"
+                "url": "https://github.com/zendframework/zf2.git",
+                "reference": "b843c2979db2bfc8db22f24cbdaeeea4d9348473"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/zendframework/zf2/zipball/b843c2979db2bfc8db22f24cbdaeeea4d9348473",
+                "reference": "b843c2979db2bfc8db22f24cbdaeeea4d9348473",
+                "shasum": ""
             },
             "require": {
                 "php": ">=5.3.3"
@@ -1972,8 +1978,11 @@
                 "doctrine/annotations": ">=1.0",
                 "ircmaxell/random-lib": "dev-master",
                 "ircmaxell/security-lib": "dev-master",
+                "mikey179/vfsstream": "1.2.*",
                 "ocramius/proxy-manager": "0.4.*",
-                "phpunit/phpunit": "3.7.*"
+                "phpunit/phpunit": "3.7.*",
+                "satooshi/php-coveralls": "dev-master",
+                "sebastianbergmann/phpcov": "1.1.0"
             },
             "suggest": {
                 "doctrine/annotations": "Doctrine Annotations >=1.0 for annotation features",
@@ -2000,6 +2009,7 @@
                     "Zend\\": "library/"
                 }
             },
+            "notification-url": "https://packagist.org/downloads/",
             "license": [
                 "BSD-3-Clause"
             ],
@@ -2009,7 +2019,7 @@
                 "framework",
                 "zf2"
             ],
-            "time": "2013-09-03 15:30:54"
+            "time": "2013-09-03 16:19:22"
         },
         {
             "name": "zendframework/zendpdf",
@@ -3613,12 +3623,7 @@
         }
     ],
     "aliases": [
-        {
-            "alias": "2.3.99",
-            "alias_normalized": "2.3.99.0",
-            "version": "dev-fixDocBlockReflection",
-            "package": "zendframework/zendframework"
-        }
+
     ],
     "minimum-stability": "dev",
     "stability-flags": {

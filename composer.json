@@ -28,7 +28,7 @@
         "guzzle/guzzle": "~3.7",
         "silex/silex": "~1.0",
         "project-a/silex-routing": "dev-master",
-        "zendframework/zendframework": "dev-fixDocBlockReflection as 2.3.99"
+        "zendframework/zendframework": "2.3.*@dev"
     },
     "require-dev": {
         "behat/behat": "*",
