@@ -596,7 +596,7 @@
             "source": {
                 "type": "git",
                 "url": "git@codebasehq.com:project-a/core/checkout.git",
-                "reference": "c20c4abd425c39baf219d70da7c977e9134b6b8d"
+                "reference": "48334d2bb147342b9164ee014cd75b6e8ef7aa41"
             },
             "require": {
                 "php": ">=5.4.0",
@@ -623,7 +623,7 @@
                 "PaymentControl",
                 "Salesrule"
             ],
-            "time": "2013-09-04 11:35:53"
+            "time": "2013-09-04 14:02:07"
         },
         {
             "name": "project-a/content-package",
