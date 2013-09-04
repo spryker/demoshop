@@ -15,7 +15,7 @@ class Sao_Zed_Checkout_Component_Model_Workflow_Task_Validation_HasPayment exten
     {
         $payment = $transferOrder->getPayment();
         if (!$payment) {
-            $this->addError(Sao_Shared_Library_Messages::CHECKOUT_ERROR_PAYMENT_MISSING);
+            $this->addError(ProjectA_Shared_Checkout_Code_Messages::ERROR_PAYMENT_MISSING);
         }
     }
 }

@@ -338,14 +338,14 @@ class Sao_Yves_Transactionstatus_Module_Controller_Index extends Sao_Yves_Librar
             } else {
                 $messageArray = $this->flattenMessageArray($transferResponse->getMessages());
                 $redirectUrl = '#step:payment';
-                if (in_array(Sao_Shared_Library_Messages::CHECKOUT_ERROR_ORDER_NOT_SAVED, $messageArray) ||
-                    in_array(Sao_Shared_Library_Messages::CHECKOUT_ERROR_WORKFLOW_VALIDATION_IS_MANUAL_CHECKOUT, $messageArray) ||
-                    in_array(Sao_Shared_Library_Messages::CHECKOUT_ERROR_WORKFLOW_VALIDATION_IS_NOT_MANUAL_CHECKOUT, $messageArray)
+                if (in_array(ProjectA_Shared_Checkout_Code_Messages::ERROR_ORDER_NOT_SAVED, $messageArray) ||
+                    in_array(ProjectA_Shared_Checkout_Code_Messages::ERROR_WORKFLOW_VALIDATION_IS_MANUAL_CHECKOUT, $messageArray) ||
+                    in_array(ProjectA_Shared_Checkout_Code_Messages::ERROR_WORKFLOW_VALIDATION_IS_NOT_MANUAL_CHECKOUT, $messageArray)
                 ) {
-                    $this->addError(t(Sao_Shared_Library_Messages::CHECKOUT_ERROR_TECHNICAL_ISSUE));
+                    $this->addError(t(ProjectA_Shared_Checkout_Code_Messages::ERROR_TECHNICAL_ISSUE));
                     $redirectUrl = '/cart';
-                } elseif (in_array(Sao_Shared_Library_Messages::CHECKOUT_ERROR_OUT_OF_STOCK, $messageArray)) {
-                    $this->addError(t(Sao_Shared_Library_Messages::CHECKOUT_ERROR_OUT_OF_STOCK));
+                } elseif (in_array(ProjectA_Shared_Checkout_Code_Messages::ERROR_OUT_OF_STOCK, $messageArray)) {
+                    $this->addError(t(ProjectA_Shared_Checkout_Code_Messages::ERROR_OUT_OF_STOCK));
                     $redirectUrl = '/cart';
                 }
                 $messageArray = $this->flattenMessageArray($transferResponse->getMessages(), true);

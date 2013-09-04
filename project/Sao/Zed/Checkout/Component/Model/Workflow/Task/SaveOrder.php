@@ -10,11 +10,14 @@ class Sao_Zed_Checkout_Component_Model_Workflow_Task_SaveOrder extends ProjectA_
      * @param ProjectA_Shared_Sales_Transfer_Order $transferOrder
      * @param ProjectA_Zed_Checkout_Component_Model_Workflow_Context $context
      */
-    public function __invoke(ProjectA_Shared_Sales_Transfer_Order $transferOrder, ProjectA_Zed_Checkout_Component_Model_Workflow_Context $context)
+    public function __invoke(
+        ProjectA_Shared_Sales_Transfer_Order $transferOrder,
+        ProjectA_Zed_Checkout_Component_Model_Workflow_Context $context
+    )
     {
         $result = $this->facadeSales->saveOrder($transferOrder);
         if (!$result->isSuccess()) {
-            $this->addError(ProjectA_Shared_Library_Messages::CHECKOUT_ERROR_ORDER_NOT_SAVED);
+            $this->addError(ProjectA_Shared_Checkout_Code_Messages::ERROR_ORDER_NOT_SAVED);
 
             // removed this so the propel validation errors do not get pushed to the frontend
             // $this->addErrors($result->getErrors());
