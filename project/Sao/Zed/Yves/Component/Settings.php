@@ -1,9 +1,11 @@
 <?php
 
 class Sao_Zed_Yves_Component_Settings extends ProjectA_Zed_Yves_Component_Settings implements
-    ProjectA_Zed_Cms_Component_Dependency_Facade_Interface
+    ProjectA_Zed_Cms_Component_Dependency_Facade_Interface,
+    ProjectA_Zed_Glossary_Component_Dependency_Facade_Interface
 {
     use ProjectA_Zed_Cms_Component_Dependency_Facade_Trait;
+    use ProjectA_Zed_Glossary_Component_Dependency_Facade_Trait;
 
     /**
      * @param string $exportIdentifier
@@ -24,7 +26,7 @@ class Sao_Zed_Yves_Component_Settings extends ProjectA_Zed_Yves_Component_Settin
     {
         $result[] = $this->facadeCms->getExporterMemcacheCms();
         $result[] = $this->facadeCms->getExporterMemcacheRedirection();
-//        $result[] = $this->factory->getModelExportExporterMemcacheGlossary();
+        $result[] = $this->facadeGlossary->getExporterMemcacheGlossary();
 ////        $result[] = $this->factory->getModelExportExporterMemcacheProductsArtwork();
 //        $result[] = $this->factory->getModelExportExporterMemcacheCategories();
 ////        $result[] = $this->factory->getModelExportExporterMemcacheProductOptions();

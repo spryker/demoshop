@@ -15,7 +15,7 @@ class Sao_Zed_Checkout_Component_Model_Workflow_Task_StateMachine_ValidatePaymen
         /* @var $paymentResponse ProjectA_Zed_Payment_Component_Interface_Response */
         $paymentResponse = $context->getPaymentResponse();
         if (!isset($paymentResponse) || !$paymentResponse->isSuccess()) {
-            $this->addError(ProjectA_Shared_Library_Messages::CHECKOUT_ERROR_PAYMENT_FAILED);
+            $this->addError(ProjectA_Shared_Checkout_Code_Messages::ERROR_PAYMENT_FAILED);
             if (isset($paymentResponse)) {
                 $this->addError($paymentResponse->getErrorMessageInternal());
             }

@@ -132,7 +132,7 @@ class Sao_Yves_Transactionstatus_Module_Controller_Index extends Sao_Yves_Librar
                 if ($identity->getResponse()) {
                     $this->addMessages($identity->getResponse());
                 } else {
-                    $this->addError(ProjectA_Shared_Library_Messages::CUSTOMER_LOGIN_FAILED);
+                    $this->addError(ProjectA_Shared_Customer_Code_Messages::LOGIN_FAILED);
                 }
             }
         }

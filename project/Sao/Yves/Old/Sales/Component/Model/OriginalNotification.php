@@ -60,18 +60,18 @@ class Sao_Yves_Sales_Component_Model_OriginalNotification
      */
     public function mapResultMessage($resultMessage)
     {
-        $message = Sao_Shared_Library_Messages::LANDING_PAGE_ARTIST_AVAILABILITY_ERROR;
+        $message = Sao_Shared_Cms_Code_Messages::PAGE_ARTIST_AVAILABILITY_ERROR;
         if ($resultMessage === Sao_Shared_Sales_Transfer_OriginalNotification::RESULT_MESSAGE_CONFIRM) {
-            $message = Sao_Shared_Library_Messages::LANDING_PAGE_ARTIST_CONFIRM;
+            $message = Sao_Shared_Cms_Code_Messages::PAGE_ARTIST_CONFIRM;
         }
         if ($resultMessage === Sao_Shared_Sales_Transfer_OriginalNotification::RESULT_MESSAGE_REFUTE) {
-            $message = Sao_Shared_Library_Messages::LANDING_PAGE_ARTIST_REFUTE;
+            $message = Sao_Shared_Cms_Code_Messages::PAGE_ARTIST_REFUTE;
         }
         if ($resultMessage === Sao_Shared_Sales_Transfer_OriginalNotification::RESULT_MESSAGE_INVALID_AVAILABLE_TO_UNAVAILABLE) {
-            $message = Sao_Shared_Library_Messages::LANDING_PAGE_ARTIST_INVALID_AVAILABLE_TO_UNAVAILABLE;
+            $message = Sao_Shared_Cms_Code_Messages::PAGE_ARTIST_INVALID_AVAILABLE_TO_UNAVAILABLE;
         }
         if ($resultMessage === Sao_Shared_Sales_Transfer_OriginalNotification::RESULT_MESSAGE_INVALID_UNAVAILABLE_TO_AVAILABLE) {
-            $message = Sao_Shared_Library_Messages::LANDING_PAGE_ARTIST_INVALID_UNAVAILABLE_TO_AVAILABLE;
+            $message = Sao_Shared_Cms_Code_Messages::PAGE_ARTIST_INVALID_UNAVAILABLE_TO_AVAILABLE;
         }
         return $message;
     }

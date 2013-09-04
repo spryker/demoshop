@@ -5,7 +5,7 @@
       <% _.each( messagesArray, function( message ){ %>
         <li class="message ${ type }">
           <% if ( /object/i.test( typeof message )){ %>
-            <?php echo sprintf(t( Sao_Shared_Library_Messages::CHECKOUT_ERROR_WITH_LINK), '${ message.label }', '${ message.href }' ); ?>
+            <?php echo sprintf(t( ProjectA_Shared_Checkout_Code_Messages::ERROR_WITH_LINK), '${ message.label }', '${ message.href }' ); ?>
           <% } else { %>
             ${ message }
           <% } %>
