@@ -12,5 +12,4 @@ class Sao_Zed_AclDE_Test_PhpUnit_FooTest extends ProjectA_Zed_Library_PhpUnit_Te
     {
         $this->assertTrue(true);
     }
-
 }
