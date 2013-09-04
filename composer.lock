@@ -3138,7 +3138,7 @@
             "source": {
                 "type": "git",
                 "url": "git@codebasehq.com:project-a/core/console.git",
-                "reference": "bac9ff5d16e1b8d8f410345fa2be9b883e9d1ef8"
+                "reference": "8645cd1b5941fcbcde0f53a5711ad1c9af5af158"
             },
             "require": {
                 "php": ">=5.4.0",
@@ -3168,7 +3168,7 @@
             "keywords": [
                 "console"
             ],
-            "time": "2013-09-04 12:50:35"
+            "time": "2013-09-04 12:56:08"
         },
         {
             "name": "sanpi/behatch-contexts",
