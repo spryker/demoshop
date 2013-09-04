@@ -49,7 +49,7 @@ class Sao_Zed_Mail_Component_Model_Collector_ArtistSalesNotification extends Sao
     {
         /* @var $orderItemEntity ProjectA_Zed_Sales_Persistence_PacSalesOrderItem */
         $mailConfig = ProjectA_Shared_Library_Config::get('mail');
-        $urlConfig = ProjectA_Shared_Library_Config::get('url');
+        $urlConfig = ProjectA_Shared_Library_Config::get('host');
         $legacyUrl = $urlConfig['legacy'];
         $product = $this->getProductByEntity($orderItemEntity);
         $orderEntity = $orderItemEntity->getOrder();

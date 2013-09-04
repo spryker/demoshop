@@ -51,7 +51,7 @@ class Sao_Zed_Mail_Component_Model_Collector_PrintFileCheckFailure extends Sao_Z
         $product = $this->getProductByEntity($orderItemEntity);
         $orderEntity = $orderItemEntity->getOrder();
 
-        $url = ProjectA_Shared_Library_Config::get('url')->legacy;
+        $url = ProjectA_Shared_Library_Config::get('host')->legacy;
         $url .= '/upload/edit/art/';
         $url .= $product[Sao_Shared_Library_Catalog_Interface_ProductAttributeConstant::ATTRIBUTE_PRODUCT_ID];
         $url .= '/artist/';

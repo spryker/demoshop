@@ -253,7 +253,7 @@ class Sao_Zed_Fulfillment_Component_Model_Jondo_Api extends Sao_Zed_Fulfillment_
 
         if ($includeImageLocation == true) {
 
-            $urlConfig = ProjectA_Shared_Library_Config::get('url');
+            $urlConfig = ProjectA_Shared_Library_Config::get('host');
 
             $url[] = 'http://';
             $url[] = $urlConfig->legacy;
