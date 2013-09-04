@@ -51,7 +51,6 @@ $application = new Zend_Application(
 $application->bootstrap();
 
 // We do this so we get an error rate in new relic
-// Ticket for real solution pending #ticket #18201
 ProjectA_Shared_Library_NewRelic_Api::getInstance()->markAsBackgroundJob(false);
 ProjectA_Shared_Library_NewRelic_Api::getInstance()->setAppNameTmp('Cronjob');
 
