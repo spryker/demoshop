@@ -3,7 +3,7 @@
         "This file locks the dependencies of your project to a known state",
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file"
     ],
-    "hash": "0a5f98fe502b246dcc73fcf05abd21cf",
+    "hash": "11d2ff65bebec806a5b34c6c3a81ef59",
     "packages": [
         {
             "name": "aws/aws-sdk-php",
@@ -118,12 +118,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/doctrine/inflector.git",
-                "reference": "54b8333d2a5682afdc690060c1cf384ba9f47f08"
+                "reference": "v1.0"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/doctrine/inflector/zipball/54b8333d2a5682afdc690060c1cf384ba9f47f08",
-                "reference": "54b8333d2a5682afdc690060c1cf384ba9f47f08",
+                "url": "https://github.com/doctrine/inflector/archive/v1.0.zip",
+                "reference": "v1.0",
                 "shasum": ""
             },
             "require": {
@@ -161,7 +161,7 @@
                 {
                     "name": "Johannes Schmitt",
                     "email": "schmittjoh@gmail.com",
-                    "homepage": "https://github.com/schmittjoh",
+                    "homepage": "http://jmsyst.com",
                     "role": "Developer of wrapped JMSSerializerBundle"
                 }
             ],
@@ -311,13 +311,13 @@
             "version": "v2.2.0",
             "source": {
                 "type": "git",
-                "url": "https://github.com/nervetattoo/elasticsearch.git",
-                "reference": "ed9244b341e0139a4278ac9bdf3cb63d57539dfb"
+                "url": "https://github.com/nervetattoo/elasticsearch",
+                "reference": "v2.2.0"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/nervetattoo/elasticsearch/zipball/ed9244b341e0139a4278ac9bdf3cb63d57539dfb",
-                "reference": "ed9244b341e0139a4278ac9bdf3cb63d57539dfb",
+                "url": "https://github.com/nervetattoo/elasticsearch/archive/v2.2.0.zip",
+                "reference": "v2.2.0",
                 "shasum": ""
             },
             "require": {
@@ -455,7 +455,7 @@
             "source": {
                 "type": "git",
                 "url": "git@codebasehq.com:project-a/core/acl.git",
-                "reference": "81447411d10baaa0169d5db77c141918a0ff91dd"
+                "reference": "92fb9a6fb188e42f4ad7f0f8050773436838ce15"
             },
             "require": {
                 "php": ">=5.4.0",
@@ -482,7 +482,7 @@
                 "login",
                 "usermanagement"
             ],
-            "time": "2013-09-02 16:22:34"
+            "time": "2013-09-03 12:46:33"
         },
         {
             "name": "project-a/adyen-package",
@@ -523,7 +523,7 @@
             "source": {
                 "type": "git",
                 "url": "git@codebasehq.com:project-a/core/cart.git",
-                "reference": "3374cbf12c182c0257d8d968aeec55c2c1cfbcb1"
+                "reference": "ca390648ea34994910a1ebe0abfcdaabc9f8ba93"
             },
             "require": {
                 "php": ">=5.4.0",
@@ -550,7 +550,7 @@
             "keywords": [
                 "Cart"
             ],
-            "time": "2013-09-02 16:20:47"
+            "time": "2013-09-03 10:47:00"
         },
         {
             "name": "project-a/catalog-package",
@@ -558,7 +558,7 @@
             "source": {
                 "type": "git",
                 "url": "git@codebasehq.com:project-a/core/catalog.git",
-                "reference": "bd02e8856be1d6d5f838de6a8db51ee951af5034"
+                "reference": "601aec922826b007bd493914bc57620494a87caa"
             },
             "require": {
                 "php": ">=5.4.0",
@@ -588,7 +588,7 @@
                 "Price",
                 "Stock"
             ],
-            "time": "2013-09-02 16:20:09"
+            "time": "2013-09-03 13:50:46"
         },
         {
             "name": "project-a/checkout-package",
@@ -596,7 +596,7 @@
             "source": {
                 "type": "git",
                 "url": "git@codebasehq.com:project-a/core/checkout.git",
-                "reference": "e5df8c35fc0878744fb47097369b90b90a5a8bec"
+                "reference": "a571293ae53bbc641f40ca27e8fc8dc1df649a42"
             },
             "require": {
                 "php": ">=5.4.0",
@@ -623,7 +623,7 @@
                 "PaymentControl",
                 "Salesrule"
             ],
-            "time": "2013-09-02 16:47:27"
+            "time": "2013-09-03 09:27:48"
         },
         {
             "name": "project-a/content-package",
@@ -631,7 +631,7 @@
             "source": {
                 "type": "git",
                 "url": "git@codebasehq.com:project-a/core/content.git",
-                "reference": "c2342910507ba99476a6b98c1956f481cebd83c8"
+                "reference": "ed84116ae847aa24a9574febaef8dbe10399fd90"
             },
             "require": {
                 "php": ">=5.4.0",
@@ -657,7 +657,7 @@
             "keywords": [
                 "Content Package"
             ],
-            "time": "2013-09-02 16:17:19"
+            "time": "2013-09-03 15:42:58"
         },
         {
             "name": "project-a/crm-package",
@@ -665,7 +665,7 @@
             "source": {
                 "type": "git",
                 "url": "git@codebasehq.com:project-a/core/crm.git",
-                "reference": "807060e3d74e0ac1b7710b7ccb5d57ad8e8118ad"
+                "reference": "9726ba38c585e2084291acc3f792cf5fb2b39e56"
             },
             "require": {
                 "php": ">=5.4.0",
@@ -691,7 +691,7 @@
                 "CRM",
                 "Mail"
             ],
-            "time": "2013-09-02 16:16:03"
+            "time": "2013-09-03 12:47:47"
         },
         {
             "name": "project-a/dependency-package",
@@ -789,7 +789,7 @@
             "source": {
                 "type": "git",
                 "url": "git@codebasehq.com:project-a/core/frontend.git",
-                "reference": "9b92ed84f3226513a1782baef09567e1b7195b18"
+                "reference": "4156171e89dcb999162bbd840e498c5dacd42381"
             },
             "require": {
                 "php": ">=5.4.0",
@@ -813,7 +813,7 @@
             "keywords": [
                 "Frontend"
             ],
-            "time": "2013-09-02 16:14:03"
+            "time": "2013-09-03 15:41:45"
         },
         {
             "name": "project-a/glossary-package",
@@ -853,7 +853,7 @@
             "source": {
                 "type": "git",
                 "url": "git@codebasehq.com:project-a/core/infrastructure.git",
-                "reference": "5b0584c9f6c8509a9d7f0c534dc8966d41a26ef5"
+                "reference": "7e73dc463fe310ad5cfc6451f1101fdc391b9a88"
             },
             "require": {
                 "php": ">=5.4.0",
@@ -881,7 +881,7 @@
             "keywords": [
                 "infrastructure"
             ],
-            "time": "2013-09-02 16:47:06"
+            "time": "2013-09-03 15:46:31"
         },
         {
             "name": "project-a/kendo-package",
@@ -906,7 +906,7 @@
             "source": {
                 "type": "git",
                 "url": "git@codebasehq.com:project-a/core/library-2.git",
-                "reference": "e55f9488bba3d65d9ed857fea5260a2bf6e07804"
+                "reference": "73780beaf0a46e89e2db3b37916ab54d334b6010"
             },
             "require": {
                 "digital-canvas/zend-framework": ">=1.12.2",
@@ -919,7 +919,7 @@
                 "symfony/filesystem": "~2.0",
                 "symfony/finder": "~2.0",
                 "symfony/process": "~2.0",
-                "zendframework/zend-code": "~2.2,>=2.2.3",
+                "zendframework/zend-code": "~2.3",
                 "zendframework/zendpdf": "~2.0"
             },
             "type": "library",
@@ -938,7 +938,7 @@
                 }
             ],
             "description": "Core Library",
-            "time": "2013-09-03 06:56:38"
+            "time": "2013-09-03 16:41:04"
         },
         {
             "name": "project-a/lumberjack-package",
@@ -946,7 +946,7 @@
             "source": {
                 "type": "git",
                 "url": "git@codebasehq.com:project-a/core/lumberjack.git",
-                "reference": "d2e4c1f6b29697206f90cfe7fbdf7f62c7b390a6"
+                "reference": "f3027ee020fe198bae8d850b90bfd4f46d537ed5"
             },
             "require": {
                 "php": ">=5.4.0"
@@ -969,7 +969,7 @@
             "keywords": [
                 ""
             ],
-            "time": "2013-09-02 16:11:27"
+            "time": "2013-09-03 08:54:29"
         },
         {
             "name": "project-a/marketing-package",
@@ -977,7 +977,7 @@
             "source": {
                 "type": "git",
                 "url": "git@codebasehq.com:project-a/core/marketing.git",
-                "reference": "9eaabe6547e0b041ed767f68bcd224a11d38980f"
+                "reference": "75da76a3868559775df12ec41507732438d33af5"
             },
             "require": {
                 "php": ">=5.4.0",
@@ -1002,7 +1002,7 @@
             "keywords": [
                 "Marketing"
             ],
-            "time": "2013-09-02 16:46:46"
+            "time": "2013-09-03 13:15:36"
         },
         {
             "name": "project-a/payment-package",
@@ -1041,7 +1041,7 @@
             "source": {
                 "type": "git",
                 "url": "git@codebasehq.com:project-a/core/sales.git",
-                "reference": "48605740aee274889c5b740acec447e0032a4060"
+                "reference": "b1ea6cd23725fe3a86da2924429a70b507fdf9a3"
             },
             "require": {
                 "php": ">=5.4.0",
@@ -1068,7 +1068,7 @@
                 "Sales",
                 "Task"
             ],
-            "time": "2013-09-02 16:46:22"
+            "time": "2013-09-03 15:15:40"
         },
         {
             "name": "project-a/silex-routing",
@@ -1210,13 +1210,13 @@
             "version": "1.0.0",
             "source": {
                 "type": "git",
-                "url": "https://github.com/php-fig/log.git",
-                "reference": "fe0936ee26643249e916849d48e3a51d5f5e278b"
+                "url": "https://github.com/php-fig/log",
+                "reference": "1.0.0"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/php-fig/log/zipball/fe0936ee26643249e916849d48e3a51d5f5e278b",
-                "reference": "fe0936ee26643249e916849d48e3a51d5f5e278b",
+                "url": "https://github.com/php-fig/log/archive/1.0.0.zip",
+                "reference": "1.0.0",
                 "shasum": ""
             },
             "type": "library",
@@ -1906,11 +1906,17 @@
         },
         {
             "name": "zendframework/zendframework",
-            "version": "dev-fixDocBlockReflection",
+            "version": "dev-develop",
             "source": {
                 "type": "git",
-                "url": "https://github.com/project-a/zf2.git",
-                "reference": "7c75aef80637cb709d8b9e8cc933cf211051fedf"
+                "url": "https://github.com/zendframework/zf2.git",
+                "reference": "b843c2979db2bfc8db22f24cbdaeeea4d9348473"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/zendframework/zf2/zipball/b843c2979db2bfc8db22f24cbdaeeea4d9348473",
+                "reference": "b843c2979db2bfc8db22f24cbdaeeea4d9348473",
+                "shasum": ""
             },
             "require": {
                 "php": ">=5.3.3"
@@ -1972,8 +1978,11 @@
                 "doctrine/annotations": ">=1.0",
                 "ircmaxell/random-lib": "dev-master",
                 "ircmaxell/security-lib": "dev-master",
+                "mikey179/vfsstream": "1.2.*",
                 "ocramius/proxy-manager": "0.4.*",
-                "phpunit/phpunit": "3.7.*"
+                "phpunit/phpunit": "3.7.*",
+                "satooshi/php-coveralls": "dev-master",
+                "sebastianbergmann/phpcov": "1.1.0"
             },
             "suggest": {
                 "doctrine/annotations": "Doctrine Annotations >=1.0 for annotation features",
@@ -2000,6 +2009,7 @@
                     "Zend\\": "library/"
                 }
             },
+            "notification-url": "https://packagist.org/downloads/",
             "license": [
                 "BSD-3-Clause"
             ],
@@ -2009,7 +2019,7 @@
                 "framework",
                 "zf2"
             ],
-            "time": "2013-08-30 20:45:04"
+            "time": "2013-09-03 16:19:22"
         },
         {
             "name": "zendframework/zendpdf",
@@ -3128,7 +3138,7 @@
             "source": {
                 "type": "git",
                 "url": "git@codebasehq.com:project-a/core/console.git",
-                "reference": "08c6344d1785cf69cc76fa717307565aad474ada"
+                "reference": "03ffca5e60b8e697662eb2c336192fd26692fe61"
             },
             "require": {
                 "php": ">=5.4.0",
@@ -3158,7 +3168,7 @@
             "keywords": [
                 "console"
             ],
-            "time": "2013-09-03 07:40:50"
+            "time": "2013-09-03 08:29:29"
         },
         {
             "name": "sanpi/behatch-contexts",
@@ -3613,12 +3623,7 @@
         }
     ],
     "aliases": [
-        {
-            "alias": "2.2.99",
-            "alias_normalized": "2.2.99.0",
-            "version": "dev-fixDocBlockReflection",
-            "package": "zendframework/zendframework"
-        }
+
     ],
     "minimum-stability": "dev",
     "stability-flags": {
