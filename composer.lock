@@ -490,7 +490,7 @@
             "source": {
                 "type": "git",
                 "url": "git@codebasehq.com:project-a/core/adyen.git",
-                "reference": "75c0d00ccc32c8f45bf687fe1979ed67bacaf8c7"
+                "reference": "09cece04cf4c27aedf7e621ad304072caac49670"
             },
             "require": {
                 "php": ">=5.4.0",
@@ -515,7 +515,7 @@
             "keywords": [
                 "adyen payment provider"
             ],
-            "time": "2013-09-04 14:17:52"
+            "time": "2013-09-04 16:03:04"
         },
         {
             "name": "project-a/cart-package",
@@ -558,7 +558,7 @@
             "source": {
                 "type": "git",
                 "url": "git@codebasehq.com:project-a/core/catalog.git",
-                "reference": "b4c54ba70b67c083aad1c21ae7e62d541f835c49"
+                "reference": "1c98d1ef7c3e09a13d08bc37f4154e2e75688701"
             },
             "require": {
                 "php": ">=5.4.0",
@@ -588,7 +588,7 @@
                 "Price",
                 "Stock"
             ],
-            "time": "2013-09-04 15:04:37"
+            "time": "2013-09-04 16:07:29"
         },
         {
             "name": "project-a/checkout-package",
@@ -789,7 +789,7 @@
             "source": {
                 "type": "git",
                 "url": "git@codebasehq.com:project-a/core/frontend.git",
-                "reference": "2ebb719a7a8afa4fa6d5b4f7be3f310d14846ea0"
+                "reference": "b96bc99ff8dbf3873961fb888bfa37059cf027dc"
             },
             "require": {
                 "php": ">=5.4.0",
@@ -813,7 +813,7 @@
             "keywords": [
                 "Frontend"
             ],
-            "time": "2013-09-04 15:04:01"
+            "time": "2013-09-04 16:06:27"
         },
         {
             "name": "project-a/glossary-package",
@@ -853,7 +853,7 @@
             "source": {
                 "type": "git",
                 "url": "git@codebasehq.com:project-a/core/infrastructure.git",
-                "reference": "7a9169aa95cccc93bbb8fda67a4eaf3e1cc3a046"
+                "reference": "b5799adbd1b0fc7f84dbdfbaa6a1eaf92ef8e368"
             },
             "require": {
                 "php": ">=5.4.0",
@@ -881,7 +881,7 @@
             "keywords": [
                 "infrastructure"
             ],
-            "time": "2013-09-04 14:17:54"
+            "time": "2013-09-04 16:03:24"
         },
         {
             "name": "project-a/kendo-package",
