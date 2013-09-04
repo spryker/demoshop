@@ -1,19 +1,17 @@
 <?php
-
-class Sao_Zed_Catalog_Component_Gui_Grid_Product
-    extends ProjectA_Zed_Library_Grid
-    implements ProjectA_Zed_Library_Dependency_Factory_Interface,
+/**
+ * @property Generated_Zed_Catalog_Component_Factory $factory
+ */
+class Sao_Zed_Catalog_Component_Gui_Grid_Product extends ProjectA_Zed_Library_Grid implements
+    ProjectA_Zed_Library_Dependency_Factory_Interface,
     ProjectA_Zed_Price_Component_Dependency_Facade_Interface,
     ProjectA_Zed_Stock_Component_Dependency_Facade_Interface,
     ProjectA_Shared_Library_Catalog_Interface_ProductAttributeConstant,
     ProjectA_Zed_Price_Component_Interface_PriceTypeConstants
-
 {
     use ProjectA_Zed_Library_Dependency_Factory_Trait;
     use ProjectA_Zed_Stock_Component_Dependency_Facade_Trait;
     use ProjectA_Zed_Price_Component_Dependency_Facade_Trait;
-
-
 
     public function create()
     {
@@ -77,6 +75,6 @@ class Sao_Zed_Catalog_Component_Gui_Grid_Product
      */
     protected function getQuery()
     {
-        return $this->factory->getFacade()->getAllProductEntities()->getQuery()->filterByVariety(ProjectA_Zed_Catalog_Component_Interface_ProductVarietyConstant::VARIETY_SIMPLE);
+        return $this->factory->getModelFinder()->getAllProductEntities()->getQuery()->filterByVariety(ProjectA_Zed_Catalog_Component_Interface_ProductVarietyConstant::VARIETY_SIMPLE);
     }
 }
