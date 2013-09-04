@@ -118,12 +118,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/doctrine/inflector.git",
-                "reference": "v1.0"
+                "reference": "54b8333d2a5682afdc690060c1cf384ba9f47f08"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://github.com/doctrine/inflector/archive/v1.0.zip",
-                "reference": "v1.0",
+                "url": "https://api.github.com/repos/doctrine/inflector/zipball/54b8333d2a5682afdc690060c1cf384ba9f47f08",
+                "reference": "54b8333d2a5682afdc690060c1cf384ba9f47f08",
                 "shasum": ""
             },
             "require": {
@@ -161,7 +161,7 @@
                 {
                     "name": "Johannes Schmitt",
                     "email": "schmittjoh@gmail.com",
-                    "homepage": "http://jmsyst.com",
+                    "homepage": "https://github.com/schmittjoh",
                     "role": "Developer of wrapped JMSSerializerBundle"
                 }
             ],
@@ -311,13 +311,13 @@
             "version": "v2.2.0",
             "source": {
                 "type": "git",
-                "url": "https://github.com/nervetattoo/elasticsearch",
-                "reference": "v2.2.0"
+                "url": "https://github.com/nervetattoo/elasticsearch.git",
+                "reference": "ed9244b341e0139a4278ac9bdf3cb63d57539dfb"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://github.com/nervetattoo/elasticsearch/archive/v2.2.0.zip",
-                "reference": "v2.2.0",
+                "url": "https://api.github.com/repos/nervetattoo/elasticsearch/zipball/ed9244b341e0139a4278ac9bdf3cb63d57539dfb",
+                "reference": "ed9244b341e0139a4278ac9bdf3cb63d57539dfb",
                 "shasum": ""
             },
             "require": {
@@ -455,7 +455,7 @@
             "source": {
                 "type": "git",
                 "url": "git@codebasehq.com:project-a/core/acl.git",
-                "reference": "92fb9a6fb188e42f4ad7f0f8050773436838ce15"
+                "reference": "90ad0f49b7436d8b59e990f9422fd623012f07ca"
             },
             "require": {
                 "php": ">=5.4.0",
@@ -482,7 +482,7 @@
                 "login",
                 "usermanagement"
             ],
-            "time": "2013-09-03 12:46:33"
+            "time": "2013-09-04 08:53:24"
         },
         {
             "name": "project-a/adyen-package",
@@ -789,7 +789,7 @@
             "source": {
                 "type": "git",
                 "url": "git@codebasehq.com:project-a/core/frontend.git",
-                "reference": "4156171e89dcb999162bbd840e498c5dacd42381"
+                "reference": "ff34c6b55f33086e71c22ded205bd34e0e902e0f"
             },
             "require": {
                 "php": ">=5.4.0",
@@ -813,7 +813,7 @@
             "keywords": [
                 "Frontend"
             ],
-            "time": "2013-09-03 15:41:45"
+            "time": "2013-09-04 08:55:27"
         },
         {
             "name": "project-a/glossary-package",
@@ -821,7 +821,7 @@
             "source": {
                 "type": "git",
                 "url": "git@codebasehq.com:project-a/core/glossary.git",
-                "reference": "b6f1d554a6e2ee82dc66006e5a4328c30eac0afa"
+                "reference": "514f2c1163aa796b42e6a2e5c51cd588f0fafa7f"
             },
             "require": {
                 "php": ">=5.4.0"
@@ -845,7 +845,7 @@
                 "i18n",
                 "translation"
             ],
-            "time": "2013-09-02 16:13:39"
+            "time": "2013-09-04 08:54:47"
         },
         {
             "name": "project-a/infrastructure-package",
@@ -906,7 +906,7 @@
             "source": {
                 "type": "git",
                 "url": "git@codebasehq.com:project-a/core/library-2.git",
-                "reference": "73780beaf0a46e89e2db3b37916ab54d334b6010"
+                "reference": "5fc132767dcc2124ebbe98ffd05cbbe8d95d67fa"
             },
             "require": {
                 "digital-canvas/zend-framework": ">=1.12.2",
@@ -938,7 +938,7 @@
                 }
             ],
             "description": "Core Library",
-            "time": "2013-09-03 16:41:04"
+            "time": "2013-09-04 08:55:49"
         },
         {
             "name": "project-a/lumberjack-package",
@@ -1210,13 +1210,13 @@
             "version": "1.0.0",
             "source": {
                 "type": "git",
-                "url": "https://github.com/php-fig/log",
-                "reference": "1.0.0"
+                "url": "https://github.com/php-fig/log.git",
+                "reference": "fe0936ee26643249e916849d48e3a51d5f5e278b"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://github.com/php-fig/log/archive/1.0.0.zip",
-                "reference": "1.0.0",
+                "url": "https://api.github.com/repos/php-fig/log/zipball/fe0936ee26643249e916849d48e3a51d5f5e278b",
+                "reference": "fe0936ee26643249e916849d48e3a51d5f5e278b",
                 "shasum": ""
             },
             "type": "library",
@@ -1910,12 +1910,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/zendframework/zf2.git",
-                "reference": "b843c2979db2bfc8db22f24cbdaeeea4d9348473"
+                "reference": "6f2a131fac05582fcbf55ad78804154a7203e13e"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/zendframework/zf2/zipball/b843c2979db2bfc8db22f24cbdaeeea4d9348473",
-                "reference": "b843c2979db2bfc8db22f24cbdaeeea4d9348473",
+                "url": "https://api.github.com/repos/zendframework/zf2/zipball/6f2a131fac05582fcbf55ad78804154a7203e13e",
+                "reference": "6f2a131fac05582fcbf55ad78804154a7203e13e",
                 "shasum": ""
             },
             "require": {
@@ -2019,7 +2019,7 @@
                 "framework",
                 "zf2"
             ],
-            "time": "2013-09-03 16:19:22"
+            "time": "2013-09-04 07:51:48"
         },
         {
             "name": "zendframework/zendpdf",
@@ -3138,7 +3138,7 @@
             "source": {
                 "type": "git",
                 "url": "git@codebasehq.com:project-a/core/console.git",
-                "reference": "03ffca5e60b8e697662eb2c336192fd26692fe61"
+                "reference": "4d1ce28855ea7c96636badd00ade7faa3b665992"
             },
             "require": {
                 "php": ">=5.4.0",
@@ -3168,7 +3168,7 @@
             "keywords": [
                 "console"
             ],
-            "time": "2013-09-03 08:29:29"
+            "time": "2013-09-04 08:54:09"
         },
         {
             "name": "sanpi/behatch-contexts",
