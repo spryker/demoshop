@@ -2,9 +2,6 @@
 
 define('APPLICATION', 'ZED');
 defined('APPLICATION_ROOT') or define('APPLICATION_ROOT', realpath(__DIR__ . '/../../../..'));
-define('APPLICATION_PATH', __DIR__); // needed????
-
-
 
 require_once(APPLICATION_ROOT . '/vendor/project-a/library-package/ProjectA/Shared/Library/Application/Environment.php');
 ProjectA\Shared\Library\Application\Environment::initialize();
