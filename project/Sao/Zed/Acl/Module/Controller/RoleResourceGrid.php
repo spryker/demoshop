@@ -1,0 +1,5 @@
+<?php
+
+class Sao_Zed_Acl_Module_Controller_RoleResourceGrid extends ProjectA_Zed_Acl_Module_Controller_RoleResourceGrid
+{
+}
