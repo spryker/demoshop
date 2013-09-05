@@ -277,8 +277,8 @@ $config['lumberjack'] = array(
         'type'              => '',
     ),
     'gui'                  => array(
-        'requireJs'        => APPLICATION_VENDOR_DIR . '/project-a/lumberjack-package/ProjectA/Zed/Lumberjack/Module/View/gui/dist/require.js',
-        'lumberjackMinJs'  => APPLICATION_VENDOR_DIR . '/project-a/lumberjack-package/ProjectA/Zed/Lumberjack/Module/View/gui/dist/lumberjack-min.js',
+        'requireJs'        => APPLICATION_VENDOR_DIR . '/project-a/lumberjack-package/src/ProjectA/Zed/Lumberjack/Module/View/gui/dist/require.js',
+        'lumberjackMinJs'  => APPLICATION_VENDOR_DIR . '/project-a/lumberjack-package/src/ProjectA/Zed/Lumberjack/Module/View/gui/dist/lumberjack-min.js',
     ),
     // key name => length of sanitized string
     'keys_to_sanitize'     => array(
