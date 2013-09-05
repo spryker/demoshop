@@ -1,4 +1,6 @@
 <?php
+use Generated\Shared\Library\TransferLoader;
+
 /**
  * Class Sao_Shared_Library_Sales_ItemGrouper
  */
@@ -21,7 +23,7 @@ class Sao_Shared_Library_Sales_ItemGrouper extends ProjectA_Shared_Library_Sales
 
                 // If the item collection contains a product as merged and also as not-merged, it will be shown as
                 // not-merged
-                if(!$item->getIsMerged()) {
+                if (!$item->getIsMerged()) {
                     $index[$item->getUniqueIdentifier()]->setIsMerged(false);
                 }
 
@@ -31,7 +33,7 @@ class Sao_Shared_Library_Sales_ItemGrouper extends ProjectA_Shared_Library_Sales
             }
         }
 
-        $newCollection = Generated_Shared_Library_TransferLoader::getSalesOrderItemCollection();
+        $newCollection = TransferLoader::getSalesOrderItemCollection();
         foreach ($index as $item) {
             $newCollection->add($item);
         }

@@ -120,20 +120,22 @@ $config['jenkins'] = array(
  *
  * STORE
  */
-$config['url'] = array(
-    'yves'          => 'saatchionline.com',
-    'zed'           => 'zed.saatchionline.com',
+$config['host'] = array(
+    'yves'          => '',
+    'zed'           => '',
+    'zed_local'     => '',
 
-    'static_assets' => 'static.saatchionline.com',
-    'static_media'  => 'static.saatchionline.com',
+    'static_assets' => '',
+    'static_media'  => '',
 );
 
-$config['url_ssl'] = array(
-    'yves'          => 'saatchionline.com',
-    'zed'           => 'zed.saatchionline.com',
+$config['host_ssl'] = array(
+    'yves'          => '',
+    'zed'           => '',
+    'zed_local'     => '',
 
-    'static_assets' => 'static.saatchionline.com',
-    'static_media'  => 'static.saatchionline.com',
+    'static_assets' => '',
+    'static_media'  => '',
 );
 
 /**
@@ -152,7 +154,7 @@ $config['log'] = array(
 $config['transfer'] = array(
     'username' => 'yves',
     'password' => 'o7&bg=Fz;nSslHBC',
-    'zed_base_url' => 'http://localhost',
+    'ssl'      => false,
     'debug_session_forward_enabled' => false,
     'debug_session_name' => 'XDEBUG_SESSION'
 );
