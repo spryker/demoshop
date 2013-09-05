@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<schema name="project-a" version="1.4">
+    <types>
+        <fieldType name="stringField" class="solr.StrField" sortMissingLast="true" omitNorms="true"/>
+        <fieldType name="intField" class="solr.SortableIntField" omitNorms="true"/>
+        <fieldtype name="floatField" class="solr.SortableFloatField" omitNorms="true"/>
+       	<fieldtype name="boolField" class="solr.BoolField" omitNorms="true"/>
+        <fieldType name="textField" class="solr.TextField" positionIncrementGap="100">
+            <xi:include href="text-field-index.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+            <xi:include href="text-field-query.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+        </fieldType>
+        <fieldType name="textExactField" class="solr.TextField" positionIncrementGap="100">
+            <analyzer type="index">
+                <charFilter class="solr.HTMLStripCharFilterFactory"/>
+                <tokenizer class="solr.WhitespaceTokenizerFactory"/>
+                <filter class="solr.WordDelimiterFilterFactory"
+                        generateWordParts="1" preserveOriginal="1" catenateAll="1" splitOnCaseChange="0" />
+                <filter class="solr.ASCIIFoldingFilterFactory"/>
+                <filter class="solr.LowerCaseFilterFactory"/>
+                <filter class="solr.RemoveDuplicatesTokenFilterFactory"/>
+            </analyzer>
+            <analyzer type="query">
+                <tokenizer class="solr.WhitespaceTokenizerFactory"/>
+                <filter class="solr.ASCIIFoldingFilterFactory"/>
+                <filter class="solr.WordDelimiterFilterFactory" catenateAll="1" preserveOriginal="1" splitOnCaseChange="0" />
+                <filter class="solr.LowerCaseFilterFactory"/>
+                <filter class="solr.RemoveDuplicatesTokenFilterFactory"/>
+            </analyzer>
+        </fieldType>
+        <fieldType name="textSortField" class="solr.TextField">
+            <xi:include href="text-sort-field.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+        </fieldType>
+        <fieldType name="tokenizedSuggestTermField" class="solr.TextField">
+            <xi:include href="tokenized-suggest-term-field.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+        </fieldType>
+        <fieldType name="suggestTermField" class="solr.TextField">
+            <analyzer>
+                <tokenizer class="solr.KeywordTokenizerFactory"/>
+            </analyzer>
+        </fieldType>
+    </types>
+
+    <fields>
+        <field name="sku" type="stringField" indexed="true" stored="true" required="true" />
+        <field name="product_id" type="intField" indexed="true" stored="true" required="true" />
+        <field name="product_name" type="textField" indexed="true" multiValued="true" stored="false" />
+        <field name="product_name_exact" type="textExactField" indexed="true" multiValued="true" stored="false" />
+        <field name="product_brand" type="textField" indexed="true" multiValued="true" stored="false" />
+        <field name="product_brand_exact" type="textExactField" indexed="true" multiValued="true" stored="false" />
+        <field name="searchable_text" type="textField" indexed="true" multiValued="true" stored="false" />
+        <field name="suggest_terms" type="suggestTermField" indexed="true" multiValued="true" stored="false"/>
+        <field name="tokenized_suggest_terms" type="tokenizedSuggestTermField" indexed="true" multiValued="true" stored="false"/>
+        <copyField source="suggest_terms" dest="tokenized_suggest_terms"/>
+        <dynamicField name="string_facet_*" type="stringField" indexed="true" stored="false" multiValued="true"/>
+        <dynamicField name="number_facet_*" type="floatField" indexed="true" stored="false" multiValued="true"/>
+        <dynamicField name="bool_facet_*" type="boolField" indexed="true" stored="false" multiValued="false"/>
+        <dynamicField name="int_facet_*" type="intField" indexed="true" stored="false" multiValued="true"/>
+        <dynamicField name="number_sort_*" type="floatField" indexed="true" stored="false" multiValued="false"/>
+        <dynamicField name="string_sort_*" type="textSortField" indexed="true" stored="false" multiValued="false"/>
+        <dynamicField name="int_sort_*" type="intField" indexed="true" stored="false" multiValued="false"/>
+        <dynamicField name="score_*" type="floatField" indexed="true" stored="true" multiValued="false"/>
+    </fields>
+
+    <uniqueKey>sku</uniqueKey>
+    <solrQueryParser defaultOperator="AND"/>
+    <copyField source="product_name" dest="product_name_exact" />
+    <copyField source="product_brand" dest="product_brand_exact" />
+</schema>

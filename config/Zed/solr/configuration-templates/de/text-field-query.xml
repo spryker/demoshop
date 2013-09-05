@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<analyzer type="query">
+    <tokenizer class="solr.WhitespaceTokenizerFactory"/>
+    <filter class="solr.ASCIIFoldingFilterFactory"/>
+    <filter class="solr.WordDelimiterFilterFactory" catenateAll="1" preserveOriginal="1"/>
+    <filter class="solr.LowerCaseFilterFactory"/>
+    <filter class="solr.GermanLightStemFilterFactory"/>
+    <filter class="solr.RemoveDuplicatesTokenFilterFactory"/>
+</analyzer>
