@@ -14,7 +14,6 @@
  * @var $schemata array
  */
 $schemata = array(
-    APPLICATION_PROJECT.DIRECTORY_SEPARATOR.'Sao'.DIRECTORY_SEPARATOR.'Zed'.DIRECTORY_SEPARATOR.'/Cart/Persistence/sao_cart.schema.xml',
     APPLICATION_PROJECT.DIRECTORY_SEPARATOR.'Sao'.DIRECTORY_SEPARATOR.'Zed'.DIRECTORY_SEPARATOR.'/Salesrule/Persistence/sao_salesrule.schema.xml',
     APPLICATION_PROJECT.DIRECTORY_SEPARATOR.'Sao'.DIRECTORY_SEPARATOR.'Zed'.DIRECTORY_SEPARATOR.'/Legacy/Persistence/sao_legacy.schema.xml',
     APPLICATION_PROJECT.DIRECTORY_SEPARATOR.'Sao'.DIRECTORY_SEPARATOR.'Zed'.DIRECTORY_SEPARATOR.'/Sales/Persistence/sao_sales.schema.xml',
