@@ -1,0 +1,92 @@
+<?xml version="1.0"?>
+<database name="zed"
+          tablePrefix="pac_"
+          defaultIdMethod="native"
+          defaultPhpNamingMethod="underscore"
+          baseClass="ProjectA_Zed_Library_Propel_BaseObject"
+          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+          xsi:noNamespaceSchemaLocation="http://xsd.propelorm.org/1.6/database.xsd">
+
+    <table name="glossary_group" idMethod="native" package="vendor/project-a/glossary-package/ProjectA/Zed/Glossary/Persistence"  phpName="PacGlossaryGroup">
+        <column name="id_glossary_group" required="true" type="INTEGER" autoIncrement="true" primaryKey="true"/>
+        <column name="name" type="VARCHAR" size="255" required="true"/>
+        <unique>
+            <unique-column name="name"/>
+        </unique>
+        <validator column="name">
+            <rule name="unique" message="This glossary group already exists!"/>
+        </validator>
+    </table>
+
+    <table name="glossary_language" idMethod="native" package="vendor/project-a/glossary-package/ProjectA/Zed/Glossary/Persistence"  phpName="PacGlossaryLanguage">
+        <column name="id_glossary_language" required="true" type="INTEGER" autoIncrement="true" primaryKey="true"/>
+        <column name="locale" type="VARCHAR" size="255" required="true"/>
+        <column name="name" type="VARCHAR" size="255" required="true"/>
+        <unique>
+            <unique-column name="locale"/>
+        </unique>
+        <validator column="locale">
+            <rule name="unique" message="This glossary locale already exists!"/>
+        </validator>
+        <validator column="name">
+            <rule name="unique" message="This glossary language already exists!"/>
+        </validator>
+    </table>
+
+    <table name="glossary_key" idMethod="native" package="vendor/project-a/glossary-package/ProjectA/Zed/Glossary/Persistence"  phpName="PacGlossaryKey">
+        <column name="id_glossary_key" required="true" type="INTEGER" autoIncrement="true" primaryKey="true"/>
+        <column name="fk_glossary_group" type="INTEGER"/>
+        <column name="name" type="VARCHAR" size="255" required="true"/>
+        <column name="is_global" type="BOOLEAN" default="false" required="true"/>
+        <column name="is_deleted" type="BOOLEAN" default="false" required="true"/>
+        <foreign-key foreignTable="glossary_group" phpName="GlossaryGroup" refPhpName="GlossaryKey" onDelete="SET NULL">
+            <reference foreign="id_glossary_group" local="fk_glossary_group"/>
+        </foreign-key>
+        <unique>
+            <unique-column name="name"/>
+        </unique>
+        <index name="is_global">
+            <index-column name="is_global"/>
+        </index>
+        <index name="is_deleted">
+            <index-column name="is_deleted"/>
+        </index>
+        <behavior name="versionable" />
+    </table>
+
+    <table name="glossary_explanation" idMethod="native" package="vendor/project-a/glossary-package/ProjectA/Zed/Glossary/Persistence"  phpName="PacGlossaryExplanation">
+        <column name="id_glossary_explanation" required="true" type="INTEGER" autoIncrement="true" primaryKey="true"/>
+        <column name="fk_glossary_language" required="true" type="INTEGER"/>
+        <column name="fk_glossary_key" required="true" type="INTEGER"/>
+        <column name="text" type="CLOB" required="true"/>
+        <foreign-key foreignTable="glossary_language" phpName="GlossaryLanguage" refPhpName="GlossaryExplanation" onDelete="CASCADE">
+            <reference foreign="id_glossary_language" local="fk_glossary_language"/>
+        </foreign-key>
+        <foreign-key foreignTable="glossary_key" phpName="GlossaryKey" refPhpName="GlossaryExplanation" onDelete="CASCADE">
+            <reference foreign="id_glossary_key" local="fk_glossary_key"/>
+        </foreign-key>
+        <unique>
+            <unique-column name="fk_glossary_language"/>
+            <unique-column name="fk_glossary_key"/>
+        </unique>
+        <behavior name="versionable" />
+    </table>
+
+    <table name="glossary_lookup" idMethod="native" package="vendor/project-a/glossary-package/ProjectA/Zed/Glossary/Persistence"  phpName="PacGlossaryLookup">
+        <column name="id_glossary_lookup" required="true" type="INTEGER" autoIncrement="true" primaryKey="true"/>
+        <column name="store" type="VARCHAR" size="255" required="true"/>
+        <column name="locale" type="VARCHAR" size="255" required="true"/>
+        <column name="name" type="VARCHAR" size="255" required="true"/>
+        <column name="text" type="CLOB" required="true"/>
+        <unique name="name_store_language">
+            <unique-column name="name"/>
+            <unique-column name="store"/>
+            <unique-column name="locale"/>
+        </unique>
+        <!-- Model-only relationship -->
+        <foreign-key foreignTable="glossary_key" phpName="GlossaryKey" refPhpName="GlossaryLookup" skipSql="true">
+            <reference foreign="name" local="name"/>
+        </foreign-key>
+    </table>
+
+</database>

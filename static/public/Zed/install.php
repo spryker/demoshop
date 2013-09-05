@@ -1,6 +1,6 @@
 <?php
 
-require_once __DIR__ . '/../../../project/Sao/Zed/Application/include.php';
+require_once __DIR__ . '/../../../src/Sao/Zed/Application/include.php';
 
 $autoloader = Zend_Loader_Autoloader::getInstance();
 $autoloader->registerNamespace('ProjectA_Zed_Library_');

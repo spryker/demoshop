@@ -1,0 +1,109 @@
+<?xml version="1.0"?>
+<database name="zed"
+          defaultIdMethod="native"
+          defaultPhpNamingMethod="underscore"
+          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+          baseClass="ProjectA_Zed_Library_Propel_BaseObject"
+          xsi:noNamespaceSchemaLocation="http://xsd.propelorm.org/1.6/database.xsd">
+
+    <table name="pac_acl_role" idMethod="native" package="vendor/project-a/acl-package/ProjectA/Zed/Acl/Persistence"  phpName="PacAclRole">
+        <column name="id_acl_role" required="true" type="INTEGER" autoIncrement="true" primaryKey="true"/>
+        <column name="fk_acl_role" required="false" type="INTEGER"/>
+        <column name="name" required="true" size="255" type="VARCHAR"/>
+        <column name="is_deleteable" type="BOOLEAN" required="false" default="true" />
+        <column name="is_admin" type="BOOLEAN" required="false" default="false" />
+        <unique>
+            <unique-column name="name"/>
+        </unique>
+        <validator column="name">
+            <rule name="unique" message="This role already exists!"/>
+        </validator>
+        <foreign-key foreignTable="pac_acl_role" phpName="AclParentRole">
+            <reference foreign="id_acl_role" local="fk_acl_role"/>
+        </foreign-key>
+        <behavior name="timestampable"/>
+    </table>
+
+    <table name="pac_acl_user" idMethod="native" package="vendor/project-a/acl-package/ProjectA/Zed/Acl/Persistence"  phpName="PacAclUser">
+        <column name="id_acl_user" required="true" type="INTEGER" autoIncrement="true" primaryKey="true"/>
+        <column name="fk_acl_role" required="true" type="INTEGER"/>
+        <column name="firstname" required="true" size="255" type="VARCHAR"/>
+        <column name="lastname" required="true" size="255" type="VARCHAR"/>
+        <column name="email" required="true" size="255" type="VARCHAR"/>
+        <column name="username" required="true" size="255" type="VARCHAR"/>
+        <column name="password" required="true" size="255" type="VARCHAR"/>
+        <column name="restore_password_key" required="false" size="255" type="VARCHAR"/>
+        <column name="last_login" type="TIMESTAMP" required="false"/>
+        <column name="failed_logins" required="false" type="INTEGER"/>
+        <column name="is_active" type="BOOLEAN" required="false" default="true" />
+        <column name="is_deleted" type="BOOLEAN" required="false" default="false" />
+        <column name="is_default" type="BOOLEAN" required="false" default="false" />
+        <unique>
+            <unique-column name="username"/>
+        </unique>
+        <validator column="username">
+            <rule name="unique" message="This username already exists!"/>
+        </validator>
+        <unique>
+            <unique-column name="email"/>
+        </unique>
+        <validator column="email">
+            <rule name="unique" message="This email address already exists!"/>
+        </validator>
+        <behavior name="timestampable"/>
+        <foreign-key foreignTable="pac_acl_role" phpName="AclRole" refPhpName="AclUser">
+            <reference foreign="id_acl_role" local="fk_acl_role"/>
+        </foreign-key>
+    </table>
+
+    <table name="pac_acl_resource" idMethod="native" package="vendor/project-a/acl-package/ProjectA/Zed/Acl/Persistence"  phpName="PacAclResource">
+        <column name="id_acl_resource" required="true" type="INTEGER" autoIncrement="true" primaryKey="true"/>
+        <column name="name" required="true" size="255" type="VARCHAR"/>
+        <unique>
+            <unique-column name="name"/>
+        </unique>
+        <validator column="name">
+            <rule name="unique" message="This resource already exists!"/>
+        </validator>
+        <behavior name="timestampable"/>
+    </table>
+
+    <table name="pac_acl_privilege" idMethod="native" package="vendor/project-a/acl-package/ProjectA/Zed/Acl/Persistence"  phpName="PacAclPrivilege">
+        <column name="id_acl_privilege" required="true" type="INTEGER" autoIncrement="true" primaryKey="true"/>
+        <column name="fk_acl_resource" required="true" type="INTEGER"/>
+        <column name="name" required="true" size="255" type="VARCHAR"/>
+        <behavior name="timestampable"/>
+        <foreign-key foreignTable="pac_acl_resource" phpName="AclResource" refPhpName="AclPrivilege">
+            <reference foreign="id_acl_resource" local="fk_acl_resource"/>
+        </foreign-key>
+    </table>
+
+    <table name="pac_acl_role_resource" idMethod="native" package="vendor/project-a/acl-package/ProjectA/Zed/Acl/Persistence"  phpName="PacAclRoleResource">
+        <column name="id_acl_role_resource" required="true" type="INTEGER" autoIncrement="true" primaryKey="true"/>
+        <column name="fk_acl_role" required="true" type="INTEGER"/>
+        <column name="fk_acl_resource" required="true" type="INTEGER" />
+        <foreign-key foreignTable="pac_acl_role" phpName="AclRole" refPhpName="AclRoleResource">
+            <reference foreign="id_acl_role" local="fk_acl_role"/>
+        </foreign-key>
+        <foreign-key foreignTable="pac_acl_resource" phpName="AclResource" refPhpName="AclRoleResource">
+            <reference foreign="id_acl_resource" local="fk_acl_resource"/>
+        </foreign-key>
+    </table>
+
+    <table name="pac_acl_role_privilege" idMethod="native" package="vendor/project-a/acl-package/ProjectA/Zed/Acl/Persistence"  phpName="PacAclRolePrivilege">
+        <column name="id_acl_role_privilege" required="true" type="INTEGER" autoIncrement="true" primaryKey="true"/>
+        <column name="fk_acl_role" required="true" type="INTEGER"/>
+        <column name="fk_acl_resource" required="true" type="INTEGER" />
+        <column name="fk_acl_privilege" required="true" type="INTEGER" />
+        <foreign-key foreignTable="pac_acl_role" phpName="AclRole" refPhpName="AclRolePrivilege">
+            <reference foreign="id_acl_role" local="fk_acl_role"/>
+        </foreign-key>
+        <foreign-key foreignTable="pac_acl_resource" phpName="AclResource">
+            <reference foreign="id_acl_resource" local="fk_acl_resource"/>
+        </foreign-key>
+        <foreign-key foreignTable="pac_acl_privilege" phpName="AclPrivilege">
+            <reference foreign="id_acl_privilege" local="fk_acl_privilege"/>
+        </foreign-key>
+    </table>
+
+</database>

@@ -1,0 +1,31 @@
+<?xml version="1.0"?>
+<database name="zed"
+          package="vendor/project-a/crm-package/ProjectA/Zed/Newsletter/Persistence"
+          tablePrefix="pac_"
+          defaultIdMethod="native"
+          defaultPhpNamingMethod="underscore"
+          baseClass="ProjectA_Zed_Library_Propel_BaseObject"
+          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+          xsi:noNamespaceSchemaLocation="http://xsd.propelorm.org/1.6/database.xsd">
+
+    <table name="newsletter_subscription"  phpName="PacNewsletterSubscription">
+        <column name="id_newsletter_subscription" required="true" type="INTEGER" autoIncrement="true" primaryKey="true" />
+        <column name="email" type="VARCHAR" size="255" required="true"/>
+        <column name="fk_customer" type="INTEGER"/>
+        <column name="status" type="ENUM" valueSet="confirmation_pending,subscribed,unsubscribed" default="confirmation_pending"/>
+        <column name="gender" type="ENUM" valueSet="Male,Female" default="NULL"/>
+        <column name="zip_code" type="VARCHAR" size="15" default="NULL"/>
+        <column name="confirmation_key" type="VARCHAR" size="32" required="true"/>
+        <column name="unsubscription_key" type="VARCHAR" size="32"/>
+        <column name="subscribed_at" type="TIMESTAMP" required="false" default="NULL"/>
+        <column name="confirmed_at" type="TIMESTAMP" required="false" default="NULL"/>
+        <column name="unsubscribed_at" type="TIMESTAMP" required="false" default="NULL"/>
+        <foreign-key foreignTable="customer" phpName="Customer" refPhpName="NewsletterSubscription">
+            <reference foreign="id_customer" local="fk_customer"/>
+        </foreign-key>
+        <unique name="newsletter_subscription_email">
+            <unique-column name="email"/>
+        </unique>
+    </table>
+
+</database>

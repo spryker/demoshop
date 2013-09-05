@@ -1,0 +1,67 @@
+<?xml version="1.0"?>
+<database name="zed"
+          package="vendor/project-a/catalog-package/ProjectA/Zed/Price/Persistence"
+          tablePrefix="pac_"
+          defaultIdMethod="native"
+          defaultPhpNamingMethod="underscore"
+          baseClass="ProjectA_Zed_Library_Propel_BaseObject"
+          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+          xsi:noNamespaceSchemaLocation="http://xsd.propelorm.org/1.6/database.xsd">
+
+    <table name="price_product"  phpName="PacPriceProduct">
+        <column name="id_price_product" type="INTEGER" required="true" primaryKey="true" autoIncrement="true" />
+        <column name="price" type="BIGINT" required="true" defaultValue="0" />
+        <column name="valid_from" type="TIMESTAMP" required="true" />
+        <column name="valid_to" type="TIMESTAMP" required="true" />
+        <column name="fk_catalog_product" type="INTEGER" required="true" />
+        <column name="fk_price_type" type="INTEGER" required="true" />
+        <foreign-key foreignTable="catalog_product" phpName="Product" refPhpName="PriceProduct">
+            <reference local="fk_catalog_product" foreign="id_catalog_product" />
+        </foreign-key>
+        <foreign-key foreignTable="price_type" phpName="PriceType" refPhpName="PriceProduct">
+            <reference local="fk_price_type" foreign="id_price_type" />
+        </foreign-key>
+        <unique>
+            <unique-column name="fk_catalog_product" />
+            <unique-column name="fk_price_type" />
+            <unique-column name="valid_from" />
+        </unique>
+    </table>
+
+    <table name="price_type"  phpName="PacPriceType">
+        <column name="id_price_type" type="INTEGER" required="true" primaryKey="true" autoIncrement="true" />
+        <column name="name" type="VARCHAR" size="255" required="true" />
+        <unique>
+            <unique-column name="name" />
+        </unique>
+    </table>
+
+    <table name="price_attribute"  phpName="PacPriceAttribute">
+        <column name="id_price_attribute" type="INTEGER" required="true"
+                primaryKey="true" autoIncrement="true" />
+        <column name="name" type="VARCHAR" size="255" required="true" />
+        <unique>
+            <unique-column name="name" />
+        </unique>
+    </table>
+
+    <table name="price_attribute_value"  phpName="PacPriceAttributeValue">
+        <column name="id_price_attribute_value" type="INTEGER" required="true" primaryKey="true" autoIncrement="true" />
+        <column name="value" type="VARCHAR" size="20000" required="true" />
+
+        <column name="fk_price_type" type="INTEGER" required="true" />
+        <column name="fk_price_attribute" type="INTEGER" required="true" />
+
+        <foreign-key foreignTable="price_type" phpName="PriceType" refPhpName="AttributeValue">
+            <reference local="fk_price_type" foreign="id_price_type" />
+        </foreign-key>
+        <foreign-key foreignTable="price_attribute" phpName="Attribute" refPhpName="AttributeValue">
+            <reference local="fk_price_attribute" foreign="id_price_attribute" />
+        </foreign-key>
+        <unique>
+            <unique-column name="fk_price_type" />
+            <unique-column name="fk_price_attribute" />
+        </unique>
+    </table>
+
+</database>

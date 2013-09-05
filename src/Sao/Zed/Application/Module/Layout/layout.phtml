@@ -1,0 +1,63 @@
+<?php echo $this->doctype('XHTML5'); ?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <link href="/images/favicon.ico" rel="shortcut icon" />
+    <title>SaatchiOnline's Generated_Yves_Zed (<?php echo APPLICATION_ENV ?>)</title>
+    <?php echo $this->partial('Partials/include.phtml', array()); ?>
+</head>
+<body>
+    <script type="text/javascript">
+        <?php $request = Zend_Controller_Front::getInstance()->getRequest(); ?>
+        zed.vars.exchange.page.current.module = '<?php echo $request->getParam('module'); ?>';
+        zed.vars.exchange.page.current.controller = '<?php echo $request->getParam('controller'); ?>';
+        zed.vars.exchange.page.current.action = '<?php echo $request->getParam('action'); ?>';
+    </script>
+
+    <section id="env_<?php echo APPLICATION_ENV ?>">
+        <?php echo $this->partial('Partials/header.phtml', array()); ?>
+        <?php echo $this->partial('Partials/tabs.phtml', array()); ?>
+        <div id="content">
+            <?php $this->navigation()->setRenderInvisible(true); ?>
+            <?php $currentPage = $this->navigation()->findActive($this->navigation()->getContainer()); ?>
+            <?php if (isset($currentPage['page'])): ?>
+                <headline>
+                    <label><?php echo $currentPage['page']->getTitle() . $this->titleSupplement; ?></label>
+                    <nav>
+                        Path: <?php echo $this->navigation()->breadcrumbs()->setRenderInvisible(true)->setLinkLast(true)->setMinDepth(0)->render(); ?>
+                    </nav>
+                    <div class="actions">
+                        <?php
+                            if (isset($this->pageActions)) {
+                                foreach ($this->pageActions as $label => $value) {
+                                    echo '<a class="button" href="' . $value . '">' . $label . '</a> &#160; ';
+                                }
+                            }
+                        ?>
+                    </div>
+                    <div class="clear"></div>
+                </headline>
+            <?php endif; ?>
+            <div id="main">
+                <div class="container<?php echo (isset($this->pageViews)) ? ' collapsed' : '' ?>">
+                    <div class="more left"></div>
+                    <div class="more right"></div>
+                    <?php echo $this->partial('Partials/messages.phtml', array()); ?>
+                    <?php echo $this->layout()->content; ?>
+                </div>
+                <div class="clear"></div>
+            </div>
+        </div>
+    </section>
+
+    <footer><div class="actions"></div></footer>
+
+    <nav class="global prev"></nav>
+    <nav class="global next revert"></nav>
+
+    <div id="shortcuts">
+        <div class="wrapper"></div>
+    </div>
+    <div id="guiMessage"><div class="text"></div></div>
+</body>
+</html>

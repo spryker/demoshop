@@ -1,6 +1,6 @@
 <phpunit>
     <testsuite name="Project Code">
-        <directory>../../project/</directory>
+        <directory>../../src/</directory>
     </testsuite>
     <php>
         <env name="APPLICATION_ENV" value="testing" />

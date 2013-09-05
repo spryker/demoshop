@@ -1,0 +1,136 @@
+<?xml version="1.0"?>
+<database name="zed"
+          package="vendor/project-a/content-package/ProjectA/Zed/Cms/Persistence"
+          tablePrefix="pac_"
+          defaultPhpNamingMethod="underscore"
+          baseClass="ProjectA_Zed_Library_Propel_BaseObject"
+          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+          xsi:noNamespaceSchemaLocation="http://xsd.propelorm.org/1.6/database.xsd">
+
+    <table name="cms_page" idMethod="native"  phpName="PacCmsPage">
+        <column name="id_cms_page" required="true" type="INTEGER" autoIncrement="true" primaryKey="true"/>
+        <column name="fk_cms_page_type" required="true" type="INTEGER"/>
+        <column name="name" required="true" size="255" type="VARCHAR"/>
+        <column name="url" required="true" size="255" type="VARCHAR"/>
+        <column name="user" required="true" size="255" type="VARCHAR" default="acl user"/>
+        <column name="updated_from" required="false" type="INTEGER"/>
+        <column name="version" required="false" type="SMALLINT" default="1"/>
+        <column name="status" required="true" type="ENUM" valueSet="Active,Disabled,In progress" default="In progress"/>
+        <column name="content" type="LONGVARCHAR" sqlType="LONGTEXT"/>
+        <behavior name="timestampable"/>
+        <index>
+            <index-column name="fk_cms_page_type"/>
+        </index>
+        <unique>
+            <unique-column name="url"/>
+        </unique>
+        <foreign-key foreignTable="cms_page_type" phpName="PageType" refPhpName="Page">
+            <reference foreign="id_cms_page_type" local="fk_cms_page_type"/>
+        </foreign-key>
+        <validator column="url">
+            <rule name="unique" message="This url already exists!"/>
+        </validator>
+    </table>
+
+    <table name="cms_page_type" idMethod="native"  phpName="PacCmsPageType">
+        <column name="id_cms_page_type" required="true" type="INTEGER" autoIncrement="true" primaryKey="true"/>
+        <column name="name" required="true" size="255" type="VARCHAR"/>
+        <column name="layout" required="true" size="32" type="VARCHAR"/>
+        <column name="view" required="true" size="32" type="VARCHAR"/>
+        <column name="description" required="false" type="VARCHAR"/>
+        <unique>
+            <unique-column name="name"/>
+        </unique>
+        <validator column="name">
+            <rule name="unique" message="This name already exists!"/>
+        </validator>
+    </table>
+
+    <table name="cms_element_page" idMethod="native"  phpName="PacCmsElementPage" isCrossRef="true">
+        <column name="id_cms_element_page" required="true" type="INTEGER" autoIncrement="true" primaryKey="true"/>
+        <column name="fk_cms_element" required="true" type="INTEGER"/>
+        <column name="fk_cms_page" required="true" type="INTEGER"/>
+        <foreign-key foreignTable="cms_page" phpName="Page" refPhpName="ElementPage">
+            <reference foreign="id_cms_page" local="fk_cms_page"/>
+        </foreign-key>
+        <foreign-key foreignTable="cms_element" phpName="Element" refPhpName="ElementPage">
+            <reference foreign="id_cms_element" local="fk_cms_element"/>
+        </foreign-key>
+    </table>
+
+    <table name="cms_element" idMethod="native"  phpName="PacCmsElement">
+        <column name="id_cms_element" required="true" type="INTEGER" autoIncrement="true" primaryKey="true"/>
+        <column name="element_key" required="true" size="255" type="VARCHAR" default=""/>
+        <column name="name" required="true" size="255" type="VARCHAR"/>
+        <column name="description" required="false" size="255" type="VARCHAR"/>
+        <column name="content" required="true" type="LONGVARCHAR"/>
+        <column name="fk_cms_element_type" required="true" type="INTEGER"/>
+        <column name="updated_from" required="false" type="INTEGER"/>
+        <column name="version" required="false" type="SMALLINT" default="1"/>
+        <column name="status" required="true" type="ENUM" valueSet="Active,Disabled,In progress" default="In progress"/>
+        <behavior name="timestampable"/>
+        <foreign-key foreignTable="cms_element_type" phpName="ElementType" refPhpName="Element">
+            <reference foreign="id_cms_element_type" local="fk_cms_element_type"/>
+        </foreign-key>
+        <unique>
+            <unique-column name="name"/>
+        </unique>
+        <validator column="name">
+            <rule name="unique" message="This name already exists!"/>
+        </validator>
+    </table>
+
+    <table name="cms_element_type" idMethod="native"  phpName="PacCmsElementType">
+        <column name="id_cms_element_type" required="true" type="INTEGER" autoIncrement="true" primaryKey="true"/>
+        <column name="name" required="true" size="255" type="VARCHAR"/>
+        <column name="element_type_key" required="true" size="255" type="VARCHAR"/>
+        <column name="description" required="false" type="VARCHAR"/>
+        <column name="input" required="true" size="255" type="VARCHAR"/>
+        <column name="tab" required="true" type="VARCHAR" size="255"/>
+        <unique>
+            <unique-column name="name"/>
+        </unique>
+        <validator column="name">
+            <rule name="unique" message="This name already exists!"/>
+        </validator>
+    </table>
+
+    <table name="cms_elementtype_pagetype_constraint" isCrossRef="true"
+            phpName="PacElementTypePageTypeConstraint">
+        <column name="fk_cms_page_type" required="true" type="INTEGER" primaryKey="true"/>
+        <column name="fk_cms_element_type" required="true" type="INTEGER" primaryKey="true"/>
+        <column name="is_default" required="false" type="TINYINT" default="0"/>
+        <foreign-key foreignTable="cms_element_type" phpName="ElementType" refPhpName="ElementTypePageTypeConstraint">
+            <reference foreign="id_cms_element_type" local="fk_cms_element_type"/>
+        </foreign-key>
+        <foreign-key foreignTable="cms_page_type" phpName="PageType" refPhpName="ElementTypePageTypeConstraint">
+            <reference foreign="id_cms_page_type" local="fk_cms_page_type"/>
+        </foreign-key>
+    </table>
+
+    <table name="cms_media" idMethod="native"  phpName="PacCmsMedia">
+        <column name="id_cms_media" required="true" type="INTEGER" autoIncrement="true" primaryKey="true"/>
+        <column name="name" required="true" type="VARCHAR" size="255"/>
+        <column name="mime_type" required="true" type="VARCHAR" size="255"/>
+        <column name="updated_from" required="false" type="INTEGER"/>
+        <behavior name="timestampable"/>
+    </table>
+
+    <table name="cms_redirection" idMethod="native"  phpName="PacCmsRedirection">
+        <column name="id_cms_redirection" required="true" type="INTEGER" autoIncrement="true" primaryKey="true"/>
+        <column name="url_source" required="true" size="255" type="VARCHAR"/>
+        <column name="url_target" required="true" size="255" type="VARCHAR"/>
+        <column name="type" required="true" type="ENUM" valueSet="Temporary_302,Permanent_301" default="Temporary_302"/>
+        <column name="status" required="true" type="ENUM" valueSet="Active,Disabled,In progress" default="In progress"/>
+        <column name="description" required="false" type="VARCHAR"/>
+        <column name="user" required="true" size="255" type="VARCHAR" default="acl user"/>
+        <behavior name="timestampable"/>
+        <unique>
+            <unique-column name="url_source"/>
+        </unique>
+        <validator column="url_source">
+            <rule name="unique" message="This source-url already exists!"/>
+        </validator>
+    </table>
+
+</database>

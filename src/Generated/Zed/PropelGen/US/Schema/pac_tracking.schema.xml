@@ -1,0 +1,148 @@
+<?xml version="1.0"?>
+<database name="zed"
+          tablePrefix="pac_"
+          defaultIdMethod="native"
+          defaultPhpNamingMethod="underscore"
+          baseClass="ProjectA_Zed_Library_Propel_BaseObject"
+          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+          xsi:noNamespaceSchemaLocation="http://xsd.propelorm.org/1.6/database.xsd"
+          package="vendor/project-a/marketing-package/ProjectA/Zed/Tracking/Persistence" >
+
+    <table name="tracking_pixel_type"  phpName="PacTrackingPixelType">
+        <column name="id_tracking_pixel_type" required="true" type="INTEGER" autoIncrement="true" primaryKey="true" />
+        <column name="name" type="VARCHAR" required="true" />
+        <unique>
+            <unique-column name="name" />
+        </unique>
+    </table>
+
+    <table name="tracking_conversion_type"  phpName="PacTrackingConversionType">
+        <column name="id_tracking_conversion_type" required="true" type="INTEGER" autoIncrement="true" primaryKey="true" />
+        <column name="name" type="VARCHAR" required="true" />
+        <unique>
+            <unique-column name="name" />
+        </unique>
+    </table>
+
+    <table name="tracking_library"  phpName="PacTrackingLibrary">
+        <column name="id_tracking_library" required="true" type="INTEGER" autoIncrement="true" primaryKey="true" />
+        <column name="name" type="VARCHAR" required="true" />
+        <column name="fk_tracking_pixel_type" required="true" type="INTEGER" />
+        <foreign-key foreignTable="tracking_pixel_type" phpName="TrackingPixelType"
+                     refPhpName="TrackingLibrary">
+            <reference local="fk_tracking_pixel_type" foreign="id_tracking_pixel_type"/>
+        </foreign-key>
+    </table>
+
+    <table name="tracking_library_code"  phpName="PacTrackingLibraryCode">
+        <column name="id_tracking_library_code" required="true" type="INTEGER" autoIncrement="true" primaryKey="true" />
+        <column name="fk_tracking_library" required="true" type="INTEGER" />
+        <column name="config" type="LONGVARCHAR" />
+        <column name="code" type="LONGVARCHAR" />
+        <column name="original_code" type="LONGVARCHAR" />
+        <foreign-key foreignTable="tracking_library" phpName="TrackingLibrary"
+                     refPhpName="TrackingLibraryCode">
+            <reference local="fk_tracking_library" foreign="id_tracking_library"/>
+        </foreign-key>
+    </table>
+
+    <table name="tracking_page_type"  phpName="PacTrackingPageType">
+        <column name="id_tracking_page_type" required="true" type="INTEGER" autoIncrement="true" primaryKey="true" />
+        <column name="name" type="VARCHAR" required="true" />
+        <unique>
+            <unique-column name="name" />
+        </unique>
+    </table>
+
+    <table name="tracking_page_type_is_conversion"  phpName="PacTrackingPageTypeIsConversion">
+        <column name="id_tracking_page_type_is_conversion" required="true" type="INTEGER" autoIncrement="true" primaryKey="true" />
+        <column name="fk_tracking_page_type" required="true" type="INTEGER" />
+        <column name="fk_tracking_conversion_type" required="true" type="INTEGER" />
+        <foreign-key foreignTable="tracking_page_type" phpName="TrackingPageType"
+                     refPhpName="TrackingPageTypeIsConversion">
+            <reference local="fk_tracking_page_type" foreign="id_tracking_page_type"/>
+        </foreign-key>
+        <foreign-key foreignTable="tracking_conversion_type" phpName="TrackingConversionType"
+                     refPhpName="TrackingPageTypeIsConversion">
+            <reference local="fk_tracking_conversion_type" foreign="id_tracking_conversion_type"/>
+        </foreign-key>
+        <unique>
+            <unique-column name="fk_tracking_page_type" />
+            <unique-column name="fk_tracking_conversion_type" />
+        </unique>
+    </table>
+
+    <table name="tracking_instance"  phpName="PacTrackingInstance">
+        <column name="id_tracking_instance" required="true" type="INTEGER" autoIncrement="true" primaryKey="true" />
+        <column name="fk_tracking_library_code" required="true" type="INTEGER" />
+        <column name="name" type="VARCHAR" required="true" />
+        <column name="is_active" type="BOOLEAN" required="true" />
+        <foreign-key foreignTable="tracking_library_code" phpName="TrackingLibraryCode"
+                     refPhpName="TrackingInstance">
+            <reference local="fk_tracking_library_code" foreign="id_tracking_library_code"/>
+        </foreign-key>
+        <behavior name="timestampable"/>
+    </table>
+
+    <table name="tracking_instance_revision"  phpName="PacTrackingInstanceRevision">
+        <column name="id_tracking_instance_revision" required="true" type="INTEGER" autoIncrement="true" primaryKey="true" />
+        <column name="is_global" type="BOOLEAN" required="true" />
+        <column name="revision" required="true" type="INTEGER" />
+        <column name="fk_tracking_instance" required="true" type="INTEGER" />
+        <column name="config" type="LONGVARCHAR" />
+        <column name="code" type="LONGVARCHAR" />
+        <foreign-key foreignTable="tracking_instance" phpName="TrackingInstance"
+                     refPhpName="TrackingInstanceRevision">
+            <reference local="fk_tracking_instance" foreign="id_tracking_instance"/>
+        </foreign-key>
+        <behavior name="timestampable"/>
+    </table>
+
+    <table name="tracking_page_type_has_instance_revision"  phpName="PacTrackingPageTypeHasInstanceRevision">
+        <column name="id_tracking_page_type_has_instance_revision" required="true" type="INTEGER" autoIncrement="true" primaryKey="true" />
+        <column name="fk_tracking_page_type" required="true" type="INTEGER" />
+        <column name="fk_tracking_instance_revision" required="true" type="INTEGER" />
+        <foreign-key foreignTable="tracking_page_type" phpName="TrackingPageType"
+                     refPhpName="TrackingPageTypeHasInstanceRevision">
+            <reference local="fk_tracking_page_type" foreign="id_tracking_page_type"/>
+        </foreign-key>
+        <foreign-key foreignTable="tracking_instance_revision" phpName="TrackingInstanceRevision"
+                     refPhpName="TrackingPageTypeHasInstanceRevision">
+            <reference local="fk_tracking_instance_revision" foreign="id_tracking_instance_revision"/>
+        </foreign-key>
+        <unique>
+            <unique-column name="fk_tracking_page_type" />
+            <unique-column name="fk_tracking_instance_revision" />
+        </unique>
+    </table>
+
+    <table name="tracking_setting"  phpName="PacTrackingSetting">
+        <column name="id_tracking_setting" required="true" type="INTEGER" autoIncrement="true" primaryKey="true" />
+        <column name="name" type="VARCHAR" required="true" />
+        <column name="value" type="LONGVARCHAR" required="true" />
+        <unique>
+            <unique-column name="name" />
+        </unique>
+    </table>
+
+    <table name="tracking_exclusivity_group"  phpName="PacTrackingExclusivityGroup">
+        <column name="id_tracking_exclusivity_group" required="true" type="INTEGER" autoIncrement="true" primaryKey="true" />
+        <column name="name" type="VARCHAR" required="true" />
+    </table>
+
+    <table name="tracking_exclusivity"  phpName="PacTrackingExclusivity">
+        <column name="id_tracking_exclusivity" required="true" type="INTEGER" autoIncrement="true" primaryKey="true" />
+        <column name="fk_tracking_exclusivity_group" required="true" type="INTEGER" />
+        <column name="fk_tracking_instance" required="true" type="INTEGER" />
+        <foreign-key foreignTable="tracking_exclusivity_group" phpName="TrackingPageExclusivityGroup"
+                     refPhpName="TrackingPageExclusivity">
+            <reference local="fk_tracking_exclusivity_group" foreign="id_tracking_exclusivity_group"/>
+        </foreign-key>
+        <foreign-key foreignTable="tracking_instance" phpName="TrackingInstance"
+                     refPhpName="TrackingPageExclusivity">
+            <reference local="fk_tracking_instance" foreign="id_tracking_instance"/>
+        </foreign-key>
+    </table>
+
+
+</database>
