@@ -5,7 +5,7 @@
           xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
           xsi:noNamespaceSchemaLocation="http://xsd.propelorm.org/1.6/database.xsd">
 
-    <table name="sao_sales_ccvalidation" package="project/Sao/Zed/Sales/Persistence"
+    <table name="sao_sales_ccvalidation" package="src/Sao/Zed/Sales/Persistence"
             phpName="SaoSalesCCValidation">
         <column name="id_validation" type="INTEGER" required="true" primaryKey="true" autoIncrement="true"/>
         <column name="fk_sales_order" type="INTEGER" required="true"/>
@@ -20,7 +20,7 @@
         </foreign-key>
     </table>
 
-    <table name="sao_sales_tax" package="project/Sao/Zed/Sales/Persistence"
+    <table name="sao_sales_tax" package="src/Sao/Zed/Sales/Persistence"
             phpName="SaoSalesTax">
         <column name="id_sales_tax" type="INTEGER" required="true" primaryKey="true" autoIncrement="true"/>
 
@@ -41,7 +41,7 @@
 
     </table>
 
-    <table name="sao_sales_order_address" package="project/Sao/Zed/Sales/Persistence"
+    <table name="sao_sales_order_address" package="src/Sao/Zed/Sales/Persistence"
             phpName="SaoSalesOrderAddress">
         <column name="id_sales_order_address" type="INTEGER" required="true" primaryKey="true"/>
 
@@ -56,7 +56,7 @@
         </foreign-key>
     </table>
 
-    <table name="sao_sales_order_item" package="project/Sao/Zed/Sales/Persistence"
+    <table name="sao_sales_order_item" package="src/Sao/Zed/Sales/Persistence"
             phpName="SaoSalesOrderItem">
         <column name="id_sales_order_item" type="INTEGER" required="true" primaryKey="true"/>
         <column name="fk_artist_sales" type="INTEGER" required="false"/>
@@ -101,7 +101,7 @@
         </foreign-key>
     </table>
 
-    <table name="sao_sales_order" package="project/Sao/Zed/Sales/Persistence"
+    <table name="sao_sales_order" package="src/Sao/Zed/Sales/Persistence"
             phpName="SaoSalesOrder">
 
         <column name="id_sales_order" type="INTEGER" required="true" primaryKey="true"/>
@@ -113,7 +113,7 @@
     </table>
 
 
-    <table name="sao_sales_discount" package="project/Sao/Zed/Sales/Persistence"
+    <table name="sao_sales_discount" package="src/Sao/Zed/Sales/Persistence"
             phpName="SaoSalesDiscount">
 
         <column name="id_sales_discount" type="INTEGER" required="true" primaryKey="true"/>
@@ -127,7 +127,7 @@
         </foreign-key>
     </table>
 
-    <table name="sao_sales_order_item_notification" package="project/Sao/Zed/Sales/Persistence"
+    <table name="sao_sales_order_item_notification" package="src/Sao/Zed/Sales/Persistence"
             phpName="SaoSalesOrderItemNotification">
 
         <column name="id_sao_sales_order_item_notification" type="INTEGER" required="true" autoIncrement="true"

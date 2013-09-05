@@ -5,7 +5,7 @@
           xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
           xsi:noNamespaceSchemaLocation="http://xsd.propelorm.org/1.6/database.xsd">
 
-    <table name="sao_mail_template" package="project/Sao/Zed/Mail/Persistence"  phpName="SaoMailTemplate">
+    <table name="sao_mail_template" package="src/Sao/Zed/Mail/Persistence"  phpName="SaoMailTemplate">
         <column name="id_mail_template" type="INTEGER" required="true" primaryKey="true" autoIncrement="true" />
         <column name="name" type="VARCHAR" size="50" required="true" />
         <column name="subject" type="VARCHAR" size="255" required="false" />
@@ -31,7 +31,7 @@
 
     </table>
 
-    <table name="sao_mail_sequence" package="project/Sao/Zed/Mail/Persistence"  phpName="SaoMailSequence">
+    <table name="sao_mail_sequence" package="src/Sao/Zed/Mail/Persistence"  phpName="SaoMailSequence">
         <column name="id_mail_sequence" type="INTEGER" required="true" primaryKey="true" autoIncrement="true" />
         <column name="name" type="VARCHAR" size="255" required="true" description="internal display name"/>
         <unique>
@@ -39,7 +39,7 @@
         </unique>
     </table>
 
-    <table name="sao_mail_sequence_element" package="project/Sao/Zed/Mail/Persistence"  phpName="SaoMailSequenceElement">
+    <table name="sao_mail_sequence_element" package="src/Sao/Zed/Mail/Persistence"  phpName="SaoMailSequenceElement">
         <column name="id_mail_sequence_element" type="INTEGER" required="true" primaryKey="true" autoIncrement="true" />
         <column name="name" type="VARCHAR" size="255" required="true" />
         <column name="template" type="VARCHAR" size="255" required="true" description="Explicit no FK to template table. As so you will be able to use other template systems with the sequences." />
@@ -60,7 +60,7 @@
         </unique>
     </table>
 
-    <table name="sao_mail_sequence_step" package="project/Sao/Zed/Mail/Persistence"  phpName="SaoMailSequenceStep">
+    <table name="sao_mail_sequence_step" package="src/Sao/Zed/Mail/Persistence"  phpName="SaoMailSequenceStep">
         <column name="id_mail_sequence_step" type="INTEGER" required="true" primaryKey="true" />
         <column name="step" type="VARCHAR" size="30" required="true" description="used for ajax calls to set current step" />
 
@@ -69,7 +69,7 @@
         </foreign-key>
     </table>
 
-    <table name="sao_mail_sequence_element_codepool" package="project/Sao/Zed/Mail/Persistence"  phpName="SaoMailSequenceElementCodepool">
+    <table name="sao_mail_sequence_element_codepool" package="src/Sao/Zed/Mail/Persistence"  phpName="SaoMailSequenceElementCodepool">
         <column name="id_mail_sequence_element_codepool" type="INTEGER" required="true" primaryKey="true" />
         <column name="fk_salesrule_codepool" type="INTEGER" required="true" />
         <column name="code_valid_to_interval" type="CHAR" size="50" required="true" />
@@ -83,7 +83,7 @@
         </foreign-key>
     </table>
 
-    <table name="sao_mail_sequence_cart_user_code" package="project/Sao/Zed/Mail/Persistence"  phpName="SaoMailSequenceCartUserCode">
+    <table name="sao_mail_sequence_cart_user_code" package="src/Sao/Zed/Mail/Persistence"  phpName="SaoMailSequenceCartUserCode">
         <column name="id_mail_sequence_cart_user_code" type="INTEGER" required="true" primaryKey="true" autoIncrement="true" />
         <column name="fk_cart_user" type="INTEGER" required="true" />
         <column name="fk_mail_sequence" type="INTEGER" required="true" />
@@ -110,7 +110,7 @@
         </unique>
     </table>
 
-    <table name="sao_mail_sequence_cart_user_blacklist" package="project/Sao/Zed/Mail/Persistence"  phpName="SaoMailSequenceCartUserBlacklist">
+    <table name="sao_mail_sequence_cart_user_blacklist" package="src/Sao/Zed/Mail/Persistence"  phpName="SaoMailSequenceCartUserBlacklist">
         <column name="id_mail_sequence_cart_user_blacklist" type="INTEGER" required="true" primaryKey="true" />
 
         <foreign-key foreignTable="pac_cart_user" phpName="CartUser" refPhpName="SaoMailSequenceCartUserBlacklist">

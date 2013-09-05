@@ -1,12 +1,12 @@
 <?xml version="1.0"?>
 <database name="zed"
           defaultIdMethod="native"
-          package="project/Sao/Zed/Catalog/Persistence"
+          package="src/Sao/Zed/Catalog/Persistence"
           defaultPhpNamingMethod="underscore"
           xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
           xsi:noNamespaceSchemaLocation="http://xsd.propelorm.org/1.6/database.xsd">
 
-    <table name="sao_catalog_product_category_boost" package="project/Sao/Zed/Catalog/Persistence"  phpName="SaoCatalogProductCategoryBoost">
+    <table name="sao_catalog_product_category_boost" package="src/Sao/Zed/Catalog/Persistence"  phpName="SaoCatalogProductCategoryBoost">
         <column name="id_catalog_product_category_boost" type="INTEGER" required="true" primaryKey="true" autoIncrement="true" />
         <column name="fk_catalog_product_category" type="INTEGER" required="true" />
         <column name="boost" type="INTEGER" required="true" />

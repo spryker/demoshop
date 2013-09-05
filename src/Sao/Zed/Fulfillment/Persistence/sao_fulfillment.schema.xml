@@ -5,7 +5,7 @@
           xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
           xsi:noNamespaceSchemaLocation="http://xsd.propelorm.org/1.6/database.xsd">
 
-    <table name="sao_fulfillment_provider" idMethod="native" package="project/Sao/Zed/Fulfillment/Persistence"  phpName="SaoFulfillmentProvider">
+    <table name="sao_fulfillment_provider" idMethod="native" package="src/Sao/Zed/Fulfillment/Persistence"  phpName="SaoFulfillmentProvider">
         <column name="id_provider" required="true" type="INTEGER" autoIncrement="true" primaryKey="true"/>
         <column name="legacy_id" required="true" type="INTEGER"/>
         <column name="name" type="VARCHAR" size="255" required="true"/>
@@ -22,7 +22,7 @@
         </unique>
     </table>
 
-    <table name="sao_fulfillment_quote" package="project/Sao/Zed/Fulfillment/Persistence"  phpName="SaoFulfillmentQuote">
+    <table name="sao_fulfillment_quote" package="src/Sao/Zed/Fulfillment/Persistence"  phpName="SaoFulfillmentQuote">
         <column name="id_quote" type="INTEGER" required="true" primaryKey="true" autoIncrement="true"/>
         <column name="fk_sales_order" type="INTEGER" required="true"/>
         <column name="fk_fulfillment_provider" required="true" type="INTEGER"/>
@@ -34,7 +34,7 @@
         <column name="shipping_price" type="INTEGER"/>
         <column name="shipping_freight" type="INTEGER"/>
         <column name="shipping_tax_duties" type="INTEGER"/>
-        <column name="shipping_currency_code" type="VARCHAR" size="20"/>    
+        <column name="shipping_currency_code" type="VARCHAR" size="20"/>
         <column name="packing_slip_url_front" type="VARCHAR" size="255"/>
         <column name="packing_slip_url_back" type="VARCHAR" size="255"/>
         <column name="provider_order_number" type="VARCHAR" size="20"/>
@@ -55,7 +55,7 @@
         </foreign-key>
     </table>
 
-    <table name="sao_fulfillment_quote_item" package="project/Sao/Zed/Fulfillment/Persistence"  phpName="SaoFulfillmentQuoteItem" isCrossRef="true">
+    <table name="sao_fulfillment_quote_item" package="src/Sao/Zed/Fulfillment/Persistence"  phpName="SaoFulfillmentQuoteItem" isCrossRef="true">
         <column name="fk_fulfillment_quote" type="INTEGER" required="true" primaryKey="true"/>
         <column name="fk_sales_order_item" type="INTEGER" required="true" primaryKey="true"/>
 
@@ -69,7 +69,7 @@
         </foreign-key>
     </table>
 
-    <table name="sao_fulfillment_shipping_agent" package="project/Sao/Zed/Fulfillment/Persistence"  phpName="SaoFulfillmentShippingAgent">
+    <table name="sao_fulfillment_shipping_agent" package="src/Sao/Zed/Fulfillment/Persistence"  phpName="SaoFulfillmentShippingAgent">
         <column name="id_shipping_agent" type="INTEGER" required="true" primaryKey="true" autoIncrement="true"/>
         <column name="internal_name" type="VARCHAR" size="50"/>
         <column name="name" type="VARCHAR" size="50"/>
@@ -82,7 +82,7 @@
         </unique>
     </table>
 
-    <table name="sao_fulfillment_shipping_tracking" package="project/Sao/Zed/Fulfillment/Persistence"  phpName="SaoFulfillmentShippingTracking">
+    <table name="sao_fulfillment_shipping_tracking" package="src/Sao/Zed/Fulfillment/Persistence"  phpName="SaoFulfillmentShippingTracking">
         <column name="id_shipping_tracking" type="INTEGER" required="true" primaryKey="true" autoIncrement="true"/>
         <column name="fk_shipping_agent" type="INTEGER" required="true"/>
         <column name="fk_quote" type="INTEGER" required="true"/>
@@ -99,7 +99,7 @@
         </foreign-key>
     </table>
 
-    <table name="sao_fulfillment_shipping_tracking_status_history" package="project/Sao/Zed/Fulfillment/Persistence"  phpName="SaoFulfillmentShippingTrackingStatusHistory">
+    <table name="sao_fulfillment_shipping_tracking_status_history" package="src/Sao/Zed/Fulfillment/Persistence"  phpName="SaoFulfillmentShippingTrackingStatusHistory">
         <column name="id_shipping_tracking_status_history" type="INTEGER" required="true" primaryKey="true" autoIncrement="true"/>
         <column name="fk_shipping_tracking" type="INTEGER" required="true"/>
         <column name="code" type="VARCHAR" size="8" />
@@ -111,7 +111,7 @@
         </foreign-key>
     </table>
 
-    <table name="sao_fulfillment_print_product" idMethod="native" package="project/Sao/Zed/Fulfillment/Persistence"
+    <table name="sao_fulfillment_print_product" idMethod="native" package="src/Sao/Zed/Fulfillment/Persistence"
             phpName="SaoFulfillmentPrintProduct">
         <column name="id_print_product" required="true" type="INTEGER" autoIncrement="true" primaryKey="true"/>
         <column name="legacy_product_id" type="INTEGER" required="true"/>
@@ -132,7 +132,7 @@
         </foreign-key>
     </table>
 
-    <table name="sao_fulfillment_shipping_pickup" package="project/Sao/Zed/Fulfillment/Persistence"  phpName="SaoFulfillmentShippingPickup">
+    <table name="sao_fulfillment_shipping_pickup" package="src/Sao/Zed/Fulfillment/Persistence"  phpName="SaoFulfillmentShippingPickup">
         <column name="id_sales_order_item" type="INTEGER" required="true" primaryKey="true" />
         <column name="date" type="DATE" required="true" />
         <column name="ready_time" type="TIME" required="true" />
