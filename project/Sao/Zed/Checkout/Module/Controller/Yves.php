@@ -76,7 +76,7 @@ class Sao_Zed_Checkout_Module_Controller_Yves extends ProjectA_Zed_Checkout_Modu
         )
         ) {
             $this->setSuccess(false);
-            $this->addMessage(ProjectA_Shared_Library_Messages::CHECKOUT_ERROR_PAYMENT_METHOD_NOT_ALLOWED);
+            $this->addMessage(ProjectA_Shared_Checkout_Code_Messages::ERROR_PAYMENT_METHOD_NOT_ALLOWED);
             return false;
         }
 

@@ -1,9 +1,6 @@
 <?php
 
-/**
- * @author Marco Roßdeutscher <marco.rossdeutscher@project-a.com>
- */
-class Sao_Zed_Yves_Component_Model_Export_Exporter_Solr_Products extends ProjectA_Zed_Yves_Component_Model_Export_Exporter_Products implements
+class Sao_Zed_Yves_Component_Model_Export_Exporter_Solr_Products extends ProjectA_Zed_Catalog_Component_Exporter_Products implements
     ProjectA_Zed_Price_Component_Dependency_Facade_Interface,
     ProjectA_Zed_Solr_Component_Dependency_Facade_Interface,
     ProjectA_Zed_Yves_Component_Interface_Exporter_Solr

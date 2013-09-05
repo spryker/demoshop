@@ -1,17 +1,9 @@
 <phpunit>
-    <listeners>
-        <listener class="ProjectA\Shared\Library\SystemUnderTest\Bootstrap">
-            <arguments>
-                <string>Zed</string>
-            </arguments>
-        </listener>
-    </listeners>
     <testsuite name="Project Code">
         <directory>../../project/</directory>
     </testsuite>
     <php>
         <env name="APPLICATION_ENV" value="testing" />
-        <env name="APPLICATION_STORE" value="US" />
         <server name="REQUEST_URI" value="http://zed.us.demoshop/" />
     </php>
 </phpunit>

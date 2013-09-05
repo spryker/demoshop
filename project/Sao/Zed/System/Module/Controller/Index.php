@@ -38,7 +38,7 @@ class Sao_Zed_System_Module_Controller_Index extends ProjectA_Zed_System_Module_
             );
         }
 
-        $urlConfig = ProjectA_Shared_Library_Config::get('url');
+        $urlConfig = ProjectA_Shared_Library_Config::get('host');
         $this->view->mappings = $mappings;
         $this->view->yvesUrl = $urlConfig['yves'];
     }

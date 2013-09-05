@@ -51,7 +51,7 @@ class Sao_Zed_Mail_Component_Model_Collector_PayoutRequestPossible extends Sao_Z
         $product = $this->getProductByEntity($orderItemEntity);
         $orderEntity = $orderItemEntity->getOrder();
 
-        $accountUrl = ProjectA_Shared_Library_Config::get('url')->legacy;
+        $accountUrl = ProjectA_Shared_Library_Config::get('host')->legacy;
         $accountUrl .= '/accounts/items';
 
         $profileName = $product[Sao_Shared_Library_Catalog_Interface_ProductAttributeConstant::ATTRIBUTE_ARTIST_FIRST_NAME]

@@ -20,7 +20,7 @@ class Sao_Zed_Checkout_Component_Model_Workflow_Task_Validation_CheckStock exten
         foreach($quantityPerSku as $sku => $quantity){
             $stock = $this->facadeCatalog->getProductStockBySku($sku);
             if($stock < $quantity){
-                $this->addError(Sao_Shared_Library_Messages::CHECKOUT_ERROR_OUT_OF_STOCK);
+                $this->addError(ProjectA_Shared_Checkout_Code_Messages::ERROR_OUT_OF_STOCK);
             }
         }
     }

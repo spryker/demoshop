@@ -120,24 +120,22 @@ $config['jenkins'] = array(
  *
  * STORE
  */
-$config['url'] = array(
-    'yves'          => 'saatchionline.com',
-    'zed'           => 'zed.saatchionline.com',
-    'legacy'        => 'www.saatchionline.com',
-    'legacyUserProfile' => 'www.saatchionline.com/profile/',
+$config['host'] = array(
+    'yves'          => '',
+    'zed'           => '',
+    'zed_local'     => '',
 
-    'proxy'         => null,
-
-    'static_assets' => 'static.saatchionline.com',
-    'static_media'  => 'static.saatchionline.com',
+    'static_assets' => '',
+    'static_media'  => '',
 );
 
-$config['url_ssl'] = array(
-    'yves'          => 'saatchionline.com',
-    'zed'           => 'zed.saatchionline.com',
+$config['host_ssl'] = array(
+    'yves'          => '',
+    'zed'           => '',
+    'zed_local'     => '',
 
-    'static_assets' => 'static.saatchionline.com',
-    'static_media'  => 'static.saatchionline.com',
+    'static_assets' => '',
+    'static_media'  => '',
 );
 
 /**
@@ -151,13 +149,14 @@ $config['log'] = array(
 );
 
 /**
- * @deprecated
  * TODO move to Yves config
  */
 $config['transfer'] = array(
-    'transfer_log'                      => false,
-    'debug_session_forward_enabled'     => false,
-    'debug_session_name'                => 'XDEBUG_SESSION'
+    'username' => 'yves',
+    'password' => 'o7&bg=Fz;nSslHBC',
+    'ssl'      => false,
+    'debug_session_forward_enabled' => false,
+    'debug_session_name' => 'XDEBUG_SESSION'
 );
 
 /**
@@ -226,58 +225,16 @@ $config['zed'] = array(
     ),
 );
 
-$config['yves'] = array(
-    'username'       => 'yves',
-    'password'       => 'o7&bg=Fz;nSslHBC',
+$config['yves'] = [
     'theme'          => 'saatchi',
     'currency'       => 'USD',
-    'https_enabled'  => true,
-    'session'        => array(
+    'session'        => [
         'save_handler' => null,
         'save_path'    => null,
         'name'         => null,
         'domain'       => null,
-    ),
-    'url_prefixes'   => array(
-        'products' => array(
-            'path_prefix' => '/product/',
-        ),
-        'minify'   => array(
-            'path_prefix' => '/', /* needs to be root (/), for relative css links to work (in minified styles) */
-        ),
-        'styles'   => array(
-            'path_prefix' => '/styles/',
-        ),
-        'scripts'  => array(
-            'path_prefix' => '/scripts/',
-        ),
-        'images'   => array(
-            'path_prefix' => '/images/',
-        ),
-        'sitemap'  => array(
-            'path_prefix' => '/sitemap/',
-        ),
-        'leaflets' => array(
-            'path_prefix' => '/leaflets/',
-        ),
-        'cmsfiles' => array(
-            'path_prefix' => 'cms-files/',
-        )
-    ),
-    'ssl_modules'    => array(
-        'checkout',
-        'customer',
-        'cep',
-        'transactionstatus',
-        'legacy'
-    ),
-    'browserConsole' => true,
-    'livechat'       => true,
-    'tracking_mcm'   => array(
-        'enabled' => false,
-        'minify'  => true
-    )
-);
+    ]
+];
 
 $config['ftp_proxy'] = array(
     'lftp_binary' => '/usr/bin/lftp',

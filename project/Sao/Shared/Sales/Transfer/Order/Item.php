@@ -64,7 +64,7 @@ class Sao_Shared_Sales_Transfer_Order_Item extends ProjectA_Shared_Sales_Transfe
     /**
      * @param bool $isMerged
      *
-     * @return ProjectA_Shared_Cart_Transfer_Item
+     * @return $this
      */
     public function setIsMerged($isMerged)
     {

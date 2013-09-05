@@ -1,4 +1,0 @@
-<?php
-class Sao_Yves_Payment_Component_Model_Mundipagg extends ProjectA_Yves_Payment_Component_Model_Mundipagg
-{
-}
