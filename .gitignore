@@ -15,7 +15,7 @@
 /config/Zed/phpunit.core.xml
 /config/Zed/phpunit.xml
 
-/project/Generated
+/src/Generated
 /vendor/
 
 /data/*
