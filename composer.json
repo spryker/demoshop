@@ -9,7 +9,6 @@
         "project-a/dependency-package": "*",
         "project-a/crm-package": "2.0.0.x-dev",
         "project-a/dwh-package": "2.0.0.x-dev",
-        "project-a/em-package": "2.0.0.x-dev",
         "project-a/frontend-package": "2.0.0.x-dev",
         "project-a/glossary-package": "2.0.0.x-dev",
         "project-a/infrastructure-package": "2.0.0.x-dev",
