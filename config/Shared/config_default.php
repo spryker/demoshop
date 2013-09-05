@@ -96,7 +96,8 @@ $config['memcache'] = array(
  */
 $config['solr'] = array(
     'base_url'        => 'http://127.0.0.1:8080',
-    'application_dir' => APPLICATION_ROOT . '/core/Solr',
+    'config_dir' => APPLICATION_ROOT . '/config/Zed/solr',
+    'application_dir' => APPLICATION_VENDOR_DIR . '/project-a/infrastructure-package/bin/',
 
     // TODO: change to NEW (needs server adjustments): PalShared_Data::getLocalCommonPath('solr'),
     'data_dir'        => APPLICATION_ROOT . '/data/solr',
