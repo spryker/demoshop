@@ -126,13 +126,10 @@ class Bootstrap extends Zend_Application_Bootstrap_Bootstrap
      */
     protected function _initTranslate()
     {
-        $content = APPLICATION_VENDOR_DIR . '/project-a/infrastructure-package/ProjectA/Zed/Application/Module/Language/' . ProjectA_Shared_Library_Store::getInstance()->getCurrentLanguage() . '/lang.csv';
-        Zend_Registry::set('Zend_Translate', $this->getTranslate('csv', $content));
-        $content = $this->getMemcacheTranslation();
-        if (!$content) {
-            return;
-        }
-        Zend_Registry::getInstance()->get('Zend_Translate')->getAdapter()->addTranslation($this->getTranslate('array', $content));
+        $pathToLanguageFile = APPLICATION_ROOT.'/config/Zed/language/';
+        $pathToLanguageFile .= ProjectA_Shared_Library_Store::getInstance()->getCurrentLanguage() . '/lang.csv';
+
+        Zend_Registry::set('Zend_Translate', $this->getTranslate('csv', $pathToLanguageFile));
     }
 
     /**
@@ -148,20 +145,6 @@ class Bootstrap extends Zend_Application_Bootstrap_Bootstrap
             'content' => $content,
             'locale' => ProjectA_Shared_Library_Store::getInstance()->getCurrentLocale()
         ));
-    }
-
-    /**
-     * Without try catch, heartbeat check could not run properly
-     *
-     * @return array|bool|string
-     */
-    protected function getMemcacheTranslation()
-    {
-        try {
-            return ProjectA_Zed_Library_Memcached::getInstance()->get(ProjectA_Shared_Library_Storage::getTranslationGroupedKey('yves'));
-        } catch (Exception $e) {
-            return false;
-        }
     }
 
     /**
