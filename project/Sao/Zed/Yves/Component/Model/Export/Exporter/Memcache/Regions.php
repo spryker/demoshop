@@ -1,8 +1,6 @@
 <?php
 
 /**
- * Class Sao_Zed_Yves_Component_Model_Export_Exporter_Memcache_Regions
- *
  * @property Sao_Zed_Misc_Component_Facade $facadeMisc
  */
 class Sao_Zed_Yves_Component_Model_Export_Exporter_Memcache_Regions implements

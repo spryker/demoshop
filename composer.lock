@@ -7,16 +7,16 @@
     "packages": [
         {
             "name": "aws/aws-sdk-php",
-            "version": "2.4.4",
+            "version": "2.4.5",
             "source": {
                 "type": "git",
                 "url": "https://github.com/aws/aws-sdk-php.git",
-                "reference": "c36675042ca50d836a10477db9172d77383277fd"
+                "reference": "917a12bea2f254e795b47af1d62626b5a38e2dd1"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/aws/aws-sdk-php/zipball/c36675042ca50d836a10477db9172d77383277fd",
-                "reference": "c36675042ca50d836a10477db9172d77383277fd",
+                "url": "https://api.github.com/repos/aws/aws-sdk-php/zipball/917a12bea2f254e795b47af1d62626b5a38e2dd1",
+                "reference": "917a12bea2f254e795b47af1d62626b5a38e2dd1",
                 "shasum": ""
             },
             "require": {
@@ -69,7 +69,7 @@
                 "s3",
                 "sdk"
             ],
-            "time": "2013-08-29 17:15:08"
+            "time": "2013-09-04 20:21:06"
         },
         {
             "name": "digital-canvas/zend-framework",
@@ -906,7 +906,7 @@
             "source": {
                 "type": "git",
                 "url": "git@codebasehq.com:project-a/core/library-2.git",
-                "reference": "7b33b86d9796686e7726ca66f7edc0a45aea8c6a"
+                "reference": "9a247f52b40f4b4ff339b802280c009309485945"
             },
             "require": {
                 "digital-canvas/zend-framework": ">=1.12.2",
@@ -938,7 +938,7 @@
                 }
             ],
             "description": "Core Library",
-            "time": "2013-09-04 16:42:35"
+            "time": "2013-09-04 17:07:24"
         },
         {
             "name": "project-a/lumberjack-package",

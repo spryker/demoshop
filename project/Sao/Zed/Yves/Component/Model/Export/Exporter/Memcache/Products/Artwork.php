@@ -1,11 +1,10 @@
 <?php
 
 /**
- * @author Marco Roßdeutscher <marco.rossdeutscher@project-a.com>
  * @property Generated_Zed_Yves_Component_Factory $factory
  * @property Sao_Zed_Catalog_Component_Facade $facadeCatalog
  */
-class Sao_Zed_Yves_Component_Model_Export_Exporter_Memcache_Products_Artwork extends ProjectA_Zed_Yves_Component_Model_Export_Exporter_Products implements
+class Sao_Zed_Yves_Component_Model_Export_Exporter_Memcache_Products_Artwork extends ProjectA_Zed_Catalog_Component_Exporter_Products implements
     ProjectA_Zed_Yves_Component_Interface_Exporter_Memcache,
     Sao_Shared_Library_Catalog_Interface_ProductAttributeConstant,
     Sao_Shared_Library_Catalog_Interface_ProductAttributeSetConstant,
