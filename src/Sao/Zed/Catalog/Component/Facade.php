@@ -16,27 +16,11 @@ class Sao_Zed_Catalog_Component_Facade extends ProjectA_Zed_Catalog_Component_Fa
     }
 
     /**
-     * @return Sao_Zed_Catalog_Component_Model_Yves_QueryBuilder_Memcache_Artwork
+     * @return Sao_Zed_Catalog_Component_Exporter_Memcache_Artwork
      */
-    public function getQueryBuilderMemcacheArtwork()
+    public function getExporterMemcacheArtwork()
     {
-        return $this->factory->getModelYvesQueryBuilderMemcacheArtwork();
-    }
-
-    /**
-     * @return Sao_Zed_Catalog_Component_Model_Yves_QueryBuilder_Solr_Manufacture
-     */
-    public function getQueryBuilderSolrManufacture()
-    {
-        return $this->factory->getModelYvesQueryBuilderSolrManufacture();
-    }
-
-    /**
-     * @return Sao_Zed_Catalog_Component_Model_Yves_QueryBuilder_Solr_Marketplace
-     */
-    public function getQueryBuilderSolrMarketplace()
-    {
-        return $this->factory->getModelYvesQueryBuilderSolrMarketplace();
+        return $this->factory->getExporterMemcacheArtwork();
     }
 
     /**

@@ -1,5 +1,7 @@
 <?php
-
+/**
+ * @property Sao_Zed_Catalog_Component_Facade $facadeCatalog
+ */
 class Sao_Zed_Yves_Component_Settings extends ProjectA_Zed_Yves_Component_Settings implements
     ProjectA_Zed_Cms_Component_Dependency_Facade_Interface,
     ProjectA_Zed_Glossary_Component_Dependency_Facade_Interface,
@@ -31,16 +33,15 @@ class Sao_Zed_Yves_Component_Settings extends ProjectA_Zed_Yves_Component_Settin
     public function getMemcacheExporters($exportIdentifier)
     {
         //@TODO currently all exporters are activated to test them, remove unneeded later on
-        $result[] = $this->facadeCms->getExporterMemcacheCms();
-        $result[] = $this->facadeCms->getExporterMemcacheRedirection();
-        $result[] = $this->facadeGlossary->getExporterMemcacheGlossary();
-////        $result[] = $this->factory->getModelExportExporterMemcacheProductsArtwork();
+        #$result[] = $this->facadeCms->getExporterMemcacheCms();
+        #$result[] = $this->facadeCms->getExporterMemcacheRedirection();
+        #$result[] = $this->facadeGlossary->getExporterMemcacheGlossary();
+        $result[] = $this->facadeCatalog->getExporterMemcacheArtwork(); //we need to adjusted this one to the new attribute set
         $result[] = $this->facadeCategory->getExporterMemcacheCategories();
-////        $result[] = $this->factory->getModelExportExporterMemcacheProductOptions();
 //        $result[] = $this->factory->getModelExportExporterMemcacheRegions();
-        $result[] = $this->facadeMisc->getExporterMemcacheCountry();
-        $result[] = $this->facadeCatalog->getExporterMemcacheBrands();
-        $result[] = $this->facadeCatalog->getExporterMemcacheProductOptions();
+        #$result[] = $this->facadeMisc->getExporterMemcacheCountry();
+        #$result[] = $this->facadeCatalog->getExporterMemcacheBrands();
+        #$result[] = $this->facadeCatalog->getExporterMemcacheProductOptions();
         return $result;
     }
 }
