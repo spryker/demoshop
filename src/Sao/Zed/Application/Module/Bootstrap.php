@@ -70,9 +70,9 @@ class Bootstrap extends Zend_Application_Bootstrap_Bootstrap
         }
 
         libxml_disable_entity_loader(false);
-        $config = new Zend_Config_Xml(APPLICATION_ROOT . '/config/Zed/navigation.xml');
+        $config = new Zend_Config_Xml(APPLICATION_ROOT_DIR . '/config/Zed/navigation.xml');
         $navigation = new Zend_Navigation($config);
-        require_once(APPLICATION_ROOT . '/config/Zed/navigation.php');
+        require_once(APPLICATION_ROOT_DIR . '/config/Zed/navigation.php');
         if (isset($navigations)) {
             $moduleNavigationFiles = $navigations;
             $this->addNavigationPages($moduleNavigationFiles, $navigation);
@@ -126,7 +126,7 @@ class Bootstrap extends Zend_Application_Bootstrap_Bootstrap
      */
     protected function _initTranslate()
     {
-        $pathToLanguageFile = APPLICATION_ROOT.'/config/Zed/language/';
+        $pathToLanguageFile = APPLICATION_ROOT_DIR.'/config/Zed/language/';
         $pathToLanguageFile .= ProjectA_Shared_Library_Store::getInstance()->getCurrentLanguage() . '/lang.csv';
 
         Zend_Registry::set('Zend_Translate', $this->getTranslate('csv', $pathToLanguageFile));

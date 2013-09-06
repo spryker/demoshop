@@ -24,7 +24,7 @@ class Sao_Yves_Library_Routing_Resolver_LegacyRedirect extends ProjectA_Yves_Lib
      */
     public function __construct()
     {
-        $this->modulePath = APPLICATION_PROJECT . DIRECTORY_SEPARATOR . 'Yves' . DIRECTORY_SEPARATOR . 'application'
+        $this->modulePath = APPLICATION_SOURCE_DIR . DIRECTORY_SEPARATOR . 'Yves' . DIRECTORY_SEPARATOR . 'application'
             . DIRECTORY_SEPARATOR . 'modules';
 
         $this->inboundHooks

@@ -11,7 +11,7 @@ class Sao_Yves_Library_Base_Translation extends CApplicationComponent
     public function init()
     {
         //load yves messages
-        require_once(APPLICATION_PROJECT . '/Yves/application/messages/Yves.php');
+        require_once(APPLICATION_SOURCE_DIR . '/Yves/application/messages/Yves.php');
         parent::init();
     }
 
