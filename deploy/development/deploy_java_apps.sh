@@ -1,7 +1,7 @@
 #!/bin/bash
 
-solr="core/Solr/solr.war"
-jenkins="project/Jenkins/jenkins.war"
+solr="vendor/project-a/infrastructure-package/bin/solr.war"
+jenkins="vendor/project-a/infrastructure-package/bin/jenkins.war"
 
 webapps="/data/shop/development/shared/tomcat/webapps"
 
