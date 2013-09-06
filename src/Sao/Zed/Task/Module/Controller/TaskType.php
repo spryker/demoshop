@@ -1,5 +1,0 @@
-<?php
-
-class Sao_Zed_Task_Module_Controller_TaskType extends ProjectA_Zed_Task_Module_Controller_TaskType
-{
-}

@@ -5,7 +5,7 @@
           xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
           xsi:noNamespaceSchemaLocation="http://xsd.propelorm.org/1.6/database.xsd">
 
-    <table name="sao_salesrule" package="project/Sao/Zed/Salesrule/Persistence"
+    <table name="sao_salesrule" package="src/Sao/Zed/Salesrule/Persistence"
             phpName="SaoSalesrule">
 
         <column name="id_salesrule" type="INTEGER" required="true" primaryKey="true"/>

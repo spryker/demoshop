@@ -1,5 +1,0 @@
-<?php
-
-class Sao_Zed_Setup_Module_Controller_Transfer extends ProjectA_Zed_Setup_Module_Controller_Transfer
-{
-}

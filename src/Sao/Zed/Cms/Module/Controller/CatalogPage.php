@@ -1,5 +1,0 @@
-<?php
-
-class Sao_Zed_Cms_Module_Controller_CatalogPage extends ProjectA_Zed_Cms_Module_Controller_CatalogPage
-{
-}

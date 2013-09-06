@@ -14,13 +14,13 @@
  * @var $schemata array
  */
 $schemata = array(
-    APPLICATION_PROJECT.DIRECTORY_SEPARATOR.'Sao'.DIRECTORY_SEPARATOR.'Zed'.DIRECTORY_SEPARATOR.'/Salesrule/Persistence/sao_salesrule.schema.xml',
-    APPLICATION_PROJECT.DIRECTORY_SEPARATOR.'Sao'.DIRECTORY_SEPARATOR.'Zed'.DIRECTORY_SEPARATOR.'/Legacy/Persistence/sao_legacy.schema.xml',
-    APPLICATION_PROJECT.DIRECTORY_SEPARATOR.'Sao'.DIRECTORY_SEPARATOR.'Zed'.DIRECTORY_SEPARATOR.'/Sales/Persistence/sao_sales.schema.xml',
-    APPLICATION_PROJECT.DIRECTORY_SEPARATOR.'Sao'.DIRECTORY_SEPARATOR.'Zed'.DIRECTORY_SEPARATOR.'/Fulfillment/Persistence/sao_fulfillment.schema.xml',
-    APPLICATION_PROJECT.DIRECTORY_SEPARATOR.'Sao'.DIRECTORY_SEPARATOR.'Zed'.DIRECTORY_SEPARATOR.'/Catalog/Persistence/sao_catalog.schema.xml',
-    APPLICATION_PROJECT.DIRECTORY_SEPARATOR.'Sao'.DIRECTORY_SEPARATOR.'Zed'.DIRECTORY_SEPARATOR.'/Mail/Persistence/sao_mail.schema.xml',
-    APPLICATION_PROJECT.DIRECTORY_SEPARATOR.'Sao'.DIRECTORY_SEPARATOR.'Zed'.DIRECTORY_SEPARATOR.'/Misc/Persistence/sao_misc.schema.xml',
+    APPLICATION_PROJECT.DIRECTORY_SEPARATOR.'Sao/Zed/Salesrule/Persistence/sao_salesrule.schema.xml',
+    APPLICATION_PROJECT.DIRECTORY_SEPARATOR.'Sao/Zed/Legacy/Persistence/sao_legacy.schema.xml',
+    APPLICATION_PROJECT.DIRECTORY_SEPARATOR.'Sao/Zed/Sales/Persistence/sao_sales.schema.xml',
+    APPLICATION_PROJECT.DIRECTORY_SEPARATOR.'Sao/Zed/Fulfillment/Persistence/sao_fulfillment.schema.xml',
+    APPLICATION_PROJECT.DIRECTORY_SEPARATOR.'Sao/Zed/Catalog/Persistence/sao_catalog.schema.xml',
+    APPLICATION_PROJECT.DIRECTORY_SEPARATOR.'Sao/Zed/Mail/Persistence/sao_mail.schema.xml',
+    APPLICATION_PROJECT.DIRECTORY_SEPARATOR.'Sao/Zed/Misc/Persistence/sao_misc.schema.xml',
     APPLICATION_VENDOR_DIR.DIRECTORY_SEPARATOR.'project-a'.'/acl-package/src/ProjectA/Zed/Acl/Persistence/pac_acl.schema.xml',
     APPLICATION_VENDOR_DIR.DIRECTORY_SEPARATOR.'project-a'.'/cart-package/src/ProjectA/Zed/Cart/Persistence/pac_cart.schema.xml',
     APPLICATION_VENDOR_DIR.DIRECTORY_SEPARATOR.'project-a'.'/catalog-package/src/ProjectA/Zed/Catalog/Persistence/pac_catalog.schema.xml',

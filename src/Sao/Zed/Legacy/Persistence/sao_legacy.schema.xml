@@ -5,7 +5,7 @@
           xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
           xsi:noNamespaceSchemaLocation="http://xsd.propelorm.org/1.6/database.xsd">
 
-    <table name="sao_legacy_sales_order" package="project/Sao/Zed/Legacy/Persistence"
+    <table name="sao_legacy_sales_order" package="src/Sao/Zed/Legacy/Persistence"
             phpName="SaoLegacySalesOrder">
         <column name="id_legacy_sales_order" type="INTEGER" required="true" primaryKey="true"/>
 

@@ -1,5 +1,0 @@
-<?php
-
-class Sao_Zed_Salesrule_Module_Controller_Condition extends ProjectA_Zed_Salesrule_Module_Controller_Condition
-{
-}

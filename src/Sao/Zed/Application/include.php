@@ -7,7 +7,7 @@ require_once(APPLICATION_ROOT . '/vendor/project-a/library-package/src/ProjectA/
 ProjectA\Shared\Library\Application\Environment::initialize();
 ProjectA\Shared\Library\Application\TestEnvironment::initialize();
 
-$pathToDependencyInjectionContainer = APPLICATION_PROJECT . '/Generated/Zed/DependencyInjectionContainer.php';
+$pathToDependencyInjectionContainer = APPLICATION_PROJECT . '/src/Generated/Zed/DependencyInjectionContainer.php';
 if (file_exists($pathToDependencyInjectionContainer)) {
     require_once($pathToDependencyInjectionContainer);
 }

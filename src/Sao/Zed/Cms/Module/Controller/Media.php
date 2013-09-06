@@ -1,4 +1,0 @@
-<?php
-class Sao_Zed_Cms_Module_Controller_Media extends ProjectA_Zed_Cms_Module_Controller_Media
-{
-}
