@@ -19,7 +19,7 @@ class Bootstrap extends Zend_Application_Bootstrap_Bootstrap
 
     protected function _initSession()
     {
-        if (PHP_SAPI === 'cli' && ProjectA_Shared_Library_Environment::isNotTesting()) {
+        if (PHP_SAPI === 'cli' || ProjectA_Shared_Library_Environment::isTesting()) {
             return;
         }
         $config = ProjectA_Shared_Library_Config::get('zed');
