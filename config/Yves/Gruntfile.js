@@ -342,7 +342,7 @@ module.exports = function( grunt ){
     'compass:dist',
 
     'jshint:dist',
-    'jasmine',
+//    'jasmine',  // Jasnine should be part of task "test", not "dist" - don't run tests on production
     'copy:vendor',
     'requirejs:all',
 
