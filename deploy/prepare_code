@@ -20,7 +20,7 @@ echo "Current revision: ${revision}"
 
 if is_default_store; then
   rm -rf data; ln -sf $shared_dir/data data
-  rm -rf project/Generated; ln -sf $shared_dir/Generated project/Generated
+  rm -rf src/Generated; ln -sf $shared_dir/Generated src/Generated
   rm -f config/Shared/config_local.php; ln -sf $shared_dir/config_local.php config/Shared/config_local.php
 
   # Create symlink for database dumps
@@ -67,7 +67,7 @@ if is_default_store; then
     exit 2
   fi
 fi
-chown -R www-data. project/Generated/*
+chown -R www-data. src/Generated/*
 
 
 ### node.js, Grunt

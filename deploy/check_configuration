@@ -21,8 +21,8 @@ if is_default_store; then
   fi
 
   # Check if required WAR files are present in code
-  if [ ! -f "$destination_release_dir/vendor/project-a/infrastructure-package/ProjectA/Jenkins/jenkins.war" ]; then
-    echo "ERROR: vendor/project-a/infrastructure-package/ProjectA/Jenkins/jenkins.war not found"
+  if [ ! -f "$destination_release_dir/vendor/project-a/infrastructure-package/src/ProjectA/Jenkins/jenkins.war" ]; then
+    echo "ERROR: vendor/project-a/infrastructure-package/src/ProjectA/Jenkins/jenkins.war not found"
     exit 1
   fi
 fi
