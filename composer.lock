@@ -826,7 +826,7 @@
             "source": {
                 "type": "git",
                 "url": "git@codebasehq.com:project-a/core/infrastructure.git",
-                "reference": "13f0942c988854b2af301b6423e9ad37e6c89e8a"
+                "reference": "7d88f318a2f41f5fb737ffb2f28f270eb32ef73d"
             },
             "require": {
                 "php": ">=5.4.0",
@@ -854,7 +854,7 @@
             "keywords": [
                 "infrastructure"
             ],
-            "time": "2013-09-06 15:45:41"
+            "time": "2013-09-06 15:57:42"
         },
         {
             "name": "project-a/kendo-package",
