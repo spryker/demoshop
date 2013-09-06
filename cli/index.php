@@ -28,7 +28,7 @@ if (empty($getEnv)) {
     die();
 }
 
-require_once __DIR__ . '../src/Sao/Zed/Application/include.php';
+require_once __DIR__ . '/../src/Sao/Zed/Application/include.php';
 
 define('IS_ACL_DISABLED', true);
 define('IS_CLI', true);
