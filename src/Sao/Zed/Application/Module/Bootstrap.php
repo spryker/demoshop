@@ -63,47 +63,6 @@ class Bootstrap extends Zend_Application_Bootstrap_Bootstrap
         mb_regex_encoding('UTF-8');
     }
 
-    protected function _initNavigation()
-    {
-        if (PHP_SAPI == 'cli') {
-            return;
-        }
-
-        libxml_disable_entity_loader(false);
-        $config = new Zend_Config_Xml(APPLICATION_ROOT_DIR . '/config/Zed/navigation.xml');
-        $navigation = new Zend_Navigation($config);
-        require_once(APPLICATION_ROOT_DIR . '/config/Zed/navigation.php');
-        if (isset($navigations)) {
-            $moduleNavigationFiles = $navigations;
-            $this->addNavigationPages($moduleNavigationFiles, $navigation);
-        }
-        Zend_Registry::set('Zend_Navigation', $navigation);
-    }
-
-    private function addNavigationPages(array $navigationFilesToRead, Zend_Navigation $navigation)
-    {
-        foreach ($navigationFilesToRead as $moduleNavigationFile) {
-            if (file_exists($moduleNavigationFile)) {
-                $config = new Zend_Config_Xml($moduleNavigationFile);
-                $newPages = new Zend_Navigation($config);
-                foreach ($newPages->getPages() as $newPage) {
-                    $parentId = $newPage->get('parent_id');
-                    if ($parentId) {
-                        $page = $navigation->findOneBy('id', $parentId);
-                    } else {
-                        $page = $navigation;
-                    }
-                    if (!is_null($page) && $this->checkForExistingPage($page->getPages(), $newPage->get('label'))) {
-                        $page->addPage($newPage);
-                    }
-                }
-            } else {
-                $e = new Exception('Unknown file in navigation: ' . $moduleNavigationFile);
-                ErrorLogger::log($e);
-            }
-        }
-    }
-
     private function checkForExistingPage(array $pages, $labelOfPageToLookFor)
     {
         foreach ($pages as $page) {
@@ -159,11 +118,6 @@ class Bootstrap extends Zend_Application_Bootstrap_Bootstrap
             $connection = \Propel::getConnection();
             $connection->beginTransaction();
         }
-    }
-
-    protected function _initDependencyInjector()
-    {
-        ProjectA_Zed_Library_Dependency_Injector::useInjector();
     }
 
     protected function _initActionHelper()
