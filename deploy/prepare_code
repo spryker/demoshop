@@ -58,10 +58,10 @@ if [ $? -ne 0 ]; then
   exit 1
 fi
 
-### Create factories
+### Generate Code
 if is_default_store; then
-  echo "Generating factories..."
-  APPLICATION_ENV=$environment sudo -E -u www-data php -d "newrelic.appname='Deploy($environment)'" cli/index.php --module=setup --controller=generator --action=create-factories &> $outfile
+  echo "Generating necessary files..."
+  APPLICATION_ENV=$environment sudo -E -u www-data php -d "newrelic.appname='Deploy($environment)'" vendor/bin/console generate &> $outfile
   if [ $? -ne 0 ]; then
     echo Failed, aborting. Output saved in $outfile
     exit 2
