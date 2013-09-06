@@ -20,7 +20,7 @@ echo "Current revision: ${revision}"
 
 if is_default_store; then
   rm -rf data; ln -sf $shared_dir/data data
-# rm -rf src/Generated; ln -sf $shared_dir/Generated src/Generated
+  rm -rf src/Generated; ln -sf $shared_dir/Generated src/Generated
   rm -f config/Shared/config_local.php; ln -sf $shared_dir/config_local.php config/Shared/config_local.php
 
   # Create symlink for database dumps
