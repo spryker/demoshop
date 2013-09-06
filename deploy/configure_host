@@ -28,7 +28,7 @@ if is_default_store; then
 #  # Jenkins
   [ ! -d jenkins ] && restart_tomcat=1
   rm -f jenkins.war
-  ln -s $destination_release_dir/vendor/project-a/infrastructure-package/ProjectA/Jenkins/jenkins.war .
+  ln -s $destination_release_dir/vendor/project-a/infrastructure-package/src/ProjectA/Jenkins/jenkins.war .
   if [ "$restart_tomcat" == "1" ]; then
     echo "New java applications have been deployed - restarting Tomcat..."
     /etc/init.d/tomcat?-${environment} restart

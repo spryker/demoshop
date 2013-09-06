@@ -14,7 +14,7 @@ $buildFile = new ProjectA_Zed_Library_Memory_File('build.properties', '');
 $list->add($buildFile);
 
 // include plain-php schemata-config files
-require APPLICATION_ROOT_DIR . '/config/Zed/schemata.php';
+$schemata = require APPLICATION_ROOT_DIR . '/config/Zed/schemata.php';
 
 $installer = new ProjectA_Zed_Library_Propel_Install();
 $installer->setSchemata($schemata);
