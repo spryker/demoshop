@@ -20,7 +20,7 @@ class Sao_Zed_Dwh_Component_Settings extends ProjectA_Zed_Dwh_Component_Settings
         return array(
             $this->fileDir . 'Processes/operational-data/process.xml',
             $this->fileDir . 'Processes/webtrekk-data/process.xml',
-//            APPLICATION_PROJECT . '/Zed/application/components/Sao/Dwh/Processes/mailchimp-data/process.xml',
+//            APPLICATION_SOURCE_DIR . '/Zed/application/components/Sao/Dwh/Processes/mailchimp-data/process.xml',
             $this->fileDir . 'Processes/cubes-update/process.xml',
             $this->fileDir . 'Processes/consistency-checks/process.xml',
         );

@@ -96,11 +96,11 @@ $config['memcache'] = array(
  */
 $config['solr'] = array(
     'base_url'        => 'http://127.0.0.1:8080',
-    'config_dir' => APPLICATION_ROOT . '/config/Zed/solr',
+    'config_dir' => APPLICATION_ROOT_DIR . '/config/Zed/solr',
     'application_dir' => APPLICATION_VENDOR_DIR . '/project-a/infrastructure-package/bin/',
 
     // TODO: change to NEW (needs server adjustments): PalShared_Data::getLocalCommonPath('solr'),
-    'data_dir'        => APPLICATION_ROOT . '/data/solr',
+    'data_dir'        => APPLICATION_ROOT_DIR . '/data/solr',
 );
 
 /**
@@ -113,7 +113,7 @@ $config['jenkins'] = array(
     'notify_email' => '',
 
     // TODO: change to NEW?  PalShared_Data::getLocalCommonPath('jenkins'),
-    'data_dir'     => APPLICATION_ROOT . '/data/jenkins', //PalShared_Data::getLocalCommonPath('jenkins'),
+    'data_dir'     => APPLICATION_ROOT_DIR . '/data/jenkins', //PalShared_Data::getLocalCommonPath('jenkins'),
 );
 
 /**
@@ -303,10 +303,10 @@ $config['product_images_ftp_account'] = array(
 
 $config['propel'] = array(
     'propel.project.dir'                      =>
-    APPLICATION_PROJECT . '/Generated/Zed/PropelGen/' . ProjectA_Shared_Library_Store::getInstance()->getStoreName() . '/',
+    APPLICATION_SOURCE_DIR . '/Generated/Zed/PropelGen/' . ProjectA_Shared_Library_Store::getInstance()->getStoreName() . '/',
     'propel.schema.dir'                       =>
-    APPLICATION_PROJECT . '/Generated/Zed/PropelGen/' . ProjectA_Shared_Library_Store::getInstance()->getStoreName() . '/Schema',
-    'propel.php.dir'                          => APPLICATION_ROOT,
+    APPLICATION_SOURCE_DIR . '/Generated/Zed/PropelGen/' . ProjectA_Shared_Library_Store::getInstance()->getStoreName() . '/Schema',
+    'propel.php.dir'                          => APPLICATION_ROOT_DIR,
     'propel.packageObjectModel'               => 'true',
     'propel.project'                          => 'zed',
     'propel.targetPackage'                    => 'Zed',

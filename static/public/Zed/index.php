@@ -29,7 +29,7 @@ define('IS_CLI', false);
 // Create application, bootstrap, and run
 $application = new Zend_Application(
     APPLICATION_ENV,
-    APPLICATION_ROOT . '/config/Zed/application.ini'
+    APPLICATION_ROOT_DIR . '/config/Zed/application.ini'
 );
 
 $application->bootstrap();

@@ -10,9 +10,9 @@ use Sao\Yves\Application\Bootstrap;
 define('YVES_START', microtime(true));
 
 define('APPLICATION', 'YVES');
-defined('APPLICATION_ROOT') or define('APPLICATION_ROOT', realpath(__DIR__ . '/../../..'));
+defined('APPLICATION_ROOT_DIR') or define('APPLICATION_ROOT_DIR', realpath(__DIR__ . '/../../..'));
 
-require_once(APPLICATION_ROOT . '/vendor/project-a/library-package/ProjectA/Shared/Library/Application/Environment.php');
+require_once(APPLICATION_ROOT_DIR . '/vendor/project-a/library-package/ProjectA/Shared/Library/Application/Environment.php');
 
 Environment::initialize();
 

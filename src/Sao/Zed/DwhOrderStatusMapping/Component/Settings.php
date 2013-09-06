@@ -8,7 +8,7 @@ class Sao_Zed_DwhOrderStatusMapping_Component_Settings extends ProjectA_Zed_DwhO
      */
     public function getStatusMappingFileName()
     {
-        return APPLICATION_PROJECT . '/Sao/Zed/DwhOrderStatusMapping/Component/File/status-mapping.xml';
+        return APPLICATION_SOURCE_DIR . '/Sao/Zed/DwhOrderStatusMapping/Component/File/status-mapping.xml';
     }
 
 }
