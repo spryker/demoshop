@@ -118,12 +118,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/doctrine/inflector.git",
-                "reference": "v1.0"
+                "reference": "54b8333d2a5682afdc690060c1cf384ba9f47f08"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://github.com/doctrine/inflector/archive/v1.0.zip",
-                "reference": "v1.0",
+                "url": "https://api.github.com/repos/doctrine/inflector/zipball/54b8333d2a5682afdc690060c1cf384ba9f47f08",
+                "reference": "54b8333d2a5682afdc690060c1cf384ba9f47f08",
                 "shasum": ""
             },
             "require": {
@@ -159,7 +159,7 @@
                     "email": "kontakt@beberlei.de"
                 },
                 {
-                    "name": "Johannes Schmitt",
+                    "name": "Johannes M. Schmitt",
                     "email": "schmittjoh@gmail.com",
                     "homepage": "http://jmsyst.com",
                     "role": "Developer of wrapped JMSSerializerBundle"
@@ -177,16 +177,16 @@
         },
         {
             "name": "guzzle/guzzle",
-            "version": "v3.7.2",
+            "version": "v3.7.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/guzzle/guzzle.git",
-                "reference": "eaef90d27bb1d682e1f6ab2d77606dc0159049e6"
+                "reference": "0f16aad385528b5cf790392cb4a4d16cf600e944"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/guzzle/guzzle/zipball/eaef90d27bb1d682e1f6ab2d77606dc0159049e6",
-                "reference": "eaef90d27bb1d682e1f6ab2d77606dc0159049e6",
+                "url": "https://api.github.com/repos/guzzle/guzzle/zipball/0f16aad385528b5cf790392cb4a4d16cf600e944",
+                "reference": "0f16aad385528b5cf790392cb4a4d16cf600e944",
                 "shasum": ""
             },
             "require": {
@@ -265,7 +265,7 @@
                 "rest",
                 "web service"
             ],
-            "time": "2013-08-02 18:31:05"
+            "time": "2013-09-08 21:09:18"
         },
         {
             "name": "ircmaxell/password-compat",
@@ -311,13 +311,13 @@
             "version": "v2.2.0",
             "source": {
                 "type": "git",
-                "url": "https://github.com/nervetattoo/elasticsearch",
-                "reference": "v2.2.0"
+                "url": "https://github.com/nervetattoo/elasticsearch.git",
+                "reference": "ed9244b341e0139a4278ac9bdf3cb63d57539dfb"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://github.com/nervetattoo/elasticsearch/archive/v2.2.0.zip",
-                "reference": "v2.2.0",
+                "url": "https://api.github.com/repos/nervetattoo/elasticsearch/zipball/ed9244b341e0139a4278ac9bdf3cb63d57539dfb",
+                "reference": "ed9244b341e0139a4278ac9bdf3cb63d57539dfb",
                 "shasum": ""
             },
             "require": {
@@ -879,7 +879,7 @@
             "source": {
                 "type": "git",
                 "url": "git@codebasehq.com:project-a/core/library-2.git",
-                "reference": "4cf2187ad67ab0d934edfa925661e3fac7893caa"
+                "reference": "3784e27cf6919c1c97d4c70a61a45f9d5d77e804"
             },
             "require": {
                 "digital-canvas/zend-framework": ">=1.12.2",
@@ -910,7 +910,7 @@
                 }
             ],
             "description": "Core Library",
-            "time": "2013-09-06 15:41:17"
+            "time": "2013-09-09 07:29:08"
         },
         {
             "name": "project-a/lumberjack-package",
@@ -1182,13 +1182,13 @@
             "version": "1.0.0",
             "source": {
                 "type": "git",
-                "url": "https://github.com/php-fig/log",
-                "reference": "1.0.0"
+                "url": "https://github.com/php-fig/log.git",
+                "reference": "fe0936ee26643249e916849d48e3a51d5f5e278b"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://github.com/php-fig/log/archive/1.0.0.zip",
-                "reference": "1.0.0",
+                "url": "https://api.github.com/repos/php-fig/log/zipball/fe0936ee26643249e916849d48e3a51d5f5e278b",
+                "reference": "fe0936ee26643249e916849d48e3a51d5f5e278b",
                 "shasum": ""
             },
             "type": "library",
@@ -1882,12 +1882,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/zendframework/zf2.git",
-                "reference": "71610d712d1727b3f3f56cf1e2a2d7ff497c3d06"
+                "reference": "b90d835d6d5b720dcd0cc28725ed26689d4da87b"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/zendframework/zf2/zipball/71610d712d1727b3f3f56cf1e2a2d7ff497c3d06",
-                "reference": "71610d712d1727b3f3f56cf1e2a2d7ff497c3d06",
+                "url": "https://api.github.com/repos/zendframework/zf2/zipball/b90d835d6d5b720dcd0cc28725ed26689d4da87b",
+                "reference": "b90d835d6d5b720dcd0cc28725ed26689d4da87b",
                 "shasum": ""
             },
             "require": {
@@ -1991,7 +1991,7 @@
                 "framework",
                 "zf2"
             ],
-            "time": "2013-09-06 14:28:08"
+            "time": "2013-09-08 09:46:24"
         },
         {
             "name": "zendframework/zendpdf",
@@ -2068,7 +2068,7 @@
                 {
                     "name": "Alexandre Salomé",
                     "email": "alexandre.salome@gmail.com",
-                    "homepage": "http://alexandre-salome.fr/"
+                    "homepage": "http://alexandre-salome.fr"
                 }
             ],
             "description": "PHP Library for Selenium",
@@ -2586,6 +2586,54 @@
                 "scraper"
             ],
             "time": "2013-08-16 06:03:22"
+        },
+        {
+            "name": "fabpot/php-cs-fixer",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/fabpot/PHP-CS-Fixer.git",
+                "reference": "0623fb227f36cc74d06660c9a9e6c6566cbb965e"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/fabpot/PHP-CS-Fixer/zipball/0623fb227f36cc74d06660c9a9e6c6566cbb965e",
+                "reference": "0623fb227f36cc74d06660c9a9e6c6566cbb965e",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3.3",
+                "sebastian/diff": "1.0.*@dev",
+                "symfony/console": "~2.1",
+                "symfony/filesystem": "~2.1",
+                "symfony/finder": "~2.1"
+            },
+            "bin": [
+                "php-cs-fixer"
+            ],
+            "type": "application",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "0.3.x-dev"
+                }
+            },
+            "autoload": {
+                "psr-0": {
+                    "Symfony\\CS": "."
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Fabien Potencier",
+                    "email": "fabien@symfony.com"
+                }
+            ],
+            "description": "A script to automatically fix Symfony Coding Standard",
+            "time": "2013-09-08 11:43:40"
         },
         {
             "name": "instaclick/php-webdriver",
@@ -3110,9 +3158,10 @@
             "source": {
                 "type": "git",
                 "url": "git@codebasehq.com:project-a/core/console.git",
-                "reference": "2f9fa5370836b756206a833bee8a917b85831a98"
+                "reference": "ff9b05756a2ef88661d505cc9c4471237dbf34b7"
             },
             "require": {
+                "fabpot/php-cs-fixer": "dev-master",
                 "php": ">=5.4.0",
                 "symfony/console": "*",
                 "symfony/filesystem": "*",
@@ -3140,7 +3189,7 @@
             "keywords": [
                 "console"
             ],
-            "time": "2013-09-06 15:31:15"
+            "time": "2013-09-09 07:52:38"
         },
         {
             "name": "sanpi/behatch-contexts",
@@ -3174,6 +3223,56 @@
                 "Symfony2"
             ],
             "time": "2012-12-03 16:58:27"
+        },
+        {
+            "name": "sebastian/diff",
+            "version": "1.0.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/sebastianbergmann/diff.git",
+                "reference": "6affc0bf53304452d7f296588f6d5837070b4789"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/sebastianbergmann/diff/zipball/6affc0bf53304452d7f296588f6d5837070b4789",
+                "reference": "6affc0bf53304452d7f296588f6d5837070b4789",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3.3"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "1.0.x-dev"
+                }
+            },
+            "autoload": {
+                "classmap": [
+                    "src/"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "BSD-3-Clause"
+            ],
+            "authors": [
+                {
+                    "name": "Sebastian Bergmann",
+                    "email": "sebastian@phpunit.de",
+                    "role": "lead"
+                },
+                {
+                    "name": "Kore Nordmann",
+                    "email": "mail@kore-nordmann.de"
+                }
+            ],
+            "description": "Diff implementation",
+            "homepage": "http://www.github.com/sebastianbergmann/diff",
+            "keywords": [
+                "diff"
+            ],
+            "time": "2013-07-09 05:45:26"
         },
         {
             "name": "symfony/browser-kit",
