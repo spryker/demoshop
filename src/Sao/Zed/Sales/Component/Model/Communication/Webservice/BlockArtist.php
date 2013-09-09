@@ -27,7 +27,7 @@ class Sao_Zed_Sales_Component_Model_Communication_Webservice_BlockArtist extends
     {
         $product = $this->getProductBySku($orderItemEntity);
         $transferLegacyBlockArtist = Generated_Shared_Library_TransferLoader::getLegacyBlockArtist();
-        $transferLegacyBlockArtist->setUserId($product[Sao_Shared_Library_Catalog_Interface_ProductAttributeConstant::ATTRIBUTE_USER_ART_ID]);
+        $transferLegacyBlockArtist->setUserId($product[Sao_Shared_Catalog_Interface_ProductAttributeConstant::ATTRIBUTE_USER_ART_ID]);
         return $transferLegacyBlockArtist;
     }
 }

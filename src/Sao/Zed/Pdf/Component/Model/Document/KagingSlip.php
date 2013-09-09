@@ -326,11 +326,11 @@ class Sao_Zed_Pdf_Component_Model_Document_KagingSlip extends Sao_Zed_Pdf_Compon
 
             $rowCells = array(
                 array(
-                    'object' => $this->getImageObjectFromUrl($productModel[Sao_Shared_Library_Catalog_Interface_ProductAttributeConstant::ATTRIBUTE_ART_TINY_CROP]),
+                    'object' => $this->getImageObjectFromUrl($productModel[Sao_Shared_Catalog_Interface_ProductAttributeConstant::ATTRIBUTE_ART_TINY_CROP]),
                 ),
                 array(
-                    'text'      => $productModel[Sao_Shared_Library_Catalog_Interface_ProductAttributeConstant::ATTRIBUTE_NAME] . "\n" .
-                        $productModel[Sao_Shared_Library_Catalog_Interface_ProductAttributeConstant::ATTRIBUTE_PRODUCT_NAME] . $frame,
+                    'text'      => $productModel[Sao_Shared_Catalog_Interface_ProductAttributeConstant::ATTRIBUTE_NAME] . "\n" .
+                        $productModel[Sao_Shared_Catalog_Interface_ProductAttributeConstant::ATTRIBUTE_PRODUCT_NAME] . $frame,
                     'margin'    => 5,
                     'leading'   => 1.3,
                     'textAlign' => ProjectA_Zed_Library_Pdf_Object_Text::TEXT_ALIGN_LEFT

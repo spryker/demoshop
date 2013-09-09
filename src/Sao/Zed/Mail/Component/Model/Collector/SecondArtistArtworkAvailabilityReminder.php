@@ -54,20 +54,20 @@ class Sao_Zed_Mail_Component_Model_Collector_SecondArtistArtworkAvailabilityRemi
         $product = $this->getProductByEntity($orderItemEntity);
         $orderEntity = $orderItemEntity->getOrder();
 
-        $profileName = $product[Sao_Shared_Library_Catalog_Interface_ProductAttributeConstant::ATTRIBUTE_ARTIST_FIRST_NAME]
-            . ' ' . $product[Sao_Shared_Library_Catalog_Interface_ProductAttributeConstant::ATTRIBUTE_ARTIST_LAST_NAME];
+        $profileName = $product[Sao_Shared_Catalog_Interface_ProductAttributeConstant::ATTRIBUTE_ARTIST_FIRST_NAME]
+            . ' ' . $product[Sao_Shared_Catalog_Interface_ProductAttributeConstant::ATTRIBUTE_ARTIST_LAST_NAME];
 
         $placeholderData = array(
             'profileName' => $profileName,
-            'artTitle' => $product[Sao_Shared_Library_Catalog_Interface_ProductAttributeConstant::ATTRIBUTE_NAME],
-            'artUrl' => $legacyUrl . $product[Sao_Shared_Library_Catalog_Interface_ProductAttributeConstant::ATTRIBUTE_URL],
-            'phoneNumber' => $product[Sao_Shared_Library_Catalog_Interface_ProductAttributeConstant::ATTRIBUTE_ARTIST_PHONE],
+            'artTitle' => $product[Sao_Shared_Catalog_Interface_ProductAttributeConstant::ATTRIBUTE_NAME],
+            'artUrl' => $legacyUrl . $product[Sao_Shared_Catalog_Interface_ProductAttributeConstant::ATTRIBUTE_URL],
+            'phoneNumber' => $product[Sao_Shared_Catalog_Interface_ProductAttributeConstant::ATTRIBUTE_ARTIST_PHONE],
             'availabilityLink' => $this->getLink($orderItemEntity, $mailConfig, Sao_Zed_Sales_Component_Interface_OrderprocessConstant::EVENT_ARTWORK_IS_AVAILABLE)
         );
         $this->mailTransfer->setSubject($this->getSubject($placeholderData));
         $this->mailTransfer->setOrderId($orderEntity->getIdSalesOrder());
         $this->mailTransfer->setId($orderItemEntity->getIdSalesOrderItem());
-        $this->mailTransfer->setRecipientAddress($product[Sao_Shared_Library_Catalog_Interface_ProductAttributeConstant::ATTRIBUTE_ARTIST_EMAIL]);
+        $this->mailTransfer->setRecipientAddress($product[Sao_Shared_Catalog_Interface_ProductAttributeConstant::ATTRIBUTE_ARTIST_EMAIL]);
         $this->addPlaceholders($placeholderData);
         return $this->mailTransfer;
     }

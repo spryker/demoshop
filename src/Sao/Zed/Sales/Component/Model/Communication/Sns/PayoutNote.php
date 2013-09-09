@@ -5,7 +5,7 @@ class Sao_Zed_Sales_Component_Model_Communication_Sns_PayoutNote implements
     ProjectA_Zed_Sales_Component_Dependency_Facade_Interface,
     Sao_Zed_Aws_Component_Dependency_Facade_Interface,
     Sao_Zed_Fulfillment_Component_Dependency_Facade_Interface,
-    Sao_Shared_Library_Catalog_Interface_ProductSetConstant
+    Sao_Shared_Catalog_Interface_ProductSetConstant
 {
     use ProjectA_Zed_Catalog_Component_Dependency_Facade_Trait;
     use Sao_Zed_Aws_Component_Dependency_Facade_Trait;
@@ -33,13 +33,13 @@ class Sao_Zed_Sales_Component_Model_Communication_Sns_PayoutNote implements
         $object->order_item_id = $this->entity->getIdSalesOrderItem();
         $object->sku = $this->entity->getSku();
         $object->buyer_user_id = $this->entity->getOrder()->getSaoOrder()->getUserId();
-        $object->seller_user_id = $productModel[Sao_Shared_Library_Catalog_Interface_ProductAttributeConstant::ATTRIBUTE_ARTIST_USER_ID];
+        $object->seller_user_id = $productModel[Sao_Shared_Catalog_Interface_ProductAttributeConstant::ATTRIBUTE_ARTIST_USER_ID];
         $object->quantity = 1;
 
         $object->art_unit_price = $this->entity->getGrossPrice();
         $object->art_unit_cost = $this->getArtistCost($productEntity, $this->entity);
         $object->discount = $this->getDiscounts();
-        $object->user_art_id = $productModel[Sao_Shared_Library_Catalog_Interface_ProductAttributeConstant::ATTRIBUTE_USER_ART_ID];
+        $object->user_art_id = $productModel[Sao_Shared_Catalog_Interface_ProductAttributeConstant::ATTRIBUTE_USER_ART_ID];
 
         return json_encode($object);
     }
@@ -81,7 +81,7 @@ class Sao_Zed_Sales_Component_Model_Communication_Sns_PayoutNote implements
     {
         $productType = $this->facadeCatalog->getProductAttributeValue(
             $product,
-            Sao_Shared_Library_Catalog_Interface_ProductAttributeConstant::ATTRIBUTE_PRODUCT_SET
+            Sao_Shared_Catalog_Interface_ProductAttributeConstant::ATTRIBUTE_PRODUCT_SET
         );
         return $productType;
     }

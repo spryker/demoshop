@@ -12,8 +12,8 @@ class Sao_Zed_ArtistPortal_Component_Model_Inbound_ProductRaw implements
     ProjectA_Zed_Library_Dependency_Factory_Interface,
     ProjectA_Zed_Library_Dependency_InitInterface,
     Sao_Zed_ArtistPortal_Component_Interface_ProductValueConstant,
-    Sao_Shared_Library_Catalog_Interface_ProductAttributeConstant,
-    Sao_Shared_Library_Catalog_Interface_ProductAttributeSetConstant,
+    Sao_Shared_Catalog_Interface_ProductAttributeConstant,
+    Sao_Shared_Catalog_Interface_ProductAttributeSetConstant,
     ProjectA_Zed_Catalog_Component_Interface_GroupConstant
 {
     use ProjectA_Zed_Catalog_Component_Dependency_Facade_Trait;

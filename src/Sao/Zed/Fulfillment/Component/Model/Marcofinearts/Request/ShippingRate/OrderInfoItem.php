@@ -16,10 +16,10 @@ class Sao_Zed_Fulfillment_Component_Model_Marcofinearts_Request_ShippingRate_Ord
         $finder = $this->factory->getModelFinder();
         $product = $finder->getProductBySku($sku);
 
-        $itemHeight = $product[Sao_Shared_Library_Catalog_Interface_ProductAttributeConstant::ATTRIBUTE_SHIP_HEIGHT];
-        $itemWidth = $product[Sao_Shared_Library_Catalog_Interface_ProductAttributeConstant::ATTRIBUTE_SHIP_WIDTH];
-        $itemLength = $product[Sao_Shared_Library_Catalog_Interface_ProductAttributeConstant::ATTRIBUTE_SHIP_DEPTH];
-        $itemWeight = $product[Sao_Shared_Library_Catalog_Interface_ProductAttributeConstant::ATTRIBUTE_SHIP_WEIGHT];
+        $itemHeight = $product[Sao_Shared_Catalog_Interface_ProductAttributeConstant::ATTRIBUTE_SHIP_HEIGHT];
+        $itemWidth = $product[Sao_Shared_Catalog_Interface_ProductAttributeConstant::ATTRIBUTE_SHIP_WIDTH];
+        $itemLength = $product[Sao_Shared_Catalog_Interface_ProductAttributeConstant::ATTRIBUTE_SHIP_DEPTH];
+        $itemWeight = $product[Sao_Shared_Catalog_Interface_ProductAttributeConstant::ATTRIBUTE_SHIP_WEIGHT];
 
         $this->setHeight($itemHeight);
         $this->setWidth($itemWidth);

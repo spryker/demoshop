@@ -1,17 +1,17 @@
 <?php
 $verificationUrl = 'https://www.saatchionline.com/admin/art/verify/product_id/' .
-    $this->product[Sao_Shared_Library_Catalog_Interface_ProductAttributeConstant::ATTRIBUTE_PRODUCT_ID] .
+    $this->product[Sao_Shared_Catalog_Interface_ProductAttributeConstant::ATTRIBUTE_PRODUCT_ID] .
     '/user_id/' .
-    $this->product[Sao_Shared_Library_Catalog_Interface_ProductAttributeConstant::ATTRIBUTE_ARTIST_USER_ID] .
+    $this->product[Sao_Shared_Catalog_Interface_ProductAttributeConstant::ATTRIBUTE_ARTIST_USER_ID] .
     '/art_id/' .
-    $this->product[Sao_Shared_Library_Catalog_Interface_ProductAttributeConstant::ATTRIBUTE_USER_ART_ID];
+    $this->product[Sao_Shared_Catalog_Interface_ProductAttributeConstant::ATTRIBUTE_USER_ART_ID];
 $verificationUrl .= '/?url=https://zed.saatchionline.com/sales/order-details/index/id/' . $this->item->getOrder()->getIdSalesOrder();
 
 
 $verification = '';
 $status = $this->item->getStatus()->getName();
 if (($status == Sao_Zed_Sales_Component_Interface_OrderprocessConstant::STATE_WAITING_FOR_PRINT_FILE_CHECK_CONFIRMATION || $status == Sao_Zed_Sales_Component_Interface_OrderprocessConstant::STATE_CLARIFY_NO_PRINT_FILE_CHECK_CONFIRMATION_RECEIVED) &&
-    empty($this->product[Sao_Shared_Library_Catalog_Interface_ProductAttributeConstant::ATTRIBUTE_VERIFIED_USER_ID])
+    empty($this->product[Sao_Shared_Catalog_Interface_ProductAttributeConstant::ATTRIBUTE_VERIFIED_USER_ID])
 ) : ?>
     <span class="failure">(<a href="<?php echo $verificationUrl ?>" class="failure">verification needed</a>)</span>
 <?php endif; ?>

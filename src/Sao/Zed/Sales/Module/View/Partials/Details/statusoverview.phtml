@@ -31,11 +31,11 @@
             <?php endforeach; ?>
 
             <?php $product = $this->products[$item->getSku()]; ?>
-            <?php $name = $product[Sao_Shared_Library_Catalog_Interface_ProductAttributeConstant::ATTRIBUTE_ARTIST_FIRST_NAME] . ' '; ?>
-            <?php $name .= $product[Sao_Shared_Library_Catalog_Interface_ProductAttributeConstant::ATTRIBUTE_ARTIST_LAST_NAME]; ?>
-            <?php $email = $product[Sao_Shared_Library_Catalog_Interface_ProductAttributeConstant::ATTRIBUTE_ARTIST_EMAIL]; ?>
+            <?php $name = $product[Sao_Shared_Catalog_Interface_ProductAttributeConstant::ATTRIBUTE_ARTIST_FIRST_NAME] . ' '; ?>
+            <?php $name .= $product[Sao_Shared_Catalog_Interface_ProductAttributeConstant::ATTRIBUTE_ARTIST_LAST_NAME]; ?>
+            <?php $email = $product[Sao_Shared_Catalog_Interface_ProductAttributeConstant::ATTRIBUTE_ARTIST_EMAIL]; ?>
             <?php $url = 'http://' . $this->apUserProfileUrl; ?>
-            <?php $url .= $product[Sao_Shared_Library_Catalog_Interface_ProductAttributeConstant::ATTRIBUTE_ARTIST_USER_ID]; ?>
+            <?php $url .= $product[Sao_Shared_Catalog_Interface_ProductAttributeConstant::ATTRIBUTE_ARTIST_USER_ID]; ?>
             
             <tr>
                 <td><?php echo $item->getIdSalesOrderItem(); ?></td>
@@ -44,17 +44,17 @@
                         <a href="<?php echo $url ?>" target="_blank"><?php echo $name ?></a>
                     </p>
                     <a href="mailto:<?php echo $email ?>"><?php echo $email ?></a>
-                    <?php if ($product[Sao_Shared_Library_Catalog_Interface_ProductAttributeConstant::ATTRIBUTE_PRODUCT_SET] == 'marketplace') : ?>
+                    <?php if ($product[Sao_Shared_Catalog_Interface_ProductAttributeConstant::ATTRIBUTE_PRODUCT_SET] == 'marketplace') : ?>
                         <p>
-                            <?php echo ($product[Sao_Shared_Library_Catalog_Interface_ProductAttributeConstant::ATTRIBUTE_ARTIST_PHONE]) ? $product[Sao_Shared_Library_Catalog_Interface_ProductAttributeConstant::ATTRIBUTE_ARTIST_PHONE] . '<br>' : ''; ?>
-                            <?php echo $product[Sao_Shared_Library_Catalog_Interface_ProductAttributeConstant::ATTRIBUTE_ORIGIN_ADDRESS1]; ?>
+                            <?php echo ($product[Sao_Shared_Catalog_Interface_ProductAttributeConstant::ATTRIBUTE_ARTIST_PHONE]) ? $product[Sao_Shared_Catalog_Interface_ProductAttributeConstant::ATTRIBUTE_ARTIST_PHONE] . '<br>' : ''; ?>
+                            <?php echo $product[Sao_Shared_Catalog_Interface_ProductAttributeConstant::ATTRIBUTE_ORIGIN_ADDRESS1]; ?>
                             <br>
-                            <?php echo ($product[Sao_Shared_Library_Catalog_Interface_ProductAttributeConstant::ATTRIBUTE_ORIGIN_ADDRESS2]) ? $product[Sao_Shared_Library_Catalog_Interface_ProductAttributeConstant::ATTRIBUTE_ORIGIN_ADDRESS2] . '<br>' : ''; ?>
-                            <?php echo $product[Sao_Shared_Library_Catalog_Interface_ProductAttributeConstant::ATTRIBUTE_ORIGIN_CITY]; ?>
-                            ,<?php echo $product[Sao_Shared_Library_Catalog_Interface_ProductAttributeConstant::ATTRIBUTE_ORIGIN_ZIPCODE]; ?>
+                            <?php echo ($product[Sao_Shared_Catalog_Interface_ProductAttributeConstant::ATTRIBUTE_ORIGIN_ADDRESS2]) ? $product[Sao_Shared_Catalog_Interface_ProductAttributeConstant::ATTRIBUTE_ORIGIN_ADDRESS2] . '<br>' : ''; ?>
+                            <?php echo $product[Sao_Shared_Catalog_Interface_ProductAttributeConstant::ATTRIBUTE_ORIGIN_CITY]; ?>
+                            ,<?php echo $product[Sao_Shared_Catalog_Interface_ProductAttributeConstant::ATTRIBUTE_ORIGIN_ZIPCODE]; ?>
                             <br>
-                            <?php echo ($product[Sao_Shared_Library_Catalog_Interface_ProductAttributeConstant::ATTRIBUTE_ORIGIN_REGION]) ? $product[Sao_Shared_Library_Catalog_Interface_ProductAttributeConstant::ATTRIBUTE_ORIGIN_REGION] . '<br>' : ''; ?>
-                            <?php echo ($product[Sao_Shared_Library_Catalog_Interface_ProductAttributeConstant::ATTRIBUTE_ORIGIN_COUNTRY]) ? : $product[Sao_Shared_Library_Catalog_Interface_ProductAttributeConstant::ATTRIBUTE_ORIGIN_COUNTRY]; ?>
+                            <?php echo ($product[Sao_Shared_Catalog_Interface_ProductAttributeConstant::ATTRIBUTE_ORIGIN_REGION]) ? $product[Sao_Shared_Catalog_Interface_ProductAttributeConstant::ATTRIBUTE_ORIGIN_REGION] . '<br>' : ''; ?>
+                            <?php echo ($product[Sao_Shared_Catalog_Interface_ProductAttributeConstant::ATTRIBUTE_ORIGIN_COUNTRY]) ? : $product[Sao_Shared_Catalog_Interface_ProductAttributeConstant::ATTRIBUTE_ORIGIN_COUNTRY]; ?>
                         </p>
                     <?php endif; ?>
                 </td>

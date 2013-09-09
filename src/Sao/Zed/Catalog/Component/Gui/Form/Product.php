@@ -12,7 +12,7 @@
  */
 class Sao_Zed_Catalog_Component_Gui_Form_Product extends ProjectA_Zed_Catalog_Component_Gui_Form_Product implements
     Sao_Zed_Catalog_Component_Interface_ProductAttributeConstant,
-    Sao_Shared_Library_Catalog_Interface_ProductAttributeSetConstant,
+    Sao_Shared_Catalog_Interface_ProductAttributeSetConstant,
     ProjectA_Zed_Price_Component_Interface_PriceTypeConstants
 {
     const DISPLAYGROUP_NAME_PRODUCT = 'product';

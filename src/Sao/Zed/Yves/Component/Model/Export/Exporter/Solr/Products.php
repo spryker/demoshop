@@ -116,8 +116,8 @@ class Sao_Zed_Yves_Component_Model_Export_Exporter_Solr_Products extends Project
             $attributes = $product->toArray();
             $data[$sku]['sku'] = $sku;
             $data[$sku]['product_id'] = $product->getIdCatalogProduct();
-            $data[$sku]['product_name'] = $attributes[Sao_Shared_Library_Catalog_Interface_ProductAttributeConstant::ATTRIBUTE_NAME];
-            $data[$sku]['product_brand'] = $attributes[Sao_Shared_Library_Catalog_Interface_ProductAttributeConstant::ATTRIBUTE_BRAND];
+            $data[$sku]['product_name'] = $attributes[Sao_Shared_Catalog_Interface_ProductAttributeConstant::ATTRIBUTE_NAME];
+            $data[$sku]['product_brand'] = $attributes[Sao_Shared_Catalog_Interface_ProductAttributeConstant::ATTRIBUTE_BRAND];
             $data[$sku]['searchable_text'] = array_values(array_unique(array_filter($attributes)));
         }
 

@@ -53,12 +53,12 @@ class Sao_Zed_Mail_Component_Model_Collector_PrintFileCheckFailure extends Sao_Z
 
         $url = ProjectA_Shared_Library_Config::get('host')->legacy;
         $url .= '/upload/edit/art/';
-        $url .= $product[Sao_Shared_Library_Catalog_Interface_ProductAttributeConstant::ATTRIBUTE_PRODUCT_ID];
+        $url .= $product[Sao_Shared_Catalog_Interface_ProductAttributeConstant::ATTRIBUTE_PRODUCT_ID];
         $url .= '/artist/';
-        $url .= $product[Sao_Shared_Library_Catalog_Interface_ProductAttributeConstant::ATTRIBUTE_ARTIST_USER_ID];
+        $url .= $product[Sao_Shared_Catalog_Interface_ProductAttributeConstant::ATTRIBUTE_ARTIST_USER_ID];
 
-        $profileName = $product[Sao_Shared_Library_Catalog_Interface_ProductAttributeConstant::ATTRIBUTE_ARTIST_FIRST_NAME]
-            . ' ' . $product[Sao_Shared_Library_Catalog_Interface_ProductAttributeConstant::ATTRIBUTE_ARTIST_LAST_NAME];
+        $profileName = $product[Sao_Shared_Catalog_Interface_ProductAttributeConstant::ATTRIBUTE_ARTIST_FIRST_NAME]
+            . ' ' . $product[Sao_Shared_Catalog_Interface_ProductAttributeConstant::ATTRIBUTE_ARTIST_LAST_NAME];
 
         $placeholderData = array(
             'increment_id'   => $orderEntity->getIncrementId(), //don`t remove increment_id here, will be used by subject render
@@ -69,7 +69,7 @@ class Sao_Zed_Mail_Component_Model_Collector_PrintFileCheckFailure extends Sao_Z
         $this->mailTransfer->setSubject($this->getSubject($placeholderData));
         $this->mailTransfer->setOrderId($orderEntity->getIdSalesOrder());
         $this->mailTransfer->setId($orderItemEntity->getIdSalesOrderItem());
-        $this->mailTransfer->setRecipientAddress($product[Sao_Shared_Library_Catalog_Interface_ProductAttributeConstant::ATTRIBUTE_ARTIST_EMAIL]);
+        $this->mailTransfer->setRecipientAddress($product[Sao_Shared_Catalog_Interface_ProductAttributeConstant::ATTRIBUTE_ARTIST_EMAIL]);
         $this->addPlaceholders($placeholderData);
         return $this->mailTransfer;
     }

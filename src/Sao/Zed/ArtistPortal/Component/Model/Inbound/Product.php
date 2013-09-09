@@ -133,14 +133,14 @@ class Sao_Zed_ArtistPortal_Component_Model_Inbound_Product implements
             if (!$configEntity) {
                 $configEntity = $this->facadeCatalog->createNewConfigEntityForSimpleProduct(
                     $configSku,
-                    Sao_Shared_Library_Catalog_Interface_ProductAttributeSetConstant::ATTRIBUTESET_ARTWORK,
+                    Sao_Shared_Catalog_Interface_ProductAttributeSetConstant::ATTRIBUTESET_ARTWORK,
                     ProjectA_Zed_Catalog_Persistence_PacCatalogProductPeer::STATUS_APPROVED // how to determind the whole config is deleted?
                 );
                 $productMessage = 'The simple and config product was created with status "' . $status .'"';
             }
             $product = $this->facadeCatalog->createNewSimpleProduct(
                 $simpleSku,
-                Sao_Shared_Library_Catalog_Interface_ProductAttributeSetConstant::ATTRIBUTESET_ARTWORK,
+                Sao_Shared_Catalog_Interface_ProductAttributeSetConstant::ATTRIBUTESET_ARTWORK,
                 $configEntity->getSpecificProduct(),
                 $dataArray,
                 $status

@@ -190,21 +190,21 @@ class Sao_Zed_Sales_Component_Model_Order extends ProjectA_Zed_Sales_Component_M
         $product = $this->getProductBySku($item);
         $saoSalesOrderItem = $this->getSaoSalesOrderItem($item);
 
-        $saoSalesOrderItem->setFirstName($product[Sao_Shared_Library_Catalog_Interface_ProductAttributeConstant::ATTRIBUTE_ARTIST_FIRST_NAME]);
-        $saoSalesOrderItem->setLastName($product[Sao_Shared_Library_Catalog_Interface_ProductAttributeConstant::ATTRIBUTE_ARTIST_LAST_NAME]);
+        $saoSalesOrderItem->setFirstName($product[Sao_Shared_Catalog_Interface_ProductAttributeConstant::ATTRIBUTE_ARTIST_FIRST_NAME]);
+        $saoSalesOrderItem->setLastName($product[Sao_Shared_Catalog_Interface_ProductAttributeConstant::ATTRIBUTE_ARTIST_LAST_NAME]);
 
-        $saoSalesOrderItem->setAddress1($product[Sao_Shared_Library_Catalog_Interface_ProductAttributeConstant::ATTRIBUTE_ORIGIN_ADDRESS1]);
-        $saoSalesOrderItem->setAddress2($product[Sao_Shared_Library_Catalog_Interface_ProductAttributeConstant::ATTRIBUTE_ORIGIN_ADDRESS2]);
-        $saoSalesOrderItem->setAddress3($product[Sao_Shared_Library_Catalog_Interface_ProductAttributeConstant::ATTRIBUTE_ORIGIN_PROVINCE]);
+        $saoSalesOrderItem->setAddress1($product[Sao_Shared_Catalog_Interface_ProductAttributeConstant::ATTRIBUTE_ORIGIN_ADDRESS1]);
+        $saoSalesOrderItem->setAddress2($product[Sao_Shared_Catalog_Interface_ProductAttributeConstant::ATTRIBUTE_ORIGIN_ADDRESS2]);
+        $saoSalesOrderItem->setAddress3($product[Sao_Shared_Catalog_Interface_ProductAttributeConstant::ATTRIBUTE_ORIGIN_PROVINCE]);
 
-        $saoSalesOrderItem->setCity($product[Sao_Shared_Library_Catalog_Interface_ProductAttributeConstant::ATTRIBUTE_ORIGIN_CITY]);
-        $saoSalesOrderItem->setZipCode($product[Sao_Shared_Library_Catalog_Interface_ProductAttributeConstant::ATTRIBUTE_ORIGIN_ZIPCODE]);
+        $saoSalesOrderItem->setCity($product[Sao_Shared_Catalog_Interface_ProductAttributeConstant::ATTRIBUTE_ORIGIN_CITY]);
+        $saoSalesOrderItem->setZipCode($product[Sao_Shared_Catalog_Interface_ProductAttributeConstant::ATTRIBUTE_ORIGIN_ZIPCODE]);
 
         $this->addRegionToSalesOrderItem($product, $saoSalesOrderItem);
         $this->addCountryToSalesOrderItem($product, $saoSalesOrderItem);
 
-        $saoSalesOrderItem->setEmail($product[Sao_Shared_Library_Catalog_Interface_ProductAttributeConstant::ATTRIBUTE_ARTIST_EMAIL]);
-        $saoSalesOrderItem->setPhone($product[Sao_Shared_Library_Catalog_Interface_ProductAttributeConstant::ATTRIBUTE_ARTIST_PHONE]);
+        $saoSalesOrderItem->setEmail($product[Sao_Shared_Catalog_Interface_ProductAttributeConstant::ATTRIBUTE_ARTIST_EMAIL]);
+        $saoSalesOrderItem->setPhone($product[Sao_Shared_Catalog_Interface_ProductAttributeConstant::ATTRIBUTE_ARTIST_PHONE]);
     }
 
     /**
@@ -237,11 +237,11 @@ class Sao_Zed_Sales_Component_Model_Order extends ProjectA_Zed_Sales_Component_M
      */
     protected function addRegionToSalesOrderItem($product, Sao_Zed_Sales_Persistence_SaoSalesOrderItem $saoSalesOrderItem)
     {
-        $region = $this->getRegionByName($product[Sao_Shared_Library_Catalog_Interface_ProductAttributeConstant::ATTRIBUTE_ORIGIN_REGION]);
+        $region = $this->getRegionByName($product[Sao_Shared_Catalog_Interface_ProductAttributeConstant::ATTRIBUTE_ORIGIN_REGION]);
         if ($region) {
             $saoSalesOrderItem->setRegion($region);
         } else {
-            $regionFromState = $this->getRegionByStateShort($product[Sao_Shared_Library_Catalog_Interface_ProductAttributeConstant::ATTRIBUTE_ORIGIN_STATE]);
+            $regionFromState = $this->getRegionByStateShort($product[Sao_Shared_Catalog_Interface_ProductAttributeConstant::ATTRIBUTE_ORIGIN_STATE]);
             if ($regionFromState) {
                 $saoSalesOrderItem->setRegion($regionFromState);
             }
@@ -272,7 +272,7 @@ class Sao_Zed_Sales_Component_Model_Order extends ProjectA_Zed_Sales_Component_M
      */
     protected function addCountryToSalesOrderItem($product, Sao_Zed_Sales_Persistence_SaoSalesOrderItem $saoSalesOrderItem)
     {
-        $country = $this->getCountryByIso2Code($product[Sao_Shared_Library_Catalog_Interface_ProductAttributeConstant::ATTRIBUTE_ORIGIN_COUNTRY_CODE]);
+        $country = $this->getCountryByIso2Code($product[Sao_Shared_Catalog_Interface_ProductAttributeConstant::ATTRIBUTE_ORIGIN_COUNTRY_CODE]);
         if ($country) {
             $saoSalesOrderItem->setCountry($country);
         }

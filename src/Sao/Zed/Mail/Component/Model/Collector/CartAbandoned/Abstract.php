@@ -9,7 +9,7 @@ abstract class Sao_Zed_Mail_Component_Model_Collector_CartAbandoned_Abstract ext
      ProjectA_Zed_Salesrule_Component_Dependency_Facade_Interface,
      Sao_Zed_Mail_Component_Interface_MailConstants,
      ProjectA_Zed_Price_Component_Interface_PriceTypeConstants,
-     Sao_Shared_Library_Catalog_Interface_ProductAttributeConstant,
+     Sao_Shared_Catalog_Interface_ProductAttributeConstant,
      Sao_Zed_ArtistPortal_Component_Interface_ProductValueConstant,
      Sao_Zed_Legacy_Component_Dependency_Facade_Interface
 {

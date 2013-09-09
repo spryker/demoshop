@@ -4,7 +4,7 @@
  * @author René Klatt <rene.klatt@project-a.com>
  */
 class Sao_Zed_Sales_Component_Model_Communication_Webservice_ItemPaid extends Sao_Zed_Sales_Component_Model_Communication_Webservice_Abstract implements
-    Sao_Shared_Library_Catalog_Interface_ProductSetConstant,
+    Sao_Shared_Catalog_Interface_ProductSetConstant,
     Sao_Zed_Fulfillment_Component_Dependency_Facade_Interface
 {
     use Sao_Zed_Fulfillment_Component_Dependency_Facade_Trait;
@@ -31,8 +31,8 @@ class Sao_Zed_Sales_Component_Model_Communication_Webservice_ItemPaid extends Sa
     {
         $transferSalesOrderItemLegacy = Generated_Shared_Library_TransferLoader::getSalesOrderItemLegacy();
         $product = $this->getProductBySku($orderItemEntity);
-        $transferSalesOrderItemLegacy->setFkCustomer($product[Sao_Shared_Library_Catalog_Interface_ProductAttributeConstant::ATTRIBUTE_ARTIST_USER_ID]);
-        $transferSalesOrderItemLegacy->setUserArtId($product[Sao_Shared_Library_Catalog_Interface_ProductAttributeConstant::ATTRIBUTE_USER_ART_ID]);
+        $transferSalesOrderItemLegacy->setFkCustomer($product[Sao_Shared_Catalog_Interface_ProductAttributeConstant::ATTRIBUTE_ARTIST_USER_ID]);
+        $transferSalesOrderItemLegacy->setUserArtId($product[Sao_Shared_Catalog_Interface_ProductAttributeConstant::ATTRIBUTE_USER_ART_ID]);
         $transferSalesOrderItemLegacy->setFkSalesOrder($orderItemEntity->getFkSalesOrder());
         $transferSalesOrderItemLegacy->setIdSalesOrderItem($orderItemEntity->getIdSalesOrderItem());
         $transferSalesOrderItemLegacy->setQuantity(1);
@@ -84,7 +84,7 @@ class Sao_Zed_Sales_Component_Model_Communication_Webservice_ItemPaid extends Sa
      */
     protected function getArtistCost(ProjectA_Zed_Catalog_Component_Interface_Product $product, ProjectA_Zed_Sales_Persistence_PacSalesOrderItem $orderItemEntity)
     {
-        $productSet = $product[Sao_Shared_Library_Catalog_Interface_ProductAttributeConstant::ATTRIBUTE_PRODUCT_SET];
+        $productSet = $product[Sao_Shared_Catalog_Interface_ProductAttributeConstant::ATTRIBUTE_PRODUCT_SET];
         if ($productSet == self::PRODUCT_SET_MARKETPLACE) {
             $printProviderArtistCost = 0;
         } else {

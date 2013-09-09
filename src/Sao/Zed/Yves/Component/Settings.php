@@ -21,8 +21,7 @@ class Sao_Zed_Yves_Component_Settings extends ProjectA_Zed_Yves_Component_Settin
      */
     public function getSolrExporters($exportIdentifier)
     {
-        $result = parent::getSolrExporters($exportIdentifier);
-        $result[] = $this->factory->getModelExportExporterSolrProducts();
+        $result[] = $this->facadeCatalog->getExporterSolrArtwork();
         return $result;
     }
 

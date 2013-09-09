@@ -8,7 +8,7 @@
 class Sao_Zed_Fulfillment_Component_Model_Finder implements
     ProjectA_Zed_Catalog_Component_Dependency_Facade_Interface,
     ProjectA_Zed_Sales_Component_Dependency_Facade_Interface,
-    Sao_Shared_Library_Catalog_Interface_ProductAttributeConstant
+    Sao_Shared_Catalog_Interface_ProductAttributeConstant
 {
 
     use ProjectA_Zed_Catalog_Component_Dependency_Facade_Trait;

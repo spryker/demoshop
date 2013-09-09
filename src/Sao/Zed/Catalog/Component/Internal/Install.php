@@ -3,7 +3,7 @@
  * @property Generated_Zed_Catalog_Component_Factory $factory
  */
 class Sao_Zed_Catalog_Component_Internal_Install extends ProjectA_Zed_Catalog_Component_Internal_Install implements
-    Sao_Shared_Library_Catalog_Interface_ProductAttributeSetConstant,
+    Sao_Shared_Catalog_Interface_ProductAttributeSetConstant,
     Sao_Zed_Catalog_Component_Interface_ProductAttributeConstant
 {
     /**
@@ -14,7 +14,7 @@ class Sao_Zed_Catalog_Component_Internal_Install extends ProjectA_Zed_Catalog_Co
     /**
      * @var string
      */
-    protected $attributeSetConstantInterface = 'Sao_Shared_Library_Catalog_Interface_ProductAttributeSetConstant';
+    protected $attributeSetConstantInterface = 'Sao_Shared_Catalog_Interface_ProductAttributeSetConstant';
 
     /**
      * @return bool

@@ -111,7 +111,6 @@ class Bootstrap extends Zend_Application_Bootstrap_Bootstrap
      */
     protected function _initPropel()
     {
-        die('TinaTurner');
         $dbConfig = ProjectA_Shared_Library_Config::get('db');
         $logConfig = ProjectA_Shared_Library_Config::get('log');
         $propelConfig = APPLICATION_SOURCE_DIR

@@ -20,7 +20,7 @@ $rowSpan = 2 + count($options) + count($expenses);
     <tr>
         <td>
             <img
-                src=" <?php echo $this->product[Sao_Shared_Library_Catalog_Interface_ProductAttributeConstant::ATTRIBUTE_ART_TINY_CROP] ?>">
+                src=" <?php echo $this->product[Sao_Shared_Catalog_Interface_ProductAttributeConstant::ATTRIBUTE_ART_TINY_CROP] ?>">
         </td>
         <td>
             <p><?php echo $item->getName(); ?></p>
@@ -36,29 +36,29 @@ $rowSpan = 2 + count($options) + count($expenses);
                 </li>
                 <li>
                     <a target="_blank"
-                       href="http://www.saatchionline.com<?php echo $product[Sao_Shared_Library_Catalog_Interface_ProductAttributeConstant::ATTRIBUTE_URL]; ?>"><?php echo __('view on'); ?>
+                       href="http://www.saatchionline.com<?php echo $product[Sao_Shared_Catalog_Interface_ProductAttributeConstant::ATTRIBUTE_URL]; ?>"><?php echo __('view on'); ?>
                         saatchionline.com</a></li>
 
-                <?php if ((float)$this->product[Sao_Shared_Library_Catalog_Interface_ProductAttributeConstant::ATTRIBUTE_SHIP_HEIGHT] > 0): ?>
+                <?php if ((float)$this->product[Sao_Shared_Catalog_Interface_ProductAttributeConstant::ATTRIBUTE_SHIP_HEIGHT] > 0): ?>
                     <li>
                         <?php echo __('dimensions:'); ?><br>
-                        <?php echo number_format((float)$this->product[Sao_Shared_Library_Catalog_Interface_ProductAttributeConstant::ATTRIBUTE_SHIP_HEIGHT], 2); ?>
+                        <?php echo number_format((float)$this->product[Sao_Shared_Catalog_Interface_ProductAttributeConstant::ATTRIBUTE_SHIP_HEIGHT], 2); ?>
                         x
-                        <?php echo number_format((float)$this->product[Sao_Shared_Library_Catalog_Interface_ProductAttributeConstant::ATTRIBUTE_SHIP_WIDTH], 2); ?>
+                        <?php echo number_format((float)$this->product[Sao_Shared_Catalog_Interface_ProductAttributeConstant::ATTRIBUTE_SHIP_WIDTH], 2); ?>
                         x
-                        <?php echo number_format((float)$this->product[Sao_Shared_Library_Catalog_Interface_ProductAttributeConstant::ATTRIBUTE_SHIP_DEPTH], 2); ?> <?php echo $this->product[Sao_Shared_Library_Catalog_Interface_ProductAttributeConstant::ATTRIBUTE_SHIP_SIZE_UNIT]; ?>
+                        <?php echo number_format((float)$this->product[Sao_Shared_Catalog_Interface_ProductAttributeConstant::ATTRIBUTE_SHIP_DEPTH], 2); ?> <?php echo $this->product[Sao_Shared_Catalog_Interface_ProductAttributeConstant::ATTRIBUTE_SHIP_SIZE_UNIT]; ?>
                     </li>
                 <?php endif; ?>
-                <?php if ((float)$this->product[Sao_Shared_Library_Catalog_Interface_ProductAttributeConstant::ATTRIBUTE_SHIP_WEIGHT] > 0): ?>
+                <?php if ((float)$this->product[Sao_Shared_Catalog_Interface_ProductAttributeConstant::ATTRIBUTE_SHIP_WEIGHT] > 0): ?>
                     <li>
                         <?php echo __('weight:'); ?><br>
-                        <?php echo number_format((float)$this->product[Sao_Shared_Library_Catalog_Interface_ProductAttributeConstant::ATTRIBUTE_SHIP_WEIGHT], 2); ?> <?php echo $this->product[Sao_Shared_Library_Catalog_Interface_ProductAttributeConstant::ATTRIBUTE_SHIP_WEIGHT_UNIT]; ?>
+                        <?php echo number_format((float)$this->product[Sao_Shared_Catalog_Interface_ProductAttributeConstant::ATTRIBUTE_SHIP_WEIGHT], 2); ?> <?php echo $this->product[Sao_Shared_Catalog_Interface_ProductAttributeConstant::ATTRIBUTE_SHIP_WEIGHT_UNIT]; ?>
                     </li>
                 <?php endif; ?>
-                <?php if ($this->product[Sao_Shared_Library_Catalog_Interface_ProductAttributeConstant::ATTRIBUTE_PRODUCT_NAME] > 0): ?>
+                <?php if ($this->product[Sao_Shared_Catalog_Interface_ProductAttributeConstant::ATTRIBUTE_PRODUCT_NAME] > 0): ?>
                     <li>
                         <?php echo __('product:'); ?><br>
-                        <?php echo $this->product[Sao_Shared_Library_Catalog_Interface_ProductAttributeConstant::ATTRIBUTE_PRODUCT_NAME]; ?>
+                        <?php echo $this->product[Sao_Shared_Catalog_Interface_ProductAttributeConstant::ATTRIBUTE_PRODUCT_NAME]; ?>
                     </li>
                 <?php endif; ?>
             </ul>

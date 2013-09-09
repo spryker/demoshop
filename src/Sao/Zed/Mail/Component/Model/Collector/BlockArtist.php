@@ -48,8 +48,8 @@ class Sao_Zed_Mail_Component_Model_Collector_BlockArtist extends Sao_Zed_Mail_Co
         /* @var $orderItemEntity ProjectA_Zed_Sales_Persistence_PacSalesOrderItem */
         $orderEntity = $orderItemEntity->getOrder();
 
-        $profileName = $product[Sao_Shared_Library_Catalog_Interface_ProductAttributeConstant::ATTRIBUTE_ARTIST_FIRST_NAME]
-            . ' ' . $product[Sao_Shared_Library_Catalog_Interface_ProductAttributeConstant::ATTRIBUTE_ARTIST_LAST_NAME];
+        $profileName = $product[Sao_Shared_Catalog_Interface_ProductAttributeConstant::ATTRIBUTE_ARTIST_FIRST_NAME]
+            . ' ' . $product[Sao_Shared_Catalog_Interface_ProductAttributeConstant::ATTRIBUTE_ARTIST_LAST_NAME];
 
         /* @var $orderEntity ProjectA_Zed_Sales_Persistence_PacSalesOrder */
         $placeholderData = array(
@@ -59,7 +59,7 @@ class Sao_Zed_Mail_Component_Model_Collector_BlockArtist extends Sao_Zed_Mail_Co
         $this->mailTransfer->setSubject($this->getSubject($placeholderData));
         $this->mailTransfer->setOrderId($orderEntity->getIdSalesOrder());
         $this->mailTransfer->setId($orderItemEntity->getIdSalesOrderItem());
-        $this->mailTransfer->setRecipientAddress($product[Sao_Shared_Library_Catalog_Interface_ProductAttributeConstant::ATTRIBUTE_ARTIST_EMAIL]);
+        $this->mailTransfer->setRecipientAddress($product[Sao_Shared_Catalog_Interface_ProductAttributeConstant::ATTRIBUTE_ARTIST_EMAIL]);
         $this->addPlaceholders($placeholderData);
         return $this->mailTransfer;
     }

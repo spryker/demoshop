@@ -28,7 +28,7 @@ class Sao_Zed_Sales_Component_Model_Orderprocess_Guard_Rule_PrintFileApproved ex
         $productEntity = $this->facadeCatalog->getProductBySku($orderItem->getSku());
         $product = $this->facadeCatalog->getProduct($productEntity);
 
-        return !empty($product[Sao_Shared_Library_Catalog_Interface_ProductAttributeConstant::ATTRIBUTE_VERIFIED_USER_ID]);
+        return !empty($product[Sao_Shared_Catalog_Interface_ProductAttributeConstant::ATTRIBUTE_VERIFIED_USER_ID]);
     }
 
 }

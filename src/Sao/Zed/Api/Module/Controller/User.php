@@ -71,13 +71,13 @@ class Sao_Zed_Api_Module_Controller_User extends ProjectA_Zed_Library_Controller
                 $productEntity = $this->facadeCatalog->getProductBySku($sku);
                 $productModel = $this->facadeCatalog->getProduct($productEntity);
 
-                $itemObject['art_title'] = $productModel[Sao_Shared_Library_Catalog_Interface_ProductAttributeConstant::ATTRIBUTE_NAME];
-                $itemObject['url'] = $productModel[Sao_Shared_Library_Catalog_Interface_ProductAttributeConstant::ATTRIBUTE_URL];
-                $itemObject['product_name'] = $productModel[Sao_Shared_Library_Catalog_Interface_ProductAttributeConstant::ATTRIBUTE_PRODUCT_NAME];
+                $itemObject['art_title'] = $productModel[Sao_Shared_Catalog_Interface_ProductAttributeConstant::ATTRIBUTE_NAME];
+                $itemObject['url'] = $productModel[Sao_Shared_Catalog_Interface_ProductAttributeConstant::ATTRIBUTE_URL];
+                $itemObject['product_name'] = $productModel[Sao_Shared_Catalog_Interface_ProductAttributeConstant::ATTRIBUTE_PRODUCT_NAME];
                 //frame
-                $itemObject['seller_user_id'] = $productModel[Sao_Shared_Library_Catalog_Interface_ProductAttributeConstant::ATTRIBUTE_ARTIST_USER_ID];
-                $itemObject['user_art_id'] = $productModel[Sao_Shared_Library_Catalog_Interface_ProductAttributeConstant::ATTRIBUTE_USER_ART_ID];
-                $itemObject['art_tiny_crop'] = $productModel[Sao_Shared_Library_Catalog_Interface_ProductAttributeConstant::ATTRIBUTE_ART_TINY_CROP];
+                $itemObject['seller_user_id'] = $productModel[Sao_Shared_Catalog_Interface_ProductAttributeConstant::ATTRIBUTE_ARTIST_USER_ID];
+                $itemObject['user_art_id'] = $productModel[Sao_Shared_Catalog_Interface_ProductAttributeConstant::ATTRIBUTE_USER_ART_ID];
+                $itemObject['art_tiny_crop'] = $productModel[Sao_Shared_Catalog_Interface_ProductAttributeConstant::ATTRIBUTE_ART_TINY_CROP];
                 $itemObject['sku'] = $itemEntity->getSku();
                 $itemObject['unit_price'] = $itemEntity->getGrossPrice();
 //                $itemObject['quantity'] = $itemEntity->getVirtualColumn('quantity');

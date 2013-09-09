@@ -42,7 +42,6 @@
 
     <fields>
         <field name="sku" type="stringField" indexed="true" stored="true" required="true" />
-        <field name="product_id" type="intField" indexed="true" stored="true" required="true" />
         <field name="product_name" type="textField" indexed="true" multiValued="true" stored="false" />
         <field name="product_name_exact" type="textExactField" indexed="true" multiValued="true" stored="false" />
         <field name="product_brand" type="textField" indexed="true" multiValued="true" stored="false" />

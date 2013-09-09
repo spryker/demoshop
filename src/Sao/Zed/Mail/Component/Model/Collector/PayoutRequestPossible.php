@@ -54,12 +54,12 @@ class Sao_Zed_Mail_Component_Model_Collector_PayoutRequestPossible extends Sao_Z
         $accountUrl = ProjectA_Shared_Library_Config::get('host')->legacy;
         $accountUrl .= '/accounts/items';
 
-        $profileName = $product[Sao_Shared_Library_Catalog_Interface_ProductAttributeConstant::ATTRIBUTE_ARTIST_FIRST_NAME]
-            . ' ' . $product[Sao_Shared_Library_Catalog_Interface_ProductAttributeConstant::ATTRIBUTE_ARTIST_LAST_NAME];
+        $profileName = $product[Sao_Shared_Catalog_Interface_ProductAttributeConstant::ATTRIBUTE_ARTIST_FIRST_NAME]
+            . ' ' . $product[Sao_Shared_Catalog_Interface_ProductAttributeConstant::ATTRIBUTE_ARTIST_LAST_NAME];
 
         $placeholderData = array(
             'increment_id'   => $orderEntity->getIncrementId(),
-            'artTitle' => $product[Sao_Shared_Library_Catalog_Interface_ProductAttributeConstant::ATTRIBUTE_NAME],
+            'artTitle' => $product[Sao_Shared_Catalog_Interface_ProductAttributeConstant::ATTRIBUTE_NAME],
             'profileName' => $profileName,
             'accountUrl' => $accountUrl,
             'productType' => $this->getProductType($product)
@@ -68,7 +68,7 @@ class Sao_Zed_Mail_Component_Model_Collector_PayoutRequestPossible extends Sao_Z
         $this->mailTransfer->setSubject($this->getSubject($placeholderData));
         $this->mailTransfer->setOrderId($orderEntity->getIdSalesOrder());
         $this->mailTransfer->setId($orderItemEntity->getIdSalesOrderItem());
-        $this->mailTransfer->setRecipientAddress($product[Sao_Shared_Library_Catalog_Interface_ProductAttributeConstant::ATTRIBUTE_ARTIST_EMAIL]);
+        $this->mailTransfer->setRecipientAddress($product[Sao_Shared_Catalog_Interface_ProductAttributeConstant::ATTRIBUTE_ARTIST_EMAIL]);
         $this->addPlaceholders($placeholderData);
         return $this->mailTransfer;
     }
@@ -79,7 +79,7 @@ class Sao_Zed_Mail_Component_Model_Collector_PayoutRequestPossible extends Sao_Z
      */
     protected function getProductType($product)
     {
-        if ($product[Sao_Shared_Library_Catalog_Interface_ProductAttributeConstant::ATTRIBUTE_PRODUCT_SET] === Sao_Zed_ArtistPortal_Component_Interface_ProductValueConstant::SET_MANUFACTURE) {
+        if ($product[Sao_Shared_Catalog_Interface_ProductAttributeConstant::ATTRIBUTE_PRODUCT_SET] === Sao_Zed_ArtistPortal_Component_Interface_ProductValueConstant::SET_MANUFACTURE) {
             return 'Print';
         } else {
             return 'Original';

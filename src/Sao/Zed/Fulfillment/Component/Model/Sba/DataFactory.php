@@ -2,7 +2,7 @@
 
 class Sao_Zed_Fulfillment_Component_Model_Sba_DataFactory implements
     ProjectA_Zed_Library_Dependency_Factory_Interface,
-    Sao_Shared_Library_Catalog_Interface_ProductAttributeConstant
+    Sao_Shared_Catalog_Interface_ProductAttributeConstant
 {
 
     use ProjectA_Zed_Library_Dependency_Factory_Trait;

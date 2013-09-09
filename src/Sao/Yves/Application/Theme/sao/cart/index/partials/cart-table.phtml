@@ -53,7 +53,7 @@ if (!$editable) {
                         <?php endif; ?>
             </dl>
           <td class="item-price"><?php echo price($price); ?>
-          <?php if ( $editable && $item->getProduct()->getProductCategory() !== Sao_Shared_Library_Catalog_Interface_ProductCategoryConstant::CATEGORY_ORIGINAL ): ?>
+          <?php if ( $editable && $item->getProduct()->getProductCategory() !== Sao_Shared_Catalog_Interface_ProductCategoryConstant::CATEGORY_ORIGINAL ): ?>
             <td class="item-quantity editable">
               <form class="styled-form qty-form" method="get" action="<?php echo $this->createAbsoluteUrl( Sao_Yves_Library_Routing_UrlManager::ROUTE_CART_QTY ); ?>">
                 <input type="number" class="input-field" step="1" name="qty" min="0" value="<?php echo $item->getQuantity(); ?>" required>

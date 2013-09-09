@@ -1,6 +1,6 @@
 <?php
 
-interface Sao_Shared_Library_Catalog_Interface_ProductAttributeConstant extends ProjectA_Shared_Library_Catalog_Interface_ProductAttributeConstant
+interface Sao_Shared_Catalog_Interface_ProductAttributeConstant extends ProjectA_Shared_Library_Catalog_Interface_ProductAttributeConstant
 {
     /*
      * CONFIG

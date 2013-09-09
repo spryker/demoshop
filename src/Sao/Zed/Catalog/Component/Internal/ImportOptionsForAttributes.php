@@ -5,7 +5,7 @@
  */
 class Sao_Zed_Catalog_Component_Internal_ImportOptionsForAttributes implements
     ProjectA_Zed_Library_Dependency_Factory_Interface,
-    Sao_Shared_Library_Catalog_Interface_ProductAttributeSetConstant
+    Sao_Shared_Catalog_Interface_ProductAttributeSetConstant
 {
     use ProjectA_Zed_Library_Dependency_Factory_Trait;
 

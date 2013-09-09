@@ -24,6 +24,14 @@ class Sao_Zed_Catalog_Component_Facade extends ProjectA_Zed_Catalog_Component_Fa
     }
 
     /**
+     * @return Sao_Zed_Catalog_Component_Exporter_Solr_Artwork
+     */
+    public function getExporterSolrArtwork()
+    {
+        return $this->factory->getExporterSolrArtwork();
+    }
+
+    /**
      * @fixme @todo @hopefully soon deprecated ;)
      * @param string $sku
      * @return string

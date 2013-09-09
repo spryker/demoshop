@@ -1,9 +1,9 @@
 <?php
 
-abstract class Sao_Zed_Catalog_Component_Exporter_Products extends ProjectA_Zed_Catalog_Component_Exporter_Products implements
+abstract class Sao_Zed_Catalog_Component_Exporter_Memcache_Products extends ProjectA_Zed_Catalog_Component_Exporter_Products implements
      ProjectA_Zed_Yves_Component_Interface_Exporter_Memcache,
-     Sao_Shared_Library_Catalog_Interface_ProductAttributeConstant,
-     Sao_Shared_Library_Catalog_Interface_ProductAttributeSetConstant,
+     Sao_Shared_Catalog_Interface_ProductAttributeConstant,
+     Sao_Shared_Catalog_Interface_ProductAttributeSetConstant,
      Sao_Shared_Library_StorageKeyConstant,
      ProjectA_Zed_Yves_Component_Dependency_Facade_Interface
 {
