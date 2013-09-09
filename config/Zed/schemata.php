@@ -12,7 +12,6 @@
 
 return array(
     APPLICATION_SOURCE_DIR . '/Sao/Zed/Salesrule/Persistence/sao_salesrule.schema.xml',
-    APPLICATION_SOURCE_DIR . '/Sao/Zed/Legacy/Persistence/sao_legacy.schema.xml',
     APPLICATION_SOURCE_DIR . '/Sao/Zed/Sales/Persistence/sao_sales.schema.xml',
     APPLICATION_SOURCE_DIR . '/Sao/Zed/Fulfillment/Persistence/sao_fulfillment.schema.xml',
     APPLICATION_SOURCE_DIR . '/Sao/Zed/Catalog/Persistence/sao_catalog.schema.xml',

@@ -1,9 +1,7 @@
 <?php
 
 class Sao_Zed_Yves_Module_Controller_Cronjob extends ProjectA_Zed_Yves_Module_Controller_Cronjob
-    implements Sao_Zed_Legacy_Component_Dependency_Facade_Interface
 {
-    use Sao_Zed_Legacy_Component_Dependency_Facade_Trait;
 
     public function getLegacyHeaderAction()
     {

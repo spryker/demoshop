@@ -8,12 +8,10 @@
 class Sao_Zed_Mail_Component_Model_CartAbandoned implements
     ProjectA_Zed_Library_Dependency_Factory_Interface,
     ProjectA_Zed_Salesrule_Component_Dependency_Facade_Interface,
-    Sao_Zed_Legacy_Component_Dependency_Facade_Interface,
     Sao_Zed_Mail_Component_Interface_MailConstants
 {
     use ProjectA_Zed_Library_Dependency_Factory_Trait;
     use ProjectA_Zed_Salesrule_Component_Dependency_Facade_Trait;
-    use Sao_Zed_Legacy_Component_Dependency_Facade_Trait;
 
     const RESULT_KEY_BLACKLIST = 'blacklist';
     const RESULT_KEY_SENT = 'sent';
