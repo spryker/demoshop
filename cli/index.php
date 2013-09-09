@@ -28,16 +28,7 @@ if (empty($getEnv)) {
     die();
 }
 
-$pathToIncludeFile = implode(DIRECTORY_SEPARATOR, [
-        dirname(__DIR__),
-        'project',
-        'Sao',
-        'Zed',
-        'Application',
-        'include.php'
-]);
-
-require_once $pathToIncludeFile;
+require_once __DIR__ . '/../src/Sao/Zed/Application/include.php';
 
 define('IS_ACL_DISABLED', true);
 define('IS_CLI', true);

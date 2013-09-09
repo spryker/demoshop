@@ -20,7 +20,7 @@ echo "Current revision: ${revision}"
 
 if is_default_store; then
   rm -rf data; ln -sf $shared_dir/data data
-  rm -rf project/Generated; ln -sf $shared_dir/Generated project/Generated
+  rm -rf src/Generated; ln -sf $shared_dir/Generated src/Generated
   rm -f config/Shared/config_local.php; ln -sf $shared_dir/config_local.php config/Shared/config_local.php
 
   # Create symlink for database dumps
@@ -58,16 +58,16 @@ if [ $? -ne 0 ]; then
   exit 1
 fi
 
-### Create factories
+### Generate Code
 if is_default_store; then
-  echo "Generating factories..."
-  APPLICATION_ENV=$environment sudo -E -u www-data php -d "newrelic.appname='Deploy($environment)'" cli/index.php --module=setup --controller=generator --action=create-factories &> $outfile
+  echo "Generating necessary files..."
+  APPLICATION_ENV=$environment sudo -E -u www-data php -d "newrelic.appname='Deploy($environment)'" vendor/bin/console generate &> $outfile
   if [ $? -ne 0 ]; then
     echo Failed, aborting. Output saved in $outfile
     exit 2
   fi
 fi
-chown -R www-data. project/Generated/*
+chown -R www-data. src/Generated/*
 
 
 ### node.js, Grunt

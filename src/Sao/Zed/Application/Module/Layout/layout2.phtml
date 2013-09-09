@@ -19,7 +19,7 @@
 
     <main class="zed:main" role="main" id="main">
         <header class="zed:main__header clearfix">
-            <h1><?= $this->layoutPageTitle ?></h1>
+            <h1><?= $this->navigation()->getCurrentPageTitle(); ?></h1>
             <?php
             echo $this->navigation()->breadcrumbs()
                 ->setPartial('Partials2/breadcrumbs.phtml')

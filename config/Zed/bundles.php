@@ -13,7 +13,7 @@ const ACTIVATE_SCHEMA = 'activate schema';
 $bundleConfig = [
     ProjectA_Shared_Library_Config::get(CONFIG_KEY_NAMESPACE_PROJECT) => [],
     NAMESPACE_CORE => [
-        'Acl' => [
+        'Auth' => [
             ACTIVATE_BOOTSTRAP,
             ACTIVATE_NAVIGATION,
             ACTIVATE_SCHEMA,

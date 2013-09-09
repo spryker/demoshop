@@ -19,25 +19,22 @@
         <?php echo $this->partial('Partials/tabs.phtml', array()); ?>
         <div id="content">
             <?php $this->navigation()->setRenderInvisible(true); ?>
-            <?php $currentPage = $this->navigation()->findActive($this->navigation()->getContainer()); ?>
-            <?php if (isset($currentPage['page'])): ?>
-                <headline>
-                    <label><?php echo $currentPage['page']->getTitle() . $this->titleSupplement; ?></label>
-                    <nav>
-                        Path: <?php echo $this->navigation()->breadcrumbs()->setRenderInvisible(true)->setLinkLast(true)->setMinDepth(0)->render(); ?>
-                    </nav>
-                    <div class="actions">
-                        <?php
-                            if (isset($this->pageActions)) {
-                                foreach ($this->pageActions as $label => $value) {
-                                    echo '<a class="button" href="' . $value . '">' . $label . '</a> &#160; ';
-                                }
+            <headline>
+                <label><?php echo $this->navigation()->getCurrentPageTitle() . $this->titleSupplement; ?></label>
+                <nav>
+                    Path: <?php echo $this->navigation()->breadcrumbs()->setRenderInvisible(true)->setLinkLast(true)->setMinDepth(0)->render(); ?>
+                </nav>
+                <div class="actions">
+                    <?php
+                        if (isset($this->pageActions)) {
+                            foreach ($this->pageActions as $label => $value) {
+                                echo '<a class="button" href="' . $value . '">' . $label . '</a> &#160; ';
                             }
-                        ?>
-                    </div>
-                    <div class="clear"></div>
-                </headline>
-            <?php endif; ?>
+                        }
+                    ?>
+                </div>
+                <div class="clear"></div>
+            </headline>
             <div id="main">
                 <div class="container<?php echo (isset($this->pageViews)) ? ' collapsed' : '' ?>">
                     <div class="more left"></div>

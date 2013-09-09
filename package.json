@@ -1,4 +1,5 @@
 {
+  "private": true,
   "name": "yves_zed",
   "version": "0.1.0",
   "description": "Grunt asset distribution for Yves & Zed",
