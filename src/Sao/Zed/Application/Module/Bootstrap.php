@@ -111,9 +111,15 @@ class Bootstrap extends Zend_Application_Bootstrap_Bootstrap
      */
     protected function _initPropel()
     {
+        die('TinaTurner');
         $dbConfig = ProjectA_Shared_Library_Config::get('db');
         $logConfig = ProjectA_Shared_Library_Config::get('log');
-        ProjectA_Zed_Library_Propel_Config::setConfig($dbConfig, $logConfig, $this->getOption('propelconfig'));
+        $propelConfig = APPLICATION_SOURCE_DIR
+            . '/Generated/Zed/PropelGen/'
+            . ProjectA_Shared_Library_Store::getInstance()->getStoreName()
+            . '/build/conf/zed-conf.php';
+
+        ProjectA_Zed_Library_Propel_Config::setConfig($dbConfig, $logConfig, $propelConfig);
         if (TestEnvironment::isSystemUnderTest()) {
             $connection = \Propel::getConnection();
             $connection->beginTransaction();

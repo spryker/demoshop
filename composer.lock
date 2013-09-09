@@ -3,7 +3,7 @@
         "This file locks the dependencies of your project to a known state",
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file"
     ],
-    "hash": "2e59410ccfb75eb383119d9bd0b5c98b",
+    "hash": "39b79bbfaccf29ddb67dadd4fdd46505",
     "packages": [
         {
             "name": "aws/aws-sdk-php",
@@ -174,6 +174,54 @@
                 "string"
             ],
             "time": "2013-01-10 21:49:15"
+        },
+        {
+            "name": "fabpot/php-cs-fixer",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/fabpot/PHP-CS-Fixer.git",
+                "reference": "0623fb227f36cc74d06660c9a9e6c6566cbb965e"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/fabpot/PHP-CS-Fixer/zipball/0623fb227f36cc74d06660c9a9e6c6566cbb965e",
+                "reference": "0623fb227f36cc74d06660c9a9e6c6566cbb965e",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3.3",
+                "sebastian/diff": "1.0.*@dev",
+                "symfony/console": "~2.1",
+                "symfony/filesystem": "~2.1",
+                "symfony/finder": "~2.1"
+            },
+            "bin": [
+                "php-cs-fixer"
+            ],
+            "type": "application",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "0.3.x-dev"
+                }
+            },
+            "autoload": {
+                "psr-0": {
+                    "Symfony\\CS": "."
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Fabien Potencier",
+                    "email": "fabien@symfony.com"
+                }
+            ],
+            "description": "A script to automatically fix Symfony Coding Standard",
+            "time": "2013-09-08 11:43:40"
         },
         {
             "name": "guzzle/guzzle",
@@ -455,7 +503,7 @@
             "source": {
                 "type": "git",
                 "url": "git@codebasehq.com:project-a/core/acl.git",
-                "reference": "d23a701b4b2fa8ee65932ffaba0e2b7f23880aa8"
+                "reference": "ae5c3eb316c59d72c819e9b4473d867847ff9ec5"
             },
             "require": {
                 "php": ">=5.4.0",
@@ -482,7 +530,7 @@
                 "login",
                 "usermanagement"
             ],
-            "time": "2013-09-06 14:41:44"
+            "time": "2013-09-09 09:12:07"
         },
         {
             "name": "project-a/adyen-package",
@@ -523,7 +571,7 @@
             "source": {
                 "type": "git",
                 "url": "git@codebasehq.com:project-a/core/cart.git",
-                "reference": "f911bcec3e27ee1f54445645d3f1f1440a7a60cb"
+                "reference": "62f7232ccdadbe8d2405569e07c7f46416c6a9bd"
             },
             "require": {
                 "php": ">=5.4.0",
@@ -550,7 +598,7 @@
             "keywords": [
                 "Cart"
             ],
-            "time": "2013-09-06 13:33:44"
+            "time": "2013-09-09 09:07:01"
         },
         {
             "name": "project-a/catalog-package",
@@ -558,7 +606,7 @@
             "source": {
                 "type": "git",
                 "url": "git@codebasehq.com:project-a/core/catalog.git",
-                "reference": "0460f3a28b5c516908e8703f136dbdc203d8d5a1"
+                "reference": "3754068a5fae13fd884f4071694ec314a8e08b72"
             },
             "require": {
                 "php": ">=5.4.0",
@@ -588,7 +636,7 @@
                 "Price",
                 "Stock"
             ],
-            "time": "2013-09-06 14:45:44"
+            "time": "2013-09-09 09:07:23"
         },
         {
             "name": "project-a/checkout-package",
@@ -596,7 +644,7 @@
             "source": {
                 "type": "git",
                 "url": "git@codebasehq.com:project-a/core/checkout.git",
-                "reference": "3fa5e282090f2e2018b8d03bfcd31eccdae90736"
+                "reference": "e6ea3903dfaa90652acab3391302d76a2273fcf4"
             },
             "require": {
                 "php": ">=5.4.0",
@@ -623,7 +671,46 @@
                 "PaymentControl",
                 "Salesrule"
             ],
-            "time": "2013-09-06 14:00:42"
+            "time": "2013-09-09 09:07:01"
+        },
+        {
+            "name": "project-a/console-package",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "git@codebasehq.com:project-a/core/console.git",
+                "reference": "bcf7b1047aa6a29254ebadf06cc8c7695f9af1ef"
+            },
+            "require": {
+                "fabpot/php-cs-fixer": "dev-master",
+                "php": ">=5.4.0",
+                "symfony/console": "*",
+                "symfony/filesystem": "*",
+                "symfony/finder": "*",
+                "symfony/process": "*"
+            },
+            "bin": [
+                "bin/console"
+            ],
+            "type": "library",
+            "autoload": {
+                "psr-0": {
+                    "ProjectA": "/src"
+                }
+            },
+            "authors": [
+                {
+                    "name": "René Klatt",
+                    "email": "rene.klatt@project-a.com",
+                    "homepage": "http://www.project-a.com",
+                    "role": "Senior Developer"
+                }
+            ],
+            "description": "Console tool",
+            "keywords": [
+                "console"
+            ],
+            "time": "2013-09-09 08:20:21"
         },
         {
             "name": "project-a/content-package",
@@ -631,7 +718,7 @@
             "source": {
                 "type": "git",
                 "url": "git@codebasehq.com:project-a/core/content.git",
-                "reference": "749f485439edf8a7021b0236bf8839238e58ee58"
+                "reference": "044e69b54c93e7159858db7d0db2ba13b1a8ac48"
             },
             "require": {
                 "php": ">=5.4.0",
@@ -657,7 +744,7 @@
             "keywords": [
                 "Content Package"
             ],
-            "time": "2013-09-05 12:16:07"
+            "time": "2013-09-09 09:07:01"
         },
         {
             "name": "project-a/crm-package",
@@ -665,7 +752,7 @@
             "source": {
                 "type": "git",
                 "url": "git@codebasehq.com:project-a/core/crm.git",
-                "reference": "66c87faf4507bae0f08eada0985c690112b8a1e6"
+                "reference": "2fa41312fafd0332139f2a8b60d4dd8b766c8112"
             },
             "require": {
                 "php": ">=5.4.0",
@@ -691,7 +778,7 @@
                 "CRM",
                 "Mail"
             ],
-            "time": "2013-09-05 12:16:08"
+            "time": "2013-09-09 09:07:01"
         },
         {
             "name": "project-a/dependency-package",
@@ -762,7 +849,7 @@
             "source": {
                 "type": "git",
                 "url": "git@codebasehq.com:project-a/core/frontend.git",
-                "reference": "0be18344a1ae13160cec6d31f8e2da005dfb846b"
+                "reference": "84140f2e2f5c0d87f1e705ef9950ca07d8c799d5"
             },
             "require": {
                 "php": ">=5.4.0",
@@ -786,7 +873,7 @@
             "keywords": [
                 "Frontend"
             ],
-            "time": "2013-09-06 14:44:34"
+            "time": "2013-09-09 09:07:01"
         },
         {
             "name": "project-a/glossary-package",
@@ -794,7 +881,7 @@
             "source": {
                 "type": "git",
                 "url": "git@codebasehq.com:project-a/core/glossary.git",
-                "reference": "86cee61c321c0d5404355edb5c252fae776f5a69"
+                "reference": "e7d81965f89536e8c599f1875bd4de31ba102018"
             },
             "require": {
                 "php": ">=5.4.0"
@@ -818,7 +905,7 @@
                 "i18n",
                 "translation"
             ],
-            "time": "2013-09-06 09:18:31"
+            "time": "2013-09-09 09:07:44"
         },
         {
             "name": "project-a/infrastructure-package",
@@ -826,7 +913,7 @@
             "source": {
                 "type": "git",
                 "url": "git@codebasehq.com:project-a/core/infrastructure.git",
-                "reference": "7d88f318a2f41f5fb737ffb2f28f270eb32ef73d"
+                "reference": "9e1981862ec8702c694fd4bb9021445b381646ac"
             },
             "require": {
                 "php": ">=5.4.0",
@@ -854,7 +941,7 @@
             "keywords": [
                 "infrastructure"
             ],
-            "time": "2013-09-06 15:57:42"
+            "time": "2013-09-09 09:07:01"
         },
         {
             "name": "project-a/kendo-package",
@@ -879,7 +966,7 @@
             "source": {
                 "type": "git",
                 "url": "git@codebasehq.com:project-a/core/library-2.git",
-                "reference": "3784e27cf6919c1c97d4c70a61a45f9d5d77e804"
+                "reference": "333e7426a9703404dfebd82eb9a36a5847edac96"
             },
             "require": {
                 "digital-canvas/zend-framework": ">=1.12.2",
@@ -910,7 +997,7 @@
                 }
             ],
             "description": "Core Library",
-            "time": "2013-09-09 07:29:08"
+            "time": "2013-09-09 09:07:52"
         },
         {
             "name": "project-a/lumberjack-package",
@@ -949,7 +1036,7 @@
             "source": {
                 "type": "git",
                 "url": "git@codebasehq.com:project-a/core/marketing.git",
-                "reference": "0fef6a719e8c4632b93e46620d0e184c9ae0f8ba"
+                "reference": "23808dbc2dfdcc653d7a62fd0712ee1b6229e580"
             },
             "require": {
                 "php": ">=5.4.0",
@@ -974,7 +1061,7 @@
             "keywords": [
                 "Marketing"
             ],
-            "time": "2013-09-05 12:16:08"
+            "time": "2013-09-09 09:07:01"
         },
         {
             "name": "project-a/payment-package",
@@ -1013,7 +1100,7 @@
             "source": {
                 "type": "git",
                 "url": "git@codebasehq.com:project-a/core/sales.git",
-                "reference": "025688b01bd6f01594774d1a7ab58a399af3d57f"
+                "reference": "a40177fa6ef9f2234b19eb340952dcfd99a08fb3"
             },
             "require": {
                 "php": ">=5.4.0",
@@ -1040,7 +1127,7 @@
                 "Sales",
                 "Task"
             ],
-            "time": "2013-09-06 13:56:26"
+            "time": "2013-09-09 09:07:01"
         },
         {
             "name": "project-a/silex-routing",
@@ -1257,6 +1344,56 @@
             "time": "2012-08-12 16:51:36"
         },
         {
+            "name": "sebastian/diff",
+            "version": "1.0.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/sebastianbergmann/diff.git",
+                "reference": "6affc0bf53304452d7f296588f6d5837070b4789"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/sebastianbergmann/diff/zipball/6affc0bf53304452d7f296588f6d5837070b4789",
+                "reference": "6affc0bf53304452d7f296588f6d5837070b4789",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3.3"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "1.0.x-dev"
+                }
+            },
+            "autoload": {
+                "classmap": [
+                    "src/"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "BSD-3-Clause"
+            ],
+            "authors": [
+                {
+                    "name": "Sebastian Bergmann",
+                    "email": "sebastian@phpunit.de",
+                    "role": "lead"
+                },
+                {
+                    "name": "Kore Nordmann",
+                    "email": "mail@kore-nordmann.de"
+                }
+            ],
+            "description": "Diff implementation",
+            "homepage": "http://www.github.com/sebastianbergmann/diff",
+            "keywords": [
+                "diff"
+            ],
+            "time": "2013-07-09 05:45:26"
+        },
+        {
             "name": "silex/silex",
             "version": "v1.1.0",
             "source": {
@@ -1445,6 +1582,59 @@
                 "routing"
             ],
             "time": "2013-09-03 12:34:23"
+        },
+        {
+            "name": "symfony/console",
+            "version": "v2.3.4",
+            "target-dir": "Symfony/Component/Console",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/symfony/Console.git",
+                "reference": "db78f8ff7fc9e28d25ff9a0bf6ddf9f0e35fbbe3"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/symfony/Console/zipball/db78f8ff7fc9e28d25ff9a0bf6ddf9f0e35fbbe3",
+                "reference": "db78f8ff7fc9e28d25ff9a0bf6ddf9f0e35fbbe3",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3.3"
+            },
+            "require-dev": {
+                "symfony/event-dispatcher": "~2.1"
+            },
+            "suggest": {
+                "symfony/event-dispatcher": ""
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "2.3-dev"
+                }
+            },
+            "autoload": {
+                "psr-0": {
+                    "Symfony\\Component\\Console\\": ""
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Fabien Potencier",
+                    "email": "fabien@symfony.com"
+                },
+                {
+                    "name": "Symfony Community",
+                    "homepage": "http://symfony.com/contributors"
+                }
+            ],
+            "description": "Symfony Console Component",
+            "homepage": "http://symfony.com",
+            "time": "2013-08-17 16:34:49"
         },
         {
             "name": "symfony/debug",
@@ -2588,54 +2778,6 @@
             "time": "2013-08-16 06:03:22"
         },
         {
-            "name": "fabpot/php-cs-fixer",
-            "version": "dev-master",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/fabpot/PHP-CS-Fixer.git",
-                "reference": "0623fb227f36cc74d06660c9a9e6c6566cbb965e"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/fabpot/PHP-CS-Fixer/zipball/0623fb227f36cc74d06660c9a9e6c6566cbb965e",
-                "reference": "0623fb227f36cc74d06660c9a9e6c6566cbb965e",
-                "shasum": ""
-            },
-            "require": {
-                "php": ">=5.3.3",
-                "sebastian/diff": "1.0.*@dev",
-                "symfony/console": "~2.1",
-                "symfony/filesystem": "~2.1",
-                "symfony/finder": "~2.1"
-            },
-            "bin": [
-                "php-cs-fixer"
-            ],
-            "type": "application",
-            "extra": {
-                "branch-alias": {
-                    "dev-master": "0.3.x-dev"
-                }
-            },
-            "autoload": {
-                "psr-0": {
-                    "Symfony\\CS": "."
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Fabien Potencier",
-                    "email": "fabien@symfony.com"
-                }
-            ],
-            "description": "A script to automatically fix Symfony Coding Standard",
-            "time": "2013-09-08 11:43:40"
-        },
-        {
             "name": "instaclick/php-webdriver",
             "version": "1.0.16",
             "source": {
@@ -3153,45 +3295,6 @@
             "time": "2013-01-13 10:24:48"
         },
         {
-            "name": "project-a/console-package",
-            "version": "dev-master",
-            "source": {
-                "type": "git",
-                "url": "git@codebasehq.com:project-a/core/console.git",
-                "reference": "ff9b05756a2ef88661d505cc9c4471237dbf34b7"
-            },
-            "require": {
-                "fabpot/php-cs-fixer": "dev-master",
-                "php": ">=5.4.0",
-                "symfony/console": "*",
-                "symfony/filesystem": "*",
-                "symfony/finder": "*",
-                "symfony/process": "*"
-            },
-            "bin": [
-                "bin/console"
-            ],
-            "type": "library",
-            "autoload": {
-                "psr-0": {
-                    "ProjectA": "/src"
-                }
-            },
-            "authors": [
-                {
-                    "name": "René Klatt",
-                    "email": "rene.klatt@project-a.com",
-                    "homepage": "http://www.project-a.com",
-                    "role": "Senior Developer"
-                }
-            ],
-            "description": "Console tool",
-            "keywords": [
-                "console"
-            ],
-            "time": "2013-09-09 07:52:38"
-        },
-        {
             "name": "sanpi/behatch-contexts",
             "version": "1.2",
             "source": {
@@ -3223,56 +3326,6 @@
                 "Symfony2"
             ],
             "time": "2012-12-03 16:58:27"
-        },
-        {
-            "name": "sebastian/diff",
-            "version": "1.0.0",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/sebastianbergmann/diff.git",
-                "reference": "6affc0bf53304452d7f296588f6d5837070b4789"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/sebastianbergmann/diff/zipball/6affc0bf53304452d7f296588f6d5837070b4789",
-                "reference": "6affc0bf53304452d7f296588f6d5837070b4789",
-                "shasum": ""
-            },
-            "require": {
-                "php": ">=5.3.3"
-            },
-            "type": "library",
-            "extra": {
-                "branch-alias": {
-                    "dev-master": "1.0.x-dev"
-                }
-            },
-            "autoload": {
-                "classmap": [
-                    "src/"
-                ]
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "BSD-3-Clause"
-            ],
-            "authors": [
-                {
-                    "name": "Sebastian Bergmann",
-                    "email": "sebastian@phpunit.de",
-                    "role": "lead"
-                },
-                {
-                    "name": "Kore Nordmann",
-                    "email": "mail@kore-nordmann.de"
-                }
-            ],
-            "description": "Diff implementation",
-            "homepage": "http://www.github.com/sebastianbergmann/diff",
-            "keywords": [
-                "diff"
-            ],
-            "time": "2013-07-09 05:45:26"
         },
         {
             "name": "symfony/browser-kit",
@@ -3376,59 +3429,6 @@
             "description": "Symfony Config Component",
             "homepage": "http://symfony.com",
             "time": "2013-08-06 05:49:23"
-        },
-        {
-            "name": "symfony/console",
-            "version": "v2.3.4",
-            "target-dir": "Symfony/Component/Console",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/symfony/Console.git",
-                "reference": "db78f8ff7fc9e28d25ff9a0bf6ddf9f0e35fbbe3"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/symfony/Console/zipball/db78f8ff7fc9e28d25ff9a0bf6ddf9f0e35fbbe3",
-                "reference": "db78f8ff7fc9e28d25ff9a0bf6ddf9f0e35fbbe3",
-                "shasum": ""
-            },
-            "require": {
-                "php": ">=5.3.3"
-            },
-            "require-dev": {
-                "symfony/event-dispatcher": "~2.1"
-            },
-            "suggest": {
-                "symfony/event-dispatcher": ""
-            },
-            "type": "library",
-            "extra": {
-                "branch-alias": {
-                    "dev-master": "2.3-dev"
-                }
-            },
-            "autoload": {
-                "psr-0": {
-                    "Symfony\\Component\\Console\\": ""
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Fabien Potencier",
-                    "email": "fabien@symfony.com"
-                },
-                {
-                    "name": "Symfony Community",
-                    "homepage": "http://symfony.com/contributors"
-                }
-            ],
-            "description": "Symfony Console Component",
-            "homepage": "http://symfony.com",
-            "time": "2013-08-17 16:34:49"
         },
         {
             "name": "symfony/css-selector",
@@ -3704,6 +3704,7 @@
         "project-a/catalog-package": 20,
         "project-a/checkout-package": 20,
         "project-a/content-package": 20,
+        "project-a/console-package": 20,
         "project-a/crm-package": 20,
         "project-a/dwh-package": 20,
         "project-a/frontend-package": 20,
@@ -3717,8 +3718,7 @@
         "project-a/sales-package": 20,
         "project-a/stripe-package": 20,
         "project-a/silex-routing": 20,
-        "zendframework/zendframework": 20,
-        "project-a/console-package": 20
+        "zendframework/zendframework": 20
     },
     "platform": [
 
