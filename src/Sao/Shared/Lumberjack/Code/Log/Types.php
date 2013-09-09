@@ -1,6 +1,6 @@
 <?php
 
-class Sao_Shared_Lumberjack_Log_Types extends ProjectA_Shared_Lumberjack_Code_Log_Types
+class Sao_Shared_Lumberjack_Code_Log_Types extends ProjectA_Shared_Lumberjack_Code_Log_Types
 {
     /**
      * @const string
