@@ -1,6 +1,12 @@
-<?php /** @var Sao\Yves\Library\Templating\Scope\TemplateScope $this */ ?>
-This is a<strong> nice </strong>HTML-Cart!
+<?php /* @var Sao\Yves\Library\Templating\Scope\TemplateScope $this */ ?>
+<?php /* @var ProjectA_Shared_Sales_Transfer_Order_Item $cartItem */ ?>
+<pre>
+<?php foreach($this->getArray('cartItems') as $cartItem): ?>
 
-<?= $this->getString('cart'); ?>
+    SKU: <?= $cartItem->getSku(); ?>
+    Name: <?= $cartItem->getName(); ?>
+    Quantity: <?= $cartItem->getQuantity(); ?>
+    Price: <?= $cartItem->getGrossPrice(); ?>
 
-<a href="<?= $this->url()->url('cart'); ?>">link</a>
+<?php endforeach; ?>
+</pre>
