@@ -21,7 +21,7 @@ class Sao_Zed_Catalog_Module_Controller_Index extends ProjectA_Zed_Library_Contr
     /**
      * @see ProjectA_Zed_Catalog_Component_Dependency_Facade_Interface::setFacadeCatalog()
      */
-    public function setFacadeCatalog (ProjectA_Zed_Catalog_Component_Facade $facade)
+    public function setFacadeCatalog(ProjectA_Zed_Library_Component_Model_FacadeAbstract $facade)
     {
         $this->facadeCatalog = $facade;
     }
@@ -29,7 +29,7 @@ class Sao_Zed_Catalog_Module_Controller_Index extends ProjectA_Zed_Library_Contr
     /**
      * @see ProjectA_Zed_Stock_Component_Dependency_Facade_Interface::setFacadeStock()
      */
-    public function setFacadeStock (ProjectA_Zed_Stock_Component_Facade $facade)
+    public function setFacadeStock(ProjectA_Zed_Library_Component_Model_FacadeAbstract $facade)
     {
         $this->facadeStock = $facade;
     }
@@ -37,7 +37,7 @@ class Sao_Zed_Catalog_Module_Controller_Index extends ProjectA_Zed_Library_Contr
     /**
      * @see ProjectA_Zed_Price_Component_Dependency_Facade_Interface::setFacadePrice()
      */
-    public function setFacadePrice (ProjectA_Zed_Price_Component_Facade $facade)
+    public function setFacadePrice(ProjectA_Zed_Library_Component_Model_FacadeAbstract $facade)
     {
         $this->facadePrice = $facade;
     }

@@ -481,6 +481,7 @@ class Sao_Zed_Fulfillment_Component_Internal_Install implements ProjectA_Zed_Lib
      */
     protected function getOption($legacyFrameId, $legacyProductId)
     {
+        return false;
         if ($legacyFrameId) {
             $optionType = ProjectA_Zed_Catalog_Persistence_PacCatalogOptionTypeQuery::create()->findOneByName('frame');
             $newFrameId =
