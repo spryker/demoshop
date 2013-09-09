@@ -61,8 +61,8 @@ abstract class Sao_Zed_Catalog_Component_Exporter_Products extends ProjectA_Zed_
         $reporter[$reportName] = 0;
 
         foreach ($collection as $product) {
-            $data = array();
 
+            $data = array();
             $pairProductData = $this->transformProductToData($product);
 
             $productKey = ProjectA_Shared_Library_Storage::getProductKey($product['sku']);
@@ -77,20 +77,4 @@ abstract class Sao_Zed_Catalog_Component_Exporter_Products extends ProjectA_Zed_
             $reporter[$reportName]++;
         }
     }
-
-//    /**
-//     * @param array $product
-//     * @return array
-//     */
-//    protected function transformProductToData($product)
-//    {
-//        $pairProductData = $product;
-//        $pairProductData[self::STORAGEKEY_PRODUCT_SKU] = $sku = $product['sku'];;
-//        $pairProductData[self::STORAGEKEY_PRODUCT_ATTRIBUTE_SET] = $this->getRimAttributeSetName();
-//        $pairProductData[self::STORAGEKEY_PRODUCT_PRICE] = $product['price'];
-//        $pairProductData[self::STORAGEKEY_PRODUCT_QUANTITY] = $product['quantity'];
-//        $pairProductData[self::STORAGEKEY_PRODUCT_ID_CATALOG_PRODUCT] = $product['id_catalog_product'];
-//
-//        return $pairProductData;
-//    }
 }
