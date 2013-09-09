@@ -2,7 +2,7 @@
 
 $finder = Symfony\CS\Finder\DefaultFinder::create()
     ->exclude(__DIR__ . '/vendor/project-a/kendo-package')
-    ->in(__DIR__ . '/project')
+    ->in(__DIR__ . '/src')
     ->in(__DIR__ . '/vendor/project-a')
 ;
 return Symfony\CS\Config\Config::create()
@@ -17,6 +17,7 @@ return Symfony\CS\Config\Config::create()
             'indentation',
             'linefeed',
             'php_closing_tag',
+            'phpdoc_params',
             'psr0',
             'return',
             'short_tag',
@@ -26,4 +27,4 @@ return Symfony\CS\Config\Config::create()
         )
     )
     ->finder($finder)
-    ;
+;

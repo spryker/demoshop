@@ -6,6 +6,7 @@
         "project-a/catalog-package": "2.0.0.x-dev",
         "project-a/checkout-package": "2.0.0.x-dev",
         "project-a/content-package": "2.0.0.x-dev",
+        "project-a/console-package": "dev-master",
         "project-a/dependency-package": "*",
         "project-a/crm-package": "2.0.0.x-dev",
         "project-a/dwh-package": "2.0.0.x-dev",
@@ -32,7 +33,6 @@
     "require-dev": {
         "behat/behat": "*",
         "sanpi/behatch-contexts": "*",
-        "project-a/console-package": "dev-master",
         "behat/mink": "*",
         "behat/mink-extension": "*",
         "behat/mink-goutte-driver": "*",
