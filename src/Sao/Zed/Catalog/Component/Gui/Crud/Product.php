@@ -3,7 +3,7 @@
 class Sao_Zed_Catalog_Component_Gui_Crud_Product extends ProjectA_Zed_Catalog_Component_Gui_Crud_Product implements
     ProjectA_Zed_Stock_Component_Dependency_Facade_Interface,
     ProjectA_Zed_Price_Component_Dependency_Facade_Interface,
-    ProjectA_Shared_Library_Catalog_Interface_ProductAttributeConstant
+    ProjectA_Shared_Catalog_Interface_ProductAttributeConstant
 {
 
     use ProjectA_Zed_Stock_Component_Dependency_Facade_Trait;

@@ -229,7 +229,7 @@ class Sao_Zed_Fulfillment_Component_Model_Jondo_Api extends Sao_Zed_Fulfillment_
         /* @var Sao_Shared_Sales_Transfer_Order_Item_Option $option */
         foreach ($item->getOptions() as $option) {
             $catalogOption = $this->facadeCatalog->getProductOptionByIdentifier($option->getIdentifier());
-            if ($catalogOption->getOptionType()->getName() === ProjectA_Shared_Library_Catalog_Interface_ProductOptionTypeConstant::OPTION_TYPE_WRAP) {
+            if ($catalogOption->getOptionType()->getName() === ProjectA_Shared_Catalog_Interface_ProductOptionTypeConstant::OPTION_TYPE_WRAP) {
                 return $option;
             }
         }

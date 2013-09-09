@@ -116,7 +116,7 @@ abstract class Sao_Zed_Mail_Component_Model_Collector_CartAbandoned_Abstract ext
                 $price += $optionEntity->getPrice();
                 $prefix = 'including';
                 if ($optionEntity->getOptionType()->getName() ===
-                    ProjectA_Shared_Library_Catalog_Interface_ProductOptionTypeConstant::OPTION_TYPE_WRAP) {
+                    ProjectA_Shared_Catalog_Interface_ProductOptionTypeConstant::OPTION_TYPE_WRAP) {
                     $prefix = 'on';
                 }
                 $optionsAsLiString .= $prefix . ' ' . $optionEntity->getName();

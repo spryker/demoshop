@@ -318,7 +318,7 @@ class Sao_Zed_Pdf_Component_Model_Document_KagingSlip extends Sao_Zed_Pdf_Compon
             $frame = '';
             foreach ($orderItem->getOptions() as $option) {
                 $option = $this->facadeCatalog->getProductOptionByIdentifier($option->getIdentifier());
-                if ($option->getOptionType()->getName() === ProjectA_Shared_Library_Catalog_Interface_ProductOptionTypeConstant::OPTION_TYPE_FRAME) {
+                if ($option->getOptionType()->getName() === ProjectA_Shared_Catalog_Interface_ProductOptionTypeConstant::OPTION_TYPE_FRAME) {
                     $frame = ' (framed)';
                     break;
                 }

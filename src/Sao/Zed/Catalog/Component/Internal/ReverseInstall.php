@@ -11,7 +11,7 @@ class Sao_Zed_Catalog_Component_Internal_ReverseInstall extends Sao_Zed_Catalog_
     const INTERFACE_ATTRIBUTES = 'Sao_Shared_Catalog_Interface_ProductAttributeConstant';
     const INTERFACE_PROJECT_ATTRIBUTE_CONSTANTS = 'Sao_Zed_Catalog_Component_Interface_ProductAttributeConstant';
     const INTERFACE_PROJECT_ATTRIBUTE_SET_CONSTANTS = 'Sao_Shared_Catalog_Interface_ProductAttributeSetConstant';
-    const INTERFACE_CORE_PRODUCT_ATTRIBUTE_CONSTANTS = 'ProjectA_Shared_Library_Catalog_Interface_ProductAttributeConstant';
+    const INTERFACE_CORE_PRODUCT_ATTRIBUTE_CONSTANTS = 'ProjectA_Shared_Catalog_Interface_ProductAttributeConstant';
     const CLASS_ATTRIBUTE_TO_VARIERY_MAPPING = 'Sao_Zed_Catalog_Component_Internal_AttributeToVarietyMapping';
 
     /**

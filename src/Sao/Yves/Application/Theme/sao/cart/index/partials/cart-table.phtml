@@ -30,7 +30,7 @@ if (!$editable) {
         $optionsAsLiString = '';
         foreach ($item->getOptions() as $option) {
             $price += $option->getGrossPrice();
-            $prefix = ($option === ProjectA_Shared_Library_Catalog_Interface_ProductOptionTypeConstant::OPTION_TYPE_WRAP) ? 'on' : 'including';
+            $prefix = ($option === ProjectA_Shared_Catalog_Interface_ProductOptionTypeConstant::OPTION_TYPE_WRAP) ? 'on' : 'including';
             $optionsAsLiString .= $prefix . ' ' . $option->getName() . '<br>';
         }
 

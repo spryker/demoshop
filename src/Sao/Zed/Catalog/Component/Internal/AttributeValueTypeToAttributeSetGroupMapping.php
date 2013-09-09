@@ -2,7 +2,7 @@
 
 class Sao_Zed_Catalog_Component_Internal_AttributeValueTypeToAttributeSetGroupMapping implements
     ProjectA_Zed_Catalog_Component_Interface_GroupConstant,
-    ProjectA_Shared_Library_Catalog_Interface_ProductAttributeConstant,
+    ProjectA_Shared_Catalog_Interface_ProductAttributeConstant,
     Sao_Zed_Catalog_Component_Interface_ProductAttributeConstant,
     Sao_Shared_Catalog_Interface_ProductAttributeSetConstant
 {

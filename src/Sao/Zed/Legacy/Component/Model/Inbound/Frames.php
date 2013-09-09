@@ -28,7 +28,7 @@ class Sao_Zed_Legacy_Component_Model_Inbound_Frames extends Sao_Zed_Legacy_Compo
     public function synchronizeFrames()
     {
         $frames = $this->getAllFramings();
-        $optionType = ProjectA_Zed_Catalog_Persistence_PacCatalogOptionTypeQuery::create()->findOneByName(ProjectA_Shared_Library_Catalog_Interface_ProductOptionTypeConstant::OPTION_TYPE_FRAME);
+        $optionType = ProjectA_Zed_Catalog_Persistence_PacCatalogOptionTypeQuery::create()->findOneByName(ProjectA_Shared_Catalog_Interface_ProductOptionTypeConstant::OPTION_TYPE_FRAME);
 
         if (ProjectA_Zed_Catalog_Persistence_PacCatalogOptionQuery::create()->filterByOptionType($optionType)->findOne()) {
             throw new Exception('migration was already executed.');

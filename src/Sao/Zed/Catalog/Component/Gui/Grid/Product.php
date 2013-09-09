@@ -6,7 +6,7 @@ class Sao_Zed_Catalog_Component_Gui_Grid_Product extends ProjectA_Zed_Library_Gr
     ProjectA_Zed_Library_Dependency_Factory_Interface,
     ProjectA_Zed_Price_Component_Dependency_Facade_Interface,
     ProjectA_Zed_Stock_Component_Dependency_Facade_Interface,
-    ProjectA_Shared_Library_Catalog_Interface_ProductAttributeConstant,
+    ProjectA_Shared_Catalog_Interface_ProductAttributeConstant,
     ProjectA_Zed_Price_Component_Interface_PriceTypeConstants
 {
     use ProjectA_Zed_Library_Dependency_Factory_Trait;

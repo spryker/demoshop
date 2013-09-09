@@ -44,7 +44,7 @@ class Sao_Zed_ArtistPortal_Component_Model_Inbound_Product implements
     protected function getWrapOptions()
     {
         $optionQuery = new ProjectA_Zed_Catalog_Persistence_PacCatalogOptionQuery();
-        $optionQuery->useOptionTypeQuery()->filterByName(ProjectA_Shared_Library_Catalog_Interface_ProductOptionTypeConstant::OPTION_TYPE_WRAP)->endUse();
+        $optionQuery->useOptionTypeQuery()->filterByName(ProjectA_Shared_Catalog_Interface_ProductOptionTypeConstant::OPTION_TYPE_WRAP)->endUse();
         $options = $optionQuery->find();
         $wrapOptions = [];
         /* @var ProjectA_Zed_Catalog_Persistence_PacCatalogOption $option */
@@ -176,7 +176,7 @@ class Sao_Zed_ArtistPortal_Component_Model_Inbound_Product implements
         // add wrap options, all those with product_id between 2-31 are supposed to be be canvas products
         // only for new products
         $hasNoWrapOptions = $product->getProduct()->getOptions(
-            ProjectA_Zed_Catalog_Persistence_PacCatalogOptionQuery::create()->useOptionTypeQuery()->filterByName(ProjectA_Shared_Library_Catalog_Interface_ProductOptionTypeConstant::OPTION_TYPE_WRAP)->endUse()
+            ProjectA_Zed_Catalog_Persistence_PacCatalogOptionQuery::create()->useOptionTypeQuery()->filterByName(ProjectA_Shared_Catalog_Interface_ProductOptionTypeConstant::OPTION_TYPE_WRAP)->endUse()
         )->isEmpty();
         if (isset($dataArray[self::PRODUCT_ID]) && $dataArray[self::PRODUCT_ID] > 1 && $dataArray[self::PRODUCT_ID] < 33 && ($new || $hasNoWrapOptions)) {
             $this->assignWrapsToProduct($product, $productMessage);

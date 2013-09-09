@@ -104,7 +104,7 @@ class Sao_Zed_Fulfillment_Component_Model_Finder implements
         foreach ($options as $option) {
             // TODO later we should save the option type in the sales component
             $catalogOption = $this->facadeCatalog->getProductOptionByIdentifier($option->getIdentifier());
-            if (!empty($catalogOption) && $catalogOption->getOptionType()->getName() == ProjectA_Shared_Library_Catalog_Interface_ProductOptionTypeConstant::OPTION_TYPE_FRAME) {
+            if (!empty($catalogOption) && $catalogOption->getOptionType()->getName() == ProjectA_Shared_Catalog_Interface_ProductOptionTypeConstant::OPTION_TYPE_FRAME) {
                 $frameOption = $option;
                 break;
             }

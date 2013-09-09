@@ -27,7 +27,7 @@ abstract class Sao_Zed_ArtistPortal_Component_Model_Share_Container_Product exte
         ],
         self::TITLE => [
             self::FLAG_MANDATORY,
-            self::FLAG_MAP => ProjectA_Shared_Library_Catalog_Interface_ProductAttributeConstant::ATTRIBUTE_NAME
+            self::FLAG_MAP => ProjectA_Shared_Catalog_Interface_ProductAttributeConstant::ATTRIBUTE_NAME
         ],
         self::QUANTITY => [
             self::FLAG_MANDATORY,

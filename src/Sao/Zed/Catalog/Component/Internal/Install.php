@@ -221,7 +221,7 @@ class Sao_Zed_Catalog_Component_Internal_Install extends ProjectA_Zed_Catalog_Co
      */
     protected function addWrapOptions()
     {
-        $valueType = ProjectA_Shared_Library_Catalog_Interface_ProductOptionTypeConstant::OPTION_TYPE_WRAP;
+        $valueType = ProjectA_Shared_Catalog_Interface_ProductOptionTypeConstant::OPTION_TYPE_WRAP;
         $valueTypeQuery = new ProjectA_Zed_Catalog_Persistence_PacCatalogOptionTypeQuery();
         $valueTypeEntity = $valueTypeQuery->filterByName($valueType)
             ->findOne();
