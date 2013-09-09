@@ -1,4 +1,6 @@
 <?php
+use Generated\Shared\Library\TransferLoader;
+
 /**
  * @property Sao_Zed_Checkout_Component_Facade $facadeCheckout
  */
@@ -122,7 +124,7 @@ class Sao_Zed_Checkout_Module_Controller_Yves extends ProjectA_Zed_Checkout_Modu
     {
         $isManualCheckout = $this->facadeCheckout->isManualCheckout($order);
         if ($isManualCheckout) {
-            $order->setQuotes(Generated_Shared_Library_TransferLoader::getFulfillmentQuoteCollection());
+            $order->setQuotes(TransferLoader::getFulfillmentQuoteCollection());
         }
         $order->setIsManualCheckout($isManualCheckout);
 

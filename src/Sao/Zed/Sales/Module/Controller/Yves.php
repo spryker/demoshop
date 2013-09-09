@@ -42,11 +42,11 @@ class Sao_Zed_Sales_Module_Controller_Yves extends ProjectA_Zed_Sales_Module_Con
         $entitySalesOrder = $this->facadeSales->getOrderByIncrementId($transferOrder->getIncrementId());
 
         if (!$entitySalesOrder) {
-            return Generated_Shared_Library_TransferLoader::getSalesOrder();
+            return Generated\Shared\Library\TransferLoader::getSalesOrder();
         }
 
         $result = $this->facadeSales->cancelOrderOnFailedPaypalPayment($entitySalesOrder);
 
-        return Generated_Shared_Library_TransferLoader::getSalesOrder()->setIncrementId($entitySalesOrder->getIncrementId());
+        return Generated\Shared\Library\TransferLoader::getSalesOrder()->setIncrementId($entitySalesOrder->getIncrementId());
     }
 }

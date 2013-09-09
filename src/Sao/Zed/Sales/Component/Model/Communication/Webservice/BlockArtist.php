@@ -26,7 +26,7 @@ class Sao_Zed_Sales_Component_Model_Communication_Webservice_BlockArtist extends
     protected function getTransferLegacyBlockArtist(ProjectA_Zed_Sales_Persistence_PacSalesOrderItem $orderItemEntity)
     {
         $product = $this->getProductBySku($orderItemEntity);
-        $transferLegacyBlockArtist = Generated_Shared_Library_TransferLoader::getLegacyBlockArtist();
+        $transferLegacyBlockArtist = Generated\Shared\Library\TransferLoader::getLegacyBlockArtist();
         $transferLegacyBlockArtist->setUserId($product[Sao_Shared_Catalog_Interface_ProductAttributeConstant::ATTRIBUTE_USER_ART_ID]);
         return $transferLegacyBlockArtist;
     }

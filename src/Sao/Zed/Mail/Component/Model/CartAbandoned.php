@@ -49,7 +49,7 @@ class Sao_Zed_Mail_Component_Model_CartAbandoned implements
      */
     public function unsubscribe(Sao_Shared_Mail_Transfer_Cart_Abandoned_Unsubscribe $unsubscribeTransfer)
     {
-        $response  = Generated_Shared_Library_TransferLoader::getResponse();
+        $response  = Generated\Shared\Library\TransferLoader::getResponse();
 
         $cartUser = $this->getCartUser($unsubscribeTransfer);
         if ($cartUser) {
@@ -62,13 +62,13 @@ class Sao_Zed_Mail_Component_Model_CartAbandoned implements
                 $this->clearAllRelatedItems($unsubscribeTransfer);
                 $response->setSuccess(true);
             } else {
-                $responseMessage = Generated_Shared_Library_TransferLoader::getResponseMessage();
+                $responseMessage = Generated\Shared\Library\TransferLoader::getResponseMessage();
                 $responseMessage->setMessage('invalid subscribe hash');
                 $response->addMessage($responseMessage);
                 $response->setSuccess(false);
             }
         } else {
-            $responseMessage = Generated_Shared_Library_TransferLoader::getResponseMessage();
+            $responseMessage = Generated\Shared\Library\TransferLoader::getResponseMessage();
             $responseMessage->setMessage('invalid cart user');
             $response->addMessage($responseMessage);
             $response->setSuccess(false);
@@ -84,7 +84,7 @@ class Sao_Zed_Mail_Component_Model_CartAbandoned implements
      */
     public function subscribe(Sao_Shared_Mail_Transfer_Cart_Abandoned_Unsubscribe $unsubscribeTransfer)
     {
-        $response  = Generated_Shared_Library_TransferLoader::getResponse();
+        $response  = Generated\Shared\Library\TransferLoader::getResponse();
 
         $cartUser = $this->getCartUser($unsubscribeTransfer);
         if ($cartUser) {
@@ -97,13 +97,13 @@ class Sao_Zed_Mail_Component_Model_CartAbandoned implements
                 $this->removeCartUserFromBlacklist($cartUser);
                 $response->setSuccess(true);
             } else {
-                $responseMessage = Generated_Shared_Library_TransferLoader::getResponseMessage();
+                $responseMessage = Generated\Shared\Library\TransferLoader::getResponseMessage();
                 $responseMessage->setMessage('invalid unsubscribe hash');
                 $response->addMessage($responseMessage);
                 $response->setSuccess(false);
             }
         } else {
-            $responseMessage = Generated_Shared_Library_TransferLoader::getResponseMessage();
+            $responseMessage = Generated\Shared\Library\TransferLoader::getResponseMessage();
             $responseMessage->setMessage('invalid cart user');
             $response->addMessage($responseMessage);
             $response->setSuccess(false);
@@ -446,7 +446,7 @@ class Sao_Zed_Mail_Component_Model_CartAbandoned implements
      */
     protected function getFilledUnsubscribeTransfer(ProjectA_Zed_Cart_Persistence_PacCartUser $cartUser)
     {
-        $unsubscribeTransfer = Generated_Shared_Library_TransferLoader::getMailCartAbandonedUnsubscribe();
+        $unsubscribeTransfer = Generated\Shared\Library\TransferLoader::getMailCartAbandonedUnsubscribe();
         $unsubscribeTransfer->setCartUserId($cartUser->getIdCartUser());
         $unsubscribeTransfer->setUnsubscribeHash($this->getHash($cartUser));
 

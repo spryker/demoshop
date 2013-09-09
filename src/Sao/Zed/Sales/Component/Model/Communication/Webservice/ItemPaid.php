@@ -29,7 +29,7 @@ class Sao_Zed_Sales_Component_Model_Communication_Webservice_ItemPaid extends Sa
      */
     protected function getTransferSalesOrderItemLegacy(ProjectA_Zed_Sales_Persistence_PacSalesOrderItem $orderItemEntity)
     {
-        $transferSalesOrderItemLegacy = Generated_Shared_Library_TransferLoader::getSalesOrderItemLegacy();
+        $transferSalesOrderItemLegacy = Generated\Shared\Library\TransferLoader::getSalesOrderItemLegacy();
         $product = $this->getProductBySku($orderItemEntity);
         $transferSalesOrderItemLegacy->setFkCustomer($product[Sao_Shared_Catalog_Interface_ProductAttributeConstant::ATTRIBUTE_ARTIST_USER_ID]);
         $transferSalesOrderItemLegacy->setUserArtId($product[Sao_Shared_Catalog_Interface_ProductAttributeConstant::ATTRIBUTE_USER_ART_ID]);
@@ -99,7 +99,7 @@ class Sao_Zed_Sales_Component_Model_Communication_Webservice_ItemPaid extends Sa
      */
     protected function getFulfillmentArtistCost(ProjectA_Zed_Sales_Persistence_PacSalesOrderItem $orderItemEntity)
     {
-        $emptyTransferSalesOrderItem = Generated_Shared_Library_TransferLoader::getSalesOrderItem();
+        $emptyTransferSalesOrderItem = Generated\Shared\Library\TransferLoader::getSalesOrderItem();
         $transferSalesOrderItem = ProjectA_Zed_Library_Copy::entityToTransfer(
             $emptyTransferSalesOrderItem,
             $orderItemEntity,

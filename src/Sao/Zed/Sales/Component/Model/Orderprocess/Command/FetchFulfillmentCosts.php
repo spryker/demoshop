@@ -19,12 +19,12 @@ class Sao_Zed_Sales_Component_Model_Orderprocess_Command_FetchFulfillmentCosts
     public function __invoke (ProjectA_Zed_Sales_Persistence_PacSalesOrder $orderEntity, ProjectA_Zed_Sales_Component_Interface_ContextCollection $context)
     {
         /* @var Sao_Shared_Sales_Transfer_Order $transferOrder */
-        $transferOrder = Generated_Shared_Library_TransferLoader::getSalesOrder();
+        $transferOrder = Generated\Shared\Library\TransferLoader::getSalesOrder();
         $transferOrder = ProjectA_Zed_Library_Copy::entityToTransfer($transferOrder, $orderEntity);
         $items = $context->getOrderItems();
-        $transferItemCollection = Generated_Shared_Library_TransferLoader::getSalesOrderItemCollection();
+        $transferItemCollection = Generated\Shared\Library\TransferLoader::getSalesOrderItemCollection();
         foreach ($items as $item) {
-            $itemTransfer = Generated_Shared_Library_TransferLoader::getSalesOrderItem();
+            $itemTransfer = Generated\Shared\Library\TransferLoader::getSalesOrderItem();
             $itemTransfer = ProjectA_Zed_Library_Copy::entityToTransfer($itemTransfer, $item);
             $transferItemCollection->add($itemTransfer);
         }
@@ -33,7 +33,7 @@ class Sao_Zed_Sales_Component_Model_Orderprocess_Command_FetchFulfillmentCosts
         $shippingAddressEntity = $orderEntity->getShippingAddress();
         $countryIso2Code = $shippingAddressEntity->getCountry()->getIso2Code();
         /* @var Sao_Shared_Sales_Transfer_Order_Address $transferShippingAddress */
-        $transferShippingAddress = Generated_Shared_Library_TransferLoader::getSalesOrderAddress();
+        $transferShippingAddress = Generated\Shared\Library\TransferLoader::getSalesOrderAddress();
         $transferShippingAddress = ProjectA_Zed_Library_Copy::entityToTransfer($transferShippingAddress, $shippingAddressEntity);
         $transferShippingAddress->setIso2Country($countryIso2Code);
         //add state if available

@@ -1,5 +1,6 @@
 <?php
 
+use Generated\Shared\Library\TransferLoader;
 use ProjectA\Shared\Library\Error\ErrorLogger;
 
 class Sao_Zed_Fulfillment_Component_Model_Spooler implements
@@ -23,7 +24,7 @@ class Sao_Zed_Fulfillment_Component_Model_Spooler implements
      */
     public function requestQuotes(Sao_Shared_Sales_Transfer_Order $orderTransfer, Sao_Shared_Sales_Transfer_Order_Item_Collection $itemTransferCollection)
     {
-        $orderTransfer->setQuotes(Generated_Shared_Library_TransferLoader::getFulfillmentQuoteCollection());
+        $orderTransfer->setQuotes(TransferLoader::getFulfillmentQuoteCollection());
 
         $itemsForProviders = $this->distributeItemsToProviders($itemTransferCollection);
         foreach ($itemsForProviders as $providerName => $providerItems) {
@@ -126,7 +127,7 @@ class Sao_Zed_Fulfillment_Component_Model_Spooler implements
         $lowestRate = $this->getLowestRate($quoteResponse);
         $items = $quoteResponse->getItems();
 
-        $quote = Generated_Shared_Library_TransferLoader::getFulfillmentQuote()
+        $quote = TransferLoader::getFulfillmentQuote()
             ->setProvider($providerName)
             ->setActive(true)
             ->setSuccess($quoteResponse->isSuccess())

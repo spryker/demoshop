@@ -37,7 +37,7 @@ class Sao_Zed_Mail_Component_Model_Collector_ArtistSalesNotificationManufactured
      */
     protected function createMailTransfer()
     {
-        return Generated_Shared_Library_TransferLoader::getMailArtistSalesNotificationManufactured();
+        return Generated\Shared\Library\TransferLoader::getMailArtistSalesNotificationManufactured();
     }
 
     /**

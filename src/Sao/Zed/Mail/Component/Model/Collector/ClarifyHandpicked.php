@@ -37,7 +37,7 @@ class Sao_Zed_Mail_Component_Model_Collector_ClarifyHandpicked extends Sao_Zed_M
      */
     protected function createMailTransfer()
     {
-        return Generated_Shared_Library_TransferLoader::getMailClarifyHandpicked();
+        return Generated\Shared\Library\TransferLoader::getMailClarifyHandpicked();
     }
 
     /**

@@ -32,7 +32,7 @@ class Sao_Zed_Mail_Component_Model_Collector_ManualProcess extends Sao_Zed_Mail_
      */
     protected function createMailTransfer()
     {
-        return Generated_Shared_Library_TransferLoader::getMailManualProcess();
+        return Generated\Shared\Library\TransferLoader::getMailManualProcess();
     }
 
     /**

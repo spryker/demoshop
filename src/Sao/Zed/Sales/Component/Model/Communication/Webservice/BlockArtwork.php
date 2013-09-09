@@ -42,7 +42,7 @@ class Sao_Zed_Sales_Component_Model_Communication_Webservice_BlockArtwork extend
     protected function getTransferLegacyBlockArtwork(ProjectA_Zed_Sales_Persistence_PacSalesOrderItem $orderItemEntity)
     {
         $product = $this->getProductBySku($orderItemEntity);
-        $transferLegacyBlockArtwork = Generated_Shared_Library_TransferLoader::getLegacyBlockArtwork();
+        $transferLegacyBlockArtwork = Generated\Shared\Library\TransferLoader::getLegacyBlockArtwork();
         $transferLegacyBlockArtwork->setSku($product->getSku());
         $transferLegacyBlockArtwork->setAvailability($this->availability);
         return $transferLegacyBlockArtwork;

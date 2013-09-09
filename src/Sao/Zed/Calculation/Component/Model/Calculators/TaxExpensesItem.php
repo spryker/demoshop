@@ -1,4 +1,6 @@
 <?php
+use Generated\Shared\Library\TransferLoader;
+
 /**
  * @property Sao_Zed_Cart_Component_Facade $facadeCart
  */
@@ -40,7 +42,7 @@ class Sao_Zed_Calculation_Component_Model_Calculators_TaxExpensesItem extends Pr
         /* @var $item Sao_Shared_Sales_Transfer_Order_Item */
         foreach ($order->getItems() as $item) {
             $expenses = $item->getExpenses();
-            $expense = Generated_Shared_Library_TransferLoader::getSalesExpense();
+            $expense = TransferLoader::getSalesExpense();
             $expense->setType(ProjectA_Shared_Library_Sales_ExpenseConstants::EXPENSE_TAX);
             $expense->setName('State tax');
             $expense->setGrossPrice(round(($item->getGrossPrice() + $this->getOptionsAmount($item) - $this->getItemDiscountAmount($item)) * $taxExpensePercentage / 100));

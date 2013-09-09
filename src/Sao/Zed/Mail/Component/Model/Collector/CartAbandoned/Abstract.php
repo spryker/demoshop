@@ -149,7 +149,7 @@ abstract class Sao_Zed_Mail_Component_Model_Collector_CartAbandoned_Abstract ext
             }
         }
 
-        $itemCollection = Generated_Shared_Library_TransferLoader::getMailCartAbandonedItemCollection();
+        $itemCollection = Generated\Shared\Library\TransferLoader::getMailCartAbandonedItemCollection();
         $itemCollection->fromArray($items);
 
         $this->mailTransfer->setCartItems($itemCollection);

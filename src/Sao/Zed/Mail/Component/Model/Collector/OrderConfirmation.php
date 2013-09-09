@@ -31,7 +31,7 @@ class Sao_Zed_Mail_Component_Model_Collector_OrderConfirmation extends Sao_Zed_M
      */
     protected function createMailTransfer()
     {
-        return Generated_Shared_Library_TransferLoader::getMailOrderConfirmation();
+        return Generated\Shared\Library\TransferLoader::getMailOrderConfirmation();
     }
 
     /**
@@ -79,11 +79,11 @@ class Sao_Zed_Mail_Component_Model_Collector_OrderConfirmation extends Sao_Zed_M
         $documentArray = $this->facadeInvoice->getInvoiceDocumentArrayBySalesOrder($orderEntity);
         /* @var $invoiceEntity ProjectA_Zed_Invoice_Persistence_PacInvoice */
         $attachmentUrl = $this->facadeInvoice->generateInvoiceAttachmentUrl((int)$documentArray['id_invoice_document']);
-        $mailAttachment = Generated_Shared_Library_TransferLoader::getMailAttachment();
+        $mailAttachment = Generated\Shared\Library\TransferLoader::getMailAttachment();
         $mailAttachment->setAttachmentUrl($attachmentUrl);
         $mailAttachment->setFileName($documentArray['filename']);
         $mailAttachment->setReferenceId((int)$documentArray['id_invoice_document']);
-        $mailAttachmentCollection = Generated_Shared_Library_TransferLoader::getMailAttachmentCollection();
+        $mailAttachmentCollection = Generated\Shared\Library\TransferLoader::getMailAttachmentCollection();
         $mailAttachmentCollection->add($mailAttachment);
 
         $this->mailTransfer->setAttachment($mailAttachmentCollection);

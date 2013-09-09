@@ -62,7 +62,7 @@ class Sao_Zed_Sales_Component_Model_Item extends ProjectA_Zed_Sales_Component_Mo
             $countryEntity = $saoSalesOrderItem->getCountry();
             $regionEntity = $saoSalesOrderItem->getRegion();
             /* @var $transferAddress Sao_Shared_Artist_Transfer_Address */
-            $transferAddress = Generated_Shared_Library_TransferLoader::getArtistAddress();
+            $transferAddress = Generated\Shared\Library\TransferLoader::getArtistAddress();
             $transferAddress = ProjectA_Zed_Library_Copy::entityToTransfer($transferAddress, $saoSalesOrderItem);
             if ($countryEntity) {
                 $transferAddress->setIso2Country($countryEntity->getIso2Code());

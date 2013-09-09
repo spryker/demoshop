@@ -49,7 +49,7 @@ abstract class Sao_Zed_Mail_Component_Model_Collector extends ProjectA_Zed_Mail_
      */
     protected function getTransferMailAddress(ProjectA_Zed_Sales_Persistence_PacSalesOrderAddress $orderAddressEntity)
     {
-        $transferOrderAddress = Generated_Shared_Library_TransferLoader::getMailAddress();
+        $transferOrderAddress = Generated\Shared\Library\TransferLoader::getMailAddress();
         $transferOrderAddress = ProjectA_Zed_Library_Copy::entityToTransfer($transferOrderAddress, $orderAddressEntity);
         /* @var $transferOrderAddress Sao_Shared_Mail_Transfer_Address */
         $transferOrderAddress->setSalutation($orderAddressEntity->getSalutation());
@@ -64,7 +64,7 @@ abstract class Sao_Zed_Mail_Component_Model_Collector extends ProjectA_Zed_Mail_
     protected function getOrderTotals(ProjectA_Zed_Sales_Persistence_PacSalesOrder $orderEntity)
     {
         $totalsTransfer = $this->facadeCalculation->getTotalsByOrder($orderEntity);
-        $totalsTransferClone = Generated_Shared_Library_TransferLoader::getSalesTotals($totalsTransfer->toArray());
+        $totalsTransferClone = Generated\Shared\Library\TransferLoader::getSalesTotals($totalsTransfer->toArray());
         return $this->formatTransferTotals($totalsTransferClone);
     }
 

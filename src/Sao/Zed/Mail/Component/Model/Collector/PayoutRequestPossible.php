@@ -37,7 +37,7 @@ class Sao_Zed_Mail_Component_Model_Collector_PayoutRequestPossible extends Sao_Z
      */
     protected function createMailTransfer()
     {
-        return Generated_Shared_Library_TransferLoader::getMailPayoutRequestPossible();
+        return Generated\Shared\Library\TransferLoader::getMailPayoutRequestPossible();
     }
 
     /**

@@ -1,5 +1,7 @@
 <?php
 
+use Generated\Shared\Library\TransferLoader;
+
 class Sao_Zed_Calculation_Component_Model_Calculators_TaxExpensesOrder extends ProjectA_Zed_Calculation_Component_Model_Calculators_Abstract implements ProjectA_Zed_Misc_Component_Dependency_Facade_Interface
 {
 
@@ -32,7 +34,7 @@ class Sao_Zed_Calculation_Component_Model_Calculators_TaxExpensesOrder extends P
         }
 
         $expenses = $order->getExpenses();
-        $expense = Generated_Shared_Library_TransferLoader::getSalesExpense();
+        $expense = TransferLoader::getSalesExpense();
         $expense->setType(ProjectA_Shared_Library_Sales_ExpenseConstants::EXPENSE_TAX);
         $expense->setName('Special ZIP code dependent tax Order');
         $expense->setGrossPrice(round($itemGrossPriceSum * $taxExpensePercentage / 100));

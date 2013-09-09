@@ -30,7 +30,7 @@ class Sao_Zed_Mail_Component_Model_Collector_AccountingAwaitingRefund extends Sa
      */
     protected function createMailTransfer()
     {
-        return Generated_Shared_Library_TransferLoader::getMailAccountingAwaitingRefund();
+        return Generated\Shared\Library\TransferLoader::getMailAccountingAwaitingRefund();
     }
 
     /**

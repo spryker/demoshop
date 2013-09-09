@@ -25,7 +25,7 @@ class Sao_Zed_Sales_Component_Model_Communication_Webservice_ItemCanceled extend
      */
     protected function getTransferSalesOrderItemLegacy(ProjectA_Zed_Sales_Persistence_PacSalesOrderItem $orderItemEntity)
     {
-        $transferSalesOrderItemLegacy = Generated_Shared_Library_TransferLoader::getSalesOrderItemLegacy();
+        $transferSalesOrderItemLegacy = Generated\Shared\Library\TransferLoader::getSalesOrderItemLegacy();
         $transferSalesOrderItemLegacy->setFkArtistSales($orderItemEntity->getSaoSalesOrderItem()->getFkArtistSales());
         return $transferSalesOrderItemLegacy;
     }

@@ -37,7 +37,7 @@ class Sao_Zed_Mail_Component_Model_Collector_FirstArtistArtworkAvailabilityRemin
      */
     protected function createMailTransfer()
     {
-        return Generated_Shared_Library_TransferLoader::getMailFirstArtistArtworkAvailabilityReminder();
+        return Generated\Shared\Library\TransferLoader::getMailFirstArtistArtworkAvailabilityReminder();
     }
 
     /**

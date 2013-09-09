@@ -35,7 +35,7 @@ class Sao_Zed_Mail_Component_Model_Collector_PreShippingInfoOriginal extends Sao
      */
     protected function createMailTransfer()
     {
-        return Generated_Shared_Library_TransferLoader::getMailPreShippingInfoOriginal();
+        return Generated\Shared\Library\TransferLoader::getMailPreShippingInfoOriginal();
     }
 
     /**

@@ -36,6 +36,6 @@ class Sao_Zed_Mail_Component_Model_Collector_CartAbandoned_StepPayment_Sequence2
      */
     protected function createMailTransfer()
     {
-        return Generated_Shared_Library_TransferLoader::getMailCartAbandonedStepPaymentSequence2();
+        return Generated\Shared\Library\TransferLoader::getMailCartAbandonedStepPaymentSequence2();
     }
 }

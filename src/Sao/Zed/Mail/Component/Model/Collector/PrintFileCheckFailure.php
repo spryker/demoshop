@@ -37,7 +37,7 @@ class Sao_Zed_Mail_Component_Model_Collector_PrintFileCheckFailure extends Sao_Z
      */
     protected function createMailTransfer()
     {
-        return Generated_Shared_Library_TransferLoader::getMailPrintFileCheckFailure();
+        return Generated\Shared\Library\TransferLoader::getMailPrintFileCheckFailure();
     }
 
     /**

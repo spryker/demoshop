@@ -106,7 +106,7 @@ class Sao_Zed_Sales_Component_Model_Communication_Sns_PayoutNote implements
 
     protected function getFulfillmentArtistCost(ProjectA_Zed_Sales_Persistence_PacSalesOrderItem $orderItemEntity)
     {
-        $emptyTransferSalesOrderItem = Generated_Shared_Library_TransferLoader::getSalesOrderItem();
+        $emptyTransferSalesOrderItem = Generated\Shared\Library\TransferLoader::getSalesOrderItem();
         $transferSalesOrderItem = ProjectA_Zed_Library_Copy::entityToTransfer(
             $emptyTransferSalesOrderItem,
             $orderItemEntity,

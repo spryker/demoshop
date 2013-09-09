@@ -34,7 +34,7 @@ class Sao_Zed_Mail_Component_Model_Collector_ConfirmArtworkAvailability extends 
      */
     protected function createMailTransfer()
     {
-        return Generated_Shared_Library_TransferLoader::getMailConfirmArtworkAvailability();
+        return Generated\Shared\Library\TransferLoader::getMailConfirmArtworkAvailability();
     }
 
     /**

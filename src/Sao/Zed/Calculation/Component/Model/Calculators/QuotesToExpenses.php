@@ -1,5 +1,7 @@
 <?php
 
+use Generated\Shared\Library\TransferLoader;
+
 class Sao_Zed_Calculation_Component_Model_Calculators_QuotesToExpenses extends ProjectA_Zed_Calculation_Component_Model_Calculators_Abstract implements ProjectA_Zed_Misc_Component_Dependency_Facade_Interface
 {
     use ProjectA_Zed_Misc_Component_Dependency_Facade_Trait;
@@ -48,11 +50,11 @@ class Sao_Zed_Calculation_Component_Model_Calculators_QuotesToExpenses extends P
              */
             if (!$orderItem) {
                 $quotes->remove($quote);
-                $quote->setOrderItems(Generated_Shared_Library_TransferLoader::getSalesOrderItemCollection());
+                $quote->setOrderItems(TransferLoader::getSalesOrderItemCollection());
                 continue;
             }
             $itemExpenses = $orderItem->getExpenses();
-            $itemExpense = Generated_Shared_Library_TransferLoader::getSalesExpense();
+            $itemExpense = TransferLoader::getSalesExpense();
             $itemExpense->setGrossPrice($partialShippingCosts);
             $itemExpense->setTaxPercentage(0);
             $itemExpense->setType($type);

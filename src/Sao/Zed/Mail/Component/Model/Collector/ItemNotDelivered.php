@@ -32,7 +32,7 @@ class Sao_Zed_Mail_Component_Model_Collector_ItemNotDelivered extends Sao_Zed_Ma
      */
     protected function createMailTransfer()
     {
-        return Generated_Shared_Library_TransferLoader::getMailItemNotDelivered();
+        return Generated\Shared\Library\TransferLoader::getMailItemNotDelivered();
     }
 
     /**
