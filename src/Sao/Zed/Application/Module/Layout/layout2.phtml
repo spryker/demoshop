@@ -14,7 +14,7 @@
         zed.vars.exchange.page.current.action = '<?php echo $request->getParam('action'); ?>';
     </script>
 
-    <?php echo $this->partial('Partials2/header.phtml', array()); ?>
+    <?php echo $this->partial('Partials2/header.phtml', array('currentController' => $this->currentController)); ?>
     <?php echo $this->partial('Partials2/tabs.phtml', array()); ?>
 
     <main class="zed:main" role="main" id="main">

@@ -12,7 +12,7 @@
         <?php if (ProjectA_Zed_Auth_Component_Model_Auth::getInstance()->hasIdentity()): ?>
             <?php $identity = ProjectA_Zed_Auth_Component_Model_Auth::getInstance()->getIdentity(); echo $identity->getFirstname() . ' ' . $identity->getLastname(); ?>
         <?php else : ?>
-            Human
+            Developer
         <?php endif; ?>
         </b>
 
@@ -49,8 +49,8 @@
             <dd><?php echo ProjectA_Shared_Library_Store::getInstance()->getStoreName(); ?>
             <dt>Server:
             <dd><?php echo ProjectA\Shared\Library\System::getHostName(); ?>
-            <dt>URL:
-            <dd><a href="http://<?php echo ProjectA_Shared_Library_Config::get('host')->yves ?>" target="_blank"><?php echo ProjectA_Shared_Library_Config::get('host')->yves  ?></a>
+            <dt>Controller:
+            <dd><?php echo $this->currentController ?>
         </dl>
     </div>
 
