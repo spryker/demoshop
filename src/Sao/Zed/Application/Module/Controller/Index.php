@@ -1,5 +1,7 @@
 <?php
 
+use ProjectA\Shared\Library\Currency\CurrencyManager;
+
 class Sao_Zed_Application_Module_Controller_Index extends ProjectA_Zed_Library_Controller_Action
 {
 
@@ -127,7 +129,7 @@ class Sao_Zed_Application_Module_Controller_Index extends ProjectA_Zed_Library_C
         );
         $totalOrders = $this->getOrdersTotal()->count();
 
-        $currency = ProjectA_Shared_Library_Currency::getCurrency()->getSymbol();
+        $currency = CurrencyManager::getDefaultCurrency()->getSymbol();
 
         $result = array('status' => 'success', 'data' => array());
         $result['data']['order-qty-total'] = $totalOrders;
