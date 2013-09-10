@@ -503,7 +503,7 @@
             "source": {
                 "type": "git",
                 "url": "git@codebasehq.com:project-a/core/acl.git",
-                "reference": "b1c910a08b0a831b04c51c76d1e1566eaa5d9556"
+                "reference": "409dd96b22aa42b8b038c7f768da25539b0f7e11"
             },
             "require": {
                 "php": ">=5.4.0",
@@ -530,7 +530,7 @@
                 "login",
                 "usermanagement"
             ],
-            "time": "2013-09-09 16:33:43"
+            "time": "2013-09-10 08:38:16"
         },
         {
             "name": "project-a/adyen-package",
@@ -571,7 +571,7 @@
             "source": {
                 "type": "git",
                 "url": "git@codebasehq.com:project-a/core/cart.git",
-                "reference": "259ca6f28475a80d9d5e53a92807651d85fb4637"
+                "reference": "d8469f0a1e88c43faed3a54c1904da76a30eaae6"
             },
             "require": {
                 "php": ">=5.4.0",
@@ -598,7 +598,7 @@
             "keywords": [
                 "Cart"
             ],
-            "time": "2013-09-09 14:37:13"
+            "time": "2013-09-10 09:32:56"
         },
         {
             "name": "project-a/catalog-package",
@@ -679,7 +679,7 @@
             "source": {
                 "type": "git",
                 "url": "git@codebasehq.com:project-a/core/console.git",
-                "reference": "840901ec660c79547bd6025f4f135445fc2693a0"
+                "reference": "d4d4000d1186c45402e0be8c7e5add821446b3d8"
             },
             "require": {
                 "fabpot/php-cs-fixer": "dev-master",
@@ -710,7 +710,7 @@
             "keywords": [
                 "console"
             ],
-            "time": "2013-09-09 15:22:48"
+            "time": "2013-09-10 08:42:55"
         },
         {
             "name": "project-a/content-package",
@@ -881,7 +881,7 @@
             "source": {
                 "type": "git",
                 "url": "git@codebasehq.com:project-a/core/glossary.git",
-                "reference": "d49d90937443e40c336799adc0f53418e6a8ffa3"
+                "reference": "fe4d514ad1707d34294f4932efdcb3bb347570d9"
             },
             "require": {
                 "php": ">=5.4.0"
@@ -905,7 +905,7 @@
                 "i18n",
                 "translation"
             ],
-            "time": "2013-09-09 16:48:54"
+            "time": "2013-09-10 09:26:39"
         },
         {
             "name": "project-a/infrastructure-package",
@@ -913,7 +913,7 @@
             "source": {
                 "type": "git",
                 "url": "git@codebasehq.com:project-a/core/infrastructure.git",
-                "reference": "00e9b848aa535828113f18129005be5dd883956a"
+                "reference": "31459f8d88a0cffc1a47c1663d53af6bc2ca917f"
             },
             "require": {
                 "php": ">=5.4.0",
@@ -941,7 +941,7 @@
             "keywords": [
                 "infrastructure"
             ],
-            "time": "2013-09-09 17:08:10"
+            "time": "2013-09-10 09:12:23"
         },
         {
             "name": "project-a/kendo-package",
@@ -966,7 +966,7 @@
             "source": {
                 "type": "git",
                 "url": "git@codebasehq.com:project-a/core/library-2.git",
-                "reference": "15d6dcbefa6a3c5ec81bf5899bd1b92b7aee37b9"
+                "reference": "162e02a6808123e643e168132509f15bdce4cd6a"
             },
             "require": {
                 "digital-canvas/zend-framework": ">=1.12.2",
@@ -997,7 +997,7 @@
                 }
             ],
             "description": "Core Library",
-            "time": "2013-09-09 17:07:34"
+            "time": "2013-09-10 10:36:32"
         },
         {
             "name": "project-a/lumberjack-package",
@@ -1100,7 +1100,7 @@
             "source": {
                 "type": "git",
                 "url": "git@codebasehq.com:project-a/core/sales.git",
-                "reference": "a9474f12052eb3bea4bcf66f8861a793096bf636"
+                "reference": "0ddafed1878de80113c737609fc6f3fb54f3eca3"
             },
             "require": {
                 "php": ">=5.4.0",
@@ -1127,7 +1127,7 @@
                 "Sales",
                 "Task"
             ],
-            "time": "2013-09-09 13:39:00"
+            "time": "2013-09-10 10:35:39"
         },
         {
             "name": "project-a/silex-routing",
@@ -2939,16 +2939,16 @@
         },
         {
             "name": "phpunit/php-code-coverage",
-            "version": "1.2.12",
+            "version": "1.2.13",
             "source": {
                 "type": "git",
                 "url": "https://github.com/sebastianbergmann/php-code-coverage.git",
-                "reference": "0e9958c459d675fb497d8dc5001c91d335734e48"
+                "reference": "466e7cd2554b4e264c9e3f31216d25ac0e5f3d94"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sebastianbergmann/php-code-coverage/zipball/0e9958c459d675fb497d8dc5001c91d335734e48",
-                "reference": "0e9958c459d675fb497d8dc5001c91d335734e48",
+                "url": "https://api.github.com/repos/sebastianbergmann/php-code-coverage/zipball/466e7cd2554b4e264c9e3f31216d25ac0e5f3d94",
+                "reference": "466e7cd2554b4e264c9e3f31216d25ac0e5f3d94",
                 "shasum": ""
             },
             "require": {
@@ -2996,7 +2996,7 @@
                 "testing",
                 "xunit"
             ],
-            "time": "2013-07-06 06:26:16"
+            "time": "2013-09-10 08:14:32"
         },
         {
             "name": "phpunit/php-file-iterator",
@@ -3183,16 +3183,16 @@
         },
         {
             "name": "phpunit/phpunit",
-            "version": "3.7.24",
+            "version": "3.7.25",
             "source": {
                 "type": "git",
                 "url": "https://github.com/sebastianbergmann/phpunit.git",
-                "reference": "3.7.24"
+                "reference": "162da5b9efbf2d483d4ee93dc54b7266d30beae2"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sebastianbergmann/phpunit/zipball/3.7.24",
-                "reference": "3.7.24",
+                "url": "https://api.github.com/repos/sebastianbergmann/phpunit/zipball/162da5b9efbf2d483d4ee93dc54b7266d30beae2",
+                "reference": "162da5b9efbf2d483d4ee93dc54b7266d30beae2",
                 "shasum": ""
             },
             "require": {
@@ -3253,7 +3253,7 @@
                 "testing",
                 "xunit"
             ],
-            "time": "2013-08-09 06:58:24"
+            "time": "2013-09-10 08:23:58"
         },
         {
             "name": "phpunit/phpunit-mock-objects",
