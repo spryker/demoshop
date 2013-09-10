@@ -1,5 +1,5 @@
 <?php
-namespace Sao\Yves\Application;
+namespace Sao\Yves\Application\Module;
 
 use ProjectA\Yves\Library\Silex\Application;
 use ProjectA\Yves\Library\Silex\Provider\Service\CookieServiceProvider;
@@ -14,8 +14,9 @@ use ProjectA\Yves\Library\Templating\Filesystem\Finder\ProjectFinder;
 use ProjectA\Yves\Library\Templating\Filesystem\Finder\StoreFinder;
 use ProjectA\Yves\Library\Templating\Filter\MinifyHtmlFilter;
 use ProjectA\Yves\Library\Templating\Theme;
-use ProjectA\Yves\Library\Templating\ViewHelper\UrlGenerator;
 use ProjectA\Yves\Cart\Module\ControllerProvider as CartProvider;
+use ProjectA\Yves\Library\Templating\ViewHelper\PriceHelper;
+use ProjectA\Yves\Library\Templating\ViewHelper\UrlHelper;
 use ProjectA\Yves\Setup\Module\ControllerProvider as SetupProvider;
 use Silex\Provider\SessionServiceProvider;
 use Silex\Provider\UrlGeneratorServiceProvider;
@@ -41,16 +42,13 @@ class Bootstrap extends \ProjectA\Yves\Library\Silex\Bootstrap
             $finder->addFinder(new ProjectFinder());
             $finder->addFinder(new CoreFinder());
 
-//            if (\ProjectA_Shared_Library_Environment::isNotDevelopment()) {
-//                $finder = new CacheFinder($finder);
-//            }
-
             $theme = new Theme($themeName, $finder);
             return $theme;
         });
 
         $app['templating_config'] = $app->share($app->extend('templating_config', function (EngineConfig $config, Application $app) {
-            $config->registerViewHelper('url', new UrlGenerator($app));
+            $config->registerViewHelper('url', new UrlHelper($app));
+            $config->registerViewHelper('price', new PriceHelper($app));
             $config->registerFilter(new MinifyHtmlFilter());
 
             $config->setCustomLayoutScopeClass('Sao\Yves\Library\Templating\Scope\LayoutScope');
