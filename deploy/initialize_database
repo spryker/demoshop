@@ -16,7 +16,7 @@ cd $destination_release_dir
 
 # Initialize database (fill in default values)
 echo "Initialize database with default values (incl. state machine states) for $APPLICATION_STORE"
-sudo -u www-data vendor/bin/console -s ${APPLICATION_STORE} -e ${environment} init-db
+sudo -u www-data vendor/bin/console init-db -s ${APPLICATION_STORE} -e ${environment}
 
 rm -f $outfile
 exit $return
