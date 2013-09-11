@@ -18,6 +18,7 @@ use ProjectA\Yves\Cart\Module\ControllerProvider as CartProvider;
 use ProjectA\Yves\Library\Templating\ViewHelper\PriceHelper;
 use ProjectA\Yves\Library\Templating\ViewHelper\UrlHelper;
 use ProjectA\Yves\Setup\Module\ControllerProvider as SetupProvider;
+use Silex\Provider\ServiceControllerServiceProvider;
 use Silex\Provider\SessionServiceProvider;
 use Silex\Provider\UrlGeneratorServiceProvider;
 use Silex\ServiceProviderInterface;
@@ -25,9 +26,6 @@ use Silex\ControllerProviderInterface;
 use SilexRouting\Provider\RoutingServiceProvider;
 use Symfony\Component\Routing\RouterInterface;
 
-/**
- * @author Daniel Tschinder <daniel.tschinder@project-a.com>
- */
 class Bootstrap extends \ProjectA\Yves\Library\Silex\Bootstrap
 {
     /**
@@ -67,9 +65,10 @@ class Bootstrap extends \ProjectA\Yves\Library\Silex\Bootstrap
             new ExceptionServiceProvider(),
             new YvesLoggingServiceProvider(),
             new CookieServiceProvider(),
-            new UrlGeneratorServiceProvider(),
-            new RoutingServiceProvider(),
             new SessionServiceProvider(),
+            new UrlGeneratorServiceProvider(),
+            new ServiceControllerServiceProvider(),
+            new RoutingServiceProvider(),
             new TemplatingServiceProvider()
         ];
     }
@@ -95,6 +94,4 @@ class Bootstrap extends \ProjectA\Yves\Library\Silex\Bootstrap
             new SilexRouter($app)
         ];
     }
-
-
 }
