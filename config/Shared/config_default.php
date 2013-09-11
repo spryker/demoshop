@@ -227,8 +227,7 @@ $config['zed'] = array(
 );
 
 $config['yves'] = [
-    'theme'          => 'saatchi',
-    'currency'       => 'USD',
+    'theme'          => 'demoshop',
     'session'        => [
         'save_handler' => null,
         'save_path'    => null,

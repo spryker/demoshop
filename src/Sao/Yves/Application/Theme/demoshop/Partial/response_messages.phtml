@@ -1,0 +1,13 @@
+<?php /* @var Sao\Yves\Library\Templating\Scope\PartialScope $this */ ?>
+
+<div class="message error">
+<?php foreach ($this->getArray('error_messages') as $message): ?>
+    <span><?= $message ?></span>
+<?php endforeach;?>
+</div>
+
+<div class="message info">
+<?php foreach ($this->getArray('info_messages') as $message): ?>
+    <span><?= $message ?></span>
+<?php endforeach;?>
+</div>
