@@ -571,7 +571,7 @@
             "source": {
                 "type": "git",
                 "url": "git@codebasehq.com:project-a/core/cart.git",
-                "reference": "0219b03e3bf0fe8229455ea04c7f05504b0e10d5"
+                "reference": "ce7745f5ba825035600815e596eec51864f17baa"
             },
             "require": {
                 "php": ">=5.4.0",
@@ -598,7 +598,7 @@
             "keywords": [
                 "Cart"
             ],
-            "time": "2013-09-11 10:37:19"
+            "time": "2013-09-11 16:14:55"
         },
         {
             "name": "project-a/catalog-package",
@@ -606,7 +606,7 @@
             "source": {
                 "type": "git",
                 "url": "git@codebasehq.com:project-a/core/catalog.git",
-                "reference": "5369f870dcb48f5722268d69b61b5cf3c3cb01c8"
+                "reference": "223b8b75e7a45fa4111699914512c0e35dac1b23"
             },
             "require": {
                 "php": ">=5.4.0",
@@ -636,7 +636,7 @@
                 "Price",
                 "Stock"
             ],
-            "time": "2013-09-10 12:09:40"
+            "time": "2013-09-11 16:15:13"
         },
         {
             "name": "project-a/checkout-package",
@@ -679,7 +679,7 @@
             "source": {
                 "type": "git",
                 "url": "git@codebasehq.com:project-a/core/console.git",
-                "reference": "10e6887de87becd6eb0706ff7a055d9a5e4a5661"
+                "reference": "f2c9e364d726626213343ba1d03d812e6110d752"
             },
             "require": {
                 "fabpot/php-cs-fixer": "dev-master",
@@ -710,7 +710,7 @@
             "keywords": [
                 "console"
             ],
-            "time": "2013-09-10 12:36:53"
+            "time": "2013-09-11 10:56:37"
         },
         {
             "name": "project-a/content-package",
@@ -881,7 +881,7 @@
             "source": {
                 "type": "git",
                 "url": "git@codebasehq.com:project-a/core/glossary.git",
-                "reference": "922f6b0681f3cbd3b90f843a8d48b26ed71b6e2b"
+                "reference": "3466e2b0e225b2b77b67ecc13899a3024a7f0a45"
             },
             "require": {
                 "php": ">=5.4.0"
@@ -905,7 +905,7 @@
                 "i18n",
                 "translation"
             ],
-            "time": "2013-09-10 12:30:06"
+            "time": "2013-09-11 14:21:45"
         },
         {
             "name": "project-a/infrastructure-package",
@@ -966,7 +966,7 @@
             "source": {
                 "type": "git",
                 "url": "git@codebasehq.com:project-a/core/library-2.git",
-                "reference": "4219154feaf6e7da711d19636bc397351285dff8"
+                "reference": "a15de3f047a2200edb2ea7487db79024e681eab7"
             },
             "require": {
                 "digital-canvas/zend-framework": ">=1.12.2",
@@ -997,7 +997,7 @@
                 }
             ],
             "description": "Core Library",
-            "time": "2013-09-11 10:39:00"
+            "time": "2013-09-11 16:14:15"
         },
         {
             "name": "project-a/lumberjack-package",
@@ -1100,7 +1100,7 @@
             "source": {
                 "type": "git",
                 "url": "git@codebasehq.com:project-a/core/sales.git",
-                "reference": "e5ee4abcf01909360aa2459727a7e1a5e347f0bb"
+                "reference": "6d3336887e611f62729e4e4e8beb474178a2c946"
             },
             "require": {
                 "php": ">=5.4.0",
@@ -1127,7 +1127,7 @@
                 "Sales",
                 "Task"
             ],
-            "time": "2013-09-11 10:40:30"
+            "time": "2013-09-11 11:27:20"
         },
         {
             "name": "project-a/silex-routing",
