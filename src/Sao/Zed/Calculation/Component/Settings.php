@@ -1,5 +1,7 @@
 <?php
-
+/**
+ * @property Generated_Zed_Calculation_Component_Factory $factory
+ */
 class Sao_Zed_Calculation_Component_Settings extends ProjectA_Zed_Calculation_Component_Settings implements ProjectA_Zed_Library_Dependency_Factory_Interface
 {
 
@@ -11,7 +13,6 @@ class Sao_Zed_Calculation_Component_Settings extends ProjectA_Zed_Calculation_Co
         return array(
             $this->factory->getModelCalculatorsRemoveAllExpenses(),
             $this->factory->getModelCalculatorsRemoveAllCalculatedDiscounts(),
-            $this->factory->getModelCalculatorsQuotesToExpenses(),
             $this->factory->getModelCalculatorsFreightCosts(),
             $this->factory->getModelCalculatorsCustomsAndDuties(),
             $this->factory->getModelCalculatorsItemExpensesTotal(),
@@ -22,8 +23,6 @@ class Sao_Zed_Calculation_Component_Settings extends ProjectA_Zed_Calculation_Co
             $this->factory->getModelCalculatorsSalesrule(),
             $this->factory->getModelCalculatorsTaxExpensesItem(),
             $this->factory->getModelCalculatorsExpensePriceToPay(),
-//            $this->factory->getModelCalculatorsShippingCosts(),
-//            $this->factory->getModelCalculatorsShippingCostsWithoutDiscounts(),
             $this->factory->getModelCalculatorsItemPriceToPay(),
             $this->factory->getModelCalculatorsOptionPriceToPay(),
             $this->factory->getModelCalculatorsDiscounts(),
