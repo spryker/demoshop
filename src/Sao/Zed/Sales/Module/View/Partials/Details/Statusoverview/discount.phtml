@@ -1,9 +1,0 @@
-<?php $discountTmp = array(); ?>
-<td>
-    <?php
-    foreach ($this->discounts as $discount) {
-        $discountTmp[] = ProjectA_Shared_Library_Currency::format($discount->getAmount());
-    }
-    echo implode(', ', $discountTmp);
-    ?>
-</td>
