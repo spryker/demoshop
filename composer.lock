@@ -3,74 +3,8 @@
         "This file locks the dependencies of your project to a known state",
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file"
     ],
-    "hash": "0cfbfc6b4b63fe5921ab506fa5c854a5",
+    "hash": "cc29be7b1c44ee96d7196b4184038815",
     "packages": [
-        {
-            "name": "aws/aws-sdk-php",
-            "version": "2.4.6",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/aws/aws-sdk-php.git",
-                "reference": "71e1a049f14fc764101c7bfe51a4d0a9fcbeb924"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/aws/aws-sdk-php/zipball/71e1a049f14fc764101c7bfe51a4d0a9fcbeb924",
-                "reference": "71e1a049f14fc764101c7bfe51a4d0a9fcbeb924",
-                "shasum": ""
-            },
-            "require": {
-                "guzzle/guzzle": "~3.7.0",
-                "php": ">=5.3.3"
-            },
-            "require-dev": {
-                "doctrine/cache": "~1.0",
-                "ext-openssl": "*",
-                "monolog/monolog": "1.4.*",
-                "phpunit/phpunit": "3.7.*",
-                "symfony/class-loader": "2.*",
-                "symfony/yaml": "2.*"
-            },
-            "suggest": {
-                "doctrine/cache": "Adds support for caching of credentials and responses",
-                "ext-apc": "Allows service description opcode caching, request and response caching, and credentials caching",
-                "ext-openssl": "Allows working with CloudFront private distributions and verifying received SNS messages",
-                "monolog/monolog": "Adds support for logging HTTP requests and responses",
-                "symfony/yaml": "Eases the ability to write manifests for creating jobs in AWS Import/Export"
-            },
-            "type": "library",
-            "extra": {
-                "branch-alias": {
-                    "dev-master": "2.4.x-dev"
-                }
-            },
-            "autoload": {
-                "psr-0": {
-                    "Aws": "src/"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "Apache-2.0"
-            ],
-            "authors": [
-                {
-                    "name": "Amazon Web Services",
-                    "homepage": "http://aws.amazon.com"
-                }
-            ],
-            "description": "AWS SDK for PHP",
-            "homepage": "http://aws.amazon.com/sdkforphp2",
-            "keywords": [
-                "amazon",
-                "aws",
-                "dynamodb",
-                "ec2",
-                "s3",
-                "sdk"
-            ],
-            "time": "2013-09-12 17:31:35"
-        },
         {
             "name": "digital-canvas/zend-framework",
             "version": "1.12.3",
@@ -1133,16 +1067,16 @@
         },
         {
             "name": "project-a/silex-routing",
-            "version": "dev-master",
+            "version": "v1.0.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/project-a/Silex-Routing.git",
-                "reference": "e84898ed1c3e2ce40dd08c4a7e4e5abc697c525f"
+                "reference": "cf2792155bf93bee2f893f1333b77dcd2ce7ec8c"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/project-a/Silex-Routing/zipball/e84898ed1c3e2ce40dd08c4a7e4e5abc697c525f",
-                "reference": "e84898ed1c3e2ce40dd08c4a7e4e5abc697c525f",
+                "url": "https://api.github.com/repos/project-a/Silex-Routing/zipball/cf2792155bf93bee2f893f1333b77dcd2ce7ec8c",
+                "reference": "cf2792155bf93bee2f893f1333b77dcd2ce7ec8c",
                 "shasum": ""
             },
             "require": {
@@ -1182,7 +1116,7 @@
                 }
             ],
             "description": "Silex-Routing provides advanced routing for Silex through connecting symfony-cmf/Routing with Silex.",
-            "time": "2013-09-12 15:07:53"
+            "time": "2013-09-12 12:02:42"
         },
         {
             "name": "project-a/stripe-package",
@@ -3773,7 +3707,6 @@
         "project-a/payment-package": 20,
         "project-a/sales-package": 20,
         "project-a/stripe-package": 20,
-        "project-a/silex-routing": 20,
         "zendframework/zendframework": 20
     },
     "platform": [
