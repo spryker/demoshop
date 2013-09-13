@@ -28,7 +28,8 @@
         "guzzle/guzzle": "~3.7",
         "silex/silex": "~1.0",
         "project-a/silex-routing": "dev-master",
-        "zendframework/zendframework": "2.3.*@dev"
+        "zendframework/zendframework": "2.3.*@dev",
+        "solarium/solarium": "3.1.2"
     },
     "require-dev": {
         "behat/behat": "*",
