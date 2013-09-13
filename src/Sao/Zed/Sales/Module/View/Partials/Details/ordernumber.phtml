@@ -1,6 +1,0 @@
-<div class="floatLeft">
-    <?php
-    $isTestorder = $this->order->getIsTest() ? '<span class="failure"> (TESTORDER)</span>' : '';
-    ?>
-    <h1><?php echo __('Order Number') . ': ' . $this->order->getIncrementId() . $isTestorder ?></h1>
-</div>

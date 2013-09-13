@@ -14,9 +14,6 @@ class Sao_Shared_Sales_Transfer_Order extends ProjectA_Shared_Sales_Transfer_Ord
     protected $legacyUserId = null;
     protected $_legacyUserId = array('is_int');
 
-    protected $quotes = 'Sao_Shared_Fulfillment_Transfer_Quote_Collection';
-    protected $_quotes = [];
-
     protected $isManualCheckout = null;
     protected $_isManualCheckout = array();
 
@@ -91,34 +88,6 @@ class Sao_Shared_Sales_Transfer_Order extends ProjectA_Shared_Sales_Transfer_Ord
     public function getLegacyUserId()
     {
         return $this->legacyUserId;
-    }
-
-    /**
-     * @param Sao_Shared_Fulfillment_Transfer_Quote $quote
-     * @return Sao_Shared_Sales_Transfer_Order_Item
-     */
-    public function addQuote(Sao_Shared_Fulfillment_Transfer_Quote $quote)
-    {
-        $this->quotes->add($quote);
-        return $this;
-    }
-
-    /**
-     * @param Sao_Shared_Fulfillment_Transfer_Quote_Collection $collection
-     * @return Sao_Shared_Sales_Transfer_Order_Item
-     */
-    public function setQuotes(Sao_Shared_Fulfillment_Transfer_Quote_Collection $collection)
-    {
-        $this->quotes = $collection;
-        return $this;
-    }
-
-    /**
-     * @return Sao_Shared_Fulfillment_Transfer_Quote_Collection
-     */
-    public function getQuotes()
-    {
-        return $this->quotes;
     }
 
     /**

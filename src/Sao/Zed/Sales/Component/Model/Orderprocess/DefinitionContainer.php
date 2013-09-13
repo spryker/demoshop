@@ -1,42 +1,33 @@
 <?php
 
-/**
- * @author jstick
- */
-class Sao_Zed_Sales_Component_Model_Orderprocess_DefinitionContainer extends ProjectA_Zed_Library_StateMachine_Definition_Container_Simple implements ProjectA_Zed_Library_Dependency_Factory_Interface, ProjectA_Zed_Library_Dependency_InitInterface
+class Sao_Zed_Sales_Component_Model_Orderprocess_DefinitionContainer implements ProjectA_Zed_Library_StateMachine_Definition_Container
 {
-
     /**
-     *
-     * @var Generated_Zed_Sales_Component_Factory
+     * @param string $processName
+     * @return ProjectA_Zed_Library_StateMachine_Definition
      */
-    protected $factory;
-
-    /**
-     *
-     * @param ProjectA_Zed_Library_Component_Interface_FactoryInterface $factory
-     */
-    public function setFactory(ProjectA_Zed_Library_Component_Interface_FactoryInterface $factory)
+    public function getProcessDefinition($processName)
     {
-        $this->factory = $factory;
-    }
-
-    public function initAfterDependencyInjection()
-    {
-        $this->initDefinitions();
+        return new ProjectA_Zed_Library_StateMachine_Definition('demo');
     }
 
     /**
-     * Overwrite for store specific definitions
+     * @param string $processName
+     * @return boolean
      */
-    public function initDefinitions()
+    public function hasProcessDefinition($processName)
     {
-        $this->addProcessDefinition($this->factory->getModelOrderprocessDefinitionCreditcardManufactured());
-        $this->addProcessDefinition($this->factory->getModelOrderprocessDefinitionCreditcardMarketplace());
-        $this->addProcessDefinition($this->factory->getModelOrderprocessDefinitionManualManufactured());
-        $this->addProcessDefinition($this->factory->getModelOrderprocessDefinitionManualMarketplace());
-        $this->addProcessDefinition($this->factory->getModelOrderprocessDefinitionPayPalManufactured());
-        $this->addProcessDefinition($this->factory->getModelOrderprocessDefinitionPayPalMarketplace());
+        if ($processName === 'demo') {
+            return true;
+        }
+        return false;
     }
 
+    /**
+     * @return string[]
+     */
+    public function getProcessNameList()
+    {
+        return ['demo'];
+    }
 }
