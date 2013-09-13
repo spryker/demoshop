@@ -1,12 +1,12 @@
 <?php
-namespace Sao\Zed\Yves\Component;
+namespace Pyz\Zed\Yves\Component;
 
 use ProjectA\Zed\Yves\Component\Settings as CoreSettings;
 
 /**
  * Class Settings
- * @package Sao\Zed\Yves\Component
- * @property \Sao_Zed_Catalog_Component_Facade $facadeCatalog
+ * @package Pyz\Zed\Yves\Component
+ * @property \Pyz_Zed_Catalog_Component_Facade $facadeCatalog
  */
 class Settings extends CoreSettings implements
     \ProjectA_Zed_Cms_Component_Dependency_Facade_Interface,

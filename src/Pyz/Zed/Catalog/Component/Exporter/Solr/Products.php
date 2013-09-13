@@ -1,12 +1,12 @@
 <?php
-namespace Sao\Zed\Catalog\Component\Exporter\Solr;
+namespace Pyz\Zed\Catalog\Component\Exporter\Solr;
 
 use ProjectA\Zed\Catalog\Component\Exporter\Products as CoreProducts;
 use ProjectA\Zed\Yves\Component\Model\Export\AbstractExport;
 
 /**
  * Class classProducts
- * @package Sao\Zed\Catalog\Component\Exporter\Solr
+ * @package Pyz\Zed\Catalog\Component\Exporter\Solr
  * @property \Generated_Zed_Catalog_Component_Factory $factory
  */
 abstract class Products extends CoreProducts implements
@@ -14,9 +14,9 @@ abstract class Products extends CoreProducts implements
      \ProjectA_Zed_Price_Component_Dependency_Facade_Interface,
      \ProjectA_Zed_Solr_Component_Dependency_Facade_Interface,
      \ProjectA_Zed_Yves_Component_Dependency_Facade_Interface,
-     \Sao_Shared_Catalog_Interface_ProductAttributeConstant,
-     \Sao_Shared_Catalog_Interface_ProductAttributeSetConstant,
-     \Sao_Shared_Library_StorageKeyConstant
+     \Pyz_Shared_Catalog_Interface_ProductAttributeConstant,
+     \Pyz_Shared_Catalog_Interface_ProductAttributeSetConstant,
+     \Pyz_Shared_Library_StorageKeyConstant
 {
     use \ProjectA_Zed_Solr_Component_Dependency_Facade_Trait;
     use \ProjectA_Zed_Price_Component_Dependency_Facade_Trait;

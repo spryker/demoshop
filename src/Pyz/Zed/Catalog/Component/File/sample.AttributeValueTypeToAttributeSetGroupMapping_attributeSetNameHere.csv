@@ -2,7 +2,7 @@
    Copy it and add the attributeSetName to the end. To get it up and running
 
 !! You need to add the attributeSet here as well:
-   Sao_Catalog_Internal_AttributeValueTypeToAttributeSetGroupMapping::$valueTypeToAttributeSetGroupMapping
+   Pyz_Catalog_Internal_AttributeValueTypeToAttributeSetGroupMapping::$valueTypeToAttributeSetGroupMapping
 
 real contents starts after line separator
 ----------------------------------------

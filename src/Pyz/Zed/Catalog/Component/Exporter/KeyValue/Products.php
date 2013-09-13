@@ -1,5 +1,5 @@
 <?php
-namespace Sao\Zed\Catalog\Component\Exporter\KeyValue;
+namespace Pyz\Zed\Catalog\Component\Exporter\KeyValue;
 
 use ProjectA\Zed\Catalog\Component\Exporter\Products as CoreProducts;
 use ProjectA\Zed\Catalog\Component\Exporter\QueryBuilder\AbstractProduct;
@@ -7,13 +7,13 @@ use ProjectA\Zed\Yves\Component\Model\Export\AbstractExport;
 
 /**
  * Class Products
- * @package Sao\Zed\Catalog\Component\Exporter\KeyValue
+ * @package Pyz\Zed\Catalog\Component\Exporter\KeyValue
  */
 abstract class Products extends CoreProducts implements
      \ProjectA_Zed_Yves_Component_Interface_Exporter_Memcache,
-     \Sao_Shared_Catalog_Interface_ProductAttributeConstant,
-     \Sao_Shared_Catalog_Interface_ProductAttributeSetConstant,
-     \Sao_Shared_Library_StorageKeyConstant,
+     \Pyz_Shared_Catalog_Interface_ProductAttributeConstant,
+     \Pyz_Shared_Catalog_Interface_ProductAttributeSetConstant,
+     \Pyz_Shared_Library_StorageKeyConstant,
      \ProjectA_Zed_Yves_Component_Dependency_Facade_Interface
 {
 

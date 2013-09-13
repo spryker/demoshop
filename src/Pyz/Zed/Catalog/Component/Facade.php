@@ -1,11 +1,11 @@
 <?php
-use Sao\Zed\Catalog\Component\Exporter\KeyValue\Artwork as KeyValueArtwork;
-use Sao\Zed\Catalog\Component\Exporter\Solr\Artwork as SolrArtwork;
+use Pyz\Zed\Catalog\Component\Exporter\KeyValue\Artwork as KeyValueArtwork;
+use Pyz\Zed\Catalog\Component\Exporter\Solr\Artwork as SolrArtwork;
 
 /**
  * @property Generated_Zed_Catalog_Component_Factory $factory
  */
-class Sao_Zed_Catalog_Component_Facade extends ProjectA_Zed_Catalog_Component_Facade
+class Pyz_Zed_Catalog_Component_Facade extends ProjectA_Zed_Catalog_Component_Facade
 {
 
     /**

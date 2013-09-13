@@ -1,12 +1,12 @@
 <?php
-namespace Sao\Zed\Catalog\Component\Exporter\Solr;
+namespace Pyz\Zed\Catalog\Component\Exporter\Solr;
 
-use Sao\Zed\Catalog\Component\Exporter\Solr\Products;
-use \Sao\Zed\Catalog\Component\Exporter\QueryBuilder\Solr\Artwork as QueryBuilderSolrArtwork;
+use Pyz\Zed\Catalog\Component\Exporter\Solr\Products;
+use \Pyz\Zed\Catalog\Component\Exporter\QueryBuilder\Solr\Artwork as QueryBuilderSolrArtwork;
 
 /**
  * Class Artwork
- * @package Sao\Zed\Catalog\Component\Exporter\Solr
+ * @package Pyz\Zed\Catalog\Component\Exporter\Solr
  */
 class Artwork extends Products
 {

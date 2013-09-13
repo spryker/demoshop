@@ -1,11 +1,11 @@
 <?php
-namespace Sao\Zed\Catalog\Component\Exporter\KeyValue;
+namespace Pyz\Zed\Catalog\Component\Exporter\KeyValue;
 
 use ProjectA\Zed\Catalog\Component\Exporter\QueryBuilder\AbstractProduct;
 
 /**
  * Class Artwork
- * @package Sao\Zed\Catalog\Component\Exporter\KeyValue
+ * @package Pyz\Zed\Catalog\Component\Exporter\KeyValue
  * @property \Generated_Zed_Catalog_Component_Factory $factory
  */
 class Artwork extends Products
@@ -20,7 +20,7 @@ class Artwork extends Products
     }
 
     /**
-     * @return AbstractProduct|\Sao\Zed\Catalog\Component\Exporter\QueryBuilder\KeyValue\Artwork
+     * @return AbstractProduct|\Pyz\Zed\Catalog\Component\Exporter\QueryBuilder\KeyValue\Artwork
      */
     protected function getProductQueryBuilder()
     {
