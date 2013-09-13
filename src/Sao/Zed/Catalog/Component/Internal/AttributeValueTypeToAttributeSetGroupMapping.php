@@ -27,7 +27,7 @@ class Sao_Zed_Catalog_Component_Internal_AttributeValueTypeToAttributeSetGroupMa
     {
         $csvColumns = array(
             null,
-            self::MEMCACHE_EXPORT,
+            self::KEY_VALUE_EXPORT,
             self::SOLR_SEARCHABLE,
             self::SOLR_SUGGESTION,
             self::SOLR_FACET,

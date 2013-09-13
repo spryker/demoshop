@@ -1,6 +1,14 @@
 <?php
+namespace Sao\Zed\Catalog\Component\Exporter\Solr;
 
-class Sao_Zed_Catalog_Component_Exporter_Solr_Artwork extends Sao_Zed_Catalog_Component_Exporter_Solr_Products
+use Sao\Zed\Catalog\Component\Exporter\Solr\Products;
+use \Sao\Zed\Catalog\Component\Exporter\QueryBuilder\Solr\Artwork as QueryBuilderSolrArtwork;
+
+/**
+ * Class Artwork
+ * @package Sao\Zed\Catalog\Component\Exporter\Solr
+ */
+class Artwork extends Products
 {
 
     /**
@@ -9,7 +17,7 @@ class Sao_Zed_Catalog_Component_Exporter_Solr_Artwork extends Sao_Zed_Catalog_Co
     public function getCoreName()
     {
         return null; //default
-        //return ProjectA_Shared_Library_Store::getInstance()->getSolrCore();
+        //return \ProjectA_Shared_Library_Store::getInstance()->getSolrCore();
     }
 
     /**
@@ -21,7 +29,7 @@ class Sao_Zed_Catalog_Component_Exporter_Solr_Artwork extends Sao_Zed_Catalog_Co
     }
 
     /**
-     * @return Sao_Zed_Catalog_Component_Exporter_QueryBuilder_Solr_Artwork
+     * @return QueryBuilderSolrArtwork
      */
     protected function getProductQueryBuilder()
     {

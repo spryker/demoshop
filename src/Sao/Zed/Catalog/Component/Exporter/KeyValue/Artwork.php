@@ -1,6 +1,14 @@
 <?php
+namespace Sao\Zed\Catalog\Component\Exporter\KeyValue;
 
-class Sao_Zed_Catalog_Component_Exporter_Memcache_Artwork extends Sao_Zed_Catalog_Component_Exporter_Memcache_Products
+use ProjectA\Zed\Catalog\Component\Exporter\QueryBuilder\AbstractProduct;
+
+/**
+ * Class Artwork
+ * @package Sao\Zed\Catalog\Component\Exporter\KeyValue
+ * @property \Generated_Zed_Catalog_Component_Factory $factory
+ */
+class Artwork extends Products
 {
 
     /**
@@ -12,11 +20,11 @@ class Sao_Zed_Catalog_Component_Exporter_Memcache_Artwork extends Sao_Zed_Catalo
     }
 
     /**
-     * @return ProjectA_Zed_Catalog_Component_Exporter_QueryBuilder_AbstractProduct
+     * @return AbstractProduct|\Sao\Zed\Catalog\Component\Exporter\QueryBuilder\KeyValue\Artwork
      */
     protected function getProductQueryBuilder()
     {
-        return $this->factory->getExporterQueryBuilderMemcacheArtwork();
+        return $this->factory->getExporterQueryBuilderKeyValueArtwork();
     }
 
     /**

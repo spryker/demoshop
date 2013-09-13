@@ -1,6 +1,8 @@
 <?php
+use Sao\Zed\Catalog\Component\Exporter\KeyValue\Artwork as KeyValueArtwork;
+use Sao\Zed\Catalog\Component\Exporter\Solr\Artwork as SolrArtwork;
+
 /**
- * @author Marco Roßdeutscher <marco.rossdeutscher@project-a.com>
  * @property Generated_Zed_Catalog_Component_Factory $factory
  */
 class Sao_Zed_Catalog_Component_Facade extends ProjectA_Zed_Catalog_Component_Facade
@@ -16,15 +18,15 @@ class Sao_Zed_Catalog_Component_Facade extends ProjectA_Zed_Catalog_Component_Fa
     }
 
     /**
-     * @return Sao_Zed_Catalog_Component_Exporter_Memcache_Artwork
+     * @return KeyValueArtwork
      */
-    public function getExporterMemcacheArtwork()
+    public function getExporterKeyValueArtwork()
     {
-        return $this->factory->getExporterMemcacheArtwork();
+        return $this->factory->getExporterKeyValueArtwork();
     }
 
     /**
-     * @return Sao_Zed_Catalog_Component_Exporter_Solr_Artwork
+     * @return SolrArtwork
      */
     public function getExporterSolrArtwork()
     {

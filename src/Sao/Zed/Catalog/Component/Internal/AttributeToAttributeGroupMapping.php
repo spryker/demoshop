@@ -9,7 +9,7 @@ class Sao_Zed_Catalog_Component_Internal_AttributeToAttributeGroupMapping implem
      * sample how to define attributes into groups, ! do not confound with attributeSetGroups
      *
      *  self::ATTRIBUTE_NAME => array(
-     *      self::MEMCACHE_EXPORT,
+     *      self::KEY_VALUE_EXPORT,
      *      self::SOLR_SEARCHABLE,
      *      self::SOLR_SUGGESTION,
      *      self::SOLR_SORT,
@@ -21,28 +21,28 @@ class Sao_Zed_Catalog_Component_Internal_AttributeToAttributeGroupMapping implem
      */
     public static $attributesToGroupMapping = array(
         self::ATTRIBUTE_ARTIST_USER_ID    => array(
-            self::MEMCACHE_EXPORT
+            self::KEY_VALUE_EXPORT
         ),
         self::ATTRIBUTE_ARTIST_FIRST_NAME => array(
-            self::MEMCACHE_EXPORT
+            self::KEY_VALUE_EXPORT
         ),
         self::ATTRIBUTE_ARTIST_LAST_NAME  => array(
-            self::MEMCACHE_EXPORT
+            self::KEY_VALUE_EXPORT
         ),
         self::ATTRIBUTE_PRODUCT_TYPE      => array(
-            self::MEMCACHE_EXPORT
+            self::KEY_VALUE_EXPORT
         ),
         self::ATTRIBUTE_ORIGIN_REGION     => array(
-            self::MEMCACHE_EXPORT
+            self::KEY_VALUE_EXPORT
         ),
         self::ATTRIBUTE_ORIGIN_COUNTRY    => array(
-            self::MEMCACHE_EXPORT
+            self::KEY_VALUE_EXPORT
         ),
         self::ATTRIBUTE_SHIP_WIDTH        => array(
-            self::MEMCACHE_EXPORT
+            self::KEY_VALUE_EXPORT
         ),
         self::ATTRIBUTE_SHIP_HEIGHT       => array(
-            self::MEMCACHE_EXPORT
+            self::KEY_VALUE_EXPORT
         ),
     );
 }

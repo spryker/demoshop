@@ -19,7 +19,7 @@ class Sao_Zed_Calculation_Component_Model_Calculators_AddCatalogProductToOrderIt
         /* @var Sao_Shared_Sales_Transfer_Order_Item $item */
         foreach ($order->getItems() as $item) {
             $entityCatalogProduct = $this->facadeCatalog->getProductBySku($item->getSku());
-            $bigEntityCatalogProduct = $this->facadeCatalog->getProduct($entityCatalogProduct, array(ProjectA_Zed_Catalog_Component_Interface_GroupConstant::MEMCACHE_EXPORT));
+            $bigEntityCatalogProduct = $this->facadeCatalog->getProduct($entityCatalogProduct, array(ProjectA_Zed_Catalog_Component_Interface_GroupConstant::KEY_VALUE_EXPORT));
             $transferCatalogProduct = TransferLoader::getCatalogProduct($bigEntityCatalogProduct->toArray(), true);
             $item->setProduct($transferCatalogProduct);
         }

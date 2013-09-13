@@ -1,19 +1,25 @@
 <?php
+namespace Sao\Zed\Yves\Component;
+
+use ProjectA\Zed\Yves\Component\Settings as CoreSettings;
+
 /**
- * @property Sao_Zed_Catalog_Component_Facade $facadeCatalog
+ * Class Settings
+ * @package Sao\Zed\Yves\Component
+ * @property \Sao_Zed_Catalog_Component_Facade $facadeCatalog
  */
-class Sao_Zed_Yves_Component_Settings extends ProjectA_Zed_Yves_Component_Settings implements
-    ProjectA_Zed_Cms_Component_Dependency_Facade_Interface,
-    ProjectA_Zed_Glossary_Component_Dependency_Facade_Interface,
-    ProjectA_Zed_Misc_Component_Dependency_Facade_Interface,
-    ProjectA_Zed_Category_Component_Dependency_Facade_Interface,
-    ProjectA_Zed_Catalog_Component_Dependency_Facade_Interface
+class Settings extends CoreSettings implements
+    \ProjectA_Zed_Cms_Component_Dependency_Facade_Interface,
+    \ProjectA_Zed_Glossary_Component_Dependency_Facade_Interface,
+    \ProjectA_Zed_Misc_Component_Dependency_Facade_Interface,
+    \ProjectA_Zed_Category_Component_Dependency_Facade_Interface,
+    \ProjectA_Zed_Catalog_Component_Dependency_Facade_Interface
 {
-    use ProjectA_Zed_Cms_Component_Dependency_Facade_Trait;
-    use ProjectA_Zed_Glossary_Component_Dependency_Facade_Trait;
-    use ProjectA_Zed_Misc_Component_Dependency_Facade_Trait;
-    use ProjectA_Zed_Category_Component_Dependency_Facade_Trait;
-    use ProjectA_Zed_Catalog_Component_Dependency_Facade_Trait;
+    use \ProjectA_Zed_Cms_Component_Dependency_Facade_Trait;
+    use \ProjectA_Zed_Glossary_Component_Dependency_Facade_Trait;
+    use \ProjectA_Zed_Misc_Component_Dependency_Facade_Trait;
+    use \ProjectA_Zed_Category_Component_Dependency_Facade_Trait;
+    use \ProjectA_Zed_Catalog_Component_Dependency_Facade_Trait;
 
     /**
      * @param string $exportIdentifier
@@ -29,20 +35,20 @@ class Sao_Zed_Yves_Component_Settings extends ProjectA_Zed_Yves_Component_Settin
      * @param string $exportIdentifier
      * @return array
      */
-    public function getMemcacheExporters($exportIdentifier)
+    public function getKeyValueExporters($exportIdentifier)
     {
         //TODO currently all exporters are activated to test them, remove unneeded later on
-        $result[] = $this->facadeCms->getExporterMemcacheCms();
-        $result[] = $this->facadeCms->getExporterMemcacheRedirection();
-        $result[] = $this->facadeGlossary->getExporterMemcacheGlossary();
+        $result[] = $this->facadeCms->getExporterKeyValueCms();
+        $result[] = $this->facadeCms->getExporterKeyValueRedirection();
+        $result[] = $this->facadeGlossary->getExporterKeyValueGlossary();
 
         //TODO we need to adjusted and rename this one to the new attribute set;
-        $result[] = $this->facadeCatalog->getExporterMemcacheArtwork();
+        $result[] = $this->facadeCatalog->getExporterKeyValueArtwork();
 
-        $result[] = $this->facadeCategory->getExporterMemcacheCategories();
-        $result[] = $this->facadeMisc->getExporterMemcacheCountry();
-        $result[] = $this->facadeCatalog->getExporterMemcacheBrands();
-        $result[] = $this->facadeCatalog->getExporterMemcacheProductOptions();
+        $result[] = $this->facadeCategory->getExporterKeyValueCategories();
+        $result[] = $this->facadeMisc->getExporterKeyValueCountry();
+//        $result[] = $this->facadeCatalog->getExporterKeyValueBrands();
+        $result[] = $this->facadeCatalog->getExporterKeyValueProductOptions();
         return $result;
     }
 }

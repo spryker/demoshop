@@ -1,19 +1,26 @@
 <?php
+namespace Sao\Zed\Catalog\Component\Exporter\Solr;
+
+use ProjectA\Zed\Catalog\Component\Exporter\Products as CoreProducts;
+use ProjectA\Zed\Yves\Component\Model\Export\AbstractExport;
+
 /**
- * @property Generated_Zed_Catalog_Component_Factory $factory
+ * Class classProducts
+ * @package Sao\Zed\Catalog\Component\Exporter\Solr
+ * @property \Generated_Zed_Catalog_Component_Factory $factory
  */
-abstract class Sao_Zed_Catalog_Component_Exporter_Solr_Products extends ProjectA_Zed_Catalog_Component_Exporter_Products implements
-     ProjectA_Zed_Yves_Component_Interface_Exporter_Solr,
-     ProjectA_Zed_Price_Component_Dependency_Facade_Interface,
-     ProjectA_Zed_Solr_Component_Dependency_Facade_Interface,
-     ProjectA_Zed_Yves_Component_Dependency_Facade_Interface,
-     Sao_Shared_Catalog_Interface_ProductAttributeConstant,
-     Sao_Shared_Catalog_Interface_ProductAttributeSetConstant,
-     Sao_Shared_Library_StorageKeyConstant
+abstract class Products extends CoreProducts implements
+     \ProjectA_Zed_Yves_Component_Interface_Exporter_Solr,
+     \ProjectA_Zed_Price_Component_Dependency_Facade_Interface,
+     \ProjectA_Zed_Solr_Component_Dependency_Facade_Interface,
+     \ProjectA_Zed_Yves_Component_Dependency_Facade_Interface,
+     \Sao_Shared_Catalog_Interface_ProductAttributeConstant,
+     \Sao_Shared_Catalog_Interface_ProductAttributeSetConstant,
+     \Sao_Shared_Library_StorageKeyConstant
 {
-    use ProjectA_Zed_Solr_Component_Dependency_Facade_Trait;
-    use ProjectA_Zed_Price_Component_Dependency_Facade_Trait;
-    use ProjectA_Zed_Yves_Component_Dependency_Facade_Trait;
+    use \ProjectA_Zed_Solr_Component_Dependency_Facade_Trait;
+    use \ProjectA_Zed_Price_Component_Dependency_Facade_Trait;
+    use \ProjectA_Zed_Yves_Component_Dependency_Facade_Trait;
 
     /**
      * @var array
@@ -26,7 +33,7 @@ abstract class Sao_Zed_Catalog_Component_Exporter_Solr_Products extends ProjectA
     protected $scoreNames;
 
     /**
-     * @var ProjectA_Zed_Catalog_Persistence_PacCatalogAttributeSet
+     * @var \ProjectA_Zed_Catalog_Persistence_PacCatalogAttributeSet
      */
     protected $attributeSetEntity;
 
@@ -41,7 +48,7 @@ abstract class Sao_Zed_Catalog_Component_Exporter_Solr_Products extends ProjectA
     abstract protected function getProductAttributeSetName();
 
     /**
-     * @return ProjectA_Zed_Catalog_Component_Exporter_QueryBuilder_AbstractProduct
+     * @return \ProjectA_Zed_Catalog_Component_Exporter_QueryBuilder_AbstractProduct
      */
     abstract protected function getProductQueryBuilder();
 
@@ -56,13 +63,13 @@ abstract class Sao_Zed_Catalog_Component_Exporter_Solr_Products extends ProjectA
     }
 
     /**
-     * @return ProjectA_Zed_Yves_Component_Exporter_Task_Entity
+     * @return \ProjectA_Zed_Yves_Component_Exporter_Task_Entity
      */
     public function getExportTask()
     {
         $task = $this->facadeYves->getExporterTaskRaw();
         $task->setLazyCollection(
-            new ProjectA_Zed_Library_Propel_RawLazyCollection($this->getProductQueryBuilder())
+            new \ProjectA_Zed_Library_Propel_RawLazyCollection($this->getProductQueryBuilder())
         );
         return $task;
     }
@@ -85,14 +92,14 @@ abstract class Sao_Zed_Catalog_Component_Exporter_Solr_Products extends ProjectA
 //    }
 
     /**
-     * @param Traversable $collection
-     * @param ProjectA_Zed_Yves_Component_Model_Export_Abstract $exportModel
-     * @param ArrayIterator $reporter
+     * @param \Traversable $collection
+     * @param AbstractExport $exportModel
+     * @param \ArrayIterator $reporter
      */
     public function exportData(
-        Traversable $collection,
-        ProjectA_Zed_Yves_Component_Model_Export_Abstract $exportModel,
-        ArrayIterator $reporter
+        \Traversable $collection,
+        AbstractExport $exportModel,
+        \ArrayIterator $reporter
     ) {
 
         $reportName = $this->getName() . ' exported';
@@ -151,7 +158,7 @@ abstract class Sao_Zed_Catalog_Component_Exporter_Solr_Products extends ProjectA
                 array($filterGroup),
                 $this->attributeSetEntity
             );
-            /* @var $groupValueType ProjectA_Zed_Catalog_Persistence_PacCatalogValueType */
+            /* @var $groupValueType \ProjectA_Zed_Catalog_Persistence_PacCatalogValueType */
             foreach ($groupValueTypes as $groupValueType) {
                 $this->groupAttributeNames[$filterGroup][$groupValueType->getAttribute()->getName()] =
                     $groupValueType->getVariety();
@@ -165,16 +172,16 @@ abstract class Sao_Zed_Catalog_Component_Exporter_Solr_Products extends ProjectA
     }
 
     /**
-     * @param ProjectA_Zed_Library_Propel_LazyCollection $productEntities
-     * @param ProjectA_Zed_Yves_Component_Model_Export_Abstract $exportModel
-     * @param ArrayIterator $reporter
+     * @param \ProjectA_Zed_Library_Propel_LazyCollection $productEntities
+     * @param \ProjectA_Zed_Yves_Component_Model_Export_Abstract $exportModel
+     * @param \ArrayIterator $reporter
      */
     public function deleteData(
-        ProjectA_Zed_Library_Propel_LazyCollection $productEntities,
-        ProjectA_Zed_Yves_Component_Model_Export_Abstract $exportModel,
-        ArrayIterator $reporter
+        \ProjectA_Zed_Library_Propel_LazyCollection $productEntities,
+        \ProjectA_Zed_Yves_Component_Model_Export_Abstract $exportModel,
+        \ArrayIterator $reporter
     ) {
-        /* @var $entity ProjectA_Zed_Catalog_Component_Interface_ProductEntity */
+        /* @var $entity \ProjectA_Zed_Catalog_Component_Interface_ProductEntity */
         $skuList = array();
         foreach ($productEntities as $entity) {
             $skuList[] = $entity->getSku();

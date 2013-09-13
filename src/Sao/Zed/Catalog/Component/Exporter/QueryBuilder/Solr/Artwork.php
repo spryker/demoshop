@@ -1,7 +1,14 @@
 <?php
+namespace Sao\Zed\Catalog\Component\Exporter\QueryBuilder\Solr;
 
-class Sao_Zed_Catalog_Component_Exporter_QueryBuilder_Solr_Artwork extends ProjectA_Zed_Catalog_Component_Exporter_QueryBuilder_Solr implements
-    Sao_Shared_Catalog_Interface_ProductAttributeSetConstant
+use ProjectA\Zed\Catalog\Component\Exporter\QueryBuilder\Solr;
+
+/**
+ * Class Artwork
+ * @package Sao\Zed\Catalog\Component\Exporter\QueryBuilder\Solr
+ */
+class Artwork extends Solr implements
+    \Sao_Shared_Catalog_Interface_ProductAttributeSetConstant
 {
     public function getAttributeSetName()
     {
