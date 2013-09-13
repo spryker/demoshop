@@ -1,5 +1,0 @@
-<?php
-class Sao_Shared_Newsletter_Transfer_Subscription_Collection extends ProjectA_Shared_Newsletter_Transfer_Subscription_Collection
-{
-
-}

@@ -35,7 +35,7 @@ $config['db'] = array(
 /**
  * This tells the Generated_Zed_FactoryRepository Generator which Project Namespace should used
  */
-$config['projectNamespace'] = 'Sao';
+$config['projectNamespace'] = 'Pyz';
 
 /*
  * Select which code generators you want to be runnning on create factories
