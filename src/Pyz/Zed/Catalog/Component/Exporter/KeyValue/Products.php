@@ -74,13 +74,8 @@ abstract class Products extends CoreProducts implements
             $data = array();
             $pairProductData = $this->transformProductToData($product);
 
-            $productKey = \ProjectA_Shared_Library_Storage::getProductKey($product['sku']);
+            $productKey = \ProjectA_Shared_Library_Storage::getProductKey($product['id_catalog_product']);
             $data[$productKey] = $pairProductData;
-
-            if (isset($product[self::ATTRIBUTE_URL])) {
-                $productUrlKey = \ProjectA_Shared_Library_Storage::getProductUrlKey($product[self::ATTRIBUTE_URL]);
-                $data[$productUrlKey] = $product['sku'];
-            }
 
             $exportModel->write($data);
             $reporter[$reportName]++;

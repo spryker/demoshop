@@ -3,6 +3,7 @@ namespace Pyz\Yves\Application\Module;
 
 use ProjectA\Yves\Library\Silex\Application;
 use ProjectA\Yves\Library\Silex\Provider\Service\CookieServiceProvider;
+use ProjectA\Yves\Library\Silex\Provider\Service\StorageServiceProvider;
 use ProjectA\Yves\Library\Silex\Provider\Service\ExceptionServiceProvider;
 use ProjectA\Yves\Library\Silex\Provider\Service\TemplatingServiceProvider;
 use ProjectA\Yves\Library\Silex\Provider\Service\YvesLoggingServiceProvider;
@@ -15,6 +16,7 @@ use ProjectA\Yves\Library\Templating\Filesystem\Finder\StoreFinder;
 use ProjectA\Yves\Library\Templating\Filter\MinifyHtmlFilter;
 use ProjectA\Yves\Library\Templating\Theme;
 use ProjectA\Yves\Cart\Module\ControllerProvider as CartProvider;
+use ProjectA\Yves\Catalog\Module\ControllerProvider as CatalogProvider;
 use ProjectA\Yves\Library\Templating\ViewHelper\PriceHelper;
 use ProjectA\Yves\Library\Templating\ViewHelper\UrlHelper;
 use ProjectA\Yves\Setup\Module\ControllerProvider as SetupProvider;
@@ -69,7 +71,8 @@ class Bootstrap extends \ProjectA\Yves\Library\Silex\Bootstrap
             new UrlGeneratorServiceProvider(),
             new ServiceControllerServiceProvider(),
             new RoutingServiceProvider(),
-            new TemplatingServiceProvider()
+            new TemplatingServiceProvider(),
+            new StorageServiceProvider()
         ];
     }
 
@@ -80,7 +83,8 @@ class Bootstrap extends \ProjectA\Yves\Library\Silex\Bootstrap
     {
         return [
             new CartProvider(),
-            new SetupProvider()
+            new SetupProvider(),
+            new CatalogProvider()
         ];
     }
 
