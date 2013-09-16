@@ -234,11 +234,11 @@ class Sao_Zed_Mail_Component_Model_CartAbandoned implements
     }
 
     /**
-     * @return ProjectA_Zed_Salesrule_Component_Facade_Codepool
+     * @return ProjectA_Zed_Salesrule_Component_Facade
      */
     protected function getFacadeCodepool()
     {
-        return $this->facadeSalesrule->getFacadeCodepool();
+        return $this->facadeSalesrule;
     }
 
     /**

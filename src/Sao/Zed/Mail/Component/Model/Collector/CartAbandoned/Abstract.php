@@ -232,11 +232,11 @@ abstract class Sao_Zed_Mail_Component_Model_Collector_CartAbandoned_Abstract ext
     }
 
     /**
-     * @return ProjectA_Zed_Salesrule_Component_Facade_Codepool
+     * @return ProjectA_Zed_Salesrule_Component_Facade
      */
     protected function getFacadeCodepool()
     {
-        return $this->facadeSalesrule->getFacadeCodepool();
+        return $this->facadeSalesrule;
     }
 
     protected function applyUrls()
