@@ -1,0 +1,12 @@
+<?php
+    /* @var Pyz\Yves\Library\Templating\Scope\TemplateScope $this */
+    /* @var \Pyz_Shared_Catalog_Transfer_Product $catalogProduct */
+    $catalogProduct = $this->getTransfer('catalogProduct');
+?>
+
+<pre>
+<?php foreach($catalogProduct->toArray() as $attributeName => $attributeValue): ?>
+    <?= $attributeName ?>: <?= $attributeValue ?>
+
+<?php endforeach; ?>
+</pre>
