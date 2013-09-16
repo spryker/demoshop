@@ -63,11 +63,11 @@ abstract class Products extends CoreProducts implements
     }
 
     /**
-     * @return \ProjectA_Zed_Yves_Component_Exporter_Task_Entity
+     * @return \ProjectA_Zed_Yves_Component_Exporter_Setup_Entity
      */
-    public function getExportTask()
+    public function getExportSetup()
     {
-        $task = $this->facadeYves->getExporterTaskRaw();
+        $task = $this->facadeYves->getExporterSetupRaw();
         $task->setLazyCollection(
             new \ProjectA_Zed_Library_Propel_RawLazyCollection($this->getProductQueryBuilder())
         );
