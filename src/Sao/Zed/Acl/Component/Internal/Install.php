@@ -1,9 +1,11 @@
 <?php
 
+use ProjectA\Zed\Acl\Component\Internal\Install;
+
 /**
  * @author Daniel Tschinder <daniel.tschinder@project-a.com>
  */
-class Sao_Zed_Acl_Component_Internal_Install extends ProjectA_Zed_Acl_Component_Internal_Install
+class Sao_Zed_Acl_Component_Internal_Install extends Install
 {
     const ROLE_AP_API = 'ap_api';
     const ROLE_SBA_API = 'sba_api';

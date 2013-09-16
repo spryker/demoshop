@@ -1,4 +1,7 @@
 <?php
+
+use ProjectA\Zed\Auth\Component\Model\Auth;
+
 /**
  * @version $Id$
  * @property Generated_Zed_Mail_Component_Factory $factory
@@ -70,7 +73,7 @@ class Sao_Zed_Mail_Component_Gui_Crud_Template extends ProjectA_Zed_Library_Crud
     protected function getCurrentUsername()
     {
         $username = 'noAuth';
-        $user = ProjectA_Zed_Auth_Component_Model_Auth::getInstance()->getCurrentUser();
+        $user = Auth::getInstance()->getCurrentUser();
         if ($user instanceof ProjectA_Zed_Acl_Persistence_PacAclUser) {
             $username = $user->getUsername();
         }

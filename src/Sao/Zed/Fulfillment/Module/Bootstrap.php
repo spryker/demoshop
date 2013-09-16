@@ -1,5 +1,7 @@
 <?php
 
+use ProjectA\Zed\Auth\Component\Model\HeaderLogin;
+
 /**
  * @author Daniel Tschinder <daniel.tschinder@project-a.com>
  */
@@ -7,7 +9,7 @@ class Sao_Zed_Fulfillment_Module_Bootstrap extends ProjectA_Zed_Library_Applicat
 {
     public function _initAclLogin()
     {
-        ProjectA_Zed_Auth_Component_Model_HeaderLogin::getInstance()->allowHeaderLogin(
+        HeaderLogin::getInstance()->allowHeaderLogin(
             strtolower($this->getModuleName()),
             'tracking',
             ['sba', 'jondo', 'marcofinearts']
