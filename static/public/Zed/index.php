@@ -21,7 +21,7 @@ libxml_disable_entity_loader(false);
  * </workaround>
  */
 
-require_once __DIR__ . '/../../../src/Sao/Zed/Application/include.php';
+require_once __DIR__ . '/../../../src/Pyz/Zed/Application/include.php';
 //ini_set('display_errors', false);
 
 define('IS_CLI', false);

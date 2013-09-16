@@ -2,6 +2,7 @@
 
 $finder = Symfony\CS\Finder\DefaultFinder::create()
     ->in(__DIR__ . '/src')
+    ->exclude('Generated')
 ;
 return Symfony\CS\Config\Config::create()
     ->fixers(

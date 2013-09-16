@@ -1,0 +1,13 @@
+<?php /* @var Pyz\Yves\Library\Templating\Scope\PartialScope $this */ ?>
+
+<div class="message error" style="background-color:lightcoral;">
+<?php foreach ($this->getArray('error_messages') as $message): ?>
+    <span><?= $message ?></span>
+<?php endforeach;?>
+</div>
+
+<div class="message info" style="background-color:lightgreen;">
+<?php foreach ($this->getArray('info_messages') as $message): ?>
+    <span><?= $message ?></span>
+<?php endforeach;?>
+</div>

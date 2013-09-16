@@ -1,0 +1,4 @@
+<?php
+
+class Pyz_Shared_Salesrule_Transfer_Collection extends ProjectA_Shared_Salesrule_Transfer_Collection
+{}

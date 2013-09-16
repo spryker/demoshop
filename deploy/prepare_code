@@ -50,13 +50,13 @@ if is_default_store; then
   curl -XPUT -d @composer.lock http://renepro.project-a.com/deploy.php?hostname=`hostname`\\\&environment=$environment
 fi
 
-### ZED - Execute install.php
-#echo "Calling install.php..."
-#APPLICATION_ENV=$environment sudo -E -u www-data php -d "newrelic.appname='Deploy($environment)'" "static/public/Zed/install.php" &> $outfile
-#if [ $? -ne 0 ]; then
-#  echo "ATTENTION: There was an error in install.php, refer to $outfile"
-#  exit 1
-#fi
+## ZED - Execute install.php
+echo "Calling install.php..."
+sudo -u www-data vendor/bin/console propel-install -s ${APPLICATION_STORE} -e ${environment} # &> $outfile
+if [ $? -ne 0 ]; then
+  echo "ATTENTION: There was an error in console propel-install, refer to $outfile"
+  exit 1
+fi
 
 ### Generate Code
 if is_default_store; then
