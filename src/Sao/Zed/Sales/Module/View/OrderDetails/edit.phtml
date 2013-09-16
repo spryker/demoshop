@@ -1,9 +1,0 @@
-<?php $isTestorder = $this->order->getIsTest() ? '<span style="color:red"> (TESTORDER)</span>' : ''; ?>
-
-<h1><?php echo __('Order Number') . ': ' . $this->order->getIncrementId() . $isTestorder ?></h1>
-<section class="floatLeft">
-    <?php echo $this->partial('customer.phtml', array('order' => $this->order)); ?>
-</section>
-<section class="floatLeft">
-    <?php echo $this->partial('edit_address.phtml', array('order' => $this->order)); ?>
-</section>

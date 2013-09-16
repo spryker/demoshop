@@ -1,5 +1,0 @@
-<?php $isTestorder = $this->order->getIsTest() ? '<span style="color:red"> (TESTORDER)</span>' : ''; ?>
-
-<h1><?php echo $this->type; ?> address for order <?php echo $this->order->getIncrementId() . $isTestorder ?></h1>
-
-<?php echo $this->form; ?>

@@ -11,13 +11,6 @@
  */
 
 return array(
-    APPLICATION_SOURCE_DIR . '/Sao/Zed/Salesrule/Persistence/sao_salesrule.schema.xml',
-    APPLICATION_SOURCE_DIR . '/Sao/Zed/Legacy/Persistence/sao_legacy.schema.xml',
-    APPLICATION_SOURCE_DIR . '/Sao/Zed/Sales/Persistence/sao_sales.schema.xml',
-    APPLICATION_SOURCE_DIR . '/Sao/Zed/Fulfillment/Persistence/sao_fulfillment.schema.xml',
-    APPLICATION_SOURCE_DIR . '/Sao/Zed/Catalog/Persistence/sao_catalog.schema.xml',
-    APPLICATION_SOURCE_DIR . '/Sao/Zed/Mail/Persistence/sao_mail.schema.xml',
-    APPLICATION_SOURCE_DIR . '/Sao/Zed/Misc/Persistence/sao_misc.schema.xml',
     APPLICATION_VENDOR_DIR . '/project-a/acl-package/src/ProjectA/Zed/Acl/Persistence/pac_acl.schema.xml',
     APPLICATION_VENDOR_DIR . '/project-a/cart-package/src/ProjectA/Zed/Cart/Persistence/pac_cart.schema.xml',
     APPLICATION_VENDOR_DIR . '/project-a/catalog-package/src/ProjectA/Zed/Catalog/Persistence/pac_catalog.schema.xml',

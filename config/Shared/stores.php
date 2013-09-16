@@ -54,7 +54,7 @@ $stores[STORE_DE] = array(
             ),
         ),
     ),
-    'locales' => array('en_US'),   // first entry is default
-    'countries' => array('US'),   // first entry is default
-    'currencyIsoCode' => 'USD', // internal and shop
+    'locales' => array('de_DE'),   // first entry is default
+    'countries' => array('DE'),   // first entry is default
+    'currencyIsoCode' => 'EUR', // internal and shop
 );
