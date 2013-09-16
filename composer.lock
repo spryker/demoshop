@@ -437,7 +437,7 @@
             "source": {
                 "type": "git",
                 "url": "git@codebasehq.com:project-a/core/acl.git",
-                "reference": "05ab2033d7ccd07790eda0cf98c79e3a246bd2fe"
+                "reference": "75d956e63971b5da73e3c2b3c335b91cea40cdf4"
             },
             "require": {
                 "php": ">=5.4.0",
@@ -464,7 +464,7 @@
                 "login",
                 "usermanagement"
             ],
-            "time": "2013-09-16 06:56:43"
+            "time": "2013-09-16 13:50:23"
         },
         {
             "name": "project-a/adyen-package",
@@ -540,7 +540,7 @@
             "source": {
                 "type": "git",
                 "url": "git@codebasehq.com:project-a/core/catalog.git",
-                "reference": "e6581573f50e1c67a9b9483ec5c172aacb79e8d1"
+                "reference": "eb5b2edd1d3f545b97bdbb62fe9ca30ace18e81b"
             },
             "require": {
                 "php": ">=5.4.0",
@@ -570,7 +570,7 @@
                 "Price",
                 "Stock"
             ],
-            "time": "2013-09-13 14:07:59"
+            "time": "2013-09-16 13:59:11"
         },
         {
             "name": "project-a/checkout-package",
@@ -578,7 +578,7 @@
             "source": {
                 "type": "git",
                 "url": "git@codebasehq.com:project-a/core/checkout.git",
-                "reference": "2fd6ba4d952f3e74edbc9d1f2cc9f966af0c1eec"
+                "reference": "91dccad835d197386fa76d456e7cb0857d4b88c4"
             },
             "require": {
                 "php": ">=5.4.0",
@@ -605,7 +605,7 @@
                 "PaymentControl",
                 "Salesrule"
             ],
-            "time": "2013-09-12 16:01:05"
+            "time": "2013-09-16 13:29:48"
         },
         {
             "name": "project-a/console-package",
@@ -613,7 +613,7 @@
             "source": {
                 "type": "git",
                 "url": "git@codebasehq.com:project-a/core/console.git",
-                "reference": "02b836ea795cf08119080b165519c516b4f464f1"
+                "reference": "7d507f70367934d5f2e34e61350fbcf13e94f952"
             },
             "require": {
                 "fabpot/php-cs-fixer": "dev-master",
@@ -644,7 +644,7 @@
             "keywords": [
                 "console"
             ],
-            "time": "2013-09-13 12:27:33"
+            "time": "2013-09-16 10:03:07"
         },
         {
             "name": "project-a/content-package",
@@ -652,7 +652,7 @@
             "source": {
                 "type": "git",
                 "url": "git@codebasehq.com:project-a/core/content.git",
-                "reference": "5ccc23ae11cdec46099bda0a3305ce04d3fc6abe"
+                "reference": "8a5eb05cf3079e1193d38f15d5e1ebbf4b16ae56"
             },
             "require": {
                 "php": ">=5.4.0",
@@ -678,7 +678,7 @@
             "keywords": [
                 "Content Package"
             ],
-            "time": "2013-09-16 06:56:25"
+            "time": "2013-09-16 13:59:53"
         },
         {
             "name": "project-a/crm-package",
@@ -686,7 +686,7 @@
             "source": {
                 "type": "git",
                 "url": "git@codebasehq.com:project-a/core/crm.git",
-                "reference": "527b0ae95b04c2133b7885095d019805555ea03f"
+                "reference": "36e576bc6557d2e1758d86e0e0bb1301b546b404"
             },
             "require": {
                 "php": ">=5.4.0",
@@ -712,7 +712,7 @@
                 "CRM",
                 "Mail"
             ],
-            "time": "2013-09-13 12:42:46"
+            "time": "2013-09-16 10:20:53"
         },
         {
             "name": "project-a/dependency-package",
@@ -783,7 +783,7 @@
             "source": {
                 "type": "git",
                 "url": "git@codebasehq.com:project-a/core/frontend.git",
-                "reference": "3a9e574cce61bbf39cf45a3c7f3c0acef3f18702"
+                "reference": "95cb14b0fa4421d9400a68bddbda643da5121c0b"
             },
             "require": {
                 "php": ">=5.4.0",
@@ -807,7 +807,7 @@
             "keywords": [
                 "Frontend"
             ],
-            "time": "2013-09-13 13:03:49"
+            "time": "2013-09-16 13:57:31"
         },
         {
             "name": "project-a/glossary-package",
@@ -815,7 +815,7 @@
             "source": {
                 "type": "git",
                 "url": "git@codebasehq.com:project-a/core/glossary.git",
-                "reference": "5eaa8ab6163f59509f739e35272506cdfca5064f"
+                "reference": "e855ffec53e82dd4a66fe425a14b89f314cdccd7"
             },
             "require": {
                 "php": ">=5.4.0"
@@ -839,7 +839,7 @@
                 "i18n",
                 "translation"
             ],
-            "time": "2013-09-16 06:54:33"
+            "time": "2013-09-16 13:13:19"
         },
         {
             "name": "project-a/infrastructure-package",
@@ -900,7 +900,7 @@
             "source": {
                 "type": "git",
                 "url": "git@codebasehq.com:project-a/core/library-2.git",
-                "reference": "637f9d768786d73e1cde80952bab3c956996fac9"
+                "reference": "2b50d48eb3d9c95a9d982a84fe43259720ec6789"
             },
             "require": {
                 "digital-canvas/zend-framework": ">=1.12.2",
@@ -935,7 +935,7 @@
                 }
             ],
             "description": "Core Library",
-            "time": "2013-09-16 06:48:07"
+            "time": "2013-09-16 13:46:00"
         },
         {
             "name": "project-a/lumberjack-package",
@@ -1038,7 +1038,7 @@
             "source": {
                 "type": "git",
                 "url": "git@codebasehq.com:project-a/core/sales.git",
-                "reference": "872980445e7e7769afa2c2941d47121aaf712943"
+                "reference": "c234a447f1852b5b568446ae33b322c317a50944"
             },
             "require": {
                 "php": ">=5.4.0",
@@ -1065,7 +1065,7 @@
                 "Sales",
                 "Task"
             ],
-            "time": "2013-09-16 06:42:32"
+            "time": "2013-09-16 10:14:01"
         },
         {
             "name": "project-a/silex-routing",
