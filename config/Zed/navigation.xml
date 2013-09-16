@@ -39,7 +39,6 @@
         <action>index</action>
         <id>sales_order_index</id>
     </sales>
-    <!--
     <products>
         <label>Products</label>
         <title>Products</title>
@@ -49,7 +48,6 @@
         <visible>1</visible>
         <id>catalog_attribute_index</id>
     </products>
-    -->
     <content>
         <label>Content</label>
         <title>Content</title>
