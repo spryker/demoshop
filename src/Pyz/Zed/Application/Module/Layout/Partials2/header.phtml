@@ -16,10 +16,8 @@
         <?php endif; ?>
         </b>
 
-        <!-- what about the logout !? it is missing in the zedgui index.html sample file
         <?php $logout = $this->navigation()->getContainer()->findOneById('login-logout'); ?>
         <a href="/<?php echo $logout->getModule() . '/' . $logout->getController() . '/logout'; ?>" class="logout"></a>
-        -->
     </h2>
 
     <nav class="zed:header__nav">
