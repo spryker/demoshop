@@ -1,0 +1,10 @@
+<div class="message error" style="background-color:lightcoral;">
+{% for message in errorMessages %}
+    <span>{{ message }}</span>
+{% endfor %}
+</div>
+<div class="message info" style="background-color:lightgreen;">
+    {% for message in infoMessages %}
+        <span>{{ message }}</span>
+    {% endfor %}
+</div>
