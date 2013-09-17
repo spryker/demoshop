@@ -69,22 +69,33 @@ $config['db_dump'] = array(
  * Connection to Key Value Sources
  * define the current used source and provide a setup
  */
-$config['kv_setup'] = [
-    'source' => 'memcached',
-    'memcached' => [
-        'host'   => 'localhost',
-        'port'   => '11211',
-        'prefix' => ''
+$config['storage'] = [
+    'kv' => [
+        'source' => 'memcached',
+        'memcached' => [
+            'host'   => 'localhost',
+            'port'   => '11211',
+            'prefix' => ''
+        ],
+        'mysql' => [
+            'host' => 'localhost',
+            'user' => 'root',
+            'password' => '',
+            'database' => 'kv_storage',
+        ]
     ],
-    'mysql' => [
-        'host' => 'localhost',
-        'user' => 'root',
-        'password' => '',
-        'database' => 'kv_storage',
+    'solr' => [
+        'base_url'        => 'http://127.0.0.1:8080',
+        'config_dir' => APPLICATION_ROOT_DIR . '/config/Zed/solr',
+        'application_dir' => APPLICATION_VENDOR_DIR . '/project-a/infrastructure-package/bin/',
+
+        // TODO: change to NEW (needs server adjustments): PalShared_Data::getLocalCommonPath('solr'),
+        'data_dir'        => APPLICATION_ROOT_DIR . '/data/solr',
     ]
 ];
 
 /**
+ * TODO remove config after solr implemenation, moved to storage->solr
  * Connection to SOLR
  *
  * GLOBAL
@@ -389,39 +400,6 @@ $config['glossary'] = array(
     'password'             => null,
     'timeout_seconds'      => 1,
     'timeout_milliseconds' => 0,
-);
-
-$config['fulfillment'] = array(
-    'jondo'         => array(
-        'services'  => array(
-            'branding' => array(
-                'insertCard' => array(
-                    'outsideImage' => 'http://s3.amazonaws.com/saatchi-general/fulfillment/harvest/premiumBranding/insertCard/outside.jpg',
-                    'insideImage'  => 'http://s3.amazonaws.com/saatchi-general/fulfillment/harvest/premiumBranding/insertCard/inside.jpg',
-                ),
-                'sticker'    => array(
-                    'frontImage' => 'http://s3.amazonaws.com/saatchi-general/fulfillment/harvest/premiumBranding/sticker/sticker.jpg',
-                ),
-            ),
-        ),
-        'dpqApiUrl' => 'http://staging.harvestDigitalPrinting.com/integration/api/quoteApi.php',
-        'cofApiUrl' => 'http://staging.harvestDigitalPrinting.com/integration/cofApi.php',
-        'userId'    => 51,
-        'userKey'   => 'rt596TY',
-        'testMode'  => true,
-    ),
-    'marcofinearts' => array(
-        'apiUrl'    => 'http://gatewaybeta.marcofinearts.com/v1/server.php?wsdl',
-        'username'  => '',
-        'password'  => '',
-        'secretkey' => '',
-    ),
-    'sba'           => array(
-        'apiUrl'          => 'http://24.157.59.5/sba/webservice/shippingwebservice.asmx?wsdl',
-        'customer_number' => '689102',
-        'password'        => 'sba0506130454',
-    ),
-    'universal'     => array(),
 );
 
 $config['mail'] = array(

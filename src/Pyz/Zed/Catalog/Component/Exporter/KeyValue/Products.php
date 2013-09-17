@@ -10,7 +10,7 @@ use ProjectA\Zed\Yves\Component\Model\Export\AbstractExport;
  * @package Pyz\Zed\Catalog\Component\Exporter\KeyValue
  */
 abstract class Products extends CoreProducts implements
-     \ProjectA_Zed_Yves_Component_Interface_Exporter_Memcache,
+     \ProjectA_Zed_Yves_Component_Interface_Exporter_KeyValue,
      \Pyz_Shared_Catalog_Interface_ProductAttributeConstant,
      \Pyz_Shared_Catalog_Interface_ProductAttributeSetConstant,
      \Pyz_Shared_Library_StorageKeyConstant,
@@ -44,11 +44,11 @@ abstract class Products extends CoreProducts implements
     }
 
     /**
-     * @return \ProjectA_Zed_Yves_Component_Exporter_Task_Entity
+     * @return \ProjectA_Zed_Yves_Component_Exporter_Setup_Entity
      */
-    public function getExportTask()
+    public function getExportSetup()
     {
-        $task = $this->facadeYves->getExporterTaskRaw();
+        $task = $this->facadeYves->getExporterSetupRaw();
         $task->setLazyCollection(
             new \ProjectA_Zed_Library_Propel_RawLazyCollection($this->getProductQueryBuilder())
         );
