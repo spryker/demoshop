@@ -25,7 +25,8 @@
         "nervetattoo/elasticsearch": "2.2.0",
         "ruflin/elastica": "v0.19.8.0",
         "zendframework/zendframework": "2.3.*@dev",
-        "solarium/solarium": "3.1.2"
+        "solarium/solarium": "3.1.2",
+        "silex/silex": "dev-master as 1.2"
     },
     "require-dev": {
         "behat/behat": "*",

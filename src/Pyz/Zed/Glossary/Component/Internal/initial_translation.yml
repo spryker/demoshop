@@ -1,0 +1,8 @@
+default_locale: en_US # The translation this file will install
+locales:
+  de_DE: German
+  en_US: English
+groups:
+  cart:
+    button.checkout: Checkout Now
+    button.continue.shopping: Continue shopping
