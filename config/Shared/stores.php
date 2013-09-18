@@ -1,11 +1,7 @@
 <?php
+$stores = [];
 
-const STORE_US = 'US';
-const STORE_DE = 'DE';
-
-$stores = array();
-
-$stores[STORE_US] = array(
+$stores['US'] = array(
     'frontends' => array('sao'), // first entry is default TODO move to Yves ???
     'contexts' => array( // different contexts
         // shared settings for all contexts
@@ -32,7 +28,7 @@ $stores[STORE_US] = array(
     'currencyIsoCode' => 'USD', // internal and shop
 );
 
-$stores[STORE_DE] = array(
+$stores['DE'] = array(
     'frontends' => array('sao'), // first entry is default TODO move to Yves ???
     'contexts' => array( // different contexts
         // shared settings for all contexts
@@ -58,3 +54,5 @@ $stores[STORE_DE] = array(
     'countries' => array('DE'),   // first entry is default
     'currencyIsoCode' => 'EUR', // internal and shop
 );
+
+return $stores;
