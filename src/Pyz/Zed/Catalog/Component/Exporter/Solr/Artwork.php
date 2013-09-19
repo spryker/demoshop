@@ -1,6 +1,7 @@
 <?php
 namespace Pyz\Zed\Catalog\Component\Exporter\Solr;
 
+use ProjectA\Shared\Solr\Code\SolrInstanceBuilder;
 use Pyz\Zed\Catalog\Component\Exporter\Solr\Products;
 use \Pyz\Zed\Catalog\Component\Exporter\QueryBuilder\Solr\Artwork as QueryBuilderSolrArtwork;
 
@@ -14,10 +15,9 @@ class Artwork extends Products
     /**
      * @return string
      */
-    public function getCoreName()
+    public function getEndpoint()
     {
-        return null; //default
-        //return \ProjectA_Shared_Library_Store::getInstance()->getSolrCore();
+        return SolrInstanceBuilder::getStoreEndpointName();
     }
 
     /**

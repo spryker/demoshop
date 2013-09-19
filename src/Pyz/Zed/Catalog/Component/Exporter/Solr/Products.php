@@ -2,6 +2,7 @@
 namespace Pyz\Zed\Catalog\Component\Exporter\Solr;
 
 use ProjectA\Zed\Catalog\Component\Exporter\Products as CoreProducts;
+use ProjectA\Zed\Catalog\Component\Exporter\QueryBuilder\AbstractProduct;
 use ProjectA\Zed\Yves\Component\Model\Export\AbstractExport;
 
 /**
@@ -40,7 +41,7 @@ abstract class Products extends CoreProducts implements
     /**
      * @return string
      */
-    abstract public function getCoreName();
+    abstract public function getEndpoint();
 
     /**
      * @return string
@@ -48,7 +49,7 @@ abstract class Products extends CoreProducts implements
     abstract protected function getProductAttributeSetName();
 
     /**
-     * @return \ProjectA_Zed_Catalog_Component_Exporter_QueryBuilder_AbstractProduct
+     * @return AbstractProduct
      */
     abstract protected function getProductQueryBuilder();
 
@@ -173,12 +174,12 @@ abstract class Products extends CoreProducts implements
 
     /**
      * @param \ProjectA_Zed_Library_Propel_LazyCollection $productEntities
-     * @param \ProjectA_Zed_Yves_Component_Model_Export_Abstract $exportModel
+     * @param AbstractExport $exportModel
      * @param \ArrayIterator $reporter
      */
     public function deleteData(
         \ProjectA_Zed_Library_Propel_LazyCollection $productEntities,
-        \ProjectA_Zed_Yves_Component_Model_Export_Abstract $exportModel,
+        AbstractExport $exportModel,
         \ArrayIterator $reporter
     ) {
         /* @var $entity \ProjectA_Zed_Catalog_Component_Interface_ProductEntity */

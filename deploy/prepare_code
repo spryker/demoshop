@@ -52,16 +52,16 @@ fi
 
 ## ZED - Execute install.php
 echo "Calling install.php..."
-sudo -u www-data vendor/bin/console propel-install -s ${APPLICATION_STORE} -e ${environment} # &> $outfile
+sudo -u www-data vendor/bin/console setup:propel:install -s ${APPLICATION_STORE} -e ${environment} # &> $outfile
 if [ $? -ne 0 ]; then
-  echo "ATTENTION: There was an error in console propel-install, refer to $outfile"
+  echo "ATTENTION: There was an error in console setup:propel:install, refer to $outfile"
   exit 1
 fi
 
 ### Generate Code
 if is_default_store; then
   echo "Generating necessary files..."
-  APPLICATION_ENV=$environment sudo -E -u www-data php -d "newrelic.appname='Deploy($environment)'" vendor/bin/console generate &> $outfile
+  APPLICATION_ENV=$environment sudo -E -u www-data php -d "newrelic.appname='Deploy($environment)'" vendor/bin/console setup:generate &> $outfile
   if [ $? -ne 0 ]; then
     echo Failed, aborting. Output saved in $outfile
     exit 2

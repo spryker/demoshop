@@ -69,16 +69,32 @@ abstract class Products extends CoreProducts implements
         $reportName = $this->getName() . ' exported';
         $reporter[$reportName] = 0;
 
+        $allData = array();
+        $counter = 1;
+        $chunkSize = 2000;
         foreach ($collection as $product) {
-
             $data = array();
             $pairProductData = $this->transformProductToData($product);
 
             $productKey = \ProjectA_Shared_Library_Storage::getProductKey($product['id_catalog_product']);
             $data[$productKey] = $pairProductData;
 
-            $exportModel->write($data);
-            $reporter[$reportName]++;
+            $allData+=$data;
+
+            if ($counter % $chunkSize == 0) {
+                $exportModel->write($allData);
+                $allData = array();
+            }
+
+            $counter++;
         }
+
+        //export the rest in allData
+        if (!empty($allData)) {
+            $exportModel->write($allData);
+            unset($allData);
+        }
+
+        $reporter[$reportName] = $counter;
     }
 }
