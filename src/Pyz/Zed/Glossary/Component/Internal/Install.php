@@ -12,7 +12,7 @@ class Install extends CoreInstall
     protected function getConfig()
     {
         $yamlParser = new Parser();
-        return $yamlParser->parse(file_get_contents(__DIR__ . '/initial_translation.yml'));
+        return $yamlParser->parse(file_get_contents(__DIR__ . '/../../File/initial_translation.yml'));
     }
 
     /**
@@ -20,6 +20,6 @@ class Install extends CoreInstall
      */
     public function isActive()
     {
-        return true;
+        return false;
     }
 }

@@ -9,15 +9,6 @@ class Pyz_Zed_Catalog_Component_Facade extends ProjectA_Zed_Catalog_Component_Fa
 {
 
     /**
-     * read catalog setup from db and print
-     * @return string
-     */
-    public function reverseInstall()
-    {
-        return $this->factory->getInternalReverseInstall()->reverseInstall();
-    }
-
-    /**
      * @return KeyValueArtwork
      */
     public function getExporterKeyValueArtwork()
