@@ -66,11 +66,17 @@ $config['db_dump'] = array(
 );
 
 /**
- * Connection to Key Value Sources
- * define the current used source and provide a setup
+ * Connection to Storages
+ *  - Key Value Storages
+ *  - Solr
+ *  - Couchbase
+ *  - ...
+ *
+ *
  */
 $config['storage'] = [
     'kv' => [
+        //define the current used source and provide a setup
         'source' => 'memcached',
         'memcached' => [
             'host'   => 'localhost',
@@ -91,23 +97,33 @@ $config['storage'] = [
 
         // TODO: change to NEW (needs server adjustments): PalShared_Data::getLocalCommonPath('solr'),
         'data_dir'        => APPLICATION_ROOT_DIR . '/data/solr',
+
+        'defaultEndpointSetup' => array(
+            'host' => '127.0.0.1',
+            'port' => 8080,
+            'path' => '/'
+        ),
+
+        'endpointGroups' => [
+            'stores' => [
+                'US', 'DE'
+            ],
+        ],
+
+        'endpoint' => [
+            'US' => [
+                'core' => 'US'
+            ],
+            'META_DATA' => [
+                'core' => 'META_DATA'
+            ],
+            'ADMIN' => [] //necessary to setup cores etc.
+        ]
     ]
 ];
-
-/**
- * TODO remove config after solr implemenation, moved to storage->solr
- * Connection to SOLR
- *
- * GLOBAL
- */
-$config['solr'] = array(
-    'base_url'        => 'http://127.0.0.1:8080',
-    'config_dir' => APPLICATION_ROOT_DIR . '/config/Zed/solr',
-    'application_dir' => APPLICATION_VENDOR_DIR . '/project-a/infrastructure-package/bin/',
-
-    // TODO: change to NEW (needs server adjustments): PalShared_Data::getLocalCommonPath('solr'),
-    'data_dir'        => APPLICATION_ROOT_DIR . '/data/solr',
-);
+$config['storage']['solr']['endpoint']['US']        += $config['storage']['solr']['defaultEndpointSetup'];
+$config['storage']['solr']['endpoint']['META_DATA'] += $config['storage']['solr']['defaultEndpointSetup'];
+$config['storage']['solr']['endpoint']['ADMIN']     += $config['storage']['solr']['defaultEndpointSetup'];
 
 /**
  * Connection to Jenkins
