@@ -540,7 +540,7 @@
             "source": {
                 "type": "git",
                 "url": "git@codebasehq.com:project-a/core/catalog.git",
-                "reference": "f8f927a94aea08286d2ed12d112d82ce771b620d"
+                "reference": "ef6895c32640743e850d71931bf40aa6ffba22bb"
             },
             "require": {
                 "php": ">=5.4.0",
@@ -570,7 +570,7 @@
                 "Price",
                 "Stock"
             ],
-            "time": "2013-09-19 09:43:17"
+            "time": "2013-09-19 13:11:24"
         },
         {
             "name": "project-a/checkout-package",
@@ -686,7 +686,7 @@
             "source": {
                 "type": "git",
                 "url": "git@codebasehq.com:project-a/core/crm.git",
-                "reference": "c18d555d169d3b84b95f9b897a2a1c24282badbf"
+                "reference": "f219a4f1556f54542fc62dde5d9d9c6088d83eca"
             },
             "require": {
                 "php": ">=5.4.0",
@@ -712,7 +712,7 @@
                 "CRM",
                 "Mail"
             ],
-            "time": "2013-09-16 14:37:45"
+            "time": "2013-09-19 12:21:25"
         },
         {
             "name": "project-a/dependency-package",
@@ -783,7 +783,7 @@
             "source": {
                 "type": "git",
                 "url": "git@codebasehq.com:project-a/core/frontend.git",
-                "reference": "6f61b5b66a95675cc6896de7c0a942c4eb686f63"
+                "reference": "17de189a2cb6bd4e1b87ed6f2aae5b97c513b1d1"
             },
             "require": {
                 "php": ">=5.4.0",
@@ -807,7 +807,7 @@
             "keywords": [
                 "Frontend"
             ],
-            "time": "2013-09-19 12:03:36"
+            "time": "2013-09-19 15:01:50"
         },
         {
             "name": "project-a/glossary-package",
@@ -847,7 +847,7 @@
             "source": {
                 "type": "git",
                 "url": "git@codebasehq.com:project-a/core/infrastructure.git",
-                "reference": "7b62054833b3d25905457a3a0ab463ccc74dd94f"
+                "reference": "00626805d915113c43e88be6b618b9bb4a26270f"
             },
             "require": {
                 "php": ">=5.4.0",
@@ -875,7 +875,7 @@
             "keywords": [
                 "infrastructure"
             ],
-            "time": "2013-09-19 09:26:42"
+            "time": "2013-09-19 13:20:01"
         },
         {
             "name": "project-a/kendo-package",
@@ -900,7 +900,7 @@
             "source": {
                 "type": "git",
                 "url": "git@codebasehq.com:project-a/core/library-2.git",
-                "reference": "a0d85c0b7343d2ab5340ba7e187041123080c6da"
+                "reference": "ea0b6454cbe9a8ec7e2347290dc52107080924d0"
             },
             "require": {
                 "digital-canvas/zend-framework": ">=1.12.2",
@@ -936,7 +936,7 @@
                 }
             ],
             "description": "Core Library",
-            "time": "2013-09-19 12:01:40"
+            "time": "2013-09-19 15:02:54"
         },
         {
             "name": "project-a/lumberjack-package",
