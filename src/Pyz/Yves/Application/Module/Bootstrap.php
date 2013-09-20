@@ -23,6 +23,14 @@ use Symfony\Component\Routing\RouterInterface;
 class Bootstrap extends \ProjectA\Yves\Library\Silex\Bootstrap
 {
     /**
+     * @param Application $app
+     */
+    protected function beforeBoot(Application $app)
+    {
+        $app['locale'] = \ProjectA_Shared_Library_Store::getInstance()->getCurrentLocale();
+    }
+
+    /**
      * @return ServiceProviderInterface[]
      */
     protected function getServiceProviders()
