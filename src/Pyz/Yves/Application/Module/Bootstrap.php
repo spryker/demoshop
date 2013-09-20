@@ -5,6 +5,7 @@ use ProjectA\Yves\Library\Silex\Application;
 use ProjectA\Yves\Library\Silex\Provider\CookieServiceProvider;
 use ProjectA\Yves\Library\Silex\Provider\StorageServiceProvider;
 use ProjectA\Yves\Library\Silex\Provider\ExceptionServiceProvider;
+use ProjectA\Yves\Library\Silex\Provider\TranslationServiceProvider;
 use ProjectA\Yves\Library\Silex\Provider\TwigServiceProvider;
 use ProjectA\Yves\Library\Silex\Provider\YvesLoggingServiceProvider;
 use ProjectA\Yves\Library\Silex\Routing\SilexRouter;
@@ -34,8 +35,9 @@ class Bootstrap extends \ProjectA\Yves\Library\Silex\Bootstrap
             new UrlGeneratorServiceProvider(),
             new ServiceControllerServiceProvider(),
             new RoutingServiceProvider(),
+            new StorageServiceProvider(),
+            new TranslationServiceProvider(),
             new TwigServiceProvider(),
-            new StorageServiceProvider()
         ];
     }
 
