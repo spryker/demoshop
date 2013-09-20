@@ -43,9 +43,9 @@ class Settings extends CoreSettings implements
         //TODO we need to adjusted and rename this one to the new attribute set;
         $result[] = $this->facadeCatalog->getExporterKeyValueArtworkExporter();
 
-        $result[] = $this->facadeCategory->getExporterKeyValueCategories();
+        $result[] = $this->facadeCategory->getExporterKeyValueCategoriesExporter();
         $result[] = $this->facadeMisc->getExporterKeyValueCountryExporter();
-//        $result[] = $this->facadeCatalog->getExporterKeyValueBrands();
+//        $result[] = $this->facadeCatalog->getExporterKeyValueBrandsExporter();
         $result[] = $this->facadeCatalog->getExporterKeyValueProductOptionsExporter();
         return $result;
     }
