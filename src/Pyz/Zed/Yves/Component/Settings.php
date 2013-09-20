@@ -4,8 +4,6 @@ namespace Pyz\Zed\Yves\Component;
 use ProjectA\Zed\Yves\Component\Settings as CoreSettings;
 
 /**
- * Class Settings
- * @package Pyz\Zed\Yves\Component
  * @property \Pyz_Zed_Catalog_Component_Facade $facadeCatalog
  */
 class Settings extends CoreSettings implements
