@@ -3,7 +3,7 @@
         "This file locks the dependencies of your project to a known state",
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file"
     ],
-    "hash": "4f75facaf7f541a07565442c858278d2",
+    "hash": "ee07261b4728c1487b58086da820559c",
     "packages": [
         {
             "name": "digital-canvas/zend-framework",
@@ -472,7 +472,7 @@
             "source": {
                 "type": "git",
                 "url": "git@codebasehq.com:project-a/core/adyen.git",
-                "reference": "b9c19e1e8643c538cf360d434bf14999c977a3cc"
+                "reference": "b44dbe3a1a37526f2dd8a7b5066e116dbe4cb6cf"
             },
             "require": {
                 "php": ">=5.4.0",
@@ -497,7 +497,7 @@
             "keywords": [
                 "adyen payment provider"
             ],
-            "time": "2013-09-17 16:12:28"
+            "time": "2013-09-20 14:26:53"
         },
         {
             "name": "project-a/cart-package",
@@ -505,7 +505,7 @@
             "source": {
                 "type": "git",
                 "url": "git@codebasehq.com:project-a/core/cart.git",
-                "reference": "bf6e11c714f365fc86877edb2a6eb615f3c47346"
+                "reference": "d041c929538d2c53b22b668781bb3bc7ac54e288"
             },
             "require": {
                 "php": ">=5.4.0",
@@ -532,7 +532,7 @@
             "keywords": [
                 "Cart"
             ],
-            "time": "2013-09-17 16:32:53"
+            "time": "2013-09-20 17:28:15"
         },
         {
             "name": "project-a/catalog-package",
@@ -540,7 +540,7 @@
             "source": {
                 "type": "git",
                 "url": "git@codebasehq.com:project-a/core/catalog.git",
-                "reference": "902799cbf8e4c9557d6c8f619201490010092a27"
+                "reference": "5044146fbb74ffe45c1c95fb533b25ce216d0a5f"
             },
             "require": {
                 "php": ">=5.4.0",
@@ -570,7 +570,7 @@
                 "Price",
                 "Stock"
             ],
-            "time": "2013-09-19 16:02:08"
+            "time": "2013-09-20 17:02:06"
         },
         {
             "name": "project-a/checkout-package",
@@ -578,7 +578,7 @@
             "source": {
                 "type": "git",
                 "url": "git@codebasehq.com:project-a/core/checkout.git",
-                "reference": "db98e70d5cd2ce0081381ea53c2f6be146127a7f"
+                "reference": "a2505177108365887122fd5428e0208038babe28"
             },
             "require": {
                 "php": ">=5.4.0",
@@ -605,7 +605,7 @@
                 "PaymentControl",
                 "Salesrule"
             ],
-            "time": "2013-09-17 08:34:06"
+            "time": "2013-09-20 14:26:20"
         },
         {
             "name": "project-a/console-package",
@@ -652,7 +652,7 @@
             "source": {
                 "type": "git",
                 "url": "git@codebasehq.com:project-a/core/content.git",
-                "reference": "e3b5af1bdfe1ca6b1b20cb4dde9db1fd9d8a3f68"
+                "reference": "68525a73000f31069a41424647f071413ccd7241"
             },
             "require": {
                 "php": ">=5.4.0",
@@ -678,7 +678,7 @@
             "keywords": [
                 "Content Package"
             ],
-            "time": "2013-09-19 16:01:10"
+            "time": "2013-09-20 17:02:32"
         },
         {
             "name": "project-a/crm-package",
@@ -783,7 +783,7 @@
             "source": {
                 "type": "git",
                 "url": "git@codebasehq.com:project-a/core/frontend.git",
-                "reference": "17de189a2cb6bd4e1b87ed6f2aae5b97c513b1d1"
+                "reference": "b69267f1336d963765664983f770a3bd8df7e601"
             },
             "require": {
                 "php": ">=5.4.0",
@@ -807,7 +807,7 @@
             "keywords": [
                 "Frontend"
             ],
-            "time": "2013-09-19 15:01:50"
+            "time": "2013-09-20 17:04:05"
         },
         {
             "name": "project-a/glossary-package",
@@ -815,7 +815,7 @@
             "source": {
                 "type": "git",
                 "url": "git@codebasehq.com:project-a/core/glossary.git",
-                "reference": "6afc3781161389b6b920e890ce89d6299799f484"
+                "reference": "74b52cc01dffbd7e927dfbcbca52e5fe08f9e58a"
             },
             "require": {
                 "php": ">=5.4.0"
@@ -839,7 +839,7 @@
                 "i18n",
                 "translation"
             ],
-            "time": "2013-09-20 07:42:36"
+            "time": "2013-09-20 13:41:15"
         },
         {
             "name": "project-a/infrastructure-package",
@@ -847,7 +847,7 @@
             "source": {
                 "type": "git",
                 "url": "git@codebasehq.com:project-a/core/infrastructure.git",
-                "reference": "d55421d87f6b90ef192bcf1145cfa6f1a6cae8a1"
+                "reference": "fdabf1a7233de13bef359ae561c4f0fe6ffdfdde"
             },
             "require": {
                 "php": ">=5.4.0",
@@ -875,7 +875,7 @@
             "keywords": [
                 "infrastructure"
             ],
-            "time": "2013-09-19 15:55:29"
+            "time": "2013-09-20 17:04:44"
         },
         {
             "name": "project-a/kendo-package",
@@ -900,7 +900,7 @@
             "source": {
                 "type": "git",
                 "url": "git@codebasehq.com:project-a/core/library-2.git",
-                "reference": "29d9f00e09e4bb826918ac820009f08a9c07c704"
+                "reference": "16ecb118f5617b7108d772462677a5d359116c35"
             },
             "require": {
                 "digital-canvas/zend-framework": ">=1.12.2",
@@ -936,7 +936,7 @@
                 }
             ],
             "description": "Core Library",
-            "time": "2013-09-20 09:38:25"
+            "time": "2013-09-20 17:27:35"
         },
         {
             "name": "project-a/lumberjack-package",
@@ -944,10 +944,12 @@
             "source": {
                 "type": "git",
                 "url": "git@codebasehq.com:project-a/core/lumberjack.git",
-                "reference": "c6c1c5f1d4be2909e7fd91c922de22482978caf2"
+                "reference": "af08fd0785b2e364d6f4e02dabb7046d434d0f58"
             },
             "require": {
-                "php": ">=5.4.0"
+                "nervetattoo/elasticsearch": "~2.2",
+                "php": ">=5.4.0",
+                "ruflin/elastica": ">=0.90.2.0"
             },
             "type": "library",
             "autoload": {
@@ -967,7 +969,7 @@
             "keywords": [
                 ""
             ],
-            "time": "2013-09-16 06:47:17"
+            "time": "2013-09-20 17:33:06"
         },
         {
             "name": "project-a/marketing-package",
@@ -1039,7 +1041,7 @@
             "source": {
                 "type": "git",
                 "url": "git@codebasehq.com:project-a/core/sales.git",
-                "reference": "64b52fbfd98483663e340a8029aa80e87ad038ee"
+                "reference": "e2e58a9a49061ac6a3d2bf070cb7b51d3b875daf"
             },
             "require": {
                 "php": ">=5.4.0",
@@ -1066,7 +1068,7 @@
                 "Sales",
                 "Task"
             ],
-            "time": "2013-09-19 15:59:22"
+            "time": "2013-09-20 14:25:36"
         },
         {
             "name": "project-a/silex-routing",
@@ -1254,25 +1256,40 @@
         },
         {
             "name": "ruflin/elastica",
-            "version": "v0.19.8.0",
+            "version": "v0.90.2.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/ruflin/Elastica.git",
-                "reference": "34a7e62a257febd5295efeacfa0209712e0ceb65"
+                "reference": "7157cfbf7537d2afdf5aa63b1c4a092818ee355a"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/ruflin/Elastica/zipball/34a7e62a257febd5295efeacfa0209712e0ceb65",
-                "reference": "34a7e62a257febd5295efeacfa0209712e0ceb65",
+                "url": "https://api.github.com/repos/ruflin/Elastica/zipball/7157cfbf7537d2afdf5aa63b1c4a092818ee355a",
+                "reference": "7157cfbf7537d2afdf5aa63b1c4a092818ee355a",
                 "shasum": ""
             },
             "require": {
-                "php": ">=5.3.0"
+                "php": ">=5.3.3"
+            },
+            "require-dev": {
+                "munkie/elasticsearch-thrift-php": "1.4.*",
+                "psr/log": "~1.0"
+            },
+            "suggest": {
+                "monolog/monolog": "Logging request",
+                "munkie/elasticsearch-thrift-php": "Allow using thrift transport",
+                "psr/log": "for logging"
             },
             "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "0.20.5.x-dev"
+                }
+            },
             "autoload": {
                 "psr-0": {
-                    "Elastica": "lib/"
+                    "Elastica": "lib/",
+                    "Elastica\\Test": "test/lib/"
                 }
             },
             "notification-url": "https://packagist.org/downloads/",
@@ -1291,7 +1308,7 @@
                 "client",
                 "search"
             ],
-            "time": "2012-08-12 16:51:36"
+            "time": "2013-08-25 08:45:21"
         },
         {
             "name": "sebastian/diff",
