@@ -38,7 +38,7 @@ class Settings extends CoreSettings implements
     public function getKeyValueExporters($exportIdentifier)
     {
         //TODO currently all exporters are activated to test them, remove unneeded later on
-        $result[] = $this->facadeCms->getExporterKeyValueCms();
+        $result[] = $this->facadeCms->getExporterKeyValueCmsExporter();
         $result[] = $this->facadeCms->getExporterKeyValueRedirection();
         $result[] = $this->facadeGlossary->getExporterKeyValueGlossaryExporter();
 
@@ -46,7 +46,7 @@ class Settings extends CoreSettings implements
         $result[] = $this->facadeCatalog->getExporterKeyValueArtwork();
 
         $result[] = $this->facadeCategory->getExporterKeyValueCategories();
-        $result[] = $this->facadeMisc->getExporterKeyValueCountry();
+        $result[] = $this->facadeMisc->getExporterKeyValueCountryExporter();
 //        $result[] = $this->facadeCatalog->getExporterKeyValueBrands();
         $result[] = $this->facadeCatalog->getExporterKeyValueProductOptions();
         return $result;
