@@ -37,7 +37,7 @@ class Settings extends CoreSettings implements
     {
         //TODO currently all exporters are activated to test them, remove unneeded later on
         $result[] = $this->facadeCms->getExporterKeyValueCmsExporter();
-        $result[] = $this->facadeCms->getExporterKeyValueRedirection();
+        $result[] = $this->facadeCms->getExporterKeyValueRedirectionExporter();
         $result[] = $this->facadeGlossary->getExporterKeyValueGlossaryExporter();
 
         //TODO we need to adjusted and rename this one to the new attribute set;

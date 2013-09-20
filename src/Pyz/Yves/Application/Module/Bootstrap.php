@@ -9,6 +9,7 @@ use ProjectA\Yves\Library\Silex\Provider\TranslationServiceProvider;
 use ProjectA\Yves\Library\Silex\Provider\TwigServiceProvider;
 use ProjectA\Yves\Library\Silex\Provider\YvesLoggingServiceProvider;
 use ProjectA\Yves\Library\Silex\Routing\SilexRouter;
+use Pyz\Yves\Application\Module\ControllerProvider as ApplicationProvider;
 use ProjectA\Yves\Cart\Module\ControllerProvider as CartProvider;
 use ProjectA\Yves\Catalog\Module\ControllerProvider as CatalogProvider;
 use ProjectA\Yves\Setup\Module\ControllerProvider as SetupProvider;
@@ -58,6 +59,7 @@ class Bootstrap extends \ProjectA\Yves\Library\Silex\Bootstrap
             new CartProvider(),
             new CatalogProvider(),
             new SetupProvider(),
+            new ApplicationProvider()
         ];
     }
 
