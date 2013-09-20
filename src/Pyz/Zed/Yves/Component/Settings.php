@@ -25,7 +25,7 @@ class Settings extends CoreSettings implements
      */
     public function getSolrExporters($exportIdentifier)
     {
-        $result[] = $this->facadeCatalog->getExporterSolrArtwork();
+        $result[] = $this->facadeCatalog->getExporterSolrArtworkExporter();
         return $result;
     }
 
@@ -41,12 +41,12 @@ class Settings extends CoreSettings implements
         $result[] = $this->facadeGlossary->getExporterKeyValueGlossaryExporter();
 
         //TODO we need to adjusted and rename this one to the new attribute set;
-        $result[] = $this->facadeCatalog->getExporterKeyValueArtwork();
+        $result[] = $this->facadeCatalog->getExporterKeyValueArtworkExporter();
 
         $result[] = $this->facadeCategory->getExporterKeyValueCategories();
         $result[] = $this->facadeMisc->getExporterKeyValueCountryExporter();
 //        $result[] = $this->facadeCatalog->getExporterKeyValueBrands();
-        $result[] = $this->facadeCatalog->getExporterKeyValueProductOptions();
+        $result[] = $this->facadeCatalog->getExporterKeyValueProductOptionsExporter();
         return $result;
     }
 }

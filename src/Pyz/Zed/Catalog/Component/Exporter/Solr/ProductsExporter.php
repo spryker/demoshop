@@ -1,23 +1,18 @@
 <?php
 namespace Pyz\Zed\Catalog\Component\Exporter\Solr;
 
-use ProjectA\Zed\Catalog\Component\Exporter\Products as CoreProducts;
+use ProjectA\Zed\Catalog\Component\Exporter\ProductsExporter as CoreProductsExporter;
 use ProjectA\Zed\Catalog\Component\Exporter\QueryBuilder\AbstractProduct;
 use ProjectA\Zed\Yves\Component\Model\Export\AbstractExport;
 
-/**
- * Class classProducts
- * @package Pyz\Zed\Catalog\Component\Exporter\Solr
- * @property \Generated_Zed_Catalog_Component_Factory $factory
- */
-abstract class Products extends CoreProducts implements
-     \ProjectA_Zed_Yves_Component_Interface_Exporter_Solr,
-     \ProjectA_Zed_Price_Component_Dependency_Facade_Interface,
-     \ProjectA_Zed_Solr_Component_Dependency_Facade_Interface,
-     \ProjectA_Zed_Yves_Component_Dependency_Facade_Interface,
-     \Pyz_Shared_Catalog_Interface_ProductAttributeConstant,
-     \Pyz_Shared_Catalog_Interface_ProductAttributeSetConstant,
-     \Pyz_Shared_Library_StorageKeyConstant
+abstract class ProductsExporter extends CoreProductsExporter implements
+    \ProjectA_Zed_Yves_Component_Interface_Exporter_Solr,
+    \ProjectA_Zed_Price_Component_Dependency_Facade_Interface,
+    \ProjectA_Zed_Solr_Component_Dependency_Facade_Interface,
+    \ProjectA_Zed_Yves_Component_Dependency_Facade_Interface,
+    \Pyz_Shared_Catalog_Interface_ProductAttributeConstant,
+    \Pyz_Shared_Catalog_Interface_ProductAttributeSetConstant,
+    \Pyz_Shared_Library_StorageKeyConstant
 {
     use \ProjectA_Zed_Solr_Component_Dependency_Facade_Trait;
     use \ProjectA_Zed_Price_Component_Dependency_Facade_Trait;

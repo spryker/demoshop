@@ -3,12 +3,7 @@ namespace Pyz\Zed\Catalog\Component\Exporter\KeyValue;
 
 use ProjectA\Zed\Catalog\Component\Exporter\QueryBuilder\AbstractProduct;
 
-/**
- * Class Artwork
- * @package Pyz\Zed\Catalog\Component\Exporter\KeyValue
- * @property \Generated_Zed_Catalog_Component_Factory $factory
- */
-class Artwork extends Products
+class ArtworkExporter extends ProductsExporter
 {
 
     /**

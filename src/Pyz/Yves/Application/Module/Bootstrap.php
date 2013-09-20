@@ -16,10 +16,7 @@ use ProjectA\Yves\Setup\Module\ControllerProvider as SetupProvider;
 use Silex\Provider\ServiceControllerServiceProvider;
 use Silex\Provider\SessionServiceProvider;
 use Silex\Provider\UrlGeneratorServiceProvider;
-use Silex\ServiceProviderInterface;
-use Silex\ControllerProviderInterface;
 use SilexRouting\Provider\RoutingServiceProvider;
-use Symfony\Component\Routing\RouterInterface;
 
 class Bootstrap extends \ProjectA\Yves\Library\Silex\Bootstrap
 {
@@ -32,7 +29,7 @@ class Bootstrap extends \ProjectA\Yves\Library\Silex\Bootstrap
     }
 
     /**
-     * @return ServiceProviderInterface[]
+     * @return \Silex\ServiceProviderInterface[]
      */
     protected function getServiceProviders()
     {
@@ -51,21 +48,21 @@ class Bootstrap extends \ProjectA\Yves\Library\Silex\Bootstrap
     }
 
     /**
-     * @return ControllerProviderInterface[]
+     * @return \Silex\ControllerProviderInterface[]
      */
     protected function getControllerProviders()
     {
         return [
+            new ApplicationProvider(),
             new CartProvider(),
             new CatalogProvider(),
             new SetupProvider(),
-            new ApplicationProvider()
         ];
     }
 
     /**
      * @param Application $app
-     * @return RouterInterface[]
+     * @return \Symfony\Component\Routing\RouterInterface[]
      */
     protected function getRouters(Application $app)
     {

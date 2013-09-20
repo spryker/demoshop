@@ -1,20 +1,17 @@
 <?php
 namespace Pyz\Zed\Catalog\Component\Exporter\KeyValue;
 
-use ProjectA\Zed\Catalog\Component\Exporter\Products as CoreProducts;
+use ProjectA\Shared\Catalog\Code\Storage\StorageKeyGenerator;
+use ProjectA\Zed\Catalog\Component\Exporter\ProductsExporter as CoreProductsExporter;
 use ProjectA\Zed\Catalog\Component\Exporter\QueryBuilder\AbstractProduct;
 use ProjectA\Zed\Yves\Component\Model\Export\AbstractExport;
 
-/**
- * Class Products
- * @package Pyz\Zed\Catalog\Component\Exporter\KeyValue
- */
-abstract class Products extends CoreProducts implements
-     \ProjectA_Zed_Yves_Component_Interface_Exporter_KeyValue,
-     \Pyz_Shared_Catalog_Interface_ProductAttributeConstant,
-     \Pyz_Shared_Catalog_Interface_ProductAttributeSetConstant,
-     \Pyz_Shared_Library_StorageKeyConstant,
-     \ProjectA_Zed_Yves_Component_Dependency_Facade_Interface
+abstract class ProductsExporter extends CoreProductsExporter implements
+    \ProjectA_Zed_Yves_Component_Interface_Exporter_KeyValue,
+    \Pyz_Shared_Catalog_Interface_ProductAttributeConstant,
+    \Pyz_Shared_Catalog_Interface_ProductAttributeSetConstant,
+    \Pyz_Shared_Library_StorageKeyConstant,
+    \ProjectA_Zed_Yves_Component_Dependency_Facade_Interface
 {
 
     use \ProjectA_Zed_Yves_Component_Dependency_Facade_Trait;
@@ -65,7 +62,6 @@ abstract class Products extends CoreProducts implements
         AbstractExport $exportModel,
         \ArrayIterator $reporter
     ) {
-        $facade = $this->factory->getFacade();
         $reportName = $this->getName() . ' exported';
         $reporter[$reportName] = 0;
 
@@ -76,7 +72,7 @@ abstract class Products extends CoreProducts implements
             $data = array();
             $pairProductData = $this->transformProductToData($product);
 
-            $productKey = \ProjectA_Shared_Library_Storage::getProductKey($product['id_catalog_product']);
+            $productKey = StorageKeyGenerator::getProductKey($product['id_catalog_product']);
             $data[$productKey] = $pairProductData;
 
             $allData+=$data;

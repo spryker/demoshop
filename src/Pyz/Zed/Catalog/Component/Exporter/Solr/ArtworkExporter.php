@@ -2,14 +2,9 @@
 namespace Pyz\Zed\Catalog\Component\Exporter\Solr;
 
 use ProjectA\Shared\Solr\Code\SolrInstanceBuilder;
-use Pyz\Zed\Catalog\Component\Exporter\Solr\Products;
 use \Pyz\Zed\Catalog\Component\Exporter\QueryBuilder\Solr\Artwork as QueryBuilderSolrArtwork;
 
-/**
- * Class Artwork
- * @package Pyz\Zed\Catalog\Component\Exporter\Solr
- */
-class Artwork extends Products
+class ArtworkExporter extends ProductsExporter
 {
 
     /**
