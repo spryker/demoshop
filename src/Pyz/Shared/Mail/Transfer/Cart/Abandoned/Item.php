@@ -14,7 +14,7 @@ class Item extends Mail
     protected $_image = array('is_string');
 
     /**
-     * @varstring
+     * @var string
      */
     protected $name;
     protected $_name = array('is_string');
