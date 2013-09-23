@@ -1,65 +1,25 @@
 <?php
-/**
- * @author Marco Roßdeutscher <marco.rossdeutscher@project-a.com>
- * @version $Id$
- */
-class Pyz_Shared_Mail_Transfer_Cart_Abandoned_Unsubscribe extends ProjectA_Shared_Library_Abstract_Object
+
+namespace Pyz\Shared\Mail\Transfer\Cart\Abandoned;
+
+class Unsubscribe extends \ProjectA_Shared_Library_Abstract_Object
 {
+
+    /**
+     * @var string
+     */
     protected $unsubscribeHash;
     protected $_unsubscribeHash = array('is_string');
 
+    /**
+     * @var int
+     */
     protected $cartUserId;
     protected $_cartUserId = array('is_int');
 
+    /**
+     * @var string
+     */
     protected $email;
     protected $_email = array('is_string');
-
-
-    /**
-     * @return mixed
-     */
-    public function getUnsubscribeHash()
-    {
-        return $this->unsubscribeHash;
-    }
-
-    /**
-     * @param mixed $unsubscribeHash
-     */
-    public function setUnsubscribeHash($unsubscribeHash)
-    {
-        $this->unsubscribeHash = $unsubscribeHash;
-    }
-
-    /**
-     * @return mixed
-     */
-    public function getCartUserId()
-    {
-        return $this->cartUserId;
-    }
-
-    /**
-     * @param mixed $cartUserId
-     */
-    public function setCartUserId($cartUserId)
-    {
-        $this->cartUserId = $cartUserId;
-    }
-
-    /**
-     * @return mixed
-     */
-    public function getEmail()
-    {
-        return $this->email;
-    }
-
-    /**
-     * @param mixed $email
-     */
-    public function setEmail($email)
-    {
-        $this->email = $email;
-    }
 }

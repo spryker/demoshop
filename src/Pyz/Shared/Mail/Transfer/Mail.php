@@ -1,70 +1,30 @@
 <?php
+
+namespace Pyz\Shared\Mail\Transfer;
+
+use ProjectA\Shared\Mail\Transfer\Mail as BaseMail;
+
 /**
  * @version
  */
-class Pyz_Shared_Mail_Transfer_Mail extends ProjectA_Shared_Mail_Transfer_Mail
+class Mail extends BaseMail
 {
 
+    /**
+     * @var  string
+     */
     protected $salutation = null;
     protected $_salutation = array('is_string');
 
+    /**
+     * @var string
+     */
     protected $lastName = null;
     protected $_lastName = array('is_string');
 
+    /**
+     * @var string
+     */
     protected $firstName = null;
     protected $_firstName = array('is_string');
-
-    /**
-     * @return string
-     */
-    public function getSalutation()
-    {
-        return $this->salutation;
-    }
-
-    /**
-     * @param $salutation
-     * @return Pyz_Shared_Mail_Transfer_OrderConfirmation
-     */
-    public function setSalutation($salutation)
-    {
-        $this->salutation = $salutation;
-        return $this;
-    }
-
-    /**
-     * @return string
-     */
-    public function getLastName()
-    {
-        return $this->lastName;
-    }
-
-    /**
-     * @param $lastName
-     * @return Pyz_Shared_Mail_Transfer_OrderConfirmation
-     */
-    public function setLastName($lastName)
-    {
-        $this->lastName = $lastName;
-        return $this;
-    }
-
-    /**
-     * @return string
-     */
-    public function getFirstName()
-    {
-        return $this->firstName;
-    }
-
-    /**
-     * @param $firstName
-     * @return Pyz_Shared_Mail_Transfer_OrderConfirmation
-     */
-    public function setFirstName($firstName)
-    {
-        $this->firstName = $firstName;
-        return $this;
-    }
 }

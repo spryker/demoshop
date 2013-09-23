@@ -9,9 +9,9 @@ class Pyz_Zed_Calculation_Component_Model_Calculators_ShippingCostsWithoutDiscou
     public $modifyTotals = true;
 
     /**
-     * @param ProjectA_Shared_Sales_Transfer_Order $order
+     * @param ProjectA\Shared\Sales\Transfer\Order $order
      */
-    public function recalculate(ProjectA_Shared_Sales_Transfer_Order $order)
+    public function recalculate(ProjectA\Shared\Sales\Transfer\Order $order)
     {
         parent::recalculate($order);
 

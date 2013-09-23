@@ -1,137 +1,55 @@
 <?php
 
-abstract class Pyz_Shared_Mail_Transfer_Sales extends ProjectA_Shared_Mail_Transfer_Mail
-{
-    /**
-     * backup structure from nu3 "Transfer_Mail"
-     */
+namespace Pyz\Shared\Mail\Transfer;
 
+abstract class Sales extends Mail
+{
+
+    /**
+     * @var string
+     */
     protected $salutation = null;
     protected $_salutation = array('is_string');
 
+    /**
+     * @var string
+     */
     protected $lastName = null;
     protected $_lastName = array('is_string');
 
+    /**
+     * @var string
+     */
     protected $firstName = null;
     protected $_firstName = array('is_string');
 
-    protected $billingAddress = 'Pyz_Shared_Mail_Transfer_Address';
+    /**
+     * @var \Pyz\Shared\Mail\Transfer\Address
+     */
+    protected $billingAddress = 'Pyz\Shared\Mail\Transfer\Address';
     protected $_billingAddress = array();
 
-    protected $shippingAddress = 'Pyz_Shared_Mail_Transfer_Address';
+    /**
+     * @var \Pyz\Shared\Mail\Transfer\Address
+     */
+    protected $shippingAddress = 'Pyz\Shared\Mail\Transfer\Address';
     protected $_shippingAddress = array();
 
-    protected $items = 'Pyz_Shared_Mail_Transfer_Item_Collection';
+    /**
+     * @var \Pyz\Shared\Mail\Transfer\Item\Collection
+     */
+    protected $items = 'Pyz\Shared\Mail\Transfer\Item\Collection';
     protected $_items = array();
 
-    protected $totals = 'Pyz_Shared_Sales_Transfer_Totals';
+    /**
+     * @var \Pyz\Shared\Sales\Transfer\Totals
+     */
+    protected $totals = 'Pyz\Shared\Sales\Transfer\Totals';
     protected $_totals = array();
 
+    /**
+     * @var null string
+     */
     protected $paymentMethod = null;
     protected $_paymentMethod = array('is_string');
-
-    /**
-     * @return string
-     */
-    public function getSalutation()
-    {
-        return $this->salutation;
-    }
-
-    /**
-     * @param $salutation
-     * @return Pyz_Shared_Mail_Transfer_OrderConfirmation
-     */
-    public function setSalutation($salutation)
-    {
-        $this->salutation = $salutation;
-        return $this;
-    }
-
-    /**
-     * @return string
-     */
-    public function getLastName()
-    {
-        return $this->lastName;
-    }
-
-    /**
-     * @param $lastName
-     * @return Pyz_Shared_Mail_Transfer_OrderConfirmation
-     */
-    public function setLastName($lastName)
-    {
-        $this->lastName = $lastName;
-        return $this;
-    }
-
-    /**
-     * @return string
-     */
-    public function getFirstName()
-    {
-        return $this->firstName;
-    }
-
-    /**
-     * @param $firstName
-     * @return Pyz_Shared_Mail_Transfer_OrderConfirmation
-     */
-    public function setFirstName($firstName)
-    {
-        $this->firstName = $firstName;
-        return $this;
-    }
-
-    public function getBillingAddress()
-    {
-        return $this->billingAddress;
-    }
-
-    public function setBillingAddress($billingAddress)
-    {
-        $this->billingAddress = $billingAddress;
-    }
-
-    public function getShippingAddress()
-    {
-        return $this->shippingAddress;
-    }
-
-    public function setShippingAddress($shippingAddress)
-    {
-        $this->shippingAddress = $shippingAddress;
-    }
-
-    public function getItems()
-    {
-        return $this->items;
-    }
-
-    public function setItems($items)
-    {
-        $this->items = $items;
-    }
-
-    public function getTotals()
-    {
-        return $this->totals;
-    }
-
-    public function setTotals($totals)
-    {
-        $this->totals = $totals;
-    }
-
-    public function getPaymentMethod()
-    {
-        return $this->paymentMethod;
-    }
-
-    public function setPaymentMethod($paymentMethod)
-    {
-        $this->paymentMethod = $paymentMethod;
-    }
-
 }

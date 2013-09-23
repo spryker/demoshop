@@ -1,24 +1,15 @@
 <?php
-/**
- * @author Sergej Jevsejev <sergej.jevsejev@project-a.com>
- */
-class Pyz_Shared_Mail_Transfer_NewsletterSubscriptionCoupon extends Pyz_Shared_Mail_Transfer_Customer
+
+namespace Pyz\Shared\Mail\Transfer;
+
+use ProjectA\Shared\Mail\Transfer\Customer;
+
+class NewsletterSubscriptionCoupon extends Customer
 {
-    protected $couponCode = null;
-    protected $_couponCode = array('is_string');
 
     /**
-     * @param $couponCode ProjectA_Zed_Salesrule_Persistence_PacSalesruleCode
+     * @var string
      */
-    public function setCouponCode($couponCode)
-    {
-        $this->couponCode = $couponCode->getCode();
-    }
-
-    public function getCouponCode()
-    {
-        return $this->couponCode;
-    }
-
-
+    protected $couponCode = null;
+    protected $_couponCode = array('is_string');
 }

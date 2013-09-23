@@ -1,20 +1,16 @@
 <?php
 
-class Pyz_Shared_Mail_Transfer_CustomerCareMessage extends Pyz_Shared_Mail_Transfer_Order implements ProjectA_Shared_Mail_Transfer_Interface_Unique
-{
-    protected $stateName = null;
-    protected $_stateName = array('is_string');
+namespace Pyz\Shared\Mail\Transfer;
 
-    public function getStateName()
-    {
-        return $this->stateName;
-    }
+use ProjectA\Shared\Mail\Transfer\TransferInterface\UniqueInterface;
+use ProjectA\Shared\Mail\Transfer\Order;
+
+class CustomerCareMessage extends Order implements UniqueInterface
+{
 
     /**
-     * @param string $stateName
+     * @var string
      */
-    public function setStateName($stateName)
-    {
-        $this->stateName = $stateName;
-    }
+    protected $stateName = null;
+    protected $_stateName = array('is_string');
 }

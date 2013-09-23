@@ -1,8 +1,10 @@
 <?php
 
-/**
- * @author René Klatt <rene.klatt@project-a.com>
- */
-class Pyz_Shared_Mail_Transfer_ClarifyArtworkAvailability extends Pyz_Shared_Mail_Transfer_Order implements ProjectA_Shared_Mail_Transfer_Interface_Unique
+namespace Pyz\Shared\Mail\Transfer;
+
+use ProjectA\Shared\Mail\Transfer\Order;
+use ProjectA\Shared\Mail\Transfer\TransferInterface\UniqueInterface;
+
+class ClarifyArtworkAvailability extends Order implements UniqueInterface
 {
 }

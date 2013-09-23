@@ -1,9 +1,9 @@
 <?php
 
-/**
- * @author René klatt <rene.klatt@project-a.com>
- * @version $Id$
- */
-class Pyz_Shared_Mail_Transfer_BlockArtist extends Pyz_Shared_Mail_Transfer_Invoice implements ProjectA_Shared_Mail_Transfer_Interface_Unique
+namespace Pyz\Shared\Mail\Transfer;
+
+use ProjectA\Shared\Mail\Transfer\TransferInterface\UniqueInterface;
+
+class BlockArtist extends Invoice implements UniqueInterface
 {
 }

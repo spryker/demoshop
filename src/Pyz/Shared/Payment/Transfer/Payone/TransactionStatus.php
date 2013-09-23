@@ -1,5 +1,0 @@
-<?php
-class Pyz_Shared_Payment_Transfer_Payone_TransactionStatus extends ProjectA_Shared_Payment_Transfer_Payone_TransactionStatus{
-
-
-}

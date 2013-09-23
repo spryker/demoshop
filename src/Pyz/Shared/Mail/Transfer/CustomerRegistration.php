@@ -1,8 +1,11 @@
 <?php
 
-/**
- * @author Daniel Tschinder <daniel.tschinder@project-a.com>
- */
-class Pyz_Shared_Mail_Transfer_CustomerRegistration extends Pyz_Shared_Mail_Transfer_Customer implements ProjectA_Shared_Mail_Transfer_Interface_Unique
+namespace Pyz\Shared\Mail\Transfer;
+
+use ProjectA\Shared\Mail\Transfer\TransferInterface\UniqueInterface;
+
+use ProjectA\Shared\Mail\Transfer\Customer;
+
+class CustomerRegistration extends Customer implements UniqueInterface
 {
 }

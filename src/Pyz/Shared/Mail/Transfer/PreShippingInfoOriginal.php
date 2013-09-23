@@ -1,8 +1,10 @@
 <?php
-/**
- * @author Marco Roßdeutscher <marco.rossdeutscher@project-a.com>
- * @version $Id$
- */
-class Pyz_Shared_Mail_Transfer_PreShippingInfoOriginal extends Pyz_Shared_Mail_Transfer_Order implements ProjectA_Shared_Mail_Transfer_Interface_Unique
+
+namespace Pyz\Shared\Mail\Transfer;
+
+use ProjectA\Shared\Mail\Transfer\TransferInterface\UniqueInterface;
+use ProjectA\Shared\Mail\Transfer\Order;
+
+class PreShippingInfoOriginal extends Order implements UniqueInterface
 {
 }

@@ -1,9 +1,10 @@
 <?php
 
-/**
- * @author René klatt <rene.klatt@project-a.com>
- * @version $Id$
- */
-class Pyz_Shared_Mail_Transfer_ArtistSalesNotificationManufactured extends Pyz_Shared_Mail_Transfer_Item implements ProjectA_Shared_Mail_Transfer_Interface_Unique
+namespace Pyz\Shared\Mail\Transfer;
+
+use ProjectA\Shared\Mail\Transfer\Item;
+use ProjectA\Shared\Mail\Transfer\TransferInterface\UniqueInterface;
+
+class ArtistSalesNotificationManufactured extends Item implements UniqueInterface
 {
 }

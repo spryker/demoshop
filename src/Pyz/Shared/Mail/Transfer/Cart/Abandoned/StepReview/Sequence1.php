@@ -1,8 +1,9 @@
 <?php
-/**
- * @author Marco Roßdeutscher <marco.rossdeutscher@project-a.com>
- * @version $Id$
- */
-class Pyz_Shared_Mail_Transfer_Cart_Abandoned_StepReview_Sequence1 extends Pyz_Shared_Mail_Transfer_Cart_Abandoned_AbstractSequence
+
+namespace Pyz\Shared\Mail\Transfer\Cart\Abandoned\StepReview;
+
+use Pyz\Shared\Mail\Transfer\Cart\Abandoned\AbstractSequence;
+
+class Sequence1 extends AbstractSequence
 {
 }

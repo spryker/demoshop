@@ -1,45 +1,22 @@
 <?php
-/**
- * @author Marco Roßdeutscher <marco.rossdeutscher@project-a.com>
- * @version $Id$
- */
-class Pyz_Shared_Mail_Transfer_ShippingInfoPrint extends Pyz_Shared_Mail_Transfer_Order implements ProjectA_Shared_Mail_Transfer_Interface_Unique
+
+namespace Pyz\Shared\Mail\Transfer;
+
+use ProjectA\Shared\Mail\Transfer\Order;
+use ProjectA\Shared\Mail\Transfer\TransferInterface\UniqueInterface;
+
+class ShippingInfoPrint extends Order implements UniqueInterface
 {
+
+    /**
+     * @var string
+     */
     protected $artTitle;
     protected $_artTitle = array('is_string');
 
+    /**
+     * @var array
+     */
     protected $trackingUrls;
     protected $_trackingUrls = array('is_array');
-
-    /**
-     * @return mixed
-     */
-    public function getArtTitle()
-    {
-        return $this->artTitle;
-    }
-
-    /**
-     * @param mixed $artTitle
-     */
-    public function setArtTitle($artTitle)
-    {
-        $this->artTitle = $artTitle;
-    }
-
-    /**
-     * @return mixed
-     */
-    public function getTrackingUrls()
-    {
-        return $this->trackingUrls;
-    }
-
-    /**
-     * @param mixed $trackingUrls
-     */
-    public function setTrackingUrls($trackingUrls)
-    {
-        $this->trackingUrls = $trackingUrls;
-    }
 }

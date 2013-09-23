@@ -1,26 +1,15 @@
 <?php
 
-class Pyz_Shared_Sales_Transfer_Order_Address extends ProjectA_Shared_Sales_Transfer_Order_Address
+namespace Pyz\Shared\Sales\Transfer\Order;
+
+use ProjectA\Shared\Sales\Transfer\Order\Address as BaseAddress;
+
+class Address extends BaseAddress
 {
+
+    /**
+     * @var string
+     */
     protected $region = null;
     protected $_region = array('is_string');
-
-    /**
-     * @param $region
-     * @return $this
-     */
-    public function setRegion($region)
-    {
-        $this->region = $region;
-
-        return $this;
-    }
-
-    /**
-     * @return string
-     */
-    public function getRegion()
-    {
-        return $this->region;
-    }
 }

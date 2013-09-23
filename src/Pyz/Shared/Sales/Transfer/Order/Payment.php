@@ -1,17 +1,13 @@
 <?php
 
-class Pyz_Shared_Sales_Transfer_Order_Payment extends ProjectA_Shared_Sales_Transfer_Order_Payment
+namespace Pyz\Shared\Sales\Transfer\Order;
+use ProjectA\Shared\Sales\Transfer\Order\Payment as BasePayment;
+
+class Payment extends BasePayment
 {
+
+    /**
+     * @var bool
+     */
     protected $ccValid = false;
-
-    public function setCcValid($ccJsCheckValid)
-    {
-        $this->ccValid = $ccJsCheckValid;
-    }
-
-    public function getCcValid()
-    {
-        return $this->ccValid;
-    }
-
 }

@@ -1,6 +1,11 @@
 <?php
 
-class Pyz_Shared_Sales_Transfer_Discount_Collection extends ProjectA_Shared_Sales_Transfer_Discount_Collection
+namespace Pyz\Shared\Sales\Transfer\Discount;
+
+use ProjectA\Shared\Sales\Transfer\Discount\Collection as BaseCollection;
+
+class Collection extends BaseCollection
 {
-    protected $transferObjectClass = 'Pyz_Shared_Sales_Transfer_Discount';
+
+    protected $transferObjectClass = 'Pyz\Shared\Sales\Transfer\Discount';
 }

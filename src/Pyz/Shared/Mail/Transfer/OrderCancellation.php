@@ -1,8 +1,10 @@
 <?php
 
-/**
- * @author Tobias Rosenstock
- */
-class Pyz_Shared_Mail_Transfer_OrderCancellation extends Pyz_Shared_Mail_Transfer_Order implements ProjectA_Shared_Mail_Transfer_Interface_Unique
+namespace Pyz\Shared\Mail\Transfer;
+
+use ProjectA\Shared\Mail\Transfer\Order;
+use ProjectA\Shared\Mail\Transfer\TransferInterface\UniqueInterface;
+
+class OrderCancellation extends Order implements UniqueInterface
 {
 }

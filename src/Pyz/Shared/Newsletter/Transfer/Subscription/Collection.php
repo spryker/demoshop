@@ -1,5 +1,10 @@
 <?php
-class Pyz_Shared_Newsletter_Transfer_Subscription_Collection extends ProjectA_Shared_Newsletter_Transfer_Subscription_Collection
+
+namespace Pyz\Shared\Newsletter\Transfer\Subscription;
+
+use ProjectA\Shared\Newsletter\Transfer\Subscription as BaseSubscription;
+
+class Collection extends BaseSubscription
 {
 
 }

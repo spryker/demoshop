@@ -1,21 +1,15 @@
 <?php
-/**
- * @author Daniel Tschinder <daniel.tschinder@project-a.com>
- */
-class Pyz_Shared_Mail_Transfer_CustomerForgotPassword extends Pyz_Shared_Mail_Transfer_Customer
+
+namespace Pyz\Shared\Mail\Transfer;
+
+use ProjectA\Shared\Mail\Transfer\Customer;
+
+class CustomerForgotPassword extends Customer
 {
+
+    /**
+     * @var string
+     */
     protected $restorePasswordKey = null;
     protected $_restorePasswordKey = array('is_string');
-
-    public function setRestorePasswordKey($restorePasswordKey)
-    {
-        $this->restorePasswordKey = $restorePasswordKey;
-    }
-
-    public function getRestorePasswordKey()
-    {
-        return $this->restorePasswordKey;
-    }
-
-
 }
