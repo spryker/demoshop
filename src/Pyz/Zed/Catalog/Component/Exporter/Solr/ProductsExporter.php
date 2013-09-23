@@ -1,22 +1,18 @@
 <?php
 namespace Pyz\Zed\Catalog\Component\Exporter\Solr;
 
-use ProjectA\Zed\Catalog\Component\Exporter\Products as CoreProducts;
+use ProjectA\Zed\Catalog\Component\Exporter\ProductsExporter as CoreProductsExporter;
+use ProjectA\Zed\Catalog\Component\Exporter\QueryBuilder\AbstractProduct;
 use ProjectA\Zed\Yves\Component\Model\Export\AbstractExport;
 
-/**
- * Class classProducts
- * @package Pyz\Zed\Catalog\Component\Exporter\Solr
- * @property \Generated_Zed_Catalog_Component_Factory $factory
- */
-abstract class Products extends CoreProducts implements
-     \ProjectA_Zed_Yves_Component_Interface_Exporter_Solr,
-     \ProjectA_Zed_Price_Component_Dependency_Facade_Interface,
-     \ProjectA_Zed_Solr_Component_Dependency_Facade_Interface,
-     \ProjectA_Zed_Yves_Component_Dependency_Facade_Interface,
-     \Pyz_Shared_Catalog_Interface_ProductAttributeConstant,
-     \Pyz_Shared_Catalog_Interface_ProductAttributeSetConstant,
-     \Pyz_Shared_Library_StorageKeyConstant
+abstract class ProductsExporter extends CoreProductsExporter implements
+    \ProjectA_Zed_Yves_Component_Interface_Exporter_Solr,
+    \ProjectA_Zed_Price_Component_Dependency_Facade_Interface,
+    \ProjectA_Zed_Solr_Component_Dependency_Facade_Interface,
+    \ProjectA_Zed_Yves_Component_Dependency_Facade_Interface,
+    \Pyz_Shared_Catalog_Interface_ProductAttributeConstant,
+    \Pyz_Shared_Catalog_Interface_ProductAttributeSetConstant,
+    \Pyz_Shared_Library_StorageKeyConstant
 {
     use \ProjectA_Zed_Solr_Component_Dependency_Facade_Trait;
     use \ProjectA_Zed_Price_Component_Dependency_Facade_Trait;
@@ -40,7 +36,7 @@ abstract class Products extends CoreProducts implements
     /**
      * @return string
      */
-    abstract public function getCoreName();
+    abstract public function getEndpoint();
 
     /**
      * @return string
@@ -48,7 +44,7 @@ abstract class Products extends CoreProducts implements
     abstract protected function getProductAttributeSetName();
 
     /**
-     * @return \ProjectA_Zed_Catalog_Component_Exporter_QueryBuilder_AbstractProduct
+     * @return AbstractProduct
      */
     abstract protected function getProductQueryBuilder();
 
@@ -112,17 +108,21 @@ abstract class Products extends CoreProducts implements
         $counter = 1;
         $chunkSize = 10000;
         foreach ($collection as $product) {
-            $sku = $product['sku'];
             $data = array();
+
+            $id = $product['id_catalog_product'];
+            $data[$id]['id'] = $id;
+            $data[$id]['sku'] = $product['sku'];
+
             foreach ($exportModel->getFilterGroups() as $filterGroup) {
                 $groupProduct = $this->extractGroupAttributesFromProduct($filterGroup, $product);
                 $method = 'getExportData' . ucfirst($filterGroup);
-                $newData = $this->$method($groupProduct, $sku, $filterGroup);
-                foreach ($newData as $sku => $value) {
-                    if (isset($data[$sku])) {
-                        $data[$sku] += $value;
+                $newData = $this->$method($groupProduct, $id, $filterGroup);
+                foreach ($newData as $id => $value) {
+                    if (isset($data[$id])) {
+                        $data[$id] += $value;
                     } else {
-                        $data[$sku] = $value;
+                        $data[$id] = $value;
                     }
                 }
             }
@@ -173,66 +173,67 @@ abstract class Products extends CoreProducts implements
 
     /**
      * @param \ProjectA_Zed_Library_Propel_LazyCollection $productEntities
-     * @param \ProjectA_Zed_Yves_Component_Model_Export_Abstract $exportModel
+     * @param AbstractExport $exportModel
      * @param \ArrayIterator $reporter
      */
     public function deleteData(
         \ProjectA_Zed_Library_Propel_LazyCollection $productEntities,
-        \ProjectA_Zed_Yves_Component_Model_Export_Abstract $exportModel,
+        AbstractExport $exportModel,
         \ArrayIterator $reporter
     ) {
         /* @var $entity \ProjectA_Zed_Catalog_Component_Interface_ProductEntity */
-        $skuList = array();
+        $idList = array();
         foreach ($productEntities as $entity) {
-            $skuList[] = $entity->getSku();
+            $idList[] = $entity->getIdCatalogProduct();
         }
 
-        $exportModel->deleteByKeys($skuList);
-        $reporter['Deleted Entries in solr'] = count($skuList);
+        $exportModel->deleteByKeys($idList);
+        $reporter['Deleted Entries in solr'] = count($idList);
     }
 
     /**
      * @param array $product
-     * @param $sku
+     * @param $id
      * @param $filterGroup
      * @return array
      */
-    protected function getExportDataSolr_searchable(array $product, $sku, $filterGroup)
+    protected function getExportDataSolr_searchable(array $product, $id, $filterGroup)
     {
         $data = array();
-        $data[$sku]['sku'] = $sku;
-        $data[$sku]['searchable_text'] = array_values(array_unique(array_filter($product)));
+        $data[$id]['searchable_text'] = array_values(array_unique(array_filter($product)));
+
         return $data;
     }
 
     /**
      * @param array $product
-     * @param $sku
+     * @param $id
      * @param $filterGroup
      * @return array
      */
-    protected function getExportDataSolr_suggestion(array $product, $sku, $filterGroup)
+    protected function getExportDataSolr_suggestion(array $product, $id, $filterGroup)
     {
         $data = array();
-        $data[$sku]['suggest_terms'] = array_values(array_unique(array_filter($product)));
+        $data[$id]['suggest_terms'] = array_values(array_unique(array_filter($product)));
+
         return $data;
     }
 
     /**
      * @param array $product
-     * @param $sku
+     * @param $id
      * @param $filterGroup
      * @return array
      */
-    protected function getExportDataSolr_sort(array $product, $sku, $filterGroup)
+    protected function getExportDataSolr_sort(array $product, $id, $filterGroup)
     {
         $attributeVarieties = $this->groupAttributeNames[$filterGroup];
         $data = array();
-        $data[$sku] = $this->getAttributeValuesForSolr($data, $product, $attributeVarieties, 'sort');
+        $data[$id] = $this->getAttributeValuesForSolr($data, $product, $attributeVarieties, 'sort');
 //        $data[$sku]['number_sort_price'] = intval($product['price']);
 
         //remove doubled int_sort_price
-        unset($data[$sku]['int_sort_price']);
+        unset($data[$id]['int_sort_price']);
 
 //        //add price which is no ordinary attribute
 //        $data[$sku]['number_facet_price'] = $product[ProjectA_Zed_Price_Component_Interface_PriceTypeConstants::FINAL_GROSS_PRICE];
@@ -245,36 +246,35 @@ abstract class Products extends CoreProducts implements
 
     /**
      * @param array $product
-     * @param $sku
+     * @param $id
      * @param $filterGroup
      * @return mixed
      */
-    protected function getExportDataSolr_facet(array $product, $sku, $filterGroup)
+    protected function getExportDataSolr_facet(array $product, $id, $filterGroup)
     {
         $attributeVarieties = $this->groupAttributeNames[$filterGroup];
 
         $data = array();
-        $data[$sku]['sku'] = $sku;
-        $data[$sku] = $this->getAttributeValuesForSolr($data[$sku], $product, $attributeVarieties, 'facet');
+        $data[$id] = $this->getAttributeValuesForSolr($data, $product, $attributeVarieties, 'facet');
 
         return $data;
     }
 
     /**
      * @param array $product
-     * @param $sku
+     * @param $id
      * @param $filterGroup
      * @return array
      */
-    protected function getExportDataSolr_score(array $product, $sku, $filterGroup)
+    protected function getExportDataSolr_score(array $product, $id, $filterGroup)
     {
         $data = array();
         foreach ($this->scoreNames as $scoreName) {
             $scores = $this->facadeSolr->getSolrScoresByName($scoreName, $product);
-            if (isset($data[$sku])) {
-                $data[$sku] += $scores;
+            if (isset($data[$id])) {
+                $data[$id] += $scores;
             } else {
-                $data[$sku] = $scores;
+                $data[$id] = $scores;
             }
         }
         return $data;

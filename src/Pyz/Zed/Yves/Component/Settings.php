@@ -4,8 +4,6 @@ namespace Pyz\Zed\Yves\Component;
 use ProjectA\Zed\Yves\Component\Settings as CoreSettings;
 
 /**
- * Class Settings
- * @package Pyz\Zed\Yves\Component
  * @property \Pyz_Zed_Catalog_Component_Facade $facadeCatalog
  */
 class Settings extends CoreSettings implements
@@ -27,7 +25,7 @@ class Settings extends CoreSettings implements
      */
     public function getSolrExporters($exportIdentifier)
     {
-        $result[] = $this->facadeCatalog->getExporterSolrArtwork();
+        $result[] = $this->facadeCatalog->getExporterSolrArtworkExporter();
         return $result;
     }
 
@@ -38,17 +36,17 @@ class Settings extends CoreSettings implements
     public function getKeyValueExporters($exportIdentifier)
     {
         //TODO currently all exporters are activated to test them, remove unneeded later on
-        $result[] = $this->facadeCms->getExporterKeyValueCms();
-        $result[] = $this->facadeCms->getExporterKeyValueRedirection();
-        $result[] = $this->facadeGlossary->getExporterKeyValueGlossary();
+        $result[] = $this->facadeCms->getExporterKeyValueCmsExporter();
+        $result[] = $this->facadeCms->getExporterKeyValueRedirectionExporter();
+        $result[] = $this->facadeGlossary->getExporterKeyValueGlossaryExporter();
 
         //TODO we need to adjusted and rename this one to the new attribute set;
-        $result[] = $this->facadeCatalog->getExporterKeyValueArtwork();
+        $result[] = $this->facadeCatalog->getExporterKeyValueArtworkExporter();
 
-        $result[] = $this->facadeCategory->getExporterKeyValueCategories();
-        $result[] = $this->facadeMisc->getExporterKeyValueCountry();
-//        $result[] = $this->facadeCatalog->getExporterKeyValueBrands();
-        $result[] = $this->facadeCatalog->getExporterKeyValueProductOptions();
+        $result[] = $this->facadeCategory->getExporterKeyValueCategoriesExporter();
+        $result[] = $this->facadeMisc->getExporterKeyValueCountryExporter();
+//        $result[] = $this->facadeCatalog->getExporterKeyValueBrandsExporter();
+        $result[] = $this->facadeCatalog->getExporterKeyValueProductOptionsExporter();
         return $result;
     }
 }

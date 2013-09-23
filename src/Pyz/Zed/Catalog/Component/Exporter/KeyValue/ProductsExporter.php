@@ -1,15 +1,12 @@
 <?php
 namespace Pyz\Zed\Catalog\Component\Exporter\KeyValue;
 
-use ProjectA\Zed\Catalog\Component\Exporter\Products as CoreProducts;
+use ProjectA\Shared\Catalog\Code\Storage\StorageKeyGenerator;
+use ProjectA\Zed\Catalog\Component\Exporter\ProductsExporter as CoreProductsExporter;
 use ProjectA\Zed\Catalog\Component\Exporter\QueryBuilder\AbstractProduct;
 use ProjectA\Zed\Yves\Component\Model\Export\AbstractExport;
 
-/**
- * Class Products
- * @package Pyz\Zed\Catalog\Component\Exporter\KeyValue
- */
-abstract class Products extends CoreProducts implements
+abstract class ProductsExporter extends CoreProductsExporter implements
      \ProjectA_Zed_Yves_Component_Interface_Exporter_KeyValue,
      \Pyz_Shared_Catalog_Interface_ProductAttributeConstant,
      \Pyz_Shared_Catalog_Interface_ProductAttributeSetConstant,
@@ -65,20 +62,35 @@ abstract class Products extends CoreProducts implements
         AbstractExport $exportModel,
         \ArrayIterator $reporter
     ) {
-        $facade = $this->factory->getFacade();
         $reportName = $this->getName() . ' exported';
         $reporter[$reportName] = 0;
 
+        $allData = array();
+        $counter = 1;
+        $chunkSize = 2000;
         foreach ($collection as $product) {
-
             $data = array();
             $pairProductData = $this->transformProductToData($product);
 
-            $productKey = \ProjectA_Shared_Library_Storage::getProductKey($product['id_catalog_product']);
+            $productKey = StorageKeyGenerator::getProductKey($product['id_catalog_product']);
             $data[$productKey] = $pairProductData;
 
-            $exportModel->write($data);
-            $reporter[$reportName]++;
+            $allData+=$data;
+
+            if ($counter % $chunkSize == 0) {
+                $exportModel->write($allData);
+                $allData = array();
+            }
+
+            $counter++;
         }
+
+        //export the rest in allData
+        if (!empty($allData)) {
+            $exportModel->write($allData);
+            unset($allData);
+        }
+
+        $reporter[$reportName] = $counter;
     }
 }

@@ -1,6 +1,6 @@
 <?php
-use Pyz\Zed\Catalog\Component\Exporter\KeyValue\Artwork as KeyValueArtwork;
-use Pyz\Zed\Catalog\Component\Exporter\Solr\Artwork as SolrArtwork;
+use Pyz\Zed\Catalog\Component\Exporter\KeyValue\ArtworkExporter as KeyValueArtwork;
+use Pyz\Zed\Catalog\Component\Exporter\Solr\ArtworkExporter as SolrArtwork;
 
 /**
  * @property Generated_Zed_Catalog_Component_Factory $factory
@@ -9,28 +9,19 @@ class Pyz_Zed_Catalog_Component_Facade extends ProjectA_Zed_Catalog_Component_Fa
 {
 
     /**
-     * read catalog setup from db and print
-     * @return string
-     */
-    public function reverseInstall()
-    {
-        return $this->factory->getInternalReverseInstall()->reverseInstall();
-    }
-
-    /**
      * @return KeyValueArtwork
      */
-    public function getExporterKeyValueArtwork()
+    public function getExporterKeyValueArtworkExporter()
     {
-        return $this->factory->getExporterKeyValueArtwork();
+        return $this->factory->getExporterKeyValueArtworkExporter();
     }
 
     /**
      * @return SolrArtwork
      */
-    public function getExporterSolrArtwork()
+    public function getExporterSolrArtworkExporter()
     {
-        return $this->factory->getExporterSolrArtwork();
+        return $this->factory->getExporterSolrArtworkExporter();
     }
 
     /**
