@@ -7,11 +7,11 @@ use ProjectA\Zed\Catalog\Component\Exporter\QueryBuilder\AbstractProduct;
 use ProjectA\Zed\Yves\Component\Model\Export\AbstractExport;
 
 abstract class ProductsExporter extends CoreProductsExporter implements
-    \ProjectA_Zed_Yves_Component_Interface_Exporter_KeyValue,
-    \Pyz_Shared_Catalog_Interface_ProductAttributeConstant,
-    \Pyz_Shared_Catalog_Interface_ProductAttributeSetConstant,
-    \Pyz_Shared_Library_StorageKeyConstant,
-    \ProjectA_Zed_Yves_Component_Dependency_Facade_Interface
+     \ProjectA_Zed_Yves_Component_Interface_Exporter_KeyValue,
+     \Pyz_Shared_Catalog_Interface_ProductAttributeConstant,
+     \Pyz_Shared_Catalog_Interface_ProductAttributeSetConstant,
+     \Pyz_Shared_Library_StorageKeyConstant,
+     \ProjectA_Zed_Yves_Component_Dependency_Facade_Interface
 {
 
     use \ProjectA_Zed_Yves_Component_Dependency_Facade_Trait;

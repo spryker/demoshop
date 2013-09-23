@@ -1,5 +1,7 @@
+<img src="http:{{ product.artSmall }}" style="vertical-align:middle" />
+{{ product.name }}
 <pre>
-{% for name, value in catalogProduct.toArray %}
+{% for name, value in product.toArray %}
     {{ name }}: {{ value }}
 {% endfor %}
 </pre>
