@@ -52,12 +52,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/doctrine/inflector.git",
-                "reference": "v1.0"
+                "reference": "54b8333d2a5682afdc690060c1cf384ba9f47f08"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://github.com/doctrine/inflector/archive/v1.0.zip",
-                "reference": "v1.0",
+                "url": "https://api.github.com/repos/doctrine/inflector/zipball/54b8333d2a5682afdc690060c1cf384ba9f47f08",
+                "reference": "54b8333d2a5682afdc690060c1cf384ba9f47f08",
                 "shasum": ""
             },
             "require": {
@@ -93,7 +93,7 @@
                     "email": "kontakt@beberlei.de"
                 },
                 {
-                    "name": "Johannes Schmitt",
+                    "name": "Johannes M. Schmitt",
                     "email": "schmittjoh@gmail.com",
                     "homepage": "http://jmsyst.com",
                     "role": "Developer of wrapped JMSSerializerBundle"
@@ -306,13 +306,13 @@
             "version": "v2.2.0",
             "source": {
                 "type": "git",
-                "url": "https://github.com/nervetattoo/elasticsearch",
-                "reference": "v2.2.0"
+                "url": "https://github.com/nervetattoo/elasticsearch.git",
+                "reference": "ed9244b341e0139a4278ac9bdf3cb63d57539dfb"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://github.com/nervetattoo/elasticsearch/archive/v2.2.0.zip",
-                "reference": "v2.2.0",
+                "url": "https://api.github.com/repos/nervetattoo/elasticsearch/zipball/ed9244b341e0139a4278ac9bdf3cb63d57539dfb",
+                "reference": "ed9244b341e0139a4278ac9bdf3cb63d57539dfb",
                 "shasum": ""
             },
             "require": {
@@ -450,7 +450,7 @@
             "source": {
                 "type": "git",
                 "url": "git@codebasehq.com:project-a/core/acl.git",
-                "reference": "28200af89fc6a4046936ad467ca06ed5f1d983ea"
+                "reference": "0648856d1c9336374cf153fb86bd225382354dc5"
             },
             "require": {
                 "php": ">=5.4.0",
@@ -478,7 +478,7 @@
                 "login",
                 "usermanagement"
             ],
-            "time": "2013-09-23 10:35:10"
+            "time": "2013-09-23 16:15:33"
         },
         {
             "name": "project-a/adyen-package",
@@ -486,7 +486,7 @@
             "source": {
                 "type": "git",
                 "url": "git@codebasehq.com:project-a/core/adyen.git",
-                "reference": "117b9f040a08e3642f3ecb631ce669b1b98d8f75"
+                "reference": "681d475beb894f51e4c036842984a0f04fdb3bc3"
             },
             "require": {
                 "php": ">=5.4.0",
@@ -511,7 +511,7 @@
             "keywords": [
                 "adyen payment provider"
             ],
-            "time": "2013-09-23 10:43:43"
+            "time": "2013-09-23 17:09:31"
         },
         {
             "name": "project-a/cart-package",
@@ -520,10 +520,14 @@
                 "type": "git",
                 "url": "git@codebasehq.com:project-a/core/cart.git",
 <<<<<<< HEAD
+<<<<<<< HEAD
                 "reference": "dba624dc0a896f8961b3cb7cbda6535afe06e348"
 =======
                 "reference": "5bda82a69fca7af84ff7672962a03934e72dc9e2"
 >>>>>>> e39f1308fb5dd97d845778729772760343783904
+=======
+                "reference": "2a1d5f147b5b18b0e01701f576bde7c61f3c3efd"
+>>>>>>> 1421a7b88bf15ba94b4e8745f3772b59e6e28648
             },
             "require": {
                 "php": ">=5.4.0",
@@ -535,7 +539,8 @@
             "type": "library",
             "autoload": {
                 "psr-0": {
-                    "ProjectA": "/src"
+                    "ProjectA": "src/",
+                    "Behat": "tests/"
                 }
             },
             "authors": [
@@ -551,10 +556,14 @@
                 "Cart"
             ],
 <<<<<<< HEAD
+<<<<<<< HEAD
             "time": "2013-09-11 11:28:24"
 =======
             "time": "2013-09-23 10:35:32"
 >>>>>>> e39f1308fb5dd97d845778729772760343783904
+=======
+            "time": "2013-09-23 16:00:59"
+>>>>>>> 1421a7b88bf15ba94b4e8745f3772b59e6e28648
         },
         {
             "name": "project-a/catalog-package",
@@ -562,7 +571,7 @@
             "source": {
                 "type": "git",
                 "url": "git@codebasehq.com:project-a/core/catalog.git",
-                "reference": "8e9bd88c964b4d8c2fdb531dcf6e8ae58d8bf4e2"
+                "reference": "994bb828f89c25e39de57eaaaa1d6ba6472a69bf"
             },
             "require": {
                 "php": ">=5.4.0",
@@ -592,7 +601,7 @@
                 "Price",
                 "Stock"
             ],
-            "time": "2013-09-23 10:55:27"
+            "time": "2013-09-23 17:08:44"
         },
         {
             "name": "project-a/checkout-package",
@@ -600,7 +609,7 @@
             "source": {
                 "type": "git",
                 "url": "git@codebasehq.com:project-a/core/checkout.git",
-                "reference": "3266ae59feb8d347f28b60f72b8ee6693f346e88"
+                "reference": "2e96069910f8af72f997e83ec8806b49bc4a688a"
             },
             "require": {
                 "php": ">=5.4.0",
@@ -627,7 +636,7 @@
                 "PaymentControl",
                 "Salesrule"
             ],
-            "time": "2013-09-23 10:43:23"
+            "time": "2013-09-23 14:34:01"
         },
         {
             "name": "project-a/console-package",
@@ -716,7 +725,7 @@
             "source": {
                 "type": "git",
                 "url": "git@codebasehq.com:project-a/core/crm.git",
-                "reference": "1338190f6ae0a830868fe983190cfe8cb71632ea"
+                "reference": "c07cc878a8bd6f348ac338f613807a3db0f345bc"
             },
             "require": {
                 "php": ">=5.4.0",
@@ -742,7 +751,7 @@
                 "CRM",
                 "Mail"
             ],
-            "time": "2013-09-23 10:42:22"
+            "time": "2013-09-23 15:43:17"
         },
         {
             "name": "project-a/dependency-package",
@@ -846,10 +855,14 @@
                 "type": "git",
                 "url": "git@codebasehq.com:project-a/core/glossary.git",
 <<<<<<< HEAD
+<<<<<<< HEAD
                 "reference": "2be88aff4f5fa2e5bea5698f2b75a95aa8bb73c5"
 =======
                 "reference": "40b44d31e8d9069b26466aa3b67a898cc4bcabf0"
 >>>>>>> e39f1308fb5dd97d845778729772760343783904
+=======
+                "reference": "2f3e6428fb3b1c9cffd589341b8ceccfc6392343"
+>>>>>>> 1421a7b88bf15ba94b4e8745f3772b59e6e28648
             },
             "require": {
                 "php": ">=5.4.0"
@@ -874,10 +887,14 @@
                 "translation"
             ],
 <<<<<<< HEAD
+<<<<<<< HEAD
             "time": "2013-09-11 11:44:18"
 =======
             "time": "2013-09-23 10:41:09"
 >>>>>>> e39f1308fb5dd97d845778729772760343783904
+=======
+            "time": "2013-09-23 13:18:34"
+>>>>>>> 1421a7b88bf15ba94b4e8745f3772b59e6e28648
         },
         {
             "name": "project-a/infrastructure-package",
@@ -886,10 +903,14 @@
                 "type": "git",
                 "url": "git@codebasehq.com:project-a/core/infrastructure.git",
 <<<<<<< HEAD
+<<<<<<< HEAD
                 "reference": "ee148fbd27eacc20ee2078cff243c7fd3aa071a5"
 =======
                 "reference": "af6b911cce8805e94379c866a77d30c7701cfa06"
 >>>>>>> e39f1308fb5dd97d845778729772760343783904
+=======
+                "reference": "e0c9bf2582899087bf8c380b2cd39054d416e1f7"
+>>>>>>> 1421a7b88bf15ba94b4e8745f3772b59e6e28648
             },
             "require": {
                 "php": ">=5.4.0",
@@ -918,10 +939,14 @@
                 "infrastructure"
             ],
 <<<<<<< HEAD
+<<<<<<< HEAD
             "time": "2013-09-11 10:42:01"
 =======
             "time": "2013-09-23 12:26:01"
 >>>>>>> e39f1308fb5dd97d845778729772760343783904
+=======
+            "time": "2013-09-23 17:07:39"
+>>>>>>> 1421a7b88bf15ba94b4e8745f3772b59e6e28648
         },
         {
             "name": "project-a/kendo-package",
@@ -947,10 +972,14 @@
                 "type": "git",
                 "url": "git@codebasehq.com:project-a/core/library-2.git",
 <<<<<<< HEAD
+<<<<<<< HEAD
                 "reference": "648a18c7c4a1f6655da3c7ac40341bbc12641e72"
 =======
                 "reference": "24071f1a9336381a6e09264bfe008abc15ce157e"
 >>>>>>> e39f1308fb5dd97d845778729772760343783904
+=======
+                "reference": "5dfe587fcdb3f2417123199b0e86dcd0270325b5"
+>>>>>>> 1421a7b88bf15ba94b4e8745f3772b59e6e28648
             },
             "require": {
                 "digital-canvas/zend-framework": ">=1.12.2",
@@ -987,10 +1016,14 @@
             ],
             "description": "Core Library",
 <<<<<<< HEAD
+<<<<<<< HEAD
             "time": "2013-09-11 11:44:01"
 =======
             "time": "2013-09-23 12:37:28"
 >>>>>>> e39f1308fb5dd97d845778729772760343783904
+=======
+            "time": "2013-09-23 16:32:34"
+>>>>>>> 1421a7b88bf15ba94b4e8745f3772b59e6e28648
         },
         {
             "name": "project-a/lumberjack-package",
@@ -1031,7 +1064,7 @@
             "source": {
                 "type": "git",
                 "url": "git@codebasehq.com:project-a/core/marketing.git",
-                "reference": "4a37d07d305211918ca518ff2583367b23fc5cbb"
+                "reference": "912151040bcd79802d4080c5edf87b75d9bd6057"
             },
             "require": {
                 "php": ">=5.4.0",
@@ -1056,7 +1089,7 @@
             "keywords": [
                 "Marketing"
             ],
-            "time": "2013-09-19 15:59:49"
+            "time": "2013-09-23 17:07:22"
         },
         {
             "name": "project-a/payment-package",
@@ -1064,7 +1097,7 @@
             "source": {
                 "type": "git",
                 "url": "git@codebasehq.com:project-a/core/payment.git",
-                "reference": "af23c9170eed0b14d16179dbb85e8863b6bfb8dd"
+                "reference": "a805c7cf1dfae2336e60436e0e76a48b21c16ea2"
             },
             "require": {
                 "php": ">=5.4.0"
@@ -1087,7 +1120,7 @@
             "keywords": [
                 "payment, payment provider"
             ],
-            "time": "2013-09-23 10:38:09"
+            "time": "2013-09-23 14:37:30"
         },
         {
             "name": "project-a/sales-package",
@@ -1096,10 +1129,14 @@
                 "type": "git",
                 "url": "git@codebasehq.com:project-a/core/sales.git",
 <<<<<<< HEAD
+<<<<<<< HEAD
                 "reference": "6d3336887e611f62729e4e4e8beb474178a2c946"
 =======
                 "reference": "ed4a994d143738662e07859400e52ba246c54270"
 >>>>>>> e39f1308fb5dd97d845778729772760343783904
+=======
+                "reference": "65c11cb03ee18a06ccfd64a6f42a1b6c9feb561a"
+>>>>>>> 1421a7b88bf15ba94b4e8745f3772b59e6e28648
             },
             "require": {
                 "php": ">=5.4.0",
@@ -1127,10 +1164,14 @@
                 "Task"
             ],
 <<<<<<< HEAD
+<<<<<<< HEAD
             "time": "2013-09-11 11:27:20"
 =======
             "time": "2013-09-23 12:36:08"
 >>>>>>> e39f1308fb5dd97d845778729772760343783904
+=======
+            "time": "2013-09-23 17:07:11"
+>>>>>>> 1421a7b88bf15ba94b4e8745f3772b59e6e28648
         },
         {
             "name": "project-a/silex-routing",
@@ -1204,7 +1245,7 @@
             "source": {
                 "type": "git",
                 "url": "git@codebasehq.com:project-a/core/stripe.git",
-                "reference": "c0802b3868478ab221274356e62c73ad80a7632b"
+                "reference": "b6b398f622e969e862f5118b4f420a39be1fc83c"
             },
             "require": {
                 "php": ">=5.4.0",
@@ -1229,7 +1270,7 @@
             "keywords": [
                 "stripe payment provider"
             ],
-            "time": "2013-09-23 10:36:35"
+            "time": "2013-09-23 14:38:45"
         },
         {
             "name": "propel/propel1",
@@ -2459,7 +2500,7 @@
                 {
                     "name": "Alexandre Salomé",
                     "email": "alexandre.salome@gmail.com",
-                    "homepage": "http://alexandre-salome.fr/"
+                    "homepage": "http://alexandre-salome.fr"
                 }
             ],
             "description": "PHP Library for Selenium",
@@ -2602,17 +2643,17 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/Behat/Mink.git",
-                "reference": "v1.5.0"
+                "reference": "0769e6d9726c140a54dbf827a438c0f9912749fe"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Behat/Mink/zipball/v1.5.0",
-                "reference": "v1.5.0",
+                "url": "https://api.github.com/repos/Behat/Mink/zipball/0769e6d9726c140a54dbf827a438c0f9912749fe",
+                "reference": "0769e6d9726c140a54dbf827a438c0f9912749fe",
                 "shasum": ""
             },
             "require": {
                 "php": ">=5.3.1",
-                "symfony/css-selector": ">=2.0,<3.0"
+                "symfony/css-selector": "~2.0"
             },
             "suggest": {
                 "behat/mink-browserkit-driver": "extremely fast headless driver for Symfony\\Kernel-based apps (Sf2, Silex)",
@@ -2817,19 +2858,19 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/Behat/MinkSeleniumDriver.git",
-                "reference": "v1.1.0"
+                "reference": "a782b031cb8a94b449b9ccecdcd0e79206bbc882"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Behat/MinkSeleniumDriver/zipball/v1.1.0",
-                "reference": "v1.1.0",
+                "url": "https://api.github.com/repos/Behat/MinkSeleniumDriver/zipball/a782b031cb8a94b449b9ccecdcd0e79206bbc882",
+                "reference": "a782b031cb8a94b449b9ccecdcd0e79206bbc882",
                 "shasum": ""
             },
             "require": {
-                "alexandresalome/php-selenium": ">=1.0.1,<1.1",
-                "behat/mink": ">=1.5,<1.6",
+                "alexandresalome/php-selenium": "~1.0.1",
+                "behat/mink": "~1.5.0",
                 "php": ">=5.3.1",
-                "symfony/dom-crawler": ">=2.0,<3.0"
+                "symfony/dom-crawler": "~2.0"
             },
             "type": "mink-driver",
             "extra": {
@@ -2870,17 +2911,17 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/Behat/MinkSelenium2Driver.git",
-                "reference": "v1.1.1"
+                "reference": "bcf1b537de37db6db0822d9e7bd97e600fd7a476"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Behat/MinkSelenium2Driver/zipball/v1.1.1",
-                "reference": "v1.1.1",
+                "url": "https://api.github.com/repos/Behat/MinkSelenium2Driver/zipball/bcf1b537de37db6db0822d9e7bd97e600fd7a476",
+                "reference": "bcf1b537de37db6db0822d9e7bd97e600fd7a476",
                 "shasum": ""
             },
             "require": {
-                "behat/mink": ">=1.5,<1.6",
-                "instaclick/php-webdriver": ">=1.0.12.0,<1.1",
+                "behat/mink": "~1.5.0",
+                "instaclick/php-webdriver": "~1.0.12",
                 "php": ">=5.3.1"
             },
             "type": "mink-driver",
@@ -3194,13 +3235,13 @@
             "version": "1.3.3",
             "source": {
                 "type": "git",
-                "url": "git://github.com/sebastianbergmann/php-file-iterator.git",
-                "reference": "1.3.3"
+                "url": "https://github.com/sebastianbergmann/php-file-iterator.git",
+                "reference": "16a78140ed2fc01b945cfa539665fadc6a038029"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://github.com/sebastianbergmann/php-file-iterator/zipball/1.3.3",
-                "reference": "1.3.3",
+                "url": "https://api.github.com/repos/sebastianbergmann/php-file-iterator/zipball/16a78140ed2fc01b945cfa539665fadc6a038029",
+                "reference": "16a78140ed2fc01b945cfa539665fadc6a038029",
                 "shasum": ""
             },
             "require": {
@@ -3232,20 +3273,20 @@
                 "filesystem",
                 "iterator"
             ],
-            "time": "2012-10-11 04:44:38"
+            "time": "2012-10-11 11:44:38"
         },
         {
             "name": "phpunit/php-text-template",
             "version": "1.1.4",
             "source": {
                 "type": "git",
-                "url": "git://github.com/sebastianbergmann/php-text-template.git",
-                "reference": "1.1.4"
+                "url": "https://github.com/sebastianbergmann/php-text-template.git",
+                "reference": "5180896f51c5b3648ac946b05f9ec02be78a0b23"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://github.com/sebastianbergmann/php-text-template/zipball/1.1.4",
-                "reference": "1.1.4",
+                "url": "https://api.github.com/repos/sebastianbergmann/php-text-template/zipball/5180896f51c5b3648ac946b05f9ec02be78a0b23",
+                "reference": "5180896f51c5b3648ac946b05f9ec02be78a0b23",
                 "shasum": ""
             },
             "require": {
@@ -3276,7 +3317,7 @@
             "keywords": [
                 "template"
             ],
-            "time": "2012-10-31 11:15:28"
+            "time": "2012-10-31 18:15:28"
         },
         {
             "name": "phpunit/php-timer",
