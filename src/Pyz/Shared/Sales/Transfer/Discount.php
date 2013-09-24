@@ -1,6 +1,7 @@
 <?php
 
 namespace Pyz\Shared\Sales\Transfer;
+
 use ProjectA\Shared\Sales\Transfer\Discount as BaseDiscount;
 
 class Discount extends BaseDiscount

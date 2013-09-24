@@ -1,9 +1,10 @@
 <?php
 
-namespace Pyz\Shared\Sales\Transfer\Order;
-use ProjectA\Shared\Sales\Transfer\Order\Item as BaseItem;
+namespace Pyz\Shared\Sales\Transfer;
 
-class Item extends BaseItem
+use ProjectA\Shared\Sales\Transfer\OrderItem as BaseItem;
+
+class OrderItem extends BaseItem
 {
 
     /**
