@@ -115,21 +115,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/fabpot/PHP-CS-Fixer.git",
-<<<<<<< HEAD
-                "reference": "a36c2c39298ecd9e4705881b50baf6d78c6f86fe"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/fabpot/PHP-CS-Fixer/zipball/a36c2c39298ecd9e4705881b50baf6d78c6f86fe",
-                "reference": "a36c2c39298ecd9e4705881b50baf6d78c6f86fe",
-=======
                 "reference": "f6c4f78b3e34c1c67c8ae4543f5d4b7232e23011"
             },
             "dist": {
                 "type": "zip",
                 "url": "https://api.github.com/repos/fabpot/PHP-CS-Fixer/zipball/f6c4f78b3e34c1c67c8ae4543f5d4b7232e23011",
                 "reference": "f6c4f78b3e34c1c67c8ae4543f5d4b7232e23011",
->>>>>>> e39f1308fb5dd97d845778729772760343783904
                 "shasum": ""
             },
             "require": {
@@ -164,11 +155,7 @@
                 }
             ],
             "description": "A script to automatically fix Symfony Coding Standard",
-<<<<<<< HEAD
-            "time": "2013-09-11 09:39:11"
-=======
             "time": "2013-09-23 10:31:06"
->>>>>>> e39f1308fb5dd97d845778729772760343783904
         },
         {
             "name": "guzzle/guzzle",
@@ -519,15 +506,7 @@
             "source": {
                 "type": "git",
                 "url": "git@codebasehq.com:project-a/core/cart.git",
-<<<<<<< HEAD
-<<<<<<< HEAD
-                "reference": "dba624dc0a896f8961b3cb7cbda6535afe06e348"
-=======
-                "reference": "5bda82a69fca7af84ff7672962a03934e72dc9e2"
->>>>>>> e39f1308fb5dd97d845778729772760343783904
-=======
                 "reference": "2a1d5f147b5b18b0e01701f576bde7c61f3c3efd"
->>>>>>> 1421a7b88bf15ba94b4e8745f3772b59e6e28648
             },
             "require": {
                 "php": ">=5.4.0",
@@ -555,15 +534,7 @@
             "keywords": [
                 "Cart"
             ],
-<<<<<<< HEAD
-<<<<<<< HEAD
-            "time": "2013-09-11 11:28:24"
-=======
-            "time": "2013-09-23 10:35:32"
->>>>>>> e39f1308fb5dd97d845778729772760343783904
-=======
             "time": "2013-09-23 16:00:59"
->>>>>>> 1421a7b88bf15ba94b4e8745f3772b59e6e28648
         },
         {
             "name": "project-a/catalog-package",
@@ -644,11 +615,7 @@
             "source": {
                 "type": "git",
                 "url": "git@codebasehq.com:project-a/core/console.git",
-<<<<<<< HEAD
-                "reference": "f2c9e364d726626213343ba1d03d812e6110d752"
-=======
                 "reference": "49a7bfa6cbf7f3410fc64d82c283906e6569576e"
->>>>>>> e39f1308fb5dd97d845778729772760343783904
             },
             "require": {
                 "fabpot/php-cs-fixer": "dev-master",
@@ -679,11 +646,7 @@
             "keywords": [
                 "console"
             ],
-<<<<<<< HEAD
-            "time": "2013-09-11 10:56:37"
-=======
             "time": "2013-09-23 10:42:58"
->>>>>>> e39f1308fb5dd97d845778729772760343783904
         },
         {
             "name": "project-a/content-package",
@@ -854,15 +817,7 @@
             "source": {
                 "type": "git",
                 "url": "git@codebasehq.com:project-a/core/glossary.git",
-<<<<<<< HEAD
-<<<<<<< HEAD
-                "reference": "2be88aff4f5fa2e5bea5698f2b75a95aa8bb73c5"
-=======
-                "reference": "40b44d31e8d9069b26466aa3b67a898cc4bcabf0"
->>>>>>> e39f1308fb5dd97d845778729772760343783904
-=======
                 "reference": "2f3e6428fb3b1c9cffd589341b8ceccfc6392343"
->>>>>>> 1421a7b88bf15ba94b4e8745f3772b59e6e28648
             },
             "require": {
                 "php": ">=5.4.0"
@@ -886,15 +841,7 @@
                 "i18n",
                 "translation"
             ],
-<<<<<<< HEAD
-<<<<<<< HEAD
-            "time": "2013-09-11 11:44:18"
-=======
-            "time": "2013-09-23 10:41:09"
->>>>>>> e39f1308fb5dd97d845778729772760343783904
-=======
             "time": "2013-09-23 13:18:34"
->>>>>>> 1421a7b88bf15ba94b4e8745f3772b59e6e28648
         },
         {
             "name": "project-a/infrastructure-package",
@@ -902,15 +849,7 @@
             "source": {
                 "type": "git",
                 "url": "git@codebasehq.com:project-a/core/infrastructure.git",
-<<<<<<< HEAD
-<<<<<<< HEAD
-                "reference": "ee148fbd27eacc20ee2078cff243c7fd3aa071a5"
-=======
-                "reference": "af6b911cce8805e94379c866a77d30c7701cfa06"
->>>>>>> e39f1308fb5dd97d845778729772760343783904
-=======
                 "reference": "e0c9bf2582899087bf8c380b2cd39054d416e1f7"
->>>>>>> 1421a7b88bf15ba94b4e8745f3772b59e6e28648
             },
             "require": {
                 "php": ">=5.4.0",
@@ -938,15 +877,7 @@
             "keywords": [
                 "infrastructure"
             ],
-<<<<<<< HEAD
-<<<<<<< HEAD
-            "time": "2013-09-11 10:42:01"
-=======
-            "time": "2013-09-23 12:26:01"
->>>>>>> e39f1308fb5dd97d845778729772760343783904
-=======
             "time": "2013-09-23 17:07:39"
->>>>>>> 1421a7b88bf15ba94b4e8745f3772b59e6e28648
         },
         {
             "name": "project-a/kendo-package",
@@ -971,15 +902,7 @@
             "source": {
                 "type": "git",
                 "url": "git@codebasehq.com:project-a/core/library-2.git",
-<<<<<<< HEAD
-<<<<<<< HEAD
-                "reference": "648a18c7c4a1f6655da3c7ac40341bbc12641e72"
-=======
-                "reference": "24071f1a9336381a6e09264bfe008abc15ce157e"
->>>>>>> e39f1308fb5dd97d845778729772760343783904
-=======
                 "reference": "5dfe587fcdb3f2417123199b0e86dcd0270325b5"
->>>>>>> 1421a7b88bf15ba94b4e8745f3772b59e6e28648
             },
             "require": {
                 "digital-canvas/zend-framework": ">=1.12.2",
@@ -1015,15 +938,7 @@
                 }
             ],
             "description": "Core Library",
-<<<<<<< HEAD
-<<<<<<< HEAD
-            "time": "2013-09-11 11:44:01"
-=======
-            "time": "2013-09-23 12:37:28"
->>>>>>> e39f1308fb5dd97d845778729772760343783904
-=======
             "time": "2013-09-23 16:32:34"
->>>>>>> 1421a7b88bf15ba94b4e8745f3772b59e6e28648
         },
         {
             "name": "project-a/lumberjack-package",
@@ -1128,15 +1043,7 @@
             "source": {
                 "type": "git",
                 "url": "git@codebasehq.com:project-a/core/sales.git",
-<<<<<<< HEAD
-<<<<<<< HEAD
-                "reference": "6d3336887e611f62729e4e4e8beb474178a2c946"
-=======
-                "reference": "ed4a994d143738662e07859400e52ba246c54270"
->>>>>>> e39f1308fb5dd97d845778729772760343783904
-=======
                 "reference": "65c11cb03ee18a06ccfd64a6f42a1b6c9feb561a"
->>>>>>> 1421a7b88bf15ba94b4e8745f3772b59e6e28648
             },
             "require": {
                 "php": ">=5.4.0",
@@ -1163,15 +1070,7 @@
                 "Sales",
                 "Task"
             ],
-<<<<<<< HEAD
-<<<<<<< HEAD
-            "time": "2013-09-11 11:27:20"
-=======
-            "time": "2013-09-23 12:36:08"
->>>>>>> e39f1308fb5dd97d845778729772760343783904
-=======
             "time": "2013-09-23 17:07:11"
->>>>>>> 1421a7b88bf15ba94b4e8745f3772b59e6e28648
         },
         {
             "name": "project-a/silex-routing",
@@ -1179,21 +1078,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/project-a/Silex-Routing.git",
-<<<<<<< HEAD
-                "reference": "081534793f2d17d82dc48f07a635256cf3b8cd81"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/project-a/Silex-Routing/zipball/081534793f2d17d82dc48f07a635256cf3b8cd81",
-                "reference": "081534793f2d17d82dc48f07a635256cf3b8cd81",
-=======
                 "reference": "cf2792155bf93bee2f893f1333b77dcd2ce7ec8c"
             },
             "dist": {
                 "type": "zip",
                 "url": "https://api.github.com/repos/project-a/Silex-Routing/zipball/cf2792155bf93bee2f893f1333b77dcd2ce7ec8c",
                 "reference": "cf2792155bf93bee2f893f1333b77dcd2ce7ec8c",
->>>>>>> e39f1308fb5dd97d845778729772760343783904
                 "shasum": ""
             },
             "require": {
@@ -1233,11 +1123,7 @@
                 }
             ],
             "description": "Silex-Routing provides advanced routing for Silex through connecting symfony-cmf/Routing with Silex.",
-<<<<<<< HEAD
-            "time": "2013-09-11 07:17:44"
-=======
             "time": "2013-09-12 12:02:42"
->>>>>>> e39f1308fb5dd97d845778729772760343783904
         },
         {
             "name": "project-a/stripe-package",
