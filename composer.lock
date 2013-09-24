@@ -437,7 +437,7 @@
             "source": {
                 "type": "git",
                 "url": "git@codebasehq.com:project-a/core/acl.git",
-                "reference": "0648856d1c9336374cf153fb86bd225382354dc5"
+                "reference": "97abcd506acc62a0225e434355ab944796e01431"
             },
             "require": {
                 "php": ">=5.4.0",
@@ -460,12 +460,12 @@
             ],
             "description": "Access control list and authentification",
             "keywords": [
-                "access controll",
+                "access control",
                 "acl",
                 "login",
                 "usermanagement"
             ],
-            "time": "2013-09-23 16:15:33"
+            "time": "2013-09-24 08:23:36"
         },
         {
             "name": "project-a/adyen-package",
@@ -506,7 +506,7 @@
             "source": {
                 "type": "git",
                 "url": "git@codebasehq.com:project-a/core/cart.git",
-                "reference": "2a1d5f147b5b18b0e01701f576bde7c61f3c3efd"
+                "reference": "c55e6dfd8ddc48132fe3740cd8a3a99924ddeb89"
             },
             "require": {
                 "php": ">=5.4.0",
@@ -534,7 +534,7 @@
             "keywords": [
                 "Cart"
             ],
-            "time": "2013-09-23 16:00:59"
+            "time": "2013-09-24 09:11:17"
         },
         {
             "name": "project-a/catalog-package",
@@ -542,7 +542,7 @@
             "source": {
                 "type": "git",
                 "url": "git@codebasehq.com:project-a/core/catalog.git",
-                "reference": "994bb828f89c25e39de57eaaaa1d6ba6472a69bf"
+                "reference": "992e4098fb0904e733a498dc994e0ea0a69fd342"
             },
             "require": {
                 "php": ">=5.4.0",
@@ -572,7 +572,7 @@
                 "Price",
                 "Stock"
             ],
-            "time": "2013-09-23 17:08:44"
+            "time": "2013-09-24 10:42:18"
         },
         {
             "name": "project-a/checkout-package",
@@ -580,7 +580,7 @@
             "source": {
                 "type": "git",
                 "url": "git@codebasehq.com:project-a/core/checkout.git",
-                "reference": "2e96069910f8af72f997e83ec8806b49bc4a688a"
+                "reference": "ce683845ed1be939e4512b75c7b12087998dca86"
             },
             "require": {
                 "php": ">=5.4.0",
@@ -607,7 +607,7 @@
                 "PaymentControl",
                 "Salesrule"
             ],
-            "time": "2013-09-23 14:34:01"
+            "time": "2013-09-24 09:13:43"
         },
         {
             "name": "project-a/console-package",
@@ -615,7 +615,7 @@
             "source": {
                 "type": "git",
                 "url": "git@codebasehq.com:project-a/core/console.git",
-                "reference": "49a7bfa6cbf7f3410fc64d82c283906e6569576e"
+                "reference": "ca9e2e23e5e5db6c61f39a0de026f0ce6d10f038"
             },
             "require": {
                 "fabpot/php-cs-fixer": "dev-master",
@@ -646,7 +646,7 @@
             "keywords": [
                 "console"
             ],
-            "time": "2013-09-23 10:42:58"
+            "time": "2013-09-24 05:27:39"
         },
         {
             "name": "project-a/content-package",
@@ -752,7 +752,9 @@
             "type": "library",
             "autoload": {
                 "psr-0": {
-                    "ProjectA": "/src"
+                    "ProjectA": "src/",
+                    "Behat": "tests/",
+                    "PhpUnit": "tests/"
                 }
             },
             "authors": [
@@ -902,7 +904,7 @@
             "source": {
                 "type": "git",
                 "url": "git@codebasehq.com:project-a/core/library-2.git",
-                "reference": "5dfe587fcdb3f2417123199b0e86dcd0270325b5"
+                "reference": "2ceb731e988d26c92ee6366428ddbdd1b0f1d9f4"
             },
             "require": {
                 "digital-canvas/zend-framework": ">=1.12.2",
@@ -937,8 +939,8 @@
                     "role": "Senior Developer"
                 }
             ],
-            "description": "Core Library",
-            "time": "2013-09-23 16:32:34"
+            "description": "Project-A Library",
+            "time": "2013-09-24 11:56:04"
         },
         {
             "name": "project-a/lumberjack-package",
@@ -1043,7 +1045,7 @@
             "source": {
                 "type": "git",
                 "url": "git@codebasehq.com:project-a/core/sales.git",
-                "reference": "65c11cb03ee18a06ccfd64a6f42a1b6c9feb561a"
+                "reference": "9ca08c0c987b9876033b0bbc0d113bdd47060c33"
             },
             "require": {
                 "php": ">=5.4.0",
@@ -1070,7 +1072,7 @@
                 "Sales",
                 "Task"
             ],
-            "time": "2013-09-23 17:07:11"
+            "time": "2013-09-24 11:56:41"
         },
         {
             "name": "project-a/silex-routing",
