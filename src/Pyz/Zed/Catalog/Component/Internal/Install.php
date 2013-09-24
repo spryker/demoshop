@@ -42,6 +42,9 @@ class Install extends \ProjectA_Zed_Catalog_Component_Internal_Install
         //attributeSets
         $this->installAttributeSets();
 
+        //attributeSets
+        $this->installProductOptions();
+
         //valueTypes to attribute mapping foreach attributeSet
         $this->createValueTypesForAttributeSets();
 
@@ -66,6 +69,11 @@ class Install extends \ProjectA_Zed_Catalog_Component_Internal_Install
             $query->filterByName($name);
             $query->findOneOrCreate()->save();
         }
+    }
+
+    public function installProductOptions()
+    {
+        (new ImportProductOptions())->install();
     }
 
     /**
