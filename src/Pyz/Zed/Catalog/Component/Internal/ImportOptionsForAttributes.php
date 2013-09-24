@@ -55,8 +55,9 @@ class ImportOptionsForAttributes implements
     {
         $filename = $this->getFileName($attributeSetName);
         $file = null;
-        if (is_file(__DIR__. '/' .$filename)) {
-            $file = new \ProjectA_Zed_Library_Filesystem_File(__DIR__, $filename);
+        $directory = __DIR__ . DIRECTORY_SEPARATOR . '..' . DIRECTORY_SEPARATOR . 'File' . DIRECTORY_SEPARATOR;
+        if (is_file($directory . $filename)) {
+            $file = new \ProjectA_Zed_Library_Filesystem_File($directory, $filename);
         }
 
         return $file;

@@ -50,7 +50,7 @@ class AttributeValueTypeToAttributeSetGroupMapping implements
             $filter->addFilter(new \Zend_Filter_Word_SeparatorToSeparator(' ', '_'));
             $filter->addFilter(new \Zend_Filter_Word_UnderscoreToCamelCase());
 
-            $fileName = dirname(__FILE__) . DIRECTORY_SEPARATOR . self::FILE_NAME_PREFIX . $filter->filter($attributeSetName) . self::FILE_TYPE;
+            $fileName = dirname(__FILE__) . DIRECTORY_SEPARATOR . '..' .DIRECTORY_SEPARATOR . 'File' . DIRECTORY_SEPARATOR . self::FILE_NAME_PREFIX . $filter->filter($attributeSetName) . self::FILE_TYPE;
             if (file_exists($fileName)) {
                 $handle = fopen($fileName, "r");
                 $row = 0;
