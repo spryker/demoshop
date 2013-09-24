@@ -1,0 +1,16 @@
+Catalog Products
+<hr />
+{% for product in products %}
+    <div style="float:left;">
+        <img src="http:{{ product.art_tiny_crop }}" style="vertical-align:middle" />
+    </div>
+    <div style="float:left;padding:5px;">
+        {{ product.name }} <br />
+        {{ product.artist_first_name }} {{ product.artist_last_name }}
+        ({{ product.product_name }}) <br /><br />
+
+        <a href="http://local.pyz.dev/{{ product.name | url_encode | replace({'-': '+'}) }}-{{ product.id_catalog_product }}.html">See Details ...</a>
+    </div>
+    <div style="clear: both;"></div>
+<hr />
+{% endfor %}

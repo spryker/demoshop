@@ -16,7 +16,7 @@ $bundleConfig = [
         'Auth' => [
             ACTIVATE_BOOTSTRAP,
             ACTIVATE_NAVIGATION,
-            ACTIVATE_SCHEMA,
+            ACTIVATE_SCHEMA
         ]
     ],
 ];

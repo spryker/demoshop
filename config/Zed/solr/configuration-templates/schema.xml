@@ -9,24 +9,6 @@
             <xi:include href="text-field-index.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
             <xi:include href="text-field-query.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
         </fieldType>
-        <fieldType name="textExactField" class="solr.TextField" positionIncrementGap="100">
-            <analyzer type="index">
-                <charFilter class="solr.HTMLStripCharFilterFactory"/>
-                <tokenizer class="solr.WhitespaceTokenizerFactory"/>
-                <filter class="solr.WordDelimiterFilterFactory"
-                        generateWordParts="1" preserveOriginal="1" catenateAll="1" splitOnCaseChange="0" />
-                <filter class="solr.ASCIIFoldingFilterFactory"/>
-                <filter class="solr.LowerCaseFilterFactory"/>
-                <filter class="solr.RemoveDuplicatesTokenFilterFactory"/>
-            </analyzer>
-            <analyzer type="query">
-                <tokenizer class="solr.WhitespaceTokenizerFactory"/>
-                <filter class="solr.ASCIIFoldingFilterFactory"/>
-                <filter class="solr.WordDelimiterFilterFactory" catenateAll="1" preserveOriginal="1" splitOnCaseChange="0" />
-                <filter class="solr.LowerCaseFilterFactory"/>
-                <filter class="solr.RemoveDuplicatesTokenFilterFactory"/>
-            </analyzer>
-        </fieldType>
         <fieldType name="textSortField" class="solr.TextField">
             <xi:include href="text-sort-field.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
         </fieldType>
@@ -41,11 +23,8 @@
     </types>
 
     <fields>
+        <field name="id" type="intField" indexed="true" stored="true" required="true" />
         <field name="sku" type="stringField" indexed="true" stored="true" required="true" />
-        <field name="product_name" type="textField" indexed="true" multiValued="true" stored="false" />
-        <field name="product_name_exact" type="textExactField" indexed="true" multiValued="true" stored="false" />
-        <field name="product_brand" type="textField" indexed="true" multiValued="true" stored="false" />
-        <field name="product_brand_exact" type="textExactField" indexed="true" multiValued="true" stored="false" />
         <field name="searchable_text" type="textField" indexed="true" multiValued="true" stored="false" />
         <field name="suggest_terms" type="suggestTermField" indexed="true" multiValued="true" stored="false"/>
         <field name="tokenized_suggest_terms" type="tokenizedSuggestTermField" indexed="true" multiValued="true" stored="false"/>
@@ -60,8 +39,6 @@
         <dynamicField name="score_*" type="floatField" indexed="true" stored="true" multiValued="false"/>
     </fields>
 
-    <uniqueKey>sku</uniqueKey>
+    <uniqueKey>id</uniqueKey>
     <solrQueryParser defaultOperator="AND"/>
-    <copyField source="product_name" dest="product_name_exact" />
-    <copyField source="product_brand" dest="product_brand_exact" />
 </schema>

@@ -33,22 +33,9 @@ $config['db'] = array(
 );
 
 /**
- * Database connection to Legacy platform.
- * Only used to migrate necessary data from Legacy database to Zed.
- * Will be removed after initial migration is done.
- * DO NOT CODE AGAINST IT until you know IT'S DISPOSABLE
- */
-$config['legacy_db'] = array(
-    'username' => '',
-    'password' => '',
-    'database' => '',
-    'host'     => 'localhost',
-);
-
-/**
  * This tells the Generated_Zed_FactoryRepository Generator which Project Namespace should used
  */
-$config['projectNamespace'] = 'Sao';
+$config['projectNamespace'] = 'Pyz';
 
 /*
  * Select which code generators you want to be runnning on create factories
@@ -79,29 +66,64 @@ $config['db_dump'] = array(
 );
 
 /**
- * Connection to Memcache / Membase
+ * Connection to Storages
+ *  - Key Value Storages
+ *  - Solr
+ *  - Couchbase
+ *  - ...
  *
- * STORE or GLOBAL
- */
-$config['memcache'] = array(
-    'host'   => 'localhost',
-    'port'   => '11211',
-    'prefix' => ''
-);
-
-/**
- * Connection to SOLR
  *
- * GLOBAL
  */
-$config['solr'] = array(
-    'base_url'        => 'http://127.0.0.1:8080',
-    'config_dir' => APPLICATION_ROOT_DIR . '/config/Zed/solr',
-    'application_dir' => APPLICATION_VENDOR_DIR . '/project-a/infrastructure-package/bin/',
+$config['storage'] = [
+    'kv' => [
+        //define the current used source and provide a setup
+        'source' => 'memcached',
+        'memcached' => [
+            'host'   => 'localhost',
+            'port'   => '11211',
+            'prefix' => ''
+        ],
+        'mysql' => [
+            'host' => 'localhost',
+            'user' => 'root',
+            'password' => '',
+            'database' => 'kv_storage',
+        ]
+    ],
+    'solr' => [
+        'base_url'        => 'http://127.0.0.1:8080',
+        'config_dir' => APPLICATION_ROOT_DIR . '/config/Zed/solr',
+        'application_dir' => APPLICATION_VENDOR_DIR . '/project-a/infrastructure-package/bin/',
 
-    // TODO: change to NEW (needs server adjustments): PalShared_Data::getLocalCommonPath('solr'),
-    'data_dir'        => APPLICATION_ROOT_DIR . '/data/solr',
-);
+        // TODO: change to NEW (needs server adjustments): PalShared_Data::getLocalCommonPath('solr'),
+        'data_dir'        => APPLICATION_ROOT_DIR . '/data/solr',
+
+        'defaultEndpointSetup' => array(
+            'host' => '127.0.0.1',
+            'port' => 8080,
+            'path' => '/'
+        ),
+
+        'endpointGroups' => [
+            'stores' => [
+                'US', 'DE'
+            ],
+        ],
+
+        'endpoint' => [
+            'US' => [
+                'core' => 'US'
+            ],
+            'META_DATA' => [
+                'core' => 'META_DATA'
+            ],
+            'ADMIN' => [] //necessary to setup cores etc.
+        ]
+    ]
+];
+$config['storage']['solr']['endpoint']['US']        += $config['storage']['solr']['defaultEndpointSetup'];
+$config['storage']['solr']['endpoint']['META_DATA'] += $config['storage']['solr']['defaultEndpointSetup'];
+$config['storage']['solr']['endpoint']['ADMIN']     += $config['storage']['solr']['defaultEndpointSetup'];
 
 /**
  * Connection to Jenkins
@@ -227,8 +249,7 @@ $config['zed'] = array(
 );
 
 $config['yves'] = [
-    'theme'          => 'saatchi',
-    'currency'       => 'USD',
+    'theme'          => 'demoshop',
     'session'        => [
         'save_handler' => null,
         'save_path'    => null,
@@ -397,59 +418,6 @@ $config['glossary'] = array(
     'timeout_milliseconds' => 0,
 );
 
-$config['fulfillment'] = array(
-    'jondo'         => array(
-        'services'  => array(
-            'branding' => array(
-                'insertCard' => array(
-                    'outsideImage' => 'http://s3.amazonaws.com/saatchi-general/fulfillment/harvest/premiumBranding/insertCard/outside.jpg',
-                    'insideImage'  => 'http://s3.amazonaws.com/saatchi-general/fulfillment/harvest/premiumBranding/insertCard/inside.jpg',
-                ),
-                'sticker'    => array(
-                    'frontImage' => 'http://s3.amazonaws.com/saatchi-general/fulfillment/harvest/premiumBranding/sticker/sticker.jpg',
-                ),
-            ),
-        ),
-        'dpqApiUrl' => 'http://staging.harvestDigitalPrinting.com/integration/api/quoteApi.php',
-        'cofApiUrl' => 'http://staging.harvestDigitalPrinting.com/integration/cofApi.php',
-        'userId'    => 51,
-        'userKey'   => 'rt596TY',
-        'testMode'  => true,
-    ),
-    'marcofinearts' => array(
-        'apiUrl'    => 'http://gatewaybeta.marcofinearts.com/v1/server.php?wsdl',
-        'username'  => '',
-        'password'  => '',
-        'secretkey' => '',
-    ),
-    'sba'           => array(
-        'apiUrl'          => 'http://24.157.59.5/sba/webservice/shippingwebservice.asmx?wsdl',
-        'customer_number' => '689102',
-        'password'        => 'sba0506130454',
-    ),
-    'universal'     => array(),
-);
-
-$config['legacy'] = array(
-    'http'     => array(
-        'ssl'       => true,
-        'verifySsl' => true,
-        'session'   => array(
-            'name'   => 'saatchisc',
-            'domain' => 'www.saatchionline.com',
-        ),
-        'auth'      => array(
-            'username' => null,
-            'password' => null,
-        ),
-    ),
-    'memcache' => $config['memcache'],
-);
-
-$config['yves']['session']['name'] = $config['legacy']['http']['session']['name'];
-// $config['yves']['session']['domain'] = $config['legacy']['http']['session']['domain'];
-
-
 $config['mail'] = array(
     'defaultReplyEmail'    => 'orders@saatchionline.com',
     'viewOrderUrl'         => 'http://www.saatchionline.com/accounts/orders',
@@ -466,32 +434,4 @@ $config['mail'] = array(
         'firstname' => 'Jon',
         'lastname'  => 'Doe'
     )
-);
-
-$config['aws'] = array();
-
-// REMOVE ME and replace me using puppet later...
-$config['aws'] = array(
-    'account_id'  => 345127489059,
-    'credentials' => array(
-        'key'    => 'AKIAIFKBGTXOGKD67GIQ',
-        'secret' => 'l4GuYMjRsRnknnp2NIPOse+RejrnD94bQQkzRr62'
-    ),
-    'sns'         => array(
-        'topics' => array(
-            'payout'             => array('key' => 'order-item-complete'),
-            'new_order'          => array('key' => 'new-order', 'zone' => 'us-west-1'),
-            'order-item-fulfill' => array(),
-        ),
-        'zone'   => 'us-east-1'
-    )
-);
-// END REMOVE ME
-
-
-$config['aws']['s3'] = array(
-    'bucket' => array(
-        'packaging-slip' => array('key' => 'saatchi-general-dev', 'path' => 'fulfillment/general/packingSlips')
-    ),
-    'zone'   => 'us-west-1'
 );

@@ -1,0 +1,52 @@
+
+{% include '@application/response_messages.twig' %}
+
+<pre>
+    Cart-Hash: {{ cartHash }}
+
+
+{% for cartItem in cartItems %}
+
+    SKU: {{ cartItem.sku }}
+
+    UID: {{ cartItem.uniqueIdentifier }}
+
+    Name: {{ cartItem.name }}
+
+    Quantity: {{ cartItem.quantity }}
+
+    GrossPrice:             {{ cartItem.grossPrice|price }}
+
+    PriceToPay:             {{ cartItem.priceToPay|price }}
+
+    UnitGrossPrice:         {{ cartItem.unitGrossPrice|price }}
+
+    UnitPriceToPay:         {{ cartItem.unitPriceToPay|price }}
+
+    <a href="{{ url('cart/remove', {'sku':cartItem.sku, 'uid':cartItem.uniqueIdentifier}) }}">remove</a>
+
+
+{% else %}
+    Cart EMPTY.
+{% endfor %}
+
+
+    Sub Total:              {{ totals.subtotal|price }}
+
+    Discount:              -{{ totals.discount|price }}
+
+    Item Expenses:         +{{ totals.itemExpensesTotal|price }}
+
+    Order Expenses:        +{{ totals.orderExpensesTotal|price }}
+
+    Shipping Costs:        +{{ totals.shippingCosts|price }}
+
+    Tax:                   +{{ totals.tax.totalAmount|price }}
+
+    --------------------------------------
+
+    Grand Total:            {{ totals.grandTotal|price }}
+
+
+    <a href="{{ url('cart/add', {'sku':'P110-U431472-A1624310'}) }}">add</a>
+
