@@ -3,7 +3,7 @@ namespace Pyz\Shared\Catalog\Code;
 
 interface ProductAttributeConstant extends \ProjectA_Shared_Catalog_Code_ProductAttributeConstant
 {
-    const ATTRIBUTE_MANUFACTURER_DESCRIPTION = 'manufacturer description';
+    const ATTRIBUTE_MANUFACTURER_DESCRIPTION = 'manufacturer_description';
     const ATTRIBUTE_COLOR = 'color';
     const ATTRIBUTE_LENGTH = 'length';
     const ATTRIBUTE_WIDTH = 'width';

@@ -2,9 +2,9 @@
 namespace Pyz\Zed\Catalog\Component\Exporter\Solr;
 
 use ProjectA\Shared\Solr\Code\SolrInstanceBuilder;
-use \Pyz\Zed\Catalog\Component\Exporter\QueryBuilder\Solr\Artwork as QueryBuilderSolrArtwork;
+use \Pyz\Zed\Catalog\Component\Exporter\QueryBuilder\Solr\ProductsWithoutElectronics;
 
-class ArtworkExporter extends ProductsExporter
+class ProductsWithoutElectronicsExporter extends ProductsExporter
 {
 
     /**
@@ -20,14 +20,14 @@ class ArtworkExporter extends ProductsExporter
      */
     protected function getProductAttributeSetName()
     {
-        return self::ATTRIBUTESET_ARTWORK;
+        return self::ATTRIBUTESET_PRODUCTS_WITHOUT_ELECTRONICS;
     }
 
     /**
-     * @return QueryBuilderSolrArtwork
+     * @return ProductsWithoutElectronics
      */
     protected function getProductQueryBuilder()
     {
-        return $this->factory->getExporterQueryBuilderSolrArtwork();
+        return $this->factory->getExporterQueryBuilderSolrProductsWithoutElectronics();
     }
 }

@@ -1,6 +1,4 @@
 <?php
-use Pyz\Zed\Catalog\Component\Exporter\KeyValue\ArtworkExporter as KeyValueArtwork;
-use Pyz\Zed\Catalog\Component\Exporter\Solr\ArtworkExporter as SolrArtwork;
 
 /**
  * @property Generated_Zed_Catalog_Component_Factory $factory
@@ -9,34 +7,34 @@ class Pyz_Zed_Catalog_Component_Facade extends ProjectA_Zed_Catalog_Component_Fa
 {
 
     /**
-     * @return KeyValueArtwork
+     * @return \Pyz\Zed\Catalog\Component\Exporter\KeyValue\ProductsWithElectronicsExporter
      */
-    public function getExporterKeyValueArtworkExporter()
+    public function getExporterKeyValueProductsWithElectronicsExporter()
     {
-        return $this->factory->getExporterKeyValueArtworkExporter();
+        return $this->factory->getExporterKeyValueProductsWithElectronicsExporter();
     }
 
     /**
-     * @return SolrArtwork
+     * @return \Pyz\Zed\Catalog\Component\Exporter\KeyValue\ProductsWithoutElectronicsExporter
      */
-    public function getExporterSolrArtworkExporter()
+    public function getExporterKeyValueProductsWithoutElectronicsExporter()
     {
-        return $this->factory->getExporterSolrArtworkExporter();
+        return $this->factory->getExporterKeyValueProductsWithoutElectronicsExporter();
     }
 
     /**
-     * @fixme @todo @hopefully soon deprecated ;)
-     * @param string $sku
-     * @return string
+     * @return \Pyz\Zed\Catalog\Component\Exporter\Solr\ProductsWithElectronicsExporter
      */
-    public function getProductType($sku)
+    public function getExporterSolrProductsWithElectronicsExporter()
     {
-        //TODO remove mock
-        // FIXME FIXME FIXME
-        if (substr($sku, 0, 3) == 'P1-') {
-            return 'marketplace';
-        } else {
-            return 'manufactured';
-        }
+        return $this->factory->getExporterSolrProductsWithElectronicsExporter();
+    }
+
+    /**
+     * @return \Pyz\Zed\Catalog\Component\Exporter\Solr\ProductsWithoutElectronicsExporter
+     */
+    public function getExporterSolrProductsWithoutElectronicsExporter()
+    {
+        return $this->factory->getExporterSolrProductsWithoutElectronicsExporter();
     }
 }

@@ -3,7 +3,7 @@ namespace Pyz\Zed\Catalog\Component\Exporter\KeyValue;
 
 use ProjectA\Zed\Catalog\Component\Exporter\QueryBuilder\AbstractProduct;
 
-class ArtworkExporter extends ProductsExporter
+class ProductsWithoutElectronicsExporter extends ProductsExporter
 {
 
     /**
@@ -11,15 +11,15 @@ class ArtworkExporter extends ProductsExporter
      */
     protected function getProductAttributeSetName()
     {
-        return self::ATTRIBUTESET_ARTWORK;
+        return self::ATTRIBUTESET_PRODUCTS_WITHOUT_ELECTRONICS;
     }
 
     /**
-     * @return AbstractProduct|\Pyz\Zed\Catalog\Component\Exporter\QueryBuilder\KeyValue\Artwork
+     * @return \Pyz\Zed\Catalog\Component\Exporter\QueryBuilder\KeyValue\ProductsWithoutElectronics
      */
     protected function getProductQueryBuilder()
     {
-        return $this->factory->getExporterQueryBuilderKeyValueArtwork();
+        return $this->factory->getExporterQueryBuilderKeyValueProductsWithoutElectronics();
     }
 
     /**
