@@ -1,20 +1,25 @@
 <?php
+namespace Pyz\Zed\Catalog\Component\Internal;
 
-class Pyz_Zed_Catalog_Component_Internal_AttributeValueTypeToAttributeSetGroupMapping implements
-    ProjectA_Zed_Catalog_Component_Interface_GroupConstant,
-    Pyz_Shared_Catalog_Interface_ProductAttributeConstant,
-    Pyz_Shared_Catalog_Interface_ProductAttributeSetConstant
+use Pyz\Shared\Catalog\Code\ProductAttributeConstant;
+use Pyz\Shared\Catalog\Code\ProductAttributeSetConstant;
+
+class AttributeValueTypeToAttributeSetGroupMapping implements
+    \ProjectA_Zed_Catalog_Component_Interface_GroupConstant,
+    ProductAttributeConstant,
+    ProductAttributeSetConstant
 {
 
     const FILE_NAME_PREFIX = 'AttributeValueTypeToAttributeSetGroupMapping_';
     const FILE_TYPE = '.csv';
 
     /**
-     * @var array ( attributeSetName => array( attributeName => (group1, group2, ...), attributeName1 => (group1, group2, ...) ) )
+     * @var array [attributeSetName => [] ]
      */
-    public static $valueTypeToAttributeSetGroupMapping = array(
-        self::ATTRIBUTESET_ARTWORK => array(),
-    );
+    public static $valueTypeToAttributeSetGroupMapping = [
+        self::ATTRIBUTESET_PRODUCTS_WITH_ELECTRONICS => [],
+        self::ATTRIBUTESET_PRODUCTS_WITHOUT_ELECTRONICS => [],
+    ];
 
     public static function getMappings()
     {
@@ -26,24 +31,26 @@ class Pyz_Zed_Catalog_Component_Internal_AttributeValueTypeToAttributeSetGroupMa
     {
         $csvColumns = array(
             null,
-            self::KEY_VALUE_EXPORT,
-            self::SOLR_SEARCHABLE,
-            self::SOLR_SUGGESTION,
-            self::SOLR_FACET,
-            self::SOLR_SORT,
-            self::SOLR_SCORE,
-            self::MANDATORY_ON_IMPORT,
-            self::MANDATORY_ON_DISPLAY_IN_SHOP,
-            self::IS_UNIQUE,
-            self::HIDDEN_IN_SHOP,
             self::CONFIG_ATTRIBUTES,
-            self::SIMPLE_ATTRIBUTES
+            self::SIMPLE_ATTRIBUTES,
+            self::KEY_VALUE_EXPORT,
+            self::SOLR_FACET,
+            self::SOLR_SCORE,
+            self::SOLR_SEARCHABLE,
+            self::SOLR_SORT,
+            self::SOLR_SUGGESTION,
+            self::MANDATORY_ON_IMPORT
         );
 
         foreach (array_keys(static::$valueTypeToAttributeSetGroupMapping) as $attributeSetName) {
 
-            $countAttributes = ProjectA_Zed_Catalog_Persistence_PacCatalogValueTypeQuery::create()->useAttributeSetQuery()->filterByName($attributeSetName)->endUse()->count();
-            $fileName = dirname(__FILE__) . DIRECTORY_SEPARATOR . self::FILE_NAME_PREFIX . $attributeSetName . self::FILE_TYPE;
+            $countAttributes = \ProjectA_Zed_Catalog_Persistence_PacCatalogValueTypeQuery::create()->useAttributeSetQuery()->filterByName($attributeSetName)->endUse()->count();
+
+            $filter = new \Zend_Filter();
+            $filter->addFilter(new \Zend_Filter_Word_SeparatorToSeparator(' ', '_'));
+            $filter->addFilter(new \Zend_Filter_Word_UnderscoreToCamelCase());
+
+            $fileName = dirname(__FILE__) . DIRECTORY_SEPARATOR . self::FILE_NAME_PREFIX . $filter->filter($attributeSetName) . self::FILE_TYPE;
             if (file_exists($fileName)) {
                 $handle = fopen($fileName, "r");
                 $row = 0;
@@ -64,11 +71,9 @@ class Pyz_Zed_Catalog_Component_Internal_AttributeValueTypeToAttributeSetGroupMa
                 fclose($handle);
 
                 if ($countAttributes !== $row - 1) {
-                    throw new ProjectA_Zed_Library_Exception('Attributes missing in ' . self::FILE_NAME_PREFIX . $attributeSetName . self::FILE_TYPE);
+                    throw new \ProjectA_Zed_Library_Exception('Attributes missing in ' . self::FILE_NAME_PREFIX . $attributeSetName . self::FILE_TYPE);
                 }
             }
-
         }
-
     }
 }

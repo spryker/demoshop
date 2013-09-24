@@ -1,8 +1,11 @@
 <?php
+namespace Pyz\Zed\Catalog\Component\Internal;
 
-class Pyz_Zed_Catalog_Component_Internal_AttributeToAttributeGroupMapping implements
-    ProjectA_Zed_Catalog_Component_Interface_GroupConstant,
-    Pyz_Shared_Catalog_Interface_ProductAttributeConstant
+use Pyz\Shared\Catalog\Code\ProductAttributeConstant;
+
+class AttributeToAttributeGroupMapping implements
+    \ProjectA_Zed_Catalog_Component_Interface_GroupConstant,
+    ProductAttributeConstant
 {
     /**
      * sample how to define attributes into groups, ! do not confound with attributeSetGroups
