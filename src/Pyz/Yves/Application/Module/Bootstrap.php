@@ -12,7 +12,9 @@ use ProjectA\Yves\Library\Silex\Routing\SilexRouter;
 use Pyz\Yves\Application\Module\ControllerProvider as ApplicationProvider;
 use ProjectA\Yves\Cart\Module\ControllerProvider as CartProvider;
 use ProjectA\Yves\Catalog\Module\ControllerProvider as CatalogProvider;
+use Pyz\Yves\Checkout\Module\ControllerProvider as CheckoutProvider;
 use ProjectA\Yves\Setup\Module\ControllerProvider as SetupProvider;
+use Silex\Provider\FormServiceProvider;
 use Silex\Provider\ServiceControllerServiceProvider;
 use Silex\Provider\SessionServiceProvider;
 use Silex\Provider\UrlGeneratorServiceProvider;
@@ -44,6 +46,7 @@ class Bootstrap extends \ProjectA\Yves\Library\Silex\Bootstrap
             new StorageServiceProvider(),
             new TranslationServiceProvider(),
             new TwigServiceProvider(),
+            new FormServiceProvider(),
         ];
     }
 
@@ -56,6 +59,7 @@ class Bootstrap extends \ProjectA\Yves\Library\Silex\Bootstrap
             new ApplicationProvider(),
             new CartProvider(),
             new CatalogProvider(),
+            new CheckoutProvider(),
             new SetupProvider(),
         ];
     }
