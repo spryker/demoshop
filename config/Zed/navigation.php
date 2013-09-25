@@ -4,6 +4,7 @@ return array(
     APPLICATION_VENDOR_DIR . '/project-a/acl-package/src/ProjectA/Zed/Acl/Module/navigation.xml',
     APPLICATION_VENDOR_DIR . '/project-a/checkout-package/src/ProjectA/Zed/Salesrule/Module/navigation.xml',
     APPLICATION_VENDOR_DIR . '/project-a/content-package/src/ProjectA/Zed/Cms/Module/navigation.xml',
+    APPLICATION_VENDOR_DIR . '/project-a/catalog-package/src/ProjectA/Zed/Catalog/Module/navigation.xml',
     APPLICATION_VENDOR_DIR . '/project-a/crm-package/src/ProjectA/Zed/Customer/Module/navigation.xml',
     APPLICATION_VENDOR_DIR . '/project-a/crm-package/src/ProjectA/Zed/Mail/Module/navigation.xml',
     APPLICATION_VENDOR_DIR . '/project-a/dwh-package/src/ProjectA/Zed/Dwh/Module/navigation.xml',
