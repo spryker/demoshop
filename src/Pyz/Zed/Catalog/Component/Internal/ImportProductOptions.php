@@ -51,7 +51,7 @@ class ImportProductOptions implements
     protected function getProductOptions()
     {
         $data = [];
-        $file = __DIR__. '/' .self::FILE_NAME;
+        $file = __DIR__. '/../File/' . self::FILE_NAME;
         $rowCount = 0;
         $header = [];
         if (is_file($file)) {

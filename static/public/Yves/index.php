@@ -2,7 +2,6 @@
 /* YVES Front Controller */
 
 use ProjectA\Shared\Library\Application\Environment;
-use ProjectA\Shared\Library\Error\ErrorLogger;
 use Pyz\Yves\Application\Module\Bootstrap;
 
 define('YVES_START', microtime(true));
@@ -20,3 +19,5 @@ $bootstrap = new Bootstrap();
 $bootstrap
     ->boot()
     ->run(Bootstrap::getRequest());
+
+file_put_contents('timing.log', microtime(true) - YVES_START);
