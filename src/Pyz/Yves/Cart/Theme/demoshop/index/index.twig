@@ -1,4 +1,6 @@
+{% extends "@application/layout.twig" %}
 
+{% block content %}
 {% include '@application/response_messages.twig' %}
 
 <pre>
@@ -48,3 +50,4 @@
 
     <a href="{{ url('cart/add', {'sku':'P110-U431472-A1624310'}) }}">add</a>
 
+{% endblock %}

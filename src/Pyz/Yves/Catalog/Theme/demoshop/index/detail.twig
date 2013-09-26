@@ -1,3 +1,6 @@
+{% extends "@application/layout.twig" %}
+
+{% block content %}
 <img src="http:{{ product.artSmall }}" style="vertical-align:middle" />
 {{ product.name }}
 <pre>
@@ -5,3 +8,4 @@
     {{ name }}: {{ value }}
 {% endfor %}
 </pre>
+{% endblock %}

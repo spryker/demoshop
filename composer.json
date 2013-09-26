@@ -27,6 +27,7 @@
         "silex/silex": "dev-master as 1.2"
     },
     "require-dev": {
+        "silex/web-profiler": "~1.0",
         "behat/behat": "*",
         "sanpi/behatch-contexts": "*",
         "behat/mink": "*",
