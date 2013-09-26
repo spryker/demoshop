@@ -19,3 +19,5 @@ $bootstrap = new Bootstrap();
 $bootstrap
     ->boot()
     ->run(Bootstrap::getRequest());
+
+file_put_contents('timing.log', microtime(true) - YVES_START);
