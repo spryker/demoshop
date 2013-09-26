@@ -2,7 +2,6 @@
 /* YVES Front Controller */
 
 use ProjectA\Shared\Library\Application\Environment;
-use ProjectA\Shared\Library\Error\ErrorLogger;
 use Pyz\Yves\Application\Module\Bootstrap;
 
 define('YVES_START', microtime(true));
