@@ -1,3 +1,6 @@
+{% extends "@application/layout.twig" %}
+
+{% block content %}
 Catalog Products
 <hr />
 {% for product in products %}
@@ -14,3 +17,4 @@ Catalog Products
     <div style="clear: both;"></div>
 <hr />
 {% endfor %}
+{% endblock %}
