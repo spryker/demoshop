@@ -93,9 +93,9 @@
                     "email": "kontakt@beberlei.de"
                 },
                 {
-                    "name": "Johannes M. Schmitt",
+                    "name": "Johannes Schmitt",
                     "email": "schmittjoh@gmail.com",
-                    "homepage": "http://jmsyst.com",
+                    "homepage": "https://github.com/schmittjoh",
                     "role": "Developer of wrapped JMSSerializerBundle"
                 }
             ],
@@ -849,7 +849,7 @@
             "source": {
                 "type": "git",
                 "url": "git@codebasehq.com:project-a/core/infrastructure.git",
-                "reference": "f2c49b1a44d50b557b45030e93f662362c37d03e"
+                "reference": "73494d1c70bf4102fc9a7ec32075ed9811caf476"
             },
             "require": {
                 "php": ">=5.4.0",
@@ -877,7 +877,7 @@
             "keywords": [
                 "infrastructure"
             ],
-            "time": "2013-09-25 13:02:02"
+            "time": "2013-09-26 12:29:21"
         },
         {
             "name": "project-a/kendo-package",
@@ -2388,7 +2388,7 @@
                 {
                     "name": "Alexandre Salomé",
                     "email": "alexandre.salome@gmail.com",
-                    "homepage": "http://alexandre-salome.fr"
+                    "homepage": "http://alexandre-salome.fr/"
                 }
             ],
             "description": "PHP Library for Selenium",
