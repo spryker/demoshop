@@ -542,7 +542,7 @@
             "source": {
                 "type": "git",
                 "url": "git@codebasehq.com:project-a/core/catalog.git",
-                "reference": "36267b1b839345e385a7651dc506963221bfe814"
+                "reference": "495413ae33099c2ce905094654de025301791219"
             },
             "require": {
                 "php": ">=5.4.0",
@@ -572,7 +572,7 @@
                 "Price",
                 "Stock"
             ],
-            "time": "2013-09-26 11:31:11"
+            "time": "2013-09-26 11:50:53"
         },
         {
             "name": "project-a/checkout-package",
