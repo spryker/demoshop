@@ -9,6 +9,7 @@ class ControllerProvider extends YvesProvider
 
     protected function defineControllers()
     {
-        $this->createGetController('/checkout', 'Pyz\\Yves\\Checkout\\Module\\Controller\\CheckoutController', 'index', self::ROUTE_CHECKOUT);
+        $this->createController('/checkout', 'Pyz\\Yves\\Checkout\\Module\\Controller\\CheckoutController', 'index', self::ROUTE_CHECKOUT)
+            ->method('GET|POST');
     }
 }
