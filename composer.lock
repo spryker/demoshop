@@ -542,7 +542,7 @@
             "source": {
                 "type": "git",
                 "url": "git@codebasehq.com:project-a/core/catalog.git",
-                "reference": "01edcf72147bf00527b0433c03ca77ef5fb213a0"
+                "reference": "bf034e97faeb86e50eb86abca4dfb2b2d263cb4f"
             },
             "require": {
                 "php": ">=5.4.0",
@@ -572,7 +572,7 @@
                 "Price",
                 "Stock"
             ],
-            "time": "2013-09-27 10:20:10"
+            "time": "2013-09-27 11:52:36"
         },
         {
             "name": "project-a/checkout-package",
@@ -849,7 +849,7 @@
             "source": {
                 "type": "git",
                 "url": "git@codebasehq.com:project-a/core/infrastructure.git",
-                "reference": "bda694f0241549f9a1a82a06a4905870f51708be"
+                "reference": "cba20525b86f2a053e494cf1f690f1408763d6a8"
             },
             "require": {
                 "php": ">=5.4.0",
@@ -877,7 +877,7 @@
             "keywords": [
                 "infrastructure"
             ],
-            "time": "2013-09-26 14:41:15"
+            "time": "2013-09-27 11:03:22"
         },
         {
             "name": "project-a/kendo-package",
@@ -1370,12 +1370,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/fabpot/Silex.git",
-                "reference": "b4bb327c3ebc7d61b5e5d797a6799c20f8f4823b"
+                "reference": "5ee043a6b5018a5862de4ef0ef89bf7e74eef230"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/fabpot/Silex/zipball/b4bb327c3ebc7d61b5e5d797a6799c20f8f4823b",
-                "reference": "b4bb327c3ebc7d61b5e5d797a6799c20f8f4823b",
+                "url": "https://api.github.com/repos/fabpot/Silex/zipball/5ee043a6b5018a5862de4ef0ef89bf7e74eef230",
+                "reference": "5ee043a6b5018a5862de4ef0ef89bf7e74eef230",
                 "shasum": ""
             },
             "require": {
@@ -1446,7 +1446,7 @@
             "keywords": [
                 "microframework"
             ],
-            "time": "2013-09-23 10:37:06"
+            "time": "2013-09-27 11:33:11"
         },
         {
             "name": "solarium/solarium",
