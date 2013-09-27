@@ -5,6 +5,8 @@
 
     <sales />
 
+    <customer />
+
     <catalog/>
 
     <content/>
