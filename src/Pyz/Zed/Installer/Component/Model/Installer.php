@@ -3,6 +3,7 @@
 class Pyz_Zed_Installer_Component_Model_Installer extends ProjectA_Zed_Installer_Component_Model_Installer implements
     ProjectA_Zed_Acl_Component_Dependency_Facade_Interface,
     ProjectA_Zed_Catalog_Component_Dependency_Facade_Interface,
+    ProjectA_Zed_Category_Component_Dependency_Facade_Interface,
     ProjectA_Zed_Cms_Component_Dependency_Facade_Interface,
     ProjectA_Zed_Misc_Component_Dependency_Facade_Interface,
     ProjectA_Zed_Price_Component_Dependency_Facade_Interface,
@@ -12,6 +13,7 @@ class Pyz_Zed_Installer_Component_Model_Installer extends ProjectA_Zed_Installer
 
     use ProjectA_Zed_Acl_Component_Dependency_Facade_Trait;
     use ProjectA_Zed_Catalog_Component_Dependency_Facade_Trait;
+    use ProjectA_Zed_Category_Component_Dependency_Facade_Trait;
     use ProjectA_Zed_Cms_Component_Dependency_Facade_Trait;
     use ProjectA_Zed_Misc_Component_Dependency_Facade_Trait;
     use ProjectA_Zed_Price_Component_Dependency_Facade_Trait;
@@ -26,6 +28,7 @@ class Pyz_Zed_Installer_Component_Model_Installer extends ProjectA_Zed_Installer
         return array(
             $this->facadeAcl->getInternalInstall(),
             $this->facadeCatalog->getInternalInstall(),
+            $this->facadeCategory->getInternalInstall(),
             $this->facadeCms->getInternalInstall(),
             $this->facadeMisc->getInternalInstall(),
             $this->facadePrice->getInternalInstall(),
