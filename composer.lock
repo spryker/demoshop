@@ -580,7 +580,7 @@
             "source": {
                 "type": "git",
                 "url": "git@codebasehq.com:project-a/core/checkout.git",
-                "reference": "7a724d3094530c83fb9e6b6ab4b6ce4c3623cbac"
+                "reference": "2af5a5d9bf8823116e67c3a9a878dd16fce2060b"
             },
             "require": {
                 "php": ">=5.4.0",
@@ -607,7 +607,7 @@
                 "PaymentControl",
                 "Salesrule"
             ],
-            "time": "2013-09-30 11:57:49"
+            "time": "2013-09-30 13:58:18"
         },
         {
             "name": "project-a/console-package",
@@ -785,7 +785,7 @@
             "source": {
                 "type": "git",
                 "url": "git@codebasehq.com:project-a/core/frontend.git",
-                "reference": "744de0f9f44c1ce56a7ebb3340706caa5f26cdfd"
+                "reference": "dfeadcfe5179b5e45f3668776f0fb70541db76a7"
             },
             "require": {
                 "php": ">=5.4.0",
@@ -809,7 +809,7 @@
             "keywords": [
                 "Frontend"
             ],
-            "time": "2013-09-27 15:47:04"
+            "time": "2013-09-30 14:32:06"
         },
         {
             "name": "project-a/glossary-package",
@@ -902,7 +902,7 @@
             "source": {
                 "type": "git",
                 "url": "git@codebasehq.com:project-a/core/library-2.git",
-                "reference": "538d3443fc6b228c328e6f9fa9264b1cab8c9fec"
+                "reference": "2d4436a6e558b842a95968017e378f4b2e62f160"
             },
             "require": {
                 "digital-canvas/zend-framework": ">=1.12.2",
@@ -942,7 +942,7 @@
                 }
             ],
             "description": "Project-A Library",
-            "time": "2013-09-30 12:06:31"
+            "time": "2013-09-30 14:33:02"
         },
         {
             "name": "project-a/lumberjack-package",
