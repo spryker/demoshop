@@ -18,6 +18,7 @@ use Silex\Provider\FormServiceProvider;
 use Silex\Provider\ServiceControllerServiceProvider;
 use Silex\Provider\SessionServiceProvider;
 use Silex\Provider\UrlGeneratorServiceProvider;
+use Silex\Provider\ValidatorServiceProvider;
 use Silex\Provider\WebProfilerServiceProvider;
 use SilexRouting\Provider\RoutingServiceProvider;
 
@@ -50,8 +51,9 @@ class Bootstrap extends \ProjectA\Yves\Library\Silex\Bootstrap
             new RoutingServiceProvider(),
             new StorageServiceProvider(),
             new TranslationServiceProvider(),
-            new TwigServiceProvider(),
             new FormServiceProvider(),
+            new ValidatorServiceProvider(),
+            new TwigServiceProvider(),
         ];
 
         if (\ProjectA_Shared_Library_Environment::isDevelopment()) {

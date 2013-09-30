@@ -79,7 +79,7 @@ module.exports = function( grunt ){
       options : {
         httpPath  : '/',
 
-        sassDir   : '<%= yvesDirectories.src %>/styles/compass',
+        sassDir   : '<%= yvesDirectories.src %>/styles',
         cssDir    : '<%= yvesDirectories.dist %>/styles',
 
         fontsDir  : '<%= yvesDirectories.dist %>/fonts',
