@@ -5,7 +5,7 @@
 {{ product.name }}
 <pre>
 {% for name, value in product.toArray %}
-    {{ name }}: {{ value }}
+    {{ name }}: {{ dump(value) }}
 {% endfor %}
 </pre>
 {% endblock %}
