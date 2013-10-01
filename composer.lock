@@ -506,7 +506,7 @@
             "source": {
                 "type": "git",
                 "url": "git@codebasehq.com:project-a/core/cart.git",
-                "reference": "d0965a02570a47d3d10348b3cb4e305eb917d37d"
+                "reference": "72a4185e8638ddae164972cd367ef348693e5c83"
             },
             "require": {
                 "php": ">=5.4.0",
@@ -534,7 +534,7 @@
             "keywords": [
                 "Cart"
             ],
-            "time": "2013-09-30 10:13:39"
+            "time": "2013-10-01 12:06:29"
         },
         {
             "name": "project-a/catalog-package",
@@ -542,7 +542,7 @@
             "source": {
                 "type": "git",
                 "url": "git@codebasehq.com:project-a/core/catalog.git",
-                "reference": "5796163f4a59369024b3e5dc57647f1febad1595"
+                "reference": "4f53bb2978efafc096405d5df2c50807eff754de"
             },
             "require": {
                 "php": ">=5.4.0",
@@ -578,7 +578,7 @@
                 "Price",
                 "Stock"
             ],
-            "time": "2013-09-30 15:49:53"
+            "time": "2013-10-01 12:53:08"
         },
         {
             "name": "project-a/checkout-package",
@@ -586,7 +586,7 @@
             "source": {
                 "type": "git",
                 "url": "git@codebasehq.com:project-a/core/checkout.git",
-                "reference": "2af5a5d9bf8823116e67c3a9a878dd16fce2060b"
+                "reference": "13685d625048bd8bb1b80ecbdfd19f4b381c58b2"
             },
             "require": {
                 "php": ">=5.4.0",
@@ -613,7 +613,7 @@
                 "PaymentControl",
                 "Salesrule"
             ],
-            "time": "2013-09-30 13:58:18"
+            "time": "2013-10-01 12:07:06"
         },
         {
             "name": "project-a/console-package",
@@ -855,7 +855,7 @@
             "source": {
                 "type": "git",
                 "url": "git@codebasehq.com:project-a/core/infrastructure.git",
-                "reference": "7200d8b758b4169d6d4b464cb752d075581a33c8"
+                "reference": "5356fb9bd69c7c6c3c744890bcde14f68b9a3398"
             },
             "require": {
                 "php": ">=5.4.0",
@@ -883,7 +883,7 @@
             "keywords": [
                 "infrastructure"
             ],
-            "time": "2013-09-27 15:46:23"
+            "time": "2013-10-01 12:07:36"
         },
         {
             "name": "project-a/kendo-package",
@@ -908,7 +908,7 @@
             "source": {
                 "type": "git",
                 "url": "git@codebasehq.com:project-a/core/library-2.git",
-                "reference": "2d4436a6e558b842a95968017e378f4b2e62f160"
+                "reference": "26ab044447cc005549f7a0bf33d26048cecf610d"
             },
             "require": {
                 "digital-canvas/zend-framework": ">=1.12.2",
@@ -948,7 +948,7 @@
                 }
             ],
             "description": "Project-A Library",
-            "time": "2013-09-30 14:33:02"
+            "time": "2013-10-01 13:23:33"
         },
         {
             "name": "project-a/lumberjack-package",
@@ -1053,7 +1053,7 @@
             "source": {
                 "type": "git",
                 "url": "git@codebasehq.com:project-a/core/sales.git",
-                "reference": "2871491436ddc35aa026da74c921468705bbbdbc"
+                "reference": "eaa9a67dd9e5118dcd99690573b0dc2bbce64ca1"
             },
             "require": {
                 "php": ">=5.4.0",
@@ -1080,7 +1080,7 @@
                 "Sales",
                 "Task"
             ],
-            "time": "2013-09-30 16:14:17"
+            "time": "2013-10-01 12:56:17"
         },
         {
             "name": "project-a/silex-routing",
