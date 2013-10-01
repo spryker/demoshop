@@ -42,7 +42,7 @@
         </lst>
     </requestHandler>
 
-    <requestHandler name="/update"  class="solr.XmlUpdateRequestHandler" />
+    <requestHandler name="/update"  class="solr.UpdateRequestHandler" />
     <requestHandler name="/admin/" class="solr.admin.AdminHandlers" />
 
     <!--xi:include replication settings (if any) -->

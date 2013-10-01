@@ -12,7 +12,7 @@ use ProjectA\Yves\Library\Silex\Routing\SilexRouter;
 use Pyz\Yves\Application\Module\ControllerProvider as ApplicationProvider;
 use ProjectA\Yves\Cart\Module\ControllerProvider as CartProvider;
 use ProjectA\Yves\Catalog\Module\ControllerProvider as CatalogProvider;
-use Pyz\Yves\Checkout\Module\ControllerProvider as CheckoutProvider;
+use ProjectA\Yves\Checkout\Module\ControllerProvider as CheckoutProvider;
 use ProjectA\Yves\Setup\Module\ControllerProvider as SetupProvider;
 use Silex\Provider\FormServiceProvider;
 use Silex\Provider\ServiceControllerServiceProvider;
