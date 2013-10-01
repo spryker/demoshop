@@ -1,10 +1,9 @@
 {% extends "@application/layout.twig" %}
 
 {% block content %}
-{{ valid }}
+    {% include '@application/response_messages.twig' %}
 
-
-{{ form(form) }}
+    {{ form(form) }}
 
 {% endblock %}
 
