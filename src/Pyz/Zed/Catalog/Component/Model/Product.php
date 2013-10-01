@@ -25,8 +25,11 @@ class Product extends \ProjectA_Zed_Catalog_Component_Model_Product implements
     {
         $attributeSetName = $this->getAttributeSet()->getName();
         switch ($attributeSetName) {
-            case self::ATTRIBUTESET_ARTWORK:
-                $elements = $this->getArtworkUrlElements();
+            case self::ATTRIBUTESET_PRODUCTS_WITH_ELECTRONICS:
+                $elements = $this->getUrlElementsForProductsWithElectronics();
+                break;
+            case self::ATTRIBUTESET_PRODUCTS_WITHOUT_ELECTRONICS:
+                $elements = $this->getUrlElementsForProductsWithoutElectronics();
                 break;
             default:
                 throw new \ProjectA_Shared_Library_Exception('No Url Creator For Attribute Set ' . $attributeSetName);
@@ -62,7 +65,18 @@ class Product extends \ProjectA_Zed_Catalog_Component_Model_Product implements
     /**
      * @return array
      */
-    protected function getArtworkUrlElements()
+    protected function getUrlElementsForProductsWithElectronics()
+    {
+        return array(
+            $this[self::ATTRIBUTE_NAME],
+            $this->getIdCatalogProduct(),
+        );
+    }
+
+    /**
+     * @return array
+     */
+    protected function getUrlElementsForProductsWithoutElectronics()
     {
         return array(
             $this[self::ATTRIBUTE_NAME],

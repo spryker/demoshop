@@ -8,7 +8,6 @@ class Pyz_Zed_Sales_Component_Model_Orderprocess_DefinitionContainer
 
     use ProjectA_Zed_Library_Dependency_Factory_Trait;
 
-
     public function initAfterDependencyInjection()
     {
         $this->initDefinitions();

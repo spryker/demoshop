@@ -1,0 +1,52 @@
+//style of core
+
+div.setup-core ul{
+  list-style-type:none;
+}
+
+div.setup-core div.col1 {
+  margin-left:20px;
+  float: left;
+}
+
+div.setup-core div.col2 {
+  margin-left:200px;
+  float: left;
+}
+
+div.setup-core ul li a:hover {
+  text-decoration: none;
+}
+div.setup-core .console{
+  background-color:#000;
+  color:#FFF;
+  font-family:monospace;
+  font-size: 12px;
+  padding:2px 0px 2px 5px;
+  width:260px;
+}
+
+//style of cronojobs
+
+div.setup-cronjobs h2{
+  font-size:14px;
+  color: black;
+  font-weight: bold;
+  margin-bottom: 8px;
+}
+
+div.setup-cronjobs .table{
+  vertical-align: top;
+  width: 60%;
+}
+
+div.setup-cronjobs .table tr td a:link{
+  text-decoration: none;
+}
+
+div.setup-cronjobs .table td, div.setup-cronjobs .table th {
+  padding: 2px 7px 2px 7px;
+  vertical-align: top;
+  font-size:14px;
+}
+

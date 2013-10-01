@@ -6,6 +6,8 @@ interface Pyz_Zed_Sales_Component_Interface_OrderprocessConstant
 
     // DEMO PROCESS
 
+    const ORDER_PROCESS_DEMO = 'demo';
+
     // STATE_NEW        -> parent class
     // STATE_INVALID    -> parent class
     const STATE_WAITING_FOR_AUTHORISE_APPOINTMENT = 'waiting for authorise appointment (demo)';

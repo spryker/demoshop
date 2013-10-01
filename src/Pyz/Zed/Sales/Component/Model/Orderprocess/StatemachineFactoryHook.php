@@ -19,6 +19,7 @@ class Pyz_Zed_Sales_Component_Model_Orderprocess_StatemachineFactoryHook
 
     /**
      * @param ProjectA_Zed_Library_StateMachine $stateMachine
+     * @return ProjectA_Zed_Library_StateMachine
      */
     public function onStatemachineWasCreated(ProjectA_Zed_Library_StateMachine $stateMachine)
     {
@@ -26,5 +27,6 @@ class Pyz_Zed_Sales_Component_Model_Orderprocess_StatemachineFactoryHook
         $guards->addGuard($this->getRules());
         $guards->addGuard($stateMachine->getGuard());
         $stateMachine->setGuard($guards);
+        // @todo think about it
     }
 }

@@ -79,7 +79,7 @@ module.exports = function( grunt ){
       options : {
         httpPath  : '/',
 
-        sassDir   : '<%= yvesDirectories.src %>/styles/compass',
+        sassDir   : '<%= yvesDirectories.src %>/styles',
         cssDir    : '<%= yvesDirectories.dist %>/styles',
 
         fontsDir  : '<%= yvesDirectories.dist %>/fonts',
@@ -129,9 +129,9 @@ module.exports = function( grunt ){
       scripts : {
         files : [{
           expand : true,
-          cwd    : '<%= yvesDirectories.src %>/scripts/' + Config.js + '/',
+          cwd    : '<%= yvesDirectories.src %>/scripts/app/',
           src    : [ '**' ],
-          dest   : '<%= yvesDirectories.dist %>/scripts/'
+          dest   : '<%= yvesDirectories.dist %>/scripts/app/'
         }]
       },
 
@@ -141,6 +141,15 @@ module.exports = function( grunt ){
           cwd    : '<%= yvesDirectories.src %>/scripts/vendor/',
           src    : [ '**' ],
           dest   : '<%= yvesDirectories.dist %>/scripts/vendor/'
+        }]
+      },
+
+      images : {
+        files : [{
+          expand : true,
+          cwd    : '<%= yvesDirectories.src %>/images/',
+          src    : [ '**' ],
+          dest   : '<%= yvesDirectories.dist %>/images/'
         }]
       }
     },
@@ -305,10 +314,11 @@ module.exports = function( grunt ){
           '<%= yvesDirectories.src %>/specs/**/*.js'
         ],
         tasks: [
-          'jshint:dev',
+          // 'jshint:dev',
           'clean:scripts',
           'copy:vendor',
-          'copy:scripts'
+          'copy:scripts',
+          'copy:images'
         ],
         options: {
           interrupt: true
@@ -357,9 +367,10 @@ module.exports = function( grunt ){
     'compass:clean',
     'compass:dev',
 
-    'jshint:dev',
+    // 'jshint:dev',
     'copy:vendor',
     'copy:scripts',
+    'copy:images',
 
     'watch'
   ]);
@@ -369,10 +380,11 @@ module.exports = function( grunt ){
     'clean',
     'compass:clean',
     'compass:dev',
-    'jshint:dev',
+    // 'jshint:dev',
     'copy:vendor',
-    'copy:scripts'
-    ]);
+    'copy:scripts',
+    'copy:images'
+  ]);
 
   // grunt [default]
   grunt.registerTask( 'default', [

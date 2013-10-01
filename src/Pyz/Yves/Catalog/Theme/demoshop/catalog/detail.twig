@@ -1,0 +1,11 @@
+{% extends "@application/layout.twig" %}
+
+{% block content %}
+<img src="http:{{ product.artSmall }}" style="vertical-align:middle" />
+{{ product.name }}
+<pre>
+{% for name, value in product.toArray %}
+    {{ name }}: {{ dump(value) }}
+{% endfor %}
+</pre>
+{% endblock %}
