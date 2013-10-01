@@ -37,8 +37,9 @@ class Pyz_Zed_Sales_Component_Model_Orderprocess_Definition_Demo extends Project
 
     protected function addDefinitions()
     {
-        $this->setup->addDefinition($this->factory->getModelOrderprocessDefinitionSubprocessNew());
-        $this->setup->addDefinition($this->factory->getModelOrderprocessDefinitionSubprocessClosed());
+        $this->setup->addDefinition($this->factory->getModelOrderprocessDefinitionSubProcessNew());
+        $this->setup->addDefinition($this->factory->getModelOrderprocessDefinitionSubProcessPayment());
+        $this->setup->addDefinition($this->factory->getModelOrderprocessDefinitionSubProcessClosed());
     }
 
     protected function addCommands()
@@ -57,6 +58,9 @@ class Pyz_Zed_Sales_Component_Model_Orderprocess_Definition_Demo extends Project
 
         $states = [
             self::STATE_NEW,
+            self::STATE_WAITING_FOR_PAYMENT,
+            self::STATE_AUTHORIZED,
+            self::STATE_CAPTURED,
             self::STATE_CLOSED,
             self::STATE_FINALLY_CLOSED
         ];
@@ -70,6 +74,7 @@ class Pyz_Zed_Sales_Component_Model_Orderprocess_Definition_Demo extends Project
 
     protected function addSubProcessConnections()
     {
-        $this->setup->addTransition(self::STATE_NEW, self::STATE_CLOSED, self::EVENT_ON_ENTER);
+        $this->setup->addTransition(self::STATE_NEW, self::STATE_WAITING_FOR_PAYMENT, self::EVENT_ON_ENTER);
+        $this->setup->addTransition(self::STATE_CAPTURED, self::STATE_CLOSED);
     }
 }

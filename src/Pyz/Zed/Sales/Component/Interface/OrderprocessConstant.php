@@ -5,4 +5,8 @@ interface Pyz_Zed_Sales_Component_Interface_OrderprocessConstant extends Project
 
     // Order processes
     const ORDER_PROCESS_DEMO = 'demo';
+
+    // States
+    const STATE_AUTHORIZED = 'authorized';
+    const STATE_CAPTURED = 'captured';
 }
