@@ -55,7 +55,7 @@ if is_default_store; then
   generated_cache_dir=/data/deploy/${environment}/Generated
   [ ! -d $generated_cache_dir ] && mkdir -p $generated_cache_dir
   cp -r $generated_cache_dir src/
-end
+fi
 
 ## ZED - Execute install.php
 echo "Calling install.php..."
