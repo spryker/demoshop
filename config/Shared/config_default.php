@@ -97,7 +97,7 @@ $config['storage'] = [
 
         'defaultEndpointSetup' => [
             'host' => 'localhost',
-            'port' => 8080,
+            'port' => 10007,
             'path' => '/solr'
         ],
 
