@@ -118,9 +118,7 @@ $config['storage'] = [
             ],
             //necessary to setup cores etc.  - standard solr.xml will point to /cores
             //! solr admin implementation will add /cores so this one needs to be empty
-            'ADMIN' => [
-                'path' => '/'
-            ]
+            'ADMIN' => []
         ]
     ]
 ];
