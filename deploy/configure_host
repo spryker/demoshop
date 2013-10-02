@@ -42,7 +42,7 @@ fi
 ### Solr Update: Create Solr cores
 if is_default_store; then
   ## Solr Init: Create Solr configfiles (solr.xml)
-  cd $destination_release_dir/
+  cd $destination_release_dir
   php -d "newrelic.appname='Deploy($environment)'" cli/index.php --module=solr --controller=cronjob --action=init &> $outfile
   cat $outfile
   if [ `grep -ci "restart solr now" $outfile` -gt 0 ]; then
@@ -51,7 +51,7 @@ if is_default_store; then
     sleep 10s # Let's give tomcat some time to warm-up...
   fi
 
-  cd $destination_release_dir/src/Zed
+  cd $destination_release_dir
   php -d "newrelic.appname='Deploy($environment)'" cli/index.php --module=solr --controller=cronjob --action=update
 fi
 
