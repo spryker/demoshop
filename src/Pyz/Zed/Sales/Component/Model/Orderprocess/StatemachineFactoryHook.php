@@ -3,9 +3,9 @@
 /**
  * @property Generated_Zed_Sales_Component_Factory $factory
  */
-class Pyz_Zed_Sales_Component_Model_Orderprocess_StatemachineFactoryHook
-    implements ProjectA_Zed_Sales_Component_Interface_StatemachineFactoryHook,
-               ProjectA_Zed_Library_Dependency_Factory_Interface
+class Pyz_Zed_Sales_Component_Model_Orderprocess_StatemachineFactoryHook implements
+    ProjectA_Zed_Sales_Component_Interface_StatemachineFactoryHook,
+    ProjectA_Zed_Library_Dependency_Factory_Interface
 {
 
     use ProjectA_Zed_Library_Dependency_Factory_Trait;
@@ -13,7 +13,6 @@ class Pyz_Zed_Sales_Component_Model_Orderprocess_StatemachineFactoryHook
     protected function getRules ()
     {
         $rules = new ProjectA_Zed_Library_StateMachine_Transition_Guard_Rule_Collection();
-        $rules->addRule($this->factory->getModelOrderprocessRuleDemoPaymentTransactionApproved());
         return $rules;
     }
 
@@ -27,6 +26,5 @@ class Pyz_Zed_Sales_Component_Model_Orderprocess_StatemachineFactoryHook
         $guards->addGuard($this->getRules());
         $guards->addGuard($stateMachine->getGuard());
         $stateMachine->setGuard($guards);
-        // @todo think about it
     }
 }

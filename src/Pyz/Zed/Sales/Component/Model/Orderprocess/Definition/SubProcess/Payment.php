@@ -8,10 +8,10 @@ use ProjectA\Zed\FakePayment\Component\Constants\StatemachineConstants;
 
 class Pyz_Zed_Sales_Component_Model_Orderprocess_Definition_Subprocess_Payment extends ProjectA_Zed_Sales_Component_Model_Orderprocess_Definition_Abstract implements
     Pyz_Zed_Sales_Component_Interface_OrderprocessConstant,
-    ProjectA_Zed_FakePayment_Component_Dependency_Facade_Interface
+    ProjectA_Zed_DemoPayment_Component_Dependency_Facade_Interface
 {
 
-    use ProjectA_Zed_FakePayment_Component_Dependency_Facade_Trait;
+    use ProjectA_Zed_DemoPayment_Component_Dependency_Facade_Trait;
 
     /**
      * @param string $processName
@@ -38,8 +38,8 @@ class Pyz_Zed_Sales_Component_Model_Orderprocess_Definition_Subprocess_Payment e
 
     protected function addCommands()
     {
-        $this->setup->addCommand(self::STATE_WAITING_FOR_PAYMENT, self::EVENT_ON_ENTER, $this->facadeFakePayment->getFacadeStateMachine()->getCommandAuthorizeGrandTotal());
-        $this->setup->addCommand(self::STATE_AUTHORIZED, self::EVENT_CAPTURE_PAYMENT, $this->facadeFakePayment->getFacadeStateMachine()->getCommandCaptureGrandTotal());
+        $this->setup->addCommand(self::STATE_WAITING_FOR_PAYMENT, self::EVENT_ON_ENTER, $this->facadeDemoPayment->getFacadeStateMachine()->getCommandAuthorizeGrandTotal());
+        $this->setup->addCommand(self::STATE_AUTHORIZED, self::EVENT_CAPTURE_PAYMENT, $this->facadeDemoPayment->getFacadeStateMachine()->getCommandCaptureGrandTotal());
     }
 
     protected function addFlags()
