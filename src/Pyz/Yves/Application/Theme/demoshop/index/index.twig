@@ -1,11 +1,13 @@
 {% extends "@application/layout/full.twig" %}
 
 {% block content %}
-<div class="consumeHeight" id="home">
-    <section>
-        Willkommen zu Yves!
-        <br /><br />
-        Hier geht es zum Cart: <a href="{{ url('cart') }}">link</a>
-    </section>
-</div>
+    {% include "@application/partials/navbar.twig" with {'categories': categories } only %}
+
+    <div class="consumeHeight" id="home">
+        <section style="padding:20px">
+            Willkommen zu Yves!
+            <br /><br />
+            Hier geht es zum Cart: <a href="{{ url('cart') }}">link</a>
+        </section>
+    </div>
 {% endblock %}
