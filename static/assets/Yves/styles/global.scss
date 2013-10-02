@@ -88,7 +88,7 @@ header .cart .glyphicon { float:left; margin-left:-28px; top:5px; font-size:21px
 
 #breadcrumbs { margin:0; padding:0; list-style:none; font-size:13px; white-space:nowrap; overflow:hidden; text-overflow:ellipsis; cursor:default; }
 #breadcrumbs li { display:inline; }
-#breadcrumbs li:after { display:inline; content:' » '; }
+#breadcrumbs li:after { display:inline; content:' &#8811; '; }
 #breadcrumbs li:last-child:after { content:''; }
 #breadcrumbs a { color:inherit; text-decoration:none; }
 #breadcrumbs a:hover { text-decoration:underline; }
