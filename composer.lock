@@ -52,12 +52,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/doctrine/inflector.git",
-                "reference": "54b8333d2a5682afdc690060c1cf384ba9f47f08"
+                "reference": "v1.0"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/doctrine/inflector/zipball/54b8333d2a5682afdc690060c1cf384ba9f47f08",
-                "reference": "54b8333d2a5682afdc690060c1cf384ba9f47f08",
+                "url": "https://github.com/doctrine/inflector/archive/v1.0.zip",
+                "reference": "v1.0",
                 "shasum": ""
             },
             "require": {
@@ -93,7 +93,7 @@
                     "email": "kontakt@beberlei.de"
                 },
                 {
-                    "name": "Johannes M. Schmitt",
+                    "name": "Johannes Schmitt",
                     "email": "schmittjoh@gmail.com",
                     "homepage": "http://jmsyst.com",
                     "role": "Developer of wrapped JMSSerializerBundle"
@@ -293,13 +293,13 @@
             "version": "v2.2.0",
             "source": {
                 "type": "git",
-                "url": "https://github.com/nervetattoo/elasticsearch.git",
-                "reference": "ed9244b341e0139a4278ac9bdf3cb63d57539dfb"
+                "url": "https://github.com/nervetattoo/elasticsearch",
+                "reference": "v2.2.0"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/nervetattoo/elasticsearch/zipball/ed9244b341e0139a4278ac9bdf3cb63d57539dfb",
-                "reference": "ed9244b341e0139a4278ac9bdf3cb63d57539dfb",
+                "url": "https://github.com/nervetattoo/elasticsearch/archive/v2.2.0.zip",
+                "reference": "v2.2.0",
                 "shasum": ""
             },
             "require": {
@@ -506,7 +506,7 @@
             "source": {
                 "type": "git",
                 "url": "git@codebasehq.com:project-a/core/cart.git",
-                "reference": "72a4185e8638ddae164972cd367ef348693e5c83"
+                "reference": "247b1db8c62a56187983a892494675fad7ecf1b9"
             },
             "require": {
                 "php": ">=5.4.0",
@@ -534,7 +534,7 @@
             "keywords": [
                 "Cart"
             ],
-            "time": "2013-10-01 12:06:29"
+            "time": "2013-10-02 11:08:47"
         },
         {
             "name": "project-a/catalog-package",
@@ -542,7 +542,7 @@
             "source": {
                 "type": "git",
                 "url": "git@codebasehq.com:project-a/core/catalog.git",
-                "reference": "3b0922906fb12b78545b1f3daf8242104e4bebe8"
+                "reference": "53dd5c951c8873d2aeffc835335bab5cf619d408"
             },
             "require": {
                 "php": ">=5.4.0",
@@ -578,7 +578,7 @@
                 "Price",
                 "Stock"
             ],
-            "time": "2013-10-01 14:08:13"
+            "time": "2013-10-02 08:48:52"
         },
         {
             "name": "project-a/checkout-package",
@@ -586,7 +586,7 @@
             "source": {
                 "type": "git",
                 "url": "git@codebasehq.com:project-a/core/checkout.git",
-                "reference": "0157e65c43f89ed4fc24ff0aa07c8b696739de93"
+                "reference": "d82c976d59c33e6f3af6ffe26151850446ea3589"
             },
             "require": {
                 "php": ">=5.4.0",
@@ -613,7 +613,7 @@
                 "PaymentControl",
                 "Salesrule"
             ],
-            "time": "2013-10-01 14:49:20"
+            "time": "2013-10-02 11:09:06"
         },
         {
             "name": "project-a/console-package",
@@ -908,7 +908,7 @@
             "source": {
                 "type": "git",
                 "url": "git@codebasehq.com:project-a/core/library-2.git",
-                "reference": "c034a3e43e33d5163f9e2266026d3d2e6795a0d7"
+                "reference": "798e4bba872e90de1f13dd43913e6f321b8f9279"
             },
             "require": {
                 "digital-canvas/zend-framework": ">=1.12.2",
@@ -948,7 +948,7 @@
                 }
             ],
             "description": "Project-A Library",
-            "time": "2013-10-02 07:26:50"
+            "time": "2013-10-02 11:09:21"
         },
         {
             "name": "project-a/lumberjack-package",
@@ -1022,7 +1022,7 @@
             "source": {
                 "type": "git",
                 "url": "git@codebasehq.com:project-a/core/payment.git",
-                "reference": "5553f65ac9e50f4922479feb99f6e85e1bb8064a"
+                "reference": "2fdd6e8b1e3e7fd25d1a7a4e52d0cbfffe3256ce"
             },
             "require": {
                 "php": ">=5.4.0"
@@ -1045,7 +1045,7 @@
             "keywords": [
                 "payment, payment provider"
             ],
-            "time": "2013-10-02 07:27:05"
+            "time": "2013-10-02 10:31:41"
         },
         {
             "name": "project-a/sales-package",
@@ -1053,7 +1053,7 @@
             "source": {
                 "type": "git",
                 "url": "git@codebasehq.com:project-a/core/sales.git",
-                "reference": "ce66ecfd096894dc73e3038d6ef033692ded38eb"
+                "reference": "ce15be28b968e62d2361852959a3cd940d4383f2"
             },
             "require": {
                 "php": ">=5.4.0",
@@ -1080,7 +1080,7 @@
                 "Sales",
                 "Task"
             ],
-            "time": "2013-10-02 08:17:43"
+            "time": "2013-10-02 10:32:41"
         },
         {
             "name": "project-a/silex-routing",
@@ -1233,13 +1233,13 @@
             "version": "1.0.0",
             "source": {
                 "type": "git",
-                "url": "https://github.com/php-fig/log.git",
-                "reference": "fe0936ee26643249e916849d48e3a51d5f5e278b"
+                "url": "https://github.com/php-fig/log",
+                "reference": "1.0.0"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/php-fig/log/zipball/fe0936ee26643249e916849d48e3a51d5f5e278b",
-                "reference": "fe0936ee26643249e916849d48e3a51d5f5e278b",
+                "url": "https://github.com/php-fig/log/archive/1.0.0.zip",
+                "reference": "1.0.0",
                 "shasum": ""
             },
             "type": "library",
@@ -2045,21 +2045,21 @@
         },
         {
             "name": "symfony/icu",
-            "version": "v1.1.0",
+            "version": "v1.2.0",
             "target-dir": "Symfony/Component/Icu",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/Icu.git",
-                "reference": "b4081efff21a8a85c57789a39f454fed244f8e46"
+                "reference": "7299cd3d8d6602103d1ebff5d0a9917b7bc6de72"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/Icu/zipball/b4081efff21a8a85c57789a39f454fed244f8e46",
-                "reference": "b4081efff21a8a85c57789a39f454fed244f8e46",
+                "url": "https://api.github.com/repos/symfony/Icu/zipball/7299cd3d8d6602103d1ebff5d0a9917b7bc6de72",
+                "reference": "7299cd3d8d6602103d1ebff5d0a9917b7bc6de72",
                 "shasum": ""
             },
             "require": {
-                "lib-icu": ">=3.8",
+                "lib-icu": ">=4.4",
                 "php": ">=5.3.3",
                 "symfony/intl": "~2.3"
             },
@@ -2089,7 +2089,7 @@
                 "icu",
                 "intl"
             ],
-            "time": "2013-06-03 18:32:40"
+            "time": "2013-06-03 18:32:58"
         },
         {
             "name": "symfony/intl",
@@ -2806,7 +2806,7 @@
                 {
                     "name": "Alexandre Salomé",
                     "email": "alexandre.salome@gmail.com",
-                    "homepage": "http://alexandre-salome.fr"
+                    "homepage": "http://alexandre-salome.fr/"
                 }
             ],
             "description": "PHP Library for Selenium",
