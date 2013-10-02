@@ -728,7 +728,7 @@
             "source": {
                 "type": "git",
                 "url": "git@codebasehq.com:project-a/core/dependency.git",
-                "reference": "49bcc71a35dbfa3932abeae8b140e88f2f534da3"
+                "reference": "38374af15d2972d86dc9581f2a924c4297aba33c"
             },
             "type": "library",
             "autoload": {
@@ -740,7 +740,7 @@
             "keywords": [
                 "dependency"
             ],
-            "time": "2013-10-01 14:48:59"
+            "time": "2013-10-01 19:54:07"
         },
         {
             "name": "project-a/dwh-package",
@@ -823,11 +823,7 @@
             "source": {
                 "type": "git",
                 "url": "git@codebasehq.com:project-a/core/glossary.git",
-<<<<<<< HEAD
-                "reference": "d88d6b5e796680efa35b2d8c3040510e9bc924c3"
-=======
                 "reference": "2902ae713f6276ba0c260acc08dcc862772cf4c4"
->>>>>>> fa2dc324f19fb1fb331fb067612a3638d18432ad
             },
             "require": {
                 "php": ">=5.4.0"
@@ -851,11 +847,7 @@
                 "i18n",
                 "translation"
             ],
-<<<<<<< HEAD
-            "time": "2013-09-26 10:17:05"
-=======
             "time": "2013-09-26 15:23:35"
->>>>>>> fa2dc324f19fb1fb331fb067612a3638d18432ad
         },
         {
             "name": "project-a/infrastructure-package",
@@ -916,7 +908,7 @@
             "source": {
                 "type": "git",
                 "url": "git@codebasehq.com:project-a/core/library-2.git",
-                "reference": "26ab044447cc005549f7a0bf33d26048cecf610d"
+                "reference": "385d050c9ca8de670ddbfd1ac3f05e07167b8d87"
             },
             "require": {
                 "digital-canvas/zend-framework": ">=1.12.2",
@@ -956,7 +948,7 @@
                 }
             ],
             "description": "Project-A Library",
-            "time": "2013-10-01 13:23:33"
+            "time": "2013-10-01 18:41:56"
         },
         {
             "name": "project-a/lumberjack-package",
@@ -1030,7 +1022,7 @@
             "source": {
                 "type": "git",
                 "url": "git@codebasehq.com:project-a/core/payment.git",
-                "reference": "59c13ca2cb5c14223f4d4886acd9e4a21363ccd4"
+                "reference": "78e7d4b76bf16095952c26ad0b6e6dc7d9e78dca"
             },
             "require": {
                 "php": ">=5.4.0"
@@ -1053,7 +1045,7 @@
             "keywords": [
                 "payment, payment provider"
             ],
-            "time": "2013-10-01 15:27:03"
+            "time": "2013-10-01 19:53:14"
         },
         {
             "name": "project-a/sales-package",
@@ -1241,13 +1233,13 @@
             "version": "1.0.0",
             "source": {
                 "type": "git",
-                "url": "https://github.com/php-fig/log.git",
-                "reference": "fe0936ee26643249e916849d48e3a51d5f5e278b"
+                "url": "https://github.com/php-fig/log",
+                "reference": "1.0.0"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/php-fig/log/zipball/fe0936ee26643249e916849d48e3a51d5f5e278b",
-                "reference": "fe0936ee26643249e916849d48e3a51d5f5e278b",
+                "url": "https://github.com/php-fig/log/archive/1.0.0.zip",
+                "reference": "1.0.0",
                 "shasum": ""
             },
             "type": "library",
@@ -1386,12 +1378,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/fabpot/Silex.git",
-                "reference": "5ee043a6b5018a5862de4ef0ef89bf7e74eef230"
+                "reference": "86fb50c1aa313cbbe6ef58d13cedced1c2be3255"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/fabpot/Silex/zipball/5ee043a6b5018a5862de4ef0ef89bf7e74eef230",
-                "reference": "5ee043a6b5018a5862de4ef0ef89bf7e74eef230",
+                "url": "https://api.github.com/repos/fabpot/Silex/zipball/86fb50c1aa313cbbe6ef58d13cedced1c2be3255",
+                "reference": "86fb50c1aa313cbbe6ef58d13cedced1c2be3255",
                 "shasum": ""
             },
             "require": {
@@ -1462,7 +1454,7 @@
             "keywords": [
                 "microframework"
             ],
-            "time": "2013-09-27 11:33:11"
+            "time": "2013-10-01 17:07:38"
         },
         {
             "name": "solarium/solarium",
@@ -1872,8 +1864,6 @@
             "time": "2013-09-19 09:45:20"
         },
         {
-<<<<<<< HEAD
-=======
             "name": "symfony/form",
             "version": "v2.3.5",
             "target-dir": "Symfony/Component/Form",
@@ -1933,7 +1923,6 @@
             "time": "2013-09-19 09:45:20"
         },
         {
->>>>>>> fa2dc324f19fb1fb331fb067612a3638d18432ad
             "name": "symfony/http-foundation",
             "version": "v2.3.5",
             "target-dir": "Symfony/Component/HttpFoundation",
@@ -2055,8 +2044,6 @@
             "time": "2013-09-27 07:31:40"
         },
         {
-<<<<<<< HEAD
-=======
             "name": "symfony/icu",
             "version": "v1.2.0",
             "target-dir": "Symfony/Component/Icu",
@@ -2234,7 +2221,6 @@
             "time": "2013-09-19 09:45:20"
         },
         {
->>>>>>> fa2dc324f19fb1fb331fb067612a3638d18432ad
             "name": "symfony/process",
             "version": "v2.3.5",
             "target-dir": "Symfony/Component/Process",
@@ -2282,8 +2268,6 @@
             "time": "2013-09-19 09:45:20"
         },
         {
-<<<<<<< HEAD
-=======
             "name": "symfony/property-access",
             "version": "v2.3.5",
             "target-dir": "Symfony/Component/PropertyAccess",
@@ -2342,7 +2326,6 @@
             "time": "2013-09-19 09:45:20"
         },
         {
->>>>>>> fa2dc324f19fb1fb331fb067612a3638d18432ad
             "name": "symfony/routing",
             "version": "v2.3.5",
             "target-dir": "Symfony/Component/Routing",
@@ -2401,8 +2384,6 @@
             "time": "2013-09-19 09:45:20"
         },
         {
-<<<<<<< HEAD
-=======
             "name": "symfony/translation",
             "version": "v2.3.5",
             "target-dir": "Symfony/Component/Translation",
@@ -2458,7 +2439,6 @@
             "time": "2013-09-19 09:45:20"
         },
         {
->>>>>>> fa2dc324f19fb1fb331fb067612a3638d18432ad
             "name": "symfony/twig-bridge",
             "version": "v2.3.5",
             "target-dir": "Symfony/Bridge/Twig",
@@ -2525,8 +2505,6 @@
             "time": "2013-09-19 09:45:20"
         },
         {
-<<<<<<< HEAD
-=======
             "name": "symfony/validator",
             "version": "v2.3.5",
             "target-dir": "Symfony/Component/Validator",
@@ -2588,7 +2566,6 @@
             "time": "2013-09-19 09:45:20"
         },
         {
->>>>>>> fa2dc324f19fb1fb331fb067612a3638d18432ad
             "name": "twig/twig",
             "version": "v1.13.2",
             "source": {
@@ -2972,17 +2949,17 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/Behat/Mink.git",
-                "reference": "v1.5.0"
+                "reference": "0769e6d9726c140a54dbf827a438c0f9912749fe"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Behat/Mink/zipball/v1.5.0",
-                "reference": "v1.5.0",
+                "url": "https://api.github.com/repos/Behat/Mink/zipball/0769e6d9726c140a54dbf827a438c0f9912749fe",
+                "reference": "0769e6d9726c140a54dbf827a438c0f9912749fe",
                 "shasum": ""
             },
             "require": {
                 "php": ">=5.3.1",
-                "symfony/css-selector": ">=2.0,<3.0"
+                "symfony/css-selector": "~2.0"
             },
             "suggest": {
                 "behat/mink-browserkit-driver": "extremely fast headless driver for Symfony\\Kernel-based apps (Sf2, Silex)",
@@ -3187,19 +3164,19 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/Behat/MinkSeleniumDriver.git",
-                "reference": "v1.1.0"
+                "reference": "a782b031cb8a94b449b9ccecdcd0e79206bbc882"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Behat/MinkSeleniumDriver/zipball/v1.1.0",
-                "reference": "v1.1.0",
+                "url": "https://api.github.com/repos/Behat/MinkSeleniumDriver/zipball/a782b031cb8a94b449b9ccecdcd0e79206bbc882",
+                "reference": "a782b031cb8a94b449b9ccecdcd0e79206bbc882",
                 "shasum": ""
             },
             "require": {
-                "alexandresalome/php-selenium": ">=1.0.1,<1.1",
-                "behat/mink": ">=1.5,<1.6",
+                "alexandresalome/php-selenium": "~1.0.1",
+                "behat/mink": "~1.5.0",
                 "php": ">=5.3.1",
-                "symfony/dom-crawler": ">=2.0,<3.0"
+                "symfony/dom-crawler": "~2.0"
             },
             "type": "mink-driver",
             "extra": {
@@ -3240,17 +3217,17 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/Behat/MinkSelenium2Driver.git",
-                "reference": "v1.1.1"
+                "reference": "bcf1b537de37db6db0822d9e7bd97e600fd7a476"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Behat/MinkSelenium2Driver/zipball/v1.1.1",
-                "reference": "v1.1.1",
+                "url": "https://api.github.com/repos/Behat/MinkSelenium2Driver/zipball/bcf1b537de37db6db0822d9e7bd97e600fd7a476",
+                "reference": "bcf1b537de37db6db0822d9e7bd97e600fd7a476",
                 "shasum": ""
             },
             "require": {
-                "behat/mink": ">=1.5,<1.6",
-                "instaclick/php-webdriver": ">=1.0.12.0,<1.1",
+                "behat/mink": "~1.5.0",
+                "instaclick/php-webdriver": "~1.0.12",
                 "php": ">=5.3.1"
             },
             "type": "mink-driver",
@@ -3564,13 +3541,13 @@
             "version": "1.3.3",
             "source": {
                 "type": "git",
-                "url": "git://github.com/sebastianbergmann/php-file-iterator.git",
-                "reference": "1.3.3"
+                "url": "https://github.com/sebastianbergmann/php-file-iterator.git",
+                "reference": "16a78140ed2fc01b945cfa539665fadc6a038029"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://github.com/sebastianbergmann/php-file-iterator/zipball/1.3.3",
-                "reference": "1.3.3",
+                "url": "https://api.github.com/repos/sebastianbergmann/php-file-iterator/zipball/16a78140ed2fc01b945cfa539665fadc6a038029",
+                "reference": "16a78140ed2fc01b945cfa539665fadc6a038029",
                 "shasum": ""
             },
             "require": {
@@ -3602,20 +3579,20 @@
                 "filesystem",
                 "iterator"
             ],
-            "time": "2012-10-11 04:44:38"
+            "time": "2012-10-11 11:44:38"
         },
         {
             "name": "phpunit/php-text-template",
             "version": "1.1.4",
             "source": {
                 "type": "git",
-                "url": "git://github.com/sebastianbergmann/php-text-template.git",
-                "reference": "1.1.4"
+                "url": "https://github.com/sebastianbergmann/php-text-template.git",
+                "reference": "5180896f51c5b3648ac946b05f9ec02be78a0b23"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://github.com/sebastianbergmann/php-text-template/zipball/1.1.4",
-                "reference": "1.1.4",
+                "url": "https://api.github.com/repos/sebastianbergmann/php-text-template/zipball/5180896f51c5b3648ac946b05f9ec02be78a0b23",
+                "reference": "5180896f51c5b3648ac946b05f9ec02be78a0b23",
                 "shasum": ""
             },
             "require": {
@@ -3646,7 +3623,7 @@
             "keywords": [
                 "template"
             ],
-            "time": "2012-10-31 11:15:28"
+            "time": "2012-10-31 18:15:28"
         },
         {
             "name": "phpunit/php-timer",
@@ -4252,61 +4229,6 @@
             "description": "Symfony Stopwatch Component",
             "homepage": "http://symfony.com",
             "time": "2013-09-19 09:45:20"
-        },
-        {
-            "name": "symfony/translation",
-            "version": "v2.3.4",
-            "target-dir": "Symfony/Component/Translation",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/symfony/Translation.git",
-                "reference": "65f888291f0896ad492f9abc6dc05c998373aded"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/symfony/Translation/zipball/65f888291f0896ad492f9abc6dc05c998373aded",
-                "reference": "65f888291f0896ad492f9abc6dc05c998373aded",
-                "shasum": ""
-            },
-            "require": {
-                "php": ">=5.3.3"
-            },
-            "require-dev": {
-                "symfony/config": "~2.0",
-                "symfony/yaml": "~2.2"
-            },
-            "suggest": {
-                "symfony/config": "",
-                "symfony/yaml": ""
-            },
-            "type": "library",
-            "extra": {
-                "branch-alias": {
-                    "dev-master": "2.3-dev"
-                }
-            },
-            "autoload": {
-                "psr-0": {
-                    "Symfony\\Component\\Translation\\": ""
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Fabien Potencier",
-                    "email": "fabien@symfony.com"
-                },
-                {
-                    "name": "Symfony Community",
-                    "homepage": "http://symfony.com/contributors"
-                }
-            ],
-            "description": "Symfony Translation Component",
-            "homepage": "http://symfony.com",
-            "time": "2013-08-26 05:49:51"
         },
         {
             "name": "symfony/web-profiler-bundle",
