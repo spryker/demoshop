@@ -6,6 +6,8 @@ use ProjectA\Zed\Catalog\Component\Exporter\QueryBuilder\AbstractProduct;
 use ProjectA\Zed\Yves\Component\Model\Export\AbstractExport;
 use Pyz\Shared\Catalog\Code\ProductAttributeConstant;
 use Pyz\Shared\Catalog\Code\ProductAttributeSetConstant;
+use \ProjectA_Zed_Price_Component_Interface_PriceTypeConstants as PriceTypeConstants;
+use \ProjectA_Zed_Catalog_Component_Interface_GroupConstant as GroupConstant;
 
 abstract class ProductsExporter extends CoreProductsExporter implements
      \ProjectA_Zed_Yves_Component_Interface_Exporter_Solr,
@@ -34,6 +36,15 @@ abstract class ProductsExporter extends CoreProductsExporter implements
      * @var \ProjectA_Zed_Catalog_Persistence_PacCatalogAttributeSet
      */
     protected $attributeSetEntity;
+
+    /**
+     * @var array
+     */
+    protected $specialGroupAttributes = [
+        GroupConstant::SOLR_SORT => [
+            PriceTypeConstants::FINAL_GROSS_PRICE
+        ]
+    ];
 
     /**
      * @return string
@@ -170,7 +181,17 @@ abstract class ProductsExporter extends CoreProductsExporter implements
         if (!isset($this->groupAttributeNames[$filterGroup])) {
             return [];
         }
-        return array_intersect_key($product, $this->groupAttributeNames[$filterGroup]);
+
+        //add special attributes to groups
+        $groupAttributeNamesByFilterGroup = $this->groupAttributeNames[$filterGroup];
+        if (isset($this->specialGroupAttributes[$filterGroup])) {
+            $groupAttributeNamesByFilterGroup = array_merge(
+                array_flip($this->specialGroupAttributes[$filterGroup]),
+                $groupAttributeNamesByFilterGroup
+            );
+        };
+
+        return array_intersect_key($product, $groupAttributeNamesByFilterGroup);
     }
 
     /**
@@ -231,14 +252,15 @@ abstract class ProductsExporter extends CoreProductsExporter implements
     {
         $attributeVarieties = $this->groupAttributeNames[$filterGroup];
         $data = array();
+
         $data[$id] = $this->getAttributeValuesForSolr($data, $product, $attributeVarieties, 'sort');
-//        $data[$sku]['number_sort_price'] = intval($product['price']);
 
-        //remove doubled int_sort_price
-        unset($data[$id]['int_sort_price']);
+        //add price which is no ordinary attribute
+        $data[$id]['number_sort_price'] = (int) $product[PriceTypeConstants::FINAL_GROSS_PRICE];
+        $data[$id]['number_facet_price'] = (int) $product[PriceTypeConstants::FINAL_GROSS_PRICE];
 
-//        //add price which is no ordinary attribute
-//        $data[$sku]['number_facet_price'] = $product[ProjectA_Zed_Price_Component_Interface_PriceTypeConstants::FINAL_GROSS_PRICE];
+//        //remove doubled int_sort_price
+//        unset($data[$id]['int_sort_price']);
 
         //add categories
         //$data[$sku]['int_facet_category'] = $this->prepareCategories($product);
