@@ -159,21 +159,21 @@
         },
         {
             "name": "guzzle/guzzle",
-            "version": "v3.7.3",
+            "version": "v3.7.4",
             "source": {
                 "type": "git",
                 "url": "https://github.com/guzzle/guzzle.git",
-                "reference": "0f16aad385528b5cf790392cb4a4d16cf600e944"
+                "reference": "b170b028c6bb5799640e46c8803015b0f9a45ed9"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/guzzle/guzzle/zipball/0f16aad385528b5cf790392cb4a4d16cf600e944",
-                "reference": "0f16aad385528b5cf790392cb4a4d16cf600e944",
+                "url": "https://api.github.com/repos/guzzle/guzzle/zipball/b170b028c6bb5799640e46c8803015b0f9a45ed9",
+                "reference": "b170b028c6bb5799640e46c8803015b0f9a45ed9",
                 "shasum": ""
             },
             "require": {
                 "ext-curl": "*",
-                "php": ">=5.3.2",
+                "php": ">=5.3.3",
                 "symfony/event-dispatcher": ">=2.1"
             },
             "replace": {
@@ -247,7 +247,7 @@
                 "rest",
                 "web service"
             ],
-            "time": "2013-09-08 21:09:18"
+            "time": "2013-10-02 20:47:00"
         },
         {
             "name": "ircmaxell/password-compat",
@@ -791,7 +791,7 @@
             "source": {
                 "type": "git",
                 "url": "git@codebasehq.com:project-a/core/frontend.git",
-                "reference": "dfeadcfe5179b5e45f3668776f0fb70541db76a7"
+                "reference": "38b3789f5f1f53b07b913c4c630a5448cc47014b"
             },
             "require": {
                 "php": ">=5.4.0",
@@ -815,7 +815,7 @@
             "keywords": [
                 "Frontend"
             ],
-            "time": "2013-09-30 14:32:06"
+            "time": "2013-10-04 08:11:31"
         },
         {
             "name": "project-a/glossary-package",
@@ -908,7 +908,7 @@
             "source": {
                 "type": "git",
                 "url": "git@codebasehq.com:project-a/core/library-2.git",
-                "reference": "798e4bba872e90de1f13dd43913e6f321b8f9279"
+                "reference": "bb001deb78a6bd5fb46a3f6baa846fed056d9b0e"
             },
             "require": {
                 "digital-canvas/zend-framework": ">=1.12.2",
@@ -948,7 +948,7 @@
                 }
             ],
             "description": "Project-A Library",
-            "time": "2013-10-02 11:09:21"
+            "time": "2013-10-04 08:10:11"
         },
         {
             "name": "project-a/lumberjack-package",
@@ -1549,17 +1549,17 @@
         },
         {
             "name": "symfony-cmf/routing",
-            "version": "1.1.0-RC3",
+            "version": "1.1.0-RC4",
             "target-dir": "Symfony/Cmf/Component/Routing",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony-cmf/Routing.git",
-                "reference": "0a66187607ab11079aa123a72f5ea0a092e27671"
+                "reference": "dd9e8a26dcef15b2608955358b362a3cda1dcdd3"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony-cmf/Routing/zipball/0a66187607ab11079aa123a72f5ea0a092e27671",
-                "reference": "0a66187607ab11079aa123a72f5ea0a092e27671",
+                "url": "https://api.github.com/repos/symfony-cmf/Routing/zipball/dd9e8a26dcef15b2608955358b362a3cda1dcdd3",
+                "reference": "dd9e8a26dcef15b2608955358b362a3cda1dcdd3",
                 "shasum": ""
             },
             "require": {
@@ -1604,7 +1604,7 @@
                 "database",
                 "routing"
             ],
-            "time": "2013-09-03 12:34:23"
+            "time": "2013-09-30 13:01:30"
         },
         {
             "name": "symfony/console",
@@ -2567,16 +2567,16 @@
         },
         {
             "name": "twig/twig",
-            "version": "v1.13.2",
+            "version": "v1.14.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/fabpot/Twig.git",
-                "reference": "6d6a1009427d1f398c9d40904147bf9f723d5755"
+                "reference": "224fc55635d544a2ec8edb3592be18db5a093f59"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/fabpot/Twig/zipball/6d6a1009427d1f398c9d40904147bf9f723d5755",
-                "reference": "6d6a1009427d1f398c9d40904147bf9f723d5755",
+                "url": "https://api.github.com/repos/fabpot/Twig/zipball/224fc55635d544a2ec8edb3592be18db5a093f59",
+                "reference": "224fc55635d544a2ec8edb3592be18db5a093f59",
                 "shasum": ""
             },
             "require": {
@@ -2585,7 +2585,7 @@
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "1.13-dev"
+                    "dev-master": "1.14-dev"
                 }
             },
             "autoload": {
@@ -2612,7 +2612,7 @@
             "keywords": [
                 "templating"
             ],
-            "time": "2013-08-03 15:35:31"
+            "time": "2013-10-03 06:41:20"
         },
         {
             "name": "zendframework/zendframework",
@@ -2620,12 +2620,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/zendframework/zf2.git",
-                "reference": "88b984d1d29be172c506d37d210eb89f2a35e617"
+                "reference": "7a93bb7aa69f40798ec8e0c77def49ccb06ea617"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/zendframework/zf2/zipball/88b984d1d29be172c506d37d210eb89f2a35e617",
-                "reference": "88b984d1d29be172c506d37d210eb89f2a35e617",
+                "url": "https://api.github.com/repos/zendframework/zf2/zipball/7a93bb7aa69f40798ec8e0c77def49ccb06ea617",
+                "reference": "7a93bb7aa69f40798ec8e0c77def49ccb06ea617",
                 "shasum": ""
             },
             "require": {
@@ -2729,7 +2729,7 @@
                 "framework",
                 "zf2"
             ],
-            "time": "2013-10-02 08:10:46"
+            "time": "2013-10-04 06:51:06"
         },
         {
             "name": "zendframework/zendpdf",
