@@ -15,6 +15,10 @@ class Pyz_Zed_ProductImage_Component_Settings implements ProjectA_Zed_Library_Co
         return APPLICATION_ROOT_DIR . DIRECTORY_SEPARATOR . 'data' . DIRECTORY_SEPARATOR . 'share';
     }
 
+    /**
+     * @param string $sku
+     * @return string
+     */
     public function getProductImageSeoFilenameBySku($sku)
     {
         $type = $this->getProductTypeBySku($sku);
@@ -52,25 +56,33 @@ class Pyz_Zed_ProductImage_Component_Settings implements ProjectA_Zed_Library_Co
      */
     protected function getDefaultProductImageSeoFilenameBySku($sku)
     {
-        return $sku;
+        return 'default-' . $sku;
     }
 
-
+    /**
+     * @param string $sku
+     * @return string
+     */
     protected function getConfigProductImageSeoFilenameBySku($sku)
     {
-        $attributeSet = null;
-        switch ($attributeSet)
-
+        return 'config-' . $sku;
     }
 
+    /**
+     * @param string $sku
+     * @return string
+     */
     protected function getSimpleProductImageSeoFilenameBySku($sku)
     {
-
+        return 'simple-' . $sku;
     }
 
+    /**
+     * @param string $sku
+     * @return string
+     */
     protected function getBundleProductImageSeoFilenameBySku($sku)
     {
-
+        return 'bundle-' . $sku;
     }
-
 }
