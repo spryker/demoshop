@@ -354,7 +354,8 @@ module.exports = function( grunt ){
 //  'jshint:dist',
 //  'jasmine',  // Jasnine should be part of task "test", not "dist" - don't run tests on production
     'copy:vendor',
-    'requirejs:all',
+    'copy:scripts',
+    'copy:images',
 
     'hashmap',
     'hashmapExt'
