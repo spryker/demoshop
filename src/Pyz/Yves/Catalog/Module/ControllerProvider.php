@@ -14,9 +14,5 @@ class ControllerProvider extends CoreControllerProvider
         parent::defineControllers();
 
         $this->createGetController('/catalog/', 'CatalogController', 'index', self::ROUTE_CATALOG_INDEX);
-//            ->assert('catalogProduct', '[0-9]+')
-//            ->convert('catalogProduct', function ($id, Request $request) {
-//                    return Catalog::createCatalogProduct($id, $this->app->getStorageKeyValue());
-//                });
     }
 }

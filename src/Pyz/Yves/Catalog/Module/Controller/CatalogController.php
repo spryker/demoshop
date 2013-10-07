@@ -11,9 +11,6 @@ class CatalogController extends CoreCatalogController
     {
         $search = new FacetSearch($this->request);
         $result = $search->getResult();
-
-        $result['categories'] = Category::getCategoryTree($this->app->getStorageKeyValue());
-
         return $result;
     }
 }

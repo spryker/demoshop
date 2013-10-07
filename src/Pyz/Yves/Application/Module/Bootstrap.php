@@ -1,6 +1,7 @@
 <?php
 namespace Pyz\Yves\Application\Module;
 
+use ProjectA\Yves\Catalog\Component\Model\Category;
 use ProjectA\Yves\Library\Silex\Application;
 use ProjectA\Yves\Library\Silex\Provider\CookieServiceProvider;
 use ProjectA\Yves\Library\Silex\Provider\StorageServiceProvider;
@@ -87,4 +88,13 @@ class Bootstrap extends \ProjectA\Yves\Library\Silex\Bootstrap
             new SilexRouter($app)
         ];
     }
+
+    protected function globalTemplateVariables(Application $app)
+    {
+        return [
+            'categories' => Category::getCategoryTree($app->getStorageKeyValue())
+        ];
+    }
+
+
 }

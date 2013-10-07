@@ -11,9 +11,5 @@ class IndexController extends Controller
 
     public function indexAction()
     {
-        $kvStorage = StorageInstanceBuilder::getKvStorageReadInstance();
-        return [
-            'categories' => Category::getCategoryTree($kvStorage)
-        ];
     }
 }
