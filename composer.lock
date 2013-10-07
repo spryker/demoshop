@@ -506,7 +506,7 @@
             "source": {
                 "type": "git",
                 "url": "git@codebasehq.com:project-a/core/cart.git",
-                "reference": "247b1db8c62a56187983a892494675fad7ecf1b9"
+                "reference": "d9697a85a9841f90c5025d7a1705e323f17cb11d"
             },
             "require": {
                 "php": ">=5.4.0",
@@ -534,7 +534,7 @@
             "keywords": [
                 "Cart"
             ],
-            "time": "2013-10-02 11:08:47"
+            "time": "2013-10-07 08:13:22"
         },
         {
             "name": "project-a/catalog-package",
@@ -542,7 +542,7 @@
             "source": {
                 "type": "git",
                 "url": "git@codebasehq.com:project-a/core/catalog.git",
-                "reference": "cf6cc1095a4800f37cf939c8fe492f8a112b5ab1"
+                "reference": "a550a147a838c3dcd92d416e581b72c6f8bd09c1"
             },
             "require": {
                 "php": ">=5.4.0",
@@ -578,7 +578,7 @@
                 "Price",
                 "Stock"
             ],
-            "time": "2013-10-04 12:09:53"
+            "time": "2013-10-07 13:44:17"
         },
         {
             "name": "project-a/checkout-package",
@@ -908,7 +908,7 @@
             "source": {
                 "type": "git",
                 "url": "git@codebasehq.com:project-a/core/library-2.git",
-                "reference": "bb001deb78a6bd5fb46a3f6baa846fed056d9b0e"
+                "reference": "c00f5c93a224878483d042b14108d69c5f53e4f4"
             },
             "require": {
                 "digital-canvas/zend-framework": ">=1.12.2",
@@ -948,7 +948,7 @@
                 }
             ],
             "description": "Project-A Library",
-            "time": "2013-10-04 08:10:11"
+            "time": "2013-10-07 13:08:11"
         },
         {
             "name": "project-a/lumberjack-package",

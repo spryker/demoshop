@@ -65,7 +65,7 @@
                 <div class="oldPrice">{{ product.attributes.recommended_retail_price }}</div>
             {% endif %}
             <div class="price">{{ product.price|price }}</div>
-            <div class="hint"><hardcoded>incl. 19% VAT</hardcoded></div>
+            <div class="hint"><hardcoded>incl. {{ product.attributes.tax_rate }}% VAT</hardcoded></div>
 
             {% if product.stock > 0 %}
                 <form action="{{ url('cart') }}">
@@ -96,11 +96,13 @@
             <h4>More details</h4>
             <hardcoded block>
             <ul>
-                <li>Material: Wood</li>
-                <li>Primary usage: Home</li>
-                <li>Dimensions: 25 x 30 x 1500 cm</li>
+                <li>Material: {{ product.attributes.material }}</li>
+                <li>Dimensions: {{ product.attributes.height }} x {{ product.attributes.width }} x {{ product.attributes.length }} cm</li>
+                <li>Color: {{ product.attributes.color }}</li>
             </ul>
             </hardcoded>
         </aside>
     </section>
 {% endblock %}
+
+{% block title %}{{ product.attributes.page_title }}{% endblock %}
