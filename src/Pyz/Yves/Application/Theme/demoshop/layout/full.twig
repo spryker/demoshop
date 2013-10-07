@@ -23,20 +23,26 @@
     <header>
         <div class="row">
             <a href="/" id="logo" class="col col33">
+                <hardcoded block>
                 <img src="/images/logo.png" alt="logo" />
+                </hardcoded>
             </a>
             <div class="col col67">
+                <hardcoded block>
                 <ul class="usps">
                     <li><span class="glyphicon glyphicon-gift"></span>Free Shipping & Return</li>
                     <li><span class="glyphicon glyphicon-refresh"></span>30 Days of Return</li>
                     <li><span class="glyphicon glyphicon-phone-alt"></span>Hotline: +49 (0) 30 340 606 300</li>
                 </ul>
+                </hardcoded>
             </div>
         </div>
         <div class="row">
             <div class="col col33">
+                <hardcoded block>
                 <input class="search fullWidth" type="text" placeholder="Find Your Product" />
                 <span class="glyphicon glyphicon-search"></span>
+                </hardcoded>
             </div>
             <div class="col col67">
                 <ul class="cart menu">
@@ -44,15 +50,17 @@
                         <a href="{{ url('cart') }}">
                             <span class="glyphicon glyphicon-shopping-cart"></span>
                             <span class="main">Your cart</span>
-                            0 products
+                            <hardcoded>0 products</hardcoded>
                         </a>
                     </li>
                 </ul>
                 <ul class="customer menu">
                     <li>
+                        <hardcoded block>
                         <a href="customer.php">
                             <span class="glyphicon glyphicon-log-in"></span> Login
                         </a>
+                        </hardcoded>
                     </li>
                 </ul>
             </div>
@@ -65,6 +73,7 @@
 <footer>
     {% block footer %}
     <section class="transparent">
+        <hardcoded block>
         <div class="col col33">
             <h4>Payment options</h4>
             <ul>
@@ -85,6 +94,7 @@
                 <li><a href="cms.html">Contact us</a></li>
             </ul>
         </div>
+        </hardcoded>
     </section>
     {% endblock %}
 </footer>

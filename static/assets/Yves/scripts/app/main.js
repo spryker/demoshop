@@ -5,6 +5,12 @@ var app = {
         for (var i in this.additionals) {
             this[this.additionals[i]].init();
         }
+        $(document).keyup(function(e) {
+            if (e.keyCode !== 160) {
+                return;
+            }
+            $('body').toggleClass('showHardcoded');
+        });
     },
     additionals : [],
     viewport : {

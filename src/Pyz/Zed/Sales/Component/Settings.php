@@ -1,4 +1,5 @@
 <?php
+use ProjectA\Shared\Sales\Transfer\Order;
 
 /**
  * @property Generated_Zed_Sales_Component_Factory $factory
@@ -21,5 +22,14 @@ class Pyz_Zed_Sales_Component_Settings extends ProjectA_Zed_Sales_Component_Sett
     public function getStatemachineDefinitionContainer()
     {
         return $this->factory->getModelOrderprocessDefinitionContainer();
+    }
+
+    /**
+     * @param Order $transferOrder
+     * @return string
+     */
+    public function getProcessNameForNewOrder(Order $transferOrder)
+    {
+        return 'Demo';
     }
 }
