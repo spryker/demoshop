@@ -142,18 +142,18 @@ $config['jenkins'] = array(
  * STORE
  */
 $config['host'] = array(
-    'yves'          => '',
-    'zed'           => '',
-    'zed_local'     => '',
+    'yves'          => 'http://www-development.project-yz.com',
+    'zed'           => 'http://zed-development.project-yz.com',
+    'zed_local'     => 'localhost:10001',
 
     'static_assets' => '',
     'static_media'  => '',
 );
 
 $config['host_ssl'] = array(
-    'yves'          => '',
-    'zed'           => '',
-    'zed_local'     => '',
+    'yves'          => 'https://www-development.project-yz.com',
+    'zed'           => 'https://zed-development.project-yz.com',
+    'zed_local'     => 'localhost:10001',
 
     'static_assets' => '',
     'static_media'  => '',
