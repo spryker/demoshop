@@ -23,7 +23,7 @@
     </h2>
 
     <nav class="zed:header__nav">
-        <?php if (ProjectA\Zed\Auth\Component\Model\Auth::getInstance()->hasIdentity()): ?>
+        <?php if (ProjectA\Zed\Auth\Component\Model\Auth::getInstance()->hasIdentity()  || APPLICATION_ENV === 'development'): ?>
             <?php $this->navigation()->getContainer()->findOneById('login-logout')->setVisible(false); ?>
             <?php $this->navigation()->getContainer()->findOneById('setup-index')->setVisible(APPLICATION_ENV !== 'production') ?>
             <?php echo $this->navigation()->menu(); ?>
