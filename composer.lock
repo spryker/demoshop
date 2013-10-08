@@ -542,7 +542,7 @@
             "source": {
                 "type": "git",
                 "url": "git@codebasehq.com:project-a/core/catalog.git",
-                "reference": "77d231581aeb4bd3a2e28b90313a7b9086a6bb2f"
+                "reference": "0e3092f21e8b4f9cc5ad711a3dc5b0202f4ffbbb"
             },
             "require": {
                 "php": ">=5.4.0",
@@ -578,7 +578,7 @@
                 "Price",
                 "Stock"
             ],
-            "time": "2013-10-07 14:19:23"
+            "time": "2013-10-08 08:32:41"
         },
         {
             "name": "project-a/checkout-package",
@@ -586,7 +586,7 @@
             "source": {
                 "type": "git",
                 "url": "git@codebasehq.com:project-a/core/checkout.git",
-                "reference": "d82c976d59c33e6f3af6ffe26151850446ea3589"
+                "reference": "e941f43fff14f9b39dfececa4003d3a4abff7b56"
             },
             "require": {
                 "php": ">=5.4.0",
@@ -613,7 +613,7 @@
                 "PaymentControl",
                 "Salesrule"
             ],
-            "time": "2013-10-02 11:09:06"
+            "time": "2013-10-08 08:02:33"
         },
         {
             "name": "project-a/console-package",
@@ -1022,7 +1022,7 @@
             "source": {
                 "type": "git",
                 "url": "git@codebasehq.com:project-a/core/payment.git",
-                "reference": "2fdd6e8b1e3e7fd25d1a7a4e52d0cbfffe3256ce"
+                "reference": "553ac657a23c4d4cbe8e670f6fffaa00214e74ad"
             },
             "require": {
                 "php": ">=5.4.0"
@@ -1045,7 +1045,7 @@
             "keywords": [
                 "payment, payment provider"
             ],
-            "time": "2013-10-02 10:31:41"
+            "time": "2013-10-08 07:36:39"
         },
         {
             "name": "project-a/sales-package",
