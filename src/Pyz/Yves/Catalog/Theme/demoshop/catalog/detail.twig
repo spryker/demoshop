@@ -6,8 +6,8 @@
     <section class="consumeHeight" id="product">
         <ul id="breadcrumbs">
             <li><hardcoded><a href="/">Home</a></hardcoded></li>
-            <li><hardcoded>{{ product.attributes.brand }}</hardcoded></li>
-            <li>{{ product.attributes.name }}</li>
+            <li><hardcoded>{{ product.brand }}</hardcoded></li>
+            <li>{{ product.name }}</li>
         </ul>
         <aside class="assist col col25">
             <hardcoded block>
@@ -35,8 +35,8 @@
                     <span class="glyphicon glyphicon-chevron-right"></span>
                     </hardcoded>
                 </div>
-                {#{% if product.attributes.image %}#}
-                    {#<img src="{{ product.attributes.image }}" alt="" />#}
+                {#{% if product.image %}#}
+                    {#<img src="{{ product.image }}" alt="" />#}
                 {#{% else %}#}
                     <img src="/images/product/default.png" alt="" />
                 {#{% endif %}#}
@@ -59,13 +59,13 @@
             </ul>
         </div>
         <aside class="item col col25">
-            <h3>{{ product.attributes.name }}</h3>
-            <h4>by {{ product.attributes.brand }}</h4>
-            {% if product.attributes.recommended_retail_price %}
-                <div class="oldPrice">{{ product.attributes.recommended_retail_price }}</div>
+            <h3>{{ product.name }}</h3>
+            <h4>by {{ product.brand }}</h4>
+            {% if product.recommended_retail_price %}
+                <div class="oldPrice">{{ product.recommended_retail_price }}</div>
             {% endif %}
             <div class="price">{{ product.price|price }}</div>
-            <div class="hint"><hardcoded>incl. 19% VAT</hardcoded></div>
+            <div class="hint"><hardcoded>incl. {{ product.tax_rate }}% VAT</hardcoded></div>
 
             {% if product.stock > 0 %}
                 <form action="{{ url('cart') }}">
@@ -83,24 +83,26 @@
         <hr />
 
         <aside class="superDescription col col25">
-            <h4>{{ product.attributes.brand }}</h4>
+            <h4>{{ product.brand }}</h4>
             <hardcoded block>
             <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.</p>
             </hardcoded>
         </aside>
         <div class="itemDescription col col50">
-            <h4>{{ product.attributes.name }}</h4>
-            <p>{{ product.attributes.description }}</p>
+            <h4>{{ product.name }}</h4>
+            <p>{{ product.description }}</p>
         </div>
         <aside class="specs col col25">
             <h4>More details</h4>
             <hardcoded block>
             <ul>
-                <li>Material: Wood</li>
-                <li>Primary usage: Home</li>
-                <li>Dimensions: 25 x 30 x 1500 cm</li>
+                <li>Material: {{ product.material }}</li>
+                <li>Dimensions: {{ product.height }} x {{ product.width }} x {{ product.length }} cm</li>
+                <li>Color: {{ product.color }}</li>
             </ul>
             </hardcoded>
         </aside>
     </section>
 {% endblock %}
+
+{% block title %}{{ product.page_title }}{% endblock %}
