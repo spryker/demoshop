@@ -506,7 +506,7 @@
             "source": {
                 "type": "git",
                 "url": "git@codebasehq.com:project-a/core/cart.git",
-                "reference": "d9697a85a9841f90c5025d7a1705e323f17cb11d"
+                "reference": "46b5bb1cdb3a21829e123cb99e6bc574162d92d8"
             },
             "require": {
                 "php": ">=5.4.0",
@@ -534,7 +534,7 @@
             "keywords": [
                 "Cart"
             ],
-            "time": "2013-10-07 08:13:22"
+            "time": "2013-10-08 12:02:53"
         },
         {
             "name": "project-a/catalog-package",
