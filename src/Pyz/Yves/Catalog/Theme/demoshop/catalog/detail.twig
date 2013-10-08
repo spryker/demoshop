@@ -68,9 +68,9 @@
             <div class="hint"><hardcoded>incl. {{ product.tax_rate }}% VAT</hardcoded></div>
 
             {% if product.stock > 0 %}
-                <form action="{{ url('cart') }}">
-                    <input type="hidden" name="product_id" value="{{ product.id }}" />
-                    <input class="fullWidth" type="number" value="1" min="1" max="{{ product.stock > 30 ? 30 : product.stock }}" step="1" />
+                <form action="{{ url('cart/add', {sku: product.sku} ) }}">
+                    <input class="fullWidth" type="number" name="quantity" value="1" min="1" max="{{ product.stock > 30 ? 30 : product.stock }}" step="1" />
+                    <!--input class="fullWidth" type="hidden" name="options[]" value="B1" USE this input(s) to add options to the cartitem /-->
                     <input class="submit fullWidth" type="submit" value="Buy Now" />
                 </form>
             {% else %}
