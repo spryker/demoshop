@@ -1,17 +1,85 @@
 {% extends "@application/layout/full.twig" %}
 
 {% block content %}
+    <link rel="stylesheet" href="/styles/catalog.css" />
     {% include "@application/partials/navbar.twig" with {'categories': categories } only %}
 
     <section class="consumeHeight" id="catalog">
-        <fieldset style="margin:10px;"><legend>Catalog Products</legend>
+
+        <ul id="breadcrumbs" class="col col33">
+            <hardcoded block>
+            <li><a href="/">Home</a></li>
+            <li>Chairs</li>
+            </hardcoded>
+        </ul>
+        <div id="options" class="col col67">
+            <hardcoded block>
+            <select class="sortBy">
+                <option value="relevancy">Relevancy</option>
+                <option value="price">Price</option>
+            </select>
+            <ul class="pagination">
+                <li class="current">1</li>
+                <li>2</li>
+                <li>3</li>
+                <li>&hellip; 10</li>
+                <li>&raquo;</li>
+            </ul>
+            </hardcoded>
+        </div>
+
+        <div class="sidebar col col25">
+            <hardcoded block>
+            <ul class="filters">
+                <li>
+                    <h3>Brands</h3>
+                    <input type="text" placeholder="Find Brand" class="search fullWidth">
+                    <select size="4" multiple>
+                        <option value="arnaldo">Arnaldo</option>
+                        <option value="christ">Christ</option>
+                        <option value="kartell">Kartell</option>
+                        <option value="lager">Lager</option>
+                    </select>
+                </li>
+                <li>
+                    <h3>Price</h3>
+                    <legend class="min">free</legend>
+                    <legend class="max">expensive</legend>
+                    <input type="range" value="0" max="100" data-most-expensive="250" data-connectors=".priceConnector" />
+                    <input class="priceConnector min" type="number" value="0" disabled />
+                    <input class="priceConnector max" type="number" value="0" disabled />
+                </li>
+                <li>
+                    <h3>Material</h3>
+                    <label>
+                        <input type="checkbox" name="material" value="glass" /> Glass
+                    </label>
+                    <label>
+                        <input type="checkbox" name="material" value="metal" /> Metal
+                    </label>
+                    <label>
+                        <input type="checkbox" name="material" value="wood" /> Wood
+                    </label>
+                </li>
+            </ul>
+            </hardcoded>
+        </div>
+
+        <ul class="products col col75">
             {% for product in products %}
-                <div style="float:left;margin:5px;padding:5px;width:150px;border:1px double #003c3b ">
-                    {{ product.name }} <br />
-                    <a href="/{{ product.name | url_encode | replace({'-': '+'}) }}-{{ product.id }}.html">See Details ...</a>
-                </div>
+                <li>
+                    <a href="/{{ product.name | url_encode | replace({'-': '+'}) }}-{{ product.id }}.html">
+                        <img src="" alt="picture will be here, once implemented" />
+                        <h3>{{ product.name }}</h3>
+                        <h4>by {{ product.brand }}</h4>
+                        {% if product.recommended_retail_price %}
+                            <span class="oldPrice">{{ product.recommended_retail_price|price }}</span>
+                        {% endif %}
+                        <span class="price">{{ product.price|price }}</span>
+                    </a>
+                </li>
             {% endfor %}
-            <div style="clear: both;"></div>
-        </fieldset>
+        </ul>
+
     </section>
 {% endblock %}

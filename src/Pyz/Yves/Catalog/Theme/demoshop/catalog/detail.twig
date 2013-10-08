@@ -62,7 +62,7 @@
             <h3>{{ product.name }}</h3>
             <h4>by {{ product.brand }}</h4>
             {% if product.recommended_retail_price %}
-                <div class="oldPrice">{{ product.recommended_retail_price }}</div>
+                <div class="oldPrice">{{ product.recommended_retail_price|price }}</div>
             {% endif %}
             <div class="price">{{ product.price|price }}</div>
             <div class="hint"><hardcoded>incl. {{ product.tax_rate }}% VAT</hardcoded></div>

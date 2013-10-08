@@ -11,6 +11,7 @@ class CatalogController extends CoreCatalogController
     {
         $search = new FacetSearch($this->request);
         $result = $search->getResult();
+
         return $result;
     }
 }
