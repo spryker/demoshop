@@ -6,9 +6,10 @@ use ProjectA\Yves\Library\Silex\Controller\ControllerProvider as YvesProvider;
 class ControllerProvider extends YvesProvider
 {
 
+    const ROUTE_HOME = 'index';
+
     protected function defineControllers()
     {
-        $this->createGetController('/', 'Pyz\\Yves\\Application\\Module\\Controller\\IndexController', 'index', 'asda');
-
+        $this->createGetController('/', 'IndexController', 'index', self::ROUTE_HOME);
     }
 }

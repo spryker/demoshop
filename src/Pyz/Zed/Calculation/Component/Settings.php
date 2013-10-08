@@ -13,8 +13,6 @@ class Pyz_Zed_Calculation_Component_Settings extends ProjectA_Zed_Calculation_Co
         return array(
             $this->factory->getModelCalculatorsRemoveAllExpenses(),
             $this->factory->getModelCalculatorsRemoveAllCalculatedDiscounts(),
-            $this->factory->getModelCalculatorsFreightCosts(),
-            $this->factory->getModelCalculatorsCustomsAndDuties(),
             $this->factory->getModelCalculatorsItemExpensesTotal(),
             $this->factory->getModelCalculatorsOrderExpensesTotal(),
             $this->factory->getModelCalculatorsSubtotal(),
@@ -27,8 +25,6 @@ class Pyz_Zed_Calculation_Component_Settings extends ProjectA_Zed_Calculation_Co
             $this->factory->getModelCalculatorsDiscounts(),
             $this->factory->getModelCalculatorsGrandTotal(),
             $this->factory->getModelCalculatorsTax(),
-            $this->factory->getModelCalculatorsAddCatalogProductToOrderItem(),
-            $this->factory->getModelCalculatorsTotalDiscountOnItem(),
         );
     }
 

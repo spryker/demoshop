@@ -1,0 +1,17 @@
+{% extends "@application/layout/full.twig" %}
+
+{% block content %}
+    {% include "@application/partials/navbar.twig" with {'categories': categories } only %}
+
+    <section class="consumeHeight" id="catalog">
+        <fieldset style="margin:10px;"><legend>Catalog Products</legend>
+            {% for product in products %}
+                <div style="float:left;margin:5px;padding:5px;width:150px;border:1px double #003c3b ">
+                    {{ product.name }} <br />
+                    <a href="/{{ product.name | url_encode | replace({'-': '+'}) }}-{{ product.id }}.html">See Details ...</a>
+                </div>
+            {% endfor %}
+            <div style="clear: both;"></div>
+        </fieldset>
+    </section>
+{% endblock %}

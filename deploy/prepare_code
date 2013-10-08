@@ -20,7 +20,7 @@ echo "Current revision: ${revision}"
 
 if is_default_store; then
   rm -rf data; ln -sf $shared_dir/data data
-  rm -rf src/Generated; ln -sf $shared_dir/Generated src/Generated
+  rm -rf src/Generated
   rm -f config/Shared/config_local.php; ln -sf $shared_dir/config_local.php config/Shared/config_local.php
 
   # Create symlink for database dumps
@@ -38,9 +38,9 @@ if is_default_store; then
 
   php -d "newrelic.appname='Deploy($environment)'" composer.phar self-update
   if [ "${environment}" == "production" ]; then
-    php -d "newrelic.appname='Deploy($environment)'" composer.phar install -o || exit 1
+    php -d "newrelic.appname='Deploy($environment)'" composer.phar install -o --no-dev || exit 1
   else
-    php -d "newrelic.appname='Deploy($environment)'" composer.phar install -o --dev || exit 1
+    php -d "newrelic.appname='Deploy($environment)'" composer.phar install -o || exit 1
   fi
 
   # rsync current vendor back to the cache
@@ -49,6 +49,15 @@ if is_default_store; then
   # Log used packages version in renepro repository
   curl -XPUT -d @composer.lock http://renepro.project-a.com/deploy.php?hostname=`hostname`\\\&environment=$environment
 fi
+
+## Get "Generated" dir from cache
+if is_default_store; then
+  generated_cache_dir=/data/deploy/${environment}/Generated
+  [ ! -d $generated_cache_dir ] && mkdir -p $generated_cache_dir
+  cp -r $generated_cache_dir src/
+fi
+
+chown -R www-data. .
 
 ## ZED - Execute install.php
 echo "Calling install.php..."
@@ -67,8 +76,9 @@ if is_default_store; then
     exit 2
   fi
 fi
-chown -R www-data. src/Generated/*
 
+### Save the "Generated" dir back in cache
+rsync -ra --delete src/Generated/ $generated_cache_dir
 
 ### node.js, Grunt
 if is_default_store; then

@@ -1,9 +1,0 @@
-.products-list {
-	list-style: none;
-	padding: 0;
-
-	> .column {
-		padding-top: ( $column-gutter / 2 );
-		padding-bottom: ( $column-gutter / 2 );
-	}
-}

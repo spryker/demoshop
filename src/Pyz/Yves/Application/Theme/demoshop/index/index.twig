@@ -1,3 +1,15 @@
-Willkommen zu Yves!
-<br /><br />
-Hier geht es zum Cart: <a href="{{ url('cart') }}">link</a>
+{% extends "@application/layout/full.twig" %}
+
+{% block content %}
+    {% include "@application/partials/navbar.twig" with {'categories': categories } only %}
+
+    <div class="consumeHeight" id="home">
+        <section style="padding:20px">
+            Willkommen zu Yves!
+            <br /><br />
+            Hier geht es zum Catalog: <a href="{{ url('catalog/index') }}">link</a><br />
+            Hier geht es zum Product: <a href="/Master+Chair+Yellow-11.html">link</a><br />
+            Hier geht es zum Cart: <a href="{{ url('cart') }}">link</a>
+        </section>
+    </div>
+{% endblock %}

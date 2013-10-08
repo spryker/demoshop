@@ -9,11 +9,11 @@ use Pyz\Shared\Catalog\Code\ProductAttributeConstant;
 use Pyz\Shared\Catalog\Code\ProductAttributeSetConstant;
 
 abstract class ProductsExporter extends CoreProductsExporter implements
-     \ProjectA_Zed_Yves_Component_Interface_Exporter_KeyValue,
-     ProductAttributeConstant,
-     ProductAttributeSetConstant,
-     \Pyz_Shared_Library_StorageKeyConstant,
-     \ProjectA_Zed_Yves_Component_Dependency_Facade_Interface
+    \ProjectA_Zed_Yves_Component_Interface_Exporter_KeyValue,
+    ProductAttributeConstant,
+    ProductAttributeSetConstant,
+    \Pyz_Shared_Library_StorageKeyConstant,
+    \ProjectA_Zed_Yves_Component_Dependency_Facade_Interface
 {
 
     use \ProjectA_Zed_Yves_Component_Dependency_Facade_Trait;
@@ -32,7 +32,13 @@ abstract class ProductsExporter extends CoreProductsExporter implements
      * @param array $product
      * @return array
      */
-    abstract protected function transformProductToData($product);
+    protected function transformProductToData($product)
+    {
+        $product['id'] = $product['id_catalog_product'];
+        $product['price'] = $product['final_gross_price'];
+        unset($product['id_catalog_product']);
+        return $product;
+    }
 
     /**
      * @return string
@@ -68,7 +74,7 @@ abstract class ProductsExporter extends CoreProductsExporter implements
         $reporter[$reportName] = 0;
 
         $allData = array();
-        $counter = 1;
+        $counter = 0;
         $chunkSize = 2000;
         foreach ($collection as $product) {
             $data = array();
@@ -77,7 +83,7 @@ abstract class ProductsExporter extends CoreProductsExporter implements
             $productKey = StorageKeyGenerator::getProductKey($product['id_catalog_product']);
             $data[$productKey] = $pairProductData;
 
-            $allData+=$data;
+            $allData += $data;
 
             if ($counter % $chunkSize == 0) {
                 $exportModel->write($allData);

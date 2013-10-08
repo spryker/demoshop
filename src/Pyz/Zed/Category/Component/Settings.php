@@ -27,38 +27,38 @@ class Settings extends \ProjectA_Zed_Category_Component_Settings
             array(
                 'name' => 'top_menu',
                 'type' => 'boolean'),
-            array(
-                'name' => 'left_menu',
-                'type' => 'boolean'),
-            array(
-                'name' => 'bottom_menu',
-                'type' => 'boolean'),
-            array(
-                'name' => 'solr_sort',
-                'type' => 'text'
-            ),
-            array(
-                'name' => 'information',
-                'type' => 'text'
-            ),
-            array(
-                'name' => 'description',
-                'type' => 'text'
-            ),
-            array(
-                'name' => 'links',
-                'type' => 'text'
-            ),
+//            array(
+//                'name' => 'left_menu',
+//                'type' => 'boolean'),
+//            array(
+//                'name' => 'bottom_menu',
+//                'type' => 'boolean'),
+//            array(
+//                'name' => 'solr_sort',
+//                'type' => 'text'
+//            ),
+//            array(
+//                'name' => 'information',
+//                'type' => 'text'
+//            ),
+//            array(
+//                'name' => 'description',
+//                'type' => 'text'
+//            ),
+//            array(
+//                'name' => 'links',
+//                'type' => 'text'
+//            ),
 
             //top menu additions
-            array(
-                'name' => 'top_menu_inWhichColumn',
-                'type' => 'text'
-            ),
-            array(
-                'name' => 'top_menu_howManyColumns',
-                'type' => 'text'
-            ),
+//            array(
+//                'name' => 'top_menu_inWhichColumn',
+//                'type' => 'text'
+//            ),
+//            array(
+//                'name' => 'top_menu_howManyColumns',
+//                'type' => 'text'
+//            ),
             array(
                 'name' => 'top_menu_displaySubElements',
                 'type' => 'text'

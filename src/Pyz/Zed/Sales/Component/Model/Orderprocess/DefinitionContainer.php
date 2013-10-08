@@ -1,33 +1,23 @@
 <?php
 
-class Pyz_Zed_Sales_Component_Model_Orderprocess_DefinitionContainer implements ProjectA_Zed_Library_StateMachine_Definition_Container
+class Pyz_Zed_Sales_Component_Model_Orderprocess_DefinitionContainer extends ProjectA_Zed_Library_StateMachine_Definition_Container_Simple implements
+    ProjectA_Zed_Library_Dependency_Factory_Interface,
+    ProjectA_Zed_Library_Dependency_InitInterface
 {
-    /**
-     * @param string $processName
-     * @return ProjectA_Zed_Library_StateMachine_Definition
-     */
-    public function getProcessDefinition($processName)
+
+    use ProjectA_Zed_Library_Dependency_Factory_Trait;
+
+    public function initAfterDependencyInjection()
     {
-        return new ProjectA_Zed_Library_StateMachine_Definition('demo');
+        $this->initDefinitions();
     }
 
     /**
-     * @param string $processName
-     * @return boolean
+     * Overwrite for store specific definitions
      */
-    public function hasProcessDefinition($processName)
+    public function initDefinitions()
     {
-        if ($processName === 'demo') {
-            return true;
-        }
-        return false;
+        $this->addProcessDefinition($this->factory->getModelOrderprocessDefinitionDemo());
     }
 
-    /**
-     * @return string[]
-     */
-    public function getProcessNameList()
-    {
-        return ['demo'];
-    }
 }

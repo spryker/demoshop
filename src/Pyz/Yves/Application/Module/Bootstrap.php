@@ -1,6 +1,7 @@
 <?php
 namespace Pyz\Yves\Application\Module;
 
+use ProjectA\Yves\Catalog\Component\Model\Category;
 use ProjectA\Yves\Library\Silex\Application;
 use ProjectA\Yves\Library\Silex\Provider\CookieServiceProvider;
 use ProjectA\Yves\Library\Silex\Provider\StorageServiceProvider;
@@ -11,11 +12,15 @@ use ProjectA\Yves\Library\Silex\Provider\YvesLoggingServiceProvider;
 use ProjectA\Yves\Library\Silex\Routing\SilexRouter;
 use Pyz\Yves\Application\Module\ControllerProvider as ApplicationProvider;
 use ProjectA\Yves\Cart\Module\ControllerProvider as CartProvider;
-use ProjectA\Yves\Catalog\Module\ControllerProvider as CatalogProvider;
+use Pyz\Yves\Catalog\Module\ControllerProvider as CatalogProvider;
+use ProjectA\Yves\Checkout\Module\ControllerProvider as CheckoutProvider;
 use ProjectA\Yves\Setup\Module\ControllerProvider as SetupProvider;
+use Silex\Provider\FormServiceProvider;
 use Silex\Provider\ServiceControllerServiceProvider;
 use Silex\Provider\SessionServiceProvider;
 use Silex\Provider\UrlGeneratorServiceProvider;
+use Silex\Provider\ValidatorServiceProvider;
+use Silex\Provider\WebProfilerServiceProvider;
 use SilexRouting\Provider\RoutingServiceProvider;
 
 class Bootstrap extends \ProjectA\Yves\Library\Silex\Bootstrap
@@ -26,6 +31,10 @@ class Bootstrap extends \ProjectA\Yves\Library\Silex\Bootstrap
     protected function beforeBoot(Application $app)
     {
         $app['locale'] = \ProjectA_Shared_Library_Store::getInstance()->getCurrentLocale();
+        if (\ProjectA_Shared_Library_Environment::isDevelopment()) {
+            $app['profiler.cache_dir'] = \ProjectA_Shared_Library_Data::getLocalStoreSpecificPath('cache/profiler');
+            $app['profiler.mount_prefix'] = '/_profiler';
+        }
     }
 
     /**
@@ -33,7 +42,7 @@ class Bootstrap extends \ProjectA\Yves\Library\Silex\Bootstrap
      */
     protected function getServiceProviders()
     {
-        return [
+        $providers = [
             new ExceptionServiceProvider(),
             new YvesLoggingServiceProvider(),
             new CookieServiceProvider(),
@@ -43,8 +52,16 @@ class Bootstrap extends \ProjectA\Yves\Library\Silex\Bootstrap
             new RoutingServiceProvider(),
             new StorageServiceProvider(),
             new TranslationServiceProvider(),
+            new FormServiceProvider(),
+            new ValidatorServiceProvider(),
             new TwigServiceProvider(),
         ];
+
+        if (\ProjectA_Shared_Library_Environment::isDevelopment()) {
+            $providers[] = new WebProfilerServiceProvider();
+        }
+
+        return $providers;
     }
 
     /**
@@ -56,7 +73,8 @@ class Bootstrap extends \ProjectA\Yves\Library\Silex\Bootstrap
             new ApplicationProvider(),
             new CartProvider(),
             new CatalogProvider(),
-            new SetupProvider(),
+            new CheckoutProvider(),
+            new SetupProvider()
         ];
     }
 
@@ -70,4 +88,13 @@ class Bootstrap extends \ProjectA\Yves\Library\Silex\Bootstrap
             new SilexRouter($app)
         ];
     }
+
+    protected function globalTemplateVariables(Application $app)
+    {
+        return [
+            'categories' => Category::getCategoryTree($app->getStorageKeyValue())
+        ];
+    }
+
+
 }

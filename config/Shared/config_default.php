@@ -91,18 +91,15 @@ $config['storage'] = [
         ]
     ],
     'solr' => [
-        'base_url'        => 'http://127.0.0.1:8080',
         'config_dir' => APPLICATION_ROOT_DIR . '/config/Zed/solr',
         'application_dir' => APPLICATION_VENDOR_DIR . '/project-a/infrastructure-package/bin/',
+        'data_dir' => ProjectA_Shared_Library_Data::getLocalCommonPath('solr'),
 
-        // TODO: change to NEW (needs server adjustments): PalShared_Data::getLocalCommonPath('solr'),
-        'data_dir'        => APPLICATION_ROOT_DIR . '/data/solr',
-
-        'defaultEndpointSetup' => array(
-            'host' => '127.0.0.1',
-            'port' => 8080,
-            'path' => '/'
-        ),
+        'defaultEndpointSetup' => [
+            'host' => 'localhost',
+            'port' => 10007,
+            'path' => '/solr'
+        ],
 
         'endpointGroups' => [
             'stores' => [
@@ -110,20 +107,21 @@ $config['storage'] = [
             ],
         ],
 
+        //! the defaultEndpointSetup will be merged to each endpoint during runtime
+        //  if you you want to change a specific endpoint, change its config here
         'endpoint' => [
             'US' => [
                 'core' => 'US'
             ],
             'META_DATA' => [
-                'core' => 'META_DATA'
+                'core' => 'META_DATA',
             ],
-            'ADMIN' => [] //necessary to setup cores etc.
+            //necessary to setup cores etc.  - standard solr.xml will point to /cores
+            //! solr admin implementation will add /cores so this one needs to be empty
+            'ADMIN' => []
         ]
     ]
 ];
-$config['storage']['solr']['endpoint']['US']        += $config['storage']['solr']['defaultEndpointSetup'];
-$config['storage']['solr']['endpoint']['META_DATA'] += $config['storage']['solr']['defaultEndpointSetup'];
-$config['storage']['solr']['endpoint']['ADMIN']     += $config['storage']['solr']['defaultEndpointSetup'];
 
 /**
  * Connection to Jenkins

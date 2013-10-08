@@ -1,0 +1,18 @@
+@media (max-width: 950px) {
+  header .col { float:none; padding:0 0 10px; width:auto; clear:both; }
+  header .row { padding:0; }
+  header .usps { float:none; }
+  header .menu.customer { float:left; }
+
+  #product .usps .glyphicon { display:none; }
+  #product .item .oldPrice { float:none; }
+  #product .superDescription,
+  #product .itemDescription,
+  #product .specs { float:none; width:100%; margin:0 0 40px; padding:0; border:0 none; }
+
+  #cart .specs { display:none; }
+
+  #checkout .col.primary { width:100%; float:none; margin-bottom:40px; padding:0; }
+  #addressResult { position:fixed; top:20%; left:20px; right:20px; width:auto; min-width:400px; }
+  #addressResult:before { display:none; }
+}
