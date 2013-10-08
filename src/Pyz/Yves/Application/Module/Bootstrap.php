@@ -97,12 +97,14 @@ class Bootstrap extends \ProjectA\Yves\Library\Silex\Bootstrap
         ];
     }
 
+    /**
+     * @param Application $app
+     * @return array
+     */
     protected function globalTemplateVariables(Application $app)
     {
         return [
             'categories' => Category::getCategoryTree($app->getStorageKeyValue())
         ];
     }
-
-
 }
