@@ -63,16 +63,6 @@ class Bootstrap extends Zend_Application_Bootstrap_Bootstrap
         mb_regex_encoding('UTF-8');
     }
 
-    private function checkForExistingPage(array $pages, $labelOfPageToLookFor)
-    {
-        foreach ($pages as $page) {
-            if ($page->get('label') == $labelOfPageToLookFor) {
-                return false;
-            }
-        }
-        return true;
-    }
-
     protected function _initViewEscaping()
     {
         $this->bootstrap('view');

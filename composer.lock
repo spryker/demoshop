@@ -823,7 +823,7 @@
             "source": {
                 "type": "git",
                 "url": "git@codebasehq.com:project-a/core/glossary.git",
-                "reference": "2902ae713f6276ba0c260acc08dcc862772cf4c4"
+                "reference": "a92035ec9a3917ddfd5834e2864cf3f6cc177ed9"
             },
             "require": {
                 "php": ">=5.4.0"
@@ -847,7 +847,7 @@
                 "i18n",
                 "translation"
             ],
-            "time": "2013-09-26 15:23:35"
+            "time": "2013-10-08 12:34:39"
         },
         {
             "name": "project-a/infrastructure-package",
@@ -989,7 +989,7 @@
             "source": {
                 "type": "git",
                 "url": "git@codebasehq.com:project-a/core/marketing.git",
-                "reference": "5deef7997d9b481f29ee9258da0f33d465d42099"
+                "reference": "0de56fccac93d197c0c1b341b482235cb416cbc0"
             },
             "require": {
                 "php": ">=5.4.0",
@@ -1014,7 +1014,7 @@
             "keywords": [
                 "Marketing"
             ],
-            "time": "2013-09-25 13:00:59"
+            "time": "2013-10-08 12:40:28"
         },
         {
             "name": "project-a/payment-package",
@@ -1053,7 +1053,7 @@
             "source": {
                 "type": "git",
                 "url": "git@codebasehq.com:project-a/core/sales.git",
-                "reference": "9ee5d5e4cb9ef3e6967b5fb0b483cadacb12cb01"
+                "reference": "a05ac7ef8b29918ede4e04bea2196b0f50b65f5d"
             },
             "require": {
                 "php": ">=5.4.0",
@@ -1080,7 +1080,7 @@
                 "Sales",
                 "Task"
             ],
-            "time": "2013-10-08 09:15:18"
+            "time": "2013-10-08 12:29:24"
         },
         {
             "name": "project-a/silex-routing",
