@@ -1,6 +1,7 @@
 <?php
 namespace Pyz\Yves\Application\Module;
 
+use Generated\Yves\Factory;
 use ProjectA\Yves\Catalog\Component\Model\Category;
 use Pyz\Yves\Catalog\Component\Model\Router\CatalogRouter;
 use ProjectA\Yves\Library\Silex\Application;
@@ -88,7 +89,7 @@ class Bootstrap extends \ProjectA\Yves\Library\Silex\Bootstrap
     protected function getRouters(Application $app)
     {
         return [
-            new CatalogRouter($app),
+            Factory::getInstance()->getCatalogModelRouterCatalogRouter($app),
             /*
              * SilexRouter should come last, as it is not the fastest one if it can
              * not find a matching route (lots of magic)

@@ -1,8 +1,6 @@
 <?php
 namespace Pyz\Zed\Catalog\Component\Exporter\KeyValue;
 
-use ProjectA\Zed\Catalog\Component\Exporter\QueryBuilder\AbstractProduct;
-
 class ProductsWithoutElectronicsExporter extends ProductsExporter
 {
 

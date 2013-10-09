@@ -5,7 +5,7 @@ interface ProductAttributeConstant extends \ProjectA_Shared_Catalog_Code_Product
 {
     const ATTRIBUTE_MANUFACTURER_DESCRIPTION = 'manufacturer_description';
     const ATTRIBUTE_COLOR = 'color';
-    const ATTRIBUTE_LENGTH = 'length';
+    const ATTRIBUTE_CABLE_LENGTH = 'cable_length';
     const ATTRIBUTE_WIDTH = 'width';
     const ATTRIBUTE_HEIGHT = 'height';
     const ATTRIBUTE_DEPTH = 'depth';
