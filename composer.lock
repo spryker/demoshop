@@ -506,7 +506,7 @@
             "source": {
                 "type": "git",
                 "url": "git@codebasehq.com:project-a/core/cart.git",
-                "reference": "46b5bb1cdb3a21829e123cb99e6bc574162d92d8"
+                "reference": "282a07d4bd738945e592852e4ff8f8e8f492ee01"
             },
             "require": {
                 "php": ">=5.4.0",
@@ -534,7 +534,7 @@
             "keywords": [
                 "Cart"
             ],
-            "time": "2013-10-08 12:02:53"
+            "time": "2013-10-09 10:24:58"
         },
         {
             "name": "project-a/catalog-package",
@@ -542,7 +542,7 @@
             "source": {
                 "type": "git",
                 "url": "git@codebasehq.com:project-a/core/catalog.git",
-                "reference": "0629551d7af4edf71828c4ffab42270a3c56c792"
+                "reference": "02ede4c6cd7aa0108f800cefcd0c496988e5937e"
             },
             "require": {
                 "php": ">=5.4.0",
@@ -578,7 +578,7 @@
                 "Price",
                 "Stock"
             ],
-            "time": "2013-10-08 13:17:00"
+            "time": "2013-10-09 13:07:25"
         },
         {
             "name": "project-a/checkout-package",
@@ -728,7 +728,7 @@
             "source": {
                 "type": "git",
                 "url": "git@codebasehq.com:project-a/core/dependency.git",
-                "reference": "38374af15d2972d86dc9581f2a924c4297aba33c"
+                "reference": "976a7b21c2c3f815fe1e2597af6714e8a11c4a04"
             },
             "type": "library",
             "autoload": {
@@ -740,7 +740,7 @@
             "keywords": [
                 "dependency"
             ],
-            "time": "2013-10-01 19:54:07"
+            "time": "2013-10-09 08:34:29"
         },
         {
             "name": "project-a/dwh-package",
@@ -791,7 +791,7 @@
             "source": {
                 "type": "git",
                 "url": "git@codebasehq.com:project-a/core/frontend.git",
-                "reference": "a049efd2f92e885d657c21a5203bb38ff574834c"
+                "reference": "a90458a27deded4a55f5594d348ad0313abca96b"
             },
             "require": {
                 "php": ">=5.4.0",
@@ -815,7 +815,7 @@
             "keywords": [
                 "Frontend"
             ],
-            "time": "2013-10-08 13:25:08"
+            "time": "2013-10-09 08:48:29"
         },
         {
             "name": "project-a/glossary-package",
@@ -908,7 +908,7 @@
             "source": {
                 "type": "git",
                 "url": "git@codebasehq.com:project-a/core/library-2.git",
-                "reference": "7464a37eef41b1fe9e76b01e0491a843a1fec2ea"
+                "reference": "18aba6fc8cb4ecc24313c38541f17c5b5df006b2"
             },
             "require": {
                 "digital-canvas/zend-framework": ">=1.12.2",
@@ -948,7 +948,7 @@
                 }
             ],
             "description": "Project-A Library",
-            "time": "2013-10-08 10:31:58"
+            "time": "2013-10-09 10:09:41"
         },
         {
             "name": "project-a/lumberjack-package",
@@ -1022,7 +1022,7 @@
             "source": {
                 "type": "git",
                 "url": "git@codebasehq.com:project-a/core/payment.git",
-                "reference": "553ac657a23c4d4cbe8e670f6fffaa00214e74ad"
+                "reference": "51291b031c9f4fd4cbeacd3c1067abca8dd3d34a"
             },
             "require": {
                 "php": ">=5.4.0"
@@ -1045,7 +1045,7 @@
             "keywords": [
                 "payment, payment provider"
             ],
-            "time": "2013-10-08 07:36:39"
+            "time": "2013-10-09 11:12:46"
         },
         {
             "name": "project-a/sales-package",
@@ -1053,7 +1053,7 @@
             "source": {
                 "type": "git",
                 "url": "git@codebasehq.com:project-a/core/sales.git",
-                "reference": "01a6dc2e37f56ec1362506bca9b169abc4bd86ae"
+                "reference": "46e66ca8c07a1ad8078f306fedbb5d21d99d12a2"
             },
             "require": {
                 "php": ">=5.4.0",
@@ -1080,7 +1080,7 @@
                 "Sales",
                 "Task"
             ],
-            "time": "2013-10-08 13:06:16"
+            "time": "2013-10-09 12:53:13"
         },
         {
             "name": "project-a/silex-routing",
@@ -1378,12 +1378,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/fabpot/Silex.git",
-                "reference": "86fb50c1aa313cbbe6ef58d13cedced1c2be3255"
+                "reference": "ab1d253df3f0db4ceab802103ab84b2d2833a781"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/fabpot/Silex/zipball/86fb50c1aa313cbbe6ef58d13cedced1c2be3255",
-                "reference": "86fb50c1aa313cbbe6ef58d13cedced1c2be3255",
+                "url": "https://api.github.com/repos/fabpot/Silex/zipball/ab1d253df3f0db4ceab802103ab84b2d2833a781",
+                "reference": "ab1d253df3f0db4ceab802103ab84b2d2833a781",
                 "shasum": ""
             },
             "require": {
@@ -1454,7 +1454,7 @@
             "keywords": [
                 "microframework"
             ],
-            "time": "2013-10-01 17:07:38"
+            "time": "2013-10-09 09:12:34"
         },
         {
             "name": "solarium/solarium",
@@ -2620,12 +2620,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/zendframework/zf2.git",
-                "reference": "8506bd1f969f850f4e0c807e5efa4ed763f016b4"
+                "reference": "4121f3fe0977a4aefd0bac6ecc67653b1fa8bf06"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/zendframework/zf2/zipball/8506bd1f969f850f4e0c807e5efa4ed763f016b4",
-                "reference": "8506bd1f969f850f4e0c807e5efa4ed763f016b4",
+                "url": "https://api.github.com/repos/zendframework/zf2/zipball/4121f3fe0977a4aefd0bac6ecc67653b1fa8bf06",
+                "reference": "4121f3fe0977a4aefd0bac6ecc67653b1fa8bf06",
                 "shasum": ""
             },
             "require": {
@@ -2729,7 +2729,7 @@
                 "framework",
                 "zf2"
             ],
-            "time": "2013-10-04 16:01:33"
+            "time": "2013-10-09 07:43:12"
         },
         {
             "name": "zendframework/zendpdf",
