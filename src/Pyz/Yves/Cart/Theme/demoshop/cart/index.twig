@@ -21,17 +21,18 @@
                 </thead>
                 <tbody>
                 {% for cartItem in cartItems %}
+                    {% set product = products[cartItem.sku] %}
                     <tr>
                         <td>
                             <hardcoded block style="float:left;">
                             <img src="" alt="[tbd_image]" width="20%" />
                             </hardcoded>
-                            <h3>{{ cartItem.name }}</h3>
-                            <h4>by <hardcoded>brand 1</hardcoded></h4>
+                            <h3>{{ product.name }}</h3>
+                            <h4>by {{ product.brand }}</h4>
                             <hardcoded block>
                             <ul class="specs">
-                                <li>Wood</li>
-                                <li>25 x 50 x 203 cm</li>
+                                <li>{{ product.material }}</li>
+                                <li>{{ product.dimension_in_cm }}</li>
                             </ul>
                             </hardcoded>
                             <a href="{{ url('cart/remove', {'sku':cartItem.sku, 'uid':cartItem.uniqueIdentifier}) }}" class="remove">
@@ -43,7 +44,7 @@
                             <hardcoded block><input type="number" min="1" step="1" value="{{ cartItem.quantity }}" /></hardcoded>
                         </td>
                         <td>
-                            <hardcoded block><span class="oldPrice">55,70 €</span></hardcoded>
+                            <hardcoded block><span class="oldPrice">{{ product.recommended_retail_price }}</span></hardcoded>
                             <span class="price">{{ cartItem.priceToPay|price }}</span>
                         </td>
                     </tr>

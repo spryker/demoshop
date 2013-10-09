@@ -3,6 +3,8 @@ namespace Pyz\Yves\Catalog\Component\Model\Router;
 
 use ProjectA\Yves\Catalog\Component\Model\Catalog;
 use ProjectA\Yves\Catalog\Component\Model\Exception\ProductNotFoundException;
+use ProjectA\Yves\Library\DependencyInjection\FactoryInterface;
+use ProjectA\Yves\Library\DependencyInjection\FactoryTrait;
 use ProjectA\Yves\Library\Silex\Application;
 use ProjectA\Yves\Library\Silex\Controller\ControllerProvider;
 use Symfony\Component\HttpFoundation\RedirectResponse;
@@ -10,8 +12,11 @@ use Symfony\Component\Routing\Exception\ResourceNotFoundException;
 use Symfony\Component\Routing\RequestContext;
 use Symfony\Component\Routing\RouterInterface;
 
-class CatalogRouter implements RouterInterface
+class CatalogRouter implements RouterInterface, FactoryInterface
 {
+
+    use FactoryTrait;
+
     /**
      * @var RequestContext
      */
@@ -82,7 +87,7 @@ class CatalogRouter implements RouterInterface
     {
         if (substr($pathinfo, -5) === '.html' && preg_match('~.+-(\d+)\.html~i', $pathinfo, $matches)) {
             try {
-                $product = Catalog::createCatalogProduct($matches[1], $this->app->getStorageKeyValue());
+                $product = $this->factory->getCatalogModelCatalog()->getProductDataById($matches[1], $this->app->getStorageKeyValue());
 //                if ($product['url'] != $pathinfo) {
 //                    return $this->redirectToCorrectUrl($product['url']);
 //                }

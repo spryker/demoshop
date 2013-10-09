@@ -36,6 +36,7 @@ abstract class ProductsExporter extends CoreProductsExporter implements
     {
         $product['id'] = $product['id_catalog_product'];
         $product['price'] = $product['final_gross_price'];
+        $product['dimension_in_cm'] = round($product['width']/10) . ' x ' . round($product['height']/10) . ' x ' . round($product['depth']/10) . ' cm';
         unset($product['id_catalog_product']);
         return $product;
     }
@@ -81,7 +82,9 @@ abstract class ProductsExporter extends CoreProductsExporter implements
             $pairProductData = $this->transformProductToData($product);
 
             $productKey = StorageKeyGenerator::getProductKey($product['id_catalog_product']);
+            $productSkuKey = StorageKeyGenerator::getProductSkuKey($product['sku']);
             $data[$productKey] = $pairProductData;
+            $data[$productSkuKey] = $product['id_catalog_product'];
 
             $allData += $data;
 

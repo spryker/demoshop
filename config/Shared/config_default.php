@@ -433,3 +433,14 @@ $config['mail'] = array(
         'lastname'  => 'Doe'
     )
 );
+
+$config['productImage'] = [
+    'baseStoreSpecificProductImageDirectory' => ProjectA_Shared_Library_Data::getSharedStoreSpecificPath() . 'images',
+    'baseStoreSpecificOriginalProductImageDirectory' => ProjectA_Shared_Library_Data::getSharedStoreSpecificPath() . 'images' . DIRECTORY_SEPARATOR . 'original',
+    'baseCommonProductImageDirectory' => ProjectA_Shared_Library_Data::getSharedCommonPath() . 'images',
+    'incomingDirectory' => 'incoming',
+    'originalDirectory' => 'original',
+    'processedDirectory' => 'processed',
+    'multiStoreName' => 'ALL',
+    'productDirectory' => 'product'
+];
