@@ -1,6 +1,13 @@
 app.checkout = {
     init : function() {
       this.smartAddress.init();
+      $('.triggerAlternative').change(function() {
+          if ($(this).is(':checked')) {
+              $('.address.secondaryRow').show();
+          } else {
+              $('.address.secondaryRow').hide();
+          }
+      });
     },
     smartAddress : {
         vars : {
@@ -8,11 +15,12 @@ app.checkout = {
             addressField : 'full_address',
             nameField : 'full_name',
             genderField : 'gender',
-            relevantGValues : ['street_number', 'route', 'locality', 'postal_code', 'country']
+            relevantGValues : ['street_number', 'route', 'locality', 'postal_code', 'country'],
+            scopes : ['shipping', 'billing']
         },
         init : function() {
             $('.smartAddressTrigger').change(this.apply.bind(this));
-            $('#addressResult button').click(function(e) {
+            $('.addressResult button').click(function(e) {
                 e.preventDefault();
                 // todo: distuingish between OK and edit
                 $(this).parent().hide();
@@ -46,7 +54,7 @@ app.checkout = {
                 $.each(response.results[0].address_components, function(key, addressComponent) {
                     $.each(addressComponent.types, function(key, type) {
                         if ($.inArray(type, this.vars.relevantGValues) !== -1) {
-                            relevantValues[type] = addressComponent.long_name;
+                            relevantValues[type] = addressComponent;
                         }
                     }.bind(this))
                 }.bind(this));
@@ -54,7 +62,13 @@ app.checkout = {
                 var fullName = this.getField(this.vars.nameField, fields);
                 var nameParts = fullName.split(' ');
                 relevantValues.last_name = nameParts.pop();
-                relevantValues.first_name = nameParts.join(' ');
+                if (!nameParts.length) {
+                    // fallback
+                    return;
+                }
+
+                relevantValues.first_name = nameParts.shift();
+                relevantValues.middle_name = nameParts.join(' ');
                 relevantValues.gender = this.getField(this.vars.genderField, fields);
 
                 this.showResult(relevantValues);
@@ -69,10 +83,15 @@ app.checkout = {
             return '';
         },
         showResult : function(relevantValues) {
-            var $resultDiv = $('#addressResult');
+            var $resultDiv = $('.addressResult');
             $resultDiv.find(':input').val('');
             $.each(relevantValues, function(key, value) {
                 var $target = $('[data-src="' + key + '"]');
+
+                if (value.long_name) {
+                    value = $target.data('src-type') ? value[$target.data('src-type') + '_name'] : value.long_name;
+                }
+
                 if (!$target.length) { return; }
 
                 if ($target.is(':input')) {
@@ -81,6 +100,11 @@ app.checkout = {
                     $target.text(value);
                 }
             });
+
+            $resultDiv.find('input.name').each(function() {
+                $(this).prev().html($(this).val());
+            });
+
             $resultDiv.show();
         }
     }
