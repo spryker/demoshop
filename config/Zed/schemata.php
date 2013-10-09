@@ -16,7 +16,7 @@ return array(
     APPLICATION_VENDOR_DIR . '/project-a/catalog-package/src/ProjectA/Zed/Catalog/Persistence/pac_catalog.schema.xml',
     APPLICATION_VENDOR_DIR . '/project-a/catalog-package/src/ProjectA/Zed/Category/Persistence/pac_category.schema.xml',
     APPLICATION_VENDOR_DIR . '/project-a/dwh-package/src/ProjectA/Zed/Dwh/Persistence/pac_dwh.schema.xml',
-    APPLICATION_VENDOR_DIR . '/project-a/catalog-package/src/ProjectA/Zed/Image/Persistence/pac_image.schema.xml',
+    APPLICATION_VENDOR_DIR . '/project-a/catalog-package/src/ProjectA/Zed/ProductImage/Persistence/pac_catalog_product_image.schema.xml',
     APPLICATION_VENDOR_DIR . '/project-a/catalog-package/src/ProjectA/Zed/Price/Persistence/pac_price.schema.xml',
     APPLICATION_VENDOR_DIR . '/project-a/catalog-package/src/ProjectA/Zed/Stock/Persistence/pac_stock.schema.xml',
     APPLICATION_VENDOR_DIR . '/project-a/checkout-package/src/ProjectA/Zed/PaymentControl/Persistence/pac_payment_control.schema.xml',

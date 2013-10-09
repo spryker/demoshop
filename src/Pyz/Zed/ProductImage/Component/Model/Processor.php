@@ -3,38 +3,95 @@
 use Symfony\Component\Finder\Finder;
 
 class Pyz_Zed_ProductImage_Component_Model_Processor implements
-    Pyz_Zed_ProductImage_Component_Dependency_Facade_Interface
+    ProjectA_Zed_ProductImage_Component_Dependency_Facade_Interface,
+    ProjectA_Zed_Catalog_Component_Dependency_Facade_Interface,
+    ProjectA_Shared_Catalog_Code_ProductAttributeConstant
 {
 
-    use Pyz_Zed_ProductImage_Component_Dependency_Facade_Trait;
+    use ProjectA_Zed_ProductImage_Component_Dependency_Facade_Trait;
+    use ProjectA_Zed_Catalog_Component_Dependency_Facade_Trait;
 
     const IMAGE_ORDER_DELIMITER = '__';
+    const KEY_SKU = 'sku';
+    const KEY_FILENAME = 'filename';
+    const KEY_ORDER = 'order';
+    const KEY_FULL_SOURCE_PATH = 'full_source_path';
 
     public function run()
     {
-        $this->getFilesToProcess();
+        $sortedFiles = $this->getFilesToProcess();
+        $this->createProductImages($sortedFiles);
     }
 
     protected function getFilesToProcess()
     {
         $pathToProcessableImages = $this->facadeProductImage->getSettings()->getPathToProcessableImages();
-
         $finder = new Finder();
         $finder->files()->in($pathToProcessableImages)->files()->ignoreDotFiles(true)->ignoreVCS(true);
 
         $imageFiles = [];
         foreach ($finder as $file) {
             $imageFiles[] = [
-                'sku' => $this->getSkuFromImageFilename($file->getFileName()),
-                'filename' => $file->getFileName(),
-                'order' => $this->getImageOrder($file->getFileName())
+                self::KEY_SKU => $this->getSkuFromImageFilename($file->getFileName()),
+                self::KEY_FILENAME => $file->getFileName(),
+                self::KEY_ORDER => $this->getImageOrder($file->getFileName()),
+                self::KEY_FULL_SOURCE_PATH => $file->getPathName()
             ];
         }
+        return $this->sortImageArrayByOrder($imageFiles);
+    }
 
-        echo '<pre>';
-        var_dump($imageFiles);
-        echo __CLASS__ . '(' . __LINE__ . ')';
-        echo '</pre>';
+    /**
+     * @param array $sortedImageFiles
+     */
+    protected function createProductImages(array $sortedImageFiles)
+    {
+        $extension = 'jpg';
+        $filenamesForFrontend = [];
+        foreach ($this->facadeImage->getImageSizes() as $size) {
+            foreach ($sortedImageFiles as $file) {
+                $sku = $file[self::KEY_SKU];
+                $order = $file[self::KEY_ORDER];
+
+                $filenamesForFrontend[] = $this->getFilenameForFrontend($sku, $order, $size, $extension);
+                $originalImageFilename = $file[self::KEY_FULL_SOURCE_PATH];
+                $productEntity = $this->facadeCatalog->getProductBySku($sku);
+                $product = $this->facadeCatalog->getProduct($productEntity, [ProjectA_Zed_Catalog_Component_Interface_GroupConstant::CONFIG_ATTRIBUTES], true);
+                $mappingId = $productEntity->getPrimaryKey();
+                $imageEntityId = $this->facadeImage->addImage($originalImageFilename, '/tmp', $mappingId, $size->getIdImageSize(), $order, '-' . $size->getName(), $extension, ProjectA_Zed_Image_Persistence_PacImagePeer::TYPE_PRODUCT, array());
+                $this->facadeImage->addImageProduct($mappingId, $imageEntityId, $product[self::ATTRIBUTE_NAME]);
+
+                $productEntity->touch();
+            }
+        }
+    }
+
+    /**
+     * @param string $sku
+     * @param string $order
+     * @param $size
+     * @param string $extension
+     * @return string
+     */
+    protected function getFilenameForFrontend($sku, $order, $size, $extension)
+    {
+        $filename = $this->facadeProductImage->getSettings()->getProductImageSeoFilenameBySku($sku, $order);
+        return $filename . '-' . $size->getName() . '.' . $extension;
+    }
+
+    /**
+     * @param array $images
+     * @return array
+     */
+    protected function sortImageArrayByOrder(array $images)
+    {
+        $order = [];
+        foreach ($images as $key => $value) {
+            $order[$key] = $value[self::KEY_ORDER];
+        }
+
+        array_multisort($order, SORT_DESC, $images);
+        return $images;
     }
 
     /**
