@@ -6,26 +6,28 @@
     </h1>
 
     <?php if (ProjectA\Zed\Auth\Component\Model\Auth::getInstance()->hasIdentity() || APPLICATION_ENV === 'development'): ?>
-
     <h2 class="zed:header__welcome">
-        Welcome, <b>
+        <span>Welcome, <br/>
+            <b>
+                <?php if (ProjectA\Zed\Auth\Component\Model\Auth::getInstance()->hasIdentity()): ?>
+                    <?php $identity = ProjectA\Zed\Auth\Component\Model\Auth::getInstance()->getIdentity(); echo $identity->getFirstname() . ' ' . $identity->getLastname(); ?>
+                <?php else : ?>
+                    Developer
+                <?php endif; ?>
+            </b>
+        </span>
         <?php if (ProjectA\Zed\Auth\Component\Model\Auth::getInstance()->hasIdentity()): ?>
-            <?php $identity = ProjectA\Zed\Auth\Component\Model\Auth::getInstance()->getIdentity(); echo $identity->getFirstname() . ' ' . $identity->getLastname(); ?>
-        <?php else : ?>
-            Developer
+            <?php $logout = $this->navigation()->getContainer()->findOneById('login-logout'); ?>
+            <a href="/<?php echo $logout->getModule() . '/' . $logout->getController() . '/logout'; ?>" class="logout"></a>
         <?php endif; ?>
-        </b>
-
-        <?php $logout = $this->navigation()->getContainer()->findOneById('login-logout'); ?>
-        <a href="/<?php echo $logout->getModule() . '/' . $logout->getController() . '/logout'; ?>" class="logout"></a>
     </h2>
 
     <nav class="zed:header__nav">
-        <?php if (ProjectA\Zed\Auth\Component\Model\Auth::getInstance()->hasIdentity()): ?>
+        <?php if (ProjectA\Zed\Auth\Component\Model\Auth::getInstance()->hasIdentity()  || APPLICATION_ENV === 'development'): ?>
             <?php $this->navigation()->getContainer()->findOneById('login-logout')->setVisible(false); ?>
+            <?php $this->navigation()->getContainer()->findOneById('setup-index')->setVisible(APPLICATION_ENV !== 'production') ?>
+            <?php echo $this->navigation()->menu(); ?>
         <?php endif; ?>
-        <?php $this->navigation()->getContainer()->findOneById('setup-index')->setVisible(APPLICATION_ENV !== 'production') ?>
-        <?php echo $this->navigation()->menu(); ?>
     </nav>
 
     <div class="zed:header__language-picker has-more">

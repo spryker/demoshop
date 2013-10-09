@@ -1,10 +1,10 @@
 <?php
 namespace Pyz\Yves\Catalog\Component\Model\Router;
 
-use ProjectA\Yves\Cart\Module\ControllerProvider;
 use ProjectA\Yves\Catalog\Component\Model\Catalog;
 use ProjectA\Yves\Catalog\Component\Model\Exception\ProductNotFoundException;
 use ProjectA\Yves\Library\Silex\Application;
+use ProjectA\Yves\Library\Silex\Controller\ControllerProvider;
 use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\Routing\Exception\ResourceNotFoundException;
 use Symfony\Component\Routing\RequestContext;
@@ -82,7 +82,7 @@ class CatalogRouter implements RouterInterface
     {
         if (substr($pathinfo, -5) === '.html' && preg_match('~.+-(\d+)\.html~i', $pathinfo, $matches)) {
             try {
-                $product = Catalog::createCatalogProduct($matches[1], $this->app->getStorageKeyValue());
+                $product = Catalog::getProductDataById($matches[1], $this->app->getStorageKeyValue());
 //                if ($product['url'] != $pathinfo) {
 //                    return $this->redirectToCorrectUrl($product['url']);
 //                }
