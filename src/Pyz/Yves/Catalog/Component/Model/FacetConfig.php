@@ -25,9 +25,9 @@ class FacetConfig
             self::KEY_PARAM => 'cat', //maybe revoke because cat is part of the url
             self::KEY_ACTIVE => true
         ],
-        'int_facet_length' => [
+        'int_facet_depth' => [
             self::KEY_TYPE => self::TYPE_ENUMERATION,
-            self::KEY_PARAM => 'length',
+            self::KEY_PARAM => 'depth',
             self::KEY_ACTIVE => true
         ],
         'int_facet_width' => [

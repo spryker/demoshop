@@ -81,7 +81,9 @@ abstract class ProductsExporter extends CoreProductsExporter implements
             $pairProductData = $this->transformProductToData($product);
 
             $productKey = StorageKeyGenerator::getProductKey($product['id_catalog_product']);
+            $productSkuKey = StorageKeyGenerator::getProductSkuKey($product['sku']);
             $data[$productKey] = $pairProductData;
+            $data[$productSkuKey] = $product['id_catalog_product'];
 
             $allData += $data;
 
