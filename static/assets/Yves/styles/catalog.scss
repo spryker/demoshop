@@ -6,7 +6,7 @@
 #options .sortBy { float:left; }
 #options .pagination { float:right; }
 
-#catalog .sidebar { margin:20px 0; padding:10px; border:1px solid #ddd; background:#fcfcfc; border-radius:3px; }
+#catalog .sidebar { clear:left; margin:20px 0; padding:10px; border:1px solid #ddd; background:#fcfcfc; border-radius:3px; }
 #catalog .filters { list-style:none; margin:0; padding:0; }
 #catalog .filters li { margin-bottom:20px; }
 #catalog .filters li:last-child { margin-bottom:0; }

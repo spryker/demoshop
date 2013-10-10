@@ -4,8 +4,8 @@
 
     {% include '@application/response_messages.twig' %}
 
-    <link rel="stylesheet" href="styles/checkout.css" />
-    <script src="scripts/app/checkout.js"></script>
+    <link rel="stylesheet" href="/styles/checkout.css" />
+    <script src="/scripts/app/checkout.js"></script>
 
     <section class="consumeHeight" id="checkout">
         {{ form_start(form) }}
@@ -151,6 +151,7 @@
             </div>
 
             <div class="cart primary col col33">
+                <hardcoded block>
                 <h3>Your Cart</h3>
                 <table class="items">
                     <tbody>
@@ -188,6 +189,7 @@
                     </tr>
                     </tfoot>
                 </table>
+                </hardcoded>
                 {{ form_widget(form.save) }}
             </div>
             <div class="clearRows"></div>
