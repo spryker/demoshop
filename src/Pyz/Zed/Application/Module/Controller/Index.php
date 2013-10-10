@@ -11,10 +11,6 @@ class Index extends \ProjectA_Zed_Library_Controller_Action
     public function indexAction()
     {
         $this->_helper->layout->setLayout('modular');
-
-        $collection = TransferLoader::getAclRoleCollection();
-        $role = TransferLoader::getAclRole();
-        $collection->add($role);
     }
 }
 
