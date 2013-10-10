@@ -10,6 +10,6 @@ class ControllerProvider extends YvesProvider
 
     protected function defineControllers()
     {
-        $this->createGetController('/', 'IndexController', 'index', self::ROUTE_HOME);
+        $this->createGetController('/', self::ROUTE_HOME, 'IndexController');
     }
 }
