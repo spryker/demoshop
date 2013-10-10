@@ -2045,21 +2045,21 @@
         },
         {
             "name": "symfony/icu",
-            "version": "v1.1.0",
+            "version": "v1.2.0",
             "target-dir": "Symfony/Component/Icu",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/Icu.git",
-                "reference": "b4081efff21a8a85c57789a39f454fed244f8e46"
+                "reference": "7299cd3d8d6602103d1ebff5d0a9917b7bc6de72"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/Icu/zipball/b4081efff21a8a85c57789a39f454fed244f8e46",
-                "reference": "b4081efff21a8a85c57789a39f454fed244f8e46",
+                "url": "https://api.github.com/repos/symfony/Icu/zipball/7299cd3d8d6602103d1ebff5d0a9917b7bc6de72",
+                "reference": "7299cd3d8d6602103d1ebff5d0a9917b7bc6de72",
                 "shasum": ""
             },
             "require": {
-                "lib-icu": ">=3.8",
+                "lib-icu": ">=4.4",
                 "php": ">=5.3.3",
                 "symfony/intl": "~2.3"
             },
@@ -2089,7 +2089,7 @@
                 "icu",
                 "intl"
             ],
-            "time": "2013-06-03 18:32:40"
+            "time": "2013-06-03 18:32:58"
         },
         {
             "name": "symfony/intl",
