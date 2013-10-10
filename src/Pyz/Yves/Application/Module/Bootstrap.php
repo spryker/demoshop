@@ -1,7 +1,9 @@
 <?php
 namespace Pyz\Yves\Application\Module;
 
+use Generated\Yves\Factory;
 use ProjectA\Yves\Catalog\Component\Model\Category;
+use Pyz\Yves\Catalog\Component\Model\Router\CatalogRouter;
 use ProjectA\Yves\Library\Silex\Application;
 use ProjectA\Yves\Library\Silex\Provider\CookieServiceProvider;
 use ProjectA\Yves\Library\Silex\Provider\StorageServiceProvider;
@@ -79,22 +81,31 @@ class Bootstrap extends \ProjectA\Yves\Library\Silex\Bootstrap
     }
 
     /**
+     *
+     *
      * @param Application $app
      * @return \Symfony\Component\Routing\RouterInterface[]
      */
     protected function getRouters(Application $app)
     {
         return [
-            new SilexRouter($app)
+            Factory::getInstance()->getCatalogModelRouterCatalogRouter($app),
+            /*
+             * SilexRouter should come last, as it is not the fastest one if it can
+             * not find a matching route (lots of magic)
+             */
+            new SilexRouter($app),
         ];
     }
 
+    /**
+     * @param Application $app
+     * @return array
+     */
     protected function globalTemplateVariables(Application $app)
     {
         return [
             'categories' => Category::getCategoryTree($app->getStorageKeyValue())
         ];
     }
-
-
 }

@@ -1,9 +1,238 @@
-{% extends "@application/layout/full.twig" %}
+{% extends "@application/layout/reduced.twig" %}
 
 {% block content %}
+
     {% include '@application/response_messages.twig' %}
 
-    {{ form(form) }}
+    <link rel="stylesheet" href="styles/checkout.css" />
+    <script src="scripts/app/checkout.js"></script>
+
+    <section class="consumeHeight" id="checkout">
+        {{ form_start(form) }}
+            <div class="address primary col col33">
+                <h3>Shipping and Billing Address</h3>
+                <div class="row">
+                    <hardcoded block>
+                    <label class="col col50">
+                        <input class="addSpace smartAddressTrigger" type="radio" name="gender" value="Mr." /> Mr.
+                    </label>
+                    <label class="col col50">
+                        <input class="addSpace smartAddressTrigger" type="radio" name="gender" value="Mrs." /> Mrs.
+                    </label>
+                    </hardcoded>
+                </div>
+                <div class="row">
+                    <label>
+                        Full Name
+                        <input type="text" class="smartAddressTrigger fullWidth" name="full_name" value="" placeholder="e.g. John Quincy Doe" />
+                    </label>
+                </div>
+                <div class="row">
+                    <label>
+                        Full Address
+                        <input type="text" class="smartAddressTrigger fullWidth" name="full_address" value="" placeholder="e.g. 79 N 11th Brooklyn" />
+                    </label>
+                </div>
+                <div class="row">
+                    {{ form_row(form.shippingAddress.comment) }}
+                </div>
+                <div class="row">
+                    {{ form_row(form.shippingAddress.phone) }}
+                </div>
+                <div class="row">
+                    <hardcoded>
+                    <label>
+                        <input class="triggerAlternative addSpace" type="checkbox" />
+                        Different Billing Address
+                    </label>
+                    </hardcoded>
+                </div>
+            </div>
+
+            <div class="primary col col33">
+                <div class="addressResult">
+                    <h5><span class="type">Shipping</span> goes to:</h5>
+                    <table>
+                        <tr>
+                            <td class="label">Name:</td>
+                            <td>
+                                <span data-src="gender"></span>
+                                <span></span> {{ form_widget(form.shippingAddress.firstName) }}
+                                <span></span> {{ form_widget(form.shippingAddress.middleName) }}
+                                <span></span> {{ form_widget(form.shippingAddress.lastName) }}
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="label">Street:</td>
+                            <td>
+                            <span class="col col67">
+                                {{ form_widget(form.shippingAddress.address1) }}
+                            </span>
+                            <span class="col col33">
+                                {{ form_widget(form.shippingAddress.address2) }}
+                            </span>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="label">Postal Code:</td>
+                            <td>
+                            <span class="col col33">
+                                {{ form_widget(form.shippingAddress.zipcode) }}
+                            </span>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="label">City:</td>
+                            <td>
+                                {{ form_widget(form.shippingAddress.city) }}
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="label">Country:</td>
+                            <td>
+                                {{ form_widget(form.shippingAddress.iso2Country) }}
+                            </td>
+                        </tr>
+                    </table>
+                    <button class="ok">OK</button>
+                </div>
+                <hardcoded block>
+                <h3>Payment</h3>
+                <div class="row">
+                    <label>
+                        <input class="addSpace" type="radio" name="payment" checked> Credit Card
+                    </label>
+
+                    <div class="details">
+                        <div class="row">
+                            <label>
+                                Name on the card
+                                <input class="fullWidth" type="text" value="" placeholder="e.g. John Doe" />
+                            </label>
+                        </div>
+                        <div class="row">
+                            <label>Card Number</label>
+                            <div class="multiple">
+                                <div class="col col25">
+                                    <input class="fullWidth" type="text" maxlength="4" value="" placeholder="XXXX" />
+                                </div>
+                                <div class="col col25">
+                                    <input class="fullWidth" type="text" maxlength="4" value="" placeholder="XXXX" />
+                                </div>
+                                <div class="col col25">
+                                    <input class="fullWidth" type="text" maxlength="4" value="" placeholder="XXXX" />
+                                </div>
+                                <div class="col col25">
+                                    <input class="fullWidth" type="text" maxlength="4" value="" placeholder="XXXX" />
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <label>CVV / CVC</label>
+                            <div class="multiple">
+                                <div class="col col25">
+                                    <input class="fullWidth" type="text" maxlength="3" value="" placeholder="XXX" />
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <label>
+                        <input class="addSpace" type="radio" name="payment"> Debit
+                    </label>
+                </div>
+                <div class="row">
+                    <label>
+                        <input class="addSpace" type="radio" name="payment"> Prepayment
+                    </label>
+                </div>
+                </hardcoded>
+            </div>
+
+            <div class="cart primary col col33">
+                <h3>Your Cart</h3>
+                <table class="items">
+                    <tbody>
+                    <tr>
+                        <td>
+                            <h4>1x Product name 1</h4>
+                            <h5>by brand 1</h5>
+                        </td>
+                        <td>
+                            <span class="oldPrice">55,70 €</span>
+                            <span class="price">29,99 €</span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <h4>1x Product name 2</h4>
+                            <h5>by brand 2</h5>
+                        </td>
+                        <td>
+                            <span class="price">20,80 €</span>
+                        </td>
+                    </tr>
+                    </tbody>
+                    <tfoot>
+                    <tr>
+                        <td class="label">Shipping</td>
+                        <td>0,00 €</td>
+                    </tr>
+                    <tr class="total">
+                        <td>
+                            Total price
+                            <span class="hint">incl. 19% VAT</span>
+                        </td>
+                        <td>50,79 €</td>
+                    </tr>
+                    </tfoot>
+                </table>
+                {{ form_widget(form.save) }}
+            </div>
+            <div class="clearRows"></div>
+            <div class="address primary col col33 secondaryRow">
+                <h3>Billing Address</h3>
+                <div class="row col col34 first">
+                    {{ form_row(form.billingAddress.firstName) }}
+                </div>
+                <div class="row col col33 middle">
+                    {{ form_row(form.billingAddress.middleName) }}
+                </div>
+                <div class="row col col33 last">
+                    {{ form_row(form.billingAddress.lastName) }}
+                </div>
+                <div class="row">
+                    {{ form_row(form.billingAddress.company) }}
+                </div>
+                <div class="row col col67 first middle">
+                    {{ form_row(form.billingAddress.address1) }}
+                </div>
+                <div class="row col col33 last">
+                    {{ form_row(form.billingAddress.address2) }}
+                </div>
+                <div class="row col col33 first middle">
+                    {{ form_row(form.billingAddress.zipcode) }}
+                </div>
+                <div class="row col col67 last">
+                    {{ form_row(form.billingAddress.city) }}
+                </div>
+                <div class="row">
+                    {{ form_row(form.billingAddress.iso2Country) }}
+                </div>
+            </div>
+            <div class="contact primary col col33 secondaryRow">
+                <h3>Contact Data</h3>
+                <div class="row">
+                    {{ form_row(form.email) }}
+                </div>
+            </div>
+            <div class="unnecessary">
+                {{ form(form) }}
+            </div>
+        {{ form_end(form) }}
+    </section>
+
+
 
 {% endblock %}
-

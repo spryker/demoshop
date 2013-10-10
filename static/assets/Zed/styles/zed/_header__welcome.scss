@@ -5,11 +5,29 @@
   float: right;
   margin: 0;
   line-height: 15px;
-  padding: 5px 0 5px 10px;
+
 
   b {
     display: block;
     font-weight: 400;
     color: #fff;
   }
+
+  span {
+    float: left;
+    padding: 5px 0 5px 10px;
+  }
+
+  .logout {
+    display: block;
+    float: left;
+    margin-left: 22px;
+    width: 34px;
+    height: 35px;
+    background: url(../images/header_ico_logout.png) 0 0 no-repeat;
+    line-height: 0;
+    text-decoration: none;
+    cursor: pointer;
+  }
+
 }

@@ -31,7 +31,7 @@ class AttributeToVarietyMapping implements
             self::ATTRIBUTE_META_KEYWORDS => ValueTypePeer::VARIETY_TEXT,
             self::ATTRIBUTE_URL => ValueTypePeer::VARIETY_TEXT,
             self::ATTRIBUTE_COLOR => ValueTypePeer::VARIETY_OPTIONSINGLE,
-            self::ATTRIBUTE_LENGTH => ValueTypePeer::VARIETY_INTEGER,
+            self::ATTRIBUTE_DEPTH => ValueTypePeer::VARIETY_INTEGER,
             self::ATTRIBUTE_WIDTH => ValueTypePeer::VARIETY_INTEGER,
             self::ATTRIBUTE_HEIGHT => ValueTypePeer::VARIETY_INTEGER,
             self::ATTRIBUTE_MATERIAL => ValueTypePeer::VARIETY_OPTIONSINGLE
@@ -48,7 +48,7 @@ class AttributeToVarietyMapping implements
             self::ATTRIBUTE_META_KEYWORDS => ValueTypePeer::VARIETY_TEXT,
             self::ATTRIBUTE_URL => ValueTypePeer::VARIETY_TEXT,
             self::ATTRIBUTE_COLOR => ValueTypePeer::VARIETY_OPTIONSINGLE,
-            self::ATTRIBUTE_LENGTH => ValueTypePeer::VARIETY_INTEGER,
+            self::ATTRIBUTE_CABLE_LENGTH => ValueTypePeer::VARIETY_INTEGER,
             self::ATTRIBUTE_WIDTH => ValueTypePeer::VARIETY_INTEGER,
             self::ATTRIBUTE_HEIGHT => ValueTypePeer::VARIETY_INTEGER,
             self::ATTRIBUTE_DEPTH => ValueTypePeer::VARIETY_INTEGER,
