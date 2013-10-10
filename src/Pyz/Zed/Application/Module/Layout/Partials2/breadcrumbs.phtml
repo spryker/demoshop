@@ -1,13 +1,11 @@
 <ul class="breadcrumb">
-<?php
-foreach($this->pages as $page){
-    /* @var $page Zend_Navigation_Page_Mvc */
-    $classActive = $page->isActive()?'active':'';
-    echo '<li class="'.$classActive.'">';
-    echo '<a href="#'.$page->getHref().'">';
-    echo $page->getLabel();
-    echo '</a>';
-    echo '</li>';
-}
-?>
+<?php /* @var $page Zend_Navigation_Page_Mvc */ ?>
+<?php foreach ($this->pages as $page): ?>
+    <?php $classActive = $page->isActive() ? 'active' : ''; ?>
+    <li class="<?= $classActive ?>">
+        <a href="<?= $page->getHref() ?>">
+            <?= $page->getLabel() ?>
+        </a>
+    </li>
+<?php endforeach; ?>
 </ul>

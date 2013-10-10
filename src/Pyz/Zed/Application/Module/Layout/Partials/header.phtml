@@ -1,11 +1,13 @@
 <header>
-    <img id="logo" src="/old/images/layout/logo.png" height="40" alt="Zed" />
+    <a href="/">
+        <img id="logo" src="/old/images/layout/logo.png" height="40" alt="Zed" />
+    </a>
     <nav>
-        <?php if (ProjectA\Zed\Auth\Component\Model\Auth::getInstance()->hasIdentity()): ?>
-        <?php $this->navigation()->getContainer()->findOneById('login-logout')->setVisible(false); ?>
+        <?php if (ProjectA\Zed\Auth\Component\Model\Auth::getInstance()->hasIdentity() || APPLICATION_ENV === 'development'): ?>
+            <?php $this->navigation()->getContainer()->findOneById('login-logout')->setVisible(false); ?>
+            <?php $this->navigation()->getContainer()->findOneById('setup-index')->setVisible(APPLICATION_ENV !== 'production') ?>
+            <?php echo $this->navigation()->menu(); ?>
         <?php endif; ?>
-        <?php $this->navigation()->getContainer()->findOneById('setup-index')->setVisible(APPLICATION_ENV !== 'production') ?>
-        <?php echo $this->navigation()->menu(); ?>
     </nav>
     <?php if (ProjectA\Zed\Auth\Component\Model\Auth::getInstance()->hasIdentity() || APPLICATION_ENV === 'development'): ?>
     <div id="session"<?php if (!ProjectA\Zed\Auth\Component\Model\Auth::getInstance()->hasIdentity()): ?> class="loggedout"<?php endif; ?>>
@@ -14,7 +16,7 @@
             <span>Welcome,</span><br />
             <?php if (ProjectA\Zed\Auth\Component\Model\Auth::getInstance()->hasIdentity()): ?>
             <?php $identity = ProjectA\Zed\Auth\Component\Model\Auth::getInstance()->getIdentity(); echo $identity->getFirstname() . ' ' . $identity->getLastname(); ?>
-            <?php else : ?>
+            <?php else: ?>
             Human
             <?php endif; ?>
         </div>
