@@ -437,7 +437,7 @@
             "source": {
                 "type": "git",
                 "url": "git@codebasehq.com:project-a/core/acl.git",
-                "reference": "8bdc19c7b9831c1453461c38981c70590453f224"
+                "reference": "c82d35b5c6c934ac4a9f32e584afad57732ea1a6"
             },
             "require": {
                 "php": ">=5.4.0",
@@ -465,7 +465,7 @@
                 "login",
                 "usermanagement"
             ],
-            "time": "2013-10-10 13:48:11"
+            "time": "2013-10-10 15:35:13"
         },
         {
             "name": "project-a/adyen-package",
@@ -908,7 +908,7 @@
             "source": {
                 "type": "git",
                 "url": "git@codebasehq.com:project-a/core/library-2.git",
-                "reference": "716330827c353efa218e593754a6458e6fb68af4"
+                "reference": "17048b9a5e0aec39438a863fafc2d19097e1e192"
             },
             "require": {
                 "digital-canvas/zend-framework": ">=1.12.2",
@@ -948,7 +948,7 @@
                 }
             ],
             "description": "Project-A Library",
-            "time": "2013-10-10 14:09:49"
+            "time": "2013-10-10 15:36:10"
         },
         {
             "name": "project-a/lumberjack-package",
