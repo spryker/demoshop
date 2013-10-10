@@ -22,7 +22,6 @@ app.checkout = {
             $('.smartAddressTrigger').change(this.apply.bind(this));
             $('.addressResult button').click(function(e) {
                 e.preventDefault();
-                // todo: distuingish between OK and edit
                 $(this).parent().hide();
             });
         },

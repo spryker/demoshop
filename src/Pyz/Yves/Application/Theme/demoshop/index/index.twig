@@ -2,14 +2,43 @@
 
 {% block content %}
     {% include "@application/partials/navbar.twig" with {'categories': categories } only %}
+    <link rel="stylesheet" href="styles/home.css" />
 
     <div class="consumeHeight" id="home">
-        <section style="padding:20px">
-            Willkommen zu Yves!
-            <br /><br />
-            Hier geht es zum Catalog: <a href="{{ url('catalog/index') }}">link</a><br />
-            Hier geht es zum Product: <a href="/Master+Chair+Yellow-11.html">link</a><br />
-            Hier geht es zum Cart: <a href="{{ url('cart') }}">link</a>
+        <section id="teaser" class="borders">
+            <ul>
+                <li><a href="/Master+Chair+Yellow-11.html"><img src="images/vistra.png" width="100%" alt="" /></a></li>
+                <li><a href="/Master+Chair+Yellow-11.html"><img src="images/vistra2.png" width="100%" alt="" /></a></li>
+            </ul>
+        </section>
+
+        <section class="content">
+            Some introducing text you can delete for sure.
+        </section>
+
+        <section id="recommendations">
+            <h3>Most popular</h3>
+            <ul>
+                <li>
+                    <a href="/Master+Chair+Yellow-11.html">
+                        <img width="100%" src="images/lamp.png" alt="" />
+                        <h4>WireShade Lamp Design<br>by Marc Trotereau</h4>
+                    </a>
+                </li>
+                <li>
+                    <a href="/Master+Chair+Yellow-11.html">
+                        <img width="100%" src="images/couch.png" alt="" />
+                        <h4>The big couch<br>by Benedizioni alla Mamma</h4>
+                    </a>
+                </li>
+                <li>
+                    <a href="/Master+Chair+Yellow-11.html">
+                        <img width="100%" src="images/tisch.png" alt="" />
+                        <h4>LUCY<br>by Johansen Design</h4>
+                    </a>
+                </li>
+            </ul>
         </section>
     </div>
+
 {% endblock %}
