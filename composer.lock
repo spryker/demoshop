@@ -694,7 +694,7 @@
             "source": {
                 "type": "git",
                 "url": "git@codebasehq.com:project-a/core/crm.git",
-                "reference": "b1e9c97f3bb0539d7894013937dac0d7144318c7"
+                "reference": "44e61c7d1c517a146a66122b15ae830ae01f5612"
             },
             "require": {
                 "php": ">=5.4.0",
@@ -720,7 +720,7 @@
                 "CRM",
                 "Mail"
             ],
-            "time": "2013-10-10 10:12:03"
+            "time": "2013-10-10 12:03:40"
         },
         {
             "name": "project-a/dependency-package",
@@ -908,7 +908,7 @@
             "source": {
                 "type": "git",
                 "url": "git@codebasehq.com:project-a/core/library-2.git",
-                "reference": "b610cb90f5aab5100c8b9c0fda50efeb38a8cf07"
+                "reference": "4c4b767c5a4527a2a197dde5a1297e47c4d33f45"
             },
             "require": {
                 "digital-canvas/zend-framework": ">=1.12.2",
@@ -948,7 +948,7 @@
                 }
             ],
             "description": "Project-A Library",
-            "time": "2013-10-10 11:33:29"
+            "time": "2013-10-10 12:03:40"
         },
         {
             "name": "project-a/lumberjack-package",
@@ -1022,7 +1022,7 @@
             "source": {
                 "type": "git",
                 "url": "git@codebasehq.com:project-a/core/payment.git",
-                "reference": "c43f05c5cdf643a4e2fb4e5e16f23d06f75a0a88"
+                "reference": "a0e6e9113fd40b48f089ce4e4cc46b16391e6c2e"
             },
             "require": {
                 "php": ">=5.4.0"
@@ -1045,7 +1045,7 @@
             "keywords": [
                 "payment, payment provider"
             ],
-            "time": "2013-10-10 10:12:16"
+            "time": "2013-10-10 11:52:18"
         },
         {
             "name": "project-a/sales-package",
@@ -1053,7 +1053,7 @@
             "source": {
                 "type": "git",
                 "url": "git@codebasehq.com:project-a/core/sales.git",
-                "reference": "33d86943413a8371b5b845915dda21898818b2e9"
+                "reference": "19ac2de98651854be453a20ff7ff9172e415e190"
             },
             "require": {
                 "php": ">=5.4.0",
@@ -1080,7 +1080,7 @@
                 "Sales",
                 "Task"
             ],
-            "time": "2013-10-10 10:12:17"
+            "time": "2013-10-10 12:04:38"
         },
         {
             "name": "project-a/silex-routing",
