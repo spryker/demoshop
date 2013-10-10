@@ -11,6 +11,6 @@ class ControllerProvider extends YvesProvider
 
     protected function defineControllers()
     {
-        $this->createGetController('/catalog/', 'CatalogController', 'index', self::ROUTE_CATALOG_INDEX);
+        $this->createGetController('/catalog/', self::ROUTE_CATALOG_INDEX, 'CatalogController');
     }
 }
