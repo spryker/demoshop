@@ -98,3 +98,11 @@ $jobs[] = array(
 //    'enable'   => true,
 //    'stores'   => $all_stores,
 //);
+
+$jobs[] = array(
+    'name'     => 'import_product_images',
+    'command'  => '$PHP_BIN $CLI_PATH/index.php --module=product-image --controller=cronjob --action=import-incoming-images',
+    'schedule' => '* * * * *',
+    'enable'   => true,
+    'stores'   => $all_stores,
+);
