@@ -1,5 +1,5 @@
 <?php
-use ProjectA\Shared\Sales\Transfer\Order;
+use Generated\Shared\Sales\Transfer\Order;
 
 /**
  * @property Generated_Zed_Sales_Component_Factory $factory

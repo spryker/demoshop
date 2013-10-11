@@ -1,8 +1,11 @@
 <?php
 
-use ProjectA\Shared\Library\Currency\CurrencyManager;
+namespace Pyz\Zed\Application\Module\Controller;
 
-class Pyz_Zed_Application_Module_Controller_Index extends ProjectA_Zed_Library_Controller_Action
+use ProjectA\Shared\Library\Currency\CurrencyManager;
+use Generated\Shared\Library\TransferLoader;
+
+class Index extends \ProjectA_Zed_Library_Controller_Action
 {
 
     public function indexAction()

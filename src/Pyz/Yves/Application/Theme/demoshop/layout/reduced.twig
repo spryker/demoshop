@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+    {% block head %}
+        <meta charset="utf-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+
+        <title>{% block title %}{% endblock %}</title>
+        <meta name="viewport" content="width=device-width" />
+
+        <link rel="stylesheet" type="text/css" href="/styles/initial.css" />
+        <link rel="stylesheet" type="text/css" href="/styles/global.css" />
+
+        <script src="/scripts/vendor/jquery-min.js"></script>
+        <script src="/scripts/vendor/modernizr-2.6.2-respond-1.1.0.min.js"></script>
+
+        <script src="/scripts/app/main.js"></script>
+    {% endblock %}
+</head>
+<body>
+
+<section>
+    <header>
+        <div class="row">
+            <a href="/" id="logo" class="col col33">
+                <img src="/images/logo.png" alt="logo" />
+            </a>
+            <div class="col col67">
+                <ul class="usps">
+                    <li><span class="glyphicon glyphicon-gift"></span>Free Shipping & Return</li>
+                    <li><span class="glyphicon glyphicon-refresh"></span>30 Days of Return</li>
+                    <li><span class="glyphicon glyphicon-phone-alt"></span>Hotline: +49 (0) 30 340 606 300</li>
+                </ul>
+            </div>
+        </div>
+    </header>
+</section>
+
+{% block content %}{% endblock %}
+
+<footer>
+    {% block footer %}
+        <section class="transparent">
+            <hardcoded block>
+                <ul class="simple">
+                    <li class="col col20"><a href="cms.html">Privacy</a></li>
+                    <li class="col col20"><a href="cms.html">Terms</a></li>
+                    <li class="col col20"><a href="cms.html">Contact us</a></li>
+                </ul>
+            </hardcoded>
+        </section>
+    {% endblock %}
+</footer>
+
+<link rel="stylesheet" href="/styles/responsive.css" />
+</body>
+</html>
