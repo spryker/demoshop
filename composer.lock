@@ -3,7 +3,7 @@
         "This file locks the dependencies of your project to a known state",
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file"
     ],
-    "hash": "3d3d7d7479ebcac282f4eca4dbc3e26b",
+    "hash": "6c88a88fd9fd12c53e6ef1df4fecadd4",
     "packages": [
         {
             "name": "digital-canvas/zend-framework",
@@ -542,7 +542,7 @@
             "source": {
                 "type": "git",
                 "url": "git@codebasehq.com:project-a/core/catalog.git",
-                "reference": "f0e41713c34baf252ba4dde54e9c52e1c9540d4c"
+                "reference": "07a66a930b969620a45785cd854c2a375872c764"
             },
             "require": {
                 "php": ">=5.4.0",
@@ -578,7 +578,7 @@
                 "Price",
                 "Stock"
             ],
-            "time": "2013-10-14 12:11:03"
+            "time": "2013-10-14 13:12:16"
         },
         {
             "name": "project-a/checkout-package",
@@ -586,7 +586,7 @@
             "source": {
                 "type": "git",
                 "url": "git@codebasehq.com:project-a/core/checkout.git",
-                "reference": "78b384b3c828246abf89d30672df601358aa7ea3"
+                "reference": "1d6e98704c8b168a4c25c3f94b8f4f60ac5b0f1e"
             },
             "require": {
                 "php": ">=5.4.0",
@@ -613,7 +613,7 @@
                 "PaymentControl",
                 "Salesrule"
             ],
-            "time": "2013-10-14 10:58:47"
+            "time": "2013-10-14 13:06:56"
         },
         {
             "name": "project-a/console-package",
@@ -1022,7 +1022,7 @@
             "source": {
                 "type": "git",
                 "url": "git@codebasehq.com:project-a/core/payment.git",
-                "reference": "9df9f4d5888e25bbd27ffaa03b2f62454fa21ab9"
+                "reference": "c7fb0995495e640d63836bffda326ab0470cd4e1"
             },
             "require": {
                 "php": ">=5.4.0"
@@ -1045,7 +1045,7 @@
             "keywords": [
                 "payment, payment provider"
             ],
-            "time": "2013-10-14 06:33:30"
+            "time": "2013-10-14 13:09:57"
         },
         {
             "name": "project-a/sales-package",
@@ -1053,7 +1053,7 @@
             "source": {
                 "type": "git",
                 "url": "git@codebasehq.com:project-a/core/sales.git",
-                "reference": "8f51786e5cef0c7e8cb63d1f15a6137e9fd608fe"
+                "reference": "eefe2768a4a09875e0ced6664a826d300101d1c0"
             },
             "require": {
                 "php": ">=5.4.0",
@@ -1080,7 +1080,7 @@
                 "Sales",
                 "Task"
             ],
-            "time": "2013-10-14 12:52:49"
+            "time": "2013-10-14 13:13:01"
         },
         {
             "name": "project-a/silex-routing",
@@ -2619,13 +2619,13 @@
             "version": "dev-develop",
             "source": {
                 "type": "git",
-                "url": "https://github.com/zendframework/zf2.git",
-                "reference": "f9d1403dc384bb97509f1064fec592633d450c76"
+                "url": "https://github.com/Danez/zf2.git",
+                "reference": "d031e6bb21b87c16276d0e351a9266698c6dca41"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/zendframework/zf2/zipball/f9d1403dc384bb97509f1064fec592633d450c76",
-                "reference": "f9d1403dc384bb97509f1064fec592633d450c76",
+                "url": "https://api.github.com/repos/Danez/zf2/zipball/d031e6bb21b87c16276d0e351a9266698c6dca41",
+                "reference": "d031e6bb21b87c16276d0e351a9266698c6dca41",
                 "shasum": ""
             },
             "require": {
@@ -2719,7 +2719,6 @@
                     "Zend\\": "library/"
                 }
             },
-            "notification-url": "https://packagist.org/downloads/",
             "license": [
                 "BSD-3-Clause"
             ],
@@ -2729,7 +2728,10 @@
                 "framework",
                 "zf2"
             ],
-            "time": "2013-10-12 22:38:47"
+            "support": {
+                "source": "https://github.com/Danez/zf2/tree/develop"
+            },
+            "time": "2013-10-14 09:01:45"
         },
         {
             "name": "zendframework/zendpdf",
