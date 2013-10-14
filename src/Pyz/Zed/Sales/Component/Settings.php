@@ -12,7 +12,7 @@ class Pyz_Zed_Sales_Component_Settings extends ProjectA_Zed_Sales_Component_Sett
      */
     public function getStateMachineFactoryHook()
     {
-        return $this->factory->getModelOrderprocessStatemachineFactoryHook();
+        return $this->factory->createModelOrderprocessStatemachineFactoryHook();
     }
 
     /**
@@ -21,7 +21,7 @@ class Pyz_Zed_Sales_Component_Settings extends ProjectA_Zed_Sales_Component_Sett
      */
     public function getStatemachineDefinitionContainer()
     {
-        return $this->factory->getModelOrderprocessDefinitionContainer();
+        return $this->factory->createModelOrderprocessDefinitionContainer();
     }
 
     /**

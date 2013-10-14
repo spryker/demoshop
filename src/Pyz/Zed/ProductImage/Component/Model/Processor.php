@@ -25,7 +25,7 @@ class Pyz_Zed_ProductImage_Component_Model_Processor implements
 
     protected function getFilesToProcess()
     {
-        $pathToProcessableImages = $this->facadeProductImage->getSettings()->getPathToProcessableImages();
+        $pathToProcessableImages = $this->facadeProductImage->createSettings()->getPathToProcessableImages();
         $finder = new Finder();
         $finder->files()->in($pathToProcessableImages)->files()->ignoreDotFiles(true)->ignoreVCS(true);
 
@@ -75,7 +75,7 @@ class Pyz_Zed_ProductImage_Component_Model_Processor implements
      */
     protected function getFilenameForFrontend($sku, $order, $size, $extension)
     {
-        $filename = $this->facadeProductImage->getSettings()->getProductImageSeoFilenameBySku($sku, $order);
+        $filename = $this->facadeProductImage->createSettings()->getProductImageSeoFilenameBySku($sku, $order);
         return $filename . '-' . $size->getName() . '.' . $extension;
     }
 

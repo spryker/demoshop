@@ -42,7 +42,7 @@ class Install extends \ProjectA_Zed_Category_Component_Internal_Install
             $categoryName = $categoryNameQuery->findOneOrCreate();
             if ($categoryName->isNew()) {
                 $categoryName->save();
-                $this->factory->getModelCategory()->createNode($categoryName, $this->rootCategory, $this->defaultScope);
+                $this->factory->createModelCategory()->createNode($categoryName, $this->rootCategory, $this->defaultScope);
             }
         }
     }

@@ -30,16 +30,16 @@ class Pyz_Zed_Installer_Component_Model_Installer extends ProjectA_Zed_Installer
     protected function getInstaller()
     {
         return [
-            $this->facadeAcl->getInternalInstall(),
-            $this->facadeCatalog->getInternalInstall(),
-            $this->facadeCategory->getInternalInstall(),
-            $this->facadeCms->getInternalInstall(),
-            $this->facadeMisc->getInternalInstall(),
-            $this->facadePrice->getInternalInstall(),
-            $this->facadeStock->getInternalInstall(),
-            $this->facadeGlossary->getInternalInstall(),
-            $this->facadeSales->getInternalInstall(),
-            $this->facadeProductImage->getInternalInstall(),
+            $this->facadeAcl->createInternalInstall(),
+            $this->facadeCatalog->createInternalInstall(),
+            $this->facadeCategory->createInternalInstall(),
+            $this->facadeCms->createInternalInstall(),
+            $this->facadeMisc->createInternalInstall(),
+            $this->facadePrice->createInternalInstall(),
+            $this->facadeStock->createInternalInstall(),
+            $this->facadeGlossary->createInternalInstall(),
+            $this->facadeSales->createInternalInstall(),
+            $this->facadeProductImage->createInternalInstall(),
         ];
     }
 }

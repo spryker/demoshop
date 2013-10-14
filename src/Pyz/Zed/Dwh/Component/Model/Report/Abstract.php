@@ -107,7 +107,7 @@ abstract class Pyz_Zed_Dwh_Component_Model_Report_Abstract extends ProjectA_Zed_
      */
     protected function addTimeSelection($cubeName, $prefix = '')
     {
-        $timeMembers = $this->factory->getModelSchemaProcessor()->getLevelMembers($cubeName, $this->getTimeLevel($prefix));
+        $timeMembers = $this->factory->createModelSchemaProcessor()->getLevelMembers($cubeName, $this->getTimeLevel($prefix));
         if ($this->getParamValue('time-upto') >= count($timeMembers))
         {
             $this->params['time-upto'] = 0;

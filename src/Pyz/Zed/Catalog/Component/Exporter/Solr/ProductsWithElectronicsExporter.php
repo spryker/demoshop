@@ -28,6 +28,6 @@ class ProductsWithElectronicsExporter extends ProductsExporter
      */
     protected function getProductQueryBuilder()
     {
-        return $this->factory->getExporterQueryBuilderSolrProductsWithElectronics();
+        return $this->factory->createExporterQueryBuilderSolrProductsWithElectronics();
     }
 }

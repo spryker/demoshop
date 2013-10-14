@@ -87,7 +87,7 @@ class CatalogRouter implements RouterInterface, FactoryInterface
     {
         if (substr($pathinfo, -5) === '.html' && preg_match('~.+-(\d+)\.html~i', $pathinfo, $matches)) {
             try {
-                $product = $this->factory->getCatalogModelCatalog()->getProductDataById($matches[1], $this->app->getStorageKeyValue());
+                $product = $this->factory->createCatalogModelCatalog()->getProductDataById($matches[1], $this->app->getStorageKeyValue());
 //                if ($product['url'] != $pathinfo) {
 //                    return $this->redirectToCorrectUrl($product['url']);
 //                }

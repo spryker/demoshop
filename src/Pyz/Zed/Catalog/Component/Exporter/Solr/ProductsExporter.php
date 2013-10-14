@@ -76,7 +76,7 @@ abstract class ProductsExporter extends CoreProductsExporter implements
      */
     public function getExportSetup()
     {
-        $task = $this->facadeYves->getExporterSetupRaw();
+        $task = $this->facadeYves->createExporterSetupRaw();
         $task->setLazyCollection(
             new \ProjectA_Zed_Library_Propel_RawLazyCollection($this->getProductQueryBuilder())
         );
@@ -90,7 +90,7 @@ abstract class ProductsExporter extends CoreProductsExporter implements
 //    protected function prepareCategories(ProjectA_Zed_Catalog_Component_Interface_ProductEntity $product)
 //    {
 //        $categories = array();
-//        $productCategories = $this->factory->getModelFinder()->getCategoriesForProduct($product);
+//        $productCategories = $this->factory->createModelFinder()->getCategoriesForProduct($product);
 //
 //        /* @var $productCategory ProjectA_Zed_Category_Persistence_PacCategory */
 //        foreach ($productCategories as $productCategory) {
@@ -115,7 +115,7 @@ abstract class ProductsExporter extends CoreProductsExporter implements
         $reporter[$reportName] = 0;
 
         $this->scoreNames = $this->facadeSolr->getSolrScoreConfigForAttributeSet($this->getProductAttributeSetName());
-        $this->attributeSetEntity = $this->factory->getModelFinder()->getAttributeSetByName($this->getProductAttributeSetName());
+        $this->attributeSetEntity = $this->factory->createModelFinder()->getAttributeSetByName($this->getProductAttributeSetName());
 
         $allData = array();
         $counter = 1;
@@ -167,7 +167,7 @@ abstract class ProductsExporter extends CoreProductsExporter implements
     protected function extractGroupAttributesFromProduct($filterGroup, array $product)
     {
         if (!isset($this->groupAttributeNames[$filterGroup])) {
-            $groupValueTypes = $this->factory->getModelFinder()->getValueTypes(
+            $groupValueTypes = $this->factory->createModelFinder()->getValueTypes(
                 array($filterGroup),
                 $this->attributeSetEntity
             );

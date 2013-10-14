@@ -38,8 +38,8 @@ class Pyz_Zed_Sales_Component_Model_Orderprocess_Definition_Subprocess_Payment e
 
     protected function addCommands()
     {
-        $this->setup->addCommand(self::STATE_WAITING_FOR_PAYMENT, self::EVENT_ON_ENTER, $this->facadeDemoPayment->getFacadeStateMachine()->getCommandAuthorizeGrandTotal());
-        $this->setup->addCommand(self::STATE_AUTHORIZED, self::EVENT_CAPTURE_PAYMENT, $this->facadeDemoPayment->getFacadeStateMachine()->getCommandCaptureGrandTotal());
+        $this->setup->addCommand(self::STATE_WAITING_FOR_PAYMENT, self::EVENT_ON_ENTER, $this->facadeDemoPayment->createFacadeStateMachine()->getCommandAuthorizeGrandTotal());
+        $this->setup->addCommand(self::STATE_AUTHORIZED, self::EVENT_CAPTURE_PAYMENT, $this->facadeDemoPayment->createFacadeStateMachine()->getCommandCaptureGrandTotal());
     }
 
     protected function addFlags()

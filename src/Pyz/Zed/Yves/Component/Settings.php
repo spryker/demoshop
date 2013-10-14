@@ -25,8 +25,8 @@ class Settings extends CoreSettings implements
      */
     public function getSolrExporters($exportIdentifier)
     {
-        $result[] = $this->facadeCatalog->getExporterSolrProductsWithElectronicsExporter();
-        $result[] = $this->facadeCatalog->getExporterSolrProductsWithoutElectronicsExporter();
+        $result[] = $this->facadeCatalog->createExporterSolrProductsWithElectronicsExporter();
+        $result[] = $this->facadeCatalog->createExporterSolrProductsWithoutElectronicsExporter();
         return $result;
     }
 
@@ -37,17 +37,17 @@ class Settings extends CoreSettings implements
     public function getKeyValueExporters($exportIdentifier)
     {
         //TODO currently all exporters are activated to test them, remove unneeded later on
-        $result[] = $this->facadeCms->getExporterKeyValueCmsExporter();
-        $result[] = $this->facadeCms->getExporterKeyValueRedirectionExporter();
-        $result[] = $this->facadeGlossary->getExporterKeyValueGlossaryExporter();
+        $result[] = $this->facadeCms->createExporterKeyValueCmsExporter();
+        $result[] = $this->facadeCms->createExporterKeyValueRedirectionExporter();
+        $result[] = $this->facadeGlossary->createExporterKeyValueGlossaryExporter();
 
-        $result[] = $this->facadeCatalog->getExporterKeyValueProductsWithElectronicsExporter();
-        $result[] = $this->facadeCatalog->getExporterKeyValueProductsWithoutElectronicsExporter();
+        $result[] = $this->facadeCatalog->createExporterKeyValueProductsWithElectronicsExporter();
+        $result[] = $this->facadeCatalog->createExporterKeyValueProductsWithoutElectronicsExporter();
 
-        $result[] = $this->facadeCategory->getExporterKeyValueCategoriesExporter();
-        $result[] = $this->facadeMisc->getExporterKeyValueCountryExporter();
-//        $result[] = $this->facadeCatalog->getExporterKeyValueBrandsExporter();
-        $result[] = $this->facadeCatalog->getExporterKeyValueProductOptionsExporter();
+        $result[] = $this->facadeCategory->createExporterKeyValueCategoriesExporter();
+        $result[] = $this->facadeMisc->createExporterKeyValueCountryExporter();
+//        $result[] = $this->facadeCatalog->createExporterKeyValueBrandsExporter();
+        $result[] = $this->facadeCatalog->createExporterKeyValueProductOptionsExporter();
         return $result;
     }
 }
