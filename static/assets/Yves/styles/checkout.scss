@@ -63,3 +63,6 @@
 
 #checkout .addressSummary .row,
 #checkout .paymentSummary .row { line-height:1.5em; margin-bottom:20px; }
+
+#checkout .step { display:none; }
+#checkout .step:first-child { display:block; }

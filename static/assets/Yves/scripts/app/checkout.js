@@ -1,20 +1,21 @@
 app.checkout = {
     init : function() {
-      this.smartAddress.init();
-      $('.triggerAlternative').change(function() {
-          if ($(this).is(':checked')) {
-              $('.address.secondaryRow').show();
-          } else {
-              $('.address.secondaryRow').hide();
-          }
-      });
+        this.smartAddress.init();
+        this.steps.init();
+        $('.triggerAlternative').change(function() {
+            if ($(this).is(':checked')) {
+                $('.address.secondaryRow').show();
+            } else {
+                $('.address.secondaryRow').hide();
+            }
+        });
     },
     smartAddress : {
         vars : {
-            required : ['gender', 'full_name', 'full_address'],
+            required : [/*'gender',*/ 'full_name', 'full_address'],
             addressField : 'full_address',
             nameField : 'full_name',
-            genderField : 'gender',
+            // genderField : 'gender',
             relevantGValues : ['street_number', 'route', 'locality', 'postal_code', 'country'],
             scopes : ['shipping', 'billing']
         },
@@ -68,7 +69,7 @@ app.checkout = {
 
                 relevantValues.first_name = nameParts.shift();
                 relevantValues.middle_name = nameParts.join(' ');
-                relevantValues.gender = this.getField(this.vars.genderField, fields);
+                // relevantValues.gender = this.getField(this.vars.genderField, fields);
 
                 this.showResult(relevantValues);
             }.bind(this));
@@ -105,6 +106,51 @@ app.checkout = {
             });
 
             $resultDiv.show();
+        }
+    },
+    steps : {
+        vars : {
+            current : 1,
+            count : 2,
+            el : '#checkout .step',
+            form : '#checkout .smartAddressForm'
+        },
+        init : function() {
+            $(this.vars.form).submit(function(e) {
+                if (this.vars.current < this.vars.count) {
+                    e.preventDefault();
+                }
+                this.next();
+            }.bind(this));
+        },
+        change : function() {
+            var $newLayer = $(this.vars.el).filter('[data-step=' + this.vars.current + ']');
+            var data = $(this.vars.form).serializeArray();
+            $.each(data, function() {
+                var $target = $newLayer.find('[data-formsrc="' + this.name + '"]');
+                if (!$target.length) { return; }
+                $target[$target.is(':input') ? $target.val(this.value) : $target.text(this.value)];
+            });
+            $newLayer.find('[data-elsrc]').each(function() {
+                var $elTarget = $($(this).data('elsrc'));
+                var value = $elTarget.is('select') ? $elTarget.find('option:selected').text() : ($elTarget.is(':input') ? $elTarget.val() : $elTarget.html());
+                $(this).html(value);
+            });
+            $newLayer.show().siblings().hide();
+        },
+        previous : function() {
+            if (this.vars.current < 2) {
+                return;
+            }
+            this.vars.current--;
+            this.change();
+        },
+        next : function() {
+            if (this.vars.current >= this.vars.count) {
+                return;
+            }
+            this.vars.current++;
+            this.change();
         }
     }
 }
