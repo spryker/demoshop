@@ -82,8 +82,8 @@ class Install extends \ProjectA_Zed_Catalog_Component_Internal_Install
      */
     protected function createValueTypesForAttributeSets()
     {
-        $attributes = $this->factory->getModelFinder()->getAttributesMap();
-        $attributeSets = $this->factory->getModelFinder()->getAttributeSetsMap();
+        $attributes = $this->factory->createModelFinder()->getAttributesMap();
+        $attributeSets = $this->factory->createModelFinder()->getAttributeSetsMap();
         foreach(AttributeToVarietyMapping::$attributesToVarietyMapping as $attributeSetName => $attributesToVarietyMapping) {
             /* @var $attributeSet \ProjectA_Zed_Catalog_Persistence_PacCatalogAttributeSet */
             $attributeSet = $attributeSets->get($attributeSetName);
