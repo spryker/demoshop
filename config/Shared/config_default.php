@@ -435,8 +435,8 @@ $config['mail'] = array(
 );
 
 $config['productImage'] = [
-    'baseStoreSpecificProductImageDirectory' => ProjectA_Shared_Library_Data::getSharedStoreSpecificPath() . 'images',
-    'baseStoreSpecificOriginalProductImageDirectory' => ProjectA_Shared_Library_Data::getSharedStoreSpecificPath() . 'images' . DIRECTORY_SEPARATOR . 'original',
-    'storeSpecificIncomingProductImageDirectory' => ProjectA_Shared_Library_Data::getSharedStoreSpecificPath() . 'images' . DIRECTORY_SEPARATOR . 'incoming',
-    'storeSpecificProcessedProductImageDirectory' => ProjectA_Shared_Library_Data::getSharedStoreSpecificPath() . 'images' . DIRECTORY_SEPARATOR . 'processed',
+    'originalProductImageDirectory' => 'images' . DIRECTORY_SEPARATOR . 'original',
+    'incomingProductImageDirectory' => 'images' . DIRECTORY_SEPARATOR . 'incoming',
+    'processedProductImageDirectory' => 'images' . DIRECTORY_SEPARATOR . 'processed',
+    'imageUrlPrefix' => 'images'
 ];

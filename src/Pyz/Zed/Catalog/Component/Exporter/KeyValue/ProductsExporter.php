@@ -54,7 +54,7 @@ abstract class ProductsExporter extends CoreProductsExporter implements
      */
     public function getExportSetup()
     {
-        $task = $this->facadeYves->getExporterSetupRaw();
+        $task = $this->facadeYves->createExporterSetupRaw();
         $task->setLazyCollection(
             new \ProjectA_Zed_Library_Propel_RawLazyCollection($this->getProductQueryBuilder())
         );

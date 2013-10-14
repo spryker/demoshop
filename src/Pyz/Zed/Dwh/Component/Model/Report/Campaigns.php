@@ -56,7 +56,7 @@ class Pyz_Zed_Dwh_Component_Model_Report_Campaigns extends Pyz_Zed_Dwh_Component
      */
     protected function run($params)
     {
-        $timeMembers = $this->factory->getModelSchemaProcessor()->getLevelMembers('Campaign clicks', $this->getTimeLevel());
+        $timeMembers = $this->factory->createModelSchemaProcessor()->getLevelMembers('Campaign clicks', $this->getTimeLevel());
         $timeList = array_map(function ($elem) {
             return $elem['MEMBER_NAME'];
         }, $timeMembers);

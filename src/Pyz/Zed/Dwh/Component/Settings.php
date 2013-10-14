@@ -32,17 +32,17 @@ class Pyz_Zed_Dwh_Component_Settings extends ProjectA_Zed_Dwh_Component_Settings
     public function getReports()
     {
         $reports = array(
-            $this->factory->getModelReportSales(),
-            $this->factory->getModelReportMonthlyOrderItems(),
-            $this->factory->getModelReportOrderStatus(),
-            $this->factory->getModelReportCampaignClicks(),
-            $this->factory->getModelReportCampaigns(),
-            $this->factory->getModelReportConversions(),
+            $this->factory->createModelReportSales(),
+            $this->factory->createModelReportMonthlyOrderItems(),
+            $this->factory->createModelReportOrderStatus(),
+            $this->factory->createModelReportCampaignClicks(),
+            $this->factory->createModelReportCampaigns(),
+            $this->factory->createModelReportConversions(),
 
-//            $this->factory->getModelReportNLCampaigns(),
-//            $this->factory->getModelReportNLRecipients(),
-            $this->factory->getModelReportAdHoc(),
-            $this->factory->getModelReportEverything()
+//            $this->factory->createModelReportNLCampaigns(),
+//            $this->factory->createModelReportNLRecipients(),
+            $this->factory->createModelReportAdHoc(),
+            $this->factory->createModelReportEverything()
         );
 
         return $reports;

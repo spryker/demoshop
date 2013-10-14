@@ -11,20 +11,20 @@ class Pyz_Zed_Calculation_Component_Settings extends ProjectA_Zed_Calculation_Co
     public function getCalculatorStack()
     {
         return array(
-            $this->factory->getModelCalculatorsRemoveAllExpenses(),
-            $this->factory->getModelCalculatorsRemoveAllCalculatedDiscounts(),
-            $this->factory->getModelCalculatorsItemExpensesTotal(),
-            $this->factory->getModelCalculatorsOrderExpensesTotal(),
-            $this->factory->getModelCalculatorsSubtotal(),
-            $this->factory->getModelCalculatorsSubtotalWithoutItemExpenses(),
-            $this->factory->getModelCalculatorsGrandTotalWithoutDiscounts(),
-            $this->factory->getModelCalculatorsSalesrule(),
-            $this->factory->getModelCalculatorsExpensePriceToPay(),
-            $this->factory->getModelCalculatorsItemPriceToPay(),
-            $this->factory->getModelCalculatorsOptionPriceToPay(),
-            $this->factory->getModelCalculatorsDiscounts(),
-            $this->factory->getModelCalculatorsGrandTotal(),
-            $this->factory->getModelCalculatorsTax(),
+            $this->factory->createModelCalculatorsRemoveAllExpenses(),
+            $this->factory->createModelCalculatorsRemoveAllCalculatedDiscounts(),
+            $this->factory->createModelCalculatorsItemExpensesTotal(),
+            $this->factory->createModelCalculatorsOrderExpensesTotal(),
+            $this->factory->createModelCalculatorsSubtotal(),
+            $this->factory->createModelCalculatorsSubtotalWithoutItemExpenses(),
+            $this->factory->createModelCalculatorsGrandTotalWithoutDiscounts(),
+            $this->factory->createModelCalculatorsSalesrule(),
+            $this->factory->createModelCalculatorsExpensePriceToPay(),
+            $this->factory->createModelCalculatorsItemPriceToPay(),
+            $this->factory->createModelCalculatorsOptionPriceToPay(),
+            $this->factory->createModelCalculatorsDiscounts(),
+            $this->factory->createModelCalculatorsGrandTotal(),
+            $this->factory->createModelCalculatorsTax(),
         );
     }
 

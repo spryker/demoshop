@@ -122,8 +122,8 @@ class Install extends \ProjectA_Zed_Catalog_Component_Internal_Install
      */
     protected function addAttributesToAttributeGroups()
     {
-        $groups = $this->factory->getModelFinder()->getGroupsMap();
-        $attributes = $this->factory->getModelFinder()->getAttributesMap();
+        $groups = $this->factory->createModelFinder()->getGroupsMap();
+        $attributes = $this->factory->createModelFinder()->getAttributesMap();
 
         foreach (AttributeToAttributeGroupMapping::$attributesToGroupMapping as $attributeName => $groupNames) {
             /* @var $attribute \ProjectA_Zed_Catalog_Persistence_PacCatalogAttribute */
@@ -143,9 +143,9 @@ class Install extends \ProjectA_Zed_Catalog_Component_Internal_Install
      */
     protected function addAttributeValueTypesToAttributeSetGroups()
     {
-        $groups = $this->factory->getModelFinder()->getGroupsMap();
-        $attributes = $this->factory->getModelFinder()->getAttributesMap();
-        $attributeSets = $this->factory->getModelFinder()->getAttributeSetsMap();
+        $groups = $this->factory->createModelFinder()->getGroupsMap();
+        $attributes = $this->factory->createModelFinder()->getAttributesMap();
+        $attributeSets = $this->factory->createModelFinder()->getAttributeSetsMap();
 
         foreach (AttributeValueTypeToAttributeSetGroupMapping::getMappings() as
                  $attributeSetName => $valueTypeToAttributeSetGroupMapping) {
@@ -176,8 +176,8 @@ class Install extends \ProjectA_Zed_Catalog_Component_Internal_Install
     protected function addOptionValuesForAttributes()
     {
         /* @var $attributeSet \ProjectA_Zed_Catalog_Persistence_PacCatalogAttributeSet */
-        foreach ($this->factory->getModelFinder()->getAttributeSetsMap() as $attributeSet) {
-            $attributeOptionsMap = $this->factory->getInternalImportOptionsForAttributes()->getOptionsForAttributeMap($attributeSet->getName());
+        foreach ($this->factory->createModelFinder()->getAttributeSetsMap() as $attributeSet) {
+            $attributeOptionsMap = $this->factory->createInternalImportOptionsForAttributes()->getOptionsForAttributeMap($attributeSet->getName());
             foreach ($attributeOptionsMap as $attributeName => $attributeOptions) {
                 $query = new \ProjectA_Zed_Catalog_Persistence_PacCatalogValueTypeQuery();
                 /* @var $entityValueType \ProjectA_Zed_Catalog_Persistence_PacCatalogValueType */

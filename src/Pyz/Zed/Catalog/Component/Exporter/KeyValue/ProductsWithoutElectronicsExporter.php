@@ -17,6 +17,6 @@ class ProductsWithoutElectronicsExporter extends ProductsExporter
      */
     protected function getProductQueryBuilder()
     {
-        return $this->factory->getExporterQueryBuilderKeyValueProductsWithoutElectronics();
+        return $this->factory->createExporterQueryBuilderKeyValueProductsWithoutElectronics();
     }
 }

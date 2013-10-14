@@ -48,7 +48,7 @@ class Pyz_Zed_Dwh_Component_Model_Report_MonthlyOrderItems extends Pyz_Zed_Dwh_C
      */
     protected function run($params)
     {
-        $timeMembers = $this->factory->getModelSchemaProcessor()->getLevelMembers('Sales', '[Date by month].[Month]');
+        $timeMembers = $this->factory->createModelSchemaProcessor()->getLevelMembers('Sales', '[Date by month].[Month]');
         $timeList = array_map(function ($elem) {
             return $elem['MEMBER_NAME'];
         }, $timeMembers);

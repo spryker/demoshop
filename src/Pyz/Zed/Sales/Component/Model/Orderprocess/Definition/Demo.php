@@ -37,9 +37,9 @@ class Pyz_Zed_Sales_Component_Model_Orderprocess_Definition_Demo extends Project
 
     protected function addDefinitions()
     {
-        $this->setup->addDefinition($this->factory->getModelOrderprocessDefinitionSubProcessNew());
-        $this->setup->addDefinition($this->factory->getModelOrderprocessDefinitionSubProcessPayment());
-        $this->setup->addDefinition($this->factory->getModelOrderprocessDefinitionSubProcessClosed());
+        $this->setup->addDefinition($this->factory->createModelOrderprocessDefinitionSubProcessNew());
+        $this->setup->addDefinition($this->factory->createModelOrderprocessDefinitionSubProcessPayment());
+        $this->setup->addDefinition($this->factory->createModelOrderprocessDefinitionSubProcessClosed());
     }
 
     protected function addCommands()

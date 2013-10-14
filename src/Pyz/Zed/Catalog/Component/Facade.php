@@ -9,32 +9,32 @@ class Pyz_Zed_Catalog_Component_Facade extends ProjectA_Zed_Catalog_Component_Fa
     /**
      * @return \Pyz\Zed\Catalog\Component\Exporter\KeyValue\ProductsWithElectronicsExporter
      */
-    public function getExporterKeyValueProductsWithElectronicsExporter()
+    public function createExporterKeyValueProductsWithElectronicsExporter()
     {
-        return $this->factory->getExporterKeyValueProductsWithElectronicsExporter();
+        return $this->factory->createExporterKeyValueProductsWithElectronicsExporter();
     }
 
     /**
      * @return \Pyz\Zed\Catalog\Component\Exporter\KeyValue\ProductsWithoutElectronicsExporter
      */
-    public function getExporterKeyValueProductsWithoutElectronicsExporter()
+    public function createExporterKeyValueProductsWithoutElectronicsExporter()
     {
-        return $this->factory->getExporterKeyValueProductsWithoutElectronicsExporter();
+        return $this->factory->createExporterKeyValueProductsWithoutElectronicsExporter();
     }
 
     /**
      * @return \Pyz\Zed\Catalog\Component\Exporter\Solr\ProductsWithElectronicsExporter
      */
-    public function getExporterSolrProductsWithElectronicsExporter()
+    public function createExporterSolrProductsWithElectronicsExporter()
     {
-        return $this->factory->getExporterSolrProductsWithElectronicsExporter();
+        return $this->factory->createExporterSolrProductsWithElectronicsExporter();
     }
 
     /**
      * @return \Pyz\Zed\Catalog\Component\Exporter\Solr\ProductsWithoutElectronicsExporter
      */
-    public function getExporterSolrProductsWithoutElectronicsExporter()
+    public function createExporterSolrProductsWithoutElectronicsExporter()
     {
-        return $this->factory->getExporterSolrProductsWithoutElectronicsExporter();
+        return $this->factory->createExporterSolrProductsWithoutElectronicsExporter();
     }
 }
