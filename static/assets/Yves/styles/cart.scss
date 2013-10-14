@@ -19,4 +19,7 @@
 #cart .items .usps { margin:0; padding:0; list-style:none; line-height:2.5em; color:#777; }
 #cart .items .usps .glyphicon { margin-right:10px; }
 #cart .items .total { font-weight:bold; font-size:1.2em; }
-#cart .items .total .hint { display:block; font-size:0.6em; font-weight:normal; margin-top:2px; color:#aaa; }
+// #cart .items .total .hint { display:block; font-size:0.6em; font-weight:normal; margin-top:2px; color:#aaa; }
+#cart .items .tax td { padding:10px; color:#aaa; }
+#cart .items .shipping td,
+#cart .items .voucher td { padding:10px; }
