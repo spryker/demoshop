@@ -151,45 +151,50 @@
             </div>
 
             <div class="cart primary col col33">
-                <hardcoded block>
                 <h3>Your Cart</h3>
                 <table class="items">
                     <tbody>
-                    <tr>
-                        <td>
-                            <h4>1x Product name 1</h4>
-                            <h5>by brand 1</h5>
-                        </td>
-                        <td>
-                            <span class="oldPrice">55,70 €</span>
-                            <span class="price">29,99 €</span>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>
-                            <h4>1x Product name 2</h4>
-                            <h5>by brand 2</h5>
-                        </td>
-                        <td>
-                            <span class="price">20,80 €</span>
-                        </td>
-                    </tr>
+                    {% for cartItem in cartItems %}
+                        {% set product = products[cartItem.sku] %}
+                        <tr>
+                            <td>
+                                <h4>{{ cartItem.quantity }}x {{ product.name }}</h4>
+                                <h5>by {{ product.brand }}</h5>
+                            </td>
+                            <td>
+                                {# <span class="oldPrice">55,70 €</span> #}
+                                <span class="price">{{ cartItem.priceToPay|price }}</span>
+                            </td>
+                        </tr>
+                    {% else %}
+                        <tr>
+                            <td colspan="2">Cart EMPTY.</td>
+                        </tr>
+                    {% endfor %}
                     </tbody>
                     <tfoot>
                     <tr>
-                        <td class="label">Shipping</td>
-                        <td>0,00 €</td>
+                        <td>Subtotal Price</td>
+                        <td>{{ totals.subtotal|price }}</td>
                     </tr>
+                    <tr>
+                        <td>Shipping</td>
+                        <td>{{ totals.orderExpensesTotal|price }}</td>
+                    </tr>
+                    {% for taxRate in totals.tax.taxRates %}
+                        <tr class="tax">
+                            <td>{{ taxRate.percentage }} % VAT</td>
+                            <td>{{ taxRate.amount|price }}</td>
+                        </tr>
+                    {% endfor %}
                     <tr class="total">
                         <td>
                             Total price
-                            <span class="hint">incl. 19% VAT</span>
                         </td>
-                        <td>50,79 €</td>
+                        <td>{{ totals.grandTotal|price }}</td>
                     </tr>
                     </tfoot>
                 </table>
-                </hardcoded>
                 {{ form_widget(form.save) }}
             </div>
             <div class="clearRows"></div>
