@@ -225,20 +225,16 @@
                     </div>
                 </div>
                 <div class="paymentSummary primary col col25">
-                    <hardcoded block>
                     <h3>Payment</h3>
                     <div class="row">
-                        <strong>Master Card</strong><br />
-                        Card Number: **** **** *** *362<br />
-                        Name: Peter Pan
+                        <strong><span data-formsrc="salesOrder[payment][method]"></span></strong>
                         <a class="change" href="javascript:app.checkout.steps.previous();">edit</a>
                     </div>
-                    </hardcoded>
                 </div>
                 <div class="cartSummary cart primary col col50" data-elsrc="#cartSummary"></div>
             </div>
         {{ form_end(form) }}
-
+{{ 'test'|trans }}
     </section>
 
 
