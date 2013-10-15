@@ -12,6 +12,7 @@ return Symfony\CS\Config\Config::create()
             'elseif',
             'eof_ending',
             'extra_empty_lines',
+            'function_declaration',
             'include',
             'indentation',
             'linefeed',
