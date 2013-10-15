@@ -35,6 +35,7 @@
 #checkout .cart .items tbody tr:first-child td { padding-top:0; }
 #checkout .cart .items tbody tr:last-child td { padding-bottom:20px; border-bottom:1px solid #eee; }
 #checkout .cart .items tfoot tr:first-child td { padding-top:20px; }
+#checkout .cart .items tfoot td { padding-bottom:5px; }
 #checkout .cart .items td:last-child { text-align:right; }
 #checkout .cart .items td:first-child { padding-left:0; }
 #checkout .cart .items td:last-child { padding-right:0; }
@@ -44,6 +45,7 @@
 #checkout .cart .items .oldPrice + .price { color:#e10000; }
 #checkout .cart .items .total { font-weight:bold; font-size:1.1em; }
 #checkout .cart .items .total .hint { display:block; font-size:0.6em; font-weight:normal; margin-top:2px; color:#aaa; }
+#checkout .cart .items .tax td { color:#aaa; }
 
 .addressResult { display:none; position:absolute; padding:10px; background:#fcfcfc; border:1px solid #ccc; box-shadow:1px 1px 2px rgba(0, 0, 0, 0.2); z-index:1; }
 .addressResult:before { position:absolute; display:block; content:''; left:-20px; top:50%; margin-top:-10px; border:10px solid #fff; border-right-color:#ccc; z-index:1; }
@@ -61,3 +63,6 @@
 
 #checkout .addressSummary .row,
 #checkout .paymentSummary .row { line-height:1.5em; margin-bottom:20px; }
+
+#checkout .step { display:none; }
+#checkout .step:first-child { display:block; }

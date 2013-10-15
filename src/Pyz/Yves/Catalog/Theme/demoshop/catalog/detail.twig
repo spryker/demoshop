@@ -38,24 +38,15 @@
                 {#{% if product.image %}#}
                     {#<img src="{{ product.image }}" alt="" />#}
                 {#{% else %}#}
-                    <img src="/images/product/default.png" alt="" />
+                    <img src="{{ getFirstProductImagesBySize(product.product_images, 'xxl') }}" alt="" />
                 {#{% endif %}#}
             </div>
             <ul class="list">
-                <hardcoded block>
+                {% for image in getAllProductImagesBySize(product.product_images, 's') %}
                 <li class="col col20">
-                    <img class="col" src="images/product/thumb_hardcoded.png" alt="" />
+                    <img class="col" src="{{ image }}" alt="" />
                 </li>
-                <li class="col col20">
-                    <img class="col" src="images/product/thumb_hardcoded.png" alt="" />
-                </li>
-                <li class="col col20">
-                    <img class="col" src="images/product/thumb_hardcoded.png" alt="" />
-                </li>
-                <li class="col col20">
-                    <img class="col" src="images/product/thumb_hardcoded.png" alt="" />
-                </li>
-                </hardcoded>
+                {% endfor %}
             </ul>
         </div>
         <aside class="item col col25">
