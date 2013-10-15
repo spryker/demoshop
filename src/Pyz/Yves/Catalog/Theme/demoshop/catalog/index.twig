@@ -70,7 +70,7 @@
             {% for product in products %}
                 <li>
                     <a href="/{{ product.name | url_encode | replace({'-': '+'}) }}-{{ product.id }}.html">
-                        <img src="" alt="picture will be here, once implemented" />
+                        <img src="{{ getFirstProductImagesBySize(product.product_images, 'l') }}" alt="picture will be here, once implemented" />
                         <h3>{{ product.name }}</h3>
                         <h4>by {{ product.brand }}</h4>
                         {% if product.recommended_retail_price %}
