@@ -5,7 +5,7 @@
 body {
     color: #333333;
     font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
-    font-size: 12px;
+    font-size: 13px;
     line-height: 1.42857;
 }
 
@@ -37,7 +37,7 @@ address {
 
 
 .table-condensed thead > tr > th, .table-condensed tbody > tr > th, .table-condensed tfoot > tr > th, .table-condensed thead > tr > td, .table-condensed tbody > tr > td, .table-condensed tfoot > tr > td {
-    padding: 1px 3px;
+    padding: 2px 3px;
     font-size:12px;
 }
 
@@ -51,7 +51,7 @@ address {
     border-bottom: 1px solid rgba(0, 0, 0, 0);
     border-top-left-radius: 3px;
     border-top-right-radius: 3px;
-    padding: 2px 6px;
+    padding: 3px 6px;
 }
 .panel-title {
     font-size: 14px;
@@ -67,6 +67,7 @@ address {
 }
 
 .panel-primary > .panel-heading {
+    background-color:#333;
     background: linear-gradient(0deg, #3F4345, #373A3B 98%, #363737) repeat scroll 0 0 #333333;
     border-color: #343434;
     color: #DDDDDD;
@@ -76,6 +77,21 @@ address {
     border-color: #343434;
 }
 
+/* --- NAV --- */
+
+.nav-tabs > li.active > a, .nav-tabs > li.active > a:hover, .nav-tabs > li.active > a:focus {
+    background-color:#333;
+    background: linear-gradient(0deg, #363737, #363737 100%, #363737) repeat scroll 0 0 #363737;
+    border-color: #343434;
+    color: #DDDDDD;
+    text-shadow: 2px 2px 3px #1C1C1C;
+}
+
+.tab-content > .active, .pill-content > .active {
+    border:1px solid #333;
+    padding:6px;
+    margin-bottom: 10px;
+}
 
 
 /* --- COLUMNS / ROWS --- */
@@ -91,7 +107,7 @@ address {
 
 .btn {
     font-size: 13px;
-    padding: 2px 6px;
+    padding: 3px 6px;
 }
 
 /* FORMS */
