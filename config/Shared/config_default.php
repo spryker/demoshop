@@ -435,8 +435,8 @@ $config['mail'] = array(
 );
 
 $config['productImage'] = [
-    'originalProductImageDirectory' => 'images' . DIRECTORY_SEPARATOR . 'original',
-    'incomingProductImageDirectory' => 'images' . DIRECTORY_SEPARATOR . 'incoming',
-    'processedProductImageDirectory' => 'images' . DIRECTORY_SEPARATOR . 'processed',
+    'originalProductImageDirectory' => 'images' . DIRECTORY_SEPARATOR . 'products/original',
+    'incomingProductImageDirectory' => 'images' . DIRECTORY_SEPARATOR . 'products/incoming',
+    'processedProductImageDirectory' => 'images' . DIRECTORY_SEPARATOR . 'products/processed',
     'imageUrlPrefix' => 'images'
 ];
