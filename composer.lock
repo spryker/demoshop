@@ -952,10 +952,14 @@
                 "type": "git",
                 "url": "git@codebasehq.com:project-a/core/library-2.git",
 <<<<<<< HEAD
+<<<<<<< HEAD
                 "reference": "7754f3060ea680bbabcb0a86e464c81cfbe0712a"
 =======
                 "reference": "ad5262353888b46e891915849a881d181cc5099d"
 >>>>>>> 7e9bb26c14948948487d906b651d241dd169d9ba
+=======
+                "reference": "815c30746f75c803be4a30f7254128bc0d69f90f"
+>>>>>>> 1a2fbd0eb592e512367139079ad0c71e8d3cc365
             },
             "require": {
                 "digital-canvas/zend-framework": ">=1.12.2",
@@ -996,10 +1000,14 @@
             ],
             "description": "Project-A Library",
 <<<<<<< HEAD
+<<<<<<< HEAD
             "time": "2013-10-15 07:27:27"
 =======
             "time": "2013-10-15 10:28:49"
 >>>>>>> 7e9bb26c14948948487d906b651d241dd169d9ba
+=======
+            "time": "2013-10-15 12:44:17"
+>>>>>>> 1a2fbd0eb592e512367139079ad0c71e8d3cc365
         },
         {
             "name": "project-a/lumberjack-package",
@@ -1113,10 +1121,14 @@
                 "type": "git",
                 "url": "git@codebasehq.com:project-a/core/sales.git",
 <<<<<<< HEAD
+<<<<<<< HEAD
                 "reference": "cf8885e84bfe2c922356126e66459e9d6b734fbb"
 =======
                 "reference": "94efe96579e8f853f7a265e245113800c3ef234c"
 >>>>>>> 7e9bb26c14948948487d906b651d241dd169d9ba
+=======
+                "reference": "9abf99dab5d9ba378ec809e0ded02fe2d02f1e95"
+>>>>>>> 1a2fbd0eb592e512367139079ad0c71e8d3cc365
             },
             "require": {
                 "php": ">=5.4.0",
@@ -1144,10 +1156,14 @@
                 "Task"
             ],
 <<<<<<< HEAD
+<<<<<<< HEAD
             "time": "2013-10-15 08:28:39"
 =======
             "time": "2013-10-15 10:38:35"
 >>>>>>> 7e9bb26c14948948487d906b651d241dd169d9ba
+=======
+            "time": "2013-10-15 12:34:08"
+>>>>>>> 1a2fbd0eb592e512367139079ad0c71e8d3cc365
         },
         {
             "name": "project-a/silex-routing",
