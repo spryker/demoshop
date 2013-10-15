@@ -115,12 +115,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/fabpot/PHP-CS-Fixer.git",
-                "reference": "f6c4f78b3e34c1c67c8ae4543f5d4b7232e23011"
+                "reference": "afb6839f21da687063d9aee2fa8364c938b5f3f0"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/fabpot/PHP-CS-Fixer/zipball/f6c4f78b3e34c1c67c8ae4543f5d4b7232e23011",
-                "reference": "f6c4f78b3e34c1c67c8ae4543f5d4b7232e23011",
+                "url": "https://api.github.com/repos/fabpot/PHP-CS-Fixer/zipball/afb6839f21da687063d9aee2fa8364c938b5f3f0",
+                "reference": "afb6839f21da687063d9aee2fa8364c938b5f3f0",
                 "shasum": ""
             },
             "require": {
@@ -155,7 +155,7 @@
                 }
             ],
             "description": "A script to automatically fix Symfony Coding Standard",
-            "time": "2013-09-23 10:31:06"
+            "time": "2013-10-14 15:23:42"
         },
         {
             "name": "guzzle/guzzle",
@@ -437,7 +437,7 @@
             "source": {
                 "type": "git",
                 "url": "git@codebasehq.com:project-a/core/acl.git",
-                "reference": "d2d025e1670300f131e420acc0c96064cfccd2ee"
+                "reference": "4d7ca06a401aa404ff4a483339b3d623b3b2d11a"
             },
             "require": {
                 "php": ">=5.4.0",
@@ -447,7 +447,8 @@
             "autoload": {
                 "psr-0": {
                     "ProjectA": "src/",
-                    "Behat": "tests/"
+                    "Behat": "tests/",
+                    "PhpUnit": "tests/"
                 }
             },
             "authors": [
@@ -465,7 +466,7 @@
                 "login",
                 "usermanagement"
             ],
-            "time": "2013-10-14 11:35:49"
+            "time": "2013-10-15 07:36:18"
         },
         {
             "name": "project-a/adyen-package",
@@ -473,7 +474,7 @@
             "source": {
                 "type": "git",
                 "url": "git@codebasehq.com:project-a/core/adyen.git",
-                "reference": "4f152b53c96416d45120d6c0b4173eeb4a8b3d3b"
+                "reference": "b18d2a7df2a020dc3fb7e14cf5674afd521c3ae4"
             },
             "require": {
                 "php": ">=5.4.0",
@@ -498,7 +499,7 @@
             "keywords": [
                 "adyen payment provider"
             ],
-            "time": "2013-10-14 07:18:25"
+            "time": "2013-10-15 07:28:09"
         },
         {
             "name": "project-a/cart-package",
@@ -542,7 +543,7 @@
             "source": {
                 "type": "git",
                 "url": "git@codebasehq.com:project-a/core/catalog.git",
-                "reference": "e6c9e4cf41973b7818e6483ce069e957b2740a56"
+                "reference": "23856856bcb64f44cb71cb0b40651aed938217c2"
             },
             "require": {
                 "php": ">=5.4.0",
@@ -578,7 +579,7 @@
                 "Price",
                 "Stock"
             ],
-            "time": "2013-10-14 14:13:20"
+            "time": "2013-10-15 09:03:46"
         },
         {
             "name": "project-a/checkout-package",
@@ -586,7 +587,7 @@
             "source": {
                 "type": "git",
                 "url": "git@codebasehq.com:project-a/core/checkout.git",
-                "reference": "1d6e98704c8b168a4c25c3f94b8f4f60ac5b0f1e"
+                "reference": "b8e5059853917c8876cf5cb762f8ef781a5e3d5c"
             },
             "require": {
                 "php": ">=5.4.0",
@@ -613,7 +614,7 @@
                 "PaymentControl",
                 "Salesrule"
             ],
-            "time": "2013-10-14 13:06:56"
+            "time": "2013-10-15 07:27:52"
         },
         {
             "name": "project-a/console-package",
@@ -621,7 +622,7 @@
             "source": {
                 "type": "git",
                 "url": "git@codebasehq.com:project-a/core/console.git",
-                "reference": "50e443e383fcf2b224a09da005273f6cc01c6273"
+                "reference": "50b296dd7013fb0ffb3365c8ca70c02e3e099511"
             },
             "require": {
                 "fabpot/php-cs-fixer": "dev-master",
@@ -637,7 +638,9 @@
             "type": "library",
             "autoload": {
                 "psr-0": {
-                    "ProjectA": "/src"
+                    "ProjectA": "src/",
+                    "Behat": "tests/",
+                    "PhpUnit": "tests/"
                 }
             },
             "authors": [
@@ -652,7 +655,7 @@
             "keywords": [
                 "console"
             ],
-            "time": "2013-10-14 06:32:27"
+            "time": "2013-10-15 07:36:35"
         },
         {
             "name": "project-a/content-package",
@@ -908,7 +911,7 @@
             "source": {
                 "type": "git",
                 "url": "git@codebasehq.com:project-a/core/library-2.git",
-                "reference": "ff2d2da2d7037c7e8a8d2b8347ae4e1745dde762"
+                "reference": "7754f3060ea680bbabcb0a86e464c81cfbe0712a"
             },
             "require": {
                 "digital-canvas/zend-framework": ">=1.12.2",
@@ -948,7 +951,7 @@
                 }
             ],
             "description": "Project-A Library",
-            "time": "2013-10-14 14:03:43"
+            "time": "2013-10-15 07:27:27"
         },
         {
             "name": "project-a/lumberjack-package",
@@ -989,7 +992,7 @@
             "source": {
                 "type": "git",
                 "url": "git@codebasehq.com:project-a/core/marketing.git",
-                "reference": "397366f520aebdffd436534ddecd5a668a9edbfc"
+                "reference": "eb037c2665f6b4fa342bd8f0527f9d8b07c34225"
             },
             "require": {
                 "php": ">=5.4.0",
@@ -1014,7 +1017,7 @@
             "keywords": [
                 "Marketing"
             ],
-            "time": "2013-10-14 06:32:27"
+            "time": "2013-10-15 07:23:22"
         },
         {
             "name": "project-a/payment-package",
@@ -1022,7 +1025,7 @@
             "source": {
                 "type": "git",
                 "url": "git@codebasehq.com:project-a/core/payment.git",
-                "reference": "c7fb0995495e640d63836bffda326ab0470cd4e1"
+                "reference": "7caad4413bd0bdb2eed2de3fda599becb9a54e52"
             },
             "require": {
                 "php": ">=5.4.0"
@@ -1045,7 +1048,7 @@
             "keywords": [
                 "payment, payment provider"
             ],
-            "time": "2013-10-14 13:09:57"
+            "time": "2013-10-15 08:27:37"
         },
         {
             "name": "project-a/sales-package",
@@ -1053,7 +1056,7 @@
             "source": {
                 "type": "git",
                 "url": "git@codebasehq.com:project-a/core/sales.git",
-                "reference": "5189d14d33cd15e2f242cdd656515cb77b555d04"
+                "reference": "cf8885e84bfe2c922356126e66459e9d6b734fbb"
             },
             "require": {
                 "php": ">=5.4.0",
@@ -1080,7 +1083,7 @@
                 "Sales",
                 "Task"
             ],
-            "time": "2013-10-14 14:13:19"
+            "time": "2013-10-15 08:28:39"
         },
         {
             "name": "project-a/silex-routing",
@@ -1549,17 +1552,17 @@
         },
         {
             "name": "symfony-cmf/routing",
-            "version": "1.1.0-RC4",
+            "version": "1.1.0",
             "target-dir": "Symfony/Cmf/Component/Routing",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony-cmf/Routing.git",
-                "reference": "dd9e8a26dcef15b2608955358b362a3cda1dcdd3"
+                "reference": "9f8607950cbf888ec678713a35f3d0088857c85f"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony-cmf/Routing/zipball/dd9e8a26dcef15b2608955358b362a3cda1dcdd3",
-                "reference": "dd9e8a26dcef15b2608955358b362a3cda1dcdd3",
+                "url": "https://api.github.com/repos/symfony-cmf/Routing/zipball/9f8607950cbf888ec678713a35f3d0088857c85f",
+                "reference": "9f8607950cbf888ec678713a35f3d0088857c85f",
                 "shasum": ""
             },
             "require": {
@@ -1574,8 +1577,7 @@
                 "symfony/event-dispatcher": "~2.1"
             },
             "suggest": {
-                "symfony/event-dispatcher": "DynamicRouter can optionally trigger an event at the start of matching, ~2.1",
-                "symfony/http-foundation": "ChainRouter/DynamicRouter have optional support for Request instances, several enhancers require a Request instances, ~2.2"
+                "symfony/event-dispatcher": "DynamicRouter can optionally trigger an event at the start of matching. Minimal version ~2.1"
             },
             "type": "library",
             "extra": {
@@ -1604,7 +1606,7 @@
                 "database",
                 "routing"
             ],
-            "time": "2013-09-30 13:01:30"
+            "time": "2013-10-14 15:32:46"
         },
         {
             "name": "symfony/console",
