@@ -79,8 +79,8 @@ abstract class ProductsExporter extends CoreProductsExporter implements
         $chunkSize = 2000;
         foreach ($collection as $product) {
             $data = array();
-            $pairProductData = $this->transformProductToData($product);
-
+            $pairProductData = $this->mergeImagesToArray($product);
+            $pairProductData = $this->transformProductToData($pairProductData);
             $productKey = StorageKeyGenerator::getProductKey($product['id_catalog_product']);
             $productSkuKey = StorageKeyGenerator::getProductSkuKey($product['sku']);
             $data[$productKey] = $pairProductData;

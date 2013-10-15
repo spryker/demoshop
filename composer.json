@@ -47,6 +47,10 @@
         {
             "type": "composer",
             "url": "http://renepro.project-a.com"
+        },
+        {
+          "type": "vcs",
+          "url": "https://github.com/Danez/zf2.git"
         }
     ]
 }
