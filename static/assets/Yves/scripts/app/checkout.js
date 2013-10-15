@@ -21,10 +21,16 @@ app.checkout = {
         },
         init : function() {
             $('.smartAddressTrigger').change(this.apply.bind(this));
+            $('.smartAddressTrigger').click(this.click.bind(this));
             $('.addressResult button').click(function(e) {
                 e.preventDefault();
                 $(this).parent().hide();
             });
+        },
+        click : function() {
+            if ($('.smartAddressTrigger').length) {
+                this.apply();
+            }
         },
         apply : function() {
             var fields = $('.smartAddressForm').serializeArray();
