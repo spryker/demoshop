@@ -66,6 +66,15 @@ address {
     margin-bottom: 8px;
 }
 
+.panel-primary > .panel-heading {
+    background-color: #333;
+    border-color: #333;
+    color: #FFFFFF;
+}
+.panel-primary {
+    border-color: #333;
+}
+
 
 /* --- COLUMNS / ROWS --- */
 
