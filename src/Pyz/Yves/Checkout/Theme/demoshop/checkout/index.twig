@@ -36,10 +36,10 @@
                         </label>
                     </div>
                     <div class="row">
-                        {{ form_row(form.shippingAddress.comment) }}
+                        {{ form_row(form.shippingAddress.address3, {attr :{class : 'fullWidth', placeholder : 'e.g. company / please hand to neighbor Wilson'}, label : 'Comment'}) }}
                     </div>
                     <div class="row">
-                        {{ form_row(form.shippingAddress.phone) }}
+                        {{ form_row(form.shippingAddress.phone, {attr : {class : 'fullWidth'}}) }}
                     </div>
                     <div class="row">
                         <hardcoded>
@@ -59,19 +59,19 @@
                                 <td class="label">Name:</td>
                                 <td>
                                     {# <span data-src="gender"></span> #}
-                                    <span></span> {{ form_widget(form.shippingAddress.firstName) }}
-                                    <span></span> {{ form_widget(form.shippingAddress.middleName) }}
-                                    <span></span> {{ form_widget(form.shippingAddress.lastName) }}
+                                    <span></span> {{ form_widget(form.shippingAddress.firstName, {attr : {class : 'name fullWidth', 'data-src' : 'first_name'}}) }}
+                                    <span></span> {{ form_widget(form.shippingAddress.middleName, {attr : {class : 'name fullWidth', 'data-src' : 'middle_name'}}) }}
+                                    <span></span> {{ form_widget(form.shippingAddress.lastName, {attr : {class : 'name fullWidth', 'data-src' : 'last_name'}}) }}
                                 </td>
                             </tr>
                             <tr>
                                 <td class="label">Street:</td>
                                 <td>
                                 <span class="col col67">
-                                    {{ form_widget(form.shippingAddress.address1) }}
+                                    {{ form_widget(form.shippingAddress.address1, {attr : {class : 'fullWidth', 'data-src': 'route'}, label: 'Street'}) }}
                                 </span>
                                 <span class="col col33">
-                                    {{ form_widget(form.shippingAddress.address2) }}
+                                    {{ form_widget(form.shippingAddress.address2, {attr : {class : 'fullWidth', 'data-src': 'street_number'}, label: 'Number'}) }}
                                 </span>
                                 </td>
                             </tr>
@@ -79,77 +79,27 @@
                                 <td class="label">Postal Code:</td>
                                 <td>
                                 <span class="col col33">
-                                    {{ form_widget(form.shippingAddress.zipcode) }}
+                                    {{ form_widget(form.shippingAddress.zipcode, {attr : {class : 'fullWidth', 'data-src': 'postal_code'}, label: 'Postal Code'}) }}
                                 </span>
                                 </td>
                             </tr>
                             <tr>
                                 <td class="label">City:</td>
                                 <td>
-                                    {{ form_widget(form.shippingAddress.city) }}
+                                    {{ form_widget(form.shippingAddress.city, {attr : {class : 'fullWidth', 'data-src': 'locality'}}) }}
                                 </td>
                             </tr>
                             <tr>
                                 <td class="label">Country:</td>
                                 <td>
-                                    {{ form_widget(form.shippingAddress.iso2Country) }}
+                                    {{ form_widget(form.shippingAddress.iso2Country, {attr : {class : 'fullWidth', 'data-src': 'country', 'data-src-type' : 'short'}, label: 'Country'}) }}
                                 </td>
                             </tr>
                         </table>
                         <button class="ok">OK</button>
                     </div>
-                    <hardcoded block>
-                        <h3>Payment</h3>
-                        <div class="row">
-                            <label>
-                                <input class="addSpace" type="radio" name="payment" checked> Credit Card
-                            </label>
-
-                            <div class="details">
-                                <div class="row">
-                                    <label>
-                                        Name on the card
-                                        <input class="fullWidth" type="text" value="" placeholder="e.g. John Doe" />
-                                    </label>
-                                </div>
-                                <div class="row">
-                                    <label>Card Number</label>
-                                    <div class="multiple">
-                                        <div class="col col25">
-                                            <input class="fullWidth" type="text" maxlength="4" value="" placeholder="XXXX" />
-                                        </div>
-                                        <div class="col col25">
-                                            <input class="fullWidth" type="text" maxlength="4" value="" placeholder="XXXX" />
-                                        </div>
-                                        <div class="col col25">
-                                            <input class="fullWidth" type="text" maxlength="4" value="" placeholder="XXXX" />
-                                        </div>
-                                        <div class="col col25">
-                                            <input class="fullWidth" type="text" maxlength="4" value="" placeholder="XXXX" />
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="row">
-                                    <label>CVV / CVC</label>
-                                    <div class="multiple">
-                                        <div class="col col25">
-                                            <input class="fullWidth" type="text" maxlength="3" value="" placeholder="XXX" />
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <label>
-                                <input class="addSpace" type="radio" name="payment"> Debit
-                            </label>
-                        </div>
-                        <div class="row">
-                            <label>
-                                <input class="addSpace" type="radio" name="payment"> Prepayment
-                            </label>
-                        </div>
-                    </hardcoded>
+                    <h3>Payment</h3>
+                    {{ form_widget(form.payment.method) }}
                 </div>
 
                 <div id="cartSummary" class="cart primary col col33">
@@ -197,37 +147,37 @@
                         </tr>
                         </tfoot>
                     </table>
-                    {{ form_widget(form.save) }}
+                    {{ form_widget(form.save, {attr : {class : 'continue'},label : 'To Order Summary'}) }}
                 </div>
                 <div class="clearRows"></div>
                 <div class="address primary col col33 secondaryRow">
                     <h3>Billing Address</h3>
                     <div class="row col col34 first">
-                        {{ form_row(form.billingAddress.firstName) }}
+                        {{ form_row(form.billingAddress.firstName, {attr : {class : 'name fullWidth', 'data-src': 'first_name'}}) }}
                     </div>
                     <div class="row col col33 middle">
-                        {{ form_row(form.billingAddress.middleName) }}
+                        {{ form_row(form.billingAddress.middleName, {attr : {class : 'name fullWidth', 'data-src': 'middle_name'}}) }}
                     </div>
                     <div class="row col col33 last">
-                        {{ form_row(form.billingAddress.lastName) }}
+                        {{ form_row(form.billingAddress.lastName, {attr : {class : 'name fullWidth', 'data-src': 'last_name'}}) }}
                     </div>
                     <div class="row">
-                        {{ form_row(form.billingAddress.company) }}
+                        {{ form_row(form.billingAddress.company, {attr : {class : 'fullWidth'}}) }}
                     </div>
                     <div class="row col col67 first middle">
-                        {{ form_row(form.billingAddress.address1) }}
+                        {{ form_row(form.billingAddress.address1, {attr : {class : 'fullWidth', 'data-src': 'route'}, label : 'Street'}) }}
                     </div>
                     <div class="row col col33 last">
-                        {{ form_row(form.billingAddress.address2) }}
+                        {{ form_row(form.billingAddress.address2, {attr : {class : 'fullWidth', 'data-src': 'street_number'}, label : 'Number'}) }}
                     </div>
                     <div class="row col col33 first middle">
-                        {{ form_row(form.billingAddress.zipcode) }}
+                        {{ form_row(form.billingAddress.zipcode, {attr : {class : 'fullWidth', 'data-src': 'postal_code'}, label: 'Postal Code'}) }}
                     </div>
                     <div class="row col col67 last">
-                        {{ form_row(form.billingAddress.city) }}
+                        {{ form_row(form.billingAddress.city, {attr : {class : 'fullWidth', 'data-src': 'locality'}}) }}
                     </div>
                     <div class="row">
-                        {{ form_row(form.billingAddress.iso2Country) }}
+                        {{ form_row(form.billingAddress.iso2Country, {attr : {class : 'fullWidth', 'data-src': 'country', 'data-src-type' : 'short'}, label: 'Country'}) }}
                     </div>
                 </div>
                 <div class="contact primary col col33 secondaryRow">
@@ -235,12 +185,6 @@
                     <div class="row">
                         {{ form_row(form.email) }}
                     </div>
-                </div>
-                <div class="unnecessary">
-                    {{ form_row(form.billingAddress.comment) }}
-                    {{ form_row(form.billingAddress.phone) }}
-                    {{ form_row(form.shippingAddress.company) }}
-                    {{ form_row(form.payment.method) }}
                 </div>
             </div>
             <div class="step" data-step="2">
