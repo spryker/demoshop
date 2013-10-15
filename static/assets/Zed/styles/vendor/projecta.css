@@ -44,9 +44,6 @@ address {
 
 /* --- PANEL --- */
 
-.panel {
-    margin-bottom: 10px;
-}
 .panel-heading {
     border-bottom: 1px solid rgba(0, 0, 0, 0);
     border-top-left-radius: 3px;
@@ -67,12 +64,12 @@ address {
 }
 
 .panel-primary > .panel-heading {
-    background-color: #333;
-    border-color: #333;
+    background-color: #343434;
+    border-color: #343434;
     color: #FFFFFF;
 }
 .panel-primary {
-    border-color: #333;
+    border-color: #343434;
 }
 
 
