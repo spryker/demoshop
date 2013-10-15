@@ -36,7 +36,7 @@
                         </label>
                     </div>
                     <div class="row">
-                        {{ form_row(form.shippingAddress.comment, {attr :{class : 'fullWidth', placeholder : 'e.g. company / please hand to neighbor Wilson'}}) }}
+                        {{ form_row(form.shippingAddress.address3, {attr :{class : 'fullWidth', placeholder : 'e.g. company / please hand to neighbor Wilson'}, label : 'Comment'}) }}
                     </div>
                     <div class="row">
                         {{ form_row(form.shippingAddress.phone, {attr : {class : 'fullWidth'}}) }}
@@ -147,7 +147,7 @@
                         </tr>
                         </tfoot>
                     </table>
-                    {{ form_widget(form.save, {attr : {label : 'To Order Summary', class : 'continue'}}) }}
+                    {{ form_widget(form.save, {attr : {class : 'continue'},label : 'To Order Summary'}) }}
                 </div>
                 <div class="clearRows"></div>
                 <div class="address primary col col33 secondaryRow">
@@ -162,22 +162,22 @@
                         {{ form_row(form.billingAddress.lastName, {attr : {class : 'name fullWidth', 'data-src': 'last_name'}}) }}
                     </div>
                     <div class="row">
-                        {{ form_row(form.billingAddress.company) }}
+                        {{ form_row(form.billingAddress.company, {attr : {class : 'fullWidth', 'data-src': 'last_name'}}) }}
                     </div>
                     <div class="row col col67 first middle">
-                        {{ form_row(form.billingAddress.address1) }}
+                        {{ form_row(form.billingAddress.address1, {attr : {class : 'fullWidth', 'data-src': 'route'}, label : 'Street'}) }}
                     </div>
                     <div class="row col col33 last">
-                        {{ form_row(form.billingAddress.address2) }}
+                        {{ form_row(form.billingAddress.address2, {attr : {class : 'fullWidth', 'data-src': 'street_number'}, label : 'Number'}) }}
                     </div>
                     <div class="row col col33 first middle">
-                        {{ form_row(form.billingAddress.zipcode) }}
+                        {{ form_row(form.billingAddress.zipcode, {attr : {class : 'fullWidth', 'data-src': 'postal_code'}, label: 'Postal Code'}) }}
                     </div>
                     <div class="row col col67 last">
-                        {{ form_row(form.billingAddress.city) }}
+                        {{ form_row(form.billingAddress.city, {attr : {class : 'fullWidth', 'data-src': 'locality'}}) }}
                     </div>
                     <div class="row">
-                        {{ form_row(form.billingAddress.iso2Country) }}
+                        {{ form_row(form.billingAddress.iso2Country, {attr : {class : 'fullWidth', 'data-src': 'country', 'data-src-type' : 'short'}, label: 'Country'}) }}
                     </div>
                 </div>
                 <div class="contact primary col col33 secondaryRow">
@@ -185,11 +185,6 @@
                     <div class="row">
                         {{ form_row(form.email) }}
                     </div>
-                </div>
-                <div class="unnecessary">
-                    {{ form_row(form.billingAddress.comment) }}
-                    {{ form_row(form.billingAddress.phone) }}
-                    {{ form_row(form.shippingAddress.company) }}
                 </div>
             </div>
             <div class="step" data-step="2">
