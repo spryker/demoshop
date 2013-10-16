@@ -438,5 +438,8 @@ $config['productImage'] = [
     'originalProductImageDirectory' => 'images' . DIRECTORY_SEPARATOR . 'products/original',
     'incomingProductImageDirectory' => 'images' . DIRECTORY_SEPARATOR . 'products/incoming',
     'processedProductImageDirectory' => 'images' . DIRECTORY_SEPARATOR . 'products/processed',
-    'imageUrlPrefix' => 'images'
+    'imageUrlPrefix' => 'images',
+    'amazonS3Key' => '',
+    'amazonS3Secret' => '',
+    'amazonS3BucketName' => ''
 ];
