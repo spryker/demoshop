@@ -12,8 +12,8 @@ app.catalog = {
             var vars = this.vars;
             $(vars.currentClass).mouseenter(function() {
                 $('.' + vars.elClass).remove();
-                var bgCss = 'url(' + $(this).children('img').attr('src') + ') no-repeat';
-                vars.$zoom = $('<div class="' + vars.elClass + '"></div>').css({ background : bgCss });
+                var bgImgCss = 'url(' + $(this).children('img').attr('src') + ')';
+                vars.$zoom = $('<div class="' + vars.elClass + '"></div>').css({ backgroundImage : bgImgCss });
                 $(this).append(vars.$zoom);
             });
 
