@@ -21,8 +21,7 @@
 /src/Generated
 /vendor/
 
-/data/*
-data
+/data
 
 # grunt stuff
 .grunt
