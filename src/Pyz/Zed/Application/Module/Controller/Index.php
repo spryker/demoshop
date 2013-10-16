@@ -32,9 +32,9 @@ class Index extends \ProjectA_Zed_Library_Controller_Action
             } catch (\Exception $e) {}
         }
         $classNames = [];
-        //$classNames['loader'][] = 'Generated\Shared\Library\TransferLoader';
+        $classNames['loader'][] = 'Generated\Shared\Library\TransferLoader';
         $classNames['loader'][] = 'Generated_Zed_EntityLoader';
-        //$classNames['factory'][] = 'Generated\Yves\Factory';
+        $classNames['factory'][] = 'Generated\Yves\Factory';
         $methodNames = [];
         $ignorableMethods = [
             'getDummyClassName',
