@@ -1,6 +1,32 @@
 app.catalog = {
     init : function() {
       this.rangeSlider.init();
+      this.zoom.init();
+    },
+    zoom : {
+        vars : {
+            elClass : 'zoom',
+            currentClass : '#product .pictures .current'
+        },
+        init : function() {
+            var vars = this.vars;
+            $(vars.currentClass).mouseenter(function() {
+                $('.' + vars.elClass).remove();
+                var bgImgCss = 'url(' + $(this).children('img').attr('src') + ')';
+                vars.$zoom = $('<div class="' + vars.elClass + '"></div>').css({ backgroundImage : bgImgCss });
+                $(this).append(vars.$zoom);
+            });
+
+            $(vars.currentClass).mousemove(function(e) {
+                var coords = this.getBoundingClientRect();
+                if (coords.left > e.clientX || coords.right < e.clientX || coords.top > e.clientY || coords.bottom < e.clientY) {
+                    vars.$zoom.remove();
+                    return;
+                }
+                var bgpos = (((coords.left - e.clientX) * 2) + 100) + 'px ' + (((coords.top - e.clientY) * 2) + 100) + 'px';
+                vars.$zoom.css({ left : e.clientX - 100, top : e.clientY - 100, backgroundPosition : bgpos });
+            });
+        }
     },
     rangeSlider : {
         init : function() {

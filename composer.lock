@@ -3,7 +3,7 @@
         "This file locks the dependencies of your project to a known state",
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file"
     ],
-    "hash": "44649f0243a61cdf0405693ffc99b4ba",
+    "hash": "0cd0dd192d2d8592d3758d11c06c09af",
     "packages": [
         {
             "name": "aws/aws-sdk-php",
@@ -181,12 +181,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/fabpot/PHP-CS-Fixer.git",
-                "reference": "3001de7127ce8d47d6884cdfb6b5d138575664b1"
+                "reference": "4c8ade01f4870690bcd023aef197e9df082a65d5"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/fabpot/PHP-CS-Fixer/zipball/3001de7127ce8d47d6884cdfb6b5d138575664b1",
-                "reference": "3001de7127ce8d47d6884cdfb6b5d138575664b1",
+                "url": "https://api.github.com/repos/fabpot/PHP-CS-Fixer/zipball/4c8ade01f4870690bcd023aef197e9df082a65d5",
+                "reference": "4c8ade01f4870690bcd023aef197e9df082a65d5",
                 "shasum": ""
             },
             "require": {
@@ -221,7 +221,7 @@
                 }
             ],
             "description": "A script to automatically fix Symfony Coding Standard",
-            "time": "2013-10-16 10:05:51"
+            "time": "2013-10-16 15:35:37"
         },
         {
             "name": "gavroche/browser",
@@ -551,7 +551,7 @@
             "source": {
                 "type": "git",
                 "url": "git@codebasehq.com:project-a/core/acl.git",
-                "reference": "b73509c0ecb575d25a5d79ed35e972a7e0625817"
+                "reference": "3da09431852ce7ac7d20da66ffa234af173315a0"
             },
             "require": {
                 "php": ">=5.4.0",
@@ -580,7 +580,7 @@
                 "login",
                 "usermanagement"
             ],
-            "time": "2013-10-15 15:48:02"
+            "time": "2013-10-16 14:40:57"
         },
         {
             "name": "project-a/adyen-package",
@@ -621,7 +621,7 @@
             "source": {
                 "type": "git",
                 "url": "git@codebasehq.com:project-a/core/cart.git",
-                "reference": "034f632ec70d7df8ceb09ed36111147e310d8f26"
+                "reference": "bb55a7fd8fe9f48ad24977cc191db60906018a74"
             },
             "require": {
                 "php": ">=5.4.0",
@@ -649,7 +649,7 @@
             "keywords": [
                 "Cart"
             ],
-            "time": "2013-10-15 15:33:18"
+            "time": "2013-10-16 14:53:36"
         },
         {
             "name": "project-a/catalog-package",
@@ -657,7 +657,7 @@
             "source": {
                 "type": "git",
                 "url": "git@codebasehq.com:project-a/core/catalog.git",
-                "reference": "d671576300a42776b65acdb59d3e5be9730b8a95"
+                "reference": "62a2ddbb47f9c2db0391abc6c0d1de579def3cbc"
             },
             "require": {
                 "php": ">=5.4.0",
@@ -693,7 +693,7 @@
                 "Price",
                 "Stock"
             ],
-            "time": "2013-10-16 13:22:02"
+            "time": "2013-10-16 16:56:34"
         },
         {
             "name": "project-a/checkout-package",
@@ -701,7 +701,7 @@
             "source": {
                 "type": "git",
                 "url": "git@codebasehq.com:project-a/core/checkout.git",
-                "reference": "3892786f68963ef408781b8569f950ee4a8b2dfb"
+                "reference": "72d174e6fde23603b5d0f78e8ceac852f981f3d9"
             },
             "require": {
                 "gavroche/browser": "~2.1",
@@ -731,7 +731,7 @@
                 "PaymentControl",
                 "Salesrule"
             ],
-            "time": "2013-10-16 13:11:22"
+            "time": "2013-10-16 15:28:59"
         },
         {
             "name": "project-a/console-package",
@@ -943,7 +943,7 @@
             "source": {
                 "type": "git",
                 "url": "git@codebasehq.com:project-a/core/glossary.git",
-                "reference": "344f3574edaf027b67418133f7d55eb349b7fe5e"
+                "reference": "b59a282f5e3f7f261c4b48e41dc53ebda81ada26"
             },
             "require": {
                 "php": ">=5.4.0"
@@ -967,7 +967,7 @@
                 "i18n",
                 "translation"
             ],
-            "time": "2013-10-15 15:51:51"
+            "time": "2013-10-16 14:43:16"
         },
         {
             "name": "project-a/infrastructure-package",
@@ -975,7 +975,7 @@
             "source": {
                 "type": "git",
                 "url": "git@codebasehq.com:project-a/core/infrastructure.git",
-                "reference": "104b710f5870aef2be226ae76c6bfb3f9b6dbce0"
+                "reference": "f1c62a8499463e4bb5c26a8f15f07a480cbfbf0d"
             },
             "require": {
                 "php": ">=5.4.0",
@@ -1003,7 +1003,7 @@
             "keywords": [
                 "infrastructure"
             ],
-            "time": "2013-10-16 12:43:28"
+            "time": "2013-10-16 16:39:20"
         },
         {
             "name": "project-a/kendo-package",
@@ -1028,7 +1028,7 @@
             "source": {
                 "type": "git",
                 "url": "git@codebasehq.com:project-a/core/library-2.git",
-                "reference": "5cead28efd35193e8f7891487c30845b657244d7"
+                "reference": "cd74be458f82f48a9bff29f75dc9623fdb85c860"
             },
             "require": {
                 "digital-canvas/zend-framework": ">=1.12.2",
@@ -1068,7 +1068,7 @@
                 }
             ],
             "description": "Project-A Library",
-            "time": "2013-10-16 13:13:07"
+            "time": "2013-10-16 16:39:35"
         },
         {
             "name": "project-a/lumberjack-package",
@@ -1142,7 +1142,7 @@
             "source": {
                 "type": "git",
                 "url": "git@codebasehq.com:project-a/core/payment.git",
-                "reference": "b5c5c83bc33198011bc3b31c7d5070b8a17d368e"
+                "reference": "58389832dff1ea6f373ca5e4d967e22739de2c6c"
             },
             "require": {
                 "php": ">=5.4.0"
@@ -1165,7 +1165,7 @@
             "keywords": [
                 "payment, payment provider"
             ],
-            "time": "2013-10-16 13:11:18"
+            "time": "2013-10-16 15:29:15"
         },
         {
             "name": "project-a/sales-package",
@@ -1173,7 +1173,7 @@
             "source": {
                 "type": "git",
                 "url": "git@codebasehq.com:project-a/core/sales.git",
-                "reference": "613489eab04eac1625b395d4ecb860366f8d2307"
+                "reference": "5f2f139021ba0b30c4eb217ef94a5fd0e6f87735"
             },
             "require": {
                 "php": ">=5.4.0",
@@ -1200,7 +1200,7 @@
                 "Sales",
                 "Task"
             ],
-            "time": "2013-10-16 10:33:51"
+            "time": "2013-10-16 16:31:42"
         },
         {
             "name": "project-a/silex-routing",
@@ -1497,13 +1497,13 @@
             "version": "dev-master",
             "source": {
                 "type": "git",
-                "url": "https://github.com/fabpot/Silex.git",
-                "reference": "029bca4f632550677d38f16850c9964e4a24bae0"
+                "url": "https://github.com/Danez/Silex.git",
+                "reference": "c9c1e634501bc54664a2454a72754fe3bd40a9c2"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/fabpot/Silex/zipball/029bca4f632550677d38f16850c9964e4a24bae0",
-                "reference": "029bca4f632550677d38f16850c9964e4a24bae0",
+                "url": "https://api.github.com/repos/Danez/Silex/zipball/c9c1e634501bc54664a2454a72754fe3bd40a9c2",
+                "reference": "c9c1e634501bc54664a2454a72754fe3bd40a9c2",
                 "shasum": ""
             },
             "require": {
@@ -1554,7 +1554,6 @@
                     "Silex": "src/"
                 }
             },
-            "notification-url": "https://packagist.org/downloads/",
             "license": [
                 "MIT"
             ],
@@ -1565,8 +1564,7 @@
                 },
                 {
                     "name": "Igor Wiedler",
-                    "email": "igor@wiedler.ch",
-                    "homepage": "http://wiedler.ch/igor/"
+                    "email": "igor@wiedler.ch"
                 }
             ],
             "description": "The PHP micro-framework based on the Symfony2 Components",
@@ -1574,7 +1572,10 @@
             "keywords": [
                 "microframework"
             ],
-            "time": "2013-10-16 09:48:14"
+            "support": {
+                "source": "https://github.com/Danez/Silex/tree/master"
+            },
+            "time": "2013-10-16 14:31:56"
         },
         {
             "name": "solarium/solarium",
@@ -2164,21 +2165,21 @@
         },
         {
             "name": "symfony/icu",
-            "version": "v1.1.0",
+            "version": "v1.2.0",
             "target-dir": "Symfony/Component/Icu",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/Icu.git",
-                "reference": "b4081efff21a8a85c57789a39f454fed244f8e46"
+                "reference": "7299cd3d8d6602103d1ebff5d0a9917b7bc6de72"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/Icu/zipball/b4081efff21a8a85c57789a39f454fed244f8e46",
-                "reference": "b4081efff21a8a85c57789a39f454fed244f8e46",
+                "url": "https://api.github.com/repos/symfony/Icu/zipball/7299cd3d8d6602103d1ebff5d0a9917b7bc6de72",
+                "reference": "7299cd3d8d6602103d1ebff5d0a9917b7bc6de72",
                 "shasum": ""
             },
             "require": {
-                "lib-icu": ">=3.8",
+                "lib-icu": ">=4.4",
                 "php": ">=5.3.3",
                 "symfony/intl": "~2.3"
             },
@@ -2208,7 +2209,7 @@
                 "icu",
                 "intl"
             ],
-            "time": "2013-06-03 18:32:40"
+            "time": "2013-06-03 18:32:58"
         },
         {
             "name": "symfony/intl",
