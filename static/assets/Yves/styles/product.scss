@@ -13,6 +13,7 @@
 #product .pictures .current .prev,
 #product .pictures .current .next { /* display:none; */ position:absolute; left:-14px; top:50%; width:40px; height:40px; line-height:42px; margin-top:-20px; background:#fff; color:#777; text-align:center; border-radius:20px; cursor:pointer; z-index:1; box-shadow:0 0 2px rgba(0, 0, 0, 0.2); }
 #product .pictures .current .next { left:auto; right:-14px; }
+#product .pictures .current .zoom { position:fixed; width:200px; height:200px; z-index:9; border-radius:100px; box-shadow:0 0 10px rgba(0, 0, 0, 0.3); }
 /* #product .pictures .current:hover .prev,
 #product .pictures .current:hover .next { display:block; } */
 #product .pictures img { display:block; width:100%; }
