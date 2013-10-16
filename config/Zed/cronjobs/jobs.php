@@ -106,3 +106,11 @@ $jobs[] = array(
     'enable'   => true,
     'stores'   => $all_stores,
 );
+
+$jobs[] = array(
+    'name'     => 'download_product_images_from_s3',
+    'command'  => '$PHP_BIN $CLI_PATH/index.php --module=product-image --controller=cronjob --action=download-product-images-from-s3',
+    'schedule' => '* * * * *',
+    'enable'   => true,
+    'stores'   => $all_stores,
+);
