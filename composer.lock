@@ -437,7 +437,7 @@
             "source": {
                 "type": "git",
                 "url": "git@codebasehq.com:project-a/core/acl.git",
-                "reference": "79bec199a529b508b0afcbaddecfdbef1d355cf2"
+                "reference": "b73509c0ecb575d25a5d79ed35e972a7e0625817"
             },
             "require": {
                 "php": ">=5.4.0",
@@ -466,7 +466,7 @@
                 "login",
                 "usermanagement"
             ],
-            "time": "2013-10-15 12:59:42"
+            "time": "2013-10-15 15:48:02"
         },
         {
             "name": "project-a/adyen-package",
@@ -507,7 +507,7 @@
             "source": {
                 "type": "git",
                 "url": "git@codebasehq.com:project-a/core/cart.git",
-                "reference": "18e54c5ea08cdbf2c003b96f8c04f998993859f9"
+                "reference": "034f632ec70d7df8ceb09ed36111147e310d8f26"
             },
             "require": {
                 "php": ">=5.4.0",
@@ -535,7 +535,7 @@
             "keywords": [
                 "Cart"
             ],
-            "time": "2013-10-15 12:59:42"
+            "time": "2013-10-15 15:33:18"
         },
         {
             "name": "project-a/catalog-package",
@@ -543,7 +543,7 @@
             "source": {
                 "type": "git",
                 "url": "git@codebasehq.com:project-a/core/catalog.git",
-                "reference": "f1483748dbad8fbffbbfbb5734822c5156b89bda"
+                "reference": "24f371705e6cc62b5e594791e9bd9da9c8e7755a"
             },
             "require": {
                 "php": ">=5.4.0",
@@ -579,7 +579,7 @@
                 "Price",
                 "Stock"
             ],
-            "time": "2013-10-15 14:24:20"
+            "time": "2013-10-15 15:49:23"
         },
         {
             "name": "project-a/checkout-package",
@@ -587,7 +587,7 @@
             "source": {
                 "type": "git",
                 "url": "git@codebasehq.com:project-a/core/checkout.git",
-                "reference": "2f6d9696dca785c683e6694d3de7dce315b4308b"
+                "reference": "9594d77133dd6bf870dfac2a61b1858d3461b016"
             },
             "require": {
                 "php": ">=5.4.0",
@@ -616,7 +616,7 @@
                 "PaymentControl",
                 "Salesrule"
             ],
-            "time": "2013-10-15 14:11:16"
+            "time": "2013-10-15 15:50:13"
         },
         {
             "name": "project-a/console-package",
@@ -828,7 +828,7 @@
             "source": {
                 "type": "git",
                 "url": "git@codebasehq.com:project-a/core/glossary.git",
-                "reference": "d5c1d51e401ee5fdde9b730b31ac9c6a0619f727"
+                "reference": "344f3574edaf027b67418133f7d55eb349b7fe5e"
             },
             "require": {
                 "php": ">=5.4.0"
@@ -852,7 +852,7 @@
                 "i18n",
                 "translation"
             ],
-            "time": "2013-10-15 15:24:24"
+            "time": "2013-10-15 15:51:51"
         },
         {
             "name": "project-a/infrastructure-package",
@@ -860,7 +860,7 @@
             "source": {
                 "type": "git",
                 "url": "git@codebasehq.com:project-a/core/infrastructure.git",
-                "reference": "a13fcd4f2f70c674cd0484b9b49fdc09e035fd6d"
+                "reference": "4c805b2fc72cc140871101378d4a5b14d5853508"
             },
             "require": {
                 "php": ">=5.4.0",
@@ -888,7 +888,7 @@
             "keywords": [
                 "infrastructure"
             ],
-            "time": "2013-10-15 12:59:42"
+            "time": "2013-10-15 16:41:30"
         },
         {
             "name": "project-a/kendo-package",
@@ -913,7 +913,7 @@
             "source": {
                 "type": "git",
                 "url": "git@codebasehq.com:project-a/core/library-2.git",
-                "reference": "dba29b48942c0d5a4a3208d652edd448f68d1623"
+                "reference": "536cfb7a96baf3edebbdcd412288439cf8c4d710"
             },
             "require": {
                 "digital-canvas/zend-framework": ">=1.12.2",
@@ -953,7 +953,7 @@
                 }
             ],
             "description": "Project-A Library",
-            "time": "2013-10-15 15:14:01"
+            "time": "2013-10-15 16:40:05"
         },
         {
             "name": "project-a/lumberjack-package",
@@ -1058,7 +1058,7 @@
             "source": {
                 "type": "git",
                 "url": "git@codebasehq.com:project-a/core/sales.git",
-                "reference": "12fd4560264f78e9082d4974f31932973b322126"
+                "reference": "1520d2d320ce3772089cc557019e5bb9ec3a3b54"
             },
             "require": {
                 "php": ">=5.4.0",
@@ -1085,7 +1085,7 @@
                 "Sales",
                 "Task"
             ],
-            "time": "2013-10-15 15:19:10"
+            "time": "2013-10-15 16:20:10"
         },
         {
             "name": "project-a/silex-routing",
@@ -2049,21 +2049,21 @@
         },
         {
             "name": "symfony/icu",
-            "version": "v1.1.0",
+            "version": "v1.2.0",
             "target-dir": "Symfony/Component/Icu",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/Icu.git",
-                "reference": "b4081efff21a8a85c57789a39f454fed244f8e46"
+                "reference": "7299cd3d8d6602103d1ebff5d0a9917b7bc6de72"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/Icu/zipball/b4081efff21a8a85c57789a39f454fed244f8e46",
-                "reference": "b4081efff21a8a85c57789a39f454fed244f8e46",
+                "url": "https://api.github.com/repos/symfony/Icu/zipball/7299cd3d8d6602103d1ebff5d0a9917b7bc6de72",
+                "reference": "7299cd3d8d6602103d1ebff5d0a9917b7bc6de72",
                 "shasum": ""
             },
             "require": {
-                "lib-icu": ">=3.8",
+                "lib-icu": ">=4.4",
                 "php": ">=5.3.3",
                 "symfony/intl": "~2.3"
             },
@@ -2093,7 +2093,7 @@
                 "icu",
                 "intl"
             ],
-            "time": "2013-06-03 18:32:40"
+            "time": "2013-06-03 18:32:58"
         },
         {
             "name": "symfony/intl",

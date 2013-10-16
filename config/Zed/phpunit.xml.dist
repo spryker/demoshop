@@ -1,4 +1,15 @@
-<phpunit>
+<phpunit backupGlobals="false"
+         backupStaticAttributes="false"
+         colors="true"
+         convertErrorsToExceptions="true"
+         convertNoticesToExceptions="true"
+         convertWarningsToExceptions="true"
+         processIsolation="false"
+         stopOnFailure="false"
+         syntaxCheck="false"
+         strict="true"
+         bootstrap="phpunit.php">
+
     <testsuite name="Project Code">
         <directory>../../src/</directory>
     </testsuite>
