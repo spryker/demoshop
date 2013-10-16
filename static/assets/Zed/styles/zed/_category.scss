@@ -3,7 +3,6 @@
 div#left-col{
   float:left;
   width:45%;
-
 }
 div#category-container:after {
   display: block;
@@ -17,26 +16,20 @@ div#right-col{
   width:50%;
 }
 
-.k-button.icon-trash {
-  font-family:FontAwesome;
-}
-.k-button.icon-trash:hover {
-  text-decoration:none;
-}
-.k-button.icon-trash .k-icon {
-  display:none;
+li.jstree-open > a:before {
+  font-family: FontAwesome;
+  margin-right:5px;
+  content: "\f115";
 }
 
-.k-button.icon-pencil {
-  font-family:FontAwesome;
-}
-.k-button.icon-pencil:hover {
-  text-decoration:none;
-}
-.k-button.icon-pencil .k-icon {
-  display:none;
+li.jstree-closed > a:before {
+  font-family: FontAwesome;
+  margin-right:5px;
+  content: "\f114";
 }
 
-i.icon-eye-open:hover{
-  text-decoration: none;
+li.jstree-leaf > a:before {
+  font-family: FontAwesome;
+  margin-right:5px;
+  content: "\f114";
 }
