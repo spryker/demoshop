@@ -85,6 +85,29 @@ body {
   }
 }
 
+.k-button.icon-trash {
+  font-family:FontAwesome;
+}
+.k-button.icon-trash:hover {
+  text-decoration:none;
+}
+.k-button.icon-trash .k-icon {
+  display:none;
+}
+.k-button.icon-pencil {
+  font-family:FontAwesome;
+}
+.k-button.icon-pencil:hover {
+  text-decoration:none;
+}
+.k-button.icon-pencil .k-icon {
+  display:none;
+}
+
+i.icon-eye-open:hover{
+  text-decoration: none;
+}
+
 @import 'zed/setup';
 @import 'zed/category';
 
