@@ -62,12 +62,10 @@
                 <form action="{{ url('cart/add', {sku: product.sku} ) }}">
                     <input class="fullWidth" type="number" name="quantity" value="1" min="1" max="{{ product.stock > 30 ? 30 : product.stock }}" step="1" />
                     <!--input class="fullWidth" type="hidden" name="options[]" value="B1" USE this input(s) to add options to the cartitem /-->
-                    <input class="submit fullWidth" type="submit" value="Buy Now" />
+                    <input class="submit fullWidth" type="submit" value="{{ 'catalog.buy'|trans }}" />
                 </form>
             {% else %}
-                <div class="unavailable">
-                    currently out of stock
-                </div>
+                <div class="unavailable">{{ 'catalog.out.of.stock'|trans }}</div>
             {% endif %}
         </aside>
 
