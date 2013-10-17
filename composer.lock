@@ -657,7 +657,7 @@
             "source": {
                 "type": "git",
                 "url": "git@codebasehq.com:project-a/core/catalog.git",
-                "reference": "164b66862208ef092a7271c2a961ee6f3303f861"
+                "reference": "6a55910a5b506859ce85cb75893339f6ebd98781"
             },
             "require": {
                 "php": ">=5.4.0",
@@ -693,7 +693,7 @@
                 "Price",
                 "Stock"
             ],
-            "time": "2013-10-17 07:45:49"
+            "time": "2013-10-17 08:59:54"
         },
         {
             "name": "project-a/checkout-package",
@@ -868,7 +868,7 @@
             "source": {
                 "type": "git",
                 "url": "git@codebasehq.com:project-a/core/dwh.git",
-                "reference": "307f3b13ce1c697d4d97a317d2cf341a8d575096"
+                "reference": "6b1cabc7b16cf4b03f7d45958088baa1719538f1"
             },
             "require": {
                 "php": ">=5.4.0",
@@ -903,7 +903,7 @@
             "keywords": [
                 "Dwh"
             ],
-            "time": "2013-10-15 12:59:42"
+            "time": "2013-10-17 09:00:13"
         },
         {
             "name": "project-a/frontend-package",
@@ -1028,7 +1028,7 @@
             "source": {
                 "type": "git",
                 "url": "git@codebasehq.com:project-a/core/library-2.git",
-                "reference": "c926f6521e9b8efd7d7e1c3a862e5e23534f27bc"
+                "reference": "cb51c72775b68299a2129abbab91ef5c6a926899"
             },
             "require": {
                 "digital-canvas/zend-framework": ">=1.12.2",
@@ -1068,7 +1068,7 @@
                 }
             ],
             "description": "Project-A Library",
-            "time": "2013-10-17 08:10:13"
+            "time": "2013-10-17 09:00:29"
         },
         {
             "name": "project-a/lumberjack-package",
@@ -2165,21 +2165,21 @@
         },
         {
             "name": "symfony/icu",
-            "version": "v1.1.0",
+            "version": "v1.2.0",
             "target-dir": "Symfony/Component/Icu",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/Icu.git",
-                "reference": "b4081efff21a8a85c57789a39f454fed244f8e46"
+                "reference": "7299cd3d8d6602103d1ebff5d0a9917b7bc6de72"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/Icu/zipball/b4081efff21a8a85c57789a39f454fed244f8e46",
-                "reference": "b4081efff21a8a85c57789a39f454fed244f8e46",
+                "url": "https://api.github.com/repos/symfony/Icu/zipball/7299cd3d8d6602103d1ebff5d0a9917b7bc6de72",
+                "reference": "7299cd3d8d6602103d1ebff5d0a9917b7bc6de72",
                 "shasum": ""
             },
             "require": {
-                "lib-icu": ">=3.8",
+                "lib-icu": ">=4.4",
                 "php": ">=5.3.3",
                 "symfony/intl": "~2.3"
             },
@@ -2209,7 +2209,7 @@
                 "icu",
                 "intl"
             ],
-            "time": "2013-06-03 18:32:40"
+            "time": "2013-06-03 18:32:58"
         },
         {
             "name": "symfony/intl",
