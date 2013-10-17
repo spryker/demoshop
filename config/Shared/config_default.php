@@ -143,7 +143,7 @@ $config['jenkins'] = array(
  */
 $config['host'] = array(
     'yves'          => 'http://www-development.project-yz.com',
-    'zed'           => 'http://zed-development.project-yz.com',
+    'zed_gui'       => 'http://zed-development.project-yz.com',
     'zed_local'     => 'localhost:10101',
 
     'static_assets' => '',
@@ -152,7 +152,7 @@ $config['host'] = array(
 
 $config['host_ssl'] = array(
     'yves'          => 'https://www-development.project-yz.com',
-    'zed'           => 'https://zed-development.project-yz.com',
+    'zed_gui'           => 'https://zed-development.project-yz.com',
     'zed_local'     => 'localhost:10101',
 
     'static_assets' => '',
