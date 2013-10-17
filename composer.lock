@@ -551,7 +551,7 @@
             "source": {
                 "type": "git",
                 "url": "git@codebasehq.com:project-a/core/acl.git",
-                "reference": "3da09431852ce7ac7d20da66ffa234af173315a0"
+                "reference": "c721b21fb777e3af76b7a5c82b56d398c5610982"
             },
             "require": {
                 "php": ">=5.4.0",
@@ -580,7 +580,7 @@
                 "login",
                 "usermanagement"
             ],
-            "time": "2013-10-16 14:40:57"
+            "time": "2013-10-17 10:10:26"
         },
         {
             "name": "project-a/adyen-package",
@@ -588,7 +588,7 @@
             "source": {
                 "type": "git",
                 "url": "git@codebasehq.com:project-a/core/adyen.git",
-                "reference": "ccc5c94ffd99e381e61cea2204c463304e9a4bd0"
+                "reference": "025193aadcec655b7f9a0e23dac92042db85ef38"
             },
             "require": {
                 "php": ">=5.4.0",
@@ -613,7 +613,7 @@
             "keywords": [
                 "adyen payment provider"
             ],
-            "time": "2013-10-15 12:59:42"
+            "time": "2013-10-17 10:10:43"
         },
         {
             "name": "project-a/cart-package",
@@ -657,7 +657,7 @@
             "source": {
                 "type": "git",
                 "url": "git@codebasehq.com:project-a/core/catalog.git",
-                "reference": "6a55910a5b506859ce85cb75893339f6ebd98781"
+                "reference": "563f84baf7eb63bdbed27446fd9de538f2c3afa2"
             },
             "require": {
                 "php": ">=5.4.0",
@@ -693,7 +693,7 @@
                 "Price",
                 "Stock"
             ],
-            "time": "2013-10-17 08:59:54"
+            "time": "2013-10-17 10:27:25"
         },
         {
             "name": "project-a/checkout-package",
@@ -701,7 +701,7 @@
             "source": {
                 "type": "git",
                 "url": "git@codebasehq.com:project-a/core/checkout.git",
-                "reference": "324a100dee8fb2d93529309e649b82496ca87643"
+                "reference": "64aa84eaed14fe0a59124659e9168b4e3ff20197"
             },
             "require": {
                 "gavroche/browser": "~2.1",
@@ -731,7 +731,7 @@
                 "PaymentControl",
                 "Salesrule"
             ],
-            "time": "2013-10-17 08:10:13"
+            "time": "2013-10-17 12:14:34"
         },
         {
             "name": "project-a/console-package",
@@ -1028,7 +1028,7 @@
             "source": {
                 "type": "git",
                 "url": "git@codebasehq.com:project-a/core/library-2.git",
-                "reference": "cb51c72775b68299a2129abbab91ef5c6a926899"
+                "reference": "2412595cec5dc7bda698bd9ad4d063c677cd275f"
             },
             "require": {
                 "digital-canvas/zend-framework": ">=1.12.2",
@@ -1068,7 +1068,7 @@
                 }
             ],
             "description": "Project-A Library",
-            "time": "2013-10-17 09:00:29"
+            "time": "2013-10-17 09:37:07"
         },
         {
             "name": "project-a/lumberjack-package",
@@ -1173,7 +1173,7 @@
             "source": {
                 "type": "git",
                 "url": "git@codebasehq.com:project-a/core/sales.git",
-                "reference": "a2df9db9e145f8b362e0f4d33f4ca3c9ef18f106"
+                "reference": "d5c4224828d2c4ff00d7e214ec26b01cf0293686"
             },
             "require": {
                 "php": ">=5.4.0",
@@ -1200,7 +1200,7 @@
                 "Sales",
                 "Task"
             ],
-            "time": "2013-10-17 08:10:13"
+            "time": "2013-10-17 09:37:31"
         },
         {
             "name": "project-a/silex-routing",
@@ -1261,7 +1261,7 @@
             "source": {
                 "type": "git",
                 "url": "git@codebasehq.com:project-a/core/stripe.git",
-                "reference": "63fe550dc00119bb637e7048025a86ec310564c5"
+                "reference": "be007321a737c22e66d0c87ffa966bf626ba492f"
             },
             "require": {
                 "php": ">=5.4.0",
@@ -1286,7 +1286,7 @@
             "keywords": [
                 "stripe payment provider"
             ],
-            "time": "2013-10-15 12:59:42"
+            "time": "2013-10-17 10:11:12"
         },
         {
             "name": "propel/propel1",
