@@ -8,16 +8,16 @@
     <section class="consumeHeight" id="cart">
         <form action="/checkout">
             {% if cartItems|length %}
-            <button class="continue">Go to Checkout</button>
+            <button class="continue">{{ 'cart.to.checkout'|trans }}</button>
             {% endif %}
-            <h3>Your Cart</h3>
+            <h3>{{ 'cart.cart'|trans }}</h3>
             <table class="items">
                 <thead>
                 <tr>
-                    <th>Product</th>
-                    <th>Item price</th>
-                    <th>Amount</th>
-                    <th>Price</th>
+                    <th>{{ 'cart.product'|trans }}</th>
+                    <th>{{ 'cart.price.item'|trans }}</th>
+                    <th>{{ 'cart.amount'|trans }}</th>
+                    <th>{{ 'cart.price.total'|trans }}</th>
                 </tr>
                 </thead>
                 <tbody>
@@ -38,7 +38,7 @@
                             </hardcoded>
                             <a href="{{ url('cart/remove', {'sku':cartItem.sku, 'uid':cartItem.uniqueIdentifier}) }}" class="remove">
                                 <span class="glyphicon glyphicon-trash"></span>
-                                Remove
+                                {{ 'cart.remove'|trans }}
                             </a>
                         </td>
                         <td>
@@ -56,7 +56,7 @@
                     </tr>
                 {% else %}
                     <tr>
-                        <td colspan="4">Cart EMPTY.</td>
+                        <td colspan="4">{{ 'cart.empty'|trans }}</td>
                     </tr>
                 {% endfor %}
                 </tbody>
@@ -64,33 +64,31 @@
                 <tr>
                     <td rowspan="{{ totals.tax.taxRates|length + 3 }}" colspan="2">
                         <ul class="usps">
-                            <li><span class="glyphicon glyphicon-gift"></span>Free Shipping & Return</li>
-                            <li><span class="glyphicon glyphicon-refresh"></span>30 Days of Return</li>
+                            <li><span class="glyphicon glyphicon-gift"></span>{{ 'cart.usp.shipping'|trans }}</li>
+                            <li><span class="glyphicon glyphicon-refresh"></span>{{ 'cart.usp.return'|trans }}</li>
                         </ul>
                     </td>
-                    <td>Subtotal Price</td>
+                    <td>{{ 'cart.price.subtotal'|trans }}</td>
                     <td>{{ totals.subtotal|price }}</td>
                 </tr>
                 <tr class="shipping">
-                    <td class="label">Shipping</td>
+                    <td class="label">{{ 'cart.price.shipping'|trans }}</td>
                     <td>{{ totals.orderExpensesTotal|price }}</td>
                 </tr>
                 {% for taxRate in totals.tax.taxRates %}
                     <tr class="tax">
-                        <td>{{ taxRate.percentage }} % VAT</td>
+                        <td>{{ taxRate.percentage }}{{ 'cart.percentage.vat'|trans }}</td>
                         <td>{{ taxRate.amount|price }}</td>
                     </tr>
                 {% endfor %}
                 <tr class="total">
-                    <td>
-                        Total price
-                    </td>
+                    <td>{{ 'cart.price.grand.total'|trans }}</td>
                     <td>{{ totals.grandTotal|price }}</td>
                 </tr>
                 </tfoot>
             </table>
             {% if cartItems|length %}
-            <button class="continue">Go to Checkout</button>
+            <button class="continue">{{ 'cart.to.checkout'|trans }}</button>
             {% endif %}
         </form>
 

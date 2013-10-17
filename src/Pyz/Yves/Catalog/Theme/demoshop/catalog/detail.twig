@@ -1,7 +1,8 @@
 {% extends "@application/layout/full.twig" %}
 {% block content %}
-    <link rel="stylesheet" href="/styles/product.css" />
     {% include "@application/partials/navbar.twig" with {'categories': categories } only %}
+    <link rel="stylesheet" href="/styles/product.css" />
+    <script src="/scripts/app/catalog.js"></script>
 
     <section class="consumeHeight" id="product">
         <ul id="breadcrumbs">
@@ -42,7 +43,7 @@
                 {#{% endif %}#}
             </div>
             <ul class="list">
-                {% for image in getAllProductImagesBySize(product.product_images, 's') %}
+                {% for image in getAllProductImagesBySize(product.product_images, 'm') %}
                 <li class="col col20">
                     <img class="col" src="{{ image }}" alt="" />
                 </li>
@@ -62,12 +63,10 @@
                 <form action="{{ url('cart/add', {sku: product.sku} ) }}">
                     <input class="fullWidth" type="number" name="quantity" value="1" min="1" max="{{ product.stock > 30 ? 30 : product.stock }}" step="1" />
                     <!--input class="fullWidth" type="hidden" name="options[]" value="B1" USE this input(s) to add options to the cartitem /-->
-                    <input class="submit fullWidth" type="submit" value="Buy Now" />
+                    <input class="submit fullWidth" type="submit" value="{{ 'catalog.buy'|trans }}" />
                 </form>
             {% else %}
-                <div class="unavailable">
-                    currently out of stock
-                </div>
+                <div class="unavailable">{{ 'catalog.out.of.stock'|trans }}</div>
             {% endif %}
         </aside>
 

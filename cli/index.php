@@ -41,9 +41,8 @@ $application = new Zend_Application(
 
 $application->bootstrap();
 
-// We do this so we get an error rate in new relic
+// We set this to false this so we get an error rate in new relic
 ProjectA_Shared_Library_NewRelic_Api::getInstance()->markAsBackgroundJob(false);
-ProjectA_Shared_Library_NewRelic_Api::getInstance()->setAppNameTmp('Cronjob');
 
 Zend_Controller_Front::getInstance()
     ->setRouter( new ProjectA_Zed_Library_Controller_Router_Cli() )
@@ -52,4 +51,3 @@ Zend_Controller_Front::getInstance()
     ->setParam('disableOutputBuffering', 1);
 
 $application->run();
-

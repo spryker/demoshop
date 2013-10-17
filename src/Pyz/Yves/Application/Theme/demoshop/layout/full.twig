@@ -27,9 +27,9 @@
             </a>
             <div class="col col67">
                 <ul class="usps">
-                    <li><span class="glyphicon glyphicon-gift"></span>Free Shipping & Return</li>
-                    <li><span class="glyphicon glyphicon-refresh"></span>30 Days of Return</li>
-                    <li><span class="glyphicon glyphicon-phone-alt"></span>Hotline: +49 (0) 30 340 606 300</li>
+                    <li><span class="glyphicon glyphicon-gift"></span>{{ 'header.usp.shipping'|trans }}</li>
+                    <li><span class="glyphicon glyphicon-refresh"></span>{{ 'header.usp.return'|trans }}</li>
+                    <li><span class="glyphicon glyphicon-phone-alt"></span>{{ 'header.phone'|trans }}</li>
                 </ul>
             </div>
         </div>
@@ -45,7 +45,7 @@
                     <li>
                         <a href="{{ url('cart') }}">
                             <span class="glyphicon glyphicon-shopping-cart"></span>
-                            <span class="main">Your cart</span>
+                            <span class="main">{{ 'header.cart'|trans }}</span>
                             <hardcoded>0 products</hardcoded>
                         </a>
                     </li>
@@ -61,19 +61,19 @@
     {% block footer %}
     <section class="transparent">
         <div class="col col33">
-            <h4>Payment options</h4>
+            <h4>{{ 'footer.payment.options'|trans }}</h4>
             <ul>
                 <li><img src="/images/payment.png" alt="" /></li>
             </ul>
         </div>
         <div class="col col33">
-            <h4>Shipping</h4>
+            <h4>{{ 'footer.shipping'|trans }}</h4>
             <ul>
                 <li><img src="/images/shipping.png" alt="" /></li>
             </ul>
         </div>
         <div class="col col34">
-            <h4>Information</h4>
+            <h4>{{ 'footer.information'|trans }}</h4>
             <hardcoded block>
             <ul>
                 <li><a href="cms.html">Privacy</a></li>

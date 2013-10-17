@@ -14,7 +14,7 @@
         {{ form_start(form) }}
             <div class="step" data-step="1">
                 <div class="address primary col col33">
-                    <h3>Shipping and Billing Address</h3>
+                    <h3>{{ 'checkout.headline.shipping.billing'|trans }}</h3>
                     {# <div class="row">
                         <label class="col col50">
                             <input class="addSpace smartAddressTrigger" type="radio" name="gender" value="Mr." /> Mr.
@@ -25,21 +25,21 @@
                     </div> #}
                     <div class="row">
                         <label>
-                            Full Name
-                            <input type="text" class="smartAddressTrigger fullWidth" name="full_name" value="" placeholder="e.g. John Quincy Doe" />
+                            {{ 'checkout.name.full'|trans }}
+                            <input type="text" class="smartAddressTrigger fullWidth" name="full_name" value="" placeholder="{{ 'checkout.name.full.placeholder'|trans }}" />
                         </label>
                     </div>
                     <div class="row">
                         <label>
-                            Full Address
-                            <input type="text" class="smartAddressTrigger fullWidth" name="full_address" value="" placeholder="e.g. 79 N 11th Brooklyn" />
+                            {{ 'checkout.address.full'|trans }}
+                            <input type="text" class="smartAddressTrigger fullWidth" name="full_address" value="" placeholder="{{ 'checkout.address.full.placeholder'|trans }}" />
                         </label>
                     </div>
                     <div class="row">
-                        {{ form_row(form.shippingAddress.address3, {attr :{class : 'fullWidth', placeholder : 'e.g. company / please hand to neighbor Wilson'}, label : 'Comment'}) }}
+                        {{ form_row(form.shippingAddress.address3, {attr : {class : 'fullWidth', placeholder : 'checkout.address.shipping.comment.placeholder'}, label : 'checkout.address.shipping.comment'}) }}
                     </div>
                     <div class="row">
-                        {{ form_row(form.shippingAddress.phone, {attr : {class : 'fullWidth'}}) }}
+                        {{ form_row(form.shippingAddress.phone, {attr : {class : 'fullWidth'}, label : 'checkout.address.shipping.phone'}) }}
                     </div>
                     <div class="row">
                         <hardcoded>
@@ -53,10 +53,10 @@
 
                 <div class="primary col col33">
                     <div class="addressResult">
-                        <h5><span class="type">Shipping</span> goes to:</h5>
+                        <h5>{{ 'checkout.headline.shipping.to'|trans }}</h5>
                         <table>
                             <tr>
-                                <td class="label">Name:</td>
+                                <td class="label">{{ 'checkout.address.shipping.name'|trans }}:</td>
                                 <td>
                                     {# <span data-src="gender"></span> #}
                                     <span></span> {{ form_widget(form.shippingAddress.firstName, {attr : {class : 'name fullWidth', 'data-src' : 'first_name'}}) }}
@@ -65,45 +65,45 @@
                                 </td>
                             </tr>
                             <tr>
-                                <td class="label">Street:</td>
+                                <td class="label">{{ 'checkout.address.shipping.street'|trans }}</td>
                                 <td>
                                 <span class="col col67">
-                                    {{ form_widget(form.shippingAddress.address1, {attr : {class : 'fullWidth', 'data-src': 'route'}, label: 'Street'}) }}
+                                    {{ form_widget(form.shippingAddress.address1, {attr : {class : 'fullWidth', 'data-src': 'route'}}) }}
                                 </span>
                                 <span class="col col33">
-                                    {{ form_widget(form.shippingAddress.address2, {attr : {class : 'fullWidth', 'data-src': 'street_number'}, label: 'Number'}) }}
+                                    {{ form_widget(form.shippingAddress.address2, {attr : {class : 'fullWidth', 'data-src': 'street_number'}}) }}
                                 </span>
                                 </td>
                             </tr>
                             <tr>
-                                <td class="label">Postal Code:</td>
+                                <td class="label">{{ 'checkout.address.shipping.zipcode'|trans }}</td>
                                 <td>
                                 <span class="col col33">
-                                    {{ form_widget(form.shippingAddress.zipcode, {attr : {class : 'fullWidth', 'data-src': 'postal_code'}, label: 'Postal Code'}) }}
+                                    {{ form_widget(form.shippingAddress.zipcode, {attr : {class : 'fullWidth', 'data-src': 'postal_code'}}) }}
                                 </span>
                                 </td>
                             </tr>
                             <tr>
-                                <td class="label">City:</td>
+                                <td class="label">{{ 'checkout.address.shipping.city'|trans }}:</td>
                                 <td>
                                     {{ form_widget(form.shippingAddress.city, {attr : {class : 'fullWidth', 'data-src': 'locality'}}) }}
                                 </td>
                             </tr>
                             <tr>
-                                <td class="label">Country:</td>
+                                <td class="label">{{ 'checkout.address.shipping.country'|trans }}:</td>
                                 <td>
-                                    {{ form_widget(form.shippingAddress.iso2Country, {attr : {class : 'fullWidth', 'data-src': 'country', 'data-src-type' : 'short'}, label: 'Country'}) }}
+                                    {{ form_widget(form.shippingAddress.iso2Country, {attr : {class : 'fullWidth', 'data-src': 'country', 'data-src-type' : 'short'}, label : 'checkout.country'}) }}
                                 </td>
                             </tr>
                         </table>
                         <button class="ok">OK</button>
                     </div>
-                    <h3>Payment</h3>
-                    {{ form_widget(form.payment.method) }}
+                    <h3>{{ 'checkout.headline.payment'|trans }}</h3>
+                    {{ form_widget(form.payment.method, {label : 'checkout.payment.method'}) }}
                 </div>
 
                 <div id="cartSummary" class="cart primary col col33">
-                    <h3>Your Cart</h3>
+                    <h3>{{ 'checkout.headline.cart'|trans }}</h3>
                     <table class="items">
                         <tbody>
                         {% for cartItem in cartItems %}
@@ -120,76 +120,74 @@
                             </tr>
                         {% else %}
                             <tr>
-                                <td colspan="2">Cart EMPTY.</td>
+                                <td colspan="2">{{ 'checkout.cart.empty'|trans }}</td>
                             </tr>
                         {% endfor %}
                         </tbody>
                         <tfoot>
                         <tr>
-                            <td>Subtotal Price</td>
+                            <td>{{ 'checkout.price.subtotal'|trans }}</td>
                             <td>{{ totals.subtotal|price }}</td>
                         </tr>
                         <tr>
-                            <td>Shipping</td>
+                            <td>{{ 'checkout.price.shipping'|trans }}</td>
                             <td>{{ totals.orderExpensesTotal|price }}</td>
                         </tr>
                         {% for taxRate in totals.tax.taxRates %}
                             <tr class="tax">
-                                <td>{{ taxRate.percentage }} % VAT</td>
+                                <td>{{ taxRate.percentage }}{{ 'checkout.percentage.vat'|trans }}</td>
                                 <td>{{ taxRate.amount|price }}</td>
                             </tr>
                         {% endfor %}
                         <tr class="total">
-                            <td>
-                                Total price
-                            </td>
+                            <td>{{ 'checkout.price.grand.total'|trans }}</td>
                             <td>{{ totals.grandTotal|price }}</td>
                         </tr>
                         </tfoot>
                     </table>
-                    {{ form_widget(form.save, {attr : {class : 'continue'},label : 'To Order Summary'}) }}
+                    {{ form_widget(form.save, {attr : {class : 'continue'}, label : 'checkout.to.summary'}) }}
                 </div>
                 <div class="clearRows"></div>
                 <div class="address primary col col33 secondaryRow">
-                    <h3>Billing Address</h3>
+                    <h3>{{ 'checkout.headline.billing'|trans }}</h3>
                     <div class="row col col34 first">
-                        {{ form_row(form.billingAddress.firstName, {attr : {class : 'name fullWidth', 'data-src': 'first_name'}}) }}
+                        {{ form_row(form.billingAddress.firstName, {attr : {class : 'name fullWidth', 'data-src': 'first_name'}, label : 'checkout.address.billing.name.first'}) }}
                     </div>
                     <div class="row col col33 middle">
-                        {{ form_row(form.billingAddress.middleName, {attr : {class : 'name fullWidth', 'data-src': 'middle_name'}}) }}
+                        {{ form_row(form.billingAddress.middleName, {attr : {class : 'name fullWidth', 'data-src': 'middle_name'}, label : 'checkout.address.billing.name.middle'}) }}
                     </div>
                     <div class="row col col33 last">
-                        {{ form_row(form.billingAddress.lastName, {attr : {class : 'name fullWidth', 'data-src': 'last_name'}}) }}
+                        {{ form_row(form.billingAddress.lastName, {attr : {class : 'name fullWidth', 'data-src': 'last_name'}, label : 'checkout.address.billing.name.last'}) }}
                     </div>
                     <div class="row">
-                        {{ form_row(form.billingAddress.company, {attr : {class : 'fullWidth'}}) }}
+                        {{ form_row(form.billingAddress.company, {attr : {class : 'fullWidth'}, label : 'checkout.address.billing.company'}) }}
                     </div>
                     <div class="row col col67 first middle">
-                        {{ form_row(form.billingAddress.address1, {attr : {class : 'fullWidth', 'data-src': 'route'}, label : 'Street'}) }}
+                        {{ form_row(form.billingAddress.address1, {attr : {class : 'fullWidth', 'data-src': 'route'}, label : 'checkout.address.billing.street'}) }}
                     </div>
                     <div class="row col col33 last">
-                        {{ form_row(form.billingAddress.address2, {attr : {class : 'fullWidth', 'data-src': 'street_number'}, label : 'Number'}) }}
+                        {{ form_row(form.billingAddress.address2, {attr : {class : 'fullWidth', 'data-src': 'street_number'}, label : 'checkout.address.billing.number'}) }}
                     </div>
                     <div class="row col col33 first middle">
-                        {{ form_row(form.billingAddress.zipcode, {attr : {class : 'fullWidth', 'data-src': 'postal_code'}, label: 'Postal Code'}) }}
+                        {{ form_row(form.billingAddress.zipcode, {attr : {class : 'fullWidth', 'data-src': 'postal_code'}, label: 'checkout.address.billing.zipcode'}) }}
                     </div>
                     <div class="row col col67 last">
-                        {{ form_row(form.billingAddress.city, {attr : {class : 'fullWidth', 'data-src': 'locality'}}) }}
+                        {{ form_row(form.billingAddress.city, {attr : {class : 'fullWidth', 'data-src': 'locality'}, label: 'checkout.address.billing.city'}) }}
                     </div>
                     <div class="row">
-                        {{ form_row(form.billingAddress.iso2Country, {attr : {class : 'fullWidth', 'data-src': 'country', 'data-src-type' : 'short'}, label: 'Country'}) }}
+                        {{ form_row(form.billingAddress.iso2Country, {attr : {class : 'fullWidth', 'data-src': 'country', 'data-src-type' : 'short'}, label: 'checkout.address.billing.country'}) }}
                     </div>
                 </div>
                 <div class="contact primary col col33 secondaryRow">
-                    <h3>Contact Data</h3>
+                    <h3>{{ 'checkout.headline.contact'|trans }}</h3>
                     <div class="row">
-                        {{ form_row(form.email) }}
+                        {{ form_row(form.email, {label : 'checkout.email'}) }}
                     </div>
                 </div>
             </div>
             <div class="step" data-step="2">
                 <div class="addressSummary primary col col25">
-                    <h3>Shipping Address</h3>
+                    <h3>{{ 'checkout.headline.shipping'|trans }}</h3>
                     <div class="row">
                         <strong>
                             <span data-formsrc="salesOrder[shippingAddress][firstName]"></span>
@@ -204,9 +202,9 @@
                         <span data-formsrc="salesOrder[shippingAddress][city]"></span>
                         <br />
                         <span data-formsrc="salesOrder[shippingAddress][iso2Country]" data-elsrc="#salesOrder_shippingAddress_iso2Country"></span>
-                        <a class="change" href="javascript:app.checkout.steps.previous();">edit</a>
+                        <a class="change" href="javascript:app.checkout.steps.previous();">{{ 'checkout.link.edit'|trans }}</a>
                     </div>
-                    <h3>Billing Address</h3>
+                    <h3>{{ 'checkout.headline.billing'|trans }}</h3>
                     <div class="row">
                         <strong>
                             <span data-formsrc="salesOrder[billingAddress][firstName]"></span>
@@ -221,22 +219,18 @@
                         <span data-formsrc="salesOrder[billingAddress][city]"></span>
                         <br />
                         <span data-formsrc="salesOrder[billingAddress][iso2Country]" data-elsrc="#salesOrder_billingAddress_iso2Country"></span>
-                        <a class="change" href="javascript:app.checkout.steps.previous();">edit</a>
+                        <a class="change" href="javascript:app.checkout.steps.previous();">{{ 'checkout.link.edit'|trans }}</a>
                     </div>
                 </div>
                 <div class="paymentSummary primary col col25">
-                    <h3>Payment</h3>
+                    <h3>{{ 'checkout.headline.payment'|trans }}</h3>
                     <div class="row">
                         <strong><span data-formsrc="salesOrder[payment][method]"></span></strong>
-                        <a class="change" href="javascript:app.checkout.steps.previous();">edit</a>
+                        <a class="change" href="javascript:app.checkout.steps.previous();">{{ 'checkout.link.edit'|trans }}</a>
                     </div>
                 </div>
                 <div class="cartSummary cart primary col col50" data-elsrc="#cartSummary"></div>
             </div>
-        {{ form_end(form) }}
-{{ 'test'|trans }}
+        {{ form_end(form, {'render_rest': false}) }}
     </section>
-
-
-
 {% endblock %}

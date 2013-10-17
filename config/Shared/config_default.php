@@ -144,7 +144,7 @@ $config['jenkins'] = array(
 $config['host'] = array(
     'yves'          => 'http://www-development.project-yz.com',
     'zed'           => 'http://zed-development.project-yz.com',
-    'zed_local'     => 'localhost:10001',
+    'zed_local'     => 'localhost:10101',
 
     'static_assets' => '',
     'static_media'  => '',
@@ -153,7 +153,7 @@ $config['host'] = array(
 $config['host_ssl'] = array(
     'yves'          => 'https://www-development.project-yz.com',
     'zed'           => 'https://zed-development.project-yz.com',
-    'zed_local'     => 'localhost:10001',
+    'zed_local'     => 'localhost:10101',
 
     'static_assets' => '',
     'static_media'  => '',
@@ -438,5 +438,8 @@ $config['productImage'] = [
     'originalProductImageDirectory' => 'images' . DIRECTORY_SEPARATOR . 'products/original',
     'incomingProductImageDirectory' => 'images' . DIRECTORY_SEPARATOR . 'products/incoming',
     'processedProductImageDirectory' => 'images' . DIRECTORY_SEPARATOR . 'products/processed',
-    'imageUrlPrefix' => 'images'
+    'imageUrlPrefix' => 'images',
+    'amazonS3Key' => '',
+    'amazonS3Secret' => '',
+    'amazonS3BucketName' => ''
 ];
