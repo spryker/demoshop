@@ -701,7 +701,7 @@
             "source": {
                 "type": "git",
                 "url": "git@codebasehq.com:project-a/core/checkout.git",
-                "reference": "72d174e6fde23603b5d0f78e8ceac852f981f3d9"
+                "reference": "324a100dee8fb2d93529309e649b82496ca87643"
             },
             "require": {
                 "gavroche/browser": "~2.1",
@@ -731,7 +731,7 @@
                 "PaymentControl",
                 "Salesrule"
             ],
-            "time": "2013-10-16 15:28:59"
+            "time": "2013-10-17 08:10:13"
         },
         {
             "name": "project-a/console-package",
@@ -780,7 +780,7 @@
             "source": {
                 "type": "git",
                 "url": "git@codebasehq.com:project-a/core/content.git",
-                "reference": "04da627ea76ec8dc5e35674f639c0e07ed53e6ef"
+                "reference": "2f1b739f760a17006e843c9ae9a9b0fd71f0ddee"
             },
             "require": {
                 "php": ">=5.4.0",
@@ -806,7 +806,7 @@
             "keywords": [
                 "Content Package"
             ],
-            "time": "2013-10-15 12:59:42"
+            "time": "2013-10-17 08:10:13"
         },
         {
             "name": "project-a/crm-package",
@@ -975,7 +975,7 @@
             "source": {
                 "type": "git",
                 "url": "git@codebasehq.com:project-a/core/infrastructure.git",
-                "reference": "f1c62a8499463e4bb5c26a8f15f07a480cbfbf0d"
+                "reference": "0f5c49e09ec7a910b81c70a818d0484ae5cca138"
             },
             "require": {
                 "php": ">=5.4.0",
@@ -1003,7 +1003,7 @@
             "keywords": [
                 "infrastructure"
             ],
-            "time": "2013-10-16 16:39:20"
+            "time": "2013-10-17 08:16:13"
         },
         {
             "name": "project-a/kendo-package",
@@ -1028,7 +1028,7 @@
             "source": {
                 "type": "git",
                 "url": "git@codebasehq.com:project-a/core/library-2.git",
-                "reference": "cd74be458f82f48a9bff29f75dc9623fdb85c860"
+                "reference": "c926f6521e9b8efd7d7e1c3a862e5e23534f27bc"
             },
             "require": {
                 "digital-canvas/zend-framework": ">=1.12.2",
@@ -1068,7 +1068,7 @@
                 }
             ],
             "description": "Project-A Library",
-            "time": "2013-10-16 16:39:35"
+            "time": "2013-10-17 08:10:13"
         },
         {
             "name": "project-a/lumberjack-package",
@@ -1109,7 +1109,7 @@
             "source": {
                 "type": "git",
                 "url": "git@codebasehq.com:project-a/core/marketing.git",
-                "reference": "9bc1293fcdffd57f79a9699a48f5a3c4b2a8de1c"
+                "reference": "21d128c0b206799ba57bd73336d998d07578815d"
             },
             "require": {
                 "php": ">=5.4.0",
@@ -1134,7 +1134,7 @@
             "keywords": [
                 "Marketing"
             ],
-            "time": "2013-10-15 12:59:42"
+            "time": "2013-10-17 08:10:13"
         },
         {
             "name": "project-a/payment-package",
@@ -1173,7 +1173,7 @@
             "source": {
                 "type": "git",
                 "url": "git@codebasehq.com:project-a/core/sales.git",
-                "reference": "5f2f139021ba0b30c4eb217ef94a5fd0e6f87735"
+                "reference": "a2df9db9e145f8b362e0f4d33f4ca3c9ef18f106"
             },
             "require": {
                 "php": ">=5.4.0",
@@ -1200,7 +1200,7 @@
                 "Sales",
                 "Task"
             ],
-            "time": "2013-10-16 16:31:42"
+            "time": "2013-10-17 08:10:13"
         },
         {
             "name": "project-a/silex-routing",
