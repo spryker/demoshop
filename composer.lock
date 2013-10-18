@@ -551,7 +551,7 @@
             "source": {
                 "type": "git",
                 "url": "git@codebasehq.com:project-a/core/acl.git",
-                "reference": "fdcfb1e0f82583bb6a26b98468d68d27274f2cdc"
+                "reference": "497b2c22ebb35cfd1f6615766b71e701650c43a0"
             },
             "require": {
                 "php": ">=5.4.0",
@@ -580,7 +580,7 @@
                 "login",
                 "usermanagement"
             ],
-            "time": "2013-10-18 10:38:19"
+            "time": "2013-10-18 11:54:46"
         },
         {
             "name": "project-a/adyen-package",
@@ -657,7 +657,7 @@
             "source": {
                 "type": "git",
                 "url": "git@codebasehq.com:project-a/core/catalog.git",
-                "reference": "0aff25a8bf7acbdde4e3a2b19ca20e257ba44aae"
+                "reference": "6b98bd15c5bf1e57f1355556dd83e84fa312c82f"
             },
             "require": {
                 "php": ">=5.4.0",
@@ -693,7 +693,7 @@
                 "Price",
                 "Stock"
             ],
-            "time": "2013-10-18 10:56:32"
+            "time": "2013-10-18 11:53:51"
         },
         {
             "name": "project-a/checkout-package",
@@ -701,7 +701,7 @@
             "source": {
                 "type": "git",
                 "url": "git@codebasehq.com:project-a/core/checkout.git",
-                "reference": "05c0d272f23f3a1374fe0ddf4ff1b73ea0804036"
+                "reference": "69b59f44d63d37dfefdca938b8b0695f078f87dd"
             },
             "require": {
                 "gavroche/browser": "~2.1",
@@ -731,7 +731,7 @@
                 "PaymentControl",
                 "Salesrule"
             ],
-            "time": "2013-10-18 10:50:34"
+            "time": "2013-10-18 12:44:57"
         },
         {
             "name": "project-a/console-package",
@@ -848,7 +848,7 @@
             "source": {
                 "type": "git",
                 "url": "git@codebasehq.com:project-a/core/dependency.git",
-                "reference": "ebd888d7d2ebe2db7d97e272ebf19b93df9272ae"
+                "reference": "0fa59e5b1dc038d21967f4b52a9492f6166b4c9c"
             },
             "type": "library",
             "autoload": {
@@ -860,7 +860,7 @@
             "keywords": [
                 "dependency"
             ],
-            "time": "2013-10-15 14:06:03"
+            "time": "2013-10-18 12:43:36"
         },
         {
             "name": "project-a/dwh-package",
@@ -943,7 +943,7 @@
             "source": {
                 "type": "git",
                 "url": "git@codebasehq.com:project-a/core/glossary.git",
-                "reference": "1b78233e384a6fe260582d8d33f8033a3a0cd957"
+                "reference": "71ec580a004435dc94a0e429c6d37455109a971b"
             },
             "require": {
                 "php": ">=5.4.0"
@@ -967,7 +967,7 @@
                 "i18n",
                 "translation"
             ],
-            "time": "2013-10-18 09:15:52"
+            "time": "2013-10-18 11:54:12"
         },
         {
             "name": "project-a/infrastructure-package",
@@ -1173,7 +1173,7 @@
             "source": {
                 "type": "git",
                 "url": "git@codebasehq.com:project-a/core/sales.git",
-                "reference": "305a8bc27659d0bc6d382e04fe578cd0761a1c97"
+                "reference": "82f8fcfdb16f2d594a840b1024017062823c1f29"
             },
             "require": {
                 "php": ">=5.4.0",
@@ -1200,7 +1200,7 @@
                 "Sales",
                 "Task"
             ],
-            "time": "2013-10-18 10:39:46"
+            "time": "2013-10-18 12:55:22"
         },
         {
             "name": "project-a/silex-routing",
