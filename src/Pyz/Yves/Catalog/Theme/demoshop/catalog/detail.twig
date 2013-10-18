@@ -11,7 +11,6 @@
             <li>{{ product.name }}</li>
         </ul>
         <aside class="assist col col25">
-            <hardcoded block>
             <ul class="usps">
                 <li><span class="glyphicon glyphicon-gift"></span>Free Shipping & Return</li>
                 <li><span class="glyphicon glyphicon-refresh"></span>30 Days of Return</li>
@@ -22,7 +21,6 @@
                 <li class="twitter"></li>
                 <li class="youtube"></li>
             </ul>
-            </hardcoded>
         </aside>
         <div class="pictures col col50">
             <div class="current">
@@ -57,7 +55,7 @@
                 <div class="oldPrice">{{ product.recommended_retail_price|price }}</div>
             {% endif %}
             <div class="price">{{ product.price|price }}</div>
-            <div class="hint"><hardcoded>incl. {{ product.tax_rate }}% VAT</hardcoded></div>
+            <div class="hint">incl. {{ product.tax_rate }}% VAT</div>
 
             {% if product.stock > 0 %}
                 <form action="{{ url('cart/add', {sku: product.sku} ) }}">
@@ -84,13 +82,11 @@
         </div>
         <aside class="specs col col25">
             <h4>More details</h4>
-            <hardcoded block>
             <ul>
                 <li>Material: {{ product.material }}</li>
                 <li>Dimension: {{ product.dimension_in_cm }}</li>
                 <li>Color: {{ product.color }}</li>
             </ul>
-            </hardcoded>
         </aside>
     </section>
 {% endblock %}
