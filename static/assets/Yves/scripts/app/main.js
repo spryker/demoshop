@@ -1,4 +1,5 @@
 var app = {
+    vars : {},
     init : function() {
         this.slider.init();
         this.viewport.init();

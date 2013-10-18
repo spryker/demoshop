@@ -32,7 +32,7 @@ app.checkout = {
                 this.apply();
             }
         },
-        apply : function() {
+        apply : function(e, withoutStorePrependix) {
             var fields = $('.smartAddressForm').serializeArray();
             var required = this.vars.required;
 
@@ -46,17 +46,29 @@ app.checkout = {
                 return;
             }
 
-            this.triggerSearch(fields);
+            this.triggerSearch(fields, withoutStorePrependix);
         },
-        triggerSearch : function(fields) {
+        triggerSearch : function(fields, withoutStorePrependix) {
             var address = this.getField(this.vars.addressField, fields);
-            $.getJSON('http://maps.googleapis.com/maps/api/geocode/json', { address : address, sensor : false }, function(response) {
-                if (!response || response.status !== 'OK' || !response.results || !response.results[0]) {
-                    // fallback
+            $.getJSON('http://maps.googleapis.com/maps/api/geocode/json', { address : address + (withoutStorePrependix ? '' : (' ' + app.vars.storeLocale)) , sensor : false }, function(response) {
+                var relevantValues = {};
+
+                var fullName = this.getField(this.vars.nameField, fields);
+                var nameParts = fullName.split(' ');
+                relevantValues.last_name = nameParts.pop();
+                if (!nameParts.length) {
                     return;
                 }
+                relevantValues.first_name = nameParts.shift();
+                relevantValues.middle_name = nameParts.join(' ');
 
-                var relevantValues = {};
+                if (!response || response.status !== 'OK' || !response.results || !response.results[0]) {
+                    if (withoutStorePrependix) {
+                        return this.showResult(relevantValues);
+                    }
+                    return app.checkout.smartAddress.apply(null, true);
+                }
+
                 $.each(response.results[0].address_components, function(key, addressComponent) {
                     $.each(addressComponent.types, function(key, type) {
                         if ($.inArray(type, this.vars.relevantGValues) !== -1) {
@@ -65,16 +77,6 @@ app.checkout = {
                     }.bind(this))
                 }.bind(this));
 
-                var fullName = this.getField(this.vars.nameField, fields);
-                var nameParts = fullName.split(' ');
-                relevantValues.last_name = nameParts.pop();
-                if (!nameParts.length) {
-                    // fallback
-                    return;
-                }
-
-                relevantValues.first_name = nameParts.shift();
-                relevantValues.middle_name = nameParts.join(' ');
                 // relevantValues.gender = this.getField(this.vars.genderField, fields);
 
                 this.showResult(relevantValues);
@@ -126,6 +128,7 @@ app.checkout = {
                 if (this.vars.current < this.vars.count) {
                     e.preventDefault();
                 }
+                // do step validation here
                 this.next();
             }.bind(this));
         },

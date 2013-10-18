@@ -6,7 +6,8 @@ app.catalog = {
     zoom : {
         vars : {
             elClass : 'zoom',
-            currentClass : '#product .pictures .current'
+            currentClass : '#product .pictures .current',
+            originalSize : 1008
         },
         init : function() {
             var vars = this.vars;
@@ -23,8 +24,13 @@ app.catalog = {
                     vars.$zoom.remove();
                     return;
                 }
-                var bgpos = (((coords.left - e.clientX) * 2) + 100) + 'px ' + (((coords.top - e.clientY) * 2) + 100) + 'px';
+                var factor = vars.originalSize / (coords.width - 2);
+                var bgpos = (((coords.left - e.clientX) * factor) + 100) + 'px ' + (((coords.top - e.clientY) * factor) + 100) + 'px';
                 vars.$zoom.css({ left : e.clientX - 100, top : e.clientY - 100, backgroundPosition : bgpos });
+            });
+
+            $(vars.currentClass).mouseleave(function() {
+                vars.$zoom.remove();
             });
         }
     },
