@@ -21,6 +21,11 @@ module.exports = function ( grunt ) {
             'dist': 'static/public/Zed/new'
         },
 
+        zedDirectories : {
+            'pkg' : 'vendor/project-a',
+            'dist' : 'static/public/Zed/bundles'
+        },
+
         pkg : grunt.file.readJSON( 'package.json' ),
 
         connect: {
@@ -99,6 +104,23 @@ module.exports = function ( grunt ) {
                             '!flag/'
                         ],
                         dest   : '<%= yvesDirectories.dist %>/images/'
+                    }
+                ]
+            },
+            packages : {
+                files : [
+                    {
+                        expand : true,
+                        cwd    : '<%= zedDirectories.pkg %>/',
+                        src    : [
+                            '**/Static/**/*'
+                        ],
+                        dest   : '<%= zedDirectories.dist %>/',
+
+                        rename : function ( dest, src ) {
+                            return  dest + src.replace( /([\\\/]?([\w-_]+[\\\/])*([\w-_]+)[\\\/]static)/i, '$3' );
+                        }
+
                     }
                 ]
             }
@@ -201,7 +223,8 @@ module.exports = function ( grunt ) {
         'copy:scripts',
         'copy:vendorScripts',
         'copy:fonts',
-        'copy:images'
+        'copy:images',
+        'copy:packages'
     ]);
 
     // grunt for development
@@ -216,7 +239,7 @@ module.exports = function ( grunt ) {
         'copy:vendorScripts',
         'copy:fonts',
         'copy:images',
-
+        'copy:packages',
         'watch'
     ]);
 
@@ -230,7 +253,8 @@ module.exports = function ( grunt ) {
         'copy:scripts',
         'copy:vendorScripts',
         'copy:fonts',
-        'copy:images'
+        'copy:images',
+        'copy:packages'
     ]);
 
     // grunt [default]
