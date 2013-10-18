@@ -25,17 +25,13 @@
                     {% set product = products[cartItem.sku] %}
                     <tr>
                         <td>
-                            <hardcoded block style="float:left;">
-                            <img src="" alt="[tbd_image]" width="20%" />
-                            </hardcoded>
+                            <img src="{{ getFirstProductImagesBySize(product.product_images, 'm') }}" alt="" width="20%" />
                             <h3>{{ product.name }}</h3>
                             <h4>by {{ product.brand }}</h4>
-                            <hardcoded block>
                             <ul class="specs">
                                 <li>{{ product.material }}</li>
                                 <li>{{ product.dimension_in_cm }}</li>
                             </ul>
-                            </hardcoded>
                             <a href="{{ url('cart/remove', {'sku':cartItem.sku, 'uid':cartItem.uniqueIdentifier}) }}" class="remove">
                                 <span class="glyphicon glyphicon-trash"></span>
                                 {{ 'cart.remove'|trans }}

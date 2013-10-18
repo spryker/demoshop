@@ -1,10 +1,16 @@
-<div class="message error" style="background-color:lightcoral;">
-{% for message in errorMessages %}
-    <span>{{ message }}</span>
-{% endfor %}
-</div>
-<div class="message info" style="background-color:lightgreen;">
-    {% for message in infoMessages %}
-        <span>{{ message|trans }}</span>
+<section>
+    {% if errorMessages %}
+    <div class="message error">
+    {% for message in errorMessages %}
+        <span>{{ message }}</span>
     {% endfor %}
-</div>
+    </div>
+    {% endif %}
+    {% if infoMessages %}
+    <div class="message info">
+        {% for message in infoMessages %}
+            <span>{{ message|trans }}</span>
+        {% endfor %}
+    </div>
+    {% endif %}
+</section>
