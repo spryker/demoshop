@@ -237,7 +237,7 @@ $config['zed'] = array(
     ),
     'ssl_enabled'  => true,
     'ssl_excluded' => array(
-        'monitoring/heartbeat'
+        'system/heartbeat'
     ),
     'customercare' => array(
         'zed_backlink' => 'DEFAULT.zed.saatchionline.com',
