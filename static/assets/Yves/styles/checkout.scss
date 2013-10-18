@@ -23,6 +23,8 @@
 #checkout .row .details .multiple .col:first-child { padding-left:0; }
 #checkout .row .details .multiple .col:last-child { padding-right:0; }
 
+#checkout .row input+label { margin-left:5px; }
+
 #checkout .addSpace { margin-right:3px; }
 
 #checkout label { font-size:0.9em; }
@@ -66,3 +68,5 @@
 
 #checkout .step { display:none; }
 #checkout .step:first-child { display:block; }
+
+#checkout .validationError { border-color:red; box-shadow:0 0 4px rgba(255, 0, 0, 0.3); }

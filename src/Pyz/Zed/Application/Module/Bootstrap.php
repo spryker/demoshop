@@ -1,15 +1,20 @@
 <?php
+namespace Pyz\Zed\Application\Module;
 
-use ProjectA\Shared\Library\Error\ErrorLogger;
+use ProjectA\Zed\Library\Controller\Action\Helper\PageActionHelper;
 use ProjectA\Zed\Library\Controller\Action\Helper\ViewRenderer;
 use ProjectA\Shared\Library\Application\TestEnvironment;
+use ProjectA\Zed\Library\Controller\Dispatcher;
+use ProjectA\Zed\Library\Controller\Plugin\DbTestModePlugin;
+use ProjectA\Zed\Library\Controller\Plugin\NewRelicPlugin;
+use ProjectA\Zed\Library\Controller\Plugin\SslPlugin;
 
-class Bootstrap extends Zend_Application_Bootstrap_Bootstrap
+class Bootstrap extends \Zend_Application_Bootstrap_Bootstrap
 {
 
     public function run()
     {
-        $front   = $this->getResource('FrontController');
+        $front = $this->getResource('FrontController');
         $front->setParam('bootstrap', $this);
         $response = $front->dispatch();
         if ($front->returnResponse()) {
@@ -19,10 +24,14 @@ class Bootstrap extends Zend_Application_Bootstrap_Bootstrap
 
     protected function _initSession()
     {
-        if (PHP_SAPI === 'cli' || ProjectA_Shared_Library_Environment::isTesting()) {
+        if (PHP_SAPI === 'cli') {
             return;
         }
-        $config = ProjectA_Shared_Library_Config::get('zed');
+        if (TestEnvironment::isSystemUnderTest()) {
+            \Zend_Session::$_unitTestEnabled = true;
+            return;
+        }
+        $config = \ProjectA_Shared_Library_Config::get('zed');
         $saveHandler = $config->session->save_handler;
         $savePath = $config->session->save_path;
         if (isset($saveHandler) && !empty($saveHandler)) {
@@ -36,31 +45,21 @@ class Bootstrap extends Zend_Application_Bootstrap_Bootstrap
 
     protected function _initCache()
     {
-        $dataDir = ProjectA_Shared_Library_Data::getLocalStoreSpecificPath('cache');
-        $cache = Zend_Cache::factory('Core', 'File',
+        $dataDir = \ProjectA_Shared_Library_Data::getLocalStoreSpecificPath('cache');
+        $cache = \Zend_Cache::factory(
+            'Core',
+            'File',
             array('lifetime' => 200),
             array('cache_dir' => $dataDir)
         );
-        Zend_Locale::setCache($cache);
+        \Zend_Locale::setCache($cache);
         return $cache;
-    }
-
-    protected function _initDbTestModePlugin()
-    {
-        $front = Zend_Controller_Front::getInstance();
-        $front->registerPlugin(new ProjectA_Zed_Library_Controller_Plugin_DbTestMode());
     }
 
     protected function _initLocale()
     {
-        $locale = new Zend_Locale(ProjectA_Shared_Library_Store::getInstance()->getCurrentLocale());
-        Zend_Registry::set('Zend_Locale', $locale);
-    }
-
-    protected function _initMultibyteEncoding()
-    {
-        mb_internal_encoding('UTF-8');
-        mb_regex_encoding('UTF-8');
+        $locale = new \Zend_Locale(\ProjectA_Shared_Library_Store::getInstance()->getCurrentLocale());
+        \Zend_Registry::set('Zend_Locale', $locale);
     }
 
     protected function _initViewEscaping()
@@ -70,79 +69,60 @@ class Bootstrap extends Zend_Application_Bootstrap_Bootstrap
         $view->setEscape(array('ProjectA_Zed_Library_Security_Html', 'escape'));
     }
 
-    /**
-     * @return bool
-     */
     protected function _initTranslate()
     {
-        $pathToLanguageFile = APPLICATION_ROOT_DIR.'/config/Zed/language/';
-        $pathToLanguageFile .= ProjectA_Shared_Library_Store::getInstance()->getCurrentLanguage() . '/lang.csv';
+        $currentLanguage = \ProjectA_Shared_Library_Store::getInstance()->getCurrentLanguage();
+        $pathToLanguageFile = APPLICATION_ROOT_DIR . '/config/Zed/language/' . $currentLanguage . '/lang.csv';
 
-        Zend_Registry::set('Zend_Translate', $this->getTranslate('csv', $pathToLanguageFile));
+        $translator = new \ProjectA_Zed_Library_Translate(
+            [
+                'adapter' => 'csv',
+                'content' => $pathToLanguageFile,
+                'locale' => \ProjectA_Shared_Library_Store::getInstance()->getCurrentLocale()
+            ]
+        );
+
+        \Zend_Registry::set('Zend_Translate', $translator);
     }
 
-    /**
-     * @param $adapter
-     * @param $content
-     *
-     * @return ProjectA_Zed_Library_Translate
-     */
-    protected function getTranslate($adapter, $content)
+    protected function _initPlugins()
     {
-        return new ProjectA_Zed_Library_Translate(array(
-            'adapter' => $adapter,
-            'content' => $content,
-            'locale' => ProjectA_Shared_Library_Store::getInstance()->getCurrentLocale()
-        ));
+        $front = \Zend_Controller_Front::getInstance();
+        $front->registerPlugin(new NewRelicPlugin());
+        $front->registerPlugin(new SslPlugin());
+        $front->registerPlugin(new DbTestModePlugin());
     }
 
-    /**
-     * Initialize Propel ORM
-     */
     protected function _initPropel()
     {
-        $dbConfig = ProjectA_Shared_Library_Config::get('db');
-        $logConfig = ProjectA_Shared_Library_Config::get('log');
-        $propelConfig = APPLICATION_SOURCE_DIR
-            . '/Generated/Zed/PropelGen/'
-            . ProjectA_Shared_Library_Store::getInstance()->getStoreName()
-            . '/build/conf/zed-conf.php';
+        $dbConfig = \ProjectA_Shared_Library_Config::get('db');
+        $logConfig = \ProjectA_Shared_Library_Config::get('log');
+        $storeName = \ProjectA_Shared_Library_Store::getInstance()->getStoreName();
+        $propelConfig = APPLICATION_SOURCE_DIR . '/Generated/Zed/PropelGen/' . $storeName . '/build/conf/zed-conf.php';
 
-        ProjectA_Zed_Library_Propel_Config::setConfig($dbConfig, $logConfig, $propelConfig);
+        \ProjectA_Zed_Library_Propel_Config::setConfig($dbConfig, $logConfig, $propelConfig);
         if (TestEnvironment::isSystemUnderTest()) {
-            $connection = \Propel::getConnection();
-            $connection->beginTransaction();
+            \Propel::getConnection()
+                ->beginTransaction();
         }
     }
 
     protected function _initActionHelper()
     {
-        Zend_Controller_Action_HelperBroker::addHelper(
+        \Zend_Controller_Action_HelperBroker::addHelper(
             new ViewRenderer()
         );
 
-        Zend_Controller_Action_HelperBroker::addHelper(
-            new ProjectA_Zed_Library_Controller_PageAction()
+        \Zend_Controller_Action_HelperBroker::addHelper(
+            new PageActionHelper()
         );
-    }
-
-    protected function _initNewRelic()
-    {
-        $front = Zend_Controller_Front::getInstance();
-        $front->registerPlugin(new ProjectA_Zed_Library_Controller_NewRelic());
-    }
-
-    protected function _initSsl()
-    {
-        Zend_Controller_Front::getInstance()->registerPlugin(new ProjectA_Zed_Library_Controller_Ssl());
     }
 
     public function _initDispatcher()
     {
-        $dispatcher = new ProjectA_Zed_Library_Controller_Dispatcher_Project();
-        $front = Zend_Controller_Front::getInstance();
+        $dispatcher = new Dispatcher();
+        $front = \Zend_Controller_Front::getInstance();
         $front->setDispatcher($dispatcher);
         return $dispatcher;
     }
-
 }
