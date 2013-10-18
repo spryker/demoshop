@@ -144,7 +144,7 @@ $config['jenkins'] = array(
 $config['host'] = array(
     'yves'          => 'http://www-development.project-yz.com',
     'zed_gui'       => 'http://zed-development.project-yz.com',
-    'zed_local'     => 'localhost:10101',
+    'zed_api'       => 'localhost:10101',
 
     'static_assets' => '',
     'static_media'  => '',
@@ -152,8 +152,8 @@ $config['host'] = array(
 
 $config['host_ssl'] = array(
     'yves'          => 'https://www-development.project-yz.com',
-    'zed_gui'           => 'https://zed-development.project-yz.com',
-    'zed_local'     => 'localhost:10101',
+    'zed_gui'       => 'https://zed-development.project-yz.com',
+    'zed_api'       => 'localhost:10101',
 
     'static_assets' => '',
     'static_media'  => '',
