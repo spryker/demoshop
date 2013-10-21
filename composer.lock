@@ -551,7 +551,7 @@
             "source": {
                 "type": "git",
                 "url": "git@codebasehq.com:project-a/core/acl.git",
-                "reference": "7fbd2b45b352b14f3ee4aa43113fa6a8cf4d5382"
+                "reference": "4ccf1c4deb9f81d2ac4ee911c56ca659bf7d9f2e"
             },
             "require": {
                 "php": ">=5.4.0",
@@ -580,7 +580,7 @@
                 "login",
                 "usermanagement"
             ],
-            "time": "2013-10-21 07:03:32"
+            "time": "2013-10-21 08:18:32"
         },
         {
             "name": "project-a/adyen-package",
@@ -657,7 +657,7 @@
             "source": {
                 "type": "git",
                 "url": "git@codebasehq.com:project-a/core/catalog.git",
-                "reference": "f2c85c8e37c98fbe15da9a7e2e5b111f9e5429cb"
+                "reference": "20cfd987cdfda19096f840116340006d4136e163"
             },
             "require": {
                 "php": ">=5.4.0",
@@ -693,7 +693,7 @@
                 "Price",
                 "Stock"
             ],
-            "time": "2013-10-21 07:10:33"
+            "time": "2013-10-21 08:18:32"
         },
         {
             "name": "project-a/checkout-package",
@@ -780,7 +780,7 @@
             "source": {
                 "type": "git",
                 "url": "git@codebasehq.com:project-a/core/content.git",
-                "reference": "01b8ba3afafafc03f4616a13a00bd9a8f96438fb"
+                "reference": "80cb2d341b5d1effb10cadf9ed26a2a57e775bce"
             },
             "require": {
                 "php": ">=5.4.0",
@@ -806,7 +806,7 @@
             "keywords": [
                 "Content Package"
             ],
-            "time": "2013-10-18 10:39:45"
+            "time": "2013-10-21 08:18:32"
         },
         {
             "name": "project-a/crm-package",
@@ -814,7 +814,7 @@
             "source": {
                 "type": "git",
                 "url": "git@codebasehq.com:project-a/core/crm.git",
-                "reference": "6d07f07ec8c810d2396e94a4f39d35f6f34672d6"
+                "reference": "efd75ecb56595f68c829e8480147d82fb9f5529b"
             },
             "require": {
                 "php": ">=5.4.0",
@@ -840,7 +840,7 @@
                 "CRM",
                 "Mail"
             ],
-            "time": "2013-10-21 07:10:56"
+            "time": "2013-10-21 08:21:58"
         },
         {
             "name": "project-a/dependency-package",
@@ -943,7 +943,7 @@
             "source": {
                 "type": "git",
                 "url": "git@codebasehq.com:project-a/core/glossary.git",
-                "reference": "1cc26917653bdc27dd70043da5941d11323e3df8"
+                "reference": "04fc487cd54bcb74335d39423643a6cbc0abe331"
             },
             "require": {
                 "php": ">=5.4.0"
@@ -967,7 +967,7 @@
                 "i18n",
                 "translation"
             ],
-            "time": "2013-10-21 07:10:05"
+            "time": "2013-10-21 07:22:22"
         },
         {
             "name": "project-a/infrastructure-package",
@@ -1028,7 +1028,7 @@
             "source": {
                 "type": "git",
                 "url": "git@codebasehq.com:project-a/core/library-2.git",
-                "reference": "6705c2ac00b86dd0f44822a686d8fa3366696030"
+                "reference": "387d08df06b2446bea17fea2275d49faf199df8c"
             },
             "require": {
                 "digital-canvas/zend-framework": ">=1.12.2",
@@ -1068,7 +1068,7 @@
                 }
             ],
             "description": "Project-A Library",
-            "time": "2013-10-21 07:11:20"
+            "time": "2013-10-21 08:29:55"
         },
         {
             "name": "project-a/lumberjack-package",
@@ -2165,21 +2165,21 @@
         },
         {
             "name": "symfony/icu",
-            "version": "v1.2.0",
+            "version": "v1.1.0",
             "target-dir": "Symfony/Component/Icu",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/Icu.git",
-                "reference": "7299cd3d8d6602103d1ebff5d0a9917b7bc6de72"
+                "reference": "b4081efff21a8a85c57789a39f454fed244f8e46"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/Icu/zipball/7299cd3d8d6602103d1ebff5d0a9917b7bc6de72",
-                "reference": "7299cd3d8d6602103d1ebff5d0a9917b7bc6de72",
+                "url": "https://api.github.com/repos/symfony/Icu/zipball/b4081efff21a8a85c57789a39f454fed244f8e46",
+                "reference": "b4081efff21a8a85c57789a39f454fed244f8e46",
                 "shasum": ""
             },
             "require": {
-                "lib-icu": ">=4.4",
+                "lib-icu": ">=3.8",
                 "php": ">=5.3.3",
                 "symfony/intl": "~2.3"
             },
@@ -2209,7 +2209,7 @@
                 "icu",
                 "intl"
             ],
-            "time": "2013-06-03 18:32:58"
+            "time": "2013-06-03 18:32:40"
         },
         {
             "name": "symfony/intl",
