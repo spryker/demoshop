@@ -205,7 +205,7 @@ module.exports = function ( grunt ) {
             scripts : {
                 files : '<%= yvesDirectories.src %>/**/*.js',
                 tasks : [
-                    'jshint:dev',
+                    //'jshint:dev',
                     'copy:scripts'
                 ]
             }
@@ -218,7 +218,7 @@ module.exports = function ( grunt ) {
         'compass:dist',
         'copy:vendorStyles',
 
-        'jshint:dist',
+        //'jshint:dist',
         'clean:scripts',
         'copy:scripts',
         'copy:vendorScripts',
@@ -233,7 +233,7 @@ module.exports = function ( grunt ) {
         'compass:dev',
         'copy:vendorStyles',
 
-        'jshint:dev',
+        //'jshint:dev',
         'clean:scripts',
         'copy:scripts',
         'copy:vendorScripts',
@@ -248,7 +248,7 @@ module.exports = function ( grunt ) {
         'compass:clean',
         'compass:dev',
         'copy:vendorStyles',
-        'jshint:dev',
+        //'jshint:dev',
         'clean:scripts',
         'copy:scripts',
         'copy:vendorScripts',
