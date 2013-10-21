@@ -14,10 +14,14 @@
         <testsuite name="ProjectA">
             <directory>../../vendor/project-a/</directory>
             <exclude>./vendor/project-a/silex-routing</exclude>
-            <exclude>./vendor/project-a/*/tests</exclude>
-            <exclude>./vendor/project-a/*/test</exclude>
         </testsuite>
     </testsuites>
+    <filter>
+        <blacklist>
+            <directory suffix=".php">./vendor/project-a/*/tests</directory>
+            <directory suffix=".php">./vendor/project-a/*/test</directory>
+        </blacklist>
+    </filter>
     <php>
         <env name="APPLICATION_ENV" value="testing" />
         <server name="REQUEST_URI" value="http://zed.us.demoshop/" />
