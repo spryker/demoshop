@@ -1,12 +1,10 @@
 <?php
-use ProjectA\Zed\FakePayment\Component\Constants\StatemachineConstants;
 
 /**
  * @property Generated_Zed_Sales_Component_Factory $factory
  * @property ProjectA_Zed_Sales_Component_Model_Orderprocess_StateMachine_Setup $setup
  */
-
-class Pyz_Zed_Sales_Component_Model_Orderprocess_Definition_Subprocess_Payment extends ProjectA_Zed_Sales_Component_Model_Orderprocess_Definition_Abstract implements
+class Pyz_Zed_Sales_Component_Model_Orderprocess_Definition_SubProcess_Payment extends ProjectA_Zed_Sales_Component_Model_Orderprocess_Definition_Abstract implements
     Pyz_Zed_Sales_Component_Interface_OrderprocessConstant,
     ProjectA_Zed_DemoPayment_Component_Dependency_Facade_Interface
 {

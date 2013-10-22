@@ -7,11 +7,19 @@ use ProjectA\Yves\Library\DependencyInjection\FactoryInterface;
 use ProjectA\Yves\Library\DependencyInjection\FactoryTrait;
 use ProjectA\Yves\Library\Silex\Application;
 use ProjectA\Yves\Library\Silex\Controller\ControllerProvider;
+use Pyz\Yves\Catalog\Component\Model\FacetConfig;
+use Pyz\Yves\Catalog\Component\Model\FacetSearch;
+use Pyz\Yves\Application\Module\Bootstrap;
+use Pyz\Yves\Catalog\Component\Model\UrlMapper;
 use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\Routing\Exception\ResourceNotFoundException;
+use Symfony\Component\Routing\Exception\RouteNotFoundException;
 use Symfony\Component\Routing\RequestContext;
 use Symfony\Component\Routing\RouterInterface;
 
+/**
+ * @package Pyz\Yves\Catalog\Component\Model\Router
+ */
 class CatalogRouter implements RouterInterface, FactoryInterface
 {
 
@@ -65,6 +73,26 @@ class CatalogRouter implements RouterInterface, FactoryInterface
     public function generate($name, $parameters = array(), $referenceType = self::ABSOLUTE_PATH)
     {
 
+//        if ($name == 'catalog') {
+//            while (ob_get_level()) {
+//                ob_end_clean();
+//            }
+//
+//            //url schema
+//            $request = Bootstrap::getRequest();
+//
+//            $parameters = [];
+//            parse_str($this->context->getQueryString(), $parameters);
+//
+//            echo PHP_EOL.'<hr /><pre>'; var_dump($this->context->getQueryString()); echo __CLASS__.' '.__FILE__ . ':'.__LINE__.''; echo '</pre><hr />'.PHP_EOL;
+//            echo PHP_EOL.'<hr /><pre>'; var_dump($parameters); echo __CLASS__.' '.__FILE__ . ':'.__LINE__.''; echo '</pre><hr />'.PHP_EOL;
+//            echo PHP_EOL.'<hr /><pre>'; var_dump($request->query); echo __CLASS__.' '.__FILE__ . ':'.__LINE__.''; echo '</pre><hr />'.PHP_EOL;
+//            echo PHP_EOL.'<hr /><pre>'; var_dump($name); echo __CLASS__.' '.__FILE__ . ':'.__LINE__.''; echo '</pre><hr />'.PHP_EOL;
+//            echo PHP_EOL.'<hr /><pre>'; var_dump($parameters); echo __CLASS__.' '.__FILE__ . ':'.__LINE__.''; echo '</pre><hr />'.PHP_EOL;
+//            echo PHP_EOL.'<hr /><pre>'; var_dump($referenceType); echo __CLASS__.' '.__FILE__ . ':'.__LINE__.''; echo '</pre><hr />'.PHP_EOL; exit();
+//        }
+
+        throw new RouteNotFoundException;
     }
 
     /**
@@ -72,47 +100,28 @@ class CatalogRouter implements RouterInterface, FactoryInterface
      */
     public function match($pathinfo)
     {
-        if (($parameters = $this->matchDetailUrl($pathinfo)) !== null) {
-            return $parameters;
+        if ($pathinfo != '/' && substr($pathinfo, -5) != '.html') {
+
+            $service = ControllerProvider::createServiceForController(
+                $this->app,
+                'catalog/index',
+                'CatalogController',
+                'index',
+                '\\Pyz\\Yves\\Catalog\\Module'
+            );
+
+            //TODO /catalog/ points to search without category but would be interpreted as category=catalog
+            UrlMapper::injectParametersFromUrlIntoRequest(
+                $pathinfo,
+                Bootstrap::getRequest()
+            );
+
+            return [
+                '_controller' => $service,
+                '_route' => 'catalog/index',
+            ];
         }
 
         throw new ResourceNotFoundException();
-    }
-
-    /**
-     * @param string $pathinfo
-     * @return array
-     */
-    public function matchDetailUrl($pathinfo)
-    {
-        if (substr($pathinfo, -5) === '.html' && preg_match('~.+-(\d+)\.html~i', $pathinfo, $matches)) {
-            try {
-                $product = $this->factory->createCatalogModelCatalog()->getProductDataById($matches[1], $this->app->getStorageKeyValue());
-//                if ($product['url'] != $pathinfo) {
-//                    return $this->redirectToCorrectUrl($product['url']);
-//                }
-                $service = ControllerProvider::createServiceForController($this->app, 'catalog/detail', 'CatalogController', 'detail', '\\Pyz\\Yves\\Catalog\\Module');
-                return [
-                    '_controller' => $service,
-                    '_route' => 'catalog/detail',
-                    'product' => $product
-                ];
-            } catch (ProductNotFoundException $exception) {
-            }
-        }
-        return null;
-    }
-
-    /**
-     * @param string $url
-     * @return array
-     */
-    public function redirectToCorrectUrl($url)
-    {
-        return [
-            '_controller' => function ($url) { return new RedirectResponse($url, 301); },
-            '_route' => null,
-            'url' => $url
-        ];
     }
 }

@@ -1,8 +1,190 @@
-default_locale: en_US # The translation this file will install
+default_locale: en_US
 locales:
-  de_DE: German
-  en_US: English
-groups:
-  cart:
-    button.checkout: Checkout Now
-    button.continue.shopping: Continue shopping
+  en_US: en_US
+keys:
+  catalog.buy:
+    explanations:
+      en_US: 'Buy Now'
+  catalog.out.of.stock:
+    explanations:
+      en_US: 'currently out of stock'
+  cart.remove:
+    explanations:
+      en_US: Remove
+  cart.percentage.vat:
+    explanations:
+      en_US: '% VAT'
+  cart.empty:
+    explanations:
+      en_US: 'Cart EMPTY.'
+  cart.usp.shipping:
+    explanations:
+      en_US: 'Free Shipping & Return'
+  cart.usp.return:
+    explanations:
+      en_US: '30 Days of Return'
+  cart.price.grand.total:
+    explanations:
+      en_US: 'Grand Total Price'
+  cart.price.shipping:
+    explanations:
+      en_US: Shipping
+  cart.price.subtotal:
+    explanations:
+      en_US: 'Subtotal Price'
+  cart.price.total:
+    explanations:
+      en_US: 'Total Price'
+  cart.amount:
+    explanations:
+      en_US: Amount
+  cart.price.item:
+    explanations:
+      en_US: 'Item price'
+  cart.product:
+    explanations:
+      en_US: Product
+  cart.to.checkout:
+    explanations:
+      en_US: 'Go to Checkout'
+  cart.cart:
+    explanations:
+      en_US: 'Your cart'
+  header.cart:
+    explanations:
+      en_US: 'Your cart'
+  header.usp.shipping:
+    explanations:
+      en_US: 'Free Shipping & Return'
+  header.usp.return:
+    explanations:
+      en_US: '30 Days of Return'
+  header.phone:
+    explanations:
+      en_US: 'Hotline: +49 (0) 30 340 606 300'
+  footer.payment.options:
+    explanations:
+      en_US: 'Payment options'
+  footer.shipping:
+    explanations:
+      en_US: Shipping
+  footer.information:
+    explanations:
+      en_US: Information
+  checkout.name.full.placeholder:
+    explanations:
+      en_US: 'e.g. John Quincy Doe'
+  checkout.name.full:
+    explanations:
+      en_US: 'Full Name'
+  checkout.headline.shipping.billing:
+    explanations:
+      en_US: 'Shipping and Billing Address'
+  checkout.address.billing.city:
+    explanations:
+      en_US: City
+  checkout.address.billing.zipcode:
+    explanations:
+      en_US: 'Postal Code'
+  checkout.address.billing.number:
+    explanations:
+      en_US: Number
+  checkout.address.billing.street:
+    explanations:
+      en_US: Street
+  checkout.address.billing.company:
+    explanations:
+      en_US: Company
+  checkout.address.billing.name.last:
+    explanations:
+      en_US: 'Last Name'
+  checkout.address.billing.name.middle:
+    explanations:
+      en_US: 'Middle Name'
+  checkout.address.billing.name.first:
+    explanations:
+      en_US: 'First Name'
+  checkout.email:
+    explanations:
+      en_US: Email
+  checkout.address.shipping.phone:
+    explanations:
+      en_US: Phone
+  checkout.address.shipping.comment:
+    explanations:
+      en_US: Comment
+  checkout.address.shipping.comment.placeholder:
+    explanations:
+      en_US: 'e.g. company / please hand to neighbor Wilson'
+  checkout.address.full.placeholder:
+    explanations:
+      en_US: 'e.g. 79 N 11th Brooklyn'
+  checkout.address.full:
+    explanations:
+      en_US: 'Full Address'
+  demopayment.demomethod:
+    explanations:
+      en_US: 'Demo Payment Method'
+  checkout.headline.shipping:
+    explanations:
+      en_US: 'Shipping Address'
+  checkout.percentage.vat:
+    explanations:
+      en_US: '% VAT'
+  checkout.price.grand.total:
+    explanations:
+      en_US: 'Grand Total Price'
+  checkout.price.shipping:
+    explanations:
+      en_US: Shipping
+  checkout.price.subtotal:
+    explanations:
+      en_US: 'Subtotal Price'
+  checkout.cart.empty:
+    explanations:
+      en_US: 'Cart EMPTY.'
+  checkout.to.summary:
+    explanations:
+      en_US: 'Go to Order Summary'
+  checkout.address.shipping.city:
+    explanations:
+      en_US: 'City:'
+  checkout.address.shipping.zipcode:
+    explanations:
+      en_US: 'Postal Code:'
+  checkout.address.shipping.street:
+    explanations:
+      en_US: 'Street:'
+  checkout.address.shipping.name:
+    explanations:
+      en_US: 'Name:'
+  checkout.headline.shipping.to:
+    explanations:
+      en_US: 'Shipping goes to'
+  checkout.headline.cart:
+    explanations:
+      en_US: 'Your Cart'
+  checkout.headline.contact:
+    explanations:
+      en_US: 'Contact Data'
+  checkout.headline.payment:
+    explanations:
+      en_US: Payment
+  checkout.headline.billing:
+    explanations:
+      en_US: 'Billing Address'
+  checkout.address.billing.country:
+    explanations:
+      en_US: Country
+  checkout.link.edit:
+    explanations:
+      en_US: edit
+  cart.success.product.add:
+    explanations:
+      en_US: 'Product added to cart'
+  checkout.address.shipping.country:
+    explanations:
+      en_US: 'Country:'
+  checkout.different.billing:
+    explanations:
+      en_US: 'Different Billing Address'
