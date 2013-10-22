@@ -12,8 +12,8 @@
         </ul>
         <aside class="assist col col25">
             <ul class="usps">
-                <li><span class="glyphicon glyphicon-gift"></span>Free Shipping & Return</li>
-                <li><span class="glyphicon glyphicon-refresh"></span>30 Days of Return</li>
+                <li><span class="glyphicon glyphicon-gift"></span>{{ 'catalog.usp.shipping'|trans }}</li>
+                <li><span class="glyphicon glyphicon-refresh"></span>{{ 'catalog.usp.return'|trans }}</li>
             </ul>
             <ul class="social">
                 <li class="facebook"></li>
@@ -55,7 +55,7 @@
                 <div class="oldPrice">{{ product.recommended_retail_price|price }}</div>
             {% endif %}
             <div class="price">{{ product.price|price }}</div>
-            <div class="hint">incl. {{ product.tax_rate }}% VAT</div>
+            <div class="hint">{{ 'catalog.percentage.vat'|trans({'%product.tax_rate%' : product.tax_rate}) }}</div>
 
             {% if product.stock > 0 %}
                 <form action="{{ url('cart/add', {sku: product.sku} ) }}">
@@ -81,11 +81,11 @@
             <p>{{ product.description }}</p>
         </div>
         <aside class="specs col col25">
-            <h4>More details</h4>
+            <h4>{{ 'catalog.details.headline'|trans }}</h4>
             <ul>
-                <li>Material: {{ product.material }}</li>
-                <li>Dimension: {{ product.dimension_in_cm }}</li>
-                <li>Color: {{ product.color }}</li>
+                <li>{{ 'catalog.details.material'|trans }} {{ product.material }}</li>
+                <li>{{ 'catalog.details.dimension'|trans }} {{ product.dimension_in_cm }}</li>
+                <li>{{ 'catalog.details.color'|trans }} {{ product.color }}</li>
             </ul>
         </aside>
     </section>
