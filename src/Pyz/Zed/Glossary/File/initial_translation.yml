@@ -185,3 +185,6 @@ keys:
   checkout.address.shipping.country:
     explanations:
       en_US: 'Country:'
+  checkout.different.billing:
+    explanations:
+      en_US: 'Different Billing Address'

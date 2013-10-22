@@ -11,7 +11,7 @@
 
     <section class="consumeHeight" id="checkout">
 
-        {{ form_start(form) }}
+        {{ form_start(form, {attr: {class: 'smartAddressForm', novalidate: 'novalidate'}}) }}
             <div class="step" data-step="1">
                 <div class="address primary col col33">
                     <h3>{{ 'checkout.headline.shipping.billing'|trans }}</h3>
@@ -24,16 +24,10 @@
                         </label>
                     </div> #}
                     <div class="row">
-                        <label>
-                            {{ 'checkout.name.full'|trans }}
-                            <input type="text" class="smartAddressTrigger fullWidth" name="full_name" value="" placeholder="{{ 'checkout.name.full.placeholder'|trans }}" />
-                        </label>
+                        {{ form_row(form.full_name, {attr : {class : 'smartAddressTrigger fullWidth'}, label : 'checkout.name.full'}) }}
                     </div>
                     <div class="row">
-                        <label>
-                            {{ 'checkout.address.full'|trans }}
-                            <input type="text" class="smartAddressTrigger fullWidth" name="full_address" value="" placeholder="{{ 'checkout.address.full.placeholder'|trans }}" />
-                        </label>
+                        {{ form_row(form.full_address, {attr : {class : 'smartAddressTrigger fullWidth'}, label : 'checkout.address.full'}) }}
                     </div>
                     <div class="row">
                         {{ form_row(form.shippingAddress.address3, {attr : {class : 'fullWidth', placeholder : 'checkout.address.shipping.comment.placeholder'}, label : 'checkout.address.shipping.comment'}) }}
@@ -42,10 +36,7 @@
                         {{ form_row(form.shippingAddress.phone, {attr : {class : 'fullWidth'}, label : 'checkout.address.shipping.phone'}) }}
                     </div>
                     <div class="row">
-                        <label>
-                            <input id="chooseDifferentBilling" class="triggerAlternative addSpace" type="checkbox" />
-                            Different Billing Address
-                        </label>
+                        {{ form_row(form.chooseDifferentBilling, {attr : {class : 'triggerAlternative addSpace'}, label : 'checkout.different.billing'}) }}
                     </div>
                 </div>
 
