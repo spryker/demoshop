@@ -24,10 +24,10 @@
                         </label>
                     </div> #}
                     <div class="row">
-                        {{ form_row(form.full_name, {attr : {class : 'smartAddressTrigger fullWidth'}, label : 'checkout.name.full'}) }}
+                        {{ form_row(form.full_name, {attr : {class : 'smartAddressTrigger fullWidth', placeholder : 'checkout.name.full.placeholder'}, label : 'checkout.name.full'}) }}
                     </div>
                     <div class="row">
-                        {{ form_row(form.full_address, {attr : {class : 'smartAddressTrigger fullWidth'}, label : 'checkout.address.full'}) }}
+                        {{ form_row(form.full_address, {attr : {class : 'smartAddressTrigger fullWidth', placeholder : 'checkout.address.full.placeholder'}, label : 'checkout.address.full'}) }}
                     </div>
                     <div class="row">
                         {{ form_row(form.shippingAddress.address3, {attr : {class : 'fullWidth', placeholder : 'checkout.address.shipping.comment.placeholder'}, label : 'checkout.address.shipping.comment'}) }}
