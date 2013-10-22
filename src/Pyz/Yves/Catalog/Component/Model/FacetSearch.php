@@ -64,14 +64,21 @@ class FacetSearch extends Search
     {
         $filters = array_intersect(
             $request->query->keys(),
-            FacetConfig::getAllParamNamesForFacets()
+            FacetConfig::getAllParamNamesForFacets(true)
         );
 
         foreach ($filters as $filter) {
             $filterFacetName = FacetConfig::getFacetNameFromParameter($filter);
-            $this->selectQuery->createFilterQuery($filter)->setQuery(
-                $filterFacetName . ':' . $request->query->get($filter)
-            );
+            $filterValue = $request->query->get($filter);
+            if (is_array($filterValue)) {
+                $this->selectQuery->createFilterQuery($filter)->setQuery(
+                    $filterFacetName . ': (' . implode(' ' . self::DEFAULT_MULTI_SEARCH_OPERATOR . ' ', $filterValue) . ')'
+                );
+            } else {
+                $this->selectQuery->createFilterQuery($filter)->setQuery(
+                    $filterFacetName . ':' . $filterValue
+                );
+            }
         }
     }
 }

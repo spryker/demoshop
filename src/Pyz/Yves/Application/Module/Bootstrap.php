@@ -21,7 +21,7 @@ use ProjectA\Yves\Setup\Module\ControllerProvider as SetupProvider;
 use Silex\Provider\FormServiceProvider;
 use Silex\Provider\ServiceControllerServiceProvider;
 use Silex\Provider\SessionServiceProvider;
-use Silex\Provider\UrlGeneratorServiceProvider;
+use SilexRouting\Provider\UrlGeneratorServiceProvider;
 use Silex\Provider\ValidatorServiceProvider;
 use Silex\Provider\WebProfilerServiceProvider;
 use SilexRouting\Provider\RoutingServiceProvider;
@@ -101,6 +101,7 @@ class Bootstrap extends \ProjectA\Yves\Library\Silex\Bootstrap
     {
         return [
             Factory::getInstance()->createCatalogModelRouterCatalogRouter($app),
+            Factory::getInstance()->createCatalogModelRouterCatalogDetailRouter($app),
             /*
              * SilexRouter should come last, as it is not the fastest one if it can
              * not find a matching route (lots of magic)
