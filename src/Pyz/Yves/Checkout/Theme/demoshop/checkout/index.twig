@@ -36,7 +36,10 @@
                         {{ form_row(form.shippingAddress.phone, {attr : {class : 'fullWidth'}, label : 'checkout.address.shipping.phone'}) }}
                     </div>
                     <div class="row">
-                        {{ form_row(form.chooseDifferentBilling, {attr : {class : 'triggerAlternative addSpace'}, label : 'checkout.address.billing.different'}) }}
+                        <label>
+                        {{ form_widget(form.chooseDifferentBilling, {attr : {class : 'triggerAlternative addSpace'}, required : false }) }}
+                        {{ 'checkout.address.billing.different'|trans }}
+                        </label>
                     </div>
                 </div>
 

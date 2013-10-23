@@ -9,7 +9,7 @@ app.checkout = {
                 $('.address.secondaryRow').hide();
             }
         });
-        alert('Was fehlt noch: Ein ensureVisibility helper muss rein & die validation noch ausgeklügelter');
+        //alert('Was fehlt noch: Ein ensureVisibility helper muss rein & die validation noch ausgeklügelter');
     },
     smartAddress : {
         vars : {
