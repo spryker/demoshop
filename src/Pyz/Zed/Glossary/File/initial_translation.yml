@@ -185,6 +185,27 @@ keys:
   checkout.address.shipping.country:
     explanations:
       en_US: 'Country:'
-  checkout.different.billing:
+  checkout.address.billing.different:
     explanations:
       en_US: 'Different Billing Address'
+  catalog.usp.shipping:
+    explanations:
+      en_US: 'Free Shipping & Return'
+  catalog.usp.return:
+    explanations:
+      en_US: '30 Days of Return'
+  catalog.percentage.vat:
+    explanations:
+      en_US: 'incl. %product.tax_rate%% VAT'
+  catalog.details.headline:
+    explanations:
+      en_US: 'More Details'
+  catalog.details.material:
+    explanations:
+      en_US: 'Material:'
+  catalog.details.dimension:
+    explanations:
+      en_US: 'Dimension:'
+  catalog.details.color:
+    explanations:
+      en_US: 'Color:'
