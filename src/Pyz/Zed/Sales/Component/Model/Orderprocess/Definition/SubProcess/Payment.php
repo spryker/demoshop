@@ -1,15 +1,14 @@
 <?php
 
 /**
- * @property Generated_Zed_Sales_Component_Factory $factory
- * @property ProjectA_Zed_Sales_Component_Model_Orderprocess_StateMachine_Setup $setup
+ * @property \Generated\Zed\Sales\Component\SalesFactory $factory
+ * @property \ProjectA_Zed_Sales_Component_Model_Orderprocess_StateMachine_Setup $setup
  */
-class Pyz_Zed_Sales_Component_Model_Orderprocess_Definition_SubProcess_Payment extends ProjectA_Zed_Sales_Component_Model_Orderprocess_Definition_Abstract implements
-    Pyz_Zed_Sales_Component_Interface_OrderprocessConstant,
-    ProjectA_Zed_DemoPayment_Component_Dependency_Facade_Interface
+class Pyz_Zed_Sales_Component_Model_Orderprocess_Definition_Subprocess_Payment extends \ProjectA_Zed_Sales_Component_Model_Orderprocess_Definition_Abstract implements
+    \Generated\Zed\DemoPayment\Component\Dependency\DemoPaymentFacadeInterface, \ProjectA_Zed_Sales_Component_Interface_OrderprocessConstant, Pyz_Zed_Sales_Component_Interface_OrderprocessConstant
 {
 
-    use ProjectA_Zed_DemoPayment_Component_Dependency_Facade_Trait;
+    use \Generated\Zed\DemoPayment\Component\Dependency\DemoPaymentFacadeTrait;
 
     /**
      * @param string $processName

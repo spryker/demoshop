@@ -4,7 +4,7 @@ namespace Pyz\Zed\Catalog\Component\Internal;
 /**
  * Class Install
  * @package Pyz\Zed\Catalog\Component\Internal
- * @property \Generated_Zed_Catalog_Component_Factory $factory
+ * @property \Generated\Zed\Catalog\Component\CatalogFactory $factory
  */
 class Install extends \ProjectA_Zed_Catalog_Component_Internal_Install
 {

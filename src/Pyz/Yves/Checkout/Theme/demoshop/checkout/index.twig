@@ -12,7 +12,10 @@
     <section class="consumeHeight" id="checkout">
 
         {{ form_start(form, {attr: {class: 'smartAddressForm', novalidate: 'novalidate'}}) }}
-            <div class="step" data-step="1">
+
+            {{ form_errors(form) }}
+
+            <div class="step" data-step="1" style="display: block">
                 <div class="address primary col col33">
                     <h3>{{ 'checkout.headline.shipping.billing'|trans }}</h3>
                     {# <div class="row">
@@ -225,6 +228,6 @@
                 </div>
                 <div class="cartSummary cart primary col col50" data-elsrc="#cartSummary"></div>
             </div>
-        {{ form_end(form, {'render_rest': false}) }}
+        {{ form_end(form) }}
     </section>
 {% endblock %}

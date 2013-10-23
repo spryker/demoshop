@@ -1,28 +1,28 @@
 <?php
 
 /**
- * @property Generated_Zed_Sales_Component_Factory $factory
+ * @property \Generated\Zed\Sales\Component\SalesFactory $factory
  */
 class Pyz_Zed_Sales_Component_Model_Orderprocess_StatemachineFactoryHook implements
-    ProjectA_Zed_Sales_Component_Interface_StatemachineFactoryHook,
-    ProjectA_Zed_Library_Dependency_Factory_Interface
+    \ProjectA_Zed_Sales_Component_Interface_StatemachineFactoryHook,
+    \ProjectA\Zed\Library\Dependency\FactoryInterface
 {
 
-    use ProjectA_Zed_Library_Dependency_Factory_Trait;
+    use \ProjectA\Zed\Library\Dependency\FactoryTrait;
 
     protected function getRules ()
     {
-        $rules = new ProjectA_Zed_Library_StateMachine_Transition_Guard_Rule_Collection();
+        $rules = new \ProjectA_Zed_Library_StateMachine_Transition_Guard_Rule_Collection();
         return $rules;
     }
 
     /**
-     * @param ProjectA_Zed_Library_StateMachine $stateMachine
-     * @return ProjectA_Zed_Library_StateMachine
+     * @param \ProjectA_Zed_Library_StateMachine $stateMachine
+     * @return \ProjectA_Zed_Library_StateMachine
      */
-    public function onStatemachineWasCreated(ProjectA_Zed_Library_StateMachine $stateMachine)
+    public function onStatemachineWasCreated(\ProjectA_Zed_Library_StateMachine $stateMachine)
     {
-        $guards = new ProjectA_Zed_Library_StateMachine_Transition_Guard_Composite();
+        $guards = new \ProjectA_Zed_Library_StateMachine_Transition_Guard_Composite();
         $guards->addGuard($this->getRules());
         $guards->addGuard($stateMachine->getGuard());
         $stateMachine->setGuard($guards);

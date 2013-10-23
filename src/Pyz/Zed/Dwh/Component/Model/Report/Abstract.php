@@ -1,6 +1,6 @@
 <?php
 
-abstract class Pyz_Zed_Dwh_Component_Model_Report_Abstract extends ProjectA_Zed_Dwh_Component_Model_Report_Abstract
+abstract class Pyz_Zed_Dwh_Component_Model_Report_Abstract extends \ProjectA_Zed_Dwh_Component_Model_Report_Abstract
 {
 
     /** Returns the start of a time dimension name dependent on the prefix */
@@ -103,7 +103,7 @@ abstract class Pyz_Zed_Dwh_Component_Model_Report_Abstract extends ProjectA_Zed_
 
     /**
      * Adds time selection controls
-     * @return ProjectA_Zed_Dwh_Component_Model_Report_Abstract
+     * @return \ProjectA_Zed_Dwh_Component_Model_Report_Abstract
      */
     protected function addTimeSelection($cubeName, $prefix = '')
     {

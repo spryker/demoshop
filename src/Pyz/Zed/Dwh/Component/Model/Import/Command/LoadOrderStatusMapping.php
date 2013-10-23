@@ -4,10 +4,10 @@
  * Loads the order status mapping into the postgres database
  * @author martin.loetzsch@project-a.com
  */
-class Pyz_Zed_Dwh_Component_Model_Import_Command_LoadOrderStatusMapping extends ProjectA_Zed_Dwh_Component_Model_Import_Command_Psql
-    implements ProjectA_Zed_DwhOrderStatusMapping_Component_Dependency_Facade_Interface
+class Pyz_Zed_Dwh_Component_Model_Import_Command_LoadOrderStatusMapping extends \ProjectA_Zed_Dwh_Component_Model_Import_Command_Psql
+    implements \Generated\Zed\DwhOrderStatusMapping\Component\Dependency\DwhOrderStatusMappingFacadeInterface
 {
-    use ProjectA_Zed_DwhOrderStatusMapping_Component_Dependency_Facade_Trait;
+    use \Generated\Zed\DwhOrderStatusMapping\Component\Dependency\DwhOrderStatusMappingFacadeTrait;
 
 
     protected function getSql()
@@ -30,10 +30,10 @@ class Pyz_Zed_Dwh_Component_Model_Import_Command_LoadOrderStatusMapping extends 
 
     /**
      * Runs the command
-     * @param ProjectA_Zed_Dwh_Component_Model_Import_Log_Abstract $log A logger
+     * @param \ProjectA_Zed_Dwh_Component_Model_Import_Log_Abstract $log A logger
      * @return boolean False when the command failed
      */
-    public function run(ProjectA_Zed_Dwh_Component_Model_Import_Log_Abstract $log)
+    public function run(\ProjectA_Zed_Dwh_Component_Model_Import_Log_Abstract $log)
     {
         $log->addMessage($this->job, 'loading status mappings');
         return parent::run($log);

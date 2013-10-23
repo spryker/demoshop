@@ -42,12 +42,12 @@ $application = new Zend_Application(
 $application->bootstrap();
 
 // We set this to false this so we get an error rate in new relic
-ProjectA_Shared_Library_NewRelic_Api::getInstance()->markAsBackgroundJob(false);
+\ProjectA_Shared_Library_NewRelic_Api::getInstance()->markAsBackgroundJob(false);
 
 Zend_Controller_Front::getInstance()
-    ->setRouter( new ProjectA_Zed_Library_Controller_Router_Cli() )
-    ->setRequest( new ProjectA_Zed_Library_Controller_Request_Cli() )
-    ->setResponse( new ProjectA_Zed_Library_Controller_Response_Cli() )
+    ->setRouter( new \ProjectA_Zed_Library_Controller_Router_Cli() )
+    ->setRequest( new \ProjectA_Zed_Library_Controller_Request_Cli() )
+    ->setResponse( new \ProjectA_Zed_Library_Controller_Response_Cli() )
     ->setParam('disableOutputBuffering', 1);
 
 $application->run();

@@ -7,7 +7,6 @@
         "project-a/checkout-package": "2.0.0.x-dev as 2.0.0",
         "project-a/content-package": "2.0.0.x-dev as 2.0.0",
         "project-a/console-package": "dev-master as 2.0.0",
-        "project-a/dependency-package": "*",
         "project-a/crm-package": "2.0.0.x-dev as 2.0.0",
         "project-a/dwh-package": "2.0.0.x-dev as 2.0.0",
         "project-a/frontend-package": "2.0.0.x-dev as 2.0.0",
