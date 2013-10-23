@@ -1,7 +1,7 @@
 <?php
 
 class Pyz_Zed_Sales_Component_Model_Orderprocess_DefinitionContainer extends \ProjectA_Zed_Library_StateMachine_Definition_Container_Simple implements
-    \ProjectA\Zed\Library\Dependency\Factory\FactoryInterface,
+    \ProjectA\Zed\Library\Dependency\FactoryInterface,
     \ProjectA_Zed_Library_Dependency_InitInterface
 {
 

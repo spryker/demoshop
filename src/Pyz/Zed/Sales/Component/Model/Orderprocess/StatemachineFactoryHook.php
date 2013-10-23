@@ -5,7 +5,7 @@
  */
 class Pyz_Zed_Sales_Component_Model_Orderprocess_StatemachineFactoryHook implements
     \ProjectA_Zed_Sales_Component_Interface_StatemachineFactoryHook,
-    \ProjectA\Zed\Library\Dependency\Factory\FactoryInterface
+    \ProjectA\Zed\Library\Dependency\FactoryInterface
 {
 
     use \ProjectA\Zed\Library\Dependency\FactoryTrait;

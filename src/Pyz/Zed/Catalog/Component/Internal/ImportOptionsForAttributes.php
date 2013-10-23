@@ -4,7 +4,7 @@ namespace Pyz\Zed\Catalog\Component\Internal;
 use Pyz\Shared\Catalog\Code\ProductAttributeSetConstant;
 
 class ImportOptionsForAttributes implements
-    \ProjectA\Zed\Library\Dependency\Factory\FactoryInterface,
+    \ProjectA\Zed\Library\Dependency\FactoryInterface,
     ProductAttributeSetConstant
 {
 
