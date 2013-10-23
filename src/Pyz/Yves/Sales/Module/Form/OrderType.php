@@ -13,8 +13,8 @@ class OrderType extends CoreOrderType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('full_name', 'text', ['mapped' => false])
-            ->add('full_address', 'text', ['mapped' => false]);
+            ->add('full_name', 'text', ['mapped' => false, 'required' => false])
+            ->add('full_address', 'text', ['mapped' => false, 'required' => false]);
         parent::buildForm($builder, $options);
     }
 }
