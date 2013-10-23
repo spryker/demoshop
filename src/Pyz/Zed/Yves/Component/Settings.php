@@ -7,17 +7,17 @@ use ProjectA\Zed\Yves\Component\Settings as CoreSettings;
  * @property \Pyz_Zed_Catalog_Component_Facade $facadeCatalog
  */
 class Settings extends CoreSettings implements
-    \ProjectA_Zed_Cms_Component_Dependency_Facade_Interface,
-    \ProjectA_Zed_Glossary_Component_Dependency_Facade_Interface,
-    \ProjectA_Zed_Misc_Component_Dependency_Facade_Interface,
-    \ProjectA_Zed_Category_Component_Dependency_Facade_Interface,
-    \ProjectA_Zed_Catalog_Component_Dependency_Facade_Interface
+    \Generated\Zed\Cms\Component\Dependency\CmsFacadeInterface,
+    \Generated\Zed\Glossary\Component\Dependency\GlossaryFacadeInterface,
+    \Generated\Zed\Misc\Component\Dependency\MiscFacadeInterface,
+    \Generated\Zed\Category\Component\Dependency\CategoryFacadeInterface,
+    \Generated\Zed\Catalog\Component\Dependency\CatalogFacadeInterface
 {
-    use \ProjectA_Zed_Cms_Component_Dependency_Facade_Trait;
-    use \ProjectA_Zed_Glossary_Component_Dependency_Facade_Trait;
-    use \ProjectA_Zed_Misc_Component_Dependency_Facade_Trait;
-    use \ProjectA_Zed_Category_Component_Dependency_Facade_Trait;
-    use \ProjectA_Zed_Catalog_Component_Dependency_Facade_Trait;
+    use \Generated\Zed\Cms\Component\Dependency\CmsFacadeTrait;
+    use \Generated\Zed\Glossary\Component\Dependency\GlossaryFacadeTrait;
+    use \Generated\Zed\Misc\Component\Dependency\MiscFacadeTrait;
+    use \Generated\Zed\Category\Component\Dependency\CategoryFacadeTrait;
+    use \Generated\Zed\Catalog\Component\Dependency\CatalogFacadeTrait;
 
     /**
      * @param string $exportIdentifier

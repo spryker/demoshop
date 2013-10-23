@@ -11,16 +11,16 @@ use \ProjectA_Zed_Catalog_Component_Interface_GroupConstant as GroupConstant;
 
 abstract class ProductsExporter extends CoreProductsExporter implements
      \ProjectA_Zed_Yves_Component_Interface_Exporter_Solr,
-     \ProjectA_Zed_Price_Component_Dependency_Facade_Interface,
-     \ProjectA_Zed_Solr_Component_Dependency_Facade_Interface,
-     \ProjectA_Zed_Yves_Component_Dependency_Facade_Interface,
+     \Generated\Zed\Price\Component\Dependency\PriceFacadeInterface,
+     \Generated\Zed\Solr\Component\Dependency\SolrFacadeInterface,
+     \Generated\Zed\Yves\Component\Dependency\YvesFacadeInterface,
      ProductAttributeConstant,
      ProductAttributeSetConstant,
      \Pyz_Shared_Library_StorageKeyConstant
 {
-    use \ProjectA_Zed_Solr_Component_Dependency_Facade_Trait;
-    use \ProjectA_Zed_Price_Component_Dependency_Facade_Trait;
-    use \ProjectA_Zed_Yves_Component_Dependency_Facade_Trait;
+    use \Generated\Zed\Solr\Component\Dependency\SolrFacadeTrait;
+    use \Generated\Zed\Price\Component\Dependency\PriceFacadeTrait;
+    use \Generated\Zed\Yves\Component\Dependency\YvesFacadeTrait;
 
     /**
      * @var array

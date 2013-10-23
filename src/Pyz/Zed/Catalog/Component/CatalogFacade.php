@@ -1,9 +1,10 @@
 <?php
 
+namespace Pyz\Zed\Catalog\Component;
 /**
- * @property Generated_Zed_Catalog_Component_Factory $factory
+ * @property \Generated\Zed\Catalog\Component\CatalogFactory $factory
  */
-class Pyz_Zed_Catalog_Component_Facade extends ProjectA_Zed_Catalog_Component_Facade
+class CatalogFacade extends \ProjectA\Zed\Catalog\Component\CatalogFacade
 {
 
     /**

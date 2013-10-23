@@ -1,9 +1,12 @@
 <?php
+
+namespace Pyz\Zed\Installer\Component;
+
 /**
  * Class Pyz_Zed_Installer_Component_Facade
- * @property Generated_Zed_Installer_Component_Factory $factory
+ * @property \Generated\Zed\Installer\Component\InstallerFactory $factory
  */
-class Pyz_Zed_Installer_Component_Facade extends ProjectA_Zed_Installer_Component_Facade
+class InstallerFacade extends \ProjectA\Zed\Installer\Component\InstallerFacade
 {
     /**
      * @return array

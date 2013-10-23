@@ -13,10 +13,10 @@ abstract class ProductsExporter extends CoreProductsExporter implements
     ProductAttributeConstant,
     ProductAttributeSetConstant,
     \Pyz_Shared_Library_StorageKeyConstant,
-    \ProjectA_Zed_Yves_Component_Dependency_Facade_Interface
+    \Generated\Zed\Yves\Component\Dependency\YvesFacadeInterface
 {
 
-    use \ProjectA_Zed_Yves_Component_Dependency_Facade_Trait;
+    use \Generated\Zed\Yves\Component\Dependency\YvesFacadeTrait;
 
     /**
      * @return string
