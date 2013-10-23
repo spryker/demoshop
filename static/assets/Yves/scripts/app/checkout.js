@@ -13,9 +13,9 @@ app.checkout = {
     },
     smartAddress : {
         vars : {
-            required : [/*'gender',*/ 'full_name', 'full_address'],
-            addressField : 'full_address',
-            nameField : 'full_name',
+            required : [/*'gender',*/ 'salesOrder[full_name]', 'salesOrder[full_address]'],
+            addressField : 'salesOrder[full_address]',
+            nameField : 'salesOrder[full_name]',
             // genderField : 'gender',
             relevantGValues : ['street_number', 'route', 'locality', 'postal_code', 'country'],
             scopes : ['shipping', 'billing'],
