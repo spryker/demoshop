@@ -7,7 +7,7 @@ use Symfony\Component\Yaml\Yaml;
 use ProjectA\Zed\Glossary\Component\Internal\Install as CoreInstall;
 
 /**
- * @property \Generated_Zed_Glossary_Component_Factory $factory
+ * @property \Generated\Zed\Glossary\Component\GlossaryFactory $factory
  */
 class Install extends CoreInstall implements
     DependencyFactoryInterface
