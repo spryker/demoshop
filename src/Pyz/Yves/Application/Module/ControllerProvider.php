@@ -6,7 +6,7 @@ use ProjectA\Yves\Library\Silex\Controller\ControllerProvider as YvesProvider;
 class ControllerProvider extends YvesProvider
 {
 
-    const ROUTE_HOME = 'index';
+    const ROUTE_HOME = 'home';
 
     protected function defineControllers()
     {

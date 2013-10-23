@@ -83,6 +83,7 @@ abstract class ProductsExporter extends CoreProductsExporter implements
         return $task;
     }
 
+<<<<<<< HEAD
 //    /**
 //     * @param \ProjectA_Zed_Catalog_Component_Interface_ProductEntity $product
 //     * @return array
@@ -99,6 +100,29 @@ abstract class ProductsExporter extends CoreProductsExporter implements
 //
 //        return $categories;
 //    }
+=======
+    /**
+     * @param \ProjectA_Zed_Catalog_Component_Interface_ProductEntity $product
+     * @return array
+     */
+    protected function prepareCategories($id)
+    {
+        $categories = array();
+
+        $product = $this->factory->createFacade()->getProductById($id);
+        $productCategories = $this->factory->createModelFinder()->getCategoriesForProduct($product);
+
+        /* @var $productCategory \ProjectA_Zed_Category_Persistence_PacCategory */
+        foreach ($productCategories as $productCategory) {
+            $categories[] = $productCategory->getIdCategory();
+        }
+
+        // TODO: remove this debug output
+        echo PHP_EOL.'<hr /><pre>'; var_dump($categories); echo __CLASS__.' '.__FILE__ . ':'.__LINE__.''; echo '</pre><hr />'.PHP_EOL; exit();
+
+        return $categories;
+    }
+>>>>>>> 339f3cd03951fe311fcc3e5dd49913a0e016b4f4
 
     /**
      * @param \Traversable $collection
@@ -263,7 +287,8 @@ abstract class ProductsExporter extends CoreProductsExporter implements
 //        unset($data[$id]['int_sort_price']);
 
         //add categories
-        //$data[$sku]['int_facet_category'] = $this->prepareCategories($product);
+        //$data[$id]['int_facet_category'] = $this->prepareCategories($id);
+        $data[$id]['int_facet_category'] = [2,3];
 
         return $data;
     }

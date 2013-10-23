@@ -1,18 +1,24 @@
 <?php
 namespace Pyz\Zed\Glossary\Component\Internal;
 
-use Symfony\Component\Yaml\Parser;
+use Symfony\Component\Yaml\Yaml;
 use ProjectA\Zed\Glossary\Component\Internal\Install as CoreInstall;
 
-class Install extends CoreInstall
+/**
+ * @property \Generated_Zed_Glossary_Component_Factory $factory
+ */
+class Install extends CoreInstall implements
+    \ProjectA_Zed_Library_Dependency_Factory_Interface
 {
+    use \ProjectA_Zed_Library_Dependency_Factory_Trait;
+
     /**
      * @return array
      */
     protected function getConfig()
     {
-        $yamlParser = new Parser();
-        return $yamlParser->parse(file_get_contents(__DIR__ . '/../../File/initial_translation.yml'));
+        $yamlParser = new Yaml();
+        return $yamlParser->parse(file_get_contents($this->factory->createSettings()->getDumpFilePathName()));
     }
 
     /**
@@ -20,6 +26,6 @@ class Install extends CoreInstall
      */
     public function isActive()
     {
-        return false;
+        return true;
     }
 }

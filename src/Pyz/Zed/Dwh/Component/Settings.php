@@ -7,7 +7,8 @@ class Pyz_Zed_Dwh_Component_Settings extends \ProjectA_Zed_Dwh_Component_Setting
 
     protected $fileDir = null;
 
-    public function __construct(){
+    public function __construct()
+    {
         $this->fileDir = __DIR__.'/../File/';
     }
 

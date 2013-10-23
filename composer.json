@@ -52,10 +52,6 @@
         {
             "type": "vcs",
             "url": "https://github.com/Danez/zf2.git"
-        },
-        {
-            "type": "vcs",
-            "url": "https://github.com/Danez/Silex.git"
         }
     ]
 }
