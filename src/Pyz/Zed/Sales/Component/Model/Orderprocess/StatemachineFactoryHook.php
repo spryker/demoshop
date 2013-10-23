@@ -5,10 +5,10 @@
  */
 class Pyz_Zed_Sales_Component_Model_Orderprocess_StatemachineFactoryHook implements
     \ProjectA_Zed_Sales_Component_Interface_StatemachineFactoryHook,
-    \ProjectA\Zed\Library\Dependency\FactoryInterface
+    \ProjectA\Zed\Library\Dependency\DependencyFactoryInterface
 {
 
-    use \ProjectA\Zed\Library\Dependency\FactoryTrait;
+    use \ProjectA\Zed\Library\Dependency\DependencyFactoryTrait;
 
     protected function getRules ()
     {

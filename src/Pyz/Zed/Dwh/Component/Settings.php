@@ -1,9 +1,9 @@
 <?php
 
 class Pyz_Zed_Dwh_Component_Settings extends \ProjectA_Zed_Dwh_Component_Settings implements
-    \ProjectA\Zed\Library\Dependency\FactoryInterface
+    \ProjectA\Zed\Library\Dependency\DependencyFactoryInterface
 {
-    use \ProjectA\Zed\Library\Dependency\FactoryTrait;
+    use \ProjectA\Zed\Library\Dependency\DependencyFactoryTrait;
 
     protected $fileDir = null;
 

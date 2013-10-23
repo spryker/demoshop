@@ -1,8 +1,8 @@
 <?php
 namespace Pyz\Zed\Glossary\Component\Internal;
 
-use \ProjectA\Zed\Library\Dependency\FactoryInterface;
-use ProjectA\Zed\Library\Dependency\FactoryTrait;
+use \ProjectA\Zed\Library\Dependency\DependencyFactoryInterface;
+use ProjectA\Zed\Library\Dependency\DependencyFactoryTrait;
 use Symfony\Component\Yaml\Yaml;
 use ProjectA\Zed\Glossary\Component\Internal\Install as CoreInstall;
 
@@ -10,9 +10,9 @@ use ProjectA\Zed\Glossary\Component\Internal\Install as CoreInstall;
  * @property \Generated_Zed_Glossary_Component_Factory $factory
  */
 class Install extends CoreInstall implements
-    FactoryInterface
+    DependencyFactoryInterface
 {
-    use FactoryTrait;
+    use DependencyFactoryTrait;
 
     /**
      * @return array

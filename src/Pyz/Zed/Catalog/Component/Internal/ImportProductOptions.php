@@ -4,11 +4,11 @@ namespace Pyz\Zed\Catalog\Component\Internal;
 use Pyz\Shared\Catalog\Code\ProductAttributeSetConstant;
 
 class ImportProductOptions implements
-    \ProjectA\Zed\Library\Dependency\FactoryInterface,
+    \ProjectA\Zed\Library\Dependency\DependencyFactoryInterface,
     ProductAttributeSetConstant
 {
 
-    use \ProjectA\Zed\Library\Dependency\FactoryTrait;
+    use \ProjectA\Zed\Library\Dependency\DependencyFactoryTrait;
 
     const INDEX_KEY = 'identifier';
     const KEY_OPTION_TYPE = 'option_type';

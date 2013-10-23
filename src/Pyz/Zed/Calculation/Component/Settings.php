@@ -3,7 +3,7 @@
  * @property \Generated\Zed\Calculation\Component\CalculationFactory $factory
  */
 class Pyz_Zed_Calculation_Component_Settings extends \ProjectA_Zed_Calculation_Component_Settings implements
-    \ProjectA\Zed\Library\Dependency\FactoryInterface,
+    \ProjectA\Zed\Library\Dependency\DependencyFactoryInterface,
    \Generated\Zed\Salesrule\Component\Dependency\SalesruleFacadeInterface
 {
 
