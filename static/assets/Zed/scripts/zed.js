@@ -19,6 +19,12 @@
     zed.vars.exchange.page = {};
     zed.vars.exchange.page.current = {};
 
+    $(function() {
+        $('#manual .handle').click(function() {
+            $(this).parent().toggleClass('opened');
+        });
+    });
+
     // timeout for testing purposes only
     window.setTimeout(function() {
         // gridui snippet, has to be implemented

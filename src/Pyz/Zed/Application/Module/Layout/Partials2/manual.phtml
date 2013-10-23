@@ -6,7 +6,10 @@ $path = strtolower($path);
 if (file_exists($path)):
 $manual = file_get_contents($path);
 ?>
-<div style="float: right; width: 33%;>
-<?= $manual ?>
-</div>
+<aside id="manual">
+    <div class="handle"><?php echo __('manual'); ?></div>
+    <div class="content">
+        <?= $manual ?>
+    </div>
+</aside>
 <?php endif; ?>

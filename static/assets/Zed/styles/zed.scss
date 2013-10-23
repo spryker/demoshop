@@ -108,6 +108,68 @@ i.icon-eye-open:hover{
   text-decoration: none;
 }
 
+#manual {
+  position: fixed;
+  right: -596px;
+  top: 0;
+  margin: 0;
+  float: none;
+  bottom: 0;
+  z-index: 1024;
+  width: 600px;
+  padding: 0;
+  background: #f8f8f8;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  overflow: visible;
+  transition: right 1s;
+
+  &.opened {
+    right: 0;
+  }
+
+  .content {
+    padding: 16px 20px;
+    overflow-y: auto;
+  }
+
+  .handle {
+    position: absolute;
+    background: #f1f1f1;
+    left: -63px;
+    top: 50%;
+    width: 100px;
+    height: 26px;
+    margin-top: -13px;
+    line-height: 26px;
+    text-align: center;
+    font-size: 12px;
+    color: #777;
+    cursor: pointer;
+    z-index: 1;
+    -moz-transform: rotate(-90deg);
+    -webkit-transform: rotate(-90deg);
+    -ms-transform: rotate(-90deg);
+    transform: rotate(-90deg);
+    -moz-user-select: none;
+    user-select:none;
+    box-shadow: 0 -1px 1px rgba(0, 0, 0, 0.2), inset 0 -1px 1px rgba(0, 0, 0, 0.1);
+  }
+
+  h1 {
+    font-size: 26px;
+    margin: 16px 0;
+
+    &:first-child {
+      margin: 0 0 16px;
+    }
+  }
+
+  h2 {
+    font-size: 21px;
+    margin: 14px 0;
+  }
+}
+
 @import 'zed/setup';
 @import 'zed/category';
 @import 'zed/detail';
