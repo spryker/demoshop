@@ -841,6 +841,29 @@
                 "Mail"
             ],
             "time": "2013-10-23 09:34:30"
+<<<<<<< HEAD
+=======
+        },
+        {
+            "name": "project-a/dependency-package",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "git@codebasehq.com:project-a/core/dependency.git",
+                "reference": "32ac8cc0225395dc2f205cf9d07d4dac3804ec80"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-0": {
+                    "ProjectA": "/src"
+                }
+            },
+            "description": "This package contains only interfaces and traits",
+            "keywords": [
+                "dependency"
+            ],
+            "time": "2013-10-18 14:54:16"
+>>>>>>> 7558c3ce4bf541a7e1870af5ba3dbd7b1ba8002e
         },
         {
             "name": "project-a/dwh-package",
