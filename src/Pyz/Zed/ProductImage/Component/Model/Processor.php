@@ -3,13 +3,13 @@
 use Symfony\Component\Finder\Finder;
 
 class Pyz_Zed_ProductImage_Component_Model_Processor implements
-    ProjectA_Zed_ProductImage_Component_Dependency_Facade_Interface,
-    ProjectA_Zed_Catalog_Component_Dependency_Facade_Interface,
-    ProjectA_Shared_Catalog_Code_ProductAttributeConstant
+    \Generated\Zed\ProductImage\Component\Dependency\ProductImageFacadeInterface,
+    \Generated\Zed\Catalog\Component\Dependency\CatalogFacadeInterface,
+    \ProjectA_Shared_Catalog_Code_ProductAttributeConstant
 {
 
-    use ProjectA_Zed_ProductImage_Component_Dependency_Facade_Trait;
-    use ProjectA_Zed_Catalog_Component_Dependency_Facade_Trait;
+    use \Generated\Zed\ProductImage\Component\Dependency\ProductImageFacadeTrait;
+    use \Generated\Zed\Catalog\Component\Dependency\CatalogFacadeTrait;
 
     const IMAGE_ORDER_DELIMITER = '__';
     const KEY_SKU = 'sku';
@@ -56,9 +56,9 @@ class Pyz_Zed_ProductImage_Component_Model_Processor implements
                 $filenamesForFrontend[] = $this->getFilenameForFrontend($sku, $order, $size, $extension);
                 $originalImageFilename = $file[self::KEY_FULL_SOURCE_PATH];
                 $productEntity = $this->facadeCatalog->getProductBySku($sku);
-                $product = $this->facadeCatalog->getProduct($productEntity, [ProjectA_Zed_Catalog_Component_Interface_GroupConstant::CONFIG_ATTRIBUTES], true);
+                $product = $this->facadeCatalog->getProduct($productEntity, [\ProjectA_Zed_Catalog_Component_Interface_GroupConstant::CONFIG_ATTRIBUTES], true);
                 $mappingId = $productEntity->getPrimaryKey();
-                $imageEntityId = $this->facadeImage->addImage($originalImageFilename, '/tmp', $mappingId, $size->getIdImageSize(), $order, '-' . $size->getName(), $extension, ProjectA_Zed_Image_Persistence_PacImagePeer::TYPE_PRODUCT, array());
+                $imageEntityId = $this->facadeImage->addImage($originalImageFilename, '/tmp', $mappingId, $size->getIdImageSize(), $order, '-' . $size->getName(), $extension, \ProjectA_Zed_Image_Persistence_PacImagePeer::TYPE_PRODUCT, array());
                 $this->facadeImage->addImageProduct($mappingId, $imageEntityId, $product[self::ATTRIBUTE_NAME]);
 
                 $productEntity->touch();

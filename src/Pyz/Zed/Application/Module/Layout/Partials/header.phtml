@@ -11,7 +11,7 @@
     </nav>
     <?php if (ProjectA\Zed\Auth\Component\Model\Auth::getInstance()->hasIdentity() || APPLICATION_ENV === 'development'): ?>
     <div id="session"<?php if (!ProjectA\Zed\Auth\Component\Model\Auth::getInstance()->hasIdentity()): ?> class="loggedout"<?php endif; ?>>
-        <img class="flag" src="/old/images/flags/<?php echo strtolower(ProjectA_Shared_Library_Store::getInstance()->getStoreName()) ?>.png" alt="Store: <?php echo strtolower(ProjectA_Shared_Library_Store::getInstance()->getStoreName()) ?>" />
+        <img class="flag" src="/old/images/flags/<?php echo strtolower(\ProjectA_Shared_Library_Store::getInstance()->getStoreName()) ?>.png" alt="Store: <?php echo strtolower(\ProjectA_Shared_Library_Store::getInstance()->getStoreName()) ?>" />
         <div class="welcome">
             <span>Welcome,</span><br />
             <?php if (ProjectA\Zed\Auth\Component\Model\Auth::getInstance()->hasIdentity()): ?>
@@ -49,10 +49,10 @@
             <li class="ico environment">
                 <?php echo APPLICATION_ENV; ?>
                 <div class="onActive">
-                    Locale: <?php echo ProjectA_Shared_Library_Store::getInstance()->getCurrentLocale(); ?> &#160; -
-                    &#160; Store: <?php echo ProjectA_Shared_Library_Store::getInstance()->getStoreName(); ?> &#160; -
+                    Locale: <?php echo \ProjectA_Shared_Library_Store::getInstance()->getCurrentLocale(); ?> &#160; -
+                    &#160; Store: <?php echo \ProjectA_Shared_Library_Store::getInstance()->getStoreName(); ?> &#160; -
                     &#160; Server: <?php echo ProjectA\Shared\Library\System::getHostName(); ?> &#160; -
-                    &#160; <a href="http://<?php echo ProjectA_Shared_Library_Config::get('host')->yves ?>" target="_blank"><?php echo ProjectA_Shared_Library_Config::get('host')->yves  ?></a>
+                    &#160; <a href="http://<?php echo \ProjectA_Shared_Library_Config::get('host')->yves ?>" target="_blank"><?php echo \ProjectA_Shared_Library_Config::get('host')->yves  ?></a>
                 </div>
             </li>
         </ul>

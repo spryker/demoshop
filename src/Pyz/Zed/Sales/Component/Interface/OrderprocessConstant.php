@@ -1,6 +1,6 @@
 <?php
 
-interface Pyz_Zed_Sales_Component_Interface_OrderprocessConstant extends ProjectA_Zed_Sales_Component_Interface_OrderprocessConstant
+interface Pyz_Zed_Sales_Component_Interface_OrderprocessConstant extends \ProjectA_Zed_Sales_Component_Interface_OrderprocessConstant
 {
     // DEMO PROCESS
 

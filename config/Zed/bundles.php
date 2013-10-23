@@ -8,7 +8,7 @@ const ACTIVATE_NAVIGATION = 'activate navigation';
 const ACTIVATE_SCHEMA = 'activate schema';
 
 return [
-    ProjectA_Shared_Library_Config::get(CONFIG_KEY_NAMESPACE_PROJECT) => [],
+    \ProjectA_Shared_Library_Config::get(CONFIG_KEY_NAMESPACE_PROJECT) => [],
     NAMESPACE_CORE => [
         'Auth' => [
             ACTIVATE_BOOTSTRAP,

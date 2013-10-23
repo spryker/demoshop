@@ -2,13 +2,13 @@
 use Generated\Shared\Sales\Transfer\Order;
 
 /**
- * @property Generated_Zed_Sales_Component_Factory $factory
+ * @property \Generated\Zed\Sales\Component\SalesFactory $factory
  */
-class Pyz_Zed_Sales_Component_Settings extends ProjectA_Zed_Sales_Component_Settings
+class Pyz_Zed_Sales_Component_Settings extends \ProjectA_Zed_Sales_Component_Settings
 {
     /**
-     * @throws ProjectA_Zed_Library_Exception
-     * @return ProjectA_Zed_Sales_Component_Interface_StatemachineFactoryHook
+     * @throws \ProjectA_Zed_Library_Exception
+     * @return \ProjectA_Zed_Sales_Component_Interface_StatemachineFactoryHook
      */
     public function getStateMachineFactoryHook()
     {
@@ -16,8 +16,8 @@ class Pyz_Zed_Sales_Component_Settings extends ProjectA_Zed_Sales_Component_Sett
     }
 
     /**
-     * @throws ProjectA_Zed_Library_Exception
-     * @return ProjectA_Zed_Library_StateMachine_Definition_Container
+     * @throws \ProjectA_Zed_Library_Exception
+     * @return \ProjectA_Zed_Library_StateMachine_Definition_Container
      */
     public function getStatemachineDefinitionContainer()
     {
