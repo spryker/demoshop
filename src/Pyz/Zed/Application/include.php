@@ -11,4 +11,4 @@ if (file_exists(APPLICATION_SOURCE_DIR . '/Generated/Zed/DependencyInjectionCont
     require_once(APPLICATION_SOURCE_DIR . '/Generated/Zed/DependencyInjectionContainer.php');
 }
 
-ProjectA_Shared_Library_Context::setDefaultContext(ProjectA_Shared_Library_Context::CONTEXT_ZED);
+\ProjectA_Shared_Library_Context::setDefaultContext(\ProjectA_Shared_Library_Context::CONTEXT_ZED);

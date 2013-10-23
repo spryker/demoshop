@@ -1,6 +1,6 @@
 <?php
 
-class Pyz_Zed_Mcm_Component_Model_AnalyticsUrlSnippet extends ProjectA_Zed_Mcm_Component_Model_AnalyticsUrlSnippet
+class Pyz_Zed_Mcm_Component_Model_AnalyticsUrlSnippet extends \ProjectA_Zed_Mcm_Component_Model_AnalyticsUrlSnippet
 {
 
     public function getUrlSnippetWithAnalyticsParameters($params)
@@ -8,9 +8,9 @@ class Pyz_Zed_Mcm_Component_Model_AnalyticsUrlSnippet extends ProjectA_Zed_Mcm_C
 
         $campaignId = $params['campaign'];
 
-        $channelName = (new ProjectA_Zed_Mcm_Persistence_PacMcmChannelQuery())->findOneByIdMcmChannel($params['channel'])->getName();
-        $partnerName = (new ProjectA_Zed_Mcm_Persistence_PacMcmPartnerQuery())->findOneByIdMcmPartner($params['partner'])->getName();
-        $publicationName = (new ProjectA_Zed_Mcm_Persistence_PacMcmPublicationQuery())->findOneByIdMcmPublication($params['publication'])->getName();
+        $channelName = (new \ProjectA_Zed_Mcm_Persistence_PacMcmChannelQuery())->findOneByIdMcmChannel($params['channel'])->getName();
+        $partnerName = (new \ProjectA_Zed_Mcm_Persistence_PacMcmPartnerQuery())->findOneByIdMcmPartner($params['partner'])->getName();
+        $publicationName = (new \ProjectA_Zed_Mcm_Persistence_PacMcmPublicationQuery())->findOneByIdMcmPublication($params['publication'])->getName();
 
         return '?wmc=' . $campaignId . '&utm_medium='. $this->processString($channelName)
         . '&utm_source=' . $this->processString($partnerName)

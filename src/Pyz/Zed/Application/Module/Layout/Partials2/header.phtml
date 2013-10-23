@@ -31,7 +31,7 @@
     </nav>
 
     <div class="zed:header__language-picker has-more">
-        <i class="flag-<?php echo strtolower(ProjectA_Shared_Library_Store::getInstance()->getStoreName()) ?>"></i>
+        <i class="flag-<?php echo strtolower(\ProjectA_Shared_Library_Store::getInstance()->getStoreName()) ?>"></i>
         <ul>
             <li><a href="#" class="flag-pl"></a>
             <li><a href="#" class="flag-de"></a>
@@ -44,9 +44,9 @@
         <span><?php echo APPLICATION_ENV; ?></span>
         <dl>
             <dt>Locale:
-            <dd><?php echo ProjectA_Shared_Library_Store::getInstance()->getCurrentLocale(); ?>
+            <dd><?php echo \ProjectA_Shared_Library_Store::getInstance()->getCurrentLocale(); ?>
             <dt>Store:
-            <dd><?php echo ProjectA_Shared_Library_Store::getInstance()->getStoreName(); ?>
+            <dd><?php echo \ProjectA_Shared_Library_Store::getInstance()->getStoreName(); ?>
             <dt>Server:
             <dd><?php echo ProjectA\Shared\Library\System::getHostName(); ?>
             <dt>Controller:

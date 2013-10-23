@@ -6,26 +6,26 @@ use Generated\Shared\Library\TransferLoader;
  * @author jstick
  */
 class Pyz_Zed_Sales_Component_Model_Orderprocess_Command_DemoPaymentAuthorise
-    extends ProjectA_Zed_Sales_Component_Model_Orderprocess_CommandAbstract
-    implements ProjectA_Zed_Sales_Component_Interface_OrderCommand,
-               ProjectA_Zed_Payment_Component_Dependency_Facade_Interface,
-               ProjectA_Zed_Payment_Component_Interface_Constants
+    extends \ProjectA_Zed_Sales_Component_Model_Orderprocess_CommandAbstract
+    implements \ProjectA_Zed_Sales_Component_Interface_OrderCommand,
+               \Generated\Zed\Payment\Component\Dependency\PaymentFacadeInterface,
+               \ProjectA_Zed_Payment_Component_Interface_Constants
 {
 
-    use ProjectA_Zed_Payment_Component_Dependency_Facade_Trait;
+    use \Generated\Zed\Payment\Component\Dependency\PaymentFacadeTrait;
 
     /**
-     * @param ProjectA_Zed_Sales_Persistence_PacSalesOrder $orderEntity
-     * @param ProjectA_Zed_Sales_Component_Interface_ContextCollection $context
-     * @return ProjectA_Zed_Payment_Component_Model_Response
+     * @param \ProjectA_Zed_Sales_Persistence_PacSalesOrder $orderEntity
+     * @param \ProjectA_Zed_Sales_Component_Interface_ContextCollection $context
+     * @return \ProjectA_Zed_Payment_Component_Model_Response
      */
-    public function __invoke (ProjectA_Zed_Sales_Persistence_PacSalesOrder $orderEntity, ProjectA_Zed_Sales_Component_Interface_ContextCollection $context)
+    public function __invoke (\ProjectA_Zed_Sales_Persistence_PacSalesOrder $orderEntity, \ProjectA_Zed_Sales_Component_Interface_ContextCollection $context)
     {
         $paymentTransfer = TransferLoader::loadSalesOrderPayment();
         $context['Transfer_Sales_Order_Payment'] = $paymentTransfer;
         $date = new DateTime();
 
-        $response = new ProjectA_Zed_Payment_Component_Model_Response(true);
+        $response = new \ProjectA_Zed_Payment_Component_Model_Response(true);
         $response->setMethod('demo method');
         $response->setProvider('demo provider');
         $response->setTransaction('demo-' . sha1(time()));

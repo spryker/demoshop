@@ -1,6 +1,6 @@
 <?php
 
-class Pyz_Zed_Application_Module_Controller_Error extends ProjectA_Zed_Library_Controller_Action
+class Pyz_Zed_Application_Module_Controller_Error extends \ProjectA_Zed_Library_Controller_Action
 {
     public function errorAction()
     {

@@ -3,7 +3,7 @@ namespace Pyz\Zed\Catalog\Component\Internal;
 
 use Pyz\Shared\Catalog\Code\ProductAttributeConstant;
 use Pyz\Shared\Catalog\Code\ProductAttributeSetConstant;
-use ProjectA_Zed_Catalog_Persistence_PacCatalogValueTypePeer as ValueTypePeer;
+use \ProjectA_Zed_Catalog_Persistence_PacCatalogValueTypePeer as ValueTypePeer;
 
 /**
  *

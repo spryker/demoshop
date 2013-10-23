@@ -1,6 +1,6 @@
 <?php
 
-class Pyz_Zed_Dwh_Module_Controller_Reports extends ProjectA_Zed_Dwh_Module_Controller_Reports
+class Pyz_Zed_Dwh_Module_Controller_Reports extends \ProjectA_Zed_Dwh_Module_Controller_Reports
 {
     public function testAction()
     {
