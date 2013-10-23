@@ -1,7 +1,7 @@
 <?php
 namespace Pyz\Zed\Glossary\Component\Internal;
 
-use ProjectA\Zed\Library\Dependency\Factory\FactoryInterface;
+use \ProjectA\Zed\Library\Dependency\FactoryInterface;
 use ProjectA\Zed\Library\Dependency\FactoryTrait;
 use Symfony\Component\Yaml\Yaml;
 use ProjectA\Zed\Glossary\Component\Internal\Install as CoreInstall;
