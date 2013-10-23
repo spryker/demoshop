@@ -83,24 +83,6 @@ abstract class ProductsExporter extends CoreProductsExporter implements
         return $task;
     }
 
-<<<<<<< HEAD
-//    /**
-//     * @param \ProjectA_Zed_Catalog_Component_Interface_ProductEntity $product
-//     * @return array
-//     */
-//    protected function prepareCategories(\ProjectA_Zed_Catalog_Component_Interface_ProductEntity $product)
-//    {
-//        $categories = array();
-//        $productCategories = $this->factory->createModelFinder()->getCategoriesForProduct($product);
-//
-//        /* @var $productCategory \ProjectA_Zed_Category_Persistence_PacCategory */
-//        foreach ($productCategories as $productCategory) {
-//            $categories[] = $productCategory->getIdCategory();
-//        }
-//
-//        return $categories;
-//    }
-=======
     /**
      * @param \ProjectA_Zed_Catalog_Component_Interface_ProductEntity $product
      * @return array
@@ -122,7 +104,6 @@ abstract class ProductsExporter extends CoreProductsExporter implements
 
         return $categories;
     }
->>>>>>> 339f3cd03951fe311fcc3e5dd49913a0e016b4f4
 
     /**
      * @param \Traversable $collection
