@@ -1,6 +1,7 @@
 <?php
 namespace Pyz\Yves\Catalog\Component\Model;
 
+use \Pyz\Yves\Catalog\Component\Model\FacetConfig;
 use ProjectA\Shared\Category\Code\Storage\StorageKeyGenerator;
 use ProjectA\Shared\Library\Storage\StorageInstanceBuilder;
 use Symfony\Component\HttpFoundation\Request;
@@ -15,7 +16,7 @@ class UrlMapper
     const OFFSET_RECOGNITION_VALUE_DIVIDER = '+';
     const URL_VALUE_DIVIDER = '-';
 
-    public static function injectParametersFromUrlIntoRequest($pathinfo, Request $request)
+    public static function injectParametersFromUrlIntoRequest($pathinfo, Request $request, FacetConfig $facetConfig)
     {
         $parameters = [];
         $queryParameters = $request->query;
@@ -31,7 +32,7 @@ class UrlMapper
             while ($element = array_shift($offsets)) {
                 $length = $element[1] - $offset;
                 $sliced = array_slice($urlParts, $offset, $length);
-                $parameterNameForShortParameter = FacetConfig::getParameterNameForShortParameter($shortParameter);
+                $parameterNameForShortParameter = $facetConfig->getParameterNameForShortParameter($shortParameter);
                 $value = implode(' ', $sliced);
                 if ($parameterNameForShortParameter == 'category') {
                     $storage = StorageInstanceBuilder::getKvStorageReadInstance();
@@ -57,7 +58,7 @@ class UrlMapper
             $length = count($urlParts) - $offset;
             $sliced = array_slice($urlParts, $offset, $length);
             $value = implode(' ', $sliced);
-            $parameterNameForShortParameter = FacetConfig::getParameterNameForShortParameter($shortParameter);
+            $parameterNameForShortParameter = $facetConfig->getParameterNameForShortParameter($shortParameter);
             if (isset($parameters[$parameterNameForShortParameter]) && is_array($parameters[$parameterNameForShortParameter])) {
                 $parameters[$parameterNameForShortParameter][] = $value;
             } elseif (isset($parameters[$parameterNameForShortParameter])) {
@@ -72,7 +73,7 @@ class UrlMapper
             //everything is only category
             $sliced = explode(self::URL_VALUE_DIVIDER, $split[0]);
             $value = implode(' ', $sliced);
-            $parameterNameForShortParameter = FacetConfig::getParameterNameForShortParameter($shortParameter);
+            $parameterNameForShortParameter = $facetConfig->getParameterNameForShortParameter($shortParameter);
             if ($parameterNameForShortParameter == 'category') {
                 $storage = StorageInstanceBuilder::getKvStorageReadInstance();
                 $value = $storage->get(StorageKeyGenerator::getCategoryUrlKey($value));

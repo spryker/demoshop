@@ -1,6 +1,7 @@
 <?php
 namespace Pyz\Yves\Catalog\Component\Model;
 
+use Pyz\Yves\Catalog\Component\Model\FacetConfig;
 use ProjectA\Shared\Catalog\Code\Storage\StorageKeyGenerator;
 use ProjectA\Shared\Library\Storage\StorageInstanceBuilder;
 use ProjectA\Shared\Solr\Code\SolrInstanceBuilder;
@@ -14,16 +15,15 @@ use Symfony\Component\HttpFoundation\Request;
 class FacetSearch extends Search
 {
 
-    public function __construct(Request $request)
+    public function __construct(Request $request, FacetConfig $facetConfig)
     {
-        parent::__construct($request);
+        parent::__construct($request, $facetConfig);
 
         //add FacetSearch related default stuff
         $this->addDefaultsToFacetQuery();
 
         //dynamically set facets from facet config
-        $activeFacets = FacetConfig::getActiveFacets();
-        $this->addFacetsToQuery($activeFacets);
+        $this->addFacetsToQuery($this->facetConfig->getActiveFacets());
 
         //dynamically add filters, from url segments and parameters, project stuff
         $this->addFiltersToQuery($request);
@@ -64,20 +64,47 @@ class FacetSearch extends Search
     {
         $filters = array_intersect(
             $request->query->keys(),
-            FacetConfig::getAllParamNamesForFacets(true)
+            $this->facetConfig->getAllParamNamesForFacets(true)
         );
 
         foreach ($filters as $filter) {
-            $filterFacetName = FacetConfig::getFacetNameFromParameter($filter);
+            $rangeQuery = false;
+            $facetConfig = $this->facetConfig->getFacetSetupFromParameter($filter);
+            $filterFacetName = $this->facetConfig->getFacetNameFromParameter($filter);
             $filterValue = $request->query->get($filter);
+
+            //sliders will be range queries, lets get min/max values
+            if ($facetConfig[FacetConfig::KEY_TYPE] == FacetConfig::TYPE_SLIDER) {
+                if (trim($filterValue) == '') {
+                    continue;
+                }
+                $values = explode($facetConfig[FacetConfig::KEY_RANGE_DIVIDER], $filterValue);
+                $minValue = $values[0];
+                $maxValue = $minValue;
+                if (count($values) > 1) {
+                    $maxValue = $values[1];
+                }
+
+                if (isset($facetConfig[FacetConfig::KEY_VALUE_CALLBACK_BEFORE]) && is_callable($facetConfig[FacetConfig::KEY_VALUE_CALLBACK_BEFORE])) {
+                    $minValue = call_user_func($facetConfig[FacetConfig::KEY_VALUE_CALLBACK_BEFORE], $minValue);
+                    $maxValue = call_user_func($facetConfig[FacetConfig::KEY_VALUE_CALLBACK_BEFORE], $maxValue);
+                }
+
+                $this->selectQuery->createFilterQuery($filter)->setQuery(
+                    $filterFacetName . ':[' . $minValue . ' TO ' . $maxValue . ']'
+                )->addTag($filterFacetName);
+                continue;
+            }
+
+            //the rest is either multi-valued or single values
             if (is_array($filterValue)) {
                 $this->selectQuery->createFilterQuery($filter)->setQuery(
                     $filterFacetName . ': (' . implode(' ' . self::DEFAULT_MULTI_SEARCH_OPERATOR . ' ', $filterValue) . ')'
-                );
+                )->addTag($filterFacetName);
             } else {
                 $this->selectQuery->createFilterQuery($filter)->setQuery(
                     $filterFacetName . ':' . $filterValue
-                );
+                )->addTag($filterFacetName);
             }
         }
     }

@@ -110,15 +110,19 @@ class CatalogRouter implements RouterInterface, FactoryInterface
                 '\\Pyz\\Yves\\Catalog\\Module'
             );
 
-            //TODO /catalog/ points to search without category but would be interpreted as category=catalog
+            $facetConfig = $this->factory->createCatalogModelFacetConfig();
+
             UrlMapper::injectParametersFromUrlIntoRequest(
                 $pathinfo,
-                Bootstrap::getRequest()
+                Bootstrap::getRequest(),
+                $facetConfig
             );
 
             return [
                 '_controller' => $service,
                 '_route' => 'catalog/index',
+                'facetConfig' => $facetConfig
+
             ];
         }
 
