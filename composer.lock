@@ -657,7 +657,7 @@
             "source": {
                 "type": "git",
                 "url": "git@codebasehq.com:project-a/core/catalog.git",
-                "reference": "65776fc87fcca8efbd3a07d274128900a1fdb584"
+                "reference": "9ed59e0149671c30bc4f6de30efafabdaef58e82"
             },
             "require": {
                 "php": ">=5.4.0",
@@ -693,7 +693,7 @@
                 "Price",
                 "Stock"
             ],
-            "time": "2013-10-24 19:16:29"
+            "time": "2013-10-24 19:37:45"
         },
         {
             "name": "project-a/checkout-package",
@@ -2769,12 +2769,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/zendframework/zf2.git",
-                "reference": "bfe2d63d911eb885f0b32655f56cd57d0baa7503"
+                "reference": "f20670746b58e67b3372e49c91c3cf19514a0e32"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/zendframework/zf2/zipball/bfe2d63d911eb885f0b32655f56cd57d0baa7503",
-                "reference": "bfe2d63d911eb885f0b32655f56cd57d0baa7503",
+                "url": "https://api.github.com/repos/zendframework/zf2/zipball/f20670746b58e67b3372e49c91c3cf19514a0e32",
+                "reference": "f20670746b58e67b3372e49c91c3cf19514a0e32",
                 "shasum": ""
             },
             "require": {
@@ -2879,7 +2879,7 @@
                 "framework",
                 "zf2"
             ],
-            "time": "2013-10-24 10:13:21"
+            "time": "2013-10-24 19:25:55"
         },
         {
             "name": "zendframework/zendpdf",
