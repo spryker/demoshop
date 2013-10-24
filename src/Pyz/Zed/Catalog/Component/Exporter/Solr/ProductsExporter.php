@@ -84,24 +84,21 @@ abstract class ProductsExporter extends CoreProductsExporter implements
     }
 
     /**
-     * @param \ProjectA_Zed_Catalog_Component_Interface_ProductEntity $product
-     * @return array
+     * //TODO needs refactoring after config/simple has changed
+     *
+     * @param $id
+     * @return mixed
      */
     protected function prepareCategories($id)
     {
         $categories = array();
-
         $product = $this->factory->createFacade()->getProductById($id);
-        $productCategories = $this->factory->createModelFinder()->getCategoriesForProduct($product);
+        $productCategories = $this->factory->createModelFinder()->getCategoriesForProduct($product->getSimple()->getConfig()->getProduct());
 
         /* @var $productCategory \ProjectA_Zed_Category_Persistence_PacCategory */
         foreach ($productCategories as $productCategory) {
             $categories[] = $productCategory->getIdCategory();
         }
-
-        // TODO: remove this debug output
-        echo PHP_EOL.'<hr /><pre>'; var_dump($categories); echo __CLASS__.' '.__FILE__ . ':'.__LINE__.''; echo '</pre><hr />'.PHP_EOL; exit();
-
         return $categories;
     }
 
@@ -268,8 +265,7 @@ abstract class ProductsExporter extends CoreProductsExporter implements
 //        unset($data[$id]['int_sort_price']);
 
         //add categories
-        //$data[$id]['int_facet_category'] = $this->prepareCategories($id);
-        $data[$id]['int_facet_category'] = [2,3];
+        $data[$id]['int_facet_category'] = $this->prepareCategories($id);
 
         return $data;
     }
