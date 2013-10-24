@@ -11,6 +11,10 @@
                 if (!data.success) {
                     var form = data.form;
                     $('#<?php echo $this->form->getAttrib('id') ?>').parent().html(form);
+                } else {
+                    if (data.redirectUrl) {
+                        window.location.href = data.redirectUrl;
+                    }
                 }
             }
         });
