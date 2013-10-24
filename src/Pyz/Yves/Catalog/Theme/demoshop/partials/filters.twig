@@ -1,0 +1,52 @@
+<ul class="filters">
+    {% for facetName, facet in facets %}
+        {% if facetName == 'string_facet_brand' %}
+            <li>
+                <h3>{{ 'catalog.filters.brands'|trans }}</h3>
+                <input type="text" placeholder="{{ 'catalog.filters.brands.hint.find'|trans }}" class="search fullWidth">
+
+                <select size="{{ facet.values|length > 4 ? 4 : facet.values|length }}" multiple>
+                    {% for brandName, brandKey in facet.values %}
+                        <option value="{{ brandKey }}">{{ ('catalog.filters.brands.' ~ brandName)|trans }}</option>
+                    {% endfor %}
+                </select>
+            </li>
+        {% endif %}
+
+        {% if facetName == 'int_facet_category' %}
+            {# add category html here #}
+        {% endif %}
+
+        {% if facetName == 'string_facet_color' %}
+            <li>
+                <h3>{{ 'catalog.filters.colors'|trans }}</h3>
+                {% for colorName, colorKey in facet.values %}
+                <label>
+                    <input type="checkbox" name="color" value="{{ colorKey }}" /> {{ ('catalog.filters.colors.' ~ colorName)|trans }}
+                </label>
+                {% endfor %}
+            </li>
+        {% endif %}
+
+        {% if facetName == 'string_facet_material' %}
+            <li>
+                <h3>{{ 'catalog.filters.materials'|trans }}</h3>
+                {% for materialName, materialKey in facet.values %}
+                    <label>
+                        <input type="checkbox" name="material" value="{{ materialKey }}" /> {{ ('catalog.filters.materials.' ~ materialName)|trans }}
+                    </label>
+                {% endfor %}
+            </li>
+        {% endif %}
+    {% endfor %}
+    <hardcoded block>
+    <li>
+        <h3>{{ 'catalog.filters.price'|trans }}</h3>
+        <legend class="min">{{ 'catalog.filters.price.free'|trans }}</legend>
+        <legend class="max">{{ 'catalog.filters.price.high'|trans }}</legend>
+        <input type="range" value="0" max="100" data-most-expensive="250" data-connectors=".priceConnector" />
+        <input class="priceConnector min" type="number" value="0" disabled />
+        <input class="priceConnector max" type="number" value="0" disabled />
+    </li>        
+    </hardcoded>
+</ul>
