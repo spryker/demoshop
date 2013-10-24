@@ -1,5 +1,6 @@
 <?php
 
+// this list MUST be sorted alphabetically !!
 return array(
     APPLICATION_VENDOR_DIR . '/project-a/acl-package/src/ProjectA/Zed/Acl/Module/navigation.xml',
     APPLICATION_VENDOR_DIR . '/project-a/catalog-package/src/ProjectA/Zed/Catalog/Module/navigation.xml',
