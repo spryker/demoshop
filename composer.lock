@@ -3,7 +3,7 @@
         "This file locks the dependencies of your project to a known state",
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file"
     ],
-    "hash": "9357dc8d5d5f7555eb82ed492938803d",
+    "hash": "b4d04bad0735a37989b889788245423c",
     "packages": [
         {
             "name": "aws/aws-sdk-php",
@@ -2668,6 +2668,53 @@
             "time": "2013-09-19 09:45:20"
         },
         {
+            "name": "symfony/yaml",
+            "version": "v2.4.0-BETA1",
+            "target-dir": "Symfony/Component/Yaml",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/symfony/Yaml.git",
+                "reference": "ef4878bcca171ebe7466be0505b85a710818d788"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/symfony/Yaml/zipball/ef4878bcca171ebe7466be0505b85a710818d788",
+                "reference": "ef4878bcca171ebe7466be0505b85a710818d788",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3.3"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "2.4-dev"
+                }
+            },
+            "autoload": {
+                "psr-0": {
+                    "Symfony\\Component\\Yaml\\": ""
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Fabien Potencier",
+                    "email": "fabien@symfony.com"
+                },
+                {
+                    "name": "Symfony Community",
+                    "homepage": "http://symfony.com/contributors"
+                }
+            ],
+            "description": "Symfony Yaml Component",
+            "homepage": "http://symfony.com",
+            "time": "2013-09-22 18:04:51"
+        },
+        {
             "name": "twig/twig",
             "version": "v1.14.1",
             "source": {
@@ -4387,53 +4434,6 @@
             "description": "Symfony WebProfilerBundle",
             "homepage": "http://symfony.com",
             "time": "2013-09-29 19:41:41"
-        },
-        {
-            "name": "symfony/yaml",
-            "version": "v2.3.6",
-            "target-dir": "Symfony/Component/Yaml",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/symfony/Yaml.git",
-                "reference": "6bb881b948368482e1abf1a75c08bcf88a1c5fc3"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/symfony/Yaml/zipball/6bb881b948368482e1abf1a75c08bcf88a1c5fc3",
-                "reference": "6bb881b948368482e1abf1a75c08bcf88a1c5fc3",
-                "shasum": ""
-            },
-            "require": {
-                "php": ">=5.3.3"
-            },
-            "type": "library",
-            "extra": {
-                "branch-alias": {
-                    "dev-master": "2.3-dev"
-                }
-            },
-            "autoload": {
-                "psr-0": {
-                    "Symfony\\Component\\Yaml\\": ""
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Fabien Potencier",
-                    "email": "fabien@symfony.com"
-                },
-                {
-                    "name": "Symfony Community",
-                    "homepage": "http://symfony.com/contributors"
-                }
-            ],
-            "description": "Symfony Yaml Component",
-            "homepage": "http://symfony.com",
-            "time": "2013-09-22 18:04:39"
         }
     ],
     "aliases": [
@@ -4574,7 +4574,8 @@
         "project-a/sales-package": 20,
         "project-a/stripe-package": 20,
         "zendframework/zendframework": 20,
-        "silex/silex": 20
+        "silex/silex": 20,
+        "symfony/yaml": 20
     },
     "platform": [
 
