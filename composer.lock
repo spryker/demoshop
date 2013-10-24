@@ -657,7 +657,7 @@
             "source": {
                 "type": "git",
                 "url": "git@codebasehq.com:project-a/core/catalog.git",
-                "reference": "7205bb1155bf241d97d4999d2f192d39f193bcb2"
+                "reference": "5739770c77ca5168b55bab04d6fda4ed0b5e39e3"
             },
             "require": {
                 "php": ">=5.4.0",
@@ -693,7 +693,7 @@
                 "Price",
                 "Stock"
             ],
-            "time": "2013-10-24 10:43:52"
+            "time": "2013-10-24 14:09:18"
         },
         {
             "name": "project-a/checkout-package",
@@ -1008,7 +1008,7 @@
             "source": {
                 "type": "git",
                 "url": "git@codebasehq.com:project-a/core/library-2.git",
-                "reference": "7bc09c72a5e23a93d9fbf3066b615265cef902d5"
+                "reference": "b3833537e7997522886d23ace4f449e2b464dd16"
             },
             "require": {
                 "digital-canvas/zend-framework": ">=1.12.2",
@@ -1048,7 +1048,7 @@
                 }
             ],
             "description": "Project-A Library",
-            "time": "2013-10-24 10:39:08"
+            "time": "2013-10-24 13:36:25"
         },
         {
             "name": "project-a/lumberjack-package",

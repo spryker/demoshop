@@ -7,7 +7,7 @@
 
                 <select size="{{ facet.values|length > 4 ? 4 : facet.values|length }}" multiple>
                     {% for brandName, brandKey in facet.values %}
-                        <option value="{{ brandKey }}">{{ ('catalog.filters.brands.brand.' ~ brandName)|trans }}</option>
+                        <option value="{{ brandKey }}">{{ ('catalog.filters.brands.' ~ brandName)|trans }}</option>
                     {% endfor %}
                 </select>
             </li>
@@ -22,7 +22,7 @@
                 <h3>{{ 'catalog.filters.colors'|trans }}</h3>
                 {% for colorName, colorKey in facet.values %}
                 <label>
-                    <input type="checkbox" name="color" value="{{ colorKey }}" /> {{ ('catalog.filters.colors.color.' ~ colorName)|trans }}
+                    <input type="checkbox" name="color" value="{{ colorKey }}" /> {{ ('catalog.filters.colors.' ~ colorName)|trans }}
                 </label>
                 {% endfor %}
             </li>
@@ -33,7 +33,7 @@
                 <h3>{{ 'catalog.filters.materials'|trans }}</h3>
                 {% for materialName, materialKey in facet.values %}
                     <label>
-                        <input type="checkbox" name="material" value="{{ materialKey }}" /> {{ ('catalog.filters.materials.material.' ~ materialName)|trans }}
+                        <input type="checkbox" name="material" value="{{ materialKey }}" /> {{ ('catalog.filters.materials.' ~ materialName)|trans }}
                     </label>
                 {% endfor %}
             </li>
