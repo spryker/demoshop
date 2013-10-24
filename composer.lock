@@ -657,7 +657,7 @@
             "source": {
                 "type": "git",
                 "url": "git@codebasehq.com:project-a/core/catalog.git",
-                "reference": "f05ac845149688129f0381091916760c7c3055b1"
+                "reference": "7205bb1155bf241d97d4999d2f192d39f193bcb2"
             },
             "require": {
                 "php": ">=5.4.0",
@@ -693,7 +693,7 @@
                 "Price",
                 "Stock"
             ],
-            "time": "2013-10-24 09:56:03"
+            "time": "2013-10-24 10:43:52"
         },
         {
             "name": "project-a/checkout-package",
@@ -1008,7 +1008,7 @@
             "source": {
                 "type": "git",
                 "url": "git@codebasehq.com:project-a/core/library-2.git",
-                "reference": "8279e15045b65e7fd3955d30f07f52aad2587a64"
+                "reference": "7bc09c72a5e23a93d9fbf3066b615265cef902d5"
             },
             "require": {
                 "digital-canvas/zend-framework": ">=1.12.2",
@@ -1048,7 +1048,7 @@
                 }
             ],
             "description": "Project-A Library",
-            "time": "2013-10-24 08:06:00"
+            "time": "2013-10-24 10:39:08"
         },
         {
             "name": "project-a/lumberjack-package",
@@ -2722,12 +2722,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/zendframework/zf2.git",
-                "reference": "2c3c70fb6dcf34b4697706c00f7bac57f1fb6306"
+                "reference": "bfe2d63d911eb885f0b32655f56cd57d0baa7503"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/zendframework/zf2/zipball/2c3c70fb6dcf34b4697706c00f7bac57f1fb6306",
-                "reference": "2c3c70fb6dcf34b4697706c00f7bac57f1fb6306",
+                "url": "https://api.github.com/repos/zendframework/zf2/zipball/bfe2d63d911eb885f0b32655f56cd57d0baa7503",
+                "reference": "bfe2d63d911eb885f0b32655f56cd57d0baa7503",
                 "shasum": ""
             },
             "require": {
@@ -2832,7 +2832,7 @@
                 "framework",
                 "zf2"
             ],
-            "time": "2013-10-23 20:30:55"
+            "time": "2013-10-24 10:13:21"
         },
         {
             "name": "zendframework/zendpdf",
