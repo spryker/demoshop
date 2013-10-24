@@ -551,7 +551,7 @@
             "source": {
                 "type": "git",
                 "url": "git@codebasehq.com:project-a/core/acl.git",
-                "reference": "ca699f3f2b4acd1bd4ffc3a357f5f3c247d126d4"
+                "reference": "2ff8fd9647a9b66a4337a7ebf246465ae06ed5f9"
             },
             "require": {
                 "php": ">=5.4.0",
@@ -580,7 +580,7 @@
                 "login",
                 "usermanagement"
             ],
-            "time": "2013-10-23 13:20:31"
+            "time": "2013-10-24 15:21:26"
         },
         {
             "name": "project-a/adyen-package",
@@ -657,7 +657,7 @@
             "source": {
                 "type": "git",
                 "url": "git@codebasehq.com:project-a/core/catalog.git",
-                "reference": "5739770c77ca5168b55bab04d6fda4ed0b5e39e3"
+                "reference": "d27b3b6c55170fd932226ba9832d9337f09ff82b"
             },
             "require": {
                 "php": ">=5.4.0",
@@ -693,7 +693,7 @@
                 "Price",
                 "Stock"
             ],
-            "time": "2013-10-24 14:09:18"
+            "time": "2013-10-24 15:56:37"
         },
         {
             "name": "project-a/checkout-package",
@@ -923,7 +923,7 @@
             "source": {
                 "type": "git",
                 "url": "git@codebasehq.com:project-a/core/glossary.git",
-                "reference": "23ea188e6d345e1039ecd172fc071146d2e9f658"
+                "reference": "2b439d6dab058f80cf42566d1c78796bf7a2930c"
             },
             "require": {
                 "php": ">=5.4.0"
@@ -947,7 +947,7 @@
                 "i18n",
                 "translation"
             ],
-            "time": "2013-10-24 08:57:24"
+            "time": "2013-10-24 15:27:54"
         },
         {
             "name": "project-a/infrastructure-package",
@@ -1008,7 +1008,7 @@
             "source": {
                 "type": "git",
                 "url": "git@codebasehq.com:project-a/core/library-2.git",
-                "reference": "b3833537e7997522886d23ace4f449e2b464dd16"
+                "reference": "ad237b88befe94576eeab11200de6c37885ad008"
             },
             "require": {
                 "digital-canvas/zend-framework": ">=1.12.2",
@@ -1048,7 +1048,7 @@
                 }
             ],
             "description": "Project-A Library",
-            "time": "2013-10-24 13:36:25"
+            "time": "2013-10-24 15:18:14"
         },
         {
             "name": "project-a/lumberjack-package",
@@ -2147,21 +2147,21 @@
         },
         {
             "name": "symfony/icu",
-            "version": "v1.2.0",
+            "version": "v1.1.0",
             "target-dir": "Symfony/Component/Icu",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/Icu.git",
-                "reference": "7299cd3d8d6602103d1ebff5d0a9917b7bc6de72"
+                "reference": "b4081efff21a8a85c57789a39f454fed244f8e46"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/Icu/zipball/7299cd3d8d6602103d1ebff5d0a9917b7bc6de72",
-                "reference": "7299cd3d8d6602103d1ebff5d0a9917b7bc6de72",
+                "url": "https://api.github.com/repos/symfony/Icu/zipball/b4081efff21a8a85c57789a39f454fed244f8e46",
+                "reference": "b4081efff21a8a85c57789a39f454fed244f8e46",
                 "shasum": ""
             },
             "require": {
-                "lib-icu": ">=4.4",
+                "lib-icu": ">=3.8",
                 "php": ">=5.3.3",
                 "symfony/intl": "~2.3"
             },
@@ -2191,7 +2191,7 @@
                 "icu",
                 "intl"
             ],
-            "time": "2013-06-03 18:32:58"
+            "time": "2013-06-03 18:32:40"
         },
         {
             "name": "symfony/intl",
