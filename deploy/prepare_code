@@ -61,22 +61,23 @@ fi
 chown -R www-data. .
 
 ## ZED - Execute install.php
-echo "Calling install.php..."
-sudo -u www-data vendor/bin/console setup:propel:install -s ${APPLICATION_STORE} -e ${environment} # &> $outfile
+#echo "Calling install.php..."
+echo "Calling setup:install"
+sudo -u www-data vendor/bin/console setup:install -s ${APPLICATION_STORE} -e ${environment} # &> $outfile
 if [ $? -ne 0 ]; then
   echo "ATTENTION: There was an error in console setup:propel:install, refer to $outfile"
   exit 1
 fi
 
 ### Generate Code
-if is_default_store; then
-  echo "Generating necessary files..."
-  APPLICATION_ENV=$environment sudo -E -u www-data php -d "newrelic.appname='Deploy($environment)'" vendor/bin/console setup:generate &> $outfile
-  if [ $? -ne 0 ]; then
-    echo Failed, aborting. Output saved in $outfile
-    exit 2
-  fi
-fi
+#if is_default_store; then
+#  echo "Generating necessary files..."
+#  APPLICATION_ENV=$environment sudo -E -u www-data php -d "newrelic.appname='Deploy($environment)'" vendor/bin/console setup:generate &> $outfile
+#  if [ $? -ne 0 ]; then
+#    echo Failed, aborting. Output saved in $outfile
+#    exit 2
+#  fi
+#fi
 
 ### Save the "Generated" dir back in cache
 rsync -ra --delete src/Generated/ $generated_cache_dir
