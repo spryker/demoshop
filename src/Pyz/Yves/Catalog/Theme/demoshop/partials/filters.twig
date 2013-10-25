@@ -1,4 +1,5 @@
 <ul class="filters">
+        <li><a href="{{ url('catalog', {'color':'black','brand':null}) }}">goto</a></li>
     {% for facetName, facet in facets %}
         {% if facetName == 'string_facet_brand' %}
             <li>
