@@ -55,8 +55,8 @@ class Pyz_Zed_ProductImage_Component_Model_Processor implements
 
                 $filenamesForFrontend[] = $this->getFilenameForFrontend($sku, $order, $size, $extension);
                 $originalImageFilename = $file[self::KEY_FULL_SOURCE_PATH];
-                $productEntity = $this->facadeCatalog->getProductBySku($sku);
-                $product = $this->facadeCatalog->getProduct($productEntity, [\ProjectA_Zed_Catalog_Component_Interface_GroupConstant::CONFIG_ATTRIBUTES], true);
+                $productEntity = $this->facadeCatalog->findProductEntityBySku($sku);
+                $product = $this->facadeCatalog->getProductCompositeBySku($productEntity, [\ProjectA_Zed_Catalog_Component_Interface_GroupConstant::CONFIG_ATTRIBUTES], true);
                 $mappingId = $productEntity->getPrimaryKey();
                 $imageEntityId = $this->facadeImage->addImage($originalImageFilename, '/tmp', $mappingId, $size->getIdImageSize(), $order, '-' . $size->getName(), $extension, \ProjectA_Zed_Image_Persistence_PacImagePeer::TYPE_PRODUCT, array());
                 $this->facadeImage->addImageProduct($mappingId, $imageEntityId, $product[self::ATTRIBUTE_NAME]);
