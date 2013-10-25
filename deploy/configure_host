@@ -26,7 +26,7 @@ if is_default_store; then
       solrpath=$destination_release_dir/vendor/project-a/infrastructure-package/bin/solr.war
     fi
 
-    echo using SOLR from: $solrpath
+    echo "Using SOLR from: $solrpath"
 
     ( [ ! -e solr.war ] || [ $(md5sum solr.war|awk '{print $1}') != $(md5sum $solrpath|awk '{print $1}') ] ) && restart_tomcat=1
 
@@ -41,7 +41,7 @@ if is_default_store; then
     jenkinspath=$destination_release_dir/vendor/project-a/infrastructure-package/bin/jenkins.war
   fi
 
-  echo using JENKINS from: $jenkinspath
+  echo "Using JENKINS from: $jenkinspath"
 
   ( [ ! -e jenkins.war ] || [ $(md5sum jenkins.war|awk '{print $1}') != $(md5sum $jenkinspath|awk '{print $1}') ] ) && restart_tomcat=1
 
@@ -51,9 +51,12 @@ if is_default_store; then
   # Restart tomcat?
   if [ "$restart_tomcat" == "1" ]; then
     echo "New java applications have been deployed - restarting Tomcat..."
-    id
-    bash -x /etc/init.d/tomcat?-${environment} restart
-    sleep 15s # Let's give tomcat some time to warm-up...
+    if [ -z $debug ]; then
+      /etc/init.d/tomcat?-${environment} restart
+    else
+      bash -x /etc/init.d/tomcat?-${environment} restart
+    fi
+    sleep 10s # Let's give tomcat some time to warm-up...
   fi
 fi
 
@@ -61,6 +64,7 @@ fi
 if is_default_store; then
   ## Solr Init: Create Solr configfiles (solr.xml)
   cd $destination_release_dir
+  ### FIXME: use console task for this call
   php -d "newrelic.appname='Deploy($environment)'" cli/index.php --module=solr --controller=cronjob --action=init &> $outfile
   cat $outfile
   if [ `grep -ci "restart solr now" $outfile` -gt 0 ]; then
