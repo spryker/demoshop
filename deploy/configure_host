@@ -27,6 +27,8 @@ if is_default_store; then
       solrpath=$destination_release_dir/vendor/project-a/infrastructure-package/bin/solr.war
     fi
 
+    echo using SOLR from $solrpath
+
     ( [ ! -e solr.war ] || [ $(md5sum solr.war|awk '{print $1}') != $(md5sum $solrpath|awk '{print $1}') ] ) && restart_tomcat=1
 
     ln -s $solrpath .
@@ -40,10 +42,11 @@ if is_default_store; then
     jenkinspath=$destination_release_dir/vendor/project-a/infrastructure-package/bin/jenkins.war
   fi
 
+  echo using JENKINS from $jenkinspath
+
   ( [ ! -e jenkins.war ] || [ $(md5sum jenkins.war|awk '{print $1}') != $(md5sum $jenkinspath|awk '{print $1}') ] ) && restart_tomcat=1
 
   ln -s $jenkinspath .
-
 
   # Restart tomcat?
   if [ "$restart_tomcat" == "1" ]; then
