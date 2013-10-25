@@ -43,11 +43,35 @@ app.catalog = {
                     .data({ min : parseInt($(this).prev('.min').attr('min')), max : parseInt($(this).attr('max')) });
                 var $min = $('<div class="min"></div>');
                 var $max = $('<div class="max"></div>');
-                $container.append($min).append($max);
+                var $range = $('<div class="range"></div>');
+                $container.append($min).append($max).append($range);
                 $(this).after($container);
                 rangeSlider.adjust($container);
                 $min.mousedown(rangeSlider.down);
                 $max.mousedown(rangeSlider.down);
+            });
+
+            this.initConnectors();
+        },
+        initConnectors : function() {
+            var rangeSlider = this;
+            $('.rangeSliderConnector').bind('input paste', function() {
+                var value = $(this).val().replace(/[^\d]/, '');
+                $(this).val(value);
+                var type = $(this).hasClass('min') ? 'min' : 'max';
+                rangeSlider.tmpConfig.type = type;
+                var $container = (type === 'min' ? $(this).prev() : $(this).prev().prev());
+                var config = rangeSlider.getConfig($container);
+                if (isNaN(parseInt(value)) || parseInt(value) < config.min) {
+                    return;
+                }
+                var $el = rangeSlider['$get' + (type === 'min' ? 'Min' : 'Max')]($container);
+                $el.val(parseInt(value));
+                rangeSlider.adjust($container);
+            }).change(function() {
+                var type = $(this).hasClass('min') ? 'min' : 'max';
+                var $container = (type === 'min' ? $(this).prev() : $(this).prev().prev());
+                rangeSlider.apply($container);
             });
         },
         getConfig : function($container) {
@@ -100,6 +124,7 @@ app.catalog = {
             }
             $container.children('.min').css({ left : config.minPerc + '%' });
             $container.children('.max').css({ left : config.maxPerc + '%' });
+            $container.children('.range').css({ left : config.minPerc + '%', width : (config.maxPerc - config.minPerc) + '%' });
 
             this.$getMaxConnector($container).val(config.maxVal);
             this.$getMinConnector($container).val(config.minVal);

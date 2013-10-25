@@ -34,8 +34,8 @@
                     <legend class="max">{{ ('catalog.filters.' ~ name ~ '.max')|trans }}</legend>
                     <input class="rangeSlider min" type="range" value="{{ minVal }}" min="{{ minVal }}" max="{{ maxVal }}" data-connector=".connector-{{ name }}.min" />
                     <input class="rangeSlider max" type="range" value="{{ maxVal }}" min="{{ minVal }}" max="{{ maxVal }}" data-connector=".connector-{{ name }}.max" />
-                    <input class="connector-{{ name }} min" type="number" value="{{ minVal }}" />
-                    <input class="connector-{{ name }} max" type="number" value="{{ maxVal }}" />
+                    <input class="rangeSliderConnector connector-{{ name }} min" type="number" value="{{ minVal }}" />
+                    <input class="rangeSliderConnector connector-{{ name }} max" type="number" value="{{ maxVal }}" />
                 {% endif %}
             </li>
         {% endif %}
