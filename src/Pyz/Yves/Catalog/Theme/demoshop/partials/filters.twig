@@ -1,0 +1,43 @@
+<ul class="filters">
+    {% for facet in facets %}
+        {% set config = facet.config %}
+        {% set name = facet.name %}
+        {% if config.active %}
+            <li data-name="{{ name }}">
+                <h3>{{ ('catalog.filters.' ~ name)|trans }}</h3>
+                {% if config.type == 'category' %}
+                    {# todo #}
+                {% endif %}
+                {% if config.type == 'enumeration' %}
+                    {% if name == 'brand' %}
+                        <input type="text" placeholder="{{ ('catalog.filters.' ~ name ~ '.hint.find')|trans }}" class="search fullWidth">
+                        <select name="{{ name }}" size="{{ facet.values|length > 4 ? 4 : facet.values|length }}" multiple>
+                            {% for valueName, valueKey in facet.values %}
+                                <option value="{{ valueName }}">{{ ('catalog.filters.' ~ name ~ '.' ~ valueName)|trans }} ({{ valueKey }})</option>
+                            {% endfor %}
+                        </select>
+                    {% else %}
+                        {% for valueName, valueKey in facet.values %}
+                            <label>
+                                <input type="checkbox" name="{{ name }}" value="{{ valueName }}" /> {{ ('catalog.filters.' ~ name ~ '.' ~ valueName)|trans }} ({{ valueKey }})
+                            </label>
+                            {# url('catalog', {'color':'black'}) #}
+                            {# <li><a href="{ url('catalog', {'color':'black','brand':null}) }">goto</a></li> #}
+                        {% endfor %}
+                    {% endif %}
+                {% endif %}
+
+                {% if config.type == 'slider' %}
+                    {% set minVal = (name == 'price' ? (facet.rangeValues.min / 100)|number_format(0, '', '') : facet.rangeValues.min|number_format(0, '', '')) %}
+                    {% set maxVal = (name == 'price' ? (facet.rangeValues.max / 100)|number_format(0, '', '') : facet.rangeValues.max|number_format(0, '', '')) %}
+                    <legend class="min">{{ ('catalog.filters.' ~ name ~ '.min')|trans }}</legend>
+                    <legend class="max">{{ ('catalog.filters.' ~ name ~ '.max')|trans }}</legend>
+                    <input class="rangeSlider min" type="range" value="{{ minVal }}" min="{{ minVal }}" max="{{ maxVal }}" data-connector=".connector-{{ name }}.min" />
+                    <input class="rangeSlider max" type="range" value="{{ maxVal }}" min="{{ minVal }}" max="{{ maxVal }}" data-connector=".connector-{{ name }}.max" />
+                    <input class="rangeSliderConnector connector-{{ name }} min" type="number" value="{{ minVal }}" />
+                    <input class="rangeSliderConnector connector-{{ name }} max" type="number" value="{{ maxVal }}" />
+                {% endif %}
+            </li>
+        {% endif %}
+    {% endfor %}
+</ul>

@@ -1,6 +1,7 @@
 <?php
 namespace Pyz\Yves\Catalog\Component\Model;
 
+use \Pyz\Yves\Catalog\Component\Model\FacetConfig;
 use ProjectA\Shared\Category\Code\Storage\StorageKeyGenerator;
 use ProjectA\Shared\Library\Storage\StorageInstanceBuilder;
 use Symfony\Component\HttpFoundation\Request;
@@ -11,11 +12,64 @@ use Symfony\Component\Routing\Exception\ResourceNotFoundException;
  */
 class UrlMapper
 {
-
     const OFFSET_RECOGNITION_VALUE_DIVIDER = '+';
     const URL_VALUE_DIVIDER = '-';
 
-    public static function injectParametersFromUrlIntoRequest($pathinfo, Request $request)
+    /**
+     * @param array $mergedParameters
+     * @param FacetConfig $facetConfig
+     * @return string
+     */
+    public static function generateUrlFromParameters(array $mergedParameters, FacetConfig $facetConfig)
+    {
+        $activeInUrlFacets = $facetConfig->getActiveInUrlFacets();
+        usort($activeInUrlFacets, [__CLASS__,'sortByUrlPosition']);
+
+        //prepare segments and offset has
+        $segments = [];
+        $segmentsOffsetHash = '';
+        foreach ($activeInUrlFacets as $activeInUrlFacet) {
+            $paramName = $activeInUrlFacet[FacetConfig::KEY_PARAM];
+            if (isset($mergedParameters[$paramName])) {
+                if ($paramName == 'category') {
+                    $storage = StorageInstanceBuilder::getKvStorageReadInstance();
+                    $category = $storage->get(StorageKeyGenerator::getCategoryKey($mergedParameters[$paramName]));
+                    $paramValue = $category['url'];
+                } else {
+                    $paramValue = $mergedParameters[$paramName];
+                    $segmentsOffsetHash .= $activeInUrlFacet[FacetConfig::KEY_SHORT_PARAM] . count($segments);
+                }
+                $segments[] = $paramValue;
+                unset($mergedParameters[$paramName]);
+            }
+        }
+
+        if ($segmentsOffsetHash != '') {
+            $segmentsOffsetHash = self::OFFSET_RECOGNITION_VALUE_DIVIDER . $segmentsOffsetHash;
+        }
+
+        //build segment part with offset hash from segments
+        $urlSegments = implode(self::URL_VALUE_DIVIDER, $segments) . $segmentsOffsetHash;
+
+        //build query string with rest of parameters
+        $urlParameters = http_build_query($mergedParameters);
+
+
+        return '/' . $urlSegments . '/?' . $urlParameters;
+    }
+
+    protected static function sortByUrlPosition($next, $current)
+    {
+        return $current[FacetConfig::KEY_URL_POSITION] < $next[FacetConfig::KEY_URL_POSITION];
+    }
+
+    /**
+     * @param $pathinfo
+     * @param Request $request
+     * @param FacetConfig $facetConfig
+     * @throws \Symfony\Component\Routing\Exception\ResourceNotFoundException
+     */
+    public static function injectParametersFromUrlIntoRequest($pathinfo, Request $request, FacetConfig $facetConfig)
     {
         $parameters = [];
         $queryParameters = $request->query;
@@ -31,7 +85,7 @@ class UrlMapper
             while ($element = array_shift($offsets)) {
                 $length = $element[1] - $offset;
                 $sliced = array_slice($urlParts, $offset, $length);
-                $parameterNameForShortParameter = FacetConfig::getParameterNameForShortParameter($shortParameter);
+                $parameterNameForShortParameter = $facetConfig->getParameterNameForShortParameter($shortParameter);
                 $value = implode(' ', $sliced);
                 if ($parameterNameForShortParameter == 'category') {
                     $storage = StorageInstanceBuilder::getKvStorageReadInstance();
@@ -57,7 +111,7 @@ class UrlMapper
             $length = count($urlParts) - $offset;
             $sliced = array_slice($urlParts, $offset, $length);
             $value = implode(' ', $sliced);
-            $parameterNameForShortParameter = FacetConfig::getParameterNameForShortParameter($shortParameter);
+            $parameterNameForShortParameter = $facetConfig->getParameterNameForShortParameter($shortParameter);
             if (isset($parameters[$parameterNameForShortParameter]) && is_array($parameters[$parameterNameForShortParameter])) {
                 $parameters[$parameterNameForShortParameter][] = $value;
             } elseif (isset($parameters[$parameterNameForShortParameter])) {
@@ -72,7 +126,7 @@ class UrlMapper
             //everything is only category
             $sliced = explode(self::URL_VALUE_DIVIDER, $split[0]);
             $value = implode(' ', $sliced);
-            $parameterNameForShortParameter = FacetConfig::getParameterNameForShortParameter($shortParameter);
+            $parameterNameForShortParameter = $facetConfig->getParameterNameForShortParameter($shortParameter);
             if ($parameterNameForShortParameter == 'category') {
                 $storage = StorageInstanceBuilder::getKvStorageReadInstance();
                 $value = $storage->get(StorageKeyGenerator::getCategoryUrlKey($value));
@@ -83,6 +137,8 @@ class UrlMapper
             $parameters[$parameterNameForShortParameter] = $value;
         }
 
-        $request->query->add($parameters);
+        if (!empty($parameters)) {
+            $request->query->add($parameters);
+        }
     }
 }

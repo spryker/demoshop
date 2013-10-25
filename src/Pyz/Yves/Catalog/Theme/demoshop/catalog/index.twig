@@ -30,51 +30,7 @@
         </div>
 
         <div class="sidebar col col25">
-            <hardcoded block>
-            <ul class="filters">
-                <li>
-                    <h3>Brands</h3>
-                    <input type="text" placeholder="Find Brand" class="search fullWidth">
-                    <select size="4" multiple>
-                        <option value="arnaldo">Arnaldo</option>
-                        <option value="christ">Christ</option>
-                        <option value="kartell">Kartell</option>
-                        <option value="lager">Lager</option>
-                    </select>
-                </li>
-                <li>
-                    <h3>Price</h3>
-                    <legend class="min">free</legend>
-                    <legend class="max">expensive</legend>
-                    <input type="range" value="0" max="100" data-most-expensive="250" data-connectors=".priceConnector" />
-                    <input class="priceConnector min" type="number" value="0" disabled />
-                    <input class="priceConnector max" type="number" value="0" disabled />
-                </li>
-                <li>
-                    <h3>Material</h3>
-                    <label>
-                        <input type="checkbox" name="material" value="glass" /> Glass
-                    </label>
-                    <label>
-                        <input type="checkbox" name="material" value="metal" /> Metal
-                    </label>
-                    <label>
-                        <input type="checkbox" name="material" value="wood" /> Wood
-                    </label>
-                </li>
-                {#<li>#}
-                    {#<h3>Color</h3>#}
-
-
-                    {#<a href="{{ url('catalog', {'color':'black'} ) }}">black</a>#}
-                    {#<a href="{{ url('catalog', {'color':'grey'} ) }}">grey</a>#}
-                    {##}
-                    {#&#123;&#35;<label>&#35;&#125;#}
-                        {#&#123;&#35;<input type="checkbox" name="material" value="wood" /> URL Generate&#35;&#125;#}
-                    {#&#123;&#35;</label>&#35;&#125;#}
-                {#</li>#}
-            </ul>
-            </hardcoded>
+            {% include "@catalog/partials/filters.twig" with {'facets': facets } only %}
         </div>
 
         <ul class="products col col75">
