@@ -17,13 +17,14 @@
 #catalog .filters select { display:block; width:100%; padding:4px 7px; border:1px solid #ddd; }
 #catalog .filters .search { margin-bottom:2px; border-radius:0; box-shadow:none; border-color:#ddd; }
 #catalog .filters .rangeSlider { display:none; }
-#catalog .filters .rangeSliderContainer { position:relative; margin:6px 0 16px; clear:both; height:2px; background:#aaa; }
+#catalog .filters .rangeSliderContainer { position:relative; margin:6px 0 16px; clear:both; height:2px; background:#ddd; }
 #catalog .filters .rangeSliderContainer .min,
-#catalog .filters .rangeSliderContainer .max { position:absolute; top:-5px; display:block; width:10px; height:10px; margin-left:-5px; background:#777; z-index:1; cursor:pointer; }
+#catalog .filters .rangeSliderContainer .max { position:absolute; top:-5px; display:block; width:10px; height:10px; margin-left:-5px; background:#777; z-index:2; cursor:pointer; }
 #catalog .filters .rangeSliderContainer .min { left:0; }
 #catalog .filters .rangeSliderContainer .max { left:100%; }
 #catalog .filters .rangeSliderContainer .min:after,
 #catalog .filters .rangeSliderContainer .max:after { position:absolute; content:''; bottom:-10px; width:0; height:0; border:5px solid transparent; border-top-color:#777; }
+#catalog .filters .rangeSliderContainer .range { position:absolute; top:0; height:2px; margin-left:-5px; background:#aaa; z-index:1; }
 #catalog .filters input.min,
 #catalog .filters input.max { width:20%; }
 #catalog .filters input.max { float:right; }
