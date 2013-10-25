@@ -657,7 +657,7 @@
             "source": {
                 "type": "git",
                 "url": "git@codebasehq.com:project-a/core/catalog.git",
-                "reference": "25daf62a0d961e412e097aec8d8b086a9101a468"
+                "reference": "25884c36ddfde05d723aff544524097d992d6753"
             },
             "require": {
                 "php": ">=5.4.0",
@@ -693,7 +693,7 @@
                 "Price",
                 "Stock"
             ],
-            "time": "2013-10-25 12:26:56"
+            "time": "2013-10-25 14:11:25"
         },
         {
             "name": "project-a/checkout-package",
@@ -955,7 +955,7 @@
             "source": {
                 "type": "git",
                 "url": "git@codebasehq.com:project-a/core/infrastructure.git",
-                "reference": "5a01d373a7e58aade25fb9a5bf919bfb237323e1"
+                "reference": "4f7d8c5be12ea478686f9a3681a4390c45060c4a"
             },
             "require": {
                 "php": ">=5.4.0",
@@ -983,7 +983,7 @@
             "keywords": [
                 "infrastructure"
             ],
-            "time": "2013-10-24 07:22:19"
+            "time": "2013-10-25 14:05:24"
         },
         {
             "name": "project-a/kendo-package",
@@ -1008,7 +1008,7 @@
             "source": {
                 "type": "git",
                 "url": "git@codebasehq.com:project-a/core/library-2.git",
-                "reference": "626f17cd79c6c521208c761271c674062311278e"
+                "reference": "110c066ccb7340565d16c249de3d0f672891797a"
             },
             "require": {
                 "digital-canvas/zend-framework": ">=1.12.2",
@@ -1048,7 +1048,7 @@
                 }
             ],
             "description": "Project-A Library",
-            "time": "2013-10-25 13:25:57"
+            "time": "2013-10-25 13:39:14"
         },
         {
             "name": "project-a/lumberjack-package",
