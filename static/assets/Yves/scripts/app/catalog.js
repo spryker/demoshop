@@ -37,6 +37,11 @@ app.catalog = {
                 var url = $(this).is(':checked') ? $(this).data('on') : $(this).data('off');
                 document.location.href = url;
             });
+            $('.filters option[data-on][data-off]').parent().change(function() {
+                console.log($(this).val());
+                //var url = $(this).is(':checked') ? $(this).data('on') : $(this).data('off');
+                //document.location.href = url;
+            });
         }
     },
     rangeSlider : {
