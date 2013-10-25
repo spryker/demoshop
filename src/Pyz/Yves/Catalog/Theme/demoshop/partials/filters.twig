@@ -13,16 +13,14 @@
                         <input type="text" placeholder="{{ ('catalog.filters.' ~ name ~ '.hint.find')|trans }}" class="search fullWidth">
                         <select name="{{ name }}" size="{{ facet.values|length > 4 ? 4 : facet.values|length }}" multiple>
                             {% for valueName, valueKey in facet.values %}
-                                <option value="{{ valueName }}">{{ ('catalog.filters.' ~ name ~ '.' ~ valueName)|trans }} ({{ valueKey }})</option>
+                                <option value="{{ valueName }}" data-on="{{ url('catalog', {(name) : valueName}) }}" data-off="{{ url('catalog', {(name) : null }) }}">{{ ('catalog.filters.' ~ name ~ '.' ~ valueName)|trans }} ({{ valueKey }})</option>
                             {% endfor %}
                         </select>
                     {% else %}
                         {% for valueName, valueKey in facet.values %}
                             <label>
-                                <input type="checkbox" name="{{ name }}" value="{{ valueName }}" /> {{ ('catalog.filters.' ~ name ~ '.' ~ valueName)|trans }} ({{ valueKey }})
+                                <input type="checkbox" name="{{ name }}" value="{{ valueName }}" data-on="{{ url('catalog', {(name) : valueName}) }}" data-off="{{ url('catalog', {(name) : null }) }}" /> {{ ('catalog.filters.' ~ name ~ '.' ~ valueName)|trans }} ({{ valueKey }})
                             </label>
-                            {# url('catalog', {'color':'black'}) #}
-                            {# <li><a href="{ url('catalog', {'color':'black','brand':null}) }">goto</a></li> #}
                         {% endfor %}
                     {% endif %}
                 {% endif %}

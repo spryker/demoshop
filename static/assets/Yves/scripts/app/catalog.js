@@ -32,6 +32,11 @@ app.catalog = {
             $(vars.currentClass).mouseleave(function() {
                 vars.$zoom.remove();
             });
+
+            $('.filters input[type=checkbox][data-on][data-off]').change(function() {
+                var url = $(this).is(':checked') ? $(this).data('on') : $(this).data('off');
+                document.location.href = url;
+            });
         }
     },
     rangeSlider : {
