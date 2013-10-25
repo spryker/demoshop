@@ -8,7 +8,6 @@
                 {% if config.type == 'category' %}
                     {# todo #}
                 {% endif %}
-
                 {% if config.type == 'enumeration' %}
                     {% if name == 'brand' %}
                         <input type="text" placeholder="{{ ('catalog.filters.' ~ name ~ '.hint.find')|trans }}" class="search fullWidth">
@@ -23,6 +22,7 @@
                                 <input type="checkbox" name="{{ name }}" value="{{ valueName }}" /> {{ ('catalog.filters.' ~ name ~ '.' ~ valueName)|trans }} ({{ valueKey }})
                             </label>
                             {# url('catalog', {'color':'black'}) #}
+                            {# <li><a href="{ url('catalog', {'color':'black','brand':null}) }">goto</a></li> #}
                         {% endfor %}
                     {% endif %}
                 {% endif %}
