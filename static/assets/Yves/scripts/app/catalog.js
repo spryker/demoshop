@@ -38,9 +38,8 @@ app.catalog = {
                 document.location.href = url;
             });
             $('.filters option[data-on][data-off]').parent().change(function() {
-                console.log($(this).val());
-                //var url = $(this).is(':checked') ? $(this).data('on') : $(this).data('off');
-                //document.location.href = url;
+                // todo: a lot!!
+                document.location.href = $(this).children(':selected').eq(0).data('on');
             });
         }
     },
