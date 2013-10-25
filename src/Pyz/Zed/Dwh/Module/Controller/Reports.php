@@ -1,6 +1,10 @@
 <?php
 
-class Pyz_Zed_Dwh_Module_Controller_Reports extends ProjectA_Zed_Dwh_Module_Controller_Reports
+namespace Pyz\Zed\Dwh\Module\Controller;
+
+use ProjectA\Zed\Dwh\Module\Controller\ReportsController as BaseController;
+
+class ReportsController extends BaseController
 {
     public function testAction()
     {

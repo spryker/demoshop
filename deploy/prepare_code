@@ -61,8 +61,8 @@ fi
 chown -R www-data. .
 
 ## ZED - Execute install.php
-echo "Calling install.php..."
-sudo -u www-data vendor/bin/console setup:propel:install -s ${APPLICATION_STORE} -e ${environment} # &> $outfile
+echo "Calling vendor/bin/console setup:propel:install"
+APPLICATION_ENV=$environment sudo -E -u www-data php -d "newrelic.appname='Deploy($environment)'" vendor/bin/console setup:propel:install -s ${APPLICATION_STORE} -e ${environment} # &> $outfile
 if [ $? -ne 0 ]; then
   echo "ATTENTION: There was an error in console setup:propel:install, refer to $outfile"
   exit 1

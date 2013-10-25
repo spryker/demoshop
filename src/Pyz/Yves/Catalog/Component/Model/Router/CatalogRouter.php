@@ -1,70 +1,40 @@
 <?php
 namespace Pyz\Yves\Catalog\Component\Model\Router;
 
-use ProjectA\Yves\Catalog\Component\Model\Catalog;
-use ProjectA\Yves\Catalog\Component\Model\Exception\ProductNotFoundException;
-use ProjectA\Yves\Library\DependencyInjection\FactoryInterface;
+use ProjectA\Yves\Library\Silex\Routing\AbstractRouter;
 use ProjectA\Yves\Library\DependencyInjection\FactoryTrait;
 use ProjectA\Yves\Library\Silex\Application;
 use ProjectA\Yves\Library\Silex\Controller\ControllerProvider;
-use Symfony\Component\HttpFoundation\RedirectResponse;
+use Pyz\Yves\Application\Module\Bootstrap;
+use Pyz\Yves\Catalog\Component\Model\UrlMapper;
 use Symfony\Component\Routing\Exception\ResourceNotFoundException;
-use Symfony\Component\Routing\RequestContext;
-use Symfony\Component\Routing\RouterInterface;
+use Symfony\Component\Routing\Exception\RouteNotFoundException;
 
-class CatalogRouter implements RouterInterface, FactoryInterface
+/**
+ * @package Pyz\Yves\Catalog\Component\Model\Router
+ */
+class CatalogRouter extends AbstractRouter
 {
-
-    use FactoryTrait;
-
-    /**
-     * @var RequestContext
-     */
-    protected $context;
-
-    /**
-     * @var Application
-     */
-    protected $app;
-
-    /**
-     * @param Application $app
-     */
-    public function __construct(Application $app)
-    {
-        $this->app = $app;
-    }
-
-    /**
-     * {@inheritdoc}
-     */
-    public function setContext(RequestContext $context)
-    {
-        $this->context = $context;
-    }
-
-    /**
-     * {@inheritdoc}
-     */
-    public function getContext()
-    {
-        return $this->context;
-    }
-
-    /**
-     * {@inheritdoc}
-     */
-    public function getRouteCollection()
-    {
-        return [];
-    }
-
     /**
      * {@inheritdoc}
      */
     public function generate($name, $parameters = array(), $referenceType = self::ABSOLUTE_PATH)
     {
+        if ($name == 'catalog') {
+            $facetConfig = $this->factory->createCatalogModelFacetConfig();
+            $request = Bootstrap::getRequest();
+            $requestParameters = iterator_to_array($request->query->getIterator());
+            $mergedParameters = array_filter(array_merge($requestParameters, $parameters));
 
+            $url = UrlMapper::generateUrlFromParameters(
+                $mergedParameters,
+                $facetConfig
+            );
+
+            return $this->getSchemaAndPort() . $url;
+        }
+
+        throw new RouteNotFoundException;
     }
 
     /**
@@ -72,47 +42,33 @@ class CatalogRouter implements RouterInterface, FactoryInterface
      */
     public function match($pathinfo)
     {
-        if (($parameters = $this->matchDetailUrl($pathinfo)) !== null) {
-            return $parameters;
+        //TODO handle "/catalog/" to show everything if needed
+
+        if ($pathinfo != '/' && substr($pathinfo, -5) != '.html') {
+
+            $service = ControllerProvider::createServiceForController(
+                $this->app,
+                'catalog/index',
+                'CatalogController',
+                'index',
+                '\\Pyz\\Yves\\Catalog\\Module'
+            );
+
+            $facetConfig = $this->factory->createCatalogModelFacetConfig();
+
+            UrlMapper::injectParametersFromUrlIntoRequest(
+                $pathinfo,
+                Bootstrap::getRequest(),
+                $facetConfig
+            );
+
+            return [
+                '_controller' => $service,
+                '_route' => 'catalog/index',
+                'facetConfig' => $facetConfig
+            ];
         }
 
         throw new ResourceNotFoundException();
-    }
-
-    /**
-     * @param string $pathinfo
-     * @return array
-     */
-    public function matchDetailUrl($pathinfo)
-    {
-        if (substr($pathinfo, -5) === '.html' && preg_match('~.+-(\d+)\.html~i', $pathinfo, $matches)) {
-            try {
-                $product = $this->factory->createCatalogModelCatalog()->getProductDataById($matches[1], $this->app->getStorageKeyValue());
-//                if ($product['url'] != $pathinfo) {
-//                    return $this->redirectToCorrectUrl($product['url']);
-//                }
-                $service = ControllerProvider::createServiceForController($this->app, 'catalog/detail', 'CatalogController', 'detail', '\\Pyz\\Yves\\Catalog\\Module');
-                return [
-                    '_controller' => $service,
-                    '_route' => 'catalog/detail',
-                    'product' => $product
-                ];
-            } catch (ProductNotFoundException $exception) {
-            }
-        }
-        return null;
-    }
-
-    /**
-     * @param string $url
-     * @return array
-     */
-    public function redirectToCorrectUrl($url)
-    {
-        return [
-            '_controller' => function ($url) { return new RedirectResponse($url, 301); },
-            '_route' => null,
-            'url' => $url
-        ];
     }
 }

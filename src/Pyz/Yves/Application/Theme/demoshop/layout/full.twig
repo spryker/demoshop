@@ -15,6 +15,10 @@
         <script src="/scripts/vendor/modernizr-2.6.2-respond-1.1.0.min.js"></script>
 
         <script src="/scripts/app/main.js"></script>
+        <script>
+            // hardcoded
+            app.vars.storeLocale = 'US';
+        </script>
     {% endblock %}
 </head>
 <body>
@@ -27,9 +31,9 @@
             </a>
             <div class="col col67">
                 <ul class="usps">
-                    <li><span class="glyphicon glyphicon-gift"></span>Free Shipping & Return</li>
-                    <li><span class="glyphicon glyphicon-refresh"></span>30 Days of Return</li>
-                    <li><span class="glyphicon glyphicon-phone-alt"></span>Hotline: +49 (0) 30 340 606 300</li>
+                    <li><span class="glyphicon glyphicon-gift"></span>{{ 'header.usp.shipping'|trans }}</li>
+                    <li><span class="glyphicon glyphicon-refresh"></span>{{ 'header.usp.return'|trans }}</li>
+                    <li><span class="glyphicon glyphicon-phone-alt"></span>{{ 'header.phone'|trans }}</li>
                 </ul>
             </div>
         </div>
@@ -45,7 +49,7 @@
                     <li>
                         <a href="{{ url('cart') }}">
                             <span class="glyphicon glyphicon-shopping-cart"></span>
-                            <span class="main">Your cart</span>
+                            <span class="main">{{ 'header.cart'|trans }}</span>
                             <hardcoded>0 products</hardcoded>
                         </a>
                     </li>
@@ -61,19 +65,19 @@
     {% block footer %}
     <section class="transparent">
         <div class="col col33">
-            <h4>Payment options</h4>
+            <h4>{{ 'footer.payment.options'|trans }}</h4>
             <ul>
                 <li><img src="/images/payment.png" alt="" /></li>
             </ul>
         </div>
         <div class="col col33">
-            <h4>Shipping</h4>
+            <h4>{{ 'footer.shipping'|trans }}</h4>
             <ul>
                 <li><img src="/images/shipping.png" alt="" /></li>
             </ul>
         </div>
         <div class="col col34">
-            <h4>Information</h4>
+            <h4>{{ 'footer.information'|trans }}</h4>
             <hardcoded block>
             <ul>
                 <li><a href="cms.html">Privacy</a></li>
@@ -84,6 +88,17 @@
         </div>
     </section>
     {% endblock %}
+    <script type="text/javascript">
+        var $buoop = {};
+        $buoop.ol = window.onload;
+        window.onload=function(){
+            try {if ($buoop.ol) $buoop.ol();}catch (e) {}
+            var e = document.createElement("script");
+            e.setAttribute("type", "text/javascript");
+            e.setAttribute("src", "http://browser-update.org/update.js");
+            document.body.appendChild(e);
+        }
+    </script>
 </footer>
 
 <link rel="stylesheet" href="/styles/responsive.css" />

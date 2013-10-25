@@ -1,7 +1,8 @@
 {% extends "@application/layout/full.twig" %}
 {% block content %}
-    <link rel="stylesheet" href="/styles/product.css" />
     {% include "@application/partials/navbar.twig" with {'categories': categories } only %}
+    <link rel="stylesheet" href="/styles/product.css" />
+    <script src="/scripts/app/catalog.js"></script>
 
     <section class="consumeHeight" id="product">
         <ul id="breadcrumbs">
@@ -10,10 +11,9 @@
             <li>{{ product.name }}</li>
         </ul>
         <aside class="assist col col25">
-            <hardcoded block>
             <ul class="usps">
-                <li><span class="glyphicon glyphicon-gift"></span>Free Shipping & Return</li>
-                <li><span class="glyphicon glyphicon-refresh"></span>30 Days of Return</li>
+                <li><span class="glyphicon glyphicon-gift"></span>{{ 'catalog.usp.shipping'|trans }}</li>
+                <li><span class="glyphicon glyphicon-refresh"></span>{{ 'catalog.usp.return'|trans }}</li>
             </ul>
             <ul class="social">
                 <li class="facebook"></li>
@@ -21,7 +21,6 @@
                 <li class="twitter"></li>
                 <li class="youtube"></li>
             </ul>
-            </hardcoded>
         </aside>
         <div class="pictures col col50">
             <div class="current">
@@ -42,7 +41,7 @@
                 {#{% endif %}#}
             </div>
             <ul class="list">
-                {% for image in getAllProductImagesBySize(product.product_images, 's') %}
+                {% for image in getAllProductImagesBySize(product.product_images, 'm') %}
                 <li class="col col20">
                     <img class="col" src="{{ image }}" alt="" />
                 </li>
@@ -56,18 +55,16 @@
                 <div class="oldPrice">{{ product.recommended_retail_price|price }}</div>
             {% endif %}
             <div class="price">{{ product.price|price }}</div>
-            <div class="hint"><hardcoded>incl. {{ product.tax_rate }}% VAT</hardcoded></div>
+            <div class="hint">{{ 'catalog.percentage.vat'|trans({'%product.tax_rate%' : product.tax_rate}) }}</div>
 
             {% if product.stock > 0 %}
                 <form action="{{ url('cart/add', {sku: product.sku} ) }}">
                     <input class="fullWidth" type="number" name="quantity" value="1" min="1" max="{{ product.stock > 30 ? 30 : product.stock }}" step="1" />
                     <!--input class="fullWidth" type="hidden" name="options[]" value="B1" USE this input(s) to add options to the cartitem /-->
-                    <input class="submit fullWidth" type="submit" value="Buy Now" />
+                    <input class="submit fullWidth" type="submit" value="{{ 'catalog.buy'|trans }}" />
                 </form>
             {% else %}
-                <div class="unavailable">
-                    currently out of stock
-                </div>
+                <div class="unavailable">{{ 'catalog.out.of.stock'|trans }}</div>
             {% endif %}
         </aside>
 
@@ -84,14 +81,12 @@
             <p>{{ product.description }}</p>
         </div>
         <aside class="specs col col25">
-            <h4>More details</h4>
-            <hardcoded block>
+            <h4>{{ 'catalog.details.headline'|trans }}</h4>
             <ul>
-                <li>Material: {{ product.material }}</li>
-                <li>Dimension: {{ product.dimension_in_cm }}</li>
-                <li>Color: {{ product.color }}</li>
+                <li>{{ 'catalog.details.material'|trans }} {{ product.material }}</li>
+                <li>{{ 'catalog.details.dimension'|trans }} {{ product.dimension_in_cm }}</li>
+                <li>{{ 'catalog.details.color'|trans }} {{ product.color }}</li>
             </ul>
-            </hardcoded>
         </aside>
     </section>
 {% endblock %}

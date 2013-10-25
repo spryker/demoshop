@@ -9,31 +9,35 @@ app.checkout = {
                 $('.address.secondaryRow').hide();
             }
         });
+        //alert('Was fehlt noch: Ein ensureVisibility helper muss rein & die validation noch ausgeklügelter');
     },
     smartAddress : {
         vars : {
-            required : [/*'gender',*/ 'full_name', 'full_address'],
-            addressField : 'full_address',
-            nameField : 'full_name',
+            required : [/*'gender',*/ 'salesOrder[full_name]', 'salesOrder[full_address]'],
+            addressField : 'salesOrder[full_address]',
+            nameField : 'salesOrder[full_name]',
             // genderField : 'gender',
             relevantGValues : ['street_number', 'route', 'locality', 'postal_code', 'country'],
-            scopes : ['shipping', 'billing']
+            scopes : ['shipping', 'billing'],
+            resultDiv : '.addressResult',
+            triggers : '.smartAddressTrigger',
+            geocodeUrl : 'http://maps.googleapis.com/maps/api/geocode/json'
         },
         init : function() {
-            $('.smartAddressTrigger').change(this.apply.bind(this));
-            $('.smartAddressTrigger').click(this.click.bind(this));
-            $('.addressResult button').click(function(e) {
+            $(this.vars.triggers).change(this.apply.bind(this))
+                .click(this.click.bind(this));
+            $(this.vars.resultDiv).children('button').click(function(e) {
                 e.preventDefault();
-                $(this).parent().hide();
-            });
+                this.hideResult();
+            }.bind(this));
         },
-        click : function() {
-            if ($('.smartAddressTrigger').length) {
+        click : function(e) {
+            if ($(this.vars.triggers).length && $(e.target).val() && !this.resultIsVisible()) {
                 this.apply();
             }
         },
-        apply : function() {
-            var fields = $('.smartAddressForm').serializeArray();
+        apply : function(e, withoutStorePrependix) {
+            var fields = $(app.checkout.steps.vars.form).serializeArray();
             var required = this.vars.required;
 
             $.each(fields, function(key, object) {
@@ -46,17 +50,29 @@ app.checkout = {
                 return;
             }
 
-            this.triggerSearch(fields);
+            this.triggerSearch(fields, withoutStorePrependix);
         },
-        triggerSearch : function(fields) {
+        triggerSearch : function(fields, withoutStorePrependix) {
             var address = this.getField(this.vars.addressField, fields);
-            $.getJSON('http://maps.googleapis.com/maps/api/geocode/json', { address : address, sensor : false }, function(response) {
-                if (!response || response.status !== 'OK' || !response.results || !response.results[0]) {
-                    // fallback
+            $.getJSON(this.vars.geocodeUrl, { address : address + (withoutStorePrependix ? '' : (' ' + app.vars.storeLocale)) , sensor : false }, function(response) {
+                var relevantValues = {};
+
+                var fullName = this.getField(this.vars.nameField, fields);
+                var nameParts = fullName.split(' ');
+                relevantValues.last_name = nameParts.pop();
+                if (!nameParts.length) {
                     return;
                 }
+                relevantValues.first_name = nameParts.shift();
+                relevantValues.middle_name = nameParts.join(' ');
 
-                var relevantValues = {};
+                if (!response || response.status !== 'OK' || !response.results || !response.results[0]) {
+                    if (withoutStorePrependix) {
+                        return this.showResult(relevantValues);
+                    }
+                    return app.checkout.smartAddress.apply(null, true);
+                }
+
                 $.each(response.results[0].address_components, function(key, addressComponent) {
                     $.each(addressComponent.types, function(key, type) {
                         if ($.inArray(type, this.vars.relevantGValues) !== -1) {
@@ -65,16 +81,6 @@ app.checkout = {
                     }.bind(this))
                 }.bind(this));
 
-                var fullName = this.getField(this.vars.nameField, fields);
-                var nameParts = fullName.split(' ');
-                relevantValues.last_name = nameParts.pop();
-                if (!nameParts.length) {
-                    // fallback
-                    return;
-                }
-
-                relevantValues.first_name = nameParts.shift();
-                relevantValues.middle_name = nameParts.join(' ');
                 // relevantValues.gender = this.getField(this.vars.genderField, fields);
 
                 this.showResult(relevantValues);
@@ -89,7 +95,11 @@ app.checkout = {
             return '';
         },
         showResult : function(relevantValues) {
-            var $resultDiv = $('.addressResult');
+            var $resultDiv = $(this.vars.resultDiv);
+
+            if (!relevantValues) {
+                return $resultDiv.show();
+            }
             $resultDiv.find(':input').val('');
             $.each(relevantValues, function(key, value) {
                 var $target = $('[data-src="' + key + '"]');
@@ -112,6 +122,15 @@ app.checkout = {
             });
 
             $resultDiv.show();
+        },
+        hideResult : function() {
+            $(this.vars.resultDiv).hide();
+        },
+        resultIsVisible : function() {
+            return $(this.vars.resultDiv).is(':visible');
+        },
+        containsErrors : function() {
+            return !!$(this.vars.resultDiv).find('.validationError').length;
         }
     },
     steps : {
@@ -126,7 +145,21 @@ app.checkout = {
                 if (this.vars.current < this.vars.count) {
                     e.preventDefault();
                 }
-                this.next();
+                var validation = app.checkout.validation;
+                var $container = $(this.vars.el).filter('[data-step=' + this.vars.current + ']');
+                this.copyAddress();
+
+                if (validation.resultIsValid(validation.apply($container))) {
+                    this.next();
+                } else {
+                    var smartAddress = app.checkout.smartAddress;
+                    if (smartAddress.containsErrors()) {
+                        smartAddress.showResult();
+                    } else {
+                        smartAddress.hideResult();
+                    }
+                    // @todo ensureVisibility helper, error descriptions
+                }
             }.bind(this));
         },
         change : function() {
@@ -157,6 +190,77 @@ app.checkout = {
             }
             this.vars.current++;
             this.change();
+        },
+        copyAddress : function() {
+            // this is just for the 2nd step.. the backend should evaluate the checkbox anyway
+            // todo: make it less hard coded
+            if ($('#chooseDifferentBilling').is(':checked')) {
+                return;
+            }
+
+            $(':input[name^="salesOrder[shippingAddress]["]').each(function() {
+                var currentPart = $(this).attr('name').split('[')[2].split(']')[0];
+                $(':input[name="salesOrder[billingAddress][' + currentPart + ']"]').val($(this).val());
+            });
+        }
+    },
+    validation : {
+        apply : function($container) {
+            var result = this.check($container);
+            $container.find(':input[name]').removeClass('validationError');
+            this.getInvalidItems(result).addClass('validationError');
+            return result;
+        },
+        resultIsValid : function(result) {
+            var valid = true;
+            for (var i in result) {
+                if (result[i].valid === false) {
+                    valid = false;
+                }
+            }
+            return valid;
+        },
+        getInvalidItems : function(result) {
+            var names = [];
+            for (var i in result) {
+                if (result[i].valid === false) {
+                    names.push(i);
+                }
+            }
+            return $(names.map(function(item) { return '[name="' + item + '"]'; }).join(', '));
+        },
+        check : function($container) {
+            var result = {};
+            var formValues = {};
+            $.each($container.closest('form').serializeArray(), function() {
+                formValues[this.name] = this.value;
+            });
+
+            $.each($container.find('[data-validator-precondition]'), function() {
+                if(!new Function($(this).data('validatorPrecondition'))()) {
+                    $(this).attr('data-validator-prevent', true);
+                } else {
+                    $(this).removeAttr('data-validator-prevent');
+                }
+            });
+
+            $.each($container.find(':input[name]').not('[data-validator-prevent] :input'), function() {
+                var currentName = $(this).attr('name');
+                result[currentName] = { valid : true, check : 'none' }
+                if ($(this).is(':required')) {
+                    result[currentName] = { valid : !!formValues[currentName], check : 'required' };
+                }
+
+                if (!result[currentName].valid) { return; }
+
+                if ($(this).is('[type=email]')) {
+                    result[currentName] = { valid : /[A-Z0-9._%a-z\-\+]+?@(?:[A-Z0-9a-z\-]+\.)+?[A-Za-z]{2,4}/.test(formValues[currentName]), check : 'email' };
+                }
+
+                // implement more checks here if necessary
+            });
+
+            return result;
         }
     }
 }

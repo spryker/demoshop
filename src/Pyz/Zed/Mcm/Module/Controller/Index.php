@@ -1,11 +1,11 @@
 <?php
 
 class Pyz_Zed_Mcm_Module_Controller_Index
-    extends ProjectA_Zed_Library_Controller_Setup
-    implements ProjectA_Zed_Mcm_Component_Dependency_Facade_Interface
+    extends \ProjectA_Zed_Library_Controller_Setup
+    implements \Generated\Zed\Mcm\Component\Dependency\McmFacadeInterface
 {
 
-    use ProjectA_Zed_Mcm_Component_Dependency_Facade_Trait;
+    use \Generated\Zed\Mcm\Component\Dependency\McmFacadeTrait;
 
 
     public function indexAction(){

@@ -18,14 +18,14 @@
     <content>
         <label>Content</label>
         <title>Content</title>
-        <uri>/cms</uri>
+        <uri>/glossary/key</uri>
     </content>
     <marketing>
         <label>Marketing</label>
         <title>Marketing</title>
         <uri>/salesrule</uri>
     </marketing>
-    <dwh/>
+    <!--<dwh/>-->
     <acl>
         <label>Users &amp; Roles</label>
         <title>Users &amp; Roles</title>

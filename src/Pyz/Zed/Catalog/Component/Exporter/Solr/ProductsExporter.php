@@ -11,16 +11,16 @@ use \ProjectA_Zed_Catalog_Component_Interface_GroupConstant as GroupConstant;
 
 abstract class ProductsExporter extends CoreProductsExporter implements
      \ProjectA_Zed_Yves_Component_Interface_Exporter_Solr,
-     \ProjectA_Zed_Price_Component_Dependency_Facade_Interface,
-     \ProjectA_Zed_Solr_Component_Dependency_Facade_Interface,
-     \ProjectA_Zed_Yves_Component_Dependency_Facade_Interface,
+     \Generated\Zed\Price\Component\Dependency\PriceFacadeInterface,
+     \Generated\Zed\Solr\Component\Dependency\SolrFacadeInterface,
+     \Generated\Zed\Yves\Component\Dependency\YvesFacadeInterface,
      ProductAttributeConstant,
      ProductAttributeSetConstant,
      \Pyz_Shared_Library_StorageKeyConstant
 {
-    use \ProjectA_Zed_Solr_Component_Dependency_Facade_Trait;
-    use \ProjectA_Zed_Price_Component_Dependency_Facade_Trait;
-    use \ProjectA_Zed_Yves_Component_Dependency_Facade_Trait;
+    use \Generated\Zed\Solr\Component\Dependency\SolrFacadeTrait;
+    use \Generated\Zed\Price\Component\Dependency\PriceFacadeTrait;
+    use \Generated\Zed\Yves\Component\Dependency\YvesFacadeTrait;
 
     /**
      * @var array
@@ -83,22 +83,24 @@ abstract class ProductsExporter extends CoreProductsExporter implements
         return $task;
     }
 
-//    /**
-//     * @param ProjectA_Zed_Catalog_Component_Interface_ProductEntity $product
-//     * @return array
-//     */
-//    protected function prepareCategories(ProjectA_Zed_Catalog_Component_Interface_ProductEntity $product)
-//    {
-//        $categories = array();
-//        $productCategories = $this->factory->createModelFinder()->getCategoriesForProduct($product);
-//
-//        /* @var $productCategory ProjectA_Zed_Category_Persistence_PacCategory */
-//        foreach ($productCategories as $productCategory) {
-//            $categories[] = $productCategory->getIdCategory();
-//        }
-//
-//        return $categories;
-//    }
+    /**
+     * //TODO needs refactoring after config/simple has changed
+     *
+     * @param $id
+     * @return mixed
+     */
+    protected function prepareCategories($id)
+    {
+        $categories = array();
+        $product = $this->factory->createFacade()->getProductById($id);
+        $productCategories = $this->factory->createModelFinder()->getCategoriesForProduct($product->getSimple()->getConfig()->getProduct());
+
+        /* @var $productCategory \ProjectA_Zed_Category_Persistence_PacCategory */
+        foreach ($productCategories as $productCategory) {
+            $categories[] = $productCategory->getIdCategory();
+        }
+        return $categories;
+    }
 
     /**
      * @param \Traversable $collection
@@ -263,7 +265,7 @@ abstract class ProductsExporter extends CoreProductsExporter implements
 //        unset($data[$id]['int_sort_price']);
 
         //add categories
-        //$data[$sku]['int_facet_category'] = $this->prepareCategories($product);
+        $data[$id]['int_facet_category'] = $this->prepareCategories($id);
 
         return $data;
     }

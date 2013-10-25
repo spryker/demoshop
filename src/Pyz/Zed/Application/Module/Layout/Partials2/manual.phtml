@@ -1,0 +1,15 @@
+<?php $request = Zend_Controller_Front::getInstance()->getRequest();
+$package = Generated_Shared_BundlePackageMapper::getPackageNameByBundle(ucfirst($request->getModuleName()));
+$path = APPLICATION_VENDOR_DIR . '/project-a/' . $package . '/manual/';
+$path .= $request->getModuleName() . '_' . $request->getControllerName() . '_' . $request->getActionName() . '.html';
+$path = strtolower($path);
+if (file_exists($path)):
+$manual = file_get_contents($path);
+?>
+<aside id="manual">
+    <div class="handle"><?php echo __('manual'); ?></div>
+    <div class="content">
+        <?= $manual ?>
+    </div>
+</aside>
+<?php endif; ?>

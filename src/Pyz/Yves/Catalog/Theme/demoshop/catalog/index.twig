@@ -30,47 +30,14 @@
         </div>
 
         <div class="sidebar col col25">
-            <hardcoded block>
-            <ul class="filters">
-                <li>
-                    <h3>Brands</h3>
-                    <input type="text" placeholder="Find Brand" class="search fullWidth">
-                    <select size="4" multiple>
-                        <option value="arnaldo">Arnaldo</option>
-                        <option value="christ">Christ</option>
-                        <option value="kartell">Kartell</option>
-                        <option value="lager">Lager</option>
-                    </select>
-                </li>
-                <li>
-                    <h3>Price</h3>
-                    <legend class="min">free</legend>
-                    <legend class="max">expensive</legend>
-                    <input type="range" value="0" max="100" data-most-expensive="250" data-connectors=".priceConnector" />
-                    <input class="priceConnector min" type="number" value="0" disabled />
-                    <input class="priceConnector max" type="number" value="0" disabled />
-                </li>
-                <li>
-                    <h3>Material</h3>
-                    <label>
-                        <input type="checkbox" name="material" value="glass" /> Glass
-                    </label>
-                    <label>
-                        <input type="checkbox" name="material" value="metal" /> Metal
-                    </label>
-                    <label>
-                        <input type="checkbox" name="material" value="wood" /> Wood
-                    </label>
-                </li>
-            </ul>
-            </hardcoded>
+            {% include "@catalog/partials/filters.twig" with {'facets': facets } only %}
         </div>
 
         <ul class="products col col75">
             {% for product in products %}
                 <li>
                     <a href="/{{ product.name | url_encode | replace({'-': '+'}) }}-{{ product.id }}.html">
-                        <img src="{{ getFirstProductImagesBySize(product.product_images, 'l') }}" alt="picture will be here, once implemented" />
+                        <img src="{{ getFirstProductImagesBySize(product.product_images, 'l') }}" alt="" />
                         <h3>{{ product.name }}</h3>
                         <h4>by {{ product.brand }}</h4>
                         {% if product.recommended_retail_price %}

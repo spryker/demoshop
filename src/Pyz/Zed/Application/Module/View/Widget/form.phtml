@@ -1,0 +1,27 @@
+<script>
+    $('#<?php echo $this->form->getAttrib('id') ?>').submit(function (e) {
+        console.log('submit');
+        var data = new FormData();
+        $.ajax({
+            url: '<?php echo $this->form->getAction() ?>',
+            data: $('#<?php echo $this->form->getAttrib('id') ?>').serialize(),
+            processData: false,
+            type: 'POST',
+            success: function (data) {
+                if (!data.success) {
+                    var form = data.form;
+                    $('#<?php echo $this->form->getAttrib('id') ?>').parent().html(form);
+                } else {
+                    if (data.redirectUrl) {
+                        window.location.href = data.redirectUrl;
+                    }
+                }
+            }
+        });
+        e.preventDefault();
+    });
+</script>
+<?php
+    $this->headStyle();
+    $this->headScript();
+    echo $this->form;

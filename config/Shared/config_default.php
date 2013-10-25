@@ -93,7 +93,7 @@ $config['storage'] = [
     'solr' => [
         'config_dir' => APPLICATION_ROOT_DIR . '/config/Zed/solr',
         'application_dir' => APPLICATION_VENDOR_DIR . '/project-a/infrastructure-package/bin/',
-        'data_dir' => ProjectA_Shared_Library_Data::getLocalCommonPath('solr'),
+        'data_dir' => \ProjectA_Shared_Library_Data::getLocalCommonPath('solr'),
 
         'defaultEndpointSetup' => [
             'host' => 'localhost',
@@ -143,8 +143,8 @@ $config['jenkins'] = array(
  */
 $config['host'] = array(
     'yves'          => 'http://www-development.project-yz.com',
-    'zed'           => 'http://zed-development.project-yz.com',
-    'zed_local'     => 'localhost:10001',
+    'zed_gui'       => 'http://zed-development.project-yz.com',
+    'zed_api'       => 'localhost:10101',
 
     'static_assets' => '',
     'static_media'  => '',
@@ -152,8 +152,8 @@ $config['host'] = array(
 
 $config['host_ssl'] = array(
     'yves'          => 'https://www-development.project-yz.com',
-    'zed'           => 'https://zed-development.project-yz.com',
-    'zed_local'     => 'localhost:10001',
+    'zed_gui'       => 'https://zed-development.project-yz.com',
+    'zed_api'       => 'localhost:10101',
 
     'static_assets' => '',
     'static_media'  => '',
@@ -237,7 +237,7 @@ $config['zed'] = array(
     ),
     'ssl_enabled'  => true,
     'ssl_excluded' => array(
-        'monitoring/heartbeat'
+        'system/heartbeat'
     ),
     'customercare' => array(
         'zed_backlink' => 'DEFAULT.zed.saatchionline.com',
@@ -322,9 +322,9 @@ $config['product_images_ftp_account'] = array(
 
 $config['propel'] = array(
     'propel.project.dir'                      =>
-    APPLICATION_SOURCE_DIR . '/Generated/Zed/PropelGen/' . ProjectA_Shared_Library_Store::getInstance()->getStoreName() . '/',
+    APPLICATION_SOURCE_DIR . '/Generated/Zed/PropelGen/' . \ProjectA_Shared_Library_Store::getInstance()->getStoreName() . '/',
     'propel.schema.dir'                       =>
-    APPLICATION_SOURCE_DIR . '/Generated/Zed/PropelGen/' . ProjectA_Shared_Library_Store::getInstance()->getStoreName() . '/Schema',
+    APPLICATION_SOURCE_DIR . '/Generated/Zed/PropelGen/' . \ProjectA_Shared_Library_Store::getInstance()->getStoreName() . '/Schema',
     'propel.php.dir'                          => APPLICATION_ROOT_DIR,
     'propel.packageObjectModel'               => 'true',
     'propel.project'                          => 'zed',

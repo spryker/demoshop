@@ -1,5 +1,5 @@
 <?php
-class Pyz_Zed_DwhOrderStatusMapping_Component_Settings extends ProjectA_Zed_DwhOrderStatusMapping_Component_Settings
+class Pyz_Zed_DwhOrderStatusMapping_Component_Settings extends \ProjectA_Zed_DwhOrderStatusMapping_Component_Settings
 {
 
     /**
@@ -8,7 +8,7 @@ class Pyz_Zed_DwhOrderStatusMapping_Component_Settings extends ProjectA_Zed_DwhO
      */
     public function getStatusMappingFileName()
     {
-        return APPLICATION_SOURCE_DIR . '/' . ProjectA_Shared_Library_Config::get('projectNamespace') . '/Zed/DwhOrderStatusMapping/Component/File/status-mapping.xml';
+        return APPLICATION_SOURCE_DIR . '/' . \ProjectA_Shared_Library_Config::get('projectNamespace') . '/Zed/DwhOrderStatusMapping/Component/File/status-mapping.xml';
     }
 
 }

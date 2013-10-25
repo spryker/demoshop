@@ -1,9 +1,13 @@
 <?php
 /**
- * @property Generated_Zed_Calculation_Component_Factory $factory
+ * @property \Generated\Zed\Calculation\Component\CalculationFactory $factory
  */
-class Pyz_Zed_Calculation_Component_Settings extends ProjectA_Zed_Calculation_Component_Settings implements ProjectA_Zed_Library_Dependency_Factory_Interface
+class Pyz_Zed_Calculation_Component_Settings extends \ProjectA_Zed_Calculation_Component_Settings implements
+    \ProjectA\Zed\Library\Dependency\DependencyFactoryInterface,
+   \Generated\Zed\Salesrule\Component\Dependency\SalesruleFacadeInterface
 {
+
+    use \Generated\Zed\Salesrule\Component\Dependency\SalesruleFacadeTrait;
 
     /**
      * @return array
@@ -18,7 +22,7 @@ class Pyz_Zed_Calculation_Component_Settings extends ProjectA_Zed_Calculation_Co
             $this->factory->createModelCalculatorsSubtotal(),
             $this->factory->createModelCalculatorsSubtotalWithoutItemExpenses(),
             $this->factory->createModelCalculatorsGrandTotalWithoutDiscounts(),
-            $this->factory->createModelCalculatorsSalesrule(),
+            $this->facadeSalesrule->createSalesruleCalculator(),
             $this->factory->createModelCalculatorsExpensePriceToPay(),
             $this->factory->createModelCalculatorsItemPriceToPay(),
             $this->factory->createModelCalculatorsOptionPriceToPay(),

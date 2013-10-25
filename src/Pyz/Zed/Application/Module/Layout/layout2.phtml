@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en">
 <head>
     <meta charset="utf-8">
-    <title>Zed v2 (<?php echo APPLICATION_ENV ?>)</title>
+    <title>Project YZ (<?php echo APPLICATION_ENV ?>)</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <?php echo $this->partial('Partials2/include.phtml', array()); ?>
 </head>
@@ -31,6 +31,10 @@
         </header>
 
         <?php echo $this->partial('Partials2/messages.phtml', array()); ?>
+
         <?php echo $this->layout()->content; ?>
     </main>
+
+    <?php echo $this->partial('Partials2/manual.phtml', array()); ?>
+
 </body>

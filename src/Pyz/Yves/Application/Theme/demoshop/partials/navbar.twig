@@ -2,7 +2,7 @@
     <section class="transparent">
         <ul class="main">
             {% for category in categories %}
-                <li><!--<a href="/{{ category['data']['url'] }}">--><a href="{{ url('catalog/index') }}">{{ category['data']['name'] }}</a></li>
+                <li><a href="/{{ category['data']['url'] }}">{{ category['data']['name'] }}</a></li>
             {% endfor %}
         </ul>
     </section>

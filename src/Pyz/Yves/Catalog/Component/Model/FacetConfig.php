@@ -1,44 +1,56 @@
 <?php
 namespace Pyz\Yves\Catalog\Component\Model;
 
+use ProjectA\Yves\Catalog\Component\Model\FacetConfig as CoreFacetConfig;
+
 /**
  * @package Pyz\Yves\Catalog\Component\Model
  */
-class FacetConfig
+class FacetConfig extends CoreFacetConfig
 {
-    const KEY_PARAM = 'param';
-    const KEY_ACTIVE = 'active';
-    const KEY_TYPE = 'type';
-
-    const TYPE_ENUMERATION = 'enumeration';
-    const TYPE_CATEGORY = 'category';
-    const TYPE_SLIDER = 'slider';
-    const TYPE_BOOL = 'bool';
-
     /**
      * //TODO fill with valid values, e.g. param names, active
      * @var array
      */
     protected static $facets = [
-        'int_facet_height' => [
+        'number_facet_price' => [
+            self::KEY_TYPE => self::TYPE_SLIDER,
+            self::KEY_PARAM => 'price',
+            self::KEY_ACTIVE => true,
+            self::KEY_RANGE_DIVIDER => '-',
+            self::KEY_VALUE_CALLBACK_BEFORE => [__CLASS__, 'priceValueCallbackBefore'],
+            self::KEY_VALUE_CALLBACK_AFTER => [__CLASS__, 'priceValueCallbackAfter']
+        ],
+        'int_facet_category' => [
             self::KEY_TYPE => self::TYPE_CATEGORY,
+            self::KEY_PARAM => 'category',
+            self::KEY_ACTIVE => true,
+            self::KEY_IN_URL => true,
+            self::KEY_SHORT_PARAM => 'c',
+            self::KEY_URL_POSITION => 0
+        ],
+        'int_facet_height' => [
+            self::KEY_TYPE => self::TYPE_ENUMERATION,
             self::KEY_PARAM => 'cat', //maybe revoke because cat is part of the url
-            self::KEY_ACTIVE => true
+            self::KEY_ACTIVE => false
         ],
         'int_facet_depth' => [
             self::KEY_TYPE => self::TYPE_ENUMERATION,
             self::KEY_PARAM => 'depth',
-            self::KEY_ACTIVE => true
+            self::KEY_ACTIVE => false
         ],
         'int_facet_width' => [
             self::KEY_TYPE => self::TYPE_ENUMERATION,
             self::KEY_PARAM => 'width',
-            self::KEY_ACTIVE => true
+            self::KEY_ACTIVE => false
         ],
         'string_facet_brand' => [
             self::KEY_TYPE => self::TYPE_ENUMERATION,
             self::KEY_PARAM => 'brand',
-            self::KEY_ACTIVE => true
+            self::KEY_ACTIVE => true,
+            self::KEY_IN_URL => true,
+            self::KEY_SHORT_PARAM => 'b',
+            self::KEY_URL_POSITION => 1
         ],
         'string_facet_color' => [
             self::KEY_TYPE => self::TYPE_ENUMERATION,
@@ -48,74 +60,29 @@ class FacetConfig
         'string_facet_material' => [
             self::KEY_TYPE => self::TYPE_ENUMERATION,
             self::KEY_PARAM => 'material',
-            self::KEY_ACTIVE => true
+            self::KEY_ACTIVE => true,
+            self::KEY_IN_URL => true,
+            self::KEY_SHORT_PARAM => 'm',
+            self::KEY_URL_POSITION => 2,
+            self::KEY_RETURN_ZERO_VALUES => true
         ]
     ];
 
     /**
-     * @param $facetName
-     * @return string|null
-     */
-    public static function getParameterNameForFacet($facetName)
-    {
-        return isset(self::$facets[$facetName]) ? self::$facets[$facetName] : null;
-    }
-
-    /**
-     * @param $paramName
-     * @return string|null
-     * @throws \RuntimeException
-     */
-    public static function getFacetNameFromParameter($paramName)
-    {
-        $callback = function ($facet) use ($paramName) {
-            return self::filterFacetByParamNameCallback($facet, $paramName);
-        };
-        $facetForParam = array_filter(self::$facets, $callback);
-        $keys = array_keys($facetForParam);
-        if (count($keys) > 1) {
-            throw new \RuntimeException('Parameter names for Facets must be unique, Duplicates found for param: '. $paramName);
-        }
-        return array_pop($keys);
-    }
-
-    /**
-     * @return array
-     */
-    public static function getActiveFacets()
-    {
-        return array_filter(self::$facets, [__CLASS__, 'filterActiveFacetsCallback']);
-    }
-
-    /**
-     * @return array
-     */
-    public static function getAllParamNamesForFacets()
-    {
-        $paramNames = [];
-        foreach (self::$facets as $facet) {
-            $paramNames[] = $facet[self::KEY_PARAM];
-        }
-
-        return $paramNames;
-    }
-
-    /**
-     * @param $facet
+     * @param $value
      * @return mixed
      */
-    protected static function filterActiveFacetsCallback($facet)
+    public static function priceValueCallbackBefore($value)
     {
-        return $facet[self::KEY_ACTIVE];
+        return $value * 100;
     }
 
     /**
-     * @param $facet
-     * @param $paramName
-     * @return bool
+     * @param $value
+     * @return mixed
      */
-    protected static function filterFacetByParamNameCallback($facet, $paramName)
+    public static function priceValueCallbackAfter($value)
     {
-        return $facet[self::KEY_PARAM] == $paramName;
+        return $value / 100;
     }
 }

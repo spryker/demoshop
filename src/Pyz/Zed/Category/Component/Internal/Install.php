@@ -1,12 +1,8 @@
 <?php
 namespace Pyz\Zed\Category\Component\Internal;
 
-use ProjectA\Zed\Library\CodeGenerator\Zed\EntityLoader;
-
 /**
- * Class Install
- * @package Pyz\Zed\Category\Component\Internal
- * @property \Generated_Zed_Category_Component_Factory $factory
+ * @property \Generated\Zed\Category\Component\CategoryFactory $factory
  */
 class Install extends \ProjectA_Zed_Category_Component_Internal_Install
 {

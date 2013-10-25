@@ -15,6 +15,10 @@
         <script src="/scripts/vendor/modernizr-2.6.2-respond-1.1.0.min.js"></script>
 
         <script src="/scripts/app/main.js"></script>
+        <script>
+            // hardcoded
+            app.vars.storeLocale = 'US';
+        </script>
     {% endblock %}
 </head>
 <body>
@@ -27,9 +31,9 @@
             </a>
             <div class="col col67">
                 <ul class="usps">
-                    <li><span class="glyphicon glyphicon-gift"></span>Free Shipping & Return</li>
-                    <li><span class="glyphicon glyphicon-refresh"></span>30 Days of Return</li>
-                    <li><span class="glyphicon glyphicon-phone-alt"></span>Hotline: +49 (0) 30 340 606 300</li>
+                    <li><span class="glyphicon glyphicon-gift"></span>{{ 'header.usp.shipping'|trans }}</li>
+                    <li><span class="glyphicon glyphicon-refresh"></span>{{ 'header.usp.return'|trans }}</li>
+                    <li><span class="glyphicon glyphicon-phone-alt"></span>{{ 'header.phone'|trans }}}</li>
                 </ul>
             </div>
         </div>

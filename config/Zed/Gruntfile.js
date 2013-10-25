@@ -21,6 +21,11 @@ module.exports = function ( grunt ) {
             'dist': 'static/public/Zed/new'
         },
 
+        zedDirectories : {
+            'pkg' : 'vendor/project-a',
+            'dist' : 'static/public/Zed/bundles'
+        },
+
         pkg : grunt.file.readJSON( 'package.json' ),
 
         connect: {
@@ -99,6 +104,23 @@ module.exports = function ( grunt ) {
                             '!flag/'
                         ],
                         dest   : '<%= yvesDirectories.dist %>/images/'
+                    }
+                ]
+            },
+            packages : {
+                files : [
+                    {
+                        expand : true,
+                        cwd    : '<%= zedDirectories.pkg %>/',
+                        src    : [
+                            '**/Static/**/*'
+                        ],
+                        dest   : '<%= zedDirectories.dist %>/',
+
+                        rename : function ( dest, src ) {
+                            return  dest + src.replace( /([\\\/]?([\w-_]+[\\\/])*([\w-_]+)[\\\/]static)/i, '$3' );
+                        }
+
                     }
                 ]
             }
@@ -183,7 +205,7 @@ module.exports = function ( grunt ) {
             scripts : {
                 files : '<%= yvesDirectories.src %>/**/*.js',
                 tasks : [
-                    'jshint:dev',
+                    //'jshint:dev',
                     'copy:scripts'
                 ]
             }
@@ -196,12 +218,13 @@ module.exports = function ( grunt ) {
         'compass:dist',
         'copy:vendorStyles',
 
-        'jshint:dist',
+        //'jshint:dist',
         'clean:scripts',
         'copy:scripts',
         'copy:vendorScripts',
         'copy:fonts',
-        'copy:images'
+        'copy:images',
+        'copy:packages'
     ]);
 
     // grunt for development
@@ -210,13 +233,13 @@ module.exports = function ( grunt ) {
         'compass:dev',
         'copy:vendorStyles',
 
-        'jshint:dev',
+        //'jshint:dev',
         'clean:scripts',
         'copy:scripts',
         'copy:vendorScripts',
         'copy:fonts',
         'copy:images',
-
+        'copy:packages',
         'watch'
     ]);
 
@@ -225,12 +248,13 @@ module.exports = function ( grunt ) {
         'compass:clean',
         'compass:dev',
         'copy:vendorStyles',
-        'jshint:dev',
+        //'jshint:dev',
         'clean:scripts',
         'copy:scripts',
         'copy:vendorScripts',
         'copy:fonts',
-        'copy:images'
+        'copy:images',
+        'copy:packages'
     ]);
 
     // grunt [default]

@@ -1,13 +1,14 @@
 <?php
 
-class Pyz_Zed_Dwh_Component_Settings extends ProjectA_Zed_Dwh_Component_Settings implements
-    ProjectA_Zed_Library_Dependency_Factory_Interface
+class Pyz_Zed_Dwh_Component_Settings extends \ProjectA_Zed_Dwh_Component_Settings implements
+    \ProjectA\Zed\Library\Dependency\DependencyFactoryInterface
 {
-    use ProjectA_Zed_Library_Dependency_Factory_Trait;
+    use \ProjectA\Zed\Library\Dependency\DependencyFactoryTrait;
 
     protected $fileDir = null;
 
-    public function __construct(){
+    public function __construct()
+    {
         $this->fileDir = __DIR__.'/../File/';
     }
 
@@ -26,7 +27,7 @@ class Pyz_Zed_Dwh_Component_Settings extends ProjectA_Zed_Dwh_Component_Settings
     }
 
     /**
-     * Returns a list of ProjectA_Zed_Dwh_Component_Model_Report_Abstract instances
+     * Returns a list of \ProjectA_Zed_Dwh_Component_Model_Report_Abstract instances
      * @return array
      */
     public function getReports()

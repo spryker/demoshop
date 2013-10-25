@@ -2,7 +2,6 @@
 
 define('APPLICATION', 'ZED');
 defined('APPLICATION_ROOT_DIR') or define('APPLICATION_ROOT_DIR', realpath(__DIR__ . '/../../../..'));
-mb_internal_encoding('UTF-8');
 
 require_once(APPLICATION_ROOT_DIR . '/vendor/project-a/library-package/src/ProjectA/Shared/Library/Application/Environment.php');
 ProjectA\Shared\Library\Application\Environment::initialize();
@@ -12,4 +11,4 @@ if (file_exists(APPLICATION_SOURCE_DIR . '/Generated/Zed/DependencyInjectionCont
     require_once(APPLICATION_SOURCE_DIR . '/Generated/Zed/DependencyInjectionContainer.php');
 }
 
-ProjectA_Shared_Library_Context::setDefaultContext(ProjectA_Shared_Library_Context::CONTEXT_ZED);
+\ProjectA_Shared_Library_Context::setDefaultContext(\ProjectA_Shared_Library_Context::CONTEXT_ZED);
