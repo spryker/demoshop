@@ -31,7 +31,7 @@ class CatalogRouter extends AbstractRouter
                 $facetConfig
             );
 
-            return $this->getSchemaAndPort() . $url;
+            return $this->getSchemeAndPort() . $url;
         }
 
         throw new RouteNotFoundException;
