@@ -36,7 +36,6 @@ class Bootstrap extends \ProjectA\Yves\Library\Silex\Bootstrap
         $app['locale'] = \ProjectA_Shared_Library_Store::getInstance()->getCurrentLocale();
         if (\ProjectA_Shared_Library_Environment::isDevelopment()) {
             $app['profiler.cache_dir'] = \ProjectA_Shared_Library_Data::getLocalStoreSpecificPath('cache/profiler');
-            $app['profiler.mount_prefix'] = '/_profiler';
         }
     }
 
@@ -67,6 +66,7 @@ class Bootstrap extends \ProjectA\Yves\Library\Silex\Bootstrap
             new TranslationServiceProvider(),
             new FormServiceProvider(),
             new ValidatorServiceProvider(),
+            //new HttpFragmentServiceProvider(),
             new TwigServiceProvider(),
         ];
 
