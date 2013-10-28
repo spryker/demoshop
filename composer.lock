@@ -1125,7 +1125,7 @@
             "source": {
                 "type": "git",
                 "url": "git@codebasehq.com:project-a/core/payment.git",
-                "reference": "310966c709ad1cbd02b0302b523991bfaaa7cdc9"
+                "reference": "e74f07bfd04d4c3c874791a6e03f49e9058f94af"
             },
             "require": {
                 "php": ">=5.4.0"
@@ -1148,7 +1148,7 @@
             "keywords": [
                 "payment, payment provider"
             ],
-            "time": "2013-10-28 16:53:12"
+            "time": "2013-10-28 17:06:42"
         },
         {
             "name": "project-a/sales-package",
