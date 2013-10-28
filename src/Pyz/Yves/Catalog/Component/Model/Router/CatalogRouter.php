@@ -32,7 +32,7 @@ class CatalogRouter extends AbstractRouter
             );
 
             if ($referenceType === self::ABSOLUTE_URL) {
-                return $this->getSchemaAndPort() . $url;
+                return $this->getSchemeAndPort() . $url;
             } else {
                 return $url;
             }
