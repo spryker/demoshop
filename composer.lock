@@ -701,7 +701,7 @@
             "source": {
                 "type": "git",
                 "url": "git@codebasehq.com:project-a/core/checkout.git",
-                "reference": "5891d184eb9e73e790378d2f375c23ce23c0dae4"
+                "reference": "e24d784445692c60f14f7a0f0588d3bf90735f2f"
             },
             "require": {
                 "gavroche/browser": "~2.1",
@@ -731,7 +731,7 @@
                 "PaymentControl",
                 "Salesrule"
             ],
-            "time": "2013-10-25 10:00:03"
+            "time": "2013-10-28 11:06:07"
         },
         {
             "name": "project-a/console-package",
@@ -1009,7 +1009,7 @@
             "source": {
                 "type": "git",
                 "url": "git@codebasehq.com:project-a/core/library-2.git",
-                "reference": "a0abf9f4a096e1688420e50f14b48a8ff061cfb1"
+                "reference": "fc3f9e7832b4b68a6803817c2647d94ccbe3442a"
             },
             "require": {
                 "digital-canvas/zend-framework": ">=1.12.2",
@@ -1049,7 +1049,7 @@
                 }
             ],
             "description": "Project-A Library",
-            "time": "2013-10-28 07:47:32"
+            "time": "2013-10-28 11:06:50"
         },
         {
             "name": "project-a/lumberjack-package",
@@ -1154,7 +1154,7 @@
             "source": {
                 "type": "git",
                 "url": "git@codebasehq.com:project-a/core/sales.git",
-                "reference": "faeab67eb82264618ebf014f0e5f3a2cb2f7fef6"
+                "reference": "36a4eba37ed0114383f1db6fe498d130f379d5cd"
             },
             "require": {
                 "php": ">=5.4.0",
@@ -1181,7 +1181,7 @@
                 "Sales",
                 "Task"
             ],
-            "time": "2013-10-25 16:34:30"
+            "time": "2013-10-28 13:04:34"
         },
         {
             "name": "project-a/silex-routing",
