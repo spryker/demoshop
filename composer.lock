@@ -657,7 +657,7 @@
             "source": {
                 "type": "git",
                 "url": "git@codebasehq.com:project-a/core/catalog.git",
-                "reference": "28fdb2a8f44e08ed96f5a6f719107c09462d2dcb"
+                "reference": "1d21860311627bafcc8b8e650585879dbecad4c1"
             },
             "require": {
                 "php": ">=5.4.0",
@@ -693,7 +693,7 @@
                 "Price",
                 "Stock"
             ],
-            "time": "2013-10-25 17:37:23"
+            "time": "2013-10-28 14:06:49"
         },
         {
             "name": "project-a/checkout-package",
@@ -997,7 +997,9 @@
             "type": "library",
             "autoload": {
                 "psr-0": {
-                    "Kendo": "/src"
+                    "ProjectA": "src/",
+                    "Kendo": "src/",
+                    "PhpUnit": "tests/"
                 }
             },
             "description": "Core Library",
@@ -1154,7 +1156,7 @@
             "source": {
                 "type": "git",
                 "url": "git@codebasehq.com:project-a/core/sales.git",
-                "reference": "36a4eba37ed0114383f1db6fe498d130f379d5cd"
+                "reference": "18d7dcee456fb66e49d8436bf50f9f01290b3955"
             },
             "require": {
                 "php": ">=5.4.0",
@@ -1181,7 +1183,7 @@
                 "Sales",
                 "Task"
             ],
-            "time": "2013-10-28 13:04:34"
+            "time": "2013-10-28 13:52:14"
         },
         {
             "name": "project-a/silex-routing",
@@ -2770,12 +2772,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/zendframework/zf2.git",
-                "reference": "a8416881e4c5d3f0c842d3ece6d6bf3ae8e64e82"
+                "reference": "3141049e8766043c6153ec7a83062f45ffd5e712"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/zendframework/zf2/zipball/a8416881e4c5d3f0c842d3ece6d6bf3ae8e64e82",
-                "reference": "a8416881e4c5d3f0c842d3ece6d6bf3ae8e64e82",
+                "url": "https://api.github.com/repos/zendframework/zf2/zipball/3141049e8766043c6153ec7a83062f45ffd5e712",
+                "reference": "3141049e8766043c6153ec7a83062f45ffd5e712",
                 "shasum": ""
             },
             "require": {
@@ -2880,7 +2882,7 @@
                 "framework",
                 "zf2"
             ],
-            "time": "2013-10-27 11:50:25"
+            "time": "2013-10-28 13:46:54"
         },
         {
             "name": "zendframework/zendpdf",
