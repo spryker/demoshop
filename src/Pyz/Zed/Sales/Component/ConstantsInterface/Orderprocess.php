@@ -8,8 +8,6 @@ interface Orderprocess extends \ProjectA_Zed_Sales_Component_Interface_Orderproc
     const ORDER_PROCESS_DEMO = 'demo';
 
     // STATES
-    const STATE_AUTHORIZED = 'authorized';
-    const STATE_CAPTURED = 'captured';
 
     // EVENTS
 

@@ -657,7 +657,7 @@
             "source": {
                 "type": "git",
                 "url": "git@codebasehq.com:project-a/core/catalog.git",
-                "reference": "26cf324dc44d0f3d7ea696b4d647764d64d3a76b"
+                "reference": "3ce562af648351c2e706a65e15e6d063a923615b"
             },
             "require": {
                 "php": ">=5.4.0",
@@ -693,7 +693,7 @@
                 "Price",
                 "Stock"
             ],
-            "time": "2013-10-28 14:24:30"
+            "time": "2013-10-28 15:58:17"
         },
         {
             "name": "project-a/checkout-package",
@@ -1125,7 +1125,7 @@
             "source": {
                 "type": "git",
                 "url": "git@codebasehq.com:project-a/core/payment.git",
-                "reference": "42c45f7896c59dc76f85c40ae9ccdc501a1986ff"
+                "reference": "e74f07bfd04d4c3c874791a6e03f49e9058f94af"
             },
             "require": {
                 "php": ">=5.4.0"
@@ -1148,7 +1148,7 @@
             "keywords": [
                 "payment, payment provider"
             ],
-            "time": "2013-10-23 11:41:30"
+            "time": "2013-10-28 17:06:42"
         },
         {
             "name": "project-a/sales-package",
@@ -1156,7 +1156,7 @@
             "source": {
                 "type": "git",
                 "url": "git@codebasehq.com:project-a/core/sales.git",
-                "reference": "f3e5985e4fb151554fe89a1716a53076875e0096"
+                "reference": "4f37b1f549caf6ddc45f1bf720d34f006c82d27c"
             },
             "require": {
                 "php": ">=5.4.0",
@@ -1183,7 +1183,7 @@
                 "Sales",
                 "Task"
             ],
-            "time": "2013-10-28 15:55:07"
+            "time": "2013-10-28 16:53:37"
         },
         {
             "name": "project-a/silex-routing",
