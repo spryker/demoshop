@@ -1,12 +1,15 @@
 <?php
 
+namespace Pyz\Zed\Sales\Component\Model\Orderprocess\Definition;
+
+use Pyz\Zed\Sales\Component\ConstantsInterface\Orderprocess;
+
 /**
  * @property \Generated\Zed\Sales\Component\SalesFactory $factory
  * @property \ProjectA_Zed_Sales_Component_Model_Orderprocess_StateMachine_Setup $setup
  */
-
-class Pyz_Zed_Sales_Component_Model_Orderprocess_Definition_Demo extends \ProjectA_Zed_Sales_Component_Model_Orderprocess_Definition_Abstract implements
-    Pyz_Zed_Sales_Component_Interface_OrderprocessConstant
+class Demo extends \ProjectA_Zed_Sales_Component_Model_Orderprocess_Definition_Abstract implements
+    Orderprocess
 {
 
     /**
@@ -37,9 +40,10 @@ class Pyz_Zed_Sales_Component_Model_Orderprocess_Definition_Demo extends \Projec
 
     protected function addDefinitions()
     {
-        $this->setup->addDefinition($this->factory->createModelOrderprocessDefinitionSubProcessNew());
+        $this->setup->addDefinition($this->factory->createModelOrderprocessDefinitionSubProcessNewOrder());
         $this->setup->addDefinition($this->factory->createModelOrderprocessDefinitionSubProcessPayment());
         $this->setup->addDefinition($this->factory->createModelOrderprocessDefinitionSubProcessClosed());
+        $this->setup->addDefinition($this->factory->createModelOrderprocessDefinitionSubprocessTest());
     }
 
     protected function addCommands()
@@ -76,5 +80,6 @@ class Pyz_Zed_Sales_Component_Model_Orderprocess_Definition_Demo extends \Projec
     {
         $this->setup->addTransition(self::STATE_NEW, self::STATE_WAITING_FOR_PAYMENT, self::EVENT_ON_ENTER);
         $this->setup->addTransition(self::STATE_CAPTURED, self::STATE_CLOSED);
+        $this->setup->addTransitionManual(self::STATE_FINALLY_CLOSED, self::STATE_DEMO_A, self::EVENT_DEMO_START_TEST);
     }
 }

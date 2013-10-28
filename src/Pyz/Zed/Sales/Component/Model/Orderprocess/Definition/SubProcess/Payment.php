@@ -1,11 +1,17 @@
 <?php
 
+namespace Pyz\Zed\Sales\Component\Model\Orderprocess\Definition\Subprocess;
+
+use Pyz\Zed\Sales\Component\ConstantsInterface\Orderprocess;
+
 /**
  * @property \Generated\Zed\Sales\Component\SalesFactory $factory
  * @property \ProjectA_Zed_Sales_Component_Model_Orderprocess_StateMachine_Setup $setup
  */
-class Pyz_Zed_Sales_Component_Model_Orderprocess_Definition_Subprocess_Payment extends \ProjectA_Zed_Sales_Component_Model_Orderprocess_Definition_Abstract implements
-    \Generated\Zed\DemoPayment\Component\Dependency\DemoPaymentFacadeInterface, \ProjectA_Zed_Sales_Component_Interface_OrderprocessConstant, Pyz_Zed_Sales_Component_Interface_OrderprocessConstant
+class Payment extends \ProjectA_Zed_Sales_Component_Model_Orderprocess_Definition_Abstract implements
+    \Generated\Zed\DemoPayment\Component\Dependency\DemoPaymentFacadeInterface,
+//    \ProjectA_Zed_Sales_Component_Interface_OrderprocessConstant,
+    Orderprocess
 {
 
     use \Generated\Zed\DemoPayment\Component\Dependency\DemoPaymentFacadeTrait;
