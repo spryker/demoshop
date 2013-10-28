@@ -7,11 +7,19 @@ interface Orderprocess extends \ProjectA_Zed_Sales_Component_Interface_Orderproc
     // DEMO PROCESS
     const ORDER_PROCESS_DEMO = 'demo';
 
+    // STATES
     const STATE_AUTHORIZED = 'authorized';
     const STATE_CAPTURED = 'captured';
 
+    // EVENTS
 
-    // only used for test sub-process
+    // RULES
+
+    // FLAGS
+
+    /****** ONLY USED FOR THE TEST SUB-PROCESS ******/
+
+    // states
     const STATE_DEMO_A = 'DEMO A';
     const STATE_DEMO_B = 'DEMO B';
     const STATE_DEMO_C = 'DEMO C';
