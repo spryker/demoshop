@@ -2,6 +2,7 @@
     {% for facet in facets %}
         {% set config = facet.config %}
         {% set name = facet.name %}
+        {% set activeValues = (facet.activeValue is defined ? facet.activeValue : []) %}
         {% if config.active %}
             <li data-name="{{ name }}">
                 <h3>{{ ('catalog.filters.' ~ name)|trans }}</h3>
@@ -11,15 +12,15 @@
                 {% if config.type == 'enumeration' %}
                     {% if name == 'brand' %}
                         <input type="text" placeholder="{{ ('catalog.filters.' ~ name ~ '.hint.find')|trans }}" class="search fullWidth">
-                        <select name="{{ name }}" size="{{ facet.values|length > 4 ? 4 : facet.values|length }}" multiple>
+                        <ul class="toggleList" data-name="{{ name }}">
                             {% for valueName, valueKey in facet.values %}
-                                <option value="{{ valueName }}" data-on="{{ url('catalog', {(name) : valueName}) }}" data-off="{{ url('catalog', {(name) : null }) }}">{{ ('catalog.filters.' ~ name ~ '.' ~ valueName)|trans }} ({{ valueKey }})</option>
+                                <li data-value="{{ valueName }}" data-on="{{ url('catalog', { (name) : { value : [valueName], active : [true]} }) }}" data-off="{{ url('catalog', { (name) : { value : [valueName], active : [false]} }) }}" {{ valueName in activeValues ? 'class="selected"' : '' }}>{{ ('catalog.filters.' ~ name ~ '.' ~ valueName)|trans }} ({{ valueKey }})</li>
                             {% endfor %}
-                        </select>
+                        </ul>
                     {% else %}
                         {% for valueName, valueKey in facet.values %}
-                            <label>
-                                <input type="checkbox" name="{{ name }}" value="{{ valueName }}" data-on="{{ url('catalog', {(name) : valueName}) }}" data-off="{{ url('catalog', {(name) : null }) }}" /> {{ ('catalog.filters.' ~ name ~ '.' ~ valueName)|trans }} ({{ valueKey }})
+                            <label {{ valueKey == 0 ? 'class="notAvailable"' : '' }}>
+                                <input type="checkbox" name="{{ name }}" value="{{ valueName }}" data-on="{{ url('catalog', { (name) : { value : [valueName], active : [true]} }) }}" data-off="{{ url('catalog', { (name) : { value : [valueName], active : [false]} }) }}" {{ valueName in activeValues ? 'checked' : '' }} /> {{ ('catalog.filters.' ~ name ~ '.' ~ valueName)|trans }} ({{ valueKey }})
                             </label>
                         {% endfor %}
                     {% endif %}
@@ -28,12 +29,15 @@
                 {% if config.type == 'slider' %}
                     {% set minVal = (name == 'price' ? (facet.rangeValues.min / 100)|number_format(0, '', '') : facet.rangeValues.min|number_format(0, '', '')) %}
                     {% set maxVal = (name == 'price' ? (facet.rangeValues.max / 100)|number_format(0, '', '') : facet.rangeValues.max|number_format(0, '', '')) %}
-                    <legend class="min">{{ ('catalog.filters.' ~ name ~ '.min')|trans }}</legend>
-                    <legend class="max">{{ ('catalog.filters.' ~ name ~ '.max')|trans }}</legend>
-                    <input class="rangeSlider min" type="range" value="{{ minVal }}" min="{{ minVal }}" max="{{ maxVal }}" data-connector=".connector-{{ name }}.min" />
-                    <input class="rangeSlider max" type="range" value="{{ maxVal }}" min="{{ minVal }}" max="{{ maxVal }}" data-connector=".connector-{{ name }}.max" />
-                    <input class="rangeSliderConnector connector-{{ name }} min" type="number" value="{{ minVal }}" />
-                    <input class="rangeSliderConnector connector-{{ name }} max" type="number" value="{{ maxVal }}" />
+                    <div {{ minVal == maxVal ? 'class="notAvailable"' : '' }}>
+                        <legend class="min">{{ ('catalog.filters.' ~ name ~ '.min')|trans }}</legend>
+                        <legend class="max">{{ ('catalog.filters.' ~ name ~ '.max')|trans }}</legend>
+                        <input class="rangeSlider min" type="range" value="{{ facet.activeValue|split('-')[0] }}" min="{{ minVal }}" max="{{ maxVal }}" data-connector=".connector-{{ name }}.min" />
+                        <input class="rangeSlider max" type="range" value="{{ facet.activeValue|split('-')[1] }}" min="{{ minVal }}" max="{{ maxVal }}" data-connector=".connector-{{ name }}.max" />
+                        <input class="rangeSliderConnector connector-{{ name }} min" type="number" value="{{ minVal }}" />
+                        <input class="rangeSliderConnector connector-{{ name }} max" type="number" value="{{ maxVal }}" />
+                        <input type="hidden" class="resultUrl" value="{{ url('catalog', { (name) : { value : ['XX-YY', facet.activeValue], active : [true, false]} }) }}" />
+                    </div>
                 {% endif %}
             </li>
         {% endif %}

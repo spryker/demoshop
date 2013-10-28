@@ -29,6 +29,13 @@
 #catalog .filters input.max { width:20%; }
 #catalog .filters input.max { float:right; }
 #catalog .filters label { display:block; margin-top:2px; }
+#catalog .filters .toggleList { display:block; list-style:none outside; background:#fff; margin:0; padding:0; border:1px solid #ddd; max-height:80px; overflow-y:auto; }
+#catalog .filters .toggleList li { margin:0; padding:4px 7px; cursor:pointer; -webkit-user-select:none; -moz-user-select:none; user-select:none; }
+#catalog .filters .toggleList li:hover { background:#fafafa; }
+#catalog .filters .toggleList li.selected { background:#eaf3f7; position:relative; }
+#catalog .filters .toggleList li.selected:hover { background:#f4f9fb; }
+#catalog .filters .toggleList li.selected:hover:after { display:block; position:absolute; right:1px; top:1px; padding:3px 6px; background:#f4f9fb; font-weight:bold; content:'x'; }
+#catalog .filters .notAvailable { opacity:0.5; cursor:default; }
 
 #catalog .products { margin:20px 0 10px; padding:0 0 0 10px; list-style:none; }
 #catalog .products:after { display:block; content:''; clear:left; }
