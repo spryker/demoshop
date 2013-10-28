@@ -3,13 +3,13 @@
 namespace Pyz\Zed\Sales\Component\Model\Orderprocess\Definition;
 
 use Pyz\Zed\Sales\Component\ConstantsInterface\Orderprocess;
+use ProjectA\Zed\DemoPayment\Component\Constants\StatemachineConstants as PaymentConstants;
 
 /**
  * @property \Generated\Zed\Sales\Component\SalesFactory $factory
  * @property \ProjectA_Zed_Sales_Component_Model_Orderprocess_StateMachine_Setup $setup
  */
-class Demo extends \ProjectA_Zed_Sales_Component_Model_Orderprocess_Definition_Abstract implements
-    Orderprocess
+class Demo extends \ProjectA_Zed_Sales_Component_Model_Orderprocess_Definition_Abstract implements Orderprocess
 {
 
     /**
@@ -63,8 +63,8 @@ class Demo extends \ProjectA_Zed_Sales_Component_Model_Orderprocess_Definition_A
         $states = [
             self::STATE_NEW,
             self::STATE_WAITING_FOR_PAYMENT,
-            self::STATE_AUTHORIZED,
-            self::STATE_CAPTURED,
+            PaymentConstants::STATE_DEMO_AUTHORIZED,
+            PaymentConstants::STATE_DEMO_CAPTURED,
             self::STATE_CLOSED,
             self::STATE_FINALLY_CLOSED
         ];
@@ -79,7 +79,7 @@ class Demo extends \ProjectA_Zed_Sales_Component_Model_Orderprocess_Definition_A
     protected function addSubProcessConnections()
     {
         $this->setup->addTransition(self::STATE_NEW, self::STATE_WAITING_FOR_PAYMENT, self::EVENT_ON_ENTER);
-        $this->setup->addTransition(self::STATE_CAPTURED, self::STATE_CLOSED);
+        $this->setup->addTransition(PaymentConstants::STATE_DEMO_CAPTURED, self::STATE_CLOSED);
         $this->setup->addTransitionManual(self::STATE_FINALLY_CLOSED, self::STATE_DEMO_A, self::EVENT_DEMO_START_TEST);
     }
 }

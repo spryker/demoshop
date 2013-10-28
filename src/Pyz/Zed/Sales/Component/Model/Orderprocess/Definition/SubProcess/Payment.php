@@ -3,6 +3,7 @@
 namespace Pyz\Zed\Sales\Component\Model\Orderprocess\Definition\Subprocess;
 
 use Pyz\Zed\Sales\Component\ConstantsInterface\Orderprocess;
+use ProjectA\Zed\DemoPayment\Component\Constants\StatemachineConstants as PaymentConstants;
 
 /**
  * @property \Generated\Zed\Sales\Component\SalesFactory $factory
@@ -10,7 +11,6 @@ use Pyz\Zed\Sales\Component\ConstantsInterface\Orderprocess;
  */
 class Payment extends \ProjectA_Zed_Sales_Component_Model_Orderprocess_Definition_Abstract implements
     \Generated\Zed\DemoPayment\Component\Dependency\DemoPaymentFacadeInterface,
-//    \ProjectA_Zed_Sales_Component_Interface_OrderprocessConstant,
     Orderprocess
 {
 
@@ -35,14 +35,14 @@ class Payment extends \ProjectA_Zed_Sales_Component_Model_Orderprocess_Definitio
 
     protected function addTransitions()
     {
-        $this->setup->addTransition(self::STATE_WAITING_FOR_PAYMENT, self::STATE_AUTHORIZED, self::EVENT_ON_ENTER);
-        $this->setup->addTransitionManual(self::STATE_AUTHORIZED, self::STATE_CAPTURED, self::EVENT_CAPTURE_PAYMENT);
+        $this->setup->addTransition(self::STATE_WAITING_FOR_PAYMENT, PaymentConstants::STATE_DEMO_AUTHORIZED, self::EVENT_ON_ENTER);
+        $this->setup->addTransitionManual(PaymentConstants::STATE_DEMO_AUTHORIZED, PaymentConstants::STATE_DEMO_CAPTURED, PaymentConstants::EVENT_DEMO_CAPTURE_PAYMENT);
     }
 
     protected function addCommands()
     {
         $this->setup->addCommand(self::STATE_WAITING_FOR_PAYMENT, self::EVENT_ON_ENTER, $this->facadeDemoPayment->createFacadeStateMachine()->getCommandAuthorizeGrandTotal());
-        $this->setup->addCommand(self::STATE_AUTHORIZED, self::EVENT_CAPTURE_PAYMENT, $this->facadeDemoPayment->createFacadeStateMachine()->getCommandCaptureGrandTotal());
+        $this->setup->addCommand(PaymentConstants::STATE_DEMO_AUTHORIZED, PaymentConstants::EVENT_DEMO_CAPTURE_PAYMENT, $this->facadeDemoPayment->createFacadeStateMachine()->getCommandCaptureGrandTotal());
     }
 
     protected function addFlags()
@@ -53,8 +53,8 @@ class Payment extends \ProjectA_Zed_Sales_Component_Model_Orderprocess_Definitio
     {
         $states = [
             self::STATE_WAITING_FOR_PAYMENT,
-            self::STATE_AUTHORIZED,
-            self::STATE_CAPTURED
+            PaymentConstants::STATE_DEMO_AUTHORIZED,
+            PaymentConstants::STATE_DEMO_CAPTURED
         ];
 
         foreach ($states as $state) {
