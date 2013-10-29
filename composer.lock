@@ -657,7 +657,7 @@
             "source": {
                 "type": "git",
                 "url": "git@codebasehq.com:project-a/core/catalog.git",
-                "reference": "53247d18588637a756a0856e6936bc9b76cc7cdf"
+                "reference": "5fc3980503027a397e0b8920277080199b0286b7"
             },
             "require": {
                 "php": ">=5.4.0",
@@ -693,7 +693,7 @@
                 "Price",
                 "Stock"
             ],
-            "time": "2013-10-29 16:06:10"
+            "time": "2013-10-29 16:35:17"
         },
         {
             "name": "project-a/checkout-package",
@@ -814,7 +814,7 @@
             "source": {
                 "type": "git",
                 "url": "git@codebasehq.com:project-a/core/crm.git",
-                "reference": "0f05712642fcfaba640c2c3483633103bf362a0e"
+                "reference": "351a88199355f1623a9db62208340c632dab8165"
             },
             "require": {
                 "php": ">=5.4.0",
@@ -840,7 +840,7 @@
                 "CRM",
                 "Mail"
             ],
-            "time": "2013-10-29 09:43:02"
+            "time": "2013-10-29 16:12:10"
         },
         {
             "name": "project-a/dwh-package",
