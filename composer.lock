@@ -551,7 +551,7 @@
             "source": {
                 "type": "git",
                 "url": "git@codebasehq.com:project-a/core/acl.git",
-                "reference": "b530ed240689d1b481209508c3806e200b4fe760"
+                "reference": "ab234226826fe3cadb02ee5f281b7b8f033afa28"
             },
             "require": {
                 "php": ">=5.4.0",
@@ -580,7 +580,7 @@
                 "login",
                 "usermanagement"
             ],
-            "time": "2013-10-28 08:22:54"
+            "time": "2013-10-29 09:39:51"
         },
         {
             "name": "project-a/adyen-package",
@@ -657,7 +657,7 @@
             "source": {
                 "type": "git",
                 "url": "git@codebasehq.com:project-a/core/catalog.git",
-                "reference": "3ce562af648351c2e706a65e15e6d063a923615b"
+                "reference": "5cdb963c90ca7114c7495673a8fba613b450cc8e"
             },
             "require": {
                 "php": ">=5.4.0",
@@ -693,7 +693,7 @@
                 "Price",
                 "Stock"
             ],
-            "time": "2013-10-28 15:58:17"
+            "time": "2013-10-29 09:54:54"
         },
         {
             "name": "project-a/checkout-package",
@@ -814,7 +814,7 @@
             "source": {
                 "type": "git",
                 "url": "git@codebasehq.com:project-a/core/crm.git",
-                "reference": "c8109704835f4b40dd3ca26c66f1fc0664c3413d"
+                "reference": "0f05712642fcfaba640c2c3483633103bf362a0e"
             },
             "require": {
                 "php": ">=5.4.0",
@@ -840,7 +840,7 @@
                 "CRM",
                 "Mail"
             ],
-            "time": "2013-10-24 09:10:58"
+            "time": "2013-10-29 09:43:02"
         },
         {
             "name": "project-a/dwh-package",
@@ -1011,7 +1011,7 @@
             "source": {
                 "type": "git",
                 "url": "git@codebasehq.com:project-a/core/library-2.git",
-                "reference": "fc3f9e7832b4b68a6803817c2647d94ccbe3442a"
+                "reference": "737bc5b555dc9c7e9e3754c831bd2cea4ab8fcb9"
             },
             "require": {
                 "digital-canvas/zend-framework": ">=1.12.2",
@@ -1051,7 +1051,7 @@
                 }
             ],
             "description": "Project-A Library",
-            "time": "2013-10-28 11:06:50"
+            "time": "2013-10-29 09:53:12"
         },
         {
             "name": "project-a/lumberjack-package",
@@ -1156,7 +1156,7 @@
             "source": {
                 "type": "git",
                 "url": "git@codebasehq.com:project-a/core/sales.git",
-                "reference": "4f37b1f549caf6ddc45f1bf720d34f006c82d27c"
+                "reference": "e1ab5fb204f713a0807029c6c8d933de835fadc7"
             },
             "require": {
                 "php": ">=5.4.0",
@@ -1183,7 +1183,7 @@
                 "Sales",
                 "Task"
             ],
-            "time": "2013-10-28 16:53:37"
+            "time": "2013-10-29 09:55:20"
         },
         {
             "name": "project-a/silex-routing",
