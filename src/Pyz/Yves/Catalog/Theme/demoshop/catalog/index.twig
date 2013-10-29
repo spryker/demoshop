@@ -14,19 +14,35 @@
             </hardcoded>
         </ul>
         <div id="options" class="col col67">
-            <hardcoded block>
             <select class="sortBy">
-                <option value="relevancy">Relevancy</option>
-                <option value="price">Price</option>
+                {% set currentSortOrder = (currentSortOrder != 'desc' ? 'asc' : 'desc') %}
+                {% for sortName in sortNames %}
+                    <option value="{{ url('catalog', { sort : { value : [sortName] }, sort_order : { value : ['asc', 'desc'], active : [true, false] }, page : { value : [1] } }) }}" {{ currentSortParam == sortName and currentSortOrder == 'asc' ? 'selected' : '' }}>{{ ('catalog.sort.' ~ sortName)|trans }} &#8613;</option>
+                    <option value="{{ url('catalog', { sort : { value : [sortName] }, sort_order : { value : ['asc', 'desc'], active : [false, true] }, page : { value : [1] } }) }}" {{ currentSortParam == sortName and currentSortOrder == 'desc' ? 'selected' : '' }}>{{ ('catalog.sort.' ~ sortName)|trans }} &#8615;</option>
+                {% endfor %}
             </select>
+
+            {% if maxPage > 1 %}
             <ul class="pagination">
-                <li class="current">1</li>
-                <li>2</li>
-                <li>3</li>
-                <li>&hellip; 10</li>
-                <li>&raquo;</li>
+                {% if currentPage > 1 %}
+                    <li data-page="{{ url('catalog', { page : { value : [currentPage - 1] } }) }}">&laquo;</li>
+                {% endif %}
+
+                {% for i in range(1, maxPage) %}
+                    {% if i in range(currentPage - 2, currentPage + 2) %}
+                        <li data-page="{{ url('catalog', { page : { value : [i] } }) }}" {{ i == currentPage ? 'class="current"' }}>{{ i }}</li>
+                    {% endif %}
+                {% endfor %}
+
+                {% if currentPage < maxPage %}
+                    <li data-page="{{ url('catalog', { page : { value : [currentPage + 1] } }) }}">&raquo;</li>
+                {% endif %}
             </ul>
-            </hardcoded>
+            {% else %}
+                <div class="pagination">
+                    {{ numFound ~ ' ' ~ (numFound == 1 ? 'catalog.product.found'|trans : 'catalog.products.found'|trans) }}
+                </div>
+            {% endif %}
         </div>
 
         <div class="sidebar col col25">
