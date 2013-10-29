@@ -32,6 +32,15 @@ app.catalog = {
             $(vars.currentClass).mouseleave(function() {
                 vars.$zoom.remove();
             });
+
+            $('.filters input[type=checkbox][data-on][data-off]').change(function() {
+                var url = $(this).is(':checked') ? $(this).data('on') : $(this).data('off');
+                document.location.href = url;
+            });
+            $('.filters option[data-on][data-off]').parent().change(function() {
+                // todo: a lot!!
+                document.location.href = $(this).children(':selected').eq(0).data('on');
+            });
         }
     },
     rangeSlider : {

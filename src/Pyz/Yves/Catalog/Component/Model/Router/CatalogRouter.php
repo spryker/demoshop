@@ -31,7 +31,11 @@ class CatalogRouter extends AbstractRouter
                 $facetConfig
             );
 
-            return $this->getSchemaAndPort() . $url;
+            if ($referenceType === self::ABSOLUTE_URL) {
+                return $this->getSchemaAndPort() . $url;
+            } else {
+                return $url;
+            }
         }
 
         throw new RouteNotFoundException;
@@ -46,20 +50,20 @@ class CatalogRouter extends AbstractRouter
 
         if ($pathinfo != '/' && substr($pathinfo, -5) != '.html') {
 
-            $service = ControllerProvider::createServiceForController(
-                $this->app,
-                'catalog/index',
-                'CatalogController',
-                'index',
-                '\\Pyz\\Yves\\Catalog\\Module'
-            );
-
             $facetConfig = $this->factory->createCatalogModelFacetConfig();
 
             UrlMapper::injectParametersFromUrlIntoRequest(
                 $pathinfo,
                 Bootstrap::getRequest(),
                 $facetConfig
+            );
+
+            $service = ControllerProvider::createServiceForController(
+                $this->app,
+                'catalog/index',
+                'CatalogController',
+                'index',
+                '\\Pyz\\Yves\\Catalog\\Module'
             );
 
             return [
