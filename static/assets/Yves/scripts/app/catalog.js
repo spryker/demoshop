@@ -52,6 +52,10 @@ app.catalog = {
             $('.sortBy').change(function() {
                 document.location.href = $(this).val();
             });
+
+            $('.pagination li').click(function() {
+                document.location.href = $(this).data('page');
+            });
         }
     },
     rangeSlider : {

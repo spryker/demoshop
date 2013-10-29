@@ -25,17 +25,17 @@
             {% if maxPage > 1 %}
             <ul class="pagination">
                 {% if currentPage > 1 %}
-                    <li data-page="{{ currentPage - 1 }}">&laquo;</li>
+                    <li data-page="{{ url('catalog', { page : { value : [currentPage - 1] } }) }}">&laquo;</li>
                 {% endif %}
 
                 {% for i in range(1, maxPage) %}
                     {% if i in range(currentPage - 2, currentPage + 2) %}
-                        <li data-page="{{ i }}" {{ i == currentPage ? 'class="current"' }}>{{ i }}</li>
+                        <li data-page="{{ url('catalog', { page : { value : [i] } }) }}" {{ i == currentPage ? 'class="current"' }}>{{ i }}</li>
                     {% endif %}
                 {% endfor %}
 
                 {% if currentPage < maxPage %}
-                    <li data-page="{{ currentPage + 1 }}">&raquo;</li>
+                    <li data-page="{{ url('catalog', { page : { value : [currentPage + 1] } }) }}">&raquo;</li>
                 {% endif %}
             </ul>
             {% else %}
