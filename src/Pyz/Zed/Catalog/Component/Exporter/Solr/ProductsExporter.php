@@ -43,6 +43,9 @@ abstract class ProductsExporter extends CoreProductsExporter implements
     protected $specialGroupAttributes = [
         GroupConstantInterface::SOLR_SORT => [
             PriceTypeConstants::FINAL_GROSS_PRICE
+        ],
+        GroupConstantInterface::SOLR_FACET => [
+            PriceTypeConstants::FINAL_GROSS_PRICE
         ]
     ];
 
@@ -91,9 +94,9 @@ abstract class ProductsExporter extends CoreProductsExporter implements
      */
     protected function prepareCategories($id)
     {
-        $categories = array();
-        $product = $this->factory->createFacade()->getProductById($id);
-        $productCategories = $this->factory->createModelFinder()->getCategoriesForProduct($product->getSimple()->getConfig()->getProduct());
+        $categories = [];
+        $product = $this->factory->createModelFinder()->findProductEntityById($id);
+        $productCategories = $this->factory->createModelCategory()->getCategoriesForProduct($product->getSimple()->getConfig()->getProduct());
 
         /* @var $productCategory \ProjectA_Zed_Category_Persistence_PacCategory */
         foreach ($productCategories as $productCategory) {
@@ -259,13 +262,6 @@ abstract class ProductsExporter extends CoreProductsExporter implements
 
         //add price which is no ordinary attribute
         $data[$id]['number_sort_price'] = (int) $product[PriceTypeConstants::FINAL_GROSS_PRICE];
-        $data[$id]['number_facet_price'] = (int) $product[PriceTypeConstants::FINAL_GROSS_PRICE];
-
-//        //remove doubled int_sort_price
-//        unset($data[$id]['int_sort_price']);
-
-        //add categories
-        $data[$id]['int_facet_category'] = $this->prepareCategories($id);
 
         return $data;
     }
@@ -282,6 +278,11 @@ abstract class ProductsExporter extends CoreProductsExporter implements
 
         $data = array();
         $data[$id] = $this->getAttributeValuesForSolr($data, $product, $attributeVarieties, 'facet');
+
+        $data[$id]['number_facet_price'] = (int) $product[PriceTypeConstants::FINAL_GROSS_PRICE];
+
+        //add categories
+        $data[$id]['int_facet_category'] = $this->prepareCategories($id);
 
         return $data;
     }
