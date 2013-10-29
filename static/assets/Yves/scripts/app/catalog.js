@@ -49,7 +49,7 @@ app.catalog = {
                 }
             });
 
-            $('.sortBy').change(function() {
+            $('.sortBy, .ipp').change(function() {
                 document.location.href = $(this).val();
             });
 
