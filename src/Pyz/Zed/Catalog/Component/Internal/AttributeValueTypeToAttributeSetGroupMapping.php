@@ -5,7 +5,7 @@ use Pyz\Shared\Catalog\Code\ProductAttributeConstant;
 use Pyz\Shared\Catalog\Code\ProductAttributeSetConstant;
 
 class AttributeValueTypeToAttributeSetGroupMapping implements
-    \ProjectA_Zed_Catalog_Component_Interface_GroupConstant,
+    \ProjectA\Zed\Catalog\Component\Model\Attribute\GroupConstantInterface,
     ProductAttributeConstant,
     ProductAttributeSetConstant
 {

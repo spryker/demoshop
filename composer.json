@@ -9,7 +9,7 @@
         "project-a/console-package": "dev-master as 2.0.0",
         "project-a/crm-package": "2.0.0.x-dev as 2.0.0",
         "project-a/dwh-package": "2.0.0.x-dev as 2.0.0",
-        "project-a/frontend-package": "2.0.0.x-dev as 2.0.0",
+        "project-a/frontend-package": "dev-feature/catalog-fix-facade as 2.0.0",
         "project-a/glossary-package": "2.0.0.x-dev as 2.0.0",
         "project-a/infrastructure-package": "2.0.0.x-dev as 2.0.0",
         "project-a/kendo-package": "dev-master",

@@ -7,7 +7,7 @@ use ProjectA\Zed\Yves\Component\Model\Export\AbstractExport;
 use Pyz\Shared\Catalog\Code\ProductAttributeConstant;
 use Pyz\Shared\Catalog\Code\ProductAttributeSetConstant;
 use \ProjectA_Zed_Price_Component_Interface_PriceTypeConstants as PriceTypeConstants;
-use \ProjectA_Zed_Catalog_Component_Interface_GroupConstant as GroupConstant;
+use ProjectA\Zed\Catalog\Component\Model\Attribute\GroupConstantInterface;
 
 abstract class ProductsExporter extends CoreProductsExporter implements
      \ProjectA_Zed_Yves_Component_Interface_Exporter_Solr,
@@ -41,7 +41,7 @@ abstract class ProductsExporter extends CoreProductsExporter implements
      * @var array
      */
     protected $specialGroupAttributes = [
-        GroupConstant::SOLR_SORT => [
+        GroupConstantInterface::SOLR_SORT => [
             PriceTypeConstants::FINAL_GROSS_PRICE
         ]
     ];

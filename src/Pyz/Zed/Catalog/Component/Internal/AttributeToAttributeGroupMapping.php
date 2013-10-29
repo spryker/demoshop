@@ -4,7 +4,7 @@ namespace Pyz\Zed\Catalog\Component\Internal;
 use Pyz\Shared\Catalog\Code\ProductAttributeConstant;
 
 class AttributeToAttributeGroupMapping implements
-    \ProjectA_Zed_Catalog_Component_Interface_GroupConstant,
+    \ProjectA\Zed\Catalog\Component\Model\Attribute\GroupConstantInterface,
     ProductAttributeConstant
 {
     /**
