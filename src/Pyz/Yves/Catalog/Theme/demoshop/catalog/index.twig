@@ -17,8 +17,8 @@
             <select class="sortBy">
                 {% set currentSortOrder = (currentSortOrder != 'desc' ? 'asc' : 'desc') %}
                 {% for sortName in sortNames %}
-                    <option value="{{ url('catalog', { sort : { value : [sortName], active : [true] }, sort_order : { value : ['asc', 'desc'], active : [true, false] } }) }}" {{ currentSortParam == sortName and currentSortOrder == 'asc' ? 'selected' : '' }}>{{ ('catalog.sort.' ~ sortName)|trans }} &#8613;</option>
-                    <option value="{{ url('catalog', { sort : { value : [sortName], active : [true] }, sort_order : { value : ['asc', 'desc'], active : [false, true] } }) }}" {{ currentSortParam == sortName and currentSortOrder == 'desc' ? 'selected' : '' }}>{{ ('catalog.sort.' ~ sortName)|trans }} &#8615;</option>
+                    <option value="{{ url('catalog', { sort : { value : [sortName] }, sort_order : { value : ['asc', 'desc'], active : [true, false] }, page : { value : [1] } }) }}" {{ currentSortParam == sortName and currentSortOrder == 'asc' ? 'selected' : '' }}>{{ ('catalog.sort.' ~ sortName)|trans }} &#8613;</option>
+                    <option value="{{ url('catalog', { sort : { value : [sortName] }, sort_order : { value : ['asc', 'desc'], active : [false, true] }, page : { value : [1] } }) }}" {{ currentSortParam == sortName and currentSortOrder == 'desc' ? 'selected' : '' }}>{{ ('catalog.sort.' ~ sortName)|trans }} &#8615;</option>
                 {% endfor %}
             </select>
 
