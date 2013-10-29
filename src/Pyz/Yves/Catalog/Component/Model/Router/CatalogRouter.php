@@ -6,7 +6,7 @@ use ProjectA\Yves\Library\DependencyInjection\FactoryTrait;
 use ProjectA\Yves\Library\Silex\Application;
 use ProjectA\Yves\Library\Silex\Controller\ControllerProvider;
 use Pyz\Yves\Application\Module\Bootstrap;
-use Pyz\Yves\Catalog\Component\Model\UrlMapper;
+use ProjectA\Yves\Catalog\Component\Model\UrlMapper;
 use Symfony\Component\Routing\Exception\ResourceNotFoundException;
 use Symfony\Component\Routing\Exception\RouteNotFoundException;
 
@@ -24,15 +24,14 @@ class CatalogRouter extends AbstractRouter
             $facetConfig = $this->factory->createCatalogModelFacetConfig();
             $request = Bootstrap::getRequest();
             $requestParameters = iterator_to_array($request->query->getIterator());
-            $mergedParameters = array_filter(array_merge($requestParameters, $parameters));
 
             $url = UrlMapper::generateUrlFromParameters(
-                $mergedParameters,
+                UrlMapper::mergeParameters($requestParameters, $parameters, $facetConfig),
                 $facetConfig
             );
 
-            if ($referenceType === self::ABSOLUTE_URL) {
-                return $this->getSchemaAndPort() . $url;
+            if ($referenceType === self::ABSOLUTE_PATH) {
+                return $this->getSchemeAndPort() . $url;
             } else {
                 return $url;
             }

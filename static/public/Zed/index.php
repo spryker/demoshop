@@ -21,7 +21,12 @@ libxml_disable_entity_loader(false);
  * </workaround>
  */
 
-require_once __DIR__ . '/../../../src/Pyz/Zed/Application/include.php';
+$includePath = __DIR__ . '/../../../src/Pyz/Zed/Application/include.php';
+if (!file_exists($includePath)) {
+    $includePath = realpath(__DIR__ . '/../../../vendor/project-a/infrastructure-package/src/ProjectA/Zed/Application/include.php');
+}
+require_once $includePath;
+
 //ini_set('display_errors', false);
 
 define('IS_CLI', false);
