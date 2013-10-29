@@ -38,8 +38,15 @@ app.catalog = {
                 document.location.href = url;
             });
             $('.filters option[data-on][data-off]').parent().change(function() {
-                // todo: a lot!!
                 document.location.href = $(this).children(':selected').eq(0).data('on');
+            });
+            $('.filters .toggleList li[data-on][data-off]').click(function() {
+                $(this).toggleClass('selected');
+                if ($(this).hasClass('selected')) {
+                    document.location.href = $(this).data('on');
+                } else {
+                    document.location.href = $(this).data('off');
+                }
             });
         }
     },
@@ -184,7 +191,9 @@ app.catalog = {
             var config = this.getConfig($container);
             this.$getMin($container).val(config.minVal);
             this.$getMax($container).val(config.maxVal);
-            console.log('applying config', config);
+            if ($container.siblings('.resultUrl').length) {
+                document.location.href = $container.siblings('.resultUrl').val().replace('XX-YY', config.minVal + '-' + config.maxVal);
+            }
         },
         $getMin : function($container) {
             return $container.prev().prev();

@@ -1,17 +1,21 @@
 <?php
 
+namespace Pyz\Zed\Sales\Component\Model\Orderprocess\Definition\Subprocess;
+
+use Pyz\Zed\Sales\Component\ConstantsInterface\Orderprocess;
+
 /**
  * @property \Generated\Zed\Sales\Component\SalesFactory $factory
  * @property \ProjectA_Zed_Sales_Component_Model_Orderprocess_StateMachine_Setup $setup
  */
-class Pyz_Zed_Sales_Component_Model_Orderprocess_Definition_Subprocess_New extends \ProjectA_Zed_Sales_Component_Model_Orderprocess_Definition_Abstract implements
-    Pyz_Zed_Sales_Component_Interface_OrderprocessConstant
+class NewOrder extends \ProjectA_Zed_Sales_Component_Model_Orderprocess_Definition_Abstract implements
+    Orderprocess
 {
 
     /**
      * @param string $processName
      */
-    public function __construct ($processName = 'New Subprocess')
+    public function __construct ($processName = 'NewOrder Subprocess')
     {
         parent::__construct($processName);
     }
