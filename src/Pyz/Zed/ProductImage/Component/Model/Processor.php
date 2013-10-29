@@ -5,7 +5,7 @@ use Symfony\Component\Finder\Finder;
 class Pyz_Zed_ProductImage_Component_Model_Processor implements
     \Generated\Zed\ProductImage\Component\Dependency\ProductImageFacadeInterface,
     \Generated\Zed\Catalog\Component\Dependency\CatalogFacadeInterface,
-    \ProjectA_Shared_Catalog_Code_ProductAttributeConstant
+    \ProjectA\Shared\Catalog\Code\ProductAttributeConstantInterface
 {
 
     use \Generated\Zed\ProductImage\Component\Dependency\ProductImageFacadeTrait;

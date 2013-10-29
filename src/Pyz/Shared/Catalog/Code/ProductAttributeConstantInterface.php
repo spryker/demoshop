@@ -1,7 +1,9 @@
 <?php
 namespace Pyz\Shared\Catalog\Code;
 
-interface ProductAttributeConstant extends \ProjectA_Shared_Catalog_Code_ProductAttributeConstant
+use ProjectA\Shared\Catalog\Code\ProductAttributeConstantInterface as CoreProductAttributeConstantInterface;
+
+interface ProductAttributeConstantInterface extends CoreProductAttributeConstantInterface
 {
     const ATTRIBUTE_MANUFACTURER_DESCRIPTION = 'manufacturer_description';
     const ATTRIBUTE_COLOR = 'color';

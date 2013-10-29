@@ -1,11 +1,11 @@
 <?php
 namespace Pyz\Zed\Catalog\Component\Internal;
 
-use Pyz\Shared\Catalog\Code\ProductAttributeSetConstant;
+use Pyz\Shared\Catalog\Code\ProductAttributeSetConstantInterface;
 
 class ImportOptionsForAttributes implements
     \ProjectA\Zed\Library\Dependency\DependencyFactoryInterface,
-    ProductAttributeSetConstant
+    ProductAttributeSetConstantInterface
 {
 
     use \ProjectA\Zed\Library\Dependency\DependencyFactoryTrait;

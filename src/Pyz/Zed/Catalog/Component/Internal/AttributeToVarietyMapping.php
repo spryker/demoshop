@@ -1,8 +1,8 @@
 <?php
 namespace Pyz\Zed\Catalog\Component\Internal;
 
-use Pyz\Shared\Catalog\Code\ProductAttributeConstant;
-use Pyz\Shared\Catalog\Code\ProductAttributeSetConstant;
+use Pyz\Shared\Catalog\Code\ProductAttributeConstantInterface;
+use Pyz\Shared\Catalog\Code\ProductAttributeSetConstantInterface;
 use \ProjectA_Zed_Catalog_Persistence_PacCatalogValueTypePeer as ValueTypePeer;
 
 /**
@@ -14,8 +14,8 @@ use \ProjectA_Zed_Catalog_Persistence_PacCatalogValueTypePeer as ValueTypePeer;
  *
  */
 class AttributeToVarietyMapping implements
-    ProductAttributeConstant,
-    ProductAttributeSetConstant
+    ProductAttributeConstantInterface,
+    ProductAttributeSetConstantInterface
 {
     public static $attributesToVarietyMapping = [
 
