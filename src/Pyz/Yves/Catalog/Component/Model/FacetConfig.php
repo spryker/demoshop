@@ -66,7 +66,8 @@ class FacetConfig extends CoreFacetConfig
             self::KEY_IN_URL => true,
             self::KEY_SHORT_PARAM => 'm',
             self::KEY_URL_POSITION => 2,
-            self::KEY_RETURN_ZERO_VALUES => true
+            self::KEY_RETURN_ZERO_VALUES => true,
+            self::KEY_MULTI_VALUED => true
         ]
     ];
 
