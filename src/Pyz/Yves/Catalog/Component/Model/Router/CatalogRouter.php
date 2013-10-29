@@ -25,6 +25,13 @@ class CatalogRouter extends AbstractRouter
             $request = Bootstrap::getRequest();
             $requestParameters = iterator_to_array($request->query->getIterator());
 
+            //if no page is provided we generate a url to change the filter and therefore want to reset the page
+            //TODO @see ProjectA\Yves\Catalog\Component\Model\AbstractSearch Line 77
+            //     same todo to put parameter name into constant
+            if (!isset($parameters['page']) && isset($requestParameters['page'])) {
+                unset($requestParameters['page']);
+            }
+
             $url = UrlMapper::generateUrlFromParameters(
                 UrlMapper::mergeParameters($requestParameters, $parameters, $facetConfig),
                 $facetConfig

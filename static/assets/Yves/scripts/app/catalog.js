@@ -49,8 +49,12 @@ app.catalog = {
                 }
             });
 
-            $('.sortBy').change(function() {
+            $('.sortBy, .ipp').change(function() {
                 document.location.href = $(this).val();
+            });
+
+            $('.pagination li').click(function() {
+                document.location.href = $(this).data('page');
             });
         }
     },
