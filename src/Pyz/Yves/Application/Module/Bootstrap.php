@@ -71,7 +71,7 @@ class Bootstrap extends \ProjectA\Yves\Library\Silex\Bootstrap
         ];
 
         if (\ProjectA_Shared_Library_Environment::isDevelopment()) {
-//            $providers[] = new WebProfilerServiceProvider();
+            $providers[] = new WebProfilerServiceProvider();
         }
 
         return $providers;
