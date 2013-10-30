@@ -165,7 +165,7 @@ $config['host_ssl'] = array(
  * GLOBAL
  */
 $config['log'] = array(
-    'log_propel_sql'           => false, // File: data/logs/ZED/propel_sql.log
+    'log_propel_sql'           => true, // File: data/logs/ZED/propel_sql.log
     'log_memcache_synchronize' => false, // File: data/logs/ZED/memcache_synchronize.log
 );
 

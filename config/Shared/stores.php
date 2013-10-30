@@ -23,7 +23,7 @@ $stores['US'] = array(
             ),
         ),
     ),
-    'locales' => array('en_US'),   // first entry is default
+    'locales' => array('en_US', 'de_DE', 'fr_FR'),   // first entry is default
     'countries' => array('US'),   // first entry is default
     'currencyIsoCode' => 'USD', // internal and shop
 );
