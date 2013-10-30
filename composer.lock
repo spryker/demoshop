@@ -159,9 +159,9 @@
                     "email": "kontakt@beberlei.de"
                 },
                 {
-                    "name": "Johannes Schmitt",
+                    "name": "Johannes M. Schmitt",
                     "email": "schmittjoh@gmail.com",
-                    "homepage": "https://github.com/schmittjoh",
+                    "homepage": "http://jmsyst.com",
                     "role": "Developer of wrapped JMSSerializerBundle"
                 }
             ],
@@ -956,7 +956,7 @@
             "source": {
                 "type": "git",
                 "url": "git@codebasehq.com:project-a/core/infrastructure.git",
-                "reference": "19a0bb8d8e9277ca40c6cdfa34451e522a999278"
+                "reference": "3d90c6fc422bdce808217261e533e67f3d8d0e9e"
             },
             "require": {
                 "php": ">=5.4.0",
@@ -984,7 +984,7 @@
             "keywords": [
                 "infrastructure"
             ],
-            "time": "2013-10-29 17:11:36"
+            "time": "2013-10-30 10:52:58"
         },
         {
             "name": "project-a/kendo-package",
@@ -1011,7 +1011,7 @@
             "source": {
                 "type": "git",
                 "url": "git@codebasehq.com:project-a/core/library-2.git",
-                "reference": "426b49c39e4fd916d5f616333d0ac3f170114234"
+                "reference": "68371209e57fef3135a37019e282eaad6639d153"
             },
             "require": {
                 "digital-canvas/zend-framework": ">=1.12.2",
@@ -1051,7 +1051,7 @@
                 }
             ],
             "description": "Project-A Library",
-            "time": "2013-10-30 08:43:43"
+            "time": "2013-10-30 10:54:06"
         },
         {
             "name": "project-a/lumberjack-package",
@@ -2150,21 +2150,21 @@
         },
         {
             "name": "symfony/icu",
-            "version": "v1.1.0",
+            "version": "v1.2.0",
             "target-dir": "Symfony/Component/Icu",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/Icu.git",
-                "reference": "b4081efff21a8a85c57789a39f454fed244f8e46"
+                "reference": "7299cd3d8d6602103d1ebff5d0a9917b7bc6de72"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/Icu/zipball/b4081efff21a8a85c57789a39f454fed244f8e46",
-                "reference": "b4081efff21a8a85c57789a39f454fed244f8e46",
+                "url": "https://api.github.com/repos/symfony/Icu/zipball/7299cd3d8d6602103d1ebff5d0a9917b7bc6de72",
+                "reference": "7299cd3d8d6602103d1ebff5d0a9917b7bc6de72",
                 "shasum": ""
             },
             "require": {
-                "lib-icu": ">=3.8",
+                "lib-icu": ">=4.4",
                 "php": ">=5.3.3",
                 "symfony/intl": "~2.3"
             },
@@ -2194,7 +2194,7 @@
                 "icu",
                 "intl"
             ],
-            "time": "2013-06-03 18:32:40"
+            "time": "2013-06-03 18:32:58"
         },
         {
             "name": "symfony/intl",
@@ -2959,7 +2959,7 @@
                 {
                     "name": "Alexandre Salomé",
                     "email": "alexandre.salome@gmail.com",
-                    "homepage": "http://alexandre-salome.fr/"
+                    "homepage": "http://alexandre-salome.fr"
                 }
             ],
             "description": "PHP Library for Selenium",
