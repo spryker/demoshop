@@ -3,7 +3,7 @@
         "This file locks the dependencies of your project to a known state",
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file"
     ],
-    "hash": "3145b8979d3f2ad87006c61dfdaebf49",
+    "hash": "178fe01799b1308339438878dc898991",
     "packages": [
         {
             "name": "aws/aws-sdk-php",
@@ -449,16 +449,16 @@
         },
         {
             "name": "phing/phing",
-            "version": "2.5.0",
+            "version": "2.6.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/phingofficial/phing.git",
-                "reference": "62b6e0e03c093b8b18084a0994be1146b753a267"
+                "reference": "3f7d71bf561bafea39087250f777b349438cc32e"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/phingofficial/phing/zipball/62b6e0e03c093b8b18084a0994be1146b753a267",
-                "reference": "62b6e0e03c093b8b18084a0994be1146b753a267",
+                "url": "https://api.github.com/repos/phingofficial/phing/zipball/3f7d71bf561bafea39087250f777b349438cc32e",
+                "reference": "3f7d71bf561bafea39087250f777b349438cc32e",
                 "shasum": ""
             },
             "require": {
@@ -497,7 +497,7 @@
                 "task",
                 "tool"
             ],
-            "time": "2013-02-16 14:23:57"
+            "time": "2013-08-26 21:13:03"
         },
         {
             "name": "pimple/pimple",
@@ -653,11 +653,11 @@
         },
         {
             "name": "project-a/catalog-package",
-            "version": "dev-feature/catalog-fix-facade",
+            "version": "2.0.0.x-dev",
             "source": {
                 "type": "git",
                 "url": "git@codebasehq.com:project-a/core/catalog.git",
-                "reference": "5087d9b94d2c83584f7bc271130bbad4713a2623"
+                "reference": "473694506a54580fb37abb0b24c6a052982d3c42"
             },
             "require": {
                 "php": ">=5.4.0",
@@ -693,7 +693,7 @@
                 "Price",
                 "Stock"
             ],
-            "time": "2013-10-29 15:23:42"
+            "time": "2013-10-30 13:28:46"
         },
         {
             "name": "project-a/checkout-package",
@@ -814,7 +814,7 @@
             "source": {
                 "type": "git",
                 "url": "git@codebasehq.com:project-a/core/crm.git",
-                "reference": "0f05712642fcfaba640c2c3483633103bf362a0e"
+                "reference": "5c1c588703e792fe75fdbd3ea7da869ae043e1cb"
             },
             "require": {
                 "php": ">=5.4.0",
@@ -840,7 +840,7 @@
                 "CRM",
                 "Mail"
             ],
-            "time": "2013-10-29 09:43:02"
+            "time": "2013-10-29 17:32:47"
         },
         {
             "name": "project-a/dwh-package",
@@ -887,7 +887,7 @@
         },
         {
             "name": "project-a/frontend-package",
-            "version": "dev-feature/catalog-fix-facade",
+            "version": "2.0.0.x-dev",
             "source": {
                 "type": "git",
                 "url": "git@codebasehq.com:project-a/core/frontend.git",
@@ -956,7 +956,7 @@
             "source": {
                 "type": "git",
                 "url": "git@codebasehq.com:project-a/core/infrastructure.git",
-                "reference": "749c1d38187dfd0673c1e0fce34e29d23ed4d28a"
+                "reference": "3d90c6fc422bdce808217261e533e67f3d8d0e9e"
             },
             "require": {
                 "php": ">=5.4.0",
@@ -984,7 +984,7 @@
             "keywords": [
                 "infrastructure"
             ],
-            "time": "2013-10-29 14:58:39"
+            "time": "2013-10-30 10:52:58"
         },
         {
             "name": "project-a/kendo-package",
@@ -1011,7 +1011,7 @@
             "source": {
                 "type": "git",
                 "url": "git@codebasehq.com:project-a/core/library-2.git",
-                "reference": "287d458a3dc1198ee435f3e185e7001f315ce375"
+                "reference": "e306cc78f8534194e9108c5ee89cff7b2c791f36"
             },
             "require": {
                 "digital-canvas/zend-framework": ">=1.12.2",
@@ -1051,7 +1051,7 @@
                 }
             ],
             "description": "Project-A Library",
-            "time": "2013-10-29 15:25:18"
+            "time": "2013-10-30 13:39:58"
         },
         {
             "name": "project-a/lumberjack-package",
@@ -1152,11 +1152,11 @@
         },
         {
             "name": "project-a/sales-package",
-            "version": "dev-feature/catalog-fix-facade",
+            "version": "2.0.0.x-dev",
             "source": {
                 "type": "git",
                 "url": "git@codebasehq.com:project-a/core/sales.git",
-                "reference": "6f70a413b1971a8ccfe1192fce9f9b8a129d52e5"
+                "reference": "0a6968353c8faf9467c17f84afddb41bf18b8df6"
             },
             "require": {
                 "php": ">=5.4.0",
@@ -1183,7 +1183,7 @@
                 "Sales",
                 "Task"
             ],
-            "time": "2013-10-29 11:26:11"
+            "time": "2013-10-30 13:30:02"
         },
         {
             "name": "project-a/silex-routing",
@@ -1484,12 +1484,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/fabpot/Silex.git",
-                "reference": "8c6f5974e86502ffa353ac46e94e6edf656fc1c2"
+                "reference": "87e0a836025b4dd46a95384416a727a4e72a2826"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/fabpot/Silex/zipball/8c6f5974e86502ffa353ac46e94e6edf656fc1c2",
-                "reference": "8c6f5974e86502ffa353ac46e94e6edf656fc1c2",
+                "url": "https://api.github.com/repos/fabpot/Silex/zipball/87e0a836025b4dd46a95384416a727a4e72a2826",
+                "reference": "87e0a836025b4dd46a95384416a727a4e72a2826",
                 "shasum": ""
             },
             "require": {
@@ -1560,7 +1560,7 @@
             "keywords": [
                 "microframework"
             ],
-            "time": "2013-10-29 14:21:05"
+            "time": "2013-10-30 08:42:24"
         },
         {
             "name": "solarium/solarium",
@@ -2719,16 +2719,16 @@
         },
         {
             "name": "twig/twig",
-            "version": "v1.14.1",
+            "version": "v1.14.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/fabpot/Twig.git",
-                "reference": "8873d7593ad7c120004f177c0fd01459b383c9cb"
+                "reference": "ca445842fcea4f844d68203ffa2d00f5e3cdea64"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/fabpot/Twig/zipball/8873d7593ad7c120004f177c0fd01459b383c9cb",
-                "reference": "8873d7593ad7c120004f177c0fd01459b383c9cb",
+                "url": "https://api.github.com/repos/fabpot/Twig/zipball/ca445842fcea4f844d68203ffa2d00f5e3cdea64",
+                "reference": "ca445842fcea4f844d68203ffa2d00f5e3cdea64",
                 "shasum": ""
             },
             "require": {
@@ -2764,7 +2764,7 @@
             "keywords": [
                 "templating"
             ],
-            "time": "2013-10-15 19:17:38"
+            "time": "2013-10-30 08:20:53"
         },
         {
             "name": "zendframework/zendframework",
@@ -4461,7 +4461,7 @@
         {
             "alias": "2.0.0",
             "alias_normalized": "2.0.0.0",
-            "version": "dev-feature/catalog-fix-facade",
+            "version": "2.0.0.9999999-dev",
             "package": "project-a/catalog-package"
         },
         {
@@ -4497,7 +4497,7 @@
         {
             "alias": "2.0.0",
             "alias_normalized": "2.0.0.0",
-            "version": "dev-feature/catalog-fix-facade",
+            "version": "2.0.0.9999999-dev",
             "package": "project-a/frontend-package"
         },
         {
@@ -4539,7 +4539,7 @@
         {
             "alias": "2.0.0",
             "alias_normalized": "2.0.0.0",
-            "version": "dev-feature/catalog-fix-facade",
+            "version": "2.0.0.9999999-dev",
             "package": "project-a/sales-package"
         },
         {
