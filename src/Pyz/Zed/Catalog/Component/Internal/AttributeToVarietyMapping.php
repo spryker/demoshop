@@ -6,8 +6,6 @@ use Pyz\Shared\Catalog\Code\ProductAttributeSetConstantInterface;
 use \ProjectA_Zed_Catalog_Persistence_PacCatalogValueTypePeer as ValueTypePeer;
 
 /**
- *
- * //PalShared_Catalog_Interface_ProductAttributeConstant, you can always add them to the sets
  * self::ATTRIBUTE_NAME => \ProjectA_Zed_Catalog_Persistence_PacCatalogValueTypePeer::VARIETY_TEXT,
  * self::ATTRIBUTE_TAX_RATE => \ProjectA_Zed_Catalog_Persistence_PacCatalogValueTypePeer::VARIETY_OPTIONSINGLE,
  * self::ATTRIBUTE_MAX_QUANTITY => \ProjectA_Zed_Catalog_Persistence_PacCatalogValueTypePeer::VARIETY_INTEGER,
@@ -59,8 +57,8 @@ class AttributeToVarietyMapping implements
     ];
 
     /**
-     * @param $attributeName
-     * @param $attributeSetName
+     * @param string $attributeName
+     * @param string $attributeSetName
      * @return string
      */
     public static function getVarietyForAttributeByAttributeSet($attributeName, $attributeSetName)

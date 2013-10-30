@@ -2,8 +2,6 @@
 namespace Pyz\Zed\Catalog\Component\Internal;
 
 /**
- * Class Install
- * @package Pyz\Zed\Catalog\Component\Internal
  * @property \Generated\Zed\Catalog\Component\CatalogFactory $factory
  */
 class Install extends \ProjectA_Zed_Catalog_Component_Internal_Install
@@ -11,17 +9,17 @@ class Install extends \ProjectA_Zed_Catalog_Component_Internal_Install
     /**
      * @var string
      */
-    protected $attributeConstantInterface = 'Pyz\Shared\Catalog\Code\ProductAttributeConstant';
+    protected $attributeConstantInterface = 'Pyz\Shared\Catalog\Code\ProductAttributeConstantInterface';
 
     /**
      * @var string
      */
-    protected $optionTypeConstantInterface = 'Pyz\Shared\Catalog\Code\ProductOptionTypeConstant';
+    protected $optionTypeConstantInterface = 'Pyz\Shared\Catalog\Code\ProductOptionTypeConstantInterface';
 
     /**
      * @var string
      */
-    protected $attributeSetConstantInterface = 'Pyz\Shared\Catalog\Code\ProductAttributeSetConstant';
+    protected $attributeSetConstantInterface = 'Pyz\Shared\Catalog\Code\ProductAttributeSetConstantInterface';
 
     /**
      * @return bool

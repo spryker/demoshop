@@ -209,7 +209,7 @@ abstract class ProductsExporter extends CoreProductsExporter implements
         AbstractExport $exportModel,
         \ArrayIterator $reporter
     ) {
-        /* @var $entity \ProjectA_Zed_Catalog_Component_Interface_ProductEntity */
+        /* @var $entity \ProjectA\Zed\Catalog\Component\Model\ProductEntityInterface */
         $idList = array();
         foreach ($productEntities as $entity) {
             $idList[] = $entity->getIdCatalogProduct();
