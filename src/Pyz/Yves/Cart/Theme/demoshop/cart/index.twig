@@ -6,9 +6,8 @@
     {% include '@application/response_messages.twig' %}
 
     <section class="consumeHeight" id="cart">
-        <form action="/checkout">
             {% if cartItems|length %}
-            <button class="continue">{{ 'cart.to.checkout'|trans }}</button>
+            <a href="{{ url('checkout') }}"><button class="continue">{{ 'cart.to.checkout'|trans }}</button></a>
             {% endif %}
             <h3>{{ 'cart.cart'|trans }}</h3>
             <table class="items">
@@ -86,9 +85,8 @@
                 </tfoot>
             </table>
             {% if cartItems|length %}
-            <button class="continue">{{ 'cart.to.checkout'|trans }}</button>
+            <a href="{{ url('checkout') }}"><button class="continue">{{ 'cart.to.checkout'|trans }}</button></a>
             {% endif %}
-        </form>
 
         <a href="http://www-development.project-yz.com/cart/add/04M01BU-03">add product for debugging</a>
     </section>
