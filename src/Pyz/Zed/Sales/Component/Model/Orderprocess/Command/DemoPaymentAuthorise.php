@@ -5,11 +5,10 @@ use Generated\Shared\Library\TransferLoader;
 /**
  * @author jstick
  */
-class Pyz_Zed_Sales_Component_Model_Orderprocess_Command_DemoPaymentAuthorise
-    extends \ProjectA_Zed_Sales_Component_Model_Orderprocess_CommandAbstract
-    implements \ProjectA_Zed_Sales_Component_Interface_OrderCommand,
-               \Generated\Zed\Payment\Component\Dependency\PaymentFacadeInterface,
-               \ProjectA_Zed_Payment_Component_Interface_Constants
+class Pyz_Zed_Sales_Component_Model_Orderprocess_Command_DemoPaymentAuthorise extends \ProjectA_Zed_Sales_Component_Model_Orderprocess_CommandAbstract implements
+    \ProjectA_Zed_Sales_Component_Interface_OrderCommand,
+    \Generated\Zed\Payment\Component\Dependency\PaymentFacadeInterface,
+    \ProjectA_Zed_Payment_Component_Interface_Constants
 {
 
     use \Generated\Zed\Payment\Component\Dependency\PaymentFacadeTrait;
@@ -50,5 +49,4 @@ class Pyz_Zed_Sales_Component_Model_Orderprocess_Command_DemoPaymentAuthorise
         $this->addNote('demo payment authorisation performed', $orderEntity, $response->isSuccess());
         return $response;
     }
-
 }

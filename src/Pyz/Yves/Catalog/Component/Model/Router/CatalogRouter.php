@@ -1,96 +1,48 @@
 <?php
 namespace Pyz\Yves\Catalog\Component\Model\Router;
 
-use ProjectA\Yves\Catalog\Component\Model\Catalog;
-use ProjectA\Yves\Catalog\Component\Model\Exception\ProductNotFoundException;
-use ProjectA\Yves\Library\DependencyInjection\FactoryInterface;
+use ProjectA\Yves\Library\Silex\Routing\AbstractRouter;
 use ProjectA\Yves\Library\DependencyInjection\FactoryTrait;
 use ProjectA\Yves\Library\Silex\Application;
 use ProjectA\Yves\Library\Silex\Controller\ControllerProvider;
-use Pyz\Yves\Catalog\Component\Model\FacetConfig;
-use Pyz\Yves\Catalog\Component\Model\FacetSearch;
 use Pyz\Yves\Application\Module\Bootstrap;
-use Pyz\Yves\Catalog\Component\Model\UrlMapper;
-use Symfony\Component\HttpFoundation\RedirectResponse;
+use ProjectA\Yves\Catalog\Component\Model\UrlMapper;
 use Symfony\Component\Routing\Exception\ResourceNotFoundException;
 use Symfony\Component\Routing\Exception\RouteNotFoundException;
-use Symfony\Component\Routing\RequestContext;
-use Symfony\Component\Routing\RouterInterface;
 
 /**
  * @package Pyz\Yves\Catalog\Component\Model\Router
  */
-class CatalogRouter implements RouterInterface, FactoryInterface
+class CatalogRouter extends AbstractRouter
 {
-
-    use FactoryTrait;
-
-    /**
-     * @var RequestContext
-     */
-    protected $context;
-
-    /**
-     * @var Application
-     */
-    protected $app;
-
-    /**
-     * @param Application $app
-     */
-    public function __construct(Application $app)
-    {
-        $this->app = $app;
-    }
-
-    /**
-     * {@inheritdoc}
-     */
-    public function setContext(RequestContext $context)
-    {
-        $this->context = $context;
-    }
-
-    /**
-     * {@inheritdoc}
-     */
-    public function getContext()
-    {
-        return $this->context;
-    }
-
-    /**
-     * {@inheritdoc}
-     */
-    public function getRouteCollection()
-    {
-        return [];
-    }
-
     /**
      * {@inheritdoc}
      */
     public function generate($name, $parameters = array(), $referenceType = self::ABSOLUTE_PATH)
     {
+        if ($name == 'catalog') {
+            $facetConfig = $this->factory->createCatalogModelFacetConfig();
+            $request = Bootstrap::getRequest();
+            $requestParameters = iterator_to_array($request->query->getIterator());
 
-//        if ($name == 'catalog') {
-//            while (ob_get_level()) {
-//                ob_end_clean();
-//            }
-//
-//            //url schema
-//            $request = Bootstrap::getRequest();
-//
-//            $parameters = [];
-//            parse_str($this->context->getQueryString(), $parameters);
-//
-//            echo PHP_EOL.'<hr /><pre>'; var_dump($this->context->getQueryString()); echo __CLASS__.' '.__FILE__ . ':'.__LINE__.''; echo '</pre><hr />'.PHP_EOL;
-//            echo PHP_EOL.'<hr /><pre>'; var_dump($parameters); echo __CLASS__.' '.__FILE__ . ':'.__LINE__.''; echo '</pre><hr />'.PHP_EOL;
-//            echo PHP_EOL.'<hr /><pre>'; var_dump($request->query); echo __CLASS__.' '.__FILE__ . ':'.__LINE__.''; echo '</pre><hr />'.PHP_EOL;
-//            echo PHP_EOL.'<hr /><pre>'; var_dump($name); echo __CLASS__.' '.__FILE__ . ':'.__LINE__.''; echo '</pre><hr />'.PHP_EOL;
-//            echo PHP_EOL.'<hr /><pre>'; var_dump($parameters); echo __CLASS__.' '.__FILE__ . ':'.__LINE__.''; echo '</pre><hr />'.PHP_EOL;
-//            echo PHP_EOL.'<hr /><pre>'; var_dump($referenceType); echo __CLASS__.' '.__FILE__ . ':'.__LINE__.''; echo '</pre><hr />'.PHP_EOL; exit();
-//        }
+            //if no page is provided we generate a url to change the filter and therefore want to reset the page
+            //TODO @see ProjectA\Yves\Catalog\Component\Model\AbstractSearch Line 77
+            //     same todo to put parameter name into constant
+            if (!isset($parameters['page']) && isset($requestParameters['page'])) {
+                unset($requestParameters['page']);
+            }
+
+            $url = UrlMapper::generateUrlFromParameters(
+                UrlMapper::mergeParameters($requestParameters, $parameters, $facetConfig),
+                $facetConfig
+            );
+
+            if ($referenceType === self::ABSOLUTE_PATH) {
+                return $this->getSchemeAndPort() . $url;
+            } else {
+                return $url;
+            }
+        }
 
         throw new RouteNotFoundException;
     }
@@ -100,7 +52,17 @@ class CatalogRouter implements RouterInterface, FactoryInterface
      */
     public function match($pathinfo)
     {
+        //TODO handle "/catalog/" to show everything if needed
+
         if ($pathinfo != '/' && substr($pathinfo, -5) != '.html') {
+
+            $facetConfig = $this->factory->createCatalogModelFacetConfig();
+
+            UrlMapper::injectParametersFromUrlIntoRequest(
+                $pathinfo,
+                Bootstrap::getRequest(),
+                $facetConfig
+            );
 
             $service = ControllerProvider::createServiceForController(
                 $this->app,
@@ -110,15 +72,10 @@ class CatalogRouter implements RouterInterface, FactoryInterface
                 '\\Pyz\\Yves\\Catalog\\Module'
             );
 
-            //TODO /catalog/ points to search without category but would be interpreted as category=catalog
-            UrlMapper::injectParametersFromUrlIntoRequest(
-                $pathinfo,
-                Bootstrap::getRequest()
-            );
-
             return [
                 '_controller' => $service,
                 '_route' => 'catalog/index',
+                'facetConfig' => $facetConfig
             ];
         }
 

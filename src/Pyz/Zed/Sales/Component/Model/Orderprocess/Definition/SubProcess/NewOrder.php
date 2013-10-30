@@ -8,14 +8,14 @@ use Pyz\Zed\Sales\Component\ConstantsInterface\Orderprocess;
  * @property \Generated\Zed\Sales\Component\SalesFactory $factory
  * @property \ProjectA_Zed_Sales_Component_Model_Orderprocess_StateMachine_Setup $setup
  */
-class Closed extends \ProjectA_Zed_Sales_Component_Model_Orderprocess_Definition_Abstract implements
+class NewOrder extends \ProjectA_Zed_Sales_Component_Model_Orderprocess_Definition_Abstract implements
     Orderprocess
 {
 
     /**
      * @param string $processName
      */
-    public function __construct ($processName = 'Closed Subprocess')
+    public function __construct ($processName = 'NewOrder Subprocess')
     {
         parent::__construct($processName);
     }
@@ -43,8 +43,8 @@ class Closed extends \ProjectA_Zed_Sales_Component_Model_Orderprocess_Definition
 
     protected function addMetaInfo()
     {
-        $states =[
-            self::STATE_CLOSED,
+        $states = [
+            self::STATE_NEW,
         ];
 
         foreach ($states as $state) {

@@ -43,10 +43,12 @@
                                 options->? #}
                         </td>
                         <td>
-                            <hardcoded block><input type="number" min="1" step="1" value="{{ cartItem.quantity }}" /></hardcoded>
+                            <form action="{{ url('cart/change/quantity', {sku:product.sku, uid:cartItem.uniqueIdentifier} ) }}">
+                                <input type="number" name="quantity" value="{{ cartItem.quantity }}" min="1" max="{{ product.stock > 30 ? 30 : product.stock }}" step="1" />
+                            </form>
                         </td>
                         <td>
-                            <hardcoded block><span class="oldPrice">{{ product.recommended_retail_price }}</span></hardcoded>
+                            <span class="oldPrice">{{ product.recommended_retail_price }}</span>
                             <span class="price">{{ cartItem.priceToPay|price }}</span>
                         </td>
                     </tr>

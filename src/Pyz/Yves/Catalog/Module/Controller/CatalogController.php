@@ -6,15 +6,19 @@ use ProjectA\Yves\Catalog\Component\Model\Category;
 use Pyz\Yves\Catalog\Component\Model\FacetConfig;
 use Pyz\Yves\Catalog\Component\Model\FacetSearch;
 
+/**
+ * @package Pyz\Yves\Catalog\Module\Controller
+ */
 class CatalogController extends CoreCatalogController
 {
-    public function indexAction()
+    /**
+     * @param FacetConfig $facetConfig
+     * @return array
+     */
+    public function indexAction(FacetConfig $facetConfig)
     {
-        $search = new FacetSearch($this->request);
+        $search = new FacetSearch($this->request, $facetConfig);
         $result = $search->getResult();
-
-//        //TODO: remove this debug output
-//        echo PHP_EOL.'<hr /><pre>'; var_dump($result); echo __CLASS__.' '.__FILE__ . ':'.__LINE__.''; echo '</pre><hr />'.PHP_EOL; exit();
 
         return $result;
     }

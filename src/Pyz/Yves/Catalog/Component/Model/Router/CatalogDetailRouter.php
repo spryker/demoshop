@@ -1,65 +1,17 @@
 <?php
 namespace Pyz\Yves\Catalog\Component\Model\Router;
 
-use ProjectA\Yves\Catalog\Component\Model\Catalog;
 use ProjectA\Yves\Catalog\Component\Model\Exception\ProductNotFoundException;
-use ProjectA\Yves\Library\DependencyInjection\FactoryInterface;
+use ProjectA\Yves\Library\Silex\Routing\AbstractRouter;
 use ProjectA\Yves\Library\DependencyInjection\FactoryTrait;
 use ProjectA\Yves\Library\Silex\Application;
 use ProjectA\Yves\Library\Silex\Controller\ControllerProvider;
 use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\Routing\Exception\ResourceNotFoundException;
 use Symfony\Component\Routing\Exception\RouteNotFoundException;
-use Symfony\Component\Routing\RequestContext;
-use Symfony\Component\Routing\RouterInterface;
 
-class CatalogDetailRouter implements RouterInterface, FactoryInterface
+class CatalogDetailRouter extends AbstractRouter
 {
-
-    use FactoryTrait;
-
-    /**
-     * @var RequestContext
-     */
-    protected $context;
-
-    /**
-     * @var Application
-     */
-    protected $app;
-
-    /**
-     * @param Application $app
-     */
-    public function __construct(Application $app)
-    {
-        $this->app = $app;
-    }
-
-    /**
-     * {@inheritdoc}
-     */
-    public function setContext(RequestContext $context)
-    {
-        $this->context = $context;
-    }
-
-    /**
-     * {@inheritdoc}
-     */
-    public function getContext()
-    {
-        return $this->context;
-    }
-
-    /**
-     * {@inheritdoc}
-     */
-    public function getRouteCollection()
-    {
-        return [];
-    }
-
     /**
      * {@inheritdoc}
      */
@@ -88,7 +40,6 @@ class CatalogDetailRouter implements RouterInterface, FactoryInterface
             } catch (ProductNotFoundException $exception) {
             }
         }
-
 
         throw new ResourceNotFoundException();
     }

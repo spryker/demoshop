@@ -3,7 +3,7 @@
         "This file locks the dependencies of your project to a known state",
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file"
     ],
-    "hash": "b4d04bad0735a37989b889788245423c",
+    "hash": "9357dc8d5d5f7555eb82ed492938803d",
     "packages": [
         {
             "name": "aws/aws-sdk-php",
@@ -551,7 +551,7 @@
             "source": {
                 "type": "git",
                 "url": "git@codebasehq.com:project-a/core/acl.git",
-                "reference": "2ff8fd9647a9b66a4337a7ebf246465ae06ed5f9"
+                "reference": "ab234226826fe3cadb02ee5f281b7b8f033afa28"
             },
             "require": {
                 "php": ">=5.4.0",
@@ -580,7 +580,7 @@
                 "login",
                 "usermanagement"
             ],
-            "time": "2013-10-24 15:21:26"
+            "time": "2013-10-29 09:39:51"
         },
         {
             "name": "project-a/adyen-package",
@@ -657,7 +657,7 @@
             "source": {
                 "type": "git",
                 "url": "git@codebasehq.com:project-a/core/catalog.git",
-                "reference": "11ba6aa19669553dbe582a57d845e0154ae252a8"
+                "reference": "3a64d449ded77930bc32c1ef93ff4b383b8c6075"
             },
             "require": {
                 "php": ">=5.4.0",
@@ -693,7 +693,7 @@
                 "Price",
                 "Stock"
             ],
-            "time": "2013-10-24 15:19:34"
+            "time": "2013-10-29 17:28:42"
         },
         {
             "name": "project-a/checkout-package",
@@ -701,7 +701,7 @@
             "source": {
                 "type": "git",
                 "url": "git@codebasehq.com:project-a/core/checkout.git",
-                "reference": "287147f794af95ae669ed43d8856bb7791f9e92a"
+                "reference": "0f03ce271be752c0f3e371c76ef5b755ed58add9"
             },
             "require": {
                 "gavroche/browser": "~2.1",
@@ -731,7 +731,7 @@
                 "PaymentControl",
                 "Salesrule"
             ],
-            "time": "2013-10-24 14:58:05"
+            "time": "2013-10-29 15:24:26"
         },
         {
             "name": "project-a/console-package",
@@ -739,7 +739,7 @@
             "source": {
                 "type": "git",
                 "url": "git@codebasehq.com:project-a/core/console.git",
-                "reference": "27beabff31b0f663c2e3861bca45731ad7845984"
+                "reference": "05214546f5fa8437dcbf16b34756de7e2e66a52c"
             },
             "require": {
                 "fabpot/php-cs-fixer": "dev-master",
@@ -772,7 +772,7 @@
             "keywords": [
                 "console"
             ],
-            "time": "2013-10-23 19:06:38"
+            "time": "2013-10-28 08:23:27"
         },
         {
             "name": "project-a/content-package",
@@ -814,7 +814,7 @@
             "source": {
                 "type": "git",
                 "url": "git@codebasehq.com:project-a/core/crm.git",
-                "reference": "c8109704835f4b40dd3ca26c66f1fc0664c3413d"
+                "reference": "5c1c588703e792fe75fdbd3ea7da869ae043e1cb"
             },
             "require": {
                 "php": ">=5.4.0",
@@ -840,7 +840,7 @@
                 "CRM",
                 "Mail"
             ],
-            "time": "2013-10-24 09:10:58"
+            "time": "2013-10-29 17:32:47"
         },
         {
             "name": "project-a/dwh-package",
@@ -923,10 +923,11 @@
             "source": {
                 "type": "git",
                 "url": "git@codebasehq.com:project-a/core/glossary.git",
-                "reference": "2b439d6dab058f80cf42566d1c78796bf7a2930c"
+                "reference": "117218b4a02e0c575c5289bbeaaed776f316017e"
             },
             "require": {
-                "php": ">=5.4.0"
+                "php": ">=5.4.0",
+                "symfony/yaml": "~2.3"
             },
             "type": "library",
             "autoload": {
@@ -947,7 +948,7 @@
                 "i18n",
                 "translation"
             ],
-            "time": "2013-10-24 15:27:54"
+            "time": "2013-10-25 15:35:13"
         },
         {
             "name": "project-a/infrastructure-package",
@@ -955,7 +956,7 @@
             "source": {
                 "type": "git",
                 "url": "git@codebasehq.com:project-a/core/infrastructure.git",
-                "reference": "5a01d373a7e58aade25fb9a5bf919bfb237323e1"
+                "reference": "3d90c6fc422bdce808217261e533e67f3d8d0e9e"
             },
             "require": {
                 "php": ">=5.4.0",
@@ -983,7 +984,7 @@
             "keywords": [
                 "infrastructure"
             ],
-            "time": "2013-10-24 07:22:19"
+            "time": "2013-10-30 10:52:58"
         },
         {
             "name": "project-a/kendo-package",
@@ -991,16 +992,18 @@
             "source": {
                 "type": "git",
                 "url": "git@codebasehq.com:project-a/core/kendo.git",
-                "reference": "bf7c0096a72ca40c9a4091ae4b3d32f4d72f0efc"
+                "reference": "aeb48254cb17332a8b76caa8963d88e722da8e03"
             },
             "type": "library",
             "autoload": {
                 "psr-0": {
-                    "Kendo": "/src"
+                    "ProjectA": "src/",
+                    "Kendo": "src/",
+                    "PhpUnit": "tests/"
                 }
             },
             "description": "Core Library",
-            "time": "2013-10-11 13:10:28"
+            "time": "2013-10-29 10:41:59"
         },
         {
             "name": "project-a/library-package",
@@ -1008,7 +1011,7 @@
             "source": {
                 "type": "git",
                 "url": "git@codebasehq.com:project-a/core/library-2.git",
-                "reference": "ad237b88befe94576eeab11200de6c37885ad008"
+                "reference": "68371209e57fef3135a37019e282eaad6639d153"
             },
             "require": {
                 "digital-canvas/zend-framework": ">=1.12.2",
@@ -1048,7 +1051,7 @@
                 }
             ],
             "description": "Project-A Library",
-            "time": "2013-10-24 15:18:14"
+            "time": "2013-10-30 10:54:06"
         },
         {
             "name": "project-a/lumberjack-package",
@@ -1122,7 +1125,7 @@
             "source": {
                 "type": "git",
                 "url": "git@codebasehq.com:project-a/core/payment.git",
-                "reference": "42c45f7896c59dc76f85c40ae9ccdc501a1986ff"
+                "reference": "2650191490ac750e820679a9fc1a0fb66f182f51"
             },
             "require": {
                 "php": ">=5.4.0"
@@ -1145,7 +1148,7 @@
             "keywords": [
                 "payment, payment provider"
             ],
-            "time": "2013-10-23 11:41:30"
+            "time": "2013-10-29 14:03:11"
         },
         {
             "name": "project-a/sales-package",
@@ -1153,7 +1156,7 @@
             "source": {
                 "type": "git",
                 "url": "git@codebasehq.com:project-a/core/sales.git",
-                "reference": "5221190c67168477f9c9363a4244c7a31d338fa0"
+                "reference": "c8bec15db32742f2d8624ab8b32bd50f1a4b3561"
             },
             "require": {
                 "php": ">=5.4.0",
@@ -1180,7 +1183,7 @@
                 "Sales",
                 "Task"
             ],
-            "time": "2013-10-23 19:47:36"
+            "time": "2013-10-30 08:36:14"
         },
         {
             "name": "project-a/silex-routing",
@@ -1371,16 +1374,16 @@
         },
         {
             "name": "ruflin/elastica",
-            "version": "v0.90.2.0",
+            "version": "v0.90.5.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/ruflin/Elastica.git",
-                "reference": "7157cfbf7537d2afdf5aa63b1c4a092818ee355a"
+                "reference": "8290c801df17df5ec3dff31f155867a30f793807"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/ruflin/Elastica/zipball/7157cfbf7537d2afdf5aa63b1c4a092818ee355a",
-                "reference": "7157cfbf7537d2afdf5aa63b1c4a092818ee355a",
+                "url": "https://api.github.com/repos/ruflin/Elastica/zipball/8290c801df17df5ec3dff31f155867a30f793807",
+                "reference": "8290c801df17df5ec3dff31f155867a30f793807",
                 "shasum": ""
             },
             "require": {
@@ -1418,12 +1421,12 @@
                 }
             ],
             "description": "Elasticsearch Client",
-            "homepage": "http://ruflin.github.com/Elastica/",
+            "homepage": "http://elastica.io/",
             "keywords": [
                 "client",
                 "search"
             ],
-            "time": "2013-08-25 08:45:21"
+            "time": "2013-10-27 12:53:43"
         },
         {
             "name": "sebastian/diff",
@@ -1481,12 +1484,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/fabpot/Silex.git",
-                "reference": "bc673b478ec276217305f6a81c8aeafb0f9ffe63"
+                "reference": "87e0a836025b4dd46a95384416a727a4e72a2826"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/fabpot/Silex/zipball/bc673b478ec276217305f6a81c8aeafb0f9ffe63",
-                "reference": "bc673b478ec276217305f6a81c8aeafb0f9ffe63",
+                "url": "https://api.github.com/repos/fabpot/Silex/zipball/87e0a836025b4dd46a95384416a727a4e72a2826",
+                "reference": "87e0a836025b4dd46a95384416a727a4e72a2826",
                 "shasum": ""
             },
             "require": {
@@ -1557,7 +1560,7 @@
             "keywords": [
                 "microframework"
             ],
-            "time": "2013-10-16 17:53:18"
+            "time": "2013-10-30 08:42:24"
         },
         {
             "name": "solarium/solarium",
@@ -2669,17 +2672,17 @@
         },
         {
             "name": "symfony/yaml",
-            "version": "v2.4.0-BETA1",
+            "version": "v2.3.6",
             "target-dir": "Symfony/Component/Yaml",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/Yaml.git",
-                "reference": "ef4878bcca171ebe7466be0505b85a710818d788"
+                "reference": "6bb881b948368482e1abf1a75c08bcf88a1c5fc3"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/Yaml/zipball/ef4878bcca171ebe7466be0505b85a710818d788",
-                "reference": "ef4878bcca171ebe7466be0505b85a710818d788",
+                "url": "https://api.github.com/repos/symfony/Yaml/zipball/6bb881b948368482e1abf1a75c08bcf88a1c5fc3",
+                "reference": "6bb881b948368482e1abf1a75c08bcf88a1c5fc3",
                 "shasum": ""
             },
             "require": {
@@ -2688,7 +2691,7 @@
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "2.4-dev"
+                    "dev-master": "2.3-dev"
                 }
             },
             "autoload": {
@@ -2712,20 +2715,20 @@
             ],
             "description": "Symfony Yaml Component",
             "homepage": "http://symfony.com",
-            "time": "2013-09-22 18:04:51"
+            "time": "2013-09-22 18:04:39"
         },
         {
             "name": "twig/twig",
-            "version": "v1.14.1",
+            "version": "v1.14.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/fabpot/Twig.git",
-                "reference": "8873d7593ad7c120004f177c0fd01459b383c9cb"
+                "reference": "ca445842fcea4f844d68203ffa2d00f5e3cdea64"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/fabpot/Twig/zipball/8873d7593ad7c120004f177c0fd01459b383c9cb",
-                "reference": "8873d7593ad7c120004f177c0fd01459b383c9cb",
+                "url": "https://api.github.com/repos/fabpot/Twig/zipball/ca445842fcea4f844d68203ffa2d00f5e3cdea64",
+                "reference": "ca445842fcea4f844d68203ffa2d00f5e3cdea64",
                 "shasum": ""
             },
             "require": {
@@ -2761,7 +2764,7 @@
             "keywords": [
                 "templating"
             ],
-            "time": "2013-10-15 19:17:38"
+            "time": "2013-10-30 08:20:53"
         },
         {
             "name": "zendframework/zendframework",
@@ -2769,12 +2772,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/zendframework/zf2.git",
-                "reference": "bfe2d63d911eb885f0b32655f56cd57d0baa7503"
+                "reference": "3141049e8766043c6153ec7a83062f45ffd5e712"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/zendframework/zf2/zipball/bfe2d63d911eb885f0b32655f56cd57d0baa7503",
-                "reference": "bfe2d63d911eb885f0b32655f56cd57d0baa7503",
+                "url": "https://api.github.com/repos/zendframework/zf2/zipball/3141049e8766043c6153ec7a83062f45ffd5e712",
+                "reference": "3141049e8766043c6153ec7a83062f45ffd5e712",
                 "shasum": ""
             },
             "require": {
@@ -2879,7 +2882,7 @@
                 "framework",
                 "zf2"
             ],
-            "time": "2013-10-24 10:13:21"
+            "time": "2013-10-28 13:46:54"
         },
         {
             "name": "zendframework/zendpdf",
@@ -4574,8 +4577,7 @@
         "project-a/sales-package": 20,
         "project-a/stripe-package": 20,
         "zendframework/zendframework": 20,
-        "silex/silex": 20,
-        "symfony/yaml": 20
+        "silex/silex": 20
     },
     "platform": [
 

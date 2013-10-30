@@ -4,23 +4,39 @@
 
 #options:after { display:block; content:''; clear:both; }
 #options .sortBy { float:left; }
+#options .ipp { float:left; margin-left:10px; }
 #options .pagination { float:right; }
 
-#catalog .sidebar { clear:left; margin:20px 0; padding:10px; border:1px solid #ddd; background:#fcfcfc; border-radius:3px; }
+#catalog .sidebar { clear:left; margin:20px 0; padding:10px; border:1px solid #ddd; background:#fcfcfc; border-radius:3px; overflow-x:hidden; }
 #catalog .filters { list-style:none; margin:0; padding:0; }
 #catalog .filters li { margin-bottom:20px; }
 #catalog .filters li:last-child { margin-bottom:0; }
-#catalog .filters legend { font-size:80%; }
+#catalog .filters legend { font-size:80%; margin-bottom:6px; }
 #catalog .filters legend.min { float:left; }
 #catalog .filters legend.max { float:right; }
 #catalog .filters h3 { font-size:14px; font-weight:bold; margin:0 0 10px; padding:0 0 2px; border-bottom:1px solid #eee; }
 #catalog .filters select { display:block; width:100%; padding:4px 7px; border:1px solid #ddd; }
 #catalog .filters .search { margin-bottom:2px; border-radius:0; box-shadow:none; border-color:#ddd; }
-#catalog .filters input[type="range"] { width:100%; border:0 none; background:transparent; padding:0; box-shadow:none; }
+#catalog .filters .rangeSlider { display:none; }
+#catalog .filters .rangeSliderContainer { position:relative; margin:6px 0 16px; clear:both; height:2px; background:#ddd; }
+#catalog .filters .rangeSliderContainer .min,
+#catalog .filters .rangeSliderContainer .max { position:absolute; top:-5px; display:block; width:10px; height:10px; margin-left:-5px; background:#777; z-index:2; cursor:pointer; }
+#catalog .filters .rangeSliderContainer .min { left:0; }
+#catalog .filters .rangeSliderContainer .max { left:100%; }
+#catalog .filters .rangeSliderContainer .min:after,
+#catalog .filters .rangeSliderContainer .max:after { position:absolute; content:''; bottom:-10px; width:0; height:0; border:5px solid transparent; border-top-color:#777; }
+#catalog .filters .rangeSliderContainer .range { position:absolute; top:0; height:2px; margin-left:-5px; background:#aaa; z-index:1; }
 #catalog .filters input.min,
 #catalog .filters input.max { width:20%; }
 #catalog .filters input.max { float:right; }
 #catalog .filters label { display:block; margin-top:2px; }
+#catalog .filters .toggleList { display:block; list-style:none outside; background:#fff; margin:0; padding:0; border:1px solid #ddd; max-height:80px; overflow-y:auto; }
+#catalog .filters .toggleList li { margin:0; padding:4px 7px; cursor:pointer; -webkit-user-select:none; -moz-user-select:none; user-select:none; }
+#catalog .filters .toggleList li:hover { background:#fafafa; }
+#catalog .filters .toggleList li.selected { background:#eaf3f7; position:relative; }
+#catalog .filters .toggleList li.selected:hover { background:#f4f9fb; }
+#catalog .filters .toggleList li.selected:hover:after { display:block; position:absolute; right:1px; top:1px; padding:3px 6px; background:#f4f9fb; font-weight:bold; content:'x'; }
+#catalog .filters .notAvailable { opacity:0.5; cursor:default; }
 
 #catalog .products { margin:20px 0 10px; padding:0 0 0 10px; list-style:none; }
 #catalog .products:after { display:block; content:''; clear:left; }
