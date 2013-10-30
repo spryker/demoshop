@@ -2,14 +2,14 @@
 namespace Pyz\Zed\Catalog\Component\Exporter\QueryBuilder\KeyValue;
 
 use ProjectA\Zed\Catalog\Component\Exporter\QueryBuilder\KeyValue;
-use Pyz\Shared\Catalog\Code\ProductAttributeSetConstant;
+use Pyz\Shared\Catalog\Code\ProductAttributeSetConstantInterface;
 
 /**
  * Class ProductsWithElectronics
  * @package Pyz\Zed\Catalog\Component\Exporter\QueryBuilder\KeyValue
  */
 class ProductsWithElectronics extends KeyValue implements
-    ProductAttributeSetConstant
+    ProductAttributeSetConstantInterface
 {
     public function getAttributeSetName()
     {

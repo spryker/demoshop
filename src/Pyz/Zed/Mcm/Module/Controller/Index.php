@@ -7,8 +7,8 @@ class Pyz_Zed_Mcm_Module_Controller_Index
 
     use \Generated\Zed\Mcm\Component\Dependency\McmFacadeTrait;
 
-
-    public function indexAction(){
+    public function indexAction()
+    {
         $this->redirect('/mcm/relation/manage');
     }
 

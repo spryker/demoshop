@@ -37,7 +37,6 @@ class Pyz_Zed_Dwh_Component_Model_Report_NLRecipients extends Pyz_Zed_Dwh_Compon
         );
     }
 
-
     /**
      * Executes all queries and processes the result by calling functions of the parent class
      * @param array $params A list of report parameters (key => value)
@@ -62,7 +61,6 @@ NON EMPTY {' . implode(',
 FROM [NL Recipients]
 ')->finishBlock();
 
-
         // ----------------------------------------------------------------------------------------
         $this->startBlock()
             ->addHtml('<p>Number of subscriptions per recipient</p>')
@@ -74,7 +72,6 @@ NON EMPTY {[Measures].[# Active recipients]}
     ON ROWS
 
 FROM [NL Recipients]')->finishBlock();
-
 
         // ----------------------------------------------------------------------------------------
 
@@ -99,7 +96,6 @@ FROM [NL Recipients]
 
 WHERE {' . implode(',
        ', $this->getTimeExpressionForFilter('NL Recipients')) . '}', true)->finishBlock();
-
 
         // ----------------------------------------------------------------------------------------
         $this->startBlock()
@@ -130,7 +126,6 @@ FROM [NL Recipients]
 WHERE {' . implode(',
        ', $this->getTimeExpressionForFilter('NL Recipients')) . '}
 ', 700, 700)->finishBlock();
-
 
         $this->addMeasuresSelection('measures', 'NL Recipients', 'Measures');
     }

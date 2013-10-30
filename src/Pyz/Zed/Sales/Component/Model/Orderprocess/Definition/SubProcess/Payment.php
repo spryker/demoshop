@@ -1,6 +1,6 @@
 <?php
 
-namespace Pyz\Zed\Sales\Component\Model\Orderprocess\Definition\Subprocess;
+namespace Pyz\Zed\Sales\Component\Model\Orderprocess\Definition\SubProcess;
 
 use Pyz\Zed\Sales\Component\ConstantsInterface\Orderprocess;
 use ProjectA\Zed\DemoPayment\Component\Constants\StatemachineConstants as PaymentConstants;
@@ -19,12 +19,12 @@ class Payment extends \ProjectA_Zed_Sales_Component_Model_Orderprocess_Definitio
     /**
      * @param string $processName
      */
-    public function __construct ($processName = 'Payment Subprocess')
+    public function __construct($processName = 'Payment Subprocess')
     {
         parent::__construct($processName);
     }
 
-    protected function createDefinition ()
+    protected function createDefinition()
     {
         $this->getNewSetup();
         $this->addTransitions();

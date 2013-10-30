@@ -1,6 +1,7 @@
 <?php
+namespace Pyz\Shared\Catalog\Code;
 
-interface Pyz_Shared_Catalog_Code_ProductCategoryConstant
+interface ProductCategoryConstantInterface
 {
     const CATEGORY_CHAIRS = 'chairs';
     const CATEGORY_TABLES = 'tables';

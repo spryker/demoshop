@@ -39,7 +39,6 @@ class Pyz_Zed_Dwh_Component_Model_Report_NLCampaigns extends Pyz_Zed_Dwh_Compone
         );
     }
 
-
     /**
      * Executes all queries and processes the result by calling functions of the parent class
      * @param array $params A list of report parameters (key => value)
@@ -63,7 +62,6 @@ class Pyz_Zed_Dwh_Component_Model_Report_NLCampaigns extends Pyz_Zed_Dwh_Compone
             ->addHtml(', sort measure ')->addMeasuresSelect('sort-measure', 'NL Campaigns')
             ->finishBlock();
 
-
         $this->startBlock()
             ->addHtml('<p>Newsletter campaigns</p>')
             ->addTable('
@@ -83,7 +81,6 @@ WHERE {[Time perspective].[' . $this->getParamValue('time-perspective') . ']} *
        ', $this->getTimeExpressionForFilter('NL Campaigns')) . '}', true)
             ->finishBlock();
 
-
         $this->startBlock()
             ->addHtml('<p>List subscribers</p>')
             ->addTable('
@@ -100,7 +97,6 @@ FROM [NL Campaigns]
 WHERE {[Time perspective].[' . $this->getParamValue('time-perspective') . ']} *
       {' . implode(',
        ', $this->getTimeExpressionForFilter('NL Campaigns')) . '}', true)->finishBlock();
-
 
         $this->addMeasuresSelection('measures', 'NL Campaigns');
     }

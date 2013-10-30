@@ -48,7 +48,6 @@ class Pyz_Zed_Dwh_Component_Model_Report_CampaignClicks extends Pyz_Zed_Dwh_Comp
         );
     }
 
-
     /**
      * Executes all queries and processes the result by calling functions of the parent class
      * @param array $params A list of report parameters (key => value)
@@ -62,7 +61,6 @@ class Pyz_Zed_Dwh_Component_Model_Report_CampaignClicks extends Pyz_Zed_Dwh_Comp
             ->addLevelMemberSelect('performance-attribution-model', 'Campaign clicks', '[Performance attribution model].[Model]')
             ->addHtml(', ordered by ')->addMeasuresSelect('sort-measure', 'Conversions')
             ->finishBlock();
-
 
         $this->startBlock()
             ->addHtml('<p>Overview</p>')
@@ -92,7 +90,6 @@ FROM [Campaign clicks]
 WHERE [Time perspective].[' . $this->getParamValue('time-perspective') . '] *
       [Performance attribution model].[' . $this->getParamValue('performance-attribution-model') . ']
 ', 400, 200)->finishBlock();
-
 
         $this->startBlock()->addHtml('<p>Campaign clicks by channel and publication</p>')
             ->addTable('
@@ -140,7 +137,6 @@ WHERE [Time perspective].[' . $this->getParamValue('time-perspective') . '] *
       [Measures].[% ' . $this->getParamValue('sort-measure') . ']
 ', 400, 300, true)->finishBlock();
 
-
         $this->startBlock()->addHtml('<p>Brand / non brand</p>')->addTable('
 SELECT {' . implode(',
         ', $this->getParamValue('measures')) . '}
@@ -161,7 +157,6 @@ WHERE [Time perspective].[' . $this->getParamValue('time-perspective') . '] *
       {' . implode(',
        ',$this->getTimeExpressionForFilter('Campaign clicks')) . '}
 ')->finishBlock();
-
 
         $this->addMeasuresSelection('measures', 'Campaign clicks');
     }

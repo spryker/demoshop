@@ -40,7 +40,6 @@ class Pyz_Zed_Dwh_Component_Model_Report_Conversions extends Pyz_Zed_Dwh_Compone
         );
     }
 
-
     /**
      * Executes all queries and processes the result by calling functions of the parent class
      * @param array $params A list of report parameters (key => value)
@@ -71,7 +70,6 @@ FROM [Conversions]
 WHERE {' . implode(',
        ', $this->getTimeExpressionForFilter('Conversions')) . '}
 ')->finishBlock();
-
 
         foreach (array('# Registrations', '# First orders', '# Orders') as $measure) {
             $this->startBlock()->addHtml('<p>Attributed ' . $measure . ' per channel</p>')

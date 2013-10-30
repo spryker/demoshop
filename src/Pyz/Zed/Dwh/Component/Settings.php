@@ -58,7 +58,6 @@ class Pyz_Zed_Dwh_Component_Settings extends \ProjectA_Zed_Dwh_Component_Setting
         return $this->fileDir.'mondrian-schema.xml';
     }
 
-
     /**
      * Returns the character that is used to separate the integer part of a number from the fractional part
      * (i.e. whether decimal numbers are written 3.14 or 3,14)

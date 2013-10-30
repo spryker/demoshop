@@ -3,7 +3,7 @@
         "This file locks the dependencies of your project to a known state",
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file"
     ],
-    "hash": "9357dc8d5d5f7555eb82ed492938803d",
+    "hash": "178fe01799b1308339438878dc898991",
     "packages": [
         {
             "name": "aws/aws-sdk-php",
@@ -449,16 +449,16 @@
         },
         {
             "name": "phing/phing",
-            "version": "2.5.0",
+            "version": "2.6.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/phingofficial/phing.git",
-                "reference": "62b6e0e03c093b8b18084a0994be1146b753a267"
+                "reference": "3f7d71bf561bafea39087250f777b349438cc32e"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/phingofficial/phing/zipball/62b6e0e03c093b8b18084a0994be1146b753a267",
-                "reference": "62b6e0e03c093b8b18084a0994be1146b753a267",
+                "url": "https://api.github.com/repos/phingofficial/phing/zipball/3f7d71bf561bafea39087250f777b349438cc32e",
+                "reference": "3f7d71bf561bafea39087250f777b349438cc32e",
                 "shasum": ""
             },
             "require": {
@@ -497,7 +497,7 @@
                 "task",
                 "tool"
             ],
-            "time": "2013-02-16 14:23:57"
+            "time": "2013-08-26 21:13:03"
         },
         {
             "name": "pimple/pimple",
@@ -657,7 +657,7 @@
             "source": {
                 "type": "git",
                 "url": "git@codebasehq.com:project-a/core/catalog.git",
-                "reference": "3a64d449ded77930bc32c1ef93ff4b383b8c6075"
+                "reference": "473694506a54580fb37abb0b24c6a052982d3c42"
             },
             "require": {
                 "php": ">=5.4.0",
@@ -693,7 +693,7 @@
                 "Price",
                 "Stock"
             ],
-            "time": "2013-10-29 17:28:42"
+            "time": "2013-10-30 13:28:46"
         },
         {
             "name": "project-a/checkout-package",
@@ -891,7 +891,7 @@
             "source": {
                 "type": "git",
                 "url": "git@codebasehq.com:project-a/core/frontend.git",
-                "reference": "d51eda1bca18739181238cf45cfc7dbb77b1c33a"
+                "reference": "9732ad1cd5f97fa3887140f5280645743e6564d8"
             },
             "require": {
                 "php": ">=5.4.0",
@@ -915,7 +915,7 @@
             "keywords": [
                 "Frontend"
             ],
-            "time": "2013-10-23 11:41:29"
+            "time": "2013-10-29 09:47:03"
         },
         {
             "name": "project-a/glossary-package",
@@ -1011,7 +1011,7 @@
             "source": {
                 "type": "git",
                 "url": "git@codebasehq.com:project-a/core/library-2.git",
-                "reference": "68371209e57fef3135a37019e282eaad6639d153"
+                "reference": "e306cc78f8534194e9108c5ee89cff7b2c791f36"
             },
             "require": {
                 "digital-canvas/zend-framework": ">=1.12.2",
@@ -1051,7 +1051,7 @@
                 }
             ],
             "description": "Project-A Library",
-            "time": "2013-10-30 10:54:06"
+            "time": "2013-10-30 13:39:58"
         },
         {
             "name": "project-a/lumberjack-package",
@@ -1156,7 +1156,7 @@
             "source": {
                 "type": "git",
                 "url": "git@codebasehq.com:project-a/core/sales.git",
-                "reference": "c8bec15db32742f2d8624ab8b32bd50f1a4b3561"
+                "reference": "0a6968353c8faf9467c17f84afddb41bf18b8df6"
             },
             "require": {
                 "php": ">=5.4.0",
@@ -1183,7 +1183,7 @@
                 "Sales",
                 "Task"
             ],
-            "time": "2013-10-30 08:36:14"
+            "time": "2013-10-30 13:30:02"
         },
         {
             "name": "project-a/silex-routing",

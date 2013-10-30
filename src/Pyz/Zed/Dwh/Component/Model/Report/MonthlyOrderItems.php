@@ -60,8 +60,6 @@ class Pyz_Zed_Dwh_Component_Model_Report_MonthlyOrderItems extends Pyz_Zed_Dwh_C
             ->addLevelMemberSelect('time-perspective', 'Sales', '[Time perspective].[Perspective]')
             ->finishBlock();
 
-
-
         $this->startBlock()->addTable('
 WITH
 MEMBER [Measures].[SKU]

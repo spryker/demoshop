@@ -2,7 +2,6 @@
 namespace Pyz\Yves\Catalog\Component\Model\Router;
 
 use ProjectA\Yves\Library\Silex\Routing\AbstractRouter;
-use ProjectA\Yves\Library\DependencyInjection\FactoryTrait;
 use ProjectA\Yves\Library\Silex\Application;
 use ProjectA\Yves\Library\Silex\Controller\ControllerProvider;
 use Pyz\Yves\Application\Module\Bootstrap;

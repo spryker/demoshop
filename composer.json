@@ -19,7 +19,7 @@
         "project-a/payment-package": "2.0.0.x-dev as 2.0.0",
         "project-a/sales-package": "2.0.0.x-dev as 2.0.0",
         "project-a/stripe-package": "2.0.0.x-dev as 2.0.0",
-        "phing/phing": "2.5.0",
+        "phing/phing": "~2.6.0",
         "propel/propel1": "1.7.0",
         "zendframework/zendframework": "2.3.*@dev",
         "solarium/solarium": "~3.1.2",
