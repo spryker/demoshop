@@ -64,8 +64,6 @@ abstract class ProductsExporter extends CoreProductsExporter implements
      */
     abstract protected function getProductQueryBuilder();
 
-
-
     /**
      * @return string
      */

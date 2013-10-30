@@ -2,7 +2,6 @@
 
 namespace Pyz\Zed\Sales\Component\Model\Orderprocess\Command;
 
-use Generated\Shared\Library\TransferLoader;
 use \ProjectA_Zed_Sales_Component_Model_Orderprocess_CommandAbstract as CommandAbstract;
 
 class DemoTestOrderCommandOne extends CommandAbstract implements
@@ -15,7 +14,7 @@ class DemoTestOrderCommandOne extends CommandAbstract implements
      * @param \ProjectA_Zed_Sales_Component_Interface_ContextCollection $context
      * @return \ProjectA_Zed_Payment_Component_Model_Response
      */
-    public function __invoke (\ProjectA_Zed_Sales_Persistence_PacSalesOrder $orderEntity, \ProjectA_Zed_Sales_Component_Interface_ContextCollection $context)
+    public function __invoke(\ProjectA_Zed_Sales_Persistence_PacSalesOrder $orderEntity, \ProjectA_Zed_Sales_Component_Interface_ContextCollection $context)
     {
         $this->addNote('Demo Test Order Command', $orderEntity, true);
     }

@@ -2,7 +2,6 @@
 
 namespace Pyz\Zed\Sales\Component\Model\Orderprocess\Command;
 
-use Generated\Shared\Library\TransferLoader;
 use \ProjectA_Zed_Sales_Component_Model_Orderprocess_CommandAbstract as CommandAbstract;
 
 class DemoTestItemCommandOne extends CommandAbstract implements

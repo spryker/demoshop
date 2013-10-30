@@ -10,7 +10,7 @@ class Pyz_Zed_Sales_Component_Model_Orderprocess_StatemachineFactoryHook impleme
 
     use \ProjectA\Zed\Library\Dependency\DependencyFactoryTrait;
 
-    protected function getRules ()
+    protected function getRules()
     {
         $rules = new \ProjectA_Zed_Library_StateMachine_Transition_Guard_Rule_Collection();
         $rules->addRule($this->factory->createModelOrderprocessGuardRuleIsGrandTotalGreaterThan1000());

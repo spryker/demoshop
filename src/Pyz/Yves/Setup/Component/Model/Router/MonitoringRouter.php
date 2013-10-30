@@ -2,10 +2,7 @@
 namespace Pyz\Yves\Setup\Component\Model\Router;
 
 use ProjectA\Yves\Library\Silex\Routing\AbstractRouter;
-use ProjectA\Yves\Library\DependencyInjection\FactoryTrait;
-use ProjectA\Yves\Library\Silex\Application;
 use ProjectA\Yves\Library\Silex\Controller\ControllerProvider;
-use ProjectA\Yves\Catalog\Component\Model\UrlMapper;
 use Symfony\Component\Routing\Exception\ResourceNotFoundException;
 use Symfony\Component\Routing\Exception\RouteNotFoundException;
 

@@ -3,8 +3,6 @@ namespace Pyz\Yves\Catalog\Component\Model\Router;
 
 use ProjectA\Yves\Catalog\Component\Model\Exception\ProductNotFoundException;
 use ProjectA\Yves\Library\Silex\Routing\AbstractRouter;
-use ProjectA\Yves\Library\DependencyInjection\FactoryTrait;
-use ProjectA\Yves\Library\Silex\Application;
 use ProjectA\Yves\Library\Silex\Controller\ControllerProvider;
 use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\Routing\Exception\ResourceNotFoundException;

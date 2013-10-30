@@ -22,7 +22,7 @@ class DemoFlag extends \FilterIterator implements Orderprocess
      * @param \ProjectA_Zed_Library_StateMachine_Definition_Factory $factory
      * @param \ProjectA_Zed_Library_StateMachine_CurrentState $currentState
      */
-    public function __construct (\Iterator $orderItems, \ProjectA_Zed_Library_StateMachine_Definition_Factory $factory, \ProjectA_Zed_Library_StateMachine_CurrentState $currentState)
+    public function __construct(\Iterator $orderItems, \ProjectA_Zed_Library_StateMachine_Definition_Factory $factory, \ProjectA_Zed_Library_StateMachine_CurrentState $currentState)
     {
         parent::__construct($orderItems);
         $this->factory = $factory;
@@ -32,7 +32,7 @@ class DemoFlag extends \FilterIterator implements Orderprocess
     /**
      * @see FilterIterator::accept()
      */
-    public function accept ()
+    public function accept()
     {
         /* @var $orderItem \ProjectA_Zed_Sales_Persistence_PacSalesOrderItem */
         $orderItem = $this->current();

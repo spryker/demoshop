@@ -19,7 +19,6 @@ class ImportOptionsForAttributes implements
     const CSV_ENCLOSURE = '"';
     const CSV_ESCAPE = '\\';
 
-
     /**
      * @param $attributeSetName
      * @return array

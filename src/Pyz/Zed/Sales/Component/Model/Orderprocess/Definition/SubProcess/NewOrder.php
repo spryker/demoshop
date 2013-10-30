@@ -1,6 +1,6 @@
 <?php
 
-namespace Pyz\Zed\Sales\Component\Model\Orderprocess\Definition\Subprocess;
+namespace Pyz\Zed\Sales\Component\Model\Orderprocess\Definition\SubProcess;
 
 use Pyz\Zed\Sales\Component\ConstantsInterface\Orderprocess;
 
@@ -15,12 +15,12 @@ class NewOrder extends \ProjectA_Zed_Sales_Component_Model_Orderprocess_Definiti
     /**
      * @param string $processName
      */
-    public function __construct ($processName = 'NewOrder Subprocess')
+    public function __construct($processName = 'NewOrder Subprocess')
     {
         parent::__construct($processName);
     }
 
-    protected function createDefinition ()
+    protected function createDefinition()
     {
         $this->getNewSetup();
         $this->addTransitions();

@@ -62,7 +62,6 @@ FROM [Sales]
 WHERE [Order item status perspective].[' . $this->getParamValue('perspective') . ']
 ')->finishBlock();
 
-
         $this->startBlock()->addHtml('<p>% Orders</p>')
             ->addLineChart('
 WITH
@@ -83,7 +82,6 @@ WHERE [Order item status perspective].[' . $this->getParamValue('perspective') .
       [Measures].[% Orders]
 ', 600, 400, true)->finishBlock();
 
-
         $this->startBlock()->addHtml('<p>Events by ')
             ->addLevelMemberSelect('date-perspective', 'Sales events', '[Date perspective].[Date perspective]')
             ->addHtml(' date</p>')->addTable('
@@ -100,7 +98,6 @@ WHERE [Event perspective].[' . $this->getParamValue('perspective') . '] *
       [Duration perspective].[Time since last event]
 ')->finishBlock();
 
-
         $this->startBlock()->addHtml('<p># Effected items</p>')
             ->addLineChart('
 SELECT ' . $this->getTimeExpressionForChart() .'
@@ -116,7 +113,6 @@ WHERE [Event perspective].[' . $this->getParamValue('perspective') . '] *
       [Duration perspective].[Time since last event] *
       [Measures].[# Effected items]
 ', 600, 400)->finishBlock();
-
 
         $this->addMeasuresSelection('sales-measures', 'Sales');
         $this->addMeasuresSelection('sales-events-measures', 'Sales events');

@@ -45,7 +45,6 @@ class Pyz_Zed_Dwh_Component_Model_Report_Sales extends Pyz_Zed_Dwh_Component_Mod
         );
     }
 
-
     /**
      * Executes all queries and processes the result by calling functions of the parent class
      * @param array $params A list of report parameters (key => value)
@@ -74,7 +73,6 @@ NON EMPTY [Measures].[# Orders]
     ON ROWS
 FROM [Sales]')->finishBlock();
 
-
         $this->startBlock()->addHtml('<p>Revenue</p>')
             ->addLineChart('
 SELECT ' . $this->getTimeExpressionForChart() . '
@@ -83,7 +81,6 @@ NON EMPTY {[Measures].[Net item price],
            [Measures].[Net revenue (after vouchers)]}
     ON ROWS
 FROM [Sales]')->finishBlock();
-
 
         $this->startBlock()->addHtml('<p>Payment split</p>')->addTable('
 WITH
@@ -101,7 +98,6 @@ FROM [Sales]
 WHERE [Measures].[% Orders]
         ')->finishBlock();
 
-
         $this->startBlock()->addHtml('<p>')->addMeasuresSelect('price-range-measure', 'Sales')
             ->addHtml(' by price range</p>')->addTable('
 SELECT ' . $this->getTimeExpressionForTableAxis() . '
@@ -111,7 +107,6 @@ SELECT ' . $this->getTimeExpressionForTableAxis() . '
 FROM [Sales]
 WHERE [Measures].[' . $this->getParamValue('price-range-measure') . ']
         ')->finishBlock();
-
 
         $this->startBlock()->addHtml('<p>')->addMeasuresSelect('substrate-measure', 'Sales')
             ->addHtml(' by substrate</p>')->addTable('
@@ -139,7 +134,6 @@ Order(TopCount ([Shipping country].[Country].Members,
 FROM [Sales]
 WHERE {' . implode(',
        ', $this->getTimeExpressionForFilter('Sales')) . '}')->finishBlock();
-
 
         $this->addMeasuresSelection('sales-measures', 'Sales');
 

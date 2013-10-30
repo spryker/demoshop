@@ -18,7 +18,7 @@ class Pyz_Zed_Sales_Component_Model_Orderprocess_Command_DemoPaymentAuthorise ex
      * @param \ProjectA_Zed_Sales_Component_Interface_ContextCollection $context
      * @return \ProjectA_Zed_Payment_Component_Model_Response
      */
-    public function __invoke (\ProjectA_Zed_Sales_Persistence_PacSalesOrder $orderEntity, \ProjectA_Zed_Sales_Component_Interface_ContextCollection $context)
+    public function __invoke(\ProjectA_Zed_Sales_Persistence_PacSalesOrder $orderEntity, \ProjectA_Zed_Sales_Component_Interface_ContextCollection $context)
     {
         $paymentTransfer = TransferLoader::loadSalesOrderPayment();
         $context['Transfer_Sales_Order_Payment'] = $paymentTransfer;
