@@ -1,6 +1,7 @@
 default_locale: en_US
 locales:
   en_US: en_US
+  de_DE: de_DE
 keys:
   catalog.buy:
     explanations:
@@ -209,3 +210,84 @@ keys:
   catalog.details.color:
     explanations:
       en_US: 'Color:'
+  catalog.filters.material.wood:
+    explanations:
+      en_US: Wood
+  catalog.filters.material.plastic:
+    explanations:
+      en_US: Plastic
+  catalog.filters.material.textile:
+    explanations:
+      en_US: Textile
+  catalog.filters.material.metal:
+    explanations:
+      en_US: Metal
+  catalog.filters.material:
+    explanations:
+      en_US: Material
+  catalog.filters.color.yellow:
+    explanations:
+      en_US: Yellow
+  catalog.filters.color.white:
+    explanations:
+      en_US: White
+  catalog.filters.color.grey:
+    explanations:
+      en_US: Grey
+  catalog.filters.color.red:
+    explanations:
+      en_US: Red
+  catalog.filters.color.black:
+    explanations:
+      en_US: Black
+  catalog.filters.color.green:
+    explanations:
+      en_US: Green
+  catalog.filters.color:
+    explanations:
+      en_US: Color
+  catalog.filters.brand.hint.find:
+    explanations:
+      en_US: 'Type here to search for a brand'
+  catalog.filters.brand.vitra:
+    explanations:
+      en_US: Vitra
+  catalog.filters.brand.kartell:
+    explanations:
+      en_US: Kartell
+  catalog.filters.brand:
+    explanations:
+      en_US: Brand
+  catalog.filters.category:
+    explanations:
+      en_US: Category
+  catalog.filters.price.max:
+    explanations:
+      en_US: Max
+  catalog.filters.price.min:
+    explanations:
+      en_US: Min
+  catalog.filters.price:
+    explanations:
+      en_US: Price
+  catalog.ipp.100:
+    explanations:
+      en_US: '100 per page'
+  catalog.ipp.80:
+    explanations:
+      en_US: '80 per page'
+  catalog.ipp.60:
+    explanations:
+      en_US: '60 per page'
+  catalog.ipp.40:
+    explanations:
+      en_US: '40 per page'
+  catalog.ipp.20:
+    explanations:
+      en_US: '20 per page'
+  catalog.products.found:
+    explanations:
+      en_US: 'products found'
+  catalog.sort.price:
+    explanations:
+      en_US: 'Sort by price'
