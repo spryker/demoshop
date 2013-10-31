@@ -291,3 +291,6 @@ keys:
   catalog.sort.price:
     explanations:
       en_US: 'Sort by price'
+  header.cart.products.choice:
+    explanations:
+      en_US: '{0}Empty|{1}%count% product|]1,Inf]%count% products '
