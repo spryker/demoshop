@@ -49,7 +49,6 @@ class Pyz_Zed_Dwh_Component_Model_Report_Campaigns extends Pyz_Zed_Dwh_Component
         );
     }
 
-
     /**
      * Executes all queries and processes the result by calling functions of the parent class
      * @param array $params A list of report parameters (key => value)
@@ -77,7 +76,6 @@ class Pyz_Zed_Dwh_Component_Model_Report_Campaigns extends Pyz_Zed_Dwh_Component
             ->addHtml(', ordered by ')->addMeasuresSelect('sort-measure', 'Conversions')
             ->finishBlock();
 
-
         $this->startBlock()
             ->addHtml('<p>Top ')->addNumberSelect('top-campaigns', 20, 1000, 10)
             ->addHtml(' campaigns and adgroups by channel</p>')
@@ -99,7 +97,6 @@ FROM [Campaign clicks]
 WHERE {' . implode(',
        ', $this->getTimeExpressionForFilter('Campaign clicks')) . '}
 ')->finishBlock();
-
 
         $this->startBlock()
             ->addHtml('<p>Top ')->addNumberSelect('top-adgroups', 10, 500, 10)->addHtml(' campaigns and adgroups</p>')
@@ -128,7 +125,6 @@ WHERE CrossJoin ({CrossJoin({[Time perspective].[' . $this->getParamValue('time-
                  {' . implode(',
        ', $this->getTimeExpressionForFilter('Campaign clicks')) . '})
 ', true)->finishBlock();
-
 
         $this->addMeasuresSelection('measures', 'Campaign clicks');
     }

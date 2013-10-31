@@ -6,9 +6,8 @@
     {% include '@application/response_messages.twig' %}
 
     <section class="consumeHeight" id="cart">
-        <form action="/checkout">
             {% if cartItems|length %}
-            <button class="continue">{{ 'cart.to.checkout'|trans }}</button>
+            <a href="{{ url('checkout') }}"><button class="continue">{{ 'cart.to.checkout'|trans }}</button></a>
             {% endif %}
             <h3>{{ 'cart.cart'|trans }}</h3>
             <table class="items">
@@ -43,10 +42,12 @@
                                 options->? #}
                         </td>
                         <td>
-                            <hardcoded block><input type="number" min="1" step="1" value="{{ cartItem.quantity }}" /></hardcoded>
+                            <form action="{{ url('cart/change/quantity', {sku:product.sku, uid:cartItem.uniqueIdentifier} ) }}">
+                                <input type="number" name="quantity" value="{{ cartItem.quantity }}" min="1" max="{{ product.stock > 30 ? 30 : product.stock }}" step="1" />
+                            </form>
                         </td>
                         <td>
-                            <hardcoded block><span class="oldPrice">{{ product.recommended_retail_price }}</span></hardcoded>
+                            <span class="oldPrice">{{ product.recommended_retail_price }}</span>
                             <span class="price">{{ cartItem.priceToPay|price }}</span>
                         </td>
                     </tr>
@@ -84,9 +85,8 @@
                 </tfoot>
             </table>
             {% if cartItems|length %}
-            <button class="continue">{{ 'cart.to.checkout'|trans }}</button>
+            <a href="{{ url('checkout') }}"><button class="continue">{{ 'cart.to.checkout'|trans }}</button></a>
             {% endif %}
-        </form>
 
         <a href="http://www-development.project-yz.com/cart/add/04M01BU-03">add product for debugging</a>
     </section>

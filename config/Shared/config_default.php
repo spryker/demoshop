@@ -165,7 +165,7 @@ $config['host_ssl'] = array(
  * GLOBAL
  */
 $config['log'] = array(
-    'log_propel_sql'           => false, // File: data/logs/ZED/propel_sql.log
+    'log_propel_sql'           => true, // File: data/logs/ZED/propel_sql.log
     'log_memcache_synchronize' => false, // File: data/logs/ZED/memcache_synchronize.log
 );
 
@@ -249,10 +249,10 @@ $config['zed'] = array(
 $config['yves'] = [
     'theme'          => 'demoshop',
     'session'        => [
-        'save_handler' => null,
-        'save_path'    => null,
-        'name'         => null,
-        'domain'       => null,
+        'save_handler'  => null,
+        'save_path'     => null,
+        'name'          => null,
+        'cookie_domain' => null,
     ]
 ];
 

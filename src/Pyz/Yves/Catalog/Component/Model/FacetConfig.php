@@ -50,12 +50,14 @@ class FacetConfig extends CoreFacetConfig
             self::KEY_ACTIVE => true,
             self::KEY_IN_URL => true,
             self::KEY_SHORT_PARAM => 'b',
-            self::KEY_URL_POSITION => 1
+            self::KEY_URL_POSITION => 1,
+            self::KEY_MULTI_VALUED => true
         ],
         'string_facet_color' => [
             self::KEY_TYPE => self::TYPE_ENUMERATION,
             self::KEY_PARAM => 'color',
-            self::KEY_ACTIVE => true
+            self::KEY_ACTIVE => true,
+            self::KEY_MULTI_VALUED => true
         ],
         'string_facet_material' => [
             self::KEY_TYPE => self::TYPE_ENUMERATION,
@@ -64,8 +66,16 @@ class FacetConfig extends CoreFacetConfig
             self::KEY_IN_URL => true,
             self::KEY_SHORT_PARAM => 'm',
             self::KEY_URL_POSITION => 2,
-            self::KEY_RETURN_ZERO_VALUES => true
+            self::KEY_RETURN_ZERO_VALUES => true,
+            self::KEY_MULTI_VALUED => true
         ]
+    ];
+
+    /**
+     * @var array
+     */
+    protected static $sortNamesMapping = [
+        'number_sort_price' => 'price'
     ];
 
     /**

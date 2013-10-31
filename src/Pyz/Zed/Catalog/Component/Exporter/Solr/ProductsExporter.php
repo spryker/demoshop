@@ -4,18 +4,18 @@ namespace Pyz\Zed\Catalog\Component\Exporter\Solr;
 use ProjectA\Zed\Catalog\Component\Exporter\ProductsExporter as CoreProductsExporter;
 use ProjectA\Zed\Catalog\Component\Exporter\QueryBuilder\AbstractProduct;
 use ProjectA\Zed\Yves\Component\Model\Export\AbstractExport;
-use Pyz\Shared\Catalog\Code\ProductAttributeConstant;
-use Pyz\Shared\Catalog\Code\ProductAttributeSetConstant;
+use Pyz\Shared\Catalog\Code\ProductAttributeConstantInterface;
+use Pyz\Shared\Catalog\Code\ProductAttributeSetConstantInterface;
 use \ProjectA_Zed_Price_Component_Interface_PriceTypeConstants as PriceTypeConstants;
-use \ProjectA_Zed_Catalog_Component_Interface_GroupConstant as GroupConstant;
+use ProjectA\Zed\Catalog\Component\Model\Attribute\GroupConstantInterface;
 
 abstract class ProductsExporter extends CoreProductsExporter implements
      \ProjectA_Zed_Yves_Component_Interface_Exporter_Solr,
      \Generated\Zed\Price\Component\Dependency\PriceFacadeInterface,
      \Generated\Zed\Solr\Component\Dependency\SolrFacadeInterface,
      \Generated\Zed\Yves\Component\Dependency\YvesFacadeInterface,
-     ProductAttributeConstant,
-     ProductAttributeSetConstant,
+     ProductAttributeConstantInterface,
+     ProductAttributeSetConstantInterface,
      \Pyz_Shared_Library_StorageKeyConstant
 {
     use \Generated\Zed\Solr\Component\Dependency\SolrFacadeTrait;
@@ -41,7 +41,10 @@ abstract class ProductsExporter extends CoreProductsExporter implements
      * @var array
      */
     protected $specialGroupAttributes = [
-        GroupConstant::SOLR_SORT => [
+        GroupConstantInterface::SOLR_SORT => [
+            PriceTypeConstants::FINAL_GROSS_PRICE
+        ],
+        GroupConstantInterface::SOLR_FACET => [
             PriceTypeConstants::FINAL_GROSS_PRICE
         ]
     ];
@@ -60,8 +63,6 @@ abstract class ProductsExporter extends CoreProductsExporter implements
      * @return AbstractProduct
      */
     abstract protected function getProductQueryBuilder();
-
-
 
     /**
      * @return string
@@ -91,9 +92,9 @@ abstract class ProductsExporter extends CoreProductsExporter implements
      */
     protected function prepareCategories($id)
     {
-        $categories = array();
-        $product = $this->factory->createFacade()->getProductById($id);
-        $productCategories = $this->factory->createModelFinder()->getCategoriesForProduct($product->getSimple()->getConfig()->getProduct());
+        $categories = [];
+        $product = $this->factory->createModelFinder()->findProductEntityById($id);
+        $productCategories = $this->factory->createModelCategory()->getCategoriesForProduct($product->getSimpleEntity()->getConfigEntity()->getProductEntity());
 
         /* @var $productCategory \ProjectA_Zed_Category_Persistence_PacCategory */
         foreach ($productCategories as $productCategory) {
@@ -206,7 +207,7 @@ abstract class ProductsExporter extends CoreProductsExporter implements
         AbstractExport $exportModel,
         \ArrayIterator $reporter
     ) {
-        /* @var $entity \ProjectA_Zed_Catalog_Component_Interface_ProductEntity */
+        /* @var $entity \ProjectA\Zed\Catalog\Component\Model\ProductEntityInterface */
         $idList = array();
         foreach ($productEntities as $entity) {
             $idList[] = $entity->getIdCatalogProduct();
@@ -259,13 +260,6 @@ abstract class ProductsExporter extends CoreProductsExporter implements
 
         //add price which is no ordinary attribute
         $data[$id]['number_sort_price'] = (int) $product[PriceTypeConstants::FINAL_GROSS_PRICE];
-        $data[$id]['number_facet_price'] = (int) $product[PriceTypeConstants::FINAL_GROSS_PRICE];
-
-//        //remove doubled int_sort_price
-//        unset($data[$id]['int_sort_price']);
-
-        //add categories
-        $data[$id]['int_facet_category'] = $this->prepareCategories($id);
 
         return $data;
     }
@@ -282,6 +276,11 @@ abstract class ProductsExporter extends CoreProductsExporter implements
 
         $data = array();
         $data[$id] = $this->getAttributeValuesForSolr($data, $product, $attributeVarieties, 'facet');
+
+        $data[$id]['number_facet_price'] = (int) $product[PriceTypeConstants::FINAL_GROSS_PRICE];
+
+        //add categories
+        $data[$id]['int_facet_category'] = $this->prepareCategories($id);
 
         return $data;
     }

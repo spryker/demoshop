@@ -2,11 +2,10 @@
 namespace Pyz\Yves\Catalog\Component\Model\Router;
 
 use ProjectA\Yves\Library\Silex\Routing\AbstractRouter;
-use ProjectA\Yves\Library\DependencyInjection\FactoryTrait;
 use ProjectA\Yves\Library\Silex\Application;
 use ProjectA\Yves\Library\Silex\Controller\ControllerProvider;
 use Pyz\Yves\Application\Module\Bootstrap;
-use Pyz\Yves\Catalog\Component\Model\UrlMapper;
+use ProjectA\Yves\Catalog\Component\Model\UrlMapper;
 use Symfony\Component\Routing\Exception\ResourceNotFoundException;
 use Symfony\Component\Routing\Exception\RouteNotFoundException;
 
@@ -24,14 +23,24 @@ class CatalogRouter extends AbstractRouter
             $facetConfig = $this->factory->createCatalogModelFacetConfig();
             $request = Bootstrap::getRequest();
             $requestParameters = iterator_to_array($request->query->getIterator());
-            $mergedParameters = array_filter(array_merge($requestParameters, $parameters));
+
+            //if no page is provided we generate a url to change the filter and therefore want to reset the page
+            //TODO @see ProjectA\Yves\Catalog\Component\Model\AbstractSearch Line 77
+            //     same todo to put parameter name into constant
+            if (!isset($parameters['page']) && isset($requestParameters['page'])) {
+                unset($requestParameters['page']);
+            }
 
             $url = UrlMapper::generateUrlFromParameters(
-                $mergedParameters,
+                UrlMapper::mergeParameters($requestParameters, $parameters, $facetConfig),
                 $facetConfig
             );
 
-            return $this->getSchemaAndPort() . $url;
+            if ($referenceType === self::ABSOLUTE_PATH) {
+                return $this->getSchemeAndPort() . $url;
+            } else {
+                return $url;
+            }
         }
 
         throw new RouteNotFoundException;
@@ -46,20 +55,20 @@ class CatalogRouter extends AbstractRouter
 
         if ($pathinfo != '/' && substr($pathinfo, -5) != '.html') {
 
-            $service = ControllerProvider::createServiceForController(
-                $this->app,
-                'catalog/index',
-                'CatalogController',
-                'index',
-                '\\Pyz\\Yves\\Catalog\\Module'
-            );
-
             $facetConfig = $this->factory->createCatalogModelFacetConfig();
 
             UrlMapper::injectParametersFromUrlIntoRequest(
                 $pathinfo,
                 Bootstrap::getRequest(),
                 $facetConfig
+            );
+
+            $service = ControllerProvider::createServiceForController(
+                $this->app,
+                'catalog/index',
+                'CatalogController',
+                'index',
+                '\\Pyz\\Yves\\Catalog\\Module'
             );
 
             return [

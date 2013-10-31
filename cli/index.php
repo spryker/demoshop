@@ -28,7 +28,11 @@ if (empty($getEnv)) {
     die();
 }
 
-require_once __DIR__ . '/../src/Pyz/Zed/Application/include.php';
+$includePath = __DIR__ . '/../src/Pyz/Zed/Application/include.php';
+if (!file_exists($includePath)) {
+    $includePath = __DIR__ . '/../vendor/project-a/infrastructure-package/src/ProjectA/Zed/Application/include.php';
+}
+require_once $includePath;
 
 define('IS_ACL_DISABLED', true);
 define('IS_CLI', true);

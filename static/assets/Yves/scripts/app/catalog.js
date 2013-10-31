@@ -32,6 +32,30 @@ app.catalog = {
             $(vars.currentClass).mouseleave(function() {
                 vars.$zoom.remove();
             });
+
+            $('.filters input[type=checkbox][data-on][data-off]').change(function() {
+                var url = $(this).is(':checked') ? $(this).data('on') : $(this).data('off');
+                document.location.href = url;
+            });
+            $('.filters option[data-on][data-off]').parent().change(function() {
+                document.location.href = $(this).children(':selected').eq(0).data('on');
+            });
+            $('.filters .toggleList li[data-on][data-off]').click(function() {
+                $(this).toggleClass('selected');
+                if ($(this).hasClass('selected')) {
+                    document.location.href = $(this).data('on');
+                } else {
+                    document.location.href = $(this).data('off');
+                }
+            });
+
+            $('.sortBy, .ipp').change(function() {
+                document.location.href = $(this).val();
+            });
+
+            $('.pagination li').click(function() {
+                document.location.href = $(this).data('page');
+            });
         }
     },
     rangeSlider : {
@@ -175,7 +199,9 @@ app.catalog = {
             var config = this.getConfig($container);
             this.$getMin($container).val(config.minVal);
             this.$getMax($container).val(config.maxVal);
-            console.log('applying config', config);
+            if ($container.siblings('.resultUrl').length) {
+                document.location.href = $container.siblings('.resultUrl').val().replace('XX-YY', config.minVal + '-' + config.maxVal);
+            }
         },
         $getMin : function($container) {
             return $container.prev().prev();

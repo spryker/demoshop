@@ -1,12 +1,11 @@
 <?php
 namespace Pyz\Yves\Application\Module;
 
-use Generated\Shared\Library\TransferLoader;
 use Generated\Yves\Factory;
-use Generated\Yves\ZedRequest;
 use ProjectA\Yves\Catalog\Component\Model\Category;
 use ProjectA\Yves\Library\Silex\Application;
 use ProjectA\Yves\Library\Silex\Provider\CookieServiceProvider;
+use ProjectA\Yves\Library\Silex\Provider\SessionServiceProvider;
 use ProjectA\Yves\Library\Silex\Provider\StorageServiceProvider;
 use ProjectA\Yves\Library\Silex\Provider\ExceptionServiceProvider;
 use ProjectA\Yves\Library\Silex\Provider\TranslationServiceProvider;
@@ -20,7 +19,6 @@ use ProjectA\Yves\Checkout\Module\ControllerProvider as CheckoutProvider;
 use ProjectA\Yves\Setup\Module\ControllerProvider as SetupProvider;
 use Silex\Provider\FormServiceProvider;
 use Silex\Provider\ServiceControllerServiceProvider;
-use Silex\Provider\SessionServiceProvider;
 use SilexRouting\Provider\UrlGeneratorServiceProvider;
 use Silex\Provider\ValidatorServiceProvider;
 use Silex\Provider\WebProfilerServiceProvider;
@@ -36,18 +34,7 @@ class Bootstrap extends \ProjectA\Yves\Library\Silex\Bootstrap
         $app['locale'] = \ProjectA_Shared_Library_Store::getInstance()->getCurrentLocale();
         if (\ProjectA_Shared_Library_Environment::isDevelopment()) {
             $app['profiler.cache_dir'] = \ProjectA_Shared_Library_Data::getLocalStoreSpecificPath('cache/profiler');
-            $app['profiler.mount_prefix'] = '/_profiler';
         }
-    }
-
-    /**
-     * @param Application $app
-     */
-    protected function afterBoot(Application $app)
-    {
-        $lumberjackMetaRequest = TransferLoader::loadLumberjackMetaRequest();
-        $lumberjackMetaRequest->setRequestId(\ProjectA_Shared_Lumberjack_Code_Lumberjack::getInstance()->getRequestId());
-        ZedRequest::getInstance()->addMetaTransfer('lumberjack', $lumberjackMetaRequest);
     }
 
     /**
@@ -67,6 +54,7 @@ class Bootstrap extends \ProjectA\Yves\Library\Silex\Bootstrap
             new TranslationServiceProvider(),
             new FormServiceProvider(),
             new ValidatorServiceProvider(),
+            //new HttpFragmentServiceProvider(),
             new TwigServiceProvider(),
         ];
 
@@ -87,7 +75,7 @@ class Bootstrap extends \ProjectA\Yves\Library\Silex\Bootstrap
             new CartProvider(),
             new CatalogProvider(),
             new CheckoutProvider(),
-            new SetupProvider()
+            new SetupProvider(),
         ];
     }
 
@@ -100,6 +88,7 @@ class Bootstrap extends \ProjectA\Yves\Library\Silex\Bootstrap
     protected function getRouters(Application $app)
     {
         return [
+            Factory::getInstance()->createSetupModelRouterMonitoringRouter($app),
             Factory::getInstance()->createCatalogModelRouterCatalogRouter($app),
             Factory::getInstance()->createCatalogModelRouterCatalogDetailRouter($app),
             /*
@@ -117,7 +106,8 @@ class Bootstrap extends \ProjectA\Yves\Library\Silex\Bootstrap
     protected function globalTemplateVariables(Application $app)
     {
         return [
-            'categories' => Category::getCategoryTree($app->getStorageKeyValue())
+            'categories' => Category::getCategoryTree($app->getStorageKeyValue()),
+            'cartItemCount' => Factory::getInstance()->createCartModelSessionCartCount($app->getSession())->getCount(),
         ];
     }
 }

@@ -1,11 +1,17 @@
 <?php
 
+namespace Pyz\Zed\Sales\Component\Model\Orderprocess\Definition\SubProcess;
+
+use Pyz\Zed\Sales\Component\ConstantsInterface\Orderprocess;
+use ProjectA\Zed\DemoPayment\Component\Constants\StatemachineConstants as PaymentConstants;
+
 /**
  * @property \Generated\Zed\Sales\Component\SalesFactory $factory
  * @property \ProjectA_Zed_Sales_Component_Model_Orderprocess_StateMachine_Setup $setup
  */
-class Pyz_Zed_Sales_Component_Model_Orderprocess_Definition_Subprocess_Payment extends \ProjectA_Zed_Sales_Component_Model_Orderprocess_Definition_Abstract implements
-    \Generated\Zed\DemoPayment\Component\Dependency\DemoPaymentFacadeInterface, \ProjectA_Zed_Sales_Component_Interface_OrderprocessConstant, Pyz_Zed_Sales_Component_Interface_OrderprocessConstant
+class Payment extends \ProjectA_Zed_Sales_Component_Model_Orderprocess_Definition_Abstract implements
+    \Generated\Zed\DemoPayment\Component\Dependency\DemoPaymentFacadeInterface,
+    Orderprocess
 {
 
     use \Generated\Zed\DemoPayment\Component\Dependency\DemoPaymentFacadeTrait;
@@ -13,12 +19,12 @@ class Pyz_Zed_Sales_Component_Model_Orderprocess_Definition_Subprocess_Payment e
     /**
      * @param string $processName
      */
-    public function __construct ($processName = 'Payment Subprocess')
+    public function __construct($processName = 'Payment Subprocess')
     {
         parent::__construct($processName);
     }
 
-    protected function createDefinition ()
+    protected function createDefinition()
     {
         $this->getNewSetup();
         $this->addTransitions();
@@ -29,14 +35,14 @@ class Pyz_Zed_Sales_Component_Model_Orderprocess_Definition_Subprocess_Payment e
 
     protected function addTransitions()
     {
-        $this->setup->addTransition(self::STATE_WAITING_FOR_PAYMENT, self::STATE_AUTHORIZED, self::EVENT_ON_ENTER);
-        $this->setup->addTransitionManual(self::STATE_AUTHORIZED, self::STATE_CAPTURED, self::EVENT_CAPTURE_PAYMENT);
+        $this->setup->addTransition(self::STATE_WAITING_FOR_PAYMENT, PaymentConstants::STATE_DEMO_AUTHORIZED, self::EVENT_ON_ENTER);
+        $this->setup->addTransitionManual(PaymentConstants::STATE_DEMO_AUTHORIZED, PaymentConstants::STATE_DEMO_CAPTURED, PaymentConstants::EVENT_DEMO_CAPTURE_PAYMENT);
     }
 
     protected function addCommands()
     {
         $this->setup->addCommand(self::STATE_WAITING_FOR_PAYMENT, self::EVENT_ON_ENTER, $this->facadeDemoPayment->createFacadeStateMachine()->getCommandAuthorizeGrandTotal());
-        $this->setup->addCommand(self::STATE_AUTHORIZED, self::EVENT_CAPTURE_PAYMENT, $this->facadeDemoPayment->createFacadeStateMachine()->getCommandCaptureGrandTotal());
+        $this->setup->addCommand(PaymentConstants::STATE_DEMO_AUTHORIZED, PaymentConstants::EVENT_DEMO_CAPTURE_PAYMENT, $this->facadeDemoPayment->createFacadeStateMachine()->getCommandCaptureGrandTotal());
     }
 
     protected function addFlags()
@@ -47,8 +53,8 @@ class Pyz_Zed_Sales_Component_Model_Orderprocess_Definition_Subprocess_Payment e
     {
         $states = [
             self::STATE_WAITING_FOR_PAYMENT,
-            self::STATE_AUTHORIZED,
-            self::STATE_CAPTURED
+            PaymentConstants::STATE_DEMO_AUTHORIZED,
+            PaymentConstants::STATE_DEMO_CAPTURED
         ];
 
         foreach ($states as $state) {

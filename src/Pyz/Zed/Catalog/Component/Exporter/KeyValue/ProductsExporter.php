@@ -5,13 +5,13 @@ use ProjectA\Shared\Catalog\Code\Storage\StorageKeyGenerator;
 use ProjectA\Zed\Catalog\Component\Exporter\ProductsExporter as CoreProductsExporter;
 use ProjectA\Zed\Catalog\Component\Exporter\QueryBuilder\AbstractProduct;
 use ProjectA\Zed\Yves\Component\Model\Export\AbstractExport;
-use Pyz\Shared\Catalog\Code\ProductAttributeConstant;
-use Pyz\Shared\Catalog\Code\ProductAttributeSetConstant;
+use Pyz\Shared\Catalog\Code\ProductAttributeConstantInterface;
+use Pyz\Shared\Catalog\Code\ProductAttributeSetConstantInterface;
 
 abstract class ProductsExporter extends CoreProductsExporter implements
     \ProjectA_Zed_Yves_Component_Interface_Exporter_KeyValue,
-    ProductAttributeConstant,
-    ProductAttributeSetConstant,
+    ProductAttributeConstantInterface,
+    ProductAttributeSetConstantInterface,
     \Pyz_Shared_Library_StorageKeyConstant,
     \Generated\Zed\Yves\Component\Dependency\YvesFacadeInterface
 {

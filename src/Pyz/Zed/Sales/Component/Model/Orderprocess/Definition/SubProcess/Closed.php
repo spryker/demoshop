@@ -1,22 +1,26 @@
 <?php
 
+namespace Pyz\Zed\Sales\Component\Model\Orderprocess\Definition\SubProcess;
+
+use Pyz\Zed\Sales\Component\ConstantsInterface\Orderprocess;
+
 /**
  * @property \Generated\Zed\Sales\Component\SalesFactory $factory
  * @property \ProjectA_Zed_Sales_Component_Model_Orderprocess_StateMachine_Setup $setup
  */
-class Pyz_Zed_Sales_Component_Model_Orderprocess_Definition_Subprocess_Closed extends \ProjectA_Zed_Sales_Component_Model_Orderprocess_Definition_Abstract implements
-    Pyz_Zed_Sales_Component_Interface_OrderprocessConstant
+class Closed extends \ProjectA_Zed_Sales_Component_Model_Orderprocess_Definition_Abstract implements
+    Orderprocess
 {
 
     /**
      * @param string $processName
      */
-    public function __construct ($processName = 'Closed Subprocess')
+    public function __construct($processName = 'Closed Subprocess')
     {
         parent::__construct($processName);
     }
 
-    protected function createDefinition ()
+    protected function createDefinition()
     {
         $this->getNewSetup();
         $this->addTransitions();

@@ -5,11 +5,10 @@ use Generated\Shared\Library\TransferLoader;
 /**
  * @author jstick
  */
-class Pyz_Zed_Sales_Component_Model_Orderprocess_Command_DemoPaymentAuthorise
-    extends \ProjectA_Zed_Sales_Component_Model_Orderprocess_CommandAbstract
-    implements \ProjectA_Zed_Sales_Component_Interface_OrderCommand,
-               \Generated\Zed\Payment\Component\Dependency\PaymentFacadeInterface,
-               \ProjectA_Zed_Payment_Component_Interface_Constants
+class Pyz_Zed_Sales_Component_Model_Orderprocess_Command_DemoPaymentAuthorise extends \ProjectA_Zed_Sales_Component_Model_Orderprocess_CommandAbstract implements
+    \ProjectA_Zed_Sales_Component_Interface_OrderCommand,
+    \Generated\Zed\Payment\Component\Dependency\PaymentFacadeInterface,
+    \ProjectA_Zed_Payment_Component_Interface_Constants
 {
 
     use \Generated\Zed\Payment\Component\Dependency\PaymentFacadeTrait;
@@ -19,7 +18,7 @@ class Pyz_Zed_Sales_Component_Model_Orderprocess_Command_DemoPaymentAuthorise
      * @param \ProjectA_Zed_Sales_Component_Interface_ContextCollection $context
      * @return \ProjectA_Zed_Payment_Component_Model_Response
      */
-    public function __invoke (\ProjectA_Zed_Sales_Persistence_PacSalesOrder $orderEntity, \ProjectA_Zed_Sales_Component_Interface_ContextCollection $context)
+    public function __invoke(\ProjectA_Zed_Sales_Persistence_PacSalesOrder $orderEntity, \ProjectA_Zed_Sales_Component_Interface_ContextCollection $context)
     {
         $paymentTransfer = TransferLoader::loadSalesOrderPayment();
         $context['Transfer_Sales_Order_Payment'] = $paymentTransfer;
@@ -50,5 +49,4 @@ class Pyz_Zed_Sales_Component_Model_Orderprocess_Command_DemoPaymentAuthorise
         $this->addNote('demo payment authorisation performed', $orderEntity, $response->isSuccess());
         return $response;
     }
-
 }

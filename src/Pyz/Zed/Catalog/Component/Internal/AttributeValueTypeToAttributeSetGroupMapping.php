@@ -1,13 +1,13 @@
 <?php
 namespace Pyz\Zed\Catalog\Component\Internal;
 
-use Pyz\Shared\Catalog\Code\ProductAttributeConstant;
-use Pyz\Shared\Catalog\Code\ProductAttributeSetConstant;
+use Pyz\Shared\Catalog\Code\ProductAttributeConstantInterface;
+use Pyz\Shared\Catalog\Code\ProductAttributeSetConstantInterface;
 
 class AttributeValueTypeToAttributeSetGroupMapping implements
-    \ProjectA_Zed_Catalog_Component_Interface_GroupConstant,
-    ProductAttributeConstant,
-    ProductAttributeSetConstant
+    \ProjectA\Zed\Catalog\Component\Model\Attribute\GroupConstantInterface,
+    ProductAttributeConstantInterface,
+    ProductAttributeSetConstantInterface
 {
 
     const FILE_NAME_PREFIX = 'AttributeValueTypeToAttributeSetGroupMapping_';

@@ -55,11 +55,9 @@ FROM [Sales]
             . ($query1 ? : $this->getParamValue('query-1-initially'))
             . '</textarea><br/><input style="margin-bottom:30px" type="submit" value="run"/>')->finishBlock();
 
-
         if ($query1) {
             $this->startBlock()->addHtml('<p>Table</p>')->addTable($this->getParamValue('query-1'))->finishBlock();
         }
-
 
         $this->startBlock()->addHtml('<p>Chart query</p><textarea name="query-2" style="font-family: monospace" rows="15" cols="70">'
             . ($query2 ? : $this->getParamValue('query-2-initially'))

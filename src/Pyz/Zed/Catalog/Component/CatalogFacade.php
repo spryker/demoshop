@@ -1,12 +1,12 @@
 <?php
 
 namespace Pyz\Zed\Catalog\Component;
+
 /**
  * @property \Generated\Zed\Catalog\Component\CatalogFactory $factory
  */
 class CatalogFacade extends \ProjectA\Zed\Catalog\Component\CatalogFacade
 {
-
     /**
      * @return \Pyz\Zed\Catalog\Component\Exporter\KeyValue\ProductsWithElectronicsExporter
      */

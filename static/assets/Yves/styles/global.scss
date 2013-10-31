@@ -108,10 +108,11 @@ header .cart .glyphicon { float:left; margin-left:-28px; top:5px; font-size:21px
 #breadcrumbs a { color:inherit; text-decoration:none; }
 #breadcrumbs a:hover { text-decoration:underline; }
 
-.sortBy { font-size:13px; }
+.sortBy,
+.ipp { font-size:13px; }
 
 .pagination { margin:0; padding:0; list-style:none; font-size:13px; }
-.pagination li { float:left; padding:4px 7px; background:#fcfcfc; border:1px solid #e0e0e0; margin-right:5px; border-radius:3px; box-shadow:1px 1px 1px rgba(0, 0, 0, 0.03); cursor:pointer; }
+.pagination li { float:left; padding:4px 7px; background:#fcfcfc; border:1px solid #e0e0e0; margin-right:5px; border-radius:3px; box-shadow:1px 1px 1px rgba(0, 0, 0, 0.03); cursor:pointer; -moz-user-select:none; -webkit-user-select:none; user-select:none; }
 .pagination li:hover { background:#f6f6f6; }
 .pagination li.current { cursor:default; border-color:#c0c0c0; color:#000; box-shadow:1px 1px 1px rgba(0, 0, 0, 0.06); background:#f4f4f4; }
 .pagination li.current:hover { background:#f4f4f4; }

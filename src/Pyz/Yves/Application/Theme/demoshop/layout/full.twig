@@ -50,7 +50,7 @@
                         <a href="{{ url('cart') }}">
                             <span class="glyphicon glyphicon-shopping-cart"></span>
                             <span class="main">{{ 'header.cart'|trans }}</span>
-                            <hardcoded>0 products</hardcoded>
+                            {{ 'header.cart.products.choice'|transchoice(cartItemCount) }}
                         </a>
                     </li>
                 </ul>

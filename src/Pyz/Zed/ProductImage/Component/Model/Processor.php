@@ -5,7 +5,7 @@ use Symfony\Component\Finder\Finder;
 class Pyz_Zed_ProductImage_Component_Model_Processor implements
     \Generated\Zed\ProductImage\Component\Dependency\ProductImageFacadeInterface,
     \Generated\Zed\Catalog\Component\Dependency\CatalogFacadeInterface,
-    \ProjectA_Shared_Catalog_Code_ProductAttributeConstant
+    \ProjectA\Shared\Catalog\Code\ProductAttributeConstantInterface
 {
 
     use \Generated\Zed\ProductImage\Component\Dependency\ProductImageFacadeTrait;
@@ -56,7 +56,7 @@ class Pyz_Zed_ProductImage_Component_Model_Processor implements
                 $filenamesForFrontend[] = $this->getFilenameForFrontend($sku, $order, $size, $extension);
                 $originalImageFilename = $file[self::KEY_FULL_SOURCE_PATH];
                 $productEntity = $this->facadeCatalog->getProductBySku($sku);
-                $product = $this->facadeCatalog->getProduct($productEntity, [\ProjectA_Zed_Catalog_Component_Interface_GroupConstant::CONFIG_ATTRIBUTES], true);
+                $product = $this->facadeCatalog->getProduct($productEntity, [\ProjectA\Zed\Catalog\Component\Model\Attribute\GroupConstantInterface::CONFIG_ATTRIBUTES], true);
                 $mappingId = $productEntity->getPrimaryKey();
                 $imageEntityId = $this->facadeImage->addImage($originalImageFilename, '/tmp', $mappingId, $size->getIdImageSize(), $order, '-' . $size->getName(), $extension, \ProjectA_Zed_Image_Persistence_PacImagePeer::TYPE_PRODUCT, array());
                 $this->facadeImage->addImageProduct($mappingId, $imageEntityId, $product[self::ATTRIBUTE_NAME]);

@@ -9,7 +9,6 @@ class Pyz_Zed_Dwh_Component_Model_Import_Command_LoadOrderStatusMapping extends 
 {
     use \Generated\Zed\DwhOrderStatusMapping\Component\Dependency\DwhOrderStatusMappingFacadeTrait;
 
-
     protected function getSql()
     {
         $mapping = $this->facadeDwhOrderStatusMapping->getMapping();

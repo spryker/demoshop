@@ -91,7 +91,6 @@ abstract class Pyz_Zed_Dwh_Component_Model_Report_Abstract extends \ProjectA_Zed
         }
     }
 
-
     /** Returns a member set for the the selected time period for the inclusion in a filter */
     protected function getTimeExpressionForFilter($cubeName, $prefix = '')
     {
@@ -108,8 +107,7 @@ abstract class Pyz_Zed_Dwh_Component_Model_Report_Abstract extends \ProjectA_Zed
     protected function addTimeSelection($cubeName, $prefix = '')
     {
         $timeMembers = $this->factory->createModelSchemaProcessor()->getLevelMembers($cubeName, $this->getTimeLevel($prefix));
-        if ($this->getParamValue('time-upto') >= count($timeMembers))
-        {
+        if ($this->getParamValue('time-upto') >= count($timeMembers)) {
             $this->params['time-upto'] = 0;
         }
         $timeList = array_map(function ($elem) { return $elem['MEMBER_NAME']; }, $timeMembers);
