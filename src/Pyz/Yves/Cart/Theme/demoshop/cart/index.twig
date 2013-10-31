@@ -60,7 +60,7 @@
                 </tbody>
                 <tfoot>
                 <tr>
-                    <td rowspan="{{ totals.tax.taxRates|length + 3 }}" colspan="2">
+                    <td rowspan="{{ totals.tax.taxRates|length + 4 }}" colspan="2">
                         <ul class="usps">
                             <li><span class="glyphicon glyphicon-gift"></span>{{ 'cart.usp.shipping'|trans }}</li>
                             <li><span class="glyphicon glyphicon-refresh"></span>{{ 'cart.usp.return'|trans }}</li>
@@ -71,8 +71,23 @@
                 </tr>
                 <tr class="shipping">
                     <td class="label">{{ 'cart.price.shipping'|trans }}</td>
-                    <td>{{ totals.orderExpensesTotal|price }}</td>
+                    <td>{{ 0|price }}{# totals.orderExpensesTotal|price? #}</td>
                 </tr>
+                {% if couponCode %}
+                    <tr class="voucher">
+                        <td class="label">Voucher Code: IKEA</td>
+                        <td>{{ 123|price }}</td>
+                    </tr>
+                {% else %}
+                    <tr class="voucher">
+                        <td class="label">{{ 'cart.coupon.add'|trans }}</td>
+                        <td>
+                            <form action="{{ url('cart/coupon/add') }}">
+                                <input type="text" name="code" value="" />
+                            </form>
+                        </td>
+                    </tr>
+                {% endif %}
                 {% for taxRate in totals.tax.taxRates %}
                     <tr class="tax">
                         <td>{{ taxRate.percentage }}{{ 'cart.percentage.vat'|trans }}</td>

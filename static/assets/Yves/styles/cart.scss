@@ -23,3 +23,6 @@
 #cart .items .tax td { padding:10px; color:#aaa; }
 #cart .items .shipping td,
 #cart .items .voucher td { padding:10px; }
+#cart .items .voucher input { margin:-5px 0; width:60%; }
+
+#cart .items tfoot td:not([colspan]) { max-width:100px; }
