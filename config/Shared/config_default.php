@@ -249,10 +249,10 @@ $config['zed'] = array(
 $config['yves'] = [
     'theme'          => 'demoshop',
     'session'        => [
-        'save_handler' => null,
-        'save_path'    => null,
-        'name'         => null,
-        'domain'       => null,
+        'save_handler'  => null,
+        'save_path'     => null,
+        'name'          => null,
+        'cookie_domain' => null,
     ]
 ];
 
