@@ -3,11 +3,12 @@
 {% block content %}
     {% include "@application/partials/navbar.twig" with {'categories': categories } only %}
     <link rel="stylesheet" href="/styles/cart.css" />
+    <script src="/scripts/app/cart.js"></script>
     {% include '@application/response_messages.twig' %}
 
     <section class="consumeHeight" id="cart">
             {% if cartItems|length %}
-            <a href="{{ url('checkout') }}"><button class="continue">{{ 'cart.to.checkout'|trans }}</button></a>
+            <a class="continue" href="{{ url('checkout') }}">{{ 'cart.to.checkout'|trans }}</a>
             {% endif %}
             <h3>{{ 'cart.cart'|trans }}</h3>
             <table class="items">
@@ -85,9 +86,7 @@
                 </tfoot>
             </table>
             {% if cartItems|length %}
-            <a href="{{ url('checkout') }}"><button class="continue">{{ 'cart.to.checkout'|trans }}</button></a>
+            <a  class="continue" href="{{ url('checkout') }}">{{ 'cart.to.checkout'|trans }}</a>
             {% endif %}
-
-        <a href="http://www-development.project-yz.com/cart/add/04M01BU-03">add product for debugging</a>
     </section>
 {% endblock %}

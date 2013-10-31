@@ -32,9 +32,12 @@ select[disabled] { background-color:#f1f1f1; }
 h3 { font-size:30px; font-weight:500; }
 h4 { font-size:18px; font-weight:500; }
 
-button.continue { display:block; float:right; margin:6px 0; padding:0; height:32px; color:#fff; background:#aaa; font-weight:bold; border:0 none; line-height:32px; cursor:pointer; outline:none; }
-button.continue:before { display:block; content:''; float:left; height:0; border:16px solid #aaa; border-left-color:#fff; border-right-width:20px; }
-button.continue:after { display:block; content:''; float:right; height:0; border:16px solid #fff; border-left-color:#aaa; border-right-width:0; margin-left:20px; }
+button.continue,
+a.continue { display:block; float:right; margin:6px 0; padding:0; height:32px; color:#fff; background:#aaa; font-weight:bold; border:0 none; line-height:32px; cursor:pointer; outline:none; text-decoration:none; }
+button.continue:before,
+a.continue:before { display:block; content:''; float:left; height:0; border:16px solid #aaa; border-left-color:#fff; border-right-width:20px; }
+button.continue:after,
+a.continue:after { display:block; content:''; float:right; height:0; border:16px solid #fff; border-left-color:#aaa; border-right-width:0; margin-left:20px; }
 
 button.cancel { float:left; border:1px solid #aaa; background:#f1f1f1; padding:4px 10px; border-radius:4px; color:#333; box-shadow:1px 1px 2px rgba(0, 0, 0, 0.1); cursor:pointer; }
 button.ok { float:right; font-weight:bold; border:1px solid #aaa; background:#fff; padding:4px 10px; border-radius:4px; color:#333; box-shadow:1px 1px 2px rgba(0, 0, 0, 0.1); cursor:pointer; }
