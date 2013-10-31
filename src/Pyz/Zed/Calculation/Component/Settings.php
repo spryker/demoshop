@@ -10,7 +10,7 @@ class Pyz_Zed_Calculation_Component_Settings extends \ProjectA_Zed_Calculation_C
     use \Generated\Zed\Salesrule\Component\Dependency\SalesruleFacadeTrait;
 
     /**
-     * @return array
+     * @return \ProjectA_Zed_Calculation_Component_Interface_Calculator[]
      */
     public function getCalculatorStack()
     {
