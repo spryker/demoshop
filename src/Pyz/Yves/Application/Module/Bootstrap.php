@@ -75,7 +75,7 @@ class Bootstrap extends \ProjectA\Yves\Library\Silex\Bootstrap
             new CartProvider(),
             new CatalogProvider(),
             new CheckoutProvider(),
-            new SetupProvider()
+            new SetupProvider(),
         ];
     }
 
@@ -106,7 +106,8 @@ class Bootstrap extends \ProjectA\Yves\Library\Silex\Bootstrap
     protected function globalTemplateVariables(Application $app)
     {
         return [
-            'categories' => Category::getCategoryTree($app->getStorageKeyValue())
+            'categories' => Category::getCategoryTree($app->getStorageKeyValue()),
+            'cartItemCount' => Factory::getInstance()->createCartModelSessionCartCount($app->getSession())->getCount(),
         ];
     }
 }
