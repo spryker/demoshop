@@ -657,7 +657,7 @@
             "source": {
                 "type": "git",
                 "url": "git@codebasehq.com:project-a/core/catalog.git",
-                "reference": "473694506a54580fb37abb0b24c6a052982d3c42"
+                "reference": "d1550012bbf38bb9c4ea59a6ec07656e1b3d8966"
             },
             "require": {
                 "php": ">=5.4.0",
@@ -693,7 +693,7 @@
                 "Price",
                 "Stock"
             ],
-            "time": "2013-10-30 13:28:46"
+            "time": "2013-10-30 14:27:06"
         },
         {
             "name": "project-a/checkout-package",
@@ -956,7 +956,7 @@
             "source": {
                 "type": "git",
                 "url": "git@codebasehq.com:project-a/core/infrastructure.git",
-                "reference": "3d90c6fc422bdce808217261e533e67f3d8d0e9e"
+                "reference": "789aae03440719ab81453426c1d3b321cf9e6dde"
             },
             "require": {
                 "php": ">=5.4.0",
@@ -984,7 +984,7 @@
             "keywords": [
                 "infrastructure"
             ],
-            "time": "2013-10-30 10:52:58"
+            "time": "2013-10-30 14:41:51"
         },
         {
             "name": "project-a/kendo-package",
@@ -1125,7 +1125,7 @@
             "source": {
                 "type": "git",
                 "url": "git@codebasehq.com:project-a/core/payment.git",
-                "reference": "2650191490ac750e820679a9fc1a0fb66f182f51"
+                "reference": "a5d7db23390cf00e0f0ac4e3a143979946fcff76"
             },
             "require": {
                 "php": ">=5.4.0"
@@ -1148,7 +1148,7 @@
             "keywords": [
                 "payment, payment provider"
             ],
-            "time": "2013-10-29 14:03:11"
+            "time": "2013-10-30 13:59:11"
         },
         {
             "name": "project-a/sales-package",
@@ -1187,21 +1187,21 @@
         },
         {
             "name": "project-a/silex-routing",
-            "version": "v1.0.0",
+            "version": "v1.0.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/project-a/Silex-Routing.git",
-                "reference": "cf2792155bf93bee2f893f1333b77dcd2ce7ec8c"
+                "reference": "1c385acb9c413370dcb60f1f5dde51e3d2819ead"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/project-a/Silex-Routing/zipball/cf2792155bf93bee2f893f1333b77dcd2ce7ec8c",
-                "reference": "cf2792155bf93bee2f893f1333b77dcd2ce7ec8c",
+                "url": "https://api.github.com/repos/project-a/Silex-Routing/zipball/1c385acb9c413370dcb60f1f5dde51e3d2819ead",
+                "reference": "1c385acb9c413370dcb60f1f5dde51e3d2819ead",
                 "shasum": ""
             },
             "require": {
                 "silex/silex": "~1.0",
-                "symfony-cmf/routing": "~1.1@beta",
+                "symfony-cmf/routing": "~1.1.0",
                 "symfony/routing": ">=2.3,<2.5-dev"
             },
             "require-dev": {
@@ -1211,7 +1211,7 @@
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "1.0.x-dev"
+                    "dev-master": "1.1.x-dev"
                 }
             },
             "autoload": {
@@ -1236,7 +1236,7 @@
                 }
             ],
             "description": "Silex-Routing provides advanced routing for Silex through connecting symfony-cmf/Routing with Silex.",
-            "time": "2013-09-12 12:02:42"
+            "time": "2013-10-30 21:59:28"
         },
         {
             "name": "project-a/stripe-package",
@@ -1484,12 +1484,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/fabpot/Silex.git",
-                "reference": "87e0a836025b4dd46a95384416a727a4e72a2826"
+                "reference": "67891b29678f55af1b4f2b06eec613fe0c193b03"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/fabpot/Silex/zipball/87e0a836025b4dd46a95384416a727a4e72a2826",
-                "reference": "87e0a836025b4dd46a95384416a727a4e72a2826",
+                "url": "https://api.github.com/repos/fabpot/Silex/zipball/67891b29678f55af1b4f2b06eec613fe0c193b03",
+                "reference": "67891b29678f55af1b4f2b06eec613fe0c193b03",
                 "shasum": ""
             },
             "require": {
@@ -1560,7 +1560,7 @@
             "keywords": [
                 "microframework"
             ],
-            "time": "2013-10-30 08:42:24"
+            "time": "2013-10-31 09:24:54"
         },
         {
             "name": "solarium/solarium",
@@ -2772,12 +2772,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/zendframework/zf2.git",
-                "reference": "3141049e8766043c6153ec7a83062f45ffd5e712"
+                "reference": "4d6f52c380a0ad3774e8ce879134abed2d2267e9"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/zendframework/zf2/zipball/3141049e8766043c6153ec7a83062f45ffd5e712",
-                "reference": "3141049e8766043c6153ec7a83062f45ffd5e712",
+                "url": "https://api.github.com/repos/zendframework/zf2/zipball/4d6f52c380a0ad3774e8ce879134abed2d2267e9",
+                "reference": "4d6f52c380a0ad3774e8ce879134abed2d2267e9",
                 "shasum": ""
             },
             "require": {
@@ -2882,7 +2882,7 @@
                 "framework",
                 "zf2"
             ],
-            "time": "2013-10-28 13:46:54"
+            "time": "2013-10-30 20:52:00"
         },
         {
             "name": "zendframework/zendpdf",
