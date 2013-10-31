@@ -657,7 +657,7 @@
             "source": {
                 "type": "git",
                 "url": "git@codebasehq.com:project-a/core/catalog.git",
-                "reference": "81754e7e9b40493afe8674cddb096836ababc254"
+                "reference": "be9fb123476b12701c032e4e8bd1efa860701b9c"
             },
             "require": {
                 "php": ">=5.4.0",
@@ -693,7 +693,7 @@
                 "Price",
                 "Stock"
             ],
-            "time": "2013-10-31 11:18:16"
+            "time": "2013-10-31 15:23:52"
         },
         {
             "name": "project-a/checkout-package",
@@ -956,7 +956,7 @@
             "source": {
                 "type": "git",
                 "url": "git@codebasehq.com:project-a/core/infrastructure.git",
-                "reference": "e16e8d01df38c546ddbc79e907422284294eff94"
+                "reference": "090fad10f34b1b53f05fe65c5b7a9a901772ed1c"
             },
             "require": {
                 "php": ">=5.4.0",
@@ -984,7 +984,7 @@
             "keywords": [
                 "infrastructure"
             ],
-            "time": "2013-10-31 15:06:00"
+            "time": "2013-10-31 15:26:16"
         },
         {
             "name": "project-a/kendo-package",
