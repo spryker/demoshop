@@ -94,7 +94,7 @@ abstract class ProductsExporter extends CoreProductsExporter implements
     {
         $categories = [];
         $product = $this->factory->createModelFinder()->findProductEntityById($id);
-        $productCategories = $this->factory->createModelCategory()->getCategoriesForProduct($product->getSimple()->getConfig()->getProduct());
+        $productCategories = $this->factory->createModelCategory()->getCategoriesForProduct($product->getSimpleEntity()->getConfigEntity()->getProductEntity());
 
         /* @var $productCategory \ProjectA_Zed_Category_Persistence_PacCategory */
         foreach ($productCategories as $productCategory) {
