@@ -1,0 +1,5 @@
+{% extends "@application/layout/full.twig" %}
+
+{% block content %}
+    {% include "@application/partials/navbar.twig" with {'categories': categories } only %}
+{% endblock %}

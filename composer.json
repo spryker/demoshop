@@ -24,7 +24,8 @@
         "zendframework/zendframework": "2.3.*@dev",
         "solarium/solarium": "~3.1.2",
         "silex/silex": "dev-master as 1.2",
-        "aws/aws-sdk-php": "~2.4"
+        "aws/aws-sdk-php": "~2.4",
+        "symfony/security": "~2.3"
     },
     "require-dev": {
         "silex/web-profiler": "~1.0",
