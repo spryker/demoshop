@@ -216,6 +216,6 @@ app.catalog = {
             return $container.siblings($container.prev().data('connector'))
         }
     }
-}
+};
 
 app.additionals.push('catalog');

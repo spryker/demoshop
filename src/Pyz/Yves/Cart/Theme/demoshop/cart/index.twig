@@ -8,7 +8,7 @@
 
     <section class="consumeHeight" id="cart">
             {% if cartItems|length %}
-            <a class="continue" href="{{ url('checkout') }}">{{ 'cart.to.checkout'|trans }}</a>
+            <a class="continue" href="{{ url('checkout/login') }}">{{ 'cart.to.checkout'|trans }}</a>
             {% endif %}
             <h3>{{ 'cart.cart'|trans }}</h3>
             <table class="items">
@@ -101,7 +101,7 @@
                 </tfoot>
             </table>
             {% if cartItems|length %}
-            <a  class="continue" href="{{ url('checkout') }}">{{ 'cart.to.checkout'|trans }}</a>
+            <a  class="continue" href="{{ url('checkout/login') }}">{{ 'cart.to.checkout'|trans }}</a>
             {% endif %}
     </section>
 {% endblock %}

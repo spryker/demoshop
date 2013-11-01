@@ -13,4 +13,9 @@ class CheckoutController extends CoreCheckoutController
     {
         return new OrderType();
     }
+
+    public function loginAction()
+    {
+        return [];
+    }
 }

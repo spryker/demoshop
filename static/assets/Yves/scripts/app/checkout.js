@@ -263,6 +263,6 @@ app.checkout = {
             return result;
         }
     }
-}
+};
 
 app.additionals.push('checkout');
