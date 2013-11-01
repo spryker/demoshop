@@ -1,5 +1,9 @@
 app.customer = {
     init : function() {
+        if(app.settings.get('visitedBefore')) {
+            $('.tab.active').removeClass('active').parent().siblings().children('.tab').addClass('active');
+        }
+
         $('#' + $('.tab.active').data('target')).show();
 
         $('.tab').click(function() {

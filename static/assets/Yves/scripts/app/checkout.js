@@ -1,5 +1,6 @@
 app.checkout = {
     init : function() {
+        app.settings.set('visitedBefore', true);
         this.smartAddress.init();
         this.steps.init();
         $('.triggerAlternative').change(function() {
