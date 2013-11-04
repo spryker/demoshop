@@ -43,6 +43,7 @@ class Payment extends \ProjectA_Zed_Sales_Component_Model_Orderprocess_Definitio
     {
         $this->setup->addCommand(self::STATE_WAITING_FOR_PAYMENT, self::EVENT_ON_ENTER, $this->facadeDemoPayment->createFacadeStateMachine()->getCommandAuthorizeGrandTotal());
         $this->setup->addCommand(PaymentConstants::STATE_DEMO_AUTHORIZED, PaymentConstants::EVENT_DEMO_CAPTURE_PAYMENT, $this->facadeDemoPayment->createFacadeStateMachine()->getCommandCaptureGrandTotal());
+        $this->setup->addCommand(PaymentConstants::STATE_DEMO_AUTHORIZED, self::EVENT_ON_ENTER, $this->factory->createModelOrderprocessCommandMailOrderConfirmationMail());
     }
 
     protected function addFlags()
