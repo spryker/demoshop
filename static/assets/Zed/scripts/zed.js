@@ -40,7 +40,12 @@
                     return this[resource];
                 },
                 set : function(resource) {
-                    console.log('config of grid ' + resource + ' changed', JSON.stringify(this[resource]));
+                    $.get('/kendo/state/save', { grid : resource, state : JSON.stringify(this[resource])}, function(result) {
+                        console.log('config of grid ' + resource + ' changed. server says: success: ', result ? result.success : false);
+                    });
+                },
+                apply : function(resource, config) {
+                    console.log('applying', resource, config);
                 }
             },
             fields : {
