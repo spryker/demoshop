@@ -551,7 +551,7 @@
             "source": {
                 "type": "git",
                 "url": "git@codebasehq.com:project-a/core/acl.git",
-                "reference": "1048b2a2dd0bbf07138674525f70f3f60997e0d3"
+                "reference": "33c0dd31d674313a8082c708fbb38d4128b425ee"
             },
             "require": {
                 "php": ">=5.4.0",
@@ -580,7 +580,7 @@
                 "login",
                 "usermanagement"
             ],
-            "time": "2013-10-31 13:51:33"
+            "time": "2013-11-04 14:11:50"
         },
         {
             "name": "project-a/adyen-package",
@@ -621,7 +621,7 @@
             "source": {
                 "type": "git",
                 "url": "git@codebasehq.com:project-a/core/cart.git",
-                "reference": "77fe53abf2ee8f9f2036b56b11fc73633a26937a"
+                "reference": "0da78093d26bd75da5131ff43d4b0eadbf393795"
             },
             "require": {
                 "php": ">=5.4.0",
@@ -649,7 +649,7 @@
             "keywords": [
                 "Cart"
             ],
-            "time": "2013-11-01 10:37:04"
+            "time": "2013-11-04 14:11:50"
         },
         {
             "name": "project-a/catalog-package",
@@ -657,7 +657,7 @@
             "source": {
                 "type": "git",
                 "url": "git@codebasehq.com:project-a/core/catalog.git",
-                "reference": "be9fb123476b12701c032e4e8bd1efa860701b9c"
+                "reference": "397fbf7edfb1e0883ea73f2e4cb0d8a8ad216d92"
             },
             "require": {
                 "php": ">=5.4.0",
@@ -693,7 +693,7 @@
                 "Price",
                 "Stock"
             ],
-            "time": "2013-10-31 15:23:52"
+            "time": "2013-11-04 14:11:50"
         },
         {
             "name": "project-a/checkout-package",
@@ -701,7 +701,7 @@
             "source": {
                 "type": "git",
                 "url": "git@codebasehq.com:project-a/core/checkout.git",
-                "reference": "89fded63804b4714e1f1135146202a08dab42fb6"
+                "reference": "464d316f645c20965811d506c9e609c6722d5894"
             },
             "require": {
                 "gavroche/browser": "~2.1",
@@ -731,7 +731,7 @@
                 "PaymentControl",
                 "Salesrule"
             ],
-            "time": "2013-10-31 11:16:53"
+            "time": "2013-11-04 14:12:18"
         },
         {
             "name": "project-a/console-package",
@@ -814,7 +814,7 @@
             "source": {
                 "type": "git",
                 "url": "git@codebasehq.com:project-a/core/crm.git",
-                "reference": "558e1b2fa07123acabdb47882518899bdd7173fd"
+                "reference": "d942dbd19f1f80821e9ab1cdd6403744d10ee9d0"
             },
             "require": {
                 "php": ">=5.4.0",
@@ -840,7 +840,7 @@
                 "CRM",
                 "Mail"
             ],
-            "time": "2013-11-01 10:42:39"
+            "time": "2013-11-04 14:12:22"
         },
         {
             "name": "project-a/dwh-package",
@@ -923,7 +923,7 @@
             "source": {
                 "type": "git",
                 "url": "git@codebasehq.com:project-a/core/glossary.git",
-                "reference": "117218b4a02e0c575c5289bbeaaed776f316017e"
+                "reference": "e8f185c2b06db3f6f111d04039a5436e8d26ba18"
             },
             "require": {
                 "php": ">=5.4.0",
@@ -948,7 +948,7 @@
                 "i18n",
                 "translation"
             ],
-            "time": "2013-10-25 15:35:13"
+            "time": "2013-11-04 14:11:51"
         },
         {
             "name": "project-a/infrastructure-package",
@@ -956,7 +956,7 @@
             "source": {
                 "type": "git",
                 "url": "git@codebasehq.com:project-a/core/infrastructure.git",
-                "reference": "d641ee5f35621eed48e2f4381d0609821284926e"
+                "reference": "05a36c16cfaa25824431fcfa4c26ef0cb208f2b7"
             },
             "require": {
                 "php": ">=5.4.0",
@@ -984,7 +984,7 @@
             "keywords": [
                 "infrastructure"
             ],
-            "time": "2013-10-31 15:40:54"
+            "time": "2013-11-04 14:11:51"
         },
         {
             "name": "project-a/kendo-package",
@@ -1011,7 +1011,7 @@
             "source": {
                 "type": "git",
                 "url": "git@codebasehq.com:project-a/core/library-2.git",
-                "reference": "27c82e981eb4e0bb569acd4caa6da012b424f979"
+                "reference": "cf2f676cab52f3f6a9cc8958c1f84b4456ffca04"
             },
             "require": {
                 "digital-canvas/zend-framework": ">=1.12.2",
@@ -1028,6 +1028,7 @@
                 "symfony/form": "~2.3",
                 "symfony/http-foundation": "~2.3",
                 "symfony/process": "~2.3",
+                "symfony/serializer": "~2.3",
                 "symfony/twig-bridge": "~2.3",
                 "symfony/validator": "~2.3",
                 "twig/twig": "~1.13",
@@ -1051,7 +1052,7 @@
                 }
             ],
             "description": "Project-A Library",
-            "time": "2013-11-01 09:02:19"
+            "time": "2013-11-04 14:11:51"
         },
         {
             "name": "project-a/lumberjack-package",
@@ -1059,7 +1060,7 @@
             "source": {
                 "type": "git",
                 "url": "git@codebasehq.com:project-a/core/lumberjack.git",
-                "reference": "7766b90c7f0ca3721c8ec25f73ec54749fbbbdd8"
+                "reference": "0e8f3395dd4b44a076c288ade957be5ef08dfd1f"
             },
             "require": {
                 "nervetattoo/elasticsearch": "~2.2.0",
@@ -1084,7 +1085,7 @@
             "keywords": [
                 ""
             ],
-            "time": "2013-10-23 11:41:29"
+            "time": "2013-11-04 14:11:51"
         },
         {
             "name": "project-a/marketing-package",
@@ -1125,7 +1126,7 @@
             "source": {
                 "type": "git",
                 "url": "git@codebasehq.com:project-a/core/payment.git",
-                "reference": "4a7ef100c03b281c34d17dbf4364b397332ed692"
+                "reference": "99c6ea435a3436a6643be8dee9584fc7595dc28e"
             },
             "require": {
                 "php": ">=5.4.0"
@@ -1148,7 +1149,7 @@
             "keywords": [
                 "payment, payment provider"
             ],
-            "time": "2013-10-31 14:06:12"
+            "time": "2013-11-04 14:11:51"
         },
         {
             "name": "project-a/sales-package",
@@ -1156,7 +1157,7 @@
             "source": {
                 "type": "git",
                 "url": "git@codebasehq.com:project-a/core/sales.git",
-                "reference": "945a1a1c2407b9bf364bb188c4ba99dc9c3a24d7"
+                "reference": "149959d580da27f9b97ef32d0969521e1b3c0b78"
             },
             "require": {
                 "php": ">=5.4.0",
@@ -1183,7 +1184,7 @@
                 "Sales",
                 "Task"
             ],
-            "time": "2013-10-31 14:52:16"
+            "time": "2013-11-04 14:12:40"
         },
         {
             "name": "project-a/silex-routing",
@@ -2487,6 +2488,53 @@
             "description": "Symfony Routing Component",
             "homepage": "http://symfony.com",
             "time": "2013-09-29 19:41:41"
+        },
+        {
+            "name": "symfony/serializer",
+            "version": "v2.3.6",
+            "target-dir": "Symfony/Component/Serializer",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/symfony/Serializer.git",
+                "reference": "0821f3ad932d3ef9a23e51c11b2684a06180729d"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/symfony/Serializer/zipball/0821f3ad932d3ef9a23e51c11b2684a06180729d",
+                "reference": "0821f3ad932d3ef9a23e51c11b2684a06180729d",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3.3"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "2.3-dev"
+                }
+            },
+            "autoload": {
+                "psr-0": {
+                    "Symfony\\Component\\Serializer\\": ""
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Fabien Potencier",
+                    "email": "fabien@symfony.com"
+                },
+                {
+                    "name": "Symfony Community",
+                    "homepage": "http://symfony.com/contributors"
+                }
+            ],
+            "description": "Symfony Serializer Component",
+            "homepage": "http://symfony.com",
+            "time": "2013-09-19 09:45:20"
         },
         {
             "name": "symfony/translation",

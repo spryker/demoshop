@@ -2,9 +2,6 @@
 
 use Generated\Shared\Library\TransferLoader;
 
-/**
- * @author jstick
- */
 class Pyz_Zed_Sales_Component_Model_Orderprocess_Command_DemoPaymentAuthorise extends \ProjectA_Zed_Sales_Component_Model_Orderprocess_CommandAbstract implements
     \ProjectA_Zed_Sales_Component_Interface_OrderCommand,
     \Generated\Zed\Payment\Component\Dependency\PaymentFacadeInterface,
@@ -20,7 +17,7 @@ class Pyz_Zed_Sales_Component_Model_Orderprocess_Command_DemoPaymentAuthorise ex
      */
     public function __invoke(\ProjectA_Zed_Sales_Persistence_PacSalesOrder $orderEntity, \ProjectA_Zed_Sales_Component_Interface_ContextCollection $context)
     {
-        $paymentTransfer = TransferLoader::loadSalesOrderPayment();
+        $paymentTransfer = TransferLoader::loadSalesPayment();
         $context['Transfer_Sales_Order_Payment'] = $paymentTransfer;
         $date = new DateTime();
 

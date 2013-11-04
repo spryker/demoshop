@@ -14,7 +14,6 @@ use ProjectA\Yves\Library\Silex\Provider\YvesLoggingServiceProvider;
 use ProjectA\Yves\Library\Silex\Routing\SilexRouter;
 use Pyz\Yves\Application\Module\ControllerProvider as ApplicationProvider;
 use ProjectA\Yves\Cart\Module\ControllerProvider as CartProvider;
-use Pyz\Yves\Catalog\Module\ControllerProvider as CatalogProvider;
 use ProjectA\Yves\Checkout\Module\ControllerProvider as CheckoutProvider;
 use ProjectA\Yves\Setup\Module\ControllerProvider as SetupProvider;
 use Silex\Provider\FormServiceProvider;
@@ -54,7 +53,6 @@ class Bootstrap extends \ProjectA\Yves\Library\Silex\Bootstrap
             new TranslationServiceProvider(),
             new FormServiceProvider(),
             new ValidatorServiceProvider(),
-            //new HttpFragmentServiceProvider(),
             new TwigServiceProvider(),
         ];
 
@@ -73,15 +71,12 @@ class Bootstrap extends \ProjectA\Yves\Library\Silex\Bootstrap
         return [
             new ApplicationProvider(),
             new CartProvider(),
-            new CatalogProvider(),
             new CheckoutProvider(),
             new SetupProvider(),
         ];
     }
 
     /**
-     *
-     *
      * @param Application $app
      * @return \Symfony\Component\Routing\RouterInterface[]
      */
