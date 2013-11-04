@@ -25,6 +25,14 @@
         });
     });
 
+    $.fn.kendoGrid = (function (originalFn) {
+        return function () {
+            arguments[0] = gridUi.configs.patch($(this).attr('id'), arguments[0]);
+            console.log('initializing grid with config', arguments[0]);
+            originalFn.apply(this, arguments);
+        };
+    })($.fn.kendoGrid);
+
     window.gridUi = {
         configs : {
             get : function(resource) {
@@ -41,9 +49,17 @@
                     console.log('config of grid ' + resource + ' changed. server says: success: ', result ? result.success : false);
                 });
             },
-            apply : function(resource, config) {
-                console.log('applying', resource, config);
+            load : function(resource, config) {
+                console.log('loading', resource, config);
                 this[resource] = config;
+            },
+            patch : function(resource, kendoConfig) {
+                var uiConfig = this.get(resource);
+                kendoConfig.columns = kendoConfig.columns.map(function(item) {
+                    if (!uiConfig.fields[item.field]) { return item; }
+                    return $.extend(item, uiConfig.fields[item.field]);
+                });
+                return kendoConfig;
             }
         },
         initials : [],
