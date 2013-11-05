@@ -3,11 +3,7 @@
         "This file locks the dependencies of your project to a known state",
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file"
     ],
-<<<<<<< HEAD
-    "hash": "a1d25d6ade1ee08666ac3b71fd8bc3e1",
-=======
     "hash": "9b52538034e48a2f3226a4ce4e630dcc",
->>>>>>> 85be56dd3be16374012dafe1bdd74ba2044f6080
     "packages": [
         {
             "name": "aws/aws-sdk-php",
@@ -122,12 +118,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/doctrine/inflector.git",
-                "reference": "54b8333d2a5682afdc690060c1cf384ba9f47f08"
+                "reference": "v1.0"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/doctrine/inflector/zipball/54b8333d2a5682afdc690060c1cf384ba9f47f08",
-                "reference": "54b8333d2a5682afdc690060c1cf384ba9f47f08",
+                "url": "https://github.com/doctrine/inflector/archive/v1.0.zip",
+                "reference": "v1.0",
                 "shasum": ""
             },
             "require": {
@@ -163,7 +159,7 @@
                     "email": "kontakt@beberlei.de"
                 },
                 {
-                    "name": "Johannes M. Schmitt",
+                    "name": "Johannes Schmitt",
                     "email": "schmittjoh@gmail.com",
                     "homepage": "http://jmsyst.com",
                     "role": "Developer of wrapped JMSSerializerBundle"
@@ -411,13 +407,13 @@
             "version": "v2.2.0",
             "source": {
                 "type": "git",
-                "url": "https://github.com/nervetattoo/elasticsearch.git",
-                "reference": "ed9244b341e0139a4278ac9bdf3cb63d57539dfb"
+                "url": "https://github.com/nervetattoo/elasticsearch",
+                "reference": "v2.2.0"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/nervetattoo/elasticsearch/zipball/ed9244b341e0139a4278ac9bdf3cb63d57539dfb",
-                "reference": "ed9244b341e0139a4278ac9bdf3cb63d57539dfb",
+                "url": "https://github.com/nervetattoo/elasticsearch/archive/v2.2.0.zip",
+                "reference": "v2.2.0",
                 "shasum": ""
             },
             "require": {
@@ -1015,11 +1011,7 @@
             "source": {
                 "type": "git",
                 "url": "git@codebasehq.com:project-a/core/library-2.git",
-<<<<<<< HEAD
-                "reference": "13659b3ca812258adff7192dad65a9a49ca0fe85"
-=======
                 "reference": "27c82e981eb4e0bb569acd4caa6da012b424f979"
->>>>>>> 85be56dd3be16374012dafe1bdd74ba2044f6080
             },
             "require": {
                 "digital-canvas/zend-framework": ">=1.12.2",
@@ -1059,11 +1051,7 @@
                 }
             ],
             "description": "Project-A Library",
-<<<<<<< HEAD
-            "time": "2013-10-31 15:55:37"
-=======
             "time": "2013-11-01 09:02:19"
->>>>>>> 85be56dd3be16374012dafe1bdd74ba2044f6080
         },
         {
             "name": "project-a/lumberjack-package",
@@ -1351,13 +1339,13 @@
             "version": "1.0.0",
             "source": {
                 "type": "git",
-                "url": "https://github.com/php-fig/log.git",
-                "reference": "fe0936ee26643249e916849d48e3a51d5f5e278b"
+                "url": "https://github.com/php-fig/log",
+                "reference": "1.0.0"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/php-fig/log/zipball/fe0936ee26643249e916849d48e3a51d5f5e278b",
-                "reference": "fe0936ee26643249e916849d48e3a51d5f5e278b",
+                "url": "https://github.com/php-fig/log/archive/1.0.0.zip",
+                "reference": "1.0.0",
                 "shasum": ""
             },
             "type": "library",
@@ -2501,74 +2489,6 @@
             "time": "2013-09-29 19:41:41"
         },
         {
-            "name": "symfony/security",
-            "version": "v2.3.6",
-            "target-dir": "Symfony/Component/Security",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/symfony/Security.git",
-                "reference": "b6d302f1f0f1235aa376c180dcd289f38b3df70e"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/symfony/Security/zipball/b6d302f1f0f1235aa376c180dcd289f38b3df70e",
-                "reference": "b6d302f1f0f1235aa376c180dcd289f38b3df70e",
-                "shasum": ""
-            },
-            "require": {
-                "php": ">=5.3.3",
-                "symfony/event-dispatcher": "~2.1",
-                "symfony/http-foundation": "~2.1",
-                "symfony/http-kernel": "~2.1"
-            },
-            "require-dev": {
-                "doctrine/common": "~2.2",
-                "doctrine/dbal": "~2.2",
-                "ircmaxell/password-compat": "1.0.*",
-                "psr/log": "~1.0",
-                "symfony/form": "~2.0",
-                "symfony/routing": "~2.2",
-                "symfony/validator": "~2.2"
-            },
-            "suggest": {
-                "doctrine/dbal": "to use the built-in ACL implementation",
-                "ircmaxell/password-compat": "",
-                "symfony/class-loader": "",
-                "symfony/finder": "",
-                "symfony/form": "",
-                "symfony/routing": "",
-                "symfony/validator": ""
-            },
-            "type": "library",
-            "extra": {
-                "branch-alias": {
-                    "dev-master": "2.3-dev"
-                }
-            },
-            "autoload": {
-                "psr-0": {
-                    "Symfony\\Component\\Security\\": ""
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Fabien Potencier",
-                    "email": "fabien@symfony.com"
-                },
-                {
-                    "name": "Symfony Community",
-                    "homepage": "http://symfony.com/contributors"
-                }
-            ],
-            "description": "Symfony Security Component",
-            "homepage": "http://symfony.com",
-            "time": "2013-10-10 13:12:30"
-        },
-        {
             "name": "symfony/translation",
             "version": "v2.3.6",
             "target-dir": "Symfony/Component/Translation",
@@ -2852,15 +2772,6 @@
             "target-dir": "Zend/Code",
             "source": {
                 "type": "git",
-<<<<<<< HEAD
-                "url": "https://github.com/zendframework/zf2.git",
-                "reference": "5a298a89c64f2fe42b3ecf62b386e7be6e396b8f"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/zendframework/zf2/zipball/5a298a89c64f2fe42b3ecf62b386e7be6e396b8f",
-                "reference": "5a298a89c64f2fe42b3ecf62b386e7be6e396b8f",
-=======
                 "url": "https://github.com/zendframework/Component_ZendCode.git",
                 "reference": "603302ced9b921e04d63253abb9bb5c373a4858c"
             },
@@ -2959,7 +2870,6 @@
                 "type": "zip",
                 "url": "https://api.github.com/repos/zendframework/Component_ZendMemory/zipball/84404b02a3f7f8de168bdc9fd9d17ab69fad5a51",
                 "reference": "84404b02a3f7f8de168bdc9fd9d17ab69fad5a51",
->>>>>>> 85be56dd3be16374012dafe1bdd74ba2044f6080
                 "shasum": ""
             },
             "require": {
@@ -3038,11 +2948,7 @@
                 "stdlib",
                 "zf2"
             ],
-<<<<<<< HEAD
-            "time": "2013-10-31 15:53:44"
-=======
             "time": "2013-10-20 20:00:18"
->>>>>>> 85be56dd3be16374012dafe1bdd74ba2044f6080
         },
         {
             "name": "zendframework/zendpdf",
@@ -3119,7 +3025,7 @@
                 {
                     "name": "Alexandre Salomé",
                     "email": "alexandre.salome@gmail.com",
-                    "homepage": "http://alexandre-salome.fr"
+                    "homepage": "http://alexandre-salome.fr/"
                 }
             ],
             "description": "PHP Library for Selenium",
