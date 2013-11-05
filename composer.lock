@@ -3,7 +3,7 @@
         "This file locks the dependencies of your project to a known state",
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file"
     ],
-    "hash": "5c8148a6f07bf0534552aa1531530526",
+    "hash": "da7fa7def4650e9726437ed5091890dd",
     "packages": [
         {
             "name": "aws/aws-sdk-php",
@@ -814,7 +814,7 @@
             "source": {
                 "type": "git",
                 "url": "git@codebasehq.com:project-a/core/crm.git",
-                "reference": "badfb081e9fbd102e3b434385f01bde29d45c0a9"
+                "reference": "e43bca74ee25acc7181f34553a61da5e4bfa286c"
             },
             "require": {
                 "php": ">=5.4.0",
@@ -840,7 +840,7 @@
                 "CRM",
                 "Mail"
             ],
-            "time": "2013-11-05 09:07:25"
+            "time": "2013-11-05 09:48:34"
         },
         {
             "name": "project-a/dwh-package",
@@ -956,7 +956,7 @@
             "source": {
                 "type": "git",
                 "url": "git@codebasehq.com:project-a/core/infrastructure.git",
-                "reference": "05a36c16cfaa25824431fcfa4c26ef0cb208f2b7"
+                "reference": "5f55d2bc7ecea921ed4180e174816a7de9a8664b"
             },
             "require": {
                 "php": ">=5.4.0",
@@ -984,7 +984,7 @@
             "keywords": [
                 "infrastructure"
             ],
-            "time": "2013-11-04 14:11:51"
+            "time": "2013-11-05 09:43:38"
         },
         {
             "name": "project-a/kendo-package",
@@ -2555,6 +2555,53 @@
             "description": "Symfony Security Component",
             "homepage": "http://symfony.com",
             "time": "2013-10-10 13:12:30"
+        },
+        {
+            "name": "symfony/serializer",
+            "version": "v2.3.6",
+            "target-dir": "Symfony/Component/Serializer",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/symfony/Serializer.git",
+                "reference": "0821f3ad932d3ef9a23e51c11b2684a06180729d"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/symfony/Serializer/zipball/0821f3ad932d3ef9a23e51c11b2684a06180729d",
+                "reference": "0821f3ad932d3ef9a23e51c11b2684a06180729d",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3.3"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "2.3-dev"
+                }
+            },
+            "autoload": {
+                "psr-0": {
+                    "Symfony\\Component\\Serializer\\": ""
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Fabien Potencier",
+                    "email": "fabien@symfony.com"
+                },
+                {
+                    "name": "Symfony Community",
+                    "homepage": "http://symfony.com/contributors"
+                }
+            ],
+            "description": "Symfony Serializer Component",
+            "homepage": "http://symfony.com",
+            "time": "2013-09-19 09:45:20"
         },
         {
             "name": "symfony/translation",
