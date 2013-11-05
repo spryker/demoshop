@@ -1156,7 +1156,7 @@
             "source": {
                 "type": "git",
                 "url": "git@codebasehq.com:project-a/core/sales.git",
-                "reference": "b05d5ee29c54910ff324aeac8f8f81a0733e63db"
+                "reference": "806ebf64e76d11602b83a439f4759d3de8b2e578"
             },
             "require": {
                 "php": ">=5.4.0",
@@ -1183,7 +1183,7 @@
                 "Sales",
                 "Task"
             ],
-            "time": "2013-11-05 08:24:00"
+            "time": "2013-11-05 10:12:12"
         },
         {
             "name": "project-a/silex-routing",
