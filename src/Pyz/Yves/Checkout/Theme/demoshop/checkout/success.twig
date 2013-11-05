@@ -1,7 +1,9 @@
-{% extends "@application/layout/full.twig" %}
+{% extends "@application/layout/reduced.twig" %}
 
 {% block content %}
-    We received your Order and will now NOT process it!
-    <br/>
-    Number : {{ order.incrementId }}
+    <section class="consumeHeight">
+        We received your Order and will now NOT process it!
+        <br/>
+        Number : {{ order.incrementId }}
+    </section>
 {% endblock %}

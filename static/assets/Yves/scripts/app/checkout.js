@@ -1,5 +1,6 @@
 app.checkout = {
     init : function() {
+        app.settings.set('visitedBefore', true);
         this.smartAddress.init();
         this.steps.init();
         $('.triggerAlternative').change(function() {
@@ -20,10 +21,13 @@ app.checkout = {
             relevantGValues : ['street_number', 'route', 'locality', 'postal_code', 'country'],
             scopes : ['shipping', 'billing'],
             resultDiv : '.addressResult',
-            triggers : '.smartAddressTrigger',
-            geocodeUrl : 'http://maps.googleapis.com/maps/api/geocode/json'
+            triggers : '.smartAddressTrigger'
         },
         init : function() {
+            $.getScript('//maps.googleapis.com/maps/api/js?v=3.exp&sensor=false&callback=app.checkout.smartAddress.test');
+        },
+        test : function() {
+            this.vars.geocoder = new google.maps.Geocoder();
             $(this.vars.triggers).change(this.apply.bind(this))
                 .click(this.click.bind(this));
             $(this.vars.resultDiv).children('button').click(function(e) {
@@ -53,8 +57,10 @@ app.checkout = {
             this.triggerSearch(fields, withoutStorePrependix);
         },
         triggerSearch : function(fields, withoutStorePrependix) {
+            if (!this.vars.geocoder) { return; }
+
             var address = this.getField(this.vars.addressField, fields);
-            $.getJSON(this.vars.geocodeUrl, { address : address + (withoutStorePrependix ? '' : (' ' + app.vars.storeLocale)) , sensor : false }, function(response) {
+            this.vars.geocoder.geocode({ address : address + (withoutStorePrependix ? '' : (' ' + app.vars.storeLocale)) }, function(results, status) {
                 var relevantValues = {};
 
                 var fullName = this.getField(this.vars.nameField, fields);
@@ -66,14 +72,14 @@ app.checkout = {
                 relevantValues.first_name = nameParts.shift();
                 relevantValues.middle_name = nameParts.join(' ');
 
-                if (!response || response.status !== 'OK' || !response.results || !response.results[0]) {
+                if (!status || status !== google.maps.GeocoderStatus.OK || !results || !results[0]) {
                     if (withoutStorePrependix) {
                         return this.showResult(relevantValues);
                     }
                     return app.checkout.smartAddress.apply(null, true);
                 }
 
-                $.each(response.results[0].address_components, function(key, addressComponent) {
+                $.each(results[0].address_components, function(key, addressComponent) {
                     $.each(addressComponent.types, function(key, type) {
                         if ($.inArray(type, this.vars.relevantGValues) !== -1) {
                             relevantValues[type] = addressComponent;
@@ -263,6 +269,6 @@ app.checkout = {
             return result;
         }
     }
-}
+};
 
 app.additionals.push('checkout');
