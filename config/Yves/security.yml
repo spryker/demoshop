@@ -1,11 +1,4 @@
 security:
-#  default:
-#    zed: true
-
-  login_check:
-    pattern: '^/login_check$'
-    anonymous: ~
-
   secured:
-    pattern: '^/checkout'
+    pattern: '(^/checkout|^/login_check$)'
     form: {login_path: '/login-old', check_path: '/login_check'}
