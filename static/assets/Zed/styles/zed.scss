@@ -199,6 +199,16 @@ i.icon-eye-open:hover{
   }
 }
 
+.k-grid-header .k-header,
+.k-menu .k-group {
+  white-space: normal !important;
+}
+
+.k-drag-clue {
+  overflow:hidden;
+  text-overflow: ellipsis;
+}
+
 @import 'zed/setup';
 @import 'zed/category';
 @import 'zed/detail';
