@@ -176,7 +176,7 @@ $config['transfer'] = array(
     'username' => 'yves',
     'password' => 'o7&bg=Fz;nSslHBC',
     'ssl'      => false,
-    'debug_session_forward_enabled' => false,
+    'debug_session_forward_enabled' => true,
     'debug_session_name' => 'XDEBUG_SESSION'
 );
 

@@ -291,6 +291,19 @@ keys:
   catalog.sort.price:
     explanations:
       en_US: 'Sort by price'
+
+  customer.email:
+    explanations:
+      en_US: 'E-Mail'
+  customer.password:
+    explanations:
+      en_US: 'Password'
+  customer.login.submit:
+    explanations:
+      en_US: 'Login'
+
   header.cart.products.choice:
     explanations:
       en_US: '{0}Empty|{1}%count% product|]1,Inf]%count% products '
+
+

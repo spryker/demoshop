@@ -3,6 +3,7 @@ namespace Pyz\Yves\Application\Module;
 
 use Generated\Yves\Factory;
 use ProjectA\Yves\Catalog\Component\Model\Category;
+use ProjectA\Yves\Library\Security\Configuration;
 use ProjectA\Yves\Library\Security\SecurityServiceProvider;
 use ProjectA\Yves\Library\Silex\Application;
 use ProjectA\Yves\Library\Silex\Provider\CookieServiceProvider;
@@ -25,6 +26,9 @@ use SilexRouting\Provider\UrlGeneratorServiceProvider;
 use Silex\Provider\ValidatorServiceProvider;
 use Silex\Provider\WebProfilerServiceProvider;
 use SilexRouting\Provider\RoutingServiceProvider;
+
+use ProjectA\Yves\Library\Security\Authentication\Provider\ZedProvider;
+use ProjectA\Yves\Library\Security\Firewall\ZedListener;
 
 class Bootstrap extends \ProjectA\Yves\Library\Silex\Bootstrap
 {
