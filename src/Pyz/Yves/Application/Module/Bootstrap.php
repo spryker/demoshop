@@ -58,8 +58,8 @@ class Bootstrap extends \ProjectA\Yves\Library\Silex\Bootstrap
             new RoutingServiceProvider(),
             new StorageServiceProvider(),
             new TranslationServiceProvider(),
-            new FormServiceProvider(),
             new ValidatorServiceProvider(),
+            new FormServiceProvider(),
             new TwigServiceProvider(),
         ];
 

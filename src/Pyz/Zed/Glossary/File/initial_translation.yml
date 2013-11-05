@@ -294,10 +294,10 @@ keys:
 
   customer.email:
     explanations:
-      en_US: 'E-Mail'
+      en_US: 'Your E-Mail:'
   customer.password:
     explanations:
-      en_US: 'Password'
+      en_US: 'Your Password:'
   customer.login.submit:
     explanations:
       en_US: 'Login'
