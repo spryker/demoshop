@@ -4,16 +4,14 @@
     {% include "@application/partials/navbar.twig" with {'categories': categories } only %}
 
     {{ form_start(form, {attr: {class: 'customerLogin', novalidate: 'novalidate'}, action: path('login')}) }}
-
         {{ form_errors(form) }}
-
         <div class="row">
             {{ form_row(form.email, {label : 'customer.email'}) }}
         </div>
         <div class="row">
             {{ form_row(form.password, {label : 'customer.password'}) }}
         </div>
-        <button type="submit" name="customerLogin">login</button>
+        <button type="submit">login</button>
     {{ form_end(form) }}
 
 {% endblock %}
