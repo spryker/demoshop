@@ -1,6 +1,7 @@
 /* global
     app: true,
-    jQuery: false
+    jQuery: false,
+    google: false
 */
 ( function ( app, $ ) {
   'use strict';
@@ -41,6 +42,13 @@
     vars : smartAddressVars,
 
     init : function () {
+      $.getScript('//maps.googleapis.com/maps/api/js?v=3.exp&sensor=false&callback=app.checkout.smartAddress.test');
+      //alert('Was fehlt noch: Ein ensureVisibility helper muss rein & die validation noch ausgeklügelter');
+    },
+
+    test : function () {
+      smartAddressVars.geocoder = new google.maps.Geocoder();
+
       $( smartAddressVars.triggers )
         .on({
           change : smartAddress.apply,
@@ -84,6 +92,10 @@
     },
 
     triggerSearch : function ( fields, withoutStorePrependix ) {
+      if ( ! smartAddressVars.geocoder ) {
+        return false;
+      }
+
       var address = smartAddress.getField( smartAddressVars.addressField, fields );
 
       var addressSuffix = '';
@@ -92,10 +104,9 @@
         addressSuffix = ' ' + app.vars.storeLocale;
       }
 
-      $.getJSON( smartAddressVars.geocodeUrl, {
-          address : address + addressSuffix,
-          sensor  : false
-        }, function ( response ) {
+      smartAddressVars.geocoder.geocode({
+          address : address + addressSuffix
+        }, function ( results, status, response ) {
           var relevantValues = {};
 
           var fullName  = smartAddress.getField( smartAddressVars.nameField, fields );
@@ -103,18 +114,18 @@
 
           relevantValues.last_name = nameParts.pop();
 
-          if (!nameParts.length) {
-            return;
+          if ( ! nameParts.length ) {
+            return false;
           }
 
           relevantValues.first_name  = nameParts.shift();
           relevantValues.middle_name = nameParts.join( ' ' );
 
           var failedResponse =
-            ! response ||
-            response.status !== 'OK' ||
-            ! response.results ||
-            ! response.results[ 0 ];
+            ! status ||
+            status !== google.maps.GeocoderStatus.OK ||
+            ! results ||
+            ! results[ 0 ];
 
           if ( failedResponse ) {
             if ( withoutStorePrependix ) {
@@ -124,7 +135,7 @@
             return smartAddress.apply( null, true );
           }
 
-          var addressComponents = response.results[0].address_components;
+          var addressComponents = results[0].address_components;
 
           $.each( addressComponents, function ( key, addressComponent ) {
             $.each( addressComponent.types, function ( key, type ) {
