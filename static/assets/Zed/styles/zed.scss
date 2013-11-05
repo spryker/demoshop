@@ -171,6 +171,34 @@ i.icon-eye-open:hover{
   }
 }
 
+.undoGridModifications {
+  position: absolute;
+  right: 5px;
+  top: 5px;
+  padding: 3px 5px;
+  cursor: pointer;
+  opacity: 0.5;
+  z-index: 1;
+
+  &:hover {
+    opacity: 1;
+  }
+}
+
+.gridModificationsUrl {
+  position: absolute;
+  right: 32px;
+  top: 5px;
+  padding: 3px 5px;
+  cursor: pointer;
+  opacity: 0.5;
+  z-index: 1;
+
+  &:hover {
+    opacity: 1;
+  }
+}
+
 @import 'zed/setup';
 @import 'zed/category';
 @import 'zed/detail';
