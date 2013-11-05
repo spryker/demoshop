@@ -1,7 +1,6 @@
 <?php
 namespace Pyz\Yves\Application\Module\Controller;
 
-use ProjectA\Shared\Glossary\Code\Storage\StorageKeyGenerator;
 use ProjectA\Yves\Library\Controller\Controller;
 
 class StaticController extends Controller
