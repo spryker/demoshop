@@ -35,7 +35,7 @@
                     <div class="row col col33 last">
                         {{ form_row(form.shippingAddress.lastName, {attr : {class : 'fullWidth'}, label : 'checkout.address.shipping.name.last'}) }}
                     </div>
-                    <div class="row col col67 first">
+                    <div class="row col col67 first middle">
                         {{ form_row(form.shippingAddress.address1, {attr : {class : 'fullWidth'}, label : 'checkout.address.shipping.street' }) }}
                     </div>
                     <div class="row col col33 last">
@@ -44,7 +44,7 @@
                     <div class="row">
                         {{ form_row(form.shippingAddress.address3, {attr : {class : 'fullWidth', placeholder : 'checkout.address.shipping.comment.placeholder'}, label : 'checkout.address.shipping.comment'}) }}
                     </div>
-                    <div class="row col col33 first">
+                    <div class="row col col33 first middle">
                         {{ form_row(form.shippingAddress.zipcode, {attr : {class : 'fullWidth'}, label : 'checkout.address.shipping.zipcode'}) }}
                     </div>
                     <div class="row col col67 last">
@@ -71,7 +71,7 @@
                     </div>
                 </div>
 
-                <div id="cartSummary" class="cart primary col col33">
+                <div id="cartSummary" class="cart primary col col34">
                     <h3>{{ 'checkout.headline.cart'|trans }}</h3>
                     <table class="items">
                         <tbody>
