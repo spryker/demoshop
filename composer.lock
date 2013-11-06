@@ -743,7 +743,7 @@
             "source": {
                 "type": "git",
                 "url": "git@codebasehq.com:project-a/core/checkout.git",
-                "reference": "d694a81c2836be0fbf7a5d305b4025e6833b2d87"
+                "reference": "185833587e38ea72582a43c5040b8915bb56ce06"
             },
             "require": {
                 "gavroche/browser": "~2.1",
@@ -773,7 +773,7 @@
                 "PaymentControl",
                 "Salesrule"
             ],
-            "time": "2013-11-05 14:59:50"
+            "time": "2013-11-06 14:42:51"
         },
         {
             "name": "project-a/console-package",
