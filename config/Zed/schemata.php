@@ -24,6 +24,7 @@ return array(
     APPLICATION_VENDOR_DIR . '/project-a/crm-package/src/ProjectA/Zed/Customer/Persistence/pac_customer.schema.xml',
     APPLICATION_VENDOR_DIR . '/project-a/crm-package/src/ProjectA/Zed/Mail/Persistence/pac_mail.schema.xml',
     APPLICATION_VENDOR_DIR . '/project-a/crm-package/src/ProjectA/Zed/Newsletter/Persistence/pac_newsletter.schema.xml',
+    APPLICATION_VENDOR_DIR . '/project-a/document-package/src/ProjectA/Zed/Document/Persistence/pac_document.schema.xml',
     APPLICATION_VENDOR_DIR . '/project-a/frontend-package/src/ProjectA/Zed/Yves/Persistence/pac_yves.schema.xml',
     APPLICATION_VENDOR_DIR . '/project-a/infrastructure-package/src/ProjectA/Zed/Misc/Persistence/pac_misc.schema.xml',
     APPLICATION_VENDOR_DIR . '/project-a/kendo-package/src/ProjectA/Zed/Kendo/Persistence/pac_kendo.schema.xml',
