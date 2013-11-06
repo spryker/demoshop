@@ -8,14 +8,13 @@
         "project-a/content-package": "2.0.0.x-dev as 2.0.0",
         "project-a/console-package": "dev-master as 2.0.0",
         "project-a/crm-package": "2.0.0.x-dev as 2.0.0",
-        "project-a/dwh-package": "2.0.0.x-dev as 2.0.0",
+        "project-a/document-package": "dev-master as 2.0.0",
         "project-a/frontend-package": "2.0.0.x-dev as 2.0.0",
         "project-a/glossary-package": "2.0.0.x-dev as 2.0.0",
         "project-a/infrastructure-package": "2.0.0.x-dev as 2.0.0",
         "project-a/kendo-package": "dev-master",
         "project-a/library-package": "dev-master as 2.0.0",
         "project-a/lumberjack-package": "2.0.0.x-dev as 2.0.0",
-        "project-a/marketing-package":"2.0.0.x-dev as 2.0.0",
         "project-a/payment-package": "2.0.0.x-dev as 2.0.0",
         "project-a/sales-package": "2.0.0.x-dev as 2.0.0",
         "project-a/stripe-package": "2.0.0.x-dev as 2.0.0",
@@ -24,7 +23,7 @@
         "solarium/solarium": "~3.1.2",
         "silex/silex": "dev-master as 1.2",
         "aws/aws-sdk-php": "~2.4",
-        "symfony/security": "~2.3"
+        "mpdf/mpdf": "v5.7.1"
     },
     "require-dev": {
         "silex/web-profiler": "~1.0",
