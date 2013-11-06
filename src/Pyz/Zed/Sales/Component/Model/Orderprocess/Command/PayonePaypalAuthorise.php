@@ -79,6 +79,8 @@ class Pyz_Zed_Sales_Component_Model_Orderprocess_Command_PayonePaypalAuthorise e
     protected function fillPayoneData(\ProjectA_Zed_Sales_Persistence_PacSalesOrder $orderEntity)
     {
         $payoneConfig = ProjectA_Shared_Library_Config::get('payone');
+        $sslHosts = ProjectA_Shared_Library_Config::get('host_ssl');
+
 
         $payonedata = [
             // base data
@@ -93,9 +95,9 @@ class Pyz_Zed_Sales_Component_Model_Orderprocess_Command_PayonePaypalAuthorise e
             // paymenttype
             'clearingtype' => 'wlt',
             'wallettype'   => 'PPE',
-            'successurl'   => '', //todo
-            'errorurl'     => '', //todo
-            'backurl'      => '', //todo
+            'successurl'   => $sslHosts['yves'] . '/checkout/success',
+            'errorurl'     => $sslHosts['yves'] . '/checkout',
+            'backurl'      => $sslHosts['yves'] . '/checkout',
             // order
             'reference'    => $orderEntity->getIncrementId(),
             'amount'       => $orderEntity->getGrandTotal(),
