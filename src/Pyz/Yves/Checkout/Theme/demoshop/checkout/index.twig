@@ -26,14 +26,32 @@
                             <input class="addSpace smartAddressTrigger" type="radio" name="gender" value="Mrs." /> Mrs.
                         </label>
                     </div> #}
-                    <div class="row">
-                        {{ form_row(form.full_name, {attr : {class : 'smartAddressTrigger fullWidth', placeholder : 'checkout.name.full.placeholder'}, label : 'checkout.name.full'}) }}
+                    <div class="row col col34 first">
+                        {{ form_row(form.shippingAddress.firstName, {attr : {class : 'fullWidth'}, label : 'checkout.address.shipping.name.first'}) }}
                     </div>
-                    <div class="row">
-                        {{ form_row(form.full_address, {attr : {class : 'smartAddressTrigger fullWidth', placeholder : 'checkout.address.full.placeholder'}, label : 'checkout.address.full'}) }}
+                    <div class="row col col33 middle">
+                        {{ form_row(form.shippingAddress.middleName, {attr : {class : 'fullWidth'}, label : 'checkout.address.shipping.name.middle'}) }}
+                    </div>
+                    <div class="row col col33 last">
+                        {{ form_row(form.shippingAddress.lastName, {attr : {class : 'fullWidth'}, label : 'checkout.address.shipping.name.last'}) }}
+                    </div>
+                    <div class="row col col67 first">
+                        {{ form_row(form.shippingAddress.address1, {attr : {class : 'fullWidth'}, label : 'checkout.address.shipping.street' }) }}
+                    </div>
+                    <div class="row col col33 last">
+                        {{ form_row(form.shippingAddress.address2, {attr : {class : 'fullWidth'}, label : 'checkout.address.shipping.streetnr'}) }}
                     </div>
                     <div class="row">
                         {{ form_row(form.shippingAddress.address3, {attr : {class : 'fullWidth', placeholder : 'checkout.address.shipping.comment.placeholder'}, label : 'checkout.address.shipping.comment'}) }}
+                    </div>
+                    <div class="row col col33 first">
+                        {{ form_row(form.shippingAddress.zipcode, {attr : {class : 'fullWidth'}, label : 'checkout.address.shipping.zipcode'}) }}
+                    </div>
+                    <div class="row col col67 last">
+                        {{ form_row(form.shippingAddress.city, {attr : {class : 'fullWidth'}, label : 'checkout.address.shipping.city'}) }}
+                    </div>
+                    <div class="row">
+                        {{ form_row(form.shippingAddress.iso2Country, {attr : {class : 'fullWidth', 'data-src': 'country', 'data-src-type' : 'short'}, label : 'checkout.address.shipping.country'}) }}
                     </div>
                     <div class="row">
                         {{ form_row(form.shippingAddress.phone, {attr : {class : 'fullWidth'}, label : 'checkout.address.shipping.phone'}) }}
@@ -47,52 +65,6 @@
                 </div>
 
                 <div class="primary col col33">
-                    <div class="addressResult">
-                        <h5>{{ 'checkout.headline.shipping.to'|trans }}</h5>
-                        <table>
-                            <tr>
-                                <td class="label">{{ 'checkout.address.shipping.name'|trans }}:</td>
-                                <td>
-                                    {# <span data-src="gender"></span> #}
-                                    <span></span> {{ form_widget(form.shippingAddress.firstName, {attr : {class : 'name fullWidth', 'data-src' : 'first_name'}}) }}
-                                    <span></span> {{ form_widget(form.shippingAddress.middleName, {attr : {class : 'name fullWidth', 'data-src' : 'middle_name'}}) }}
-                                    <span></span> {{ form_widget(form.shippingAddress.lastName, {attr : {class : 'name fullWidth', 'data-src' : 'last_name'}}) }}
-                                </td>
-                            </tr>
-                            <tr>
-                                <td class="label">{{ 'checkout.address.shipping.street'|trans }}</td>
-                                <td>
-                                <span class="col col67">
-                                    {{ form_widget(form.shippingAddress.address1, {attr : {class : 'fullWidth', 'data-src': 'route'}}) }}
-                                </span>
-                                <span class="col col33">
-                                    {{ form_widget(form.shippingAddress.address2, {attr : {class : 'fullWidth', 'data-src': 'street_number'}}) }}
-                                </span>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td class="label">{{ 'checkout.address.shipping.zipcode'|trans }}</td>
-                                <td>
-                                <span class="col col33">
-                                    {{ form_widget(form.shippingAddress.zipcode, {attr : {class : 'fullWidth', 'data-src': 'postal_code'}}) }}
-                                </span>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td class="label">{{ 'checkout.address.shipping.city'|trans }}:</td>
-                                <td>
-                                    {{ form_widget(form.shippingAddress.city, {attr : {class : 'fullWidth', 'data-src': 'locality'}}) }}
-                                </td>
-                            </tr>
-                            <tr>
-                                <td class="label">{{ 'checkout.address.shipping.country'|trans }}:</td>
-                                <td>
-                                    {{ form_widget(form.shippingAddress.iso2Country, {attr : {class : 'fullWidth', 'data-src': 'country', 'data-src-type' : 'short'}, label : 'checkout.country'}) }}
-                                </td>
-                            </tr>
-                        </table>
-                        <button class="ok">OK</button>
-                    </div>
                     <h3>{{ 'checkout.headline.payment'|trans }}</h3>
                     <div class="row">
                         {{ form_widget(form.payment.method, { label : 'checkout.payment.method' } ) }}

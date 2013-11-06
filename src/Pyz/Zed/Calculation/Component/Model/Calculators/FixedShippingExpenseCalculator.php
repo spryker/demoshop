@@ -17,12 +17,14 @@ class FixedShippingExpenseCalculator extends \ProjectA_Zed_Calculation_Component
      */
     public function recalculate(Order $order)
     {
-        $expense = TransferLoader::loadSalesPriceExpense();
-        $expense->setType(ExpenseConstants::EXPENSE_SHIPPING);
-        $expense->setName('cart.fixed.shipping');
-        $expense->setGrossPrice(690);
-        $expense->setPriceToPay(690);
-        $expense->setTaxPercentage('19.00');
-        $order->appendExpense($expense);
+        if ($order->getItems()->count() > 0) {
+            $expense = TransferLoader::loadSalesPriceExpense();
+            $expense->setType(ExpenseConstants::EXPENSE_SHIPPING);
+            $expense->setName('cart.fixed.shipping');
+            $expense->setGrossPrice(690);
+            $expense->setPriceToPay(690);
+            $expense->setTaxPercentage('19.00');
+            $order->appendExpense($expense);
+        }
     }
 }
