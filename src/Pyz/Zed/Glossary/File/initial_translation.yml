@@ -294,3 +294,31 @@ keys:
   header.cart.products.choice:
     explanations:
       en_US: '{0}Empty|{1}%count% product|]1,Inf]%count% products '
+  static.pages.tos:
+    explanations:
+      de_DE: 'Terms of Service - please add me!'
+      en_US: 'Terms of Service - please add me!'
+  static.pages.imprint:
+    explanations:
+      de_DE: 'Imprint - please add me!'
+      en_US: 'Imprint - please add me!'
+  static.pages.privacy:
+    explanations:
+      de_DE: 'Privacy - please add me!'
+      en_US: 'Privacy - please add me!'
+  static.pages.withdrawal:
+    explanations:
+      de_DE: 'Withdrawal - please add me!'
+      en_US: 'Withdrawal - please add me!'
+  static.pages.returns:
+      explanations:
+        de_DE: 'Returns - please add me!'
+        en_US: 'Returns - please add me!'
+  static.pages.contact:
+    explanations:
+      de_DE: 'Contact - please add me!'
+      en_US: 'Contact - please add me!'
+  static.pages.faq:
+      explanations:
+        de_DE: 'FAQ - please add me!'
+        en_US: 'FAQ - please add me!'

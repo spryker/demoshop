@@ -73,10 +73,10 @@
                     <td class="label">{{ 'cart.price.shipping'|trans }}</td>
                     <td>{{ 0|price }}{# totals.orderExpensesTotal|price? #}</td>
                 </tr>
-                {% if couponCode %}
+                {% for code in couponCodes %}
                     <tr class="voucher">
-                        <td class="label">Voucher Code: IKEA</td>
-                        <td>{{ 123|price }}</td>
+                        <td class="label">{{ 'cart.voucher.code' }}: {{ code }}</td>
+                        <td>-{{ totals.discount|price }}</td>
                     </tr>
                 {% else %}
                     <tr class="voucher">
@@ -87,7 +87,7 @@
                             </form>
                         </td>
                     </tr>
-                {% endif %}
+                {% endfor %}
                 {% for taxRate in totals.tax.taxRates %}
                     <tr class="tax">
                         <td>{{ taxRate.percentage }}{{ 'cart.percentage.vat'|trans }}</td>
