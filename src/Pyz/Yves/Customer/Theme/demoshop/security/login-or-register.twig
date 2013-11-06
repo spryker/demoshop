@@ -29,6 +29,10 @@
                     </div>
                 </div>
                 <div class="content" id="content-register">
+                    <div>
+                        <h3>{{ 'customer.register.box.main'|trans }}</h3>
+                        <h4>{{ 'customer.register.box.sub'|trans }}</h4>
+                    </div>
                     {{ form_start(registrationForm, {attr: {class: 'customerLogin', novalidate: 'novalidate'}, action: path('login')}) }}
                         {{ form_errors(registrationForm) }}
                         <div class="row">
@@ -37,21 +41,32 @@
                         <div class="row">
                             {{ form_row(registrationForm.password, {label : 'customer.password'}) }}
                         </div>
-                        <button class="continue" type="submit">Create New Account</button>
+                        <div class="row">
+                            <button class="continue" type="submit">Create New Account</button>
+                        </div>
                     {{ form_end(registrationForm) }}
                 </div>
                 <div class="content" id="content-login">
-                    {{ form_start(loginForm, {attr: {class: 'customerLogin', novalidate: 'novalidate'}, action: path('login')}) }}
-                        {{ form_errors(loginForm) }}
-                        <div class="row">
-                            {{ form_row(loginForm.email, {label : 'customer.email'}) }}
-                        </div>
-                        <div class="row">
-                            {{ form_row(loginForm.password, {label : 'customer.password'}) }}
-                            <a class="hint" href="javascript:app.customer.showPwReset();">Forgot your password?</a>
-                        </div>
+                    <div>
+                        <h3>{{ 'customer.login.caption.main'|trans }}</h3>
+                    </div>
+                    {% if error %}
+                        <p>{{ error|trans }}</p>
+                    {% endif %}
+                    {{ form_start(loginForm, {attr: {class: 'customerLogin', novalidate: 'novalidate'}, action: path('login_check')}) }}
+                    {{ form_errors(loginForm) }}
+
+                    <div class="row">
+                        {{ form_row(loginForm.username, {label : 'customer.email'}) }}
+                    </div>
+                    <div class="row">
+                        {{ form_row(loginForm.password, {label : 'customer.password'}) }}
+                        <a class="hint" href="javascript:app.customer.showPwReset();">Forgot your password?</a>
+                    </div>
+                    <div class="row">
                         <button class="continue" type="submit">Login</button>
-                    {{ form_end(loginForm) }}
+                    </div>
+                    {{ form_end(loginForm, {render_rest:false}) }}
                 </div>
             </div>
         </div>

@@ -302,8 +302,32 @@ keys:
     explanations:
       en_US: 'Login'
 
+  customer.login.caption.main:
+    explanations:
+      en_US: 'Sign In'
+  customer.login.caption.sub:
+    explanations:
+      en_US: 'Already a customer?'
+
+  customer.register.caption.main:
+    explanations:
+      en_US: 'Register'
+  customer.register.caption.sub:
+    explanations:
+      en_US: 'New to wedowood?'
+
+  customer.register.box.main:
+    explanations:
+      en_US: 'Registration'
+  customer.register.box.sub:
+    explanations:
+      en_US: 'We need your email in order to inform you about your order. Your password is necessary for you to login to see your order status.'
+
   header.cart.products.choice:
     explanations:
       en_US: '{0}Empty|{1}%count% product|]1,Inf]%count% products '
 
+  login.error.bad.credentials:
+    explanations:
+      en_US: 'Invalid credentials'
 

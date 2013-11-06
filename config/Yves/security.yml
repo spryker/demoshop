@@ -1,4 +1,42 @@
-security:
+# This configuration defines which url should be behind a firewall and which settings should be used
+#
+# You can define default securityProviders which should be applied to all firewalls which doesn´t define
+# their own.
+#
+# e.g.:
+#
+# securityProviders:
+#      form: {login_path: '/login', check_path: '/login_check'}
+#
+# There are several providers you can choose. (rememberMe, http etc.)
+#
+# @see http://silex.sensiolabs.org/doc/providers/security.html
+#
+# you also have to define a customerProvider and you can override it with a project provider
+settings:
+  securityProvider:
+    form:
+      login_path: '/login'
+      check_path: '/login_check'
+      username_parameter: 'customerLogin[username]'
+      password_parameter: 'customerLogin[password]'
+      csrf_parameter: 'customerLogin[_token]'
+      csrf_provider: form.csrf_provider
+      intention: authentication
+      logout: true
+      anonymous: true
+
+    remember_me:
+      key: 'gZ4/jhv34?0JbW91§)hs'
+      always_remember_me: true
+
+  customerProvider: 'ProjectA\Yves\Library\Security\CustomerProvider'
+
+firewalls:
   secured:
-    pattern: '(^/checkout|^/login_check$)'
-    form: {login_path: '/login-old', check_path: '/login_check'}
+    pattern: '(^/checkout|^/login_check$|^/logout$)'
+#
+#  unsecured:
+#    pattern: '/.*'
+#    secured: false
+

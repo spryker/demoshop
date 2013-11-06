@@ -20,14 +20,12 @@ use ProjectA\Yves\Checkout\Module\ControllerProvider as CheckoutProvider;
 use ProjectA\Yves\Setup\Module\ControllerProvider as SetupProvider;
 use ProjectA\Yves\Customer\Module\ControllerProvider as CustomerProvider;
 use Silex\Provider\FormServiceProvider;
+use Silex\Provider\RememberMeServiceProvider;
 use Silex\Provider\ServiceControllerServiceProvider;
 use SilexRouting\Provider\UrlGeneratorServiceProvider;
 use Silex\Provider\ValidatorServiceProvider;
 use Silex\Provider\WebProfilerServiceProvider;
 use SilexRouting\Provider\RoutingServiceProvider;
-
-use ProjectA\Yves\Library\Security\Authentication\Provider\ZedProvider;
-use ProjectA\Yves\Library\Security\Firewall\ZedListener;
 
 class Bootstrap extends \ProjectA\Yves\Library\Silex\Bootstrap
 {
@@ -55,6 +53,7 @@ class Bootstrap extends \ProjectA\Yves\Library\Silex\Bootstrap
             new UrlGeneratorServiceProvider(),
             new ServiceControllerServiceProvider(),
             new SecurityServiceProvider(),
+            new RememberMeServiceProvider(),
             new RoutingServiceProvider(),
             new StorageServiceProvider(),
             new TranslationServiceProvider(),
