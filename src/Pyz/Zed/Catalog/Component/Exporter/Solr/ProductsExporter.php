@@ -1,6 +1,13 @@
 <?php
 namespace Pyz\Zed\Catalog\Component\Exporter\Solr;
 
+use Generated\Zed\Price\Component\Dependency\PriceFacadeInterface;
+use Generated\Zed\Price\Component\Dependency\PriceFacadeTrait;
+use Generated\Zed\Solr\Component\Dependency\SolrFacadeInterface;
+use Generated\Zed\Solr\Component\Dependency\SolrFacadeTrait;
+use Generated\Zed\Yves\Component\Dependency\YvesFacadeInterface;
+use Generated\Zed\Yves\Component\Dependency\YvesFacadeTrait;
+use ProjectA\Shared\Library\Filter\SeparatorToCamelCaseFilter;
 use ProjectA\Zed\Catalog\Component\Exporter\ProductsExporter as CoreProductsExporter;
 use ProjectA\Zed\Catalog\Component\Exporter\QueryBuilder\AbstractProduct;
 use ProjectA\Zed\Yves\Component\Model\Export\AbstractExport;
@@ -10,17 +17,17 @@ use \ProjectA_Zed_Price_Component_Interface_PriceTypeConstants as PriceTypeConst
 use ProjectA\Zed\Catalog\Component\Model\Attribute\GroupConstantInterface;
 
 abstract class ProductsExporter extends CoreProductsExporter implements
-     \ProjectA_Zed_Yves_Component_Interface_Exporter_Solr,
-     \Generated\Zed\Price\Component\Dependency\PriceFacadeInterface,
-     \Generated\Zed\Solr\Component\Dependency\SolrFacadeInterface,
-     \Generated\Zed\Yves\Component\Dependency\YvesFacadeInterface,
-     ProductAttributeConstantInterface,
-     ProductAttributeSetConstantInterface,
-     \Pyz_Shared_Library_StorageKeyConstant
+    \ProjectA_Zed_Yves_Component_Interface_Exporter_Solr,
+    PriceFacadeInterface,
+    SolrFacadeInterface,
+    YvesFacadeInterface,
+    ProductAttributeConstantInterface,
+    ProductAttributeSetConstantInterface,
+    \Pyz_Shared_Library_StorageKeyConstant
 {
-    use \Generated\Zed\Solr\Component\Dependency\SolrFacadeTrait;
-    use \Generated\Zed\Price\Component\Dependency\PriceFacadeTrait;
-    use \Generated\Zed\Yves\Component\Dependency\YvesFacadeTrait;
+    use SolrFacadeTrait;
+    use PriceFacadeTrait;
+    use YvesFacadeTrait;
 
     /**
      * @var array
@@ -85,7 +92,7 @@ abstract class ProductsExporter extends CoreProductsExporter implements
     }
 
     /**
-     * //TODO needs refactoring after config/simple has changed
+     * //TODO needs refactoring
      *
      * @param $id
      * @return mixed
@@ -94,7 +101,7 @@ abstract class ProductsExporter extends CoreProductsExporter implements
     {
         $categories = [];
         $product = $this->factory->createModelFinder()->findProductEntityById($id);
-        $productCategories = $this->factory->createModelCategory()->getCategoriesForProduct($product->getSimpleEntity()->getConfigEntity()->getProductEntity());
+        $productCategories = $this->factory->createModelCategory()->getCategoriesForProduct($product);
 
         /* @var $productCategory \ProjectA_Zed_Category_Persistence_PacCategory */
         foreach ($productCategories as $productCategory) {
@@ -114,6 +121,7 @@ abstract class ProductsExporter extends CoreProductsExporter implements
         \ArrayIterator $reporter
     ) {
 
+        $filter = new SeparatorToCamelCaseFilter('_', true);
         $reportName = $this->getName() . ' exported';
         $reporter[$reportName] = 0;
 
@@ -132,7 +140,7 @@ abstract class ProductsExporter extends CoreProductsExporter implements
 
             foreach ($exportModel->getFilterGroups() as $filterGroup) {
                 $groupProduct = $this->extractGroupAttributesFromProduct($filterGroup, $product);
-                $method = 'getExportData' . ucfirst($filterGroup);
+                $method = 'getExportData' . $filter->filter($filterGroup);
                 $newData = $this->$method($groupProduct, $id, $filterGroup);
                 foreach ($newData as $id => $value) {
                     if (isset($data[$id])) {
@@ -223,7 +231,7 @@ abstract class ProductsExporter extends CoreProductsExporter implements
      * @param $filterGroup
      * @return array
      */
-    protected function getExportDataSolr_searchable(array $product, $id, $filterGroup)
+    protected function getExportDataSolrSearchable(array $product, $id, $filterGroup)
     {
         $data = array();
         $data[$id]['searchable_text'] = array_values(array_unique(array_filter($product)));
@@ -237,7 +245,7 @@ abstract class ProductsExporter extends CoreProductsExporter implements
      * @param $filterGroup
      * @return array
      */
-    protected function getExportDataSolr_suggestion(array $product, $id, $filterGroup)
+    protected function getExportDataSolrSuggestion(array $product, $id, $filterGroup)
     {
         $data = array();
         $data[$id]['suggest_terms'] = array_values(array_unique(array_filter($product)));
@@ -251,7 +259,7 @@ abstract class ProductsExporter extends CoreProductsExporter implements
      * @param $filterGroup
      * @return array
      */
-    protected function getExportDataSolr_sort(array $product, $id, $filterGroup)
+    protected function getExportDataSolrSort(array $product, $id, $filterGroup)
     {
         $attributeVarieties = $this->groupAttributeNames[$filterGroup];
         $data = array();
@@ -270,12 +278,12 @@ abstract class ProductsExporter extends CoreProductsExporter implements
      * @param $filterGroup
      * @return mixed
      */
-    protected function getExportDataSolr_facet(array $product, $id, $filterGroup)
+    protected function getExportDataSolrFacet(array $product, $id, $filterGroup)
     {
         $attributeVarieties = $this->groupAttributeNames[$filterGroup];
 
         $data = array();
-        $data[$id] = $this->getAttributeValuesForSolr($data, $product, $attributeVarieties, 'facet');
+        $data[$id] = $this->getAttributeValuesForSolr($data, $product, $attributeVarieties, 'facet', self::FIELDTYPE_MULTI);
 
         $data[$id]['number_facet_price'] = (int) $product[PriceTypeConstants::FINAL_GROSS_PRICE];
 
@@ -291,7 +299,7 @@ abstract class ProductsExporter extends CoreProductsExporter implements
      * @param $filterGroup
      * @return array
      */
-    protected function getExportDataSolr_score(array $product, $id, $filterGroup)
+    protected function getExportDataSolrScore(array $product, $id, $filterGroup)
     {
         $data = array();
         foreach ($this->scoreNames as $scoreName) {

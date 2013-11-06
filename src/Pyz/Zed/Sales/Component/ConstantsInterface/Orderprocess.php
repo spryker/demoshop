@@ -4,16 +4,22 @@ namespace Pyz\Zed\Sales\Component\ConstantsInterface;
 
 interface Orderprocess extends \ProjectA_Zed_Sales_Component_Interface_OrderprocessConstant
 {
-    // DEMO PROCESS
+    const ORDER_PROCESS_CREDIT_CARD_STRIPE = 'Credit Card (Stripe)';
     const ORDER_PROCESS_DEMO = 'demo';
 
-    // STATES
+    const STATE_INVALID = 'invalid';
+    const STATE_WAITING_FOR_AUTHORIZE_APPOINTMENT = 'waiting for authorize appointment';
+    const STATE_APPOINTED = 'appointed';
+    const STATE_INIT_CAPTURE_PROCESS = 'init capture process';
+    const STATE_WAITING_FOR_CAPTURE_APPOINTMENT = 'waiting for capture appointment';
+    const STATE_CLARIFY_CAPTURE_FAILED = 'clarify capture failed';
+    const STATE_CAPTURED = 'captured';
 
     // EVENTS
 
     // RULES
 
-    // FLAGS
+    const FLAG_CLARIFY = 'clarify';
 
     /****** ONLY USED FOR THE TEST SUB-PROCESS ******/
 
