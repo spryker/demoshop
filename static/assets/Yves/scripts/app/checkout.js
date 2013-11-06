@@ -440,7 +440,7 @@
 
     app.checkout = {
         init : function () {
-            app.settings.set('visitedBefore', true);
+            app.settings.set('customerActiveAuthTab', 'login');
 
             // smartAddress.init();
             steps.init();
@@ -465,7 +465,7 @@
 
 // app.checkout = {
 //     init : function() {
-//         app.settings.set('visitedBefore', true);
+//         app.settings.set('customerActiveAuthTab', 'login');
 //         this.smartAddress.init();
 //         this.steps.init();
 //         $('.triggerAlternative').change(function() {
