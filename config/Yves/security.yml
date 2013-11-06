@@ -31,6 +31,7 @@ settings:
       always_remember_me: true
 
   customerProvider: 'ProjectA\Yves\Library\Security\CustomerProvider'
+  authModel: 'ProjectA\Yves\Customer\Component\Model\Authentication'
 
 firewalls:
   secured:
