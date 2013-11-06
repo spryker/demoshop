@@ -450,7 +450,7 @@
                     $('.address.secondaryRow').toggle(ev.target.checked);
                     // alert('Was fehlt noch: Ein ensureVisibility helper muss rein & die validation noch ausgeklügelter');
                 }
-            });
+            }).change();
         },
 
         // smartAddress : smartAddress,
