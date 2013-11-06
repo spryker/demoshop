@@ -1,470 +1,466 @@
 /* global
-    app: true,
-    jQuery: false,
-    google: false
-*/
-( function ( app, $ ) {
-  'use strict';
+ app: true,
+ jQuery: false,
+ google: false
+ */
+(function (app, $) {
+    'use strict';
 
-  var smartAddressVars = {
-    required : [
-      // 'gender',
-      'salesOrder[full_name]',
-      'salesOrder[full_address]'
-    ],
-    addressField : 'salesOrder[full_address]',
-    nameField : 'salesOrder[full_name]',
-    // genderField : 'gender',
-    relevantGValues : [
-      'street_number',
-      'route',
-      'locality',
-      'postal_code',
-      'country'
-    ],
-    scopes : [
-      'shipping', 'billing'
-    ],
-    resultDiv : '.addressResult',
-    triggers : '.smartAddressTrigger',
-    geocodeUrl : 'http://maps.googleapis.com/maps/api/geocode/json'
-  };
+    /* var smartAddressVars = {
+     required : [
+     // 'gender',
+     'salesOrder[full_name]',
+     'salesOrder[full_address]'
+     ],
+     addressField : 'salesOrder[full_address]',
+     nameField : 'salesOrder[full_name]',
+     // genderField : 'gender',
+     relevantGValues : [
+     'street_number',
+     'route',
+     'locality',
+     'postal_code',
+     'country'
+     ],
+     scopes : [
+     'shipping', 'billing'
+     ],
+     resultDiv : '.addressResult',
+     triggers : '.smartAddressTrigger',
+     geocodeUrl : 'http://maps.googleapis.com/maps/api/geocode/json'
+     }; */
 
-  var stepsVars = {
-    current : 1,
-    count   : 2,
-    el      : '#checkout .step',
-    form    : '#checkout .smartAddressForm'
-  };
+    var stepsVars = {
+        current : 1,
+        count : 2,
+        el : '#checkout .step',
+        form : '#checkout .smartAddressForm'
+    };
 
-  var smartAddress = {
-    // expose
-    vars : smartAddressVars,
+    /* var smartAddress = {
+     // expose
+     vars : smartAddressVars,
 
-    init : function () {
-      $.getScript('//maps.googleapis.com/maps/api/js?v=3.exp&sensor=false&callback=app.checkout.smartAddress.test');
-      //alert('Was fehlt noch: Ein ensureVisibility helper muss rein & die validation noch ausgeklügelter');
-    },
+     init : function () {
+     $.getScript('//maps.googleapis.com/maps/api/js?v=3.exp&sensor=false&callback=app.checkout.smartAddress.test');
+     //alert('Was fehlt noch: Ein ensureVisibility helper muss rein & die validation noch ausgeklügelter');
+     },
 
-    test : function () {
-      smartAddressVars.geocoder = new google.maps.Geocoder();
+     test : function () {
+     smartAddressVars.geocoder = new google.maps.Geocoder();
 
-      $( smartAddressVars.triggers )
-        .on({
-          change : smartAddress.apply,
-          click : function ( ev ) {
-            var shouldApply =
-              $( smartAddressVars.triggers ).length &&
-              ev.target.value &&
-              ! smartAddress.resultIsVisible();
+     $( smartAddressVars.triggers )
+     .on({
+     change : smartAddress.apply,
+     click : function ( ev ) {
+     var shouldApply =
+     $( smartAddressVars.triggers ).length &&
+     ev.target.value &&
+     ! smartAddress.resultIsVisible();
 
-            if ( shouldApply ) {
-              smartAddress.apply();
-            }
-          }
-        });
+     if ( shouldApply ) {
+     smartAddress.apply();
+     }
+     }
+     });
 
-      $( smartAddressVars.resultDiv )
-        .children( 'button' )
-          .on({
-            click : function ( ev ) {
-              ev.preventDefault();
-              smartAddress.hideResult();
-            }
-          });
-    },
+     $( smartAddressVars.resultDiv )
+     .children( 'button' )
+     .on({
+     click : function ( ev ) {
+     ev.preventDefault();
+     smartAddress.hideResult();
+     }
+     });
+     },
 
-    apply : function ( ev, withoutStorePrependix ) {
-      var fields   = $( stepsVars.form ).serializeArray();
-      var required = smartAddressVars.required;
+     apply : function ( ev, withoutStorePrependix ) {
+     var fields   = $( stepsVars.form ).serializeArray();
+     var required = smartAddressVars.required;
 
-      $.each( fields, function ( key, object ) {
-        required = required.filter( function ( item ) {
-          return item !== object.name || object.value === '';
-        });
-      });
+     $.each( fields, function ( key, object ) {
+     required = required.filter( function ( item ) {
+     return item !== object.name || object.value === '';
+     });
+     });
 
-      if ( required.length ) {
-        return false;
-      }
+     if ( required.length ) {
+     return false;
+     }
 
-      smartAddress.triggerSearch( fields, withoutStorePrependix );
-    },
+     smartAddress.triggerSearch( fields, withoutStorePrependix );
+     },
 
-    triggerSearch : function ( fields, withoutStorePrependix ) {
-      if ( ! smartAddressVars.geocoder ) {
-        return false;
-      }
+     triggerSearch : function ( fields, withoutStorePrependix ) {
+     if ( ! smartAddressVars.geocoder ) {
+     return false;
+     }
 
-      var address = smartAddress.getField( smartAddressVars.addressField, fields );
+     var address = smartAddress.getField( smartAddressVars.addressField, fields );
 
-      var addressSuffix = '';
+     var addressSuffix = '';
 
-      if ( ! withoutStorePrependix ) {
-        addressSuffix = ' ' + app.vars.storeLocale;
-      }
+     if ( ! withoutStorePrependix ) {
+     addressSuffix = ' ' + app.vars.storeLocale;
+     }
 
-      smartAddressVars.geocoder.geocode({
-          address : address + addressSuffix
-        }, function ( results, status, response ) {
-          var relevantValues = {};
+     smartAddressVars.geocoder.geocode({
+     address : address + addressSuffix
+     }, function ( results, status, response ) {
+     var relevantValues = {};
 
-          var fullName  = smartAddress.getField( smartAddressVars.nameField, fields );
-          var nameParts = fullName.split(' ');
+     var fullName  = smartAddress.getField( smartAddressVars.nameField, fields );
+     var nameParts = fullName.split(' ');
 
-          relevantValues.last_name = nameParts.pop();
+     relevantValues.last_name = nameParts.pop();
 
-          if ( ! nameParts.length ) {
-            return false;
-          }
+     if ( ! nameParts.length ) {
+     return false;
+     }
 
-          relevantValues.first_name  = nameParts.shift();
-          relevantValues.middle_name = nameParts.join( ' ' );
+     relevantValues.first_name  = nameParts.shift();
+     relevantValues.middle_name = nameParts.join( ' ' );
 
-          var failedResponse =
-            ! status ||
-            status !== google.maps.GeocoderStatus.OK ||
-            ! results ||
-            ! results[ 0 ];
+     var failedResponse =
+     ! status ||
+     status !== google.maps.GeocoderStatus.OK ||
+     ! results ||
+     ! results[ 0 ];
 
-          if ( failedResponse ) {
-            if ( withoutStorePrependix ) {
-              return smartAddress.showResult( relevantValues );
-            }
+     if ( failedResponse ) {
+     if ( withoutStorePrependix ) {
+     return smartAddress.showResult( relevantValues );
+     }
 
-            return smartAddress.apply( null, true );
-          }
+     return smartAddress.apply( null, true );
+     }
 
-          var addressComponents = results[0].address_components;
+     var addressComponents = results[0].address_components;
 
-          $.each( addressComponents, function ( key, addressComponent ) {
-            $.each( addressComponent.types, function ( key, type ) {
-              if ( $.inArray( type, smartAddressVars.relevantGValues ) >= 0 ) {
-                relevantValues[ type ] = addressComponent;
-              }
+     $.each( addressComponents, function ( key, addressComponent ) {
+     $.each( addressComponent.types, function ( key, type ) {
+     if ( $.inArray( type, smartAddressVars.relevantGValues ) >= 0 ) {
+     relevantValues[ type ] = addressComponent;
+     }
+     });
+     });
+
+     // relevantValues.gender = smartAddress.getField(smartAddressVars.genderField, fields);
+
+     smartAddress.showResult( relevantValues );
+     });
+     },
+
+     getField : function ( fieldName, fields ) {
+     var value = '';
+
+     $.each( fields, function ( index, field ) {
+     if ( field.name === fieldName ) {
+     value = field.value;
+     }
+     });
+
+     return value;
+     },
+
+     showResult : function ( relevantValues ) {
+     var $resultDiv = $( smartAddressVars.resultDiv );
+
+     if ( ! relevantValues ) {
+     return $resultDiv.show();
+     }
+
+     $resultDiv
+     .find( ':input' )
+     .val( '' );
+
+     $.each( relevantValues, function ( key, value ) {
+     var $target = $( '[data-src="' + key + '"]' );
+
+     if ( value.long_name ) {
+     value =
+     $target.data( 'src-type' ) ?
+     value[ $target.data( 'src-type' ) + '_name' ] :
+     value.long_name;
+     }
+
+     if ( ! $target.length ) {
+     return false;
+     }
+
+     if ( $target.is( ':input' ) ) {
+     $target.val( value );
+     } else {
+     $target.text( value );
+     }
+     });
+
+     $resultDiv.find('input.name').each(function() {
+     $(this).prev().html($(this).val());
+     });
+
+     $resultDiv.show();
+     },
+
+     hideResult : function() {
+     $( smartAddressVars.resultDiv ).hide();
+     },
+
+     resultIsVisible : function() {
+     return $( smartAddressVars.resultDiv ).is( ':visible' );
+     },
+
+     containsErrors : function() {
+     return !! $( smartAddressVars.resultDiv ).find( '.validationError' ).length;
+     }
+     }; */
+
+    var steps = {
+        // expose
+        vars : stepsVars,
+        init : function () {
+            $(stepsVars.form).on({
+                submit : function (ev) {
+                    if (stepsVars.current < stepsVars.count) {
+                        ev.preventDefault();
+                    }
+
+                    var $container =
+                        $(stepsVars.el)
+                            .filter('[data-step=' + stepsVars.current + ']');
+
+                    steps.copyAddress();
+
+                    if (validation.resultIsValid(validation.apply($container))) {
+                        steps.next();
+                    } else {
+                        /* if ( smartAddress.containsErrors() ) {
+                         smartAddress.showResult();
+                         } else {
+                         smartAddress.hideResult();
+                         } */
+                        // @todo ensureVisibility helper, error descriptions
+                    }
+                }
             });
-          });
+        },
+        change : function () {
+            var $newLayer =
+                $(stepsVars.el)
+                    .filter('[data-step=' + this.vars.current + ']');
 
-          // relevantValues.gender = smartAddress.getField(smartAddressVars.genderField, fields);
+            var data = $(stepsVars.form).serializeArray();
 
-          smartAddress.showResult( relevantValues );
-        });
-    },
+            $.each(data, function (index, data) {
+                var $target = $newLayer.find('[data-formsrc="' + data.name + '"]');
 
-    getField : function ( fieldName, fields ) {
-      var value = '';
+                if (!$target.length) {
+                    // continue
+                    return;
+                }
 
-      $.each( fields, function ( index, field ) {
-        if ( field.name === fieldName ) {
-          value = field.value;
-        }
-      });
+                if ($target.is(':input')) {
+                    $target.val(data.value);
+                } else {
+                    $target.text(data.value);
+                }
+            });
 
-      return value;
-    },
+            $newLayer
+                .find('[data-elsrc]')
+                .each(function (index, el) {
+                    var $el = $(el);
+                    var $elTarget = $($el.data('elsrc'));
 
-    showResult : function ( relevantValues ) {
-      var $resultDiv = $( smartAddressVars.resultDiv );
+                    var value;
 
-      if ( ! relevantValues ) {
-          return $resultDiv.show();
-      }
+                    if ($elTarget.is('select')) {
+                        value = $elTarget.children('option:selected').text();
+                    } else if ($elTarget.is(':input')) {
+                        value = $elTarget.val();
+                    } else {
+                        value = $elTarget.html();
+                    }
 
-      $resultDiv
-        .find( ':input' )
-          .val( '' );
+                    $el.html(value);
+                });
 
-      $.each( relevantValues, function ( key, value ) {
-        var $target = $( '[data-src="' + key + '"]' );
-
-        if ( value.long_name ) {
-          value =
-            $target.data( 'src-type' ) ?
-            value[ $target.data( 'src-type' ) + '_name' ] :
-            value.long_name;
-        }
-
-        if ( ! $target.length ) {
-          return false;
-        }
-
-        if ( $target.is( ':input' ) ) {
-          $target.val( value );
-        } else {
-          $target.text( value );
-        }
-      });
-
-      $resultDiv.find('input.name').each(function() {
-          $(this).prev().html($(this).val());
-      });
-
-      $resultDiv.show();
-    },
-
-    hideResult : function() {
-      $( smartAddressVars.resultDiv ).hide();
-    },
-
-    resultIsVisible : function() {
-      return $( smartAddressVars.resultDiv ).is( ':visible' );
-    },
-
-    containsErrors : function() {
-      return !! $( smartAddressVars.resultDiv ).find( '.validationError' ).length;
-    }
-  };
-
-  var steps = {
-    // expose
-    vars : stepsVars,
-
-    init : function() {
-      $( stepsVars.form ).on({
-        submit : function ( ev ) {
-          if ( stepsVars.current < stepsVars.count ) {
-            ev.preventDefault();
-          }
-
-          var $container =
-            $( stepsVars.el )
-              .filter( '[data-step=' + stepsVars.current + ']' );
-
-          steps.copyAddress();
-
-          if ( validation.resultIsValid( validation.apply( $container ) ) ) {
-            steps.next();
-          } else {
-            if ( smartAddress.containsErrors() ) {
-              smartAddress.showResult();
-            } else {
-              smartAddress.hideResult();
-            }
-            // @todo ensureVisibility helper, error descriptions
-          }
-        }
-      });
-    },
-
-    change : function () {
-      var $newLayer =
-        $( stepsVars.el )
-          .filter( '[data-step=' + this.vars.current + ']' );
-
-      var data = $( stepsVars.form ).serializeArray();
-
-      $.each( data, function ( index, datum ) {
-        var $target = $newLayer.find( '[data-formsrc="' + datum.name + '"]' );
-
-        if ( !$target.length ) {
-          return false;
-        }
-
-        if ( $target.is( ':input' ) ) {
-          $target.val( datum.value );
-        } else {
-          $target.text( datum.value );
-        }
-      });
-
-      $newLayer
-        .find('[data-elsrc]')
-          .each( function ( index, el ) {
-            var $el       = $( el );
-            var $elTarget = $( $el.data( 'elsrc' ) );
-
-            var value;
-
-            if ( $elTarget.is( 'select' ) ) {
-              value = $elTarget.children( 'option:selected' ).text();
-            } else if ( $elTarget.is( ':input' ) ) {
-              value = $elTarget.val();
-            } else {
-              value = $elTarget.html();
+            $newLayer
+                .show()
+                .siblings()
+                .hide();
+        },
+        previous : function () {
+            if (stepsVars.current < 2) {
+                return false;
             }
 
-            $el.html( value );
-          });
+            stepsVars.current--;
+            steps.change();
+        },
+        next : function () {
+            if (stepsVars.current >= stepsVars.count) {
+                return false;
+            }
 
-      $newLayer
-        .show()
-        .siblings()
-          .hide();
-    },
+            stepsVars.current++;
+            steps.change();
+        },
+        copyAddress : function () {
+            // this is just for the 2nd step.. the backend should evaluate the checkbox anyway
+            // todo: make it less hard coded
+            if ($('#salesOrder_chooseDifferentBilling').is(':checked')) {
+                return false;
+            }
 
+            $(':input[name^="salesOrder[shippingAddress]["]')
+                .each(function (index, el) {
+                    var $el = $(el);
 
-    previous : function() {
-      if ( stepsVars.current < 2 ) {
-        return false;
-      }
+                    var currentPart =
+                        $el.attr('name')
+                            .split('[')[ 2 ]
+                            .split(']')[ 0 ];
 
-      stepsVars.current --;
-      steps.change();
-    },
-
-    next : function() {
-      if ( stepsVars.current >= stepsVars.count ) {
-        return false;
-      }
-
-      stepsVars.current ++;
-      steps.change();
-    },
-
-    copyAddress : function () {
-        // this is just for the 2nd step.. the backend should evaluate the checkbox anyway
-        // todo: make it less hard coded
-        if ( $('#chooseDifferentBilling').is(':checked') ) {
-          return false;
+                    $(':input[name="salesOrder[billingAddress][' + currentPart + ']"]')
+                        .val($el.val());
+                });
         }
+    };
 
-        $( ':input[name^="salesOrder[shippingAddress]["]' )
-          .each( function ( index, el ) {
-            var $el = $( el );
+    var validation = {
+        apply : function ($container) {
+            var result = validation.check($container);
 
-            var currentPart =
-              $el.attr( 'name' )
-                .split( '[' )[ 2 ]
-                .split( ']' )[ 0 ];
+            $container
+                .find(':input[name]')
+                .removeClass('validationError');
 
-            $( ':input[name="salesOrder[billingAddress][' + currentPart + ']"]' )
-              .val( $el.val() );
-          });
-    }
-  };
+            validation.getInvalidItems(result)
+                .addClass('validationError');
 
-  var validation = {
-    apply : function ( $container ) {
-      var result = validation.check( $container );
+            return result;
+        },
 
-      $container
-        .find( ':input[name]' )
-          .removeClass( 'validationError' );
+        resultIsValid : function (result) {
+            var valid = true;
 
-      validation.getInvalidItems( result )
-        .addClass( 'validationError' );
+            $.each(result, function (index, el) {
+                if (!el.valid) {
+                    valid = false;
+                }
+            });
 
-      return result;
-    },
+            return valid;
+        },
 
-    resultIsValid : function ( result ) {
-        var valid = true;
+        getInvalidItems : function (result) {
+            var names = [];
 
-        $.each( result, function ( index, el ) {
-          if ( ! el.valid ) {
-            valid = false;
-          }
-        });
+            $.each(result, function (index, el) {
+                if (!el.valid) {
+                    names.push(index);
+                }
+            });
 
-        return valid;
-    },
+            var selector =
+                names
+                    .map(function (item) {
+                        return '[name="' + item + '"]';
+                    })
+                    .join(', ');
 
-    getInvalidItems : function ( result ) {
-        var names = [];
+            return $(selector);
+        },
 
-        $.each( result, function ( index, el ) {
-          if ( ! el.valid ) {
-            names.push( index );
-          }
-        });
+        check : function ($container) {
+            var result = {};
+            var formValues = {};
 
-        var selector =
-          names
-            .map( function ( item ) {
-              return '[name="' + item + '"]';
-            })
-            .join( ', ' );
+            var serializedForm =
+                $container
+                    .closest('form')
+                    .serializeArray();
 
-        return $( selector );
-    },
+            $.each(serializedForm, function (index, el) {
+                formValues[ el.name ] = el.value;
+            });
 
-    check : function($container) {
-        var result     = {};
-        var formValues = {};
+            $.each($container.find('[data-validator-precondition]'), function (index, el) {
+                var $el = $(el);
 
-        var serializedForm =
-          $container
-            .closest( 'form' )
-              .serializeArray();
+                var preconditionFunction = new Function($el.data('validatorPrecondition'));
 
-        $.each( serializedForm, function ( index, el ) {
-          formValues[ el.name ] = el.value;
-        });
+                if (!preconditionFunction()) {
+                    $el.attr('data-validator-prevent', true);
+                } else {
+                    $el.removeAttr('data-validator-prevent');
+                }
+            });
 
-        $.each( $container.find( '[data-validator-precondition]' ), function ( index, el ) {
-          var $el = $( el );
+            var $notPreventedInputs =
+                $container
+                    .find(':input[name]')
+                    .not('[data-validator-prevent] :input');
 
-          var preconditionFunction = new Function( $el.data( 'validatorPrecondition' ));
+            $notPreventedInputs.each(function (index, el) {
+                var $el = $(el);
+                var currentName = $el.attr('name');
 
-          if ( ! preconditionFunction() ) {
-            $el.attr( 'data-validator-prevent', true );
-          } else {
-            $el.removeAttr( 'data-validator-prevent' );
-          }
-        });
+                result[ currentName ] = {
+                    valid : true,
+                    check : 'none'
+                };
 
-        var $notPreventedInputs =
-          $container
-            .find( ':input[name]' )
-            .not( '[data-validator-prevent] :input' );
+                if ($el.is(':required')) {
+                    result[ currentName ] = {
+                        valid : !!formValues[currentName],
+                        check : 'required'
+                    };
+                }
 
-        $.each( $notPreventedInputs, function ( index, el ) {
-          var $el         = $( el );
-          var currentName = $el.attr( 'name' );
+                if (!result[currentName].valid) {
+                    // continue
+                    return;
+                }
 
-          result[ currentName ] = {
-            valid : true,
-            check : 'none'
-          };
+                if ($el.is('[type=email]')) {
+                    result[currentName] = {
+                        valid : /[A-Z0-9._%a-z\-\+]+?@(?:[A-Z0-9a-z\-]+\.)+?[A-Za-z]{2,4}/.test(formValues[currentName]),
+                        check : 'email'
+                    };
+                }
 
-          if ( $el.is( ':required' ) ) {
-            result[ currentName ] = {
-              valid : !!formValues[currentName],
-              check : 'required'
-            };
-          }
+                // implement more checks here if necessary
+            });
 
-          if ( !result[currentName].valid ) {
-            return false;
-          }
-
-          if ( $el.is( '[type=email]' ) ) {
-            result[currentName] = {
-              valid : /[A-Z0-9._%a-z\-\+]+?@(?:[A-Z0-9a-z\-]+\.)+?[A-Za-z]{2,4}/.test(formValues[currentName]),
-              check : 'email'
-            };
-          }
-
-          // implement more checks here if necessary
-        });
-
-        return result;
-    }
-  };
-
-  app.checkout = {
-    init : function () {
-      app.settings.set( 'visitedBefore', true );
-
-      smartAddress.init();
-      steps.init();
-
-      $('.triggerAlternative').on({
-        change : function( ev ) {
-          $( '.address.secondaryRow' ).toggle( ev.target.checked );
-          // alert('Was fehlt noch: Ein ensureVisibility helper muss rein & die validation noch ausgeklügelter');
+            return result;
         }
-      });
-    },
+    };
 
-    smartAddress : smartAddress,
-    steps        : steps,
-    validation   : validation
-  };
+    app.checkout = {
+        init : function () {
+            app.settings.set('visitedBefore', true);
 
-  app.additionals.push('checkout');
+            // smartAddress.init();
+            steps.init();
 
-})( app, jQuery );
+            $('.triggerAlternative').on({
+                change : function (ev) {
+                    $('.address.secondaryRow').toggle(ev.target.checked);
+                    // alert('Was fehlt noch: Ein ensureVisibility helper muss rein & die validation noch ausgeklügelter');
+                }
+            });
+        },
+
+        // smartAddress : smartAddress,
+        steps : steps,
+        validation : validation
+    };
+
+    app.additionals.push('checkout');
+
+})(app, jQuery);
 
 
 // app.checkout = {

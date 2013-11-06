@@ -49,16 +49,6 @@
 #checkout .cart .items .total .hint { display:block; font-size:0.6em; font-weight:normal; margin-top:2px; color:#aaa; }
 #checkout .cart .items .tax td { color:#aaa; }
 
-.addressResult { display:none; position:absolute; padding:10px; background:#fcfcfc; border:1px solid #ccc; box-shadow:1px 1px 2px rgba(0, 0, 0, 0.2); z-index:1; }
-.addressResult:before { position:absolute; display:block; content:''; left:-20px; top:50%; margin-top:-10px; border:10px solid #fff; border-right-color:#ccc; z-index:1; }
-.addressResult:after { display:block; content:''; clear:both; }
-.addressResult h5 { margin:0 0 20px; font-size:15px; }
-.addressResult table { width:100%; margin-bottom:20px; }
-.addressResult td { padding:4px 7px; }
-.addressResult .label { text-align:right; white-space:nowrap; }
-.addressResult table .col + .col { padding-left:4px; }
-.addressResult input.name { display:none; }
-
 #checkout .addressSummary { padding-right:20px; }
 #checkout .paymentSummary { padding-left:20px; }
 #checkout .cartSummary { padding-left:40px; }
