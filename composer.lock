@@ -699,7 +699,7 @@
             "source": {
                 "type": "git",
                 "url": "git@codebasehq.com:project-a/core/catalog.git",
-                "reference": "a87699aafe72f8b431b13de69018eaf8ced01bd2"
+                "reference": "1ab5b7f15c105490964dd184a3f33887c97e7574"
             },
             "require": {
                 "php": ">=5.4.0",
@@ -735,7 +735,7 @@
                 "Price",
                 "Stock"
             ],
-            "time": "2013-11-05 14:55:56"
+            "time": "2013-11-06 13:53:24"
         },
         {
             "name": "project-a/checkout-package",
@@ -890,7 +890,7 @@
             "source": {
                 "type": "git",
                 "url": "git@codebasehq.com:project-a/core/document.git",
-                "reference": "bb9c89a0005ebca38a50c9d47b1618d643cf0b93"
+                "reference": "3a506a8c8066db6605448ec1ac68af6d18a89dec"
             },
             "require": {
                 "php": ">=5.4.0",
@@ -915,7 +915,7 @@
                 "Document",
                 "Invoice"
             ],
-            "time": "2013-11-06 12:27:11"
+            "time": "2013-11-06 14:03:22"
         },
         {
             "name": "project-a/frontend-package",
@@ -923,7 +923,7 @@
             "source": {
                 "type": "git",
                 "url": "git@codebasehq.com:project-a/core/frontend.git",
-                "reference": "8ddfa9b44d4d67cf6c1bf9236f330a0a96595d34"
+                "reference": "2158c5e18168fd173c1b93c5a659c2f365cf1747"
             },
             "require": {
                 "php": ">=5.4.0",
@@ -947,7 +947,7 @@
             "keywords": [
                 "Frontend"
             ],
-            "time": "2013-10-31 17:30:00"
+            "time": "2013-11-06 13:20:08"
         },
         {
             "name": "project-a/glossary-package",
@@ -1043,7 +1043,7 @@
             "source": {
                 "type": "git",
                 "url": "git@codebasehq.com:project-a/core/library-2.git",
-                "reference": "d03aa8b8f93baa23bd65183fa07ea22f366f7481"
+                "reference": "cf7f6524096d2c3adc66745765c24cccf6d59799"
             },
             "require": {
                 "digital-canvas/zend-framework": ">=1.12.2",
@@ -1084,7 +1084,7 @@
                 }
             ],
             "description": "Project-A Library",
-            "time": "2013-11-06 12:25:17"
+            "time": "2013-11-06 13:18:16"
         },
         {
             "name": "project-a/lumberjack-package",
@@ -1244,7 +1244,7 @@
             "source": {
                 "type": "git",
                 "url": "git@codebasehq.com:project-a/core/stripe.git",
-                "reference": "1547e0d887beaf3607b190ef4c5e3154c4d554c8"
+                "reference": "e6ab271e98e6c46d17f2fb62faa76fda99a979de"
             },
             "require": {
                 "php": ">=5.4.0",
@@ -1269,7 +1269,7 @@
             "keywords": [
                 "stripe payment provider"
             ],
-            "time": "2013-11-05 08:24:17"
+            "time": "2013-11-06 13:28:08"
         },
         {
             "name": "propel/propel1",
