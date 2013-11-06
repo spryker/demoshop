@@ -443,3 +443,7 @@ $config['productImage'] = [
     'amazonS3Secret' => '',
     'amazonS3BucketName' => ''
 ];
+
+$config['invoice'] = [
+    'protectedDocumentDirectory' => 'protected' . DIRECTORY_SEPARATOR . 'invoices',
+];
