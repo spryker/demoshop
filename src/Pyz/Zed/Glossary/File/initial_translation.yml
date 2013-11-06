@@ -326,13 +326,11 @@ keys:
   header.cart.products.choice:
     explanations:
       en_US: '{0}Empty|{1}%count% product|]1,Inf]%count% products '
-<<<<<<< HEAD
 
   login.error.bad.credentials:
     explanations:
       en_US: 'Invalid credentials'
 
-=======
   static.pages.tos:
     explanations:
       de_DE: 'Terms of Service - please add me!'
@@ -361,4 +359,3 @@ keys:
       explanations:
         de_DE: 'FAQ - please add me!'
         en_US: 'FAQ - please add me!'
->>>>>>> 96feb4970f0000440d40801d3d6b861484786485
