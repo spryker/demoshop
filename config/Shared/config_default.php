@@ -192,6 +192,24 @@ $config['password'] = [
     'options'   => []
 ];
 
+
+/**
+ * Configuration for Payment
+ * Pay Attention to NOT use characters which are
+ * not defined in ASCII
+ *
+ * STORE
+ */
+$config['payone'] = array(
+    'mode'          => 'test',
+    'mid'           => '4444',
+    'portalid'      => '44444444',
+    'key'           => '44444444444444444444444444444444', // STAGING KEY
+    'aid'           => '44444',
+    'encoding'      => 'UTF-8',
+);
+
+
 /**
  * Configuration for Payone
  * Pay Attention to NOT use characters which are
