@@ -27,10 +27,10 @@
                         </label>
                     </div> #}
                     <div class="row col col34 first">
-                        {{ form_row(form.shippingAddress.firstName, {attr : {class : 'fullWidth'}, label : 'checkout.address.shipping.name.first'}) }}
+                        {{ form_row(form.shippingAddress.salutation, {attr : {class : 'fullWidth'}, label : 'checkout.address.shipping.salutation'}) }}
                     </div>
                     <div class="row col col33 middle">
-                        {{ form_row(form.shippingAddress.middleName, {attr : {class : 'fullWidth'}, label : 'checkout.address.shipping.name.middle'}) }}
+                        {{ form_row(form.shippingAddress.firstName, {attr : {class : 'fullWidth'}, label : 'checkout.address.shipping.name.first'}) }}
                     </div>
                     <div class="row col col33 last">
                         {{ form_row(form.shippingAddress.lastName, {attr : {class : 'fullWidth'}, label : 'checkout.address.shipping.name.last'}) }}
@@ -141,10 +141,10 @@
                 <div class="address primary col col33 secondaryRow" data-validator-precondition="return $('#chooseDifferentBilling').is(':checked')">
                     <h3>{{ 'checkout.headline.billing'|trans }}</h3>
                     <div class="row col col34 first">
-                        {{ form_row(form.billingAddress.firstName, {attr : {class : 'name fullWidth', 'data-src': 'first_name'}, label : 'checkout.address.billing.name.first'}) }}
+                        {{ form_row(form.billingAddress.salutation, {attr : {class : 'name fullWidth', 'data-src': 'salutation'}, label : 'checkout.address.billing.salutation'}) }}
                     </div>
                     <div class="row col col33 middle">
-                        {{ form_row(form.billingAddress.middleName, {attr : {class : 'name fullWidth', 'data-src': 'middle_name'}, label : 'checkout.address.billing.name.middle'}) }}
+                        {{ form_row(form.billingAddress.firstName, {attr : {class : 'name fullWidth', 'data-src': 'middle_name'}, label : 'checkout.address.billing.name.first'}) }}
                     </div>
                     <div class="row col col33 last">
                         {{ form_row(form.billingAddress.lastName, {attr : {class : 'name fullWidth', 'data-src': 'last_name'}, label : 'checkout.address.billing.name.last'}) }}

@@ -91,6 +91,9 @@ keys:
   checkout.address.billing.company:
     explanations:
       en_US: Company
+  checkout.address.billing.salutation:
+    explanations:
+      en_US: 'Salutation'
   checkout.address.billing.name.last:
     explanations:
       en_US: 'Last Name'
@@ -104,7 +107,9 @@ keys:
   checkout.email:
     explanations:
       en_US: Email
-
+  checkout.address.shipping.salutation:
+    explanations:
+      en_US: 'Salutation'
   checkout.address.shipping.name.last:
     explanations:
       en_US: 'Last Name'
