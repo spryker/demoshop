@@ -1,5 +1,5 @@
 <?php
-namespace ProjectA\Shared\Paypal\Code;
+namespace Pyz\Shared\Paypal\Code;
 
 interface PaymentProviderConstants
 {

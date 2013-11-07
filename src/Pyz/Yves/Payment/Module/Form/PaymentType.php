@@ -4,7 +4,7 @@ namespace Pyz\Yves\Payment\Module\Form;
 
 use ProjectA\Shared\DemoPayment\Code\PaymentProviderConstants as DemoPayment;
 use ProjectA\Shared\Stripe\Code\PaymentProviderConstants as Stripe;
-use ProjectA\Shared\Paypal\Code\PaymentProviderConstants as Paypal;
+use Pyz\Shared\Paypal\Code\PaymentProviderConstants as Paypal;
 use ProjectA\Yves\Payment\Module\Form\PaymentType as CorePaymentType;
 use Symfony\Component\Form\FormBuilderInterface;
 
