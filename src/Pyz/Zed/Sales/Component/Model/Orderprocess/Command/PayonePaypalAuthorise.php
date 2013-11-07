@@ -255,7 +255,6 @@ class Pyz_Zed_Sales_Component_Model_Orderprocess_Command_PayonePaypalAuthorise e
         );
     }
 
-
     /**
      * @param array $rawRequest
      * @param array $rawResult

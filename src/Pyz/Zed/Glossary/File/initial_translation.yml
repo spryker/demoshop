@@ -81,6 +81,7 @@ keys:
   checkout.headline.shipping.billing:
     explanations:
       en_US: 'Shipping and Billing Address'
+
   checkout.address.billing.city:
     explanations:
       en_US: City
@@ -105,9 +106,20 @@ keys:
   checkout.address.billing.name.first:
     explanations:
       en_US: 'First Name'
+
   checkout.email:
     explanations:
       en_US: Email
+
+  checkout.address.shipping.name.last:
+    explanations:
+      en_US: 'Last Name'
+  checkout.address.shipping.name.middle:
+    explanations:
+      en_US: 'Middle Name'
+  checkout.address.shipping.name.first:
+    explanations:
+      en_US: 'First Name'
   checkout.address.shipping.phone:
     explanations:
       en_US: Phone
@@ -123,6 +135,22 @@ keys:
   checkout.address.full:
     explanations:
       en_US: 'Full Address'
+  checkout.address.shipping.city:
+    explanations:
+      en_US: 'City:'
+  checkout.address.shipping.zipcode:
+    explanations:
+      en_US: 'Postal Code:'
+  checkout.address.shipping.street:
+    explanations:
+      en_US: 'Street:'
+  checkout.address.shipping.number:
+    explanations:
+      en_US: 'Number:'
+  checkout.address.shipping.name:
+    explanations:
+      en_US: 'Name:'
+
   demopayment.demomethod:
     explanations:
       en_US: 'Demo Payment Method'
