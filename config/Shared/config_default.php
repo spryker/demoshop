@@ -201,12 +201,13 @@ $config['password'] = [
  * STORE
  */
 $config['payone'] = array(
-    'mode'          => 'test',
-    'mid'           => '4444',
-    'portalid'      => '44444444',
-    'key'           => '44444444444444444444444444444444', // STAGING KEY
-    'aid'           => '44444',
-    'encoding'      => 'UTF-8',
+    'mode'       => 'test',
+    'mid'        => '24047',
+    'portalid'   => '2017184',
+    'key'        => '7e9c7a96bb3131dc50cd2e94841ee3eb',
+    'aid'        => '24058',
+    'encoding'   => 'UTF-8',
+    'gatewayurl' => 'https://api.pay1.de/post-gateway/',
 );
 
 
