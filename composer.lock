@@ -118,12 +118,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/doctrine/inflector.git",
-                "reference": "v1.0"
+                "reference": "54b8333d2a5682afdc690060c1cf384ba9f47f08"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://github.com/doctrine/inflector/archive/v1.0.zip",
-                "reference": "v1.0",
+                "url": "https://api.github.com/repos/doctrine/inflector/zipball/54b8333d2a5682afdc690060c1cf384ba9f47f08",
+                "reference": "54b8333d2a5682afdc690060c1cf384ba9f47f08",
                 "shasum": ""
             },
             "require": {
@@ -449,13 +449,13 @@
             "version": "v2.2.0",
             "source": {
                 "type": "git",
-                "url": "https://github.com/nervetattoo/elasticsearch",
-                "reference": "v2.2.0"
+                "url": "https://github.com/nervetattoo/elasticsearch.git",
+                "reference": "ed9244b341e0139a4278ac9bdf3cb63d57539dfb"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://github.com/nervetattoo/elasticsearch/archive/v2.2.0.zip",
-                "reference": "v2.2.0",
+                "url": "https://api.github.com/repos/nervetattoo/elasticsearch/zipball/ed9244b341e0139a4278ac9bdf3cb63d57539dfb",
+                "reference": "ed9244b341e0139a4278ac9bdf3cb63d57539dfb",
                 "shasum": ""
             },
             "require": {
@@ -699,7 +699,7 @@
             "source": {
                 "type": "git",
                 "url": "git@codebasehq.com:project-a/core/catalog.git",
-                "reference": "5c2ab6f6fa456072e4f3d677ba7f686da884bde7"
+                "reference": "8aa4f6e5a9cf6e9259764456cc4954ceeff6246d"
             },
             "require": {
                 "php": ">=5.4.0",
@@ -735,7 +735,7 @@
                 "Price",
                 "Stock"
             ],
-            "time": "2013-11-06 15:15:40"
+            "time": "2013-11-06 18:45:25"
         },
         {
             "name": "project-a/checkout-package",
@@ -856,7 +856,7 @@
             "source": {
                 "type": "git",
                 "url": "git@codebasehq.com:project-a/core/crm.git",
-                "reference": "a4175cfb36eaea9c1d4d388a2c6c86f264e79e75"
+                "reference": "619d00a86acaf32e92a95b4fc9a5686ec98e9eca"
             },
             "require": {
                 "php": ">=5.4.0",
@@ -882,7 +882,7 @@
                 "CRM",
                 "Mail"
             ],
-            "time": "2013-11-06 16:41:08"
+            "time": "2013-11-07 08:14:12"
         },
         {
             "name": "project-a/document-package",
@@ -1043,7 +1043,7 @@
             "source": {
                 "type": "git",
                 "url": "git@codebasehq.com:project-a/core/library-2.git",
-                "reference": "8275f82ab38f08ec08e0676cbef8aa6aa8850866"
+                "reference": "01301bfd8257c9afb16bb2d86c96270c88aa8d0a"
             },
             "require": {
                 "digital-canvas/zend-framework": ">=1.12.2",
@@ -1085,7 +1085,7 @@
                 }
             ],
             "description": "Project-A Library",
-            "time": "2013-11-06 16:49:33"
+            "time": "2013-11-07 08:14:36"
         },
         {
             "name": "project-a/lumberjack-package",
@@ -1126,7 +1126,7 @@
             "source": {
                 "type": "git",
                 "url": "git@codebasehq.com:project-a/core/payment.git",
-                "reference": "2c2f6fd7107ef5391bfb3da2319bdd9716ec5175"
+                "reference": "148ccff6530f0840ab8c069b28b0318495a5c393"
             },
             "require": {
                 "php": ">=5.4.0"
@@ -1149,7 +1149,7 @@
             "keywords": [
                 "payment, payment provider"
             ],
-            "time": "2013-11-06 12:25:19"
+            "time": "2013-11-06 18:39:38"
         },
         {
             "name": "project-a/sales-package",
@@ -1340,13 +1340,13 @@
             "version": "1.0.0",
             "source": {
                 "type": "git",
-                "url": "https://github.com/php-fig/log",
-                "reference": "1.0.0"
+                "url": "https://github.com/php-fig/log.git",
+                "reference": "fe0936ee26643249e916849d48e3a51d5f5e278b"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://github.com/php-fig/log/archive/1.0.0.zip",
-                "reference": "1.0.0",
+                "url": "https://api.github.com/repos/php-fig/log/zipball/fe0936ee26643249e916849d48e3a51d5f5e278b",
+                "reference": "fe0936ee26643249e916849d48e3a51d5f5e278b",
                 "shasum": ""
             },
             "type": "library",
