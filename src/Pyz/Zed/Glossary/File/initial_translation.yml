@@ -72,12 +72,6 @@ keys:
   footer.information:
     explanations:
       en_US: Information
-  checkout.name.full.placeholder:
-    explanations:
-      en_US: 'e.g. John Quincy Doe'
-  checkout.name.full:
-    explanations:
-      en_US: 'Full Name'
   checkout.headline.shipping.billing:
     explanations:
       en_US: 'Shipping and Billing Address'
@@ -122,35 +116,28 @@ keys:
       en_US: 'First Name'
   checkout.address.shipping.phone:
     explanations:
-      en_US: Phone
+      en_US: 'Phone'
   checkout.address.shipping.comment:
     explanations:
-      en_US: Comment
+      en_US: 'Comment'
   checkout.address.shipping.comment.placeholder:
     explanations:
       en_US: 'e.g. company / please hand to neighbor Wilson'
-  checkout.address.full.placeholder:
-    explanations:
-      en_US: 'e.g. 79 N 11th Brooklyn'
-  checkout.address.full:
-    explanations:
-      en_US: 'Full Address'
   checkout.address.shipping.city:
     explanations:
-      en_US: 'City:'
+      en_US: 'City'
   checkout.address.shipping.zipcode:
     explanations:
-      en_US: 'Postal Code:'
+      en_US: 'Postal Code'
   checkout.address.shipping.street:
     explanations:
-      en_US: 'Street:'
+      en_US: 'Street'
   checkout.address.shipping.number:
     explanations:
-      en_US: 'Number:'
+      en_US: 'Number'
   checkout.address.shipping.name:
     explanations:
-      en_US: 'Name:'
-
+      en_US: 'Name'
   demopayment.demomethod:
     explanations:
       en_US: 'Demo Payment Method'
