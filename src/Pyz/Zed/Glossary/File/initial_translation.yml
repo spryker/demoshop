@@ -72,12 +72,6 @@ keys:
   footer.information:
     explanations:
       en_US: Information
-  checkout.name.full.placeholder:
-    explanations:
-      en_US: 'e.g. John Quincy Doe'
-  checkout.name.full:
-    explanations:
-      en_US: 'Full Name'
   checkout.headline.shipping.billing:
     explanations:
       en_US: 'Shipping and Billing Address'
@@ -122,46 +116,88 @@ keys:
       en_US: 'First Name'
   checkout.address.shipping.phone:
     explanations:
-      en_US: Phone
+      en_US: 'Phone'
   checkout.address.shipping.comment:
     explanations:
-      en_US: Comment
+      en_US: 'Comment'
   checkout.address.shipping.comment.placeholder:
     explanations:
       en_US: 'e.g. company / please hand to neighbor Wilson'
-  checkout.address.full.placeholder:
-    explanations:
-      en_US: 'e.g. 79 N 11th Brooklyn'
-  checkout.address.full:
-    explanations:
-      en_US: 'Full Address'
   checkout.address.shipping.city:
     explanations:
-      en_US: 'City:'
+      en_US: 'City'
   checkout.address.shipping.zipcode:
     explanations:
-      en_US: 'Postal Code:'
+      en_US: 'Postal Code'
   checkout.address.shipping.street:
     explanations:
-      en_US: 'Street:'
+      en_US: 'Street'
   checkout.address.shipping.number:
     explanations:
-      en_US: 'Number:'
+      en_US: 'Number'
   checkout.address.shipping.name:
     explanations:
-      en_US: 'Name:'
-
+      en_US: 'Name'
   demopayment.demomethod:
     explanations:
       en_US: 'Demo Payment Method'
-
   stripe.credit.card:
     explanations:
       en_US: 'Credit Card'
-
   checkout.headline.shipping:
     explanations:
       en_US: 'Shipping Address'
+  checkout.payment.ccholder:
+    explanations:
+      en_US: 'Card Holder'
+  checkout.payment.ccnumber:
+    explanations:
+      en_US: 'Card Number'
+  checkout.payment.ccv:
+    explanations:
+      en_US: 'CCV'
+  checkout.payment.ccexpmonth:
+    explanations:
+      en_US: 'Expiration Month'
+  checkout.payment.ccexpmonth.jan:
+    explanations:
+      en_US: 'January'
+  checkout.payment.ccexpmonth.feb:
+    explanations:
+      en_US: 'February'
+  checkout.payment.ccexpmonth.mar:
+    explanations:
+      en_US: 'March'
+  checkout.payment.ccexpmonth.apr:
+    explanations:
+      en_US: 'April'
+  checkout.payment.ccexpmonth.may:
+    explanations:
+      en_US: 'May'
+  checkout.payment.ccexpmonth.jun:
+    explanations:
+      en_US: 'June'
+  checkout.payment.ccexpmonth.jul:
+    explanations:
+      en_US: 'July'
+  checkout.payment.ccexpmonth.aug:
+    explanations:
+      en_US: 'August'
+  checkout.payment.ccexpmonth.sep:
+    explanations:
+      en_US: 'September'
+  checkout.payment.ccexpmonth.oct:
+    explanations:
+      en_US: 'October'
+  checkout.payment.ccexpmonth.nov:
+    explanations:
+      en_US: 'November'
+  checkout.payment.ccexpmonth.dec:
+    explanations:
+      en_US: 'December'
+  checkout.payment.ccexpyear:
+    explanations:
+      en_US: 'Expiration Year'
   checkout.percentage.vat:
     explanations:
       en_US: '% VAT'
@@ -170,7 +206,7 @@ keys:
       en_US: 'Grand Total Price'
   checkout.price.shipping:
     explanations:
-      en_US: Shipping
+      en_US: 'Shipping'
   checkout.price.subtotal:
     explanations:
       en_US: 'Subtotal Price'
@@ -180,12 +216,27 @@ keys:
   checkout.to.summary:
     explanations:
       en_US: 'Go to Order Summary'
-
-
-
-  checkout.headline.shipping.to:
+  checkout.address.shipping.city:
     explanations:
-      en_US: 'Shipping goes to'
+      en_US: 'City'
+  checkout.address.shipping.zipcode:
+    explanations:
+      en_US: 'Postal Code'
+  checkout.address.shipping.street:
+    explanations:
+      en_US: 'Street'
+  checkout.address.shipping.streetnr:
+    explanations:
+      en_US: 'Number'
+  checkout.address.shipping.name.first:
+    explanations:
+      en_US: 'First Name'
+  checkout.address.shipping.name.middle:
+    explanations:
+      en_US: 'Middle Name'
+  checkout.address.shipping.name.last:
+    explanations:
+      en_US: 'Last Name'
   checkout.headline.cart:
     explanations:
       en_US: 'Your Cart'
@@ -194,22 +245,22 @@ keys:
       en_US: 'Contact Data'
   checkout.headline.payment:
     explanations:
-      en_US: Payment
+      en_US: 'Payment'
   checkout.headline.billing:
     explanations:
       en_US: 'Billing Address'
   checkout.address.billing.country:
     explanations:
-      en_US: Country
+      en_US: 'Country'
   checkout.link.edit:
     explanations:
-      en_US: edit
+      en_US: 'edit'
   cart.success.product.add:
     explanations:
       en_US: 'Product added to cart'
   checkout.address.shipping.country:
     explanations:
-      en_US: 'Country:'
+      en_US: 'Country'
   checkout.address.billing.different:
     explanations:
       en_US: 'Different Billing Address'

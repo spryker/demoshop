@@ -2,6 +2,7 @@
 #checkout .unnecessary { display:none; }
 #checkout .clearRows { clear:left; }
 #checkout h3 { margin:0 0 20px; padding:0 0 20px; font-size:20px; border-bottom:1px solid #eee; }
+#checkout select { padding:3px; }
 
 #checkout .address { padding:0 20px 0 0; }
 #checkout .cart { padding:0 0 0 20px; }
@@ -16,7 +17,7 @@
 #checkout .row:after { display:block; content:''; clear:both; }
 #checkout .row:last-child { padding-bottom:0; }
 
-#checkout .row .details { padding:20px 0; }
+#checkout .row .details { clear:left; padding:20px 0; }
 #checkout .row .details .multiple { margin:3px 0 0; }
 #checkout .row .details .multiple:after { display:block; content:''; clear:left; }
 #checkout .row .details .multiple .col { padding:0 2px; }

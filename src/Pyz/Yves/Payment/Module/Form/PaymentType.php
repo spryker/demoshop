@@ -33,7 +33,31 @@ class PaymentType extends CorePaymentType
                 'expanded'          => true,
                 'preferred_choices' => [DemoPayment::METHOD_DEMOMETHOD]
             ]
-        );
+        )
+        ->add('ccCardholder', 'text')
+        ->add('ccNumber', 'text')
+        ->add('ccVerification', 'text')
+        ->add('ccExpirationMonth', 'choice', [
+            'choices' => [
+                '1' => 'checkout.payment.ccexpmonth.jan',
+                '2' => 'checkout.payment.ccexpmonth.feb',
+                '3' => 'checkout.payment.ccexpmonth.mar',
+                '4' => 'checkout.payment.ccexpmonth.apr',
+                '5' => 'checkout.payment.ccexpmonth.may',
+                '6' => 'checkout.payment.ccexpmonth.jun',
+                '7' => 'checkout.payment.ccexpmonth.jul',
+                '8' => 'checkout.payment.ccexpmonth.aug',
+                '9' => 'checkout.payment.ccexpmonth.sep',
+                '10' => 'checkout.payment.ccexpmonth.oct',
+                '11' => 'checkout.payment.ccexpmonth.nov',
+                '12' => 'checkout.payment.ccexpmonth.dec']
+        ]);
+
+        $ccExpYears = [];
+        for ($i = 0; $i < 10; $i++) {
+            $ccExpYears[(int)date('Y') + $i] = (int)date('Y') + $i;
+        }
+        $builder->add('ccExpirationYear', 'choice', ['choices' => $ccExpYears]);
     }
 
 }
