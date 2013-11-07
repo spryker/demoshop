@@ -24,7 +24,9 @@ class FixedShippingExpenseCalculator extends \ProjectA_Zed_Calculation_Component
             $expense->setGrossPrice(690);
             $expense->setPriceToPay(690);
             $expense->setTaxPercentage('19.00');
-            $order->appendExpense($expense);
+            // TODO: Daniel please check!
+//            $order->appendExpense($expense);
+            $order->addExpense($expense);
         }
     }
 }
