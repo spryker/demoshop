@@ -159,42 +159,6 @@ keys:
   checkout.payment.ccexpmonth:
     explanations:
       en_US: 'Expiration Month'
-  checkout.payment.ccexpmonth.jan:
-    explanations:
-      en_US: 'January'
-  checkout.payment.ccexpmonth.feb:
-    explanations:
-      en_US: 'February'
-  checkout.payment.ccexpmonth.mar:
-    explanations:
-      en_US: 'March'
-  checkout.payment.ccexpmonth.apr:
-    explanations:
-      en_US: 'April'
-  checkout.payment.ccexpmonth.may:
-    explanations:
-      en_US: 'May'
-  checkout.payment.ccexpmonth.jun:
-    explanations:
-      en_US: 'June'
-  checkout.payment.ccexpmonth.jul:
-    explanations:
-      en_US: 'July'
-  checkout.payment.ccexpmonth.aug:
-    explanations:
-      en_US: 'August'
-  checkout.payment.ccexpmonth.sep:
-    explanations:
-      en_US: 'September'
-  checkout.payment.ccexpmonth.oct:
-    explanations:
-      en_US: 'October'
-  checkout.payment.ccexpmonth.nov:
-    explanations:
-      en_US: 'November'
-  checkout.payment.ccexpmonth.dec:
-    explanations:
-      en_US: 'December'
   checkout.payment.ccexpyear:
     explanations:
       en_US: 'Expiration Year'

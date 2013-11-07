@@ -39,18 +39,18 @@ class PaymentType extends CorePaymentType
         ->add('ccVerification', 'text')
         ->add('ccExpirationMonth', 'choice', [
             'choices' => [
-                '1' => 'checkout.payment.ccexpmonth.jan',
-                '2' => 'checkout.payment.ccexpmonth.feb',
-                '3' => 'checkout.payment.ccexpmonth.mar',
-                '4' => 'checkout.payment.ccexpmonth.apr',
-                '5' => 'checkout.payment.ccexpmonth.may',
-                '6' => 'checkout.payment.ccexpmonth.jun',
-                '7' => 'checkout.payment.ccexpmonth.jul',
-                '8' => 'checkout.payment.ccexpmonth.aug',
-                '9' => 'checkout.payment.ccexpmonth.sep',
-                '10' => 'checkout.payment.ccexpmonth.oct',
-                '11' => 'checkout.payment.ccexpmonth.nov',
-                '12' => 'checkout.payment.ccexpmonth.dec']
+                '1' => '01',
+                '2' => '02',
+                '3' => '03',
+                '4' => '04',
+                '5' => '05',
+                '6' => '06',
+                '7' => '07',
+                '8' => '08',
+                '9' => '09',
+                '10' => '10',
+                '11' => '11',
+                '12' => '12']
         ]);
 
         $ccExpYears = [];
