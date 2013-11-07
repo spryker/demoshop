@@ -3,7 +3,7 @@ namespace Pyz\Zed\PaymentControl\Component;
 
 use ProjectA\Shared\DemoPayment\Code\PaymentProviderConstants as DemoPayment;
 use ProjectA\Shared\Stripe\Code\PaymentProviderConstants as Stripe;
-use Pyz\Shared\Paypal\Code\PaymentProviderConstants as Paypal;
+use Pyz\Shared\Payone\Code\PaymentProviderConstants as Paypal;
 use ProjectA\Zed\PaymentControl\Component\Settings as BaseSettings;
 
 class Settings extends BaseSettings
