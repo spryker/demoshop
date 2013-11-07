@@ -39,7 +39,7 @@
                         {{ form_row(form.shippingAddress.address1, {attr : {class : 'fullWidth'}, label : 'checkout.address.shipping.street' }) }}
                     </div>
                     <div class="row col col33 last">
-                        {{ form_row(form.shippingAddress.address2, {attr : {class : 'fullWidth'}, label : 'checkout.address.shipping.streetnr'}) }}
+                        {{ form_row(form.shippingAddress.address2, {attr : {class : 'fullWidth'}, label : 'checkout.address.shipping.number'}) }}
                     </div>
                     <div class="row">
                         {{ form_row(form.shippingAddress.address3, {attr : {class : 'fullWidth', placeholder : 'checkout.address.shipping.comment.placeholder'}, label : 'checkout.address.shipping.comment'}) }}
@@ -145,12 +145,6 @@
                     </div>
                     <div class="row">
                         {{ form_row(form.billingAddress.iso2Country, {attr : {class : 'fullWidth', 'data-src': 'country', 'data-src-type' : 'short'}, label: 'checkout.address.billing.country'}) }}
-                    </div>
-                </div>
-                <div class="contact primary col col33 secondaryRow">
-                    <h3>{{ 'checkout.headline.contact'|trans }}</h3>
-                    <div class="row">
-                        {{ form_row(form.email, {attr : {class : 'fullWidth'}, label : 'checkout.email'}) }}
                     </div>
                 </div>
             </div>
