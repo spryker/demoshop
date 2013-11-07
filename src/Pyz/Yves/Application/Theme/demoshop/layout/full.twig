@@ -46,14 +46,6 @@
                 </hardcoded>
             </div>
             <div class="col col67">
-                <ul>
-                    {% if is_granted('IS_AUTHENTICATED_FULLY') %}
-                        <li><a href="{{ url('logout') }}">Logout</a></li>
-                    {% else %}
-                        <li><a href="{{ url('login') }}">Login</a></li>
-                    {% endif %}
-                </ul>
-
                 <ul class="cart menu">
                     <li>
                         <a href="{{ url('cart') }}">
@@ -62,6 +54,13 @@
                             {{ 'header.cart.products.choice'|transchoice(cartItemCount) }}
                         </a>
                     </li>
+                </ul>
+                <ul class="customer menu">
+                    {% if is_granted('IS_AUTHENTICATED_FULLY') %}
+                        <li><a href="{{ url('logout') }}"><span class="glyphicon glyphicon-log-out"></span> Logout</a></li>
+                    {% else %}
+                        <li><a href="{{ url('login') }}"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+                    {% endif %}
                 </ul>
             </div>
         </div>
