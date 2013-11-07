@@ -27,6 +27,13 @@
 <section>
     <header>
         <div class="row">
+            <ul>
+                {% if is_granted('IS_AUTHENTICATED_FULLY') %}
+                    <li><a href="{{ path('logout') }}">Logout</a></li>
+                {% else %}
+                    <li><a href="{{ path('login') }}">Login</a></li>
+                {% endif %}
+            </ul>
             <a href="/" id="logo" class="col col33">
                 <img src="/images/logo.png" alt="logo" />
             </a>
