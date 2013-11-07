@@ -29,10 +29,9 @@ class Pyz_Zed_Sales_Component_Model_Orderprocess_Command_PayonePaypalAuthorise e
 
         $parsedUrl = $this->getPreparedUrl($payoneRequestData);
         $rawResult = $this->triggerPayoneCall($parsedUrl);
-
         $result = $this->formatResult($rawResult);
 
-        $response = $this->handleResult($result, $orderEntity, $context);
+        $response = $this->handleResult($result, $context);
 
         // todo:  we can't log the transaction because we don't have a payment
         // (or at least no transactionid if there was an error)
@@ -80,7 +79,7 @@ class Pyz_Zed_Sales_Component_Model_Orderprocess_Command_PayonePaypalAuthorise e
     {
         $payoneConfig = ProjectA_Shared_Library_Config::get('payone');
         $sslHosts = ProjectA_Shared_Library_Config::get('host_ssl');
-
+        $sslHost = (strpos($sslHosts['yves'], "https") !== 0) ? "https://" . $sslHosts['yves'] : $sslHosts['yves'];
 
         $payonedata = [
             // base data
@@ -95,9 +94,9 @@ class Pyz_Zed_Sales_Component_Model_Orderprocess_Command_PayonePaypalAuthorise e
             // paymenttype
             'clearingtype' => 'wlt',
             'wallettype'   => 'PPE',
-            'successurl'   => $sslHosts['yves'] . '/checkout/success',
-            'errorurl'     => $sslHosts['yves'] . '/checkout',
-            'backurl'      => $sslHosts['yves'] . '/checkout',
+            'successurl'   => $sslHost . '/checkout/success',
+            'errorurl'     => $sslHost . '/checkout',
+            'backurl'      => $sslHost . '/checkout',
             // order
             'reference'    => $orderEntity->getIncrementId(),
             'amount'       => $orderEntity->getGrandTotal(),
@@ -117,9 +116,9 @@ class Pyz_Zed_Sales_Component_Model_Orderprocess_Command_PayonePaypalAuthorise e
     {
         $billingAddress = $orderEntity->getBillingAddress();
 
-        $payoneData['firstname'] = $orderEntity->getFirstName();
-        $payoneData['lastname'] = $orderEntity->getLastName();
-        $payoneData['salutation'] = ($orderEntity->getSalutation() == 'Mr') ? 'Herr' : 'Frau';
+        $payoneData['firstname'] = $billingAddress->getFirstName();
+        $payoneData['lastname'] = $billingAddress->getLastName();
+        $payoneData['salutation'] = ($billingAddress->getSalutation() == 'Mr') ? 'Herr' : 'Frau';
         $payoneData['street'] = $billingAddress->getAddress1() .
             ' ' . $billingAddress->getAddress2();
 
@@ -157,10 +156,10 @@ class Pyz_Zed_Sales_Component_Model_Orderprocess_Command_PayonePaypalAuthorise e
      */
     protected function getPreparedUrl(array $payoneData)
     {
-        $url = 'https://api.pay1.de/post-gateway/';
+        $payoneConfig = ProjectA_Shared_Library_Config::get('payone');
 
         $queryString = http_build_query($payoneData);
-        $completeUrl = $url . '?' . $queryString;
+        $completeUrl = $payoneConfig->get('gatewayurl') . '?' . $queryString;
 
         return parse_url($completeUrl);
     }
