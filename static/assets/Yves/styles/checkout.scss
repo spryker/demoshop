@@ -59,3 +59,6 @@
 #checkout .step { display:none; }
 
 #checkout .validationError { border-color:red; box-shadow:0 0 4px rgba(255, 0, 0, 0.3); }
+
+#salesOrder_payment_method input { display:block; padding:0 0 20px; float:left; clear:left; }
+#salesOrder_payment_method label { float:left; padding:0 0 20px; }

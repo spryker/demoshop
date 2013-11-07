@@ -192,6 +192,25 @@ $config['password'] = [
     'options'   => []
 ];
 
+
+/**
+ * Configuration for Payment
+ * Pay Attention to NOT use characters which are
+ * not defined in ASCII
+ *
+ * STORE
+ */
+$config['payone'] = array(
+    'mode'       => 'test',
+    'mid'        => '24047',
+    'portalid'   => '2017184',
+    'key'        => '7e9c7a96bb3131dc50cd2e94841ee3eb',
+    'aid'        => '24058',
+    'encoding'   => 'UTF-8',
+    'gatewayurl' => 'https://api.pay1.de/post-gateway/',
+);
+
+
 /**
  * Configuration for Payone
  * Pay Attention to NOT use characters which are

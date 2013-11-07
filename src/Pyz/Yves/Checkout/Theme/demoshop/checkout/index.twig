@@ -68,6 +68,39 @@
                     <h3>{{ 'checkout.headline.payment'|trans }}</h3>
                     <div class="row">
                         {{ form_widget(form.payment.method, { label : 'checkout.payment.method' } ) }}
+                        <div class="details">
+                            <div class="row">
+                                <label>
+                                    Name on the card
+                                    <input class="fullWidth" type="text" value="" placeholder="e.g. John Doe" />
+                                </label>
+                            </div>
+                            <div class="row">
+                                <label>Card Number</label>
+                                <div class="multiple">
+                                    <div class="col col25">
+                                        <input class="fullWidth" type="text" maxlength="4" value="" placeholder="XXXX" />
+                                    </div>
+                                    <div class="col col25">
+                                        <input class="fullWidth" type="text" maxlength="4" value="" placeholder="XXXX" />
+                                    </div>
+                                    <div class="col col25">
+                                        <input class="fullWidth" type="text" maxlength="4" value="" placeholder="XXXX" />
+                                    </div>
+                                    <div class="col col25">
+                                        <input class="fullWidth" type="text" maxlength="4" value="" placeholder="XXXX" />
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <label>CVV / CVC</label>
+                                <div class="multiple">
+                                    <div class="col col25">
+                                        <input class="fullWidth" type="text" maxlength="3" value="" placeholder="XXX" />
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
 
