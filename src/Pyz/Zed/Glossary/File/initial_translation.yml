@@ -228,6 +228,9 @@ keys:
   checkout.address.billing.different:
     explanations:
       en_US: 'Different Billing Address'
+  payone.paypal:
+    explanations:
+      en_US: 'PayPal'
   catalog.usp.shipping:
     explanations:
       en_US: 'Free Shipping & Return'
