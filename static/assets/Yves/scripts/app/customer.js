@@ -12,10 +12,12 @@ app.customer = {
             app.settings.set('customerActiveAuthTab', $(this).data('target').replace('content-', ''));
             $(this).addClass('active').parent().siblings().children('.tab').removeClass('active');
             $('#' + $(this).data('target')).show().siblings('.content').hide();
+            $('.requestPassword').hide();
         });
     },
     showPwReset : function() {
-        alert('not implemented');
+        $('.requestPassword').show();
+        $('html').animate({scrollTop : parseInt($('.requestPassword').position().top)}, 500);
     }
 };
 
