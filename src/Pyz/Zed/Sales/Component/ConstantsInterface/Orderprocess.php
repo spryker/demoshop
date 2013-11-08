@@ -16,7 +16,12 @@ interface Orderprocess extends \ProjectA_Zed_Sales_Component_Interface_Orderproc
     const STATE_CLARIFY_CAPTURE_FAILED = 'clarify capture failed';
     const STATE_CAPTURED = 'captured';
 
+    const STATE_PAYMENT_REDIRECTED = 'payment redirected';
+    const STATE_PAYMENT_PREPARED = 'payment prepared';
+
     // EVENTS
+
+    const EVENT_PAYMENT_INFO_IS_RECEIVED = 'payment info is received';
 
     // RULES
 
