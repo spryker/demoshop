@@ -19,11 +19,12 @@ select[disabled] { background-color:#f1f1f1; }
 
 .col { position:relative; display:block; float:left; min-height:1px; -moz-box-sizing:border-box; -webkit-box-sizing:border-box; -ms-box-sizing:border-box; box-sizing:border-box; }
 .col:after { display:block; content:''; clear:both; }
+.col15 { width:15%; }
 .col20 { width:20%; }
 .col25 { width:25%; }
+.col30 { width:30%; }
 .col33 { width:33%; }
 .col34 { width:34%; }
-.col375 { width:37.5%; }
 .col67 { width:67%; }
 .col50 { width:50%; }
 .col75 { width:75%; }

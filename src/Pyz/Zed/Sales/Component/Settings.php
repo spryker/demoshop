@@ -1,5 +1,9 @@
 <?php
 use Generated\Shared\Sales\Transfer\Order;
+use Pyz\Zed\Sales\Component\ConstantsInterface\Orderprocess;
+use ProjectA\Shared\Stripe\Code\PaymentProviderConstants as Stripe;
+use Pyz\Shared\Payone\Code\PaymentProviderConstants as Payone;
+
 
 /**
  * @property \Generated\Zed\Sales\Component\SalesFactory $factory
@@ -30,6 +34,16 @@ class Pyz_Zed_Sales_Component_Settings extends \ProjectA_Zed_Sales_Component_Set
      */
     public function getProcessNameForNewOrder(Order $transferOrder)
     {
-        return 'Demo';
+        $method = $transferOrder->getPayment()->getMethod();
+        switch ($method) {
+            case Stripe::METHOD_CREDIT_CARD:
+                return Orderprocess::ORDER_PROCESS_CREDIT_CARD_STRIPE;
+                break;
+            case Payone::METHOD_PAYPAL:
+                return Orderprocess::ORDER_PROCESS_PAYPAL_PAYONE;
+                break;
+        }
+
+        return Orderprocess::ORDER_PROCESS_DEMO;
     }
 }

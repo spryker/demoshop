@@ -743,7 +743,7 @@
             "source": {
                 "type": "git",
                 "url": "git@codebasehq.com:project-a/core/checkout.git",
-                "reference": "15e09fe510a348621ce71f295b872ba2a1f18942"
+                "reference": "6e5e1175a173d5a75ebb86375f2bdd01dd5d847c"
             },
             "require": {
                 "gavroche/browser": "~2.1",
@@ -773,7 +773,7 @@
                 "PaymentControl",
                 "Salesrule"
             ],
-            "time": "2013-11-07 15:26:09"
+            "time": "2013-11-08 08:47:00"
         },
         {
             "name": "project-a/console-package",
@@ -856,7 +856,7 @@
             "source": {
                 "type": "git",
                 "url": "git@codebasehq.com:project-a/core/crm.git",
-                "reference": "d203f203ee85d211283d7366612aa0bf250a193d"
+                "reference": "feb355d917bacaf322320738be20236739dd2c43"
             },
             "require": {
                 "php": ">=5.4.0",
@@ -882,7 +882,7 @@
                 "CRM",
                 "Mail"
             ],
-            "time": "2013-11-07 17:12:01"
+            "time": "2013-11-08 12:13:15"
         },
         {
             "name": "project-a/document-package",
