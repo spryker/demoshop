@@ -3,7 +3,7 @@
         "This file locks the dependencies of your project to a known state",
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file"
     ],
-    "hash": "a5aa554d9ac94565965ecfb16c34bf5b",
+    "hash": "25879bd20fe14fc797823c2e13d79936",
     "packages": [
         {
             "name": "aws/aws-sdk-php",
@@ -159,7 +159,7 @@
                     "email": "kontakt@beberlei.de"
                 },
                 {
-                    "name": "Johannes Schmitt",
+                    "name": "Johannes M. Schmitt",
                     "email": "schmittjoh@gmail.com",
                     "homepage": "http://jmsyst.com",
                     "role": "Developer of wrapped JMSSerializerBundle"
@@ -403,48 +403,6 @@
             "time": "2013-09-10 15:32:56"
         },
         {
-            "name": "mpdf/mpdf",
-            "version": "v5.7.1",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/finwe/mpdf.git",
-                "reference": "ca266f29a20ed00ee351aadee1934ddcfbbe4b53"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/finwe/mpdf/zipball/ca266f29a20ed00ee351aadee1934ddcfbbe4b53",
-                "reference": "ca266f29a20ed00ee351aadee1934ddcfbbe4b53",
-                "shasum": ""
-            },
-            "require": {
-                "php": ">=4.3.10"
-            },
-            "type": "library",
-            "autoload": {
-                "classmap": [
-                    "mpdf.php",
-                    "classes"
-                ]
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "GPL-1.0+"
-            ],
-            "authors": [
-                {
-                    "name": "Ian Back"
-                }
-            ],
-            "description": "A PHP class to generate PDF files from HTML with Unicode/UTF-8 and CJK support",
-            "homepage": "http://www.mpdf1.com/mpdf/index.php",
-            "keywords": [
-                "pdf",
-                "php",
-                "utf-8"
-            ],
-            "time": "2013-09-02 12:16:35"
-        },
-        {
             "name": "nervetattoo/elasticsearch",
             "version": "v2.2.0",
             "source": {
@@ -663,7 +621,7 @@
             "source": {
                 "type": "git",
                 "url": "git@codebasehq.com:project-a/core/cart.git",
-                "reference": "772c74bb6dbc0fa0b9ae21f6361399d0819476d2"
+                "reference": "80c86b44d4454b45bb13c2714e31f191e03781f5"
             },
             "require": {
                 "php": ">=5.4.0",
@@ -691,7 +649,7 @@
             "keywords": [
                 "Cart"
             ],
-            "time": "2013-11-06 14:27:33"
+            "time": "2013-11-07 16:09:30"
         },
         {
             "name": "project-a/catalog-package",
@@ -743,7 +701,7 @@
             "source": {
                 "type": "git",
                 "url": "git@codebasehq.com:project-a/core/checkout.git",
-                "reference": "185833587e38ea72582a43c5040b8915bb56ce06"
+                "reference": "6e5e1175a173d5a75ebb86375f2bdd01dd5d847c"
             },
             "require": {
                 "gavroche/browser": "~2.1",
@@ -773,7 +731,7 @@
                 "PaymentControl",
                 "Salesrule"
             ],
-            "time": "2013-11-06 14:42:51"
+            "time": "2013-11-08 08:47:00"
         },
         {
             "name": "project-a/console-package",
@@ -781,7 +739,7 @@
             "source": {
                 "type": "git",
                 "url": "git@codebasehq.com:project-a/core/console.git",
-                "reference": "05214546f5fa8437dcbf16b34756de7e2e66a52c"
+                "reference": "2dfff29d2c6180d501fadb4e141c1038d7a13670"
             },
             "require": {
                 "fabpot/php-cs-fixer": "dev-master",
@@ -814,7 +772,7 @@
             "keywords": [
                 "console"
             ],
-            "time": "2013-10-28 08:23:27"
+            "time": "2013-11-07 13:59:03"
         },
         {
             "name": "project-a/content-package",
@@ -856,7 +814,7 @@
             "source": {
                 "type": "git",
                 "url": "git@codebasehq.com:project-a/core/crm.git",
-                "reference": "619d00a86acaf32e92a95b4fc9a5686ec98e9eca"
+                "reference": "e343723dda7f29fcf2435306845017cdc90e3cad"
             },
             "require": {
                 "php": ">=5.4.0",
@@ -882,7 +840,7 @@
                 "CRM",
                 "Mail"
             ],
-            "time": "2013-11-07 08:14:12"
+            "time": "2013-11-08 16:46:03"
         },
         {
             "name": "project-a/document-package",
@@ -890,7 +848,7 @@
             "source": {
                 "type": "git",
                 "url": "git@codebasehq.com:project-a/core/document.git",
-                "reference": "c6b92f284e155284f63ff3f04c579bb212adf2b7"
+                "reference": "7f8c41797451dadde5d6d20ac1d4297e87a99cdc"
             },
             "require": {
                 "php": ">=5.4.0",
@@ -915,7 +873,7 @@
                 "Document",
                 "Invoice"
             ],
-            "time": "2013-11-06 16:22:49"
+            "time": "2013-11-08 16:51:13"
         },
         {
             "name": "project-a/frontend-package",
@@ -988,7 +946,7 @@
             "source": {
                 "type": "git",
                 "url": "git@codebasehq.com:project-a/core/infrastructure.git",
-                "reference": "3cb007dfc353858a4a790191e47a06974a845284"
+                "reference": "0a82024b987aea3a57308b63cbcefe04b19007cc"
             },
             "require": {
                 "php": ">=5.4.0",
@@ -1016,7 +974,7 @@
             "keywords": [
                 "infrastructure"
             ],
-            "time": "2013-11-06 09:35:23"
+            "time": "2013-11-08 15:30:46"
         },
         {
             "name": "project-a/kendo-package",
@@ -1043,7 +1001,7 @@
             "source": {
                 "type": "git",
                 "url": "git@codebasehq.com:project-a/core/library-2.git",
-                "reference": "01301bfd8257c9afb16bb2d86c96270c88aa8d0a"
+                "reference": "96c68482c44817368a9ca8fbbcd69aa8c5a74899"
             },
             "require": {
                 "digital-canvas/zend-framework": ">=1.12.2",
@@ -1085,7 +1043,7 @@
                 }
             ],
             "description": "Project-A Library",
-            "time": "2013-11-07 08:14:36"
+            "time": "2013-11-08 16:52:27"
         },
         {
             "name": "project-a/lumberjack-package",
@@ -1157,7 +1115,7 @@
             "source": {
                 "type": "git",
                 "url": "git@codebasehq.com:project-a/core/sales.git",
-                "reference": "164b97aa06acebe4fcf94c6ce80a02f62a16bb6b"
+                "reference": "b93e7c5209041c7001992c9854edbbe64026bbf4"
             },
             "require": {
                 "php": ">=5.4.0",
@@ -1184,7 +1142,7 @@
                 "Sales",
                 "Task"
             ],
-            "time": "2013-11-06 16:22:18"
+            "time": "2013-11-08 16:50:46"
         },
         {
             "name": "project-a/silex-routing",
@@ -1245,7 +1203,7 @@
             "source": {
                 "type": "git",
                 "url": "git@codebasehq.com:project-a/core/stripe.git",
-                "reference": "42b583bd03393830ad36fbc3b16a7b70245d0bf1"
+                "reference": "441f031f781a0b4783c3c081f2a16cee794b8059"
             },
             "require": {
                 "php": ">=5.4.0",
@@ -1270,7 +1228,7 @@
             "keywords": [
                 "stripe payment provider"
             ],
-            "time": "2013-11-06 15:46:27"
+            "time": "2013-11-07 15:12:04"
         },
         {
             "name": "propel/propel1",
@@ -2151,21 +2109,21 @@
         },
         {
             "name": "symfony/icu",
-            "version": "v1.2.0",
+            "version": "v1.1.0",
             "target-dir": "Symfony/Component/Icu",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/Icu.git",
-                "reference": "7299cd3d8d6602103d1ebff5d0a9917b7bc6de72"
+                "reference": "b4081efff21a8a85c57789a39f454fed244f8e46"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/Icu/zipball/7299cd3d8d6602103d1ebff5d0a9917b7bc6de72",
-                "reference": "7299cd3d8d6602103d1ebff5d0a9917b7bc6de72",
+                "url": "https://api.github.com/repos/symfony/Icu/zipball/b4081efff21a8a85c57789a39f454fed244f8e46",
+                "reference": "b4081efff21a8a85c57789a39f454fed244f8e46",
                 "shasum": ""
             },
             "require": {
-                "lib-icu": ">=4.4",
+                "lib-icu": ">=3.8",
                 "php": ">=5.3.3",
                 "symfony/intl": "~2.3"
             },
@@ -2195,7 +2153,7 @@
                 "icu",
                 "intl"
             ],
-            "time": "2013-06-03 18:32:58"
+            "time": "2013-06-03 18:32:40"
         },
         {
             "name": "symfony/intl",
@@ -2883,167 +2841,99 @@
             "time": "2013-10-30 08:20:53"
         },
         {
-            "name": "zendframework/zend-code",
+            "name": "zendframework/zendframework",
             "version": "dev-develop",
-            "target-dir": "Zend/Code",
             "source": {
                 "type": "git",
-                "url": "https://github.com/zendframework/Component_ZendCode.git",
-                "reference": "f2032ba7a93854aaf8961ad9f4b5d723aa1d93ec"
+                "url": "https://github.com/zendframework/zf2.git",
+                "reference": "0a01bba04208523abb4f24f08f3bda3b62ef4bcc"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/zendframework/Component_ZendCode/zipball/f2032ba7a93854aaf8961ad9f4b5d723aa1d93ec",
-                "reference": "f2032ba7a93854aaf8961ad9f4b5d723aa1d93ec",
-                "shasum": ""
-            },
-            "require": {
-                "php": ">=5.3.3",
-                "zendframework/zend-eventmanager": "self.version"
-            },
-            "require-dev": {
-                "doctrine/common": ">=2.1",
-                "zendframework/zend-stdlib": "self.version"
-            },
-            "suggest": {
-                "doctrine/common": "Doctrine\\Common >=2.1 for annotation features",
-                "zendframework/zend-stdlib": "Zend\\Stdlib component"
-            },
-            "type": "library",
-            "extra": {
-                "branch-alias": {
-                    "dev-master": "2.2-dev",
-                    "dev-develop": "2.3-dev"
-                }
-            },
-            "autoload": {
-                "psr-0": {
-                    "Zend\\Code\\": ""
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "BSD-3-Clause"
-            ],
-            "description": "provides facilities to generate arbitrary code using an object oriented interface",
-            "keywords": [
-                "code",
-                "zf2"
-            ],
-            "time": "2013-11-01 16:00:07"
-        },
-        {
-            "name": "zendframework/zend-eventmanager",
-            "version": "dev-develop",
-            "target-dir": "Zend/EventManager",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/zendframework/Component_ZendEventManager.git",
-                "reference": "53e746fa19e0543949eca4ccbf7dd0ea1b2270c4"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/zendframework/Component_ZendEventManager/zipball/53e746fa19e0543949eca4ccbf7dd0ea1b2270c4",
-                "reference": "53e746fa19e0543949eca4ccbf7dd0ea1b2270c4",
-                "shasum": ""
-            },
-            "require": {
-                "php": ">=5.3.3",
-                "zendframework/zend-stdlib": "self.version"
-            },
-            "type": "library",
-            "extra": {
-                "branch-alias": {
-                    "dev-master": "2.2-dev",
-                    "dev-develop": "2.3-dev"
-                }
-            },
-            "autoload": {
-                "psr-0": {
-                    "Zend\\EventManager\\": ""
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "BSD-3-Clause"
-            ],
-            "keywords": [
-                "eventmanager",
-                "zf2"
-            ],
-            "time": "2013-10-23 20:00:15"
-        },
-        {
-            "name": "zendframework/zend-memory",
-            "version": "2.2.5",
-            "target-dir": "Zend/Memory",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/zendframework/Component_ZendMemory.git",
-                "reference": "84404b02a3f7f8de168bdc9fd9d17ab69fad5a51"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/zendframework/Component_ZendMemory/zipball/84404b02a3f7f8de168bdc9fd9d17ab69fad5a51",
-                "reference": "84404b02a3f7f8de168bdc9fd9d17ab69fad5a51",
+                "url": "https://api.github.com/repos/zendframework/zf2/zipball/0a01bba04208523abb4f24f08f3bda3b62ef4bcc",
+                "reference": "0a01bba04208523abb4f24f08f3bda3b62ef4bcc",
                 "shasum": ""
             },
             "require": {
                 "php": ">=5.3.3"
             },
-            "suggest": {
-                "zendframework/zend-cache": "To support swap the memory objects"
-            },
-            "type": "library",
-            "extra": {
-                "branch-alias": {
-                    "dev-master": "2.2-dev",
-                    "dev-develop": "2.3-dev"
-                }
-            },
-            "autoload": {
-                "psr-0": {
-                    "Zend\\Memory\\": ""
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "BSD-3-Clause"
-            ],
-            "keywords": [
-                "memory",
-                "zf2"
-            ],
-            "time": "2013-10-16 23:00:05"
-        },
-        {
-            "name": "zendframework/zend-stdlib",
-            "version": "dev-develop",
-            "target-dir": "Zend/Stdlib",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/zendframework/Component_ZendStdlib.git",
-                "reference": "776bce7451229e3115abd2ec34aefe5d11959633"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/zendframework/Component_ZendStdlib/zipball/776bce7451229e3115abd2ec34aefe5d11959633",
-                "reference": "776bce7451229e3115abd2ec34aefe5d11959633",
-                "shasum": ""
-            },
-            "require": {
-                "php": ">=5.3.3"
-            },
-            "require-dev": {
+            "replace": {
+                "zendframework/zend-authentication": "self.version",
+                "zendframework/zend-barcode": "self.version",
+                "zendframework/zend-cache": "self.version",
+                "zendframework/zend-captcha": "self.version",
+                "zendframework/zend-code": "self.version",
+                "zendframework/zend-config": "self.version",
+                "zendframework/zend-console": "self.version",
+                "zendframework/zend-crypt": "self.version",
+                "zendframework/zend-db": "self.version",
+                "zendframework/zend-debug": "self.version",
+                "zendframework/zend-di": "self.version",
+                "zendframework/zend-dom": "self.version",
+                "zendframework/zend-escaper": "self.version",
                 "zendframework/zend-eventmanager": "self.version",
+                "zendframework/zend-feed": "self.version",
+                "zendframework/zend-file": "self.version",
+                "zendframework/zend-filter": "self.version",
+                "zendframework/zend-form": "self.version",
+                "zendframework/zend-http": "self.version",
+                "zendframework/zend-i18n": "self.version",
+                "zendframework/zend-inputfilter": "self.version",
+                "zendframework/zend-json": "self.version",
+                "zendframework/zend-ldap": "self.version",
+                "zendframework/zend-loader": "self.version",
+                "zendframework/zend-log": "self.version",
+                "zendframework/zend-mail": "self.version",
+                "zendframework/zend-math": "self.version",
+                "zendframework/zend-memory": "self.version",
+                "zendframework/zend-mime": "self.version",
+                "zendframework/zend-modulemanager": "self.version",
+                "zendframework/zend-mvc": "self.version",
+                "zendframework/zend-navigation": "self.version",
+                "zendframework/zend-paginator": "self.version",
+                "zendframework/zend-permissions-acl": "self.version",
+                "zendframework/zend-permissions-rbac": "self.version",
+                "zendframework/zend-progressbar": "self.version",
+                "zendframework/zend-resources": "self.version",
                 "zendframework/zend-serializer": "self.version",
-                "zendframework/zend-servicemanager": "self.version"
+                "zendframework/zend-server": "self.version",
+                "zendframework/zend-servicemanager": "self.version",
+                "zendframework/zend-session": "self.version",
+                "zendframework/zend-soap": "self.version",
+                "zendframework/zend-stdlib": "self.version",
+                "zendframework/zend-tag": "self.version",
+                "zendframework/zend-test": "self.version",
+                "zendframework/zend-text": "self.version",
+                "zendframework/zend-uri": "self.version",
+                "zendframework/zend-validator": "self.version",
+                "zendframework/zend-version": "self.version",
+                "zendframework/zend-view": "self.version",
+                "zendframework/zend-xmlrpc": "self.version"
+            },
+            "require-dev": {
+                "doctrine/annotations": ">=1.0",
+                "fabpot/php-cs-fixer": "*@dev",
+                "ircmaxell/random-lib": "dev-master",
+                "ircmaxell/security-lib": "dev-master",
+                "mikey179/vfsstream": "1.2.*",
+                "ocramius/proxy-manager": "0.4.*",
+                "phpunit/phpunit": "3.7.*",
+                "satooshi/php-coveralls": "dev-master",
+                "sebastianbergmann/phpcov": "1.1.0"
             },
             "suggest": {
-                "zendframework/zend-eventmanager": "To support aggregate hydrator usage",
-                "zendframework/zend-serializer": "Zend\\Serializer component",
-                "zendframework/zend-servicemanager": "To support hydrator plugin manager usage"
+                "doctrine/annotations": "Doctrine Annotations >=1.0 for annotation features",
+                "ext-intl": "ext/intl for i18n features (included in default builds of PHP)",
+                "ircmaxell/random-lib": "Fallback random byte generator for Zend\\Math\\Rand if OpenSSL/Mcrypt extensions are unavailable",
+                "ocramius/proxy-manager": "ProxyManager to handle lazy initialization of services",
+                "zendframework/zendpdf": "ZendPdf for creating PDF representations of barcodes",
+                "zendframework/zendservice-recaptcha": "ZendService\\ReCaptcha for rendering ReCaptchas in Zend\\Captcha and/or Zend\\Form"
             },
+            "bin": [
+                "bin/classmap_generator.php",
+                "bin/pluginmap_generator.php",
+                "bin/templatemap_generator.php"
+            ],
             "type": "library",
             "extra": {
                 "branch-alias": {
@@ -3053,18 +2943,20 @@
             },
             "autoload": {
                 "psr-0": {
-                    "Zend\\Stdlib\\": ""
+                    "Zend\\": "library/"
                 }
             },
             "notification-url": "https://packagist.org/downloads/",
             "license": [
                 "BSD-3-Clause"
             ],
+            "description": "Zend Framework 2",
+            "homepage": "http://framework.zend.com/",
             "keywords": [
-                "stdlib",
+                "framework",
                 "zf2"
             ],
-            "time": "2013-10-20 20:00:18"
+            "time": "2013-11-07 15:26:47"
         },
         {
             "name": "zendframework/zendpdf",
@@ -3141,7 +3033,7 @@
                 {
                     "name": "Alexandre Salomé",
                     "email": "alexandre.salome@gmail.com",
-                    "homepage": "http://alexandre-salome.fr/"
+                    "homepage": "http://alexandre-salome.fr"
                 }
             ],
             "description": "PHP Library for Selenium",
