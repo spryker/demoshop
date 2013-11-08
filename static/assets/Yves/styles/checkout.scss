@@ -17,7 +17,8 @@
 #checkout .row:after { display:block; content:''; clear:both; }
 #checkout .row:last-child { padding-bottom:0; }
 
-#checkout .row .details { clear:left; padding:20px 0; }
+#checkout .row .details { clear:left; padding:10px; background:#f8f8f8; border:1px solid #e1e1e1; }
+#checkout .row .details label { white-space:nowrap; }
 #checkout .row .details .multiple { margin:3px 0 0; }
 #checkout .row .details .multiple:after { display:block; content:''; clear:left; }
 #checkout .row .details .multiple .col { padding:0 2px; }
@@ -61,5 +62,7 @@
 
 #checkout .validationError { border-color:red; box-shadow:0 0 4px rgba(255, 0, 0, 0.3); }
 
-#salesOrder_payment_method input { display:block; padding:0 0 20px; float:left; clear:left; }
-#salesOrder_payment_method label { float:left; padding:0 0 20px; }
+#checkout #salesOrder_payment_method { margin-top:-10px; }
+#checkout #salesOrder_payment_method > input { display:block; margin:11px 5px; float:left; clear:both; }
+#checkout #salesOrder_payment_method > label { display:block; padding:10px; margin-left:0; }
+#checkout #salesOrder_payment_method > input:checked + label { background:#e8e8e8; }
