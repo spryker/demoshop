@@ -5,6 +5,7 @@ namespace Pyz\Zed\Sales\Component\ConstantsInterface;
 interface Orderprocess extends \ProjectA_Zed_Sales_Component_Interface_OrderprocessConstant
 {
     const ORDER_PROCESS_CREDIT_CARD_STRIPE = 'Credit Card (Stripe)';
+    const ORDER_PROCESS_PAYPAL_PAYONE = 'Paypal (Payone)';
     const ORDER_PROCESS_DEMO = 'demo';
 
     const STATE_INVALID = 'invalid';
