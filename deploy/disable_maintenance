@@ -11,11 +11,12 @@ FILEPATH=`pwd`/$0; BASEDIR=`dirname $FILEPATH`; source $BASEDIR/vars; source $BA
 outfile=`mktemp /tmp/deploy-XXXXXX`
 
 ### Deactivate maintenance
-cd $destination_current_dir/static/public/Yves
-rm -f maintenance.html
-
-cd $destination_release_dir/static/public/Yves
-rm -f maintenance.html
+if [ -d $destination_current_dir/static/public/Yves ]; then
+  cd $destination_current_dir/static/public/Yves
+  rm -f maintenance.html
+else
+  echo "ERROR - static/public/Yves not found in current release. That's fine if host is fresh."
+fi
 
 rm -f $outfile
 exit 0

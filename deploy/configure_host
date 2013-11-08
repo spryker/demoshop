@@ -1,4 +1,4 @@
-#!/bin/bash
+!/bin/bash
 #
 # *** Project-A deployment
 #
@@ -54,7 +54,7 @@ if is_default_store; then
     if [ -z $debug ]; then
       /etc/init.d/tomcat?-${environment} restart
     else
-      bash -x /etc/init.d/tomcat?-${environment} restart
+      /etc/init.d/tomcat?-${environment} restart
     fi
     sleep 10s # Let's give tomcat some time to warm-up...
   fi
