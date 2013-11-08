@@ -3,11 +3,12 @@
 {% block content %}
     {% include "@application/partials/navbar.twig" with {'categories': categories } only %}
     <link rel="stylesheet" href="/styles/cart.css" />
+    <script src="/scripts/app/cart.js"></script>
     {% include '@application/response_messages.twig' %}
 
     <section class="consumeHeight" id="cart">
             {% if cartItems|length %}
-            <a href="{{ url('checkout') }}"><button class="continue">{{ 'cart.to.checkout'|trans }}</button></a>
+            <a class="continue" href="{{ url('checkout') }}">{{ 'cart.to.checkout'|trans }}</a>
             {% endif %}
             <h3>{{ 'cart.cart'|trans }}</h3>
             <table class="items">
@@ -59,7 +60,7 @@
                 </tbody>
                 <tfoot>
                 <tr>
-                    <td rowspan="{{ totals.tax.taxRates|length + 3 }}" colspan="2">
+                    <td rowspan="{{ totals.tax.taxRates|length + 4 }}" colspan="2">
                         <ul class="usps">
                             <li><span class="glyphicon glyphicon-gift"></span>{{ 'cart.usp.shipping'|trans }}</li>
                             <li><span class="glyphicon glyphicon-refresh"></span>{{ 'cart.usp.return'|trans }}</li>
@@ -70,8 +71,23 @@
                 </tr>
                 <tr class="shipping">
                     <td class="label">{{ 'cart.price.shipping'|trans }}</td>
-                    <td>{{ totals.orderExpensesTotal|price }}</td>
+                    <td>{{ 0|price }}{# totals.orderExpensesTotal|price? #}</td>
                 </tr>
+                {% for code in couponCodes %}
+                    <tr class="voucher">
+                        <td class="label">{{ 'cart.voucher.code' }}: {{ code }}</td>
+                        <td>-{{ totals.discount|price }}</td>
+                    </tr>
+                {% else %}
+                    <tr class="voucher">
+                        <td class="label">{{ 'cart.coupon.add'|trans }}</td>
+                        <td>
+                            <form action="{{ url('cart/coupon/add') }}">
+                                <input type="text" name="code" value="" />
+                            </form>
+                        </td>
+                    </tr>
+                {% endfor %}
                 {% for taxRate in totals.tax.taxRates %}
                     <tr class="tax">
                         <td>{{ taxRate.percentage }}{{ 'cart.percentage.vat'|trans }}</td>
@@ -85,9 +101,7 @@
                 </tfoot>
             </table>
             {% if cartItems|length %}
-            <a href="{{ url('checkout') }}"><button class="continue">{{ 'cart.to.checkout'|trans }}</button></a>
+            <a  class="continue" href="{{ url('checkout') }}">{{ 'cart.to.checkout'|trans }}</a>
             {% endif %}
-
-        <a href="http://www-development.project-yz.com/cart/add/04M01BU-03">add product for debugging</a>
     </section>
 {% endblock %}

@@ -72,15 +72,10 @@ keys:
   footer.information:
     explanations:
       en_US: Information
-  checkout.name.full.placeholder:
-    explanations:
-      en_US: 'e.g. John Quincy Doe'
-  checkout.name.full:
-    explanations:
-      en_US: 'Full Name'
   checkout.headline.shipping.billing:
     explanations:
       en_US: 'Shipping and Billing Address'
+
   checkout.address.billing.city:
     explanations:
       en_US: City
@@ -96,6 +91,9 @@ keys:
   checkout.address.billing.company:
     explanations:
       en_US: Company
+  checkout.address.billing.salutation:
+    explanations:
+      en_US: 'Salutation'
   checkout.address.billing.name.last:
     explanations:
       en_US: 'Last Name'
@@ -105,30 +103,70 @@ keys:
   checkout.address.billing.name.first:
     explanations:
       en_US: 'First Name'
+
   checkout.email:
     explanations:
       en_US: Email
+  checkout.address.shipping.salutation:
+    explanations:
+      en_US: 'Salutation'
+  checkout.address.shipping.name.last:
+    explanations:
+      en_US: 'Last Name'
+  checkout.address.shipping.name.middle:
+    explanations:
+      en_US: 'Middle Name'
+  checkout.address.shipping.name.first:
+    explanations:
+      en_US: 'First Name'
   checkout.address.shipping.phone:
     explanations:
-      en_US: Phone
+      en_US: 'Phone'
   checkout.address.shipping.comment:
     explanations:
-      en_US: Comment
+      en_US: 'Comment'
   checkout.address.shipping.comment.placeholder:
     explanations:
       en_US: 'e.g. company / please hand to neighbor Wilson'
-  checkout.address.full.placeholder:
+  checkout.address.shipping.city:
     explanations:
-      en_US: 'e.g. 79 N 11th Brooklyn'
-  checkout.address.full:
+      en_US: 'City'
+  checkout.address.shipping.zipcode:
     explanations:
-      en_US: 'Full Address'
+      en_US: 'Postal Code'
+  checkout.address.shipping.street:
+    explanations:
+      en_US: 'Street'
+  checkout.address.shipping.number:
+    explanations:
+      en_US: 'Number'
+  checkout.address.shipping.name:
+    explanations:
+      en_US: 'Name'
   demopayment.demomethod:
     explanations:
       en_US: 'Demo Payment Method'
+  stripe.credit.card:
+    explanations:
+      en_US: 'Credit Card'
   checkout.headline.shipping:
     explanations:
       en_US: 'Shipping Address'
+  checkout.payment.ccholder:
+    explanations:
+      en_US: 'Card Holder'
+  checkout.payment.ccnumber:
+    explanations:
+      en_US: 'Card Number'
+  checkout.payment.ccv:
+    explanations:
+      en_US: 'CCV'
+  checkout.payment.ccexpmonth:
+    explanations:
+      en_US: 'Expiration Month'
+  checkout.payment.ccexpyear:
+    explanations:
+      en_US: 'Expiration Year'
   checkout.percentage.vat:
     explanations:
       en_US: '% VAT'
@@ -137,7 +175,7 @@ keys:
       en_US: 'Grand Total Price'
   checkout.price.shipping:
     explanations:
-      en_US: Shipping
+      en_US: 'Shipping'
   checkout.price.subtotal:
     explanations:
       en_US: 'Subtotal Price'
@@ -149,19 +187,25 @@ keys:
       en_US: 'Go to Order Summary'
   checkout.address.shipping.city:
     explanations:
-      en_US: 'City:'
+      en_US: 'City'
   checkout.address.shipping.zipcode:
     explanations:
-      en_US: 'Postal Code:'
+      en_US: 'Postal Code'
   checkout.address.shipping.street:
     explanations:
-      en_US: 'Street:'
-  checkout.address.shipping.name:
+      en_US: 'Street'
+  checkout.address.shipping.streetnr:
     explanations:
-      en_US: 'Name:'
-  checkout.headline.shipping.to:
+      en_US: 'Number'
+  checkout.address.shipping.name.first:
     explanations:
-      en_US: 'Shipping goes to'
+      en_US: 'First Name'
+  checkout.address.shipping.name.middle:
+    explanations:
+      en_US: 'Middle Name'
+  checkout.address.shipping.name.last:
+    explanations:
+      en_US: 'Last Name'
   checkout.headline.cart:
     explanations:
       en_US: 'Your Cart'
@@ -170,25 +214,28 @@ keys:
       en_US: 'Contact Data'
   checkout.headline.payment:
     explanations:
-      en_US: Payment
+      en_US: 'Payment'
   checkout.headline.billing:
     explanations:
       en_US: 'Billing Address'
   checkout.address.billing.country:
     explanations:
-      en_US: Country
+      en_US: 'Country'
   checkout.link.edit:
     explanations:
-      en_US: edit
+      en_US: 'edit'
   cart.success.product.add:
     explanations:
       en_US: 'Product added to cart'
   checkout.address.shipping.country:
     explanations:
-      en_US: 'Country:'
+      en_US: 'Country'
   checkout.address.billing.different:
     explanations:
       en_US: 'Different Billing Address'
+  payone.paypal:
+    explanations:
+      en_US: 'PayPal'
   catalog.usp.shipping:
     explanations:
       en_US: 'Free Shipping & Return'
@@ -291,6 +338,74 @@ keys:
   catalog.sort.price:
     explanations:
       en_US: 'Sort by price'
+
+  customer.email:
+    explanations:
+      en_US: 'Your E-Mail:'
+  customer.password:
+    explanations:
+      en_US: 'Your Password:'
+  customer.new_password:
+    explanations:
+      en_US: 'Password confirmation:'
+  customer.login.submit:
+    explanations:
+      en_US: 'Login'
+
+  customer.login.caption.main:
+    explanations:
+      en_US: 'Sign In'
+  customer.login.caption.sub:
+    explanations:
+      en_US: 'Already a customer?'
+
+  customer.register.caption.main:
+    explanations:
+      en_US: 'Register'
+  customer.register.caption.sub:
+    explanations:
+      en_US: 'New to wedowood?'
+
+  customer.register.box.main:
+    explanations:
+      en_US: 'Registration'
+  customer.register.box.sub:
+    explanations:
+      en_US: 'We need your email in order to inform you about your order. Your password is necessary for you to login to see your order status.'
+
   header.cart.products.choice:
     explanations:
       en_US: '{0}Empty|{1}%count% product|]1,Inf]%count% products '
+
+  login.error.bad.credentials:
+    explanations:
+      en_US: 'Invalid credentials'
+
+  static.pages.tos:
+    explanations:
+      de_DE: 'Terms of Service - please add me!'
+      en_US: 'Terms of Service - please add me!'
+  static.pages.imprint:
+    explanations:
+      de_DE: 'Imprint - please add me!'
+      en_US: 'Imprint - please add me!'
+  static.pages.privacy:
+    explanations:
+      de_DE: 'Privacy - please add me!'
+      en_US: 'Privacy - please add me!'
+  static.pages.withdrawal:
+    explanations:
+      de_DE: 'Withdrawal - please add me!'
+      en_US: 'Withdrawal - please add me!'
+  static.pages.returns:
+      explanations:
+        de_DE: 'Returns - please add me!'
+        en_US: 'Returns - please add me!'
+  static.pages.contact:
+    explanations:
+      de_DE: 'Contact - please add me!'
+      en_US: 'Contact - please add me!'
+  static.pages.faq:
+      explanations:
+        de_DE: 'FAQ - please add me!'
+        en_US: 'FAQ - please add me!'

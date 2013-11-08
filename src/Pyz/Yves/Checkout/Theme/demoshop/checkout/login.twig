@@ -1,0 +1,58 @@
+{% extends "@application/layout/reduced.twig" %}
+
+{% block content %}
+    <link rel="stylesheet" href="/styles/customer.css" />
+    <script src="/scripts/app/customer.js"></script>
+
+    <section id="customer" class="consumeHeight">
+        <div class="dialog">
+            <div class="container">
+                <div class="tabs">
+                    <div class="col col50">
+                        <div class="tab active" data-target="content-register">
+                            <h3>{{ 'customer.register.caption.main'|trans }}</h3>
+                            <h4>{{ 'customer.register.caption.sub'|trans }}</h4>
+                        </div>
+                    </div>
+                    <div class="col col50">
+                        <div class="tab" data-target="content-login">
+                            <h3>{{ 'customer.login.caption.main'|trans }}</h3>
+                            <h4>{{ 'customer.login.caption.sub'|trans }}</h4>
+                        </div>
+                    </div>
+                </div>
+                <div class="content" id="content-register">
+                    <form action="{{ url('checkout') }}">
+                        <div class="row">
+                            <label for="dummy_a">Email:</label>
+                            <input type="text" placeholder="e.g. tom@clancy.org" class="fullWidth" id="dummy_a" />
+                        </div>
+                        <div class="row">
+                            <label for="dummy_b">Password:</label>
+                            <input type="password" placeholder="make up a good password" class="fullWidth" id="dummy_b" />
+                        </div>
+                        <div class="row">
+                            <button class="continue" type="submit">Create New Account</button>
+                        </div>
+                    </form>
+                </div>
+                <div class="content" id="content-login">
+                    <form action="{{ url('checkout') }}">
+                        <div class="row">
+                            <label for="dummy_c">Your E-Mail:</label>
+                            <input type="text" class="fullWidth" id="dummy_c" />
+                        </div>
+                        <div class="row">
+                            <label for="dummy_d">Your Password:</label>
+                            <input type="password" class="fullWidth" id="dummy_d" />
+                            <a class="hint" href="javascript:app.customer.showPwReset();">Forgot your password?</a>
+                        </div>
+                        <div class="row">
+                            <button class="continue" type="submit">Login</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+{% endblock %}

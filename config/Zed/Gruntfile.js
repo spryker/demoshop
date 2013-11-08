@@ -17,7 +17,7 @@ module.exports = function ( grunt ) {
             'configJSON': 'config/Zed/assets.json',
             'configPHP': 'config/Zed/config_assets.php',
             'config': 'config/Zed/',
-            'src': 'static/assets/Zed',
+            'src': 'vendor/project-a/infrastructure-package/src/ProjectA/Zed/Application/Static/',
             'dist': 'static/public/Zed/new'
         },
 

@@ -3,6 +3,8 @@ namespace Pyz\Yves\Application\Module;
 
 use Generated\Yves\Factory;
 use ProjectA\Yves\Catalog\Component\Model\Category;
+use ProjectA\Yves\Library\Security\Configuration;
+use ProjectA\Yves\Library\Security\SecurityServiceProvider;
 use ProjectA\Yves\Library\Silex\Application;
 use ProjectA\Yves\Library\Silex\Provider\CookieServiceProvider;
 use ProjectA\Yves\Library\Silex\Provider\SessionServiceProvider;
@@ -14,10 +16,11 @@ use ProjectA\Yves\Library\Silex\Provider\YvesLoggingServiceProvider;
 use ProjectA\Yves\Library\Silex\Routing\SilexRouter;
 use Pyz\Yves\Application\Module\ControllerProvider as ApplicationProvider;
 use ProjectA\Yves\Cart\Module\ControllerProvider as CartProvider;
-use Pyz\Yves\Catalog\Module\ControllerProvider as CatalogProvider;
 use ProjectA\Yves\Checkout\Module\ControllerProvider as CheckoutProvider;
 use ProjectA\Yves\Setup\Module\ControllerProvider as SetupProvider;
+use ProjectA\Yves\Customer\Module\ControllerProvider as CustomerProvider;
 use Silex\Provider\FormServiceProvider;
+use Silex\Provider\RememberMeServiceProvider;
 use Silex\Provider\ServiceControllerServiceProvider;
 use SilexRouting\Provider\UrlGeneratorServiceProvider;
 use Silex\Provider\ValidatorServiceProvider;
@@ -49,12 +52,13 @@ class Bootstrap extends \ProjectA\Yves\Library\Silex\Bootstrap
             new SessionServiceProvider(),
             new UrlGeneratorServiceProvider(),
             new ServiceControllerServiceProvider(),
+            new SecurityServiceProvider(),
+            new RememberMeServiceProvider(),
             new RoutingServiceProvider(),
             new StorageServiceProvider(),
             new TranslationServiceProvider(),
-            new FormServiceProvider(),
             new ValidatorServiceProvider(),
-            //new HttpFragmentServiceProvider(),
+            new FormServiceProvider(),
             new TwigServiceProvider(),
         ];
 
@@ -73,15 +77,13 @@ class Bootstrap extends \ProjectA\Yves\Library\Silex\Bootstrap
         return [
             new ApplicationProvider(),
             new CartProvider(),
-            new CatalogProvider(),
             new CheckoutProvider(),
+            new CustomerProvider(),
             new SetupProvider(),
         ];
     }
 
     /**
-     *
-     *
      * @param Application $app
      * @return \Symfony\Component\Routing\RouterInterface[]
      */

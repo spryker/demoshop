@@ -1,0 +1,23 @@
+#customer .dialog { width:50%; height:50%; padding:100px 25%; }
+
+#customer .dialog .container { box-shadow:2px 2px 2px rgba(0, 0, 0, 0.1); }
+#customer .dialog .tabs:after  { display:block; content:''; clear:both; }
+#customer .dialog .tabs .col:first-child { padding-right:1px; }
+#customer .dialog .tabs .col:last-child { padding-left:1px; }
+#customer .dialog .tabs .tab { padding:7px 10px; border:1px solid #ddd; background:#f8f8f8; border-bottom-width:0; cursor:pointer; -webkit-user-select:none; -moz-user-select:none; user-select:none; overflow:hidden; }
+#customer .dialog .tabs .tab h3 { margin:0; padding:0; font-size:18px; }
+#customer .dialog .tabs .tab h4 { margin:0; padding:0; font-size:14px; font-weight:normal; }
+#customer .dialog .tabs .tab.active { background:#fff; padding-bottom:8px; margin-bottom:-1px; }
+#customer .dialog .content { display:none; border:1px solid #ddd; padding:14px 10px; }
+
+#customer .row { padding-bottom:20px; line-height:16px; }
+#customer .row:after { display:block; content:''; clear:both; }
+#customer .row:last-child { padding-bottom:0; }
+#customer .hint { display:block; font-size:0.8em; margin-top:3px; }
+
+#customer label { font-size:0.9em; }
+#customer label input { font-size:1.1em; }
+#customer label .fullWidth,
+#customer label+.fullWidth { margin-top:3px; }
+
+#customer .requestPassword { display:none; padding:10px; margin-top:20px; border:1px solid #ddd; }

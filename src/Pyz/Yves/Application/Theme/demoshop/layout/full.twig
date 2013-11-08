@@ -15,6 +15,7 @@
         <script src="/scripts/vendor/modernizr-2.6.2-respond-1.1.0.min.js"></script>
 
         <script src="/scripts/app/main.js"></script>
+        <script src="/scripts/app/ui.js"></script>
         <script>
             // hardcoded
             app.vars.storeLocale = 'US';
@@ -54,6 +55,13 @@
                         </a>
                     </li>
                 </ul>
+                <ul class="customer menu">
+                    {% if is_granted('IS_AUTHENTICATED_FULLY') %}
+                        <li><a href="{{ url('logout') }}"><span class="glyphicon glyphicon-log-out"></span> Logout</a></li>
+                    {% else %}
+                        <li><a href="{{ url('login') }}"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+                    {% endif %}
+                </ul>
             </div>
         </div>
     </header>
@@ -80,9 +88,13 @@
             <h4>{{ 'footer.information'|trans }}</h4>
             <hardcoded block>
             <ul>
-                <li><a href="cms.html">Privacy</a></li>
-                <li><a href="cms.html">Terms</a></li>
-                <li><a href="cms.html">Contact us</a></li>
+                <li><a href="/agb">Terms of Service</a></li>
+                <li><a href="/impressum">Imprint</a></li>
+                <li><a href="/datenschutz">Privacy</a></li>
+                <li><a href="/widerrufsrecht">Withdrawal</a></li>
+                <li><a href="/ruecksendungen">Returns</a></li>
+                <li><a href="/kontakt">Contact</a></li>
+                <li><a href="/kontakt">FAQ</a></li>
             </ul>
             </hardcoded>
         </div>

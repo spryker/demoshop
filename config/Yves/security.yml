@@ -1,0 +1,34 @@
+settings:
+  logout:
+    logout_path: '/logout'
+
+  securityProvider:
+    form:
+      login_path: '/login'
+      check_path: '/login_check'
+      username_parameter: 'customerLogin[username]'
+      password_parameter: 'customerLogin[password]'
+      csrf_parameter: 'customerLogin[_token]'
+      csrf_provider: form.csrf_provider
+      intention: authentication
+
+    remember_me:
+      key: 4hRu9345%eb=drn5&jg7?hesp5§
+      always_remember_me: true
+      name: ADD_COOKIE_NAME
+      lifetime: 31536000
+      # remember_me_parameter
+      # httponly:
+      # secure:
+      # domain:
+      # path:
+
+  customerProvider: 'ProjectA\Yves\Library\Security\CustomerProvider'
+  authModel: 'ProjectA\Yves\Customer\Component\Model\Customer'
+
+firewalls:
+  secured:
+    pattern: '(^/checkout|^/login_check$|^/logout$)'
+
+  unsecured:
+    anonymous: true

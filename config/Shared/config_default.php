@@ -192,6 +192,25 @@ $config['password'] = [
     'options'   => []
 ];
 
+
+/**
+ * Configuration for Payment
+ * Pay Attention to NOT use characters which are
+ * not defined in ASCII
+ *
+ * STORE
+ */
+$config['payone'] = array(
+    'mode'       => 'test',
+    'mid'        => '24047',
+    'portalid'   => '2017184',
+    'key'        => '7e9c7a96bb3131dc50cd2e94841ee3eb',
+    'aid'        => '24058',
+    'encoding'   => 'UTF-8',
+    'gatewayurl' => 'https://api.pay1.de/post-gateway/',
+);
+
+
 /**
  * Configuration for Payone
  * Pay Attention to NOT use characters which are
@@ -221,13 +240,18 @@ $config['adyen_test']['development']['notification_raw_data_log_url']
 $config['adyen']['development']['notification_raw_data_log_url']
     = 'http://yves.dev.saatchionline.com/data/static/US/payment/notification/';
 
-$config['stripe_test']['currency'] = 'USD';
-$config['stripe_test']['secret_key'] = 'sk_test_c3yedK5n5wKbwjNJZbuXYOxy';
-$config['stripe_test']['publishable_key'] = 'pk_test_sUFzCYKTQrutJphLmWmyQS0l';
 
-$config['stripe']['currency'] = 'USD';
-$config['stripe']['secret_key'] = 'sk_test_c3yedK5n5wKbwjNJZbuXYOxy';
-$config['stripe']['publishable_key'] = 'pk_test_sUFzCYKTQrutJphLmWmyQS0l';
+$config['stripe'] = [
+    'currency' => 'USD',
+    'secret_key' => 'sk_test_dRt838ewNa5C2SRC5l72wXuP',
+    'publishable_key' => 'pk_test_nO9nZ7qW8myNAJ4jWOHgeSSp',
+];
+
+$config['stripe_test'] = [
+    'currency' => 'USD',
+    'secret_key' => 'sk_test_dRt838ewNa5C2SRC5l72wXuP',
+    'publishable_key' => 'pk_test_nO9nZ7qW8myNAJ4jWOHgeSSp',
+];
 
 
 $config['zed'] = array(
@@ -442,4 +466,8 @@ $config['productImage'] = [
     'amazonS3Key' => '',
     'amazonS3Secret' => '',
     'amazonS3BucketName' => ''
+];
+
+$config['invoice'] = [
+    'protectedDocumentDirectory' => 'protected' . DIRECTORY_SEPARATOR . 'invoices',
 ];

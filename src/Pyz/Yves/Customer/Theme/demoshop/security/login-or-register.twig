@@ -1,0 +1,88 @@
+{% extends "@application/layout/reduced.twig" %}
+
+{% block content %}
+    <link rel="stylesheet" href="/styles/customer.css" />
+    <script src="/scripts/app/customer.js"></script>
+
+    <section id="customer" class="consumeHeight">
+        {% if errors %}
+            <div>
+                {% for error in errors %}
+                    <p>{{ error.message }}</p>
+                {% endfor %}
+            </div>
+        {% endif %}
+        <div class="dialog">
+            <div class="container">
+                <div class="tabs">
+                    <div class="col col50">
+                        <div class="tab {{ registrationFormRequested }}" data-target="content-register">
+                            <h3>{{ 'customer.register.caption.main'|trans }}</h3>
+                            <h4>{{ 'customer.register.caption.sub'|trans }}</h4>
+                        </div>
+                    </div>
+                    <div class="col col50">
+                        <div class="tab {{ loginFormRequested }}" data-target="content-login">
+                            <h3>{{ 'customer.login.caption.main'|trans }}</h3>
+                            <h4>{{ 'customer.login.caption.sub'|trans }}</h4>
+                        </div>
+                    </div>
+                </div>
+                <div class="content" id="content-register">
+                    <div>
+                        <h3>{{ 'customer.register.box.main'|trans }}</h3>
+                        <h4>{{ 'customer.register.box.sub'|trans }}</h4>
+                    </div>
+                    {{ form_start(registrationForm, {attr: {class: 'customerLogin', novalidate: 'novalidate'}, action: path('login')}) }}
+                        {{ form_errors(registrationForm) }}
+                        <div class="row">
+                            {{ form_row(registrationForm.email, {label : 'customer.email'}) }}
+                        </div>
+                        <div class="row">
+                            {{ form_row(registrationForm.password, {label : 'customer.password'}) }}
+                        </div>
+                        <div class="row">
+                            <button class="continue" type="submit">Create New Account</button>
+                        </div>
+                    {{ form_end(registrationForm) }}
+                </div>
+                <div class="content" id="content-login">
+                    <div>
+                        <h3>{{ 'customer.login.caption.main'|trans }}</h3>
+                    </div>
+                    {% if error %}
+                        <p>{{ error|trans }}</p>
+                    {% endif %}
+                    {{ form_start(loginForm, {attr: {class: 'customerLogin', novalidate: 'novalidate'}, action: path('login_check')}) }}
+                    {{ form_errors(loginForm) }}
+
+                    <div class="row">
+                        {{ form_row(loginForm.username, {label : 'customer.email'}) }}
+                    </div>
+                    <div class="row">
+                        {{ form_row(loginForm.password, {label : 'customer.password'}) }}
+                        <a class="hint" href="javascript:app.customer.showPwReset();">Forgot your password?</a>
+                    </div>
+                    <div class="row">
+                        <button class="continue" type="submit">Login</button>
+                    </div>
+                    {{ form_end(loginForm, {render_rest:false}) }}
+                </div>
+            </div>
+            <div class="container requestPassword">
+                {{ form_start(forgotPasswordForm, {attr: {class: 'forgotPasswordLogin', novalidate: 'novalidate'}, action: path('forgot/password')}) }}
+                {{ form_errors(forgotPasswordForm) }}
+
+                {{ form_widget(forgotPasswordForm._token) }}
+
+                <div class="row">
+                    {{ form_row(forgotPasswordForm.email, {label : 'customer.email'}) }}
+                </div>
+                <div class="row">
+                    <button class="continue" type="submit">Request password</button>
+                </div>
+                {{ form_end(forgotPasswordForm) }}
+            </div>
+        </div>
+    </section>
+{% endblock %}

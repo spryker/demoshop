@@ -73,6 +73,33 @@ var app = {
             this.$slider.animate({ marginLeft : this.index * this.slideWidth * (-1) }, 1000);
             setTimeout(this.slide.bind(this), 6000);
         }
+    },
+    settings : {
+        get : function(property) {
+            if (typeof localStorage === 'undefined') {
+                return {};
+            }
+            var settings = localStorage.getItem('settings');
+            if (!settings) {
+                localStorage.setItem('settings', '{}');
+                return this.get();
+            }
+
+            settings = $.parseJSON(settings);
+            if (property) {
+                return settings[property];
+            }
+            return settings;
+        },
+        set : function(property, value) {
+            if (typeof localStorage === 'undefined') {
+                return {};
+            }
+            var settings = this.get();
+            settings[property] = value;
+            localStorage.setItem('settings', JSON.stringify(settings));
+            return settings;
+        }
     }
 }
 

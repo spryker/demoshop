@@ -1,7 +1,9 @@
 <?php
 namespace Pyz\Zed\PaymentControl\Component;
 
-use ProjectA\Shared\DemoPayment\Code\PaymentProviderConstants;
+use ProjectA\Shared\DemoPayment\Code\PaymentProviderConstants as DemoPayment;
+use ProjectA\Shared\Stripe\Code\PaymentProviderConstants as Stripe;
+use Pyz\Shared\Payone\Code\PaymentProviderConstants as Paypal;
 use ProjectA\Zed\PaymentControl\Component\Settings as BaseSettings;
 
 class Settings extends BaseSettings
@@ -28,7 +30,9 @@ class Settings extends BaseSettings
     public function getAvailablePaymentMethods()
     {
         return [
-            PaymentProviderConstants::METHOD_DEMOMETHOD
+            DemoPayment::METHOD_DEMOMETHOD,
+            Stripe::METHOD_CREDIT_CARD,
+            Paypal::METHOD_PAYPAL
         ];
     }
 

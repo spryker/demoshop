@@ -2,6 +2,8 @@
 
 namespace Pyz\Zed\Sales\Component\Model\Orderprocess\Definition\SubProcess;
 
+use Generated\Zed\DemoPayment\Component\Dependency\DemoPaymentFacadeInterface;
+use Generated\Zed\DemoPayment\Component\Dependency\DemoPaymentFacadeTrait;
 use Pyz\Zed\Sales\Component\ConstantsInterface\Orderprocess;
 use ProjectA\Zed\DemoPayment\Component\Constants\StatemachineConstants as PaymentConstants;
 
@@ -10,11 +12,11 @@ use ProjectA\Zed\DemoPayment\Component\Constants\StatemachineConstants as Paymen
  * @property \ProjectA_Zed_Sales_Component_Model_Orderprocess_StateMachine_Setup $setup
  */
 class Payment extends \ProjectA_Zed_Sales_Component_Model_Orderprocess_Definition_Abstract implements
-    \Generated\Zed\DemoPayment\Component\Dependency\DemoPaymentFacadeInterface,
+    DemoPaymentFacadeInterface,
     Orderprocess
 {
 
-    use \Generated\Zed\DemoPayment\Component\Dependency\DemoPaymentFacadeTrait;
+    use DemoPaymentFacadeTrait;
 
     /**
      * @param string $processName
@@ -43,6 +45,7 @@ class Payment extends \ProjectA_Zed_Sales_Component_Model_Orderprocess_Definitio
     {
         $this->setup->addCommand(self::STATE_WAITING_FOR_PAYMENT, self::EVENT_ON_ENTER, $this->facadeDemoPayment->createFacadeStateMachine()->getCommandAuthorizeGrandTotal());
         $this->setup->addCommand(PaymentConstants::STATE_DEMO_AUTHORIZED, PaymentConstants::EVENT_DEMO_CAPTURE_PAYMENT, $this->facadeDemoPayment->createFacadeStateMachine()->getCommandCaptureGrandTotal());
+        $this->setup->addCommand(PaymentConstants::STATE_DEMO_AUTHORIZED, self::EVENT_ON_ENTER, $this->factory->createModelOrderprocessCommandMailOrderConfirmationMail());
     }
 
     protected function addFlags()
@@ -51,14 +54,15 @@ class Payment extends \ProjectA_Zed_Sales_Component_Model_Orderprocess_Definitio
 
     protected function addMetaInfo()
     {
-        $states = [
+        $groupStates = [
             self::STATE_WAITING_FOR_PAYMENT,
             PaymentConstants::STATE_DEMO_AUTHORIZED,
             PaymentConstants::STATE_DEMO_CAPTURED
         ];
 
-        foreach ($states as $state) {
-            $this->setup->addStateMetaInfo($state, 'group', $this->getName());
+        foreach ($groupStates as $groupState) {
+            $this->setup->addStateMetaInfo($groupState, 'group', $this->getName());
         }
     }
+
 }

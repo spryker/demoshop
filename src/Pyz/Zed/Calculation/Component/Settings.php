@@ -17,6 +17,7 @@ class Pyz_Zed_Calculation_Component_Settings extends \ProjectA_Zed_Calculation_C
         return array(
             $this->factory->createModelCalculatorsRemoveAllExpenses(),
             $this->factory->createModelCalculatorsRemoveAllCalculatedDiscounts(),
+            $this->factory->createModelCalculatorsFixedShippingExpenseCalculator(),
             $this->factory->createModelCalculatorsItemExpensesTotal(),
             $this->factory->createModelCalculatorsOrderExpensesTotal(),
             $this->factory->createModelCalculatorsSubtotal(),
