@@ -68,7 +68,7 @@
                     <h3>{{ 'checkout.headline.payment'|trans }}</h3>
                     <div class="row">
                         {{ form_widget(form.payment.method, { label : 'checkout.payment.method' } ) }}
-                        <div class="details">
+                        <div class="details" data-validator-precondition="return $('[name=\'salesOrder[payment][method]\']:checked').val() === 'stripe.credit.card'">
                             <div class="row">
                                 {{ form_row(form.payment.ccCardholder, {attr : {class : 'fullWidth'}, label : 'checkout.payment.ccholder'}) }}
                             </div>
@@ -80,11 +80,11 @@
                                     <div class="col col25">
                                         {{ form_row(form.payment.ccVerification, {attr : {class : 'fullWidth', maxlength : 3}, label : 'checkout.payment.ccv'}) }}
                                     </div>
-                                    <div class="col col25">&#160;</div>
-                                    <div class="col col25">
+                                    <div class="col col15">&#160;</div>
+                                    <div class="col col30">
                                         {{ form_row(form.payment.ccExpirationMonth, {attr : {class : 'fullWidth'}, label : 'checkout.payment.ccexpmonth'}) }}
                                     </div>
-                                    <div class="col col25">
+                                    <div class="col col30">
                                         {{ form_row(form.payment.ccExpirationYear, {attr : {class : 'fullWidth'}, label : 'checkout.payment.ccexpyear'}) }}
                                     </div>
                                 </div>
