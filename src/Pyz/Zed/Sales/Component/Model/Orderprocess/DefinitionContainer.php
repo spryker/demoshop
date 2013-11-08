@@ -24,5 +24,6 @@ class Pyz_Zed_Sales_Component_Model_Orderprocess_DefinitionContainer extends \Pr
     {
         $this->addProcessDefinition($this->factory->createModelOrderprocessDefinitionDemo());
         $this->addProcessDefinition($this->factory->createModelOrderprocessDefinitionCreditCardStripe());
+        $this->addProcessDefinition($this->factory->createModelOrderprocessDefinitionPaypalPayone());
     }
 }

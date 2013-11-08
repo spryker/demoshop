@@ -32,6 +32,7 @@ class Pyz_Zed_Sales_Component_Model_Orderprocess_Command_PayonePaypalAuthorise e
         $result = $this->formatResult($rawResult);
 
         $response = $this->handleResult($result, $context);
+        $context[self::PAYMENT_TRANSACTION_RESPONSE_KEY] = $response;
 
         // todo:  we can't log the transaction because we don't have a payment
         // (or at least no transactionid if there was an error)
@@ -254,7 +255,6 @@ class Pyz_Zed_Sales_Component_Model_Orderprocess_Command_PayonePaypalAuthorise e
             $response->isSuccess()
         );
     }
-
 
     /**
      * @param array $rawRequest

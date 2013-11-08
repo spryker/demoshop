@@ -243,6 +243,12 @@
                     }
                 }
             });
+
+            $('[name="salesOrder[payment][method]"]').change(function() {
+                var $details = $('.details[data-associated-paymentmethod="' + $(this).val() + '"]');
+                $(this).next('label').after($details);
+                $('.col.unnecessary').append($(this).siblings('.details').not($details));
+            }).filter(':checked').change();
         },
         change : function () {
             var $newLayer =

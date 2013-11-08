@@ -27,10 +27,10 @@
                         </label>
                     </div> #}
                     <div class="row col col34 first">
-                        {{ form_row(form.shippingAddress.firstName, {attr : {class : 'fullWidth'}, label : 'checkout.address.shipping.name.first'}) }}
+                        {{ form_row(form.shippingAddress.salutation, {attr : {class : 'fullWidth'}, label : 'checkout.address.shipping.salutation'}) }}
                     </div>
                     <div class="row col col33 middle">
-                        {{ form_row(form.shippingAddress.middleName, {attr : {class : 'fullWidth'}, label : 'checkout.address.shipping.name.middle'}) }}
+                        {{ form_row(form.shippingAddress.firstName, {attr : {class : 'fullWidth'}, label : 'checkout.address.shipping.name.first'}) }}
                     </div>
                     <div class="row col col33 last">
                         {{ form_row(form.shippingAddress.lastName, {attr : {class : 'fullWidth'}, label : 'checkout.address.shipping.name.last'}) }}
@@ -39,7 +39,7 @@
                         {{ form_row(form.shippingAddress.address1, {attr : {class : 'fullWidth'}, label : 'checkout.address.shipping.street' }) }}
                     </div>
                     <div class="row col col33 last">
-                        {{ form_row(form.shippingAddress.address2, {attr : {class : 'fullWidth'}, label : 'checkout.address.shipping.streetnr'}) }}
+                        {{ form_row(form.shippingAddress.address2, {attr : {class : 'fullWidth'}, label : 'checkout.address.shipping.number'}) }}
                     </div>
                     <div class="row">
                         {{ form_row(form.shippingAddress.address3, {attr : {class : 'fullWidth', placeholder : 'checkout.address.shipping.comment.placeholder'}, label : 'checkout.address.shipping.comment'}) }}
@@ -120,10 +120,10 @@
                 <div class="address primary col col33 secondaryRow" data-validator-precondition="return $('#chooseDifferentBilling').is(':checked')">
                     <h3>{{ 'checkout.headline.billing'|trans }}</h3>
                     <div class="row col col34 first">
-                        {{ form_row(form.billingAddress.firstName, {attr : {class : 'name fullWidth', 'data-src': 'first_name'}, label : 'checkout.address.billing.name.first'}) }}
+                        {{ form_row(form.billingAddress.salutation, {attr : {class : 'name fullWidth', 'data-src': 'salutation'}, label : 'checkout.address.billing.salutation'}) }}
                     </div>
                     <div class="row col col33 middle">
-                        {{ form_row(form.billingAddress.middleName, {attr : {class : 'name fullWidth', 'data-src': 'middle_name'}, label : 'checkout.address.billing.name.middle'}) }}
+                        {{ form_row(form.billingAddress.firstName, {attr : {class : 'name fullWidth', 'data-src': 'middle_name'}, label : 'checkout.address.billing.name.first'}) }}
                     </div>
                     <div class="row col col33 last">
                         {{ form_row(form.billingAddress.lastName, {attr : {class : 'name fullWidth', 'data-src': 'last_name'}, label : 'checkout.address.billing.name.last'}) }}
@@ -147,10 +147,28 @@
                         {{ form_row(form.billingAddress.iso2Country, {attr : {class : 'fullWidth', 'data-src': 'country', 'data-src-type' : 'short'}, label: 'checkout.address.billing.country'}) }}
                     </div>
                 </div>
-                <div class="contact primary col col33 secondaryRow">
-                    <h3>{{ 'checkout.headline.contact'|trans }}</h3>
-                    <div class="row">
-                        {{ form_row(form.email, {attr : {class : 'fullWidth'}, label : 'checkout.email'}) }}
+                <div class="unnecessary primary col col33 secondaryRow">
+                    <div class="details" data-associated-paymentmethod="stripe.credit.card" data-validator-precondition="return $('[name=\'salesOrder[payment][method]\']:checked').val() === 'stripe.credit.card'">
+                        <div class="row">
+                            {{ form_row(form.payment.ccCardholder, {attr : {class : 'fullWidth'}, label : 'checkout.payment.ccholder'}) }}
+                        </div>
+                        <div class="row">
+                            {{ form_row(form.payment.ccNumber, {attr : {class : 'fullWidth', maxlength : 16}, label : 'checkout.payment.ccnumber'}) }}
+                        </div>
+                        <div class="row">
+                            <div class="multiple">
+                                <div class="col col25">
+                                    {{ form_row(form.payment.ccVerification, {attr : {class : 'fullWidth', maxlength : 3}, label : 'checkout.payment.ccv'}) }}
+                                </div>
+                                <div class="col col15">&#160;</div>
+                                <div class="col col30">
+                                    {{ form_row(form.payment.ccExpirationMonth, {attr : {class : 'fullWidth'}, label : 'checkout.payment.ccexpmonth'}) }}
+                                </div>
+                                <div class="col col30">
+                                    {{ form_row(form.payment.ccExpirationYear, {attr : {class : 'fullWidth'}, label : 'checkout.payment.ccexpyear'}) }}
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
