@@ -69,6 +69,18 @@
                     {{ form_end(loginForm, {render_rest:false}) }}
                 </div>
             </div>
+            <div class="container">
+                {{ form_start(forgotPasswordForm, {attr: {class: 'forgotPasswordLogin', novalidate: 'novalidate'}, action: path('forgot/password')}) }}
+                {{ form_errors(forgotPasswordForm) }}
+
+                <div class="row">
+                    {{ form_row(forgotPasswordForm.email, {label : 'customer.email'}) }}
+                </div>
+                <div class="row">
+                    <button class="continue" type="submit">Request password</button>
+                </div>
+                {{ form_end(forgotPasswordForm) }}
+            </div>
         </div>
     </section>
 {% endblock %}
