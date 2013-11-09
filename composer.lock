@@ -7,16 +7,16 @@
     "packages": [
         {
             "name": "aws/aws-sdk-php",
-            "version": "2.4.8",
+            "version": "2.4.9",
             "source": {
                 "type": "git",
                 "url": "https://github.com/aws/aws-sdk-php.git",
-                "reference": "204550d00de76f70c8a69444823320354a0898c7"
+                "reference": "80ec29d00a23471553005e6948609304aeb4e899"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/aws/aws-sdk-php/zipball/204550d00de76f70c8a69444823320354a0898c7",
-                "reference": "204550d00de76f70c8a69444823320354a0898c7",
+                "url": "https://api.github.com/repos/aws/aws-sdk-php/zipball/80ec29d00a23471553005e6948609304aeb4e899",
+                "reference": "80ec29d00a23471553005e6948609304aeb4e899",
                 "shasum": ""
             },
             "require": {
@@ -69,7 +69,7 @@
                 "s3",
                 "sdk"
             ],
-            "time": "2013-10-31 19:16:43"
+            "time": "2013-11-08 18:14:08"
         },
         {
             "name": "digital-canvas/zend-framework",
@@ -551,7 +551,7 @@
             "source": {
                 "type": "git",
                 "url": "git@codebasehq.com:project-a/core/acl.git",
-                "reference": "be7504d8d61142cfcfcbb65b2d54ada53f455bcc"
+                "reference": "6f8cb9190ca7e4cdefe3721516b39b431329c8e0"
             },
             "require": {
                 "php": ">=5.4.0",
@@ -580,7 +580,7 @@
                 "login",
                 "usermanagement"
             ],
-            "time": "2013-11-05 14:57:05"
+            "time": "2013-11-09 13:51:32"
         },
         {
             "name": "project-a/adyen-package",
@@ -588,7 +588,7 @@
             "source": {
                 "type": "git",
                 "url": "git@codebasehq.com:project-a/core/adyen.git",
-                "reference": "18d81ccbd194c94f71a1ee3cc005d9660ea24782"
+                "reference": "2429f20cee660dc988d250f26c85946583b62168"
             },
             "require": {
                 "php": ">=5.4.0",
@@ -613,7 +613,7 @@
             "keywords": [
                 "adyen payment provider"
             ],
-            "time": "2013-11-05 08:23:16"
+            "time": "2013-11-09 13:51:32"
         },
         {
             "name": "project-a/cart-package",
@@ -621,7 +621,7 @@
             "source": {
                 "type": "git",
                 "url": "git@codebasehq.com:project-a/core/cart.git",
-                "reference": "80c86b44d4454b45bb13c2714e31f191e03781f5"
+                "reference": "e98c39f2580bbaf28bd5844216aa2a324005c8a9"
             },
             "require": {
                 "php": ">=5.4.0",
@@ -649,7 +649,7 @@
             "keywords": [
                 "Cart"
             ],
-            "time": "2013-11-07 16:09:30"
+            "time": "2013-11-09 13:51:32"
         },
         {
             "name": "project-a/catalog-package",
@@ -657,7 +657,7 @@
             "source": {
                 "type": "git",
                 "url": "git@codebasehq.com:project-a/core/catalog.git",
-                "reference": "8aa4f6e5a9cf6e9259764456cc4954ceeff6246d"
+                "reference": "27c062d27fd7cb61d8382e984bbb2242f9bf40f1"
             },
             "require": {
                 "php": ">=5.4.0",
@@ -693,7 +693,7 @@
                 "Price",
                 "Stock"
             ],
-            "time": "2013-11-06 18:45:25"
+            "time": "2013-11-09 13:51:32"
         },
         {
             "name": "project-a/checkout-package",
@@ -701,7 +701,7 @@
             "source": {
                 "type": "git",
                 "url": "git@codebasehq.com:project-a/core/checkout.git",
-                "reference": "6e5e1175a173d5a75ebb86375f2bdd01dd5d847c"
+                "reference": "a3ddbf24cf5e8fe321eb3050e5942cbe7f1b736a"
             },
             "require": {
                 "gavroche/browser": "~2.1",
@@ -731,7 +731,7 @@
                 "PaymentControl",
                 "Salesrule"
             ],
-            "time": "2013-11-08 08:47:00"
+            "time": "2013-11-09 13:51:32"
         },
         {
             "name": "project-a/console-package",
@@ -739,7 +739,7 @@
             "source": {
                 "type": "git",
                 "url": "git@codebasehq.com:project-a/core/console.git",
-                "reference": "2dfff29d2c6180d501fadb4e141c1038d7a13670"
+                "reference": "f57b48044c25b06fad73fd37f30727273276f852"
             },
             "require": {
                 "fabpot/php-cs-fixer": "dev-master",
@@ -772,7 +772,7 @@
             "keywords": [
                 "console"
             ],
-            "time": "2013-11-07 13:59:03"
+            "time": "2013-11-09 13:51:32"
         },
         {
             "name": "project-a/content-package",
@@ -780,7 +780,7 @@
             "source": {
                 "type": "git",
                 "url": "git@codebasehq.com:project-a/core/content.git",
-                "reference": "ba3f15a6240ed0af9986056afbdfbba6aa295fa7"
+                "reference": "e565673b33b2c20c7271eb28581c4546046d88ba"
             },
             "require": {
                 "php": ">=5.4.0",
@@ -806,7 +806,7 @@
             "keywords": [
                 "Content Package"
             ],
-            "time": "2013-10-23 19:47:59"
+            "time": "2013-11-09 13:51:32"
         },
         {
             "name": "project-a/crm-package",
@@ -814,7 +814,7 @@
             "source": {
                 "type": "git",
                 "url": "git@codebasehq.com:project-a/core/crm.git",
-                "reference": "e343723dda7f29fcf2435306845017cdc90e3cad"
+                "reference": "d1f371578065a073099de69a14f36d543ebd5aeb"
             },
             "require": {
                 "php": ">=5.4.0",
@@ -840,7 +840,7 @@
                 "CRM",
                 "Mail"
             ],
-            "time": "2013-11-08 16:46:03"
+            "time": "2013-11-09 13:51:32"
         },
         {
             "name": "project-a/document-package",
@@ -848,7 +848,7 @@
             "source": {
                 "type": "git",
                 "url": "git@codebasehq.com:project-a/core/document.git",
-                "reference": "7f8c41797451dadde5d6d20ac1d4297e87a99cdc"
+                "reference": "2c2c1a385b5da6d7752bce22817762b511a25868"
             },
             "require": {
                 "php": ">=5.4.0",
@@ -873,7 +873,7 @@
                 "Document",
                 "Invoice"
             ],
-            "time": "2013-11-08 16:51:13"
+            "time": "2013-11-09 13:51:32"
         },
         {
             "name": "project-a/frontend-package",
@@ -881,7 +881,7 @@
             "source": {
                 "type": "git",
                 "url": "git@codebasehq.com:project-a/core/frontend.git",
-                "reference": "2158c5e18168fd173c1b93c5a659c2f365cf1747"
+                "reference": "ca4e78b19f9709299468970aee58b157511385b5"
             },
             "require": {
                 "php": ">=5.4.0",
@@ -905,7 +905,7 @@
             "keywords": [
                 "Frontend"
             ],
-            "time": "2013-11-06 13:20:08"
+            "time": "2013-11-09 13:51:32"
         },
         {
             "name": "project-a/glossary-package",
@@ -913,7 +913,7 @@
             "source": {
                 "type": "git",
                 "url": "git@codebasehq.com:project-a/core/glossary.git",
-                "reference": "e8f185c2b06db3f6f111d04039a5436e8d26ba18"
+                "reference": "ec371c237b455d55f861248f4a0c84ea60e4bdbf"
             },
             "require": {
                 "php": ">=5.4.0",
@@ -938,7 +938,7 @@
                 "i18n",
                 "translation"
             ],
-            "time": "2013-11-04 14:11:51"
+            "time": "2013-11-09 13:51:32"
         },
         {
             "name": "project-a/infrastructure-package",
@@ -946,7 +946,7 @@
             "source": {
                 "type": "git",
                 "url": "git@codebasehq.com:project-a/core/infrastructure.git",
-                "reference": "0a82024b987aea3a57308b63cbcefe04b19007cc"
+                "reference": "b8dbf29f2a9a76653c2c924071f58482e6d6fc93"
             },
             "require": {
                 "php": ">=5.4.0",
@@ -974,7 +974,7 @@
             "keywords": [
                 "infrastructure"
             ],
-            "time": "2013-11-08 15:30:46"
+            "time": "2013-11-09 13:51:32"
         },
         {
             "name": "project-a/kendo-package",
@@ -982,7 +982,7 @@
             "source": {
                 "type": "git",
                 "url": "git@codebasehq.com:project-a/core/kendo.git",
-                "reference": "aeb48254cb17332a8b76caa8963d88e722da8e03"
+                "reference": "e4dafcc24775e9aaaa188ce02f92b21b0a70259e"
             },
             "type": "library",
             "autoload": {
@@ -993,7 +993,7 @@
                 }
             },
             "description": "Core Library",
-            "time": "2013-10-29 10:41:59"
+            "time": "2013-11-09 13:51:32"
         },
         {
             "name": "project-a/library-package",
@@ -1001,7 +1001,7 @@
             "source": {
                 "type": "git",
                 "url": "git@codebasehq.com:project-a/core/library-2.git",
-                "reference": "96c68482c44817368a9ca8fbbcd69aa8c5a74899"
+                "reference": "6176f40d576baf9d75b390d263049940cd485865"
             },
             "require": {
                 "digital-canvas/zend-framework": ">=1.12.2",
@@ -1043,7 +1043,7 @@
                 }
             ],
             "description": "Project-A Library",
-            "time": "2013-11-08 16:52:27"
+            "time": "2013-11-09 13:51:32"
         },
         {
             "name": "project-a/lumberjack-package",
@@ -1051,7 +1051,7 @@
             "source": {
                 "type": "git",
                 "url": "git@codebasehq.com:project-a/core/lumberjack.git",
-                "reference": "2ef96d09cb567a693d552234a2c3f9e5a319a1df"
+                "reference": "fa4781e5563492e618bc4450b392b0e21f8e0cad"
             },
             "require": {
                 "nervetattoo/elasticsearch": "~2.2.0",
@@ -1076,7 +1076,7 @@
             "keywords": [
                 ""
             ],
-            "time": "2013-11-05 15:00:36"
+            "time": "2013-11-09 13:51:32"
         },
         {
             "name": "project-a/payment-package",
@@ -1084,7 +1084,7 @@
             "source": {
                 "type": "git",
                 "url": "git@codebasehq.com:project-a/core/payment.git",
-                "reference": "148ccff6530f0840ab8c069b28b0318495a5c393"
+                "reference": "50f283704bbc653a9de74d7bd0901756e27aa63e"
             },
             "require": {
                 "php": ">=5.4.0"
@@ -1107,7 +1107,7 @@
             "keywords": [
                 "payment, payment provider"
             ],
-            "time": "2013-11-06 18:39:38"
+            "time": "2013-11-09 13:51:32"
         },
         {
             "name": "project-a/sales-package",
@@ -1115,7 +1115,7 @@
             "source": {
                 "type": "git",
                 "url": "git@codebasehq.com:project-a/core/sales.git",
-                "reference": "b93e7c5209041c7001992c9854edbbe64026bbf4"
+                "reference": "f6ff843910c57cc5904ea248c614f9e91c1b237a"
             },
             "require": {
                 "php": ">=5.4.0",
@@ -1142,7 +1142,7 @@
                 "Sales",
                 "Task"
             ],
-            "time": "2013-11-08 16:50:46"
+            "time": "2013-11-09 13:51:32"
         },
         {
             "name": "project-a/silex-routing",
@@ -1203,7 +1203,7 @@
             "source": {
                 "type": "git",
                 "url": "git@codebasehq.com:project-a/core/stripe.git",
-                "reference": "441f031f781a0b4783c3c081f2a16cee794b8059"
+                "reference": "1f45b844faa552f8c335340f5f131175d680def9"
             },
             "require": {
                 "php": ">=5.4.0",
@@ -1228,7 +1228,7 @@
             "keywords": [
                 "stripe payment provider"
             ],
-            "time": "2013-11-07 15:12:04"
+            "time": "2013-11-09 13:51:32"
         },
         {
             "name": "propel/propel1",
@@ -1566,16 +1566,16 @@
         },
         {
             "name": "stripe/stripe-php",
-            "version": "v1.9.0",
+            "version": "v1.9.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/stripe/stripe-php.git",
-                "reference": "6d5937f60b1c3063bca358c79e8232c079aa693d"
+                "reference": "e6054222e874d3e02e8f90644ef9fddde33f45d1"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/stripe/stripe-php/zipball/6d5937f60b1c3063bca358c79e8232c079aa693d",
-                "reference": "6d5937f60b1c3063bca358c79e8232c079aa693d",
+                "url": "https://api.github.com/repos/stripe/stripe-php/zipball/e6054222e874d3e02e8f90644ef9fddde33f45d1",
+                "reference": "e6054222e874d3e02e8f90644ef9fddde33f45d1",
                 "shasum": ""
             },
             "require": {
@@ -1610,7 +1610,7 @@
                 "payment processing",
                 "stripe"
             ],
-            "time": "2013-10-17 00:23:45"
+            "time": "2013-11-08 19:55:02"
         },
         {
             "name": "symfony-cmf/routing",
