@@ -739,7 +739,7 @@
             "source": {
                 "type": "git",
                 "url": "git@codebasehq.com:project-a/core/console.git",
-                "reference": "f57b48044c25b06fad73fd37f30727273276f852"
+                "reference": "77e206816235e36b6d03418c3f4786ca0d4a694a"
             },
             "require": {
                 "fabpot/php-cs-fixer": "dev-master",
@@ -772,7 +772,7 @@
             "keywords": [
                 "console"
             ],
-            "time": "2013-11-09 13:51:32"
+            "time": "2013-11-09 14:24:05"
         },
         {
             "name": "project-a/content-package",
@@ -814,7 +814,7 @@
             "source": {
                 "type": "git",
                 "url": "git@codebasehq.com:project-a/core/crm.git",
-                "reference": "d1f371578065a073099de69a14f36d543ebd5aeb"
+                "reference": "5a3db6f057437f97ad08e8e41b7705fe68b084b7"
             },
             "require": {
                 "php": ">=5.4.0",
@@ -840,7 +840,7 @@
                 "CRM",
                 "Mail"
             ],
-            "time": "2013-11-09 13:51:32"
+            "time": "2013-11-09 18:15:19"
         },
         {
             "name": "project-a/document-package",
@@ -1001,7 +1001,7 @@
             "source": {
                 "type": "git",
                 "url": "git@codebasehq.com:project-a/core/library-2.git",
-                "reference": "6176f40d576baf9d75b390d263049940cd485865"
+                "reference": "8d3c607061c9db6312d35be048116b3917923d94"
             },
             "require": {
                 "digital-canvas/zend-framework": ">=1.12.2",
@@ -1043,7 +1043,7 @@
                 }
             ],
             "description": "Project-A Library",
-            "time": "2013-11-09 13:51:32"
+            "time": "2013-11-09 18:14:02"
         },
         {
             "name": "project-a/lumberjack-package",
