@@ -621,7 +621,7 @@
             "source": {
                 "type": "git",
                 "url": "git@codebasehq.com:project-a/core/cart.git",
-                "reference": "e98c39f2580bbaf28bd5844216aa2a324005c8a9"
+                "reference": "9290ae737f77d091e89181fd2de6b5868818d3e2"
             },
             "require": {
                 "php": ">=5.4.0",
@@ -649,7 +649,7 @@
             "keywords": [
                 "Cart"
             ],
-            "time": "2013-11-09 13:51:32"
+            "time": "2013-11-09 20:54:01"
         },
         {
             "name": "project-a/catalog-package",
@@ -701,7 +701,7 @@
             "source": {
                 "type": "git",
                 "url": "git@codebasehq.com:project-a/core/checkout.git",
-                "reference": "a3ddbf24cf5e8fe321eb3050e5942cbe7f1b736a"
+                "reference": "74d4b570f060c5149f93214190cfa6ff5ff64373"
             },
             "require": {
                 "gavroche/browser": "~2.1",
@@ -731,7 +731,7 @@
                 "PaymentControl",
                 "Salesrule"
             ],
-            "time": "2013-11-09 13:51:32"
+            "time": "2013-11-09 20:54:01"
         },
         {
             "name": "project-a/console-package",
@@ -739,7 +739,7 @@
             "source": {
                 "type": "git",
                 "url": "git@codebasehq.com:project-a/core/console.git",
-                "reference": "77e206816235e36b6d03418c3f4786ca0d4a694a"
+                "reference": "7ad6e1bc2427db6c68188b7614133c6d2241334e"
             },
             "require": {
                 "fabpot/php-cs-fixer": "dev-master",
@@ -772,7 +772,7 @@
             "keywords": [
                 "console"
             ],
-            "time": "2013-11-09 14:24:05"
+            "time": "2013-11-10 15:18:51"
         },
         {
             "name": "project-a/content-package",
@@ -814,7 +814,7 @@
             "source": {
                 "type": "git",
                 "url": "git@codebasehq.com:project-a/core/crm.git",
-                "reference": "5a3db6f057437f97ad08e8e41b7705fe68b084b7"
+                "reference": "9ae99dead26810b1dee7d55997d757fbb3d56ab3"
             },
             "require": {
                 "php": ">=5.4.0",
@@ -840,7 +840,7 @@
                 "CRM",
                 "Mail"
             ],
-            "time": "2013-11-09 18:15:19"
+            "time": "2013-11-09 20:54:01"
         },
         {
             "name": "project-a/document-package",
@@ -946,7 +946,7 @@
             "source": {
                 "type": "git",
                 "url": "git@codebasehq.com:project-a/core/infrastructure.git",
-                "reference": "b8dbf29f2a9a76653c2c924071f58482e6d6fc93"
+                "reference": "2f56b7b6f5370d96da96c5c17d283ce97747ab47"
             },
             "require": {
                 "php": ">=5.4.0",
@@ -974,7 +974,7 @@
             "keywords": [
                 "infrastructure"
             ],
-            "time": "2013-11-09 13:51:32"
+            "time": "2013-11-10 15:19:14"
         },
         {
             "name": "project-a/kendo-package",
@@ -1001,7 +1001,7 @@
             "source": {
                 "type": "git",
                 "url": "git@codebasehq.com:project-a/core/library-2.git",
-                "reference": "8d3c607061c9db6312d35be048116b3917923d94"
+                "reference": "97df0ee207b83da343eb0ee146332ca095a068e6"
             },
             "require": {
                 "digital-canvas/zend-framework": ">=1.12.2",
@@ -1043,7 +1043,7 @@
                 }
             ],
             "description": "Project-A Library",
-            "time": "2013-11-09 18:14:02"
+            "time": "2013-11-09 20:54:01"
         },
         {
             "name": "project-a/lumberjack-package",
@@ -1443,12 +1443,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/silexphp/Silex.git",
-                "reference": "6b650021ebc46632655d03f5c295d868e1a7a894"
+                "reference": "ffe45ba19c20b22bb7b65a02dbf8df2896a96c49"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/silexphp/Silex/zipball/6b650021ebc46632655d03f5c295d868e1a7a894",
-                "reference": "6b650021ebc46632655d03f5c295d868e1a7a894",
+                "url": "https://api.github.com/repos/silexphp/Silex/zipball/ffe45ba19c20b22bb7b65a02dbf8df2896a96c49",
+                "reference": "ffe45ba19c20b22bb7b65a02dbf8df2896a96c49",
                 "shasum": ""
             },
             "require": {
@@ -1519,7 +1519,7 @@
             "keywords": [
                 "microframework"
             ],
-            "time": "2013-11-06 06:37:06"
+            "time": "2013-11-10 10:33:27"
         },
         {
             "name": "solarium/solarium",
