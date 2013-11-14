@@ -4,8 +4,9 @@ namespace Pyz\Zed\Calculation\Component\Model\Calculators;
 use Generated\Shared\Library\TransferLoader;
 use Generated\Shared\Sales\Transfer\Order;
 use ProjectA\Shared\Sales\Code\ExpenseConstants;
+use ProjectA\Zed\Calculation\Component\Model\Calculator\CalculatorInterface;
 
-class FixedShippingExpenseCalculator extends \ProjectA_Zed_Calculation_Component_Model_Calculators_Abstract
+class FixedShippingExpenseCalculator implements CalculatorInterface
 {
     /**
      * @var bool
