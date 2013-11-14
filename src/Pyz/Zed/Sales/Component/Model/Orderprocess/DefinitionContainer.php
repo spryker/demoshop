@@ -1,16 +1,19 @@
 <?php
 
 use Generated\Zed\Sales\Component\SalesFactory;
+use ProjectA\Zed\Library\Dependency\DependencyInitInterface;
+use ProjectA\Zed\Library\Dependency\DependencyFactoryInterface;
+use ProjectA\Zed\Library\Dependency\DependencyFactoryTrait;
 
 /**
  * @property SalesFactory $factory
  */
 class Pyz_Zed_Sales_Component_Model_Orderprocess_DefinitionContainer extends \ProjectA_Zed_Library_StateMachine_Definition_Container_Simple implements
-    \ProjectA\Zed\Library\Dependency\DependencyFactoryInterface,
-    \ProjectA_Zed_Library_Dependency_InitInterface
+    DependencyFactoryInterface,
+    DependencyInitInterface
 {
 
-    use \ProjectA\Zed\Library\Dependency\DependencyFactoryTrait;
+    use DependencyFactoryTrait;
 
     public function initAfterDependencyInjection()
     {

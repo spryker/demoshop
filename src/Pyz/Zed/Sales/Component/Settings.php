@@ -3,6 +3,7 @@ use Generated\Shared\Sales\Transfer\Order;
 use Pyz\Zed\Sales\Component\ConstantsInterface\Orderprocess;
 use ProjectA\Shared\Stripe\Code\PaymentProviderConstants as Stripe;
 use Pyz\Shared\Payone\Code\PaymentProviderConstants as Payone;
+use Generated\Shared\Sales\Transfer\OrderItem;
 
 
 /**
@@ -32,7 +33,7 @@ class Pyz_Zed_Sales_Component_Settings extends \ProjectA_Zed_Sales_Component_Set
      * @param Order $transferOrder
      * @return string
      */
-    public function getProcessNameForNewOrder(Order $transferOrder)
+    public function getProcessNameForNewOrderItem(OrderItem $transferOrderItem, Order $transferOrder)
     {
         $method = $transferOrder->getPayment()->getMethod();
         switch ($method) {
@@ -46,4 +47,5 @@ class Pyz_Zed_Sales_Component_Settings extends \ProjectA_Zed_Sales_Component_Set
 
         return Orderprocess::ORDER_PROCESS_DEMO;
     }
+
 }
