@@ -80,7 +80,7 @@ fi
 ### Link public assets to shared static static (for relative URLs in minified stylesheets)
 if is_default_store; then
   cd $destination_release_dir/data/static
-  for DIR in styles scripts images; do
+  for DIR in styles scripts images fonts; do
     [ ! -e $DIR ] && ln -sf $destination_current_dir/static/public/Yves/$DIR $DIR
   done
 fi
