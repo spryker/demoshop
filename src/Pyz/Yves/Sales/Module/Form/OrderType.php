@@ -14,7 +14,7 @@ class OrderType extends CoreOrderType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         parent::buildForm($builder, $options);
-        $builder->add('payment', new PaymentType());
+        $builder->add('payment', new PaymentType($this->paymentMethods));
     }
 
 }

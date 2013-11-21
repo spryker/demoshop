@@ -3,7 +3,7 @@
 # *** Project-A deployment
 #
 # update_solr
-# This script is executed by cron daemon, on solr master host
+# This script is executed by cron daemon, as www-data user, on solr master host
 #
 #
 
@@ -12,8 +12,10 @@ outfile=`mktemp /tmp/deploy-XXXXXX`
 
 if [ -z $APPLICATION_STORE ]; then echo "Error: \$APPLICATION_STORE is not set."; exit 1; fi
 
-cd $destination_release_dir/cli
-#php -d "newrelic.appname='Cron(${environment})'" index.php --module=yves --controller=cronjob --action=solr-synchronize
+cd $destination_release_dir
+# Fallback for console tool
+php -d "newrelic.appname='Deploy($environment)'" vendor/bin/console storage:solr:full -s ${APPLICATION_STORE} -e ${environment} || \
+  php cli/index.php  --module=yves --controller=cronjob --action=solr-full-import
 
 rm -f $outfile
 exit 0
