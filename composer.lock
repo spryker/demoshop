@@ -7,16 +7,16 @@
     "packages": [
         {
             "name": "aws/aws-sdk-php",
-            "version": "2.4.9",
+            "version": "2.4.10",
             "source": {
                 "type": "git",
                 "url": "https://github.com/aws/aws-sdk-php.git",
-                "reference": "80ec29d00a23471553005e6948609304aeb4e899"
+                "reference": "b494eb871d0aa3ba3b0a47a895fb18c6226edb88"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/aws/aws-sdk-php/zipball/80ec29d00a23471553005e6948609304aeb4e899",
-                "reference": "80ec29d00a23471553005e6948609304aeb4e899",
+                "url": "https://api.github.com/repos/aws/aws-sdk-php/zipball/b494eb871d0aa3ba3b0a47a895fb18c6226edb88",
+                "reference": "b494eb871d0aa3ba3b0a47a895fb18c6226edb88",
                 "shasum": ""
             },
             "require": {
@@ -69,7 +69,7 @@
                 "s3",
                 "sdk"
             ],
-            "time": "2013-11-08 18:14:08"
+            "time": "2013-11-14 17:24:28"
         },
         {
             "name": "digital-canvas/zend-framework",
@@ -181,17 +181,17 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/fabpot/PHP-CS-Fixer.git",
-                "reference": "6141fb49bf6c9bd606674e1f3591e327deb7c066"
+                "reference": "ff3d35aa3de66c68a1e181aed0a9bbc3579423c0"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/fabpot/PHP-CS-Fixer/zipball/6141fb49bf6c9bd606674e1f3591e327deb7c066",
-                "reference": "6141fb49bf6c9bd606674e1f3591e327deb7c066",
+                "url": "https://api.github.com/repos/fabpot/PHP-CS-Fixer/zipball/ff3d35aa3de66c68a1e181aed0a9bbc3579423c0",
+                "reference": "ff3d35aa3de66c68a1e181aed0a9bbc3579423c0",
                 "shasum": ""
             },
             "require": {
                 "php": ">=5.3.6",
-                "sebastian/diff": "1.0.*@dev",
+                "sebastian/diff": "1.1.*",
                 "symfony/console": "~2.1",
                 "symfony/filesystem": "~2.1",
                 "symfony/finder": "~2.1"
@@ -221,7 +221,7 @@
                 }
             ],
             "description": "A script to automatically fix Symfony Coding Standard",
-            "time": "2013-11-11 19:40:18"
+            "time": "2013-11-17 11:15:57"
         },
         {
             "name": "gavroche/browser",
@@ -403,6 +403,73 @@
             "time": "2013-09-10 15:32:56"
         },
         {
+            "name": "monolog/monolog",
+            "version": "1.7.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/Seldaek/monolog.git",
+                "reference": "6225b22de9dcf36546be3a0b2fa8e3d986153f57"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/Seldaek/monolog/zipball/6225b22de9dcf36546be3a0b2fa8e3d986153f57",
+                "reference": "6225b22de9dcf36546be3a0b2fa8e3d986153f57",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3.0",
+                "psr/log": "~1.0"
+            },
+            "require-dev": {
+                "aws/aws-sdk-php": "~2.4.8",
+                "doctrine/couchdb": "dev-master",
+                "mlehner/gelf-php": "1.0.*",
+                "phpunit/phpunit": "~3.7.0",
+                "raven/raven": "0.5.*",
+                "ruflin/elastica": "0.90.*"
+            },
+            "suggest": {
+                "aws/aws-sdk-php": "Allow sending log messages to AWS services like DynamoDB",
+                "doctrine/couchdb": "Allow sending log messages to a CouchDB server",
+                "ext-amqp": "Allow sending log messages to an AMQP server (1.0+ required)",
+                "ext-mongo": "Allow sending log messages to a MongoDB server",
+                "mlehner/gelf-php": "Allow sending log messages to a GrayLog2 server",
+                "raven/raven": "Allow sending log messages to a Sentry server",
+                "ruflin/elastica": "Allow sending log messages to an Elastic Search server"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "1.7.x-dev"
+                }
+            },
+            "autoload": {
+                "psr-0": {
+                    "Monolog": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Jordi Boggiano",
+                    "email": "j.boggiano@seld.be",
+                    "homepage": "http://seld.be",
+                    "role": "Developer"
+                }
+            ],
+            "description": "Sends your logs to files, sockets, inboxes, databases and various web services",
+            "homepage": "http://github.com/Seldaek/monolog",
+            "keywords": [
+                "log",
+                "logging",
+                "psr-3"
+            ],
+            "time": "2013-11-14 19:48:31"
+        },
+        {
             "name": "nervetattoo/elasticsearch",
             "version": "v2.2.0",
             "source": {
@@ -551,7 +618,7 @@
             "source": {
                 "type": "git",
                 "url": "git@codebasehq.com:project-a/core/acl.git",
-                "reference": "4692bdaa35d9033f209725c9a8e8b00d46773134"
+                "reference": "0c2f666fd9fd90ebc35c8628e4e4f89ad51cc52b"
             },
             "require": {
                 "php": ">=5.4.0",
@@ -580,7 +647,7 @@
                 "login",
                 "usermanagement"
             ],
-            "time": "2013-11-14 15:32:37"
+            "time": "2013-11-21 08:27:37"
         },
         {
             "name": "project-a/adyen-package",
@@ -588,7 +655,7 @@
             "source": {
                 "type": "git",
                 "url": "git@codebasehq.com:project-a/core/adyen.git",
-                "reference": "e18c4cd245e64080d9375721cf8f36c1d78b0aee"
+                "reference": "8c9bb5d0493b111939018a6d3ca8c52518ae6ef4"
             },
             "require": {
                 "php": ">=5.4.0",
@@ -613,7 +680,7 @@
             "keywords": [
                 "adyen payment provider"
             ],
-            "time": "2013-11-14 15:32:23"
+            "time": "2013-11-20 13:06:37"
         },
         {
             "name": "project-a/cart-package",
@@ -621,7 +688,7 @@
             "source": {
                 "type": "git",
                 "url": "git@codebasehq.com:project-a/core/cart.git",
-                "reference": "0564cb7abcb614f8fe33c451bca1768da5d83d46"
+                "reference": "d0d49cc9e8338c04b9553fda70dfb4a344c040eb"
             },
             "require": {
                 "php": ">=5.4.0",
@@ -649,7 +716,7 @@
             "keywords": [
                 "Cart"
             ],
-            "time": "2013-11-14 15:32:23"
+            "time": "2013-11-20 19:51:02"
         },
         {
             "name": "project-a/catalog-package",
@@ -657,7 +724,7 @@
             "source": {
                 "type": "git",
                 "url": "git@codebasehq.com:project-a/core/catalog.git",
-                "reference": "c95de6ff797439888ae5364201ae9bbaa342c5a9"
+                "reference": "5628cc2d860b9341203bf8028705b0d6cf1efc1b"
             },
             "require": {
                 "php": ">=5.4.0",
@@ -693,7 +760,7 @@
                 "Price",
                 "Stock"
             ],
-            "time": "2013-11-14 15:32:24"
+            "time": "2013-11-20 13:06:38"
         },
         {
             "name": "project-a/checkout-package",
@@ -701,10 +768,10 @@
             "source": {
                 "type": "git",
                 "url": "git@codebasehq.com:project-a/core/checkout.git",
-                "reference": "a425d8bd787a5e594afb57c02e19a66a3ed65159"
+                "reference": "ed8dbed86df90d81dc6d9e05c92ff7e66ad30b46"
             },
             "require": {
-                "gavroche/browser": "~2.1",
+                "gavroche/browser": "~2.1.0",
                 "php": ">=5.4.0",
                 "project-a/library-package": "~2.0",
                 "project-a/sales-package": "~2.0"
@@ -731,7 +798,7 @@
                 "PaymentControl",
                 "Salesrule"
             ],
-            "time": "2013-11-14 16:08:10"
+            "time": "2013-11-21 10:30:12"
         },
         {
             "name": "project-a/console-package",
@@ -739,15 +806,16 @@
             "source": {
                 "type": "git",
                 "url": "git@codebasehq.com:project-a/core/console.git",
-                "reference": "21d403f2a959f20ff04a378cf0864ffbdb86021d"
+                "reference": "3e58725a874f62a1f0ac20ca3a78f3a574127312"
             },
             "require": {
                 "fabpot/php-cs-fixer": "dev-master",
                 "php": ">=5.4.0",
-                "symfony/console": "*",
-                "symfony/filesystem": "*",
-                "symfony/finder": "*",
-                "symfony/process": "*"
+                "project-a/library-package": "~2.0",
+                "symfony/console": "~2.3.0",
+                "symfony/filesystem": "~2.3.0",
+                "symfony/finder": "~2.3.0",
+                "symfony/process": "~2.3.0"
             },
             "bin": [
                 "bin/console"
@@ -772,7 +840,7 @@
             "keywords": [
                 "console"
             ],
-            "time": "2013-11-14 06:45:38"
+            "time": "2013-11-19 10:58:30"
         },
         {
             "name": "project-a/content-package",
@@ -780,7 +848,7 @@
             "source": {
                 "type": "git",
                 "url": "git@codebasehq.com:project-a/core/content.git",
-                "reference": "5f4aea6d0de76c58b9156f2ef0d7d42d32559bfb"
+                "reference": "8df054bdf7b4ace8db30fd8824d92ffbe9c754a4"
             },
             "require": {
                 "php": ">=5.4.0",
@@ -806,7 +874,7 @@
             "keywords": [
                 "Content Package"
             ],
-            "time": "2013-11-14 15:32:24"
+            "time": "2013-11-20 13:06:38"
         },
         {
             "name": "project-a/crm-package",
@@ -814,7 +882,7 @@
             "source": {
                 "type": "git",
                 "url": "git@codebasehq.com:project-a/core/crm.git",
-                "reference": "14dae25b8e55f07842628ce35e24da9f3258029e"
+                "reference": "13da49d61d54970b9794a541f23efbbad579a3ba"
             },
             "require": {
                 "php": ">=5.4.0",
@@ -840,7 +908,7 @@
                 "CRM",
                 "Mail"
             ],
-            "time": "2013-11-14 15:32:24"
+            "time": "2013-11-21 10:30:30"
         },
         {
             "name": "project-a/document-package",
@@ -848,7 +916,7 @@
             "source": {
                 "type": "git",
                 "url": "git@codebasehq.com:project-a/core/document.git",
-                "reference": "1dc02c60a8c88087f2f541854963999e9dcc8e4d"
+                "reference": "f4a162338653a6e4636db5f4cf97d1e7e9e33a21"
             },
             "require": {
                 "php": ">=5.4.0",
@@ -873,7 +941,7 @@
                 "Document",
                 "Invoice"
             ],
-            "time": "2013-11-14 15:32:58"
+            "time": "2013-11-20 15:27:42"
         },
         {
             "name": "project-a/frontend-package",
@@ -881,7 +949,7 @@
             "source": {
                 "type": "git",
                 "url": "git@codebasehq.com:project-a/core/frontend.git",
-                "reference": "d9009850f1ae190bc2f7fdc8d6def694cd8f4e12"
+                "reference": "8f0dcba4995f231b7a7e88615c2f12bfc087683b"
             },
             "require": {
                 "php": ">=5.4.0",
@@ -905,7 +973,7 @@
             "keywords": [
                 "Frontend"
             ],
-            "time": "2013-11-14 15:32:24"
+            "time": "2013-11-20 13:06:38"
         },
         {
             "name": "project-a/glossary-package",
@@ -913,11 +981,11 @@
             "source": {
                 "type": "git",
                 "url": "git@codebasehq.com:project-a/core/glossary.git",
-                "reference": "f61399becd105dd9fb2c5c8039feb00bbdfed7f1"
+                "reference": "ae7c85660cc9f964a92a0d888373ecf623ae472b"
             },
             "require": {
                 "php": ">=5.4.0",
-                "symfony/yaml": "~2.3"
+                "symfony/yaml": "~2.3.0"
             },
             "type": "library",
             "autoload": {
@@ -938,7 +1006,7 @@
                 "i18n",
                 "translation"
             ],
-            "time": "2013-11-14 15:32:24"
+            "time": "2013-11-20 13:06:38"
         },
         {
             "name": "project-a/infrastructure-package",
@@ -946,7 +1014,7 @@
             "source": {
                 "type": "git",
                 "url": "git@codebasehq.com:project-a/core/infrastructure.git",
-                "reference": "60f481587696d76e4baa3050e2a7e5370dd41ef6"
+                "reference": "53171085f0a6e114840c40fd8fb1acf45871b3ae"
             },
             "require": {
                 "php": ">=5.4.0",
@@ -974,7 +1042,7 @@
             "keywords": [
                 "infrastructure"
             ],
-            "time": "2013-11-14 15:33:06"
+            "time": "2013-11-20 13:06:38"
         },
         {
             "name": "project-a/kendo-package",
@@ -982,7 +1050,7 @@
             "source": {
                 "type": "git",
                 "url": "git@codebasehq.com:project-a/core/kendo.git",
-                "reference": "e4dafcc24775e9aaaa188ce02f92b21b0a70259e"
+                "reference": "c64191b25aadd8890d3eb4a28fa2f2cdd8dc4066"
             },
             "type": "library",
             "autoload": {
@@ -993,7 +1061,7 @@
                 }
             },
             "description": "Core Library",
-            "time": "2013-11-09 13:51:32"
+            "time": "2013-11-20 13:06:38"
         },
         {
             "name": "project-a/library-package",
@@ -1001,30 +1069,31 @@
             "source": {
                 "type": "git",
                 "url": "git@codebasehq.com:project-a/core/library-2.git",
-                "reference": "9e9f92b6011f4fa0e2c6ed54fa4e31513d0ab574"
+                "reference": "730e7586985ee2b1d00b207b79ecd5ba48de3d05"
             },
             "require": {
                 "digital-canvas/zend-framework": ">=1.12.2",
-                "doctrine/inflector": "~1.0",
+                "doctrine/inflector": "~1.0.0",
                 "ext-mysqli": "*",
-                "guzzle/guzzle": "~3.7",
+                "guzzle/guzzle": "~3.7.0",
                 "ircmaxell/password-compat": "dev-master",
+                "monolog/monolog": "~1.7",
                 "project-a/kendo-package": ">=2.0.0",
                 "project-a/lumberjack-package": "~2.0",
-                "project-a/silex-routing": "~1.0",
-                "silex/silex": "~1.0",
-                "symfony/filesystem": "~2.3",
-                "symfony/finder": "~2.3",
-                "symfony/form": "~2.3",
-                "symfony/http-foundation": "~2.3",
-                "symfony/process": "~2.3",
-                "symfony/security": "~2.3",
-                "symfony/serializer": "~2.3",
-                "symfony/twig-bridge": "~2.3",
-                "symfony/validator": "~2.3",
-                "twig/twig": "~1.13",
-                "zendframework/zend-code": "~2.3",
-                "zendframework/zendpdf": "~2.0"
+                "project-a/silex-routing": "~1.0.0",
+                "silex/silex": "~1.2.0",
+                "symfony/filesystem": "~2.3.0",
+                "symfony/finder": "~2.3.0",
+                "symfony/form": "~2.3.0",
+                "symfony/http-foundation": "~2.3.0",
+                "symfony/process": "~2.3.0",
+                "symfony/security": "~2.3.0",
+                "symfony/serializer": "~2.3.0",
+                "symfony/twig-bridge": "~2.3.0",
+                "symfony/validator": "~2.3.0",
+                "twig/twig": "~1.14.0",
+                "zendframework/zend-code": "~2.3.0",
+                "zendframework/zendpdf": "~2.0.0"
             },
             "type": "library",
             "autoload": {
@@ -1043,7 +1112,7 @@
                 }
             ],
             "description": "Project-A Library",
-            "time": "2013-11-14 15:33:12"
+            "time": "2013-11-20 19:42:47"
         },
         {
             "name": "project-a/lumberjack-package",
@@ -1051,7 +1120,7 @@
             "source": {
                 "type": "git",
                 "url": "git@codebasehq.com:project-a/core/lumberjack.git",
-                "reference": "ce82c8d1c513e5ccccabb9243522e9804d6b6f7b"
+                "reference": "f9069cc2b67e248bc951ecc5e1297b3dd7ac97f5"
             },
             "require": {
                 "nervetattoo/elasticsearch": "~2.2.0",
@@ -1076,7 +1145,7 @@
             "keywords": [
                 ""
             ],
-            "time": "2013-11-14 15:32:24"
+            "time": "2013-11-20 08:51:41"
         },
         {
             "name": "project-a/payment-package",
@@ -1084,7 +1153,7 @@
             "source": {
                 "type": "git",
                 "url": "git@codebasehq.com:project-a/core/payment.git",
-                "reference": "d1ecded88ec730f71c78a6938e620849e4e0e663"
+                "reference": "bd344830822f66ed742d1be125daa856f48e60b1"
             },
             "require": {
                 "php": ">=5.4.0"
@@ -1107,7 +1176,7 @@
             "keywords": [
                 "payment, payment provider"
             ],
-            "time": "2013-11-14 16:01:11"
+            "time": "2013-11-21 10:31:03"
         },
         {
             "name": "project-a/payone-package",
@@ -1115,7 +1184,14 @@
             "source": {
                 "type": "git",
                 "url": "git@codebasehq.com:project-a/core/payone.git",
-                "reference": "63e64f3e4e2bba6da75374543636ba4b9bb30660"
+                "reference": "acb28f6ed4fd33465d9e8b1c53241636c44e5321"
+            },
+            "require": {
+                "php": ">=5.4.0",
+                "project-a/acl-package": ">=0.0.10",
+                "project-a/library-package": ">=0.0.27",
+                "project-a/payment-package": ">=0.0.1",
+                "project-a/sales-package": ">=0.0.1"
             },
             "type": "library",
             "autoload": {
@@ -1127,14 +1203,15 @@
                 {
                     "name": "Jörg Stick",
                     "email": "joerg.stick@project-a.com",
-                    "homepage": "http://www.project-a.com"
+                    "homepage": "http://www.project-a.com",
+                    "role": "Senior Developer"
                 }
             ],
             "description": "Payone package",
             "keywords": [
-                "infrastructure"
+                "payment,payment provider,payone"
             ],
-            "time": "2013-11-14 16:07:49"
+            "time": "2013-11-21 10:28:30"
         },
         {
             "name": "project-a/sales-package",
@@ -1142,7 +1219,7 @@
             "source": {
                 "type": "git",
                 "url": "git@codebasehq.com:project-a/core/sales.git",
-                "reference": "1ce984fd12f1bc6632630951a0f2998210c5b64a"
+                "reference": "103410eaf65bbdb0a698b7dc1502efd1e45688e4"
             },
             "require": {
                 "php": ">=5.4.0",
@@ -1169,20 +1246,20 @@
                 "Sales",
                 "Task"
             ],
-            "time": "2013-11-14 15:32:24"
+            "time": "2013-11-21 10:32:42"
         },
         {
             "name": "project-a/silex-routing",
-            "version": "v1.0.1",
+            "version": "v1.0.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/project-a/Silex-Routing.git",
-                "reference": "1c385acb9c413370dcb60f1f5dde51e3d2819ead"
+                "reference": "26bc98710cf6b97aa3991f73f2102a300ae848e2"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/project-a/Silex-Routing/zipball/1c385acb9c413370dcb60f1f5dde51e3d2819ead",
-                "reference": "1c385acb9c413370dcb60f1f5dde51e3d2819ead",
+                "url": "https://api.github.com/repos/project-a/Silex-Routing/zipball/26bc98710cf6b97aa3991f73f2102a300ae848e2",
+                "reference": "26bc98710cf6b97aa3991f73f2102a300ae848e2",
                 "shasum": ""
             },
             "require": {
@@ -1222,7 +1299,7 @@
                 }
             ],
             "description": "Silex-Routing provides advanced routing for Silex through connecting symfony-cmf/Routing with Silex.",
-            "time": "2013-10-30 21:59:28"
+            "time": "2013-11-17 22:15:45"
         },
         {
             "name": "project-a/stripe-package",
@@ -1230,12 +1307,12 @@
             "source": {
                 "type": "git",
                 "url": "git@codebasehq.com:project-a/core/stripe.git",
-                "reference": "8232a3a679d1d8c772961676367e20e23d6f732d"
+                "reference": "0eac8ebb0db47c55c5cc47c1f3126f9b5ff6c8a7"
             },
             "require": {
                 "php": ">=5.4.0",
                 "project-a/payment-package": ">=0.0.1",
-                "stripe/stripe-php": "~1.7"
+                "stripe/stripe-php": "~1.9.0"
             },
             "type": "library",
             "autoload": {
@@ -1255,7 +1332,7 @@
             "keywords": [
                 "stripe payment provider"
             ],
-            "time": "2013-11-14 15:32:24"
+            "time": "2013-11-19 15:21:38"
         },
         {
             "name": "propel/propel1",
@@ -1416,16 +1493,16 @@
         },
         {
             "name": "sebastian/diff",
-            "version": "1.0.0",
+            "version": "1.1.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/sebastianbergmann/diff.git",
-                "reference": "6affc0bf53304452d7f296588f6d5837070b4789"
+                "reference": "1e091702a5a38e6b4c1ba9ca816e3dd343df2e2d"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sebastianbergmann/diff/zipball/6affc0bf53304452d7f296588f6d5837070b4789",
-                "reference": "6affc0bf53304452d7f296588f6d5837070b4789",
+                "url": "https://api.github.com/repos/sebastianbergmann/diff/zipball/1e091702a5a38e6b4c1ba9ca816e3dd343df2e2d",
+                "reference": "1e091702a5a38e6b4c1ba9ca816e3dd343df2e2d",
                 "shasum": ""
             },
             "require": {
@@ -1434,7 +1511,7 @@
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "1.0.x-dev"
+                    "dev-master": "1.1-dev"
                 }
             },
             "autoload": {
@@ -1462,7 +1539,7 @@
             "keywords": [
                 "diff"
             ],
-            "time": "2013-07-09 05:45:26"
+            "time": "2013-08-03 16:46:33"
         },
         {
             "name": "silex/silex",
@@ -2873,12 +2950,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/zendframework/zf2.git",
-                "reference": "365efb69f69d0e7e5b65bdb1fa661f941165c197"
+                "reference": "4e47b78c28abc30343e542c86a32f8c6e9f9c68d"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/zendframework/zf2/zipball/365efb69f69d0e7e5b65bdb1fa661f941165c197",
-                "reference": "365efb69f69d0e7e5b65bdb1fa661f941165c197",
+                "url": "https://api.github.com/repos/zendframework/zf2/zipball/4e47b78c28abc30343e542c86a32f8c6e9f9c68d",
+                "reference": "4e47b78c28abc30343e542c86a32f8c6e9f9c68d",
                 "shasum": ""
             },
             "require": {
@@ -2983,7 +3060,7 @@
                 "framework",
                 "zf2"
             ],
-            "time": "2013-11-13 14:06:02"
+            "time": "2013-11-21 09:17:35"
         },
         {
             "name": "zendframework/zendpdf",
