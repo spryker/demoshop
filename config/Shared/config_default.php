@@ -204,9 +204,10 @@ $config['payone'] = array(
     'mode'       => 'test',
     'mid'        => '24047',
     'portalid'   => '2017184',
-    'key'        => '7e9c7a96bb3131dc50cd2e94841ee3eb',
+    'key'        => '3AHSu99Q7Bi2H03n',
     'aid'        => '24058',
     'encoding'   => 'UTF-8',
+    'currency'   => 'EUR',
     'gatewayurl' => 'https://api.pay1.de/post-gateway/',
 );
 

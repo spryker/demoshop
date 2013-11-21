@@ -10,26 +10,24 @@ class Pyz_Zed_Calculation_Component_Settings extends \ProjectA\Zed\Calculation\C
     use \Generated\Zed\Salesrule\Component\Dependency\SalesruleFacadeTrait;
 
     /**
-     * @return \ProjectA_Zed_Calculation_Component_Interface_Calculator[]
+     * @return CalculatorInterface[]|TotalsCalculatorInterface[]
      */
     public function getCalculatorStack()
     {
         return array(
-            $this->factory->createModelCalculatorsRemoveAllExpenses(),
-            $this->factory->createModelCalculatorsRemoveAllCalculatedDiscounts(),
-            $this->factory->createModelCalculatorsFixedShippingExpenseCalculator(),
-            $this->factory->createModelCalculatorsItemExpensesTotal(),
-            $this->factory->createModelCalculatorsOrderExpensesTotal(),
-            $this->factory->createModelCalculatorsSubtotal(),
-            $this->factory->createModelCalculatorsSubtotalWithoutItemExpenses(),
-            $this->factory->createModelCalculatorsGrandTotalWithoutDiscounts(),
+            //$this->factory->createModelCalculatorRemoveTotalsCalculator(),
+            $this->factory->createModelCalculatorRemoveAllExpensesCalculator(),
+            $this->factory->createModelCalculatorRemoveAllCalculatedDiscountsCalculator(),
+            $this->factory->createModelCalculatorExpenseTotalsCalculator(),
+            $this->factory->createModelCalculatorSubtotalTotalsCalculator(),
+            $this->factory->createModelCalculatorSubtotalWithoutItemExpensesTotalsCalculator(),
+            $this->factory->createModelCalculatorGrandTotalWithoutDiscountsTotalsCalculator(),
             $this->facadeSalesrule->createSalesruleCalculator(),
-            $this->factory->createModelCalculatorsExpensePriceToPay(),
-            $this->factory->createModelCalculatorsItemPriceToPay(),
-            $this->factory->createModelCalculatorsOptionPriceToPay(),
-            $this->factory->createModelCalculatorsDiscounts(),
-            $this->factory->createModelCalculatorsGrandTotal(),
-            $this->factory->createModelCalculatorsTax(),
+            $this->factory->createModelCalculatorExpensePriceToPayCalculator(),
+            $this->factory->createModelCalculatorItemPriceToPayCalculator(),
+            $this->factory->createModelCalculatorOptionPriceToPayCalculator(),
+            $this->factory->createModelCalculatorDiscountTotalsCalculator(),
+            $this->factory->createModelCalculatorGrandTotalTotalsCalculator(),
         );
     }
 
