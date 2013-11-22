@@ -26,7 +26,7 @@ class Pyz_Zed_Sales_Component_Model_Orderprocess_DefinitionContainer extends \Pr
     public function initDefinitions()
     {
         $this->addProcessDefinition($this->factory->createModelOrderprocessDefinitionDemo());
-        $this->addProcessDefinition($this->factory->createModelOrderprocessDefinitionCreditCardStripe());
-        $this->addProcessDefinition($this->factory->createModelOrderprocessDefinitionPaypalPayone());
+        $this->addProcessDefinition($this->factory->createModelOrderprocessDefinitionPayoneCreditCard());
+        $this->addProcessDefinition($this->factory->createModelOrderprocessDefinitionPayonePaypal());
     }
 }

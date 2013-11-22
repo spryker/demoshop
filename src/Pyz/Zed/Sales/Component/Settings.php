@@ -1,8 +1,7 @@
 <?php
 use Generated\Shared\Sales\Transfer\Order;
 use Pyz\Zed\Sales\Component\ConstantsInterface\Orderprocess;
-use ProjectA\Shared\Stripe\Code\PaymentProviderConstants as Stripe;
-use Pyz\Shared\Payone\Code\PaymentProviderConstants as Payone;
+use ProjectA\Zed\Payone\Component\Model\Api\ApiConstants as PayoneApiConstants;
 use Generated\Shared\Sales\Transfer\OrderItem;
 
 
@@ -37,11 +36,11 @@ class Pyz_Zed_Sales_Component_Settings extends \ProjectA_Zed_Sales_Component_Set
     {
         $method = $transferOrder->getPayment()->getMethod();
         switch ($method) {
-            case Stripe::METHOD_CREDIT_CARD:
-                return Orderprocess::ORDER_PROCESS_CREDIT_CARD_STRIPE;
+            case PayoneApiConstants::PAYMENT_METHOD_CREDITCARD:
+                return Orderprocess::ORDER_PROCESS_PAYONE_CREDIT_CARD;
                 break;
-            case Payone::METHOD_PAYPAL:
-                return Orderprocess::ORDER_PROCESS_PAYPAL_PAYONE;
+            case PayoneApiConstants::PAYMENT_METHOD_PAYPAL_EXPRESS:
+                return Orderprocess::ORDER_PROCESS_PAYONE_PAYPAL;
                 break;
         }
 

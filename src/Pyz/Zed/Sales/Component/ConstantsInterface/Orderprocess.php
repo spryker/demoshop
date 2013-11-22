@@ -4,8 +4,7 @@ namespace Pyz\Zed\Sales\Component\ConstantsInterface;
 
 interface Orderprocess extends \ProjectA_Zed_Sales_Component_Interface_OrderprocessConstant
 {
-    const ORDER_PROCESS_CREDIT_CARD_STRIPE = 'Credit Card (Stripe)';
-    const ORDER_PROCESS_PAYPAL_PAYONE = 'Paypal (Payone)';
+
     const ORDER_PROCESS_DEMO = 'demo';
 
     const STATE_INVALID = 'invalid';
@@ -26,6 +25,24 @@ interface Orderprocess extends \ProjectA_Zed_Sales_Component_Interface_Orderproc
     // RULES
 
     const FLAG_CLARIFY = 'clarify';
+
+    /****** PAYONE PAYMENT ******/
+
+    // PAYONE PAYMENT
+
+    const ORDER_PROCESS_PAYONE_CREDIT_CARD = 'Credit Card (payone)';
+    const ORDER_PROCESS_PAYONE_PAYPAL = 'Paypal (payone)';
+
+    const STATE_PAYONE_INIT_PAYMENT = 'init payment (payone)';
+    const STATE_PAYONE_PAYMENT_REDIRECTED = 'payment redirected (payone)';
+    const STATE_PAYONE_PAYMENT_NOT_REDIRECTED = 'payment not redirected (payone)';
+    const STATE_PAYONE_WAITING_FOR_AUTHORIZATION_APPOINTMENT = 'waiting for authorization appointment (payone)';
+    const STATE_PAYONE_NO_AUTHORIZATION_APPOINTMENT_RECEIVED = 'no authorization appointment received (payone)';
+    const STATE_PAYONE_PAYMENT_AUTHORIZED = 'payment authorized (payone)';
+    const STATE_PAYONE_PAYMENT_INVALID = 'payment invalid (payone)';
+
+    const EVENT_PAYONE_MANUAL_SET_PAYMENT_INVALID = 'manual set payment invalid (payone)';
+    const EVENT_PAYONE_MANUAL_SET_PAYMENT_AUTHORIZED = 'manual set payment authorized (payone)';
 
     /****** ONLY USED FOR THE TEST SUB-PROCESS ******/
 
