@@ -273,6 +273,7 @@ $config['zed'] = array(
 
 $config['yves'] = [
     'theme'          => 'demoshop',
+    'ssl_enabled'    => false,
     'session'        => [
         'save_handler'  => null,
         'save_path'     => null,
