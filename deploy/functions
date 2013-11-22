@@ -3,7 +3,6 @@
 # No project-specific logic should be implemented here!
 #
 
-
 # Return true if this is admin host, false otherwise
 function is_admin_host() (
   if [ "localhost" == "$admin_host" ]; then

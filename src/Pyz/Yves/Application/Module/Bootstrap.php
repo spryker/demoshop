@@ -79,7 +79,6 @@ class Bootstrap extends \ProjectA\Yves\Library\Silex\Bootstrap
             new CartProvider(),
             new CheckoutProvider(),
             new CustomerProvider(),
-            new SetupProvider(),
         ];
     }
 

@@ -35,5 +35,4 @@ class Settings extends BaseSettings
             Paypal::METHOD_PAYPAL
         ];
     }
-
 }

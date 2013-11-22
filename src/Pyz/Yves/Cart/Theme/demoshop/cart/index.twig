@@ -4,7 +4,6 @@
     {% include "@application/partials/navbar.twig" with {'categories': categories } only %}
     <link rel="stylesheet" href="/styles/cart.css" />
     <script src="/scripts/app/cart.js"></script>
-    {% include '@application/response_messages.twig' %}
 
     <section class="consumeHeight" id="cart">
             {% if cartItems|length %}

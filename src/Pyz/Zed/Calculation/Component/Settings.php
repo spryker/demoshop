@@ -1,13 +1,23 @@
 <?php
+namespace Pyz\Zed\Calculation\Component;
+
+use Generated\Zed\Calculation\Component\CalculationFactory;
+use Generated\Zed\Salesrule\Component\Dependency\SalesruleFacadeInterface;
+use Generated\Zed\Salesrule\Component\Dependency\SalesruleFacadeTrait;
+use ProjectA\Zed\Calculation\Component\Model\Calculator\CalculatorInterface;
+use ProjectA\Zed\Calculation\Component\Model\Calculator\TotalsCalculatorInterface;
+use ProjectA\Zed\Calculation\Component\Settings as CoreSettings;
+use ProjectA\Zed\Library\Dependency\DependencyFactoryInterface;
+
 /**
- * @property \Generated\Zed\Calculation\Component\CalculationFactory $factory
+ * @property CalculationFactory $factory
  */
-class Pyz_Zed_Calculation_Component_Settings extends \ProjectA\Zed\Calculation\Component\Settings implements
-    \ProjectA\Zed\Library\Dependency\DependencyFactoryInterface,
-   \Generated\Zed\Salesrule\Component\Dependency\SalesruleFacadeInterface
+class Settings extends CoreSettings implements
+    DependencyFactoryInterface,
+    SalesruleFacadeInterface
 {
 
-    use \Generated\Zed\Salesrule\Component\Dependency\SalesruleFacadeTrait;
+    use SalesruleFacadeTrait;
 
     /**
      * @return CalculatorInterface[]|TotalsCalculatorInterface[]
@@ -15,7 +25,7 @@ class Pyz_Zed_Calculation_Component_Settings extends \ProjectA\Zed\Calculation\C
     public function getCalculatorStack()
     {
         return array(
-            //$this->factory->createModelCalculatorRemoveTotalsCalculator(),
+            $this->factory->createModelCalculatorRemoveTotalsCalculator(),
             $this->factory->createModelCalculatorRemoveAllExpensesCalculator(),
             $this->factory->createModelCalculatorRemoveAllCalculatedDiscountsCalculator(),
             $this->factory->createModelCalculatorExpenseTotalsCalculator(),

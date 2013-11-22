@@ -23,10 +23,11 @@
         "propel/propel1": "1.7.0",
         "solarium/solarium": "~3.1.2",
         "silex/silex": "dev-master as 1.2",
-        "aws/aws-sdk-php": "~2.4"
+        "aws/aws-sdk-php": "~2.4.0",
+        "zendframework/zendframework": "~2.3.0"
     },
     "require-dev": {
-        "silex/web-profiler": "~1.0",
+        "silex/web-profiler": "~1.0.0",
         "behat/behat": "*",
         "sanpi/behatch-contexts": "*",
         "behat/mink": "*",
@@ -35,7 +36,7 @@
         "behat/mink-selenium-driver": "*",
         "behat/mink-selenium2-driver": "*",
         "pdepend/pdepend": "*",
-        "phpunit/phpunit": "~3.7"
+        "phpunit/phpunit": "~3.7.0"
     },
     "minimum-stability": "dev",
     "prefer-stable": true,

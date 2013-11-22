@@ -2,9 +2,10 @@
 namespace Pyz\Zed\Yves\Component;
 
 use ProjectA\Zed\Yves\Component\Settings as CoreSettings;
+use Pyz\Zed\Catalog\Component\CatalogFacade;
 
 /**
- * @property \Pyz_Zed_Catalog_Component_Facade $facadeCatalog
+ * @property CatalogFacade $facadeCatalog
  */
 class Settings extends CoreSettings implements
     \Generated\Zed\Cms\Component\Dependency\CmsFacadeInterface,
