@@ -58,7 +58,7 @@ interface Orderprocess extends \ProjectA_Zed_Sales_Component_Interface_Orderproc
     const STATE_PAYONE_CAPTURE_FAILED = 'capture failed (payone)';
     const STATE_PAYONE_CAPTURED = 'captured (payone)';
 
-    const STATE_PAYONE_WAITING_FOR_RECEIPT_OF_PAYMENT = 'waiting for payment (payone)';
+    const STATE_PAYONE_WAITING_FOR_RECEIPT_OF_PAYMENT = 'waiting for receipt of payment (payone)';
 
     /****** ONLY USED FOR THE TEST SUB-PROCESS ******/
 

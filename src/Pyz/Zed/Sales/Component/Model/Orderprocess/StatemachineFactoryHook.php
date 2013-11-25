@@ -1,14 +1,22 @@
 <?php
 
+use Generated\Zed\Payone\Component\Dependency\PayoneFacadeInterface;
+use Generated\Zed\Payone\Component\Dependency\PayoneFacadeTrait;
+use ProjectA\Zed\Library\Dependency\DependencyFactoryInterface;
+use ProjectA\Zed\Library\Dependency\DependencyFactoryTrait;
+
 /**
  * @property \Generated\Zed\Sales\Component\SalesFactory $factory
  */
 class Pyz_Zed_Sales_Component_Model_Orderprocess_StatemachineFactoryHook implements
     \ProjectA_Zed_Sales_Component_Interface_StatemachineFactoryHook,
-    \ProjectA\Zed\Library\Dependency\DependencyFactoryInterface
+    DependencyFactoryInterface,
+    PayoneFacadeInterface
+
 {
 
-    use \ProjectA\Zed\Library\Dependency\DependencyFactoryTrait;
+    use DependencyFactoryTrait;
+    use PayoneFacadeTrait;
 
     protected function getRules()
     {
@@ -16,6 +24,7 @@ class Pyz_Zed_Sales_Component_Model_Orderprocess_StatemachineFactoryHook impleme
         $rules->addRule($this->factory->createModelOrderprocessGuardRulePaymentRedirected());
         $rules->addRule($this->factory->createModelOrderprocessGuardRuleIsGrandTotalGreaterThan1000());
         $rules->addRule($this->factory->createModelOrderprocessGuardRuleAreAllItemsInTheFlaggedTestState());
+        $rules->addRule($this->facadePayone->createFacadeStateMachine()->getRulePaymentTransactionApproved());
         return $rules;
     }
 

@@ -43,10 +43,10 @@ class Pyz_Zed_Sales_Component_Settings extends \ProjectA_Zed_Sales_Component_Set
                 return Orderprocess::ORDER_PROCESS_PAYONE_PAYPAL;
                 break;
             case PayoneApiConstants::PAYMENT_METHOD_DIRECT_DEBIT:
-                return Orderprocess::ORDER_PROCESS_DIRECT_DEBIT;
+                return Orderprocess::ORDER_PROCESS_PAYONE_DIRECT_DEBIT;
                 break;
             case PayoneApiConstants::PAYMENT_METHOD_PREPAYMENT:
-                return Orderprocess::ORDER_PROCESS_PREPAYMENT;
+                return Orderprocess::ORDER_PROCESS_PAYONE_PREPAYMENT;
                 break;
         }
 
