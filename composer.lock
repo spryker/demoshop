@@ -618,7 +618,7 @@
             "source": {
                 "type": "git",
                 "url": "git@codebasehq.com:project-a/core/acl.git",
-                "reference": "0c2f666fd9fd90ebc35c8628e4e4f89ad51cc52b"
+                "reference": "0ce82745635fa10d1c5b0d34fcc680164108488a"
             },
             "require": {
                 "php": ">=5.4.0",
@@ -647,7 +647,7 @@
                 "login",
                 "usermanagement"
             ],
-            "time": "2013-11-21 08:27:37"
+            "time": "2013-11-24 00:06:17"
         },
         {
             "name": "project-a/adyen-package",
@@ -724,7 +724,7 @@
             "source": {
                 "type": "git",
                 "url": "git@codebasehq.com:project-a/core/catalog.git",
-                "reference": "5628cc2d860b9341203bf8028705b0d6cf1efc1b"
+                "reference": "39e0f0a824e0cedf8dd86d5a47035ce21fb00d4b"
             },
             "require": {
                 "php": ">=5.4.0",
@@ -760,7 +760,7 @@
                 "Price",
                 "Stock"
             ],
-            "time": "2013-11-20 13:06:38"
+            "time": "2013-11-22 09:14:07"
         },
         {
             "name": "project-a/checkout-package",
@@ -848,7 +848,7 @@
             "source": {
                 "type": "git",
                 "url": "git@codebasehq.com:project-a/core/content.git",
-                "reference": "8df054bdf7b4ace8db30fd8824d92ffbe9c754a4"
+                "reference": "cc8c0393b2bc8ec68293ddadee2fd3f25e073d39"
             },
             "require": {
                 "php": ">=5.4.0",
@@ -874,7 +874,7 @@
             "keywords": [
                 "Content Package"
             ],
-            "time": "2013-11-20 13:06:38"
+            "time": "2013-11-24 00:07:03"
         },
         {
             "name": "project-a/crm-package",
@@ -882,7 +882,7 @@
             "source": {
                 "type": "git",
                 "url": "git@codebasehq.com:project-a/core/crm.git",
-                "reference": "8f84d614554d397ed346b7e5c68313ce3a33b22c"
+                "reference": "ee68314167dcc7299a07bc09d404ccefe64fbc61"
             },
             "require": {
                 "php": ">=5.4.0",
@@ -908,7 +908,7 @@
                 "CRM",
                 "Mail"
             ],
-            "time": "2013-11-21 11:23:21"
+            "time": "2013-11-22 08:59:40"
         },
         {
             "name": "project-a/document-package",
@@ -949,7 +949,7 @@
             "source": {
                 "type": "git",
                 "url": "git@codebasehq.com:project-a/core/frontend.git",
-                "reference": "8f0dcba4995f231b7a7e88615c2f12bfc087683b"
+                "reference": "ececc1eb289e8ff9e04e4888b3278457e9f13f6c"
             },
             "require": {
                 "php": ">=5.4.0",
@@ -973,7 +973,7 @@
             "keywords": [
                 "Frontend"
             ],
-            "time": "2013-11-20 13:06:38"
+            "time": "2013-11-24 00:07:34"
         },
         {
             "name": "project-a/glossary-package",
@@ -1014,7 +1014,7 @@
             "source": {
                 "type": "git",
                 "url": "git@codebasehq.com:project-a/core/infrastructure.git",
-                "reference": "e5aecb5e3f07869059ec0610784ee4b65694d0f3"
+                "reference": "e7442297cfa80af31a0c61ebd607da78c62d2cbb"
             },
             "require": {
                 "php": ">=5.4.0",
@@ -1042,7 +1042,7 @@
             "keywords": [
                 "infrastructure"
             ],
-            "time": "2013-11-21 13:46:06"
+            "time": "2013-11-24 00:07:55"
         },
         {
             "name": "project-a/kendo-package",
@@ -1069,7 +1069,7 @@
             "source": {
                 "type": "git",
                 "url": "git@codebasehq.com:project-a/core/library-2.git",
-                "reference": "0b65509663d5eeb3740865f6f3980a3a5fc5cda4"
+                "reference": "d1e451eb74b6ec67b033d6383cad5ba34cdaee0b"
             },
             "require": {
                 "digital-canvas/zend-framework": ">=1.12.2",
@@ -1112,7 +1112,7 @@
                 }
             ],
             "description": "Project-A Library",
-            "time": "2013-11-21 13:53:47"
+            "time": "2013-11-24 20:48:05"
         },
         {
             "name": "project-a/lumberjack-package",
@@ -1184,7 +1184,7 @@
             "source": {
                 "type": "git",
                 "url": "git@codebasehq.com:project-a/core/payone.git",
-                "reference": "01223df81ebd68baa610a719d29ce8971474faa5"
+                "reference": "3461eb6a110d52f56ec5fc80656b0ef05b995c95"
             },
             "require": {
                 "php": ">=5.4.0",
@@ -1211,7 +1211,7 @@
             "keywords": [
                 "payment,payment provider,payone"
             ],
-            "time": "2013-11-21 16:11:37"
+            "time": "2013-11-22 17:34:57"
         },
         {
             "name": "project-a/sales-package",
@@ -1219,7 +1219,7 @@
             "source": {
                 "type": "git",
                 "url": "git@codebasehq.com:project-a/core/sales.git",
-                "reference": "0aa350349495ff8fa945accc5cf1925dd8b48ba8"
+                "reference": "1ed3e09a0b262a801061e7af2d787318c234e1e7"
             },
             "require": {
                 "php": ">=5.4.0",
@@ -1246,7 +1246,7 @@
                 "Sales",
                 "Task"
             ],
-            "time": "2013-11-21 11:23:37"
+            "time": "2013-11-24 00:08:16"
         },
         {
             "name": "project-a/silex-routing",
@@ -1437,16 +1437,16 @@
         },
         {
             "name": "ruflin/elastica",
-            "version": "v0.90.5.0",
+            "version": "v0.90.7.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/ruflin/Elastica.git",
-                "reference": "8290c801df17df5ec3dff31f155867a30f793807"
+                "reference": "e36213362ef459f92e8b09167e537e9312f55ae3"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/ruflin/Elastica/zipball/8290c801df17df5ec3dff31f155867a30f793807",
-                "reference": "8290c801df17df5ec3dff31f155867a30f793807",
+                "url": "https://api.github.com/repos/ruflin/Elastica/zipball/e36213362ef459f92e8b09167e537e9312f55ae3",
+                "reference": "e36213362ef459f92e8b09167e537e9312f55ae3",
                 "shasum": ""
             },
             "require": {
@@ -1462,11 +1462,6 @@
                 "psr/log": "for logging"
             },
             "type": "library",
-            "extra": {
-                "branch-alias": {
-                    "dev-master": "0.20.5.x-dev"
-                }
-            },
             "autoload": {
                 "psr-0": {
                     "Elastica": "lib/",
@@ -1489,7 +1484,7 @@
                 "client",
                 "search"
             ],
-            "time": "2013-10-27 12:53:43"
+            "time": "2013-11-23 21:35:18"
         },
         {
             "name": "sebastian/diff",
@@ -1547,12 +1542,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/silexphp/Silex.git",
-                "reference": "71661809247193080e77c0613415f0df15edb485"
+                "reference": "70b55dc34426d0054d244afdb7b2f79a9ee2f1ae"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/silexphp/Silex/zipball/71661809247193080e77c0613415f0df15edb485",
-                "reference": "71661809247193080e77c0613415f0df15edb485",
+                "url": "https://api.github.com/repos/silexphp/Silex/zipball/70b55dc34426d0054d244afdb7b2f79a9ee2f1ae",
+                "reference": "70b55dc34426d0054d244afdb7b2f79a9ee2f1ae",
                 "shasum": ""
             },
             "require": {
@@ -1623,7 +1618,7 @@
             "keywords": [
                 "microframework"
             ],
-            "time": "2013-11-11 19:01:23"
+            "time": "2013-11-22 13:31:17"
         },
         {
             "name": "solarium/solarium",
@@ -2950,12 +2945,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/zendframework/zf2.git",
-                "reference": "4e47b78c28abc30343e542c86a32f8c6e9f9c68d"
+                "reference": "57b594edf7c03c90ea98b188635e5a8cda17fa5d"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/zendframework/zf2/zipball/4e47b78c28abc30343e542c86a32f8c6e9f9c68d",
-                "reference": "4e47b78c28abc30343e542c86a32f8c6e9f9c68d",
+                "url": "https://api.github.com/repos/zendframework/zf2/zipball/57b594edf7c03c90ea98b188635e5a8cda17fa5d",
+                "reference": "57b594edf7c03c90ea98b188635e5a8cda17fa5d",
                 "shasum": ""
             },
             "require": {
@@ -3060,7 +3055,7 @@
                 "framework",
                 "zf2"
             ],
-            "time": "2013-11-21 09:17:35"
+            "time": "2013-11-24 08:02:36"
         },
         {
             "name": "zendframework/zendpdf",
