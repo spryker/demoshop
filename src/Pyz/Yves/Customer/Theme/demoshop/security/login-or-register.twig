@@ -5,66 +5,58 @@
     <script src="/scripts/app/customer.js"></script>
 
     <section id="customer" class="consumeHeight">
-        {% if errors %}
-            <div>
-                {% for error in errors %}
-                    <p>{{ error.message }}</p>
-                {% endfor %}
-            </div>
-        {% endif %}
+        {% include "@application/partials/flash_bag.twig" %}
         <div class="dialog">
             <div class="container">
                 <div class="tabs">
-                    <div class="col col50">
-                        <div class="tab {{ registrationFormRequested }}" data-target="content-register">
-                            <h3>{{ 'customer.register.caption.main'|trans }}</h3>
-                            <h4>{{ 'customer.register.caption.sub'|trans }}</h4>
+                    <div class="columns small-6">
+                        <div class="tab active" data-target="content-register">
+                            <h3>{{ 'customer.register.headline'|trans }}</h3>
+                            <h4>{{ 'customer.register.caption'|trans }}</h4>
                         </div>
                     </div>
-                    <div class="col col50">
-                        <div class="tab {{ loginFormRequested }}" data-target="content-login">
-                            <h3>{{ 'customer.login.caption.main'|trans }}</h3>
-                            <h4>{{ 'customer.login.caption.sub'|trans }}</h4>
+                    <div class="columns small-6">
+                        <div class="tab" data-target="content-login">
+                            <h3>{{ 'customer.login.headline'|trans }}</h3>
+                            <h4>{{ 'customer.login.caption'|trans }}</h4>
                         </div>
                     </div>
                 </div>
                 <div class="content" id="content-register">
                     <div>
-                        <h3>{{ 'customer.register.box.main'|trans }}</h3>
-                        <h4>{{ 'customer.register.box.sub'|trans }}</h4>
+                        <h3>{{ 'customer.register.box.headline'|trans }}</h3>
+                        <p>{{ 'customer.register.box.caption'|trans }}</p>
                     </div>
                     {{ form_start(registrationForm, {attr: {class: 'customerLogin', novalidate: 'novalidate'}, action: path('login')}) }}
-                        {{ form_errors(registrationForm) }}
-                        <div class="row">
-                            {{ form_row(registrationForm.email, {label : 'customer.email'}) }}
-                        </div>
-                        <div class="row">
-                            {{ form_row(registrationForm.password, {label : 'customer.password'}) }}
-                        </div>
-                        <div class="row">
-                            <button class="continue" type="submit">Create New Account</button>
-                        </div>
+                    {{ form_errors(registrationForm) }}
+                    {{ form_row(registrationForm._token) }}
+                    <div class="row">
+                        {{ form_row(registrationForm.email, {label : 'customer.email', attr : {'class' : 'fullWidth'}}) }}
+                    </div>
+                    <div class="row">
+                        {{ form_row(registrationForm.password, {label : 'customer.password', attr : {'class' : 'fullWidth', required : 'required', pattern : '^.{6,30}$', maxlength : 30, 'data-validation-message' : 'customer.register.password.poor'|trans}}) }}
+                    </div>
+                    <div class="row">
+                        <button class="continue" type="submit">{{ 'customer.create'|trans }}</button>
+                    </div>
                     {{ form_end(registrationForm) }}
                 </div>
                 <div class="content" id="content-login">
                     <div>
-                        <h3>{{ 'customer.login.caption.main'|trans }}</h3>
+                        <h3>{{ 'customer.login.box.headline'|trans }}</h3>
                     </div>
-                    {% if error %}
-                        <p>{{ error|trans }}</p>
-                    {% endif %}
                     {{ form_start(loginForm, {attr: {class: 'customerLogin', novalidate: 'novalidate'}, action: path('login_check')}) }}
                     {{ form_errors(loginForm) }}
 
                     <div class="row">
-                        {{ form_row(loginForm.username, {label : 'customer.email'}) }}
+                        {{ form_row(loginForm.username, {label : 'customer.email', attr : {'class' : 'fullWidth'}}) }}
                     </div>
                     <div class="row">
-                        {{ form_row(loginForm.password, {label : 'customer.password'}) }}
-                        <a class="hint" href="javascript:app.customer.showPwReset();">Forgot your password?</a>
+                        {{ form_row(loginForm.password, {label : 'customer.password', attr : {'class' : 'fullWidth'}}) }}
+                        <a class="hint" href="javascript:app.customer.showPwReset();">{{ 'customer.password.forgotten'|trans }}</a>
                     </div>
                     <div class="row">
-                        <button class="continue" type="submit">Login</button>
+                        <button class="continue" type="submit">{{ 'customer.login'|trans }}</button>
                     </div>
                     {{ form_end(loginForm, {render_rest:false}) }}
                 </div>
@@ -76,13 +68,14 @@
                 {{ form_widget(forgotPasswordForm._token) }}
 
                 <div class="row">
-                    {{ form_row(forgotPasswordForm.email, {label : 'customer.email'}) }}
+                    {{ form_row(forgotPasswordForm.email, {label : 'customer.email', attr : {'class' : 'fullWidth'}}) }}
                 </div>
                 <div class="row">
-                    <button class="continue" type="submit">Request password</button>
+                    <button class="continue" type="submit">{{ 'customer.password.request'|trans }}</button>
                 </div>
                 {{ form_end(forgotPasswordForm) }}
             </div>
         </div>
+        <div id="validationMessages" data-validation-message-required="{{ 'checkout.validation.message.required'|trans }}" data-validation-message-email="{{ 'checkout.validation.message.email'|trans }}" data-validation-message-pattern="{{ 'checkout.validation.message.pattern'|trans }}"></div>
     </section>
 {% endblock %}

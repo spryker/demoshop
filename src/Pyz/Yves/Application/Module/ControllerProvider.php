@@ -9,9 +9,6 @@ class ControllerProvider extends YvesProvider
 
     const ROUTE_HOME = 'home';
 
-    const ROUTE_CUSTOMER_LOGIN = 'login';
-    const ROUTE_CUSTOMER_REGISTER = 'registration';
-
     //static pages routes
     const ROUTE_TOS = 'tos';
     const ROUTE_IMPRINT = 'imprint';
@@ -24,8 +21,6 @@ class ControllerProvider extends YvesProvider
     protected function defineControllers(Application $app)
     {
         $this->createGetController('/', self::ROUTE_HOME, 'IndexController');
-        $this->createController('/login', self::ROUTE_CUSTOMER_LOGIN, 'SSSecurityController', 'loginOrRegister');
-        $this->createController('/register', self::ROUTE_CUSTOMER_REGISTER, 'SecurityController', 'loginOrRegister');
         $this->createGetController('/agb', self::ROUTE_TOS, 'StaticController');
         $this->createGetController('/impressum', self::ROUTE_IMPRINT, 'StaticController');
         $this->createGetController('/datenschutz', self::ROUTE_PRIVACY, 'StaticController');

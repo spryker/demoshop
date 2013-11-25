@@ -14,6 +14,16 @@ app.customer = {
             $('#' + $(this).data('target')).show().siblings('.content').hide();
             $('.requestPassword').hide();
         });
+
+        $('form').submit(function(e) {
+            if (!app.validation.resultIsValid(app.validation.apply($(this)))) {
+                e.preventDefault();
+            }
+        });
+        $('form :input').change(function() {
+            $(this).next('.tooltip').remove();
+            app.validation.apply($(this).parent(), true);
+        });
     },
     showPwReset : function() {
         $('.requestPassword').show();
