@@ -4,6 +4,8 @@
 
     <link rel="stylesheet" href="/styles/checkout.css" />
     <script src="/scripts/app/checkout.js"></script>
+    <script src="https://secure.pay1.de/client-api/js/ajax.js"></script>
+
 
     <section class="consumeHeight" id="checkout">
 
@@ -231,4 +233,115 @@
             </div>
         {{ form_end(form) }}
     </section>
+
+
+<a href="#" id="test_button">TEST</a>
+
+<script>
+    $('#test_button').on('click', function (e) {
+        e.preventDefault();
+        test();
+    });
+</script>
+
+
+    <script>
+
+        var payoneConfig = {
+            mode           : 'test',
+            mid            : '24047',
+            aid            : '24058',
+            portalid       : '2017184',
+            hash      : '7e9c7a96bb3131dc50cd2e94841ee3eb',
+            encoding       : 'UTF-8',
+            language       : 'de'
+        };
+
+        var creditCardData = {
+            ccCardHolder        : 'test test',
+            ccNumber            : '4111111111111111',
+            ccType              : 'V',
+            ccExpirationMonth   : '12',
+            ccExpirationYear    : '2014',
+            ccVerification      : '123'
+        };
+
+        function test() {
+            PayoneCreditCardCheck.doRequest(payoneConfig, creditCardData, 'payoneResponseCallback');
+        }
+</script>
+
+<script>
+
+
+var PayoneCreditCardCheck = {
+
+    doRequest : function(payoneConfig, creditCardData, responseCallbackFunctionName) {
+
+        var requestor = (function(payoneConfig, creditCardData) {
+
+            var requestData = getRequestData(payoneConfig, creditCardData);
+            var options = getOptions(responseCallbackFunctionName);
+            request(requestData, options);
+
+            function request(requestData, options) {
+                includePayoneRequestScript();
+                var request = new PayoneRequest(requestData, options);
+                request.checkAndStore();
+            }
+            function includePayoneRequestScript() {
+                //var scriptPath = '\<script src="https://secure.pay1.de/client-api/js/ajax.js"\>\<\/script\>';
+                //$('body').prepend(scriptPath);
+            }
+            function getOptions (responseCallbackFunctionName) {
+                var options = {
+                    return_type : "object",
+                    callback_function_name : responseCallbackFunctionName
+                };
+                return options;
+            }
+            function getRequestData (payoneConfig, creditCardData) {
+                var data = {
+                    request        : 'creditcardcheck',
+                    storecarddata  : 'yes',
+                    mode           : payoneConfig.mode,
+                    mid            : payoneConfig.mid,
+                    aid            : payoneConfig.aid,
+                    portalid       : payoneConfig.portalid,
+                    encoding       : payoneConfig.encoding,
+                    language       : payoneConfig.language,
+                    hash           : payoneConfig.hash,
+                    cardholder     : creditCardData.ccCardHolder,
+                    cardpan        : creditCardData.ccNumber,
+                    cardtype       : creditCardData.ccType,
+                    cardexpiremonth: creditCardData.ccExpirationMonth,
+                    cardexpireyear : creditCardData.ccExpirationYear,
+                    cardcvc2       : creditCardData.ccVerification
+                };
+                return data;
+            }
+        })(payoneConfig, creditCardData, responseCallbackFunctionName);
+    }
+
+};
+
+function payoneResponseCallback(response) {
+    if (response.get('status') === 'VALID') {
+        var pseudoCardPan = response.get('pseudocardpan');
+        var truncatedCardPan = response.get('truncatedcardpan');
+        console.log('pseudocardpan: ' + pseudoCardPan);
+        console.log('truncatedcardpan: ' + truncatedCardPan);
+    } else {
+        var message = response.get('errormessage') + "\n" + response.get('customermessage');
+        alert(message);
+    }
+}
+
+</script>
+
+
+
+
 {% endblock %}
+
+

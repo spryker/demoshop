@@ -52,7 +52,8 @@ class PaymentType extends CorePaymentType
                 10 => '10',
                 11 => '11',
                 12 => '12']
-        ]);
+        ])
+        ->add('pseudoCcNumber', 'hidden');
 
         $ccExpYears = [];
         $currentYear = (int)date('Y');
