@@ -5,6 +5,7 @@ use Generated\Yves\Factory;
 use Pyz\Yves\Sales\Module\Form\OrderType;
 use ProjectA\Yves\Checkout\Module\Controller\CheckoutController as CoreCheckoutController;
 use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\HttpFoundation\Response;
 
 class CheckoutController extends CoreCheckoutController
 {
@@ -20,11 +21,16 @@ class CheckoutController extends CoreCheckoutController
 
     public function indexAction(Request $request)
     {
-        $returnVars = parent::indexAction($request);
-        $payoneClientApi = Factory::getInstance()->createPayoneModelClientApiClientApi();
-        $requestContainer = $payoneClientApi->creditCardCheck();
-        $returnVars['payoneCreditcardCheckData'] = $requestContainer->toArray();
-        return $returnVars;
+        $response = parent::indexAction($request);
+        if($response instanceof Response) {
+            return $response;
+        }
+        if(is_array($response)) {
+            $payoneClientApi = Factory::getInstance()->createPayoneModelClientApiClientApi();
+            $requestContainer = $payoneClientApi->creditCardCheck();
+            $returnVars['payoneCreditcardCheckData'] = $requestContainer->toArray();
+        }
+        return $response;
     }
 
 }
