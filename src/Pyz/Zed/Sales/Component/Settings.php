@@ -37,6 +37,7 @@ class Pyz_Zed_Sales_Component_Settings extends \ProjectA_Zed_Sales_Component_Set
         $method = $transferOrder->getPayment()->getMethod();
         switch ($method) {
             case PayoneApiConstants::PAYMENT_METHOD_CREDITCARD:
+            case PayoneApiConstants::PAYMENT_METHOD_CREDITCARD_PSEUDO:
                 return Orderprocess::ORDER_PROCESS_PAYONE_CREDIT_CARD;
                 break;
             case PayoneApiConstants::PAYMENT_METHOD_PAYPAL_EXPRESS:

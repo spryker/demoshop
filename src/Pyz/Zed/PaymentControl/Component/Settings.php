@@ -28,7 +28,7 @@ class Settings extends BaseSettings
     public function getAvailablePaymentMethods()
     {
         return [
-            PayoneConstants::PAYMENT_METHOD_CREDITCARD,
+            PayoneConstants::PAYMENT_METHOD_CREDITCARD_PSEUDO,
             PayoneConstants::PAYMENT_METHOD_PREPAYMENT,
             PayoneConstants::PAYMENT_METHOD_INVOICE,
             PayoneConstants::PAYMENT_METHOD_DIRECT_DEBIT,
