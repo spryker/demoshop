@@ -28,7 +28,7 @@ class CheckoutController extends CoreCheckoutController
         if(is_array($response)) {
             $payoneClientApi = Factory::getInstance()->createPayoneModelClientApiClientApi();
             $requestContainer = $payoneClientApi->creditCardCheck();
-            $returnVars['payoneCreditcardCheckData'] = $requestContainer->toArray();
+            $response['payoneCreditcardCheckData'] = $requestContainer->toArray();
         }
         return $response;
     }
