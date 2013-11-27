@@ -25,6 +25,7 @@ class Pyz_Zed_Sales_Component_Model_Orderprocess_StatemachineFactoryHook impleme
         $rules->addRule($this->factory->createModelOrderprocessGuardRuleIsGrandTotalGreaterThan1000());
         $rules->addRule($this->factory->createModelOrderprocessGuardRuleAreAllItemsInTheFlaggedTestState());
         $rules->addRule($this->facadePayone->createFacadeStateMachine()->getRulePaymentTransactionApproved());
+        $rules->addRule($this->facadePayone->createFacadeStateMachine()->getRulePaymentTransactionIsRedirect());
         return $rules;
     }
 

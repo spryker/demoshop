@@ -248,17 +248,6 @@
 <script src="/bundles/Payone/payonecreditcardcheck.js"></script>
 
 <script>
-
-
-    var creditCardData = {
-        ccCardHolder        : 'test test',
-        ccNumber            : '4111111111111111',
-        ccType              : 'V',
-        ccExpirationMonth   : '12',
-        ccExpirationYear    : '2014',
-        ccVerification      : '123'
-    };
-
     function test() {
         var payoneConfig = {
             request        : '{{ payoneCreditcardCheckData.request }}',
@@ -279,7 +268,6 @@
             ccExpirationYear    : $("#salesOrder_payment_ccExpirationYear").val(),
             ccVerification      : $("#salesOrder_payment_ccVerification").val()
         };
-
         PayoneCreditCardCheck.doRequest(payoneConfig, creditCardData, 'payoneResponseCallback');
     }
 </script>

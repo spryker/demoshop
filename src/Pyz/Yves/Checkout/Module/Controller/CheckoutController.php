@@ -26,4 +26,5 @@ class CheckoutController extends CoreCheckoutController
         $returnVars['payoneCreditcardCheckData'] = $requestContainer->toArray();
         return $returnVars;
     }
+
 }
