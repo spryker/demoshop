@@ -36,6 +36,7 @@ interface Orderprocess extends \ProjectA_Zed_Sales_Component_Interface_Orderproc
     const ORDER_PROCESS_PAYONE_PAYPAL = 'Paypal (payone)';
     const ORDER_PROCESS_PAYONE_DIRECT_DEBIT = 'Direct Debit (payone)';
     const ORDER_PROCESS_PAYONE_PREPAYMENT = 'PrePayment (payone)';
+    const ORDER_PROCESS_PAYONE_INVOICE = 'Invoice (payone)';
 
     const STATE_PAYONE_INIT_PAYMENT = 'init payment (payone)';
     const STATE_PAYONE_PAYMENT_REDIRECTED = 'payment redirected (payone)';

@@ -49,6 +49,9 @@ class Pyz_Zed_Sales_Component_Settings extends \ProjectA_Zed_Sales_Component_Set
             case PayoneApiConstants::PAYMENT_METHOD_PREPAYMENT:
                 return Orderprocess::ORDER_PROCESS_PAYONE_PREPAYMENT;
                 break;
+            case PayoneApiConstants::PAYMENT_METHOD_INVOICE:
+                return Orderprocess::ORDER_PROCESS_PAYONE_INVOICE;
+                break;
         }
 
         return Orderprocess::ORDER_PROCESS_DEMO;

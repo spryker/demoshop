@@ -30,5 +30,6 @@ class Pyz_Zed_Sales_Component_Model_Orderprocess_DefinitionContainer extends \Pr
         $this->addProcessDefinition($this->factory->createModelOrderprocessDefinitionPayonePaypal());
         $this->addProcessDefinition($this->factory->createModelOrderprocessDefinitionPayoneDirectDebit());
         $this->addProcessDefinition($this->factory->createModelOrderprocessDefinitionPayonePrePayment());
+        $this->addProcessDefinition($this->factory->createModelOrderprocessDefinitionPayoneInvoice());
     }
 }

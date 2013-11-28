@@ -13,7 +13,7 @@ use ProjectA\Zed\Payone\Component\Model\Zed\StateMachine\StateMachineConstants a
  * @property \Generated\Zed\Sales\Component\SalesFactory $factory
  * @property \ProjectA_Zed_Sales_Component_Model_Orderprocess_StateMachine_Setup $setup
  */
-class PayonePrePayment extends \ProjectA_Zed_Sales_Component_Model_Orderprocess_Definition_Abstract implements
+class PayoneInvoice extends \ProjectA_Zed_Sales_Component_Model_Orderprocess_Definition_Abstract implements
     Orderprocess,
     PayoneFacadeInterface,
     PayoneStateMachineConstants
@@ -24,7 +24,7 @@ class PayonePrePayment extends \ProjectA_Zed_Sales_Component_Model_Orderprocess_
     /**
      * @param string $processName
      */
-    public function __construct($processName = self::ORDER_PROCESS_PAYONE_PREPAYMENT)
+    public function __construct($processName = self::ORDER_PROCESS_PAYONE_INVOICE)
     {
         parent::__construct($processName);
     }
@@ -50,7 +50,7 @@ class PayonePrePayment extends \ProjectA_Zed_Sales_Component_Model_Orderprocess_
     protected function addDefinitions()
     {
         $this->setup->addDefinition($this->factory->createModelOrderprocessDefinitionSubProcessNewOrder());
-        $this->setup->addDefinition($this->factory->createModelOrderprocessDefinitionSubprocessPayonePrePayment());
+        $this->setup->addDefinition($this->factory->createModelOrderprocessDefinitionSubprocessPayoneInvoice());
         $this->setup->addDefinition($this->factory->createModelOrderprocessDefinitionSubprocessPayoneCapture());
         $this->setup->addDefinition($this->factory->createModelOrderprocessDefinitionSubProcessClosed());
         $this->setup->addDefinition($this->factory->createModelOrderprocessDefinitionSubprocessTest());
