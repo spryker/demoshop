@@ -49,12 +49,12 @@ interface Orderprocess extends \ProjectA_Zed_Sales_Component_Interface_Orderproc
     const STATE_PAYONE_PAYMENT_PREAUTHORIZED = 'payment preauthorized (payone)';
     const STATE_PAYONE_PAYMENT_INVALID = 'payment invalid (payone)';
 
-    // --- PAYONE Direct Debit Cancelation
+    // --- PAYONE Cancelation
 
-    const STATE_PAYONE_INIT_DIRECT_DEBIT_CANCELLATION = 'init direct debit cancellation (payone)';
-    const STATE_PAYONE_DIRECT_DEBIT_CANCELLATION_CLARIFY = 'direct debit cancellation clarify (payone)';
-    const STATE_PAYONE_DIRECT_DEBIT_CANCELLATION_RETURN = 'direct debit cancellation return (payone)';
-    const STATE_PAYONE_DIRECT_DEBIT_CANCELLATION_OBJECTIVE = 'direct debit cancellation objective (payone)';
+    const STATE_PAYONE_INIT_CANCELLATION = 'init cancellation (payone)';
+    const STATE_PAYONE_CANCELLATION_CLARIFY = 'cancellation clarify (payone)';
+    const STATE_PAYONE_CANCELLATION_RETURN = 'cancellation return (payone)';
+    const STATE_PAYONE_CANCELLATION_OBJECTIVE = 'cancellation objective (payone)';
 
     const EVENT_PAYONE_MANUAL_CLARIFIED_CANCELLATION_OBJECTIVE = 'manual clarified cancellation objective';
     const EVENT_PAYONE_MANUAL_CLARIFIED_CANCELLATION_RETURN = 'manual clarified cancellation return';
