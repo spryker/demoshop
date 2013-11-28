@@ -72,7 +72,7 @@ class PayonePrePayment extends \ProjectA_Zed_Sales_Component_Model_Orderprocess_
             [
                 self::STATE_PAYONE_WAITING_FOR_RECEIPT_OF_PAYMENT,
                 self::STATE_CLOSED
-            ], 'group', $this->getName() . ' Invoice End');
+            ], 'group', $this->getName() . ' PrePayment End');
 
 
         $this->setup->setHappyCaseStates(
