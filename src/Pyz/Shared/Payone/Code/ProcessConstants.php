@@ -1,7 +1,5 @@
 <?php
-
 namespace Pyz\Shared\Payone\Code;
-
 
 interface ProcessConstants
 {

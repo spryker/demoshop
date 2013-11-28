@@ -4,8 +4,7 @@ namespace Pyz\Zed\Sales\Component\ConstantsInterface;
 
 interface Orderprocess extends \ProjectA_Zed_Sales_Component_Interface_OrderprocessConstant
 {
-    const ORDER_PROCESS_CREDIT_CARD_STRIPE = 'Credit Card (Stripe)';
-    const ORDER_PROCESS_PAYPAL_PAYONE = 'Paypal (Payone)';
+
     const ORDER_PROCESS_DEMO = 'demo';
 
     const STATE_INVALID = 'invalid';
@@ -26,6 +25,51 @@ interface Orderprocess extends \ProjectA_Zed_Sales_Component_Interface_Orderproc
     // RULES
 
     const FLAG_CLARIFY = 'clarify';
+
+    /********************/
+    /****** PAYONE ******/
+    /********************/
+
+    // --- PAYONE Payment
+
+    const ORDER_PROCESS_PAYONE_CREDIT_CARD = 'Credit Card (payone)';
+    const ORDER_PROCESS_PAYONE_PAYPAL = 'Paypal (payone)';
+    const ORDER_PROCESS_PAYONE_DIRECT_DEBIT = 'Direct Debit (payone)';
+    const ORDER_PROCESS_PAYONE_PREPAYMENT = 'PrePayment (payone)';
+    const ORDER_PROCESS_PAYONE_INVOICE = 'Invoice (payone)';
+
+    const STATE_PAYONE_INIT_PAYMENT = 'init payment (payone)';
+    const STATE_PAYONE_PAYMENT_REDIRECTED = 'payment redirected (payone)';
+    const STATE_PAYONE_PAYMENT_NOT_REDIRECTED = 'payment not redirected (payone)';
+    const STATE_PAYONE_WAITING_FOR_AUTHORIZATION_APPOINTMENT = 'waiting for authorization appointment (payone)';
+    const STATE_PAYONE_WAITING_FOR_PREAUTHORIZATION_APPOINTMENT = 'waiting for preauthorization appointment (payone)';
+    const STATE_PAYONE_NO_AUTHORIZATION_APPOINTMENT_RECEIVED = 'no authorization appointment received (payone)';
+    const STATE_PAYONE_NO_PREAUTHORIZATION_APPOINTMENT_RECEIVED = 'no presauthorization appointment received (payone)';
+    const STATE_PAYONE_PAYMENT_AUTHORIZED = 'payment authorized (payone)';
+    const STATE_PAYONE_PAYMENT_PREAUTHORIZED = 'payment preauthorized (payone)';
+    const STATE_PAYONE_PAYMENT_INVALID = 'payment invalid (payone)';
+
+    // --- PAYONE Direct Debit Cancelation
+
+    const STATE_PAYONE_INIT_DIRECT_DEBIT_CANCELLATION = 'init direct debit cancellation (payone)';
+    const STATE_PAYONE_DIRECT_DEBIT_CANCELLATION_CLARIFY = 'direct debit cancellation clarify (payone)';
+    const STATE_PAYONE_DIRECT_DEBIT_CANCELLATION_RETURN = 'direct debit cancellation return (payone)';
+    const STATE_PAYONE_DIRECT_DEBIT_CANCELLATION_OBJECTIVE = 'direct debit cancellation objective (payone)';
+
+    const EVENT_PAYONE_MANUAL_CLARIFIED_CANCELLATION_OBJECTIVE = 'manual clarified cancellation objective';
+    const EVENT_PAYONE_MANUAL_CLARIFIED_CANCELLATION_RETURN = 'manual clarified cancellation return';
+
+    const EVENT_PAYONE_MANUAL_SET_PAYMENT_INVALID = 'manual set payment invalid (payone)';
+    const EVENT_PAYONE_MANUAL_SET_PAYMENT_AUTHORIZED = 'manual set payment authorized (payone)';
+
+    // --- PAYONE Capture
+
+    const STATE_PAYONE_INIT_CAPTURE = 'init capture (payone)';
+    const STATE_PAYONE_WAITING_FOR_CAPTURE_APPOINTMENT = 'waiting for capture appointment (payone)';
+    const STATE_PAYONE_CAPTURE_FAILED = 'capture failed (payone)';
+    const STATE_PAYONE_CAPTURED = 'captured (payone)';
+
+    const STATE_PAYONE_WAITING_FOR_RECEIPT_OF_PAYMENT = 'waiting for receipt of payment (payone)';
 
     /****** ONLY USED FOR THE TEST SUB-PROCESS ******/
 

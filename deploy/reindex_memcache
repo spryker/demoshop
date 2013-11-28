@@ -9,9 +9,10 @@
 
 FILEPATH=`pwd`/$0; BASEDIR=`dirname $FILEPATH`; source $BASEDIR/vars
 outfile=`mktemp /tmp/deploy-XXXXXX`
-echo "-- Reindexing memcache for store $APPLICATION_STORE --"
-cd $destination_release_dir/cli
-php -d "newrelic.appname='Deploy($environment)'" index.php  --module=yves --controller=cronjob --action=key-value-full-import -d
+
+cd $destination_release_dir
+echo "--- Reindexing memcache for store: $APPLICATION_STORE ---"
+php -d "newrelic.appname='Deploy($environment)'" vendor/bin/console storage:kv -a full -s ${APPLICATION_STORE} -e ${environment}
 
 rm -f $outfile
 exit 0

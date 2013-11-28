@@ -25,7 +25,7 @@ echo "" >> $crontab
 cd $destination_release_dir
 roles=`get_cronjob_roles`
 if [ -z $roles ]; then
-  echo "No cronjob roles on this host"
+  echo "No cronjobs on this host"
   roles="empty"
 else
   echo "Installing cronjobs for roles: $roles"

@@ -10,7 +10,7 @@
          strict="true"
          bootstrap="phpunit.php">
 
-    <testsuite name="Project Zed Test suite">
+    <testsuite name="Project Shared Test suite">
         <directory>../../src/{NAMESPACE}/{APPLICATION}</directory>
     </testsuite>
     <php>

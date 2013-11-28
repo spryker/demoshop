@@ -1,8 +1,8 @@
 <?php
 use Generated\Shared\Sales\Transfer\Order;
 use Pyz\Zed\Sales\Component\ConstantsInterface\Orderprocess;
-use ProjectA\Shared\Stripe\Code\PaymentProviderConstants as Stripe;
-use Pyz\Shared\Payone\Code\PaymentProviderConstants as Payone;
+use ProjectA\Zed\Payone\Component\Model\Api\ApiConstants as PayoneApiConstants;
+use Generated\Shared\Sales\Transfer\OrderItem;
 
 
 /**
@@ -32,18 +32,29 @@ class Pyz_Zed_Sales_Component_Settings extends \ProjectA_Zed_Sales_Component_Set
      * @param Order $transferOrder
      * @return string
      */
-    public function getProcessNameForNewOrder(Order $transferOrder)
+    public function getProcessNameForNewOrderItem(OrderItem $transferOrderItem, Order $transferOrder)
     {
         $method = $transferOrder->getPayment()->getMethod();
         switch ($method) {
-            case Stripe::METHOD_CREDIT_CARD:
-                return Orderprocess::ORDER_PROCESS_CREDIT_CARD_STRIPE;
+            case PayoneApiConstants::PAYMENT_METHOD_CREDITCARD:
+            case PayoneApiConstants::PAYMENT_METHOD_CREDITCARD_PSEUDO:
+                return Orderprocess::ORDER_PROCESS_PAYONE_CREDIT_CARD;
                 break;
-            case Payone::METHOD_PAYPAL:
-                return Orderprocess::ORDER_PROCESS_PAYPAL_PAYONE;
+            case PayoneApiConstants::PAYMENT_METHOD_PAYPAL_EXPRESS:
+                return Orderprocess::ORDER_PROCESS_PAYONE_PAYPAL;
+                break;
+            case PayoneApiConstants::PAYMENT_METHOD_DIRECT_DEBIT:
+                return Orderprocess::ORDER_PROCESS_PAYONE_DIRECT_DEBIT;
+                break;
+            case PayoneApiConstants::PAYMENT_METHOD_PREPAYMENT:
+                return Orderprocess::ORDER_PROCESS_PAYONE_PREPAYMENT;
+                break;
+            case PayoneApiConstants::PAYMENT_METHOD_INVOICE:
+                return Orderprocess::ORDER_PROCESS_PAYONE_INVOICE;
                 break;
         }
 
         return Orderprocess::ORDER_PROCESS_DEMO;
     }
+
 }

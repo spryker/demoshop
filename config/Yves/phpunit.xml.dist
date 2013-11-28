@@ -10,11 +10,11 @@
          strict="true"
          bootstrap="phpunit.php">
 
-    <testsuite name="Project Code">
-        <directory>../../src/</directory>
+    <testsuite name="Project Yves Test suite">
+        <directory>../../src/{NAMESPACE}/{APPLICATION}</directory>
     </testsuite>
     <php>
         <env name="APPLICATION_ENV" value="testing" />
-        <server name="REQUEST_URI" value="http://zed.us.demoshop/" />
+        <server name="REQUEST_URI" value="{REQUEST_URI}" />
     </php>
 </phpunit>

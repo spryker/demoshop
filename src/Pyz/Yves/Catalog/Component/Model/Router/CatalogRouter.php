@@ -21,7 +21,7 @@ class CatalogRouter extends AbstractRouter
     {
         if ($name == 'catalog') {
             $facetConfig = $this->factory->createCatalogModelFacetConfig();
-            $request = Bootstrap::getRequest();
+            $request = ($this->app['request_stack'])? $this->app['request_stack']->getCurrentRequest():$this->app['request'];
             $requestParameters = iterator_to_array($request->query->getIterator());
 
             //if no page is provided we generate a url to change the filter and therefore want to reset the page
@@ -57,9 +57,11 @@ class CatalogRouter extends AbstractRouter
 
             $facetConfig = $this->factory->createCatalogModelFacetConfig();
 
+            $request = ($this->app['request_stack'])? $this->app['request_stack']->getCurrentRequest():$this->app['request'];
+
             UrlMapper::injectParametersFromUrlIntoRequest(
                 $pathinfo,
-                Bootstrap::getRequest(),
+                $request, // TODO Change to RequestStack as of Symfony 2.4
                 $facetConfig
             );
 

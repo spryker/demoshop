@@ -12,6 +12,10 @@ use Symfony\Component\HttpFoundation\Request;
 class FacetSearch extends AbstractSearch
 {
 
+    /**
+     * @param Request $request TODO Change to RequestStack as of Symfony 2.4
+     * @param FacetConfig $facetConfig
+     */
     public function __construct(Request $request, FacetConfig $facetConfig)
     {
         parent::__construct($request, $facetConfig);

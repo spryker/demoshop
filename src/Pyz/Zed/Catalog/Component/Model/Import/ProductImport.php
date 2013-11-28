@@ -5,9 +5,10 @@ use ProjectA\Zed\Catalog\Component\Model\Import\ProductImport as CoreProductImpo
 use ProjectA\Zed\Catalog\Component\Model\ProductInterface;
 use ProjectA\Zed\Catalog\Component\Model\UrlGenerator;
 use Pyz\Shared\Catalog\Code\ProductAttributeSetConstantInterface;
+use ProjectA\Zed\Library\Dependency\DependencyInitInterface;
 
 class ProductImport extends CoreProductImport implements
-    \ProjectA_Zed_Library_Dependency_InitInterface,
+    DependencyInitInterface,
     ProductAttributeSetConstantInterface
 {
     /**

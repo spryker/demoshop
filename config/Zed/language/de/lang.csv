@@ -10,3 +10,17 @@ is_test;is test
 ConditionVoucherCodeInPool;Code in Code Group
 ConditionDateBetween;Datum zwischen
 ConditionMinimumOrderSubtotal;Minimale Warenkorb-Zwischensumme
+
+
+
+Order date:;Bestelldatum:
+Order number:;Bestellnummer:
+Invoice date:;Rechnungsdatum:
+Invoice number:;Rechnungsnummer:
+Customer number:;Kundennummer:
+Dear Sir;Sehr geehrter Herr
+Dear Madam;Sehr geehrte Frau
+
+Footer Column Left;EMail: service@demoshop.com\nPhone: +49 (0)30 XXXXXX\n(Mo-Fr: 9am - 8pm)\nFax: +49 (0)30 XXXXXX\n* Prices may be higher
+Footer Column Center;Wedowood Demoshop GmbH\nJulie-Wolfthorn-Str. 1\n10115 Berlin\nwww.demoshop.com
+Footer Column Right;President Mr Foo Bar\nCompany register: Berlin\nTax #: xxyyyzz

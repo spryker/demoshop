@@ -93,7 +93,7 @@ $config['storage'] = [
     'solr' => [
         'config_dir' => APPLICATION_ROOT_DIR . '/config/Zed/solr',
         'application_dir' => APPLICATION_VENDOR_DIR . '/project-a/infrastructure-package/bin/',
-        'data_dir' => \ProjectA_Shared_Library_Data::getLocalCommonPath('solr'),
+        'data_dir' => APPLICATION_ROOT_DIR . '/data/common/solr',
 
         'defaultEndpointSetup' => [
             'host' => 'localhost',
@@ -165,7 +165,8 @@ $config['host_ssl'] = array(
  * GLOBAL
  */
 $config['log'] = array(
-    'log_propel_sql'           => true, // File: data/logs/ZED/propel_sql.log
+    'logLevel' => Monolog\Logger::INFO,
+    'log_propel_sql' => true, // File: data/logs/ZED/propel_sql.log
     'log_memcache_synchronize' => false, // File: data/logs/ZED/memcache_synchronize.log
 );
 
@@ -204,9 +205,10 @@ $config['payone'] = array(
     'mode'       => 'test',
     'mid'        => '24047',
     'portalid'   => '2017184',
-    'key'        => '7e9c7a96bb3131dc50cd2e94841ee3eb',
+    'key'        => '3AHSu99Q7Bi2H03n',
     'aid'        => '24058',
     'encoding'   => 'UTF-8',
+    'currency'   => 'EUR',
     'gatewayurl' => 'https://api.pay1.de/post-gateway/',
 );
 
@@ -242,42 +244,41 @@ $config['adyen']['development']['notification_raw_data_log_url']
 
 
 $config['stripe'] = [
-    'currency' => 'USD',
+    'currency' => 'EUR',
     'secret_key' => 'sk_test_dRt838ewNa5C2SRC5l72wXuP',
     'publishable_key' => 'pk_test_nO9nZ7qW8myNAJ4jWOHgeSSp',
 ];
 
 $config['stripe_test'] = [
-    'currency' => 'USD',
+    'currency' => 'EUR',
     'secret_key' => 'sk_test_dRt838ewNa5C2SRC5l72wXuP',
     'publishable_key' => 'pk_test_nO9nZ7qW8myNAJ4jWOHgeSSp',
 ];
 
 
-$config['zed'] = array(
-    'session'      => array(
+$config['zed'] = [
+    'session'      => [
         'save_handler' => null,
-        'save_path'    => null
-    ),
+        'save_path'    => null,
+    ],
     'ssl_enabled'  => true,
-    'ssl_excluded' => array(
-        'system/heartbeat'
-    ),
-    'customercare' => array(
-        'zed_backlink' => 'DEFAULT.zed.saatchionline.com',
-        // this is needed, because in live systems URL is set to localhost
-        'error_mail'   => 'support@saatchionline.com',
-    ),
-);
+    'ssl_excluded' => [
+        'system/heartbeat',
+    ],
+];
 
 $config['yves'] = [
     'theme'          => 'demoshop',
-    'session'        => [
+    'ssl_enabled'    => false,
+    'ssl_excluded' => [
+        '/monitoring/heartbeat',
+    ],
+    'session'     => [
         'save_handler'  => null,
         'save_path'     => null,
         'name'          => null,
         'cookie_domain' => null,
-    ]
+    ],
 ];
 
 $config['ftp_proxy'] = array(
@@ -287,11 +288,11 @@ $config['ftp_proxy'] = array(
 $config['activemq'] = array(
     array(
         'host' => 'localhost',
-        'port' => '61613'
+        'port' => '61613',
     ),
     array(
         'host' => 'localhost',
-        'port' => '61613'
+        'port' => '61613',
     ),
 );
 
@@ -346,9 +347,9 @@ $config['product_images_ftp_account'] = array(
 
 $config['propel'] = array(
     'propel.project.dir'                      =>
-    APPLICATION_SOURCE_DIR . '/Generated/Zed/PropelGen/' . \ProjectA_Shared_Library_Store::getInstance()->getStoreName() . '/',
+        APPLICATION_SOURCE_DIR . '/Generated/Zed/PropelGen/' . \ProjectA_Shared_Library_Store::getInstance()->getStoreName() . '/',
     'propel.schema.dir'                       =>
-    APPLICATION_SOURCE_DIR . '/Generated/Zed/PropelGen/' . \ProjectA_Shared_Library_Store::getInstance()->getStoreName() . '/Schema',
+        APPLICATION_SOURCE_DIR . '/Generated/Zed/PropelGen/' . \ProjectA_Shared_Library_Store::getInstance()->getStoreName() . '/Schema',
     'propel.php.dir'                          => APPLICATION_ROOT_DIR,
     'propel.packageObjectModel'               => 'true',
     'propel.project'                          => 'zed',
@@ -471,4 +472,9 @@ $config['productImage'] = [
 
 $config['invoice'] = [
     'protectedDocumentDirectory' => 'protected' . DIRECTORY_SEPARATOR . 'invoices',
+];
+
+$config['customer'] = [
+    'minutes_before_restore_password_invalid' => 60,
+    'double_opt_in_registration' => false
 ];

@@ -2,12 +2,9 @@
 
 {% block content %}
 
-    {# TODO: split this into partials #}
-
-    {% include '@application/response_messages.twig' %}
-
     <link rel="stylesheet" href="/styles/checkout.css" />
     <script src="/scripts/app/checkout.js"></script>
+
 
     <section class="consumeHeight" id="checkout">
 
@@ -100,7 +97,7 @@
                         </tr>
                         <tr>
                             <td>{{ 'checkout.price.shipping'|trans }}</td>
-                            <td>{{ totals.orderExpensesTotal|price }}</td>
+                            <td></td>
                         </tr>
                         {% for taxRate in totals.tax.taxRates %}
                             <tr class="tax">
@@ -148,7 +145,10 @@
                     </div>
                 </div>
                 <div class="unnecessary primary col col33 secondaryRow">
-                    <div class="details" data-associated-paymentmethod="stripe.credit.card" data-validator-precondition="return $('[name=\'salesOrder[payment][method]\']:checked').val() === 'stripe.credit.card'">
+                    <div class="details" data-associated-paymentmethod="payment.payone.creditcard_pseudo" data-validator-precondition="return $('[name=\'salesOrder[payment][method]\']:checked').val() === 'payment.payone.creditcard_pseudo'">
+                        <div class="row">
+                            {{ form_row(form.payment.ccType, {attr : {class : 'fullWidth'}, label : 'checkout.payment.cctype'}) }}
+                        </div>
                         <div class="row">
                             {{ form_row(form.payment.ccCardholder, {attr : {class : 'fullWidth'}, label : 'checkout.payment.ccholder'}) }}
                         </div>
@@ -168,6 +168,18 @@
                                     {{ form_row(form.payment.ccExpirationYear, {attr : {class : 'fullWidth'}, label : 'checkout.payment.ccexpyear'}) }}
                                 </div>
                             </div>
+                        </div>
+                    </div>
+
+                    <div class="details" data-associated-paymentmethod="payment.payone.direct_debit" data-validator-precondition="return $('[name=\'salesOrder[payment][method]\']:checked').val() === 'payment.payone.direct_debit'">
+                        <div class="row">
+                            {{ form_row(form.payment.DebitHolder, {attr : {class : 'fullWidth', maxlength : 16}, label : 'checkout.payment.debitholder'}) }}
+                        </div>
+                        <div class="row">
+                           {{ form_row(form.payment.DebitAccountNumber, {attr : {class : 'fullWidth'}, label : 'checkout.payment.debitaccountnumber'}) }}
+                        </div>
+                        <div class="row">
+                            {{ form_row(form.payment.DebitBankCodeNumber, {attr : {class : 'fullWidth', maxlength : 16}, label : 'checkout.payment.debitbankcodenumber'}) }}
                         </div>
                     </div>
                 </div>
@@ -220,4 +232,66 @@
             </div>
         {{ form_end(form) }}
     </section>
+
+
+<a href="#" id="test_button">TEST</a>
+
+<script>
+    $('#test_button').on('click', function (e) {
+        e.preventDefault();
+        test();
+    });
+</script>
+
+<!-- ********** PAYONE CODE ********** --->
+
+<script src="/bundles/Payone/payonecreditcardcheck.js"></script>
+
+<script>
+    function test() {
+        var payoneConfig = {
+            request        : '{{ payoneCreditcardCheckData.request }}',
+            mode           : '{{ payoneCreditcardCheckData.mode }}',
+            mid            : '{{ payoneCreditcardCheckData.mid }}',
+            aid            : '{{ payoneCreditcardCheckData.aid }}',
+            portalid       : '{{ payoneCreditcardCheckData.portalid }}',
+            hash           : '{{ payoneCreditcardCheckData.hash }}',
+            encoding       : '{{ payoneCreditcardCheckData.encoding }}',
+            language       : '{{ payoneCreditcardCheckData.language }}',
+            storecarddata  : '{{ payoneCreditcardCheckData.storecarddata }}'
+        };
+        var creditCardData = {
+            ccCardHolder        : $("#salesOrder_payment_ccCardholder").val(),
+            ccNumber            : $("#salesOrder_payment_ccNumber").val(),
+            ccType              : $("#salesOrder_payment_ccType").val(),
+            ccExpirationMonth   : $("#salesOrder_payment_ccExpirationMonth").val(),
+            ccExpirationYear    : $("#salesOrder_payment_ccExpirationYear").val(),
+            ccVerification      : $("#salesOrder_payment_ccVerification").val()
+        };
+        PayoneCreditCardCheck.doRequest(payoneConfig, creditCardData, 'payoneResponseCallback');
+    }
+</script>
+
+<script>
+    function payoneResponseCallback(response) {
+        if (response.get('status') === 'VALID') {
+            var pseudoCardPan = response.get('pseudocardpan');
+            var truncatedCardPan = response.get('truncatedcardpan');
+            $("#salesOrder_payment_pseudoCcNumber").val(pseudoCardPan);
+            console.log('pseudocardpan: ' + pseudoCardPan);
+            console.log('truncatedcardpan: ' + truncatedCardPan);
+        } else {
+            var message = response.get('errormessage') + "\n" + response.get('customermessage');
+            alert(message);
+        }
+    }
+</script>
+
+<!-- ********** END OF PAYONE CODE ********** --->
+
+
+
+
 {% endblock %}
+
+
