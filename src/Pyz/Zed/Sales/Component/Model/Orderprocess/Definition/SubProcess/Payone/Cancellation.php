@@ -47,8 +47,7 @@ class Cancellation
 
     protected function addCommands()
     {
-        $payoneAuthorizeCommand = $this->facadePayone->createFacadeStateMachine()->getCommandAuthorizeGrandTotal();
-        $this->setup->addCommand(self::STATE_PAYONE_INIT_PAYMENT, self::EVENT_ON_ENTER, $payoneAuthorizeCommand);
+
     }
 
     protected function addFlags()

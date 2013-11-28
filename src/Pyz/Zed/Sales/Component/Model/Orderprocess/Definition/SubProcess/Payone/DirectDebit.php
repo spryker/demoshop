@@ -41,8 +41,6 @@ class DirectDebit
         $this->setup->addTransition(self::STATE_PAYONE_INIT_PAYMENT, self::STATE_PAYONE_PAYMENT_INVALID, self::EVENT_ON_ENTER);
         $this->setup->addTransition(self::STATE_PAYONE_WAITING_FOR_AUTHORIZATION_APPOINTMENT, self::STATE_PAYONE_PAYMENT_AUTHORIZED, self::EVENT_PAYONE_TRANSACTION_STATUS_APPOINTED_RECEIVED);
         $this->setup->setTimeout(self::STATE_PAYONE_WAITING_FOR_AUTHORIZATION_APPOINTMENT, self::STATE_PAYONE_PAYMENT_INVALID, '1 day');
-        //$this->
-
     }
 
     protected function addCommands()

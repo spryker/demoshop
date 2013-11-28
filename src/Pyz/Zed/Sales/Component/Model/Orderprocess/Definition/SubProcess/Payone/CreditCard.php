@@ -47,8 +47,6 @@ class CreditCard
         $this->setup->addTransitionManual(self::STATE_PAYONE_NO_AUTHORIZATION_APPOINTMENT_RECEIVED, self::STATE_PAYONE_PAYMENT_AUTHORIZED, self::EVENT_PAYONE_MANUAL_SET_PAYMENT_AUTHORIZED);
         $this->setup->setTimeout(self::STATE_PAYONE_WAITING_FOR_AUTHORIZATION_APPOINTMENT, self::STATE_PAYONE_NO_AUTHORIZATION_APPOINTMENT_RECEIVED, '2 days');
         $this->setup->setTimeout(self::STATE_PAYONE_PAYMENT_REDIRECTED, self::STATE_PAYONE_PAYMENT_INVALID, '1 day');
-        //$this->
-
     }
 
     protected function addCommands()
