@@ -3,10 +3,10 @@ default:
     class: 'Zed\BehatBootstrap'
     parameters:
       store: DE
-      environment: development
+      environment: testing
   extensions:
     Behat\MinkExtension\Extension:
-      base_url:  'http://YOUR_SHOP_URL/'
+      base_url:  'http://www-development.project-yz.com/'
       goutte:    ~
   paths:
     features: 'Feature'
@@ -16,8 +16,8 @@ us:
   context:
     parameters:
       store: US
-      environment: development
+      environment: testing
   extensions:
     Behat\MinkExtension\Extension:
-      base_url:  'http://YOUR_SHOP_URL_FOR_STORE_US/'
+      base_url:  'http://www-development.project-yz.com/'
       goutte:    ~

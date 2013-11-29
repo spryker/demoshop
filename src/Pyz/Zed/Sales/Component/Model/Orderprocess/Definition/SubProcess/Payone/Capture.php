@@ -42,8 +42,6 @@ class Capture
         $this->setup->addTransition(self::STATE_PAYONE_WAITING_FOR_CAPTURE_APPOINTMENT, self::STATE_PAYONE_CAPTURED, self::EVENT_PAYONE_TRANSACTION_STATUS_CAPTURE_RECEIVED);
         $this->setup->addTransition(self::STATE_PAYONE_CAPTURE_FAILED, self::STATE_PAYONE_CAPTURED, self::EVENT_PAYONE_TRANSACTION_STATUS_CAPTURE_RECEIVED);
         $this->setup->setTimeout(self::STATE_PAYONE_WAITING_FOR_CAPTURE_APPOINTMENT, self::STATE_PAYONE_CAPTURE_FAILED, '1 day');
-        //$this->
-
     }
 
     protected function addCommands()

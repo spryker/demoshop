@@ -26,6 +26,8 @@ class Pyz_Zed_Sales_Component_Model_Orderprocess_StatemachineFactoryHook impleme
         $rules->addRule($this->factory->createModelOrderprocessGuardRuleAreAllItemsInTheFlaggedTestState());
         $rules->addRule($this->facadePayone->createFacadeStateMachine()->getRulePaymentTransactionApproved());
         $rules->addRule($this->facadePayone->createFacadeStateMachine()->getRulePaymentTransactionIsRedirect());
+        $rules->addRule($this->facadePayone->createFacadeStateMachine()->getRuleCancellationIsObjective());
+        $rules->addRule($this->facadePayone->createFacadeStateMachine()->getRuleCancellationIsReturn());
         return $rules;
     }
 
@@ -40,4 +42,5 @@ class Pyz_Zed_Sales_Component_Model_Orderprocess_StatemachineFactoryHook impleme
         $guards->addGuard($stateMachine->getGuard());
         $stateMachine->setGuard($guards);
     }
+
 }

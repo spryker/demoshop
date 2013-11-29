@@ -52,7 +52,7 @@ class PayoneDirectDebit extends \ProjectA_Zed_Sales_Component_Model_Orderprocess
         $this->setup->addDefinition($this->factory->createModelOrderprocessDefinitionSubProcessNewOrder());
         $this->setup->addDefinition($this->factory->createModelOrderprocessDefinitionSubprocessPayoneDirectDebit());
         $this->setup->addDefinition($this->factory->createModelOrderprocessDefinitionSubProcessClosed());
-        $this->setup->addDefinition($this->factory->createModelOrderprocessDefinitionSubprocessPayoneDirectDebitCancellation());
+        $this->setup->addDefinition($this->factory->createModelOrderprocessDefinitionSubprocessPayoneCancellation());
         $this->setup->addDefinition($this->factory->createModelOrderprocessDefinitionSubprocessTest());
     }
 
@@ -84,7 +84,7 @@ class PayoneDirectDebit extends \ProjectA_Zed_Sales_Component_Model_Orderprocess
         $this->setup->addTransition(self::STATE_NEW, self::STATE_PAYONE_INIT_PAYMENT, self::EVENT_ON_ENTER);
         $this->setup->addTransition(self::STATE_PAYONE_PAYMENT_AUTHORIZED, self::STATE_CLOSED, self::EVENT_ON_ENTER);
         $this->setup->addTransitionManual(self::STATE_CLOSED, self::STATE_DEMO_A, self::EVENT_DEMO_START_TEST);
-        $this->setup->addTransition(self::STATE_CLOSED, self::STATE_PAYONE_INIT_DIRECT_DEBIT_CANCELLATION, self::EVENT_PAYONE_TRANSACTION_STATUS_CANCELATION_RECEIVED);
+        $this->setup->addTransition(self::STATE_CLOSED, self::STATE_PAYONE_INIT_CANCELLATION, self::EVENT_PAYONE_TRANSACTION_STATUS_CANCELATION_RECEIVED);
     }
 
     protected function setStatesMetaInfo(array $states, $metaInfoName, $metaInfoValue)
