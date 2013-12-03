@@ -620,7 +620,7 @@
             "source": {
                 "type": "git",
                 "url": "git@codebasehq.com:project-a/core/acl.git",
-                "reference": "0ce82745635fa10d1c5b0d34fcc680164108488a"
+                "reference": "d7622a06c68c26c93e725d528bbc852d2cca5a1e"
             },
             "require": {
                 "php": ">=5.4.0",
@@ -649,7 +649,7 @@
                 "login",
                 "usermanagement"
             ],
-            "time": "2013-11-24 00:06:17"
+            "time": "2013-12-02 11:01:43"
         },
         {
             "name": "project-a/adyen-package",
@@ -770,7 +770,7 @@
             "source": {
                 "type": "git",
                 "url": "git@codebasehq.com:project-a/core/checkout.git",
-                "reference": "a0406a07f22ad573a849db440785a8d89b1966dc"
+                "reference": "63514cc5f5a67218c315d95b4675b4f08a54b97a"
             },
             "require": {
                 "gavroche/browser": "~2.1.0",
@@ -800,7 +800,7 @@
                 "PaymentControl",
                 "Salesrule"
             ],
-            "time": "2013-11-28 19:47:23"
+            "time": "2013-12-02 16:20:28"
         },
         {
             "name": "project-a/console-package",
@@ -1071,7 +1071,7 @@
             "source": {
                 "type": "git",
                 "url": "git@codebasehq.com:project-a/core/library-2.git",
-                "reference": "16011a65f4af0f3dd37d5536b45edcf14dbe7925"
+                "reference": "4e885af402c0f2be4e9273b7ad5b1aa79f2b93fe"
             },
             "require": {
                 "digital-canvas/zend-framework": ">=1.12.2",
@@ -1114,7 +1114,7 @@
                 }
             ],
             "description": "Project-A Library",
-            "time": "2013-11-29 08:21:15"
+            "time": "2013-12-02 09:03:27"
         },
         {
             "name": "project-a/lumberjack-package",
@@ -1155,7 +1155,7 @@
             "source": {
                 "type": "git",
                 "url": "git@codebasehq.com:project-a/core/payment.git",
-                "reference": "9c030c1e5a723a75b150596cb18063a85f8d0b48"
+                "reference": "a5d1d4d770ba947e4495255eff1828da6ea94460"
             },
             "require": {
                 "php": ">=5.4.0"
@@ -1178,7 +1178,7 @@
             "keywords": [
                 "payment, payment provider"
             ],
-            "time": "2013-11-26 10:59:10"
+            "time": "2013-12-02 15:00:44"
         },
         {
             "name": "project-a/payone-package",
@@ -1186,7 +1186,7 @@
             "source": {
                 "type": "git",
                 "url": "git@codebasehq.com:project-a/core/payone.git",
-                "reference": "8457452d81f16925e9373a764cf21ece0139deb0"
+                "reference": "8c9de3af040cfcb90e2e35f432f966aa1243d70e"
             },
             "require": {
                 "php": ">=5.4.0",
@@ -1213,7 +1213,7 @@
             "keywords": [
                 "payment,payment provider,payone"
             ],
-            "time": "2013-11-29 17:15:53"
+            "time": "2013-12-02 16:10:24"
         },
         {
             "name": "project-a/sales-package",
@@ -2947,12 +2947,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/zendframework/zf2.git",
-                "reference": "b14c2e0aa107c0683b90da6bfd90d03672803967"
+                "reference": "b52bef4fdfcae66993b5d83b2f7792fc85238e6f"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/zendframework/zf2/zipball/b14c2e0aa107c0683b90da6bfd90d03672803967",
-                "reference": "b14c2e0aa107c0683b90da6bfd90d03672803967",
+                "url": "https://api.github.com/repos/zendframework/zf2/zipball/b52bef4fdfcae66993b5d83b2f7792fc85238e6f",
+                "reference": "b52bef4fdfcae66993b5d83b2f7792fc85238e6f",
                 "shasum": ""
             },
             "require": {
@@ -3057,7 +3057,7 @@
                 "framework",
                 "zf2"
             ],
-            "time": "2013-11-27 22:13:56"
+            "time": "2013-12-02 21:11:04"
         },
         {
             "name": "zendframework/zendpdf",
