@@ -1186,7 +1186,7 @@
             "source": {
                 "type": "git",
                 "url": "git@codebasehq.com:project-a/core/payone.git",
-                "reference": "024b04b95a6e68254e4fc720d1ef7c97de987937"
+                "reference": "e6f81ce9fbf2a8034e454ce872cdc19abbbbdb4c"
             },
             "require": {
                 "php": ">=5.4.0",
@@ -1213,7 +1213,7 @@
             "keywords": [
                 "payment,payment provider,payone"
             ],
-            "time": "2013-12-04 09:49:54"
+            "time": "2013-12-04 10:31:29"
         },
         {
             "name": "project-a/sales-package",
@@ -1221,7 +1221,7 @@
             "source": {
                 "type": "git",
                 "url": "git@codebasehq.com:project-a/core/sales.git",
-                "reference": "1ed3e09a0b262a801061e7af2d787318c234e1e7"
+                "reference": "b2fe619f9a10377f98fc38a542475239e4ef19c3"
             },
             "require": {
                 "php": ">=5.4.0",
@@ -1248,7 +1248,7 @@
                 "Sales",
                 "Task"
             ],
-            "time": "2013-11-24 00:08:16"
+            "time": "2013-12-04 10:17:22"
         },
         {
             "name": "project-a/silex-routing",
