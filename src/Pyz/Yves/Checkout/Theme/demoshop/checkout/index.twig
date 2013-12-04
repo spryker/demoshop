@@ -240,16 +240,30 @@
 <script>
     $('#test_button').on('click', function (e) {
         e.preventDefault();
-        test();
+        performCreditCardCheck();
     });
 </script>
 
 <!-- ********** PAYONE CODE ********** --->
 
+<script>
+    /*
+    $('#salesOrder_save').on('click', function (e) {
+        var method = $("input:radio[name='salesOrder[payment][method]']:checked").val();
+        if(method == 'payment.payone.creditcard_pseudo') {
+            e.preventDefault();
+            performCreditCardCheck();
+        }
+    });
+    */
+</script>
+
+
+
 <script src="/bundles/Payone/payonecreditcardcheck.js"></script>
 
 <script>
-    function test() {
+    function performCreditCardCheck() {
         var payoneConfig = {
             request        : '{{ payoneCreditcardCheckData.request }}',
             mode           : '{{ payoneCreditcardCheckData.mode }}',
@@ -279,8 +293,6 @@
             var pseudoCardPan = response.get('pseudocardpan');
             var truncatedCardPan = response.get('truncatedcardpan');
             $("#salesOrder_payment_creditCardPseudoCardPan").val(pseudoCardPan);
-            console.log('pseudocardpan: ' + pseudoCardPan);
-            console.log('truncatedcardpan: ' + truncatedCardPan);
         } else {
             var message = response.get('errormessage') + "\n" + response.get('customermessage');
             alert(message);
