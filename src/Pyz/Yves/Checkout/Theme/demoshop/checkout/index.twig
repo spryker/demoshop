@@ -144,28 +144,29 @@
                         {{ form_row(form.billingAddress.iso2Country, {attr : {class : 'fullWidth', 'data-src': 'country', 'data-src-type' : 'short'}, label: 'checkout.address.billing.country'}) }}
                     </div>
                 </div>
+
                 <div class="unnecessary primary col col33 secondaryRow">
                     <div class="details" data-associated-paymentmethod="payment.payone.creditcard_pseudo" data-validator-precondition="return $('[name=\'salesOrder[payment][method]\']:checked').val() === 'payment.payone.creditcard_pseudo'">
                         <div class="row">
-                            {{ form_row(form.payment.ccType, {attr : {class : 'fullWidth'}, label : 'checkout.payment.cctype'}) }}
+                            {{ form_row(form.payment.creditCardType, {attr : {class : 'fullWidth'}, label : 'checkout.payment.creditCardType'}) }}
                         </div>
                         <div class="row">
-                            {{ form_row(form.payment.ccCardholder, {attr : {class : 'fullWidth'}, label : 'checkout.payment.ccholder'}) }}
+                            {{ form_row(form.payment.creditCardHolder, {attr : {class : 'fullWidth'}, label : 'checkout.payment.creditCardHolder'}) }}
                         </div>
                         <div class="row">
-                            {{ form_row(form.payment.ccNumber, {attr : {class : 'fullWidth', maxlength : 16}, label : 'checkout.payment.ccnumber'}) }}
+                            {{ form_row(form.payment.creditCardPan, {attr : {class : 'fullWidth', maxlength : 16}, label : 'checkout.payment.creditCardPan'}) }}
                         </div>
                         <div class="row">
                             <div class="multiple">
                                 <div class="col col25">
-                                    {{ form_row(form.payment.ccVerification, {attr : {class : 'fullWidth', maxlength : 3}, label : 'checkout.payment.ccv'}) }}
+                                    {{ form_row(form.payment.creditCardCvc2, {attr : {class : 'fullWidth', maxlength : 3}, label : 'checkout.payment.creditCardCvc2'}) }}
                                 </div>
                                 <div class="col col15">&#160;</div>
                                 <div class="col col30">
-                                    {{ form_row(form.payment.ccExpirationMonth, {attr : {class : 'fullWidth'}, label : 'checkout.payment.ccexpmonth'}) }}
+                                    {{ form_row(form.payment.creditCardExpirationMonth, {attr : {class : 'fullWidth'}, label : 'checkout.payment.creditCardExpirationMonth'}) }}
                                 </div>
                                 <div class="col col30">
-                                    {{ form_row(form.payment.ccExpirationYear, {attr : {class : 'fullWidth'}, label : 'checkout.payment.ccexpyear'}) }}
+                                    {{ form_row(form.payment.creditCardExpirationYear, {attr : {class : 'fullWidth'}, label : 'checkout.payment.creditCardExpirationYear'}) }}
                                 </div>
                             </div>
                         </div>
@@ -173,13 +174,13 @@
 
                     <div class="details" data-associated-paymentmethod="payment.payone.direct_debit" data-validator-precondition="return $('[name=\'salesOrder[payment][method]\']:checked').val() === 'payment.payone.direct_debit'">
                         <div class="row">
-                            {{ form_row(form.payment.DebitHolder, {attr : {class : 'fullWidth', maxlength : 16}, label : 'checkout.payment.debitholder'}) }}
+                            {{ form_row(form.payment.bankAccountHolder, {attr : {class : 'fullWidth', maxlength : 16}, label : 'checkout.payment.bankAccountHolder'}) }}
                         </div>
                         <div class="row">
-                           {{ form_row(form.payment.DebitAccountNumber, {attr : {class : 'fullWidth'}, label : 'checkout.payment.debitaccountnumber'}) }}
+                           {{ form_row(form.payment.bankAccount, {attr : {class : 'fullWidth'}, label : 'checkout.payment.bankAccount'}) }}
                         </div>
                         <div class="row">
-                            {{ form_row(form.payment.DebitBankCodeNumber, {attr : {class : 'fullWidth', maxlength : 16}, label : 'checkout.payment.debitbankcodenumber'}) }}
+                            {{ form_row(form.payment.bankCode, {attr : {class : 'fullWidth', maxlength : 16}, label : 'checkout.payment.bankCode'}) }}
                         </div>
                     </div>
                 </div>
@@ -261,12 +262,12 @@
             storecarddata  : '{{ payoneCreditcardCheckData.storecarddata }}'
         };
         var creditCardData = {
-            ccCardHolder        : $("#salesOrder_payment_ccCardholder").val(),
-            ccNumber            : $("#salesOrder_payment_ccNumber").val(),
-            ccType              : $("#salesOrder_payment_ccType").val(),
-            ccExpirationMonth   : $("#salesOrder_payment_ccExpirationMonth").val(),
-            ccExpirationYear    : $("#salesOrder_payment_ccExpirationYear").val(),
-            ccVerification      : $("#salesOrder_payment_ccVerification").val()
+            ccCardHolder        : $("#salesOrder_payment_creditCardHolder").val(),
+            ccNumber            : $("#salesOrder_payment_creditCardPan").val(),
+            ccType              : $("#salesOrder_payment_creditCardType").val(),
+            ccExpirationMonth   : $("#salesOrder_payment_creditCardExpirationMonth").val(),
+            ccExpirationYear    : $("#salesOrder_payment_creditCardExpirationYear").val(),
+            ccVerification      : $("#salesOrder_payment_creditCardCvc2").val()
         };
         PayoneCreditCardCheck.doRequest(payoneConfig, creditCardData, 'payoneResponseCallback');
     }
@@ -277,7 +278,7 @@
         if (response.get('status') === 'VALID') {
             var pseudoCardPan = response.get('pseudocardpan');
             var truncatedCardPan = response.get('truncatedcardpan');
-            $("#salesOrder_payment_pseudoCcNumber").val(pseudoCardPan);
+            $("#salesOrder_payment_creditCardPseudoCardPan").val(pseudoCardPan);
             console.log('pseudocardpan: ' + pseudoCardPan);
             console.log('truncatedcardpan: ' + truncatedCardPan);
         } else {
