@@ -25,7 +25,7 @@
         "silex/silex": "dev-master as 1.2",
         "aws/aws-sdk-php": "~2.4.0",
         "zendframework/zendframework": "~2.3.0@dev",
-        "symfony/symfony": "2.3.7"
+        "fabpot/php-cs-fixer": "@dev"
     },
     "require-dev": {
         "silex/web-profiler": "~1.0.0",
