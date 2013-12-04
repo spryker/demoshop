@@ -24,7 +24,8 @@
         "solarium/solarium": "~3.1.2",
         "silex/silex": "dev-master as 1.2",
         "aws/aws-sdk-php": "~2.4.0",
-        "zendframework/zendframework": "~2.3.0"
+        "zendframework/zendframework": "~2.3.0@dev",
+        "symfony/symfony": "2.3.7"
     },
     "require-dev": {
         "silex/web-profiler": "~1.0.0",
@@ -38,7 +39,7 @@
         "pdepend/pdepend": "*",
         "phpunit/phpunit": "~3.7.0"
     },
-    "minimum-stability": "dev",
+    "minimum-stability": "stable",
     "prefer-stable": true,
     "config": {
         "use-include-path": true
