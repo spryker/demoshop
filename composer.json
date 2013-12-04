@@ -28,6 +28,7 @@
         "fabpot/php-cs-fixer": "@dev"
     },
     "require-dev": {
+        "symfony/web-profiler-bundle": "~2.3.0",
         "silex/web-profiler": "~1.0.0",
         "behat/behat": "*",
         "sanpi/behatch-contexts": "*",
