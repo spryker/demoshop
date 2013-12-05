@@ -998,7 +998,7 @@
             "source": {
                 "type": "git",
                 "url": "git@codebasehq.com:project-a/core/adyen.git",
-                "reference": "8c9bb5d0493b111939018a6d3ca8c52518ae6ef4"
+                "reference": "ec5c8160598a2607e748a6d882c73bd9cb35affa"
             },
             "require": {
                 "php": ">=5.4.0",
@@ -1023,7 +1023,7 @@
             "keywords": [
                 "adyen payment provider"
             ],
-            "time": "2013-11-20 13:06:37"
+            "time": "2013-12-05 10:08:57"
         },
         {
             "name": "project-a/cart-package",
@@ -1067,7 +1067,7 @@
             "source": {
                 "type": "git",
                 "url": "git@codebasehq.com:project-a/core/catalog.git",
-                "reference": "715db81e6caa6a0a3e205e202826be2657c9da70"
+                "reference": "c6d769ec7a86a2e5c417caa29d3b794b2d4bc419"
             },
             "require": {
                 "php": ">=5.4.0",
@@ -1103,7 +1103,7 @@
                 "Price",
                 "Stock"
             ],
-            "time": "2013-11-26 09:45:13"
+            "time": "2013-12-05 09:52:49"
         },
         {
             "name": "project-a/checkout-package",
@@ -1413,7 +1413,7 @@
             "source": {
                 "type": "git",
                 "url": "git@codebasehq.com:project-a/core/library-2.git",
-                "reference": "32dfec2fd68eaa453795dfc53a484aa2ac2fdc6b"
+                "reference": "210d542c8966efc1848e6e1a2ea00f0c4a242f8c"
             },
             "require": {
                 "digital-canvas/zend-framework": ">=1.12.2",
@@ -1472,7 +1472,7 @@
                 }
             ],
             "description": "Project-A Library",
-            "time": "2013-12-04 15:24:08"
+            "time": "2013-12-05 09:49:55"
         },
         {
             "name": "project-a/lumberjack-package",
@@ -1544,7 +1544,7 @@
             "source": {
                 "type": "git",
                 "url": "git@codebasehq.com:project-a/core/payone.git",
-                "reference": "af8d8cb905d451f311e8a77012f8ced6a4f22733"
+                "reference": "9182004eea7175b25c4455e9081849d7cf9d5f8b"
             },
             "require": {
                 "php": ">=5.4.0",
@@ -1571,7 +1571,7 @@
             "keywords": [
                 "payment,payment provider,payone"
             ],
-            "time": "2013-12-04 14:04:28"
+            "time": "2013-12-05 10:30:42"
         },
         {
             "name": "project-a/sales-package",
@@ -2340,12 +2340,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/zendframework/zf2.git",
-                "reference": "148a88a3c36a63044c20b54886faca4150aac59f"
+                "reference": "447b6523b0827c02a32596890fdf57112c6af700"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/zendframework/zf2/zipball/148a88a3c36a63044c20b54886faca4150aac59f",
-                "reference": "148a88a3c36a63044c20b54886faca4150aac59f",
+                "url": "https://api.github.com/repos/zendframework/zf2/zipball/447b6523b0827c02a32596890fdf57112c6af700",
+                "reference": "447b6523b0827c02a32596890fdf57112c6af700",
                 "shasum": ""
             },
             "require": {
@@ -2450,7 +2450,7 @@
                 "framework",
                 "zf2"
             ],
-            "time": "2013-12-03 20:41:58"
+            "time": "2013-12-04 17:58:11"
         },
         {
             "name": "zendframework/zendpdf",
@@ -2538,20 +2538,20 @@
         },
         {
             "name": "behat/behat",
-            "version": "v2.5.0",
+            "version": "v2.5.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/Behat/Behat.git",
-                "reference": "b7e0e98dd7b50f2fccfbfad0d6495b0e022856b3"
+                "reference": "b688e3c4bd65ef867d2ec0a0cf8e621c166e259b"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Behat/Behat/zipball/b7e0e98dd7b50f2fccfbfad0d6495b0e022856b3",
-                "reference": "b7e0e98dd7b50f2fccfbfad0d6495b0e022856b3",
+                "url": "https://api.github.com/repos/Behat/Behat/zipball/b688e3c4bd65ef867d2ec0a0cf8e621c166e259b",
+                "reference": "b688e3c4bd65ef867d2ec0a0cf8e621c166e259b",
                 "shasum": ""
             },
             "require": {
-                "behat/gherkin": "~2.2.9",
+                "behat/gherkin": "~2.3.0",
                 "php": ">=5.3.1",
                 "symfony/config": "~2.0",
                 "symfony/console": "~2.0",
@@ -2573,11 +2573,6 @@
                 "bin/behat"
             ],
             "type": "library",
-            "extra": {
-                "branch-alias": {
-                    "dev-develop": "2.4-dev"
-                }
-            },
             "autoload": {
                 "psr-0": {
                     "Behat\\Behat": "src/"
@@ -2601,30 +2596,30 @@
                 "Behat",
                 "Symfony2"
             ],
-            "time": "2013-08-11 16:11:33"
+            "time": "2013-11-24 10:17:18"
         },
         {
             "name": "behat/gherkin",
-            "version": "v2.2.9",
+            "version": "v2.3.5",
             "source": {
                 "type": "git",
                 "url": "https://github.com/Behat/Gherkin.git",
-                "reference": "cca2c477921ca38578d6e9759ea5e450f29c2d8f"
+                "reference": "2b33963da5525400573560c173ab5c9c057e1852"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Behat/Gherkin/zipball/cca2c477921ca38578d6e9759ea5e450f29c2d8f",
-                "reference": "cca2c477921ca38578d6e9759ea5e450f29c2d8f",
+                "url": "https://api.github.com/repos/Behat/Gherkin/zipball/2b33963da5525400573560c173ab5c9c057e1852",
+                "reference": "2b33963da5525400573560c173ab5c9c057e1852",
                 "shasum": ""
             },
             "require": {
                 "php": ">=5.3.1",
-                "symfony/finder": ">=2.0,<2.4-dev"
+                "symfony/finder": "~2.0"
             },
             "require-dev": {
-                "symfony/config": ">=2.0,<2.4-dev",
-                "symfony/translation": ">=2.0,<2.4-dev",
-                "symfony/yaml": ">=2.0,<2.4-dev"
+                "symfony/config": "~2.0",
+                "symfony/translation": "~2.0",
+                "symfony/yaml": "~2.0"
             },
             "suggest": {
                 "symfony/config": "If you want to use Config component to manage resources",
@@ -2662,7 +2657,7 @@
                 "Symfony2",
                 "parser"
             ],
-            "time": "2013-03-02 10:38:40"
+            "time": "2013-10-15 11:22:17"
         },
         {
             "name": "behat/mink",
@@ -3173,16 +3168,16 @@
         },
         {
             "name": "pdepend/pdepend",
-            "version": "1.1.1",
+            "version": "1.1.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/pdepend/pdepend.git",
-                "reference": "6fcfb7666c95f341b42f02c94a47b3a51ed484e0"
+                "reference": "1537f19d62d7b30c13ac173270106df7c6b9c459"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/pdepend/pdepend/zipball/6fcfb7666c95f341b42f02c94a47b3a51ed484e0",
-                "reference": "6fcfb7666c95f341b42f02c94a47b3a51ed484e0",
+                "url": "https://api.github.com/repos/pdepend/pdepend/zipball/1537f19d62d7b30c13ac173270106df7c6b9c459",
+                "reference": "1537f19d62d7b30c13ac173270106df7c6b9c459",
                 "shasum": ""
             },
             "require": {
@@ -3192,9 +3187,17 @@
                 "src/bin/pdepend"
             ],
             "type": "library",
+            "autoload": {
+                "psr-0": {
+                    "PHP_": "src/main/php/"
+                }
+            },
             "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "BSD-3-Clause"
+            ],
             "description": "Official version of pdepend to be handled with Composer",
-            "time": "2013-07-25 19:23:48"
+            "time": "2013-12-04 17:46:00"
         },
         {
             "name": "phpunit/php-code-coverage",
