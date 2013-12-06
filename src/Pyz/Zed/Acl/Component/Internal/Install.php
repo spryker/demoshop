@@ -15,50 +15,15 @@ class Install extends CoreInstall
     public function install()
     {
         parent::install();
-        $this->addPayoneUserWithRole($this->createPayoneNotificationRole());
+        $this->addPayoneResourceToGuestRole();
     }
 
-
-    protected function createPayoneNotificationRole()
+    protected function addPayoneResourceToGuestRole()
     {
-        $payoneNotificationRole = $this->addOrCreateDefaultRole('guest', false);
+        $payoneGroup = $this->createDefaultGroup('Payment Transaction');
+        $this->createDefaultResource('/payone\/transaction-status\/set/', $payoneGroup);
 
-        $transactionStatusResource = (new \ProjectA_Zed_Acl_Persistence_PacAclResourceQuery())
-            ->filterByName('payone_transaction-status-controller')
-            ->findOneOrCreate();
-        $transactionStatusResource->save();
-
-        $setPrivilege = (new \ProjectA_Zed_Acl_Persistence_PacAclPrivilegeQuery())
-            ->filterByName('process')
-            ->filterByAclResource($transactionStatusResource)
-            ->findOneOrCreate();
-        $setPrivilege->save();
-
-        (new \ProjectA_Zed_Acl_Persistence_PacAclRolePrivilegeQuery())
-            ->filterByAclPrivilege($setPrivilege)
-            ->filterByAclResource($transactionStatusResource)
-            ->filterByAclRole($payoneNotificationRole)
-            ->findOneOrCreate()
-            ->save();
-
-        return $payoneNotificationRole;
+        $guest = \ProjectA_Zed_Acl_Persistence_PacAclRoleQuery::create()->filterByUsername('guest')->findOne();
+        $this->createDefaultGroupPrivileges($guest, $payoneGroup);
     }
-
-    protected function addPayoneUserWithRole(\ProjectA_Zed_Acl_Persistence_PacAclRole $role)
-    {
-        $payoneUser = (new \ProjectA_Zed_Acl_Persistence_PacAclUserQuery())
-            ->filterByUsername(self::PAYONE_USERNAME)->findOne();
-        if (!$payoneUser) {
-            \Generated_Zed_EntityLoader::loadPacAclUser()
-                ->setFirstname('Payone')
-                ->setLastname('GmbH')
-                ->setUsername(self::PAYONE_USERNAME)
-                ->setEmail('')
-                ->setIsDefault(true)
-                ->setFkAclRole($role->getPrimaryKey())
-                ->setPassword($this->passwordManager->hash('6tAChEp=ufr5D+#!e5eB'))
-                ->save();
-        }
-    }
-
 }
