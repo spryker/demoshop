@@ -2,11 +2,14 @@
 
 {% block content %}
 
+
     <link rel="stylesheet" href="/styles/checkout.css" />
     <script src="/scripts/app/checkout.js"></script>
 
 
     <section class="consumeHeight" id="checkout">
+
+        {% include "@application/partials/flash_bag.twig" %}
 
         {{ form_start(form, {attr: {class: 'smartAddressForm', novalidate: 'novalidate'}}) }}
 

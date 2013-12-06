@@ -11,6 +11,10 @@ module.exports = function ( grunt ) {
         .filterDev( 'grunt-contrib*' )
         .forEach( grunt.loadNpmTasks );
 
+    function packageDestRename( dest, src ) {
+        return  dest + src.replace( /([\\\/]?([\w-_]+[\\\/])*([\w-_]+)[\\\/]static)/i, '$3' );
+    }
+
     grunt.initConfig({
 
         yvesDirectories : {
@@ -18,7 +22,8 @@ module.exports = function ( grunt ) {
             'configPHP': 'config/Zed/config_assets.php',
             'config': 'config/Zed/',
             'src': 'vendor/project-a/infrastructure-package/src/ProjectA/Zed/Application/Static/',
-            'dist': 'static/public/Zed/new'
+            'dist': 'static/public/Zed/new',
+            'yvesDist': 'static/public/Yves/bundles'
         },
 
         zedDirectories : {
@@ -123,6 +128,32 @@ module.exports = function ( grunt ) {
 
                     }
                 ]
+            },
+            packagesYves : {
+                files : [
+                    {
+                        expand : true,
+                        cwd    : '<%= zedDirectories.pkg %>/',
+                        src    : [
+                            '**/{Shared,Yves}/*/Static/**/*'
+                        ],
+                        dest   : '<%= yvesDirectories.yvesDist %>/',
+                        rename : packageDestRename
+                    }
+                ]
+            },
+            packagesZed : {
+                files : [
+                    {
+                        expand : true,
+                        cwd    : '<%= zedDirectories.pkg %>/',
+                        src    : [
+                            '**/{Shared,Zed}/*/Static/**/*'
+                        ],
+                        dest   : '<%= zedDirectories.dist %>/',
+                        rename : packageDestRename
+                    }
+                ]
             }
         },
 
@@ -224,7 +255,8 @@ module.exports = function ( grunt ) {
         'copy:vendorScripts',
         'copy:fonts',
         'copy:images',
-        'copy:packages'
+        'copy:packagesYves',
+        'copy:packagesZed'
     ]);
 
     // grunt for development
@@ -239,7 +271,8 @@ module.exports = function ( grunt ) {
         'copy:vendorScripts',
         'copy:fonts',
         'copy:images',
-        'copy:packages',
+        'copy:packagesYves',
+        'copy:packagesZed',
         'watch'
     ]);
 
@@ -254,7 +287,8 @@ module.exports = function ( grunt ) {
         'copy:vendorScripts',
         'copy:fonts',
         'copy:images',
-        'copy:packages'
+        'copy:packagesYves',
+        'copy:packagesZed'
     ]);
 
     // grunt [default]

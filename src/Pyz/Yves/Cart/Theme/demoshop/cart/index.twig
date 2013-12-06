@@ -6,6 +6,7 @@
     <script src="/scripts/app/cart.js"></script>
 
     <section class="consumeHeight" id="cart">
+            {% include "@application/partials/flash_bag.twig" %}
             {% if cartItems|length %}
             <a class="continue" href="{{ url('checkout') }}">{{ 'cart.to.checkout'|trans }}</a>
             {% endif %}
