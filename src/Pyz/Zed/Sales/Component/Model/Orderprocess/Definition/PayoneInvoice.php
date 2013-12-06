@@ -44,7 +44,7 @@ class PayoneInvoice extends \ProjectA_Zed_Sales_Component_Model_Orderprocess_Def
 
     protected function addTransitions()
     {
-        $this->setup->addTransition(self::STATE_PAYONE_WAITING_FOR_RECEIPT_OF_PAYMENT, self::STATE_CLOSED, self::EVENT_PAYONE_TRANSACTION_STATUS_PAID_RECEIVED);
+
     }
 
     protected function addDefinitions()
@@ -70,7 +70,6 @@ class PayoneInvoice extends \ProjectA_Zed_Sales_Component_Model_Orderprocess_Def
 
         $this->setStatesMetaInfo(
             [
-                self::STATE_PAYONE_WAITING_FOR_RECEIPT_OF_PAYMENT,
                 self::STATE_CLOSED
             ], 'group', $this->getName() . ' Invoice End');
 
@@ -89,8 +88,8 @@ class PayoneInvoice extends \ProjectA_Zed_Sales_Component_Model_Orderprocess_Def
     protected function addSubProcessConnections()
     {
         $this->setup->addTransition(self::STATE_NEW, self::STATE_PAYONE_INIT_PAYMENT, self::EVENT_ON_ENTER);
-        $this->setup->addTransition(self::STATE_PAYONE_PAYMENT_PREAUTHORIZED, self::STATE_PAYONE_INIT_CAPTURE, self::EVENT_ON_ENTER);
-        $this->setup->addTransition(self::STATE_PAYONE_CAPTURED, self::STATE_PAYONE_WAITING_FOR_RECEIPT_OF_PAYMENT, self::EVENT_ON_ENTER);
+        $this->setup->addTransition(self::STATE_PAYONE_WAITING_FOR_RECEIPT_OF_PAYMENT, self::STATE_PAYONE_INIT_CAPTURE, self::EVENT_PAYONE_TRANSACTION_STATUS_PAID_RECEIVED);
+        $this->setup->addTransition(self::STATE_PAYONE_CAPTURED, self::STATE_CLOSED, self::EVENT_ON_ENTER);
         $this->setup->addTransitionManual(self::STATE_CLOSED, self::STATE_DEMO_A, self::EVENT_DEMO_START_TEST);
     }
 
