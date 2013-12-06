@@ -34,4 +34,5 @@ return array(
     APPLICATION_VENDOR_DIR . '/project-a/adyen-package/src/ProjectA/Zed/Adyen/Persistence/pac_adyen.schema.xml',
     APPLICATION_VENDOR_DIR . '/project-a/sales-package/src/ProjectA/Zed/Sales/Persistence/pac_sales.schema.xml',
     APPLICATION_VENDOR_DIR . '/project-a/glossary-package/src/ProjectA/Zed/Glossary/Persistence/pac_glossary.schema.xml',
+    APPLICATION_VENDOR_DIR . '/project-a/marketing-package/src/ProjectA/Zed/Mcm/Persistence/pac_mcm.schema.xml',
 );
