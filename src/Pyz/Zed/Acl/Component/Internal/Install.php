@@ -21,7 +21,7 @@ class Install extends CoreInstall
     protected function addPayoneResourceToGuestRole()
     {
         $payoneGroup = $this->createDefaultGroup('Payment Transaction');
-        $this->createDefaultResource('/payone\/transaction-status\/set/', $payoneGroup);
+        $this->createDefaultResource('/payone\/transaction-status\/set\/*/', $payoneGroup);
 
         $guest = \ProjectA_Zed_Acl_Persistence_PacAclRoleQuery::create()->filterByName('Guest')->findOne();
         $this->createDefaultGroupPrivileges($guest, $payoneGroup);
