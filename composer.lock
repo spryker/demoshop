@@ -620,7 +620,7 @@
             "source": {
                 "type": "git",
                 "url": "git@codebasehq.com:project-a/core/acl.git",
-                "reference": "61f70d9600612ea39a47f742e2789f20a955f306"
+                "reference": "220095c028ead50eee3ee5409d24b8bbb1b8a0a4"
             },
             "require": {
                 "php": ">=5.4.0",
@@ -649,7 +649,7 @@
                 "login",
                 "usermanagement"
             ],
-            "time": "2013-12-04 14:08:35"
+            "time": "2013-12-06 08:39:31"
         },
         {
             "name": "project-a/adyen-package",
@@ -657,7 +657,7 @@
             "source": {
                 "type": "git",
                 "url": "git@codebasehq.com:project-a/core/adyen.git",
-                "reference": "8c9bb5d0493b111939018a6d3ca8c52518ae6ef4"
+                "reference": "ec5c8160598a2607e748a6d882c73bd9cb35affa"
             },
             "require": {
                 "php": ">=5.4.0",
@@ -682,7 +682,7 @@
             "keywords": [
                 "adyen payment provider"
             ],
-            "time": "2013-11-20 13:06:37"
+            "time": "2013-12-05 10:08:57"
         },
         {
             "name": "project-a/cart-package",
@@ -808,21 +808,26 @@
             "source": {
                 "type": "git",
                 "url": "git@codebasehq.com:project-a/core/console.git",
-                "reference": "4464d33ee7a8a7a28dcad67a2c78cc95d52c7890"
+                "reference": "7f3da0ec47869fb43eca62b235e3b0b8e0ec27c6"
             },
             "require": {
                 "fabpot/php-cs-fixer": "dev-master",
                 "php": ">=5.4.0",
                 "project-a/library-package": "~2.0",
-                "symfony/console": "~2.3.0",
-                "symfony/filesystem": "~2.3.0",
-                "symfony/finder": "~2.3.0",
-                "symfony/process": "~2.3.0"
+                "symfony/console": ">=2.3,<2.5-dev",
+                "symfony/filesystem": ">=2.3,<2.5-dev",
+                "symfony/finder": ">=2.3,<2.5-dev",
+                "symfony/process": ">=2.3,<2.5-dev"
             },
             "bin": [
                 "bin/console"
             ],
             "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "2.1.x-dev"
+                }
+            },
             "autoload": {
                 "psr-0": {
                     "ProjectA": "src/",
@@ -842,7 +847,7 @@
             "keywords": [
                 "console"
             ],
-            "time": "2013-12-04 15:39:48"
+            "time": "2013-12-05 20:48:13"
         },
         {
             "name": "project-a/content-package",
@@ -951,7 +956,7 @@
             "source": {
                 "type": "git",
                 "url": "git@codebasehq.com:project-a/core/frontend.git",
-                "reference": "5adfd5abc1d8d9ba946404b3c9dc20b6181bcb0d"
+                "reference": "aacca5871eae17fa091dc5fc40cf85b0b4559d0c"
             },
             "require": {
                 "php": ">=5.4.0",
@@ -975,7 +980,7 @@
             "keywords": [
                 "Frontend"
             ],
-            "time": "2013-11-29 14:11:48"
+            "time": "2013-12-05 14:51:49"
         },
         {
             "name": "project-a/glossary-package",
@@ -1201,7 +1206,7 @@
             "source": {
                 "type": "git",
                 "url": "git@codebasehq.com:project-a/core/payone.git",
-                "reference": "af8d8cb905d451f311e8a77012f8ced6a4f22733"
+                "reference": "48b3eb8f7a780e89445d4649ff7a7805e0cc1dd1"
             },
             "require": {
                 "php": ">=5.4.0",
@@ -1228,7 +1233,7 @@
             "keywords": [
                 "payment,payment provider,payone"
             ],
-            "time": "2013-12-04 14:04:28"
+            "time": "2013-12-05 16:18:31"
         },
         {
             "name": "project-a/sales-package",
@@ -3371,12 +3376,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/zendframework/zf2.git",
-                "reference": "148a88a3c36a63044c20b54886faca4150aac59f"
+                "reference": "88480e7e28f72123ad84ab57602f131fa5aaf587"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/zendframework/zf2/zipball/148a88a3c36a63044c20b54886faca4150aac59f",
-                "reference": "148a88a3c36a63044c20b54886faca4150aac59f",
+                "url": "https://api.github.com/repos/zendframework/zf2/zipball/88480e7e28f72123ad84ab57602f131fa5aaf587",
+                "reference": "88480e7e28f72123ad84ab57602f131fa5aaf587",
                 "shasum": ""
             },
             "require": {
@@ -3481,7 +3486,7 @@
                 "framework",
                 "zf2"
             ],
-            "time": "2013-12-03 20:41:58"
+            "time": "2013-12-05 20:50:12"
         },
         {
             "name": "zendframework/zendpdf",
@@ -4199,16 +4204,16 @@
         },
         {
             "name": "pdepend/pdepend",
-            "version": "1.1.1",
+            "version": "1.1.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/pdepend/pdepend.git",
-                "reference": "6fcfb7666c95f341b42f02c94a47b3a51ed484e0"
+                "reference": "1537f19d62d7b30c13ac173270106df7c6b9c459"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/pdepend/pdepend/zipball/6fcfb7666c95f341b42f02c94a47b3a51ed484e0",
-                "reference": "6fcfb7666c95f341b42f02c94a47b3a51ed484e0",
+                "url": "https://api.github.com/repos/pdepend/pdepend/zipball/1537f19d62d7b30c13ac173270106df7c6b9c459",
+                "reference": "1537f19d62d7b30c13ac173270106df7c6b9c459",
                 "shasum": ""
             },
             "require": {
@@ -4218,9 +4223,17 @@
                 "src/bin/pdepend"
             ],
             "type": "library",
+            "autoload": {
+                "psr-0": {
+                    "PHP_": "src/main/php/"
+                }
+            },
             "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "BSD-3-Clause"
+            ],
             "description": "Official version of pdepend to be handled with Composer",
-            "time": "2013-07-25 19:23:48"
+            "time": "2013-12-04 17:46:00"
         },
         {
             "name": "phpunit/php-code-coverage",
