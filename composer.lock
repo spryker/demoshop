@@ -1149,21 +1149,26 @@
             "source": {
                 "type": "git",
                 "url": "git@codebasehq.com:project-a/core/console.git",
-                "reference": "4464d33ee7a8a7a28dcad67a2c78cc95d52c7890"
+                "reference": "7f3da0ec47869fb43eca62b235e3b0b8e0ec27c6"
             },
             "require": {
                 "fabpot/php-cs-fixer": "dev-master",
                 "php": ">=5.4.0",
                 "project-a/library-package": "~2.0",
-                "symfony/console": "~2.3.0",
-                "symfony/filesystem": "~2.3.0",
-                "symfony/finder": "~2.3.0",
-                "symfony/process": "~2.3.0"
+                "symfony/console": ">=2.3,<2.5-dev",
+                "symfony/filesystem": ">=2.3,<2.5-dev",
+                "symfony/finder": ">=2.3,<2.5-dev",
+                "symfony/process": ">=2.3,<2.5-dev"
             },
             "bin": [
                 "bin/console"
             ],
             "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "2.1.x-dev"
+                }
+            },
             "autoload": {
                 "psr-0": {
                     "ProjectA": "src/",
@@ -1183,7 +1188,7 @@
             "keywords": [
                 "console"
             ],
-            "time": "2013-12-04 15:39:48"
+            "time": "2013-12-05 20:48:13"
         },
         {
             "name": "project-a/content-package",
@@ -1324,11 +1329,11 @@
             "source": {
                 "type": "git",
                 "url": "git@codebasehq.com:project-a/core/glossary.git",
-                "reference": "ae7c85660cc9f964a92a0d888373ecf623ae472b"
+                "reference": "942b0eba77764af0539f977345e2a0a514c24913"
             },
             "require": {
                 "php": ">=5.4.0",
-                "symfony/yaml": "~2.3.0"
+                "symfony/yaml": ">=2.3,<2.5-dev"
             },
             "type": "library",
             "autoload": {
@@ -1349,7 +1354,7 @@
                 "i18n",
                 "translation"
             ],
-            "time": "2013-11-20 13:06:38"
+            "time": "2013-12-05 20:40:15"
         },
         {
             "name": "project-a/infrastructure-package",
@@ -1413,7 +1418,7 @@
             "source": {
                 "type": "git",
                 "url": "git@codebasehq.com:project-a/core/library-2.git",
-                "reference": "210d542c8966efc1848e6e1a2ea00f0c4a242f8c"
+                "reference": "b1d9b0574c416c01d0f33f6534a2587a70c34d7f"
             },
             "require": {
                 "digital-canvas/zend-framework": ">=1.12.2",
@@ -1426,31 +1431,7 @@
                 "project-a/lumberjack-package": "~2.0",
                 "project-a/silex-routing": "~1.0.0",
                 "silex/silex": "~1.2.0",
-                "symfony/browser-kit": "~2.3.0",
-                "symfony/class-loader": "~2.3.0",
-                "symfony/config": "~2.3.0",
-                "symfony/console": "~2.3.0",
-                "symfony/css-selector": "~2.3.0",
-                "symfony/debug": "~2.3.0",
-                "symfony/dependency-injection": "~2.3.0",
-                "symfony/dom-crawler": "~2.3.0",
-                "symfony/event-dispatcher": "~2.3.0",
-                "symfony/filesystem": "~2.3.0",
-                "symfony/finder": "~2.3.0",
-                "symfony/form": "~2.3.0",
-                "symfony/http-foundation": "~2.3.0",
-                "symfony/intl": "~2.3.0",
-                "symfony/monolog-bridge": "~2.3.0",
-                "symfony/options-resolver": "~2.3.0",
-                "symfony/process": "~2.3.0",
-                "symfony/property-access": "~2.3.0",
-                "symfony/routing": "~2.3.0",
-                "symfony/security": "~2.3.0",
-                "symfony/serializer": "~2.3.0",
-                "symfony/stopwatch": "~2.3.0",
-                "symfony/translation": "~2.3.0",
-                "symfony/twig-bridge": "~2.3.0",
-                "symfony/validator": "~2.3.0",
+                "symfony/symfony": ">=2.3,<2.5-dev",
                 "twig/twig": "~1.14.0",
                 "zendframework/zend-code": "~2.3.0",
                 "zendframework/zendpdf": "~2.0.0"
@@ -1472,7 +1453,7 @@
                 }
             ],
             "description": "Project-A Library",
-            "time": "2013-12-05 09:49:55"
+            "time": "2013-12-06 09:07:03"
         },
         {
             "name": "project-a/lumberjack-package",
@@ -1544,7 +1525,7 @@
             "source": {
                 "type": "git",
                 "url": "git@codebasehq.com:project-a/core/payone.git",
-                "reference": "48b3eb8f7a780e89445d4649ff7a7805e0cc1dd1"
+                "reference": "aa6cfb32a9e3f2ce9720129b18491805419bf9e6"
             },
             "require": {
                 "php": ">=5.4.0",
@@ -1571,7 +1552,7 @@
             "keywords": [
                 "payment,payment provider,payone"
             ],
-            "time": "2013-12-05 16:18:31"
+            "time": "2013-12-06 09:08:21"
         },
         {
             "name": "project-a/sales-package",
@@ -2346,12 +2327,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/zendframework/zf2.git",
-                "reference": "447b6523b0827c02a32596890fdf57112c6af700"
+                "reference": "88480e7e28f72123ad84ab57602f131fa5aaf587"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/zendframework/zf2/zipball/447b6523b0827c02a32596890fdf57112c6af700",
-                "reference": "447b6523b0827c02a32596890fdf57112c6af700",
+                "url": "https://api.github.com/repos/zendframework/zf2/zipball/88480e7e28f72123ad84ab57602f131fa5aaf587",
+                "reference": "88480e7e28f72123ad84ab57602f131fa5aaf587",
                 "shasum": ""
             },
             "require": {
@@ -2456,7 +2437,7 @@
                 "framework",
                 "zf2"
             ],
-            "time": "2013-12-04 17:58:11"
+            "time": "2013-12-05 20:50:12"
         },
         {
             "name": "zendframework/zendpdf",
