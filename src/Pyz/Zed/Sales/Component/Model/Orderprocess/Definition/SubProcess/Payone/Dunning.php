@@ -11,7 +11,7 @@ use ProjectA\Zed\Payone\Component\Model\Zed\StateMachine\StateMachineConstants a
  * @property \Generated\Zed\Sales\Component\SalesFactory $factory
  * @property \ProjectA_Zed_Sales_Component_Model_Orderprocess_StateMachine_Setup $setup
  */
-class Invoice
+class Dunning
     extends \ProjectA_Zed_Sales_Component_Model_Orderprocess_Definition_Abstract
         implements PayoneFacadeInterface, Orderprocess, PayoneStateMachineConstants
 {
@@ -21,7 +21,7 @@ class Invoice
     /**
      * @param string $processName
      */
-    public function __construct($processName = 'Payment Invoice Subprocess (Payone)')
+    public function __construct($processName = 'Payment Dunning Subprocess (Payone)')
     {
         parent::__construct($processName);
     }
@@ -37,16 +37,12 @@ class Invoice
 
     protected function addTransitions()
     {
-        $this->setup->addTransition(self::STATE_PAYONE_INIT_PAYMENT, self::STATE_PAYONE_WAITING_FOR_PREAUTHORIZATION_APPOINTMENT, self::EVENT_ON_ENTER, self::RULE_PAYONE_TRANSACTION_APPROVED);
-        $this->setup->addTransition(self::STATE_PAYONE_INIT_PAYMENT, self::STATE_PAYONE_PAYMENT_INVALID, self::EVENT_ON_ENTER);
-        $this->setup->addTransition(self::STATE_PAYONE_WAITING_FOR_PREAUTHORIZATION_APPOINTMENT, self::STATE_PAYONE_PAYMENT_PREAUTHORIZED, self::EVENT_PAYONE_TRANSACTION_STATUS_APPOINTED_RECEIVED);
-        $this->setup->setTimeout(self::STATE_PAYONE_WAITING_FOR_PREAUTHORIZATION_APPOINTMENT, self::STATE_PAYONE_PAYMENT_INVALID, '1 day');
+
     }
 
     protected function addCommands()
     {
-        $payonePreAuthorizeCommand = $this->facadePayone->createFacadeStateMachine()->getCommandPreAuthorizeGrandTotal();
-        $this->setup->addCommand(self::STATE_PAYONE_INIT_PAYMENT, self::EVENT_ON_ENTER, $payonePreAuthorizeCommand);
+
     }
 
     protected function addFlags()
@@ -56,11 +52,7 @@ class Invoice
     protected function addMetaInfo()
     {
         $groupStates = [
-            self::STATE_PAYONE_INIT_PAYMENT,
-            self::STATE_PAYONE_WAITING_FOR_PREAUTHORIZATION_APPOINTMENT,
-            self::STATE_PAYONE_PAYMENT_INVALID,
-            self::STATE_PAYONE_PAYMENT_PREAUTHORIZED
-
+            self::STATE_PAYONE_INIT_DUNNING
         ];
 
         foreach ($groupStates as $groupState) {
