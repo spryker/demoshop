@@ -15,7 +15,7 @@
         "project-a/kendo-package": "dev-master",
         "project-a/library-package": "dev-master as 2.1.0",
         "project-a/lumberjack-package": "2.0.0.x-dev as 2.0.0",
-        "project-a/payment-package": "2.0.0.x-dev as 2.1.0",
+        "project-a/payment-package": "dev-feature/payment-refactor-accounting as 2.1.0",
         "project-a/payone-package": "dev-master as 1.0.0",
         "project-a/marketing-package": "2.0.0",
         "project-a/sales-package": "2.0.0.x-dev as 2.1.0",

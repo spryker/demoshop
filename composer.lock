@@ -3,7 +3,7 @@
         "This file locks the dependencies of your project to a known state",
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file"
     ],
-    "hash": "76aa702cdbe3ba0b9c5d5e20852885e4",
+    "hash": "cd20bd2a4c248f47da5e8340a1a0c559",
     "packages": [
         {
             "name": "aws/aws-sdk-php",
@@ -524,12 +524,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/fabpot/PHP-CS-Fixer.git",
-                "reference": "d9d8caca94de34ef9d1ee80d30f3a36650155ba2"
+                "reference": "2910b9664f64d8f01341049e58615e86723fd42e"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/fabpot/PHP-CS-Fixer/zipball/d9d8caca94de34ef9d1ee80d30f3a36650155ba2",
-                "reference": "d9d8caca94de34ef9d1ee80d30f3a36650155ba2",
+                "url": "https://api.github.com/repos/fabpot/PHP-CS-Fixer/zipball/2910b9664f64d8f01341049e58615e86723fd42e",
+                "reference": "2910b9664f64d8f01341049e58615e86723fd42e",
                 "shasum": ""
             },
             "require": {
@@ -564,7 +564,7 @@
                 }
             ],
             "description": "A script to automatically fix Symfony Coding Standard",
-            "time": "2013-11-28 08:29:52"
+            "time": "2013-12-07 18:38:58"
         },
         {
             "name": "gavroche/browser",
@@ -961,7 +961,7 @@
             "source": {
                 "type": "git",
                 "url": "git@codebasehq.com:project-a/core/acl.git",
-                "reference": "e36fa87a28e080d8649b9f76b20717c82492e80c"
+                "reference": "ea7f1f027b2df383e5e2fbf86639d8ca59d60d03"
             },
             "require": {
                 "php": ">=5.4.0",
@@ -990,7 +990,7 @@
                 "login",
                 "usermanagement"
             ],
-            "time": "2013-12-06 14:49:15"
+            "time": "2013-12-09 16:35:23"
         },
         {
             "name": "project-a/adyen-package",
@@ -1067,7 +1067,7 @@
             "source": {
                 "type": "git",
                 "url": "git@codebasehq.com:project-a/core/catalog.git",
-                "reference": "2a73e9ad5169176c080cd2756e826b052d8bc1ce"
+                "reference": "97bd780d612ac87efd18d31021dbc9a30e014fe3"
             },
             "require": {
                 "php": ">=5.4.0",
@@ -1103,7 +1103,7 @@
                 "Price",
                 "Stock"
             ],
-            "time": "2013-12-06 10:50:23"
+            "time": "2013-12-09 13:39:50"
         },
         {
             "name": "project-a/checkout-package",
@@ -1418,7 +1418,7 @@
             "source": {
                 "type": "git",
                 "url": "git@codebasehq.com:project-a/core/library-2.git",
-                "reference": "6cd47f3947b032b007f539179a2b9a145e9a6135"
+                "reference": "540dfa8f8864cef22d3ec72546f74ad8e8ee14df"
             },
             "require": {
                 "digital-canvas/zend-framework": ">=1.12.2",
@@ -1453,7 +1453,7 @@
                 }
             ],
             "description": "Project-A Library",
-            "time": "2013-12-06 14:24:53"
+            "time": "2013-12-09 14:26:09"
         },
         {
             "name": "project-a/lumberjack-package",
@@ -1534,11 +1534,11 @@
         },
         {
             "name": "project-a/payment-package",
-            "version": "2.0.0.x-dev",
+            "version": "dev-feature/payment-refactor-accounting",
             "source": {
                 "type": "git",
                 "url": "git@codebasehq.com:project-a/core/payment.git",
-                "reference": "8011f0e6b1b9534d96e6a98c999f10e14766e54d"
+                "reference": "4d59e660b007a54b6f7a2cda442dd74b85e760fd"
             },
             "require": {
                 "php": ">=5.4.0"
@@ -1561,7 +1561,7 @@
             "keywords": [
                 "payment, payment provider"
             ],
-            "time": "2013-12-04 16:28:40"
+            "time": "2013-12-10 09:03:57"
         },
         {
             "name": "project-a/payone-package",
@@ -1569,7 +1569,7 @@
             "source": {
                 "type": "git",
                 "url": "git@codebasehq.com:project-a/core/payone.git",
-                "reference": "20f72cbc6a867c3fd56a5eff571d1294de2f5e6b"
+                "reference": "852706d93de50c04b3f0fa7d9914a1d6222ac457"
             },
             "require": {
                 "php": ">=5.4.0",
@@ -1596,7 +1596,7 @@
             "keywords": [
                 "payment,payment provider,payone"
             ],
-            "time": "2013-12-06 13:25:15"
+            "time": "2013-12-10 08:52:47"
         },
         {
             "name": "project-a/sales-package",
@@ -1793,13 +1793,13 @@
             "version": "1.0.0",
             "source": {
                 "type": "git",
-                "url": "https://github.com/php-fig/log",
-                "reference": "1.0.0"
+                "url": "https://github.com/php-fig/log.git",
+                "reference": "fe0936ee26643249e916849d48e3a51d5f5e278b"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://github.com/php-fig/log/archive/1.0.0.zip",
-                "reference": "1.0.0",
+                "url": "https://api.github.com/repos/php-fig/log/zipball/fe0936ee26643249e916849d48e3a51d5f5e278b",
+                "reference": "fe0936ee26643249e916849d48e3a51d5f5e278b",
                 "shasum": ""
             },
             "type": "library",
@@ -2376,12 +2376,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/zendframework/zf2.git",
-                "reference": "88480e7e28f72123ad84ab57602f131fa5aaf587"
+                "reference": "fdae81fc3a142853bc7aa7dae1b390cf41852b8c"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/zendframework/zf2/zipball/88480e7e28f72123ad84ab57602f131fa5aaf587",
-                "reference": "88480e7e28f72123ad84ab57602f131fa5aaf587",
+                "url": "https://api.github.com/repos/zendframework/zf2/zipball/fdae81fc3a142853bc7aa7dae1b390cf41852b8c",
+                "reference": "fdae81fc3a142853bc7aa7dae1b390cf41852b8c",
                 "shasum": ""
             },
             "require": {
@@ -2486,7 +2486,7 @@
                 "framework",
                 "zf2"
             ],
-            "time": "2013-12-05 20:50:12"
+            "time": "2013-12-07 17:06:57"
         },
         {
             "name": "zendframework/zendpdf",
@@ -2701,17 +2701,17 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/Behat/Mink.git",
-                "reference": "0769e6d9726c140a54dbf827a438c0f9912749fe"
+                "reference": "v1.5.0"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Behat/Mink/zipball/0769e6d9726c140a54dbf827a438c0f9912749fe",
-                "reference": "0769e6d9726c140a54dbf827a438c0f9912749fe",
+                "url": "https://api.github.com/repos/Behat/Mink/zipball/v1.5.0",
+                "reference": "v1.5.0",
                 "shasum": ""
             },
             "require": {
                 "php": ">=5.3.1",
-                "symfony/css-selector": "~2.0"
+                "symfony/css-selector": ">=2.0,<3.0"
             },
             "suggest": {
                 "behat/mink-browserkit-driver": "extremely fast headless driver for Symfony\\Kernel-based apps (Sf2, Silex)",
@@ -2916,19 +2916,19 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/Behat/MinkSeleniumDriver.git",
-                "reference": "a782b031cb8a94b449b9ccecdcd0e79206bbc882"
+                "reference": "v1.1.0"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Behat/MinkSeleniumDriver/zipball/a782b031cb8a94b449b9ccecdcd0e79206bbc882",
-                "reference": "a782b031cb8a94b449b9ccecdcd0e79206bbc882",
+                "url": "https://api.github.com/repos/Behat/MinkSeleniumDriver/zipball/v1.1.0",
+                "reference": "v1.1.0",
                 "shasum": ""
             },
             "require": {
-                "alexandresalome/php-selenium": "~1.0.1",
-                "behat/mink": "~1.5.0",
+                "alexandresalome/php-selenium": ">=1.0.1,<1.1",
+                "behat/mink": ">=1.5,<1.6",
                 "php": ">=5.3.1",
-                "symfony/dom-crawler": "~2.0"
+                "symfony/dom-crawler": ">=2.0,<3.0"
             },
             "type": "mink-driver",
             "extra": {
@@ -2969,17 +2969,17 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/Behat/MinkSelenium2Driver.git",
-                "reference": "bcf1b537de37db6db0822d9e7bd97e600fd7a476"
+                "reference": "v1.1.1"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Behat/MinkSelenium2Driver/zipball/bcf1b537de37db6db0822d9e7bd97e600fd7a476",
-                "reference": "bcf1b537de37db6db0822d9e7bd97e600fd7a476",
+                "url": "https://api.github.com/repos/Behat/MinkSelenium2Driver/zipball/v1.1.1",
+                "reference": "v1.1.1",
                 "shasum": ""
             },
             "require": {
-                "behat/mink": "~1.5.0",
-                "instaclick/php-webdriver": "~1.0.12",
+                "behat/mink": ">=1.5,<1.6",
+                "instaclick/php-webdriver": ">=1.0.12.0,<1.1",
                 "php": ">=5.3.1"
             },
             "type": "mink-driver",
@@ -3137,16 +3137,16 @@
         },
         {
             "name": "justinrainbow/json-schema",
-            "version": "1.3.3",
+            "version": "1.3.4",
             "source": {
                 "type": "git",
                 "url": "https://github.com/justinrainbow/json-schema.git",
-                "reference": "56fe099669ff3ec3be859ec02e3da965a720184d"
+                "reference": "ad8b959e5962624004738d50a2d8e83c5668e143"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/justinrainbow/json-schema/zipball/56fe099669ff3ec3be859ec02e3da965a720184d",
-                "reference": "56fe099669ff3ec3be859ec02e3da965a720184d",
+                "url": "https://api.github.com/repos/justinrainbow/json-schema/zipball/ad8b959e5962624004738d50a2d8e83c5668e143",
+                "reference": "ad8b959e5962624004738d50a2d8e83c5668e143",
                 "shasum": ""
             },
             "require": {
@@ -3154,7 +3154,8 @@
             },
             "require-dev": {
                 "json-schema/json-schema-test-suite": "1.1.0",
-                "phpunit/phpunit": "~3.7.0"
+                "phpdocumentor/phpdocumentor": "~2",
+                "phpunit/phpunit": "~3.7"
             },
             "bin": [
                 "bin/validate-json"
@@ -3200,7 +3201,7 @@
                 "json",
                 "schema"
             ],
-            "time": "2013-07-22 15:15:25"
+            "time": "2013-12-08 21:17:57"
         },
         {
             "name": "pdepend/pdepend",
@@ -3346,13 +3347,13 @@
             "version": "1.1.4",
             "source": {
                 "type": "git",
-                "url": "https://github.com/sebastianbergmann/php-text-template.git",
-                "reference": "5180896f51c5b3648ac946b05f9ec02be78a0b23"
+                "url": "git://github.com/sebastianbergmann/php-text-template.git",
+                "reference": "1.1.4"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sebastianbergmann/php-text-template/zipball/5180896f51c5b3648ac946b05f9ec02be78a0b23",
-                "reference": "5180896f51c5b3648ac946b05f9ec02be78a0b23",
+                "url": "https://github.com/sebastianbergmann/php-text-template/zipball/1.1.4",
+                "reference": "1.1.4",
                 "shasum": ""
             },
             "require": {
@@ -3383,7 +3384,7 @@
             "keywords": [
                 "template"
             ],
-            "time": "2012-10-31 18:15:28"
+            "time": "2012-10-31 11:15:28"
         },
         {
             "name": "phpunit/php-timer",
@@ -3757,7 +3758,7 @@
         {
             "alias": "2.1.0",
             "alias_normalized": "2.1.0.0",
-            "version": "2.0.0.9999999-dev",
+            "version": "dev-feature/payment-refactor-accounting",
             "package": "project-a/payment-package"
         },
         {
