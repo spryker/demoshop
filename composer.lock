@@ -1538,7 +1538,7 @@
             "source": {
                 "type": "git",
                 "url": "git@codebasehq.com:project-a/core/payment.git",
-                "reference": "c7c7268b76c4845b4cbe6e3505a7f88f6ead8f8f"
+                "reference": "c3a3f7cf30439fe95e49092c9fee405a0aaf24cc"
             },
             "require": {
                 "php": ">=5.4.0"
@@ -1561,7 +1561,7 @@
             "keywords": [
                 "payment, payment provider"
             ],
-            "time": "2013-12-16 08:34:52"
+            "time": "2013-12-16 13:17:28"
         },
         {
             "name": "project-a/payone-package",
@@ -1569,7 +1569,7 @@
             "source": {
                 "type": "git",
                 "url": "git@codebasehq.com:project-a/core/payone.git",
-                "reference": "4586d1f38b00727ae57da10e36416481e2b6a5c4"
+                "reference": "ea897f8fbb65f454340d890a563dadf68d785980"
             },
             "require": {
                 "php": ">=5.4.0",
@@ -1596,7 +1596,7 @@
             "keywords": [
                 "payment,payment provider,payone"
             ],
-            "time": "2013-12-16 08:35:23"
+            "time": "2013-12-16 13:17:50"
         },
         {
             "name": "project-a/sales-package",
@@ -2376,12 +2376,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/zendframework/zf2.git",
-                "reference": "4e5f0758ee8ee2e0bfbb765271553cfd2f0c0089"
+                "reference": "dcaa8ff8f77f42dc8070f30f9d891ebb300fa5ad"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/zendframework/zf2/zipball/4e5f0758ee8ee2e0bfbb765271553cfd2f0c0089",
-                "reference": "4e5f0758ee8ee2e0bfbb765271553cfd2f0c0089",
+                "url": "https://api.github.com/repos/zendframework/zf2/zipball/dcaa8ff8f77f42dc8070f30f9d891ebb300fa5ad",
+                "reference": "dcaa8ff8f77f42dc8070f30f9d891ebb300fa5ad",
                 "shasum": ""
             },
             "require": {
@@ -2486,7 +2486,7 @@
                 "framework",
                 "zf2"
             ],
-            "time": "2013-12-15 09:29:44"
+            "time": "2013-12-16 12:03:10"
         },
         {
             "name": "zendframework/zendpdf",
