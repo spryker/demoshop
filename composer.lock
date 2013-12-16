@@ -7,20 +7,20 @@
     "packages": [
         {
             "name": "aws/aws-sdk-php",
-            "version": "2.4.11",
+            "version": "2.4.12",
             "source": {
                 "type": "git",
                 "url": "https://github.com/aws/aws-sdk-php.git",
-                "reference": "e8421b7a9da3f0a6fddcc6ffb10e21b86348ba0d"
+                "reference": "61eaf675b7de9ce8b2c6b44317b01e6818ea16c3"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/aws/aws-sdk-php/zipball/e8421b7a9da3f0a6fddcc6ffb10e21b86348ba0d",
-                "reference": "e8421b7a9da3f0a6fddcc6ffb10e21b86348ba0d",
+                "url": "https://api.github.com/repos/aws/aws-sdk-php/zipball/61eaf675b7de9ce8b2c6b44317b01e6818ea16c3",
+                "reference": "61eaf675b7de9ce8b2c6b44317b01e6818ea16c3",
                 "shasum": ""
             },
             "require": {
-                "guzzle/guzzle": "~3.7.0",
+                "guzzle/guzzle": ">=3.7.0,<3.9.0",
                 "php": ">=5.3.3"
             },
             "require-dev": {
@@ -71,7 +71,7 @@
                 "s3",
                 "sdk"
             ],
-            "time": "2013-11-26 20:13:01"
+            "time": "2013-12-12 19:35:51"
         },
         {
             "name": "digital-canvas/zend-framework",
@@ -961,7 +961,7 @@
             "source": {
                 "type": "git",
                 "url": "git@codebasehq.com:project-a/core/acl.git",
-                "reference": "ea7f1f027b2df383e5e2fbf86639d8ca59d60d03"
+                "reference": "4f377c066b590c5e30f7069a4d11f15d2ca0a0a8"
             },
             "require": {
                 "php": ">=5.4.0",
@@ -990,7 +990,7 @@
                 "login",
                 "usermanagement"
             ],
-            "time": "2013-12-09 16:35:23"
+            "time": "2013-12-10 16:20:53"
         },
         {
             "name": "project-a/adyen-package",
@@ -1067,7 +1067,7 @@
             "source": {
                 "type": "git",
                 "url": "git@codebasehq.com:project-a/core/catalog.git",
-                "reference": "97bd780d612ac87efd18d31021dbc9a30e014fe3"
+                "reference": "5bf993a0dc40d53c4724a5e9443701d94e0a659e"
             },
             "require": {
                 "php": ">=5.4.0",
@@ -1103,7 +1103,7 @@
                 "Price",
                 "Stock"
             ],
-            "time": "2013-12-09 13:39:50"
+            "time": "2013-12-13 16:05:32"
         },
         {
             "name": "project-a/checkout-package",
@@ -1230,7 +1230,7 @@
             "source": {
                 "type": "git",
                 "url": "git@codebasehq.com:project-a/core/crm.git",
-                "reference": "d3cb3306778d4fea02517efa6feb1f07aa310e2d"
+                "reference": "90bb243702890c89cf24da1d98e2ddec9e109810"
             },
             "require": {
                 "php": ">=5.4.0",
@@ -1256,7 +1256,7 @@
                 "CRM",
                 "Mail"
             ],
-            "time": "2013-12-06 09:58:56"
+            "time": "2013-12-13 08:32:02"
         },
         {
             "name": "project-a/document-package",
@@ -1297,7 +1297,7 @@
             "source": {
                 "type": "git",
                 "url": "git@codebasehq.com:project-a/core/frontend.git",
-                "reference": "aacca5871eae17fa091dc5fc40cf85b0b4559d0c"
+                "reference": "e32bd61c2531e640fd1a359427853025ce5bf0c8"
             },
             "require": {
                 "php": ">=5.4.0",
@@ -1321,7 +1321,7 @@
             "keywords": [
                 "Frontend"
             ],
-            "time": "2013-12-05 14:51:49"
+            "time": "2013-12-11 09:03:08"
         },
         {
             "name": "project-a/glossary-package",
@@ -1362,7 +1362,7 @@
             "source": {
                 "type": "git",
                 "url": "git@codebasehq.com:project-a/core/infrastructure.git",
-                "reference": "065cef6484e6b9acfddce6c9e19eca95362a4a1a"
+                "reference": "6d1ed4d83d2d99eeb8d11cc7858fe2be10e850e0"
             },
             "require": {
                 "php": ">=5.4.0",
@@ -1391,7 +1391,7 @@
             "keywords": [
                 "infrastructure"
             ],
-            "time": "2013-12-06 10:53:39"
+            "time": "2013-12-11 10:57:32"
         },
         {
             "name": "project-a/kendo-package",
@@ -1418,7 +1418,7 @@
             "source": {
                 "type": "git",
                 "url": "git@codebasehq.com:project-a/core/library-2.git",
-                "reference": "540dfa8f8864cef22d3ec72546f74ad8e8ee14df"
+                "reference": "a27a444753c07fe9eb449700d8df4ebd4cc20757"
             },
             "require": {
                 "digital-canvas/zend-framework": ">=1.12.2",
@@ -1453,7 +1453,7 @@
                 }
             ],
             "description": "Project-A Library",
-            "time": "2013-12-09 14:26:09"
+            "time": "2013-12-12 14:38:10"
         },
         {
             "name": "project-a/lumberjack-package",
@@ -1538,7 +1538,7 @@
             "source": {
                 "type": "git",
                 "url": "git@codebasehq.com:project-a/core/payment.git",
-                "reference": "4d59e660b007a54b6f7a2cda442dd74b85e760fd"
+                "reference": "c3a3f7cf30439fe95e49092c9fee405a0aaf24cc"
             },
             "require": {
                 "php": ">=5.4.0"
@@ -1561,7 +1561,7 @@
             "keywords": [
                 "payment, payment provider"
             ],
-            "time": "2013-12-10 09:03:57"
+            "time": "2013-12-16 13:17:28"
         },
         {
             "name": "project-a/payone-package",
@@ -1569,7 +1569,7 @@
             "source": {
                 "type": "git",
                 "url": "git@codebasehq.com:project-a/core/payone.git",
-                "reference": "852706d93de50c04b3f0fa7d9914a1d6222ac457"
+                "reference": "ea897f8fbb65f454340d890a563dadf68d785980"
             },
             "require": {
                 "php": ">=5.4.0",
@@ -1596,7 +1596,7 @@
             "keywords": [
                 "payment,payment provider,payone"
             ],
-            "time": "2013-12-10 08:52:47"
+            "time": "2013-12-16 13:17:50"
         },
         {
             "name": "project-a/sales-package",
@@ -1604,7 +1604,7 @@
             "source": {
                 "type": "git",
                 "url": "git@codebasehq.com:project-a/core/sales.git",
-                "reference": "bf5df342aa19091c3ebeec814d5fe62d2b9d8aab"
+                "reference": "fb4863bbf713e211e01f9e5d6616cdb960e65a55"
             },
             "require": {
                 "php": ">=5.4.0",
@@ -1637,7 +1637,7 @@
                 "Sales",
                 "Task"
             ],
-            "time": "2013-12-06 10:55:46"
+            "time": "2013-12-11 11:25:51"
         },
         {
             "name": "project-a/silex-routing",
@@ -2376,16 +2376,16 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/zendframework/zf2.git",
-                "reference": "fdae81fc3a142853bc7aa7dae1b390cf41852b8c"
+                "reference": "dcaa8ff8f77f42dc8070f30f9d891ebb300fa5ad"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/zendframework/zf2/zipball/fdae81fc3a142853bc7aa7dae1b390cf41852b8c",
-                "reference": "fdae81fc3a142853bc7aa7dae1b390cf41852b8c",
+                "url": "https://api.github.com/repos/zendframework/zf2/zipball/dcaa8ff8f77f42dc8070f30f9d891ebb300fa5ad",
+                "reference": "dcaa8ff8f77f42dc8070f30f9d891ebb300fa5ad",
                 "shasum": ""
             },
             "require": {
-                "php": ">=5.3.3"
+                "php": ">=5.3.23"
             },
             "replace": {
                 "zendframework/zend-authentication": "self.version",
@@ -2486,7 +2486,7 @@
                 "framework",
                 "zf2"
             ],
-            "time": "2013-12-07 17:06:57"
+            "time": "2013-12-16 12:03:10"
         },
         {
             "name": "zendframework/zendpdf",
@@ -3137,16 +3137,16 @@
         },
         {
             "name": "justinrainbow/json-schema",
-            "version": "1.3.4",
+            "version": "1.3.5",
             "source": {
                 "type": "git",
                 "url": "https://github.com/justinrainbow/json-schema.git",
-                "reference": "ad8b959e5962624004738d50a2d8e83c5668e143"
+                "reference": "01949f6d2130e9737ffae5d3952909a8de70d114"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/justinrainbow/json-schema/zipball/ad8b959e5962624004738d50a2d8e83c5668e143",
-                "reference": "ad8b959e5962624004738d50a2d8e83c5668e143",
+                "url": "https://api.github.com/repos/justinrainbow/json-schema/zipball/01949f6d2130e9737ffae5d3952909a8de70d114",
+                "reference": "01949f6d2130e9737ffae5d3952909a8de70d114",
                 "shasum": ""
             },
             "require": {
@@ -3201,7 +3201,7 @@
                 "json",
                 "schema"
             ],
-            "time": "2013-12-08 21:17:57"
+            "time": "2013-12-13 15:21:04"
         },
         {
             "name": "pdepend/pdepend",
