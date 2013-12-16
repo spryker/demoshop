@@ -28,6 +28,6 @@ class SendMailSettings extends CoreSendMailSettings
      */
     public function getSenderName()
     {
-        // TODO: Implement getSenderName() method.
+        return 'demoshop';
     }
 }
