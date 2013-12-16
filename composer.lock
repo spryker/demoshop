@@ -227,7 +227,7 @@
             ],
             "authors": [
                 {
-                    "name": "Jonathan H. Wage",
+                    "name": "Jonathan Wage",
                     "email": "jonwage@gmail.com",
                     "homepage": "http://www.jwage.com/",
                     "role": "Creator"
@@ -1569,7 +1569,7 @@
             "source": {
                 "type": "git",
                 "url": "git@codebasehq.com:project-a/core/payone.git",
-                "reference": "ea897f8fbb65f454340d890a563dadf68d785980"
+                "reference": "133b2f67ab6348cb711871ecb17d8e6da6badc40"
             },
             "require": {
                 "php": ">=5.4.0",
@@ -1596,7 +1596,7 @@
             "keywords": [
                 "payment,payment provider,payone"
             ],
-            "time": "2013-12-16 13:17:50"
+            "time": "2013-12-16 13:48:36"
         },
         {
             "name": "project-a/sales-package",
@@ -1604,7 +1604,7 @@
             "source": {
                 "type": "git",
                 "url": "git@codebasehq.com:project-a/core/sales.git",
-                "reference": "fb4863bbf713e211e01f9e5d6616cdb960e65a55"
+                "reference": "0aae3f5ef6ddf84c68e3583546830b0da68ec2c5"
             },
             "require": {
                 "php": ">=5.4.0",
@@ -1637,7 +1637,7 @@
                 "Sales",
                 "Task"
             ],
-            "time": "2013-12-11 11:25:51"
+            "time": "2013-12-16 13:49:39"
         },
         {
             "name": "project-a/silex-routing",
