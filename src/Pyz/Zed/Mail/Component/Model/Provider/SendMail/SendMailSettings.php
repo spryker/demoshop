@@ -22,4 +22,12 @@ class SendMailSettings extends CoreSendMailSettings
     {
         return 'project-yz.com';
     }
+
+    /**
+     * @return string
+     */
+    public function getSenderName()
+    {
+        // TODO: Implement getSenderName() method.
+    }
 }
