@@ -3,7 +3,7 @@
         "This file locks the dependencies of your project to a known state",
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file"
     ],
-    "hash": "cd20bd2a4c248f47da5e8340a1a0c559",
+    "hash": "4ed720eac80d5afa83af5675729d2b1f",
     "packages": [
         {
             "name": "aws/aws-sdk-php",
@@ -524,12 +524,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/fabpot/PHP-CS-Fixer.git",
-                "reference": "2910b9664f64d8f01341049e58615e86723fd42e"
+                "reference": "b579d5755e98ebd63e2bcfa6cecab5ac8f21e71f"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/fabpot/PHP-CS-Fixer/zipball/2910b9664f64d8f01341049e58615e86723fd42e",
-                "reference": "2910b9664f64d8f01341049e58615e86723fd42e",
+                "url": "https://api.github.com/repos/fabpot/PHP-CS-Fixer/zipball/b579d5755e98ebd63e2bcfa6cecab5ac8f21e71f",
+                "reference": "b579d5755e98ebd63e2bcfa6cecab5ac8f21e71f",
                 "shasum": ""
             },
             "require": {
@@ -564,7 +564,7 @@
                 }
             ],
             "description": "A script to automatically fix Symfony Coding Standard",
-            "time": "2013-12-07 18:38:58"
+            "time": "2013-12-18 16:16:33"
         },
         {
             "name": "gavroche/browser",
@@ -961,7 +961,7 @@
             "source": {
                 "type": "git",
                 "url": "git@codebasehq.com:project-a/core/acl.git",
-                "reference": "4f377c066b590c5e30f7069a4d11f15d2ca0a0a8"
+                "reference": "fe20a95e249086d688bf9a1ce66a8304a3db3ccd"
             },
             "require": {
                 "php": ">=5.4.0",
@@ -990,7 +990,7 @@
                 "login",
                 "usermanagement"
             ],
-            "time": "2013-12-10 16:20:53"
+            "time": "2013-12-17 14:46:43"
         },
         {
             "name": "project-a/adyen-package",
@@ -1067,7 +1067,7 @@
             "source": {
                 "type": "git",
                 "url": "git@codebasehq.com:project-a/core/catalog.git",
-                "reference": "5bf993a0dc40d53c4724a5e9443701d94e0a659e"
+                "reference": "b2d7486101ca90cb5744e7e1aca0f6f47d1bb51b"
             },
             "require": {
                 "php": ">=5.4.0",
@@ -1103,15 +1103,15 @@
                 "Price",
                 "Stock"
             ],
-            "time": "2013-12-13 16:05:32"
+            "time": "2013-12-18 09:08:01"
         },
         {
             "name": "project-a/checkout-package",
-            "version": "2.0.0.x-dev",
+            "version": "dev-master",
             "source": {
                 "type": "git",
                 "url": "git@codebasehq.com:project-a/core/checkout.git",
-                "reference": "933b61860f08b22a8a1b1d22c764987a20031da6"
+                "reference": "aa257f86057224d48f25ec21739704297def55a2"
             },
             "require": {
                 "gavroche/browser": "~2.1.0",
@@ -1141,7 +1141,7 @@
                 "PaymentControl",
                 "Salesrule"
             ],
-            "time": "2013-12-06 10:51:02"
+            "time": "2013-12-18 11:38:13"
         },
         {
             "name": "project-a/console-package",
@@ -1149,7 +1149,7 @@
             "source": {
                 "type": "git",
                 "url": "git@codebasehq.com:project-a/core/console.git",
-                "reference": "7f3da0ec47869fb43eca62b235e3b0b8e0ec27c6"
+                "reference": "182b43fe35d79f03397ab3a4fb4928a6fe9bf9c0"
             },
             "require": {
                 "fabpot/php-cs-fixer": "dev-master",
@@ -1188,7 +1188,7 @@
             "keywords": [
                 "console"
             ],
-            "time": "2013-12-05 20:48:13"
+            "time": "2013-12-17 15:06:14"
         },
         {
             "name": "project-a/content-package",
@@ -1362,7 +1362,7 @@
             "source": {
                 "type": "git",
                 "url": "git@codebasehq.com:project-a/core/infrastructure.git",
-                "reference": "6d1ed4d83d2d99eeb8d11cc7858fe2be10e850e0"
+                "reference": "c068916aa0106f30f5fd1efdd3c71faaa0669d0f"
             },
             "require": {
                 "php": ">=5.4.0",
@@ -1391,7 +1391,7 @@
             "keywords": [
                 "infrastructure"
             ],
-            "time": "2013-12-11 10:57:32"
+            "time": "2013-12-18 13:02:42"
         },
         {
             "name": "project-a/kendo-package",
@@ -1399,7 +1399,7 @@
             "source": {
                 "type": "git",
                 "url": "git@codebasehq.com:project-a/core/kendo.git",
-                "reference": "c64191b25aadd8890d3eb4a28fa2f2cdd8dc4066"
+                "reference": "d550406d6ea8b5a51042630762b0b93204f1e1aa"
             },
             "type": "library",
             "autoload": {
@@ -1410,7 +1410,7 @@
                 }
             },
             "description": "Core Library",
-            "time": "2013-11-20 13:06:38"
+            "time": "2013-12-18 13:52:31"
         },
         {
             "name": "project-a/library-package",
@@ -1418,7 +1418,7 @@
             "source": {
                 "type": "git",
                 "url": "git@codebasehq.com:project-a/core/library-2.git",
-                "reference": "a27a444753c07fe9eb449700d8df4ebd4cc20757"
+                "reference": "d584e255925c5ad0d0fceb74e578f9197c098f3c"
             },
             "require": {
                 "digital-canvas/zend-framework": ">=1.12.2",
@@ -1453,7 +1453,7 @@
                 }
             ],
             "description": "Project-A Library",
-            "time": "2013-12-12 14:38:10"
+            "time": "2013-12-17 11:37:37"
         },
         {
             "name": "project-a/lumberjack-package",
@@ -1538,7 +1538,7 @@
             "source": {
                 "type": "git",
                 "url": "git@codebasehq.com:project-a/core/payment.git",
-                "reference": "20e85e9ad4eb0582fb6f35c055311245866f05c3"
+                "reference": "2f745e8208f307da583d3fdf180dab6cc25c728b"
             },
             "require": {
                 "php": ">=5.4.0"
@@ -1561,7 +1561,7 @@
             "keywords": [
                 "payment, payment provider"
             ],
-            "time": "2013-12-17 09:12:26"
+            "time": "2013-12-18 16:26:06"
         },
         {
             "name": "project-a/payone-package",
@@ -1569,7 +1569,7 @@
             "source": {
                 "type": "git",
                 "url": "git@codebasehq.com:project-a/core/payone.git",
-                "reference": "ab11bc512365eb3a1bf463f4e042a525d2ea75c8"
+                "reference": "5b314dc58040d35f556421fdc5334e068b22d94a"
             },
             "require": {
                 "php": ">=5.4.0",
@@ -1596,7 +1596,7 @@
             "keywords": [
                 "payment,payment provider,payone"
             ],
-            "time": "2013-12-17 09:01:38"
+            "time": "2013-12-18 15:11:48"
         },
         {
             "name": "project-a/sales-package",
@@ -3605,20 +3605,27 @@
         },
         {
             "name": "sanpi/behatch-contexts",
-            "version": "1.2",
+            "version": "1.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/sanpii/behatch-contexts.git",
-                "reference": "51eca4d6c4b6bc963af554b666a1d0479119c753"
+                "reference": "5eecf620927201ff2e6bdafcec2bc4241ece65e6"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sanpii/behatch-contexts/zipball/51eca4d6c4b6bc963af554b666a1d0479119c753",
-                "reference": "51eca4d6c4b6bc963af554b666a1d0479119c753",
+                "url": "https://api.github.com/repos/sanpii/behatch-contexts/zipball/5eecf620927201ff2e6bdafcec2bc4241ece65e6",
+                "reference": "5eecf620927201ff2e6bdafcec2bc4241ece65e6",
                 "shasum": ""
             },
             "require": {
+                "behat/behat": "*",
+                "behat/mink": "*",
+                "behat/mink-extension": "*",
                 "justinrainbow/json-schema": "*"
+            },
+            "require-dev": {
+                "behat/mink-goutte-driver": "*",
+                "behat/mink-selenium2-driver": "*"
             },
             "type": "library",
             "autoload": {
@@ -3627,6 +3634,9 @@
                 }
             },
             "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "beerware"
+            ],
             "description": "Behatch contexts",
             "keywords": [
                 "BDD",
@@ -3634,7 +3644,7 @@
                 "Context",
                 "Symfony2"
             ],
-            "time": "2012-12-03 16:58:27"
+            "time": "2013-12-17 10:12:28"
         },
         {
             "name": "silex/web-profiler",
@@ -3704,7 +3714,7 @@
         {
             "alias": "2.1.0",
             "alias_normalized": "2.1.0.0",
-            "version": "2.0.0.9999999-dev",
+            "version": "9999999-dev",
             "package": "project-a/checkout-package"
         },
         {
