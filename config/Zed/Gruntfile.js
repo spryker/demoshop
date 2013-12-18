@@ -8,15 +8,15 @@ module.exports = function ( grunt ) {
   grunt.file.setBase('../../');
 
   function packageDestRename( dest, src ) {
-    return dest + src.replace( /([\\\/]?([\w-_]+[\\\/])*([\w-_]+)[\\\/]static)/i, '$3' );
+    return dest + src.replace( /([\\\/]?([\w-_]+[\\\/])*([\w-_]+)[\\\/]static[\\\/]public)/i, '$3' );
   }
 
   grunt.initConfig({
     dirs : {
       config : 'config/Zed',
       pkg   : 'vendor/project-a',
-      srcY  : '**/{Shared,Yves}/*/Static/**/*',
-      srcZ  : '**/{Shared,Zed}/*/Static/**/*',
+      srcY  : '**/{Shared,Yves}/*/Static/Public/**/*',
+      srcZ  : '**/{Shared,Zed}/*/Static/Public/**/*',
       distY : 'static/public/Yves/bundles',
       distZ : 'static/public/Zed/bundles'
     },
