@@ -15,6 +15,7 @@ use \Generated\Zed\Sales\Component\Dependency\SalesFacadeInterface;
 use \Generated\Zed\ProductImage\Component\Dependency\ProductImageFacadeInterface;
 use \Generated\Zed\Invoice\Component\Dependency\InvoiceFacadeInterface;
 use \Generated\Zed\Document\Component\Dependency\DocumentFacadeInterface;
+use \Generated\Zed\Payone\Component\Dependency\PayoneFacadeInterface;
 
 use \Generated\Zed\Acl\Component\Dependency\AclFacadeTrait;
 use \Generated\Zed\Catalog\Component\Dependency\CatalogFacadeTrait;
@@ -29,6 +30,7 @@ use \Generated\Zed\Sales\Component\Dependency\SalesFacadeTrait;
 use \Generated\Zed\ProductImage\Component\Dependency\ProductImageFacadeTrait;
 use \Generated\Zed\Invoice\Component\Dependency\InvoiceFacadeTrait;
 use \Generated\Zed\Document\Component\Dependency\DocumentFacadeTrait;
+use \Generated\Zed\Payone\Component\Dependency\PayoneFacadeTrait;
 
 class Installer extends \ProjectA_Zed_Installer_Component_Model_Installer implements
     AclFacadeInterface,
@@ -43,7 +45,8 @@ class Installer extends \ProjectA_Zed_Installer_Component_Model_Installer implem
     SalesFacadeInterface,
     ProductImageFacadeInterface,
     InvoiceFacadeInterface,
-    DocumentFacadeInterface
+    DocumentFacadeInterface,
+    PayoneFacadeInterface
 {
 
     use AclFacadeTrait;
@@ -59,6 +62,7 @@ class Installer extends \ProjectA_Zed_Installer_Component_Model_Installer implem
     use ProductImageFacadeTrait;
     use InvoiceFacadeTrait;
     use DocumentFacadeTrait;
+    use PayoneFacadeTrait;
 
     /**
      * @return array
@@ -79,6 +83,7 @@ class Installer extends \ProjectA_Zed_Installer_Component_Model_Installer implem
             $this->facadeProductImage->createInternalInstall(),
             $this->facadeInvoice->createInternalInstall(),
             $this->facadeDocument->createInternalInstall(),
+            $this->facadePayone->createInternalInstall()
         ];
     }
 }
