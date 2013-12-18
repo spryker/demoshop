@@ -3,7 +3,7 @@
         "This file locks the dependencies of your project to a known state",
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file"
     ],
-    "hash": "4ed720eac80d5afa83af5675729d2b1f",
+    "hash": "3566e38c247231419695dd2cbfadd675",
     "packages": [
         {
             "name": "aws/aws-sdk-php",
@@ -1107,7 +1107,7 @@
         },
         {
             "name": "project-a/checkout-package",
-            "version": "dev-master",
+            "version": "dev-feature/checkout-refactor-payment-control",
             "source": {
                 "type": "git",
                 "url": "git@codebasehq.com:project-a/core/checkout.git",
@@ -1362,7 +1362,7 @@
             "source": {
                 "type": "git",
                 "url": "git@codebasehq.com:project-a/core/infrastructure.git",
-                "reference": "c068916aa0106f30f5fd1efdd3c71faaa0669d0f"
+                "reference": "d939bb7e03129504c7b261323050ff85247c24dc"
             },
             "require": {
                 "php": ">=5.4.0",
@@ -1391,7 +1391,7 @@
             "keywords": [
                 "infrastructure"
             ],
-            "time": "2013-12-18 13:02:42"
+            "time": "2013-12-18 16:30:07"
         },
         {
             "name": "project-a/kendo-package",
@@ -3714,7 +3714,7 @@
         {
             "alias": "2.1.0",
             "alias_normalized": "2.1.0.0",
-            "version": "9999999-dev",
+            "version": "dev-feature/checkout-refactor-payment-control",
             "package": "project-a/checkout-package"
         },
         {
