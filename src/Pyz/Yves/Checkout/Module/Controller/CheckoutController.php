@@ -6,6 +6,7 @@ use Pyz\Yves\Sales\Module\Form\OrderType;
 use ProjectA\Yves\Checkout\Module\Controller\CheckoutController as CoreCheckoutController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
+use Generated\Shared\Payment\Transfer\PaymentMethodCollection;
 
 class CheckoutController extends CoreCheckoutController
 {
@@ -13,7 +14,7 @@ class CheckoutController extends CoreCheckoutController
      * @param array $paymentMethods
      * @return OrderType
      */
-    protected function createOrderType(array $paymentMethods = [])
+    protected function createOrderType(PaymentMethodCollection $paymentMethods)
     {
         $customerModel = Factory::getInstance()->createCustomerModelCustomer($this->getApplication());
         return new OrderType($paymentMethods, $customerModel);
