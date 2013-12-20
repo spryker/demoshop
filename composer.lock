@@ -1111,7 +1111,7 @@
             "source": {
                 "type": "git",
                 "url": "git@codebasehq.com:project-a/core/checkout.git",
-                "reference": "574f72f4d32a2396da48ace9fb3806d744fc9f98"
+                "reference": "604b794902cbc534968e667897a311231dd31dab"
             },
             "require": {
                 "gavroche/browser": "~2.1.0",
@@ -1135,13 +1135,12 @@
                     "role": "Senior developer"
                 }
             ],
-            "description": "Checkout Package. Contains Checkout, PaymentControl and Salesrule",
+            "description": "Checkout Package. Contains Checkout and Salesrule",
             "keywords": [
                 "Checkout",
-                "PaymentControl",
                 "Salesrule"
             ],
-            "time": "2013-12-20 13:02:01"
+            "time": "2013-12-20 14:55:01"
         },
         {
             "name": "project-a/console-package",
@@ -1538,7 +1537,7 @@
             "source": {
                 "type": "git",
                 "url": "git@codebasehq.com:project-a/core/payment.git",
-                "reference": "548c27af44b4cc182340e1a17b29b810532cd93f"
+                "reference": "2ee84b2ffd54544e86d87aada6d35d3715c19bab"
             },
             "require": {
                 "php": ">=5.4.0"
@@ -1557,11 +1556,13 @@
                     "role": "developer"
                 }
             ],
-            "description": "Contains several implementations of payment provider",
+            "description": "Contains payment control and general implementation of payment, payment transactions and accounting for usage in concrete payment provider implementations",
             "keywords": [
-                "payment, payment provider"
+                "payment",
+                "payment control",
+                "payment provider"
             ],
-            "time": "2013-12-20 13:03:00"
+            "time": "2013-12-20 15:00:16"
         },
         {
             "name": "project-a/payone-package",
