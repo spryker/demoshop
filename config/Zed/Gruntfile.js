@@ -13,12 +13,13 @@ module.exports = function ( grunt ) {
 
   grunt.initConfig({
     dirs : {
-      config : 'config/Zed',
-      pkg   : 'vendor/project-a',
-      srcY  : '**/{Shared,Yves}/*/Static/Public/**/*',
-      srcZ  : '**/{Shared,Zed}/*/Static/Public/**/*',
-      distY : 'static/public/Yves/bundles',
-      distZ : 'static/public/Zed/bundles'
+      config   : 'config/Zed',
+      packages : 'vendor/project-a',
+      project  : 'src',
+      srcY     : '**/{Shared,Yves}/*/Static/Public/**/*',
+      srcZ     : '**/{Shared,Zed}/*/Static/Public/**/*',
+      distY    : 'static/public/Yves/bundles',
+      distZ    : 'static/public/Zed/bundles'
     },
 
     clean : {
@@ -31,7 +32,7 @@ module.exports = function ( grunt ) {
     copy : {
       packagesYves : {
         expand : true,
-        cwd    : '<%= dirs.pkg %>/',
+        cwd    : '<%= dirs.packages %>/',
         src    : '<%= dirs.srcY %>',
         dest   : '<%= dirs.distY %>/',
         rename : packageDestRename
@@ -39,7 +40,23 @@ module.exports = function ( grunt ) {
 
       packagesZed : {
         expand : true,
-        cwd    : '<%= dirs.pkg %>/',
+        cwd    : '<%= dirs.packages %>/',
+        src    : '<%= dirs.srcZ %>',
+        dest   : '<%= dirs.distZ %>/',
+        rename : packageDestRename
+      },
+
+      projectPackagesYves : {
+        expand : true,
+        cwd    : '<%= dirs.project %>/',
+        src    : '<%= dirs.srcY %>',
+        dest   : '<%= dirs.distY %>/',
+        rename : packageDestRename
+      },
+
+      projectPackagesZed : {
+        expand : true,
+        cwd    : '<%= dirs.project %>/',
         src    : '<%= dirs.srcZ %>',
         dest   : '<%= dirs.distZ %>/',
         rename : packageDestRename
@@ -50,7 +67,7 @@ module.exports = function ( grunt ) {
       /* https://npmjs.org/package/grunt-contrib-watch */
 
       packagesYves : {
-        files : '<%= dirs.pkg %>/<%= dirs.srcY %>',
+        files : '<%= dirs.packages %>/<%= dirs.srcY %>',
 
         tasks : [
           'copy:packagesYves'
@@ -62,7 +79,7 @@ module.exports = function ( grunt ) {
       },
 
       packagesZed : {
-        files : '<%= dirs.pkg %>/<%= dirs.srcZ %>',
+        files : '<%= dirs.packages %>/<%= dirs.srcZ %>',
 
         tasks : [
           'copy:packagesZed'
@@ -72,23 +89,31 @@ module.exports = function ( grunt ) {
           spawn : false
         }
       },
+
+      projectPackagesYves : {
+        files : '<%= dirs.project %>/<%= dirs.srcY %>',
+
+        tasks : [
+          'copy:projectPackagesYves'
+        ],
+
+        options : {
+          spawn : false
+        }
+      },
+
+      projectPackagesZed : {
+        files : '<%= dirs.project %>/<%= dirs.srcZ %>',
+
+        tasks : [
+          'copy:projectPackagesZed'
+        ],
+
+        options : {
+          spawn : false
+        }
+      }
     }
-
-    /* keeping just in case for now - soon to be removed, i guess :) */
-
-    // yvesDirectories : {
-    //     'configJSON': 'config/Zed/assets.json',
-    //     'configPHP': 'config/Zed/config_assets.php',
-    //     'config': 'config/Zed/',
-    //     'src': 'vendor/project-a/infrastructure-package/src/ProjectA/Zed/Application/Static/',
-    //     'dist': 'static/public/Zed/new',
-    //     'yvesDist': 'static/public/Yves/bundles'
-    // },
-
-    // zedDirectories : {
-    //     'pkg' : 'vendor/project-a',
-    //     'dist' : 'static/public/Zed/bundles'
-    // },
   });
 
   require( 'matchdep' )
