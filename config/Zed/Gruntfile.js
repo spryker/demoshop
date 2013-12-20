@@ -7,288 +7,105 @@ module.exports = function ( grunt ) {
 
     grunt.file.setBase('../../');
 
-    require( 'matchdep' )
-        .filterDev( 'grunt-contrib*' )
-        .forEach( grunt.loadNpmTasks );
-
     function packageDestRename( dest, src ) {
-        return  dest + src.replace( /([\\\/]?([\w-_]+[\\\/])*([\w-_]+)[\\\/]static)/i, '$3' );
+        return dest + src.replace( /([\\\/]?([\w-_]+[\\\/])*([\w-_]+)[\\\/]static[\\\/]public)/i, '$3' );
     }
 
     grunt.initConfig({
-
-        yvesDirectories : {
-            'configJSON': 'config/Zed/assets.json',
-            'configPHP': 'config/Zed/config_assets.php',
-            'config': 'config/Zed/',
-            'src': 'vendor/project-a/infrastructure-package/src/ProjectA/Zed/Application/Static/',
-            'dist': 'static/public/Zed/new',
-            'yvesDist': 'static/public/Yves/bundles'
-        },
-
-        zedDirectories : {
-            'pkg' : 'vendor/project-a',
-            'dist' : 'static/public/Zed/bundles'
-        },
-
-        pkg : grunt.file.readJSON( 'package.json' ),
-
-        connect: {
-            /* https://npmjs.org/package/grunt-contrib-connect */
-            server: {
-                options: {
-                    base      : '<%= yvesDirectories.dist %>',
-                    port      : '?',
-                    keepalive : true
-                }
-            }
+        dirs : {
+            config : 'config/Zed',
+            pkg   : 'vendor/project-a',
+            srcY  : '**/{Shared,Yves}/*/Static/Public/**/*',
+            srcZ  : '**/{Shared,Zed}/*/Static/Public/**/*',
+            distY : 'static/public/Yves/bundles',
+            distZ : 'static/public/Zed/bundles'
         },
 
         clean : {
             /* https://npmjs.org/package/grunt-contrib-clean */
-            scripts : '<%= yvesDirectories.dist %>/scripts/',
-            styles : '<%= yvesDirectories.dist %>/styles/',
-            images : '<%= yvesDirectories.dist %>/images/',
-            fonts : '<%= yvesDirectories.dist %>/fonts/'
+
+            packagesYves : '<%= dirs.distY %>',
+            packagesZed : '<%= dirs.distZ %>'
         },
 
         copy : {
-            /* https://npmjs.org/package/grunt-contrib-copy */
-
-            vendorStyles : {
-                files : [
-                    {
-                        expand : true,
-                        cwd    : '<%= yvesDirectories.src %>/styles/vendor/',
-                        src    : [ '**' ],
-                        dest   : '<%= yvesDirectories.dist %>/styles/vendor/'
-                    }
-                ]
-            },
-
-            scripts : {
-                files : [
-                    {
-                        expand : true,
-                        cwd    : '<%= yvesDirectories.src %>/scripts/',
-                        src    : [ '**' ],
-                        dest   : '<%= yvesDirectories.dist %>/scripts/'
-                    }
-                ]
-            },
-
-            vendorScripts : {
-                files : [
-                    {
-                        expand : true,
-                        cwd    : '<%= yvesDirectories.src %>/scripts/vendor/',
-                        src    : [ '**' ],
-                        dest   : '<%= yvesDirectories.dist %>/scripts/vendor/'
-                    }
-                ]
-            },
-
-            fonts : {
-                files : [
-                    {
-                        expand : true,
-                        cwd    : '<%= yvesDirectories.src %>/fonts/',
-                        src    : [ '**' ],
-                        dest   : '<%= yvesDirectories.dist %>/fonts/'
-                    }
-                ]
-            },
-
-            images : {
-                files : [
-                    {
-                        expand : true,
-                        cwd    : '<%= yvesDirectories.src %>/images/',
-                        src    : [
-                            '**',
-                            '!flag/'
-                        ],
-                        dest   : '<%= yvesDirectories.dist %>/images/'
-                    }
-                ]
-            },
-            packages : {
-                files : [
-                    {
-                        expand : true,
-                        cwd    : '<%= zedDirectories.pkg %>/',
-                        src    : [
-                            '**/Static/**/*'
-                        ],
-                        dest   : '<%= zedDirectories.dist %>/',
-
-                        rename : function ( dest, src ) {
-                            return  dest + src.replace( /([\\\/]?([\w-_]+[\\\/])*([\w-_]+)[\\\/]static)/i, '$3' );
-                        }
-
-                    }
-                ]
-            },
             packagesYves : {
-                files : [
-                    {
-                        expand : true,
-                        cwd    : '<%= zedDirectories.pkg %>/',
-                        src    : [
-                            '**/{Shared,Yves}/*/Static/**/*'
-                        ],
-                        dest   : '<%= yvesDirectories.yvesDist %>/',
-                        rename : packageDestRename
-                    }
-                ]
+                expand : true,
+                cwd    : '<%= dirs.pkg %>/',
+                src    : '<%= dirs.srcY %>',
+                dest   : '<%= dirs.distY %>/',
+                rename : packageDestRename
             },
+
             packagesZed : {
-                files : [
-                    {
-                        expand : true,
-                        cwd    : '<%= zedDirectories.pkg %>/',
-                        src    : [
-                            '**/{Shared,Zed}/*/Static/**/*'
-                        ],
-                        dest   : '<%= zedDirectories.dist %>/',
-                        rename : packageDestRename
-                    }
-                ]
-            }
-        },
-
-        compass : {
-            options : {
-
-                httpPath  : '/',
-
-                sassDir   : '<%= yvesDirectories.src %>/styles',
-                cssDir    : '<%= yvesDirectories.dist %>/styles',
-
-                fontsDir           : '<%= yvesDirectories.dist %>/fonts',
-                imagesDir          : '<%= yvesDirectories.src %>/images',
-                generatedImagesDir : '<%= yvesDirectories.dist %>/images/sprites',
-
-                httpStylesheetsPath     : '/new/styles',
-                httpImagesPath          : '/new/images',
-                httpGeneratedImagesPath : '/new/images/sprites',
-                httpFontsPath           : '/new/fonts'
-            },
-
-            clean : {
-                options : {
-                    clean : true
-                }
-            },
-
-            dev : {
-                options : {
-                    outputStyle : 'expanded',
-                    raw         : 'sass_options = { :debug_info => true }\n'
-                }
-            },
-
-            dist : {
-                options : {
-                    force       : true,
-                    outputStyle : 'compressed',
-                    raw         : 'asset_cache_buster :none\n'
-                }
-            }
-        },
-
-        jshint : {
-            dev : {
-                options : {
-                    jshintrc : '<%= yvesDirectories.config %>/.jshintrc'
-                },
-                files : {
-                    src : [
-                        '<%= yvesDirectories.src %>/scripts/**/*.js',
-                        '!<%= yvesDirectories.src %>/scripts/vendor/**/*.js'
-                    ]
-                }
-            },
-
-            dist : {
-                options : {
-                    jshintrc : '<%= yvesDirectories.config %>/.jshintrc-dist'
-                },
-                files : {
-                    src : [
-                        'Gruntfile.js',
-                        '<%= yvesDirectories.src %>/scripts/**/*.js',
-                        '!<%= yvesDirectories.src %>/scripts/vendor/**/*.js'
-                    ]
-                }
+                expand : true,
+                cwd    : '<%= dirs.pkg %>/',
+                src    : '<%= dirs.srcZ %>',
+                dest   : '<%= dirs.distZ %>/',
+                rename : packageDestRename
             }
         },
 
         watch : {
-            options: {
-                interrupt: true
+            /* https://npmjs.org/package/grunt-contrib-watch */
+
+            packagesYves : {
+                files : '<%= dirs.pkg %>/<%= dirs.srcY %>',
+
+                tasks : [
+                    'copy:packagesYves'
+                ],
+
+                options : {
+                    spawn : false
+                }
             },
 
-            styles : {
-                files : '<%= yvesDirectories.src %>/**/*.scss',
-                tasks : 'compass:dev'
-            },
-            scripts : {
-                files : '<%= yvesDirectories.src %>/**/*.js',
+            packagesZed : {
+                files : '<%= dirs.pkg %>/<%= dirs.srcZ %>',
+
                 tasks : [
-                    //'jshint:dev',
-                    'copy:scripts'
-                ]
-            }
+                    'copy:packagesZed'
+                ],
+
+                options : {
+                    spawn : false
+                }
+            },
         }
+
+        /* keeping just in case for now - soon to be removed, i guess :) */
+
+        // yvesDirectories : {
+        //     'configJSON': 'config/Zed/assets.json',
+        //     'configPHP': 'config/Zed/config_assets.php',
+        //     'config': 'config/Zed/',
+        //     'src': 'vendor/project-a/infrastructure-package/src/ProjectA/Zed/Application/Static/',
+        //     'dist': 'static/public/Zed/new',
+        //     'yvesDist': 'static/public/Yves/bundles'
+        // },
+
+        // zedDirectories : {
+        //     'pkg' : 'vendor/project-a',
+        //     'dist' : 'static/public/Zed/bundles'
+        // },
     });
 
-    // grunt distribution
-    grunt.registerTask( 'dist', [
-        'compass:clean',
-        'compass:dist',
-        'copy:vendorStyles',
+    require( 'matchdep' )
+        .filterAll( 'grunt-*', require( '../../package.json' ) )
+        .forEach( grunt.loadNpmTasks );
 
-        //'jshint:dist',
-        'clean:scripts',
-        'copy:scripts',
-        'copy:vendorScripts',
-        'copy:fonts',
-        'copy:images',
-        'copy:packagesYves',
-        'copy:packagesZed'
-    ]);
-
-    // grunt for development
     grunt.registerTask( 'dev', [
-        'compass:clean',
-        'compass:dev',
-        'copy:vendorStyles',
-
-        //'jshint:dev',
-        'clean:scripts',
-        'copy:scripts',
-        'copy:vendorScripts',
-        'copy:fonts',
-        'copy:images',
-        'copy:packagesYves',
-        'copy:packagesZed',
-        'watch'
+        'clean',
+        'copy'
     ]);
 
-    // grunt for development without watch at the end
-    grunt.registerTask( 'devNoWatch', [
-        'compass:clean',
-        'compass:dev',
-        'copy:vendorStyles',
-        //'jshint:dev',
-        'clean:scripts',
-        'copy:scripts',
-        'copy:vendorScripts',
-        'copy:fonts',
-        'copy:images',
-        'copy:packagesYves',
-        'copy:packagesZed'
+    grunt.registerTask( 'watcher', [
+        'watcher'
+    ]);
+
+    grunt.registerTask( 'dist', [
+        'dev'
     ]);
 
     // grunt [default]

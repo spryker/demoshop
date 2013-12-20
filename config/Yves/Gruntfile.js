@@ -1,394 +1,213 @@
 /*global
-  module: false,
-  require: false
-*/
+ module: false,
+ require: false
+ */
 module.exports = function( grunt ){
-  'use strict';
+    'use strict';
 
-  grunt.file.setBase('../../');
+    grunt.file.setBase('../../');
 
-  var Config = {
-    js : 'requirejs',
+    /*
+     'configJSON': 'config/Yves/assets.json',
+     'configPHP': 'config/Yves/config_assets.php',
+     */
 
-    requirejs : {
-      paths : {
-        plugins  : 'plugins',
-
-        // jquery   : 'empty:',
-        // jquery   : '//ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min',
-
-        jquery   : 'vendor/jquery',
-        jqueryui : 'vendor/jquery-ui',
-        // jquery   : '//ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min',
-        lodash   : 'vendor/lodash',
-        backbone : 'vendor/backbone',
-        vent     : 'plugins/backbone.vent',
-
-        tracekit : 'vendor/tracekit',
-        snitch   : 'plugins/snitch'
-      },
-
-      shim : {
-        lodash : {
-          exports : '_'
+    grunt.initConfig({
+        dirs : {
+            config : 'config/Yves',
+            src    : 'static/assets/Yves',
+            dist   : 'static/public/Yves',
+            http   : ''
         },
 
-        jqueryui : {
-          exports : '$',
-          deps    : [ 'jquery' ]
+        clean : {
+            /* https://npmjs.org/package/grunt-contrib-clean */
+
+            scripts : '<%= dirs.dist %>/scripts/',
+            styles  : '<%= dirs.dist %>/styles/',
+            images  : '<%= dirs.dist %>/images/',
+            fonts   : '<%= dirs.dist %>/fonts/',
         },
 
-        backbone : {
-          exports : 'Backbone',
-          deps : [
-            'lodash',
-            'jquery'
-          ]
-        },
+        copy : {
+            /* https://npmjs.org/package/grunt-contrib-copy */
 
-        vent : {
-          exports : 'Backbone.Vent',
-          deps    : [ 'backbone' ]
-        },
+            fonts : {
+                expand : true,
+                cwd    : '<%= dirs.src %>/fonts',
+                src    : '**/*.{woff,ttf,otf,eot,svg}',
+                dest   : '<%= dirs.dist %>/fonts'
+            },
 
-        tracekit : {
-          exports : 'TraceKit'
-        },
+            images : {
+                expand : true,
+                cwd    : '<%= dirs.src %>/images',
+                src    : '**/*.{jpg,jpeg,svg,png,gif,webp}',
+                dest   : '<%= dirs.dist %>/images'
+            },
 
-        snitch : {
-          deps : [
-            'jquery',
-            'tracekit'
-          ]
-        }
-      }
-    }
-  };
-
-  grunt.initConfig({
-
-    yvesDirectories : {
-      'configJSON': 'config/Yves/assets.json',
-      'configPHP': 'config/Yves/config_assets.php',
-      'src': 'static/assets/Yves',
-      'dist': 'static/public/Yves'
-    },
-    compass : {
-      /* https://npmjs.org/package/grunt-contrib-compass */
-
-      options : {
-        httpPath  : '/',
-
-        sassDir   : '<%= yvesDirectories.src %>/styles',
-        cssDir    : '<%= yvesDirectories.dist %>/styles',
-
-        fontsDir  : '<%= yvesDirectories.dist %>/fonts',
-
-        imagesDir          : '<%= yvesDirectories.src %>/images',
-        generatedImagesDir : '<%= yvesDirectories.dist %>/images/sprites',
-
-        httpStylesheetsPath     : '/styles',
-        httpImagesPath          : '/images',
-        httpGeneratedImagesPath : '/images/sprites'
-      },
-
-      clean : {
-        options : {
-          clean : true
-        }
-      },
-
-      dev : {
-        options : {
-          outputStyle : 'expanded',
-          raw         : 'sass_options = { :debug_info => true }\n'
-        }
-      },
-
-      dist : {
-        options : {
-          force       : true,
-          outputStyle : 'compressed',
-          // assetCacheBuster : false
-          raw         : 'asset_cache_buster :none\n'
-        }
-      }
-    },
-
-    clean : {
-      /* https://npmjs.org/package/grunt-contrib-clean */
-
-      scripts : [ '<%= yvesDirectories.dist %>/scripts/' ],
-      styles : [ '<%= yvesDirectories.dist %>/styles/' ],
-      images : [ '<%= yvesDirectories.dist %>/images/' ]
-    },
-
-    copy : {
-      /* https://npmjs.org/package/grunt-contrib-copy */
-
-      scripts : {
-        files : [{
-          expand : true,
-          cwd    : '<%= yvesDirectories.src %>/scripts/app/',
-          src    : [ '**' ],
-          dest   : '<%= yvesDirectories.dist %>/scripts/app/'
-        }]
-      },
-
-      vendor : {
-        files : [{
-          expand : true,
-          cwd    : '<%= yvesDirectories.src %>/scripts/vendor/',
-          src    : [ '**' ],
-          dest   : '<%= yvesDirectories.dist %>/scripts/vendor/'
-        }]
-      },
-
-      images : {
-        files : [{
-          expand : true,
-          cwd    : '<%= yvesDirectories.src %>/images/',
-          src    : [ '**' ],
-          dest   : '<%= yvesDirectories.dist %>/images/'
-        }]
-      }
-    },
-
-    hashmap: {
-      /* https://npmjs.org/package/grunt-hashmap */
-
-      options : {
-        output  : '<%= yvesDirectories.configJSON %>',
-        rename  : '#{= dirname }/#{= basename }-#{= hash }#{= extname }',
-        hashlen : 10,
-        keep    : true
-      },
-
-      files : {
-        cwd : '<%= yvesDirectories.dist %>',
-        src : [
-          'scripts/**/*.js',
-          'styles/**/*.css',
-          '!scripts/vendor/**/*.js'
-        ],
-        dest : '<%= yvesDirectories.dist %>'
-      }
-    },
-
-    hashmapExt : {
-      options : {
-        variable : 'config[\'assets_hashmap\']',
-        align    : true,
-        keep     : false
-      },
-
-      files : {
-        src  : '<%= yvesDirectories.configJSON %>',
-        dest : '<%= yvesDirectories.configPHP %>'
-      }
-    },
-
-    jshint : {
-      /* https://npmjs.org/package/grunt-contrib-jshint */
-
-      options: {
-
-        // strict
-        'bitwise'   : false,
-        'camelcase' : true,
-        'curly'     : true,
-        'eqeqeq'    : true,
-        'forin'     : true,
-        'immed'     : true,
-        'indent'    : 2,
-        'latedef'   : true,
-        'newcap'    : true,
-        'noarg'     : true,
-        'quotmark'  : 'single',
-        'strict'    : true,
-        'trailing'  : true,
-        'undef'     : true,
-        'unused'    : true,
-
-        // relaxed
-        'eqnull'    : true,
-        'smarttabs' : true
-      },
-
-      dev : {
-        options : {
-          'undef'  : false,
-          'unused' : false,
-          'debug'  : true
-        },
-        files : {
-          src : [
-            '<%= yvesDirectories.src %>/scripts/**/*.js',
-            '<%= yvesDirectories.src %>/specs/**/*.js',
-            '!<%= yvesDirectories.src %>/scripts/**/vendor/*.js'
-          ]
-        }
-      },
-
-      dist : {
-        files : {
-          src : [
-            'Gruntfile.js',
-            '<%= yvesDirectories.src %>/scripts/**/*.js',
-            '<%= yvesDirectories.src %>/specs/**/*.js',
-            '!<%= yvesDirectories.src %>/scripts/**/vendor/*.js'
-          ]
-        }
-      }
-    },
-
-    jasmine : {
-      /* https://npmjs.org/package/grunt-contrib-jasmine */
-
-      requirejs : {
-        src  : '<%= yvesDirectories.src %>/scripts/requirejs/*.js',
-
-        options : {
-          specs   : '<%= yvesDirectories.src %>/specs/requirejs/*-spec.js',
-          helpers : '<%= yvesDirectories.src %>/specs/requirejs/*-helper.js',
-
-          template : require( 'grunt-template-jasmine-requirejs' ),
-
-          templateOptions : {
-            requireConfig : {
-
-              baseUrl : '<%= yvesDirectories.src %>/scripts/requirejs/',
-
-              shim  : Config.requirejs.shim,
-              paths : Config.requirejs.paths
+            scripts : {
+                expand : true,
+                cwd    : '<%= dirs.src %>/scripts/',
+                src    : '**/*.{js,map}',
+                dest   : '<%= dirs.dist %>/scripts/'
             }
-          }
+        },
+
+        compass : {
+            /* https://npmjs.org/package/grunt-contrib-compass */
+
+            options : {
+                sassDir   : '<%= dirs.src %>/styles',
+                imagesDir : '<%= dirs.src %>/images',
+                fontsDir  : '<%= dirs.src %>/fonts',
+
+                generatedImagesDir : '<%= dirs.dist %>/images',
+                cssDir             : '<%= dirs.dist %>/styles',
+
+                httpPath                : '/',
+                httpStylesheetsPath     : '<%= dirs.http %>/styles',
+                httpGeneratedImagesPath : '<%= dirs.http %>/images',
+                httpFontsPath           : '<%= dirs.http %>/fonts'
+            },
+
+            clean : {
+                options : {
+                    clean : true
+                }
+            },
+
+            dev : {
+                options : {
+                    outputStyle : 'expanded',
+                    // raw         : 'sass_options = { :debug_info => true }\n',
+                    debugInfo   : true
+                }
+            },
+
+            watch : {
+                options : {
+                    outputStyle : 'expanded',
+                    // raw         : 'sass_options = { :debug_info => true }\n',
+                    watch       : true,
+                    debugInfo   : true
+                }
+            },
+
+            dist : {
+                options : {
+                    force       : true,
+                    outputStyle : 'compressed',
+                    raw         : 'asset_cache_buster :none\n'
+                }
+            }
+        },
+
+        jshint : {
+            dev : {
+                options : {
+                    jshintrc : '<%= dirs.src %>/.jshintrc-dev'
+                },
+
+                files : {
+                    src : [
+                        '<%= dirs.src %>/scripts/**/*.js',
+                        '!<%= dirs.src %>/scripts/vendor/*.js'
+                    ]
+                }
+            },
+
+            dist : {
+                options : {
+                    jshintrc : '<%= dirs.src %>/.jshintrc'
+                },
+                files : {
+                    src : [
+                        '<%= dirs.config %>/Gruntfile.js',
+                        '<%= dirs.src %>/scripts/**/*.js',
+                        '!<%= dirs.src %>/scripts/vendor/*.js'
+                    ]
+                }
+            }
+        },
+
+        watch : {
+            /* https://npmjs.org/package/grunt-contrib-watch */
+
+            fonts : {
+                files : '<%= dirs.src %>/fonts/**/*.{woff,ttf,otf,eot,svg}',
+
+                tasks : [
+                    'copy:fonts'
+                ],
+
+                options : {
+                    spawn : false
+                }
+            },
+
+            scripts: {
+                files : [
+                    '<%= dirs.src %>/scripts/**/*.js',
+                    'Gruntfile.js'
+                ],
+
+                tasks : [
+                    'jshint:dev',
+                    'copy:scripts'
+                ],
+
+                options : {
+                    spawn : false
+                }
+            }
+        },
+
+        concurrent : {
+            options : {
+                logConcurrentOutput: true
+            },
+
+            watch : [
+                'watch',
+                'compass:watch'
+            ]
         }
-      }
-    },
+    });
 
-    requirejs : {
-      /* https://npmjs.org/package/grunt-contrib-requirejs */
+    require( 'matchdep' )
+        .filterAll( 'grunt-*', require( '../../package.json' ) )
+        .forEach( grunt.loadNpmTasks );
 
-      all : {
-        options : {
-          appDir  : '<%= yvesDirectories.src %>/scripts/requirejs/',
-          baseUrl : './',
+    // grunt for distribution
+    grunt.registerTask( 'dist', [
+        'clean',
+        'copy',
 
-          dir          : '<%= yvesDirectories.dist %>/scripts/',
-          keepBuildDir : true,
+        'compass:clean',
+        'compass:dist'
+    ]);
 
-          optimize                : 'uglify2',
-          // generateSourceMaps      : true,
-          preserveLicenseComments : false,
+    // grunt for development
+    grunt.registerTask( 'dev', [
+        'clean',
+        'copy',
 
-          removeCombined : true,
+        'compass:clean',
+        'compass:dev'
+    ]);
 
-          pragmas : {
-            consoleLogExclude : true
-          },
+    grunt.registerTask( 'test', [
+        'jshint:dist'
+    ]);
 
-          shim  : Config.requirejs.shim,
-          paths : Config.requirejs.paths,
+    // grunt for development without watch at the end
+    grunt.registerTask( 'watcher', [
+        'concurrent:watch'
+    ]);
 
-          modules : [
-          ]
-        }
-      }
-    },
-
-    watch : {
-      /* https://npmjs.org/package/grunt-contrib-watch */
-
-      styles : {
-        files : '<%= yvesDirectories.src %>/styles/**/*.scss',
-        tasks : 'compass:dev',
-        options: {
-          interrupt: true
-        }
-      },
-
-      scripts: {
-        files: [
-          '<%= yvesDirectories.src %>/scripts/**/*.js',
-          '<%= yvesDirectories.src %>/specs/**/*.js'
-        ],
-        tasks: [
-          // 'jshint:dev',
-          'clean:scripts',
-          'copy:vendor',
-          'copy:scripts',
-          'copy:images'
-        ],
-        options: {
-          interrupt: true
-        }
-      }
-    }
-  });
-
-  // fs
-  grunt.loadNpmTasks( 'grunt-contrib-clean' );
-  grunt.loadNpmTasks( 'grunt-contrib-copy' );
-  grunt.loadNpmTasks( 'grunt-contrib-watch' );
-  grunt.loadNpmTasks( 'grunt-hashmap' );
-  grunt.loadNpmTasks( 'grunt-hashmap-ext' );
-
-  // css
-  grunt.loadNpmTasks( 'grunt-contrib-compass' );
-
-  // js
-  grunt.loadNpmTasks( 'grunt-contrib-jshint' );
-  grunt.loadNpmTasks( 'grunt-contrib-requirejs' );
-
-  // spec
-  grunt.loadNpmTasks( 'grunt-contrib-jasmine' );
-
-  // grunt for distribution
-  grunt.registerTask( 'dist', [
-    'clean',
-
-    'compass:clean',
-    'compass:dist',
-
-//  'jshint:dist',
-//  'jasmine',  // Jasnine should be part of task "test", not "dist" - don't run tests on production
-    'copy:vendor',
-    'copy:scripts',
-    'copy:images',
-
-    'hashmap',
-    'hashmapExt'
-  ]);
-
-  // grunt for development
-  grunt.registerTask( 'dev', [
-    'clean',
-
-    'compass:clean',
-    'compass:dev',
-
-    // 'jshint:dev',
-    'copy:vendor',
-    'copy:scripts',
-    'copy:images',
-
-    'watch'
-  ]);
-
-  // grunt for development without watch at the end
-  grunt.registerTask( 'devNoWatch', [
-    'clean',
-    'compass:clean',
-    'compass:dev',
-    // 'jshint:dev',
-    'copy:vendor',
-    'copy:scripts',
-    'copy:images'
-  ]);
-
-  // grunt [default]
-  grunt.registerTask( 'default', [
-    'dist'
-  ]);
+    // grunt [default]
+    grunt.registerTask( 'default', [
+        'dist'
+    ]);
 };
