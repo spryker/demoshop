@@ -1111,7 +1111,7 @@
             "source": {
                 "type": "git",
                 "url": "git@codebasehq.com:project-a/core/checkout.git",
-                "reference": "5348c16a0c3639743c8c1142e9567ff030bba2b0"
+                "reference": "574f72f4d32a2396da48ace9fb3806d744fc9f98"
             },
             "require": {
                 "gavroche/browser": "~2.1.0",
@@ -1141,7 +1141,7 @@
                 "PaymentControl",
                 "Salesrule"
             ],
-            "time": "2013-12-20 10:12:07"
+            "time": "2013-12-20 13:02:01"
         },
         {
             "name": "project-a/console-package",
@@ -1362,7 +1362,7 @@
             "source": {
                 "type": "git",
                 "url": "git@codebasehq.com:project-a/core/infrastructure.git",
-                "reference": "2391ea59c801d1457a018409fa06d6a4aedb084b"
+                "reference": "9830fdc816643eed507c7065798c87605ca94940"
             },
             "require": {
                 "php": ">=5.4.0",
@@ -1391,7 +1391,7 @@
             "keywords": [
                 "infrastructure"
             ],
-            "time": "2013-12-18 17:20:48"
+            "time": "2013-12-20 11:00:16"
         },
         {
             "name": "project-a/kendo-package",
@@ -1538,7 +1538,7 @@
             "source": {
                 "type": "git",
                 "url": "git@codebasehq.com:project-a/core/payment.git",
-                "reference": "d781401d3ea7510731033ab88deec6fbfe9cfb11"
+                "reference": "548c27af44b4cc182340e1a17b29b810532cd93f"
             },
             "require": {
                 "php": ">=5.4.0"
@@ -1561,7 +1561,7 @@
             "keywords": [
                 "payment, payment provider"
             ],
-            "time": "2013-12-20 10:11:09"
+            "time": "2013-12-20 13:03:00"
         },
         {
             "name": "project-a/payone-package",
