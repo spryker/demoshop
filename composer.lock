@@ -524,12 +524,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/fabpot/PHP-CS-Fixer.git",
-                "reference": "b579d5755e98ebd63e2bcfa6cecab5ac8f21e71f"
+                "reference": "0551c9ed86d69b0027e99091b622052aaed120e5"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/fabpot/PHP-CS-Fixer/zipball/b579d5755e98ebd63e2bcfa6cecab5ac8f21e71f",
-                "reference": "b579d5755e98ebd63e2bcfa6cecab5ac8f21e71f",
+                "url": "https://api.github.com/repos/fabpot/PHP-CS-Fixer/zipball/0551c9ed86d69b0027e99091b622052aaed120e5",
+                "reference": "0551c9ed86d69b0027e99091b622052aaed120e5",
                 "shasum": ""
             },
             "require": {
@@ -564,7 +564,7 @@
                 }
             ],
             "description": "A script to automatically fix Symfony Coding Standard",
-            "time": "2013-12-18 16:16:33"
+            "time": "2013-12-19 06:17:19"
         },
         {
             "name": "gavroche/browser",
@@ -1111,7 +1111,7 @@
             "source": {
                 "type": "git",
                 "url": "git@codebasehq.com:project-a/core/checkout.git",
-                "reference": "aa257f86057224d48f25ec21739704297def55a2"
+                "reference": "5348c16a0c3639743c8c1142e9567ff030bba2b0"
             },
             "require": {
                 "gavroche/browser": "~2.1.0",
@@ -1141,7 +1141,7 @@
                 "PaymentControl",
                 "Salesrule"
             ],
-            "time": "2013-12-18 11:38:13"
+            "time": "2013-12-20 10:12:07"
         },
         {
             "name": "project-a/console-package",
@@ -1149,7 +1149,7 @@
             "source": {
                 "type": "git",
                 "url": "git@codebasehq.com:project-a/core/console.git",
-                "reference": "182b43fe35d79f03397ab3a4fb4928a6fe9bf9c0"
+                "reference": "f3d4ba376c302574317b3e0a6bf88dabefd84ce7"
             },
             "require": {
                 "fabpot/php-cs-fixer": "dev-master",
@@ -1188,7 +1188,7 @@
             "keywords": [
                 "console"
             ],
-            "time": "2013-12-17 15:06:14"
+            "time": "2013-12-20 10:22:36"
         },
         {
             "name": "project-a/content-package",
@@ -1362,7 +1362,7 @@
             "source": {
                 "type": "git",
                 "url": "git@codebasehq.com:project-a/core/infrastructure.git",
-                "reference": "d939bb7e03129504c7b261323050ff85247c24dc"
+                "reference": "2391ea59c801d1457a018409fa06d6a4aedb084b"
             },
             "require": {
                 "php": ">=5.4.0",
@@ -1391,7 +1391,7 @@
             "keywords": [
                 "infrastructure"
             ],
-            "time": "2013-12-18 16:30:07"
+            "time": "2013-12-18 17:20:48"
         },
         {
             "name": "project-a/kendo-package",
@@ -1418,7 +1418,7 @@
             "source": {
                 "type": "git",
                 "url": "git@codebasehq.com:project-a/core/library-2.git",
-                "reference": "d584e255925c5ad0d0fceb74e578f9197c098f3c"
+                "reference": "ec5a1b54f73eec765950526fd6f73ce0dae93ed1"
             },
             "require": {
                 "digital-canvas/zend-framework": ">=1.12.2",
@@ -1453,7 +1453,7 @@
                 }
             ],
             "description": "Project-A Library",
-            "time": "2013-12-17 11:37:37"
+            "time": "2013-12-20 07:39:02"
         },
         {
             "name": "project-a/lumberjack-package",
@@ -1461,7 +1461,7 @@
             "source": {
                 "type": "git",
                 "url": "git@codebasehq.com:project-a/core/lumberjack.git",
-                "reference": "f9069cc2b67e248bc951ecc5e1297b3dd7ac97f5"
+                "reference": "908244378434d1226f7c53a9c20afdd3814d6aac"
             },
             "require": {
                 "nervetattoo/elasticsearch": "~2.2.0",
@@ -1486,7 +1486,7 @@
             "keywords": [
                 ""
             ],
-            "time": "2013-11-20 08:51:41"
+            "time": "2013-12-18 11:40:43"
         },
         {
             "name": "project-a/marketing-package",
@@ -1538,7 +1538,7 @@
             "source": {
                 "type": "git",
                 "url": "git@codebasehq.com:project-a/core/payment.git",
-                "reference": "2f745e8208f307da583d3fdf180dab6cc25c728b"
+                "reference": "d781401d3ea7510731033ab88deec6fbfe9cfb11"
             },
             "require": {
                 "php": ">=5.4.0"
@@ -1561,7 +1561,7 @@
             "keywords": [
                 "payment, payment provider"
             ],
-            "time": "2013-12-18 16:26:06"
+            "time": "2013-12-20 10:11:09"
         },
         {
             "name": "project-a/payone-package",
@@ -1569,7 +1569,7 @@
             "source": {
                 "type": "git",
                 "url": "git@codebasehq.com:project-a/core/payone.git",
-                "reference": "5b314dc58040d35f556421fdc5334e068b22d94a"
+                "reference": "1d71f91ca2321f0873f7d4397d6c8ebd5b1f9465"
             },
             "require": {
                 "php": ">=5.4.0",
@@ -1596,7 +1596,7 @@
             "keywords": [
                 "payment,payment provider,payone"
             ],
-            "time": "2013-12-18 15:11:48"
+            "time": "2013-12-20 10:10:11"
         },
         {
             "name": "project-a/sales-package",
