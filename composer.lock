@@ -1569,7 +1569,7 @@
             "source": {
                 "type": "git",
                 "url": "git@codebasehq.com:project-a/core/payone.git",
-                "reference": "1d71f91ca2321f0873f7d4397d6c8ebd5b1f9465"
+                "reference": "0694e9e530c80fb75448ec2052b8a323ff7e6821"
             },
             "require": {
                 "php": ">=5.4.0",
@@ -1596,7 +1596,7 @@
             "keywords": [
                 "payment,payment provider,payone"
             ],
-            "time": "2013-12-20 10:10:11"
+            "time": "2013-12-20 14:35:10"
         },
         {
             "name": "project-a/sales-package",
