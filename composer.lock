@@ -3,7 +3,7 @@
         "This file locks the dependencies of your project to a known state",
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file"
     ],
-    "hash": "3566e38c247231419695dd2cbfadd675",
+    "hash": "29cb8508b30322e6ab10288869e04a75",
     "packages": [
         {
             "name": "aws/aws-sdk-php",
@@ -524,12 +524,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/fabpot/PHP-CS-Fixer.git",
-                "reference": "5f7a49ffc60fadc794ff28689882de0b9ad79b75"
+                "reference": "c644477c7f16396613a9b5d702217e4aaa1b21ad"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/fabpot/PHP-CS-Fixer/zipball/5f7a49ffc60fadc794ff28689882de0b9ad79b75",
-                "reference": "5f7a49ffc60fadc794ff28689882de0b9ad79b75",
+                "url": "https://api.github.com/repos/fabpot/PHP-CS-Fixer/zipball/c644477c7f16396613a9b5d702217e4aaa1b21ad",
+                "reference": "c644477c7f16396613a9b5d702217e4aaa1b21ad",
                 "shasum": ""
             },
             "require": {
@@ -564,7 +564,7 @@
                 }
             ],
             "description": "A script to automatically fix Symfony Coding Standard",
-            "time": "2013-12-20 15:41:16"
+            "time": "2014-01-01 09:01:14"
         },
         {
             "name": "gavroche/browser",
@@ -1067,7 +1067,7 @@
             "source": {
                 "type": "git",
                 "url": "git@codebasehq.com:project-a/core/catalog.git",
-                "reference": "b2d7486101ca90cb5744e7e1aca0f6f47d1bb51b"
+                "reference": "6b7487772ac37f55d7d2ddfde30e239f7b69ae72"
             },
             "require": {
                 "php": ">=5.4.0",
@@ -1103,7 +1103,7 @@
                 "Price",
                 "Stock"
             ],
-            "time": "2013-12-18 09:08:01"
+            "time": "2013-12-19 15:39:58"
         },
         {
             "name": "project-a/checkout-package",
@@ -1111,7 +1111,7 @@
             "source": {
                 "type": "git",
                 "url": "git@codebasehq.com:project-a/core/checkout.git",
-                "reference": "604b794902cbc534968e667897a311231dd31dab"
+                "reference": "a0b8e4bcdfb85d4544ba2790e232557516bd100d"
             },
             "require": {
                 "gavroche/browser": "~2.1.0",
@@ -1140,7 +1140,7 @@
                 "Checkout",
                 "Salesrule"
             ],
-            "time": "2013-12-20 14:55:01"
+            "time": "2014-01-06 10:05:15"
         },
         {
             "name": "project-a/console-package",
@@ -1601,11 +1601,11 @@
         },
         {
             "name": "project-a/sales-package",
-            "version": "2.0.0.x-dev",
+            "version": "dev-feature/sales-payment2-changes",
             "source": {
                 "type": "git",
                 "url": "git@codebasehq.com:project-a/core/sales.git",
-                "reference": "0aae3f5ef6ddf84c68e3583546830b0da68ec2c5"
+                "reference": "90c710c22d8b92099699cd15d3239c0e7eecfad2"
             },
             "require": {
                 "php": ">=5.4.0",
@@ -1638,7 +1638,7 @@
                 "Sales",
                 "Task"
             ],
-            "time": "2013-12-16 13:49:39"
+            "time": "2014-01-06 09:41:56"
         },
         {
             "name": "project-a/silex-routing",
@@ -1934,12 +1934,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/silexphp/Silex.git",
-                "reference": "8c157d158348216ea4c2c520cbc00b245c770e0a"
+                "reference": "a793aa89b356e3605d4fe5b1057e278846d6f505"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/silexphp/Silex/zipball/8c157d158348216ea4c2c520cbc00b245c770e0a",
-                "reference": "8c157d158348216ea4c2c520cbc00b245c770e0a",
+                "url": "https://api.github.com/repos/silexphp/Silex/zipball/a793aa89b356e3605d4fe5b1057e278846d6f505",
+                "reference": "a793aa89b356e3605d4fe5b1057e278846d6f505",
                 "shasum": ""
             },
             "require": {
@@ -2010,7 +2010,7 @@
             "keywords": [
                 "microframework"
             ],
-            "time": "2013-12-06 10:11:42"
+            "time": "2013-12-31 08:13:35"
         },
         {
             "name": "solarium/solarium",
@@ -2211,16 +2211,16 @@
         },
         {
             "name": "symfony/symfony",
-            "version": "v2.4.0",
+            "version": "v2.4.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/symfony.git",
-                "reference": "2e47d2edd45080c046bc32dd2ca5c64f31086366"
+                "reference": "377a5fb23bfdc2fb616610b7b7ab7cc9a50e614d"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/symfony/zipball/2e47d2edd45080c046bc32dd2ca5c64f31086366",
-                "reference": "2e47d2edd45080c046bc32dd2ca5c64f31086366",
+                "url": "https://api.github.com/repos/symfony/symfony/zipball/377a5fb23bfdc2fb616610b7b7ab7cc9a50e614d",
+                "reference": "377a5fb23bfdc2fb616610b7b7ab7cc9a50e614d",
                 "shasum": ""
             },
             "require": {
@@ -2280,7 +2280,7 @@
                 "doctrine/orm": "~2.2,>=2.2.3",
                 "ircmaxell/password-compat": "1.0.*",
                 "monolog/monolog": "~1.3",
-                "ocramius/proxy-manager": ">=0.3.1,<0.5-dev",
+                "ocramius/proxy-manager": ">=0.3.1,<0.6-dev",
                 "propel/propel1": "1.6.*"
             },
             "type": "library",
@@ -2320,7 +2320,7 @@
             "keywords": [
                 "framework"
             ],
-            "time": "2013-12-03 15:23:03"
+            "time": "2014-01-05 02:12:11"
         },
         {
             "name": "twig/twig",
@@ -2377,12 +2377,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/zendframework/zf2.git",
-                "reference": "dcaa8ff8f77f42dc8070f30f9d891ebb300fa5ad"
+                "reference": "5500fc73adc57991f9091900539b80c1dd854873"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/zendframework/zf2/zipball/dcaa8ff8f77f42dc8070f30f9d891ebb300fa5ad",
-                "reference": "dcaa8ff8f77f42dc8070f30f9d891ebb300fa5ad",
+                "url": "https://api.github.com/repos/zendframework/zf2/zipball/5500fc73adc57991f9091900539b80c1dd854873",
+                "reference": "5500fc73adc57991f9091900539b80c1dd854873",
                 "shasum": ""
             },
             "require": {
@@ -2487,7 +2487,7 @@
                 "framework",
                 "zf2"
             ],
-            "time": "2013-12-16 12:03:10"
+            "time": "2014-01-04 12:30:22"
         },
         {
             "name": "zendframework/zendpdf",
@@ -3781,7 +3781,7 @@
         {
             "alias": "2.1.0",
             "alias_normalized": "2.1.0.0",
-            "version": "2.0.0.9999999-dev",
+            "version": "dev-feature/sales-payment2-changes",
             "package": "project-a/sales-package"
         },
         {
