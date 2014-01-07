@@ -149,7 +149,7 @@
                 </div>
 
                 <div class="unnecessary primary col col33 secondaryRow">
-                    <div class="details" data-associated-paymentmethod="payment.payone.creditcard_pseudo" data-validator-precondition="return $('[name=\'salesOrder[payment][method]\']:checked').val() === 'payment.payone.creditcard_pseudo'">
+                     <div class="details" data-associated-paymentmethod="payment.payone.creditcard_pseudo" data-validator-precondition="return $('[name=\'salesOrder[payment][method]\']:checked').val() === 'payment.payone.creditcard_pseudo'">
                         <div class="row">
                             {{ form_row(form.payment.creditCardType, {attr : {class : 'fullWidth'}, label : 'checkout.payment.creditCardType'}) }}
                         </div>
@@ -176,14 +176,24 @@
                     </div>
 
                     <div class="details" data-associated-paymentmethod="payment.payone.direct_debit" data-validator-precondition="return $('[name=\'salesOrder[payment][method]\']:checked').val() === 'payment.payone.direct_debit'">
+                         <div class="row">
+                             {{ form_row(form.payment.bankAccountHolder, {attr : {class : 'fullWidth', maxlength : 16}, label : 'checkout.payment.bankAccountHolder'}) }}
+                         </div>
+                         <div class="row">
+                            {{ form_row(form.payment.bankAccount, {attr : {class : 'fullWidth'}, label : 'checkout.payment.bankAccount'}) }}
+                         </div>
+                         <div class="row">
+                             {{ form_row(form.payment.bankCode, {attr : {class : 'fullWidth', maxlength : 16}, label : 'checkout.payment.bankCode'}) }}
+                         </div>
+                     </div>
+
+
+                    <div class="details" data-associated-paymentmethod="payment.payone.sofort_ueberweisung" data-validator-precondition="return $('[name=\'salesOrder[payment][method]\']:checked').val() === 'payment.payone.sofort_ueberweisung'">
                         <div class="row">
-                            {{ form_row(form.payment.bankAccountHolder, {attr : {class : 'fullWidth', maxlength : 16}, label : 'checkout.payment.bankAccountHolder'}) }}
+                            {{ form_row(form.payment.bankAccountSofortUeberweisung, {attr : {class : 'fullWidth'}, label : 'checkout.payment.bankAccount'}) }}
                         </div>
                         <div class="row">
-                           {{ form_row(form.payment.bankAccount, {attr : {class : 'fullWidth'}, label : 'checkout.payment.bankAccount'}) }}
-                        </div>
-                        <div class="row">
-                            {{ form_row(form.payment.bankCode, {attr : {class : 'fullWidth', maxlength : 16}, label : 'checkout.payment.bankCode'}) }}
+                            {{ form_row(form.payment.bankCodeSofortUeberweisung, {attr : {class : 'fullWidth', maxlength : 16}, label : 'checkout.payment.bankCode'}) }}
                         </div>
                     </div>
                 </div>

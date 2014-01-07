@@ -21,6 +21,7 @@ class PaymentType extends CorePaymentType
         $this->buildCreditCardForm($builder, $options);
         $this->buildDirectDebitForm($builder, $options);
         $this->buildPrePaymentForm($builder, $options);
+        $this->buildSofortUeberweisungForm($builder, $options);
         $builder->addEventListener(FormEvents::SUBMIT, [$this, 'preparePaymentTransfer']);
     }
 
@@ -91,6 +92,12 @@ class PaymentType extends CorePaymentType
     protected function buildPrePaymentForm(FormBuilderInterface $builder, array $options)
     {
 
+    }
+
+    protected function buildSofortUeberweisungForm(FormBuilderInterface $builder, array $options)
+    {
+        $builder->add('bankAccountSofortUeberweisung', 'text', array('property_path' => 'bankAccount'))
+                ->add('bankCodeSofortUeberweisung', 'text', array('property_path' => 'bankCode'));
     }
 
     public function preparePaymentTransfer(FormEvent $event)
