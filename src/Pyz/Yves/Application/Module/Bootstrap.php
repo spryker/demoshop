@@ -28,6 +28,7 @@ use SilexRouting\Provider\UrlGeneratorServiceProvider;
 use Silex\Provider\ValidatorServiceProvider;
 use Silex\Provider\WebProfilerServiceProvider;
 use SilexRouting\Provider\RoutingServiceProvider;
+use Symfony\Component\HttpFoundation\Request;
 
 class Bootstrap extends \ProjectA\Yves\Library\Silex\Bootstrap
 {
@@ -41,7 +42,8 @@ class Bootstrap extends \ProjectA\Yves\Library\Silex\Bootstrap
             $app['profiler.cache_dir'] = \ProjectA_Shared_Library_Data::getLocalStoreSpecificPath('cache/profiler');
         }
 
-        Request::setTrustedProxies(['10.15.0.4']); // TODO move to config
+        $proxies = \ProjectA_Shared_Library_Config::get('yves')->get('trusted_proxies', []);
+        Request::setTrustedProxies($proxies);
     }
 
     /**

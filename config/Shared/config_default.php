@@ -269,6 +269,7 @@ $config['zed'] = [
 
 $config['yves'] = [
     'theme'          => 'demoshop',
+    'trusted_proxies' => [],
     'ssl_enabled'    => false,
     'complete_ssl_enabled' => false,
     'ssl_excluded' => [
