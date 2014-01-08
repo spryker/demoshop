@@ -1,14 +1,18 @@
 <?php
 namespace Pyz\Zed\Catalog\Component\Internal;
 
+use ProjectA\Shared\Library\Filter\FilterChain;
+use ProjectA\Shared\Library\Filter\SeparatorToCamelCaseFilter;
+use ProjectA\Zed\Library\Dependency\DependencyFactoryInterface;
+use ProjectA\Zed\Library\Dependency\DependencyFactoryTrait;
 use Pyz\Shared\Catalog\Code\ProductAttributeSetConstantInterface;
 
 class ImportOptionsForAttributes implements
-    \ProjectA\Zed\Library\Dependency\DependencyFactoryInterface,
+    DependencyFactoryInterface,
     ProductAttributeSetConstantInterface
 {
 
-    use \ProjectA\Zed\Library\Dependency\DependencyFactoryTrait;
+    use DependencyFactoryTrait;
 
     const INDEX_KEY = 'SKU';
 
@@ -68,9 +72,11 @@ class ImportOptionsForAttributes implements
      */
     protected function getFileName($attributeSetName)
     {
-        $filter = new \Zend_Filter();
-        $filter->addFilter(new \Zend_Filter_Word_SeparatorToSeparator(' ', '_'));
-        $filter->addFilter(new \Zend_Filter_Word_UnderscoreToCamelCase());
+        $filter = new FilterChain();
+        $filter->addFilter(function ($string) {
+            return str_replace(' ', '_', $string);
+        });
+        $filter->addFilter(new SeparatorToCamelCaseFilter('_', true));
 
         return self::FILE_NAME_PREFIX . $filter->filter($attributeSetName) . self::FILE_TYPE;
     }
@@ -82,6 +88,7 @@ class ImportOptionsForAttributes implements
     protected function parseCsvToArray(\ProjectA_Zed_Library_Stream_String $stream)
     {
         $csvParser = new \ProjectA_Zed_Library_Parser_Csv(self::CSV_DELIMITER, self::CSV_ENCLOSURE, self::CSV_ESCAPE);
+
         return new \ProjectA_Zed_Library_Stream_String_Parser($stream, $csvParser);
     }
 }

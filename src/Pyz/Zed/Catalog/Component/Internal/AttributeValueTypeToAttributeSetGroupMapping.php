@@ -1,6 +1,8 @@
 <?php
 namespace Pyz\Zed\Catalog\Component\Internal;
 
+use ProjectA\Shared\Library\Filter\FilterChain;
+use ProjectA\Shared\Library\Filter\SeparatorToCamelCaseFilter;
 use Pyz\Shared\Catalog\Code\ProductAttributeConstantInterface;
 use Pyz\Shared\Catalog\Code\ProductAttributeSetConstantInterface;
 
@@ -46,9 +48,11 @@ class AttributeValueTypeToAttributeSetGroupMapping implements
 
             $countAttributes = \ProjectA_Zed_Catalog_Persistence_PacCatalogValueTypeQuery::create()->useAttributeSetQuery()->filterByName($attributeSetName)->endUse()->count();
 
-            $filter = new \Zend_Filter();
-            $filter->addFilter(new \Zend_Filter_Word_SeparatorToSeparator(' ', '_'));
-            $filter->addFilter(new \Zend_Filter_Word_UnderscoreToCamelCase());
+            $filter = new FilterChain();
+            $filter->addFilter(function ($string) {
+                return str_replace(' ', '_', $string);
+            });
+            $filter->addFilter(new SeparatorToCamelCaseFilter('_', true));
 
             $fileName = dirname(__FILE__) . DIRECTORY_SEPARATOR . '..' .DIRECTORY_SEPARATOR . 'File' . DIRECTORY_SEPARATOR . self::FILE_NAME_PREFIX . $filter->filter($attributeSetName) . self::FILE_TYPE;
             if (file_exists($fileName)) {
