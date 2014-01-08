@@ -3,113 +3,138 @@
  require: false
  */
 module.exports = function ( grunt ) {
-    'use strict';
+  'use strict';
 
-    grunt.file.setBase('../../');
+  grunt.file.setBase('../../');
 
-    function packageDestRename( dest, src ) {
-        return dest + src.replace( /([\\\/]?([\w-_]+[\\\/])*([\w-_]+)[\\\/]static[\\\/]public)/i, '$3' );
-    }
+  function packageDestRename( dest, src ) {
+    return dest + src.replace( /([\\\/]?([\w-_]+[\\\/])*([\w-_]+)[\\\/]static[\\\/]public)/i, '$3' );
+  }
 
-    grunt.initConfig({
-        dirs : {
-            config : 'config/Zed',
-            pkg   : 'vendor/project-a',
-            srcY  : '**/{Shared,Yves}/*/Static/Public/**/*',
-            srcZ  : '**/{Shared,Zed}/*/Static/Public/**/*',
-            distY : 'static/public/Yves/bundles',
-            distZ : 'static/public/Zed/bundles'
-        },
+  grunt.initConfig({
+    dirs : {
+      config   : 'config/Zed',
+      packages : 'vendor/project-a',
+      project  : 'src',
+      srcY     : '**/{Shared,Yves}/*/Static/Public/**/*',
+      srcZ     : '**/{Shared,Zed}/*/Static/Public/**/*',
+      distY    : 'static/public/Yves/bundles',
+      distZ    : 'static/public/Zed/bundles'
+    },
 
-        clean : {
-            /* https://npmjs.org/package/grunt-contrib-clean */
+    clean : {
+      /* https://npmjs.org/package/grunt-contrib-clean */
 
-            packagesYves : '<%= dirs.distY %>',
-            packagesZed : '<%= dirs.distZ %>'
-        },
+      packagesYves : '<%= dirs.distY %>',
+      packagesZed : '<%= dirs.distZ %>'
+    },
 
-        copy : {
-            packagesYves : {
-                expand : true,
-                cwd    : '<%= dirs.pkg %>/',
-                src    : '<%= dirs.srcY %>',
-                dest   : '<%= dirs.distY %>/',
-                rename : packageDestRename
-            },
+    copy : {
+      packagesYves : {
+        expand : true,
+        cwd    : '<%= dirs.packages %>/',
+        src    : '<%= dirs.srcY %>',
+        dest   : '<%= dirs.distY %>/',
+        rename : packageDestRename
+      },
 
-            packagesZed : {
-                expand : true,
-                cwd    : '<%= dirs.pkg %>/',
-                src    : '<%= dirs.srcZ %>',
-                dest   : '<%= dirs.distZ %>/',
-                rename : packageDestRename
-            }
-        },
+      packagesZed : {
+        expand : true,
+        cwd    : '<%= dirs.packages %>/',
+        src    : '<%= dirs.srcZ %>',
+        dest   : '<%= dirs.distZ %>/',
+        rename : packageDestRename
+      },
 
-        watch : {
-            /* https://npmjs.org/package/grunt-contrib-watch */
+      projectPackagesYves : {
+        expand : true,
+        cwd    : '<%= dirs.project %>/',
+        src    : '<%= dirs.srcY %>',
+        dest   : '<%= dirs.distY %>/',
+        rename : packageDestRename
+      },
 
-            packagesYves : {
-                files : '<%= dirs.pkg %>/<%= dirs.srcY %>',
+      projectPackagesZed : {
+        expand : true,
+        cwd    : '<%= dirs.project %>/',
+        src    : '<%= dirs.srcZ %>',
+        dest   : '<%= dirs.distZ %>/',
+        rename : packageDestRename
+      }
+    },
 
-                tasks : [
-                    'copy:packagesYves'
-                ],
+    watch : {
+      /* https://npmjs.org/package/grunt-contrib-watch */
 
-                options : {
-                    spawn : false
-                }
-            },
+      packagesYves : {
+        files : '<%= dirs.packages %>/<%= dirs.srcY %>',
 
-            packagesZed : {
-                files : '<%= dirs.pkg %>/<%= dirs.srcZ %>',
+        tasks : [
+          'copy:packagesYves'
+        ],
 
-                tasks : [
-                    'copy:packagesZed'
-                ],
-
-                options : {
-                    spawn : false
-                }
-            },
+        options : {
+          spawn : false
         }
+      },
 
-        /* keeping just in case for now - soon to be removed, i guess :) */
+      packagesZed : {
+        files : '<%= dirs.packages %>/<%= dirs.srcZ %>',
 
-        // yvesDirectories : {
-        //     'configJSON': 'config/Zed/assets.json',
-        //     'configPHP': 'config/Zed/config_assets.php',
-        //     'config': 'config/Zed/',
-        //     'src': 'vendor/project-a/infrastructure-package/src/ProjectA/Zed/Application/Static/',
-        //     'dist': 'static/public/Zed/new',
-        //     'yvesDist': 'static/public/Yves/bundles'
-        // },
+        tasks : [
+          'copy:packagesZed'
+        ],
 
-        // zedDirectories : {
-        //     'pkg' : 'vendor/project-a',
-        //     'dist' : 'static/public/Zed/bundles'
-        // },
-    });
+        options : {
+          spawn : false
+        }
+      },
 
-    require( 'matchdep' )
-        .filterAll( 'grunt-*', require( '../../package.json' ) )
-        .forEach( grunt.loadNpmTasks );
+      projectPackagesYves : {
+        files : '<%= dirs.project %>/<%= dirs.srcY %>',
 
-    grunt.registerTask( 'dev', [
-        'clean',
-        'copy'
-    ]);
+        tasks : [
+          'copy:projectPackagesYves'
+        ],
 
-    grunt.registerTask( 'watcher', [
-        'watcher'
-    ]);
+        options : {
+          spawn : false
+        }
+      },
 
-    grunt.registerTask( 'dist', [
-        'dev'
-    ]);
+      projectPackagesZed : {
+        files : '<%= dirs.project %>/<%= dirs.srcZ %>',
 
-    // grunt [default]
-    grunt.registerTask( 'default', [
-        'dev'
-    ]);
+        tasks : [
+          'copy:projectPackagesZed'
+        ],
+
+        options : {
+          spawn : false
+        }
+      }
+    }
+  });
+
+  require( 'matchdep' )
+    .filterAll( 'grunt-*', require( '../../package.json' ) )
+      .forEach( grunt.loadNpmTasks );
+
+  grunt.registerTask( 'dev', [
+    'clean',
+    'copy'
+  ]);
+
+  grunt.registerTask( 'watcher', [
+    'watcher'
+  ]);
+
+  grunt.registerTask( 'dist', [
+    'dev'
+  ]);
+
+  // grunt [default]
+  grunt.registerTask( 'default', [
+    'dev'
+  ]);
 };
