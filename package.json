@@ -19,6 +19,7 @@
     "grunt-contrib-jshint": "~0.7",
     "grunt-contrib-watch": "~0.5",
     "matchdep": "~0.3",
-    "grunt-concurrent": "~0.4"
+    "grunt-concurrent": "~0.4",
+    "grunt-bushcaster": "0.0.7"
   }
 }
