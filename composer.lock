@@ -3,7 +3,7 @@
         "This file locks the dependencies of your project to a known state",
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file"
     ],
-    "hash": "f89bc947859a24a77e54fb299b6b87ad",
+    "hash": "9458e315253b53b89baec116046a6140",
     "packages": [
         {
             "name": "digital-canvas/zend-framework",
@@ -1076,11 +1076,11 @@
         },
         {
             "name": "project-a/console-package",
-            "version": "2.1.0",
+            "version": "2.1.1",
             "source": {
                 "type": "git",
                 "url": "git@codebasehq.com:project-a/core/console.git",
-                "reference": "3a2c8d7e8fc2b9f9cf635f3539b79d83869411ba"
+                "reference": "b84e31aa3122b7bfb87f8d8dc566b94ebf4aa075"
             },
             "require": {
                 "fabpot/php-cs-fixer": "dev-master",
@@ -1119,7 +1119,7 @@
             "keywords": [
                 "console"
             ],
-            "time": "2013-12-17 15:06:14"
+            "time": "2014-01-08 10:18:30"
         },
         {
             "name": "project-a/content-package",
@@ -1161,7 +1161,7 @@
             "source": {
                 "type": "git",
                 "url": "git@codebasehq.com:project-a/core/crm.git",
-                "reference": "784dc180ed4c204386e95172725cad0e99f73a11"
+                "reference": "4411262ca0c622754fa9466898d4b11a0e97cdd8"
             },
             "require": {
                 "php": ">=5.4.0",
@@ -1187,7 +1187,7 @@
                 "CRM",
                 "Mail"
             ],
-            "time": "2014-01-02 13:33:05"
+            "time": "2014-01-08 10:33:17"
         },
         {
             "name": "project-a/document-package",
@@ -1421,17 +1421,22 @@
         },
         {
             "name": "project-a/marketing-package",
-            "version": "2.0.0",
+            "version": "2.0.2",
             "source": {
                 "type": "git",
                 "url": "git@codebasehq.com:project-a/core/marketing.git",
-                "reference": "4c572a94122505ae0fa64910c105365e0045ac4a"
+                "reference": "1c263ddb00566ef82d11e9568c782916061647e3"
             },
             "require": {
                 "php": ">=5.4.0",
                 "project-a/library-package": ">=2.0.0"
             },
             "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "2.1.x-dev"
+                }
+            },
             "autoload": {
                 "psr-0": {
                     "ProjectA": "/src"
@@ -1461,7 +1466,7 @@
             "keywords": [
                 "Marketing"
             ],
-            "time": "2013-12-02 14:20:00"
+            "time": "2014-01-06 16:08:50"
         },
         {
             "name": "project-a/payment-package",
