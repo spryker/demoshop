@@ -9,7 +9,10 @@
     "url": "http://www.project-a.com/"
   },
   "scripts": {
-    "start" : "vendor/bin/console code:grunt -y -w"
+    "setup": "vendor/bin/console code:grunt",
+    "start": "vendor/bin/console code:grunt -y -w",
+    "yves": "vendor/bin/console code:grunt -y",
+    "zed": "vendor/bin/console code:grunt -z"
   },
   "devDependencies": {
     "grunt": "~0.4.2",
