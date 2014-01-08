@@ -1,9 +1,11 @@
 <?php
 namespace Pyz\Yves\Catalog\Module\Controller;
 
+use Pyz\Yves\Library\Tracking\DataProvider\ProductDetailProvider;
+use Pyz\Yves\Library\Tracking\PageTypeInterface;
 use ProjectA\Yves\Catalog\Module\Controller\CatalogController as CoreCatalogController;
 use Pyz\Yves\Catalog\Component\Model\FacetConfig;
-use Pyz\Yves\Catalog\Component\Model\FacetSearch;
+use ProjectA\Yves\Library\Tracking\Tracking;
 use Symfony\Component\HttpFoundation\Request;
 
 /**
@@ -22,5 +24,20 @@ class CatalogController extends CoreCatalogController
         $result = $search->getResult();
 
         return $result;
+    }
+
+    /**
+     * @param array $product
+     * @return array
+     */
+    public function detailAction(array $product)
+    {
+        Tracking::getInstance()
+            ->setPageType(PageTypeInterface::PAGE_TYPE_PRODUCT_DETAIL)
+            ->buildTracking()
+            ->setValue(ProductDetailProvider::KEY_PRODUCT_DETAIL, $product);
+
+
+        return parent::detailAction($product);
     }
 }

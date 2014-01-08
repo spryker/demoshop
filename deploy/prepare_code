@@ -39,9 +39,9 @@ if is_default_store; then
 
   php -d "newrelic.appname='Deploy($environment)'" composer.phar self-update &> /dev/null
   if [ "${environment}" == "production" ]; then
-    php -d "newrelic.appname='Deploy($environment)'" composer.phar --quiet install -o --no-dev || exit 1
+    php -d "newrelic.appname='Deploy($environment)'" composer.phar install -o --no-dev || exit 1
   else
-    php -d "newrelic.appname='Deploy($environment)'" composer.phar --quiet install -o || exit 1
+    php -d "newrelic.appname='Deploy($environment)'" composer.phar install -o || exit 1
   fi
 
   # rsync current vendor back to the cache

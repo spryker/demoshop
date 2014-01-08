@@ -1,6 +1,6 @@
 <?php
-
 namespace Pyz\Zed\Customer\Component;
+
 use ProjectA\Zed\Customer\Component\Settings as CoreSettings;
 
 class Settings extends CoreSettings
@@ -36,6 +36,4 @@ class Settings extends CoreSettings
     {
         return 12;
     }
-
-
 }

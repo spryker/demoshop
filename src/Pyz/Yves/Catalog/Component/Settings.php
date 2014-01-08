@@ -1,7 +1,7 @@
 <?php
 namespace Pyz\Yves\Catalog\Component;
 
-use \ProjectA_Zed_Price_Component_Interface_PriceTypeConstants as PriceTypeConstants;
+use ProjectA\Shared\Price\Code\PriceTypeConstants;
 
 /**
  * @package Pyz\Yves\Catalog\Component

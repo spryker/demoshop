@@ -15,6 +15,7 @@ return array(
     APPLICATION_VENDOR_DIR . '/project-a/infrastructure-package/src/ProjectA/Zed/Setup/Module/navigation.xml',
     APPLICATION_VENDOR_DIR . '/project-a/infrastructure-package/src/ProjectA/Zed/System/Module/navigation.xml',
     APPLICATION_VENDOR_DIR . '/project-a/lumberjack-package/src/ProjectA/Zed/Lumberjack/Module/navigation.xml',
+    APPLICATION_VENDOR_DIR . '/project-a/marketing-package/src/ProjectA/Zed/Mcm/Module/navigation.xml',
     APPLICATION_VENDOR_DIR . '/project-a/payment-package/src/ProjectA/Zed/Payment/Module/navigation.xml',
     APPLICATION_VENDOR_DIR . '/project-a/sales-package/src/ProjectA/Zed/Sales/Module/navigation.xml',
     APPLICATION_VENDOR_DIR . '/project-a/sales-package/src/ProjectA/Zed/DwhOrderStatus/Module/navigation.xml',

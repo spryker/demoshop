@@ -2,11 +2,13 @@
 namespace Pyz\Yves\Application\Module;
 
 use Generated\Yves\Factory;
+use Pyz\Yves\Library\Silex\Provider\TrackingServiceProvider;
 use ProjectA\Yves\Catalog\Component\Model\Category;
 use ProjectA\Yves\Library\Security\Configuration;
 use ProjectA\Yves\Library\Security\SecurityServiceProvider;
 use ProjectA\Yves\Library\Silex\Application;
 use ProjectA\Yves\Library\Silex\Provider\CookieServiceProvider;
+use ProjectA\Yves\Library\Silex\Provider\MonologServiceProvider;
 use ProjectA\Yves\Library\Silex\Provider\SessionServiceProvider;
 use ProjectA\Yves\Library\Silex\Provider\StorageServiceProvider;
 use ProjectA\Yves\Library\Silex\Provider\ExceptionServiceProvider;
@@ -17,8 +19,8 @@ use ProjectA\Yves\Library\Silex\Routing\SilexRouter;
 use Pyz\Yves\Application\Module\ControllerProvider as ApplicationProvider;
 use ProjectA\Yves\Cart\Module\ControllerProvider as CartProvider;
 use ProjectA\Yves\Checkout\Module\ControllerProvider as CheckoutProvider;
-use ProjectA\Yves\Setup\Module\ControllerProvider as SetupProvider;
 use ProjectA\Yves\Customer\Module\ControllerProvider as CustomerProvider;
+use ProjectA\Yves\Library\Tracking\Tracking;
 use Silex\Provider\FormServiceProvider;
 use Silex\Provider\RememberMeServiceProvider;
 use Silex\Provider\ServiceControllerServiceProvider;
@@ -38,6 +40,16 @@ class Bootstrap extends \ProjectA\Yves\Library\Silex\Bootstrap
         if (\ProjectA_Shared_Library_Environment::isDevelopment()) {
             $app['profiler.cache_dir'] = \ProjectA_Shared_Library_Data::getLocalStoreSpecificPath('cache/profiler');
         }
+
+        Request::setTrustedProxies(['10.15.0.4']); // TODO move to config
+    }
+
+    /**
+     * @param Application $app
+     */
+    protected function afterBoot(Application $app)
+    {
+        $app['monolog.level'] = \ProjectA_Shared_Library_Config::get('log')->logLevel;
     }
 
     /**
@@ -46,8 +58,9 @@ class Bootstrap extends \ProjectA\Yves\Library\Silex\Bootstrap
     protected function getServiceProviders()
     {
         $providers = [
-            new ExceptionServiceProvider(),
+            new ExceptionServiceProvider('\Pyz\Yves\Library\Controller\ExceptionController'),
             new YvesLoggingServiceProvider(),
+            new MonologServiceProvider(),
             new CookieServiceProvider(),
             new SessionServiceProvider(),
             new UrlGeneratorServiceProvider(),
@@ -60,6 +73,7 @@ class Bootstrap extends \ProjectA\Yves\Library\Silex\Bootstrap
             new ValidatorServiceProvider(),
             new FormServiceProvider(),
             new TwigServiceProvider(),
+            new TrackingServiceProvider()
         ];
 
         if (\ProjectA_Shared_Library_Environment::isDevelopment()) {
@@ -74,11 +88,13 @@ class Bootstrap extends \ProjectA\Yves\Library\Silex\Bootstrap
      */
     protected function getControllerProviders()
     {
+        $ssl = \ProjectA_Shared_Library_Config::get('yves')->ssl_enabled;
+
         return [
             new ApplicationProvider(),
             new CartProvider(),
-            new CheckoutProvider(),
-            new CustomerProvider(),
+            new CheckoutProvider($ssl),
+            new CustomerProvider($ssl),
         ];
     }
 
@@ -109,6 +125,7 @@ class Bootstrap extends \ProjectA\Yves\Library\Silex\Bootstrap
         return [
             'categories' => Category::getCategoryTree($app->getStorageKeyValue()),
             'cartItemCount' => Factory::getInstance()->createCartModelSessionCartCount($app->getSession())->getCount(),
+            'tracking' => Tracking::getInstance(),
         ];
     }
 }

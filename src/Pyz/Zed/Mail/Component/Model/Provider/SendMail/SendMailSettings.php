@@ -6,13 +6,21 @@ use ProjectA\Zed\Mail\Component\Model\Provider\SendMail\SendMailSettings as Core
 class SendMailSettings extends CoreSendMailSettings
 {
     /**
-     * !this is the default sender address,
-     * each templates define a sender address in the pac_mail_template table
+     * This is the default sender address, which can be overwritten by templates
      * @return string
      */
     public function getSenderAddress()
     {
         return 'shop@project-yz.com';
+    }
+
+    /**
+     * This is the default sender name, which can be overwritten by templates
+     * @return string
+     */
+    public function getSenderName()
+    {
+        return 'demoshop';
     }
 
     /**
@@ -24,10 +32,11 @@ class SendMailSettings extends CoreSendMailSettings
     }
 
     /**
-     * @return string
+     * @return bool
      */
-    public function getSenderName()
+    public function useBounceAddressDomain()
     {
-        return 'demoshop';
+        return false;
     }
 }
+

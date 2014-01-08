@@ -15,7 +15,7 @@ class CatalogDetailRouter extends AbstractRouter
      */
     public function generate($name, $parameters = array(), $referenceType = self::ABSOLUTE_PATH)
     {
-        throw new RouteNotFoundException;
+        throw new RouteNotFoundException();
     }
 
     /**
@@ -23,13 +23,9 @@ class CatalogDetailRouter extends AbstractRouter
      */
     public function match($pathinfo)
     {
-        if (substr($pathinfo, -5) === '.html' && preg_match('~.+-(\d+)\.html~i', $pathinfo, $matches)) {
             try {
-                $product = $this->factory->createCatalogModelCatalog()->getProductDataById($matches[1], $this->app->getStorageKeyValue());
-//                if ($product['url'] != $pathinfo) {
-//                    return $this->redirectToCorrectUrl($product['url']);
-//                }
-                $service = ControllerProvider::createServiceForController($this->app, 'catalog/detail', 'CatalogController', 'detail', '\\Pyz\\Yves\\Catalog\\Module');
+            $product = $this->factory->createCatalogModelCatalog()->getProductDataByUrl($pathinfo, $this->app->getStorageKeyValue());
+            $service = ControllerProvider::createServiceForController($this->app, 'catalog/detail', 'CatalogController', 'detail', '\\ProjectA\\Yves\\Catalog\\Module');
                 return [
                     '_controller' => $service,
                     '_route' => 'catalog/detail',
@@ -37,7 +33,6 @@ class CatalogDetailRouter extends AbstractRouter
                 ];
             } catch (ProductNotFoundException $exception) {
             }
-        }
 
         throw new ResourceNotFoundException();
     }

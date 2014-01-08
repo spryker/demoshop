@@ -4,7 +4,6 @@ namespace Pyz\Yves\Catalog\Component\Model\Router;
 use ProjectA\Yves\Library\Silex\Routing\AbstractRouter;
 use ProjectA\Yves\Library\Silex\Application;
 use ProjectA\Yves\Library\Silex\Controller\ControllerProvider;
-use Pyz\Yves\Application\Module\Bootstrap;
 use ProjectA\Yves\Catalog\Component\Model\UrlMapper;
 use Symfony\Component\Routing\Exception\ResourceNotFoundException;
 use Symfony\Component\Routing\Exception\RouteNotFoundException;
@@ -19,10 +18,10 @@ class CatalogRouter extends AbstractRouter
      */
     public function generate($name, $parameters = array(), $referenceType = self::ABSOLUTE_PATH)
     {
-        if ($name == 'catalog') {
+        if ('catalog' === $name) {
             $facetConfig = $this->factory->createCatalogModelFacetConfig();
             $request = ($this->app['request_stack'])? $this->app['request_stack']->getCurrentRequest():$this->app['request'];
-            $requestParameters = iterator_to_array($request->query->getIterator());
+            $requestParameters = $request->query->all();
 
             //if no page is provided we generate a url to change the filter and therefore want to reset the page
             //TODO @see ProjectA\Yves\Catalog\Component\Model\AbstractSearch Line 77
@@ -31,16 +30,12 @@ class CatalogRouter extends AbstractRouter
                 unset($requestParameters['page']);
             }
 
-            $url = UrlMapper::generateUrlFromParameters(
+            $pathInfo = UrlMapper::generateUrlFromParameters(
                 UrlMapper::mergeParameters($requestParameters, $parameters, $facetConfig),
                 $facetConfig
             );
 
-            if ($referenceType === self::ABSOLUTE_PATH) {
-                return $this->getSchemeAndPort() . $url;
-            } else {
-                return $url;
-            }
+            return $this->getUrlOrPathForType($pathInfo, $referenceType);
         }
 
         throw new RouteNotFoundException;
@@ -56,7 +51,6 @@ class CatalogRouter extends AbstractRouter
         if ($pathinfo != '/' && substr($pathinfo, -5) != '.html') {
 
             $facetConfig = $this->factory->createCatalogModelFacetConfig();
-
             $request = ($this->app['request_stack'])? $this->app['request_stack']->getCurrentRequest():$this->app['request'];
 
             UrlMapper::injectParametersFromUrlIntoRequest(
@@ -70,7 +64,7 @@ class CatalogRouter extends AbstractRouter
                 'catalog/index',
                 'CatalogController',
                 'index',
-                '\\Pyz\\Yves\\Catalog\\Module'
+                '\\ProjectA\\Yves\\Catalog\\Module'
             );
 
             return [

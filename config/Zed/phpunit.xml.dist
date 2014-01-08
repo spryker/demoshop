@@ -11,7 +11,7 @@
          bootstrap="phpunit.php">
 
     <testsuite name="Project Zed Test suite">
-        <directory>../../src/{NAMESPACE}/{APPLICATION}</directory>
+        <directory>../../tests/PhpUnit/{NAMESPACE}/{APPLICATION}/{BUNDLE}</directory>
     </testsuite>
     <php>
         <env name="APPLICATION_ENV" value="testing" />

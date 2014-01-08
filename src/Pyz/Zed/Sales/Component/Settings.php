@@ -4,7 +4,6 @@ use Pyz\Zed\Sales\Component\ConstantsInterface\Orderprocess;
 use ProjectA\Zed\Payone\Component\Model\Api\ApiConstants as PayoneApiConstants;
 use Generated\Shared\Sales\Transfer\OrderItem;
 
-
 /**
  * @property \Generated\Zed\Sales\Component\SalesFactory $factory
  */
@@ -29,8 +28,10 @@ class Pyz_Zed_Sales_Component_Settings extends \ProjectA_Zed_Sales_Component_Set
     }
 
     /**
+     * @param OrderItem $transferOrderItem
      * @param Order $transferOrder
      * @return string
+     * @throws RuntimeException
      */
     public function getProcessNameForNewOrderItem(OrderItem $transferOrderItem, Order $transferOrder)
     {
@@ -55,9 +56,8 @@ class Pyz_Zed_Sales_Component_Settings extends \ProjectA_Zed_Sales_Component_Set
             case PayoneApiConstants::PAYMENT_METHOD_SOFORT_UEBERWEISUNG:
                 return Orderprocess::ORDER_PROCESS_PAYONE_SOFORT_UEBERWEISUNG;
                 break;
+            default:
+                throw new \RuntimeException('Could not find any statemachine process for new order');
         }
-
-        return Orderprocess::ORDER_PROCESS_DEMO;
     }
-
 }

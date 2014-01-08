@@ -1,6 +1,8 @@
 <?php
 namespace Pyz\Zed\Catalog\Component\Exporter\KeyValue;
 
+use Generated\Zed\Yves\Component\Dependency\YvesFacadeInterface;
+use Generated\Zed\Yves\Component\Dependency\YvesFacadeTrait;
 use ProjectA\Shared\Catalog\Code\Storage\StorageKeyGenerator;
 use ProjectA\Zed\Catalog\Component\Exporter\ProductsExporter as CoreProductsExporter;
 use ProjectA\Zed\Catalog\Component\Exporter\QueryBuilder\AbstractProduct;
@@ -13,10 +15,10 @@ abstract class ProductsExporter extends CoreProductsExporter implements
     ProductAttributeConstantInterface,
     ProductAttributeSetConstantInterface,
     \Pyz_Shared_Library_StorageKeyConstant,
-    \Generated\Zed\Yves\Component\Dependency\YvesFacadeInterface
+    YvesFacadeInterface
 {
 
-    use \Generated\Zed\Yves\Component\Dependency\YvesFacadeTrait;
+    use YvesFacadeTrait;
 
     /**
      * @return string
@@ -83,6 +85,10 @@ abstract class ProductsExporter extends CoreProductsExporter implements
             $pairProductData = $this->transformProductToData($pairProductData);
             $productKey = StorageKeyGenerator::getProductKey($product['id_catalog_product']);
             $productSkuKey = StorageKeyGenerator::getProductSkuKey($product['sku']);
+            if (!empty($product['url'])) {
+                $productUrlKey = StorageKeyGenerator::getProductUrlKey($product['url']);
+                $data[$productUrlKey] = $product['id_catalog_product'];
+            }
             $data[$productKey] = $pairProductData;
             $data[$productSkuKey] = $product['id_catalog_product'];
 

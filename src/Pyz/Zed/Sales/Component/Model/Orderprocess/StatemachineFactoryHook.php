@@ -1,4 +1,5 @@
 <?php
+namespace Pyz\Zed\Sales\Component\Model\Orderprocess;
 
 use Generated\Zed\Payone\Component\Dependency\PayoneFacadeInterface;
 use Generated\Zed\Payone\Component\Dependency\PayoneFacadeTrait;
@@ -8,11 +9,10 @@ use ProjectA\Zed\Library\Dependency\DependencyFactoryTrait;
 /**
  * @property \Generated\Zed\Sales\Component\SalesFactory $factory
  */
-class Pyz_Zed_Sales_Component_Model_Orderprocess_StatemachineFactoryHook implements
+class StatemachineFactoryHook implements
     \ProjectA_Zed_Sales_Component_Interface_StatemachineFactoryHook,
     DependencyFactoryInterface,
     PayoneFacadeInterface
-
 {
 
     use DependencyFactoryTrait;
@@ -42,5 +42,4 @@ class Pyz_Zed_Sales_Component_Model_Orderprocess_StatemachineFactoryHook impleme
         $guards->addGuard($stateMachine->getGuard());
         $stateMachine->setGuard($guards);
     }
-
 }

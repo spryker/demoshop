@@ -60,6 +60,14 @@ $jobs[] = array(
     'stores'   => $all_stores,
 );
 
+$jobs[] = array(
+    'name'     => 'create_invoice',
+    'command'  => '$PHP_BIN $CLI_PATH/index.php --module=invoice --controller=cronjob --action=create-invoice',
+    'schedule' => '*/10 * * * *',
+    'enable'   => false,
+    'stores'   => $all_stores,
+);
+
 //
 //$jobs[] = array(
 //    'name'     => 'dwh_import',
@@ -112,5 +120,13 @@ $jobs[] = array(
     'command'  => '$PHP_BIN $CLI_PATH/index.php --module=product-image --controller=cronjob --action=download-product-images-from-s3',
     'schedule' => '* * * * *',
     'enable'   => true,
+    'stores'   => $all_stores,
+);
+
+$jobs[] = array(
+    'name'     => 'generate_sanitized_db_dump',
+    'command'  => '$PHP_BIN $CLI_PATH/index.php --module=db-dump --controller=cronjob --action=execute',
+    'schedule' => '0 4 * * *',
+    'enable'   => false,
     'stores'   => $all_stores,
 );

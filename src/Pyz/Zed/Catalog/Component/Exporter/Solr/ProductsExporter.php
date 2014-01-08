@@ -13,7 +13,7 @@ use ProjectA\Zed\Catalog\Component\Exporter\QueryBuilder\AbstractProduct;
 use ProjectA\Zed\Yves\Component\Model\Export\AbstractExport;
 use Pyz\Shared\Catalog\Code\ProductAttributeConstantInterface;
 use Pyz\Shared\Catalog\Code\ProductAttributeSetConstantInterface;
-use \ProjectA_Zed_Price_Component_Interface_PriceTypeConstants as PriceTypeConstants;
+use ProjectA\Shared\Price\Code\PriceTypeConstants;
 use ProjectA\Zed\Catalog\Component\Model\Attribute\GroupConstantInterface;
 
 abstract class ProductsExporter extends CoreProductsExporter implements
@@ -141,12 +141,15 @@ abstract class ProductsExporter extends CoreProductsExporter implements
             foreach ($exportModel->getFilterGroups() as $filterGroup) {
                 $groupProduct = $this->extractGroupAttributesFromProduct($filterGroup, $product);
                 $method = 'getExportData' . $filter->filter($filterGroup);
-                $newData = $this->$method($groupProduct, $id, $filterGroup);
-                foreach ($newData as $id => $value) {
-                    if (isset($data[$id])) {
-                        $data[$id] += $value;
-                    } else {
-                        $data[$id] = $value;
+
+                if (isset($this->groupAttributeNames[$filterGroup]) && !empty($this->groupAttributeNames[$filterGroup])) {
+                    $newData = $this->$method($groupProduct, $id, $filterGroup);
+                    foreach ($newData as $id => $value) {
+                        if (isset($data[$id])) {
+                            $data[$id] += $value;
+                        } else {
+                            $data[$id] = $value;
+                        }
                     }
                 }
             }
