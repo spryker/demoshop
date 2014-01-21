@@ -5,6 +5,7 @@ use ProjectA\Shared\Library\Filter\FilterChain;
 use ProjectA\Shared\Library\Filter\SeparatorToCamelCaseFilter;
 use ProjectA\Zed\Library\Dependency\DependencyFactoryInterface;
 use ProjectA\Zed\Library\Dependency\DependencyFactoryTrait;
+use ProjectA\Zed\Library\File\Filesystem\FilesystemFile;
 use Pyz\Shared\Catalog\Code\ProductAttributeSetConstantInterface;
 
 class ImportOptionsForAttributes implements
@@ -52,7 +53,7 @@ class ImportOptionsForAttributes implements
 
     /**
      * @param $attributeSetName
-     * @return \ProjectA_Zed_Library_Filesystem_File
+     * @return FilesystemFile
      */
     protected function getFileStream($attributeSetName)
     {
@@ -60,7 +61,7 @@ class ImportOptionsForAttributes implements
         $file = null;
         $directory = __DIR__ . DIRECTORY_SEPARATOR . '..' . DIRECTORY_SEPARATOR . 'File' . DIRECTORY_SEPARATOR;
         if (is_file($directory . $filename)) {
-            $file = new \ProjectA_Zed_Library_Filesystem_File($directory, $filename);
+            $file = new FilesystemFile($directory, $filename);
         }
 
         return $file;

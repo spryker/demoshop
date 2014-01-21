@@ -23,7 +23,7 @@ settings:
       # domain:
       # path:
 
-  customerProvider: 'ProjectA\Yves\Library\Security\CustomerProvider'
+  customerProvider: 'ProjectA\Yves\Customer\Component\Model\Security\CustomerProvider'
   authModel: 'ProjectA\Yves\Customer\Component\Model\Customer'
 
 firewalls:

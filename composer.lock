@@ -3,7 +3,7 @@
         "This file locks the dependencies of your project to a known state",
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file"
     ],
-    "hash": "806c7153d6258727a0101b5598e2b753",
+    "hash": "4aafd2491b038bd6e0b0f06298fe809f",
     "packages": [
         {
             "name": "cmutter/google-adwords-api",
@@ -1213,11 +1213,11 @@
         },
         {
             "name": "project-a/crm-package",
-            "version": "2.0.1",
+            "version": "2.0.3",
             "source": {
                 "type": "git",
                 "url": "git@codebasehq.com:project-a/core/crm.git",
-                "reference": "8ae9bc197d579614c494e3c695a90f1873b899b7"
+                "reference": "52074d384941af26adf63346af565f17335c73d0"
             },
             "require": {
                 "php": ">=5.4.0",
@@ -1243,7 +1243,7 @@
                 "CRM",
                 "Mail"
             ],
-            "time": "2014-01-16 15:52:01"
+            "time": "2014-01-20 10:09:00"
         },
         {
             "name": "project-a/document-package",
@@ -1280,11 +1280,11 @@
         },
         {
             "name": "project-a/dwh-package",
-            "version": "2.0.0",
+            "version": "dev-master",
             "source": {
                 "type": "git",
                 "url": "git@codebasehq.com:project-a/core/dwh.git",
-                "reference": "16e85b3c300121087e961cbff54669659c17598c"
+                "reference": "36008f63940d35528d1be7c10d5c1e482645f865"
             },
             "require": {
                 "php": ">=5.4.0",
@@ -1321,7 +1321,7 @@
             "keywords": [
                 "Dwh"
             ],
-            "time": "2014-01-17 14:58:59"
+            "time": "2014-01-21 07:17:29"
         },
         {
             "name": "project-a/frontend-package",
@@ -1979,12 +1979,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/silexphp/Silex.git",
-                "reference": "7cd21dc2748b6a7a26436e9e2af8a1a7b064404f"
+                "reference": "68f9b2a9d2f2eb62f0198f68ab6255c9a0c85b09"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/silexphp/Silex/zipball/7cd21dc2748b6a7a26436e9e2af8a1a7b064404f",
-                "reference": "7cd21dc2748b6a7a26436e9e2af8a1a7b064404f",
+                "url": "https://api.github.com/repos/silexphp/Silex/zipball/68f9b2a9d2f2eb62f0198f68ab6255c9a0c85b09",
+                "reference": "68f9b2a9d2f2eb62f0198f68ab6255c9a0c85b09",
                 "shasum": ""
             },
             "require": {
@@ -2055,7 +2055,7 @@
             "keywords": [
                 "microframework"
             ],
-            "time": "2014-01-20 06:49:53"
+            "time": "2014-01-21 05:19:08"
         },
         {
             "name": "solarium/solarium",
@@ -3746,6 +3746,12 @@
             "package": "project-a/checkout-package"
         },
         {
+            "alias": "2.0.0",
+            "alias_normalized": "2.0.0.0",
+            "version": "9999999-dev",
+            "package": "project-a/dwh-package"
+        },
+        {
             "alias": "2.1.0",
             "alias_normalized": "2.1.0.0",
             "version": "dev-feature/payment-refactor-accounting",
@@ -3773,6 +3779,7 @@
     "minimum-stability": "stable",
     "stability-flags": {
         "project-a/checkout-package": 20,
+        "project-a/dwh-package": 20,
         "project-a/payment-package": 20,
         "project-a/payone-package": 20,
         "project-a/sales-package": 20,
