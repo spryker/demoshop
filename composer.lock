@@ -3,7 +3,7 @@
         "This file locks the dependencies of your project to a known state",
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file"
     ],
-    "hash": "4aafd2491b038bd6e0b0f06298fe809f",
+    "hash": "2fb249c0a610c7e70dbc216700d86e73",
     "packages": [
         {
             "name": "cmutter/google-adwords-api",
@@ -795,51 +795,6 @@
             "time": "2013-11-14 19:48:31"
         },
         {
-            "name": "nervetattoo/elasticsearch",
-            "version": "v2.2.0",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/nervetattoo/elasticsearch",
-                "reference": "v2.2.0"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://github.com/nervetattoo/elasticsearch/archive/v2.2.0.zip",
-                "reference": "v2.2.0",
-                "shasum": ""
-            },
-            "require": {
-                "php": ">=5.3.0"
-            },
-            "require-dev": {
-                "atoum/atoum": "dev-master@dev"
-            },
-            "type": "library",
-            "autoload": {
-                "psr-0": {
-                    "ElasticSearch": "src/"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Raymond Julin",
-                    "email": "raymond.julin@gmail.com",
-                    "homepage": "http://raymondjulin.com"
-                }
-            ],
-            "description": "ElasticSearch client for PHP 5.3",
-            "homepage": "http://github.com/nervetattoo/elasticsearch",
-            "keywords": [
-                "client",
-                "elasticsearch"
-            ],
-            "time": "2013-01-09 08:25:52"
-        },
-        {
             "name": "phing/phing",
             "version": "2.6.1",
             "source": {
@@ -939,11 +894,11 @@
         },
         {
             "name": "project-a/acl-package",
-            "version": "2.0.2",
+            "version": "dev-feature/2.2.0",
             "source": {
                 "type": "git",
                 "url": "git@codebasehq.com:project-a/core/acl.git",
-                "reference": "b2372415f57fbe028336ed330963025f18c905cb"
+                "reference": "a785037bf9b9822696f9fc801fca2fbf67a1f8bf"
             },
             "require": {
                 "php": ">=5.4.0",
@@ -972,15 +927,15 @@
                 "login",
                 "usermanagement"
             ],
-            "time": "2014-01-06 16:38:53"
+            "time": "2013-12-20 15:31:31"
         },
         {
             "name": "project-a/adyen-package",
-            "version": "2.0.0",
+            "version": "dev-feature/2.2.0",
             "source": {
                 "type": "git",
                 "url": "git@codebasehq.com:project-a/core/adyen.git",
-                "reference": "330a8debaa1530e740684983d1e19d706328ffc3"
+                "reference": "bb123da9e6b7abd47f14ddf1209546aac090a239"
             },
             "require": {
                 "php": ">=5.4.0",
@@ -989,9 +944,9 @@
             },
             "type": "library",
             "autoload": {
-                "psr-0": {
-                    "ProjectA": "/src"
-                }
+                "classmap": [
+                    "/"
+                ]
             },
             "authors": [
                 {
@@ -1005,15 +960,15 @@
             "keywords": [
                 "adyen payment provider"
             ],
-            "time": "2013-12-05 10:08:57"
+            "time": "2013-06-24 14:31:36"
         },
         {
             "name": "project-a/cart-package",
-            "version": "2.0.1",
+            "version": "dev-feature/2.2.0",
             "source": {
                 "type": "git",
                 "url": "git@codebasehq.com:project-a/core/cart.git",
-                "reference": "9f4c8016262e71acf8ab71a28f597425ed09f9cf"
+                "reference": "d0d49cc9e8338c04b9553fda70dfb4a344c040eb"
             },
             "require": {
                 "php": ">=5.4.0",
@@ -1041,21 +996,20 @@
             "keywords": [
                 "Cart"
             ],
-            "time": "2014-01-20 10:53:12"
+            "time": "2013-11-20 19:51:02"
         },
         {
             "name": "project-a/catalog-package",
-            "version": "2.0.3",
+            "version": "dev-feature/2.2.0",
             "source": {
                 "type": "git",
                 "url": "git@codebasehq.com:project-a/core/catalog.git",
-                "reference": "5e2786aef00342d74429a230e61acdc8ff037a4f"
+                "reference": "f77e8eac1a6406c3321274dab80311398a321ad9"
             },
             "require": {
                 "php": ">=5.4.0",
-                "project-a/frontend-package": ">=2.0.1",
-                "project-a/library-package": ">=2.0.1",
-                "project-a/sales-package": ">=2.0.2"
+                "project-a/frontend-package": ">=0.1.0",
+                "project-a/library-package": ">=0.5.0"
             },
             "type": "library",
             "autoload": {
@@ -1086,15 +1040,15 @@
                 "Price",
                 "Stock"
             ],
-            "time": "2014-01-20 07:34:46"
+            "time": "2013-12-18 11:41:24"
         },
         {
             "name": "project-a/checkout-package",
-            "version": "dev-feature/checkout-refactor-payment-control",
+            "version": "dev-feature/2.2.0",
             "source": {
                 "type": "git",
                 "url": "git@codebasehq.com:project-a/core/checkout.git",
-                "reference": "80c7f6b6c3904925e29e5267974174ef5a1d44ce"
+                "reference": "3fb41bddf1971821a5af966c4a34a19dc9747515"
             },
             "require": {
                 "gavroche/browser": "~2.1.0",
@@ -1123,20 +1077,21 @@
                     "role": "Senior developer"
                 }
             ],
-            "description": "Checkout Package. Contains Checkout and Salesrule",
+            "description": "Checkout Package. Contains Checkout, PaymentControl and Salesrule",
             "keywords": [
                 "Checkout",
+                "PaymentControl",
                 "Salesrule"
             ],
-            "time": "2014-01-16 17:15:27"
+            "time": "2014-01-02 13:32:44"
         },
         {
             "name": "project-a/console-package",
-            "version": "2.1.1",
+            "version": "dev-feature/2.2.0",
             "source": {
                 "type": "git",
                 "url": "git@codebasehq.com:project-a/core/console.git",
-                "reference": "b84e31aa3122b7bfb87f8d8dc566b94ebf4aa075"
+                "reference": "aa3ca43973fb9bc190828468a6672116847aad7a"
             },
             "require": {
                 "fabpot/php-cs-fixer": "dev-master",
@@ -1175,15 +1130,15 @@
             "keywords": [
                 "console"
             ],
-            "time": "2014-01-08 10:18:30"
+            "time": "2014-01-21 08:23:51"
         },
         {
             "name": "project-a/content-package",
-            "version": "2.0.0",
+            "version": "dev-feature/2.2.0",
             "source": {
                 "type": "git",
                 "url": "git@codebasehq.com:project-a/core/content.git",
-                "reference": "5cb614a02d49960eebb6b656e8de7935ebd79a5d"
+                "reference": "cc8c0393b2bc8ec68293ddadee2fd3f25e073d39"
             },
             "require": {
                 "php": ">=5.4.0",
@@ -1213,11 +1168,11 @@
         },
         {
             "name": "project-a/crm-package",
-            "version": "2.0.3",
+            "version": "dev-feature/2.2.0",
             "source": {
                 "type": "git",
                 "url": "git@codebasehq.com:project-a/core/crm.git",
-                "reference": "52074d384941af26adf63346af565f17335c73d0"
+                "reference": "784dc180ed4c204386e95172725cad0e99f73a11"
             },
             "require": {
                 "php": ">=5.4.0",
@@ -1243,15 +1198,15 @@
                 "CRM",
                 "Mail"
             ],
-            "time": "2014-01-20 10:09:00"
+            "time": "2014-01-02 13:33:05"
         },
         {
             "name": "project-a/document-package",
-            "version": "2.0.0",
+            "version": "dev-feature/2.2.0",
             "source": {
                 "type": "git",
                 "url": "git@codebasehq.com:project-a/core/document.git",
-                "reference": "6abe91123f93047ae5e1bad648c10a36cc41a091"
+                "reference": "e9ea7c41590f71dc2f5840589a16c3198d140a9c"
             },
             "require": {
                 "php": ">=5.4.0",
@@ -1280,7 +1235,7 @@
         },
         {
             "name": "project-a/dwh-package",
-            "version": "dev-master",
+            "version": "dev-feature/2.2.0",
             "source": {
                 "type": "git",
                 "url": "git@codebasehq.com:project-a/core/dwh.git",
@@ -1325,11 +1280,11 @@
         },
         {
             "name": "project-a/frontend-package",
-            "version": "2.0.1",
+            "version": "dev-feature/2.2.0",
             "source": {
                 "type": "git",
                 "url": "git@codebasehq.com:project-a/core/frontend.git",
-                "reference": "adbb604661ac8df5b40d1c251e3986a9f97157fb"
+                "reference": "e32bd61c2531e640fd1a359427853025ce5bf0c8"
             },
             "require": {
                 "php": ">=5.4.0",
@@ -1353,20 +1308,18 @@
             "keywords": [
                 "Frontend"
             ],
-            "time": "2014-01-06 15:34:02"
+            "time": "2013-12-11 09:03:08"
         },
         {
             "name": "project-a/glossary-package",
-            "version": "2.0.2",
+            "version": "dev-feature/2.2.0",
             "source": {
                 "type": "git",
                 "url": "git@codebasehq.com:project-a/core/glossary.git",
-                "reference": "2810b7f383561ee1e7678dea6624ea1026b88c89"
+                "reference": "99915756d207baaca950aa298658fc793320ec9d"
             },
             "require": {
                 "php": ">=5.4.0",
-                "project-a/frontend-package": ">=2.0.1",
-                "project-a/library-package": ">=2.1.1",
                 "symfony/yaml": ">=2.3,<2.5-dev"
             },
             "type": "library",
@@ -1388,15 +1341,15 @@
                 "i18n",
                 "translation"
             ],
-            "time": "2014-01-17 15:19:54"
+            "time": "2013-12-06 10:52:38"
         },
         {
             "name": "project-a/infrastructure-package",
-            "version": "2.0.3",
+            "version": "dev-feature/2.2.0",
             "source": {
                 "type": "git",
                 "url": "git@codebasehq.com:project-a/core/infrastructure.git",
-                "reference": "e96faae0d43e15d9554505498fffbc469bba0f6f"
+                "reference": "49cdfb0b99a2f6b3960befdf9b71f73f2e8861c5"
             },
             "require": {
                 "php": ">=5.4.0",
@@ -1425,15 +1378,15 @@
             "keywords": [
                 "infrastructure"
             ],
-            "time": "2014-01-17 15:23:23"
+            "time": "2013-12-19 14:05:51"
         },
         {
             "name": "project-a/kendo-package",
-            "version": "2.0.0",
+            "version": "dev-feature/2.2.0",
             "source": {
                 "type": "git",
                 "url": "git@codebasehq.com:project-a/core/kendo.git",
-                "reference": "d870f5ed0a1d4018fb962bc716989d90521142a6"
+                "reference": "d550406d6ea8b5a51042630762b0b93204f1e1aa"
             },
             "type": "library",
             "autoload": {
@@ -1448,11 +1401,11 @@
         },
         {
             "name": "project-a/library-package",
-            "version": "2.1.3",
+            "version": "dev-feature/2.2.0",
             "source": {
                 "type": "git",
                 "url": "git@codebasehq.com:project-a/core/library-2.git",
-                "reference": "27937135f769215ec87aafb05d9d59aee3f0c6cc"
+                "reference": "9118480f0420e6df677807e41302792e170847ab"
             },
             "require": {
                 "digital-canvas/zend-framework": ">=1.12.2",
@@ -1461,13 +1414,11 @@
                 "guzzle/guzzle": "~3.7.0",
                 "ircmaxell/password-compat": "~1.0.0",
                 "monolog/monolog": "~1.7",
-                "project-a/acl-package": "~2.0.0",
-                "project-a/frontend-package": "~2.0.0",
-                "project-a/kendo-package": "~2.0.0",
-                "project-a/lumberjack-package": "~2.0.0",
+                "project-a/kendo-package": ">=2.0.0",
+                "project-a/lumberjack-package": "~2.0",
                 "project-a/silex-routing": "~1.0.0",
                 "silex/silex": "~1.2.0",
-                "symfony/symfony": ">=2.4,<2.5-dev",
+                "symfony/symfony": ">=2.3,<2.5-dev",
                 "twig/twig": "~1.15.0",
                 "zendframework/zend-code": "~2.3.0",
                 "zendframework/zendpdf": "~2.0.0"
@@ -1489,26 +1440,24 @@
                 }
             ],
             "description": "Project-A Library",
-            "time": "2014-01-20 10:55:17"
+            "time": "2013-12-20 13:31:44"
         },
         {
             "name": "project-a/lumberjack-package",
-            "version": "2.0.0",
+            "version": "dev-feature/2.2.0",
             "source": {
                 "type": "git",
                 "url": "git@codebasehq.com:project-a/core/lumberjack.git",
-                "reference": "7b00b5042336c617e0cb71c367dca4c6a819a04c"
+                "reference": "79e464c8e1e84a90485b3e144f5c499bb85ebcd8"
             },
             "require": {
-                "nervetattoo/elasticsearch": "~2.2.0",
-                "php": ">=5.4.0",
-                "ruflin/elastica": "~0.90.2"
+                "php": ">=5.4.0"
             },
             "type": "library",
             "autoload": {
-                "psr-0": {
-                    "ProjectA": "/src"
-                }
+                "classmap": [
+                    "/"
+                ]
             },
             "authors": [
                 {
@@ -1522,15 +1471,15 @@
             "keywords": [
                 ""
             ],
-            "time": "2014-01-08 13:08:07"
+            "time": "2013-10-21 16:17:25"
         },
         {
             "name": "project-a/marketing-package",
-            "version": "2.0.3",
+            "version": "dev-feature/2.2.0",
             "source": {
                 "type": "git",
                 "url": "git@codebasehq.com:project-a/core/marketing.git",
-                "reference": "2306744f4ff821fb8e60905ebd03fc09b60e7b3c"
+                "reference": "86fcf114626a6971b80100611f70ef30bdcf86ae"
             },
             "require": {
                 "cmutter/google-adwords-api": "4.7.02",
@@ -1578,20 +1527,20 @@
         },
         {
             "name": "project-a/payment-package",
-            "version": "dev-feature/payment-refactor-accounting",
+            "version": "dev-feature/2.2.0",
             "source": {
                 "type": "git",
                 "url": "git@codebasehq.com:project-a/core/payment.git",
-                "reference": "3ba8cdb1917f4c875e923aa72ffb2584d2646cac"
+                "reference": "6f772f630357f0a57e3b2e2028a758ff4a85b19d"
             },
             "require": {
                 "php": ">=5.4.0"
             },
             "type": "library",
             "autoload": {
-                "psr-0": {
-                    "ProjectA": "/src"
-                }
+                "classmap": [
+                    "/"
+                ]
             },
             "authors": [
                 {
@@ -1601,17 +1550,15 @@
                     "role": "developer"
                 }
             ],
-            "description": "Contains payment control and general implementation of payment, payment transactions and accounting for usage in concrete payment provider implementations",
+            "description": "Contains several implementations of payment provider",
             "keywords": [
-                "payment",
-                "payment control",
-                "payment provider"
+                "payment, payment provider"
             ],
-            "time": "2014-01-16 15:55:51"
+            "time": "2013-06-11 21:22:11"
         },
         {
             "name": "project-a/payone-package",
-            "version": "dev-master",
+            "version": "dev-feature/2.2.0",
             "source": {
                 "type": "git",
                 "url": "git@codebasehq.com:project-a/core/payone.git",
@@ -1646,11 +1593,11 @@
         },
         {
             "name": "project-a/sales-package",
-            "version": "dev-feature/sales-payment2-changes",
+            "version": "dev-feature/2.2.0",
             "source": {
                 "type": "git",
                 "url": "git@codebasehq.com:project-a/core/sales.git",
-                "reference": "ba0f7e1458db548f70bebf0353cbeb6c8a8f90a4"
+                "reference": "d2d03db3e4518d9d29206e160598c0f9ea900cd0"
             },
             "require": {
                 "php": ">=5.4.0",
@@ -1683,7 +1630,7 @@
                 "Sales",
                 "Task"
             ],
-            "time": "2014-01-16 15:55:13"
+            "time": "2014-01-02 13:33:18"
         },
         {
             "name": "project-a/silex-routing",
@@ -1740,11 +1687,11 @@
         },
         {
             "name": "project-a/stripe-package",
-            "version": "2.0.0",
+            "version": "dev-feature/2.2.0",
             "source": {
                 "type": "git",
                 "url": "git@codebasehq.com:project-a/core/stripe.git",
-                "reference": "3827eaf6d8f5d5ea212d376f0d3629be49ce3c3c"
+                "reference": "8a4dec655209efbb483201ca3ca4b4fb8e4fb674"
             },
             "require": {
                 "php": ">=5.4.0",
@@ -1871,57 +1818,6 @@
                 "psr-3"
             ],
             "time": "2012-12-21 11:40:51"
-        },
-        {
-            "name": "ruflin/elastica",
-            "version": "v0.90.7.0",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/ruflin/Elastica.git",
-                "reference": "e36213362ef459f92e8b09167e537e9312f55ae3"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/ruflin/Elastica/zipball/e36213362ef459f92e8b09167e537e9312f55ae3",
-                "reference": "e36213362ef459f92e8b09167e537e9312f55ae3",
-                "shasum": ""
-            },
-            "require": {
-                "php": ">=5.3.3"
-            },
-            "require-dev": {
-                "munkie/elasticsearch-thrift-php": "1.4.*",
-                "psr/log": "~1.0"
-            },
-            "suggest": {
-                "monolog/monolog": "Logging request",
-                "munkie/elasticsearch-thrift-php": "Allow using thrift transport",
-                "psr/log": "for logging"
-            },
-            "type": "library",
-            "autoload": {
-                "psr-0": {
-                    "Elastica": "lib/",
-                    "Elastica\\Test": "test/lib/"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "Apache 2.0"
-            ],
-            "authors": [
-                {
-                    "name": "Nicolas Ruflin",
-                    "homepage": "http://ruflin.com/"
-                }
-            ],
-            "description": "Elasticsearch Client",
-            "homepage": "http://elastica.io/",
-            "keywords": [
-                "client",
-                "search"
-            ],
-            "time": "2013-11-23 21:35:18"
         },
         {
             "name": "sebastian/diff",
@@ -3740,34 +3636,130 @@
     ],
     "aliases": [
         {
-            "alias": "2.1.0",
-            "alias_normalized": "2.1.0.0",
-            "version": "dev-feature/checkout-refactor-payment-control",
+            "alias": "2.2.0",
+            "alias_normalized": "2.2.0.0",
+            "version": "dev-feature/2.2.0",
+            "package": "project-a/acl-package"
+        },
+        {
+            "alias": "2.2.0",
+            "alias_normalized": "2.2.0.0",
+            "version": "dev-feature/2.2.0",
+            "package": "project-a/adyen-package"
+        },
+        {
+            "alias": "2.2.0",
+            "alias_normalized": "2.2.0.0",
+            "version": "dev-feature/2.2.0",
+            "package": "project-a/cart-package"
+        },
+        {
+            "alias": "2.2.0",
+            "alias_normalized": "2.2.0.0",
+            "version": "dev-feature/2.2.0",
+            "package": "project-a/catalog-package"
+        },
+        {
+            "alias": "2.2.0",
+            "alias_normalized": "2.2.0.0",
+            "version": "dev-feature/2.2.0",
             "package": "project-a/checkout-package"
         },
         {
-            "alias": "2.0.0",
-            "alias_normalized": "2.0.0.0",
-            "version": "9999999-dev",
+            "alias": "2.2.0",
+            "alias_normalized": "2.2.0.0",
+            "version": "dev-feature/2.2.0",
+            "package": "project-a/content-package"
+        },
+        {
+            "alias": "2.2.0",
+            "alias_normalized": "2.2.0.0",
+            "version": "dev-feature/2.2.0",
+            "package": "project-a/console-package"
+        },
+        {
+            "alias": "2.2.0",
+            "alias_normalized": "2.2.0.0",
+            "version": "dev-feature/2.2.0",
+            "package": "project-a/crm-package"
+        },
+        {
+            "alias": "2.2.0",
+            "alias_normalized": "2.2.0.0",
+            "version": "dev-feature/2.2.0",
             "package": "project-a/dwh-package"
         },
         {
-            "alias": "2.1.0",
-            "alias_normalized": "2.1.0.0",
-            "version": "dev-feature/payment-refactor-accounting",
+            "alias": "2.2.0",
+            "alias_normalized": "2.2.0.0",
+            "version": "dev-feature/2.2.0",
+            "package": "project-a/document-package"
+        },
+        {
+            "alias": "2.2.0",
+            "alias_normalized": "2.2.0.0",
+            "version": "dev-feature/2.2.0",
+            "package": "project-a/frontend-package"
+        },
+        {
+            "alias": "2.2.0",
+            "alias_normalized": "2.2.0.0",
+            "version": "dev-feature/2.2.0",
+            "package": "project-a/glossary-package"
+        },
+        {
+            "alias": "2.2.0",
+            "alias_normalized": "2.2.0.0",
+            "version": "dev-feature/2.2.0",
+            "package": "project-a/infrastructure-package"
+        },
+        {
+            "alias": "2.2.0",
+            "alias_normalized": "2.2.0.0",
+            "version": "dev-feature/2.2.0",
+            "package": "project-a/kendo-package"
+        },
+        {
+            "alias": "2.2.0",
+            "alias_normalized": "2.2.0.0",
+            "version": "dev-feature/2.2.0",
+            "package": "project-a/library-package"
+        },
+        {
+            "alias": "2.2.0",
+            "alias_normalized": "2.2.0.0",
+            "version": "dev-feature/2.2.0",
+            "package": "project-a/lumberjack-package"
+        },
+        {
+            "alias": "2.2.0",
+            "alias_normalized": "2.2.0.0",
+            "version": "dev-feature/2.2.0",
+            "package": "project-a/marketing-package"
+        },
+        {
+            "alias": "2.2.0",
+            "alias_normalized": "2.2.0.0",
+            "version": "dev-feature/2.2.0",
             "package": "project-a/payment-package"
         },
         {
-            "alias": "2.0.0",
-            "alias_normalized": "2.0.0.0",
-            "version": "9999999-dev",
+            "alias": "2.2.0",
+            "alias_normalized": "2.2.0.0",
+            "version": "dev-feature/2.2.0",
             "package": "project-a/payone-package"
         },
         {
-            "alias": "2.1.0",
-            "alias_normalized": "2.1.0.0",
-            "version": "dev-feature/sales-payment2-changes",
+            "alias": "2.2.0",
+            "alias_normalized": "2.2.0.0",
+            "version": "dev-feature/2.2.0",
             "package": "project-a/sales-package"
+        },
+        {
+            "alias": "2.2.0",
+            "alias_normalized": "2.2.0.0",
+            "version": "dev-feature/2.2.0",
+            "package": "project-a/stripe-package"
         },
         {
             "alias": "1.2",
@@ -3778,11 +3770,27 @@
     ],
     "minimum-stability": "stable",
     "stability-flags": {
+        "project-a/acl-package": 20,
+        "project-a/adyen-package": 20,
+        "project-a/cart-package": 20,
+        "project-a/catalog-package": 20,
         "project-a/checkout-package": 20,
+        "project-a/content-package": 20,
+        "project-a/console-package": 20,
+        "project-a/crm-package": 20,
         "project-a/dwh-package": 20,
+        "project-a/document-package": 20,
+        "project-a/frontend-package": 20,
+        "project-a/glossary-package": 20,
+        "project-a/infrastructure-package": 20,
+        "project-a/kendo-package": 20,
+        "project-a/library-package": 20,
+        "project-a/lumberjack-package": 20,
+        "project-a/marketing-package": 20,
         "project-a/payment-package": 20,
         "project-a/payone-package": 20,
         "project-a/sales-package": 20,
+        "project-a/stripe-package": 20,
         "silex/silex": 20,
         "zendframework/zendframework": 20,
         "fabpot/php-cs-fixer": 20,
