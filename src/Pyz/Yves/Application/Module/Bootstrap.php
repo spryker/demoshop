@@ -2,10 +2,9 @@
 namespace Pyz\Yves\Application\Module;
 
 use Generated\Yves\Factory;
+use ProjectA\Yves\Customer\Component\Model\Security\SecurityServiceProvider;
 use Pyz\Yves\Library\Silex\Provider\TrackingServiceProvider;
 use ProjectA\Yves\Catalog\Component\Model\Category;
-use ProjectA\Yves\Library\Security\Configuration;
-use ProjectA\Yves\Library\Security\SecurityServiceProvider;
 use ProjectA\Yves\Library\Silex\Application;
 use ProjectA\Yves\Library\Silex\Provider\CookieServiceProvider;
 use ProjectA\Yves\Library\Silex\Provider\MonologServiceProvider;
@@ -71,7 +70,7 @@ class Bootstrap extends \ProjectA\Yves\Library\Silex\Bootstrap
             new RememberMeServiceProvider(),
             new RoutingServiceProvider(),
             new StorageServiceProvider(),
-            new TranslationServiceProvider(),
+            new TranslationServiceProvider('ProjectA\Shared\Glossary\Code\Storage\StorageKeyGenerator'),
             new ValidatorServiceProvider(),
             new FormServiceProvider(),
             new TwigServiceProvider(),

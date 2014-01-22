@@ -1,9 +1,9 @@
 <?php
 namespace Pyz\Zed\PaymentControl\Component;
 
-use ProjectA\Zed\PaymentControl\Component\Settings as BaseSettings;
+use ProjectA\Zed\PaymentControl\Component\Settings as ProjectASettings;
 
-class Settings extends BaseSettings
+class Settings extends ProjectASettings
 {
 
     /**
@@ -18,6 +18,14 @@ class Settings extends BaseSettings
      * @return \ProjectA_Zed_PaymentControl_Component_Model_Attribute_Extractor[]
      */
     public function getAttributeExtractors()
+    {
+        return [];
+    }
+
+    /**
+     * @return array|\string[]
+     */
+    public function getAvailablePaymentMethods()
     {
         return [];
     }
