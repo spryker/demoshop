@@ -980,7 +980,7 @@
             "source": {
                 "type": "git",
                 "url": "git@codebasehq.com:project-a/core/adyen.git",
-                "reference": "bb123da9e6b7abd47f14ddf1209546aac090a239"
+                "reference": "ec5c8160598a2607e748a6d882c73bd9cb35affa"
             },
             "require": {
                 "php": ">=5.4.0",
@@ -989,9 +989,9 @@
             },
             "type": "library",
             "autoload": {
-                "classmap": [
-                    "/"
-                ]
+                "psr-0": {
+                    "ProjectA": "/src"
+                }
             },
             "authors": [
                 {
@@ -1005,7 +1005,7 @@
             "keywords": [
                 "adyen payment provider"
             ],
-            "time": "2013-06-24 14:31:36"
+            "time": "2013-12-05 10:08:57"
         },
         {
             "name": "project-a/cart-package",

@@ -1,6 +1,7 @@
 {
     "require": {
         "project-a/acl-package": "dev-feature/2.2.0 as 2.2.0",
+        "project-a/adyen-package": "dev-feature/2.2.0 as 2.2.0",
         "project-a/cart-package": "dev-feature/2.2.0 as 2.2.0",
         "project-a/catalog-package": "dev-feature/2.2.0 as 2.2.0",
         "project-a/checkout-package": "dev-feature/2.2.0 as 2.2.0",

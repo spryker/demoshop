@@ -9,8 +9,19 @@ const ACTIVATE_SCHEMA = 'activate schema';
 
 return [
     \ProjectA_Shared_Library_Config::get(CONFIG_KEY_NAMESPACE_PROJECT) => [],
+    // Core bundles
     NAMESPACE_CORE => [
         'Auth' => [
+            ACTIVATE_BOOTSTRAP,
+            ACTIVATE_NAVIGATION,
+            ACTIVATE_SCHEMA
+        ],
+        'Glossary' => [
+            ACTIVATE_BOOTSTRAP,
+            ACTIVATE_NAVIGATION,
+            ACTIVATE_SCHEMA
+        ],
+        'ProductImage' => [
             ACTIVATE_BOOTSTRAP,
             ACTIVATE_NAVIGATION,
             ACTIVATE_SCHEMA
