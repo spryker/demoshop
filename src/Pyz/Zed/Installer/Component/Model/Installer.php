@@ -36,7 +36,6 @@ class Installer extends \ProjectA_Zed_Installer_Component_Model_Installer implem
     AclFacadeInterface,
     CatalogFacadeInterface,
     CategoryFacadeInterface,
-    CmsFacadeInterface,
     CustomerFacadeInterface,
     MiscFacadeInterface,
     PriceFacadeInterface,
@@ -52,7 +51,6 @@ class Installer extends \ProjectA_Zed_Installer_Component_Model_Installer implem
     use AclFacadeTrait;
     use CatalogFacadeTrait;
     use CategoryFacadeTrait;
-    use CmsFacadeTrait;
     use CustomerFacadeTrait;
     use MiscFacadeTrait;
     use PriceFacadeTrait;
@@ -73,7 +71,6 @@ class Installer extends \ProjectA_Zed_Installer_Component_Model_Installer implem
             $this->facadeAcl->createInternalInstall(),
             $this->facadeCatalog->createInternalInstall(),
             $this->facadeCategory->createInternalInstall(),
-            $this->facadeCms->createInternalInstall(),
             $this->facadeCustomer->createInternalInstall(),
             $this->facadeMisc->createInternalInstall(),
             $this->facadePrice->createInternalInstall(),

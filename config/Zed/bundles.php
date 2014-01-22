@@ -1,30 +1,59 @@
 <?php
-
-const CONFIG_KEY_NAMESPACE_PROJECT = 'projectNamespace';
-const NAMESPACE_CORE = 'ProjectA';
-
-const ACTIVATE_BOOTSTRAP = 'activate bootstrap';
-const ACTIVATE_NAVIGATION = 'activate navigation';
-const ACTIVATE_SCHEMA = 'activate schema';
+$allElements = [
+    ProjectA\Shared\Library\Bundle\BundleConfig::ACTIVATE_BOOTSTRAP,
+    ProjectA\Shared\Library\Bundle\BundleConfig::ACTIVATE_NAVIGATION,
+    ProjectA\Shared\Library\Bundle\BundleConfig::ACTIVATE_SCHEMA
+];
+$bootstrapAndNavigation = [
+    ProjectA\Shared\Library\Bundle\BundleConfig::ACTIVATE_BOOTSTRAP,
+    ProjectA\Shared\Library\Bundle\BundleConfig::ACTIVATE_NAVIGATION
+];
+$bootstrapAndSchema = [
+    ProjectA\Shared\Library\Bundle\BundleConfig::ACTIVATE_BOOTSTRAP,
+    ProjectA\Shared\Library\Bundle\BundleConfig::ACTIVATE_SCHEMA
+];
+$schemaAndNavigation = [
+    ProjectA\Shared\Library\Bundle\BundleConfig::ACTIVATE_SCHEMA,
+    ProjectA\Shared\Library\Bundle\BundleConfig::ACTIVATE_NAVIGATION
+];
+$navigation = [ProjectA\Shared\Library\Bundle\BundleConfig::ACTIVATE_NAVIGATION];
+$bootstrap = [ProjectA\Shared\Library\Bundle\BundleConfig::ACTIVATE_BOOTSTRAP];
+$schema = [ProjectA\Shared\Library\Bundle\BundleConfig::ACTIVATE_SCHEMA];
 
 return [
-    \ProjectA_Shared_Library_Config::get(CONFIG_KEY_NAMESPACE_PROJECT) => [],
+    // Project bundles
+    \ProjectA_Shared_Library_Config::get('projectNamespace') => [],
     // Core bundles
-    NAMESPACE_CORE => [
-        'Auth' => [
-            ACTIVATE_BOOTSTRAP,
-            ACTIVATE_NAVIGATION,
-            ACTIVATE_SCHEMA
-        ],
-        'Glossary' => [
-            ACTIVATE_BOOTSTRAP,
-            ACTIVATE_NAVIGATION,
-            ACTIVATE_SCHEMA
-        ],
-        'ProductImage' => [
-            ACTIVATE_BOOTSTRAP,
-            ACTIVATE_NAVIGATION,
-            ACTIVATE_SCHEMA
-        ]
+    ProjectA\Shared\Library\Bundle\BundleConfig::NAMESPACE_CORE => [
+        'Adyen' => $schema,
+        'Acl' => $schemaAndNavigation,
+        'Auth' => $bootstrap,
+        'Behat' => $navigation,
+        'Cart' => $schema,
+        'Catalog' => $schemaAndNavigation,
+        'Category' => $schemaAndNavigation,
+        'Cms' => $schemaAndNavigation,
+        'Customer' => $schemaAndNavigation,
+        'Dwh' => $schemaAndNavigation,
+        'Document' => $schema,
+        'Glossary' => $allElements,
+        'Invoice' => $schema,
+        'Kendo' => $schema,
+        'Lumberjack' => $navigation,
+        'Mail' => $schemaAndNavigation,
+        'Mcm' => $schemaAndNavigation,
+        'Mci' => $schemaAndNavigation,
+        'Misc' => $schema,
+        'Newsletter' => $schema,
+        'ProductImage' => $bootstrapAndSchema,
+        'Payment' => $schemaAndNavigation,
+        'Payone' => $schema,
+        'Price' => $schema,
+        'Sales' => $schemaAndNavigation,
+        'Salesrule' => $schemaAndNavigation,
+        'Setup' => $navigation,
+        'Stock' => $schema,
+        'System' => $navigation,
+        'Yves' => $navigation,
     ],
 ];
