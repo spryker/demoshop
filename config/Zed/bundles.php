@@ -54,6 +54,6 @@ return [
         'Setup' => $navigation,
         'Stock' => $schema,
         'System' => $navigation,
-        'Yves' => $navigation,
+        'Yves' => $schemaAndNavigation,
     ],
 ];

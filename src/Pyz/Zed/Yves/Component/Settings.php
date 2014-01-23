@@ -53,7 +53,7 @@ class Settings extends CoreSettings implements
     {
         //TODO currently all exporters are activated to test them, remove unneeded later on
         $result[] = $this->facadeCms->createExporterKeyValueCmsExporter();
-        $result[] = $this->facadeCms->createExporterKeyValueRedirectionExporter();
+//        $result[] = $this->facadeCms->createExporterKeyValueRedirectionExporter();
         $result[] = $this->facadeGlossary->createExporterKeyValueGlossaryExporter();
 
         $result[] = $this->facadeCatalog->createExporterKeyValueProductsWithElectronicsExporter();

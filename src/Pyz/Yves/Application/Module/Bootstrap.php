@@ -19,6 +19,7 @@ use Pyz\Yves\Application\Module\ControllerProvider as ApplicationProvider;
 use ProjectA\Yves\Cart\Module\ControllerProvider as CartProvider;
 use ProjectA\Yves\Checkout\Module\ControllerProvider as CheckoutProvider;
 use ProjectA\Yves\Customer\Module\ControllerProvider as CustomerProvider;
+use ProjectA\Yves\Cms\Module\ControllerProvider as CmsProvider;
 use ProjectA\Yves\Library\Tracking\Tracking;
 use Silex\Provider\FormServiceProvider;
 use Silex\Provider\RememberMeServiceProvider;
@@ -95,6 +96,7 @@ class Bootstrap extends \ProjectA\Yves\Library\Silex\Bootstrap
             new ApplicationProvider(),
             new CartProvider(),
             new CheckoutProvider($ssl),
+            new CmsProvider(),
             new CustomerProvider($ssl),
         ];
     }
@@ -109,6 +111,7 @@ class Bootstrap extends \ProjectA\Yves\Library\Silex\Bootstrap
             Factory::getInstance()->createSetupModelRouterMonitoringRouter($app),
             Factory::getInstance()->createCatalogModelRouterCatalogRouter($app),
             Factory::getInstance()->createCatalogModelRouterCatalogDetailRouter($app),
+            Factory::getInstance()->createCmsModelRouterCmsRouter($app),
             /*
              * SilexRouter should come last, as it is not the fastest one if it can
              * not find a matching route (lots of magic)

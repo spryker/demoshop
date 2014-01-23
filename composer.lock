@@ -1049,7 +1049,7 @@
             "source": {
                 "type": "git",
                 "url": "git@codebasehq.com:project-a/core/catalog.git",
-                "reference": "511f00b33400341a10a01b56d951d76c92b3fed5"
+                "reference": "f6bf8d176aeda119b79183cee4e79ca79fd700c0"
             },
             "require": {
                 "php": ">=5.4.0",
@@ -1086,7 +1086,7 @@
                 "Price",
                 "Stock"
             ],
-            "time": "2014-01-21 14:58:21"
+            "time": "2014-01-22 17:34:38"
         },
         {
             "name": "project-a/checkout-package",
@@ -1137,7 +1137,7 @@
             "source": {
                 "type": "git",
                 "url": "git@codebasehq.com:project-a/core/console.git",
-                "reference": "568f5cfeb6fd8a3c175d83eb4f178f1c6f89776d"
+                "reference": "d956b7959c6d02cd143afc232ca9261c5b70f454"
             },
             "require": {
                 "fabpot/php-cs-fixer": "dev-master",
@@ -1176,7 +1176,7 @@
             "keywords": [
                 "console"
             ],
-            "time": "2014-01-21 14:59:38"
+            "time": "2014-01-22 12:40:03"
         },
         {
             "name": "project-a/content-package",
@@ -1184,7 +1184,7 @@
             "source": {
                 "type": "git",
                 "url": "git@codebasehq.com:project-a/core/content.git",
-                "reference": "ea3c7a943fe990a01c6ae109d4602863705bcbbf"
+                "reference": "f7befa947e550ec2be43ef02c518e5bf21206677"
             },
             "require": {
                 "php": ">=5.4.0",
@@ -1195,7 +1195,9 @@
             "type": "library",
             "autoload": {
                 "psr-0": {
-                    "ProjectA": "/src"
+                    "ProjectA": "src/",
+                    "Behat": "tests/",
+                    "PhpUnit": "tests/"
                 }
             },
             "authors": [
@@ -1210,7 +1212,7 @@
             "keywords": [
                 "Content Package"
             ],
-            "time": "2014-01-21 15:00:05"
+            "time": "2014-01-23 05:40:19"
         },
         {
             "name": "project-a/crm-package",
@@ -1362,7 +1364,7 @@
             "source": {
                 "type": "git",
                 "url": "git@codebasehq.com:project-a/core/glossary.git",
-                "reference": "171bfaa67e67e51865939faf0adae23612632449"
+                "reference": "e1e3df7f22aaa8fd5745181cfcc70a94b73aa558"
             },
             "require": {
                 "php": ">=5.4.0",
@@ -1389,7 +1391,7 @@
                 "i18n",
                 "translation"
             ],
-            "time": "2014-01-21 15:02:02"
+            "time": "2014-01-22 17:33:40"
         },
         {
             "name": "project-a/infrastructure-package",
@@ -1397,7 +1399,7 @@
             "source": {
                 "type": "git",
                 "url": "git@codebasehq.com:project-a/core/infrastructure.git",
-                "reference": "4dfb8dc085de3d482e8bc1e9cc5e6fca2bb17a97"
+                "reference": "98e0e4a13bd21434365f350ef73f7dc74a5a325d"
             },
             "require": {
                 "php": ">=5.4.0",
@@ -1426,7 +1428,7 @@
             "keywords": [
                 "infrastructure"
             ],
-            "time": "2014-01-21 15:02:30"
+            "time": "2014-01-23 05:39:49"
         },
         {
             "name": "project-a/kendo-package",
@@ -1453,7 +1455,7 @@
             "source": {
                 "type": "git",
                 "url": "git@codebasehq.com:project-a/core/library-2.git",
-                "reference": "2abea1ea74f57708c6480b602133555910f85f61"
+                "reference": "43129956ff5b690eb3f87a4c6c1882eda7a012db"
             },
             "require": {
                 "digital-canvas/zend-framework": ">=1.12.2",
@@ -1490,7 +1492,7 @@
                 }
             ],
             "description": "Project-A Library",
-            "time": "2014-01-21 14:55:51"
+            "time": "2014-01-22 12:37:40"
         },
         {
             "name": "project-a/lumberjack-package",
@@ -1651,7 +1653,7 @@
             "source": {
                 "type": "git",
                 "url": "git@codebasehq.com:project-a/core/sales.git",
-                "reference": "8f9ad64c1848cc3206cddc9a3c795002fb7b7b2a"
+                "reference": "84146d9a607e414e997a558f13e64e5835690227"
             },
             "require": {
                 "php": ">=5.4.0",
@@ -1684,7 +1686,7 @@
                 "Sales",
                 "Task"
             ],
-            "time": "2014-01-21 15:05:11"
+            "time": "2014-01-22 17:35:57"
         },
         {
             "name": "project-a/silex-routing",
