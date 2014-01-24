@@ -2,7 +2,9 @@
 
 namespace Pyz\Zed\Glossary\Component;
 
-class Settings extends \ProjectA_Zed_Glossary_Component_Settings
+use ProjectA\Zed\Glossary\Component\GlossarySettings as ProjectAGlossarySettings;
+
+class GlossarySettings extends ProjectAGlossarySettings
 {
     /**
      * @return string

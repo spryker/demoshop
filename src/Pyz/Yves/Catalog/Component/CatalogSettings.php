@@ -1,4 +1,5 @@
 <?php
+
 namespace Pyz\Yves\Catalog\Component;
 
 use ProjectA\Shared\Price\Code\PriceTypeConstants;
@@ -6,7 +7,7 @@ use ProjectA\Shared\Price\Code\PriceTypeConstants;
 /**
  * @package Pyz\Yves\Catalog\Component
  */
-class Settings
+class CatalogSettings
 {
     /**
      * @return array

@@ -1,6 +1,10 @@
 <?php
 
-class Pyz_Zed_DwhOrderStatusMapping_Component_Settings extends \ProjectA\Zed\OrderStatusMapping\Component\Settings
+namespace Pyz\Zed\DwhOrderStatusMapping\Component;
+
+use ProjectA\Zed\OrderStatusMapping\Component\OrderStatusMappingSettings;
+
+class DwhOrderStatusMappingSettings extends OrderStatusMappingSettings
 {
 
     /**

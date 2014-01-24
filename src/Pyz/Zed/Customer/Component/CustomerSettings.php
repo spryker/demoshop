@@ -1,9 +1,9 @@
 <?php
 namespace Pyz\Zed\Customer\Component;
 
-use ProjectA\Zed\Customer\Component\Settings as CoreSettings;
+use ProjectA\Zed\Customer\Component\CustomerSettings as ProjectACustomerSettings;
 
-class Settings extends CoreSettings
+class CustomerSettings extends ProjectACustomerSettings
 {
     /**
      * @return array

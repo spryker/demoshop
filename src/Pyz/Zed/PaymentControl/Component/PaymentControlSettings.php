@@ -1,9 +1,10 @@
 <?php
+
 namespace Pyz\Zed\PaymentControl\Component;
 
-use ProjectA\Zed\PaymentControl\Component\Settings as ProjectASettings;
+use ProjectA\Zed\PaymentControl\Component\PaymentControlSettings as ProjectAPaymentControlSettings;
 
-class Settings extends ProjectASettings
+class PaymentControlSettings extends ProjectAPaymentControlSettings
 {
 
     /**

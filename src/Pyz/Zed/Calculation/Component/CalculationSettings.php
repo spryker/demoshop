@@ -6,13 +6,13 @@ use Generated\Zed\Salesrule\Component\Dependency\SalesruleFacadeInterface;
 use Generated\Zed\Salesrule\Component\Dependency\SalesruleFacadeTrait;
 use ProjectA\Zed\Calculation\Component\Model\Calculator\CalculatorInterface;
 use ProjectA\Zed\Calculation\Component\Model\Calculator\TotalsCalculatorInterface;
-use ProjectA\Zed\Calculation\Component\Settings as CoreSettings;
+use ProjectA\Zed\Calculation\Component\CalculationSettings as ProjectACalculationSettings;
 use ProjectA\Zed\Library\Dependency\DependencyFactoryInterface;
 
 /**
  * @property CalculationFactory $factory
  */
-class Settings extends CoreSettings implements
+class CalculationSettings extends ProjectACalculationSettings implements
     DependencyFactoryInterface,
     SalesruleFacadeInterface
 {

@@ -1,27 +1,24 @@
 <?php
 namespace Pyz\Zed\Yves\Component;
 
-use ProjectA\Zed\Yves\Component\Settings as CoreSettings;
+use ProjectA\Zed\Yves\Component\YvesSettings as ProjectAYvesSettings;
 use Pyz\Zed\Catalog\Component\CatalogFacade;
-use Pyz\Zed\CampaignManager\Component\CampaignManagerFacade;
 use Generated\Zed\Cms\Component\Dependency\CmsFacadeInterface;
 use Generated\Zed\Glossary\Component\Dependency\GlossaryFacadeInterface;
 use Generated\Zed\Misc\Component\Dependency\MiscFacadeInterface;
 use Generated\Zed\Category\Component\Dependency\CategoryFacadeInterface;
 use Generated\Zed\Catalog\Component\Dependency\CatalogFacadeInterface;
-use Generated\Zed\CampaignManager\Component\Dependency\CampaignManagerFacadeInterface;
 
 use Generated\Zed\Cms\Component\Dependency\CmsFacadeTrait;
 use Generated\Zed\Glossary\Component\Dependency\GlossaryFacadeTrait;
 use Generated\Zed\Misc\Component\Dependency\MiscFacadeTrait;
 use Generated\Zed\Category\Component\Dependency\CategoryFacadeTrait;
 use Generated\Zed\Catalog\Component\Dependency\CatalogFacadeTrait;
-use Generated\Zed\CampaignManager\Component\Dependency\CampaignManagerFacadeTrait;
 
 /**
  * @property CatalogFacade $facadeCatalog
  */
-class Settings extends CoreSettings implements
+class YvesSettings extends ProjectAYvesSettings implements
     CmsFacadeInterface,
     GlossaryFacadeInterface,
     MiscFacadeInterface,

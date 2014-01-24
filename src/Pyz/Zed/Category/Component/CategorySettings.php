@@ -1,11 +1,14 @@
 <?php
+
 namespace Pyz\Zed\Category\Component;
+
+use ProjectA\Zed\Category\Component\CategorySettings as ProjectACategorySettings;
 
 /**
  * Class Settings
  * @package Pyz\Zed\Category\Component
  */
-class Settings extends \ProjectA_Zed_Category_Component_Settings
+class CategorySettings extends ProjectACategorySettings
 {
     const DEFAULT_CATEGORY_SCOPE = 'Default Tree';
     const DEFAULT_CATEGORY_ROOTNAME = 'Default Category';

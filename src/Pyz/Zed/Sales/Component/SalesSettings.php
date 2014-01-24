@@ -1,5 +1,9 @@
 <?php
+
+namespace Pyz\Zed\Sales\Component;
+
 use Generated\Shared\Sales\Transfer\Order;
+use ProjectA\Zed\Sales\Component\SalesSettings as ProjectASalesSettings;
 use Pyz\Zed\Sales\Component\ConstantsInterface\Orderprocess;
 use ProjectA\Zed\Payone\Component\Model\Api\ApiConstants as PayoneApiConstants;
 use Generated\Shared\Sales\Transfer\OrderItem;
@@ -7,7 +11,7 @@ use Generated\Shared\Sales\Transfer\OrderItem;
 /**
  * @property \Generated\Zed\Sales\Component\SalesFactory $factory
  */
-class Pyz_Zed_Sales_Component_Settings extends \ProjectA_Zed_Sales_Component_Settings
+class SalesSettings extends ProjectASalesSettings
 {
     /**
      * @throws \ProjectA_Zed_Library_Exception
