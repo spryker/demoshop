@@ -24,7 +24,8 @@ class CmsSettings extends ProjectACmsSettings
     public function getTemplates()
     {
         return [
-            'product-and-text.twig' => 'Layout with one product block and a text block'
+            'product-and-text.twig' => 'Layout with one product block and a text block',
+            'text.twig' => 'Layout with four text blocks'
         ];
     }
 
