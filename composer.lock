@@ -3,7 +3,7 @@
         "This file locks the dependencies of your project to a known state",
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file"
     ],
-    "hash": "3d4217401a0bf1a07dbf00fb71b3aa62",
+    "hash": "0adafec4f05b4c00ad7bded0ac68d83f",
     "packages": [
         {
             "name": "cmutter/google-adwords-api",
@@ -980,11 +980,11 @@
             "source": {
                 "type": "git",
                 "url": "git@codebasehq.com:project-a/core/adyen.git",
-                "reference": "1dd2cf3cba305671cdd37c61dd6e3c451ace3bfd"
+                "reference": "36bb3a8c368a3f9e92380dbd317fd9f86fc3182a"
             },
             "require": {
                 "php": ">=5.4.0",
-                "project-a/payment-package": "~1.0",
+                "project-a/payment-package": "~3.0",
                 "project-a/sales-package": "~3.0"
             },
             "type": "library",
@@ -1005,7 +1005,7 @@
             "keywords": [
                 "adyen payment provider"
             ],
-            "time": "2014-01-29 12:06:15"
+            "time": "2014-01-29 16:46:39"
         },
         {
             "name": "project-a/cart-package",
@@ -1094,7 +1094,7 @@
             "source": {
                 "type": "git",
                 "url": "git@codebasehq.com:project-a/core/checkout.git",
-                "reference": "127613dc774d88d4a80131b73dc49f6205df8ef5"
+                "reference": "c14ea075770e1003d2d31bcbe8cc2c70188eda65"
             },
             "require": {
                 "gavroche/browser": "~2.1.0",
@@ -1104,7 +1104,7 @@
                 "project-a/crm-package": "~3.0",
                 "project-a/infrastructure-package": "~3.0",
                 "project-a/library-package": "~3.0",
-                "project-a/payment-package": "~1.0",
+                "project-a/payment-package": "~3.0",
                 "project-a/sales-package": "~3.0"
             },
             "type": "library",
@@ -1129,7 +1129,7 @@
                 "PaymentControl",
                 "Salesrule"
             ],
-            "time": "2014-01-29 12:06:15"
+            "time": "2014-01-29 16:46:39"
         },
         {
             "name": "project-a/console-package",
@@ -1454,7 +1454,7 @@
             "source": {
                 "type": "git",
                 "url": "git@codebasehq.com:project-a/core/library-2.git",
-                "reference": "55cff793de219ae437ffcf18c7772ebdd345adeb"
+                "reference": "c175e838fe4eadac983b0156f627c11db934175f"
             },
             "require": {
                 "digital-canvas/zend-framework": ">=1.12.2",
@@ -1491,7 +1491,7 @@
                 }
             ],
             "description": "Project-A Library",
-            "time": "2014-01-29 13:53:23"
+            "time": "2014-01-29 16:15:54"
         },
         {
             "name": "project-a/lumberjack-package",
@@ -1617,13 +1617,13 @@
             "source": {
                 "type": "git",
                 "url": "git@codebasehq.com:project-a/core/payone.git",
-                "reference": "081fae0000fe15834298e6955ba4821c03ecf1cd"
+                "reference": "1f440912d40a65007fac44f42aebcea2c7b6dbcf"
             },
             "require": {
                 "php": ">=5.4.0",
                 "project-a/acl-package": "~3.0",
                 "project-a/library-package": "~3.0",
-                "project-a/payment-package": "~1.0",
+                "project-a/payment-package": "~3.1",
                 "project-a/sales-package": "~3.0"
             },
             "type": "library",
@@ -1644,7 +1644,7 @@
             "keywords": [
                 "payment,payment provider,payone"
             ],
-            "time": "2014-01-29 13:59:03"
+            "time": "2014-01-29 16:46:39"
         },
         {
             "name": "project-a/sales-package",
@@ -1652,7 +1652,7 @@
             "source": {
                 "type": "git",
                 "url": "git@codebasehq.com:project-a/core/sales.git",
-                "reference": "fef31e2b2e86804002b293002a6d00f5f51a90a3"
+                "reference": "d378901915461c5588431650954d2732ef8e813c"
             },
             "require": {
                 "php": ">=5.4.0",
@@ -1663,7 +1663,7 @@
                 "project-a/document-package": "~3.0",
                 "project-a/infrastructure-package": "~3.0",
                 "project-a/library-package": "~3.0",
-                "project-a/payment-package": "~1.0"
+                "project-a/payment-package": "~3.0"
             },
             "type": "library",
             "autoload": {
@@ -1685,7 +1685,7 @@
                 "Sales",
                 "Task"
             ],
-            "time": "2014-01-29 12:06:15"
+            "time": "2014-01-29 16:46:39"
         },
         {
             "name": "project-a/silex-routing",
@@ -1746,11 +1746,11 @@
             "source": {
                 "type": "git",
                 "url": "git@codebasehq.com:project-a/core/stripe.git",
-                "reference": "0810e9c69542d08a5174dd3fb3a1217e4713c942"
+                "reference": "b5ce626cac87ed3fa0ea799d97450f9b0ac0755e"
             },
             "require": {
                 "php": ">=5.4.0",
-                "project-a/payment-package": "~1.0",
+                "project-a/payment-package": "~3.0",
                 "stripe/stripe-php": "~1.9.0"
             },
             "type": "library",
@@ -1771,7 +1771,7 @@
             "keywords": [
                 "stripe payment provider"
             ],
-            "time": "2014-01-29 12:06:15"
+            "time": "2014-01-29 16:56:22"
         },
         {
             "name": "propel/propel1",
@@ -3844,14 +3844,14 @@
             "package": "project-a/marketing-package"
         },
         {
-            "alias": "1.0.0",
-            "alias_normalized": "1.0.0.0",
+            "alias": "3.1.0",
+            "alias_normalized": "3.1.0.0",
             "version": "9999999-dev",
             "package": "project-a/payment-package"
         },
         {
-            "alias": "3.0.0",
-            "alias_normalized": "3.0.0.0",
+            "alias": "1.0.0",
+            "alias_normalized": "1.0.0.0",
             "version": "9999999-dev",
             "package": "project-a/payone-package"
         },
