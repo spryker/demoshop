@@ -6,7 +6,7 @@
         "project-a/catalog-package": "dev-master as 3.0.0",
         "project-a/checkout-package": "dev-master as 3.0.0",
         "project-a/content-package": "dev-master as 2.0.0",
-        "project-a/console-package": "dev-master as 3.0.0",
+        "project-a/console-package": "dev-master as 2.0.0",
         "project-a/crm-package": "dev-master as 3.0.0",
         "project-a/dwh-package": "dev-master as 3.0.0",
         "project-a/document-package": "dev-master as 3.0.0",
