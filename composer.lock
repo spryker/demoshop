@@ -3,7 +3,7 @@
         "This file locks the dependencies of your project to a known state",
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file"
     ],
-    "hash": "0adafec4f05b4c00ad7bded0ac68d83f",
+    "hash": "3fc9d92c6cd0e25552360ce74d8082a9",
     "packages": [
         {
             "name": "cmutter/google-adwords-api",
@@ -799,13 +799,13 @@
             "version": "v2.2.0",
             "source": {
                 "type": "git",
-                "url": "https://github.com/nervetattoo/elasticsearch.git",
-                "reference": "ed9244b341e0139a4278ac9bdf3cb63d57539dfb"
+                "url": "https://github.com/nervetattoo/elasticsearch",
+                "reference": "v2.2.0"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/nervetattoo/elasticsearch/zipball/ed9244b341e0139a4278ac9bdf3cb63d57539dfb",
-                "reference": "ed9244b341e0139a4278ac9bdf3cb63d57539dfb",
+                "url": "https://github.com/nervetattoo/elasticsearch/archive/v2.2.0.zip",
+                "reference": "v2.2.0",
                 "shasum": ""
             },
             "require": {
@@ -1841,13 +1841,13 @@
             "version": "1.0.0",
             "source": {
                 "type": "git",
-                "url": "https://github.com/php-fig/log.git",
-                "reference": "fe0936ee26643249e916849d48e3a51d5f5e278b"
+                "url": "https://github.com/php-fig/log",
+                "reference": "1.0.0"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/php-fig/log/zipball/fe0936ee26643249e916849d48e3a51d5f5e278b",
-                "reference": "fe0936ee26643249e916849d48e3a51d5f5e278b",
+                "url": "https://github.com/php-fig/log/archive/1.0.0.zip",
+                "reference": "1.0.0",
                 "shasum": ""
             },
             "type": "library",
@@ -1981,12 +1981,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/silexphp/Silex.git",
-                "reference": "8bf87c9d48cb4bfc80169e70d9574e9a5e8fade2"
+                "reference": "bedb9895fdb0a778da5170c65a4c201842bf2252"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/silexphp/Silex/zipball/8bf87c9d48cb4bfc80169e70d9574e9a5e8fade2",
-                "reference": "8bf87c9d48cb4bfc80169e70d9574e9a5e8fade2",
+                "url": "https://api.github.com/repos/silexphp/Silex/zipball/bedb9895fdb0a778da5170c65a4c201842bf2252",
+                "reference": "bedb9895fdb0a778da5170c65a4c201842bf2252",
                 "shasum": ""
             },
             "require": {
@@ -2057,7 +2057,7 @@
             "keywords": [
                 "microframework"
             ],
-            "time": "2014-01-29 12:08:45"
+            "time": "2014-01-30 06:06:37"
         },
         {
             "name": "solarium/solarium",
@@ -3696,7 +3696,7 @@
         },
         {
             "name": "silex/web-profiler",
-            "version": "dev-master",
+            "version": "v1.0.2",
             "target-dir": "Silex/Provider",
             "source": {
                 "type": "git",
@@ -3778,8 +3778,8 @@
             "package": "project-a/content-package"
         },
         {
-            "alias": "3.0.0",
-            "alias_normalized": "3.0.0.0",
+            "alias": "2.0.0",
+            "alias_normalized": "2.0.0.0",
             "version": "9999999-dev",
             "package": "project-a/console-package"
         },
@@ -3899,8 +3899,7 @@
         "project-a/stripe-package": 20,
         "silex/silex": 20,
         "zendframework/zendframework": 20,
-        "fabpot/php-cs-fixer": 20,
-        "silex/web-profiler": 20
+        "fabpot/php-cs-fixer": 20
     },
     "platform": [
 
