@@ -17,8 +17,7 @@
         "project-a/library-package": "dev-master as 3.0.0",
         "project-a/lumberjack-package": "3.0.0",
         "project-a/marketing-package": "3.0.0",
-        "project-a/payment-package": "dev-master as 3.1.0",
-        "project-a/payone-package": "dev-master as 1.0.0",
+        "project-a/payment-package": "3.0.0",
         "project-a/sales-package": "3.0.0",
         "project-a/stripe-package": "3.0.0",
         "phing/phing": "~2.6.0",
@@ -29,7 +28,7 @@
         "fabpot/php-cs-fixer": "dev-master@dev"
     },
     "require-dev": {
-        "silex/web-profiler": "dev-master@dev",
+        "silex/web-profiler": "~1.0.2",
         "behat/behat": "*",
         "sanpi/behatch-contexts": "*",
         "behat/mink": "*",

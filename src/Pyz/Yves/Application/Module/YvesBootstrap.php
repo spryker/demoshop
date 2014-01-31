@@ -30,7 +30,7 @@ use Silex\Provider\WebProfilerServiceProvider;
 use SilexRouting\Provider\RoutingServiceProvider;
 use Symfony\Component\HttpFoundation\Request;
 
-class Bootstrap extends \ProjectA\Yves\Library\Silex\Bootstrap
+class YvesBootstrap extends \ProjectA\Yves\Library\Silex\YvesBootstrap
 {
     /**
      * @param Application $app

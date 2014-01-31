@@ -2,7 +2,7 @@
 /* YVES Front Controller */
 
 use ProjectA\Shared\Library\Application\Environment;
-use Pyz\Yves\Application\Module\Bootstrap;
+use Pyz\Yves\Application\Module\YvesBootstrap;
 
 define('YVES_START', microtime(true));
 
@@ -14,7 +14,7 @@ require_once(APPLICATION_ROOT_DIR . '/vendor/project-a/library-package/src/Proje
 Environment::initialize();
 \ProjectA_Shared_Library_Context::setDefaultContext(\ProjectA_Shared_Library_Context::CONTEXT_YVES);
 
-$bootstrap = new Bootstrap();
+$bootstrap = new YvesBootstrap();
 $bootstrap
     ->boot()
     ->run();

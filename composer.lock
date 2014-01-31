@@ -3,7 +3,7 @@
         "This file locks the dependencies of your project to a known state",
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file"
     ],
-    "hash": "a7b750a0912bf5fec653b6bd55ce2f6b",
+    "hash": "ca073827f5a0b942278f72c696f91dbd",
     "packages": [
         {
             "name": "cmutter/google-adwords-api",
@@ -1184,7 +1184,7 @@
             "source": {
                 "type": "git",
                 "url": "git@codebasehq.com:project-a/core/content.git",
-                "reference": "ea8365cbe90ab38d3df3f16de6c1b8be28466e42"
+                "reference": "0f491343c473162c9938607ca42295c838c71443"
             },
             "require": {
                 "php": ">=5.4.0",
@@ -1211,7 +1211,7 @@
             "keywords": [
                 "Content Package"
             ],
-            "time": "2014-01-29 13:52:56"
+            "time": "2014-01-31 14:45:19"
         },
         {
             "name": "project-a/crm-package",
@@ -1398,7 +1398,7 @@
             "source": {
                 "type": "git",
                 "url": "git@codebasehq.com:project-a/core/infrastructure.git",
-                "reference": "2c0841b3a304c7d0349d4a4aa045876d53e8a130"
+                "reference": "d6a263b8cfbf1b6373dac1dff471f8a5eceb8d02"
             },
             "require": {
                 "php": ">=5.4.0",
@@ -1427,7 +1427,7 @@
             "keywords": [
                 "infrastructure"
             ],
-            "time": "2014-01-30 10:24:23"
+            "time": "2014-01-31 12:43:07"
         },
         {
             "name": "project-a/kendo-package",
@@ -1454,7 +1454,7 @@
             "source": {
                 "type": "git",
                 "url": "git@codebasehq.com:project-a/core/library-2.git",
-                "reference": "9a4fe8f1a4884a7b245e3c34785f44e22988a2cd"
+                "reference": "ef27ac551cb23120ea0e699ff28504dcda2a3133"
             },
             "require": {
                 "digital-canvas/zend-framework": ">=1.12.2",
@@ -1491,7 +1491,7 @@
                 }
             ],
             "description": "Project-A Library",
-            "time": "2014-01-30 11:28:20"
+            "time": "2014-01-31 14:26:55"
         },
         {
             "name": "project-a/lumberjack-package",
@@ -1580,11 +1580,11 @@
         },
         {
             "name": "project-a/payment-package",
-            "version": "dev-master",
+            "version": "3.0.0",
             "source": {
                 "type": "git",
                 "url": "git@codebasehq.com:project-a/core/payment.git",
-                "reference": "897c09896821b1d30544ff24dfc889b57cc21b2f"
+                "reference": "ed92a2ab8897b79674a11d0808172a78ad4a3b7c"
             },
             "require": {
                 "php": ">=5.4.0"
@@ -1610,41 +1610,6 @@
                 "payment provider"
             ],
             "time": "2014-01-29 12:06:15"
-        },
-        {
-            "name": "project-a/payone-package",
-            "version": "dev-master",
-            "source": {
-                "type": "git",
-                "url": "git@codebasehq.com:project-a/core/payone.git",
-                "reference": "d4a56f42e1337dfbbced4e1670d0305e9230af10"
-            },
-            "require": {
-                "php": ">=5.4.0",
-                "project-a/acl-package": "~3.0",
-                "project-a/library-package": "~3.0",
-                "project-a/payment-package": "~3.1",
-                "project-a/sales-package": "~3.0"
-            },
-            "type": "library",
-            "autoload": {
-                "psr-0": {
-                    "ProjectA": "/src"
-                }
-            },
-            "authors": [
-                {
-                    "name": "Jörg Stick",
-                    "email": "joerg.stick@project-a.com",
-                    "homepage": "http://www.project-a.com",
-                    "role": "Senior Developer"
-                }
-            ],
-            "description": "Payone package",
-            "keywords": [
-                "payment,payment provider,payone"
-            ],
-            "time": "2014-01-30 10:59:08"
         },
         {
             "name": "project-a/sales-package",
@@ -3286,22 +3251,22 @@
         },
         {
             "name": "phpunit/php-code-coverage",
-            "version": "1.2.13",
+            "version": "1.2.14",
             "source": {
                 "type": "git",
                 "url": "https://github.com/sebastianbergmann/php-code-coverage.git",
-                "reference": "466e7cd2554b4e264c9e3f31216d25ac0e5f3d94"
+                "reference": "d4b3bc1c4b905cd0b3b356e8608857f26a041c1b"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sebastianbergmann/php-code-coverage/zipball/466e7cd2554b4e264c9e3f31216d25ac0e5f3d94",
-                "reference": "466e7cd2554b4e264c9e3f31216d25ac0e5f3d94",
+                "url": "https://api.github.com/repos/sebastianbergmann/php-code-coverage/zipball/d4b3bc1c4b905cd0b3b356e8608857f26a041c1b",
+                "reference": "d4b3bc1c4b905cd0b3b356e8608857f26a041c1b",
                 "shasum": ""
             },
             "require": {
                 "php": ">=5.3.3",
                 "phpunit/php-file-iterator": ">=1.3.0@stable",
-                "phpunit/php-text-template": ">=1.1.1@stable",
+                "phpunit/php-text-template": ">=1.2.0@stable",
                 "phpunit/php-token-stream": ">=1.1.3@stable"
             },
             "require-dev": {
@@ -3343,7 +3308,7 @@
                 "testing",
                 "xunit"
             ],
-            "time": "2013-09-10 08:14:32"
+            "time": "2014-01-31 08:51:59"
         },
         {
             "name": "phpunit/php-file-iterator",
@@ -3392,16 +3357,16 @@
         },
         {
             "name": "phpunit/php-text-template",
-            "version": "1.1.4",
+            "version": "1.2.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/sebastianbergmann/php-text-template.git",
-                "reference": "5180896f51c5b3648ac946b05f9ec02be78a0b23"
+                "reference": "206dfefc0ffe9cebf65c413e3d0e809c82fbf00a"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sebastianbergmann/php-text-template/zipball/5180896f51c5b3648ac946b05f9ec02be78a0b23",
-                "reference": "5180896f51c5b3648ac946b05f9ec02be78a0b23",
+                "url": "https://api.github.com/repos/sebastianbergmann/php-text-template/zipball/206dfefc0ffe9cebf65c413e3d0e809c82fbf00a",
+                "reference": "206dfefc0ffe9cebf65c413e3d0e809c82fbf00a",
                 "shasum": ""
             },
             "require": {
@@ -3432,7 +3397,7 @@
             "keywords": [
                 "template"
             ],
-            "time": "2012-10-31 18:15:28"
+            "time": "2014-01-30 17:20:04"
         },
         {
             "name": "phpunit/php-timer",
@@ -3530,16 +3495,16 @@
         },
         {
             "name": "phpunit/phpunit",
-            "version": "3.7.29",
+            "version": "3.7.30",
             "source": {
                 "type": "git",
                 "url": "https://github.com/sebastianbergmann/phpunit.git",
-                "reference": "faeb2d9f15dc83830d2db5e4c67acf1d68c9b5ac"
+                "reference": "2f33258fa5a0c330515b7deba2bc040fa5c3953b"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sebastianbergmann/phpunit/zipball/faeb2d9f15dc83830d2db5e4c67acf1d68c9b5ac",
-                "reference": "faeb2d9f15dc83830d2db5e4c67acf1d68c9b5ac",
+                "url": "https://api.github.com/repos/sebastianbergmann/phpunit/zipball/2f33258fa5a0c330515b7deba2bc040fa5c3953b",
+                "reference": "2f33258fa5a0c330515b7deba2bc040fa5c3953b",
                 "shasum": ""
             },
             "require": {
@@ -3600,7 +3565,7 @@
                 "testing",
                 "xunit"
             ],
-            "time": "2014-01-15 06:46:38"
+            "time": "2014-01-31 08:54:33"
         },
         {
             "name": "phpunit/phpunit-mock-objects",
@@ -3696,17 +3661,17 @@
         },
         {
             "name": "silex/web-profiler",
-            "version": "dev-master",
+            "version": "v1.0.2",
             "target-dir": "Silex/Provider",
             "source": {
                 "type": "git",
                 "url": "https://github.com/silexphp/Silex-WebProfiler.git",
-                "reference": "2d153ae71c8445cb90535fbdd82b92e39d9f67e0"
+                "reference": "06bd4fcd563d1e114e5c1768dd87da771846fee6"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/silexphp/Silex-WebProfiler/zipball/2d153ae71c8445cb90535fbdd82b92e39d9f67e0",
-                "reference": "2d153ae71c8445cb90535fbdd82b92e39d9f67e0",
+                "url": "https://api.github.com/repos/silexphp/Silex-WebProfiler/zipball/06bd4fcd563d1e114e5c1768dd87da771846fee6",
+                "reference": "06bd4fcd563d1e114e5c1768dd87da771846fee6",
                 "shasum": ""
             },
             "require": {
@@ -3737,7 +3702,7 @@
             ],
             "description": "A WebProfiler for Silex",
             "homepage": "http://silex.sensiolabs.org/",
-            "time": "2014-01-30 06:11:24"
+            "time": "2013-12-05 21:22:21"
         }
     ],
     "aliases": [
@@ -3766,18 +3731,6 @@
             "package": "project-a/library-package"
         },
         {
-            "alias": "3.1.0",
-            "alias_normalized": "3.1.0.0",
-            "version": "9999999-dev",
-            "package": "project-a/payment-package"
-        },
-        {
-            "alias": "1.0.0",
-            "alias_normalized": "1.0.0.0",
-            "version": "9999999-dev",
-            "package": "project-a/payone-package"
-        },
-        {
             "alias": "1.2",
             "alias_normalized": "1.2.0.0",
             "version": "9999999-dev",
@@ -3790,12 +3743,9 @@
         "project-a/dwh-package": 20,
         "project-a/infrastructure-package": 20,
         "project-a/library-package": 20,
-        "project-a/payment-package": 20,
-        "project-a/payone-package": 20,
         "silex/silex": 20,
         "zendframework/zendframework": 20,
-        "fabpot/php-cs-fixer": 20,
-        "silex/web-profiler": 20
+        "fabpot/php-cs-fixer": 20
     },
     "platform": [
 

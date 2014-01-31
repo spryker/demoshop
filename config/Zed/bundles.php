@@ -48,7 +48,6 @@ return [
         'ProductImage' => $bootstrapAndSchema,
         'Payment' => $schemaAndNavigation,
         'PaymentControl' => $schema,
-        'Payone' => $schema,
         'Price' => $schema,
         'Sales' => $schemaAndNavigation,
         'Salesrule' => $schemaAndNavigation,
