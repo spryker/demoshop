@@ -6,7 +6,7 @@ use \ProjectA_Zed_Sales_Component_Model_Orderprocess_CommandAbstract as CommandA
 
 class DemoTestItemCommandOne extends CommandAbstract implements
     \ProjectA_Zed_Sales_Component_Interface_OrderItemCommand,
-    \ProjectA_Zed_Payment_Component_Interface_Constants
+    \ProjectA\Zed\Payment\Component\Model\PaymentConstantsInterface
 {
     /**
      *

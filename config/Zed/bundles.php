@@ -25,7 +25,6 @@ return [
     \ProjectA_Shared_Library_Config::get('projectNamespace') => [],
     // Core bundles
     ProjectA\Shared\Library\Bundle\BundleConfig::NAMESPACE_CORE => [
-        'Adyen' => $schema,
         'Acl' => $schemaAndNavigation,
         'Auth' => $bootstrap,
         'Behat' => $navigation,
@@ -47,6 +46,7 @@ return [
         'Newsletter' => $schema,
         'ProductImage' => $bootstrapAndSchema,
         'Payment' => $schemaAndNavigation,
+        'Payone' => $schema,
         'PaymentControl' => $schema,
         'Price' => $schema,
         'Sales' => $schemaAndNavigation,
