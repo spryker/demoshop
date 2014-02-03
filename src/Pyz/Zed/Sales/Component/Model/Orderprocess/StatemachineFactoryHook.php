@@ -28,6 +28,8 @@ class StatemachineFactoryHook implements
         $rules->addRule($this->facadePayone->createFacadeStateMachine()->getRulePaymentTransactionIsRedirect());
         $rules->addRule($this->facadePayone->createFacadeStateMachine()->getRuleCancellationIsObjective());
         $rules->addRule($this->facadePayone->createFacadeStateMachine()->getRuleCancellationIsReturn());
+
+        $rules->addRule($this->factory->createModelOrderprocessGuardRuleSomethingExists());
         return $rules;
     }
 
