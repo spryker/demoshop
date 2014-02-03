@@ -5,7 +5,7 @@ namespace Pyz\Zed\Sales\Component\Model\Orderprocess\Guard\Rule;
 use Pyz\Shared\Payone\Code\ProcessConstants as PaymentConstants;
 
 class PaymentRedirected extends \ProjectA_Zed_Library_StateMachine_Transition_Guard_Rule implements
-    \ProjectA_Zed_Payment_Component_Interface_Constants
+      \ProjectA\Zed\Payment\Component\Model\PaymentConstantsInterface
 {
     /**
      *

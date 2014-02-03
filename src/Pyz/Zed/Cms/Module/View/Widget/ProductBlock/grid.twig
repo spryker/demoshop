@@ -1,0 +1,38 @@
+{% set modalContent = widget('/catalog/product-grid') %}
+{{ modal('Product block', modalContent) }}
+
+<script type="text/javascript">
+    $("#product-grid").waitUntilExists(function(){
+        var grid = $('#product-grid');
+        var fkCmsPage = '{{ fkCmsPage }}';
+        var blockName = '{{ blockName }}';
+        var blockType = '{{ blockType }}';
+        applyGridOptions(grid.data('kendoGrid'), {
+            columns : {
+                hide : ['details', 'fk_catalog_attribute_set', 'variety', 'base_gross_price', 'stock', 'is_item', 'updated_at']
+            }
+        });
+
+        grid.on('click', 'tr', function(e) {
+            var sku = $(e.target).find('td:nth-child(2)').context.innerHTML;
+            var url = '/cms/product-block/save/fk_cms_page/' + fkCmsPage + '/block_name/' + blockName + '/block_type/' + blockType + '/sku/' + sku;
+            save(url);
+        });
+
+        var save = function(url){
+            $.ajax({
+                url: url,
+                type: 'POST',
+                success: function (data) {
+                    if (!data.success) {
+                        alert(data.messages);
+                    } else {
+                        console.log('saved');
+                        $('#modal').modal('hide');
+                    }
+                }
+            });
+        };
+
+    });
+</script>

@@ -1,0 +1,6 @@
+PROJECT STORE
+{% set title = 'Add page' %}
+{% set widget = widget('/cms/page-form', {'id-cms-page': idCmsPage}) %}
+{{ panel(title, widget) }}
+{{ scripts() }}
+{{ styles() }}
