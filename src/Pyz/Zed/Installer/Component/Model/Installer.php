@@ -34,6 +34,7 @@ use \Generated\Zed\Payone\Component\Dependency\PayoneFacadeTrait;
 
 class Installer extends \ProjectA_Zed_Installer_Component_Model_Installer implements
     AclFacadeInterface,
+    CmsFacadeInterface,
     CatalogFacadeInterface,
     CategoryFacadeInterface,
     CustomerFacadeInterface,
@@ -49,6 +50,7 @@ class Installer extends \ProjectA_Zed_Installer_Component_Model_Installer implem
 {
 
     use AclFacadeTrait;
+    use CmsFacadeTrait;
     use CatalogFacadeTrait;
     use CategoryFacadeTrait;
     use CustomerFacadeTrait;
@@ -69,6 +71,7 @@ class Installer extends \ProjectA_Zed_Installer_Component_Model_Installer implem
     {
         return [
             $this->facadeAcl->createInternalInstall(),
+            $this->facadeCms->createInternalInstall(),
             $this->facadeCatalog->createInternalInstall(),
             $this->facadeCategory->createInternalInstall(),
             $this->facadeCustomer->createInternalInstall(),

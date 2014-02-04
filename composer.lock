@@ -893,16 +893,16 @@
         },
         {
             "name": "pimple/pimple",
-            "version": "v1.1.0",
+            "version": "v1.1.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/fabpot/Pimple.git",
-                "reference": "471c7d7c52ad6594e17b8ec33efdd1be592b5d83"
+                "reference": "2019c145fe393923f3441b23f29bbdfaa5c58c4d"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/fabpot/Pimple/zipball/471c7d7c52ad6594e17b8ec33efdd1be592b5d83",
-                "reference": "471c7d7c52ad6594e17b8ec33efdd1be592b5d83",
+                "url": "https://api.github.com/repos/fabpot/Pimple/zipball/2019c145fe393923f3441b23f29bbdfaa5c58c4d",
+                "reference": "2019c145fe393923f3441b23f29bbdfaa5c58c4d",
                 "shasum": ""
             },
             "require": {
@@ -935,7 +935,7 @@
                 "container",
                 "dependency injection"
             ],
-            "time": "2013-09-19 04:53:08"
+            "time": "2013-11-22 08:30:29"
         },
         {
             "name": "project-a/acl-package",
@@ -1842,16 +1842,16 @@
         },
         {
             "name": "ruflin/elastica",
-            "version": "v0.90.7.0",
+            "version": "v0.90.10.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/ruflin/Elastica.git",
-                "reference": "e36213362ef459f92e8b09167e537e9312f55ae3"
+                "reference": "bb03eb21b96ea88fc6fefb97a7b2c2d7708fdfe2"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/ruflin/Elastica/zipball/e36213362ef459f92e8b09167e537e9312f55ae3",
-                "reference": "e36213362ef459f92e8b09167e537e9312f55ae3",
+                "url": "https://api.github.com/repos/ruflin/Elastica/zipball/bb03eb21b96ea88fc6fefb97a7b2c2d7708fdfe2",
+                "reference": "bb03eb21b96ea88fc6fefb97a7b2c2d7708fdfe2",
                 "shasum": ""
             },
             "require": {
@@ -1859,7 +1859,8 @@
             },
             "require-dev": {
                 "munkie/elasticsearch-thrift-php": "1.4.*",
-                "psr/log": "~1.0"
+                "psr/log": "~1.0",
+                "satooshi/php-coveralls": "dev-master"
             },
             "suggest": {
                 "monolog/monolog": "Logging request",
@@ -1889,7 +1890,7 @@
                 "client",
                 "search"
             ],
-            "time": "2013-11-23 21:35:18"
+            "time": "2014-02-02 07:44:29"
         },
         {
             "name": "sebastian/diff",
@@ -3037,21 +3038,21 @@
         },
         {
             "name": "fabpot/goutte",
-            "version": "v1.0.3",
+            "version": "v1.0.5",
             "source": {
                 "type": "git",
                 "url": "https://github.com/fabpot/Goutte.git",
-                "reference": "75c9f23c4122caf4ea3e87a42a00b471366e707f"
+                "reference": "a30e84e28fbaf14909d2d007249c24cd0ecd425e"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/fabpot/Goutte/zipball/75c9f23c4122caf4ea3e87a42a00b471366e707f",
-                "reference": "75c9f23c4122caf4ea3e87a42a00b471366e707f",
+                "url": "https://api.github.com/repos/fabpot/Goutte/zipball/a30e84e28fbaf14909d2d007249c24cd0ecd425e",
+                "reference": "a30e84e28fbaf14909d2d007249c24cd0ecd425e",
                 "shasum": ""
             },
             "require": {
                 "ext-curl": "*",
-                "guzzle/http": ">=3.0.5,<3.8-dev",
+                "guzzle/http": "~3.1",
                 "php": ">=5.3.0",
                 "symfony/browser-kit": "~2.1",
                 "symfony/css-selector": "~2.1",
@@ -3060,8 +3061,8 @@
                 "symfony/process": "~2.1"
             },
             "require-dev": {
-                "guzzle/plugin-history": ">=3.0.5,<3.8-dev",
-                "guzzle/plugin-mock": ">=3.0.5,<3.8-dev"
+                "guzzle/plugin-history": "~3.1",
+                "guzzle/plugin-mock": "~3.1"
             },
             "type": "application",
             "extra": {
@@ -3089,7 +3090,7 @@
             "keywords": [
                 "scraper"
             ],
-            "time": "2013-08-16 06:03:22"
+            "time": "2014-01-31 18:02:50"
         },
         {
             "name": "instaclick/php-webdriver",
@@ -3252,16 +3253,16 @@
         },
         {
             "name": "phpunit/php-code-coverage",
-            "version": "1.2.14",
+            "version": "1.2.15",
             "source": {
                 "type": "git",
                 "url": "https://github.com/sebastianbergmann/php-code-coverage.git",
-                "reference": "d4b3bc1c4b905cd0b3b356e8608857f26a041c1b"
+                "reference": "6ba4ed2895d538a039d5d5866edc4ec0424c7852"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sebastianbergmann/php-code-coverage/zipball/d4b3bc1c4b905cd0b3b356e8608857f26a041c1b",
-                "reference": "d4b3bc1c4b905cd0b3b356e8608857f26a041c1b",
+                "url": "https://api.github.com/repos/sebastianbergmann/php-code-coverage/zipball/6ba4ed2895d538a039d5d5866edc4ec0424c7852",
+                "reference": "6ba4ed2895d538a039d5d5866edc4ec0424c7852",
                 "shasum": ""
             },
             "require": {
@@ -3309,7 +3310,7 @@
                 "testing",
                 "xunit"
             ],
-            "time": "2014-01-31 08:51:59"
+            "time": "2014-02-03 07:44:47"
         },
         {
             "name": "phpunit/php-file-iterator",
