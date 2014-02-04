@@ -3,7 +3,7 @@
         "This file locks the dependencies of your project to a known state",
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file"
     ],
-    "hash": "c4839c3666e25a5607e0ad00f6347ca7",
+    "hash": "874c011b59013d88e5a87f9845b21efd",
     "packages": [
         {
             "name": "cmutter/google-adwords-api",
@@ -244,16 +244,16 @@
         },
         {
             "name": "doctrine/collections",
-            "version": "v1.1",
+            "version": "v1.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/doctrine/collections.git",
-                "reference": "560f29c39cfcfbcd210e5d549d993a39d898b04b"
+                "reference": "b99c5c46c87126201899afe88ec490a25eedd6a2"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/doctrine/collections/zipball/560f29c39cfcfbcd210e5d549d993a39d898b04b",
-                "reference": "560f29c39cfcfbcd210e5d549d993a39d898b04b",
+                "url": "https://api.github.com/repos/doctrine/collections/zipball/b99c5c46c87126201899afe88ec490a25eedd6a2",
+                "reference": "b99c5c46c87126201899afe88ec490a25eedd6a2",
                 "shasum": ""
             },
             "require": {
@@ -262,7 +262,7 @@
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "1.1.x-dev"
+                    "dev-master": "1.2.x-dev"
                 }
             },
             "autoload": {
@@ -276,7 +276,7 @@
             ],
             "authors": [
                 {
-                    "name": "Jonathan H. Wage",
+                    "name": "Jonathan Wage",
                     "email": "jonwage@gmail.com",
                     "homepage": "http://www.jwage.com/",
                     "role": "Creator"
@@ -295,7 +295,7 @@
                     "email": "kontakt@beberlei.de"
                 },
                 {
-                    "name": "Johannes Schmitt",
+                    "name": "Johannes M. Schmitt",
                     "email": "schmittjoh@gmail.com",
                     "homepage": "http://jmsyst.com",
                     "role": "Developer of wrapped JMSSerializerBundle"
@@ -308,7 +308,7 @@
                 "collections",
                 "iterator"
             ],
-            "time": "2013-03-07 12:15:54"
+            "time": "2014-02-03 23:07:43"
         },
         {
             "name": "doctrine/common",
@@ -1150,7 +1150,7 @@
             "source": {
                 "type": "git",
                 "url": "git@codebasehq.com:project-a/core/content.git",
-                "reference": "0f491343c473162c9938607ca42295c838c71443"
+                "reference": "798a4451d89336d8854f641f9ff7e7799d3100d0"
             },
             "require": {
                 "php": ">=5.4.0",
@@ -1177,7 +1177,7 @@
             "keywords": [
                 "Content Package"
             ],
-            "time": "2014-01-31 14:45:19"
+            "time": "2014-02-04 10:55:50"
         },
         {
             "name": "project-a/crm-package",
@@ -1364,7 +1364,7 @@
             "source": {
                 "type": "git",
                 "url": "git@codebasehq.com:project-a/core/infrastructure.git",
-                "reference": "d6a263b8cfbf1b6373dac1dff471f8a5eceb8d02"
+                "reference": "65ac2ffb9dbb16a6b5c2fc25c5f6d7ba2e955d51"
             },
             "require": {
                 "php": ">=5.4.0",
@@ -1393,7 +1393,7 @@
             "keywords": [
                 "infrastructure"
             ],
-            "time": "2014-01-31 12:43:07"
+            "time": "2014-02-04 10:56:42"
         },
         {
             "name": "project-a/kendo-package",
@@ -1416,11 +1416,11 @@
         },
         {
             "name": "project-a/library-package",
-            "version": "dev-master",
+            "version": "dev-feature/twig",
             "source": {
                 "type": "git",
                 "url": "git@codebasehq.com:project-a/core/library-2.git",
-                "reference": "ef27ac551cb23120ea0e699ff28504dcda2a3133"
+                "reference": "3442f25099d8601e8ae10bc5b86c0ae3e88db4c2"
             },
             "require": {
                 "digital-canvas/zend-framework": ">=1.12.2",
@@ -1457,7 +1457,7 @@
                 }
             ],
             "description": "Project-A Library",
-            "time": "2014-01-31 14:26:55"
+            "time": "2014-02-04 10:54:13"
         },
         {
             "name": "project-a/lumberjack-package",
@@ -1583,7 +1583,7 @@
             "source": {
                 "type": "git",
                 "url": "git@codebasehq.com:project-a/core/payone.git",
-                "reference": "480013564bd396ccc018e1bf1f9049d5c30003e9"
+                "reference": "cb8dc83fcbf54e3d66ec36e2fa033bb34cd2f95f"
             },
             "require": {
                 "php": ">=5.4.0",
@@ -1610,7 +1610,7 @@
             "keywords": [
                 "payment,payment provider,payone"
             ],
-            "time": "2014-01-30 15:18:58"
+            "time": "2014-02-03 08:42:04"
         },
         {
             "name": "project-a/sales-package",
@@ -2391,12 +2391,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/zendframework/zf2.git",
-                "reference": "f0f304ce1b0a0819498d4de088ed2a2e1b985d71"
+                "reference": "95e1d9082592c4eb59adc1158267ec7c7385a389"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/zendframework/zf2/zipball/f0f304ce1b0a0819498d4de088ed2a2e1b985d71",
-                "reference": "f0f304ce1b0a0819498d4de088ed2a2e1b985d71",
+                "url": "https://api.github.com/repos/zendframework/zf2/zipball/95e1d9082592c4eb59adc1158267ec7c7385a389",
+                "reference": "95e1d9082592c4eb59adc1158267ec7c7385a389",
                 "shasum": ""
             },
             "require": {
@@ -2501,7 +2501,7 @@
                 "framework",
                 "zf2"
             ],
-            "time": "2014-01-28 20:12:54"
+            "time": "2014-02-03 22:01:34"
         },
         {
             "name": "zendframework/zendpdf",
@@ -3733,9 +3733,9 @@
             "package": "project-a/infrastructure-package"
         },
         {
-            "alias": "3.0.0",
-            "alias_normalized": "3.0.0.0",
-            "version": "9999999-dev",
+            "alias": "3.1.0",
+            "alias_normalized": "3.1.0.0",
+            "version": "dev-feature/twig",
             "package": "project-a/library-package"
         },
         {
