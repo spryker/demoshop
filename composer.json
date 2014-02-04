@@ -18,7 +18,7 @@
         "project-a/marketing-package": "3.0.0",
         "project-a/payment-package": "dev-feature/payment-refactor-accounting as 3.1.0",
         "project-a/payone-package": "dev-master as 1.0.0",
-        "project-a/sales-package": "dev-feature/sales-payment2-changes as 3.1.0",
+        "project-a/sales-package": "dev-feature/354-basic-bundles-sales-pgk as 3.1.0",
         "project-a/stripe-package": "dev-feature/stripe-to-301 as 3.0.1",
         "phing/phing": "~2.6.0",
         "propel/propel1": "1.7.0",

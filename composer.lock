@@ -3,7 +3,7 @@
         "This file locks the dependencies of your project to a known state",
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file"
     ],
-    "hash": "2216f4822aae68ad1559cd9efcaa5592",
+    "hash": "24a6eae33de012cc84f59ac633c77175",
     "packages": [
         {
             "name": "cmutter/google-adwords-api",
@@ -1364,7 +1364,7 @@
             "source": {
                 "type": "git",
                 "url": "git@codebasehq.com:project-a/core/infrastructure.git",
-                "reference": "65ac2ffb9dbb16a6b5c2fc25c5f6d7ba2e955d51"
+                "reference": "dcf229a092313d635bdec31d96ec4ba51431ab4f"
             },
             "require": {
                 "php": ">=5.4.0",
@@ -1393,7 +1393,7 @@
             "keywords": [
                 "infrastructure"
             ],
-            "time": "2014-02-04 10:56:42"
+            "time": "2014-02-04 11:56:56"
         },
         {
             "name": "project-a/kendo-package",
@@ -1420,7 +1420,7 @@
             "source": {
                 "type": "git",
                 "url": "git@codebasehq.com:project-a/core/library-2.git",
-                "reference": "3442f25099d8601e8ae10bc5b86c0ae3e88db4c2"
+                "reference": "1f8568c71bb0efd25e549f5ed25e0b4d6b48080d"
             },
             "require": {
                 "digital-canvas/zend-framework": ">=1.12.2",
@@ -1457,7 +1457,7 @@
                 }
             ],
             "description": "Project-A Library",
-            "time": "2014-02-04 10:54:13"
+            "time": "2014-02-04 11:52:14"
         },
         {
             "name": "project-a/lumberjack-package",
@@ -1614,7 +1614,7 @@
         },
         {
             "name": "project-a/sales-package",
-            "version": "dev-feature/sales-payment2-changes",
+            "version": "dev-feature/354-basic-bundles-sales-pgk",
             "source": {
                 "type": "git",
                 "url": "git@codebasehq.com:project-a/core/sales.git",
@@ -1712,7 +1712,7 @@
             "source": {
                 "type": "git",
                 "url": "git@codebasehq.com:project-a/core/stripe.git",
-                "reference": "c27e2a66e3ebfdb4fe9eb5d3faa314144d89795f"
+                "reference": "69e4aef32ee29d2bba66884e1aefcb4c500e6192"
             },
             "require": {
                 "php": ">=5.4.0",
@@ -1737,7 +1737,7 @@
             "keywords": [
                 "stripe payment provider"
             ],
-            "time": "2014-01-30 11:00:50"
+            "time": "2014-02-04 11:56:03"
         },
         {
             "name": "propel/propel1",
@@ -3759,7 +3759,7 @@
         {
             "alias": "3.1.0",
             "alias_normalized": "3.1.0.0",
-            "version": "dev-feature/sales-payment2-changes",
+            "version": "dev-feature/354-basic-bundles-sales-pgk",
             "package": "project-a/sales-package"
         },
         {
