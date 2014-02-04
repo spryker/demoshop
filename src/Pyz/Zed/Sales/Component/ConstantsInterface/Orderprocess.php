@@ -7,6 +7,7 @@ interface Orderprocess extends \ProjectA_Zed_Sales_Component_Interface_Orderproc
 
     const ORDER_PROCESS_DEMO = 'demo';
 
+
     const STATE_INVALID = 'invalid';
     const STATE_WAITING_FOR_AUTHORIZE_APPOINTMENT = 'waiting for authorize appointment';
     const STATE_APPOINTED = 'appointed';
@@ -25,6 +26,27 @@ interface Orderprocess extends \ProjectA_Zed_Sales_Component_Interface_Orderproc
     // RULES
 
     const FLAG_CLARIFY = 'clarify';
+
+    /********************/
+    /****** EXAMPLE ******/
+    /********************/
+
+    const ORDER_PROCESS_EXAMPLE = 'Example Process';
+
+    const STATE_A = 'status A';
+    const STATE_B = 'status B';
+    const STATE_C = 'status C';
+    const STATE_D = 'status D';
+    const STATE_E = 'status E';
+
+    const EVENT_GOTO_A = 'goto A';
+    const EVENT_GOTO_B = 'goto B';
+    const EVENT_GOTO_C = 'goto C';
+    const EVENT_GOTO_D = 'goto D';
+    const EVENT_GOTO_E = 'goto E';
+    const EVENT_SOME_DEFINED_EVENT = 'some defined event';
+
+    const RULE_SOMETHING_EXISTS = 'something exists';
 
     /********************/
     /****** PAYONE ******/

@@ -32,5 +32,7 @@ class Pyz_Zed_Sales_Component_Model_Orderprocess_DefinitionContainer extends \Pr
         $this->addProcessDefinition($this->factory->createModelOrderprocessDefinitionPayonePrePayment());
         $this->addProcessDefinition($this->factory->createModelOrderprocessDefinitionPayoneInvoice());
         $this->addProcessDefinition($this->factory->createModelOrderprocessDefinitionPayoneSofortUeberweisung());
+
+        $this->addProcessDefinition($this->factory->createModelOrderprocessDefinitionExampleProcess());
     }
 }
