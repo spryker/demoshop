@@ -3,7 +3,7 @@
         "This file locks the dependencies of your project to a known state",
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file"
     ],
-    "hash": "24a6eae33de012cc84f59ac633c77175",
+    "hash": "467ca08656e7ea746bb406c961681cf3",
     "packages": [
         {
             "name": "cmutter/google-adwords-api",
@@ -1150,7 +1150,7 @@
             "source": {
                 "type": "git",
                 "url": "git@codebasehq.com:project-a/core/content.git",
-                "reference": "798a4451d89336d8854f641f9ff7e7799d3100d0"
+                "reference": "a8b9d0abd9fc4fd9246b3957942abf1294e25ff3"
             },
             "require": {
                 "php": ">=5.4.0",
@@ -1177,15 +1177,15 @@
             "keywords": [
                 "Content Package"
             ],
-            "time": "2014-02-04 10:55:50"
+            "time": "2014-02-05 09:44:19"
         },
         {
             "name": "project-a/crm-package",
-            "version": "3.0.0",
+            "version": "3.0.1",
             "source": {
                 "type": "git",
                 "url": "git@codebasehq.com:project-a/core/crm.git",
-                "reference": "b77d7349003ea6b84a004a6f327af18cb202e431"
+                "reference": "576f461ef022f96807c36e3a956ad1d672c1823a"
             },
             "require": {
                 "php": ">=5.4.0",
@@ -1211,7 +1211,7 @@
                 "CRM",
                 "Mail"
             ],
-            "time": "2014-01-29 12:06:15"
+            "time": "2014-02-05 10:04:41"
         },
         {
             "name": "project-a/document-package",
@@ -1948,12 +1948,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/silexphp/Silex.git",
-                "reference": "bedb9895fdb0a778da5170c65a4c201842bf2252"
+                "reference": "3c5e0bbe4cb1c0dbee9181437f16ed13bea8bb1a"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/silexphp/Silex/zipball/bedb9895fdb0a778da5170c65a4c201842bf2252",
-                "reference": "bedb9895fdb0a778da5170c65a4c201842bf2252",
+                "url": "https://api.github.com/repos/silexphp/Silex/zipball/3c5e0bbe4cb1c0dbee9181437f16ed13bea8bb1a",
+                "reference": "3c5e0bbe4cb1c0dbee9181437f16ed13bea8bb1a",
                 "shasum": ""
             },
             "require": {
@@ -2024,7 +2024,7 @@
             "keywords": [
                 "microframework"
             ],
-            "time": "2014-01-30 06:06:37"
+            "time": "2014-02-05 06:19:22"
         },
         {
             "name": "solarium/solarium",
@@ -2391,12 +2391,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/zendframework/zf2.git",
-                "reference": "95e1d9082592c4eb59adc1158267ec7c7385a389"
+                "reference": "18e2f00ec739fa22da2991ba8fd25f4438cdd5a1"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/zendframework/zf2/zipball/95e1d9082592c4eb59adc1158267ec7c7385a389",
-                "reference": "95e1d9082592c4eb59adc1158267ec7c7385a389",
+                "url": "https://api.github.com/repos/zendframework/zf2/zipball/18e2f00ec739fa22da2991ba8fd25f4438cdd5a1",
+                "reference": "18e2f00ec739fa22da2991ba8fd25f4438cdd5a1",
                 "shasum": ""
             },
             "require": {
@@ -2501,7 +2501,7 @@
                 "framework",
                 "zf2"
             ],
-            "time": "2014-02-03 22:01:34"
+            "time": "2014-02-04 22:49:46"
         },
         {
             "name": "zendframework/zendpdf",
@@ -2549,16 +2549,16 @@
     "packages-dev": [
         {
             "name": "alexandresalome/php-selenium",
-            "version": "v1.0.2",
+            "version": "v1.0.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/alexandresalome/PHP-Selenium.git",
-                "reference": "060eb12ba7bdb30c80fafed09e94b79f25b286e8"
+                "reference": "a9997e74d8016a5cdb995ca8d06263d1843e3cc0"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/alexandresalome/PHP-Selenium/zipball/060eb12ba7bdb30c80fafed09e94b79f25b286e8",
-                "reference": "060eb12ba7bdb30c80fafed09e94b79f25b286e8",
+                "url": "https://api.github.com/repos/alexandresalome/PHP-Selenium/zipball/a9997e74d8016a5cdb995ca8d06263d1843e3cc0",
+                "reference": "a9997e74d8016a5cdb995ca8d06263d1843e3cc0",
                 "shasum": ""
             },
             "require-dev": {
@@ -2585,7 +2585,7 @@
             "keywords": [
                 "selenium"
             ],
-            "time": "2013-11-11 17:31:10"
+            "time": "2014-02-05 08:32:37"
         },
         {
             "name": "behat/behat",
