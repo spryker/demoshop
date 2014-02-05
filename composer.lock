@@ -3,7 +3,7 @@
         "This file locks the dependencies of your project to a known state",
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file"
     ],
-    "hash": "874c011b59013d88e5a87f9845b21efd",
+    "hash": "ecbbbe545f6135b42f489394477b3880",
     "packages": [
         {
             "name": "cmutter/google-adwords-api",
@@ -1181,11 +1181,11 @@
         },
         {
             "name": "project-a/crm-package",
-            "version": "3.0.0",
+            "version": "3.0.1",
             "source": {
                 "type": "git",
                 "url": "git@codebasehq.com:project-a/core/crm.git",
-                "reference": "b77d7349003ea6b84a004a6f327af18cb202e431"
+                "reference": "576f461ef022f96807c36e3a956ad1d672c1823a"
             },
             "require": {
                 "php": ">=5.4.0",
@@ -1211,7 +1211,7 @@
                 "CRM",
                 "Mail"
             ],
-            "time": "2014-01-29 12:06:15"
+            "time": "2014-02-05 10:04:41"
         },
         {
             "name": "project-a/document-package",
