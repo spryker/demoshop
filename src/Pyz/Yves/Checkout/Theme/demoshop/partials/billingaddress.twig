@@ -9,6 +9,9 @@
             {{ form_row(form.billingAddress.firstName, {attr : {class : 'name fullWidth', 'data-src': 'middle_name'}, label : 'checkout.address.billing.name.first'}) }}
         </div>
         <div class="row columns small-4 large-4">
+            {{ form_row(form.billingAddress.middleName, {attr : {class : 'fullWidth'}, label : 'checkout.address.billing.name.middle'}) }}
+        </div>
+        <div class="row columns small-4 large-4">
             {{ form_row(form.billingAddress.lastName, {attr : {class : 'name fullWidth', 'data-src': 'last_name'}, label : 'checkout.address.billing.name.last'}) }}
         </div>
     </div>
@@ -21,6 +24,9 @@
         </div>
         <div class="row columns small-4 large-4">
             {{ form_row(form.billingAddress.address2, {attr : {class : 'fullWidth', 'data-src': 'street_number'}, label : 'checkout.address.billing.number'}) }}
+        </div>
+        <div class="row columns small-4 large-4">
+            {{ form_row(form.billingAddress.address3, {attr : {class : 'fullWidth', 'data-src': 'street_address3'}, label : 'checkout.address.billing.address3'}) }}
         </div>
     </div>
     <div class="separate">

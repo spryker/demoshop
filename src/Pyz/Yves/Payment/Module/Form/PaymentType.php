@@ -115,8 +115,7 @@ class PaymentType extends CorePaymentType
         $builder
             ->add('bankAccountHolder', 'text')
             ->add('bankAccount', 'text')
-            ->add('bankCode', 'text')
-            ->add('bankGroupType', 'text', array('mapped' => false));
+            ->add('bankCode', 'text');
     }
 
     /**
