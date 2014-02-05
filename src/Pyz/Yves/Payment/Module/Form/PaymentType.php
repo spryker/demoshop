@@ -53,30 +53,57 @@ class PaymentType extends CorePaymentType
     protected function buildCreditCardForm(FormBuilderInterface $builder, array $options)
     {
         $builder
+            ->add('creditCardType', 'choice', ['choices' => $this->getCreditCardTypes()])
             ->add('creditCardHolder', 'text')
             ->add('creditCardPan', 'text', ['constraints' => [new Luhn(), new CardScheme(['schemes' => ['AMEX', 'VISA', 'MASTERCARD']])]])
             ->add('creditCardCvc2', 'text')
-            ->add('creditCardExpirationMonth', 'choice', [
-                'choices' => [
-                    1 => '01',
-                    2 => '02',
-                    3 => '03',
-                    4 => '04',
-                    5 => '05',
-                    6 => '06',
-                    7 => '07',
-                    8 => '08',
-                    9 => '09',
-                    10 => '10',
-                    11 => '11',
-                    12 => '12'
-                ]
-            ])
+            ->add('creditCardExpirationMonth', 'choice', ['choices' => $this->getCreditCardExpirationMonthChoices()])
+            ->add('creditCardExpirationYear', 'choice', ['choices' => $this->getCreditCardExpirationYearChoices()])
             ->add('creditCardPseudoCardPan', 'hidden');
+    }
 
+    /**
+     * @return array
+     */
+    protected function getCreditCardTypes()
+    {
+        $types = [];
+        $types['V'] = 'VISA';
+        $types['M'] = 'Mastercard';
+        $types['A'] = 'American Express';
+        return $types;
+    }
+
+    /**
+     * @return array
+     */
+    protected function getCreditCardExpirationYearChoices()
+    {
         $currentYear = (int)date('Y');
         $range = range($currentYear, $currentYear + 10);
-        $builder->add('creditCardExpirationYear', 'choice', ['choices' => array_combine($range, $range)]);
+        return array_combine($range, $range);
+    }
+
+    /**
+     * @return array
+     */
+    protected function getCreditCardExpirationMonthChoices()
+    {
+        $month = [
+            1 => '01',
+            2 => '02',
+            3 => '03',
+            4 => '04',
+            5 => '05',
+            6 => '06',
+            7 => '07',
+            8 => '08',
+            9 => '09',
+            10 => '10',
+            11 => '11',
+            12 => '12'
+        ];
+        return $month;
     }
 
     /**
