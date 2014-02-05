@@ -1016,7 +1016,7 @@
             "source": {
                 "type": "git",
                 "url": "git@codebasehq.com:project-a/core/catalog.git",
-                "reference": "889c9f39ae9f973f5ecf4c7271ab46a22184ef47"
+                "reference": "6110bcd6da5a1ca3cf9714695c4726b6c4adde22"
             },
             "require": {
                 "php": ">=5.4.0",
@@ -1053,7 +1053,7 @@
                 "Price",
                 "Stock"
             ],
-            "time": "2014-01-29 12:06:15"
+            "time": "2014-02-05 15:24:37"
         },
         {
             "name": "project-a/checkout-package",
@@ -1150,7 +1150,7 @@
             "source": {
                 "type": "git",
                 "url": "git@codebasehq.com:project-a/core/content.git",
-                "reference": "a8b9d0abd9fc4fd9246b3957942abf1294e25ff3"
+                "reference": "f1d8a40b7a577ee95489f5fd97c1dddb56fbad65"
             },
             "require": {
                 "php": ">=5.4.0",
@@ -1177,7 +1177,7 @@
             "keywords": [
                 "Content Package"
             ],
-            "time": "2014-02-05 09:44:19"
+            "time": "2014-02-05 14:17:34"
         },
         {
             "name": "project-a/crm-package",
@@ -1618,7 +1618,7 @@
             "source": {
                 "type": "git",
                 "url": "git@codebasehq.com:project-a/core/sales.git",
-                "reference": "83ee90c035ce5785051949609afa90b112ca0273"
+                "reference": "d025aae011757283c2eb48d22052e47d91b80fa2"
             },
             "require": {
                 "php": ">=5.4.0",
@@ -1651,7 +1651,7 @@
                 "Sales",
                 "Task"
             ],
-            "time": "2014-01-30 09:12:14"
+            "time": "2014-02-05 15:25:05"
         },
         {
             "name": "project-a/silex-routing",
