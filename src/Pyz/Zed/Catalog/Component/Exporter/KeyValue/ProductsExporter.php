@@ -94,6 +94,7 @@ abstract class ProductsExporter extends CoreProductsExporter implements
 
             $allData += $data;
 
+
             if ($counter % $chunkSize == 0) {
                 $exportModel->write($allData);
                 $allData = array();
