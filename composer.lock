@@ -295,7 +295,7 @@
                     "email": "kontakt@beberlei.de"
                 },
                 {
-                    "name": "Johannes M. Schmitt",
+                    "name": "Johannes Schmitt",
                     "email": "schmittjoh@gmail.com",
                     "homepage": "http://jmsyst.com",
                     "role": "Developer of wrapped JMSSerializerBundle"
@@ -799,13 +799,13 @@
             "version": "v2.2.0",
             "source": {
                 "type": "git",
-                "url": "https://github.com/nervetattoo/elasticsearch.git",
-                "reference": "ed9244b341e0139a4278ac9bdf3cb63d57539dfb"
+                "url": "https://github.com/nervetattoo/elasticsearch",
+                "reference": "v2.2.0"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/nervetattoo/elasticsearch/zipball/ed9244b341e0139a4278ac9bdf3cb63d57539dfb",
-                "reference": "ed9244b341e0139a4278ac9bdf3cb63d57539dfb",
+                "url": "https://github.com/nervetattoo/elasticsearch/archive/v2.2.0.zip",
+                "reference": "v2.2.0",
                 "shasum": ""
             },
             "require": {
@@ -1150,7 +1150,7 @@
             "source": {
                 "type": "git",
                 "url": "git@codebasehq.com:project-a/core/content.git",
-                "reference": "798a4451d89336d8854f641f9ff7e7799d3100d0"
+                "reference": "f1d8a40b7a577ee95489f5fd97c1dddb56fbad65"
             },
             "require": {
                 "php": ">=5.4.0",
@@ -1177,7 +1177,7 @@
             "keywords": [
                 "Content Package"
             ],
-            "time": "2014-02-04 10:55:50"
+            "time": "2014-02-05 14:17:34"
         },
         {
             "name": "project-a/crm-package",
@@ -1364,7 +1364,7 @@
             "source": {
                 "type": "git",
                 "url": "git@codebasehq.com:project-a/core/infrastructure.git",
-                "reference": "65ac2ffb9dbb16a6b5c2fc25c5f6d7ba2e955d51"
+                "reference": "dcf229a092313d635bdec31d96ec4ba51431ab4f"
             },
             "require": {
                 "php": ">=5.4.0",
@@ -1393,7 +1393,7 @@
             "keywords": [
                 "infrastructure"
             ],
-            "time": "2014-02-04 10:56:42"
+            "time": "2014-02-04 11:56:56"
         },
         {
             "name": "project-a/kendo-package",
@@ -1420,7 +1420,7 @@
             "source": {
                 "type": "git",
                 "url": "git@codebasehq.com:project-a/core/library-2.git",
-                "reference": "3442f25099d8601e8ae10bc5b86c0ae3e88db4c2"
+                "reference": "1f8568c71bb0efd25e549f5ed25e0b4d6b48080d"
             },
             "require": {
                 "digital-canvas/zend-framework": ">=1.12.2",
@@ -1457,7 +1457,7 @@
                 }
             ],
             "description": "Project-A Library",
-            "time": "2014-02-04 10:54:13"
+            "time": "2014-02-04 11:52:14"
         },
         {
             "name": "project-a/lumberjack-package",
@@ -1712,7 +1712,7 @@
             "source": {
                 "type": "git",
                 "url": "git@codebasehq.com:project-a/core/stripe.git",
-                "reference": "c27e2a66e3ebfdb4fe9eb5d3faa314144d89795f"
+                "reference": "69e4aef32ee29d2bba66884e1aefcb4c500e6192"
             },
             "require": {
                 "php": ">=5.4.0",
@@ -1737,7 +1737,7 @@
             "keywords": [
                 "stripe payment provider"
             ],
-            "time": "2014-01-30 11:00:50"
+            "time": "2014-02-04 11:56:03"
         },
         {
             "name": "propel/propel1",
@@ -1948,12 +1948,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/silexphp/Silex.git",
-                "reference": "bedb9895fdb0a778da5170c65a4c201842bf2252"
+                "reference": "3c5e0bbe4cb1c0dbee9181437f16ed13bea8bb1a"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/silexphp/Silex/zipball/bedb9895fdb0a778da5170c65a4c201842bf2252",
-                "reference": "bedb9895fdb0a778da5170c65a4c201842bf2252",
+                "url": "https://api.github.com/repos/silexphp/Silex/zipball/3c5e0bbe4cb1c0dbee9181437f16ed13bea8bb1a",
+                "reference": "3c5e0bbe4cb1c0dbee9181437f16ed13bea8bb1a",
                 "shasum": ""
             },
             "require": {
@@ -2024,7 +2024,7 @@
             "keywords": [
                 "microframework"
             ],
-            "time": "2014-01-30 06:06:37"
+            "time": "2014-02-05 06:19:22"
         },
         {
             "name": "solarium/solarium",
@@ -2391,12 +2391,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/zendframework/zf2.git",
-                "reference": "95e1d9082592c4eb59adc1158267ec7c7385a389"
+                "reference": "18e2f00ec739fa22da2991ba8fd25f4438cdd5a1"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/zendframework/zf2/zipball/95e1d9082592c4eb59adc1158267ec7c7385a389",
-                "reference": "95e1d9082592c4eb59adc1158267ec7c7385a389",
+                "url": "https://api.github.com/repos/zendframework/zf2/zipball/18e2f00ec739fa22da2991ba8fd25f4438cdd5a1",
+                "reference": "18e2f00ec739fa22da2991ba8fd25f4438cdd5a1",
                 "shasum": ""
             },
             "require": {
@@ -2501,7 +2501,7 @@
                 "framework",
                 "zf2"
             ],
-            "time": "2014-02-03 22:01:34"
+            "time": "2014-02-04 22:49:46"
         },
         {
             "name": "zendframework/zendpdf",
@@ -2549,16 +2549,16 @@
     "packages-dev": [
         {
             "name": "alexandresalome/php-selenium",
-            "version": "1.0.1",
+            "version": "v1.0.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/alexandresalome/PHP-Selenium.git",
-                "reference": "aad2d9eda742e6f8b89ebb9af9b333a68ff848ce"
+                "reference": "a9997e74d8016a5cdb995ca8d06263d1843e3cc0"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/alexandresalome/PHP-Selenium/zipball/aad2d9eda742e6f8b89ebb9af9b333a68ff848ce",
-                "reference": "aad2d9eda742e6f8b89ebb9af9b333a68ff848ce",
+                "url": "https://api.github.com/repos/alexandresalome/PHP-Selenium/zipball/a9997e74d8016a5cdb995ca8d06263d1843e3cc0",
+                "reference": "a9997e74d8016a5cdb995ca8d06263d1843e3cc0",
                 "shasum": ""
             },
             "require-dev": {
@@ -2585,7 +2585,7 @@
             "keywords": [
                 "selenium"
             ],
-            "time": "2012-07-10 11:39:20"
+            "time": "2014-02-05 08:32:37"
         },
         {
             "name": "behat/behat",
@@ -2716,17 +2716,17 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/Behat/Mink.git",
-                "reference": "0769e6d9726c140a54dbf827a438c0f9912749fe"
+                "reference": "v1.5.0"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Behat/Mink/zipball/0769e6d9726c140a54dbf827a438c0f9912749fe",
-                "reference": "0769e6d9726c140a54dbf827a438c0f9912749fe",
+                "url": "https://api.github.com/repos/Behat/Mink/zipball/v1.5.0",
+                "reference": "v1.5.0",
                 "shasum": ""
             },
             "require": {
                 "php": ">=5.3.1",
-                "symfony/css-selector": "~2.0"
+                "symfony/css-selector": ">=2.0,<3.0"
             },
             "suggest": {
                 "behat/mink-browserkit-driver": "extremely fast headless driver for Symfony\\Kernel-based apps (Sf2, Silex)",
@@ -2931,19 +2931,19 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/Behat/MinkSeleniumDriver.git",
-                "reference": "a782b031cb8a94b449b9ccecdcd0e79206bbc882"
+                "reference": "v1.1.0"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Behat/MinkSeleniumDriver/zipball/a782b031cb8a94b449b9ccecdcd0e79206bbc882",
-                "reference": "a782b031cb8a94b449b9ccecdcd0e79206bbc882",
+                "url": "https://api.github.com/repos/Behat/MinkSeleniumDriver/zipball/v1.1.0",
+                "reference": "v1.1.0",
                 "shasum": ""
             },
             "require": {
-                "alexandresalome/php-selenium": "~1.0.1",
-                "behat/mink": "~1.5.0",
+                "alexandresalome/php-selenium": ">=1.0.1,<1.1",
+                "behat/mink": ">=1.5,<1.6",
                 "php": ">=5.3.1",
-                "symfony/dom-crawler": "~2.0"
+                "symfony/dom-crawler": ">=2.0,<3.0"
             },
             "type": "mink-driver",
             "extra": {
@@ -2984,17 +2984,17 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/Behat/MinkSelenium2Driver.git",
-                "reference": "bcf1b537de37db6db0822d9e7bd97e600fd7a476"
+                "reference": "v1.1.1"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Behat/MinkSelenium2Driver/zipball/bcf1b537de37db6db0822d9e7bd97e600fd7a476",
-                "reference": "bcf1b537de37db6db0822d9e7bd97e600fd7a476",
+                "url": "https://api.github.com/repos/Behat/MinkSelenium2Driver/zipball/v1.1.1",
+                "reference": "v1.1.1",
                 "shasum": ""
             },
             "require": {
-                "behat/mink": "~1.5.0",
-                "instaclick/php-webdriver": "~1.0.12",
+                "behat/mink": ">=1.5,<1.6",
+                "instaclick/php-webdriver": ">=1.0.12.0,<1.1",
                 "php": ">=5.3.1"
             },
             "type": "mink-driver",
