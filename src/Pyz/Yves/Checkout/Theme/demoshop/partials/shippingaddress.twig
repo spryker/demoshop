@@ -26,9 +26,7 @@
             {{ form_row(form.shippingAddress.address3, {attr : {class : 'fullWidth', 'data-src': 'street_address3'}, label : 'checkout.address.shipping.address3'}) }}
         </div>
     </div>
-    <div class="row large-12">
-        {{ form_row(form.shippingAddress.address3, {attr : {class : 'fullWidth', placeholder : 'checkout.address.shipping.comment.placeholder', 'data-validation-pattern-message' : 'checkout.address.shipping.validation.notallowed'|trans}, pattern : '^(?!packstation|pack station|Packstation|PackStation|Pack Station|Pack station|PACKSTATION)', label : 'checkout.address.shipping.comment'}) }}
-    </div>
+
     <div class="separate">
         <div class="row columns small-4 large-4">
             {{ form_row(form.shippingAddress.zipcode, {attr : {class : 'fullWidth'}, label : 'checkout.address.shipping.zipcode'}) }}

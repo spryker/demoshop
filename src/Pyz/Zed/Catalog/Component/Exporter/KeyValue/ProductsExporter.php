@@ -79,7 +79,9 @@ abstract class ProductsExporter extends CoreProductsExporter implements
         $allData = array();
         $counter = 0;
         $chunkSize = 2000;
+
         foreach ($collection as $product) {
+
             $data = array();
             $pairProductData = $this->mergeImagesToArray($product);
             $pairProductData = $this->transformProductToData($pairProductData);
@@ -93,7 +95,6 @@ abstract class ProductsExporter extends CoreProductsExporter implements
             $data[$productSkuKey] = $product['id_catalog_product'];
 
             $allData += $data;
-
 
             if ($counter % $chunkSize == 0) {
                 $exportModel->write($allData);
