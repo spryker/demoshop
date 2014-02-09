@@ -2,7 +2,7 @@
     "require": {
         "project-a/acl-package": "3.0.0",
         "project-a/cart-package": "3.0.0",
-        "project-a/catalog-package": "3.0.0",
+        "project-a/catalog-package": "dev-feature/cms as 3.0.1",
         "project-a/checkout-package": "dev-feature/checkout-refactor-payment-control as 3.1.0",
         "project-a/content-package": "dev-master as 2.0.0",
         "project-a/console-package": "3.0.0",

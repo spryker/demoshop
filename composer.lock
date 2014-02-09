@@ -3,7 +3,7 @@
         "This file locks the dependencies of your project to a known state",
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file"
     ],
-    "hash": "ecbbbe545f6135b42f489394477b3880",
+    "hash": "0d89f15c233833500d390ef48d66306a",
     "packages": [
         {
             "name": "cmutter/google-adwords-api",
@@ -1012,11 +1012,11 @@
         },
         {
             "name": "project-a/catalog-package",
-            "version": "3.0.0",
+            "version": "dev-feature/cms",
             "source": {
                 "type": "git",
                 "url": "git@codebasehq.com:project-a/core/catalog.git",
-                "reference": "21f3790f3d9637c549f121b7102500c93f93a38e"
+                "reference": "b9a9e10e07ea18421bd28de1815b1cfa86913b73"
             },
             "require": {
                 "php": ">=5.4.0",
@@ -1053,7 +1053,7 @@
                 "Price",
                 "Stock"
             ],
-            "time": "2014-01-29 12:06:15"
+            "time": "2014-02-07 14:34:43"
         },
         {
             "name": "project-a/checkout-package",
@@ -1150,7 +1150,7 @@
             "source": {
                 "type": "git",
                 "url": "git@codebasehq.com:project-a/core/content.git",
-                "reference": "77a573b78d418ddb8e89ddb4e868e9c0395f7045"
+                "reference": "524c1fa74615d4ec8fb99ed163a66ac31fcb25bb"
             },
             "require": {
                 "php": ">=5.4.0",
@@ -1177,7 +1177,7 @@
             "keywords": [
                 "Content Package"
             ],
-            "time": "2014-02-05 17:19:52"
+            "time": "2014-02-07 14:31:26"
         },
         {
             "name": "project-a/crm-package",
@@ -1364,7 +1364,7 @@
             "source": {
                 "type": "git",
                 "url": "git@codebasehq.com:project-a/core/infrastructure.git",
-                "reference": "dcf229a092313d635bdec31d96ec4ba51431ab4f"
+                "reference": "418795aa921e273b239564af45b7b42722964873"
             },
             "require": {
                 "php": ">=5.4.0",
@@ -1393,7 +1393,7 @@
             "keywords": [
                 "infrastructure"
             ],
-            "time": "2014-02-04 11:56:56"
+            "time": "2014-02-07 14:32:29"
         },
         {
             "name": "project-a/kendo-package",
@@ -1420,7 +1420,7 @@
             "source": {
                 "type": "git",
                 "url": "git@codebasehq.com:project-a/core/library-2.git",
-                "reference": "1f8568c71bb0efd25e549f5ed25e0b4d6b48080d"
+                "reference": "436075c560971662005ea923b45dd1682c3c3af1"
             },
             "require": {
                 "digital-canvas/zend-framework": ">=1.12.2",
@@ -1457,7 +1457,7 @@
                 }
             ],
             "description": "Project-A Library",
-            "time": "2014-02-04 11:52:14"
+            "time": "2014-02-07 14:37:57"
         },
         {
             "name": "project-a/lumberjack-package",
@@ -3709,6 +3709,12 @@
     ],
     "aliases": [
         {
+            "alias": "3.0.1",
+            "alias_normalized": "3.0.1.0",
+            "version": "dev-feature/cms",
+            "package": "project-a/catalog-package"
+        },
+        {
             "alias": "3.1.0",
             "alias_normalized": "3.1.0.0",
             "version": "dev-feature/checkout-refactor-payment-control",
@@ -3771,6 +3777,7 @@
     ],
     "minimum-stability": "stable",
     "stability-flags": {
+        "project-a/catalog-package": 20,
         "project-a/checkout-package": 20,
         "project-a/content-package": 20,
         "project-a/dwh-package": 20,
