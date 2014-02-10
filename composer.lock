@@ -3,7 +3,7 @@
         "This file locks the dependencies of your project to a known state",
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file"
     ],
-    "hash": "467ca08656e7ea746bb406c961681cf3",
+    "hash": "ffbcc3b01c7638f2d8b2a343b1fff918",
     "packages": [
         {
             "name": "cmutter/google-adwords-api",
@@ -1016,7 +1016,7 @@
             "source": {
                 "type": "git",
                 "url": "git@codebasehq.com:project-a/core/catalog.git",
-                "reference": "6110bcd6da5a1ca3cf9714695c4726b6c4adde22"
+                "reference": "9f2a7858129c11e6e1b927e02837b0d5d279c716"
             },
             "require": {
                 "php": ">=5.4.0",
@@ -1053,15 +1053,15 @@
                 "Price",
                 "Stock"
             ],
-            "time": "2014-02-05 15:24:37"
+            "time": "2014-02-10 09:08:48"
         },
         {
             "name": "project-a/checkout-package",
-            "version": "dev-feature/checkout-refactor-payment-control",
+            "version": "3.1.0",
             "source": {
                 "type": "git",
                 "url": "git@codebasehq.com:project-a/core/checkout.git",
-                "reference": "b4e2c74bff457b2112561a296935a55bf57f025b"
+                "reference": "53569803708160e02ec152e97a4c16be4623d002"
             },
             "require": {
                 "gavroche/browser": "~2.1.0",
@@ -1095,7 +1095,7 @@
                 "Checkout",
                 "Salesrule"
             ],
-            "time": "2014-01-30 11:00:28"
+            "time": "2014-02-10 09:44:31"
         },
         {
             "name": "project-a/console-package",
@@ -1150,7 +1150,7 @@
             "source": {
                 "type": "git",
                 "url": "git@codebasehq.com:project-a/core/content.git",
-                "reference": "f1d8a40b7a577ee95489f5fd97c1dddb56fbad65"
+                "reference": "9c0ce6466fcab6245ce74ad0ed2829b37758ed8e"
             },
             "require": {
                 "php": ">=5.4.0",
@@ -1177,7 +1177,7 @@
             "keywords": [
                 "Content Package"
             ],
-            "time": "2014-02-05 14:17:34"
+            "time": "2014-02-09 11:02:08"
         },
         {
             "name": "project-a/crm-package",
@@ -1364,7 +1364,7 @@
             "source": {
                 "type": "git",
                 "url": "git@codebasehq.com:project-a/core/infrastructure.git",
-                "reference": "dcf229a092313d635bdec31d96ec4ba51431ab4f"
+                "reference": "418795aa921e273b239564af45b7b42722964873"
             },
             "require": {
                 "php": ">=5.4.0",
@@ -1393,7 +1393,7 @@
             "keywords": [
                 "infrastructure"
             ],
-            "time": "2014-02-04 11:56:56"
+            "time": "2014-02-07 14:32:29"
         },
         {
             "name": "project-a/kendo-package",
@@ -1420,7 +1420,7 @@
             "source": {
                 "type": "git",
                 "url": "git@codebasehq.com:project-a/core/library-2.git",
-                "reference": "1f8568c71bb0efd25e549f5ed25e0b4d6b48080d"
+                "reference": "22d7c62b56a8228b634111714742d4f608ea01aa"
             },
             "require": {
                 "digital-canvas/zend-framework": ">=1.12.2",
@@ -1457,7 +1457,7 @@
                 }
             ],
             "description": "Project-A Library",
-            "time": "2014-02-04 11:52:14"
+            "time": "2014-02-09 11:03:14"
         },
         {
             "name": "project-a/lumberjack-package",
@@ -1546,11 +1546,11 @@
         },
         {
             "name": "project-a/payment-package",
-            "version": "dev-feature/payment-refactor-accounting",
+            "version": "3.1.0",
             "source": {
                 "type": "git",
                 "url": "git@codebasehq.com:project-a/core/payment.git",
-                "reference": "369ef160018fdf268b412abaa1b205b8a82343fc"
+                "reference": "7386b6485ee1c83d4c07ce073bfa879695e0e5ff"
             },
             "require": {
                 "php": ">=5.4.0"
@@ -1575,21 +1575,21 @@
                 "payment control",
                 "payment provider"
             ],
-            "time": "2014-01-31 11:25:11"
+            "time": "2014-02-10 09:54:06"
         },
         {
             "name": "project-a/payone-package",
-            "version": "dev-master",
+            "version": "1.0.0",
             "source": {
                 "type": "git",
                 "url": "git@codebasehq.com:project-a/core/payone.git",
-                "reference": "cb8dc83fcbf54e3d66ec36e2fa033bb34cd2f95f"
+                "reference": "188c9c9c947509234c46c198fa5a8643cab83bf4"
             },
             "require": {
                 "php": ">=5.4.0",
                 "project-a/acl-package": "~3.0",
                 "project-a/library-package": "~3.0",
-                "project-a/payment-package": "~3.0",
+                "project-a/payment-package": "~3.1.0",
                 "project-a/sales-package": "~3.0"
             },
             "type": "library",
@@ -1610,7 +1610,7 @@
             "keywords": [
                 "payment,payment provider,payone"
             ],
-            "time": "2014-02-03 08:42:04"
+            "time": "2014-02-10 09:28:59"
         },
         {
             "name": "project-a/sales-package",
@@ -1708,11 +1708,11 @@
         },
         {
             "name": "project-a/stripe-package",
-            "version": "dev-feature/stripe-to-301",
+            "version": "3.1.0",
             "source": {
                 "type": "git",
                 "url": "git@codebasehq.com:project-a/core/stripe.git",
-                "reference": "69e4aef32ee29d2bba66884e1aefcb4c500e6192"
+                "reference": "f202fe53089dfe6eab50843a50b49c479d6ad432"
             },
             "require": {
                 "php": ">=5.4.0",
@@ -1737,7 +1737,7 @@
             "keywords": [
                 "stripe payment provider"
             ],
-            "time": "2014-02-04 11:56:03"
+            "time": "2014-02-10 09:58:23"
         },
         {
             "name": "propel/propel1",
@@ -2391,12 +2391,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/zendframework/zf2.git",
-                "reference": "18e2f00ec739fa22da2991ba8fd25f4438cdd5a1"
+                "reference": "2bfa30be6d795211aca80a7d7277fe377f9e3b6c"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/zendframework/zf2/zipball/18e2f00ec739fa22da2991ba8fd25f4438cdd5a1",
-                "reference": "18e2f00ec739fa22da2991ba8fd25f4438cdd5a1",
+                "url": "https://api.github.com/repos/zendframework/zf2/zipball/2bfa30be6d795211aca80a7d7277fe377f9e3b6c",
+                "reference": "2bfa30be6d795211aca80a7d7277fe377f9e3b6c",
                 "shasum": ""
             },
             "require": {
@@ -2501,7 +2501,7 @@
                 "framework",
                 "zf2"
             ],
-            "time": "2014-02-04 22:49:46"
+            "time": "2014-02-07 17:48:22"
         },
         {
             "name": "zendframework/zendpdf",
@@ -3497,16 +3497,16 @@
         },
         {
             "name": "phpunit/phpunit",
-            "version": "3.7.30",
+            "version": "3.7.31",
             "source": {
                 "type": "git",
                 "url": "https://github.com/sebastianbergmann/phpunit.git",
-                "reference": "2f33258fa5a0c330515b7deba2bc040fa5c3953b"
+                "reference": "d24e9877331039582497052cc3c4d9f465b88210"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sebastianbergmann/phpunit/zipball/2f33258fa5a0c330515b7deba2bc040fa5c3953b",
-                "reference": "2f33258fa5a0c330515b7deba2bc040fa5c3953b",
+                "url": "https://api.github.com/repos/sebastianbergmann/phpunit/zipball/d24e9877331039582497052cc3c4d9f465b88210",
+                "reference": "d24e9877331039582497052cc3c4d9f465b88210",
                 "shasum": ""
             },
             "require": {
@@ -3567,7 +3567,7 @@
                 "testing",
                 "xunit"
             ],
-            "time": "2014-01-31 08:54:33"
+            "time": "2014-02-03 07:46:27"
         },
         {
             "name": "phpunit/phpunit-mock-objects",
@@ -3715,12 +3715,6 @@
             "package": "project-a/catalog-package"
         },
         {
-            "alias": "3.1.0",
-            "alias_normalized": "3.1.0.0",
-            "version": "dev-feature/checkout-refactor-payment-control",
-            "package": "project-a/checkout-package"
-        },
-        {
             "alias": "2.0.0",
             "alias_normalized": "2.0.0.0",
             "version": "9999999-dev",
@@ -3747,26 +3741,8 @@
         {
             "alias": "3.1.0",
             "alias_normalized": "3.1.0.0",
-            "version": "dev-feature/payment-refactor-accounting",
-            "package": "project-a/payment-package"
-        },
-        {
-            "alias": "1.0.0",
-            "alias_normalized": "1.0.0.0",
-            "version": "9999999-dev",
-            "package": "project-a/payone-package"
-        },
-        {
-            "alias": "3.1.0",
-            "alias_normalized": "3.1.0.0",
             "version": "dev-feature/354-basic-bundles-sales-pgk",
             "package": "project-a/sales-package"
-        },
-        {
-            "alias": "3.0.1",
-            "alias_normalized": "3.0.1.0",
-            "version": "dev-feature/stripe-to-301",
-            "package": "project-a/stripe-package"
         },
         {
             "alias": "1.2",
@@ -3778,15 +3754,11 @@
     "minimum-stability": "stable",
     "stability-flags": {
         "project-a/catalog-package": 20,
-        "project-a/checkout-package": 20,
         "project-a/content-package": 20,
         "project-a/dwh-package": 20,
         "project-a/infrastructure-package": 20,
         "project-a/library-package": 20,
-        "project-a/payment-package": 20,
-        "project-a/payone-package": 20,
         "project-a/sales-package": 20,
-        "project-a/stripe-package": 20,
         "silex/silex": 20,
         "zendframework/zendframework": 20,
         "fabpot/php-cs-fixer": 20
