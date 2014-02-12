@@ -77,7 +77,6 @@ $config['db_dump'] = array(
 $config['storage'] = [
     'kv' => [
         //define the current used source and provide a setup
-        'source' => 'memcached',
         'memcached' => [
             'host'   => 'localhost',
             'port'   => '11211',
