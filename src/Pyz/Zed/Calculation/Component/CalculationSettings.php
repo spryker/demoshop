@@ -12,12 +12,8 @@ use ProjectA\Zed\Library\Dependency\DependencyFactoryInterface;
 /**
  * @property CalculationFactory $factory
  */
-class CalculationSettings extends ProjectACalculationSettings implements
-    DependencyFactoryInterface,
-    SalesruleFacadeInterface
+class CalculationSettings extends ProjectACalculationSettings
 {
-
-    use SalesruleFacadeTrait;
 
     /**
      * @return CalculatorInterface[]|TotalsCalculatorInterface[]

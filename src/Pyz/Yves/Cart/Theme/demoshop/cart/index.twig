@@ -76,7 +76,7 @@
                 {% for code in couponCodes %}
                     <tr class="voucher">
                         <td class="label">{{ 'cart.voucher.code' }}: {{ code }}</td>
-                        <td>-{{ totals.discount|price }}</td>
+                        <td>-{{ totals.discount.totalAmount|price }}</td>
                     </tr>
                 {% else %}
                     <tr class="voucher">
