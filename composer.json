@@ -1,8 +1,8 @@
 {
     "require": {
         "project-a/acl-package": "3.0.0",
-        "project-a/cart-package": "feature/354-basic-bundles-cart-pgk as 3.0.0",
-        "project-a/catalog-package": "dev-feature/354-basic-bundles-catalog-pgk as 3.0.0",
+        "project-a/cart-package": "feature/354-basic-bundles-cart-pgk as 3.0.2",
+        "project-a/catalog-package": "dev-feature/354-basic-bundles-catalog-pgk as 3.0.1",
         "project-a/checkout-package": "3.1.0",
         "project-a/content-package": "dev-master as 2.0.0",
         "project-a/console-package": "3.0.0",
@@ -18,7 +18,7 @@
         "project-a/marketing-package": "3.0.0",
         "project-a/payment-package": "3.1.0",
         "project-a/payone-package": "1.0.0",
-        "project-a/sales-package": "dev-feature/354-basic-bundles-sales-pgk as 3.1.0",
+        "project-a/sales-package": "dev-feature/354-basic-bundles-sales-pgk as 3.1.1",
         "project-a/stripe-package": "3.1.0",
         "phing/phing": "~2.6.0",
         "propel/propel1": "1.7.0",
