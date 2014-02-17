@@ -3,7 +3,7 @@
         "This file locks the dependencies of your project to a known state",
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file"
     ],
-    "hash": "ffbcc3b01c7638f2d8b2a343b1fff918",
+    "hash": "5dd53d6ee0c09b202dcb1cb851cc345a",
     "packages": [
         {
             "name": "cmutter/google-adwords-api",
@@ -506,12 +506,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/fabpot/PHP-CS-Fixer.git",
-                "reference": "3cef8c3d87c002de40a59f0708e9be50ec7219ab"
+                "reference": "750368df950dc7947be50793334cdac8324dc22a"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/fabpot/PHP-CS-Fixer/zipball/3cef8c3d87c002de40a59f0708e9be50ec7219ab",
-                "reference": "3cef8c3d87c002de40a59f0708e9be50ec7219ab",
+                "url": "https://api.github.com/repos/fabpot/PHP-CS-Fixer/zipball/750368df950dc7947be50793334cdac8324dc22a",
+                "reference": "750368df950dc7947be50793334cdac8324dc22a",
                 "shasum": ""
             },
             "require": {
@@ -542,11 +542,13 @@
             "authors": [
                 {
                     "name": "Fabien Potencier",
-                    "email": "fabien@symfony.com"
+                    "email": "fabien@symfony.com",
+                    "homepage": "http://fabien.potencier.org",
+                    "role": "Lead Developer"
                 }
             ],
             "description": "A script to automatically fix Symfony Coding Standard",
-            "time": "2014-01-18 17:53:09"
+            "time": "2014-02-10 16:36:30"
         },
         {
             "name": "gavroche/browser",
@@ -976,11 +978,11 @@
         },
         {
             "name": "project-a/cart-package",
-            "version": "3.0.0",
+            "version": "dev-feature/354-basic-bundles-cart-pgk",
             "source": {
                 "type": "git",
                 "url": "git@codebasehq.com:project-a/core/cart.git",
-                "reference": "a0d9d2caaf5b559b993390d86baab99f5a7d104c"
+                "reference": "0944e0ea78415c65137fa59879cce39b3051243b"
             },
             "require": {
                 "php": ">=5.4.0",
@@ -1008,7 +1010,7 @@
             "keywords": [
                 "Cart"
             ],
-            "time": "2014-01-29 12:06:15"
+            "time": "2014-02-17 13:20:39"
         },
         {
             "name": "project-a/catalog-package",
@@ -1016,7 +1018,7 @@
             "source": {
                 "type": "git",
                 "url": "git@codebasehq.com:project-a/core/catalog.git",
-                "reference": "9f2a7858129c11e6e1b927e02837b0d5d279c716"
+                "reference": "80c79db5f0ff2f78e1c8e7e7372d6f13962f25e7"
             },
             "require": {
                 "php": ">=5.4.0",
@@ -1053,7 +1055,7 @@
                 "Price",
                 "Stock"
             ],
-            "time": "2014-02-10 09:08:48"
+            "time": "2014-02-17 12:58:41"
         },
         {
             "name": "project-a/checkout-package",
@@ -1150,7 +1152,7 @@
             "source": {
                 "type": "git",
                 "url": "git@codebasehq.com:project-a/core/content.git",
-                "reference": "9c0ce6466fcab6245ce74ad0ed2829b37758ed8e"
+                "reference": "f2a7827ea1d16af154e609ecb8aa33565cf1f9bd"
             },
             "require": {
                 "php": ">=5.4.0",
@@ -1177,7 +1179,7 @@
             "keywords": [
                 "Content Package"
             ],
-            "time": "2014-02-09 11:02:08"
+            "time": "2014-02-13 09:37:09"
         },
         {
             "name": "project-a/crm-package",
@@ -1364,7 +1366,7 @@
             "source": {
                 "type": "git",
                 "url": "git@codebasehq.com:project-a/core/infrastructure.git",
-                "reference": "418795aa921e273b239564af45b7b42722964873"
+                "reference": "be49365a885bc1bcb51f551ce8b4eaf3e1fb208d"
             },
             "require": {
                 "php": ">=5.4.0",
@@ -1393,7 +1395,7 @@
             "keywords": [
                 "infrastructure"
             ],
-            "time": "2014-02-07 14:32:29"
+            "time": "2014-02-14 13:45:11"
         },
         {
             "name": "project-a/kendo-package",
@@ -1420,7 +1422,7 @@
             "source": {
                 "type": "git",
                 "url": "git@codebasehq.com:project-a/core/library-2.git",
-                "reference": "22d7c62b56a8228b634111714742d4f608ea01aa"
+                "reference": "e4a023dbb273aa57e7610efe3d585052fa310a13"
             },
             "require": {
                 "digital-canvas/zend-framework": ">=1.12.2",
@@ -1457,7 +1459,7 @@
                 }
             ],
             "description": "Project-A Library",
-            "time": "2014-02-09 11:03:14"
+            "time": "2014-02-12 15:51:40"
         },
         {
             "name": "project-a/lumberjack-package",
@@ -1618,7 +1620,7 @@
             "source": {
                 "type": "git",
                 "url": "git@codebasehq.com:project-a/core/sales.git",
-                "reference": "d025aae011757283c2eb48d22052e47d91b80fa2"
+                "reference": "b2322b45f97ff9fba76d86ccabc34cd28525ce86"
             },
             "require": {
                 "php": ">=5.4.0",
@@ -1651,7 +1653,7 @@
                 "Sales",
                 "Task"
             ],
-            "time": "2014-02-05 15:25:05"
+            "time": "2014-02-17 12:57:30"
         },
         {
             "name": "project-a/silex-routing",
@@ -1948,12 +1950,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/silexphp/Silex.git",
-                "reference": "3c5e0bbe4cb1c0dbee9181437f16ed13bea8bb1a"
+                "reference": "b7df67ff364eabec89033b433bbe449ee72301d4"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/silexphp/Silex/zipball/3c5e0bbe4cb1c0dbee9181437f16ed13bea8bb1a",
-                "reference": "3c5e0bbe4cb1c0dbee9181437f16ed13bea8bb1a",
+                "url": "https://api.github.com/repos/silexphp/Silex/zipball/b7df67ff364eabec89033b433bbe449ee72301d4",
+                "reference": "b7df67ff364eabec89033b433bbe449ee72301d4",
                 "shasum": ""
             },
             "require": {
@@ -2011,7 +2013,9 @@
             "authors": [
                 {
                     "name": "Fabien Potencier",
-                    "email": "fabien@symfony.com"
+                    "email": "fabien@symfony.com",
+                    "homepage": "http://fabien.potencier.org",
+                    "role": "Lead Developer"
                 },
                 {
                     "name": "Igor Wiedler",
@@ -2024,7 +2028,7 @@
             "keywords": [
                 "microframework"
             ],
-            "time": "2014-02-05 06:19:22"
+            "time": "2014-02-11 09:00:06"
         },
         {
             "name": "solarium/solarium",
@@ -2225,16 +2229,16 @@
         },
         {
             "name": "symfony/symfony",
-            "version": "v2.4.1",
+            "version": "v2.4.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/symfony.git",
-                "reference": "377a5fb23bfdc2fb616610b7b7ab7cc9a50e614d"
+                "reference": "b70633f92ff71ef490af4c17e7ca3f3bf3d0f304"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/symfony/zipball/377a5fb23bfdc2fb616610b7b7ab7cc9a50e614d",
-                "reference": "377a5fb23bfdc2fb616610b7b7ab7cc9a50e614d",
+                "url": "https://api.github.com/repos/symfony/symfony/zipball/b70633f92ff71ef490af4c17e7ca3f3bf3d0f304",
+                "reference": "b70633f92ff71ef490af4c17e7ca3f3bf3d0f304",
                 "shasum": ""
             },
             "require": {
@@ -2322,7 +2326,9 @@
             "authors": [
                 {
                     "name": "Fabien Potencier",
-                    "email": "fabien@symfony.com"
+                    "email": "fabien@symfony.com",
+                    "homepage": "http://fabien.potencier.org",
+                    "role": "Lead Developer"
                 },
                 {
                     "name": "Symfony Community",
@@ -2334,20 +2340,20 @@
             "keywords": [
                 "framework"
             ],
-            "time": "2014-01-05 02:12:11"
+            "time": "2014-02-12 19:27:03"
         },
         {
             "name": "twig/twig",
-            "version": "v1.15.0",
+            "version": "v1.15.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/fabpot/Twig.git",
-                "reference": "85e4ff98000157ff753d934b9f13659a953f5666"
+                "reference": "1fb5784662f438d7d96a541e305e28b812e2eeed"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/fabpot/Twig/zipball/85e4ff98000157ff753d934b9f13659a953f5666",
-                "reference": "85e4ff98000157ff753d934b9f13659a953f5666",
+                "url": "https://api.github.com/repos/fabpot/Twig/zipball/1fb5784662f438d7d96a541e305e28b812e2eeed",
+                "reference": "1fb5784662f438d7d96a541e305e28b812e2eeed",
                 "shasum": ""
             },
             "require": {
@@ -2371,11 +2377,19 @@
             "authors": [
                 {
                     "name": "Fabien Potencier",
-                    "email": "fabien@symfony.com"
+                    "email": "fabien@symfony.com",
+                    "homepage": "http://fabien.potencier.org",
+                    "role": "Lead Developer"
                 },
                 {
                     "name": "Armin Ronacher",
-                    "email": "armin.ronacher@active-4.com"
+                    "email": "armin.ronacher@active-4.com",
+                    "role": "Project Founder"
+                },
+                {
+                    "name": "Twig Team",
+                    "homepage": "https://github.com/fabpot/Twig/graphs/contributors",
+                    "role": "Contributors"
                 }
             ],
             "description": "Twig, the flexible, fast, and secure template language for PHP",
@@ -2383,7 +2397,7 @@
             "keywords": [
                 "templating"
             ],
-            "time": "2013-12-06 07:47:10"
+            "time": "2014-02-13 10:19:29"
         },
         {
             "name": "zendframework/zendframework",
@@ -2391,12 +2405,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/zendframework/zf2.git",
-                "reference": "2bfa30be6d795211aca80a7d7277fe377f9e3b6c"
+                "reference": "ca84e46d2993569b4ef5979a43e58d94e3512df7"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/zendframework/zf2/zipball/2bfa30be6d795211aca80a7d7277fe377f9e3b6c",
-                "reference": "2bfa30be6d795211aca80a7d7277fe377f9e3b6c",
+                "url": "https://api.github.com/repos/zendframework/zf2/zipball/ca84e46d2993569b4ef5979a43e58d94e3512df7",
+                "reference": "ca84e46d2993569b4ef5979a43e58d94e3512df7",
                 "shasum": ""
             },
             "require": {
@@ -2501,7 +2515,7 @@
                 "framework",
                 "zf2"
             ],
-            "time": "2014-02-07 17:48:22"
+            "time": "2014-02-17 06:58:32"
         },
         {
             "name": "zendframework/zendpdf",
@@ -2589,16 +2603,16 @@
         },
         {
             "name": "behat/behat",
-            "version": "v2.5.1",
+            "version": "v2.5.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/Behat/Behat.git",
-                "reference": "b688e3c4bd65ef867d2ec0a0cf8e621c166e259b"
+                "reference": "a12154aae8a09248637fbca8ef3b2ef2ac71f2aa"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Behat/Behat/zipball/b688e3c4bd65ef867d2ec0a0cf8e621c166e259b",
-                "reference": "b688e3c4bd65ef867d2ec0a0cf8e621c166e259b",
+                "url": "https://api.github.com/repos/Behat/Behat/zipball/a12154aae8a09248637fbca8ef3b2ef2ac71f2aa",
+                "reference": "a12154aae8a09248637fbca8ef3b2ef2ac71f2aa",
                 "shasum": ""
             },
             "require": {
@@ -2647,7 +2661,7 @@
                 "Behat",
                 "Symfony2"
             ],
-            "time": "2013-11-24 10:17:18"
+            "time": "2014-02-12 17:03:46"
         },
         {
             "name": "behat/gherkin",
@@ -3709,8 +3723,14 @@
     ],
     "aliases": [
         {
-            "alias": "3.0.0",
-            "alias_normalized": "3.0.0.0",
+            "alias": "3.0.2",
+            "alias_normalized": "3.0.2.0",
+            "version": "dev-feature/354-basic-bundles-cart-pgk",
+            "package": "project-a/cart-package"
+        },
+        {
+            "alias": "3.0.1",
+            "alias_normalized": "3.0.1.0",
             "version": "dev-feature/354-basic-bundles-catalog-pgk",
             "package": "project-a/catalog-package"
         },
@@ -3739,8 +3759,8 @@
             "package": "project-a/library-package"
         },
         {
-            "alias": "3.1.0",
-            "alias_normalized": "3.1.0.0",
+            "alias": "3.1.1",
+            "alias_normalized": "3.1.1.0",
             "version": "dev-feature/354-basic-bundles-sales-pgk",
             "package": "project-a/sales-package"
         },
@@ -3753,6 +3773,7 @@
     ],
     "minimum-stability": "stable",
     "stability-flags": {
+        "project-a/cart-package": 20,
         "project-a/catalog-package": 20,
         "project-a/content-package": 20,
         "project-a/dwh-package": 20,
