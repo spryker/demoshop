@@ -6,7 +6,7 @@
         "project-a/checkout-package": "3.1.1",
         "project-a/content-package": "dev-master as 2.0.0",
         "project-a/console-package": "3.0.0",
-        "project-a/crm-package": "3.0.1",
+        "project-a/crm-package": "3.0.3",
         "project-a/dwh-package": "dev-master as 3.0.0",
         "project-a/document-package": "3.0.0",
         "project-a/frontend-package": "3.0.0",
