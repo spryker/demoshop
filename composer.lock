@@ -3,7 +3,7 @@
         "This file locks the dependencies of your project to a known state",
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file"
     ],
-    "hash": "5dd53d6ee0c09b202dcb1cb851cc345a",
+    "hash": "f25d5924c9ffabca7e4cf9206a9cc4fa",
     "packages": [
         {
             "name": "cmutter/google-adwords-api",
@@ -1018,7 +1018,7 @@
             "source": {
                 "type": "git",
                 "url": "git@codebasehq.com:project-a/core/catalog.git",
-                "reference": "80c79db5f0ff2f78e1c8e7e7372d6f13962f25e7"
+                "reference": "675b7fbc2e27663da149ead5bcf35573768e1b6f"
             },
             "require": {
                 "php": ">=5.4.0",
@@ -1055,15 +1055,15 @@
                 "Price",
                 "Stock"
             ],
-            "time": "2014-02-17 12:58:41"
+            "time": "2014-02-18 15:11:46"
         },
         {
             "name": "project-a/checkout-package",
-            "version": "3.1.0",
+            "version": "3.1.1",
             "source": {
                 "type": "git",
                 "url": "git@codebasehq.com:project-a/core/checkout.git",
-                "reference": "53569803708160e02ec152e97a4c16be4623d002"
+                "reference": "1c2e3f5dfcf3a99d156b732ac9b4c836adfe5a59"
             },
             "require": {
                 "gavroche/browser": "~2.1.0",
@@ -1097,7 +1097,7 @@
                 "Checkout",
                 "Salesrule"
             ],
-            "time": "2014-02-10 09:44:31"
+            "time": "2014-02-10 16:05:06"
         },
         {
             "name": "project-a/console-package",
@@ -1366,7 +1366,7 @@
             "source": {
                 "type": "git",
                 "url": "git@codebasehq.com:project-a/core/infrastructure.git",
-                "reference": "be49365a885bc1bcb51f551ce8b4eaf3e1fb208d"
+                "reference": "950fc8af7ae7a97b0a59632dc511a13aaebde55a"
             },
             "require": {
                 "php": ">=5.4.0",
@@ -1395,7 +1395,7 @@
             "keywords": [
                 "infrastructure"
             ],
-            "time": "2014-02-14 13:45:11"
+            "time": "2014-02-18 11:26:21"
         },
         {
             "name": "project-a/kendo-package",
@@ -1620,7 +1620,7 @@
             "source": {
                 "type": "git",
                 "url": "git@codebasehq.com:project-a/core/sales.git",
-                "reference": "b2322b45f97ff9fba76d86ccabc34cd28525ce86"
+                "reference": "27e6c4ab309b6b75551fc3e35455b3edd32c2286"
             },
             "require": {
                 "php": ">=5.4.0",
@@ -1653,7 +1653,7 @@
                 "Sales",
                 "Task"
             ],
-            "time": "2014-02-17 12:57:30"
+            "time": "2014-02-18 13:38:02"
         },
         {
             "name": "project-a/silex-routing",
@@ -2405,12 +2405,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/zendframework/zf2.git",
-                "reference": "ca84e46d2993569b4ef5979a43e58d94e3512df7"
+                "reference": "c1ccddaa34b3c582ef345cf99cc0afcb1639efaf"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/zendframework/zf2/zipball/ca84e46d2993569b4ef5979a43e58d94e3512df7",
-                "reference": "ca84e46d2993569b4ef5979a43e58d94e3512df7",
+                "url": "https://api.github.com/repos/zendframework/zf2/zipball/c1ccddaa34b3c582ef345cf99cc0afcb1639efaf",
+                "reference": "c1ccddaa34b3c582ef345cf99cc0afcb1639efaf",
                 "shasum": ""
             },
             "require": {
@@ -2515,7 +2515,7 @@
                 "framework",
                 "zf2"
             ],
-            "time": "2014-02-17 06:58:32"
+            "time": "2014-02-18 10:18:07"
         },
         {
             "name": "zendframework/zendpdf",
