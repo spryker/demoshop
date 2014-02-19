@@ -3,7 +3,7 @@
         "This file locks the dependencies of your project to a known state",
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file"
     ],
-    "hash": "0d89f15c233833500d390ef48d66306a",
+    "hash": "e9691d01e900e2b751f69604af8c20e3",
     "packages": [
         {
             "name": "cmutter/google-adwords-api",
@@ -506,12 +506,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/fabpot/PHP-CS-Fixer.git",
-                "reference": "3cef8c3d87c002de40a59f0708e9be50ec7219ab"
+                "reference": "750368df950dc7947be50793334cdac8324dc22a"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/fabpot/PHP-CS-Fixer/zipball/3cef8c3d87c002de40a59f0708e9be50ec7219ab",
-                "reference": "3cef8c3d87c002de40a59f0708e9be50ec7219ab",
+                "url": "https://api.github.com/repos/fabpot/PHP-CS-Fixer/zipball/750368df950dc7947be50793334cdac8324dc22a",
+                "reference": "750368df950dc7947be50793334cdac8324dc22a",
                 "shasum": ""
             },
             "require": {
@@ -542,11 +542,13 @@
             "authors": [
                 {
                     "name": "Fabien Potencier",
-                    "email": "fabien@symfony.com"
+                    "email": "fabien@symfony.com",
+                    "homepage": "http://fabien.potencier.org",
+                    "role": "Lead Developer"
                 }
             ],
             "description": "A script to automatically fix Symfony Coding Standard",
-            "time": "2014-01-18 17:53:09"
+            "time": "2014-02-10 16:36:30"
         },
         {
             "name": "gavroche/browser",
@@ -939,11 +941,11 @@
         },
         {
             "name": "project-a/acl-package",
-            "version": "3.0.0",
+            "version": "3.0.1",
             "source": {
                 "type": "git",
                 "url": "git@codebasehq.com:project-a/core/acl.git",
-                "reference": "1b2e6ebd0330f805b7abc427cfc551cbb3940443"
+                "reference": "1d528110c9c07d4bb526e6968c3dbf7ba8bf6786"
             },
             "require": {
                 "php": ">=5.4.0",
@@ -972,15 +974,15 @@
                 "login",
                 "usermanagement"
             ],
-            "time": "2014-01-29 12:06:15"
+            "time": "2014-02-07 13:16:29"
         },
         {
             "name": "project-a/cart-package",
-            "version": "3.0.0",
+            "version": "3.0.2",
             "source": {
                 "type": "git",
                 "url": "git@codebasehq.com:project-a/core/cart.git",
-                "reference": "a0d9d2caaf5b559b993390d86baab99f5a7d104c"
+                "reference": "14e8c107238e998817a914f8cd6a4078e591545e"
             },
             "require": {
                 "php": ">=5.4.0",
@@ -1008,7 +1010,7 @@
             "keywords": [
                 "Cart"
             ],
-            "time": "2014-01-29 12:06:15"
+            "time": "2014-02-12 11:33:29"
         },
         {
             "name": "project-a/catalog-package",
@@ -1016,7 +1018,7 @@
             "source": {
                 "type": "git",
                 "url": "git@codebasehq.com:project-a/core/catalog.git",
-                "reference": "b9a9e10e07ea18421bd28de1815b1cfa86913b73"
+                "reference": "57f8230af84590669febd5362816e3131d2ec2a1"
             },
             "require": {
                 "php": ">=5.4.0",
@@ -1053,15 +1055,15 @@
                 "Price",
                 "Stock"
             ],
-            "time": "2014-02-07 14:34:43"
+            "time": "2014-02-12 09:28:17"
         },
         {
             "name": "project-a/checkout-package",
-            "version": "dev-feature/checkout-refactor-payment-control",
+            "version": "3.1.1",
             "source": {
                 "type": "git",
                 "url": "git@codebasehq.com:project-a/core/checkout.git",
-                "reference": "b4e2c74bff457b2112561a296935a55bf57f025b"
+                "reference": "1c2e3f5dfcf3a99d156b732ac9b4c836adfe5a59"
             },
             "require": {
                 "gavroche/browser": "~2.1.0",
@@ -1095,7 +1097,7 @@
                 "Checkout",
                 "Salesrule"
             ],
-            "time": "2014-01-30 11:00:28"
+            "time": "2014-02-10 16:05:06"
         },
         {
             "name": "project-a/console-package",
@@ -1146,15 +1148,17 @@
         },
         {
             "name": "project-a/content-package",
-            "version": "dev-master",
+            "version": "dev-feature/template-builder",
             "source": {
                 "type": "git",
                 "url": "git@codebasehq.com:project-a/core/content.git",
-                "reference": "524c1fa74615d4ec8fb99ed163a66ac31fcb25bb"
+                "reference": "cf3beb1beecfa88d47f0bdd28227906bfe707168"
             },
             "require": {
                 "php": ">=5.4.0",
+                "project-a/catalog-package": "~3.0",
                 "project-a/frontend-package": "~3.0",
+                "project-a/glossary-package": "~3.0",
                 "project-a/library-package": "~3.0"
             },
             "type": "library",
@@ -1177,15 +1181,15 @@
             "keywords": [
                 "Content Package"
             ],
-            "time": "2014-02-07 14:31:26"
+            "time": "2014-02-19 11:21:19"
         },
         {
             "name": "project-a/crm-package",
-            "version": "3.0.1",
+            "version": "3.0.3",
             "source": {
                 "type": "git",
                 "url": "git@codebasehq.com:project-a/core/crm.git",
-                "reference": "576f461ef022f96807c36e3a956ad1d672c1823a"
+                "reference": "577b3ded86e77896d5eb8642621b01c4fe31fe34"
             },
             "require": {
                 "php": ">=5.4.0",
@@ -1211,7 +1215,7 @@
                 "CRM",
                 "Mail"
             ],
-            "time": "2014-02-05 10:04:41"
+            "time": "2014-02-14 15:06:45"
         },
         {
             "name": "project-a/document-package",
@@ -1364,7 +1368,7 @@
             "source": {
                 "type": "git",
                 "url": "git@codebasehq.com:project-a/core/infrastructure.git",
-                "reference": "418795aa921e273b239564af45b7b42722964873"
+                "reference": "950fc8af7ae7a97b0a59632dc511a13aaebde55a"
             },
             "require": {
                 "php": ">=5.4.0",
@@ -1393,7 +1397,7 @@
             "keywords": [
                 "infrastructure"
             ],
-            "time": "2014-02-07 14:32:29"
+            "time": "2014-02-18 11:26:21"
         },
         {
             "name": "project-a/kendo-package",
@@ -1420,7 +1424,7 @@
             "source": {
                 "type": "git",
                 "url": "git@codebasehq.com:project-a/core/library-2.git",
-                "reference": "436075c560971662005ea923b45dd1682c3c3af1"
+                "reference": "e4a023dbb273aa57e7610efe3d585052fa310a13"
             },
             "require": {
                 "digital-canvas/zend-framework": ">=1.12.2",
@@ -1457,7 +1461,7 @@
                 }
             ],
             "description": "Project-A Library",
-            "time": "2014-02-07 14:37:57"
+            "time": "2014-02-12 15:51:40"
         },
         {
             "name": "project-a/lumberjack-package",
@@ -1546,11 +1550,11 @@
         },
         {
             "name": "project-a/payment-package",
-            "version": "dev-feature/payment-refactor-accounting",
+            "version": "3.1.0",
             "source": {
                 "type": "git",
                 "url": "git@codebasehq.com:project-a/core/payment.git",
-                "reference": "369ef160018fdf268b412abaa1b205b8a82343fc"
+                "reference": "7386b6485ee1c83d4c07ce073bfa879695e0e5ff"
             },
             "require": {
                 "php": ">=5.4.0"
@@ -1575,21 +1579,21 @@
                 "payment control",
                 "payment provider"
             ],
-            "time": "2014-01-31 11:25:11"
+            "time": "2014-02-10 09:54:06"
         },
         {
             "name": "project-a/payone-package",
-            "version": "dev-master",
+            "version": "1.0.0",
             "source": {
                 "type": "git",
                 "url": "git@codebasehq.com:project-a/core/payone.git",
-                "reference": "cb8dc83fcbf54e3d66ec36e2fa033bb34cd2f95f"
+                "reference": "188c9c9c947509234c46c198fa5a8643cab83bf4"
             },
             "require": {
                 "php": ">=5.4.0",
                 "project-a/acl-package": "~3.0",
                 "project-a/library-package": "~3.0",
-                "project-a/payment-package": "~3.0",
+                "project-a/payment-package": "~3.1.0",
                 "project-a/sales-package": "~3.0"
             },
             "type": "library",
@@ -1610,15 +1614,15 @@
             "keywords": [
                 "payment,payment provider,payone"
             ],
-            "time": "2014-02-03 08:42:04"
+            "time": "2014-02-10 09:28:59"
         },
         {
             "name": "project-a/sales-package",
-            "version": "dev-feature/sales-payment2-changes",
+            "version": "3.1.1",
             "source": {
                 "type": "git",
                 "url": "git@codebasehq.com:project-a/core/sales.git",
-                "reference": "83ee90c035ce5785051949609afa90b112ca0273"
+                "reference": "ab4c7384de73fde53ad443def71472bd2caaca71"
             },
             "require": {
                 "php": ">=5.4.0",
@@ -1651,7 +1655,7 @@
                 "Sales",
                 "Task"
             ],
-            "time": "2014-01-30 09:12:14"
+            "time": "2014-02-10 16:10:12"
         },
         {
             "name": "project-a/silex-routing",
@@ -1708,11 +1712,11 @@
         },
         {
             "name": "project-a/stripe-package",
-            "version": "dev-feature/stripe-to-301",
+            "version": "3.1.0",
             "source": {
                 "type": "git",
                 "url": "git@codebasehq.com:project-a/core/stripe.git",
-                "reference": "69e4aef32ee29d2bba66884e1aefcb4c500e6192"
+                "reference": "f202fe53089dfe6eab50843a50b49c479d6ad432"
             },
             "require": {
                 "php": ">=5.4.0",
@@ -1737,7 +1741,7 @@
             "keywords": [
                 "stripe payment provider"
             ],
-            "time": "2014-02-04 11:56:03"
+            "time": "2014-02-10 09:58:23"
         },
         {
             "name": "propel/propel1",
@@ -1948,12 +1952,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/silexphp/Silex.git",
-                "reference": "3c5e0bbe4cb1c0dbee9181437f16ed13bea8bb1a"
+                "reference": "b7df67ff364eabec89033b433bbe449ee72301d4"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/silexphp/Silex/zipball/3c5e0bbe4cb1c0dbee9181437f16ed13bea8bb1a",
-                "reference": "3c5e0bbe4cb1c0dbee9181437f16ed13bea8bb1a",
+                "url": "https://api.github.com/repos/silexphp/Silex/zipball/b7df67ff364eabec89033b433bbe449ee72301d4",
+                "reference": "b7df67ff364eabec89033b433bbe449ee72301d4",
                 "shasum": ""
             },
             "require": {
@@ -2011,7 +2015,9 @@
             "authors": [
                 {
                     "name": "Fabien Potencier",
-                    "email": "fabien@symfony.com"
+                    "email": "fabien@symfony.com",
+                    "homepage": "http://fabien.potencier.org",
+                    "role": "Lead Developer"
                 },
                 {
                     "name": "Igor Wiedler",
@@ -2024,7 +2030,7 @@
             "keywords": [
                 "microframework"
             ],
-            "time": "2014-02-05 06:19:22"
+            "time": "2014-02-11 09:00:06"
         },
         {
             "name": "solarium/solarium",
@@ -2225,16 +2231,16 @@
         },
         {
             "name": "symfony/symfony",
-            "version": "v2.4.1",
+            "version": "v2.4.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/symfony.git",
-                "reference": "377a5fb23bfdc2fb616610b7b7ab7cc9a50e614d"
+                "reference": "b70633f92ff71ef490af4c17e7ca3f3bf3d0f304"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/symfony/zipball/377a5fb23bfdc2fb616610b7b7ab7cc9a50e614d",
-                "reference": "377a5fb23bfdc2fb616610b7b7ab7cc9a50e614d",
+                "url": "https://api.github.com/repos/symfony/symfony/zipball/b70633f92ff71ef490af4c17e7ca3f3bf3d0f304",
+                "reference": "b70633f92ff71ef490af4c17e7ca3f3bf3d0f304",
                 "shasum": ""
             },
             "require": {
@@ -2322,7 +2328,9 @@
             "authors": [
                 {
                     "name": "Fabien Potencier",
-                    "email": "fabien@symfony.com"
+                    "email": "fabien@symfony.com",
+                    "homepage": "http://fabien.potencier.org",
+                    "role": "Lead Developer"
                 },
                 {
                     "name": "Symfony Community",
@@ -2334,20 +2342,20 @@
             "keywords": [
                 "framework"
             ],
-            "time": "2014-01-05 02:12:11"
+            "time": "2014-02-12 19:27:03"
         },
         {
             "name": "twig/twig",
-            "version": "v1.15.0",
+            "version": "v1.15.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/fabpot/Twig.git",
-                "reference": "85e4ff98000157ff753d934b9f13659a953f5666"
+                "reference": "1fb5784662f438d7d96a541e305e28b812e2eeed"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/fabpot/Twig/zipball/85e4ff98000157ff753d934b9f13659a953f5666",
-                "reference": "85e4ff98000157ff753d934b9f13659a953f5666",
+                "url": "https://api.github.com/repos/fabpot/Twig/zipball/1fb5784662f438d7d96a541e305e28b812e2eeed",
+                "reference": "1fb5784662f438d7d96a541e305e28b812e2eeed",
                 "shasum": ""
             },
             "require": {
@@ -2371,11 +2379,19 @@
             "authors": [
                 {
                     "name": "Fabien Potencier",
-                    "email": "fabien@symfony.com"
+                    "email": "fabien@symfony.com",
+                    "homepage": "http://fabien.potencier.org",
+                    "role": "Lead Developer"
                 },
                 {
                     "name": "Armin Ronacher",
-                    "email": "armin.ronacher@active-4.com"
+                    "email": "armin.ronacher@active-4.com",
+                    "role": "Project Founder"
+                },
+                {
+                    "name": "Twig Team",
+                    "homepage": "https://github.com/fabpot/Twig/graphs/contributors",
+                    "role": "Contributors"
                 }
             ],
             "description": "Twig, the flexible, fast, and secure template language for PHP",
@@ -2383,7 +2399,7 @@
             "keywords": [
                 "templating"
             ],
-            "time": "2013-12-06 07:47:10"
+            "time": "2014-02-13 10:19:29"
         },
         {
             "name": "zendframework/zendframework",
@@ -2391,12 +2407,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/zendframework/zf2.git",
-                "reference": "4741ba787ea221000213249d52db375797356d5d"
+                "reference": "0709682aa0595ad93a7435d0004e8d43dc393f79"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/zendframework/zf2/zipball/4741ba787ea221000213249d52db375797356d5d",
-                "reference": "4741ba787ea221000213249d52db375797356d5d",
+                "url": "https://api.github.com/repos/zendframework/zf2/zipball/0709682aa0595ad93a7435d0004e8d43dc393f79",
+                "reference": "0709682aa0595ad93a7435d0004e8d43dc393f79",
                 "shasum": ""
             },
             "require": {
@@ -2501,7 +2517,7 @@
                 "framework",
                 "zf2"
             ],
-            "time": "2014-02-05 16:18:41"
+            "time": "2014-02-18 20:01:32"
         },
         {
             "name": "zendframework/zendpdf",
@@ -2589,16 +2605,16 @@
         },
         {
             "name": "behat/behat",
-            "version": "v2.5.1",
+            "version": "v2.5.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/Behat/Behat.git",
-                "reference": "b688e3c4bd65ef867d2ec0a0cf8e621c166e259b"
+                "reference": "a12154aae8a09248637fbca8ef3b2ef2ac71f2aa"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Behat/Behat/zipball/b688e3c4bd65ef867d2ec0a0cf8e621c166e259b",
-                "reference": "b688e3c4bd65ef867d2ec0a0cf8e621c166e259b",
+                "url": "https://api.github.com/repos/Behat/Behat/zipball/a12154aae8a09248637fbca8ef3b2ef2ac71f2aa",
+                "reference": "a12154aae8a09248637fbca8ef3b2ef2ac71f2aa",
                 "shasum": ""
             },
             "require": {
@@ -2647,7 +2663,7 @@
                 "Behat",
                 "Symfony2"
             ],
-            "time": "2013-11-24 10:17:18"
+            "time": "2014-02-12 17:03:46"
         },
         {
             "name": "behat/gherkin",
@@ -3497,16 +3513,16 @@
         },
         {
             "name": "phpunit/phpunit",
-            "version": "3.7.30",
+            "version": "3.7.31",
             "source": {
                 "type": "git",
                 "url": "https://github.com/sebastianbergmann/phpunit.git",
-                "reference": "2f33258fa5a0c330515b7deba2bc040fa5c3953b"
+                "reference": "d24e9877331039582497052cc3c4d9f465b88210"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sebastianbergmann/phpunit/zipball/2f33258fa5a0c330515b7deba2bc040fa5c3953b",
-                "reference": "2f33258fa5a0c330515b7deba2bc040fa5c3953b",
+                "url": "https://api.github.com/repos/sebastianbergmann/phpunit/zipball/d24e9877331039582497052cc3c4d9f465b88210",
+                "reference": "d24e9877331039582497052cc3c4d9f465b88210",
                 "shasum": ""
             },
             "require": {
@@ -3567,7 +3583,7 @@
                 "testing",
                 "xunit"
             ],
-            "time": "2014-01-31 08:54:33"
+            "time": "2014-02-03 07:46:27"
         },
         {
             "name": "phpunit/phpunit-mock-objects",
@@ -3709,21 +3725,15 @@
     ],
     "aliases": [
         {
-            "alias": "3.0.1",
-            "alias_normalized": "3.0.1.0",
+            "alias": "3.0.3",
+            "alias_normalized": "3.0.3.0",
             "version": "dev-feature/cms",
             "package": "project-a/catalog-package"
         },
         {
-            "alias": "3.1.0",
-            "alias_normalized": "3.1.0.0",
-            "version": "dev-feature/checkout-refactor-payment-control",
-            "package": "project-a/checkout-package"
-        },
-        {
             "alias": "2.0.0",
             "alias_normalized": "2.0.0.0",
-            "version": "9999999-dev",
+            "version": "dev-feature/template-builder",
             "package": "project-a/content-package"
         },
         {
@@ -3733,8 +3743,8 @@
             "package": "project-a/dwh-package"
         },
         {
-            "alias": "3.0.0",
-            "alias_normalized": "3.0.0.0",
+            "alias": "3.0.2",
+            "alias_normalized": "3.0.2.0",
             "version": "9999999-dev",
             "package": "project-a/infrastructure-package"
         },
@@ -3743,30 +3753,6 @@
             "alias_normalized": "3.1.0.0",
             "version": "dev-feature/twig",
             "package": "project-a/library-package"
-        },
-        {
-            "alias": "3.1.0",
-            "alias_normalized": "3.1.0.0",
-            "version": "dev-feature/payment-refactor-accounting",
-            "package": "project-a/payment-package"
-        },
-        {
-            "alias": "1.0.0",
-            "alias_normalized": "1.0.0.0",
-            "version": "9999999-dev",
-            "package": "project-a/payone-package"
-        },
-        {
-            "alias": "3.1.0",
-            "alias_normalized": "3.1.0.0",
-            "version": "dev-feature/sales-payment2-changes",
-            "package": "project-a/sales-package"
-        },
-        {
-            "alias": "3.0.1",
-            "alias_normalized": "3.0.1.0",
-            "version": "dev-feature/stripe-to-301",
-            "package": "project-a/stripe-package"
         },
         {
             "alias": "1.2",
@@ -3778,15 +3764,10 @@
     "minimum-stability": "stable",
     "stability-flags": {
         "project-a/catalog-package": 20,
-        "project-a/checkout-package": 20,
         "project-a/content-package": 20,
         "project-a/dwh-package": 20,
         "project-a/infrastructure-package": 20,
         "project-a/library-package": 20,
-        "project-a/payment-package": 20,
-        "project-a/payone-package": 20,
-        "project-a/sales-package": 20,
-        "project-a/stripe-package": 20,
         "silex/silex": 20,
         "zendframework/zendframework": 20,
         "fabpot/php-cs-fixer": 20

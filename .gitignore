@@ -8,6 +8,8 @@
 *.AppleDouble
 *.AppleDB
 *.AppleDesktop
+Temporary Items
+.apdisk
 
 # OS
 .DS_Store

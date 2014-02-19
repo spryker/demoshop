@@ -45,7 +45,7 @@ class SalesSettings extends ProjectASalesSettings
             case PayoneApiConstants::PAYMENT_METHOD_CREDITCARD_PSEUDO:
                 return Orderprocess::ORDER_PROCESS_PAYONE_CREDIT_CARD;
                 break;
-            case PayoneApiConstants::PAYMENT_METHOD_PAYPAL_EXPRESS:
+            case PayoneApiConstants::PAYMENT_METHOD_PAYPAL:
                 return Orderprocess::ORDER_PROCESS_PAYONE_PAYPAL;
                 break;
             case PayoneApiConstants::PAYMENT_METHOD_DIRECT_DEBIT:
