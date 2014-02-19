@@ -2,89 +2,317 @@
 
 {% block content %}
 
+
     <link rel="stylesheet" href="/styles/checkout.css" />
     <script src="/scripts/app/checkout.js"></script>
+
 
     <section class="consumeHeight" id="checkout">
 
         {% include "@application/partials/flash_bag.twig" %}
 
         {{ form_start(form, {attr: {class: 'smartAddressForm', novalidate: 'novalidate'}}) }}
-        {{ form_errors(form) }}
+
+            {{ form_errors(form) }}
 
             <div class="step" data-step="1" style="display: block">
-                {% include "@checkout/partials/shippingaddress.twig" with {'form': form} only %}
-                {% include "@checkout/partials/payment.twig" with {'form': form} only %}
-                {% include "@checkout/partials/checkout-cart.twig" %}
+                <div class="address primary col col33">
+                    <h3>{{ 'checkout.headline.shipping.billing'|trans }}</h3>
+                    {# <div class="row">
+                        <label class="col col50">
+                            <input class="addSpace smartAddressTrigger" type="radio" name="gender" value="Mr." /> Mr.
+                        </label>
+                        <label class="col col50">
+                            <input class="addSpace smartAddressTrigger" type="radio" name="gender" value="Mrs." /> Mrs.
+                        </label>
+                    </div> #}
+                    <div class="row col col34 first">
+                        {{ form_row(form.shippingAddress.salutation, {attr : {class : 'fullWidth'}, label : 'checkout.address.shipping.salutation'}) }}
+                    </div>
+                    <div class="row col col33 middle">
+                        {{ form_row(form.shippingAddress.firstName, {attr : {class : 'fullWidth'}, label : 'checkout.address.shipping.name.first'}) }}
+                    </div>
+                    <div class="row col col33 last">
+                        {{ form_row(form.shippingAddress.lastName, {attr : {class : 'fullWidth'}, label : 'checkout.address.shipping.name.last'}) }}
+                    </div>
+                    <div class="row col col67 first middle">
+                        {{ form_row(form.shippingAddress.address1, {attr : {class : 'fullWidth'}, label : 'checkout.address.shipping.street' }) }}
+                    </div>
+                    <div class="row col col33 last">
+                        {{ form_row(form.shippingAddress.address2, {attr : {class : 'fullWidth'}, label : 'checkout.address.shipping.number'}) }}
+                    </div>
+                    <div class="row">
+                        {{ form_row(form.shippingAddress.address3, {attr : {class : 'fullWidth', placeholder : 'checkout.address.shipping.comment.placeholder'}, label : 'checkout.address.shipping.comment'}) }}
+                    </div>
+                    <div class="row col col33 first middle">
+                        {{ form_row(form.shippingAddress.zipCode, {attr : {class : 'fullWidth'}, label : 'checkout.address.shipping.zipcode'}) }}
+                    </div>
+                    <div class="row col col67 last">
+                        {{ form_row(form.shippingAddress.city, {attr : {class : 'fullWidth'}, label : 'checkout.address.shipping.city'}) }}
+                    </div>
+                    <div class="row">
+                        {{ form_row(form.shippingAddress.iso2Country, {attr : {class : 'fullWidth', 'data-src': 'country', 'data-src-type' : 'short'}, label : 'checkout.address.shipping.country'}) }}
+                    </div>
+                    <div class="row">
+                        {{ form_row(form.shippingAddress.phone, {attr : {class : 'fullWidth'}, label : 'checkout.address.shipping.phone'}) }}
+                    </div>
+                    <div class="row">
+                        <label>
+                        {{ form_widget(form.chooseDifferentBilling, {attr : {class : 'triggerAlternative addSpace'}, required : false }) }}
+                        {{ 'checkout.address.billing.different'|trans }}
+                        </label>
+                    </div>
+                </div>
+
+                <div class="primary col col33">
+                    <h3>{{ 'checkout.headline.payment'|trans }}</h3>
+                    <div class="row">
+                        {{ form_widget(form.payment.method, { label : 'checkout.payment.method' } ) }}
+                    </div>
+                </div>
+
+                <div id="cartSummary" class="cart primary col col34">
+                    <h3>{{ 'checkout.headline.cart'|trans }}</h3>
+                    <table class="items">
+                        <tbody>
+                        {% for cartItem in cartItems %}
+                            {% set product = products[cartItem.sku] %}
+                            <tr>
+                                <td>
+                                    <h4>{{ cartItem.quantity }}x {{ product.name }}</h4>
+                                    <h5>by {{ product.brand }}</h5>
+                                </td>
+                                <td>
+                                    {# <span class="oldPrice">55,70 €</span> #}
+                                    <span class="price">{{ cartItem.priceToPay|price }}</span>
+                                </td>
+                            </tr>
+                        {% else %}
+                            <tr>
+                                <td colspan="2">{{ 'checkout.cart.empty'|trans }}</td>
+                            </tr>
+                        {% endfor %}
+                        </tbody>
+                        <tfoot>
+                        <tr>
+                            <td>{{ 'checkout.price.subtotal'|trans }}</td>
+                            <td>{{ totals.subtotal|price }}</td>
+                        </tr>
+                        <tr>
+                            <td>{{ 'checkout.price.shipping'|trans }}</td>
+                            <td></td>
+                        </tr>
+                        {% for taxRate in totals.tax.taxRates %}
+                            <tr class="tax">
+                                <td>{{ taxRate.percentage }}{{ 'checkout.percentage.vat'|trans }}</td>
+                                <td>{{ taxRate.amount|price }}</td>
+                            </tr>
+                        {% endfor %}
+                        <tr class="total">
+                            <td>{{ 'checkout.price.grand.total'|trans }}</td>
+                            <td>{{ totals.grandTotal|price }}</td>
+                        </tr>
+                        </tfoot>
+                    </table>
+                    {{ form_widget(form.save, {attr : {class : 'continue'}, label : 'checkout.to.summary'}) }}
+                </div>
                 <div class="clearRows"></div>
+                <div class="address primary col col33 secondaryRow" data-validator-precondition="return $('#chooseDifferentBilling').is(':checked')">
+                    <h3>{{ 'checkout.headline.billing'|trans }}</h3>
+                    <div class="row col col34 first">
+                        {{ form_row(form.billingAddress.salutation, {attr : {class : 'name fullWidth', 'data-src': 'salutation'}, label : 'checkout.address.billing.salutation'}) }}
+                    </div>
+                    <div class="row col col33 middle">
+                        {{ form_row(form.billingAddress.firstName, {attr : {class : 'name fullWidth', 'data-src': 'middle_name'}, label : 'checkout.address.billing.name.first'}) }}
+                    </div>
+                    <div class="row col col33 last">
+                        {{ form_row(form.billingAddress.lastName, {attr : {class : 'name fullWidth', 'data-src': 'last_name'}, label : 'checkout.address.billing.name.last'}) }}
+                    </div>
+                    <div class="row">
+                        {{ form_row(form.billingAddress.company, {attr : {class : 'fullWidth'}, label : 'checkout.address.billing.company'}) }}
+                    </div>
+                    <div class="row col col67 first middle">
+                        {{ form_row(form.billingAddress.address1, {attr : {class : 'fullWidth', 'data-src': 'route'}, label : 'checkout.address.billing.street'}) }}
+                    </div>
+                    <div class="row col col33 last">
+                        {{ form_row(form.billingAddress.address2, {attr : {class : 'fullWidth', 'data-src': 'street_number'}, label : 'checkout.address.billing.number'}) }}
+                    </div>
+                    <div class="row col col33 first middle">
+                        {{ form_row(form.billingAddress.zipCode, {attr : {class : 'fullWidth', 'data-src': 'postal_code'}, label: 'checkout.address.billing.zipcode'}) }}
+                    </div>
+                    <div class="row col col67 last">
+                        {{ form_row(form.billingAddress.city, {attr : {class : 'fullWidth', 'data-src': 'locality'}, label: 'checkout.address.billing.city'}) }}
+                    </div>
+                    <div class="row">
+                        {{ form_row(form.billingAddress.iso2Country, {attr : {class : 'fullWidth', 'data-src': 'country', 'data-src-type' : 'short'}, label: 'checkout.address.billing.country'}) }}
+                    </div>
+                </div>
+
                 <div class="unnecessary primary col col33 secondaryRow">
-                    {% include "@checkout/partials/payment-methods.twig" with {'form': form, 'payoneCreditcardCheckData': payoneCreditcardCheckData, 'paymentMethodCollection': paymentMethodCollection} only %}
-                    <div id="validationMessages" data-validation-message-required="{{ 'checkout.validation.message.required'|trans }}" data-validation-message-email="{{ 'checkout.validation.message.email'|trans }}"></div>
+                     <div class="details" data-associated-paymentmethod="payment.payone.creditcard_pseudo" data-validator-precondition="return $('[name=\'salesOrder[payment][method]\']:checked').val() === 'payment.payone.creditcard_pseudo'">
+                        <div class="row">
+                            {{ form_row(form.payment.creditCardType, {attr : {class : 'fullWidth'}, label : 'checkout.payment.creditCardType'}) }}
+                        </div>
+                        <div class="row">
+                            {{ form_row(form.payment.creditCardHolder, {attr : {class : 'fullWidth'}, label : 'checkout.payment.creditCardHolder'}) }}
+                        </div>
+                        <div class="row">
+                            {{ form_row(form.payment.creditCardPan, {attr : {class : 'fullWidth', maxlength : 16}, label : 'checkout.payment.creditCardPan'}) }}
+                        </div>
+                        <div class="row">
+                            <div class="multiple">
+                                <div class="col col25">
+                                    {{ form_row(form.payment.creditCardCvc2, {attr : {class : 'fullWidth', maxlength : 3}, label : 'checkout.payment.creditCardCvc2'}) }}
+                                </div>
+                                <div class="col col15">&#160;</div>
+                                <div class="col col30">
+                                    {{ form_row(form.payment.creditCardExpirationMonth, {attr : {class : 'fullWidth'}, label : 'checkout.payment.creditCardExpirationMonth'}) }}
+                                </div>
+                                <div class="col col30">
+                                    {{ form_row(form.payment.creditCardExpirationYear, {attr : {class : 'fullWidth'}, label : 'checkout.payment.creditCardExpirationYear'}) }}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="details" data-associated-paymentmethod="payment.payone.direct_debit" data-validator-precondition="return $('[name=\'salesOrder[payment][method]\']:checked').val() === 'payment.payone.direct_debit'">
+                         <div class="row">
+                             {{ form_row(form.payment.bankAccountHolder, {attr : {class : 'fullWidth', maxlength : 16}, label : 'checkout.payment.bankAccountHolder'}) }}
+                         </div>
+                         <div class="row">
+                            {{ form_row(form.payment.bankAccount, {attr : {class : 'fullWidth'}, label : 'checkout.payment.bankAccount'}) }}
+                         </div>
+                         <div class="row">
+                             {{ form_row(form.payment.bankCode, {attr : {class : 'fullWidth', maxlength : 16}, label : 'checkout.payment.bankCode'}) }}
+                         </div>
+                     </div>
+
+
+                    <div class="details" data-associated-paymentmethod="payment.payone.sofort_ueberweisung" data-validator-precondition="return $('[name=\'salesOrder[payment][method]\']:checked').val() === 'payment.payone.sofort_ueberweisung'">
+                        <div class="row">
+                            {{ form_row(form.payment.bankAccountSofortUeberweisung, {attr : {class : 'fullWidth'}, label : 'checkout.payment.bankAccount'}) }}
+                        </div>
+                        <div class="row">
+                            {{ form_row(form.payment.bankCodeSofortUeberweisung, {attr : {class : 'fullWidth', maxlength : 16}, label : 'checkout.payment.bankCode'}) }}
+                        </div>
+                    </div>
                 </div>
             </div>
-
             <div class="step" data-step="2">
-                {% include "@checkout/partials/summary.twig" with {} only %}
+                <div class="addressSummary primary col col25">
+                    <h3>{{ 'checkout.headline.shipping'|trans }}</h3>
+                    <div class="row">
+                        <strong>
+                            <span data-formsrc="salesOrder[shippingAddress][firstName]"></span>
+                            <span data-formsrc="salesOrder[shippingAddress][middleName]"></span>
+                            <span data-formsrc="salesOrder[shippingAddress][lastName]"></span>
+                        </strong><br />
+                        <span data-formsrc="salesOrder[shippingAddress][address1]"></span>
+                        <span data-formsrc="salesOrder[shippingAddress][address2]"></span>
+                        <br />
+                        <div data-formsrc="salesOrder[shippingAddress][comment]"></div>
+                        <span data-formsrc="salesOrder[shippingAddress][zipcode]"></span>
+                        <span data-formsrc="salesOrder[shippingAddress][city]"></span>
+                        <br />
+                        <span data-formsrc="salesOrder[shippingAddress][iso2Country]" data-elsrc="#salesOrder_shippingAddress_iso2Country"></span>
+                        <a class="change" href="javascript:app.checkout.steps.previous();">{{ 'checkout.link.edit'|trans }}</a>
+                    </div>
+                    <h3>{{ 'checkout.headline.billing'|trans }}</h3>
+                    <div class="row">
+                        <strong>
+                            <span data-formsrc="salesOrder[billingAddress][firstName]"></span>
+                            <span data-formsrc="salesOrder[billingAddress][middleName]"></span>
+                            <span data-formsrc="salesOrder[billingAddress][lastName]"></span>
+                        </strong><br />
+                        <div data-formsrc="salesOrder[billingAddress][company]"></div>
+                        <span data-formsrc="salesOrder[billingAddress][address1]"></span>
+                        <span data-formsrc="salesOrder[billingAddress][address2]"></span>
+                        <br />
+                        <span data-formsrc="salesOrder[billingAddress][zipcode]"></span>
+                        <span data-formsrc="salesOrder[billingAddress][city]"></span>
+                        <br />
+                        <span data-formsrc="salesOrder[billingAddress][iso2Country]" data-elsrc="#salesOrder_billingAddress_iso2Country"></span>
+                        <a class="change" href="javascript:app.checkout.steps.previous();">{{ 'checkout.link.edit'|trans }}</a>
+                    </div>
+                </div>
+                <div class="paymentSummary primary col col25">
+                    <h3>{{ 'checkout.headline.payment'|trans }}</h3>
+                    <div class="row">
+                        <strong><span data-formsrc="salesOrder[payment][method]"></span></strong>
+                        <a class="change" href="javascript:app.checkout.steps.previous();">{{ 'checkout.link.edit'|trans }}</a>
+                    </div>
+                </div>
+                <div class="cartSummary cart primary col col50" data-elsrc="#cartSummary"></div>
             </div>
-
         {{ form_end(form) }}
     </section>
 
-    <!-- ********** PAYONE CC TEST BUTTON ********** --->
 
-    <a href="#" id="test_button" class="button">[ PERFORM PAYONE CREDIT CARD CHECK ]</a>
+<a href="#" id="test_button" class="button">[ PERFORM PAYONE CREDIT CARD CHECK ]</a>
 
-    <script>
-        $('#test_button').on('click', function (e) {
+<script>
+    $('#test_button').on('click', function (e) {
+        e.preventDefault();
+        performCreditCardCheck();
+    });
+</script>
+
+<!-- ********** PAYONE CODE ********** --->
+
+<script>
+    /*
+    $('#salesOrder_save').on('click', function (e) {
+        var method = $("input:radio[name='salesOrder[payment][method]']:checked").val();
+        if(method == 'payment.payone.creditcard_pseudo') {
             e.preventDefault();
             performCreditCardCheck();
-        });
-    </script>
-
-    <!-- ********** PAYONE CODE ********** --->
-
-
-    <script src="/bundles/Payone/payonecreditcardcheck.js"></script>
-
-    <script>
-        function performCreditCardCheck() {
-            var payoneConfig = {
-                request        : '{{ payoneCreditcardCheckData.request }}',
-                mode           : '{{ payoneCreditcardCheckData.mode }}',
-                mid            : '{{ payoneCreditcardCheckData.mid }}',
-                aid            : '{{ payoneCreditcardCheckData.aid }}',
-                portalid       : '{{ payoneCreditcardCheckData.portalid }}',
-                hash           : '{{ payoneCreditcardCheckData.hash }}',
-                encoding       : '{{ payoneCreditcardCheckData.encoding }}',
-                language       : '{{ payoneCreditcardCheckData.language }}',
-                storecarddata  : '{{ payoneCreditcardCheckData.storecarddata }}'
-            };
-            var creditCardData = {
-                ccCardHolder        : $("#salesOrder_payment_creditCardHolder").val(),
-                ccNumber            : $("#salesOrder_payment_creditCardPan").val(),
-                ccType              : $("#salesOrder_payment_creditCardType").val(),
-                ccExpirationMonth   : $("#salesOrder_payment_creditCardExpirationMonth").val(),
-                ccExpirationYear    : $("#salesOrder_payment_creditCardExpirationYear").val(),
-                ccVerification      : $("#salesOrder_payment_creditCardCvc2").val()
-            };
-            PayoneCreditCardCheck.doRequest(payoneConfig, creditCardData, 'payoneResponseCallback');
         }
-    </script>
+    });
+    */
+</script>
 
-    <script>
-        function payoneResponseCallback(response) {
-            if (response.get('status') === 'VALID') {
-                var pseudoCardPan = response.get('pseudocardpan');
-                var truncatedCardPan = response.get('truncatedcardpan');
-                $("#salesOrder_payment_creditCardPseudoCardPan").val(pseudoCardPan);
-            } else {
-                var message = response.get('errormessage') + "\n" + response.get('customermessage');
-                alert(message);
-            }
+
+<script src="/bundles/Payone/payonecreditcardcheck.js"></script>
+
+<script>
+    function performCreditCardCheck() {
+        var payoneConfig = {
+            request        : '{{ payoneCreditcardCheckData.request }}',
+            mode           : '{{ payoneCreditcardCheckData.mode }}',
+            mid            : '{{ payoneCreditcardCheckData.mid }}',
+            aid            : '{{ payoneCreditcardCheckData.aid }}',
+            portalid       : '{{ payoneCreditcardCheckData.portalid }}',
+            hash           : '{{ payoneCreditcardCheckData.hash }}',
+            encoding       : '{{ payoneCreditcardCheckData.encoding }}',
+            language       : '{{ payoneCreditcardCheckData.language }}',
+            storecarddata  : '{{ payoneCreditcardCheckData.storecarddata }}'
+        };
+        var creditCardData = {
+            ccCardHolder        : $("#salesOrder_payment_creditCardHolder").val(),
+            ccNumber            : $("#salesOrder_payment_creditCardPan").val(),
+            ccType              : $("#salesOrder_payment_creditCardType").val(),
+            ccExpirationMonth   : $("#salesOrder_payment_creditCardExpirationMonth").val(),
+            ccExpirationYear    : $("#salesOrder_payment_creditCardExpirationYear").val(),
+            ccVerification      : $("#salesOrder_payment_creditCardCvc2").val()
+        };
+        PayoneCreditCardCheck.doRequest(payoneConfig, creditCardData, 'payoneResponseCallback');
+    }
+</script>
+
+<script>
+    function payoneResponseCallback(response) {
+        if (response.get('status') === 'VALID') {
+            var pseudoCardPan = response.get('pseudocardpan');
+            var truncatedCardPan = response.get('truncatedcardpan');
+            $("#salesOrder_payment_creditCardPseudoCardPan").val(pseudoCardPan);
+        } else {
+            var message = response.get('errormessage') + "\n" + response.get('customermessage');
+            alert(message);
         }
-    </script>
+    }
+</script>
 
-    <!-- ********** END OF PAYONE CODE ********** --->
+<!-- ********** END OF PAYONE CODE ********** --->
 
 
 
