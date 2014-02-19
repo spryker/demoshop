@@ -65,15 +65,9 @@ chown -R www-data. .
 echo " - Generate BundlePackageMapper"
 APPLICATION_ENV=$environment sudo -E -u www-data php -d "newrelic.appname='Deploy($environment)'" vendor/bin/console setup:generate-bundle-package-mapper &> $outfile
 if [ $? -ne 0 ]; then
-<<<<<<< HEAD
-   echo "!!! FATAL: There was an error in console setup:generate-bundle-package-mapper"
-   cat $outfile
-   exit 1
-=======
   echo "!!! FATAL: There was an error in console setup:generate-bundle-package-mapper"
   cat $outfile
   exit 1
->>>>>>> master
 fi
 
 ## ZED - Execute install.php
