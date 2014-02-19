@@ -1018,7 +1018,7 @@
             "source": {
                 "type": "git",
                 "url": "git@codebasehq.com:project-a/core/catalog.git",
-                "reference": "57f8230af84590669febd5362816e3131d2ec2a1"
+                "reference": "edafad30be23ed5b7a6f0ed9399f489994fea4a7"
             },
             "require": {
                 "php": ">=5.4.0",
@@ -1055,7 +1055,7 @@
                 "Price",
                 "Stock"
             ],
-            "time": "2014-02-12 09:28:17"
+            "time": "2014-02-19 12:56:17"
         },
         {
             "name": "project-a/checkout-package",
@@ -1152,7 +1152,7 @@
             "source": {
                 "type": "git",
                 "url": "git@codebasehq.com:project-a/core/content.git",
-                "reference": "cf3beb1beecfa88d47f0bdd28227906bfe707168"
+                "reference": "5364917dee82b63855c18451d59238b72056819b"
             },
             "require": {
                 "php": ">=5.4.0",
@@ -1181,7 +1181,7 @@
             "keywords": [
                 "Content Package"
             ],
-            "time": "2014-02-19 11:21:19"
+            "time": "2014-02-19 14:48:31"
         },
         {
             "name": "project-a/crm-package",
