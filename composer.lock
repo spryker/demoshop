@@ -3,7 +3,7 @@
         "This file locks the dependencies of your project to a known state",
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file"
     ],
-    "hash": "505f25542ff2cd48bc90b851b71ae3e0",
+    "hash": "9c2d690ed807603af98c62f81267ba61",
     "packages": [
         {
             "name": "cmutter/google-adwords-api",
@@ -1059,11 +1059,11 @@
         },
         {
             "name": "project-a/checkout-package",
-            "version": "3.1.1",
+            "version": "3.1.2",
             "source": {
                 "type": "git",
                 "url": "git@codebasehq.com:project-a/core/checkout.git",
-                "reference": "1c2e3f5dfcf3a99d156b732ac9b4c836adfe5a59"
+                "reference": "3fcd96ae35a5a7fd960a3812ad9228ab17b129c9"
             },
             "require": {
                 "gavroche/browser": "~2.1.0",
@@ -1097,7 +1097,7 @@
                 "Checkout",
                 "Salesrule"
             ],
-            "time": "2014-02-10 16:05:06"
+            "time": "2014-02-19 11:29:15"
         },
         {
             "name": "project-a/console-package",
@@ -2405,12 +2405,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/zendframework/zf2.git",
-                "reference": "c1ccddaa34b3c582ef345cf99cc0afcb1639efaf"
+                "reference": "0709682aa0595ad93a7435d0004e8d43dc393f79"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/zendframework/zf2/zipball/c1ccddaa34b3c582ef345cf99cc0afcb1639efaf",
-                "reference": "c1ccddaa34b3c582ef345cf99cc0afcb1639efaf",
+                "url": "https://api.github.com/repos/zendframework/zf2/zipball/0709682aa0595ad93a7435d0004e8d43dc393f79",
+                "reference": "0709682aa0595ad93a7435d0004e8d43dc393f79",
                 "shasum": ""
             },
             "require": {
@@ -2515,7 +2515,7 @@
                 "framework",
                 "zf2"
             ],
-            "time": "2014-02-18 10:18:07"
+            "time": "2014-02-18 20:01:32"
         },
         {
             "name": "zendframework/zendpdf",
