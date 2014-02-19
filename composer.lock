@@ -3,7 +3,7 @@
         "This file locks the dependencies of your project to a known state",
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file"
     ],
-    "hash": "e9691d01e900e2b751f69604af8c20e3",
+    "hash": "e69b0ae1111ec8eaa42ca44373ee08ef",
     "packages": [
         {
             "name": "cmutter/google-adwords-api",
@@ -1152,7 +1152,7 @@
             "source": {
                 "type": "git",
                 "url": "git@codebasehq.com:project-a/core/content.git",
-                "reference": "5364917dee82b63855c18451d59238b72056819b"
+                "reference": "609c1214e3d8823cbf758230c1f1c5e88b69cf85"
             },
             "require": {
                 "php": ">=5.4.0",
@@ -1181,7 +1181,7 @@
             "keywords": [
                 "Content Package"
             ],
-            "time": "2014-02-19 14:48:31"
+            "time": "2014-02-19 16:17:09"
         },
         {
             "name": "project-a/crm-package",
@@ -1364,11 +1364,11 @@
         },
         {
             "name": "project-a/infrastructure-package",
-            "version": "dev-master",
+            "version": "3.0.2",
             "source": {
                 "type": "git",
                 "url": "git@codebasehq.com:project-a/core/infrastructure.git",
-                "reference": "950fc8af7ae7a97b0a59632dc511a13aaebde55a"
+                "reference": "be49365a885bc1bcb51f551ce8b4eaf3e1fb208d"
             },
             "require": {
                 "php": ">=5.4.0",
@@ -1397,7 +1397,7 @@
             "keywords": [
                 "infrastructure"
             ],
-            "time": "2014-02-18 11:26:21"
+            "time": "2014-02-14 13:44:21"
         },
         {
             "name": "project-a/kendo-package",
@@ -3743,12 +3743,6 @@
             "package": "project-a/dwh-package"
         },
         {
-            "alias": "3.0.2",
-            "alias_normalized": "3.0.2.0",
-            "version": "9999999-dev",
-            "package": "project-a/infrastructure-package"
-        },
-        {
             "alias": "3.1.0",
             "alias_normalized": "3.1.0.0",
             "version": "dev-feature/twig",
@@ -3766,7 +3760,6 @@
         "project-a/catalog-package": 20,
         "project-a/content-package": 20,
         "project-a/dwh-package": 20,
-        "project-a/infrastructure-package": 20,
         "project-a/library-package": 20,
         "silex/silex": 20,
         "zendframework/zendframework": 20,

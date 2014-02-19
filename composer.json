@@ -11,7 +11,7 @@
         "project-a/document-package": "3.0.0",
         "project-a/frontend-package": "3.0.0",
         "project-a/glossary-package": "3.0.0",
-        "project-a/infrastructure-package": "dev-master as 3.0.2",
+        "project-a/infrastructure-package": "3.0.2",
         "project-a/kendo-package": "3.0.0",
         "project-a/library-package": "dev-feature/twig as 3.1.0",
         "project-a/lumberjack-package": "3.0.0",
