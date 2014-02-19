@@ -17,7 +17,7 @@
         "project-a/lumberjack-package": "3.0.0",
         "project-a/marketing-package": "3.0.0",
         "project-a/payment-package": "3.1.0",
-        "project-a/payone-package": "1.0.0",
+        "project-a/payone-package": "1.0.1",
         "project-a/sales-package": "dev-feature/354-basic-bundles-sales-pgk as 3.1.1",
         "project-a/stripe-package": "3.1.0",
         "phing/phing": "~2.6.0",
