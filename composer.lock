@@ -3,7 +3,7 @@
         "This file locks the dependencies of your project to a known state",
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file"
     ],
-    "hash": "49c3315b29c57b56cd34904ffc655396",
+    "hash": "b9f094760e461177a21e9d05f7538232",
     "packages": [
         {
             "name": "cmutter/google-adwords-api",
@@ -1018,7 +1018,7 @@
             "source": {
                 "type": "git",
                 "url": "git@codebasehq.com:project-a/core/catalog.git",
-                "reference": "675b7fbc2e27663da149ead5bcf35573768e1b6f"
+                "reference": "1c28a8029181cfdc848dc0b4776cc6eff66ad07c"
             },
             "require": {
                 "php": ">=5.4.0",
@@ -1055,15 +1055,15 @@
                 "Price",
                 "Stock"
             ],
-            "time": "2014-02-18 15:11:46"
+            "time": "2014-02-19 11:18:12"
         },
         {
             "name": "project-a/checkout-package",
-            "version": "3.1.1",
+            "version": "3.1.2",
             "source": {
                 "type": "git",
                 "url": "git@codebasehq.com:project-a/core/checkout.git",
-                "reference": "1c2e3f5dfcf3a99d156b732ac9b4c836adfe5a59"
+                "reference": "3fcd96ae35a5a7fd960a3812ad9228ab17b129c9"
             },
             "require": {
                 "gavroche/browser": "~2.1.0",
@@ -1097,7 +1097,7 @@
                 "Checkout",
                 "Salesrule"
             ],
-            "time": "2014-02-10 16:05:06"
+            "time": "2014-02-19 11:29:15"
         },
         {
             "name": "project-a/console-package",
@@ -1620,7 +1620,7 @@
             "source": {
                 "type": "git",
                 "url": "git@codebasehq.com:project-a/core/sales.git",
-                "reference": "27e6c4ab309b6b75551fc3e35455b3edd32c2286"
+                "reference": "b795cf8ff8835532b866f27d63c381ebfa624f81"
             },
             "require": {
                 "php": ">=5.4.0",
@@ -1653,7 +1653,7 @@
                 "Sales",
                 "Task"
             ],
-            "time": "2014-02-18 13:38:02"
+            "time": "2014-02-19 11:18:26"
         },
         {
             "name": "project-a/silex-routing",
@@ -3729,8 +3729,8 @@
             "package": "project-a/cart-package"
         },
         {
-            "alias": "3.0.1",
-            "alias_normalized": "3.0.1.0",
+            "alias": "3.0.2",
+            "alias_normalized": "3.0.2.0",
             "version": "dev-feature/354-basic-bundles-catalog-pgk",
             "package": "project-a/catalog-package"
         },
