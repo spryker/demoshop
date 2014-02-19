@@ -3,7 +3,7 @@
         "This file locks the dependencies of your project to a known state",
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file"
     ],
-    "hash": "9c2d690ed807603af98c62f81267ba61",
+    "hash": "2dd1136e6d61b05004f02e3dba170b47",
     "packages": [
         {
             "name": "cmutter/google-adwords-api",
@@ -1581,11 +1581,11 @@
         },
         {
             "name": "project-a/payone-package",
-            "version": "1.0.0",
+            "version": "1.0.1",
             "source": {
                 "type": "git",
                 "url": "git@codebasehq.com:project-a/core/payone.git",
-                "reference": "188c9c9c947509234c46c198fa5a8643cab83bf4"
+                "reference": "617a0a2f81224c0e46f142a55f626f62824f6cb3"
             },
             "require": {
                 "php": ">=5.4.0",
@@ -1612,7 +1612,7 @@
             "keywords": [
                 "payment,payment provider,payone"
             ],
-            "time": "2014-02-10 09:28:59"
+            "time": "2014-02-19 14:22:40"
         },
         {
             "name": "project-a/sales-package",
