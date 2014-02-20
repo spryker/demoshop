@@ -96,7 +96,6 @@ class YvesBootstrap extends \ProjectA\Yves\Library\Silex\YvesBootstrap
             new ApplicationProvider(),
             new CartProvider(),
             new CheckoutProvider($ssl),
-            new CmsProvider(),
             new CustomerProvider($ssl),
         ];
     }
@@ -111,7 +110,6 @@ class YvesBootstrap extends \ProjectA\Yves\Library\Silex\YvesBootstrap
             Factory::getInstance()->createSetupModelRouterMonitoringRouter($app),
             Factory::getInstance()->createCatalogModelRouterCatalogRouter($app),
             Factory::getInstance()->createCatalogModelRouterCatalogDetailRouter($app),
-            Factory::getInstance()->createCmsModelRouterCmsRouter($app),
             /*
              * SilexRouter should come last, as it is not the fastest one if it can
              * not find a matching route (lots of magic)

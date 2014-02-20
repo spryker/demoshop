@@ -3,7 +3,7 @@
         "This file locks the dependencies of your project to a known state",
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file"
     ],
-    "hash": "e69b0ae1111ec8eaa42ca44373ee08ef",
+    "hash": "68d3043399f690f72672243f5ad70488",
     "packages": [
         {
             "name": "cmutter/google-adwords-api",
@@ -1059,11 +1059,11 @@
         },
         {
             "name": "project-a/checkout-package",
-            "version": "3.1.1",
+            "version": "3.1.2",
             "source": {
                 "type": "git",
                 "url": "git@codebasehq.com:project-a/core/checkout.git",
-                "reference": "1c2e3f5dfcf3a99d156b732ac9b4c836adfe5a59"
+                "reference": "3fcd96ae35a5a7fd960a3812ad9228ab17b129c9"
             },
             "require": {
                 "gavroche/browser": "~2.1.0",
@@ -1097,7 +1097,7 @@
                 "Checkout",
                 "Salesrule"
             ],
-            "time": "2014-02-10 16:05:06"
+            "time": "2014-02-19 11:29:15"
         },
         {
             "name": "project-a/console-package",
@@ -1185,11 +1185,11 @@
         },
         {
             "name": "project-a/crm-package",
-            "version": "3.0.3",
+            "version": "3.1.0",
             "source": {
                 "type": "git",
                 "url": "git@codebasehq.com:project-a/core/crm.git",
-                "reference": "577b3ded86e77896d5eb8642621b01c4fe31fe34"
+                "reference": "1d0705d8a675d30e1a42ae2286723374013f3ba8"
             },
             "require": {
                 "php": ">=5.4.0",
@@ -1215,7 +1215,7 @@
                 "CRM",
                 "Mail"
             ],
-            "time": "2014-02-14 15:06:45"
+            "time": "2014-02-20 12:56:52"
         },
         {
             "name": "project-a/document-package",
@@ -1420,11 +1420,11 @@
         },
         {
             "name": "project-a/library-package",
-            "version": "dev-feature/twig",
+            "version": "3.1.0",
             "source": {
                 "type": "git",
                 "url": "git@codebasehq.com:project-a/core/library-2.git",
-                "reference": "e4a023dbb273aa57e7610efe3d585052fa310a13"
+                "reference": "54a04d276fb498a3a126d58232febcd50878ffa2"
             },
             "require": {
                 "digital-canvas/zend-framework": ">=1.12.2",
@@ -1461,7 +1461,7 @@
                 }
             ],
             "description": "Project-A Library",
-            "time": "2014-02-12 15:51:40"
+            "time": "2014-02-20 11:30:24"
         },
         {
             "name": "project-a/lumberjack-package",
@@ -1583,11 +1583,11 @@
         },
         {
             "name": "project-a/payone-package",
-            "version": "1.0.0",
+            "version": "1.0.1",
             "source": {
                 "type": "git",
                 "url": "git@codebasehq.com:project-a/core/payone.git",
-                "reference": "188c9c9c947509234c46c198fa5a8643cab83bf4"
+                "reference": "617a0a2f81224c0e46f142a55f626f62824f6cb3"
             },
             "require": {
                 "php": ">=5.4.0",
@@ -1614,15 +1614,15 @@
             "keywords": [
                 "payment,payment provider,payone"
             ],
-            "time": "2014-02-10 09:28:59"
+            "time": "2014-02-19 14:22:40"
         },
         {
             "name": "project-a/sales-package",
-            "version": "3.1.1",
+            "version": "3.2.0",
             "source": {
                 "type": "git",
                 "url": "git@codebasehq.com:project-a/core/sales.git",
-                "reference": "ab4c7384de73fde53ad443def71472bd2caaca71"
+                "reference": "30e3ad1a57c3e75935d0c3b73f405e6d6648cc33"
             },
             "require": {
                 "php": ">=5.4.0",
@@ -1655,7 +1655,7 @@
                 "Sales",
                 "Task"
             ],
-            "time": "2014-02-10 16:10:12"
+            "time": "2014-02-20 13:00:00"
         },
         {
             "name": "project-a/silex-routing",
@@ -2407,12 +2407,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/zendframework/zf2.git",
-                "reference": "0709682aa0595ad93a7435d0004e8d43dc393f79"
+                "reference": "37ab92a774d2f0eb4d322d4984be476823691bac"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/zendframework/zf2/zipball/0709682aa0595ad93a7435d0004e8d43dc393f79",
-                "reference": "0709682aa0595ad93a7435d0004e8d43dc393f79",
+                "url": "https://api.github.com/repos/zendframework/zf2/zipball/37ab92a774d2f0eb4d322d4984be476823691bac",
+                "reference": "37ab92a774d2f0eb4d322d4984be476823691bac",
                 "shasum": ""
             },
             "require": {
@@ -2517,7 +2517,7 @@
                 "framework",
                 "zf2"
             ],
-            "time": "2014-02-18 20:01:32"
+            "time": "2014-02-20 12:36:27"
         },
         {
             "name": "zendframework/zendpdf",
@@ -3725,8 +3725,8 @@
     ],
     "aliases": [
         {
-            "alias": "3.0.3",
-            "alias_normalized": "3.0.3.0",
+            "alias": "3.0.5",
+            "alias_normalized": "3.0.5.0",
             "version": "dev-feature/cms",
             "package": "project-a/catalog-package"
         },
@@ -3743,12 +3743,6 @@
             "package": "project-a/dwh-package"
         },
         {
-            "alias": "3.1.0",
-            "alias_normalized": "3.1.0.0",
-            "version": "dev-feature/twig",
-            "package": "project-a/library-package"
-        },
-        {
             "alias": "1.2",
             "alias_normalized": "1.2.0.0",
             "version": "9999999-dev",
@@ -3760,7 +3754,6 @@
         "project-a/catalog-package": 20,
         "project-a/content-package": 20,
         "project-a/dwh-package": 20,
-        "project-a/library-package": 20,
         "silex/silex": 20,
         "zendframework/zendframework": 20,
         "fabpot/php-cs-fixer": 20
