@@ -3,7 +3,7 @@
         "This file locks the dependencies of your project to a known state",
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file"
     ],
-    "hash": "2dd1136e6d61b05004f02e3dba170b47",
+    "hash": "8463f1c6ad0992b012a6243331cb0cbf",
     "packages": [
         {
             "name": "cmutter/google-adwords-api",
@@ -555,12 +555,12 @@
             "version": "v2.1",
             "source": {
                 "type": "git",
-                "url": "https://github.com/gavroche/php-browser.git",
+                "url": "https://github.com/gabrielbull/php-browser.git",
                 "reference": "aed2949e5ca245569380a1afdc99be5f152e3dc6"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/gavroche/php-browser/zipball/aed2949e5ca245569380a1afdc99be5f152e3dc6",
+                "url": "https://api.github.com/repos/gabrielbull/php-browser/zipball/aed2949e5ca245569380a1afdc99be5f152e3dc6",
                 "reference": "aed2949e5ca245569380a1afdc99be5f152e3dc6",
                 "shasum": ""
             },
@@ -1014,11 +1014,11 @@
         },
         {
             "name": "project-a/catalog-package",
-            "version": "3.0.2",
+            "version": "3.0.3",
             "source": {
                 "type": "git",
                 "url": "git@codebasehq.com:project-a/core/catalog.git",
-                "reference": "bbc29a0289e974f3108245a36c5e4f8d417012d8"
+                "reference": "4d6ed6327575a44012d2ecc63d97d57ed61db454"
             },
             "require": {
                 "php": ">=5.4.0",
@@ -1055,7 +1055,7 @@
                 "Price",
                 "Stock"
             ],
-            "time": "2014-02-18 08:40:53"
+            "time": "2014-02-19 16:48:17"
         },
         {
             "name": "project-a/checkout-package",
@@ -1145,41 +1145,6 @@
                 "console"
             ],
             "time": "2014-01-29 12:06:15"
-        },
-        {
-            "name": "project-a/content-package",
-            "version": "dev-master",
-            "source": {
-                "type": "git",
-                "url": "git@codebasehq.com:project-a/core/content.git",
-                "reference": "f2a7827ea1d16af154e609ecb8aa33565cf1f9bd"
-            },
-            "require": {
-                "php": ">=5.4.0",
-                "project-a/frontend-package": "~3.0",
-                "project-a/library-package": "~3.0"
-            },
-            "type": "library",
-            "autoload": {
-                "psr-0": {
-                    "ProjectA": "src/",
-                    "Behat": "tests/",
-                    "PhpUnit": "tests/"
-                }
-            },
-            "authors": [
-                {
-                    "name": "René Klatt",
-                    "email": "rene.klatt@project-a.com",
-                    "homepage": "http://www.project-a.com",
-                    "role": "Senior Developer"
-                }
-            ],
-            "description": "Content Package",
-            "keywords": [
-                "Content Package"
-            ],
-            "time": "2014-02-13 09:37:09"
         },
         {
             "name": "project-a/crm-package",
@@ -1362,11 +1327,11 @@
         },
         {
             "name": "project-a/infrastructure-package",
-            "version": "dev-master",
+            "version": "3.0.2",
             "source": {
                 "type": "git",
                 "url": "git@codebasehq.com:project-a/core/infrastructure.git",
-                "reference": "950fc8af7ae7a97b0a59632dc511a13aaebde55a"
+                "reference": "be49365a885bc1bcb51f551ce8b4eaf3e1fb208d"
             },
             "require": {
                 "php": ">=5.4.0",
@@ -1395,7 +1360,7 @@
             "keywords": [
                 "infrastructure"
             ],
-            "time": "2014-02-18 11:26:21"
+            "time": "2014-02-14 13:44:21"
         },
         {
             "name": "project-a/kendo-package",
@@ -1418,11 +1383,11 @@
         },
         {
             "name": "project-a/library-package",
-            "version": "dev-feature/twig",
+            "version": "3.1.0",
             "source": {
                 "type": "git",
                 "url": "git@codebasehq.com:project-a/core/library-2.git",
-                "reference": "e4a023dbb273aa57e7610efe3d585052fa310a13"
+                "reference": "54a04d276fb498a3a126d58232febcd50878ffa2"
             },
             "require": {
                 "digital-canvas/zend-framework": ">=1.12.2",
@@ -1459,7 +1424,7 @@
                 }
             ],
             "description": "Project-A Library",
-            "time": "2014-02-12 15:51:40"
+            "time": "2014-02-20 11:30:24"
         },
         {
             "name": "project-a/lumberjack-package",
@@ -2405,12 +2370,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/zendframework/zf2.git",
-                "reference": "0709682aa0595ad93a7435d0004e8d43dc393f79"
+                "reference": "37ab92a774d2f0eb4d322d4984be476823691bac"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/zendframework/zf2/zipball/0709682aa0595ad93a7435d0004e8d43dc393f79",
-                "reference": "0709682aa0595ad93a7435d0004e8d43dc393f79",
+                "url": "https://api.github.com/repos/zendframework/zf2/zipball/37ab92a774d2f0eb4d322d4984be476823691bac",
+                "reference": "37ab92a774d2f0eb4d322d4984be476823691bac",
                 "shasum": ""
             },
             "require": {
@@ -2515,7 +2480,7 @@
                 "framework",
                 "zf2"
             ],
-            "time": "2014-02-18 20:01:32"
+            "time": "2014-02-20 12:36:27"
         },
         {
             "name": "zendframework/zendpdf",
@@ -2730,17 +2695,17 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/Behat/Mink.git",
-                "reference": "v1.5.0"
+                "reference": "0769e6d9726c140a54dbf827a438c0f9912749fe"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Behat/Mink/zipball/v1.5.0",
-                "reference": "v1.5.0",
+                "url": "https://api.github.com/repos/Behat/Mink/zipball/0769e6d9726c140a54dbf827a438c0f9912749fe",
+                "reference": "0769e6d9726c140a54dbf827a438c0f9912749fe",
                 "shasum": ""
             },
             "require": {
                 "php": ">=5.3.1",
-                "symfony/css-selector": ">=2.0,<3.0"
+                "symfony/css-selector": "~2.0"
             },
             "suggest": {
                 "behat/mink-browserkit-driver": "extremely fast headless driver for Symfony\\Kernel-based apps (Sf2, Silex)",
@@ -2945,19 +2910,19 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/Behat/MinkSeleniumDriver.git",
-                "reference": "v1.1.0"
+                "reference": "a782b031cb8a94b449b9ccecdcd0e79206bbc882"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Behat/MinkSeleniumDriver/zipball/v1.1.0",
-                "reference": "v1.1.0",
+                "url": "https://api.github.com/repos/Behat/MinkSeleniumDriver/zipball/a782b031cb8a94b449b9ccecdcd0e79206bbc882",
+                "reference": "a782b031cb8a94b449b9ccecdcd0e79206bbc882",
                 "shasum": ""
             },
             "require": {
-                "alexandresalome/php-selenium": ">=1.0.1,<1.1",
-                "behat/mink": ">=1.5,<1.6",
+                "alexandresalome/php-selenium": "~1.0.1",
+                "behat/mink": "~1.5.0",
                 "php": ">=5.3.1",
-                "symfony/dom-crawler": ">=2.0,<3.0"
+                "symfony/dom-crawler": "~2.0"
             },
             "type": "mink-driver",
             "extra": {
@@ -2998,17 +2963,17 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/Behat/MinkSelenium2Driver.git",
-                "reference": "v1.1.1"
+                "reference": "bcf1b537de37db6db0822d9e7bd97e600fd7a476"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Behat/MinkSelenium2Driver/zipball/v1.1.1",
-                "reference": "v1.1.1",
+                "url": "https://api.github.com/repos/Behat/MinkSelenium2Driver/zipball/bcf1b537de37db6db0822d9e7bd97e600fd7a476",
+                "reference": "bcf1b537de37db6db0822d9e7bd97e600fd7a476",
                 "shasum": ""
             },
             "require": {
-                "behat/mink": ">=1.5,<1.6",
-                "instaclick/php-webdriver": ">=1.0.12.0,<1.1",
+                "behat/mink": "~1.5.0",
+                "instaclick/php-webdriver": "~1.0.12",
                 "php": ">=5.3.1"
             },
             "type": "mink-driver",
@@ -3723,28 +3688,10 @@
     ],
     "aliases": [
         {
-            "alias": "2.0.0",
-            "alias_normalized": "2.0.0.0",
-            "version": "9999999-dev",
-            "package": "project-a/content-package"
-        },
-        {
             "alias": "3.0.0",
             "alias_normalized": "3.0.0.0",
             "version": "9999999-dev",
             "package": "project-a/dwh-package"
-        },
-        {
-            "alias": "3.0.2",
-            "alias_normalized": "3.0.2.0",
-            "version": "9999999-dev",
-            "package": "project-a/infrastructure-package"
-        },
-        {
-            "alias": "3.1.0",
-            "alias_normalized": "3.1.0.0",
-            "version": "dev-feature/twig",
-            "package": "project-a/library-package"
         },
         {
             "alias": "1.2",
@@ -3755,10 +3702,7 @@
     ],
     "minimum-stability": "stable",
     "stability-flags": {
-        "project-a/content-package": 20,
         "project-a/dwh-package": 20,
-        "project-a/infrastructure-package": 20,
-        "project-a/library-package": 20,
         "silex/silex": 20,
         "zendframework/zendframework": 20,
         "fabpot/php-cs-fixer": 20
