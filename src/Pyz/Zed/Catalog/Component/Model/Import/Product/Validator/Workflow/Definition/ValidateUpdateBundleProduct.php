@@ -1,11 +1,10 @@
 <?php
-
 namespace Pyz\Zed\Catalog\Component\Model\Import\Product\Validator\Workflow\Definition;
 
-use ProjectA\Zed\Catalog\Component\Model\Import\Product\Validator\Workflow\Definition\AbstractDefinition;
 use ProjectA\Zed\Library\Workflow\TaskInterface;
+use ProjectA\Zed\Catalog\Component\Model\Import\Product\Validator\Workflow\Definition\ValidateUpdateSingleProduct as CoreValidateUpdateSingleProduct;
 
-class ValidateUpdateSimpleProduct extends AbstractDefinition
+class ValidateUpdateBundleProduct extends CoreValidateUpdateSingleProduct
 {
     /**
      * @return TaskInterface[]

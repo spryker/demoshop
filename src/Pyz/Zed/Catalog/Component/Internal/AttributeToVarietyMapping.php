@@ -63,6 +63,6 @@ class AttributeToVarietyMapping implements
      */
     public static function getVarietyForAttributeByAttributeSet($attributeName, $attributeSetName)
     {
-        return isset(static::$attributesToVarietyMapping[$attributeSetName][$attributeName]) ? static::$attributesToVarietyMapping[$attributeSetName][$attributeName] : Entity_PacCatalogValueTypePeer::VARIETY_TEXT;
+        return isset(static::$attributesToVarietyMapping[$attributeSetName][$attributeName]) ? static::$attributesToVarietyMapping[$attributeSetName][$attributeName] : \ProjectA_Zed_Catalog_Persistence_PacCatalogValueTypePeer::VARIETY_TEXT;
     }
 }

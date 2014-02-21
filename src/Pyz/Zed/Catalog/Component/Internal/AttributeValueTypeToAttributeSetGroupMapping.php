@@ -35,6 +35,8 @@ class AttributeValueTypeToAttributeSetGroupMapping implements
             null,
             self::CONFIG_ATTRIBUTES,
             self::SIMPLE_ATTRIBUTES,
+            self::BUNDLE_ATTRIBUTES,
+            self::SINGLE_ATTRIBUTES,
             self::KEY_VALUE_EXPORT,
             self::SOLR_FACET,
             self::SOLR_SCORE,

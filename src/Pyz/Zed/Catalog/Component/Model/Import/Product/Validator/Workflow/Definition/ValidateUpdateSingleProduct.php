@@ -13,6 +13,7 @@ class ValidateUpdateSingleProduct extends CoreValidateUpdateSingleProduct
     {
         return [
             $this->factory->createModelImportProductValidatorWorkflowTaskValidateVarietyExistsTask(),
+            $this->factory->createModelImportProductValidatorWorkflowTaskSetAttributeSetToContextTask(),
             $this->factory->createModelImportProductValidatorWorkflowTaskUpdateValidateNoAttributeSetChangeTask(),
             $this->factory->createModelImportProductValidatorWorkflowTaskValidateUnknownFieldsTask(),
             $this->factory->createModelImportProductValidatorWorkflowTaskValidateAttributeOptionsExistTask(),

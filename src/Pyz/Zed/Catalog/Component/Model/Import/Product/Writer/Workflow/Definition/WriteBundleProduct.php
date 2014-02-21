@@ -8,7 +8,7 @@ use ProjectA\Zed\Catalog\Component\Model\Import\Product\FieldnameConstantInterfa
 use ProjectA\Zed\Catalog\Component\Model\Import\Product\Writer\Workflow\Definition\AbstractDefinition;
 use ProjectA\Zed\Library\Workflow\TaskInterface;
 
-class WriteSimpleProduct extends AbstractDefinition implements CatalogFacadeInterface
+class WriteBundleProduct extends AbstractDefinition implements CatalogFacadeInterface
 {
 
     use CatalogFacadeTrait;
@@ -41,7 +41,6 @@ class WriteSimpleProduct extends AbstractDefinition implements CatalogFacadeInte
         if (!$product) {
             $product = $this->createProduct($productData);
         }
-
         return $product;
     }
 
@@ -53,17 +52,24 @@ class WriteSimpleProduct extends AbstractDefinition implements CatalogFacadeInte
     protected function createProduct(array $productData)
     {
         $fieldNames = $this->factory->createSettings()->getProductImportFieldNames();
-        $skuField = $fieldNames[FieldnameConstantInterface::SKU];
-        $attributeSetField = $fieldNames[FieldnameConstantInterface::ATTRIBUTE_SET];
-        $statusField = $fieldNames[FieldnameConstantInterface::STATUS];
 
-        $configProduct = $this->facadeCatalog->getConfigBySku($productData['refconfigsku'], [], false);
-        return $this->facadeCatalog->createNewSimpleProduct(
-            $productData[$skuField],
-            $productData[$attributeSetField],
-            $configProduct,
-            [],
-            $productData[$statusField]
+        $skuField = $fieldNames[FieldnameConstantInterface::SKU];
+        $sku = $productData[$skuField];
+
+        $attributeSetField = $fieldNames[FieldnameConstantInterface::ATTRIBUTE_SET];
+        $attributeSetName = $productData[$attributeSetField];
+        $attributeSet = $this->getAttributeSet($attributeSetName);
+
+        $bundleTypeField = $fieldNames[FieldnameConstantInterface::BUNDLE_TYPE];
+        $bundleType = $productData[$bundleTypeField];
+
+        $bundleProducts = $this->getBundleProducts(explode('|', $productData['refbundleskus']));
+
+        return $this->facadeCatalog->createNewBundleProduct(
+            $sku,
+            $bundleType,
+            $attributeSet,
+            $bundleProducts
         );
     }
 
@@ -76,8 +82,34 @@ class WriteSimpleProduct extends AbstractDefinition implements CatalogFacadeInte
     {
         $fieldNames = $this->factory->createSettings()->getProductImportFieldNames();
         $skuField = $fieldNames[FieldnameConstantInterface::SKU];
-        $product = $this->facadeCatalog->getSimpleBySku($productData[$skuField], [], false);
+        $product = $this->facadeCatalog->getBundleBySku($productData[$skuField], [], false);
 
         return $product;
     }
+
+    /**
+     * @param array $skus
+     * @return \ArrayObject
+     */
+    protected function getBundleProducts(array $skus)
+    {
+        $bundleProducts = [];
+        foreach($skus as $sku) {
+            $bundleProducts[] = $this->facadeCatalog->findProductEntityBySku($sku, [], false);
+        }
+        return new \ArrayObject($bundleProducts);
+    }
+
+    /**
+     * @param $attributeSetName
+     * @return \ProjectA_Zed_Catalog_Persistence_PacCatalogAttributeSet
+     */
+    protected function getAttributeSet($attributeSetName)
+    {
+        $attributeSet = \ProjectA_Zed_Catalog_Persistence_PacCatalogAttributeSetQuery::create()
+            ->filterByName($attributeSetName)
+            ->findOne();
+        return $attributeSet;
+    }
+
 }

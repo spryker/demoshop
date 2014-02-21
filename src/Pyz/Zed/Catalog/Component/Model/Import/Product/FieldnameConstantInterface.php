@@ -6,5 +6,5 @@ use ProjectA\Zed\Catalog\Component\Model\Import\Product\FieldnameConstantInterfa
 
 interface FieldnameConstantInterface extends CoreFieldnameConstantInterface
 {
-    const BRAND = 'brand';
+
 }

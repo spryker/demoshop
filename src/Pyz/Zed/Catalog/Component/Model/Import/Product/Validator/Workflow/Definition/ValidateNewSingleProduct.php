@@ -14,6 +14,7 @@ class ValidateNewSingleProduct extends CoreValidateNewSingleProduct
     {
         return [
             $this->factory->createModelImportProductValidatorWorkflowTaskInsertValidateBaseFieldsTask(),
+            $this->factory->createModelImportProductValidatorWorkflowTaskSetAttributeSetToContextTask(),
             $this->factory->createModelImportProductValidatorWorkflowTaskValidateAttributeSetExistsTask(),
             $this->factory->createModelImportProductValidatorWorkflowTaskValidateVarietyExistsTask(),
             $this->factory->createModelImportProductValidatorWorkflowTaskInsertValidateMandatoryGroupTask(),
@@ -21,7 +22,6 @@ class ValidateNewSingleProduct extends CoreValidateNewSingleProduct
             $this->factory->createModelImportProductValidatorWorkflowTaskValidateAttributeOptionsExistTask(),
             $this->factory->createModelImportProductValidatorWorkflowTaskValidateCategoriesExistTask(),
             $this->factory->createModelImportProductValidatorWorkflowTaskValidateProductOptionsExistTask(),
-            $this->factory->createModelImportProductValidatorWorkflowTaskValidateProductBrandExistTask(),
         ];
     }
 }

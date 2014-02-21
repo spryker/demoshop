@@ -13,6 +13,7 @@ class ValidateUpdateConfigProduct extends AbstractDefinition
     {
         return [
             $this->factory->createModelImportProductValidatorWorkflowTaskValidateVarietyExistsTask(),
+            $this->factory->createModelImportProductValidatorWorkflowTaskSetAttributeSetToContextTask(),
             $this->factory->createModelImportProductValidatorWorkflowTaskUpdateValidateNoAttributeSetChangeTask(),
             $this->factory->createModelImportProductValidatorWorkflowTaskValidateUnknownFieldsTask(),
             $this->factory->createModelImportProductValidatorWorkflowTaskValidateAttributeOptionsExistTask(),

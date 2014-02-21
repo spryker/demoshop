@@ -41,7 +41,6 @@ class WriteConfigProduct extends AbstractDefinition implements CatalogFacadeInte
         if (!$product) {
             $product = $this->createProduct($productData);
         }
-
         return $product;
     }
 
