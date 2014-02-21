@@ -3,7 +3,7 @@
         "This file locks the dependencies of your project to a known state",
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file"
     ],
-    "hash": "ed0186fdec2880d9732e9baf955324ab",
+    "hash": "bce5ac14ff9b7d8084fd34b68bbb286e",
     "packages": [
         {
             "name": "cmutter/google-adwords-api",
@@ -1018,7 +1018,7 @@
             "source": {
                 "type": "git",
                 "url": "git@codebasehq.com:project-a/core/catalog.git",
-                "reference": "1c28a8029181cfdc848dc0b4776cc6eff66ad07c"
+                "reference": "8ef057c7335f039adc1d725d0bd9f58a0f198f41"
             },
             "require": {
                 "php": ">=5.4.0",
@@ -1055,7 +1055,7 @@
                 "Price",
                 "Stock"
             ],
-            "time": "2014-02-19 11:18:12"
+            "time": "2014-02-21 15:19:56"
         },
         {
             "name": "project-a/checkout-package",
@@ -1147,47 +1147,12 @@
             "time": "2014-01-29 12:06:15"
         },
         {
-            "name": "project-a/content-package",
-            "version": "dev-master",
-            "source": {
-                "type": "git",
-                "url": "git@codebasehq.com:project-a/core/content.git",
-                "reference": "f2a7827ea1d16af154e609ecb8aa33565cf1f9bd"
-            },
-            "require": {
-                "php": ">=5.4.0",
-                "project-a/frontend-package": "~3.0",
-                "project-a/library-package": "~3.0"
-            },
-            "type": "library",
-            "autoload": {
-                "psr-0": {
-                    "ProjectA": "src/",
-                    "Behat": "tests/",
-                    "PhpUnit": "tests/"
-                }
-            },
-            "authors": [
-                {
-                    "name": "René Klatt",
-                    "email": "rene.klatt@project-a.com",
-                    "homepage": "http://www.project-a.com",
-                    "role": "Senior Developer"
-                }
-            ],
-            "description": "Content Package",
-            "keywords": [
-                "Content Package"
-            ],
-            "time": "2014-02-13 09:37:09"
-        },
-        {
             "name": "project-a/crm-package",
-            "version": "3.0.3",
+            "version": "3.1.0",
             "source": {
                 "type": "git",
                 "url": "git@codebasehq.com:project-a/core/crm.git",
-                "reference": "577b3ded86e77896d5eb8642621b01c4fe31fe34"
+                "reference": "1d0705d8a675d30e1a42ae2286723374013f3ba8"
             },
             "require": {
                 "php": ">=5.4.0",
@@ -1213,7 +1178,7 @@
                 "CRM",
                 "Mail"
             ],
-            "time": "2014-02-14 15:06:45"
+            "time": "2014-02-20 12:56:52"
         },
         {
             "name": "project-a/document-package",
@@ -1362,11 +1327,11 @@
         },
         {
             "name": "project-a/infrastructure-package",
-            "version": "dev-master",
+            "version": "3.0.2",
             "source": {
                 "type": "git",
                 "url": "git@codebasehq.com:project-a/core/infrastructure.git",
-                "reference": "950fc8af7ae7a97b0a59632dc511a13aaebde55a"
+                "reference": "be49365a885bc1bcb51f551ce8b4eaf3e1fb208d"
             },
             "require": {
                 "php": ">=5.4.0",
@@ -1395,7 +1360,7 @@
             "keywords": [
                 "infrastructure"
             ],
-            "time": "2014-02-18 11:26:21"
+            "time": "2014-02-14 13:44:21"
         },
         {
             "name": "project-a/kendo-package",
@@ -1418,11 +1383,11 @@
         },
         {
             "name": "project-a/library-package",
-            "version": "dev-feature/twig",
+            "version": "3.1.0",
             "source": {
                 "type": "git",
                 "url": "git@codebasehq.com:project-a/core/library-2.git",
-                "reference": "e4a023dbb273aa57e7610efe3d585052fa310a13"
+                "reference": "54a04d276fb498a3a126d58232febcd50878ffa2"
             },
             "require": {
                 "digital-canvas/zend-framework": ">=1.12.2",
@@ -1459,7 +1424,7 @@
                 }
             ],
             "description": "Project-A Library",
-            "time": "2014-02-12 15:51:40"
+            "time": "2014-02-20 11:30:24"
         },
         {
             "name": "project-a/lumberjack-package",
@@ -1620,7 +1585,7 @@
             "source": {
                 "type": "git",
                 "url": "git@codebasehq.com:project-a/core/sales.git",
-                "reference": "b795cf8ff8835532b866f27d63c381ebfa624f81"
+                "reference": "0815e8da2c80fb79cea31327a10dc5e9ecf37e42"
             },
             "require": {
                 "php": ">=5.4.0",
@@ -1630,8 +1595,8 @@
                 "project-a/crm-package": "~3.0",
                 "project-a/document-package": "~3.0",
                 "project-a/infrastructure-package": "~3.0",
-                "project-a/library-package": "~3.0",
-                "project-a/payment-package": "~3.1.0"
+                "project-a/library-package": ">=3.0.3,<4",
+                "project-a/payment-package": "~3.1"
             },
             "type": "library",
             "autoload": {
@@ -1653,7 +1618,7 @@
                 "Sales",
                 "Task"
             ],
-            "time": "2014-02-19 11:18:26"
+            "time": "2014-02-21 15:18:26"
         },
         {
             "name": "project-a/silex-routing",
@@ -2405,12 +2370,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/zendframework/zf2.git",
-                "reference": "0709682aa0595ad93a7435d0004e8d43dc393f79"
+                "reference": "8788b0c92a7a00a39fc2a848cf3587da78b4e628"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/zendframework/zf2/zipball/0709682aa0595ad93a7435d0004e8d43dc393f79",
-                "reference": "0709682aa0595ad93a7435d0004e8d43dc393f79",
+                "url": "https://api.github.com/repos/zendframework/zf2/zipball/8788b0c92a7a00a39fc2a848cf3587da78b4e628",
+                "reference": "8788b0c92a7a00a39fc2a848cf3587da78b4e628",
                 "shasum": ""
             },
             "require": {
@@ -2515,7 +2480,7 @@
                 "framework",
                 "zf2"
             ],
-            "time": "2014-02-18 20:01:32"
+            "time": "2014-02-20 14:29:53"
         },
         {
             "name": "zendframework/zendpdf",
@@ -3729,16 +3694,10 @@
             "package": "project-a/cart-package"
         },
         {
-            "alias": "3.0.2",
-            "alias_normalized": "3.0.2.0",
+            "alias": "3.0.5",
+            "alias_normalized": "3.0.5.0",
             "version": "dev-feature/354-basic-bundles-catalog-pgk",
             "package": "project-a/catalog-package"
-        },
-        {
-            "alias": "2.0.0",
-            "alias_normalized": "2.0.0.0",
-            "version": "9999999-dev",
-            "package": "project-a/content-package"
         },
         {
             "alias": "3.0.0",
@@ -3747,20 +3706,8 @@
             "package": "project-a/dwh-package"
         },
         {
-            "alias": "3.0.2",
-            "alias_normalized": "3.0.2.0",
-            "version": "9999999-dev",
-            "package": "project-a/infrastructure-package"
-        },
-        {
-            "alias": "3.1.0",
-            "alias_normalized": "3.1.0.0",
-            "version": "dev-feature/twig",
-            "package": "project-a/library-package"
-        },
-        {
-            "alias": "3.1.1",
-            "alias_normalized": "3.1.1.0",
+            "alias": "3.2.0",
+            "alias_normalized": "3.2.0.0",
             "version": "dev-feature/354-basic-bundles-sales-pgk",
             "package": "project-a/sales-package"
         },
@@ -3775,10 +3722,7 @@
     "stability-flags": {
         "project-a/cart-package": 20,
         "project-a/catalog-package": 20,
-        "project-a/content-package": 20,
         "project-a/dwh-package": 20,
-        "project-a/infrastructure-package": 20,
-        "project-a/library-package": 20,
         "project-a/sales-package": 20,
         "silex/silex": 20,
         "zendframework/zendframework": 20,

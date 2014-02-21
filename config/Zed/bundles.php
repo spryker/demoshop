@@ -31,7 +31,6 @@ return [
         'Cart' => $schema,
         'Catalog' => $schemaAndNavigation,
         'Category' => $schemaAndNavigation,
-        'Cms' => $schemaAndNavigation,
         'Customer' => $schemaAndNavigation,
         'Dwh' => $schemaAndNavigation,
         'Document' => $schema,
