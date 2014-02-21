@@ -13,6 +13,8 @@ class ValidateUpdateBundleProduct extends CoreValidateUpdateSingleProduct
     {
         return [
             $this->factory->createModelImportProductValidatorWorkflowTaskValidateVarietyExistsTask(),
+            $this->factory->createModelImportProductValidatorWorkflowTaskValidateBundleProductReferenceExistsTask('refbundleskus'),
+            $this->factory->createModelImportProductValidatorWorkflowTaskValidateBundleTypeTask(),
             $this->factory->createModelImportProductValidatorWorkflowTaskSetAttributeSetToContextTask(),
             $this->factory->createModelImportProductValidatorWorkflowTaskUpdateValidateNoAttributeSetChangeTask(),
             $this->factory->createModelImportProductValidatorWorkflowTaskValidateUnknownFieldsTask(),
