@@ -1,23 +1,28 @@
-<div class="col col50">
-    <div class="pictures">
-        <div class="current">
-            <div class="prev">
-                <hardcoded block>
-                    <span class="glyphicon glyphicon-chevron-left"></span>
-                </hardcoded>
-            </div>
-            <div class="next">
-                <hardcoded block>
-                    <span class="glyphicon glyphicon-chevron-right"></span>
-                </hardcoded>
-            </div>
-            <img src="{{ getFirstProductImagesBySize(product.product_images, 'xxl') }}" alt="" />
+<div class="pictures col col50">
+    <div class="current">
+        <div class="prev">
+            <hardcoded block>
+                <span class="glyphicon glyphicon-chevron-left"></span>
+            </hardcoded>
         </div>
+        <div class="next">
+            <hardcoded block>
+                <span class="glyphicon glyphicon-chevron-right"></span>
+            </hardcoded>
+        </div>
+        {#{% if product.image %}#}
+        {#<img src="{{ product.image }}" alt="" />#}
+        {#{% else %}#}
+        <img src="{{ getFirstProductImagesBySize(product.product_images, 'xxl') }}" alt="" />
+        {#{% endif %}#}
     </div>
+</div>
 
     <br /><br />
 
-    <div class="">
+{#  BUNDLE SUB PRODUCTS
+
+ <div class="">
         {{ 'catalog.product.detail.bundle.products.header'|trans }}:<br /><br />
         {% for subProduct in subProducts %}
             <div class="" style="float:left;border:1px solid #333;margin:2px;padding:4px;">
@@ -28,6 +33,9 @@
         {% endfor %}
     </div>
 </div>
+
+#}
+
 
 <aside class="item col col25">
     <h3>{{ product.name }}</h3>

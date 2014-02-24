@@ -19,13 +19,11 @@ use Generated\Zed\Catalog\Component\Dependency\CatalogFacadeTrait;
  * @property CatalogFacade $facadeCatalog
  */
 class YvesSettings extends ProjectAYvesSettings implements
-    CmsFacadeInterface,
     GlossaryFacadeInterface,
     MiscFacadeInterface,
     CategoryFacadeInterface,
     CatalogFacadeInterface
 {
-    use CmsFacadeTrait;
     use GlossaryFacadeTrait;
     use MiscFacadeTrait;
     use CategoryFacadeTrait;
@@ -49,7 +47,7 @@ class YvesSettings extends ProjectAYvesSettings implements
     public function getKeyValueExporters($exportIdentifier)
     {
         //TODO currently all exporters are activated to test them, remove unneeded later on
-        $result[] = $this->facadeCms->createExporterKeyValueCmsExporter();
+        //$result[] = $this->facadeCms->createExporterKeyValueCmsExporter();
 //        $result[] = $this->facadeCms->createExporterKeyValueRedirectionExporter();
         $result[] = $this->facadeGlossary->createExporterKeyValueGlossaryExporter();
 

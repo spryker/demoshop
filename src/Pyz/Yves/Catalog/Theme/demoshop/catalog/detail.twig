@@ -24,15 +24,7 @@
             </ul>
         </aside>
 
-        <div style="color:red;">
-            {{ product.variety }} {{ product.bundleInfoType }}
-        </div><br /><br />
-
         {% include "@catalog/partials/product-%s.twig" | format(product.variety) | lower  with { 'product' : product, 'subProducts' : subProducts } only %}
-
-        {#  {{ dump(product) }}
-          {{ dump(subProducts) }} #}
-
 
     </section>
 {% endblock %}

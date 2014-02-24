@@ -1018,7 +1018,7 @@
             "source": {
                 "type": "git",
                 "url": "git@codebasehq.com:project-a/core/catalog.git",
-                "reference": "8ef057c7335f039adc1d725d0bd9f58a0f198f41"
+                "reference": "02b23752fbd750d48ba1a9d2a5f267105e714376"
             },
             "require": {
                 "php": ">=5.4.0",
@@ -1055,7 +1055,7 @@
                 "Price",
                 "Stock"
             ],
-            "time": "2014-02-21 15:19:56"
+            "time": "2014-02-24 13:28:04"
         },
         {
             "name": "project-a/checkout-package",
@@ -1585,7 +1585,7 @@
             "source": {
                 "type": "git",
                 "url": "git@codebasehq.com:project-a/core/sales.git",
-                "reference": "0815e8da2c80fb79cea31327a10dc5e9ecf37e42"
+                "reference": "e854c0b3dac9c88990fcfd997bc968f766cd1475"
             },
             "require": {
                 "php": ">=5.4.0",
@@ -1618,7 +1618,7 @@
                 "Sales",
                 "Task"
             ],
-            "time": "2014-02-21 15:18:26"
+            "time": "2014-02-24 13:58:36"
         },
         {
             "name": "project-a/silex-routing",
@@ -1915,12 +1915,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/silexphp/Silex.git",
-                "reference": "b7df67ff364eabec89033b433bbe449ee72301d4"
+                "reference": "235c4950f20f468254b7f7325ed6faad5756a2f7"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/silexphp/Silex/zipball/b7df67ff364eabec89033b433bbe449ee72301d4",
-                "reference": "b7df67ff364eabec89033b433bbe449ee72301d4",
+                "url": "https://api.github.com/repos/silexphp/Silex/zipball/235c4950f20f468254b7f7325ed6faad5756a2f7",
+                "reference": "235c4950f20f468254b7f7325ed6faad5756a2f7",
                 "shasum": ""
             },
             "require": {
@@ -1993,7 +1993,7 @@
             "keywords": [
                 "microframework"
             ],
-            "time": "2014-02-11 09:00:06"
+            "time": "2014-02-22 07:10:18"
         },
         {
             "name": "solarium/solarium",
@@ -2370,12 +2370,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/zendframework/zf2.git",
-                "reference": "8788b0c92a7a00a39fc2a848cf3587da78b4e628"
+                "reference": "9d336dc213d2d65b9ffe2dc85e70195144e06b9f"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/zendframework/zf2/zipball/8788b0c92a7a00a39fc2a848cf3587da78b4e628",
-                "reference": "8788b0c92a7a00a39fc2a848cf3587da78b4e628",
+                "url": "https://api.github.com/repos/zendframework/zf2/zipball/9d336dc213d2d65b9ffe2dc85e70195144e06b9f",
+                "reference": "9d336dc213d2d65b9ffe2dc85e70195144e06b9f",
                 "shasum": ""
             },
             "require": {
@@ -2480,7 +2480,7 @@
                 "framework",
                 "zf2"
             ],
-            "time": "2014-02-20 14:29:53"
+            "time": "2014-02-23 14:10:25"
         },
         {
             "name": "zendframework/zendpdf",
