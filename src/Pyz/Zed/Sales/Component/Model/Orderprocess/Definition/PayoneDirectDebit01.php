@@ -5,6 +5,7 @@ namespace Pyz\Zed\Sales\Component\Model\Orderprocess\Definition;
 use Generated\Zed\Payone\Component\Dependency\PayoneFacadeInterface;
 use Generated\Zed\Payone\Component\Dependency\PayoneFacadeTrait;
 use Pyz\Zed\Sales\Component\ConstantsInterface\Orderprocess;
+use ProjectA\Zed\Payone\Component\Model\Zed\StateMachine\StateMachineConstants as PayoneStateMachineConstants;
 
 /**
  * @package Pyz\Zed\Sales\Component\Model\Orderprocess\Definition
@@ -13,7 +14,8 @@ use Pyz\Zed\Sales\Component\ConstantsInterface\Orderprocess;
  */
 class PayoneDirectDebit01 extends \ProjectA_Zed_Sales_Component_Model_Orderprocess_Definition_Abstract implements
     Orderprocess,
-    PayoneFacadeInterface
+    PayoneFacadeInterface,
+    PayoneStateMachineConstants
 {
 
     use PayoneFacadeTrait;
@@ -48,8 +50,10 @@ class PayoneDirectDebit01 extends \ProjectA_Zed_Sales_Component_Model_Orderproce
     {
         $this->setup->addDefinition($this->factory->createModelOrderprocessDefinitionSubprocessNewOrder());
         $this->setup->addDefinition($this->factory->createModelOrderprocessDefinitionSubprocessPayoneDirectDebitPayone());
-        //$this->setup->addDefinition($this->factory->createModelOrderprocessDefinitionSubProcessClosed());
-        //$this->setup->addDefinition($this->factory->createModelOrderprocessDefinitionSubprocessTest());
+        $this->setup->addDefinition($this->factory->createModelOrderprocessDefinitionSubprocessInvoiceCreation());
+        $this->setup->addDefinition($this->factory->createModelOrderprocessDefinitionSubprocessFulfillment());
+        $this->setup->addDefinition($this->factory->createModelOrderprocessDefinitionSubProcessCompleted());
+        $this->setup->addDefinition($this->factory->createModelOrderprocessDefinitionSubprocessPayoneReturnDebitNotePayone());
     }
 
     protected function addCommands()
@@ -78,8 +82,10 @@ class PayoneDirectDebit01 extends \ProjectA_Zed_Sales_Component_Model_Orderproce
     protected function addSubProcessConnections()
     {
         $this->setup->addTransition(self::STATE_NEW, self::STATE_PAYONE_INIT_PAYMENT, self::EVENT_ON_ENTER);
-        //$this->setup->addTransition(self::STATE_PAYONE_PAYMENT_AUTHORIZED, self::STATE_CLOSED, self::EVENT_ON_ENTER);
-        //$this->setup->addTransitionManual(self::STATE_CLOSED, self::STATE_DEMO_A, self::EVENT_DEMO_START_TEST);
+        $this->setup->addTransition(self::STATE_PAYONE_PAID, self::STATE_READY_FOR_INVOICE_CREATION, null, []);
+        $this->setup->addTransitionManual(self::STATE_INVOICE_CREATED, self::STATE_INIT_FULFILLMENT_PROCESS, null, []);
+        $this->setup->addTransitionManual(self::STATE_FULFILLED, self::STATE_COMPLETED_BUT_REVERSIBLE, null, []);
+        $this->setup->addTransitionManual(self::STATE_COMPLETED_BUT_REVERSIBLE, self::STATE_PAYONE_INIT_CANCELLATION, PayoneStateMachineConstants::EVENT_PAYONE_TRANSACTION_STATUS_CANCELATION_RECEIVED);
     }
 
     protected function setStatesMetaInfo(array $states, $metaInfoName, $metaInfoValue)

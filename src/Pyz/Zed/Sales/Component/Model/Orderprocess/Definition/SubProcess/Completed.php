@@ -1,6 +1,6 @@
 <?php
 
-namespace Pyz\Zed\Sales\Component\Model\Orderprocess\Definition\SubProcess;
+namespace Pyz\Zed\Sales\Component\Model\Orderprocess\Definition\Subprocess;
 
 use Pyz\Zed\Sales\Component\ConstantsInterface\Orderprocess;
 
@@ -8,14 +8,14 @@ use Pyz\Zed\Sales\Component\ConstantsInterface\Orderprocess;
  * @property \Generated\Zed\Sales\Component\SalesFactory $factory
  * @property \ProjectA_Zed_Sales_Component_Model_Orderprocess_StateMachine_Setup $setup
  */
-class Closed extends \ProjectA_Zed_Sales_Component_Model_Orderprocess_Definition_Abstract implements
+class Completed extends \ProjectA_Zed_Sales_Component_Model_Orderprocess_Definition_Abstract implements
     Orderprocess
 {
 
     /**
      * @param string $processName
      */
-    public function __construct($processName = 'Closed Subprocess')
+    public function __construct($processName = 'Completed Subprocess')
     {
         parent::__construct($processName);
     }
@@ -31,6 +31,7 @@ class Closed extends \ProjectA_Zed_Sales_Component_Model_Orderprocess_Definition
 
     protected function addTransitions()
     {
+        $this->setup->addTransition(self::STATE_COMPLETED_BUT_REVERSIBLE, self::STATE_FINALLY_COMPLETED, null, 'timeout 20 days');
     }
 
     protected function addCommands()
@@ -44,7 +45,8 @@ class Closed extends \ProjectA_Zed_Sales_Component_Model_Orderprocess_Definition
     protected function addMetaInfo()
     {
         $states =[
-            self::STATE_CLOSED,
+            self::STATE_COMPLETED_BUT_REVERSIBLE,
+            self::STATE_FINALLY_COMPLETED,
         ];
 
         foreach ($states as $state) {

@@ -1,6 +1,6 @@
 <?php
 
-namespace Pyz\Zed\Sales\Component\Model\Orderprocess\Definition\SubProcess\Payone;
+namespace Pyz\Zed\Sales\Component\Model\Orderprocess\Definition\Subprocess\Payone;
 
 use Generated\Zed\Payone\Component\Dependency\PayoneFacadeInterface;
 use Generated\Zed\Payone\Component\Dependency\PayoneFacadeTrait;

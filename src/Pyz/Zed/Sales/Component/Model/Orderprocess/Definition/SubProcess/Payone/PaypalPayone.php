@@ -1,6 +1,6 @@
 <?php
 
-namespace Pyz\Zed\Sales\Component\Model\Orderprocess\Definition\SubProcess\Payone;
+namespace Pyz\Zed\Sales\Component\Model\Orderprocess\Definition\Subprocess\Payone;
 
 use Pyz\Zed\Sales\Component\ConstantsInterface\Orderprocess;
 use Generated\Zed\Payone\Component\Dependency\PayoneFacadeInterface;

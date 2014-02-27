@@ -9,7 +9,7 @@ use Pyz\Zed\Sales\Component\ConstantsInterface\Orderprocess;
 
 /**
  * Class Capture
- * @package Mig\Zed\Sales\Component\Model\Orderprocess\Definition\SubProcess
+ * @package Mig\Zed\Sales\Component\Model\Orderprocess\Definition\Subprocess
  * @property \Generated\Zed\Sales\Component\SalesFactory $factory
  * @property \ProjectA_Zed_Sales_Component_Model_Orderprocess_StateMachine_Setup $setup
  */

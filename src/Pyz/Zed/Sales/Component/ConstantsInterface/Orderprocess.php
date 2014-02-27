@@ -15,6 +15,8 @@ interface Orderprocess
     // --- GENERAL States
 
     const STATE_INVALID = 'invalid';
+    const STATE_COMPLETED_BUT_REVERSIBLE = 'completed but reversible';
+    const STATE_FINALLY_COMPLETED = 'finally completed';
 
     // --- GENERAL Flags
 
@@ -96,10 +98,6 @@ interface Orderprocess
 
     const STATE_PAYONE_WAITING_FOR_RECEIPT_OF_PAYMENT = 'waiting for receipt of payment (payone)';
 
-    // --- PAYONE DUNNING
-
-    const STATE_PAYONE_INIT_DUNNING = 'init dunning (payone)';
-
 
 
     /************************************************************************************************
@@ -115,13 +113,21 @@ interface Orderprocess
 
 
     /************************************************************************************************
-     *     INVOICE CREATION
+     *     FULFILLMENT
      ************************************************************************************************/
 
     const STATE_INIT_FULFILLMENT_PROCESS = 'init fulfillment process';
     const STATE_FULFILLED = 'fulfilled';
 
     const EVENT_START_FULFILLMENT_EXPORT = 'start fulfillment export';
+
+
+
+    /************************************************************************************************
+     *     FULFILLMENT
+     ************************************************************************************************/
+
+    const STATE_INIT_DUNNING = 'init dunning';
 
 
 

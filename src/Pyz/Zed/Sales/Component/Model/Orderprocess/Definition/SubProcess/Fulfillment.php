@@ -1,6 +1,6 @@
 <?php
 
-namespace Pyz\Zed\Sales\Component\Model\Orderprocess\Definition\SubProcess;
+namespace Pyz\Zed\Sales\Component\Model\Orderprocess\Definition\Subprocess;
 
 use Pyz\Zed\Sales\Component\ConstantsInterface\Orderprocess;
 
@@ -31,7 +31,7 @@ class Fulfillment extends \ProjectA_Zed_Sales_Component_Model_Orderprocess_Defin
 
     protected function addTransitions()
     {
-        $this->setup->addTransition(self::STATE_INIT_FULFILLMENT_PROCESS, self::STATE_FULFILLED, self::EVENT_START_FULFILLMENT_EXPORT);
+        $this->setup->addTransitionManual(self::STATE_INIT_FULFILLMENT_PROCESS, self::STATE_FULFILLED, self::EVENT_START_FULFILLMENT_EXPORT);
     }
 
     protected function addCommands()

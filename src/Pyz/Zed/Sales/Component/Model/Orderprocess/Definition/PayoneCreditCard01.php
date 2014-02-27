@@ -50,6 +50,7 @@ class PayoneCreditCard01 extends \ProjectA_Zed_Sales_Component_Model_Orderproces
         $this->setup->addDefinition($this->factory->createModelOrderprocessDefinitionSubprocessPayoneCreditCardPseudoPayone());
         $this->setup->addDefinition($this->factory->createModelOrderprocessDefinitionSubprocessInvoiceCreation());
         $this->setup->addDefinition($this->factory->createModelOrderprocessDefinitionSubprocessFulfillment());
+        $this->setup->addDefinition($this->factory->createModelOrderprocessDefinitionSubprocessCompleted());
     }
 
     protected function addCommands()
@@ -80,6 +81,7 @@ class PayoneCreditCard01 extends \ProjectA_Zed_Sales_Component_Model_Orderproces
         $this->setup->addTransition(self::STATE_NEW, self::STATE_PAYONE_INIT_PAYMENT, self::EVENT_ON_ENTER);
         $this->setup->addTransition(self::STATE_PAYONE_PAID, self::STATE_READY_FOR_INVOICE_CREATION, null, []);
         $this->setup->addTransitionManual(self::STATE_INVOICE_CREATED, self::STATE_INIT_FULFILLMENT_PROCESS, null, []);
+        $this->setup->addTransitionManual(self::STATE_FULFILLED, self::STATE_COMPLETED_BUT_REVERSIBLE, null, []);
     }
 
     protected function setStatesMetaInfo(array $states, $metaInfoName, $metaInfoValue)
