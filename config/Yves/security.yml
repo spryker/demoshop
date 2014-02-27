@@ -6,7 +6,7 @@ settings:
     form:
       login_path: '/login'
       check_path: '/login_check'
-      username_parameter: 'customerLogin[username]'
+      username_parameter: 'customerLogin[email]'
       password_parameter: 'customerLogin[password]'
       csrf_parameter: 'customerLogin[_token]'
       csrf_provider: form.csrf_provider
