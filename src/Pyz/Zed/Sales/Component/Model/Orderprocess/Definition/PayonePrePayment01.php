@@ -7,12 +7,11 @@ use Generated\Zed\Payone\Component\Dependency\PayoneFacadeTrait;
 use Pyz\Zed\Sales\Component\ConstantsInterface\Orderprocess;
 
 /**
- * Class CreditCard
  * @package Pyz\Zed\Sales\Component\Model\Orderprocess\Definition
  * @property \Generated\Zed\Sales\Component\SalesFactory $factory
  * @property \ProjectA_Zed_Sales_Component_Model_Orderprocess_StateMachine_Setup $setup
  */
-class PayoneSofortUeberweisung extends \ProjectA_Zed_Sales_Component_Model_Orderprocess_Definition_Abstract implements
+class PayonePrePayment01 extends \ProjectA_Zed_Sales_Component_Model_Orderprocess_Definition_Abstract implements
     Orderprocess,
     PayoneFacadeInterface
 {
@@ -22,7 +21,7 @@ class PayoneSofortUeberweisung extends \ProjectA_Zed_Sales_Component_Model_Order
     /**
      * @param string $processName
      */
-    public function __construct($processName = self::ORDER_PROCESS_PAYONE_SOFORT_UEBERWEISUNG)
+    public function __construct($processName = self::ORDER_PROCESS_PAYONE_PRE_PAYMENT_01)
     {
         parent::__construct($processName);
     }
@@ -47,10 +46,11 @@ class PayoneSofortUeberweisung extends \ProjectA_Zed_Sales_Component_Model_Order
 
     protected function addDefinitions()
     {
-        $this->setup->addDefinition($this->factory->createModelOrderprocessDefinitionSubProcessNewOrder());
-        $this->setup->addDefinition($this->factory->createModelOrderprocessDefinitionSubprocessPayoneSofortUeberweisung());
-        $this->setup->addDefinition($this->factory->createModelOrderprocessDefinitionSubProcessClosed());
-        $this->setup->addDefinition($this->factory->createModelOrderprocessDefinitionSubprocessTest());
+        $this->setup->addDefinition($this->factory->createModelOrderprocessDefinitionSubprocessNewOrder());
+        $this->setup->addDefinition($this->factory->createModelOrderprocessDefinitionSubprocessPayonePrePaymentPayone());
+        $this->setup->addDefinition($this->factory->createModelOrderprocessDefinitionSubprocessPayoneCapturePayone());
+        $this->setup->addDefinition($this->factory->createModelOrderprocessDefinitionSubprocessInvoiceCreation());
+        $this->setup->addDefinition($this->factory->createModelOrderprocessDefinitionSubprocessFulfillment());
     }
 
     protected function addCommands()
@@ -79,8 +79,9 @@ class PayoneSofortUeberweisung extends \ProjectA_Zed_Sales_Component_Model_Order
     protected function addSubProcessConnections()
     {
         $this->setup->addTransition(self::STATE_NEW, self::STATE_PAYONE_INIT_PAYMENT, self::EVENT_ON_ENTER);
-        $this->setup->addTransition(self::STATE_PAYONE_PAYMENT_AUTHORIZED, self::STATE_CLOSED, self::EVENT_ON_ENTER);
-        $this->setup->addTransitionManual(self::STATE_CLOSED, self::STATE_DEMO_A, self::EVENT_DEMO_START_TEST);
+        $this->setup->addTransition(self::STATE_PAYONE_PAID, self::STATE_PAYONE_INIT_CAPTURE_PROCESS , null, []);
+        $this->setup->addTransition(self::STATE_PAYONE_CAPTURED, self::STATE_READY_FOR_INVOICE_CREATION, null, []);
+        $this->setup->addTransitionManual(self::STATE_INVOICE_CREATED, self::STATE_INIT_FULFILLMENT_PROCESS, null, []);
     }
 
     protected function setStatesMetaInfo(array $states, $metaInfoName, $metaInfoValue)

@@ -7,12 +7,11 @@ use Generated\Zed\Payone\Component\Dependency\PayoneFacadeTrait;
 use Pyz\Zed\Sales\Component\ConstantsInterface\Orderprocess;
 
 /**
- * Class CreditCard
  * @package Pyz\Zed\Sales\Component\Model\Orderprocess\Definition
  * @property \Generated\Zed\Sales\Component\SalesFactory $factory
  * @property \ProjectA_Zed_Sales_Component_Model_Orderprocess_StateMachine_Setup $setup
  */
-class PayonePaypal extends \ProjectA_Zed_Sales_Component_Model_Orderprocess_Definition_Abstract implements
+class PayoneSofortUeberweisung01 extends \ProjectA_Zed_Sales_Component_Model_Orderprocess_Definition_Abstract implements
     Orderprocess,
     PayoneFacadeInterface
 {
@@ -22,7 +21,7 @@ class PayonePaypal extends \ProjectA_Zed_Sales_Component_Model_Orderprocess_Defi
     /**
      * @param string $processName
      */
-    public function __construct($processName = self::ORDER_PROCESS_PAYONE_PAYPAL)
+    public function __construct($processName = self::ORDER_PROCESS_PAYONE_SOFORT_UEBERWEISUNG_01)
     {
         parent::__construct($processName);
     }
@@ -47,10 +46,10 @@ class PayonePaypal extends \ProjectA_Zed_Sales_Component_Model_Orderprocess_Defi
 
     protected function addDefinitions()
     {
-        $this->setup->addDefinition($this->factory->createModelOrderprocessDefinitionSubProcessNewOrder());
-        $this->setup->addDefinition($this->factory->createModelOrderprocessDefinitionSubprocessPayonePaypal());
-        $this->setup->addDefinition($this->factory->createModelOrderprocessDefinitionSubProcessClosed());
-        $this->setup->addDefinition($this->factory->createModelOrderprocessDefinitionSubprocessTest());
+        $this->setup->addDefinition($this->factory->createModelOrderprocessDefinitionSubprocessNewOrder());
+        $this->setup->addDefinition($this->factory->createModelOrderprocessDefinitionSubprocessPayoneSofortUeberweisungPayone());
+        //$this->setup->addDefinition($this->factory->createModelOrderprocessDefinitionSubProcessClosed());
+        //$this->setup->addDefinition($this->factory->createModelOrderprocessDefinitionSubprocessTest());
     }
 
     protected function addCommands()
@@ -79,8 +78,8 @@ class PayonePaypal extends \ProjectA_Zed_Sales_Component_Model_Orderprocess_Defi
     protected function addSubProcessConnections()
     {
         $this->setup->addTransition(self::STATE_NEW, self::STATE_PAYONE_INIT_PAYMENT, self::EVENT_ON_ENTER);
-        $this->setup->addTransition(self::STATE_PAYONE_PAYMENT_AUTHORIZED, self::STATE_CLOSED, self::EVENT_ON_ENTER);
-        $this->setup->addTransitionManual(self::STATE_CLOSED, self::STATE_DEMO_A, self::EVENT_DEMO_START_TEST);
+        //$this->setup->addTransition(self::STATE_PAYONE_PAYMENT_AUTHORIZED, self::STATE_CLOSED, self::EVENT_ON_ENTER);
+        //$this->setup->addTransitionManual(self::STATE_CLOSED, self::STATE_DEMO_A, self::EVENT_DEMO_START_TEST);
     }
 
     protected function setStatesMetaInfo(array $states, $metaInfoName, $metaInfoValue)

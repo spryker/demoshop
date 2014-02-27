@@ -21,15 +21,15 @@ class StatemachineFactoryHook implements
     protected function getRules()
     {
         $rules = new \ProjectA_Zed_Library_StateMachine_Transition_Guard_Rule_Collection();
-        $rules->addRule($this->factory->createModelOrderprocessGuardRulePaymentRedirected());
         $rules->addRule($this->factory->createModelOrderprocessGuardRuleIsGrandTotalGreaterThan1000());
         $rules->addRule($this->factory->createModelOrderprocessGuardRuleAreAllItemsInTheFlaggedTestState());
         $rules->addRule($this->facadePayone->createFacadeStateMachine()->getRulePaymentTransactionApproved());
         $rules->addRule($this->facadePayone->createFacadeStateMachine()->getRulePaymentTransactionIsRedirect());
         $rules->addRule($this->facadePayone->createFacadeStateMachine()->getRuleCancellationIsObjective());
         $rules->addRule($this->facadePayone->createFacadeStateMachine()->getRuleCancellationIsReturn());
-
-        $rules->addRule($this->factory->createModelOrderprocessGuardRuleSomethingExists());
+        $rules->addRule($this->facadePayone->createFacadeStateMachine()->getRuleTransactionStatusAppointedExists());
+        $rules->addRule($this->facadePayone->createFacadeStateMachine()->getRuleTransactionStatusPaidExists());
+        $rules->addRule($this->factory->createModelOrderprocessGuardRuleInvoiceCreationIsPossible());
         return $rules;
     }
 

@@ -25,14 +25,11 @@ class Pyz_Zed_Sales_Component_Model_Orderprocess_DefinitionContainer extends \Pr
      */
     public function initDefinitions()
     {
-        $this->addProcessDefinition($this->factory->createModelOrderprocessDefinitionDemo());
-        $this->addProcessDefinition($this->factory->createModelOrderprocessDefinitionPayoneCreditCard());
-        $this->addProcessDefinition($this->factory->createModelOrderprocessDefinitionPayonePaypal());
-        $this->addProcessDefinition($this->factory->createModelOrderprocessDefinitionPayoneDirectDebit());
-        $this->addProcessDefinition($this->factory->createModelOrderprocessDefinitionPayonePrePayment());
-        $this->addProcessDefinition($this->factory->createModelOrderprocessDefinitionPayoneInvoice());
-        $this->addProcessDefinition($this->factory->createModelOrderprocessDefinitionPayoneSofortUeberweisung());
-
-        $this->addProcessDefinition($this->factory->createModelOrderprocessDefinitionExampleProcess());
+        $this->addProcessDefinition($this->factory->createModelOrderprocessDefinitionPayoneCreditCard01());
+        $this->addProcessDefinition($this->factory->createModelOrderprocessDefinitionPayonePaypal01());
+        $this->addProcessDefinition($this->factory->createModelOrderprocessDefinitionPayoneDirectDebit01());
+        $this->addProcessDefinition($this->factory->createModelOrderprocessDefinitionPayonePrePayment01());
+        $this->addProcessDefinition($this->factory->createModelOrderprocessDefinitionPayoneInvoice01());
+        $this->addProcessDefinition($this->factory->createModelOrderprocessDefinitionPayoneSofortUeberweisung01());
     }
 }

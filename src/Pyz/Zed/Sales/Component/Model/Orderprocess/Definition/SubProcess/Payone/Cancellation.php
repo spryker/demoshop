@@ -21,7 +21,7 @@ class Cancellation
     /**
      * @param string $processName
      */
-    public function __construct($processName = 'Payment Cancellation Subprocess (Payone)')
+    public function __construct($processName = 'Payone Cancellation Subprocess')
     {
         parent::__construct($processName);
     }
