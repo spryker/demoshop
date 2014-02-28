@@ -3,13 +3,15 @@ namespace Pyz\Zed\Catalog\Component\Internal;
 
 use ProjectA\Shared\Library\Filter\FilterChain;
 use ProjectA\Shared\Library\Filter\SeparatorToCamelCaseFilter;
+use ProjectA\Zed\Catalog\Component\Model\ProductVarietyConstantInterface;
 use Pyz\Shared\Catalog\Code\ProductAttributeConstantInterface;
 use Pyz\Shared\Catalog\Code\ProductAttributeSetConstantInterface;
 
 class AttributeValueTypeToAttributeSetGroupMapping implements
     \ProjectA\Zed\Catalog\Component\Model\Attribute\GroupConstantInterface,
     ProductAttributeConstantInterface,
-    ProductAttributeSetConstantInterface
+    ProductAttributeSetConstantInterface,
+    ProductVarietyConstantInterface
 {
 
     const FILE_NAME_PREFIX = 'AttributeValueTypeToAttributeSetGroupMapping_';
@@ -19,24 +21,24 @@ class AttributeValueTypeToAttributeSetGroupMapping implements
      * @var array [attributeSetName => [] ]
      */
     public static $valueTypeToAttributeSetGroupMapping = [
-        self::ATTRIBUTESET_PRODUCTS_WITH_ELECTRONICS => [],
-        self::ATTRIBUTESET_PRODUCTS_WITHOUT_ELECTRONICS => [],
+        self::ATTRIBUTESET_PRODUCTS_WITHOUT_ELECTRONICS_CONFIG => [],
+        self::ATTRIBUTESET_PRODUCTS_WITHOUT_ELECTRONICS_SIMPLE => [],
+        self::ATTRIBUTESET_PRODUCTS_WITHOUT_ELECTRONICS_SINGLE => [],
+        self::ATTRIBUTESET_PRODUCTS_WITHOUT_ELECTRONICS_BUNDLE => [],
     ];
 
     public static function getMappings()
     {
         self::generateMappingsFromCsvFiles();
+        //echo '<pre>' . print_r(static::$valueTypeToAttributeSetGroupMapping, true) . '</pre>';die;
         return static::$valueTypeToAttributeSetGroupMapping;
     }
 
-    protected static function generateMappingsFromCsvFiles()
+    protected static function getCsvColumns($attributeSetName)
     {
         $csvColumns = array(
             null,
-            self::CONFIG_ATTRIBUTES,
-            self::SIMPLE_ATTRIBUTES,
-            self::BUNDLE_ATTRIBUTES,
-            self::SINGLE_ATTRIBUTES,
+            self::getAttributeColumnForAttributeSetName($attributeSetName),
             self::KEY_VALUE_EXPORT,
             self::SOLR_FACET,
             self::SOLR_SCORE,
@@ -45,6 +47,34 @@ class AttributeValueTypeToAttributeSetGroupMapping implements
             self::SOLR_SUGGESTION,
             self::MANDATORY_ON_IMPORT
         );
+        return $csvColumns;
+    }
+
+    /**
+     * @param $productVariety
+     * @return string
+     */
+    protected static function getAttributeColumnForAttributeSetName($attributeSetName)
+    {
+        switch($attributeSetName) {
+            case self::ATTRIBUTESET_PRODUCTS_WITHOUT_ELECTRONICS_CONFIG :
+                return self::CONFIG_ATTRIBUTES;
+                break;
+            case self::ATTRIBUTESET_PRODUCTS_WITHOUT_ELECTRONICS_SIMPLE :
+                return self::SIMPLE_ATTRIBUTES;
+                break;
+            case self::ATTRIBUTESET_PRODUCTS_WITHOUT_ELECTRONICS_SINGLE :
+                return self::SINGLE_ATTRIBUTES;
+                break;
+            case self::ATTRIBUTESET_PRODUCTS_WITHOUT_ELECTRONICS_BUNDLE :
+                return self::BUNDLE_ATTRIBUTES;
+                break;
+        }
+    }
+
+
+    protected static function generateMappingsFromCsvFiles()
+    {
 
         foreach (array_keys(static::$valueTypeToAttributeSetGroupMapping) as $attributeSetName) {
 
@@ -56,30 +86,33 @@ class AttributeValueTypeToAttributeSetGroupMapping implements
             });
             $filter->addFilter(new SeparatorToCamelCaseFilter('_', true));
 
-            $fileName = dirname(__FILE__) . DIRECTORY_SEPARATOR . '..' .DIRECTORY_SEPARATOR . 'File' . DIRECTORY_SEPARATOR . self::FILE_NAME_PREFIX . $filter->filter($attributeSetName) . self::FILE_TYPE;
-            if (file_exists($fileName)) {
-                $handle = fopen($fileName, "r");
-                $row = 0;
-                $count = count($csvColumns);
-                while (($data = fgetcsv($handle, 1000, ",")) !== false) {
-                    $row++;
-                    if ($row <= 1) {
-                        continue;
-                    }
+                $csvColumns = self::getCsvColumns($attributeSetName);
+                $fileName = dirname(__FILE__) . DIRECTORY_SEPARATOR . '..' .DIRECTORY_SEPARATOR . 'File' . DIRECTORY_SEPARATOR . self::FILE_NAME_PREFIX . $filter->filter($attributeSetName) . self::FILE_TYPE;
 
-                    $attributeName = constant('self::' . $data[0]);
-                    for ($c=1; $c < $count; $c++) {
-                        if ($data[$c] == 1) {
-                            static::$valueTypeToAttributeSetGroupMapping[$attributeSetName][$attributeName][] = $csvColumns[$c];
+                if (file_exists($fileName)) {
+                    $handle = fopen($fileName, "r");
+                    $row = 0;
+                    $count = count($csvColumns);
+                    while (($data = fgetcsv($handle, 1000, ";")) !== false) {
+                        $row++;
+                        if ($row <= 1) {
+                            continue;
+                        }
+
+                        $attributeName = constant('self::' . $data[0]);
+                        for ($c=1; $c < $count; $c++) {
+                            if ($data[$c] == 1) {
+                                static::$valueTypeToAttributeSetGroupMapping[$attributeSetName][$attributeName][] = $csvColumns[$c];
+                            }
                         }
                     }
-                }
-                fclose($handle);
+                    fclose($handle);
 
-                if ($countAttributes !== $row - 1) {
-                    throw new \ProjectA_Zed_Library_Exception('Attributes missing in ' . self::FILE_NAME_PREFIX . $attributeSetName . self::FILE_TYPE);
+                    if ($countAttributes !== $row - 1) {
+                        throw new \ProjectA_Zed_Library_Exception('Attributes missing in ' . $fileName);
+                    }
                 }
-            }
+
         }
     }
 }

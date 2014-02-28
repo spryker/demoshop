@@ -5,14 +5,14 @@ use ProjectA\Zed\Catalog\Component\Exporter\QueryBuilder\Solr;
 use Pyz\Shared\Catalog\Code\ProductAttributeSetConstantInterface;
 
 /**
- * Class ProductsWithoutElectronics
+ * Class ProductsWithoutElectronicsSingle
  * @package Pyz\Zed\Catalog\Component\Exporter\QueryBuilder\Solr
  */
-class ProductsWithoutElectronics extends Solr implements
+class ProductsWithoutElectronicsSingle extends Solr implements
     ProductAttributeSetConstantInterface
 {
     public function getAttributeSetName()
     {
-        return self::ATTRIBUTESET_PRODUCTS_WITHOUT_ELECTRONICS;
+        return self::ATTRIBUTESET_PRODUCTS_WITHOUT_ELECTRONICS_SINGLE;
     }
 }

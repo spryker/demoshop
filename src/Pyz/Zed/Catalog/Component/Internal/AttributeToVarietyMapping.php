@@ -17,7 +17,36 @@ class AttributeToVarietyMapping implements
 {
     public static $attributesToVarietyMapping = [
 
-        self::ATTRIBUTESET_PRODUCTS_WITHOUT_ELECTRONICS => [
+
+        self::ATTRIBUTESET_PRODUCTS_WITHOUT_ELECTRONICS_CONFIG => [
+            self::ATTRIBUTE_NAME => ValueTypePeer::VARIETY_TEXT,
+            self::ATTRIBUTE_SHORT_DESCRIPTION => ValueTypePeer::VARIETY_TEXT,
+            self::ATTRIBUTE_DESCRIPTION => ValueTypePeer::VARIETY_TEXT,
+            self::ATTRIBUTE_TAX_RATE => ValueTypePeer::VARIETY_OPTIONSINGLE,
+            self::ATTRIBUTE_BRAND => ValueTypePeer::VARIETY_OPTIONSINGLE,
+            self::ATTRIBUTE_MANUFACTURER_DESCRIPTION => ValueTypePeer::VARIETY_TEXT,
+            self::ATTRIBUTE_PAGE_TITLE => ValueTypePeer::VARIETY_TEXT,
+            self::ATTRIBUTE_META_DESCRIPTION => ValueTypePeer::VARIETY_TEXT,
+            self::ATTRIBUTE_META_KEYWORDS => ValueTypePeer::VARIETY_TEXT,
+            self::ATTRIBUTE_URL => ValueTypePeer::VARIETY_TEXT,
+            self::ATTRIBUTE_MATERIAL => ValueTypePeer::VARIETY_OPTIONSINGLE
+        ],
+        self::ATTRIBUTESET_PRODUCTS_WITHOUT_ELECTRONICS_SIMPLE => [
+            self::ATTRIBUTE_NAME => ValueTypePeer::VARIETY_TEXT,
+            self::ATTRIBUTE_SHORT_DESCRIPTION => ValueTypePeer::VARIETY_TEXT,
+            self::ATTRIBUTE_DESCRIPTION => ValueTypePeer::VARIETY_TEXT,
+            self::ATTRIBUTE_TAX_RATE => ValueTypePeer::VARIETY_OPTIONSINGLE,
+            self::ATTRIBUTE_PAGE_TITLE => ValueTypePeer::VARIETY_TEXT,
+            self::ATTRIBUTE_META_DESCRIPTION => ValueTypePeer::VARIETY_TEXT,
+            self::ATTRIBUTE_META_KEYWORDS => ValueTypePeer::VARIETY_TEXT,
+            self::ATTRIBUTE_MANUFACTURER_DESCRIPTION => ValueTypePeer::VARIETY_TEXT,
+            self::ATTRIBUTE_URL => ValueTypePeer::VARIETY_TEXT,
+            self::ATTRIBUTE_COLOR => ValueTypePeer::VARIETY_OPTIONSINGLE,
+            self::ATTRIBUTE_DEPTH => ValueTypePeer::VARIETY_INTEGER,
+            self::ATTRIBUTE_WIDTH => ValueTypePeer::VARIETY_INTEGER,
+            self::ATTRIBUTE_HEIGHT => ValueTypePeer::VARIETY_INTEGER
+        ],
+        self::ATTRIBUTESET_PRODUCTS_WITHOUT_ELECTRONICS_SINGLE => [
             self::ATTRIBUTE_NAME => ValueTypePeer::VARIETY_TEXT,
             self::ATTRIBUTE_SHORT_DESCRIPTION => ValueTypePeer::VARIETY_TEXT,
             self::ATTRIBUTE_DESCRIPTION => ValueTypePeer::VARIETY_TEXT,
@@ -34,7 +63,7 @@ class AttributeToVarietyMapping implements
             self::ATTRIBUTE_HEIGHT => ValueTypePeer::VARIETY_INTEGER,
             self::ATTRIBUTE_MATERIAL => ValueTypePeer::VARIETY_OPTIONSINGLE
         ],
-        self::ATTRIBUTESET_PRODUCTS_WITH_ELECTRONICS => [
+        self::ATTRIBUTESET_PRODUCTS_WITHOUT_ELECTRONICS_BUNDLE => [
             self::ATTRIBUTE_NAME => ValueTypePeer::VARIETY_TEXT,
             self::ATTRIBUTE_SHORT_DESCRIPTION => ValueTypePeer::VARIETY_TEXT,
             self::ATTRIBUTE_DESCRIPTION => ValueTypePeer::VARIETY_TEXT,
@@ -45,15 +74,8 @@ class AttributeToVarietyMapping implements
             self::ATTRIBUTE_META_DESCRIPTION => ValueTypePeer::VARIETY_TEXT,
             self::ATTRIBUTE_META_KEYWORDS => ValueTypePeer::VARIETY_TEXT,
             self::ATTRIBUTE_URL => ValueTypePeer::VARIETY_TEXT,
-            self::ATTRIBUTE_COLOR => ValueTypePeer::VARIETY_OPTIONSINGLE,
-            self::ATTRIBUTE_CABLE_LENGTH => ValueTypePeer::VARIETY_INTEGER,
-            self::ATTRIBUTE_WIDTH => ValueTypePeer::VARIETY_INTEGER,
-            self::ATTRIBUTE_HEIGHT => ValueTypePeer::VARIETY_INTEGER,
-            self::ATTRIBUTE_DEPTH => ValueTypePeer::VARIETY_INTEGER,
-            self::ATTRIBUTE_WATT => ValueTypePeer::VARIETY_INTEGER,
-            self::ATTRIBUTE_SOCKET => ValueTypePeer::VARIETY_OPTIONSINGLE,
             self::ATTRIBUTE_MATERIAL => ValueTypePeer::VARIETY_OPTIONSINGLE
-        ]
+        ],
     ];
 
     /**

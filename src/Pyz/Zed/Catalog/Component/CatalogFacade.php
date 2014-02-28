@@ -7,35 +7,70 @@ namespace Pyz\Zed\Catalog\Component;
  */
 class CatalogFacade extends \ProjectA\Zed\Catalog\Component\CatalogFacade
 {
+
+
     /**
-     * @return \Pyz\Zed\Catalog\Component\Exporter\KeyValue\ProductsWithElectronicsExporter
+     * @return Exporter\KeyValue\ProductsWithoutElectronicsConfigExporter
      */
-    public function createExporterKeyValueProductsWithElectronicsExporter()
+    public function createExporterKeyValueProductsWithoutElectronicsConfigExporter()
     {
-        return $this->factory->createExporterKeyValueProductsWithElectronicsExporter();
+        return $this->factory->createExporterKeyValueProductsWithoutElectronicsConfigExporter();
     }
 
     /**
-     * @return \Pyz\Zed\Catalog\Component\Exporter\KeyValue\ProductsWithoutElectronicsExporter
+     * @return Exporter\KeyValue\ProductsWithoutElectronicsSimpleExporter
      */
-    public function createExporterKeyValueProductsWithoutElectronicsExporter()
+    public function createExporterKeyValueProductsWithoutElectronicsSimpleExporter()
     {
-        return $this->factory->createExporterKeyValueProductsWithoutElectronicsExporter();
+        return $this->factory->createExporterKeyValueProductsWithoutElectronicsSimpleExporter();
     }
 
     /**
-     * @return \Pyz\Zed\Catalog\Component\Exporter\Solr\ProductsWithElectronicsExporter
+     * @return Exporter\KeyValue\ProductsWithoutElectronicsSingleExporter
      */
-    public function createExporterSolrProductsWithElectronicsExporter()
+    public function createExporterKeyValueProductsWithoutElectronicsSingleExporter()
     {
-        return $this->factory->createExporterSolrProductsWithElectronicsExporter();
+        return $this->factory->createExporterKeyValueProductsWithoutElectronicsSingleExporter();
     }
 
     /**
-     * @return \Pyz\Zed\Catalog\Component\Exporter\Solr\ProductsWithoutElectronicsExporter
+     * @return Exporter\KeyValue\ProductsWithoutElectronicsBundleExporter
      */
-    public function createExporterSolrProductsWithoutElectronicsExporter()
+    public function createExporterKeyValueProductsWithoutElectronicsBundleExporter()
     {
-        return $this->factory->createExporterSolrProductsWithoutElectronicsExporter();
+        return $this->factory->createExporterKeyValueProductsWithoutElectronicsBundleExporter();
+    }
+
+
+    /**
+     * @return Exporter\Solr\ProductsWithoutElectronicsConfigExporter
+     */
+    public function createExporterSolrProductsWithoutElectronicsConfigExporter()
+    {
+        return $this->factory->createExporterSolrProductsWithoutElectronicsConfigExporter();
+    }
+
+    /**
+     * @return Exporter\Solr\ProductsWithoutElectronicsSimpleExporter
+     */
+    public function createExporterSolrProductsWithoutElectronicsSimpleExporter()
+    {
+        return $this->factory->createExporterSolrProductsWithoutElectronicsSimpleExporter();
+    }
+
+    /**
+     * @return Exporter\Solr\ProductsWithoutElectronicsSingleExporter
+     */
+    public function createExporterSolrProductsWithoutElectronicsSingleExporter()
+    {
+        return $this->factory->createExporterSolrProductsWithoutElectronicsSingleExporter();
+    }
+
+    /**
+     * @return Exporter\Solr\ProductsWithoutElectronicsBundleExporter
+     */
+    public function createExporterSolrProductsWithoutElectronicsBundleExporter()
+    {
+        return $this->factory->createExporterSolrProductsWithoutElectronicsBundleExporter();
     }
 }

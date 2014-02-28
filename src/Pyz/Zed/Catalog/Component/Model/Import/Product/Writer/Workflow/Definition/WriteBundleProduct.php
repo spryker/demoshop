@@ -63,13 +63,18 @@ class WriteBundleProduct extends AbstractDefinition implements CatalogFacadeInte
         $bundleTypeField = $fieldNames[FieldnameConstantInterface::BUNDLE_TYPE];
         $bundleType = $productData[$bundleTypeField];
 
+        $statusTypeField = $fieldNames[FieldnameConstantInterface::STATUS];
+        $initialStatus = $productData[$statusTypeField];
+
         $bundleProducts = $this->getBundleProducts(explode('|', $productData['refbundleskus']));
 
         return $this->facadeCatalog->createNewBundleProduct(
             $sku,
             $bundleType,
             $attributeSet,
-            $bundleProducts
+            [],
+            $bundleProducts,
+            $initialStatus
         );
     }
 

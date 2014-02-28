@@ -5,14 +5,14 @@ use ProjectA\Zed\Catalog\Component\Exporter\QueryBuilder\KeyValue;
 use Pyz\Shared\Catalog\Code\ProductAttributeSetConstantInterface;
 
 /**
- * Class ProductsWithElectronics
+ * Class ProductsWithoutElectronicsConfig
  * @package Pyz\Zed\Catalog\Component\Exporter\QueryBuilder\KeyValue
  */
-class ProductsWithElectronics extends KeyValue implements
+class ProductsWithoutElectronicsConfig extends KeyValue implements
     ProductAttributeSetConstantInterface
 {
     public function getAttributeSetName()
     {
-        return self::ATTRIBUTESET_PRODUCTS_WITH_ELECTRONICS;
+        return self::ATTRIBUTESET_PRODUCTS_WITHOUT_ELECTRONICS_CONFIG;
     }
 }
