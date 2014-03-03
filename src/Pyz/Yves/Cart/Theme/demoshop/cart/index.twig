@@ -27,10 +27,16 @@
                         <td>
                             <img src="{{ getFirstProductImagesBySize(product.product_images, 'm') }}" alt="" width="20%" />
                             <h3>{{ product.name }}</h3>
-                            <h4>by {{ product.brand }}</h4>
+                            {% if array.brand is defined %}
+                                <h4>by {{ product.brand }}</h4>
+                            {% endif %}
                             <ul class="specs">
-                                <li>{{ product.material }}</li>
-                                <li>{{ product.dimension_in_cm }}</li>
+                                {% if array.material is defined %}
+                                    <li>{{ product.material }}</li>
+                                {% endif %}
+                                {% if array.dimension_in_cm is defined %}
+                                    <li>{{ product.dimension_in_cm }}</li>
+                                {% endif %}
                             </ul>
                             <a href="{{ url('cart/remove', {'sku':cartItem.sku, 'uid':cartItem.uniqueIdentifier}) }}" class="remove">
                                 <span class="glyphicon glyphicon-trash"></span>

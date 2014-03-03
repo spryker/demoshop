@@ -51,7 +51,7 @@
         var productStorage = [];
         {% for subProduct in subProducts %}
             productStorage['{{ subProduct.sku }}'] = { price : '{{ subProduct.price|price }}'};
-            productStorage['{{ subProduct.sku }}']['stock'] = {{ subProduct.stock }};
+            productStorage['{{ subProduct.sku }}']['stock'] = {%  if product.stock %} product.stock {% else %} 0 {% endif %};
         {% endfor %}
         app.configproduct.init(productStorage, 20);
     </script>
