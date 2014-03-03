@@ -1,0 +1,88 @@
+
+<fieldset>
+    <legend>auto-fill payone test data:</legend>
+    <ul>
+        <li>
+            <a href="#" id="auto-fill-credit-card-visa" class="btn">Credit Card (Visa)</a>
+        </li>
+        <li>
+            <a href="#" id="auto-fill-credit-card-mastercard" class="btn">Credit Card (Mastercard)</a>
+        </li>
+        <li>
+            <a href="#" id="auto-fill-credit-card-amex" class="btn">Credit Card (American Express)</a>
+        </li>
+
+        <br />
+
+        <li>
+            <a href="#" id="auto-fill-direct-debit" class="btn">Direct Debit</a>
+        </li>
+        <li>
+            <a href="#" id="auto-fill-direct-debit-objection" class="btn">Direct Debit (Return Debit Note: objection)</a>
+        </li>
+        <li>
+            <a href="#" id="auto-fill-direct-debit-return" class="btn">Direct Debit (Return Debit Note: return)</a>
+        </li>
+    </ul>
+</fieldset>
+
+<br /><br />
+
+<fieldset>
+    <legend>info payone prepayment:</legend>
+    <ul>
+        <li>
+            Use lastname <b>Payer</b> to simulate a regular paid order
+        </li>
+        <li>
+            Use lastname <b>Underpayer</b> to simulate a underpaid order
+        </li>
+        <li>
+            Use lastname <b>Splitpayer</b> to simulate a first underpaid and in a second step paid oder
+        </li>
+    </ul>
+</fieldset>
+
+
+
+<script>
+
+    $('#auto-fill-direct-debit').click(function(e) {
+        e.preventDefault();
+        fillDirectDebitData('Dieter Test', '444444444', '21070024');
+    });
+    $('#auto-fill-direct-debit-objection').click(function(e) {
+        e.preventDefault();
+        fillDirectDebitData('Dieter Test', '111111113', '12030000');
+    });
+    $('#auto-fill-direct-debit-return').click(function(e) {
+        e.preventDefault();
+        fillDirectDebitData('Dieter Test', '111111112', '12030000');
+    });
+
+
+    $('#auto-fill-credit-card-visa').click(function(e) {
+        e.preventDefault();
+        fillCreditCardData('Dieter Test', '4111111111111111', '123');
+    });
+    $('#auto-fill-credit-card-mastercard').click(function(e) {
+        e.preventDefault();
+        fillCreditCardData('Dieter Test', '5500000000000004', '123');
+    });
+    $('#auto-fill-credit-card-amex').click(function(e) {
+        e.preventDefault();
+        fillCreditCardData('Dieter Test', '371449635398431', '123');
+    });
+
+    function fillCreditCardData(name, pan, cvc2) {
+        $('#salesOrder_payment_creditCardHolder').val(name);
+        $('#salesOrder_payment_creditCardPan').val(pan);
+        $('#salesOrder_payment_creditCardCvc2').val(cvc2);
+    }
+
+    function fillDirectDebitData(name, bankAccount, bankCode) {
+        $('#salesOrder_payment_bankAccountHolder').val(name);
+        $('#salesOrder_payment_bankAccount').val(bankAccount);
+        $('#salesOrder_payment_bankCode').val(bankCode);
+    }
+</script>

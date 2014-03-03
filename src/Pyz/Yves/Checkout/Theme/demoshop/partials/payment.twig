@@ -3,4 +3,7 @@
     <div class="row large-12">
         {{ form_widget(form.payment.method, { label : 'checkout.payment.method', attr : { 'data-validation-message' : 'checkout.validation.message.required.payment'|trans } } ) }}
     </div>
+    <div class="row large-12">
+        {% include "@checkout/partials/payment-auto-fill-test-data.twig" %}
+    </div>
 </div>

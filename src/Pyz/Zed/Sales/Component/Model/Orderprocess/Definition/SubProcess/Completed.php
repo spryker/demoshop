@@ -31,7 +31,7 @@ class Completed extends \ProjectA_Zed_Sales_Component_Model_Orderprocess_Definit
 
     protected function addTransitions()
     {
-        $this->setup->addTransition(self::STATE_COMPLETED_BUT_REVERSIBLE, self::STATE_FINALLY_COMPLETED, null, 'timeout 20 days');
+        $this->setup->addTransition(self::STATE_COMPLETED_BUT_REVERSIBLE, self::STATE_FINALLY_COMPLETED, null, 'timeout 2 days');
     }
 
     protected function addCommands()
