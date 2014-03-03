@@ -3,7 +3,7 @@
         "This file locks the dependencies of your project to a known state",
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file"
     ],
-    "hash": "68d3043399f690f72672243f5ad70488",
+    "hash": "74f04f8fc26229a4e3dbf1fabc06a308",
     "packages": [
         {
             "name": "cmutter/google-adwords-api",
@@ -153,7 +153,7 @@
                     "email": "kontakt@beberlei.de"
                 },
                 {
-                    "name": "Johannes Schmitt",
+                    "name": "Johannes M. Schmitt",
                     "email": "schmittjoh@gmail.com",
                     "homepage": "http://jmsyst.com",
                     "role": "Developer of wrapped JMSSerializerBundle"
@@ -228,7 +228,7 @@
                     "email": "kontakt@beberlei.de"
                 },
                 {
-                    "name": "Johannes Schmitt",
+                    "name": "Johannes M. Schmitt",
                     "email": "schmittjoh@gmail.com",
                     "homepage": "http://jmsyst.com",
                     "role": "Developer of wrapped JMSSerializerBundle"
@@ -295,7 +295,7 @@
                     "email": "kontakt@beberlei.de"
                 },
                 {
-                    "name": "Johannes Schmitt",
+                    "name": "Johannes M. Schmitt",
                     "email": "schmittjoh@gmail.com",
                     "homepage": "http://jmsyst.com",
                     "role": "Developer of wrapped JMSSerializerBundle"
@@ -368,7 +368,7 @@
                     "email": "kontakt@beberlei.de"
                 },
                 {
-                    "name": "Johannes Schmitt",
+                    "name": "Johannes M. Schmitt",
                     "email": "schmittjoh@gmail.com",
                     "homepage": "http://jmsyst.com",
                     "role": "Developer of wrapped JMSSerializerBundle"
@@ -391,12 +391,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/doctrine/inflector.git",
-                "reference": "v1.0"
+                "reference": "54b8333d2a5682afdc690060c1cf384ba9f47f08"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://github.com/doctrine/inflector/archive/v1.0.zip",
-                "reference": "v1.0",
+                "url": "https://api.github.com/repos/doctrine/inflector/zipball/54b8333d2a5682afdc690060c1cf384ba9f47f08",
+                "reference": "54b8333d2a5682afdc690060c1cf384ba9f47f08",
                 "shasum": ""
             },
             "require": {
@@ -416,7 +416,8 @@
                 {
                     "name": "Jonathan Wage",
                     "email": "jonwage@gmail.com",
-                    "homepage": "http://www.jwage.com/"
+                    "homepage": "http://www.jwage.com/",
+                    "role": "Creator"
                 },
                 {
                     "name": "Guilherme Blanco",
@@ -432,7 +433,7 @@
                     "email": "kontakt@beberlei.de"
                 },
                 {
-                    "name": "Johannes Schmitt",
+                    "name": "Johannes M. Schmitt",
                     "email": "schmittjoh@gmail.com",
                     "homepage": "http://jmsyst.com",
                     "role": "Developer of wrapped JMSSerializerBundle"
@@ -486,7 +487,7 @@
                     "email": "roman@code-factory.org"
                 },
                 {
-                    "name": "Johannes Schmitt",
+                    "name": "Johannes M. Schmitt",
                     "email": "schmittjoh@gmail.com",
                     "homepage": "http://jmsyst.com",
                     "role": "Developer of wrapped JMSSerializerBundle"
@@ -506,12 +507,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/fabpot/PHP-CS-Fixer.git",
-                "reference": "750368df950dc7947be50793334cdac8324dc22a"
+                "reference": "ab8a8343d61950d4bdffaa5f4f6914daea3a85d5"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/fabpot/PHP-CS-Fixer/zipball/750368df950dc7947be50793334cdac8324dc22a",
-                "reference": "750368df950dc7947be50793334cdac8324dc22a",
+                "url": "https://api.github.com/repos/fabpot/PHP-CS-Fixer/zipball/ab8a8343d61950d4bdffaa5f4f6914daea3a85d5",
+                "reference": "ab8a8343d61950d4bdffaa5f4f6914daea3a85d5",
                 "shasum": ""
             },
             "require": {
@@ -548,7 +549,7 @@
                 }
             ],
             "description": "A script to automatically fix Symfony Coding Standard",
-            "time": "2014-02-10 16:36:30"
+            "time": "2014-02-27 13:28:16"
         },
         {
             "name": "gavroche/browser",
@@ -580,7 +581,7 @@
             "authors": [
                 {
                     "name": "Gabriel Bull",
-                    "email": "gavroche.bull@gmail.com"
+                    "email": "me@gabrielbull.com"
                 },
                 {
                     "name": "Chris Schuld",
@@ -717,7 +718,7 @@
             "authors": [
                 {
                     "name": "Anthony Ferrara",
-                    "email": "ircmaxell@php.net",
+                    "email": "ircmaxell@ircmaxell.com",
                     "homepage": "http://blog.ircmaxell.com"
                 }
             ],
@@ -801,13 +802,13 @@
             "version": "v2.2.0",
             "source": {
                 "type": "git",
-                "url": "https://github.com/nervetattoo/elasticsearch",
-                "reference": "v2.2.0"
+                "url": "https://github.com/nervetattoo/elasticsearch.git",
+                "reference": "ed9244b341e0139a4278ac9bdf3cb63d57539dfb"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://github.com/nervetattoo/elasticsearch/archive/v2.2.0.zip",
-                "reference": "v2.2.0",
+                "url": "https://api.github.com/repos/nervetattoo/elasticsearch/zipball/ed9244b341e0139a4278ac9bdf3cb63d57539dfb",
+                "reference": "ed9244b341e0139a4278ac9bdf3cb63d57539dfb",
                 "shasum": ""
             },
             "require": {
@@ -928,7 +929,9 @@
             "authors": [
                 {
                     "name": "Fabien Potencier",
-                    "email": "fabien@symfony.com"
+                    "email": "fabien@symfony.com",
+                    "homepage": "http://fabien.potencier.org",
+                    "role": "Lead Developer"
                 }
             ],
             "description": "Pimple is a simple Dependency Injection Container for PHP 5.3",
@@ -1152,7 +1155,7 @@
             "source": {
                 "type": "git",
                 "url": "git@codebasehq.com:project-a/core/content.git",
-                "reference": "609c1214e3d8823cbf758230c1f1c5e88b69cf85"
+                "reference": "f84a898e18bc1f2f73f6aed3e064f02c578208f0"
             },
             "require": {
                 "php": ">=5.4.0",
@@ -1181,7 +1184,7 @@
             "keywords": [
                 "Content Package"
             ],
-            "time": "2014-02-19 16:17:09"
+            "time": "2014-02-27 10:17:01"
         },
         {
             "name": "project-a/crm-package",
@@ -1364,11 +1367,11 @@
         },
         {
             "name": "project-a/infrastructure-package",
-            "version": "3.0.2",
+            "version": "3.0.4",
             "source": {
                 "type": "git",
                 "url": "git@codebasehq.com:project-a/core/infrastructure.git",
-                "reference": "be49365a885bc1bcb51f551ce8b4eaf3e1fb208d"
+                "reference": "e92fe7da3e7ff5933425ed023ae2dbe5cb20d062"
             },
             "require": {
                 "php": ">=5.4.0",
@@ -1397,7 +1400,7 @@
             "keywords": [
                 "infrastructure"
             ],
-            "time": "2014-02-14 13:44:21"
+            "time": "2014-02-28 15:11:36"
         },
         {
             "name": "project-a/kendo-package",
@@ -1420,11 +1423,11 @@
         },
         {
             "name": "project-a/library-package",
-            "version": "3.1.0",
+            "version": "3.1.2",
             "source": {
                 "type": "git",
                 "url": "git@codebasehq.com:project-a/core/library-2.git",
-                "reference": "54a04d276fb498a3a126d58232febcd50878ffa2"
+                "reference": "fabad3fd30fd9f1c4e003845f1e5056cab64dce7"
             },
             "require": {
                 "digital-canvas/zend-framework": ">=1.12.2",
@@ -1461,7 +1464,7 @@
                 }
             ],
             "description": "Project-A Library",
-            "time": "2014-02-20 11:30:24"
+            "time": "2014-02-28 15:08:59"
         },
         {
             "name": "project-a/lumberjack-package",
@@ -1622,7 +1625,7 @@
             "source": {
                 "type": "git",
                 "url": "git@codebasehq.com:project-a/core/sales.git",
-                "reference": "30e3ad1a57c3e75935d0c3b73f405e6d6648cc33"
+                "reference": "a634c1320bc3e0ed56519b2dc528bcfb76895d67"
             },
             "require": {
                 "php": ">=5.4.0",
@@ -1655,7 +1658,7 @@
                 "Sales",
                 "Task"
             ],
-            "time": "2014-02-20 13:00:00"
+            "time": "2014-02-20 14:18:34"
         },
         {
             "name": "project-a/silex-routing",
@@ -1952,12 +1955,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/silexphp/Silex.git",
-                "reference": "b7df67ff364eabec89033b433bbe449ee72301d4"
+                "reference": "235c4950f20f468254b7f7325ed6faad5756a2f7"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/silexphp/Silex/zipball/b7df67ff364eabec89033b433bbe449ee72301d4",
-                "reference": "b7df67ff364eabec89033b433bbe449ee72301d4",
+                "url": "https://api.github.com/repos/silexphp/Silex/zipball/235c4950f20f468254b7f7325ed6faad5756a2f7",
+                "reference": "235c4950f20f468254b7f7325ed6faad5756a2f7",
                 "shasum": ""
             },
             "require": {
@@ -2030,7 +2033,7 @@
             "keywords": [
                 "microframework"
             ],
-            "time": "2014-02-11 09:00:06"
+            "time": "2014-02-22 07:10:18"
         },
         {
             "name": "solarium/solarium",
@@ -2183,21 +2186,20 @@
         },
         {
             "name": "symfony/icu",
-            "version": "v1.2.0",
+            "version": "v1.0.0",
             "target-dir": "Symfony/Component/Icu",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/Icu.git",
-                "reference": "7299cd3d8d6602103d1ebff5d0a9917b7bc6de72"
+                "reference": "cac3fdfb111adbe590155f491594636d45129783"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/Icu/zipball/7299cd3d8d6602103d1ebff5d0a9917b7bc6de72",
-                "reference": "7299cd3d8d6602103d1ebff5d0a9917b7bc6de72",
+                "url": "https://api.github.com/repos/symfony/Icu/zipball/cac3fdfb111adbe590155f491594636d45129783",
+                "reference": "cac3fdfb111adbe590155f491594636d45129783",
                 "shasum": ""
             },
             "require": {
-                "lib-icu": ">=4.4",
                 "php": ">=5.3.3",
                 "symfony/intl": "~2.3"
             },
@@ -2227,7 +2229,7 @@
                 "icu",
                 "intl"
             ],
-            "time": "2013-06-03 18:32:58"
+            "time": "2013-06-03 18:32:07"
         },
         {
             "name": "symfony/symfony",
@@ -2384,7 +2386,7 @@
                     "role": "Lead Developer"
                 },
                 {
-                    "name": "Armin Ronacher",
+                    "name": "Armin Ronacher2",
                     "email": "armin.ronacher@active-4.com",
                     "role": "Project Founder"
                 },
@@ -2407,12 +2409,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/zendframework/zf2.git",
-                "reference": "37ab92a774d2f0eb4d322d4984be476823691bac"
+                "reference": "df6fa23483c990f3ac47400f7191a337d979b5ac"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/zendframework/zf2/zipball/37ab92a774d2f0eb4d322d4984be476823691bac",
-                "reference": "37ab92a774d2f0eb4d322d4984be476823691bac",
+                "url": "https://api.github.com/repos/zendframework/zf2/zipball/df6fa23483c990f3ac47400f7191a337d979b5ac",
+                "reference": "df6fa23483c990f3ac47400f7191a337d979b5ac",
                 "shasum": ""
             },
             "require": {
@@ -2477,7 +2479,7 @@
                 "ircmaxell/random-lib": "dev-master",
                 "ircmaxell/security-lib": "dev-master",
                 "mikey179/vfsstream": "1.2.*",
-                "ocramius/proxy-manager": "0.4.*",
+                "ocramius/proxy-manager": "0.5.*",
                 "phpunit/phpunit": "3.7.*",
                 "satooshi/php-coveralls": "dev-master",
                 "sebastianbergmann/phpcov": "1.1.0"
@@ -2517,7 +2519,7 @@
                 "framework",
                 "zf2"
             ],
-            "time": "2014-02-20 12:36:27"
+            "time": "2014-02-26 18:42:57"
         },
         {
             "name": "zendframework/zendpdf",
@@ -2594,7 +2596,7 @@
                 {
                     "name": "Alexandre Salomé",
                     "email": "alexandre.salome@gmail.com",
-                    "homepage": "http://alexandre-salome.fr/"
+                    "homepage": "http://alexandre-salome.fr"
                 }
             ],
             "description": "PHP Library for Selenium",
@@ -3098,7 +3100,9 @@
             "authors": [
                 {
                     "name": "Fabien Potencier",
-                    "email": "fabien@symfony.com"
+                    "email": "fabien@symfony.com",
+                    "homepage": "http://fabien.potencier.org",
+                    "role": "Lead Developer"
                 }
             ],
             "description": "A simple PHP Web Scraper",
@@ -3269,16 +3273,16 @@
         },
         {
             "name": "phpunit/php-code-coverage",
-            "version": "1.2.15",
+            "version": "1.2.16",
             "source": {
                 "type": "git",
                 "url": "https://github.com/sebastianbergmann/php-code-coverage.git",
-                "reference": "6ba4ed2895d538a039d5d5866edc4ec0424c7852"
+                "reference": "69e55e68481cf708a6db43aff0b504e31402fe27"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sebastianbergmann/php-code-coverage/zipball/6ba4ed2895d538a039d5d5866edc4ec0424c7852",
-                "reference": "6ba4ed2895d538a039d5d5866edc4ec0424c7852",
+                "url": "https://api.github.com/repos/sebastianbergmann/php-code-coverage/zipball/69e55e68481cf708a6db43aff0b504e31402fe27",
+                "reference": "69e55e68481cf708a6db43aff0b504e31402fe27",
                 "shasum": ""
             },
             "require": {
@@ -3326,7 +3330,7 @@
                 "testing",
                 "xunit"
             ],
-            "time": "2014-02-03 07:44:47"
+            "time": "2014-02-25 03:34:05"
         },
         {
             "name": "phpunit/php-file-iterator",
@@ -3513,16 +3517,16 @@
         },
         {
             "name": "phpunit/phpunit",
-            "version": "3.7.31",
+            "version": "3.7.32",
             "source": {
                 "type": "git",
                 "url": "https://github.com/sebastianbergmann/phpunit.git",
-                "reference": "d24e9877331039582497052cc3c4d9f465b88210"
+                "reference": "2752cbb9ea5bd84c2811b34b6953f76965ec7a2f"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sebastianbergmann/phpunit/zipball/d24e9877331039582497052cc3c4d9f465b88210",
-                "reference": "d24e9877331039582497052cc3c4d9f465b88210",
+                "url": "https://api.github.com/repos/sebastianbergmann/phpunit/zipball/2752cbb9ea5bd84c2811b34b6953f76965ec7a2f",
+                "reference": "2752cbb9ea5bd84c2811b34b6953f76965ec7a2f",
                 "shasum": ""
             },
             "require": {
@@ -3539,7 +3543,7 @@
                 "symfony/yaml": "~2.0"
             },
             "require-dev": {
-                "pear-pear/pear": "1.9.4"
+                "pear-pear.php.net/pear": "1.9.4"
             },
             "suggest": {
                 "ext-json": "*",
@@ -3583,7 +3587,7 @@
                 "testing",
                 "xunit"
             ],
-            "time": "2014-02-03 07:46:27"
+            "time": "2014-02-25 03:47:29"
         },
         {
             "name": "phpunit/phpunit-mock-objects",
@@ -3715,7 +3719,9 @@
             "authors": [
                 {
                     "name": "Fabien Potencier",
-                    "email": "fabien@symfony.com"
+                    "email": "fabien@symfony.com",
+                    "homepage": "http://fabien.potencier.org",
+                    "role": "Lead Developer"
                 }
             ],
             "description": "A WebProfiler for Silex",
