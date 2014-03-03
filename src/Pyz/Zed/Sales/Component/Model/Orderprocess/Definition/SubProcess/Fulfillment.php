@@ -37,7 +37,9 @@ class Fulfillment extends \ProjectA_Zed_Sales_Component_Model_Orderprocess_Defin
     protected function addCommands()
     {
         $fulfillmentExportCommand = $this->factory->createModelOrderprocessCommandFulfillmentFulfillmentExportCommand();
+        $decrementStockCommand = $this->factory->createModelOrderprocessCommandDecrementStock();
         $this->setup->addCommand(self::STATE_INIT_FULFILLMENT_PROCESS, self::EVENT_START_FULFILLMENT_EXPORT, $fulfillmentExportCommand);
+        $this->setup->addCommand(self::STATE_INIT_FULFILLMENT_PROCESS, self::EVENT_START_FULFILLMENT_EXPORT, $decrementStockCommand);
     }
 
     protected function addFlags()
