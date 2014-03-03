@@ -18,25 +18,6 @@
     </div>
 </div>
 
-    <br /><br />
-
-{#  BUNDLE SUB PRODUCTS
-
- <div class="">
-        {{ 'catalog.product.detail.bundle.products.header'|trans }}:<br /><br />
-        {% for subProduct in subProducts %}
-            <div class="" style="float:left;border:1px solid #333;margin:2px;padding:4px;">
-                <img src="{{ getFirstProductImagesBySize(subProduct.product_images, 'm') }}" alt="" />
-                <br />
-                {{ subProduct.name }}
-            </div>
-        {% endfor %}
-    </div>
-</div>
-
-#}
-
-
 <aside class="item col col25">
     <h3>{{ product.name }}</h3>
     <h4>by {{ product.brand }}</h4>
@@ -70,10 +51,13 @@
     <p>{{ product.description }}</p>
 </div>
 <aside class="specs col col25">
-    <h4>{{ 'catalog.details.headline'|trans }}</h4>
+    <h4>{{ 'catalog.product.detail.bundle.products.header'|trans }}</h4>
     <ul>
-        <li>{{ 'catalog.details.material'|trans }} {{ product.material }}</li>
-        <li>{{ 'catalog.details.dimension'|trans }} {{ product.dimension_in_cm }}</li>
+        {% for subProduct in subProducts %}
+            <li>
+                {{ subProduct.name }}
+            </li>
+        {% endfor %}
     </ul>
 </aside>
 
