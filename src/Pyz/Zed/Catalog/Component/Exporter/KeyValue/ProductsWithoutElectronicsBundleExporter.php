@@ -28,6 +28,7 @@ class ProductsWithoutElectronicsBundleExporter extends ProductsExporter
     {
         $product['id'] = $product['id_catalog_product'];
         $product['price'] = $product['final_gross_price'];
+        $product['dimension_in_cm'] = '';
         unset($product['id_catalog_product']);
         return $product;
     }
