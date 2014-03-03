@@ -2,7 +2,7 @@
     {% if paymentMethod.name == 'payment.payone.creditcard_pseudo' %}
         {# {% include "@checkout/partials/payone.twig" with { 'payoneCreditcardCheckData' : payoneCreditcardCheckData } only %} #}
         <div class="details" data-associated-paymentmethod="payment.payone.creditcard_pseudo" data-validator-precondition="return $('[name=\'salesOrder[payment][method]\']:checked').val() === 'payment.payone.creditcard_pseudo'">
-            <i>{{ 'checkout.payment.cc.caption'|trans }}</i>
+            <i>{{ 'checkout.payment.cc.caption'|trans }}</i><br /><br />
             <div class="row">
                 {{ form_row(form.payment.creditCardType, {attr : {class : 'fullWidth', autocomplete : 'off'}, label : 'checkout.payment.cardtype'}) }}
             </div>
@@ -29,22 +29,22 @@
         </div>
     {% elseif paymentMethod.name == 'payment.payone.prepayment' %}
         <div class="details" data-associated-paymentmethod="payment.payone.prepayment">
-            <i>{{ 'checkout.payment.pre.caption'|trans }}</i>
+            <i>{{ 'checkout.payment.pre.caption'|trans }}</i><br /><br />
             <div class="hint">{{ 'checkout.payment.pre.text'|trans }}</div>
         </div>
     {% elseif paymentMethod.name == 'payment.payone.paypal' %}
         <div class="details" data-associated-paymentmethod="payment.payone.paypal">
-            <i>{{ 'checkout.payment.paypal.caption'|trans }}</i>
+            <i>{{ 'checkout.payment.paypal.caption'|trans }}</i><br /><br />
             <div class="hint">{{ 'checkout.payment.paypal.text'|trans }}</div>
         </div>
     {% elseif paymentMethod.name == 'payment.payone.invoice' %}
         <div class="details" data-associated-paymentmethod="payment.payone.invoice">
-            <i>{{ 'checkout.payment.invoice.caption'|trans }}</i>
+            <i>{{ 'checkout.payment.invoice.caption'|trans }}</i><br /><br />
             <div class="hint">{{ 'checkout.payment.invoice.text'|trans }}</div>
         </div>
     {% elseif paymentMethod.name == 'payment.payone.direct_debit' %}
         <div class="details" data-associated-paymentmethod="payment.payone.direct_debit" data-validator-precondition="return $('[name=\'salesOrder[payment][method]\']:checked').val() === 'payment.payone.direct_debit'">
-            <i>{{ 'checkout.payment.debit.caption'|trans }}</i>
+            <i>{{ 'checkout.payment.debit.caption'|trans }}</i><br /><br />
             <div class="row">
                 {{ form_row(form.payment.bankAccountHolder, {attr : {class : 'fullWidth', autocomplete : 'off'}, label : 'checkout.payment.debitHolder'}) }}
             </div>
