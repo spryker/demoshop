@@ -1,9 +1,0 @@
-{% extends "@application/layout/full.twig" %}
-
-{% block content %}
-    <section>
-        {% include '@Cms/partial/product.twig' with {'product': cmsPage.blocks.product1} %}
-        <br /><br />
-        {% include '@Cms/partial/text.twig' with {'text': cmsPage.blocks.text1} %}
-    </section>
-{% endblock %}

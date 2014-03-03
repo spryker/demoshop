@@ -1,3 +1,18 @@
 {% extends "@application/layout/reduced.twig" %}
+
+{% set titleAttribute = CmsPage.attribute('title') %}
+{% if titleAttribute %}
+    {% block title %}
+        {{ titleAttribute.value }}
+    {% endblock %}
+{% endif %}
+
+{% block metatags %}
+    {% for metaTag in CmsPage.metaTags %}
+        <meta name="{{ metaTag.name }}" content="{{ metaTag.value }}" />
+    {% endfor %}
+{% endblock %}
+
 {% block content %}
+    {{ content }}
 {% endblock %}
