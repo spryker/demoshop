@@ -31,7 +31,7 @@ class InvoiceCreation extends \ProjectA_Zed_Sales_Component_Model_Orderprocess_D
 
     protected function addTransitions()
     {
-        $this->setup->addTransitionManual(self::STATE_READY_FOR_INVOICE_CREATION, self::STATE_INVOICE_CREATED, self::EVENT_START_INVOICE_CREATION, self::RULE_INVOICE_CREATION_POSSIBLE);
+        $this->setup->addTransitionManual(self::STATE_READY_FOR_INVOICE_CREATION, self::STATE_INVOICE_CREATED, self::EVENT_START_INVOICE_CREATION);
     }
 
     protected function addCommands()
