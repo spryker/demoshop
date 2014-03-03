@@ -1152,7 +1152,7 @@
             "source": {
                 "type": "git",
                 "url": "git@codebasehq.com:project-a/core/content.git",
-                "reference": "f84a898e18bc1f2f73f6aed3e064f02c578208f0"
+                "reference": "bf46ee6266dddbab0c06646f4c89d2cddbf03c9c"
             },
             "require": {
                 "php": ">=5.4.0",
@@ -1181,7 +1181,7 @@
             "keywords": [
                 "Content Package"
             ],
-            "time": "2014-02-27 10:17:01"
+            "time": "2014-03-03 07:59:29"
         },
         {
             "name": "project-a/crm-package",
