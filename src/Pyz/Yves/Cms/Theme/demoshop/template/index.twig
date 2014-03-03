@@ -1,7 +1,0 @@
-{% for row in templateElements %}
-    {% for column in row %}
-        {% set partialName = '@cms/partial/' ~ column.yvesPartialName %}
-        {% set block = CmsPage.block(column.row, column.position) %}
-        {% include partialName with {'block': block} %}
-    {% endfor %}
-{% endfor %}

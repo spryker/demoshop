@@ -1,18 +1,25 @@
 {% extends "@application/layout/reduced.twig" %}
 
-{% set titleAttribute = CmsPage.attribute('title') %}
-{% if titleAttribute %}
-    {% block title %}
+{% block title %}
+    {% set titleAttribute = CmsPage.attribute('title') %}
+    {% if titleAttribute %}
         {{ titleAttribute.value }}
-    {% endblock %}
-{% endif %}
+    {% endif %}
+{% endblock %}
 
 {% block metatags %}
-    {% for metaTag in CmsPage.metaTags %}
-        <meta name="{{ metaTag.name }}" content="{{ metaTag.value }}" />
-    {% endfor %}
+    {% set metaTags = CmsPage.metaTags %}
+    {% if metaTags %}
+        {% for metaTag in CmsPage.metaTags %}
+            <meta name="{{ metaTag.name }}" content="{{ metaTag.value }}" />
+        {% endfor %}
+    {% endif %}
 {% endblock %}
 
 {% block content %}
-    {{ content }}
+    <section>
+        {% autoescape false %}
+            {{ content }}
+        {% endautoescape %}
+    </section>
 {% endblock %}

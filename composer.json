@@ -13,7 +13,7 @@
         "project-a/glossary-package": "3.0.0",
         "project-a/infrastructure-package": "3.0.4",
         "project-a/kendo-package": "3.0.0",
-        "project-a/library-package": "3.1.2",
+        "project-a/library-package": "dev-feature/cms as 3.1.2",
         "project-a/lumberjack-package": "3.0.0",
         "project-a/marketing-package": "3.0.0",
         "project-a/payment-package": "3.1.0",

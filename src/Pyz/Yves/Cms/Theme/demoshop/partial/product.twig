@@ -1,0 +1,40 @@
+<aside class="item col col25">
+    <h3>{{ product.name }}</h3>
+    <h4>by {{ product.brand }}</h4>
+    {% if product.recommended_retail_price %}
+        <div class="oldPrice">{{ product.recommended_retail_price|price }}</div>
+    {% endif %}
+    <div class="price">{{ product.price|price }}</div>
+    <div class="hint">{{ 'catalog.percentage.vat'|trans({'%product.tax_rate%' : product.tax_rate}) }}</div>
+
+    {% if product.stock > 0 %}
+        <form action="{{ url('cart/add', {sku: product.sku} ) }}">
+            <input class="fullWidth" type="number" name="quantity" value="1" min="1" max="{{ product.stock > 30 ? 30 : product.stock }}" step="1" />
+            <!--input class="fullWidth" type="hidden" name="options[]" value="B1" USE this input(s) to add options to the cartitem /-->
+            <input class="submit fullWidth" type="submit" value="{{ 'catalog.buy'|trans }}" />
+        </form>
+    {% else %}
+        <div class="unavailable">{{ 'catalog.out.of.stock'|trans }}</div>
+    {% endif %}
+</aside>
+
+<hr />
+
+<aside class="superDescription col col25">
+    <h4>{{ product.brand }}</h4>
+    <hardcoded block>
+        <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.</p>
+    </hardcoded>
+</aside>
+<div class="itemDescription col col50">
+    <h4>{{ product.name }}</h4>
+    <p>{{ product.description }}</p>
+</div>
+<aside class="specs col col25">
+    <h4>{{ 'catalog.details.headline'|trans }}</h4>
+    <ul>
+        <li>{{ 'catalog.details.material'|trans }} {{ product.material }}</li>
+        <li>{{ 'catalog.details.dimension'|trans }} {{ product.dimension_in_cm }}</li>
+        <li>{{ 'catalog.details.color'|trans }} {{ product.color }}</li>
+    </ul>
+</aside>
