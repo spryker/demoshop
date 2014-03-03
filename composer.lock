@@ -3,7 +3,7 @@
         "This file locks the dependencies of your project to a known state",
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file"
     ],
-    "hash": "bb966b56b01c6d9f6d8df0e93fc6f5a0",
+    "hash": "c1adc0dade542bfd246eb93f002abb1c",
     "packages": [
         {
             "name": "cmutter/google-adwords-api",
@@ -506,12 +506,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/fabpot/PHP-CS-Fixer.git",
-                "reference": "ab8a8343d61950d4bdffaa5f4f6914daea3a85d5"
+                "reference": "fc0d890326ca2332ce3d262fad199baccbc570bf"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/fabpot/PHP-CS-Fixer/zipball/ab8a8343d61950d4bdffaa5f4f6914daea3a85d5",
-                "reference": "ab8a8343d61950d4bdffaa5f4f6914daea3a85d5",
+                "url": "https://api.github.com/repos/fabpot/PHP-CS-Fixer/zipball/fc0d890326ca2332ce3d262fad199baccbc570bf",
+                "reference": "fc0d890326ca2332ce3d262fad199baccbc570bf",
                 "shasum": ""
             },
             "require": {
@@ -548,7 +548,7 @@
                 }
             ],
             "description": "A script to automatically fix Symfony Coding Standard",
-            "time": "2014-02-27 13:28:16"
+            "time": "2014-03-03 13:52:15"
         },
         {
             "name": "gavroche/browser",
@@ -1585,7 +1585,7 @@
             "source": {
                 "type": "git",
                 "url": "git@codebasehq.com:project-a/core/sales.git",
-                "reference": "b4e919c60ec5cc113855838b1d5e250d8795d118"
+                "reference": "a4c14de7643ff321f61619f3009d392cfc7176f6"
             },
             "require": {
                 "php": ">=5.4.0",
@@ -1618,7 +1618,7 @@
                 "Sales",
                 "Task"
             ],
-            "time": "2014-02-26 13:03:11"
+            "time": "2014-03-03 14:21:33"
         },
         {
             "name": "project-a/silex-routing",
@@ -2370,12 +2370,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/zendframework/zf2.git",
-                "reference": "4b3386955cc57abeb9fd7059ff281362c23cbab9"
+                "reference": "4445997e32b025b46192150387e24a759f11a0ac"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/zendframework/zf2/zipball/4b3386955cc57abeb9fd7059ff281362c23cbab9",
-                "reference": "4b3386955cc57abeb9fd7059ff281362c23cbab9",
+                "url": "https://api.github.com/repos/zendframework/zf2/zipball/4445997e32b025b46192150387e24a759f11a0ac",
+                "reference": "4445997e32b025b46192150387e24a759f11a0ac",
                 "shasum": ""
             },
             "require": {
@@ -2480,7 +2480,7 @@
                 "framework",
                 "zf2"
             ],
-            "time": "2014-02-28 18:30:16"
+            "time": "2014-03-03 14:08:26"
         },
         {
             "name": "zendframework/zendpdf",
@@ -3706,8 +3706,8 @@
             "package": "project-a/dwh-package"
         },
         {
-            "alias": "3.2.1",
-            "alias_normalized": "3.2.1.0",
+            "alias": "3.2.2",
+            "alias_normalized": "3.2.2.0",
             "version": "dev-feature/354-basic-bundles-sales-pgk",
             "package": "project-a/sales-package"
         },
