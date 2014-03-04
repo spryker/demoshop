@@ -9,7 +9,7 @@
         "project-a/dwh-package": "dev-master as 3.0.0",
         "project-a/document-package": "3.0.0",
         "project-a/frontend-package": "3.0.0",
-        "project-a/glossary-package": "3.0.0",
+        "project-a/glossary-package": "3.0.1",
         "project-a/infrastructure-package": "3.0.2",
         "project-a/kendo-package": "3.0.0",
         "project-a/library-package": "3.1.0",
