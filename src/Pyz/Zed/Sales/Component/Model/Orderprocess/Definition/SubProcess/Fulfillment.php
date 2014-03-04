@@ -44,7 +44,7 @@ class Fulfillment extends \ProjectA_Zed_Sales_Component_Model_Orderprocess_Defin
 
     protected function addFlags()
     {
-
+        $this->setup->addStateMetaInfo(self::STATE_INIT_FULFILLMENT_PROCESS, self::FLAG_RESERVED, true);
     }
 
     protected function addMetaInfo()

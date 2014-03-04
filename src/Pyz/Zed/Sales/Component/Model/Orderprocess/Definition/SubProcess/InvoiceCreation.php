@@ -42,6 +42,8 @@ class InvoiceCreation extends \ProjectA_Zed_Sales_Component_Model_Orderprocess_D
 
     protected function addFlags()
     {
+        $this->setup->addStateMetaInfo(self::STATE_READY_FOR_INVOICE_CREATION, self::FLAG_RESERVED, true);
+        $this->setup->addStateMetaInfo(self::STATE_INVOICE_CREATED, self::FLAG_RESERVED, true);
     }
 
     protected function addMetaInfo()
