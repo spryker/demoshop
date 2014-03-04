@@ -1,0 +1,53 @@
+<div class="address primary col col33">
+    <h3 id="shipping-billing-header">{{ 'checkout.headline.shipping.billing'|trans }}</h3>
+    <h3 id="shipping-header">{{ 'checkout.headline.shipping'|trans }}</h3>
+    {{ form_row(form.shippingAddress.idCustomerAddress) }}
+    <div class="row col col34 first">
+        {{ form_row(form.shippingAddress.salutation, {attr : {class : 'fullWidth'}, label : 'checkout.address.shipping.salutation'}) }}
+    </div>
+    <div class="row col col33 middle">
+        {{ form_row(form.shippingAddress.firstName, {attr : {class : 'fullWidth'}, label : 'checkout.address.shipping.name.first'}) }}
+    </div>
+    <div class="row col col33 last">
+        {{ form_row(form.shippingAddress.lastName, {attr : {class : 'fullWidth'}, label : 'checkout.address.shipping.name.last'}) }}
+    </div>
+    <div class="row col col67 first middle">
+        {{ form_row(form.shippingAddress.address1, {attr : {class : 'fullWidth'}, label : 'checkout.address.shipping.street' }) }}
+    </div>
+    <div class="row col col33 last">
+        {{ form_row(form.shippingAddress.address2, {attr : {class : 'fullWidth'}, label : 'checkout.address.shipping.number'}) }}
+    </div>
+    <div class="row">
+        {{ form_row(form.shippingAddress.address3, {attr : {class : 'fullWidth', placeholder : 'checkout.address.shipping.comment.placeholder'}, label : 'checkout.address.shipping.comment'}) }}
+    </div>
+    <div class="row col col33 first middle">
+        {{ form_row(form.shippingAddress.zipCode, {attr : {class : 'fullWidth'}, label : 'checkout.address.shipping.zipcode'}) }}
+    </div>
+    <div class="row col col67 last">
+        {{ form_row(form.shippingAddress.city, {attr : {class : 'fullWidth'}, label : 'checkout.address.shipping.city'}) }}
+    </div>
+    <div class="row">
+        {{ form_row(form.shippingAddress.iso2Country, {attr : {class : 'fullWidth', 'data-src': 'country', 'data-src-type' : 'short'}, label : 'checkout.address.shipping.country'}) }}
+    </div>
+    <div class="row">
+        {{ form_row(form.shippingAddress.phone, {attr : {class : 'fullWidth'}, label : 'checkout.address.shipping.phone'}) }}
+    </div>
+    {% if userAddressesJson is not null %}
+        <div class="row large-12">
+            <button class="ok toggle-shipping" type="button" onclick="app.checkout.address.toggleAddresses('shipping');">{{ 'checkout.address.more'|trans }}</button>
+            <button class="ok toggle-shipping" type="button" style="display:none;" onclick="app.checkout.address.toggleAddresses('shipping');">{{ 'checkout.address.less'|trans }}</button>
+        </div>
+    {% endif %}
+    {% if userAddressesJson is not null %}
+        <div id="shipping" style="display:none;">
+            {% include "@checkout/partials/user-addresses.twig" with {'userAddresses': userAddresses, 'userAddressesJson': userAddressesJson} only %}
+        </div>
+    {% endif %}
+    <div class="row">
+        <label>
+            {{ form_widget(form.chooseDifferentBilling, {attr : {class : 'triggerAlternative addSpace'}, required : false }) }}
+            {{ 'checkout.address.billing.different'|trans }}
+        </label>
+    </div>
+    {% include "@checkout/partials/billingaddress.twig" with {'form': form, 'userAddresses': userAddresses, 'userAddressesJson': userAddressesJson} only %}
+</div>

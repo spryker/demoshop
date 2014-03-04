@@ -19,7 +19,7 @@ use Pyz\Yves\Application\Module\ControllerProvider as ApplicationProvider;
 use ProjectA\Yves\Cart\Module\ControllerProvider as CartProvider;
 use ProjectA\Yves\Checkout\Module\ControllerProvider as CheckoutProvider;
 use ProjectA\Yves\Customer\Module\ControllerProvider as CustomerProvider;
-use ProjectA\Yves\Cms\Module\ControllerProvider as CmsProvider;
+use ProjectA\Yves\Newsletter\Module\ControllerProvider as NewsletterProvider;
 use ProjectA\Yves\Library\Tracking\Tracking;
 use Silex\Provider\FormServiceProvider;
 use Silex\Provider\RememberMeServiceProvider;
@@ -93,10 +93,11 @@ class YvesBootstrap extends \ProjectA\Yves\Library\Silex\YvesBootstrap
         $ssl = \ProjectA_Shared_Library_Config::get('yves')->ssl_enabled;
 
         return [
-            new ApplicationProvider(),
-            new CartProvider(),
+            new ApplicationProvider(false),
+            new CartProvider(false),
             new CheckoutProvider($ssl),
             new CustomerProvider($ssl),
+            new NewsletterProvider(),
         ];
     }
 

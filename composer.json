@@ -5,7 +5,7 @@
         "project-a/catalog-package": "3.0.4",
         "project-a/checkout-package": "3.1.2",
         "project-a/console-package": "3.0.0",
-        "project-a/crm-package": "3.1.0",
+        "project-a/crm-package": "dev-feature/customer-account-speedup-orders as 3.1.0",
         "project-a/dwh-package": "dev-master as 3.0.0",
         "project-a/document-package": "3.0.0",
         "project-a/frontend-package": "3.0.0",

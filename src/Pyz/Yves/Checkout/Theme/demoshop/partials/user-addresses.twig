@@ -1,0 +1,16 @@
+{% if userAddresses is defined %}
+    {% for userAddress in userAddresses %}
+        <div class="group">
+            <strong>{{ ('checkout.salutation.'~ userAddress.salutation|lower)|trans }} {{ userAddress.firstName }} {{ userAddress.lastName }}</strong><br/>
+                {% if userAddress.company %}
+                    {{ userAddress.company }}<br/>
+                {% endif %}
+                {% if userAddress.comment %}
+                    {{ userAddress.comment }}<br/>
+                {% endif %}
+            {{ userAddress.address1 }}, {{ userAddress.address2 }}<br/>
+            {{ userAddress.zipCode }} {{ userAddress.city }}<br/><br/>
+            <button class="ok mod:thinfont" type="button" onclick="app.checkout.address.fillFormWithData({{ userAddress.idCustomerAddress }}, {{ userAddressesJson }}, this);" >{{ 'checkout.address.choose'|trans }}</button>
+        </div>
+    {% endfor %}
+{% endif %}

@@ -6,6 +6,7 @@ settings:
     form:
       login_path: '/login'
       check_path: '/login_check'
+      failure_path: '/login'
       username_parameter: 'customerLogin[email]'
       password_parameter: 'customerLogin[password]'
       csrf_parameter: 'customerLogin[_token]'
@@ -28,7 +29,8 @@ settings:
 
 firewalls:
   secured:
-    pattern: '(^/checkout|^/login_check$|^/logout$)'
+    pattern: '(^/checkout|^/login_check$|^/logout$|^/customer)'
 
   unsecured:
+    pattern : '^/.*'
     anonymous: true

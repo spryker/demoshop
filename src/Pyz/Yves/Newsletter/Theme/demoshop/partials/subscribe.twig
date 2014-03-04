@@ -1,0 +1,33 @@
+<link rel="stylesheet" href="{{ asset('styles/newsletter.css') }}" />
+<script src="{{ asset('scripts/app/newsletter.js') }}"></script>
+
+<div class="newsletter-teaser:wrapper">
+    <div class="newsletter-teaser:main">
+        <div class="badge"></div>
+
+        <h2>{{ 'newsletter.subscription.headline'|trans }}</h2>
+
+        <div class="advantages">
+            <h3>{{ 'newsletter.subscription.advantage.headline'|trans }}</h3>
+            <ul>
+                <li>{{ 'newsletter.subscription.advantage.1'|trans }}</li>
+                <li>{{ 'newsletter.subscription.advantage.2'|trans }}</li>
+                <li>{{ 'newsletter.subscription.advantage.3'|trans }}</li>
+            </ul>
+        </div>
+
+        {{ form_start(subscriptionForm, {attr: {class: 'subscription', novalidate: 'novalidate'}, action: path('subscribe')}) }}
+        {{ form_errors(subscriptionForm) }}
+        {{ form_row(subscriptionForm._token) }}
+        {{ form_row(subscriptionForm.email, { label : 'newsletter.subscription.email', attr : {'class' : 'fullWidth', 'placeholder' : 'newsletter.subscription.email.placeholder'|trans }}) }}
+        <button type="submit" class="ok" onClick="javascript:return tc_events_1(this, '24', {})">{{ 'newsletter.subscription.create'|trans }}</button>
+
+
+        <div id="validationMessages" data-validation-message-required="{{ 'validation.message.required'|trans }}" data-validation-message-email="{{ 'validation.message.email'|trans }}"></div>
+
+        <div class="caption">
+            <p>{% autoescape false %}{{ 'newsletter.subscription.caption'|trans }}{% endautoescape %}</p>
+        </div>
+        {{ form_end(subscriptionForm) }}{{ form_end(subscriptionForm) }}
+    </div>
+</div>

@@ -31,8 +31,8 @@ select[disabled] { background-color:#f1f1f1; }
 
 .fullWidth { width:100%; -moz-box-sizing:border-box; box-sizing:border-box; }
 
-h3 { font-size:30px; font-weight:500; }
-h4 { font-size:18px; font-weight:500; }
+h3 { font-size:30px; font-weight:400; }
+h4 { font-size:18px; font-weight:400; }
 
 button.continue,
 a.continue { display:block; float:right; margin:6px 0; padding:0; height:32px; color:#fff; background:#aaa; font-weight:bold; border:0 none; line-height:32px; cursor:pointer; outline:none; text-decoration:none; }
@@ -138,3 +138,7 @@ footer li { padding:10px 0 0; }
 footer ul.simple li { padding:0; }
 footer a { color:#777; text-decoration:none; }
 footer a:hover { text-decoration:underline; }
+
+.modal { font-weight:300; position:absolute; left:25%; top:50px; width:50%; padding:20px; background:#fff; border:1px solid #ccc; box-shadow:1px 1px 4px rgba(0, 0, 0, 0.2); z-index:99; border-radius:3px; }
+.modal *:first-child { margin-top:0; }
+.modal *:last-child { margin-bottom:0; }

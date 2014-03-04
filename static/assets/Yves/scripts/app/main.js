@@ -31,8 +31,8 @@ var app = {
             this.currentSize = (currentWidth > this.sizeRange[1]
                 ? this.sizeRange[1]
                 : (currentWidth < this.sizeRange[0]
-                    ? this.sizeRange[0]
-                    : currentWidth));
+                ? this.sizeRange[0]
+                : currentWidth));
             $('section').css({ width: this.currentSize - 40 });
             $('section.fullWidth').css({ width: this.currentSize });
             this.plugins.bind(app)(this.currentSize);
@@ -100,7 +100,124 @@ var app = {
             localStorage.setItem('settings', JSON.stringify(settings));
             return settings;
         }
+    },
+    validation : {
+        apply : function ($container, childrenOnly) {
+            var result = this.check($container, childrenOnly);
+            $container[childrenOnly ? 'children' : 'find'](':input[name]')
+                .removeClass('validationError');
+            this.getInvalidItems(result)
+                .addClass('validationError');
+            var $firstInvalid = this.getInvalidItems(result, true).eq(0);
+            if ($firstInvalid.length) {
+                var firstInvalidResult = result[$firstInvalid.attr('name')].check;
+                var message = 'validation-message-' + firstInvalidResult;
+                var $msgEl = $firstInvalid.parent('[data-validation-message]');
+                if ($firstInvalid.data('validation-message')) {
+                    message = $firstInvalid.data('validation-message');
+                } else {
+                    if ($msgEl.length) {
+                        message = $msgEl.data('validationMessage');
+                    } else {
+                        message = $('#validationMessages').data(message);
+                    }
+                }
+                if (firstInvalidResult === 'pattern' && $firstInvalid.data('validation-pattern-message')) {
+                    message = $firstInvalid.data('validation-pattern-message');
+                }
+                $('.tooltip').remove();
+                app.ensureVisibility(app.tooltip.attachTo($msgEl.length ? $msgEl : $firstInvalid, 'error', message, true));
+            }
+            return result;
+        },
+        resultIsValid : function (result) {
+            var valid = true;
+            $.each(result, function (index, el) {
+                if (!el.valid) {
+                    valid = false;
+                }
+            });
+            return valid;
+        },
+        getInvalidItems : function (result, firstOnly) {
+            var names = [];
+            $.each(result, function (index, el) {
+                if (!el.valid && !(firstOnly && names.length)) {
+                    names.push(index);
+                }
+            });
+            var selector =
+                names
+                    .map(function (item) {
+                        return '[name="' + item + '"]';
+                    })
+                    .join(', ');
+            return $(selector);
+        },
+        check : function ($container, childrenOnly) {
+            var result = {};
+            var formValues = {};
+            var serializedForm =
+                $container
+                    .closest('form')
+                    .serializeArray();
+
+            $.each(serializedForm, function (index, el) {
+                formValues[ el.name ] = el.value;
+            });
+            $.each($container.find('[data-validator-precondition]'), function (index, el) {
+                var $el = $(el);
+
+                var preconditionFunction = new Function($el.data('validatorPrecondition'));
+
+                if (!preconditionFunction()) {
+                    $el.attr('data-validator-prevent', true);
+                } else {
+                    $el.removeAttr('data-validator-prevent');
+                }
+            });
+            var $notPreventedInputs =
+                $container[childrenOnly ? 'children' : 'find'](':input[name]')
+                    .not('[data-validator-prevent] :input');
+            $notPreventedInputs.each(function (index, el) {
+                var $el = $(el);
+                var currentName = $el.attr('name');
+                result[ currentName ] = {
+                    valid : true,
+                    check : 'none'
+                };
+                if ($el.is('[required]')) {
+                    result[ currentName ] = {
+                        valid : !!formValues[currentName],
+                        check : 'required'
+                    };
+                }
+                if (!result[currentName].valid) {
+                    // continue
+                    return;
+                }
+                if ($el.is('[type=email]')) {
+                    result[currentName] = {
+                        valid : /[A-Z0-9._%a-z\-\+]+?@(?:[A-Z0-9a-z\-]+\.)+?[A-Za-z]{2,4}/.test(formValues[currentName]),
+                        check : 'email'
+                    };
+                }
+                if (!result[currentName].valid) {
+                    // continue
+                    return;
+                }
+                if ($el.is('[pattern]')) {
+                    result[currentName] = {
+                        valid : RegExp($el.attr('pattern')).test(formValues[currentName]),
+                        check : 'pattern'
+                    };
+                }
+                // implement more checks here if necessary
+            });
+
+            return result;
+        }
     }
-}
+};
 
 $(app.init.bind(app));

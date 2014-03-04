@@ -3,7 +3,7 @@
         "This file locks the dependencies of your project to a known state",
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file"
     ],
-    "hash": "8efb776a900803d7e780af7591d047c3",
+    "hash": "db025dcf8311fdeac9d9a57e0d824176",
     "packages": [
         {
             "name": "cmutter/google-adwords-api",
@@ -506,12 +506,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/fabpot/PHP-CS-Fixer.git",
-                "reference": "750368df950dc7947be50793334cdac8324dc22a"
+                "reference": "ef8581ce1c8226d18ef8b4b44d739cbffa501650"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/fabpot/PHP-CS-Fixer/zipball/750368df950dc7947be50793334cdac8324dc22a",
-                "reference": "750368df950dc7947be50793334cdac8324dc22a",
+                "url": "https://api.github.com/repos/fabpot/PHP-CS-Fixer/zipball/ef8581ce1c8226d18ef8b4b44d739cbffa501650",
+                "reference": "ef8581ce1c8226d18ef8b4b44d739cbffa501650",
                 "shasum": ""
             },
             "require": {
@@ -548,19 +548,19 @@
                 }
             ],
             "description": "A script to automatically fix Symfony Coding Standard",
-            "time": "2014-02-10 16:36:30"
+            "time": "2014-02-25 10:26:55"
         },
         {
             "name": "gavroche/browser",
             "version": "v2.1",
             "source": {
                 "type": "git",
-                "url": "https://github.com/gabrielbull/php-browser.git",
+                "url": "https://github.com/gavroche/php-browser.git",
                 "reference": "aed2949e5ca245569380a1afdc99be5f152e3dc6"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/gabrielbull/php-browser/zipball/aed2949e5ca245569380a1afdc99be5f152e3dc6",
+                "url": "https://api.github.com/repos/gavroche/php-browser/zipball/aed2949e5ca245569380a1afdc99be5f152e3dc6",
                 "reference": "aed2949e5ca245569380a1afdc99be5f152e3dc6",
                 "shasum": ""
             },
@@ -1148,11 +1148,11 @@
         },
         {
             "name": "project-a/crm-package",
-            "version": "3.1.0",
+            "version": "dev-feature/customer-account-speedup-orders",
             "source": {
                 "type": "git",
                 "url": "git@codebasehq.com:project-a/core/crm.git",
-                "reference": "1d0705d8a675d30e1a42ae2286723374013f3ba8"
+                "reference": "e31cb8aa6fce65bba5523b06888e104b0544bcd0"
             },
             "require": {
                 "php": ">=5.4.0",
@@ -1178,7 +1178,7 @@
                 "CRM",
                 "Mail"
             ],
-            "time": "2014-02-20 12:56:52"
+            "time": "2014-02-11 13:47:10"
         },
         {
             "name": "project-a/document-package",
@@ -1585,7 +1585,7 @@
             "source": {
                 "type": "git",
                 "url": "git@codebasehq.com:project-a/core/sales.git",
-                "reference": "30e3ad1a57c3e75935d0c3b73f405e6d6648cc33"
+                "reference": "954fe187866aa90eb3dfc4a66ea68d6e8bdf0d44"
             },
             "require": {
                 "php": ">=5.4.0",
@@ -1774,13 +1774,13 @@
             "version": "1.0.0",
             "source": {
                 "type": "git",
-                "url": "https://github.com/php-fig/log.git",
-                "reference": "fe0936ee26643249e916849d48e3a51d5f5e278b"
+                "url": "https://github.com/php-fig/log",
+                "reference": "1.0.0"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/php-fig/log/zipball/fe0936ee26643249e916849d48e3a51d5f5e278b",
-                "reference": "fe0936ee26643249e916849d48e3a51d5f5e278b",
+                "url": "https://github.com/php-fig/log/archive/1.0.0.zip",
+                "reference": "1.0.0",
                 "shasum": ""
             },
             "type": "library",
@@ -1915,12 +1915,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/silexphp/Silex.git",
-                "reference": "b7df67ff364eabec89033b433bbe449ee72301d4"
+                "reference": "235c4950f20f468254b7f7325ed6faad5756a2f7"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/silexphp/Silex/zipball/b7df67ff364eabec89033b433bbe449ee72301d4",
-                "reference": "b7df67ff364eabec89033b433bbe449ee72301d4",
+                "url": "https://api.github.com/repos/silexphp/Silex/zipball/235c4950f20f468254b7f7325ed6faad5756a2f7",
+                "reference": "235c4950f20f468254b7f7325ed6faad5756a2f7",
                 "shasum": ""
             },
             "require": {
@@ -1993,7 +1993,7 @@
             "keywords": [
                 "microframework"
             ],
-            "time": "2014-02-11 09:00:06"
+            "time": "2014-02-22 07:10:18"
         },
         {
             "name": "solarium/solarium",
@@ -2370,12 +2370,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/zendframework/zf2.git",
-                "reference": "37ab92a774d2f0eb4d322d4984be476823691bac"
+                "reference": "9c771cee91a224f6bdeacd0b387f28d25db9fc5b"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/zendframework/zf2/zipball/37ab92a774d2f0eb4d322d4984be476823691bac",
-                "reference": "37ab92a774d2f0eb4d322d4984be476823691bac",
+                "url": "https://api.github.com/repos/zendframework/zf2/zipball/9c771cee91a224f6bdeacd0b387f28d25db9fc5b",
+                "reference": "9c771cee91a224f6bdeacd0b387f28d25db9fc5b",
                 "shasum": ""
             },
             "require": {
@@ -2480,7 +2480,7 @@
                 "framework",
                 "zf2"
             ],
-            "time": "2014-02-20 12:36:27"
+            "time": "2014-02-24 20:32:43"
         },
         {
             "name": "zendframework/zendpdf",
@@ -3232,16 +3232,16 @@
         },
         {
             "name": "phpunit/php-code-coverage",
-            "version": "1.2.15",
+            "version": "1.2.16",
             "source": {
                 "type": "git",
                 "url": "https://github.com/sebastianbergmann/php-code-coverage.git",
-                "reference": "6ba4ed2895d538a039d5d5866edc4ec0424c7852"
+                "reference": "69e55e68481cf708a6db43aff0b504e31402fe27"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sebastianbergmann/php-code-coverage/zipball/6ba4ed2895d538a039d5d5866edc4ec0424c7852",
-                "reference": "6ba4ed2895d538a039d5d5866edc4ec0424c7852",
+                "url": "https://api.github.com/repos/sebastianbergmann/php-code-coverage/zipball/69e55e68481cf708a6db43aff0b504e31402fe27",
+                "reference": "69e55e68481cf708a6db43aff0b504e31402fe27",
                 "shasum": ""
             },
             "require": {
@@ -3289,7 +3289,7 @@
                 "testing",
                 "xunit"
             ],
-            "time": "2014-02-03 07:44:47"
+            "time": "2014-02-25 03:34:05"
         },
         {
             "name": "phpunit/php-file-iterator",
@@ -3476,16 +3476,16 @@
         },
         {
             "name": "phpunit/phpunit",
-            "version": "3.7.31",
+            "version": "3.7.32",
             "source": {
                 "type": "git",
                 "url": "https://github.com/sebastianbergmann/phpunit.git",
-                "reference": "d24e9877331039582497052cc3c4d9f465b88210"
+                "reference": "2752cbb9ea5bd84c2811b34b6953f76965ec7a2f"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sebastianbergmann/phpunit/zipball/d24e9877331039582497052cc3c4d9f465b88210",
-                "reference": "d24e9877331039582497052cc3c4d9f465b88210",
+                "url": "https://api.github.com/repos/sebastianbergmann/phpunit/zipball/2752cbb9ea5bd84c2811b34b6953f76965ec7a2f",
+                "reference": "2752cbb9ea5bd84c2811b34b6953f76965ec7a2f",
                 "shasum": ""
             },
             "require": {
@@ -3502,7 +3502,7 @@
                 "symfony/yaml": "~2.0"
             },
             "require-dev": {
-                "pear-pear/pear": "1.9.4"
+                "pear-pear.php.net/pear": "1.9.4"
             },
             "suggest": {
                 "ext-json": "*",
@@ -3546,7 +3546,7 @@
                 "testing",
                 "xunit"
             ],
-            "time": "2014-02-03 07:46:27"
+            "time": "2014-02-25 03:47:29"
         },
         {
             "name": "phpunit/phpunit-mock-objects",
@@ -3688,6 +3688,12 @@
     ],
     "aliases": [
         {
+            "alias": "3.1.0",
+            "alias_normalized": "3.1.0.0",
+            "version": "dev-feature/customer-account-speedup-orders",
+            "package": "project-a/crm-package"
+        },
+        {
             "alias": "3.0.0",
             "alias_normalized": "3.0.0.0",
             "version": "9999999-dev",
@@ -3702,6 +3708,7 @@
     ],
     "minimum-stability": "stable",
     "stability-flags": {
+        "project-a/crm-package": 20,
         "project-a/dwh-package": 20,
         "silex/silex": 20,
         "zendframework/zendframework": 20,

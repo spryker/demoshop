@@ -1,0 +1,90 @@
+<div id="order-details-{{ order.idSalesOrder }}" style="width:100%">&nbsp;
+    <img id="loading-{{ order.idSalesOrder }}" height="11" width="16" style="display:none" src='{{ asset('images/loading.gif') }}'/>
+    <div id="error-loading" style="display:none;">{{ 'error.order.loading'|trans }}</div>
+</div>
+
+<div class="details showonprint" id="details-{{ order.incrementId }}">
+    <div class="col col33 mod:first floatonprint">
+        <h4 class="caption">{{ 'customer.order.address.shipping'|trans }}</h4>
+        {{ order.shippingAddress.firstName }} {{ order.shippingAddress.lastName }}<br />
+        {% if order.shippingAddress.company %}
+            {{ order.shippingAddress.company }}<br />
+        {% endif %}
+        {{ order.shippingAddress.address1 }} {{ order.shippingAddress.address2 }}<br />
+        {% if order.shippingAddress.address3 %}
+            {{ order.shippingAddress.address3 }}<br />
+        {% endif %}
+        {{ order.shippingAddress.zipCode }} {{ order.shippingAddress.city }}
+    </div>
+    <div class="col col33 floatonprint">
+        <h4 class="caption">{{ 'customer.order.address.billing'|trans }}</h4>
+        {{ order.billingAddress.firstName }} {{ order.billingAddress.lastName }}<br />
+        {% if order.billingAddress.company %}
+            {{ order.billingAddress.company }}<br />
+        {% endif %}
+        {{ order.billingAddress.address1 }} {{ order.billingAddress.address2 }}<br />
+        {% if order.billingAddress.address3 %}
+            {{ order.billingAddress.address3 }}<br />
+        {% endif %}
+        {{ order.billingAddress.zipCode }} {{ order.billingAddress.city }}
+    </div>
+    <div class="col col33 mod:last floatonprint">
+        <h4 class="caption">{{ 'customer.order.payment.method'|trans }}</h4>
+        {{ order.payment.method|trans }}
+    </div>
+    <table class="cart fullWidth">
+        <thead>
+            <tr>
+                <th>{{ 'customer.order.product'|trans }}</th>
+                <th>{{ 'customer.order.amount'|trans }}</th>
+                <th>{{ 'customer.order.price.total'|trans }}</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for item in order.items %}
+                <tr>
+                    <td>{{ item.name }}</td>
+                    <td>{{ item.quantity }}</td>
+                    <td>{{ item.grossPrice }}</td>
+                </tr>
+            {% endfor %}
+        </tbody>
+        <tfoot>
+            <tr>
+                <td></td>
+                <td>{{ 'customer.order.price.subtotal'|trans }}</td>
+                <td>{{ order.totals.subtotal }}</td>
+            </tr>
+            <tr>
+                <td></td>
+                <td>{{ 'customer.order.price.shipping'|trans }}</td>
+                <td>
+                    {% for expense in order.totals.expenses.expenseItems %}
+                        {% if expense.type == 'shipping' %}
+                            {{ expense.grossPrice }}
+                        {% endif %}
+                    {% endfor %}
+                </td>
+            </tr>
+            {% if order.totals.discount.totalStandardDiscounts != "0,00 €" %}
+                <tr>
+                    <td></td>
+                    <td>{{ 'customer.order.discount'|trans }}</td>
+                    <td>-{{ order.totals.discount.totalStandardDiscounts }}</td>
+                </tr>
+            {% endif %}
+            {% if order.totals.discount.totalShippingDiscounts != "0,00 €" %}
+                <tr>
+                    <td></td>
+                    <td>{{ 'customer.order.discount.shipping'|trans }}</td>
+                    <td>-{{ order.totals.discount.totalShippingDiscounts }}</td>
+                </tr>
+            {% endif %}
+            <tr>
+                <td></td>
+                <td>{{ 'customer.order.price.grand.total'|trans }}</td>
+                <td>{{ order.totals.grandTotal }}</td>
+            </tr>
+        </tfoot>
+    </table>
+</div>

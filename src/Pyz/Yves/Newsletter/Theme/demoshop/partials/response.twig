@@ -1,0 +1,33 @@
+{% extends "@application/layout/full.twig" %}
+
+{% block content %}
+    <link rel="stylesheet" href="{{ asset('styles/newsletter.css') }}" />
+    <script src="{{ asset('scripts/app/newsletter.js') }}"></script>
+
+    <section id="newsletter" class="consumeHeight">
+        <div class="newsletter-teaser column fullWidth mod:full">
+            <div class="newsletter-teaser:wrapper">
+                <div class="newsletter-teaser:main">
+                    <div class="badge"></div>
+                    <h1>{{ headline|trans }}</h1>
+                    <div class="response">
+                        {% set alertTypeAvaillable = [ 'info', 'success', 'warning', 'error'] %}
+                        {% for alert in alertTypeAvaillable %}
+                            {% set flashMessages = app.session.getFlashBag.get(alert) %}
+                            {% if flashMessages %}
+                                {% for message in flashMessages %}
+                                    <div class="message {{ alert }}" >
+                                        {% autoescape false %}
+                                        {{ message|trans }}
+                                        {% endautoescape %}
+                                    </div>
+                                {% endfor %}
+                            {% endif %}
+                        {% endfor %}
+                        <button class="mod:thin" onclick="location.href='/';">{{ 'button.home'|trans }}</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+{% endblock %}

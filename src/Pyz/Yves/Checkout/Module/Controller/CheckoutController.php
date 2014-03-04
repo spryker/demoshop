@@ -13,6 +13,7 @@ use Generated\Shared\Payment\Transfer\PaymentMethodCollection;
 
 class CheckoutController extends CoreCheckoutController
 {
+
     /**
      * @param Request $request
      * @return array|RedirectResponse
@@ -38,16 +39,6 @@ class CheckoutController extends CoreCheckoutController
     }
 
     /**
-     * @param PaymentMethodCollection $paymentMethods
-     * @return OrderType
-     */
-    protected function createOrderType(PaymentMethodCollection $paymentMethods)
-    {
-        $customerModel = Factory::getInstance()->createCustomerModelCustomer($this->getApplication());
-        return new OrderType($paymentMethods, $customerModel);
-    }
-
-    /**
      * @param Request $request
      * @return array|RedirectResponse
      */
@@ -59,4 +50,15 @@ class CheckoutController extends CoreCheckoutController
 
         return parent::successAction($request);
     }
+
+    /**
+     * @param PaymentMethodCollection $paymentMethods
+     * @return OrderType
+     */
+    protected function createOrderType(PaymentMethodCollection $paymentMethods)
+    {
+        $customerModel = Factory::getInstance()->createCustomerModelCustomer($this->getApplication());
+        return new OrderType($paymentMethods, $customerModel);
+    }
+
 }

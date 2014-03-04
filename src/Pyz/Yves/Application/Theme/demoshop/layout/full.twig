@@ -30,7 +30,7 @@
             <a href="/" id="logo" class="col col33">
                 <img src="/images/logo.png" alt="logo" />
             </a>
-            <div class="col col67">
+            <div class="col col67 hideonprint">
                 <ul class="usps">
                     <li><span class="glyphicon glyphicon-gift"></span>{{ 'header.usp.shipping'|trans }}</li>
                     <li><span class="glyphicon glyphicon-refresh"></span>{{ 'header.usp.return'|trans }}</li>
@@ -38,7 +38,7 @@
                 </ul>
             </div>
         </div>
-        <div class="row">
+        <div class="row hideonprint">
             <div class="col col33">
                 <hardcoded block>
                 <input class="search fullWidth" type="text" placeholder="Find Your Product" />
@@ -56,10 +56,11 @@
                     </li>
                 </ul>
                 <ul class="customer menu">
+                    <li><a href="{{ url('account') }}"><span class="glyphicon glyphicon-user"></span>{{ 'customer.account'|trans }}</a></li>
                     {% if is_granted('IS_AUTHENTICATED_FULLY') %}
-                        <li><a href="{{ url('logout') }}"><span class="glyphicon glyphicon-log-out"></span> Logout</a></li>
+                        <li><a href="{{ url('logout') }}"><span class="glyphicon glyphicon-log-out"></span>{{ 'customer.logout'|trans }}</a></li>
                     {% else %}
-                        <li><a href="{{ url('login') }}"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+                        <li><a href="{{ url('login') }}"><span class="glyphicon glyphicon-log-in"></span>{{ 'customer.login'|trans }}</a></li>
                     {% endif %}
                 </ul>
             </div>

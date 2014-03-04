@@ -1,0 +1,56 @@
+<!-- ********** PAYONE CODE ********** --->
+
+<script>
+    /*
+     $('#salesOrder_save').on('click', function (e) {
+     var method = $("input:radio[name='salesOrder[payment][method]']:checked").val();
+     if(method == 'payment.payone.creditcard_pseudo') {
+     e.preventDefault();
+     performCreditCardCheck();
+     }
+     });
+     */
+</script>
+
+
+<script src="/bundles/Payone/payonecreditcardcheck.js"></script>
+
+<script>
+    function performCreditCardCheck() {
+        var payoneConfig = {
+            request        : '{{ payoneCreditcardCheckData.request }}',
+            mode           : '{{ payoneCreditcardCheckData.mode }}',
+            mid            : '{{ payoneCreditcardCheckData.mid }}',
+            aid            : '{{ payoneCreditcardCheckData.aid }}',
+            portalid       : '{{ payoneCreditcardCheckData.portalid }}',
+            hash           : '{{ payoneCreditcardCheckData.hash }}',
+            encoding       : '{{ payoneCreditcardCheckData.encoding }}',
+            language       : '{{ payoneCreditcardCheckData.language }}',
+            storecarddata  : '{{ payoneCreditcardCheckData.storecarddata }}'
+        };
+        var creditCardData = {
+            ccCardHolder        : $("#salesOrder_payment_creditCardHolder").val(),
+            ccNumber            : $("#salesOrder_payment_creditCardPan").val(),
+            ccType              : $("#salesOrder_payment_creditCardType").val(),
+            ccExpirationMonth   : $("#salesOrder_payment_creditCardExpirationMonth").val(),
+            ccExpirationYear    : $("#salesOrder_payment_creditCardExpirationYear").val(),
+            ccVerification      : $("#salesOrder_payment_creditCardCvc2").val()
+        };
+        PayoneCreditCardCheck.doRequest(payoneConfig, creditCardData, 'payoneResponseCallback');
+    }
+</script>
+
+<script>
+    function payoneResponseCallback(response) {
+        if (response.get('status') === 'VALID') {
+            var pseudoCardPan = response.get('pseudocardpan');
+            var truncatedCardPan = response.get('truncatedcardpan');
+            $("#salesOrder_payment_creditCardPseudoCardPan").val(pseudoCardPan);
+        } else {
+            var message = response.get('errormessage') + "\n" + response.get('customermessage');
+            alert(message);
+        }
+    }
+</script>
+
+<!-- ********** END OF PAYONE CODE ********** --->
