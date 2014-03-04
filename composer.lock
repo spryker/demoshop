@@ -3,7 +3,7 @@
         "This file locks the dependencies of your project to a known state",
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file"
     ],
-    "hash": "ee5fb58d078bf450ec3b88fed8ce4d72",
+    "hash": "36e0122cf5bfc8c44701cfcd844da0d0",
     "packages": [
         {
             "name": "cmutter/google-adwords-api",
@@ -1292,11 +1292,11 @@
         },
         {
             "name": "project-a/glossary-package",
-            "version": "3.0.1",
+            "version": "3.0.2",
             "source": {
                 "type": "git",
                 "url": "git@codebasehq.com:project-a/core/glossary.git",
-                "reference": "e647fae433afcdbdd95ade778be2940d7057e5c3"
+                "reference": "b8d946480916f87495e4a146d88538bb0add9226"
             },
             "require": {
                 "php": ">=5.4.0",
@@ -1323,7 +1323,7 @@
                 "i18n",
                 "translation"
             ],
-            "time": "2014-02-25 16:38:48"
+            "time": "2014-03-04 12:50:20"
         },
         {
             "name": "project-a/infrastructure-package",
