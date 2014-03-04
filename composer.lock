@@ -3,7 +3,7 @@
         "This file locks the dependencies of your project to a known state",
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file"
     ],
-    "hash": "8efb776a900803d7e780af7591d047c3",
+    "hash": "c398418c28c20e4564749e7d91efd77a",
     "packages": [
         {
             "name": "cmutter/google-adwords-api",
@@ -506,12 +506,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/fabpot/PHP-CS-Fixer.git",
-                "reference": "750368df950dc7947be50793334cdac8324dc22a"
+                "reference": "fc0d890326ca2332ce3d262fad199baccbc570bf"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/fabpot/PHP-CS-Fixer/zipball/750368df950dc7947be50793334cdac8324dc22a",
-                "reference": "750368df950dc7947be50793334cdac8324dc22a",
+                "url": "https://api.github.com/repos/fabpot/PHP-CS-Fixer/zipball/fc0d890326ca2332ce3d262fad199baccbc570bf",
+                "reference": "fc0d890326ca2332ce3d262fad199baccbc570bf",
                 "shasum": ""
             },
             "require": {
@@ -548,19 +548,19 @@
                 }
             ],
             "description": "A script to automatically fix Symfony Coding Standard",
-            "time": "2014-02-10 16:36:30"
+            "time": "2014-03-03 13:52:15"
         },
         {
             "name": "gavroche/browser",
             "version": "v2.1",
             "source": {
                 "type": "git",
-                "url": "https://github.com/gabrielbull/php-browser.git",
+                "url": "https://github.com/gavroche/php-browser.git",
                 "reference": "aed2949e5ca245569380a1afdc99be5f152e3dc6"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/gabrielbull/php-browser/zipball/aed2949e5ca245569380a1afdc99be5f152e3dc6",
+                "url": "https://api.github.com/repos/gavroche/php-browser/zipball/aed2949e5ca245569380a1afdc99be5f152e3dc6",
                 "reference": "aed2949e5ca245569380a1afdc99be5f152e3dc6",
                 "shasum": ""
             },
@@ -1292,11 +1292,11 @@
         },
         {
             "name": "project-a/glossary-package",
-            "version": "3.0.0",
+            "version": "3.0.2",
             "source": {
                 "type": "git",
                 "url": "git@codebasehq.com:project-a/core/glossary.git",
-                "reference": "461baae8795251f7f12bec5955c809f10901f262"
+                "reference": "b8d946480916f87495e4a146d88538bb0add9226"
             },
             "require": {
                 "php": ">=5.4.0",
@@ -1323,7 +1323,7 @@
                 "i18n",
                 "translation"
             ],
-            "time": "2014-01-29 12:06:15"
+            "time": "2014-03-04 12:50:20"
         },
         {
             "name": "project-a/infrastructure-package",
@@ -1585,7 +1585,7 @@
             "source": {
                 "type": "git",
                 "url": "git@codebasehq.com:project-a/core/sales.git",
-                "reference": "30e3ad1a57c3e75935d0c3b73f405e6d6648cc33"
+                "reference": "954fe187866aa90eb3dfc4a66ea68d6e8bdf0d44"
             },
             "require": {
                 "php": ">=5.4.0",
@@ -1774,13 +1774,13 @@
             "version": "1.0.0",
             "source": {
                 "type": "git",
-                "url": "https://github.com/php-fig/log.git",
-                "reference": "fe0936ee26643249e916849d48e3a51d5f5e278b"
+                "url": "https://github.com/php-fig/log",
+                "reference": "1.0.0"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/php-fig/log/zipball/fe0936ee26643249e916849d48e3a51d5f5e278b",
-                "reference": "fe0936ee26643249e916849d48e3a51d5f5e278b",
+                "url": "https://github.com/php-fig/log/archive/1.0.0.zip",
+                "reference": "1.0.0",
                 "shasum": ""
             },
             "type": "library",
@@ -1915,12 +1915,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/silexphp/Silex.git",
-                "reference": "b7df67ff364eabec89033b433bbe449ee72301d4"
+                "reference": "235c4950f20f468254b7f7325ed6faad5756a2f7"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/silexphp/Silex/zipball/b7df67ff364eabec89033b433bbe449ee72301d4",
-                "reference": "b7df67ff364eabec89033b433bbe449ee72301d4",
+                "url": "https://api.github.com/repos/silexphp/Silex/zipball/235c4950f20f468254b7f7325ed6faad5756a2f7",
+                "reference": "235c4950f20f468254b7f7325ed6faad5756a2f7",
                 "shasum": ""
             },
             "require": {
@@ -1993,7 +1993,7 @@
             "keywords": [
                 "microframework"
             ],
-            "time": "2014-02-11 09:00:06"
+            "time": "2014-02-22 07:10:18"
         },
         {
             "name": "solarium/solarium",
@@ -2370,12 +2370,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/zendframework/zf2.git",
-                "reference": "37ab92a774d2f0eb4d322d4984be476823691bac"
+                "reference": "feb7fbe68fdbaf08a31f91803ab0295bbc6b7639"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/zendframework/zf2/zipball/37ab92a774d2f0eb4d322d4984be476823691bac",
-                "reference": "37ab92a774d2f0eb4d322d4984be476823691bac",
+                "url": "https://api.github.com/repos/zendframework/zf2/zipball/feb7fbe68fdbaf08a31f91803ab0295bbc6b7639",
+                "reference": "feb7fbe68fdbaf08a31f91803ab0295bbc6b7639",
                 "shasum": ""
             },
             "require": {
@@ -2440,7 +2440,6 @@
                 "ircmaxell/random-lib": "dev-master",
                 "ircmaxell/security-lib": "dev-master",
                 "mikey179/vfsstream": "1.2.*",
-                "ocramius/proxy-manager": "0.4.*",
                 "phpunit/phpunit": "3.7.*",
                 "satooshi/php-coveralls": "dev-master",
                 "sebastianbergmann/phpcov": "1.1.0"
@@ -2449,7 +2448,7 @@
                 "doctrine/annotations": "Doctrine Annotations >=1.0 for annotation features",
                 "ext-intl": "ext/intl for i18n features (included in default builds of PHP)",
                 "ircmaxell/random-lib": "Fallback random byte generator for Zend\\Math\\Rand if OpenSSL/Mcrypt extensions are unavailable",
-                "ocramius/proxy-manager": "ProxyManager to handle lazy initialization of services",
+                "ocramius/proxy-manager": "ProxyManager 0.5.* to handle lazy initialization of services",
                 "zendframework/zendpdf": "ZendPdf for creating PDF representations of barcodes",
                 "zendframework/zendservice-recaptcha": "ZendService\\ReCaptcha for rendering ReCaptchas in Zend\\Captcha and/or Zend\\Form"
             },
@@ -2480,7 +2479,7 @@
                 "framework",
                 "zf2"
             ],
-            "time": "2014-02-20 12:36:27"
+            "time": "2014-03-04 08:37:54"
         },
         {
             "name": "zendframework/zendpdf",
@@ -3232,16 +3231,16 @@
         },
         {
             "name": "phpunit/php-code-coverage",
-            "version": "1.2.15",
+            "version": "1.2.16",
             "source": {
                 "type": "git",
                 "url": "https://github.com/sebastianbergmann/php-code-coverage.git",
-                "reference": "6ba4ed2895d538a039d5d5866edc4ec0424c7852"
+                "reference": "69e55e68481cf708a6db43aff0b504e31402fe27"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sebastianbergmann/php-code-coverage/zipball/6ba4ed2895d538a039d5d5866edc4ec0424c7852",
-                "reference": "6ba4ed2895d538a039d5d5866edc4ec0424c7852",
+                "url": "https://api.github.com/repos/sebastianbergmann/php-code-coverage/zipball/69e55e68481cf708a6db43aff0b504e31402fe27",
+                "reference": "69e55e68481cf708a6db43aff0b504e31402fe27",
                 "shasum": ""
             },
             "require": {
@@ -3289,7 +3288,7 @@
                 "testing",
                 "xunit"
             ],
-            "time": "2014-02-03 07:44:47"
+            "time": "2014-02-25 03:34:05"
         },
         {
             "name": "phpunit/php-file-iterator",
@@ -3426,16 +3425,16 @@
         },
         {
             "name": "phpunit/php-token-stream",
-            "version": "1.2.1",
+            "version": "1.2.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/sebastianbergmann/php-token-stream.git",
-                "reference": "5220af2a7929aa35cf663d97c89ad3d50cf5fa3e"
+                "reference": "ad4e1e23ae01b483c16f600ff1bebec184588e32"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sebastianbergmann/php-token-stream/zipball/5220af2a7929aa35cf663d97c89ad3d50cf5fa3e",
-                "reference": "5220af2a7929aa35cf663d97c89ad3d50cf5fa3e",
+                "url": "https://api.github.com/repos/sebastianbergmann/php-token-stream/zipball/ad4e1e23ae01b483c16f600ff1bebec184588e32",
+                "reference": "ad4e1e23ae01b483c16f600ff1bebec184588e32",
                 "shasum": ""
             },
             "require": {
@@ -3472,20 +3471,20 @@
             "keywords": [
                 "tokenizer"
             ],
-            "time": "2013-09-13 04:58:23"
+            "time": "2014-03-03 05:10:30"
         },
         {
             "name": "phpunit/phpunit",
-            "version": "3.7.31",
+            "version": "3.7.32",
             "source": {
                 "type": "git",
                 "url": "https://github.com/sebastianbergmann/phpunit.git",
-                "reference": "d24e9877331039582497052cc3c4d9f465b88210"
+                "reference": "2752cbb9ea5bd84c2811b34b6953f76965ec7a2f"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sebastianbergmann/phpunit/zipball/d24e9877331039582497052cc3c4d9f465b88210",
-                "reference": "d24e9877331039582497052cc3c4d9f465b88210",
+                "url": "https://api.github.com/repos/sebastianbergmann/phpunit/zipball/2752cbb9ea5bd84c2811b34b6953f76965ec7a2f",
+                "reference": "2752cbb9ea5bd84c2811b34b6953f76965ec7a2f",
                 "shasum": ""
             },
             "require": {
@@ -3502,7 +3501,7 @@
                 "symfony/yaml": "~2.0"
             },
             "require-dev": {
-                "pear-pear/pear": "1.9.4"
+                "pear-pear.php.net/pear": "1.9.4"
             },
             "suggest": {
                 "ext-json": "*",
@@ -3546,7 +3545,7 @@
                 "testing",
                 "xunit"
             ],
-            "time": "2014-02-03 07:46:27"
+            "time": "2014-02-25 03:47:29"
         },
         {
             "name": "phpunit/phpunit-mock-objects",
