@@ -3,7 +3,7 @@
         "This file locks the dependencies of your project to a known state",
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file"
     ],
-    "hash": "c53ce70ca9d2a067dd1bc0b8f81dc83d",
+    "hash": "bf1747a891f90913958a272dbb2b7129",
     "packages": [
         {
             "name": "cmutter/google-adwords-api",
@@ -1152,14 +1152,16 @@
             "source": {
                 "type": "git",
                 "url": "git@codebasehq.com:project-a/core/content.git",
-                "reference": "bc8a419e0cac77279084a739da94dfe84aa452b2"
+                "reference": "0881b47335e5825d5ad6bd489bde559552520fab"
             },
             "require": {
                 "php": ">=5.4.0",
-                "project-a/catalog-package": "~3.0",
+                "project-a/acl-package": "~3.0",
+                "project-a/catalog-package": "<4,>=3.0.8",
                 "project-a/frontend-package": "~3.0",
                 "project-a/glossary-package": "~3.0",
-                "project-a/library-package": "~3.0"
+                "project-a/library-package": "<4,>=3.1.3",
+                "project-a/lumberjack-package": "~3.0"
             },
             "type": "library",
             "autoload": {
@@ -1181,7 +1183,7 @@
             "keywords": [
                 "Content Package"
             ],
-            "time": "2014-03-03 16:15:40"
+            "time": "2014-03-05 09:51:06"
         },
         {
             "name": "project-a/crm-package",
@@ -1420,11 +1422,11 @@
         },
         {
             "name": "project-a/library-package",
-            "version": "3.2.0",
+            "version": "dev-feature/cms",
             "source": {
                 "type": "git",
                 "url": "git@codebasehq.com:project-a/core/library-2.git",
-                "reference": "434abc885db67909db4ba59448982f4636ca8fd3"
+                "reference": "234ed01529cf4ab9e6bf0719efd0e09171890a97"
             },
             "require": {
                 "digital-canvas/zend-framework": ">=1.12.2",
@@ -1461,7 +1463,7 @@
                 }
             ],
             "description": "Project-A Library",
-            "time": "2014-03-04 13:24:03"
+            "time": "2014-03-05 10:47:07"
         },
         {
             "name": "project-a/lumberjack-package",
@@ -1952,12 +1954,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/silexphp/Silex.git",
-                "reference": "235c4950f20f468254b7f7325ed6faad5756a2f7"
+                "reference": "b40e5b2bd3c550424e96104545c31da1023d7f66"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/silexphp/Silex/zipball/235c4950f20f468254b7f7325ed6faad5756a2f7",
-                "reference": "235c4950f20f468254b7f7325ed6faad5756a2f7",
+                "url": "https://api.github.com/repos/silexphp/Silex/zipball/b40e5b2bd3c550424e96104545c31da1023d7f66",
+                "reference": "b40e5b2bd3c550424e96104545c31da1023d7f66",
                 "shasum": ""
             },
             "require": {
@@ -2030,7 +2032,7 @@
             "keywords": [
                 "microframework"
             ],
-            "time": "2014-02-22 07:10:18"
+            "time": "2014-03-04 21:23:45"
         },
         {
             "name": "solarium/solarium",
@@ -2407,12 +2409,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/zendframework/zf2.git",
-                "reference": "feb7fbe68fdbaf08a31f91803ab0295bbc6b7639"
+                "reference": "69f059f31b0efd98afb94bf691140b8c696a627c"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/zendframework/zf2/zipball/feb7fbe68fdbaf08a31f91803ab0295bbc6b7639",
-                "reference": "feb7fbe68fdbaf08a31f91803ab0295bbc6b7639",
+                "url": "https://api.github.com/repos/zendframework/zf2/zipball/69f059f31b0efd98afb94bf691140b8c696a627c",
+                "reference": "69f059f31b0efd98afb94bf691140b8c696a627c",
                 "shasum": ""
             },
             "require": {
@@ -2516,7 +2518,7 @@
                 "framework",
                 "zf2"
             ],
-            "time": "2014-03-04 08:37:54"
+            "time": "2014-03-05 00:21:49"
         },
         {
             "name": "zendframework/zendpdf",
@@ -3736,6 +3738,12 @@
             "package": "project-a/dwh-package"
         },
         {
+            "alias": "3.2.1",
+            "alias_normalized": "3.2.1.0",
+            "version": "dev-feature/cms",
+            "package": "project-a/library-package"
+        },
+        {
             "alias": "1.2",
             "alias_normalized": "1.2.0.0",
             "version": "9999999-dev",
@@ -3746,6 +3754,7 @@
     "stability-flags": {
         "project-a/content-package": 20,
         "project-a/dwh-package": 20,
+        "project-a/library-package": 20,
         "silex/silex": 20,
         "zendframework/zendframework": 20,
         "fabpot/php-cs-fixer": 20
