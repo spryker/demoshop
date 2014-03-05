@@ -11,7 +11,7 @@
         "project-a/document-package": "3.0.0",
         "project-a/frontend-package": "3.0.0",
         "project-a/glossary-package": "3.0.0",
-        "project-a/infrastructure-package": "3.0.4",
+        "project-a/infrastructure-package": "dev-feature/cms as 3.0.5",
         "project-a/kendo-package": "3.0.0",
         "project-a/library-package": "3.2.1",
         "project-a/lumberjack-package": "3.0.0",

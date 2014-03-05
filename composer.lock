@@ -3,7 +3,7 @@
         "This file locks the dependencies of your project to a known state",
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file"
     ],
-    "hash": "bdee3069c0beccb84751be263de28232",
+    "hash": "d7a4681d0497a660a78fe1e51d53f64d",
     "packages": [
         {
             "name": "cmutter/google-adwords-api",
@@ -1152,7 +1152,7 @@
             "source": {
                 "type": "git",
                 "url": "git@codebasehq.com:project-a/core/content.git",
-                "reference": "0881b47335e5825d5ad6bd489bde559552520fab"
+                "reference": "7c9017c62c1bcd1e04e97a31ddfca5aeba733b55"
             },
             "require": {
                 "php": ">=5.4.0",
@@ -1183,7 +1183,7 @@
             "keywords": [
                 "Content Package"
             ],
-            "time": "2014-03-05 09:51:06"
+            "time": "2014-03-05 13:04:27"
         },
         {
             "name": "project-a/crm-package",
@@ -1366,11 +1366,11 @@
         },
         {
             "name": "project-a/infrastructure-package",
-            "version": "3.0.4",
+            "version": "dev-feature/cms",
             "source": {
                 "type": "git",
                 "url": "git@codebasehq.com:project-a/core/infrastructure.git",
-                "reference": "e92fe7da3e7ff5933425ed023ae2dbe5cb20d062"
+                "reference": "2f6fbeb0534e8eca7e7805efe758c7434d862ddd"
             },
             "require": {
                 "php": ">=5.4.0",
@@ -1399,7 +1399,7 @@
             "keywords": [
                 "infrastructure"
             ],
-            "time": "2014-02-28 15:11:36"
+            "time": "2014-03-05 13:08:24"
         },
         {
             "name": "project-a/kendo-package",
@@ -3738,6 +3738,12 @@
             "package": "project-a/dwh-package"
         },
         {
+            "alias": "3.0.5",
+            "alias_normalized": "3.0.5.0",
+            "version": "dev-feature/cms",
+            "package": "project-a/infrastructure-package"
+        },
+        {
             "alias": "1.2",
             "alias_normalized": "1.2.0.0",
             "version": "9999999-dev",
@@ -3748,6 +3754,7 @@
     "stability-flags": {
         "project-a/content-package": 20,
         "project-a/dwh-package": 20,
+        "project-a/infrastructure-package": 20,
         "silex/silex": 20,
         "zendframework/zendframework": 20,
         "fabpot/php-cs-fixer": 20
