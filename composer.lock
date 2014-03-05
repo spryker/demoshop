@@ -2409,7 +2409,6 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/zendframework/zf2.git",
-                "reference": "d02d04d6fd8808784202f8604a054c3c3579b14d"
             },
             "dist": {
                 "type": "zip",
