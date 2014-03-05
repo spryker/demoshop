@@ -1,0 +1,25 @@
+{% extends "@application/layout/full.twig" %}
+
+{% block title %}
+    {% set titleAttribute = CmsPage.attribute('title') %}
+    {% if titleAttribute %}
+        {{ titleAttribute.value }}
+    {% endif %}
+{% endblock %}
+
+{% block metatags %}
+    {% set metaTags = CmsPage.metaTags %}
+    {% if metaTags %}
+        {% for metaTag in CmsPage.metaTags %}
+            <meta name="{{ metaTag.name }}" content="{{ metaTag.value }}" />
+        {% endfor %}
+    {% endif %}
+{% endblock %}
+
+{% block content %}
+    <section>
+        {% autoescape false %}
+            {{ content }}
+        {% endautoescape %}
+    </section>
+{% endblock %}
