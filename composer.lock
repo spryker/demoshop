@@ -3,7 +3,7 @@
         "This file locks the dependencies of your project to a known state",
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file"
     ],
-    "hash": "c1adc0dade542bfd246eb93f002abb1c",
+    "hash": "5372222556a41531b1883967b05b3ff7",
     "packages": [
         {
             "name": "cmutter/google-adwords-api",
@@ -555,12 +555,12 @@
             "version": "v2.1",
             "source": {
                 "type": "git",
-                "url": "https://github.com/gavroche/php-browser.git",
+                "url": "https://github.com/gabrielbull/php-browser.git",
                 "reference": "aed2949e5ca245569380a1afdc99be5f152e3dc6"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/gavroche/php-browser/zipball/aed2949e5ca245569380a1afdc99be5f152e3dc6",
+                "url": "https://api.github.com/repos/gabrielbull/php-browser/zipball/aed2949e5ca245569380a1afdc99be5f152e3dc6",
                 "reference": "aed2949e5ca245569380a1afdc99be5f152e3dc6",
                 "shasum": ""
             },
@@ -1018,7 +1018,7 @@
             "source": {
                 "type": "git",
                 "url": "git@codebasehq.com:project-a/core/catalog.git",
-                "reference": "10f0afcf4442ef278e1e76022b0b4b57cc649ebf"
+                "reference": "a03a04c9eda1185b1c1fcfc2478ac16c4dc99b10"
             },
             "require": {
                 "php": ">=5.4.0",
@@ -1055,7 +1055,7 @@
                 "Price",
                 "Stock"
             ],
-            "time": "2014-03-03 10:39:58"
+            "time": "2014-03-05 14:59:23"
         },
         {
             "name": "project-a/checkout-package",
@@ -1101,11 +1101,11 @@
         },
         {
             "name": "project-a/console-package",
-            "version": "3.0.0",
+            "version": "3.1.1",
             "source": {
                 "type": "git",
                 "url": "git@codebasehq.com:project-a/core/console.git",
-                "reference": "bcc0c87f6b28bb23cbece4b328a97fc6204a666c"
+                "reference": "bb0d5b9ccb103fa96b3193d9c571647530068e71"
             },
             "require": {
                 "fabpot/php-cs-fixer": "dev-master",
@@ -1144,7 +1144,7 @@
             "keywords": [
                 "console"
             ],
-            "time": "2014-01-29 12:06:15"
+            "time": "2014-03-05 14:57:38"
         },
         {
             "name": "project-a/crm-package",
@@ -1383,11 +1383,11 @@
         },
         {
             "name": "project-a/library-package",
-            "version": "3.1.1",
+            "version": "3.2.1",
             "source": {
                 "type": "git",
                 "url": "git@codebasehq.com:project-a/core/library-2.git",
-                "reference": "e2ad48defcd4792cd76ea0088fbea469182ecdf7"
+                "reference": "796245cc064f591ab6370043f373825f823c9aea"
             },
             "require": {
                 "digital-canvas/zend-framework": ">=1.12.2",
@@ -1424,7 +1424,7 @@
                 }
             ],
             "description": "Project-A Library",
-            "time": "2014-02-25 08:20:18"
+            "time": "2014-03-05 14:53:07"
         },
         {
             "name": "project-a/lumberjack-package",
@@ -1585,7 +1585,7 @@
             "source": {
                 "type": "git",
                 "url": "git@codebasehq.com:project-a/core/sales.git",
-                "reference": "a4c14de7643ff321f61619f3009d392cfc7176f6"
+                "reference": "47ddb2bfb5e6f02aebb0bb06a5cb007b787b67bd"
             },
             "require": {
                 "php": ">=5.4.0",
@@ -1618,7 +1618,7 @@
                 "Sales",
                 "Task"
             ],
-            "time": "2014-03-03 14:21:33"
+            "time": "2014-03-04 12:59:16"
         },
         {
             "name": "project-a/silex-routing",
@@ -1915,12 +1915,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/silexphp/Silex.git",
-                "reference": "235c4950f20f468254b7f7325ed6faad5756a2f7"
+                "reference": "b40e5b2bd3c550424e96104545c31da1023d7f66"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/silexphp/Silex/zipball/235c4950f20f468254b7f7325ed6faad5756a2f7",
-                "reference": "235c4950f20f468254b7f7325ed6faad5756a2f7",
+                "url": "https://api.github.com/repos/silexphp/Silex/zipball/b40e5b2bd3c550424e96104545c31da1023d7f66",
+                "reference": "b40e5b2bd3c550424e96104545c31da1023d7f66",
                 "shasum": ""
             },
             "require": {
@@ -1993,7 +1993,7 @@
             "keywords": [
                 "microframework"
             ],
-            "time": "2014-02-22 07:10:18"
+            "time": "2014-03-04 21:23:45"
         },
         {
             "name": "solarium/solarium",
@@ -2370,12 +2370,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/zendframework/zf2.git",
-                "reference": "4445997e32b025b46192150387e24a759f11a0ac"
+                "reference": "a6405f281cb6990bc8ba7a916beaaf02630cef82"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/zendframework/zf2/zipball/4445997e32b025b46192150387e24a759f11a0ac",
-                "reference": "4445997e32b025b46192150387e24a759f11a0ac",
+                "url": "https://api.github.com/repos/zendframework/zf2/zipball/a6405f281cb6990bc8ba7a916beaaf02630cef82",
+                "reference": "a6405f281cb6990bc8ba7a916beaaf02630cef82",
                 "shasum": ""
             },
             "require": {
@@ -2440,7 +2440,6 @@
                 "ircmaxell/random-lib": "dev-master",
                 "ircmaxell/security-lib": "dev-master",
                 "mikey179/vfsstream": "1.2.*",
-                "ocramius/proxy-manager": "0.5.*",
                 "phpunit/phpunit": "3.7.*",
                 "satooshi/php-coveralls": "dev-master",
                 "sebastianbergmann/phpcov": "1.1.0"
@@ -2449,7 +2448,7 @@
                 "doctrine/annotations": "Doctrine Annotations >=1.0 for annotation features",
                 "ext-intl": "ext/intl for i18n features (included in default builds of PHP)",
                 "ircmaxell/random-lib": "Fallback random byte generator for Zend\\Math\\Rand if OpenSSL/Mcrypt extensions are unavailable",
-                "ocramius/proxy-manager": "ProxyManager to handle lazy initialization of services",
+                "ocramius/proxy-manager": "ProxyManager 0.5.* to handle lazy initialization of services",
                 "zendframework/zendpdf": "ZendPdf for creating PDF representations of barcodes",
                 "zendframework/zendservice-recaptcha": "ZendService\\ReCaptcha for rendering ReCaptchas in Zend\\Captcha and/or Zend\\Form"
             },
@@ -2480,7 +2479,7 @@
                 "framework",
                 "zf2"
             ],
-            "time": "2014-03-03 14:08:26"
+            "time": "2014-03-05 15:16:51"
         },
         {
             "name": "zendframework/zendpdf",
@@ -2695,17 +2694,17 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/Behat/Mink.git",
-                "reference": "v1.5.0"
+                "reference": "0769e6d9726c140a54dbf827a438c0f9912749fe"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Behat/Mink/zipball/v1.5.0",
-                "reference": "v1.5.0",
+                "url": "https://api.github.com/repos/Behat/Mink/zipball/0769e6d9726c140a54dbf827a438c0f9912749fe",
+                "reference": "0769e6d9726c140a54dbf827a438c0f9912749fe",
                 "shasum": ""
             },
             "require": {
                 "php": ">=5.3.1",
-                "symfony/css-selector": ">=2.0,<3.0"
+                "symfony/css-selector": "~2.0"
             },
             "suggest": {
                 "behat/mink-browserkit-driver": "extremely fast headless driver for Symfony\\Kernel-based apps (Sf2, Silex)",
@@ -2910,19 +2909,19 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/Behat/MinkSeleniumDriver.git",
-                "reference": "v1.1.0"
+                "reference": "a782b031cb8a94b449b9ccecdcd0e79206bbc882"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Behat/MinkSeleniumDriver/zipball/v1.1.0",
-                "reference": "v1.1.0",
+                "url": "https://api.github.com/repos/Behat/MinkSeleniumDriver/zipball/a782b031cb8a94b449b9ccecdcd0e79206bbc882",
+                "reference": "a782b031cb8a94b449b9ccecdcd0e79206bbc882",
                 "shasum": ""
             },
             "require": {
-                "alexandresalome/php-selenium": ">=1.0.1,<1.1",
-                "behat/mink": ">=1.5,<1.6",
+                "alexandresalome/php-selenium": "~1.0.1",
+                "behat/mink": "~1.5.0",
                 "php": ">=5.3.1",
-                "symfony/dom-crawler": ">=2.0,<3.0"
+                "symfony/dom-crawler": "~2.0"
             },
             "type": "mink-driver",
             "extra": {
@@ -2963,17 +2962,17 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/Behat/MinkSelenium2Driver.git",
-                "reference": "v1.1.1"
+                "reference": "bcf1b537de37db6db0822d9e7bd97e600fd7a476"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Behat/MinkSelenium2Driver/zipball/v1.1.1",
-                "reference": "v1.1.1",
+                "url": "https://api.github.com/repos/Behat/MinkSelenium2Driver/zipball/bcf1b537de37db6db0822d9e7bd97e600fd7a476",
+                "reference": "bcf1b537de37db6db0822d9e7bd97e600fd7a476",
                 "shasum": ""
             },
             "require": {
-                "behat/mink": ">=1.5,<1.6",
-                "instaclick/php-webdriver": ">=1.0.12.0,<1.1",
+                "behat/mink": "~1.5.0",
+                "instaclick/php-webdriver": "~1.0.12",
                 "php": ">=5.3.1"
             },
             "type": "mink-driver",
@@ -3131,16 +3130,16 @@
         },
         {
             "name": "justinrainbow/json-schema",
-            "version": "1.3.5",
+            "version": "1.3.6",
             "source": {
                 "type": "git",
                 "url": "https://github.com/justinrainbow/json-schema.git",
-                "reference": "01949f6d2130e9737ffae5d3952909a8de70d114"
+                "reference": "d97cf3ce890fe80f247fc08594a1c8a1029fc7ed"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/justinrainbow/json-schema/zipball/01949f6d2130e9737ffae5d3952909a8de70d114",
-                "reference": "01949f6d2130e9737ffae5d3952909a8de70d114",
+                "url": "https://api.github.com/repos/justinrainbow/json-schema/zipball/d97cf3ce890fe80f247fc08594a1c8a1029fc7ed",
+                "reference": "d97cf3ce890fe80f247fc08594a1c8a1029fc7ed",
                 "shasum": ""
             },
             "require": {
@@ -3195,7 +3194,7 @@
                 "json",
                 "schema"
             ],
-            "time": "2013-12-13 15:21:04"
+            "time": "2014-03-05 15:03:52"
         },
         {
             "name": "pdepend/pdepend",
