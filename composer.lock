@@ -3,7 +3,7 @@
         "This file locks the dependencies of your project to a known state",
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file"
     ],
-    "hash": "36e0122cf5bfc8c44701cfcd844da0d0",
+    "hash": "63acd8366e61f9dc0e7ff46ef12a91f1",
     "packages": [
         {
             "name": "cmutter/google-adwords-api",
@@ -1014,16 +1014,16 @@
         },
         {
             "name": "project-a/catalog-package",
-            "version": "3.0.4",
+            "version": "3.0.8",
             "source": {
                 "type": "git",
                 "url": "git@codebasehq.com:project-a/core/catalog.git",
-                "reference": "55aa6258dceb85d58c9f6141a9ff9f4d4dc11859"
+                "reference": "284f051b5df300e7cfc137d682e6b1d8f607615c"
             },
             "require": {
                 "php": ">=5.4.0",
                 "project-a/frontend-package": "~3.0",
-                "project-a/library-package": "~3.0",
+                "project-a/library-package": ">=3.1.1,<4",
                 "project-a/sales-package": "~3.0"
             },
             "type": "library",
@@ -1055,15 +1055,15 @@
                 "Price",
                 "Stock"
             ],
-            "time": "2014-02-20 13:14:23"
+            "time": "2014-03-04 11:32:09"
         },
         {
             "name": "project-a/checkout-package",
-            "version": "3.1.2",
+            "version": "3.1.3",
             "source": {
                 "type": "git",
                 "url": "git@codebasehq.com:project-a/core/checkout.git",
-                "reference": "3fcd96ae35a5a7fd960a3812ad9228ab17b129c9"
+                "reference": "5ec7c154ede5a230696ca8d81c3770eebb886754"
             },
             "require": {
                 "gavroche/browser": "~2.1.0",
@@ -1097,7 +1097,7 @@
                 "Checkout",
                 "Salesrule"
             ],
-            "time": "2014-02-19 11:29:15"
+            "time": "2014-02-21 14:31:40"
         },
         {
             "name": "project-a/console-package",
@@ -1148,11 +1148,11 @@
         },
         {
             "name": "project-a/crm-package",
-            "version": "dev-feature/customer-account-speedup-orders",
+            "version": "dev-feature/customer-and-newsletter",
             "source": {
                 "type": "git",
                 "url": "git@codebasehq.com:project-a/core/crm.git",
-                "reference": "e31cb8aa6fce65bba5523b06888e104b0544bcd0"
+                "reference": "0cf46edcb9eec894bd9972ad64761960e3a448c6"
             },
             "require": {
                 "php": ">=5.4.0",
@@ -1178,7 +1178,7 @@
                 "CRM",
                 "Mail"
             ],
-            "time": "2014-02-11 13:47:10"
+            "time": "2014-03-04 12:32:36"
         },
         {
             "name": "project-a/document-package",
@@ -1327,11 +1327,11 @@
         },
         {
             "name": "project-a/infrastructure-package",
-            "version": "3.0.2",
+            "version": "3.0.4",
             "source": {
                 "type": "git",
                 "url": "git@codebasehq.com:project-a/core/infrastructure.git",
-                "reference": "be49365a885bc1bcb51f551ce8b4eaf3e1fb208d"
+                "reference": "e92fe7da3e7ff5933425ed023ae2dbe5cb20d062"
             },
             "require": {
                 "php": ">=5.4.0",
@@ -1360,7 +1360,7 @@
             "keywords": [
                 "infrastructure"
             ],
-            "time": "2014-02-14 13:44:21"
+            "time": "2014-02-28 15:11:36"
         },
         {
             "name": "project-a/kendo-package",
@@ -1383,11 +1383,11 @@
         },
         {
             "name": "project-a/library-package",
-            "version": "3.1.0",
+            "version": "3.1.3",
             "source": {
                 "type": "git",
                 "url": "git@codebasehq.com:project-a/core/library-2.git",
-                "reference": "54a04d276fb498a3a126d58232febcd50878ffa2"
+                "reference": "aba0b46784110420ca6c6dbe33e1f4f716955abc"
             },
             "require": {
                 "digital-canvas/zend-framework": ">=1.12.2",
@@ -1424,7 +1424,7 @@
                 }
             ],
             "description": "Project-A Library",
-            "time": "2014-02-20 11:30:24"
+            "time": "2014-03-04 11:21:07"
         },
         {
             "name": "project-a/lumberjack-package",
@@ -1581,11 +1581,11 @@
         },
         {
             "name": "project-a/sales-package",
-            "version": "3.2.0",
+            "version": "3.2.2",
             "source": {
                 "type": "git",
                 "url": "git@codebasehq.com:project-a/core/sales.git",
-                "reference": "954fe187866aa90eb3dfc4a66ea68d6e8bdf0d44"
+                "reference": "e4103383ca821e4e8161d5a26b9620621f3de674"
             },
             "require": {
                 "php": ">=5.4.0",
@@ -1595,8 +1595,8 @@
                 "project-a/crm-package": "~3.0",
                 "project-a/document-package": "~3.0",
                 "project-a/infrastructure-package": "~3.0",
-                "project-a/library-package": "~3.0",
-                "project-a/payment-package": "~3.1.0"
+                "project-a/library-package": ">=3.0.3,<4",
+                "project-a/payment-package": "~3.1"
             },
             "type": "library",
             "autoload": {
@@ -1618,7 +1618,7 @@
                 "Sales",
                 "Task"
             ],
-            "time": "2014-02-20 13:00:00"
+            "time": "2014-02-27 08:37:38"
         },
         {
             "name": "project-a/silex-routing",
@@ -1915,12 +1915,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/silexphp/Silex.git",
-                "reference": "235c4950f20f468254b7f7325ed6faad5756a2f7"
+                "reference": "b40e5b2bd3c550424e96104545c31da1023d7f66"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/silexphp/Silex/zipball/235c4950f20f468254b7f7325ed6faad5756a2f7",
-                "reference": "235c4950f20f468254b7f7325ed6faad5756a2f7",
+                "url": "https://api.github.com/repos/silexphp/Silex/zipball/b40e5b2bd3c550424e96104545c31da1023d7f66",
+                "reference": "b40e5b2bd3c550424e96104545c31da1023d7f66",
                 "shasum": ""
             },
             "require": {
@@ -1993,7 +1993,7 @@
             "keywords": [
                 "microframework"
             ],
-            "time": "2014-02-22 07:10:18"
+            "time": "2014-03-04 21:23:45"
         },
         {
             "name": "solarium/solarium",
@@ -2370,12 +2370,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/zendframework/zf2.git",
-                "reference": "feb7fbe68fdbaf08a31f91803ab0295bbc6b7639"
+                "reference": "69f059f31b0efd98afb94bf691140b8c696a627c"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/zendframework/zf2/zipball/feb7fbe68fdbaf08a31f91803ab0295bbc6b7639",
-                "reference": "feb7fbe68fdbaf08a31f91803ab0295bbc6b7639",
+                "url": "https://api.github.com/repos/zendframework/zf2/zipball/69f059f31b0efd98afb94bf691140b8c696a627c",
+                "reference": "69f059f31b0efd98afb94bf691140b8c696a627c",
                 "shasum": ""
             },
             "require": {
@@ -2479,7 +2479,7 @@
                 "framework",
                 "zf2"
             ],
-            "time": "2014-03-04 08:37:54"
+            "time": "2014-03-05 00:21:49"
         },
         {
             "name": "zendframework/zendpdf",
@@ -3689,7 +3689,7 @@
         {
             "alias": "3.1.0",
             "alias_normalized": "3.1.0.0",
-            "version": "dev-feature/customer-account-speedup-orders",
+            "version": "dev-feature/customer-and-newsletter",
             "package": "project-a/crm-package"
         },
         {
