@@ -22,6 +22,7 @@ class WriteBundleProduct extends AbstractDefinition implements CatalogFacadeInte
             $this->factory->createModelImportProductWriterWorkflowTaskAddAttributesTask(),
             $this->factory->createModelImportProductWriterWorkflowTaskAddFloatPriceTask(),
             $this->factory->createModelImportProductWriterWorkflowTaskAddStockTask(),
+            $this->factory->createModelImportProductWriterWorkflowTaskUpdateBundleProducts(),
             $this->factory->createModelImportProductWriterWorkflowTaskAddCategoriesTask(),
             $this->factory->createModelImportProductWriterWorkflowTaskAddOptionsTask(),
             $this->factory->createModelImportProductWriterWorkflowTaskEnsureUniqueUrlTask(),
@@ -66,14 +67,13 @@ class WriteBundleProduct extends AbstractDefinition implements CatalogFacadeInte
         $statusTypeField = $fieldNames[FieldnameConstantInterface::STATUS];
         $initialStatus = $productData[$statusTypeField];
 
-        $bundleProducts = $this->getBundleProducts(explode('|', $productData['refbundleskus']));
+        //$bundleProducts = $this->getBundleProducts(explode('|', $productData['refbundleskus']));
 
         return $this->facadeCatalog->createNewBundleProduct(
             $sku,
             $bundleType,
             $attributeSet,
             [],
-            $bundleProducts,
             $initialStatus
         );
     }
@@ -96,6 +96,7 @@ class WriteBundleProduct extends AbstractDefinition implements CatalogFacadeInte
      * @param array $skus
      * @return \ArrayObject
      */
+    /*
     protected function getBundleProducts(array $skus)
     {
         $bundleProducts = [];
@@ -104,6 +105,7 @@ class WriteBundleProduct extends AbstractDefinition implements CatalogFacadeInte
         }
         return new \ArrayObject($bundleProducts);
     }
+    */
 
     /**
      * @param $attributeSetName

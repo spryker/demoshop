@@ -14,9 +14,9 @@ class CatalogSettings extends CoreSettings implements FieldnameConstantInterface
     {
         return [
             self::SKU => self::SKU,
-            'bundletype' => 'bundletype',
-            'refconfigsku' => 'refconfigsku',
-            'refbundleskus' => 'refbundleskus',
+            self::BUNDLE_TYPE => self::BUNDLE_TYPE,
+            self::CONFIG_REFERENCE => self::CONFIG_REFERENCE,
+            self::BUNDLE_REFERENCES => self::BUNDLE_REFERENCES,
             'quantity' => 'quantity',
             'refoption' => 'refoption',
             'saleable' => 'saleable',
