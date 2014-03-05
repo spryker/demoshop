@@ -3,7 +3,7 @@
         "This file locks the dependencies of your project to a known state",
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file"
     ],
-    "hash": "bf1747a891f90913958a272dbb2b7129",
+    "hash": "bdee3069c0beccb84751be263de28232",
     "packages": [
         {
             "name": "cmutter/google-adwords-api",
@@ -1422,11 +1422,11 @@
         },
         {
             "name": "project-a/library-package",
-            "version": "dev-feature/cms",
+            "version": "3.2.1",
             "source": {
                 "type": "git",
                 "url": "git@codebasehq.com:project-a/core/library-2.git",
-                "reference": "234ed01529cf4ab9e6bf0719efd0e09171890a97"
+                "reference": "e907aeaf4335fbe1c7ca1a6219473c8a125a4c3d"
             },
             "require": {
                 "digital-canvas/zend-framework": ">=1.12.2",
@@ -1463,7 +1463,7 @@
                 }
             ],
             "description": "Project-A Library",
-            "time": "2014-03-05 10:47:07"
+            "time": "2014-03-05 10:57:19"
         },
         {
             "name": "project-a/lumberjack-package",
@@ -3738,12 +3738,6 @@
             "package": "project-a/dwh-package"
         },
         {
-            "alias": "3.2.1",
-            "alias_normalized": "3.2.1.0",
-            "version": "dev-feature/cms",
-            "package": "project-a/library-package"
-        },
-        {
             "alias": "1.2",
             "alias_normalized": "1.2.0.0",
             "version": "9999999-dev",
@@ -3754,7 +3748,6 @@
     "stability-flags": {
         "project-a/content-package": 20,
         "project-a/dwh-package": 20,
-        "project-a/library-package": 20,
         "silex/silex": 20,
         "zendframework/zendframework": 20,
         "fabpot/php-cs-fixer": 20
