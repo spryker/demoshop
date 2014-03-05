@@ -3,7 +3,7 @@
         "This file locks the dependencies of your project to a known state",
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file"
     ],
-    "hash": "d7a4681d0497a660a78fe1e51d53f64d",
+    "hash": "4acd5dcaecd0741c8cbeb3c161cec37c",
     "packages": [
         {
             "name": "cmutter/google-adwords-api",
@@ -1101,11 +1101,11 @@
         },
         {
             "name": "project-a/console-package",
-            "version": "3.1.0",
+            "version": "3.1.1",
             "source": {
                 "type": "git",
                 "url": "git@codebasehq.com:project-a/core/console.git",
-                "reference": "aa0454beb4fccdd59c5cdfa56fa25dd14b61a017"
+                "reference": "bb0d5b9ccb103fa96b3193d9c571647530068e71"
             },
             "require": {
                 "fabpot/php-cs-fixer": "dev-master",
@@ -1144,7 +1144,7 @@
             "keywords": [
                 "console"
             ],
-            "time": "2014-03-04 13:19:51"
+            "time": "2014-03-05 14:57:38"
         },
         {
             "name": "project-a/content-package",
@@ -1152,7 +1152,7 @@
             "source": {
                 "type": "git",
                 "url": "git@codebasehq.com:project-a/core/content.git",
-                "reference": "7c9017c62c1bcd1e04e97a31ddfca5aeba733b55"
+                "reference": "1c01afa271fdaa06ff806ccb18ada6f8e8609f45"
             },
             "require": {
                 "php": ">=5.4.0",
@@ -1183,7 +1183,7 @@
             "keywords": [
                 "Content Package"
             ],
-            "time": "2014-03-05 13:04:27"
+            "time": "2014-03-05 14:24:31"
         },
         {
             "name": "project-a/crm-package",
@@ -2409,12 +2409,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/zendframework/zf2.git",
-                "reference": "69f059f31b0efd98afb94bf691140b8c696a627c"
+                "reference": "0ff55c09b42cc5440416e59a88ba014098ef2a64"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/zendframework/zf2/zipball/69f059f31b0efd98afb94bf691140b8c696a627c",
-                "reference": "69f059f31b0efd98afb94bf691140b8c696a627c",
+                "url": "https://api.github.com/repos/zendframework/zf2/zipball/0ff55c09b42cc5440416e59a88ba014098ef2a64",
+                "reference": "0ff55c09b42cc5440416e59a88ba014098ef2a64",
                 "shasum": ""
             },
             "require": {
@@ -2518,7 +2518,7 @@
                 "framework",
                 "zf2"
             ],
-            "time": "2014-03-05 00:21:49"
+            "time": "2014-03-05 14:51:49"
         },
         {
             "name": "zendframework/zendpdf",
