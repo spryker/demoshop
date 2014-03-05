@@ -25,13 +25,13 @@
                                 {% if status[order.idSalesOrder] is defined and status[order.idSalesOrder] is not iterable %}
                                     <div class="row">{{ 'customer.order.status'|trans }} {{ status[order.idSalesOrder]|trans }}</div>
                                     {% for item in order.items %}
-                                        <div class="row orderRow hideonprint">
+                                        <div class="row item hideonprint">
                                             <img src="{{ getFirstProductImagesBySize(images[order.idSalesOrder][item.sku].product_images, 's') }}"/>  {{ item.quantity }}x {{ item.name }}
                                         </div>
                                     {% endfor %}
                                 {% else %}
                                     {% for item in order.items %}
-                                        <div class="row orderRow hideonprint">
+                                        <div class="row item hideonprint">
                                             <img src="{{ getFirstProductImagesBySize(images[order.idSalesOrder][item.sku].product_images, 's') }}"/>  {{ item.quantity }}x {{ item.name }} - Status: {{ status[order.idSalesOrder][item.sku] }}
                                         </div>
                                     {% endfor %}

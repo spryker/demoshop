@@ -20,8 +20,9 @@
             {% else %}
                 <form name="subscription" class="subscription" action="{{ url('subscribe') }}">
                     <input type="hidden" id="subscription_email" name="email" value="{{ email }}">
-                    <input type="checkbox" id="subscription_status" name="subscription[status]">
-                    <label for="subscription_status">{{ 'customer.newsletter.subscription.status.caption'|trans }}<br>
+                    <label for="subscription_status">
+                        <input type="checkbox" id="subscription_status" name="subscription[status]">
+                        {{- 'customer.newsletter.subscription.status.caption'|trans -}}
                         <span class="fake-link actions">
                             {{ 'customer.change'|trans }}
                             <button type="submit" style="display:none;" class="ok" onClick="javascript:return tc_events_1(this, '24', {})">{{ 'customer.change.submit'|trans }}</button>

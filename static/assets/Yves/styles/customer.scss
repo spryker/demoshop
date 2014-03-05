@@ -18,26 +18,25 @@
         padding:7px 10px; border:1px solid #ddd; background:#f8f8f8; border-bottom-width:0; cursor:pointer; -webkit-user-select:none; -moz-user-select:none; user-select:none; overflow:hidden;
         h3 { margin:0; padding:0; font-size:18px; }
         h4 { margin:0; padding:0; font-size:14px; font-weight:normal; white-space:nowrap; overflow:hidden; text-overflow:ellipsis; }
-        .active { background:#fff; padding-bottom:8px; margin-bottom:-1px; }
+        &.active { background:#fff; padding-bottom:8px; margin-bottom:-1px; }
       }
     }
-    .content { display:none; border:1px solid #ddd; padding:14px 10px; }
-    p { font-size:0.8rem; margin:1.1rem 0; }
+    .content { display:none; border:1px solid #ddd; border-radius:3px; padding:14px 10px; }
   }
 
   .row {
     padding-bottom:10px; line-height:1.25em;
     &:after { display:block; content:''; clear:both; }
-    .hint { display:block; font-size:0.8em; margin-top:3px; }
     .invisible { display:none; }
     b { font-weight:400; }
   }
 
+  form { padding-bottom:24px; }
   label { font-size:0.9em; }
   input,
   select { font-weight:300; font-size:1.1em; margin-top:4px; }
 
-  input[type="checkbox"] { margin-right:4px; }
+  input[type="checkbox"] { margin-right:6px; }
 
   .requestPassword { display:none; padding:10px; margin-top:20px; border:1px solid #ddd; }
   .restorePassword {
@@ -84,7 +83,7 @@
   .mod\:last { padding-left:1.25em; }
 
   .container {
-    padding:10px 20px 20px; font-weight:300;
+    font-weight:300;
     &:after { display:block; content:''; clear:both; height:0px; }
     form div {
       padding-bottom:10px;
@@ -96,10 +95,9 @@
 
   .order {
     margin-bottom:20px;
-    .orderRow {
+    .item {
       img { border:1px solid #ffc0cb; height:32px; vertical-align:middle; margin-right:10px; }
     }
-
     .details {
       display:none; clear:both; margin:10px 0 10px; padding:10px; border-top:1px solid #eee;
       .cart {

@@ -101,6 +101,16 @@ var app = {
             return settings;
         }
     },
+    ensureVisibility : function($target) {
+        var elementOffset = $target.offset().top;
+        var windowScrollTop = $(window).scrollTop();
+        var windowHeight = $(window).height();
+        var isVisible = (windowScrollTop + windowHeight > elementOffset + 30 && elementOffset - 30 > $(window).scrollTop());
+        if (!isVisible) {
+            $('html, body').animate({ scrollTop : Math.round(elementOffset - (windowHeight / 2)) }, 500);
+        }
+        return isVisible;
+    },
     validation : {
         apply : function ($container, childrenOnly) {
             var result = this.check($container, childrenOnly);

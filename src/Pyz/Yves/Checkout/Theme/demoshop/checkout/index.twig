@@ -9,11 +9,11 @@
         {{ form_start(form, {attr: {class: 'smartAddressForm', novalidate: 'novalidate'}}) }}
         {{ form_errors(form) }}
         <div class="step" data-step="1" style="display:block;">
-            {% include "@checkout/partials/shippingaddress.twig" with {'form': form, 'userAddresses': userAddresses, 'userAddressesJson': userAddressesJson} only %}
+            {% include "@checkout/partials/shipping-address.twig" with {'form': form, 'userAddresses': userAddresses, 'userAddressesJson': userAddressesJson} only %}
             {% include "@checkout/partials/payment.twig" with {'form': form} only %}
             {% include "@checkout/partials/checkout-cart.twig" %}
             <div class="unnecessary primary col col33 secondaryRow">
-                {% include "@checkout/partials/paymentdetails.twig" with {'form': form, 'payoneCreditcardCheckData': payoneCreditcardCheckData, 'paymentMethodCollection': paymentMethodCollection} only %}
+                {% include "@checkout/partials/payment-details.twig" with {'form': form, 'payoneCreditcardCheckData': payoneCreditcardCheckData, 'paymentMethodCollection': paymentMethodCollection} only %}
             </div>
         </div>
         <div class="step" data-step="2">

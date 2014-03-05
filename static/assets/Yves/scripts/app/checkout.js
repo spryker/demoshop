@@ -451,14 +451,45 @@
             // smartAddress.init();
             steps.init();
 
-            $('.triggerAlternative').on({
+            $('.toggle-different-billing-address').on({
                 change : function (ev) {
                     $('.address.secondaryRow').toggle(ev.target.checked);
+                    var $header = $('#shipping-billing-header');
+                    var oldLabel = $header.html();
+                    $header.html($header.data('toggle'));
+                    $header.data('toggle', oldLabel);
                     // alert('Was fehlt noch: Ein ensureVisibility helper muss rein & die validation noch ausgeklügelter');
                 }
             }).change();
         },
-
+        address : {
+            toggleOtherAddresses : function(el, targetId) {
+                var oldLabel = $(el).html();
+                $(el).html($(el).data('toggle'));
+                $(el).data('toggle', oldLabel);
+                app.ensureVisibility($('#' + targetId).animate({ opacity : 'toggle' }, 'slow'));
+            },
+            fillFormWithData : function(idCustomerAddress, userAddressesJson, that) {
+                var formName = ($(that).parents('#shipping').length) ? 'shippingAddress' : 'billingAddress';
+                for (var Address in userAddressesJson) {
+                    if (userAddressesJson[Address].id_customer_address == idCustomerAddress) {
+                        for(var field in userAddressesJson[Address]) {
+                            var fieldFormatted = app.checkout.address.formatFieldName(field);
+                            $('input[name = "salesOrder[' + formName + '][' + fieldFormatted + ']"]').val(userAddressesJson[Address][field]);
+                            if (field == 'salutation') {
+                                $('select[name = "salesOrder[' + formName + '][' + field + ']"]').val(userAddressesJson[Address][field]);
+                            }
+                        }
+                    }
+                }
+                this.toggleAddresses('shipping');
+            },
+            formatFieldName : function(name) {
+                return (""+name).replace(/_(.)/g, function(m, m1) {
+                    return '' + m1.toUpperCase();
+                });
+            }
+        },
         // smartAddress : smartAddress,
         steps : steps,
         validation : validation

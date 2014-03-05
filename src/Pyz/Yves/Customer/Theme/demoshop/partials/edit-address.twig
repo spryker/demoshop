@@ -37,14 +37,14 @@
     </div>
     <div class="is-default-address col fullWidth">
         <label>
-            {{ form_widget(addressForm.isDefaultShipping, {attr : {'data-src': 'is_default_shipping'}, required : false }) }}
-            {{ 'customer.address.make.default.shipping'|trans }}
+            {{- form_widget(addressForm.isDefaultShipping, {attr : {'data-src': 'is_default_shipping'}, required : false }) -}}
+            {{- 'customer.address.make.default.shipping'|trans -}}
         </label>
     </div>
     <div class="is-default-address col fullWidth">
         <label>
-            {{ form_widget(addressForm.isDefaultBilling, {attr : {'data-src': 'is_default_billing'}, required : false }) }}
-            {{ 'customer.address.make.default.billing'|trans }}
+            {{- form_widget(addressForm.isDefaultBilling, {attr : {'data-src': 'is_default_billing'}, required : false }) -}}
+            {{- 'customer.address.make.default.billing'|trans -}}
         </label>
     </div>
     <button class="ok" type="submit">{{ 'customer.change.submit'|trans }}</button>

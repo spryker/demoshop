@@ -5,13 +5,14 @@
 #checkout select { padding:3px; }
 
 #checkout .address { padding:0 20px 0 0; }
+#checkout .other { margin-bottom: 20px; }
 #checkout .cart { padding:0 0 0 20px; }
-#checkout .secondaryRow { padding:20px 20px 0 0; margin-top:20px; }
+#checkout .secondaryRow { padding:20px 0 0 0; margin-top:20px; }
 #checkout .address.secondaryRow { display:none; }
-#checkout .col.first { padding-right:4px; }
-#checkout .col.middle { padding:0 2px; }
-#checkout .col.last { padding-left:4px; }
-#checkout .col.first.middle { padding-left:0; }
+#checkout .col { padding-bottom:12px; }
+#checkout .col.first { padding-right:0.5em; }
+#checkout .col.middle { padding:0 0.5em; }
+#checkout .col.last { padding-left:0.5em; }
 
 #checkout .row { padding-bottom:20px; line-height:16px; }
 #checkout .row:after { display:block; content:''; clear:both; }
@@ -27,12 +28,11 @@
 
 #checkout .row input+label { margin-left:5px; }
 
-#checkout .addSpace { margin-right:3px; }
-
-#checkout label { font-size:0.9em; }
-#checkout label input { font-size:1.1em; }
+#checkout label { font-size:0.9em; font-weight:300; }
 #checkout label .fullWidth,
 #checkout label+.fullWidth { margin-top:3px; }
+#checkout input { font-size:1.1em; font-weight: 300; margin-top: 4px; }
+#checkout input[type="checkbox"] { margin-right:6px; }
 
 #checkout .cart .items { width:100%; margin-bottom:20px; }
 #checkout .cart .items td { padding:5px 7px 15px; vertical-align:top; }
