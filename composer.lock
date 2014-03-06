@@ -3,7 +3,7 @@
         "This file locks the dependencies of your project to a known state",
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file"
     ],
-    "hash": "bcd941ed68e1c07afb8dc8536fa68490",
+    "hash": "d695f9982e7c0e3cc30b58ae49935f98",
     "packages": [
         {
             "name": "cmutter/google-adwords-api",
@@ -1018,7 +1018,7 @@
             "source": {
                 "type": "git",
                 "url": "git@codebasehq.com:project-a/core/catalog.git",
-                "reference": "a03a04c9eda1185b1c1fcfc2478ac16c4dc99b10"
+                "reference": "918a4d5db95d81c3d0deb66ecd0e13ded3d9b383"
             },
             "require": {
                 "php": ">=5.4.0",
@@ -1055,7 +1055,7 @@
                 "Price",
                 "Stock"
             ],
-            "time": "2014-03-05 14:59:23"
+            "time": "2014-03-06 09:32:08"
         },
         {
             "name": "project-a/checkout-package",
@@ -1327,15 +1327,15 @@
         },
         {
             "name": "project-a/infrastructure-package",
-            "version": "3.1.0",
+            "version": "3.1.1",
             "source": {
                 "type": "git",
                 "url": "git@codebasehq.com:project-a/core/infrastructure.git",
-                "reference": "9f5bdcec4695cf7a01b293f5dcd2bd8232ed5574"
+                "reference": "b4b27d9103844f70df90590f5dad1297e8702518"
             },
             "require": {
                 "php": ">=5.4.0",
-                "project-a/library-package": "~3.0",
+                "project-a/library-package": "<4,>=3.2.1",
                 "project-a/lumberjack-package": "~3.0"
             },
             "suggest": {
@@ -1360,7 +1360,7 @@
             "keywords": [
                 "infrastructure"
             ],
-            "time": "2014-03-06 08:13:15"
+            "time": "2014-03-06 09:43:31"
         },
         {
             "name": "project-a/kendo-package",
