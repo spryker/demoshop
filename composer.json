@@ -4,7 +4,7 @@
         "project-a/cart-package": "3.0.2",
         "project-a/catalog-package": "3.0.8",
         "project-a/checkout-package": "3.1.2",
-        "project-a/console-package": "3.1.1",
+        "project-a/console-package": "3.1.2",
         "project-a/content-package": "dev-feature/template-builder as 2.0.0",
         "project-a/crm-package": "3.1.0",
         "project-a/dwh-package": "dev-master as 3.0.0",

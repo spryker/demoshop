@@ -3,7 +3,7 @@
         "This file locks the dependencies of your project to a known state",
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file"
     ],
-    "hash": "4acd5dcaecd0741c8cbeb3c161cec37c",
+    "hash": "34f447c13330eb326ba5ffd7a18927b6",
     "packages": [
         {
             "name": "cmutter/google-adwords-api",
@@ -1101,11 +1101,11 @@
         },
         {
             "name": "project-a/console-package",
-            "version": "3.1.1",
+            "version": "3.1.2",
             "source": {
                 "type": "git",
                 "url": "git@codebasehq.com:project-a/core/console.git",
-                "reference": "bb0d5b9ccb103fa96b3193d9c571647530068e71"
+                "reference": "5ed7b86ae76ba7e4006b402f704235dfee4d03eb"
             },
             "require": {
                 "fabpot/php-cs-fixer": "dev-master",
@@ -1144,7 +1144,7 @@
             "keywords": [
                 "console"
             ],
-            "time": "2014-03-05 14:57:38"
+            "time": "2014-03-06 13:33:26"
         },
         {
             "name": "project-a/content-package",
@@ -1152,7 +1152,7 @@
             "source": {
                 "type": "git",
                 "url": "git@codebasehq.com:project-a/core/content.git",
-                "reference": "7a52682b08b240be108ea72104f6820cde4a3efb"
+                "reference": "8b2580ec16d76bfe5f80f36bb85ef285db990541"
             },
             "require": {
                 "php": ">=5.4.0",
@@ -1183,7 +1183,7 @@
             "keywords": [
                 "Content Package"
             ],
-            "time": "2014-03-05 17:01:02"
+            "time": "2014-03-06 11:28:13"
         },
         {
             "name": "project-a/crm-package",
@@ -1370,11 +1370,11 @@
             "source": {
                 "type": "git",
                 "url": "git@codebasehq.com:project-a/core/infrastructure.git",
-                "reference": "2f6fbeb0534e8eca7e7805efe758c7434d862ddd"
+                "reference": "c12882a3b41d5f34eef4d30191ffe29bc3c88bcb"
             },
             "require": {
                 "php": ">=5.4.0",
-                "project-a/library-package": "~3.0",
+                "project-a/library-package": "<4,>=3.2.1",
                 "project-a/lumberjack-package": "~3.0"
             },
             "suggest": {
@@ -1399,7 +1399,7 @@
             "keywords": [
                 "infrastructure"
             ],
-            "time": "2014-03-05 13:08:24"
+            "time": "2014-03-06 10:02:52"
         },
         {
             "name": "project-a/kendo-package",
