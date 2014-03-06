@@ -1152,7 +1152,7 @@
             "source": {
                 "type": "git",
                 "url": "git@codebasehq.com:project-a/core/content.git",
-                "reference": "1c01afa271fdaa06ff806ccb18ada6f8e8609f45"
+                "reference": "7a52682b08b240be108ea72104f6820cde4a3efb"
             },
             "require": {
                 "php": ">=5.4.0",
@@ -1183,7 +1183,7 @@
             "keywords": [
                 "Content Package"
             ],
-            "time": "2014-03-05 14:24:31"
+            "time": "2014-03-05 17:01:02"
         },
         {
             "name": "project-a/crm-package",
@@ -1426,7 +1426,7 @@
             "source": {
                 "type": "git",
                 "url": "git@codebasehq.com:project-a/core/library-2.git",
-                "reference": "e907aeaf4335fbe1c7ca1a6219473c8a125a4c3d"
+                "reference": "796245cc064f591ab6370043f373825f823c9aea"
             },
             "require": {
                 "digital-canvas/zend-framework": ">=1.12.2",
@@ -1463,7 +1463,7 @@
                 }
             ],
             "description": "Project-A Library",
-            "time": "2014-03-05 10:57:19"
+            "time": "2014-03-05 14:53:07"
         },
         {
             "name": "project-a/lumberjack-package",
@@ -1624,7 +1624,7 @@
             "source": {
                 "type": "git",
                 "url": "git@codebasehq.com:project-a/core/sales.git",
-                "reference": "30e3ad1a57c3e75935d0c3b73f405e6d6648cc33"
+                "reference": "954fe187866aa90eb3dfc4a66ea68d6e8bdf0d44"
             },
             "require": {
                 "php": ">=5.4.0",
@@ -2409,12 +2409,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/zendframework/zf2.git",
-                "reference": "0ff55c09b42cc5440416e59a88ba014098ef2a64"
+                "reference": "d02d04d6fd8808784202f8604a054c3c3579b14d"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/zendframework/zf2/zipball/0ff55c09b42cc5440416e59a88ba014098ef2a64",
-                "reference": "0ff55c09b42cc5440416e59a88ba014098ef2a64",
+                "url": "https://api.github.com/repos/zendframework/zf2/zipball/d02d04d6fd8808784202f8604a054c3c3579b14d",
+                "reference": "d02d04d6fd8808784202f8604a054c3c3579b14d",
                 "shasum": ""
             },
             "require": {
@@ -2518,7 +2518,7 @@
                 "framework",
                 "zf2"
             ],
-            "time": "2014-03-05 14:51:49"
+            "time": "2014-03-05 20:03:56"
         },
         {
             "name": "zendframework/zendpdf",
@@ -3169,16 +3169,16 @@
         },
         {
             "name": "justinrainbow/json-schema",
-            "version": "1.3.5",
+            "version": "1.3.6",
             "source": {
                 "type": "git",
                 "url": "https://github.com/justinrainbow/json-schema.git",
-                "reference": "01949f6d2130e9737ffae5d3952909a8de70d114"
+                "reference": "d97cf3ce890fe80f247fc08594a1c8a1029fc7ed"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/justinrainbow/json-schema/zipball/01949f6d2130e9737ffae5d3952909a8de70d114",
-                "reference": "01949f6d2130e9737ffae5d3952909a8de70d114",
+                "url": "https://api.github.com/repos/justinrainbow/json-schema/zipball/d97cf3ce890fe80f247fc08594a1c8a1029fc7ed",
+                "reference": "d97cf3ce890fe80f247fc08594a1c8a1029fc7ed",
                 "shasum": ""
             },
             "require": {
@@ -3233,7 +3233,7 @@
                 "json",
                 "schema"
             ],
-            "time": "2013-12-13 15:21:04"
+            "time": "2014-03-05 15:03:52"
         },
         {
             "name": "pdepend/pdepend",
