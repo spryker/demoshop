@@ -7,4 +7,6 @@ interface MailTypesConstantInterface extends CoreMailTypesConstantInterface
 {
     //TODO add real mail types later
     const JUST_FOR_TESTING = 'just_for_testing';
+
+    const UNDERPAID_CONFIRMATION = 'underpayment_received';
 }

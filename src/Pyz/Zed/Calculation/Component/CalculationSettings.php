@@ -12,33 +12,7 @@ use ProjectA\Zed\Library\Dependency\DependencyFactoryInterface;
 /**
  * @property CalculationFactory $factory
  */
-class CalculationSettings extends ProjectACalculationSettings implements
-    DependencyFactoryInterface,
-    SalesruleFacadeInterface
+class CalculationSettings extends ProjectACalculationSettings
 {
-
-    use SalesruleFacadeTrait;
-
-    /**
-     * @return CalculatorInterface[]|TotalsCalculatorInterface[]
-     */
-    public function getCalculatorStack()
-    {
-        return array(
-            $this->factory->createModelCalculatorRemoveTotalsCalculator(),
-            $this->factory->createModelCalculatorRemoveAllExpensesCalculator(),
-            $this->factory->createModelCalculatorRemoveAllCalculatedDiscountsCalculator(),
-            $this->factory->createModelCalculatorExpenseTotalsCalculator(),
-            $this->factory->createModelCalculatorSubtotalTotalsCalculator(),
-            $this->factory->createModelCalculatorSubtotalWithoutItemExpensesTotalsCalculator(),
-            $this->factory->createModelCalculatorGrandTotalWithoutDiscountsTotalsCalculator(),
-            $this->facadeSalesrule->createSalesruleCalculator(),
-            $this->factory->createModelCalculatorExpensePriceToPayCalculator(),
-            $this->factory->createModelCalculatorItemPriceToPayCalculator(),
-            $this->factory->createModelCalculatorOptionPriceToPayCalculator(),
-            $this->factory->createModelCalculatorDiscountTotalsCalculator(),
-            $this->factory->createModelCalculatorGrandTotalTotalsCalculator(),
-        );
-    }
 
 }

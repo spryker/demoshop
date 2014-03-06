@@ -1,0 +1,85 @@
+0 info it worked if it ends with ok
+1 verbose cli [ 'node', '/opt/local/bin/npm', 'install' ]
+2 info using npm@1.1.71
+3 info using node@v0.8.15
+4 verbose read json /Users/jstick/dev/workspace_php/demoshop/pyz/package.json
+5 warn package.json yves_zed@0.1.0 No README.md file found!
+6 verbose readDependencies using package.json deps
+7 verbose install where, deps [ '/Users/jstick/dev/workspace_php/demoshop/pyz',
+7 verbose install   [ 'grunt',
+7 verbose install     'grunt-contrib-clean',
+7 verbose install     'grunt-contrib-compass',
+7 verbose install     'grunt-contrib-copy',
+7 verbose install     'grunt-contrib-jshint',
+7 verbose install     'grunt-contrib-watch',
+7 verbose install     'matchdep',
+7 verbose install     'grunt-concurrent',
+7 verbose install     'grunt-bushcaster' ] ]
+8 verbose from cache /Users/jstick/dev/workspace_php/demoshop/pyz/package.json
+9 info preinstall yves_zed@0.1.0
+10 verbose read json /Users/jstick/dev/workspace_php/demoshop/pyz/node_modules/grunt/package.json
+11 verbose read json /Users/jstick/dev/workspace_php/demoshop/pyz/node_modules/grunt-concurrent/package.json
+12 verbose read json /Users/jstick/dev/workspace_php/demoshop/pyz/node_modules/grunt-contrib-clean/package.json
+13 verbose read json /Users/jstick/dev/workspace_php/demoshop/pyz/node_modules/grunt-contrib-compass/package.json
+14 verbose read json /Users/jstick/dev/workspace_php/demoshop/pyz/node_modules/grunt-contrib-connect/package.json
+15 verbose read json /Users/jstick/dev/workspace_php/demoshop/pyz/node_modules/grunt-contrib-copy/package.json
+16 verbose read json /Users/jstick/dev/workspace_php/demoshop/pyz/node_modules/grunt-contrib-jasmine/package.json
+17 verbose read json /Users/jstick/dev/workspace_php/demoshop/pyz/node_modules/grunt-contrib-jshint/package.json
+18 verbose read json /Users/jstick/dev/workspace_php/demoshop/pyz/node_modules/grunt-contrib-requirejs/package.json
+19 verbose read json /Users/jstick/dev/workspace_php/demoshop/pyz/node_modules/grunt-contrib-watch/package.json
+20 verbose read json /Users/jstick/dev/workspace_php/demoshop/pyz/node_modules/grunt-hashmap/package.json
+21 verbose read json /Users/jstick/dev/workspace_php/demoshop/pyz/node_modules/grunt-hashmap-ext/package.json
+22 verbose read json /Users/jstick/dev/workspace_php/demoshop/pyz/node_modules/grunt-template-jasmine-requirejs/package.json
+23 verbose read json /Users/jstick/dev/workspace_php/demoshop/pyz/node_modules/matchdep/package.json
+24 verbose from cache /Users/jstick/dev/workspace_php/demoshop/pyz/package.json
+25 verbose readDependencies using package.json deps
+26 verbose from cache /Users/jstick/dev/workspace_php/demoshop/pyz/node_modules/grunt/package.json
+27 verbose from cache /Users/jstick/dev/workspace_php/demoshop/pyz/node_modules/grunt-concurrent/package.json
+28 verbose from cache /Users/jstick/dev/workspace_php/demoshop/pyz/node_modules/grunt-contrib-clean/package.json
+29 verbose from cache /Users/jstick/dev/workspace_php/demoshop/pyz/node_modules/grunt-contrib-compass/package.json
+30 verbose from cache /Users/jstick/dev/workspace_php/demoshop/pyz/node_modules/grunt-contrib-connect/package.json
+31 verbose from cache /Users/jstick/dev/workspace_php/demoshop/pyz/node_modules/grunt-contrib-copy/package.json
+32 verbose from cache /Users/jstick/dev/workspace_php/demoshop/pyz/node_modules/grunt-contrib-jasmine/package.json
+33 verbose from cache /Users/jstick/dev/workspace_php/demoshop/pyz/node_modules/grunt-contrib-jshint/package.json
+34 verbose from cache /Users/jstick/dev/workspace_php/demoshop/pyz/node_modules/grunt-contrib-requirejs/package.json
+35 verbose from cache /Users/jstick/dev/workspace_php/demoshop/pyz/node_modules/grunt-contrib-watch/package.json
+36 verbose from cache /Users/jstick/dev/workspace_php/demoshop/pyz/node_modules/grunt-hashmap/package.json
+37 verbose from cache /Users/jstick/dev/workspace_php/demoshop/pyz/node_modules/grunt-hashmap-ext/package.json
+38 verbose from cache /Users/jstick/dev/workspace_php/demoshop/pyz/node_modules/grunt-template-jasmine-requirejs/package.json
+39 verbose from cache /Users/jstick/dev/workspace_php/demoshop/pyz/node_modules/matchdep/package.json
+40 verbose already installed skipping grunt@~0.4.2 /Users/jstick/dev/workspace_php/demoshop/pyz
+41 verbose already installed skipping grunt-contrib-clean@~0.5 /Users/jstick/dev/workspace_php/demoshop/pyz
+42 verbose already installed skipping grunt-contrib-compass@~0.7 /Users/jstick/dev/workspace_php/demoshop/pyz
+43 verbose already installed skipping grunt-contrib-copy@~0.4 /Users/jstick/dev/workspace_php/demoshop/pyz
+44 verbose already installed skipping grunt-contrib-jshint@~0.7 /Users/jstick/dev/workspace_php/demoshop/pyz
+45 verbose already installed skipping grunt-contrib-watch@~0.5 /Users/jstick/dev/workspace_php/demoshop/pyz
+46 verbose already installed skipping matchdep@~0.3 /Users/jstick/dev/workspace_php/demoshop/pyz
+47 verbose already installed skipping grunt-concurrent@~0.4 /Users/jstick/dev/workspace_php/demoshop/pyz
+48 verbose cache add [ 'grunt-bushcaster@0.0.7', null ]
+49 silly cache add name=undefined spec="grunt-bushcaster@0.0.7" args=["grunt-bushcaster@0.0.7",null]
+50 verbose parsed url { pathname: 'grunt-bushcaster@0.0.7',
+50 verbose parsed url   path: 'grunt-bushcaster@0.0.7',
+50 verbose parsed url   href: 'grunt-bushcaster@0.0.7' }
+51 silly cache add name="grunt-bushcaster" spec="0.0.7" args=["grunt-bushcaster","0.0.7"]
+52 verbose parsed url { pathname: '0.0.7', path: '0.0.7', href: '0.0.7' }
+53 verbose addNamed [ 'grunt-bushcaster', '0.0.7' ]
+54 verbose addNamed [ '0.0.7', '0.0.7' ]
+55 silly lockFile bff0c558-grunt-bushcaster-0-0-7 grunt-bushcaster@0.0.7
+56 verbose lock grunt-bushcaster@0.0.7 /Users/jstick/.npm/bff0c558-grunt-bushcaster-0-0-7.lock
+57 silly lockFile bff0c558-grunt-bushcaster-0-0-7 grunt-bushcaster@0.0.7
+58 error Error: EACCES, open '/Users/jstick/.npm/bff0c558-grunt-bushcaster-0-0-7.lock'
+58 error  { [Error: EACCES, open '/Users/jstick/.npm/bff0c558-grunt-bushcaster-0-0-7.lock']
+58 error   errno: 3,
+58 error   code: 'EACCES',
+58 error   path: '/Users/jstick/.npm/bff0c558-grunt-bushcaster-0-0-7.lock' }
+59 error Please try running this command again as root/Administrator.
+60 error System Darwin 12.2.1
+61 error command "node" "/opt/local/bin/npm" "install"
+62 error cwd /Users/jstick/dev/workspace_php/demoshop/pyz
+63 error node -v v0.8.15
+64 error npm -v 1.1.71
+65 error path /Users/jstick/.npm/bff0c558-grunt-bushcaster-0-0-7.lock
+66 error code EACCES
+67 error errno 3
+68 error stack Error: EACCES, open '/Users/jstick/.npm/bff0c558-grunt-bushcaster-0-0-7.lock'
+69 verbose exit [ 3, true ]

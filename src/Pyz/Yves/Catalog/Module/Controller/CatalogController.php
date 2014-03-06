@@ -22,7 +22,7 @@ class CatalogController extends CoreCatalogController
     {
         $search = $this->getFactory()->createCatalogModelFacetSearch($request, $facetConfig); // TODO Change to RequestStack as of Symfony 2.4
         $result = $search->getResult();
-
+        //echo '<pre>' . print_r($result, true) . '</pre>';die;
         return $result;
     }
 

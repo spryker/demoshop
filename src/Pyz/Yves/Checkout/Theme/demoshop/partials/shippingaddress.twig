@@ -1,0 +1,52 @@
+<div class="address primary col col33">
+    <h3>{{ 'checkout.headline.shipping.billing'|trans }}</h3>
+    {{ form_row(form.shippingAddress.idCustomerAddress) }}
+    <div class="separate">
+        <div class="row columns small-4 large-4">
+            {{ form_row(form.shippingAddress.salutation, {attr : {class : 'fullWidth'}, label : 'checkout.address.shipping.salutation'}) }}
+        </div>
+        <div class="row columns small-4 large-4">
+            {{ form_row(form.shippingAddress.firstName, {attr : {class : 'fullWidth'}, label : 'checkout.address.shipping.name.first'}) }}
+        </div>
+        <div class="row columns small-4 large-4">
+            {{ form_row(form.shippingAddress.middleName, {attr : {class : 'fullWidth'}, label : 'checkout.address.shipping.name.middle'}) }}
+        </div>
+        <div class="row columns small-4 large-4">
+            {{ form_row(form.shippingAddress.lastName, {attr : {class : 'fullWidth'}, label : 'checkout.address.shipping.name.last'}) }}
+        </div>
+    </div>
+    <div class="separate">
+        <div class="row columns small-8 large-8">
+            {{ form_row(form.shippingAddress.address1, {attr : {class : 'fullWidth', 'data-validation-pattern-message' : 'checkout.address.shipping.validation.notallowed'|trans}, label : 'checkout.address.shipping.street', pattern : '^(?!packstation|pack station|Packstation|PackStation|Pack Station|Pack station|PACKSTATION)' }) }}
+        </div>
+        <div class="row columns small-4 large-4">
+            {{ form_row(form.shippingAddress.address2, {attr : {class : 'fullWidth'}, label : 'checkout.address.shipping.number'}) }}
+        </div>
+        <div class="row columns small-4 large-4">
+            {{ form_row(form.shippingAddress.address3, {attr : {class : 'fullWidth', 'data-src': 'street_address3'}, label : 'checkout.address.shipping.address3'}) }}
+        </div>
+    </div>
+
+    <div class="separate">
+        <div class="row columns small-4 large-4">
+            {{ form_row(form.shippingAddress.zipCode, {attr : {class : 'fullWidth'}, label : 'checkout.address.shipping.zipcode'}) }}
+        </div>
+        <div class="row columns small-8 large-8">
+            {{ form_row(form.shippingAddress.city, {attr : {class : 'fullWidth'}, label : 'checkout.address.shipping.city'}) }}
+        </div>
+    </div>
+    <div class="invisible row">
+        {{ form_row(form.shippingAddress.iso2Country, {attr : {class : 'fullWidth', 'data-src': 'country', 'data-src-type' : 'short'}, label : 'checkout.address.shipping.country', 'value' : 'DE'}) }}
+    </div>
+    <div class="invisible row">
+        {{ form_row(form.shippingAddress.phone, {attr : {class : 'fullWidth'}, label : 'checkout.address.shipping.phone'}) }}
+    </div>
+    <div class="row large-12">
+        <label>
+            {{ form_widget(form.chooseDifferentBilling, {attr : {class : 'triggerAlternative addSpace'}, required : false }) }}
+            {{ 'checkout.address.billing.different'|trans }}
+        </label>
+    </div>
+
+    {% include "@checkout/partials/billingaddress.twig" with {'form': form} only %}
+</div>

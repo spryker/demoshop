@@ -1,10 +1,11 @@
 <?php
 namespace Pyz\Zed\Catalog\Component\Internal;
+use ProjectA\Zed\Catalog\Component\Model\ProductVarietyConstantInterface;
 
 /**
  * @property \Generated\Zed\Catalog\Component\CatalogFactory $factory
  */
-class Install extends \ProjectA_Zed_Catalog_Component_Internal_Install
+class Install extends \ProjectA_Zed_Catalog_Component_Internal_Install implements ProductVarietyConstantInterface
 {
     /**
      * @var string
@@ -166,6 +167,7 @@ class Install extends \ProjectA_Zed_Catalog_Component_Internal_Install
                 }
             }
         }
+
     } //end addAttributeValueTypesToAttributeSetGroups
 
     /**
