@@ -3,7 +3,7 @@
         "This file locks the dependencies of your project to a known state",
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file"
     ],
-    "hash": "bcd941ed68e1c07afb8dc8536fa68490",
+    "hash": "c0c851a1702ad31eeb45650bf52ca507",
     "packages": [
         {
             "name": "cmutter/google-adwords-api",
@@ -555,12 +555,12 @@
             "version": "v2.1",
             "source": {
                 "type": "git",
-                "url": "https://github.com/gabrielbull/php-browser.git",
+                "url": "https://github.com/gavroche/php-browser.git",
                 "reference": "aed2949e5ca245569380a1afdc99be5f152e3dc6"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/gabrielbull/php-browser/zipball/aed2949e5ca245569380a1afdc99be5f152e3dc6",
+                "url": "https://api.github.com/repos/gavroche/php-browser/zipball/aed2949e5ca245569380a1afdc99be5f152e3dc6",
                 "reference": "aed2949e5ca245569380a1afdc99be5f152e3dc6",
                 "shasum": ""
             },
@@ -1018,7 +1018,7 @@
             "source": {
                 "type": "git",
                 "url": "git@codebasehq.com:project-a/core/catalog.git",
-                "reference": "a03a04c9eda1185b1c1fcfc2478ac16c4dc99b10"
+                "reference": "918a4d5db95d81c3d0deb66ecd0e13ded3d9b383"
             },
             "require": {
                 "php": ">=5.4.0",
@@ -1055,7 +1055,7 @@
                 "Price",
                 "Stock"
             ],
-            "time": "2014-03-05 14:59:23"
+            "time": "2014-03-06 09:32:08"
         },
         {
             "name": "project-a/checkout-package",
@@ -1292,11 +1292,11 @@
         },
         {
             "name": "project-a/glossary-package",
-            "version": "3.0.1",
+            "version": "3.0.2",
             "source": {
                 "type": "git",
                 "url": "git@codebasehq.com:project-a/core/glossary.git",
-                "reference": "e647fae433afcdbdd95ade778be2940d7057e5c3"
+                "reference": "b8d946480916f87495e4a146d88538bb0add9226"
             },
             "require": {
                 "php": ">=5.4.0",
@@ -1323,7 +1323,7 @@
                 "i18n",
                 "translation"
             ],
-            "time": "2014-02-25 16:38:48"
+            "time": "2014-03-04 12:50:20"
         },
         {
             "name": "project-a/infrastructure-package",
@@ -2694,17 +2694,17 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/Behat/Mink.git",
-                "reference": "0769e6d9726c140a54dbf827a438c0f9912749fe"
+                "reference": "v1.5.0"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Behat/Mink/zipball/0769e6d9726c140a54dbf827a438c0f9912749fe",
-                "reference": "0769e6d9726c140a54dbf827a438c0f9912749fe",
+                "url": "https://api.github.com/repos/Behat/Mink/zipball/v1.5.0",
+                "reference": "v1.5.0",
                 "shasum": ""
             },
             "require": {
                 "php": ">=5.3.1",
-                "symfony/css-selector": "~2.0"
+                "symfony/css-selector": ">=2.0,<3.0"
             },
             "suggest": {
                 "behat/mink-browserkit-driver": "extremely fast headless driver for Symfony\\Kernel-based apps (Sf2, Silex)",
@@ -2909,19 +2909,19 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/Behat/MinkSeleniumDriver.git",
-                "reference": "a782b031cb8a94b449b9ccecdcd0e79206bbc882"
+                "reference": "v1.1.0"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Behat/MinkSeleniumDriver/zipball/a782b031cb8a94b449b9ccecdcd0e79206bbc882",
-                "reference": "a782b031cb8a94b449b9ccecdcd0e79206bbc882",
+                "url": "https://api.github.com/repos/Behat/MinkSeleniumDriver/zipball/v1.1.0",
+                "reference": "v1.1.0",
                 "shasum": ""
             },
             "require": {
-                "alexandresalome/php-selenium": "~1.0.1",
-                "behat/mink": "~1.5.0",
+                "alexandresalome/php-selenium": ">=1.0.1,<1.1",
+                "behat/mink": ">=1.5,<1.6",
                 "php": ">=5.3.1",
-                "symfony/dom-crawler": "~2.0"
+                "symfony/dom-crawler": ">=2.0,<3.0"
             },
             "type": "mink-driver",
             "extra": {
@@ -2962,17 +2962,17 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/Behat/MinkSelenium2Driver.git",
-                "reference": "bcf1b537de37db6db0822d9e7bd97e600fd7a476"
+                "reference": "v1.1.1"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Behat/MinkSelenium2Driver/zipball/bcf1b537de37db6db0822d9e7bd97e600fd7a476",
-                "reference": "bcf1b537de37db6db0822d9e7bd97e600fd7a476",
+                "url": "https://api.github.com/repos/Behat/MinkSelenium2Driver/zipball/v1.1.1",
+                "reference": "v1.1.1",
                 "shasum": ""
             },
             "require": {
-                "behat/mink": "~1.5.0",
-                "instaclick/php-webdriver": "~1.0.12",
+                "behat/mink": ">=1.5,<1.6",
+                "instaclick/php-webdriver": ">=1.0.12.0,<1.1",
                 "php": ">=5.3.1"
             },
             "type": "mink-driver",
@@ -3693,8 +3693,8 @@
             "package": "project-a/cart-package"
         },
         {
-            "alias": "3.0.7",
-            "alias_normalized": "3.0.7.0",
+            "alias": "3.0.8",
+            "alias_normalized": "3.0.8.0",
             "version": "dev-feature/354-basic-bundles-catalog-pgk",
             "package": "project-a/catalog-package"
         },
