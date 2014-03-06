@@ -3,7 +3,7 @@
         "This file locks the dependencies of your project to a known state",
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file"
     ],
-    "hash": "731b50bd2d1b9a98ba581b7dd575f313",
+    "hash": "3a94563dec8132f98c59862191f79214",
     "packages": [
         {
             "name": "cmutter/google-adwords-api",
