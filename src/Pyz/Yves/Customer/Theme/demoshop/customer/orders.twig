@@ -22,27 +22,24 @@
                                 <div class="row"><b>{{ 'customer.order.grand.total'|trans }}</b> {{ order.totals.grandTotal -}}</div>
                             </div>
                             <div class="col col50 mod:last nopadonprint">
-                                {% if status[order.idSalesOrder] is defined and status[order.idSalesOrder] is not iterable %}
-                                    <div class="row">{{ 'customer.order.status'|trans }} {{ status[order.idSalesOrder]|trans }}</div>
-                                    {% for item in order.items %}
-                                        <div class="row item hideonprint">
-                                            <img src="{{ getFirstProductImagesBySize(images[order.idSalesOrder][item.sku].product_images, 's') }}"/>  {{ item.quantity }}x {{ item.name }}
-                                        </div>
-                                    {% endfor %}
-                                {% else %}
-                                    {% for item in order.items %}
-                                        <div class="row item hideonprint">
-                                            <img src="{{ getFirstProductImagesBySize(images[order.idSalesOrder][item.sku].product_images, 's') }}"/>  {{ item.quantity }}x {{ item.name }} - Status: {{ status[order.idSalesOrder][item.sku] }}
-                                        </div>
-                                    {% endfor %}
+                                {% if status[order.idSalesOrder] is defined %}
+                                    <div class="row"><b>{{ 'customer.order.status'|trans }}</b>
+                                        {% for items in status[order.idSalesOrder] %}
+                                            {{ items|json_encode }}
+                                        {% endfor %}
+                                    </div>
                                 {% endif %}
                             </div>
-                            {% include "@customer/customer/order-details.twig" %}
+                            {% include "@customer/customer/order-details.twig" with { 'order' : order } %}
                             <div class="actions col fullWidth hideonprint">
-                                <a href="javascript:void(0);" onclick="app.customer.getOrderDetails({{ order.idSalesOrder }});" data-toggle="{{ 'customer.order.detail.hide'|trans }}">{{ 'customer.order.detail.show'|trans }}</a>
-                                <a href="javascript:void(0);" onclick="app.customer.printOrder(this);">{{ 'customer.order.print'|trans }}</a>
+                                <a class="load-details" href="javascript:void(0);" onclick="app.customer.getOrderDetails('{{ order.incrementId }}');" data-toggle="{{ 'customer.order.detail.hide'|trans }}">
+                                    {{- 'customer.order.detail.show'|trans -}}
+                                </a>
+                                <a class="print" href="javascript:void(0);" onclick="app.customer.printOrder(this);" style="display:none;">{{ 'customer.order.print'|trans }}</a>
                                 {% if order.invoice.invoiceNumber != null %}
-                                    <a href="{{ url('orders/invoice', {'customer': order.fkCustomer, 'invoice': order.invoice.invoiceNumber, 'key': order.invoice.hash, 'order': order.incrementId }) }}">{{ 'customer.order.download.invoice'|trans }}</a>
+                                    <a href="{{ url('orders/invoice', {'customer': order.fkCustomer, 'invoice': order.invoice.invoiceNumber, 'key': order.invoice.hash, 'order': order.incrementId }) }}">
+                                        {{- 'customer.order.download.invoice'|trans -}}
+                                    </a>
                                 {% endif %}
                             </div>
 

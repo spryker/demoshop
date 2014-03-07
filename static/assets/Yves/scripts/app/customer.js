@@ -43,54 +43,84 @@ app.customer = {
     toggleActiveForm : function(targetId) {
         $('#' + targetId).animate({ height : 'toggle', opacity : 'toggle' }, 'slow');
     },
-
     bindFormEvents : function($el) {
         $el.submit(function(e) {
-            if (!app.validation.resultIsValid(app.validation.apply($(this)))) {
+            var $form = $(this);
+            if ($.inArray($form.attr('name'), ['changeMail', 'changePassword']) < 0) {
+                if (!app.validation.resultIsValid(app.validation.apply($(this)))) {
+                    e.preventDefault();
+                }
+            } else {
                 e.preventDefault();
+                if (app.validation.resultIsValid(app.validation.apply($form))) {
+                    $.ajax({
+                        url: $form.attr('action'),
+                        type: 'POST',
+                        data: $form.serialize() ,
+                        success: function(response) {
+                            console.log(response);
+                            var errors = $(response).find('.form-errors');
+                            var alert = $(response).find('.alert-error');
+                            var success = $(response).find('.alert-success');
+                            if (errors.length) {
+                                $form.before(errors);
+                            } else if (alert.length) {
+                                $form.before(alert);
+                            } else if (success.length) {
+                                $('html').html(response);
+                            } else {
+                                location.reload();
+                            }
+                        }
+                    });
+                }
             }
         });
         return $el;
     },
-    toggleDetails : function(el) {
-        var oldLabel = $(el).html();
-        $(el).html($(el).data('toggle'));
-        $(el).data('toggle', oldLabel);
-        $(el).closest('.actions').siblings('.details').animate({ height : 'toggle', opacity : 'toggle' }, 'slow');
+    toggle : function($el) {
+        var oldLabel = $el.html();
+        $el.html($el.data('toggle'));
+        $el.data('toggle', oldLabel);
+        $el.closest('.actions').siblings('.details').animate({ height : 'toggle', opacity : 'toggle' }, 'slow');
     },
     printOrder : function(el) {
         $(el).closest('.order').removeClass('hideonprint').siblings('.order').addClass('hideonprint');
         window.print();
     },
-    getOrderDetails : function($id) {
-        var $details = $('#order-details-' + $id);
+    getOrderDetails : function(id) {
+        var $details = $('#details-' + id);
         $details.find('#error-loading').hide();
-        $('#loading-' + $id).show();
-
-        if ($details.hasClass('loaded')) { $details.toggle(); }
+        if ($details.hasClass('loaded')) {
+            $details.animate({ height : 'toggle', opacity : 'toggle' }, 'slow');
+        } else {
 //        $.ajax({
 //            url: '/redirection',
 //            type: 'POST'
 //        });
-        $.ajax({
-            url: '/customer/order-details',
-            type: 'POST',
-            data: { order: $id },
-            success: function(data) {
-                var $result = $(data).find('.customerLogin');
-                if ($result.length) {
-                    window.location.href = '/login';
-                } else {
-                    $details.html(data).addClass('loaded');
-                    $('#loading-' + $id).hide();
-                    $details.children('.details').animate({ height : 'toggle', opacity : 'toggle' }, 'slow');
+            $('#loading-' + id).show();
+            $.ajax({
+                url: '/customer/order-details',
+                type: 'POST',
+                data: { order: id },
+                success: function(response) {
+                    var $orderDetails = $(response);
+                    if ($orderDetails.find('.customerLogin').length > 0) {
+                        window.location.href = '/login';
+                    } else {
+                        $('#loading-' + id).hide();
+                        app.customer.toggle($orderDetails.next('.actions').find('.load-details'));
+                        $orderDetails.next('.actions').find('.print').toggle();
+                        $details.replaceWith($orderDetails);
+                        $orderDetails.addClass('loaded').animate({ height : 'toggle', opacity : 'toggle' }, 'slow');
+                    }
+                },
+                error: function() {
+                    $('#loading-' + id).hide();
+                    $details.find('#error-loading').show();
                 }
-            },
-            error: function() {
-                $('#loading-' + $id).hide();
-                $details.find('#error-loading').show();
-            }
-        })
+            })
+        }
     },
     address : {
         items : {},

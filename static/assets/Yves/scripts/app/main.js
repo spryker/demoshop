@@ -4,7 +4,9 @@ var app = {
         this.slider.init();
         this.viewport.init();
         for (var i in this.additionals) {
-            this[this.additionals[i]].init();
+            if (this[this.additionals[i]]) {
+                this[this.additionals[i]].init();
+            }
         }
         $(document).keyup(function(e) {
             if (e.keyCode !== 160) {
@@ -12,6 +14,7 @@ var app = {
             }
             $('body').toggleClass('showHardcoded');
         });
+        this.tooltip.init();
     },
     additionals : [],
     viewport : {
@@ -99,6 +102,44 @@ var app = {
             settings[property] = value;
             localStorage.setItem('settings', JSON.stringify(settings));
             return settings;
+        }
+    },
+    tooltip : {
+        init : function() {
+            $('[data-hover-tooltip]').mouseenter(function() {
+                if ($(this).next('.tooltip').length) { return; }
+                app.tooltip.attachTo($(this), 'info', $(this).data('hover-tooltip'), true, true);
+                $(this).mouseleave(function() {
+                    $(this).next('.tooltip').mouseleave();
+                });
+            });
+        },
+        attachTo : function($target, type, message, detachOnHover, disableDetachAnimation) {
+            var $tooltip = this.$generate(type, message);
+            $target.after($tooltip.css({
+                left : $target.position().left + ($target.outerWidth(true) / 2),
+                top : $target.position().top + $target.outerHeight(true) + 6
+            }));
+
+            var halfWidth = $tooltip.outerWidth(false) / 2;
+            $tooltip.css({ marginLeft : halfWidth * (-1) });
+
+            if (detachOnHover) {
+                $tooltip.mouseleave(function() {
+                    if (!disableDetachAnimation) {
+                        $(this).fadeOut(500, function() {
+                            $(this).remove();
+                        });
+                    } else {
+                        $(this).remove();
+                    }
+                });
+            }
+
+            return $tooltip;
+        },
+        $generate : function(type, message) {
+            return $('<div class="tooltip"></div>').addClass(type).html(message);
         }
     },
     ensureVisibility : function($target) {

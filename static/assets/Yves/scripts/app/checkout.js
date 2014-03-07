@@ -460,7 +460,7 @@
                     $header.data('toggle', oldLabel);
                     // alert('Was fehlt noch: Ein ensureVisibility helper muss rein & die validation noch ausgeklügelter');
                 }
-            }).change();
+            });
         },
         address : {
             toggleOtherAddresses : function(el, targetId) {

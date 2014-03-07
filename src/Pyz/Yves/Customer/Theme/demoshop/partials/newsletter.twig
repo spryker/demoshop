@@ -15,7 +15,7 @@
                     <input type="hidden" id="subscription_email" name="email" value="{{ email }}">
                     <input type="checkbox" id="subscription_status" name="subscription[status]" checked="checked" disabled="disabled">
                     <label for="subscription_status">{{'customer.newsletter.subscription.confirm'|trans }}</label>
-                    <button type="submit" class="ok" style="margin-top:12px">{{ 'customer.newsletter.subscription.resubmit'|trans }}</button>
+                    <button type="submit" class="ok" style="margin:14px 0">{{ 'customer.newsletter.subscription.resubmit'|trans }}</button>
                 </form>
             {% else %}
                 <form name="subscription" class="subscription" action="{{ url('subscribe') }}">

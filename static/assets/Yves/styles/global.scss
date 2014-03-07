@@ -139,6 +139,12 @@ footer ul.simple li { padding:0; }
 footer a { color:#777; text-decoration:none; }
 footer a:hover { text-decoration:underline; }
 
+.validationError { border-color:red !important; box-shadow:0 0 4px rgba(255, 0, 0, 0.3); }
+.tooltip { position:absolute; z-index:999; border:1px solid #fff; color:#fff; padding:4px 8px !important; max-width:300px; border-radius:3px; box-shadow:0 0 4px rgba(0, 0, 0, 0.5); background:#666; }
+.tooltip:after { display:block; content:''; position:absolute; top:-14px; left:50%; margin-left:-7px; z-index:1; border:7px solid transparent; border-bottom-color:#666; }
+.tooltip.error { background:#ce3420; font-size:0.9em }
+.tooltip.error:after { border-bottom-color:#ce3420; }
+
 .modal { font-weight:300; position:absolute; left:25%; top:50px; width:50%; padding:20px; background:#fff; border:1px solid #ccc; box-shadow:1px 1px 4px rgba(0, 0, 0, 0.2); z-index:99; border-radius:3px; }
 .modal *:first-child { margin-top:0; }
 .modal *:last-child { margin-bottom:0; }
