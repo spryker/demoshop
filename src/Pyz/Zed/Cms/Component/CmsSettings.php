@@ -25,6 +25,14 @@ class CmsSettings extends CoreCmsSettings
         $partials = [];
 
         $partials[] = [
+            'file' => 'glossary-width-12.twig',
+            'name' => 'glossary-width-12',
+            'type' => BlockGlossary::BLOCK_TYPE,
+            'size' => 12,
+            'description' => 'width 4/4',
+        ];
+
+        $partials[] = [
             'file' => 'text-only-content-width-12.twig',
             'name' => 'text-only-content-width-12',
             'type' => BlockText::BLOCK_TYPE,
