@@ -58,6 +58,10 @@ section:after { content:''; display:block; clear:both; }
 .message.error { background-color:#f4cbaa; border-color:#e8b388; }
 .message.info { background-color:#ccefb5; border-color:#abd88d; }
 
+.slideshow ul { margin:0; padding:0; list-style:none; }
+.slideshow ul li { display:block; float:left; }
+.slideshow img { display:block; }
+
 header { padding:10px 0; white-space:nowrap; }
 header a { display:block; color:inherit; text-decoration:none; }
 header .row { padding:10px 0; }
