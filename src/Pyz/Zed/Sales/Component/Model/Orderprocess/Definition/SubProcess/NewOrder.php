@@ -1,6 +1,6 @@
 <?php
 
-namespace Pyz\Zed\Sales\Component\Model\Orderprocess\Definition\SubProcess;
+namespace Pyz\Zed\Sales\Component\Model\Orderprocess\Definition\Subprocess;
 
 use Pyz\Zed\Sales\Component\ConstantsInterface\Orderprocess;
 

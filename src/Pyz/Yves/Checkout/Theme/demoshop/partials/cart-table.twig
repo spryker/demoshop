@@ -1,60 +1,48 @@
-
 <table class="items">
     <tbody>
-        {% for cartItem in cartItems %}
-            {% set product = products[cartItem.sku] %}
-            <tr>
-                <td>
-                    <h4>{{ cartItem.quantity }}x {{ product.name }}</h4>
-                    <h5>by {{ product.brand }}</h5>
-                </td>
-                <td>
-                    {# <span class="oldPrice">55,70 €</span> #}
-                    <span class="price">{{ cartItem.priceToPay|price }}</span>
-                </td>
-            </tr>
-        {% else %}
-            <tr>
-                <td colspan="2">{{ 'checkout.cart.empty'|trans }}</td>
-            </tr>
-        {% endfor %}
+    {% for cartItem in cartItems %}
+        {% set product = products[cartItem.sku] %}
+        <tr>
+            <td>
+                <h4>{{ cartItem.quantity }}x {{ product.name }}</h4>
+            </td>
+            <td>
+                {# <span class="oldPrice">55,70 €</span> #}
+                <span class="price">{{ cartItem.grossPrice|price }}</span>
+            </td>
+        </tr>
+    {% else %}
+        <tr>
+            <td colspan="2">{{ 'checkout.cart.empty'|trans }}</td>
+        </tr>
+    {% endfor %}
     </tbody>
     <tfoot>
+    <tr>
+        <td>{{ 'checkout.price.subtotal'|trans }}</td>
+        <td>{{ totals.subtotal|price }}</td>
+    </tr>
+    {% for expense in totals.expenses.expenseItems %}
         <tr>
-            <td>{{ 'checkout.price.subtotal'|trans }}</td>
-            <td>{{ totals.subtotal|price }}</td>
+            <td class="label">{{ expense.name|trans }}</td>
+            <td>{{ expense.grossPrice|price }}</td>
         </tr>
-        <tr>
-            <td>{{ 'checkout.price.shipping'|trans }}</td>
-            <td></td>
+    {% endfor %}
+    {% for discount in totals.discount.discountItems %}
+        <tr class="voucher">
+            <td class="label">{{ discount.name|trans }} {% if discount.codes %}{{ 'cart.discount.codes'|trans({ '%codes%': discount.codes|join(' ,')}) }}{% endif %}</td>
+            <td>-{{ discount.amount|price }}</td>
         </tr>
-
-        <tr>
-            <td>{{ 'checkout.price.subtotal'|trans }}</td>
-            <td>{{ totals.subtotal|price }}</td>
+    {% endfor %}
+    {% for taxRate in totals.tax.taxRates %}
+        <tr class="tax">
+            <td>{{ taxRate.percentage }}{{ 'checkout.percentage.vat'|trans }}</td>
+            <td>{{ taxRate.amount|price }}</td>
         </tr>
-        {% for expense in totals.expenses.expenseItems %}
-            <tr>
-                <td class="label">{{ expense.name|trans }}</td>
-                <td>{{ expense.grossPrice|price }}</td>
-            </tr>
-        {% endfor %}
-        {% for discount in totals.discount.discountItems %}
-            <tr class="voucher">
-                <td class="label">{{ discount.name|trans }} {% if discount.codes %}{{ 'cart.discount.codes'|trans({ '%codes%': discount.codes|join(' ,')}) }}{% endif %}</td>
-                <td>-{{ discount.amount|price }}</td>
-            </tr>
-        {% endfor %}
-
-        {% for taxRate in totals.tax.taxRates %}
-            <tr class="tax">
-                <td>{{ taxRate.percentage }}{{ 'checkout.percentage.vat'|trans }}</td>
-                <td>{{ taxRate.amount|price }}</td>
-            </tr>
-        {% endfor %}
-        <tr class="total">
-            <td>{{ 'checkout.price.grand.total'|trans }}</td>
-            <td>{{ totals.grandTotal|price }}</td>
-        </tr>
+    {% endfor %}
+    <tr class="total">
+        <td>{{ 'checkout.price.grand.total'|trans }}</td>
+        <td>{{ totals.grandTotal|price }}</td>
+    </tr>
     </tfoot>
 </table>

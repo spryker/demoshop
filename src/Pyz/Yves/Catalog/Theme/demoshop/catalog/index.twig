@@ -59,7 +59,7 @@
         <ul class="products col col75">
             {% for product in products %}
                 <li>
-                    <a href="/{{ product.name | url_encode | replace({'-': '+'}) }}-{{ product.id }}.html">
+                    <a href="{{ product.url }}">
                         <img src="{{ getFirstProductImagesBySize(product.product_images, 'l') }}" alt="" />
                         <h3>{{ product.name }}</h3>
                         <h4>by {{ product.brand }}</h4>

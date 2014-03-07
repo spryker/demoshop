@@ -2,75 +2,78 @@
 
 namespace Pyz\Zed\Sales\Component\ConstantsInterface;
 
-interface Orderprocess extends \ProjectA_Zed_Sales_Component_Interface_OrderprocessConstant
+interface Orderprocess
+    extends \ProjectA_Zed_Sales_Component_Interface_OrderprocessConstant
 {
 
-    const ORDER_PROCESS_DEMO = 'demo';
+    /************************************************************************************************
+     *     GENERAL
+     ************************************************************************************************/
 
+
+
+    // --- GENERAL States
 
     const STATE_INVALID = 'invalid';
-    const STATE_WAITING_FOR_AUTHORIZE_APPOINTMENT = 'waiting for authorize appointment';
-    const STATE_APPOINTED = 'appointed';
-    const STATE_INIT_CAPTURE_PROCESS = 'init capture process';
-    const STATE_WAITING_FOR_CAPTURE_APPOINTMENT = 'waiting for capture appointment';
-    const STATE_CLARIFY_CAPTURE_FAILED = 'clarify capture failed';
-    const STATE_CAPTURED = 'captured';
+    const STATE_COMPLETED_BUT_REVERSIBLE = 'completed but reversible';
+    const STATE_FINALLY_COMPLETED = 'finally completed';
 
-    const STATE_PAYMENT_REDIRECTED = 'payment redirected';
-    const STATE_PAYMENT_PREPARED = 'payment prepared';
-
-    // EVENTS
-
-    const EVENT_PAYMENT_INFO_IS_RECEIVED = 'payment info is received';
-
-    // RULES
+    // --- GENERAL Flags
 
     const FLAG_CLARIFY = 'clarify';
+    const FLAG_READY_FOR_INVOICE = 'ready for invoice';
+    const FLAG_EXCLUDE_FROM_INVOICE = 'exclude from invoice';
+    const FLAG_ITEM_READY_FOR_EXPORT = 'item ready for export';
+    const FLAG_ITEM_EXPORTED = 'item exported';
+    const FLAG_RESERVED = 'reserved';
 
-    /********************/
-    /****** EXAMPLE ******/
-    /********************/
 
-    const ORDER_PROCESS_EXAMPLE = 'Example Process';
 
-    const STATE_A = 'status A';
-    const STATE_B = 'status B';
-    const STATE_C = 'status C';
-    const STATE_D = 'status D';
-    const STATE_E = 'status E';
 
-    const EVENT_GOTO_A = 'goto A';
-    const EVENT_GOTO_B = 'goto B';
-    const EVENT_GOTO_C = 'goto C';
-    const EVENT_GOTO_D = 'goto D';
-    const EVENT_GOTO_E = 'goto E';
-    const EVENT_SOME_DEFINED_EVENT = 'some defined event';
 
-    const RULE_SOMETHING_EXISTS = 'something exists';
 
-    /********************/
-    /****** PAYONE ******/
-    /********************/
+
+    /************************************************************************************************
+     *     PAYONE
+     ************************************************************************************************/
+
+    // --- PAYONE Processes
+
+    const ORDER_PROCESS_PAYONE_PRE_PAYMENT_01 = 'PayonePrePayment01';
+    const ORDER_PROCESS_PAYONE_CREDIT_CARD_PSEUDO_01 = 'PayoneCreditCardPseudo01';
+    const ORDER_PROCESS_PAYONE_DIRECT_DEBIT_01 = 'PayoneDirectDebit01';
+    const ORDER_PROCESS_PAYONE_PAYPAL_01 = 'PayonePaypal01';
+    const ORDER_PROCESS_PAYONE_INVOICE_01 = 'PayoneInvoice01';
+    const ORDER_PROCESS_PAYONE_SOFORT_UEBERWEISUNG_01 = 'PayoneSofortUeberweisung01';
 
     // --- PAYONE Payment
 
-    const ORDER_PROCESS_PAYONE_CREDIT_CARD = 'Credit Card (payone)';
-    const ORDER_PROCESS_PAYONE_PAYPAL = 'Paypal (payone)';
-    const ORDER_PROCESS_PAYONE_DIRECT_DEBIT = 'Direct Debit (payone)';
-    const ORDER_PROCESS_PAYONE_PREPAYMENT = 'PrePayment (payone)';
-    const ORDER_PROCESS_PAYONE_INVOICE = 'Invoice (payone)';
-    const ORDER_PROCESS_PAYONE_SOFORT_UEBERWEISUNG = 'SofortUeberweisung (payone)';
-
     const STATE_PAYONE_INIT_PAYMENT = 'init payment (payone)';
-    const STATE_PAYONE_PAYMENT_REDIRECTED = 'payment redirected (payone)';
-    const STATE_PAYONE_PAYMENT_NOT_REDIRECTED = 'payment not redirected (payone)';
     const STATE_PAYONE_WAITING_FOR_AUTHORIZATION_APPOINTMENT = 'waiting for authorization appointment (payone)';
     const STATE_PAYONE_WAITING_FOR_PREAUTHORIZATION_APPOINTMENT = 'waiting for preauthorization appointment (payone)';
-    const STATE_PAYONE_NO_AUTHORIZATION_APPOINTMENT_RECEIVED = 'no authorization appointment received (payone)';
-    const STATE_PAYONE_NO_PREAUTHORIZATION_APPOINTMENT_RECEIVED = 'no presauthorization appointment received (payone)';
+    const STATE_PAYONE_CLARIFY_WAITING_FOR_PREAUTHORIZATION_APPOINTMENT = 'clarify waiting for preauthorization appointment (payone)';
+    const STATE_PAYONE_CLARIFY_WAITING_FOR_AUTHORIZATION_APPOINTMENT = 'clarify waiting for authorization appointment (payone)';
+    const STATE_PAYONE_CLARIFY_WAITING_FOR_PAID = 'clarify waiting for paid (payone)';
     const STATE_PAYONE_PAYMENT_AUTHORIZED = 'payment authorized (payone)';
     const STATE_PAYONE_PAYMENT_PREAUTHORIZED = 'payment preauthorized (payone)';
-    const STATE_PAYONE_PAYMENT_INVALID = 'payment invalid (payone)';
+    const STATE_PAYONE_PAYMENT_NOT_REDIRECTED = 'payment not redirected (payone)';
+    const STATE_PAYONE_PAYMENT_REDIRECTED  = 'payment redirected (payone)';
+    const STATE_PAYONE_CLARIFY_PAYMENT_REMINDED = 'clarify payment reminded (payone)';
+
+    const STATE_PAYONE_PAID                = 'paid (payone)';
+    const STATE_PAYONE_UNDERPAID = 'underpaid (payone)';
+    const STATE_PAYONE_CLARIFY_UNDERPAID = 'clarify underpaid (payone)';
+    const STATE_PAYONE_CLARIFY_WAITING_FOR_CAPTURE_APPOINTMENT = 'clarify waiting for capture appointment (payone)';
+
+    const STATE_PAYONE_PAYMENT_REMINDED    = 'payment reminded (payone)';
+
+
+    const EVENT_PAYONE_CANCEL_REMINDED = 'cancel reminded (payone)';
+    const EVENT_PAYONE_CANCEL_UNDERPAID = 'cancel underpaid (payone)';
+    const EVENT_PAYONE_MANUALLY_SET_PAID = 'manually set paid (payone)';
+    const EVENT_PAYONE_MANUALLY_SET_AUTHORIZED = 'manually set authorized (payone)';
+    const EVENT_PAYONE_MANUALLY_SET_CAPTURED = 'manually set captured (payone)';
+    const EVENT_PAYONE_RETRY_CAPTURE = 'retry capture (payone)';
 
     // --- PAYONE Cancelation
 
@@ -79,26 +82,58 @@ interface Orderprocess extends \ProjectA_Zed_Sales_Component_Interface_Orderproc
     const STATE_PAYONE_CANCELLATION_RETURN = 'cancellation return (payone)';
     const STATE_PAYONE_CANCELLATION_OBJECTIVE = 'cancellation objective (payone)';
 
-    const EVENT_PAYONE_MANUAL_CLARIFIED_CANCELLATION_OBJECTIVE = 'manual clarified cancellation objective';
-    const EVENT_PAYONE_MANUAL_CLARIFIED_CANCELLATION_RETURN = 'manual clarified cancellation return';
+    const EVENT_PAYONE_MANUAL_CLARIFIED_CANCELLATION_OBJECTIVE = 'manual clarified cancellation objective (payone)';
+    const EVENT_PAYONE_MANUAL_CLARIFIED_CANCELLATION_RETURN = 'manual clarified cancellation return (payone)';
 
     const EVENT_PAYONE_MANUAL_SET_PAYMENT_INVALID = 'manual set payment invalid (payone)';
     const EVENT_PAYONE_MANUAL_SET_PAYMENT_AUTHORIZED = 'manual set payment authorized (payone)';
 
     // --- PAYONE Capture
 
-    const STATE_PAYONE_INIT_CAPTURE = 'init capture (payone)';
+    const STATE_PAYONE_INIT_CAPTURE_PROCESS = 'init capture process (payone)';
     const STATE_PAYONE_WAITING_FOR_CAPTURE_APPOINTMENT = 'waiting for capture appointment (payone)';
     const STATE_PAYONE_CAPTURE_FAILED = 'capture failed (payone)';
+    const STATE_PAYONE_CLARIFY_CAPTURE_FAILED = 'clarify capture failed (payone)';
     const STATE_PAYONE_CAPTURED = 'captured (payone)';
 
     const STATE_PAYONE_WAITING_FOR_RECEIPT_OF_PAYMENT = 'waiting for receipt of payment (payone)';
 
-    // --- PAYONE DUNNING
 
-    const STATE_PAYONE_INIT_DUNNING = 'init dunning (payone)';
 
-    /****** ONLY USED FOR THE TEST SUB-PROCESS ******/
+    /************************************************************************************************
+     *     INVOICE CREATION
+     ************************************************************************************************/
+
+    const STATE_INIT_INVOICE_CREATION_PROCESS = 'init invoice creation process';
+    const STATE_READY_FOR_INVOICE_CREATION = 'ready for invoice creation';
+    const STATE_INVOICE_CREATED = 'invoice created';
+
+    const RULE_INVOICE_CREATION_POSSIBLE = 'invoice creation possible';
+
+
+
+    /************************************************************************************************
+     *     FULFILLMENT
+     ************************************************************************************************/
+
+    const STATE_INIT_FULFILLMENT_PROCESS = 'init fulfillment process';
+    const STATE_FULFILLED = 'fulfilled';
+
+    const EVENT_START_FULFILLMENT_EXPORT = 'start fulfillment export';
+
+
+
+    /************************************************************************************************
+     *     FULFILLMENT
+     ************************************************************************************************/
+
+    const STATE_INIT_DUNNING = 'init dunning';
+
+
+
+    /************************************************************************************************
+     *     DEMO
+     ************************************************************************************************/
 
     // states
     const STATE_DEMO_A = 'DEMO A';
@@ -126,4 +161,6 @@ interface Orderprocess extends \ProjectA_Zed_Sales_Component_Interface_Orderproc
 
     //flags
     const FLAG_DEMO_TEST_FLAG = 'DEMO TEST FLAG';
+
+
 }

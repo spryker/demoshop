@@ -1,0 +1,80 @@
+<script src="/scripts/app/configproduct.js"></script>
+
+<div class="pictures col col50">
+    <div class="current">
+        <div class="prev">
+            <hardcoded block>
+                <span class="glyphicon glyphicon-chevron-left"></span>
+            </hardcoded>
+        </div>
+        <div class="next">
+            <hardcoded block>
+                <span class="glyphicon glyphicon-chevron-right"></span>
+            </hardcoded>
+        </div>
+        {#{% if product.image %}#}
+        {#<img src="{{ product.image }}" alt="" />#}
+        {#{% else %}#}
+        <img src="{{ getFirstProductImagesBySize(product.product_images, 'xxl') }}" alt="" />
+        {#{% endif %}#}
+    </div>
+</div>
+<aside class="item col col25">
+    <h3>{{ product.name }}</h3>
+    <h4>by {{ product.brand }}</h4>
+    {% if product.recommended_retail_price %}
+        <div class="oldPrice">{{ product.recommended_retail_price|price }}</div>
+    {% endif %}
+    <div id="selected-price" class="price">-,--</div>
+    <div class="hint">{{ 'catalog.percentage.vat'|trans({'%product.tax_rate%' : product.tax_rate}) }}</div>
+
+    <form id="form-product-add-to-cart" action="/cart/add">
+        <select id="sub-product-select">
+            <option value="">{{ 'product.select.sub-product'|trans }}</option>
+            {% for subProduct in subProducts %}
+                <option value="{{ subProduct.sku }}" {% if subProduct.stock < 1 %} disabled="disabled" {% endif %}>
+                    {% if subProduct.stock > 0 %}
+                        {{ subProduct.name }}
+                    {% else %}
+                        {{ subProduct.name }} ({{ 'product.detail.out.of.stock' }})
+                    {% endif %}
+                </option>
+            {% endfor %}
+        </select>
+        <br /><br />
+        <input id="selected-stock" class="fullWidth" type="number" name="quantity" value="1" min="1" max="{{ product.stock > 20 ? 20 : product.stock }}" step="1" />
+        <br /><br />
+        <input id="product-add-to-card-submit" class="submit fullWidth" type="submit" value="{{ 'catalog.buy'|trans }}" disabled />
+    </form>
+
+    <script>
+        var productStorage = [];
+        {% for subProduct in subProducts %}
+            productStorage['{{ subProduct.sku }}'] = { price : '{{ subProduct.price|price }}'};
+            productStorage['{{ subProduct.sku }}']['stock'] = {%  if product.stock %} product.stock {% else %} 0 {% endif %};
+        {% endfor %}
+        app.configproduct.init(productStorage, 20);
+    </script>
+
+</aside>
+
+<hr />
+
+<aside class="superDescription col col25">
+    <h4>{{ product.brand }}</h4>
+    <hardcoded block>
+        <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.</p>
+    </hardcoded>
+</aside>
+<div class="itemDescription col col50">
+    <h4>{{ product.name }}</h4>
+    <p>{{ product.description }}</p>
+</div>
+<aside class="specs col col25">
+    <h4>{{ 'catalog.details.headline'|trans }}</h4>
+    <ul>
+        <li>{{ 'catalog.details.material'|trans }} {{ product.material }}</li>
+        <li>{{ 'catalog.details.dimension'|trans }} {{ product.dimension_in_cm }}</li>
+    </ul>
+</aside>
+  

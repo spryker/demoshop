@@ -1,56 +1,123 @@
 <!-- ********** PAYONE CODE ********** --->
 
 <script>
-    /*
-     $('#salesOrder_save').on('click', function (e) {
-     var method = $("input:radio[name='salesOrder[payment][method]']:checked").val();
-     if(method == 'payment.payone.creditcard_pseudo') {
-     e.preventDefault();
-     performCreditCardCheck();
-     }
-     });
-     */
-</script>
+    $.getScript('{{ asset('bundles/Payone/payonecreditcardcheck.js') }}', function() {
 
+        var PyzPayoneCreditCardCheck = {
+            init : function() {
+                this.$form = $('#checkout > form');
+                PayoneCreditCardCheck.perform = this.perform.bind(this);
+                window.PayoneCreditCardCheckResponseCallback = this.responseCallback;
+            },
+            config : {
+                request        : '{{ payoneCreditcardCheckData.request }}',
+                mode           : '{{ payoneCreditcardCheckData.mode }}',
+                mid            : '{{ payoneCreditcardCheckData.mid }}',
+                aid            : '{{ payoneCreditcardCheckData.aid }}',
+                portalid       : '{{ payoneCreditcardCheckData.portalid }}',
+                hash           : '{{ payoneCreditcardCheckData.hash }}',
+                encoding       : '{{ payoneCreditcardCheckData.encoding }}',
+                language       : '{{ payoneCreditcardCheckData.language }}',
+                storecarddata  : '{{ payoneCreditcardCheckData.storecarddata }}'
+            },
+            fields : {
+                ccCardHolder        : 'salesOrder[payment][creditCardHolder]',
+                ccNumber            : 'salesOrder[payment][creditCardPan]',
+                ccExpirationMonth   : 'salesOrder[payment][creditCardExpirationMonth]',
+                ccExpirationYear    : 'salesOrder[payment][creditCardExpirationYear]',
+                ccVerification      : 'salesOrder[payment][creditCardCvc2]'
+            },
+            cards : {
+                visa       : ['V', /^4[0-9]{12}(?:[0-9]{3})?$/, 'Visa'],
+                mastercard : ['M', /^5[1-5][0-9]{14}$/, 'MasterCard'],
+                amex       : ['A', /^3[47][0-9]{13}$/, 'American Express'],
+                dinersclub : ['D', /^3(?:0[0-5]|[68][0-9])[0-9]{11}$/, 'Diners Club'],
+                discover   : ['C', /^6(?:011|5[0-9]{2})[0-9]{12}$/, 'Discover'],
+                jcb        : ['J', /^(?:2131|1800|35\d{3})\d{11}$/, 'Japan Credit Bureau (JCB)'],
+                maestroint : ['O', /^(?:5018|5020|5038|5612|5893|6304|6759|6761|6762|6763|0604|6390)\d{8,12}$/, 'Maestro International'],
+                maestrouk  : ['U', /^(?:5018|5020|5038|5612|5893|6304|6759|6761|6762|6763|0604|6390)\d{13,15}$/, 'Maestro UK'],
+                cartebleue : ['B', /a^/, 'Carte Bleue']
+            },
+            detectCard : function(cardNumber) {
+                var result = null;
+                $.each(this.cards, function() {
+                    if (typeof this[1] === 'object' && this[1].test(cardNumber)) {
+                        result = this[0];
+                    }
+                });
+                return result;
+            },
+            getFormData : function() {
+                var formData = {};
+                this.$form.serializeArray().map(function(item) {
+                    formData[item.name] = item.value;
+                });
+                return formData;
+            },
+            getCreditCardData : function(ccType) {
+                var formData = this.getFormData();
+                var fields = $.extend({}, this.fields);
+                var result = ($.each(fields, function(key, value) {
+                    fields[key] = formData[value];
+                }));
+                result.ccType = ccType || this.detectCard(result.ccNumber);
+                if (!result.ccType) {
+                    this.showCCTypeDropdown();
+                    return null;
+                }
+                return result;
+            },
+            showCCTypeDropdown : function() {
+                var $modal = app.modal.generate('<div class="messages"><div class="message error">Zu der von Ihnen eingegebenen Kreditkartennummer wurde leider kein Kartentyp erkannt. Bitte wählen Sie diesen manuell aus.</div></div>', true, true, false, 100);
+                var $selection = $('<select />').css({ marginTop : 10, marginBottom : 30 });
+                $.each(this.cards, function() {
+                    $selection.append('<option value="' + this[0] + '">' + this[2] + '</option>');
+                });
+                var $cancel = $('<button class="cancel">Abbrechen</button>');
+                var $continue = $('<button class="ok">Weiter</button>');
 
-<script src="/bundles/Payone/payonecreditcardcheck.js"></script>
+                $cancel.click(app.modal.close);
+                $continue.click(function() {
+                    var ccType = $selection.val();
+                    app.modal.close();
+                    MigPayoneCreditCardCheck.perform(ccType);
+                });
+                $modal.append($selection).append($cancel).append($continue);
+            },
+            perform : function(ccType, nextAction) {
+                var ccData = this.getCreditCardData(ccType);
+                if (nextAction) {
+                    this.nextAction = nextAction;
+                }
+                if (!ccData) { return; }
+                $('button#salesOrder_save').prop('disabled', true).addClass('mod:disabled');
+                PayoneCreditCardCheck.doRequest(this.config, ccData, 'PayoneCreditCardCheckResponseCallback');
+            },
+            nextAction : function() {},
+            responseCallback : function(response) {
+                var $messageTarget = $('#salesOrder_payment_method input[name="salesOrder[payment][method]"]:checked').nextAll('.details').eq(0);
+                $messageTarget.children('.messages').remove();
+                $('button#salesOrder_save').prop('disabled', false).removeClass('mod:disabled');
 
-<script>
-    function performCreditCardCheck() {
-        var payoneConfig = {
-            request        : '{{ payoneCreditcardCheckData.request }}',
-            mode           : '{{ payoneCreditcardCheckData.mode }}',
-            mid            : '{{ payoneCreditcardCheckData.mid }}',
-            aid            : '{{ payoneCreditcardCheckData.aid }}',
-            portalid       : '{{ payoneCreditcardCheckData.portalid }}',
-            hash           : '{{ payoneCreditcardCheckData.hash }}',
-            encoding       : '{{ payoneCreditcardCheckData.encoding }}',
-            language       : '{{ payoneCreditcardCheckData.language }}',
-            storecarddata  : '{{ payoneCreditcardCheckData.storecarddata }}'
+                if (response.get('status') === 'VALID') {
+                    var pseudoCardPan = response.get('pseudocardpan');
+                    // var truncatedCardPan = response.get('truncatedcardpan');
+                    $("#salesOrder_payment_creditCardPseudoCardPan").val(pseudoCardPan);
+                    if (PyzPayoneCreditCardCheck.nextAction) {
+                        PyzPayoneCreditCardCheck.nextAction();
+                    }
+                    app.checkout.clearContainer($('.details[data-associated-paymentmethod="payment.payone.creditcard_pseudo"]'));
+                } else {
+                    // var message = response.get('errormessage') + "\n" + ;
+                    var $messages = $('<div class="messages"></div>').html('<div class="message error">' + response.get('customermessage') + '</div>');
+                    $messageTarget.prepend($messages);
+                    app.ensureVisibility($messages);
+                }
+            }
         };
-        var creditCardData = {
-            ccCardHolder        : $("#salesOrder_payment_creditCardHolder").val(),
-            ccNumber            : $("#salesOrder_payment_creditCardPan").val(),
-            ccType              : $("#salesOrder_payment_creditCardType").val(),
-            ccExpirationMonth   : $("#salesOrder_payment_creditCardExpirationMonth").val(),
-            ccExpirationYear    : $("#salesOrder_payment_creditCardExpirationYear").val(),
-            ccVerification      : $("#salesOrder_payment_creditCardCvc2").val()
-        };
-        PayoneCreditCardCheck.doRequest(payoneConfig, creditCardData, 'payoneResponseCallback');
-    }
-</script>
 
-<script>
-    function payoneResponseCallback(response) {
-        if (response.get('status') === 'VALID') {
-            var pseudoCardPan = response.get('pseudocardpan');
-            var truncatedCardPan = response.get('truncatedcardpan');
-            $("#salesOrder_payment_creditCardPseudoCardPan").val(pseudoCardPan);
-        } else {
-            var message = response.get('errormessage') + "\n" + response.get('customermessage');
-            alert(message);
-        }
-    }
+        $(MigPayoneCreditCardCheck.init.bind(MigPayoneCreditCardCheck));
+    });
 </script>
 
 <!-- ********** END OF PAYONE CODE ********** --->

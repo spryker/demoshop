@@ -3,7 +3,7 @@
         "This file locks the dependencies of your project to a known state",
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file"
     ],
-    "hash": "63acd8366e61f9dc0e7ff46ef12a91f1",
+    "hash": "25de0af856dbeabccd644e6544dfc6d6",
     "packages": [
         {
             "name": "cmutter/google-adwords-api",
@@ -978,17 +978,20 @@
         },
         {
             "name": "project-a/cart-package",
-            "version": "3.0.2",
+            "version": "3.1.0",
             "source": {
                 "type": "git",
                 "url": "git@codebasehq.com:project-a/core/cart.git",
-                "reference": "14e8c107238e998817a914f8cd6a4078e591545e"
+                "reference": "98750b9187094edc61a7fc3458a4dad9fc5dbf62"
             },
             "require": {
                 "php": ">=5.4.0",
+                "project-a/acl-package": "~3.0",
                 "project-a/catalog-package": "~3.0",
                 "project-a/checkout-package": "~3.0",
+                "project-a/crm-package": "~3.1",
                 "project-a/library-package": "~3.0",
+                "project-a/lumberjack-package": "~3.0",
                 "project-a/sales-package": "~3.0"
             },
             "type": "library",
@@ -1010,21 +1013,23 @@
             "keywords": [
                 "Cart"
             ],
-            "time": "2014-02-12 11:33:29"
+            "time": "2014-03-06 11:32:48"
         },
         {
             "name": "project-a/catalog-package",
-            "version": "3.0.8",
+            "version": "3.1.0",
             "source": {
                 "type": "git",
                 "url": "git@codebasehq.com:project-a/core/catalog.git",
-                "reference": "284f051b5df300e7cfc137d682e6b1d8f607615c"
+                "reference": "841877b4038711a718f04712422c5528f6e6ba98"
             },
             "require": {
                 "php": ">=5.4.0",
+                "project-a/acl-package": "~3.0",
                 "project-a/frontend-package": "~3.0",
                 "project-a/library-package": ">=3.1.1,<4",
-                "project-a/sales-package": "~3.0"
+                "project-a/lumberjack-package": "~3.0",
+                "project-a/sales-package": "~3.3"
             },
             "type": "library",
             "autoload": {
@@ -1055,7 +1060,7 @@
                 "Price",
                 "Stock"
             ],
-            "time": "2014-03-04 11:32:09"
+            "time": "2014-03-06 11:40:47"
         },
         {
             "name": "project-a/checkout-package",
@@ -1101,11 +1106,11 @@
         },
         {
             "name": "project-a/console-package",
-            "version": "3.0.0",
+            "version": "3.1.1",
             "source": {
                 "type": "git",
                 "url": "git@codebasehq.com:project-a/core/console.git",
-                "reference": "bcc0c87f6b28bb23cbece4b328a97fc6204a666c"
+                "reference": "bb0d5b9ccb103fa96b3193d9c571647530068e71"
             },
             "require": {
                 "fabpot/php-cs-fixer": "dev-master",
@@ -1144,7 +1149,7 @@
             "keywords": [
                 "console"
             ],
-            "time": "2014-01-29 12:06:15"
+            "time": "2014-03-05 14:57:38"
         },
         {
             "name": "project-a/crm-package",
@@ -1327,15 +1332,15 @@
         },
         {
             "name": "project-a/infrastructure-package",
-            "version": "3.0.4",
+            "version": "3.1.1",
             "source": {
                 "type": "git",
                 "url": "git@codebasehq.com:project-a/core/infrastructure.git",
-                "reference": "e92fe7da3e7ff5933425ed023ae2dbe5cb20d062"
+                "reference": "b4b27d9103844f70df90590f5dad1297e8702518"
             },
             "require": {
                 "php": ">=5.4.0",
-                "project-a/library-package": "~3.0",
+                "project-a/library-package": "<4,>=3.2.1",
                 "project-a/lumberjack-package": "~3.0"
             },
             "suggest": {
@@ -1360,7 +1365,7 @@
             "keywords": [
                 "infrastructure"
             ],
-            "time": "2014-02-28 15:11:36"
+            "time": "2014-03-06 09:43:31"
         },
         {
             "name": "project-a/kendo-package",
@@ -1383,11 +1388,11 @@
         },
         {
             "name": "project-a/library-package",
-            "version": "3.1.3",
+            "version": "3.2.1",
             "source": {
                 "type": "git",
                 "url": "git@codebasehq.com:project-a/core/library-2.git",
-                "reference": "aba0b46784110420ca6c6dbe33e1f4f716955abc"
+                "reference": "796245cc064f591ab6370043f373825f823c9aea"
             },
             "require": {
                 "digital-canvas/zend-framework": ">=1.12.2",
@@ -1424,7 +1429,7 @@
                 }
             ],
             "description": "Project-A Library",
-            "time": "2014-03-04 11:21:07"
+            "time": "2014-03-05 14:53:07"
         },
         {
             "name": "project-a/lumberjack-package",
@@ -1581,21 +1586,22 @@
         },
         {
             "name": "project-a/sales-package",
-            "version": "3.2.2",
+            "version": "3.3.0",
             "source": {
                 "type": "git",
                 "url": "git@codebasehq.com:project-a/core/sales.git",
-                "reference": "e4103383ca821e4e8161d5a26b9620621f3de674"
+                "reference": "8c65f09e38aa5e8c3b75093810b42cb53bf5c0a7"
             },
             "require": {
                 "php": ">=5.4.0",
                 "project-a/acl-package": "~3.0",
-                "project-a/catalog-package": "~3.0",
-                "project-a/checkout-package": "~3.0",
-                "project-a/crm-package": "~3.0",
+                "project-a/catalog-package": "~3.1",
+                "project-a/checkout-package": "~3.1",
+                "project-a/crm-package": "~3.1",
                 "project-a/document-package": "~3.0",
-                "project-a/infrastructure-package": "~3.0",
+                "project-a/infrastructure-package": "~3.1",
                 "project-a/library-package": ">=3.0.3,<4",
+                "project-a/lumberjack-package": "~3.0",
                 "project-a/payment-package": "~3.1"
             },
             "type": "library",
@@ -1618,7 +1624,7 @@
                 "Sales",
                 "Task"
             ],
-            "time": "2014-02-27 08:37:38"
+            "time": "2014-03-06 11:36:52"
         },
         {
             "name": "project-a/silex-routing",
@@ -2370,16 +2376,17 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/zendframework/zf2.git",
-                "reference": "69f059f31b0efd98afb94bf691140b8c696a627c"
+                "reference": "a60f485162ae0fad1a6c82c8d295e731dfe0d837"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/zendframework/zf2/zipball/69f059f31b0efd98afb94bf691140b8c696a627c",
-                "reference": "69f059f31b0efd98afb94bf691140b8c696a627c",
+                "url": "https://api.github.com/repos/zendframework/zf2/zipball/a60f485162ae0fad1a6c82c8d295e731dfe0d837",
+                "reference": "a60f485162ae0fad1a6c82c8d295e731dfe0d837",
                 "shasum": ""
             },
             "require": {
-                "php": ">=5.3.23"
+                "php": ">=5.3.23",
+                "zendframework/zendxml": "~1.0-dev"
             },
             "replace": {
                 "zendframework/zend-authentication": "self.version",
@@ -2479,7 +2486,7 @@
                 "framework",
                 "zf2"
             ],
-            "time": "2014-03-05 00:21:49"
+            "time": "2014-03-07 17:11:08"
         },
         {
             "name": "zendframework/zendpdf",
@@ -2522,6 +2529,51 @@
                 "zf2"
             ],
             "time": "2012-11-16 11:16:01"
+        },
+        {
+            "name": "zendframework/zendxml",
+            "version": "1.0.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/zendframework/ZendXml.git",
+                "reference": "559b34f426d33a11c3db118e00ce14bb8dc64e5f"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/zendframework/ZendXml/zipball/559b34f426d33a11c3db118e00ce14bb8dc64e5f",
+                "reference": "559b34f426d33a11c3db118e00ce14bb8dc64e5f",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3.3"
+            },
+            "require-dev": {
+                "fabpot/php-cs-fixer": "*@dev",
+                "phpunit/phpunit": "~3.7"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "1.0-dev"
+                }
+            },
+            "autoload": {
+                "psr-0": {
+                    "ZendXml": "library/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "BSD-3-Clause"
+            ],
+            "description": "Utility library for XML usage, best practices, and security in PHP",
+            "homepage": "http://packages.zendframework.com/",
+            "keywords": [
+                "security",
+                "xml",
+                "zf2"
+            ],
+            "time": "2014-03-05 22:25:44"
         }
     ],
     "packages-dev": [
@@ -3130,16 +3182,16 @@
         },
         {
             "name": "justinrainbow/json-schema",
-            "version": "1.3.5",
+            "version": "1.3.6",
             "source": {
                 "type": "git",
                 "url": "https://github.com/justinrainbow/json-schema.git",
-                "reference": "01949f6d2130e9737ffae5d3952909a8de70d114"
+                "reference": "d97cf3ce890fe80f247fc08594a1c8a1029fc7ed"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/justinrainbow/json-schema/zipball/01949f6d2130e9737ffae5d3952909a8de70d114",
-                "reference": "01949f6d2130e9737ffae5d3952909a8de70d114",
+                "url": "https://api.github.com/repos/justinrainbow/json-schema/zipball/d97cf3ce890fe80f247fc08594a1c8a1029fc7ed",
+                "reference": "d97cf3ce890fe80f247fc08594a1c8a1029fc7ed",
                 "shasum": ""
             },
             "require": {
@@ -3194,7 +3246,7 @@
                 "json",
                 "schema"
             ],
-            "time": "2013-12-13 15:21:04"
+            "time": "2014-03-05 15:03:52"
         },
         {
             "name": "pdepend/pdepend",

@@ -79,7 +79,9 @@ abstract class ProductsExporter extends CoreProductsExporter implements
         $allData = array();
         $counter = 0;
         $chunkSize = 2000;
+
         foreach ($collection as $product) {
+
             $data = array();
             $pairProductData = $this->mergeImagesToArray($product);
             $pairProductData = $this->transformProductToData($pairProductData);

@@ -33,8 +33,10 @@ class YvesSettings extends ProjectAYvesSettings implements
     public function getSolrExporters($exportIdentifier)
     {
         return [
-            $this->facadeCatalog->createExporterSolrProductsWithElectronicsExporter(),
-            $this->facadeCatalog->createExporterSolrProductsWithoutElectronicsExporter(),
+            $this->facadeCatalog->createExporterSolrProductsWithoutElectronicsConfigExporter(),
+            $this->facadeCatalog->createExporterSolrProductsWithoutElectronicsSimpleExporter(),
+            $this->facadeCatalog->createExporterSolrProductsWithoutElectronicsSingleExporter(),
+            $this->facadeCatalog->createExporterSolrProductsWithoutElectronicsBundleExporter()
         ];
     }
 
@@ -46,8 +48,12 @@ class YvesSettings extends ProjectAYvesSettings implements
     {
         return [
             $this->facadeGlossary->createExporterKeyValueGlossaryExporter(),
-            $this->facadeCatalog->createExporterKeyValueProductsWithElectronicsExporter(),
-            $this->facadeCatalog->createExporterKeyValueProductsWithoutElectronicsExporter(),
+
+            $this->facadeCatalog->createExporterKeyValueProductsWithoutElectronicsConfigExporter(),
+            $this->facadeCatalog->createExporterKeyValueProductsWithoutElectronicsSimpleExporter(),
+            $this->facadeCatalog->createExporterKeyValueProductsWithoutElectronicsSingleExporter(),
+            $this->facadeCatalog->createExporterKeyValueProductsWithoutElectronicsBundleExporter(),
+
             $this->facadeCatalog->createExporterKeyValueProductOptionsExporter(),
             $this->facadeCategory->createExporterKeyValueCategoriesExporter(),
             $this->facadeMisc->createExporterKeyValueCountryExporter(),
