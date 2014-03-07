@@ -3,7 +3,7 @@
         "This file locks the dependencies of your project to a known state",
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file"
     ],
-    "hash": "8929e123654a7eb31bd42c2d51e24a4b",
+    "hash": "3222c2bfbb62d43d33eea1f23f3a2870",
     "packages": [
         {
             "name": "cmutter/google-adwords-api",
@@ -1153,11 +1153,11 @@
         },
         {
             "name": "project-a/content-package",
-            "version": "dev-feature/template-builder",
+            "version": "3.0.0",
             "source": {
                 "type": "git",
                 "url": "git@codebasehq.com:project-a/core/content.git",
-                "reference": "8b2580ec16d76bfe5f80f36bb85ef285db990541"
+                "reference": "c79298da11ae86040970fc98cc33920b4d265d35"
             },
             "require": {
                 "php": ">=5.4.0",
@@ -1188,7 +1188,7 @@
             "keywords": [
                 "Content Package"
             ],
-            "time": "2014-03-06 11:28:13"
+            "time": "2014-03-07 14:14:05"
         },
         {
             "name": "project-a/crm-package",
@@ -1371,11 +1371,11 @@
         },
         {
             "name": "project-a/infrastructure-package",
-            "version": "dev-feature/cms",
+            "version": "3.1.1",
             "source": {
                 "type": "git",
                 "url": "git@codebasehq.com:project-a/core/infrastructure.git",
-                "reference": "c12882a3b41d5f34eef4d30191ffe29bc3c88bcb"
+                "reference": "b4b27d9103844f70df90590f5dad1297e8702518"
             },
             "require": {
                 "php": ">=5.4.0",
@@ -1404,7 +1404,7 @@
             "keywords": [
                 "infrastructure"
             ],
-            "time": "2014-03-06 10:02:52"
+            "time": "2014-03-06 09:43:31"
         },
         {
             "name": "project-a/kendo-package",
@@ -2415,16 +2415,17 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/zendframework/zf2.git",
-                "reference": "d02d04d6fd8808784202f8604a054c3c3579b14d"
+                "reference": "b61c596812b043acadb90d442234d1d0ae01aaaf"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/zendframework/zf2/zipball/d02d04d6fd8808784202f8604a054c3c3579b14d",
-                "reference": "d02d04d6fd8808784202f8604a054c3c3579b14d",
+                "url": "https://api.github.com/repos/zendframework/zf2/zipball/b61c596812b043acadb90d442234d1d0ae01aaaf",
+                "reference": "b61c596812b043acadb90d442234d1d0ae01aaaf",
                 "shasum": ""
             },
             "require": {
-                "php": ">=5.3.23"
+                "php": ">=5.3.23",
+                "zendframework/zendxml": "~1.0-dev"
             },
             "replace": {
                 "zendframework/zend-authentication": "self.version",
@@ -2524,7 +2525,7 @@
                 "framework",
                 "zf2"
             ],
-            "time": "2014-03-05 20:03:56"
+            "time": "2014-03-07 07:50:11"
         },
         {
             "name": "zendframework/zendpdf",
@@ -2567,6 +2568,51 @@
                 "zf2"
             ],
             "time": "2012-11-16 11:16:01"
+        },
+        {
+            "name": "zendframework/zendxml",
+            "version": "1.0.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/zendframework/ZendXml.git",
+                "reference": "559b34f426d33a11c3db118e00ce14bb8dc64e5f"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/zendframework/ZendXml/zipball/559b34f426d33a11c3db118e00ce14bb8dc64e5f",
+                "reference": "559b34f426d33a11c3db118e00ce14bb8dc64e5f",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3.3"
+            },
+            "require-dev": {
+                "fabpot/php-cs-fixer": "*@dev",
+                "phpunit/phpunit": "~3.7"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "1.0-dev"
+                }
+            },
+            "autoload": {
+                "psr-0": {
+                    "ZendXml": "library/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "BSD-3-Clause"
+            ],
+            "description": "Utility library for XML usage, best practices, and security in PHP",
+            "homepage": "http://packages.zendframework.com/",
+            "keywords": [
+                "security",
+                "xml",
+                "zf2"
+            ],
+            "time": "2014-03-05 22:25:44"
         }
     ],
     "packages-dev": [
@@ -3732,22 +3778,10 @@
     ],
     "aliases": [
         {
-            "alias": "2.0.0",
-            "alias_normalized": "2.0.0.0",
-            "version": "dev-feature/template-builder",
-            "package": "project-a/content-package"
-        },
-        {
             "alias": "3.0.0",
             "alias_normalized": "3.0.0.0",
             "version": "9999999-dev",
             "package": "project-a/dwh-package"
-        },
-        {
-            "alias": "3.1.1",
-            "alias_normalized": "3.1.1.0",
-            "version": "dev-feature/cms",
-            "package": "project-a/infrastructure-package"
         },
         {
             "alias": "1.2",
@@ -3758,9 +3792,7 @@
     ],
     "minimum-stability": "stable",
     "stability-flags": {
-        "project-a/content-package": 20,
         "project-a/dwh-package": 20,
-        "project-a/infrastructure-package": 20,
         "silex/silex": 20,
         "zendframework/zendframework": 20,
         "fabpot/php-cs-fixer": 20
