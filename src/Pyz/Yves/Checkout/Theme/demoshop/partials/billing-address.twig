@@ -1,5 +1,6 @@
 <div class="address primary secondaryRow" data-validator-precondition="return $('#chooseDifferentBilling').is(':checked')">
     <h3>{{ 'checkout.headline.billing'|trans }}</h3>
+    {{ form_row(form.billingAddress.idCustomerAddress) }}
     <div class="col col34 first">
         {{ form_row(form.billingAddress.salutation, {attr : {class : 'name fullWidth', 'data-src': 'salutation'}, label : 'checkout.address.billing.salutation'}) }}
     </div>
@@ -8,6 +9,9 @@
     </div>
     <div class="col col33 last">
         {{ form_row(form.billingAddress.lastName, {attr : {class : 'name fullWidth', 'data-src': 'last_name'}, label : 'checkout.address.billing.name.last'}) }}
+    </div>
+    <div class="col fullWidth" style="display:none;">
+        {{ form_row(form.billingAddress.middleName, {attr : {class : 'fullWidth'}, label : 'checkout.address.billing.name.middle'}) }}
     </div>
     <div class="col fullWidth">
         {{ form_row(form.billingAddress.company, {attr : {class : 'fullWidth'}, label : 'checkout.address.billing.company'}) }}
