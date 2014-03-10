@@ -3,7 +3,7 @@
         "This file locks the dependencies of your project to a known state",
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file"
     ],
-    "hash": "25de0af856dbeabccd644e6544dfc6d6",
+    "hash": "b636cee82442481950b0cf6d67adac1e",
     "packages": [
         {
             "name": "cmutter/google-adwords-api",
@@ -1157,7 +1157,7 @@
             "source": {
                 "type": "git",
                 "url": "git@codebasehq.com:project-a/core/crm.git",
-                "reference": "0cf46edcb9eec894bd9972ad64761960e3a448c6"
+                "reference": "f54c36d8f0f9b5749db8a67d3c7192c450eb29ac"
             },
             "require": {
                 "php": ">=5.4.0",
@@ -1183,7 +1183,7 @@
                 "CRM",
                 "Mail"
             ],
-            "time": "2014-03-04 12:32:36"
+            "time": "2014-03-10 14:32:22"
         },
         {
             "name": "project-a/document-package",
@@ -1586,11 +1586,11 @@
         },
         {
             "name": "project-a/sales-package",
-            "version": "3.3.0",
+            "version": "dev-feature/customer-and-newsletter",
             "source": {
                 "type": "git",
                 "url": "git@codebasehq.com:project-a/core/sales.git",
-                "reference": "8c65f09e38aa5e8c3b75093810b42cb53bf5c0a7"
+                "reference": "2f857c6ac3d7f25f5637ce208100868f19f55c3d"
             },
             "require": {
                 "php": ">=5.4.0",
@@ -1624,7 +1624,7 @@
                 "Sales",
                 "Task"
             ],
-            "time": "2014-03-06 11:36:52"
+            "time": "2014-03-10 14:42:08"
         },
         {
             "name": "project-a/silex-routing",
@@ -2376,12 +2376,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/zendframework/zf2.git",
-                "reference": "a60f485162ae0fad1a6c82c8d295e731dfe0d837"
+                "reference": "8ee35919169222734921ac6f4f09663e70725c61"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/zendframework/zf2/zipball/a60f485162ae0fad1a6c82c8d295e731dfe0d837",
-                "reference": "a60f485162ae0fad1a6c82c8d295e731dfe0d837",
+                "url": "https://api.github.com/repos/zendframework/zf2/zipball/8ee35919169222734921ac6f4f09663e70725c61",
+                "reference": "8ee35919169222734921ac6f4f09663e70725c61",
                 "shasum": ""
             },
             "require": {
@@ -2486,7 +2486,7 @@
                 "framework",
                 "zf2"
             ],
-            "time": "2014-03-07 17:11:08"
+            "time": "2014-03-07 21:32:50"
         },
         {
             "name": "zendframework/zendpdf",
@@ -3751,6 +3751,12 @@
             "package": "project-a/dwh-package"
         },
         {
+            "alias": "3.3.0",
+            "alias_normalized": "3.3.0.0",
+            "version": "dev-feature/customer-and-newsletter",
+            "package": "project-a/sales-package"
+        },
+        {
             "alias": "1.2",
             "alias_normalized": "1.2.0.0",
             "version": "9999999-dev",
@@ -3761,6 +3767,7 @@
     "stability-flags": {
         "project-a/crm-package": 20,
         "project-a/dwh-package": 20,
+        "project-a/sales-package": 20,
         "silex/silex": 20,
         "zendframework/zendframework": 20,
         "fabpot/php-cs-fixer": 20
