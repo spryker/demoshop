@@ -11,29 +11,9 @@ use ProjectA\Zed\Cms\Component\Internal\DemoData\CmsInstall AS CoreCmsInstall;
  */
 class CmsInstall extends CoreCmsInstall
 {
-    const TEMPLATE_TWOCOLUMNS_GLOSSARY_TEXT = '2 column template (glossary/text)';
-    const TEMPLATE_FULLPAGE_GLOSSARY = 'fullpage template (glossary)';
     const TEMPLATE_INDEX = 'index';
     const TEMPLATE_INDEX_ALTERNATIVE = 'index_alt';
     const TEMPLATE_LANDING_PAGE = 'landing_page';
-
-    const ATTRIBUTE_TITLE = "title";
-
-    const LAYOUT_FULL = 'full.twig';
-    const LAYOUT_REDUCED = 'reduced.twig';
-
-    const BLOCK_TYPE_PRODUCT = 'product';
-    const BLOCK_TYPE_TEXT = 'text';
-    const BLOCK_TYPE_GLOSSARY = 'glossary';
-
-    protected $templates = [];
-    protected $layouts = [];
-    protected $attributes = [];
-    protected $pages = [];
-    protected $templatePartials = [];
-
-
-    protected $pagesToCreate = array();
 
     function __construct()
     {
