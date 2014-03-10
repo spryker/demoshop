@@ -169,11 +169,11 @@ class DemoShopInstall implements DependencyFactoryInterface
             [
                 'layout' => self::LAYOUT_FULL,
                 'template' => self::TEMPLATE_LANDING_PAGE,
-                'name' => 'Awesome Landingpage',
+                'name' => 'Landingpage example',
                 'url' => '/landingpage',
                 'hash' => md5(sha1(uniqid(mt_rand()))),
                 'attributes' => [
-                    self::ATTRIBUTE_TITLE => 'Awesome Landingpage'
+                    self::ATTRIBUTE_TITLE => 'Landingpage example'
                 ],
                 'blocks' => [
                     1 => [
@@ -182,12 +182,12 @@ class DemoShopInstall implements DependencyFactoryInterface
                         "content" => '07SING-01'
                     ],
                     2 => [
-                        "name" => "totally awesome intro text",
+                        "name" => "intro text",
                         "type" => self::BLOCK_TYPE_TEXT,
                         "content" => '<p>Ut consequat ribeye veniam ball tip ham hock nisi qui deserunt capicola labore. Strip steak id in esse hamburger ex occaecat, prosciutto deserunt non laborum. Pork loin et ground round nostrud veniam dolor enim ullamco aliqua officia spare ribs. Ut ut aliqua, labore sirloin minim sunt exercitation aliquip cupidatat occaecat meatloaf ball tip pig. Laboris cow landjaeger pork belly. Consequat sirloin sunt officia pork ground round velit sint chuck occaecat landjaeger elit laborum.</p><button class="continue">call to action</button>'
                     ],
                     3 => [
-                        "name" => "and the rest",
+                        "name" => "further details",
                         "type" => self::BLOCK_TYPE_TEXT,
                         "content" => '<p>Id jowl in reprehenderit ullamco bresaola in magna proident meatloaf officia pork loin porchetta. Adipisicing jerky officia salami id aute meatball excepteur. Elit in turkey tempor strip steak id ham ex nulla sunt chicken. Aliquip eu ham hock sed id jerky flank excepteur frankfurter rump ex deserunt dolor ut commodo. Tenderloin eu et andouille, sed tongue sausage ball tip pork chop venison salami magna. Shank fugiat fatback, sirloin anim eiusmod filet mignon nulla short ribs ribeye meatball in ham.</p>
 <p>Reprehenderit strip steak pork chop, beef ribs drumstick biltong shank cow deserunt officia sed pariatur beef kevin velit. Tri-tip dolore pork magna, boudin porchetta dolor pancetta aute rump flank leberkas beef ribs biltong sunt. Shankle hamburger t-bone, sed in pariatur eiusmod sirloin anim minim pastrami. Bacon laboris ullamco enim kevin, capicola ut kielbasa labore turducken sirloin id meatloaf velit cow. Ullamco ham hock capicola leberkas. Fatback quis ullamco sirloin hamburger tenderloin et.</p>
