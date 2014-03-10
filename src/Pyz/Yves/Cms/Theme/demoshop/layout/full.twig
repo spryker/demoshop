@@ -1,25 +1,26 @@
 {% extends "@application/layout/full.twig" %}
 
 {% block title %}
-    {% set titleAttribute = CmsPage.attribute('title') %}
-    {% if titleAttribute %}
-        {{ titleAttribute.value }}
-    {% endif %}
+  {% set titleAttribute = CmsPage.attribute('title') %}
+  {% if titleAttribute %}
+    {{ titleAttribute.value }}
+  {% endif %}
 {% endblock %}
 
 {% block metatags %}
-    {% set metaTags = CmsPage.metaTags %}
-    {% if metaTags %}
-        {% for metaTag in CmsPage.metaTags %}
-            <meta name="{{ metaTag.name }}" content="{{ metaTag.value }}" />
-        {% endfor %}
-    {% endif %}
+  {% set metaTags = CmsPage.metaTags %}
+  {% if metaTags %}
+    {% for metaTag in CmsPage.metaTags %}
+      <meta name="{{ metaTag.name }}" content="{{ metaTag.value }}"/>
+    {% endfor %}
+  {% endif %}
 {% endblock %}
 
 {% block content %}
-    <section id="cms" class="consumeHeight">
-        {% autoescape false %}
-            {{ content }}
-        {% endautoescape %}
-    </section>
+  {% include "@application/partials/navbar.twig" with {'categories': categories } only %}
+  <section id="cms" class="consumeHeight">
+    {% autoescape false %}
+    {{ content }}
+    {% endautoescape %}
+  </section>
 {% endblock %}

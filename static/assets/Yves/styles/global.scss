@@ -58,6 +58,7 @@ section:after { content:''; display:block; clear:both; }
 .message.error { background-color:#f4cbaa; border-color:#e8b388; }
 .message.info { background-color:#ccefb5; border-color:#abd88d; }
 
+.slideshow { margin:20px auto; overflow: hidden; }
 .slideshow ul { margin:0; padding:0; list-style:none; }
 .slideshow ul li { display:block; float:left; }
 .slideshow img { display:block; }
@@ -98,7 +99,28 @@ header .cart .glyphicon { float:left; margin-left:-28px; top:5px; font-size:21px
 #navbar .sub li,
 #navbar .sub li a { float:none; }
 
-#cms { margin:20px auto; }
+#cms { width:1110px; padding:0 20px; margin:0 auto; background:#fff; clear:both; }
+.cms-text, .cms-glossary, .cms-product {
+  padding: 10px;
+  h1,h2,h3 {
+    color: #a1a1a1;
+    margin-top: 0;
+  }
+}
+.cms-product {
+  a {
+    text-decoration: none;
+  }
+  p {
+    margin: 0 0 .5em 0;
+  }
+  .price {
+    color: #000;
+    text-align: right;
+    padding: 5px;
+    font-size: 1.9em;
+  }
+}
 
 #recommendations { margin:20px auto; color:#a1a1a1; }
 #recommendations h3,
