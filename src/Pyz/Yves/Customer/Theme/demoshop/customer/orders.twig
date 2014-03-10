@@ -22,24 +22,27 @@
                                 <div class="row"><b>{{ 'customer.order.grand.total'|trans }}</b> {{ order.totals.grandTotal -}}</div>
                             </div>
                             <div class="col col50 mod:last nopadonprint">
-                                {% if status[order.idSalesOrder] is defined %}
-                                    <div class="row"><b>{{ 'customer.order.status'|trans }}</b>
-                                        {% for items in status[order.idSalesOrder] %}
-                                            {{ items|json_encode }}
-                                        {% endfor %}
-                                    </div>
-                                {% endif %}
+                                {% if order.customerItemsStatus is defined %}
+                                    <div class="row"><b>{{ 'customer.order.status'|trans }}</b></div>
+                                    {% for item in order.customerItemsStatus %}
+                                        {% if item.count is defined and item.name is defined %}
+                                            <div class="row">{{ item.count }}x {{ item.name }} <span style="float:right;">{{ item.status_name|trans }}</span></div>
+                                        {% else %}
+                                            <div class="row"><span style="float:right;">{{ item|trans }}</span></div>
+                                        {% endif %}
+                                    {% endfor %}
+                                 {% endif %}
                             </div>
-                            {% include "@customer/customer/order-details.twig" with { 'order' : order } %}
-                            <div class="actions col fullWidth hideonprint">
-                                <a class="load-details" href="javascript:void(0);" onclick="app.customer.getOrderDetails('{{ order.incrementId }}');" data-toggle="{{ 'customer.order.detail.hide'|trans }}">
-                                    {{- 'customer.order.detail.show'|trans -}}
-                                </a>
-                                <a class="print" href="javascript:void(0);" onclick="app.customer.printOrder(this);" style="display:none;">{{ 'customer.order.print'|trans }}</a>
-                                {% if order.invoice.invoiceNumber != null %}
-                                    <a href="{{ url('orders/invoice', {'customer': order.fkCustomer, 'invoice': order.invoice.invoiceNumber, 'key': order.invoice.hash, 'order': order.incrementId }) }}">
-                                        {{- 'customer.order.download.invoice'|trans -}}
+                                {% include "@customer/customer/order-details.twig" with { 'order' : order } %}
+                                <div class="actions col fullWidth hideonprint">
+                                    <a class="load-details" href="javascript:void(0);" onclick="app.customer.getOrderDetails('{{ order.incrementId }}');" data-toggle="{{ 'customer.order.detail.hide'|trans }}">
+                                        {{- 'customer.order.detail.show'|trans -}}
                                     </a>
+                                    <a class="print" href="javascript:void(0);" onclick="app.customer.printOrder(this);" style="display:none;">{{ 'customer.order.print'|trans }}</a>
+                                    {% if order.invoice.invoiceNumber != null %}
+                                        <a href="{{ url('orders/invoice', {'customer': order.fkCustomer, 'invoice': order.invoice.invoiceNumber, 'key': order.invoice.hash, 'order': order.incrementId }) }}">
+                                            {{- 'customer.order.download.invoice'|trans -}}
+                                        </a>
                                 {% endif %}
                             </div>
 

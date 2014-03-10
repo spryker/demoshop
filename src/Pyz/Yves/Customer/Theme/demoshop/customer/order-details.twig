@@ -33,18 +33,14 @@
     <table class="cart col fullWidth">
         <thead>
             <tr>
-                <th>STATUS</th>
-                <th>{{ 'customer.order.product'|trans }}</th>
-                <th>{{ 'customer.order.amount'|trans }}</th>
-                <th>{{ 'customer.order.price.total'|trans }}</th>
+                <th class="fullWidth">{{ 'customer.order.product'|trans }}</th>
+                <th class="fullWidth">{{ 'customer.order.amount'|trans }}</th>
+                <th class="fullWidth">{{ 'customer.order.price.total'|trans }}</th>
             </tr>
         </thead>
         <tbody>
             {% for item in order.items %}
                 <tr>
-                    <td>
-
-                    </td>
                     <td>{{ item.name }}</td>
                     <td>{{ item.quantity }}</td>
                     <td>{{ item.grossPrice }}</td>
@@ -54,12 +50,10 @@
         <tfoot>
             <tr>
                 <td></td>
-                <td></td>
                 <td>{{ 'customer.order.price.subtotal'|trans }}</td>
                 <td>{{ order.totals.subtotal }}</td>
             </tr>
             <tr>
-                <td></td>
                 <td></td>
                 <td>{{ 'customer.order.price.shipping'|trans }}</td>
                 <td>
@@ -73,7 +67,6 @@
             {% if order.totals.discount.totalStandardDiscounts != "0,00 €" %}
                 <tr>
                     <td></td>
-                    <td></td>
                     <td>{{ 'customer.order.discount'|trans }}</td>
                     <td>-{{ order.totals.discount.totalStandardDiscounts }}</td>
                 </tr>
@@ -81,13 +74,11 @@
             {% if order.totals.discount.totalShippingDiscounts != "0,00 €" %}
                 <tr>
                     <td></td>
-                    <td></td>
                     <td>{{ 'customer.order.discount.shipping'|trans }}</td>
                     <td>-{{ order.totals.discount.totalShippingDiscounts }}</td>
                 </tr>
             {% endif %}
             <tr>
-                <td></td>
                 <td></td>
                 <td>{{ 'customer.order.price.grand.total'|trans }}</td>
                 <td>{{ order.totals.grandTotal }}</td>

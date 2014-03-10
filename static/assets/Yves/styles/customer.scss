@@ -105,6 +105,8 @@
         border-top: 1px solid #eee; padding-top:6px;
         th { font-size:1.1em; font-weight:400; }
         td, th { text-align:left; padding:4px; }
+        td:last-child { text-align:right; }
+        tfoot { border-top: 1px solid #eee; }
       }
     }
   }
