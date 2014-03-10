@@ -465,7 +465,7 @@ keys:
       en_US: Orders
   customer.login:
     explanations:
-      en_US: Login now
+      en_US: Login
   customer.change.submit:
     explanations:
       en_US: Submit
