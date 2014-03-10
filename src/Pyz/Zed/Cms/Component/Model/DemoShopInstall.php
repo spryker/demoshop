@@ -112,6 +112,19 @@ class DemoShopInstall implements DependencyFactoryInterface
                 </li>
             </ul>
         </section>'
+                    ],
+                    5 => [
+                        "name" => "cms test",
+                        "type" => self::BLOCK_TYPE_TEXT,
+                        "content" => '<section id="testcms">
+            <h3>CMS Test</h3>
+            <p>if you can read this, the cms is delivering your homepage. also check all links in the right most column in the footer and the following links</p>
+            <ul>
+                <li>
+                    <a href="/landingpage">very basic landing page example</a>
+                </li>
+            </ul>
+        </section>'
                     ]
                 ]
             ],
@@ -365,6 +378,7 @@ class DemoShopInstall implements DependencyFactoryInterface
         $templates = [
             self::TEMPLATE_INDEX => [
                 "partials" => [
+                    ['text-only-content-width-12'],
                     ['text-only-content-width-12'],
                     ['text-only-content-width-12'],
                     ['text-only-content-width-12'],
