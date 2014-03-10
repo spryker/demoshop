@@ -2376,12 +2376,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/zendframework/zf2.git",
-                "reference": "8ee35919169222734921ac6f4f09663e70725c61"
+                "reference": "e74ef75cf2cfe6176aede95aba66c6c5c7ee7bf1"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/zendframework/zf2/zipball/8ee35919169222734921ac6f4f09663e70725c61",
-                "reference": "8ee35919169222734921ac6f4f09663e70725c61",
+                "url": "https://api.github.com/repos/zendframework/zf2/zipball/e74ef75cf2cfe6176aede95aba66c6c5c7ee7bf1",
+                "reference": "e74ef75cf2cfe6176aede95aba66c6c5c7ee7bf1",
                 "shasum": ""
             },
             "require": {
@@ -2486,7 +2486,7 @@
                 "framework",
                 "zf2"
             ],
-            "time": "2014-03-07 21:32:50"
+            "time": "2014-03-10 16:34:14"
         },
         {
             "name": "zendframework/zendpdf",
