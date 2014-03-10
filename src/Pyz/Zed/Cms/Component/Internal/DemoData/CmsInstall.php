@@ -1,18 +1,16 @@
 <?php
 
-namespace Pyz\Zed\Cms\Component\Model;
+namespace Pyz\Zed\Cms\Component\Internal\DemoData;
 
 use Generated\Zed\Cms\Component\CmsFactory;
-use ProjectA\Zed\Library\Dependency\DependencyFactoryInterface;
-use ProjectA\Zed\Library\Dependency\DependencyFactoryTrait;
+use ProjectA\Zed\Console\Component\Model\Console;
+use ProjectA\Zed\Cms\Component\Internal\DemoData\CmsInstall AS CoreCmsInstall;
 
 /**
  * @property CmsFactory $factory
  */
-class DemoShopInstall implements DependencyFactoryInterface
+class CmsInstall extends CoreCmsInstall
 {
-    use DependencyFactoryTrait;
-
     const TEMPLATE_TWOCOLUMNS_GLOSSARY_TEXT = '2 column template (glossary/text)';
     const TEMPLATE_FULLPAGE_GLOSSARY = 'fullpage template (glossary)';
     const TEMPLATE_INDEX = 'index';
@@ -33,6 +31,7 @@ class DemoShopInstall implements DependencyFactoryInterface
     protected $attributes = [];
     protected $pages = [];
     protected $templatePartials = [];
+
 
     protected $pagesToCreate = array();
 
@@ -331,44 +330,6 @@ class DemoShopInstall implements DependencyFactoryInterface
         ];
     }
 
-    public function install()
-    {
-        $this->getLayouts();
-        $this->getAttributes();
-
-        $this->createTemplatePartials();
-        $this->createPages();
-    }
-
-    /**
-     *
-     */
-    protected function getLayouts()
-    {
-        $query = \ProjectA_Zed_Cms_Persistence_PacCmsLayoutQuery::create();
-        $collection = $query->find();
-
-        /** @var $entity \ProjectA_Zed_Cms_Persistence_PacCmsLayout */
-        foreach ($collection AS $entity) {
-            $name = $entity->getName();
-            $this->layouts[$name] = $entity;
-        }
-    }
-
-    /**
-     *
-     */
-    protected function getAttributes()
-    {
-        $query = \ProjectA_Zed_Cms_Persistence_PacCmsPageAttributeQuery::create();
-        $collection = $query->find();
-
-        /** @var $entity \ProjectA_Zed_Cms_Persistence_PacCmsLayout */
-        foreach ($collection AS $entity) {
-            $name = $entity->getName();
-            $this->attributes[$name] = $entity;
-        }
-    }
 
     /**
      *
@@ -440,36 +401,6 @@ class DemoShopInstall implements DependencyFactoryInterface
     }
 
     /**
-     * @param $name
-     * @param string $type
-     * @return \ProjectA_Zed_Cms_Persistence_PacCmsTemplate
-     */
-    protected function createTemplate(
-        $name,
-        $type = \ProjectA_Zed_Cms_Persistence_PacCmsTemplatePeer::TEMPLATE_TYPE_ROW
-    ) {
-        $query = \ProjectA_Zed_Cms_Persistence_PacCmsTemplateQuery::create();
-        $entity = $query->filterByName($name)->findOneOrCreate();
-        $entity->setIsDeleted(false);
-        $entity->setTemplateType($type);
-        $entity->save();
-
-        return $entity;
-    }
-
-    /**
-     * @param $name
-     * @return \ProjectA_Zed_Cms_Persistence_PacCmsPartial
-     */
-    protected function getPartialByName($name)
-    {
-        $query = \ProjectA_Zed_Cms_Persistence_PacCmsPartialQuery::create();
-        $entity = $query->filterByName($name)->findOne();
-
-        return $entity;
-    }
-
-    /**
      * @param \ProjectA_Zed_Cms_Persistence_PacCmsTemplate $template
      * @param \ProjectA_Zed_Cms_Persistence_PacCmsPartial $partial
      * @param $row
@@ -497,123 +428,5 @@ class DemoShopInstall implements DependencyFactoryInterface
         $entity->save();
 
         return $entity;
-    }
-
-    /**
-     *
-     */
-    protected function createPages()
-    {
-
-        foreach ($this->pagesToCreate AS $page) {
-            $query = \ProjectA_Zed_Cms_Persistence_PacCmsPageQuery::create();
-            $entity = $query->filterByName($page['name'])->findOneOrCreate();
-            if ($entity->isNew()) {
-                $entity->setPacCmsLayout($this->layouts[$page['layout']]);
-                $entity->setPacCmsTemplate($this->templates[$page['template']]);
-                $entity->setHash($page['hash']);
-                $entity->setUrl($page['url']);
-                $entity->setStatus(\ProjectA_Zed_Cms_Persistence_PacCmsPagePeer::STATUS_ACTIVE);
-
-                if (isset($page['attributes'])) {
-                    foreach ($page['attributes'] AS $key => $value) {
-                        $entity->addPacCmsPageAttributeValue($this->createAttributeValue($key, $value));
-                    }
-                }
-                if (isset($page['blocks'])) {
-                    foreach ($page['blocks'] AS $key => $value) {
-                        $entity->addPacCmsPageBlock($this->createPageBlock($page, $key, $value));
-                    }
-                }
-                $entity->save();
-            }
-        }
-
-
-    }
-
-    /**
-     * @param $key
-     * @param $value
-     * @return \ProjectA_Zed_Cms_Persistence_PacCmsPageAttributeValue
-     */
-    protected function createAttributeValue($key, $value)
-    {
-        $entity = new \ProjectA_Zed_Cms_Persistence_PacCmsPageAttributeValue();
-        $entity->setPacCmsPageAttribute($this->attributes[$key]);
-        $entity->setValue($value);
-
-        return $entity;
-    }
-
-    /**
-     * @param array $page
-     * @param $position
-     * @param array $block
-     * @return \ProjectA_Zed_Cms_Persistence_PacCmsPageBlock
-     */
-    protected function createPageBlock(array $page, $position, array $block)
-    {
-        $entity = new \ProjectA_Zed_Cms_Persistence_PacCmsPageBlock();
-
-        $blockEntity = $this->createBlock($block);
-        $entity->setPacCmsBlock($blockEntity);
-
-        $partial = $this->templatePartials[$page['template']][$position];
-        $entity->setPacCmsTemplatePartial($partial);
-
-        return $entity;
-    }
-
-    /**
-     * @param array $block
-     * @return \ProjectA_Zed_Cms_Persistence_PacCmsBlock
-     */
-    protected function createBlock(array $block)
-    {
-        $entity = new \ProjectA_Zed_Cms_Persistence_PacCmsBlock();
-        $entity->setTitle($block['name']);
-
-        /** @var \ProjectA_Zed_Cms_Persistence_PacCmsBlockType $blockType */
-        /** @var \ProjectA_Zed_Cms_Persistence_PacCmsBlockTypeQuery $query */
-        $query = \ProjectA_Zed_Cms_Persistence_PacCmsBlockTypeQuery::create();
-        $blockType = $query->filterByName($block['type'])->findOne();
-
-        $entity->setPacCmsBlockType($blockType);
-
-        $this->createBlockValue($entity, $block);
-
-        $entity->save();
-
-        return $entity;
-    }
-
-    /**
-     * @param \ProjectA_Zed_Cms_Persistence_PacCmsBlock $entity
-     * @param array $block
-     */
-    protected function createBlockValue(\ProjectA_Zed_Cms_Persistence_PacCmsBlock $entity, array $block)
-    {
-        switch ($block['type']) {
-            case self::BLOCK_TYPE_GLOSSARY:
-                $valueEntity = new \ProjectA_Zed_Cms_Persistence_PacCmsBlockGlossary();
-                $query = \ProjectA_Zed_Glossary_Persistence_PacGlossaryKeyQuery::create();
-                $glossaryEntry = $query->findOneByName($block['content']);
-                $valueEntity->setPacGlossaryKey($glossaryEntry);
-                $entity->addPacCmsBlockGlossary($valueEntity);
-                break;
-            case self::BLOCK_TYPE_TEXT:
-                $valueEntity = new \ProjectA_Zed_Cms_Persistence_PacCmsBlockText();
-                $valueEntity->setContent($block['content']);
-                $entity->addPacCmsBlockText($valueEntity);
-                break;
-            case self::BLOCK_TYPE_PRODUCT:
-                $valueEntity = new \ProjectA_Zed_Cms_Persistence_PacCmsBlockProduct();
-                $query = \ProjectA_Zed_Catalog_Persistence_PacCatalogProductQuery::create();
-                $product = $query->findOneBySku($block['content']);
-                $valueEntity->setPacCatalogProduct($product);
-                $entity->addPacCmsBlockProduct($valueEntity);
-                break;
-        }
     }
 }
