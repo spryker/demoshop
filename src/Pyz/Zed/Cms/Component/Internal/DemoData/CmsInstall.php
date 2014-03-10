@@ -12,7 +12,6 @@ use ProjectA\Zed\Cms\Component\Internal\DemoData\CmsInstall AS CoreCmsInstall;
 class CmsInstall extends CoreCmsInstall
 {
     const TEMPLATE_INDEX = 'index';
-    const TEMPLATE_INDEX_ALTERNATIVE = 'index_alt';
     const TEMPLATE_LANDING_PAGE = 'landing_page';
 
     function __construct()
@@ -104,57 +103,6 @@ class CmsInstall extends CoreCmsInstall
                 </li>
             </ul>
         </section>'
-                    ]
-                ]
-            ],
-            [
-                'layout' => self::LAYOUT_FULL,
-                'template' => self::TEMPLATE_INDEX_ALTERNATIVE,
-                'name' => 'Home Alternative',
-                'url' => '/home',
-                'hash' => md5(sha1(uniqid(mt_rand()))),
-                'attributes' => [
-                    self::ATTRIBUTE_TITLE => 'Home Alternative'
-                ],
-                'blocks' => [
-                    1 => [
-                        "name" => "Slide",
-                        "type" => self::BLOCK_TYPE_TEXT,
-                        "content" => '<div id="teaser" class="slideshow borders"><ul>
-                            <li><a href="/Master+Chair+Yellow-11.html"><img src="images/slide1.jpg" width="100%" alt="" /></a></li>
-                            <li><a href="/Master+Chair+Yellow-11.html"><img src="images/slide2.jpg" width="100%" alt="" /></a></li>
-                            <li><a href="/Master+Chair+Yellow-11.html"><img src="images/slide3.jpg" width="100%" alt="" /></a></li>
-                        </ul></div>'
-                    ],
-                    2 => [
-                        "name" => "text block",
-                        "type" => self::BLOCK_TYPE_TEXT,
-                        "content" => '<section class="content">Some introducing text you can delete for sure.</section>'
-                    ],
-                    3 => [
-                        "name" => "most popular",
-                        "type" => self::BLOCK_TYPE_TEXT,
-                        "content" => '<section><h3>Most popular</h3></section>'
-                    ],
-                    4 => [
-                        "name" => "product #1",
-                        "type" => self::BLOCK_TYPE_PRODUCT,
-                        "content" => '04M01BU'
-                    ],
-                    5 => [
-                        "name" => "product #2",
-                        "type" => self::BLOCK_TYPE_PRODUCT,
-                        "content" => '04J01WA'
-                    ],
-                    6 => [
-                        "name" => "product #3",
-                        "type" => self::BLOCK_TYPE_PRODUCT,
-                        "content" => '07SING-01'
-                    ],
-                    7 => [
-                        "name" => "end most popular",
-                        "type" => self::BLOCK_TYPE_TEXT,
-                        "content" => '<div>'
                     ]
                 ]
             ],
@@ -323,15 +271,6 @@ class CmsInstall extends CoreCmsInstall
                     ['text-only-content-width-12'],
                     ['text-only-content-width-12'],
                     ['text-only-content-width-12'],
-                    ['text-only-content-width-12']
-                ]
-            ],
-            self::TEMPLATE_INDEX_ALTERNATIVE => [
-                "partials" => [
-                    ['text-only-content-width-12'],
-                    ['text-only-content-width-12'],
-                    ['text-only-content-width-12'],
-                    ['product-teaser-width-4', 'product-teaser-width-4', 'product-teaser-width-4'],
                     ['text-only-content-width-12']
                 ]
             ],
