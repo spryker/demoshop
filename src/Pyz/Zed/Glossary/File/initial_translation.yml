@@ -544,10 +544,10 @@ keys:
   customer.order.price.shipping:
     explanations:
       en_US: 'Shipping Cost'
-  customer.address.shipping.none:
+  customer.address.default.shipping.none:
     explanations:
       en_US: 'You did not set a shipping address yet.'
-  customer.address.billing.none:
+  customer.address.default.billing.none:
     explanations:
       en_US: 'You did not set a billing address yet.'
   customer.address.delete:
