@@ -8,7 +8,7 @@
     <section class="customer addresses consumeHeight" id="customer">
         <h1 class="caption global">{{ 'customer.account.headline'|trans }}</h1>
         {% include "@application/partials/flash_bag.twig" %}
-        {% include "@customer/partials/options.twig" with { active : 'addresses' } only %}
+        {% include "@customer/partials/options.twig" with {active: 'addresses'} only %}
         <div class="col col75">
             <div class="container">
                 <h2 class="caption">
@@ -37,7 +37,7 @@
                             <div class="actions">
                                 <a href="javascript:app.customer.address.change({{ billingAddress.idCustomerAddress }}, true);">{{ 'customer.address.change'|trans }}</a>
                                 {% if shippingAddress.idCustomerAddress != billingAddress.idCustomerAddress %}
-                                    <a href="{{ url('address/set/default/shipping', {'address': billingAddress.idCustomerAddress }) }}">{{ 'customer.address.make.default.shipping'|trans }}</a>
+                                    <a href="{{ url('address/set/default/shipping', {'address': billingAddress.idCustomerAddress}) }}">{{ 'customer.address.make.default.shipping'|trans }}</a>
                                 {% endif %}
                             </div>
                         {% else %}
@@ -70,7 +70,7 @@
                     {% endif %}
                     {% include "@customer/partials/edit-address.twig" %}
                     <div class="other-addresses col fullWidth">
-                        {% include "@customer/partials/other-addresses.twig" with { otherAdresses: 'otherAdresses' } %}
+                        {% include "@customer/partials/other-addresses.twig" with {otherAdresses: 'otherAdresses'} %}
                     </div>
                 </div>
             </div>

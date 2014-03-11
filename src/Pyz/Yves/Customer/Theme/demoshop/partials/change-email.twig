@@ -5,9 +5,9 @@
     </div>
     <div id="mail-form" style="display:none;">
         {% if changeMailForm is defined %}
-            {{ form_start(changeMailForm, {attr: {novalidate: 'novalidate' }} ) }}
+            {{ form_start(changeMailForm, {attr: {novalidate: 'novalidate'}} ) }}
             {{ form_errors(changeMailForm) }}
-            {{ form_row(changeMailForm.email, {label : 'customer.email.new', attr : {'class' : 'fullWidth', 'data-validation-message' : 'checkout.validation.message.email'|trans}}) }}
+            {{ form_row(changeMailForm.email, {label: 'customer.email.new', attr: {'class': 'fullWidth', 'data-validation-message': 'checkout.validation.message.email'|trans}}) }}
             <button class="ok" type="submit">{{ 'customer.change.submit'|trans }}</button>
             {{ form_end(changeMailForm) }}
         {% endif %}

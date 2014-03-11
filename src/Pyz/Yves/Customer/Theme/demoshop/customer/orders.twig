@@ -40,7 +40,7 @@
                                     </a>
                                     <a class="print" href="javascript:void(0);" onclick="app.customer.printOrder(this);" style="display:none;">{{ 'customer.order.print'|trans }}</a>
                                     {% if order.invoice.invoiceNumber != null %}
-                                        <a href="{{ url('orders/invoice', {'customer': order.fkCustomer, 'invoice': order.invoice.invoiceNumber, 'key': order.invoice.hash, 'order': order.incrementId }) }}">
+                                        <a href="{{ url('orders/invoice', {'customer': order.fkCustomer, 'invoice': order.invoice.invoiceNumber, 'key': order.invoice.hash, 'order': order.incrementId}) }}">
                                             {{- 'customer.order.download.invoice'|trans -}}
                                         </a>
                                 {% endif %}

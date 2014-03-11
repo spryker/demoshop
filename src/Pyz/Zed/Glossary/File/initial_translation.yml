@@ -72,12 +72,6 @@ keys:
   footer.information:
     explanations:
       en_US: Information
-  checkout.name.full.placeholder:
-    explanations:
-      en_US: 'e.g. John Quincy Doe'
-  checkout.name.full:
-    explanations:
-      en_US: 'Full Name'
   checkout.headline.shipping.billing:
     explanations:
       en_US: 'Shipping and Billing Address'
@@ -96,6 +90,9 @@ keys:
   checkout.address.billing.company:
     explanations:
       en_US: Company
+  checkout.address.billing.salutation:
+    explanations:
+      en_US: Salutation
   checkout.address.billing.name.last:
     explanations:
       en_US: 'Last Name'
@@ -108,27 +105,66 @@ keys:
   checkout.email:
     explanations:
       en_US: Email
+  checkout.address.shipping.salutation:
+    explanations:
+      en_US: Salutation
+  checkout.address.shipping.name.last:
+    explanations:
+      en_US: 'Last Name'
+  checkout.address.shipping.name.middle:
+    explanations:
+      en_US: 'Middle Name'
+  checkout.address.shipping.name.first:
+    explanations:
+      en_US: 'First Name'
   checkout.address.shipping.phone:
     explanations:
       en_US: Phone
   checkout.address.shipping.comment:
     explanations:
       en_US: Comment
-  checkout.address.shipping.comment.placeholder:
+  checkout.address.shipping.address3.placeholder:
     explanations:
       en_US: 'e.g. company / please hand to neighbor Wilson'
-  checkout.address.full.placeholder:
+  checkout.address.shipping.city:
     explanations:
-      en_US: 'e.g. 79 N 11th Brooklyn'
-  checkout.address.full:
+      en_US: City
+  checkout.address.shipping.zipcode:
     explanations:
-      en_US: 'Full Address'
+      en_US: 'Postal Code'
+  checkout.address.shipping.street:
+    explanations:
+      en_US: Street
+  checkout.address.shipping.number:
+    explanations:
+      en_US: Number
+  checkout.address.shipping.name:
+    explanations:
+      en_US: Name
   demopayment.demomethod:
     explanations:
       en_US: 'Demo Payment Method'
+  stripe.credit.card:
+    explanations:
+      en_US: 'Credit Card'
   checkout.headline.shipping:
     explanations:
       en_US: 'Shipping Address'
+  checkout.payment.ccholder:
+    explanations:
+      en_US: 'Card Holder'
+  checkout.payment.ccnumber:
+    explanations:
+      en_US: 'Card Number'
+  checkout.payment.ccv:
+    explanations:
+      en_US: CCV
+  checkout.payment.ccexpmonth:
+    explanations:
+      en_US: 'Expiration Month'
+  checkout.payment.ccexpyear:
+    explanations:
+      en_US: 'Expiration Year'
   checkout.percentage.vat:
     explanations:
       en_US: '% VAT'
@@ -147,21 +183,9 @@ keys:
   checkout.to.summary:
     explanations:
       en_US: 'Go to Order Summary'
-  checkout.address.shipping.city:
+  checkout.address.shipping.streetnr:
     explanations:
-      en_US: 'City'
-  checkout.address.shipping.zipcode:
-    explanations:
-      en_US: 'Postal Code'
-  checkout.address.shipping.street:
-    explanations:
-      en_US: 'Street'
-  checkout.address.shipping.name:
-    explanations:
-      en_US: 'Name'
-  checkout.headline.shipping.to:
-    explanations:
-      en_US: 'Shipping goes to'
+      en_US: Number
   checkout.headline.cart:
     explanations:
       en_US: 'Your Cart'
@@ -189,6 +213,9 @@ keys:
   checkout.address.billing.different:
     explanations:
       en_US: 'Different Billing Address'
+  payone.paypal:
+    explanations:
+      en_US: PayPal
   catalog.usp.shipping:
     explanations:
       en_US: 'Free Shipping & Return'
@@ -291,45 +318,39 @@ keys:
   catalog.sort.price:
     explanations:
       en_US: 'Sort by price'
-  header.cart.products.choice:
-    explanations:
-      en_US: '{0}Empty|{1}%count% product|]1,Inf]%count% products '
-  cart.coupon.add:
-    explanations:
-      en_US: 'Enter Coupon Code'
-  stripe.credit.card:
-    explanations:
-      en_US: 'Credit Card'
-  customer.create:
-    explanations:
-      en_US: 'Register now'
-  customer.login.headline:
-    explanations:
-      en_US: 'Sign In'
-  customer.register.caption:
-    explanations:
-      en_US: 'New to wedowood?'
-  customer.register.headline:
-    explanations:
-      en_US: Register
-  catalog.filters.brand.thonet:
-    explanations:
-      en_US: Thonet
   customer.email:
     explanations:
       en_US: 'Your Email'
   customer.password:
     explanations:
       en_US: 'Your Password'
+  customer.new_password:
+    explanations:
+      en_US: 'Password confirmation:'
   customer.login.submit:
     explanations:
       en_US: Login
-  customer.register.box.headline:
+  customer.login.caption.main:
+    explanations:
+      en_US: 'Sign In'
+  customer.login.caption.sub:
+    explanations:
+      en_US: 'Already a customer?'
+  customer.register.caption.main:
+    explanations:
+      en_US: Register
+  customer.register.caption.sub:
+    explanations:
+      en_US: 'New to wedowood?'
+  customer.register.box.main:
     explanations:
       en_US: Registration
-  customer.register.box.caption:
+  customer.register.box.sub:
     explanations:
       en_US: 'We need your email in order to inform you about your order. Your password is necessary for you to login to see your order status.'
+  header.cart.products.choice:
+    explanations:
+      en_US: '{0}Empty|{1}%count% product|]1,Inf]%count% products '
   login.error.bad.credentials:
     explanations:
       en_US: 'Invalid credentials'
@@ -361,48 +382,15 @@ keys:
     explanations:
       de_DE: 'FAQ - please add me!'
       en_US: 'FAQ - please add me!'
-  checkout.address.billing.salutation:
-    explanations:
-      en_US: Salutation
-  checkout.address.shipping.salutation:
-    explanations:
-      en_US: Salutation
-  checkout.address.shipping.name.last:
-    explanations:
-      en_US: 'Last Name'
-  checkout.address.shipping.name.middle:
-    explanations:
-      en_US: 'Middle Name'
-  checkout.address.shipping.name.first:
-    explanations:
-      en_US: 'First Name'
-  checkout.address.shipping.number:
-    explanations:
-      en_US: Number
   checkout.payment.paypal.text:
     explanations:
       en_US: 'You will be redirected to PayPal, once you have submitted your order. You can complete your payment through PayPal.'
   checkout.payment.paypal.caption:
     explanations:
       en_US: 'Pay online safe and fast'
-  checkout.payment.ccholder:
-    explanations:
-      en_US: 'Card Holder'
-  checkout.payment.ccnumber:
-    explanations:
-      en_US: 'Card Number'
-  checkout.payment.ccv:
-    explanations:
-      en_US: CCV
-  checkout.payment.ccexpmonth:
-    explanations:
-      en_US: 'Expiration Month'
-  checkout.payment.ccexpyear:
-    explanations:
-      en_US: 'Expiration Year'
   checkout.payment.pre.text:
     explanations:
-      en_US: 'After completing your order we will show immediately all the necessary information for the payment and the order number. This will also once again by e-mail. We will ship your order immediately upon receipt of your payment.'
+      en_US: 'After completing your order we will show immediately all the necessary information for the payment and the order number. This will also once again by email. We will ship your order immediately upon receipt of your payment.'
   checkout.payment.pre.caption:
     explanations:
       en_US: 'Easily pay in advance'
@@ -424,6 +412,18 @@ keys:
   checkout.payment.cc.caption:
     explanations:
       en_US: 'Easy payment by credit card.'
+  catalog.product.detail.bundle.products.header:
+    explanations:
+      en_US: 'Included Products'
+  checkout.salutation.mrs:
+    explanations:
+      en_US: Mrs.
+  checkout.salutation.mr:
+    explanations:
+      en_US: Mr.
+  checkout.address.shipping.address3:
+    explanations:
+      en_US: 'Additional Address Data'
   checkout.payment.debitBankCodeNumber:
     explanations:
       en_US: 'Bank Code'
@@ -442,15 +442,60 @@ keys:
   checkout.payment.invoice.caption:
     explanations:
       en_US: 'Easy payment by invoice.'
-  catalog.product.detail.bundle.products.header:
+  customer.login.caption:
     explanations:
-      en_US: 'Included Products'
-  checkout.address.shipping.streetnr:
+      en_US: 'Login to your account.'
+  customer.register.caption:
     explanations:
-      en_US: Number
-  payone.paypal:
+      en_US: 'Create user account.'
+  customer.login.headline:
     explanations:
-      en_US: PayPal
+      en_US: Login
+  customer.register.headline:
+    explanations:
+      en_US: Registration
+  customer.password.forgotten:
+    explanations:
+      en_US: 'Forgot password'
+  customer.register.box.headline:
+    explanations:
+      en_US: Registration
+  customer.register.box.caption:
+    explanations:
+      en_US: 'Create your new user account.'
+  customer.login.box.headline:
+    explanations:
+      en_US: Login
+  customer.create:
+    explanations:
+      en_US: 'Register now'
+  customer.login:
+    explanations:
+      en_US: Login
+  product.select.sub-product:
+    explanations:
+      en_US: '- Select product -'
+  checkout.name.full.placeholder:
+    explanations:
+      en_US: 'e.g. John Quincy Doe'
+  checkout.name.full:
+    explanations:
+      en_US: 'Full Name'
+  checkout.address.full.placeholder:
+    explanations:
+      en_US: 'e.g. 79 N 11th Brooklyn'
+  checkout.address.full:
+    explanations:
+      en_US: 'Full Address'
+  checkout.headline.shipping.to:
+    explanations:
+      en_US: 'Shipping goes to'
+  cart.coupon.add:
+    explanations:
+      en_US: 'Enter Coupon Code'
+  catalog.filters.brand.thonet:
+    explanations:
+      en_US: Thonet
   customer.account:
     explanations:
       en_US: 'My Account'
@@ -463,9 +508,6 @@ keys:
   customer.account.orders:
     explanations:
       en_US: Orders
-  customer.login:
-    explanations:
-      en_US: Login
   customer.change.submit:
     explanations:
       en_US: Submit
@@ -544,10 +586,10 @@ keys:
   customer.order.price.shipping:
     explanations:
       en_US: 'Shipping Cost'
-  customer.address.default.shipping.none:
+  customer.address.shipping.none:
     explanations:
       en_US: 'You did not set a shipping address yet.'
-  customer.address.default.billing.none:
+  customer.address.billing.none:
     explanations:
       en_US: 'You did not set a billing address yet.'
   customer.address.delete:
@@ -592,12 +634,6 @@ keys:
   customer.address.default.billing.caption:
     explanations:
       en_US: 'Default Billing Address'
-  checkout.salutation.mrs:
-    explanations:
-      en_US: Mrs.
-  checkout.salutation.mr:
-    explanations:
-      en_US: Mr.
   customer.address.change.caption:
     explanations:
       en_US: 'Edit Address'
@@ -607,18 +643,9 @@ keys:
   customer.email.new:
     explanations:
       en_US: 'New Email'
-  customer.login.box.headline:
-    explanations:
-      en_US: Login
-  customer.login.caption:
-    explanations:
-      en_US: 'Already a customer?'
   customer.login.failed:
     explanations:
       en_US: 'Unfortunately your login failed.'
-  customer.password.forgotten:
-    explanations:
-      en_US: 'Password forgotten?'
   customer.password.wrong:
     explanations:
       en_US: 'Please enter your current password.'
@@ -636,10 +663,10 @@ keys:
       en_US: 'Your new password has been stored successfully.'
   customer.password.mail.sent.caption:
     explanations:
-      en_US: "We sent you an e-mail containing a link to change your password.<br>\nIf you did not receive this e-mail, please check out your spam folder."
+      en_US: "We sent you an email containing a link to change your password.<br>\nIf you did not receive this email, please check out your spam folder."
   customer.password.mail.sent.headline:
     explanations:
-      en_US: 'Please check our e-mail inbox'
+      en_US: 'Please check our email inbox'
   customer.password.poor:
     explanations:
       en_US: 'Please enter a password that is at least 6 characters long.'
@@ -751,33 +778,42 @@ keys:
   checkout.address.less:
     explanations:
       en_US: 'Hide other addresses'
-  payment.payone.prepayment:
-    explanations:
-      en_US: Prepayment
   checkout.address.use:
     explanations:
       en_US: Use
-  customer.new_password:
+  customer.address.default.shipping.none:
     explanations:
-      en_US: 'Password confirmation:'
-  customer.login.caption.main:
+      en_US: 'You did not set a shipping address yet.'
+  customer.address.default.billing.none:
     explanations:
-      en_US: 'Sign In'
-  customer.login.caption.sub:
+      en_US: 'You did not set a billing address yet.'
+  checkout.address.billing.address3.placeholder:
     explanations:
-      en_US: 'Already a customer?'
-  customer.register.caption.main:
+      en_US: 'e.g. company / please hand to neighbor Wilson'
+  checkout.address.billing.address3:
     explanations:
-      en_US: Register
-  customer.register.caption.sub:
+      en_US: 'Additional Address Data'
+  checkout.address.billing.comment:
     explanations:
-      en_US: 'New to wedowood?'
-  customer.register.box.main:
+      en_US: Comment
+  customer.address.delete.confirmation:
     explanations:
-      en_US: Registration
-  customer.register.box.sub:
+      en_US: 'Do you really want to delete this address?'
+  customer.address.added.caption:
     explanations:
-      en_US: 'We need your email in order to inform you about your order. Your password is necessary for you to login to see your order status.'
-  product.select.sub-product:
+      en_US: 'Your new address has been stored successfully.'
+  customer.address.default.billing.set.caption:
     explanations:
-      en_US: '- Select product -'
+      en_US: 'Your new default billing address has been stored successfully.'
+  customer.address.default.shipping.set.caption:
+    explanations:
+      en_US: 'Your new default shipping address has been stored successfully.'
+  customer.address.deleted.caption:
+    explanations:
+      en_US: 'Your selected address has been deleted successfully.'
+  customer.address.in.use:
+    explanations:
+      en_US: 'The selected address is used as a default address.'
+  customer.change.cancel:
+    explanations:
+      en_US: Cancel

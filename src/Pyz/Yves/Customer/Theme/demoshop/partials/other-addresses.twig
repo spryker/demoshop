@@ -20,10 +20,10 @@
                 <a class="delete-confirmation" href="javascript:app.customer.address.deleteConfirmation({{ otherAddress.idCustomerAddress }});">
                     {{- 'customer.address.delete'|trans -}}
                 </a>
-                <a href="{{ url('address/set/default/billing', {'address': otherAddress.idCustomerAddress }) }}">
+                <a href="{{ url('address/set/default/billing', {'address': otherAddress.idCustomerAddress}) }}">
                     {{- 'customer.address.make.default.billing'|trans -}}
                 </a>
-                <a href="{{ url('address/set/default/shipping', {'address': otherAddress.idCustomerAddress }) }}">
+                <a href="{{ url('address/set/default/shipping', {'address': otherAddress.idCustomerAddress}) }}">
                     {{- 'customer.address.make.default.shipping'|trans -}}
                 </a>
             </div>

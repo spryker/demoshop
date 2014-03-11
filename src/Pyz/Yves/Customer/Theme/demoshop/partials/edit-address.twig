@@ -3,47 +3,54 @@
     <div class="content"></div>
 </div>
 <div class="address editor template">
-    {{ form_start(addressForm, {attr: { novalidate: 'novalidate' } } ) }}
+    {{ form_start(addressForm, {attr: {novalidate: 'novalidate'}}) }}
     {{ form_errors(addressForm) }}
-    {{ form_row(addressForm.idCustomerAddress, {attr : {'data-src' : 'id_customer_address'} }) }}
+    {{ form_row(addressForm.idCustomerAddress, {attr: {'data-src': 'id_customer_address'}}) }}
     <div class="col col33 mod:first">
-        {{ form_row(addressForm.salutation, {attr : {class : 'name fullWidth', 'data-src': 'salutation'}, label : 'checkout.address.billing.salutation'}) }}
+        {{ form_row(addressForm.salutation, {attr: {class: 'name fullWidth', 'data-src': 'salutation'}, label: 'checkout.address.billing.salutation'}) }}
     </div>
     <div class="col col34 mod:first mod:last">
-        {{ form_row(addressForm.firstName, {attr : {class : 'name fullWidth', 'data-src': 'first_name'}, label : 'checkout.address.billing.name.first'}) }}
+        {{ form_row(addressForm.firstName, {attr: {class: 'name fullWidth', 'data-src': 'first_name'}, label: 'checkout.address.billing.name.first'}) }}
     </div>
     <div class="col col33 mod:last">
-        {{ form_row(addressForm.lastName, {attr : {class : 'name fullWidth', 'data-src': 'last_name'}, label : 'checkout.address.billing.name.last'}) }}
+        {{ form_row(addressForm.lastName, {attr: {class: 'name fullWidth', 'data-src': 'last_name'}, label: 'checkout.address.billing.name.last'}) }}
     </div>
-    <div class="invisible">{{ form_row(addressForm.middleName, {attr : {class : 'fullWidth', 'data-src': 'middle_name' }}) }}</div>
-    <div class="invisible">{{ form_row(addressForm.middleName, {attr : {class : 'fullWidth', 'data-src': 'middle_name' }}) }}</div>
+    <div class="invisible">
+        {{ form_row(addressForm.middleName, {attr: {class: 'fullWidth', 'data-src': 'middle_name' }, label: 'checkout.address.billing.name.last'}) }}
+    </div>
+    <div class="col fullWidth">
+        {{ form_row(addressForm.company, {attr: {class: 'fullWidth', 'data-src': 'company'}, label: 'checkout.address.billing.company'}) }}
+    </div>
     <div class="col col67 mod:first">
-        {{ form_row(addressForm.address1, {attr : {class : 'fullWidth', 'data-src': 'address1'}, label : 'checkout.address.billing.street'}) }}
+        {{ form_row(addressForm.address1, {attr: {class: 'fullWidth', 'data-src': 'address1'}, label: 'checkout.address.billing.street'}) }}
     </div>
     <div class="col col33 mod:last">
-        {{ form_row(addressForm.address2, {attr : {class : 'fullWidth', 'data-src': 'address2'}, label : 'checkout.address.billing.number'}) }}
+        {{ form_row(addressForm.address2, {attr: {class: 'fullWidth', 'data-src': 'address2'}, label: 'checkout.address.billing.number'}) }}
     </div>
     <div class="col fullWidth">
-        {{ form_row(addressForm.company, {attr : {class : 'fullWidth', 'data-src': 'company'}, label : 'checkout.address.billing.company'}) }}
-    </div>
-    <div class="col fullWidth">
-        {{ form_row(addressForm.address3, {attr : {class : 'fullWidth', 'data-src': 'address3'}, label : 'checkout.address.billing.comment'}) }}
+        {{ form_row(addressForm.address3, {attr: {class: 'fullWidth', 'data-src': 'address3'}, label: 'checkout.address.shipping.address3'}) }}
     </div>
     <div class="col col33 mod:first">
-        {{ form_row(addressForm.zipCode, {attr : {class : 'fullWidth', 'data-src': 'zip_code'}, label: 'checkout.address.billing.zipcode'}) }}
+        {{ form_row(addressForm.zipCode, {attr: {class: 'fullWidth', 'data-src': 'zip_code'}, label: 'checkout.address.billing.zipcode'}) }}
     </div>
     <div class="col col67 mod:last">
-        {{ form_row(addressForm.city, {attr : {class : 'fullWidth', 'data-src': 'city'}, label: 'checkout.address.billing.city'}) }}
+        {{ form_row(addressForm.city, {attr: {class: 'fullWidth', 'data-src': 'city'}, label: 'checkout.address.billing.city'}) }}
+    </div>
+    <div class="col fullWidth">
+        {{ form_row(addressForm.iso2Country, {attr: {class: 'fullWidth', 'data-src': 'country', 'data-src-type': 'short'}, label: 'checkout.address.billing.country'}) }}
+    </div>
+    <div class="col fullWidth">
+        {{ form_row(addressForm.phone, {attr: {class: 'fullWidth', 'data-src': 'phone'}, label: 'checkout.address.shipping.phone'}) }}
     </div>
     <div class="is-default-address col fullWidth">
         <label>
-            {{- form_widget(addressForm.isDefaultShipping, {attr : {'data-src': 'is_default_shipping'}, required : false }) -}}
+            {{- form_widget(addressForm.isDefaultShipping, {attr: {'data-src': 'is_default_shipping'}, required: false}) -}}
             {{- 'customer.address.make.default.shipping'|trans -}}
         </label>
     </div>
     <div class="is-default-address col fullWidth">
         <label>
-            {{- form_widget(addressForm.isDefaultBilling, {attr : {'data-src': 'is_default_billing'}, required : false }) -}}
+            {{- form_widget(addressForm.isDefaultBilling, {attr: {'data-src': 'is_default_billing'}, required: false}) -}}
             {{- 'customer.address.make.default.billing'|trans -}}
         </label>
     </div>

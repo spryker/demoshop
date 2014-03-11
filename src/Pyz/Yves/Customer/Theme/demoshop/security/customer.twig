@@ -32,10 +32,10 @@
                     {{ form_errors(registrationForm) }}
                     {{ form_row(registrationForm._token) }}
                         <div class="row">
-                            {{ form_row(registrationForm.email, {label : 'customer.email', attr : {'class' : 'fullWidth'}}) }}
+                            {{ form_row(registrationForm.email, {label: 'customer.email', attr: {'class': 'fullWidth'}}) }}
                         </div>
                         <div class="row">
-                            {{ form_row(registrationForm.password, {label : 'customer.password', attr : {'class' : 'fullWidth', required : 'required', pattern : '^.{4,30}$', maxlength : 30, 'data-validation-message' : 'customer.register.password.poor'|trans}}) }}
+                            {{ form_row(registrationForm.password, {label: 'customer.password', attr: {'class': 'fullWidth', required: 'required', pattern: '^.{4,30}$', maxlength: 30, 'data-validation-message': 'customer.register.password.poor'|trans}}) }}
                         </div>
                         <div class="row">
                             <button class="continue" type="submit">{{ 'customer.create'|trans }}</button>
@@ -49,10 +49,10 @@
                     {{ form_start(loginForm, {attr: {class: 'customerLogin', novalidate: 'novalidate'}, action: path('login_check')}) }}
                     {{ form_errors(loginForm) }}
                     <div class="row">
-                        {{ form_row(loginForm.email, {label : 'customer.email', attr : {'class' : 'fullWidth'}}) }}
+                        {{ form_row(loginForm.email, {label: 'customer.email', attr: {'class': 'fullWidth'}}) }}
                     </div>
                     <div class="row">
-                        {{ form_row(loginForm.password, {label : 'customer.password', attr : {'class' : 'fullWidth'}}) }}
+                        {{ form_row(loginForm.password, {label: 'customer.password', attr: {'class': 'fullWidth'}}) }}
                         <a class="hint" href="javascript:app.customer.showPwReset();">{{ 'customer.password.forgotten'|trans }}</a>
                     </div>
                     <div class="row">
@@ -66,7 +66,7 @@
                 {{ form_errors(forgotPasswordForm) }}
                 {{ form_widget(forgotPasswordForm._token) }}
                 <div class="row">
-                    {{ form_row(forgotPasswordForm.email, {label : 'customer.email', attr : {'class' : 'fullWidth'}}) }}
+                    {{ form_row(forgotPasswordForm.email, {label: 'customer.email', attr: {'class': 'fullWidth'}}) }}
                 </div>
                 <div class="row">
                     <button class="continue" type="submit">{{ 'customer.password.request'|trans }}</button>
