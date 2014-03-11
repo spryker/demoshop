@@ -1157,7 +1157,7 @@
             "source": {
                 "type": "git",
                 "url": "git@codebasehq.com:project-a/core/crm.git",
-                "reference": "70a6235785a3a7aee80c5f8fdbb2e53011e59dff"
+                "reference": "d2c83e1e3e746b6db6ff73c3ae769ffe2144f3b5"
             },
             "require": {
                 "php": ">=5.4.0",
@@ -1183,7 +1183,7 @@
                 "CRM",
                 "Mail"
             ],
-            "time": "2014-03-11 09:11:19"
+            "time": "2014-03-11 11:21:08"
         },
         {
             "name": "project-a/document-package",
