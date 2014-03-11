@@ -1157,7 +1157,7 @@
             "source": {
                 "type": "git",
                 "url": "git@codebasehq.com:project-a/core/crm.git",
-                "reference": "f54c36d8f0f9b5749db8a67d3c7192c450eb29ac"
+                "reference": "1d50cee853befaf6dd084ba16c818f3f07da566e"
             },
             "require": {
                 "php": ">=5.4.0",
@@ -1183,7 +1183,7 @@
                 "CRM",
                 "Mail"
             ],
-            "time": "2014-03-10 14:32:22"
+            "time": "2014-03-11 08:51:46"
         },
         {
             "name": "project-a/document-package",
@@ -1921,12 +1921,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/silexphp/Silex.git",
-                "reference": "b40e5b2bd3c550424e96104545c31da1023d7f66"
+                "reference": "403980773fe6956b9322ac478f8c036fff36398e"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/silexphp/Silex/zipball/b40e5b2bd3c550424e96104545c31da1023d7f66",
-                "reference": "b40e5b2bd3c550424e96104545c31da1023d7f66",
+                "url": "https://api.github.com/repos/silexphp/Silex/zipball/403980773fe6956b9322ac478f8c036fff36398e",
+                "reference": "403980773fe6956b9322ac478f8c036fff36398e",
                 "shasum": ""
             },
             "require": {
@@ -1999,7 +1999,7 @@
             "keywords": [
                 "microframework"
             ],
-            "time": "2014-03-04 21:23:45"
+            "time": "2014-03-11 07:57:40"
         },
         {
             "name": "solarium/solarium",
@@ -2376,12 +2376,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/zendframework/zf2.git",
-                "reference": "e74ef75cf2cfe6176aede95aba66c6c5c7ee7bf1"
+                "reference": "9a988d055f3e3cf4edaab9f4e1a1ff18b3eb896f"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/zendframework/zf2/zipball/e74ef75cf2cfe6176aede95aba66c6c5c7ee7bf1",
-                "reference": "e74ef75cf2cfe6176aede95aba66c6c5c7ee7bf1",
+                "url": "https://api.github.com/repos/zendframework/zf2/zipball/9a988d055f3e3cf4edaab9f4e1a1ff18b3eb896f",
+                "reference": "9a988d055f3e3cf4edaab9f4e1a1ff18b3eb896f",
                 "shasum": ""
             },
             "require": {
@@ -2486,7 +2486,7 @@
                 "framework",
                 "zf2"
             ],
-            "time": "2014-03-10 16:34:14"
+            "time": "2014-03-11 02:02:23"
         },
         {
             "name": "zendframework/zendpdf",
