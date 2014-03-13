@@ -506,12 +506,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/fabpot/PHP-CS-Fixer.git",
-                "reference": "fc0d890326ca2332ce3d262fad199baccbc570bf"
+                "reference": "e4e6f3dc3470ed31aed7d59839040abdefc851f7"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/fabpot/PHP-CS-Fixer/zipball/fc0d890326ca2332ce3d262fad199baccbc570bf",
-                "reference": "fc0d890326ca2332ce3d262fad199baccbc570bf",
+                "url": "https://api.github.com/repos/fabpot/PHP-CS-Fixer/zipball/e4e6f3dc3470ed31aed7d59839040abdefc851f7",
+                "reference": "e4e6f3dc3470ed31aed7d59839040abdefc851f7",
                 "shasum": ""
             },
             "require": {
@@ -548,7 +548,7 @@
                 }
             ],
             "description": "A script to automatically fix Symfony Coding Standard",
-            "time": "2014-03-03 13:52:15"
+            "time": "2014-03-13 12:29:03"
         },
         {
             "name": "gavroche/browser",
@@ -1629,7 +1629,7 @@
             "source": {
                 "type": "git",
                 "url": "git@codebasehq.com:project-a/core/sales.git",
-                "reference": "2f857c6ac3d7f25f5637ce208100868f19f55c3d"
+                "reference": "a25405c28eeffc2a901a9ddbe0ff3fa58d536850"
             },
             "require": {
                 "php": ">=5.4.0",
@@ -1663,7 +1663,7 @@
                 "Sales",
                 "Task"
             ],
-            "time": "2014-03-10 14:42:08"
+            "time": "2014-03-13 14:43:28"
         },
         {
             "name": "project-a/silex-routing",
