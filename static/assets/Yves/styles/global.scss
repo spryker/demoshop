@@ -58,6 +58,11 @@ section:after { content:''; display:block; clear:both; }
 .message.error { background-color:#f4cbaa; border-color:#e8b388; }
 .message.info { background-color:#ccefb5; border-color:#abd88d; }
 
+.slideshow { margin:20px auto; overflow: hidden; }
+.slideshow ul { margin:0; padding:0; list-style:none; }
+.slideshow ul li { display:block; float:left; }
+.slideshow img { display:block; }
+
 header { padding:10px 0; white-space:nowrap; }
 header a { display:block; color:inherit; text-decoration:none; }
 header .row { padding:10px 0; }
@@ -93,6 +98,29 @@ header .cart .glyphicon { float:left; margin-left:-28px; top:5px; font-size:21px
 #navbar .sub { display:none; position:absolute; left:-1px; top:50px; min-width:100%; background:#fcfcfc; line-height:32px; margin:0; padding:0; list-style:none; border:1px solid #ccc; border-top:0 none; border-radius:0 0 3px 3px; box-shadow:0 3px 3px rgba(0, 0, 0, 0.05); }
 #navbar .sub li,
 #navbar .sub li a { float:none; }
+
+#cms { width:1110px; padding:0 20px; margin:0 auto; background:#fff; clear:both; }
+.cms-text, .cms-glossary, .cms-product {
+  padding: 10px;
+  h1,h2,h3 {
+    color: #a1a1a1;
+    margin-top: 0;
+  }
+}
+.cms-product {
+  a {
+    text-decoration: none;
+  }
+  p {
+    margin: 0 0 .5em 0;
+  }
+  .price {
+    color: #000;
+    text-align: right;
+    padding: 5px;
+    font-size: 1.9em;
+  }
+}
 
 #recommendations { margin:20px auto; color:#a1a1a1; }
 #recommendations h3,

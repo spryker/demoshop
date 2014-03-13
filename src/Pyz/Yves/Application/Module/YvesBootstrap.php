@@ -109,8 +109,10 @@ class YvesBootstrap extends \ProjectA\Yves\Library\Silex\YvesBootstrap
     {
         return [
             Factory::getInstance()->createSetupModelRouterMonitoringRouter($app),
+            Factory::getInstance()->createCmsModelRouterRedirectRouter($app),
             Factory::getInstance()->createCatalogModelRouterCatalogRouter($app),
             Factory::getInstance()->createCatalogModelRouterCatalogDetailRouter($app),
+            Factory::getInstance()->createCmsModelRouterCmsRouter($app),
             /*
              * SilexRouter should come last, as it is not the fastest one if it can
              * not find a matching route (lots of magic)

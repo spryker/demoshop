@@ -59,7 +59,7 @@ var app = {
     },
     slider : {
         init : function() {
-            this.$slider = $('#teaser ul');
+            this.$slider = $('.slideshow ul');
             if (!this.$slider.length) { return; }
             this.max = this.$slider.children('li').length - 1;
             this.index = 0;

@@ -29,6 +29,7 @@ return [
         'Auth' => $bootstrap,
         'Behat' => $navigation,
         'Cart' => $schema,
+        'Cms' => $allElements,
         'Catalog' => $schemaAndNavigation,
         'Category' => $schemaAndNavigation,
         'Customer' => $schemaAndNavigation,
