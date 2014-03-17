@@ -58,16 +58,16 @@ app.customer = {
                         type: 'POST',
                         data: $form.serialize() ,
                         success: function(response) {
-                            console.log(response);
-                            var errors = $(response).find('.form-errors');
-                            var alert = $(response).find('.alert-error');
-                            var success = $(response).find('.alert-success');
+                            var $response = $(response);
+                            var errors = $response.find('.form-errors');
+                            var alert = $response.find('.alert-error');
+                            var success = $response.find('.alert-success');
                             if (errors.length) {
                                 $form.before(errors);
                             } else if (alert.length) {
                                 $form.before(alert);
                             } else if (success.length) {
-                                $('html').html(response);
+                                $('#customer').html($response.filter('#customer'));
                             } else {
                                 location.reload();
                             }
