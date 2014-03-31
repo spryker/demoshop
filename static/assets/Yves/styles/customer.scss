@@ -32,7 +32,7 @@
     b { font-weight:400; }
   }
 
-  form { float:left; padding-bottom:24px; }
+  form { padding-bottom:24px; }
   label { font-size:0.9em; line-height:1.75em; }
   input,
   select { font-weight:300; font-size:1.1em; }
@@ -122,6 +122,8 @@
         .invisible { display:none; }
         .cancel-edit { float:right; padding:6px 16px; }
       }
+
+      form { float:left; }
     }
     .other-addresses {
       padding-top:24px;
