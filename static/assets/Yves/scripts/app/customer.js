@@ -53,21 +53,21 @@ app.customer = {
             } else {
                 e.preventDefault();
                 if (app.validation.resultIsValid(app.validation.apply($form))) {
+                    console.log('submit');
                     $.ajax({
                         url: $form.attr('action'),
                         type: 'POST',
                         data: $form.serialize() ,
                         success: function(response) {
-                            var $response = $(response);
-                            var errors = $response.find('.form-errors');
-                            var alert = $response.find('.alert-error');
-                            var success = $response.find('.alert-success');
+                            var errors = $(response).find('.form-errors');
+                            var alert = $(response).find('.alert-error');
+                            var success = $(response).find('.alert-success');
                             if (errors.length) {
                                 $form.before(errors);
                             } else if (alert.length) {
                                 $form.before(alert);
                             } else if (success.length) {
-                                $('#customer').html($response.filter('#customer'));
+                                $('#customer').html($(response).filter('#customer'));
                             } else {
                                 location.reload();
                             }
@@ -133,6 +133,8 @@ app.customer = {
             app.ensureVisibility($caption);
         },
         change : function(id, isDefault) {
+            var $actions = $('#actions-' + id);
+            var $editor = $('.address.editor.target');
             isDefault = typeof isDefault !== 'undefined' ? isDefault : false;
             var $defaultAddressCheckbox = $('.is-default-address');
             if (isDefault === true) {
@@ -140,9 +142,15 @@ app.customer = {
             } else {
                 $defaultAddressCheckbox.show();
             }
-            var $caption = $('.address.editor.target').show().children('h3');
+            $actions.replaceWith($editor);
+            $editor.show();
+            var $caption = $('.address.editor.target').children('h3');
             $caption.text($caption.data('change')).next('.content').html(this.$fillForm(id));
-            app.ensureVisibility($caption);
+            //app.ensureVisibility($caption);
+        },
+        cancelEdit : function() {
+            $('.address.editor.target').hide();
+            app.ensureVisibility($('h2.caption'));
         },
         deleteConfirmation : function(id) {
             $('#actions-' + id).hide();
@@ -158,8 +166,8 @@ app.customer = {
             var result = Object.keys(items).map(function(item) {
                 return items[item];
             }).filter(function(item) {
-                    return item.id_customer_address && item.id_customer_address === id;
-                });
+                return item.id_customer_address && item.id_customer_address === id;
+            });
             if (!result.length) { return $form; }
             $.each(result[0], function(name, value) {
                 var $target = $form.find('[data-src="' + name + '"]');
