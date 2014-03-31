@@ -54,9 +54,9 @@
             {{- 'customer.address.make.default.billing'|trans -}}
         </label>
     </div>
+    <button class="ok" type="submit">{{ 'customer.change.submit'|trans }}</button>
     <a class="cancel-edit" href="javascript:app.customer.address.cancelEdit();">
         {{- 'customer.change.cancel'|trans -}}
     </a>
-    <button class="ok" type="submit">{{ 'customer.change.submit'|trans }}</button>
     {{ form_end(addressForm) }}
 </div>

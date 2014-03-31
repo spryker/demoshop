@@ -128,11 +128,14 @@ app.customer = {
             return app.customer.bindFormEvents($('.address.editor.template form').clone());
         },
         add : function() {
+            this.cancelEdit();
+            var $editor = $('.address.editor.target');
+            $('.address.editor.template').before($editor);
             var $caption = $('.address.editor.target').show().children('h3');
             $caption.text($caption.data('add')).next('.content').html(this.$getTemplate());
-            app.ensureVisibility($caption);
         },
         change : function(id, isDefault) {
+            this.cancelEdit();
             var $actions = $('#actions-' + id);
             var $editor = $('.address.editor.target');
             isDefault = typeof isDefault !== 'undefined' ? isDefault : false;
@@ -148,14 +151,12 @@ app.customer = {
             var $caption = $editor.children('h3');
             $caption.text($caption.data('change')).next('.content').html(this.$fillForm(id));
             $caption.next('.content').find('.cancel-edit').data('id', id);
-            app.ensureVisibility($caption);
         },
         cancelEdit : function() {
             var $editor = $('.address.editor.target');
             var id = $editor.children('.content').find('.cancel-edit').data('id');
             $editor.hide();
             $('#actions-' + id).show();
-            app.ensureVisibility($('h2.caption'));
         },
         deleteConfirmation : function(id) {
             $('#actions-' + id).hide();
