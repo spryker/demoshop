@@ -142,14 +142,19 @@ app.customer = {
             } else {
                 $defaultAddressCheckbox.show();
             }
-            $actions.replaceWith($editor);
+            $actions.hide();
+            $actions.after($editor);
             $editor.show();
-            var $caption = $('.address.editor.target').children('h3');
+            var $caption = $editor.children('h3');
             $caption.text($caption.data('change')).next('.content').html(this.$fillForm(id));
-            //app.ensureVisibility($caption);
+            $caption.next('.content').find('.cancel-edit').data('id', id);
+            app.ensureVisibility($caption);
         },
         cancelEdit : function() {
-            $('.address.editor.target').hide();
+            var $editor = $('.address.editor.target');
+            var id = $editor.children('.content').find('.cancel-edit').data('id');
+            $editor.hide();
+            $('#actions-' + id).show();
             app.ensureVisibility($('h2.caption'));
         },
         deleteConfirmation : function(id) {
