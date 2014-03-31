@@ -145,12 +145,13 @@ app.customer = {
             } else {
                 $defaultAddressCheckbox.show();
             }
-            $actions.hide();
             $actions.after($editor);
+            $actions.hide();
             $editor.show();
             var $caption = $editor.children('h3');
             $caption.text($caption.data('change')).next('.content').html(this.$fillForm(id));
             $caption.next('.content').find('.cancel-edit').data('id', id);
+            app.ensureVisibility($caption);
         },
         cancelEdit : function() {
             var $editor = $('.address.editor.target');
