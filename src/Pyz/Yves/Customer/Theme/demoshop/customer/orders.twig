@@ -1,6 +1,7 @@
 {% extends "@application/layout/full.twig" %}
 
 {% block content %}
+    {% include "@application/partials/navbar.twig" with {'categories': categories } only %}
     <link rel="stylesheet" href="{{ asset('styles/customer.css') }}" />
     <link rel="stylesheet" media="print" href="{{ asset('styles/print.css') }}" />
     <script src="{{ asset('scripts/app/customer.js') }}"></script>

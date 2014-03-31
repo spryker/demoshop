@@ -1,6 +1,7 @@
 {% extends "@application/layout/full.twig" %}
 
 {% block content %}
+    {% include "@application/partials/navbar.twig" with {'categories': categories } only %}
     <link rel="stylesheet" href="{{ asset('styles/customer.css') }}"/>
     <script src="{{ asset('scripts/app/customer.js') }}"></script>
     <script>app.customer.address.items = {{ otherAddressesJson ? otherAddressesJson|raw : '{}' }};</script>
