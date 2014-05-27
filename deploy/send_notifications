@@ -13,7 +13,7 @@ outfile=`mktemp /tmp/deploy-XXXXXX`
 if [ ! -z $newrelic_api_key ]; then
   for APP in Yves Zed; do
     curl --silent --show-error -H "x-api-key: ${newrelic_api_key}" \
-     -d "deployment[app_name]=$APP (${environment})" \
+     -d "deployment[app_name]=$APP(${environment})" \
      -d "deployment[user]=$deploy_user" \
      -d "deployment[revision]=$revision" \
      -d "deployment[description]=$scm_path" \
@@ -25,13 +25,13 @@ fi
 
 ### Skype notifications
 if [ "$environment" == "production" ]; then
-  curl -s -X POST --data-urlencode "M=(*) Finished deployment of $scm_path to $environment ($revision: $deploy_user, `hostname`) - $changelog" "http://skypebot.project-a.com:10080/send.php?C=76&U=56&P=coreDeploy20mg"
+  curl -s -X POST --data-urlencode "M=(*) Finished deployment of $scm_path to $environment ($revision: $deploy_user, `hostname`) - $changelog" "http://skypebot.project-a.com:10080/send.php?C=116&U=56&P=boss33mgj"
 elif [ "$environment" == "staging" ]; then
-  curl -s -X POST --data-urlencode "M=(*) Finished deployment of $scm_path to $environment ($revision: $deploy_user, `hostname`)" "http://skypebot.project-a.com:10080/send.php?C=76&U=56&P=coreDeploy20mg"
+  curl -s -X POST --data-urlencode "M=(*) Finished deployment of $scm_path to $environment ($revision: $deploy_user, `hostname`)" "http://skypebot.project-a.com:10080/send.php?C=116&U=56&P=boss33mgj"
 elif [ "$environment" == "testing" ]; then
-  curl -s -X POST --data-urlencode "M=(*) Finished deployment of $scm_path to $environment ($revision: $deploy_user, `hostname`)" "http://skypebot.project-a.com:10080/send.php?C=76&U=56&P=coreDeploy20mg"
+  curl -s -X POST --data-urlencode "M=(*) Finished deployment of $scm_path to $environment ($revision: $deploy_user, `hostname`)" "http://skypebot.project-a.com:10080/send.php?C=116&U=56&P=boss33mgj"
 elif [ "$environment" == "development" ]; then
-  curl -s -X POST --data-urlencode "M=(*) Finished deployment of $scm_path to $environment ($revision: $deploy_user, `hostname`)" "http://skypebot.project-a.com:10080/send.php?C=76&U=56&P=coreDeploy20mg"
+  curl -s -X POST --data-urlencode "M=(*) Finished deployment of $scm_path to $environment ($revision: $deploy_user, `hostname`)" "http://skypebot.project-a.com:10080/send.php?C=116&U=56&P=boss33mgj"
 fi
 
 rm -f $outfile

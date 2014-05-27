@@ -11,18 +11,12 @@
 FILEPATH=`pwd`/$0; BASEDIR=`dirname $FILEPATH`; source $BASEDIR/vars; source $BASEDIR/functions
 outfile=`mktemp /tmp/deploy-XXXXXX`
 
-### Checks not-store-specific items
+### Checks for non store-specific items
+# Check for config files
 if is_default_store; then
-
   # Check for config files
   if [ ! -f $shared_dir/config_local.php ]; then
     echo "ERROR: config_local.php not found"
-    exit 1
-  fi
-
-  # Check if required WAR files are present in code
-  if [ ! -f "$destination_release_dir/vendor/project-a/infrastructure-package/bin/jenkins.war" ]; then
-    echo "ERROR: vendor/project-a/infrastructure-package/src/ProjectA/Jenkins/jenkins.war not found"
     exit 1
   fi
 fi
@@ -33,8 +27,6 @@ if [ ! -f $shared_dir/config_local_${APPLICATION_STORE}.php ]; then
   echo "ERROR: config_local_${APPLICATION_STORE}.php not found"
   exit 1
 fi
-
-
 
 rm -f $outfile
 exit $return

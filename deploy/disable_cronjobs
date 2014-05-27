@@ -3,14 +3,21 @@
 # *** Project-A deployment
 #
 # disable_cronjobs
-# This script is executed on tools host (with root privileges) in order to deactivate cronjobs for deployment time.
+# This script is executed on tools host (as www-data user) in order to deactivate cronjobs for deployment time.
 #
 #
 
 FILEPATH=`pwd`/$0; BASEDIR=`dirname $FILEPATH`; source $BASEDIR/vars; source $BASEDIR/functions
 outfile=`mktemp /tmp/deploy-XXXXXX`
 
-rm -f /etc/cron.d/${environment}-zed
+cd $destination_release_dir
+
+### Activate maintenance
+if [ ! -d $destination_current_dir ]; then
+  echo "Host is fresh!"
+  exit
+fi
+APPLICATION_ENV=${environment} php cli/index.php --module=setup --controller=jenkins --action=disable
 
 rm -f $outfile
 exit 0

@@ -1,3 +1,5 @@
+### FIXME: update me for hostly!
+
 ### Deploy tool scripts
 Those scripts are used as wrapper, which sets appropiate APPLICATION_STORE environment variable
  * exec_foreach_store   - executes command given as parameter for each store

@@ -3,39 +3,45 @@
 # No project-specific logic should be implemented here!
 #
 
+# Match argument agains localhost, my hostname or my ip address (any)
+function match_hostname_or_ip() (
+  local my_names
+  my_names="localhost `hostname --short` `hostname --ip`"
+  for match in $1 ${1/.*/}; do
+    for name in $my_names; do
+      [ "$match" == "$name" ] && exit 0
+    done
+  done
+  exit 1
+)
+
 # Return true if this is admin host, false otherwise
 function is_admin_host() (
-  if [ "localhost" == "$admin_host" ]; then
-    exit 0
-  fi
-  if [ `hostname --short` == ${admin_host/.*/} ]; then
-    exit 0
-  fi
+  match_hostname_or_ip ${admin_host} && exit 0
   exit 1
 )
-
-function is_reporting_host() (
-  if [ "localhost" == "$dwh_host" ]; then
-    exit 0
-  fi
-  if [ `hostname --short` == ${dwh_host/.*/} ]; then
-    exit 0
-  fi
-  exit 1
-)
-
 
 # Return true if this is DWH host, false otherwise
 function is_dwh_host() (
-  if [ "localhost" == "$dwh_host" ]; then
-    exit 0
-  fi
-  if [ `hostname --short` == ${dwh_host/.*/} ]; then
-    exit 0
-  fi
+  match_hostname_or_ip ${dwh_host} && exit 0
   exit 1
 )
 
+# Return true if this host runs solr, false otherwise
+function is_solr_host() (
+  for host in $solr_hosts; do
+    match_hostname_or_ip $host && exit 0
+  done
+  exit 1
+)
+
+# Return true if this host runs jobs, false otherwise
+function is_jobs_host() (
+  for host in $jobs_hosts; do
+    match_hostname_or_ip $host && exit 0
+  done
+  exit 1
+)
 
 # Return true if this is default (first) store, false otherwise
 function is_default_store() (
@@ -55,16 +61,20 @@ function is_production() (
   fi
 )
 
+# Get list of cronjob roles running here for JenkinsController calls
+# Match is based on $admin_host and $dwh_host
 function get_cronjob_roles() (
   if is_admin_host; then
-    if is_reporting_host; then
+    if is_dwh_host; then
       echo "admin,reporting"
     else
       echo "admin"
     fi
   else 
-    if is_reporting_host; then
+    if is_dwh_host; then
       echo "reporting"
     fi
   fi
 )
+
+

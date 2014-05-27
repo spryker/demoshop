@@ -1,0 +1,31 @@
+#!/bin/bash
+#
+# *** Project-A deployment
+#
+# setup_solr
+# This script is executed on all hosts, after unpacking release tarball.
+#
+
+FILEPATH=`pwd`/$0; BASEDIR=`dirname $FILEPATH`; source $BASEDIR/vars; source $BASEDIR/functions
+outfile=`mktemp /tmp/deploy-XXXXXX`
+
+### FIXME: use console tasks for this calls
+if is_solr_host; then
+  ## Solr Init: Create Solr configfiles (solr.xml)
+  cd $destination_release_dir
+
+  ## Solr Init: create solr global config (FIXME: move to salt)
+  php -d "newrelic.appname='Deploy($environment)'" cli/index.php --module=solr --controller=cronjob --action=init &> $outfile
+  cat $outfile
+  if [ `grep -ci "restart solr now" $outfile` -gt 0 ]; then
+    echo " solr/setup/init requested tomcat restart..."
+    /etc/init.d/tomcat?-${environment} restart
+    sleep 20s # Let's give tomcat some time to warm-up...
+  fi
+
+  ## Solr Update: Create Solr cores
+  cd $destination_release_dir
+  php -d "newrelic.appname='Deploy($environment)'" cli/index.php --module=solr --controller=cronjob --action=update
+fi
+
+
