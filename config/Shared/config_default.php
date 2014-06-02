@@ -28,8 +28,8 @@ $config['db'] = array(
     'username' => '',
     'password' => '',
     'database' => '',
-    'host'     => 'localhost',
-    'port'     => 3306
+    'host' => 'localhost',
+    'port' => 3306
 );
 
 /**
@@ -56,13 +56,17 @@ $config['code_generators'] = [
     'yves'
 ];
 
+$config['search'] = [
+    'number_of_facets' => 6
+];
+
 $config['db_dump'] = array(
-    'username'      => '',
-    'password'      => '',
-    'database'      => '',
-    'host'          => 'localhost',
+    'username' => '',
+    'password' => '',
+    'database' => '',
+    'host' => 'localhost',
     'mysqldump_bin' => '/usr/bin/mysqldump',
-    'mysql_bin'     => '/usr/bin/mysql',
+    'mysql_bin' => '/usr/bin/mysql',
 );
 
 /**
@@ -77,9 +81,22 @@ $config['db_dump'] = array(
 $config['storage'] = [
     'kv' => [
         //define the current used source and provide a setup
+        'source' => 'couchbase',
+        'couchbase' => [
+            'hosts' => [
+                [
+                    'host' => '0.0.0.0',
+                    'port' => '8091'
+                ],
+            ],
+            'user' => '',
+            'password' => '',
+            'bucket' => '',
+            'timeout' => 100000,
+        ],
         'memcached' => [
-            'host'   => 'localhost',
-            'port'   => '11211',
+            'host' => 'localhost',
+            'port' => '11211',
             'prefix' => ''
         ],
         'mysql' => [
@@ -93,24 +110,34 @@ $config['storage'] = [
         'config_dir' => APPLICATION_ROOT_DIR . '/config/Zed/solr',
         'application_dir' => APPLICATION_VENDOR_DIR . '/project-a/infrastructure-package/bin/',
         'data_dir' => APPLICATION_ROOT_DIR . '/data/common/solr',
-
+        // Used for reading
         'defaultEndpointSetup' => [
             'host' => 'localhost',
             'port' => 10007,
             'path' => '/solr'
         ],
-
+        // Used for writing
+        'masterEndpointSetup' => [
+            'host' => 'localhost',
+            'port' => 10007,
+            'path' => '/solr'
+        ],
+        // Used for solr setup, always on localhost
+        'localEndpointSetup' => [
+            'host' => 'localhost',
+            'port' => 10007,
+            'path' => '/solr'
+        ],
         'endpointGroups' => [
             'stores' => [
-                'US', 'DE'
+                'DE'
             ],
         ],
-
         //! the defaultEndpointSetup will be merged to each endpoint during runtime
         //  if you you want to change a specific endpoint, change its config here
         'endpoint' => [
-            'US' => [
-                'core' => 'US'
+            'DE' => [
+                'core' => 'DE'
             ],
             'META_DATA' => [
                 'core' => 'META_DATA',
@@ -122,6 +149,33 @@ $config['storage'] = [
     ]
 ];
 
+$config['storage']['couchbase'] = [
+    'hosts' => [
+        [
+            'host' => '0.0.0.0',
+            'port' => '8091'
+        ],
+    ],
+    'buckets' => [
+        'import_product_data' => 'import_product_data',
+        'eclass_migration' => 'eclass_migration',
+        'catalog' => 'catalog',
+    ],
+    'user' => '',
+    'password' => '',
+    'bucket' => '',
+    'timeout' => 100000,
+];
+
+$config['storage']['elastic'] = [
+    'indexes' => [
+        'product_category_search' => 'product_category_search'
+    ],
+    'hosts' => [
+        ['host' => '0.0.0.0', 'port' => 9200]
+    ],
+];
+
 /**
  * Connection to Jenkins
  *
@@ -130,7 +184,6 @@ $config['storage'] = [
 $config['jenkins'] = array(
     'base_url'     => 'http://127.0.0.1:8081',
     'notify_email' => '',
-
     // TODO: change to NEW?  PalShared_Data::getLocalCommonPath('jenkins'),
     'data_dir'     => APPLICATION_ROOT_DIR . '/data/jenkins', //PalShared_Data::getLocalCommonPath('jenkins'),
 );
@@ -165,7 +218,7 @@ $config['host_ssl'] = array(
  */
 $config['log'] = array(
     'logLevel' => Monolog\Logger::INFO,
-    'log_propel_sql' => false, // File: data/logs/ZED/propel_sql.log
+    'log_propel_sql' => true, // File: data/logs/ZED/propel_sql.log
     'log_memcache_synchronize' => false, // File: data/logs/ZED/memcache_synchronize.log
 );
 
@@ -202,56 +255,71 @@ $config['password'] = [
  */
 $config['payone'] = array(
     'mode'       => 'test',
-    'mid'        => '24047',
-    'portalid'   => '2017184',
-    'key'        => '3AHSu99Q7Bi2H03n',
-    'aid'        => '24058',
+    'mid'        => '25735',
+    'portalid'   => '2018246',
+    'key'        => 'dFWR8GlNG8aonscn',
+    'aid'        => '25811',
     'encoding'   => 'UTF-8',
     'currency'   => 'EUR',
     'gatewayurl' => 'https://api.pay1.de/post-gateway/',
 );
 
+// TODO remove - from Migusta
+//$config['payone'] = array(
+//    'mode'       => 'test',
+//    'mid'        => '24047',
+//    'portalid'   => '2017184',
+//    'key'        => '3AHSu99Q7Bi2H03n',
+//    'aid'        => '24058',
+//    'encoding'   => 'UTF-8',
+//    'currency'   => 'EUR',
+//    'gatewayurl' => 'https://api.pay1.de/post-gateway/',
+//);
 
 /**
- * Configuration for Payone
- * Pay Attention to NOT use characters which are
- * not defined in ASCII
- *
- * STORE
+ * @todo REMOVE ME LATER
  */
-$config['adyen_test']['merchant_user'] = 'ws@Company.SaatchiOnline';
-$config['adyen_test']['merchant_password'] = "M>35^t&DZ7IH{as}4xD[*&A%d";
-$config['adyen_test']['merchant_account'] = 'SaatchiOnlineUS';
-$config['adyen_test']['currency'] = 'USD';
-$config['adyen_test']['skin_code'] = 'SbbWtMjR';
-$config['adyen_test']['hmac_shared_secret_key'] = 'skdlfjs7w9sls44da';
-$config['adyen_test']['hpp_url'] = 'https://test.adyen.com/hpp/details.shtml';
-
-$config['adyen']['merchant_user'] = 'ws@Company.SaatchiOnline';
-$config['adyen']['merchant_password'] = "M>35^t&DZ7IH{as}4xD[*&A%d";
-$config['adyen']['merchant_account'] = 'SaatchiOnlineUS';
-$config['adyen']['currency'] = 'USD';
-$config['adyen']['skin_code'] = 'SbbWtMjR';
-$config['adyen']['hmac_shared_secret_key'] = 'skdlfjs7w9sls44da';
-$config['adyen']['hpp_url'] = 'https://test.adyen.com/hpp/details.shtml';
-
-$config['adyen_test']['development']['notification_raw_data_log_url']
-    = 'http://yves.dev.saatchionline.com/data/static/US/payment/notification/';
-
-$config['adyen']['development']['notification_raw_data_log_url']
-    = 'http://yves.dev.saatchionline.com/data/static/US/payment/notification/';
-
-
+//
+///**
+// * Configuration for Payone
+// * Pay Attention to NOT use characters which are
+// * not defined in ASCII
+// *
+// * STORE
+// */
+//$config['adyen_test']['merchant_user'] = 'ws@Company.SaatchiOnline';
+//$config['adyen_test']['merchant_password'] = "M>35^t&DZ7IH{as}4xD[*&A%d";
+//$config['adyen_test']['merchant_account'] = 'SaatchiOnlineUS';
+//$config['adyen_test']['currency'] = 'USD';
+//$config['adyen_test']['skin_code'] = 'SbbWtMjR';
+//$config['adyen_test']['hmac_shared_secret_key'] = 'skdlfjs7w9sls44da';
+//$config['adyen_test']['hpp_url'] = 'https://test.adyen.com/hpp/details.shtml';
+//
+//$config['adyen']['merchant_user'] = 'ws@Company.SaatchiOnline';
+//$config['adyen']['merchant_password'] = "M>35^t&DZ7IH{as}4xD[*&A%d";
+//$config['adyen']['merchant_account'] = 'SaatchiOnlineUS';
+//$config['adyen']['currency'] = 'USD';
+//$config['adyen']['skin_code'] = 'SbbWtMjR';
+//$config['adyen']['hmac_shared_secret_key'] = 'skdlfjs7w9sls44da';
+//$config['adyen']['hpp_url'] = 'https://test.adyen.com/hpp/details.shtml';
+//
+//$config['adyen_test']['development']['notification_raw_data_log_url']
+//    = 'http://yves.dev.saatchionline.com/data/static/US/payment/notification/';
+//
+//$config['adyen']['development']['notification_raw_data_log_url']
+//    = 'http://yves.dev.saatchionline.com/data/static/US/payment/notification/';
+//
+//
 $config['stripe'] = [
     'currency' => 'EUR',
-    'secret_key' => 'sk_test_dRt838ewNa5C2SRC5l72wXuP',
-    'publishable_key' => 'pk_test_nO9nZ7qW8myNAJ4jWOHgeSSp',
+    'secret_key' => '',
+    'publishable_key' => '',
 ];
 
 $config['stripe_test'] = [
     'currency' => 'EUR',
-    'secret_key' => 'sk_test_dRt838ewNa5C2SRC5l72wXuP',
-    'publishable_key' => 'pk_test_nO9nZ7qW8myNAJ4jWOHgeSSp',
+    'secret_key' => '',
+    'publishable_key' => '',
 ];
 
 
@@ -267,7 +335,7 @@ $config['zed'] = [
 ];
 
 $config['yves'] = [
-    'theme'          => 'demoshop',
+    'theme' => 'demoshop',
     'trusted_proxies' => [],
     'ssl_enabled'    => false,
     'complete_ssl_enabled' => false,
@@ -282,51 +350,47 @@ $config['yves'] = [
     ],
 ];
 
-$config['ftp_proxy'] = array(
-    'lftp_binary' => '/usr/bin/lftp',
-);
+$config['kibana'] = [
+    'base_url' => '',
+];
 
-$config['activemq'] = array(
-    array(
-        'host' => 'localhost',
-        'port' => '61613',
-    ),
-    array(
-        'host' => 'localhost',
-        'port' => '61613',
-    ),
-);
+/**
+ * @todo REMOVE ME
+ */
+//$config['ftp_proxy'] = array(
+//    'lftp_binary' => '/usr/bin/lftp',
+//);
 
-$config['lumberjack'] = array(
+//$config['activemq'] = array(
+//    array(
+//        'host' => 'localhost',
+//        'port' => '61613',
+//    ),
+//    array(
+//        'host' => 'localhost',
+//        'port' => '61613',
+//    ),
+//);
+
+$config['lumberjack'] = [
     'enabled'              => false,
-    'destination'          => '/queue/lumberjack',
-    'properties'           => array(
-        'persistent' => 'true',
-    ),
-    'prefetch_size'        => 50,
-    'amount_of_frames'     => 50,
-    'amount_of_buckets'    => 5,
     'url'                  => '/lumberjack/elastic-search-proxy/',
     'mapping'              => 'mapping',
     'search'               => 'search',
     'proxy'                => true,
-    'username'             => null,
-    'password'             => null,
-    'timeout_seconds'      => 1,
-    'timeout_milliseconds' => 0,
-    'elasticsearch'        => array(
+    'elasticsearch'        => [
         'host'              => '',
         'port'              => '9200',
         'protocol'          => 'http',
-        'index'             => '',
+        'index'             => 'lumberjack',
         'type'              => '',
-    ),
-    'gui'                  => array(
+    ],
+    'gui'                  => [
         'requireJs'        => APPLICATION_VENDOR_DIR . '/project-a/lumberjack-package/src/ProjectA/Zed/Lumberjack/Module/View/gui/dist/require.js',
         'lumberjackMinJs'  => APPLICATION_VENDOR_DIR . '/project-a/lumberjack-package/src/ProjectA/Zed/Lumberjack/Module/View/gui/dist/lumberjack-min.js',
-    ),
+    ],
     // key name => length of sanitized string
-    'keys_to_sanitize'     => array(
+    'keys_to_sanitize'     => [
         'cc_cardholder' => 5,
         'cc_number' => 8,
         'cc_expiration_month' => 2,
@@ -335,16 +399,8 @@ $config['lumberjack'] = array(
         'cvc' => 3,
         'password' => 5,
         'pdf' => 5,
-    ),
-);
-
-$config['product_images_ftp_account'] = array(
-    'host'        => 'upload.saatchionline.com',
-    'username'    => 'production',
-    'password'    => 'prod44mate89',
-    'remote_path' => '/data/storage/production/static/US/upload/products/',
-    'protocol'    => 'sftp://'
-);
+    ],
+];
 
 $config['propel'] = array(
     'propel.project.dir'                      =>
@@ -400,7 +456,6 @@ $config['dwh'] = array(
 
     // the maximum number of jobs that can be run in parallel
     'maximum-number-parallel-import-jobs' => 4,
-
     // url to the cubes application
     'cubes-url'                           => 'http://localhost:8080',
 );
@@ -444,20 +499,20 @@ $config['glossary'] = array(
 );
 
 $config['mail'] = array(
-    'defaultReplyEmail'    => 'orders@saatchionline.com',
-    'viewOrderUrl'         => 'http://www.saatchionline.com/accounts/orders',
-    'availabilityCheckUrl' => 'http://www.saatchionline.com/artworkavailability',
-    'zedOrderViewUrl' => 'https://zed.saatchionline.com/sales/order-details/index/id/',
-    'operationsMailAddress' => 'support@saatchionline.com',
-    'accountingMailAddress' => 'accounting@saatchionline.com',
+    'defaultReplyEmail'    => 'orders@project-yz.com',
+    'viewOrderUrl'         => 'http://www.project-yz.com/accounts/orders',
+    'availabilityCheckUrl' => 'http://www.project-yz.com/artworkavailability',
+    'zedOrderViewUrl' => 'https://zed.project-yz.com/sales/order-details/index/id/',
+    'operationsMailAddress' => 'support@project-yz.com',
+    'accountingMailAddress' => 'accounting@project-yz.com',
     'cartAbandonedUnsubscribeSalt' => 'IAMTHEMOSTSECRETSALTOFALLTIMEREALLYTRUSTME',
     /**
      * fakeOrderData used in "GetUserInformation from Legacy" Command
      */
-    'overrideOrderData'    => array(
-        'email'     => 'dev@saatchionline.com',
+    'overrideOrderData' => array(
+        'email' => 'dev@project-yz.com',
         'firstname' => 'Jon',
-        'lastname'  => 'Doe'
+        'lastname' => 'Doe'
     )
 );
 
@@ -478,4 +533,47 @@ $config['invoice'] = [
 $config['customer'] = [
     'minutes_before_restore_password_invalid' => 60,
     'double_opt_in_registration' => false
+];
+
+$config['cloud'] = [
+    'enabled' => false,
+    'objectStorage' => [
+        'enabled' => false,
+        'providerName' => 'rackspace',
+        'dataContainers' => [
+            'defaultPrivateContainerName' => 'pyz-private',
+            'defaultPublicContainerName' => '',
+            'defaultPublicCdnContainerName' => 'pyz-cdn',
+            'defaultImagesContainerName' => 'pyz-private',
+        ],
+        'rackspace' => [
+            'username' => 'cloudfiles.contorion',
+            'apiKey' => 'e73a9eb8d9324e98bbf6552e8150ec9c',
+            'apiEndpoint' => 'https://lon.identity.api.rackspacecloud.com/v2.0/',
+            'storageService' => 'cloudFiles',
+            'location' => 'LON'
+        ],
+        'productImages' => [
+            'prefix' => 'productImages',
+            'deleteRemoteObjects' => true,
+        ],
+    ],
+    'cdn' => [
+        'enabled' => false,
+        'static_media' => [
+            'prefix' => 'media',
+            'http' => '',
+            'https' => '',
+        ],
+        'static_assets' => [
+            'prefix' => 'assets',
+            'http' => '',
+            'https' => '',
+        ],
+        'productImages' => [
+            'pathName' => '/images/products/',
+        ],
+        'deleteLocalProcessedImages' => false,
+        'deleteLocalOriginalImages' => false,
+    ]
 ];

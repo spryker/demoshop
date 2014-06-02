@@ -40,9 +40,6 @@ class TagCommander implements ProviderInterface
         $incrementId = $customerDataProvider->getIncrementId(false);
         $userLoggedIn = ($incrementId) ? 1 : 0;
 
-        $customerOrderCount = $customerDataProvider->getOrderCount(0);
-        $isNewCustomer = ($customerOrderCount > 1) ? 1 : 0;
-
         $pageType = ($pageType === PageTypeInterface::PAGE_TYPE_STATIC) ? ltrim($_SERVER['REQUEST_URI'], '/') : $pageType;
 
         /* @var $cartDataProvider CartDataProvider */
@@ -92,7 +89,6 @@ class TagCommander implements ProviderInterface
             . 'tc_vars["order_ship_tf"] = "' . $cartDataProvider->getShippingWithoutTax() . '";' . PHP_EOL
             . 'tc_vars["order_amount_tf_without_sf"] = "' . $cartDataProvider->getGrandTotalWithoutTaxWithoutShipping() . '";' . PHP_EOL
             . 'tc_vars["order_amount_tf_with_sf"] = "' . $cartDataProvider->getGrandTotalWithoutTax() . '";' . PHP_EOL
-            . 'tc_vars["order_newcustomer"] = "' . $isNewCustomer . '";' . PHP_EOL
             . 'tc_vars["order_tax"] = "' . $cartDataProvider->getTax() . '";' . PHP_EOL
             . 'tc_vars["order_voucher_codes"] = "' . implode(', ', $order->getCouponCodes()) .'";' . PHP_EOL
             . 'tc_vars["order_currency"] = "' . \ProjectA_Shared_Library_Store::getInstance()->getCurrencyIsoCode() . '";' . PHP_EOL

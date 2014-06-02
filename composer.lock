@@ -4,7 +4,7 @@
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "f0038a250a8d85817a7ce6a336b2d10a",
+    "hash": "c463f19db57e77286062b2cedee818b2",
     "packages": [
         {
             "name": "cmutter/google-adwords-api",
@@ -606,56 +606,23 @@
             "time": "2013-08-12 00:28:49"
         },
         {
-            "name": "guzzle/guzzle",
-            "version": "v3.7.4",
+            "name": "guzzle/common",
+            "version": "v3.8.0",
+            "target-dir": "Guzzle/Common",
             "source": {
                 "type": "git",
-                "url": "https://github.com/guzzle/guzzle.git",
-                "reference": "b170b028c6bb5799640e46c8803015b0f9a45ed9"
+                "url": "https://github.com/guzzle/common.git",
+                "reference": "eb4e34cac1b18583f0ee74bf6a9dda96bd771a1e"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/guzzle/guzzle/zipball/b170b028c6bb5799640e46c8803015b0f9a45ed9",
-                "reference": "b170b028c6bb5799640e46c8803015b0f9a45ed9",
+                "url": "https://api.github.com/repos/guzzle/common/zipball/eb4e34cac1b18583f0ee74bf6a9dda96bd771a1e",
+                "reference": "eb4e34cac1b18583f0ee74bf6a9dda96bd771a1e",
                 "shasum": ""
             },
             "require": {
-                "ext-curl": "*",
-                "php": ">=5.3.3",
+                "php": ">=5.3.2",
                 "symfony/event-dispatcher": ">=2.1"
-            },
-            "replace": {
-                "guzzle/batch": "self.version",
-                "guzzle/cache": "self.version",
-                "guzzle/common": "self.version",
-                "guzzle/http": "self.version",
-                "guzzle/inflection": "self.version",
-                "guzzle/iterator": "self.version",
-                "guzzle/log": "self.version",
-                "guzzle/parser": "self.version",
-                "guzzle/plugin": "self.version",
-                "guzzle/plugin-async": "self.version",
-                "guzzle/plugin-backoff": "self.version",
-                "guzzle/plugin-cache": "self.version",
-                "guzzle/plugin-cookie": "self.version",
-                "guzzle/plugin-curlauth": "self.version",
-                "guzzle/plugin-error-response": "self.version",
-                "guzzle/plugin-history": "self.version",
-                "guzzle/plugin-log": "self.version",
-                "guzzle/plugin-md5": "self.version",
-                "guzzle/plugin-mock": "self.version",
-                "guzzle/plugin-oauth": "self.version",
-                "guzzle/service": "self.version",
-                "guzzle/stream": "self.version"
-            },
-            "require-dev": {
-                "doctrine/cache": "*",
-                "monolog/monolog": "1.*",
-                "phpunit/phpunit": "3.7.*",
-                "psr/log": "1.0.*",
-                "symfony/class-loader": "*",
-                "zendframework/zend-cache": "2.0.*",
-                "zendframework/zend-log": "2.0.*"
             },
             "type": "library",
             "extra": {
@@ -665,8 +632,56 @@
             },
             "autoload": {
                 "psr-0": {
-                    "Guzzle\\Tests": "tests/",
-                    "Guzzle": "src/"
+                    "Guzzle\\Common": ""
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "description": "Common libraries used by Guzzle",
+            "homepage": "http://guzzlephp.org/",
+            "keywords": [
+                "collection",
+                "common",
+                "event",
+                "exception"
+            ],
+            "time": "2013-12-05 23:39:20"
+        },
+        {
+            "name": "guzzle/http",
+            "version": "v3.8.0",
+            "target-dir": "Guzzle/Http",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/guzzle/http.git",
+                "reference": "b497e6b6a5a85751ae0c6858d677f7c4857dd171"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/guzzle/http/zipball/b497e6b6a5a85751ae0c6858d677f7c4857dd171",
+                "reference": "b497e6b6a5a85751ae0c6858d677f7c4857dd171",
+                "shasum": ""
+            },
+            "require": {
+                "guzzle/common": "self.version",
+                "guzzle/parser": "self.version",
+                "guzzle/stream": "self.version",
+                "php": ">=5.3.2"
+            },
+            "suggest": {
+                "ext-curl": "*"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "3.7-dev"
+                }
+            },
+            "autoload": {
+                "psr-0": {
+                    "Guzzle\\Http": ""
                 }
             },
             "notification-url": "https://packagist.org/downloads/",
@@ -678,24 +693,115 @@
                     "name": "Michael Dowling",
                     "email": "mtdowling@gmail.com",
                     "homepage": "https://github.com/mtdowling"
-                },
-                {
-                    "name": "Guzzle Community",
-                    "homepage": "https://github.com/guzzle/guzzle/contributors"
                 }
             ],
-            "description": "Guzzle is a PHP HTTP client library and framework for building RESTful web service clients",
+            "description": "HTTP libraries used by Guzzle",
             "homepage": "http://guzzlephp.org/",
             "keywords": [
+                "Guzzle",
                 "client",
                 "curl",
-                "framework",
                 "http",
-                "http client",
-                "rest",
-                "web service"
+                "http client"
             ],
-            "time": "2013-10-02 20:47:00"
+            "time": "2013-12-04 22:21:25"
+        },
+        {
+            "name": "guzzle/parser",
+            "version": "v3.8.0",
+            "target-dir": "Guzzle/Parser",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/guzzle/parser.git",
+                "reference": "77cae6425bc3466e1e47bdf6d2eebc15a092dbcc"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/guzzle/parser/zipball/77cae6425bc3466e1e47bdf6d2eebc15a092dbcc",
+                "reference": "77cae6425bc3466e1e47bdf6d2eebc15a092dbcc",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3.2"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "3.7-dev"
+                }
+            },
+            "autoload": {
+                "psr-0": {
+                    "Guzzle\\Parser": ""
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "description": "Interchangeable parsers used by Guzzle",
+            "homepage": "http://guzzlephp.org/",
+            "keywords": [
+                "URI Template",
+                "cookie",
+                "http",
+                "message",
+                "url"
+            ],
+            "time": "2013-10-24 00:04:09"
+        },
+        {
+            "name": "guzzle/stream",
+            "version": "v3.8.0",
+            "target-dir": "Guzzle/Stream",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/guzzle/stream.git",
+                "reference": "a86111d9ac7db31d65a053c825869409fe8fc83f"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/guzzle/stream/zipball/a86111d9ac7db31d65a053c825869409fe8fc83f",
+                "reference": "a86111d9ac7db31d65a053c825869409fe8fc83f",
+                "shasum": ""
+            },
+            "require": {
+                "guzzle/common": "self.version",
+                "php": ">=5.3.2"
+            },
+            "suggest": {
+                "guzzle/http": "To convert Guzzle request objects to PHP streams"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "3.7-dev"
+                }
+            },
+            "autoload": {
+                "psr-0": {
+                    "Guzzle\\Stream": ""
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Michael Dowling",
+                    "email": "mtdowling@gmail.com",
+                    "homepage": "https://github.com/mtdowling"
+                }
+            ],
+            "description": "Guzzle stream wrapper component",
+            "homepage": "http://guzzlephp.org/",
+            "keywords": [
+                "Guzzle",
+                "component",
+                "stream"
+            ],
+            "time": "2013-07-30 22:07:23"
         },
         {
             "name": "ircmaxell/password-compat",
@@ -805,51 +911,6 @@
             "time": "2014-04-24 13:29:03"
         },
         {
-            "name": "nervetattoo/elasticsearch",
-            "version": "v2.2.0",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/nervetattoo/elasticsearch.git",
-                "reference": "ed9244b341e0139a4278ac9bdf3cb63d57539dfb"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/nervetattoo/elasticsearch/zipball/ed9244b341e0139a4278ac9bdf3cb63d57539dfb",
-                "reference": "ed9244b341e0139a4278ac9bdf3cb63d57539dfb",
-                "shasum": ""
-            },
-            "require": {
-                "php": ">=5.3.0"
-            },
-            "require-dev": {
-                "atoum/atoum": "dev-master@dev"
-            },
-            "type": "library",
-            "autoload": {
-                "psr-0": {
-                    "ElasticSearch": "src/"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Raymond Julin",
-                    "email": "raymond.julin@gmail.com",
-                    "homepage": "http://raymondjulin.com"
-                }
-            ],
-            "description": "ElasticSearch client for PHP 5.3",
-            "homepage": "http://github.com/nervetattoo/elasticsearch",
-            "keywords": [
-                "client",
-                "elasticsearch"
-            ],
-            "time": "2013-01-09 08:25:52"
-        },
-        {
             "name": "phing/phing",
             "version": "2.6.1",
             "source": {
@@ -951,11 +1012,11 @@
         },
         {
             "name": "project-a/acl-package",
-            "version": "3.0.1",
+            "version": "3.0.2",
             "source": {
                 "type": "git",
                 "url": "git@codebasehq.com:project-a/core/acl.git",
-                "reference": "1d528110c9c07d4bb526e6968c3dbf7ba8bf6786"
+                "reference": "c520a6c8a12895bbd14f7a15efda0c42e4a74947"
             },
             "require": {
                 "php": ">=5.4.0",
@@ -984,15 +1045,15 @@
                 "login",
                 "usermanagement"
             ],
-            "time": "2014-02-07 13:16:29"
+            "time": "2014-05-28 09:44:16"
         },
         {
             "name": "project-a/cart-package",
-            "version": "3.1.0",
+            "version": "3.1.1",
             "source": {
                 "type": "git",
                 "url": "git@codebasehq.com:project-a/core/cart.git",
-                "reference": "98750b9187094edc61a7fc3458a4dad9fc5dbf62"
+                "reference": "42e797da231aef5f565c886e86d8b55d0fb450bf"
             },
             "require": {
                 "php": ">=5.4.0",
@@ -1023,7 +1084,7 @@
             "keywords": [
                 "Cart"
             ],
-            "time": "2014-03-06 11:32:48"
+            "time": "2014-06-02 09:07:00"
         },
         {
             "name": "project-a/catalog-package",
@@ -1031,7 +1092,7 @@
             "source": {
                 "type": "git",
                 "url": "git@codebasehq.com:project-a/core/catalog.git",
-                "reference": "923eede956a38f7d257dcb6b30f478a3c92e198c"
+                "reference": "927b42b6aa1a855c4ee5ebb55a8b9984a05263ba"
             },
             "require": {
                 "php": ">=5.4.0",
@@ -1070,7 +1131,7 @@
                 "Price",
                 "Stock"
             ],
-            "time": "2014-05-26 10:01:44"
+            "time": "2014-06-02 09:02:51"
         },
         {
             "name": "project-a/checkout-package",
@@ -1116,11 +1177,11 @@
         },
         {
             "name": "project-a/console-package",
-            "version": "3.1.2",
+            "version": "3.2.0",
             "source": {
                 "type": "git",
                 "url": "git@codebasehq.com:project-a/core/console.git",
-                "reference": "5ed7b86ae76ba7e4006b402f704235dfee4d03eb"
+                "reference": "a69652699784963ae18f854fa63823552e5fba59"
             },
             "require": {
                 "fabpot/php-cs-fixer": "dev-master",
@@ -1159,15 +1220,15 @@
             "keywords": [
                 "console"
             ],
-            "time": "2014-03-06 13:33:26"
+            "time": "2014-05-28 10:01:37"
         },
         {
             "name": "project-a/content-package",
-            "version": "3.0.1",
+            "version": "3.1.1",
             "source": {
                 "type": "git",
                 "url": "git@codebasehq.com:project-a/core/content.git",
-                "reference": "4b8a047b36db6927d94405b98fb902b26d36529b"
+                "reference": "29ab83fdc4c726a1d97433471f6403b44cf00658"
             },
             "require": {
                 "php": ">=5.4.0",
@@ -1175,8 +1236,7 @@
                 "project-a/catalog-package": "<4,>=3.0.8",
                 "project-a/frontend-package": "~3.0",
                 "project-a/glossary-package": "~3.0",
-                "project-a/library-package": "<4,>=3.2.2",
-                "project-a/lumberjack-package": "~3.0"
+                "project-a/library-package": "<4,>=3.2.2"
             },
             "type": "library",
             "autoload": {
@@ -1198,15 +1258,15 @@
             "keywords": [
                 "Content Package"
             ],
-            "time": "2014-03-10 10:33:01"
+            "time": "2014-05-30 09:29:32"
         },
         {
             "name": "project-a/crm-package",
-            "version": "3.1.1",
+            "version": "3.3.0",
             "source": {
                 "type": "git",
                 "url": "git@codebasehq.com:project-a/core/crm.git",
-                "reference": "7299acd899d8fee6d8f1a92947d661314b63d74c"
+                "reference": "c1fcfde273b40f2f2aef93ecda990cf3f9a27bb1"
             },
             "require": {
                 "php": ">=5.4.0",
@@ -1232,15 +1292,15 @@
                 "CRM",
                 "Mail"
             ],
-            "time": "2014-04-02 08:40:49"
+            "time": "2014-05-30 11:10:00"
         },
         {
             "name": "project-a/document-package",
-            "version": "3.0.1",
+            "version": "3.1.0",
             "source": {
                 "type": "git",
                 "url": "git@codebasehq.com:project-a/core/document.git",
-                "reference": "bf80e40ac5b4dbf802c495a063ba6dfc4b87ec77"
+                "reference": "15984bd2ff04ce84e22de729886f05b730b0de72"
             },
             "require": {
                 "php": ">=5.4.0",
@@ -1266,7 +1326,7 @@
                 "Document",
                 "Invoice"
             ],
-            "time": "2014-05-27 09:40:33"
+            "time": "2014-05-28 12:32:29"
         },
         {
             "name": "project-a/dwh-package",
@@ -1274,7 +1334,7 @@
             "source": {
                 "type": "git",
                 "url": "git@codebasehq.com:project-a/core/dwh.git",
-                "reference": "643e50149d9f86effd9102eeb965008dbeb05558"
+                "reference": "f791c14c1ea5ec98816f867374db0405d57b7ef2"
             },
             "require": {
                 "php": ">=5.4.0",
@@ -1311,15 +1371,15 @@
             "keywords": [
                 "Dwh"
             ],
-            "time": "2014-05-16 09:26:58"
+            "time": "2014-05-30 16:43:58"
         },
         {
             "name": "project-a/frontend-package",
-            "version": "3.0.0",
+            "version": "3.1.0",
             "source": {
                 "type": "git",
                 "url": "git@codebasehq.com:project-a/core/frontend.git",
-                "reference": "5632aed2c9ca742945885523df38463ed090bcbd"
+                "reference": "3b67015ea5b2b1f86991d7357232a5f9f4951b81"
             },
             "require": {
                 "php": ">=5.4.0",
@@ -1343,7 +1403,7 @@
             "keywords": [
                 "Frontend"
             ],
-            "time": "2014-01-29 12:06:15"
+            "time": "2014-05-28 13:34:29"
         },
         {
             "name": "project-a/glossary-package",
@@ -1382,11 +1442,11 @@
         },
         {
             "name": "project-a/infrastructure-package",
-            "version": "3.1.1",
+            "version": "3.2.0",
             "source": {
                 "type": "git",
                 "url": "git@codebasehq.com:project-a/core/infrastructure.git",
-                "reference": "b4b27d9103844f70df90590f5dad1297e8702518"
+                "reference": "6f20694e2eaeab19a817b91f6b3d8219366ecb95"
             },
             "require": {
                 "php": ">=5.4.0",
@@ -1415,7 +1475,7 @@
             "keywords": [
                 "infrastructure"
             ],
-            "time": "2014-03-06 09:43:31"
+            "time": "2014-05-28 12:59:23"
         },
         {
             "name": "project-a/kendo-package",
@@ -1438,21 +1498,20 @@
         },
         {
             "name": "project-a/library-package",
-            "version": "3.2.2",
+            "version": "3.3.0",
             "source": {
                 "type": "git",
                 "url": "git@codebasehq.com:project-a/core/library-2.git",
-                "reference": "48a0d003fd8a0516cca78c418314789674cf5216"
+                "reference": "552c053bf2725478c492a4623c645f70025afd6d"
             },
             "require": {
                 "digital-canvas/zend-framework": ">=1.12.2",
                 "doctrine/inflector": "~1.0.0",
                 "ext-mysqli": "*",
-                "guzzle/guzzle": "~3.7.0",
+                "guzzle/http": "~3.7, <= 3.8",
                 "ircmaxell/password-compat": "~1.0.0",
                 "monolog/monolog": "~1.7",
                 "project-a/acl-package": "~3.0",
-                "project-a/frontend-package": "~3.0",
                 "project-a/kendo-package": "~3.0",
                 "project-a/lumberjack-package": "~3.0",
                 "project-a/silex-routing": "~1.0.0",
@@ -1479,20 +1538,18 @@
                 }
             ],
             "description": "Project-A Library",
-            "time": "2014-03-07 13:28:30"
+            "time": "2014-06-02 09:09:39"
         },
         {
             "name": "project-a/lumberjack-package",
-            "version": "3.0.0",
+            "version": "3.1.0",
             "source": {
                 "type": "git",
                 "url": "git@codebasehq.com:project-a/core/lumberjack.git",
-                "reference": "495952007ce63ec95e5de935bbaa9fd6a1e18527"
+                "reference": "a14a2e0ef62b0cfde1a8fd9f3b2ae8edac865d10"
             },
             "require": {
-                "nervetattoo/elasticsearch": "~2.2.0",
-                "php": ">=5.4.0",
-                "ruflin/elastica": "~0.90.2"
+                "php": ">=5.4.0"
             },
             "type": "library",
             "autoload": {
@@ -1512,7 +1569,7 @@
             "keywords": [
                 ""
             ],
-            "time": "2014-01-29 12:06:15"
+            "time": "2014-05-30 10:20:38"
         },
         {
             "name": "project-a/marketing-package",
@@ -1568,11 +1625,11 @@
         },
         {
             "name": "project-a/payment-package",
-            "version": "3.1.0",
+            "version": "3.1.1",
             "source": {
                 "type": "git",
                 "url": "git@codebasehq.com:project-a/core/payment.git",
-                "reference": "7386b6485ee1c83d4c07ce073bfa879695e0e5ff"
+                "reference": "11399bd6e46f19755a3c5090729f043f52a14ab6"
             },
             "require": {
                 "php": ">=5.4.0"
@@ -1597,7 +1654,7 @@
                 "payment control",
                 "payment provider"
             ],
-            "time": "2014-02-10 09:54:06"
+            "time": "2014-05-30 09:53:06"
         },
         {
             "name": "project-a/payone-package",
@@ -1636,11 +1693,11 @@
         },
         {
             "name": "project-a/sales-package",
-            "version": "3.3.1",
+            "version": "3.4.1",
             "source": {
                 "type": "git",
                 "url": "git@codebasehq.com:project-a/core/sales.git",
-                "reference": "fb07816b85e4fea360834d18dec48bb29dc32e9c"
+                "reference": "931bd8b669e72d5047275f37c5f84e4cb0a017e2"
             },
             "require": {
                 "php": ">=5.4.0",
@@ -1674,7 +1731,7 @@
                 "Sales",
                 "Task"
             ],
-            "time": "2014-04-02 08:07:57"
+            "time": "2014-05-30 10:09:55"
         },
         {
             "name": "project-a/silex-routing",
@@ -1731,11 +1788,11 @@
         },
         {
             "name": "project-a/stripe-package",
-            "version": "3.1.0",
+            "version": "3.2.0",
             "source": {
                 "type": "git",
                 "url": "git@codebasehq.com:project-a/core/stripe.git",
-                "reference": "f202fe53089dfe6eab50843a50b49c479d6ad432"
+                "reference": "e974b468ca746054475aa8107def4947bcf12660"
             },
             "require": {
                 "php": ">=5.4.0",
@@ -1760,7 +1817,7 @@
             "keywords": [
                 "stripe payment provider"
             ],
-            "time": "2014-02-10 09:58:23"
+            "time": "2014-05-28 13:29:55"
         },
         {
             "name": "propel/propel1",
@@ -1864,56 +1921,61 @@
             "time": "2012-12-21 11:40:51"
         },
         {
-            "name": "ruflin/elastica",
-            "version": "v0.90.10.0",
+            "name": "rackspace/php-opencloud",
+            "version": "v1.9.2",
             "source": {
                 "type": "git",
-                "url": "https://github.com/ruflin/Elastica.git",
-                "reference": "bb03eb21b96ea88fc6fefb97a7b2c2d7708fdfe2"
+                "url": "https://github.com/rackspace/php-opencloud.git",
+                "reference": "6551de7aebcebb369d025662f99ab27c9b4527ac"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/ruflin/Elastica/zipball/bb03eb21b96ea88fc6fefb97a7b2c2d7708fdfe2",
-                "reference": "bb03eb21b96ea88fc6fefb97a7b2c2d7708fdfe2",
+                "url": "https://api.github.com/repos/rackspace/php-opencloud/zipball/6551de7aebcebb369d025662f99ab27c9b4527ac",
+                "reference": "6551de7aebcebb369d025662f99ab27c9b4527ac",
                 "shasum": ""
             },
             "require": {
+                "guzzle/http": "3.8.*@dev",
                 "php": ">=5.3.3"
             },
             "require-dev": {
-                "munkie/elasticsearch-thrift-php": "1.4.*",
-                "psr/log": "~1.0",
-                "satooshi/php-coveralls": "dev-master"
-            },
-            "suggest": {
-                "monolog/monolog": "Logging request",
-                "munkie/elasticsearch-thrift-php": "Allow using thrift transport",
-                "psr/log": "for logging"
+                "guzzle/guzzle": "dev-master",
+                "psr/log": "1.0.*",
+                "satooshi/php-coveralls": "0.6.*@dev"
             },
             "type": "library",
             "autoload": {
                 "psr-0": {
-                    "Elastica": "lib/",
-                    "Elastica\\Test": "test/lib/"
+                    "OpenCloud": [
+                        "lib/",
+                        "tests/"
+                    ]
                 }
             },
             "notification-url": "https://packagist.org/downloads/",
             "license": [
-                "Apache 2.0"
+                "MIT"
             ],
             "authors": [
                 {
-                    "name": "Nicolas Ruflin",
-                    "homepage": "http://ruflin.com/"
+                    "name": "Glen Campbell",
+                    "email": "glen.campbell@rackspace.com"
+                },
+                {
+                    "name": "Jamie Hannaford",
+                    "email": "jamie.hannaford@rackspace.com",
+                    "homepage": "https://github.com/jamiehannaford"
                 }
             ],
-            "description": "Elasticsearch Client",
-            "homepage": "http://elastica.io/",
+            "description": "PHP SDK for Rackspace/OpenStack APIs",
             "keywords": [
-                "client",
-                "search"
+                "Openstack",
+                "nova",
+                "opencloud",
+                "rackspace",
+                "swift"
             ],
-            "time": "2014-02-02 07:44:29"
+            "time": "2014-02-06 20:53:21"
         },
         {
             "name": "sebastian/diff",
@@ -2250,16 +2312,16 @@
         },
         {
             "name": "symfony/symfony",
-            "version": "v2.4.5",
+            "version": "v2.4.6",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/symfony.git",
-                "reference": "885b6d17447fcc3cd9c42622321e5af4283dbde1"
+                "reference": "ebf1be8a9217eb5911102a522eb2bd500923297d"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/symfony/zipball/885b6d17447fcc3cd9c42622321e5af4283dbde1",
-                "reference": "885b6d17447fcc3cd9c42622321e5af4283dbde1",
+                "url": "https://api.github.com/repos/symfony/symfony/zipball/ebf1be8a9217eb5911102a522eb2bd500923297d",
+                "reference": "ebf1be8a9217eb5911102a522eb2bd500923297d",
                 "shasum": ""
             },
             "require": {
@@ -2361,7 +2423,7 @@
             "keywords": [
                 "framework"
             ],
-            "time": "2014-05-22 21:04:05"
+            "time": "2014-05-31 18:42:13"
         },
         {
             "name": "twig/twig",

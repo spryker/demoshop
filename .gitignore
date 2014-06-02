@@ -34,3 +34,6 @@ Temporary Items
 # public stuff
 /static/public/Yves/*
 /static/public/Zed/*
+
+# vagrant stuff
+.vagrant

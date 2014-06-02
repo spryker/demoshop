@@ -3,5 +3,7 @@
  * This is the global runtime configuration for Yves and Generated_Yves_Zed in a production environment.
  */
 
-// DWH
-$config['dwh']['data-dir'] = '/data/storage/production/static/US/protected/dwh/';
+
+$config['cloud']['enabled'] = true;
+$config['cloud']['objectStorage']['enabled'] = true;
+$config['cloud']['cdn']['enabled'] = true;
