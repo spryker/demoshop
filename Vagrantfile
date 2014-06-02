@@ -32,7 +32,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
         vb.name = "PYZ Vagrant v.1.0.0"
         vb.customize [
             "modifyvm", :id,
-            "--memory", 4096,
+            "--memory", 8192,
             "--cpus", 2
         ]
     end
