@@ -4,7 +4,7 @@
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "c463f19db57e77286062b2cedee818b2",
+    "hash": "5029e2e1022e7001f8827cca10d69c1f",
     "packages": [
         {
             "name": "cmutter/google-adwords-api",
@@ -1334,7 +1334,7 @@
             "source": {
                 "type": "git",
                 "url": "git@codebasehq.com:project-a/core/dwh.git",
-                "reference": "f791c14c1ea5ec98816f867374db0405d57b7ef2"
+                "reference": "c6fd84796bd9137314f88f3f4b5da8cdc4186f68"
             },
             "require": {
                 "php": ">=5.4.0",
@@ -1371,7 +1371,7 @@
             "keywords": [
                 "Dwh"
             ],
-            "time": "2014-05-30 16:43:58"
+            "time": "2014-06-03 10:16:04"
         },
         {
             "name": "project-a/frontend-package",
@@ -1442,11 +1442,11 @@
         },
         {
             "name": "project-a/infrastructure-package",
-            "version": "3.2.0",
+            "version": "3.2.1",
             "source": {
                 "type": "git",
                 "url": "git@codebasehq.com:project-a/core/infrastructure.git",
-                "reference": "6f20694e2eaeab19a817b91f6b3d8219366ecb95"
+                "reference": "b5c5954aacd5bce41fcee1a1acf684eb9d7198a0"
             },
             "require": {
                 "php": ">=5.4.0",
@@ -1475,7 +1475,7 @@
             "keywords": [
                 "infrastructure"
             ],
-            "time": "2014-05-28 12:59:23"
+            "time": "2014-06-02 12:32:21"
         },
         {
             "name": "project-a/kendo-package",
