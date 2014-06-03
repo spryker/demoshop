@@ -37,3 +37,6 @@ Temporary Items
 
 # vagrant stuff
 .vagrant
+
+# npm
+npm-debug.log
