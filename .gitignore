@@ -10,6 +10,10 @@
 *.AppleDesktop
 Temporary Items
 .apdisk
+GPATH
+GRTAGS
+GTAGS
+
 
 # OS
 .DS_Store
@@ -19,6 +23,9 @@ Temporary Items
 /config/Zed/behat.local.yml
 /config/Zed/phpunit.core.xml
 /config/Zed/phpunit.xml
+/config/Shared/cubes.*
+/config/cubes.*
+config/accumulated-config.json
 
 /src/Generated
 /vendor/
@@ -38,5 +45,5 @@ Temporary Items
 # vagrant stuff
 .vagrant
 
-# npm
-npm-debug.log
+# profiling
+/profiler
