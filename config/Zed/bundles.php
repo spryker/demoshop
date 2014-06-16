@@ -44,6 +44,7 @@ return [
         'Mci' => $schemaAndNavigation,
         'Misc' => $schema,
         'Newsletter' => $schema,
+        'Oms' => $schema,
         'ProductImage' => $bootstrapAndSchema,
         'Payment' => $schemaAndNavigation,
         'Payone' => $schema,

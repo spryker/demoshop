@@ -4,7 +4,7 @@
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "5029e2e1022e7001f8827cca10d69c1f",
+    "hash": "4393d310f26f90426fd21b18b0eaa99d",
     "packages": [
         {
             "name": "cmutter/google-adwords-api",
@@ -903,15 +903,16 @@
         },
         {
             "name": "project-a/acl-package",
-            "version": "3.0.2",
+            "version": "4.0.0",
             "source": {
                 "type": "git",
                 "url": "git@codebasehq.com:project-a/core/acl.git",
-                "reference": "c520a6c8a12895bbd14f7a15efda0c42e4a74947"
+                "reference": "e925a8854724b1380d2b9ca17e8bcdcd71b34f3f"
             },
             "require": {
                 "php": ">=5.4.0",
-                "project-a/library-package": "~3.0"
+                "project-a/infrastructure-package": "~4.0",
+                "project-a/library-package": "~4.0"
             },
             "type": "library",
             "autoload": {
@@ -936,25 +937,22 @@
                 "login",
                 "usermanagement"
             ],
-            "time": "2014-05-28 09:44:16"
+            "time": "2014-06-11 09:48:24"
         },
         {
             "name": "project-a/cart-package",
-            "version": "3.1.1",
+            "version": "4.0.0",
             "source": {
                 "type": "git",
                 "url": "git@codebasehq.com:project-a/core/cart.git",
-                "reference": "42e797da231aef5f565c886e86d8b55d0fb450bf"
+                "reference": "36bd9f8e1457ee6fa25ab69ecafcc6230fa3609f"
             },
             "require": {
                 "php": ">=5.4.0",
-                "project-a/acl-package": "~3.0",
-                "project-a/catalog-package": "~3.0",
-                "project-a/checkout-package": "~3.0",
-                "project-a/crm-package": "~3.1",
-                "project-a/library-package": "~3.0",
-                "project-a/lumberjack-package": "~3.0",
-                "project-a/sales-package": "~3.0"
+                "project-a/catalog-package": "~4.0",
+                "project-a/checkout-package": "~4.0",
+                "project-a/library-package": "~4.0",
+                "project-a/sales-package": "~4.0"
             },
             "type": "library",
             "autoload": {
@@ -975,23 +973,23 @@
             "keywords": [
                 "Cart"
             ],
-            "time": "2014-06-02 09:07:00"
+            "time": "2014-06-13 07:03:54"
         },
         {
             "name": "project-a/catalog-package",
-            "version": "3.1.1",
+            "version": "dev-master",
             "source": {
                 "type": "git",
                 "url": "git@codebasehq.com:project-a/core/catalog.git",
-                "reference": "927b42b6aa1a855c4ee5ebb55a8b9984a05263ba"
+                "reference": "cefe5df4f8a656e83f649820c48cf2025d316884"
             },
             "require": {
                 "php": ">=5.4.0",
-                "project-a/acl-package": "~3.0",
-                "project-a/frontend-package": "~3.0",
-                "project-a/library-package": ">=3.1.1,<4",
-                "project-a/lumberjack-package": "~3.0",
-                "project-a/sales-package": "~3.3"
+                "project-a/acl-package": ">=3.0",
+                "project-a/frontend-package": ">=3.0",
+                "project-a/library-package": ">=3.0",
+                "project-a/lumberjack-package": ">=3.0",
+                "project-a/sales-package": ">=3.0"
             },
             "type": "library",
             "autoload": {
@@ -1022,26 +1020,27 @@
                 "Price",
                 "Stock"
             ],
-            "time": "2014-06-02 09:02:51"
+            "time": "2014-06-13 13:58:42"
         },
         {
             "name": "project-a/checkout-package",
-            "version": "3.1.3",
+            "version": "4.0.0",
             "source": {
                 "type": "git",
                 "url": "git@codebasehq.com:project-a/core/checkout.git",
-                "reference": "5ec7c154ede5a230696ca8d81c3770eebb886754"
+                "reference": "4b19e5a2e47d900adc2f81c345b53e6a3c652991"
             },
             "require": {
                 "gavroche/browser": "~2.1.0",
                 "php": ">=5.4.0",
-                "project-a/cart-package": "~3.0",
-                "project-a/catalog-package": "~3.0",
-                "project-a/crm-package": "~3.0",
-                "project-a/infrastructure-package": "~3.0",
-                "project-a/library-package": "~3.0",
-                "project-a/payment-package": "~3.1.0",
-                "project-a/sales-package": "~3.0"
+                "project-a/cart-package": "~4.0",
+                "project-a/catalog-package": "~4.0",
+                "project-a/crm-package": "~4.0",
+                "project-a/infrastructure-package": "~4.0",
+                "project-a/library-package": "~4.0",
+                "project-a/payment-package": "~4.0",
+                "project-a/payone-package": "~2.0",
+                "project-a/sales-package": "~4.0"
             },
             "type": "library",
             "autoload": {
@@ -1064,34 +1063,29 @@
                 "Checkout",
                 "Salesrule"
             ],
-            "time": "2014-02-21 14:31:40"
+            "time": "2014-06-12 12:28:21"
         },
         {
             "name": "project-a/console-package",
-            "version": "3.2.0",
+            "version": "4.0.0",
             "source": {
                 "type": "git",
                 "url": "git@codebasehq.com:project-a/core/console.git",
-                "reference": "a69652699784963ae18f854fa63823552e5fba59"
+                "reference": "dcf23607fab13c9922af39331e48b6b71fdda8b6"
             },
             "require": {
                 "fabpot/php-cs-fixer": "dev-master",
                 "php": ">=5.4.0",
-                "project-a/library-package": "~3.0",
-                "symfony/console": ">=2.3,<2.5-dev",
-                "symfony/filesystem": ">=2.3,<2.5-dev",
-                "symfony/finder": ">=2.3,<2.5-dev",
-                "symfony/process": ">=2.3,<2.5-dev"
+                "project-a/library-package": "~4.0",
+                "symfony/console": "~2.0",
+                "symfony/filesystem": "~2.0",
+                "symfony/finder": "~2.0",
+                "symfony/process": "~2.0"
             },
             "bin": [
                 "bin/console"
             ],
             "type": "library",
-            "extra": {
-                "branch-alias": {
-                    "dev-master": "2.1.x-dev"
-                }
-            },
             "autoload": {
                 "psr-0": {
                     "ProjectA": "src/",
@@ -1111,23 +1105,24 @@
             "keywords": [
                 "console"
             ],
-            "time": "2014-05-28 10:01:37"
+            "time": "2014-06-11 05:52:44"
         },
         {
             "name": "project-a/content-package",
-            "version": "3.1.1",
+            "version": "4.0.0",
             "source": {
                 "type": "git",
                 "url": "git@codebasehq.com:project-a/core/content.git",
-                "reference": "29ab83fdc4c726a1d97433471f6403b44cf00658"
+                "reference": "bd7cf6c9aabd87b583e62458666ed4ba86616e4e"
             },
             "require": {
                 "php": ">=5.4.0",
-                "project-a/acl-package": "~3.0",
-                "project-a/catalog-package": "<4,>=3.0.8",
-                "project-a/frontend-package": "~3.0",
+                "project-a/acl-package": "~4.0",
+                "project-a/catalog-package": "~4.0",
+                "project-a/crm-package": "~4.0",
+                "project-a/frontend-package": "~4.0",
                 "project-a/glossary-package": "~3.0",
-                "project-a/library-package": "<4,>=3.2.2"
+                "project-a/library-package": "~4.0"
             },
             "type": "library",
             "autoload": {
@@ -1149,20 +1144,27 @@
             "keywords": [
                 "Content Package"
             ],
-            "time": "2014-05-30 09:29:32"
+            "time": "2014-06-12 12:27:42"
         },
         {
             "name": "project-a/crm-package",
-            "version": "3.3.0",
+            "version": "4.0.0",
             "source": {
                 "type": "git",
                 "url": "git@codebasehq.com:project-a/core/crm.git",
-                "reference": "c1fcfde273b40f2f2aef93ecda990cf3f9a27bb1"
+                "reference": "6da01ad4984de43c299885046779aff9b660865e"
             },
             "require": {
                 "php": ">=5.4.0",
-                "project-a/infrastructure-package": "~3.0",
-                "project-a/library-package": "~3.0"
+                "project-a/acl-package": "~4.0",
+                "project-a/catalog-package": "~4.0",
+                "project-a/document-package": "~4.0",
+                "project-a/glossary-package": "~3.0",
+                "project-a/infrastructure-package": "~4.0",
+                "project-a/library-package": "~4.0",
+                "project-a/lumberjack-package": "~4.0",
+                "project-a/payment-package": "~4.0",
+                "project-a/sales-package": "~4.0"
             },
             "type": "library",
             "autoload": {
@@ -1183,20 +1185,21 @@
                 "CRM",
                 "Mail"
             ],
-            "time": "2014-05-30 11:10:00"
+            "time": "2014-06-12 12:28:59"
         },
         {
             "name": "project-a/document-package",
-            "version": "3.1.0",
+            "version": "4.0.0",
             "source": {
                 "type": "git",
                 "url": "git@codebasehq.com:project-a/core/document.git",
-                "reference": "15984bd2ff04ce84e22de729886f05b730b0de72"
+                "reference": "e09fc85f414c676f4896de2513b30dc684f46c51"
             },
             "require": {
                 "php": ">=5.4.0",
                 "project-a/glossary-package": "~3.0",
-                "project-a/library-package": "~3.0"
+                "project-a/library-package": "~4.0",
+                "project-a/sales-package": "~4.0"
             },
             "type": "library",
             "autoload": {
@@ -1217,7 +1220,7 @@
                 "Document",
                 "Invoice"
             ],
-            "time": "2014-05-28 12:32:29"
+            "time": "2014-06-12 12:29:25"
         },
         {
             "name": "project-a/dwh-package",
@@ -1225,12 +1228,12 @@
             "source": {
                 "type": "git",
                 "url": "git@codebasehq.com:project-a/core/dwh.git",
-                "reference": "d9ce62676fcaae79d5afdb4aa24346cbfbbb68a7"
+                "reference": "9b8517b62769fe9cd37694c15e09b42b42519903"
             },
             "require": {
                 "php": ">=5.4.0",
-                "project-a/acl-package": "~3.0",
-                "project-a/library-package": "~3.0"
+                "project-a/acl-package": ">3.0",
+                "project-a/library-package": ">3.0"
             },
             "type": "library",
             "autoload": {
@@ -1262,19 +1265,20 @@
             "keywords": [
                 "Dwh"
             ],
-            "time": "2014-06-04 12:18:00"
+            "time": "2014-06-13 08:14:39"
         },
         {
             "name": "project-a/frontend-package",
-            "version": "3.1.0",
+            "version": "4.0.0",
             "source": {
                 "type": "git",
                 "url": "git@codebasehq.com:project-a/core/frontend.git",
-                "reference": "3b67015ea5b2b1f86991d7357232a5f9f4951b81"
+                "reference": "67b5fb725486bb6915a91a47012bf98a52defe4a"
             },
             "require": {
                 "php": ">=5.4.0",
-                "project-a/library-package": "~3.0"
+                "project-a/acl-package": "~4.0",
+                "project-a/library-package": "~4.0"
             },
             "type": "library",
             "autoload": {
@@ -1294,20 +1298,20 @@
             "keywords": [
                 "Frontend"
             ],
-            "time": "2014-05-28 13:34:29"
+            "time": "2014-06-11 11:10:21"
         },
         {
             "name": "project-a/glossary-package",
-            "version": "3.0.2",
+            "version": "3.0.4",
             "source": {
                 "type": "git",
                 "url": "git@codebasehq.com:project-a/core/glossary.git",
-                "reference": "b8d946480916f87495e4a146d88538bb0add9226"
+                "reference": "01851cf20d7fe8923e00983cfd863cd1a486ff27"
             },
             "require": {
                 "php": ">=5.4.0",
-                "project-a/frontend-package": "~3.0",
-                "project-a/library-package": "~3.0",
+                "project-a/frontend-package": ">3.0",
+                "project-a/library-package": ">3.0",
                 "symfony/yaml": ">=2.3,<2.5-dev"
             },
             "type": "library",
@@ -1329,20 +1333,26 @@
                 "i18n",
                 "translation"
             ],
-            "time": "2014-03-04 12:50:20"
+            "time": "2014-06-13 11:49:11"
         },
         {
             "name": "project-a/infrastructure-package",
-            "version": "3.2.1",
+            "version": "4.0.0",
             "source": {
                 "type": "git",
                 "url": "git@codebasehq.com:project-a/core/infrastructure.git",
-                "reference": "b5c5954aacd5bce41fcee1a1acf684eb9d7198a0"
+                "reference": "bcee93e6712c54f6053d4dcad9dbc4f02cc6c199"
             },
             "require": {
                 "php": ">=5.4.0",
-                "project-a/library-package": "<4,>=3.2.1",
-                "project-a/lumberjack-package": "~3.0"
+                "project-a/acl-package": "~4.0",
+                "project-a/catalog-package": "~4.0",
+                "project-a/crm-package": "~4.0",
+                "project-a/frontend-package": "~4.0",
+                "project-a/library-package": "~4.0",
+                "project-a/lumberjack-package": "~4.0",
+                "project-a/payment-package": "~4.0",
+                "project-a/sales-package": "~4.0"
             },
             "suggest": {
                 "project-a/lumberjack-package": "Adds the Frontend for lumberjack"
@@ -1366,7 +1376,7 @@
             "keywords": [
                 "infrastructure"
             ],
-            "time": "2014-06-02 12:32:21"
+            "time": "2014-06-11 11:12:28"
         },
         {
             "name": "project-a/kendo-package",
@@ -1389,11 +1399,11 @@
         },
         {
             "name": "project-a/library-package",
-            "version": "3.3.0",
+            "version": "4.0.0",
             "source": {
                 "type": "git",
                 "url": "git@codebasehq.com:project-a/core/library-2.git",
-                "reference": "552c053bf2725478c492a4623c645f70025afd6d"
+                "reference": "41a0ab95603f8479cd9eeaf410d78aedb48b6237"
             },
             "require": {
                 "digital-canvas/zend-framework": ">=1.12.2",
@@ -1402,9 +1412,10 @@
                 "guzzle/http": "~3.7, <= 3.8",
                 "ircmaxell/password-compat": "~1.0.0",
                 "monolog/monolog": "~1.7",
-                "project-a/acl-package": "~3.0",
+                "project-a/acl-package": "~4.0",
+                "project-a/frontend-package": "~4.0",
                 "project-a/kendo-package": "~3.0",
-                "project-a/lumberjack-package": "~3.0",
+                "project-a/lumberjack-package": "~4.0",
                 "project-a/silex-routing": "~1.0.0",
                 "silex/silex": "~1.2.0",
                 "symfony/symfony": ">=2.4,<2.5-dev",
@@ -1429,15 +1440,15 @@
                 }
             ],
             "description": "Project-A Library",
-            "time": "2014-06-02 09:09:39"
+            "time": "2014-06-13 06:34:50"
         },
         {
             "name": "project-a/lumberjack-package",
-            "version": "3.1.0",
+            "version": "4.0.0",
             "source": {
                 "type": "git",
                 "url": "git@codebasehq.com:project-a/core/lumberjack.git",
-                "reference": "a14a2e0ef62b0cfde1a8fd9f3b2ae8edac865d10"
+                "reference": "4bce1d530e0a972455590760ae84920f42e34823"
             },
             "require": {
                 "php": ">=5.4.0"
@@ -1460,22 +1471,22 @@
             "keywords": [
                 ""
             ],
-            "time": "2014-05-30 10:20:38"
+            "time": "2014-06-11 11:14:13"
         },
         {
             "name": "project-a/marketing-package",
-            "version": "3.0.0",
+            "version": "dev-master",
             "source": {
                 "type": "git",
                 "url": "git@codebasehq.com:project-a/core/marketing.git",
-                "reference": "fc838b1ac5cb4972e9ffef1a5174b0459f038cc2"
+                "reference": "60350d7f044aa5f0e156c7cf4b58c43016dd3d06"
             },
             "require": {
                 "cmutter/google-adwords-api": "4.7.02",
                 "php": ">=5.4.0",
-                "project-a/acl-package": "~3.0",
-                "project-a/dwh-package": "~3.0",
-                "project-a/library-package": "~3.0"
+                "project-a/acl-package": ">3.0",
+                "project-a/dwh-package": ">3.0",
+                "project-a/library-package": ">3.0"
             },
             "type": "library",
             "extra": {
@@ -1512,18 +1523,20 @@
             "keywords": [
                 "Marketing"
             ],
-            "time": "2014-01-29 12:06:15"
+            "time": "2014-06-13 06:15:02"
         },
         {
             "name": "project-a/payment-package",
-            "version": "3.1.1",
+            "version": "4.0.0",
             "source": {
                 "type": "git",
                 "url": "git@codebasehq.com:project-a/core/payment.git",
-                "reference": "11399bd6e46f19755a3c5090729f043f52a14ab6"
+                "reference": "90d924dec2d2de0982bad1a0ccc41ca91f41774c"
             },
             "require": {
-                "php": ">=5.4.0"
+                "php": ">=5.4.0",
+                "project-a/library-package": "~4.0",
+                "project-a/sales-package": "~4.0"
             },
             "type": "library",
             "autoload": {
@@ -1545,22 +1558,23 @@
                 "payment control",
                 "payment provider"
             ],
-            "time": "2014-05-30 09:53:06"
+            "time": "2014-06-12 09:35:52"
         },
         {
             "name": "project-a/payone-package",
-            "version": "1.0.1",
+            "version": "2.0.0",
             "source": {
                 "type": "git",
                 "url": "git@codebasehq.com:project-a/core/payone.git",
-                "reference": "617a0a2f81224c0e46f142a55f626f62824f6cb3"
+                "reference": "b51658cac8818908e486a6d348bc59c2b514cb03"
             },
             "require": {
                 "php": ">=5.4.0",
-                "project-a/acl-package": "~3.0",
-                "project-a/library-package": "~3.0",
-                "project-a/payment-package": "~3.1.0",
-                "project-a/sales-package": "~3.0"
+                "project-a/acl-package": "~4.0",
+                "project-a/library-package": "~4.0",
+                "project-a/lumberjack-package": "~4.0",
+                "project-a/payment-package": "~4.0",
+                "project-a/sales-package": "~4.0"
             },
             "type": "library",
             "autoload": {
@@ -1580,27 +1594,27 @@
             "keywords": [
                 "payment,payment provider,payone"
             ],
-            "time": "2014-02-19 14:22:40"
+            "time": "2014-06-12 09:59:19"
         },
         {
             "name": "project-a/sales-package",
-            "version": "3.4.1",
+            "version": "4.0.0",
             "source": {
                 "type": "git",
                 "url": "git@codebasehq.com:project-a/core/sales.git",
-                "reference": "931bd8b669e72d5047275f37c5f84e4cb0a017e2"
+                "reference": "afc1ba55478f91b6aaa3bd0e764a7e9af50ea49a"
             },
             "require": {
                 "php": ">=5.4.0",
-                "project-a/acl-package": "~3.0",
-                "project-a/catalog-package": "~3.1",
-                "project-a/checkout-package": "~3.1",
-                "project-a/crm-package": "~3.1",
-                "project-a/document-package": "~3.0",
-                "project-a/infrastructure-package": "~3.1",
-                "project-a/library-package": ">=3.0.3,<4",
-                "project-a/lumberjack-package": "~3.0",
-                "project-a/payment-package": "~3.1"
+                "project-a/acl-package": "~4.0",
+                "project-a/catalog-package": "~4.0",
+                "project-a/checkout-package": "~4.0",
+                "project-a/crm-package": "~4.0",
+                "project-a/document-package": "~4.0",
+                "project-a/infrastructure-package": "~4.0",
+                "project-a/library-package": "~4.0",
+                "project-a/payment-package": "~4.0",
+                "project-a/payone-package": "~2.0"
             },
             "type": "library",
             "autoload": {
@@ -1622,7 +1636,7 @@
                 "Sales",
                 "Task"
             ],
-            "time": "2014-05-30 10:09:55"
+            "time": "2014-06-13 06:35:27"
         },
         {
             "name": "project-a/silex-routing",
@@ -1679,15 +1693,18 @@
         },
         {
             "name": "project-a/stripe-package",
-            "version": "3.2.0",
+            "version": "4.0.0",
             "source": {
                 "type": "git",
                 "url": "git@codebasehq.com:project-a/core/stripe.git",
-                "reference": "e974b468ca746054475aa8107def4947bcf12660"
+                "reference": "8cd3db96b8071e3edfc12a2aac99f1008abbeaf0"
             },
             "require": {
                 "php": ">=5.4.0",
-                "project-a/payment-package": "~3.1.0",
+                "project-a/library-package": "~4.0",
+                "project-a/lumberjack-package": "~4.0",
+                "project-a/payment-package": "~4.0",
+                "project-a/sales-package": "~4.0",
                 "stripe/stripe-php": "~1.9.0"
             },
             "type": "library",
@@ -1708,7 +1725,7 @@
             "keywords": [
                 "stripe payment provider"
             ],
-            "time": "2014-05-28 13:29:55"
+            "time": "2014-06-12 12:12:41"
         },
         {
             "name": "propel/propel1",
@@ -3125,6 +3142,42 @@
             "time": "2014-03-14 13:02:09"
         },
         {
+            "name": "facebook/xhprof",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/facebook/xhprof.git",
+                "reference": "0a7a5f69f5d762c34056164eb08dd13d41156015"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/facebook/xhprof/zipball/0a7a5f69f5d762c34056164eb08dd13d41156015",
+                "reference": "0a7a5f69f5d762c34056164eb08dd13d41156015",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.2.0"
+            },
+            "type": "library",
+            "autoload": {
+                "files": [
+                    "xhprof_lib/utils/xhprof_lib.php",
+                    "xhprof_lib/utils/xhprof_runs.php"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "Apache-2.0"
+            ],
+            "description": "XHProf: A Hierarchical Profiler for PHP",
+            "homepage": "http://pecl.php.net/package/xhprof",
+            "keywords": [
+                "performance",
+                "profiling"
+            ],
+            "time": "2014-04-22 20:02:16"
+        },
+        {
             "name": "instaclick/php-webdriver",
             "version": "1.0.17",
             "source": {
@@ -3749,17 +3802,32 @@
     ],
     "aliases": [
         {
+            "alias": "4.0.0",
+            "alias_normalized": "4.0.0.0",
+            "version": "9999999-dev",
+            "package": "project-a/catalog-package"
+        },
+        {
             "alias": "3.0.0",
             "alias_normalized": "3.0.0.0",
             "version": "9999999-dev",
             "package": "project-a/dwh-package"
+        },
+        {
+            "alias": "3.1.4",
+            "alias_normalized": "3.1.4.0",
+            "version": "9999999-dev",
+            "package": "project-a/marketing-package"
         }
     ],
     "minimum-stability": "stable",
     "stability-flags": {
+        "project-a/catalog-package": 20,
         "project-a/dwh-package": 20,
+        "project-a/marketing-package": 20,
         "zendframework/zendframework": 20,
-        "fabpot/php-cs-fixer": 20
+        "fabpot/php-cs-fixer": 20,
+        "facebook/xhprof": 20
     },
     "platform": [
 
