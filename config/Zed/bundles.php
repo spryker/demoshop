@@ -55,6 +55,7 @@ return [
         'Setup' => $navigation,
         'Stock' => $schema,
         'System' => $navigation,
+        'Tv' => $schemaAndNavigation,
         'Yves' => $schemaAndNavigation,
     ],
 ];

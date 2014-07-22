@@ -15,7 +15,7 @@
         "project-a/kendo-package": "3.0.0",
         "project-a/library-package": "4.1.5",
         "project-a/lumberjack-package": "4.0.0",
-        "project-a/marketing-package": "4.0.3",
+        "project-a/marketing-package": "dev-feature/add-tv-component as 4.1.0",
         "project-a/payment-package": "4.0.1",
         "project-a/payone-package": "2.0.1",
         "project-a/sales-package": "5.0.0",
