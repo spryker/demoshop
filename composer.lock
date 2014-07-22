@@ -4,7 +4,7 @@
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "4393d310f26f90426fd21b18b0eaa99d",
+    "hash": "df447e8abb8caac6be2fc19620c22cea",
     "packages": [
         {
             "name": "cmutter/google-adwords-api",
@@ -58,16 +58,16 @@
         },
         {
             "name": "digital-canvas/zend-framework",
-            "version": "1.12.3",
+            "version": "1.12.7",
             "source": {
                 "type": "git",
                 "url": "https://github.com/digital-canvas/zend-framework.git",
-                "reference": "6312474f3d5858a97c6c76013cafa2d85a1ca1f0"
+                "reference": "aa84de49b34f2755202f410b834fb19283177d7f"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/digital-canvas/zend-framework/zipball/6312474f3d5858a97c6c76013cafa2d85a1ca1f0",
-                "reference": "6312474f3d5858a97c6c76013cafa2d85a1ca1f0",
+                "url": "https://api.github.com/repos/digital-canvas/zend-framework/zipball/aa84de49b34f2755202f410b834fb19283177d7f",
+                "reference": "aa84de49b34f2755202f410b834fb19283177d7f",
                 "shasum": ""
             },
             "require": {
@@ -95,20 +95,20 @@
                 "zend",
                 "zf"
             ],
-            "time": "2013-03-28 19:36:02"
+            "time": "2014-07-07 23:14:21"
         },
         {
             "name": "doctrine/annotations",
-            "version": "v1.1.2",
+            "version": "v1.2.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/doctrine/annotations.git",
-                "reference": "40db0c96985aab2822edbc4848b3bd2429e02670"
+                "reference": "d9b1a37e9351ddde1f19f09a02e3d6ee92e82efd"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/doctrine/annotations/zipball/40db0c96985aab2822edbc4848b3bd2429e02670",
-                "reference": "40db0c96985aab2822edbc4848b3bd2429e02670",
+                "url": "https://api.github.com/repos/doctrine/annotations/zipball/d9b1a37e9351ddde1f19f09a02e3d6ee92e82efd",
+                "reference": "d9b1a37e9351ddde1f19f09a02e3d6ee92e82efd",
                 "shasum": ""
             },
             "require": {
@@ -116,12 +116,13 @@
                 "php": ">=5.3.2"
             },
             "require-dev": {
-                "doctrine/cache": "1.*"
+                "doctrine/cache": "1.*",
+                "phpunit/phpunit": "4.*"
             },
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "1.0.x-dev"
+                    "dev-master": "1.3.x-dev"
                 }
             },
             "autoload": {
@@ -167,7 +168,7 @@
                 "docblock",
                 "parser"
             ],
-            "time": "2013-06-16 21:33:03"
+            "time": "2014-07-06 15:52:21"
         },
         {
             "name": "doctrine/cache",
@@ -510,12 +511,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/fabpot/PHP-CS-Fixer.git",
-                "reference": "ef26ea9a069068b2687bc830c55e12fdde693541"
+                "reference": "b94cc3eaf35a1d83d6d39df4ea66e503e1cc99c1"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/fabpot/PHP-CS-Fixer/zipball/ef26ea9a069068b2687bc830c55e12fdde693541",
-                "reference": "ef26ea9a069068b2687bc830c55e12fdde693541",
+                "url": "https://api.github.com/repos/fabpot/PHP-CS-Fixer/zipball/b94cc3eaf35a1d83d6d39df4ea66e503e1cc99c1",
+                "reference": "b94cc3eaf35a1d83d6d39df4ea66e503e1cc99c1",
                 "shasum": ""
             },
             "require": {
@@ -531,7 +532,7 @@
             "type": "application",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "0.4.x-dev"
+                    "dev-master": "0.5.x-dev"
                 }
             },
             "autoload": {
@@ -552,7 +553,7 @@
                 }
             ],
             "description": "A script to automatically fix Symfony Coding Standard",
-            "time": "2014-04-30 07:13:38"
+            "time": "2014-07-17 13:35:09"
         },
         {
             "name": "gavroche/browser",
@@ -941,18 +942,18 @@
         },
         {
             "name": "project-a/cart-package",
-            "version": "4.0.0",
+            "version": "4.0.1",
             "source": {
                 "type": "git",
                 "url": "git@codebasehq.com:project-a/core/cart.git",
-                "reference": "36bd9f8e1457ee6fa25ab69ecafcc6230fa3609f"
+                "reference": "efd1df9b0f38d7664cc9383c0c9202a86e8f0890"
             },
             "require": {
                 "php": ">=5.4.0",
                 "project-a/catalog-package": "~4.0",
                 "project-a/checkout-package": "~4.0",
                 "project-a/library-package": "~4.0",
-                "project-a/sales-package": "~4.0"
+                "project-a/sales-package": ">=4.0"
             },
             "type": "library",
             "autoload": {
@@ -973,7 +974,7 @@
             "keywords": [
                 "Cart"
             ],
-            "time": "2014-06-13 07:03:54"
+            "time": "2014-07-02 14:40:07"
         },
         {
             "name": "project-a/catalog-package",
@@ -1024,23 +1025,23 @@
         },
         {
             "name": "project-a/checkout-package",
-            "version": "4.0.0",
+            "version": "4.0.1",
             "source": {
                 "type": "git",
                 "url": "git@codebasehq.com:project-a/core/checkout.git",
-                "reference": "4b19e5a2e47d900adc2f81c345b53e6a3c652991"
+                "reference": "51491f204d229a17dd6cff3889b83b292baefeb5"
             },
             "require": {
                 "gavroche/browser": "~2.1.0",
                 "php": ">=5.4.0",
                 "project-a/cart-package": "~4.0",
                 "project-a/catalog-package": "~4.0",
-                "project-a/crm-package": "~4.0",
+                "project-a/crm-package": ">=4.0",
                 "project-a/infrastructure-package": "~4.0",
                 "project-a/library-package": "~4.0",
                 "project-a/payment-package": "~4.0",
                 "project-a/payone-package": "~2.0",
-                "project-a/sales-package": "~4.0"
+                "project-a/sales-package": ">=4.0"
             },
             "type": "library",
             "autoload": {
@@ -1063,15 +1064,15 @@
                 "Checkout",
                 "Salesrule"
             ],
-            "time": "2014-06-12 12:28:21"
+            "time": "2014-07-02 14:48:25"
         },
         {
             "name": "project-a/console-package",
-            "version": "4.0.0",
+            "version": "4.1.3",
             "source": {
                 "type": "git",
                 "url": "git@codebasehq.com:project-a/core/console.git",
-                "reference": "dcf23607fab13c9922af39331e48b6b71fdda8b6"
+                "reference": "22178ccfddb8604ad6b069d26922d20cbdd7ea72"
             },
             "require": {
                 "fabpot/php-cs-fixer": "dev-master",
@@ -1105,21 +1106,21 @@
             "keywords": [
                 "console"
             ],
-            "time": "2014-06-11 05:52:44"
+            "time": "2014-07-22 08:53:59"
         },
         {
             "name": "project-a/content-package",
-            "version": "4.0.0",
+            "version": "4.0.2",
             "source": {
                 "type": "git",
                 "url": "git@codebasehq.com:project-a/core/content.git",
-                "reference": "bd7cf6c9aabd87b583e62458666ed4ba86616e4e"
+                "reference": "eb6cb2f9ba6adf5347f0934d041ea0acfef5474d"
             },
             "require": {
                 "php": ">=5.4.0",
                 "project-a/acl-package": "~4.0",
                 "project-a/catalog-package": "~4.0",
-                "project-a/crm-package": "~4.0",
+                "project-a/crm-package": ">=4.0",
                 "project-a/frontend-package": "~4.0",
                 "project-a/glossary-package": "~3.0",
                 "project-a/library-package": "~4.0"
@@ -1144,27 +1145,29 @@
             "keywords": [
                 "Content Package"
             ],
-            "time": "2014-06-12 12:27:42"
+            "time": "2014-07-22 08:24:01"
         },
         {
             "name": "project-a/crm-package",
-            "version": "4.0.0",
+            "version": "5.0.0",
             "source": {
                 "type": "git",
                 "url": "git@codebasehq.com:project-a/core/crm.git",
-                "reference": "6da01ad4984de43c299885046779aff9b660865e"
+                "reference": "b7702e18c2ec3ca7202c5cdc528125a695020502"
             },
             "require": {
                 "php": ">=5.4.0",
                 "project-a/acl-package": "~4.0",
+                "project-a/cart-package": "~4.0",
                 "project-a/catalog-package": "~4.0",
+                "project-a/checkout-package": "~4.0",
                 "project-a/document-package": "~4.0",
                 "project-a/glossary-package": "~3.0",
                 "project-a/infrastructure-package": "~4.0",
                 "project-a/library-package": "~4.0",
                 "project-a/lumberjack-package": "~4.0",
                 "project-a/payment-package": "~4.0",
-                "project-a/sales-package": "~4.0"
+                "project-a/sales-package": "~5.0"
             },
             "type": "library",
             "autoload": {
@@ -1174,32 +1177,34 @@
             },
             "authors": [
                 {
-                    "name": "",
-                    "email": "",
+                    "name": "Maik Freis",
+                    "email": "maik.freis@project-a.com",
                     "homepage": "http://www.project-a.com",
                     "role": ""
                 }
             ],
-            "description": "Customer Relation Management, Mail",
+            "description": "Customer Relation Management",
             "keywords": [
-                "CRM",
-                "Mail"
+                "crm",
+                "customer account",
+                "mail",
+                "newsletter"
             ],
-            "time": "2014-06-12 12:28:59"
+            "time": "2014-07-02 10:30:13"
         },
         {
             "name": "project-a/document-package",
-            "version": "4.0.0",
+            "version": "4.0.1",
             "source": {
                 "type": "git",
                 "url": "git@codebasehq.com:project-a/core/document.git",
-                "reference": "e09fc85f414c676f4896de2513b30dc684f46c51"
+                "reference": "6d96b38db5da5cfcec12dcc195f46f9ec8a26315"
             },
             "require": {
                 "php": ">=5.4.0",
                 "project-a/glossary-package": "~3.0",
                 "project-a/library-package": "~4.0",
-                "project-a/sales-package": "~4.0"
+                "project-a/sales-package": ">=4.0"
             },
             "type": "library",
             "autoload": {
@@ -1220,7 +1225,7 @@
                 "Document",
                 "Invoice"
             ],
-            "time": "2014-06-12 12:29:25"
+            "time": "2014-07-02 14:51:23"
         },
         {
             "name": "project-a/dwh-package",
@@ -1228,7 +1233,7 @@
             "source": {
                 "type": "git",
                 "url": "git@codebasehq.com:project-a/core/dwh.git",
-                "reference": "9b8517b62769fe9cd37694c15e09b42b42519903"
+                "reference": "6679e0ae73e2f64fcde2346fe14af075e14a03b9"
             },
             "require": {
                 "php": ">=5.4.0",
@@ -1265,7 +1270,7 @@
             "keywords": [
                 "Dwh"
             ],
-            "time": "2014-06-13 08:14:39"
+            "time": "2014-07-21 14:44:33"
         },
         {
             "name": "project-a/frontend-package",
@@ -1337,25 +1342,22 @@
         },
         {
             "name": "project-a/infrastructure-package",
-            "version": "4.0.0",
+            "version": "4.0.3",
             "source": {
                 "type": "git",
                 "url": "git@codebasehq.com:project-a/core/infrastructure.git",
-                "reference": "bcee93e6712c54f6053d4dcad9dbc4f02cc6c199"
+                "reference": "329e8871e336ce85307a3ecefebf46e603774ae7"
             },
             "require": {
                 "php": ">=5.4.0",
                 "project-a/acl-package": "~4.0",
-                "project-a/catalog-package": "~4.0",
-                "project-a/crm-package": "~4.0",
+                "project-a/crm-package": ">=4.0",
                 "project-a/frontend-package": "~4.0",
                 "project-a/library-package": "~4.0",
-                "project-a/lumberjack-package": "~4.0",
-                "project-a/payment-package": "~4.0",
-                "project-a/sales-package": "~4.0"
+                "project-a/sales-package": ">=4.0"
             },
             "suggest": {
-                "project-a/lumberjack-package": "Adds the Frontend for lumberjack"
+                "project-a/lumberjack-package": "~4.0"
             },
             "type": "library",
             "autoload": {
@@ -1364,19 +1366,11 @@
                     "PhpUnit": "/tests"
                 }
             },
-            "authors": [
-                {
-                    "name": "Fabian Wesner",
-                    "email": "fabian.wesner@project-a.com",
-                    "homepage": "http://www.project-a.com",
-                    "role": "CTO"
-                }
-            ],
             "description": "This package provides the base infrastructure for Y&Z.",
             "keywords": [
                 "infrastructure"
             ],
-            "time": "2014-06-11 11:12:28"
+            "time": "2014-07-02 14:54:53"
         },
         {
             "name": "project-a/kendo-package",
@@ -1399,11 +1393,11 @@
         },
         {
             "name": "project-a/library-package",
-            "version": "4.0.0",
+            "version": "4.1.5",
             "source": {
                 "type": "git",
                 "url": "git@codebasehq.com:project-a/core/library-2.git",
-                "reference": "41a0ab95603f8479cd9eeaf410d78aedb48b6237"
+                "reference": "21c37df34636ee26013608601d0aae8ff788bc88"
             },
             "require": {
                 "digital-canvas/zend-framework": ">=1.12.2",
@@ -1413,7 +1407,6 @@
                 "ircmaxell/password-compat": "~1.0.0",
                 "monolog/monolog": "~1.7",
                 "project-a/acl-package": "~4.0",
-                "project-a/frontend-package": "~4.0",
                 "project-a/kendo-package": "~3.0",
                 "project-a/lumberjack-package": "~4.0",
                 "project-a/silex-routing": "~1.0.0",
@@ -1421,6 +1414,7 @@
                 "symfony/symfony": ">=2.4,<2.5-dev",
                 "twig/twig": "~1.15.0",
                 "zendframework/zend-code": "~2.3.0",
+                "zendframework/zend-filter": "~2.3.0",
                 "zendframework/zendpdf": "~2.0.0"
             },
             "type": "library",
@@ -1431,16 +1425,8 @@
                     "PhpUnit": "tests/"
                 }
             },
-            "authors": [
-                {
-                    "name": "René Klatt",
-                    "email": "rene.klatt@project-a.com",
-                    "homepage": "http://www.project-a.com",
-                    "role": "Senior Developer"
-                }
-            ],
             "description": "Project-A Library",
-            "time": "2014-06-13 06:34:50"
+            "time": "2014-06-30 14:32:22"
         },
         {
             "name": "project-a/lumberjack-package",
@@ -1475,11 +1461,11 @@
         },
         {
             "name": "project-a/marketing-package",
-            "version": "dev-master",
+            "version": "4.0.3",
             "source": {
                 "type": "git",
                 "url": "git@codebasehq.com:project-a/core/marketing.git",
-                "reference": "60350d7f044aa5f0e156c7cf4b58c43016dd3d06"
+                "reference": "fa690b89f3acb6e46409bd22bf127f5b5b16f1d7"
             },
             "require": {
                 "cmutter/google-adwords-api": "4.7.02",
@@ -1523,20 +1509,20 @@
             "keywords": [
                 "Marketing"
             ],
-            "time": "2014-06-13 06:15:02"
+            "time": "2014-07-14 08:32:29"
         },
         {
             "name": "project-a/payment-package",
-            "version": "4.0.0",
+            "version": "4.0.1",
             "source": {
                 "type": "git",
                 "url": "git@codebasehq.com:project-a/core/payment.git",
-                "reference": "90d924dec2d2de0982bad1a0ccc41ca91f41774c"
+                "reference": "48719d9c650cddea08484d7d85f912dbeef0b0ec"
             },
             "require": {
                 "php": ">=5.4.0",
                 "project-a/library-package": "~4.0",
-                "project-a/sales-package": "~4.0"
+                "project-a/sales-package": ">=4.0"
             },
             "type": "library",
             "autoload": {
@@ -1558,15 +1544,15 @@
                 "payment control",
                 "payment provider"
             ],
-            "time": "2014-06-12 09:35:52"
+            "time": "2014-07-02 15:02:27"
         },
         {
             "name": "project-a/payone-package",
-            "version": "2.0.0",
+            "version": "2.0.1",
             "source": {
                 "type": "git",
                 "url": "git@codebasehq.com:project-a/core/payone.git",
-                "reference": "b51658cac8818908e486a6d348bc59c2b514cb03"
+                "reference": "5032e8ff28bd294a097de01be9948ce7154e7d4b"
             },
             "require": {
                 "php": ">=5.4.0",
@@ -1574,7 +1560,7 @@
                 "project-a/library-package": "~4.0",
                 "project-a/lumberjack-package": "~4.0",
                 "project-a/payment-package": "~4.0",
-                "project-a/sales-package": "~4.0"
+                "project-a/sales-package": ">=4.0"
             },
             "type": "library",
             "autoload": {
@@ -1594,27 +1580,26 @@
             "keywords": [
                 "payment,payment provider,payone"
             ],
-            "time": "2014-06-12 09:59:19"
+            "time": "2014-07-02 15:08:13"
         },
         {
             "name": "project-a/sales-package",
-            "version": "4.0.0",
+            "version": "5.0.0",
             "source": {
                 "type": "git",
                 "url": "git@codebasehq.com:project-a/core/sales.git",
-                "reference": "afc1ba55478f91b6aaa3bd0e764a7e9af50ea49a"
+                "reference": "c9d508082c65f9fdca6de25497d8130280da3ea2"
             },
             "require": {
                 "php": ">=5.4.0",
                 "project-a/acl-package": "~4.0",
                 "project-a/catalog-package": "~4.0",
                 "project-a/checkout-package": "~4.0",
-                "project-a/crm-package": "~4.0",
+                "project-a/crm-package": ">=4.0",
                 "project-a/document-package": "~4.0",
                 "project-a/infrastructure-package": "~4.0",
                 "project-a/library-package": "~4.0",
-                "project-a/payment-package": "~4.0",
-                "project-a/payone-package": "~2.0"
+                "project-a/payment-package": "~4.0"
             },
             "type": "library",
             "autoload": {
@@ -1636,7 +1621,7 @@
                 "Sales",
                 "Task"
             ],
-            "time": "2014-06-13 06:35:27"
+            "time": "2014-07-02 10:28:52"
         },
         {
             "name": "project-a/silex-routing",
@@ -1693,18 +1678,18 @@
         },
         {
             "name": "project-a/stripe-package",
-            "version": "4.0.0",
+            "version": "4.0.1",
             "source": {
                 "type": "git",
                 "url": "git@codebasehq.com:project-a/core/stripe.git",
-                "reference": "8cd3db96b8071e3edfc12a2aac99f1008abbeaf0"
+                "reference": "2ce07ec7299027bcffb488210c46dbf64667afc0"
             },
             "require": {
                 "php": ">=5.4.0",
                 "project-a/library-package": "~4.0",
                 "project-a/lumberjack-package": "~4.0",
                 "project-a/payment-package": "~4.0",
-                "project-a/sales-package": "~4.0",
+                "project-a/sales-package": ">=4.0",
                 "stripe/stripe-php": "~1.9.0"
             },
             "type": "library",
@@ -1725,7 +1710,7 @@
             "keywords": [
                 "stripe payment provider"
             ],
-            "time": "2014-06-12 12:12:41"
+            "time": "2014-07-02 15:10:35"
         },
         {
             "name": "propel/propel1",
@@ -2220,16 +2205,16 @@
         },
         {
             "name": "symfony/symfony",
-            "version": "v2.4.6",
+            "version": "v2.4.8",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/symfony.git",
-                "reference": "ebf1be8a9217eb5911102a522eb2bd500923297d"
+                "reference": "3da923989cce41c149c6f20b7723c052ac251b16"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/symfony/zipball/ebf1be8a9217eb5911102a522eb2bd500923297d",
-                "reference": "ebf1be8a9217eb5911102a522eb2bd500923297d",
+                "url": "https://api.github.com/repos/symfony/symfony/zipball/3da923989cce41c149c6f20b7723c052ac251b16",
+                "reference": "3da923989cce41c149c6f20b7723c052ac251b16",
                 "shasum": ""
             },
             "require": {
@@ -2237,7 +2222,7 @@
                 "php": ">=5.3.3",
                 "psr/log": "~1.0",
                 "symfony/icu": "~1.0",
-                "twig/twig": "~1.11"
+                "twig/twig": "~1.12"
             },
             "replace": {
                 "symfony/browser-kit": "self.version",
@@ -2331,7 +2316,7 @@
             "keywords": [
                 "framework"
             ],
-            "time": "2014-05-31 18:42:13"
+            "time": "2014-07-15 14:52:02"
         },
         {
             "name": "twig/twig",
@@ -3812,27 +3797,17 @@
             "alias_normalized": "3.0.0.0",
             "version": "9999999-dev",
             "package": "project-a/dwh-package"
-        },
-        {
-            "alias": "3.1.4",
-            "alias_normalized": "3.1.4.0",
-            "version": "9999999-dev",
-            "package": "project-a/marketing-package"
         }
     ],
     "minimum-stability": "stable",
     "stability-flags": {
         "project-a/catalog-package": 20,
         "project-a/dwh-package": 20,
-        "project-a/marketing-package": 20,
         "zendframework/zendframework": 20,
         "fabpot/php-cs-fixer": 20,
         "facebook/xhprof": 20
     },
-    "platform": [
-
-    ],
-    "platform-dev": [
-
-    ]
+    "prefer-stable": true,
+    "platform": [],
+    "platform-dev": []
 }
