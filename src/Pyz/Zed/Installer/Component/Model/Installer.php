@@ -71,7 +71,8 @@ class Installer extends \ProjectA_Zed_Installer_Component_Model_Installer implem
     {
         return [
             $this->facadeAcl->createInternalInstall(),
-            $this->facadeCatalog->createInternalInstall(),
+            // TODO: installer broken
+//            $this->facadeCatalog->createInternalInstall(),
             $this->facadeCategory->createInternalInstall(),
             $this->facadeCms->createInternalInstall(),
             $this->facadeCustomer->createInternalInstall(),

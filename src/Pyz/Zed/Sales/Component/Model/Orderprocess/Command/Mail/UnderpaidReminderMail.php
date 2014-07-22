@@ -2,6 +2,8 @@
 
 namespace Pyz\Zed\Sales\Component\Model\Orderprocess\Command\Mail;
 
+use ProjectA\Zed\Oms\Component\Command\CommandByOrderInterface;
+use ProjectA\Zed\Oms\Component\Model\Util\ReadOnlyArrayObject;
 use ProjectA\Zed\Sales\Component\Model\Orderprocess\Command\AbstractMail;
 use ProjectA\Zed\Payone\Component\Model\Zed\StateMachine\StateMachineConstants as PayoneStateMachineConstants;
 use Pyz\Zed\Mail\Component\Model\MailTypesConstantInterface;
@@ -14,16 +16,19 @@ use ProjectA\Shared\Library\Currency\CurrencyManager;
  */
 class UnderpaidReminderMail
     extends AbstractMail
-        implements \ProjectA_Zed_Sales_Component_Interface_OrderCommand
+        implements CommandByOrderInterface
 {
 
     /**
+     * @param array $orderItems
      * @param \ProjectA_Zed_Sales_Persistence_PacSalesOrder $orderEntity
-     * @param \ProjectA_Zed_Sales_Component_Interface_ContextCollection $context
+     * @param ReadOnlyArrayObject $data
+     * @return array|void
      */
-    public function __invoke(
+    public function run(
+        array $orderItems,
         \ProjectA_Zed_Sales_Persistence_PacSalesOrder $orderEntity,
-        \ProjectA_Zed_Sales_Component_Interface_ContextCollection $context
+        ReadOnlyArrayObject $data
     ) {
         $transactionStatusRequest = $context[PayoneStateMachineConstants::STATEMACHINE_CONTEXT_TRANSACTION_STATUS_REQUEST];
         $currencyManager = CurrencyManager::getInstance();
