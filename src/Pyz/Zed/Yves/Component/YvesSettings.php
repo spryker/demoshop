@@ -36,12 +36,12 @@ class YvesSettings extends ProjectAYvesSettings implements
      */
     public function getSolrExporters($exportIdentifier)
     {
-        return [
-            $this->facadeCatalog->createExporterSolrProductsWithoutElectronicsConfigExporter(),
-            $this->facadeCatalog->createExporterSolrProductsWithoutElectronicsSimpleExporter(),
-            $this->facadeCatalog->createExporterSolrProductsWithoutElectronicsSingleExporter(),
-            $this->facadeCatalog->createExporterSolrProductsWithoutElectronicsBundleExporter()
-        ];
+//        return [
+//            $this->facadeCatalog->createExporterSolrProductsWithoutElectronicsConfigExporter(),
+//            $this->facadeCatalog->createExporterSolrProductsWithoutElectronicsSimpleExporter(),
+//            $this->facadeCatalog->createExporterSolrProductsWithoutElectronicsSingleExporter(),
+//            $this->facadeCatalog->createExporterSolrProductsWithoutElectronicsBundleExporter()
+//        ];
     }
 
     /**
@@ -53,13 +53,13 @@ class YvesSettings extends ProjectAYvesSettings implements
         return [
             $this->facadeGlossary->createExporterKeyValueGlossaryExporter(),
 
-            $this->facadeCatalog->createExporterKeyValueProductsWithoutElectronicsConfigExporter(),
-            $this->facadeCatalog->createExporterKeyValueProductsWithoutElectronicsSimpleExporter(),
-            $this->facadeCatalog->createExporterKeyValueProductsWithoutElectronicsSingleExporter(),
-            $this->facadeCatalog->createExporterKeyValueProductsWithoutElectronicsBundleExporter(),
-
-            $this->facadeCatalog->createExporterKeyValueProductOptionsExporter(),
-            $this->facadeCategory->createExporterKeyValueCategoriesExporter(),
+//            $this->facadeCatalog->createExporterKeyValueProductsWithoutElectronicsConfigExporter(),
+//            $this->facadeCatalog->createExporterKeyValueProductsWithoutElectronicsSimpleExporter(),
+//            $this->facadeCatalog->createExporterKeyValueProductsWithoutElectronicsSingleExporter(),
+//            $this->facadeCatalog->createExporterKeyValueProductsWithoutElectronicsBundleExporter(),
+//
+//            $this->facadeCatalog->createExporterKeyValueProductOptionsExporter(),
+//            $this->facadeCategory->createExporterKeyValueCategoriesExporter(),
             $this->facadeCms->createExporterKeyValueCmsExporter(),
             $this->facadeCms->createExporterKeyValueRedirectionExporter(),
             $this->facadeMisc->createExporterKeyValueCountryExporter(),

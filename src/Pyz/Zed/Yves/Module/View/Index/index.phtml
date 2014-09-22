@@ -1,0 +1,73 @@
+<?php $items = $this->cacheItems['items'];
+if (!empty($items)) {
+    ?>
+    <div style="float: right;">
+
+        <table>
+            <tr>
+                <th>Slab-Id</th>
+                <th>Quantity</th>
+                <th>Age</th>
+            </tr>
+
+            <?php foreach ($this->cacheItems['items'] as $slabid => $item) { ?>
+                <tr>
+                    <td><a href="/yves/index/slab/slabid/<?php echo $slabid ?>"><?php echo $slabid ?></a></td>
+                    <td><?php echo $item['number'] ?></td>
+                    <td><?php echo $item['age'] ?></td>
+
+                </tr>
+
+            <?php } ?>
+
+
+        </table>
+        <a href="/yves/index/all-keys" class="small">Show all Keys</a>
+    </div>
+
+<?php } ?>
+
+<div class="row">
+    <div class="col-md-6">
+        <?php // KEY-VALUE-STORE ?>
+        <?php
+        if ($this->kvStorageEnging == 'Couchbase') {
+            $hosts = [];
+            foreach ($this->couchbaseClusterConfig as $host) {
+                $hosts[] = $host['host'] . ':' . $host['port'];
+            }
+
+            $footer = '<dl class="dl-horizontal dl-compact">';
+            $footer .= '<dt>Cluster configuration';
+            $footer .= '<dd>' . implode(', ', $hosts);
+            $footer .= '<dt>Last modified';
+            $footer .= '<dd>' . $this->keyValueLastModified;
+            $footer .= '<dt>Number of documents';
+            $footer .= '<dd>' . $this->keyValueNumDocs;
+            $footer .= '</dl>';
+        } else {
+            $footer = '<dl class="dl-horizontal dl-compact">';
+            $footer .= '<dt>Last modified';
+            $footer .= '<dd>' . $this->keyValueLastModified;
+            $footer .= '<dt>Number of documents';
+            $footer .= '<dd>' . $this->keyValueNumDocs;
+            $footer .= '</dl>';
+        }
+        ?>
+        <?= $this->panel(
+        // title
+            $this->kvStorageEnging,
+            // content
+            $this->listGroup([
+                '<a href="/yves/cronjob/key-value-full-import?' . \ProjectA_Zed_Library_Controller_Cronjob::GET_PARAM_REDIRECTION . '=/yves">Full Import</a> - Removes timestamp and then calls synchronize.',
+                '<a href="/yves/cronjob/key-value-synchronize?' . \ProjectA_Zed_Library_Controller_Cronjob::GET_PARAM_REDIRECTION . '=/yves">Synchronize</a> - Synchronizes memcache with ZED-database.',
+                '<a href="/yves/cronjob/key-value-delete-all">Delete all</a> - Deletes all items in Key Value Storage.'
+            ]),
+            // options
+            ['noWrap' => true],
+            // footer
+            $footer
+        ); ?>
+
+    </div>
+</div>
