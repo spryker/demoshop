@@ -1,7 +1,37 @@
 <?php
 
-$config['storage']['kv']['couchbase']['user'] = '';
-$config['storage']['kv']['couchbase']['password'] = 'mate33mgj';
+$config['storage'] = [
+    'kv' => [
+        //define the current used source and provide a setup
+        'source' => 'mysql',
+        'couchbase' => [
+            'hosts' => [
+                [
+                    'host' => '0.0.0.0',
+                    'port' => '8091'
+                ],
+            ],
+            'user' => '',
+            'password' => '',
+            'bucket' => '',
+            'timeout' => 100000,
+        ],
+        'memcached' => [
+            'host' => 'localhost',
+            'port' => '11211',
+            'prefix' => ''
+        ],
+        'mysql' => [
+            'host' => 'localhost',
+            'user' => 'shared-data',
+            'password' => 'mate20mg',
+            'database' => 'shared_data',
+            'port' => 3306,
+            'table' => 'development_kv'
+        ]
+    ],
+];
+
 
 $config['host'] = [
     'static_assets' => 'www-development.project-yz.com',

@@ -5,7 +5,6 @@ state_events: false
 # define the role of the vagrant box
 grains:
   roles:
-    - couchbase
     - app
     - web
     - cronjobs

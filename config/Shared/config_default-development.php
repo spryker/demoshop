@@ -46,11 +46,18 @@ $config['storage']['kv']['couchbase']['password'] = 'mate33mgj';
 $config['storage']['couchbase']['user'] = '';
 $config['storage']['couchbase']['password'] = 'mate33mgj';
 
-$config['zed']['session']['save_handler'] = 'couchbase';
-$config['zed']['session']['save_path'] = ':mate33mgj@localhost:8091';
+/** Session storage */
+$config['zed']['session']['save_handler'] = 'mysql';
+$config['zed']['session']['save_path'] = 'shared-data:mate20mg@localhost:3306';
 
-$config['yves']['session']['save_handler'] = 'couchbase';
+
 $config['yves']['session'] = $config['zed']['session'];
+
+//$config['zed']['session']['save_handler'] = 'couchbase';
+//$config['zed']['session']['save_path'] = ':mate33mgj@localhost:8091';
+//
+//$config['yves']['session']['save_handler'] = 'couchbase';
+//$config['yves']['session'] = $config['zed']['session'];
 
 $config['host'] = [
     'static_assets' => 'www-development.project-yz.de',

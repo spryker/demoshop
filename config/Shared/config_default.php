@@ -81,7 +81,7 @@ $config['db_dump'] = array(
 $config['storage'] = [
     'kv' => [
         //define the current used source and provide a setup
-        'source' => 'couchbase',
+        'source' => 'mysql',
         'couchbase' => [
             'hosts' => [
                 [
@@ -100,10 +100,12 @@ $config['storage'] = [
             'prefix' => ''
         ],
         'mysql' => [
-            'host' => 'localhost',
-            'user' => 'root',
+            'host' => '',
+            'user' => '',
             'password' => '',
-            'database' => 'kv_storage',
+            'database' => '',
+            'port' => '',
+            'table' => ''
         ]
     ],
     'solr' => [
@@ -415,9 +417,8 @@ $config['propel'] = array(
     'propel.database.encoding'                => 'utf8',
     'propel.mysql.tableType'                  => 'InnoDB',
     'propel.behavior.lumberjack.class'        => 'ProjectA_Zed_Lumberjack_Component_Model_Behaviour_Lumberjack',
-    'propel.behavior.acl.class'               => 'ProjectA_Zed_Acl_Component_Model_Behaviour_Acl',
     'propel.behavior.changepaldefaults.class' => 'ProjectA_Zed_Library_Propel_Behavior_ChangePalDefaults',
-    'propel.behavior.default'                 => 'lumberjack, changepaldefaults, acl',
+    'propel.behavior.default'                 => 'lumberjack, changepaldefaults',
     'propel.builder.pluralizer.class'         => 'builder.util.StandardEnglishPluralizer',
     'propel.builder.object.class'             => 'ProjectA_Zed_Library_Propel_Builder_Om_PHP5ObjectBuilder',
     'propel.builder.peer.class'               => 'ProjectA_Zed_Library_Propel_Builder_Om_PHP5PeerBuilder',
