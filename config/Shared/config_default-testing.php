@@ -3,6 +3,8 @@
  * This is the global runtime configuration for Yves and Generated_Yves_Zed in a testing environment.
  */
 
+use ProjectA\Shared\System\SystemConfig;
+
 $config['zed'] = array(
     'ssl_enabled' => true
 );
@@ -30,4 +32,4 @@ $config['host_ssl'] = [
     'zed_api'       => 'zed-testing.project-yz.com',
 ];
 
-$config['log']['log_propel_sql'] = false;
+$config[SystemConfig::ZED_LOG_PROPEL_SQL] = false;

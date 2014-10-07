@@ -1,4 +1,6 @@
 <?php
+use ProjectA\Shared\System\SystemConfig;
+
 /**
  * This is the global runtime configuration for Yves and Zed.
  *
@@ -17,25 +19,25 @@
 /**
  * Global timezone used to for underlying data, timezones for presentation layer can be changed in stores configuration
  */
-$config['timezone'] = 'UTC';
+$config[\ProjectA\Shared\System\SystemConfig::PROJECT_TIMEZONE] = 'UTC';
 
-/**
- * Database-Connection
- *
- * STORE
- */
-$config['db'] = array(
-    'username' => '',
-    'password' => '',
-    'database' => '',
-    'host' => 'localhost',
-    'port' => 3306
-);
 
-/**
- * This tells the Generated_Zed_FactoryRepository Generator which Project Namespace should used
- */
-$config['projectNamespace'] = 'Pyz';
+$config[SystemConfig::ZED_MYSQL] = [
+    SystemConfig::ZED_MYSQL__USERNAME => '',
+    SystemConfig::ZED_MYSQL__PASSWORD => '',
+    SystemConfig::ZED_MYSQL__DATABASE => '',
+    SystemConfig::ZED_MYSQL__HOST => 'localhost',
+    SystemConfig::ZED_MYSQL__PORT => 3306,
+];
+
+$config[SystemConfig::PROJECT_NAMESPACE] = 'Pyz';
+
+$config[SystemConfig::REDIS_PARAMETER] = [
+    SystemConfig::REDIS_PARAMETER__SCHEME => 'tcp',
+    SystemConfig::REDIS_PARAMETER__HOST => '580a3b7944a84d53be497c5a5189affc.publb.rackspaceclouddb.com',
+    SystemConfig::REDIS_PARAMETER__PORT => '41219',
+    SystemConfig::REDIS_PARAMETER__PASSWORD => 'qYvshA7fz2jvXMyXU6u2d7GwWhEt4jd6DEkg'
+];
 
 /*
  * Select which code generators you want to be runnning on create factories
@@ -184,10 +186,10 @@ $config['storage']['elastic'] = [
  * GLOBAL
  */
 $config['jenkins'] = array(
-    'base_url'     => 'http://127.0.0.1:8081',
+    'base_url' => 'http://127.0.0.1:8081',
     'notify_email' => '',
     // TODO: change to NEW?  PalShared_Data::getLocalCommonPath('jenkins'),
-    'data_dir'     => APPLICATION_ROOT_DIR . '/data/jenkins', //PalShared_Data::getLocalCommonPath('jenkins'),
+    'data_dir' => APPLICATION_ROOT_DIR . '/data/jenkins', //PalShared_Data::getLocalCommonPath('jenkins'),
 );
 
 /**
@@ -196,21 +198,21 @@ $config['jenkins'] = array(
  * STORE
  */
 $config['host'] = array(
-    'yves'          => 'http://www-development.project-yz.com',
-    'zed_gui'       => 'http://zed-development.project-yz.com',
-    'zed_api'       => 'localhost:10101',
+    'yves' => 'http://www-development.project-yz.com',
+    'zed_gui' => 'http://zed-development.project-yz.com',
+    'zed_api' => 'localhost:10101',
 
     'static_assets' => '',
-    'static_media'  => '',
+    'static_media' => '',
 );
 
 $config['host_ssl'] = array(
-    'yves'          => 'https://www-development.project-yz.com',
-    'zed_gui'       => 'https://zed-development.project-yz.com',
-    'zed_api'       => 'localhost:10101',
+    'yves' => 'https://www-development.project-yz.com',
+    'zed_gui' => 'https://zed-development.project-yz.com',
+    'zed_api' => 'localhost:10101',
 
     'static_assets' => '',
-    'static_media'  => '',
+    'static_media' => '',
 );
 
 /**
@@ -220,9 +222,11 @@ $config['host_ssl'] = array(
  */
 $config['log'] = array(
     'logLevel' => Monolog\Logger::INFO,
-    'log_propel_sql' => true, // File: data/logs/ZED/propel_sql.log
+  //  'log_propel_sql' => true, // File: data/logs/ZED/propel_sql.log
     'log_memcache_synchronize' => false, // File: data/logs/ZED/memcache_synchronize.log
 );
+
+$config[SystemConfig::ZED_LOG_PROPEL_SQL] = true;
 
 /**
  * TODO move to Yves config
@@ -230,7 +234,7 @@ $config['log'] = array(
 $config['transfer'] = array(
     'username' => 'yves',
     'password' => 'o7&bg=Fz;nSslHBC',
-    'ssl'      => false,
+    'ssl' => false,
     'debug_session_forward_enabled' => false,
     'debug_session_name' => 'XDEBUG_SESSION'
 );
@@ -242,10 +246,8 @@ $config['transfer'] = array(
  * see https://github.com/ircmaxell/password_compat for options
  * After changing algorithm or options nothing needs to be done, passwords will rehash on demand
  */
-$config['password'] = [
-    'algorithm' => 1, //PASSWORD_BCRYPT, constant not yet there in yves, restore to constant when using php 5.5
-    'options'   => []
-];
+$config[SystemConfig::ZED_LIBRARY_PASSWORD_ALGORITHM] = PASSWORD_BCRYPT;
+$config[SystemConfig::ZED_LIBRARY_PASSWORD_OPTIONS] = [];
 
 
 /**
@@ -256,13 +258,13 @@ $config['password'] = [
  * STORE
  */
 $config['payone'] = array(
-    'mode'       => 'test',
-    'mid'        => '25735',
-    'portalid'   => '2018246',
-    'key'        => 'dFWR8GlNG8aonscn',
-    'aid'        => '25811',
-    'encoding'   => 'UTF-8',
-    'currency'   => 'EUR',
+    'mode' => 'test',
+    'mid' => '25735',
+    'portalid' => '2018246',
+    'key' => 'dFWR8GlNG8aonscn',
+    'aid' => '25811',
+    'encoding' => 'UTF-8',
+    'currency' => 'EUR',
     'gatewayurl' => 'https://api.pay1.de/post-gateway/',
 );
 
@@ -325,12 +327,11 @@ $config['stripe_test'] = [
 ];
 
 
+$config[SystemConfig::ZED_SESSION_SAVE_HANDLER] = null;
+$config[SystemConfig::ZED_SESSION_SAVE_PATH] = null;
+
 $config['zed'] = [
-    'session'      => [
-        'save_handler' => null,
-        'save_path'    => null,
-    ],
-    'ssl_enabled'  => true,
+    'ssl_enabled' => true,
     'ssl_excluded' => [
         'system/heartbeat',
     ],
@@ -339,15 +340,15 @@ $config['zed'] = [
 $config['yves'] = [
     'theme' => 'demoshop',
     'trusted_proxies' => [],
-    'ssl_enabled'    => false,
+    'ssl_enabled' => false,
     'complete_ssl_enabled' => false,
     'ssl_excluded' => [
         '/monitoring/heartbeat',
     ],
-    'session'     => [
-        'save_handler'  => null,
-        'save_path'     => null,
-        'name'          => null,
+    'session' => [
+        'save_handler' => null,
+        'save_path' => null,
+        'name' => null,
         'cookie_domain' => null,
     ],
 ];
@@ -375,24 +376,24 @@ $config['kibana'] = [
 //);
 
 $config['lumberjack'] = [
-    'enabled'              => false,
-    'url'                  => '/lumberjack/elastic-search-proxy/',
-    'mapping'              => 'mapping',
-    'search'               => 'search',
-    'proxy'                => true,
-    'elasticsearch'        => [
-        'host'              => '',
-        'port'              => '9200',
-        'protocol'          => 'http',
-        'index'             => 'lumberjack',
-        'type'              => '',
+    'enabled' => false,
+    'url' => '/lumberjack/elastic-search-proxy/',
+    'mapping' => 'mapping',
+    'search' => 'search',
+    'proxy' => true,
+    'elasticsearch' => [
+        'host' => '',
+        'port' => '9200',
+        'protocol' => 'http',
+        'index' => 'lumberjack',
+        'type' => '',
     ],
-    'gui'                  => [
-        'requireJs'        => APPLICATION_VENDOR_DIR . '/project-a/lumberjack-package/src/ProjectA/Zed/Lumberjack/Module/View/gui/dist/require.js',
-        'lumberjackMinJs'  => APPLICATION_VENDOR_DIR . '/project-a/lumberjack-package/src/ProjectA/Zed/Lumberjack/Module/View/gui/dist/lumberjack-min.js',
+    'gui' => [
+        'requireJs' => APPLICATION_VENDOR_DIR . '/project-a/lumberjack-package/src/ProjectA/Zed/Lumberjack/Module/View/gui/dist/require.js',
+        'lumberjackMinJs' => APPLICATION_VENDOR_DIR . '/project-a/lumberjack-package/src/ProjectA/Zed/Lumberjack/Module/View/gui/dist/lumberjack-min.js',
     ],
     // key name => length of sanitized string
-    'keys_to_sanitize'     => [
+    'keys_to_sanitize' => [
         'cc_cardholder' => 5,
         'cc_number' => 8,
         'cc_expiration_month' => 2,
@@ -405,103 +406,103 @@ $config['lumberjack'] = [
 ];
 
 $config['propel'] = array(
-    'propel.project.dir'                      =>
+    'propel.project.dir' =>
         APPLICATION_SOURCE_DIR . '/Generated/Zed/PropelGen/' . \ProjectA_Shared_Library_Store::getInstance()->getStoreName() . '/',
-    'propel.schema.dir'                       =>
+    'propel.schema.dir' =>
         APPLICATION_SOURCE_DIR . '/Generated/Zed/PropelGen/' . \ProjectA_Shared_Library_Store::getInstance()->getStoreName() . '/Schema',
-    'propel.php.dir'                          => APPLICATION_ROOT_DIR,
-    'propel.packageObjectModel'               => 'true',
-    'propel.project'                          => 'zed',
-    'propel.targetPackage'                    => 'Zed',
-    'propel.database'                         => 'mysql',
-    'propel.database.encoding'                => 'utf8',
-    'propel.mysql.tableType'                  => 'InnoDB',
-    'propel.behavior.lumberjack.class'        => 'ProjectA_Zed_Lumberjack_Component_Model_Behaviour_Lumberjack',
+    'propel.php.dir' => APPLICATION_ROOT_DIR,
+    'propel.packageObjectModel' => 'true',
+    'propel.project' => 'zed',
+    'propel.targetPackage' => 'Zed',
+    'propel.database' => 'mysql',
+    'propel.database.encoding' => 'utf8',
+    'propel.mysql.tableType' => 'InnoDB',
+    'propel.behavior.lumberjack.class' => 'ProjectA_Zed_Lumberjack_Component_Model_Behaviour_Lumberjack',
     'propel.behavior.changepaldefaults.class' => 'ProjectA_Zed_Library_Propel_Behavior_ChangePalDefaults',
-    'propel.behavior.default'                 => 'lumberjack, changepaldefaults',
-    'propel.builder.pluralizer.class'         => 'builder.util.StandardEnglishPluralizer',
-    'propel.builder.object.class'             => 'ProjectA_Zed_Library_Propel_Builder_Om_PHP5ObjectBuilder',
-    'propel.builder.peer.class'               => 'ProjectA_Zed_Library_Propel_Builder_Om_PHP5PeerBuilder',
-    'propel.builder.tablemap.class'           => 'ProjectA_Zed_Library_Propel_Builder_Map_PHP5TableMapBuilder',
-    'propel.builder.peerstub.class'           => 'ProjectA_Zed_Library_Propel_Builder_Om_PHP5PeerStubBuilder',
-    'propel.builder.objectstub.class'         => 'ProjectA_Zed_Library_Propel_Builder_Om_PHP5ObjectStubBuilder',
-    'propel.builder.query.class'              => 'ProjectA_Zed_Library_Propel_Builder_Om_PHP5QueryBuilder',
-    'propel.builder.querystub.class'          => 'ProjectA_Zed_Library_Propel_Builder_Om_PHP5QueryStubBuilder',
+    'propel.behavior.default' => 'lumberjack, changepaldefaults',
+    'propel.builder.pluralizer.class' => 'builder.util.StandardEnglishPluralizer',
+    'propel.builder.object.class' => 'ProjectA_Zed_Library_Propel_Builder_Om_PHP5ObjectBuilder',
+    'propel.builder.peer.class' => 'ProjectA_Zed_Library_Propel_Builder_Om_PHP5PeerBuilder',
+    'propel.builder.tablemap.class' => 'ProjectA_Zed_Library_Propel_Builder_Map_PHP5TableMapBuilder',
+    'propel.builder.peerstub.class' => 'ProjectA_Zed_Library_Propel_Builder_Om_PHP5PeerStubBuilder',
+    'propel.builder.objectstub.class' => 'ProjectA_Zed_Library_Propel_Builder_Om_PHP5ObjectStubBuilder',
+    'propel.builder.query.class' => 'ProjectA_Zed_Library_Propel_Builder_Om_PHP5QueryBuilder',
+    'propel.builder.querystub.class' => 'ProjectA_Zed_Library_Propel_Builder_Om_PHP5QueryStubBuilder',
 );
 
 $config['dwh'] = array(
-    'mysql-binary'                        => '/usr/bin/mysql',
-    'mysql-username'                      => '',
-    'mysql-password'                      => '',
-    'mysql-database'                      => '',
-    'mysql-host'                          => 'localhost',
+    'mysql-binary' => '/usr/bin/mysql',
+    'mysql-username' => '',
+    'mysql-password' => '',
+    'mysql-database' => '',
+    'mysql-host' => 'localhost',
 
-    'postgresql-binary'                   => '/usr/bin/psql',
-    'postgresql-username'                 => '',
-    'postgresql-database'                 => '',
-    'postgresql-host'                     => 'localhost',
+    'postgresql-binary' => '/usr/bin/psql',
+    'postgresql-username' => '',
+    'postgresql-database' => '',
+    'postgresql-host' => 'localhost',
 
     // where to find uploaded zips etc, same for all environments
-    'data-dir'                            => '/path/to/dwh/data',
+    'data-dir' => '/path/to/dwh/data',
 
     // a directory for keeping timestamp files, separate for each environment
-    'work-dir'                            => '/path/to/environment/dwh/work',
+    'work-dir' => '/path/to/environment/dwh/work',
 
     // a directory for keeping json data files to be used by others, separate for each environment
-    'export-dir'                          => '/path/to/environment/dwh/export',
+    'export-dir' => '/path/to/environment/dwh/export',
 
     // can be used on dev machines to limit the time range of data to be processed
     // (makes it faster). Both expressions must be castable to a TIMESTAMP
-    'import-min-time'                     => '1970-01-01',
-    'import-max-time'                     => 'now()',
+    'import-min-time' => '1970-01-01',
+    'import-max-time' => 'now()',
 
     // the maximum number of jobs that can be run in parallel
     'maximum-number-parallel-import-jobs' => 4,
     // url to the cubes application
-    'cubes-url'                           => 'http://localhost:8080',
+    'cubes-url' => 'http://localhost:8080',
 );
 
 $config['mcm'] = array(
-    'username_webtrekk'    => 'user',
-    'password_webtrekk'    => 'pass',
+    'username_webtrekk' => 'user',
+    'password_webtrekk' => 'pass',
     'tracking_id_webtrekk' => 'id'
 );
 
 $config['mail-chimp'] = array(
-    'api-key'           => '12345abcde', // the api key for the mail chimp api
+    'api-key' => '12345abcde', // the api key for the mail chimp api
     'import-start-date' => '2013-04-01' // the day from which on to track campaigns and lists
 );
 
 $config['adwords'] = array(
-    'email'           => 'foo@example.com',
-    'password'        => '123abc',
+    'email' => 'foo@example.com',
+    'password' => '123abc',
     'developer-token' => 'asdfghjkl',
-    'mcc-client-id'   => null
+    'mcc-client-id' => null
 
 );
 
 $config['glossary'] = array(
-    'broadcast'            => true,
-    'destination'          => '/queue/glossary',
-    'properties'           => array(
+    'broadcast' => true,
+    'destination' => '/queue/glossary',
+    'properties' => array(
         'persistent' => 'true',
     ),
-    'prefetch_size'        => 50,
-    'amount_of_frames'     => 50,
-    'amount_of_buckets'    => 1,
-    'url'                  => '',
-    'mapping'              => 'mapping',
-    'search'               => 'search',
-    'proxy'                => true,
-    'username'             => null,
-    'password'             => null,
-    'timeout_seconds'      => 1,
+    'prefetch_size' => 50,
+    'amount_of_frames' => 50,
+    'amount_of_buckets' => 1,
+    'url' => '',
+    'mapping' => 'mapping',
+    'search' => 'search',
+    'proxy' => true,
+    'username' => null,
+    'password' => null,
+    'timeout_seconds' => 1,
     'timeout_milliseconds' => 0,
 );
 
 $config['mail'] = array(
-    'defaultReplyEmail'    => 'orders@project-yz.com',
-    'viewOrderUrl'         => 'http://www.project-yz.com/accounts/orders',
+    'defaultReplyEmail' => 'orders@project-yz.com',
+    'viewOrderUrl' => 'http://www.project-yz.com/accounts/orders',
     'availabilityCheckUrl' => 'http://www.project-yz.com/artworkavailability',
     'zedOrderViewUrl' => 'https://zed.project-yz.com/sales/order-details/index/id/',
     'operationsMailAddress' => 'support@project-yz.com',

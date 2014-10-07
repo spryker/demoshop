@@ -4,21 +4,21 @@
         "project-a/cart-package": "4.0.1",
         "project-a/catalog-package": "dev-master as 4.0.0",
         "project-a/checkout-package": "4.0.1",
-        "project-a/content-package": "4.0.4",
-        "project-a/console-package": "4.2.0",
-        "project-a/crm-package": "5.0.1",
+        "project-a/content-package": "dev-cleanup/newconfig as 4.0.8",
+        "project-a/console-package": "dev-cleanup/newconfig as 4.2.1",
+        "project-a/crm-package": "dev-cleanup/newconfig as 5.0.4",
         "project-a/dwh-package": "5.0.2",
         "project-a/document-package": "4.0.1",
         "project-a/frontend-package": "4.0.1",
         "project-a/glossary-package": "3.0.4",
-        "project-a/infrastructure-package": "dev-feature/mysql-sessions as 4.2.1",
+        "project-a/infrastructure-package": "dev-cleanup/newconfig as 4.3.0", // includes mysqlsessions
         "project-a/kendo-package": "3.0.0",
-        "project-a/library-package": "dev-feature/mysql-sessions as 4.3.7",
-        "project-a/lumberjack-package": "4.0.0",
+        "project-a/library-package": "dev-cleanup/newconfig as 4.5.1", // includes mysqlsessions
+        "project-a/lumberjack-package": "dev-cleanup/newconfig as 4.1.1",
         "project-a/marketing-package": "4.1.0",
         "project-a/payment-package": "4.0.1",
         "project-a/payone-package": "2.0.3",
-        "project-a/sales-package": "5.0.2",
+        "project-a/sales-package": "dev-cleanup/newconfig as 5.0.4",
         "psr/log": "~1.0",
         "phing/phing": "~2.6.0",
         "propel/propel1": "1.7.0",
@@ -26,7 +26,8 @@
         "pimple/pimple": "1.1.*@dev",
         "zendesk/zendesk_api_client_php": "dev-master",
         "mandrill/mandrill": "dev-master",
-        "solarium/solarium": "~3.1.2"
+        "solarium/solarium": "~3.1.2",
+        "predis/predis": "v1.0.0"
     },
     "require-dev": {
         "silex/web-profiler": "~1.0.2",

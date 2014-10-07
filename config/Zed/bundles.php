@@ -1,4 +1,7 @@
 <?php
+use ProjectA\Shared\Library\ConfigNS;
+use ProjectA\Shared\System\SystemConfig;
+
 $allElements = [
     ProjectA\Shared\Library\Bundle\BundleConfig::ACTIVATE_BOOTSTRAP,
     ProjectA\Shared\Library\Bundle\BundleConfig::ACTIVATE_NAVIGATION,
@@ -22,7 +25,7 @@ $schema = [ProjectA\Shared\Library\Bundle\BundleConfig::ACTIVATE_SCHEMA];
 
 return [
     // Project bundles
-    \ProjectA_Shared_Library_Config::get('projectNamespace') => [],
+    ConfigNS::get(SystemConfig::PROJECT_NAMESPACE) => [],
     // Core bundles
     ProjectA\Shared\Library\Bundle\BundleConfig::NAMESPACE_CORE => [
         'Acl' => $schemaAndNavigation,

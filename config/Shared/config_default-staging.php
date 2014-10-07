@@ -4,8 +4,10 @@
  */
 
 
+use ProjectA\Shared\System\SystemConfig;
+
 $config['cloud']['enabled'] = true;
 $config['cloud']['objectStorage']['enabled'] = true;
 $config['cloud']['cdn']['enabled'] = true;
 
-$config['log']['log_propel_sql'] = false;
+$config[SystemConfig::ZED_LOG_PROPEL_SQL] = false;
