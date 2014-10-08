@@ -9,9 +9,7 @@ $config['zed'] = array(
     'ssl_enabled' => true
 );
 
-$config['yves'] = [
-    'ssl_enabled' => true,
-];
+$config['yves']['ssl_enabled'] = true;
 
 $config['lumberjack']['elasticsearch']['host'] = 'localhost';
 

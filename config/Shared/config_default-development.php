@@ -3,42 +3,18 @@
  * This is the global runtime configuration for Yves and Generated_Yves_Zed in a development environment.
  */
 
-$config['zed'] = [
-    'ssl_enabled' => false,
-];
+use ProjectA\Shared\System\SystemConfig;
 
-$config['yves'] = [
-    'ssl_enabled' => false,
-];
+$config['zed']['ssl_enabled'] = false;
 
-$config['db'] = [
-    'username' => 'development',
-    'password' => 'mate20mg',
-    'database' => 'DE_development_zed',
-    'host' => 'localhost',
-    'port' => 3306
-];
+$config['yves']['ssl_enabled'] = false;
 
-$config['lumberjack']['elasticsearch']['host'] = 'localhost';
+$config[SystemConfig::ZED_MYSQL][SystemConfig::ZED_MYSQL__USERNAME] = 'development';
+$config[SystemConfig::ZED_MYSQL][SystemConfig::ZED_MYSQL__PASSWORD] = 'mate20mg';
+$config[SystemConfig::ZED_MYSQL][SystemConfig::ZED_MYSQL__DATABASE] = 'DE_development_zed';
+$config[SystemConfig::ZED_MYSQL][SystemConfig::ZED_MYSQL__HOST] = 'localhost';
+$config[SystemConfig::ZED_MYSQL][SystemConfig::ZED_MYSQL__PORT] = 3306;
 
-$config['storage']['kv']['couchbase']['hosts'] = [
-    [
-        'host' => 'localhost',
-        'port' => '8091',
-    ]
-];
-
-$config['storage']['solr']['endpointGroups'] = [
-    'stores' => [
-        'DE',
-    ],
-];
-
-$config['storage']['solr']['endpoint'] = [
-    'DE' => [
-        'core' => 'DE'
-    ],
-];
 
 $config['storage']['kv']['couchbase']['user'] = '';
 $config['storage']['kv']['couchbase']['password'] = 'mate33mgj';
@@ -50,14 +26,9 @@ $config['storage']['couchbase']['password'] = 'mate33mgj';
 $config['zed']['session']['save_handler'] = 'mysql';
 $config['zed']['session']['save_path'] = 'shared-data:mate20mg@localhost:3306';
 
+$config['yves']['session']['save_handler'] = 'mysql';
+$config['yves']['session']['save_path'] = 'shared-data:mate20mg@localhost:3306';
 
-$config['yves']['session'] = $config['zed']['session'];
-
-//$config['zed']['session']['save_handler'] = 'couchbase';
-//$config['zed']['session']['save_path'] = ':mate33mgj@localhost:8091';
-//
-//$config['yves']['session']['save_handler'] = 'couchbase';
-//$config['yves']['session'] = $config['zed']['session'];
 
 $config['host'] = [
     'static_assets' => 'www-development.project-yz.de',
@@ -82,7 +53,6 @@ $config['kibana'] = [
 $config['jenkins'] = array(
     'base_url' => 'http://zed-development.project-yz.com:10007/jenkins',
     'notify_email' => '',
-    // TODO: change to NEW?  PalShared_Data::getLocalCommonPath('jenkins'),
     'data_dir' => APPLICATION_ROOT_DIR . '/data/jenkins', //PalShared_Data::getLocalCommonPath('jenkins'),
 );
 

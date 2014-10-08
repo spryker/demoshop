@@ -1,7 +1,7 @@
 {
     "require": {
         "project-a/acl-package": "5.0.0",
-        "project-a/cart-package": "4.0.1",
+        "project-a/cart-package": "dev-cleanup/newconfig as 4.0.1",
         "project-a/catalog-package": "dev-master as 4.0.0",
         "project-a/checkout-package": "4.0.1",
         "project-a/content-package": "dev-cleanup/newconfig as 4.0.8",
@@ -10,10 +10,10 @@
         "project-a/dwh-package": "5.0.2",
         "project-a/document-package": "4.0.1",
         "project-a/frontend-package": "4.0.1",
-        "project-a/glossary-package": "3.0.4",
-        "project-a/infrastructure-package": "dev-cleanup/newconfig as 4.3.0", // includes mysqlsessions
+        "project-a/glossary-package": "dev-cleanup/newconfig as 3.0.4",
+        "project-a/infrastructure-package": "dev-cleanup/newconfig as 4.3.0",
         "project-a/kendo-package": "3.0.0",
-        "project-a/library-package": "dev-cleanup/newconfig as 4.5.1", // includes mysqlsessions
+        "project-a/library-package": "dev-cleanup/newconfig as 4.5.1",
         "project-a/lumberjack-package": "dev-cleanup/newconfig as 4.1.1",
         "project-a/marketing-package": "4.1.0",
         "project-a/payment-package": "4.0.1",

@@ -19,7 +19,7 @@ use ProjectA\Shared\System\SystemConfig;
 /**
  * Global timezone used to for underlying data, timezones for presentation layer can be changed in stores configuration
  */
-$config[\ProjectA\Shared\System\SystemConfig::PROJECT_TIMEZONE] = 'UTC';
+$config[SystemConfig::PROJECT_TIMEZONE] = 'UTC';
 
 
 $config[SystemConfig::ZED_MYSQL] = [
