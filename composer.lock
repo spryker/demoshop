@@ -1436,7 +1436,7 @@
             "source": {
                 "type": "git",
                 "url": "git@codebasehq.com:project-a/core/library-2.git",
-                "reference": "02bb64ee024a188bf7c9c346ecbb2990d9c444e2"
+                "reference": "3de1c8416b8942cf381e263fe7bf516af1ecbf5c"
             },
             "require": {
                 "digital-canvas/zend-framework": ">=1.12.2",
@@ -1465,7 +1465,7 @@
                 }
             },
             "description": "Project-A Library",
-            "time": "2014-10-10 13:05:25"
+            "time": "2014-10-10 13:57:20"
         },
         {
             "name": "project-a/lumberjack-package",
