@@ -26,7 +26,8 @@
         "pimple/pimple": "1.1.*@dev",
         "zendesk/zendesk_api_client_php": "dev-master",
         "mandrill/mandrill": "dev-master",
-        "solarium/solarium": "~3.1.2"
+        "solarium/solarium": "~3.1.2",
+        "predis/predis": "1.0.0"
     },
     "require-dev": {
         "silex/web-profiler": "~1.0.2",

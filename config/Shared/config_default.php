@@ -106,6 +106,11 @@ $config['storage'] = [
             'database' => '',
             'port' => '',
             'table' => ''
+        ],
+        'redis' => [
+            'protocol' => '',
+            'host' => '',
+            'port' => '',
         ]
     ],
     'solr' => [

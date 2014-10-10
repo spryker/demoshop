@@ -40,15 +40,20 @@ $config['storage']['solr']['endpoint'] = [
     ],
 ];
 
-$config['storage']['kv']['couchbase']['user'] = '';
-$config['storage']['kv']['couchbase']['password'] = 'mate33mgj';
+//$config['storage']['kv']['couchbase']['user'] = '';
+//$config['storage']['kv']['couchbase']['password'] = 'mate33mgj';
+
+$config['storage']['kv']['source'] = 'redis';
+$config['storage']['kv']['redis']['protocol'] = 'tcp';
+$config['storage']['kv']['redis']['host'] = '10.10.0.66';
+$config['storage']['kv']['redis']['port'] = '6379';
 
 $config['storage']['couchbase']['user'] = '';
 $config['storage']['couchbase']['password'] = 'mate33mgj';
 
 /** Session storage */
-$config['zed']['session']['save_handler'] = 'mysql';
-$config['zed']['session']['save_path'] = 'shared-data:mate20mg@localhost:3306';
+$config['zed']['session']['save_handler'] = 'redis';
+$config['zed']['session']['save_path'] = 'tcp://10.10.0.66:6379';
 
 
 $config['yves']['session'] = $config['zed']['session'];
