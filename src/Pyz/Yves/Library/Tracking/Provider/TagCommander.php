@@ -21,7 +21,7 @@ class TagCommander implements ProviderInterface
      * @return mixed|string
      */
     public function getTrackingOutput(array $dataProvider, $pageType)
-    {
+    {return ''; // TODO hacked because of "Fatal error: Call to undefined method ProjectA\Yves\Cart\Component\Model\Tracking\CartDataProvider::getOrder() in /data/shop/development/current/src/Pyz/Yves/Library/Tracking/Provider/TagCommander.php on line 49"
         /* @var $customerDataProvider CustomerDataProvider */
         $customerDataProvider = $dataProvider[CustomerDataProvider::DATA_PROVIDER_NAME];
 

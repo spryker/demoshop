@@ -30,4 +30,4 @@ $config['host_ssl'] = [
     'zed_api'       => 'zed-testing.project-yz.com',
 ];
 
-$config[SystemConfig::ZED_LOG_PROPEL_SQL] = false;
+$config[SystemConfig::LOG_PROPEL_SQL] = false;

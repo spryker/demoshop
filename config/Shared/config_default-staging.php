@@ -10,4 +10,4 @@ $config['cloud']['enabled'] = true;
 $config['cloud']['objectStorage']['enabled'] = true;
 $config['cloud']['cdn']['enabled'] = true;
 
-$config[SystemConfig::ZED_LOG_PROPEL_SQL] = false;
+$config[SystemConfig::LOG_PROPEL_SQL] = false;

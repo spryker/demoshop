@@ -3,6 +3,8 @@
  * This is the global runtime configuration for Yves and Generated_Yves_Zed in a development environment.
  */
 
+use ProjectA\Shared\Mail\MailConfig;
+use ProjectA\Shared\Setup\SetupConfig;
 use ProjectA\Shared\System\SystemConfig;
 
 $config['zed']['ssl_enabled'] = false;
@@ -50,15 +52,9 @@ $config['kibana'] = [
     'base_url' => 'http://' . $config['host']['zed_gui'] .':9292',
 ];
 
-$config['jenkins'] = array(
-    'base_url' => 'http://zed-development.project-yz.com:10007/jenkins',
-    'notify_email' => '',
-    'data_dir' => APPLICATION_ROOT_DIR . '/data/jenkins', //PalShared_Data::getLocalCommonPath('jenkins'),
-);
+$config[SetupConfig::JENKINS_BASE_URL] = 'http://zed-development.project-yz.com:10007/jenkins';
 
-$config['mailcatcher'] = [
-    'gui' => 'http://zed-development.project-yz.com:1080/'
-];
+$config[MailConfig::MAILCATCHER_GUI] = 'http://zed-development.project-yz.com:1080/';
 
 $config['cloud']['enabled'] = false;
 $config['cloud']['objectStorage']['enabled'] = false;

@@ -1,7 +1,9 @@
 <?php
 namespace Pyz\Yves\Library\Tracking\DataProvider;
 
+use ProjectA\Shared\Library\ConfigNS;
 use ProjectA\Shared\Price\Code\PriceTypeConstants;
+use ProjectA\Shared\System\SystemConfig;
 use Pyz\Shared\Catalog\Code\ProductAttributeConstantInterface;
 use ProjectA\Shared\Library\Currency\CurrencyManager;
 use ProjectA\Yves\Library\Silex\Application;
@@ -133,7 +135,7 @@ class ProductDetailProvider extends AbstractDataProvider
         if (!$product) {
             return false;
         }
-        $baseUrl = \ProjectA_Shared_Library_Config::get('host')['yves'];
+        $baseUrl = ConfigNS::get(SystemConfig::HOST_YVES);
 
         return $baseUrl . $product[ProductAttributeConstantInterface::ATTRIBUTE_URL];
     }

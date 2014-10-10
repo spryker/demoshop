@@ -1,5 +1,15 @@
 <?php
+use ProjectA\Shared\Adwords\AdwordsConfig;
+use ProjectA\Shared\Customer\CustomerConfig;
+use ProjectA\Shared\DbDump\DbDumpConfig;
+use ProjectA\Shared\Glossary\GlossaryConfig;
+use ProjectA\Shared\MailChimp\MailChimpConfig;
+use ProjectA\Shared\Mcm\McmConfig;
+use ProjectA\Shared\Payone\PayoneConfig;
+use ProjectA\Shared\ProductImage\ProductImageConfig;
+use ProjectA\Shared\Setup\SetupConfig;
 use ProjectA\Shared\System\SystemConfig;
+use ProjectA\Shared\Yves\YvesConfig;
 
 /**
  * This is the global runtime configuration for Yves and Zed.
@@ -62,296 +72,169 @@ $config['search'] = [
     'number_of_facets' => 6
 ];
 
-$config['db_dump'] = array(
-    'username' => '',
-    'password' => '',
-    'database' => '',
-    'host' => 'localhost',
-    'mysqldump_bin' => '/usr/bin/mysqldump',
-    'mysql_bin' => '/usr/bin/mysql',
-);
+//$config['db_dump'] = array(
+//    'username' => '',
+//    'password' => '',
+//    'database' => '',
+//    'host' => 'localhost',
+//    'mysqldump_bin' => '/usr/bin/mysqldump',
+//    'mysql_bin' => '/usr/bin/mysql',
+//);
 
-/**
- * Connection to Storages
- *  - Key Value Storages
- *  - Solr
- *  - Couchbase
- *  - ...
- *
- *
- */
-$config['storage'] = [
-    'kv' => [
-        //define the current used source and provide a setup
-        'source' => 'mysql',
-        'couchbase' => [
-            'hosts' => [
-                [
-                    'host' => '0.0.0.0',
-                    'port' => '8091'
-                ],
-            ],
-            'user' => '',
-            'password' => '',
-            'bucket' => '',
-            'timeout' => 100000,
-        ],
-        'memcached' => [
-            'host' => 'localhost',
-            'port' => '11211',
-            'prefix' => ''
-        ],
-        'mysql' => [
-            'host' => '',
-            'user' => '',
-            'password' => '',
-            'database' => '',
-            'port' => '',
-            'table' => ''
-        ]
-    ],
-    'solr' => [
-        'config_dir' => APPLICATION_ROOT_DIR . '/config/Zed/solr',
-        'application_dir' => APPLICATION_VENDOR_DIR . '/project-a/infrastructure-package/bin/',
-        'data_dir' => APPLICATION_ROOT_DIR . '/data/common/solr',
-        // Used for reading
-        'defaultEndpointSetup' => [
-            'host' => 'localhost',
-            'port' => 10007,
-            'path' => '/solr'
-        ],
-        // Used for writing
-        'masterEndpointSetup' => [
-            'host' => 'localhost',
-            'port' => 10007,
-            'path' => '/solr'
-        ],
-        // Used for solr setup, always on localhost
-        'localEndpointSetup' => [
-            'host' => 'localhost',
-            'port' => 10007,
-            'path' => '/solr'
-        ],
-        'endpointGroups' => [
-            'stores' => [
-                'DE'
-            ],
-        ],
-        //! the defaultEndpointSetup will be merged to each endpoint during runtime
-        //  if you you want to change a specific endpoint, change its config here
-        'endpoint' => [
-            'DE' => [
-                'core' => 'DE'
-            ],
-            'META_DATA' => [
-                'core' => 'META_DATA',
-            ],
-            //necessary to setup cores etc.  - standard solr.xml will point to /cores
-            //! solr admin implementation will add /cores so this one needs to be empty
-            'ADMIN' => []
-        ]
-    ]
-];
+$config[DbDumpConfig::DB_DUMP_USERNAME] = '';
+$config[DbDumpConfig::DB_DUMP_PASSWORD] = '';
+$config[DbDumpConfig::DB_DUMP_DATABASE] = '';
+$config[DbDumpConfig::DB_DUMP_HOST] = 'localhost';
+$config[DbDumpConfig::DB_DUMP_MYSQLDUMP_BIN] = '/usr/bin/mysqldump';
+$config[DbDumpConfig::DB_DUMP_MYSQL_BIN] = '/usr/bin/mysql';
 
-$config['storage']['couchbase'] = [
+
+$config[SystemConfig::STORAGE_KV_SOURCE] = 'mysql';
+$config[SystemConfig::STORAGE_KV_COUCHBASE] = [
     'hosts' => [
         [
             'host' => '0.0.0.0',
             'port' => '8091'
         ],
     ],
-    'buckets' => [
-        'import_product_data' => 'import_product_data',
-        'eclass_migration' => 'eclass_migration',
-        'catalog' => 'catalog',
-    ],
     'user' => '',
     'password' => '',
     'bucket' => '',
     'timeout' => 100000,
 ];
-
-$config['storage']['elastic'] = [
-    'indexes' => [
-        'product_category_search' => 'product_category_search'
-    ],
-    'hosts' => [
-        ['host' => '0.0.0.0', 'port' => 9200]
-    ],
+$config[SystemConfig::STORAGE_KV_MEMCACHED] = [
+    'host' => 'localhost',
+    'port' => '11211',
+    'prefix' => ''
 ];
+$config[SystemConfig::STORAGE_KV_MYSQL] = [
+    'host' => '',
+    'user' => '',
+    'password' => '',
+    'database' => '',
+    'port' => '',
+    'table' => ''
+];
+//
+//$config['storage'] = [
+//    'kv' => [
+//        //define the current used source and provide a setup
+//        'source' => 'mysql',
+//        'couchbase' => [
+//            'hosts' => [
+//                [
+//                    'host' => '0.0.0.0',
+//                    'port' => '8091'
+//                ],
+//            ],
+//            'user' => '',
+//            'password' => '',
+//            'bucket' => '',
+//            'timeout' => 100000,
+//        ],
+//        'memcached' => [
+//            'host' => 'localhost',
+//            'port' => '11211',
+//            'prefix' => ''
+//        ],
+//        'mysql' => [
+//            'host' => '',
+//            'user' => '',
+//            'password' => '',
+//            'database' => '',
+//            'port' => '',
+//            'table' => ''
+//        ]
+//    ],
+//];
 
 /**
  * Connection to Jenkins
  *
  * GLOBAL
  */
-$config['jenkins'] = array(
-    'base_url' => 'http://127.0.0.1:8081',
-    'notify_email' => '',
-    // TODO: change to NEW?  PalShared_Data::getLocalCommonPath('jenkins'),
-    'data_dir' => APPLICATION_ROOT_DIR . '/data/jenkins', //PalShared_Data::getLocalCommonPath('jenkins'),
-);
+$config[SetupConfig::JENKINS_BASE_URL] = 'http://127.0.0.1:8081';
 
 /**
  * Hostnames of all applications
  *
  * STORE
  */
-$config['host'] = array(
-    'yves' => 'http://www-development.project-yz.com',
-    'zed_gui' => 'http://zed-development.project-yz.com',
-    'zed_api' => 'localhost:10101',
+//$config['host'] = array(
+//    'yves' => 'http://www-development.project-yz.com',
+//    'zed_gui' => 'http://zed-development.project-yz.com',
+//    'zed_api' => 'localhost:10101',
+//
+//    'static_assets' => '',
+//    'static_media' => '',
+//);
 
-    'static_assets' => '',
-    'static_media' => '',
-);
+$config[SystemConfig::HOST_YVES] = 'www-development.project-yz.de';
+$config[SystemConfig::HOST_ZED_GUI] = 'zed-development.project-yz.de';
+$config[SystemConfig::HOST_ZED_API] = 'zed-development.project-yz.de';
+$config[SystemConfig::HOST_STATIC_ASSETS] = 'www-development.project-yz.de';
+$config[SystemConfig::HOST_STATIC_MEDIA] = 'www-development.project-yz.de';
 
-$config['host_ssl'] = array(
-    'yves' => 'https://www-development.project-yz.com',
-    'zed_gui' => 'https://zed-development.project-yz.com',
-    'zed_api' => 'localhost:10101',
+//
+//$config['host_ssl'] = array(
+//    'yves' => 'https://www-development.project-yz.com',
+//    'zed_gui' => 'https://zed-development.project-yz.com',
+//    'zed_api' => 'localhost:10101',
+//
+//    'static_assets' => '',
+//    'static_media' => '',
+//);
+$config[SystemConfig::HOST_SSL_YVES] = 'www-development.project-yz.de';
+$config[SystemConfig::HOST_SSL_ZED_GUI] = 'zed-development.project-yz.de';
+$config[SystemConfig::HOST_SSL_ZED_API] = 'zed-development.project-yz.de';
+$config[SystemConfig::HOST_SSL_STATIC_ASSETS] = 'www-development.project-yz.de';
+$config[SystemConfig::HOST_SSL_STATIC_MEDIA] = 'www-development.project-yz.de';
 
-    'static_assets' => '',
-    'static_media' => '',
-);
+$config[SystemConfig::LOG_LEVEL] = Monolog\Logger::INFO;
+$config[SystemConfig::LOG_PROPEL_SQL] = true;
 
-/**
- * Activate logging
- *
- * GLOBAL
- */
-$config['log'] = array(
-    'logLevel' => Monolog\Logger::INFO,
-  //  'log_propel_sql' => true, // File: data/logs/ZED/propel_sql.log
-    'log_memcache_synchronize' => false, // File: data/logs/ZED/memcache_synchronize.log
-);
+//$config['transfer'] = array(
+//    'username' => 'yves',
+//    'password' => 'o7&bg=Fz;nSslHBC',
+//    'ssl' => false,
+//    'debug_session_forward_enabled' => false,
+//    'debug_session_name' => 'XDEBUG_SESSION'
+//);
 
-$config[SystemConfig::ZED_LOG_PROPEL_SQL] = true;
+$config[YvesConfig::TRANSFER_USERNAME] = 'yves';
+$config[YvesConfig::TRANSFER_PASSWORD] = 'o7&bg=Fz;nSslHBC';
+$config[YvesConfig::TRANSFER_SSL] = false;
+$config[YvesConfig::TRANSFER_DEBUG_SESSION_FORWARD_ENABLED] = false;
+$config[YvesConfig::TRANSFER_DEBUG_SESSION_NAME] = 'XDEBUG_SESSION';
 
-/**
- * TODO move to Yves config
- */
-$config['transfer'] = array(
-    'username' => 'yves',
-    'password' => 'o7&bg=Fz;nSslHBC',
-    'ssl' => false,
-    'debug_session_forward_enabled' => false,
-    'debug_session_name' => 'XDEBUG_SESSION'
-);
-
-/**
- * options for password hashing
- * algorithm needs to be changed if there is a more secure one
- * options can be adjusted if needed
- * see https://github.com/ircmaxell/password_compat for options
- * After changing algorithm or options nothing needs to be done, passwords will rehash on demand
- */
 $config[SystemConfig::ZED_LIBRARY_PASSWORD_ALGORITHM] = PASSWORD_BCRYPT;
 $config[SystemConfig::ZED_LIBRARY_PASSWORD_OPTIONS] = [];
 
-
-/**
- * Configuration for Payment
- * Pay Attention to NOT use characters which are
- * not defined in ASCII
- *
- * STORE
- */
-$config['payone'] = array(
-    'mode' => 'test',
-    'mid' => '25735',
-    'portalid' => '2018246',
-    'key' => 'dFWR8GlNG8aonscn',
-    'aid' => '25811',
-    'encoding' => 'UTF-8',
-    'currency' => 'EUR',
-    'gatewayurl' => 'https://api.pay1.de/post-gateway/',
-);
-
-// TODO remove - from Migusta
-//$config['payone'] = array(
-//    'mode'       => 'test',
-//    'mid'        => '24047',
-//    'portalid'   => '2017184',
-//    'key'        => '3AHSu99Q7Bi2H03n',
-//    'aid'        => '24058',
-//    'encoding'   => 'UTF-8',
-//    'currency'   => 'EUR',
-//    'gatewayurl' => 'https://api.pay1.de/post-gateway/',
-//);
-
-/**
- * @todo REMOVE ME LATER
- */
-//
-///**
-// * Configuration for Payone
-// * Pay Attention to NOT use characters which are
-// * not defined in ASCII
-// *
-// * STORE
-// */
-//$config['adyen_test']['merchant_user'] = 'ws@Company.SaatchiOnline';
-//$config['adyen_test']['merchant_password'] = "M>35^t&DZ7IH{as}4xD[*&A%d";
-//$config['adyen_test']['merchant_account'] = 'SaatchiOnlineUS';
-//$config['adyen_test']['currency'] = 'USD';
-//$config['adyen_test']['skin_code'] = 'SbbWtMjR';
-//$config['adyen_test']['hmac_shared_secret_key'] = 'skdlfjs7w9sls44da';
-//$config['adyen_test']['hpp_url'] = 'https://test.adyen.com/hpp/details.shtml';
-//
-//$config['adyen']['merchant_user'] = 'ws@Company.SaatchiOnline';
-//$config['adyen']['merchant_password'] = "M>35^t&DZ7IH{as}4xD[*&A%d";
-//$config['adyen']['merchant_account'] = 'SaatchiOnlineUS';
-//$config['adyen']['currency'] = 'USD';
-//$config['adyen']['skin_code'] = 'SbbWtMjR';
-//$config['adyen']['hmac_shared_secret_key'] = 'skdlfjs7w9sls44da';
-//$config['adyen']['hpp_url'] = 'https://test.adyen.com/hpp/details.shtml';
-//
-//$config['adyen_test']['development']['notification_raw_data_log_url']
-//    = 'http://yves.dev.saatchionline.com/data/static/US/payment/notification/';
-//
-//$config['adyen']['development']['notification_raw_data_log_url']
-//    = 'http://yves.dev.saatchionline.com/data/static/US/payment/notification/';
-//
-//
-$config['stripe'] = [
-    'currency' => 'EUR',
-    'secret_key' => '',
-    'publishable_key' => '',
-];
-
-$config['stripe_test'] = [
-    'currency' => 'EUR',
-    'secret_key' => '',
-    'publishable_key' => '',
-];
-
+$config[PayoneConfig::PAYONE_MODE] = 'test';
+$config[PayoneConfig::PAYONE_MID] = '25735';
+$config[PayoneConfig::PAYONE_PORTALID] = '2018246';
+$config[PayoneConfig::PAYONE_KEY] = 'dFWR8GlNG8aonscn';
+$config[PayoneConfig::PAYONE_AID] = '25811';
+$config[PayoneConfig::PAYONE_ENCODING] = 'UTF-8';
+$config[PayoneConfig::PAYONE_CURRENCY] = 'EUR';
+$config[PayoneConfig::PAYONE_GATEWAYURL] = 'https://api.pay1.de/post-gateway/';
 
 $config[SystemConfig::ZED_SESSION_SAVE_HANDLER] = null;
 $config[SystemConfig::ZED_SESSION_SAVE_PATH] = null;
 
-$config['zed'] = [
-    'ssl_enabled' => true,
-    'ssl_excluded' => [
-        'system/heartbeat',
-    ],
-];
+$config[SystemConfig::ZED_SSL_ENABLED] = false;
+$config[SystemConfig::ZED_SSL_EXCLUDED] = ['system/heartbeat'];
 
-$config['yves'] = [
-    'theme' => 'demoshop',
-    'trusted_proxies' => [],
-    'ssl_enabled' => false,
-    'complete_ssl_enabled' => false,
-    'ssl_excluded' => [
-        '/monitoring/heartbeat',
-    ],
-    'session' => [
-        'save_handler' => null,
-        'save_path' => null,
-        'name' => null,
-        'cookie_domain' => null,
-    ],
-];
+$config[YvesConfig::YVES_THEME] = 'demoshop';
+$config[YvesConfig::YVES_TRUSTED_PROXIES] = [];
+$config[YvesConfig::YVES_SSL_ENABLED] = false;
+$config[YvesConfig::YVES_COMPLETE_SSL_ENABLED] = false;
+$config[YvesConfig::YVES_SSL_EXCLUDED] = ['/monitoring/heartbeat'];
+$config[YvesConfig::YVES_SESSION_SAVE_HANDLER] = null;
+$config[YvesConfig::YVES_SESSION_SAVE_PATH] = null;
+$config[YvesConfig::YVES_SESSION_NAME] = null;
+$config[YvesConfig::YVES_SESSION_COOKIE_DOMAIN] = null;
+
 
 $config['kibana'] = [
     'base_url' => '',
@@ -364,48 +247,8 @@ $config['kibana'] = [
 //    'lftp_binary' => '/usr/bin/lftp',
 //);
 
-//$config['activemq'] = array(
-//    array(
-//        'host' => 'localhost',
-//        'port' => '61613',
-//    ),
-//    array(
-//        'host' => 'localhost',
-//        'port' => '61613',
-//    ),
-//);
-
-$config['lumberjack'] = [
-    'enabled' => false,
-    'url' => '/lumberjack/elastic-search-proxy/',
-    'mapping' => 'mapping',
-    'search' => 'search',
-    'proxy' => true,
-    'elasticsearch' => [
-        'host' => '',
-        'port' => '9200',
-        'protocol' => 'http',
-        'index' => 'lumberjack',
-        'type' => '',
-    ],
-    'gui' => [
-        'requireJs' => APPLICATION_VENDOR_DIR . '/project-a/lumberjack-package/src/ProjectA/Zed/Lumberjack/Module/View/gui/dist/require.js',
-        'lumberjackMinJs' => APPLICATION_VENDOR_DIR . '/project-a/lumberjack-package/src/ProjectA/Zed/Lumberjack/Module/View/gui/dist/lumberjack-min.js',
-    ],
-    // key name => length of sanitized string
-    'keys_to_sanitize' => [
-        'cc_cardholder' => 5,
-        'cc_number' => 8,
-        'cc_expiration_month' => 2,
-        'cc_expiration_year' => 4,
-        'cc_verification' => 3,
-        'cvc' => 3,
-        'password' => 5,
-        'pdf' => 5,
-    ],
-];
-
-$config['propel'] = array(
+//$config['propel'] = array(
+$config[SystemConfig::PROPEL] = array(
     'propel.project.dir' =>
         APPLICATION_SOURCE_DIR . '/Generated/Zed/PropelGen/' . \ProjectA_Shared_Library_Store::getInstance()->getStoreName() . '/',
     'propel.schema.dir' =>
@@ -462,81 +305,129 @@ $config['dwh'] = array(
     'cubes-url' => 'http://localhost:8080',
 );
 
-$config['mcm'] = array(
-    'username_webtrekk' => 'user',
-    'password_webtrekk' => 'pass',
-    'tracking_id_webtrekk' => 'id'
-);
+$config[McmConfig::MCM_USERNAME_WEBTREKK] = 'user';
+$config[McmConfig::MCM_PASSWORD_WEBTREKK] = 'pass';
+$config[McmConfig::MCM_TRACKING_ID_WEBTREKK] = 'id';
 
-$config['mail-chimp'] = array(
-    'api-key' => '12345abcde', // the api key for the mail chimp api
-    'import-start-date' => '2013-04-01' // the day from which on to track campaigns and lists
-);
 
-$config['adwords'] = array(
-    'email' => 'foo@example.com',
-    'password' => '123abc',
-    'developer-token' => 'asdfghjkl',
-    'mcc-client-id' => null
+//$config['mail-chimp'] = array(
+//    'api-key' => '12345abcde', // the api key for the mail chimp api
+//    'import-start-date' => '2013-04-01' // the day from which on to track campaigns and lists
+//);
 
-);
+$config[MailChimpConfig::MAIL_CHIMP_API_KEY] = '12345abcde';
+$config[MailChimpConfig::MAIL_CHIMP_IMPORT_START_DATE] = '2013-04-01';
 
-$config['glossary'] = array(
-    'broadcast' => true,
-    'destination' => '/queue/glossary',
-    'properties' => array(
-        'persistent' => 'true',
-    ),
-    'prefetch_size' => 50,
-    'amount_of_frames' => 50,
-    'amount_of_buckets' => 1,
-    'url' => '',
-    'mapping' => 'mapping',
-    'search' => 'search',
-    'proxy' => true,
-    'username' => null,
-    'password' => null,
-    'timeout_seconds' => 1,
-    'timeout_milliseconds' => 0,
-);
+//$config['adwords'] = array(
+//    'email' => 'foo@example.com',
+//    'password' => '123abc',
+//    'developer-token' => 'asdfghjkl',
+//    'mcc-client-id' => null
+//
+//);
 
-$config['mail'] = array(
-    'defaultReplyEmail' => 'orders@project-yz.com',
-    'viewOrderUrl' => 'http://www.project-yz.com/accounts/orders',
-    'availabilityCheckUrl' => 'http://www.project-yz.com/artworkavailability',
-    'zedOrderViewUrl' => 'https://zed.project-yz.com/sales/order-details/index/id/',
-    'operationsMailAddress' => 'support@project-yz.com',
-    'accountingMailAddress' => 'accounting@project-yz.com',
-    'cartAbandonedUnsubscribeSalt' => 'IAMTHEMOSTSECRETSALTOFALLTIMEREALLYTRUSTME',
-    /**
-     * fakeOrderData used in "GetUserInformation from Legacy" Command
-     */
-    'overrideOrderData' => array(
-        'email' => 'dev@project-yz.com',
-        'firstname' => 'Jon',
-        'lastname' => 'Doe'
-    )
-);
 
-$config['productImage'] = [
-    'originalProductImageDirectory' => 'images' . DIRECTORY_SEPARATOR . 'products/original',
-    'incomingProductImageDirectory' => 'images' . DIRECTORY_SEPARATOR . 'products/incoming',
-    'processedProductImageDirectory' => 'images' . DIRECTORY_SEPARATOR . 'products/processed',
-    'imageUrlPrefix' => 'images',
-    'amazonS3Key' => '',
-    'amazonS3Secret' => '',
-    'amazonS3BucketName' => ''
+$config[AdwordsConfig::ADWORDS_EMAIL] = 'foo@example.com';
+$config[AdwordsConfig::ADWORDS_PASSWORD] = '123abc';
+$config[AdwordsConfig::ADWORDS_API_VERSION] = '123abc';
+$config[AdwordsConfig::ADWORDS_DEVELOPER_TOKEN] = 'asdfghjkl';
+$config[AdwordsConfig::ADWORDS_MCC_CLIENT_ID] = null;
+
+
+//
+//$config['glossary'] = array(
+//    'broadcast' => true,
+//    'destination' => '/queue/glossary',
+//    'properties' => ,
+//    'prefetch_size' => 50,
+//    'amount_of_frames' => 50,
+//    'amount_of_buckets' => 1,
+//    'url' => '',
+//    'mapping' => 'mapping',
+//    'search' => 'search',
+//    'proxy' => true,
+//    'username' => null,
+//    'password' => null,
+//    'timeout_seconds' => 1,
+//    'timeout_milliseconds' => 0,
+//);
+
+
+$config[GlossaryConfig::GLOSSARY_BROADCAST] = true;
+$config[GlossaryConfig::GLOSSARY_DESTINATION] = '/queue/glossary';
+$config[GlossaryConfig::GLOSSARY_PROPERTIES] = ['persistent' => 'true'];
+$config[GlossaryConfig::GLOSSARY_PREFETCH_SIZE] = 50;
+$config[GlossaryConfig::GLOSSARY_AMOUNT_OF_FRAMES] = 50;
+$config[GlossaryConfig::GLOSSARY_AMOUNT_OF_BUCKETS] = 1;
+$config[GlossaryConfig::GLOSSARY_URL] = '';
+$config[GlossaryConfig::GLOSSARY_MAPPING] = 'mapping';
+$config[GlossaryConfig::GLOSSARY_SEARCH] = 'search';
+$config[GlossaryConfig::GLOSSARY_PROXY] = true;
+$config[GlossaryConfig::GLOSSARY_USERNAME] = null;
+$config[GlossaryConfig::GLOSSARY_PASSWORD] = null;
+$config[GlossaryConfig::GLOSSARY_TIMEOUT_SECONDS] = 1;
+$config[GlossaryConfig::GLOSSARY_TIMEOUT_MILLISECONDS] = 0;
+
+
+$config[ProductImageConfig::PRODUCT_IMAGE_ORIGINAL_PRODUCT_IMAGE_DIRECTORY]
+    = 'images' . DIRECTORY_SEPARATOR . 'products/original';
+
+$config[ProductImageConfig::PRODUCT_IMAGE_INCOMING_PRODUCT_IMAGE_DIRECTORY]
+    = 'images' . DIRECTORY_SEPARATOR . 'products/incoming';
+
+$config[ProductImageConfig::PRODUCT_IMAGE_PROCESSED_PRODUCT_IMAGE_DIRECTORY]
+    = 'images' . DIRECTORY_SEPARATOR . 'products/processed';
+
+$config[ProductImageConfig::PRODUCT_IMAGE_IMAGE_URL_PREFIX] = 'images';
+$config[ProductImageConfig::PRODUCT_IMAGE_AMAZON_S3_KEY] = '';
+$config[ProductImageConfig::PRODUCT_IMAGE_AMAZON_S3_SECRET] = '';
+$config[ProductImageConfig::PRODUCT_IMAGE_AMAZON_S3_BUCKET_NAME] = '';
+
+
+$config[CustomerConfig::CUSTOMER_MINUTES_BEFORE_RESTORE_PASSWORD_INVALID] = 60;
+$config[CustomerConfig::CUSTOMER_DOUBLE_OPT_IN_REGISTRATION] = false;
+
+$config[SystemConfig::CLOUD_ENABLED] = false;
+
+$config[SystemConfig::CLOUD_OBJECT_STORAGE_ENABLED] = false;
+$config[SystemConfig::CLOUD_OBJECT_STORAGE_PROVIDER_NAME] = 'rackspace';
+$config[SystemConfig::CLOUD_OBJECT_STORAGE_DATA_CONTAINERS] = [
+    'defaultPrivateContainerName' => 'pyz-private',
+    'defaultPublicContainerName' => '',
+    'defaultPublicCdnContainerName' => 'pyz-cdn',
+    'defaultImagesContainerName' => 'pyz-private',
 ];
 
-$config['invoice'] = [
-    'protectedDocumentDirectory' => 'protected' . DIRECTORY_SEPARATOR . 'invoices',
+$config[SystemConfig::CLOUD_OBJECT_STORAGE_RACKSPACE] = [
+    'username' => 'cloudfiles.contorion',
+    'apiKey' => 'e73a9eb8d9324e98bbf6552e8150ec9c',
+    'apiEndpoint' => 'https://lon.identity.api.rackspacecloud.com/v2.0/',
+    'storageService' => 'cloudFiles',
+    'location' => 'LON'
+];
+$config[SystemConfig::CLOUD_OBJECT_STORAGE_PRODUCT_IMAGES] = [
+    'prefix' => 'productImages',
+    'deleteRemoteObjects' => true,
 ];
 
-$config['customer'] = [
-    'minutes_before_restore_password_invalid' => 60,
-    'double_opt_in_registration' => false
-];
+$config[SystemConfig::CLOUD_CDN_ENABLED] = false;
 
+$config[SystemConfig::CLOUD_CDN_STATIC_MEDIA_PREFIX] = 'media';
+$config[SystemConfig::CLOUD_CDN_STATIC_MEDIA_HTTP] = '';
+$config[SystemConfig::CLOUD_CDN_STATIC_MEDIA_HTTPS] = '';
+
+$config[SystemConfig::CLOUD_CDN_STATIC_ASSETS] = [
+    'prefix' => 'assets',
+    'http' => '',
+    'https' => '',
+];
+$config[SystemConfig::CLOUD_CDN_PRODUCT_IMAGES_PATH_NAME] = '/images/products/';
+
+$config[SystemConfig::CLOUD_CDN_DELETE_LOCAL_PROCESSED_IMAGES] = false;
+$config[SystemConfig::CLOUD_CDN_DELETE_LOCAL_ORIGINAL_IMAGES] = false;
+
+
+/*
 $config['cloud'] = [
     'enabled' => false,
     'objectStorage' => [
@@ -579,3 +470,4 @@ $config['cloud'] = [
         'deleteLocalOriginalImages' => false,
     ]
 ];
+*/
