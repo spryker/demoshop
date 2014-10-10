@@ -22,6 +22,7 @@ class TagCommander implements ProviderInterface
      */
     public function getTrackingOutput(array $dataProvider, $pageType)
     {
+        return '';
         /* @var $customerDataProvider CustomerDataProvider */
         $customerDataProvider = $dataProvider[CustomerDataProvider::DATA_PROVIDER_NAME];
 
