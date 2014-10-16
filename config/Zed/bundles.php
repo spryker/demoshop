@@ -1,5 +1,5 @@
 <?php
-use ProjectA\Shared\Library\ConfigNS;
+use ProjectA\Shared\Library\Config;
 use ProjectA\Shared\System\SystemConfig;
 
 $allElements = [
@@ -25,7 +25,7 @@ $schema = [ProjectA\Shared\Library\Bundle\BundleConfig::ACTIVATE_SCHEMA];
 
 return [
     // Project bundles
-    ConfigNS::get(SystemConfig::PROJECT_NAMESPACE) => [],
+    Config::get(SystemConfig::PROJECT_NAMESPACE) => [],
     // Core bundles
     ProjectA\Shared\Library\Bundle\BundleConfig::NAMESPACE_CORE => [
         'Acl' => $schemaAndNavigation,

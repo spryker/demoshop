@@ -2,11 +2,11 @@
 
 namespace Pyz\Zed\DwhOrderStatusMapping\Component;
 
-use ProjectA\Shared\Library\ConfigNS;
+use ProjectA\Shared\Library\Config;
 use ProjectA\Shared\System\SystemConfig;
-use ProjectA\Zed\OrderStatusMapping\Component\OrderStatusMappingSettings;
+use ProjectA\Zed\DwhOrderStatusMapping\Component\DwhOrderStatusMappingSettings as ProjectADwhOrderStatusMappingSettings;
 
-class DwhOrderStatusMappingSettings extends OrderStatusMappingSettings
+class DwhOrderStatusMappingSettings extends ProjectADwhOrderStatusMappingSettings
 {
 
     /**
@@ -15,7 +15,7 @@ class DwhOrderStatusMappingSettings extends OrderStatusMappingSettings
      */
     public function getStatusMappingFileName()
     {
-        return APPLICATION_SOURCE_DIR . '/' . ConfigNS::get(SystemConfig::PROJECT_NAMESPACE) . '/Zed/DwhOrderStatusMapping/Component/File/status-mapping.xml';
+        return APPLICATION_SOURCE_DIR . '/' . Config::get(SystemConfig::PROJECT_NAMESPACE) . '/Zed/DwhOrderStatusMapping/Component/File/status-mapping.xml';
     }
 
 }

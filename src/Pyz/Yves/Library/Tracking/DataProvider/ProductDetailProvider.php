@@ -1,7 +1,7 @@
 <?php
 namespace Pyz\Yves\Library\Tracking\DataProvider;
 
-use ProjectA\Shared\Library\ConfigNS;
+use ProjectA\Shared\Library\Config;
 use ProjectA\Shared\Price\Code\PriceTypeConstants;
 use ProjectA\Shared\System\SystemConfig;
 use Pyz\Shared\Catalog\Code\ProductAttributeConstantInterface;
@@ -135,7 +135,7 @@ class ProductDetailProvider extends AbstractDataProvider
         if (!$product) {
             return false;
         }
-        $baseUrl = ConfigNS::get(SystemConfig::HOST_YVES);
+        $baseUrl = Config::get(SystemConfig::HOST_YVES);
 
         return $baseUrl . $product[ProductAttributeConstantInterface::ATTRIBUTE_URL];
     }

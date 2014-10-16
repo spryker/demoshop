@@ -1,13 +1,13 @@
 {
     "require": {
-        "project-a/acl-package": "5.0.0",
+        "project-a/acl-package": "dev-cleanup/newconfig as 5.0.2",
         "project-a/cart-package": "dev-cleanup/newconfig as 4.0.1",
         "project-a/catalog-package": "dev-cleanup/newconfig as 4.0.0",
-        "project-a/checkout-package": "4.0.1",
+        "project-a/checkout-package": "dev-cleanup/newconfig as 4.0.2",
         "project-a/content-package": "dev-cleanup/newconfig as 4.0.8",
         "project-a/console-package": "dev-cleanup/newconfig as 4.2.1",
         "project-a/crm-package": "dev-cleanup/newconfig as 5.0.4",
-        "project-a/dwh-package": "5.0.2",
+        "project-a/dwh-package": "dev-cleanup/newconfig as 5.12.3",
         "project-a/document-package": "4.0.1",
         "project-a/frontend-package": "dev-cleanup/newconfig as 4.0.1",
         "project-a/glossary-package": "dev-cleanup/newconfig as 3.0.4",
@@ -26,8 +26,7 @@
         "pimple/pimple": "1.1.*@dev",
         "zendesk/zendesk_api_client_php": "dev-master",
         "mandrill/mandrill": "dev-master",
-        "predis/predis": "v1.0.0",
-        "nikic/php-parser" : "v1.0.0"
+        "predis/predis": "v1.0.0"
     },
     "require-dev": {
         "silex/web-profiler": "~1.0.2",

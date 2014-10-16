@@ -2,6 +2,9 @@
 namespace Pyz\Yves\Application\Module;
 
 use Generated\Yves\Factory;
+use ProjectA\Shared\Library\Config;
+use ProjectA\Shared\System\SystemConfig;
+use ProjectA\Shared\Yves\YvesConfig;
 use ProjectA\Yves\Customer\Component\Model\Security\SecurityServiceProvider;
 use Pyz\Yves\Library\Silex\Provider\TrackingServiceProvider;
 use ProjectA\Yves\Catalog\Component\Model\Category;
@@ -42,7 +45,8 @@ class YvesBootstrap extends \ProjectA\Yves\Library\Silex\YvesBootstrap
             $app['profiler.cache_dir'] = \ProjectA_Shared_Library_Data::getLocalStoreSpecificPath('cache/profiler');
         }
 
-        $proxies = \ProjectA_Shared_Library_Config::get('yves')->get('trusted_proxies', []);
+        $proxies = Config::get(YvesConfig::YVES_TRUSTED_PROXIES);
+
         Request::setTrustedProxies($proxies);
     }
 
@@ -51,7 +55,7 @@ class YvesBootstrap extends \ProjectA\Yves\Library\Silex\YvesBootstrap
      */
     protected function afterBoot(Application $app)
     {
-        $app['monolog.level'] = \ProjectA_Shared_Library_Config::get('log')->logLevel;
+        $app['monolog.level'] = Config::get(SystemConfig::LOG_LEVEL);
     }
 
     /**
@@ -90,7 +94,7 @@ class YvesBootstrap extends \ProjectA\Yves\Library\Silex\YvesBootstrap
      */
     protected function getControllerProviders()
     {
-        $ssl = \ProjectA_Shared_Library_Config::get('yves')->ssl_enabled;
+        $ssl = Config::get(YvesConfig::YVES_SSL_ENABLED);
 
         return [
             new ApplicationProvider(false),

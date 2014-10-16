@@ -4,6 +4,8 @@
  */
 
 
-$config['cloud']['enabled'] = true;
-$config['cloud']['objectStorage']['enabled'] = true;
-$config['cloud']['cdn']['enabled'] = true;
+use ProjectA\Shared\System\SystemConfig;
+
+$config[SystemConfig::CLOUD_ENABLED] = true;
+$config[SystemConfig::CLOUD_OBJECT_STORAGE_ENABLED] = true;
+$config[SystemConfig::CLOUD_CDN_ENABLED] = true;

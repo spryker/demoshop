@@ -3,59 +3,12 @@
  * This is the global runtime configuration for Yves and Generated_Yves_Zed in a development environment.
  */
 
-use ProjectA\Shared\Mail\MailConfig;
-use ProjectA\Shared\Setup\SetupConfig;
 use ProjectA\Shared\System\SystemConfig;
+use ProjectA\Shared\Yves\YvesConfig;
 
-$config['zed']['ssl_enabled'] = false;
+$config[SystemConfig::ZED_SESSION_SAVE_HANDLER] = 'mysql';
+$config[SystemConfig::ZED_SESSION_SAVE_PATH] = 'shared-data:mate20mg@localhost:3306';
 
-$config['yves']['ssl_enabled'] = false;
+$config[YvesConfig::YVES_SESSION_SAVE_HANDLER] = 'mysql';
+$config[YvesConfig::YVES_SESSION_SAVE_PATH] = 'shared-data:mate20mg@localhost:3306';
 
-$config[SystemConfig::ZED_MYSQL][SystemConfig::ZED_MYSQL__USERNAME] = 'development';
-$config[SystemConfig::ZED_MYSQL][SystemConfig::ZED_MYSQL__PASSWORD] = 'mate20mg';
-$config[SystemConfig::ZED_MYSQL][SystemConfig::ZED_MYSQL__DATABASE] = 'DE_development_zed';
-$config[SystemConfig::ZED_MYSQL][SystemConfig::ZED_MYSQL__HOST] = 'localhost';
-$config[SystemConfig::ZED_MYSQL][SystemConfig::ZED_MYSQL__PORT] = 3306;
-
-
-$config['storage']['kv']['couchbase']['user'] = '';
-$config['storage']['kv']['couchbase']['password'] = 'mate33mgj';
-
-$config['storage']['couchbase']['user'] = '';
-$config['storage']['couchbase']['password'] = 'mate33mgj';
-
-/** Session storage */
-$config['zed']['session']['save_handler'] = 'mysql';
-$config['zed']['session']['save_path'] = 'shared-data:mate20mg@localhost:3306';
-
-$config['yves']['session']['save_handler'] = 'mysql';
-$config['yves']['session']['save_path'] = 'shared-data:mate20mg@localhost:3306';
-
-
-$config['host'] = [
-    'static_assets' => 'www-development.project-yz.de',
-    'static_media' => 'www-development.project-yz.de',
-    'yves' => 'www-development.project-yz.de',
-    'zed_gui' => 'zed-development.project-yz.de',
-    'zed_api' => 'zed-development.project-yz.de',
-];
-
-$config['host_ssl'] = [
-    'static_assets' => 'www-development.project-yz.de',
-    'static_media' => 'www-development.project-yz.de',
-    'yves' => 'www-development.project-yz.de',
-    'zed_gui' => 'zed-development.project-yz.de',
-    'zed_api' => 'zed-development.project-yz.de',
-];
-
-$config['kibana'] = [
-    'base_url' => 'http://' . $config['host']['zed_gui'] .':9292',
-];
-
-$config[SetupConfig::JENKINS_BASE_URL] = 'http://zed-development.project-yz.com:10007/jenkins';
-
-$config[MailConfig::MAILCATCHER_GUI] = 'http://zed-development.project-yz.com:1080/';
-
-$config['cloud']['enabled'] = false;
-$config['cloud']['objectStorage']['enabled'] = false;
-$config['cloud']['cdn']['enabled'] = false;

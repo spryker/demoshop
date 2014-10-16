@@ -4,58 +4,8 @@
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "6b30bb2fa595f6376bc2af24d512ed3f",
+    "hash": "029b96ee42ab3448bac37d79d203d455",
     "packages": [
-        {
-            "name": "cmutter/google-adwords-api",
-            "version": "4.7.02",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/colinmutter/google-api-adwords-php.git",
-                "reference": "a70adc747cd3cd9506a320b0ff3dc81c8b4962f6"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/colinmutter/google-api-adwords-php/zipball/a70adc747cd3cd9506a320b0ff3dc81c8b4962f6",
-                "reference": "a70adc747cd3cd9506a320b0ff3dc81c8b4962f6",
-                "shasum": ""
-            },
-            "require": {
-                "php": ">=5.3.0"
-            },
-            "type": "library",
-            "autoload": {
-                "classmap": [
-                    "src/Google/Api/Ads/AdWords/Lib"
-                ]
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "include-path": [
-                "src/"
-            ],
-            "license": [
-                "Apache-2.0"
-            ],
-            "authors": [
-                {
-                    "name": "Adam Rogal",
-                    "email": "api.arogal@gmail.com",
-                    "homepage": "http://code.google.com/p/google-api-adwords-php/"
-                },
-                {
-                    "name": "Eric Koleda",
-                    "email": "eric.koleda.devrel@gmail.com",
-                    "homepage": "https://profiles.google.com/u/0/eric.koleda.devrel"
-                }
-            ],
-            "description": "AdWords PHP API Client",
-            "homepage": "https://github.com/colinmutter/google-api-adwords-php",
-            "keywords": [
-                "adwords",
-                "google"
-            ],
-            "time": "2013-12-07 00:44:28"
-        },
         {
             "name": "digital-canvas/zend-framework",
             "version": "1.12.7",
@@ -99,16 +49,16 @@
         },
         {
             "name": "doctrine/annotations",
-            "version": "v1.2.0",
+            "version": "v1.2.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/doctrine/annotations.git",
-                "reference": "d9b1a37e9351ddde1f19f09a02e3d6ee92e82efd"
+                "reference": "6a6bec0670bb6e71a263b08bc1b98ea242928633"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/doctrine/annotations/zipball/d9b1a37e9351ddde1f19f09a02e3d6ee92e82efd",
-                "reference": "d9b1a37e9351ddde1f19f09a02e3d6ee92e82efd",
+                "url": "https://api.github.com/repos/doctrine/annotations/zipball/6a6bec0670bb6e71a263b08bc1b98ea242928633",
+                "reference": "6a6bec0670bb6e71a263b08bc1b98ea242928633",
                 "shasum": ""
             },
             "require": {
@@ -136,17 +86,6 @@
             ],
             "authors": [
                 {
-                    "name": "Jonathan Wage",
-                    "email": "jonwage@gmail.com",
-                    "homepage": "http://www.jwage.com/",
-                    "role": "Creator"
-                },
-                {
-                    "name": "Guilherme Blanco",
-                    "email": "guilhermeblanco@gmail.com",
-                    "homepage": "http://www.instaclick.com"
-                },
-                {
                     "name": "Roman Borschel",
                     "email": "roman@code-factory.org"
                 },
@@ -155,10 +94,16 @@
                     "email": "kontakt@beberlei.de"
                 },
                 {
+                    "name": "Guilherme Blanco",
+                    "email": "guilhermeblanco@gmail.com"
+                },
+                {
+                    "name": "Jonathan Wage",
+                    "email": "jonwage@gmail.com"
+                },
+                {
                     "name": "Johannes Schmitt",
-                    "email": "schmittjoh@gmail.com",
-                    "homepage": "https://github.com/schmittjoh",
-                    "role": "Developer of wrapped JMSSerializerBundle"
+                    "email": "schmittjoh@gmail.com"
                 }
             ],
             "description": "Docblock Annotations Parser",
@@ -168,7 +113,7 @@
                 "docblock",
                 "parser"
             ],
-            "time": "2014-07-06 15:52:21"
+            "time": "2014-09-25 16:45:30"
         },
         {
             "name": "doctrine/cache",
@@ -551,6 +496,63 @@
             "time": "2013-08-12 00:28:49"
         },
         {
+            "name": "googleads/googleads-php-lib",
+            "version": "5.5.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/googleads/googleads-php-lib.git",
+                "reference": "aded8953eaeddb7d550571327558f790ab674f5d"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/googleads/googleads-php-lib/zipball/aded8953eaeddb7d550571327558f790ab674f5d",
+                "reference": "aded8953eaeddb7d550571327558f790ab674f5d",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.2.0"
+            },
+            "type": "library",
+            "autoload": {
+                "classmap": [
+                    "src/Google/Api/Ads/AdWords/Lib",
+                    "src/Google/Api/Ads/Dfp/Lib"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "include-path": [
+                "src/"
+            ],
+            "license": [
+                "Apache-2.0"
+            ],
+            "authors": [
+                {
+                    "name": "Paul Matthews",
+                    "role": "Developer"
+                },
+                {
+                    "name": "Adam Rogal",
+                    "role": "Developer"
+                },
+                {
+                    "name": "Mat Scales",
+                    "role": "Developer"
+                },
+                {
+                    "name": "Vincent Tsao",
+                    "role": "Developer"
+                },
+                {
+                    "name": "Ray Tsang",
+                    "role": "Developer"
+                }
+            ],
+            "description": "Google Ads APIs Client Library for PHP (AdWords, Adx, and DFP)",
+            "homepage": "https://github.com/googleads/googleads-php-lib",
+            "time": "2014-08-22 19:51:45"
+        },
+        {
             "name": "guzzle/guzzle",
             "version": "v3.8.0",
             "source": {
@@ -726,21 +728,24 @@
         },
         {
             "name": "monolog/monolog",
-            "version": "1.10.0",
+            "version": "1.11.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/Seldaek/monolog.git",
-                "reference": "25b16e801979098cb2f120e697bfce454b18bf23"
+                "reference": "ec3961874c43840e96da3a8a1ed20d8c73d7e5aa"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Seldaek/monolog/zipball/25b16e801979098cb2f120e697bfce454b18bf23",
-                "reference": "25b16e801979098cb2f120e697bfce454b18bf23",
+                "url": "https://api.github.com/repos/Seldaek/monolog/zipball/ec3961874c43840e96da3a8a1ed20d8c73d7e5aa",
+                "reference": "ec3961874c43840e96da3a8a1ed20d8c73d7e5aa",
                 "shasum": ""
             },
             "require": {
                 "php": ">=5.3.0",
                 "psr/log": "~1.0"
+            },
+            "provide": {
+                "psr/log-implementation": "1.0.0"
             },
             "require-dev": {
                 "aws/aws-sdk-php": "~2.4, >2.4.8",
@@ -748,7 +753,8 @@
                 "graylog2/gelf-php": "~1.0",
                 "phpunit/phpunit": "~3.7.0",
                 "raven/raven": "~0.5",
-                "ruflin/elastica": "0.90.*"
+                "ruflin/elastica": "0.90.*",
+                "videlalvaro/php-amqplib": "~2.4"
             },
             "suggest": {
                 "aws/aws-sdk-php": "Allow sending log messages to AWS services like DynamoDB",
@@ -758,12 +764,13 @@
                 "graylog2/gelf-php": "Allow sending log messages to a GrayLog2 server",
                 "raven/raven": "Allow sending log messages to a Sentry server",
                 "rollbar/rollbar": "Allow sending log messages to Rollbar",
-                "ruflin/elastica": "Allow sending log messages to an Elastic Search server"
+                "ruflin/elastica": "Allow sending log messages to an Elastic Search server",
+                "videlalvaro/php-amqplib": "Allow sending log messages to an AMQP server using php-amqplib"
             },
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "1.10.x-dev"
+                    "dev-master": "1.11.x-dev"
                 }
             },
             "autoload": {
@@ -779,8 +786,7 @@
                 {
                     "name": "Jordi Boggiano",
                     "email": "j.boggiano@seld.be",
-                    "homepage": "http://seld.be",
-                    "role": "Developer"
+                    "homepage": "http://seld.be"
                 }
             ],
             "description": "Sends your logs to files, sockets, inboxes, databases and various web services",
@@ -790,7 +796,7 @@
                 "logging",
                 "psr-3"
             ],
-            "time": "2014-06-04 16:30:04"
+            "time": "2014-09-30 13:30:58"
         },
         {
             "name": "phing/phing",
@@ -988,11 +994,11 @@
         },
         {
             "name": "project-a/cart-package",
-            "version": "4.0.1",
+            "version": "dev-cleanup/newconfig",
             "source": {
                 "type": "git",
                 "url": "git@codebasehq.com:project-a/core/cart.git",
-                "reference": "efd1df9b0f38d7664cc9383c0c9202a86e8f0890"
+                "reference": "d7212f2b50004e0adf359765b5218f7475bda55e"
             },
             "require": {
                 "php": ">=5.4.0",
@@ -1020,15 +1026,15 @@
             "keywords": [
                 "Cart"
             ],
-            "time": "2014-07-02 14:40:07"
+            "time": "2014-10-08 13:25:33"
         },
         {
             "name": "project-a/catalog-package",
-            "version": "dev-master",
+            "version": "dev-cleanup/newconfig",
             "source": {
                 "type": "git",
                 "url": "git@codebasehq.com:project-a/core/catalog.git",
-                "reference": "cefe5df4f8a656e83f649820c48cf2025d316884"
+                "reference": "8aedd33db8bef93aca9b8a087a40d04ed7db8133"
             },
             "require": {
                 "php": ">=5.4.0",
@@ -1067,7 +1073,7 @@
                 "Price",
                 "Stock"
             ],
-            "time": "2014-06-13 13:58:42"
+            "time": "2014-10-10 12:19:38"
         },
         {
             "name": "project-a/checkout-package",
@@ -1114,11 +1120,11 @@
         },
         {
             "name": "project-a/console-package",
-            "version": "4.2.0",
+            "version": "dev-cleanup/newconfig",
             "source": {
                 "type": "git",
                 "url": "git@codebasehq.com:project-a/core/console.git",
-                "reference": "9c7cde2472f9a2baa9128cfd6b6c51f294ea1f69"
+                "reference": "5e4cd7e75656a0e449e8ca500063be29735baad6"
             },
             "require": {
                 "php": ">=5.4.0",
@@ -1151,15 +1157,15 @@
             "keywords": [
                 "console"
             ],
-            "time": "2014-08-18 09:23:42"
+            "time": "2014-10-08 13:24:38"
         },
         {
             "name": "project-a/content-package",
-            "version": "4.0.4",
+            "version": "dev-cleanup/newconfig",
             "source": {
                 "type": "git",
                 "url": "git@codebasehq.com:project-a/core/content.git",
-                "reference": "82bb3cb5dd4bc146f5b1895959ae805af180a876"
+                "reference": "cff6f6b93e07bf5d8c644b94494f3be966ceb877"
             },
             "require": {
                 "php": ">=5.4.0",
@@ -1190,15 +1196,15 @@
             "keywords": [
                 "Content Package"
             ],
-            "time": "2014-07-30 12:35:56"
+            "time": "2014-10-10 12:17:29"
         },
         {
             "name": "project-a/crm-package",
-            "version": "5.0.1",
+            "version": "dev-cleanup/newconfig",
             "source": {
                 "type": "git",
                 "url": "git@codebasehq.com:project-a/core/crm.git",
-                "reference": "26de135c658197901ad663daa9416c8f9e134dd3"
+                "reference": "c0923841d74fee296f29d25c118e58ffec65b582"
             },
             "require": {
                 "php": ">=5.4.0",
@@ -1234,7 +1240,7 @@
                 "mail",
                 "newsletter"
             ],
-            "time": "2014-07-31 13:34:21"
+            "time": "2014-10-10 12:17:16"
         },
         {
             "name": "project-a/document-package",
@@ -1318,11 +1324,11 @@
         },
         {
             "name": "project-a/frontend-package",
-            "version": "4.0.1",
+            "version": "dev-cleanup/newconfig",
             "source": {
                 "type": "git",
                 "url": "git@codebasehq.com:project-a/core/frontend.git",
-                "reference": "b886b9f8718d27a641816ce6eece55c76f151f0e"
+                "reference": "60b1fd21a0807bbf5bda57ddf6f3de0850d04ac0"
             },
             "require": {
                 "php": ">=5.4.0",
@@ -1347,15 +1353,15 @@
             "keywords": [
                 "Frontend"
             ],
-            "time": "2014-07-30 12:16:27"
+            "time": "2014-10-10 12:18:29"
         },
         {
             "name": "project-a/glossary-package",
-            "version": "3.0.4",
+            "version": "dev-cleanup/newconfig",
             "source": {
                 "type": "git",
                 "url": "git@codebasehq.com:project-a/core/glossary.git",
-                "reference": "01851cf20d7fe8923e00983cfd863cd1a486ff27"
+                "reference": "f2aece9e9537f473201ba2b13418ec8455c0dcff"
             },
             "require": {
                 "php": ">=5.4.0",
@@ -1382,15 +1388,15 @@
                 "i18n",
                 "translation"
             ],
-            "time": "2014-06-13 11:49:11"
+            "time": "2014-10-10 12:16:42"
         },
         {
             "name": "project-a/infrastructure-package",
-            "version": "dev-feature/mysql-sessions",
+            "version": "dev-cleanup/newconfig",
             "source": {
                 "type": "git",
                 "url": "git@codebasehq.com:project-a/core/infrastructure.git",
-                "reference": "c1d3a9ff961c9477fff44cf0f5716fbf94e99756"
+                "reference": "a5ea1590b71ed22d88b6311130c0f809854e5299"
             },
             "require": {
                 "php": ">=5.4.0",
@@ -1412,7 +1418,7 @@
             "keywords": [
                 "infrastructure"
             ],
-            "time": "2014-09-02 21:18:04"
+            "time": "2014-10-10 12:16:24"
         },
         {
             "name": "project-a/kendo-package",
@@ -1435,11 +1441,11 @@
         },
         {
             "name": "project-a/library-package",
-            "version": "dev-feature/mysql-sessions",
+            "version": "dev-cleanup/newconfig",
             "source": {
                 "type": "git",
                 "url": "git@codebasehq.com:project-a/core/library-2.git",
-                "reference": "34cfd377262f43c09add1a50905c92d9fa2c437c"
+                "reference": "fffcba6e0a8fbd8ad502dbc80f010da90ca4d583"
             },
             "require": {
                 "digital-canvas/zend-framework": ">=1.12.2",
@@ -1468,15 +1474,15 @@
                 }
             },
             "description": "Project-A Library",
-            "time": "2014-09-03 13:28:22"
+            "time": "2014-10-10 12:16:05"
         },
         {
             "name": "project-a/lumberjack-package",
-            "version": "4.0.0",
+            "version": "dev-cleanup/newconfig",
             "source": {
                 "type": "git",
                 "url": "git@codebasehq.com:project-a/core/lumberjack.git",
-                "reference": "4bce1d530e0a972455590760ae84920f42e34823"
+                "reference": "0f257cbcdf8a6b5eeda3391184d4483593e7c4d0"
             },
             "require": {
                 "php": ">=5.4.0"
@@ -1499,18 +1505,18 @@
             "keywords": [
                 ""
             ],
-            "time": "2014-06-11 11:14:13"
+            "time": "2014-10-10 12:15:41"
         },
         {
             "name": "project-a/marketing-package",
-            "version": "4.1.0",
+            "version": "dev-cleanup/newconfig",
             "source": {
                 "type": "git",
                 "url": "git@codebasehq.com:project-a/core/marketing.git",
-                "reference": "415926fa3750f3563ce560e1ce64bf3475e5ce03"
+                "reference": "3d80ee4fe0b79f43c1349a09b161d5e14f910562"
             },
             "require": {
-                "cmutter/google-adwords-api": "4.7.02",
+                "googleads/googleads-php-lib": "5.5.1",
                 "php": ">=5.4.0",
                 "project-a/acl-package": ">3.0",
                 "project-a/dwh-package": ">3.0",
@@ -1551,7 +1557,7 @@
             "keywords": [
                 "Marketing"
             ],
-            "time": "2014-07-25 12:02:57"
+            "time": "2014-10-10 12:13:49"
         },
         {
             "name": "project-a/payment-package",
@@ -1590,11 +1596,11 @@
         },
         {
             "name": "project-a/payone-package",
-            "version": "2.0.3",
+            "version": "dev-cleanup/newconfig",
             "source": {
                 "type": "git",
                 "url": "git@codebasehq.com:project-a/core/payone.git",
-                "reference": "df97d5f207092d4cdbfcaf901e32d1b3baaf1ec8"
+                "reference": "fe2e047eceaa3dcae8ce719235b388d3308587cf"
             },
             "require": {
                 "php": ">=5.4.0",
@@ -1622,15 +1628,15 @@
             "keywords": [
                 "payment,payment provider,payone"
             ],
-            "time": "2014-08-01 13:10:03"
+            "time": "2014-10-10 12:11:41"
         },
         {
             "name": "project-a/sales-package",
-            "version": "5.0.2",
+            "version": "dev-cleanup/newconfig",
             "source": {
                 "type": "git",
                 "url": "git@codebasehq.com:project-a/core/sales.git",
-                "reference": "aba5cc946cbb1a5838518fecb1e6a66da8cd04c3"
+                "reference": "ecd8aed7aa8256e6f69793fa2c938c9e60235047"
             },
             "require": {
                 "php": ">=5.4.0",
@@ -1663,7 +1669,7 @@
                 "Sales",
                 "Task"
             ],
-            "time": "2014-07-31 13:13:27"
+            "time": "2014-10-07 10:29:36"
         },
         {
             "name": "project-a/silex-routing",
@@ -1821,16 +1827,16 @@
         },
         {
             "name": "silex/silex",
-            "version": "v1.2.1",
+            "version": "v1.2.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/silexphp/Silex.git",
-                "reference": "cb9fd447c168640ae14862cfffa1fa23d3a24fe9"
+                "reference": "8c5e86eb97f3eee633729b22e950082fb5591328"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/silexphp/Silex/zipball/cb9fd447c168640ae14862cfffa1fa23d3a24fe9",
-                "reference": "cb9fd447c168640ae14862cfffa1fa23d3a24fe9",
+                "url": "https://api.github.com/repos/silexphp/Silex/zipball/8c5e86eb97f3eee633729b22e950082fb5591328",
+                "reference": "8c5e86eb97f3eee633729b22e950082fb5591328",
                 "shasum": ""
             },
             "require": {
@@ -1888,14 +1894,11 @@
             "authors": [
                 {
                     "name": "Fabien Potencier",
-                    "email": "fabien@symfony.com",
-                    "homepage": "http://fabien.potencier.org",
-                    "role": "Lead Developer"
+                    "email": "fabien@symfony.com"
                 },
                 {
                     "name": "Igor Wiedler",
-                    "email": "igor@wiedler.ch",
-                    "homepage": "http://wiedler.ch/igor/"
+                    "email": "igor@wiedler.ch"
                 }
             ],
             "description": "The PHP micro-framework based on the Symfony2 Components",
@@ -1903,50 +1906,7 @@
             "keywords": [
                 "microframework"
             ],
-            "time": "2014-07-01 10:16:56"
-        },
-        {
-            "name": "solarium/solarium",
-            "version": "3.1.2",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/basdenooijer/solarium.git",
-                "reference": "0766401cce7831548e0c213b71bafcb717d1c9ec"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/basdenooijer/solarium/zipball/0766401cce7831548e0c213b71bafcb717d1c9ec",
-                "reference": "0766401cce7831548e0c213b71bafcb717d1c9ec",
-                "shasum": ""
-            },
-            "require": {
-                "php": ">=5.3.2",
-                "symfony/event-dispatcher": "~2.1"
-            },
-            "type": "library",
-            "autoload": {
-                "psr-0": {
-                    "Solarium\\": "library/"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "NewBSD"
-            ],
-            "authors": [
-                {
-                    "name": "See GitHub contributors",
-                    "homepage": "https://github.com/basdenooijer/solarium/contributors"
-                }
-            ],
-            "description": "PHP Solr client",
-            "homepage": "http://www.solarium-project.org",
-            "keywords": [
-                "php",
-                "search",
-                "solr"
-            ],
-            "time": "2013-06-05 05:40:16"
+            "time": "2014-09-26 09:32:30"
         },
         {
             "name": "symfony-cmf/routing",
@@ -2057,16 +2017,16 @@
         },
         {
             "name": "symfony/symfony",
-            "version": "v2.4.9",
+            "version": "v2.4.10",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/symfony.git",
-                "reference": "6266883049bcefccc26bdb2def61683bbc3fb333"
+                "reference": "daed178afd4700dd18f4fb0ea6b72dcfd9a4792a"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/symfony/zipball/6266883049bcefccc26bdb2def61683bbc3fb333",
-                "reference": "6266883049bcefccc26bdb2def61683bbc3fb333",
+                "url": "https://api.github.com/repos/symfony/symfony/zipball/daed178afd4700dd18f4fb0ea6b72dcfd9a4792a",
+                "reference": "daed178afd4700dd18f4fb0ea6b72dcfd9a4792a",
                 "shasum": ""
             },
             "require": {
@@ -2166,7 +2126,7 @@
             "keywords": [
                 "framework"
             ],
-            "time": "2014-09-03 09:50:20"
+            "time": "2014-09-28 17:03:37"
         },
         {
             "name": "twig/twig",
@@ -2231,12 +2191,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/zendesk/zendesk_api_client_php.git",
-                "reference": "aa3febd0e7fb956f954d1f470ea5591e878baa84"
+                "reference": "034983456ce8d75e69507f8d79ba297f23819b8d"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/zendesk/zendesk_api_client_php/zipball/aa3febd0e7fb956f954d1f470ea5591e878baa84",
-                "reference": "aa3febd0e7fb956f954d1f470ea5591e878baa84",
+                "url": "https://api.github.com/repos/zendesk/zendesk_api_client_php/zipball/034983456ce8d75e69507f8d79ba297f23819b8d",
+                "reference": "034983456ce8d75e69507f8d79ba297f23819b8d",
                 "shasum": ""
             },
             "require": {
@@ -2267,7 +2227,7 @@
             ],
             "description": "PHP Client for Zendesk REST API. See http://developer.zendesk.com/api-docs",
             "homepage": "https://github.com/zendesk/zendesk_api_client_php",
-            "time": "2014-08-18 23:15:26"
+            "time": "2014-10-07 20:37:29"
         },
         {
             "name": "zendframework/zend-code",
@@ -2560,16 +2520,16 @@
     "packages-dev": [
         {
             "name": "pdepend/pdepend",
-            "version": "2.0.2",
+            "version": "2.0.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/pdepend/pdepend.git",
-                "reference": "5fbe4b9ec9d05057d88b898ac5ba9071f427eeb0"
+                "reference": "dc582a3c0180664a8fbfc5a34efaf4cc13fccc60"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/pdepend/pdepend/zipball/5fbe4b9ec9d05057d88b898ac5ba9071f427eeb0",
-                "reference": "5fbe4b9ec9d05057d88b898ac5ba9071f427eeb0",
+                "url": "https://api.github.com/repos/pdepend/pdepend/zipball/dc582a3c0180664a8fbfc5a34efaf4cc13fccc60",
+                "reference": "dc582a3c0180664a8fbfc5a34efaf4cc13fccc60",
                 "shasum": ""
             },
             "require": {
@@ -2595,7 +2555,7 @@
                 "BSD-3-Clause"
             ],
             "description": "Official version of pdepend to be handled with Composer",
-            "time": "2014-09-16 14:04:28"
+            "time": "2014-10-08 06:54:50"
         },
         {
             "name": "phpunit/php-code-coverage",
@@ -3013,29 +2973,99 @@
     ],
     "aliases": [
         {
+            "alias": "4.0.1",
+            "alias_normalized": "4.0.1.0",
+            "version": "dev-cleanup/newconfig",
+            "package": "project-a/cart-package"
+        },
+        {
             "alias": "4.0.0",
             "alias_normalized": "4.0.0.0",
-            "version": "9999999-dev",
+            "version": "dev-cleanup/newconfig",
             "package": "project-a/catalog-package"
+        },
+        {
+            "alias": "4.0.8",
+            "alias_normalized": "4.0.8.0",
+            "version": "dev-cleanup/newconfig",
+            "package": "project-a/content-package"
         },
         {
             "alias": "4.2.1",
             "alias_normalized": "4.2.1.0",
-            "version": "dev-feature/mysql-sessions",
+            "version": "dev-cleanup/newconfig",
+            "package": "project-a/console-package"
+        },
+        {
+            "alias": "5.0.4",
+            "alias_normalized": "5.0.4.0",
+            "version": "dev-cleanup/newconfig",
+            "package": "project-a/crm-package"
+        },
+        {
+            "alias": "4.0.1",
+            "alias_normalized": "4.0.1.0",
+            "version": "dev-cleanup/newconfig",
+            "package": "project-a/frontend-package"
+        },
+        {
+            "alias": "3.0.4",
+            "alias_normalized": "3.0.4.0",
+            "version": "dev-cleanup/newconfig",
+            "package": "project-a/glossary-package"
+        },
+        {
+            "alias": "4.3.0",
+            "alias_normalized": "4.3.0.0",
+            "version": "dev-cleanup/newconfig",
             "package": "project-a/infrastructure-package"
         },
         {
-            "alias": "4.3.7",
-            "alias_normalized": "4.3.7.0",
-            "version": "dev-feature/mysql-sessions",
+            "alias": "4.5.1",
+            "alias_normalized": "4.5.1.0",
+            "version": "dev-cleanup/newconfig",
             "package": "project-a/library-package"
+        },
+        {
+            "alias": "4.1.1",
+            "alias_normalized": "4.1.1.0",
+            "version": "dev-cleanup/newconfig",
+            "package": "project-a/lumberjack-package"
+        },
+        {
+            "alias": "5.2.0",
+            "alias_normalized": "5.2.0.0",
+            "version": "dev-cleanup/newconfig",
+            "package": "project-a/marketing-package"
+        },
+        {
+            "alias": "2.0.4",
+            "alias_normalized": "2.0.4.0",
+            "version": "dev-cleanup/newconfig",
+            "package": "project-a/payone-package"
+        },
+        {
+            "alias": "5.0.4",
+            "alias_normalized": "5.0.4.0",
+            "version": "dev-cleanup/newconfig",
+            "package": "project-a/sales-package"
         }
     ],
     "minimum-stability": "stable",
     "stability-flags": {
+        "project-a/cart-package": 20,
         "project-a/catalog-package": 20,
+        "project-a/content-package": 20,
+        "project-a/console-package": 20,
+        "project-a/crm-package": 20,
+        "project-a/frontend-package": 20,
+        "project-a/glossary-package": 20,
         "project-a/infrastructure-package": 20,
         "project-a/library-package": 20,
+        "project-a/lumberjack-package": 20,
+        "project-a/marketing-package": 20,
+        "project-a/payone-package": 20,
+        "project-a/sales-package": 20,
         "silex/silex": 20,
         "pimple/pimple": 20,
         "zendesk/zendesk_api_client_php": 20,

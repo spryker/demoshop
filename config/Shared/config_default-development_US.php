@@ -1,53 +1,28 @@
 <?php
 
-$config['storage'] = [
-    'kv' => [
-        //define the current used source and provide a setup
-        'source' => 'mysql',
-        'couchbase' => [
-            'hosts' => [
-                [
-                    'host' => '0.0.0.0',
-                    'port' => '8091'
-                ],
-            ],
-            'user' => '',
-            'password' => '',
-            'bucket' => '',
-            'timeout' => 100000,
-        ],
-        'memcached' => [
-            'host' => 'localhost',
-            'port' => '11211',
-            'prefix' => ''
-        ],
-        'mysql' => [
-            'host' => 'localhost',
-            'user' => 'shared-data',
-            'password' => 'mate20mg',
-            'database' => 'shared_data',
-            'port' => 3306,
-            'table' => 'development_kv'
-        ]
-    ],
-];
+use ProjectA\Shared\Mail\MailConfig;
+use ProjectA\Shared\Setup\SetupConfig;
+use ProjectA\Shared\System\SystemConfig;
 
+$environment = 'development';
+$tld = 'com';
 
-$config['host'] = [
-    'static_assets' => 'www-development.project-yz.com',
-    'static_media' => 'www-development.project-yz.com',
-    'yves' => 'www-development.project-yz.com',
-    'zed_gui' => 'zed-development.project-yz.com',
-    'zed_api' => 'zed-development.project-yz.com',
-];
+$config[SystemConfig::HOST_YVES]
+    = $config[SystemConfig::HOST_STATIC_ASSETS]
+    = $config[SystemConfig::HOST_STATIC_MEDIA]
+    = $config[SystemConfig::HOST_SSL_YVES]
+    = $config[SystemConfig::HOST_SSL_STATIC_ASSETS]
+    = $config[SystemConfig::HOST_SSL_STATIC_MEDIA]
+    = 'www-'.$environment.'.project-yz.'.$tld;
 
-$config['host_ssl'] = [
-    'static_assets' => 'www-development.project-yz.com',
-    'static_media' => 'www-development.project-yz.com',
-    'yves' => 'www-development.project-yz.com',
-    'zed_gui' => 'zed-development.project-yz.com',
-    'zed_api' => 'zed-development.project-yz.com',
-];
+$config[SystemConfig::HOST_ZED_GUI]
+    = $config[SystemConfig::HOST_ZED_API]
+    = $config[SystemConfig::HOST_SSL_ZED_GUI]
+    = $config[SystemConfig::HOST_SSL_ZED_API]
+    = 'zed-'.$environment.'.project-yz.'.$tld;
 
-$config['cloud']['cdn']['static_media']['http'] = 'http://static-development.project-yz.com';
-$config['cloud']['cdn']['static_media']['https'] = 'https://static-development.project-yz.com';
+$config[SystemConfig::CLOUD_CDN_STATIC_MEDIA_HTTP] = 'http://static-'.$environment.'.project-yz.'.$tld;
+$config[SystemConfig::CLOUD_CDN_STATIC_MEDIA_HTTPS] = 'https://static-'.$environment.'.project-yz.'.$tld;
+
+$config[SetupConfig::JENKINS_BASE_URL] = 'http://' . $config[SystemConfig::HOST_ZED_GUI] . ':10007/jenkins';
+$config[MailConfig::MAILCATCHER_GUI] = 'http://' . $config[SystemConfig::HOST_ZED_GUI] . ':1080';

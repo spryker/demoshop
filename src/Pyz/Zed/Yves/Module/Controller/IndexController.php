@@ -2,7 +2,7 @@
 
 namespace Pyz\Zed\Yves\Module\Controller;
 
-use ProjectA\Shared\Library\ConfigNS;
+use ProjectA\Shared\Library\Config;
 use ProjectA\Shared\System\SystemConfig;
 use ProjectA\Zed\Yves\Module\Controller\IndexController as CodeIndexController;
 
@@ -21,10 +21,10 @@ class IndexController extends CodeIndexController
         $keyValueDataSource = StorageInstanceBuilder::getKvStorageReadWriteInstance();
         $controlData = $this->facadeYves->getControlData();
 
-        $this->view->kvStorageEnging = ucfirst(ConfigNS::get(SystemConfig::STORAGE_KV_SOURCE));
+        $this->view->kvStorageEnging = ucfirst(Config::get(SystemConfig::STORAGE_KV_SOURCE));
 
         if ($this->view->kvStorageEnging == 'Couchbase') {
-            $this->view->couchbaseClusterConfig = ConfigNS::getArray(SystemConfig::STORAGE_KV_COUCHBASE)['hosts'];
+            $this->view->couchbaseClusterConfig = Config::get(SystemConfig::STORAGE_KV_COUCHBASE)['hosts'];
         }
 
         $this->view->keyValueLastModified = $keyValueDataSource->get(StorageKeyGenerator::getTimestampKey());
