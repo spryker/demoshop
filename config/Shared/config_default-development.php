@@ -12,7 +12,7 @@ $config[SystemConfig::ZED_SESSION_SAVE_HANDLER]
 
 $config[SystemConfig::YVES_STORAGE_SESSION_REDIS_PROTOCOL] = 'tcp';
 $config[SystemConfig::YVES_STORAGE_SESSION_REDIS_HOST] = '127.0.0.1';
-$config[SystemConfig::YVES_STORAGE_SESSION_REDIS_PORT] = '6379';
+$config[SystemConfig::YVES_STORAGE_SESSION_REDIS_PORT] = '10009';
 
 $config[SystemConfig::ZED_STORAGE_SESSION_REDIS_PROTOCOL] = $config[SystemConfig::YVES_STORAGE_SESSION_REDIS_PROTOCOL];
 $config[SystemConfig::ZED_STORAGE_SESSION_REDIS_HOST] = $config[SystemConfig::YVES_STORAGE_SESSION_REDIS_HOST];
