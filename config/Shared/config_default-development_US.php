@@ -7,6 +7,12 @@ use ProjectA\Shared\System\SystemConfig;
 $environment = 'development';
 $tld = 'com';
 
+$config[SystemConfig::ZED_MYSQL_USERNAME] = 'development';
+$config[SystemConfig::ZED_MYSQL_PASSWORD] = 'mate20mg';
+$config[SystemConfig::ZED_MYSQL_DATABASE] = 'US_development_zed';
+$config[SystemConfig::ZED_MYSQL_HOST] = 'localhost';
+$config[SystemConfig::ZED_MYSQL_PORT] = 3306;
+
 $config[SystemConfig::HOST_YVES]
     = $config[SystemConfig::HOST_STATIC_ASSETS]
     = $config[SystemConfig::HOST_STATIC_MEDIA]

@@ -6,9 +6,14 @@
 use ProjectA\Shared\System\SystemConfig;
 use ProjectA\Shared\Yves\YvesConfig;
 
-$config[SystemConfig::ZED_SESSION_SAVE_HANDLER] = 'mysql';
-$config[SystemConfig::ZED_SESSION_SAVE_PATH] = 'shared-data:mate20mg@localhost:3306';
+$config[SystemConfig::ZED_SESSION_SAVE_HANDLER]
+    = $config[YvesConfig::YVES_SESSION_SAVE_HANDLER]
+    = 'redis';
 
-$config[YvesConfig::YVES_SESSION_SAVE_HANDLER] = 'mysql';
-$config[YvesConfig::YVES_SESSION_SAVE_PATH] = 'shared-data:mate20mg@localhost:3306';
+$config[SystemConfig::YVES_STORAGE_SESSION_REDIS_PROTOCOL] = 'tcp';
+$config[SystemConfig::YVES_STORAGE_SESSION_REDIS_HOST] = '127.0.0.1';
+$config[SystemConfig::YVES_STORAGE_SESSION_REDIS_PORT] = '10009';
 
+$config[SystemConfig::ZED_STORAGE_SESSION_REDIS_PROTOCOL] = $config[SystemConfig::YVES_STORAGE_SESSION_REDIS_PROTOCOL];
+$config[SystemConfig::ZED_STORAGE_SESSION_REDIS_HOST] = $config[SystemConfig::YVES_STORAGE_SESSION_REDIS_HOST];
+$config[SystemConfig::ZED_STORAGE_SESSION_REDIS_PORT] = $config[SystemConfig::YVES_STORAGE_SESSION_REDIS_PORT];
