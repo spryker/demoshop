@@ -47,3 +47,5 @@ config/accumulated-config.json
 
 # profiling
 /profiler
+
+npm-debug.log
