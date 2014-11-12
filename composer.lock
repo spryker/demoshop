@@ -1419,7 +1419,7 @@
             "source": {
                 "type": "git",
                 "url": "git@codebasehq.com:project-a/core/dwh.git",
-                "reference": "04bd4af1438a76f3978857a9bace948b5c0e28d2"
+                "reference": "0aff2d7acf3d13c4268810252011ddc958a148fe"
             },
             "require": {
                 "php": ">=5.4.0",
@@ -1457,7 +1457,7 @@
             "keywords": [
                 "Dwh"
             ],
-            "time": "2014-10-16 13:39:49"
+            "time": "2014-11-11 15:56:56"
         },
         {
             "name": "project-a/frontend-package",
@@ -1650,7 +1650,7 @@
             "source": {
                 "type": "git",
                 "url": "git@codebasehq.com:project-a/core/marketing.git",
-                "reference": "aace470b882479531047061af0602c84565ce059"
+                "reference": "2be35f5d25202979850a40de5c38fb2612e08c2e"
             },
             "require": {
                 "googleads/googleads-php-lib": "5.5.1",
@@ -1694,7 +1694,7 @@
             "keywords": [
                 "Marketing"
             ],
-            "time": "2014-10-16 13:42:03"
+            "time": "2014-11-11 15:57:17"
         },
         {
             "name": "project-a/payment-package",

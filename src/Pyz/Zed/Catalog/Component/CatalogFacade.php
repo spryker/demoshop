@@ -40,37 +40,4 @@ class CatalogFacade extends \ProjectA\Zed\Catalog\Component\CatalogFacade
     {
         return $this->factory->createExporterKeyValueProductsWithoutElectronicsBundleExporter();
     }
-
-
-    /**
-     * @return Exporter\Solr\ProductsWithoutElectronicsConfigExporter
-     */
-    public function createExporterSolrProductsWithoutElectronicsConfigExporter()
-    {
-        return $this->factory->createExporterSolrProductsWithoutElectronicsConfigExporter();
-    }
-
-    /**
-     * @return Exporter\Solr\ProductsWithoutElectronicsSimpleExporter
-     */
-    public function createExporterSolrProductsWithoutElectronicsSimpleExporter()
-    {
-        return $this->factory->createExporterSolrProductsWithoutElectronicsSimpleExporter();
-    }
-
-    /**
-     * @return Exporter\Solr\ProductsWithoutElectronicsSingleExporter
-     */
-    public function createExporterSolrProductsWithoutElectronicsSingleExporter()
-    {
-        return $this->factory->createExporterSolrProductsWithoutElectronicsSingleExporter();
-    }
-
-    /**
-     * @return Exporter\Solr\ProductsWithoutElectronicsBundleExporter
-     */
-    public function createExporterSolrProductsWithoutElectronicsBundleExporter()
-    {
-        return $this->factory->createExporterSolrProductsWithoutElectronicsBundleExporter();
-    }
 }
