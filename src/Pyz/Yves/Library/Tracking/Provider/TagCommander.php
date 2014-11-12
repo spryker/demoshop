@@ -3,8 +3,6 @@ namespace Pyz\Yves\Library\Tracking\Provider;
 
 use Generated\Shared\Customer\Transfer\Address;
 use Generated\Shared\Sales\Transfer\Order;
-use ProjectA\Yves\Cart\Component\Model\Tracking\CartDataProvider;
-use ProjectA\Yves\Cart\Component\Model\Tracking\ItemDataProvider;
 use ProjectA\Yves\Customer\Component\Model\Tracking\CustomerDataProvider;
 use Pyz\Yves\Library\Tracking\DataProvider\ProductDetailProvider;
 use Pyz\Yves\Library\Tracking\PageTypeInterface;
@@ -21,7 +19,7 @@ class TagCommander implements ProviderInterface
      * @return mixed|string
      */
     public function getTrackingOutput(array $dataProvider, $pageType)
-    {return ''; // TODO hacked because of "Fatal error: Call to undefined method ProjectA\Yves\Cart\Component\Model\Tracking\CartDataProvider::getOrder() in /data/shop/development/current/src/Pyz/Yves/Library/Tracking/Provider/TagCommander.php on line 49"
+    {
         /* @var $customerDataProvider CustomerDataProvider */
         $customerDataProvider = $dataProvider[CustomerDataProvider::DATA_PROVIDER_NAME];
 
@@ -41,12 +39,6 @@ class TagCommander implements ProviderInterface
         $userLoggedIn = ($incrementId) ? 1 : 0;
 
         $pageType = ($pageType === PageTypeInterface::PAGE_TYPE_STATIC) ? ltrim($_SERVER['REQUEST_URI'], '/') : $pageType;
-
-        /* @var $cartDataProvider CartDataProvider */
-        $cartDataProvider = $dataProvider[CartDataProvider::DATA_PROVIDER_NAME];
-
-        /* @var $order Order */
-        $order = $cartDataProvider->getOrder();
 
         $productAvailable = ($productDetailDataProvider->getQuantity() > 0) ? 1 : 0;
 
@@ -78,44 +70,7 @@ class TagCommander implements ProviderInterface
             . 'tc_vars["product_url_picture"] = "";' . PHP_EOL
             . 'tc_vars["product_isbundle"] = "";' . PHP_EOL
             . 'tc_vars["product_instock"] = "' . $productAvailable . '";' . PHP_EOL
-            . 'tc_vars["product_cat1"] = "";' . PHP_EOL
-            . 'tc_vars["order_id"] = "' . $order->getIncrementId() . '";' . PHP_EOL;
-
-        $productsCount = ($order instanceof Order) ? $order->getItems()->getIterator()->count() : '';
-        $tracking .= 'tc_vars["order_amount_ati_without_sf"] = "' . $cartDataProvider->getGrandTotalWithoutShipping() . '";' . PHP_EOL
-            . 'tc_vars["order_amount_ati_with_sf"] = "' . $cartDataProvider->getGrandTotal() . '";' . PHP_EOL
-            . 'tc_vars["order_discount_ati"] = "' . $cartDataProvider->getDiscount() . '";' . PHP_EOL
-            . 'tc_vars["order_ship_ati"] = "' . $cartDataProvider->getShipping() . '";' . PHP_EOL
-            . 'tc_vars["order_ship_tf"] = "' . $cartDataProvider->getShippingWithoutTax() . '";' . PHP_EOL
-            . 'tc_vars["order_amount_tf_without_sf"] = "' . $cartDataProvider->getGrandTotalWithoutTaxWithoutShipping() . '";' . PHP_EOL
-            . 'tc_vars["order_amount_tf_with_sf"] = "' . $cartDataProvider->getGrandTotalWithoutTax() . '";' . PHP_EOL
-            . 'tc_vars["order_tax"] = "' . $cartDataProvider->getTax() . '";' . PHP_EOL
-            . 'tc_vars["order_voucher_codes"] = "' . implode(', ', $order->getCouponCodes()) .'";' . PHP_EOL
-            . 'tc_vars["order_currency"] = "' . \ProjectA_Shared_Library_Store::getInstance()->getCurrencyIsoCode() . '";' . PHP_EOL
-            . 'tc_vars["order_products_number"] = "' . $productsCount . '";' . PHP_EOL;
-
-        /* @var $itemDataProvider ItemDataProvider */
-        $itemDataProvider = $dataProvider[ItemDataProvider::DATA_PROVIDER_NAME];
-        $tracking .= 'tc_vars["order_products"] = ' . ($productsCount ? 'new Array();' : '"";') . PHP_EOL;
-        /* @var $item ItemDataProvider */
-        foreach ($itemDataProvider as $item) {
-            $tracking .= 'tc_vars["order_products"][' . $itemDataProvider->getOffset() . '] = new Array();' . PHP_EOL
-                . 'tc_vars["order_products"][' . $itemDataProvider->getOffset() . ']["order_product_id"] = "' . $item->getSku() . '";' . PHP_EOL
-                . 'tc_vars["order_products"][' . $itemDataProvider->getOffset() . ']["order_product_name"] = "' . $item->getName() . '";' . PHP_EOL
-                . 'tc_vars["order_products"][' . $itemDataProvider->getOffset() . ']["order_product_quantity"] = "' . $item->getQuantity() . '";' . PHP_EOL
-                . 'tc_vars["order_products"][' . $itemDataProvider->getOffset() . ']["order_product_unitprice_ati"] = "' . $item->getGrandTotal() . '";' . PHP_EOL
-                . 'tc_vars["order_products"][' . $itemDataProvider->getOffset() . ']["order_product_unitprice_tf"] = "' . $item->getGrandTotalWithoutTax() . '";' . PHP_EOL
-                . 'tc_vars["order_products"][' . $itemDataProvider->getOffset() . ']["order_product_discount_ati"] = "' . $item->getDiscount() . '";' . PHP_EOL
-                . 'tc_vars["order_products"][' . $itemDataProvider->getOffset() . ']["order_product_discount_tf"] = "' . $item->getDiscountWithoutTax() . '";' . PHP_EOL
-                . 'tc_vars["order_products"][' . $itemDataProvider->getOffset() . ']["order_product_trademark"] = ""; //Product trademark' . PHP_EOL
-                . 'tc_vars["order_products"][' . $itemDataProvider->getOffset() . ']["order_product_rating"] = ""; //Bundle Y/N' . PHP_EOL
-                . 'tc_vars["order_products"][' . $itemDataProvider->getOffset() . ']["order_product_instock"] = ""; //Available in stock Y/N' . PHP_EOL
-                . 'tc_vars["order_products"][' . $itemDataProvider->getOffset() . ']["order_product_isbundle"] = ""; //Bundle Y/N' . PHP_EOL
-                . 'tc_vars["order_products"][' . $itemDataProvider->getOffset() . ']["order_product_cat1"] = "' . $item->getCategory() . '";' . PHP_EOL;
-        }
-
-        $tracking .= 'tc_vars["order_payment_methods"] = "' . $cartDataProvider->getPaymentMethod() . '";' . PHP_EOL
-            . 'tc_vars["order_shipping_method"] = "Standard";' . PHP_EOL;
+            . 'tc_vars["product_cat1"] = "";' . PHP_EOL;
 
         $items = Tracking::getInstance()->getValue('campaignProducts');
         $tracking .= 'tc_vars["list_products"] = ' . ($items ? 'new Array();' : '"";') . PHP_EOL;
