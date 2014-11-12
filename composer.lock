@@ -4,7 +4,7 @@
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "87a4b7a51bed3aa0065edc06f6bc2789",
+    "hash": "669bb2c441929a18458a80fdb94333f3",
     "packages": [
         {
             "name": "digital-canvas/zend-framework",
@@ -985,11 +985,11 @@
         },
         {
             "name": "project-a/acl-package",
-            "version": "dev-cleanup/newconfig",
+            "version": "6.0.0",
             "source": {
                 "type": "git",
                 "url": "git@codebasehq.com:project-a/core/acl.git",
-                "reference": "4ad633c08977328d18a0afca68a4a3a2d10a2518"
+                "reference": "ab957f77cd8fe5a92bb96af8d84305c671225be5"
             },
             "require": {
                 "php": ">=5.4.0",
@@ -1019,15 +1019,15 @@
                 "login",
                 "usermanagement"
             ],
-            "time": "2014-11-12 13:05:27"
+            "time": "2014-11-12 11:36:18"
         },
         {
             "name": "project-a/cart-package",
-            "version": "dev-cleanup/newconfig",
+            "version": "5.0.0",
             "source": {
                 "type": "git",
                 "url": "git@codebasehq.com:project-a/core/cart.git",
-                "reference": "aaeea7c33cbb2f8f441a1ba1ba7a1a66bc9dd0c0"
+                "reference": "3314c861f3b1ef2fadf39cf81c85b2c5c17b54e0"
             },
             "require": {
                 "php": ">=5.4.0",
@@ -1106,11 +1106,11 @@
         },
         {
             "name": "project-a/checkout-package",
-            "version": "dev-cleanup/newconfig",
+            "version": "5.0.0",
             "source": {
                 "type": "git",
                 "url": "git@codebasehq.com:project-a/core/checkout.git",
-                "reference": "fbac8c8f7115acaafd07fac7f377b5c5a4a1272d"
+                "reference": "2f38736699c20c66130bfed0276842588c29b869"
             },
             "require": {
                 "gavroche/browser": "~2.1.0",
@@ -1150,11 +1150,11 @@
         },
         {
             "name": "project-a/console-package",
-            "version": "dev-cleanup/newconfig",
+            "version": "5.0.0",
             "source": {
                 "type": "git",
                 "url": "git@codebasehq.com:project-a/core/console.git",
-                "reference": "48fb88ab6b5fbcf91c836194cd9dc8d94c72a18e"
+                "reference": "fb35f6292a8476465d0421390380e8f399206c5c"
             },
             "require": {
                 "php": ">=5.4.0",
@@ -1191,11 +1191,11 @@
         },
         {
             "name": "project-a/content-package",
-            "version": "dev-cleanup/newconfig",
+            "version": "5.0.0",
             "source": {
                 "type": "git",
                 "url": "git@codebasehq.com:project-a/core/content.git",
-                "reference": "da03cc351ff52a009d93f1e90ec6bdebc3aef795"
+                "reference": "556f8f45466472b7ad9dc499c9929daa42b3d27c"
             },
             "require": {
                 "php": ">=5.4.0",
@@ -1230,11 +1230,11 @@
         },
         {
             "name": "project-a/crm-package",
-            "version": "dev-cleanup/newconfig",
+            "version": "6.0.0",
             "source": {
                 "type": "git",
                 "url": "git@codebasehq.com:project-a/core/crm.git",
-                "reference": "c73188cfee7523f3aaf1c261e3db86621f0fc48d"
+                "reference": "035bf069718d54bbe35fe4cabf6915c1a49d2629"
             },
             "require": {
                 "php": ">=5.4.0",
@@ -1274,11 +1274,11 @@
         },
         {
             "name": "project-a/document-package",
-            "version": "dev-cleanup/newconfig",
+            "version": "5.0.0",
             "source": {
                 "type": "git",
                 "url": "git@codebasehq.com:project-a/core/document.git",
-                "reference": "7526fd93a7a3e81a0bcfb0778c2089689eb9d9f3"
+                "reference": "d4c08000b709298032c8db6366b96387df3e4682"
             },
             "require": {
                 "php": ">=5.4.0",
@@ -1355,11 +1355,11 @@
         },
         {
             "name": "project-a/frontend-package",
-            "version": "dev-cleanup/newconfig",
+            "version": "5.0.0",
             "source": {
                 "type": "git",
                 "url": "git@codebasehq.com:project-a/core/frontend.git",
-                "reference": "d8fae567ebe1cea8c9272c83e67d36f908a8d262"
+                "reference": "3589693d293877d4d7c2bb33227be542dd95bc92"
             },
             "require": {
                 "php": ">=5.4.0",
@@ -1388,11 +1388,11 @@
         },
         {
             "name": "project-a/glossary-package",
-            "version": "dev-cleanup/newconfig",
+            "version": "4.0.0",
             "source": {
                 "type": "git",
                 "url": "git@codebasehq.com:project-a/core/glossary.git",
-                "reference": "65a437a13a8ab1269ec8c23610eb74d6949e6ac8"
+                "reference": "4ff764558361ac2a7411e77c0b2753d938ad492a"
             },
             "require": {
                 "php": ">=5.4.0",
@@ -1423,11 +1423,11 @@
         },
         {
             "name": "project-a/infrastructure-package",
-            "version": "dev-cleanup/newconfig",
+            "version": "5.0.0",
             "source": {
                 "type": "git",
                 "url": "git@codebasehq.com:project-a/core/infrastructure.git",
-                "reference": "600a4541af22a83c2ada9b7ad001ea9bf4a84e0b"
+                "reference": "7df458cf6239289a63367b37ee51bf3c0f853d37"
             },
             "require": {
                 "php": ">=5.4.0",
@@ -1472,11 +1472,11 @@
         },
         {
             "name": "project-a/library-package",
-            "version": "dev-cleanup/newconfig",
+            "version": "5.0.0",
             "source": {
                 "type": "git",
                 "url": "git@codebasehq.com:project-a/core/library-2.git",
-                "reference": "8c2a698cf153b2b99aa884727e9e8e4a00fb519f"
+                "reference": "35d6ea951a14ebfc648b8297bda098f2f4f8ac46"
             },
             "require": {
                 "digital-canvas/zend-framework": ">=1.12.2",
@@ -1509,11 +1509,11 @@
         },
         {
             "name": "project-a/lumberjack-package",
-            "version": "dev-cleanup/newconfig",
+            "version": "5.0.0",
             "source": {
                 "type": "git",
                 "url": "git@codebasehq.com:project-a/core/lumberjack.git",
-                "reference": "d5cf15660dc49ba286a760b558524b0443d8d1ab"
+                "reference": "a08f807b856e44d0a6c819c157241a89e953aa2d"
             },
             "require": {
                 "php": ">=5.4.0"
@@ -1544,7 +1544,7 @@
             "source": {
                 "type": "git",
                 "url": "git@codebasehq.com:project-a/core/marketing.git",
-                "reference": "2be35f5d25202979850a40de5c38fb2612e08c2e"
+                "reference": "b87f2279493a44e5501a45b31077f2341a395bb9"
             },
             "require": {
                 "googleads/googleads-php-lib": "5.5.1",
@@ -1588,15 +1588,15 @@
             "keywords": [
                 "Marketing"
             ],
-            "time": "2014-11-11 15:57:17"
+            "time": "2014-11-12 14:28:54"
         },
         {
             "name": "project-a/payment-package",
-            "version": "dev-cleanup/newconfig",
+            "version": "5.0.0",
             "source": {
                 "type": "git",
                 "url": "git@codebasehq.com:project-a/core/payment.git",
-                "reference": "a06bb088c0c523dff2247df273506514e56a14b6"
+                "reference": "00afa79ce99091d93dd2facc9ca42953947ce5ad"
             },
             "require": {
                 "php": ">=5.4.0",
@@ -1624,15 +1624,15 @@
                 "payment control",
                 "payment provider"
             ],
-            "time": "2014-11-12 12:54:33"
+            "time": "2014-11-12 14:21:03"
         },
         {
             "name": "project-a/payone-package",
-            "version": "dev-cleanup/newconfig",
+            "version": "3.0.0",
             "source": {
                 "type": "git",
                 "url": "git@codebasehq.com:project-a/core/payone.git",
-                "reference": "1a204576eba8a7ee2f11f401b189ee4402ca9139"
+                "reference": "447e2435bc4adca9528f70c14c4fac252f311ea9"
             },
             "require": {
                 "php": ">=5.4.0",
@@ -1664,11 +1664,11 @@
         },
         {
             "name": "project-a/sales-package",
-            "version": "dev-cleanup/newconfig",
+            "version": "6.0.0",
             "source": {
                 "type": "git",
                 "url": "git@codebasehq.com:project-a/core/sales.git",
-                "reference": "9e3967cc3f1f022edc05c80dc070307096f1549b"
+                "reference": "d55c39111294f6d7ac9a49f14b80c2442dcf49ac"
             },
             "require": {
                 "php": ">=5.4.0",
@@ -3004,100 +3004,10 @@
     ],
     "aliases": [
         {
-            "alias": "6.0.0",
-            "alias_normalized": "6.0.0.0",
-            "version": "dev-cleanup/newconfig",
-            "package": "project-a/acl-package"
-        },
-        {
-            "alias": "5.0.0",
-            "alias_normalized": "5.0.0.0",
-            "version": "dev-cleanup/newconfig",
-            "package": "project-a/cart-package"
-        },
-        {
             "alias": "4.0.0",
             "alias_normalized": "4.0.0.0",
             "version": "dev-cleanup/newconfig",
             "package": "project-a/catalog-package"
-        },
-        {
-            "alias": "5.0.0",
-            "alias_normalized": "5.0.0.0",
-            "version": "dev-cleanup/newconfig",
-            "package": "project-a/checkout-package"
-        },
-        {
-            "alias": "5.0.0",
-            "alias_normalized": "5.0.0.0",
-            "version": "dev-cleanup/newconfig",
-            "package": "project-a/content-package"
-        },
-        {
-            "alias": "5.0.0",
-            "alias_normalized": "5.0.0.0",
-            "version": "dev-cleanup/newconfig",
-            "package": "project-a/console-package"
-        },
-        {
-            "alias": "6.0.0",
-            "alias_normalized": "6.0.0.0",
-            "version": "dev-cleanup/newconfig",
-            "package": "project-a/crm-package"
-        },
-        {
-            "alias": "5.0.0",
-            "alias_normalized": "5.0.0.0",
-            "version": "dev-cleanup/newconfig",
-            "package": "project-a/document-package"
-        },
-        {
-            "alias": "5.0.0",
-            "alias_normalized": "5.0.0.0",
-            "version": "dev-cleanup/newconfig",
-            "package": "project-a/frontend-package"
-        },
-        {
-            "alias": "4.0.0",
-            "alias_normalized": "4.0.0.0",
-            "version": "dev-cleanup/newconfig",
-            "package": "project-a/glossary-package"
-        },
-        {
-            "alias": "5.0.0",
-            "alias_normalized": "5.0.0.0",
-            "version": "dev-cleanup/newconfig",
-            "package": "project-a/infrastructure-package"
-        },
-        {
-            "alias": "5.0.0",
-            "alias_normalized": "5.0.0.0",
-            "version": "dev-cleanup/newconfig",
-            "package": "project-a/library-package"
-        },
-        {
-            "alias": "5.0.0",
-            "alias_normalized": "5.0.0.0",
-            "version": "dev-cleanup/newconfig",
-            "package": "project-a/lumberjack-package"
-        },
-        {
-            "alias": "5.0.0",
-            "alias_normalized": "5.0.0.0",
-            "version": "dev-cleanup/newconfig",
-            "package": "project-a/payment-package"
-        },
-        {
-            "alias": "3.0.0",
-            "alias_normalized": "3.0.0.0",
-            "version": "dev-cleanup/newconfig",
-            "package": "project-a/payone-package"
-        },
-        {
-            "alias": "6.0.0",
-            "alias_normalized": "6.0.0.0",
-            "version": "dev-cleanup/newconfig",
-            "package": "project-a/sales-package"
         },
         {
             "alias": "5.12.3",
@@ -3114,22 +3024,7 @@
     ],
     "minimum-stability": "stable",
     "stability-flags": {
-        "project-a/acl-package": 20,
-        "project-a/cart-package": 20,
         "project-a/catalog-package": 20,
-        "project-a/checkout-package": 20,
-        "project-a/content-package": 20,
-        "project-a/console-package": 20,
-        "project-a/crm-package": 20,
-        "project-a/document-package": 20,
-        "project-a/frontend-package": 20,
-        "project-a/glossary-package": 20,
-        "project-a/infrastructure-package": 20,
-        "project-a/library-package": 20,
-        "project-a/lumberjack-package": 20,
-        "project-a/payment-package": 20,
-        "project-a/payone-package": 20,
-        "project-a/sales-package": 20,
         "project-a/dwh-package": 20,
         "project-a/marketing-package": 20,
         "silex/silex": 20,
