@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<statemachine
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:noNamespaceSchemaLocation="process.xsd">>
+
+    <process name="PayonePrePayment01" main="true">
+        <statuses>
+            <status name="new" reserved="true"/>
+            <status name="paid" display="customer.order.status.received" />
+            <status name="shipped" display="custom.order.status.shipped" />
+        </statuses>
+
+
+        <transitions>
+            <transition happy="true">
+                <source>new</source>
+                <target>paid</target>
+                <event>fake payment</event>
+            </transition>
+            <transition>
+                <source>paid</source>
+                <target>shipped</target>
+                <event>ship it</event>
+            </transition>
+        </transitions>
+
+
+        <events>
+            <event name="fake payment" onEnter="true" command="FakeProvider/AuthPay"/>
+            <event name="ship it" manual="true" />
+        </events>
+    </process>
+
+</statemachine>

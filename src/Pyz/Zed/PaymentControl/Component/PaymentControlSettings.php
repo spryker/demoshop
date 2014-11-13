@@ -31,4 +31,11 @@ class PaymentControlSettings extends ProjectAPaymentControlSettings
         return [];
     }
 
+    /**
+     * @return PaymentControlEngine
+     */
+    public function getEngine()
+    {
+        return $this->factoryPaymentControl->createModelEngineAllowAllMethods();
+    }
 }
