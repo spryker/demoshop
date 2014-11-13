@@ -28,7 +28,8 @@
         "pimple/pimple": "1.1.*@dev",
         "zendesk/zendesk_api_client_php": "dev-master",
         "mandrill/mandrill": "dev-master",
-        "predis/predis": "v1.0.0"
+        "predis/predis": "v1.0.0",
+        "symfony/symfony": "2.5.*"
     },
     "require-dev": {
         "silex/web-profiler": "~1.0.2",
