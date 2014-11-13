@@ -53,9 +53,9 @@ class YvesSettings extends ProjectAYvesSettings implements
         return [
             $this->facadeGlossary->createExporterKeyValueGlossaryExporter(),
 
-//            $this->facadeCatalog->createExporterKeyValueProductsWithoutElectronicsConfigExporter(),
+            $this->facadeCatalog->createExporterKeyValueProductsWithoutElectronicsConfigExporter(),
 //            $this->facadeCatalog->createExporterKeyValueProductsWithoutElectronicsSimpleExporter(),
-//            $this->facadeCatalog->createExporterKeyValueProductsWithoutElectronicsSingleExporter(),
+            $this->facadeCatalog->createExporterKeyValueProductsWithoutElectronicsSingleExporter(),
 //            $this->facadeCatalog->createExporterKeyValueProductsWithoutElectronicsBundleExporter(),
 //
 //            $this->facadeCatalog->createExporterKeyValueProductOptionsExporter(),

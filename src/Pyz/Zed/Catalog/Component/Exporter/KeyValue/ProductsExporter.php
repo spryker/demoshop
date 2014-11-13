@@ -81,20 +81,9 @@ abstract class ProductsExporter extends CoreProductsExporter implements
         $chunkSize = 2000;
 
         foreach ($collection as $product) {
-
-            $data = array();
-            $pairProductData = $this->mergeImagesToArray($product);
-            $pairProductData = $this->transformProductToData($pairProductData);
-            $productKey = StorageKeyGenerator::getProductKey($product['id_catalog_product']);
-            $productSkuKey = StorageKeyGenerator::getProductSkuKey($product['sku']);
-            if (!empty($product['url'])) {
-                $productUrlKey = StorageKeyGenerator::getProductUrlKey($product['url']);
-                $data[$productUrlKey] = $product['id_catalog_product'];
-            }
-            $data[$productKey] = $pairProductData;
-            $data[$productSkuKey] = $product['id_catalog_product'];
-
-            $allData += $data;
+            $allData = $this->addProductData($product, $allData);
+            $allData = $this->addProductSkuMapping($product, $allData);
+            $allData = $this->addUrlProductMapping($product, $allData);
 
             if ($counter % $chunkSize == 0) {
                 $exportModel->write($allData);
@@ -111,5 +100,50 @@ abstract class ProductsExporter extends CoreProductsExporter implements
         }
 
         $reporter[$reportName] = $counter;
+    }
+
+    /**
+     * @param array $product
+     * @param array $allData
+     * @return array
+     */
+    protected function addUrlProductMapping($product, $allData)
+    {
+        if (!empty($product['url'])) {
+            $productUrlKey = StorageKeyGenerator::getProductUrlKey($product['url']);
+            $allData[$productUrlKey] = (int) $product['id_catalog_product'];
+        }
+
+        return $allData;
+    }
+
+    /**
+     * @param $product
+     * @param $allData
+     * @return mixed
+     */
+    protected function addProductSkuMapping($product, $allData)
+    {
+        $productSkuKey = StorageKeyGenerator::getProductSkuKey($product['sku']);
+
+        $allData[$productSkuKey] = (int) $product['id_catalog_product'];
+        return $allData;
+    }
+
+    /**
+     * @param $product
+     * @param $allData
+     * @return mixed
+     */
+    protected function addProductData($product, $allData)
+    {
+        $pairProductData = $this->mergeImagesToArray($product);
+        $pairProductData = $this->transformProductToData($pairProductData);
+        $pairProductData['url'] = $product['url'];
+
+        $productKey = StorageKeyGenerator::getProductKey($product['id_catalog_product']);
+        $allData[$productKey] = json_encode($pairProductData);
+
+        return $allData;
     }
 }
