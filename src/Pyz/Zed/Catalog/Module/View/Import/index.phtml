@@ -1,0 +1,29 @@
+<p>
+    Upload a csv-file here with product data. This data will be imported into database. Each line in the csv is treated as a single product and will be validated if valid.
+</p>
+
+<p class="text-warning">
+    <span class="label label-warning">Note</span> If one of the products fails, no change will be made to the database
+</p>
+<br /><br />
+<form role="form" id="product-import" enctype="multipart/form-data" method="POST" action="/catalog/import/save/">
+    <div class="fileinput fileinput-new" data-provides="fileinput" style="height:80px;width:400px;max-width: 600px;">
+        <div class="input-group">
+            <div class="form-control uneditable-input span3" data-trigger="fileinput"><i class="icon-file fileinput-exists" style="margin-right: 7px;"></i> <span class="fileinput-filename"></span></div>
+            <span class="input-group-addon btn btn-default btn-file"><span class="fileinput-new">Select file</span><span class="fileinput-exists">Change</span><input type="file" name="importFile"></span>
+            <a href="#" class="input-group-addon btn btn-default fileinput-exists" data-dismiss="fileinput">Remove</a>
+        </div>
+        <br /><br /><br />
+        <label>Delete empty values (instead of skipping them)</label>
+        <?= $this->formCheckbox('delete_null_values'); ?>
+    </div>
+    <br /><br />
+    <button type="submit" class="btn btn-default" disabled="disabled">Upload</button>
+</form>
+
+<script>
+    var form = $('#product-import');
+    $(':file', form).on('change.bs.fileinput', function(event) {
+        $('button[type=submit]', form).prop( "disabled", $(event.target).val() == '' );
+    });
+</script>

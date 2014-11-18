@@ -26,10 +26,6 @@
         {%- endif -%}
         <div class="row">{{- order.billingAddress.zipCode }} {{ order.billingAddress.city -}}</div>
     </div>
-    <div class="col col33 mod:last floatonprint">
-        <h4 class="caption">{{ 'customer.order.payment.method'|trans }}</h4>
-        <div class="row">{{ order.payment.method|trans }}</div>
-    </div>
     <table class="cart col fullWidth">
         <thead>
             <tr>
@@ -64,20 +60,6 @@
                     {%- endfor -%}
                 </td>
             </tr>
-            {% if order.totals.discount.totalStandardDiscounts != "0,00 €" %}
-                <tr>
-                    <td></td>
-                    <td>{{ 'customer.order.discount'|trans }}</td>
-                    <td>-{{ order.totals.discount.totalStandardDiscounts }}</td>
-                </tr>
-            {% endif %}
-            {% if order.totals.discount.totalShippingDiscounts != "0,00 €" %}
-                <tr>
-                    <td></td>
-                    <td>{{ 'customer.order.discount.shipping'|trans }}</td>
-                    <td>-{{ order.totals.discount.totalShippingDiscounts }}</td>
-                </tr>
-            {% endif %}
             <tr>
                 <td></td>
                 <td>{{ 'customer.order.price.grand.total'|trans }}</td>

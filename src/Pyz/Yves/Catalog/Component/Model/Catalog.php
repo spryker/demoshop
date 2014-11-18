@@ -33,4 +33,38 @@ class Catalog extends ProjectACatalog
 
         return $product;
     }
+
+    /**
+     * @param array $ids
+     * @param ReadInterface $storage
+     * @param null $indexByKey
+     * @return \array[]
+     */
+    public function getProductDataByIds(array $ids, ReadInterface $storage, $indexByKey = null)
+    {
+        $productsFromStorage = parent::getProductDataByIds($ids, $storage, $indexByKey);
+
+        if (!$indexByKey) {
+            array_walk($productsFromStorage, function(&$product) {
+                $product = json_decode($product, true);
+            });
+        }
+
+        return $productsFromStorage;
+    }
+
+    /**
+     * @param string $key
+     * @param array $productsFromStorage
+     * @return array
+     */
+    protected function mapKeysToValue($key, array $productsFromStorage)
+    {
+        $productsIndexedById = [];
+        foreach ($productsFromStorage as $product) {
+            $product = json_decode($product, true);
+            $productsIndexedById[$product[$key]] = $product;
+        }
+        return $productsIndexedById;
+    }
 }

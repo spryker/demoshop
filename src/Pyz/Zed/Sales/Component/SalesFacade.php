@@ -18,4 +18,15 @@ class SalesFacade extends CoreSalesFacade
         $finder = $this->factory->createModelOrderprocessFinder();
         return $finder->getItemsByFlag($order, $flag);
     }
+
+    /**
+     * @param string $sku
+     * @return \Iterator|null
+     */
+    public function getReservedOrderItemsForSku($sku)
+    {
+        return null;
+    }
+
+
 }
