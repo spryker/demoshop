@@ -34,7 +34,11 @@
     "require-dev": {
         "silex/web-profiler": "~1.0.2",
         "pdepend/pdepend": "*",
-        "phpunit/phpunit": "~3.7.0"
+        "phpunit/phpunit": "~3.7.0",
+        "codeception/codeception": "*",
+        "newloki/propel-module": "dev-master#9de9316361e3dddb6b29f5dd93b7456e19e042e3",
+        "fzaninotto/faker": "1.4.*",
+        "codeception/remote-debug": "*"
     },
     "autoload": {
         "psr-0": {
