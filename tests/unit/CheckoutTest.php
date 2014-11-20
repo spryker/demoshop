@@ -69,8 +69,16 @@ class CheckoutTest extends \Codeception\TestCase\Test
 
     protected function addCustomer(Order $orderTransfer)
     {
-        $customer = ProjectA_Zed_Customer_Persistence_PacCustomerQuery::create()
-            ->findOne();
+
+        $status = Generated_Zed_Customer_Persistence_Om_BasePacCustomerStatusQuery::create()->findOne();
+
+        $customer = Generated_Zed_EntityLoader::loadPacCustomer();
+        $customer->setFirstName('Max');
+        $customer->setLastName('Muster');
+        $customer->setPassword('aaaaaa');
+        $customer->setEmail('qa@project-a.de');
+        $customer->setStatus($status);
+        $customer->save();
 
         $customerTransfer = Copy::entityToTransfer(TransferLoader::loadCustomer(), $customer);
         $orderTransfer->setCustomer($customerTransfer);
