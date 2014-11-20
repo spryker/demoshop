@@ -53,6 +53,7 @@ return [
         'Payone' => $schema,
         'PaymentControl' => $schema,
         'Price' => $schema,
+        'Product' => $schema,
         'Sales' => $schemaAndNavigation,
         'Salesrule' => $schemaAndNavigation,
         'Setup' => $navigation,

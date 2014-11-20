@@ -4,7 +4,7 @@
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "f0111ceea4b07a04d3479e2f729a9a14",
+    "hash": "fd46a8aa77c3fc2c8cfcff1f759f47de",
     "packages": [
         {
             "name": "digital-canvas/zend-framework",
@@ -1444,6 +1444,38 @@
             "time": "2014-11-12 13:37:42"
         },
         {
+            "name": "project-a/product-package",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "git@codebasehq.com:project-a/core/product.git",
+                "reference": "3ad258ee67d45d856dffccb50b4fb1e16f79dd31"
+            },
+            "require": {
+                "php": ">=5.4.0"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-0": {
+                    "ProjectA": "/src"
+                }
+            },
+            "authors": [
+                {
+                    "name": "Alberto Assmann",
+                    "email": "alberto.assmann@project-a.com",
+                    "homepage": "http://www.project-a.com",
+                    "role": "Developer"
+                }
+            ],
+            "description": "Product package",
+            "keywords": [
+                "Catalog",
+                "Product"
+            ],
+            "time": "2014-11-20 08:49:54"
+        },
+        {
             "name": "project-a/sales-package",
             "version": "6.0.0",
             "source": {
@@ -1486,21 +1518,21 @@
         },
         {
             "name": "project-a/silex-routing",
-            "version": "v1.0.4",
+            "version": "v1.0.5",
             "source": {
                 "type": "git",
-                "url": "https://github.com/project-a/Silex-Routing.git",
-                "reference": "f36a44e771e2910d59a18a0f0b0086216f2f540b"
+                "url": "https://github.com/chili-labs/Silex-Routing.git",
+                "reference": "2f5ddf69ce90bc634ba6656cb9343350b07cf81b"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/project-a/Silex-Routing/zipball/f36a44e771e2910d59a18a0f0b0086216f2f540b",
-                "reference": "f36a44e771e2910d59a18a0f0b0086216f2f540b",
+                "url": "https://api.github.com/repos/chili-labs/Silex-Routing/zipball/2f5ddf69ce90bc634ba6656cb9343350b07cf81b",
+                "reference": "2f5ddf69ce90bc634ba6656cb9343350b07cf81b",
                 "shasum": ""
             },
             "require": {
                 "silex/silex": "~1.0",
-                "symfony-cmf/routing": "~1.1",
+                "symfony-cmf/routing": "~1.0",
                 "symfony/routing": ">=2.3,<2.6-dev"
             },
             "require-dev": {
@@ -1509,7 +1541,7 @@
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "1.1.x-dev"
+                    "dev-master": "2.0.x-dev"
                 }
             },
             "autoload": {
@@ -1524,18 +1556,12 @@
             "authors": [
                 {
                     "name": "Daniel Tschinder",
-                    "email": "daniel.tschinder@project-a.com",
-                    "homepage": "http://www.project-a.com",
-                    "role": "Senior Developer"
-                },
-                {
-                    "name": "Project A",
-                    "email": "info@project-a.com",
-                    "homepage": "http://www.project-a.com"
+                    "email": "daniel@tschinder.de",
+                    "homepage": "http://www.tschinder.de"
                 }
             ],
             "description": "Silex-Routing provides advanced routing for Silex through connecting symfony-cmf/Routing with Silex.",
-            "time": "2014-04-24 20:16:00"
+            "time": "2014-11-18 22:09:03"
         },
         {
             "name": "propel/propel1",
@@ -3743,12 +3769,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/newLoki/PropelModule.git",
-                "reference": "331d909a8aa497c55c69da7e6ecbd93465afcfad"
+                "reference": "9de9316361e3dddb6b29f5dd93b7456e19e042e3"
             },
             "dist": {
                 "type": "zip",
                 "url": "https://api.github.com/repos/newLoki/PropelModule/zipball/ab6164e684113e20d5754fd61fe0ea86331ebd0b",
-                "reference": "331d909a8aa497c55c69da7e6ecbd93465afcfad",
+                "reference": "9de9316361e3dddb6b29f5dd93b7456e19e042e3",
                 "shasum": ""
             },
             "require-dev": {
@@ -3768,7 +3794,7 @@
                 }
             ],
             "description": "Propel DB testing module",
-            "time": "2014-11-17 11:37:47"
+            "time": "2014-11-18 08:57:23"
         },
         {
             "name": "pdepend/pdepend",
@@ -4670,6 +4696,12 @@
             "package": "project-a/catalog-package"
         },
         {
+            "alias": "1.0.0",
+            "alias_normalized": "1.0.0.0",
+            "version": "9999999-dev",
+            "package": "project-a/product-package"
+        },
+        {
             "alias": "5.12.3",
             "alias_normalized": "5.12.3.0",
             "version": "dev-cleanup/newconfig",
@@ -4685,6 +4717,7 @@
     "minimum-stability": "stable",
     "stability-flags": {
         "project-a/catalog-package": 20,
+        "project-a/product-package": 20,
         "project-a/dwh-package": 20,
         "project-a/marketing-package": 20,
         "silex/silex": 20,
