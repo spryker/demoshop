@@ -18,7 +18,7 @@
         "project-a/payone-package": "dev-master as 3.0.0",
         "project-a/sales-package": "dev-master as 6.0.0",
 
-        "project-a/dwh-package": "dev-cleanup/newconfig as 5.12.3",
+        "project-a/dwh-package": "dev-feature/376-phtml-to-twig as 5.12.3",
         "project-a/marketing-package": "dev-feature/376-phtml-to-twig as 6.0.0",
 
         "psr/log": "~1.0",
@@ -27,15 +27,19 @@
         "silex/silex": "1.2.*@dev",
         "pimple/pimple": "1.1.*@dev",
         "zendesk/zendesk_api_client_php": "dev-master",
-        "mandrill/mandrill": "dev-master",
+        "mandrill/mandrill": "1.0.*",
         "predis/predis": "v1.0.0",
-        "symfony/symfony": "2.5.*",
-        "knplabs/knp-menu": "2.0.1"
+        "knplabs/knp-menu": "2.0.1",
+        "symfony/validator": "2.5.*"
     },
     "require-dev": {
         "silex/web-profiler": "~1.0.2",
         "pdepend/pdepend": "*",
-        "phpunit/phpunit": "~3.7.0"
+        "phpunit/phpunit": "~3.7.0",
+        "codeception/codeception": "*",
+        "newloki/propel-module": "dev-master#9de9316361e3dddb6b29f5dd93b7456e19e042e3",
+        "fzaninotto/faker": "1.4.*",
+        "codeception/remote-debug": "*"
     },
     "autoload": {
         "psr-0": {

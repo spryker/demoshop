@@ -37,16 +37,5 @@ $application = new Zend_Application(
     APPLICATION_ROOT_DIR . '/config/Zed/application.ini'
 );
 
-$taskRunner = new \Refactor\TaskRunner([
-    'package' => 'acl',
-    'deletePhtmlFiles' => false
-]);
-//$taskRunner->runTasks(\Refactor\PhtmlToTwig\ControllerTask::NAME);
-//$taskRunner->runTasks(\Refactor\PhtmlToTwig\ViewFileTask::NAME);
-//$taskRunner->runTasks(\Refactor\TwigLayout\TwigLayoutTask::NAME);
-
-//$taskRunner->runTasks();
-//die('TinaTurner');
-
 $application->bootstrap();
 $application->run();

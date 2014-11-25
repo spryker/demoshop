@@ -4,8 +4,7 @@ use ProjectA\Shared\Customer\CustomerConfig;
 use ProjectA\Shared\DbDump\DbDumpConfig;
 use ProjectA\Shared\Dwh\DwhConfig;
 use ProjectA\Shared\Glossary\GlossaryConfig;
-use ProjectA\Shared\MailChimp\MailChimpConfig;
-use ProjectA\Shared\Mcm\McmConfig;
+use Pyz\Shared\Mail\MailConfig;
 use ProjectA\Shared\Payone\PayoneConfig;
 use ProjectA\Shared\ProductImage\ProductImageConfig;
 use ProjectA\Shared\System\SystemConfig;
@@ -129,7 +128,7 @@ $config[ProductImageConfig::PRODUCT_IMAGE_AMAZON_S3_BUCKET_NAME] = '';
 
 
 $config[CustomerConfig::CUSTOMER_MINUTES_BEFORE_RESTORE_PASSWORD_INVALID] = 60;
-$config[CustomerConfig::CUSTOMER_DOUBLE_OPT_IN_REGISTRATION] = false;
+$config[CustomerConfig::CUSTOMER_DOUBLE_OPT_IN_REGISTRATION] = true;
 
 $config[SystemConfig::CLOUD_ENABLED] = false;
 $config[SystemConfig::CLOUD_OBJECT_STORAGE_ENABLED] = false;
@@ -185,15 +184,19 @@ $config[DwhConfig::DWH_IMPORT_MAX_TIME] = 'now()';
 $config[DwhConfig::DWH_MAXIMUM_NUMBER_PARALLEL_IMPORT_JOBS] = 4;
 $config[DwhConfig::DWH_CUBES_URL] = 'http://localhost:8080';
 
-$config[McmConfig::MCM_USERNAME_WEBTREKK] = 'user';
-$config[McmConfig::MCM_PASSWORD_WEBTREKK] = 'pass';
-$config[McmConfig::MCM_TRACKING_ID_WEBTREKK] = 'id';
-
-$config[MailChimpConfig::MAIL_CHIMP_API_KEY] = '12345abcde';
-$config[MailChimpConfig::MAIL_CHIMP_IMPORT_START_DATE] = '2013-04-01';
-
 $config[AdwordsConfig::ADWORDS_EMAIL] = 'foo@example.com';
 $config[AdwordsConfig::ADWORDS_PASSWORD] = '123abc';
 $config[AdwordsConfig::ADWORDS_API_VERSION] = '123abc';
 $config[AdwordsConfig::ADWORDS_DEVELOPER_TOKEN] = 'asdfghjkl';
 $config[AdwordsConfig::ADWORDS_MCC_CLIENT_ID] = null;
+
+
+//TODO: change this to our settings instead of using the zooron mandrill account
+$config[MailConfig::MAIL_PROVIDER_MANDRILL] = [
+    'api-key' => 'weUrHb0QNJaZNEvwZa03xA',
+    'host' => 'smtp.mandrillapp.com',
+    'port' => '587',
+    'username' => 'tamer.el-hawari@project-a.com',
+    'from_mail' => 'service@demoshop.de',
+    'from_name' => 'Demoshop'
+];

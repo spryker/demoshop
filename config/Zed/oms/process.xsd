@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema attributeFormDefault="unqualified" elementFormDefault="qualified" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+    <xs:element name="statemachine" type="statemachineType"/>
+    <xs:complexType name="processType" mixed="true">
+        <xs:sequence>
+            <xs:element type="subprocessesType" name="subprocesses" minOccurs="0"/>
+            <xs:element type="statusesType" name="statuses" minOccurs="0">
+                <xs:annotation>
+                    <xs:documentation>TODO exclude from invoice</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element type="transitionsType" name="transitions" minOccurs="0"/>
+            <xs:element type="eventsType" name="events" minOccurs="0">
+                <xs:annotation>
+                    <xs:documentation>TODO find merchant</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+        </xs:sequence>
+        <xs:attribute type="xs:string" name="name" use="optional"/>
+        <xs:attribute type="xs:string" name="main" use="optional"/>
+        <xs:attribute type="xs:string" name="file" use="optional"/>
+    </xs:complexType>
+    <xs:complexType name="statusesType">
+        <xs:sequence>
+            <xs:element type="statusType" name="status" maxOccurs="unbounded" minOccurs="0"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="transitionsType">
+        <xs:sequence>
+            <xs:element type="transitionType" name="transition" maxOccurs="unbounded" minOccurs="0"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="statusType" mixed="true">
+        <xs:sequence>
+            <xs:element name="flag" maxOccurs="unbounded" minOccurs="0">
+                <xs:simpleType>
+                    <xs:restriction base="xs:string">
+                        <xs:enumeration value="exclude from customer"/>
+                        <xs:enumeration value="exclude from invoice"/>
+                        <xs:enumeration value="ready for invoice"/>
+                        <xs:enumeration value="waiting for export"/>
+                    </xs:restriction>
+                </xs:simpleType>
+            </xs:element>
+        </xs:sequence>
+        <xs:attribute type="xs:string" name="name" use="optional"/>
+        <xs:attribute type="xs:string" name="display" use="optional"/>
+        <xs:attribute type="xs:string" name="reserved" use="optional"/>
+    </xs:complexType>
+    <xs:complexType name="statemachineType" mixed="true">
+        <xs:sequence>
+            <xs:element type="processType" name="process" maxOccurs="unbounded" minOccurs="0"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="transitionType">
+        <xs:sequence>
+            <xs:element type="xs:string" name="source"/>
+            <xs:element type="xs:string" name="target"/>
+            <xs:element type="xs:string" name="event" minOccurs="0"/>
+        </xs:sequence>
+        <xs:attribute type="xs:string" name="happy" use="optional"/>
+        <xs:attribute type="xs:string" name="condition" use="optional"/>
+    </xs:complexType>
+    <xs:complexType name="eventType">
+        <xs:simpleContent>
+            <xs:extension base="xs:string">
+                <xs:attribute type="xs:string" name="name" use="optional"/>
+                <xs:attribute type="xs:string" name="timeout" use="optional"/>
+                <xs:attribute type="xs:string" name="onEnter" use="optional"/>
+                <xs:attribute type="xs:string" name="manual" use="optional"/>
+                <xs:attribute type="xs:string" name="command" use="optional"/>
+            </xs:extension>
+        </xs:simpleContent>
+    </xs:complexType>
+    <xs:complexType name="subprocessesType">
+        <xs:sequence>
+            <xs:element name="process" maxOccurs="unbounded" minOccurs="0">
+                <xs:simpleType>
+                    <xs:restriction base="xs:string">
+                        <xs:enumeration value="invoice creation"/>
+                        <xs:enumeration value="fulfillment"/>
+                        <xs:enumeration value="completion"/>
+                        <xs:enumeration value="cancellation"/>
+                        <xs:enumeration value="return shipment"/>
+                        <xs:enumeration value="find merchant"/>
+                        <xs:enumeration value="return debit note"/>
+                        <xs:enumeration value="dunning process"/>
+                        <xs:enumeration value="payone capture"/>
+                        <xs:enumeration value="payone capture after fulfillment"/>
+                        <xs:enumeration value="postal invoice delivery"/>
+                        <xs:enumeration value="payone waiting for invoice payment"/>
+                        <xs:enumeration value="manual trustability check"/>
+                        <xs:enumeration value="delivery slip creation"/>
+                    </xs:restriction>
+                </xs:simpleType>
+            </xs:element>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="eventsType">
+        <xs:sequence>
+            <xs:element type="eventType" name="event" maxOccurs="unbounded" minOccurs="0"/>
+        </xs:sequence>
+    </xs:complexType>
+</xs:schema>
