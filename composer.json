@@ -1,22 +1,22 @@
 {
     "require": {
-        "project-a/acl-package": "dev-feature/376-phtml-to-twig as 6.0.0",
-        "project-a/cart-package": "dev-feature/376-phtml-to-twig as 5.0.0",
-        "project-a/catalog-package": "dev-feature/376-phtml-to-twig as 4.0.0",
-        "project-a/checkout-package": "dev-feature/376-phtml-to-twig as 5.0.0",
-        "project-a/content-package": "dev-feature/376-phtml-to-twig as 5.0.0",
-        "project-a/console-package": "dev-feature/376-phtml-to-twig as 5.0.0",
-        "project-a/crm-package": "dev-feature/376-phtml-to-twig as 6.0.0",
-        "project-a/document-package": "dev-feature/376-phtml-to-twig as 5.0.0",
-        "project-a/frontend-package": "dev-feature/376-phtml-to-twig as 5.0.0",
-        "project-a/glossary-package": "dev-feature/376-phtml-to-twig as 4.0.0",
-        "project-a/infrastructure-package": "dev-feature/376-phtml-to-twig as 5.0.0",
-        "project-a/kendo-package": "dev-feature/376-phtml-to-twig as 3.0.0",
-        "project-a/library-package": "dev-feature/376-phtml-to-twig as 5.0.0",
-        "project-a/lumberjack-package": "dev-feature/376-phtml-to-twig as 5.0.0",
-        "project-a/payment-package": "dev-feature/376-phtml-to-twig as 5.0.0",
-        "project-a/payone-package": "dev-feature/376-phtml-to-twig as 3.0.0",
-        "project-a/sales-package": "dev-feature/376-phtml-to-twig as 6.0.0",
+        "project-a/acl-package": "dev-master as 6.0.0",
+        "project-a/cart-package": "dev-master as 5.0.0",
+        "project-a/catalog-package": "dev-master as 4.0.0",
+        "project-a/checkout-package": "dev-master as 5.0.0",
+        "project-a/content-package": "dev-master as 5.0.0",
+        "project-a/console-package": "dev-master as 5.0.0",
+        "project-a/crm-package": "dev-master as 6.0.0",
+        "project-a/document-package": "dev-master as 5.0.0",
+        "project-a/frontend-package": "dev-master as 5.0.0",
+        "project-a/glossary-package": "dev-master as 4.0.0",
+        "project-a/infrastructure-package": "dev-master as 5.0.0",
+        "project-a/kendo-package": "dev-master as 3.0.0",
+        "project-a/library-package": "dev-master as 5.0.0",
+        "project-a/lumberjack-package": "dev-master as 5.0.0",
+        "project-a/payment-package": "dev-master as 5.0.0",
+        "project-a/payone-package": "dev-master as 3.0.0",
+        "project-a/sales-package": "dev-master as 6.0.0",
 
         "project-a/dwh-package": "dev-cleanup/newconfig as 5.12.3",
         "project-a/marketing-package": "dev-feature/376-phtml-to-twig as 6.0.0",
@@ -35,8 +35,7 @@
     "require-dev": {
         "silex/web-profiler": "~1.0.2",
         "pdepend/pdepend": "*",
-        "phpunit/phpunit": "~3.7.0",
-        "project-a/refactor-package": "dev-master as 1.0.0"
+        "phpunit/phpunit": "~3.7.0"
     },
     "autoload": {
         "psr-0": {
