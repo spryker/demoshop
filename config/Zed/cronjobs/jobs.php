@@ -130,3 +130,13 @@ $jobs[] = array(
     'enable'   => false,
     'stores'   => $all_stores,
 );
+
+
+$jobs[] = array(
+    'name'     => 'export_kv',
+    'command'  => '$PHP_BIN $CLI_PATH/index.php --module=yves-export --controller=cronjob --action=export-key-value',
+    'schedule' => '*/10 * * * *',
+    'enable'   => false,
+    'stores'   => $all_stores,
+);
+

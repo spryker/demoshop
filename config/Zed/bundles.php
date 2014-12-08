@@ -61,5 +61,6 @@ return [
         'System' => $navigation,
         'Tv' => $schemaAndNavigation,
         'Yves' => $schemaAndNavigation,
+        'YvesExport' => $schema
     ],
 ];

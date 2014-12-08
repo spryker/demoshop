@@ -17,7 +17,9 @@
         "project-a/payment-package": "5.0.0",
         "project-a/payone-package": "3.0.0",
         "project-a/sales-package": "6.0.0",
-        "project-a/product-package": "dev-master#d8c856d063eab3a959aefaf163f278cc86db46bf as 1.0.0",
+        "project-a/product-package": "dev-master",
+        "project-a/yves-export-package": "dev-master",
+        "project-a/product-export-package": "dev-master",
 
         "project-a/dwh-package": "dev-cleanup/newconfig as 5.12.3",
         "project-a/marketing-package": "dev-cleanup/newconfig as 6.0.0",
