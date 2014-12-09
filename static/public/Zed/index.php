@@ -13,7 +13,7 @@ require_once(APPLICATION_ROOT_DIR . '/vendor/project-a/library-package/src/Proje
 
 Environment::initialize();
 TestEnvironment::initialize();
-\
+
 ProjectA_Shared_Library_Context::setDefaultContext(\ProjectA_Shared_Library_Context::CONTEXT_ZED);
 
 if (file_exists(APPLICATION_SOURCE_DIR . '/Generated/Zed/DependencyInjectionContainer.php')) {
