@@ -21,7 +21,7 @@ use ProjectA\Zed\Library\Silex\Application as ZedApplication;
 use ProjectA\Zed\Library\Twig\Extension\ZedExtension;
 use ProjectA\Zed\ProductImage\Component\ServiceProvider\ProductImageServiceProvider;
 use ProjectA\Zed\Security\Module\ServiceProvider\SecurityServiceProvider;
-use ProjectA\Zed\Yves\Module\ServiceProvider\TransferObjectInjectionServiceProvider;
+use ProjectA\Zed\Yves\Module\ServiceProvider\FrontendServiceProvider;
 use Silex\Provider\FormServiceProvider;
 use Silex\Provider\HttpFragmentServiceProvider;
 use Silex\Provider\RememberMeServiceProvider;
@@ -95,7 +95,7 @@ class ZedBootstrap extends Bootstrap
             new SecurityServiceProvider(),
 //            new ProductImageServiceProvider(), You can find this in catalog-package feature/387-replace-zf-with-silex
             new CmsServiceProvider(),
-            new TransferObjectInjectionServiceProvider(),
+            new FrontendServiceProvider(),
             new NewRelicServiceProvider(),
         ];
 

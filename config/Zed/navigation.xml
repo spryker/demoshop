@@ -15,6 +15,11 @@
         <title>Catalog</title>
         <uri>/catalog/product</uri>
     </catalog>
+    <product>
+        <label>Product</label>
+        <title>Product</title>
+        <uri>/product/import</uri>
+    </product>
     <content>
         <label>Content</label>
         <title>Content</title>

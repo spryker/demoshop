@@ -15,6 +15,7 @@ class Install extends CoreInstall
     public function install()
     {
         parent::install();
+        return;
         $this->addPayoneResourceToGuestRole();
     }
 

@@ -17,6 +17,9 @@
         "project-a/payment-package": "dev-feature/387-replace-zf-with-silex as 5.0.0",
         "project-a/payone-package": "dev-feature/387-replace-zf-with-silex as 3.0.0",
         "project-a/sales-package": "dev-feature/387-replace-zf-with-silex as 6.0.0",
+        "project-a/product-package": "dev-master",
+        "project-a/yves-export-package": "dev-master",
+        "project-a/product-export-package": "dev-master",
 
         "project-a/dwh-package": "dev-feature/387-replace-zf-with-silex as 5.12.3",
         "project-a/marketing-package": "dev-feature/387-replace-zf-with-silex as 6.0.0",
@@ -39,8 +42,7 @@
         "codeception/codeception": "*",
         "newloki/propel-module": "dev-master#9de9316361e3dddb6b29f5dd93b7456e19e042e3",
         "fzaninotto/faker": "1.4.*",
-        "codeception/remote-debug": "*",
-        "project-a/refactor-package": "dev-master as 1.0.0"
+        "codeception/remote-debug": "*"
     },
     "autoload": {
         "psr-0": {

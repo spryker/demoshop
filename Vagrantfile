@@ -23,7 +23,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
     salt.verbose = true
 
     # shared folder used for the dev vm
-    config.vm.synced_folder "./", "/data/shop/development/current", type: "nfs"
+    config.vm.synced_folder "./", "/data/shop/development/current"
     config.nfs.map_uid = Process.uid
     config.nfs.map_gid = Process.gid
   end

@@ -41,6 +41,7 @@ return [
         'Payone' => $schema,
         'PaymentControl' => $schema,
         'Price' => $schema,
+        'Product' => $schemaAndNavigation,
         'Sales' => $schemaAndNavigation,
         'Salesrule' => $schemaAndNavigation,
         'Setup' => $navigation,
@@ -48,5 +49,6 @@ return [
         'System' => $navigation,
         'Tv' => $schemaAndNavigation,
         'Yves' => $schemaAndNavigation,
+        'YvesExport' => $schema
     ],
 ];
