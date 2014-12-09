@@ -12,7 +12,7 @@
         "project-a/glossary-package": "dev-master as 4.0.0",
         "project-a/infrastructure-package": "dev-master as 5.0.0",
         "project-a/kendo-package": "dev-master as 3.0.0",
-        "project-a/library-package": "dev-master as 5.0.0",
+        "project-a/library-package": "dev-master as 5.0.1",
         "project-a/lumberjack-package": "dev-master as 5.0.0",
         "project-a/payment-package": "dev-master as 5.0.0",
         "project-a/payone-package": "dev-master as 3.0.0",

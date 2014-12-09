@@ -4,7 +4,7 @@
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "9830f1a0dce35f62fef1b04d551c1803",
+    "hash": "aca35ef22f84e15f6c3ad8a061d29dbd",
     "packages": [
         {
             "name": "digital-canvas/zend-framework",
@@ -536,7 +536,7 @@
                     "email": "stof@notk.org"
                 },
                 {
-                    "name": "KnpLabs",
+                    "name": "Knplabs",
                     "homepage": "http://knplabs.com"
                 },
                 {
@@ -551,6 +551,61 @@
                 "tree"
             ],
             "time": "2014-08-01 09:50:16"
+        },
+        {
+            "name": "league/csv",
+            "version": "6.1.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/thephpleague/csv.git",
+                "reference": "25198fd4036de1b5d46447ae2382fdafd86bade9"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/thephpleague/csv/zipball/25198fd4036de1b5d46447ae2382fdafd86bade9",
+                "reference": "25198fd4036de1b5d46447ae2382fdafd86bade9",
+                "shasum": ""
+            },
+            "require": {
+                "ext-mbstring": "*",
+                "php": ">=5.4.0"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "~4.0"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "6.1-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "League\\Csv\\": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Ignace Nyamagana Butera",
+                    "email": "nyamsprod@gmail.com",
+                    "homepage": "https://github.com/nyamsprod/",
+                    "role": "Developer"
+                }
+            ],
+            "description": "Csv data manipulation made easy in PHP",
+            "keywords": [
+                "csv",
+                "export",
+                "filter",
+                "import",
+                "read",
+                "write"
+            ],
+            "time": "2014-12-08 07:58:23"
         },
         {
             "name": "mandrill/mandrill",
@@ -1514,6 +1569,81 @@
             "time": "2014-11-24 09:36:01"
         },
         {
+            "name": "project-a/product-export-package",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "git@codebasehq.com:project-a/core/product-export-package.git",
+                "reference": "f3877255552919f0901bf6c7fa666af88868db7f"
+            },
+            "require": {
+                "php": ">=5.4.0",
+                "project-a/product-package": "dev-master",
+                "project-a/yves-export-package": "dev-master"
+            },
+            "require-dev": {
+                "codeception/codeception": "*"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-0": {
+                    "ProjectA": "/src"
+                }
+            },
+            "authors": [
+                {
+                    "name": "Alberto Assmann",
+                    "email": "alberto.assmann@project-a.com",
+                    "homepage": "http://www.project-a.com",
+                    "role": "Developer"
+                }
+            ],
+            "description": "Product export package",
+            "keywords": [
+                "Catalog",
+                "Export",
+                "Product",
+                "Yves"
+            ],
+            "time": "2014-12-08 13:28:44"
+        },
+        {
+            "name": "project-a/product-package",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "git@codebasehq.com:project-a/core/product.git",
+                "reference": "e90b7678d5fcee632f982f8f6ec005791a798b60"
+            },
+            "require": {
+                "league/csv": "*",
+                "php": ">=5.4.0"
+            },
+            "require-dev": {
+                "codeception/codeception": "*"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-0": {
+                    "ProjectA": "/src"
+                }
+            },
+            "authors": [
+                {
+                    "name": "Alberto Assmann",
+                    "email": "alberto.assmann@project-a.com",
+                    "homepage": "http://www.project-a.com",
+                    "role": "Developer"
+                }
+            ],
+            "description": "Product package",
+            "keywords": [
+                "Catalog",
+                "Product"
+            ],
+            "time": "2014-12-08 13:28:22"
+        },
+        {
             "name": "project-a/sales-package",
             "version": "dev-master",
             "source": {
@@ -1600,6 +1730,42 @@
             ],
             "description": "Silex-Routing provides advanced routing for Silex through connecting symfony-cmf/Routing with Silex.",
             "time": "2014-11-18 22:09:03"
+        },
+        {
+            "name": "project-a/yves-export-package",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "git@codebasehq.com:project-a/core/yves-export-package.git",
+                "reference": "99c7fd7bdbdf00ad2f5153741976dcea01250bb3"
+            },
+            "require": {
+                "php": ">=5.4.0",
+                "project-a/library-package": "5.0.1"
+            },
+            "require-dev": {
+                "codeception/codeception": "*"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-0": {
+                    "ProjectA": "/src"
+                }
+            },
+            "authors": [
+                {
+                    "name": "Alberto Assmann",
+                    "email": "alberto.assmann@project-a.com",
+                    "homepage": "http://www.project-a.com",
+                    "role": "Developer"
+                }
+            ],
+            "description": "Yves Export package",
+            "keywords": [
+                "Export",
+                "Yves"
+            ],
+            "time": "2014-12-08 13:31:09"
         },
         {
             "name": "propel/propel1",
@@ -3915,7 +4081,7 @@
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/newLoki/PropelModule/zipball/9de9316361e3dddb6b29f5dd93b7456e19e042e3",
+                "url": "https://api.github.com/repos/newLoki/PropelModule/zipball/ab6164e684113e20d5754fd61fe0ea86331ebd0b",
                 "reference": "9de9316361e3dddb6b29f5dd93b7456e19e042e3",
                 "shasum": ""
             },
@@ -4906,8 +5072,8 @@
             "package": "project-a/kendo-package"
         },
         {
-            "alias": "5.0.0",
-            "alias_normalized": "5.0.0.0",
+            "alias": "5.0.1",
+            "alias_normalized": "5.0.1.0",
             "version": "9999999-dev",
             "package": "project-a/library-package"
         },
@@ -4967,6 +5133,9 @@
         "project-a/payment-package": 20,
         "project-a/payone-package": 20,
         "project-a/sales-package": 20,
+        "project-a/product-package": 20,
+        "project-a/yves-export-package": 20,
+        "project-a/product-export-package": 20,
         "project-a/dwh-package": 20,
         "project-a/marketing-package": 20,
         "silex/silex": 20,
