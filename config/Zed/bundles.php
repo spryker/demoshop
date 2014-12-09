@@ -30,7 +30,6 @@ return [
     ProjectA\Shared\Library\Bundle\BundleConfig::NAMESPACE_CORE => [
         'Acl' => $schemaAndNavigation,
         'Auth' => $bootstrap,
-        'Behat' => $navigation,
         'Cart' => $schema,
         'Cms' => $allElements,
         'Catalog' => $schemaAndNavigation,

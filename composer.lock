@@ -4,7 +4,7 @@
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "bc29a5c56982686624b66587cbdf6840",
+    "hash": "9830f1a0dce35f62fef1b04d551c1803",
     "packages": [
         {
             "name": "digital-canvas/zend-framework",
@@ -489,38 +489,41 @@
             "time": "2014-01-31 14:10:34"
         },
         {
-            "name": "league/csv",
-            "version": "6.0.1",
+            "name": "knplabs/knp-menu",
+            "version": "v2.0.1",
             "source": {
                 "type": "git",
-                "url": "https://github.com/thephpleague/csv.git",
-                "reference": "539230130d2bf9f548ac0a49a306a08dc0dfec85"
+                "url": "https://github.com/KnpLabs/KnpMenu.git",
+                "reference": "5758d0026d7ed00c8dd4727e413918cf2dc74c1a"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/thephpleague/csv/zipball/539230130d2bf9f548ac0a49a306a08dc0dfec85",
-                "reference": "539230130d2bf9f548ac0a49a306a08dc0dfec85",
+                "url": "https://api.github.com/repos/KnpLabs/KnpMenu/zipball/5758d0026d7ed00c8dd4727e413918cf2dc74c1a",
+                "reference": "5758d0026d7ed00c8dd4727e413918cf2dc74c1a",
                 "shasum": ""
             },
             "require": {
-                "ext-mbstring": "*",
-                "php": ">=5.4.0"
-            },
-            "replace": {
-                "bakame/csv": "*"
+                "php": ">=5.3.0"
             },
             "require-dev": {
-                "phpunit/phpunit": "~4.0"
+                "pimple/pimple": "1.0.*",
+                "silex/silex": "1.0.*",
+                "twig/twig": ">=1.2,<2.0-dev"
+            },
+            "suggest": {
+                "pimple/pimple": "for the built-in implementations of the menu provider and renderer provider",
+                "silex/silex": "for the integration with your silex application",
+                "twig/twig": "for the TwigRenderer and the integration with your templates"
             },
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "6.0-dev"
+                    "dev-master": "2.0.x-dev"
                 }
             },
             "autoload": {
-                "psr-4": {
-                    "League\\Csv\\": "src"
+                "psr-0": {
+                    "Knp\\Menu\\": "src/"
                 }
             },
             "notification-url": "https://packagist.org/downloads/",
@@ -529,22 +532,25 @@
             ],
             "authors": [
                 {
-                    "name": "Ignace Nyamagana Butera",
-                    "email": "nyamsprod@gmail.com",
-                    "homepage": "https://github.com/nyamsprod/",
-                    "role": "Developer"
+                    "name": "Christophe Coevoet",
+                    "email": "stof@notk.org"
+                },
+                {
+                    "name": "KnpLabs",
+                    "homepage": "http://knplabs.com"
+                },
+                {
+                    "name": "Symfony Community",
+                    "homepage": "https://github.com/KnpLabs/KnpMenu/contributors"
                 }
             ],
-            "description": "Csv data manipulation made easy in PHP",
+            "description": "An object oriented menu library",
+            "homepage": "http://knplabs.com",
             "keywords": [
-                "csv",
-                "export",
-                "filter",
-                "import",
-                "read",
-                "write"
+                "menu",
+                "tree"
             ],
-            "time": "2014-11-12 19:54:22"
+            "time": "2014-08-01 09:50:16"
         },
         {
             "name": "mandrill/mandrill",
@@ -817,11 +823,11 @@
         },
         {
             "name": "project-a/acl-package",
-            "version": "6.0.0",
+            "version": "dev-master",
             "source": {
                 "type": "git",
                 "url": "git@codebasehq.com:project-a/core/acl.git",
-                "reference": "ab957f77cd8fe5a92bb96af8d84305c671225be5"
+                "reference": "4225ea6954ec27503e57b65f6772025289194c4a"
             },
             "require": {
                 "php": ">=5.4.0",
@@ -851,15 +857,15 @@
                 "login",
                 "usermanagement"
             ],
-            "time": "2014-11-12 11:36:18"
+            "time": "2014-11-24 09:43:21"
         },
         {
             "name": "project-a/cart-package",
-            "version": "5.0.0",
+            "version": "dev-master",
             "source": {
                 "type": "git",
                 "url": "git@codebasehq.com:project-a/core/cart.git",
-                "reference": "3314c861f3b1ef2fadf39cf81c85b2c5c17b54e0"
+                "reference": "aaeea7c33cbb2f8f441a1ba1ba7a1a66bc9dd0c0"
             },
             "require": {
                 "php": ">=5.4.0",
@@ -891,11 +897,11 @@
         },
         {
             "name": "project-a/catalog-package",
-            "version": "dev-cleanup/newconfig",
+            "version": "dev-master",
             "source": {
                 "type": "git",
                 "url": "git@codebasehq.com:project-a/core/catalog.git",
-                "reference": "2253536e11428b903b0fb053ec80b5aa03e9038f"
+                "reference": "dff1a88523005829353db3ed6a1dba08dc7eaa8a"
             },
             "require": {
                 "php": ">=5.4.0",
@@ -934,15 +940,15 @@
                 "Price",
                 "Stock"
             ],
-            "time": "2014-11-20 11:09:17"
+            "time": "2014-11-24 11:36:10"
         },
         {
             "name": "project-a/checkout-package",
-            "version": "5.0.0",
+            "version": "dev-master",
             "source": {
                 "type": "git",
                 "url": "git@codebasehq.com:project-a/core/checkout.git",
-                "reference": "2f38736699c20c66130bfed0276842588c29b869"
+                "reference": "debb07ba0a4438752d77932984fbd2966e8564da"
             },
             "require": {
                 "gavroche/browser": "~2.1.0",
@@ -978,15 +984,15 @@
                 "Checkout",
                 "Salesrule"
             ],
-            "time": "2014-11-12 11:55:38"
+            "time": "2014-11-25 13:45:56"
         },
         {
             "name": "project-a/console-package",
-            "version": "5.0.0",
+            "version": "dev-master",
             "source": {
                 "type": "git",
                 "url": "git@codebasehq.com:project-a/core/console.git",
-                "reference": "a02d9eba98cb50dfa72d4d963810c60c614023b2"
+                "reference": "ad944d5a44e5d3a3f33932f2db70bce309719615"
             },
             "require": {
                 "php": ">=5.4.0",
@@ -1023,11 +1029,11 @@
         },
         {
             "name": "project-a/content-package",
-            "version": "5.0.0",
+            "version": "dev-master",
             "source": {
                 "type": "git",
                 "url": "git@codebasehq.com:project-a/core/content.git",
-                "reference": "556f8f45466472b7ad9dc499c9929daa42b3d27c"
+                "reference": "5d7da1ad0fd33ebb3f5e08aede02261396ffcac4"
             },
             "require": {
                 "php": ">=5.4.0",
@@ -1058,15 +1064,15 @@
             "keywords": [
                 "Content Package"
             ],
-            "time": "2014-11-12 13:55:47"
+            "time": "2014-11-25 11:50:08"
         },
         {
             "name": "project-a/crm-package",
-            "version": "6.0.0",
+            "version": "dev-master",
             "source": {
                 "type": "git",
                 "url": "git@codebasehq.com:project-a/core/crm.git",
-                "reference": "b903f1a5b866eb00c0e5433cdfed799ea4c43434"
+                "reference": "dd8c4bef101be79f2c01dde4acd89d52d212896b"
             },
             "require": {
                 "php": ">=5.4.0",
@@ -1103,15 +1109,15 @@
                 "mail",
                 "newsletter"
             ],
-            "time": "2014-11-13 09:28:33"
+            "time": "2014-11-25 12:50:13"
         },
         {
             "name": "project-a/document-package",
-            "version": "5.0.0",
+            "version": "dev-master",
             "source": {
                 "type": "git",
                 "url": "git@codebasehq.com:project-a/core/document.git",
-                "reference": "d4c08000b709298032c8db6366b96387df3e4682"
+                "reference": "44e03290998b25fdfd6f9fbebcbcfce3a95a4de2"
             },
             "require": {
                 "php": ">=5.4.0",
@@ -1138,15 +1144,15 @@
                 "Document",
                 "Invoice"
             ],
-            "time": "2014-11-12 12:42:50"
+            "time": "2014-11-21 12:30:19"
         },
         {
             "name": "project-a/dwh-package",
-            "version": "dev-cleanup/newconfig",
+            "version": "dev-feature/376-phtml-to-twig",
             "source": {
                 "type": "git",
                 "url": "git@codebasehq.com:project-a/core/dwh.git",
-                "reference": "b9a4c2d136ed49b9b1cb58d6d3053b884e65dda9"
+                "reference": "e77b4f094f7f23529784b8226b324082248a8161"
             },
             "require": {
                 "php": ">=5.4.0",
@@ -1184,15 +1190,15 @@
             "keywords": [
                 "Dwh"
             ],
-            "time": "2014-11-12 12:39:41"
+            "time": "2014-11-24 09:41:08"
         },
         {
             "name": "project-a/frontend-package",
-            "version": "5.0.0",
+            "version": "dev-master",
             "source": {
                 "type": "git",
                 "url": "git@codebasehq.com:project-a/core/frontend.git",
-                "reference": "3589693d293877d4d7c2bb33227be542dd95bc92"
+                "reference": "2e6082cd20ceb49f09e93fcfa6affa9e57a10036"
             },
             "require": {
                 "php": ">=5.4.0",
@@ -1217,15 +1223,15 @@
             "keywords": [
                 "Frontend"
             ],
-            "time": "2014-11-12 12:01:56"
+            "time": "2014-11-25 11:47:37"
         },
         {
             "name": "project-a/glossary-package",
-            "version": "4.0.0",
+            "version": "dev-master",
             "source": {
                 "type": "git",
                 "url": "git@codebasehq.com:project-a/core/glossary.git",
-                "reference": "4ff764558361ac2a7411e77c0b2753d938ad492a"
+                "reference": "bf13bf071ea68179fe170aaa52486cdc3fc9299d"
             },
             "require": {
                 "php": ">=5.4.0",
@@ -1252,15 +1258,15 @@
                 "i18n",
                 "translation"
             ],
-            "time": "2014-11-12 12:03:34"
+            "time": "2014-11-25 11:59:43"
         },
         {
             "name": "project-a/infrastructure-package",
-            "version": "5.0.0",
+            "version": "dev-master",
             "source": {
                 "type": "git",
                 "url": "git@codebasehq.com:project-a/core/infrastructure.git",
-                "reference": "7df458cf6239289a63367b37ee51bf3c0f853d37"
+                "reference": "602fc2db0e9e9716fea0e3534d2328826c065c26"
             },
             "require": {
                 "php": ">=5.4.0",
@@ -1282,15 +1288,15 @@
             "keywords": [
                 "infrastructure"
             ],
-            "time": "2014-11-12 12:07:31"
+            "time": "2014-11-27 10:07:45"
         },
         {
             "name": "project-a/kendo-package",
-            "version": "3.0.0",
+            "version": "dev-master",
             "source": {
                 "type": "git",
                 "url": "git@codebasehq.com:project-a/core/kendo.git",
-                "reference": "d14e885b1727ac09cd973067c6e38fb5408d0035"
+                "reference": "88132fa32cc6bb25fba3c3523ac2412007af377a"
             },
             "type": "library",
             "autoload": {
@@ -1301,15 +1307,15 @@
                 }
             },
             "description": "Core Library",
-            "time": "2014-01-29 12:06:15"
+            "time": "2014-11-27 13:52:55"
         },
         {
             "name": "project-a/library-package",
-            "version": "5.0.1",
+            "version": "dev-master",
             "source": {
                 "type": "git",
                 "url": "git@codebasehq.com:project-a/core/library-2.git",
-                "reference": "5fa56588536f6688249243fa41debf49bd7ecdcd"
+                "reference": "f8c0d060fd41b07b9f677279051ea0b10bbfa600"
             },
             "require": {
                 "digital-canvas/zend-framework": ">=1.12.2",
@@ -1335,7 +1341,9 @@
                 "symfony/translation": "2.5.*",
                 "twig/twig": "~1.15.0",
                 "zendframework/zend-code": "~2.3.0",
+                "zendframework/zend-config": "~2.3.0",
                 "zendframework/zend-filter": "~2.3.0",
+                "zendframework/zend-servicemanager": "~2.3.0",
                 "zendframework/zendpdf": "~2.0.0"
             },
             "type": "library",
@@ -1347,18 +1355,19 @@
                 }
             },
             "description": "Project-A Library",
-            "time": "2014-11-12 16:49:25"
+            "time": "2014-11-26 06:15:40"
         },
         {
             "name": "project-a/lumberjack-package",
-            "version": "5.0.0",
+            "version": "dev-master",
             "source": {
                 "type": "git",
                 "url": "git@codebasehq.com:project-a/core/lumberjack.git",
-                "reference": "a08f807b856e44d0a6c819c157241a89e953aa2d"
+                "reference": "1615fbc6dbdddd27d8d1002eee35568f3801334a"
             },
             "require": {
-                "php": ">=5.4.0"
+                "php": ">=5.4.0",
+                "psr/log": "1.0.0"
             },
             "type": "library",
             "autoload": {
@@ -1378,15 +1387,15 @@
             "keywords": [
                 ""
             ],
-            "time": "2014-11-12 12:13:12"
+            "time": "2014-11-25 15:55:42"
         },
         {
             "name": "project-a/marketing-package",
-            "version": "dev-cleanup/newconfig",
+            "version": "dev-feature/376-phtml-to-twig",
             "source": {
                 "type": "git",
                 "url": "git@codebasehq.com:project-a/core/marketing.git",
-                "reference": "b87f2279493a44e5501a45b31077f2341a395bb9"
+                "reference": "abcf179adc4969b1b9ac3b709c9afaca4d75c372"
             },
             "require": {
                 "googleads/googleads-php-lib": "5.5.1",
@@ -1430,15 +1439,15 @@
             "keywords": [
                 "Marketing"
             ],
-            "time": "2014-11-12 14:28:54"
+            "time": "2014-11-24 09:36:55"
         },
         {
             "name": "project-a/payment-package",
-            "version": "5.0.0",
+            "version": "dev-master",
             "source": {
                 "type": "git",
                 "url": "git@codebasehq.com:project-a/core/payment.git",
-                "reference": "00afa79ce99091d93dd2facc9ca42953947ce5ad"
+                "reference": "bc9100086e772dd7de3af58301f4a97e5b950168"
             },
             "require": {
                 "php": ">=5.4.0",
@@ -1466,15 +1475,15 @@
                 "payment control",
                 "payment provider"
             ],
-            "time": "2014-11-12 14:21:03"
+            "time": "2014-11-24 09:36:29"
         },
         {
             "name": "project-a/payone-package",
-            "version": "3.0.0",
+            "version": "dev-master",
             "source": {
                 "type": "git",
                 "url": "git@codebasehq.com:project-a/core/payone.git",
-                "reference": "447e2435bc4adca9528f70c14c4fac252f311ea9"
+                "reference": "1ae81a6a2d28a65764423bd9ed94366cd54a89fc"
             },
             "require": {
                 "php": ">=5.4.0",
@@ -1502,90 +1511,15 @@
             "keywords": [
                 "payment,payment provider,payone"
             ],
-            "time": "2014-11-12 13:37:42"
-        },
-        {
-            "name": "project-a/product-export-package",
-            "version": "dev-master",
-            "source": {
-                "type": "git",
-                "url": "git@codebasehq.com:project-a/core/product-export-package.git",
-                "reference": "db494bd6bf8d2b90f75cafc7587d84ead3c4ca72"
-            },
-            "require": {
-                "php": ">=5.4.0",
-                "project-a/product-package": "dev-master",
-                "project-a/yves-export-package": "dev-master"
-            },
-            "require-dev": {
-                "codeception/codeception": "*"
-            },
-            "type": "library",
-            "autoload": {
-                "psr-0": {
-                    "ProjectA": "/src"
-                }
-            },
-            "authors": [
-                {
-                    "name": "Alberto Assmann",
-                    "email": "alberto.assmann@project-a.com",
-                    "homepage": "http://www.project-a.com",
-                    "role": "Developer"
-                }
-            ],
-            "description": "Product export package",
-            "keywords": [
-                "Catalog",
-                "Export",
-                "Product",
-                "Yves"
-            ],
-            "time": "2014-12-05 10:41:23"
-        },
-        {
-            "name": "project-a/product-package",
-            "version": "dev-master",
-            "source": {
-                "type": "git",
-                "url": "git@codebasehq.com:project-a/core/product.git",
-                "reference": "3ac2aebc4924a56e871d13afa82b93b63915937f"
-            },
-            "require": {
-                "league/csv": "*",
-                "php": ">=5.4.0"
-            },
-            "require-dev": {
-                "codeception/codeception": "*"
-            },
-            "type": "library",
-            "autoload": {
-                "psr-0": {
-                    "ProjectA": "/src"
-                }
-            },
-            "authors": [
-                {
-                    "name": "Alberto Assmann",
-                    "email": "alberto.assmann@project-a.com",
-                    "homepage": "http://www.project-a.com",
-                    "role": "Developer"
-                }
-            ],
-            "description": "Product package",
-            "keywords": [
-                "Catalog",
-                "Product"
-            ],
-            "time": "2014-12-05 10:39:11"
+            "time": "2014-11-24 09:36:01"
         },
         {
             "name": "project-a/sales-package",
-            "version": "6.0.0",
+            "version": "dev-master",
             "source": {
                 "type": "git",
                 "url": "git@codebasehq.com:project-a/core/sales.git",
-                "reference": "d55c39111294f6d7ac9a49f14b80c2442dcf49ac"
+                "reference": "f3fea121aafeaea0efac052db9101bd8dd02dd0f"
             },
             "require": {
                 "php": ">=5.4.0",
@@ -1618,7 +1552,7 @@
                 "Sales",
                 "Task"
             ],
-            "time": "2014-11-12 13:30:34"
+            "time": "2014-11-25 11:43:50"
         },
         {
             "name": "project-a/silex-routing",
@@ -1666,42 +1600,6 @@
             ],
             "description": "Silex-Routing provides advanced routing for Silex through connecting symfony-cmf/Routing with Silex.",
             "time": "2014-11-18 22:09:03"
-        },
-        {
-            "name": "project-a/yves-export-package",
-            "version": "dev-master",
-            "source": {
-                "type": "git",
-                "url": "git@codebasehq.com:project-a/core/yves-export-package.git",
-                "reference": "70c5074da65c532a8793fb206198aa8460216bc0"
-            },
-            "require": {
-                "php": ">=5.4.0",
-                "project-a/library-package": "5.0.1"
-            },
-            "require-dev": {
-                "codeception/codeception": "*"
-            },
-            "type": "library",
-            "autoload": {
-                "psr-0": {
-                    "ProjectA": "/src"
-                }
-            },
-            "authors": [
-                {
-                    "name": "Alberto Assmann",
-                    "email": "alberto.assmann@project-a.com",
-                    "homepage": "http://www.project-a.com",
-                    "role": "Developer"
-                }
-            ],
-            "description": "Yves Export package",
-            "keywords": [
-                "Export",
-                "Yves"
-            ],
-            "time": "2014-12-05 10:42:27"
         },
         {
             "name": "propel/propel1",
@@ -3142,6 +3040,61 @@
             "time": "2014-09-16 22:58:11"
         },
         {
+            "name": "zendframework/zend-config",
+            "version": "2.3.3",
+            "target-dir": "Zend/Config",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/zendframework/Component_ZendConfig.git",
+                "reference": "a9ad512e1482461a5b500ee3fcf2d06ec9c7c7e8"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/zendframework/Component_ZendConfig/zipball/a9ad512e1482461a5b500ee3fcf2d06ec9c7c7e8",
+                "reference": "a9ad512e1482461a5b500ee3fcf2d06ec9c7c7e8",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3.23",
+                "zendframework/zend-stdlib": "self.version"
+            },
+            "require-dev": {
+                "zendframework/zend-filter": "self.version",
+                "zendframework/zend-i18n": "self.version",
+                "zendframework/zend-json": "self.version",
+                "zendframework/zend-servicemanager": "self.version"
+            },
+            "suggest": {
+                "zendframework/zend-filter": "Zend\\Filter component",
+                "zendframework/zend-i18n": "Zend\\I18n component",
+                "zendframework/zend-json": "Zend\\Json to use the Json reader or writer classes",
+                "zendframework/zend-servicemanager": "Zend\\ServiceManager for use with the Config Factory to retrieve reader and writer instances"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "2.3-dev",
+                    "dev-develop": "2.4-dev"
+                }
+            },
+            "autoload": {
+                "psr-0": {
+                    "Zend\\Config\\": ""
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "BSD-3-Clause"
+            ],
+            "description": "provides a nested object property based user interface for accessing this configuration data within application code",
+            "homepage": "https://github.com/zendframework/zf2",
+            "keywords": [
+                "config",
+                "zf2"
+            ],
+            "time": "2014-09-16 22:58:11"
+        },
+        {
             "name": "zendframework/zend-eventmanager",
             "version": "2.3.3",
             "target-dir": "Zend/EventManager",
@@ -3280,6 +3233,53 @@
             "homepage": "https://github.com/zendframework/zf2",
             "keywords": [
                 "memory",
+                "zf2"
+            ],
+            "time": "2014-09-16 22:58:11"
+        },
+        {
+            "name": "zendframework/zend-servicemanager",
+            "version": "2.3.3",
+            "target-dir": "Zend/ServiceManager",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/zendframework/Component_ZendServiceManager.git",
+                "reference": "559403e4fd10db2516641f20f129a568d7e6a993"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/zendframework/Component_ZendServiceManager/zipball/559403e4fd10db2516641f20f129a568d7e6a993",
+                "reference": "559403e4fd10db2516641f20f129a568d7e6a993",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3.23"
+            },
+            "require-dev": {
+                "zendframework/zend-di": "self.version"
+            },
+            "suggest": {
+                "zendframework/zend-di": "Zend\\Di component"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "2.3-dev",
+                    "dev-develop": "2.4-dev"
+                }
+            },
+            "autoload": {
+                "psr-0": {
+                    "Zend\\ServiceManager\\": ""
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "BSD-3-Clause"
+            ],
+            "homepage": "https://github.com/zendframework/zf2",
+            "keywords": [
+                "servicemanager",
                 "zf2"
             ],
             "time": "2014-09-16 22:58:11"
@@ -3915,7 +3915,7 @@
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/newLoki/PropelModule/zipball/ab6164e684113e20d5754fd61fe0ea86331ebd0b",
+                "url": "https://api.github.com/repos/newLoki/PropelModule/zipball/9de9316361e3dddb6b29f5dd93b7456e19e042e3",
                 "reference": "9de9316361e3dddb6b29f5dd93b7456e19e042e3",
                 "shasum": ""
             },
@@ -4834,30 +4834,139 @@
     ],
     "aliases": [
         {
+            "alias": "6.0.0",
+            "alias_normalized": "6.0.0.0",
+            "version": "9999999-dev",
+            "package": "project-a/acl-package"
+        },
+        {
+            "alias": "5.0.0",
+            "alias_normalized": "5.0.0.0",
+            "version": "9999999-dev",
+            "package": "project-a/cart-package"
+        },
+        {
             "alias": "4.0.0",
             "alias_normalized": "4.0.0.0",
-            "version": "dev-cleanup/newconfig",
+            "version": "9999999-dev",
             "package": "project-a/catalog-package"
+        },
+        {
+            "alias": "5.0.0",
+            "alias_normalized": "5.0.0.0",
+            "version": "9999999-dev",
+            "package": "project-a/checkout-package"
+        },
+        {
+            "alias": "5.0.0",
+            "alias_normalized": "5.0.0.0",
+            "version": "9999999-dev",
+            "package": "project-a/content-package"
+        },
+        {
+            "alias": "5.0.0",
+            "alias_normalized": "5.0.0.0",
+            "version": "9999999-dev",
+            "package": "project-a/console-package"
+        },
+        {
+            "alias": "6.0.0",
+            "alias_normalized": "6.0.0.0",
+            "version": "9999999-dev",
+            "package": "project-a/crm-package"
+        },
+        {
+            "alias": "5.0.0",
+            "alias_normalized": "5.0.0.0",
+            "version": "9999999-dev",
+            "package": "project-a/document-package"
+        },
+        {
+            "alias": "5.0.0",
+            "alias_normalized": "5.0.0.0",
+            "version": "9999999-dev",
+            "package": "project-a/frontend-package"
+        },
+        {
+            "alias": "4.0.0",
+            "alias_normalized": "4.0.0.0",
+            "version": "9999999-dev",
+            "package": "project-a/glossary-package"
+        },
+        {
+            "alias": "5.0.0",
+            "alias_normalized": "5.0.0.0",
+            "version": "9999999-dev",
+            "package": "project-a/infrastructure-package"
+        },
+        {
+            "alias": "3.0.0",
+            "alias_normalized": "3.0.0.0",
+            "version": "9999999-dev",
+            "package": "project-a/kendo-package"
+        },
+        {
+            "alias": "5.0.0",
+            "alias_normalized": "5.0.0.0",
+            "version": "9999999-dev",
+            "package": "project-a/library-package"
+        },
+        {
+            "alias": "5.0.0",
+            "alias_normalized": "5.0.0.0",
+            "version": "9999999-dev",
+            "package": "project-a/lumberjack-package"
+        },
+        {
+            "alias": "5.0.0",
+            "alias_normalized": "5.0.0.0",
+            "version": "9999999-dev",
+            "package": "project-a/payment-package"
+        },
+        {
+            "alias": "3.0.0",
+            "alias_normalized": "3.0.0.0",
+            "version": "9999999-dev",
+            "package": "project-a/payone-package"
+        },
+        {
+            "alias": "6.0.0",
+            "alias_normalized": "6.0.0.0",
+            "version": "9999999-dev",
+            "package": "project-a/sales-package"
         },
         {
             "alias": "5.12.3",
             "alias_normalized": "5.12.3.0",
-            "version": "dev-cleanup/newconfig",
+            "version": "dev-feature/376-phtml-to-twig",
             "package": "project-a/dwh-package"
         },
         {
             "alias": "6.0.0",
             "alias_normalized": "6.0.0.0",
-            "version": "dev-cleanup/newconfig",
+            "version": "dev-feature/376-phtml-to-twig",
             "package": "project-a/marketing-package"
         }
     ],
     "minimum-stability": "stable",
     "stability-flags": {
+        "project-a/acl-package": 20,
+        "project-a/cart-package": 20,
         "project-a/catalog-package": 20,
-        "project-a/product-package": 20,
-        "project-a/yves-export-package": 20,
-        "project-a/product-export-package": 20,
+        "project-a/checkout-package": 20,
+        "project-a/content-package": 20,
+        "project-a/console-package": 20,
+        "project-a/crm-package": 20,
+        "project-a/document-package": 20,
+        "project-a/frontend-package": 20,
+        "project-a/glossary-package": 20,
+        "project-a/infrastructure-package": 20,
+        "project-a/kendo-package": 20,
+        "project-a/library-package": 20,
+        "project-a/lumberjack-package": 20,
+        "project-a/payment-package": 20,
+        "project-a/payone-package": 20,
+        "project-a/sales-package": 20,
         "project-a/dwh-package": 20,
         "project-a/marketing-package": 20,
         "silex/silex": 20,

@@ -10,6 +10,9 @@ use ProjectA\Shared\ProductImage\ProductImageConfig;
 use ProjectA\Shared\System\SystemConfig;
 use ProjectA\Shared\Yves\YvesConfig;
 
+$config[SystemConfig::CURRENT_APPLICATION_STORE] = APPLICATION_STORE;
+$config[SystemConfig::CURRENT_APPLICATION_ENV] = APPLICATION_ENV;
+
 $config[SystemConfig::PROJECT_TIMEZONE] = 'UTC';
 $config[SystemConfig::PROJECT_NAMESPACE] = 'Pyz';
 $config[SystemConfig::CODE_GENERATORS] = ['transfer', 'zed', 'yves'];
@@ -20,7 +23,6 @@ $config[DbDumpConfig::DB_DUMP_DATABASE] = '';
 $config[DbDumpConfig::DB_DUMP_HOST] = 'localhost';
 $config[DbDumpConfig::DB_DUMP_MYSQLDUMP_BIN] = '/usr/bin/mysqldump';
 $config[DbDumpConfig::DB_DUMP_MYSQL_BIN] = '/usr/bin/mysql';
-
 
 $config[SystemConfig::STORAGE_KV_SOURCE] = 'redis';
 
@@ -39,7 +41,7 @@ $config[SystemConfig::HOST_ZED_GUI]
     = 'zed-development.project-yz.de';
 
 $config[SystemConfig::LOG_LEVEL] = Monolog\Logger::INFO;
-$config[SystemConfig::LOG_PROPEL_SQL] = false;
+$config[SystemConfig::LOG_PROPEL_SQL] = true;
 
 $config[YvesConfig::TRANSFER_USERNAME] = 'yves';
 $config[YvesConfig::TRANSFER_PASSWORD] = 'o7&bg=Fz;nSslHBC';
