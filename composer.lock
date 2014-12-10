@@ -4,7 +4,7 @@
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "9c25169b3ffa6b9db7c329bc3573d633",
+    "hash": "6d24fceb942614eceeec6f9b786478af",
     "packages": [
         {
             "name": "digital-canvas/zend-framework",
@@ -776,7 +776,7 @@
             "source": {
                 "type": "git",
                 "url": "git@codebasehq.com:project-a/core/acl.git",
-                "reference": "fce5cda47e7c7a869b1e719dc165c1871895e957"
+                "reference": "d45389d50e89392ca8cc7ee6740d7fec72a6238a"
             },
             "require": {
                 "php": ">=5.4.0",
@@ -806,7 +806,7 @@
                 "login",
                 "usermanagement"
             ],
-            "time": "2014-12-09 13:56:56"
+            "time": "2014-12-10 13:35:10"
         },
         {
             "name": "project-a/cart-package",
@@ -850,7 +850,7 @@
             "source": {
                 "type": "git",
                 "url": "git@codebasehq.com:project-a/core/catalog.git",
-                "reference": "409ded87902131cc3f4606bf2e7e1b9463bb8dec"
+                "reference": "da80803e0068c5102238ed179dd78348821ae0d5"
             },
             "require": {
                 "php": ">=5.4.0",
@@ -889,7 +889,7 @@
                 "Price",
                 "Stock"
             ],
-            "time": "2014-12-02 12:18:30"
+            "time": "2014-12-09 14:28:24"
         },
         {
             "name": "project-a/checkout-package",
@@ -1101,7 +1101,7 @@
             "source": {
                 "type": "git",
                 "url": "git@codebasehq.com:project-a/core/dwh.git",
-                "reference": "8055c38e2aaffbf40fc5e6b977c9432f611f032b"
+                "reference": "abb5c0822f9229a45fb0a575b9cb8d4fe908b086"
             },
             "require": {
                 "php": ">=5.4.0",
@@ -1139,7 +1139,7 @@
             "keywords": [
                 "Dwh"
             ],
-            "time": "2014-12-08 07:57:46"
+            "time": "2014-12-09 14:31:26"
         },
         {
             "name": "project-a/frontend-package",
@@ -1147,7 +1147,7 @@
             "source": {
                 "type": "git",
                 "url": "git@codebasehq.com:project-a/core/frontend.git",
-                "reference": "b69103a55feef0cd2cb855d42bd4feb8ca5019e8"
+                "reference": "ab8b197be479678450afbe950beb4ce8c3f11237"
             },
             "require": {
                 "php": ">=5.4.0",
@@ -1172,7 +1172,7 @@
             "keywords": [
                 "Frontend"
             ],
-            "time": "2014-12-09 13:59:26"
+            "time": "2014-12-10 12:35:39"
         },
         {
             "name": "project-a/glossary-package",
@@ -1215,7 +1215,7 @@
             "source": {
                 "type": "git",
                 "url": "git@codebasehq.com:project-a/core/infrastructure.git",
-                "reference": "ed440a55d9479a895165c6d2dc2718bff916263d"
+                "reference": "a5f01e2f947528e8a1fc0e1f68835d3cd8d502a7"
             },
             "require": {
                 "php": ">=5.4.0",
@@ -1237,7 +1237,7 @@
             "keywords": [
                 "infrastructure"
             ],
-            "time": "2014-12-09 13:58:38"
+            "time": "2014-12-09 14:33:32"
         },
         {
             "name": "project-a/kendo-package",
@@ -1312,7 +1312,7 @@
             "source": {
                 "type": "git",
                 "url": "git@codebasehq.com:project-a/core/lumberjack.git",
-                "reference": "3616d1dd93ee117ce36cd5219f2635ce5cd81bd5"
+                "reference": "14a4b11a072ec88bed897c3abf68e388aaeecadb"
             },
             "require": {
                 "php": ">=5.4.0",
@@ -1336,7 +1336,7 @@
             "keywords": [
                 ""
             ],
-            "time": "2014-12-08 07:52:17"
+            "time": "2014-12-10 07:14:52"
         },
         {
             "name": "project-a/marketing-package",
@@ -1344,7 +1344,7 @@
             "source": {
                 "type": "git",
                 "url": "git@codebasehq.com:project-a/core/marketing.git",
-                "reference": "8cf9e32c93f38c90691618202388228215637650"
+                "reference": "fb42decd6f8d1b272c66c47f3e87b37c042536c2"
             },
             "require": {
                 "googleads/googleads-php-lib": "5.5.1",
@@ -1388,7 +1388,7 @@
             "keywords": [
                 "Marketing"
             ],
-            "time": "2014-12-09 06:52:47"
+            "time": "2014-12-09 14:36:14"
         },
         {
             "name": "project-a/payment-package",
@@ -1503,11 +1503,11 @@
         },
         {
             "name": "project-a/product-package",
-            "version": "dev-master",
+            "version": "dev-feature/387-replace-zf-with-silex",
             "source": {
                 "type": "git",
                 "url": "git@codebasehq.com:project-a/core/product.git",
-                "reference": "cf8e146c902312f22590212fdb7a824c11d6955b"
+                "reference": "86d14defea4bd610145ab56feeffe9d7cb64c8fa"
             },
             "require": {
                 "league/csv": "*",
@@ -1535,7 +1535,7 @@
                 "Catalog",
                 "Product"
             ],
-            "time": "2014-12-09 13:23:55"
+            "time": "2014-12-10 13:34:09"
         },
         {
             "name": "project-a/sales-package",
@@ -1580,25 +1580,22 @@
         },
         {
             "name": "project-a/silex-routing",
-            "version": "v1.0.5",
+            "version": "v1.0.6",
             "source": {
                 "type": "git",
                 "url": "https://github.com/chili-labs/Silex-Routing.git",
-                "reference": "2f5ddf69ce90bc634ba6656cb9343350b07cf81b"
+                "reference": "b0f6710bf1aa0d66265e90ebff56fb8493a5c81f"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/chili-labs/Silex-Routing/zipball/2f5ddf69ce90bc634ba6656cb9343350b07cf81b",
-                "reference": "2f5ddf69ce90bc634ba6656cb9343350b07cf81b",
+                "url": "https://api.github.com/repos/chili-labs/Silex-Routing/zipball/b0f6710bf1aa0d66265e90ebff56fb8493a5c81f",
+                "reference": "b0f6710bf1aa0d66265e90ebff56fb8493a5c81f",
                 "shasum": ""
             },
             "require": {
                 "silex/silex": "~1.0",
                 "symfony-cmf/routing": "~1.0",
-                "symfony/routing": ">=2.3,<2.6-dev"
-            },
-            "require-dev": {
-                "satooshi/php-coveralls": "*"
+                "symfony/routing": "~2.3"
             },
             "type": "library",
             "extra": {
@@ -1623,7 +1620,7 @@
                 }
             ],
             "description": "Silex-Routing provides advanced routing for Silex through connecting symfony-cmf/Routing with Silex.",
-            "time": "2014-11-18 22:09:03"
+            "time": "2014-12-10 11:11:19"
         },
         {
             "name": "project-a/yves-export-package",
@@ -1631,11 +1628,11 @@
             "source": {
                 "type": "git",
                 "url": "git@codebasehq.com:project-a/core/yves-export-package.git",
-                "reference": "7b8c06ecabe8839c38edd2b0f6ed8e84bca49b84"
+                "reference": "bc692ac1462dc1e078e3c9ed331b10ebe7354b89"
             },
             "require": {
                 "php": ">=5.4.0",
-                "project-a/library-package": "5.0.1"
+                "project-a/library-package": ">=5.0.1"
             },
             "require-dev": {
                 "codeception/codeception": "*"
@@ -1659,7 +1656,7 @@
                 "Export",
                 "Yves"
             ],
-            "time": "2014-12-09 13:25:46"
+            "time": "2014-12-10 12:34:46"
         },
         {
             "name": "propel/propel1",
@@ -4936,6 +4933,12 @@
             "package": "project-a/crm-package"
         },
         {
+            "alias": "5.12.3",
+            "alias_normalized": "5.12.3.0",
+            "version": "dev-feature/387-replace-zf-with-silex",
+            "package": "project-a/dwh-package"
+        },
+        {
             "alias": "5.0.0",
             "alias_normalized": "5.0.0.0",
             "version": "dev-feature/387-replace-zf-with-silex",
@@ -4978,6 +4981,12 @@
             "package": "project-a/lumberjack-package"
         },
         {
+            "alias": "6.0.0",
+            "alias_normalized": "6.0.0.0",
+            "version": "dev-feature/387-replace-zf-with-silex",
+            "package": "project-a/marketing-package"
+        },
+        {
             "alias": "5.0.0",
             "alias_normalized": "5.0.0.0",
             "version": "dev-feature/387-replace-zf-with-silex",
@@ -4990,22 +4999,16 @@
             "package": "project-a/payone-package"
         },
         {
+            "alias": "dev-master",
+            "alias_normalized": "9999999-dev",
+            "version": "dev-feature/387-replace-zf-with-silex",
+            "package": "project-a/product-package"
+        },
+        {
             "alias": "6.0.0",
             "alias_normalized": "6.0.0.0",
             "version": "dev-feature/387-replace-zf-with-silex",
             "package": "project-a/sales-package"
-        },
-        {
-            "alias": "5.12.3",
-            "alias_normalized": "5.12.3.0",
-            "version": "dev-feature/387-replace-zf-with-silex",
-            "package": "project-a/dwh-package"
-        },
-        {
-            "alias": "6.0.0",
-            "alias_normalized": "6.0.0.0",
-            "version": "dev-feature/387-replace-zf-with-silex",
-            "package": "project-a/marketing-package"
         }
     ],
     "minimum-stability": "stable",
@@ -5017,6 +5020,7 @@
         "project-a/content-package": 20,
         "project-a/console-package": 20,
         "project-a/crm-package": 20,
+        "project-a/dwh-package": 20,
         "project-a/document-package": 20,
         "project-a/frontend-package": 20,
         "project-a/glossary-package": 20,
@@ -5024,14 +5028,13 @@
         "project-a/kendo-package": 20,
         "project-a/library-package": 20,
         "project-a/lumberjack-package": 20,
+        "project-a/marketing-package": 20,
         "project-a/payment-package": 20,
         "project-a/payone-package": 20,
-        "project-a/sales-package": 20,
-        "project-a/product-package": 20,
-        "project-a/yves-export-package": 20,
         "project-a/product-export-package": 20,
-        "project-a/dwh-package": 20,
-        "project-a/marketing-package": 20,
+        "project-a/product-package": 20,
+        "project-a/sales-package": 20,
+        "project-a/yves-export-package": 20,
         "silex/silex": 20,
         "pimple/pimple": 20,
         "zendesk/zendesk_api_client_php": 20,
