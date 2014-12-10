@@ -92,10 +92,10 @@ class ZedBootstrap extends Bootstrap
             new TranslationServiceProvider(),
             new SessionServiceProvider(),
             new PropelServiceProvider(),
+            new FrontendServiceProvider(),
             new SecurityServiceProvider(),
 //            new ProductImageServiceProvider(), You can find this in catalog-package feature/387-replace-zf-with-silex
             new CmsServiceProvider(),
-            new FrontendServiceProvider(),
             new NewRelicServiceProvider(),
         ];
 
