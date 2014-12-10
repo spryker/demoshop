@@ -4,7 +4,7 @@
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "6d24fceb942614eceeec6f9b786478af",
+    "hash": "b399324c77b2e609e29d8efa0ec2b638",
     "packages": [
         {
             "name": "digital-canvas/zend-framework",
@@ -772,7 +772,7 @@
         },
         {
             "name": "project-a/acl-package",
-            "version": "dev-feature/387-replace-zf-with-silex",
+            "version": "dev-master",
             "source": {
                 "type": "git",
                 "url": "git@codebasehq.com:project-a/core/acl.git",
@@ -810,7 +810,7 @@
         },
         {
             "name": "project-a/cart-package",
-            "version": "dev-feature/387-replace-zf-with-silex",
+            "version": "dev-master",
             "source": {
                 "type": "git",
                 "url": "git@codebasehq.com:project-a/core/cart.git",
@@ -846,7 +846,7 @@
         },
         {
             "name": "project-a/catalog-package",
-            "version": "dev-feature/387-replace-zf-with-silex",
+            "version": "dev-master",
             "source": {
                 "type": "git",
                 "url": "git@codebasehq.com:project-a/core/catalog.git",
@@ -893,7 +893,7 @@
         },
         {
             "name": "project-a/checkout-package",
-            "version": "dev-feature/387-replace-zf-with-silex",
+            "version": "dev-master",
             "source": {
                 "type": "git",
                 "url": "git@codebasehq.com:project-a/core/checkout.git",
@@ -937,7 +937,7 @@
         },
         {
             "name": "project-a/console-package",
-            "version": "dev-feature/387-replace-zf-with-silex",
+            "version": "dev-master",
             "source": {
                 "type": "git",
                 "url": "git@codebasehq.com:project-a/core/console.git",
@@ -978,7 +978,7 @@
         },
         {
             "name": "project-a/content-package",
-            "version": "dev-feature/387-replace-zf-with-silex",
+            "version": "dev-master",
             "source": {
                 "type": "git",
                 "url": "git@codebasehq.com:project-a/core/content.git",
@@ -1017,7 +1017,7 @@
         },
         {
             "name": "project-a/crm-package",
-            "version": "dev-feature/387-replace-zf-with-silex",
+            "version": "dev-master",
             "source": {
                 "type": "git",
                 "url": "git@codebasehq.com:project-a/core/crm.git",
@@ -1062,7 +1062,7 @@
         },
         {
             "name": "project-a/document-package",
-            "version": "dev-feature/387-replace-zf-with-silex",
+            "version": "dev-master",
             "source": {
                 "type": "git",
                 "url": "git@codebasehq.com:project-a/core/document.git",
@@ -1143,7 +1143,7 @@
         },
         {
             "name": "project-a/frontend-package",
-            "version": "dev-feature/387-replace-zf-with-silex",
+            "version": "dev-master",
             "source": {
                 "type": "git",
                 "url": "git@codebasehq.com:project-a/core/frontend.git",
@@ -1176,7 +1176,7 @@
         },
         {
             "name": "project-a/glossary-package",
-            "version": "dev-feature/387-replace-zf-with-silex",
+            "version": "dev-master",
             "source": {
                 "type": "git",
                 "url": "git@codebasehq.com:project-a/core/glossary.git",
@@ -1211,11 +1211,11 @@
         },
         {
             "name": "project-a/infrastructure-package",
-            "version": "dev-feature/387-replace-zf-with-silex",
+            "version": "dev-master",
             "source": {
                 "type": "git",
                 "url": "git@codebasehq.com:project-a/core/infrastructure.git",
-                "reference": "a5f01e2f947528e8a1fc0e1f68835d3cd8d502a7"
+                "reference": "fda87acc74cb5e61a95db11caee555bf1cc8b51b"
             },
             "require": {
                 "php": ">=5.4.0",
@@ -1237,15 +1237,15 @@
             "keywords": [
                 "infrastructure"
             ],
-            "time": "2014-12-09 14:33:32"
+            "time": "2014-12-10 13:55:32"
         },
         {
             "name": "project-a/kendo-package",
-            "version": "dev-feature/387-replace-zf-with-silex",
+            "version": "dev-master",
             "source": {
                 "type": "git",
                 "url": "git@codebasehq.com:project-a/core/kendo.git",
-                "reference": "731e8680e1e818d131b103e1e9eb21078cdb2e27"
+                "reference": "1e5671181a10e7cc1bc268e38cac036a758ada75"
             },
             "type": "library",
             "autoload": {
@@ -1256,7 +1256,7 @@
                 }
             },
             "description": "Core Library",
-            "time": "2014-12-08 07:54:19"
+            "time": "2014-12-09 14:34:05"
         },
         {
             "name": "project-a/library-package",
@@ -1308,7 +1308,7 @@
         },
         {
             "name": "project-a/lumberjack-package",
-            "version": "dev-feature/387-replace-zf-with-silex",
+            "version": "dev-master",
             "source": {
                 "type": "git",
                 "url": "git@codebasehq.com:project-a/core/lumberjack.git",
@@ -1392,7 +1392,7 @@
         },
         {
             "name": "project-a/payment-package",
-            "version": "dev-feature/387-replace-zf-with-silex",
+            "version": "dev-master",
             "source": {
                 "type": "git",
                 "url": "git@codebasehq.com:project-a/core/payment.git",
@@ -1428,7 +1428,7 @@
         },
         {
             "name": "project-a/payone-package",
-            "version": "dev-feature/387-replace-zf-with-silex",
+            "version": "dev-master",
             "source": {
                 "type": "git",
                 "url": "git@codebasehq.com:project-a/core/payone.git",
@@ -1503,7 +1503,7 @@
         },
         {
             "name": "project-a/product-package",
-            "version": "dev-feature/387-replace-zf-with-silex",
+            "version": "dev-master",
             "source": {
                 "type": "git",
                 "url": "git@codebasehq.com:project-a/core/product.git",
@@ -1539,7 +1539,7 @@
         },
         {
             "name": "project-a/sales-package",
-            "version": "dev-feature/387-replace-zf-with-silex",
+            "version": "dev-master",
             "source": {
                 "type": "git",
                 "url": "git@codebasehq.com:project-a/core/sales.git",
@@ -4893,43 +4893,43 @@
         {
             "alias": "6.0.0",
             "alias_normalized": "6.0.0.0",
-            "version": "dev-feature/387-replace-zf-with-silex",
+            "version": "9999999-dev",
             "package": "project-a/acl-package"
         },
         {
             "alias": "5.0.0",
             "alias_normalized": "5.0.0.0",
-            "version": "dev-feature/387-replace-zf-with-silex",
+            "version": "9999999-dev",
             "package": "project-a/cart-package"
         },
         {
             "alias": "4.0.0",
             "alias_normalized": "4.0.0.0",
-            "version": "dev-feature/387-replace-zf-with-silex",
+            "version": "9999999-dev",
             "package": "project-a/catalog-package"
         },
         {
             "alias": "5.0.0",
             "alias_normalized": "5.0.0.0",
-            "version": "dev-feature/387-replace-zf-with-silex",
+            "version": "9999999-dev",
             "package": "project-a/checkout-package"
         },
         {
             "alias": "5.0.0",
             "alias_normalized": "5.0.0.0",
-            "version": "dev-feature/387-replace-zf-with-silex",
+            "version": "9999999-dev",
             "package": "project-a/content-package"
         },
         {
             "alias": "5.0.0",
             "alias_normalized": "5.0.0.0",
-            "version": "dev-feature/387-replace-zf-with-silex",
+            "version": "9999999-dev",
             "package": "project-a/console-package"
         },
         {
             "alias": "6.0.0",
             "alias_normalized": "6.0.0.0",
-            "version": "dev-feature/387-replace-zf-with-silex",
+            "version": "9999999-dev",
             "package": "project-a/crm-package"
         },
         {
@@ -4941,31 +4941,31 @@
         {
             "alias": "5.0.0",
             "alias_normalized": "5.0.0.0",
-            "version": "dev-feature/387-replace-zf-with-silex",
+            "version": "9999999-dev",
             "package": "project-a/document-package"
         },
         {
             "alias": "5.0.0",
             "alias_normalized": "5.0.0.0",
-            "version": "dev-feature/387-replace-zf-with-silex",
+            "version": "9999999-dev",
             "package": "project-a/frontend-package"
         },
         {
             "alias": "4.0.0",
             "alias_normalized": "4.0.0.0",
-            "version": "dev-feature/387-replace-zf-with-silex",
+            "version": "9999999-dev",
             "package": "project-a/glossary-package"
         },
         {
             "alias": "5.0.0",
             "alias_normalized": "5.0.0.0",
-            "version": "dev-feature/387-replace-zf-with-silex",
+            "version": "9999999-dev",
             "package": "project-a/infrastructure-package"
         },
         {
             "alias": "3.0.0",
             "alias_normalized": "3.0.0.0",
-            "version": "dev-feature/387-replace-zf-with-silex",
+            "version": "9999999-dev",
             "package": "project-a/kendo-package"
         },
         {
@@ -4977,7 +4977,7 @@
         {
             "alias": "5.0.0",
             "alias_normalized": "5.0.0.0",
-            "version": "dev-feature/387-replace-zf-with-silex",
+            "version": "9999999-dev",
             "package": "project-a/lumberjack-package"
         },
         {
@@ -4989,25 +4989,19 @@
         {
             "alias": "5.0.0",
             "alias_normalized": "5.0.0.0",
-            "version": "dev-feature/387-replace-zf-with-silex",
+            "version": "9999999-dev",
             "package": "project-a/payment-package"
         },
         {
             "alias": "3.0.0",
             "alias_normalized": "3.0.0.0",
-            "version": "dev-feature/387-replace-zf-with-silex",
+            "version": "9999999-dev",
             "package": "project-a/payone-package"
-        },
-        {
-            "alias": "dev-master",
-            "alias_normalized": "9999999-dev",
-            "version": "dev-feature/387-replace-zf-with-silex",
-            "package": "project-a/product-package"
         },
         {
             "alias": "6.0.0",
             "alias_normalized": "6.0.0.0",
-            "version": "dev-feature/387-replace-zf-with-silex",
+            "version": "9999999-dev",
             "package": "project-a/sales-package"
         }
     ],
