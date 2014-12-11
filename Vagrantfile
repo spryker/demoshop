@@ -22,10 +22,17 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
     salt.master_pub = "salt/key/master.pub"
     salt.verbose = true
 
-    # shared folder used for the dev vm
-    config.vm.synced_folder "./", "/data/shop/development/current"
-    config.nfs.map_uid = Process.uid
-    config.nfs.map_gid = Process.gid
+    if (Vagrant::Util::Platform.windows?)
+      config.vm.synced_folder "./", "/data/shop/development/current",
+        owner: "vagrant",
+        group: "www-data",
+        mount_options: ["dmode=775,fmode=664"]
+    else
+       # shared folder used for the dev vm
+      config.vm.synced_folder "./", "/data/shop/development/current", type: "nfs"
+      config.nfs.map_uid = Process.uid
+      config.nfs.map_gid = Process.gid
+    end
   end
 
    config.vm.provider :virtualbox do |vb|
