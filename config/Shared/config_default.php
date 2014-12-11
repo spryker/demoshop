@@ -80,6 +80,7 @@ $config[SystemConfig::PROPEL] = array(
     'propel.schema.dir' =>
         APPLICATION_SOURCE_DIR . '/Generated/Zed/PropelGen/' . \ProjectA_Shared_Library_Store::getInstance()->getStoreName() . '/Schema',
     'propel.php.dir' => APPLICATION_ROOT_DIR,
+    'propel.gen.dir' => APPLICATION_SOURCE_DIR . '/Generated/PropelGen/' . \ProjectA_Shared_Library_Store::getInstance()->getStoreName() . '/',
     'propel.packageObjectModel' => 'true',
     'propel.project' => 'zed',
     'propel.targetPackage' => 'Zed',
@@ -114,19 +115,19 @@ $config[GlossaryConfig::GLOSSARY_PASSWORD] = null;
 $config[GlossaryConfig::GLOSSARY_TIMEOUT_SECONDS] = 1;
 $config[GlossaryConfig::GLOSSARY_TIMEOUT_MILLISECONDS] = 0;
 
-$config[ProductImageConfig::PRODUCT_IMAGE_ORIGINAL_PRODUCT_IMAGE_DIRECTORY]
-    = 'images' . DIRECTORY_SEPARATOR . 'products/original';
-
-$config[ProductImageConfig::PRODUCT_IMAGE_INCOMING_PRODUCT_IMAGE_DIRECTORY]
-    = 'images' . DIRECTORY_SEPARATOR . 'products/incoming';
-
-$config[ProductImageConfig::PRODUCT_IMAGE_PROCESSED_PRODUCT_IMAGE_DIRECTORY]
-    = 'images' . DIRECTORY_SEPARATOR . 'products/processed';
-
-$config[ProductImageConfig::PRODUCT_IMAGE_IMAGE_URL_PREFIX] = 'images';
-$config[ProductImageConfig::PRODUCT_IMAGE_AMAZON_S3_KEY] = '';
-$config[ProductImageConfig::PRODUCT_IMAGE_AMAZON_S3_SECRET] = '';
-$config[ProductImageConfig::PRODUCT_IMAGE_AMAZON_S3_BUCKET_NAME] = '';
+//$config[ProductImageConfig::PRODUCT_IMAGE_ORIGINAL_PRODUCT_IMAGE_DIRECTORY]
+//    = 'images' . DIRECTORY_SEPARATOR . 'products/original';
+//
+//$config[ProductImageConfig::PRODUCT_IMAGE_INCOMING_PRODUCT_IMAGE_DIRECTORY]
+//    = 'images' . DIRECTORY_SEPARATOR . 'products/incoming';
+//
+//$config[ProductImageConfig::PRODUCT_IMAGE_PROCESSED_PRODUCT_IMAGE_DIRECTORY]
+//    = 'images' . DIRECTORY_SEPARATOR . 'products/processed';
+//
+//$config[ProductImageConfig::PRODUCT_IMAGE_IMAGE_URL_PREFIX] = 'images';
+//$config[ProductImageConfig::PRODUCT_IMAGE_AMAZON_S3_KEY] = '';
+//$config[ProductImageConfig::PRODUCT_IMAGE_AMAZON_S3_SECRET] = '';
+//$config[ProductImageConfig::PRODUCT_IMAGE_AMAZON_S3_BUCKET_NAME] = '';
 
 
 $config[CustomerConfig::CUSTOMER_MINUTES_BEFORE_RESTORE_PASSWORD_INVALID] = 60;

@@ -8,7 +8,7 @@ use ProjectA\Shared\Yves\YvesConfig;
 use ProjectA\Yves\Customer\Component\Model\Security\SecurityServiceProvider;
 use Pyz\Yves\Library\Silex\Provider\TrackingServiceProvider;
 use ProjectA\Yves\Catalog\Component\Model\Category;
-use ProjectA\Yves\Library\Silex\Application;
+use ProjectA\Shared\Library\Silex\Application;
 use ProjectA\Yves\Library\Silex\Provider\CookieServiceProvider;
 use ProjectA\Yves\Library\Silex\Provider\MonologServiceProvider;
 use ProjectA\Yves\Library\Silex\Provider\SessionServiceProvider;
@@ -32,8 +32,9 @@ use Silex\Provider\ValidatorServiceProvider;
 use Silex\Provider\WebProfilerServiceProvider;
 use SilexRouting\Provider\RoutingServiceProvider;
 use Symfony\Component\HttpFoundation\Request;
+use ProjectA\Yves\Library\Silex\YvesBootstrap as CoreYvesBootstrap;
 
-class YvesBootstrap extends \ProjectA\Yves\Library\Silex\YvesBootstrap
+class YvesBootstrap extends CoreYvesBootstrap
 {
     /**
      * @param Application $app

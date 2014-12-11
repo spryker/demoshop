@@ -3,16 +3,7 @@ use ProjectA\Shared\Library\Config;
 use ProjectA\Shared\System\SystemConfig;
 
 $allElements = [
-    ProjectA\Shared\Library\Bundle\BundleConfig::ACTIVATE_BOOTSTRAP,
     ProjectA\Shared\Library\Bundle\BundleConfig::ACTIVATE_NAVIGATION,
-    ProjectA\Shared\Library\Bundle\BundleConfig::ACTIVATE_SCHEMA
-];
-$bootstrapAndNavigation = [
-    ProjectA\Shared\Library\Bundle\BundleConfig::ACTIVATE_BOOTSTRAP,
-    ProjectA\Shared\Library\Bundle\BundleConfig::ACTIVATE_NAVIGATION
-];
-$bootstrapAndSchema = [
-    ProjectA\Shared\Library\Bundle\BundleConfig::ACTIVATE_BOOTSTRAP,
     ProjectA\Shared\Library\Bundle\BundleConfig::ACTIVATE_SCHEMA
 ];
 $schemaAndNavigation = [
@@ -20,7 +11,6 @@ $schemaAndNavigation = [
     ProjectA\Shared\Library\Bundle\BundleConfig::ACTIVATE_NAVIGATION
 ];
 $navigation = [ProjectA\Shared\Library\Bundle\BundleConfig::ACTIVATE_NAVIGATION];
-$bootstrap = [ProjectA\Shared\Library\Bundle\BundleConfig::ACTIVATE_BOOTSTRAP];
 $schema = [ProjectA\Shared\Library\Bundle\BundleConfig::ACTIVATE_SCHEMA];
 
 return [
@@ -29,7 +19,6 @@ return [
     // Core bundles
     ProjectA\Shared\Library\Bundle\BundleConfig::NAMESPACE_CORE => [
         'Acl' => $schemaAndNavigation,
-        'Auth' => $bootstrap,
         'Cart' => $schema,
         'Cms' => $allElements,
         'Catalog' => $schemaAndNavigation,
@@ -47,7 +36,7 @@ return [
         'Misc' => $schema,
         'Newsletter' => $schema,
         'Oms' => $schema,
-        'ProductImage' => $bootstrapAndSchema,
+        'ProductImage' => $schema,
         'Payment' => $schemaAndNavigation,
         'Payone' => $schema,
         'PaymentControl' => $schema,

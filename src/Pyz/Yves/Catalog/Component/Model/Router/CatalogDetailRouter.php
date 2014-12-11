@@ -3,7 +3,7 @@ namespace Pyz\Yves\Catalog\Component\Model\Router;
 
 use ProjectA\Yves\Catalog\Component\Model\Exception\ProductNotFoundException;
 use ProjectA\Yves\Library\Silex\Routing\AbstractRouter;
-use ProjectA\Yves\Library\Silex\Controller\ControllerProvider;
+use ProjectA\Shared\Library\Silex\Controller\ControllerProvider;
 use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\Routing\Exception\ResourceNotFoundException;
 use Symfony\Component\Routing\Exception\RouteNotFoundException;
@@ -23,16 +23,16 @@ class CatalogDetailRouter extends AbstractRouter
      */
     public function match($pathinfo)
     {
-            try {
+        try {
             $product = $this->factory->createCatalogModelCatalog()->getProductDataByUrl($pathinfo, $this->app->getStorageKeyValue());
             $service = ControllerProvider::createServiceForController($this->app, 'catalog/detail', 'CatalogController', 'detail', '\\ProjectA\\Yves\\Catalog\\Module');
-                return [
-                    '_controller' => $service,
-                    '_route' => 'catalog/detail',
-                    'product' => $product
-                ];
-            } catch (ProductNotFoundException $exception) {
-            }
+            return [
+                '_controller' => $service,
+                '_route' => 'catalog/detail',
+                'product' => $product
+            ];
+        } catch (ProductNotFoundException $exception) {
+        }
 
         throw new ResourceNotFoundException();
     }
@@ -44,7 +44,9 @@ class CatalogDetailRouter extends AbstractRouter
     public function redirectToCorrectUrl($url)
     {
         return [
-            '_controller' => function ($url) { return new RedirectResponse($url, 301); },
+            '_controller' => function ($url) {
+                return new RedirectResponse($url, 301);
+            },
             '_route' => null,
             'url' => $url
         ];
