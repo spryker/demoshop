@@ -1,0 +1,66 @@
+{% extends "@application/layout/full.twig" %}
+
+{% block content %}
+    {% include "@application/partials/navbar.twig" with {'categories': categories } only %}
+    <link rel="stylesheet" href="/styles/home.css" />
+
+    <div class="consumeHeight" id="home">
+        <section id="teaser" class="slideshow borders">
+            <ul>
+                <li><a href="/example-single-product-1"><img src="images/slide1.jpg" width="100%" alt="" /></a></li>
+                <li><a href="/example-single-product-1"><img src="images/slide2.jpg" width="100%" alt="" /></a></li>
+                <li><a href="/example-single-product-1"><img src="images/slide3.jpg" width="100%" alt="" /></a></li>
+            </ul>
+        </section>
+
+        <section class="content">
+            Some introducing text you can delete for sure.
+        </section>
+
+        <section id="recommendations">
+            <h3>Most popular</h3>
+            <ul>
+                <li>
+                    <a href="/example-single-product-1">
+                        <img width="100%" src="images/lamp.png" alt="" />
+                        <h4>WireShade Lamp Design<br>by Marc Trotereau</h4>
+                    </a>
+                </li>
+                <li>
+                    <a href="/example-single-product-2">
+                        <img width="100%" src="images/couch.png" alt="" />
+                        <h4>The big couch<br>by Benedizioni alla Mamma</h4>
+                    </a>
+                </li>
+                <li>
+                    <a href="/example-single-product-1">
+                        <img width="100%" src="images/tisch.png" alt="" />
+                        <h4>LUCY<br>by Johansen Design</h4>
+                    </a>
+                </li>
+            </ul>
+        </section>
+
+        <section id="testproducts">
+            <h3>Test Products</h3>
+            <ul>
+                <li>
+                    <a href="/vitra-chair">Config Product</a>
+                </li>
+                <li>
+                    <a href="/example-single-product-1">Single Product 1</a>
+                </li>
+                <li>
+                    <a href="/example-single-product-2">Single Product 2</a>
+                </li>
+                <li>
+                    <a href="/example-splittable-bundle">Split Bundle</a>
+                </li>
+                <li>
+                    <a href="/example-non-splittable-bundle">Non Split Bundle</a>
+                </li>
+            </ul>
+        </section>
+    </div>
+
+{% endblock %}

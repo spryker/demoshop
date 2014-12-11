@@ -1,0 +1,37 @@
+### FIXME: update me for hostly!
+
+### Deploy tool scripts
+Those scripts are used as wrapper, which sets appropiate APPLICATION_STORE environment variable
+ * exec_foreach_store   - executes command given as parameter for each store
+ * exec_default_store   - executes command given as parameter once, for first store only
+
+### Cronjobs installed by deployment
+ * cron_update_memcache     - minutely cronjob for indexing memcache datastore (installed by enable_local_cronjobs)
+ * cron_update_solr         - minutely cronjob for reindexing solr master (installed by enable_cronjobs)
+
+### Monitoring scripts
+ * cron_monitor_fatals
+
+### Deployment tasks
+Execution order is preserved
+
+   NAME                         EXECUTES ON           USER
+ * prepare_code                 deploy host only      root
+ * check_configuration          all hosts             www
+ * configure_host               all hosts             www
+ * check_for_migrations         admin host            www (returns: have_migrations?)
+ * disable_cronjobs             admin host            root
+ * disable_local_cronjobs       all hosts             root
+ * enable_maintenance           all hosts             www, only if have_migrations?
+--------- offline ---------
+ * perform_migrations           admin host            www, only if have_migrations?
+ * disable_maintenance          all hosts             www
+--------- online ---------
+ * initialize_database          admin host            www
+--------- new release activated ----------
+ * reindex_solr                 admin host            www (only if full_reindex?)
+ * reindex_memcache             all hosts             www (only if full_reindex?)
+ * enable_cronjobs              admin_host            root
+ * enable_local_cronjobs        all hosts             root
+ * send_notifications           admin host            www
+

@@ -1,0 +1,14 @@
+{% extends "@application/layout/full.twig" %}
+
+{% block content %}
+    {% autoescape false %}
+    <section class="consumeHeight" id="static">
+        <div class="columns small-12">
+            <h1>{{ 'exception.file.not.found'|trans }}</h1>
+            <h3>{{ 'exception.file.not.found.explanation' | trans }}</h3>
+
+            <a href="/">{{ 'exception.file.not.found.back.link.text' | trans }}</a>
+        </div>
+    </section>
+    {% endautoescape %}
+{% endblock %}

@@ -1,0 +1,30 @@
+#!/bin/bash
+#
+# *** Project-A deployment
+#
+# perform_migrations
+# This script is executed on tools host after unpacking release tarball.
+# It is executed only if check_for_migrations script returned true
+# It should execute database migrations. The site is in maintenance mode during execution of this script
+#
+
+FILEPATH=`pwd`/$0; BASEDIR=`dirname $FILEPATH`; . $BASEDIR/vars; source $BASEDIR/functions
+outfile=`mktemp /tmp/deploy-perfmig-XXXXXX`
+
+### Execute migrate
+cd $destination_release_dir
+vendor/bin/console setup:propel:migrate -s ${APPLICATION_STORE} -e ${environment} &> $outfile
+return=$?
+
+echo "Migrate output saved in $outfile"
+
+if [ $return -ne 0 ]; then
+  echo "Migrate returned error!"
+  cat $outfile
+  exit $return
+fi
+
+cat $outfile | grep '\[propel'
+#rm -f $outfile
+
+exit 0

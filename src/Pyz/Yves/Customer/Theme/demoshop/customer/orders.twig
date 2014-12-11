@@ -1,0 +1,61 @@
+{% extends "@application/layout/full.twig" %}
+
+{% block content %}
+    {% include "@application/partials/navbar.twig" with {'categories': categories } only %}
+    <link rel="stylesheet" href="{{ asset('styles/customer.css') }}" />
+    <link rel="stylesheet" media="print" href="{{ asset('styles/print.css') }}" />
+    <script src="{{ asset('scripts/app/customer.js') }}"></script>
+
+    <section class="customer orders consumeHeight" id="customer">
+        <h1 class="caption global hideonprint">{{ 'customer.account.headline'|trans }}</h1>
+        {% include "@application/partials/flash_bag.twig" %}
+        {% include "@customer/partials/options.twig" with { active : 'orders' } only %}
+        <div class="col col75 mod:last nopadonprint">
+            <div class="container">
+                <h2 class="caption hideonprint">{{ 'customer.orders.caption'|trans }}</h2>
+                {% if orders is defined %}
+                    {% for order in orders %}
+                        <div class="order col fullWidth" id="order-{{ order.incrementId }}">
+                            <h3 class="caption">{{ 'customer.order.date'|trans }} {{ order.createdAt| date('d.m.Y') }}</h3>
+                            <div class="col col50 mod:first">
+                                <div class="row"><b>{{ 'customer.order.number'|trans }}</b> {{ order.incrementId -}}</div>
+                                <div class="row"><b>{{ 'customer.order.shipping.to'|trans }}</b> {{ order.firstName }} {{ order.lastName -}}</div>
+                                <div class="row"><b>{{ 'customer.order.grand.total'|trans }}</b> {{ order.totals.grandTotal -}}</div>
+                            </div>
+                            <div class="col col50 mod:last nopadonprint">
+                                {% if order.customerItemsStatus is defined %}
+                                    <div class="row"><b>{{ 'customer.order.status'|trans }}</b></div>
+                                    {% for item in order.customerItemsStatus %}
+                                        {% if item.count is defined and item.name is defined %}
+                                            <div class="row">{{ item.count }}x {{ item.name }} <span style="float:right;">{{ item.status_name|trans }}</span></div>
+                                        {% else %}
+                                            <div class="row"><span style="float:right;">{{ item|trans }}</span></div>
+                                        {% endif %}
+                                    {% endfor %}
+                                 {% endif %}
+                            </div>
+                                {% include "@customer/customer/order-details.twig" with { 'order' : order } %}
+                                <div class="actions col fullWidth hideonprint">
+                                    <a class="load-details" href="javascript:void(0);" onclick="app.customer.getOrderDetails('{{ order.incrementId }}');" data-toggle="{{ 'customer.order.detail.hide'|trans }}">
+                                        {{- 'customer.order.detail.show'|trans -}}
+                                    </a>
+                                    <a class="print" href="javascript:void(0);" onclick="app.customer.printOrder(this);" style="display:none;">{{ 'customer.order.print'|trans }}</a>
+                                    {% if order.invoice.invoiceNumber != null %}
+                                        <a href="{{ url('orders/invoice', {'customer': order.fkCustomer, 'invoice': order.invoice.invoiceNumber, 'key': order.invoice.hash, 'order': order.incrementId}) }}">
+                                            {{- 'customer.order.download.invoice'|trans -}}
+                                        </a>
+                                {% endif %}
+                            </div>
+
+                        </div>
+                    {% endfor %}
+                {% else %}
+                    {{ 'customer.orders.none'|trans }}
+                {% endif %}
+            </div>
+        </div>
+    </section>
+{% endblock %}
+
+
+

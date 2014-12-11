@@ -1,0 +1,18 @@
+master: salt-development.project-yz.com
+id: project-yz-vm
+environment: dev
+state_events: false
+# define the role of the vagrant box
+grains:
+  roles:
+    - app
+    - web
+    - cronjobs
+    - solr
+    - elasticsearch
+    - dev
+    - queue
+    - kibana
+  solr_role: master
+  couchbase_role: master
+  deployment: dev

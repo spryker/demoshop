@@ -1,0 +1,21 @@
+There are two types of cronjobs in Yves+Zed:
+ - system cronjobs (indexer cronjobs)
+ - business logic jobs
+
+###
+### SYSTEM CRONJOBS
+###
+ - installed by deploy scripts
+ - use crontab on admin host only (solr indexer)
+ - use crontab-local on all frontend hosts (memcache indexer)
+ - can be disabled by deleting file in /etc/cron.d, will be re-enabled upon deployment
+
+###
+### BUSINESS LOGIC JOBS
+###
+ - use Jenkins as cronjob manager (production: http://hostname:15007/jenkins/ )
+ - job definitions are located in project/Zed/cronjobs/jobs.php file
+ - installed by deploy scripts upon deployment (JenkinsController)
+ - for default job role (admin), jobs are set up on admin host only
+ - automatical execution is enabled only on production environment
+ - on staging and testing environment jobs execution has to be triggered via jenkins webinterface

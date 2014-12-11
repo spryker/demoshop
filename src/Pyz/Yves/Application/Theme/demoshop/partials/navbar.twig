@@ -1,0 +1,9 @@
+<div id="navbar">
+    <section class="transparent">
+        <ul class="main">
+            {% for category in categories %}
+                <li><a href="/{{ category['data']['url'] }}">{{ category['data']['name'] }}</a></li>
+            {% endfor %}
+        </ul>
+    </section>
+</div>

@@ -1,0 +1,24 @@
+#!/bin/bash
+#
+#
+
+FILEPATH=`pwd`/$0; BASEDIR=`dirname $FILEPATH`; . $BASEDIR/vars; source $BASEDIR/functions
+outfile=`mktemp /tmp/deploy-XXXXXX`
+
+
+# Update views in Couchbase Buckets
+echo "Updating views in Couchbase for $APPLICATION_STORE"
+
+cd $destination_release_dir
+vendor/bin/console nosql:setup -s ${APPLICATION_STORE} -e ${environment} &> $outfile
+return=$?
+
+if [ $return -ne 0 ]; then
+  echo "Updating views returned error!"
+  cat $outfile
+  exit $return
+fi
+
+rm -f $outfile
+
+exit 0

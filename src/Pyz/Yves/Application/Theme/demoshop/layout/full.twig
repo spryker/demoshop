@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html>
+<head>
+    {% block head %}
+        <meta charset="utf-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+
+        <title>{% block title %}{% endblock %}</title>
+        <meta name="viewport" content="width=device-width" />
+        {% block metatags %}{% endblock %}
+
+        <link rel="stylesheet" type="text/css" href="/styles/initial.css" />
+        <link rel="stylesheet" type="text/css" href="/styles/global.css" />
+
+        <script src="/scripts/vendor/jquery-min.js"></script>
+        <script src="/scripts/vendor/modernizr-2.6.2-respond-1.1.0.min.js"></script>
+
+        <script src="/scripts/app/main.js"></script>
+        <script src="/scripts/app/ui.js"></script>
+        <script>
+            // hardcoded
+            app.vars.storeLocale = 'US';
+        </script>
+    {% endblock %}
+</head>
+<body>
+
+<section>
+    <header>
+        <div class="row">
+            <a href="/" id="logo" class="col col33">
+                <img src="/images/logo.png" alt="logo" />
+            </a>
+            <div class="col col67 hideonprint">
+                <ul class="usps">
+                    <li><span class="glyphicon glyphicon-gift"></span>{{ 'header.usp.shipping'|trans }}</li>
+                    <li><span class="glyphicon glyphicon-refresh"></span>{{ 'header.usp.return'|trans }}</li>
+                    <li><span class="glyphicon glyphicon-phone-alt"></span>{{ 'header.phone'|trans }}</li>
+                </ul>
+            </div>
+        </div>
+        <div class="row hideonprint">
+            <div class="col col33">
+                <hardcoded block>
+                <input class="search fullWidth" type="text" placeholder="Find Your Product" />
+                <span class="glyphicon glyphicon-search"></span>
+                </hardcoded>
+            </div>
+            <div class="col col67">
+                <ul class="cart menu">
+                    <li>
+                        <a href="{{ url('cart') }}">
+                            <span class="glyphicon glyphicon-shopping-cart"></span>
+                            <span class="main">{{ 'header.cart'|trans }}</span>
+                            {{ 'header.cart.products.choice'|transchoice(cartItemCount) }}
+                        </a>
+                    </li>
+                </ul>
+                <ul class="customer menu">
+                    <li><a href="{{ url('account') }}"><span class="glyphicon glyphicon-user"></span>{{ 'customer.account'|trans }}</a></li>
+                    {% if is_granted('IS_AUTHENTICATED_FULLY') %}
+                        <li><a href="{{ url('logout') }}"><span class="glyphicon glyphicon-log-out"></span>{{ 'customer.logout'|trans }}</a></li>
+                    {% else %}
+                        <li><a href="{{ url('login') }}"><span class="glyphicon glyphicon-log-in"></span>{{ 'customer.login'|trans }}</a></li>
+                    {% endif %}
+                </ul>
+            </div>
+        </div>
+    </header>
+</section>
+
+{% block content %}{% endblock %}
+
+<footer>
+    {% block footer %}
+    <section class="transparent">
+        <div class="col col33">
+            <h4>{{ 'footer.payment.options'|trans }}</h4>
+            <ul>
+                <li><img src="/images/payment.png" alt="" /></li>
+            </ul>
+        </div>
+        <div class="col col33">
+            <h4>{{ 'footer.shipping'|trans }}</h4>
+            <ul>
+                <li><img src="/images/shipping.png" alt="" /></li>
+            </ul>
+        </div>
+        <div class="col col34">
+            <h4>{{ 'footer.information'|trans }}</h4>
+            <hardcoded block>
+            <ul>
+                <li><a href="/agb">Terms of Service</a></li>
+                <li><a href="/impressum">Imprint</a></li>
+                <li><a href="/datenschutz">Privacy</a></li>
+                <li><a href="/widerrufsrecht">Withdrawal</a></li>
+                <li><a href="/ruecksendungen">Returns</a></li>
+                <li><a href="/kontakt">Contact</a></li>
+                <li><a href="/faq">FAQ</a></li>
+            </ul>
+            </hardcoded>
+        </div>
+    </section>
+    {% endblock %}
+    <script type="text/javascript">
+        var $buoop = {};
+        $buoop.ol = window.onload;
+        window.onload=function(){
+            try {if ($buoop.ol) $buoop.ol();}catch (e) {}
+            var e = document.createElement("script");
+            e.setAttribute("type", "text/javascript");
+            e.setAttribute("src", "http://browser-update.org/update.js");
+            document.body.appendChild(e);
+        }
+    </script>
+</footer>
+
+<link rel="stylesheet" href="/styles/responsive.css" />
+</body>
+</html>

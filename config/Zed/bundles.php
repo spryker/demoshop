@@ -1,0 +1,54 @@
+<?php
+use ProjectA\Shared\Library\Config;
+use ProjectA\Shared\System\SystemConfig;
+
+$allElements = [
+    ProjectA\Shared\Library\Bundle\BundleConfig::ACTIVATE_NAVIGATION,
+    ProjectA\Shared\Library\Bundle\BundleConfig::ACTIVATE_SCHEMA
+];
+$schemaAndNavigation = [
+    ProjectA\Shared\Library\Bundle\BundleConfig::ACTIVATE_SCHEMA,
+    ProjectA\Shared\Library\Bundle\BundleConfig::ACTIVATE_NAVIGATION
+];
+$navigation = [ProjectA\Shared\Library\Bundle\BundleConfig::ACTIVATE_NAVIGATION];
+$schema = [ProjectA\Shared\Library\Bundle\BundleConfig::ACTIVATE_SCHEMA];
+
+return [
+    // Project bundles
+    Config::get(SystemConfig::PROJECT_NAMESPACE) => [],
+    // Core bundles
+    ProjectA\Shared\Library\Bundle\BundleConfig::NAMESPACE_CORE => [
+        'Acl' => $schemaAndNavigation,
+        'Cart' => $schema,
+        'Cms' => $allElements,
+        'Catalog' => $schemaAndNavigation,
+        'Category' => $schemaAndNavigation,
+        'Customer' => $schemaAndNavigation,
+        'Dwh' => $schemaAndNavigation,
+        'Document' => $schema,
+        'Glossary' => $allElements,
+        'Invoice' => $schema,
+        'Kendo' => $schema,
+        'Lumberjack' => $navigation,
+        'Mail' => $schemaAndNavigation,
+        'Mcm' => $schemaAndNavigation,
+        'Mci' => $schemaAndNavigation,
+        'Misc' => $schema,
+        'Newsletter' => $schema,
+        'Oms' => $schema,
+        'ProductImage' => $schema,
+        'Payment' => $schemaAndNavigation,
+        'Payone' => $schema,
+        'PaymentControl' => $schema,
+        'Price' => $schema,
+        'Product' => $schemaAndNavigation,
+        'Sales' => $schemaAndNavigation,
+        'Salesrule' => $schemaAndNavigation,
+        'Setup' => $navigation,
+        'Stock' => $schema,
+        'System' => $navigation,
+        'Tv' => $schemaAndNavigation,
+        'Yves' => $schemaAndNavigation,
+        'YvesExport' => $schema
+    ],
+];

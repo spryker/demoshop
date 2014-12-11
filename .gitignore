@@ -1,0 +1,52 @@
+# IDEs
+/.idea
+/.project
+/nbproject
+/.buildpath
+/.settings
+*.sublime-*
+*.AppleDouble
+*.AppleDB
+*.AppleDesktop
+Temporary Items
+.apdisk
+GPATH
+GRTAGS
+GTAGS
+
+
+# OS
+.DS_Store
+
+# Y&Z
+/config/Shared/config_local*
+/config/Zed/behat.local.yml
+/config/Zed/phpunit.core.xml
+/config/Zed/phpunit.xml
+/config/Shared/cubes.*
+/config/cubes.*
+config/accumulated-config.json
+
+/src/Generated
+/vendor/
+
+/data
+
+# grunt stuff
+.grunt
+.sass-cache
+/config/Yves/config_assets.php
+/node_modules/
+
+# public stuff
+/static/public/Yves/*
+/static/public/Zed/*
+
+# vagrant stuff
+.vagrant
+
+# profiling
+/profiler
+
+npm-debug.log
+tests/_log

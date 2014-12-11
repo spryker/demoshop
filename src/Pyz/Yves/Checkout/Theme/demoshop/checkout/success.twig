@@ -1,0 +1,10 @@
+{% extends "@application/layout/reduced.twig" %}
+
+{% block content %}
+    <link rel="stylesheet" media="print" href="{{ asset('styles/print.css') }}" />
+    <section class="consumeHeight">
+        We received your Order and will now NOT process it!
+        <br/>
+        Number : {{ order.incrementId }}
+    </section>
+{% endblock %}

@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<config>
+    <sales>
+        <label>Sales</label>
+        <title>Sales</title>
+        <uri>/sales/order</uri>
+    </sales>
+    <customer>
+        <label>Customers</label>
+        <title>Customers</title>
+        <uri>/customer</uri>
+    </customer>
+    <catalog>
+        <label>Catalog</label>
+        <title>Catalog</title>
+        <uri>/catalog/product</uri>
+    </catalog>
+    <product>
+        <label>Product</label>
+        <title>Product</title>
+        <uri>/product/import</uri>
+    </product>
+    <content>
+        <label>Content</label>
+        <title>Content</title>
+        <uri>/glossary/key</uri>
+    </content>
+    <marketing>
+        <label>Marketing</label>
+        <title>Marketing</title>
+        <uri>/salesrule</uri>
+    </marketing>
+    <!--<dwh/>-->
+    <acl>
+        <label>Users &amp; Roles</label>
+        <title>Users &amp; Roles</title>
+        <uri>/acl/user</uri>
+    </acl>
+    <lumberjack>
+        <label>Lumberjack</label>
+        <title>Lumberjack</title>
+        <uri>/lumberjack</uri>
+    </lumberjack>
+    <system>
+        <label>System</label>
+        <title>Setup</title>
+        <uri>/setup</uri>
+    </system>
+    <development>
+        <label>Development</label>
+        <title>Development</title>
+        <uri>#</uri>
+    </development>
+</config>

@@ -1,0 +1,23 @@
+default:
+  context:
+    class: 'Zed\BehatBootstrap'
+    parameters:
+      store: DE
+      environment: testing
+  extensions:
+    Behat\MinkExtension\Extension:
+      base_url:  'http://www-development.project-yz.com/'
+      goutte:    ~
+  paths:
+    features: 'Feature'
+    bootstrap: 'config/Zed'
+
+us:
+  context:
+    parameters:
+      store: US
+      environment: testing
+  extensions:
+    Behat\MinkExtension\Extension:
+      base_url:  'http://www-development.project-yz.com/'
+      goutte:    ~

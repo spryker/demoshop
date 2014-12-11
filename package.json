@@ -1,0 +1,28 @@
+{
+  "private": true,
+  "name": "yves_zed",
+  "version": "0.1.0",
+  "description": "Grunt asset distribution for Yves & Zed",
+  "author": {
+    "name": "Project A Ventures",
+    "email": "info@project-a.com",
+    "url": "http://www.project-a.com/"
+  },
+  "scripts": {
+    "setup": "vendor/bin/console code:grunt",
+    "start": "vendor/bin/console code:grunt -y -w",
+    "yves": "vendor/bin/console code:grunt -y",
+    "zed": "vendor/bin/console code:grunt -z"
+  },
+  "devDependencies": {
+    "grunt": "~0.4.2",
+    "grunt-contrib-clean": "~0.5",
+    "grunt-contrib-compass": "~0.7",
+    "grunt-contrib-copy": "~0.4",
+    "grunt-contrib-jshint": "~0.7",
+    "grunt-contrib-watch": "~0.5",
+    "matchdep": "~0.3",
+    "grunt-concurrent": "~0.4",
+    "grunt-bushcaster": "0.0.7"
+  }
+}

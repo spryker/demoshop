@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<config>
+    <luceneMatchVersion>LUCENE_CURRENT</luceneMatchVersion>
+    <abortOnConfigurationError>false</abortOnConfigurationError>
+    <indexConfig>
+        <lockType>${solr.lock.type:native}</lockType>
+        <unlockOnStartup>false</unlockOnStartup>
+        <reopenReaders>true</reopenReaders>
+    </indexConfig>
+
+    <requestDispatcher handleSelect="true" >
+        <httpCaching never304="true" />
+    </requestDispatcher>
+
+    <requestHandler name="/select" class="solr.SearchHandler" default="true">
+        <lst name="defaults">
+            <str name="omitHeader">true</str>
+            <str name="fl">*</str>
+            <str name="facet">false</str>
+            <str name="wt">json</str>
+            <str name="json.nl">map</str>
+            <float name="tie">0.01</float>
+        </lst>
+    </requestHandler>
+
+    <requestHandler name="/update"  class="solr.UpdateRequestHandler" />
+    <requestHandler name="/admin/" class="solr.admin.AdminHandlers" />
+
+    <!--xi:include replication settings (if any) -->
+    <xi:include href="../../replication.xml" xmlns:xi="http://www.w3.org/2001/XInclude">
+        <xi:fallback></xi:fallback>
+    </xi:include>
+</config>

@@ -1,0 +1,21 @@
+{
+  "bitwise"   : false,
+  "browser"   : true,
+  "camelcase" : true,
+  "curly"     : true,
+  "debug"     : true,
+  "eqeqeq"    : true,
+  "eqnull"    : true,
+  "forin"     : true,
+  "immed"     : true,
+  "indent"    : 2,
+  "latedef"   : true,
+  "newcap"    : true,
+  "noarg"     : true,
+  "quotmark"  : "single",
+  "smarttabs" : true,
+  "strict"    : true,
+  "trailing"  : true,
+  "undef"     : true,
+  "unused"    : true
+}

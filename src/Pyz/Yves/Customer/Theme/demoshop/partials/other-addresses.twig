@@ -1,0 +1,41 @@
+{% if otherAddresses is defined and otherAddresses|length %}
+    <h3 class="caption">{{ 'customer.address.others.caption'|trans }}</h3>
+    {% for otherAddress in otherAddresses %}
+        <div class="address">
+            <strong>
+                {{- ('checkout.salutation.' ~ otherAddress.salutation|lower)|trans }} {{ otherAddress.firstName }} {{ otherAddress.lastName -}}
+            </strong><br/>
+            {%- if otherAddress.company -%}
+                <strong>{{ otherAddress.company }}</strong><br/>
+            {%- endif -%}
+            {{- otherAddress.address1 }} {{ otherAddress.address2 -}}<br/>
+            {%- if otherAddress.address3 -%}
+                {{ otherAddress.address3 }}<br/>
+            {%- endif -%}
+            {{- otherAddress.zipCode }} {{ otherAddress.city -}}
+            <div class="actions" id="actions-{{ otherAddress.idCustomerAddress }}">
+                <a href="javascript:app.customer.address.change({{ otherAddress.idCustomerAddress }}, false);">
+                    {{- 'customer.address.change'|trans -}}
+                </a>
+                <a class="delete-confirmation" href="javascript:app.customer.address.deleteConfirmation({{ otherAddress.idCustomerAddress }});">
+                    {{- 'customer.address.delete'|trans -}}
+                </a>
+                <a href="{{ url('address/set/default/billing', {'address': otherAddress.idCustomerAddress}) }}">
+                    {{- 'customer.address.make.default.billing'|trans -}}
+                </a>
+                <a href="{{ url('address/set/default/shipping', {'address': otherAddress.idCustomerAddress}) }}">
+                    {{- 'customer.address.make.default.shipping'|trans -}}
+                </a>
+            </div>
+            <div class="actions" id="delete-confirmation-{{ otherAddress.idCustomerAddress }}" style="display:none;">
+                <span style="padding-right:8px;">{{- 'customer.address.delete.confirmation'|trans -}}</span>
+                <a class="delete-confirmation" href="javascript:app.customer.address.cancelDelete({{ otherAddress.idCustomerAddress }});">
+                    {{- 'customer.change.cancel'|trans -}}
+                </a>
+                <button class="ok" onclick="window.location.href='{{ url('address/delete', {'address': otherAddress.idCustomerAddress }) }}'" style="float:none; height:20px; padding:0 10px;">
+                    {{- 'customer.address.delete'|trans ~ '!' -}}
+                </button>
+            </div>
+        </div>
+    {% endfor %}
+{% endif %}

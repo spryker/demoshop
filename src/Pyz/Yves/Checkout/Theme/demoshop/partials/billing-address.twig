@@ -1,0 +1,41 @@
+<div class="address primary secondaryRow" data-validator-precondition="return $('#chooseDifferentBilling').is(':checked')">
+    <h3>{{ 'checkout.headline.billing'|trans }}</h3>
+    {{ form_row(form.billingAddress.idCustomerAddress) }}
+    <div class="col col34 first">
+        {{ form_row(form.billingAddress.salutation, {attr: {class: 'name fullWidth', 'data-src': 'salutation'}, label: 'checkout.address.billing.salutation'}) }}
+    </div>
+    <div class="col col33 middle">
+        {{ form_row(form.billingAddress.firstName, {attr: {class: 'name fullWidth', 'data-src': 'first_name'}, label: 'checkout.address.billing.name.first'}) }}
+    </div>
+    <div class="col col33 last">
+        {{ form_row(form.billingAddress.lastName, {attr: {class: 'name fullWidth', 'data-src': 'last_name'}, label: 'checkout.address.billing.name.last'}) }}
+    </div>
+    <div class="col fullWidth" style="display:none;">
+        {{ form_row(form.billingAddress.middleName, {attr: {class: 'fullWidth', 'data-src': 'middle_name'}, label: 'checkout.address.billing.name.middle'}) }}
+    </div>
+    <div class="col fullWidth">
+        {{ form_row(form.billingAddress.company, {attr: {class: 'fullWidth'}, label: 'checkout.address.billing.company'}) }}
+    </div>
+    <div class="col col67 first">
+        {{ form_row(form.billingAddress.address1, {attr: {class: 'fullWidth', 'data-src': 'route'}, label: 'checkout.address.billing.street'}) }}
+    </div>
+    <div class="col col33 last">
+        {{ form_row(form.billingAddress.address2, {attr: {class: 'fullWidth', 'data-src': 'street_number'}, label: 'checkout.address.billing.number'}) }}
+    </div>
+    <div class="col fullWidth">
+        {{ form_row(form.billingAddress.address3, {attr: {class: 'fullWidth'}, placeholder: 'checkout.address.billing.address3.placeholder'}) }}
+    </div>
+    <div class="col col33 first">
+        {{ form_row(form.billingAddress.zipCode, {attr: {class: 'fullWidth', 'data-src': 'postal_code'}, label: 'checkout.address.billing.zipcode'}) }}
+    </div>
+    <div class="col col67 last">
+        {{ form_row(form.billingAddress.city, {attr: {class: 'fullWidth', 'data-src': 'locality'}, label: 'checkout.address.billing.city'}) }}
+    </div>
+    <div class="col fullWidth">
+        {{ form_row(form.billingAddress.iso2Country, {attr: {class: 'fullWidth', 'data-src': 'country', 'data-src-type': 'short'}, label: 'checkout.address.billing.country'}) }}
+    </div>
+    <div class="col fullWidth">
+        {{ form_row(form.billingAddress.phone, {attr: {class: 'fullWidth'}, label: 'checkout.address.billing.phone'}) }}
+    </div>
+    {% include "@checkout/partials/other-addresses.twig" with {'addressType': 'billing', 'userAddresses':userAddresses, 'userAddressesJson':userAddressesJson} only %}
+</div>

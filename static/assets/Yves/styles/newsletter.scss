@@ -1,0 +1,138 @@
+.newsletter-teaser {
+  .badge {
+    width: 123px;
+    height: 123px;
+    background: url(/images/index/badge_newsletter.png) 0 0 no-repeat;
+    margin: 0 auto;
+  }
+
+  h2 {
+    text-align: center;
+    padding: 0 1em;
+    font-size:1.625rem;
+    font-weight:300;
+    line-height:1.07143;
+  }
+
+  h3 {
+    font-weight: 400;
+    font-size:1.25rem;
+    line-height:1.1;
+    margin: 0.8em auto;
+    overflow: visible;
+    white-space: nowrap;
+    width: 108px;
+  }
+
+  ul {
+    font-size: 1.20rem;
+    list-style: url(/images/check.png) outside;
+    font-weight: 300;
+    line-height: 1.50rem;
+    padding: 0;
+    margin: 0.8em auto;
+    overflow: visible;
+    white-space: nowrap;
+    width: 128px;
+  }
+
+  form {
+    line-height: 1.4em;
+    margin: 0 auto;
+    width: 80%;
+
+    label {
+      font-size: 1rem;
+    }
+
+    button {
+      width: 100%;
+      margin-top: 0.4em;
+    }
+  }
+
+  .response {
+    button {
+      margin: 1em auto 0;
+      display: block;
+    }
+
+  }
+
+  p {
+    font-size: 0.8em;
+    margin: 0.2em 0;
+  }
+
+  .caption {
+    text-align: center;
+    margin-top: 2em;
+  }
+
+  @media only screen and (min-width: 768px) {
+    &.mod\:full {
+
+      .newsletter-teaser\:wrapper:after {
+        display: block;
+        content: '';
+        clear: both;
+      }
+
+      .badge {
+        float: left;
+        margin: auto 20px;
+      }
+
+      h2 {
+        text-align: left;
+        margin-top: 0;
+      }
+
+      h3 {
+        margin: 0 0 0.8em;
+      }
+
+      .advantages {
+        float: left;
+        margin: 0 20px 0 18px;
+      }
+
+      ul {
+        margin: 0;
+      }
+
+      form {
+        float: left;
+        width: 50%;
+      }
+
+      .caption {
+        margin-top: 1em;
+      }
+
+      .response {
+        float: left;
+        max-width: 80%;
+
+        button {
+          margin: 1em 0 0 0;
+        }
+      }
+
+    }
+  }
+
+}
+
+.newsletter-teaser\:wrapper {
+  background: #f1f1f1;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.15);
+  padding: 1em;
+  position: relative;
+}
+
+.newsletter-teaser\:main {
+  padding: 1px 0;
+}

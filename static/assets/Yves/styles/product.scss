@@ -1,0 +1,45 @@
+#product { padding:20px; }
+
+#product #breadcrumbs { display:block; line-height:26px; margin-bottom:20px; }
+
+#product .assist { color:#777; font-size:0.9em; }
+#product .assist .usps { margin:0; padding:0; list-style:none; line-height:2em; }
+#product .assist .usps .glyphicon { margin-right:10px; }
+#product .assist .social { margin-top:20px; }
+#product .assist .social li { margin-right:5px; }
+
+#product .pictures { padding:0 27px 0 22px; }
+#product .pictures .current { position:relative; border:1px solid #ddd; }
+#product .pictures .current .prev,
+#product .pictures .current .next { /* display:none; */ position:absolute; left:-14px; top:50%; width:40px; height:40px; line-height:42px; margin-top:-20px; background:#fff; color:#777; text-align:center; border-radius:20px; cursor:pointer; z-index:1; box-shadow:0 0 2px rgba(0, 0, 0, 0.2); }
+#product .pictures .current .next { left:auto; right:-14px; }
+#product .pictures .current .zoom { position:fixed; width:200px; height:200px; z-index:9; border-radius:100px; box-shadow:0 0 10px rgba(0, 0, 0, 0.3); background:#fff no-repeat; cursor:none; }
+/* #product .pictures .current:hover .prev,
+#product .pictures .current:hover .next { display:block; } */
+#product .pictures img { display:block; width:100%; }
+#product .pictures .list { margin:10px -2px 0; padding:0; list-style:none; }
+#product .pictures .list li { padding:2px; }
+#product .pictures .list img { border:1px solid #ddd; cursor:pointer; }
+#product .pictures .list li:hover img { border-color:#aaa; }
+
+#product .item h3 { margin:0; padding:0; font-size:18px; }
+#product .item h4 { margin:3px 0 15px; padding:0; font-size:14px; color:#777; font-style:italic; }
+#product .item .oldPrice { float:right; color:#aaa; text-decoration:line-through; font-size:1.4em; margin:0 0 2px; }
+#product .item .price { font-size:1.9em; margin:0 0 2px; }
+#product .item .oldPrice + .price { color:#e10000; }
+#product .item .hint { font-size:0.9em; color:#aaa; }
+#product .item form { margin-top:15px; }
+#product .item .submit { margin-top:5px; }
+#product .item .unavailable { margin-top:15px; color:#777; font-style:italic; }
+
+#product hr { margin:0 0 40px; padding:40px 0 0; }
+
+#product .superDescription h4,
+#product .itemDescription h4,
+#product .specs h4 { margin:0 0 1em; padding:0; }
+#product .superDescription { padding-right:20px; }
+#product .itemDescription { padding:0 20px; border-right:1px solid #f8f8f8; border-left:1px solid #f8f8f8; }
+#product .specs { padding-left:20px; }
+#product .superDescription p,
+#product .itemDescription p { text-align:justify; margin:1em 0; }
+#product .specs ul { margin:0; padding:0; list-style:none; line-height:1.6em; }

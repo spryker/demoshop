@@ -1,0 +1,60 @@
+{% for paymentMethod in paymentMethodCollection %}
+    {% if paymentMethod.name == 'payment.payone.creditcard_pseudo' %}
+        {# {% include "@checkout/partials/payone.twig" with { 'payoneCreditcardCheckData' : payoneCreditcardCheckData } only %} #}
+        <div class="details" data-associated-paymentmethod="payment.payone.creditcard_pseudo" data-validator-precondition="return $('[name=\'salesOrder[payment][method]\']:checked').val() === 'payment.payone.creditcard_pseudo'">
+            <i>{{ 'checkout.payment.cc.caption'|trans }}</i><br /><br />
+            <div class="row">
+                {{ form_row(form.payment.creditCardType, {attr : {class : 'fullWidth', autocomplete : 'off'}, label : 'checkout.payment.cardtype'}) }}
+            </div>
+            <div class="row">
+                {{ form_row(form.payment.creditCardHolder, {attr : {class : 'fullWidth', autocomplete : 'off'}, label : 'checkout.payment.ccholder'}) }}
+            </div>
+            <div class="row">
+                {{ form_row(form.payment.creditCardPan, {attr : {class : 'fullWidth', maxlength : 16, autocomplete : 'off'}, label : 'checkout.payment.ccnumber'}) }}
+            </div>
+            <div class="row">
+                <div class="separate">
+                    <div class="columns small-3">
+                        {{ form_row(form.payment.creditCardCvc2, {attr : {class : 'fullWidth', maxlength : 3, autocomplete : 'off'}, label : 'checkout.payment.ccv'}) }}
+                    </div>
+                    <div class="columns small-1">&#160;</div>
+                    <div class="columns small-4">
+                        {{ form_row(form.payment.creditCardExpirationMonth, {attr : {class : 'fullWidth', autocomplete : 'off'}, label : 'checkout.payment.ccexpmonth'}) }}
+                    </div>
+                    <div class="columns small-1">&#160;</div>
+                    <div class="columns small-4 hidden">
+                        {{ form_row(form.payment.creditCardExpirationYear, {attr : {class : 'fullWidth', autocomplete : 'off'}, label : 'checkout.payment.ccexpyear'}) }}
+                    </div>
+                </div>
+            </div>
+        </div>
+    {% elseif paymentMethod.name == 'payment.payone.prepayment' %}
+        <div class="details" data-associated-paymentmethod="payment.payone.prepayment">
+            <i>{{ 'checkout.payment.pre.caption'|trans }}</i><br /><br />
+            <div class="hint">{{ 'checkout.payment.pre.text'|trans }}</div>
+        </div>
+    {% elseif paymentMethod.name == 'payment.payone.paypal' %}
+        <div class="details" data-associated-paymentmethod="payment.payone.paypal">
+            <i>{{ 'checkout.payment.paypal.caption'|trans }}</i><br /><br />
+            <div class="hint">{{ 'checkout.payment.paypal.text'|trans }}</div>
+        </div>
+    {% elseif paymentMethod.name == 'payment.payone.invoice' %}
+        <div class="details" data-associated-paymentmethod="payment.payone.invoice">
+            <i>{{ 'checkout.payment.invoice.caption'|trans }}</i><br /><br />
+            <div class="hint">{{ 'checkout.payment.invoice.text'|trans }}</div>
+        </div>
+    {% elseif paymentMethod.name == 'payment.payone.direct_debit' %}
+        <div class="details" data-associated-paymentmethod="payment.payone.direct_debit" data-validator-precondition="return $('[name=\'salesOrder[payment][method]\']:checked').val() === 'payment.payone.direct_debit'">
+            <i>{{ 'checkout.payment.debit.caption'|trans }}</i><br /><br />
+            <div class="row">
+                {{ form_row(form.payment.bankAccountHolder, {attr : {class : 'fullWidth', autocomplete : 'off'}, label : 'checkout.payment.debitHolder'}) }}
+            </div>
+            <div class="row">
+                {{ form_row(form.payment.bankAccount, {attr : {class : 'fullWidth', autocomplete : 'off'}, label : 'checkout.payment.debitAccountNumber'}) }}
+            </div>
+            <div class="row">
+                {{ form_row(form.payment.bankCode, {attr : {class : 'fullWidth', autocomplete : 'off'}, label : 'checkout.payment.debitBankCodeNumber'}) }}
+            </div>
+        </div>
+    {% endif %}
+{% endfor %}

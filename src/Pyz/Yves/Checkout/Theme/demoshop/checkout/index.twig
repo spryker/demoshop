@@ -1,0 +1,35 @@
+{% extends "@application/layout/reduced.twig" %}
+
+{% block content %}
+    <link rel="stylesheet" href="{{ asset('styles/checkout.css') }}" />
+    <script src="{{ asset('scripts/app/checkout.js') }}"></script>
+
+    <section class="consumeHeight" id="checkout">
+        {% include "@application/partials/flash_bag.twig" %}
+        {{ form_start(form, {attr: {class: 'smartAddressForm', novalidate: 'novalidate'}}) }}
+        {{ form_errors(form) }}
+        <div class="step" data-step="1" style="display:block; ">
+            {% include "@checkout/partials/shipping-address.twig" with {'form': form, 'userAddresses': userAddresses, 'userAddressesJson': userAddressesJson} only %}
+            {% include "@checkout/partials/payment.twig" with {'form': form} only %}
+            {% include "@checkout/partials/checkout-cart.twig" %}
+            <div class="clearRows"></div>
+            <div class="unnecessary primary col col33 secondaryRow">
+                {% include "@checkout/partials/payment-methods.twig" with {'form': form, 'payoneCreditcardCheckData': payoneCreditcardCheckData, 'paymentMethodCollection': paymentMethodCollection} only %}
+                <div id="validationMessages" data-validation-message-required="{{ 'checkout.validation.message.required'|trans }}" data-validation-message-email="{{ 'checkout.validation.message.email'|trans }}"></div>
+            </div>
+        </div>
+        <div class="step" data-step="2">
+            {% include "@checkout/partials/summary.twig" with {} only %}
+        </div>
+        {{ form_end(form) }}
+    </section>
+
+    <!-- ********** PAYONE CC TEST BUTTON ********** --->
+    <a href="#" id="test_button" class="button">[ PERFORM PAYONE CREDIT CARD CHECK ]</a>
+    <script>
+        $('#test_button').on('click', function (e) {
+            e.preventDefault();
+            performCreditCardCheck();
+        });
+    </script>
+{% endblock %}

@@ -1,0 +1,30 @@
+#!/bin/bash
+#
+# *** Project-A deployment
+#
+# enable_cronjobs
+# This script is executed on tools host (as www-data user) in order to activate cronjobs
+#
+#
+
+FILEPATH=`pwd`/$0; BASEDIR=`dirname $FILEPATH`; source $BASEDIR/vars; source $BASEDIR/functions
+outfile=`mktemp /tmp/deploy-XXXXXX`
+
+# Prepare Jenkins - get roles for current hosts and call JenkinsController/Generate if there are any roles for current host.
+cd $destination_release_dir
+roles=`get_cronjob_roles`
+if [ -z $roles ]; then
+  echo "No cronjobs on this host"
+  roles="empty"
+else
+  echo "Installing cronjobs for roles: $roles"
+fi
+
+if [ "$roles" != "empty" ]; then
+  APPLICATION_ENV=${environment} php -d "newrelic.appname='Deploy($environment)'" cli/index.php --module=setup --controller=jenkins --action=generate --role=$roles
+  APPLICATION_ENV=${environment} php -d "newrelic.appname='Deploy($environment)'" cli/index.php --module=setup --controller=jenkins --action=enable
+fi
+
+
+rm -f $outfile
+exit 0

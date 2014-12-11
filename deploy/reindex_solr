@@ -1,0 +1,20 @@
+#!/bin/bash
+#
+# *** Project-A deployment
+#
+# reindex_solr
+# Runs as: www-data user
+# This script is executed only if deployer chooeses to, on solr master host, after unpacking release tarball, after the maintenance time.
+# To recalculate scores, it's also executed by cron daemon every night at 2:00.
+#
+#
+
+FILEPATH=`pwd`/$0; BASEDIR=`dirname $FILEPATH`; source $BASEDIR/vars
+outfile=`mktemp /tmp/deploy-XXXXXX`
+
+cd $destination_release_dir
+php -d "newrelic.appname='Deploy($environment)'" vendor/bin/console storage:solr -a sync -s ${APPLICATION_STORE} -e ${environment}
+
+
+rm -f $outfile
+exit 0

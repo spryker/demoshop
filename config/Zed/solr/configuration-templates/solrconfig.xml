@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<config>
+    <luceneMatchVersion>LUCENE_CURRENT</luceneMatchVersion>
+    <abortOnConfigurationError>false</abortOnConfigurationError>
+    <indexConfig>
+        <lockType>${solr.lock.type:native}</lockType>
+        <unlockOnStartup>false</unlockOnStartup>
+        <reopenReaders>true</reopenReaders>
+    </indexConfig>
+
+    <requestDispatcher handleSelect="true" >
+        <httpCaching never304="true" />
+    </requestDispatcher>
+
+    <requestHandler name="/facet-search" class="solr.SearchHandler" default="true">
+        <lst name="defaults">
+            <str name="omitHeader">true</str>
+            <str name="fl">sku</str>
+            <str name="facet">true</str>
+            <str name="facet.mincount">1</str>
+            <str name="facet.limit">-1</str>
+            <str name="wt">json</str>
+            <str name="json.nl">map</str>
+            <float name="tie">0.01</float>
+        </lst>
+    </requestHandler>
+
+    <requestHandler name="/fulltext-search" class="solr.SearchHandler" >
+        <lst name="defaults">
+            <str name="omitHeader">true</str>
+            <str name="fl">sku</str>
+            <str name="defType">dismax</str>
+            <str name="facet">true</str>
+            <str name="facet.mincount">1</str>
+            <str name="facet.limit">-1</str>
+            <str name="wt">json</str>
+            <str name="json.nl">map</str>
+            <float name="tie">0.01</float>
+            <str name="qf">product_name_exact^10 product_name^5 product_brand_exact^4 product_brand^2 searchable_text^1</str>
+            <str name="mm">100%</str>
+            <int name="ps">200</int>
+        </lst>
+    </requestHandler>
+
+    <requestHandler name="/update"  class="solr.UpdateRequestHandler" />
+    <requestHandler name="/admin/" class="solr.admin.AdminHandlers" />
+
+    <!--xi:include replication settings (if any) -->
+    <xi:include href="../../replication.xml" xmlns:xi="http://www.w3.org/2001/XInclude">
+        <xi:fallback></xi:fallback>
+    </xi:include>
+
+    <query>
+        <filterCache class="solr.LRUCache" size="1000" initialSize="1000" autowarmCount="1000"/>
+        <fieldValueCache class="solr.LRUCache" size="10000" initialSize="1000" autowarmCount="0"/>
+        <queryResultCache class="solr.LRUCache" size="10000" initialSize="1000" autowarmCount="1000"/>
+        <documentCache class="solr.LRUCache" size="100000" initialSize="1000" autowarmCount="1000"/>
+        <!-- Lazy field loading will attempt to read only parts of documents on disk that are
+         requested.  Enabling should be faster if you aren't retrieving all stored fields. -->
+        <enableLazyFieldLoading>true</enableLazyFieldLoading>
+    </query>
+</config>

@@ -1,0 +1,50 @@
+* {
+  overflow: visible !important;
+  width: auto !important;
+  height: auto !important;
+  max-width: none !important;
+  max-height: none !important;
+  float: none !important;
+}
+
+h3 {
+  font-family: Arial, sans-serif !important;
+}
+
+table {
+  width: 100% !important;
+}
+
+footer {
+  display: none;
+}
+
+a[href]:after {
+  content: none !important;
+}
+
+.hideonprint {
+  display: none !important;
+}
+
+.showonprint {
+  display: inherit !important;
+}
+
+.nopadonprint {
+  padding: 0 !important;
+}
+
+.floatonprint {
+  float: left !important;
+  padding-left: 1em !important;
+
+  &:first-child {
+    padding-left: 0 !important;
+  }
+}
+
+html,
+body {
+  white-space: normal;
+}

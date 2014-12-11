@@ -1,0 +1,819 @@
+default_locale: en_US
+locales:
+  en_US: en_US
+  de_DE: de_DE
+keys:
+  catalog.buy:
+    explanations:
+      en_US: 'Buy Now'
+  catalog.out.of.stock:
+    explanations:
+      en_US: 'currently out of stock'
+  cart.remove:
+    explanations:
+      en_US: Remove
+  cart.percentage.vat:
+    explanations:
+      en_US: '% VAT'
+  cart.empty:
+    explanations:
+      en_US: 'Cart EMPTY.'
+  cart.usp.shipping:
+    explanations:
+      en_US: 'Free Shipping & Return'
+  cart.usp.return:
+    explanations:
+      en_US: '30 Days of Return'
+  cart.price.grand.total:
+    explanations:
+      en_US: 'Grand Total Price'
+  cart.price.shipping:
+    explanations:
+      en_US: Shipping
+  cart.price.subtotal:
+    explanations:
+      en_US: 'Subtotal Price'
+  cart.price.total:
+    explanations:
+      en_US: 'Total Price'
+  cart.amount:
+    explanations:
+      en_US: Amount
+  cart.price.item:
+    explanations:
+      en_US: 'Item price'
+  cart.product:
+    explanations:
+      en_US: Product
+  cart.to.checkout:
+    explanations:
+      en_US: 'Go to Checkout'
+  cart.cart:
+    explanations:
+      en_US: 'Your cart'
+  header.cart:
+    explanations:
+      en_US: 'Your cart'
+  header.usp.shipping:
+    explanations:
+      en_US: 'Free Shipping & Return'
+  header.usp.return:
+    explanations:
+      en_US: '30 Days of Return'
+  header.phone:
+    explanations:
+      en_US: 'Hotline: +49 (0) 30 340 606 300'
+  footer.payment.options:
+    explanations:
+      en_US: 'Payment options'
+  footer.shipping:
+    explanations:
+      en_US: Shipping
+  footer.information:
+    explanations:
+      en_US: Information
+  checkout.headline.shipping.billing:
+    explanations:
+      en_US: 'Shipping and Billing Address'
+  checkout.address.billing.city:
+    explanations:
+      en_US: City
+  checkout.address.billing.zipcode:
+    explanations:
+      en_US: 'Postal Code'
+  checkout.address.billing.number:
+    explanations:
+      en_US: Number
+  checkout.address.billing.street:
+    explanations:
+      en_US: Street
+  checkout.address.billing.company:
+    explanations:
+      en_US: Company
+  checkout.address.billing.salutation:
+    explanations:
+      en_US: Salutation
+  checkout.address.billing.name.last:
+    explanations:
+      en_US: 'Last Name'
+  checkout.address.billing.name.middle:
+    explanations:
+      en_US: 'Middle Name'
+  checkout.address.billing.name.first:
+    explanations:
+      en_US: 'First Name'
+  checkout.email:
+    explanations:
+      en_US: Email
+  checkout.address.shipping.salutation:
+    explanations:
+      en_US: Salutation
+  checkout.address.shipping.name.last:
+    explanations:
+      en_US: 'Last Name'
+  checkout.address.shipping.name.middle:
+    explanations:
+      en_US: 'Middle Name'
+  checkout.address.shipping.name.first:
+    explanations:
+      en_US: 'First Name'
+  checkout.address.shipping.phone:
+    explanations:
+      en_US: Phone
+  checkout.address.shipping.comment:
+    explanations:
+      en_US: Comment
+  checkout.address.shipping.address3.placeholder:
+    explanations:
+      en_US: 'e.g. company / please hand to neighbor Wilson'
+  checkout.address.shipping.city:
+    explanations:
+      en_US: City
+  checkout.address.shipping.zipcode:
+    explanations:
+      en_US: 'Postal Code'
+  checkout.address.shipping.street:
+    explanations:
+      en_US: Street
+  checkout.address.shipping.number:
+    explanations:
+      en_US: Number
+  checkout.address.shipping.name:
+    explanations:
+      en_US: Name
+  demopayment.demomethod:
+    explanations:
+      en_US: 'Demo Payment Method'
+  stripe.credit.card:
+    explanations:
+      en_US: 'Credit Card'
+  checkout.headline.shipping:
+    explanations:
+      en_US: 'Shipping Address'
+  checkout.payment.ccholder:
+    explanations:
+      en_US: 'Card Holder'
+  checkout.payment.ccnumber:
+    explanations:
+      en_US: 'Card Number'
+  checkout.payment.ccv:
+    explanations:
+      en_US: CCV
+  checkout.payment.ccexpmonth:
+    explanations:
+      en_US: 'Expiration Month'
+  checkout.payment.ccexpyear:
+    explanations:
+      en_US: 'Expiration Year'
+  checkout.percentage.vat:
+    explanations:
+      en_US: '% VAT'
+  checkout.price.grand.total:
+    explanations:
+      en_US: 'Grand Total Price'
+  checkout.price.shipping:
+    explanations:
+      en_US: Shipping
+  checkout.price.subtotal:
+    explanations:
+      en_US: 'Subtotal Price'
+  checkout.cart.empty:
+    explanations:
+      en_US: 'Cart EMPTY.'
+  checkout.to.summary:
+    explanations:
+      en_US: 'Go to Order Summary'
+  checkout.address.shipping.streetnr:
+    explanations:
+      en_US: Number
+  checkout.headline.cart:
+    explanations:
+      en_US: 'Your Cart'
+  checkout.headline.contact:
+    explanations:
+      en_US: 'Contact Data'
+  checkout.headline.payment:
+    explanations:
+      en_US: Payment
+  checkout.headline.billing:
+    explanations:
+      en_US: 'Billing Address'
+  checkout.address.billing.country:
+    explanations:
+      en_US: Country
+  checkout.link.edit:
+    explanations:
+      en_US: edit
+  cart.success.product.add:
+    explanations:
+      en_US: 'Product added to cart'
+  checkout.address.shipping.country:
+    explanations:
+      en_US: Country
+  checkout.address.billing.different:
+    explanations:
+      en_US: 'Different Billing Address'
+  payone.paypal:
+    explanations:
+      en_US: PayPal
+  catalog.usp.shipping:
+    explanations:
+      en_US: 'Free Shipping & Return'
+  catalog.usp.return:
+    explanations:
+      en_US: '30 Days of Return'
+  catalog.percentage.vat:
+    explanations:
+      en_US: 'incl. %product.tax_rate%% VAT'
+  catalog.details.headline:
+    explanations:
+      en_US: 'More Details'
+  catalog.details.material:
+    explanations:
+      en_US: 'Material:'
+  catalog.details.dimension:
+    explanations:
+      en_US: 'Dimension:'
+  catalog.details.color:
+    explanations:
+      en_US: 'Color:'
+  catalog.filters.material.wood:
+    explanations:
+      en_US: Wood
+  catalog.filters.material.plastic:
+    explanations:
+      en_US: Plastic
+  catalog.filters.material.textile:
+    explanations:
+      en_US: Textile
+  catalog.filters.material.metal:
+    explanations:
+      en_US: Metal
+  catalog.filters.material:
+    explanations:
+      en_US: Material
+  catalog.filters.color.yellow:
+    explanations:
+      en_US: Yellow
+  catalog.filters.color.white:
+    explanations:
+      en_US: White
+  catalog.filters.color.grey:
+    explanations:
+      en_US: Grey
+  catalog.filters.color.red:
+    explanations:
+      en_US: Red
+  catalog.filters.color.black:
+    explanations:
+      en_US: Black
+  catalog.filters.color.green:
+    explanations:
+      en_US: Green
+  catalog.filters.color:
+    explanations:
+      en_US: Color
+  catalog.filters.brand.hint.find:
+    explanations:
+      en_US: 'Type here to search for a brand'
+  catalog.filters.brand.vitra:
+    explanations:
+      en_US: Vitra
+  catalog.filters.brand.kartell:
+    explanations:
+      en_US: Kartell
+  catalog.filters.brand:
+    explanations:
+      en_US: Brand
+  catalog.filters.category:
+    explanations:
+      en_US: Category
+  catalog.filters.price.max:
+    explanations:
+      en_US: Max
+  catalog.filters.price.min:
+    explanations:
+      en_US: Min
+  catalog.filters.price:
+    explanations:
+      en_US: Price
+  catalog.ipp.100:
+    explanations:
+      en_US: '100 per page'
+  catalog.ipp.80:
+    explanations:
+      en_US: '80 per page'
+  catalog.ipp.60:
+    explanations:
+      en_US: '60 per page'
+  catalog.ipp.40:
+    explanations:
+      en_US: '40 per page'
+  catalog.ipp.20:
+    explanations:
+      en_US: '20 per page'
+  catalog.products.found:
+    explanations:
+      en_US: 'products found'
+  catalog.sort.price:
+    explanations:
+      en_US: 'Sort by price'
+  customer.email:
+    explanations:
+      en_US: 'Your Email'
+  customer.password:
+    explanations:
+      en_US: 'Your Password'
+  customer.new_password:
+    explanations:
+      en_US: 'Password confirmation:'
+  customer.login.submit:
+    explanations:
+      en_US: Login
+  customer.login.caption.main:
+    explanations:
+      en_US: 'Sign In'
+  customer.login.caption.sub:
+    explanations:
+      en_US: 'Already a customer?'
+  customer.register.caption.main:
+    explanations:
+      en_US: Register
+  customer.register.caption.sub:
+    explanations:
+      en_US: 'New to wedowood?'
+  customer.register.box.main:
+    explanations:
+      en_US: Registration
+  customer.register.box.sub:
+    explanations:
+      en_US: 'We need your email in order to inform you about your order. Your password is necessary for you to login to see your order status.'
+  header.cart.products.choice:
+    explanations:
+      en_US: '{0}Empty|{1}%count% product|]1,Inf]%count% products '
+  login.error.bad.credentials:
+    explanations:
+      en_US: 'Invalid credentials'
+  static.pages.tos:
+    explanations:
+      de_DE: 'Terms of Service - please add me!'
+      en_US: 'Terms of Service - please add me!'
+  static.pages.imprint:
+    explanations:
+      de_DE: 'Imprint - please add me!'
+      en_US: 'Imprint - please add me!'
+  static.pages.privacy:
+    explanations:
+      de_DE: 'Privacy - please add me!'
+      en_US: 'Privacy - please add me!'
+  static.pages.withdrawal:
+    explanations:
+      de_DE: 'Withdrawal - please add me!'
+      en_US: 'Withdrawal - please add me!'
+  static.pages.returns:
+    explanations:
+      de_DE: 'Returns - please add me!'
+      en_US: 'Returns - please add me!'
+  static.pages.contact:
+    explanations:
+      de_DE: 'Contact - please add me!'
+      en_US: 'Contact - please add me!'
+  static.pages.faq:
+    explanations:
+      de_DE: 'FAQ - please add me!'
+      en_US: 'FAQ - please add me!'
+  checkout.payment.paypal.text:
+    explanations:
+      en_US: 'You will be redirected to PayPal, once you have submitted your order. You can complete your payment through PayPal.'
+  checkout.payment.paypal.caption:
+    explanations:
+      en_US: 'Pay online safe and fast'
+  checkout.payment.pre.text:
+    explanations:
+      en_US: 'After completing your order we will show immediately all the necessary information for the payment and the order number. This will also once again by email. We will ship your order immediately upon receipt of your payment.'
+  checkout.payment.pre.caption:
+    explanations:
+      en_US: 'Easily pay in advance'
+  payment.payone.direct_debit:
+    explanations:
+      en_US: 'Direct Debit'
+  payment.payone.prepayment:
+    explanations:
+      en_US: 'Payment In Advance'
+  payment.payone.paypal:
+    explanations:
+      en_US: PayPal
+  payment.payone.creditcard_pseudo:
+    explanations:
+      en_US: 'Credit Card'
+  checkout.payment.cardtype:
+    explanations:
+      en_US: 'Card Type'
+  checkout.payment.cc.caption:
+    explanations:
+      en_US: 'Easy payment by credit card.'
+  catalog.product.detail.bundle.products.header:
+    explanations:
+      en_US: 'Included Products'
+  checkout.salutation.mrs:
+    explanations:
+      en_US: Mrs.
+  checkout.salutation.mr:
+    explanations:
+      en_US: Mr.
+  checkout.address.shipping.address3:
+    explanations:
+      en_US: 'Additional Address Data'
+  checkout.payment.debitBankCodeNumber:
+    explanations:
+      en_US: 'Bank Code'
+  checkout.payment.debitAccountNumber:
+    explanations:
+      en_US: 'Bank Account Number'
+  checkout.payment.debitHolder:
+    explanations:
+      en_US: 'Bank Account Holder'
+  checkout.payment.debit.caption:
+    explanations:
+      en_US: 'Easy payment by direct debit.'
+  payment.payone.invoice:
+    explanations:
+      en_US: Invoice
+  checkout.payment.invoice.caption:
+    explanations:
+      en_US: 'Easy payment by invoice.'
+  customer.login.caption:
+    explanations:
+      en_US: 'Login to your account.'
+  customer.register.caption:
+    explanations:
+      en_US: 'Create user account.'
+  customer.login.headline:
+    explanations:
+      en_US: Login
+  customer.register.headline:
+    explanations:
+      en_US: Registration
+  customer.password.forgotten:
+    explanations:
+      en_US: 'Forgot password'
+  customer.register.box.headline:
+    explanations:
+      en_US: Registration
+  customer.register.box.caption:
+    explanations:
+      en_US: 'Create your new user account.'
+  customer.login.box.headline:
+    explanations:
+      en_US: Login
+  customer.create:
+    explanations:
+      en_US: 'Register now'
+  customer.login:
+    explanations:
+      en_US: Login
+  product.select.sub-product:
+    explanations:
+      en_US: '- Select product -'
+  checkout.name.full.placeholder:
+    explanations:
+      en_US: 'e.g. John Quincy Doe'
+  checkout.name.full:
+    explanations:
+      en_US: 'Full Name'
+  checkout.address.full.placeholder:
+    explanations:
+      en_US: 'e.g. 79 N 11th Brooklyn'
+  checkout.address.full:
+    explanations:
+      en_US: 'Full Address'
+  checkout.headline.shipping.to:
+    explanations:
+      en_US: 'Shipping goes to'
+  cart.coupon.add:
+    explanations:
+      en_US: 'Enter Coupon Code'
+  catalog.filters.brand.thonet:
+    explanations:
+      en_US: Thonet
+  customer.account:
+    explanations:
+      en_US: 'My Account'
+  customer.logout:
+    explanations:
+      en_US: Logout
+  customer.account.addresses:
+    explanations:
+      en_US: Addresses
+  customer.account.orders:
+    explanations:
+      en_US: Orders
+  customer.change.submit:
+    explanations:
+      en_US: Submit
+  customer.change:
+    explanations:
+      en_US: Change
+  customer.account.headline:
+    explanations:
+      en_US: 'Customer Account'
+  customer.account.profile:
+    explanations:
+      en_US: 'Customer Profile'
+  customer.password.confirm:
+    explanations:
+      en_US: 'Confirm Password'
+  customer.password.new:
+    explanations:
+      en_US: 'New Password'
+  customer.order.date:
+    explanations:
+      en_US: 'Ordered on'
+  customer.orders.none:
+    explanations:
+      en_US: 'You have not placed an order yet.'
+  customer.orders.caption:
+    explanations:
+      en_US: 'My Orders'
+  customer.addresses.caption:
+    explanations:
+      en_US: 'My Addresses'
+  customer.profile.caption:
+    explanations:
+      en_US: 'My Profile'
+  customer.newsletter.subscription.status.caption:
+    explanations:
+      en_US: 'Yes, I want to receive the newsletter.'
+  customer.newsletter.subscription:
+    explanations:
+      en_US: Newsletter
+  customer.order.number:
+    explanations:
+      en_US: 'Order Number'
+  customer.order.price.sub.total:
+    explanations:
+      en_US: 'Sub Total'
+  customer.order.price.total:
+    explanations:
+      en_US: Total
+  customer.order.amount:
+    explanations:
+      en_US: Amount
+  customer.order.product:
+    explanations:
+      en_US: Product
+  customer.order.status:
+    explanations:
+      en_US: Status
+  customer.order.grand.total:
+    explanations:
+      en_US: 'Grand Total'
+  customer.order.shipping.to:
+    explanations:
+      en_US: 'Shipping To'
+  customer.order.address.shipping:
+    explanations:
+      en_US: 'Shipping Address'
+  customer.order.price.grand.total:
+    explanations:
+      en_US: 'Grand Total'
+  customer.order.discount.shipping:
+    explanations:
+      en_US: 'Free Shipping'
+  customer.order.discount:
+    explanations:
+      en_US: Discount
+  customer.order.price.shipping:
+    explanations:
+      en_US: 'Shipping Cost'
+  customer.address.shipping.none:
+    explanations:
+      en_US: 'You did not set a shipping address yet.'
+  customer.address.billing.none:
+    explanations:
+      en_US: 'You did not set a billing address yet.'
+  customer.address.delete:
+    explanations:
+      en_US: Remove
+  customer.address.change:
+    explanations:
+      en_US: Edit
+  customer.address.add:
+    explanations:
+      en_US: 'Add new address'
+  customer.order.download.invoice:
+    explanations:
+      en_US: Invoice
+  customer.order.print:
+    explanations:
+      en_US: Print
+  customer.order.detail.hide:
+    explanations:
+      en_US: 'Hide Detail'
+  customer.order.detail.show:
+    explanations:
+      en_US: 'Show Detail'
+  customer.order.payment.method:
+    explanations:
+      en_US: 'Payment Method'
+  customer.order.address.billing:
+    explanations:
+      en_US: 'Billing Address'
+  customer.address.others.caption:
+    explanations:
+      en_US: 'Other Addresses'
+  customer.address.make.default.shipping:
+    explanations:
+      en_US: 'Use as default shipping address'
+  customer.address.make.default.billing:
+    explanations:
+      en_US: 'Use as default billing address'
+  customer.address.default.shipping.caption:
+    explanations:
+      en_US: 'Default Shipping Address'
+  customer.address.default.billing.caption:
+    explanations:
+      en_US: 'Default Billing Address'
+  customer.address.change.caption:
+    explanations:
+      en_US: 'Edit Address'
+  customer.address.add.caption:
+    explanations:
+      en_US: 'Add Address'
+  customer.email.new:
+    explanations:
+      en_US: 'New Email'
+  customer.login.failed:
+    explanations:
+      en_US: 'Unfortunately your login failed.'
+  customer.password.wrong:
+    explanations:
+      en_US: 'Please enter your current password.'
+  customer.password.not.valid:
+    explanations:
+      en_US: 'Please enter a password that is at least 6 characters long.'
+  customer.passwords.dont.match:
+    explanations:
+      en_US: 'Please enter matching passwords match and try again.'
+  customer.password.changed.headline:
+    explanations:
+      en_US: 'Password changed'
+  customer.password.changed.caption:
+    explanations:
+      en_US: 'Your new password has been stored successfully.'
+  customer.password.mail.sent.caption:
+    explanations:
+      en_US: "We sent you an email containing a link to change your password.<br>\nIf you did not receive this email, please check out your spam folder."
+  customer.password.mail.sent.headline:
+    explanations:
+      en_US: 'Please check our email inbox'
+  customer.password.poor:
+    explanations:
+      en_US: 'Please enter a password that is at least 6 characters long.'
+  customer.password.request:
+    explanations:
+      en_US: 'Restore my password'
+  customer.password.restore:
+    explanations:
+      en_US: 'Submit new password'
+  customer.password.restore.caption:
+    explanations:
+      en_US: 'Please enter your new password and confirm it to prevent typing errors. The password must be at least 6 characters long.'
+  customer.password.restore.headline:
+    explanations:
+      en_US: 'Enter a new password'
+  customer.password.restore.link.timeout:
+    explanations:
+      en_US: 'The links to change a password are only valid for a limited time. Unfortunately this link has already expired. Please request a new one.'
+  customer.password.restored:
+    explanations:
+      en_US: 'Your password has been changed successfully.'
+  modal.close:
+    explanations:
+      en_US: Close
+  customer.newsletter.subscription.resubmit:
+    explanations:
+      en_US: 'Request confirmation email'
+  customer.newsletter.subscription.confirm:
+    explanations:
+      en_US: 'Please confirm your subscription by clicking the confirmation link we have sent to you by email. If you did not receive this email, you can request it again by clicking the button below.'
+  newsletter.subscription.already.subscribed:
+    explanations:
+      en_US: 'This email address is already subscribed.'
+  newsletter.subscription.cancel:
+    explanations:
+      en_US: Unsubscribe
+  newsletter.subscription.cancellation.caption:
+    explanations:
+      en_US: '<strong>If you submit this form, we will send you a message containing a link to confirm your unsubscription.</strong><br>This confirmation process is meant to protect you from unauthorized unsubscription.<br>If you did not receive this email, please check your spam folder or repeat the process.'
+  newsletter.subscription.cancellation.email:
+    explanations:
+      en_US: 'Your Email'
+  newsletter.subscription.cancellation.error:
+    explanations:
+      en_US: 'The unsubscription failed. The key provided could not be associated with any email address.'
+  newsletter.subscription.cancellation.mail.sent:
+    explanations:
+      en_US: 'Provided your email address is subscribed to our newsletter, you will receive an email message containing a confirmation link shortly.'
+  newsletter.subscription.cancellation.headline:
+    explanations:
+      en_US: 'Newsletter unsubscription'
+  newsletter.subscription.cancellation.success:
+    explanations:
+      en_US: 'The email address %email% has been unsubscribed successfully. If this happened mistakenly, please subscribe again <a href="/newsletter">here</a>.'
+  newsletter.subscription.cancellation.success.headline:
+    explanations:
+      en_US: 'Newsletter unsubscription successful'
+  newsletter.subscription.cancellation.unknown.email:
+    explanations:
+      en_US: 'Provided your email address is subscribed to our newsletter, you will receive an email message containing a confirmation link shortly.'
+  newsletter.subscription.confirmation.error:
+    explanations:
+      en_US: 'The subscription failed. The key provided could not be associated with any email address.'
+  newsletter.subscription.confirmation.key.missing:
+    explanations:
+      en_US: 'The subscription failed. No key was provided.'
+  newsletter.subscription.confirmation.success:
+    explanations:
+      en_US: "Thank you for subscribing to our newsletter.\nWith it, you will be always up to date with our latest news, products and special offers."
+  newsletter.subscription.confirmation.success.headline:
+    explanations:
+      en_US: 'Newsletter subscription successful'
+  newsletter.subscription.create:
+    explanations:
+      en_US: Subscribe
+  newsletter.subscription.email:
+    explanations:
+      en_US: 'Your Email'
+  newsletter.subscription.email.placeholder:
+    explanations:
+      en_US: your@email-here.com
+  newsletter.subscription.success:
+    explanations:
+      en_US: 'You will receive an email message containing a confirmation link shortly. Please check you email inbox.'
+  newsletter.subscription.headline:
+    explanations:
+      en_US: 'Subscribe now to our free newsletter'
+  newsletter.subscription.caption:
+    explanations:
+      en_US: "<strong>We won't pass on your email address to third parties and you may unsubscribe at any time.</strong><br>\nBy clicking on the subscribe button, you agree to our <a href=\"/privacy\">privacy policy</a>."
+  newsletter.subscription.advantage.headline:
+    explanations:
+      en_US: 'Your advantages'
+  newsletter.subscription.advantage.3:
+    explanations:
+      en_US: 'Latest news'
+  newsletter.subscription.advantage.2:
+    explanations:
+      en_US: 'Latest products'
+  newsletter.subscription.advantage.1:
+    explanations:
+      en_US: 'Special offers'
+  customer.address.default.billing.shipping.caption:
+    explanations:
+      en_US: 'Default Billing & Shipping Address'
+  checkout.address.more:
+    explanations:
+      en_US: 'Show other addresses'
+  checkout.address.less:
+    explanations:
+      en_US: 'Hide other addresses'
+  checkout.address.use:
+    explanations:
+      en_US: Use
+  customer.address.default.shipping.none:
+    explanations:
+      en_US: 'You did not set a shipping address yet.'
+  customer.address.default.billing.none:
+    explanations:
+      en_US: 'You did not set a billing address yet.'
+  checkout.address.billing.address3.placeholder:
+    explanations:
+      en_US: 'e.g. company / please hand to neighbor Wilson'
+  checkout.address.billing.address3:
+    explanations:
+      en_US: 'Additional Address Data'
+  checkout.address.billing.comment:
+    explanations:
+      en_US: Comment
+  customer.address.delete.confirmation:
+    explanations:
+      en_US: 'Do you really want to delete this address?'
+  customer.address.added.caption:
+    explanations:
+      en_US: 'Your new address has been stored successfully.'
+  customer.address.default.billing.set.caption:
+    explanations:
+      en_US: 'Your new default billing address has been stored successfully.'
+  customer.address.default.shipping.set.caption:
+    explanations:
+      en_US: 'Your new default shipping address has been stored successfully.'
+  customer.address.deleted.caption:
+    explanations:
+      en_US: 'Your selected address has been deleted successfully.'
+  customer.address.in.use:
+    explanations:
+      en_US: 'The selected address is used as a default address.'
+  customer.change.cancel:
+    explanations:
+      en_US: Cancel
