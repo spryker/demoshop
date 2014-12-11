@@ -15,7 +15,7 @@
         "project-a/glossary-package": "dev-master as 4.0.0",
         "project-a/infrastructure-package": "dev-master as 5.0.0",
         "project-a/kendo-package": "dev-master as 3.0.0",
-        "project-a/library-package": "dev-feature/387-replace-zf-with-silex as 5.0.1",
+        "project-a/library-package": "dev-master as 5.0.1",
         "project-a/lumberjack-package": "dev-master as 5.0.0",
 
         "project-a/marketing-package": "dev-feature/387-replace-zf-with-silex as 6.0.0",
