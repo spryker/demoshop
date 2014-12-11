@@ -4,7 +4,7 @@
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "b399324c77b2e609e29d8efa0ec2b638",
+    "hash": "a6f45fb16e4f129d9bf1bfaeb99138fd",
     "packages": [
         {
             "name": "digital-canvas/zend-framework",
@@ -1260,11 +1260,11 @@
         },
         {
             "name": "project-a/library-package",
-            "version": "dev-feature/387-replace-zf-with-silex",
+            "version": "dev-master",
             "source": {
                 "type": "git",
                 "url": "git@codebasehq.com:project-a/core/library-2.git",
-                "reference": "ce0c19ea9d6b26e67c3c9ddd71c7cfc91536d901"
+                "reference": "408ef4d34bd8406415458bacb0ee8f4db3db682f"
             },
             "require": {
                 "digital-canvas/zend-framework": ">=1.12.2",
@@ -1289,7 +1289,7 @@
                 "symfony/serializer": "2.5.*",
                 "symfony/translation": "2.5.*",
                 "twig/twig": "~1.15.0",
-                "zendframework/zend-code": "~2.3.0",
+                "zendframework/zend-code": "2.3.1",
                 "zendframework/zend-config": "~2.3.0",
                 "zendframework/zend-filter": "~2.3.0",
                 "zendframework/zend-servicemanager": "~2.3.0",
@@ -1304,7 +1304,7 @@
                 }
             },
             "description": "Project-A Library",
-            "time": "2014-12-09 13:57:24"
+            "time": "2014-12-11 09:23:01"
         },
         {
             "name": "project-a/lumberjack-package",
@@ -1468,7 +1468,7 @@
             "source": {
                 "type": "git",
                 "url": "git@codebasehq.com:project-a/core/product-export-package.git",
-                "reference": "e8fcdc93225225ba0140bbf8d2dc5040bb99c03a"
+                "reference": "ed9494f08800a0ff61b5aa4e25c2eb16f7095c2a"
             },
             "require": {
                 "php": ">=5.4.0",
@@ -1499,7 +1499,7 @@
                 "Product",
                 "Yves"
             ],
-            "time": "2014-12-09 13:24:38"
+            "time": "2014-12-11 07:41:36"
         },
         {
             "name": "project-a/product-package",
@@ -1507,7 +1507,7 @@
             "source": {
                 "type": "git",
                 "url": "git@codebasehq.com:project-a/core/product.git",
-                "reference": "86d14defea4bd610145ab56feeffe9d7cb64c8fa"
+                "reference": "51d0e64b0a89692c32efb3377b1d3a8717a5ff7f"
             },
             "require": {
                 "league/csv": "*",
@@ -1535,7 +1535,7 @@
                 "Catalog",
                 "Product"
             ],
-            "time": "2014-12-10 13:34:09"
+            "time": "2014-12-11 07:21:01"
         },
         {
             "name": "project-a/sales-package",
@@ -1628,7 +1628,7 @@
             "source": {
                 "type": "git",
                 "url": "git@codebasehq.com:project-a/core/yves-export-package.git",
-                "reference": "bc692ac1462dc1e078e3c9ed331b10ebe7354b89"
+                "reference": "6068333a8855c9cd0acaa81927ee5b2c49444f6d"
             },
             "require": {
                 "php": ">=5.4.0",
@@ -1656,7 +1656,7 @@
                 "Export",
                 "Yves"
             ],
-            "time": "2014-12-10 12:34:46"
+            "time": "2014-12-11 07:40:41"
         },
         {
             "name": "propel/propel1",
@@ -3047,17 +3047,17 @@
         },
         {
             "name": "zendframework/zend-code",
-            "version": "2.3.3",
+            "version": "2.3.1",
             "target-dir": "Zend/Code",
             "source": {
                 "type": "git",
                 "url": "https://github.com/zendframework/Component_ZendCode.git",
-                "reference": "78ea301533dd05f1c1759e8928d119804900446b"
+                "reference": "3e7cc92f946c23fb28959457fa0608c5eba29ed8"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/zendframework/Component_ZendCode/zipball/78ea301533dd05f1c1759e8928d119804900446b",
-                "reference": "78ea301533dd05f1c1759e8928d119804900446b",
+                "url": "https://api.github.com/repos/zendframework/Component_ZendCode/zipball/3e7cc92f946c23fb28959457fa0608c5eba29ed8",
+                "reference": "3e7cc92f946c23fb28959457fa0608c5eba29ed8",
                 "shasum": ""
             },
             "require": {
@@ -3089,26 +3089,25 @@
                 "BSD-3-Clause"
             ],
             "description": "provides facilities to generate arbitrary code using an object oriented interface",
-            "homepage": "https://github.com/zendframework/zf2",
             "keywords": [
                 "code",
                 "zf2"
             ],
-            "time": "2014-09-16 22:58:11"
+            "time": "2014-04-15 15:28:49"
         },
         {
             "name": "zendframework/zend-config",
-            "version": "2.3.3",
+            "version": "2.3.1",
             "target-dir": "Zend/Config",
             "source": {
                 "type": "git",
                 "url": "https://github.com/zendframework/Component_ZendConfig.git",
-                "reference": "a9ad512e1482461a5b500ee3fcf2d06ec9c7c7e8"
+                "reference": "61b81c6ea60c1947e13b4effbfffcd9bb59c2180"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/zendframework/Component_ZendConfig/zipball/a9ad512e1482461a5b500ee3fcf2d06ec9c7c7e8",
-                "reference": "a9ad512e1482461a5b500ee3fcf2d06ec9c7c7e8",
+                "url": "https://api.github.com/repos/zendframework/Component_ZendConfig/zipball/61b81c6ea60c1947e13b4effbfffcd9bb59c2180",
+                "reference": "61b81c6ea60c1947e13b4effbfffcd9bb59c2180",
                 "shasum": ""
             },
             "require": {
@@ -3144,26 +3143,25 @@
                 "BSD-3-Clause"
             ],
             "description": "provides a nested object property based user interface for accessing this configuration data within application code",
-            "homepage": "https://github.com/zendframework/zf2",
             "keywords": [
                 "config",
                 "zf2"
             ],
-            "time": "2014-09-16 22:58:11"
+            "time": "2014-04-15 15:29:04"
         },
         {
             "name": "zendframework/zend-eventmanager",
-            "version": "2.3.3",
+            "version": "2.3.1",
             "target-dir": "Zend/EventManager",
             "source": {
                 "type": "git",
                 "url": "https://github.com/zendframework/Component_ZendEventManager.git",
-                "reference": "4110fe64b10616b9bb71429a206d8e9e6d99e3ba"
+                "reference": "957faa0580c40ef6bf6cf3e87a36d594042fe133"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/zendframework/Component_ZendEventManager/zipball/4110fe64b10616b9bb71429a206d8e9e6d99e3ba",
-                "reference": "4110fe64b10616b9bb71429a206d8e9e6d99e3ba",
+                "url": "https://api.github.com/repos/zendframework/Component_ZendEventManager/zipball/957faa0580c40ef6bf6cf3e87a36d594042fe133",
+                "reference": "957faa0580c40ef6bf6cf3e87a36d594042fe133",
                 "shasum": ""
             },
             "require": {
@@ -3186,26 +3184,25 @@
             "license": [
                 "BSD-3-Clause"
             ],
-            "homepage": "https://github.com/zendframework/zf2",
             "keywords": [
                 "eventmanager",
                 "zf2"
             ],
-            "time": "2014-09-16 22:58:11"
+            "time": "2014-04-15 14:47:18"
         },
         {
             "name": "zendframework/zend-filter",
-            "version": "2.3.3",
+            "version": "2.3.1",
             "target-dir": "Zend/Filter",
             "source": {
                 "type": "git",
                 "url": "https://github.com/zendframework/Component_ZendFilter.git",
-                "reference": "98b8c2abfdc9009e4c0157e78c9f22bf2cebb693"
+                "reference": "1889b7aa499beccadac770780a73e1a40e0f8a53"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/zendframework/Component_ZendFilter/zipball/98b8c2abfdc9009e4c0157e78c9f22bf2cebb693",
-                "reference": "98b8c2abfdc9009e4c0157e78c9f22bf2cebb693",
+                "url": "https://api.github.com/repos/zendframework/Component_ZendFilter/zipball/1889b7aa499beccadac770780a73e1a40e0f8a53",
+                "reference": "1889b7aa499beccadac770780a73e1a40e0f8a53",
                 "shasum": ""
             },
             "require": {
@@ -3240,12 +3237,11 @@
                 "BSD-3-Clause"
             ],
             "description": "provides a set of commonly needed data filters",
-            "homepage": "https://github.com/zendframework/zf2",
             "keywords": [
                 "filter",
                 "zf2"
             ],
-            "time": "2014-09-16 22:58:11"
+            "time": "2014-04-15 15:28:47"
         },
         {
             "name": "zendframework/zend-memory",
@@ -3343,17 +3339,17 @@
         },
         {
             "name": "zendframework/zend-stdlib",
-            "version": "2.3.3",
+            "version": "2.3.1",
             "target-dir": "Zend/Stdlib",
             "source": {
                 "type": "git",
                 "url": "https://github.com/zendframework/Component_ZendStdlib.git",
-                "reference": "fa33e6647f830d0d2a1cb451efcdfe1bb9a66c33"
+                "reference": "c1f4830018b5d4f034d32fa01a9e17ea176f56f6"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/zendframework/Component_ZendStdlib/zipball/fa33e6647f830d0d2a1cb451efcdfe1bb9a66c33",
-                "reference": "fa33e6647f830d0d2a1cb451efcdfe1bb9a66c33",
+                "url": "https://api.github.com/repos/zendframework/Component_ZendStdlib/zipball/c1f4830018b5d4f034d32fa01a9e17ea176f56f6",
+                "reference": "c1f4830018b5d4f034d32fa01a9e17ea176f56f6",
                 "shasum": ""
             },
             "require": {
@@ -3385,12 +3381,11 @@
             "license": [
                 "BSD-3-Clause"
             ],
-            "homepage": "https://github.com/zendframework/zf2",
             "keywords": [
                 "stdlib",
                 "zf2"
             ],
-            "time": "2014-09-16 22:58:11"
+            "time": "2014-04-15 15:28:48"
         },
         {
             "name": "zendframework/zendpdf",
@@ -4971,7 +4966,7 @@
         {
             "alias": "5.0.1",
             "alias_normalized": "5.0.1.0",
-            "version": "dev-feature/387-replace-zf-with-silex",
+            "version": "9999999-dev",
             "package": "project-a/library-package"
         },
         {
