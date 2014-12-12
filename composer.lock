@@ -4,7 +4,7 @@
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "a6f45fb16e4f129d9bf1bfaeb99138fd",
+    "hash": "8efe1ff199c921bea3590352b11e1316",
     "packages": [
         {
             "name": "digital-canvas/zend-framework",
@@ -112,173 +112,82 @@
             "time": "2013-01-10 21:49:15"
         },
         {
-            "name": "gavroche/browser",
-            "version": "v2.1",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/gabrielbull/php-browser.git",
-                "reference": "aed2949e5ca245569380a1afdc99be5f152e3dc6"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/gabrielbull/php-browser/zipball/aed2949e5ca245569380a1afdc99be5f152e3dc6",
-                "reference": "aed2949e5ca245569380a1afdc99be5f152e3dc6",
-                "shasum": ""
-            },
-            "require": {
-                "php": ">=5.3"
-            },
-            "type": "library",
-            "autoload": {
-                "psr-0": {
-                    "Browser": "src/"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "GPL-2.0"
-            ],
-            "authors": [
-                {
-                    "name": "Gabriel Bull",
-                    "email": "me@gabrielbull.com",
-                    "homepage": "http://gabrielbull.com/"
-                },
-                {
-                    "name": "Chris Schuld",
-                    "email": "contact@chrisschuld.com"
-                }
-            ],
-            "description": "Detecting the user's browser, operating system and language.",
-            "homepage": "https://github.com/gavroche/php-browser",
-            "keywords": [
-                "browser",
-                "detection",
-                "language",
-                "operating system",
-                "os"
-            ],
-            "time": "2013-08-12 00:28:49"
-        },
-        {
-            "name": "googleads/googleads-php-lib",
-            "version": "5.5.1",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/googleads/googleads-php-lib.git",
-                "reference": "aded8953eaeddb7d550571327558f790ab674f5d"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/googleads/googleads-php-lib/zipball/aded8953eaeddb7d550571327558f790ab674f5d",
-                "reference": "aded8953eaeddb7d550571327558f790ab674f5d",
-                "shasum": ""
-            },
-            "require": {
-                "php": ">=5.2.0"
-            },
-            "type": "library",
-            "autoload": {
-                "classmap": [
-                    "src/Google/Api/Ads/AdWords/Lib",
-                    "src/Google/Api/Ads/Dfp/Lib"
-                ]
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "include-path": [
-                "src/"
-            ],
-            "license": [
-                "Apache-2.0"
-            ],
-            "authors": [
-                {
-                    "name": "Paul Matthews",
-                    "role": "Developer"
-                },
-                {
-                    "name": "Adam Rogal",
-                    "role": "Developer"
-                },
-                {
-                    "name": "Mat Scales",
-                    "role": "Developer"
-                },
-                {
-                    "name": "Vincent Tsao",
-                    "role": "Developer"
-                },
-                {
-                    "name": "Ray Tsang",
-                    "role": "Developer"
-                }
-            ],
-            "description": "Google Ads APIs Client Library for PHP (AdWords, Adx, and DFP)",
-            "homepage": "https://github.com/googleads/googleads-php-lib",
-            "time": "2014-08-22 19:51:45"
-        },
-        {
-            "name": "guzzle/guzzle",
+            "name": "guzzle/common",
             "version": "v3.8.0",
+            "target-dir": "Guzzle/Common",
             "source": {
                 "type": "git",
-                "url": "https://github.com/guzzle/guzzle.git",
-                "reference": "b4a3ce8c05e777fa18b802956d5d0e38ad338a69"
+                "url": "https://github.com/guzzle/common.git",
+                "reference": "eb4e34cac1b18583f0ee74bf6a9dda96bd771a1e"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/guzzle/guzzle/zipball/b4a3ce8c05e777fa18b802956d5d0e38ad338a69",
-                "reference": "b4a3ce8c05e777fa18b802956d5d0e38ad338a69",
+                "url": "https://api.github.com/repos/guzzle/common/zipball/eb4e34cac1b18583f0ee74bf6a9dda96bd771a1e",
+                "reference": "eb4e34cac1b18583f0ee74bf6a9dda96bd771a1e",
                 "shasum": ""
             },
             "require": {
-                "ext-curl": "*",
-                "php": ">=5.3.3",
+                "php": ">=5.3.2",
                 "symfony/event-dispatcher": ">=2.1"
-            },
-            "replace": {
-                "guzzle/batch": "self.version",
-                "guzzle/cache": "self.version",
-                "guzzle/common": "self.version",
-                "guzzle/http": "self.version",
-                "guzzle/inflection": "self.version",
-                "guzzle/iterator": "self.version",
-                "guzzle/log": "self.version",
-                "guzzle/parser": "self.version",
-                "guzzle/plugin": "self.version",
-                "guzzle/plugin-async": "self.version",
-                "guzzle/plugin-backoff": "self.version",
-                "guzzle/plugin-cache": "self.version",
-                "guzzle/plugin-cookie": "self.version",
-                "guzzle/plugin-curlauth": "self.version",
-                "guzzle/plugin-error-response": "self.version",
-                "guzzle/plugin-history": "self.version",
-                "guzzle/plugin-log": "self.version",
-                "guzzle/plugin-md5": "self.version",
-                "guzzle/plugin-mock": "self.version",
-                "guzzle/plugin-oauth": "self.version",
-                "guzzle/service": "self.version",
-                "guzzle/stream": "self.version"
-            },
-            "require-dev": {
-                "doctrine/cache": "*",
-                "monolog/monolog": "1.*",
-                "phpunit/phpunit": "3.7.*",
-                "psr/log": "1.0.*",
-                "symfony/class-loader": "*",
-                "zendframework/zend-cache": "2.0.*",
-                "zendframework/zend-log": "2.0.*"
             },
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "3.8-dev"
+                    "dev-master": "3.7-dev"
                 }
             },
             "autoload": {
                 "psr-0": {
-                    "Guzzle\\Tests": "tests/",
-                    "Guzzle": "src/"
+                    "Guzzle\\Common": ""
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "description": "Common libraries used by Guzzle",
+            "homepage": "http://guzzlephp.org/",
+            "keywords": [
+                "collection",
+                "common",
+                "event",
+                "exception"
+            ],
+            "time": "2013-12-05 23:39:20"
+        },
+        {
+            "name": "guzzle/http",
+            "version": "v3.8.0",
+            "target-dir": "Guzzle/Http",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/guzzle/http.git",
+                "reference": "b497e6b6a5a85751ae0c6858d677f7c4857dd171"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/guzzle/http/zipball/b497e6b6a5a85751ae0c6858d677f7c4857dd171",
+                "reference": "b497e6b6a5a85751ae0c6858d677f7c4857dd171",
+                "shasum": ""
+            },
+            "require": {
+                "guzzle/common": "self.version",
+                "guzzle/parser": "self.version",
+                "guzzle/stream": "self.version",
+                "php": ">=5.3.2"
+            },
+            "suggest": {
+                "ext-curl": "*"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "3.7-dev"
+                }
+            },
+            "autoload": {
+                "psr-0": {
+                    "Guzzle\\Http": ""
                 }
             },
             "notification-url": "https://packagist.org/downloads/",
@@ -290,24 +199,115 @@
                     "name": "Michael Dowling",
                     "email": "mtdowling@gmail.com",
                     "homepage": "https://github.com/mtdowling"
-                },
-                {
-                    "name": "Guzzle Community",
-                    "homepage": "https://github.com/guzzle/guzzle/contributors"
                 }
             ],
-            "description": "Guzzle is a PHP HTTP client library and framework for building RESTful web service clients",
+            "description": "HTTP libraries used by Guzzle",
             "homepage": "http://guzzlephp.org/",
             "keywords": [
+                "Guzzle",
                 "client",
                 "curl",
-                "framework",
                 "http",
-                "http client",
-                "rest",
-                "web service"
+                "http client"
             ],
-            "time": "2013-12-05 23:39:20"
+            "time": "2013-12-04 22:21:25"
+        },
+        {
+            "name": "guzzle/parser",
+            "version": "v3.8.0",
+            "target-dir": "Guzzle/Parser",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/guzzle/parser.git",
+                "reference": "77cae6425bc3466e1e47bdf6d2eebc15a092dbcc"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/guzzle/parser/zipball/77cae6425bc3466e1e47bdf6d2eebc15a092dbcc",
+                "reference": "77cae6425bc3466e1e47bdf6d2eebc15a092dbcc",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3.2"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "3.7-dev"
+                }
+            },
+            "autoload": {
+                "psr-0": {
+                    "Guzzle\\Parser": ""
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "description": "Interchangeable parsers used by Guzzle",
+            "homepage": "http://guzzlephp.org/",
+            "keywords": [
+                "URI Template",
+                "cookie",
+                "http",
+                "message",
+                "url"
+            ],
+            "time": "2013-10-24 00:04:09"
+        },
+        {
+            "name": "guzzle/stream",
+            "version": "v3.8.0",
+            "target-dir": "Guzzle/Stream",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/guzzle/stream.git",
+                "reference": "a86111d9ac7db31d65a053c825869409fe8fc83f"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/guzzle/stream/zipball/a86111d9ac7db31d65a053c825869409fe8fc83f",
+                "reference": "a86111d9ac7db31d65a053c825869409fe8fc83f",
+                "shasum": ""
+            },
+            "require": {
+                "guzzle/common": "self.version",
+                "php": ">=5.3.2"
+            },
+            "suggest": {
+                "guzzle/http": "To convert Guzzle request objects to PHP streams"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "3.7-dev"
+                }
+            },
+            "autoload": {
+                "psr-0": {
+                    "Guzzle\\Stream": ""
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Michael Dowling",
+                    "email": "mtdowling@gmail.com",
+                    "homepage": "https://github.com/mtdowling"
+                }
+            ],
+            "description": "Guzzle stream wrapper component",
+            "homepage": "http://guzzlephp.org/",
+            "keywords": [
+                "Guzzle",
+                "component",
+                "stream"
+            ],
+            "time": "2013-07-30 22:07:23"
         },
         {
             "name": "ircmaxell/password-compat",
@@ -350,37 +350,6 @@
                 "password"
             ],
             "time": "2014-11-20 16:49:30"
-        },
-        {
-            "name": "keboola/csv",
-            "version": "1.1.3",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/keboola/php-csv.git",
-                "reference": "113735ad9f4f7e0ef5545ebfb5fcd62528035841"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/keboola/php-csv/zipball/113735ad9f4f7e0ef5545ebfb5fcd62528035841",
-                "reference": "113735ad9f4f7e0ef5545ebfb5fcd62528035841",
-                "shasum": ""
-            },
-            "require-dev": {
-                "phpunit/phpunit": "~3.7"
-            },
-            "type": "library",
-            "autoload": {
-                "psr-0": {
-                    "Keboola\\Csv": "src/"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "description": "Keboola CSV reader and writer",
-            "homepage": "http://keboola.com",
-            "time": "2014-01-31 14:10:34"
         },
         {
             "name": "knplabs/knp-menu",
@@ -771,894 +740,6 @@
             "time": "2014-08-01 09:59:50"
         },
         {
-            "name": "project-a/acl-package",
-            "version": "dev-master",
-            "source": {
-                "type": "git",
-                "url": "git@codebasehq.com:project-a/core/acl.git",
-                "reference": "d45389d50e89392ca8cc7ee6740d7fec72a6238a"
-            },
-            "require": {
-                "php": ">=5.4.0",
-                "project-a/infrastructure-package": "~5.0",
-                "project-a/library-package": "~5.0"
-            },
-            "type": "library",
-            "autoload": {
-                "psr-0": {
-                    "ProjectA": "src/",
-                    "Behat": "tests/",
-                    "PhpUnit": "tests/"
-                }
-            },
-            "authors": [
-                {
-                    "name": "René Klatt",
-                    "email": "rene.klatt@project-a.com",
-                    "homepage": "http://www.project-a.com",
-                    "role": "Senior Developer"
-                }
-            ],
-            "description": "Access control list and authentification",
-            "keywords": [
-                "access control",
-                "acl",
-                "login",
-                "usermanagement"
-            ],
-            "time": "2014-12-10 13:35:10"
-        },
-        {
-            "name": "project-a/cart-package",
-            "version": "dev-master",
-            "source": {
-                "type": "git",
-                "url": "git@codebasehq.com:project-a/core/cart.git",
-                "reference": "0ed2ae812e0e3507831ff936689ed679f570c8c9"
-            },
-            "require": {
-                "php": ">=5.4.0",
-                "project-a/catalog-package": "~4.0",
-                "project-a/checkout-package": "~5.0",
-                "project-a/library-package": "~5.0",
-                "project-a/sales-package": "~6.0"
-            },
-            "type": "library",
-            "autoload": {
-                "psr-0": {
-                    "ProjectA": "src/",
-                    "Behat": "tests/"
-                }
-            },
-            "authors": [
-                {
-                    "name": "René Klatt",
-                    "email": "rene.klatt@project-a.com",
-                    "homepage": "http://www.project-a.com",
-                    "role": "Senior developer"
-                }
-            ],
-            "description": "Cart Package",
-            "keywords": [
-                "Cart"
-            ],
-            "time": "2014-11-27 11:37:39"
-        },
-        {
-            "name": "project-a/catalog-package",
-            "version": "dev-master",
-            "source": {
-                "type": "git",
-                "url": "git@codebasehq.com:project-a/core/catalog.git",
-                "reference": "da80803e0068c5102238ed179dd78348821ae0d5"
-            },
-            "require": {
-                "php": ">=5.4.0",
-                "project-a/acl-package": "~6.0",
-                "project-a/frontend-package": "~5.0",
-                "project-a/library-package": "~5.0",
-                "project-a/lumberjack-package": "~5.0",
-                "project-a/sales-package": "~6.0"
-            },
-            "type": "library",
-            "autoload": {
-                "psr-0": {
-                    "ProjectA": "/src"
-                }
-            },
-            "authors": [
-                {
-                    "name": "Oliver Tischlinger",
-                    "email": "",
-                    "homepage": "http://www.project-a.com",
-                    "role": "Freelancer"
-                },
-                {
-                    "name": "Marco Roßdeutscher",
-                    "email": "marco.rossdeutscher@project-a.com",
-                    "homepage": "http://www.project-a.com",
-                    "role": "Developer"
-                }
-            ],
-            "description": "Catalog package",
-            "keywords": [
-                "Catalog",
-                "Category",
-                "Feed",
-                "Image",
-                "Price",
-                "Stock"
-            ],
-            "time": "2014-12-09 14:28:24"
-        },
-        {
-            "name": "project-a/checkout-package",
-            "version": "dev-master",
-            "source": {
-                "type": "git",
-                "url": "git@codebasehq.com:project-a/core/checkout.git",
-                "reference": "e8c2d35b66ffea690b4973b4c24255c1c8c045ca"
-            },
-            "require": {
-                "gavroche/browser": "~2.1.0",
-                "keboola/csv": "1.1.3",
-                "php": ">=5.4.0",
-                "project-a/cart-package": "~5.0",
-                "project-a/catalog-package": "~4.0",
-                "project-a/crm-package": "~6.0",
-                "project-a/infrastructure-package": "~5.0",
-                "project-a/library-package": "~5.0",
-                "project-a/payment-package": ">=4.1",
-                "project-a/payone-package": "~3.0",
-                "project-a/sales-package": "~6.0"
-            },
-            "type": "library",
-            "autoload": {
-                "psr-0": {
-                    "ProjectA": "src/",
-                    "Behat": "tests/",
-                    "PhpUnit": "tests/"
-                }
-            },
-            "authors": [
-                {
-                    "name": "René Klatt",
-                    "email": "rene.klatt@project-a.com",
-                    "homepage": "http://www.project-a.com",
-                    "role": "Senior developer"
-                }
-            ],
-            "description": "Checkout Package. Contains Checkout and Salesrule",
-            "keywords": [
-                "Checkout",
-                "Salesrule"
-            ],
-            "time": "2014-12-05 14:22:38"
-        },
-        {
-            "name": "project-a/console-package",
-            "version": "dev-master",
-            "source": {
-                "type": "git",
-                "url": "git@codebasehq.com:project-a/core/console.git",
-                "reference": "72ae0ae71ba5100defae74deee2d685ae735df39"
-            },
-            "require": {
-                "php": ">=5.4.0",
-                "project-a/library-package": "~5.0",
-                "symfony/console": "~2.0",
-                "symfony/filesystem": "~2.0",
-                "symfony/finder": "~2.0",
-                "symfony/process": "~2.0"
-            },
-            "bin": [
-                "bin/console"
-            ],
-            "type": "library",
-            "autoload": {
-                "psr-0": {
-                    "ProjectA": "src/",
-                    "Behat": "tests/",
-                    "PhpUnit": "tests/"
-                }
-            },
-            "authors": [
-                {
-                    "name": "René Klatt",
-                    "email": "rene.klatt@project-a.com",
-                    "homepage": "http://www.project-a.com",
-                    "role": "Senior Developer"
-                }
-            ],
-            "description": "Console tool",
-            "keywords": [
-                "console"
-            ],
-            "time": "2014-12-09 06:55:25"
-        },
-        {
-            "name": "project-a/content-package",
-            "version": "dev-master",
-            "source": {
-                "type": "git",
-                "url": "git@codebasehq.com:project-a/core/content.git",
-                "reference": "3e288eea260b80caab01059618cbc2923a9f6e85"
-            },
-            "require": {
-                "php": ">=5.4.0",
-                "project-a/acl-package": "~6.0",
-                "project-a/catalog-package": "~4.0",
-                "project-a/crm-package": "~6.0",
-                "project-a/frontend-package": "~5.0",
-                "project-a/glossary-package": "~4.0",
-                "project-a/library-package": "~5.0"
-            },
-            "type": "library",
-            "autoload": {
-                "psr-0": {
-                    "ProjectA": "src/",
-                    "Behat": "tests/",
-                    "PhpUnit": "tests/"
-                }
-            },
-            "authors": [
-                {
-                    "name": "René Klatt",
-                    "email": "rene.klatt@project-a.com",
-                    "homepage": "http://www.project-a.com",
-                    "role": "Senior Developer"
-                }
-            ],
-            "description": "Content Package",
-            "keywords": [
-                "Content Package"
-            ],
-            "time": "2014-12-08 08:02:02"
-        },
-        {
-            "name": "project-a/crm-package",
-            "version": "dev-master",
-            "source": {
-                "type": "git",
-                "url": "git@codebasehq.com:project-a/core/crm.git",
-                "reference": "fd8bb938d440670b58dbf51a06bbbb4073758939"
-            },
-            "require": {
-                "php": ">=5.4.0",
-                "project-a/acl-package": "~6.0",
-                "project-a/catalog-package": "~4.0",
-                "project-a/checkout-package": "~5.0",
-                "project-a/document-package": "~5.0",
-                "project-a/glossary-package": "~4.0",
-                "project-a/infrastructure-package": "~5.0",
-                "project-a/library-package": "~5.0",
-                "project-a/lumberjack-package": "~5.0",
-                "project-a/payment-package": "~5.0",
-                "project-a/sales-package": "~6.0",
-                "symfony/security": "2.5.*"
-            },
-            "type": "library",
-            "autoload": {
-                "psr-0": {
-                    "ProjectA": "/src"
-                }
-            },
-            "authors": [
-                {
-                    "name": "Maik Freis",
-                    "email": "maik.freis@project-a.com",
-                    "homepage": "http://www.project-a.com",
-                    "role": ""
-                }
-            ],
-            "description": "Customer Relation Management",
-            "keywords": [
-                "crm",
-                "customer account",
-                "mail",
-                "newsletter"
-            ],
-            "time": "2014-12-09 06:54:57"
-        },
-        {
-            "name": "project-a/document-package",
-            "version": "dev-master",
-            "source": {
-                "type": "git",
-                "url": "git@codebasehq.com:project-a/core/document.git",
-                "reference": "fa42c690891553470668bd6b6d64d10a79cda54c"
-            },
-            "require": {
-                "php": ">=5.4.0",
-                "project-a/glossary-package": "~4.0",
-                "project-a/library-package": "~5.0",
-                "project-a/sales-package": "~6.0"
-            },
-            "type": "library",
-            "autoload": {
-                "psr-0": {
-                    "ProjectA": "/src"
-                }
-            },
-            "authors": [
-                {
-                    "name": "Michael Kugele",
-                    "email": "michael.kugele@project-a.com",
-                    "homepage": "http://www.project-a.com",
-                    "role": "Freelancer"
-                }
-            ],
-            "description": "Document package",
-            "keywords": [
-                "Document",
-                "Invoice"
-            ],
-            "time": "2014-12-02 05:58:23"
-        },
-        {
-            "name": "project-a/dwh-package",
-            "version": "dev-feature/387-replace-zf-with-silex",
-            "source": {
-                "type": "git",
-                "url": "git@codebasehq.com:project-a/core/dwh.git",
-                "reference": "abb5c0822f9229a45fb0a575b9cb8d4fe908b086"
-            },
-            "require": {
-                "php": ">=5.4.0",
-                "project-a/acl-package": "~6.0",
-                "project-a/infrastructure-package": "~5.0",
-                "project-a/library-package": "~5.0"
-            },
-            "type": "library",
-            "autoload": {
-                "psr-0": {
-                    "ProjectA": "src/",
-                    "Behat": "tests/",
-                    "PhpUnit": "tests/"
-                }
-            },
-            "authors": [
-                {
-                    "name": "Martin Loetzsch",
-                    "email": "martin.loetzsch@project-a.com"
-                },
-                {
-                    "name": "Domen Pogacnik",
-                    "email": "domen.pogacnik@tirendo.de"
-                },
-                {
-                    "name": "Adrian Triteanu",
-                    "email": "adrian.triteanu@tirendo.de"
-                },
-                {
-                    "name": "Christopher Strecker",
-                    "email": "christopher.strecker@project-a.com"
-                }
-            ],
-            "description": "Data Warehouse",
-            "keywords": [
-                "Dwh"
-            ],
-            "time": "2014-12-09 14:31:26"
-        },
-        {
-            "name": "project-a/frontend-package",
-            "version": "dev-master",
-            "source": {
-                "type": "git",
-                "url": "git@codebasehq.com:project-a/core/frontend.git",
-                "reference": "ab8b197be479678450afbe950beb4ce8c3f11237"
-            },
-            "require": {
-                "php": ">=5.4.0",
-                "project-a/acl-package": "~6.0",
-                "project-a/library-package": "~5.0"
-            },
-            "type": "library",
-            "autoload": {
-                "psr-0": {
-                    "ProjectA": "/src"
-                }
-            },
-            "authors": [
-                {
-                    "name": "",
-                    "email": "",
-                    "homepage": "http://www.project-a.com",
-                    "role": ""
-                }
-            ],
-            "description": "Frontend Package",
-            "keywords": [
-                "Frontend"
-            ],
-            "time": "2014-12-10 12:35:39"
-        },
-        {
-            "name": "project-a/glossary-package",
-            "version": "dev-master",
-            "source": {
-                "type": "git",
-                "url": "git@codebasehq.com:project-a/core/glossary.git",
-                "reference": "bdffb43d1bf4829be3066023431f8488982c490e"
-            },
-            "require": {
-                "php": ">=5.4.0",
-                "project-a/frontend-package": "~5.0",
-                "project-a/library-package": "~5.0",
-                "symfony/yaml": ">=2.3"
-            },
-            "type": "library",
-            "autoload": {
-                "psr-0": {
-                    "ProjectA": "/src"
-                }
-            },
-            "authors": [
-                {
-                    "name": "Maik Freis",
-                    "email": "maik.freis@project-a.com",
-                    "homepage": "http://www.project-a.com"
-                }
-            ],
-            "description": "Multilingual glossary",
-            "keywords": [
-                "glossary",
-                "i18n",
-                "translation"
-            ],
-            "time": "2014-12-09 06:54:15"
-        },
-        {
-            "name": "project-a/infrastructure-package",
-            "version": "dev-master",
-            "source": {
-                "type": "git",
-                "url": "git@codebasehq.com:project-a/core/infrastructure.git",
-                "reference": "fda87acc74cb5e61a95db11caee555bf1cc8b51b"
-            },
-            "require": {
-                "php": ">=5.4.0",
-                "project-a/acl-package": "~6.0",
-                "project-a/frontend-package": "~5.0",
-                "project-a/library-package": "~5.0"
-            },
-            "suggest": {
-                "project-a/lumberjack-package": "~5.0"
-            },
-            "type": "library",
-            "autoload": {
-                "psr-0": {
-                    "ProjectA": "/src",
-                    "PhpUnit": "/tests"
-                }
-            },
-            "description": "This package provides the base infrastructure for Y&Z.",
-            "keywords": [
-                "infrastructure"
-            ],
-            "time": "2014-12-10 13:55:32"
-        },
-        {
-            "name": "project-a/kendo-package",
-            "version": "dev-master",
-            "source": {
-                "type": "git",
-                "url": "git@codebasehq.com:project-a/core/kendo.git",
-                "reference": "1e5671181a10e7cc1bc268e38cac036a758ada75"
-            },
-            "type": "library",
-            "autoload": {
-                "psr-0": {
-                    "ProjectA": "src/",
-                    "Kendo": "src/",
-                    "PhpUnit": "tests/"
-                }
-            },
-            "description": "Core Library",
-            "time": "2014-12-09 14:34:05"
-        },
-        {
-            "name": "project-a/library-package",
-            "version": "dev-master",
-            "source": {
-                "type": "git",
-                "url": "git@codebasehq.com:project-a/core/library-2.git",
-                "reference": "408ef4d34bd8406415458bacb0ee8f4db3db682f"
-            },
-            "require": {
-                "digital-canvas/zend-framework": ">=1.12.2",
-                "doctrine/inflector": "~1.0.0",
-                "ext-mysqli": "*",
-                "guzzle/http": "~3.7, <= 3.8",
-                "ircmaxell/password-compat": "~1.0.0",
-                "monolog/monolog": "~1.7",
-                "project-a/acl-package": "~6.0",
-                "project-a/kendo-package": "~3.0",
-                "project-a/lumberjack-package": "~5.0",
-                "project-a/silex-routing": "~1.0.0",
-                "silex/silex": "~1.2.0",
-                "symfony/debug": "2.5.*",
-                "symfony/filesystem": "2.5.*",
-                "symfony/finder": "2.5.*",
-                "symfony/form": "2.5.*",
-                "symfony/http-foundation": "2.5.*",
-                "symfony/http-kernel": "2.5.*",
-                "symfony/process": "2.5.*",
-                "symfony/routing": "2.5.*",
-                "symfony/serializer": "2.5.*",
-                "symfony/translation": "2.5.*",
-                "twig/twig": "~1.15.0",
-                "zendframework/zend-code": "2.3.1",
-                "zendframework/zend-config": "~2.3.0",
-                "zendframework/zend-filter": "~2.3.0",
-                "zendframework/zend-servicemanager": "~2.3.0",
-                "zendframework/zendpdf": "~2.0.0"
-            },
-            "type": "library",
-            "autoload": {
-                "psr-0": {
-                    "ProjectA": "src/",
-                    "Behat": "tests/",
-                    "PhpUnit": "tests/"
-                }
-            },
-            "description": "Project-A Library",
-            "time": "2014-12-11 09:23:01"
-        },
-        {
-            "name": "project-a/lumberjack-package",
-            "version": "dev-master",
-            "source": {
-                "type": "git",
-                "url": "git@codebasehq.com:project-a/core/lumberjack.git",
-                "reference": "14a4b11a072ec88bed897c3abf68e388aaeecadb"
-            },
-            "require": {
-                "php": ">=5.4.0",
-                "psr/log": "1.0.0"
-            },
-            "type": "library",
-            "autoload": {
-                "psr-0": {
-                    "ProjectA": "/src"
-                }
-            },
-            "authors": [
-                {
-                    "name": "Michael Kugele",
-                    "email": "michael.kugele@project-a.com",
-                    "homepage": "http://www.project-a.com",
-                    "role": ""
-                }
-            ],
-            "description": "Lumberjack is a worker in the logging industry",
-            "keywords": [
-                ""
-            ],
-            "time": "2014-12-10 07:14:52"
-        },
-        {
-            "name": "project-a/marketing-package",
-            "version": "dev-feature/387-replace-zf-with-silex",
-            "source": {
-                "type": "git",
-                "url": "git@codebasehq.com:project-a/core/marketing.git",
-                "reference": "fb42decd6f8d1b272c66c47f3e87b37c042536c2"
-            },
-            "require": {
-                "googleads/googleads-php-lib": "5.5.1",
-                "php": ">=5.4.0",
-                "project-a/acl-package": ">3.0",
-                "project-a/dwh-package": ">3.0",
-                "project-a/library-package": ">3.0"
-            },
-            "type": "library",
-            "extra": {
-                "branch-alias": {
-                    "dev-master": "2.1.x-dev"
-                }
-            },
-            "autoload": {
-                "psr-0": {
-                    "ProjectA": "/src"
-                }
-            },
-            "authors": [
-                {
-                    "name": "Martin Loetzsch"
-                },
-                {
-                    "name": "René Klatt"
-                },
-                {
-                    "name": "Maik Freis"
-                },
-                {
-                    "name": "Christopher Strecker"
-                },
-                {
-                    "name": "Domen Pogacnik"
-                },
-                {
-                    "name": "Adrian Triteanu"
-                }
-            ],
-            "description": "Marketing Component",
-            "keywords": [
-                "Marketing"
-            ],
-            "time": "2014-12-09 14:36:14"
-        },
-        {
-            "name": "project-a/payment-package",
-            "version": "dev-master",
-            "source": {
-                "type": "git",
-                "url": "git@codebasehq.com:project-a/core/payment.git",
-                "reference": "6372af91037cf109d99610c8c3c8c31911b8f8ba"
-            },
-            "require": {
-                "php": ">=5.4.0",
-                "project-a/library-package": "~5.0",
-                "project-a/sales-package": "~6.0"
-            },
-            "type": "library",
-            "autoload": {
-                "psr-0": {
-                    "ProjectA": "/src",
-                    "PhpUnit": "/tests"
-                }
-            },
-            "authors": [
-                {
-                    "name": "Jörg Stick",
-                    "email": "joerg.stick@project-a.com",
-                    "homepage": "http://www.project-a.com",
-                    "role": "developer"
-                }
-            ],
-            "description": "Contains payment control and general implementation of payment, payment transactions and accounting for usage in concrete payment provider implementations",
-            "keywords": [
-                "payment",
-                "payment control",
-                "payment provider"
-            ],
-            "time": "2014-12-08 07:47:22"
-        },
-        {
-            "name": "project-a/payone-package",
-            "version": "dev-master",
-            "source": {
-                "type": "git",
-                "url": "git@codebasehq.com:project-a/core/payone.git",
-                "reference": "ffc6e2ececfb4cf76e4c25e9d2bbc292cf05e4d1"
-            },
-            "require": {
-                "php": ">=5.4.0",
-                "project-a/acl-package": "~6.0",
-                "project-a/library-package": "~5.0",
-                "project-a/lumberjack-package": "~5.0",
-                "project-a/payment-package": "~5.0",
-                "project-a/sales-package": "~6.0"
-            },
-            "type": "library",
-            "autoload": {
-                "psr-0": {
-                    "ProjectA": "/src"
-                }
-            },
-            "authors": [
-                {
-                    "name": "Jörg Stick",
-                    "email": "joerg.stick@project-a.com",
-                    "homepage": "http://www.project-a.com",
-                    "role": "Senior Developer"
-                }
-            ],
-            "description": "Payone package",
-            "keywords": [
-                "payment,payment provider,payone"
-            ],
-            "time": "2014-12-08 07:46:58"
-        },
-        {
-            "name": "project-a/product-export-package",
-            "version": "dev-master",
-            "source": {
-                "type": "git",
-                "url": "git@codebasehq.com:project-a/core/product-export-package.git",
-                "reference": "ed9494f08800a0ff61b5aa4e25c2eb16f7095c2a"
-            },
-            "require": {
-                "php": ">=5.4.0",
-                "project-a/product-package": "dev-master",
-                "project-a/yves-export-package": "dev-master"
-            },
-            "require-dev": {
-                "codeception/codeception": "*"
-            },
-            "type": "library",
-            "autoload": {
-                "psr-0": {
-                    "ProjectA": "/src"
-                }
-            },
-            "authors": [
-                {
-                    "name": "Alberto Assmann",
-                    "email": "alberto.assmann@project-a.com",
-                    "homepage": "http://www.project-a.com",
-                    "role": "Developer"
-                }
-            ],
-            "description": "Product export package",
-            "keywords": [
-                "Catalog",
-                "Export",
-                "Product",
-                "Yves"
-            ],
-            "time": "2014-12-11 07:41:36"
-        },
-        {
-            "name": "project-a/product-package",
-            "version": "dev-master",
-            "source": {
-                "type": "git",
-                "url": "git@codebasehq.com:project-a/core/product.git",
-                "reference": "51d0e64b0a89692c32efb3377b1d3a8717a5ff7f"
-            },
-            "require": {
-                "league/csv": "*",
-                "php": ">=5.4.0"
-            },
-            "require-dev": {
-                "codeception/codeception": "*"
-            },
-            "type": "library",
-            "autoload": {
-                "psr-0": {
-                    "ProjectA": "/src"
-                }
-            },
-            "authors": [
-                {
-                    "name": "Alberto Assmann",
-                    "email": "alberto.assmann@project-a.com",
-                    "homepage": "http://www.project-a.com",
-                    "role": "Developer"
-                }
-            ],
-            "description": "Product package",
-            "keywords": [
-                "Catalog",
-                "Product"
-            ],
-            "time": "2014-12-11 07:21:01"
-        },
-        {
-            "name": "project-a/sales-package",
-            "version": "dev-master",
-            "source": {
-                "type": "git",
-                "url": "git@codebasehq.com:project-a/core/sales.git",
-                "reference": "04578f264bcf80cd0bb1f529d40baf531c1aca40"
-            },
-            "require": {
-                "php": ">=5.4.0",
-                "project-a/acl-package": "~6.0",
-                "project-a/catalog-package": "~4.0",
-                "project-a/checkout-package": "~5.0",
-                "project-a/crm-package": "~6.0",
-                "project-a/document-package": "~5.0",
-                "project-a/infrastructure-package": "~5.0",
-                "project-a/library-package": "~5.0",
-                "project-a/payment-package": "~5.0"
-            },
-            "type": "library",
-            "autoload": {
-                "psr-0": {
-                    "ProjectA": "/src"
-                }
-            },
-            "authors": [
-                {
-                    "name": "Oliver Tischlinger",
-                    "email": "",
-                    "homepage": "http://www.project-a.com",
-                    "role": "Freelancer"
-                }
-            ],
-            "description": "Sales package",
-            "keywords": [
-                "Invoice",
-                "Sales",
-                "Task"
-            ],
-            "time": "2014-12-09 06:52:20"
-        },
-        {
-            "name": "project-a/silex-routing",
-            "version": "v1.0.6",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/chili-labs/Silex-Routing.git",
-                "reference": "b0f6710bf1aa0d66265e90ebff56fb8493a5c81f"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/chili-labs/Silex-Routing/zipball/b0f6710bf1aa0d66265e90ebff56fb8493a5c81f",
-                "reference": "b0f6710bf1aa0d66265e90ebff56fb8493a5c81f",
-                "shasum": ""
-            },
-            "require": {
-                "silex/silex": "~1.0",
-                "symfony-cmf/routing": "~1.0",
-                "symfony/routing": "~2.3"
-            },
-            "type": "library",
-            "extra": {
-                "branch-alias": {
-                    "dev-master": "2.0.x-dev"
-                }
-            },
-            "autoload": {
-                "psr-0": {
-                    "SilexRouting": "src/"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Daniel Tschinder",
-                    "email": "daniel@tschinder.de",
-                    "homepage": "http://www.tschinder.de"
-                }
-            ],
-            "description": "Silex-Routing provides advanced routing for Silex through connecting symfony-cmf/Routing with Silex.",
-            "time": "2014-12-10 11:11:19"
-        },
-        {
-            "name": "project-a/yves-export-package",
-            "version": "dev-master",
-            "source": {
-                "type": "git",
-                "url": "git@codebasehq.com:project-a/core/yves-export-package.git",
-                "reference": "6068333a8855c9cd0acaa81927ee5b2c49444f6d"
-            },
-            "require": {
-                "php": ">=5.4.0",
-                "project-a/library-package": ">=5.0.1"
-            },
-            "require-dev": {
-                "codeception/codeception": "*"
-            },
-            "type": "library",
-            "autoload": {
-                "psr-0": {
-                    "ProjectA": "/src"
-                }
-            },
-            "authors": [
-                {
-                    "name": "Alberto Assmann",
-                    "email": "alberto.assmann@project-a.com",
-                    "homepage": "http://www.project-a.com",
-                    "role": "Developer"
-                }
-            ],
-            "description": "Yves Export package",
-            "keywords": [
-                "Export",
-                "Yves"
-            ],
-            "time": "2014-12-11 07:40:41"
-        },
-        {
             "name": "propel/propel1",
             "version": "1.7.0",
             "source": {
@@ -1843,61 +924,681 @@
             "time": "2014-09-26 09:32:30"
         },
         {
-            "name": "symfony-cmf/routing",
-            "version": "1.3.0",
+            "name": "spryker/acl-package",
+            "version": "dev-master",
             "source": {
                 "type": "git",
-                "url": "https://github.com/symfony-cmf/Routing.git",
-                "reference": "8e87981d72c6930a27585dcd3119f3199f6cb2a6"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/symfony-cmf/Routing/zipball/8e87981d72c6930a27585dcd3119f3199f6cb2a6",
-                "reference": "8e87981d72c6930a27585dcd3119f3199f6cb2a6",
-                "shasum": ""
+                "url": "git@github.com:spryker/acl.git",
+                "reference": "b26654e9437c4820d375f4ff8b05b0e1f787d14c"
             },
             "require": {
-                "php": ">=5.3.3",
-                "psr/log": "~1.0",
-                "symfony/http-kernel": "~2.2",
-                "symfony/routing": "~2.2"
-            },
-            "require-dev": {
-                "symfony/config": "~2.2",
-                "symfony/dependency-injection": "~2.0@stable",
-                "symfony/event-dispatcher": "~2.1"
-            },
-            "suggest": {
-                "symfony/event-dispatcher": "DynamicRouter can optionally trigger an event at the start of matching. Minimal version ~2.1"
+                "php": ">=5.4.0"
             },
             "type": "library",
-            "extra": {
-                "branch-alias": {
-                    "dev-master": "1.3-dev"
-                }
-            },
             "autoload": {
-                "psr-4": {
-                    "Symfony\\Cmf\\Component\\Routing\\": ""
+                "psr-0": {
+                    "ProjectA": "src/",
+                    "Behat": "tests/",
+                    "PhpUnit": "tests/"
                 }
             },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
             "authors": [
                 {
-                    "name": "Symfony CMF Community",
-                    "homepage": "https://github.com/symfony-cmf/Routing/contributors"
+                    "name": "René Klatt",
+                    "email": "rene.klatt@project-a.com",
+                    "homepage": "http://www.project-a.com",
+                    "role": "Senior Developer"
                 }
             ],
-            "description": "Extends the Symfony2 routing component for dynamic routes and chaining several routers",
-            "homepage": "http://cmf.symfony.com",
+            "description": "Access control list and authentification",
             "keywords": [
-                "database",
-                "routing"
+                "access control",
+                "acl",
+                "login",
+                "user management"
             ],
-            "time": "2014-10-20 20:55:17"
+            "time": "2014-12-12 06:32:38"
+        },
+        {
+            "name": "spryker/cart-package",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "git@github.com:spryker/cart.git",
+                "reference": "a79e94e5a11a27883d15d107da4c5372474a234b"
+            },
+            "require": {
+                "php": ">=5.4.0"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-0": {
+                    "ProjectA": "src/",
+                    "PhpUnit": "tests/"
+                }
+            },
+            "authors": [
+                {
+                    "name": "René Klatt",
+                    "email": "rene.klatt@project-a.com",
+                    "homepage": "http://www.project-a.com",
+                    "role": "Senior developer"
+                }
+            ],
+            "description": "Cart Package",
+            "keywords": [
+                "Cart"
+            ],
+            "time": "2014-12-12 06:33:21"
+        },
+        {
+            "name": "spryker/catalog-package",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "git@github.com:spryker/catalog.git",
+                "reference": "95f60acf2ee4520b050df0f07d5757461a8b2d59"
+            },
+            "require": {
+                "php": ">=5.4.0"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-0": {
+                    "ProjectA": "/src"
+                }
+            },
+            "authors": [
+                {
+                    "name": "Oliver Tischlinger",
+                    "email": "",
+                    "homepage": "http://www.project-a.com",
+                    "role": "Freelancer"
+                },
+                {
+                    "name": "Marco Roßdeutscher",
+                    "email": "marco.rossdeutscher@project-a.com",
+                    "homepage": "http://www.project-a.com",
+                    "role": "Developer"
+                }
+            ],
+            "description": "Catalog package",
+            "keywords": [
+                "Catalog",
+                "Category",
+                "Feed",
+                "Image",
+                "Price",
+                "Stock"
+            ],
+            "time": "2014-12-12 07:30:41"
+        },
+        {
+            "name": "spryker/checkout-package",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "git@github.com:spryker/checkout.git",
+                "reference": "2458dc537b02099cbc97d13aa705c6c89560b462"
+            },
+            "require": {
+                "php": ">=5.4.0"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-0": {
+                    "ProjectA": "src/",
+                    "Behat": "tests/",
+                    "PhpUnit": "tests/"
+                }
+            },
+            "authors": [
+                {
+                    "name": "René Klatt",
+                    "email": "rene.klatt@project-a.com",
+                    "homepage": "http://www.project-a.com",
+                    "role": "Senior developer"
+                }
+            ],
+            "description": "Checkout Package. Contains Checkout and Salesrule",
+            "keywords": [
+                "Checkout",
+                "Salesrule"
+            ],
+            "time": "2014-12-12 06:41:24"
+        },
+        {
+            "name": "spryker/console-package",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "git@github.com:spryker/console.git",
+                "reference": "dcba7a0557b9ca30044ea4d8144eacc33bbc4ec8"
+            },
+            "require": {
+                "php": ">=5.4.0",
+                "symfony/console": "~2.0",
+                "symfony/filesystem": "~2.0",
+                "symfony/finder": "~2.0",
+                "symfony/process": "~2.0"
+            },
+            "bin": [
+                "bin/console"
+            ],
+            "type": "library",
+            "autoload": {
+                "psr-0": {
+                    "ProjectA": "src/",
+                    "Behat": "tests/",
+                    "PhpUnit": "tests/"
+                }
+            },
+            "authors": [
+                {
+                    "name": "René Klatt",
+                    "email": "rene.klatt@project-a.com",
+                    "homepage": "http://www.project-a.com",
+                    "role": "Senior Developer"
+                }
+            ],
+            "description": "Console tool",
+            "keywords": [
+                "console"
+            ],
+            "time": "2014-12-12 06:42:20"
+        },
+        {
+            "name": "spryker/content-package",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "git@github.com:spryker/content.git",
+                "reference": "4d98fb22fbb784cf7aa7c3598f66045ed9e4f0d0"
+            },
+            "require": {
+                "php": ">=5.4.0"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-0": {
+                    "ProjectA": "src/",
+                    "PhpUnit": "tests/"
+                }
+            },
+            "authors": [
+                {
+                    "name": "René Klatt",
+                    "email": "rene.klatt@project-a.com",
+                    "homepage": "http://www.project-a.com",
+                    "role": "Senior Developer"
+                }
+            ],
+            "description": "Content Package",
+            "keywords": [
+                "Content Package"
+            ],
+            "time": "2014-12-12 07:01:39"
+        },
+        {
+            "name": "spryker/crm-package",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "git@github.com:spryker/crm.git",
+                "reference": "1534b0cf8aaf9a057cfdb19b5d0d433ecefa2249"
+            },
+            "require": {
+                "php": ">=5.4.0",
+                "symfony/security": "2.5.*"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-0": {
+                    "ProjectA": "/src"
+                }
+            },
+            "authors": [
+                {
+                    "name": "Maik Freis",
+                    "email": "maik.freis@project-a.com",
+                    "homepage": "http://www.project-a.com",
+                    "role": ""
+                }
+            ],
+            "description": "Customer Relation Management",
+            "keywords": [
+                "crm",
+                "customer account",
+                "mail",
+                "newsletter"
+            ],
+            "time": "2014-12-12 07:03:50"
+        },
+        {
+            "name": "spryker/document-package",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "git@github.com:spryker/document.git",
+                "reference": "6dda9b866b7340d718ed0416454a6ad5ca38c980"
+            },
+            "require": {
+                "php": ">=5.4.0"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-0": {
+                    "ProjectA": "/src"
+                }
+            },
+            "authors": [
+                {
+                    "name": "Michael Kugele",
+                    "email": "michael.kugele@project-a.com",
+                    "homepage": "http://www.project-a.com",
+                    "role": "Freelancer"
+                }
+            ],
+            "description": "Document package",
+            "keywords": [
+                "Document",
+                "Invoice"
+            ],
+            "time": "2014-12-12 07:05:22"
+        },
+        {
+            "name": "spryker/frontend-package",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "git@github.com:spryker/frontend.git",
+                "reference": "a95b4f869d5458c8d815a3725c9aff47a94cf005"
+            },
+            "require": {
+                "php": ">=5.4.0"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-0": {
+                    "ProjectA": "/src"
+                }
+            },
+            "authors": [
+                {
+                    "name": "",
+                    "email": "",
+                    "homepage": "http://www.project-a.com",
+                    "role": ""
+                }
+            ],
+            "description": "Frontend Package",
+            "keywords": [
+                "Frontend"
+            ],
+            "time": "2014-12-12 07:06:22"
+        },
+        {
+            "name": "spryker/glossary-package",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "git@github.com:spryker/glossary.git",
+                "reference": "6e2421aaa11015d8b28dd91170f19b67b8ead7d2"
+            },
+            "require": {
+                "php": ">=5.4.0",
+                "symfony/yaml": ">=2.3"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-0": {
+                    "ProjectA": "/src"
+                }
+            },
+            "authors": [
+                {
+                    "name": "Maik Freis",
+                    "email": "maik.freis@project-a.com",
+                    "homepage": "http://www.project-a.com"
+                }
+            ],
+            "description": "Multilingual glossary",
+            "keywords": [
+                "glossary",
+                "i18n",
+                "translation"
+            ],
+            "time": "2014-12-12 07:07:41"
+        },
+        {
+            "name": "spryker/infrastructure-package",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "git@github.com:spryker/infrastructure.git",
+                "reference": "cb4484ceb86cefbeec8f8ac157dad708ffae1d88"
+            },
+            "require": {
+                "php": ">=5.4.0"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-0": {
+                    "ProjectA": "/src",
+                    "PhpUnit": "/tests"
+                }
+            },
+            "description": "This package provides the base infrastructure for Y&Z.",
+            "keywords": [
+                "infrastructure"
+            ],
+            "time": "2014-12-12 07:08:29"
+        },
+        {
+            "name": "spryker/kendo-package",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "git@github.com:spryker/kendo.git",
+                "reference": "d478aba95ac880fae16477836478ac3b7c891788"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-0": {
+                    "ProjectA": "src/",
+                    "Kendo": "src/",
+                    "PhpUnit": "tests/"
+                }
+            },
+            "description": "Core Library",
+            "time": "2014-12-12 07:10:49"
+        },
+        {
+            "name": "spryker/library-package",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "git@github.com:spryker/library.git",
+                "reference": "6d196a3b74800a13b902525f07380d672fb2a24c"
+            },
+            "require": {
+                "digital-canvas/zend-framework": ">=1.12.2",
+                "doctrine/inflector": "~1.0.0",
+                "ext-mysqli": "*",
+                "guzzle/http": "~3.7, <= 3.8",
+                "ircmaxell/password-compat": "~1.0.0",
+                "monolog/monolog": "~1.7",
+                "silex/silex": "~1.2.0",
+                "symfony/debug": "2.5.*",
+                "symfony/filesystem": "2.5.*",
+                "symfony/finder": "2.5.*",
+                "symfony/form": "2.5.*",
+                "symfony/http-foundation": "2.5.*",
+                "symfony/http-kernel": "2.5.*",
+                "symfony/process": "2.5.*",
+                "symfony/routing": "2.5.*",
+                "symfony/serializer": "2.5.*",
+                "symfony/translation": "2.5.*",
+                "twig/twig": "~1.15.0",
+                "zendframework/zend-code": "2.3.1",
+                "zendframework/zend-config": "~2.3.0",
+                "zendframework/zend-filter": "~2.3.0",
+                "zendframework/zend-servicemanager": "~2.3.0",
+                "zendframework/zendpdf": "~2.0.0"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-0": {
+                    "ProjectA": "src/",
+                    "Behat": "tests/",
+                    "PhpUnit": "tests/"
+                }
+            },
+            "description": "Project-A Library",
+            "time": "2014-12-12 07:13:39"
+        },
+        {
+            "name": "spryker/lumberjack-package",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "git@github.com:spryker/lumberjack.git",
+                "reference": "d135fc9f459edb3b97509d7c00e06b4e33fc29d6"
+            },
+            "require": {
+                "php": ">=5.4.0",
+                "psr/log": "1.0.0"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-0": {
+                    "ProjectA": "/src"
+                }
+            },
+            "authors": [
+                {
+                    "name": "Michael Kugele",
+                    "email": "michael.kugele@project-a.com",
+                    "homepage": "http://www.project-a.com",
+                    "role": ""
+                }
+            ],
+            "description": "Lumberjack is a worker in the logging industry",
+            "keywords": [
+                ""
+            ],
+            "time": "2014-12-12 07:14:25"
+        },
+        {
+            "name": "spryker/payment-package",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "git@github.com:spryker/payment.git",
+                "reference": "41613814a9f4f16036be09dd9b4da10239149e61"
+            },
+            "require": {
+                "php": ">=5.4.0",
+                "spryker/library-package": "*",
+                "spryker/sales-package": "*"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-0": {
+                    "ProjectA": "/src",
+                    "PhpUnit": "/tests"
+                }
+            },
+            "authors": [
+                {
+                    "name": "Jörg Stick",
+                    "email": "joerg.stick@project-a.com",
+                    "homepage": "http://www.project-a.com",
+                    "role": "developer"
+                }
+            ],
+            "description": "Contains payment control and general implementation of payment, payment transactions and accounting for usage in concrete payment provider implementations",
+            "keywords": [
+                "payment",
+                "payment control",
+                "payment provider"
+            ],
+            "time": "2014-12-12 07:15:35"
+        },
+        {
+            "name": "spryker/payone-package",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "git@github.com:spryker/payone.git",
+                "reference": "2b1ae644e37c941eba832e780faa55b86984f141"
+            },
+            "require": {
+                "php": ">=5.4.0"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-0": {
+                    "ProjectA": "/src"
+                }
+            },
+            "authors": [
+                {
+                    "name": "Jörg Stick",
+                    "email": "joerg.stick@project-a.com",
+                    "homepage": "http://www.project-a.com",
+                    "role": "Senior Developer"
+                }
+            ],
+            "description": "Payone package",
+            "keywords": [
+                "payment,payment provider,payone"
+            ],
+            "time": "2014-12-12 07:16:27"
+        },
+        {
+            "name": "spryker/product-export-package",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "git@github.com:spryker/product-export.git",
+                "reference": "9a6d2960dd7226ea19cb5cc13b06b8f5af74f60a"
+            },
+            "require": {
+                "php": ">=5.4.0",
+                "spryker/product-package": "*",
+                "spryker/yves-export-package": "*"
+            },
+            "require-dev": {
+                "codeception/codeception": "*"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-0": {
+                    "ProjectA": "/src"
+                }
+            },
+            "authors": [
+                {
+                    "name": "Alberto Assmann",
+                    "email": "alberto.assmann@project-a.com",
+                    "homepage": "http://www.project-a.com",
+                    "role": "Developer"
+                }
+            ],
+            "description": "Product export package",
+            "keywords": [
+                "Catalog",
+                "Export",
+                "Product",
+                "Yves"
+            ],
+            "time": "2014-12-12 07:20:40"
+        },
+        {
+            "name": "spryker/product-package",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "git@github.com:spryker/product.git",
+                "reference": "b59a6dcc4dd4459da4d7a1031022a442274bbc6b"
+            },
+            "require": {
+                "league/csv": "*",
+                "php": ">=5.4.0"
+            },
+            "require-dev": {
+                "codeception/codeception": "*"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-0": {
+                    "ProjectA": "/src"
+                }
+            },
+            "authors": [
+                {
+                    "name": "Alberto Assmann",
+                    "email": "alberto.assmann@project-a.com",
+                    "homepage": "http://www.project-a.com",
+                    "role": "Developer"
+                }
+            ],
+            "description": "Product package",
+            "keywords": [
+                "Catalog",
+                "Product"
+            ],
+            "time": "2014-12-12 07:21:33"
+        },
+        {
+            "name": "spryker/sales-package",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "git@github.com:spryker/sales.git",
+                "reference": "42ba20bd6d6650850b6dc0cba2ebd3c6b9b24e84"
+            },
+            "require": {
+                "php": ">=5.4.0"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-0": {
+                    "ProjectA": "/src"
+                }
+            },
+            "authors": [
+                {
+                    "name": "Oliver Tischlinger",
+                    "email": "",
+                    "homepage": "http://www.project-a.com",
+                    "role": "Freelancer"
+                }
+            ],
+            "description": "Sales package",
+            "keywords": [
+                "Invoice",
+                "Sales",
+                "Task"
+            ],
+            "time": "2014-12-12 07:22:17"
+        },
+        {
+            "name": "spryker/yves-export-package",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "git@github.com:spryker/yves-export.git",
+                "reference": "5371e5c6188e7c55eda2abdfbe8b4c26a3ea70ba"
+            },
+            "require": {
+                "php": ">=5.4.0",
+                "spryker/library-package": "*"
+            },
+            "require-dev": {
+                "codeception/codeception": "*"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-0": {
+                    "ProjectA": "/src"
+                }
+            },
+            "authors": [
+                {
+                    "name": "Alberto Assmann",
+                    "email": "alberto.assmann@project-a.com",
+                    "homepage": "http://www.project-a.com",
+                    "role": "Developer"
+                }
+            ],
+            "description": "Yves Export package",
+            "keywords": [
+                "Export",
+                "Yves"
+            ],
+            "time": "2014-12-12 07:23:08"
         },
         {
             "name": "symfony/console",
@@ -3967,7 +3668,7 @@
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/newLoki/PropelModule/zipball/ab6164e684113e20d5754fd61fe0ea86331ebd0b",
+                "url": "https://api.github.com/repos/newLoki/PropelModule/zipball/9de9316361e3dddb6b29f5dd93b7456e19e042e3",
                 "reference": "9de9316361e3dddb6b29f5dd93b7456e19e042e3",
                 "shasum": ""
             },
@@ -4884,146 +4585,29 @@
             "time": "2014-12-02 20:19:20"
         }
     ],
-    "aliases": [
-        {
-            "alias": "6.0.0",
-            "alias_normalized": "6.0.0.0",
-            "version": "9999999-dev",
-            "package": "project-a/acl-package"
-        },
-        {
-            "alias": "5.0.0",
-            "alias_normalized": "5.0.0.0",
-            "version": "9999999-dev",
-            "package": "project-a/cart-package"
-        },
-        {
-            "alias": "4.0.0",
-            "alias_normalized": "4.0.0.0",
-            "version": "9999999-dev",
-            "package": "project-a/catalog-package"
-        },
-        {
-            "alias": "5.0.0",
-            "alias_normalized": "5.0.0.0",
-            "version": "9999999-dev",
-            "package": "project-a/checkout-package"
-        },
-        {
-            "alias": "5.0.0",
-            "alias_normalized": "5.0.0.0",
-            "version": "9999999-dev",
-            "package": "project-a/content-package"
-        },
-        {
-            "alias": "5.0.0",
-            "alias_normalized": "5.0.0.0",
-            "version": "9999999-dev",
-            "package": "project-a/console-package"
-        },
-        {
-            "alias": "6.0.0",
-            "alias_normalized": "6.0.0.0",
-            "version": "9999999-dev",
-            "package": "project-a/crm-package"
-        },
-        {
-            "alias": "5.12.3",
-            "alias_normalized": "5.12.3.0",
-            "version": "dev-feature/387-replace-zf-with-silex",
-            "package": "project-a/dwh-package"
-        },
-        {
-            "alias": "5.0.0",
-            "alias_normalized": "5.0.0.0",
-            "version": "9999999-dev",
-            "package": "project-a/document-package"
-        },
-        {
-            "alias": "5.0.0",
-            "alias_normalized": "5.0.0.0",
-            "version": "9999999-dev",
-            "package": "project-a/frontend-package"
-        },
-        {
-            "alias": "4.0.0",
-            "alias_normalized": "4.0.0.0",
-            "version": "9999999-dev",
-            "package": "project-a/glossary-package"
-        },
-        {
-            "alias": "5.0.0",
-            "alias_normalized": "5.0.0.0",
-            "version": "9999999-dev",
-            "package": "project-a/infrastructure-package"
-        },
-        {
-            "alias": "3.0.0",
-            "alias_normalized": "3.0.0.0",
-            "version": "9999999-dev",
-            "package": "project-a/kendo-package"
-        },
-        {
-            "alias": "5.0.1",
-            "alias_normalized": "5.0.1.0",
-            "version": "9999999-dev",
-            "package": "project-a/library-package"
-        },
-        {
-            "alias": "5.0.0",
-            "alias_normalized": "5.0.0.0",
-            "version": "9999999-dev",
-            "package": "project-a/lumberjack-package"
-        },
-        {
-            "alias": "6.0.0",
-            "alias_normalized": "6.0.0.0",
-            "version": "dev-feature/387-replace-zf-with-silex",
-            "package": "project-a/marketing-package"
-        },
-        {
-            "alias": "5.0.0",
-            "alias_normalized": "5.0.0.0",
-            "version": "9999999-dev",
-            "package": "project-a/payment-package"
-        },
-        {
-            "alias": "3.0.0",
-            "alias_normalized": "3.0.0.0",
-            "version": "9999999-dev",
-            "package": "project-a/payone-package"
-        },
-        {
-            "alias": "6.0.0",
-            "alias_normalized": "6.0.0.0",
-            "version": "9999999-dev",
-            "package": "project-a/sales-package"
-        }
-    ],
+    "aliases": [],
     "minimum-stability": "stable",
     "stability-flags": {
-        "project-a/acl-package": 20,
-        "project-a/cart-package": 20,
-        "project-a/catalog-package": 20,
-        "project-a/checkout-package": 20,
-        "project-a/content-package": 20,
-        "project-a/console-package": 20,
-        "project-a/crm-package": 20,
-        "project-a/dwh-package": 20,
-        "project-a/document-package": 20,
-        "project-a/frontend-package": 20,
-        "project-a/glossary-package": 20,
-        "project-a/infrastructure-package": 20,
-        "project-a/kendo-package": 20,
-        "project-a/library-package": 20,
-        "project-a/lumberjack-package": 20,
-        "project-a/marketing-package": 20,
-        "project-a/payment-package": 20,
-        "project-a/payone-package": 20,
-        "project-a/product-export-package": 20,
-        "project-a/product-package": 20,
-        "project-a/sales-package": 20,
-        "project-a/yves-export-package": 20,
+        "spryker/acl-package": 20,
+        "spryker/cart-package": 20,
+        "spryker/catalog-package": 20,
+        "spryker/checkout-package": 20,
+        "spryker/content-package": 20,
+        "spryker/console-package": 20,
+        "spryker/crm-package": 20,
+        "spryker/document-package": 20,
+        "spryker/frontend-package": 20,
+        "spryker/glossary-package": 20,
+        "spryker/infrastructure-package": 20,
+        "spryker/kendo-package": 20,
+        "spryker/library-package": 20,
+        "spryker/lumberjack-package": 20,
+        "spryker/payment-package": 20,
+        "spryker/payone-package": 20,
+        "spryker/product-package": 20,
+        "spryker/product-export-package": 20,
+        "spryker/sales-package": 20,
+        "spryker/yves-export-package": 20,
         "silex/silex": 20,
         "pimple/pimple": 20,
         "zendesk/zendesk_api_client_php": 20,
