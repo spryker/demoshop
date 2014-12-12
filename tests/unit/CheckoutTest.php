@@ -76,7 +76,7 @@ class CheckoutTest extends \Codeception\TestCase\Test
         $customer->setFirstName('Max');
         $customer->setLastName('Muster');
         $customer->setPassword('aaaaaa');
-        $customer->setEmail('qa@project-a.de');
+        $customer->setEmail('qa@spryker.de');
         $customer->setStatus($status);
         $customer->save();
 

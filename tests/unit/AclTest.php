@@ -125,7 +125,7 @@ class AclTest extends \Codeception\TestCase\Test
             ->setFirstname('Max')
             ->setLastname('Muster')
             ->setUsername('max.muster' . time())
-            ->setEmail(time() . 'max.muster@project-a.com')
+            ->setEmail(time() . 'max.muster@spryker.com')
             ->setFkAclRole(1);
         return $transferUser;
     }

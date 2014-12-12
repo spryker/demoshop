@@ -14,7 +14,7 @@ module.exports = function ( grunt ) {
   grunt.initConfig({
     dirs : {
       config   : 'config/Zed',
-      packages : 'vendor/project-a',
+      packages : 'vendor/spryker',
       project  : 'src',
       srcY     : '**/{Shared,Yves}/*/Static/Public/**/*',
       srcZ     : '**/{Shared,Zed}/*/Static/Public/**/*',

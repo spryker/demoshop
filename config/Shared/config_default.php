@@ -170,30 +170,6 @@ $config[SystemConfig::CLOUD_CDN_PRODUCT_IMAGES_PATH_NAME] = '/images/products/';
 $config[SystemConfig::CLOUD_CDN_DELETE_LOCAL_PROCESSED_IMAGES] = false;
 $config[SystemConfig::CLOUD_CDN_DELETE_LOCAL_ORIGINAL_IMAGES] = false;
 
-$config[DwhConfig::DWH_MYSQL_BINARY] = '/usr/bin/mysql';
-$config[DwhConfig::DWH_MYSQL_USERNAME] = '';
-$config[DwhConfig::DWH_MYSQL_PASSWORD] = '';
-$config[DwhConfig::DWH_MYSQL_DATABASE] = '';
-$config[DwhConfig::DWH_MYSQL_HOST] = 'localhost';
-$config[DwhConfig::DWH_POSTGRESQL_BINARY] = '/usr/bin/psql';
-$config[DwhConfig::DWH_POSTGRESQL_USERNAME] = '';
-$config[DwhConfig::DWH_POSTGRESQL_DATABASE] = '';
-$config[DwhConfig::DWH_POSTGRESQL_HOST] = 'localhost';
-$config[DwhConfig::DWH_DATA_DIR] = '/path/to/dwh/data';
-$config[DwhConfig::DWH_WORK_DIR] = '/path/to/environment/dwh/work';
-$config[DwhConfig::DWH_EXPORT_DIR] = '/path/to/environment/dwh/export';
-$config[DwhConfig::DWH_IMPORT_MIN_TIME] = '1970-01-01';
-$config[DwhConfig::DWH_IMPORT_MAX_TIME] = 'now()';
-$config[DwhConfig::DWH_MAXIMUM_NUMBER_PARALLEL_IMPORT_JOBS] = 4;
-$config[DwhConfig::DWH_CUBES_URL] = 'http://localhost:8080';
-
-$config[AdwordsConfig::ADWORDS_EMAIL] = 'foo@example.com';
-$config[AdwordsConfig::ADWORDS_PASSWORD] = '123abc';
-$config[AdwordsConfig::ADWORDS_API_VERSION] = '123abc';
-$config[AdwordsConfig::ADWORDS_DEVELOPER_TOKEN] = 'asdfghjkl';
-$config[AdwordsConfig::ADWORDS_MCC_CLIENT_ID] = null;
-
-
 //TODO: change this to our settings instead of using the zooron mandrill account
 $config[MailConfig::MAIL_PROVIDER_MANDRILL] = [
     'api-key' => 'weUrHb0QNJaZNEvwZa03xA',

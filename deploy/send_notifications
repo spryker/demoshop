@@ -25,7 +25,7 @@ fi
 
 ### Skype notifications
 if [ "$environment" == "production" ]; then
-  curl -s -X POST --data-urlencode "M=(*) Finished deployment of $scm_path to $environment ($revision: $deploy_user, `hostname`) - $changelog" "http://skypebot.project-a.com:10080/send.php?C=116&U=56&P=boss33mgj"
+  curl -s -X POST --data-urlencode "M=(*) Finished deployment of $scm_path to $environment ($revision: $deploy_user, `hostname`) - $changelog" "http://skypebot.spryker.com:10080/send.php?C=116&U=56&P=boss33mgj"
 elif [ "$environment" == "staging" ]; then
   curl -s -X POST --data-urlencode "M=(*) Finished deployment of $scm_path to $environment ($revision: $deploy_user, `hostname`)" "http://skypebot.project-a.com:10080/send.php?C=116&U=56&P=boss33mgj"
 elif [ "$environment" == "testing" ]; then

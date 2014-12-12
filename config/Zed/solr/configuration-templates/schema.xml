@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<schema name="project-a" version="1.4">
+<schema name="spryker" version="1.4">
     <types>
         <fieldType name="stringField" class="solr.StrField" sortMissingLast="true" omitNorms="true"/>
         <fieldType name="intField" class="solr.SortableIntField" omitNorms="true"/>

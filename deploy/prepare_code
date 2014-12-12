@@ -54,7 +54,7 @@ if is_default_store; then
   # - it should be removed from git directly
 
   if [ ${environment} != "testing" ]; then
-    rm -f vendor/project-a/infrastructure-package/bin/*.war
+    rm -f vendor/spryker/infrastructure-package/bin/*.war
   fi
 
   # Log used packages version in renepro repository
