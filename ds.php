@@ -99,8 +99,8 @@ $searchDirectories = [
 $finder = new \Symfony\Component\Finder\Finder();
 
 //foreach ($newWorldOrder['php'] as $file) {
-foreach ($finder->files()->in($searchDirectories) as $file) {
-    $content = file_get_contents($file['pathNew']);
+foreach ($finder->files()->in($searchDirectories)->name('*.php') as $file) {
+    $content = file_get_contents($file->getPathname());
 
     foreach ($newWorldOrder['php'] as $fileInfo) {
         $content = str_replace(
@@ -117,18 +117,18 @@ foreach ($finder->files()->in($searchDirectories) as $file) {
             $content
         );
     }
-    file_put_contents($file['pathNew'], $content);
+    file_put_contents($file->getPathname(), $content);
 }
-die('Replaced all file contents');
+//die('Replaced all file contents');
 
 
-//foreach ($newWorldOrder as $type => $files) {
-//    foreach ($files as $file) {
-//        try {
-//            $filesystem->remove($file['path']);
-//        } catch (\Exception $e) {
-//            echo $file['path'] . ' could not delete file' . PHP_EOL;
-//        }
-//    }
-//}
+foreach ($newWorldOrder as $type => $files) {
+    foreach ($files as $file) {
+        try {
+            $filesystem->remove($file['path']);
+        } catch (\Exception $e) {
+            echo $file['path'] . ' could not delete file' . PHP_EOL;
+        }
+    }
+}
 //die('Deleted all files');
