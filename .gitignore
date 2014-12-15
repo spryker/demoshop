@@ -40,7 +40,11 @@ config/accumulated-config.json
 
 # public stuff
 /static/public/Yves/*
+!/static/public/Yves/index.php
+
 /static/public/Zed/*
+!/static/public/Zed/index.php
+!/static/public/Zed/favicon.ico
 
 # vagrant stuff
 .vagrant
