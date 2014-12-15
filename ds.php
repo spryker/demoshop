@@ -90,8 +90,16 @@ foreach ($newWorldOrder as $type => $files) {
 }
 //die('Moved all files');
 
+$searchDirectories = [
+    __DIR__ . '/config',
+    __DIR__ . '/src',
+    __DIR__ . '/vendor/spryker',
+];
 
-foreach ($newWorldOrder['php'] as $file) {
+$finder = new \Symfony\Component\Finder\Finder();
+
+//foreach ($newWorldOrder['php'] as $file) {
+foreach ($finder->files()->in($searchDirectories) as $file) {
     $content = file_get_contents($file['pathNew']);
 
     foreach ($newWorldOrder['php'] as $fileInfo) {
