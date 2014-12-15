@@ -24,13 +24,13 @@ use ProjectA\Yves\Checkout\Module\ControllerProvider as CheckoutProvider;
 use ProjectA\Yves\Customer\Module\ControllerProvider as CustomerProvider;
 use ProjectA\Yves\Newsletter\Module\ControllerProvider as NewsletterProvider;
 use ProjectA\Yves\Library\Tracking\Tracking;
+use ProjectA\Shared\Library\Silex\ServiceProvider\UrlGeneratorServiceProvider;
 use Silex\Provider\FormServiceProvider;
 use Silex\Provider\RememberMeServiceProvider;
 use Silex\Provider\ServiceControllerServiceProvider;
-use SilexRouting\Provider\UrlGeneratorServiceProvider;
 use Silex\Provider\ValidatorServiceProvider;
 use Silex\Provider\WebProfilerServiceProvider;
-use SilexRouting\Provider\RoutingServiceProvider;
+use ProjectA\Shared\Library\Silex\ServiceProvider\RoutingServiceProvider;
 use Symfony\Component\HttpFoundation\Request;
 use ProjectA\Yves\Library\Silex\YvesBootstrap as CoreYvesBootstrap;
 

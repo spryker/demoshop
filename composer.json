@@ -21,8 +21,6 @@
         "spryker/sales-package": "dev-master",
         "spryker/yves-export-package": "dev-master",
 
-        "project-a/silex-routing": "~1.0.0",
-
         "psr/log": "~1.0",
         "phing/phing": "~2.6.0",
         "propel/propel1": "1.7.0",

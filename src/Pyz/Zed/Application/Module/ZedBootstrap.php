@@ -26,11 +26,11 @@ use Silex\Provider\FormServiceProvider;
 use Silex\Provider\HttpFragmentServiceProvider;
 use Silex\Provider\RememberMeServiceProvider;
 use Silex\Provider\ServiceControllerServiceProvider;
-use SilexRouting\Provider\UrlGeneratorServiceProvider;
 use Silex\Provider\ValidatorServiceProvider;
 use Silex\Provider\WebProfilerServiceProvider;
-use SilexRouting\Provider\RoutingServiceProvider;
-use SilexRouting\SilexRouter;
+use ProjectA\Shared\Library\Silex\ServiceProvider\UrlGeneratorServiceProvider;
+use ProjectA\Shared\Library\Silex\ServiceProvider\RoutingServiceProvider;
+use ProjectA\Shared\Library\Silex\Routing\SilexRouter;
 use Symfony\Component\HttpFoundation\Request;
 
 class ZedBootstrap extends Bootstrap
