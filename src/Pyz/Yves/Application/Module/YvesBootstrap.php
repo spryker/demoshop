@@ -108,6 +108,7 @@ class YvesBootstrap extends CoreYvesBootstrap
 
     /**
      * @param Application $app
+     *
      * @return \Symfony\Component\Routing\RouterInterface[]
      */
     protected function getRouters(Application $app)
@@ -116,7 +117,8 @@ class YvesBootstrap extends CoreYvesBootstrap
             Factory::getInstance()->createSetupModelRouterMonitoringRouter($app),
             Factory::getInstance()->createCmsModelRouterRedirectRouter($app),
             Factory::getInstance()->createCatalogModelRouterCatalogRouter($app),
-            Factory::getInstance()->createCatalogModelRouterCatalogDetailRouter($app),
+            //Factory::getInstance()->createCatalogModelRouterCatalogDetailRouter($app),
+            Factory::getInstance()->createProductExporterDependencyContainer()->createProductDetailRouter($app),
             Factory::getInstance()->createCmsModelRouterCmsRouter($app),
             /*
              * SilexRouter should come last, as it is not the fastest one if it can
