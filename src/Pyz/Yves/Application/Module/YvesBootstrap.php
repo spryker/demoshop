@@ -17,7 +17,7 @@ use ProjectA\Yves\Library\Silex\Provider\ExceptionServiceProvider;
 use ProjectA\Yves\Library\Silex\Provider\TranslationServiceProvider;
 use ProjectA\Yves\Library\Silex\Provider\TwigServiceProvider;
 use ProjectA\Yves\Library\Silex\Provider\YvesLoggingServiceProvider;
-use ProjectA\Yves\Library\Silex\Routing\SilexRouter;
+use ProjectA\Shared\Library\Silex\Routing\SilexRouter;
 use Pyz\Yves\Application\Module\ControllerProvider as ApplicationProvider;
 use ProjectA\Yves\Cart\Module\ControllerProvider as CartProvider;
 use ProjectA\Yves\Checkout\Module\ControllerProvider as CheckoutProvider;
