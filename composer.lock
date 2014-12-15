@@ -4,7 +4,7 @@
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "26d8f9c7f96c25cb0127287e05322296",
+    "hash": "8efe1ff199c921bea3590352b11e1316",
     "packages": [
         {
             "name": "digital-canvas/zend-framework",
@@ -417,16 +417,16 @@
         },
         {
             "name": "league/csv",
-            "version": "6.1.0",
+            "version": "6.2.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/thephpleague/csv.git",
-                "reference": "25198fd4036de1b5d46447ae2382fdafd86bade9"
+                "reference": "a7f92b56d37bfce593903b4afe211ce9429188ab"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/thephpleague/csv/zipball/25198fd4036de1b5d46447ae2382fdafd86bade9",
-                "reference": "25198fd4036de1b5d46447ae2382fdafd86bade9",
+                "url": "https://api.github.com/repos/thephpleague/csv/zipball/a7f92b56d37bfce593903b4afe211ce9429188ab",
+                "reference": "a7f92b56d37bfce593903b4afe211ce9429188ab",
                 "shasum": ""
             },
             "require": {
@@ -439,7 +439,7 @@
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "6.1-dev"
+                    "dev-master": "6.2-dev"
                 }
             },
             "autoload": {
@@ -468,7 +468,7 @@
                 "read",
                 "write"
             ],
-            "time": "2014-12-08 07:58:23"
+            "time": "2014-12-12 11:37:47"
         },
         {
             "name": "mandrill/mandrill",
@@ -740,50 +740,6 @@
             "time": "2014-08-01 09:59:50"
         },
         {
-            "name": "project-a/silex-routing",
-            "version": "v1.0.6",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/chili-labs/Silex-Routing.git",
-                "reference": "b0f6710bf1aa0d66265e90ebff56fb8493a5c81f"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/chili-labs/Silex-Routing/zipball/b0f6710bf1aa0d66265e90ebff56fb8493a5c81f",
-                "reference": "b0f6710bf1aa0d66265e90ebff56fb8493a5c81f",
-                "shasum": ""
-            },
-            "require": {
-                "silex/silex": "~1.0",
-                "symfony-cmf/routing": "~1.0",
-                "symfony/routing": "~2.3"
-            },
-            "type": "library",
-            "extra": {
-                "branch-alias": {
-                    "dev-master": "2.0.x-dev"
-                }
-            },
-            "autoload": {
-                "psr-0": {
-                    "SilexRouting": "src/"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Daniel Tschinder",
-                    "email": "daniel@tschinder.de",
-                    "homepage": "http://www.tschinder.de"
-                }
-            ],
-            "description": "Silex-Routing provides advanced routing for Silex through connecting symfony-cmf/Routing with Silex.",
-            "time": "2014-12-10 11:11:19"
-        },
-        {
             "name": "propel/propel1",
             "version": "1.7.0",
             "source": {
@@ -973,7 +929,7 @@
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/acl.git",
-                "reference": "b26654e9437c4820d375f4ff8b05b0e1f787d14c"
+                "reference": "42226acd488fb338ff65d6265833bd5113e0409a"
             },
             "require": {
                 "php": ">=5.4.0"
@@ -1001,7 +957,7 @@
                 "login",
                 "user management"
             ],
-            "time": "2014-12-12 06:32:38"
+            "time": "2014-12-12 11:25:57"
         },
         {
             "name": "spryker/cart-package",
@@ -1009,7 +965,7 @@
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/cart.git",
-                "reference": "a79e94e5a11a27883d15d107da4c5372474a234b"
+                "reference": "907df84be6a50ab34d96e1411ec791952b303781"
             },
             "require": {
                 "php": ">=5.4.0"
@@ -1033,7 +989,7 @@
             "keywords": [
                 "Cart"
             ],
-            "time": "2014-12-12 06:33:21"
+            "time": "2014-12-12 11:27:33"
         },
         {
             "name": "spryker/catalog-package",
@@ -1041,7 +997,7 @@
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/catalog.git",
-                "reference": "95f60acf2ee4520b050df0f07d5757461a8b2d59"
+                "reference": "dda306c94c623937bfa3694df68a1126a20b7888"
             },
             "require": {
                 "php": ">=5.4.0"
@@ -1075,7 +1031,7 @@
                 "Price",
                 "Stock"
             ],
-            "time": "2014-12-12 07:30:41"
+            "time": "2014-12-12 11:32:35"
         },
         {
             "name": "spryker/checkout-package",
@@ -1083,7 +1039,7 @@
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/checkout.git",
-                "reference": "2458dc537b02099cbc97d13aa705c6c89560b462"
+                "reference": "4f1365201b44cb230c510981247b100a3d2a6fd6"
             },
             "require": {
                 "php": ">=5.4.0"
@@ -1109,7 +1065,7 @@
                 "Checkout",
                 "Salesrule"
             ],
-            "time": "2014-12-12 06:41:24"
+            "time": "2014-12-12 11:27:50"
         },
         {
             "name": "spryker/console-package",
@@ -1117,7 +1073,7 @@
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/console.git",
-                "reference": "dcba7a0557b9ca30044ea4d8144eacc33bbc4ec8"
+                "reference": "94573419e0763e48a90b29fe1f674f35316aee0a"
             },
             "require": {
                 "php": ">=5.4.0",
@@ -1149,7 +1105,7 @@
             "keywords": [
                 "console"
             ],
-            "time": "2014-12-12 06:42:20"
+            "time": "2014-12-12 11:29:54"
         },
         {
             "name": "spryker/content-package",
@@ -1157,7 +1113,7 @@
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/content.git",
-                "reference": "4d98fb22fbb784cf7aa7c3598f66045ed9e4f0d0"
+                "reference": "c2acd44a57a5212b700fa81fd71827044727c6ea"
             },
             "require": {
                 "php": ">=5.4.0"
@@ -1181,7 +1137,7 @@
             "keywords": [
                 "Content Package"
             ],
-            "time": "2014-12-12 07:01:39"
+            "time": "2014-12-12 11:32:57"
         },
         {
             "name": "spryker/crm-package",
@@ -1189,7 +1145,7 @@
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/crm.git",
-                "reference": "1534b0cf8aaf9a057cfdb19b5d0d433ecefa2249"
+                "reference": "451cedd95569aafe4af56339fd143cc8e4ab4660"
             },
             "require": {
                 "php": ">=5.4.0",
@@ -1216,7 +1172,7 @@
                 "mail",
                 "newsletter"
             ],
-            "time": "2014-12-12 07:03:50"
+            "time": "2014-12-12 11:28:06"
         },
         {
             "name": "spryker/document-package",
@@ -1224,7 +1180,7 @@
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/document.git",
-                "reference": "6dda9b866b7340d718ed0416454a6ad5ca38c980"
+                "reference": "b493141d07c3201907134798c7ed8c894a849a8b"
             },
             "require": {
                 "php": ">=5.4.0"
@@ -1248,7 +1204,7 @@
                 "Document",
                 "Invoice"
             ],
-            "time": "2014-12-12 07:05:22"
+            "time": "2014-12-12 11:30:20"
         },
         {
             "name": "spryker/frontend-package",
@@ -1256,7 +1212,7 @@
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/frontend.git",
-                "reference": "a95b4f869d5458c8d815a3725c9aff47a94cf005"
+                "reference": "022833d986cbff1674c72f606430777f14f05199"
             },
             "require": {
                 "php": ">=5.4.0"
@@ -1279,7 +1235,7 @@
             "keywords": [
                 "Frontend"
             ],
-            "time": "2014-12-12 07:06:22"
+            "time": "2014-12-12 11:33:40"
         },
         {
             "name": "spryker/glossary-package",
@@ -1287,7 +1243,7 @@
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/glossary.git",
-                "reference": "6e2421aaa11015d8b28dd91170f19b67b8ead7d2"
+                "reference": "6173d8e82c996acb9ac49782b8195ce48b913967"
             },
             "require": {
                 "php": ">=5.4.0",
@@ -1312,7 +1268,7 @@
                 "i18n",
                 "translation"
             ],
-            "time": "2014-12-12 07:07:41"
+            "time": "2014-12-12 11:28:27"
         },
         {
             "name": "spryker/infrastructure-package",
@@ -1320,7 +1276,7 @@
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/infrastructure.git",
-                "reference": "cb4484ceb86cefbeec8f8ac157dad708ffae1d88"
+                "reference": "f253d2f34dd5d429b6c50dd5614dec237a57b162"
             },
             "require": {
                 "php": ">=5.4.0"
@@ -1336,7 +1292,7 @@
             "keywords": [
                 "infrastructure"
             ],
-            "time": "2014-12-12 07:08:29"
+            "time": "2014-12-12 11:30:36"
         },
         {
             "name": "spryker/kendo-package",
@@ -1344,7 +1300,7 @@
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/kendo.git",
-                "reference": "d478aba95ac880fae16477836478ac3b7c891788"
+                "reference": "dcf49c41b5c82773e38636d465cbc0761437d714"
             },
             "type": "library",
             "autoload": {
@@ -1355,7 +1311,7 @@
                 }
             },
             "description": "Core Library",
-            "time": "2014-12-12 07:10:49"
+            "time": "2014-12-12 11:34:09"
         },
         {
             "name": "spryker/library-package",
@@ -1363,7 +1319,7 @@
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/library.git",
-                "reference": "6d196a3b74800a13b902525f07380d672fb2a24c"
+                "reference": "5dfa1f4cdfb80049697fd86cdf4515bf8509ed60"
             },
             "require": {
                 "digital-canvas/zend-framework": ">=1.12.2",
@@ -1399,7 +1355,7 @@
                 }
             },
             "description": "Project-A Library",
-            "time": "2014-12-12 07:13:39"
+            "time": "2014-12-15 10:59:24"
         },
         {
             "name": "spryker/lumberjack-package",
@@ -1439,7 +1395,7 @@
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/payment.git",
-                "reference": "41613814a9f4f16036be09dd9b4da10239149e61"
+                "reference": "30fc0f6e99d8fbe8c47671d5c41ff731405625a3"
             },
             "require": {
                 "php": ">=5.4.0",
@@ -1467,7 +1423,7 @@
                 "payment control",
                 "payment provider"
             ],
-            "time": "2014-12-12 07:15:35"
+            "time": "2014-12-12 11:29:11"
         },
         {
             "name": "spryker/payone-package",
@@ -1475,7 +1431,7 @@
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/payone.git",
-                "reference": "2b1ae644e37c941eba832e780faa55b86984f141"
+                "reference": "8ee0e39fc2bfc3931cde7c3b5081646bad769fd5"
             },
             "require": {
                 "php": ">=5.4.0"
@@ -1498,7 +1454,7 @@
             "keywords": [
                 "payment,payment provider,payone"
             ],
-            "time": "2014-12-12 07:16:27"
+            "time": "2014-12-12 11:28:58"
         },
         {
             "name": "spryker/product-export-package",
@@ -1545,7 +1501,7 @@
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/product.git",
-                "reference": "b59a6dcc4dd4459da4d7a1031022a442274bbc6b"
+                "reference": "8596cdafc1d6c683e6b58c7a7cb8a5aa5e4236a0"
             },
             "require": {
                 "league/csv": "*",
@@ -1573,7 +1529,7 @@
                 "Catalog",
                 "Product"
             ],
-            "time": "2014-12-12 07:21:33"
+            "time": "2014-12-12 11:31:34"
         },
         {
             "name": "spryker/sales-package",
@@ -1581,7 +1537,7 @@
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/sales.git",
-                "reference": "42ba20bd6d6650850b6dc0cba2ebd3c6b9b24e84"
+                "reference": "fecf50e670d66f376aca63b1ccbd5ccb3413fc24"
             },
             "require": {
                 "php": ">=5.4.0"
@@ -1606,7 +1562,7 @@
                 "Sales",
                 "Task"
             ],
-            "time": "2014-12-12 07:22:17"
+            "time": "2014-12-12 11:29:31"
         },
         {
             "name": "spryker/yves-export-package",
@@ -1614,7 +1570,7 @@
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/yves-export.git",
-                "reference": "5371e5c6188e7c55eda2abdfbe8b4c26a3ea70ba"
+                "reference": "8efa3ff76734c7b0f21756aeb589d5fa613f38a7"
             },
             "require": {
                 "php": ">=5.4.0",
@@ -1642,64 +1598,7 @@
                 "Export",
                 "Yves"
             ],
-            "time": "2014-12-12 07:23:08"
-        },
-        {
-            "name": "symfony-cmf/routing",
-            "version": "1.3.0",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/symfony-cmf/Routing.git",
-                "reference": "8e87981d72c6930a27585dcd3119f3199f6cb2a6"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/symfony-cmf/Routing/zipball/8e87981d72c6930a27585dcd3119f3199f6cb2a6",
-                "reference": "8e87981d72c6930a27585dcd3119f3199f6cb2a6",
-                "shasum": ""
-            },
-            "require": {
-                "php": ">=5.3.3",
-                "psr/log": "~1.0",
-                "symfony/http-kernel": "~2.2",
-                "symfony/routing": "~2.2"
-            },
-            "require-dev": {
-                "symfony/config": "~2.2",
-                "symfony/dependency-injection": "~2.0@stable",
-                "symfony/event-dispatcher": "~2.1"
-            },
-            "suggest": {
-                "symfony/event-dispatcher": "DynamicRouter can optionally trigger an event at the start of matching. Minimal version ~2.1"
-            },
-            "type": "library",
-            "extra": {
-                "branch-alias": {
-                    "dev-master": "1.3-dev"
-                }
-            },
-            "autoload": {
-                "psr-4": {
-                    "Symfony\\Cmf\\Component\\Routing\\": ""
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Symfony CMF Community",
-                    "homepage": "https://github.com/symfony-cmf/Routing/contributors"
-                }
-            ],
-            "description": "Extends the Symfony2 routing component for dynamic routes and chaining several routers",
-            "homepage": "http://cmf.symfony.com",
-            "keywords": [
-                "database",
-                "routing"
-            ],
-            "time": "2014-10-20 20:55:17"
+            "time": "2014-12-12 11:32:18"
         },
         {
             "name": "symfony/console",
