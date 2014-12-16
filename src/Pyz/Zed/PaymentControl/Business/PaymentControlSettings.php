@@ -8,7 +8,7 @@ class PaymentControlSettings extends ProjectAPaymentControlSettings
 {
 
     /**
-     * @return \ProjectA_Zed_PaymentControl_Component_Model_Engine_PaymentMethodFilter[]
+     * @return \ProjectA_Zed_PaymentControl_Business_Model_Engine_PaymentMethodFilter[]
      */
     public function getPaymentMethodFilter()
     {
@@ -16,7 +16,7 @@ class PaymentControlSettings extends ProjectAPaymentControlSettings
     }
 
     /**
-     * @return \ProjectA_Zed_PaymentControl_Component_Model_Attribute_Extractor[]
+     * @return \ProjectA_Zed_PaymentControl_Business_Model_Attribute_Extractor[]
      */
     public function getAttributeExtractors()
     {

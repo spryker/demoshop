@@ -2,9 +2,9 @@
 namespace Pyz\Zed\Category\Business\Internal;
 
 /**
- * @property \Generated\Zed\Category\Component\CategoryFactory $factory
+ * @property \Generated\Zed\Category\Business\CategoryFactory $factory
  */
-class Install extends \ProjectA_Zed_Category_Component_Internal_Install
+class Install extends \ProjectA_Zed_Category_Business_Internal_Install
 {
     /**
      * @var array

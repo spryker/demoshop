@@ -1,7 +1,7 @@
 <?php
 namespace Pyz\Zed\Catalog\Business\Model\Import\Product\Writer\Workflow\Definition;
 
-use Generated\Zed\Catalog\Component\Dependency\CatalogFacadeTrait;
+use Generated\Zed\Catalog\Business\Dependency\CatalogFacadeTrait;
 use ProjectA\Zed\Library\Workflow\TaskInterface;
 use ProjectA\Zed\Catalog\Component\Model\Import\Product\Writer\Workflow\Definition\WriteSingleProduct as CoreWriteSingleProduct;
 

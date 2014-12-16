@@ -1,8 +1,8 @@
 <?php
 namespace Pyz\Zed\Catalog\Business\Exporter\KeyValue;
 
-use Generated\Zed\Yves\Component\Dependency\YvesFacadeInterface;
-use Generated\Zed\Yves\Component\Dependency\YvesFacadeTrait;
+use Generated\Zed\Yves\Business\Dependency\YvesFacadeInterface;
+use Generated\Zed\Yves\Business\Dependency\YvesFacadeTrait;
 use ProjectA\Shared\Catalog\Code\Storage\StorageKeyGenerator;
 use ProjectA\Zed\Catalog\Component\Exporter\ProductsExporter as CoreProductsExporter;
 use ProjectA\Zed\Catalog\Component\Exporter\QueryBuilder\AbstractProduct;
@@ -11,7 +11,7 @@ use Pyz\Shared\Catalog\Code\ProductAttributeConstantInterface;
 use Pyz\Shared\Catalog\Code\ProductAttributeSetConstantInterface;
 
 abstract class ProductsExporter extends CoreProductsExporter implements
-    \ProjectA_Zed_Yves_Component_Interface_Exporter_KeyValue,
+    \ProjectA_Zed_Yves_Business_Interface_Exporter_KeyValue,
     ProductAttributeConstantInterface,
     ProductAttributeSetConstantInterface,
     \Pyz_Shared_Library_StorageKeyConstant,
@@ -52,7 +52,7 @@ abstract class ProductsExporter extends CoreProductsExporter implements
     }
 
     /**
-     * @return \ProjectA_Zed_Yves_Component_Exporter_Setup_Entity
+     * @return \ProjectA_Zed_Yves_Business_Exporter_Setup_Entity
      */
     public function getExportSetup()
     {

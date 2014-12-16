@@ -2,10 +2,10 @@
 
 namespace Pyz\Zed\Acl\Business\Internal;
 
-use ProjectA\Zed\Acl\Component\Internal\Install as CoreInstall;
+use ProjectA\Zed\Acl\Business\Internal\Install as CoreInstall;
 
 /**
- * @property \Generated\Zed\Acl\Component\AclFactory $factory
+ * @property \Generated\Zed\Acl\Business\AclFactory $factory
  */
 class Install extends CoreInstall
 {

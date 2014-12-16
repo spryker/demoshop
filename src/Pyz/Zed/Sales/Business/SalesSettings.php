@@ -15,7 +15,7 @@ class SalesSettings extends ProjectASalesSettings
 {
     /**
      * @throws \ProjectA_Zed_Library_Exception
-     * @return \ProjectA_Zed_Sales_Component_Interface_StatemachineFactoryHook
+     * @return \ProjectA_Zed_Sales_Business_Interface_StatemachineFactoryHook
      */
     public function getStateMachineFactoryHook()
     {
