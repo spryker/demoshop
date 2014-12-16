@@ -3,6 +3,8 @@
         "spryker/acl-package": "dev-master",
         "spryker/cart-package": "dev-master",
         "spryker/catalog-package": "dev-master",
+        "spryker/category-package": "dev-master",
+        "spryker/category-export-package": "dev-master",
         "spryker/checkout-package": "dev-master",
         "spryker/content-package": "dev-master",
         "spryker/console-package": "dev-master",
@@ -64,6 +66,14 @@
         {
             "type": "git",
             "url": "git@github.com:spryker/catalog.git"
+        },
+        {
+            "type": "git",
+            "url": "git@github.com:spryker/category.git"
+        },
+        {
+            "type": "git",
+            "url": "git@github.com:spryker/category-export.git"
         },
         {
             "type": "git",
