@@ -4,7 +4,7 @@ namespace Pyz\Zed\Yves\Business;
 use Generated\Zed\Cms\Business\Dependency\CmsFacadeInterface;
 use Generated\Zed\Cms\Business\Dependency\CmsFacadeTrait;
 use ProjectA\Zed\Yves\Business\YvesSettings as ProjectAYvesSettings;
-use Pyz\Zed\Catalog\Component\CatalogFacade;
+use Pyz\Zed\Catalog\Business\CatalogFacade;
 use Generated\Zed\Glossary\Business\Dependency\GlossaryFacadeInterface;
 use Generated\Zed\Misc\Business\Dependency\MiscFacadeInterface;
 use Generated\Zed\Category\Business\Dependency\CategoryFacadeInterface;
