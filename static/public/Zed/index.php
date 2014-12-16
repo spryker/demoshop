@@ -2,7 +2,7 @@
 
 use ProjectA\Shared\Library\Application\Environment;
 use ProjectA\Shared\Library\Application\TestEnvironment;
-use Pyz\Zed\Application\Module\ZedBootstrap;
+use Pyz\Zed\Application\Communication\ZedBootstrap;
 
 define('ZED_START', microtime(true));
 define('IS_CLI', false);

@@ -1,7 +1,7 @@
 <?php
 
 use Generated\Shared\Library\TransferLoader;
-use Generated\Zed\Cart\Component\CartFactory;
+use Generated\Zed\Cart\Business\CartFactory;
 use Generated\Zed\DependencyInjectionContainer;
 use ProjectA\Zed\Cart\Component\CartFacade;
 

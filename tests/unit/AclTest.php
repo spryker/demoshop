@@ -1,7 +1,7 @@
 <?php
 
 use Generated\Shared\Library\TransferLoader;
-use Generated\Zed\Acl\Component\AclFactory;
+use Generated\Zed\Acl\Business\AclFactory;
 use Generated\Zed\DependencyInjectionContainer;
 use ProjectA\Zed\Acl\Component\AclFacade;
 

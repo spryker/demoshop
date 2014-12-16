@@ -1,9 +1,9 @@
 <?php
 namespace Pyz\Yves\Library\Silex\Provider;
 
-use ProjectA\Yves\Cart\Component\Model\Tracking\CartDataProvider;
-use ProjectA\Yves\Cart\Component\Model\Tracking\ItemDataProvider;
-use ProjectA\Yves\Customer\Component\Model\Tracking\CustomerDataProvider;
+use ProjectA\Yves\Cart\Business\Model\Tracking\CartDataProvider;
+use ProjectA\Yves\Cart\Business\Model\Tracking\ItemDataProvider;
+use ProjectA\Yves\Customer\Business\Model\Tracking\CustomerDataProvider;
 use Pyz\Yves\Library\Tracking\DataProvider\ProductDetailProvider;
 use Pyz\Yves\Library\Tracking\Provider\GoogleAnalytics;
 use Pyz\Yves\Library\Tracking\Provider\Optimizely;

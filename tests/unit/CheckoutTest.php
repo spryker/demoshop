@@ -3,8 +3,8 @@
 use Generated\Shared\Library\TransferLoader;
 use Generated\Shared\Sales\Transfer\Order;
 use Generated\Shared\Sales\Transfer\Payment;
-use Generated\Zed\Catalog\Component\CatalogFactory;
-use Generated\Zed\Checkout\Component\CheckoutFactory;
+use Generated\Zed\Catalog\Business\CatalogFactory;
+use Generated\Zed\Checkout\Business\CheckoutFactory;
 use Generated\Zed\DependencyInjectionContainer;
 use ProjectA\Zed\Checkout\Component\CheckoutFacade;
 use ProjectA\Zed\Library\Copy;

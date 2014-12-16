@@ -3,11 +3,11 @@
 
 namespace Pyz\Zed\Oms;
 
-use ProjectA\Zed\Oms\Component\Command\AbstractCommand;
-use ProjectA\Zed\Oms\Component\Command\CommandByOrderInterface;
-use ProjectA\Zed\Oms\Component\Model\Util\ReadOnlyArrayObject;
-use ProjectA\Zed\Payment\Component\Model\PaymentConstantsInterface;
-use ProjectA\Zed\Payment\Component\Model\PaymentResponse;
+use ProjectA\Zed\Oms\Business\Command\AbstractCommand;
+use ProjectA\Zed\Oms\Business\Command\CommandByOrderInterface;
+use ProjectA\Zed\Oms\Business\Model\Util\ReadOnlyArrayObject;
+use ProjectA\Zed\Payment\Business\Model\PaymentConstantsInterface;
+use ProjectA\Zed\Payment\Business\Model\PaymentResponse;
 
 /**
  * Class FakeAuthPayment
