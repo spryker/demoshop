@@ -13,7 +13,7 @@ class ProductsWithoutElectronicsBundleExporter extends ProductsExporter
     }
 
     /**
-     * @return \ProjectA\Zed\Catalog\Component\Exporter\QueryBuilder\AbstractProduct|\Pyz\Zed\Catalog\Business\Exporter\QueryBuilder\KeyValue\ProductsWithoutElectronicsBundle
+     * @return \ProjectA\Zed\Catalog\Business\Exporter\QueryBuilder\AbstractProduct|\Pyz\Zed\Catalog\Business\Exporter\QueryBuilder\KeyValue\ProductsWithoutElectronicsBundle
      */
     protected function getProductQueryBuilder()
     {

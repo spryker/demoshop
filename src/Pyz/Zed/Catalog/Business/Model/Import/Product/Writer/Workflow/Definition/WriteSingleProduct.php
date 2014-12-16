@@ -3,7 +3,7 @@ namespace Pyz\Zed\Catalog\Business\Model\Import\Product\Writer\Workflow\Definiti
 
 use Generated\Zed\Catalog\Business\Dependency\CatalogFacadeTrait;
 use ProjectA\Zed\Library\Workflow\TaskInterface;
-use ProjectA\Zed\Catalog\Component\Model\Import\Product\Writer\Workflow\Definition\WriteSingleProduct as CoreWriteSingleProduct;
+use ProjectA\Zed\Catalog\Business\Model\Import\Product\Writer\Workflow\Definition\WriteSingleProduct as CoreWriteSingleProduct;
 
 class WriteSingleProduct extends CoreWriteSingleProduct
 {

@@ -3,12 +3,12 @@ namespace Pyz\Zed\Catalog\Business\Internal;
 
 use ProjectA\Shared\Library\Filter\FilterChain;
 use ProjectA\Shared\Library\Filter\SeparatorToCamelCaseFilter;
-use ProjectA\Zed\Catalog\Component\Model\ProductVarietyConstantInterface;
+use ProjectA\Zed\Catalog\Business\Model\ProductVarietyConstantInterface;
 use Pyz\Shared\Catalog\Code\ProductAttributeConstantInterface;
 use Pyz\Shared\Catalog\Code\ProductAttributeSetConstantInterface;
 
 class AttributeValueTypeToAttributeSetGroupMapping implements
-    \ProjectA\Zed\Catalog\Component\Model\Attribute\GroupConstantInterface,
+    \ProjectA\Zed\Catalog\Business\Model\Attribute\GroupConstantInterface,
     ProductAttributeConstantInterface,
     ProductAttributeSetConstantInterface,
     ProductVarietyConstantInterface

@@ -1,7 +1,7 @@
 <?php
 namespace Pyz\Zed\Catalog\Business\Exporter\QueryBuilder\KeyValue;
 
-use ProjectA\Zed\Catalog\Component\Exporter\QueryBuilder\KeyValue;
+use ProjectA\Zed\Catalog\Business\Exporter\QueryBuilder\KeyValue;
 use Pyz\Shared\Catalog\Code\ProductAttributeSetConstantInterface;
 
 /**

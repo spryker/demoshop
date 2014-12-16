@@ -1,7 +1,7 @@
 <?php
 namespace Pyz\Zed\Catalog\Business\Model\Import\Product\Validator\Workflow\Definition;
 
-use ProjectA\Zed\Catalog\Component\Model\Import\Product\Validator\Workflow\Definition\AbstractDefinition;
+use ProjectA\Zed\Catalog\Business\Model\Import\Product\Validator\Workflow\Definition\AbstractDefinition;
 use ProjectA\Zed\Library\Workflow\TaskInterface;
 
 class ValidateNewSimpleProduct extends AbstractDefinition

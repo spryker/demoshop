@@ -3,7 +3,7 @@
 namespace Pyz\Zed\Catalog\Business;
 
 use Pyz\Zed\Catalog\Business\Model\Import\Product\FieldnameConstantInterface;
-use ProjectA\Zed\Catalog\Component\CatalogSettings as CoreSettings;
+use ProjectA\Zed\Catalog\Business\CatalogSettings as CoreSettings;
 
 class CatalogSettings extends CoreSettings implements FieldnameConstantInterface
 {

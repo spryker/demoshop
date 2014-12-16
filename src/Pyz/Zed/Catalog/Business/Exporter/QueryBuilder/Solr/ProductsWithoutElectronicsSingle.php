@@ -1,7 +1,7 @@
 <?php
 namespace Pyz\Zed\Catalog\Business\Exporter\QueryBuilder\Solr;
 
-use ProjectA\Zed\Catalog\Component\Exporter\QueryBuilder\Solr;
+use ProjectA\Zed\Catalog\Business\Exporter\QueryBuilder\Solr;
 use Pyz\Shared\Catalog\Code\ProductAttributeSetConstantInterface;
 
 /**

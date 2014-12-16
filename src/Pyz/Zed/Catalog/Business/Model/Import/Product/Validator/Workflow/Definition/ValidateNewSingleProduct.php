@@ -2,7 +2,7 @@
 namespace Pyz\Zed\Catalog\Business\Model\Import\Product\Validator\Workflow\Definition;
 
 use ProjectA\Zed\Library\Workflow\TaskInterface;
-use ProjectA\Zed\Catalog\Component\Model\Import\Product\Validator\Workflow\Definition\ValidateNewSingleProduct as CoreValidateNewSingleProduct;
+use ProjectA\Zed\Catalog\Business\Model\Import\Product\Validator\Workflow\Definition\ValidateNewSingleProduct as CoreValidateNewSingleProduct;
 
 class ValidateNewSingleProduct extends CoreValidateNewSingleProduct
 {

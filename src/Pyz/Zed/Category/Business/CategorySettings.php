@@ -2,7 +2,7 @@
 
 namespace Pyz\Zed\Category\Business;
 
-use ProjectA\Zed\Category\Component\CategorySettings as ProjectACategorySettings;
+use ProjectA\Zed\Category\Business\CategorySettings as ProjectACategorySettings;
 
 /**
  * Class Settings

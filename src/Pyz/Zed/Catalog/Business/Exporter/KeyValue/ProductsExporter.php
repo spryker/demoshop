@@ -4,9 +4,9 @@ namespace Pyz\Zed\Catalog\Business\Exporter\KeyValue;
 use Generated\Zed\Yves\Business\Dependency\YvesFacadeInterface;
 use Generated\Zed\Yves\Business\Dependency\YvesFacadeTrait;
 use ProjectA\Shared\Catalog\Code\Storage\StorageKeyGenerator;
-use ProjectA\Zed\Catalog\Component\Exporter\ProductsExporter as CoreProductsExporter;
-use ProjectA\Zed\Catalog\Component\Exporter\QueryBuilder\AbstractProduct;
-use ProjectA\Zed\Yves\Component\Model\Export\AbstractExport;
+use ProjectA\Zed\Catalog\Business\Exporter\ProductsExporter as CoreProductsExporter;
+use ProjectA\Zed\Catalog\Business\Exporter\QueryBuilder\AbstractProduct;
+use ProjectA\Zed\Yves\Business\Model\Export\AbstractExport;
 use Pyz\Shared\Catalog\Code\ProductAttributeConstantInterface;
 use Pyz\Shared\Catalog\Code\ProductAttributeSetConstantInterface;
 

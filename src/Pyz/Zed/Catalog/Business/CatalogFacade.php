@@ -5,7 +5,7 @@ namespace Pyz\Zed\Catalog\Business;
 /**
  * @property \Generated\Zed\Catalog\Business\CatalogFactory $factory
  */
-class CatalogFacade extends \ProjectA\Zed\Catalog\Component\CatalogFacade
+class CatalogFacade extends \ProjectA\Zed\Catalog\Business\CatalogFacade
 {
 
 

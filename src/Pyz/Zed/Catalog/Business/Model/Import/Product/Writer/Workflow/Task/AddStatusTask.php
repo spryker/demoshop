@@ -1,9 +1,9 @@
 <?php
 namespace Pyz\Zed\Catalog\Business\Model\Import\Product\Writer\Workflow\Task;
 
-use ProjectA\Zed\Catalog\Component\Model\Composite\ProductComposite;
-use ProjectA\Zed\Catalog\Component\Model\Import\Product\Writer\Workflow\Context;
-use ProjectA\Zed\Catalog\Component\Model\Import\Product\Writer\Workflow\Task\AbstractTask;
+use ProjectA\Zed\Catalog\Business\Model\Composite\ProductComposite;
+use ProjectA\Zed\Catalog\Business\Model\Import\Product\Writer\Workflow\Context;
+use ProjectA\Zed\Catalog\Business\Model\Import\Product\Writer\Workflow\Task\AbstractTask;
 
 class AddStatusTask extends AbstractTask
 {

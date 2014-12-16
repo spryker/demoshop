@@ -1,6 +1,6 @@
 <?php
 namespace Pyz\Zed\Catalog\Business\Internal;
-use ProjectA\Zed\Catalog\Component\Model\ProductVarietyConstantInterface;
+use ProjectA\Zed\Catalog\Business\Model\ProductVarietyConstantInterface;
 
 /**
  * @property \Generated\Zed\Catalog\Business\CatalogFactory $factory

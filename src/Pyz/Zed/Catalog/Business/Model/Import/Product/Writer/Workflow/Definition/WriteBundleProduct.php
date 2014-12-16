@@ -3,9 +3,9 @@ namespace Pyz\Zed\Catalog\Business\Model\Import\Product\Writer\Workflow\Definiti
 
 use Generated\Zed\Catalog\Business\Dependency\CatalogFacadeInterface;
 use Generated\Zed\Catalog\Business\Dependency\CatalogFacadeTrait;
-use ProjectA\Zed\Catalog\Component\Model\Composite\ProductComposite;
-use ProjectA\Zed\Catalog\Component\Model\Import\Product\FieldnameConstantInterface;
-use ProjectA\Zed\Catalog\Component\Model\Import\Product\Writer\Workflow\Definition\AbstractDefinition;
+use ProjectA\Zed\Catalog\Business\Model\Composite\ProductComposite;
+use ProjectA\Zed\Catalog\Business\Model\Import\Product\FieldnameConstantInterface;
+use ProjectA\Zed\Catalog\Business\Model\Import\Product\Writer\Workflow\Definition\AbstractDefinition;
 use ProjectA\Zed\Library\Workflow\TaskInterface;
 
 class WriteBundleProduct extends AbstractDefinition implements CatalogFacadeInterface
