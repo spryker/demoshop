@@ -41,6 +41,7 @@ config/accumulated-config.json
 # public stuff
 /static/public/Yves/*
 !/static/public/Yves/index.php
+!/static/public/Yves/maintenance/index.html
 
 /static/public/Zed/*
 !/static/public/Zed/index.php
