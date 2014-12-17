@@ -4,9 +4,9 @@
   "version": "0.1.0",
   "description": "Grunt asset distribution for Yves & Zed",
   "author": {
-    "name": "Project A Ventures",
-    "email": "info@project-a.com",
-    "url": "http://www.project-a.com/"
+    "name": "Spryker",
+    "email": "info@spryker.com",
+    "url": "http://spryker.com/"
   },
   "scripts": {
     "setup": "vendor/bin/console code:grunt",
