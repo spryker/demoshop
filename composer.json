@@ -33,8 +33,7 @@
         "predis/predis": "v1.0.0",
         "knplabs/knp-menu": "2.0.1",
         "symfony/validator": "2.5.*",
-
-        "symfony/twig-bridge": "2.5.*"
+        "symfony/propel1-bridge": "*"
     },
     "require-dev": {
         "silex/web-profiler": "~1.0.2",
