@@ -20,7 +20,7 @@ use ProjectA\Zed\Library\Silex\Provider\TwigServiceProvider;
 use ProjectA\Zed\Library\Silex\Application as ZedApplication;
 use ProjectA\Zed\Library\Twig\Extension\ZedExtension;
 use ProjectA\Zed\ProductImage\Business\ServiceProvider\ProductImageServiceProvider;
-use ProjectA\Zed\Security\Communication\ServiceProvider\SecurityServiceProvider;
+use ProjectA\Zed\Auth\Communication\Plugin\ServiceProvider\SecurityServiceProvider;
 use ProjectA\Zed\Yves\Communication\ServiceProvider\FrontendServiceProvider;
 use Silex\Provider\FormServiceProvider;
 use Silex\Provider\HttpFragmentServiceProvider;
