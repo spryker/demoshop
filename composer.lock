@@ -1173,7 +1173,7 @@
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/content.git",
-                "reference": "56e9e4dcb265e9e788d8803e2b6b1dd04914b2d3"
+                "reference": "35b50cfacf451037c18a55c5efa668054d962891"
             },
             "require": {
                 "php": ">=5.4.0"
@@ -1197,7 +1197,7 @@
             "keywords": [
                 "Content Package"
             ],
-            "time": "2014-12-18 12:58:06"
+            "time": "2014-12-18 16:51:54"
         },
         {
             "name": "spryker/crm-package",
@@ -1336,7 +1336,7 @@
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/infrastructure.git",
-                "reference": "acea3ad80090e780df387ea4ff7beec4dee23462"
+                "reference": "ee88d4d370c94aa0ae61d376607e19f3b4fc5de6"
             },
             "require": {
                 "php": ">=5.4.0"
@@ -1352,7 +1352,7 @@
             "keywords": [
                 "infrastructure"
             ],
-            "time": "2014-12-18 12:53:41"
+            "time": "2014-12-18 16:49:50"
         },
         {
             "name": "spryker/kendo-package",
@@ -1379,7 +1379,7 @@
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/library.git",
-                "reference": "a309a8b44abb8c47e2d09b2e083fa3a62f5772d3"
+                "reference": "d685d1bfbe5147966c227a2c689b2ad4b697b2b1"
             },
             "require": {
                 "digital-canvas/zend-framework": ">=1.12.2",
@@ -1416,7 +1416,7 @@
                 }
             },
             "description": "Project-A Library",
-            "time": "2014-12-18 13:30:03"
+            "time": "2014-12-18 16:48:26"
         },
         {
             "name": "spryker/lumberjack-package",
