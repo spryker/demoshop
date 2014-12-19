@@ -997,7 +997,7 @@
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/catalog.git",
-                "reference": "cc99761c5064bbf44d5350b8d1e109a9725c707a"
+                "reference": "a0369fe8642213f5770f9c560115d52f22d8fa8e"
             },
             "require": {
                 "php": ">=5.4.0"
@@ -1031,7 +1031,7 @@
                 "Price",
                 "Stock"
             ],
-            "time": "2014-12-17 11:17:02"
+            "time": "2014-12-19 09:09:39"
         },
         {
             "name": "spryker/category-export-package",
@@ -1039,7 +1039,7 @@
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/category-export.git",
-                "reference": "00927c835658039200bab5efb21f09c4f3f4c14e"
+                "reference": "977ea1f99013f22cc322ee624db24466bf4ccc17"
             },
             "require": {
                 "php": ">=5.4.0",
@@ -1068,7 +1068,7 @@
                 "Export",
                 "Yves"
             ],
-            "time": "2014-12-17 15:55:34"
+            "time": "2014-12-19 09:21:52"
         },
         {
             "name": "spryker/category-package",
@@ -1076,7 +1076,7 @@
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/category.git",
-                "reference": "7aac5b9c99a6ce33c17ffdc5a5b2667cb52391b6"
+                "reference": "b3aeb492e8e99891da8e0590641c279cf980ca3c"
             },
             "require": {
                 "php": ">=5.4.0"
@@ -1091,7 +1091,7 @@
             "keywords": [
                 "Category"
             ],
-            "time": "2014-12-17 10:44:03"
+            "time": "2014-12-19 09:13:26"
         },
         {
             "name": "spryker/checkout-package",
@@ -1133,7 +1133,7 @@
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/console.git",
-                "reference": "8f5e3d37f4a9d21d7ff4cf6e3743fa0d4459eee0"
+                "reference": "8c549f18e31695540bf7656cadc55e10eaf1116d"
             },
             "require": {
                 "php": ">=5.4.0",
@@ -1165,7 +1165,7 @@
             "keywords": [
                 "console"
             ],
-            "time": "2014-12-17 11:17:38"
+            "time": "2014-12-19 11:14:23"
         },
         {
             "name": "spryker/content-package",
@@ -1173,7 +1173,7 @@
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/content.git",
-                "reference": "35b50cfacf451037c18a55c5efa668054d962891"
+                "reference": "11fa4b4f0ed6d4ea9cc839ddc417ebe4f347e72c"
             },
             "require": {
                 "php": ">=5.4.0"
@@ -1197,7 +1197,7 @@
             "keywords": [
                 "Content Package"
             ],
-            "time": "2014-12-18 16:51:54"
+            "time": "2014-12-19 11:12:40"
         },
         {
             "name": "spryker/crm-package",
@@ -1205,7 +1205,7 @@
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/crm.git",
-                "reference": "868227e50907edc9b06b0f4aa3007b9519504da3"
+                "reference": "073d866f7710fe424663f7fc87e395d49ac1391b"
             },
             "require": {
                 "php": ">=5.4.0",
@@ -1232,7 +1232,7 @@
                 "mail",
                 "newsletter"
             ],
-            "time": "2014-12-18 12:56:55"
+            "time": "2014-12-19 11:12:15"
         },
         {
             "name": "spryker/document-package",
@@ -1272,7 +1272,7 @@
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/frontend.git",
-                "reference": "55bbb1546f5437b516f7b14212a86b9bce8c3667"
+                "reference": "2d181f5d13db6d50df2c6232feb8f26b4db0ab7d"
             },
             "require": {
                 "php": ">=5.4.0"
@@ -1295,7 +1295,7 @@
             "keywords": [
                 "Frontend"
             ],
-            "time": "2014-12-16 09:59:43"
+            "time": "2014-12-19 11:11:33"
         },
         {
             "name": "spryker/glossary-package",
@@ -1303,7 +1303,7 @@
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/glossary.git",
-                "reference": "5715a980ee9b899b4781b4927fb2642d0592df85"
+                "reference": "40adb493349efc333547558b249c650f96e5d225"
             },
             "require": {
                 "php": ">=5.4.0",
@@ -1328,7 +1328,7 @@
                 "i18n",
                 "translation"
             ],
-            "time": "2014-12-17 10:17:18"
+            "time": "2014-12-19 11:10:41"
         },
         {
             "name": "spryker/infrastructure-package",
@@ -1336,7 +1336,7 @@
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/infrastructure.git",
-                "reference": "ee88d4d370c94aa0ae61d376607e19f3b4fc5de6"
+                "reference": "0d9638af0d849f8a6dc4754aa07273ca0c355b7f"
             },
             "require": {
                 "php": ">=5.4.0"
@@ -1352,7 +1352,7 @@
             "keywords": [
                 "infrastructure"
             ],
-            "time": "2014-12-18 16:49:50"
+            "time": "2014-12-19 11:10:12"
         },
         {
             "name": "spryker/kendo-package",
@@ -1456,7 +1456,7 @@
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/payment.git",
-                "reference": "d6993f919b4eea167e220673b6abbc1a1b4480a9"
+                "reference": "a5843b49674184dd1878fca9f71ba97f407b2b45"
             },
             "require": {
                 "php": ">=5.4.0",
@@ -1484,7 +1484,7 @@
                 "payment control",
                 "payment provider"
             ],
-            "time": "2014-12-16 09:24:27"
+            "time": "2014-12-19 11:09:11"
         },
         {
             "name": "spryker/payone-package",
@@ -1492,7 +1492,7 @@
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/payone.git",
-                "reference": "59153064318a40b9c89c0b6a9bba4229ff802951"
+                "reference": "79ea3ca329de7e2d6e7948611c748eea1ba1206d"
             },
             "require": {
                 "php": ">=5.4.0"
@@ -1515,7 +1515,7 @@
             "keywords": [
                 "payment,payment provider,payone"
             ],
-            "time": "2014-12-16 09:24:58"
+            "time": "2014-12-19 11:08:33"
         },
         {
             "name": "spryker/product-export-package",
@@ -1523,7 +1523,7 @@
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/product-export.git",
-                "reference": "cbe75d51c073205c07eddf0fc35a48976a4194f3"
+                "reference": "29eb684ec65e41e2165180c0624ecd11474ec825"
             },
             "require": {
                 "php": ">=5.4.0",
@@ -1554,7 +1554,7 @@
                 "Product",
                 "Yves"
             ],
-            "time": "2014-12-17 10:21:13"
+            "time": "2014-12-19 10:00:35"
         },
         {
             "name": "spryker/product-package",
@@ -1598,7 +1598,7 @@
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/sales.git",
-                "reference": "ca17cec52e87142a450f773bd933b3b11ee363a1"
+                "reference": "568b7b5e9efaf77c17739814d8871a864a34d7ee"
             },
             "require": {
                 "php": ">=5.4.0"
@@ -1623,7 +1623,7 @@
                 "Sales",
                 "Task"
             ],
-            "time": "2014-12-18 12:51:56"
+            "time": "2014-12-19 11:08:09"
         },
         {
             "name": "spryker/yves-export-package",
@@ -4788,6 +4788,7 @@
         "newloki/propel-module": 20
     },
     "prefer-stable": true,
+    "prefer-lowest": false,
     "platform": [],
     "platform-dev": []
 }
