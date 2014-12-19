@@ -1,11 +1,10 @@
 <?php
 
+namespace Pyz\Zed\Oms\Communication\Plugin\Oms;
 
-namespace Pyz\Zed\Oms;
-
-use ProjectA\Zed\Oms\Business\Command\AbstractCommand;
-use ProjectA\Zed\Oms\Business\Command\CommandByOrderInterface;
 use ProjectA\Zed\Oms\Business\Model\Util\ReadOnlyArrayObject;
+use ProjectA\Zed\Oms\Communication\Plugin\Oms\Command\AbstractCommand;
+use ProjectA\Zed\Oms\Communication\Plugin\Oms\Command\CommandByOrderInterface;
 use ProjectA\Zed\Payment\Business\Model\PaymentConstantsInterface;
 use ProjectA\Zed\Payment\Business\Model\PaymentResponse;
 
@@ -31,4 +30,3 @@ class FakeAuthPayment extends AbstractCommand implements CommandByOrderInterface
     }
 
 }
- 

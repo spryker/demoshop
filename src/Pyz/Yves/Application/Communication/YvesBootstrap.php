@@ -1,4 +1,5 @@
 <?php
+
 namespace Pyz\Yves\Application\Communication;
 
 use Generated\Yves\Factory;

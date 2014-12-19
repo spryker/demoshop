@@ -23,6 +23,7 @@ return [
         'Cms' => $allElements,
         'Catalog' => $schemaAndNavigation,
         'Category' => $schemaAndNavigation,
+        'CategoryTree' => $schema,
         'Customer' => $schemaAndNavigation,
         'Document' => $schema,
         'Glossary' => $allElements,

@@ -1,4 +1,5 @@
 <?php
+
 namespace Pyz\Zed\Application\Communication;
 
 use ProjectA\Shared\Library\Config;
@@ -6,6 +7,10 @@ use ProjectA\Shared\Library\Silex\Application;
 use ProjectA\Shared\Library\Silex\Bootstrap;
 use ProjectA\Shared\System\SystemConfig;
 use ProjectA\Shared\Yves\YvesConfig;
+use ProjectA\Shared\Library\Silex\ServiceProvider\UrlGeneratorServiceProvider;
+use ProjectA\Shared\Library\Silex\ServiceProvider\RoutingServiceProvider;
+use ProjectA\Shared\Library\Silex\Routing\SilexRouter;
+
 use ProjectA\Zed\Application\Business\Model\Router\MvcRouter;
 use ProjectA\Zed\Application\Communication\Plugin\ServiceProvider\EnvironmentInformationServiceProvider;
 use ProjectA\Zed\Application\Communication\Plugin\ServiceProvider\NewRelicServiceProvider;
@@ -13,24 +18,30 @@ use ProjectA\Zed\Application\Communication\Plugin\ServiceProvider\PropelServiceP
 use ProjectA\Zed\Application\Communication\Plugin\ServiceProvider\SessionServiceProvider;
 use ProjectA\Zed\Application\Communication\Plugin\ServiceProvider\SslServiceProvider;
 use ProjectA\Zed\Application\Communication\Plugin\ServiceProvider\TranslationServiceProvider;
+
 use ProjectA\Zed\Auth\Business\Model\Auth;
-use ProjectA\Zed\Cms\Communication\ServiceProvider\CmsServiceProvider;
+
+use ProjectA\Zed\Cms\Communication\Plugin\ServiceProvider\CmsServiceProvider;
+
 use ProjectA\Zed\Library\Silex\Provider\RequestServiceProvider;
 use ProjectA\Zed\Library\Silex\Provider\TwigServiceProvider;
 use ProjectA\Zed\Library\Silex\Application as ZedApplication;
 use ProjectA\Zed\Library\Twig\Extension\ZedExtension;
+
 use ProjectA\Zed\ProductImage\Business\ServiceProvider\ProductImageServiceProvider;
+
 use ProjectA\Zed\Auth\Communication\Plugin\ServiceProvider\SecurityServiceProvider;
-use ProjectA\Zed\Yves\Communication\ServiceProvider\FrontendServiceProvider;
+use ProjectA\Zed\Yves\Communication\Plugin\ServiceProvider\FrontendServiceProvider;
+
 use Silex\Provider\FormServiceProvider;
 use Silex\Provider\HttpFragmentServiceProvider;
 use Silex\Provider\RememberMeServiceProvider;
 use Silex\Provider\ServiceControllerServiceProvider;
 use Silex\Provider\ValidatorServiceProvider;
 use Silex\Provider\WebProfilerServiceProvider;
-use ProjectA\Shared\Library\Silex\ServiceProvider\UrlGeneratorServiceProvider;
-use ProjectA\Shared\Library\Silex\ServiceProvider\RoutingServiceProvider;
-use ProjectA\Shared\Library\Silex\Routing\SilexRouter;
+
+
+
 use Symfony\Component\HttpFoundation\Request;
 
 class ZedBootstrap extends Bootstrap
