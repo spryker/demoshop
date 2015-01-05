@@ -7,6 +7,9 @@ use Generated\Zed\CategoryExporter\Business\Dependency\CategoryExporterFacadeInt
 use Generated\Zed\CategoryExporter\Business\Dependency\CategoryExporterFacadeTrait;
 use Generated\Zed\ProductExporter\Business\Dependency\ProductExporterFacadeInterface;
 use Generated\Zed\ProductExporter\Business\Dependency\ProductExporterFacadeTrait;
+use ProjectA\Zed\CategoryExporter\Communication\Plugin\CategoryNodeProcessorPlugin;
+use ProjectA\Zed\CategoryExporter\Communication\Plugin\NavigationProcessorPlugin;
+use ProjectA\Zed\ProductExporter\Communication\Plugin\ProductProcessorPlugin;
 use ProjectA\Zed\YvesExport\Business\YvesExportSettings as CoreYvesExportSettings;
 
 /**
@@ -16,7 +19,6 @@ use ProjectA\Zed\YvesExport\Business\YvesExportSettings as CoreYvesExportSetting
  */
 class YvesExportSettings extends CoreYvesExportSettings
     implements ProductExporterFacadeInterface, CategoryExporterFacadeInterface
-
 {
     use ProductExporterFacadeTrait;
     use CategoryExporterFacadeTrait;
@@ -27,9 +29,9 @@ class YvesExportSettings extends CoreYvesExportSettings
     public function getKeyValueProcessors()
     {
         return [
-            $this->facadeProductExporter->getProductProcessor(),
-            $this->facadeCategoryExporter->getNavigationExporter(),
-            $this->facadeCategoryExporter->getCategoryNodeExporter(),
+            new ProductProcessorPlugin($this->facadeProductExporter, 100, 10),
+            new NavigationProcessorPlugin($this->facadeCategoryExporter),
+            new CategoryNodeProcessorPlugin($this->facadeCategoryExporter, 100)
         ];
     }
 }
