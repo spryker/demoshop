@@ -20,6 +20,7 @@
         "spryker/payone-package": "dev-master",
         "spryker/product-package": "dev-master",
         "spryker/product-export-package": "dev-master",
+        "spryker/product-category-package": "dev-master",
         "spryker/sales-package": "dev-master",
         "spryker/yves-export-package": "dev-master",
 
@@ -131,6 +132,10 @@
         {
             "type": "git",
             "url": "git@github.com:spryker/product.git"
+        },
+        {
+            "type": "git",
+            "url": "git@github.com:spryker/product-category.git"
         },
         {
             "type": "git",
