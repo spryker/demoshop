@@ -3,7 +3,7 @@
         "spryker/acl-package": "dev-master",
         "spryker/cart-package": "dev-master",
         "spryker/catalog-package": "dev-master",
-        "spryker/category-package": "dev-master",
+        "spryker/category-tree-package": "dev-master",
         "spryker/category-export-package": "dev-master",
         "spryker/checkout-package": "dev-master",
         "spryker/content-package": "dev-master",
@@ -20,6 +20,7 @@
         "spryker/payone-package": "dev-master",
         "spryker/product-package": "dev-master",
         "spryker/product-export-package": "dev-master",
+        "spryker/product-category-package": "dev-master",
         "spryker/sales-package": "dev-master",
         "spryker/yves-export-package": "product-search-dev as dev-master",
         "spryker/product-search-package": "dev-master",
@@ -33,7 +34,8 @@
         "mandrill/mandrill": "1.0.*",
         "predis/predis": "v1.0.0",
         "knplabs/knp-menu": "2.0.1",
-        "symfony/validator": "2.5.*"
+        "symfony/validator": "2.5.*",
+        "symfony/propel1-bridge": "*"
     },
     "require-dev": {
         "silex/web-profiler": "~1.0.2",
@@ -70,7 +72,7 @@
         },
         {
             "type": "git",
-            "url": "git@github.com:spryker/category.git"
+            "url": "git@github.com:spryker/category-tree.git"
         },
         {
             "type": "git",
@@ -131,6 +133,10 @@
         {
             "type": "git",
             "url": "git@github.com:spryker/product.git"
+        },
+        {
+            "type": "git",
+            "url": "git@github.com:spryker/product-category.git"
         },
         {
             "type": "git",

@@ -1,22 +1,15 @@
 <?php
 
-namespace Pyz\Zed\Sales\Business\Model\Orderprocess\Command\Mail;
+namespace Pyz\Zed\Sales\Communication\Plugin\Oms\Command\Mail;
 
-use ProjectA\Zed\Oms\Business\Command\CommandByOrderInterface;
 use ProjectA\Zed\Oms\Business\Model\Util\ReadOnlyArrayObject;
-use ProjectA\Zed\Sales\Business\Model\Orderprocess\Command\AbstractMail;
-use ProjectA\Zed\Payone\Business\Model\Zed\StateMachine\StateMachineConstants as PayoneStateMachineConstants;
+use ProjectA\Zed\Oms\Communication\Plugin\Oms\Command\CommandByOrderInterface;
+use ProjectA\Zed\Payone\Communication\Plugin\Oms\StateMachineConstants;
+use ProjectA\Zed\Sales\Communication\Plugin\Oms\Command\AbstractMail;
 use Pyz\Zed\Mail\Business\Model\MailTypesConstantInterface;
 use ProjectA\Shared\Library\Currency\CurrencyManager;
 
-
-/**
- * @property \Pyz\Zed\Sales\Business\SalesFacade $facadeSales
- * @property \Pyz\Zed\Mail\Business\MailFacade $facadeMail
- */
-class UnderpaidReminderMail
-    extends AbstractMail
-        implements CommandByOrderInterface
+class UnderpaidReminderMail extends AbstractMail implements CommandByOrderInterface
 {
 
     /**
@@ -30,7 +23,7 @@ class UnderpaidReminderMail
         \ProjectA_Zed_Sales_Persistence_PacSalesOrder $orderEntity,
         ReadOnlyArrayObject $data
     ) {
-        $transactionStatusRequest = $context[PayoneStateMachineConstants::STATEMACHINE_CONTEXT_TRANSACTION_STATUS_REQUEST];
+        $transactionStatusRequest = $context[StateMachineConstants::STATEMACHINE_CONTEXT_TRANSACTION_STATUS_REQUEST];
         $currencyManager = CurrencyManager::getInstance();
         $balance = $transactionStatusRequest->getBalance();
         $grandTotal = $orderEntity->getGrandTotal();

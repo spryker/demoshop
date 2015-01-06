@@ -4,7 +4,7 @@
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "f9bc129ff320887eb375e07f5a0c4ee9",
+    "hash": "ed6d3f124eaf25f63531cddaca330aad",
     "packages": [
         {
             "name": "digital-canvas/zend-framework",
@@ -49,22 +49,30 @@
         },
         {
             "name": "doctrine/inflector",
-            "version": "v1.0",
+            "version": "v1.0.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/doctrine/inflector.git",
-                "reference": "54b8333d2a5682afdc690060c1cf384ba9f47f08"
+                "reference": "0bcb2e79d8571787f18b7eb036ed3d004908e604"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/doctrine/inflector/zipball/54b8333d2a5682afdc690060c1cf384ba9f47f08",
-                "reference": "54b8333d2a5682afdc690060c1cf384ba9f47f08",
+                "url": "https://api.github.com/repos/doctrine/inflector/zipball/0bcb2e79d8571787f18b7eb036ed3d004908e604",
+                "reference": "0bcb2e79d8571787f18b7eb036ed3d004908e604",
                 "shasum": ""
             },
             "require": {
                 "php": ">=5.3.2"
             },
+            "require-dev": {
+                "phpunit/phpunit": "4.*"
+            },
             "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "1.0.x-dev"
+                }
+            },
             "autoload": {
                 "psr-0": {
                     "Doctrine\\Common\\Inflector\\": "lib/"
@@ -76,17 +84,6 @@
             ],
             "authors": [
                 {
-                    "name": "Jonathan Wage",
-                    "email": "jonwage@gmail.com",
-                    "homepage": "http://www.jwage.com/",
-                    "role": "Creator"
-                },
-                {
-                    "name": "Guilherme Blanco",
-                    "email": "guilhermeblanco@gmail.com",
-                    "homepage": "http://www.instaclick.com"
-                },
-                {
                     "name": "Roman Borschel",
                     "email": "roman@code-factory.org"
                 },
@@ -95,99 +92,90 @@
                     "email": "kontakt@beberlei.de"
                 },
                 {
+                    "name": "Guilherme Blanco",
+                    "email": "guilhermeblanco@gmail.com"
+                },
+                {
+                    "name": "Jonathan Wage",
+                    "email": "jonwage@gmail.com"
+                },
+                {
                     "name": "Johannes Schmitt",
-                    "email": "schmittjoh@gmail.com",
-                    "homepage": "https://github.com/schmittjoh",
-                    "role": "Developer of wrapped JMSSerializerBundle"
+                    "email": "schmittjoh@gmail.com"
                 }
             ],
             "description": "Common String Manipulations with regard to casing and singular/plural rules.",
             "homepage": "http://www.doctrine-project.org",
             "keywords": [
                 "inflection",
-                "pluarlize",
-                "singuarlize",
+                "pluralize",
+                "singularize",
                 "string"
             ],
-            "time": "2013-01-10 21:49:15"
+            "time": "2014-12-20 21:24:13"
         },
         {
-            "name": "guzzle/common",
+            "name": "guzzle/guzzle",
             "version": "v3.8.0",
-            "target-dir": "Guzzle/Common",
             "source": {
                 "type": "git",
-                "url": "https://github.com/guzzle/common.git",
-                "reference": "eb4e34cac1b18583f0ee74bf6a9dda96bd771a1e"
+                "url": "https://github.com/guzzle/guzzle.git",
+                "reference": "b4a3ce8c05e777fa18b802956d5d0e38ad338a69"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/guzzle/common/zipball/eb4e34cac1b18583f0ee74bf6a9dda96bd771a1e",
-                "reference": "eb4e34cac1b18583f0ee74bf6a9dda96bd771a1e",
+                "url": "https://api.github.com/repos/guzzle/guzzle/zipball/b4a3ce8c05e777fa18b802956d5d0e38ad338a69",
+                "reference": "b4a3ce8c05e777fa18b802956d5d0e38ad338a69",
                 "shasum": ""
             },
             "require": {
-                "php": ">=5.3.2",
+                "ext-curl": "*",
+                "php": ">=5.3.3",
                 "symfony/event-dispatcher": ">=2.1"
             },
-            "type": "library",
-            "extra": {
-                "branch-alias": {
-                    "dev-master": "3.7-dev"
-                }
-            },
-            "autoload": {
-                "psr-0": {
-                    "Guzzle\\Common": ""
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "description": "Common libraries used by Guzzle",
-            "homepage": "http://guzzlephp.org/",
-            "keywords": [
-                "collection",
-                "common",
-                "event",
-                "exception"
-            ],
-            "time": "2013-12-05 23:39:20"
-        },
-        {
-            "name": "guzzle/http",
-            "version": "v3.8.0",
-            "target-dir": "Guzzle/Http",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/guzzle/http.git",
-                "reference": "b497e6b6a5a85751ae0c6858d677f7c4857dd171"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/guzzle/http/zipball/b497e6b6a5a85751ae0c6858d677f7c4857dd171",
-                "reference": "b497e6b6a5a85751ae0c6858d677f7c4857dd171",
-                "shasum": ""
-            },
-            "require": {
+            "replace": {
+                "guzzle/batch": "self.version",
+                "guzzle/cache": "self.version",
                 "guzzle/common": "self.version",
+                "guzzle/http": "self.version",
+                "guzzle/inflection": "self.version",
+                "guzzle/iterator": "self.version",
+                "guzzle/log": "self.version",
                 "guzzle/parser": "self.version",
-                "guzzle/stream": "self.version",
-                "php": ">=5.3.2"
+                "guzzle/plugin": "self.version",
+                "guzzle/plugin-async": "self.version",
+                "guzzle/plugin-backoff": "self.version",
+                "guzzle/plugin-cache": "self.version",
+                "guzzle/plugin-cookie": "self.version",
+                "guzzle/plugin-curlauth": "self.version",
+                "guzzle/plugin-error-response": "self.version",
+                "guzzle/plugin-history": "self.version",
+                "guzzle/plugin-log": "self.version",
+                "guzzle/plugin-md5": "self.version",
+                "guzzle/plugin-mock": "self.version",
+                "guzzle/plugin-oauth": "self.version",
+                "guzzle/service": "self.version",
+                "guzzle/stream": "self.version"
             },
-            "suggest": {
-                "ext-curl": "*"
+            "require-dev": {
+                "doctrine/cache": "*",
+                "monolog/monolog": "1.*",
+                "phpunit/phpunit": "3.7.*",
+                "psr/log": "1.0.*",
+                "symfony/class-loader": "*",
+                "zendframework/zend-cache": "2.0.*",
+                "zendframework/zend-log": "2.0.*"
             },
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "3.7-dev"
+                    "dev-master": "3.8-dev"
                 }
             },
             "autoload": {
                 "psr-0": {
-                    "Guzzle\\Http": ""
+                    "Guzzle\\Tests": "tests/",
+                    "Guzzle": "src/"
                 }
             },
             "notification-url": "https://packagist.org/downloads/",
@@ -199,115 +187,24 @@
                     "name": "Michael Dowling",
                     "email": "mtdowling@gmail.com",
                     "homepage": "https://github.com/mtdowling"
+                },
+                {
+                    "name": "Guzzle Community",
+                    "homepage": "https://github.com/guzzle/guzzle/contributors"
                 }
             ],
-            "description": "HTTP libraries used by Guzzle",
+            "description": "Guzzle is a PHP HTTP client library and framework for building RESTful web service clients",
             "homepage": "http://guzzlephp.org/",
             "keywords": [
-                "Guzzle",
                 "client",
                 "curl",
+                "framework",
                 "http",
-                "http client"
+                "http client",
+                "rest",
+                "web service"
             ],
-            "time": "2013-12-04 22:21:25"
-        },
-        {
-            "name": "guzzle/parser",
-            "version": "v3.8.0",
-            "target-dir": "Guzzle/Parser",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/guzzle/parser.git",
-                "reference": "77cae6425bc3466e1e47bdf6d2eebc15a092dbcc"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/guzzle/parser/zipball/77cae6425bc3466e1e47bdf6d2eebc15a092dbcc",
-                "reference": "77cae6425bc3466e1e47bdf6d2eebc15a092dbcc",
-                "shasum": ""
-            },
-            "require": {
-                "php": ">=5.3.2"
-            },
-            "type": "library",
-            "extra": {
-                "branch-alias": {
-                    "dev-master": "3.7-dev"
-                }
-            },
-            "autoload": {
-                "psr-0": {
-                    "Guzzle\\Parser": ""
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "description": "Interchangeable parsers used by Guzzle",
-            "homepage": "http://guzzlephp.org/",
-            "keywords": [
-                "URI Template",
-                "cookie",
-                "http",
-                "message",
-                "url"
-            ],
-            "time": "2013-10-24 00:04:09"
-        },
-        {
-            "name": "guzzle/stream",
-            "version": "v3.8.0",
-            "target-dir": "Guzzle/Stream",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/guzzle/stream.git",
-                "reference": "a86111d9ac7db31d65a053c825869409fe8fc83f"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/guzzle/stream/zipball/a86111d9ac7db31d65a053c825869409fe8fc83f",
-                "reference": "a86111d9ac7db31d65a053c825869409fe8fc83f",
-                "shasum": ""
-            },
-            "require": {
-                "guzzle/common": "self.version",
-                "php": ">=5.3.2"
-            },
-            "suggest": {
-                "guzzle/http": "To convert Guzzle request objects to PHP streams"
-            },
-            "type": "library",
-            "extra": {
-                "branch-alias": {
-                    "dev-master": "3.7-dev"
-                }
-            },
-            "autoload": {
-                "psr-0": {
-                    "Guzzle\\Stream": ""
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Michael Dowling",
-                    "email": "mtdowling@gmail.com",
-                    "homepage": "https://github.com/mtdowling"
-                }
-            ],
-            "description": "Guzzle stream wrapper component",
-            "homepage": "http://guzzlephp.org/",
-            "keywords": [
-                "Guzzle",
-                "component",
-                "stream"
-            ],
-            "time": "2013-07-30 22:07:23"
+            "time": "2013-12-05 23:39:20"
         },
         {
             "name": "ircmaxell/password-compat",
@@ -515,16 +412,16 @@
         },
         {
             "name": "monolog/monolog",
-            "version": "1.11.0",
+            "version": "1.12.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/Seldaek/monolog.git",
-                "reference": "ec3961874c43840e96da3a8a1ed20d8c73d7e5aa"
+                "reference": "1fbe8c2641f2b163addf49cc5e18f144bec6b19f"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Seldaek/monolog/zipball/ec3961874c43840e96da3a8a1ed20d8c73d7e5aa",
-                "reference": "ec3961874c43840e96da3a8a1ed20d8c73d7e5aa",
+                "url": "https://api.github.com/repos/Seldaek/monolog/zipball/1fbe8c2641f2b163addf49cc5e18f144bec6b19f",
+                "reference": "1fbe8c2641f2b163addf49cc5e18f144bec6b19f",
                 "shasum": ""
             },
             "require": {
@@ -538,7 +435,7 @@
                 "aws/aws-sdk-php": "~2.4, >2.4.8",
                 "doctrine/couchdb": "~1.0@dev",
                 "graylog2/gelf-php": "~1.0",
-                "phpunit/phpunit": "~3.7.0",
+                "phpunit/phpunit": "~4.0",
                 "raven/raven": "~0.5",
                 "ruflin/elastica": "0.90.*",
                 "videlalvaro/php-amqplib": "~2.4"
@@ -557,7 +454,7 @@
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "1.11.x-dev"
+                    "dev-master": "1.12.x-dev"
                 }
             },
             "autoload": {
@@ -583,7 +480,7 @@
                 "logging",
                 "psr-3"
             ],
-            "time": "2014-09-30 13:30:58"
+            "time": "2014-12-29 21:29:35"
         },
         {
             "name": "phing/phing",
@@ -643,12 +540,12 @@
             "version": "v1.1.1",
             "source": {
                 "type": "git",
-                "url": "https://github.com/silexphp/Pimple.git",
+                "url": "https://github.com/fabpot/Pimple.git",
                 "reference": "2019c145fe393923f3441b23f29bbdfaa5c58c4d"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/silexphp/Pimple/zipball/2019c145fe393923f3441b23f29bbdfaa5c58c4d",
+                "url": "https://api.github.com/repos/fabpot/Pimple/zipball/2019c145fe393923f3441b23f29bbdfaa5c58c4d",
                 "reference": "2019c145fe393923f3441b23f29bbdfaa5c58c4d",
                 "shasum": ""
             },
@@ -673,7 +570,9 @@
             "authors": [
                 {
                     "name": "Fabien Potencier",
-                    "email": "fabien@symfony.com"
+                    "email": "fabien@symfony.com",
+                    "homepage": "http://fabien.potencier.org",
+                    "role": "Lead Developer"
                 }
             ],
             "description": "Pimple is a simple Dependency Injection Container for PHP 5.3",
@@ -839,65 +738,6 @@
                 "psr-3"
             ],
             "time": "2012-12-21 11:40:51"
-        },
-        {
-            "name": "ruflin/elastica",
-            "version": "v1.3.4.0",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/ruflin/Elastica.git",
-                "reference": "ffbfa5dd391bd097434e1c8262d7a1df1d2555f8"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/ruflin/Elastica/zipball/ffbfa5dd391bd097434e1c8262d7a1df1d2555f8",
-                "reference": "ffbfa5dd391bd097434e1c8262d7a1df1d2555f8",
-                "shasum": ""
-            },
-            "require": {
-                "php": ">=5.3.3"
-            },
-            "require-dev": {
-                "munkie/elasticsearch-thrift-php": "1.4.*",
-                "phpunit/phpunit": "4.1.*",
-                "psr/log": "~1.0",
-                "satooshi/php-coveralls": "dev-master"
-            },
-            "suggest": {
-                "guzzlehttp/guzzle": "Allow using guzzle 4.x as the http transport (requires php 5.4)",
-                "monolog/monolog": "Logging request",
-                "munkie/elasticsearch-thrift-php": "Allow using thrift transport",
-                "psr/log": "for logging"
-            },
-            "type": "library",
-            "extra": {
-                "branch-alias": {
-                    "dev-master": "1.3.x-dev"
-                }
-            },
-            "autoload": {
-                "psr-0": {
-                    "Elastica": "lib/",
-                    "Elastica\\Test": "test/lib/"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Nicolas Ruflin",
-                    "homepage": "http://ruflin.com/"
-                }
-            ],
-            "description": "Elasticsearch Client",
-            "homepage": "http://elastica.io/",
-            "keywords": [
-                "client",
-                "search"
-            ],
-            "time": "2014-10-04 20:15:58"
         },
         {
             "name": "silex/silex",
@@ -1098,10 +938,11 @@
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/category-export.git",
-                "reference": "977ea1f99013f22cc322ee624db24466bf4ccc17"
+                "reference": "1f1e3d41578769208547e56896fdeecb38cc769f"
             },
             "require": {
                 "php": ">=5.4.0",
+                "spryker/category-tree-package": "dev-master",
                 "spryker/yves-export-package": "dev-master"
             },
             "require-dev": {
@@ -1127,15 +968,15 @@
                 "Export",
                 "Yves"
             ],
-            "time": "2014-12-19 09:21:52"
+            "time": "2015-01-06 08:48:15"
         },
         {
-            "name": "spryker/category-package",
+            "name": "spryker/category-tree-package",
             "version": "dev-master",
             "source": {
                 "type": "git",
-                "url": "git@github.com:spryker/category.git",
-                "reference": "b3aeb492e8e99891da8e0590641c279cf980ca3c"
+                "url": "git@github.com:spryker/category-tree.git",
+                "reference": "6fb81818395035c8bdf9d915e609ea6f1701b98d"
             },
             "require": {
                 "php": ">=5.4.0"
@@ -1146,11 +987,11 @@
                     "ProjectA": "/src"
                 }
             },
-            "description": "Category package",
+            "description": "Category Tree package",
             "keywords": [
-                "Category"
+                "CategoryTree"
             ],
-            "time": "2014-12-19 09:13:26"
+            "time": "2015-01-05 16:45:17"
         },
         {
             "name": "spryker/checkout-package",
@@ -1192,7 +1033,7 @@
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/console.git",
-                "reference": "8f5e3d37f4a9d21d7ff4cf6e3743fa0d4459eee0"
+                "reference": "8c549f18e31695540bf7656cadc55e10eaf1116d"
             },
             "require": {
                 "php": ">=5.4.0",
@@ -1224,7 +1065,7 @@
             "keywords": [
                 "console"
             ],
-            "time": "2014-12-17 11:17:38"
+            "time": "2014-12-19 11:14:23"
         },
         {
             "name": "spryker/content-package",
@@ -1232,7 +1073,7 @@
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/content.git",
-                "reference": "35b50cfacf451037c18a55c5efa668054d962891"
+                "reference": "11fa4b4f0ed6d4ea9cc839ddc417ebe4f347e72c"
             },
             "require": {
                 "php": ">=5.4.0"
@@ -1256,7 +1097,7 @@
             "keywords": [
                 "Content Package"
             ],
-            "time": "2014-12-18 16:51:54"
+            "time": "2014-12-19 11:12:40"
         },
         {
             "name": "spryker/crm-package",
@@ -1264,7 +1105,7 @@
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/crm.git",
-                "reference": "868227e50907edc9b06b0f4aa3007b9519504da3"
+                "reference": "073d866f7710fe424663f7fc87e395d49ac1391b"
             },
             "require": {
                 "php": ">=5.4.0",
@@ -1291,7 +1132,7 @@
                 "mail",
                 "newsletter"
             ],
-            "time": "2014-12-18 12:56:55"
+            "time": "2014-12-19 11:12:15"
         },
         {
             "name": "spryker/document-package",
@@ -1331,7 +1172,7 @@
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/frontend.git",
-                "reference": "55bbb1546f5437b516f7b14212a86b9bce8c3667"
+                "reference": "2d181f5d13db6d50df2c6232feb8f26b4db0ab7d"
             },
             "require": {
                 "php": ">=5.4.0"
@@ -1354,7 +1195,7 @@
             "keywords": [
                 "Frontend"
             ],
-            "time": "2014-12-16 09:59:43"
+            "time": "2014-12-19 11:11:33"
         },
         {
             "name": "spryker/glossary-package",
@@ -1362,7 +1203,7 @@
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/glossary.git",
-                "reference": "5715a980ee9b899b4781b4927fb2642d0592df85"
+                "reference": "40adb493349efc333547558b249c650f96e5d225"
             },
             "require": {
                 "php": ">=5.4.0",
@@ -1387,7 +1228,7 @@
                 "i18n",
                 "translation"
             ],
-            "time": "2014-12-17 10:17:18"
+            "time": "2014-12-19 11:10:41"
         },
         {
             "name": "spryker/infrastructure-package",
@@ -1395,7 +1236,7 @@
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/infrastructure.git",
-                "reference": "ee88d4d370c94aa0ae61d376607e19f3b4fc5de6"
+                "reference": "0d9638af0d849f8a6dc4754aa07273ca0c355b7f"
             },
             "require": {
                 "php": ">=5.4.0"
@@ -1411,7 +1252,7 @@
             "keywords": [
                 "infrastructure"
             ],
-            "time": "2014-12-18 16:49:50"
+            "time": "2014-12-19 11:10:12"
         },
         {
             "name": "spryker/kendo-package",
@@ -1438,7 +1279,7 @@
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/library.git",
-                "reference": "d685d1bfbe5147966c227a2c689b2ad4b697b2b1"
+                "reference": "a355840acb0203047ac66e58dfbd31e35476a3ee"
             },
             "require": {
                 "digital-canvas/zend-framework": ">=1.12.2",
@@ -1475,7 +1316,7 @@
                 }
             },
             "description": "Project-A Library",
-            "time": "2014-12-18 16:48:26"
+            "time": "2014-12-23 12:44:27"
         },
         {
             "name": "spryker/lumberjack-package",
@@ -1515,7 +1356,7 @@
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/payment.git",
-                "reference": "d6993f919b4eea167e220673b6abbc1a1b4480a9"
+                "reference": "a5843b49674184dd1878fca9f71ba97f407b2b45"
             },
             "require": {
                 "php": ">=5.4.0",
@@ -1543,7 +1384,7 @@
                 "payment control",
                 "payment provider"
             ],
-            "time": "2014-12-16 09:24:27"
+            "time": "2014-12-19 11:09:11"
         },
         {
             "name": "spryker/payone-package",
@@ -1551,7 +1392,7 @@
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/payone.git",
-                "reference": "59153064318a40b9c89c0b6a9bba4229ff802951"
+                "reference": "79ea3ca329de7e2d6e7948611c748eea1ba1206d"
             },
             "require": {
                 "php": ">=5.4.0"
@@ -1574,7 +1415,45 @@
             "keywords": [
                 "payment,payment provider,payone"
             ],
-            "time": "2014-12-16 09:24:58"
+            "time": "2014-12-19 11:08:33"
+        },
+        {
+            "name": "spryker/product-category-package",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "git@github.com:spryker/product-category.git",
+                "reference": "4775437b2bea42f81d58fb9d5234b72f5f2973f9"
+            },
+            "require": {
+                "php": ">=5.4.0",
+                "spryker/category-tree-package": "dev-master",
+                "spryker/product-package": "dev-master"
+            },
+            "require-dev": {
+                "codeception/codeception": "*"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-0": {
+                    "ProjectA": "/src"
+                }
+            },
+            "authors": [
+                {
+                    "name": "Tobias Rosenstock",
+                    "email": "tobias.rosenstock@project-a.com",
+                    "homepage": "http://www.project-a.com",
+                    "role": "Developer"
+                }
+            ],
+            "description": "Yves Category Export Package",
+            "keywords": [
+                "Category",
+                "Connector",
+                "Product"
+            ],
+            "time": "2015-01-05 17:18:33"
         },
         {
             "name": "spryker/product-export-package",
@@ -1582,7 +1461,7 @@
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/product-export.git",
-                "reference": "29eb684ec65e41e2165180c0624ecd11474ec825"
+                "reference": "66cccf0810366780a6a4b9771c03d3cfe563c992"
             },
             "require": {
                 "php": ">=5.4.0",
@@ -1613,7 +1492,7 @@
                 "Product",
                 "Yves"
             ],
-            "time": "2014-12-19 10:00:35"
+            "time": "2015-01-06 08:45:40"
         },
         {
             "name": "spryker/product-package",
@@ -1652,48 +1531,12 @@
             "time": "2014-12-16 07:44:20"
         },
         {
-            "name": "spryker/product-search-package",
-            "version": "dev-master",
-            "source": {
-                "type": "git",
-                "url": "git@github.com:spryker/product-search.git",
-                "reference": "98d0af8f09c4137d239701a582ea3b37ef54f883"
-            },
-            "require": {
-                "php": ">=5.4.0",
-                "spryker/library-package": ">=5.0.1"
-            },
-            "require-dev": {
-                "codeception/codeception": "*"
-            },
-            "type": "library",
-            "autoload": {
-                "psr-0": {
-                    "ProjectA": "/src"
-                }
-            },
-            "authors": [
-                {
-                    "name": "Alberto Assmann",
-                    "email": "alberto.assmann@project-a.com",
-                    "homepage": "http://www.project-a.com",
-                    "role": "Developer"
-                }
-            ],
-            "description": "Search package",
-            "keywords": [
-                "Product",
-                "Search"
-            ],
-            "time": "2014-12-18 07:28:39"
-        },
-        {
             "name": "spryker/sales-package",
             "version": "dev-master",
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/sales.git",
-                "reference": "ca17cec52e87142a450f773bd933b3b11ee363a1"
+                "reference": "568b7b5e9efaf77c17739814d8871a864a34d7ee"
             },
             "require": {
                 "php": ">=5.4.0"
@@ -1718,19 +1561,18 @@
                 "Sales",
                 "Task"
             ],
-            "time": "2014-12-18 12:51:56"
+            "time": "2014-12-19 11:08:09"
         },
         {
             "name": "spryker/yves-export-package",
-            "version": "dev-product-search",
+            "version": "dev-master",
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/yves-export.git",
-                "reference": "f31610c82c350ee09aa1c40244a8aa36e7f4a064"
+                "reference": "b049141061604f9cf36525898d9134367d768044"
             },
             "require": {
                 "php": ">=5.4.0",
-                "ruflin/elastica": "1.3.4.0",
                 "spryker/library-package": ">=5.0.1"
             },
             "require-dev": {
@@ -1755,7 +1597,7 @@
                 "Export",
                 "Yves"
             ],
-            "time": "2014-12-19 09:25:31"
+            "time": "2015-01-06 08:44:41"
         },
         {
             "name": "symfony-cmf/routing",
@@ -2441,6 +2283,60 @@
             "time": "2014-12-02 20:15:53"
         },
         {
+            "name": "symfony/propel1-bridge",
+            "version": "v2.6.1",
+            "target-dir": "Symfony/Bridge/Propel1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/symfony/Propel1Bridge.git",
+                "reference": "0a9a00e6de4691508ab1edd63af4718059df7bdf"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/symfony/Propel1Bridge/zipball/0a9a00e6de4691508ab1edd63af4718059df7bdf",
+                "reference": "0a9a00e6de4691508ab1edd63af4718059df7bdf",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3.3",
+                "propel/propel1": "~1.6",
+                "symfony/form": "~2.2",
+                "symfony/http-foundation": "~2.0",
+                "symfony/http-kernel": "~2.0"
+            },
+            "require-dev": {
+                "symfony/stopwatch": "~2.2"
+            },
+            "type": "symfony-bridge",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "2.6-dev"
+                }
+            },
+            "autoload": {
+                "psr-0": {
+                    "Symfony\\Bridge\\Propel1\\": ""
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Symfony Community",
+                    "homepage": "http://symfony.com/contributors"
+                },
+                {
+                    "name": "Fabien Potencier",
+                    "email": "fabien@symfony.com"
+                }
+            ],
+            "description": "Symfony Propel1 Bridge",
+            "homepage": "http://symfony.com",
+            "time": "2014-12-02 20:19:20"
+        },
+        {
             "name": "symfony/property-access",
             "version": "v2.6.1",
             "target-dir": "Symfony/Component/PropertyAccess",
@@ -2864,12 +2760,12 @@
             "version": "v1.15.1",
             "source": {
                 "type": "git",
-                "url": "https://github.com/twigphp/Twig.git",
+                "url": "https://github.com/fabpot/Twig.git",
                 "reference": "1fb5784662f438d7d96a541e305e28b812e2eeed"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/twigphp/Twig/zipball/1fb5784662f438d7d96a541e305e28b812e2eeed",
+                "url": "https://api.github.com/repos/fabpot/Twig/zipball/1fb5784662f438d7d96a541e305e28b812e2eeed",
                 "reference": "1fb5784662f438d7d96a541e305e28b812e2eeed",
                 "shasum": ""
             },
@@ -3882,7 +3778,7 @@
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/newLoki/PropelModule/zipball/9de9316361e3dddb6b29f5dd93b7456e19e042e3",
+                "url": "https://api.github.com/repos/newLoki/PropelModule/zipball/ab6164e684113e20d5754fd61fe0ea86331ebd0b",
                 "reference": "9de9316361e3dddb6b29f5dd93b7456e19e042e3",
                 "shasum": ""
             },
@@ -4799,20 +4695,13 @@
             "time": "2014-12-02 20:19:20"
         }
     ],
-    "aliases": [
-        {
-            "alias": "dev-master",
-            "alias_normalized": "9999999-dev",
-            "version": "dev-product-search",
-            "package": "spryker/yves-export-package"
-        }
-    ],
+    "aliases": [],
     "minimum-stability": "stable",
     "stability-flags": {
         "spryker/acl-package": 20,
         "spryker/cart-package": 20,
         "spryker/catalog-package": 20,
-        "spryker/category-package": 20,
+        "spryker/category-tree-package": 20,
         "spryker/category-export-package": 20,
         "spryker/checkout-package": 20,
         "spryker/content-package": 20,
@@ -4829,9 +4718,9 @@
         "spryker/payone-package": 20,
         "spryker/product-package": 20,
         "spryker/product-export-package": 20,
+        "spryker/product-category-package": 20,
         "spryker/sales-package": 20,
         "spryker/yves-export-package": 20,
-        "spryker/product-search-package": 20,
         "silex/silex": 20,
         "pimple/pimple": 20,
         "zendesk/zendesk_api_client_php": 20,

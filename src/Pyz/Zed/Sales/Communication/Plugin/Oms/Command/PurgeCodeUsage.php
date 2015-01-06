@@ -1,11 +1,12 @@
 <?php
 
-namespace Pyz\Zed\Sales\Business\Model\Orderprocess\Command;
+namespace Pyz\Zed\Sales\Communication\Plugin\Oms\Command;
+
 use Generated\Zed\Salesrule\Business\Dependency\SalesruleFacadeInterface;
 use Generated\Zed\Salesrule\Business\Dependency\SalesruleFacadeTrait;
-use ProjectA\Zed\Oms\Business\Command\AbstractCommand;
-use ProjectA\Zed\Oms\Business\Command\CommandByOrderInterface;
 use ProjectA\Zed\Oms\Business\Model\Util\ReadOnlyArrayObject;
+use ProjectA\Zed\Oms\Communication\Plugin\Oms\Command\AbstractCommand;
+use ProjectA\Zed\Oms\Communication\Plugin\Oms\Command\CommandByOrderInterface;
 
 /**
  * @author Michael Kugele, jstick

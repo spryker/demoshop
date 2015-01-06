@@ -35,7 +35,7 @@ use \Generated\Zed\Payone\Business\Dependency\PayoneFacadeTrait;
 class Installer extends \ProjectA_Zed_Installer_Business_Model_Installer implements
     AclFacadeInterface,
     CatalogFacadeInterface,
-    CategoryFacadeInterface,
+//    CategoryFacadeInterface,
     CmsFacadeInterface,
     CustomerFacadeInterface,
     MiscFacadeInterface,
@@ -51,7 +51,7 @@ class Installer extends \ProjectA_Zed_Installer_Business_Model_Installer impleme
 
     use AclFacadeTrait;
     use CatalogFacadeTrait;
-    use CategoryFacadeTrait;
+//    use CategoryFacadeTrait;
     use CmsFacadeTrait;
     use CustomerFacadeTrait;
     use MiscFacadeTrait;

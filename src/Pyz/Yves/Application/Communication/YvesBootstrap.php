@@ -1,4 +1,5 @@
 <?php
+
 namespace Pyz\Yves\Application\Communication;
 
 use Generated\Yves\Factory;
@@ -7,7 +8,6 @@ use ProjectA\Shared\System\SystemConfig;
 use ProjectA\Shared\Yves\YvesConfig;
 use ProjectA\Yves\Customer\Business\Model\Security\SecurityServiceProvider;
 use Pyz\Yves\Library\Silex\Provider\TrackingServiceProvider;
-use ProjectA\Yves\Catalog\Business\Model\Category;
 use ProjectA\Shared\Library\Silex\Application;
 use ProjectA\Yves\Library\Silex\Provider\CookieServiceProvider;
 use ProjectA\Yves\Library\Silex\Provider\MonologServiceProvider;
@@ -112,11 +112,17 @@ class YvesBootstrap extends CoreYvesBootstrap
      */
     protected function getRouters(Application $app)
     {
+        $productResourceCreator = Factory::getInstance()->createProductExporterDependencyContainer()
+            ->createProductDetailResourceCreator();
+        $categoryResourceCreator = Factory::getInstance()->createCategoryExporterDependencyContainer()
+            ->createCategoryResourceCreator();
         return [
             Factory::getInstance()->createSetupModelRouterMonitoringRouter($app),
             Factory::getInstance()->createCmsModelRouterRedirectRouter($app),
             Factory::getInstance()->createCatalogModelRouterCatalogRouter($app),
-            Factory::getInstance()->createProductExporterDependencyContainer()->createProductDetailRouter($app),
+            Factory::getInstance()->createYvesExportDependencyContainer()->createKvStorageRouter($app)
+                ->addResourceCreator($productResourceCreator)
+                ->addResourceCreator($categoryResourceCreator),
             Factory::getInstance()->createCmsModelRouterCmsRouter($app),
             /*
              * SilexRouter should come last, as it is not the fastest one if it can
@@ -133,7 +139,7 @@ class YvesBootstrap extends CoreYvesBootstrap
     protected function globalTemplateVariables(Application $app)
     {
         return [
-            'categories' => Category::getCategoryTree($app->getStorageKeyValue()),
+            'categories' => Factory::getInstance()->createCategoryExporterDependencyContainer()->createNavigation()->getCategories($app['locale']),
             'cartItemCount' => Factory::getInstance()->createCartModelSessionCartCount($app->getSession())->getCount(),
             'tracking' => Tracking::getInstance(),
         ];
