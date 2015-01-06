@@ -3,7 +3,7 @@
         "spryker/acl-package": "dev-master",
         "spryker/cart-package": "dev-master",
         "spryker/catalog-package": "dev-master",
-        "spryker/category-package": "dev-master",
+        "spryker/category-tree-package": "dev-master",
         "spryker/category-export-package": "dev-master",
         "spryker/checkout-package": "dev-master",
         "spryker/content-package": "dev-master",
@@ -71,7 +71,7 @@
         },
         {
             "type": "git",
-            "url": "git@github.com:spryker/category.git"
+            "url": "git@github.com:spryker/category-tree.git"
         },
         {
             "type": "git",
