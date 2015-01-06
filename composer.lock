@@ -938,7 +938,7 @@
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/category-export.git",
-                "reference": "dacc90dd84781c9fc65424cd56e365473f0372fd"
+                "reference": "1f1e3d41578769208547e56896fdeecb38cc769f"
             },
             "require": {
                 "php": ">=5.4.0",
@@ -968,7 +968,7 @@
                 "Export",
                 "Yves"
             ],
-            "time": "2015-01-05 17:18:58"
+            "time": "2015-01-06 08:48:15"
         },
         {
             "name": "spryker/category-tree-package",
@@ -1461,7 +1461,7 @@
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/product-export.git",
-                "reference": "40df05cba33683cbb776baebe667a42cc5086726"
+                "reference": "66cccf0810366780a6a4b9771c03d3cfe563c992"
             },
             "require": {
                 "php": ">=5.4.0",
@@ -1492,7 +1492,7 @@
                 "Product",
                 "Yves"
             ],
-            "time": "2015-01-05 16:14:16"
+            "time": "2015-01-06 08:45:40"
         },
         {
             "name": "spryker/product-package",
@@ -1569,7 +1569,7 @@
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/yves-export.git",
-                "reference": "a2d77eecd1d21d23e13b24f6e8cb2722cdc6ef02"
+                "reference": "b049141061604f9cf36525898d9134367d768044"
             },
             "require": {
                 "php": ">=5.4.0",
@@ -1597,7 +1597,7 @@
                 "Export",
                 "Yves"
             ],
-            "time": "2014-12-19 16:14:32"
+            "time": "2015-01-06 08:44:41"
         },
         {
             "name": "symfony-cmf/routing",
