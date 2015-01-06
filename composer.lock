@@ -995,7 +995,7 @@
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/category-export.git",
-                "reference": "1f1e3d41578769208547e56896fdeecb38cc769f"
+                "reference": "130cad21ade4d007924fcb2f3215447ad128bce9"
             },
             "require": {
                 "php": ">=5.4.0",
@@ -1025,7 +1025,7 @@
                 "Export",
                 "Yves"
             ],
-            "time": "2015-01-06 08:48:15"
+            "time": "2015-01-06 09:50:32"
         },
         {
             "name": "spryker/category-tree-package",
@@ -1518,7 +1518,7 @@
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/product-export.git",
-                "reference": "66cccf0810366780a6a4b9771c03d3cfe563c992"
+                "reference": "95a1fa2d7abe445e8b984c3eba27e951c32291cd"
             },
             "require": {
                 "php": ">=5.4.0",
@@ -1549,7 +1549,7 @@
                 "Product",
                 "Yves"
             ],
-            "time": "2015-01-06 08:45:40"
+            "time": "2015-01-06 09:50:18"
         },
         {
             "name": "spryker/product-package",
