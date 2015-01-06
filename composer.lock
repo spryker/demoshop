@@ -540,12 +540,12 @@
             "version": "v1.1.1",
             "source": {
                 "type": "git",
-                "url": "https://github.com/fabpot/Pimple.git",
+                "url": "https://github.com/silexphp/Pimple.git",
                 "reference": "2019c145fe393923f3441b23f29bbdfaa5c58c4d"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/fabpot/Pimple/zipball/2019c145fe393923f3441b23f29bbdfaa5c58c4d",
+                "url": "https://api.github.com/repos/silexphp/Pimple/zipball/2019c145fe393923f3441b23f29bbdfaa5c58c4d",
                 "reference": "2019c145fe393923f3441b23f29bbdfaa5c58c4d",
                 "shasum": ""
             },
@@ -570,9 +570,7 @@
             "authors": [
                 {
                     "name": "Fabien Potencier",
-                    "email": "fabien@symfony.com",
-                    "homepage": "http://fabien.potencier.org",
-                    "role": "Lead Developer"
+                    "email": "fabien@symfony.com"
                 }
             ],
             "description": "Pimple is a simple Dependency Injection Container for PHP 5.3",
@@ -938,7 +936,7 @@
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/category-export.git",
-                "reference": "1f1e3d41578769208547e56896fdeecb38cc769f"
+                "reference": "130cad21ade4d007924fcb2f3215447ad128bce9"
             },
             "require": {
                 "php": ">=5.4.0",
@@ -968,7 +966,7 @@
                 "Export",
                 "Yves"
             ],
-            "time": "2015-01-06 08:48:15"
+            "time": "2015-01-06 09:50:32"
         },
         {
             "name": "spryker/category-tree-package",
@@ -1461,7 +1459,7 @@
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/product-export.git",
-                "reference": "66cccf0810366780a6a4b9771c03d3cfe563c992"
+                "reference": "95a1fa2d7abe445e8b984c3eba27e951c32291cd"
             },
             "require": {
                 "php": ">=5.4.0",
@@ -1492,7 +1490,7 @@
                 "Product",
                 "Yves"
             ],
-            "time": "2015-01-06 08:45:40"
+            "time": "2015-01-06 09:50:18"
         },
         {
             "name": "spryker/product-package",
@@ -2760,12 +2758,12 @@
             "version": "v1.15.1",
             "source": {
                 "type": "git",
-                "url": "https://github.com/fabpot/Twig.git",
+                "url": "https://github.com/twigphp/Twig.git",
                 "reference": "1fb5784662f438d7d96a541e305e28b812e2eeed"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/fabpot/Twig/zipball/1fb5784662f438d7d96a541e305e28b812e2eeed",
+                "url": "https://api.github.com/repos/twigphp/Twig/zipball/1fb5784662f438d7d96a541e305e28b812e2eeed",
                 "reference": "1fb5784662f438d7d96a541e305e28b812e2eeed",
                 "shasum": ""
             },
@@ -3778,7 +3776,7 @@
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/newLoki/PropelModule/zipball/ab6164e684113e20d5754fd61fe0ea86331ebd0b",
+                "url": "https://api.github.com/repos/newLoki/PropelModule/zipball/9de9316361e3dddb6b29f5dd93b7456e19e042e3",
                 "reference": "9de9316361e3dddb6b29f5dd93b7456e19e042e3",
                 "shasum": ""
             },
