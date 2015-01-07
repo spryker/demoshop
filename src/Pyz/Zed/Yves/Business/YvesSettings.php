@@ -21,7 +21,6 @@ class YvesSettings extends ProjectAYvesSettings implements
     GlossaryFacadeInterface,
     MiscFacadeInterface,
     CategoryFacadeInterface,
-    CatalogFacadeInterface,
     CmsFacadeInterface
 {
     use GlossaryFacadeTrait;
