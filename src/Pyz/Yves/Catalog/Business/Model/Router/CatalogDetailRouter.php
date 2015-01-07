@@ -1,9 +1,11 @@
 <?php
 namespace Pyz\Yves\Catalog\Business\Model\Router;
 
+use ProjectA\Shared\Application\Business\Controller\ServiceControllerBuilder;
+use ProjectA\Yves\Application\Business\Controller\ControllerResolver;
 use ProjectA\Yves\Catalog\Business\Model\Exception\ProductNotFoundException;
-use ProjectA\Yves\Library\Silex\Routing\AbstractRouter;
-use ProjectA\Shared\Library\Silex\Controller\ControllerProvider;
+use ProjectA\Yves\Application\Business\Routing\AbstractRouter;
+use ProjectA\Yves\Application\Business\Controller\ControllerProvider;
 use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\Routing\Exception\ResourceNotFoundException;
 use Symfony\Component\Routing\Exception\RouteNotFoundException;
@@ -25,10 +27,12 @@ class CatalogDetailRouter extends AbstractRouter
     {
         try {
             $product = $this->factory->createCatalogModelCatalog()->getProductDataByUrl($pathinfo, $this->app->getStorageKeyValue());
-            $service = ControllerProvider::createServiceForController($this->app, 'catalog/detail', 'CatalogController', 'detail', '\\ProjectA\\Yves\\Catalog\\Module');
+            $resolver = new ControllerResolver('Catalog', 'Catalog', 'detail');
+            $service = (new ServiceControllerBuilder())->createServiceForController($this->app, $resolver);
+
             return [
                 '_controller' => $service,
-                '_route' => 'catalog/detail',
+                '_route' => $resolver->getRouteName(),
                 'product' => $product
             ];
         } catch (ProductNotFoundException $exception) {

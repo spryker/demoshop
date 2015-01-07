@@ -1,7 +1,7 @@
 <?php
 namespace Pyz\Yves\Application\Communication;
 
-use ProjectA\Shared\Library\Silex\Controller\ControllerProvider as YvesProvider;
+use ProjectA\Yves\Application\Business\Controller\ControllerProvider as YvesProvider;
 use Silex\Application;
 
 class ControllerProvider extends YvesProvider
