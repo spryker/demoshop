@@ -6,7 +6,7 @@ $vendorDirPattern = __DIR__ . '/vendor/spryker/*/src/ProjectA/Zed/*/Communicatio
 $projectDirPattern = __DIR__ . '/src/Pyz/Zed/*/Communication/Controller';
 
 $baseDirs = [
-    $vendorDirPattern,
+//    $vendorDirPattern,
     $projectDirPattern
 ];
 
@@ -24,7 +24,7 @@ foreach ($finder->files()->in($baseDirs)->name('*Controller.php') as $file) {
         $content = $file->getContents();
         if (strstr($content, 'extends') === false) {
             $result = preg_replace($search, $replace, $content);
-            $Result = str_replace('AbstractControllerimplements', 'AbstractController implements', $result);
+            $result = str_replace('AbstractControllerimplements', 'AbstractController implements', $result);
             echo $file->getPathname() . PHP_EOL;
             file_put_contents($file->getPathname(), $result);
         }
