@@ -23,16 +23,18 @@ foreach ($finder->files()->in($baseDirs)->name('*Controller.php') as $file) {
     $callback = function ($matches) use ($file, $search, $replace) {
         $content = $file->getContents();
         if (strstr($content, 'extends') === false) {
-            $result = preg_replace($search, $replace, $content);
-            $result = str_replace('AbstractControllerimplements', 'AbstractController implements', $result);
-            $result = str_replace('return new RedirectResponse(', 'return $this->redirectResponse(', $result);
-            $result = str_replace('return new JsonResponse(', 'return $this->jsonResponse(', $result);
-            $result = str_replace('use Symfony\Component\HttpFoundation\RedirectResponse;', '', $result);
-            $result = str_replace('use Symfony\Component\HttpFoundation\JsonResponse;', '', $result);
-            $result = str_replace('return [', 'return $this->viewResponse([', $result);
-            echo $file->getPathname() . PHP_EOL;
-            file_put_contents($file->getPathname(), $result);
+            $content = preg_replace($search, $replace, $content);
+            $content = str_replace('AbstractControllerimplements', 'AbstractController implements', $content);
         }
+
+        $content = str_replace('return new RedirectResponse(', 'return $this->redirectResponse(', $content);
+        $content = str_replace('return new JsonResponse(', 'return $this->jsonResponse(', $content);
+        $content = str_replace('use Symfony\Component\HttpFoundation\RedirectResponse;', '', $content);
+        $content = str_replace('use Symfony\Component\HttpFoundation\JsonResponse;', '', $content);
+        $content = str_replace('return [', 'return $this->viewResponse([', $content);
+        
+        echo $file->getPathname() . PHP_EOL;
+        file_put_contents($file->getPathname(), $content);
     };
     preg_replace_callback($search, $callback, $content);
 }
