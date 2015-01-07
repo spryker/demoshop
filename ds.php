@@ -6,7 +6,7 @@ $vendorDirPattern = __DIR__ . '/vendor/spryker/*/src/ProjectA/Zed/*/Communicatio
 $projectDirPattern = __DIR__ . '/src/Pyz/Zed/*/Communication/Controller';
 
 $baseDirs = [
-//    $vendorDirPattern,
+    $vendorDirPattern,
     $projectDirPattern
 ];
 
@@ -25,6 +25,11 @@ foreach ($finder->files()->in($baseDirs)->name('*Controller.php') as $file) {
         if (strstr($content, 'extends') === false) {
             $result = preg_replace($search, $replace, $content);
             $result = str_replace('AbstractControllerimplements', 'AbstractController implements', $result);
+            $result = str_replace('return new RedirectResponse(', 'return $this->redirectResponse(', $result);
+            $result = str_replace('return new JsonResponse(', 'return $this->jsonResponse(', $result);
+            $result = str_replace('use Symfony\Component\HttpFoundation\RedirectResponse;', '', $result);
+            $result = str_replace('use Symfony\Component\HttpFoundation\JsonResponse;', '', $result);
+            $result = str_replace('return [', 'return $this->viewResponse([', $result);
             echo $file->getPathname() . PHP_EOL;
             file_put_contents($file->getPathname(), $result);
         }
