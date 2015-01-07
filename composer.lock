@@ -894,7 +894,7 @@
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/catalog.git",
-                "reference": "a0369fe8642213f5770f9c560115d52f22d8fa8e"
+                "reference": "a55f5834e468b387a1714bd2a28722f6912e4a10"
             },
             "require": {
                 "php": ">=5.4.0"
@@ -928,7 +928,7 @@
                 "Price",
                 "Stock"
             ],
-            "time": "2014-12-19 09:09:39"
+            "time": "2015-01-07 10:29:24"
         },
         {
             "name": "spryker/category-export-package",
@@ -1234,7 +1234,7 @@
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/infrastructure.git",
-                "reference": "0d9638af0d849f8a6dc4754aa07273ca0c355b7f"
+                "reference": "6116c1c08290273d49aeaf8cc62d62685756e86b"
             },
             "require": {
                 "php": ">=5.4.0"
@@ -1250,7 +1250,7 @@
             "keywords": [
                 "infrastructure"
             ],
-            "time": "2014-12-19 11:10:12"
+            "time": "2015-01-07 10:19:53"
         },
         {
             "name": "spryker/kendo-package",
@@ -1534,7 +1534,7 @@
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/sales.git",
-                "reference": "568b7b5e9efaf77c17739814d8871a864a34d7ee"
+                "reference": "01c54f542bae10889ebf3fb3f4acfd89c2df4a4f"
             },
             "require": {
                 "php": ">=5.4.0"
@@ -1559,7 +1559,7 @@
                 "Sales",
                 "Task"
             ],
-            "time": "2014-12-19 11:08:09"
+            "time": "2015-01-07 10:50:31"
         },
         {
             "name": "spryker/yves-export-package",
