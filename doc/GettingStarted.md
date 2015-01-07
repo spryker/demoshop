@@ -40,7 +40,7 @@ Please execute the following after loging in into the VM:
 
 ```
 sudo -i
-salt-call state-highstate
+salt-call state.highstate
 exit
 ```
 
