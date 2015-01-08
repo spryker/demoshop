@@ -32,7 +32,7 @@ foreach ($finder->files()->in($baseDirs)->name('*Controller.php') as $file) {
         $content = str_replace('use Symfony\Component\HttpFoundation\RedirectResponse;', '', $content);
         $content = str_replace('use Symfony\Component\HttpFoundation\JsonResponse;', '', $content);
         $content = str_replace('return [', 'return $this->viewResponse([', $content);
-        
+
         echo $file->getPathname() . PHP_EOL;
         file_put_contents($file->getPathname(), $content);
     };
