@@ -1640,7 +1640,7 @@
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/sales.git",
-                "reference": "568b7b5e9efaf77c17739814d8871a864a34d7ee"
+                "reference": "01c54f542bae10889ebf3fb3f4acfd89c2df4a4f"
             },
             "require": {
                 "php": ">=5.4.0"
@@ -1665,7 +1665,7 @@
                 "Sales",
                 "Task"
             ],
-            "time": "2014-12-19 11:08:09"
+            "time": "2015-01-07 10:50:31"
         },
         {
             "name": "spryker/yves-export-package",
