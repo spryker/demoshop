@@ -27,8 +27,6 @@ use ProjectA\Zed\Auth\Business\Model\Auth;
 
 use ProjectA\Zed\Cms\Communication\Plugin\ServiceProvider\CmsServiceProvider;
 
-use ProjectA\Zed\Application\Component\Application as ZedApplication;
-
 use ProjectA\Zed\ProductImage\Business\ServiceProvider\ProductImageServiceProvider;
 
 use ProjectA\Zed\Auth\Communication\Plugin\ServiceProvider\SecurityServiceProvider;
@@ -46,11 +44,11 @@ use Symfony\Component\HttpFoundation\Request;
 class ZedBootstrap extends Bootstrap
 {
     /**
-     * @return Application|ZedApplication
+     * @return Application
      */
     protected function getBaseApplication()
     {
-        return new ZedApplication();
+        return new Application();
     }
 
     /**
