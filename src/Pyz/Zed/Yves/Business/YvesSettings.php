@@ -20,13 +20,11 @@ use Generated\Zed\Catalog\Business\Dependency\CatalogFacadeTrait;
 class YvesSettings extends ProjectAYvesSettings implements
     GlossaryFacadeInterface,
     MiscFacadeInterface,
-    CategoryFacadeInterface,
     CatalogFacadeInterface,
     CmsFacadeInterface
 {
     use GlossaryFacadeTrait;
     use MiscFacadeTrait;
-    use CategoryFacadeTrait;
     use CatalogFacadeTrait;
     use CmsFacadeTrait;
 

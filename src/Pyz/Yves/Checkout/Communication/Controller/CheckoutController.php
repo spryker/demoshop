@@ -7,7 +7,7 @@ use Generated\Shared\Sales\Transfer\Payment;
 use Generated\Yves\Factory;
 use Pyz\Yves\Library\Tracking\PageTypeInterface;
 use Pyz\Yves\Sales\Communication\Form\OrderType;
-use ProjectA\Yves\Checkout\Communication\Controller\CheckoutController as CoreCheckoutController;
+use ProjectA\Yves\Checkout\Communication\Controller\CheckoutAbstractController as CoreCheckoutController;
 use ProjectA\Yves\Library\Tracking\Tracking;
 use Symfony\Component\Form\FormInterface;
 use Symfony\Component\HttpFoundation\RedirectResponse;

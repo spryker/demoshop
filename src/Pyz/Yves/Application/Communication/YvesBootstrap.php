@@ -119,7 +119,6 @@ class YvesBootstrap extends CoreYvesBootstrap
         return [
             Factory::getInstance()->createSetupModelRouterMonitoringRouter($app),
             Factory::getInstance()->createCmsModelRouterRedirectRouter($app),
-            Factory::getInstance()->createCatalogModelRouterCatalogRouter($app),
             Factory::getInstance()->createYvesExportDependencyContainer()->createKvStorageRouter($app)
                 ->addResourceCreator($productResourceCreator)
                 ->addResourceCreator($categoryResourceCreator),

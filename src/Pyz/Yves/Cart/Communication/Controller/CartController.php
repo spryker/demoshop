@@ -2,7 +2,7 @@
 namespace Pyz\Yves\Cart\Communication\Controller;
 
 use Pyz\Yves\Library\Tracking\PageTypeInterface;
-use ProjectA\Yves\Cart\Communication\Controller\CartController as ProjectACartController;
+use ProjectA\Yves\Cart\Communication\Controller\CartAbstractController as ProjectACartController;
 use ProjectA\Yves\Library\Tracking\Tracking;
 use Symfony\Component\HttpFoundation\Request;
 
