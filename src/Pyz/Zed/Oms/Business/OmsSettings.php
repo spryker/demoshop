@@ -3,7 +3,7 @@
 
 namespace Pyz\Zed\Oms\Business;
 
-use Pyz\Zed\Oms\FakeAuthPayment;
+use Pyz\Zed\Oms\Communication\Plugin\Oms\FakeAuthPayment;
 use Pyz\Zed\Sales\Business\SalesFacade;
 use Generated\Shared\Sales\Transfer\Order as OrderTransfer;
 use Generated\Zed\Payone\Business\Dependency\PayoneFacadeInterface;

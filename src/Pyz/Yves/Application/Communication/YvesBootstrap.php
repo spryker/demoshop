@@ -12,6 +12,7 @@ use ProjectA\Yves\Customer\Business\Model\Security\SecurityServiceProvider;
 use ProjectA\Yves\Library\Asset\AssetManager;
 use ProjectA\Yves\Application\Business\Twig\YvesExtension;
 use Pyz\Yves\Library\Silex\Provider\TrackingServiceProvider;
+<<<<<<< HEAD
 use ProjectA\Yves\Catalog\Business\Model\Category;
 use ProjectA\Yves\Application\Business\ServiceProvider\CookieServiceProvider;
 use ProjectA\Yves\Application\Business\ServiceProvider\MonologServiceProvider;
@@ -22,6 +23,18 @@ use ProjectA\Yves\Application\Business\ServiceProvider\TranslationServiceProvide
 use ProjectA\Yves\Application\Business\ServiceProvider\TwigServiceProvider;
 use ProjectA\Yves\Application\Business\ServiceProvider\YvesLoggingServiceProvider;
 use ProjectA\Shared\Application\Business\Routing\SilexRouter;
+=======
+use ProjectA\Shared\Library\Silex\Application;
+use ProjectA\Yves\Library\Silex\Provider\CookieServiceProvider;
+use ProjectA\Yves\Library\Silex\Provider\MonologServiceProvider;
+use ProjectA\Yves\Library\Silex\Provider\SessionServiceProvider;
+use ProjectA\Yves\Library\Silex\Provider\StorageServiceProvider;
+use ProjectA\Yves\Library\Silex\Provider\ExceptionServiceProvider;
+use ProjectA\Yves\Library\Silex\Provider\TranslationServiceProvider;
+use ProjectA\Yves\Library\Silex\Provider\TwigServiceProvider;
+use ProjectA\Yves\Library\Silex\Provider\YvesLoggingServiceProvider;
+use ProjectA\Shared\Library\Silex\Routing\SilexRouter;
+>>>>>>> master
 use Pyz\Yves\Application\Communication\ControllerProvider as ApplicationProvider;
 use ProjectA\Yves\Cart\Communication\ControllerProvider as CartProvider;
 use ProjectA\Yves\Checkout\Communication\ControllerProvider as CheckoutProvider;
@@ -139,11 +152,16 @@ class YvesBootstrap extends Bootstrap
      */
     protected function getRouters(Application $app)
     {
+        $productResourceCreator = Factory::getInstance()->createProductExporterDependencyContainer()
+            ->createProductDetailResourceCreator();
+        $categoryResourceCreator = Factory::getInstance()->createCategoryExporterDependencyContainer()
+            ->createCategoryResourceCreator();
         return [
             Factory::getInstance()->createSetupModelRouterMonitoringRouter($app),
             Factory::getInstance()->createCmsModelRouterRedirectRouter($app),
-            Factory::getInstance()->createCatalogModelRouterCatalogRouter($app),
-            Factory::getInstance()->createProductExporterDependencyContainer()->createProductDetailRouter($app),
+            Factory::getInstance()->createYvesExportDependencyContainer()->createKvStorageRouter($app)
+                ->addResourceCreator($productResourceCreator)
+                ->addResourceCreator($categoryResourceCreator),
             Factory::getInstance()->createCmsModelRouterCmsRouter($app),
             /*
              * SilexRouter should come last, as it is not the fastest one if it can
@@ -160,7 +178,7 @@ class YvesBootstrap extends Bootstrap
     protected function globalTemplateVariables(Application $app)
     {
         return [
-            'categories' => Category::getCategoryTree($app->getStorageKeyValue()),
+            'categories' => Factory::getInstance()->createCategoryExporterDependencyContainer()->createNavigation()->getCategories($app['locale']),
             'cartItemCount' => Factory::getInstance()->createCartModelSessionCartCount($app->getSession())->getCount(),
             'tracking' => Tracking::getInstance(),
         ];

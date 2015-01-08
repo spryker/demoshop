@@ -4,7 +4,7 @@
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "69abf1f946a0304d8cec1a3ee482b1cb",
+    "hash": "ed6d3f124eaf25f63531cddaca330aad",
     "packages": [
         {
             "name": "digital-canvas/zend-framework",
@@ -49,22 +49,30 @@
         },
         {
             "name": "doctrine/inflector",
-            "version": "v1.0",
+            "version": "v1.0.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/doctrine/inflector.git",
-                "reference": "54b8333d2a5682afdc690060c1cf384ba9f47f08"
+                "reference": "0bcb2e79d8571787f18b7eb036ed3d004908e604"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/doctrine/inflector/zipball/54b8333d2a5682afdc690060c1cf384ba9f47f08",
-                "reference": "54b8333d2a5682afdc690060c1cf384ba9f47f08",
+                "url": "https://api.github.com/repos/doctrine/inflector/zipball/0bcb2e79d8571787f18b7eb036ed3d004908e604",
+                "reference": "0bcb2e79d8571787f18b7eb036ed3d004908e604",
                 "shasum": ""
             },
             "require": {
                 "php": ">=5.3.2"
             },
+            "require-dev": {
+                "phpunit/phpunit": "4.*"
+            },
             "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "1.0.x-dev"
+                }
+            },
             "autoload": {
                 "psr-0": {
                     "Doctrine\\Common\\Inflector\\": "lib/"
@@ -76,17 +84,6 @@
             ],
             "authors": [
                 {
-                    "name": "Jonathan Wage",
-                    "email": "jonwage@gmail.com",
-                    "homepage": "http://www.jwage.com/",
-                    "role": "Creator"
-                },
-                {
-                    "name": "Guilherme Blanco",
-                    "email": "guilhermeblanco@gmail.com",
-                    "homepage": "http://www.instaclick.com"
-                },
-                {
                     "name": "Roman Borschel",
                     "email": "roman@code-factory.org"
                 },
@@ -95,21 +92,27 @@
                     "email": "kontakt@beberlei.de"
                 },
                 {
+                    "name": "Guilherme Blanco",
+                    "email": "guilhermeblanco@gmail.com"
+                },
+                {
+                    "name": "Jonathan Wage",
+                    "email": "jonwage@gmail.com"
+                },
+                {
                     "name": "Johannes Schmitt",
-                    "email": "schmittjoh@gmail.com",
-                    "homepage": "https://github.com/schmittjoh",
-                    "role": "Developer of wrapped JMSSerializerBundle"
+                    "email": "schmittjoh@gmail.com"
                 }
             ],
             "description": "Common String Manipulations with regard to casing and singular/plural rules.",
             "homepage": "http://www.doctrine-project.org",
             "keywords": [
                 "inflection",
-                "pluarlize",
-                "singuarlize",
+                "pluralize",
+                "singularize",
                 "string"
             ],
-            "time": "2013-01-10 21:49:15"
+            "time": "2014-12-20 21:24:13"
         },
         {
             "name": "guzzle/common",
@@ -515,16 +518,16 @@
         },
         {
             "name": "monolog/monolog",
-            "version": "1.11.0",
+            "version": "1.12.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/Seldaek/monolog.git",
-                "reference": "ec3961874c43840e96da3a8a1ed20d8c73d7e5aa"
+                "reference": "1fbe8c2641f2b163addf49cc5e18f144bec6b19f"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Seldaek/monolog/zipball/ec3961874c43840e96da3a8a1ed20d8c73d7e5aa",
-                "reference": "ec3961874c43840e96da3a8a1ed20d8c73d7e5aa",
+                "url": "https://api.github.com/repos/Seldaek/monolog/zipball/1fbe8c2641f2b163addf49cc5e18f144bec6b19f",
+                "reference": "1fbe8c2641f2b163addf49cc5e18f144bec6b19f",
                 "shasum": ""
             },
             "require": {
@@ -538,7 +541,7 @@
                 "aws/aws-sdk-php": "~2.4, >2.4.8",
                 "doctrine/couchdb": "~1.0@dev",
                 "graylog2/gelf-php": "~1.0",
-                "phpunit/phpunit": "~3.7.0",
+                "phpunit/phpunit": "~4.0",
                 "raven/raven": "~0.5",
                 "ruflin/elastica": "0.90.*",
                 "videlalvaro/php-amqplib": "~2.4"
@@ -557,7 +560,7 @@
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "1.11.x-dev"
+                    "dev-master": "1.12.x-dev"
                 }
             },
             "autoload": {
@@ -583,7 +586,7 @@
                 "logging",
                 "psr-3"
             ],
-            "time": "2014-09-30 13:30:58"
+            "time": "2014-12-29 21:29:35"
         },
         {
             "name": "phing/phing",
@@ -997,7 +1000,7 @@
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/catalog.git",
-                "reference": "a0369fe8642213f5770f9c560115d52f22d8fa8e"
+                "reference": "a55f5834e468b387a1714bd2a28722f6912e4a10"
             },
             "require": {
                 "php": ">=5.4.0"
@@ -1031,7 +1034,7 @@
                 "Price",
                 "Stock"
             ],
-            "time": "2014-12-19 09:09:39"
+            "time": "2015-01-07 10:29:24"
         },
         {
             "name": "spryker/category-export-package",
@@ -1039,10 +1042,11 @@
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/category-export.git",
-                "reference": "977ea1f99013f22cc322ee624db24466bf4ccc17"
+                "reference": "130cad21ade4d007924fcb2f3215447ad128bce9"
             },
             "require": {
                 "php": ">=5.4.0",
+                "spryker/category-tree-package": "dev-master",
                 "spryker/yves-export-package": "dev-master"
             },
             "require-dev": {
@@ -1068,15 +1072,15 @@
                 "Export",
                 "Yves"
             ],
-            "time": "2014-12-19 09:21:52"
+            "time": "2015-01-06 09:50:32"
         },
         {
-            "name": "spryker/category-package",
+            "name": "spryker/category-tree-package",
             "version": "dev-master",
             "source": {
                 "type": "git",
-                "url": "git@github.com:spryker/category.git",
-                "reference": "b3aeb492e8e99891da8e0590641c279cf980ca3c"
+                "url": "git@github.com:spryker/category-tree.git",
+                "reference": "6fb81818395035c8bdf9d915e609ea6f1701b98d"
             },
             "require": {
                 "php": ">=5.4.0"
@@ -1087,11 +1091,11 @@
                     "ProjectA": "/src"
                 }
             },
-            "description": "Category package",
+            "description": "Category Tree package",
             "keywords": [
-                "Category"
+                "CategoryTree"
             ],
-            "time": "2014-12-19 09:13:26"
+            "time": "2015-01-05 16:45:17"
         },
         {
             "name": "spryker/checkout-package",
@@ -1336,7 +1340,7 @@
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/infrastructure.git",
-                "reference": "0d9638af0d849f8a6dc4754aa07273ca0c355b7f"
+                "reference": "6116c1c08290273d49aeaf8cc62d62685756e86b"
             },
             "require": {
                 "php": ">=5.4.0"
@@ -1352,7 +1356,7 @@
             "keywords": [
                 "infrastructure"
             ],
-            "time": "2014-12-19 11:10:12"
+            "time": "2015-01-07 10:19:53"
         },
         {
             "name": "spryker/kendo-package",
@@ -1379,7 +1383,7 @@
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/library.git",
-                "reference": "d685d1bfbe5147966c227a2c689b2ad4b697b2b1"
+                "reference": "a355840acb0203047ac66e58dfbd31e35476a3ee"
             },
             "require": {
                 "digital-canvas/zend-framework": ">=1.12.2",
@@ -1416,7 +1420,7 @@
                 }
             },
             "description": "Project-A Library",
-            "time": "2014-12-18 16:48:26"
+            "time": "2014-12-23 12:44:27"
         },
         {
             "name": "spryker/lumberjack-package",
@@ -1518,12 +1522,50 @@
             "time": "2014-12-19 11:08:33"
         },
         {
+            "name": "spryker/product-category-package",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "git@github.com:spryker/product-category.git",
+                "reference": "4775437b2bea42f81d58fb9d5234b72f5f2973f9"
+            },
+            "require": {
+                "php": ">=5.4.0",
+                "spryker/category-tree-package": "dev-master",
+                "spryker/product-package": "dev-master"
+            },
+            "require-dev": {
+                "codeception/codeception": "*"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-0": {
+                    "ProjectA": "/src"
+                }
+            },
+            "authors": [
+                {
+                    "name": "Tobias Rosenstock",
+                    "email": "tobias.rosenstock@project-a.com",
+                    "homepage": "http://www.project-a.com",
+                    "role": "Developer"
+                }
+            ],
+            "description": "Yves Category Export Package",
+            "keywords": [
+                "Category",
+                "Connector",
+                "Product"
+            ],
+            "time": "2015-01-05 17:18:33"
+        },
+        {
             "name": "spryker/product-export-package",
             "version": "dev-master",
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/product-export.git",
-                "reference": "29eb684ec65e41e2165180c0624ecd11474ec825"
+                "reference": "95a1fa2d7abe445e8b984c3eba27e951c32291cd"
             },
             "require": {
                 "php": ">=5.4.0",
@@ -1554,7 +1596,7 @@
                 "Product",
                 "Yves"
             ],
-            "time": "2014-12-19 10:00:35"
+            "time": "2015-01-06 09:50:18"
         },
         {
             "name": "spryker/product-package",
@@ -1598,7 +1640,7 @@
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/sales.git",
-                "reference": "568b7b5e9efaf77c17739814d8871a864a34d7ee"
+                "reference": "01c54f542bae10889ebf3fb3f4acfd89c2df4a4f"
             },
             "require": {
                 "php": ">=5.4.0"
@@ -1623,7 +1665,7 @@
                 "Sales",
                 "Task"
             ],
-            "time": "2014-12-19 11:08:09"
+            "time": "2015-01-07 10:50:31"
         },
         {
             "name": "spryker/yves-export-package",
@@ -1631,7 +1673,7 @@
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/yves-export.git",
-                "reference": "dea81427bfe9472fbba97bdf9cce67bc587733ec"
+                "reference": "b049141061604f9cf36525898d9134367d768044"
             },
             "require": {
                 "php": ">=5.4.0",
@@ -1659,7 +1701,7 @@
                 "Export",
                 "Yves"
             ],
-            "time": "2014-12-17 10:22:32"
+            "time": "2015-01-06 08:44:41"
         },
         {
             "name": "symfony-cmf/routing",
@@ -4763,7 +4805,7 @@
         "spryker/acl-package": 20,
         "spryker/cart-package": 20,
         "spryker/catalog-package": 20,
-        "spryker/category-package": 20,
+        "spryker/category-tree-package": 20,
         "spryker/category-export-package": 20,
         "spryker/checkout-package": 20,
         "spryker/content-package": 20,
@@ -4780,6 +4822,7 @@
         "spryker/payone-package": 20,
         "spryker/product-package": 20,
         "spryker/product-export-package": 20,
+        "spryker/product-category-package": 20,
         "spryker/sales-package": 20,
         "spryker/yves-export-package": 20,
         "silex/silex": 20,

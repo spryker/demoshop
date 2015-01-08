@@ -1,7 +1,7 @@
 <?php
 namespace Pyz\Yves\Library\Controller;
 
-use ProjectA\Yves\Library\Controller\ExceptionController as CoreExceptionController;
+use ProjectA\Yves\Library\Controller\ExceptionAbstractController as CoreExceptionController;
 use Symfony\Component\Debug\Exception\FlattenException;
 use WebDriver\Exception;
 
