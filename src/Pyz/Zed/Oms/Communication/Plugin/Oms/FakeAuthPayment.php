@@ -15,12 +15,12 @@ use ProjectA\Zed\Payment\Business\Model\PaymentResponse;
 class FakeAuthPayment extends AbstractCommand implements CommandByOrderInterface
 {
     /**
-     * @param \ProjectA_Zed_Sales_Persistence_PacSalesOrderItem[] $orderItems
-     * @param \ProjectA_Zed_Sales_Persistence_PacSalesOrder $orderEntity
+     * @param \ProjectA_Zed_Sales_Persistence_Propel_PacSalesOrderItem[] $orderItems
+     * @param \ProjectA_Zed_Sales_Persistence_Propel_PacSalesOrder $orderEntity
      * @param ReadOnlyArrayObject $data
      * @return array $returnArray
      */
-    public function run(array $orderItems, \ProjectA_Zed_Sales_Persistence_PacSalesOrder $orderEntity, ReadOnlyArrayObject $data)
+    public function run(array $orderItems, \ProjectA_Zed_Sales_Persistence_Propel_PacSalesOrder $orderEntity, ReadOnlyArrayObject $data)
     {
         $response = new PaymentResponse(true);
 

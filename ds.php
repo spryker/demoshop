@@ -16,8 +16,9 @@ $filesystem = new \Symfony\Component\Filesystem\Filesystem();
 /* @var $file \Symfony\Component\Finder\SplFileInfo */
 foreach ($finder->files()->in($vendorDirPattern)->name('*.php')->depth(0) as $file) {
     $newPath = str_replace($file->getRelativePathname(), '', $file->getPathname()) . 'Propel/' . $file->getRelativePathname();
-    $filesystem->copy($file->getPathname(), $newPath);
-    $filesystem->remove($file->getPathname());
+//    $filesystem->copy($file->getPathname(), $newPath);
+//    $filesystem->remove($file->getPathname());
 
     echo $newPath . PHP_EOL;
+
 }

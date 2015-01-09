@@ -16,12 +16,12 @@ class PurgeCodeUsage extends AbstractCommand implements CommandByOrderInterface,
     use SalesruleFacadeTrait;
 
     /**
-     * @param \ProjectA_Zed_Sales_Persistence_PacSalesOrderItem[] $orderItems
-     * @param \ProjectA_Zed_Sales_Persistence_PacSalesOrder $orderEntity
+     * @param \ProjectA_Zed_Sales_Persistence_Propel_PacSalesOrderItem[] $orderItems
+     * @param \ProjectA_Zed_Sales_Persistence_Propel_PacSalesOrder $orderEntity
      * @param ReadOnlyArrayObject $data
      * @return array $returnArray
      */
-    public function run(array $orderItems, \ProjectA_Zed_Sales_Persistence_PacSalesOrder $orderEntity, ReadOnlyArrayObject $data)
+    public function run(array $orderItems, \ProjectA_Zed_Sales_Persistence_Propel_PacSalesOrder $orderEntity, ReadOnlyArrayObject $data)
     {
         $purgedCodes = $this->facadeSalesrule->purgeSalesruleCodeUsage($orderEntity->getPrimaryKey());
 

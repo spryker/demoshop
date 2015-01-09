@@ -3,12 +3,12 @@ namespace Pyz\Zed\Catalog\Business\Internal;
 
 use Pyz\Shared\Catalog\Code\ProductAttributeConstantInterface;
 use Pyz\Shared\Catalog\Code\ProductAttributeSetConstantInterface;
-use \ProjectA_Zed_Catalog_Persistence_PacCatalogValueTypePeer as ValueTypePeer;
+use \ProjectA_Zed_Catalog_Persistence_Propel_PacCatalogValueTypePeer as ValueTypePeer;
 
 /**
- * self::ATTRIBUTE_NAME => \ProjectA_Zed_Catalog_Persistence_PacCatalogValueTypePeer::VARIETY_TEXT,
- * self::ATTRIBUTE_TAX_RATE => \ProjectA_Zed_Catalog_Persistence_PacCatalogValueTypePeer::VARIETY_OPTIONSINGLE,
- * self::ATTRIBUTE_MAX_QUANTITY => \ProjectA_Zed_Catalog_Persistence_PacCatalogValueTypePeer::VARIETY_INTEGER,
+ * self::ATTRIBUTE_NAME => \ProjectA_Zed_Catalog_Persistence_Propel_PacCatalogValueTypePeer::VARIETY_TEXT,
+ * self::ATTRIBUTE_TAX_RATE => \ProjectA_Zed_Catalog_Persistence_Propel_PacCatalogValueTypePeer::VARIETY_OPTIONSINGLE,
+ * self::ATTRIBUTE_MAX_QUANTITY => \ProjectA_Zed_Catalog_Persistence_Propel_PacCatalogValueTypePeer::VARIETY_INTEGER,
  *
  */
 class AttributeToVarietyMapping implements
@@ -85,6 +85,6 @@ class AttributeToVarietyMapping implements
      */
     public static function getVarietyForAttributeByAttributeSet($attributeName, $attributeSetName)
     {
-        return isset(static::$attributesToVarietyMapping[$attributeSetName][$attributeName]) ? static::$attributesToVarietyMapping[$attributeSetName][$attributeName] : \ProjectA_Zed_Catalog_Persistence_PacCatalogValueTypePeer::VARIETY_TEXT;
+        return isset(static::$attributesToVarietyMapping[$attributeSetName][$attributeName]) ? static::$attributesToVarietyMapping[$attributeSetName][$attributeName] : \ProjectA_Zed_Catalog_Persistence_Propel_PacCatalogValueTypePeer::VARIETY_TEXT;
     }
 }
