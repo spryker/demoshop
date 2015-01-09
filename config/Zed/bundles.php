@@ -22,6 +22,7 @@ return [
         'Cart' => $schema,
         'Cms' => $allElements,
         'Catalog' => $schemaAndNavigation,
+        'Category' => $schema,
         'CategoryTree' => $schemaAndNavigation,
         'Customer' => $schemaAndNavigation,
         'Document' => $schema,
