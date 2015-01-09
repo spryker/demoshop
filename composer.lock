@@ -885,7 +885,7 @@
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/acl.git",
-                "reference": "0987044e15713483068e97e49f48de946ed14c48"
+                "reference": "f37a59a5c51b5531697b74caa702f3ff9dcd111b"
             },
             "require": {
                 "php": ">=5.4.0"
@@ -913,7 +913,7 @@
                 "login",
                 "user management"
             ],
-            "time": "2015-01-08 08:34:21"
+            "time": "2015-01-09 10:17:13"
         },
         {
             "name": "spryker/cart-package",
@@ -921,7 +921,7 @@
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/cart.git",
-                "reference": "ce24bc9e00e0a98e1522c9fb632390a1be2ed5c2"
+                "reference": "5bd93e01ed023c5f850441a14898375bf305f091"
             },
             "require": {
                 "php": ">=5.4.0"
@@ -945,7 +945,7 @@
             "keywords": [
                 "Cart"
             ],
-            "time": "2015-01-08 08:36:13"
+            "time": "2015-01-09 08:42:52"
         },
         {
             "name": "spryker/catalog-package",
@@ -953,7 +953,7 @@
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/catalog.git",
-                "reference": "c9768e7398d1efe4e56875ffa3564b47360a4919"
+                "reference": "9ff13fd0756d2cd82b9a50d24e7df1851604b5c8"
             },
             "require": {
                 "php": ">=5.4.0"
@@ -987,7 +987,7 @@
                 "Price",
                 "Stock"
             ],
-            "time": "2015-01-08 08:34:21"
+            "time": "2015-01-08 14:32:16"
         },
         {
             "name": "spryker/category-export-package",
@@ -995,7 +995,7 @@
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/category-export.git",
-                "reference": "dc72f845daad635986725ef646f393a6ee30edd0"
+                "reference": "d678553ff8e10ebc133f9cbfeb1f0a5f39e28d24"
             },
             "require": {
                 "php": ">=5.4.0",
@@ -1025,7 +1025,7 @@
                 "Export",
                 "Yves"
             ],
-            "time": "2015-01-08 11:09:54"
+            "time": "2015-01-09 10:04:48"
         },
         {
             "name": "spryker/category-tree-package",
@@ -1033,7 +1033,7 @@
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/category-tree.git",
-                "reference": "fbd2be5480792b616d5b4c74dc5bf5a0ed7721df"
+                "reference": "db7aa20f2c248e3bb6dfec3d9291e5d5bdcc1968"
             },
             "require": {
                 "php": ">=5.4.0"
@@ -1048,7 +1048,7 @@
             "keywords": [
                 "CategoryTree"
             ],
-            "time": "2015-01-08 11:23:49"
+            "time": "2015-01-09 10:00:09"
         },
         {
             "name": "spryker/checkout-package",
@@ -1056,7 +1056,7 @@
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/checkout.git",
-                "reference": "486ac3dad6dd8a3a8f1e9af0dbda625d994d4cc7"
+                "reference": "070d398c917455edfe5be38c517d12b89abffca7"
             },
             "require": {
                 "php": ">=5.4.0"
@@ -1082,7 +1082,7 @@
                 "Checkout",
                 "Salesrule"
             ],
-            "time": "2015-01-08 08:34:21"
+            "time": "2015-01-09 08:42:53"
         },
         {
             "name": "spryker/console-package",
@@ -1130,7 +1130,7 @@
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/content.git",
-                "reference": "75df1f778253666c4767393b6ce65c6c041c422d"
+                "reference": "9e116347fa75ac1e081cfb676dd8f8b7ddfae62f"
             },
             "require": {
                 "php": ">=5.4.0"
@@ -1154,7 +1154,7 @@
             "keywords": [
                 "Content Package"
             ],
-            "time": "2015-01-08 08:34:21"
+            "time": "2015-01-09 08:42:53"
         },
         {
             "name": "spryker/crm-package",
@@ -1162,7 +1162,7 @@
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/crm.git",
-                "reference": "d929c7f482e8e353ccba10b1720d57cb9c715053"
+                "reference": "5ad80afbcac0b13091739e7e37daaf1d62da583a"
             },
             "require": {
                 "php": ">=5.4.0",
@@ -1189,7 +1189,7 @@
                 "mail",
                 "newsletter"
             ],
-            "time": "2015-01-08 10:45:31"
+            "time": "2015-01-09 09:14:54"
         },
         {
             "name": "spryker/document-package",
@@ -1197,7 +1197,7 @@
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/document.git",
-                "reference": "edc309c024c488820090b6f29ec93830ea865702"
+                "reference": "c29eb5d72850af5f6ffa918722bc39519c62daf4"
             },
             "require": {
                 "php": ">=5.4.0"
@@ -1221,7 +1221,7 @@
                 "Document",
                 "Invoice"
             ],
-            "time": "2015-01-08 08:34:22"
+            "time": "2015-01-08 14:32:17"
         },
         {
             "name": "spryker/frontend-package",
@@ -1229,7 +1229,7 @@
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/frontend.git",
-                "reference": "e36f6c63176002ad76c0267b8b2e4effad0e5eb1"
+                "reference": "58ebc474a07eaba8a6ba8f3168cebc4f9fbcd270"
             },
             "require": {
                 "php": ">=5.4.0"
@@ -1252,7 +1252,7 @@
             "keywords": [
                 "Frontend"
             ],
-            "time": "2015-01-08 08:34:22"
+            "time": "2015-01-08 14:32:17"
         },
         {
             "name": "spryker/glossary-package",
@@ -1260,7 +1260,7 @@
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/glossary.git",
-                "reference": "41f04d47db58249f64e9b9edeb21811df4c77e45"
+                "reference": "2c301cc80ae9bf9a54e9712f113af97e10c122af"
             },
             "require": {
                 "php": ">=5.4.0",
@@ -1285,7 +1285,7 @@
                 "i18n",
                 "translation"
             ],
-            "time": "2015-01-08 08:34:22"
+            "time": "2015-01-08 14:32:17"
         },
         {
             "name": "spryker/infrastructure-package",
@@ -1293,7 +1293,7 @@
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/infrastructure.git",
-                "reference": "aa7aca9cea36cd7c1cbee5a990e538a71531b2cc"
+                "reference": "ba5a8b934f05d7ffe1a8bb056351d308070204d7"
             },
             "require": {
                 "php": ">=5.4.0"
@@ -1309,7 +1309,7 @@
             "keywords": [
                 "infrastructure"
             ],
-            "time": "2015-01-08 10:45:57"
+            "time": "2015-01-09 10:23:04"
         },
         {
             "name": "spryker/kendo-package",
@@ -1317,7 +1317,7 @@
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/kendo.git",
-                "reference": "eb07a2837ee73cb426d2af92b78a0de4afa142b7"
+                "reference": "6aa186deee8bc060ee4241c7260b3ca6c454e140"
             },
             "type": "library",
             "autoload": {
@@ -1328,7 +1328,7 @@
                 }
             },
             "description": "Core Library",
-            "time": "2015-01-08 08:34:22"
+            "time": "2015-01-08 13:23:32"
         },
         {
             "name": "spryker/library-package",
@@ -1336,7 +1336,7 @@
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/library.git",
-                "reference": "d84e4d3d49ae1a1811f46333caf02265cc0b12ef"
+                "reference": "007e03d690bc09a7e2f4e35854b1bb40cf416f03"
             },
             "require": {
                 "digital-canvas/zend-framework": ">=1.12.2",
@@ -1373,7 +1373,7 @@
                 }
             },
             "description": "Project-A Library",
-            "time": "2015-01-09 09:52:33"
+            "time": "2015-01-09 10:14:43"
         },
         {
             "name": "spryker/lumberjack-package",
@@ -1381,7 +1381,7 @@
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/lumberjack.git",
-                "reference": "9652132bc66462632fcb3d7403c44439d9943827"
+                "reference": "adecc8c43eb7c4b4077005b9fb6173a68979934e"
             },
             "require": {
                 "php": ">=5.4.0",
@@ -1405,7 +1405,7 @@
             "keywords": [
                 ""
             ],
-            "time": "2015-01-08 08:34:23"
+            "time": "2015-01-08 14:32:17"
         },
         {
             "name": "spryker/payment-package",
@@ -1413,7 +1413,7 @@
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/payment.git",
-                "reference": "61dc5ab6411f1fe90f5a836af1f14c269a8716bb"
+                "reference": "13e17c698e92ce928e7e26997ef22807d2af9eab"
             },
             "require": {
                 "php": ">=5.4.0",
@@ -1441,7 +1441,7 @@
                 "payment control",
                 "payment provider"
             ],
-            "time": "2015-01-08 08:34:23"
+            "time": "2015-01-08 14:32:17"
         },
         {
             "name": "spryker/payone-package",
@@ -1449,7 +1449,7 @@
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/payone.git",
-                "reference": "de8c6f2ae53021c0de775f14c621462187d53039"
+                "reference": "c9d52a1e02c3f271ca9774f65deda2265497f55e"
             },
             "require": {
                 "php": ">=5.4.0"
@@ -1472,7 +1472,7 @@
             "keywords": [
                 "payment,payment provider,payone"
             ],
-            "time": "2015-01-08 08:34:23"
+            "time": "2015-01-08 14:32:18"
         },
         {
             "name": "spryker/product-category-package",
@@ -1518,7 +1518,7 @@
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/product-export.git",
-                "reference": "95a1fa2d7abe445e8b984c3eba27e951c32291cd"
+                "reference": "4717b32260a23273a7585fdd2b266e4f337cb380"
             },
             "require": {
                 "php": ">=5.4.0",
@@ -1549,7 +1549,7 @@
                 "Product",
                 "Yves"
             ],
-            "time": "2015-01-06 09:50:18"
+            "time": "2015-01-09 08:42:54"
         },
         {
             "name": "spryker/product-package",
@@ -1557,7 +1557,7 @@
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/product.git",
-                "reference": "283967cc6ebc0abd74ae6adddb4b50eafa65841a"
+                "reference": "6f3e881537911e0c18f473705426ec1507f0ff8e"
             },
             "require": {
                 "league/csv": "*",
@@ -1585,7 +1585,7 @@
                 "Catalog",
                 "Product"
             ],
-            "time": "2015-01-08 08:34:23"
+            "time": "2015-01-08 13:23:33"
         },
         {
             "name": "spryker/product-search-package",
@@ -1629,7 +1629,7 @@
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/sales.git",
-                "reference": "be261bf4129742399751c4bcc31fe87753559825"
+                "reference": "3cb28692bd465315a33c884a38d9c02fb276c7df"
             },
             "require": {
                 "php": ">=5.4.0"
@@ -1654,7 +1654,7 @@
                 "Sales",
                 "Task"
             ],
-            "time": "2015-01-08 10:45:04"
+            "time": "2015-01-08 14:32:18"
         },
         {
             "name": "spryker/yves-export-package",
@@ -1662,7 +1662,7 @@
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/yves-export.git",
-                "reference": "c5319514b008ec1045063a0e788042bfc8ef5e92"
+                "reference": "1b32627d41bde0169d1e3a2b717edb143d5c90e5"
             },
             "require": {
                 "php": ">=5.4.0",
@@ -1691,7 +1691,7 @@
                 "Export",
                 "Yves"
             ],
-            "time": "2015-01-09 08:55:30"
+            "time": "2015-01-09 10:19:53"
         },
         {
             "name": "symfony-cmf/routing",

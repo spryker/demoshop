@@ -2,10 +2,10 @@
 namespace Pyz\Yves\Application\Communication\Controller;
 
 use Pyz\Yves\Library\Tracking\PageTypeInterface;
-use ProjectA\Yves\Library\Controller\Controller;
+use ProjectA\Yves\Application\Communication\Controller\AbstractController;
 use ProjectA\Yves\Library\Tracking\Tracking;
 
-class IndexController extends Controller
+class IndexController extends AbstractController
 {
 
     public function indexAction()
