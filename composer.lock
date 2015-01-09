@@ -540,12 +540,12 @@
             "version": "v1.1.1",
             "source": {
                 "type": "git",
-                "url": "https://github.com/silexphp/Pimple.git",
+                "url": "https://github.com/fabpot/Pimple.git",
                 "reference": "2019c145fe393923f3441b23f29bbdfaa5c58c4d"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/silexphp/Pimple/zipball/2019c145fe393923f3441b23f29bbdfaa5c58c4d",
+                "url": "https://api.github.com/repos/fabpot/Pimple/zipball/2019c145fe393923f3441b23f29bbdfaa5c58c4d",
                 "reference": "2019c145fe393923f3441b23f29bbdfaa5c58c4d",
                 "shasum": ""
             },
@@ -570,7 +570,9 @@
             "authors": [
                 {
                     "name": "Fabien Potencier",
-                    "email": "fabien@symfony.com"
+                    "email": "fabien@symfony.com",
+                    "homepage": "http://fabien.potencier.org",
+                    "role": "Lead Developer"
                 }
             ],
             "description": "Pimple is a simple Dependency Injection Container for PHP 5.3",
@@ -953,7 +955,7 @@
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/catalog.git",
-                "reference": "9ff13fd0756d2cd82b9a50d24e7df1851604b5c8"
+                "reference": "f3790b6ba867f514fcbb21593132b9010492de93"
             },
             "require": {
                 "php": ">=5.4.0"
@@ -987,7 +989,7 @@
                 "Price",
                 "Stock"
             ],
-            "time": "2015-01-08 14:32:16"
+            "time": "2015-01-09 10:41:08"
         },
         {
             "name": "spryker/category-export-package",
@@ -1033,7 +1035,7 @@
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/category-tree.git",
-                "reference": "db7aa20f2c248e3bb6dfec3d9291e5d5bdcc1968"
+                "reference": "eba9494fe773853fe69e22dec0a4f88215c5c30c"
             },
             "require": {
                 "php": ">=5.4.0"
@@ -1048,7 +1050,7 @@
             "keywords": [
                 "CategoryTree"
             ],
-            "time": "2015-01-09 10:00:09"
+            "time": "2015-01-09 10:46:25"
         },
         {
             "name": "spryker/checkout-package",
@@ -1260,7 +1262,7 @@
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/glossary.git",
-                "reference": "2c301cc80ae9bf9a54e9712f113af97e10c122af"
+                "reference": "c32df9da79115502ad7c4209510d00f94e6fbe66"
             },
             "require": {
                 "php": ">=5.4.0",
@@ -1285,7 +1287,7 @@
                 "i18n",
                 "translation"
             ],
-            "time": "2015-01-08 14:32:17"
+            "time": "2015-01-09 10:48:09"
         },
         {
             "name": "spryker/infrastructure-package",
@@ -1662,7 +1664,7 @@
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/yves-export.git",
-                "reference": "1b32627d41bde0169d1e3a2b717edb143d5c90e5"
+                "reference": "012ce30503cce5ffa4b7828244b984251ff2af34"
             },
             "require": {
                 "php": ">=5.4.0",
@@ -1691,7 +1693,7 @@
                 "Export",
                 "Yves"
             ],
-            "time": "2015-01-09 10:19:53"
+            "time": "2015-01-09 10:44:10"
         },
         {
             "name": "symfony-cmf/routing",
@@ -2863,12 +2865,12 @@
             "version": "v1.15.1",
             "source": {
                 "type": "git",
-                "url": "https://github.com/twigphp/Twig.git",
+                "url": "https://github.com/fabpot/Twig.git",
                 "reference": "1fb5784662f438d7d96a541e305e28b812e2eeed"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/twigphp/Twig/zipball/1fb5784662f438d7d96a541e305e28b812e2eeed",
+                "url": "https://api.github.com/repos/fabpot/Twig/zipball/1fb5784662f438d7d96a541e305e28b812e2eeed",
                 "reference": "1fb5784662f438d7d96a541e305e28b812e2eeed",
                 "shasum": ""
             },
@@ -3881,7 +3883,7 @@
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/newLoki/PropelModule/zipball/9de9316361e3dddb6b29f5dd93b7456e19e042e3",
+                "url": "https://api.github.com/repos/newLoki/PropelModule/zipball/ab6164e684113e20d5754fd61fe0ea86331ebd0b",
                 "reference": "9de9316361e3dddb6b29f5dd93b7456e19e042e3",
                 "shasum": ""
             },
