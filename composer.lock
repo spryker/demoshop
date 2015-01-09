@@ -1336,7 +1336,7 @@
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/library.git",
-                "reference": "95cf88689f6c32e1dc3bb3447c6419fa3933983c"
+                "reference": "d84e4d3d49ae1a1811f46333caf02265cc0b12ef"
             },
             "require": {
                 "digital-canvas/zend-framework": ">=1.12.2",
@@ -1373,7 +1373,7 @@
                 }
             },
             "description": "Project-A Library",
-            "time": "2015-01-08 09:24:01"
+            "time": "2015-01-09 09:52:33"
         },
         {
             "name": "spryker/lumberjack-package",
