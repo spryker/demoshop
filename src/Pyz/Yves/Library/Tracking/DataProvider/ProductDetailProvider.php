@@ -6,7 +6,7 @@ use ProjectA\Shared\Price\Code\PriceTypeConstants;
 use ProjectA\Shared\System\SystemConfig;
 use Pyz\Shared\Catalog\Code\ProductAttributeConstantInterface;
 use ProjectA\Shared\Library\Currency\CurrencyManager;
-use ProjectA\Yves\Library\Silex\Application;
+use ProjectA\Yves\Application\Business\Application;
 use ProjectA\Yves\Library\Tracking\DataProvider\AbstractDataProvider;
 use ProjectA\Yves\Library\Tracking\Tracking;
 

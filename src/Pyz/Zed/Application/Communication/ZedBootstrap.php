@@ -2,31 +2,30 @@
 
 namespace Pyz\Zed\Application\Communication;
 
+use ProjectA\Shared\Application\Business\Application;
+use ProjectA\Shared\Application\Business\Bootstrap;
+use ProjectA\Shared\Application\Communication\Plugin\ServiceProvider\RoutingServiceProvider;
+use ProjectA\Shared\Application\Communication\Plugin\ServiceProvider\UrlGeneratorServiceProvider;
 use ProjectA\Shared\Library\Config;
-use ProjectA\Shared\Library\Silex\Application;
-use ProjectA\Shared\Library\Silex\Bootstrap;
+
 use ProjectA\Shared\System\SystemConfig;
 use ProjectA\Shared\Yves\YvesConfig;
-use ProjectA\Shared\Library\Silex\ServiceProvider\UrlGeneratorServiceProvider;
-use ProjectA\Shared\Library\Silex\ServiceProvider\RoutingServiceProvider;
-use ProjectA\Shared\Library\Silex\Routing\SilexRouter;
+use ProjectA\Shared\Application\Business\Routing\SilexRouter;
 
 use ProjectA\Zed\Application\Business\Model\Router\MvcRouter;
+use ProjectA\Zed\Application\Business\Model\Twig\ZedExtension;
 use ProjectA\Zed\Application\Communication\Plugin\ServiceProvider\EnvironmentInformationServiceProvider;
 use ProjectA\Zed\Application\Communication\Plugin\ServiceProvider\NewRelicServiceProvider;
 use ProjectA\Zed\Application\Communication\Plugin\ServiceProvider\PropelServiceProvider;
+use ProjectA\Zed\Application\Communication\Plugin\ServiceProvider\RequestServiceProvider;
 use ProjectA\Zed\Application\Communication\Plugin\ServiceProvider\SessionServiceProvider;
 use ProjectA\Zed\Application\Communication\Plugin\ServiceProvider\SslServiceProvider;
 use ProjectA\Zed\Application\Communication\Plugin\ServiceProvider\TranslationServiceProvider;
 
+use ProjectA\Zed\Application\Communication\Plugin\ServiceProvider\TwigServiceProvider;
 use ProjectA\Zed\Auth\Business\Model\Auth;
 
 use ProjectA\Zed\Cms\Communication\Plugin\ServiceProvider\CmsServiceProvider;
-
-use ProjectA\Zed\Library\Silex\Provider\RequestServiceProvider;
-use ProjectA\Zed\Library\Silex\Provider\TwigServiceProvider;
-use ProjectA\Zed\Library\Silex\Application as ZedApplication;
-use ProjectA\Zed\Library\Twig\Extension\ZedExtension;
 
 use ProjectA\Zed\ProductImage\Business\ServiceProvider\ProductImageServiceProvider;
 
@@ -40,18 +39,16 @@ use Silex\Provider\ServiceControllerServiceProvider;
 use Silex\Provider\ValidatorServiceProvider;
 use Silex\Provider\WebProfilerServiceProvider;
 
-
-
 use Symfony\Component\HttpFoundation\Request;
 
 class ZedBootstrap extends Bootstrap
 {
     /**
-     * @return Application|ZedApplication
+     * @return Application
      */
     protected function getBaseApplication()
     {
-        return new ZedApplication();
+        return new Application();
     }
 
     /**
@@ -93,7 +90,6 @@ class ZedBootstrap extends Bootstrap
         $providers = [
             new RequestServiceProvider(),
             new SslServiceProvider(),
-            new UrlGeneratorServiceProvider(),
             new ServiceControllerServiceProvider(),
             new RoutingServiceProvider(),
             new ValidatorServiceProvider(),
@@ -105,6 +101,7 @@ class ZedBootstrap extends Bootstrap
             new PropelServiceProvider(),
             new FrontendServiceProvider(),
             new SecurityServiceProvider(),
+            new UrlGeneratorServiceProvider(),
 //            new ProductImageServiceProvider(), You can find this in catalog-package feature/387-replace-zf-with-silex
             new CmsServiceProvider(),
             new NewRelicServiceProvider(),
