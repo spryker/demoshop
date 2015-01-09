@@ -33,7 +33,7 @@ class Install extends \ProjectA_Zed_Category_Business_Internal_Install
     protected function installCategories()
     {
         foreach ($this->categories as $category) {
-            $categoryNameQuery = new \ProjectA_Zed_Category_Persistence_PacCategoryNameQuery();
+            $categoryNameQuery = new \ProjectA_Zed_Category_Persistence_Propel_PacCategoryNameQuery();
             $categoryNameQuery->filterByName($category);
             $categoryName = $categoryNameQuery->findOneOrCreate();
             if ($categoryName->isNew()) {

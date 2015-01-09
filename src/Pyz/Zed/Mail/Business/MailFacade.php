@@ -13,11 +13,11 @@ class MailFacade extends CoreMailFacade
 
     /**
      * @param $mailType
-     * @param \ProjectA_Zed_Sales_Persistence_PacSalesOrder $orderEntity
+     * @param \ProjectA_Zed_Sales_Persistence_Propel_PacSalesOrder $orderEntity
      * @param bool $isUnique
      * @return MailTransfer
      */
-    public function buildUnderpaidPaymentTransfer($mailType, \ProjectA_Zed_Sales_Persistence_PacSalesOrder $orderEntity, array $additionalData, $isUnique = true)
+    public function buildUnderpaidPaymentTransfer($mailType, \ProjectA_Zed_Sales_Persistence_Propel_PacSalesOrder $orderEntity, array $additionalData, $isUnique = true)
     {
         return $this->factory
             ->createModelCollectorOrderMailWithAdditionalDataCollector($mailType, $orderEntity, $additionalData, $isUnique)

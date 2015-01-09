@@ -109,11 +109,11 @@ class WriteBundleProduct extends AbstractDefinition implements CatalogFacadeInte
 
     /**
      * @param $attributeSetName
-     * @return \ProjectA_Zed_Catalog_Persistence_PacCatalogAttributeSet
+     * @return \ProjectA_Zed_Catalog_Persistence_Propel_PacCatalogAttributeSet
      */
     protected function getAttributeSet($attributeSetName)
     {
-        $attributeSet = \ProjectA_Zed_Catalog_Persistence_PacCatalogAttributeSetQuery::create()
+        $attributeSet = \ProjectA_Zed_Catalog_Persistence_Propel_PacCatalogAttributeSetQuery::create()
             ->filterByName($attributeSetName)
             ->findOne();
         return $attributeSet;

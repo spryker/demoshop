@@ -24,7 +24,7 @@ class Install extends CoreInstall
         $payoneGroup = $this->createDefaultGroup('Payment Transaction');
         $this->createDefaultResource('/payone\/transaction-status\/set\/*/', $payoneGroup);
 
-        $guest = \ProjectA_Zed_Acl_Persistence_PacAclRoleQuery::create()->filterByName('Guest')->findOne();
+        $guest = \ProjectA_Zed_Acl_Persistence_Propel_PacAclRoleQuery::create()->filterByName('Guest')->findOne();
         $this->createDefaultGroupPrivileges($guest, $payoneGroup);
     }
 }

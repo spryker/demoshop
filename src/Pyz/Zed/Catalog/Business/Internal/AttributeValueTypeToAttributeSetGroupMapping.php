@@ -78,7 +78,7 @@ class AttributeValueTypeToAttributeSetGroupMapping implements
 
         foreach (array_keys(static::$valueTypeToAttributeSetGroupMapping) as $attributeSetName) {
 
-            $countAttributes = \ProjectA_Zed_Catalog_Persistence_PacCatalogValueTypeQuery::create()->useAttributeSetQuery()->filterByName($attributeSetName)->endUse()->count();
+            $countAttributes = \ProjectA_Zed_Catalog_Persistence_Propel_PacCatalogValueTypeQuery::create()->useAttributeSetQuery()->filterByName($attributeSetName)->endUse()->count();
 
             $filter = new FilterChain();
             $filter->addFilter(function ($string) {
