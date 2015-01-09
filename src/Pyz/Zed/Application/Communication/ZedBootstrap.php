@@ -4,12 +4,12 @@ namespace Pyz\Zed\Application\Communication;
 
 use ProjectA\Shared\Application\Business\Application;
 use ProjectA\Shared\Application\Business\Bootstrap;
-use ProjectA\Shared\Application\Business\ServiceProvider\UrlGeneratorServiceProvider;
+use ProjectA\Shared\Application\Communication\Plugin\ServiceProvider\RoutingServiceProvider;
+use ProjectA\Shared\Application\Communication\Plugin\ServiceProvider\UrlGeneratorServiceProvider;
 use ProjectA\Shared\Library\Config;
 
 use ProjectA\Shared\System\SystemConfig;
 use ProjectA\Shared\Yves\YvesConfig;
-use ProjectA\Shared\Application\Business\ServiceProvider\RoutingServiceProvider;
 use ProjectA\Shared\Application\Business\Routing\SilexRouter;
 
 use ProjectA\Zed\Application\Business\Model\Router\MvcRouter;

@@ -5,17 +5,17 @@ use Generated\Shared\Library\TransferLoader;
 use Generated\Shared\Sales\Transfer\Order;
 use Generated\Shared\Sales\Transfer\Payment;
 use Generated\Yves\Factory;
+use ProjectA\Yves\Cart\Communication\CartControllerProvider;
+use ProjectA\Yves\Checkout\Communication\Plugin\CheckoutControllerProvider;
 use Pyz\Yves\Library\Tracking\PageTypeInterface;
 use Pyz\Yves\Sales\Communication\Form\OrderType;
-use ProjectA\Yves\Checkout\Communication\Controller\CheckoutAbstractController as CoreCheckoutController;
+use ProjectA\Yves\Checkout\Communication\Controller\CheckoutController as CoreCheckoutController;
 use ProjectA\Yves\Library\Tracking\Tracking;
 use Symfony\Component\Form\FormInterface;
 use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Generated\Shared\Payment\Transfer\PaymentMethodCollection;
-use ProjectA\Yves\Checkout\Communication\ControllerProvider as CheckoutControllerProvider;
-use ProjectA\Yves\Cart\Communication\ControllerProvider as CartProvider;
 
 class CheckoutController extends CoreCheckoutController
 {
@@ -93,18 +93,18 @@ class CheckoutController extends CoreCheckoutController
             $order = $transferResponse->getTransfer();
             $customerModel->refreshCustomerInSession($order->getCustomer());
 
-            $this->getFlashMessageHelper()->addMessagesFromResponse($transferResponse);
+            $this->addMessagesFromZedResponse($transferResponse);
 
             if ($transferResponse->isSuccess()) {
                 $redirectUrl = $this->getCart($request)->getOrder()->getPayment()->getRedirectUrl();
                 if (!empty($redirectUrl)) {
-                    return $this->redirectExternal($redirectUrl);
+                    return $this->redirectResponseExternal($redirectUrl);
                 } else {
-                    return $this->redirectInternal(CheckoutControllerProvider::ROUTE_CHECKOUT_SUCCESS);
+                    return $this->redirectResponseInternal(CheckoutControllerProvider::ROUTE_CHECKOUT_SUCCESS);
                 }
             } elseif ($transferResponse->hasErrorMessage(\ProjectA_Shared_Checkout_Code_Messages::ERROR_ORDER_IS_ALREADY_SAVED)) {
                 $this->getCart($request)->setOrder(TransferLoader::loadSalesOrder());
-                return $this->redirectInternal(CartProvider::ROUTE_CART);
+                return $this->redirectResponseInternal(CartControllerProvider::ROUTE_CART);
             }
         }
 

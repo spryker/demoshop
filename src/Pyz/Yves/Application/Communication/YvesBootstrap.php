@@ -5,37 +5,39 @@ namespace Pyz\Yves\Application\Communication;
 use Generated\Yves\Factory;
 use ProjectA\Shared\Application\Business\Application;
 use ProjectA\Shared\Application\Business\Bootstrap;
+
+use ProjectA\Shared\Application\Communication\Plugin\ServiceProvider\RoutingServiceProvider;
+use ProjectA\Shared\Application\Communication\Plugin\ServiceProvider\UrlGeneratorServiceProvider;
 use ProjectA\Shared\Library\Config;
 use ProjectA\Shared\System\SystemConfig;
 use ProjectA\Shared\Yves\YvesConfig;
+use ProjectA\Yves\Cart\Communication\Plugin\CartControllerProvider;
+use ProjectA\Yves\Checkout\Communication\Plugin\CheckoutControllerProvider;
 use ProjectA\Yves\Customer\Business\Model\Security\SecurityServiceProvider;
+use ProjectA\Yves\Customer\Communication\Plugin\CustomerControllerProvider;
 use ProjectA\Yves\Library\Asset\AssetManager;
 use ProjectA\Yves\Application\Business\Twig\YvesExtension;
+use ProjectA\Yves\Newsletter\Communication\Plugin\NewsletterControllerProvider;
+use Pyz\Yves\Application\Communication\Plugin\ApplicationControllerProvider;
 use Pyz\Yves\Library\Silex\Provider\TrackingServiceProvider;
 
-use ProjectA\Yves\Application\Business\ServiceProvider\CookieServiceProvider;
-use ProjectA\Yves\Application\Business\ServiceProvider\MonologServiceProvider;
-use ProjectA\Yves\Application\Business\ServiceProvider\SessionServiceProvider;
-use ProjectA\Yves\Application\Business\ServiceProvider\StorageServiceProvider;
-use ProjectA\Yves\Application\Business\ServiceProvider\ExceptionServiceProvider;
-use ProjectA\Yves\Application\Business\ServiceProvider\TranslationServiceProvider;
-use ProjectA\Yves\Application\Business\ServiceProvider\TwigServiceProvider;
-use ProjectA\Yves\Application\Business\ServiceProvider\YvesLoggingServiceProvider;
+use ProjectA\Yves\Application\Communication\Plugin\ServiceProvider\CookieServiceProvider;
+use ProjectA\Yves\Application\Communication\Plugin\ServiceProvider\MonologServiceProvider;
+use ProjectA\Yves\Application\Communication\Plugin\ServiceProvider\SessionServiceProvider;
+use ProjectA\Yves\Application\Communication\Plugin\ServiceProvider\StorageServiceProvider;
+use ProjectA\Yves\Application\Communication\Plugin\ServiceProvider\ExceptionServiceProvider;
+use ProjectA\Yves\Application\Communication\Plugin\ServiceProvider\TranslationServiceProvider;
+use ProjectA\Yves\Application\Communication\Plugin\ServiceProvider\TwigServiceProvider;
+use ProjectA\Yves\Application\Communication\Plugin\ServiceProvider\YvesLoggingServiceProvider;
+
 use ProjectA\Shared\Application\Business\Routing\SilexRouter;
 
-use Pyz\Yves\Application\Communication\ControllerProvider as ApplicationProvider;
-use ProjectA\Yves\Cart\Communication\ControllerProvider as CartProvider;
-use ProjectA\Yves\Checkout\Communication\ControllerProvider as CheckoutProvider;
-use ProjectA\Yves\Customer\Communication\ControllerProvider as CustomerProvider;
-use ProjectA\Yves\Newsletter\Communication\ControllerProvider as NewsletterProvider;
 use ProjectA\Yves\Library\Tracking\Tracking;
-use ProjectA\Shared\Application\Business\ServiceProvider\UrlGeneratorServiceProvider;
 use Silex\Provider\FormServiceProvider;
 use Silex\Provider\RememberMeServiceProvider;
 use Silex\Provider\ServiceControllerServiceProvider;
 use Silex\Provider\ValidatorServiceProvider;
 use Silex\Provider\WebProfilerServiceProvider;
-use ProjectA\Shared\Application\Business\ServiceProvider\RoutingServiceProvider;
 use Symfony\Component\HttpFoundation\Request;
 
 class YvesBootstrap extends Bootstrap
@@ -126,11 +128,11 @@ class YvesBootstrap extends Bootstrap
         $ssl = Config::get(YvesConfig::YVES_SSL_ENABLED);
 
         return [
-            new ApplicationProvider(false),
-            new CartProvider(false),
-            new CheckoutProvider($ssl),
-            new CustomerProvider($ssl),
-            new NewsletterProvider(),
+            new ApplicationControllerProvider(false),
+            new CartControllerProvider(false),
+            new CheckoutControllerProvider($ssl),
+            new CustomerControllerProvider($ssl),
+            new NewsletterControllerProvider(),
         ];
     }
 
