@@ -20,5 +20,5 @@ foreach ($finder->files()->in($vendorDirPattern)->name('*.php')->depth(0) as $fi
 //    $filesystem->remove($file->getPathname());
 
     echo $newPath . PHP_EOL;
-
+//
 }
