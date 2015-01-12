@@ -320,23 +320,23 @@ class CmsInstall extends CoreCmsInstall
     }
 
     /**
-     * @param \ProjectA_Zed_Cms_Persistence_PacCmsTemplate $template
-     * @param \ProjectA_Zed_Cms_Persistence_PacCmsPartial $partial
+     * @param \ProjectA_Zed_Cms_Persistence_Propel_PacCmsTemplate $template
+     * @param \ProjectA_Zed_Cms_Persistence_Propel_PacCmsPartial $partial
      * @param $row
      * @param $column
      * @param $position
-     * @return \ProjectA_Zed_Cms_Persistence_PacCmsTemplatePartial
+     * @return \ProjectA_Zed_Cms_Persistence_Propel_PacCmsTemplatePartial
      */
     protected function createTemplatePartial(
-        \ProjectA_Zed_Cms_Persistence_PacCmsTemplate $template,
-        \ProjectA_Zed_Cms_Persistence_PacCmsPartial $partial,
+        \ProjectA_Zed_Cms_Persistence_Propel_PacCmsTemplate $template,
+        \ProjectA_Zed_Cms_Persistence_Propel_PacCmsPartial $partial,
         $row,
         $column,
         $position
     ) {
-        /** @var \ProjectA_Zed_Cms_Persistence_PacCmsTemplatePartialQuery $query */
-        $query = \ProjectA_Zed_Cms_Persistence_PacCmsTemplatePartialQuery::create();
-        /** @var \ProjectA_Zed_Cms_Persistence_PacCmsTemplatePartial $entity */
+        /** @var \ProjectA_Zed_Cms_Persistence_Propel_PacCmsTemplatePartialQuery $query */
+        $query = \ProjectA_Zed_Cms_Persistence_Propel_PacCmsTemplatePartialQuery::create();
+        /** @var \ProjectA_Zed_Cms_Persistence_Propel_PacCmsTemplatePartial $entity */
         $entity = $query
             ->filterByRow($row)
             ->filterByColumn($column)
