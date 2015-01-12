@@ -3,7 +3,7 @@ spryker
 
 ## Getting started
 
-For a quick start please take a look at [Getting started](https://github.com/spryker/demoshop/blob/master/doc/GetingStarted.md)
+For a quick start please take a look at [Getting started](https://github.com/spryker/demoshop/blob/master/doc/GettingStarted.md)
 
 ## Development
 
