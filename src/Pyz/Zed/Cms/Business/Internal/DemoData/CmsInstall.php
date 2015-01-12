@@ -325,6 +325,8 @@ class CmsInstall extends CoreCmsInstall
      * @param $row
      * @param $column
      * @param $position
+     * @throws \Exception
+     * @throws \PropelException
      * @return \ProjectA_Zed_Cms_Persistence_Propel_PacCmsTemplatePartial
      */
     protected function createTemplatePartial(

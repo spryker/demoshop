@@ -88,7 +88,6 @@ class Order extends CoreOrder
             ->filterByFkSalesOrder($orderId)
             ->joinStatus()
             ->joinProcess()
-            ->joinBosOrderItem()
             ->groupByFkOmsOrderItemStatus()
             ->groupBySku()
             ->withColumn('COUNT(fk_oms_order_item_status)', 'group_quantity')
@@ -96,7 +95,6 @@ class Order extends CoreOrder
             ->withColumn('SUM(gross_price)', 'group_gross_price')
             ->withColumn('pac_oms_order_item_status.name', 'group_status')
             ->withColumn('pac_oms_order_process.name', 'group_process')
-            ->withColumn('bos_sales_order_item.sales_sku', self::VIRTUAL_COLUMN_SALES_SKU)
             ->orderBy('sku')
             ->find();
     }
