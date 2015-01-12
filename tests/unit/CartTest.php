@@ -23,7 +23,7 @@ class CartTest extends \Codeception\TestCase\Test
 
     public function testAddToCart()
     {
-        $product = Generated_Zed_Catalog_Persistence_Om_BasePacCatalogProductQuery::create()
+        $product = Generated_Zed_Catalog_Persistence_Propel_Om_BasePacCatalogProductQuery::create()
             ->findOne();
 
 

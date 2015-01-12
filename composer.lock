@@ -1336,7 +1336,7 @@
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/library.git",
-                "reference": "4cada729e670feb64dd7253c7471aa08fc452cc8"
+                "reference": "6c9a1c2d61eff8618af2d51fc3351ca791abf241"
             },
             "require": {
                 "digital-canvas/zend-framework": ">=1.12.2",
@@ -1373,7 +1373,7 @@
                 }
             },
             "description": "Project-A Library",
-            "time": "2015-01-09 14:34:24"
+            "time": "2015-01-12 16:19:27"
         },
         {
             "name": "spryker/lumberjack-package",
@@ -1593,7 +1593,7 @@
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/product-search.git",
-                "reference": "55c808247fab5eec7bbc59a1e3139d1ce6e59668"
+                "reference": "7d3501e06affe0edd1e92878ed92d87f98a4891f"
             },
             "require": {
                 "php": ">=5.4.0",
@@ -1621,7 +1621,7 @@
                 "Product",
                 "Search"
             ],
-            "time": "2015-01-12 08:07:39"
+            "time": "2015-01-12 16:37:48"
         },
         {
             "name": "spryker/sales-package",

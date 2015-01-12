@@ -70,7 +70,7 @@ class CheckoutTest extends \Codeception\TestCase\Test
     protected function addCustomer(Order $orderTransfer)
     {
 
-        $status = Generated_Zed_Customer_Persistence_Om_BasePacCustomerStatusQuery::create()->findOne();
+        $status = Generated_Zed_Customer_Persistence_Propel_Om_BasePacCustomerStatusQuery::create()->findOne();
 
         $customer = Generated_Zed_EntityLoader::loadPacCustomer();
         $customer->setFirstName('Max');
@@ -100,7 +100,7 @@ class CheckoutTest extends \Codeception\TestCase\Test
         $shippingAddress->setFirstName($faker->firstName);
         $shippingAddress->setLastName($faker->lastName);
         $shippingAddress->setSalutation(
-            Generated_Zed_Customer_Persistence_Om_BasePacCustomerAddressPeer::SALUTATION_MR
+            Generated_Zed_Customer_Persistence_Propel_Om_BasePacCustomerAddressPeer::SALUTATION_MR
         );
         $shippingAddress->setZipCode($faker->postcode);
 
@@ -121,7 +121,7 @@ class CheckoutTest extends \Codeception\TestCase\Test
         $billingAddress->setFirstName($faker->firstName);
         $billingAddress->setLastName($faker->lastName);
         $billingAddress->setSalutation(
-            Generated_Zed_Customer_Persistence_Om_BasePacCustomerAddressPeer::SALUTATION_MRS
+            Generated_Zed_Customer_Persistence_Propel_Om_BasePacCustomerAddressPeer::SALUTATION_MRS
         );
         $billingAddress->setZipCode($faker->postcode);
 
@@ -136,7 +136,7 @@ class CheckoutTest extends \Codeception\TestCase\Test
      */
     protected function addOrderItems(Order $orderTransfer)
     {
-        $product = Generated_Zed_Catalog_Persistence_Om_BasePacCatalogProductQuery::create()
+        $product = Generated_Zed_Catalog_Persistence_Propel_Om_BasePacCatalogProductQuery::create()
             ->findOne();
 
         $catalogFactory = new CatalogFactory();
