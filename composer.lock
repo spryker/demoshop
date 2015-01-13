@@ -1518,12 +1518,12 @@
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/product-export.git",
-                "reference": "5f1696141a9caa0a40b1eb9a0b5cb92d2e34c5b4"
+                "reference": "392058a71120300993cd7d9d6fb1145906673314"
             },
             "require": {
                 "php": ">=5.4.0",
                 "spryker/product-package": "*",
-                "spryker/yves-export-package": "*"
+                "spryker/yves-export-package": "product-search-dev"
             },
             "require-dev": {
                 "codeception/codeception": "*"
@@ -1549,7 +1549,7 @@
                 "Product",
                 "Yves"
             ],
-            "time": "2015-01-13 17:39:48"
+            "time": "2015-01-13 18:13:13"
         },
         {
             "name": "spryker/product-package",

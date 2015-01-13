@@ -4,8 +4,6 @@
 namespace Pyz\Zed\Product\Business;
 
 use ProjectA\Zed\Product\Business\ProductFacade as CoreProductFacade;
-use ProjectA\Zed\ProductExporter\Business\Builder\MultipleProductsBuilderInterface;
-use ProjectA\Zed\ProductExporter\Business\Builder\ProductExporterToProductInterface;
 use ProjectA\Zed\ProductExporter\Business\Builder\ProductExporterToProductInterface;
 use ProjectA\Zed\ProductSearch\Business\Builder\ProductSearchToProductInterface;
 
