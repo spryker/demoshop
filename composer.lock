@@ -1162,7 +1162,7 @@
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/crm.git",
-                "reference": "6fee3957e3ac8a41562ddac5607e2713e77ddc5e"
+                "reference": "5520f688830a368d75623724b8f2175f1f83d1af"
             },
             "require": {
                 "php": ">=5.4.0",
@@ -1189,7 +1189,7 @@
                 "mail",
                 "newsletter"
             ],
-            "time": "2015-01-09 13:35:32"
+            "time": "2015-01-12 17:43:28"
         },
         {
             "name": "spryker/document-package",
@@ -1336,7 +1336,7 @@
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/library.git",
-                "reference": "6c9a1c2d61eff8618af2d51fc3351ca791abf241"
+                "reference": "d32358a2b4e2c45846f3c48480aa4ea3d76b534c"
             },
             "require": {
                 "digital-canvas/zend-framework": ">=1.12.2",
@@ -1373,7 +1373,7 @@
                 }
             },
             "description": "Project-A Library",
-            "time": "2015-01-12 16:19:27"
+            "time": "2015-01-13 06:32:05"
         },
         {
             "name": "spryker/lumberjack-package",
