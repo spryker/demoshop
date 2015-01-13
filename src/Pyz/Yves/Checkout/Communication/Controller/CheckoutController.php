@@ -5,7 +5,7 @@ use Generated\Shared\Library\TransferLoader;
 use Generated\Shared\Sales\Transfer\Order;
 use Generated\Shared\Sales\Transfer\Payment;
 use Generated\Yves\Factory;
-use ProjectA\Yves\Cart\Communication\CartControllerProvider;
+use ProjectA\Yves\Cart\Communication\Plugin\CartControllerProvider;
 use ProjectA\Yves\Checkout\Communication\Plugin\CheckoutControllerProvider;
 use Pyz\Yves\Library\Tracking\PageTypeInterface;
 use Pyz\Yves\Sales\Communication\Form\OrderType;
@@ -64,8 +64,8 @@ class CheckoutController extends CoreCheckoutController
      */
     protected function createOrderType(PaymentMethodCollection $paymentMethods)
     {
-        $customerModel = Factory::getInstance()->createCustomerModelCustomer($this->getApplication());
-        return new OrderType($paymentMethods, $customerModel);
+//        $customerModel = Factory::getInstance()->createCustomerModelCustomer($this->getApplication());
+        return new OrderType($paymentMethods);//, $customerModel);
     }
 
     protected function validateForm(Request $request, FormInterface $form)
@@ -78,8 +78,8 @@ class CheckoutController extends CoreCheckoutController
             /** @var Order $orderTransfer */
             $orderTransfer = $form->getData();
 
-            $customerModel = Factory::getInstance()->createCustomerModelCustomer($this->getApplication());
-            $orderTransfer->setCustomer($customerModel->getTransfer());
+//            $customerModel = Factory::getInstance()->createCustomerModelCustomer($this->getApplication());
+//            $orderTransfer->setCustomer($customerModel->getTransfer());
 
             /** @var Payment $payment */
             $payment = TransferLoader::loadSalesPayment();
@@ -90,8 +90,8 @@ class CheckoutController extends CoreCheckoutController
             $transferResponse = $orderManager->saveOrder($orderTransfer);
 
             /** @var  \Generated\Shared\Sales\Transfer\Order $order */
-            $order = $transferResponse->getTransfer();
-            $customerModel->refreshCustomerInSession($order->getCustomer());
+//            $order = $transferResponse->getTransfer();
+//            $customerModel->refreshCustomerInSession($order->getCustomer());
 
             $this->addMessagesFromZedResponse($transferResponse);
 
