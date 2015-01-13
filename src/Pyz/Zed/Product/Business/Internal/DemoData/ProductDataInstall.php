@@ -13,6 +13,57 @@ use ProjectA\Zed\Library\Business\DemoDataInstallInterface;
 class ProductDataInstall implements DemoDataInstallInterface
 {
     /**
+     * @var array
+     */
+    protected $products = array(
+        array(
+            'sku' => '01',
+            'name' => 'WireShade Design Lampe',
+            'attributes' => '{"radius": 35.00, "cable_length": 150.00, "weight": 2.2, "light_bulb": 60, "socket": "E27"}',
+            'products' => array(
+                    array(
+                            'sku' => '11',
+                            'name' => 'Grüne WireShade Design Lampe',
+                            'url' => '/gruene-wireshade-design-lampe',
+                            'attributes' => '{"color": "green"}'
+                    )
+            )
+        ),
+        array(
+            'sku' => '02',
+            'name' => 'Stehleuchte Lupus',
+            'attributes' => '{"radius": 26.00, "cable_length": 15.00, "weight": 1.0, "light_bulb": 150, "socket": "E14"}',
+            'products' => array(
+                    array(
+                            'sku' => '21',
+                            'name' => 'Stehleuchte Lupus - Wald',
+                            'url' => '/stehleuchte-lupus-wald',
+                            'attributes' => '{"theme": "wald"}'
+                    ),
+                    array(
+                            'sku' => '22',
+                            'name' => 'Stehleuchte Lupus - Wiese',
+                            'url' => '/stehleuchte-lupus-wiese',
+                            'attributes' => '{"theme": "wiese"}'
+                    )
+            )
+        ),
+        array(
+            'sku' => '03',
+            'name' => 'Kronleuchter',
+            'attributes' => '{"radius": 150.00, "cable_length": 1.00, "weight": 200.0, "light_bulb": 280, "socket": "E27"}',
+            'products' => array(
+                    array(
+                            'sku' => '31',
+                            'name' => 'Kronleuchter Green Majestix',
+                            'url' => '/kronleuchter-green-majestix',
+                            'attributes' => '{"color": "green"}'
+                    )
+            )
+        ),
+    );
+
+    /**
      * @param Console $console
      *
      * @throws \Exception
@@ -20,7 +71,6 @@ class ProductDataInstall implements DemoDataInstallInterface
      */
     public function install(Console $console)
     {
-        //@todo skip if products already in the DB
         $this->createProduct();
         $this->createAttributes();
     }
@@ -33,9 +83,8 @@ class ProductDataInstall implements DemoDataInstallInterface
             (1, 'string', NULL, 'input'),
             (2, 'number', NULL, 'number'),
             (3, 'boolean', NULL, 'checkbox'),
-            (4, 'select', NULL, 'select'),
-            (5, 'text', 1, 'textarea'),
-            (6, 'list', 4, 'list');
+            (4, 'enum', NULL, 'select'),
+            (5, 'array', 4, 'list');
          *
          * INSERT INTO `pac_attributes_metadata` (`attribute_id`, `key`, `is_editable`, `type_id`)
         VALUES
@@ -56,38 +105,53 @@ class ProductDataInstall implements DemoDataInstallInterface
      */
     protected function createProduct()
     {
-        $firstAbstractProduct = new \ProjectA_Zed_Product_Persistence_Propel_PacAbstractProduct();
-        $firstAbstractProduct->setSku('01');
+        foreach ($this->products as $p) {
+            $sku = $p['sku'];
+            $abstractProductQuery = new \ProjectA_Zed_Product_Persistence_Propel_PacAbstractProductQuery();
+            if ($abstractProductQuery->findOneBySku($sku)) {
+                continue;
+            }
+            $abstractProduct = new \ProjectA_Zed_Product_Persistence_Propel_PacAbstractProduct();
+            $abstractProduct->setSku($sku);
 
-        $firstAbstractProductAttributes = new \ProjectA_Zed_Product_Persistence_Propel_PacLocalizedAbstractProductAttributes();
-        $firstAbstractProductAttributes->setLocale('de_DE');
-        $firstAbstractProductAttributes->setName('WireShade Design Lampe');
-        $firstAbstractProductAttributes->setAttributes('{"radius": 35.00, "cable_length": 150.00, "weight": 2.2, "light_bulb": 60, "socket": "E27"}');
-        $firstAbstractProductAttributes->setPacAbstractProduct($firstAbstractProduct);
+            $abstractProductAttributes = new \ProjectA_Zed_Product_Persistence_Propel_PacLocalizedAbstractProductAttributes();
+            $abstractProductAttributes->setLocale('de_DE');
+            $abstractProductAttributes->setName($p['name']);
+            $abstractProductAttributes->setAttributes($p['attributes']);
+            $abstractProductAttributes->setPacAbstractProduct($abstractProduct);
 
-        $firstProduct = new \ProjectA_Zed_Product_Persistence_Propel_PacProduct();
-        $firstProduct->setSku('11');
-        $firstProduct->setIsActive(true);
-        $firstProduct->setPacAbstractProduct($firstAbstractProduct);
+            foreach ($p['products'] as $pc) {
+                $product = new \ProjectA_Zed_Product_Persistence_Propel_PacProduct();
+                $product->setSku($pc['sku']);
+                $product->setIsActive(true);
+                $product->setPacAbstractProduct($abstractProduct);
 
-        $firstProductAttributes = new \ProjectA_Zed_Product_Persistence_Propel_PacLocalizedProductAttributes();
-        $firstProductAttributes->setLocale('de_DE');
-        $firstProductAttributes->setName('Grüne WireShade Design Lampe');
-        $firstProductAttributes->setUrl('/gruene-wireshade-design-lampe');
-        $firstProductAttributes->setAttributes('{"color": "green"}');
-        $firstProductAttributes->setPacProduct($firstProduct);
+                $productAttributes = new \ProjectA_Zed_Product_Persistence_Propel_PacLocalizedProductAttributes();
+                $productAttributes->setLocale('de_DE');
+                $productAttributes->setName($pc['name']);
+                $productAttributes->setUrl($pc['url']);
+                $productAttributes->setAttributes($pc['attributes']);
+                $productAttributes->setPacProduct($product);
 
-        $firstProduct->save();
+                $product->save();
 
-        $touch = new \ProjectA_Zed_YvesExport_Persistence_Propel_PacYvesExportTouch();
-        $touch->setIdYvesExportTouch($firstProduct->getProductId());
-        $touch->setItemType('product');
-        $touch->setItemEvent(\ProjectA_Zed_YvesExport_Persistence_Propel_PacYvesExportTouchPeer::EXPORT_TYPE_KEYVALUE);
-        $touch->setTouched(new \DateTime());
-        $touch->save();
+                $touch = new \ProjectA_Zed_YvesExport_Persistence_Propel_PacYvesExportTouch();
+                $touch->setIdYvesExportTouch($product->getProductId());
+                $touch->setItemType('product');
+                $touch->setItemEvent(\ProjectA_Zed_YvesExport_Persistence_Propel_PacYvesExportTouchPeer::EXPORT_TYPE_KEYVALUE);
+                $touch->setTouched(new \DateTime());
+                $touch->save();
+            }
 
-        //$query = \ProjectA_Zed_Product_Persistence_Propel_PacProductQuery::create();
-        //$query->findBySku()
+        }
+
+
+
+        // $query = \ProjectA_Zed_Product_Persistence_Propel_PacProductQuery::create();
+        // $query->findBySku()
+
+        // $query = \ProjectA_Zed_Cms_Persistence_Propel_PacCmsPageQuery::create();
+        // $entity = $query->filterByName($page['name'])->findOneOrCreate();
+
     }
 }
- 
