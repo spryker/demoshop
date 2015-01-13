@@ -49,16 +49,16 @@ class YvesSettings extends ProjectAYvesSettings implements
     public function getKeyValueExporters($exportIdentifier)
     {
         return [
-            $this->facadeGlossary->createExporterKeyValueGlossaryExporter(),
 
-            $this->facadeCatalog->createExporterKeyValueProductsWithoutElectronicsConfigExporter(),
+//            $this->facadeCatalog->createExporterKeyValueProductsWithoutElectronicsConfigExporter(),
 //            $this->facadeCatalog->createExporterKeyValueProductsWithoutElectronicsSimpleExporter(),
-            $this->facadeCatalog->createExporterKeyValueProductsWithoutElectronicsSingleExporter(),
+//            $this->facadeCatalog->createExporterKeyValueProductsWithoutElectronicsSingleExporter(),
 //            $this->facadeCatalog->createExporterKeyValueProductsWithoutElectronicsBundleExporter(),
 //
 //            $this->facadeCatalog->createExporterKeyValueProductOptionsExporter(),
 //            $this->facadeCategory->createExporterKeyValueCategoriesExporter(),
-            $this->facadeCms->createExporterKeyValueCmsExporter(),
+            $this->facadeGlossary->createExporterKeyValueGlossaryExporter(),
+//            $this->facadeCms->createExporterKeyValueCmsExporter(),
             $this->facadeCms->createExporterKeyValueRedirectionExporter(),
             $this->facadeMisc->createExporterKeyValueCountryExporter(),
         ];
