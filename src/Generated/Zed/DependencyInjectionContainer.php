@@ -33,6 +33,7 @@ use Generated\Zed\Product\Business\ProductFactory;
 use Generated\Zed\ProductCategory\Business\ProductCategoryFactory;
 use Generated\Zed\ProductExporter\Business\ProductExporterFactory;
 use Generated\Zed\ProductImage\Business\ProductImageFactory;
+use Generated\Zed\ProductSearch\Business\ProductSearchFactory;
 use Generated\Zed\Sales\Business\SalesFactory;
 use Generated\Zed\Salesrule\Business\SalesruleFactory;
 use Generated\Zed\Setup\Business\SetupFactory;
@@ -92,6 +93,9 @@ class DependencyInjectionContainer
         if ($model instanceof \Generated\Zed\DemoPayment\Business\Dependency\DemoPaymentFacadeInterface) {
             $model->setFacadeDemoPayment((new DemoPaymentFactory())->createFacade());
         }
+        if ($model instanceof \Generated\Zed\Document\Business\Dependency\DocumentFacadeInterface) {
+            $model->setFacadeDocument((new DocumentFactory())->createFacade());
+        }
         if ($model instanceof \Generated\Zed\Feed\Business\Dependency\FeedFacadeInterface) {
             $model->setFacadeFeed((new FeedFactory())->createFacade());
         }
@@ -145,6 +149,9 @@ class DependencyInjectionContainer
         }
         if ($model instanceof \Generated\Zed\ProductImage\Business\Dependency\ProductImageFacadeInterface) {
             $model->setFacadeProductImage((new ProductImageFactory())->createFacade());
+        }
+        if ($model instanceof \Generated\Zed\ProductSearch\Business\Dependency\ProductSearchFacadeInterface) {
+            $model->setFacadeProductSearch((new ProductSearchFactory())->createFacade());
         }
         if ($model instanceof \Generated\Zed\Sales\Business\Dependency\SalesFacadeInterface) {
             $model->setFacadeSales((new SalesFactory())->createFacade());
