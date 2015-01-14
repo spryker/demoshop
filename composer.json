@@ -149,6 +149,10 @@
         {
             "type": "git",
             "url": "git@github.com:spryker/yves-export.git"
+        },
+        {
+            "type": "git",
+            "url": "git@github.com:spryker/zed.git"
         }
     ]
 }
