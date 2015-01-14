@@ -56,14 +56,14 @@
                         </a>
                     </li>
                 </ul>
-                <ul class="customer menu">
-                    <li><a href="{{ url('account') }}"><span class="glyphicon glyphicon-user"></span>{{ 'customer.account'|trans }}</a></li>
-                    {% if is_granted('IS_AUTHENTICATED_FULLY') %}
-                        <li><a href="{{ url('logout') }}"><span class="glyphicon glyphicon-log-out"></span>{{ 'customer.logout'|trans }}</a></li>
-                    {% else %}
-                        <li><a href="{{ url('login') }}"><span class="glyphicon glyphicon-log-in"></span>{{ 'customer.login'|trans }}</a></li>
-                    {% endif %}
-                </ul>
+                {#<ul class="customer menu">#}
+                    {#<li><a href="{{ url('account') }}"><span class="glyphicon glyphicon-user"></span>{{ 'customer.account'|trans }}</a></li>#}
+                    {#{% if is_granted('IS_AUTHENTICATED_FULLY') %}#}
+                        {#<li><a href="{{ url('logout') }}"><span class="glyphicon glyphicon-log-out"></span>{{ 'customer.logout'|trans }}</a></li>#}
+                    {#{% else %}#}
+                        {#<li><a href="{{ url('login') }}"><span class="glyphicon glyphicon-log-in"></span>{{ 'customer.login'|trans }}</a></li>#}
+                    {#{% endif %}#}
+                {#</ul>#}
             </div>
         </div>
     </header>

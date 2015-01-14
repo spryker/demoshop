@@ -28,7 +28,9 @@ class CatalogDetailRouter extends AbstractRouter
     public function match($pathinfo)
     {
         try {
-            $product = $this->factory->createCatalogModelCatalog()->getProductDataByUrl($pathinfo, $this->app->getStorageKeyValue());
+            $product = $this->factory->createCatalogDependencyContainer()
+                ->createCatalogModel()
+                ->getProductDataByUrl($pathinfo, $this->app->getStorageKeyValue());
 
             $resolver = new ControllerResolver('Catalog', 'CatalogController', 'detail');
             $service = (new ServiceControllerBuilder())->createServiceForController($this->app, $resolver);

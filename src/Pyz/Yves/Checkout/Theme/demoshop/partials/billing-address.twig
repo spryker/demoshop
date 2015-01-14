@@ -37,5 +37,5 @@
     <div class="col fullWidth">
         {{ form_row(form.billingAddress.phone, {attr: {class: 'fullWidth'}, label: 'checkout.address.billing.phone'}) }}
     </div>
-    {% include "@checkout/partials/other-addresses.twig" with {'addressType': 'billing', 'userAddresses':userAddresses, 'userAddressesJson':userAddressesJson} only %}
+    {#{% include "@checkout/partials/other-addresses.twig" with {'addressType': 'billing', 'userAddresses':userAddresses, 'userAddressesJson':userAddressesJson} only %}#}
 </div>

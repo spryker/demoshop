@@ -37,7 +37,7 @@
     <div class="col fullWidth">
         {{ form_row(form.shippingAddress.phone, {attr: {class: 'fullWidth'}, label: 'checkout.address.shipping.phone'}) }}
     </div>
-    {% include "@checkout/partials/other-addresses.twig" with {'addressType': 'shipping', 'userAddresses':userAddresses, 'userAddressesJson':userAddressesJson} only %}
+    {#{% include "@checkout/partials/other-addresses.twig" with {'addressType': 'shipping', 'userAddresses':userAddresses, 'userAddressesJson':userAddressesJson} only %}#}
     <div class="col fullWidth">
         <label>
             {{ form_widget(form.chooseDifferentBilling, {attr: {class: 'toggle-different-billing-address'}, required:false}) }}

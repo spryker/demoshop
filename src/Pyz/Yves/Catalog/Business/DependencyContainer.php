@@ -2,17 +2,15 @@
 
 namespace Pyz\Yves\Catalog\Business;
 
-use ProjectA\Yves\Library\DependencyInjection\FactoryInterface;
 use ProjectA\Yves\Library\DependencyInjection\FactoryTrait;
+use ProjectA\Yves\Catalog\Business\DependencyContainer as CoreDependencyContainer;
 
 /**
  * Class DependencyContainer
  * @package Pyz\Yves\Catalog\Business
  */
-class DependencyContainer implements FactoryInterface
+class DependencyContainer extends CoreDependencyContainer
 {
-    use FactoryTrait;
-
     /**
      * @return Creator\CategoryResourceCreator
      */

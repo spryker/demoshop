@@ -74,7 +74,7 @@ class CheckoutController extends CoreCheckoutController
 
             $this->getFactory()->createPaymentModelPayment($request)->registerPaymentToZedRequest();
 
-            $orderManager = $this->getOrderManager();
+            $orderManager = $this->getOrderManager($request);
             /** @var Order $orderTransfer */
             $orderTransfer = $form->getData();
 

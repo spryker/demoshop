@@ -29,7 +29,7 @@ settings:
 
 firewalls:
   secured:
-    pattern: '(^/checkout|^/login_check$|^/logout$|^/customer)'
+    pattern: '(^/login_check$|^/logout$|^/customer)'
 
   unsecured:
     pattern : '^/.*'

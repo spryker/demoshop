@@ -3,6 +3,9 @@
 
 namespace Pyz\Zed\Oms\Business;
 
+use ProjectA\Zed\Library\Business\FactoryInterface;
+use ProjectA\Zed\Library\Business\Model\FacadeAbstract;
+use ProjectA\Zed\Library\Dependency\DependencyFactoryTrait;
 use Pyz\Zed\Oms\Communication\Plugin\Oms\FakeAuthPayment;
 use Pyz\Zed\Sales\Business\SalesFacade;
 use Generated\Shared\Sales\Transfer\Order as OrderTransfer;
@@ -73,6 +76,14 @@ class OmsSettings extends AbstractOmsSettings implements
     public function getConditions()
     {
         return [];
+    }
+
+    /**
+     * @return string
+     */
+    public function getProcessDefinitionLocation()
+    {
+        // TODO: Implement getProcessDefinitionLocation() method.
     }
 }
 
