@@ -56,6 +56,3 @@ config/accumulated-config.json
 npm-debug.log
 tests/_log
 
-#stuff needed for auto generation until the hen egg problem is solved
-!/src/Generated/Zed/EntityLoader.php
-!/src/Generated/Zed/DependencyInjectionContainer.php

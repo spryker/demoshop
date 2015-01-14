@@ -1024,6 +1024,15 @@ class Generated_Zed_Propel_EntityLoader extends ProjectA_Shared_Library_Architec
     }
 
     /**
+     * @return ProjectA_Zed_ProductSearch_Persistence_Propel_PacProductSearchAttributesOperations
+     */
+    public static function loadPacProductSearchAttributesOperations()
+    {
+        $className = self::transformClassName('ProjectA_Zed_ProductSearch_Persistence_Propel_PacProductSearchAttributesOperations');
+        return $className;
+    }
+
+    /**
      * @return ProjectA_Zed_Invoice_Persistence_Propel_PacInvoice
      */
     public static function loadPacInvoice()

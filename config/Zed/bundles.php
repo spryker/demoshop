@@ -41,6 +41,7 @@ return [
         'Price' => $schema,
         'Product' => $schemaAndNavigation,
         'ProductCategory' => $schema,
+//        'ProductSearch' => $schema,
         'Sales' => $schemaAndNavigation,
         'Salesrule' => $schemaAndNavigation,
         'Setup' => $navigation,

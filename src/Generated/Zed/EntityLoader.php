@@ -1137,6 +1137,16 @@ class Generated_Zed_EntityLoader extends ProjectA_Shared_Library_Architecture_St
     }
 
     /**
+     * @return ProjectA_Zed_ProductSearch_Persistence_Propel_PacProductSearchAttributesOperations
+     */
+    public static function loadPacProductSearchAttributesOperations()
+    {
+        $className = self::transformClassName('ProjectA_Zed_ProductSearch_Persistence_Propel_PacProductSearchAttributesOperations');
+        $entity = new $className();
+        return $entity;
+    }
+
+    /**
      * @return ProjectA_Zed_Invoice_Persistence_Propel_PacInvoice
      */
     public static function loadPacInvoice()
