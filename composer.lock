@@ -1130,7 +1130,7 @@
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/content.git",
-                "reference": "aae8d22ab065368380c9b4c9846699968c162340"
+                "reference": "26c3c280a431f578a94e00da6b3729eab05c9aaa"
             },
             "require": {
                 "php": ">=5.4.0"
@@ -1154,7 +1154,7 @@
             "keywords": [
                 "Content Package"
             ],
-            "time": "2015-01-14 13:28:08"
+            "time": "2015-01-14 14:30:44"
         },
         {
             "name": "spryker/crm-package",
@@ -1293,7 +1293,7 @@
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/infrastructure.git",
-                "reference": "39ed83cb258b4091afbf9dd321a8e1bf92cb7c52"
+                "reference": "0e406769bc95e4739c7df3ba26a6b92021229071"
             },
             "require": {
                 "php": ">=5.4.0"
@@ -1309,7 +1309,7 @@
             "keywords": [
                 "infrastructure"
             ],
-            "time": "2015-01-14 12:06:39"
+            "time": "2015-01-14 14:26:50"
         },
         {
             "name": "spryker/kendo-package",
@@ -1699,7 +1699,7 @@
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/zed.git",
-                "reference": "cc67be298abc4ece280f7054e66a845e028c83ec"
+                "reference": "de69cc9ed8bc2c3d438917386a052120ef0b1d2d"
             },
             "require": {
                 "php": ">=5.4.0"
@@ -1727,7 +1727,7 @@
                 "Application",
                 "Zed"
             ],
-            "time": "2015-01-14 12:54:17"
+            "time": "2015-01-14 14:26:12"
         },
         {
             "name": "symfony-cmf/routing",
