@@ -26,6 +26,17 @@ class OmsSettings extends AbstractOmsSettings implements
 
     const ORDER_PROCESS_PAYONE_PRE_PAYMENT_01 = 'PayonePrePayment01';
 
+    /**
+     * @return string
+     */
+    public function getProcessDefinitionLocation()
+    {
+        return APPLICATION_ROOT_DIR . '/config/Zed/oms/';
+    }
+
+    /**
+     * @return array
+     */
     public function getActiveProcesses()
     {
         return [
@@ -50,7 +61,7 @@ class OmsSettings extends AbstractOmsSettings implements
                 throw new \RuntimeException("Could not find any statemachine process for new order in ".get_class($this));
         }
 
-        if (!in_array($selectedProcessName, $this->getActiveProcesses())){
+        if (!in_array($selectedProcessName, $this->getActiveProcesses())) {
             throw new \RuntimeException("Process $selectedProcessName is not actived in ".get_class($this));
         }
 
