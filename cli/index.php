@@ -2,7 +2,7 @@
 
 use ProjectA\Shared\Library\Application\Environment;
 use ProjectA\Shared\Library\Application\TestEnvironment;
-use Pyz\Zed\Application\Module\ZedBootstrap;
+use \Pyz\Zed\Application\Communication\ZedBootstrap;
 
 $getEnv = getenv('APPLICATION_ENV');
 if (empty($getEnv)) {

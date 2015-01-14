@@ -56,37 +56,37 @@ class CmsSettings extends CoreCmsSettings
             'description' => 'width 2/4',
         ];
 
-        $partials[] = [
-            'file' => 'product-width-6.twig',
-            'name' => 'product-width-6',
-            'type' => BlockProduct::BLOCK_TYPE,
-            'size' => 6,
-            'description' => 'width 2/4',
-        ];
-
-        $partials[] = [
-            'file' => 'product-width-12.twig',
-            'name' => 'product-width-12',
-            'type' => BlockProduct::BLOCK_TYPE,
-            'size' => 12,
-            'description' => 'width 4/4',
-        ];
-
-        $partials[] = [
-            'file' => 'product-width-4.twig',
-            'name' => 'product-width-4',
-            'type' => BlockProduct::BLOCK_TYPE,
-            'size' => 4,
-            'description' => 'width 1/3',
-        ];
-
-        $partials[] = [
-            'file' => 'product-teaser-width-4.twig',
-            'name' => 'product-teaser-width-4',
-            'type' => BlockProduct::BLOCK_TYPE,
-            'size' => 4,
-            'description' => 'width 1/3',
-        ];
+//        $partials[] = [
+//            'file' => 'product-width-6.twig',
+//            'name' => 'product-width-6',
+//            'type' => BlockProduct::BLOCK_TYPE,
+//            'size' => 6,
+//            'description' => 'width 2/4',
+//        ];
+//
+//        $partials[] = [
+//            'file' => 'product-width-12.twig',
+//            'name' => 'product-width-12',
+//            'type' => BlockProduct::BLOCK_TYPE,
+//            'size' => 12,
+//            'description' => 'width 4/4',
+//        ];
+//
+//        $partials[] = [
+//            'file' => 'product-width-4.twig',
+//            'name' => 'product-width-4',
+//            'type' => BlockProduct::BLOCK_TYPE,
+//            'size' => 4,
+//            'description' => 'width 1/3',
+//        ];
+//
+//        $partials[] = [
+//            'file' => 'product-teaser-width-4.twig',
+//            'name' => 'product-teaser-width-4',
+//            'type' => BlockProduct::BLOCK_TYPE,
+//            'size' => 4,
+//            'description' => 'width 1/3',
+//        ];
 
         return $partials;
     }
