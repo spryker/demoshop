@@ -145,6 +145,10 @@
     },
     {
       "type": "git",
+      "url": "git@github.com:spryker/product-search.git"
+    },
+    {
+      "type": "git",
       "url": "git@github.com:spryker/sales.git"
     },
     {
@@ -153,31 +157,7 @@
     },
     {
       "type": "git",
-      <
-      <
-      <
-      <
-      <
-      <
-      <
-      HEAD
       "url": "git@github.com:spryker/zed.git"
-      =
-      =
-      =
-      =
-      =
-      =
-      =
-      "url": "git@github.com:spryker/product-search.git"
-      >
-      >
-      >
-      >
-      >
-      >
-      >
-      master
     }
   ]
 }
