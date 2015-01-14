@@ -10,13 +10,13 @@ use Generated\Zed\Payone\Business\Dependency\PayoneFacadeInterface;
 use Generated\Zed\Payone\Business\Dependency\PayoneFacadeTrait;
 use Generated\Zed\Sales\Business\Dependency\SalesFacadeInterface;
 use Generated\Zed\Sales\Business\Dependency\SalesFacadeTrait;
-use ProjectA\Zed\Oms\Business\OmsSettings as CoreOmsSettings;
+use ProjectA\Zed\Oms\Business\AbstractOmsSettings;
 use ProjectA\Zed\Payone\Business\Model\Api\ApiConstants as PayoneApiConstants;
 
 /**
  * @property SalesFacade $facadeSales
  */
-class OmsSettings extends CoreOmsSettings implements
+class OmsSettings extends AbstractOmsSettings implements
     PayoneFacadeInterface,
     SalesFacadeInterface
 {
