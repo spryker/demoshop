@@ -1629,7 +1629,7 @@
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/sales.git",
-                "reference": "1a5ee2f2ab5d5c6d6693b81c078217e07de85a3e"
+                "reference": "5e7b95c883f22cd5a4ae1cb3873740aba452fcb1"
             },
             "require": {
                 "php": ">=5.4.0"
@@ -1654,7 +1654,7 @@
                 "Sales",
                 "Task"
             ],
-            "time": "2015-01-13 08:36:20"
+            "time": "2015-01-14 13:45:10"
         },
         {
             "name": "spryker/yves-export-package",
@@ -1699,7 +1699,7 @@
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/zed.git",
-                "reference": "7a4b4bd24677c39a9219303ab2d3aeabc0fb6941"
+                "reference": "cc67be298abc4ece280f7054e66a845e028c83ec"
             },
             "require": {
                 "php": ">=5.4.0"
@@ -1710,7 +1710,8 @@
             "type": "library",
             "autoload": {
                 "psr-0": {
-                    "ProjectA": "src/"
+                    "ProjectA": "src/",
+                    "PhpUnit": "tests/"
                 }
             },
             "authors": [
@@ -1726,7 +1727,7 @@
                 "Application",
                 "Zed"
             ],
-            "time": "2015-01-14 10:00:17"
+            "time": "2015-01-14 12:54:17"
         },
         {
             "name": "symfony-cmf/routing",
