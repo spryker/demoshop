@@ -88,13 +88,5 @@ class OmsSettings extends AbstractOmsSettings implements
     {
         return [];
     }
-
-    /**
-     * @return string
-     */
-    public function getProcessDefinitionLocation()
-    {
-        // TODO: Implement getProcessDefinitionLocation() method.
-    }
 }
 
