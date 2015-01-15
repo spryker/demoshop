@@ -61,6 +61,32 @@ class ProductDataInstall implements DemoDataInstallInterface
                     )
             )
         ),
+        array(
+            'sku' => '04',
+            'name' => 'The big couch',
+            'attributes' => '{"length": 160.00, "width": 80.00}',
+            'products' => array(
+                array(
+                    'sku' => '41',
+                    'name' => 'The big couch',
+                    'url' => '/the-big-couch',
+                    'attributes' => '{"color": "white"}'
+                )
+            )
+        ),
+        array(
+            'sku' => '05',
+            'name' => 'LUCY',
+            'attributes' => '{"length": 310.00, "width": 100.00, "height": 140.00}',
+            'products' => array(
+                array(
+                    'sku' => '51',
+                    'name' => 'Lucy',
+                    'url' => '/lucy',
+                    'attributes' => '{}'
+                )
+            )
+        )
     );
 
     /**
@@ -77,18 +103,49 @@ class ProductDataInstall implements DemoDataInstallInterface
 
     protected function createAttributes()
     {
-        /**
-         * INSERT INTO `pac_attributes_metadata` (`attribute_id`, `key`, `is_editable`, `type_id`)
-        VALUES
-        (1, 'name', 1, 4),
-        (2, 'color', 1, 1),
-        (3, '', 1, 1),
-        (4, '', 1, 6),
-        (5, '', 1, 2),
-        (6, '', 1, 1),
-        (7, '', 1, 2),
-        (8, '', 1, 2);
-         */
+        $attributes = [
+            'theme' => 'string',
+            'color' => 'list',
+            'radius' => 'number',
+            'cable_length' => 'number',
+            'weight' => 'number',
+            'light_bulb' => 'number',
+            'socket' => 'string',
+            'length' => 'number',
+            'width' => 'number',
+            'height' => 'number'
+        ];
+
+        $typeEntities = \ProjectA_Zed_Product_Persistence_Propel_PacProductAttributeTypeQuery::create()
+            ->select(
+                [
+                    \ProjectA_Zed_Product_Persistence_Propel_PacProductAttributeTypePeer::NAME,
+                    \ProjectA_Zed_Product_Persistence_Propel_PacProductAttributeTypePeer::TYPE_ID
+                ]
+            )->setFormatter(
+                new \PropelSimpleArrayFormatter()
+            )->find()->getArrayCopy();
+
+        $types = [];
+        foreach ($typeEntities as $typeEntity) {
+            $typeKey = array_shift($typeEntity);
+            $types[$typeKey] = array_shift($typeEntity);
+        }
+
+        foreach ($attributes as $attribute => $type) {
+            if (\ProjectA_Zed_Product_Persistence_Propel_PacProductAttributesMetadataQuery::create()->findOneByKey($attribute)) {
+                continue;
+            }
+
+            if (array_key_exists($type, $types)) {
+                $attributeEntity = new \ProjectA_Zed_Product_Persistence_Propel_PacProductAttributesMetadata();
+                $attributeEntity->setAttributeId(null);
+                $attributeEntity->setKey($attribute);
+                $attributeEntity->setTypeId($types[$type]);
+                $attributeEntity->setIsEditable(true);
+                $attributeEntity->save();
+            }
+        }
     }
 
     /**
@@ -138,14 +195,5 @@ class ProductDataInstall implements DemoDataInstallInterface
             }
 
         }
-
-
-
-        // $query = \ProjectA_Zed_Product_Persistence_Propel_PacProductQuery::create();
-        // $query->findBySku()
-
-        // $query = \ProjectA_Zed_Cms_Persistence_Propel_PacCmsPageQuery::create();
-        // $entity = $query->filterByName($page['name'])->findOneOrCreate();
-
     }
 }
