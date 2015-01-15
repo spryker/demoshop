@@ -78,14 +78,6 @@ class ProductDataInstall implements DemoDataInstallInterface
     protected function createAttributes()
     {
         /**
-         * INSERT INTO `pac_attribute_type` (`type_id`, `name`, `parent_type_id`, `input_representation`)
-            VALUES
-            (1, 'string', NULL, 'input'),
-            (2, 'number', NULL, 'number'),
-            (3, 'boolean', NULL, 'checkbox'),
-            (4, 'enum', NULL, 'select'),
-            (5, 'array', 4, 'list');
-         *
          * INSERT INTO `pac_attributes_metadata` (`attribute_id`, `key`, `is_editable`, `type_id`)
         VALUES
         (1, 'name', 1, 4),
