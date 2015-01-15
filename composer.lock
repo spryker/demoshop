@@ -540,12 +540,12 @@
             "version": "v1.1.1",
             "source": {
                 "type": "git",
-                "url": "https://github.com/fabpot/Pimple.git",
+                "url": "https://github.com/silexphp/Pimple.git",
                 "reference": "2019c145fe393923f3441b23f29bbdfaa5c58c4d"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/fabpot/Pimple/zipball/2019c145fe393923f3441b23f29bbdfaa5c58c4d",
+                "url": "https://api.github.com/repos/silexphp/Pimple/zipball/2019c145fe393923f3441b23f29bbdfaa5c58c4d",
                 "reference": "2019c145fe393923f3441b23f29bbdfaa5c58c4d",
                 "shasum": ""
             },
@@ -570,9 +570,7 @@
             "authors": [
                 {
                     "name": "Fabien Potencier",
-                    "email": "fabien@symfony.com",
-                    "homepage": "http://fabien.potencier.org",
-                    "role": "Lead Developer"
+                    "email": "fabien@symfony.com"
                 }
             ],
             "description": "Pimple is a simple Dependency Injection Container for PHP 5.3",
@@ -1295,7 +1293,7 @@
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/infrastructure.git",
-                "reference": "e6b5f347f6ac18bed6d5f3765e657db2befaa972"
+                "reference": "0952ef3885f78398d3281fa2318d177f2ee7a903"
             },
             "require": {
                 "php": ">=5.4.0"
@@ -1311,7 +1309,7 @@
             "keywords": [
                 "infrastructure"
             ],
-            "time": "2015-01-15 09:29:43"
+            "time": "2015-01-15 14:05:05"
         },
         {
             "name": "spryker/kendo-package",
@@ -1559,7 +1557,7 @@
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/product.git",
-                "reference": "d2e4a36728500acd6be1b3cdf9787405ef73c9f8"
+                "reference": "223e8cc5ac403997bb3aa2cfdc45c0ced737d7f0"
             },
             "require": {
                 "league/csv": "*",
@@ -1587,7 +1585,7 @@
                 "Catalog",
                 "Product"
             ],
-            "time": "2015-01-13 08:36:20"
+            "time": "2015-01-15 14:00:17"
         },
         {
             "name": "spryker/product-search-package",
@@ -1701,7 +1699,7 @@
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/zed.git",
-                "reference": "de69cc9ed8bc2c3d438917386a052120ef0b1d2d"
+                "reference": "b36f7a7d5aa1815d894a6e7bc4ffb655e5607c71"
             },
             "require": {
                 "php": ">=5.4.0"
@@ -1729,7 +1727,7 @@
                 "Application",
                 "Zed"
             ],
-            "time": "2015-01-14 14:26:12"
+            "time": "2015-01-15 10:59:18"
         },
         {
             "name": "symfony-cmf/routing",
@@ -2901,12 +2899,12 @@
             "version": "v1.15.1",
             "source": {
                 "type": "git",
-                "url": "https://github.com/fabpot/Twig.git",
+                "url": "https://github.com/twigphp/Twig.git",
                 "reference": "1fb5784662f438d7d96a541e305e28b812e2eeed"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/fabpot/Twig/zipball/1fb5784662f438d7d96a541e305e28b812e2eeed",
+                "url": "https://api.github.com/repos/twigphp/Twig/zipball/1fb5784662f438d7d96a541e305e28b812e2eeed",
                 "reference": "1fb5784662f438d7d96a541e305e28b812e2eeed",
                 "shasum": ""
             },
@@ -3919,7 +3917,7 @@
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/newLoki/PropelModule/zipball/ab6164e684113e20d5754fd61fe0ea86331ebd0b",
+                "url": "https://api.github.com/repos/newLoki/PropelModule/zipball/9de9316361e3dddb6b29f5dd93b7456e19e042e3",
                 "reference": "9de9316361e3dddb6b29f5dd93b7456e19e042e3",
                 "shasum": ""
             },

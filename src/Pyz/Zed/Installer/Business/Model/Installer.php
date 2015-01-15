@@ -9,6 +9,8 @@ use \Generated\Zed\Cms\Business\Dependency\CmsFacadeInterface;
 use \Generated\Zed\Customer\Business\Dependency\CustomerFacadeInterface;
 use \Generated\Zed\Misc\Business\Dependency\MiscFacadeInterface;
 use \Generated\Zed\Price\Business\Dependency\PriceFacadeInterface;
+use Generated\Zed\Product\Business\Dependency\ProductFacadeInterface;
+use Generated\Zed\Product\Business\Dependency\ProductFacadeTrait;
 use \Generated\Zed\Stock\Business\Dependency\StockFacadeInterface;
 use \Generated\Zed\Glossary\Business\Dependency\GlossaryFacadeInterface;
 use \Generated\Zed\Sales\Business\Dependency\SalesFacadeInterface;
@@ -46,7 +48,8 @@ class Installer extends \ProjectA_Zed_Installer_Business_Model_Installer impleme
     ProductImageFacadeInterface,
     InvoiceFacadeInterface,
     DocumentFacadeInterface,
-    PayoneFacadeInterface
+    PayoneFacadeInterface,
+    ProductFacadeInterface
 {
 
     use AclFacadeTrait;
@@ -63,6 +66,7 @@ class Installer extends \ProjectA_Zed_Installer_Business_Model_Installer impleme
     use InvoiceFacadeTrait;
     use DocumentFacadeTrait;
     use PayoneFacadeTrait;
+    use ProductFacadeTrait;
 
     /**
      * @return array
@@ -84,7 +88,8 @@ class Installer extends \ProjectA_Zed_Installer_Business_Model_Installer impleme
             $this->facadeProductImage->createInternalInstall(),
             $this->facadeDocument->createInternalInstall(),
             $this->facadeInvoice->createInternalInstall(),
-            $this->facadePayone->createInternalInstall()
+            $this->facadePayone->createInternalInstall(),
+            $this->facadeProduct->createInternalInstall()
         ];
     }
 }
