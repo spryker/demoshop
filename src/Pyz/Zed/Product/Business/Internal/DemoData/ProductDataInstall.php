@@ -130,8 +130,10 @@ class ProductDataInstall implements DemoDataInstallInterface
                 $touch = new \ProjectA_Zed_YvesExport_Persistence_Propel_PacYvesExportTouch();
                 $touch->setIdYvesExportTouch($product->getProductId());
                 $touch->setItemType('product');
-                $touch->setItemEvent(\ProjectA_Zed_YvesExport_Persistence_Propel_PacYvesExportTouchPeer::EXPORT_TYPE_KEYVALUE);
+                $touch->setItemEvent(\ProjectA_Zed_YvesExport_Persistence_Propel_PacYvesExportTouchPeer::ITEM_EVENT_ACTIVE);
+                $touch->setExportType(\ProjectA_Zed_YvesExport_Persistence_Propel_PacYvesExportTouchPeer::EXPORT_TYPE_KEYVALUE);
                 $touch->setTouched(new \DateTime());
+                $touch->setItemId($product->getProductId());
                 $touch->save();
             }
 
