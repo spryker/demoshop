@@ -9,7 +9,7 @@ define('IS_CLI', false);
 
 define('APPLICATION', 'ZED');
 defined('APPLICATION_ROOT_DIR') or define('APPLICATION_ROOT_DIR', realpath(__DIR__ . '/../../..'));
-require_once(APPLICATION_ROOT_DIR . '/vendor/spryker/library-package/src/ProjectA/Shared/Library/Application/Environment.php');
+require_once(APPLICATION_ROOT_DIR . '/vendor/spryker/zed-package/src/ProjectA/Shared/Library/Application/Environment.php');
 
 Environment::initialize();
 TestEnvironment::initialize();
