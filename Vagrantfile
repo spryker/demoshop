@@ -36,10 +36,10 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   end
 
    config.vm.provider :virtualbox do |vb|
-        vb.name = "PYZ Vagrant v.1.0.0"
+        vb.name = "Spryker Vagrant v.1.0.0"
         vb.customize [
             "modifyvm", :id,
-            "--memory", 8192,
+            "--memory", 4096,
             "--cpus", 2
         ]
     end
