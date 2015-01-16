@@ -1,7 +1,7 @@
 {
   "require": {
-    "spryker/yves-package": "dev-merge",
-    "spryker/zed-package": "dev-merge",
+    "spryker/yves-package": "dev-master",
+    "spryker/zed-package": "dev-master",
 
     "psr/log": "~1.0",
     "phing/phing": "~2.6.0",
@@ -13,6 +13,7 @@
     "predis/predis": "v1.0.0",
     "knplabs/knp-menu": "2.0.1",
     "symfony/validator": "2.5.*",
+    "symfony/var-dumper": "2.*",
     "symfony/propel1-bridge": "*"
   },
   "require-dev": {
