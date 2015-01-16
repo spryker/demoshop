@@ -4,7 +4,7 @@
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "7ca5456f811f9387c828bea0e9a377a3",
+    "hash": "8d67f850a1ff2883d02e405d45c4b2bf",
     "packages": [
         {
             "name": "digital-canvas/zend-framework",
@@ -1056,7 +1056,7 @@
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/checkout.git",
-                "reference": "f523d1bbe12f4bb5cec446cfc2755e18f169e33e"
+                "reference": "374ba6c43100d63bd75b7664d4186f4eddb7e82a"
             },
             "require": {
                 "php": ">=5.4.0"
@@ -1082,7 +1082,7 @@
                 "Checkout",
                 "Salesrule"
             ],
-            "time": "2015-01-14 16:22:59"
+            "time": "2015-01-15 17:55:46"
         },
         {
             "name": "spryker/console-package",
@@ -1130,7 +1130,7 @@
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/content.git",
-                "reference": "26c3c280a431f578a94e00da6b3729eab05c9aaa"
+                "reference": "92a7aeef02015379d29e87db57f1f2ef08ad9a8b"
             },
             "require": {
                 "php": ">=5.4.0"
@@ -1154,7 +1154,7 @@
             "keywords": [
                 "Content Package"
             ],
-            "time": "2015-01-14 14:30:44"
+            "time": "2015-01-15 14:31:29"
         },
         {
             "name": "spryker/crm-package",
@@ -1293,7 +1293,7 @@
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/infrastructure.git",
-                "reference": "0952ef3885f78398d3281fa2318d177f2ee7a903"
+                "reference": "8b6a8bf5ba5614526690708865a0924005be213f"
             },
             "require": {
                 "php": ">=5.4.0"
@@ -1309,7 +1309,7 @@
             "keywords": [
                 "infrastructure"
             ],
-            "time": "2015-01-15 14:05:05"
+            "time": "2015-01-15 17:53:56"
         },
         {
             "name": "spryker/kendo-package",
@@ -1336,7 +1336,7 @@
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/library.git",
-                "reference": "8f4bf28a2baa86047116f05251e93e1a04a8643d"
+                "reference": "d67845d053e4491f761946713726277e890cdb62"
             },
             "require": {
                 "digital-canvas/zend-framework": ">=1.12.2",
@@ -1373,7 +1373,7 @@
                 }
             },
             "description": "Project-A Library",
-            "time": "2015-01-13 12:56:19"
+            "time": "2015-01-15 16:58:27"
         },
         {
             "name": "spryker/lumberjack-package",
@@ -1629,7 +1629,7 @@
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/sales.git",
-                "reference": "6618ce365ca1091ce0660de0b53348fb510f4c28"
+                "reference": "8ba2360b0efe1dc781d8ec578cdd5e3a1dd7088e"
             },
             "require": {
                 "php": ">=5.4.0"
@@ -1654,7 +1654,7 @@
                 "Sales",
                 "Task"
             ],
-            "time": "2015-01-14 16:24:57"
+            "time": "2015-01-15 17:57:23"
         },
         {
             "name": "spryker/yves-export-package",
@@ -1692,6 +1692,42 @@
                 "Yves"
             ],
             "time": "2015-01-12 08:21:30"
+        },
+        {
+            "name": "spryker/yves-package",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "git@github.com:spryker/yves.git",
+                "reference": "a7b7143664fc4edbd1fd0aaabac2338a01b61e9d"
+            },
+            "require": {
+                "php": ">=5.4.0"
+            },
+            "require-dev": {
+                "codeception/codeception": "*"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-0": {
+                    "ProjectA": "src/",
+                    "PhpUnit": "tests/"
+                }
+            },
+            "authors": [
+                {
+                    "name": "René Klatt",
+                    "email": "rene.klatt@project-a.com",
+                    "homepage": "http://www.project-a.com",
+                    "role": "PHP-Developer"
+                }
+            ],
+            "description": "Yves package",
+            "keywords": [
+                "Application",
+                "Yves"
+            ],
+            "time": "2015-01-15 11:11:52"
         },
         {
             "name": "spryker/zed-package",
@@ -4872,6 +4908,7 @@
         "spryker/product-search-package": 20,
         "spryker/sales-package": 20,
         "spryker/yves-export-package": 20,
+        "spryker/yves-package": 20,
         "spryker/zed-package": 20,
         "silex/silex": 20,
         "pimple/pimple": 20,

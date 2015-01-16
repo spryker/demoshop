@@ -24,6 +24,7 @@
     "spryker/product-search-package": "dev-master",
     "spryker/sales-package": "dev-master",
     "spryker/yves-export-package": "product-search-dev as dev-master",
+    "spryker/yves-package": "dev-master",
     "spryker/zed-package": "dev-master",
 
     "psr/log": "~1.0",
@@ -154,6 +155,10 @@
     {
       "type": "git",
       "url": "git@github.com:spryker/yves-export.git"
+    },
+    {
+      "type": "git",
+      "url": "git@github.com:spryker/yves.git"
     },
     {
       "type": "git",
