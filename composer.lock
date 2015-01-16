@@ -921,7 +921,7 @@
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/zed.git",
-                "reference": "c7b5045e4245568d13fc6e8f2cef09801446722d"
+                "reference": "441e8c2a7a93b616e635e88bcb9eb4704039f47a"
             },
             "require": {
                 "digital-canvas/zend-framework": ">=1.12.2",
@@ -965,7 +965,8 @@
             "autoload": {
                 "psr-0": {
                     "ProjectA": "src/",
-                    "PhpUnit": "tests/"
+                    "PhpUnit": "tests/",
+                    "Kendo": "src/"
                 }
             },
             "authors": [
@@ -981,7 +982,7 @@
                 "Application",
                 "Zed"
             ],
-            "time": "2015-01-16 07:39:34"
+            "time": "2015-01-16 09:18:56"
         },
         {
             "name": "symfony-cmf/routing",
