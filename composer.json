@@ -1,7 +1,7 @@
 {
   "require": {
-    "spryker/yves-package": "dev-master",
-    "spryker/zed-package": "dev-master",
+    "spryker/yves-package": "dev-merge",
+    "spryker/zed-package": "dev-merge",
 
     "psr/log": "~1.0",
     "phing/phing": "~2.6.0",

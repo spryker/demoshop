@@ -58,17 +58,17 @@ $copyFiles = function () {
     );
 };
 
-$copyFiles();
+//$copyFiles();
 $schemaReplacement();
 
-$binMovement('vendor/spryker/*/bin');
-
-$move('vendor/spryker/*/src/ProjectA/Zed');
-$move('vendor/spryker/*/tests/PhpUnit/ProjectA/Zed');
-
-$move('vendor/spryker/*/src/ProjectA/Shared');
-$move('vendor/spryker/*/tests/PhpUnit/ProjectA/Shared');
-
-$move('vendor/spryker/*/src/ProjectA/Yves', 'yves');
-$move('vendor/spryker/*/tests/PhpUnit/ProjectA/Yves', 'yves');
-
+//$binMovement('vendor/spryker/*/bin');
+//
+//$move('vendor/spryker/*/src/ProjectA/Zed');
+//$move('vendor/spryker/*/tests/PhpUnit/ProjectA/Zed');
+//
+//$move('vendor/spryker/*/src/ProjectA/Shared');
+//$move('vendor/spryker/*/tests/PhpUnit/ProjectA/Shared');
+//
+//$move('vendor/spryker/*/src/ProjectA/Yves', 'yves');
+//$move('vendor/spryker/*/tests/PhpUnit/ProjectA/Yves', 'yves');
+//
