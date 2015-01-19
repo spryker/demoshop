@@ -2,7 +2,6 @@
 
 namespace Pyz\Yves\Catalog\Business;
 
-use ProjectA\Yves\Library\DependencyInjection\FactoryTrait;
 use ProjectA\Yves\Catalog\Business\DependencyContainer as CoreDependencyContainer;
 
 /**

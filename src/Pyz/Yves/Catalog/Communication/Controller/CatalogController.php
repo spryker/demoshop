@@ -2,6 +2,8 @@
 
 namespace Pyz\Yves\Catalog\Communication\Controller;
 
+use ProjectA\Shared\Library\Config;
+use ProjectA\Shared\System\SystemConfig;
 use Pyz\Yves\Library\Tracking\DataProvider\ProductDetailProvider;
 use Pyz\Yves\Library\Tracking\PageTypeInterface;
 use ProjectA\Yves\Catalog\Communication\Controller\CatalogController as CoreCatalogController;
@@ -22,7 +24,23 @@ class CatalogController extends CoreCatalogController
      */
     public function indexAction(array $category, FacetConfig $facetConfig, Request $request)
     {
-        $search = $this->getFactory()->createCatalogModelFacetSearch($request, $facetConfig); // TODO Change to RequestStack as of Symfony 2.4
+        $search = $this->getFactory()->createCatalogModelFulltextSearch(
+            $request,
+            $facetConfig,
+            $this->getStorageElasticsearch(),
+            $this->getStorageKeyValue(),
+            Config::get(SystemConfig::ELASTICA_PARAMETER__INDEX_NAME),
+            $this->getFactory()->createCatalogModelFacetAggregation()
+        );
+        $search->getResult();
+
+        $search = $this->getFactory()->createCatalogModelFacetSearch(
+            $request,
+            $facetConfig,
+            $this->getStorageElasticsearch(),
+            $this->getStorageKeyValue(),
+            Config::get(SystemConfig::ELASTICA_PARAMETER__INDEX_NAME)
+        );
         $result = $search->getResult();
         //echo '<pre>' . print_r($result, true) . '</pre>';die;
 

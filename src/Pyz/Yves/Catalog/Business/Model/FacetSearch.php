@@ -1,5 +1,8 @@
 <?php
 namespace Pyz\Yves\Catalog\Business\Model;
+use Elastica\Client;
+use Elastica\Query;
+use ProjectA\Shared\Library\Storage\Adapter\KeyValue\ReadInterface;
 use Pyz\Yves\Catalog\Business\Model\FacetConfig;
 use ProjectA\Yves\Catalog\Business\Model\AbstractSearch;
 //use Solarium\QueryType\Select\Query\Component\FacetSet;
@@ -10,12 +13,20 @@ use Symfony\Component\HttpFoundation\Request;
 class FacetSearch extends AbstractSearch
 {
     /**
-     * @param Request $request TODO Change to RequestStack as of Symfony 2.4
+     * @param Request $request
      * @param FacetConfig $facetConfig
+     * @param Client $searchClient
+     * @param ReadInterface $kvStorageReader
+     * @param $indexName
      */
-    public function __construct(Request $request, FacetConfig $facetConfig)
-    {
-        parent::__construct($request, $facetConfig);
+    public function __construct(
+        Request $request,
+        FacetConfig $facetConfig,
+        Client $searchClient,
+        ReadInterface $kvStorageReader,
+        $indexName
+    ) {
+//        parent::__construct($request, $facetConfig, $searchClient, $kvStorageReader, $indexName);
 //        //add FacetSearch related default stuff
 //        $this->addDefaultsToFacetQuery();
 //        //dynamically set facets from facet config
@@ -45,6 +56,21 @@ class FacetSearch extends AbstractSearch
         //TODO provide a pull-request for solarium
         $this->selectQuery->addParam('json.nl', 'flat');
     }
+
+    /**
+     * @param Request $request
+     * @return Query
+     */
+    protected function createSearchQuery(Request $request)
+    {
+        $searchQuery = new Query();
+        $this->addSortingToQuery($searchQuery)
+            ->addFacetsToQuery($searchQuery);
+
+
+        return $searchQuery;
+    }
+
     /**
      * @param Request $request
      */
