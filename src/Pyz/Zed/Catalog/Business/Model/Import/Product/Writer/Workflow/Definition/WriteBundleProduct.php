@@ -1,8 +1,8 @@
 <?php
 namespace Pyz\Zed\Catalog\Business\Model\Import\Product\Writer\Workflow\Definition;
 
-use Generated\Zed\Catalog\Business\Dependency\CatalogFacadeInterface;
-use Generated\Zed\Catalog\Business\Dependency\CatalogFacadeTrait;
+use ProjectA\Deprecated\Catalog\Business\Dependency\CatalogFacadeInterface;
+use ProjectA\Deprecated\Catalog\Business\Dependency\CatalogFacadeTrait;
 use ProjectA\Zed\Catalog\Business\Model\Composite\ProductComposite;
 use ProjectA\Zed\Catalog\Business\Model\Import\Product\FieldnameConstantInterface;
 use ProjectA\Zed\Catalog\Business\Model\Import\Product\Writer\Workflow\Definition\AbstractDefinition;

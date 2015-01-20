@@ -1,8 +1,8 @@
 <?php
 namespace Pyz\Zed\Catalog\Business\Exporter\KeyValue;
 
-use Generated\Zed\Yves\Business\Dependency\YvesFacadeInterface;
-use Generated\Zed\Yves\Business\Dependency\YvesFacadeTrait;
+use ProjectA\Deprecated\Yves\Business\Dependency\YvesFacadeInterface;
+use ProjectA\Deprecated\Yves\Business\Dependency\YvesFacadeTrait;
 use ProjectA\Shared\Catalog\Code\Storage\StorageKeyGenerator;
 use ProjectA\Zed\Catalog\Business\Exporter\ProductsExporter as CoreProductsExporter;
 use ProjectA\Zed\Catalog\Business\Exporter\QueryBuilder\AbstractProduct;

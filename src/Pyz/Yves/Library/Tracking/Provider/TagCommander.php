@@ -1,8 +1,8 @@
 <?php
 namespace Pyz\Yves\Library\Tracking\Provider;
 
-use Generated\Shared\Customer\Transfer\Address;
-use Generated\Shared\Sales\Transfer\Order;
+use ProjectA\Shared\Customer\Transfer\Address;
+use ProjectA\Shared\Sales\Transfer\Order;
 use ProjectA\Yves\Customer\Business\Model\Tracking\CustomerDataProvider;
 use Pyz\Yves\Library\Tracking\DataProvider\ProductDetailProvider;
 use Pyz\Yves\Library\Tracking\PageTypeInterface;

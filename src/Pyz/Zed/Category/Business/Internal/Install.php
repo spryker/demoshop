@@ -2,7 +2,7 @@
 namespace Pyz\Zed\Category\Business\Internal;
 
 /**
- * @property \Generated\Zed\Category\Business\CategoryFactory $factory
+ * @property \ProjectA\Deprecated\Category\Business\CategoryFactory $factory
  */
 class Install extends \ProjectA_Zed_Category_Business_Internal_Install
 {

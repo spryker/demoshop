@@ -6,7 +6,7 @@ use ProjectA\Zed\Mail\Business\MailFacade as CoreMailFacade;
 /**
  * Class MailFacade
  * @package Pyz\Zed\Mail\Business
- * @property \Generated\Zed\Mail\Business\MailFactory $factory
+ * @property \ProjectA\Deprecated\Mail\Business\MailFactory $factory
  */
 class MailFacade extends CoreMailFacade
 {

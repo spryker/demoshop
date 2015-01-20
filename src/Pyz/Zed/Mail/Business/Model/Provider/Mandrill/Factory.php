@@ -3,7 +3,7 @@
 
 namespace Pyz\Zed\Mail\Business\Model\Provider\Mandrill;
 
-use Generated\Shared\Mail\Transfer\Mail;
+use ProjectA\Shared\Mail\Transfer\Mail;
 use ProjectA\Zed\Mail\Business\Model\Provider\Mandrill\Factory as CoreFactory;
 use Pyz\Zed\Mail\Business\Model\MailTypesConstantInterface;
 use Pyz\Zed\Mail\Business\Model\Provider\Mandrill\Mapper\CustomerPasswordForgottenMapper;

@@ -2,8 +2,8 @@
 
 namespace Pyz\Zed\Sales\Communication\Plugin\Oms\Command\Fulfillment;
 
-use Generated\Zed\Catalog\Business\Dependency\CatalogFacadeInterface;
-use Generated\Zed\Catalog\Business\Dependency\CatalogFacadeTrait;
+use ProjectA\Deprecated\Catalog\Business\Dependency\CatalogFacadeInterface;
+use ProjectA\Deprecated\Catalog\Business\Dependency\CatalogFacadeTrait;
 use ProjectA\Zed\Oms\Business\Model\Util\ReadOnlyArrayObject;
 use ProjectA\Zed\Oms\Communication\Plugin\Oms\Command\AbstractCommand;
 use ProjectA\Zed\Oms\Communication\Plugin\Oms\Command\CommandByOrderInterface;

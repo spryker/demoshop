@@ -11,7 +11,7 @@ use ProjectA\Shared\Solr\Code\SolrInstanceBuilder;
 use ProjectA\Shared\Yves\Code\Storage\StorageKeyGenerator;
 
 /**
- * @property \Generated\Zed\Yves\Business\YvesFactory $factory
+ * @property \ProjectA\Deprecated\Yves\Business\YvesFactory $factory
  */
 class IndexController extends CodeIndexController
 {

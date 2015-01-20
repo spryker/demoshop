@@ -3,12 +3,12 @@
 
 namespace Pyz\Zed\YvesExport\Business;
 
-use Generated\Zed\CategoryExporter\Business\Dependency\CategoryExporterFacadeInterface;
-use Generated\Zed\CategoryExporter\Business\Dependency\CategoryExporterFacadeTrait;
-use Generated\Zed\ProductExporter\Business\Dependency\ProductExporterFacadeInterface;
-use Generated\Zed\ProductExporter\Business\Dependency\ProductExporterFacadeTrait;
-use Generated\Zed\ProductSearch\Business\Dependency\ProductSearchFacadeInterface;
-use Generated\Zed\ProductSearch\Business\Dependency\ProductSearchFacadeTrait;
+use ProjectA\Deprecated\CategoryExporter\Business\Dependency\CategoryExporterFacadeInterface;
+use ProjectA\Deprecated\CategoryExporter\Business\Dependency\CategoryExporterFacadeTrait;
+use ProjectA\Deprecated\ProductExporter\Business\Dependency\ProductExporterFacadeInterface;
+use ProjectA\Deprecated\ProductExporter\Business\Dependency\ProductExporterFacadeTrait;
+use ProjectA\Deprecated\ProductSearch\Business\Dependency\ProductSearchFacadeInterface;
+use ProjectA\Deprecated\ProductSearch\Business\Dependency\ProductSearchFacadeTrait;
 use ProjectA\Zed\CategoryExporter\Communication\Plugin\CategoryNodeProcessorPlugin;
 use ProjectA\Zed\CategoryExporter\Communication\Plugin\NavigationProcessorPlugin;
 use ProjectA\Zed\ProductExporter\Communication\Plugin\ProductProcessorPlugin;
