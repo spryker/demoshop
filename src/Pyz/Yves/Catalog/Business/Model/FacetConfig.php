@@ -11,7 +11,8 @@ class FacetConfig extends CoreFacetConfig
      * @var array
      */
     protected static $facets = [
-        'number_facet_price' => [
+        'price' => [
+            self::KEY_FIELD_NAME => self::FLOAT_FACET,
             self::KEY_TYPE => self::TYPE_SLIDER,
             self::KEY_PARAM => 'price',
             self::KEY_ACTIVE => true,
@@ -19,7 +20,8 @@ class FacetConfig extends CoreFacetConfig
             self::KEY_VALUE_CALLBACK_BEFORE => [__CLASS__, 'priceValueCallbackBefore'],
             self::KEY_VALUE_CALLBACK_AFTER => [__CLASS__, 'priceValueCallbackAfter']
         ],
-        'int_facet_category' => [
+        'category' => [
+            self::KEY_FIELD_NAME => 'category',
             self::KEY_TYPE => self::TYPE_CATEGORY,
             self::KEY_PARAM => 'category',
             self::KEY_ACTIVE => true,
@@ -27,22 +29,26 @@ class FacetConfig extends CoreFacetConfig
             self::KEY_SHORT_PARAM => 'c',
             self::KEY_URL_POSITION => 0
         ],
-        'int_facet_height' => [
+        'screw_coating' => [
+            self::KEY_FIELD_NAME => self::STRING_FACET,
             self::KEY_TYPE => self::TYPE_ENUMERATION,
-            self::KEY_PARAM => 'cat', //maybe revoke because cat is part of the url
-            self::KEY_ACTIVE => false
+            self::KEY_PARAM => 'screw_coating', //maybe revoke because cat is part of the url
+            self::KEY_ACTIVE => true
         ],
-        'int_facet_depth' => [
+        'depth' => [
+            self::KEY_FIELD_NAME => self::FLOAT_FACET,
             self::KEY_TYPE => self::TYPE_ENUMERATION,
             self::KEY_PARAM => 'depth',
             self::KEY_ACTIVE => false
         ],
-        'int_facet_width' => [
+        'width' => [
+            self::KEY_FIELD_NAME => self::FLOAT_FACET,
             self::KEY_TYPE => self::TYPE_ENUMERATION,
             self::KEY_PARAM => 'width',
             self::KEY_ACTIVE => false
         ],
-        'string_facet_brand' => [
+        'brand' => [
+            self::KEY_FIELD_NAME => self::STRING_FACET,
             self::KEY_TYPE => self::TYPE_ENUMERATION,
             self::KEY_PARAM => 'brand',
             self::KEY_ACTIVE => true,
@@ -51,13 +57,15 @@ class FacetConfig extends CoreFacetConfig
             self::KEY_URL_POSITION => 1,
             self::KEY_MULTI_VALUED => true
         ],
-        'string_facet_color' => [
+        'color' => [
+            self::KEY_FIELD_NAME => self::STRING_FACET,
             self::KEY_TYPE => self::TYPE_ENUMERATION,
             self::KEY_PARAM => 'color',
             self::KEY_ACTIVE => true,
             self::KEY_MULTI_VALUED => true
         ],
-        'string_facet_material' => [
+        'material' => [
+            self::KEY_FIELD_NAME => self::STRING_FACET,
             self::KEY_TYPE => self::TYPE_ENUMERATION,
             self::KEY_PARAM => 'material',
             self::KEY_ACTIVE => true,

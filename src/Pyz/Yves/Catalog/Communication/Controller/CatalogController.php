@@ -18,29 +18,21 @@ class CatalogController extends CoreCatalogController
 {
 
     /**
+     * @param array $category
      * @param FacetConfig $facetConfig
      * @param Request $request
      * @return array
+     * @throws \Exception
      */
     public function indexAction(array $category, FacetConfig $facetConfig, Request $request)
     {
-        $search = $this->getFactory()->createCatalogModelFulltextSearch(
+        $search = $this->getFactory()->createCatalogDependencyContainer()->createFacetSearch(
             $request,
-            $facetConfig,
-            $this->getStorageElasticsearch(),
-            $this->getStorageKeyValue(),
-            Config::get(SystemConfig::ELASTICA_PARAMETER__INDEX_NAME),
-            $this->getFactory()->createCatalogModelFacetAggregation()
-        );
-        $search->getResult();
-
-        $search = $this->getFactory()->createCatalogModelFacetSearch(
-            $request,
-            $facetConfig,
             $this->getStorageElasticsearch(),
             $this->getStorageKeyValue(),
             Config::get(SystemConfig::ELASTICA_PARAMETER__INDEX_NAME)
         );
+
         $result = $search->getResult();
         //echo '<pre>' . print_r($result, true) . '</pre>';die;
 
