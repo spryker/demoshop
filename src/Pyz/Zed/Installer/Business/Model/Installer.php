@@ -11,6 +11,8 @@ use \Generated\Zed\Misc\Business\Dependency\MiscFacadeInterface;
 use \Generated\Zed\Price\Business\Dependency\PriceFacadeInterface;
 use Generated\Zed\Product\Business\Dependency\ProductFacadeInterface;
 use Generated\Zed\Product\Business\Dependency\ProductFacadeTrait;
+use Generated\Zed\ProductSearch\Business\Dependency\ProductSearchFacadeInterface;
+use Generated\Zed\ProductSearch\Business\Dependency\ProductSearchFacadeTrait;
 use \Generated\Zed\Stock\Business\Dependency\StockFacadeInterface;
 use \Generated\Zed\Glossary\Business\Dependency\GlossaryFacadeInterface;
 use \Generated\Zed\Sales\Business\Dependency\SalesFacadeInterface;
@@ -33,6 +35,8 @@ use \Generated\Zed\ProductImage\Business\Dependency\ProductImageFacadeTrait;
 use \Generated\Zed\Invoice\Business\Dependency\InvoiceFacadeTrait;
 use \Generated\Zed\Document\Business\Dependency\DocumentFacadeTrait;
 use \Generated\Zed\Payone\Business\Dependency\PayoneFacadeTrait;
+use Generated\Zed\YvesExport\Business\Dependency\YvesExportFacadeInterface;
+use Generated\Zed\YvesExport\Business\Dependency\YvesExportFacadeTrait;
 
 class Installer extends \ProjectA_Zed_Installer_Business_Model_Installer implements
     AclFacadeInterface,
@@ -49,7 +53,9 @@ class Installer extends \ProjectA_Zed_Installer_Business_Model_Installer impleme
     InvoiceFacadeInterface,
     DocumentFacadeInterface,
     PayoneFacadeInterface,
-    ProductFacadeInterface
+    ProductFacadeInterface,
+    YvesExportFacadeInterface,
+    ProductSearchFacadeInterface
 {
 
     use AclFacadeTrait;
@@ -67,6 +73,8 @@ class Installer extends \ProjectA_Zed_Installer_Business_Model_Installer impleme
     use DocumentFacadeTrait;
     use PayoneFacadeTrait;
     use ProductFacadeTrait;
+    use YvesExportFacadeTrait;
+    use ProductSearchFacadeTrait;
 
     /**
      * @return array
@@ -89,7 +97,9 @@ class Installer extends \ProjectA_Zed_Installer_Business_Model_Installer impleme
             $this->facadeDocument->createInternalInstall(),
             $this->facadeInvoice->createInternalInstall(),
             $this->facadePayone->createInternalInstall(),
-            $this->facadeProduct->createInternalInstall()
+            $this->facadeProduct->createInternalInstall(),
+            $this->facadeYvesExport->createInternalInstall(),
+            $this->facadeProductSearch->createInternalInstall()
         ];
     }
 }
