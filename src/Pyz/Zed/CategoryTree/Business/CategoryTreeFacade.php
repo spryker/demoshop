@@ -7,21 +7,24 @@ use ProjectA\Zed\ProductCategory\Business\External\ProductCategoryToCategoryTree
 
 /**
  * Class CategoryTreeFacade
+ * 
  * @package Pyz\Zed\CategoryTree\Business
  */
 class CategoryTreeFacade extends CoreCategoryTreeFacade
     implements ProductCategoryToCategoryTreeInterface
 {
     /**
-     * @param $nodeId
-     * @param $locale
-     * @param bool $excludeStartNode
-     * @param bool $onlyParents
-     * @return array|mixed|\PropelObjectCollection
+     * @param int       $nodeId
+     * @param string    $locale
+     * @param bool      $excludeStartNode
+     * @param bool      $onlyParents
+     *
+     * @return array
      */
     public function getGroupedPath($nodeId, $locale, $excludeStartNode = true, $onlyParents = false)
     {
-        $categoryTree = $this->createDependencyInjectionContainer()->createCategoryTree();
-        return $categoryTree->getGroupedPaths($nodeId, $locale, $excludeStartNode, $onlyParents);
+        return $this->dependencyContainer
+            ->getCategoryTree()
+            ->getGroupedPaths($nodeId, $locale, $excludeStartNode, $onlyParents);
     }
 }
