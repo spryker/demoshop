@@ -11,6 +11,8 @@ use ProjectA\Zed\ProductSearch\Business\Builder\ProductSearchToProductInterface;
  * Class ProductFacade
  *
  * @package Pyz\Zed\Product\Business
+ *
+ * @property \Pyz\Zed\Product\Business\ProductDependencyContainer $dependencyContainer
  */
 class ProductFacade extends CoreProductFacade implements
     ProductExporterToProductInterface,
@@ -23,9 +25,7 @@ class ProductFacade extends CoreProductFacade implements
      */
     public function buildProducts(array $productsData)
     {
-        $builder = $this->factory->createBuilderSimpleAttributeMergeBuilder();
-
-        return $builder->buildProducts($productsData);
+        return $this->dependencyContainer->getProductBuilder()->buildProducts($productsData);
     }
 
     /**
@@ -35,9 +35,6 @@ class ProductFacade extends CoreProductFacade implements
      */
     public function buildSearchProducts(array $productsData)
     {
-        $builder = $this->factory->createBuilderSimpleAttributeMergeBuilder();
-
-        return $builder->buildProducts($productsData);
+        return $this->dependencyContainer->getProductBuilder()->buildProducts($productsData);
     }
 }
- 
