@@ -7,7 +7,7 @@ use Symfony\Component\Validator\Constraints\CardScheme;
 use Symfony\Component\Validator\Constraints\Luhn;
 use Symfony\Component\Form\FormEvents;
 use Symfony\Component\Form\FormEvent;
-use Generated\Shared\Library\TransferLoader;
+use ProjectA\Shared\Library\TransferLoader;
 use Symfony\Component\OptionsResolver\OptionsResolverInterface;
 
 class PaymentType extends CorePaymentType
@@ -123,11 +123,11 @@ class PaymentType extends CorePaymentType
      */
     public function preparePaymentTransfer(FormEvent $event)
     {
-        /* @var \Generated\Shared\Sales\Transfer\Order $transferOrder */
+        /* @var \ProjectA\Shared\Sales\Transfer\Order $transferOrder */
         $transferOrder = $event->getForm()->getParent()->getData();
-        /* @var \Generated\Shared\Sales\Transfer\Payment $transferPayment */
+        /* @var \ProjectA\Shared\Sales\Transfer\Payment $transferPayment */
         $transferPayment = $transferOrder->getPayment();
-        /* @var \Generated\Shared\Payone\Transfer\PaymentPayone $transferPayone */
+        /* @var \ProjectA\Shared\Payone\Transfer\PaymentPayone $transferPayone */
         $transferPayone = $event->getData();
         $transferPayment->setMethod($transferPayone->getMethod());
         $transferPayment->setPaymentData($transferPayone);

@@ -3,7 +3,7 @@
 
 namespace Pyz\Zed\Mail\Business\Model\Provider\Mandrill\Mapper;
 
-use Generated\Shared\Mail\Transfer\Mail as MailTransfer;
+use ProjectA\Shared\Mail\Transfer\Mail as MailTransfer;
 
 /**
  * Class DefaultMapper

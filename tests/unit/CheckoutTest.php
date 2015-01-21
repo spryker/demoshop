@@ -1,11 +1,11 @@
 <?php
 
-use Generated\Shared\Library\TransferLoader;
-use Generated\Shared\Sales\Transfer\Order;
-use Generated\Shared\Sales\Transfer\Payment;
-use Generated\Zed\Catalog\Business\CatalogFactory;
-use Generated\Zed\Checkout\Business\CheckoutFactory;
-use Generated\Zed\DependencyInjectionContainer;
+use ProjectA\Shared\Library\TransferLoader;
+use ProjectA\Shared\Sales\Transfer\Order;
+use ProjectA\Shared\Sales\Transfer\Payment;
+use ProjectA\Deprecated\Catalog\Business\CatalogFactory;
+use ProjectA\Deprecated\Checkout\Business\CheckoutFactory;
+use ProjectA\Deprecated\DependencyInjectionContainer;
 use ProjectA\Zed\Checkout\Component\CheckoutFacade;
 use ProjectA\Zed\Library\Copy;
 

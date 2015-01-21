@@ -1,18 +1,18 @@
 <?php
 namespace Pyz\Zed\Yves\Business;
 
-use Generated\Zed\Cms\Business\Dependency\CmsFacadeInterface;
-use Generated\Zed\Cms\Business\Dependency\CmsFacadeTrait;
+use ProjectA\Deprecated\Cms\Business\Dependency\CmsFacadeInterface;
+use ProjectA\Deprecated\Cms\Business\Dependency\CmsFacadeTrait;
 use ProjectA\Zed\Yves\Business\YvesSettings as ProjectAYvesSettings;
 use Pyz\Zed\Catalog\Business\CatalogFacade;
-use Generated\Zed\Glossary\Business\Dependency\GlossaryFacadeInterface;
-use Generated\Zed\Misc\Business\Dependency\MiscFacadeInterface;
-use Generated\Zed\Category\Business\Dependency\CategoryFacadeInterface;
-use Generated\Zed\Catalog\Business\Dependency\CatalogFacadeInterface;
-use Generated\Zed\Glossary\Business\Dependency\GlossaryFacadeTrait;
-use Generated\Zed\Misc\Business\Dependency\MiscFacadeTrait;
-use Generated\Zed\Category\Business\Dependency\CategoryFacadeTrait;
-use Generated\Zed\Catalog\Business\Dependency\CatalogFacadeTrait;
+use ProjectA\Deprecated\Glossary\Business\Dependency\GlossaryFacadeInterface;
+use ProjectA\Deprecated\Misc\Business\Dependency\MiscFacadeInterface;
+use ProjectA\Deprecated\Category\Business\Dependency\CategoryFacadeInterface;
+use ProjectA\Deprecated\Catalog\Business\Dependency\CatalogFacadeInterface;
+use ProjectA\Deprecated\Glossary\Business\Dependency\GlossaryFacadeTrait;
+use ProjectA\Deprecated\Misc\Business\Dependency\MiscFacadeTrait;
+use ProjectA\Deprecated\Category\Business\Dependency\CategoryFacadeTrait;
+use ProjectA\Deprecated\Catalog\Business\Dependency\CatalogFacadeTrait;
 
 /**
  * @property CatalogFacade $facadeCatalog

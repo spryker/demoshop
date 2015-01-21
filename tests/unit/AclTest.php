@@ -1,8 +1,8 @@
 <?php
 
-use Generated\Shared\Library\TransferLoader;
-use Generated\Zed\Acl\Business\AclFactory;
-use Generated\Zed\DependencyInjectionContainer;
+use ProjectA\Shared\Library\TransferLoader;
+use ProjectA\Deprecated\Acl\Business\AclFactory;
+use ProjectA\Deprecated\DependencyInjectionContainer;
 use ProjectA\Zed\Acl\Component\AclFacade;
 
 class AclTest extends \Codeception\TestCase\Test
@@ -117,7 +117,7 @@ class AclTest extends \Codeception\TestCase\Test
     }
 
     /**
-     * @return \Generated\Shared\Acl\Transfer\User
+     * @return \ProjectA\Shared\Acl\Transfer\User
      */
     protected function createTransferUser()
     {
