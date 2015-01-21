@@ -314,16 +314,16 @@
         },
         {
             "name": "league/csv",
-            "version": "6.2.0",
+            "version": "6.3.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/thephpleague/csv.git",
-                "reference": "a7f92b56d37bfce593903b4afe211ce9429188ab"
+                "reference": "5ffb2b42ed5d7ae20d80d4480b34743f5086d4a8"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/thephpleague/csv/zipball/a7f92b56d37bfce593903b4afe211ce9429188ab",
-                "reference": "a7f92b56d37bfce593903b4afe211ce9429188ab",
+                "url": "https://api.github.com/repos/thephpleague/csv/zipball/5ffb2b42ed5d7ae20d80d4480b34743f5086d4a8",
+                "reference": "5ffb2b42ed5d7ae20d80d4480b34743f5086d4a8",
                 "shasum": ""
             },
             "require": {
@@ -336,7 +336,7 @@
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "6.2-dev"
+                    "dev-master": "6.3-dev"
                 }
             },
             "autoload": {
@@ -365,7 +365,7 @@
                 "read",
                 "write"
             ],
-            "time": "2014-12-12 11:37:47"
+            "time": "2015-01-21 12:06:27"
         },
         {
             "name": "mandrill/mandrill",
@@ -920,7 +920,7 @@
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/zed.git",
-                "reference": "5836bf5f94b8e835f92a25855d882b1208cedc4e"
+                "reference": "6bab35ea96896b043f461887349aaeb41b9b778a"
             },
             "require": {
                 "digital-canvas/zend-framework": ">=1.12.2",
@@ -981,7 +981,7 @@
                 "Application",
                 "Zed"
             ],
-            "time": "2015-01-21 11:32:14"
+            "time": "2015-01-21 15:05:17"
         },
         {
             "name": "symfony-cmf/routing",
