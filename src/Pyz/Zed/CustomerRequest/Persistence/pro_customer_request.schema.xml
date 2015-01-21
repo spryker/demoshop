@@ -1,0 +1,29 @@
+<?xml version="1.0"?>
+<database name="zed"
+          package="src/Pro/Zed/CustomerRequest/Persistence"
+          defaultIdMethod="native"
+          defaultPhpNamingMethod="underscore"
+          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+          xsi:noNamespaceSchemaLocation="http://xsd.propelorm.org/1.6/database.xsd">
+
+    <table name="pro_customer_request_address" phpName="ProCustomerRequestAddress">
+        <column name="id_customer_request_address" type="INTEGER" autoIncrement="true" primaryKey="true"/>
+        <column name="salutation" required="false" type="VARCHAR" size="255" />
+        <column name="first_name" required="false" type="VARCHAR" size="255" />
+        <column name="last_name" required="false" type="VARCHAR" size="255" />
+        <column name="company_name" required="false" type="VARCHAR" size="255" />
+        <column name="street" required="false" type="VARCHAR" size="255" />
+        <column name="city" required="false" type="VARCHAR" size="255" />
+        <column name="postal_code" required="false" type="VARCHAR" size="255" />
+        <column name="neighborhood" required="false" type="VARCHAR" size="255" />
+        <column name="province_code" required="false" type="VARCHAR" size="255" />
+        <column name="state" required="false" type="VARCHAR" size="255" />
+        <column name="phone_number" required="false" type="VARCHAR" size="255" />
+        <column name="email" required="false" type="VARCHAR" size="255" />
+        <column name="latitude" required="false" type="FLOAT"/>
+        <column name="longitude" required="false" type="FLOAT"/>
+
+        <behavior name="timestampable"/>
+    </table>
+
+</database>
