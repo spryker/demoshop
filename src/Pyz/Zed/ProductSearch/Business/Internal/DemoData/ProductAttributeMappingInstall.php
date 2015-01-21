@@ -49,14 +49,14 @@ class ProductAttributeMappingInstall implements DemoDataInstallInterface
     protected function addOperation($attributeId, $copyTargets, $operation)
     {
         foreach ($copyTargets as $copyTarget => $weight) {
-            $attributeOperationExists = \ProjectA_Zed_ProductSearch_Persistence_Propel_PacProductSearchAttributesOperationsQuery::create()
+            $attributeOperationExists = \ProjectA_Zed_ProductSearch_Persistence_Propel_PacProductSearchAttributesOperationQuery::create()
                 ->filterBySourceAttributeId($attributeId)
                 ->filterByTargetField($copyTarget)
                 ->filterByWeighting($weight)
                 ->exists();
 
             if (!$attributeOperationExists) {
-                $attributeOperation = new \ProjectA_Zed_ProductSearch_Persistence_Propel_PacProductSearchAttributesOperations();
+                $attributeOperation = new \ProjectA_Zed_ProductSearch_Persistence_Propel_PacProductSearchAttributesOperation();
                 $attributeOperation->setTargetField($copyTarget);
                 $attributeOperation->setOperation($operation);
                 $attributeOperation->setWeighting($weight);

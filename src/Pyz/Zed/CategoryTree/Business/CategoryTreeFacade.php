@@ -7,7 +7,7 @@ use ProjectA\Zed\ProductCategory\Business\External\ProductCategoryToCategoryTree
 
 /**
  * Class CategoryTreeFacade
- * 
+ *
  * @package Pyz\Zed\CategoryTree\Business
  */
 class CategoryTreeFacade extends CoreCategoryTreeFacade
