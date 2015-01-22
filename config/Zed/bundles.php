@@ -27,7 +27,7 @@ return [
         'Customer' => $schemaAndNavigation,
         'Document' => $schema,
         'Glossary' => $allElements,
-        'Glossary2' => $schema,
+        'Glossary2' => $allElements,
         'Invoice' => $schema,
         'Kendo' => $schema,
         'Lumberjack' => $navigation,
