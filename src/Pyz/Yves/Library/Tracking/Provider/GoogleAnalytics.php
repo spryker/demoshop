@@ -1,7 +1,7 @@
 <?php
 namespace Pyz\Yves\Library\Tracking\Provider;
 
-use Generated\Shared\Sales\Transfer\Order;
+use ProjectA\Shared\Sales\Transfer\Order;
 use ProjectA\Yves\Cart\Business\Model\Tracking\CartDataProvider;
 use ProjectA\Yves\Cart\Business\Model\Tracking\ItemDataProvider;
 use ProjectA\Yves\Customer\Business\Model\Tracking\CustomerDataProvider;

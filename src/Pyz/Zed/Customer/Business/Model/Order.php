@@ -3,8 +3,8 @@
 namespace Pyz\Zed\Customer\Business\Model;
 
 use ProjectA\Zed\Customer\Business\Model\Order as CoreOrder;
-use Generated\Shared\Library\TransferLoader;
-use Generated\Shared\Customer\Transfer\OrderItem as CustomerOrderItemTransfer;
+use ProjectA\Shared\Library\TransferLoader;
+use ProjectA\Shared\Customer\Transfer\OrderItem as CustomerOrderItemTransfer;
 
 class Order extends CoreOrder
 {
@@ -36,7 +36,7 @@ class Order extends CoreOrder
 
     /**
      * @param \ProjectA_Zed_Sales_Persistence_Propel_PacSalesOrder $orderEntity
-     * @return \Generated\Shared\Customer\Transfer\OrderItemCollection
+     * @return \ProjectA\Shared\Customer\Transfer\OrderItemCollection
      */
     protected function createCustomerOrderItemCollectionTransfer(\ProjectA_Zed_Sales_Persistence_Propel_PacSalesOrder $orderEntity)
     {

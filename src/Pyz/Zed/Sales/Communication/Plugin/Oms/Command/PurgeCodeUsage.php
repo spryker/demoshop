@@ -2,8 +2,8 @@
 
 namespace Pyz\Zed\Sales\Communication\Plugin\Oms\Command;
 
-use Generated\Zed\Salesrule\Business\Dependency\SalesruleFacadeInterface;
-use Generated\Zed\Salesrule\Business\Dependency\SalesruleFacadeTrait;
+use ProjectA\Deprecated\Salesrule\Business\Dependency\SalesruleFacadeInterface;
+use ProjectA\Deprecated\Salesrule\Business\Dependency\SalesruleFacadeTrait;
 use ProjectA\Zed\Oms\Business\Model\Util\ReadOnlyArrayObject;
 use ProjectA\Zed\Oms\Communication\Plugin\Oms\Command\AbstractCommand;
 use ProjectA\Zed\Oms\Communication\Plugin\Oms\Command\CommandByOrderInterface;
