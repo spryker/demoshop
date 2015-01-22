@@ -33,7 +33,15 @@ use \ProjectA\Deprecated\ProductImage\Business\Dependency\ProductImageFacadeTrai
 use \ProjectA\Deprecated\Invoice\Business\Dependency\InvoiceFacadeTrait;
 use \ProjectA\Deprecated\Document\Business\Dependency\DocumentFacadeTrait;
 use \ProjectA\Deprecated\Payone\Business\Dependency\PayoneFacadeTrait;
+use ProjectA\Zed\Kernel\Business\FacadeLocator;
+use ProjectA\Zed\ProductSearch\Business\ProductSearchFacade;
+use ProjectA\Zed\YvesExport\Business\YvesExportFacade;
 
+/**
+ * Class Installer
+ *
+ * @package Pyz\Zed\Installer\Business\Model
+ */
 class Installer extends \ProjectA_Zed_Installer_Business_Model_Installer implements
     AclFacadeInterface,
     CatalogFacadeInterface,
@@ -69,10 +77,28 @@ class Installer extends \ProjectA_Zed_Installer_Business_Model_Installer impleme
     use ProductFacadeTrait;
 
     /**
+     * @var FacadeLocator
+     */
+    protected $facadeLocator;
+
+    /**
+     * constructor
+     */
+    public function __construct()
+    {
+        $this->facadeLocator = new FacadeLocator();
+    }
+
+    /**
      * @return array
      */
     protected function getInstaller()
     {
+        /** @var YvesExportFacade $yvesExportFacade */
+        $yvesExportFacade = $this->facadeLocator->locate('YvesExport');
+        /** @var ProductSearchFacade $productSearchFacade */
+        $productSearchFacade = $this->facadeLocator->locate('ProductSearch');
+
         return [
             $this->facadeAcl->createInternalInstall(),
             // TODO: installer broken
@@ -89,7 +115,9 @@ class Installer extends \ProjectA_Zed_Installer_Business_Model_Installer impleme
             $this->facadeDocument->createInternalInstall(),
             $this->facadeInvoice->createInternalInstall(),
             $this->facadePayone->createInternalInstall(),
-            $this->facadeProduct->createInternalInstall()
+            $this->facadeProduct->createInternalInstall(),
+            $yvesExportFacade->createInternalInstall(),
+            $productSearchFacade->createInternalInstall()
         ];
     }
 }
