@@ -106,14 +106,14 @@ class ProductDataInstall implements DemoDataInstallInterface
         $attributes = [
             'theme' => 'string',
             'color' => 'list',
-            'radius' => 'number',
-            'cable_length' => 'number',
-            'weight' => 'number',
-            'light_bulb' => 'number',
+            'radius' => 'float',
+            'cable_length' => 'float',
+            'weight' => 'float',
+            'light_bulb' => 'integer',
             'socket' => 'string',
-            'length' => 'number',
-            'width' => 'number',
-            'height' => 'number',
+            'length' => 'float',
+            'width' => 'float',
+            'height' => 'float',
             'image_url' => 'string'
         ];
 

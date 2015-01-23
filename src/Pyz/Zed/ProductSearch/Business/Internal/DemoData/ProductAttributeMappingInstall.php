@@ -88,8 +88,11 @@ class ProductAttributeMappingInstall implements DemoDataInstallInterface
                 case 'string':
                     $this->handleStringType($attributeId);
                     break;
-                case 'number':
-                    $this->handleNumber($attributeId);
+                case 'integer':
+                    $this->handleInteger($attributeId);
+                    break;
+                case 'float':
+                    $this->handleFloat($attributeId);
                     break;
                 default:
                     break;
@@ -127,9 +130,19 @@ class ProductAttributeMappingInstall implements DemoDataInstallInterface
     /**
      * @param int       $attributeId
      */
-    protected function handleNumber($attributeId)
+    protected function handleInteger($attributeId)
     {
-        $copyTargets = ['number-facet' => 7];
+        $copyTargets = ['integer-facet' => 7];
+
+        $this->addOperation($attributeId, $copyTargets, 'CopyToFacet');
+    }
+
+    /**
+     * @param int $attributeId
+     */
+    protected function handleFloat($attributeId)
+    {
+        $copyTargets = ['float-facet' => 7];
 
         $this->addOperation($attributeId, $copyTargets, 'CopyToFacet');
     }
