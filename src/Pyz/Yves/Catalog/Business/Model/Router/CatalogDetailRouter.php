@@ -11,6 +11,10 @@ use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\Routing\Exception\ResourceNotFoundException;
 use Symfony\Component\Routing\Exception\RouteNotFoundException;
 
+/**
+ * Class CatalogDetailRouter
+ * @package Pyz\Yves\Catalog\Business\Model\Router
+ */
 class CatalogDetailRouter extends AbstractRouter
 {
 
@@ -29,8 +33,8 @@ class CatalogDetailRouter extends AbstractRouter
     {
         try {
             $product = $this->factory->createCatalogDependencyContainer()
-                ->createCatalogModel()
-                ->getProductDataByUrl($pathinfo, $this->app->getStorageKeyValue());
+                ->createCatalogModel($this->app->getStorageKeyValue())
+                ->getProductDataByUrl($pathinfo);
 
             $resolver = new ControllerResolver('Catalog', 'CatalogController', 'detail');
             $service = (new ServiceControllerBuilder())->createServiceForController($this->app, $resolver);
