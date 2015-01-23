@@ -41,7 +41,7 @@ class Order extends CoreOrder
     protected function createCustomerOrderItemCollectionTransfer(\ProjectA_Zed_Sales_Persistence_Propel_PacSalesOrder $orderEntity)
     {
         $groupedCustomerOrderItemTransfers = [];
-        $customerOrderItemTransferTemplate = TransferLoader::loadCustomerOrderItem();
+        $customerOrderItemTransferTemplate = (new \ProjectA\Shared\Kernel\TransferLocator())->locateCustomerOrderItem();
 
         $orderItemEntityCollection = $this->findOrderItemsGroupedByStatusAndSku($orderEntity->getIdSalesOrder());
         /** @var \ProjectA_Zed_Sales_Persistence_Propel_PacSalesOrderItem $orderItemEntity */
@@ -70,7 +70,7 @@ class Order extends CoreOrder
             $groupedCustomerOrderItemTransfers[$sku . $customerItemStatus] = $customerOrderItemTransfer;
         }
 
-        $customerOrderItemTransferCollection = TransferLoader::loadCustomerOrderItemCollection(
+        $customerOrderItemTransferCollection = (new \ProjectA\Shared\Kernel\TransferLocator())->locateCustomerOrderItemCollection(
             $groupedCustomerOrderItemTransfers,
             true
         );

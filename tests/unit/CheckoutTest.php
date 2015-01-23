@@ -29,21 +29,21 @@ class CheckoutTest extends \Codeception\TestCase\Test
     public function testPlaceOrder()
     {
         /** @var Order $orderTransfer */
-        $orderTransfer = TransferLoader::loadSalesOrder();
+        $orderTransfer = (new \ProjectA\Shared\Kernel\TransferLocator())->locateSalesOrder();
         $orderTransfer = $this->addPayment($orderTransfer);
         $orderTransfer = $this->addOrderItems($orderTransfer);
         $orderTransfer = $this->addShippingAddress($orderTransfer);
         $orderTransfer = $this->addBillingAddress($orderTransfer);
         $orderTransfer = $this->addCustomer($orderTransfer);
 
-        $totals = TransferLoader::loadSalesPriceTotals();
+        $totals = (new \ProjectA\Shared\Kernel\TransferLocator())->locateSalesPriceTotals();
         $totals->setGrandTotal(11000);
         $orderTransfer->setTotals($totals);
 
         $request = new ProjectA\Shared\Library\Communication\Request();
         $sessionId = md5('foo');
         $request->setSessionId($sessionId);
-        $metaRequest = TransferLoader::loadPaymentControlMetaRequest();
+        $metaRequest = (new \ProjectA\Shared\Kernel\TransferLocator())->locatePaymentControlMetaRequest();
         $metaRequest->setIpAddress('127.0.0.1');
         $request->addMetaTransfer('paymentcontrol', $metaRequest);
 
@@ -80,7 +80,7 @@ class CheckoutTest extends \Codeception\TestCase\Test
         $customer->setStatus($status);
         $customer->save();
 
-        $customerTransfer = Copy::entityToTransfer(TransferLoader::loadCustomer(), $customer);
+        $customerTransfer = Copy::entityToTransfer((new \ProjectA\Shared\Kernel\TransferLocator())->locateCustomer(), $customer);
         $orderTransfer->setCustomer($customerTransfer);
 
         return $orderTransfer;
@@ -90,7 +90,7 @@ class CheckoutTest extends \Codeception\TestCase\Test
     {
         $faker = Faker\Factory::create('de_DE');
 
-        $shippingAddress = TransferLoader::loadSalesAddress();
+        $shippingAddress = (new \ProjectA\Shared\Kernel\TransferLocator())->locateSalesAddress();
         $shippingAddress->fillWithFixtureData();
         $shippingAddress->setFkMiscCountry(60); //Foreign key for DE
         $shippingAddress->setIso2Country('DE');
@@ -112,7 +112,7 @@ class CheckoutTest extends \Codeception\TestCase\Test
     protected function addBillingAddress(Order $orderTransfer)
     {
         $faker = Faker\Factory::create('de_DE');
-        $billingAddress = TransferLoader::loadSalesAddress();
+        $billingAddress = (new \ProjectA\Shared\Kernel\TransferLocator())->locateSalesAddress();
         $billingAddress->setFkMiscCountry(60); //Foreign key for DE
         $billingAddress->setIso2Country('DE');
         $billingAddress->setEmail($faker->safeEmail);
@@ -147,8 +147,8 @@ class CheckoutTest extends \Codeception\TestCase\Test
         $name = $catalogFacade->getProductNameBySku($product->getSku());
         //$price = $catalogFacade->
 
-        $collection = TransferLoader::loadSalesOrderItemCollection();
-        $item = TransferLoader::loadSalesOrderItem();
+        $collection = (new \ProjectA\Shared\Kernel\TransferLocator())->locateSalesOrderItemCollection();
+        $item = (new \ProjectA\Shared\Kernel\TransferLocator())->locateSalesOrderItem();
         $item->setSku($product->getSku());
         $item->setUniqueIdentifier($product->getSku());
         $item->setQuantity(1);
@@ -168,7 +168,7 @@ class CheckoutTest extends \Codeception\TestCase\Test
     protected function addPayment(Order $orderTransfer)
     {
         /** @var Payment $payment */
-        $payment = TransferLoader::loadSalesPayment();
+        $payment = (new \ProjectA\Shared\Kernel\TransferLocator())->locateSalesPayment();
         $payment->setMethod('payment.payone.prepayment');
         $orderTransfer->setPayment($payment);
 
