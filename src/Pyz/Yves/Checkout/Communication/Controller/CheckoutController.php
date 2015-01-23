@@ -1,9 +1,9 @@
 <?php
 namespace Pyz\Yves\Checkout\Communication\Controller;
 
-use Generated\Shared\Library\TransferLoader;
-use Generated\Shared\Sales\Transfer\Order;
-use Generated\Shared\Sales\Transfer\Payment;
+use ProjectA\Shared\Library\TransferLoader;
+use ProjectA\Shared\Sales\Transfer\Order;
+use ProjectA\Shared\Sales\Transfer\Payment;
 use Generated\Yves\Factory;
 use ProjectA\Yves\Cart\Communication\Plugin\CartControllerProvider;
 use ProjectA\Yves\Checkout\Communication\Plugin\CheckoutControllerProvider;
@@ -15,7 +15,7 @@ use Symfony\Component\Form\FormInterface;
 use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
-use Generated\Shared\Payment\Transfer\PaymentMethodCollection;
+use ProjectA\Shared\Payment\Transfer\PaymentMethodCollection;
 
 class CheckoutController extends CoreCheckoutController
 {
@@ -89,7 +89,7 @@ class CheckoutController extends CoreCheckoutController
 
             $transferResponse = $orderManager->saveOrder($orderTransfer);
 
-            /** @var  \Generated\Shared\Sales\Transfer\Order $order */
+            /** @var  \ProjectA\Shared\Sales\Transfer\Order $order */
 //            $order = $transferResponse->getTransfer();
 //            $customerModel->refreshCustomerInSession($order->getCustomer());
 

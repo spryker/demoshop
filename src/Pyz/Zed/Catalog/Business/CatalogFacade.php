@@ -3,7 +3,7 @@
 namespace Pyz\Zed\Catalog\Business;
 
 /**
- * @property \Generated\Zed\Catalog\Business\CatalogFactory $factory
+ * @property \ProjectA\Deprecated\Catalog\Business\CatalogFactory $factory
  */
 class CatalogFacade extends \ProjectA\Zed\Catalog\Business\CatalogFacade
 {

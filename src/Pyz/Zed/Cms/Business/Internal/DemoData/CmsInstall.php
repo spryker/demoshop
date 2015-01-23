@@ -2,7 +2,7 @@
 
 namespace Pyz\Zed\Cms\Business\Internal\DemoData;
 
-use Generated\Zed\Cms\Business\CmsFactory;
+use ProjectA\Deprecated\Cms\Business\CmsFactory;
 use ProjectA\Zed\Console\Business\Model\Console;
 use ProjectA\Zed\Cms\Business\Internal\DemoData\CmsInstall AS CoreCmsInstall;
 

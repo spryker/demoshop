@@ -1,7 +1,7 @@
 {
   "require": {
-    "spryker/yves-package": "dev-feature/425-integrate-elasticsearch-into-yves-catalog",
-    "spryker/zed-package": "dev-feature/425-integrate-elasticsearch-into-yves-catalog",
+    "spryker/yves-package": "dev-master",
+    "spryker/zed-package": "dev-master",
 
     "psr/log": "~1.0",
     "phing/phing": "~2.6.0",

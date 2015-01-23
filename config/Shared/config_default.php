@@ -120,21 +120,6 @@ $config[GlossaryConfig::GLOSSARY_PASSWORD] = null;
 $config[GlossaryConfig::GLOSSARY_TIMEOUT_SECONDS] = 1;
 $config[GlossaryConfig::GLOSSARY_TIMEOUT_MILLISECONDS] = 0;
 
-//$config[ProductImageConfig::PRODUCT_IMAGE_ORIGINAL_PRODUCT_IMAGE_DIRECTORY]
-//    = 'images' . DIRECTORY_SEPARATOR . 'products/original';
-//
-//$config[ProductImageConfig::PRODUCT_IMAGE_INCOMING_PRODUCT_IMAGE_DIRECTORY]
-//    = 'images' . DIRECTORY_SEPARATOR . 'products/incoming';
-//
-//$config[ProductImageConfig::PRODUCT_IMAGE_PROCESSED_PRODUCT_IMAGE_DIRECTORY]
-//    = 'images' . DIRECTORY_SEPARATOR . 'products/processed';
-//
-//$config[ProductImageConfig::PRODUCT_IMAGE_IMAGE_URL_PREFIX] = 'images';
-//$config[ProductImageConfig::PRODUCT_IMAGE_AMAZON_S3_KEY] = '';
-//$config[ProductImageConfig::PRODUCT_IMAGE_AMAZON_S3_SECRET] = '';
-//$config[ProductImageConfig::PRODUCT_IMAGE_AMAZON_S3_BUCKET_NAME] = '';
-
-
 $config[CustomerConfig::CUSTOMER_MINUTES_BEFORE_RESTORE_PASSWORD_INVALID] = 60;
 $config[CustomerConfig::CUSTOMER_DOUBLE_OPT_IN_REGISTRATION] = true;
 

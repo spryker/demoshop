@@ -3,7 +3,7 @@ namespace Pyz\Zed\Catalog\Business\Internal;
 use ProjectA\Zed\Catalog\Business\Model\ProductVarietyConstantInterface;
 
 /**
- * @property \Generated\Zed\Catalog\Business\CatalogFactory $factory
+ * @property \ProjectA\Deprecated\Catalog\Business\CatalogFactory $factory
  */
 class Install extends \ProjectA_Zed_Catalog_Business_Internal_Install implements ProductVarietyConstantInterface
 {

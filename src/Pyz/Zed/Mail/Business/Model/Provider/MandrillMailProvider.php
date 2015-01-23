@@ -3,8 +3,8 @@
 
 namespace Pyz\Zed\Mail\Business\Model\Provider;
 
-use Generated\Shared\Mail\Transfer\Mail as MailTransfer;
-use Generated\Zed\Mail\Business\Dependency\MailFactoryTrait;
+use ProjectA\Shared\Mail\Transfer\Mail as MailTransfer;
+use ProjectA\Deprecated\Mail\Business\Dependency\MailFactoryTrait;
 use ProjectA\Zed\Library\Dependency\DependencyFactoryInterface;
 use ProjectA\Zed\Mail\Business\Model\Provider\AbstractMailProvider;
 use ProjectA\Zed\Mail\Business\Model\Provider\MailProviderResponse;
