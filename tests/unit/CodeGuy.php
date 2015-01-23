@@ -98,7 +98,8 @@ class CodeGuy extends \Codeception\AbstractGuy
      * Documentation taken from corresponding module.
      * ----------------------------------------------
      *
-     *
+     * @param string $sql
+     * @return array
      * @see Codeception\Module\PropelModule::execInDatabase()
      * @return \Codeception\Maybe
      */
