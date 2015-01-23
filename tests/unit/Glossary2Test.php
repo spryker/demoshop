@@ -10,12 +10,12 @@ class Glossary2Test extends \Codeception\TestCase\Test
 {
     private $bundleName = 'Glossary2';
     /**
-     * @var GlossaryFacade $glossaryFacade
+     * @var \ProjectA\Zed\Glossary2\Business\Glossary2Facade $glossaryFacade
      */
     private $glossaryFacade;
 
     /**
-     * @var GlossaryQueryContainer $glossaryQueryContainer
+     * @var \ProjectA\Zed\Glossary2\Persistence\Glossary2QueryContainer $glossaryQueryContainer
      */
     private $glossaryQueryContainer;
     /**
@@ -30,16 +30,26 @@ class Glossary2Test extends \Codeception\TestCase\Test
         $this->glossaryQueryContainer = $queryContainerLocator->locate($this->bundleName);
     }
 
-    /**
-     *
-     */
     public function testCreateKeyInsertsSomething()
     {
         $keyQuery = $this->glossaryQueryContainer->getKeyQuery();
-        $beforeKeyCount = $keyQuery->count();
+        $keyCountBeforeCreation = $keyQuery->count();
 
         $this->glossaryFacade->createKey('ATestKey');
-        $afterKeyCount = $keyQuery->count();
-        $this->assertTrue($afterKeyCount > $beforeKeyCount);
+        $keyCountAfterCreation = $keyQuery->count();
+        $this->assertTrue($keyCountAfterCreation > $keyCountBeforeCreation);
+    }
+
+    public function testDeleteKeyDeletesSomething()
+    {
+        $keyQuery = $this->glossaryQueryContainer->getKeyQuery();
+
+        $this->glossaryFacade->createKey('KeyToBeDeleted');
+
+        $keyCountBeforeDeletion = $keyQuery->count();
+        $this->glossaryFacade->deleteKey('KeyToBeDeleted');
+        $keyCountAfterDeletion = $keyQuery->count();
+
+        $this->assertTrue($keyCountAfterDeletion < $keyCountBeforeDeletion);
     }
 }
