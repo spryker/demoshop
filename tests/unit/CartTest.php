@@ -27,12 +27,12 @@ class CartTest extends \Codeception\TestCase\Test
             ->findOne();
 
 
-        $cartItem = TransferLoader::loadCartItem();
+        $cartItem = (new \ProjectA\Shared\Kernel\TransferLocator())->locateCartItem();
         $cartItem->setSku($product->getSku());
         $cartItem->setQuantity(1);
         $cartItem->setUniqueIdentifier($product->getSku());
 
-        $cartChange = TransferLoader::loadCartChange();
+        $cartChange = (new \ProjectA\Shared\Kernel\TransferLocator())->locateCartChange();
         $cartChange->addChangedCartItem($cartItem);
 
         $result = $this->cartFacade->addItems($cartChange);

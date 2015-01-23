@@ -64,7 +64,7 @@ class AclTest extends \Codeception\TestCase\Test
 
     public function testSaveRole()
     {
-        $roleTransfer = TransferLoader::loadAclRole();
+        $roleTransfer = (new \ProjectA\Shared\Kernel\TransferLocator())->locateAclRole();
         $roleTransfer->setName('TestRole');
 
         $roleEntity = $this->aclFacade->saveRole($roleTransfer);
@@ -84,7 +84,7 @@ class AclTest extends \Codeception\TestCase\Test
 
     public function testSaveGroup()
     {
-        $groupTransfer = TransferLoader::loadAclGroup()
+        $groupTransfer = (new \ProjectA\Shared\Kernel\TransferLocator())->locateAclGroup()
             ->setName('TestGroup');
 
         $groupEntity = $this->aclFacade->saveGroup($groupTransfer);
@@ -107,7 +107,7 @@ class AclTest extends \Codeception\TestCase\Test
 
     public function testSaveResource()
     {
-        $resourceTransfer = TransferLoader::loadAclResource()
+        $resourceTransfer = (new \ProjectA\Shared\Kernel\TransferLocator())->locateAclResource()
             ->setBlackList(false)
             ->setFkAclGroup(1)
             ->setPattern('#.*#');
@@ -121,7 +121,7 @@ class AclTest extends \Codeception\TestCase\Test
      */
     protected function createTransferUser()
     {
-        $transferUser = TransferLoader::loadAclUser()
+        $transferUser = (new \ProjectA\Shared\Kernel\TransferLocator())->locateAclUser()
             ->setFirstname('Max')
             ->setLastname('Muster')
             ->setUsername('max.muster' . time())
