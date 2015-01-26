@@ -6,7 +6,7 @@ use ProjectA\Yves\Catalog\Business\Model\Exception\ProductNotFoundException;
 
 use ProjectA\Yves\Application\Business\Routing\AbstractRouter;
 use ProjectA\Shared\Application\Business\Controller\ServiceControllerBuilder;
-use ProjectA\Yves\Application\Business\Controller\ControllerResolver;
+use ProjectA\Yves\Kernel\Communication\ControllerLocator;
 use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\Routing\Exception\ResourceNotFoundException;
 use Symfony\Component\Routing\Exception\RouteNotFoundException;
