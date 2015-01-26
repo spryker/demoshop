@@ -2,6 +2,8 @@
 
 namespace Pyz\Yves\Catalog\Communication\Controller;
 
+use ProjectA\Shared\Library\Config;
+use ProjectA\Shared\System\SystemConfig;
 use Pyz\Yves\Library\Tracking\DataProvider\ProductDetailProvider;
 use Pyz\Yves\Library\Tracking\PageTypeInterface;
 use ProjectA\Yves\Catalog\Communication\Controller\CatalogController as CoreCatalogController;
@@ -14,15 +16,20 @@ use Symfony\Component\HttpFoundation\Request;
  */
 class CatalogController extends CoreCatalogController
 {
-
     /**
+     * @param array       $category
      * @param FacetConfig $facetConfig
-     * @param Request $request
+     * @param Request     $request
      * @return array
+     * @throws \Exception
      */
     public function indexAction(array $category, FacetConfig $facetConfig, Request $request)
     {
-        $search = $this->getFactory()->createCatalogModelFacetSearch($request, $facetConfig); // TODO Change to RequestStack as of Symfony 2.4
+        $search = $this->getFactory()->createCatalogDependencyContainer()->createFacetSearch(
+            $request,
+            $this->getElasticsearchIndex(),
+            $this->getStorageKeyValue()
+        );
         $result = $search->getResult();
         //echo '<pre>' . print_r($result, true) . '</pre>';die;
 
@@ -39,6 +46,19 @@ class CatalogController extends CoreCatalogController
             ->setPageType(PageTypeInterface::PAGE_TYPE_PRODUCT_DETAIL)
             ->buildTracking()
             ->setValue(ProductDetailProvider::KEY_PRODUCT_DETAIL, $product);
+
         return parent::detailAction($product);
+    }
+
+    /**
+     * @return \Elastica\Index
+     * @throws \Exception
+     */
+    protected function getElasticsearchIndex()
+    {
+        $indexName = Config::get(SystemConfig::ELASTICA_PARAMETER__INDEX_NAME);
+        $searchClient = $this->getStorageElasticsearch();
+
+        return $searchClient->getIndex($indexName);
     }
 }

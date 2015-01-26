@@ -20,7 +20,7 @@ class PaymentType extends CorePaymentType
     {
         $resolver->setDefaults(
             [
-                'data_class' => get_class(TransferLoader::loadPayonePaymentPayone()),
+                'data_class' => get_class((new \ProjectA\Shared\Kernel\TransferLocator())->locatePayonePaymentPayone()),
             ]
         );
     }

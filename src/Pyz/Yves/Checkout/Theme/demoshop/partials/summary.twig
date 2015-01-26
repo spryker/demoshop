@@ -10,11 +10,12 @@
         <span data-formsrc="salesOrder[shippingAddress][address2]"></span>
         <br />
         <div data-formsrc="salesOrder[shippingAddress][comment]"></div>
-        <span data-formsrc="salesOrder[shippingAddress][zipcode]"></span>
+        <span data-formsrc="salesOrder[shippingAddress][zip-code]"></span>
         <span data-formsrc="salesOrder[shippingAddress][city]"></span>
         <br />
         <span data-formsrc="salesOrder[shippingAddress][iso2Country]" data-elsrc="#salesOrder_shippingAddress_iso2Country"></span>
         <a class="change" href="javascript:app.checkout.steps.previous();">{{ 'checkout.link.edit'|trans }}</a>
+        <div data-formsrc="salesOrder[email]"></div>
     </div>
     <h3>{{ 'checkout.headline.billing'|trans }}</h3>
     <div class="row">

@@ -29,6 +29,7 @@ $config[SystemConfig::STORAGE_KV_SOURCE] = 'redis';
 $config[SystemConfig::ELASTICA_PARAMETER__HOST] = 'localhost';
 $config[SystemConfig::ELASTICA_PARAMETER__TRANSPORT] = 'http';
 $config[SystemConfig::ELASTICA_PARAMETER__PORT] = '9200';
+$config[SystemConfig::ELASTICA_PARAMETER__INDEX_NAME] = 'page';
 
 $config[SystemConfig::HOST_YVES]
     = $config[SystemConfig::HOST_STATIC_ASSETS]
