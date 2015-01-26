@@ -2,12 +2,14 @@
 
 namespace Pyz\Yves\Catalog\Business\Model\Router;
 
-use Silex\Application;
+use ProjectA\Shared\Application\Communication\ControllerServiceBuilder;
 
 use ProjectA\Yves\Application\Business\Routing\AbstractRouter;
 use ProjectA\Yves\Catalog\Business\Model\UrlMapper;
 use ProjectA\Yves\Kernel\Communication\ControllerLocator;
-use ProjectA\Shared\Application\Business\Controller\ServiceControllerBuilder;
+
+use Silex\Application;
+
 use Symfony\Component\Routing\Exception\ResourceNotFoundException;
 use Symfony\Component\Routing\Exception\RouteNotFoundException;
 
@@ -57,7 +59,7 @@ class CatalogRouter extends AbstractRouter
             );
 
             $resolver = new ControllerLocator('Catalog', 'CatalogController', 'index');
-            $service = (new ServiceControllerBuilder())->createServiceForController($this->app, $resolver);
+            $service = (new ControllerServiceBuilder())->createServiceForController($this->app, $resolver);
 
             return [
                 '_controller' => $service,

@@ -2,7 +2,7 @@
 
 namespace Pyz\Yves\Catalog\Business\Creator;
 
-use ProjectA\Shared\Application\Business\Controller\ServiceControllerBuilder;
+use ProjectA\Shared\Application\Communication\ControllerServiceBuilder;
 use ProjectA\Yves\Kernel\Communication\ControllerLocator;
 use ProjectA\Yves\YvesExport\Business\Creator\ResourceCreatorInterface;
 use Pyz\Yves\Catalog\Business\Model\FacetConfig;
@@ -39,7 +39,7 @@ class CategoryResourceCreator implements ResourceCreatorInterface
     public function createResource(Application $app, $data)
     {
         $resolver = new ControllerLocator('Catalog', 'Catalog', 'index');
-        $service = (new ServiceControllerBuilder())->createServiceForController($app, $resolver);
+        $service = (new ControllerServiceBuilder())->createServiceForController($app, $resolver);
 
         return [
             '_controller' => $service,
