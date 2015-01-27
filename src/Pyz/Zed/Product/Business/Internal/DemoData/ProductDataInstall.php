@@ -97,8 +97,12 @@ class ProductDataInstall implements DemoDataInstallInterface
      */
     public function install(Console $console)
     {
-        $this->createProduct();
-        $this->createAttributes();
+        $console->info('This will install some demo products and related attributes');
+
+        if ($console->askConfirmation('Do you really want this?')) {
+            $this->createProduct();
+            $this->createAttributes();
+        }
     }
 
     protected function createAttributes()
@@ -116,7 +120,7 @@ class ProductDataInstall implements DemoDataInstallInterface
             'height' => 'float',
             'image_url' => 'string',
             'thumbnail_url' => 'string',
-            'price' => 'float'
+            'price' => 'integer'
         ];
 
         $typeEntities = \ProjectA_Zed_Product_Persistence_Propel_PacProductAttributeTypeQuery::create()

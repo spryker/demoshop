@@ -30,9 +30,7 @@ class ProductSearchSettings extends CoreProductSearchSettings
             ],
             'price' => [
                 'AddToResult' => [
-                    'search-result-data'
-                ],
-                'CopyToField' => [
+                    'search-result-data',
                     'integer-sort'
                 ]
             ]
