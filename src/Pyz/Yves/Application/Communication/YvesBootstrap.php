@@ -11,6 +11,7 @@ use ProjectA\Shared\Application\Communication\Plugin\ServiceProvider\UrlGenerato
 use ProjectA\Shared\Library\Config;
 use ProjectA\Shared\System\SystemConfig;
 use ProjectA\Shared\Yves\YvesConfig;
+use ProjectA\Yves\Application\Communication\Plugin\ControllerProviderInterface;
 use ProjectA\Yves\Cart\Communication\Plugin\CartControllerProvider;
 use ProjectA\Yves\Checkout\Communication\Plugin\CheckoutControllerProvider;
 use ProjectA\Yves\Customer\Business\Model\Security\SecurityServiceProvider;
@@ -49,6 +50,18 @@ class YvesBootstrap extends Bootstrap
     protected function getBaseApplication()
     {
         return new \ProjectA\Yves\Application\Business\Application();
+    }
+
+    /**
+     * @param Application $app
+     */
+    protected function addProvidersToApp(Application $app)
+    {
+        parent::addProvidersToApp($app);
+
+        foreach ($this->getControllerProviders() as $provider) {
+            $app->mount($provider->getUrlPrefix(), $provider);
+        }
     }
 
     /**
@@ -121,7 +134,7 @@ class YvesBootstrap extends Bootstrap
     }
 
     /**
-     * @return \Silex\ControllerProviderInterface[]
+     * @return ControllerProviderInterface[]
      */
     protected function getControllerProviders()
     {

@@ -6,6 +6,8 @@ use ProjectA\Shared\Application\Communication\ControllerServiceBuilder;
 
 use ProjectA\Yves\Application\Business\Routing\AbstractRouter;
 use ProjectA\Yves\Catalog\Business\Model\UrlMapper;
+use ProjectA\Yves\Kernel\Communication\BundleControllerAction;
+use ProjectA\Yves\Kernel\Communication\Controller\RouteNameResolver;
 use ProjectA\Yves\Kernel\Communication\ControllerLocator;
 
 use Silex\Application;
@@ -58,12 +60,20 @@ class CatalogRouter extends AbstractRouter
                 $facetConfig
             );
 
-            $resolver = new ControllerLocator('Catalog', 'CatalogController', 'index');
-            $service = (new ControllerServiceBuilder())->createServiceForController($this->app, $resolver);
+            $bundleControllerAction = new BundleControllerAction('Catalog', 'CatalogController', 'index');
+            $controllerResolver = new ControllerLocator($bundleControllerAction);
+            $routeResolver = new RouteNameResolver('catalog/index');
+
+            $service = (new ControllerServiceBuilder())->createServiceForController(
+                $this->app,
+                $bundleControllerAction,
+                $controllerResolver,
+                $routeResolver
+            );
 
             return [
                 '_controller' => $service,
-                '_route' => 'catalog/index',
+                '_route' => $routeResolver->resolve(),
                 'facetConfig' => $facetConfig
             ];
         }
