@@ -47,6 +47,7 @@ return [
         'Setup' => $navigation,
         'Stock' => $schema,
         'System' => $navigation,
+        'Touch' => $schema,
         'Yves' => $schemaAndNavigation,
         'YvesExport' => $schema
     ],
