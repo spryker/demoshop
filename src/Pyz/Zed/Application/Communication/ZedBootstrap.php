@@ -9,7 +9,6 @@ use ProjectA\Shared\Application\Communication\Plugin\ServiceProvider\UrlGenerato
 use ProjectA\Shared\Library\Config;
 
 use ProjectA\Shared\System\SystemConfig;
-use ProjectA\Shared\Yves\YvesConfig;
 use ProjectA\Shared\Application\Business\Routing\SilexRouter;
 
 use ProjectA\Zed\Application\Business\Model\Router\MvcRouter;
@@ -112,14 +111,6 @@ class ZedBootstrap extends Bootstrap
         }
 
         return $providers;
-    }
-
-    /**
-     * @return \Silex\ControllerProviderInterface[]
-     */
-    protected function getControllerProviders()
-    {
-        return [];
     }
 
     /**

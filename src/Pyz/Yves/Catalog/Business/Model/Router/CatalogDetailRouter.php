@@ -2,11 +2,14 @@
 
 namespace Pyz\Yves\Catalog\Business\Model\Router;
 
-use ProjectA\Yves\Catalog\Business\Model\Exception\ProductNotFoundException;
+use ProjectA\Shared\Application\Communication\ControllerServiceBuilder;
 
 use ProjectA\Yves\Application\Business\Routing\AbstractRouter;
-use ProjectA\Shared\Application\Business\Controller\ServiceControllerBuilder;
-use ProjectA\Yves\Application\Business\Controller\ControllerResolver;
+use ProjectA\Yves\Catalog\Business\Model\Exception\ProductNotFoundException;
+use ProjectA\Yves\Kernel\Communication\BundleControllerAction;
+use ProjectA\Yves\Kernel\Communication\Controller\RouteNameResolver;
+use ProjectA\Yves\Kernel\Communication\ControllerLocator;
+
 use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\Routing\Exception\ResourceNotFoundException;
 use Symfony\Component\Routing\Exception\RouteNotFoundException;
@@ -36,12 +39,20 @@ class CatalogDetailRouter extends AbstractRouter
                 ->createCatalogModel($this->app->getStorageKeyValue())
                 ->getProductDataByUrl($pathinfo);
 
-            $resolver = new ControllerResolver('Catalog', 'CatalogController', 'detail');
-            $service = (new ServiceControllerBuilder())->createServiceForController($this->app, $resolver);
+            $bundleControllerAction = new BundleControllerAction('Catalog', 'CatalogController', 'detail');
+            $controllerResolver = new ControllerLocator($bundleControllerAction);
+            $routeResolver = new RouteNameResolver('catalog/detail');
+
+            $service = (new ControllerServiceBuilder())->createServiceForController(
+                $this->app,
+                $bundleControllerAction,
+                $controllerResolver,
+                $routeResolver
+            );
 
             return [
                 '_controller' => $service,
-                '_route' => 'catalog/detail',
+                '_route' => $routeResolver->resolve(),
                 'product' => $product
             ];
         } catch (ProductNotFoundException $exception) {

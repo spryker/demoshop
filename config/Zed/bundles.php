@@ -51,4 +51,8 @@ return [
         'Yves' => $schemaAndNavigation,
         'YvesExport' => $schema
     ],
+
+    ProjectA\Shared\Library\Bundle\BundleConfig::NAMESPACE_SPRYKERCORE => [
+        'Touch' => $schema
+    ]
 ];
