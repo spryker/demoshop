@@ -1,5 +1,11 @@
 <?php
 
+//TODO AHH, REMOVE THIS
+//include_once 'vendor/spryker/zed-package/src/SprykerCore/Zed/Touch/Business/TouchFactory.php';
+//include_once 'vendor/spryker/zed-package/src/SprykerCore/Zed/Touch/Business/TouchFacade.php';
+//include_once 'vendor/spryker/zed-package/src/SprykerCore/Zed/Touch/Persistence/TouchFactory.php';
+//include_once 'vendor/spryker/zed-package/src/SprykerCore/Zed/Touch/Persistence/TouchQueryContainer.php';
+
 class TouchTest extends \Codeception\TestCase\Test
 {
     /**
