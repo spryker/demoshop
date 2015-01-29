@@ -1,14 +1,22 @@
 <?php
-use ProjectA\Shared\Adwords\AdwordsConfig;
+
 use ProjectA\Shared\Customer\CustomerConfig;
 use ProjectA\Shared\DbDump\DbDumpConfig;
-use ProjectA\Shared\Dwh\DwhConfig;
 use ProjectA\Shared\Glossary\GlossaryConfig;
 use Pyz\Shared\Mail\MailConfig;
 use ProjectA\Shared\Payone\PayoneConfig;
 use ProjectA\Shared\ProductImage\ProductImageConfig;
 use ProjectA\Shared\System\SystemConfig;
 use ProjectA\Shared\Yves\YvesConfig;
+
+$config[SystemConfig::PROJECT_NAMESPACES] = [
+    'Pyz'
+];
+$config[SystemConfig::CORE_NAMESPACES] = [
+    'ProjectA',
+    'SprykerFeature',
+    'SprykerCore'
+];
 
 $config[SystemConfig::CURRENT_APPLICATION_STORE] = APPLICATION_STORE;
 $config[SystemConfig::CURRENT_APPLICATION_ENV] = APPLICATION_ENV;
