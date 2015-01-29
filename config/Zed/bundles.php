@@ -48,6 +48,7 @@ return [
         'Stock' => $schema,
         'System' => $navigation,
         'Yves' => $schemaAndNavigation,
-        'YvesExport' => $schema
+        'YvesExport' => $schema,
+        'Glossary2' => $schemaAndNavigation,
     ],
 ];
