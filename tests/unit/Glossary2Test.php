@@ -81,17 +81,30 @@ class Glossary2Test extends \Codeception\TestCase\Test
         $this->glossaryFacade->createKey('AKey');
 
         $translationCountBeforeCreation = $translationQuery->count();
-        $this->glossaryFacade->saveTranslation('AKey', 'Local', 'ATranslation');
+        $this->glossaryFacade->createTranslation('AKey', 'Local', 'ATranslation', true);
         $translationCountAfterCreation = $translationQuery->count();
 
         $this->assertTrue($translationCountAfterCreation > $translationCountBeforeCreation);
+    }
+
+    public function testUpdateTranslationUpdatesSomething()
+    {
+        $specificTranslationQuery = $this->glossaryQueryContainer->getTranslationQuery('AnotherKey', 'Local');
+        $this->glossaryFacade->createKey('AnotherKey');
+        $this->glossaryFacade->createTranslation('AnotherKey', 'Local', 'Some Translation', true);
+
+        $this->assertEquals('Some Translation', $specificTranslationQuery->findOne()->getValue());
+
+        $this->glossaryFacade->updateTranslation('AnotherKey', 'Local', 'Some other Translation', true);
+
+        $this->assertEquals('Some other Translation', $specificTranslationQuery->findOne()->getValue());
     }
 
     public function testDeleteTranslationDeletesSoftly()
     {
         $specificTranslationQuery = $this->glossaryQueryContainer->getTranslationQuery('KeyWithTranslation', 'de_DE');
         $this->glossaryFacade->createKey('KeyWithTranslation');
-        $this->glossaryFacade->saveTranslation('KeyWithTranslation', 'de_DE', 'A Translation...');
+        $this->glossaryFacade->createTranslation('KeyWithTranslation', 'de_DE', 'A Translation...', true);
         $this->assertTrue($specificTranslationQuery->findOne()->getIsActive());
 
         $this->glossaryFacade->deleteTranslation('KeyWithTranslation', 'de_DE');
