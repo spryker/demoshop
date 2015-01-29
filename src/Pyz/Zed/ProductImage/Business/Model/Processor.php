@@ -3,13 +3,13 @@
 use Symfony\Component\Finder\Finder;
 
 class Pyz_Zed_ProductImage_Business_Model_Processor implements
-    \Generated\Zed\ProductImage\Business\Dependency\ProductImageFacadeInterface,
-    \Generated\Zed\Catalog\Business\Dependency\CatalogFacadeInterface,
+    \ProjectA\Deprecated\ProductImage\Business\Dependency\ProductImageFacadeInterface,
+    \ProjectA\Deprecated\Catalog\Business\Dependency\CatalogFacadeInterface,
     \ProjectA\Shared\Catalog\Code\ProductAttributeConstantInterface
 {
 
-    use \Generated\Zed\ProductImage\Business\Dependency\ProductImageFacadeTrait;
-    use \Generated\Zed\Catalog\Business\Dependency\CatalogFacadeTrait;
+    use \ProjectA\Deprecated\ProductImage\Business\Dependency\ProductImageFacadeTrait;
+    use \ProjectA\Deprecated\Catalog\Business\Dependency\CatalogFacadeTrait;
 
     const IMAGE_ORDER_DELIMITER = '__';
     const KEY_SKU = 'sku';

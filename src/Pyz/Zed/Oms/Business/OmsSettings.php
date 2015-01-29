@@ -8,11 +8,11 @@ use ProjectA\Zed\Library\Business\Model\FacadeAbstract;
 use ProjectA\Zed\Library\Dependency\DependencyFactoryTrait;
 use Pyz\Zed\Oms\Communication\Plugin\Oms\FakeAuthPayment;
 use Pyz\Zed\Sales\Business\SalesFacade;
-use Generated\Shared\Sales\Transfer\Order as OrderTransfer;
-use Generated\Zed\Payone\Business\Dependency\PayoneFacadeInterface;
-use Generated\Zed\Payone\Business\Dependency\PayoneFacadeTrait;
-use Generated\Zed\Sales\Business\Dependency\SalesFacadeInterface;
-use Generated\Zed\Sales\Business\Dependency\SalesFacadeTrait;
+use ProjectA\Shared\Sales\Transfer\Order as OrderTransfer;
+use ProjectA\Deprecated\Payone\Business\Dependency\PayoneFacadeInterface;
+use ProjectA\Deprecated\Payone\Business\Dependency\PayoneFacadeTrait;
+use ProjectA\Deprecated\Sales\Business\Dependency\SalesFacadeInterface;
+use ProjectA\Deprecated\Sales\Business\Dependency\SalesFacadeTrait;
 use ProjectA\Zed\Oms\Business\AbstractOmsSettings;
 use ProjectA\Zed\Payone\Business\Model\Api\ApiConstants as PayoneApiConstants;
 

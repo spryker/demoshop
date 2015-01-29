@@ -1,6 +1,8 @@
 <?php
+
 namespace Pyz\Yves\Catalog\Business\Model;
 use ProjectA\Yves\Catalog\Business\Model\FacetConfig as CoreFacetConfig;
+
 /**
  * @package Pyz\Yves\Catalog\Business\Model
  */
@@ -10,80 +12,122 @@ class FacetConfig extends CoreFacetConfig
      * //TODO fill with valid values, e.g. param names, active
      * @var array
      */
-    protected static $facets = [
-        'number_facet_price' => [
+    protected static $attributes = [
+        'price' => [
+            self::KEY_FACET_FIELD_NAME => self::FIELD_FLOAT_FACET,
+            self::KEY_SORT_FIELD_NAME => self::FIELD_NUMBER_SORT,
             self::KEY_TYPE => self::TYPE_SLIDER,
             self::KEY_PARAM => 'price',
-            self::KEY_ACTIVE => true,
+            self::KEY_FACET_ACTIVE => false,
+            self::KEY_SORT_ACTIVE => false,
             self::KEY_RANGE_DIVIDER => '-',
             self::KEY_VALUE_CALLBACK_BEFORE => [__CLASS__, 'priceValueCallbackBefore'],
             self::KEY_VALUE_CALLBACK_AFTER => [__CLASS__, 'priceValueCallbackAfter']
         ],
-        'int_facet_category' => [
+        'category' => [
+            self::KEY_FACET_FIELD_NAME => 'category',
             self::KEY_TYPE => self::TYPE_CATEGORY,
             self::KEY_PARAM => 'category',
-            self::KEY_ACTIVE => true,
+            self::KEY_FACET_ACTIVE => false,
+            self::KEY_SORT_ACTIVE => false,
             self::KEY_IN_URL => true,
             self::KEY_SHORT_PARAM => 'c',
             self::KEY_URL_POSITION => 0
         ],
-        'int_facet_height' => [
+        'manufacturer' => [
+            self::KEY_FACET_FIELD_NAME => self::FIELD_STRING_FACET,
             self::KEY_TYPE => self::TYPE_ENUMERATION,
-            self::KEY_PARAM => 'cat', //maybe revoke because cat is part of the url
-            self::KEY_ACTIVE => false
+            self::KEY_PARAM => 'manufacturer', //maybe revoke because cat is part of the url
+            self::KEY_FACET_ACTIVE => true,
+            self::KEY_SORT_ACTIVE => false,
         ],
-        'int_facet_depth' => [
-            self::KEY_TYPE => self::TYPE_ENUMERATION,
-            self::KEY_PARAM => 'depth',
-            self::KEY_ACTIVE => false
+        'length' => [
+            self::KEY_FACET_FIELD_NAME => self::FIELD_NUMBER_FACET,
+            self::KEY_TYPE => self::TYPE_SLIDER,
+            self::KEY_PARAM => 'length',
+            self::KEY_RANGE_DIVIDER => '-',
+            self::KEY_FACET_ACTIVE => true,
+            self::KEY_SORT_ACTIVE => false,
         ],
-        'int_facet_width' => [
+        'width' => [
+            self::KEY_FACET_FIELD_NAME => self::FIELD_NUMBER_FACET,
             self::KEY_TYPE => self::TYPE_ENUMERATION,
             self::KEY_PARAM => 'width',
-            self::KEY_ACTIVE => false
+            self::KEY_FACET_ACTIVE => true,
+            self::KEY_SORT_ACTIVE => false,
         ],
-        'string_facet_brand' => [
+        'brand' => [
+            self::KEY_FACET_FIELD_NAME => self::FIELD_STRING_FACET,
             self::KEY_TYPE => self::TYPE_ENUMERATION,
             self::KEY_PARAM => 'brand',
-            self::KEY_ACTIVE => true,
+            self::KEY_FACET_ACTIVE => false,
+            self::KEY_SORT_ACTIVE => false,
             self::KEY_IN_URL => true,
             self::KEY_SHORT_PARAM => 'b',
             self::KEY_URL_POSITION => 1,
-            self::KEY_MULTI_VALUED => true
+            self::KEY_MULTI_VALUED => true,
         ],
-        'string_facet_color' => [
+        'color' => [
+            self::KEY_FACET_FIELD_NAME => self::FIELD_STRING_FACET,
             self::KEY_TYPE => self::TYPE_ENUMERATION,
             self::KEY_PARAM => 'color',
-            self::KEY_ACTIVE => true,
-            self::KEY_MULTI_VALUED => true
+            self::KEY_FACET_ACTIVE => false,
+            self::KEY_SORT_ACTIVE => false,
+            self::KEY_MULTI_VALUED => true,
         ],
-        'string_facet_material' => [
+        'material' => [
+            self::KEY_FACET_FIELD_NAME => self::FIELD_STRING_FACET,
             self::KEY_TYPE => self::TYPE_ENUMERATION,
             self::KEY_PARAM => 'material',
-            self::KEY_ACTIVE => true,
+            self::KEY_FACET_ACTIVE => false,
+            self::KEY_SORT_ACTIVE => false,
             self::KEY_IN_URL => true,
             self::KEY_SHORT_PARAM => 'm',
             self::KEY_URL_POSITION => 2,
             self::KEY_RETURN_ZERO_VALUES => true,
-            self::KEY_MULTI_VALUED => true
+            self::KEY_MULTI_VALUED => true,
+        ],
+        'name' => [
+            self::KEY_SORT_ACTIVE => true,
+            self::KEY_SORT_FIELD_NAME => self::FIELD_STRING_SORT,
+            self::KEY_FACET_ACTIVE => false,
+            self::KEY_PARAM => 'name',
         ]
     ];
+
     /**
      * @var array
      */
-    protected static $sortNamesMapping = [
-        'number_sort_price' => 'price'
+    protected static $stringFacetFields = [
+        self::FIELD_STRING_FACET,
     ];
+
     /**
-     * @param $value
+     * @var array
+     */
+    protected static $numericFacetFields = [
+        self::FIELD_NUMBER_FACET,
+        self::FIELD_FLOAT_FACET,
+        self::FIELD_INTEGER_FACET,
+    ];
+
+    /**
+     * @var array
+     */
+    protected static $sortNamesMapping = [ 'name' ];
+
+    /**
+     *
+     * @param int $value
      * @return mixed
      */
     public static function priceValueCallbackBefore($value)
     {
         return $value * 100;
     }
+
     /**
-     * @param $value
+     * @param int $value
      * @return mixed
      */
     public static function priceValueCallbackAfter($value)

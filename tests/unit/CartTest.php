@@ -1,8 +1,8 @@
 <?php
 
-use Generated\Shared\Library\TransferLoader;
-use Generated\Zed\Cart\Business\CartFactory;
-use Generated\Zed\DependencyInjectionContainer;
+use ProjectA\Shared\Library\TransferLoader;
+use ProjectA\Deprecated\Cart\Business\CartFactory;
+use ProjectA\Deprecated\DependencyInjectionContainer;
 use ProjectA\Zed\Cart\Component\CartFacade;
 
 class CartTest extends \Codeception\TestCase\Test
@@ -27,18 +27,18 @@ class CartTest extends \Codeception\TestCase\Test
             ->findOne();
 
 
-        $cartItem = TransferLoader::loadCartItem();
+        $cartItem = (new \ProjectA\Shared\Kernel\TransferLocator())->locateCartItem();
         $cartItem->setSku($product->getSku());
         $cartItem->setQuantity(1);
         $cartItem->setUniqueIdentifier($product->getSku());
 
-        $cartChange = TransferLoader::loadCartChange();
+        $cartChange = (new \ProjectA\Shared\Kernel\TransferLocator())->locateCartChange();
         $cartChange->addChangedCartItem($cartItem);
 
         $result = $this->cartFacade->addItems($cartChange);
         $this->assertTrue($result->isSuccess());
 
-        /** @var \Generated\Shared\Sales\Transfer\Order $order */
+        /** @var \ProjectA\Shared\Sales\Transfer\Order $order */
         $order = $result->getTransfer();
 
         $this->assertCount(1, $order->getItems());

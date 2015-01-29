@@ -1,9 +1,9 @@
 <?php
 namespace Pyz\Yves\Checkout\Communication\Controller;
 
-use Generated\Shared\Library\TransferLoader;
-use Generated\Shared\Sales\Transfer\Order;
-use Generated\Shared\Sales\Transfer\Payment;
+use ProjectA\Shared\Library\TransferLoader;
+use ProjectA\Shared\Sales\Transfer\Order;
+use ProjectA\Shared\Sales\Transfer\Payment;
 use Generated\Yves\Factory;
 use ProjectA\Yves\Cart\Communication\Plugin\CartControllerProvider;
 use ProjectA\Yves\Checkout\Communication\Plugin\CheckoutControllerProvider;
@@ -15,7 +15,7 @@ use Symfony\Component\Form\FormInterface;
 use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
-use Generated\Shared\Payment\Transfer\PaymentMethodCollection;
+use ProjectA\Shared\Payment\Transfer\PaymentMethodCollection;
 
 class CheckoutController extends CoreCheckoutController
 {
@@ -82,14 +82,14 @@ class CheckoutController extends CoreCheckoutController
 //            $orderTransfer->setCustomer($customerModel->getTransfer());
 
             /** @var Payment $payment */
-            $payment = TransferLoader::loadSalesPayment();
+            $payment = (new \ProjectA\Shared\Kernel\TransferLocator())->locateSalesPayment();
             $payment->setMethod('payment.payone.prepayment');
 
             $orderTransfer->setPayment($payment);
 
             $transferResponse = $orderManager->saveOrder($orderTransfer);
 
-            /** @var  \Generated\Shared\Sales\Transfer\Order $order */
+            /** @var  \ProjectA\Shared\Sales\Transfer\Order $order */
 //            $order = $transferResponse->getTransfer();
 //            $customerModel->refreshCustomerInSession($order->getCustomer());
 
@@ -103,7 +103,7 @@ class CheckoutController extends CoreCheckoutController
                     return $this->redirectResponseInternal(CheckoutControllerProvider::ROUTE_CHECKOUT_SUCCESS);
                 }
             } elseif ($transferResponse->hasErrorMessage(\ProjectA_Shared_Checkout_Code_Messages::ERROR_ORDER_IS_ALREADY_SAVED)) {
-                $this->getCart($request)->setOrder(TransferLoader::loadSalesOrder());
+                $this->getCart($request)->setOrder((new \ProjectA\Shared\Kernel\TransferLocator())->locateSalesOrder());
                 return $this->redirectResponseInternal(CartControllerProvider::ROUTE_CART);
             }
         }

@@ -1,8 +1,8 @@
 <?php
 
-use Generated\Shared\Library\TransferLoader;
-use Generated\Zed\Acl\Business\AclFactory;
-use Generated\Zed\DependencyInjectionContainer;
+use ProjectA\Shared\Library\TransferLoader;
+use ProjectA\Deprecated\Acl\Business\AclFactory;
+use ProjectA\Deprecated\DependencyInjectionContainer;
 use ProjectA\Zed\Acl\Component\AclFacade;
 
 class AclTest extends \Codeception\TestCase\Test
@@ -64,7 +64,7 @@ class AclTest extends \Codeception\TestCase\Test
 
     public function testSaveRole()
     {
-        $roleTransfer = TransferLoader::loadAclRole();
+        $roleTransfer = (new \ProjectA\Shared\Kernel\TransferLocator())->locateAclRole();
         $roleTransfer->setName('TestRole');
 
         $roleEntity = $this->aclFacade->saveRole($roleTransfer);
@@ -84,7 +84,7 @@ class AclTest extends \Codeception\TestCase\Test
 
     public function testSaveGroup()
     {
-        $groupTransfer = TransferLoader::loadAclGroup()
+        $groupTransfer = (new \ProjectA\Shared\Kernel\TransferLocator())->locateAclGroup()
             ->setName('TestGroup');
 
         $groupEntity = $this->aclFacade->saveGroup($groupTransfer);
@@ -107,7 +107,7 @@ class AclTest extends \Codeception\TestCase\Test
 
     public function testSaveResource()
     {
-        $resourceTransfer = TransferLoader::loadAclResource()
+        $resourceTransfer = (new \ProjectA\Shared\Kernel\TransferLocator())->locateAclResource()
             ->setBlackList(false)
             ->setFkAclGroup(1)
             ->setPattern('#.*#');
@@ -117,11 +117,11 @@ class AclTest extends \Codeception\TestCase\Test
     }
 
     /**
-     * @return \Generated\Shared\Acl\Transfer\User
+     * @return \ProjectA\Shared\Acl\Transfer\User
      */
     protected function createTransferUser()
     {
-        $transferUser = TransferLoader::loadAclUser()
+        $transferUser = (new \ProjectA\Shared\Kernel\TransferLocator())->locateAclUser()
             ->setFirstname('Max')
             ->setLastname('Muster')
             ->setUsername('max.muster' . time())
