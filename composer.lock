@@ -8,16 +8,16 @@
     "packages": [
         {
             "name": "digital-canvas/zend-framework",
-            "version": "1.12.7",
+            "version": "1.12.10",
             "source": {
                 "type": "git",
                 "url": "https://github.com/digital-canvas/zend-framework.git",
-                "reference": "aa84de49b34f2755202f410b834fb19283177d7f"
+                "reference": "c1de5e836464b7ad6a1f35c5996d9e83558afc64"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/digital-canvas/zend-framework/zipball/aa84de49b34f2755202f410b834fb19283177d7f",
-                "reference": "aa84de49b34f2755202f410b834fb19283177d7f",
+                "url": "https://api.github.com/repos/digital-canvas/zend-framework/zipball/c1de5e836464b7ad6a1f35c5996d9e83558afc64",
+                "reference": "c1de5e836464b7ad6a1f35c5996d9e83558afc64",
                 "shasum": ""
             },
             "require": {
@@ -45,7 +45,7 @@
                 "zend",
                 "zf"
             ],
-            "time": "2014-07-07 23:14:21"
+            "time": "2015-01-28 00:34:43"
         },
         {
             "name": "doctrine/inflector",
@@ -540,12 +540,12 @@
             "version": "v1.1.1",
             "source": {
                 "type": "git",
-                "url": "https://github.com/silexphp/Pimple.git",
+                "url": "https://github.com/fabpot/Pimple.git",
                 "reference": "2019c145fe393923f3441b23f29bbdfaa5c58c4d"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/silexphp/Pimple/zipball/2019c145fe393923f3441b23f29bbdfaa5c58c4d",
+                "url": "https://api.github.com/repos/fabpot/Pimple/zipball/2019c145fe393923f3441b23f29bbdfaa5c58c4d",
                 "reference": "2019c145fe393923f3441b23f29bbdfaa5c58c4d",
                 "shasum": ""
             },
@@ -570,7 +570,9 @@
             "authors": [
                 {
                     "name": "Fabien Potencier",
-                    "email": "fabien@symfony.com"
+                    "email": "fabien@symfony.com",
+                    "homepage": "http://fabien.potencier.org",
+                    "role": "Lead Developer"
                 }
             ],
             "description": "Pimple is a simple Dependency Injection Container for PHP 5.3",
@@ -884,7 +886,7 @@
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/yves.git",
-                "reference": "3cad709774c4e86db9f3c680bb5af64d9f7b72c1"
+                "reference": "caf858e128a2bbc7fa5fc77799efaacf33cc3d51"
             },
             "require": {
                 "php": ">=5.4.0"
@@ -912,7 +914,7 @@
                 "Application",
                 "Yves"
             ],
-            "time": "2015-01-23 11:39:36"
+            "time": "2015-01-29 08:29:50"
         },
         {
             "name": "spryker/zed-package",
@@ -920,7 +922,7 @@
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/zed.git",
-                "reference": "e9b3c6da3b4205e26456ecac54a44116c6bdc534"
+                "reference": "77cd8941133371c021f618fc0b20bb12ff42266d"
             },
             "require": {
                 "digital-canvas/zend-framework": ">=1.12.2",
@@ -981,7 +983,7 @@
                 "Application",
                 "Zed"
             ],
-            "time": "2015-01-23 13:39:25"
+            "time": "2015-01-29 08:28:24"
         },
         {
             "name": "symfony-cmf/routing",
@@ -2207,12 +2209,12 @@
             "version": "v1.15.1",
             "source": {
                 "type": "git",
-                "url": "https://github.com/twigphp/Twig.git",
+                "url": "https://github.com/fabpot/Twig.git",
                 "reference": "1fb5784662f438d7d96a541e305e28b812e2eeed"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/twigphp/Twig/zipball/1fb5784662f438d7d96a541e305e28b812e2eeed",
+                "url": "https://api.github.com/repos/fabpot/Twig/zipball/1fb5784662f438d7d96a541e305e28b812e2eeed",
                 "reference": "1fb5784662f438d7d96a541e305e28b812e2eeed",
                 "shasum": ""
             },
@@ -3226,7 +3228,7 @@
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/newLoki/PropelModule/zipball/9de9316361e3dddb6b29f5dd93b7456e19e042e3",
+                "url": "https://api.github.com/repos/newLoki/PropelModule/zipball/ab6164e684113e20d5754fd61fe0ea86331ebd0b",
                 "reference": "9de9316361e3dddb6b29f5dd93b7456e19e042e3",
                 "shasum": ""
             },

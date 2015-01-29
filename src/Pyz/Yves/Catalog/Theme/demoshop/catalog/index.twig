@@ -29,63 +29,14 @@
             </ul>
         </div>
         <div id="options" class="col col50">
-            <select class="sortBy">
-                {% set currentSortOrder = (currentSortOrder != 'desc' ? 'asc' : 'desc') %}
-                {% for sortName in sortNames %}
-                    <option value="{{ url( category.url, { sort : { value : [sortName] }, sort_order : { value : ['asc'] } }) }}" {{ currentSortParam == sortName and currentSortOrder == 'asc' ? 'selected' : '' }}>{{ ('catalog.sort.' ~ sortName)|trans }} &#8593;</option>
-                    <option value="{{ url( category.url, { sort : { value : [sortName] }, sort_order : { value : ['desc'] } }) }}" {{ currentSortParam == sortName and currentSortOrder == 'desc' ? 'selected' : '' }}>{{ ('catalog.sort.' ~ sortName)|trans }} &#8595;</option>
-                {% endfor %}
-            </select>
-            <select class="ipp">
-                <option value="{{ url(category.url, { ipp : { value : [null] } }) }}" {{ currentItemsPerPage == 20 ? 'selected' : '' }}>{{ 'catalog.ipp.20'|trans }}</option>
-                <option value="{{ url(category.url, { ipp : { value : [40] } }) }}" {{ currentItemsPerPage == 40 ? 'selected' : '' }}>{{ 'catalog.ipp.40'|trans }}</option>
-                <option value="{{ url(category.url, { ipp : { value : [60] } }) }}" {{ currentItemsPerPage == 60 ? 'selected' : '' }}>{{ 'catalog.ipp.60'|trans }}</option>
-                <option value="{{ url(category.url, { ipp : { value : [80] } }) }}" {{ currentItemsPerPage == 80 ? 'selected' : '' }}>{{ 'catalog.ipp.80'|trans }}</option>
-                <option value="{{ url(category.url, { ipp : { value : [100] } }) }}" {{ currentItemsPerPage == 100 ? 'selected' : '' }}>{{ 'catalog.ipp.100'|trans }}</option>
-            </select>
-
-            {% if maxPage > 1 %}
-                <ul class="pagination">
-                    {% if currentPage > 1 %}
-                        <li data-page="{{ url(category.url, { page : { value : [currentPage - 1] } }) }}">&laquo;</li>
-                    {% endif %}
-
-                    {% for i in range(1, maxPage) %}
-                        {% if i in range(currentPage - 2, currentPage + 2) %}
-                            <li data-page="{{ url(category.url, { page : { value : [i] } }) }}" {{ i == currentPage ? 'class="current"' }}>{{ i }}</li>
-                        {% endif %}
-                    {% endfor %}
-
-                    {% if currentPage < maxPage %}
-                        <li data-page="{{ url(category.url, { page : { value : [currentPage + 1] } }) }}">&raquo;</li>
-                    {% endif %}
-                </ul>
-            {% else %}
-                <div class="pagination">
-                    {{ numFound ~ ' ' ~ (numFound == 1 ? 'catalog.product.found'|trans : 'catalog.products.found'|trans) }}
-                </div>
-            {% endif %}
+            {% include "@catalog/partials/options.twig" with {'url': category.url} %}
         </div>
 
         <div class="sidebar col col25">
-            {% include "@catalog/partials/filters.twig" with {'facets': facets, 'category': category} only %}
+            {% include "@catalog/partials/filters.twig" with {'facets': facets, 'url': category.url} only %}
         </div>
 
-        <ul class="products col col75">
-            {% for product in products %}
-                <li>
-                    <a href="{{ product.url }}">
-                        {#<img src="{{ getFirstProductImagesBySize(product.product_images, 'l') }}" alt="" />#}
-                        <h3>{{ product.name }}</h3>
-                        {#<h4>by {{ product.brand }}</h4>#}
-                        {#{% if product.recommended_retail_price %}#}
-                            {#<span class="oldPrice">{{ product.recommended_retail_price|price }}</span>#}
-                        {#{% endif %}#}
-                        {#<span class="price">{{ product.price|price }}</span>#}
-                    </a>
-                </li>
-            {% endfor %}
-        </ul>
+        {% include "@catalog/partials/product-list.twig" with {'products': products} only %}
 
     </section>
 {% endblock %}

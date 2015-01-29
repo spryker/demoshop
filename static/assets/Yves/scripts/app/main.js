@@ -15,6 +15,7 @@ var app = {
             $('body').toggleClass('showHardcoded');
         });
         this.tooltip.init();
+        this.search.init();
     },
     additionals : [],
     viewport : {
@@ -268,7 +269,17 @@ var app = {
 
             return result;
         }
+    },
+    search : {
+    init : function() {
+        $('.search-button').on('click', function() {
+            var $form = $('.search-form');
+            if (app.validation.resultIsValid(app.validation.apply($form))) {
+               $form.submit();
+            }
+        })
     }
+}
 };
 
 $(app.init.bind(app));

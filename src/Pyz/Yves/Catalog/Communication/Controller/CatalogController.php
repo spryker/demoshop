@@ -28,12 +28,30 @@ class CatalogController extends CoreCatalogController
         $search = $this->getFactory()->createCatalogDependencyContainer()->createFacetSearch(
             $request,
             $this->getElasticsearchIndex(),
-            $this->getStorageKeyValue()
+            $this->getStorageKeyValue(),
+            $category,
+            $facetConfig
         );
         $result = $search->getResult();
-        //echo '<pre>' . print_r($result, true) . '</pre>';die;
 
         return array_merge($result, ['category' => $category]);
+    }
+
+    /**
+     * @param Request     $request
+     * @param FacetConfig $facetConfig
+     * @return array
+     */
+    public function fulltextSearchAction(Request $request, FacetConfig $facetConfig)
+    {
+        $search = $this->getFactory()->createCatalogDependencyContainer()->createFulltextSearch(
+            $request,
+            $this->getElasticsearchIndex(),
+            $this->getStorageKeyValue(),
+            $facetConfig
+        );
+
+        return $search->getResult();
     }
 
     /**

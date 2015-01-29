@@ -1,0 +1,22 @@
+{% extends "@application/layout/full.twig" %}
+
+{% block content %}
+    {% include "@application/partials/navbar.twig" with {'categories': categories } only %}
+    <link rel="stylesheet" href="/styles/catalog.css" />
+    <script src="/scripts/app/catalog.js"></script>
+
+    <section class="consumeHeight" id="catalog">
+
+        <div></div>
+        <div id="options" class="col col50">
+            {% include "@catalog/partials/options.twig" with { 'url': '/search'} %}
+        </div>
+
+        <div class="sidebar col col25">
+            {% include "@catalog/partials/filters.twig" with {'facets': facets, 'url': '/search'} only %}
+        </div>
+
+        {% include "@catalog/partials/product-list.twig" with {'products': products} only %}
+
+    </section>
+{% endblock %}

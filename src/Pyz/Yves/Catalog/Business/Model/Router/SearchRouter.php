@@ -13,7 +13,7 @@ use ProjectA\Yves\Application\Business\Controller\ControllerResolver;
 /**
  * @package Pyz\Yves\Catalog\Business\Model\Router
  */
-class CatalogRouter extends AbstractRouter
+class SearchRouter extends AbstractRouter
 {
 
     /**
@@ -21,7 +21,7 @@ class CatalogRouter extends AbstractRouter
      */
     public function generate($name, $parameters = array(), $referenceType = self::ABSOLUTE_PATH)
     {
-        if ('catalog' === $name) {
+        if ('/search' === $name) {
             $facetConfig = $this->factory->createCatalogModelFacetConfig();
             $request = ($this->app['request_stack'])? $this->app['request_stack']->getCurrentRequest():$this->app['request'];
             $requestParameters = $request->query->all();
@@ -35,6 +35,8 @@ class CatalogRouter extends AbstractRouter
                 UrlMapper::mergeParameters($requestParameters, $parameters, $facetConfig),
                 $facetConfig
             );
+            $pathInfo = $name . $pathInfo;
+
             return $this->getUrlOrPathForType($pathInfo, $referenceType);
         }
         throw new RouteNotFoundException;
@@ -46,7 +48,9 @@ class CatalogRouter extends AbstractRouter
     public function match($pathinfo)
     {
         //TODO handle "/catalog/" to show everything if needed
-        if ($pathinfo != '/' && substr($pathinfo, -5) != '.html') {
+//        if ($pathinfo != '/' && substr($pathinfo, -5) != '.html') {
+
+        if ('/search' === $pathinfo) {
             $facetConfig = $this->factory->createCatalogModelFacetConfig();
             $request = ($this->app['request_stack'])? $this->app['request_stack']->getCurrentRequest():$this->app['request'];
             UrlMapper::injectParametersFromUrlIntoRequest(
@@ -55,12 +59,12 @@ class CatalogRouter extends AbstractRouter
                 $facetConfig
             );
 
-            $resolver = new ControllerResolver('Catalog', 'CatalogController', 'index');
+            $resolver = new ControllerResolver('Catalog', 'Catalog', 'fulltextSearch');
             $service = (new ServiceControllerBuilder())->createServiceForController($this->app, $resolver);
 
             return [
                 '_controller' => $service,
-                '_route' => 'catalog/index',
+                '_route' => $resolver->getRouteName(),
                 'facetConfig' => $facetConfig
             ];
         }

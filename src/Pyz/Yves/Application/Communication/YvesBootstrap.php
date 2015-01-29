@@ -152,7 +152,7 @@ class YvesBootstrap extends Bootstrap
             Factory::getInstance()->createYvesExportDependencyContainer()->createKvStorageRouter($app)
                 ->addResourceCreator($productResourceCreator)
                 ->addResourceCreator($categoryResourceCreator),
-            Factory::getInstance()->createCatalogModelRouterCatalogRouter($app),
+            Factory::getInstance()->createCatalogModelRouterSearchRouter($app),
             Factory::getInstance()->createCmsModelRouterCmsRouter($app),
             /*
              * SilexRouter should come last, as it is not the fastest one if it can

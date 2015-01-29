@@ -42,8 +42,10 @@
         <div class="row hideonprint">
             <div class="col col33">
                 <hardcoded block>
-                <input class="search fullWidth" type="text" placeholder="Find Your Product" />
-                <span class="glyphicon glyphicon-search"></span>
+                <form action="/search" method="get" class="search-form">
+                    <input class="search fullWidth" type="text" placeholder="Find Your Product" name="q" required="true"/>
+                    <span class="glyphicon glyphicon-search search-button"></span>
+                </form>
                 </hardcoded>
             </div>
             <div class="col col67">
