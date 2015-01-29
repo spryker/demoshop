@@ -52,7 +52,8 @@ return [
         'YvesExport' => $schema
     ],
 
-    ProjectA\Shared\Library\Bundle\BundleConfig::NAMESPACE_SPRYKERCORE => [
+    \ProjectA\Shared\Library\Bundle\BundleConfig::NAMESPACE_SPRYKERCORE => [
+        'Locale' => $schema,
         'Touch' => $schema
     ]
 ];
