@@ -884,7 +884,7 @@
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/yves.git",
-                "reference": "afd87ce3dae1df40347db5af2b59518f5a12cb33"
+                "reference": "9d681e9373721562f81f4ad87ef4d78ed6675a2f"
             },
             "require": {
                 "php": ">=5.4.0"
@@ -896,7 +896,9 @@
             "autoload": {
                 "psr-0": {
                     "ProjectA": "src/",
-                    "PhpUnit": "tests/"
+                    "Acceptance": "tests/",
+                    "Functional": "tests/",
+                    "Unit": "tests/"
                 }
             },
             "authors": [
@@ -912,7 +914,7 @@
                 "Application",
                 "Yves"
             ],
-            "time": "2015-01-28 10:03:35"
+            "time": "2015-01-30 14:05:46"
         },
         {
             "name": "spryker/zed-package",
@@ -920,7 +922,7 @@
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/zed.git",
-                "reference": "04dd8ffcef0dcab0a22b51268144d494d1435d04"
+                "reference": "e3019a17329f0585ffa2319b4780ff475aa85345"
             },
             "require": {
                 "digital-canvas/zend-framework": ">=1.12.2",
@@ -966,7 +968,10 @@
                     "ProjectA": "src/",
                     "SprykerCore": "src/",
                     "SprykerFeature": "src/",
-                    "PhpUnit": "tests/",
+                    "Acceptance": "tests/",
+                    "Function": "tests/",
+                    "Integration": "tests/",
+                    "Unit": "tests/",
                     "Kendo": "src/"
                 }
             },
@@ -983,7 +988,7 @@
                 "Application",
                 "Zed"
             ],
-            "time": "2015-01-29 07:19:47"
+            "time": "2015-01-30 13:18:18"
         },
         {
             "name": "symfony-cmf/routing",
