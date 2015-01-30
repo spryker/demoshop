@@ -1,6 +1,10 @@
 <?php
 
-class LocaleTest extends Codeception\TestCase\Test
+namespace Functional\SprykerCore\Zed\Locale;
+
+use Codeception\TestCase\Test;
+
+class LocaleTest extends Test
 {
     /**
      * @var \SprykerCore\Zed\Locale\Business\LocaleFacade

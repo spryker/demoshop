@@ -1,12 +1,10 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: lmanzke
- * Date: 22.01.15
- * Time: 16:12
- */
 
-class Glossary2Test extends \Codeception\TestCase\Test
+namespace Functional\ProjectA\Zed\Glossary2;
+
+use Codeception\TestCase\Test;
+
+class Glossary2Test extends Test
 {
     private $glossaryBundleName = 'Glossary2';
     private $localeBundleName = 'Locale';
