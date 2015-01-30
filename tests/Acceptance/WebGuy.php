@@ -3,11 +3,9 @@
 // You should not change it manually as it will be overwritten on next build
 // @codingStandardsIgnoreFile
 
-namespace Pyz;
-
 use \Codeception\Maybe;
 use Codeception\Module\PhpBrowser;
-use Pyz\Codeception\Module\WebHelper;
+use Codeception\Module\WebHelper;
 
 /**
  * Inherited methods
