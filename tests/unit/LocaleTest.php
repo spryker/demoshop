@@ -29,4 +29,14 @@ class LocaleTest extends Codeception\TestCase\Test
 
         $this->assertEquals(1, $localeQuery->count());
     }
+
+    public function testDeleteLocaleDeletesSoftly()
+    {
+        $localeQuery = $this->localeQueryContainer->getSpecialLocaleQuery('ab_xy');
+        $this->localeFacade->createLocale('ab_xy');
+
+        $this->assertTrue($localeQuery->findOne()->getIsActive());
+        $this->localeFacade->deleteLocale('ab_xy');
+        $this->assertFalse($localeQuery->findOne()->getIsActive());
+    }
 }
