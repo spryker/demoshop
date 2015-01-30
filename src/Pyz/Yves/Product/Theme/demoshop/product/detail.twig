@@ -23,9 +23,36 @@
             </ul>
         </aside>
 
+        <div class="pictures col col50">
+            <div class="current">
+                <div class="prev">
+                    <hardcoded block>
+                        <span class="glyphicon glyphicon-chevron-left"></span>
+                    </hardcoded>
+                </div>
+                <div class="next">
+                    <hardcoded block>
+                        <span class="glyphicon glyphicon-chevron-right"></span>
+                    </hardcoded>
+                </div>
+                {#{% if product.image_url %}#}
+                    <img src="{{ product.image_url }}" alt="" />
+                {#{% else %}#}
+                    {#<img src="{{ getFirstProductImagesBySize(product.product_images, 'xxl') }}" alt="" />#}
+                {#{% endif %}#}
+            </div>
+            {#<ul class="list">#}
+                {#{% for image in getAllProductImagesBySize(product.product_images, 'm') %}#}
+                    {#<li class="col col20">#}
+                        {#<img class="col" src="{{ image }}" alt="" />#}
+                    {#</li>#}
+                {#{% endfor %}#}
+            {#</ul>#}
+        </div>
+
         <aside class="item col col25">
             <h3>{{ product.name }}</h3>
-            <div class="price">99,99€</div>
+            <div class="price">{{ product.price|price }}</div>
 
             {#{% if product.stock > 0 %}#}
                 <form action="{{ url('cart/add', {sku: product.sku} ) }}">
@@ -34,7 +61,7 @@
                     <input class="submit fullWidth" type="submit" value="{{ 'catalog.buy'|trans }}" />
                 </form>
             {#{% else %}#}
-                <div class="unavailable">{{ 'catalog.out.of.stock'|trans }}</div>
+                {#<div class="unavailable">{{ 'catalog.out.of.stock'|trans }}</div>#}
             {#{% endif %}#}
         </aside>
 
@@ -48,7 +75,7 @@
         </aside>
         <div class="itemDescription col col50">
             <h4>{{ product.name }}</h4>
-            <p>{{ product.longDescription }}</p>
+            <p>{{ product.description }}</p>
         </div>
     </section>
 {% endblock %}

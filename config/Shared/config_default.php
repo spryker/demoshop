@@ -1,14 +1,22 @@
 <?php
-use ProjectA\Shared\Adwords\AdwordsConfig;
+
 use ProjectA\Shared\Customer\CustomerConfig;
 use ProjectA\Shared\DbDump\DbDumpConfig;
-use ProjectA\Shared\Dwh\DwhConfig;
 use ProjectA\Shared\Glossary\GlossaryConfig;
 use Pyz\Shared\Mail\MailConfig;
 use ProjectA\Shared\Payone\PayoneConfig;
 use ProjectA\Shared\ProductImage\ProductImageConfig;
 use ProjectA\Shared\System\SystemConfig;
 use ProjectA\Shared\Yves\YvesConfig;
+
+$config[SystemConfig::PROJECT_NAMESPACES] = [
+    'Pyz'
+];
+$config[SystemConfig::CORE_NAMESPACES] = [
+    'ProjectA',
+    'SprykerFeature',
+    'SprykerCore'
+];
 
 $config[SystemConfig::CURRENT_APPLICATION_STORE] = APPLICATION_STORE;
 $config[SystemConfig::CURRENT_APPLICATION_ENV] = APPLICATION_ENV;
@@ -29,8 +37,7 @@ $config[SystemConfig::STORAGE_KV_SOURCE] = 'redis';
 $config[SystemConfig::ELASTICA_PARAMETER__HOST] = 'localhost';
 $config[SystemConfig::ELASTICA_PARAMETER__TRANSPORT] = 'http';
 $config[SystemConfig::ELASTICA_PARAMETER__PORT] = '9200';
-$config[SystemConfig::ELASTICA_PARAMETER__INDEX_NAME] = '';
-$config[SystemConfig::ELASTICA_PARAMETER__DOCUMENT_TYPE] = '';
+$config[SystemConfig::ELASTICA_PARAMETER__INDEX_NAME] = 'page';
 
 $config[SystemConfig::HOST_YVES]
     = $config[SystemConfig::HOST_STATIC_ASSETS]

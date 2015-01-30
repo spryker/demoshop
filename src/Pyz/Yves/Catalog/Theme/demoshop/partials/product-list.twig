@@ -5,11 +5,12 @@
             <a href="{{ product.url }}">
                 <img src="{{ product.image_url }}" alt="" />
                 <h3>{{ product.name }}</h3>
-                {#<h4>by {{ product.brand }}</h4>#}
+                <h4><b></b>{{ product.material }}</h4>
+                {#<h4>by {{ product.material }}</h4>#}
                 {#{% if product.recommended_retail_price %}#}
                 {#<span class="oldPrice">{{ product.recommended_retail_price|price }}</span>#}
                 {#{% endif %}#}
-                {#<span class="price">{{ product.price|price }}</span>#}
+                <span class="price">{{ product.price|price }}</span>
             </a>
         </li>
     {% endfor %}

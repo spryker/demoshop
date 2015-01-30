@@ -24,7 +24,7 @@
             </ul>
         </aside>
 
-        {% include "@catalog/partials/product-%s.twig" | format(product.variety) | lower  with { 'product' : product, 'subProducts' : subProducts } only %}
+        {#{% include "@catalog/partials/product-%s.twig" | format(product.variety) | lower  with { 'product' : product, 'subProducts' : subProducts } only %}#}
 
     </section>
 {% endblock %}

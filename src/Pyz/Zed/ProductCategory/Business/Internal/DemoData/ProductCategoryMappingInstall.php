@@ -4,6 +4,7 @@ namespace Pyz\Zed\ProductCategory\Business\Internal\DemoData;
 
 use ProjectA\Zed\Console\Business\Model\Console;
 use ProjectA\Zed\Library\Business\DemoDataInstallInterface;
+use ProjectA\Zed\Library\Import\Reader\CsvFileReader;
 
 /**
  * Class ProductCategoryMappingInstall
@@ -11,32 +12,6 @@ use ProjectA\Zed\Library\Business\DemoDataInstallInterface;
  */
 class ProductCategoryMappingInstall implements DemoDataInstallInterface
 {
-
-    /**
-     * @var array
-     */
-    protected $demoProductCategories = [
-        [
-            'product-sku' => '11',
-            'category-name' => 'Schuhe, Stiefel und Socken',
-        ],
-        [
-            'product-sku' => '21',
-            'category-name' => 'Schuhe, Stiefel und Socken',
-        ],
-        [
-            'product-sku' => '31',
-            'category-name' => 'Jacken, Westen und Parka',
-        ],
-        [
-            'product-sku' => '41',
-            'category-name' => 'Atemschutz',
-        ],
-        [
-            'product-sku' => '51',
-            'category-name' => 'Kopfschutz',
-        ],
-    ];
 
     /**
      * @param Console $console
@@ -57,9 +32,9 @@ class ProductCategoryMappingInstall implements DemoDataInstallInterface
     protected function installProductCategories($locale)
     {
         $categoryNodeIds = [];
-        foreach ($this->demoProductCategories as $demoProductCategory) {
-            $productId = $this->getProductId($demoProductCategory['product-sku']);
-            $categoryNodeId = $this->getCategoryNodeId($demoProductCategory['category-name'], $locale);
+        foreach ($this->getDemoProductCategories() as $demoProductCategory) {
+            $productId = $this->getProductId($demoProductCategory['sku']);
+            $categoryNodeId = $this->getCategoryNodeId($demoProductCategory['category'], $locale);
 
             if ($productId && $categoryNodeId) {
                 $productCategory = new \ProjectA_Zed_ProductCategory_Persistence_Propel_PacProductCategory();
@@ -72,6 +47,16 @@ class ProductCategoryMappingInstall implements DemoDataInstallInterface
         }
 
         return $categoryNodeIds;
+    }
+
+    /**
+     * @return array
+     */
+    protected function getDemoProductCategories()
+    {
+        $reader = new CsvFileReader();
+
+        return $reader->read(__DIR__ . '/demo-product-category-data.csv')->getData();
     }
 
     /**

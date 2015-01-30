@@ -50,7 +50,7 @@ class ProductAttributeMappingInstall implements DemoDataInstallInterface
     protected function getMappings()
     {
         return [
-            'theme' => [
+            'description' => [
                 'CopyToField' => [
                     'full-text-boosted',
                     'full-text',
@@ -58,14 +58,12 @@ class ProductAttributeMappingInstall implements DemoDataInstallInterface
                     'completion-terms'
                 ]
             ],
-            'radius' => [
+            'price' => [
                 'CopyToFacet' => [
-                    'float-facet'
-                ]
-            ],
-            'cable_length' => [
-                'CopyToFacet' => [
-                    'float-facet'
+                    'integer-facet',
+                ],
+                'CopyToField' => [
+                    'integer-sort'
                 ]
             ],
             'weight' => [
@@ -73,18 +71,23 @@ class ProductAttributeMappingInstall implements DemoDataInstallInterface
                     'float-facet'
                 ]
             ],
-            'light_bulb' => [
+            'age' => [
                 'CopyToFacet' => [
                     'integer-facet'
                 ]
             ],
-            'socket' => [
+            'brand' => [
                 'CopyToField' => [
                     'full-text',
-                    'completion-terms'
+                    'full-text-boosted',
+                    'completion-terms',
+                    'suggestion-term',
+                ],
+                'CopyToFacet' => [
+                    'string-facet',
                 ]
             ],
-            'length' => [
+            'depth' => [
                 'CopyToFacet' => [
                     'float-facet'
                 ]
@@ -97,6 +100,33 @@ class ProductAttributeMappingInstall implements DemoDataInstallInterface
             'height' => [
                 'CopyToFacet' => [
                     'float-facet'
+                ]
+            ],
+            'gender' => [
+                'CopyToFacet' => [
+                    'string-facet'
+                ]
+            ],
+            'material' => [
+                'CopyToField' => [
+                    'full-text',
+                    'full-text-boosted',
+                    'completion-terms',
+                    'suggestion-term',
+                ],
+                'CopyToFacet' => [
+                    'string-facet',
+                ]
+            ],
+            'main_color' => [
+                'CopyToField' => [
+                    'full-text',
+                    'full-text-boosted',
+                    'completion-terms',
+                    'suggestion-term',
+                ],
+                'CopyToFacet' => [
+                    'string-facet',
                 ]
             ]
         ];
