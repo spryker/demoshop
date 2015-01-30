@@ -52,6 +52,11 @@ class CalculationTest extends \Codeception\TestCase\Test
         return $order;
     }
 
+    protected function getTotals()
+    {
+        return '';
+    }
+
     /**
      *
      */
@@ -59,26 +64,129 @@ class CalculationTest extends \Codeception\TestCase\Test
     {
         $order = $this->getOrder();
         $this->facadeCalculation->recalculateOrder($order);
-
-
-echo '<pre>';
-var_dump($order->getTotals()->getGrandTotal());
-echo __CLASS__;
-echo '<br/>';
-echo __LINE__;
-echo '<pre>';
-die;
-//        $transferUser = $this->createTransferUser();
-//
-//        $userEntity = $this->aclFacade->saveUser($transferUser);
-//        $this->assertTrue($userEntity instanceof ProjectA_Zed_Library_Propel_BaseObject);
-//        $this->assertTrue($userEntity->getIsNew());
-//
-//        $transferUser->setIdAclUser($userEntity->getIdAclUser());
-//        $newName = 'AAAAA' . time();
-//        $transferUser->setFirstname($newName);
-//        $userEntity = $this->aclFacade->saveUser($transferUser);
-//        $this->assertTrue($userEntity->getFirstname() === $newName);
     }
 
+    /**
+     *
+     */
+    public function testRecalculateDiscountTotals()
+    {
+        $order = $this->getOrder();
+        $totals = $this->getTotals();
+        $this->facadeCalculation->recalculateDiscountTotals($totals, $order, $order->getItems());
+    }
+
+    /**
+     *
+     */
+    public function testRecalculateExpensePriceToPay()
+    {
+        $order = $this->getOrder();
+        $this->facadeCalculation->recalculateExpensePriceToPay($order);
+    }
+
+    /**
+     *
+     */
+    public function testRecalculateExpenseTotals()
+    {
+        $order = $this->getOrder();
+        $totals = $this->getTotals();
+        $this->facadeCalculation->recalculateExpenseTotals($totals, $order, $order->getItems());
+    }
+
+    /**
+     *
+     */
+    public function testRecalculateGrandTotalTotals()
+    {
+        $order = $this->getOrder();
+        $totals = $this->getTotals();
+        $this->facadeCalculation->recalculateGrandTotalTotals($totals, $order, $order->getItems());
+    }
+
+    /**
+     *
+     */
+    public function testRecalculateGrandTotalWithoutDiscountsTotals()
+    {
+        $order = $this->getOrder();
+        $totals = $this->getTotals();
+        $this->facadeCalculation->recalculateGrandTotalWithoutDiscountsTotals($totals, $order, $order->getItems());
+    }
+
+    /**
+     *
+     */
+    public function testRecalculateItemPriceToPay()
+    {
+        $order = $this->getOrder();
+        $this->facadeCalculation->recalculateItemPriceToPay($order);
+    }
+
+    /**
+     *
+     */
+    public function testRecalculateOptionPriceToPay()
+    {
+        $order = $this->getOrder();
+        $this->facadeCalculation->recalculateOptionPriceToPay($order);
+    }
+
+    /**
+     *
+     */
+    public function testRecalculateRemoveAllCalculatedDiscounts()
+    {
+        $order = $this->getOrder();
+        $this->facadeCalculation->recalculateRemoveAllCalculatedDiscounts($order);
+    }
+
+    /**
+     *
+     */
+    public function testRecalculateRemoveAllExpenses()
+    {
+        $order = $this->getOrder();
+        $this->facadeCalculation->recalculateRemoveAllExpenses($order);
+    }
+
+    /**
+     *
+     */
+    public function testRecalculateRemoveTotals()
+    {
+        $order = $this->getOrder();
+        $this->facadeCalculation->recalculateRemoveTotals($order);
+    }
+
+    /**
+     *
+     */
+    public function testRecalculateSubtotalTotals()
+    {
+        $order = $this->getOrder();
+        $totals = $this->getTotals();
+        $this->facadeCalculation->recalculateSubtotalTotals($totals, $order, $order->getItems());
+    }
+
+    /**
+     *
+     */
+    public function testRecalculateSubtotalWithoutItemExpensesTotals()
+    {
+        $order = $this->getOrder();
+        $totals = $this->getTotals();
+        $this->facadeCalculation->recalculateSubtotalTotals($totals, $order, $order->getItems());
+    }
+
+    /**
+     *
+     */
+    public function testRecalculateTaxTotals()
+    {
+        $order = $this->getOrder();
+        $totals = $this->getTotals();
+        $this->facadeCalculation->recalculateSubtotalTotals($totals, $order, $order->getItems());
+    }
 }
