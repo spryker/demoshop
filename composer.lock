@@ -4,7 +4,7 @@
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "be0af87805c2a07363955ed7b27edf26",
+    "hash": "06e1eb61fda7283f748713d548e32a6a",
     "packages": [
         {
             "name": "digital-canvas/zend-framework",
@@ -880,11 +880,11 @@
         },
         {
             "name": "spryker/yves-package",
-            "version": "dev-feature/445-tests-directory-structure",
+            "version": "dev-master",
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/yves.git",
-                "reference": "5c3d5726b60adb202d601abcfcb17c51d2e60c8c"
+                "reference": "9d681e9373721562f81f4ad87ef4d78ed6675a2f"
             },
             "require": {
                 "php": ">=5.4.0"
@@ -914,11 +914,11 @@
                 "Application",
                 "Yves"
             ],
-            "time": "2015-01-30 06:26:43"
+            "time": "2015-01-30 14:05:46"
         },
         {
             "name": "spryker/zed-package",
-            "version": "dev-feature/445-tests-directory-structure",
+            "version": "dev-master",
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/zed.git",
