@@ -4,7 +4,7 @@
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "06e1eb61fda7283f748713d548e32a6a",
+    "hash": "be0af87805c2a07363955ed7b27edf26",
     "packages": [
         {
             "name": "digital-canvas/zend-framework",
@@ -880,11 +880,11 @@
         },
         {
             "name": "spryker/yves-package",
-            "version": "dev-master",
+            "version": "dev-feature/445-tests-directory-structure",
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/yves.git",
-                "reference": "afd87ce3dae1df40347db5af2b59518f5a12cb33"
+                "reference": "cf53d6b514ce04ba30eb35b9d6f3aa1053ab1d6a"
             },
             "require": {
                 "php": ">=5.4.0"
@@ -896,7 +896,9 @@
             "autoload": {
                 "psr-0": {
                     "ProjectA": "src/",
-                    "PhpUnit": "tests/"
+                    "Acceptance": "tests/",
+                    "Functional": "tests/",
+                    "Unit": "tests/"
                 }
             },
             "authors": [
@@ -912,15 +914,15 @@
                 "Application",
                 "Yves"
             ],
-            "time": "2015-01-28 10:03:35"
+            "time": "2015-01-29 15:35:48"
         },
         {
             "name": "spryker/zed-package",
-            "version": "dev-master",
+            "version": "dev-feature/445-tests-directory-structure",
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/zed.git",
-                "reference": "04dd8ffcef0dcab0a22b51268144d494d1435d04"
+                "reference": "84786faabe177270c4bf5ff39811312de66111af"
             },
             "require": {
                 "digital-canvas/zend-framework": ">=1.12.2",
@@ -966,7 +968,10 @@
                     "ProjectA": "src/",
                     "SprykerCore": "src/",
                     "SprykerFeature": "src/",
-                    "PhpUnit": "tests/",
+                    "Acceptance": "tests/",
+                    "Function": "tests/",
+                    "Integration": "tests/",
+                    "Unit": "tests/",
                     "Kendo": "src/"
                 }
             },
@@ -983,7 +988,7 @@
                 "Application",
                 "Zed"
             ],
-            "time": "2015-01-29 07:19:47"
+            "time": "2015-01-29 15:34:15"
         },
         {
             "name": "symfony-cmf/routing",

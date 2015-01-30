@@ -1,8 +1,9 @@
 <?php
-namespace Codeception\Module;
 
-// here you can define custom functions for WebGuy 
+namespace Pyz\Codeception\Module;
 
-class WebHelper extends \Codeception\Module
+use Codeception\Module;
+
+class WebHelper extends Module
 {
 }

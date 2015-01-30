@@ -1,8 +1,9 @@
 <?php
-namespace Codeception\Module;
 
-// here you can define custom functions for TestGuy 
+namespace Pyz\Codeception\Module;
 
-class TestHelper extends \Codeception\Module
+use Codeception\Module;
+
+class TestHelper extends Module
 {
 }

@@ -3,10 +3,11 @@
 // You should not change it manually as it will be overwritten on next build
 // @codingStandardsIgnoreFile
 
+namespace Pyz;
 
 use \Codeception\Maybe;
 use Codeception\Module\Filesystem;
-use Codeception\Module\TestHelper;
+use Pyz\Codeception\Module\TestHelper;
 
 /**
  * Inherited methods
@@ -26,7 +27,7 @@ use Codeception\Module\TestHelper;
 
 class TestGuy extends \Codeception\AbstractGuy
 {
-    
+
     /**
      * This method is generated.
      * Documentation taken from corresponding module.
@@ -48,7 +49,7 @@ class TestGuy extends \Codeception\AbstractGuy
         return new Maybe();
     }
 
- 
+
     /**
      * This method is generated.
      * Documentation taken from corresponding module.
@@ -78,7 +79,7 @@ class TestGuy extends \Codeception\AbstractGuy
         return new Maybe();
     }
 
- 
+
     /**
      * This method is generated.
      * Documentation taken from corresponding module.
@@ -105,7 +106,7 @@ class TestGuy extends \Codeception\AbstractGuy
         return new Maybe();
     }
 
- 
+
     /**
      * This method is generated.
      * Documentation taken from corresponding module.
@@ -132,7 +133,7 @@ class TestGuy extends \Codeception\AbstractGuy
         return new Maybe();
     }
 
- 
+
     /**
      * This method is generated.
      * Documentation taken from corresponding module.
@@ -160,7 +161,7 @@ class TestGuy extends \Codeception\AbstractGuy
         return new Maybe();
     }
 
- 
+
     /**
      * This method is generated.
      * Documentation taken from corresponding module.
@@ -219,7 +220,7 @@ class TestGuy extends \Codeception\AbstractGuy
         return new Maybe();
     }
 
- 
+
     /**
      * This method is generated.
      * Documentation taken from corresponding module.
@@ -280,7 +281,7 @@ class TestGuy extends \Codeception\AbstractGuy
         return new Maybe();
     }
 
- 
+
     /**
      * This method is generated.
      * Documentation taken from corresponding module.
@@ -335,7 +336,7 @@ class TestGuy extends \Codeception\AbstractGuy
         return new Maybe();
     }
 
- 
+
     /**
      * This method is generated.
      * Documentation taken from corresponding module.
@@ -354,7 +355,7 @@ class TestGuy extends \Codeception\AbstractGuy
         return new Maybe();
     }
 
- 
+
     /**
      * This method is generated.
      * Documentation taken from corresponding module.
@@ -411,7 +412,7 @@ class TestGuy extends \Codeception\AbstractGuy
         return new Maybe();
     }
 
- 
+
     /**
      * This method is generated.
      * Documentation taken from corresponding module.
@@ -438,7 +439,7 @@ class TestGuy extends \Codeception\AbstractGuy
         return new Maybe();
     }
 
- 
+
     /**
      * This method is generated.
      * Documentation taken from corresponding module.
