@@ -7,49 +7,54 @@ use ProjectA\Shared\Library\Storage\Adapter\KeyValue\ReadInterface;
 use ProjectA\Yves\Catalog\Business\Model\Catalog as ProjectACatalog;
 use ProjectA\Yves\Catalog\Business\Model\Exception\ProductNotFoundException;
 
+/**
+ * Class Catalog
+ * @package Pyz\Yves\Catalog\Business\Model
+ */
 class Catalog extends ProjectACatalog
 {
+
     /**
-     * @param $url
-     * @param ReadInterface $storage
+     * @param string $url
      * @return mixed
      * @throws ProductNotFoundException
      */
-    public function getProductDataByUrl($url, ReadInterface $storage)
+    public function getProductDataByUrl($url)
     {
         $productKey = StorageKeyGenerator::getProductUrlKey($url);
-        $productId = $storage->get($productKey);
+        $productId = $this->storageReader->get($productKey);
         if (!$productId) {
             throw new ProductNotFoundException($url);
         }
         $productKey = StorageKeyGenerator::getProductKey($productId);
-        $product = $storage->get($productKey);
+        $product = $this->storageReader->get($productKey);
         if (!$product) {
             throw new ProductNotFoundException($productId);
         }
+
         return $product;
     }
 
     /**
      * @param array $ids
-     * @param ReadInterface $storage
-     * @param null $indexByKey
+     * @param null  $indexByKey
      * @return \array[]
      */
-    public function getProductDataByIds(array $ids, ReadInterface $storage, $indexByKey = null)
+    public function getProductDataByIds(array $ids, $indexByKey = null)
     {
-        $productsFromStorage = parent::getProductDataByIds($ids, $storage, $indexByKey);
+        $productsFromStorage = parent::getProductDataByIds($ids, $indexByKey);
         if (!$indexByKey) {
             array_walk($productsFromStorage, function(&$product) {
                 $product = json_decode($product, true);
             });
         }
+
         return $productsFromStorage;
     }
 
     /**
      * @param string $key
-     * @param array $productsFromStorage
+     * @param array  $productsFromStorage
      * @return array
      */
     protected function mapKeysToValue($key, array $productsFromStorage)
@@ -59,6 +64,7 @@ class Catalog extends ProjectACatalog
             $product = json_decode($product, true);
             $productsIndexedById[$product[$key]] = $product;
         }
+
         return $productsIndexedById;
     }
 }

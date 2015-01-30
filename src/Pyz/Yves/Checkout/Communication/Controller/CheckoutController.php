@@ -82,7 +82,7 @@ class CheckoutController extends CoreCheckoutController
 //            $orderTransfer->setCustomer($customerModel->getTransfer());
 
             /** @var Payment $payment */
-            $payment = TransferLoader::loadSalesPayment();
+            $payment = (new \ProjectA\Shared\Kernel\TransferLocator())->locateSalesPayment();
             $payment->setMethod('payment.payone.prepayment');
 
             $orderTransfer->setPayment($payment);
@@ -103,7 +103,7 @@ class CheckoutController extends CoreCheckoutController
                     return $this->redirectResponseInternal(CheckoutControllerProvider::ROUTE_CHECKOUT_SUCCESS);
                 }
             } elseif ($transferResponse->hasErrorMessage(\ProjectA_Shared_Checkout_Code_Messages::ERROR_ORDER_IS_ALREADY_SAVED)) {
-                $this->getCart($request)->setOrder(TransferLoader::loadSalesOrder());
+                $this->getCart($request)->setOrder((new \ProjectA\Shared\Kernel\TransferLocator())->locateSalesOrder());
                 return $this->redirectResponseInternal(CartControllerProvider::ROUTE_CART);
             }
         }

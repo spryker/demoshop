@@ -19,71 +19,71 @@ class ProductDataInstall implements DemoDataInstallInterface
         array(
             'sku' => '01',
             'name' => 'WireShade Design Lampe',
-            'attributes' => '{"radius": 35.00, "cable_length": 150.00, "weight": 2.2, "light_bulb": 60, "socket": "E27"}',
+            'attributes' => '{"image_url": "/images/product/default.png", "radius": 35.00, "cable_length": 150.00, "weight": 2.2, "light_bulb": 60, "socket": "E27"}',
             'products' => array(
                     array(
                             'sku' => '11',
                             'name' => 'Grüne WireShade Design Lampe',
                             'url' => '/gruene-wireshade-design-lampe',
-                            'attributes' => '{"color": "green"}'
+                            'attributes' => '{"image_url": "/images/product/default.png", "color": "green"}',
                     )
             )
         ),
         array(
             'sku' => '02',
             'name' => 'Stehleuchte Lupus',
-            'attributes' => '{"radius": 26.00, "cable_length": 15.00, "weight": 1.0, "light_bulb": 150, "socket": "E14"}',
+            'attributes' => '{"image_url": "/images/product/default.png", "radius": 26.00, "cable_length": 15.00, "weight": 1.0, "light_bulb": 150, "socket": "E14"}',
             'products' => array(
                     array(
                             'sku' => '21',
                             'name' => 'Stehleuchte Lupus - Wald',
                             'url' => '/stehleuchte-lupus-wald',
-                            'attributes' => '{"theme": "wald"}'
+                            'attributes' => '{"image_url": "/images/product/default.png", "theme": "wald"}'
                     ),
                     array(
                             'sku' => '22',
                             'name' => 'Stehleuchte Lupus - Wiese',
                             'url' => '/stehleuchte-lupus-wiese',
-                            'attributes' => '{"theme": "wiese"}'
+                            'attributes' => '{"image_url": "/images/product/default.png", "theme": "wiese"}'
                     )
             )
         ),
         array(
             'sku' => '03',
             'name' => 'Kronleuchter',
-            'attributes' => '{"radius": 150.00, "cable_length": 1.00, "weight": 200.0, "light_bulb": 280, "socket": "E27"}',
+            'attributes' => '{"image_url": "/images/product/default.png", "radius": 150.00, "cable_length": 1.00, "weight": 200.0, "light_bulb": 280, "socket": "E27"}',
             'products' => array(
                     array(
                             'sku' => '31',
                             'name' => 'Kronleuchter Green Majestix',
                             'url' => '/kronleuchter-green-majestix',
-                            'attributes' => '{"color": "green"}'
+                            'attributes' => '{"image_url": "/images/product/default.png", "color": "green"}'
                     )
             )
         ),
         array(
             'sku' => '04',
             'name' => 'The big couch',
-            'attributes' => '{"length": 160.00, "width": 80.00}',
+            'attributes' => '{"image_url": "/images/product/default.png", "length": 160.00, "width": 80.00}',
             'products' => array(
                 array(
                     'sku' => '41',
                     'name' => 'The big couch',
                     'url' => '/the-big-couch',
-                    'attributes' => '{"color": "white"}'
+                    'attributes' => '{"image_url": "/images/product/default.png", "color": "white"}'
                 )
             )
         ),
         array(
             'sku' => '05',
             'name' => 'LUCY',
-            'attributes' => '{"length": 310.00, "width": 100.00, "height": 140.00}',
+            'attributes' => '{"image_url": "/images/product/default.png", "length": 310.00, "width": 100.00, "height": 140.00}',
             'products' => array(
                 array(
                     'sku' => '51',
                     'name' => 'Lucy',
                     'url' => '/lucy',
-                    'attributes' => '{}'
+                    'attributes' => '{"image_url": "/images/product/default.png"}'
                 )
             )
         )
@@ -113,7 +113,8 @@ class ProductDataInstall implements DemoDataInstallInterface
             'socket' => 'string',
             'length' => 'number',
             'width' => 'number',
-            'height' => 'number'
+            'height' => 'number',
+            'image_url' => 'string'
         ];
 
         $typeEntities = \ProjectA_Zed_Product_Persistence_Propel_PacProductAttributeTypeQuery::create()
@@ -185,7 +186,6 @@ class ProductDataInstall implements DemoDataInstallInterface
                 $product->save();
 
                 $touch = new \ProjectA_Zed_YvesExport_Persistence_Propel_PacYvesExportTouch();
-                $touch->setIdYvesExportTouch($product->getProductId());
                 $touch->setItemType('product');
                 $touch->setItemEvent(\ProjectA_Zed_YvesExport_Persistence_Propel_PacYvesExportTouchPeer::ITEM_EVENT_ACTIVE);
                 $touch->setExportType(\ProjectA_Zed_YvesExport_Persistence_Propel_PacYvesExportTouchPeer::EXPORT_TYPE_KEYVALUE);
