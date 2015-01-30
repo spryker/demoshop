@@ -884,7 +884,7 @@
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/yves.git",
-                "reference": "afd87ce3dae1df40347db5af2b59518f5a12cb33"
+                "reference": "ff98f38aaf8030e4aa19f6d9e4347d790396838c"
             },
             "require": {
                 "php": ">=5.4.0"
@@ -912,7 +912,7 @@
                 "Application",
                 "Yves"
             ],
-            "time": "2015-01-28 10:03:35"
+            "time": "2015-01-30 07:23:43"
         },
         {
             "name": "spryker/zed-package",
