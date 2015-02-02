@@ -5,8 +5,7 @@
 
 
 use \Codeception\Maybe;
-use Codeception\Module\CodeHelper;
-use Codeception\Module\PropelModule;
+use Pyz\Codeception\Module\CodeHelper;
 
 /**
  * Inherited methods
@@ -26,7 +25,7 @@ use Codeception\Module\PropelModule;
 
 class CodeGuy extends \Codeception\AbstractGuy
 {
-    
+
     /**
      * This method is generated.
      * Documentation taken from corresponding module.
@@ -45,7 +44,7 @@ class CodeGuy extends \Codeception\AbstractGuy
         return new Maybe();
     }
 
- 
+
     /**
      * This method is generated.
      * Documentation taken from corresponding module.
@@ -92,7 +91,7 @@ class CodeGuy extends \Codeception\AbstractGuy
         return new Maybe();
     }
 
- 
+
     /**
      * This method is generated.
      * Documentation taken from corresponding module.
