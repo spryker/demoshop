@@ -43,6 +43,10 @@ config/accumulated-config.json
 !/static/public/Yves/index.php
 !/static/public/Yves/errorpage/error.html
 !/static/public/Yves/maintenance/index.html
+!/static/public/Yves/image/glyphicons-halflings-regular.eot
+!/static/public/Yves/image/glyphicons-halflings-regular.svg
+!/static/public/Yves/image/glyphicons-halflings-regular.ttf
+!/static/public/Yves/image/glyphicons-halflings-regular.woff
 
 /static/public/Zed/*
 !/static/public/Zed/index.php
