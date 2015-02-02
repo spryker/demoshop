@@ -42,6 +42,7 @@ config/accumulated-config.json
 /static/public/Yves/*
 !/static/public/Yves/index.php
 !/static/public/Yves/maintenance/index.html
+!/static/public/Yves/error/error.html
 
 /static/public/Zed/*
 !/static/public/Zed/index.php
