@@ -27,6 +27,7 @@ return [
         'Customer' => $schemaAndNavigation,
         'Document' => $schema,
         'Glossary' => $allElements,
+        'Glossary2' => $allElements,
         'Invoice' => $schema,
         'Kendo' => $schema,
         'Lumberjack' => $navigation,
@@ -51,4 +52,9 @@ return [
         'YvesExport' => $schema,
         'Glossary2' => $schemaAndNavigation,
     ],
+
+    \ProjectA\Shared\Library\Bundle\BundleConfig::NAMESPACE_SPRYKERCORE => [
+        'Locale' => $schema,
+        'Touch' => $schema
+    ]
 ];
