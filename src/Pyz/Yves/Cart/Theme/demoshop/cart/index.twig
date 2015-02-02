@@ -49,7 +49,7 @@
                                 options->? #}
                         </td>
                         <td>
-                            <form action="{{ url('cart/change/quantity', {sku:product.sku, uid:cartItem.uniqueIdentifier} ) }}">
+                            <form action="{{ url('cart/change/quantity', {sku:product.sku, uid:cartItem.uniqueIdentifier, absolute:true} ) }}">
                                 <input type="number" name="quantity" value="{{ cartItem.quantity }}" min="1" />
                                 {#max="{{ product.stock > 30 ? 30 : product.stock }}" step="1" />#}
                             </form>
