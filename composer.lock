@@ -8,16 +8,16 @@
     "packages": [
         {
             "name": "digital-canvas/zend-framework",
-            "version": "1.12.7",
+            "version": "1.12.10",
             "source": {
                 "type": "git",
                 "url": "https://github.com/digital-canvas/zend-framework.git",
-                "reference": "aa84de49b34f2755202f410b834fb19283177d7f"
+                "reference": "c1de5e836464b7ad6a1f35c5996d9e83558afc64"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/digital-canvas/zend-framework/zipball/aa84de49b34f2755202f410b834fb19283177d7f",
-                "reference": "aa84de49b34f2755202f410b834fb19283177d7f",
+                "url": "https://api.github.com/repos/digital-canvas/zend-framework/zipball/c1de5e836464b7ad6a1f35c5996d9e83558afc64",
+                "reference": "c1de5e836464b7ad6a1f35c5996d9e83558afc64",
                 "shasum": ""
             },
             "require": {
@@ -45,7 +45,7 @@
                 "zend",
                 "zf"
             ],
-            "time": "2014-07-07 23:14:21"
+            "time": "2015-01-28 00:34:43"
         },
         {
             "name": "doctrine/inflector",
@@ -990,7 +990,7 @@
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/yves.git",
-                "reference": "2dfb86fc045baeda3a907d2f1d35fad907c84cf8"
+                "reference": "9d681e9373721562f81f4ad87ef4d78ed6675a2f"
             },
             "require": {
                 "php": ">=5.4.0"
@@ -1002,7 +1002,9 @@
             "autoload": {
                 "psr-0": {
                     "ProjectA": "src/",
-                    "PhpUnit": "tests/"
+                    "Acceptance": "tests/",
+                    "Functional": "tests/",
+                    "Unit": "tests/"
                 }
             },
             "authors": [
@@ -1018,7 +1020,7 @@
                 "Application",
                 "Yves"
             ],
-            "time": "2015-01-20 14:28:56"
+            "time": "2015-01-30 14:05:46"
         },
         {
             "name": "spryker/zed-package",
@@ -1026,7 +1028,11 @@
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/zed.git",
+<<<<<<< HEAD
                 "reference": "700ce901a832b2bb3d7d385c86aad06c2f7eccd6"
+=======
+                "reference": "e3019a17329f0585ffa2319b4780ff475aa85345"
+>>>>>>> master
             },
             "require": {
                 "digital-canvas/zend-framework": ">=1.12.2",
@@ -1070,7 +1076,12 @@
             "autoload": {
                 "psr-0": {
                     "ProjectA": "src/",
-                    "PhpUnit": "tests/",
+                    "SprykerCore": "src/",
+                    "SprykerFeature": "src/",
+                    "Acceptance": "tests/",
+                    "Function": "tests/",
+                    "Integration": "tests/",
+                    "Unit": "tests/",
                     "Kendo": "src/"
                 }
             },
@@ -1087,7 +1098,11 @@
                 "Application",
                 "Zed"
             ],
+<<<<<<< HEAD
             "time": "2015-01-21 15:25:52"
+=======
+            "time": "2015-01-30 13:18:18"
+>>>>>>> master
         },
         {
             "name": "symfony-cmf/routing",

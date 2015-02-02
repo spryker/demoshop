@@ -15,7 +15,7 @@ class OrderType extends CoreOrderType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         parent::buildForm($builder, $options);
-        $builder->add('payment', new PaymentType($this->paymentMethods), ['property_path' => 'payment.paymentData', 'empty_data' => TransferLoader::loadPayonePaymentPayone()]);
+        $builder->add('payment', new PaymentType($this->paymentMethods), ['property_path' => 'payment.paymentData', 'empty_data' => (new \ProjectA\Shared\Kernel\TransferLocator())->locatePayonePaymentPayone()]);
     }
 
 }

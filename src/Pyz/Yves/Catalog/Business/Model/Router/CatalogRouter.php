@@ -2,13 +2,18 @@
 
 namespace Pyz\Yves\Catalog\Business\Model\Router;
 
-use Silex\Application;
+use ProjectA\Shared\Application\Communication\ControllerServiceBuilder;
+
 use ProjectA\Yves\Application\Business\Routing\AbstractRouter;
 use ProjectA\Yves\Catalog\Business\Model\UrlMapper;
+use ProjectA\Yves\Kernel\Communication\BundleControllerAction;
+use ProjectA\Yves\Kernel\Communication\Controller\RouteNameResolver;
+use ProjectA\Yves\Kernel\Communication\ControllerLocator;
+
+use Silex\Application;
+
 use Symfony\Component\Routing\Exception\ResourceNotFoundException;
 use Symfony\Component\Routing\Exception\RouteNotFoundException;
-use ProjectA\Shared\Application\Business\Controller\ServiceControllerBuilder;
-use ProjectA\Yves\Application\Business\Controller\ControllerResolver;
 
 /**
  * @package Pyz\Yves\Catalog\Business\Model\Router
@@ -55,12 +60,20 @@ class CatalogRouter extends AbstractRouter
                 $facetConfig
             );
 
-            $resolver = new ControllerResolver('Catalog', 'CatalogController', 'index');
-            $service = (new ServiceControllerBuilder())->createServiceForController($this->app, $resolver);
+            $bundleControllerAction = new BundleControllerAction('Catalog', 'CatalogController', 'index');
+            $controllerResolver = new ControllerLocator($bundleControllerAction);
+            $routeResolver = new RouteNameResolver('catalog/index');
+
+            $service = (new ControllerServiceBuilder())->createServiceForController(
+                $this->app,
+                $bundleControllerAction,
+                $controllerResolver,
+                $routeResolver
+            );
 
             return [
                 '_controller' => $service,
-                '_route' => 'catalog/index',
+                '_route' => $routeResolver->resolve(),
                 'facetConfig' => $facetConfig
             ];
         }
