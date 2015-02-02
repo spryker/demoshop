@@ -84,7 +84,7 @@ $config[YvesConfig::YVES_COMPLETE_SSL_ENABLED] = false;
 $config[YvesConfig::YVES_SSL_EXCLUDED] = ['/monitoring/heartbeat'];
 $config[YvesConfig::YVES_SESSION_SAVE_HANDLER] = null;
 $config[YvesConfig::YVES_SESSION_NAME] = 'yves_session';
-$config[YvesConfig::YVES_SESSION_COOKIE_DOMAIN] = null;
+$config[YvesConfig::YVES_SESSION_COOKIE_DOMAIN] = $config[SystemConfig::HOST_YVES];
 $config[YvesConfig::YVES_ERROR_PAGE] = APPLICATION_ROOT_DIR.'/static/public/Yves/errorpage/error.html';
 
 $config[SystemConfig::PROPEL] = array(
