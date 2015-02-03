@@ -47,9 +47,6 @@ class SearchRouter extends AbstractRouter
      */
     public function match($pathinfo)
     {
-        //TODO handle "/catalog/" to show everything if needed
-//        if ($pathinfo != '/' && substr($pathinfo, -5) != '.html') {
-
         if ('/search' === $pathinfo) {
             $facetConfig = $this->factory->createCatalogModelFacetConfig();
             $request = ($this->app['request_stack'])? $this->app['request_stack']->getCurrentRequest():$this->app['request'];

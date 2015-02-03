@@ -15,26 +15,26 @@
                 <li><span class="glyphicon glyphicon-gift"></span>{{ 'catalog.usp.shipping'|trans }}</li>
                 <li><span class="glyphicon glyphicon-refresh"></span>{{ 'catalog.usp.return'|trans }}</li>
             </ul>
-            <ul class="social">
-                <li class="facebook"></li>
-                <li class="google"></li>
-                <li class="twitter"></li>
-                <li class="youtube"></li>
-            </ul>
+            {#<ul class="social">#}
+                {#<li class="facebook"></li>#}
+                {#<li class="google"></li>#}
+                {#<li class="twitter"></li>#}
+                {#<li class="youtube"></li>#}
+            {#</ul>#}
         </aside>
 
         <div class="pictures col col50">
             <div class="current">
-                <div class="prev">
-                    <hardcoded block>
-                        <span class="glyphicon glyphicon-chevron-left"></span>
-                    </hardcoded>
-                </div>
-                <div class="next">
-                    <hardcoded block>
-                        <span class="glyphicon glyphicon-chevron-right"></span>
-                    </hardcoded>
-                </div>
+                {#<div class="prev">#}
+                    {#<hardcoded block>#}
+                        {#<span class="glyphicon glyphicon-chevron-left"></span>#}
+                    {#</hardcoded>#}
+                {#</div>#}
+                {#<div class="next">#}
+                    {#<hardcoded block>#}
+                        {#<span class="glyphicon glyphicon-chevron-right"></span>#}
+                    {#</hardcoded>#}
+                {#</div>#}
                 {#{% if product.image_url %}#}
                     <img src="{{ product.image_url }}" alt="" />
                 {#{% else %}#}
@@ -55,7 +55,7 @@
             <div class="price">{{ product.price|price }}</div>
 
             {#{% if product.stock > 0 %}#}
-                <form action="{{ url('cart/add', {sku: product.sku} ) }}">
+                <form action="{{ url('/cart', {sku: product.sku} ) }}">
                     <input class="fullWidth" type="number" name="quantity" value="1" min="1" max="100" step="1" />
                     <!--input class="fullWidth" type="hidden" name="options[]" value="B1" USE this input(s) to add options to the cartitem /-->
                     <input class="submit fullWidth" type="submit" value="{{ 'catalog.buy'|trans }}" />

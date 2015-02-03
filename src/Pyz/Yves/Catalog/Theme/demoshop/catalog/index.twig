@@ -6,29 +6,22 @@
     <script src="/scripts/app/catalog.js"></script>
 
     <section class="consumeHeight" id="catalog">
-
-        <div class="col col50">
-            <ul>
-                <li>
-                    <ul id="breadcrumbs">
-                        <li><a href="/">Home</a></li>
-                        {% for category_parent in category.parents %}
-                            <li><a href="{{ category_parent.url }}">{{ category_parent.name }}</a></li>
-                        {% endfor %}
-                        <li><b>{{ category.name }}</b></li>
-                    </ul>
-                </li>
-                {% for category_child in category.children %}
-                    <li>
-                        <ul id="breadcrumbs">
-                            <li></li>
-                            <li><a href="{{ category_child.url }}">{{ category_child.name }}</a></li>
-                        </ul>
-                    </li>
+        <div  class="col col25">
+            <ul id="breadcrumbs">
+                <li><a href="/">Home</a></li>
+                {% for category_parent in category.parents %}
+                    <li><a href="{{ category_parent.url }}">{{ category_parent.name }}</a></li>
                 {% endfor %}
+                <li><b>{{ category.name ~ " (" ~ numFound ~ ")"}}</b></li>
             </ul>
+            {% for category_child in category.children %}
+                <ul id="breadcrumbs">
+                    <li></li>
+                    <li><a href="{{ category_child.url }}">{{ category_child.name }}</a></li>
+                </ul>
+            {% endfor %}
         </div>
-        <div id="options" class="col col50">
+        <div id="options" class="col col75">
             {% include "@catalog/partials/options.twig" with {'url': category.url} %}
         </div>
 

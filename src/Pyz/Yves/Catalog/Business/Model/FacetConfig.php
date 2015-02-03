@@ -81,7 +81,7 @@ class FacetConfig extends CoreFacetConfig
             self::KEY_PARAM => 'material',
             self::KEY_FACET_ACTIVE => true,
             self::KEY_SORT_ACTIVE => false,
-            self::KEY_MULTI_VALUED => true,
+            self::KEY_MULTI_VALUED => false,
 //            self::KEY_IN_URL => true,
 //            self::KEY_SHORT_PARAM => 'm',
 //            self::KEY_URL_POSITION => 2,

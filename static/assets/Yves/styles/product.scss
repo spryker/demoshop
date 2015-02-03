@@ -22,7 +22,7 @@
 #product .pictures .list img { border:1px solid #ddd; cursor:pointer; }
 #product .pictures .list li:hover img { border-color:#aaa; }
 
-#product .item h3 { margin:0; padding:0; font-size:18px; }
+#product .item h3 { margin:0; padding:0; font-size:18px; line-height: 150%; }
 #product .item h4 { margin:3px 0 15px; padding:0; font-size:14px; color:#777; font-style:italic; }
 #product .item .oldPrice { float:right; color:#aaa; text-decoration:line-through; font-size:1.4em; margin:0 0 2px; }
 #product .item .price { font-size:1.9em; margin:0 0 2px; }
@@ -38,8 +38,8 @@
 #product .itemDescription h4,
 #product .specs h4 { margin:0 0 1em; padding:0; }
 #product .superDescription { padding-right:20px; }
-#product .itemDescription { padding:0 20px; border-right:1px solid #f8f8f8; border-left:1px solid #f8f8f8; }
+#product .itemDescription { padding:0 20px; border-right:1px solid #f8f8f8; border-left:1px solid #f8f8f8;}
 #product .specs { padding-left:20px; }
 #product .superDescription p,
-#product .itemDescription p { text-align:justify; margin:1em 0; }
+#product .itemDescription p { text-align:justify; margin:1em 0; line-height: 135%;}
 #product .specs ul { margin:0; padding:0; list-style:none; line-height:1.6em; }

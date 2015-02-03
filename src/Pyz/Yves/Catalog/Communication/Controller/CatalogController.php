@@ -51,7 +51,7 @@ class CatalogController extends CoreCatalogController
             $facetConfig
         );
 
-        return $search->getResult();
+        return array_merge($search->getResult(), ['searchString' => $request->get('q')]);
     }
 
     /**
