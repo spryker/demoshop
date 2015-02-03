@@ -6,6 +6,7 @@ use ProjectA\Shared\Application\Communication\ControllerServiceBuilder;
 use ProjectA\Yves\Kernel\Communication\BundleControllerAction;
 use ProjectA\Yves\Kernel\Communication\Controller\BundleControllerActionRouteNameResolver;
 use ProjectA\Yves\Kernel\Communication\ControllerLocator;
+use ProjectA\Yves\Kernel\Locator;
 use ProjectA\Yves\YvesExport\Business\Creator\ResourceCreatorInterface;
 use Pyz\Yves\Catalog\Business\Model\FacetConfig;
 use Silex\Application;
@@ -46,6 +47,7 @@ class CategoryResourceCreator implements ResourceCreatorInterface
 
         $service = (new ControllerServiceBuilder())->createServiceForController(
             $app,
+            new Locator(),
             $bundleControllerAction,
             $controllerResolver,
             $routeResolver
