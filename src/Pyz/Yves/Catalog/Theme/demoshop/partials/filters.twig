@@ -12,7 +12,7 @@
                 {% if name == 'main_color' %}
                     <div id="colorpicker">
                         {% for valueName, valueKey in facet.values %}
-                            <label {{ valueKey == 0 ? 'class="notAvailable"' : '' }}>
+                            <label class="{{ valueKey == 0 ? 'notAvailable ' : '' }} {{ valueName in activeValues ? 'active' : '' }}">
                                 <input type="checkbox" name="{{ name }}" value="{{ valueName }}" data-on="{{ url( url, { (name) : { value : [valueName], facet_active: [true]} }) }}" data-off="{{ url( url, { (name) : { value : [valueName], active : [false]} }) }}" {{ valueName in activeValues ? 'checked' : '' }} />
                                 {{ ('catalog.filters.' ~ name ~ '.' ~ valueName|replace(' ', '_'))|trans|raw }} <span class="content">{{ valueKey }}</span></div>
                             </label>
@@ -29,8 +29,9 @@
                         </ul>
                     {% else %}
                         {% for valueName, valueKey in facet.values %}
-                            <label {{ valueKey == 0 ? 'class="notAvailable"' : '' }}>
-                                <input type="checkbox" name="{{ name }}" value="{{ valueName }}" data-on="{{ url( url, { (name) : { value : [valueName], facet_active: [true]} }) }}" data-off="{{ url( url, { (name) : { value : [valueName], active : [false]} }) }}" {{ valueName in activeValues ? 'checked' : '' }} /> {{ ('catalog.filters.' ~ name ~ '.' ~ valueName)|trans|raw }} ({{ valueKey }})
+                            <label class="{{ valueKey == 0 ? 'notAvailable ' : '' }} {{ valueName in activeValues ? 'active' : '' }}">
+                                <input type="checkbox" name="{{ name }}" value="{{ valueName }}" data-on="{{ url( url, { (name) : { value : [valueName], facet_active: [true]} }) }}" data-off="{{ url( url, { (name) : { value : [valueName], active : [false]} }) }}" {{ valueName in activeValues ? 'checked' : '' }} />
+                                    <span class="content">{{ ('catalog.filters.' ~ name ~ '.' ~ valueName)|trans|raw }} ({{ valueKey }})</span>
                             </label>
                         {% endfor %}
                     {% endif %}
