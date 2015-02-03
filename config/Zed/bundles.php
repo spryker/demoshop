@@ -15,7 +15,9 @@ $schema = [ProjectA\Shared\Library\Bundle\BundleConfig::ACTIVATE_SCHEMA];
 
 return [
     // Project bundles
-    Config::get(SystemConfig::PROJECT_NAMESPACE) => [],
+    Config::get(SystemConfig::PROJECT_NAMESPACE) => [
+
+    ],
     // Core bundles
     ProjectA\Shared\Library\Bundle\BundleConfig::NAMESPACE_CORE => [
         'Acl' => $schemaAndNavigation,
@@ -25,6 +27,7 @@ return [
         'Category' => $schema,
         'CategoryTree' => $schemaAndNavigation,
         'Customer' => $schemaAndNavigation,
+        'Discount' => $schema,
         'Document' => $schema,
         'Glossary' => $allElements,
         'Invoice' => $schema,
