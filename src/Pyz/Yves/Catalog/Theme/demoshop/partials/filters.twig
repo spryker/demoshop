@@ -41,12 +41,12 @@
                     {% set maxVal = (name == 'price' ? (facet.rangeValues.max / 100)|number_format(0, '', '') : facet.rangeValues.max|number_format(0, '', '')) %}
                     {% set activeValues = (activeValues == [] ? minVal ~ '-' ~ maxVal : activeValues) %}
                     <div {{ minVal == maxVal ? 'class="notAvailable"' : '' }}>
-                        <legend class="min">{{ ('catalog.filters.' ~ name ~ '.min')|trans }}</legend>
-                        <legend class="max">{{ ('catalog.filters.' ~ name ~ '.max')|trans }}</legend>
+                        <legend class="min">{{ ('catalog.filters.' ~ name ~ '.min')|trans }} (&euro;)</legend>
+                        <legend class="max">{{ ('catalog.filters.' ~ name ~ '.max')|trans }} (&euro;)</legend>
                         <input class="rangeSlider min" type="range" value="{{ activeValues|split('-')[0] }}" min="{{ minVal }}" max="{{ maxVal }}" data-connector=".connector-{{ name }}.min" />
                         <input class="rangeSlider max" type="range" value="{{ activeValues|split('-')[1] }}" min="{{ minVal }}" max="{{ maxVal }}" data-connector=".connector-{{ name }}.max" />
-                        <input class="rangeSliderConnector connector-{{ name }} min" type="number" value="{{ minVal }}" /> &euro;
-                        <input class="rangeSliderConnector connector-{{ name }} max" type="number" value="{{ maxVal }}" /> &euro;
+                        <input class="rangeSliderConnector connector-{{ name }} min" type="number" value="{{ minVal }}" />
+                        <input class="rangeSliderConnector connector-{{ name }} max" type="number" value="{{ maxVal }}" />
                         <input type="hidden" class="resultUrl" value="{{ url( url, { (name) : { value : ['XX-YY'], facet_active: [true, false]} }) }}" />
                     </div>
                 {% endif %}

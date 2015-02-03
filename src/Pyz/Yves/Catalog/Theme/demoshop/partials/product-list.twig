@@ -1,9 +1,12 @@
 
 <ul class="products col col75">
     {% for product in products %}
-        <li>
+        <li class="product item">
             <a href="{{ product.url }}">
-                <img src="{{ product.image_url }}" alt="" />
+                <div class="product-data photo">
+                    <span></span>
+                    <img src="{{ product.image_url }}" alt="{{ product.name }}" class="product-photo" />
+                </div>
                 <h3>{{ product.name }}</h3>
                 <h4><b></b>{{ product.material }}</h4>
                 {#<h4>by {{ product.material }}</h4>#}
