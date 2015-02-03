@@ -1,7 +1,7 @@
 app.catalog = {
     init : function() {
       this.rangeSlider.init();
-      this.zoom.init();
+      //this.zoom.init();
     },
     zoom : {
         vars : {

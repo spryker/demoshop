@@ -25,16 +25,16 @@
 
         <div class="pictures col col50">
             <div class="current">
-                <div class="prev">
-                    <hardcoded block>
-                        <span class="glyphicon glyphicon-chevron-left"></span>
-                    </hardcoded>
-                </div>
-                <div class="next">
-                    <hardcoded block>
-                        <span class="glyphicon glyphicon-chevron-right"></span>
-                    </hardcoded>
-                </div>
+                {#<div class="prev">#}
+                    {#<hardcoded block>#}
+                        {#<span class="glyphicon glyphicon-chevron-left"></span>#}
+                    {#</hardcoded>#}
+                {#</div>#}
+                {#<div class="next">#}
+                    {#<hardcoded block>#}
+                        {#<span class="glyphicon glyphicon-chevron-right"></span>#}
+                    {#</hardcoded>#}
+                {#</div>#}
                 {#{% if product.image_url %}#}
                     <img src="{{ product.image_url }}" alt="" />
                 {#{% else %}#}
