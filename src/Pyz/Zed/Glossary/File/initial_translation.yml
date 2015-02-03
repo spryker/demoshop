@@ -423,6 +423,9 @@ keys:
     explanations:
       de_DE: 'Sort by price'
       en_US: 'Sort by price'
+  catalog.fulltext.result:
+    explanations:
+      de_DE: 'results for'
   customer.email:
     explanations:
       de_DE: 'Your Email'

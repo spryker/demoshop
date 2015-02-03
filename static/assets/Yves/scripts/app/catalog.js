@@ -2,6 +2,8 @@ app.catalog = {
     init : function() {
       this.rangeSlider.init();
       //this.zoom.init();
+      this.filters.init();
+      this.options.init();
     },
     zoom : {
         vars : {
@@ -31,30 +33,6 @@ app.catalog = {
 
             $(vars.currentClass).mouseleave(function() {
                 vars.$zoom.remove();
-            });
-
-            $('.filters input[type=checkbox][data-on][data-off]').change(function() {
-                var url = $(this).is(':checked') ? $(this).data('on') : $(this).data('off');
-                document.location.href = url;
-            });
-            $('.filters option[data-on][data-off]').parent().change(function() {
-                document.location.href = $(this).children(':selected').eq(0).data('on');
-            });
-            $('.filters .toggleList li[data-on][data-off]').click(function() {
-                $(this).toggleClass('selected');
-                if ($(this).hasClass('selected')) {
-                    document.location.href = $(this).data('on');
-                } else {
-                    document.location.href = $(this).data('off');
-                }
-            });
-
-            $('.sortBy, .ipp').change(function() {
-                document.location.href = $(this).val();
-            });
-
-            $('.pagination li').click(function() {
-                document.location.href = $(this).data('page');
             });
         }
     },
@@ -214,6 +192,36 @@ app.catalog = {
         },
         $getMaxConnector : function($container) {
             return $container.siblings($container.prev().data('connector'))
+        }
+    },
+    filters : {
+        init : function() {
+            $('.filters input[type=checkbox][data-on][data-off]').change(function() {
+                var url = $(this).is(':checked') ? $(this).data('on') : $(this).data('off');
+                document.location.href = url;
+            });
+            $('.filters option[data-on][data-off]').parent().change(function() {
+                document.location.href = $(this).children(':selected').eq(0).data('on');
+            });
+            $('.filters .toggleList li[data-on][data-off]').click(function() {
+                $(this).toggleClass('selected');
+                if ($(this).hasClass('selected')) {
+                    document.location.href = $(this).data('on');
+                } else {
+                    document.location.href = $(this).data('off');
+                }
+            });
+        }
+    },
+    options : {
+        init : function() {
+            $('.sortBy, .ipp').change(function() {
+                document.location.href = $(this).val();
+            });
+
+            $('.pagination li').click(function() {
+                document.location.href = $(this).data('page');
+            });
         }
     }
 };

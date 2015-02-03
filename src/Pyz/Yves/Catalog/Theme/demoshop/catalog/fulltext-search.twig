@@ -7,14 +7,21 @@
 
     <section class="consumeHeight" id="catalog">
 
-        <div></div>
-        <div id="options" class="col col50">
-            {% include "@catalog/partials/options.twig" with { 'url': '/search'} %}
+        <div class="col col25">
+            {{ numFound ~ ' ' ~ 'catalog.fulltext.result'|trans ~ ' ' }}
+            <b>"{{ searchString }}"</b>'
+        </div>
+        <div>
         </div>
 
-        <div class="sidebar col col25">
-            {% include "@catalog/partials/filters.twig" with {'facets': facets, 'url': '/search'} only %}
-        </div>
+        {% if numFound > 0 %}
+            <div id="options" class="col col75">
+                {% include "@catalog/partials/options.twig" with { 'url': '/search'} %}
+            </div>
+            <div class="sidebar col col25">
+                {% include "@catalog/partials/filters.twig" with {'facets': facets, 'url': '/search'} only %}
+            </div>
+        {% endif %}
 
         {% include "@catalog/partials/product-list.twig" with {'products': products} only %}
 
