@@ -1,10 +1,12 @@
-@import "compass";
-
 #catalog { padding:20px; }
 
 #catalog #breadcrumbs { display:block; line-height:26px; }
 
-#options { padding-left: 15px; }
+#catalog #subcategories { display:block; line-height:18px; margin-top: 5px; }
+#subcategories a { color:inherit; text-decoration:none; font-size: 13px;}
+#subcategories a:hover { text-decoration:underline; }
+
+#options { padding-left: 15px; margin: 20px 0;}
 #options:after { display:block; content:''; clear:both; }
 #options .sortBy { float:left; }
 #options .ipp { float:left; margin-left:10px; }
@@ -60,6 +62,7 @@
 #catalog .products li .oldPrice { float:left; color:#aaa; text-decoration:line-through; }
 #catalog .products li .price { float:right; font-weight:bold; }
 #catalog .products li .oldPrice + .price { color:#e10000; }
+#catalog .missingProducts { margin: 25px 25px; color: #a1a1a1; font-style: italic; }
 
 #catalog {
   .products {
