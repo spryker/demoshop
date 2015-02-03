@@ -33,6 +33,7 @@ use \ProjectA\Deprecated\ProductImage\Business\Dependency\ProductImageFacadeTrai
 use \ProjectA\Deprecated\Invoice\Business\Dependency\InvoiceFacadeTrait;
 use \ProjectA\Deprecated\Document\Business\Dependency\DocumentFacadeTrait;
 use \ProjectA\Deprecated\Payone\Business\Dependency\PayoneFacadeTrait;
+use ProjectA\Zed\Glossary2\Business\Glossary2Facade;
 use ProjectA\Zed\Kernel\Business\FacadeLocator;
 use ProjectA\Zed\ProductSearch\Business\ProductSearchFacade;
 use ProjectA\Zed\YvesExport\Business\YvesExportFacade;
@@ -98,6 +99,8 @@ class Installer extends \ProjectA_Zed_Installer_Business_Model_Installer impleme
         $yvesExportFacade = $this->facadeLocator->locate('YvesExport');
         /** @var ProductSearchFacade $productSearchFacade */
         $productSearchFacade = $this->facadeLocator->locate('ProductSearch');
+        /** @var Glossary2Facade $glossaryFacade */
+        $glossaryFacade = $this->facadeLocator->locate('Glossary2');
 
         return [
             $this->facadeAcl->createInternalInstall(),
@@ -109,7 +112,8 @@ class Installer extends \ProjectA_Zed_Installer_Business_Model_Installer impleme
             $this->facadeMisc->createInternalInstall(),
             $this->facadePrice->createInternalInstall(),
             $this->facadeStock->createInternalInstall(),
-            $this->facadeGlossary->createInternalInstall(),
+            //$this->facadeGlossary->createInternalInstall(),
+            $glossaryFacade->getGlossaryInstaller(),
             $this->facadeSales->createInternalInstall(),
             $this->facadeProductImage->createInternalInstall(),
             $this->facadeDocument->createInternalInstall(),
