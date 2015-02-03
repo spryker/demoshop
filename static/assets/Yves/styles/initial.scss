@@ -93,7 +93,7 @@ h3 { page-break-after:avoid; }
 
 /* GLYPHICONS */
 
-@font-face { font-family:'Glyphicons Halflings'; src:url('/images/glyphicons-halflings-regular.eot'); src:url('/images/glyphicons-halflings-regular.eot?#iefix') format('embedded-opentype'), url('/images/glyphicons-halflings-regular.woff') format('woff'), url('/images/glyphicons-halflings-regular.ttf') format('truetype'), url('/images/glyphicons-halflings-regular.svg#glyphicons-halflingsregular') format('svg'); }
+@font-face { font-family:'Glyphicons Halflings'; src:url('/fonts/glyphicons-halflings-regular.eot'); src:url('/fonts/glyphicons-halflings-regular.eot?#iefix') format('embedded-opentype'), url('/fonts/glyphicons-halflings-regular.woff') format('woff'), url('/fonts/glyphicons-halflings-regular.ttf') format('truetype'), url('/fonts/glyphicons-halflings-regular.svg#glyphicons-halflingsregular') format('svg'); }
 .glyphicon { position:relative; top:1px; display:inline-block; font-family:'Glyphicons Halflings'; -webkit-font-smoothing:antialiased; font-style:normal; font-weight:normal; line-height:1; }
 .glyphicon-asterisk:before { content:"\2a"; }
 .glyphicon-plus:before { content:"\2b"; }

@@ -1,3 +1,5 @@
+@import "compass";
+
 #catalog { padding:20px; }
 
 #catalog #breadcrumbs { display:block; line-height:26px; }
@@ -9,7 +11,7 @@
 
 #catalog .sidebar { clear:left; margin:20px 0; padding:10px; border:1px solid #ddd; background:#fcfcfc; border-radius:3px; overflow-x:hidden; }
 #catalog .filters { list-style:none; margin:0; padding:0; }
-#catalog .filters li { margin-bottom:20px; }
+#catalog .filters li { margin-bottom:20px; display: inline-block; }
 #catalog .filters li:last-child { margin-bottom:0; }
 #catalog .filters legend { font-size:80%; margin-bottom:6px; }
 #catalog .filters legend.min { float:left; }
@@ -51,3 +53,99 @@
 #catalog .products li .oldPrice { float:left; color:#aaa; text-decoration:line-through; }
 #catalog .products li .price { float:right; font-weight:bold; }
 #catalog .products li .oldPrice + .price { color:#e10000; }
+
+
+#colorpicker {
+  display: inline;
+  float: left;
+  width: 210px;
+  padding-bottom: 10px;
+  margin-right: 0;
+  input {
+    visibility: hidden;
+    width: 0;
+    height: 0;
+  }
+  label {
+    display: inline-block !important;
+    margin-top: 5px;
+  }
+  .colorbox {
+    //width: 30px;
+    height: 30px;
+    border: 1px solid #ccc;
+    width: 30px;
+    float: left;
+
+    &:hover {
+      @include transform(scale(1.1));
+    }
+
+    &.brown {
+      @include background-image(linear-gradient(to right, #8f6a4e, #846044));
+      color: #ffffff;
+    }
+
+    &.white {
+      background-color: #fffffe;
+      color: #000000;
+    }
+
+    &.black {
+      @include background-image(linear-gradient(to right, #464646, #111111));
+      color: #FFFFFF;
+    }
+
+    &.grey {
+      @include background-image(linear-gradient(to right, #bcbcbc, #a9a9a9));
+      color: #000000;
+    }
+
+    &.green {
+      @include background-image(linear-gradient(to right, #759d11, #009300));
+      color: #FFFFFF;
+    }
+
+    &.lightblue {
+      @include background-image(linear-gradient(to right, #34d7ff, #66E0FF));
+      color: #000000;
+    }
+
+    &.skin {
+      @include background-image(linear-gradient(to right, #ffcc99, #ffe6cc));
+      color: #000000;
+    }
+
+    &.blue {
+      @include background-image(linear-gradient(to right, #0b7bcd, #0068b4));
+      color: #FFFFFF;
+    }
+
+    &.red {
+      @include background-image(linear-gradient(to right, #ed2700, #cb2100));
+      color: #ffffff;
+    }
+
+    &.silver {
+      @include background-image(linear-gradient(to right, #cacaca, #bababa));
+      color: #000000;
+    }
+
+    &.gold {
+      @include background-image(linear-gradient(to right, #ddb552, #c69e3c));
+      color: #000000;
+    }
+
+    &.pink {
+      @include background-image(linear-gradient(to right, #ffd0d9, #f4b2be));
+      color: #000000;
+    }
+
+    .content {
+      margin-top: 7px;
+      display: inline-block;
+      margin-left: 8px;
+      color: inherit;
+    }
+  }
+}

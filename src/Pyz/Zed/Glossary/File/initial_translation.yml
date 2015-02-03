@@ -1085,52 +1085,52 @@ keys:
       en_US: Main color
   catalog.filters.main_color.brown:
     explanations:
-      de_DE: '<div style="background-color: #663300; width: 20px; height: 20px;" title="Brown"></div>'
-      en_US: '<div style="background-color: #663300; width: 20px; height: 20px;" title="Brown"></div>'
+      de_DE: '<div class="colorbox brown" title="Brown">'
+      en_US: '<div class="colorbox brown" title="Brown">'
   catalog.filters.main_color.white:
     explanations:
-      de_DE: '<div style="background-color: #ffffff; width: 20px; height: 20px;" title="White"></div>'
-      en_US: '<div style="background-color: #ffffff; width: 20px; height: 20px;" title="White"></div>'
+      de_DE: '<div class="colorbox white" title="White">'
+      en_US: '<div class="colorbox white" title="White">'
   catalog.filters.main_color.black:
     explanations:
-      de_DE: '<div style="background-color: #000000; width: 20px; height: 20px;" title="Black"></div>'
-      en_US: '<div style="background-color: #000000; width: 20px; height: 20px;" title="Black"></div>'
+      de_DE: '<div class="colorbox black" title="Black">'
+      en_US: '<div class="colorbox black" title="Black">'
   catalog.filters.main_color.gray:
     explanations:
-      de_DE: '<div style="background-color: #808080; width: 20px; height: 20px;" title="Grey"></div>'
-      en_US: '<div style="background-color: #808080; width: 20px; height: 20px;" title="Grey"></div>'
+      de_DE: '<div class="colorbox grey" title="Grey">'
+      en_US: '<div class="colorbox grey" title="Grey">'
   catalog.filters.main_color.green:
     explanations:
-      de_DE: '<div style="background-color: #009300; width: 20px; height: 20px;" title="Green"></div>'
-      en_US: '<div style="background-color: #009300; width: 20px; height: 20px;" title="Green"></div>'
+      de_DE: '<div class="colorbox green" title="Green">'
+      en_US: '<div class="colorbox green" title="Green">'
   catalog.filters.main_color.light_blue:
     explanations:
-      de_DE: '<div style="background-color: #66E0FF; width: 20px; height: 20px;" title="Light blue"></div>'
-      en_US: '<div style="background-color: #66E0FF; width: 20px; height: 20px;" title="Light blue"></div>'
+      de_DE: '<div class="colorbox blue" title="Light blue">'
+      en_US: '<div class="colorbox blue" title="Light blue">'
   catalog.filters.main_color.skin:
     explanations:
-      de_DE: '<div style="background-color: #FFCC99; width: 20px; height: 20px;" title="Skin"></div>'
-      en_US: '<div style="background-color: #FFCC99; width: 20px; height: 20px;" title="Skin"></div>'
+      de_DE: '<div class="colorbox skin" title="Skin">'
+      en_US: '<div class="colorbox skin" title="Skin">'
   catalog.filters.main_color.blue:
     explanations:
-          de_DE: '<div style="background-color: #0000FF; width: 20px; height: 20px;" title="Blue"></div>'
-          en_US: '<div style="background-color: #0000FF; width: 20px; height: 20px;" title="Blue"></div>'
+          de_DE: '<div class="colorbox blue" title="Blue">'
+          en_US: '<div class="colorbox blue" title="Blue">'
   catalog.filters.main_color.red:
     explanations:
-          de_DE: '<div style="background-color: #CF0000; width: 20px; height: 20px;" title="Red"></div>'
-          en_US: '<div style="background-color: #CF0000; width: 20px; height: 20px;" title="Red"></div>'
+          de_DE: '<div class="colorbox red" title="Red">'
+          en_US: '<div class="colorbox red" title="Red">'
   catalog.filters.main_color.silver:
     explanations:
-          de_DE: '<div style="background-color: #C0C0C0; width: 20px; height: 20px;" title="Silver"></div>'
-          en_US: '<div style="background-color: #C0C0C0; width: 20px; height: 20px;" title="Silver"></div>'
+          de_DE: '<div class="colorbox silver" title="Silver">'
+          en_US: '<div class="colorbox silver" title="Silver">'
   catalog.filters.main_color.gold:
     explanations:
-          de_DE: '<div style="background-color: #EDDA74; width: 20px; height: 20px;" title="Gold"></div>'
-          en_US: '<div style="background-color: #EDDA74; width: 20px; height: 20px;" title="Gold"></div>'
+          de_DE: '<div class="colorbox gold" title="Gold">'
+          en_US: '<div class="colorbox gold" title="Gold">'
   catalog.filters.main_color.pink:
     explanations:
-          de_DE: '<div style="background-color: #FAAFBE; width: 20px; height: 20px;" title="Pink"></div>'
-          en_US: '<div style="background-color: #FAAFBE; width: 20px; height: 20px;" title="Pink"></div>'
+          de_DE: '<div class="colorbox pink" title="Pink">'
+          en_US: '<div class="colorbox pink" title="Pink">'
   catalog.filters.material.aluminium:
     explanations:
       de_DE: 'Aluminium'

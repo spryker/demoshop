@@ -9,7 +9,16 @@
                 {% if config.type == 'category' %}
                     {# todo #}
                 {% endif %}
-                {% if config.type == 'enumeration' %}
+                {% if name == 'main_color' %}
+                    <div id="colorpicker">
+                        {% for valueName, valueKey in facet.values %}
+                            <label {{ valueKey == 0 ? 'class="notAvailable"' : '' }}>
+                                <input type="checkbox" name="{{ name }}" value="{{ valueName }}" data-on="{{ url( url, { (name) : { value : [valueName], facet_active: [true]} }) }}" data-off="{{ url( url, { (name) : { value : [valueName], active : [false]} }) }}" {{ valueName in activeValues ? 'checked' : '' }} />
+                                {{ ('catalog.filters.' ~ name ~ '.' ~ valueName)|trans|raw }} <span class="content">{{ valueKey }}</span></div>
+                            </label>
+                        {% endfor %}
+                    </div>
+                {% elseif config.type == 'enumeration' %}
                     {% if name == 'brand' %}
                         <input type="text" placeholder="{{ ('catalog.filters.' ~ name ~ '.hint.find')|trans }}" class="search fullWidth">
                         <ul class="toggleList" data-name="{{ name }}">

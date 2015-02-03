@@ -26,7 +26,7 @@ module.exports = function( grunt ){
       scripts : '<%= dirs.dist %>/scripts/',
       styles  : '<%= dirs.dist %>/styles/',
       images  : '<%= dirs.dist %>/images/',
-      fonts   : '<%= dirs.dist %>/fonts/',
+      fonts   : '<%= dirs.dist %>/fonts/'
     },
 
     copy : {
