@@ -98,7 +98,7 @@
 
     &.grey {
       @include background-image(linear-gradient(to right, #bcbcbc, #a9a9a9));
-      color: #000000;
+      color: #FFFFFF;
     }
 
     &.green {
@@ -108,12 +108,12 @@
 
     &.lightblue {
       @include background-image(linear-gradient(to right, #34d7ff, #66E0FF));
-      color: #000000;
+      color: #FFFFFF;
     }
 
     &.skin {
       @include background-image(linear-gradient(to right, #ffcc99, #ffe6cc));
-      color: #000000;
+      color: #FFFFFF;
     }
 
     &.blue {
@@ -128,17 +128,17 @@
 
     &.silver {
       @include background-image(linear-gradient(to right, #cacaca, #bababa));
-      color: #000000;
+      color: #FFFFFF;
     }
 
     &.gold {
       @include background-image(linear-gradient(to right, #ddb552, #c69e3c));
-      color: #000000;
+      color: #FFFFFF;
     }
 
     &.pink {
       @include background-image(linear-gradient(to right, #ffd0d9, #f4b2be));
-      color: #000000;
+      color: #FFFFFF;
     }
 
     .content {
@@ -146,6 +146,7 @@
       display: inline-block;
       margin-left: 8px;
       color: inherit;
+      visibility: hidden;
     }
   }
 }

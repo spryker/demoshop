@@ -1105,8 +1105,8 @@ keys:
       en_US: '<div class="colorbox green" title="Green">'
   catalog.filters.main_color.light_blue:
     explanations:
-      de_DE: '<div class="colorbox blue" title="Light blue">'
-      en_US: '<div class="colorbox blue" title="Light blue">'
+      de_DE: '<div class="colorbox lightblue" title="Light blue">'
+      en_US: '<div class="colorbox lightblue" title="Light blue">'
   catalog.filters.main_color.skin:
     explanations:
       de_DE: '<div class="colorbox skin" title="Skin">'
