@@ -407,14 +407,26 @@ keys:
     explanations:
       de_DE: '60 per page'
       en_US: '60 per page'
+  catalog.ipp.50:
+    explanations:
+      de_DE: '50 per page'
+      en_US: '50 per page'
   catalog.ipp.40:
     explanations:
       de_DE: '40 per page'
       en_US: '40 per page'
+  catalog.ipp.30:
+    explanations:
+      de_DE: '30 per page'
+      en_US: '30 per page'
   catalog.ipp.20:
     explanations:
       de_DE: '20 per page'
       en_US: '20 per page'
+  catalog.ipp.10:
+    explanations:
+      de_DE: '10 per page'
+      en_US: '10 per page'
   catalog.products.found:
     explanations:
       de_DE: 'products found'

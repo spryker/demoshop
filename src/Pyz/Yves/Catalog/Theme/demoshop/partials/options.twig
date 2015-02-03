@@ -6,11 +6,11 @@
     {% endfor %}
 </select>
 <select class="ipp">
-    <option value="{{ url(url, { ipp : { value : [null] } }) }}" {{ currentItemsPerPage == 20 ? 'selected' : '' }}>{{ 'catalog.ipp.20'|trans }}</option>
+    <option value="{{ url(url, { ipp : { value : [null] } }) }}" {{ currentItemsPerPage == 10 ? 'selected' : '' }}>{{ 'catalog.ipp.10'|trans }}</option>
+    <option value="{{ url(url, { ipp : { value : [20] } }) }}" {{ currentItemsPerPage == 20 ? 'selected' : '' }}>{{ 'catalog.ipp.20'|trans }}</option>
+    <option value="{{ url(url, { ipp : { value : [30] } }) }}" {{ currentItemsPerPage == 30 ? 'selected' : '' }}>{{ 'catalog.ipp.30'|trans }}</option>
     <option value="{{ url(url, { ipp : { value : [40] } }) }}" {{ currentItemsPerPage == 40 ? 'selected' : '' }}>{{ 'catalog.ipp.40'|trans }}</option>
-    <option value="{{ url(url, { ipp : { value : [60] } }) }}" {{ currentItemsPerPage == 60 ? 'selected' : '' }}>{{ 'catalog.ipp.60'|trans }}</option>
-    <option value="{{ url(url, { ipp : { value : [80] } }) }}" {{ currentItemsPerPage == 80 ? 'selected' : '' }}>{{ 'catalog.ipp.80'|trans }}</option>
-    <option value="{{ url(url, { ipp : { value : [100] } }) }}" {{ currentItemsPerPage == 100 ? 'selected' : '' }}>{{ 'catalog.ipp.100'|trans }}</option>
+    <option value="{{ url(url, { ipp : { value : [50] } }) }}" {{ currentItemsPerPage == 50 ? 'selected' : '' }}>{{ 'catalog.ipp.50'|trans }}</option>
 </select>
 
 {% if maxPage > 1 %}
