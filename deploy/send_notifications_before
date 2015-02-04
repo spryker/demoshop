@@ -22,5 +22,9 @@ elif [ "$environment" == "development" ]; then
   curl -s -X POST --data-urlencode "M=(~) $deploy_user: Starting deployment of $scm_path to $environment ($revision, `hostname`)" "http://skypebot.project-a.com:10080/send.php?C=116&U=56&P=boss33mgj"
 fi
 
+if [ "$environemt" == "production" && -n $slack_domain && -n $slack_token && -n $slack_channel ]; then
+    curl -s -X POST --data-urlencode "Starting deployment of $scm_path to $environment ($revision: $deploy_user, `hostname`)" "https://$slack_domain.slack.com/services/hooks/slackbot?token=$slack_token&$slack_channel"
+fi
+
 rm -f $outfile
 exit 0
