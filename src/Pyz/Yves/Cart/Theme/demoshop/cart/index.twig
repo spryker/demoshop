@@ -80,21 +80,6 @@
                     <td class="label">{{ 'cart.price.shipping'|trans }}</td>
                     <td>{{ 0|price }}{# totals.orderExpensesTotal|price? #}</td>
                 </tr>
-                {% for code in couponCodes %}
-                    <tr class="voucher">
-                        <td class="label">{{ 'cart.voucher.code' }}: {{ code }}</td>
-                        <td>-{{ totals.discount.totalAmount|price }}</td>
-                    </tr>
-                {% else %}
-                    <tr class="voucher">
-                        <td class="label">{{ 'cart.coupon.add'|trans }}</td>
-                        <td>
-                            <form action="{{ url('cart/coupon/add') }}">
-                                <input type="text" name="code" value="" />
-                            </form>
-                        </td>
-                    </tr>
-                {% endfor %}
                 {% for taxRate in totals.tax.taxRates %}
                     <tr class="tax">
                         <td>{{ taxRate.percentage }}{{ 'cart.percentage.vat'|trans }}</td>
