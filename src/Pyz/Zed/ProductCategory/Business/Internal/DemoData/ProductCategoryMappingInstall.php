@@ -36,7 +36,7 @@ class ProductCategoryMappingInstall implements DemoDataInstallInterface
             $productId = $this->getProductId($demoProductCategory['sku']);
             $categoryNodeId = $this->getCategoryNodeId($demoProductCategory['category'], $locale);
 
-            if ($productId && $categoryNodeId) {
+            if ($productId && $categoryNodeId && !($this->relationExists($productId, $categoryNodeId))) {
                 $productCategory = new \ProjectA_Zed_ProductCategory_Persistence_Propel_PacProductCategory();
                 $productCategory->setFkProduct($productId);
                 $productCategory->setFkCategoryNode($categoryNodeId);
@@ -123,5 +123,19 @@ class ProductCategoryMappingInstall implements DemoDataInstallInterface
         }
 
         return null;
+    }
+
+    /**
+     * @param int $productId
+     * @param int $categoryNodeId
+     *
+     * @return bool
+     */
+    private function relationExists($productId, $categoryNodeId)
+    {
+        return \ProjectA_Zed_ProductCategory_Persistence_Propel_PacProductCategoryQuery::create()
+            ->filterByFkProduct($productId)
+            ->filterByFkCategoryNode($categoryNodeId)
+            ->exists();
     }
 }
