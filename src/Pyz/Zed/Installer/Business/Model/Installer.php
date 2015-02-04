@@ -34,7 +34,7 @@ use \ProjectA\Deprecated\Invoice\Business\Dependency\InvoiceFacadeTrait;
 use \ProjectA\Deprecated\Document\Business\Dependency\DocumentFacadeTrait;
 use \ProjectA\Deprecated\Payone\Business\Dependency\PayoneFacadeTrait;
 use ProjectA\Zed\Glossary2\Business\Glossary2Facade;
-use ProjectA\Zed\Kernel\Business\FacadeLocator;
+use ProjectA\Zed\Kernel\Locator;
 use ProjectA\Zed\ProductSearch\Business\ProductSearchFacade;
 use ProjectA\Zed\YvesExport\Business\YvesExportFacade;
 
@@ -78,16 +78,17 @@ class Installer extends \ProjectA_Zed_Installer_Business_Model_Installer impleme
     use ProductFacadeTrait;
 
     /**
-     * @var FacadeLocator
+     * @var \Generated\Zed\Ide\AutoCompletion
      */
-    protected $facadeLocator;
+    protected $locator;
 
     /**
      * constructor
      */
     public function __construct()
     {
-        $this->facadeLocator = new FacadeLocator();
+        // TODO this must be injected
+        $this->locator = new Locator();
     }
 
     /**
@@ -96,12 +97,11 @@ class Installer extends \ProjectA_Zed_Installer_Business_Model_Installer impleme
     protected function getInstaller()
     {
         /** @var YvesExportFacade $yvesExportFacade */
-        $yvesExportFacade = $this->facadeLocator->locate('YvesExport');
+        $yvesExportFacade = $this->locator->yvesExport()->facade();
         /** @var ProductSearchFacade $productSearchFacade */
-        $productSearchFacade = $this->facadeLocator->locate('ProductSearch');
+        $productSearchFacade = $this->locator->productSearch->facade();
         /** @var Glossary2Facade $glossaryFacade */
-        $glossaryFacade = $this->facadeLocator->locate('Glossary2');
-
+        $glossaryFacade = $this->locator->glossary2()->facade();
         return [
             $this->facadeAcl->createInternalInstall(),
             // TODO: installer broken
