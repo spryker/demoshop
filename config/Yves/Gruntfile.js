@@ -42,7 +42,7 @@ module.exports = function( grunt ){
       images : {
         expand : true,
         cwd    : '<%= dirs.src %>/images',
-        src    : '**/*.{jpg,jpeg,svg,png,gif,webp}',
+        src    : '**/*.{jpg,jpeg,svg,png,gif,webp,ico}',
         dest   : '<%= dirs.dist %>/images'
       },
 
