@@ -54,5 +54,5 @@ config/accumulated-config.json
 /profiler
 
 npm-debug.log
-tests/_log
+tests/_log/
 

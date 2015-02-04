@@ -10,6 +10,7 @@ use ProjectA\Yves\Kernel\Communication\BundleControllerAction;
 use ProjectA\Yves\Kernel\Communication\Controller\RouteNameResolver;
 use ProjectA\Yves\Kernel\Communication\ControllerLocator;
 
+use ProjectA\Yves\Kernel\Locator;
 use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\Routing\Exception\ResourceNotFoundException;
 use Symfony\Component\Routing\Exception\RouteNotFoundException;
@@ -45,6 +46,7 @@ class CatalogDetailRouter extends AbstractRouter
 
             $service = (new ControllerServiceBuilder())->createServiceForController(
                 $this->app,
+                new Locator(),
                 $bundleControllerAction,
                 $controllerResolver,
                 $routeResolver
