@@ -3,6 +3,7 @@ var app = {
     init : function() {
         this.slider.init();
         this.viewport.init();
+        this.initAlerts();
         for (var i in this.additionals) {
             if (this[this.additionals[i]]) {
                 this[this.additionals[i]].init();
@@ -16,6 +17,12 @@ var app = {
         });
         this.tooltip.init();
         this.search.init();
+    },
+    initAlerts: function() {
+        $('*[data-dismiss="alert"]').on('click', function(e) {
+            var parent = $(e.target).parent();
+            parent.slideUp("normal", function() { $(this).remove(); } );
+        });
     },
     additionals : [],
     viewport : {
