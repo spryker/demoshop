@@ -34,7 +34,7 @@
                 {% if products|length > 0 %}
                     {% include "@catalog/partials/product-list.twig" with {'products': products} only %}
                 {% else %}
-                    <div class="missingProducts col col50">
+                    <div class="missingProducts">
                         {{ '0 ' ~ 'catalog.products.found'|trans }}
                     </div>
                 {% endif %}

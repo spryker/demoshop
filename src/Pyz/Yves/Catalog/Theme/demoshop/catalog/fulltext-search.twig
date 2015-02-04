@@ -6,24 +6,31 @@
     <script src="/scripts/app/catalog.js"></script>
 
     <section class="consumeHeight" id="catalog">
-
-        <div class="col col25">
-            {{ numFound ~ ' ' ~ 'catalog.fulltext.result'|trans ~ ' ' }}
-            <b>"{{ searchString }}"</b>'
+        <div  class="col col25">
+            <div class="sidebar">
+                <span class="result-count"><b>{{ numFound }}</b> {{'catalog.fulltext.result'|trans ~ ' ' }}
+                <b>"{{ searchString }}"</b></span>
+            </div>
+            {% if numFound > 0 %}
+                <div class="sidebar">
+                    {% include "@catalog/partials/filters.twig" with {'facets': facets, 'url': '/search'} only %}
+                </div>
+            {% endif %}
         </div>
-        <div>
-        </div>
 
-        {% if numFound > 0 %}
-            <div id="options" class="col col75">
+        <div class="col col75">
+            {% if numFound > 0 %}
+            <div id="options" class="results">
                 {% include "@catalog/partials/options.twig" with { 'url': '/search'} %}
             </div>
-            <div class="sidebar col col25">
-                {% include "@catalog/partials/filters.twig" with {'facets': facets, 'url': '/search'} only %}
+            <div>
+                {% include "@catalog/partials/product-list.twig" with {'products': products} only %}
             </div>
-        {% endif %}
-
-        {% include "@catalog/partials/product-list.twig" with {'products': products} only %}
-
+            {% else %}
+                <div class="missingProducts">
+                    {{ '0 ' ~ 'catalog.products.found'|trans }}
+                </div>
+            {% endif %}
+        </div>
     </section>
 {% endblock %}
