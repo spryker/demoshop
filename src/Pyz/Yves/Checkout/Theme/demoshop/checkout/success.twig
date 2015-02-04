@@ -1,16 +1,14 @@
-{% extends "@application/layout/reduced.twig" %}
+{% extends "@application/layout/full.twig" %}
 
 {% block content %}
     {% include "@application/partials/navbar.twig" %}
     <link rel="stylesheet" href="{{ asset('/styles/checkout.css') }}" />
     <section class="consumeHeight">
-        <div class="success">
+        <div class="success" style="min-height: 274px;">
             <div class="message badge">
                 <span class="bold">We received your Order and will now NOT process it!</span><br />
                 <span class="hint">Order number: {{ order.incrementId }}</span>
             </div>
         </div>
-        <br/>
-
     </section>
 {% endblock %}
