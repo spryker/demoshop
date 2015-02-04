@@ -55,6 +55,12 @@ class CheckoutController extends CoreCheckoutController
             ->setPageType(PageTypeInterface::PAGE_TYPE_SUCCESS)
             ->buildTracking();
         */
+        return [
+            'order' => [
+                'incrementId' => '123456789'
+            ]
+        ];
+
         return parent::successAction($request);
     }
 

@@ -1,10 +1,16 @@
 {% extends "@application/layout/reduced.twig" %}
 
 {% block content %}
-    <link rel="stylesheet" media="print" href="{{ asset('styles/print.css') }}" />
+    {% include "@application/partials/navbar.twig" %}
+    <link rel="stylesheet" href="{{ asset('/styles/checkout.css') }}" />
     <section class="consumeHeight">
-        We received your Order and will now NOT process it!
+        <div class="success">
+            <div class="message badge">
+                <span class="bold">We received your Order and will now NOT process it!</span><br />
+                <span class="hint">Order number: {{ order.incrementId }}</span>
+            </div>
+        </div>
         <br/>
-        Number : {{ order.incrementId }}
+
     </section>
 {% endblock %}

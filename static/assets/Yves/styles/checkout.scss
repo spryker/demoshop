@@ -1,3 +1,4 @@
+@import "compass";
 #checkout { padding:20px; border-top:1px solid #ddd; }
 #checkout .unnecessary { display:none; }
 #checkout .clearRows { clear:left; }
@@ -71,3 +72,49 @@
 #checkout #salesOrder_payment_method > input[value="payment.payone.prepayment"] + label { background:url(../images/payment/prepayment.png) right center no-repeat; }
 #checkout #salesOrder_payment_method > input[value="payment.payone.direct_debit"] + label { background:url(../images/payment/ec.png) right center no-repeat; }
 #checkout #salesOrder_payment_method > input[value="payment.payone.invoice"] + label { background:url(../images/payment/invoice.png) right center no-repeat; }
+
+.success {
+  margin: 0 auto;
+
+  .badge {
+    position: relative;
+  }
+
+  .badge:after {
+    background-image: url('/images/success.svg');
+    background-repeat: no-repeat;
+    background-size: 150px 150px;
+    display: inline-block;
+    content: "";
+    position: absolute;
+    top: -35px;
+    left: -80px;
+    width: 300px;
+    height: 300px;
+  }
+
+  .message {
+    margin-left: 80px;
+    background-color: #f1f1f1;
+    color: #000000;
+    padding: 16px;
+    padding-left: 80px;
+    width: 600px;
+    border: 1px solid #777;
+    position: relative;
+    top: 115px;
+
+    @include border-radius(8px);
+    @include single-box-shadow(0, 10px, 15px, 0, rgba(0, 0, 0, 0.3), null);
+
+    .bold {
+      font-size: 22px;
+      font-weight: bold;
+    }
+    .hint {
+      font-weight: normal;
+      font-style: italic;
+      font-size: 14px;
+    }
+  }
+}
