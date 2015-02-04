@@ -6,35 +6,39 @@
     <script src="/scripts/app/catalog.js"></script>
 
     <section class="consumeHeight" id="catalog">
-        <div  class="sidebar col col25">
-            <ul id="breadcrumbs">
-                <li><a href="/">Home</a></li>
-                {% for category_parent in category.parents %}
-                    <li><a href="{{ category_parent.url }}">{{ category_parent.name }}</a></li>
-                {% endfor %}
-                <li><b>{{ category.name ~ " (" ~ numFound ~ ")"}}</b></li>
-            </ul>
-            <ul id="subcategories">
-                {% for category_child in category.children %}
-                    <li><a href="{{ category_child.url }}">{{ category_child.name }}</a></li>
-                {% endfor %}
-            </ul>
-        </div>
-        <div id="options" class="col col75">
-            {% include "@catalog/partials/options.twig" with {'url': category.url} %}
-        </div>
-
-        <div class="sidebar col col25">
-            {% include "@catalog/partials/filters.twig" with {'facets': facets, 'url': category.url} only %}
-        </div>
-
-        {% if products|length > 0 %}
-            {% include "@catalog/partials/product-list.twig" with {'products': products} only %}
-        {% else %}
-            <div class="missingProducts col col50">
-                {{ '0 ' ~ 'catalog.products.found'|trans }}
+        <div  class="col col25">
+            <div class="sidebar">
+                <ul id="breadcrumbs">
+                    <li><a href="/">Home</a></li>
+                    {% for category_parent in category.parents %}
+                        <li><a href="{{ category_parent.url }}">{{ category_parent.name }}</a></li>
+                    {% endfor %}
+                    <li><b>{{ category.name ~ " (" ~ numFound ~ ")"}}</b></li>
+                </ul>
+                <ul id="subcategories">
+                    {% for category_child in category.children %}
+                        <li><a href="{{ category_child.url }}">{{ category_child.name }}</a></li>
+                    {% endfor %}
+                </ul>
             </div>
-        {% endif %}
+            <div class="sidebar">
+                {% include "@catalog/partials/filters.twig" with {'facets': facets, 'url': category.url} only %}
+            </div>
+        </div>
 
+        <div class="col col75">
+            <div id="options" class="results">
+                {% include "@catalog/partials/options.twig" with {'url': category.url} %}
+            </div>
+            <div>
+                {% if products|length > 0 %}
+                    {% include "@catalog/partials/product-list.twig" with {'products': products} only %}
+                {% else %}
+                    <div class="missingProducts col col50">
+                        {{ '0 ' ~ 'catalog.products.found'|trans }}
+                    </div>
+                {% endif %}
+            </div>
+        </div>
     </section>
 {% endblock %}
