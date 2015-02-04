@@ -35,8 +35,8 @@ fi
 #fi
 
 ### Slack notification
-if [ "$environemt" == "production" ] && [ -n $slack_domain ] && [ -n $slack_token ] && [ -n $slack_channel ]; then
-    curl -s -X POST --data-urlencode "Finished deployment of $scm_path to $environment ($revision: $deploy_user, `hostname`)" "https://$slack_domain.slack.com/services/hooks/slackbot?token=$slack_token&$slack_channel"
+if [ "$environemt" == "production" ] && [ -n $slack_domain ] && [ -n $slack_token ]; then
+    curl -X GET "https://slack.com/api/chat.postMessage?token=$slack_token&channel=$slack_channel&text=Finished deployment of $scm_path to $environment ($revision: $deploy_user, `hostname`)"
 fi
 
 rm -f $outfile
