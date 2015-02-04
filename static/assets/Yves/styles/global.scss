@@ -32,6 +32,7 @@ select[disabled] { background-color:#f1f1f1; }
 .col45 { width:45%; }
 .col50 { width:50%; }
 .col60 { width:60%; }
+.col66 { width:66%; }
 .col67 { width:67%; }
 .col70 { width:70%; }
 .col75 { width:75%; }
@@ -174,6 +175,8 @@ footer li { padding:10px 0 0; }
 footer ul.simple li { padding:0; }
 footer a { color:#777; text-decoration:none; }
 footer a:hover { text-decoration:underline; }
+footer .poweredBy { margin: 0 5px; position: relative; top: 60px; float: left; }
+footer .spryker-logo { width: 250px; height: 100px; float: left; background-image: url("/images/spryker.png") no-repeat; }
 
 .validationError { border-color:red !important; box-shadow:0 0 4px rgba(255, 0, 0, 0.3); }
 .tooltip { position:absolute; z-index:999; border:1px solid #fff; color:#fff; padding:4px 8px !important; max-width:300px; border-radius:3px; box-shadow:0 0 4px rgba(0, 0, 0, 0.5); background:#666; }
