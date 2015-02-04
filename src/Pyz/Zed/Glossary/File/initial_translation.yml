@@ -1310,3 +1310,60 @@ keys:
         Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.
         Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.
         At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.
+
+  catalog.product.attribute.width:
+    explanations:
+      de_DE: Width
+      en_US: Width
+  catalog.product.attribute.height:
+    explanations:
+      de_DE: Height
+      en_US: Height
+  catalog.product.attribute.depth:
+    explanations:
+      de_DE: Depth
+      en_US: Depth
+  catalog.product.attribute.main_color:
+    explanations:
+      de_DE: Main color
+      en_US: Main color
+  catalog.product.attribute.weight:
+    explanations:
+      de_DE: Weight
+      en_US: Weight
+  catalog.product.attribute.material:
+    explanations:
+      de_DE: Material
+      en_US: Material
+  catalog.product.attribute.age:
+    explanations:
+      de_DE: Suitable from
+      en_US: Suitable from
+  catalog.product.attribute.width.meassurement:
+    explanations:
+      de_DE: ' cm'
+      en_US: ' cm'
+  catalog.product.attribute.height.meassurement:
+    explanations:
+      de_DE: ' cm'
+      en_US: ' cm'
+  catalog.product.attribute.depth.meassurement:
+    explanations:
+      de_DE: ' cm'
+      en_US: ' cm'
+  catalog.product.attribute.weight.meassurement:
+      explanations:
+        de_DE: ' Kg'
+        en_US: ' Kg'
+  catalog.product.attribute.age.meassurement:
+    explanations:
+      de_DE: '+ years'
+      en_US: '+ years'
+  catalog.product.more_information:
+    explanations:
+      de_DE: 'Specification'
+      en_US: 'Specification'
+  catalog.product.attribute.other_colors:
+    explanations:
+      de_DE: 'Additional colors'
+      en_US: 'Additional colors'

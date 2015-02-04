@@ -4,11 +4,7 @@
 
 #catalog #breadcrumbs { display:block; line-height:26px; }
 
-#options { padding-left: 15px; }
-#options:after { display:block; content:''; clear:both; }
-#options .sortBy { float:left; }
-#options .ipp { float:left; margin-left:10px; }
-#options .pagination { float:right; }
+
 
 #catalog .sidebar { clear:left; margin:20px 0; padding:10px; border:1px solid #ddd; background:#fcfcfc; border-radius:3px; overflow-x:hidden; }
 #catalog .filters { list-style:none; margin:0; padding:0; }
@@ -49,11 +45,11 @@
 
 #catalog .products { margin:20px 0 10px; padding:0 0 0 10px; list-style:none; }
 #catalog .products:after { display:block; content:''; clear:left; }
-#catalog .products li { width:33.3333%; float:left; }
+#catalog .products li { width:30%; float:left; border: 1px solid #ddd; box-shadow:1px 1px 2px rgba(0, 0, 0, 0.05); }
 #catalog .products li:nth-child(3n+1) { clear:left; }
-#catalog .products li a { display:block; padding:10px; color:inherit; text-decoration:none; border:1px solid transparent; min-height:200px; border-radius:4px; }
+#catalog .products li a { display:block; padding:10px; color:inherit; text-decoration:none; min-height:200px; border-radius:4px; }
 #catalog .products li a:after { display:block; content:''; clear:both; }
-#catalog .products li a:hover { border-color:#ddd; box-shadow:1px 1px 2px rgba(0, 0, 0, 0.05); }
+#catalog .products li:hover { @include transform(scale(1.1)); }
 #catalog .products li h3 { margin:6px 0 3px; padding:0; font-size:18px; }
 #catalog .products li h4 { margin:3px 0 6px; padding:0; font-size:14px; color:#777; font-style:italic; }
 //#catalog .products li img { display:block; width:100%; }
@@ -64,6 +60,10 @@
 #catalog {
   .products {
     .product {
+      &.item {
+        margin-left: 3%;
+        margin-bottom: 3%;
+      }
       .product-data.photo * {
         vertical-align: middle;
       }
@@ -93,6 +93,11 @@
   }
 }
 
+#options { padding-left: 15px; }
+#options:after { display:block; content:''; clear:both; }
+#options .sortBy { float:left; }
+#options .ipp { float:left; margin-left:10px; }
+#options .pagination { float:right; }
 
 #colorpicker {
   display: inline;
