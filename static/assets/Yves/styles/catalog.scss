@@ -63,6 +63,7 @@
       &.item {
         margin-left: 3%;
         margin-bottom: 3%;
+        min-width: 200px;
       }
       .product-data.photo * {
         vertical-align: middle;
@@ -93,7 +94,7 @@
   }
 }
 
-#options { padding-left: 15px; }
+#options { padding-left: 3%; }
 #options:after { display:block; content:''; clear:both; }
 #options .sortBy { float:left; }
 #options .ipp { float:left; margin-left:10px; }
