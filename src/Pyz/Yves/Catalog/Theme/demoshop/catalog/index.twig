@@ -6,7 +6,7 @@
     <script src="/scripts/app/catalog.js"></script>
 
     <section class="consumeHeight" id="catalog">
-        <div  class="col col25">
+        <div  class="sidebar col col25">
             <ul id="breadcrumbs">
                 <li><a href="/">Home</a></li>
                 {% for category_parent in category.parents %}
@@ -14,12 +14,11 @@
                 {% endfor %}
                 <li><b>{{ category.name ~ " (" ~ numFound ~ ")"}}</b></li>
             </ul>
-            {% for category_child in category.children %}
-                <ul id="breadcrumbs">
-                    <li></li>
+            <ul id="subcategories">
+                {% for category_child in category.children %}
                     <li><a href="{{ category_child.url }}">{{ category_child.name }}</a></li>
-                </ul>
-            {% endfor %}
+                {% endfor %}
+            </ul>
         </div>
         <div id="options" class="col col75">
             {% include "@catalog/partials/options.twig" with {'url': category.url} %}
@@ -29,7 +28,13 @@
             {% include "@catalog/partials/filters.twig" with {'facets': facets, 'url': category.url} only %}
         </div>
 
-        {% include "@catalog/partials/product-list.twig" with {'products': products} only %}
+        {% if products|length > 0 %}
+            {% include "@catalog/partials/product-list.twig" with {'products': products} only %}
+        {% else %}
+            <div class="missingProducts col col50">
+                {{ '0 ' ~ 'catalog.products.found'|trans }}
+            </div>
+        {% endif %}
 
     </section>
 {% endblock %}

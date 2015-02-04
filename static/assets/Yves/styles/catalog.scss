@@ -4,7 +4,15 @@
 
 #catalog #breadcrumbs { display:block; line-height:26px; }
 
+#catalog #subcategories { display:block; line-height:18px; margin-top: 5px; }
+#subcategories a { color:inherit; text-decoration:none; font-size: 13px;}
+#subcategories a:hover { text-decoration:underline; }
 
+#options { padding-left: 3%;}
+#options:after { display:block; content:''; clear:both; }
+#options .sortBy { float:left; }
+#options .ipp { float:left; margin-left:10px; }
+#options .pagination { float:right; }
 
 #catalog .sidebar { clear:left; margin:20px 0; padding:10px; border:1px solid #ddd; background:#fcfcfc; border-radius:3px; overflow-x:hidden; }
 #catalog .filters { list-style:none; margin:0; padding:0; }
@@ -56,6 +64,7 @@
 #catalog .products li .oldPrice { float:left; color:#aaa; text-decoration:line-through; }
 #catalog .products li .price { float:right; font-weight:bold; }
 #catalog .products li .oldPrice + .price { color:#e10000; }
+#catalog .missingProducts { margin: 25px 25px; color: #a1a1a1; font-style: italic; }
 
 #catalog {
   .products {
@@ -94,11 +103,6 @@
   }
 }
 
-#options { padding-left: 3%; }
-#options:after { display:block; content:''; clear:both; }
-#options .sortBy { float:left; }
-#options .ipp { float:left; margin-left:10px; }
-#options .pagination { float:right; }
 
 #colorpicker {
   display: inline;
