@@ -8,18 +8,7 @@
     <section class="consumeHeight" id="catalog">
         <div  class="col col25">
             <div class="sidebar">
-                <ul id="breadcrumbs">
-                    <li><a href="/">Home</a></li>
-                    {% for category_parent in category.parents %}
-                        <li><a href="{{ category_parent.url }}">{{ category_parent.name }}</a></li>
-                    {% endfor %}
-                    <li><b>{{ category.name ~ " (" ~ numFound ~ ")"}}</b></li>
-                </ul>
-                <ul id="subcategories">
-                    {% for category_child in category.children %}
-                        <li><a href="{{ category_child.url }}">{{ category_child.name }}</a></li>
-                    {% endfor %}
-                </ul>
+                {% include "@catalog/partials/category-tree.twig" with {'categoryTree': categoryTree, 'activeCategory': category} only %}
             </div>
             <div class="sidebar">
                 {% include "@catalog/partials/filters.twig" with {'facets': facets, 'url': category.url} only %}
@@ -28,7 +17,7 @@
 
         <div class="col col75">
             <div id="options" class="results">
-                {% include "@catalog/partials/options.twig" with {'url': category.url} %}
+                {% include "@catalog/partials/options.twig" with {'url': category.url, 'numFound': numFound} %}
             </div>
             <div>
                 {% if products|length > 0 %}

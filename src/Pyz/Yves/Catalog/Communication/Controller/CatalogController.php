@@ -34,7 +34,12 @@ class CatalogController extends CoreCatalogController
         );
         $result = $search->getResult();
 
-        return array_merge($result, ['category' => $category]);
+        $categoryTreeBuilder = $this->getFactory()
+            ->createCategoryExporterDependencyContainer()
+            ->createSubtreeBuilder();
+        $categoryTree = $categoryTreeBuilder->createFromCategory($category, $this->getLocale());
+
+        return array_merge($result, ['category' => $category, 'categoryTree' => $categoryTree]);
     }
 
     /**

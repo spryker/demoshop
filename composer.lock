@@ -540,12 +540,12 @@
             "version": "v1.1.1",
             "source": {
                 "type": "git",
-                "url": "https://github.com/silexphp/Pimple.git",
+                "url": "https://github.com/fabpot/Pimple.git",
                 "reference": "2019c145fe393923f3441b23f29bbdfaa5c58c4d"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/silexphp/Pimple/zipball/2019c145fe393923f3441b23f29bbdfaa5c58c4d",
+                "url": "https://api.github.com/repos/fabpot/Pimple/zipball/2019c145fe393923f3441b23f29bbdfaa5c58c4d",
                 "reference": "2019c145fe393923f3441b23f29bbdfaa5c58c4d",
                 "shasum": ""
             },
@@ -570,7 +570,9 @@
             "authors": [
                 {
                     "name": "Fabien Potencier",
-                    "email": "fabien@symfony.com"
+                    "email": "fabien@symfony.com",
+                    "homepage": "http://fabien.potencier.org",
+                    "role": "Lead Developer"
                 }
             ],
             "description": "Pimple is a simple Dependency Injection Container for PHP 5.3",
@@ -884,7 +886,7 @@
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/yves.git",
-                "reference": "9c25b79785aa2d59e3254c9e437954704ea09908"
+                "reference": "4247c3ec9df3d0de33c7fd0ade60c38e817ae2f8"
             },
             "require": {
                 "php": ">=5.4.0"
@@ -912,7 +914,7 @@
                 "Application",
                 "Yves"
             ],
-            "time": "2015-02-04 10:56:42"
+            "time": "2015-02-04 18:37:31"
         },
         {
             "name": "spryker/zed-package",
@@ -2291,12 +2293,12 @@
             "version": "v1.15.1",
             "source": {
                 "type": "git",
-                "url": "https://github.com/twigphp/Twig.git",
+                "url": "https://github.com/fabpot/Twig.git",
                 "reference": "1fb5784662f438d7d96a541e305e28b812e2eeed"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/twigphp/Twig/zipball/1fb5784662f438d7d96a541e305e28b812e2eeed",
+                "url": "https://api.github.com/repos/fabpot/Twig/zipball/1fb5784662f438d7d96a541e305e28b812e2eeed",
                 "reference": "1fb5784662f438d7d96a541e305e28b812e2eeed",
                 "shasum": ""
             },
@@ -2349,12 +2351,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/zendesk/zendesk_api_client_php.git",
-                "reference": "034983456ce8d75e69507f8d79ba297f23819b8d"
+                "reference": "5b2f5ecd5d231df5d41123f5fa5e1f980beb961d"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/zendesk/zendesk_api_client_php/zipball/034983456ce8d75e69507f8d79ba297f23819b8d",
-                "reference": "034983456ce8d75e69507f8d79ba297f23819b8d",
+                "url": "https://api.github.com/repos/zendesk/zendesk_api_client_php/zipball/5b2f5ecd5d231df5d41123f5fa5e1f980beb961d",
+                "reference": "5b2f5ecd5d231df5d41123f5fa5e1f980beb961d",
                 "shasum": ""
             },
             "require": {
@@ -2385,7 +2387,7 @@
             ],
             "description": "PHP Client for Zendesk REST API. See http://developer.zendesk.com/api-docs",
             "homepage": "https://github.com/zendesk/zendesk_api_client_php",
-            "time": "2014-10-07 20:37:29"
+            "time": "2015-02-03 22:12:23"
         },
         {
             "name": "zendframework/zend-code",
@@ -3310,7 +3312,7 @@
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/newLoki/PropelModule/zipball/9de9316361e3dddb6b29f5dd93b7456e19e042e3",
+                "url": "https://api.github.com/repos/newLoki/PropelModule/zipball/ab6164e684113e20d5754fd61fe0ea86331ebd0b",
                 "reference": "9de9316361e3dddb6b29f5dd93b7456e19e042e3",
                 "shasum": ""
             },

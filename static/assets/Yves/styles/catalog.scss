@@ -4,9 +4,11 @@
 
 #catalog #breadcrumbs { display:block; line-height:26px; }
 
-#catalog #subcategories { display:block; line-height:18px; margin-top: 5px; }
-#subcategories a { color:inherit; text-decoration:none; font-size: 13px;}
-#subcategories a:hover { text-decoration:underline; }
+#catalog #categories { display:block; margin-left: 10px;}
+#categories a { color:inherit; text-decoration:none; font-size: 13px;}
+#categories a:hover { text-decoration:underline; }
+#categories ul { line-height:18px; margin-top: 10px; }
+#categories .active { font-weight:bold; }
 
 #options { padding-left: 3%;}
 #options:after { display:block; content:''; clear:both; }
@@ -16,6 +18,8 @@
 
 #catalog .sidebar, .results { clear:left; margin:20px 0; padding:10px; border:1px solid #ddd; background:#fcfcfc; border-radius:3px; overflow-x:hidden; }
 #catalog .sidebar .result-count { line-height: 22px; }
+#catalog .sidebar h3 { font-size:14px; font-weight:bold; margin:0 0 10px; padding:0 0 2px; border-bottom:1px solid #eee; }
+
 #catalog .results { margin-left: 2%; }
 #catalog .filters { list-style:none; margin:0; padding:0; }
 #catalog .filters li { margin-bottom:20px; display: inline-block; }
@@ -23,7 +27,6 @@
 #catalog .filters legend { font-size:80%; margin-bottom:6px; }
 #catalog .filters legend.min { float:left; }
 #catalog .filters legend.max { float:right; }
-#catalog .filters h3 { font-size:14px; font-weight:bold; margin:0 0 10px; padding:0 0 2px; border-bottom:1px solid #eee; }
 #catalog .filters select { display:block; width:100%; padding:4px 7px; border:1px solid #ddd; }
 #catalog .filters .search { margin-bottom:2px; border-radius:0; box-shadow:none; border-color:#ddd; }
 #catalog .filters .rangeSlider { display:none; }

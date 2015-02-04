@@ -14,7 +14,7 @@
                         {% for valueName, valueKey in facet.values %}
                             <label class="{{ valueKey == 0 ? 'notAvailable ' : '' }} {{ valueName in activeValues ? 'active' : '' }}">
                                 <input type="checkbox" name="{{ name }}" value="{{ valueName }}" data-on="{{ url( url, { (name) : { value : [valueName], facet_active: [true]} }) }}" data-off="{{ url( url, { (name) : { value : [valueName], active : [false]} }) }}" {{ valueName in activeValues ? 'checked' : '' }} />
-                                {{ ('catalog.filters.' ~ name ~ '.' ~ valueName|replace(' ', '_'))|trans|raw }} <span class="content">{{ valueKey }}</span></div>
+                                {{ ('catalog.filters.' ~ name ~ '.' ~ valueName|replace(' ', '_'))|trans|raw }} <span class="content">{{ valueKey }}</span>
                             </label>
                         {% endfor %}
                     </div>

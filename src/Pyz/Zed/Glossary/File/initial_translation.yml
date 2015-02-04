@@ -438,6 +438,11 @@ keys:
   catalog.fulltext.result:
     explanations:
       de_DE: 'results for'
+      en_US: 'results for'
+  catalog.categories:
+    explanations:
+      de_DE: 'Categories'
+      en_US: 'Categories'
   customer.email:
     explanations:
       de_DE: 'Your Email'
