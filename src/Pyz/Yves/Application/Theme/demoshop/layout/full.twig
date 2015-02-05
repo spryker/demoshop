@@ -9,14 +9,14 @@
         <meta name="viewport" content="width=device-width" />
         {% block metatags %}{% endblock %}
         <link rel="icon" type="image/vnd.microsoft.icon" href="/images/favicon.ico">
-        <link rel="stylesheet" type="text/css" href="/styles/initial.css" />
-        <link rel="stylesheet" type="text/css" href="/styles/global.css" />
+        <link rel="stylesheet" type="text/css" href="{{ asset('/styles/initial.css') }}" />
+        <link rel="stylesheet" type="text/css" href="{{ asset('/styles/global.css') }}" />
 
-        <script src="/scripts/vendor/jquery-min.js"></script>
-        <script src="/scripts/vendor/modernizr-2.6.2-respond-1.1.0.min.js"></script>
+        <script src="{{ asset('/scripts/vendor/jquery-min.js') }}"></script>
+        <script src="{{ asset('/scripts/vendor/modernizr-2.6.2-respond-1.1.0.min.js') }}"></script>
 
-        <script src="/scripts/app/main.js"></script>
-        <script src="/scripts/app/ui.js"></script>
+        <script src="{{ asset('/scripts/app/main.js') }}"></script>
+        <script src="{{ asset('/scripts/app/ui.js') }}"></script>
         <script>
             // hardcoded
             app.vars.storeLocale = 'US';
@@ -29,7 +29,7 @@
     <header>
         <div class="row">
             <a href="/" id="logo" class="col col33">
-                <img src="/images/logo.svg" alt="logo" class="logo" />
+                <img src="{{ asset('/images/logo.svg') }}" alt="logo" class="logo" />
             </a>
             <div class="col col67 hideonprint">
                 <ul class="usps">
@@ -82,6 +82,6 @@
     </script>
 </footer>
 
-<link rel="stylesheet" href="/styles/responsive.css" />
+<link rel="stylesheet" href="{{ asset('/styles/responsive.css') }}" />
 </body>
 </html>

@@ -2,8 +2,8 @@
 
 {% block content %}
     {% include "@application/partials/navbar.twig" with {'categories': categories } only %}
-    <link rel="stylesheet" href="/styles/catalog.css" />
-    <script src="/scripts/app/catalog.js"></script>
+    <link rel="stylesheet" href="{{ asset('/styles/catalog.css') }}" />
+    <script src="{{ asset('/scripts/app/catalog.js') }}"></script>
 
     <section class="consumeHeight" id="catalog">
         <div  class="col col25">
