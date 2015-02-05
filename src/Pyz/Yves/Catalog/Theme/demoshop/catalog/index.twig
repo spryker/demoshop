@@ -6,6 +6,9 @@
     <script src="{{ asset('/scripts/app/catalog.js') }}"></script>
 
     <section class="consumeHeight" id="catalog">
+        <div>
+            {% include "@catalog/partials/breadcrumbs.twig" with {'category': category, 'numFound': numFound} only %}
+        </div>
         <div  class="col col25">
             <div class="sidebar">
                 {% include "@catalog/partials/category-tree.twig" with {'categoryTree': categoryTree, 'activeCategory': category} only %}
