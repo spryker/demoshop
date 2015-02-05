@@ -132,7 +132,7 @@ header .usps li .glyphicon { margin-right:8px; }
 }
 
 #recommendations { margin:20px auto; color:#a1a1a1; }
-#recommendations h3,
+#recommendations h3 { padding-bottom: 15px; border-bottom: 1px solid #ccc; }
 #recommendations h4 { margin:10px 0; }
 #recommendations ul { margin:0; padding:0; list-style:none; }
 #recommendations li { display:block; width:33.3333%; float:left; padding:0 14px; -moz-box-sizing:border-box; -webkit-box-sizing:border-box; -ms-box-sizing:border-box; box-sizing:border-box; }

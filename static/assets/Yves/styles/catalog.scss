@@ -2,7 +2,7 @@
 
 #catalog { padding:20px; }
 
-#catalog #breadcrumbs { display:block; line-height:26px; }
+#catalog #breadcrumbs { display:block; margin-left: 10px; }
 
 #catalog #categories { display:block; margin-left: 10px;}
 #categories a { color:inherit; text-decoration:none; font-size: 13px;}
@@ -57,7 +57,7 @@
 }
 
 #catalog .products:after { display:block; content:''; clear:left; }
-#catalog .products li { width:30%; float:left; border: 1px solid #ddd; box-shadow:1px 1px 2px rgba(0, 0, 0, 0.05); }
+#catalog .products li { width:30%; float:left; border: 1px solid #ddd; box-shadow:1px 1px 2px rgba(0, 0, 0, 0.05); border-radius:3px; }
 #catalog .products li:nth-child(3n+1) { clear:left; }
 #catalog .products li a { display:block; padding:10px; color:inherit; text-decoration:none; min-height:200px; border-radius:4px; }
 #catalog .products li a:after { display:block; content:''; clear:both; }
