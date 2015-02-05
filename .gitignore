@@ -36,6 +36,7 @@ config/accumulated-config.json
 .grunt
 .sass-cache
 /config/Yves/config_assets.php
+config/Yves/cache_bust.php
 /node_modules/
 
 # public stuff
@@ -56,4 +57,3 @@ config/accumulated-config.json
 
 npm-debug.log
 tests/_log
-
