@@ -94,6 +94,16 @@ h3 { page-break-after:avoid; }
 /* GLYPHICONS */
 
 @font-face { font-family:'Glyphicons Halflings'; src:url('/fonts/glyphicons-halflings-regular.eot'); src:url('/fonts/glyphicons-halflings-regular.eot?#iefix') format('embedded-opentype'), url('/fonts/glyphicons-halflings-regular.woff') format('woff'), url('/fonts/glyphicons-halflings-regular.ttf') format('truetype'), url('/fonts/glyphicons-halflings-regular.svg#glyphicons-halflingsregular') format('svg'); }
+@font-face {
+  font-family: 'icomoon';
+  src:url('/fonts/icomoon.eot?-sfuxd6');
+  src:url('/fonts/icomoon.eot?#iefix-sfuxd6') format('embedded-opentype'),
+  url('/fonts/icomoon.woff?-sfuxd6') format('woff'),
+  url('/fonts/icomoon.ttf?-sfuxd6') format('truetype'),
+  url('/fonts/icomoon.svg?-sfuxd6#icomoon') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
 .glyphicon { position:relative; top:1px; display:inline-block; font-family:'Glyphicons Halflings'; -webkit-font-smoothing:antialiased; font-style:normal; font-weight:normal; line-height:1; }
 .glyphicon-asterisk:before { content:"\2a"; }
 .glyphicon-plus:before { content:"\2b"; }
@@ -295,3 +305,4 @@ h3 { page-break-after:avoid; }
 .glyphicon-bookmark:before { content:"\1f516"; }
 .glyphicon-fire:before { content:"\1f525"; }
 .glyphicon-wrench:before { content:"\1f527"; }
+.icon-spryker-logo:after { content: "\e601"; }
