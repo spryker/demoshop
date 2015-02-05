@@ -99,7 +99,7 @@ class Installer extends \ProjectA_Zed_Installer_Business_Model_Installer impleme
         /** @var YvesExportFacade $yvesExportFacade */
         $yvesExportFacade = $this->locator->yvesExport()->facade();
         /** @var ProductSearchFacade $productSearchFacade */
-        $productSearchFacade = $this->locator->productSearch->facade();
+//        $productSearchFacade = $this->locator->productSearch()->facade();
         /** @var Glossary2Facade $glossaryFacade */
         $glossaryFacade = $this->locator->glossary2()->facade();
         return [
@@ -107,21 +107,21 @@ class Installer extends \ProjectA_Zed_Installer_Business_Model_Installer impleme
             // TODO: installer broken
 //            $this->facadeCatalog->createInternalInstall(),
 //            $this->facadeCategory->createInternalInstall(),
-            $this->facadeCms->createInternalInstall(),
-            $this->facadeCustomer->createInternalInstall(),
-            $this->facadeMisc->createInternalInstall(),
-            $this->facadePrice->createInternalInstall(),
-            $this->facadeStock->createInternalInstall(),
-            //$this->facadeGlossary->createInternalInstall(),
+//            $this->facadeCms->createInternalInstall(),
+//            $this->facadeCustomer->createInternalInstall(),
+//            $this->facadeMisc->createInternalInstall(),
+//            $this->facadePrice->createInternalInstall(),
+//            $this->facadeStock->createInternalInstall(),
+//            $this->facadeGlossary->createInternalInstall(),
             $glossaryFacade->getGlossaryInstaller(),
-            $this->facadeSales->createInternalInstall(),
-            $this->facadeProductImage->createInternalInstall(),
-            $this->facadeDocument->createInternalInstall(),
-            $this->facadeInvoice->createInternalInstall(),
-            $this->facadePayone->createInternalInstall(),
-            $this->facadeProduct->createInternalInstall(),
-            $yvesExportFacade->createInternalInstall(),
-            $productSearchFacade->createInternalInstall()
+//            $this->facadeSales->createInternalInstall(),
+//            $this->facadeProductImage->createInternalInstall(),
+//            $this->facadeDocument->createInternalInstall(),
+//            $this->facadeInvoice->createInternalInstall(),
+//            $this->facadePayone->createInternalInstall(),
+//            $this->facadeProduct->createInternalInstall(),
+//            $yvesExportFacade->createInternalInstall(),
+//            $productSearchFacade->createInternalInstall()
         ];
     }
 }

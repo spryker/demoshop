@@ -3,8 +3,10 @@
 namespace Pyz\Zed\Glossary2\Communication\Plugin;
 
 use ProjectA\Zed\Glossary2\Business\Glossary2Facade;
+use ProjectA\Zed\Glossary2\Business\Glossary2Factory;
 use ProjectA\Zed\Glossary2\Dependency\Plugin\GlossaryInstallerPluginInterface;
 use ProjectA\Zed\Kernel\Business\FacadeLocator;
+use ProjectA\Zed\Kernel\Locator;
 use Symfony\Component\Yaml\Yaml;
 
 class YamlDemoDataInstaller implements GlossaryInstallerPluginInterface
@@ -16,7 +18,7 @@ class YamlDemoDataInstaller implements GlossaryInstallerPluginInterface
 
     public function __construct()
     {
-        $this->glossaryFacade = (new FacadeLocator())->locate('Glossary2');
+        $this->glossaryFacade = new Glossary2Facade(new Glossary2Factory(), new Locator());
     }
 
     public function installGlossaryData()
