@@ -36,7 +36,10 @@ fi
 
 ### Slack notification
 if [ "$environemt" == "production" ] && [ -n $slack_domain ] && [ -n $slack_token ]; then
+    echo "Debug: https://slack.com/api/chat.postMessage?token=$slack_token&channel=$slack_channel&text=Finished deployment of $scm_path to $environment ($revision: $deploy_user, `hostname`)"
     curl -X GET "https://slack.com/api/chat.postMessage?token=$slack_token&channel=$slack_channel&text=Finished deployment of $scm_path to $environment ($revision: $deploy_user, `hostname`)"
+else
+    echo "Slack Notification disabled"
 fi
 
 rm -f $outfile
