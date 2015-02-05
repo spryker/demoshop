@@ -6,13 +6,20 @@ use Pyz\Zed\Glossary2\Communication\Plugin\YamlDemoDataInstaller;
 
 class Glossary2Settings
 {
+    protected $locator;
+
+    public function __construct($locator)
+    {
+        $this->locator = $locator;
+    }
+
     /**
      * @return GlossaryInstallerPluginInterface[]
      */
     public function getGlossaryInstallers()
     {
         return [
-            new YamlDemoDataInstaller()
+            $this->locator->glossary2()->pluginYamlInstallerPlugin()
         ];
     }
 }

@@ -4,22 +4,21 @@ namespace Pyz\Zed\Glossary2\Communication\Plugin;
 
 use ProjectA\Zed\Glossary2\Business\Glossary2Facade;
 use ProjectA\Zed\Glossary2\Business\Glossary2Factory;
+use ProjectA\Zed\Glossary2\Communication\Glossary2DependencyContainer;
 use ProjectA\Zed\Glossary2\Dependency\Plugin\GlossaryInstallerPluginInterface;
 use ProjectA\Zed\Kernel\Business\FacadeLocator;
+use ProjectA\Zed\Kernel\Communication\AbstractFactory;
+use ProjectA\Zed\Kernel\Communication\AbstractPlugin;
 use ProjectA\Zed\Kernel\Locator;
 use Symfony\Component\Yaml\Yaml;
 
-class YamlDemoDataInstaller implements GlossaryInstallerPluginInterface
+class YamlInstallerPlugin extends AbstractPlugin implements GlossaryInstallerPluginInterface
 {
     /**
-     * @var Glossary2Facade
+     * @var Glossary2DependencyContainer
      */
-    protected $glossaryFacade;
+    protected $dependencyContainer;
 
-    public function __construct()
-    {
-        $this->glossaryFacade = new Glossary2Facade(new Glossary2Factory(), new Locator());
-    }
 
     public function installGlossaryData()
     {
@@ -39,14 +38,15 @@ class YamlDemoDataInstaller implements GlossaryInstallerPluginInterface
      */
     protected function installKeysAndTranslations(array $translations)
     {
+        $glossaryFacade = $this->dependencyContainer->getGlossaryFacade();
         foreach ($translations['keys'] as $keyName => $data) {
-            if (!$this->glossaryFacade->hasKey($keyName)) {
-                $this->glossaryFacade->createKey($keyName);
+            if (!$glossaryFacade->hasKey($keyName)) {
+                $glossaryFacade->createKey($keyName);
             }
 
             foreach ($data['translations'] as $localeName => $text) {
-                if (!$this->glossaryFacade->hasTranslation($keyName, $localeName)) {
-                    $this->glossaryFacade->createTranslation($keyName, $localeName, $text, true);
+                if (!$glossaryFacade->hasTranslation($keyName, $localeName)) {
+                    $glossaryFacade->createTranslation($keyName, $localeName, $text, true);
                 }
             }
         }
