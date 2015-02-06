@@ -1,10 +1,10 @@
 <?php
 
-namespace Pyz\Zed\Glossary2\Communication\Plugin;
+namespace Pyz\Zed\Glossary\Communication\Plugin;
 
-use ProjectA\Zed\Glossary2\Business\Glossary2Facade;
-use ProjectA\Zed\Glossary2\Communication\Glossary2DependencyContainer;
-use ProjectA\Zed\Glossary2\Dependency\Plugin\GlossaryInstallerPluginInterface;
+use ProjectA\Zed\Glossary\Business\GlossaryFacade;
+use ProjectA\Zed\Glossary\Communication\GlossaryDependencyContainer;
+use ProjectA\Zed\Glossary\Dependency\Plugin\GlossaryInstallerPluginInterface;
 use ProjectA\Zed\Kernel\Business\FacadeLocator;
 use ProjectA\Zed\Kernel\Communication\AbstractPlugin;
 use ProjectA\Zed\Kernel\Locator;
@@ -13,7 +13,7 @@ use Symfony\Component\Yaml\Yaml;
 class YamlInstallerPlugin extends AbstractPlugin implements GlossaryInstallerPluginInterface
 {
     /**
-     * @var Glossary2DependencyContainer
+     * @var GlossaryDependencyContainer
      */
     protected $dependencyContainer;
 

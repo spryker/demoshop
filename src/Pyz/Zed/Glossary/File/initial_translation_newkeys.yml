@@ -1,0 +1,1374 @@
+default_locale: en_US
+locales:
+  en_US: en_US
+  de_DE: de_DE
+keys:
+  catalog.buy:
+    explanations:
+      de_DE: 'Buy Now'
+      en_US: 'Buy Now'
+  catalog.out.of.stock:
+    explanations:
+      de_DE: 'currently out of stock'
+      en_US: 'currently out of stock'
+  cart.remove:
+    explanations:
+      de_DE: Remove
+      en_US: Remove
+  cart.percentage.vat:
+    explanations:
+      de_DE: '% VAT'
+      en_US: '% VAT'
+  cart.empty:
+    explanations:
+      de_DE: 'Cart EMPTY.'
+      en_US: 'Cart EMPTY.'
+  cart.usp.shipping:
+    explanations:
+      de_DE: 'No Shippinp (DEMOSHOP)'
+      en_US: 'No Shippinp (DEMOSHOP)'
+  cart.usp.return:
+    explanations:
+      de_DE: 'No Return (DEMOSHOP)'
+      en_US: 'No Return (DEMOSHOP)'
+  cart.price.grand.total:
+    explanations:
+      de_DE: 'Grand Total Price'
+      en_US: 'Grand Total Price'
+  cart.price.shipping:
+    explanations:
+      de_DE: Shipping
+      en_US: Shipping
+  cart.price.subtotal:
+    explanations:
+      de_DE: 'Subtotal Price'
+      en_US: 'Subtotal Price'
+  cart.price.total:
+    explanations:
+      de_DE: 'Total Price'
+      en_US: 'Total Price'
+  cart.amount:
+    explanations:
+      de_DE: Amount
+      en_US: Amount
+  cart.price.item:
+    explanations:
+      de_DE: 'Item price'
+      en_US: 'Item price'
+  cart.product:
+    explanations:
+      de_DE: Product
+      en_US: Product
+  cart.to.checkout:
+    explanations:
+      de_DE: 'Go to Checkout'
+      en_US: 'Go to Checkout'
+  cart.cart:
+    explanations:
+      de_DE: 'Your cart'
+      en_US: 'Your cart'
+  header.cart:
+    explanations:
+      de_DE: 'Your cart'
+      en_US: 'Your cart'
+  header.usp.shipping:
+    explanations:
+      de_DE: 'No Shippinp (DEMOSHOP)'
+      en_US: 'No Shippinp (DEMOSHOP)'
+  header.usp.return:
+    explanations:
+      de_DE: 'No Return (DEMOSHOP)'
+      en_US: 'No Return (DEMOSHOP)'
+  header.phone:
+    explanations:
+      de_DE: 'Hotline: +49 (40) 3289 29690'
+      en_US: 'Hotline: +49 (40) 3289 29690'
+  footer.payment.options:
+    explanations:
+      de_DE: 'Payment options'
+      en_US: 'Payment options'
+  footer.shipping:
+    explanations:
+      de_DE: Shipping
+      en_US: Shipping
+  footer.information:
+    explanations:
+      de_DE: Information
+      en_US: Information
+  checkout.headline.shipping.billing:
+    explanations:
+      de_DE: 'Shipping and Billing Address'
+      en_US: 'Shipping and Billing Address'
+  checkout.address.billing.city:
+    explanations:
+      de_DE: City
+      en_US: City
+  checkout.address.billing.zipcode:
+    explanations:
+      de_DE: 'Postal Code'
+      en_US: 'Postal Code'
+  checkout.address.billing.number:
+    explanations:
+      de_DE: Number
+      en_US: Number
+  checkout.address.billing.street:
+    explanations:
+      de_DE: Street
+      en_US: Street
+  checkout.address.billing.company:
+    explanations:
+      de_DE: Company
+      en_US: Company
+  checkout.address.billing.salutation:
+    explanations:
+      de_DE: Salutation
+      en_US: Salutation
+  checkout.address.billing.name.last:
+    explanations:
+      de_DE: 'Last Name'
+      en_US: 'Last Name'
+  checkout.address.billing.name.middle:
+    explanations:
+      de_DE: 'Middle Name'
+      en_US: 'Middle Name'
+  checkout.address.billing.name.first:
+    explanations:
+      de_DE: 'First Name'
+      en_US: 'First Name'
+  checkout.email:
+    explanations:
+      de_DE: Email
+      en_US: Email
+  checkout.address.shipping.salutation:
+    explanations:
+      de_DE: Salutation
+      en_US: Salutation
+  checkout.address.shipping.name.last:
+    explanations:
+      de_DE: 'Last Name'
+      en_US: 'Last Name'
+  checkout.address.shipping.name.middle:
+    explanations:
+      de_DE: 'Middle Name'
+      en_US: 'Middle Name'
+  checkout.address.shipping.name.first:
+    explanations:
+      de_DE: 'First Name'
+      en_US: 'First Name'
+  checkout.address.shipping.phone:
+    explanations:
+      de_DE: Phone
+      en_US: Phone
+  checkout.address.shipping.comment:
+    explanations:
+      de_DE: Comment
+      en_US: Comment
+  checkout.address.shipping.address3.placeholder:
+    explanations:
+      de_DE: 'e.g. company / please hand to neighbor Wilson'
+      en_US: 'e.g. company / please hand to neighbor Wilson'
+  checkout.address.shipping.city:
+    explanations:
+      de_DE: City
+      en_US: City
+  checkout.address.shipping.zipcode:
+    explanations:
+      de_DE: 'Postal Code'
+      en_US: 'Postal Code'
+  checkout.address.shipping.street:
+    explanations:
+      de_DE: Street
+      en_US: Street
+  checkout.address.shipping.number:
+    explanations:
+      de_DE: Number
+      en_US: Number
+  checkout.address.shipping.name:
+    explanations:
+      de_DE: Name
+      en_US: Name
+  demopayment.demomethod:
+    explanations:
+      de_DE: 'Demo Payment Method'
+      en_US: 'Demo Payment Method'
+  stripe.credit.card:
+    explanations:
+      de_DE: 'Credit Card'
+      en_US: 'Credit Card'
+  checkout.headline.shipping:
+    explanations:
+      de_DE: 'Shipping Address'
+      en_US: 'Shipping Address'
+  checkout.payment.ccholder:
+    explanations:
+      de_DE: 'Card Holder'
+      en_US: 'Card Holder'
+  checkout.payment.ccnumber:
+    explanations:
+      de_DE: 'Card Number'
+      en_US: 'Card Number'
+  checkout.payment.ccv:
+    explanations:
+      de_DE: CCV
+      en_US: CCV
+  checkout.payment.ccexpmonth:
+    explanations:
+      de_DE: 'Expiration Month'
+      en_US: 'Expiration Month'
+  checkout.payment.ccexpyear:
+    explanations:
+      de_DE: 'Expiration Year'
+      en_US: 'Expiration Year'
+  checkout.percentage.vat:
+    explanations:
+      de_DE: '% VAT'
+      en_US: '% VAT'
+  checkout.price.grand.total:
+    explanations:
+      de_DE: 'Grand Total Price'
+      en_US: 'Grand Total Price'
+  checkout.price.shipping:
+    explanations:
+      de_DE: Shipping
+      en_US: Shipping
+  checkout.price.subtotal:
+    explanations:
+      de_DE: 'Subtotal Price'
+      en_US: 'Subtotal Price'
+  checkout.cart.empty:
+    explanations:
+      de_DE: 'Cart EMPTY.'
+      en_US: 'Cart EMPTY.'
+  checkout.to.summary:
+    explanations:
+      de_DE: 'Go to Order Summary'
+      en_US: 'Go to Order Summary'
+  checkout.address.shipping.streetnr:
+    explanations:
+      de_DE: Number
+      en_US: Number
+  checkout.headline.cart:
+    explanations:
+      de_DE: 'Your Cart'
+      en_US: 'Your Cart'
+  checkout.headline.contact:
+    explanations:
+      de_DE: 'Contact Data'
+      en_US: 'Contact Data'
+  checkout.headline.payment:
+    explanations:
+      de_DE: Payment
+      en_US: Payment
+  checkout.headline.billing:
+    explanations:
+      de_DE: 'Billing Address'
+      en_US: 'Billing Address'
+  checkout.address.billing.country:
+    explanations:
+      de_DE: Country
+      en_US: Country
+  checkout.link.edit:
+    explanations:
+      de_DE: edit
+      en_US: edit
+  cart.success.product.add:
+    explanations:
+      de_DE: 'Product added to cart'
+      en_US: 'Product added to cart'
+  checkout.address.shipping.country:
+    explanations:
+      de_DE: Country
+      en_US: Country
+  checkout.address.billing.different:
+    explanations:
+      de_DE: 'Different Billing Address'
+      en_US: 'Different Billing Address'
+  payone.paypal:
+    explanations:
+      de_DE: PayPal
+      en_US: PayPal
+  catalog.usp.shipping:
+    explanations:
+      de_DE: 'No Shippinp (DEMOSHOP)'
+      en_US: 'No Shippinp (DEMOSHOP)'
+  catalog.usp.return:
+    explanations:
+      de_DE: 'No Return (DEMOSHOP)'
+      en_US: 'No Return (DEMOSHOP)'
+  catalog.percentage.vat:
+    explanations:
+      de_DE: 'incl. %product.tax_rate%% VAT'
+      en_US: 'incl. %product.tax_rate%% VAT'
+  catalog.details.headline:
+    explanations:
+      de_DE: 'More Details'
+      en_US: 'More Details'
+  catalog.details.material:
+    explanations:
+      de_DE: 'Material:'
+      en_US: 'Material:'
+  catalog.details.dimension:
+    explanations:
+      de_DE: 'Dimension:'
+      en_US: 'Dimension:'
+  catalog.details.color:
+    explanations:
+      de_DE: 'Color:'
+      en_US: 'Color:'
+  catalog.filters.material.wood:
+    explanations:
+      de_DE: Wood
+      en_US: Wood
+  catalog.filters.material.plastic:
+    explanations:
+      de_DE: Plastic
+      en_US: Plastic
+  catalog.filters.material.textile:
+    explanations:
+      de_DE: Textile
+      en_US: Textile
+  catalog.filters.material.metal:
+    explanations:
+      de_DE: Metal
+      en_US: Metal
+  catalog.filters.material:
+    explanations:
+      de_DE: Material
+      en_US: Material
+  catalog.filters.color.yellow:
+    explanations:
+      de_DE: Yellow
+      en_US: Yellow
+  catalog.filters.color.white:
+    explanations:
+      de_DE: White
+      en_US: White
+  catalog.filters.color.grey:
+    explanations:
+      de_DE: Grey
+      en_US: Grey
+  catalog.filters.color.red:
+    explanations:
+      de_DE: Red
+      en_US: Red
+  catalog.filters.color.black:
+    explanations:
+      de_DE: Black
+      en_US: Black
+  catalog.filters.color.green:
+    explanations:
+      de_DE: Green
+      en_US: Green
+  catalog.filters.color:
+    explanations:
+      de_DE: Color
+      en_US: Color
+  catalog.filters.brand.hint.find:
+    explanations:
+      de_DE: 'Type here to search for a brand'
+      en_US: 'Type here to search for a brand'
+  catalog.filters.brand.vitra:
+    explanations:
+      de_DE: Vitra
+      en_US: Vitra
+  catalog.filters.brand.kartell:
+    explanations:
+      de_DE: Kartell
+      en_US: Kartell
+  catalog.filters.brand:
+    explanations:
+      de_DE: Brand
+      en_US: Brand
+  catalog.filters.category:
+    explanations:
+      de_DE: Category
+      en_US: Category
+  catalog.filters.price.max:
+    explanations:
+      de_DE: Max
+      en_US: Max
+  catalog.filters.price.min:
+    explanations:
+      de_DE: Min
+      en_US: Min
+  catalog.filters.price:
+    explanations:
+      de_DE: Price
+      en_US: Price
+  catalog.ipp.100:
+    explanations:
+      de_DE: '100 per page'
+      en_US: '100 per page'
+  catalog.ipp.80:
+    explanations:
+      de_DE: '80 per page'
+      en_US: '80 per page'
+  catalog.ipp.60:
+    explanations:
+      de_DE: '60 per page'
+      en_US: '60 per page'
+  catalog.ipp.50:
+    explanations:
+      de_DE: '50 per page'
+      en_US: '50 per page'
+  catalog.ipp.40:
+    explanations:
+      de_DE: '40 per page'
+      en_US: '40 per page'
+  catalog.ipp.30:
+    explanations:
+      de_DE: '30 per page'
+      en_US: '30 per page'
+  catalog.ipp.20:
+    explanations:
+      de_DE: '20 per page'
+      en_US: '20 per page'
+  catalog.ipp.10:
+    explanations:
+      de_DE: '10 per page'
+      en_US: '10 per page'
+  catalog.products.found:
+    explanations:
+      de_DE: 'products found'
+      en_US: 'products found'
+  catalog.sort.price:
+    explanations:
+      de_DE: 'Sort by price'
+      en_US: 'Sort by price'
+  catalog.fulltext.result:
+    explanations:
+      de_DE: 'results for'
+      en_US: 'results for'
+  catalog.categories:
+    explanations:
+      de_DE: 'Categories'
+      en_US: 'Categories'
+  customer.email:
+    explanations:
+      de_DE: 'Your Email'
+      en_US: 'Your Email'
+  customer.password:
+    explanations:
+      de_DE: 'Your Password'
+      en_US: 'Your Password'
+  customer.new_password:
+    explanations:
+      de_DE: 'Password confirmation:'
+      en_US: 'Password confirmation:'
+  customer.login.submit:
+    explanations:
+      de_DE: Login
+      en_US: Login
+  customer.login.caption.main:
+    explanations:
+      de_DE: 'Sign In'
+      en_US: 'Sign In'
+  customer.login.caption.sub:
+    explanations:
+      de_DE: 'Already a customer?'
+      en_US: 'Already a customer?'
+  customer.register.caption.main:
+    explanations:
+      de_DE: Register
+      en_US: Register
+  customer.register.caption.sub:
+    explanations:
+      de_DE: 'New to wedowood?'
+      en_US: 'New to wedowood?'
+  customer.register.box.main:
+    explanations:
+      de_DE: Registration
+      en_US: Registration
+  customer.register.box.sub:
+    explanations:
+      de_DE: 'We need your email in order to inform you about your order. Your password is necessary for you to login to see your order status.'
+      en_US: 'We need your email in order to inform you about your order. Your password is necessary for you to login to see your order status.'
+  header.cart.products.choice:
+    explanations:
+      de_DE: '{0}Empty|{1}%count% product|]1,Inf]%count% products '
+      en_US: '{0}Empty|{1}%count% product|]1,Inf]%count% products '
+  login.error.bad.credentials:
+    explanations:
+      de_DE: 'Invalid credentials'
+      en_US: 'Invalid credentials'
+  static.pages.tos:
+    explanations:
+      de_DE: 'Terms of Service - please add me!'
+      en_US: 'Terms of Service - please add me!'
+  static.pages.imprint:
+    explanations:
+      de_DE: 'Imprint - please add me!'
+      en_US: 'Imprint - please add me!'
+  static.pages.privacy:
+    explanations:
+      de_DE: 'Privacy - please add me!'
+      en_US: 'Privacy - please add me!'
+  static.pages.withdrawal:
+    explanations:
+      de_DE: 'Withdrawal - please add me!'
+      en_US: 'Withdrawal - please add me!'
+  static.pages.returns:
+    explanations:
+      de_DE: 'Returns - please add me!'
+      en_US: 'Returns - please add me!'
+  static.pages.contact:
+    explanations:
+      de_DE: 'Contact - please add me!'
+      en_US: 'Contact - please add me!'
+  static.pages.faq:
+    explanations:
+      de_DE: 'FAQ - please add me!'
+      en_US: 'FAQ - please add me!'
+  checkout.payment.paypal.text:
+    explanations:
+      de_DE: 'You will be redirected to PayPal, once you have submitted your order. You can complete your payment through PayPal.'
+      en_US: 'You will be redirected to PayPal, once you have submitted your order. You can complete your payment through PayPal.'
+  checkout.payment.paypal.caption:
+    explanations:
+      de_DE: 'Pay online safe and fast'
+      en_US: 'Pay online safe and fast'
+  checkout.payment.pre.text:
+    explanations:
+      de_DE: 'After completing your order we will show immediately all the necessary information for the payment and the order number. This will also once again by email. We will ship your order immediately upon receipt of your payment.'
+      en_US: 'After completing your order we will show immediately all the necessary information for the payment and the order number. This will also once again by email. We will ship your order immediately upon receipt of your payment.'
+  checkout.payment.pre.caption:
+    explanations:
+      de_DE: 'Easily pay in advance'
+      en_US: 'Easily pay in advance'
+  payment.payone.direct_debit:
+    explanations:
+      de_DE: 'Direct Debit'
+      en_US: 'Direct Debit'
+  payment.payone.prepayment:
+    explanations:
+      de_DE: 'Payment In Advance'
+      en_US: 'Payment In Advance'
+  payment.payone.paypal:
+    explanations:
+      de_DE: PayPal
+      en_US: PayPal
+  payment.payone.creditcard_pseudo:
+    explanations:
+      de_DE: 'Credit Card'
+      en_US: 'Credit Card'
+  checkout.payment.cardtype:
+    explanations:
+      de_DE: 'Card Type'
+      en_US: 'Card Type'
+  checkout.payment.cc.caption:
+    explanations:
+      de_DE: 'Easy payment by credit card.'
+      en_US: 'Easy payment by credit card.'
+  catalog.product.detail.bundle.products.header:
+    explanations:
+      de_DE: 'Included Products'
+      en_US: 'Included Products'
+  checkout.salutation.mrs:
+    explanations:
+      de_DE: Mrs.
+      en_US: Mrs.
+  checkout.salutation.mr:
+    explanations:
+      de_DE: Mr.
+      en_US: Mr.
+  checkout.address.shipping.address3:
+    explanations:
+      de_DE: 'Additional Address Data'
+      en_US: 'Additional Address Data'
+  checkout.payment.debitBankCodeNumber:
+    explanations:
+      de_DE: 'Bank Code'
+      en_US: 'Bank Code'
+  checkout.payment.debitAccountNumber:
+    explanations:
+      de_DE: 'Bank Account Number'
+      en_US: 'Bank Account Number'
+  checkout.payment.debitHolder:
+    explanations:
+      de_DE: 'Bank Account Holder'
+      en_US: 'Bank Account Holder'
+  checkout.payment.debit.caption:
+    explanations:
+      de_DE: 'Easy payment by direct debit.'
+      en_US: 'Easy payment by direct debit.'
+  payment.payone.invoice:
+    explanations:
+      de_DE: Invoice
+      en_US: Invoice
+  checkout.payment.invoice.caption:
+    explanations:
+      de_DE: 'Easy payment by invoice.'
+      en_US: 'Easy payment by invoice.'
+  customer.login.caption:
+    explanations:
+      de_DE: 'Login to your account.'
+      en_US: 'Login to your account.'
+  customer.register.caption:
+    explanations:
+      de_DE: 'Create user account.'
+      en_US: 'Create user account.'
+  customer.login.headline:
+    explanations:
+      de_DE: Login
+      en_US: Login
+  customer.register.headline:
+    explanations:
+      de_DE: Registration
+      en_US: Registration
+  customer.password.forgotten:
+    explanations:
+      de_DE: 'Forgot password'
+      en_US: 'Forgot password'
+  customer.register.box.headline:
+    explanations:
+      de_DE: Registration
+      en_US: Registration
+  customer.register.box.caption:
+    explanations:
+      de_DE: 'Create your new user account.'
+      en_US: 'Create your new user account.'
+  customer.login.box.headline:
+    explanations:
+      de_DE: Login
+      en_US: Login
+  customer.create:
+    explanations:
+      de_DE: 'Register now'
+      en_US: 'Register now'
+  customer.login:
+    explanations:
+      de_DE: Login
+      en_US: Login
+  product.select.sub-product:
+    explanations:
+      de_DE: '- Select product -'
+      en_US: '- Select product -'
+  checkout.name.full.placeholder:
+    explanations:
+      de_DE: 'e.g. John Quincy Doe'
+      en_US: 'e.g. John Quincy Doe'
+  checkout.name.full:
+    explanations:
+      de_DE: 'Full Name'
+      en_US: 'Full Name'
+  checkout.address.full.placeholder:
+    explanations:
+      de_DE: 'e.g. 79 N 11th Brooklyn'
+      en_US: 'e.g. 79 N 11th Brooklyn'
+  checkout.address.full:
+    explanations:
+      de_DE: 'Full Address'
+      en_US: 'Full Address'
+  checkout.headline.shipping.to:
+    explanations:
+      de_DE: 'Shipping goes to'
+      en_US: 'Shipping goes to'
+  cart.coupon.add:
+    explanations:
+      de_DE: 'Enter Coupon Code'
+      en_US: 'Enter Coupon Code'
+  catalog.filters.brand.thonet:
+    explanations:
+      de_DE: Thonet
+      en_US: Thonet
+  customer.account:
+    explanations:
+      de_DE: 'My Account'
+      en_US: 'My Account'
+  customer.logout:
+    explanations:
+      de_DE: Logout
+      en_US: Logout
+  customer.account.addresses:
+    explanations:
+      de_DE: Addresses
+      en_US: Addresses
+  customer.account.orders:
+    explanations:
+      de_DE: Orders
+      en_US: Orders
+  customer.change.submit:
+    explanations:
+      de_DE: Submit
+      en_US: Submit
+  customer.change:
+    explanations:
+      de_DE: Change
+      en_US: Change
+  customer.account.headline:
+    explanations:
+      de_DE: 'Customer Account'
+      en_US: 'Customer Account'
+  customer.account.profile:
+    explanations:
+      de_DE: 'Customer Profile'
+      en_US: 'Customer Profile'
+  customer.password.confirm:
+    explanations:
+      de_DE: 'Confirm Password'
+      en_US: 'Confirm Password'
+  customer.password.new:
+    explanations:
+      de_DE: 'New Password'
+      en_US: 'New Password'
+  customer.order.date:
+    explanations:
+      de_DE: 'Ordered on'
+      en_US: 'Ordered on'
+  customer.orders.none:
+    explanations:
+      de_DE: 'You have not placed an order yet.'
+      en_US: 'You have not placed an order yet.'
+  customer.orders.caption:
+    explanations:
+      de_DE: 'My Orders'
+      en_US: 'My Orders'
+  customer.addresses.caption:
+    explanations:
+      de_DE: 'My Addresses'
+      en_US: 'My Addresses'
+  customer.profile.caption:
+    explanations:
+      de_DE: 'My Profile'
+      en_US: 'My Profile'
+  customer.newsletter.subscription.status.caption:
+    explanations:
+      de_DE: 'Yes, I want to receive the newsletter.'
+      en_US: 'Yes, I want to receive the newsletter.'
+  customer.newsletter.subscription:
+    explanations:
+      de_DE: Newsletter
+      en_US: Newsletter
+  customer.order.number:
+    explanations:
+      de_DE: 'Order Number'
+      en_US: 'Order Number'
+  customer.order.price.sub.total:
+    explanations:
+      de_DE: 'Sub Total'
+      en_US: 'Sub Total'
+  customer.order.price.total:
+    explanations:
+      de_DE: Total
+      en_US: Total
+  customer.order.amount:
+    explanations:
+      de_DE: Amount
+      en_US: Amount
+  customer.order.product:
+    explanations:
+      de_DE: Product
+      en_US: Product
+  customer.order.status:
+    explanations:
+      de_DE: Status
+      en_US: Status
+  customer.order.grand.total:
+    explanations:
+      de_DE: 'Grand Total'
+      en_US: 'Grand Total'
+  customer.order.shipping.to:
+    explanations:
+      de_DE: 'Shipping To'
+      en_US: 'Shipping To'
+  customer.order.address.shipping:
+    explanations:
+      de_DE: 'Shipping Address'
+      en_US: 'Shipping Address'
+  customer.order.price.grand.total:
+    explanations:
+      de_DE: 'Grand Total'
+      en_US: 'Grand Total'
+  customer.order.discount.shipping:
+    explanations:
+      de_DE: 'Free Shipping'
+      en_US: 'Free Shipping'
+  customer.order.discount:
+    explanations:
+      de_DE: Discount
+      en_US: Discount
+  customer.order.price.shipping:
+    explanations:
+      de_DE: 'Shipping Cost'
+      en_US: 'Shipping Cost'
+  customer.address.shipping.none:
+    explanations:
+      de_DE: 'You did not set a shipping address yet.'
+      en_US: 'You did not set a shipping address yet.'
+  customer.address.billing.none:
+    explanations:
+      de_DE: 'You did not set a billing address yet.'
+      en_US: 'You did not set a billing address yet.'
+  customer.address.delete:
+    explanations:
+      de_DE: Remove
+      en_US: Remove
+  customer.address.change:
+    explanations:
+      de_DE: Edit
+      en_US: Edit
+  customer.address.add:
+    explanations:
+      de_DE: 'Add new address'
+      en_US: 'Add new address'
+  customer.order.download.invoice:
+    explanations:
+      de_DE: Invoice
+      en_US: Invoice
+  customer.order.print:
+    explanations:
+      de_DE: Print
+      en_US: Print
+  customer.order.detail.hide:
+    explanations:
+      de_DE: 'Hide Detail'
+      en_US: 'Hide Detail'
+  customer.order.detail.show:
+    explanations:
+      de_DE: 'Show Detail'
+      en_US: 'Show Detail'
+  customer.order.payment.method:
+    explanations:
+      de_DE: 'Payment Method'
+      en_US: 'Payment Method'
+  customer.order.address.billing:
+    explanations:
+      de_DE: 'Billing Address'
+      en_US: 'Billing Address'
+  customer.address.others.caption:
+    explanations:
+      de_DE: 'Other Addresses'
+      en_US: 'Other Addresses'
+  customer.address.make.default.shipping:
+    explanations:
+      de_DE: 'Use as default shipping address'
+      en_US: 'Use as default shipping address'
+  customer.address.make.default.billing:
+    explanations:
+      de_DE: 'Use as default billing address'
+      en_US: 'Use as default billing address'
+  customer.address.default.shipping.caption:
+    explanations:
+      de_DE: 'Default Shipping Address'
+      en_US: 'Default Shipping Address'
+  customer.address.default.billing.caption:
+    explanations:
+      de_DE: 'Default Billing Address'
+      en_US: 'Default Billing Address'
+  customer.address.change.caption:
+    explanations:
+      de_DE: 'Edit Address'
+      en_US: 'Edit Address'
+  customer.address.add.caption:
+    explanations:
+      de_DE: 'Add Address'
+      en_US: 'Add Address'
+  customer.email.new:
+    explanations:
+      de_DE: 'New Email'
+      en_US: 'New Email'
+  customer.login.failed:
+    explanations:
+      de_DE: 'Unfortunately your login failed.'
+      en_US: 'Unfortunately your login failed.'
+  customer.password.wrong:
+    explanations:
+      de_DE: 'Please enter your current password.'
+      en_US: 'Please enter your current password.'
+  customer.password.not.valid:
+    explanations:
+      de_DE: 'Please enter a password that is at least 6 characters long.'
+      en_US: 'Please enter a password that is at least 6 characters long.'
+  customer.passwords.dont.match:
+    explanations:
+      de_DE: 'Please enter matching passwords match and try again.'
+      en_US: 'Please enter matching passwords match and try again.'
+  customer.password.changed.headline:
+    explanations:
+      de_DE: 'Password changed'
+      en_US: 'Password changed'
+  customer.password.changed.caption:
+    explanations:
+      de_DE: 'Your new password has been stored successfully.'
+      en_US: 'Your new password has been stored successfully.'
+  customer.password.mail.sent.caption:
+    explanations:
+      de_DE: "We sent you an email containing a link to change your password.<br>\nIf you did not receive this email, please check out your spam folder."
+      en_US: "We sent you an email containing a link to change your password.<br>\nIf you did not receive this email, please check out your spam folder."
+  customer.password.mail.sent.headline:
+    explanations:
+      de_DE: 'Please check our email inbox'
+      en_US: 'Please check our email inbox'
+  customer.password.poor:
+    explanations:
+      de_DE: 'Please enter a password that is at least 6 characters long.'
+      en_US: 'Please enter a password that is at least 6 characters long.'
+  customer.password.request:
+    explanations:
+      de_DE: 'Restore my password'
+      en_US: 'Restore my password'
+  customer.password.restore:
+    explanations:
+      de_DE: 'Submit new password'
+      en_US: 'Submit new password'
+  customer.password.restore.caption:
+    explanations:
+      de_DE: 'Please enter your new password and confirm it to prevent typing errors. The password must be at least 6 characters long.'
+      en_US: 'Please enter your new password and confirm it to prevent typing errors. The password must be at least 6 characters long.'
+  customer.password.restore.headline:
+    explanations:
+      de_DE: 'Enter a new password'
+      en_US: 'Enter a new password'
+  customer.password.restore.link.timeout:
+    explanations:
+      de_DE: 'The links to change a password are only valid for a limited time. Unfortunately this link has already expired. Please request a new one.'
+      en_US: 'The links to change a password are only valid for a limited time. Unfortunately this link has already expired. Please request a new one.'
+  customer.password.restored:
+    explanations:
+      de_DE: 'Your password has been changed successfully.'
+      en_US: 'Your password has been changed successfully.'
+  modal.close:
+    explanations:
+      de_DE: Close
+      en_US: Close
+  customer.newsletter.subscription.resubmit:
+    explanations:
+      de_DE: 'Request confirmation email'
+      en_US: 'Request confirmation email'
+  customer.newsletter.subscription.confirm:
+    explanations:
+      de_DE: 'Please confirm your subscription by clicking the confirmation link we have sent to you by email. If you did not receive this email, you can request it again by clicking the button below.'
+      en_US: 'Please confirm your subscription by clicking the confirmation link we have sent to you by email. If you did not receive this email, you can request it again by clicking the button below.'
+  newsletter.subscription.already.subscribed:
+    explanations:
+      de_DE: 'This email address is already subscribed.'
+      en_US: 'This email address is already subscribed.'
+  newsletter.subscription.cancel:
+    explanations:
+      de_DE: Unsubscribe
+      en_US: Unsubscribe
+  newsletter.subscription.cancellation.caption:
+    explanations:
+      de_DE: '<strong>If you submit this form, we will send you a message containing a link to confirm your unsubscription.</strong><br>This confirmation process is meant to protect you from unauthorized unsubscription.<br>If you did not receive this email, please check your spam folder or repeat the process.'
+      en_US: '<strong>If you submit this form, we will send you a message containing a link to confirm your unsubscription.</strong><br>This confirmation process is meant to protect you from unauthorized unsubscription.<br>If you did not receive this email, please check your spam folder or repeat the process.'
+  newsletter.subscription.cancellation.email:
+    explanations:
+      de_DE: 'Your Email'
+      en_US: 'Your Email'
+  newsletter.subscription.cancellation.error:
+    explanations:
+      de_DE: 'The unsubscription failed. The key provided could not be associated with any email address.'
+      en_US: 'The unsubscription failed. The key provided could not be associated with any email address.'
+  newsletter.subscription.cancellation.mail.sent:
+    explanations:
+      de_DE: 'Provided your email address is subscribed to our newsletter, you will receive an email message containing a confirmation link shortly.'
+      en_US: 'Provided your email address is subscribed to our newsletter, you will receive an email message containing a confirmation link shortly.'
+  newsletter.subscription.cancellation.headline:
+    explanations:
+      de_DE: 'Newsletter unsubscription'
+      en_US: 'Newsletter unsubscription'
+  newsletter.subscription.cancellation.success:
+    explanations:
+      de_DE: 'The email address %email% has been unsubscribed successfully. If this happened mistakenly, please subscribe again <a href="/newsletter">here</a>.'
+      en_US: 'The email address %email% has been unsubscribed successfully. If this happened mistakenly, please subscribe again <a href="/newsletter">here</a>.'
+  newsletter.subscription.cancellation.success.headline:
+    explanations:
+      de_DE: 'Newsletter unsubscription successful'
+      en_US: 'Newsletter unsubscription successful'
+  newsletter.subscription.cancellation.unknown.email:
+    explanations:
+      de_DE: 'Provided your email address is subscribed to our newsletter, you will receive an email message containing a confirmation link shortly.'
+      en_US: 'Provided your email address is subscribed to our newsletter, you will receive an email message containing a confirmation link shortly.'
+  newsletter.subscription.confirmation.error:
+    explanations:
+      de_DE: 'The subscription failed. The key provided could not be associated with any email address.'
+      en_US: 'The subscription failed. The key provided could not be associated with any email address.'
+  newsletter.subscription.confirmation.key.missing:
+    explanations:
+      de_DE: 'The subscription failed. No key was provided.'
+      en_US: 'The subscription failed. No key was provided.'
+  newsletter.subscription.confirmation.success:
+    explanations:
+      de_DE: "Thank you for subscribing to our newsletter.\nWith it, you will be always up to date with our latest news, products and special offers."
+      en_US: "Thank you for subscribing to our newsletter.\nWith it, you will be always up to date with our latest news, products and special offers."
+  newsletter.subscription.confirmation.success.headline:
+    explanations:
+      de_DE: 'Newsletter subscription successful'
+      en_US: 'Newsletter subscription successful'
+  newsletter.subscription.create:
+    explanations:
+      de_DE: Subscribe
+      en_US: Subscribe
+  newsletter.subscription.email:
+    explanations:
+      de_DE: 'Your Email'
+      en_US: 'Your Email'
+  newsletter.subscription.email.placeholder:
+    explanations:
+      de_DE: your@email-here.com
+      en_US: your@email-here.com
+  newsletter.subscription.success:
+    explanations:
+      de_DE: 'You will receive an email message containing a confirmation link shortly. Please check you email inbox.'
+      en_US: 'You will receive an email message containing a confirmation link shortly. Please check you email inbox.'
+  newsletter.subscription.headline:
+    explanations:
+      de_DE: 'Subscribe now to our free newsletter'
+      en_US: 'Subscribe now to our free newsletter'
+  newsletter.subscription.caption:
+    explanations:
+      de_DE: "<strong>We won't pass on your email address to third parties and you may unsubscribe at any time.</strong><br>\nBy clicking on the subscribe button, you agree to our <a href=\"/privacy\">privacy policy</a>."
+      en_US: "<strong>We won't pass on your email address to third parties and you may unsubscribe at any time.</strong><br>\nBy clicking on the subscribe button, you agree to our <a href=\"/privacy\">privacy policy</a>."
+  newsletter.subscription.advantage.headline:
+    explanations:
+      de_DE: 'Your advantages'
+      en_US: 'Your advantages'
+  newsletter.subscription.advantage.3:
+    explanations:
+      de_DE: 'Latest news'
+      en_US: 'Latest news'
+  newsletter.subscription.advantage.2:
+    explanations:
+      de_DE: 'Latest products'
+      en_US: 'Latest products'
+  newsletter.subscription.advantage.1:
+    explanations:
+      de_DE: 'Special offers'
+      en_US: 'Special offers'
+  customer.address.default.billing.shipping.caption:
+    explanations:
+      de_DE: 'Default Billing & Shipping Address'
+      en_US: 'Default Billing & Shipping Address'
+  checkout.address.more:
+    explanations:
+      de_DE: 'Show other addresses'
+      en_US: 'Show other addresses'
+  checkout.address.less:
+    explanations:
+      de_DE: 'Hide other addresses'
+      en_US: 'Hide other addresses'
+  checkout.address.use:
+    explanations:
+      de_DE: Use
+      en_US: Use
+  customer.address.default.shipping.none:
+    explanations:
+      de_DE: 'You did not set a shipping address yet.'
+      en_US: 'You did not set a shipping address yet.'
+  customer.address.default.billing.none:
+    explanations:
+      de_DE: 'You did not set a billing address yet.'
+      en_US: 'You did not set a billing address yet.'
+  checkout.address.billing.address3.placeholder:
+    explanations:
+      de_DE: 'e.g. company / please hand to neighbor Wilson'
+      en_US: 'e.g. company / please hand to neighbor Wilson'
+  checkout.address.billing.address3:
+    explanations:
+      de_DE: 'Additional Address Data'
+      en_US: 'Additional Address Data'
+  checkout.address.billing.comment:
+    explanations:
+      de_DE: Comment
+      en_US: Comment
+  customer.address.delete.confirmation:
+    explanations:
+      de_DE: 'Do you really want to delete this address?'
+      en_US: 'Do you really want to delete this address?'
+  customer.address.added.caption:
+    explanations:
+      de_DE: 'Your new address has been stored successfully.'
+      en_US: 'Your new address has been stored successfully.'
+  customer.address.default.billing.set.caption:
+    explanations:
+      de_DE: 'Your new default billing address has been stored successfully.'
+      en_US: 'Your new default billing address has been stored successfully.'
+  customer.address.default.shipping.set.caption:
+    explanations:
+      de_DE: 'Your new default shipping address has been stored successfully.'
+      en_US: 'Your new default shipping address has been stored successfully.'
+  customer.address.deleted.caption:
+    explanations:
+      de_DE: 'Your selected address has been deleted successfully.'
+      en_US: 'Your selected address has been deleted successfully.'
+  customer.address.in.use:
+    explanations:
+      de_DE: 'The selected address is used as a default address.'
+      en_US: 'The selected address is used as a default address.'
+  customer.change.cancel:
+    explanations:
+      de_DE: Cancel
+      en_US: Cancel
+  catalog.filters.main_color:
+    explanations:
+      de_DE: Main color
+      en_US: Main color
+  catalog.filters.main_color.brown:
+    explanations:
+      de_DE: '<div class="colorbox brown" title="Brown">'
+      en_US: '<div class="colorbox brown" title="Brown">'
+  catalog.filters.main_color.white:
+    explanations:
+      de_DE: '<div class="colorbox white" title="White">'
+      en_US: '<div class="colorbox white" title="White">'
+  catalog.filters.main_color.black:
+    explanations:
+      de_DE: '<div class="colorbox black" title="Black">'
+      en_US: '<div class="colorbox black" title="Black">'
+  catalog.filters.main_color.gray:
+    explanations:
+      de_DE: '<div class="colorbox grey" title="Grey">'
+      en_US: '<div class="colorbox grey" title="Grey">'
+  catalog.filters.main_color.green:
+    explanations:
+      de_DE: '<div class="colorbox green" title="Green">'
+      en_US: '<div class="colorbox green" title="Green">'
+  catalog.filters.main_color.light_blue:
+    explanations:
+      de_DE: '<div class="colorbox lightblue" title="Light blue">'
+      en_US: '<div class="colorbox lightblue" title="Light blue">'
+  catalog.filters.main_color.skin:
+    explanations:
+      de_DE: '<div class="colorbox skin" title="Skin">'
+      en_US: '<div class="colorbox skin" title="Skin">'
+  catalog.filters.main_color.blue:
+    explanations:
+          de_DE: '<div class="colorbox blue" title="Blue">'
+          en_US: '<div class="colorbox blue" title="Blue">'
+  catalog.filters.main_color.red:
+    explanations:
+          de_DE: '<div class="colorbox red" title="Red">'
+          en_US: '<div class="colorbox red" title="Red">'
+  catalog.filters.main_color.silver:
+    explanations:
+          de_DE: '<div class="colorbox silver" title="Silver">'
+          en_US: '<div class="colorbox silver" title="Silver">'
+  catalog.filters.main_color.gold:
+    explanations:
+          de_DE: '<div class="colorbox gold" title="Gold">'
+          en_US: '<div class="colorbox gold" title="Gold">'
+  catalog.filters.main_color.pink:
+    explanations:
+          de_DE: '<div class="colorbox pink" title="Pink">'
+          en_US: '<div class="colorbox pink" title="Pink">'
+  catalog.filters.material.aluminium:
+    explanations:
+      de_DE: 'Aluminium'
+      en_US: 'Aluminium'
+  catalog.filters.material.plush:
+    explanations:
+      de_DE: 'Plush'
+      en_US: 'Plush'
+  catalog.filters.age:
+    explanations:
+      de_DE: 'Suitable from'
+      en_US: 'Suitable from'
+  catalog.filters.age.4:
+    explanations:
+      de_DE: '4+'
+      en_US: '4+'
+  catalog.filters.age.6:
+    explanations:
+      de_DE: '6+'
+      en_US: '6+'
+  catalog.filters.age.8:
+    explanations:
+      de_DE: '8+'
+      en_US: '8+'
+  static.pages.tos:
+    explanations:
+      de_DE: >
+        <h2>Terms of Service</h2>
+        <br />
+        <br />
+        Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.
+        At vero eos et accusam et justo duo dolores et ea rebum.
+        Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.
+        Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.
+        At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.
+      en_US: >
+        <h2>Terms of Service</h2>
+        <br />
+        <br />
+        Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.
+        At vero eos et accusam et justo duo dolores et ea rebum.
+        Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.
+        Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.
+        At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.
+  static.pages.imprint:
+    explanations:
+      de_DE: >
+        <h2>Imprint</h2>
+        <br />
+        <br />
+        Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.
+        At vero eos et accusam et justo duo dolores et ea rebum.
+        Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.
+        Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.
+        At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.
+      en_US: >
+        <h2>Imprint</h2>
+        <br />
+        <br />
+        Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.
+        At vero eos et accusam et justo duo dolores et ea rebum.
+        Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.
+        Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.
+        At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.
+  static.pages.privacy:
+    explanations:
+      de_DE: >
+        <h2>Privacy</h2>
+        <br />
+        <br />
+        Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.
+        At vero eos et accusam et justo duo dolores et ea rebum.
+        Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.
+        Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.
+        At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.
+      en_US: >
+        <h2>Privacy</h2>
+        <br />
+        <br />
+        Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.
+        At vero eos et accusam et justo duo dolores et ea rebum.
+        Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.
+        Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.
+        At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.
+  static.pages.withdrawal:
+    explanations:
+      de_DE: >
+        <h2>Withdrawal</h2>
+        <br />
+        <br />
+        Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.
+        At vero eos et accusam et justo duo dolores et ea rebum.
+        Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.
+        Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.
+        At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.
+      en_US: >
+        <h2>Withdrawal</h2>
+        <br />
+        <br />
+        Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.
+        At vero eos et accusam et justo duo dolores et ea rebum.
+        Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.
+        Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.
+        At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.
+  static.pages.returns:
+    explanations:
+      de_DE: >
+        <h2>Returns</h2>
+        <br />
+        <br />
+        Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.
+        At vero eos et accusam et justo duo dolores et ea rebum.
+        Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.
+        Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.
+        At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.
+      en_US: >
+        <h2>Returns</h2>
+        <br />
+        <br />
+        Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.
+        At vero eos et accusam et justo duo dolores et ea rebum.
+        Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.
+        Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.
+        At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.
+  static.pages.contact:
+    explanations:
+      de_DE: >
+        <h2>Contact</h2>
+        <br />
+        <br />
+        Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.
+        At vero eos et accusam et justo duo dolores et ea rebum.
+        Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.
+        Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.
+        At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.
+      en_US: >
+        <h2>Contact</h2>
+        <br />
+        <br />
+        Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.
+        At vero eos et accusam et justo duo dolores et ea rebum.
+        Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.
+        Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.
+        At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.
+  static.pages.faq:
+    explanations:
+      de_DE: >
+        <h2>FAQ</h2>
+        <br />
+        <br />
+        Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.
+        At vero eos et accusam et justo duo dolores et ea rebum.
+        Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.
+        Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.
+        At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.
+      en_US: >
+        <h2>FAQ</h2>
+        <br />
+        <br />
+        Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.
+        At vero eos et accusam et justo duo dolores et ea rebum.
+        Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.
+        Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.
+        At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.
+
+  catalog.product.attribute.width:
+    explanations:
+      de_DE: Width
+      en_US: Width
+  catalog.product.attribute.height:
+    explanations:
+      de_DE: Height
+      en_US: Height
+  catalog.product.attribute.depth:
+    explanations:
+      de_DE: Depth
+      en_US: Depth
+  catalog.product.attribute.main_color:
+    explanations:
+      de_DE: Main color
+      en_US: Main color
+  catalog.product.attribute.weight:
+    explanations:
+      de_DE: Weight
+      en_US: Weight
+  catalog.product.attribute.material:
+    explanations:
+      de_DE: Material
+      en_US: Material
+  catalog.product.attribute.age:
+    explanations:
+      de_DE: Suitable from
+      en_US: Suitable from
+  catalog.product.attribute.width.meassurement:
+    explanations:
+      de_DE: ' cm'
+      en_US: ' cm'
+  catalog.product.attribute.height.meassurement:
+    explanations:
+      de_DE: ' cm'
+      en_US: ' cm'
+  catalog.product.attribute.depth.meassurement:
+    explanations:
+      de_DE: ' cm'
+      en_US: ' cm'
+  catalog.product.attribute.weight.meassurement:
+      explanations:
+        de_DE: ' Kg'
+        en_US: ' Kg'
+  catalog.product.attribute.age.meassurement:
+    explanations:
+      de_DE: '+ years'
+      en_US: '+ years'
+  catalog.product.more_information:
+    explanations:
+      de_DE: 'Specification'
+      en_US: 'Specification'
+  catalog.product.attribute.other_colors:
+    explanations:
+      de_DE: 'Additional colors'
+      en_US: 'Additional colors'
