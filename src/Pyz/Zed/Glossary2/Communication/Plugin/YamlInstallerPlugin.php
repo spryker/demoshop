@@ -3,11 +3,9 @@
 namespace Pyz\Zed\Glossary2\Communication\Plugin;
 
 use ProjectA\Zed\Glossary2\Business\Glossary2Facade;
-use ProjectA\Zed\Glossary2\Business\Glossary2Factory;
 use ProjectA\Zed\Glossary2\Communication\Glossary2DependencyContainer;
 use ProjectA\Zed\Glossary2\Dependency\Plugin\GlossaryInstallerPluginInterface;
 use ProjectA\Zed\Kernel\Business\FacadeLocator;
-use ProjectA\Zed\Kernel\Communication\AbstractFactory;
 use ProjectA\Zed\Kernel\Communication\AbstractPlugin;
 use ProjectA\Zed\Kernel\Locator;
 use Symfony\Component\Yaml\Yaml;

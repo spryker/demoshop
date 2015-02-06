@@ -43,7 +43,7 @@ class YvesExportSettings extends CoreYvesExportSettings
         return [
             new ProductProcessorPlugin(100, 10),
             new NavigationProcessorPlugin(),
-            new CategoryNodeProcessorPlugin(100)
+            new CategoryNodeProcessorPlugin(100),
             $translationProcessorPlugin
         ];
     }
