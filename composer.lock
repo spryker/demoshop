@@ -884,7 +884,7 @@
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/yves.git",
-                "reference": "f120116017e73976bc4d0ed4ea0e751ee814e677"
+                "reference": "b1a80880b400f97408fe36bf8aeff4231ba7baff"
             },
             "require": {
                 "php": ">=5.4.0"
@@ -914,7 +914,7 @@
                 "Application",
                 "Yves"
             ],
-            "time": "2015-02-05 09:22:58"
+            "time": "2015-02-06 08:15:16"
         },
         {
             "name": "spryker/zed-package",
@@ -922,7 +922,7 @@
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/zed.git",
-                "reference": "66aa61f8a12cc87b70d7b91c7dffa1692fe09c30"
+                "reference": "0b47c5294d6d57dcf556ee86dc98d59499fea994"
             },
             "require": {
                 "digital-canvas/zend-framework": ">=1.12.2",
@@ -988,7 +988,7 @@
                 "Application",
                 "Zed"
             ],
-            "time": "2015-02-05 12:38:08"
+            "time": "2015-02-06 08:06:16"
         },
         {
             "name": "symfony-cmf/routing",
