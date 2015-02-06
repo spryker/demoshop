@@ -4,7 +4,7 @@
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "06e1eb61fda7283f748713d548e32a6a",
+    "hash": "165caadbabc9ca6f722841c2697d3637",
     "packages": [
         {
             "name": "digital-canvas/zend-framework",
@@ -540,12 +540,12 @@
             "version": "v1.1.1",
             "source": {
                 "type": "git",
-                "url": "https://github.com/silexphp/Pimple.git",
+                "url": "https://github.com/fabpot/Pimple.git",
                 "reference": "2019c145fe393923f3441b23f29bbdfaa5c58c4d"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/silexphp/Pimple/zipball/2019c145fe393923f3441b23f29bbdfaa5c58c4d",
+                "url": "https://api.github.com/repos/fabpot/Pimple/zipball/2019c145fe393923f3441b23f29bbdfaa5c58c4d",
                 "reference": "2019c145fe393923f3441b23f29bbdfaa5c58c4d",
                 "shasum": ""
             },
@@ -570,7 +570,9 @@
             "authors": [
                 {
                     "name": "Fabien Potencier",
-                    "email": "fabien@symfony.com"
+                    "email": "fabien@symfony.com",
+                    "homepage": "http://fabien.potencier.org",
+                    "role": "Lead Developer"
                 }
             ],
             "description": "Pimple is a simple Dependency Injection Container for PHP 5.3",
@@ -884,7 +886,7 @@
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/yves.git",
-                "reference": "b1a80880b400f97408fe36bf8aeff4231ba7baff"
+                "reference": "ce3699394c36f4bb9bb33f2b09554b4c76455105"
             },
             "require": {
                 "php": ">=5.4.0"
@@ -914,7 +916,7 @@
                 "Application",
                 "Yves"
             ],
-            "time": "2015-02-06 08:15:16"
+            "time": "2015-02-06 08:44:03"
         },
         {
             "name": "spryker/zed-package",
@@ -922,7 +924,7 @@
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/zed.git",
-                "reference": "0b47c5294d6d57dcf556ee86dc98d59499fea994"
+                "reference": "beb237065e416e1c2246f890de47686d3f2aa25c"
             },
             "require": {
                 "digital-canvas/zend-framework": ">=1.12.2",
@@ -988,7 +990,7 @@
                 "Application",
                 "Zed"
             ],
-            "time": "2015-02-06 08:06:16"
+            "time": "2015-02-06 08:28:07"
         },
         {
             "name": "symfony-cmf/routing",
@@ -2042,6 +2044,83 @@
             "time": "2015-01-03 15:23:51"
         },
         {
+            "name": "symfony/twig-bridge",
+            "version": "v2.6.4",
+            "target-dir": "Symfony/Bridge/Twig",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/symfony/TwigBridge.git",
+                "reference": "85572fed6e76dd1794d12ac8c1dd9ffa6882d45d"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/symfony/TwigBridge/zipball/85572fed6e76dd1794d12ac8c1dd9ffa6882d45d",
+                "reference": "85572fed6e76dd1794d12ac8c1dd9ffa6882d45d",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3.3",
+                "symfony/security-csrf": "~2.4",
+                "twig/twig": "~1.13,>=1.13.1"
+            },
+            "require-dev": {
+                "symfony/console": "~2.4",
+                "symfony/expression-language": "~2.4",
+                "symfony/finder": "~2.3",
+                "symfony/form": "~2.6",
+                "symfony/http-kernel": "~2.3",
+                "symfony/intl": "~2.3",
+                "symfony/routing": "~2.2",
+                "symfony/security": "~2.4",
+                "symfony/stopwatch": "~2.2",
+                "symfony/templating": "~2.1",
+                "symfony/translation": "~2.2",
+                "symfony/var-dumper": "~2.6",
+                "symfony/yaml": "~2.0,>=2.0.5"
+            },
+            "suggest": {
+                "symfony/expression-language": "For using the ExpressionExtension",
+                "symfony/finder": "",
+                "symfony/form": "For using the FormExtension",
+                "symfony/http-kernel": "For using the HttpKernelExtension",
+                "symfony/routing": "For using the RoutingExtension",
+                "symfony/security": "For using the SecurityExtension",
+                "symfony/stopwatch": "For using the StopwatchExtension",
+                "symfony/templating": "For using the TwigEngine",
+                "symfony/translation": "For using the TranslationExtension",
+                "symfony/var-dumper": "For using the DumpExtension",
+                "symfony/yaml": "For using the YamlExtension"
+            },
+            "type": "symfony-bridge",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "2.6-dev"
+                }
+            },
+            "autoload": {
+                "psr-0": {
+                    "Symfony\\Bridge\\Twig\\": ""
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Symfony Community",
+                    "homepage": "http://symfony.com/contributors"
+                },
+                {
+                    "name": "Fabien Potencier",
+                    "email": "fabien@symfony.com"
+                }
+            ],
+            "description": "Symfony Twig Bridge",
+            "homepage": "http://symfony.com",
+            "time": "2015-01-25 04:39:26"
+        },
+        {
             "name": "symfony/validator",
             "version": "v2.5.10",
             "target-dir": "Symfony/Component/Validator",
@@ -2221,12 +2300,12 @@
             "version": "v1.15.1",
             "source": {
                 "type": "git",
-                "url": "https://github.com/twigphp/Twig.git",
+                "url": "https://github.com/fabpot/Twig.git",
                 "reference": "1fb5784662f438d7d96a541e305e28b812e2eeed"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/twigphp/Twig/zipball/1fb5784662f438d7d96a541e305e28b812e2eeed",
+                "url": "https://api.github.com/repos/fabpot/Twig/zipball/1fb5784662f438d7d96a541e305e28b812e2eeed",
                 "reference": "1fb5784662f438d7d96a541e305e28b812e2eeed",
                 "shasum": ""
             },
@@ -3240,7 +3319,7 @@
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/newLoki/PropelModule/zipball/9de9316361e3dddb6b29f5dd93b7456e19e042e3",
+                "url": "https://api.github.com/repos/newLoki/PropelModule/zipball/ab6164e684113e20d5754fd61fe0ea86331ebd0b",
                 "reference": "9de9316361e3dddb6b29f5dd93b7456e19e042e3",
                 "shasum": ""
             },
@@ -4026,83 +4105,6 @@
             "description": "Symfony Stopwatch Component",
             "homepage": "http://symfony.com",
             "time": "2015-01-03 08:01:59"
-        },
-        {
-            "name": "symfony/twig-bridge",
-            "version": "v2.6.4",
-            "target-dir": "Symfony/Bridge/Twig",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/symfony/TwigBridge.git",
-                "reference": "85572fed6e76dd1794d12ac8c1dd9ffa6882d45d"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/symfony/TwigBridge/zipball/85572fed6e76dd1794d12ac8c1dd9ffa6882d45d",
-                "reference": "85572fed6e76dd1794d12ac8c1dd9ffa6882d45d",
-                "shasum": ""
-            },
-            "require": {
-                "php": ">=5.3.3",
-                "symfony/security-csrf": "~2.4",
-                "twig/twig": "~1.13,>=1.13.1"
-            },
-            "require-dev": {
-                "symfony/console": "~2.4",
-                "symfony/expression-language": "~2.4",
-                "symfony/finder": "~2.3",
-                "symfony/form": "~2.6",
-                "symfony/http-kernel": "~2.3",
-                "symfony/intl": "~2.3",
-                "symfony/routing": "~2.2",
-                "symfony/security": "~2.4",
-                "symfony/stopwatch": "~2.2",
-                "symfony/templating": "~2.1",
-                "symfony/translation": "~2.2",
-                "symfony/var-dumper": "~2.6",
-                "symfony/yaml": "~2.0,>=2.0.5"
-            },
-            "suggest": {
-                "symfony/expression-language": "For using the ExpressionExtension",
-                "symfony/finder": "",
-                "symfony/form": "For using the FormExtension",
-                "symfony/http-kernel": "For using the HttpKernelExtension",
-                "symfony/routing": "For using the RoutingExtension",
-                "symfony/security": "For using the SecurityExtension",
-                "symfony/stopwatch": "For using the StopwatchExtension",
-                "symfony/templating": "For using the TwigEngine",
-                "symfony/translation": "For using the TranslationExtension",
-                "symfony/var-dumper": "For using the DumpExtension",
-                "symfony/yaml": "For using the YamlExtension"
-            },
-            "type": "symfony-bridge",
-            "extra": {
-                "branch-alias": {
-                    "dev-master": "2.6-dev"
-                }
-            },
-            "autoload": {
-                "psr-0": {
-                    "Symfony\\Bridge\\Twig\\": ""
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Symfony Community",
-                    "homepage": "http://symfony.com/contributors"
-                },
-                {
-                    "name": "Fabien Potencier",
-                    "email": "fabien@symfony.com"
-                }
-            ],
-            "description": "Symfony Twig Bridge",
-            "homepage": "http://symfony.com",
-            "time": "2015-01-25 04:39:26"
         },
         {
             "name": "symfony/web-profiler-bundle",

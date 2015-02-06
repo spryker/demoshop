@@ -7,6 +7,7 @@ use ProjectA\Zed\CategoryExporter\Communication\Plugin\NavigationProcessorPlugin
 use ProjectA\Zed\GlossaryExporter\Communication\Plugin\KeyBuilderAwareInterface;
 use ProjectA\Zed\GlossaryExporter\Communication\Plugin\KeyBuilderPlugin;
 use ProjectA\Zed\GlossaryExporter\Communication\Plugin\TranslationProcessorPlugin;
+use ProjectA\Zed\ProductCategorySearch\Communication\Plugin\ProductCategorySearchProcessorPlugin;
 use ProjectA\Zed\ProductExporter\Communication\Plugin\ProductProcessorPlugin;
 use ProjectA\Zed\ProductSearch\Communication\Plugin\ProductProcessorPlugin as ProductSearchProcessorPlugin;
 use ProjectA\Zed\YvesExport\Business\Exporter\KeyBuilder\KvMarkerKeyBuilder;
@@ -40,9 +41,9 @@ class YvesExportSettings extends CoreYvesExportSettings
         $translationProcessorPlugin->setKeyBuilder($keyBuilderPlugin);
 
         return [
-        //    new ProductProcessorPlugin(100, 10),
-        //    new NavigationProcessorPlugin(),
-        //    new CategoryNodeProcessorPlugin(100)
+            new ProductProcessorPlugin(100, 10),
+            new NavigationProcessorPlugin(),
+            new CategoryNodeProcessorPlugin(100)
             $translationProcessorPlugin
         ];
     }
@@ -54,6 +55,16 @@ class YvesExportSettings extends CoreYvesExportSettings
     {
         return [
             new ProductSearchProcessorPlugin(100, 10)
+        ];
+    }
+
+    /**
+     * @return array
+     */
+    public function getSearchUpdateProcessors()
+    {
+        return [
+            new ProductCategorySearchProcessorPlugin(100, 10),
         ];
     }
 }

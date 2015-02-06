@@ -4,6 +4,7 @@ namespace Pyz\Zed\Product\Business\Internal\DemoData;
 
 use ProjectA\Zed\Console\Business\Model\Console;
 use ProjectA\Zed\Library\Business\DemoDataInstallInterface;
+use ProjectA\Zed\Library\Import\Reader\CsvFileReader;
 
 /**
  * Class ProductDataInstall
@@ -12,82 +13,6 @@ use ProjectA\Zed\Library\Business\DemoDataInstallInterface;
  */
 class ProductDataInstall implements DemoDataInstallInterface
 {
-    /**
-     * @var array
-     */
-    protected $products = array(
-        array(
-            'sku' => '01',
-            'name' => 'WireShade Design Lampe',
-            'attributes' => '{"image_url": "/images/product/default.png", "radius": 35.00, "cable_length": 150.00, "weight": 2.2, "light_bulb": 60, "socket": "E27"}',
-            'products' => array(
-                    array(
-                            'sku' => '11',
-                            'name' => 'Grüne WireShade Design Lampe',
-                            'url' => '/gruene-wireshade-design-lampe',
-                            'attributes' => '{"image_url": "/images/product/default.png", "color": "green"}',
-                    )
-            )
-        ),
-        array(
-            'sku' => '02',
-            'name' => 'Stehleuchte Lupus',
-            'attributes' => '{"image_url": "/images/product/default.png", "radius": 26.00, "cable_length": 15.00, "weight": 1.0, "light_bulb": 150, "socket": "E14"}',
-            'products' => array(
-                    array(
-                            'sku' => '21',
-                            'name' => 'Stehleuchte Lupus - Wald',
-                            'url' => '/stehleuchte-lupus-wald',
-                            'attributes' => '{"image_url": "/images/product/default.png", "theme": "wald"}'
-                    ),
-                    array(
-                            'sku' => '22',
-                            'name' => 'Stehleuchte Lupus - Wiese',
-                            'url' => '/stehleuchte-lupus-wiese',
-                            'attributes' => '{"image_url": "/images/product/default.png", "theme": "wiese"}'
-                    )
-            )
-        ),
-        array(
-            'sku' => '03',
-            'name' => 'Kronleuchter',
-            'attributes' => '{"image_url": "/images/product/default.png", "radius": 150.00, "cable_length": 1.00, "weight": 200.0, "light_bulb": 280, "socket": "E27"}',
-            'products' => array(
-                    array(
-                            'sku' => '31',
-                            'name' => 'Kronleuchter Green Majestix',
-                            'url' => '/kronleuchter-green-majestix',
-                            'attributes' => '{"image_url": "/images/product/default.png", "color": "green"}'
-                    )
-            )
-        ),
-        array(
-            'sku' => '04',
-            'name' => 'The big couch',
-            'attributes' => '{"image_url": "/images/product/default.png", "length": 160.00, "width": 80.00}',
-            'products' => array(
-                array(
-                    'sku' => '41',
-                    'name' => 'The big couch',
-                    'url' => '/the-big-couch',
-                    'attributes' => '{"image_url": "/images/product/default.png", "color": "white"}'
-                )
-            )
-        ),
-        array(
-            'sku' => '05',
-            'name' => 'LUCY',
-            'attributes' => '{"image_url": "/images/product/default.png", "length": 310.00, "width": 100.00, "height": 140.00}',
-            'products' => array(
-                array(
-                    'sku' => '51',
-                    'name' => 'Lucy',
-                    'url' => '/lucy',
-                    'attributes' => '{"image_url": "/images/product/default.png"}'
-                )
-            )
-        )
-    );
 
     /**
      * @param Console $console
@@ -97,24 +22,31 @@ class ProductDataInstall implements DemoDataInstallInterface
      */
     public function install(Console $console)
     {
-        $this->createProduct();
-        $this->createAttributes();
+        $console->info('This will install some demo products and related attributes');
+
+        if ($console->askConfirmation('Do you really want this?')) {
+            $this->createProduct();
+            $this->createAttributes();
+        }
     }
 
     protected function createAttributes()
     {
         $attributes = [
-            'theme' => 'string',
-            'color' => 'list',
-            'radius' => 'number',
-            'cable_length' => 'number',
-            'weight' => 'number',
-            'light_bulb' => 'number',
-            'socket' => 'string',
-            'length' => 'number',
-            'width' => 'number',
-            'height' => 'number',
-            'image_url' => 'string'
+            'weight' => 'float',
+            'width' => 'float',
+            'height' => 'float',
+            'depth' => 'float',
+            'image_url' => 'string',
+            'thumbnail_url' => 'string',
+            'price' => 'integer',
+            'main_color' => 'string',
+            'other_colors' => 'string',
+            'material' => 'string',
+            'gender' => 'string',
+            'age' => 'integer',
+            'brand' => 'string',
+            'description' => 'string',
         ];
 
         $typeEntities = \ProjectA_Zed_Product_Persistence_Propel_PacProductAttributeTypeQuery::create()
@@ -155,7 +87,7 @@ class ProductDataInstall implements DemoDataInstallInterface
      */
     protected function createProduct()
     {
-        foreach ($this->products as $p) {
+        foreach ($this->getProductsFromCsv() as $p) {
             $sku = $p['sku'];
             $abstractProductQuery = new \ProjectA_Zed_Product_Persistence_Propel_PacAbstractProductQuery();
             if ($abstractProductQuery->findOneBySku($sku)) {
@@ -195,5 +127,71 @@ class ProductDataInstall implements DemoDataInstallInterface
             }
 
         }
+    }
+
+    /**
+     * @return array
+     */
+    protected function getProductsFromCsv()
+    {
+        $fileReader = $this->getFileReader(',');
+        $productData = $fileReader->read(__DIR__ . '/demo-product-data.csv')->getData();
+
+        $formattedProduct = [];
+        foreach ($productData as $product) {
+            $formattedProduct[] = $this->formatProduct($product);
+        }
+
+        return $formattedProduct;
+    }
+
+    /**
+     * @param array $product
+     * @return array
+     */
+    protected function formatProduct(array $product)
+    {
+        $productImageUrl = '/' . strtolower(str_replace(',', '', str_replace(' ', '-', trim($product['name']))));
+        $productAttributes = [
+            'image_url' => $product['image'],
+            'thumbnail_url' => '/images/product/default.png',
+            'price' => (float) $product['price'],
+            'width' => (float) $product['width'],
+            'height' => (float) $product['height'],
+            'depth' => (float) $product['depth'],
+            'main_color' => $product['main_color'],
+            'other_colors' => $product['other_colors'],
+            'weight' => (float) $product['weight'],
+            'material' => $product['material'],
+            'gender' => $product['gender'],
+            'age' => (float) $product['age'],
+            'brand' => $product['brand'],
+            'description' => $product['description'],
+        ];
+
+        return [
+            'sku' => $product['sku'],
+            'name' => $product['name'],
+            'attributes' => '{"image_url": "/images/product/default.png", "thumbnail_url": "/images/product/default.png"}',
+            'products' => [
+                [
+                    'sku' => $product['sku'],
+                    'name' => $product['name'],
+                    'url' => $productImageUrl,
+                    'attributes' => json_encode($productAttributes),
+                ]
+            ]
+        ];
+    }
+
+    /**
+     * @param string $delimiter
+     * @param string $enclosure
+     * @param string $escape
+     * @return CsvFileReader
+     */
+    protected function getFileReader($delimiter = ';', $enclosure = '"', $escape = '\\')
+    {
+        return new CsvFileReader($delimiter, $enclosure, $escape);
     }
 }

@@ -10,11 +10,11 @@
                 <span class="glyphicon glyphicon-chevron-right"></span>
             </hardcoded>
         </div>
-        {#{% if product.image %}#}
-        {#<img src="{{ product.image }}" alt="" />#}
-        {#{% else %}#}
+        {% if product.image_url %}
+        <img src="{{ product.image_url }}" alt="" />
+        {% else %}
         <img src="{{ getFirstProductImagesBySize(product.product_images, 'xxl') }}" alt="" />
-        {#{% endif %}#}
+        {% endif %}
     </div>
     <ul class="list">
         {% for image in getAllProductImagesBySize(product.product_images, 'm') %}

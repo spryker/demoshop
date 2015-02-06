@@ -11,6 +11,10 @@ use ProjectA\Yves\YvesExport\Business\Creator\ResourceCreatorInterface;
 use Pyz\Yves\Catalog\Business\Model\FacetConfig;
 use Silex\Application;
 
+/**
+ * Class CategoryResourceCreator
+ * @package Pyz\Yves\Catalog\Business\Creator
+ */
 class CategoryResourceCreator implements ResourceCreatorInterface
 {
     /**
