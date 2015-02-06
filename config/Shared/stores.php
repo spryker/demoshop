@@ -25,7 +25,7 @@ $stores['DE'] = [
     'countries' => ['DE'],   // first entry is default
     'currencyIsoCode' => 'EUR', // internal and shop
 ];
-
+/*
 $stores['US'] = [
     'contexts' => [ // different contexts
         // shared settings for all contexts
@@ -49,6 +49,6 @@ $stores['US'] = [
     'locales' => ['en_US'],   // first entry is default
     'countries' => ['US'],   // first entry is default
     'currencyIsoCode' => 'USD', // internal and shop
-];
+];*/
 
 return $stores;
