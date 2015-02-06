@@ -56,4 +56,5 @@ config/Yves/cache_bust.php
 /profiler
 
 npm-debug.log
-tests/_log
+tests/_log/
+

@@ -2,8 +2,11 @@
 
 namespace Pyz\Yves\Catalog\Business\Creator;
 
-use ProjectA\Shared\Application\Business\Controller\ServiceControllerBuilder;
-use ProjectA\Yves\Application\Business\Controller\ControllerResolver;
+use ProjectA\Shared\Application\Communication\ControllerServiceBuilder;
+use ProjectA\Yves\Kernel\Communication\BundleControllerAction;
+use ProjectA\Yves\Kernel\Communication\Controller\BundleControllerActionRouteNameResolver;
+use ProjectA\Yves\Kernel\Communication\ControllerLocator;
+use ProjectA\Yves\Kernel\Locator;
 use ProjectA\Yves\YvesExport\Business\Creator\ResourceCreatorInterface;
 use Pyz\Yves\Catalog\Business\Model\FacetConfig;
 use Silex\Application;
@@ -42,12 +45,21 @@ class CategoryResourceCreator implements ResourceCreatorInterface
      */
     public function createResource(Application $app, $data)
     {
-        $resolver = new ControllerResolver('Catalog', 'Catalog', 'index');
-        $service = (new ServiceControllerBuilder())->createServiceForController($app, $resolver);
+        $bundleControllerAction = new BundleControllerAction('Catalog', 'Catalog', 'index');
+        $controllerResolver = new ControllerLocator($bundleControllerAction);
+        $routeResolver = new BundleControllerActionRouteNameResolver($bundleControllerAction);
+
+        $service = (new ControllerServiceBuilder())->createServiceForController(
+            $app,
+            new Locator(),
+            $bundleControllerAction,
+            $controllerResolver,
+            $routeResolver
+        );
 
         return [
             '_controller' => $service,
-            '_route' => $resolver->getRouteName(),
+            '_route' => $routeResolver->resolve(),
             'category' => $data,
             'facetConfig' => $this->facetConfig,
         ];
