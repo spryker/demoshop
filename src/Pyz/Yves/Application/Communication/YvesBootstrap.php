@@ -9,6 +9,7 @@ use ProjectA\Shared\Application\Business\Bootstrap;
 use ProjectA\Shared\Application\Communication\Plugin\ServiceProvider\RoutingServiceProvider;
 use ProjectA\Shared\Application\Communication\Plugin\ServiceProvider\UrlGeneratorServiceProvider;
 use ProjectA\Shared\Library\Config;
+use ProjectA\Shared\Library\Storage\StorageInstanceBuilder;
 use ProjectA\Shared\System\SystemConfig;
 use ProjectA\Shared\Yves\YvesConfig;
 use ProjectA\Yves\Application\Communication\Plugin\ControllerProviderInterface;
@@ -27,6 +28,8 @@ use ProjectA\Yves\Application\Communication\Plugin\ServiceProvider\MonologServic
 use ProjectA\Yves\Application\Communication\Plugin\ServiceProvider\SessionServiceProvider;
 use ProjectA\Yves\Application\Communication\Plugin\ServiceProvider\StorageServiceProvider;
 use ProjectA\Yves\Application\Communication\Plugin\ServiceProvider\ExceptionServiceProvider;
+use SprykerFeature\Sdk\Glossary\Communication\Plugin\GlossaryKeyBuilderPlugin;
+use SprykerFeature\Yves\Glossary\KVTranslatorPlugin;
 use SprykerFeature\Yves\Glossary\TranslationServiceProvider;
 use ProjectA\Yves\Application\Communication\Plugin\ServiceProvider\TwigServiceProvider;
 use ProjectA\Yves\Application\Communication\Plugin\ServiceProvider\YvesLoggingServiceProvider;
@@ -107,6 +110,11 @@ class YvesBootstrap extends Bootstrap
      */
     protected function getServiceProviders()
     {
+        $translator = new KVTranslatorPlugin();
+        $keyBuilder = new GlossaryKeyBuilderPlugin();
+        $translator->setKeyBuilder($keyBuilder);
+        $translator->setKeyValueReader(StorageInstanceBuilder::getKvStorageReadInstance());
+
         $providers = [
             new ExceptionServiceProvider('\Pyz\Yves\Library\Controller\ExceptionController'),
             new YvesLoggingServiceProvider(),
@@ -119,7 +127,7 @@ class YvesBootstrap extends Bootstrap
             new RememberMeServiceProvider(),
             new RoutingServiceProvider(),
             new StorageServiceProvider(),
-            new TranslationServiceProvider(),
+            new TranslationServiceProvider($translator),
             new ValidatorServiceProvider(),
             new FormServiceProvider(),
             new TwigServiceProvider(),
