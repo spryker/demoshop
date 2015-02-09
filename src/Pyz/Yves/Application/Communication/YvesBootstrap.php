@@ -27,7 +27,7 @@ use ProjectA\Yves\Application\Communication\Plugin\ServiceProvider\MonologServic
 use ProjectA\Yves\Application\Communication\Plugin\ServiceProvider\SessionServiceProvider;
 use ProjectA\Yves\Application\Communication\Plugin\ServiceProvider\StorageServiceProvider;
 use ProjectA\Yves\Application\Communication\Plugin\ServiceProvider\ExceptionServiceProvider;
-use SprykerFeature\Sdk\Glossary\Provider\TranslationServiceProvider;
+use SprykerFeature\Yves\Glossary\TranslationServiceProvider;
 use ProjectA\Yves\Application\Communication\Plugin\ServiceProvider\TwigServiceProvider;
 use ProjectA\Yves\Application\Communication\Plugin\ServiceProvider\YvesLoggingServiceProvider;
 
