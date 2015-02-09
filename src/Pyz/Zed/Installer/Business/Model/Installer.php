@@ -105,7 +105,6 @@ class Installer extends \ProjectA_Zed_Installer_Business_Model_Installer
             $this->facadeMisc->createInternalInstall(),
             $this->facadePrice->createInternalInstall(),
             $this->facadeStock->createInternalInstall(),
-            $this->facadeGlossary->createInternalInstall(),
             $this->facadeSales->createInternalInstall(),
             $this->facadeProductImage->createInternalInstall(),
             $this->facadeDocument->createInternalInstall(),
