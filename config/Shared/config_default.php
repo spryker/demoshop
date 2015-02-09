@@ -113,21 +113,6 @@ $config[SystemConfig::PROPEL] = array(
     'propel.builder.querystub.class' => 'ProjectA_Zed_Library_Propel_Builder_Om_PHP5QueryStubBuilder',
 );
 
-$config[GlossaryConfig::GLOSSARY_BROADCAST] = true;
-$config[GlossaryConfig::GLOSSARY_DESTINATION] = '/queue/glossary';
-$config[GlossaryConfig::GLOSSARY_PROPERTIES] = ['persistent' => 'true'];
-$config[GlossaryConfig::GLOSSARY_PREFETCH_SIZE] = 50;
-$config[GlossaryConfig::GLOSSARY_AMOUNT_OF_FRAMES] = 50;
-$config[GlossaryConfig::GLOSSARY_AMOUNT_OF_BUCKETS] = 1;
-$config[GlossaryConfig::GLOSSARY_URL] = '';
-$config[GlossaryConfig::GLOSSARY_MAPPING] = 'mapping';
-$config[GlossaryConfig::GLOSSARY_SEARCH] = 'search';
-$config[GlossaryConfig::GLOSSARY_PROXY] = true;
-$config[GlossaryConfig::GLOSSARY_USERNAME] = null;
-$config[GlossaryConfig::GLOSSARY_PASSWORD] = null;
-$config[GlossaryConfig::GLOSSARY_TIMEOUT_SECONDS] = 1;
-$config[GlossaryConfig::GLOSSARY_TIMEOUT_MILLISECONDS] = 0;
-
 $config[CustomerConfig::CUSTOMER_MINUTES_BEFORE_RESTORE_PASSWORD_INVALID] = 60;
 $config[CustomerConfig::CUSTOMER_DOUBLE_OPT_IN_REGISTRATION] = true;
 

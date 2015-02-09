@@ -27,7 +27,7 @@ use ProjectA\Yves\Application\Communication\Plugin\ServiceProvider\MonologServic
 use ProjectA\Yves\Application\Communication\Plugin\ServiceProvider\SessionServiceProvider;
 use ProjectA\Yves\Application\Communication\Plugin\ServiceProvider\StorageServiceProvider;
 use ProjectA\Yves\Application\Communication\Plugin\ServiceProvider\ExceptionServiceProvider;
-use ProjectA\Yves\Application\Communication\Plugin\ServiceProvider\TranslationServiceProvider;
+use SprykerFeature\Sdk\Glossary\Provider\TranslationServiceProvider;
 use ProjectA\Yves\Application\Communication\Plugin\ServiceProvider\TwigServiceProvider;
 use ProjectA\Yves\Application\Communication\Plugin\ServiceProvider\YvesLoggingServiceProvider;
 
@@ -119,7 +119,7 @@ class YvesBootstrap extends Bootstrap
             new RememberMeServiceProvider(),
             new RoutingServiceProvider(),
             new StorageServiceProvider(),
-            new TranslationServiceProvider('ProjectA\Shared\Glossary\Code\Storage\StorageKeyGenerator'),
+            new TranslationServiceProvider(),
             new ValidatorServiceProvider(),
             new FormServiceProvider(),
             new TwigServiceProvider(),
