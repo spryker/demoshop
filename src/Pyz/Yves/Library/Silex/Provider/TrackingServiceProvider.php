@@ -12,6 +12,10 @@ use ProjectA\Yves\Library\Tracking\Tracking;
 use Silex\Application;
 use Silex\ServiceProviderInterface;
 
+/**
+ * Class TrackingServiceProvider
+ * @package Pyz\Yves\Library\Silex\Provider
+ */
 class TrackingServiceProvider implements ServiceProviderInterface
 {
 
