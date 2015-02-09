@@ -159,14 +159,16 @@ class YvesBootstrap extends Bootstrap
             ->createProductDetailResourceCreator();
         $categoryResourceCreator = Factory::getInstance()->createCatalogDependencyContainer()
             ->createCategoryResourceCreator();
+
         return [
             Factory::getInstance()->createSetupModelRouterMonitoringRouter($app),
             Factory::getInstance()->createCmsModelRouterRedirectRouter($app),
             Factory::getInstance()->createYvesExportDependencyContainer()->createKvStorageRouter($app)
                 ->addResourceCreator($productResourceCreator)
                 ->addResourceCreator($categoryResourceCreator),
-            Factory::getInstance()->createCatalogModelRouterCatalogRouter($app),
+            Factory::getInstance()->createCatalogModelRouterSearchRouter($app),
             Factory::getInstance()->createCmsModelRouterCmsRouter($app),
+            Factory::getInstance()->createCartModelRouterCartRouter($app),
             /*
              * SilexRouter should come last, as it is not the fastest one if it can
              * not find a matching route (lots of magic)
@@ -185,6 +187,7 @@ class YvesBootstrap extends Bootstrap
             'categories' => Factory::getInstance()->createCategoryExporterDependencyContainer()->createNavigation()->getCategories($app['locale']),
             'cartItemCount' => Factory::getInstance()->createCartModelSessionCartCount($app->getSession())->getCount(),
             'tracking' => Tracking::getInstance(),
+            'environment' => \ProjectA_Shared_Library_Environment::getEnvironment(),
         ];
     }
 }

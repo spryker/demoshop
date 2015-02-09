@@ -1,0 +1,7 @@
+<ul id="breadcrumbs">
+    <li><a href="/">Home</a></li>
+    {% for category_parent in category.parents %}
+        <li><a href="{{ category_parent.url }}">{{ category_parent.name }}</a></li>
+    {% endfor %}
+    <li><b>{{ category.name ~ " (" ~ numFound ~ ")"}}</b></li>
+</ul>

@@ -36,11 +36,13 @@ config/accumulated-config.json
 .grunt
 .sass-cache
 /config/Yves/config_assets.php
+config/Yves/cache_bust.php
 /node_modules/
 
 # public stuff
 /static/public/Yves/*
 !/static/public/Yves/index.php
+!/static/public/Yves/errorpage/error.html
 !/static/public/Yves/maintenance/index.html
 
 /static/public/Zed/*

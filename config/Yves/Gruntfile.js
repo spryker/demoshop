@@ -13,6 +13,7 @@ module.exports = function( grunt ){
    */
 
   grunt.initConfig({
+    cache_bust_file: 'config/Yves/cache_bust.php',
     dirs : {
       config : 'config/Yves',
       src    : 'static/assets/Yves',
@@ -26,7 +27,7 @@ module.exports = function( grunt ){
       scripts : '<%= dirs.dist %>/scripts/',
       styles  : '<%= dirs.dist %>/styles/',
       images  : '<%= dirs.dist %>/images/',
-      fonts   : '<%= dirs.dist %>/fonts/',
+      fonts   : '<%= dirs.dist %>/fonts/'
     },
 
     copy : {
@@ -42,7 +43,7 @@ module.exports = function( grunt ){
       images : {
         expand : true,
         cwd    : '<%= dirs.src %>/images',
-        src    : '**/*.{jpg,jpeg,svg,png,gif,webp}',
+        src    : '**/*.{jpg,jpeg,svg,png,gif,webp,ico}',
         dest   : '<%= dirs.dist %>/images'
       },
 
@@ -179,13 +180,18 @@ module.exports = function( grunt ){
     .filterAll( 'grunt-*', require( '../../package.json' ) )
       .forEach( grunt.loadNpmTasks );
 
+  grunt.registerTask( 'addCacheBustHash', function() {
+    grunt.file.write(grunt.config.get('cache_bust_file'), Date.now());
+  });
+
   // grunt for distribution
   grunt.registerTask( 'dist', [
     'clean',
     'copy',
 
     'compass:clean',
-    'compass:dist'
+    'compass:dist',
+    'addCacheBustHash'
   ]);
 
   // grunt for development
@@ -194,7 +200,8 @@ module.exports = function( grunt ){
     'copy',
 
     'compass:clean',
-    'compass:dev'
+    'compass:dev',
+    'addCacheBustHash'
   ]);
 
   grunt.registerTask( 'test', [

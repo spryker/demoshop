@@ -9,18 +9,29 @@
                 {% if config.type == 'category' %}
                     {# todo #}
                 {% endif %}
-                {% if config.type == 'enumeration' %}
+                {% if name == 'main_color' %}
+                    <div id="colorpicker">
+                        {% for valueName, valueKey in facet.values %}
+                            <label class="{{ valueKey == 0 ? 'notAvailable ' : '' }}{{ valueName in activeValues ? 'active' : '' }}">
+                                <input type="checkbox" name="{{ name }}" value="{{ valueName }}" data-on="{{ url( url, { (name) : { value : [valueName], facet_active: [true]} }) }}" data-off="{{ url( url, { (name) : { value : [valueName], active : [false]} }) }}" {{ valueName in activeValues ? 'checked' : '' }} />
+                                {{ ('catalog.filters.' ~ name ~ '.' ~ valueName|replace(' ', '_'))|trans|raw }} <span class="content">{{ valueKey }}</span></div>
+                            </label>
+                        {% endfor %}
+                    </div>
+                {% elseif config.type == 'enumeration' %}
                     {% if name == 'brand' %}
                         <input type="text" placeholder="{{ ('catalog.filters.' ~ name ~ '.hint.find')|trans }}" class="search fullWidth">
                         <ul class="toggleList" data-name="{{ name }}">
                             {% for valueName, valueKey in facet.values %}
-                                <li data-value="{{ valueName }}" data-on="{{ url( category.url, { (name) : { value : [valueName], facet_active: [true]} }) }}" data-off="{{ url( category.url, { (name) : { value : [valueName], facet_active: [false]} }) }}" {{ valueName in activeValues ? 'class="selected"' : '' }}>{{ ('catalog.filters.' ~ name ~ '.' ~ valueName)|trans }} ({{ valueKey }})</li>
+                                {% set valueName = valueName|replace({' ': '_'}) %}
+                                <li data-value="{{ valueName }}" data-on="{{ url( url, { (name) : { value : [valueName], facet_active: [true]} }) }}" data-off="{{ url( url, { (name) : { value : [valueName], facet_active: [false]} }) }}" {{ valueName in activeValues ? 'class="selected"' : '' }}>{{ ('catalog.filters.' ~ name ~ '.' ~ valueName)|trans|raw }} ({{ valueKey }})</li>
                             {% endfor %}
                         </ul>
                     {% else %}
                         {% for valueName, valueKey in facet.values %}
-                            <label {{ valueKey == 0 ? 'class="notAvailable"' : '' }}>
-                                <input type="checkbox" name="{{ name }}" value="{{ valueName }}" data-on="{{ url( category.url, { (name) : { value : [valueName], facet_active: [true]} }) }}" data-off="{{ url( category.url, { (name) : { value : [valueName], active : [false]} }) }}" {{ valueName in activeValues ? 'checked' : '' }} /> {{ ('catalog.filters.' ~ name ~ '.' ~ valueName)|trans }} ({{ valueKey }})
+                            <label class="{{ valueKey == 0 ? 'notAvailable ' : '' }} {{ valueName in activeValues ? 'active' : '' }}">
+                                <input type="checkbox" name="{{ name }}" value="{{ valueName }}" data-on="{{ url( url, { (name) : { value : [valueName], facet_active: [true]} }) }}" data-off="{{ url( url, { (name) : { value : [valueName], active : [false]} }) }}" {{ valueName in activeValues ? 'checked' : '' }} />
+                                    <span class="content">{{ ('catalog.filters.' ~ name ~ '.' ~ valueName)|trans|raw }} ({{ valueKey }})</span>
                             </label>
                         {% endfor %}
                     {% endif %}
@@ -31,13 +42,13 @@
                     {% set maxVal = (name == 'price' ? (facet.rangeValues.max / 100)|number_format(0, '', '') : facet.rangeValues.max|number_format(0, '', '')) %}
                     {% set activeValues = (activeValues == [] ? minVal ~ '-' ~ maxVal : activeValues) %}
                     <div {{ minVal == maxVal ? 'class="notAvailable"' : '' }}>
-                        <legend class="min">{{ ('catalog.filters.' ~ name ~ '.min')|trans }}</legend>
-                        <legend class="max">{{ ('catalog.filters.' ~ name ~ '.max')|trans }}</legend>
+                        <legend class="min">{{ ('catalog.filters.' ~ name ~ '.min')|trans }} (&euro;)</legend>
+                        <legend class="max">{{ ('catalog.filters.' ~ name ~ '.max')|trans }} (&euro;)</legend>
                         <input class="rangeSlider min" type="range" value="{{ activeValues|split('-')[0] }}" min="{{ minVal }}" max="{{ maxVal }}" data-connector=".connector-{{ name }}.min" />
                         <input class="rangeSlider max" type="range" value="{{ activeValues|split('-')[1] }}" min="{{ minVal }}" max="{{ maxVal }}" data-connector=".connector-{{ name }}.max" />
                         <input class="rangeSliderConnector connector-{{ name }} min" type="number" value="{{ minVal }}" />
                         <input class="rangeSliderConnector connector-{{ name }} max" type="number" value="{{ maxVal }}" />
-                        <input type="hidden" class="resultUrl" value="{{ url( category.url, { (name) : { value : ['XX-YY', activeValues], facet_active: [true, false]} }) }}" />
+                        <input type="hidden" class="resultUrl" value="{{ url( url, { (name) : { value : ['XX-YY'], facet_active: [true, false]} }) }}" />
                     </div>
                 {% endif %}
             </li>

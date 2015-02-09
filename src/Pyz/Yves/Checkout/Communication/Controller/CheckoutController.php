@@ -50,12 +50,27 @@ class CheckoutController extends CoreCheckoutController
      */
     public function successAction(Request $request)
     {
-        /* @todo fix tracking providers
-        Tracking::getInstance()
-            ->setPageType(PageTypeInterface::PAGE_TYPE_SUCCESS)
-            ->buildTracking();
-        */
-        return parent::successAction($request);
+        $cart = $this->getCart($request);
+        $cartItems = $cart->getItems();
+        $order = $cart->getOrder();
+
+        if (!$order->getIdSalesOrder()) {
+            return $this->redirectResponseInternal('home');
+        }
+
+        $cart->clear();
+        $productData = $this->getFactory()->createCartModelCatalogHelper()->getProductDataForCartItems($cartItems, $this->getStorageKeyValue());
+        $cartModel = Factory::getInstance()->createCartModelCartSession($this->getTransferSession());
+        $cartModel->clear();
+        $cartItemCount = Factory::getInstance()->createCartModelSessionCartCount($request->getSession())->getCount();
+
+        return [
+            'order' => $order,
+            'cartItems' => $cartItems,
+            'totals' => $order->getTotals(),
+            'products' => $productData,
+            'cartItemCount' => $cartItemCount
+        ];
     }
 
     /**

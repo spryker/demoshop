@@ -25,12 +25,12 @@ keys:
       en_US: 'Cart EMPTY.'
   cart.usp.shipping:
     explanations:
-      de_DE: 'Free Shipping & Return'
-      en_US: 'Free Shipping & Return'
+      de_DE: 'No Shippinp (DEMOSHOP)'
+      en_US: 'No Shippinp (DEMOSHOP)'
   cart.usp.return:
     explanations:
-      de_DE: '30 Days of Return'
-      en_US: '30 Days of Return'
+      de_DE: 'No Return (DEMOSHOP)'
+      en_US: 'No Return (DEMOSHOP)'
   cart.price.grand.total:
     explanations:
       de_DE: 'Grand Total Price'
@@ -73,16 +73,16 @@ keys:
       en_US: 'Your cart'
   header.usp.shipping:
     explanations:
-      de_DE: 'Free Shipping & Return'
-      en_US: 'Free Shipping & Return'
+      de_DE: 'No Shippinp (DEMOSHOP)'
+      en_US: 'No Shippinp (DEMOSHOP)'
   header.usp.return:
     explanations:
-      de_DE: '30 Days of Return'
-      en_US: '30 Days of Return'
+      de_DE: 'No Return (DEMOSHOP)'
+      en_US: 'No Return (DEMOSHOP)'
   header.phone:
     explanations:
-      de_DE: 'Hotline: +49 (0) 30 340 606 300'
-      en_US: 'Hotline: +49 (0) 30 340 606 300'
+      de_DE: 'Hotline: +49 (40) 3289 29690'
+      en_US: 'Hotline: +49 (40) 3289 29690'
   footer.payment.options:
     explanations:
       de_DE: 'Payment options'
@@ -289,12 +289,12 @@ keys:
       en_US: PayPal
   catalog.usp.shipping:
     explanations:
-      de_DE: 'Free Shipping & Return'
-      en_US: 'Free Shipping & Return'
+      de_DE: 'No Shippinp (DEMOSHOP)'
+      en_US: 'No Shippinp (DEMOSHOP)'
   catalog.usp.return:
     explanations:
-      de_DE: '30 Days of Return'
-      en_US: '30 Days of Return'
+      de_DE: 'No Return (DEMOSHOP)'
+      en_US: 'No Return (DEMOSHOP)'
   catalog.percentage.vat:
     explanations:
       de_DE: 'incl. %product.tax_rate%% VAT'
@@ -407,14 +407,26 @@ keys:
     explanations:
       de_DE: '60 per page'
       en_US: '60 per page'
+  catalog.ipp.50:
+    explanations:
+      de_DE: '50 per page'
+      en_US: '50 per page'
   catalog.ipp.40:
     explanations:
       de_DE: '40 per page'
       en_US: '40 per page'
+  catalog.ipp.30:
+    explanations:
+      de_DE: '30 per page'
+      en_US: '30 per page'
   catalog.ipp.20:
     explanations:
       de_DE: '20 per page'
       en_US: '20 per page'
+  catalog.ipp.10:
+    explanations:
+      de_DE: '10 per page'
+      en_US: '10 per page'
   catalog.products.found:
     explanations:
       de_DE: 'products found'
@@ -423,6 +435,14 @@ keys:
     explanations:
       de_DE: 'Sort by price'
       en_US: 'Sort by price'
+  catalog.fulltext.result:
+    explanations:
+      de_DE: 'results for'
+      en_US: 'results for'
+  catalog.categories:
+    explanations:
+      de_DE: 'Categories'
+      en_US: 'Categories'
   customer.email:
     explanations:
       de_DE: 'Your Email'
@@ -1079,3 +1099,276 @@ keys:
     explanations:
       de_DE: Cancel
       en_US: Cancel
+  catalog.filters.main_color:
+    explanations:
+      de_DE: Main color
+      en_US: Main color
+  catalog.filters.main_color.brown:
+    explanations:
+      de_DE: '<div class="colorbox brown" title="Brown">'
+      en_US: '<div class="colorbox brown" title="Brown">'
+  catalog.filters.main_color.white:
+    explanations:
+      de_DE: '<div class="colorbox white" title="White">'
+      en_US: '<div class="colorbox white" title="White">'
+  catalog.filters.main_color.black:
+    explanations:
+      de_DE: '<div class="colorbox black" title="Black">'
+      en_US: '<div class="colorbox black" title="Black">'
+  catalog.filters.main_color.gray:
+    explanations:
+      de_DE: '<div class="colorbox grey" title="Grey">'
+      en_US: '<div class="colorbox grey" title="Grey">'
+  catalog.filters.main_color.green:
+    explanations:
+      de_DE: '<div class="colorbox green" title="Green">'
+      en_US: '<div class="colorbox green" title="Green">'
+  catalog.filters.main_color.light_blue:
+    explanations:
+      de_DE: '<div class="colorbox lightblue" title="Light blue">'
+      en_US: '<div class="colorbox lightblue" title="Light blue">'
+  catalog.filters.main_color.skin:
+    explanations:
+      de_DE: '<div class="colorbox skin" title="Skin">'
+      en_US: '<div class="colorbox skin" title="Skin">'
+  catalog.filters.main_color.blue:
+    explanations:
+          de_DE: '<div class="colorbox blue" title="Blue">'
+          en_US: '<div class="colorbox blue" title="Blue">'
+  catalog.filters.main_color.red:
+    explanations:
+          de_DE: '<div class="colorbox red" title="Red">'
+          en_US: '<div class="colorbox red" title="Red">'
+  catalog.filters.main_color.silver:
+    explanations:
+          de_DE: '<div class="colorbox silver" title="Silver">'
+          en_US: '<div class="colorbox silver" title="Silver">'
+  catalog.filters.main_color.gold:
+    explanations:
+          de_DE: '<div class="colorbox gold" title="Gold">'
+          en_US: '<div class="colorbox gold" title="Gold">'
+  catalog.filters.main_color.pink:
+    explanations:
+          de_DE: '<div class="colorbox pink" title="Pink">'
+          en_US: '<div class="colorbox pink" title="Pink">'
+  catalog.filters.material.aluminium:
+    explanations:
+      de_DE: 'Aluminium'
+      en_US: 'Aluminium'
+  catalog.filters.material.plush:
+    explanations:
+      de_DE: 'Plush'
+      en_US: 'Plush'
+  catalog.filters.age:
+    explanations:
+      de_DE: 'Suitable from'
+      en_US: 'Suitable from'
+  catalog.filters.age.4:
+    explanations:
+      de_DE: '4+'
+      en_US: '4+'
+  catalog.filters.age.6:
+    explanations:
+      de_DE: '6+'
+      en_US: '6+'
+  catalog.filters.age.8:
+    explanations:
+      de_DE: '8+'
+      en_US: '8+'
+  static.pages.tos:
+    explanations:
+      de_DE: >
+        <h2>Terms of Service</h2>
+        <br />
+        <br />
+        Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.
+        At vero eos et accusam et justo duo dolores et ea rebum.
+        Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.
+        Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.
+        At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.
+      en_US: >
+        <h2>Terms of Service</h2>
+        <br />
+        <br />
+        Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.
+        At vero eos et accusam et justo duo dolores et ea rebum.
+        Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.
+        Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.
+        At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.
+  static.pages.imprint:
+    explanations:
+      de_DE: >
+        <h2>Imprint</h2>
+        <br />
+        <br />
+        Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.
+        At vero eos et accusam et justo duo dolores et ea rebum.
+        Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.
+        Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.
+        At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.
+      en_US: >
+        <h2>Imprint</h2>
+        <br />
+        <br />
+        Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.
+        At vero eos et accusam et justo duo dolores et ea rebum.
+        Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.
+        Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.
+        At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.
+  static.pages.privacy:
+    explanations:
+      de_DE: >
+        <h2>Privacy</h2>
+        <br />
+        <br />
+        Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.
+        At vero eos et accusam et justo duo dolores et ea rebum.
+        Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.
+        Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.
+        At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.
+      en_US: >
+        <h2>Privacy</h2>
+        <br />
+        <br />
+        Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.
+        At vero eos et accusam et justo duo dolores et ea rebum.
+        Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.
+        Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.
+        At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.
+  static.pages.withdrawal:
+    explanations:
+      de_DE: >
+        <h2>Withdrawal</h2>
+        <br />
+        <br />
+        Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.
+        At vero eos et accusam et justo duo dolores et ea rebum.
+        Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.
+        Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.
+        At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.
+      en_US: >
+        <h2>Withdrawal</h2>
+        <br />
+        <br />
+        Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.
+        At vero eos et accusam et justo duo dolores et ea rebum.
+        Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.
+        Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.
+        At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.
+  static.pages.returns:
+    explanations:
+      de_DE: >
+        <h2>Returns</h2>
+        <br />
+        <br />
+        Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.
+        At vero eos et accusam et justo duo dolores et ea rebum.
+        Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.
+        Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.
+        At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.
+      en_US: >
+        <h2>Returns</h2>
+        <br />
+        <br />
+        Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.
+        At vero eos et accusam et justo duo dolores et ea rebum.
+        Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.
+        Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.
+        At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.
+  static.pages.contact:
+    explanations:
+      de_DE: >
+        <h2>Contact</h2>
+        <br />
+        <br />
+        Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.
+        At vero eos et accusam et justo duo dolores et ea rebum.
+        Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.
+        Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.
+        At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.
+      en_US: >
+        <h2>Contact</h2>
+        <br />
+        <br />
+        Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.
+        At vero eos et accusam et justo duo dolores et ea rebum.
+        Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.
+        Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.
+        At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.
+  static.pages.faq:
+    explanations:
+      de_DE: >
+        <h2>FAQ</h2>
+        <br />
+        <br />
+        Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.
+        At vero eos et accusam et justo duo dolores et ea rebum.
+        Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.
+        Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.
+        At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.
+      en_US: >
+        <h2>FAQ</h2>
+        <br />
+        <br />
+        Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.
+        At vero eos et accusam et justo duo dolores et ea rebum.
+        Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.
+        Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.
+        At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.
+
+  catalog.product.attribute.width:
+    explanations:
+      de_DE: Width
+      en_US: Width
+  catalog.product.attribute.height:
+    explanations:
+      de_DE: Height
+      en_US: Height
+  catalog.product.attribute.depth:
+    explanations:
+      de_DE: Depth
+      en_US: Depth
+  catalog.product.attribute.main_color:
+    explanations:
+      de_DE: Main color
+      en_US: Main color
+  catalog.product.attribute.weight:
+    explanations:
+      de_DE: Weight
+      en_US: Weight
+  catalog.product.attribute.material:
+    explanations:
+      de_DE: Material
+      en_US: Material
+  catalog.product.attribute.age:
+    explanations:
+      de_DE: Suitable from
+      en_US: Suitable from
+  catalog.product.attribute.width.meassurement:
+    explanations:
+      de_DE: ' cm'
+      en_US: ' cm'
+  catalog.product.attribute.height.meassurement:
+    explanations:
+      de_DE: ' cm'
+      en_US: ' cm'
+  catalog.product.attribute.depth.meassurement:
+    explanations:
+      de_DE: ' cm'
+      en_US: ' cm'
+  catalog.product.attribute.weight.meassurement:
+      explanations:
+        de_DE: ' Kg'
+        en_US: ' Kg'
+  catalog.product.attribute.age.meassurement:
+    explanations:
+      de_DE: '+ years'
+      en_US: '+ years'
+  catalog.product.more_information:
+    explanations:
+      de_DE: 'Specification'
+      en_US: 'Specification'
+  catalog.product.attribute.other_colors:
+    explanations:
+      de_DE: 'Additional colors'
+      en_US: 'Additional colors'
