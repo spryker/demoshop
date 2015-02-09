@@ -1,11 +1,8 @@
 "is_root";"name";"parent_name"
-1;"Default Category";NULL
-0;"Arbeitskleidung und Arbeitsschutz";"Default Category"
-0;"Arbeitsschutz";"Arbeitskleidung und Arbeitsschutz"
-0;"Kopfschutz";"Arbeitsschutz"
-0;"Schutzbrillen";"Arbeitsschutz"
-0;"Atemschutz";"Arbeitsschutz"
-0;"Arbeitsbekleidung ";"Arbeitskleidung und Arbeitsschutz"
-0;"Schuhe, Stiefel und Socken";"Arbeitsbekleidung"
-0;"Jacken, Westen und Parka";"Arbeitsbekleidung"
-0;"Pullover, Shirts und Hemden";"Arbeitsbekleidung"
+1;"Toys";NULL
+0;"Robot";"Toys"
+0;"Soft Toy";"Toys"
+0;"Wind-Up";"Robot"
+0;"No Wind-up";"Robot"
+0;"Exotic";"Soft Toy"
+0;"Local";"Soft Toy"

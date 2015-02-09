@@ -19,81 +19,141 @@ class ProductAttributeMappingInstall implements DemoDataInstallInterface
      */
     public function install(Console $console)
     {
-        $this->installAttributeOperations();
-        $this->makeProductsSearchable();
-    }
+        $console->info('This will map installed product attributes to search attributes and will make products exportable for the search');
 
-    /**
-     * @param int $attributeId
-     */
-    protected function handleStringType($attributeId)
-    {
-        $copyTargets = [
-            'full-text' => 2,
-            'full-text-boosted' => 3,
-            'suggestion-term' => 4,
-            'completion-terms' => 5,
-        ];
-
-        $this->addOperation($attributeId, $copyTargets, 'CopyToField');
-    }
-
-    /**
-     * @param int       $attributeId
-     * @param array     $copyTargets
-     * @param string    $operation
-     *
-     * @throws \Exception
-     * @throws \PropelException
-     */
-    protected function addOperation($attributeId, $copyTargets, $operation)
-    {
-        foreach ($copyTargets as $copyTarget => $weight) {
-            $attributeOperationExists = \ProjectA_Zed_ProductSearch_Persistence_Propel_PacProductSearchAttributesOperationQuery::create()
-                ->filterBySourceAttributeId($attributeId)
-                ->filterByTargetField($copyTarget)
-                ->filterByWeighting($weight)
-                ->exists();
-
-            if (!$attributeOperationExists) {
-                $attributeOperation = new \ProjectA_Zed_ProductSearch_Persistence_Propel_PacProductSearchAttributesOperation();
-                $attributeOperation->setTargetField($copyTarget);
-                $attributeOperation->setOperation($operation);
-                $attributeOperation->setWeighting($weight);
-                $attributeOperation->setSourceAttributeId($attributeId);
-                $attributeOperation->save();
-            }
+        if ($console->askConfirmation('Do you really want this?')) {
+            $this->installAttributeOperations();
+            $this->makeProductsSearchable();
         }
+
     }
 
     protected function installAttributeOperations()
     {
-        $attributeEntities = \ProjectA_Zed_Product_Persistence_Propel_PacProductAttributesMetadataQuery::create()
-            ->usePacProductAttributeTypeQuery('pac_attribute_type')
-            ->endUse()
-            ->select([
-                \ProjectA_Zed_Product_Persistence_Propel_PacProductAttributesMetadataPeer::ATTRIBUTE_ID,
-                \ProjectA_Zed_Product_Persistence_Propel_PacProductAttributeTypePeer::NAME
-            ])
-            ->setFormatter(
-                new \PropelSimpleArrayFormatter()
-            )->find()->getArrayCopy();
+        foreach ($this->getMappings() as $sourceField => $operations) {
+            $weight = 0;
+            foreach ($operations as $operation => $targetFields) {
+                foreach ($targetFields as $targetField) {
+                    $attribute = \ProjectA_Zed_Product_Persistence_Propel_PacProductAttributesMetadataQuery::create()
+                        ->findOneByKey($sourceField);
+                    if ($attribute) {
+                        $weight++;
+                        $attributeId = $attribute->getAttributeId();
+                        $this->addOperation($attributeId, $targetField, $operation, $weight);
 
-        foreach ($attributeEntities as $attributeEntity) {
-
-            $attributeId = array_shift($attributeEntity);
-            $attributeType = array_shift($attributeEntity);
-
-            switch ($attributeType) {
-                case 'string':
-                    $this->handleStringType($attributeId);
-                    break;
-                case 'number':
-                    $this->handleNumber($attributeId);
-                    break;
-                default:
-                    break;
+                    }
+                }
             }
+        }
+    }
+
+    protected function getMappings()
+    {
+        return [
+            'description' => [
+                'CopyToField' => [
+                    'full-text-boosted',
+                    'full-text',
+                    'suggestion-term',
+                    'completion-terms'
+                ]
+            ],
+            'price' => [
+                'CopyToFacet' => [
+                    'integer-facet',
+                ],
+                'CopyToField' => [
+                    'integer-sort'
+                ]
+            ],
+            'weight' => [
+                'CopyToFacet' => [
+                    'float-facet'
+                ]
+            ],
+            'age' => [
+                'CopyToFacet' => [
+                    'integer-facet'
+                ]
+            ],
+            'brand' => [
+                'CopyToField' => [
+                    'full-text',
+                    'full-text-boosted',
+                    'completion-terms',
+                    'suggestion-term',
+                ],
+                'CopyToFacet' => [
+                    'string-facet',
+                ]
+            ],
+            'depth' => [
+                'CopyToFacet' => [
+                    'float-facet'
+                ]
+            ],
+            'width' => [
+                'CopyToFacet' => [
+                    'float-facet'
+                ]
+            ],
+            'height' => [
+                'CopyToFacet' => [
+                    'float-facet'
+                ]
+            ],
+            'gender' => [
+                'CopyToFacet' => [
+                    'string-facet'
+                ]
+            ],
+            'material' => [
+                'CopyToField' => [
+                    'full-text',
+                    'full-text-boosted',
+                    'completion-terms',
+                    'suggestion-term',
+                ],
+                'CopyToFacet' => [
+                    'string-facet',
+                ]
+            ],
+            'main_color' => [
+                'CopyToField' => [
+                    'full-text',
+                    'full-text-boosted',
+                    'completion-terms',
+                    'suggestion-term',
+                ],
+                'CopyToFacet' => [
+                    'string-facet',
+                ]
+            ]
+        ];
+    }
+
+    /**
+     * @param int $attributeId
+     * @param string $copyTarget
+     * @param string $operation
+     *
+     * @throws \Exception
+     * @throws \PropelException
+     */
+    protected function addOperation($attributeId, $copyTarget, $operation, $weight)
+    {
+        $attributeOperationExists = \ProjectA_Zed_ProductSearch_Persistence_Propel_PacProductSearchAttributesOperationQuery::create()
+            ->filterBySourceAttributeId($attributeId)
+            ->filterByTargetField($copyTarget)
+            ->exists();
+
+        if (!$attributeOperationExists) {
+            $attributeOperation = new \ProjectA_Zed_ProductSearch_Persistence_Propel_PacProductSearchAttributesOperation();
+            $attributeOperation->setTargetField($copyTarget);
+            $attributeOperation->setOperation($operation);
+            $attributeOperation->setWeighting($weight);
+            $attributeOperation->setSourceAttributeId($attributeId);
+            $attributeOperation->save();
         }
     }
 
@@ -122,15 +182,5 @@ class ProductAttributeMappingInstall implements DemoDataInstallInterface
             $touchedProduct->setItemId($product->getProductId());
             $touchedProduct->save();
         }
-    }
-
-    /**
-     * @param int       $attributeId
-     */
-    protected function handleNumber($attributeId)
-    {
-        $copyTargets = ['number-facet' => 7];
-
-        $this->addOperation($attributeId, $copyTargets, 'CopyToFacet');
     }
 }

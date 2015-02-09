@@ -1,16 +1,24 @@
 <?php
-
 namespace Pyz\Zed\Glossary\Business;
 
-use ProjectA\Zed\Glossary\Business\GlossarySettings as ProjectAGlossarySettings;
+use ProjectA\Zed\Glossary\Dependency\Plugin\GlossaryInstallerPluginInterface;
 
-class GlossarySettings extends ProjectAGlossarySettings
+class GlossarySettings
 {
-    /**
-     * @return string
-     */
-    public function getDumpFilePathName()
+    protected $locator;
+
+    public function __construct($locator)
     {
-        return __DIR__ . '/../File/initial_translation.yml';
+        $this->locator = $locator;
+    }
+
+    /**
+     * @return GlossaryInstallerPluginInterface[]
+     */
+    public function getGlossaryInstallers()
+    {
+        return [
+            $this->locator->glossary()->pluginYamlInstallerPlugin()
+        ];
     }
 }

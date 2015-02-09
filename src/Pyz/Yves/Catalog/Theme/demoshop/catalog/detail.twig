@@ -1,8 +1,8 @@
 {% extends "@application/layout/full.twig" %}
 {% block content %}
     {% include "@application/partials/navbar.twig" with {'categories': categories } only %}
-    <link rel="stylesheet" href="/styles/product.css" />
-    <script src="/scripts/app/catalog.js"></script>
+    <link rel="stylesheet" href="{{ asset('/styles/product.css') }}" />
+    <script src="{{ asset('/scripts/app/catalog.js') }}"></script>
 
     <section class="consumeHeight" id="product">
 
@@ -24,7 +24,7 @@
             </ul>
         </aside>
 
-        {% include "@catalog/partials/product-%s.twig" | format(product.variety) | lower  with { 'product' : product, 'subProducts' : subProducts } only %}
+        {#{% include "@catalog/partials/product-%s.twig" | format(product.variety) | lower  with { 'product' : product, 'subProducts' : subProducts } only %}#}
 
     </section>
 {% endblock %}

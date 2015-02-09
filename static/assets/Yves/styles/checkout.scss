@@ -1,3 +1,4 @@
+@import "compass";
 #checkout { padding:20px; border-top:1px solid #ddd; }
 #checkout .unnecessary { display:none; }
 #checkout .clearRows { clear:left; }
@@ -71,3 +72,52 @@
 #checkout #salesOrder_payment_method > input[value="payment.payone.prepayment"] + label { background:url(../images/payment/prepayment.png) right center no-repeat; }
 #checkout #salesOrder_payment_method > input[value="payment.payone.direct_debit"] + label { background:url(../images/payment/ec.png) right center no-repeat; }
 #checkout #salesOrder_payment_method > input[value="payment.payone.invoice"] + label { background:url(../images/payment/invoice.png) right center no-repeat; }
+
+.success {
+  margin: 0 auto;
+
+  .badge {
+    position: relative;
+  }
+
+  .badge:after {
+    background-color: transparent;
+    color: #84d95d;
+    font-size: 80px;
+    display: inline-block;
+    content:"\e084";
+    font-family: 'Glyphicons Halflings';
+    position: absolute;
+    top: -30px;
+    left: -65px;
+    width: 60px;
+    height: 60px;
+  }
+
+  .message {
+    margin-left: 80px;
+    background-color: #f1f1f1;
+    color: #000000;
+    padding: 5px 8px;
+    padding-left: 30px;
+    width: 550px;
+    //width: 600px;
+    border: 1px solid #777;
+    position: relative;
+    top: 55px;
+
+    @include border-radius(8px);
+
+    .bold {
+      font-size: 18px;
+      font-weight: bold;
+    }
+    .hint {
+      margin-top: 8px;
+      display: inline-block;
+      font-weight: normal;
+      font-style: italic;
+      font-size: 12px;
+    }
+  }
+}
