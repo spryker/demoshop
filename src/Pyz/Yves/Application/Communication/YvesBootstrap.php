@@ -17,6 +17,7 @@ use ProjectA\Yves\Cart\Communication\Plugin\CartControllerProvider;
 use ProjectA\Yves\Checkout\Communication\Plugin\CheckoutControllerProvider;
 use ProjectA\Yves\Customer\Business\Model\Security\SecurityServiceProvider;
 use ProjectA\Yves\Customer\Communication\Plugin\CustomerControllerProvider;
+use SprykerCore\Yves\Kernel\Locator;
 use ProjectA\Yves\Library\Asset\AssetManager;
 use ProjectA\Yves\Application\Business\Twig\YvesExtension;
 use ProjectA\Yves\Newsletter\Communication\Plugin\NewsletterControllerProvider;
@@ -28,7 +29,7 @@ use ProjectA\Yves\Application\Communication\Plugin\ServiceProvider\MonologServic
 use ProjectA\Yves\Application\Communication\Plugin\ServiceProvider\SessionServiceProvider;
 use ProjectA\Yves\Application\Communication\Plugin\ServiceProvider\StorageServiceProvider;
 use ProjectA\Yves\Application\Communication\Plugin\ServiceProvider\ExceptionServiceProvider;
-use SprykerFeature\Sdk\Glossary\Communication\Plugin\GlossaryKeyBuilderPlugin;
+use SprykerFeature\Sdk\Glossary\KeyBuilder\SdkGlossaryKeyBuilder;
 use SprykerFeature\Yves\Glossary\KVTranslatorPlugin;
 use SprykerFeature\Yves\Glossary\TranslationServiceProvider;
 use ProjectA\Yves\Application\Communication\Plugin\ServiceProvider\TwigServiceProvider;
@@ -110,8 +111,13 @@ class YvesBootstrap extends Bootstrap
      */
     protected function getServiceProviders()
     {
+        $locator = new Locator();
+
+        $translationServicePlugin = $locator->glossary()->sdk()->pluginTranslationService();
+        $translationServiceProvider = $translationServicePlugin->createTranslationServiceProvider();
+
         $translator = new KVTranslatorPlugin();
-        $keyBuilder = new GlossaryKeyBuilderPlugin();
+        $keyBuilder = new SdkGlossaryKeyBuilder();
         $translator->setKeyBuilder($keyBuilder);
         $translator->setKeyValueReader(StorageInstanceBuilder::getKvStorageReadInstance());
 
@@ -127,7 +133,7 @@ class YvesBootstrap extends Bootstrap
             new RememberMeServiceProvider(),
             new RoutingServiceProvider(),
             new StorageServiceProvider(),
-            new TranslationServiceProvider($translator),
+            $translationServiceProvider,
             new ValidatorServiceProvider(),
             new FormServiceProvider(),
             new TwigServiceProvider(),
