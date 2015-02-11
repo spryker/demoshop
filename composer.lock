@@ -922,7 +922,7 @@
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/zed.git",
-                "reference": "8b440c0853729a9f8c4f3cd71a6fe50060bd42fa"
+                "reference": "0a353df441aab02e70afaeeed3ebd07b0bb93f58"
             },
             "require": {
                 "digital-canvas/zend-framework": ">=1.12.2",
@@ -988,7 +988,7 @@
                 "Application",
                 "Zed"
             ],
-            "time": "2015-02-10 10:14:38"
+            "time": "2015-02-11 09:35:15"
         },
         {
             "name": "symfony-cmf/routing",
@@ -2356,12 +2356,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/zendesk/zendesk_api_client_php.git",
-                "reference": "5b2f5ecd5d231df5d41123f5fa5e1f980beb961d"
+                "reference": "1e2d2037690682aa1baf26d77c6a1cd4bf84574b"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/zendesk/zendesk_api_client_php/zipball/5b2f5ecd5d231df5d41123f5fa5e1f980beb961d",
-                "reference": "5b2f5ecd5d231df5d41123f5fa5e1f980beb961d",
+                "url": "https://api.github.com/repos/zendesk/zendesk_api_client_php/zipball/1e2d2037690682aa1baf26d77c6a1cd4bf84574b",
+                "reference": "1e2d2037690682aa1baf26d77c6a1cd4bf84574b",
                 "shasum": ""
             },
             "require": {
@@ -2392,7 +2392,7 @@
             ],
             "description": "PHP Client for Zendesk REST API. See http://developer.zendesk.com/api-docs",
             "homepage": "https://github.com/zendesk/zendesk_api_client_php",
-            "time": "2015-02-03 22:12:23"
+            "time": "2015-02-09 18:58:55"
         },
         {
             "name": "zendframework/zend-code",
