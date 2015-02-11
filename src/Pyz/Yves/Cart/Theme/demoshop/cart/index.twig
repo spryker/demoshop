@@ -2,8 +2,8 @@
 
 {% block content %}
     {% include "@application/partials/navbar.twig" with {'categories': categories } only %}
-    <link rel="stylesheet" href="/styles/cart.css" />
-    <script src="/scripts/app/cart.js"></script>
+    <link rel="stylesheet" href="{{ asset('/styles/cart.css') }}" />
+    <script src="{{ asset('/scripts/app/cart.js') }}"></script>
 
     <section class="consumeHeight" id="cart">
             {% include "@application/partials/flash_bag.twig" %}
@@ -49,7 +49,7 @@
                                 options->? #}
                         </td>
                         <td>
-                            <form action="{{ url('cart/change/quantity', {sku:product.sku, uid:cartItem.uniqueIdentifier} ) }}">
+                            <form action="{{ url('cart/change/quantity', {sku:product.sku, uid:cartItem.uniqueIdentifier, absolute:true} ) }}">
                                 <input type="number" name="quantity" value="{{ cartItem.quantity }}" min="1" />
                                 {#max="{{ product.stock > 30 ? 30 : product.stock }}" step="1" />#}
                             </form>
@@ -80,27 +80,13 @@
                     <td class="label">{{ 'cart.price.shipping'|trans }}</td>
                     <td>{{ 0|price }}{# totals.orderExpensesTotal|price? #}</td>
                 </tr>
-                {% for code in couponCodes %}
-                    <tr class="voucher">
-                        <td class="label">{{ 'cart.voucher.code' }}: {{ code }}</td>
-                        <td>-{{ totals.discount.totalAmount|price }}</td>
-                    </tr>
-                {% else %}
-                    <tr class="voucher">
-                        <td class="label">{{ 'cart.coupon.add'|trans }}</td>
-                        <td>
-                            <form action="{{ url('cart/coupon/add') }}">
-                                <input type="text" name="code" value="" />
-                            </form>
-                        </td>
-                    </tr>
-                {% endfor %}
                 {% for taxRate in totals.tax.taxRates %}
                     <tr class="tax">
                         <td>{{ taxRate.percentage }}{{ 'cart.percentage.vat'|trans }}</td>
                         <td>{{ taxRate.amount|price }}</td>
                     </tr>
                 {% endfor %}
+                <hr />
                 <tr class="total">
                     <td>{{ 'cart.price.grand.total'|trans }}</td>
                     <td>{{ totals.grandTotal|price }}</td>

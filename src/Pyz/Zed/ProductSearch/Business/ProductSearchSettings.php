@@ -22,10 +22,20 @@ class ProductSearchSettings extends CoreProductSearchSettings
                 'AddToResult' => [
                     'search-result-data'
                 ]
+            ],
+            'thumbnail_url' => [
+                'AddToResult' => [
+                    'search-result-data'
+                ]
+            ],
+            'price' => [
+                'AddToResult' => [
+                    'search-result-data',
+                    'integer-sort'
+                ]
             ]
         ];
 
         return array_merge_recursive($coreDefaultoperations, $projectDefaultOperations);
     }
 }
- 
