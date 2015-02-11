@@ -25,6 +25,7 @@ return [
         'Category' => $schema,
         'CategoryTree' => $schemaAndNavigation,
         'Customer' => $schemaAndNavigation,
+        'Customer2' => $schemaAndNavigation,
         'Document' => $schema,
         'Glossary' => $allElements,
         'Invoice' => $schema,
