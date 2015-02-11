@@ -3,11 +3,11 @@
 namespace Pyz\Yves\Catalog\Business\Creator;
 
 use ProjectA\Shared\Application\Communication\ControllerServiceBuilder;
+use ProjectA\Yves\FrontendExporter\Business\Creator\ResourceCreatorInterface;
 use ProjectA\Yves\Kernel\Communication\BundleControllerAction;
 use ProjectA\Yves\Kernel\Communication\Controller\BundleControllerActionRouteNameResolver;
 use ProjectA\Yves\Kernel\Communication\ControllerLocator;
 use ProjectA\Yves\Kernel\Locator;
-use ProjectA\Yves\YvesExport\Business\Creator\ResourceCreatorInterface;
 use Pyz\Yves\Catalog\Business\Model\FacetConfig;
 use Silex\Application;
 
