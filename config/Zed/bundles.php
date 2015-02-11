@@ -27,6 +27,7 @@ return [
         'Customer' => $schemaAndNavigation,
         'Customer2' => $schema,
         'Document' => $schema,
+        'FrontendExporter' => $schema,
         'Glossary' => $allElements,
         'Invoice' => $schema,
         'Kendo' => $schema,
@@ -48,8 +49,7 @@ return [
         'Setup' => $navigation,
         'Stock' => $schema,
         'System' => $navigation,
-        'Yves' => $schemaAndNavigation,
-        'YvesExport' => $schema
+        'Yves' => $schemaAndNavigation
     ],
 
     \ProjectA\Shared\Library\Bundle\BundleConfig::NAMESPACE_SPRYKERCORE => [
