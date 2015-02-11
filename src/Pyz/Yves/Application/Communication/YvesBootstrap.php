@@ -113,8 +113,7 @@ class YvesBootstrap extends Bootstrap
     {
         $locator = new Locator();
 
-        $translationServicePlugin = $locator->glossary()->sdk()->pluginTranslationService();
-        $translationServiceProvider = $translationServicePlugin->createTranslationServiceProvider();
+        $translationServiceProvider = $locator->glossary()->pluginTranslationService()->createTranslationServiceProvider();
 
         $translator = new KVTranslatorPlugin();
         $keyBuilder = new SdkGlossaryKeyBuilder();
