@@ -9,6 +9,7 @@ use ProjectA\Shared\Application\Business\Bootstrap;
 use ProjectA\Shared\Application\Communication\Plugin\ServiceProvider\RoutingServiceProvider;
 use ProjectA\Shared\Application\Communication\Plugin\ServiceProvider\UrlGeneratorServiceProvider;
 use ProjectA\Shared\Library\Config;
+use ProjectA\Shared\Library\Storage\StorageInstanceBuilder;
 use ProjectA\Shared\System\SystemConfig;
 use ProjectA\Shared\Yves\YvesConfig;
 use ProjectA\Yves\Application\Communication\Plugin\ControllerProviderInterface;
@@ -16,6 +17,7 @@ use ProjectA\Yves\Cart\Communication\Plugin\CartControllerProvider;
 use ProjectA\Yves\Checkout\Communication\Plugin\CheckoutControllerProvider;
 use ProjectA\Yves\Customer\Business\Model\Security\SecurityServiceProvider;
 use ProjectA\Yves\Customer\Communication\Plugin\CustomerControllerProvider;
+use SprykerCore\Yves\Kernel\Locator;
 use ProjectA\Yves\Library\Asset\AssetManager;
 use ProjectA\Yves\Application\Business\Twig\YvesExtension;
 use ProjectA\Yves\Newsletter\Communication\Plugin\NewsletterControllerProvider;
@@ -27,7 +29,9 @@ use ProjectA\Yves\Application\Communication\Plugin\ServiceProvider\MonologServic
 use ProjectA\Yves\Application\Communication\Plugin\ServiceProvider\SessionServiceProvider;
 use ProjectA\Yves\Application\Communication\Plugin\ServiceProvider\StorageServiceProvider;
 use ProjectA\Yves\Application\Communication\Plugin\ServiceProvider\ExceptionServiceProvider;
-use SprykerFeature\Sdk\Glossary\Provider\TranslationServiceProvider;
+use SprykerFeature\Sdk\Glossary\KeyBuilder\SdkGlossaryKeyBuilder;
+use SprykerFeature\Yves\Glossary\KVTranslatorPlugin;
+use SprykerFeature\Yves\Glossary\TranslationServiceProvider;
 use ProjectA\Yves\Application\Communication\Plugin\ServiceProvider\TwigServiceProvider;
 use ProjectA\Yves\Application\Communication\Plugin\ServiceProvider\YvesLoggingServiceProvider;
 
@@ -107,6 +111,15 @@ class YvesBootstrap extends Bootstrap
      */
     protected function getServiceProviders()
     {
+        $locator = new Locator();
+
+        $translationServiceProvider = $locator->glossary()->pluginTranslationService()->createTranslationServiceProvider();
+
+        $translator = new KVTranslatorPlugin();
+        $keyBuilder = new SdkGlossaryKeyBuilder();
+        $translator->setKeyBuilder($keyBuilder);
+        $translator->setKeyValueReader(StorageInstanceBuilder::getKvStorageReadInstance());
+
         $providers = [
             new ExceptionServiceProvider('\Pyz\Yves\Library\Controller\ExceptionController'),
             new YvesLoggingServiceProvider(),
@@ -119,7 +132,7 @@ class YvesBootstrap extends Bootstrap
             new RememberMeServiceProvider(),
             new RoutingServiceProvider(),
             new StorageServiceProvider(),
-            new TranslationServiceProvider(),
+            $translationServiceProvider,
             new ValidatorServiceProvider(),
             new FormServiceProvider(),
             new TwigServiceProvider(),
@@ -163,7 +176,7 @@ class YvesBootstrap extends Bootstrap
         return [
             Factory::getInstance()->createSetupModelRouterMonitoringRouter($app),
             Factory::getInstance()->createCmsModelRouterRedirectRouter($app),
-            Factory::getInstance()->createYvesExportDependencyContainer()->createKvStorageRouter($app)
+            Factory::getInstance()->createFrontendExporterDependencyContainer()->createKvStorageRouter($app)
                 ->addResourceCreator($productResourceCreator)
                 ->addResourceCreator($categoryResourceCreator),
             Factory::getInstance()->createCatalogModelRouterSearchRouter($app),
