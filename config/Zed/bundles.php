@@ -49,8 +49,7 @@ return [
         'Stock' => $schema,
         'System' => $navigation,
         'Yves' => $schemaAndNavigation,
-        'YvesExport' => $schema,
-        'Glossary2' => $schemaAndNavigation,
+        'YvesExport' => $schema
     ],
 
     \ProjectA\Shared\Library\Bundle\BundleConfig::NAMESPACE_SPRYKERCORE => [
