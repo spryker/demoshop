@@ -32,7 +32,7 @@ $config[DbDumpConfig::DB_DUMP_HOST] = 'localhost';
 $config[DbDumpConfig::DB_DUMP_MYSQLDUMP_BIN] = '/usr/bin/mysqldump';
 $config[DbDumpConfig::DB_DUMP_MYSQL_BIN] = '/usr/bin/mysql';
 
-$config[SystemConfig::STORAGE_KV_SOURCE] = 'Redis';
+$config[SystemConfig::STORAGE_KV_SOURCE] = 'redis';
 
 $config[SystemConfig::ELASTICA_PARAMETER__HOST] = 'localhost';
 $config[SystemConfig::ELASTICA_PARAMETER__TRANSPORT] = 'http';
