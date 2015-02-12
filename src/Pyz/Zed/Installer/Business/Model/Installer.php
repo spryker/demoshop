@@ -91,8 +91,6 @@ class Installer extends \ProjectA_Zed_Installer_Business_Model_Installer
         $frontendExporterFacade = $this->locator->frontendExporter()->facade();
         /** @var ProductSearchFacade $productSearchFacade */
         $productSearchFacade = $this->locator->productSearch()->facade();
-        $stockFacade = $this->locator->stock()->facade();
-
         /** @var GlossaryFacade $glossaryFacade */
         $glossaryFacade = $this->locator->glossary()->facade();
         return [
@@ -104,7 +102,6 @@ class Installer extends \ProjectA_Zed_Installer_Business_Model_Installer
 //            $this->facadeCategory->createInternalInstall(),
             $this->facadeMisc->createInternalInstall(),
             $this->facadePrice->createInternalInstall(),
-            $stockFacade->createInternalInstall(),
             $this->facadeSales->createInternalInstall(),
             $this->facadeProductImage->createInternalInstall(),
             $this->facadeDocument->createInternalInstall(),
