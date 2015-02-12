@@ -1,11 +1,13 @@
 <?php
+
 namespace Pyz\Zed\Catalog\Business\Internal;
+
 use ProjectA\Zed\Catalog\Business\Model\ProductVarietyConstantInterface;
 
 /**
  * @property \ProjectA\Deprecated\Catalog\Business\CatalogFactory $factory
  */
-class Install extends \ProjectA_Zed_Catalog_Business_Internal_Install implements ProductVarietyConstantInterface
+class Install extends \ProjectA\Zed\Catalog\Business\Internal\Install implements ProductVarietyConstantInterface
 {
     /**
      * @var string
