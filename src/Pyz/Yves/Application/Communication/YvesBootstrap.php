@@ -13,10 +13,11 @@ use ProjectA\Shared\Library\Storage\StorageInstanceBuilder;
 use ProjectA\Shared\System\SystemConfig;
 use ProjectA\Shared\Yves\YvesConfig;
 use ProjectA\Yves\Application\Communication\Plugin\ControllerProviderInterface;
-use ProjectA\Yves\Cart\Communication\Plugin\CartControllerProvider;
+
 use ProjectA\Yves\Checkout\Communication\Plugin\CheckoutControllerProvider;
 use ProjectA\Yves\Customer\Business\Model\Security\SecurityServiceProvider;
 use ProjectA\Yves\Customer\Communication\Plugin\CustomerControllerProvider;
+use Pyz\Yves\Cart\Communication\Plugin\CartControllerProvider;
 use SprykerCore\Yves\Kernel\Locator;
 use ProjectA\Yves\Library\Asset\AssetManager;
 use ProjectA\Yves\Application\Business\Twig\YvesExtension;
@@ -92,6 +93,7 @@ class YvesBootstrap extends Bootstrap
         if (\ProjectA_Shared_Library_Environment::isDevelopment()) {
             $app['profiler.cache_dir'] = \ProjectA_Shared_Library_Data::getLocalStoreSpecificPath('cache/profiler');
         }
+        $app['locator'] = new Locator();
 
         $proxies = Config::get(YvesConfig::YVES_TRUSTED_PROXIES);
 
@@ -183,7 +185,8 @@ class YvesBootstrap extends Bootstrap
             ,
             Factory::getInstance()->createCatalogModelRouterSearchRouter($app),
             Factory::getInstance()->createCmsModelRouterCmsRouter($app),
-            Factory::getInstance()->createCartModelRouterCartRouter($app),
+            $locator->cart()->pluginCartRouter()->createCartRouter($app, false),
+
             /*
              * SilexRouter should come last, as it is not the fastest one if it can
              * not find a matching route (lots of magic)
@@ -199,9 +202,7 @@ class YvesBootstrap extends Bootstrap
     protected function globalTemplateVariables(Application $app)
     {
         return [
-            'categories' => Factory::getInstance()->createCategoryExporterDependencyContainer()
-                ->createNavigation()
-                ->getCategories($app['locale']),
+            'categories' => $app['locator']->categoryExporter()->sdk()->getNavigationCategories($app['locale']),
             'cartItemCount' => Factory::getInstance()->createCartModelSessionCartCount($app->getSession())->getCount(),
             'tracking' => Tracking::getInstance(),
             'environment' => \ProjectA_Shared_Library_Environment::getEnvironment(),
