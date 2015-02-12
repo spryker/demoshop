@@ -2,7 +2,9 @@
 
 namespace Pyz\Zed\Product\Business\Internal\DemoData;
 
+use Generated\Zed\Ide\AutoCompletion;
 use ProjectA\Zed\Console\Business\Model\Console;
+use ProjectA\Zed\Kernel\Locator;
 use ProjectA\Zed\Library\Business\DemoDataInstallInterface;
 use ProjectA\Zed\Library\Import\Reader\CsvFileReader;
 
@@ -87,6 +89,11 @@ class ProductDataInstall implements DemoDataInstallInterface
      */
     protected function createProduct()
     {
+        //TODO inject
+        /** @var AutoCompletion $locator */
+        $locator = new Locator();
+        $touchFacade = $locator->touch()->facade();
+
         foreach ($this->getProductsFromCsv() as $p) {
             $sku = $p['sku'];
             $abstractProductQuery = new \ProjectA_Zed_Product_Persistence_Propel_PacAbstractProductQuery();
@@ -117,13 +124,7 @@ class ProductDataInstall implements DemoDataInstallInterface
 
                 $product->save();
 
-                $touch = new \ProjectA_Zed_YvesExport_Persistence_Propel_PacYvesExportTouch();
-                $touch->setItemType('product');
-                $touch->setItemEvent(\ProjectA_Zed_YvesExport_Persistence_Propel_PacYvesExportTouchPeer::ITEM_EVENT_ACTIVE);
-                $touch->setExportType(\ProjectA_Zed_YvesExport_Persistence_Propel_PacYvesExportTouchPeer::EXPORT_TYPE_KEYVALUE);
-                $touch->setTouched(new \DateTime());
-                $touch->setItemId($product->getProductId());
-                $touch->save();
+                $touchFacade->touchActive('product', $product->getProductId());
             }
 
         }
