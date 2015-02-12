@@ -884,7 +884,7 @@
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/yves.git",
-                "reference": "0fc992fe7c0651666ab530d202707443e0cc233e"
+                "reference": "7761f54f04caf647be12333eff767044418a0fad"
             },
             "require": {
                 "php": ">=5.4.0"
@@ -914,7 +914,7 @@
                 "Application",
                 "Yves"
             ],
-            "time": "2015-02-11 18:14:37"
+            "time": "2015-02-11 18:32:47"
         },
         {
             "name": "spryker/zed-package",
@@ -2356,12 +2356,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/zendesk/zendesk_api_client_php.git",
-                "reference": "1e2d2037690682aa1baf26d77c6a1cd4bf84574b"
+                "reference": "cf00164cc434458b589619cc6e671cd8bc5119ae"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/zendesk/zendesk_api_client_php/zipball/1e2d2037690682aa1baf26d77c6a1cd4bf84574b",
-                "reference": "1e2d2037690682aa1baf26d77c6a1cd4bf84574b",
+                "url": "https://api.github.com/repos/zendesk/zendesk_api_client_php/zipball/cf00164cc434458b589619cc6e671cd8bc5119ae",
+                "reference": "cf00164cc434458b589619cc6e671cd8bc5119ae",
                 "shasum": ""
             },
             "require": {
@@ -2392,7 +2392,7 @@
             ],
             "description": "PHP Client for Zendesk REST API. See http://developer.zendesk.com/api-docs",
             "homepage": "https://github.com/zendesk/zendesk_api_client_php",
-            "time": "2015-02-09 18:58:55"
+            "time": "2015-02-10 18:19:56"
         },
         {
             "name": "zendframework/zend-code",
