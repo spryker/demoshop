@@ -8,16 +8,16 @@
     "packages": [
         {
             "name": "digital-canvas/zend-framework",
-            "version": "1.12.10",
+            "version": "1.12.11",
             "source": {
                 "type": "git",
                 "url": "https://github.com/digital-canvas/zend-framework.git",
-                "reference": "c1de5e836464b7ad6a1f35c5996d9e83558afc64"
+                "reference": "c98fec8e6cc3ea947fa857bdf784228e1e492581"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/digital-canvas/zend-framework/zipball/c1de5e836464b7ad6a1f35c5996d9e83558afc64",
-                "reference": "c1de5e836464b7ad6a1f35c5996d9e83558afc64",
+                "url": "https://api.github.com/repos/digital-canvas/zend-framework/zipball/c98fec8e6cc3ea947fa857bdf784228e1e492581",
+                "reference": "c98fec8e6cc3ea947fa857bdf784228e1e492581",
                 "shasum": ""
             },
             "require": {
@@ -45,7 +45,7 @@
                 "zend",
                 "zf"
             ],
-            "time": "2015-01-28 00:34:43"
+            "time": "2015-02-12 17:40:15"
         },
         {
             "name": "doctrine/inflector",
@@ -930,7 +930,7 @@
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/yves.git",
-                "reference": "7761f54f04caf647be12333eff767044418a0fad"
+                "reference": "9ff349e2a891b94818f88a80d6d83bcb668b05ef"
             },
             "require": {
                 "php": ">=5.4.0"
@@ -960,7 +960,7 @@
                 "Application",
                 "Yves"
             ],
-            "time": "2015-02-11 18:32:47"
+            "time": "2015-02-12 18:30:17"
         },
         {
             "name": "spryker/zed-package",
@@ -968,7 +968,7 @@
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/zed.git",
-                "reference": "89083a646d5c00ce2cd2066ab03d72fb654157d7"
+                "reference": "8206114aa8503194c3477e4ebe9bfec705daffb2"
             },
             "require": {
                 "digital-canvas/zend-framework": ">=1.12.2",
@@ -1035,7 +1035,7 @@
                 "Application",
                 "Zed"
             ],
-            "time": "2015-02-12 10:10:45"
+            "time": "2015-02-12 18:56:54"
         },
         {
             "name": "symfony-cmf/routing",
