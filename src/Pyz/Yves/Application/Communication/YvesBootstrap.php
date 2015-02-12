@@ -113,7 +113,9 @@ class YvesBootstrap extends Bootstrap
     {
         $locator = new Locator();
 
-        $translationServiceProvider = $locator->glossary()->pluginTranslationService()->createTranslationServiceProvider();
+        $translationServiceProvider = $locator->glossary()
+            ->pluginTranslationService()
+            ->createTranslationServiceProvider();
 
         $translator = new KVTranslatorPlugin();
         $keyBuilder = new SdkGlossaryKeyBuilder();
@@ -168,17 +170,17 @@ class YvesBootstrap extends Bootstrap
      */
     protected function getRouters(Application $app)
     {
-        $productResourceCreator = Factory::getInstance()->createProductExporterDependencyContainer()
-            ->createProductDetailResourceCreator();
-        $categoryResourceCreator = Factory::getInstance()->createCatalogDependencyContainer()
-            ->createCategoryResourceCreator();
+        $locator = new Locator();
+        $productResourceCreatorPlugin = $locator->productExport()->pluginProductResourceCreator();
+        $categoryResourceCreatorPlugin = $locator->categoryExport()->pluginCategoryResourceCreator();
 
         return [
-            Factory::getInstance()->createSetupModelRouterMonitoringRouter($app),
+            $locator->setup()->pluginMonitoringRouter()->createMonitoringRouter($app, false),
             Factory::getInstance()->createCmsModelRouterRedirectRouter($app),
-            Factory::getInstance()->createFrontendExporterDependencyContainer()->createKvStorageRouter($app)
-                ->addResourceCreator($productResourceCreator)
-                ->addResourceCreator($categoryResourceCreator),
+            $locator->yvesExport()->pluginStorageRouter()->createStorageRouter($app, false)
+                ->addResourceCreator($productResourceCreatorPlugin->createProductResourceCreator())
+                ->addResourceCreator($categoryResourceCreatorPlugin->createCategoryResourceCreator())
+            ,
             Factory::getInstance()->createCatalogModelRouterSearchRouter($app),
             Factory::getInstance()->createCmsModelRouterCmsRouter($app),
             Factory::getInstance()->createCartModelRouterCartRouter($app),
@@ -197,7 +199,9 @@ class YvesBootstrap extends Bootstrap
     protected function globalTemplateVariables(Application $app)
     {
         return [
-            'categories' => Factory::getInstance()->createCategoryExporterDependencyContainer()->createNavigation()->getCategories($app['locale']),
+            'categories' => Factory::getInstance()->createCategoryExporterDependencyContainer()
+                ->createNavigation()
+                ->getCategories($app['locale']),
             'cartItemCount' => Factory::getInstance()->createCartModelSessionCartCount($app->getSession())->getCount(),
             'tracking' => Tracking::getInstance(),
             'environment' => \ProjectA_Shared_Library_Environment::getEnvironment(),
