@@ -2,13 +2,13 @@
 
 namespace Pyz\Yves\Catalog\Business;
 
-use ProjectA\Yves\Catalog\Business\CatalogDependencyContainer as CoreDependencyContainer;
+use ProjectA\Yves\Catalog\Business\CatalogDependencyContainer as CoreCatalogDependencyContainer;
 
 /**
  * Class YvesExportDependencyContainer
  * @package Pyz\Yves\Catalog\Business
  */
-class DependencyContainer extends CoreDependencyContainer
+class CatalogDependencyContainer extends CoreCatalogDependencyContainer
 {
     /**
      * @return Creator\CategoryResourceCreator

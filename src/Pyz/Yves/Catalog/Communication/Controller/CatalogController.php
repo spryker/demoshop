@@ -25,7 +25,7 @@ class CatalogController extends CoreCatalogController
      */
     public function indexAction(array $category, FacetConfig $facetConfig, Request $request)
     {
-        $search = $this->getFactory()->createCatalogDependencyContainer()->createFacetSearch(
+        $search = $this->dependencyContainer->createFacetSearch(
             $request,
             $this->getElasticsearchIndex(),
             $this->getStorageKeyValue(),
@@ -34,8 +34,7 @@ class CatalogController extends CoreCatalogController
         );
         $result = $search->getResult();
 
-        $categoryTreeBuilder = $this->getFactory()
-            ->createCategoryExporterDependencyContainer()
+        $categoryTreeBuilder = $this->dependencyContainer
             ->createSubtreeBuilder();
         $categoryTree = $categoryTreeBuilder->createFromCategory($category, $this->getLocale());
 
@@ -49,7 +48,7 @@ class CatalogController extends CoreCatalogController
      */
     public function fulltextSearchAction(Request $request, FacetConfig $facetConfig)
     {
-        $search = $this->getFactory()->createCatalogDependencyContainer()->createFulltextSearch(
+        $search = $this->dependencyContainer->createFulltextSearch(
             $request,
             $this->getElasticsearchIndex(),
             $this->getStorageKeyValue(),
