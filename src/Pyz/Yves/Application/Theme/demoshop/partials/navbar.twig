@@ -1,9 +1,21 @@
 <div id="navbar">
     <section class="transparent">
-        <ul class="main">
-            {% for category in categories %}
-                <li><a href="{{ category['url'] }}">{{ category['name'] }}</a></li>
-            {% endfor %}
-        </ul>
+        <div class="col col50">
+            <ul class="main">
+                {% for category in categories %}
+                    <li><a href="{{ category['url'] }}">{{ category['name'] }}</a></li>
+                {% endfor %}
+            </ul>
+        </div>
+        <div class="col col35">
+            <div class="main">
+                {% include "@application/partials/search.twig" %}
+            </div>
+        </div>
+        <div class="col col15">
+            <div class="main">
+                {% include "@application/partials/cart.twig" %}
+            </div>
+        </div>
     </section>
 </div>

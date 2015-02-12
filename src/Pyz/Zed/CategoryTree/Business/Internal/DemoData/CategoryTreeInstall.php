@@ -4,8 +4,7 @@ namespace Pyz\Zed\CategoryTree\Business\Internal\DemoData;
 
 use ProjectA\Zed\CategoryTree\Persistence\CategoryTreeQueryContainer;
 use ProjectA\Zed\Console\Business\Model\Console;
-use ProjectA\Zed\Kernel\Business\FacadeLocator;
-use ProjectA\Zed\Kernel\Persistence\QueryContainerLocator;
+use ProjectA\Zed\Kernel\Locator;
 use ProjectA\Zed\Library\Business\DemoDataInstallInterface;
 use ProjectA\Zed\Library\Import\Reader\CsvFileReader;
 use Pyz\Zed\CategoryTree\Business\CategoryTreeFacade;
@@ -41,9 +40,11 @@ class CategoryTreeInstall implements DemoDataInstallInterface
      */
     public function __construct()
     {
-        $this->queryContainer = (new QueryContainerLocator())->locate('CategoryTree');
+        // TODO must be injected
+        $locator = new Locator();
         $this->locale = \ProjectA_Shared_Library_Store::getInstance()->getCurrentLocale();
-        $this->categoryFacade = (new FacadeLocator())->locate('CategoryTree');
+        $this->queryContainer = $locator->categoryTree()->queryContainer();
+        $this->categoryFacade = $locator->categoryTree()->facade();
     }
 
 
@@ -134,7 +135,8 @@ class CategoryTreeInstall implements DemoDataInstallInterface
      */
     protected function getQueryContainer()
     {
-        return (new QueryContainerLocator())->locate('CategoryTree');
+        // TODO this must be injected
+        return (new Locator())->categoryTree()->queryContainer();
     }
 
     /**

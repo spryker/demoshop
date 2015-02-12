@@ -1,0 +1,36 @@
+{% extends "@application/layout/full.twig" %}
+
+{% block content %}
+    {% include "@application/partials/navbar.twig" with {'categories': categories } only %}
+    <link rel="stylesheet" href="{{ asset('/styles/catalog.css') }}" />
+    <script src="{{ asset('/scripts/app/catalog.js') }}"></script>
+
+    <section class="consumeHeight" id="catalog">
+        <div  class="col col25">
+            <div class="sidebar">
+                <span class="result-count"><b>{{ numFound }}</b> {{'catalog.fulltext.result'|trans ~ ' ' }}
+                <b>"{{ searchString }}"</b></span>
+            </div>
+            {% if numFound > 0 %}
+                <div class="sidebar">
+                    {% include "@catalog/partials/filters.twig" with {'facets': facets, 'url': '/search'} only %}
+                </div>
+            {% endif %}
+        </div>
+
+        <div class="col col75">
+            {% if numFound > 0 %}
+            <div id="options" class="results">
+                {% include "@catalog/partials/options.twig" with { 'url': '/search'} %}
+            </div>
+            <div>
+                {% include "@catalog/partials/product-list.twig" with {'products': products} only %}
+            </div>
+            {% else %}
+                <div class="missingProducts">
+                    {{ '0 ' ~ 'catalog.products.found'|trans }}
+                </div>
+            {% endif %}
+        </div>
+    </section>
+{% endblock %}

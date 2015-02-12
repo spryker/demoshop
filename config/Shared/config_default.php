@@ -1,14 +1,22 @@
 <?php
-use ProjectA\Shared\Adwords\AdwordsConfig;
+
 use ProjectA\Shared\Customer\CustomerConfig;
 use ProjectA\Shared\DbDump\DbDumpConfig;
-use ProjectA\Shared\Dwh\DwhConfig;
 use ProjectA\Shared\Glossary\GlossaryConfig;
 use Pyz\Shared\Mail\MailConfig;
 use ProjectA\Shared\Payone\PayoneConfig;
 use ProjectA\Shared\ProductImage\ProductImageConfig;
 use ProjectA\Shared\System\SystemConfig;
 use ProjectA\Shared\Yves\YvesConfig;
+
+$config[SystemConfig::PROJECT_NAMESPACES] = [
+    'Pyz'
+];
+$config[SystemConfig::CORE_NAMESPACES] = [
+    'ProjectA',
+    'SprykerFeature',
+    'SprykerCore'
+];
 
 $config[SystemConfig::CURRENT_APPLICATION_STORE] = APPLICATION_STORE;
 $config[SystemConfig::CURRENT_APPLICATION_ENV] = APPLICATION_ENV;
@@ -76,8 +84,8 @@ $config[YvesConfig::YVES_COMPLETE_SSL_ENABLED] = false;
 $config[YvesConfig::YVES_SSL_EXCLUDED] = ['/monitoring/heartbeat'];
 $config[YvesConfig::YVES_SESSION_SAVE_HANDLER] = null;
 $config[YvesConfig::YVES_SESSION_NAME] = 'yves_session';
-$config[YvesConfig::YVES_SESSION_COOKIE_DOMAIN] = null;
-$config[YvesConfig::YVES_ERROR_PAGE] = '';
+$config[YvesConfig::YVES_SESSION_COOKIE_DOMAIN] = $config[SystemConfig::HOST_YVES];
+$config[YvesConfig::YVES_ERROR_PAGE] = APPLICATION_ROOT_DIR.'/static/public/Yves/errorpage/error.html';
 
 $config[SystemConfig::PROPEL] = array(
     'propel.project.dir' =>
@@ -104,21 +112,6 @@ $config[SystemConfig::PROPEL] = array(
     'propel.builder.query.class' => 'ProjectA_Zed_Library_Propel_Builder_Om_PHP5QueryBuilder',
     'propel.builder.querystub.class' => 'ProjectA_Zed_Library_Propel_Builder_Om_PHP5QueryStubBuilder',
 );
-
-$config[GlossaryConfig::GLOSSARY_BROADCAST] = true;
-$config[GlossaryConfig::GLOSSARY_DESTINATION] = '/queue/glossary';
-$config[GlossaryConfig::GLOSSARY_PROPERTIES] = ['persistent' => 'true'];
-$config[GlossaryConfig::GLOSSARY_PREFETCH_SIZE] = 50;
-$config[GlossaryConfig::GLOSSARY_AMOUNT_OF_FRAMES] = 50;
-$config[GlossaryConfig::GLOSSARY_AMOUNT_OF_BUCKETS] = 1;
-$config[GlossaryConfig::GLOSSARY_URL] = '';
-$config[GlossaryConfig::GLOSSARY_MAPPING] = 'mapping';
-$config[GlossaryConfig::GLOSSARY_SEARCH] = 'search';
-$config[GlossaryConfig::GLOSSARY_PROXY] = true;
-$config[GlossaryConfig::GLOSSARY_USERNAME] = null;
-$config[GlossaryConfig::GLOSSARY_PASSWORD] = null;
-$config[GlossaryConfig::GLOSSARY_TIMEOUT_SECONDS] = 1;
-$config[GlossaryConfig::GLOSSARY_TIMEOUT_MILLISECONDS] = 0;
 
 $config[CustomerConfig::CUSTOMER_MINUTES_BEFORE_RESTORE_PASSWORD_INVALID] = 60;
 $config[CustomerConfig::CUSTOMER_DOUBLE_OPT_IN_REGISTRATION] = true;

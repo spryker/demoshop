@@ -11,6 +11,7 @@ use ProjectA\Shared\Application\Communication\Plugin\ServiceProvider\UrlGenerato
 use ProjectA\Shared\Library\Config;
 use ProjectA\Shared\System\SystemConfig;
 use ProjectA\Shared\Yves\YvesConfig;
+use ProjectA\Yves\Application\Communication\Plugin\ControllerProviderInterface;
 use ProjectA\Yves\Cart\Communication\Plugin\CartControllerProvider;
 use ProjectA\Yves\Checkout\Communication\Plugin\CheckoutControllerProvider;
 use ProjectA\Yves\Customer\Business\Model\Security\SecurityServiceProvider;
@@ -26,7 +27,7 @@ use ProjectA\Yves\Application\Communication\Plugin\ServiceProvider\MonologServic
 use ProjectA\Yves\Application\Communication\Plugin\ServiceProvider\SessionServiceProvider;
 use ProjectA\Yves\Application\Communication\Plugin\ServiceProvider\StorageServiceProvider;
 use ProjectA\Yves\Application\Communication\Plugin\ServiceProvider\ExceptionServiceProvider;
-use ProjectA\Yves\Application\Communication\Plugin\ServiceProvider\TranslationServiceProvider;
+use SprykerFeature\Sdk\Glossary\Provider\TranslationServiceProvider;
 use ProjectA\Yves\Application\Communication\Plugin\ServiceProvider\TwigServiceProvider;
 use ProjectA\Yves\Application\Communication\Plugin\ServiceProvider\YvesLoggingServiceProvider;
 
@@ -49,6 +50,18 @@ class YvesBootstrap extends Bootstrap
     protected function getBaseApplication()
     {
         return new \ProjectA\Yves\Application\Business\Application();
+    }
+
+    /**
+     * @param Application $app
+     */
+    protected function addProvidersToApp(Application $app)
+    {
+        parent::addProvidersToApp($app);
+
+        foreach ($this->getControllerProviders() as $provider) {
+            $app->mount($provider->getUrlPrefix(), $provider);
+        }
     }
 
     /**
@@ -106,7 +119,7 @@ class YvesBootstrap extends Bootstrap
             new RememberMeServiceProvider(),
             new RoutingServiceProvider(),
             new StorageServiceProvider(),
-            new TranslationServiceProvider('ProjectA\Shared\Glossary\Code\Storage\StorageKeyGenerator'),
+            new TranslationServiceProvider(),
             new ValidatorServiceProvider(),
             new FormServiceProvider(),
             new TwigServiceProvider(),
@@ -121,7 +134,7 @@ class YvesBootstrap extends Bootstrap
     }
 
     /**
-     * @return \Silex\ControllerProviderInterface[]
+     * @return ControllerProviderInterface[]
      */
     protected function getControllerProviders()
     {
@@ -146,14 +159,16 @@ class YvesBootstrap extends Bootstrap
             ->createProductDetailResourceCreator();
         $categoryResourceCreator = Factory::getInstance()->createCatalogDependencyContainer()
             ->createCategoryResourceCreator();
+
         return [
             Factory::getInstance()->createSetupModelRouterMonitoringRouter($app),
             Factory::getInstance()->createCmsModelRouterRedirectRouter($app),
-            Factory::getInstance()->createYvesExportDependencyContainer()->createKvStorageRouter($app)
+            Factory::getInstance()->createFrontendExporterDependencyContainer()->createKvStorageRouter($app)
                 ->addResourceCreator($productResourceCreator)
                 ->addResourceCreator($categoryResourceCreator),
-            Factory::getInstance()->createCatalogModelRouterCatalogRouter($app),
+            Factory::getInstance()->createCatalogModelRouterSearchRouter($app),
             Factory::getInstance()->createCmsModelRouterCmsRouter($app),
+            Factory::getInstance()->createCartModelRouterCartRouter($app),
             /*
              * SilexRouter should come last, as it is not the fastest one if it can
              * not find a matching route (lots of magic)
@@ -169,9 +184,13 @@ class YvesBootstrap extends Bootstrap
     protected function globalTemplateVariables(Application $app)
     {
         return [
-            'categories' => Factory::getInstance()->createCategoryExporterDependencyContainer()->createNavigation()->getCategories($app['locale']),
+            'categories' => Factory::getInstance()
+                ->createCategoryExporterDependencyContainer()
+                ->createNavigation()
+                ->getCategories($app['locale']),
             'cartItemCount' => Factory::getInstance()->createCartModelSessionCartCount($app->getSession())->getCount(),
             'tracking' => Tracking::getInstance(),
+            'environment' => \ProjectA_Shared_Library_Environment::getEnvironment(),
         ];
     }
 }

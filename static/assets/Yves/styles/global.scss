@@ -1,10 +1,10 @@
+@import "compass";
+
 html { background:#ffffff; color:#333; font-size:14px; }
 
 hardcoded { display:inline; }
 hardcoded[block] { display:block;}
 hardcoded[block]:after { display:block; content:''; clear:both; }
-hardcoded:hover,
-.showHardcoded hardcoded { background:rgba(255, 0, 0, 0.2); box-shadow:0 0 5px red; }
 
 input { border:1px solid #ccc; padding:4px 7px; border-radius:4px; box-shadow:inset 1px 1px 2px rgba(0, 0, 0, 0.1); }
 input:focus { box-shadow:0 0 4px rgba(0, 0, 0, 0.07), inset 1px 1px 2px rgba(0, 0, 0, 0.1); }
@@ -19,14 +19,22 @@ select[disabled] { background-color:#f1f1f1; }
 
 .col { position:relative; display:block; float:left; min-height:1px; -moz-box-sizing:border-box; -webkit-box-sizing:border-box; -ms-box-sizing:border-box; box-sizing:border-box; }
 .col:after { display:block; content:''; clear:both; }
+.col5 { width: 5%; }
+.col10 { width:10%; }
 .col15 { width:15%; }
 .col20 { width:20%; }
 .col25 { width:25%; }
 .col30 { width:30%; }
 .col33 { width:33%; }
 .col34 { width:34%; }
-.col67 { width:67%; }
+.col35 { width:35%; }
+.col40 { width:40%; }
+.col45 { width:45%; }
 .col50 { width:50%; }
+.col60 { width:60%; }
+.col66 { width:66%; }
+.col67 { width:67%; }
+.col70 { width:70%; }
 .col75 { width:75%; }
 
 .fullWidth { width:100%; -moz-box-sizing:border-box; box-sizing:border-box; }
@@ -63,7 +71,7 @@ section:after { content:''; display:block; clear:both; }
 .slideshow ul li { display:block; float:left; }
 .slideshow img { display:block; }
 
-header { padding:10px 0; white-space:nowrap; }
+header { padding:10px 0 0 0; white-space:nowrap; }
 header a { display:block; color:inherit; text-decoration:none; }
 header .row { padding:10px 0; }
 header .row:after { content:''; display:block; clear:left; }
@@ -72,17 +80,18 @@ header .usps li { display:block; float:left; margin-right:16px; }
 header .usps li:last-child { margin-right:0; }
 header .usps li .glyphicon { margin-right:8px; }
 #logo img { display:block; }
-header .search+span { position:absolute; top:0; right:0; padding:5px 9px 8px; line-height:14px; color:#a1a1a1; cursor:pointer; }
-header .search+span:hover { color:#777; }
-header .menu { float:right; margin:0 60px; padding:0; list-style:none; font-size:16px; color:#777; }
-header .menu:last-child { margin-left:0; }
-header .menu:first-child { margin-right:0; }
-header .menu:after { display:block; content:''; clear:both; }
-header .customer { line-height:27px; }
-header .customer .glyphicon { margin-right:4px; font-size:15px; }
-header .cart { font-size:12px; margin:-4px 0; }
-header .cart .main { display:block; font-size:16px; font-weight:bold; }
-header .cart .glyphicon { float:left; margin-left:-28px; top:5px; font-size:21px; }
+#navbar .search+span { position:absolute; top:0; right:0; padding:16px 9px 8px; line-height:14px; color:#a1a1a1; cursor:pointer; }
+#navbar .search+span:hover { color:#777; }
+#navbar .menu { float:right; margin:0 60px; padding:0; list-style:none; font-size:16px; color:#777; }
+#navbar .menu:last-child { margin-left:0; }
+#navbar .menu:first-child { margin-right:0; }
+#navbar .menu:after { display:block; content:''; clear:both; }
+#navbar .customer { line-height:27px; }
+#navbar .customer .glyphicon { margin-right:4px; font-size:15px; }
+#navbar .cart { font-size:12px; margin-top: 0; }
+#navbar .cart .text { display:block; font-size:16px; font-weight:bold; line-height: 18px; margin-top: 4px; }
+#navbar .cart .count { display:inline; font-style: italic; }
+#navbar .cart .glyphicon { float:left; margin-left:-28px; font-size:21px; margin-top: -3px; }
 
 #navbar { position:relative; font-size:15px; background:#fcfcfc; border-top:1px solid #ccc; border-bottom:1px solid #ccc; box-shadow:0 0 3px rgba(0, 0, 0, 0.05); white-space:nowrap; z-index:9; }
 #navbar .main { display:block; margin:0; padding:0; list-style:none; line-height:50px; }
@@ -123,7 +132,7 @@ header .cart .glyphicon { float:left; margin-left:-28px; top:5px; font-size:21px
 }
 
 #recommendations { margin:20px auto; color:#a1a1a1; }
-#recommendations h3,
+#recommendations h3 { padding-bottom: 15px; border-bottom: 1px solid #ccc; }
 #recommendations h4 { margin:10px 0; }
 #recommendations ul { margin:0; padding:0; list-style:none; }
 #recommendations li { display:block; width:33.3333%; float:left; padding:0 14px; -moz-box-sizing:border-box; -webkit-box-sizing:border-box; -ms-box-sizing:border-box; box-sizing:border-box; }
@@ -166,6 +175,30 @@ footer li { padding:10px 0 0; }
 footer ul.simple li { padding:0; }
 footer a { color:#777; text-decoration:none; }
 footer a:hover { text-decoration:underline; }
+footer .icon-spryker-logo {
+  font-family: 'icomoon';
+  speak: none;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+
+  /* Better Font Rendering =========== */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-size: 6em;
+
+  &:hover {
+    text-decoration: none;
+  }
+}
+footer .poweredBy {
+  font-size: 16px;
+  vertical-align: middle;
+  margin-right: 10px;
+}
+//footer .poweredBy { margin: 0 5px; position: relative; top: 60px; float: left; }
 
 .validationError { border-color:red !important; box-shadow:0 0 4px rgba(255, 0, 0, 0.3); }
 .tooltip { position:absolute; z-index:999; border:1px solid #fff; color:#fff; padding:4px 8px !important; max-width:300px; border-radius:3px; box-shadow:0 0 4px rgba(0, 0, 0, 0.5); background:#666; }
@@ -176,3 +209,38 @@ footer a:hover { text-decoration:underline; }
 .modal { font-weight:300; position:absolute; left:25%; top:50px; width:50%; padding:20px; background:#fff; border:1px solid #ccc; box-shadow:1px 1px 4px rgba(0, 0, 0, 0.2); z-index:99; border-radius:3px; }
 .modal *:first-child { margin-top:0; }
 .modal *:last-child { margin-bottom:0; }
+
+.alert {
+  border: 1px solid #ccc;
+  @include border-radius(5px);
+  padding: 5px;
+   .close {
+     @include opacity(0.5);
+     color: #000000;
+   }
+}
+.alert-success {
+  background-color: #84d95d;
+}
+
+/*
+ * Let's target IE to respect aspect ratios and sizes for img tags containing SVG files
+ *
+ * [1] IE9
+ * [2] IE10+
+ */
+/* 1 */
+.ie9 img[src*=".svg"] {
+  width: 100%;
+}
+/* 2 */
+@media screen and (-ms-high-contrast: active), (-ms-high-contrast: none) {
+  img[src*=".svg"] {
+    width: 100%;
+  }
+}
+
+.logo {
+  width: 61%;
+}
+

@@ -33,8 +33,10 @@ use \ProjectA\Deprecated\ProductImage\Business\Dependency\ProductImageFacadeTrai
 use \ProjectA\Deprecated\Invoice\Business\Dependency\InvoiceFacadeTrait;
 use \ProjectA\Deprecated\Document\Business\Dependency\DocumentFacadeTrait;
 use \ProjectA\Deprecated\Payone\Business\Dependency\PayoneFacadeTrait;
-use ProjectA\Zed\Kernel\Business\FacadeLocator;
+use ProjectA\Zed\Glossary\Business\GlossaryFacade;
+use ProjectA\Zed\Kernel\Locator;
 use ProjectA\Zed\ProductSearch\Business\ProductSearchFacade;
+use ProjectA\Zed\Stock\Business\StockFacade;
 use ProjectA\Zed\YvesExport\Business\YvesExportFacade;
 
 /**
@@ -42,51 +44,41 @@ use ProjectA\Zed\YvesExport\Business\YvesExportFacade;
  *
  * @package Pyz\Zed\Installer\Business\Model
  */
-class Installer extends \ProjectA_Zed_Installer_Business_Model_Installer implements
+class Installer extends \ProjectA_Zed_Installer_Business_Model_Installer
+    implements
     AclFacadeInterface,
-    CatalogFacadeInterface,
-//    CategoryFacadeInterface,
-    CmsFacadeInterface,
-    CustomerFacadeInterface,
     MiscFacadeInterface,
-    PriceFacadeInterface,
-    StockFacadeInterface,
-    GlossaryFacadeInterface,
+    CmsFacadeInterface,
     SalesFacadeInterface,
     ProductImageFacadeInterface,
     InvoiceFacadeInterface,
-    DocumentFacadeInterface,
     PayoneFacadeInterface,
-    ProductFacadeInterface
+    DocumentFacadeInterface,
+    PriceFacadeInterface
 {
-
     use AclFacadeTrait;
-    use CatalogFacadeTrait;
-//    use CategoryFacadeTrait;
-    use CmsFacadeTrait;
-    use CustomerFacadeTrait;
     use MiscFacadeTrait;
     use PriceFacadeTrait;
-    use StockFacadeTrait;
-    use GlossaryFacadeTrait;
+    use CmsFacadeTrait;
     use SalesFacadeTrait;
-    use ProductImageFacadeTrait;
     use InvoiceFacadeTrait;
     use DocumentFacadeTrait;
+    use ProductImageFacadeTrait;
     use PayoneFacadeTrait;
     use ProductFacadeTrait;
 
     /**
-     * @var FacadeLocator
+     * @var \Generated\Zed\Ide\AutoCompletion
      */
-    protected $facadeLocator;
+    protected $locator;
 
     /**
      * constructor
      */
     public function __construct()
     {
-        $this->facadeLocator = new FacadeLocator();
+        // TODO this must be injected
+        $this->locator = new Locator();
     }
 
     /**
@@ -95,29 +87,32 @@ class Installer extends \ProjectA_Zed_Installer_Business_Model_Installer impleme
     protected function getInstaller()
     {
         /** @var YvesExportFacade $yvesExportFacade */
-        $yvesExportFacade = $this->facadeLocator->locate('YvesExport');
+        $yvesExportFacade = $this->locator->yvesExport()->facade();
         /** @var ProductSearchFacade $productSearchFacade */
-        $productSearchFacade = $this->facadeLocator->locate('ProductSearch');
+        $productSearchFacade = $this->locator->productSearch()->facade();
+        $stockFacade = $this->locator->stock()->facade();
 
+        /** @var GlossaryFacade $glossaryFacade */
+        $glossaryFacade = $this->locator->glossary()->facade();
         return [
             $this->facadeAcl->createInternalInstall(),
+//            $this->facadeCustomer->createInternalInstall(),
+            $this->facadeCms->createInternalInstall(),
             // TODO: installer broken
 //            $this->facadeCatalog->createInternalInstall(),
 //            $this->facadeCategory->createInternalInstall(),
-            $this->facadeCms->createInternalInstall(),
-            $this->facadeCustomer->createInternalInstall(),
             $this->facadeMisc->createInternalInstall(),
             $this->facadePrice->createInternalInstall(),
-            $this->facadeStock->createInternalInstall(),
-            $this->facadeGlossary->createInternalInstall(),
+            $stockFacade->createInternalInstall(),
             $this->facadeSales->createInternalInstall(),
             $this->facadeProductImage->createInternalInstall(),
             $this->facadeDocument->createInternalInstall(),
             $this->facadeInvoice->createInternalInstall(),
             $this->facadePayone->createInternalInstall(),
-            $this->facadeProduct->createInternalInstall(),
+            $this->locator->product()->facade()->createInternalInstall(),
             $yvesExportFacade->createInternalInstall(),
-            $productSearchFacade->createInternalInstall()
+            $productSearchFacade->createInternalInstall(),
+            $glossaryFacade->getGlossaryInstaller(),
         ];
     }
 }
