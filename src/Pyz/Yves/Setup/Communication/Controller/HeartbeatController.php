@@ -2,13 +2,13 @@
 
 namespace Pyz\Yves\Setup\Communication\Controller;
 
-use ProjectA\Yves\Application\Communication\Controller\AbstractController;
+use SprykerCore\Yves\Application\Communication\Controller\AbstractController;
 
 /**
  * Class HeartbeatController
  * @package Pyz\Yves\Setup\Communication\Controller
  */
-class HeartbeatController extends AbstractController
+class HeartbeatController extends \SprykerCore\Yves\Application\Communication\Controller\AbstractController
 {
 
     /**

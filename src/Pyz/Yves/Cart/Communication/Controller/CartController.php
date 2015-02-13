@@ -2,7 +2,7 @@
 namespace Pyz\Yves\Cart\Communication\Controller;
 
 use ProjectA\Shared\Kernel\LocatorLocatorInterface;
-use ProjectA\Yves\Application\Communication\Controller\AbstractController;
+use SprykerCore\Yves\Application\Communication\Controller\AbstractController;
 use Pyz\Yves\Cart\Communication\Helper\CartControllerTrait;
 use Pyz\Yves\Library\Tracking\PageTypeInterface;
 use ProjectA\Yves\Library\Tracking\Tracking;

@@ -4,7 +4,7 @@ namespace Pyz\Yves\Catalog\Business\Model\Router;
 
 use ProjectA\Shared\Application\Communication\ControllerServiceBuilder;
 
-use ProjectA\Yves\Application\Business\Routing\AbstractRouter;
+use SprykerCore\Yves\Application\Business\Routing\AbstractRouter;
 use ProjectA\Yves\Catalog\Business\Model\Exception\ProductNotFoundException;
 use ProjectA\Yves\Kernel\Communication\BundleControllerAction;
 use ProjectA\Yves\Kernel\Communication\Controller\RouteNameResolver;

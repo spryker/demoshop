@@ -2,11 +2,11 @@
 
 namespace Pyz\Yves\Customer2\Communication\Controller;
 
-use ProjectA\Yves\Application\Communication\Controller\AbstractController;
+use SprykerCore\Yves\Application\Communication\Controller\AbstractController;
 use ProjectA\Shared\Customer\Transfer as CustomerTransfer;
 use Symfony\Component\HttpFoundation\Request;
 
-class Customer2Controller extends AbstractController
+class Customer2Controller extends \SprykerCore\Yves\Application\Communication\Controller\AbstractController
 {
     public function loginAction(Request $req)
     {
