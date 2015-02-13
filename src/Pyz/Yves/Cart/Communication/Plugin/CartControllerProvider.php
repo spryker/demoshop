@@ -2,7 +2,7 @@
 
 namespace Pyz\Yves\Cart\Communication\Plugin;
 
-use ProjectA\Yves\Application\Communication\Plugin\YvesControllerProvider;
+use SprykerCore\Yves\Application\Communication\Plugin\YvesControllerProvider;
 use Silex\Application;
 use SprykerCore\Yves\Kernel\Locator;
 use Symfony\Component\HttpFoundation\Request;
@@ -11,7 +11,7 @@ use Symfony\Component\HttpFoundation\Request;
  * Class CartControllerProvider
  * @package Pyz\Yves\Cart\Communication\Plugin
  */
-class CartControllerProvider extends YvesControllerProvider
+class CartControllerProvider extends \SprykerCore\Yves\Application\Communication\Plugin\YvesControllerProvider
 {
     const ROUTE_CART = 'cart';
     const ROUTE_CART_ADD = 'cart/add';

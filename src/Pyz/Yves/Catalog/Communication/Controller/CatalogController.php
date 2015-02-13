@@ -2,7 +2,7 @@
 
 namespace Pyz\Yves\Catalog\Communication\Controller;
 
-use ProjectA\Yves\Application\Communication\Controller\AbstractController;
+use SprykerCore\Yves\Application\Communication\Controller\AbstractController;
 use Pyz\Yves\Library\Tracking\DataProvider\ProductDetailProvider;
 use Pyz\Yves\Library\Tracking\PageTypeInterface;
 use ProjectA\Yves\Library\Tracking\Tracking;
