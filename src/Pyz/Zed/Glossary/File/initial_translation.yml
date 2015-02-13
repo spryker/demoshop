@@ -21,12 +21,12 @@ keys:
       en_US: 'Cart EMPTY.'
   cart.usp.shipping:
     translations:
-      de_DE: 'Kostenlose Lieferung / Rückgabe'
-      en_US: 'Free Shipping & Return'
+      de_DE: 'Keine Lieferung (DEMOSHOP)'
+      en_US: 'No Shipping (DEMOSHOP)'
   cart.usp.return:
     translations:
-      de_DE: '30 Tage Rückgabe'
-      en_US: '30 Days of Return'
+      de_DE: 'Keine Rückgabe (DEMOSHOP)'
+      en_US: 'No Return (DEMOSHOP)'
   cart.price.grand.total:
     translations:
       de_DE: 'Endsumme'
@@ -69,16 +69,16 @@ keys:
       en_US: 'Your cart'
   header.usp.shipping:
     translations:
-      de_DE: 'Kostenlose Lieferung / Rückgabe'
-      en_US: 'Free Shipping & Return'
+      de_DE: 'Keine Lieferung (DEMOSHOP)'
+      en_US: 'No Shipping (DEMOSHOP)'
   header.usp.return:
     translations:
-      de_DE: '30 Tage Rückgabe'
-      en_US: '30 Days of Return'
+      de_DE: 'Keine Rückgabe (DEMOSHOP)'
+      en_US: 'No Return (DEMOSHOP)'
   header.phone:
     translations:
-      de_DE: 'Hotline: +49 (0) 30 340 606 300'
-      en_US: 'Hotline: +49 (0) 30 340 606 300'
+      de_DE: 'Hotline: +49 (40) 3289 29690'
+      en_US: 'Hotline: +49 (40) 3289 29690'
   footer.payment.options:
     translations:
       de_DE: 'Zahlungsoptionen'
@@ -285,12 +285,12 @@ keys:
       en_US: PayPal
   catalog.usp.shipping:
     translations:
-      de_DE: 'Kostenlose Lieferung / Rückgabe'
-      en_US: 'Free Shipping & Return'
+      de_DE: 'Keine Lieferung (DEMOSHOP)'
+      en_US: 'No Shipping (DEMOSHOP)'
   catalog.usp.return:
     translations:
-      de_DE: '30 Tage Rückgaberecht'
-      en_US: '30 Days of Return'
+      de_DE: 'Keine Rückgabe (DEMOSHOP)'
+      en_US: 'No Return (DEMOSHOP)'
   catalog.percentage.vat:
     translations:
       de_DE: 'inkl. %product.tax_rate%% MwST'
@@ -469,32 +469,144 @@ keys:
       en_US: 'Invalid credentials'
   static.pages.tos:
     translations:
-      de_DE: 'Nutzungsbedingungen - bitte hinzufügen!'
-      en_US: 'Terms of Service - please add me!'
+      de_DE: >
+         <h2>Nutzungsbedingungen</h2>
+         <br />
+         <br />
+         Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.
+         At vero eos et accusam et justo duo dolores et ea rebum.
+         Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.
+         Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.
+         At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.
+      en_US: >
+         <h2>Terms of Service</h2>
+         <br />
+         <br />
+         Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.
+         At vero eos et accusam et justo duo dolores et ea rebum.
+         Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.
+         Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.
+         At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.
   static.pages.imprint:
     translations:
-      de_DE: 'Prägung - bitte hinzufügen!'
-      en_US: 'Imprint - please add me!'
+      de_DE: >
+         <h2>Prägung</h2>
+         <br />
+         <br />
+         Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.
+         At vero eos et accusam et justo duo dolores et ea rebum.
+         Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.
+         Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.
+         At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.
+      en_US: >
+         <h2>Imprint</h2>
+         <br />
+         <br />
+         Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.
+         At vero eos et accusam et justo duo dolores et ea rebum.
+         Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.
+         Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.
+         At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.
   static.pages.privacy:
     translations:
-      de_DE: 'Privatsphäre - bitte hinzufügen!'
-      en_US: 'Privacy - please add me!'
+      de_DE: >
+         <h2>Privatsphäre</h2>
+         <br />
+         <br />
+         Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.
+         At vero eos et accusam et justo duo dolores et ea rebum.
+         Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.
+         Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.
+         At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.
+      en_US: >
+         <h2>Privacy</h2>
+         <br />
+         <br />
+         Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.
+         At vero eos et accusam et justo duo dolores et ea rebum.
+         Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.
+         Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.
+         At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.
   static.pages.withdrawal:
     translations:
-      de_DE: 'Abhebung - bitte hinzufügen!'
-      en_US: 'Withdrawal - please add me!'
+      de_DE: >
+         <h2>Abhebung</h2>
+         <br />
+         <br />
+         Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.
+         At vero eos et accusam et justo duo dolores et ea rebum.
+         Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.
+         Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.
+         At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.
+      en_US: >
+         <h2>Withdrawal</h2>
+         <br />
+         <br />
+         Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.
+         At vero eos et accusam et justo duo dolores et ea rebum.
+         Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.
+         Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.
+         At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.
   static.pages.returns:
     translations:
-      de_DE: 'Rückgaben - bitte hinzufügen!'
-      en_US: 'Returns - please add me!'
+      de_DE: >
+         <h2>Rückgaben</h2>
+         <br />
+         <br />
+         Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.
+         At vero eos et accusam et justo duo dolores et ea rebum.
+         Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.
+         Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.
+         At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.
+      en_US: >
+         <h2>Returns</h2>
+         <br />
+         <br />
+         Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.
+         At vero eos et accusam et justo duo dolores et ea rebum.
+         Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.
+         Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.
+         At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.
   static.pages.contact:
     translations:
-      de_DE: 'Kontakt - bitte hinzufügen!'
-      en_US: 'Contact - please add me!'
+      de_DE: >
+         <h2>Kontakt</h2>
+         <br />
+         <br />
+         Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.
+         At vero eos et accusam et justo duo dolores et ea rebum.
+         Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.
+         Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.
+         At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.
+      en_US: >
+         <h2>Contact</h2>
+         <br />
+         <br />
+         Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.
+         At vero eos et accusam et justo duo dolores et ea rebum.
+         Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.
+         Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.
+         At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.
   static.pages.faq:
     translations:
-      de_DE: 'FAQ - bitte hinzufügen!'
-      en_US: 'FAQ - please add me!'
+      de_DE: >
+        <h2>FAQ</h2>
+        <br />
+        <br />
+        Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.
+        At vero eos et accusam et justo duo dolores et ea rebum.
+        Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.
+        Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.
+        At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.
+      en_US: >
+        <h2>FAQ</h2>
+        <br />
+        <br />
+        Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.
+        At vero eos et accusam et justo duo dolores et ea rebum.
+        Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.
+        Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.
+        At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.
   checkout.payment.paypal.text:
     translations:
       de_DE: 'Sie werden zu PayPal weitergeleitet, sobald Sie Ihre Bestellung abgeschickt haben. Dort können Sie die Bestellung abschließen.'
@@ -1075,3 +1187,155 @@ keys:
     translations:
       de_DE: Abbrechen
       en_US: Cancel
+  catalog.ipp.50:
+    translations:
+      de_DE: 50 pro Seite
+      en_US: 50 per page
+  catalog.ipp.30:
+    translations:
+      de_DE: 30 pro Seite
+      en_US: 30 per page
+  catalog.ipp.10:
+    translations:
+      de_DE: 10 pro Seite
+      en_US: 10 per page
+  catalog.fulltext.result:
+    translations:
+      de_DE: Ergebnisse für
+      en_US: results for
+  catalog.categories:
+    translations:
+      de_DE: Kategorien
+      en_US: Categories
+  catalog.filters.main_color:
+    translations:
+      de_DE: Hauptfarbe
+      en_US: Main color
+  catalog.filters.main_color.brown:
+    translations:
+      de_DE: <div class="colorbox brown" title="Brown">
+      en_US: <div class="colorbox brown" title="Brown">
+  catalog.filters.main_color.white:
+    translations:
+      de_DE: <div class="colorbox white" title="White">
+      en_US: <div class="colorbox white" title="White">
+  catalog.filters.main_color.black:
+    translations:
+      de_DE: <div class="colorbox black" title="Black">
+      en_US: <div class="colorbox black" title="Black">
+  catalog.filters.main_color.gray:
+    translations:
+      de_DE: <div class="colorbox grey" title="Grey">
+      en_US: <div class="colorbox grey" title="Grey">
+  catalog.filters.main_color.green:
+    translations:
+      de_DE: <div class="colorbox green" title="Green">
+      en_US: <div class="colorbox green" title="Green">
+  catalog.filters.main_color.light_blue:
+    translations:
+      de_DE: <div class="colorbox lightblue" title="Light blue">
+      en_US: <div class="colorbox lightblue" title="Light blue">
+  catalog.filters.main_color.skin:
+    translations:
+      de_DE: <div class="colorbox skin" title="Skin">
+      en_US: <div class="colorbox skin" title="Skin">
+  catalog.filters.main_color.blue:
+    translations:
+      de_DE: <div class="colorbox blue" title="Blue">
+      en_US: <div class="colorbox blue" title="Blue">
+  catalog.filters.main_color.red:
+    translations:
+      de_DE: <div class="colorbox red" title="Red">
+      en_US: <div class="colorbox red" title="Red">
+  catalog.filters.main_color.silver:
+    translations:
+      de_DE: <div class="colorbox silver" title="Silver">
+      en_US: <div class="colorbox silver" title="Silver">
+  catalog.filters.main_color.gold:
+    translations:
+      de_DE: <div class="colorbox gold" title="Gold">
+      en_US: <div class="colorbox gold" title="Gold">
+  catalog.filters.main_color.pink:
+    translations:
+      de_DE: <div class="colorbox pink" title="Pink">
+      en_US: <div class="colorbox pink" title="Pink">
+  catalog.filters.material.aluminium:
+    translations:
+      de_DE: Aluminium
+      en_US: Aluminium
+  catalog.filters.material.plush:
+    translations:
+      de_DE: Plüsch
+      en_US: Plush
+  catalog.filters.age:
+    translations:
+      de_DE: 'Geeignet ab'
+      en_US: 'Suitable from'
+  catalog.filters.age.4:
+    translations:
+      de_DE: 4+
+      en_US: 4+
+  catalog.filters.age.6:
+    translations:
+      de_DE: 6+
+      en_US: 6+
+  catalog.filters.age.8:
+    translations:
+      de_DE: 8+
+      en_US: 8+
+  catalog.product.attribute.width:
+    translations:
+      de_DE: Breite
+      en_US: Width
+  catalog.product.attribute.height:
+    translations:
+      de_DE: Höhe
+      en_US: Height
+  catalog.product.attribute.depth:
+    translations:
+      de_DE: Tiefe
+      en_US: Depth
+  catalog.product.attribute.main_color:
+    translations:
+      de_DE: Hauptfarbe
+      en_US: Main color
+  catalog.product.attribute.weight:
+    translations:
+      de_DE: Gewicht
+      en_US: Weight
+  catalog.product.attribute.material:
+    translations:
+      de_DE: Material
+      en_US: Material
+  catalog.product.attribute.age:
+    translations:
+      de_DE: 'Geeignet ab'
+      en_US: 'Suitable from'
+  catalog.product.attribute.width.meassurement:
+    translations:
+      de_DE: ' cm'
+      en_US: ' cm'
+  catalog.product.attribute.height.meassurement:
+    translations:
+      de_DE: ' cm'
+      en_US: ' cm'
+  catalog.product.attribute.depth.meassurement:
+    translations:
+      de_DE: ' cm'
+      en_US: ' cm'
+  catalog.product.attribute.weight.meassurement:
+    translations:
+      de_DE: ' Kg'
+      en_US: ' Kg'
+  catalog.product.attribute.age.meassurement:
+    translations:
+      de_DE: '+ Jahre'
+      en_US: '+ years'
+  catalog.product.more_information:
+    translations:
+      de_DE: Spezifikation
+      en_US: Specification
+  catalog.product.attribute.other_colors:
+    translations:
+      de_DE: 'Zusätzliche Farben'
+      en_US: 'Additional colors'

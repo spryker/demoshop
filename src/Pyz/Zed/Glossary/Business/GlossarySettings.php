@@ -5,6 +5,9 @@ use ProjectA\Zed\Glossary\Dependency\Plugin\GlossaryInstallerPluginInterface;
 
 class GlossarySettings
 {
+    /**
+     * @var \Generated\Zed\Ide\AutoCompletion
+     */
     protected $locator;
 
     public function __construct($locator)

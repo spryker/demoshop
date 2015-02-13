@@ -48,7 +48,6 @@ class Installer extends \ProjectA_Zed_Installer_Business_Model_Installer
     implements
     AclFacadeInterface,
     MiscFacadeInterface,
-    StockFacadeInterface,
     CmsFacadeInterface,
     SalesFacadeInterface,
     ProductImageFacadeInterface,
@@ -60,7 +59,6 @@ class Installer extends \ProjectA_Zed_Installer_Business_Model_Installer
     use AclFacadeTrait;
     use MiscFacadeTrait;
     use PriceFacadeTrait;
-    use StockFacadeTrait;
     use CmsFacadeTrait;
     use SalesFacadeTrait;
     use InvoiceFacadeTrait;
@@ -92,7 +90,6 @@ class Installer extends \ProjectA_Zed_Installer_Business_Model_Installer
         $yvesExportFacade = $this->locator->yvesExport()->facade();
         /** @var ProductSearchFacade $productSearchFacade */
         $productSearchFacade = $this->locator->productSearch()->facade();
-
         /** @var GlossaryFacade $glossaryFacade */
         $glossaryFacade = $this->locator->glossary()->facade();
         return [
@@ -104,7 +101,6 @@ class Installer extends \ProjectA_Zed_Installer_Business_Model_Installer
 //            $this->facadeCategory->createInternalInstall(),
             $this->facadeMisc->createInternalInstall(),
             $this->facadePrice->createInternalInstall(),
-            $this->facadeStock->createInternalInstall(),
             $this->facadeSales->createInternalInstall(),
             $this->facadeProductImage->createInternalInstall(),
             $this->facadeDocument->createInternalInstall(),

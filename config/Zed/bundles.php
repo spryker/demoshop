@@ -25,6 +25,7 @@ return [
         'Category' => $schema,
         'CategoryTree' => $schemaAndNavigation,
         'Customer' => $schemaAndNavigation,
+        'Customer2' => $schema,
         'Document' => $schema,
         'Glossary' => $allElements,
         'Invoice' => $schema,
@@ -47,8 +48,7 @@ return [
         'Setup' => $navigation,
         'Stock' => $schema,
         'System' => $navigation,
-        'Yves' => $schemaAndNavigation,
-        'YvesExport' => $schema
+        'Yves' => $schemaAndNavigation
     ],
 
     \ProjectA\Shared\Library\Bundle\BundleConfig::NAMESPACE_SPRYKERCORE => [

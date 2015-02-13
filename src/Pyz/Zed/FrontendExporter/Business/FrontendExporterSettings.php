@@ -1,24 +1,22 @@
 <?php
 
-namespace Pyz\Zed\YvesExport\Business;
+namespace Pyz\Zed\FrontendExporter\Business;
 
 use ProjectA\Zed\CategoryExporter\Communication\Plugin\CategoryNodeProcessorPlugin;
 use ProjectA\Zed\CategoryExporter\Communication\Plugin\NavigationProcessorPlugin;
+use ProjectA\Zed\FrontendExporter\Business\FrontendExporterSettings as CoreYvesExportSettings;
 use ProjectA\Zed\GlossaryExporter\Communication\Plugin\KeyBuilderAwareInterface;
 use ProjectA\Zed\GlossaryExporter\Communication\Plugin\KeyBuilderPlugin;
-use ProjectA\Zed\GlossaryExporter\Communication\Plugin\TranslationProcessorPlugin;
 use ProjectA\Zed\ProductCategorySearch\Communication\Plugin\ProductCategorySearchProcessorPlugin;
 use ProjectA\Zed\ProductExporter\Communication\Plugin\ProductProcessorPlugin;
 use ProjectA\Zed\ProductSearch\Communication\Plugin\ProductProcessorPlugin as ProductSearchProcessorPlugin;
-use ProjectA\Zed\YvesExport\Business\Exporter\KeyBuilder\KvMarkerKeyBuilder;
-use ProjectA\Zed\YvesExport\Business\YvesExportSettings as CoreYvesExportSettings;
 
 /**
  * Class YvesExportSettings
  *
  * @package Pyz\Zed\YvesExport\Business
  */
-class YvesExportSettings extends CoreYvesExportSettings
+class FrontendExporterSettings extends CoreYvesExportSettings
 {
     protected $locator;
 
@@ -49,7 +47,7 @@ class YvesExportSettings extends CoreYvesExportSettings
     }
 
     /**
-     * @return array|\ProjectA\Zed\YvesExport\Communication\Plugin\ProcessorPluginInterface[]
+     * @return array|\ProjectA\Zed\FrontendExporter\Communication\Plugin\ProcessorPluginInterface[]
      */
     public function getSearchProcessors()
     {
