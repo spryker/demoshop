@@ -1,0 +1,21 @@
+propel:
+  database:
+      connections:
+          spryker:
+              adapter: mysql
+              classname: Propel\Runtime\Connection\ConnectionWrapper
+              dsn: "mysql:host=localhost;dbname=DE_development_zed"
+              user: root
+              password: mate20mg
+              attributes:
+  runtime:
+      defaultConnection: spryker
+      connections:
+          - spryker
+  generator:
+      defaultConnection: spryker
+      connections:
+          - spryker
+
+  paths:
+      phpDir: /data/shop/development/current/
