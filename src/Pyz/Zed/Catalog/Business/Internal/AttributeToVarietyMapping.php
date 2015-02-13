@@ -11,6 +11,7 @@ use \ProjectA\Zed\Catalog\Persistence\Propel\Map\PacCatalogValueTypeTableMap as 
  * self::ATTRIBUTE_MAX_QUANTITY => \ProjectA\Zed\Catalog\Persistence\Propel\Map\PacCatalogValueTypeTableMap::COL_VARIETY_INTEGER,
  *
  */
+// TODO check if class can be deleted its only used in the installer
 class AttributeToVarietyMapping implements
     ProductAttributeConstantInterface,
     ProductAttributeSetConstantInterface
