@@ -2,11 +2,11 @@
 
 namespace Pyz\Yves\Customer2\Communication\Controller;
 
-use ProjectA\Yves\Application\Communication\Controller\AbstractController;
+use SprykerCore\Yves\Application\Communication\Controller\AbstractController;
 use ProjectA\Shared\Customer\Transfer as CustomerTransfer;
 use Symfony\Component\HttpFoundation\Request;
 
-class Customer2Controller extends AbstractController
+class Customer2Controller extends \SprykerCore\Yves\Application\Communication\Controller\AbstractController
 {
     public function loginAction(Request $req)
     {
@@ -44,7 +44,7 @@ class Customer2Controller extends AbstractController
             $customerTransfer->setEmail($req->get("email"));
             // etc.
 
-            if ($this->locator->customer2()->pluginAuth()->register($customerTransfer)) {
+            if ($this->locator->customer2()->sdk()->register($customerTransfer)) {
                 $this->addMessageSuccess("REGISTRATION CONFIRMATION MAIL SENT");
                 return $this->redirectResponseInternal("/");
             } else {
@@ -57,7 +57,7 @@ class Customer2Controller extends AbstractController
 
     public function confirmRegistrationAction(Request $req)
     {
-        if ($this->locator->customer2()->pluginAuth()->confirmRegistration($req->get("token"))) {
+        if ($this->locator->customer2()->sdk()->confirmRegistration($req->get("token"))) {
             $this->addMessageSuccess("REGISTRATION CONFIRMED");
         } else {
             $this->addMessageError("REGISTRATION TOKEN EXPIRED");
