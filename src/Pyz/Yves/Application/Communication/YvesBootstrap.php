@@ -15,6 +15,7 @@ use ProjectA\Shared\Yves\YvesConfig;
 use SprykerCore\Yves\Application\Communication\Plugin\ControllerProviderInterface;
 
 use ProjectA\Yves\Checkout\Communication\Plugin\CheckoutControllerProvider;
+use ProjectA\Yves\Cms\Communication\CmsControllerProvider;
 use ProjectA\Yves\Customer\Business\Model\Security\SecurityServiceProvider;
 use ProjectA\Yves\Customer\Communication\Plugin\CustomerControllerProvider;
 use Pyz\Yves\Cart\Communication\Plugin\CartControllerProvider;
@@ -76,7 +77,7 @@ class YvesBootstrap extends Bootstrap
     protected function getTwigExtensions(Application $app)
     {
         $assetManager = new AssetManager($app['request_stack']);
-        $yvesExtension = new YvesExtension($assetManager);
+        $yvesExtension = new YvesExtension($assetManager, $app['translator'], $app['request_stack']);
 
         return [
             $yvesExtension
@@ -163,6 +164,7 @@ class YvesBootstrap extends Bootstrap
             new CheckoutControllerProvider($ssl),
             new CustomerControllerProvider($ssl),
             new NewsletterControllerProvider(),
+            new CmsControllerProvider(),
         ];
     }
 
