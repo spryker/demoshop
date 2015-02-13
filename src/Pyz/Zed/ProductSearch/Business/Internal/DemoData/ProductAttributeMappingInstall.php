@@ -2,7 +2,9 @@
 
 namespace Pyz\Zed\ProductSearch\Business\Internal\DemoData;
 
+use Generated\Zed\Ide\AutoCompletion;
 use ProjectA\Zed\Console\Business\Model\Console;
+use ProjectA\Zed\Kernel\Locator;
 use ProjectA\Zed\Library\Business\DemoDataInstallInterface;
 
 /**
@@ -159,28 +161,16 @@ class ProductAttributeMappingInstall implements DemoDataInstallInterface
 
     protected function makeProductsSearchable()
     {
+        /** @var AutoCompletion $locator */
+        $locator = new Locator();
+
+        $touchFacade = $locator->touch()->facade();
+
         $products = \ProjectA_Zed_Product_Persistence_Propel_PacProductQuery::create()->find();
 
         /** @var \ProjectA_Zed_Product_Persistence_Propel_PacProduct $product */
         foreach ($products as $product) {
-            $touchedProduct = \ProjectA_Zed_YvesExport_Persistence_Propel_PacYvesExportTouchQuery::create()
-                ->filterByItemId($product->getProductId())
-                ->filterByExportType(\ProjectA_Zed_YvesExport_Persistence_Propel_PacYvesExportTouchPeer::EXPORT_TYPE_SEARCH)
-                ->filterByItemEvent(\ProjectA_Zed_YvesExport_Persistence_Propel_PacYvesExportTouchPeer::ITEM_EVENT_ACTIVE)
-                ->filterByItemType('product')
-                ->findOne();
-
-            if (!$touchedProduct) {
-                $touchedProduct = new \ProjectA_Zed_YvesExport_Persistence_Propel_PacYvesExportTouch();
-
-            }
-
-            $touchedProduct->setItemType('product');
-            $touchedProduct->setItemEvent(\ProjectA_Zed_YvesExport_Persistence_Propel_PacYvesExportTouchPeer::ITEM_EVENT_ACTIVE);
-            $touchedProduct->setExportType(\ProjectA_Zed_YvesExport_Persistence_Propel_PacYvesExportTouchPeer::EXPORT_TYPE_SEARCH);
-            $touchedProduct->setTouched(new \DateTime());
-            $touchedProduct->setItemId($product->getProductId());
-            $touchedProduct->save();
+            $touchFacade->touchActive('searchableProduct', $product->getProductId());
         }
     }
 }

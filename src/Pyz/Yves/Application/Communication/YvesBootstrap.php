@@ -9,13 +9,16 @@ use ProjectA\Shared\Application\Business\Bootstrap;
 use ProjectA\Shared\Application\Communication\Plugin\ServiceProvider\RoutingServiceProvider;
 use ProjectA\Shared\Application\Communication\Plugin\ServiceProvider\UrlGeneratorServiceProvider;
 use ProjectA\Shared\Library\Config;
+use ProjectA\Shared\Library\Storage\StorageInstanceBuilder;
 use ProjectA\Shared\System\SystemConfig;
 use ProjectA\Shared\Yves\YvesConfig;
 use ProjectA\Yves\Application\Communication\Plugin\ControllerProviderInterface;
-use ProjectA\Yves\Cart\Communication\Plugin\CartControllerProvider;
+
 use ProjectA\Yves\Checkout\Communication\Plugin\CheckoutControllerProvider;
 use ProjectA\Yves\Customer\Business\Model\Security\SecurityServiceProvider;
 use ProjectA\Yves\Customer\Communication\Plugin\CustomerControllerProvider;
+use Pyz\Yves\Cart\Communication\Plugin\CartControllerProvider;
+use SprykerCore\Yves\Kernel\Locator;
 use ProjectA\Yves\Library\Asset\AssetManager;
 use ProjectA\Yves\Application\Business\Twig\YvesExtension;
 use ProjectA\Yves\Newsletter\Communication\Plugin\NewsletterControllerProvider;
@@ -27,7 +30,9 @@ use ProjectA\Yves\Application\Communication\Plugin\ServiceProvider\MonologServic
 use ProjectA\Yves\Application\Communication\Plugin\ServiceProvider\SessionServiceProvider;
 use ProjectA\Yves\Application\Communication\Plugin\ServiceProvider\StorageServiceProvider;
 use ProjectA\Yves\Application\Communication\Plugin\ServiceProvider\ExceptionServiceProvider;
-use SprykerFeature\Sdk\Glossary\Provider\TranslationServiceProvider;
+use SprykerFeature\Sdk\Glossary\KeyBuilder\SdkGlossaryKeyBuilder;
+use SprykerFeature\Yves\Glossary\KVTranslatorPlugin;
+use SprykerFeature\Yves\Glossary\TranslationServiceProvider;
 use ProjectA\Yves\Application\Communication\Plugin\ServiceProvider\TwigServiceProvider;
 use ProjectA\Yves\Application\Communication\Plugin\ServiceProvider\YvesLoggingServiceProvider;
 
@@ -88,6 +93,7 @@ class YvesBootstrap extends Bootstrap
         if (\ProjectA_Shared_Library_Environment::isDevelopment()) {
             $app['profiler.cache_dir'] = \ProjectA_Shared_Library_Data::getLocalStoreSpecificPath('cache/profiler');
         }
+        $app['locator'] = new Locator();
 
         $proxies = Config::get(YvesConfig::YVES_TRUSTED_PROXIES);
 
@@ -107,6 +113,17 @@ class YvesBootstrap extends Bootstrap
      */
     protected function getServiceProviders()
     {
+        $locator = new Locator();
+
+        $translationServiceProvider = $locator->glossary()
+            ->pluginTranslationService()
+            ->createTranslationServiceProvider();
+
+        $translator = new KVTranslatorPlugin();
+        $keyBuilder = new SdkGlossaryKeyBuilder();
+        $translator->setKeyBuilder($keyBuilder);
+        $translator->setKeyValueReader(StorageInstanceBuilder::getKvStorageReadInstance());
+
         $providers = [
             new ExceptionServiceProvider('\Pyz\Yves\Library\Controller\ExceptionController'),
             new YvesLoggingServiceProvider(),
@@ -119,7 +136,7 @@ class YvesBootstrap extends Bootstrap
             new RememberMeServiceProvider(),
             new RoutingServiceProvider(),
             new StorageServiceProvider(),
-            new TranslationServiceProvider(),
+            $translationServiceProvider,
             new ValidatorServiceProvider(),
             new FormServiceProvider(),
             new TwigServiceProvider(),
@@ -155,20 +172,21 @@ class YvesBootstrap extends Bootstrap
      */
     protected function getRouters(Application $app)
     {
-        $productResourceCreator = Factory::getInstance()->createProductExporterDependencyContainer()
-            ->createProductDetailResourceCreator();
-        $categoryResourceCreator = Factory::getInstance()->createCatalogDependencyContainer()
-            ->createCategoryResourceCreator();
+        $locator = new Locator();
+        $productResourceCreatorPlugin = $locator->productExport()->pluginProductResourceCreator();
+        $categoryResourceCreatorPlugin = $locator->categoryExport()->pluginCategoryResourceCreator();
 
         return [
-            Factory::getInstance()->createSetupModelRouterMonitoringRouter($app),
+            $locator->setup()->pluginMonitoringRouter()->createMonitoringRouter($app, false),
             Factory::getInstance()->createCmsModelRouterRedirectRouter($app),
-            Factory::getInstance()->createFrontendExporterDependencyContainer()->createKvStorageRouter($app)
-                ->addResourceCreator($productResourceCreator)
-                ->addResourceCreator($categoryResourceCreator),
+            $locator->yvesExport()->pluginStorageRouter()->createStorageRouter($app, false)
+                ->addResourceCreator($productResourceCreatorPlugin->createProductResourceCreator())
+                ->addResourceCreator($categoryResourceCreatorPlugin->createCategoryResourceCreator())
+            ,
             Factory::getInstance()->createCatalogModelRouterSearchRouter($app),
             Factory::getInstance()->createCmsModelRouterCmsRouter($app),
-            Factory::getInstance()->createCartModelRouterCartRouter($app),
+            $locator->cart()->pluginCartRouter()->createCartRouter($app, false),
+
             /*
              * SilexRouter should come last, as it is not the fastest one if it can
              * not find a matching route (lots of magic)
@@ -184,10 +202,7 @@ class YvesBootstrap extends Bootstrap
     protected function globalTemplateVariables(Application $app)
     {
         return [
-            'categories' => Factory::getInstance()
-                ->createCategoryExporterDependencyContainer()
-                ->createNavigation()
-                ->getCategories($app['locale']),
+            'categories' => $app['locator']->categoryExporter()->sdk()->getNavigationCategories($app['locale']),
             'cartItemCount' => Factory::getInstance()->createCartModelSessionCartCount($app->getSession())->getCount(),
             'tracking' => Tracking::getInstance(),
             'environment' => \ProjectA_Shared_Library_Environment::getEnvironment(),

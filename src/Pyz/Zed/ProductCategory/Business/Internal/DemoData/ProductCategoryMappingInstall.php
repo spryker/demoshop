@@ -2,7 +2,9 @@
 
 namespace Pyz\Zed\ProductCategory\Business\Internal\DemoData;
 
+use Generated\Zed\Ide\AutoCompletion;
 use ProjectA\Zed\Console\Business\Model\Console;
+use ProjectA\Zed\Kernel\Locator;
 use ProjectA\Zed\Library\Business\DemoDataInstallInterface;
 use ProjectA\Zed\Library\Import\Reader\CsvFileReader;
 
@@ -66,25 +68,13 @@ class ProductCategoryMappingInstall implements DemoDataInstallInterface
      */
     protected function touchProductCategories(array $categoryNodeIds)
     {
+        /** @var AutoCompletion $locator */
+        $locator = new Locator();
+        $touchFacade = $locator->touch()->facade();
+
         /** @var \ProjectA_Zed_ProductCategory_Persistence_Propel_PacProductCategory $productCategory */
         foreach ($categoryNodeIds as $categoryNodeId) {
-            $touchedProduct = \ProjectA_Zed_YvesExport_Persistence_Propel_PacYvesExportTouchQuery::create()
-                ->filterByItemId($categoryNodeId)
-                ->filterByExportType(\ProjectA_Zed_YvesExport_Persistence_Propel_PacYvesExportTouchPeer::EXPORT_TYPE_SEARCH)
-                ->filterByItemEvent(\ProjectA_Zed_YvesExport_Persistence_Propel_PacYvesExportTouchPeer::ITEM_EVENT_ACTIVE)
-                ->filterByItemType('product-category')
-                ->findOne();
-
-            if (!$touchedProduct) {
-                $touchedProduct = new \ProjectA_Zed_YvesExport_Persistence_Propel_PacYvesExportTouch();
-            }
-
-            $touchedProduct->setItemType('product-category');
-            $touchedProduct->setItemEvent(\ProjectA_Zed_YvesExport_Persistence_Propel_PacYvesExportTouchPeer::ITEM_EVENT_ACTIVE);
-            $touchedProduct->setExportType(\ProjectA_Zed_YvesExport_Persistence_Propel_PacYvesExportTouchPeer::EXPORT_TYPE_SEARCH);
-            $touchedProduct->setTouched(new \DateTime());
-            $touchedProduct->setItemId($categoryNodeId);
-            $touchedProduct->save();
+            $touchFacade->touchActive('product-category', $categoryNodeId);
         }
     }
 
