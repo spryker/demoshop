@@ -6,9 +6,9 @@ use ProjectA\Shared\Application\Communication\ControllerServiceBuilder;
 
 use SprykerCore\Yves\Application\Business\Routing\AbstractRouter;
 use ProjectA\Yves\Catalog\Business\Model\Exception\ProductNotFoundException;
-use ProjectA\Yves\Kernel\Communication\BundleControllerAction;
-use ProjectA\Yves\Kernel\Communication\Controller\RouteNameResolver;
-use ProjectA\Yves\Kernel\Communication\ControllerLocator;
+use SprykerCore\Yves\Kernel\Communication\BundleControllerAction;
+use SprykerCore\Yves\Kernel\Communication\Controller\RouteNameResolver;
+use SprykerCore\Yves\Kernel\Communication\ControllerLocator;
 
 use ProjectA\Yves\Kernel\Locator;
 use Symfony\Component\HttpFoundation\RedirectResponse;
