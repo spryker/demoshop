@@ -49,11 +49,11 @@ class ProductDataInstall implements DemoDataInstallInterface
             'description' => 'string',
         ];
 
-        $typeEntities = \ProjectA_Zed_Product_Persistence_Propel_PacProductAttributeTypeQuery::create()
+        $typeEntities = \ProjectA\Zed\Product\Persistence\Propel\PacProductAttributeTypeQuery::create()
             ->select(
                 [
-                    \ProjectA_Zed_Product_Persistence_Propel_PacProductAttributeTypePeer::NAME,
-                    \ProjectA_Zed_Product_Persistence_Propel_PacProductAttributeTypePeer::TYPE_ID
+                    \ProjectA\Zed\Product\Persistence\Propel\Map\PacProductAttributeTypeTableMap::COL_NAME,
+                    \ProjectA\Zed\Product\Persistence\Propel\Map\PacProductAttributeTypeTableMap::COL_TYPE_ID
                 ]
             )->setFormatter(
                 new \PropelSimpleArrayFormatter()
@@ -66,12 +66,12 @@ class ProductDataInstall implements DemoDataInstallInterface
         }
 
         foreach ($attributes as $attribute => $type) {
-            if (\ProjectA_Zed_Product_Persistence_Propel_PacProductAttributesMetadataQuery::create()->findOneByKey($attribute)) {
+            if (\ProjectA\Zed\Product\Persistence\Propel\PacProductAttributesMetadataQuery::create()->findOneByKey($attribute)) {
                 continue;
             }
 
             if (array_key_exists($type, $types)) {
-                $attributeEntity = new \ProjectA_Zed_Product_Persistence_Propel_PacProductAttributesMetadata();
+                $attributeEntity = new \ProjectA\Zed\Product\Persistence\Propel\PacProductAttributesMetadata();
                 $attributeEntity->setAttributeId(null);
                 $attributeEntity->setKey($attribute);
                 $attributeEntity->setTypeId($types[$type]);
@@ -89,26 +89,26 @@ class ProductDataInstall implements DemoDataInstallInterface
     {
         foreach ($this->getProductsFromCsv() as $p) {
             $sku = $p['sku'];
-            $abstractProductQuery = new \ProjectA_Zed_Product_Persistence_Propel_PacAbstractProductQuery();
+            $abstractProductQuery = new \ProjectA\Zed\Product\Persistence\Propel\PacAbstractProductQuery();
             if ($abstractProductQuery->findOneBySku($sku)) {
                 continue;
             }
-            $abstractProduct = new \ProjectA_Zed_Product_Persistence_Propel_PacAbstractProduct();
+            $abstractProduct = new \ProjectA\Zed\Product\Persistence\Propel\PacAbstractProduct();
             $abstractProduct->setSku($sku);
 
-            $abstractProductAttributes = new \ProjectA_Zed_Product_Persistence_Propel_PacLocalizedAbstractProductAttributes();
+            $abstractProductAttributes = new \ProjectA\Zed\Product\Persistence\Propel\PacLocalizedAbstractProductAttributes();
             $abstractProductAttributes->setLocale('de_DE');
             $abstractProductAttributes->setName($p['name']);
             $abstractProductAttributes->setAttributes($p['attributes']);
             $abstractProductAttributes->setPacAbstractProduct($abstractProduct);
 
             foreach ($p['products'] as $pc) {
-                $product = new \ProjectA_Zed_Product_Persistence_Propel_PacProduct();
+                $product = new \ProjectA\Zed\Product\Persistence\Propel\PacProduct();
                 $product->setSku($pc['sku']);
                 $product->setIsActive(true);
                 $product->setPacAbstractProduct($abstractProduct);
 
-                $productAttributes = new \ProjectA_Zed_Product_Persistence_Propel_PacLocalizedProductAttributes();
+                $productAttributes = new \ProjectA\Zed\Product\Persistence\Propel\PacLocalizedProductAttributes();
                 $productAttributes->setLocale('de_DE');
                 $productAttributes->setName($pc['name']);
                 $productAttributes->setUrl($pc['url']);
@@ -117,10 +117,10 @@ class ProductDataInstall implements DemoDataInstallInterface
 
                 $product->save();
 
-                $touch = new \ProjectA_Zed_YvesExport_Persistence_Propel_PacYvesExportTouch();
+                $touch = new \ProjectA\Zed\YvesExport\Persistence\Propel\PacYvesExportTouch();
                 $touch->setItemType('product');
-                $touch->setItemEvent(\ProjectA_Zed_YvesExport_Persistence_Propel_PacYvesExportTouchPeer::ITEM_EVENT_ACTIVE);
-                $touch->setExportType(\ProjectA_Zed_YvesExport_Persistence_Propel_PacYvesExportTouchPeer::EXPORT_TYPE_KEYVALUE);
+                $touch->setItemEvent(\ProjectA\Zed\YvesExport\Persistence\Propel\Map\PacYvesExportTouchTableMap::COL_ITEM_EVENT_ACTIVE);
+                $touch->setExportType(\ProjectA\Zed\YvesExport\Persistence\Propel\Map\PacYvesExportTouchTableMap::COL_EXPORT_TYPE_KEYVALUE);
                 $touch->setTouched(new \DateTime());
                 $touch->setItemId($product->getProductId());
                 $touch->save();

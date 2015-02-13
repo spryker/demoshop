@@ -58,7 +58,7 @@ class Pyz_Zed_ProductImage_Business_Model_Processor implements
                 $productEntity = $this->facadeCatalog->getProductBySku($sku);
                 $product = $this->facadeCatalog->getProduct($productEntity, [\ProjectA\Zed\Catalog\Business\Model\Attribute\GroupConstantInterface::CONFIG_ATTRIBUTES], true);
                 $mappingId = $productEntity->getPrimaryKey();
-                $imageEntityId = $this->facadeImage->addImage($originalImageFilename, '/tmp', $mappingId, $size->getIdImageSize(), $order, '-' . $size->getName(), $extension, \ProjectA_Zed_Image_Persistence_Propel_PacImagePeer::TYPE_PRODUCT, array());
+                $imageEntityId = $this->facadeImage->addImage($originalImageFilename, '/tmp', $mappingId, $size->getIdImageSize(), $order, '-' . $size->getName(), $extension, \ProjectA\Zed\Image\Persistence\Propel\Map\PacImageTableMap::COL_TYPE_PRODUCT, array());
                 $this->facadeImage->addImageProduct($mappingId, $imageEntityId, $product[self::ATTRIBUTE_NAME]);
 
                 $productEntity->touch();

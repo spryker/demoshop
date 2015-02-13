@@ -79,21 +79,21 @@ class StockInstall implements DemoDataInstallInterface
      */
     protected function touchStock($stockId)
     {
-        $stockTouched = \ProjectA_Zed_YvesExport_Persistence_Propel_PacYvesExportTouchQuery::create()
+        $stockTouched = \ProjectA\Zed\YvesExport\Persistence\Propel\PacYvesExportTouchQuery::create()
             ->filterByItemId($stockId)
-            ->filterByItemEvent(\ProjectA_Zed_YvesExport_Persistence_Propel_PacYvesExportTouchPeer::ITEM_EVENT_ACTIVE)
+            ->filterByItemEvent(\ProjectA\Zed\YvesExport\Persistence\Propel\Map\PacYvesExportTouchTableMap::COL_ITEM_EVENT_ACTIVE)
             ->filterByItemType('stock-product')
-            ->filterByExportType(\ProjectA_Zed_YvesExport_Persistence_Propel_PacYvesExportTouchPeer::EXPORT_TYPE_KEYVALUE)
+            ->filterByExportType(\ProjectA\Zed\YvesExport\Persistence\Propel\Map\PacYvesExportTouchTableMap::COL_EXPORT_TYPE_KEYVALUE)
             ->findOne();
 
         if (!$stockTouched) {
-            $stockTouched = new \ProjectA_Zed_YvesExport_Persistence_Propel_PacYvesExportTouch();
+            $stockTouched = new \ProjectA\Zed\YvesExport\Persistence\Propel\PacYvesExportTouch();
         }
 
         $stockTouched
-            ->setExportType(\ProjectA_Zed_YvesExport_Persistence_Propel_PacYvesExportTouchPeer::EXPORT_TYPE_KEYVALUE)
+            ->setExportType(\ProjectA\Zed\YvesExport\Persistence\Propel\Map\PacYvesExportTouchTableMap::COL_EXPORT_TYPE_KEYVALUE)
             ->setItemType('stock-product')
-            ->setItemEvent(\ProjectA_Zed_YvesExport_Persistence_Propel_PacYvesExportTouchPeer::ITEM_EVENT_ACTIVE)
+            ->setItemEvent(\ProjectA\Zed\YvesExport\Persistence\Propel\Map\PacYvesExportTouchTableMap::COL_ITEM_EVENT_ACTIVE)
             ->setItemId($stockId)
             ->setTouched(new \DateTime())
             ->save();

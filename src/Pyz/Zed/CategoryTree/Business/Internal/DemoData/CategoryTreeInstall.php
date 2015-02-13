@@ -149,23 +149,23 @@ class CategoryTreeInstall implements DemoDataInstallInterface
     {
         $nodes = $this->getQueryContainer()->getNodesByCategoryId($categoryId)->find();
 
-        /** @var \ProjectA_Zed_CategoryTree_Persistence_Propel_PacCategoryNode $node */
+        /** @var \ProjectA\Zed\CategoryTree\Persistence\Propel\PacCategoryNode $node */
         foreach ($nodes as $node) {
-            $nodeTouched = \ProjectA_Zed_YvesExport_Persistence_Propel_PacYvesExportTouchQuery::create()
+            $nodeTouched = \ProjectA\Zed\YvesExport\Persistence\Propel\PacYvesExportTouchQuery::create()
                 ->filterByItemId($node->getIdCategoryNode())
-                ->filterByItemEvent(\ProjectA_Zed_YvesExport_Persistence_Propel_PacYvesExportTouchPeer::ITEM_EVENT_ACTIVE)
+                ->filterByItemEvent(\ProjectA\Zed\YvesExport\Persistence\Propel\Map\PacYvesExportTouchTableMap::COL_ITEM_EVENT_ACTIVE)
                 ->filterByItemType('category-node')
-                ->filterByExportType(\ProjectA_Zed_YvesExport_Persistence_Propel_PacYvesExportTouchPeer::EXPORT_TYPE_KEYVALUE)
+                ->filterByExportType(\ProjectA\Zed\YvesExport\Persistence\Propel\Map\PacYvesExportTouchTableMap::COL_EXPORT_TYPE_KEYVALUE)
                 ->findOne();
 
             if (!$nodeTouched) {
-                $nodeTouched = new \ProjectA_Zed_YvesExport_Persistence_Propel_PacYvesExportTouch();
+                $nodeTouched = new \ProjectA\Zed\YvesExport\Persistence\Propel\PacYvesExportTouch();
             }
 
             $nodeTouched
-                ->setExportType(\ProjectA_Zed_YvesExport_Persistence_Propel_PacYvesExportTouchPeer::EXPORT_TYPE_KEYVALUE)
+                ->setExportType(\ProjectA\Zed\YvesExport\Persistence\Propel\Map\PacYvesExportTouchTableMap::COL_EXPORT_TYPE_KEYVALUE)
                 ->setItemType('category-node')
-                ->setItemEvent(\ProjectA_Zed_YvesExport_Persistence_Propel_PacYvesExportTouchPeer::ITEM_EVENT_ACTIVE)
+                ->setItemEvent(\ProjectA\Zed\YvesExport\Persistence\Propel\Map\PacYvesExportTouchTableMap::COL_ITEM_EVENT_ACTIVE)
                 ->setItemId($node->getIdCategoryNode())
                 ->setTouched(new \DateTime())
                 ->save();
@@ -178,20 +178,20 @@ class CategoryTreeInstall implements DemoDataInstallInterface
      */
     protected function touchNavigation()
     {
-        $navigationTouched = \ProjectA_Zed_YvesExport_Persistence_Propel_PacYvesExportTouchQuery::create()
-            ->filterByItemEvent(\ProjectA_Zed_YvesExport_Persistence_Propel_PacYvesExportTouchPeer::ITEM_EVENT_ACTIVE)
+        $navigationTouched = \ProjectA\Zed\YvesExport\Persistence\Propel\PacYvesExportTouchQuery::create()
+            ->filterByItemEvent(\ProjectA\Zed\YvesExport\Persistence\Propel\Map\PacYvesExportTouchTableMap::COL_ITEM_EVENT_ACTIVE)
             ->filterByItemType('navigation')
-            ->filterByExportType(\ProjectA_Zed_YvesExport_Persistence_Propel_PacYvesExportTouchPeer::EXPORT_TYPE_KEYVALUE)
+            ->filterByExportType(\ProjectA\Zed\YvesExport\Persistence\Propel\Map\PacYvesExportTouchTableMap::COL_EXPORT_TYPE_KEYVALUE)
             ->findOne();
 
         if (!$navigationTouched) {
-            $navigationTouched = new \ProjectA_Zed_YvesExport_Persistence_Propel_PacYvesExportTouch();
+            $navigationTouched = new \ProjectA\Zed\YvesExport\Persistence\Propel\PacYvesExportTouch();
         }
 
         $navigationTouched
-            ->setExportType(\ProjectA_Zed_YvesExport_Persistence_Propel_PacYvesExportTouchPeer::EXPORT_TYPE_KEYVALUE)
+            ->setExportType(\ProjectA\Zed\YvesExport\Persistence\Propel\Map\PacYvesExportTouchTableMap::COL_EXPORT_TYPE_KEYVALUE)
             ->setItemType('navigation')
-            ->setItemEvent(\ProjectA_Zed_YvesExport_Persistence_Propel_PacYvesExportTouchPeer::ITEM_EVENT_ACTIVE)
+            ->setItemEvent(\ProjectA\Zed\YvesExport\Persistence\Propel\Map\PacYvesExportTouchTableMap::COL_ITEM_EVENT_ACTIVE)
             ->setItemId(1)
             ->setTouched(new \DateTime())
             ->save();

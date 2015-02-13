@@ -34,7 +34,7 @@ class ProductAttributeMappingInstall implements DemoDataInstallInterface
             $weight = 0;
             foreach ($operations as $operation => $targetFields) {
                 foreach ($targetFields as $targetField) {
-                    $attribute = \ProjectA_Zed_Product_Persistence_Propel_PacProductAttributesMetadataQuery::create()
+                    $attribute = \ProjectA\Zed\Product\Persistence\Propel\PacProductAttributesMetadataQuery::create()
                         ->findOneByKey($sourceField);
                     if ($attribute) {
                         $weight++;
@@ -142,13 +142,13 @@ class ProductAttributeMappingInstall implements DemoDataInstallInterface
      */
     protected function addOperation($attributeId, $copyTarget, $operation, $weight)
     {
-        $attributeOperationExists = \ProjectA_Zed_ProductSearch_Persistence_Propel_PacProductSearchAttributesOperationQuery::create()
+        $attributeOperationExists = \ProjectA\Zed\ProductSearch\Persistence\Propel\PacProductSearchAttributesOperationQuery::create()
             ->filterBySourceAttributeId($attributeId)
             ->filterByTargetField($copyTarget)
             ->exists();
 
         if (!$attributeOperationExists) {
-            $attributeOperation = new \ProjectA_Zed_ProductSearch_Persistence_Propel_PacProductSearchAttributesOperation();
+            $attributeOperation = new \ProjectA\Zed\ProductSearch\Persistence\Propel\PacProductSearchAttributesOperation();
             $attributeOperation->setTargetField($copyTarget);
             $attributeOperation->setOperation($operation);
             $attributeOperation->setWeighting($weight);
@@ -159,25 +159,25 @@ class ProductAttributeMappingInstall implements DemoDataInstallInterface
 
     protected function makeProductsSearchable()
     {
-        $products = \ProjectA_Zed_Product_Persistence_Propel_PacProductQuery::create()->find();
+        $products = \ProjectA\Zed\Product\Persistence\Propel\PacProductQuery::create()->find();
 
-        /** @var \ProjectA_Zed_Product_Persistence_Propel_PacProduct $product */
+        /** @var \ProjectA\Zed\Product\Persistence\Propel\PacProduct $product */
         foreach ($products as $product) {
-            $touchedProduct = \ProjectA_Zed_YvesExport_Persistence_Propel_PacYvesExportTouchQuery::create()
+            $touchedProduct = \ProjectA\Zed\YvesExport\Persistence\Propel\PacYvesExportTouchQuery::create()
                 ->filterByItemId($product->getProductId())
-                ->filterByExportType(\ProjectA_Zed_YvesExport_Persistence_Propel_PacYvesExportTouchPeer::EXPORT_TYPE_SEARCH)
-                ->filterByItemEvent(\ProjectA_Zed_YvesExport_Persistence_Propel_PacYvesExportTouchPeer::ITEM_EVENT_ACTIVE)
+                ->filterByExportType(\ProjectA\Zed\YvesExport\Persistence\Propel\Map\PacYvesExportTouchTableMap::COL_EXPORT_TYPE_SEARCH)
+                ->filterByItemEvent(\ProjectA\Zed\YvesExport\Persistence\Propel\Map\PacYvesExportTouchTableMap::COL_ITEM_EVENT_ACTIVE)
                 ->filterByItemType('product')
                 ->findOne();
 
             if (!$touchedProduct) {
-                $touchedProduct = new \ProjectA_Zed_YvesExport_Persistence_Propel_PacYvesExportTouch();
+                $touchedProduct = new \ProjectA\Zed\YvesExport\Persistence\Propel\PacYvesExportTouch();
 
             }
 
             $touchedProduct->setItemType('product');
-            $touchedProduct->setItemEvent(\ProjectA_Zed_YvesExport_Persistence_Propel_PacYvesExportTouchPeer::ITEM_EVENT_ACTIVE);
-            $touchedProduct->setExportType(\ProjectA_Zed_YvesExport_Persistence_Propel_PacYvesExportTouchPeer::EXPORT_TYPE_SEARCH);
+            $touchedProduct->setItemEvent(\ProjectA\Zed\YvesExport\Persistence\Propel\Map\PacYvesExportTouchTableMap::COL_ITEM_EVENT_ACTIVE);
+            $touchedProduct->setExportType(\ProjectA\Zed\YvesExport\Persistence\Propel\Map\PacYvesExportTouchTableMap::COL_EXPORT_TYPE_SEARCH);
             $touchedProduct->setTouched(new \DateTime());
             $touchedProduct->setItemId($product->getProductId());
             $touchedProduct->save();

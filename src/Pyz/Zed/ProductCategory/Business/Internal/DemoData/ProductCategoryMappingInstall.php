@@ -37,7 +37,7 @@ class ProductCategoryMappingInstall implements DemoDataInstallInterface
             $categoryNodeId = $this->getCategoryNodeId($demoProductCategory['category'], $locale);
 
             if ($productId && $categoryNodeId && !($this->relationExists($productId, $categoryNodeId))) {
-                $productCategory = new \ProjectA_Zed_ProductCategory_Persistence_Propel_PacProductCategory();
+                $productCategory = new \ProjectA\Zed\ProductCategory\Persistence\Propel\PacProductCategory();
                 $productCategory->setFkProduct($productId);
                 $productCategory->setFkCategoryNode($categoryNodeId);
                 $productCategory->save();
@@ -66,22 +66,22 @@ class ProductCategoryMappingInstall implements DemoDataInstallInterface
      */
     protected function touchProductCategories(array $categoryNodeIds)
     {
-        /** @var \ProjectA_Zed_ProductCategory_Persistence_Propel_PacProductCategory $productCategory */
+        /** @var \ProjectA\Zed\ProductCategory\Persistence\Propel\PacProductCategory $productCategory */
         foreach ($categoryNodeIds as $categoryNodeId) {
-            $touchedProduct = \ProjectA_Zed_YvesExport_Persistence_Propel_PacYvesExportTouchQuery::create()
+            $touchedProduct = \ProjectA\Zed\YvesExport\Persistence\Propel\PacYvesExportTouchQuery::create()
                 ->filterByItemId($categoryNodeId)
-                ->filterByExportType(\ProjectA_Zed_YvesExport_Persistence_Propel_PacYvesExportTouchPeer::EXPORT_TYPE_SEARCH)
-                ->filterByItemEvent(\ProjectA_Zed_YvesExport_Persistence_Propel_PacYvesExportTouchPeer::ITEM_EVENT_ACTIVE)
+                ->filterByExportType(\ProjectA\Zed\YvesExport\Persistence\Propel\Map\PacYvesExportTouchTableMap::COL_EXPORT_TYPE_SEARCH)
+                ->filterByItemEvent(\ProjectA\Zed\YvesExport\Persistence\Propel\Map\PacYvesExportTouchTableMap::COL_ITEM_EVENT_ACTIVE)
                 ->filterByItemType('product-category')
                 ->findOne();
 
             if (!$touchedProduct) {
-                $touchedProduct = new \ProjectA_Zed_YvesExport_Persistence_Propel_PacYvesExportTouch();
+                $touchedProduct = new \ProjectA\Zed\YvesExport\Persistence\Propel\PacYvesExportTouch();
             }
 
             $touchedProduct->setItemType('product-category');
-            $touchedProduct->setItemEvent(\ProjectA_Zed_YvesExport_Persistence_Propel_PacYvesExportTouchPeer::ITEM_EVENT_ACTIVE);
-            $touchedProduct->setExportType(\ProjectA_Zed_YvesExport_Persistence_Propel_PacYvesExportTouchPeer::EXPORT_TYPE_SEARCH);
+            $touchedProduct->setItemEvent(\ProjectA\Zed\YvesExport\Persistence\Propel\Map\PacYvesExportTouchTableMap::COL_ITEM_EVENT_ACTIVE);
+            $touchedProduct->setExportType(\ProjectA\Zed\YvesExport\Persistence\Propel\Map\PacYvesExportTouchTableMap::COL_EXPORT_TYPE_SEARCH);
             $touchedProduct->setTouched(new \DateTime());
             $touchedProduct->setItemId($categoryNodeId);
             $touchedProduct->save();
@@ -94,7 +94,7 @@ class ProductCategoryMappingInstall implements DemoDataInstallInterface
      */
     protected function getProductId($productSku)
     {
-        $productEntity = \ProjectA_Zed_Product_Persistence_Propel_PacProductQuery::create()
+        $productEntity = \ProjectA\Zed\Product\Persistence\Propel\PacProductQuery::create()
             ->findOneBySku($productSku);
         if ($productEntity) {
             return $productEntity->getProductId();
@@ -110,7 +110,7 @@ class ProductCategoryMappingInstall implements DemoDataInstallInterface
      */
     protected function getCategoryNodeId($categoryName, $locale)
     {
-        $categoryNodeEntity = \ProjectA_Zed_CategoryTree_Persistence_Propel_PacCategoryNodeQuery::create()
+        $categoryNodeEntity = \ProjectA\Zed\CategoryTree\Persistence\Propel\PacCategoryNodeQuery::create()
             ->useCategoryQuery()
                 ->useAttributeQuery()
                     ->filterByLocale($locale)
@@ -118,7 +118,7 @@ class ProductCategoryMappingInstall implements DemoDataInstallInterface
                 ->endUse()
             ->endUse()
             ->findOne();
-        if ($categoryNodeEntity instanceof \ProjectA_Zed_CategoryTree_Persistence_Propel_PacCategoryNode) {
+        if ($categoryNodeEntity instanceof \ProjectA\Zed\CategoryTree\Persistence\Propel\PacCategoryNode) {
             return $categoryNodeEntity->getIdCategoryNode();
         }
 
@@ -133,7 +133,7 @@ class ProductCategoryMappingInstall implements DemoDataInstallInterface
      */
     private function relationExists($productId, $categoryNodeId)
     {
-        return \ProjectA_Zed_ProductCategory_Persistence_Propel_PacProductCategoryQuery::create()
+        return \ProjectA\Zed\ProductCategory\Persistence\Propel\PacProductCategoryQuery::create()
             ->filterByFkProduct($productId)
             ->filterByFkCategoryNode($categoryNodeId)
             ->exists();
