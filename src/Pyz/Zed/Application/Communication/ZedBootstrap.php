@@ -84,7 +84,7 @@ class ZedBootstrap extends Bootstrap
     /**
      * @return \Silex\ServiceProviderInterface[]
      */
-    protected function getServiceProviders()
+    protected function getServiceProviders(Application $app)
     {
         $providers = [
             new RequestServiceProvider(),
