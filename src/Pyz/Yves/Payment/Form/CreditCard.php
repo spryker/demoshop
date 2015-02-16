@@ -1,10 +1,14 @@
 <?php
-namespace Pyz\Yves\Payment\Communication\Form;
 
-use ProjectA\Yves\Payment\Communication\Form\PaymentType as CorePaymentType;
+namespace Pyz\Yves\Payment\Form;
+
 use Symfony\Component\Form\FormBuilderInterface;
 
-class CreditCard extends CorePaymentType
+/**
+ * Class CreditCard
+ * @package Pyz\Yves\Payment\Form
+ */
+class CreditCard extends PaymentType
 {
 
     /**
