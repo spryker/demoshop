@@ -16,7 +16,7 @@ trait CartControllerTrait
      */
     protected function getCart(Request $request)
     {
-        return $this->getLocator()->cart()->pluginZedCart->createZedCart(
+        return $this->getLocator()->cart()->pluginZedCart()->createZedCart(
             $this->getTransferSession(),
             $request,
             $this->getCookieBag(),

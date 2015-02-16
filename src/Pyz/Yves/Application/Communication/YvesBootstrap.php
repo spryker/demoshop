@@ -180,13 +180,13 @@ class YvesBootstrap extends Bootstrap
 
         return [
             $locator->setup()->pluginMonitoringRouter()->createMonitoringRouter($app, false),
-            Factory::getInstance()->createCmsModelRouterRedirectRouter($app),
+//            Factory::getInstance()->createCmsModelRouterRedirectRouter($app),
             $locator->frontendExporter()->pluginStorageRouter()->createStorageRouter($app, false)
                 ->addResourceCreator($productResourceCreatorPlugin->createProductResourceCreator())
                 ->addResourceCreator($categoryResourceCreatorPlugin->createCategoryResourceCreator())
             ,
             Factory::getInstance()->createCatalogModelRouterSearchRouter($app),
-            Factory::getInstance()->createCmsModelRouterCmsRouter($app),
+//            Factory::getInstance()->createCmsModelRouterCmsRouter($app),
             $locator->cart()->pluginCartRouter()->createCartRouter($app, false),
 
             /*
@@ -216,7 +216,7 @@ class YvesBootstrap extends Bootstrap
 
         return [
             'categories' => $locator->categoryExporter()->sdk()->getNavigationCategories($app['locale']),
-            'cartItemCount' =>$locator->cart()
+            'cartItemCount' => $locator->cart()
                 ->pluginCartSessionCount()
                 ->createCartSessionCount($app->getSession())
                 ->getCount(),
