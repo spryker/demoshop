@@ -31,10 +31,13 @@ class ProductCategoryMappingInstall implements DemoDataInstallInterface
      */
     protected function installProductCategories($locale)
     {
+        $localeEntity = \SprykerCore_Zed_Locale_Persistence_Propel_PacLocaleQuery::create()
+            ->findOneByLocaleName($locale);
+
         $categoryNodeIds = [];
         foreach ($this->getDemoProductCategories() as $demoProductCategory) {
             $productId = $this->getProductId($demoProductCategory['sku']);
-            $categoryNodeId = $this->getCategoryNodeId($demoProductCategory['category'], $locale);
+            $categoryNodeId = $this->getCategoryNodeId($demoProductCategory['category'], $localeEntity);
 
             if ($productId && $categoryNodeId && !($this->relationExists($productId, $categoryNodeId))) {
                 $productCategory = new \ProjectA_Zed_ProductCategory_Persistence_Propel_PacProductCategory();
@@ -68,20 +71,18 @@ class ProductCategoryMappingInstall implements DemoDataInstallInterface
     {
         /** @var \ProjectA_Zed_ProductCategory_Persistence_Propel_PacProductCategory $productCategory */
         foreach ($categoryNodeIds as $categoryNodeId) {
-            $touchedProduct = \ProjectA_Zed_YvesExport_Persistence_Propel_PacYvesExportTouchQuery::create()
+            $touchedProduct = \SprykerCore_Zed_Touch_Persistence_Propel_PacTouchQuery::create()
                 ->filterByItemId($categoryNodeId)
-                ->filterByExportType(\ProjectA_Zed_YvesExport_Persistence_Propel_PacYvesExportTouchPeer::EXPORT_TYPE_SEARCH)
-                ->filterByItemEvent(\ProjectA_Zed_YvesExport_Persistence_Propel_PacYvesExportTouchPeer::ITEM_EVENT_ACTIVE)
+                ->filterByItemEvent(\SprykerCore_Zed_Touch_Persistence_Propel_PacTouchPeer::ITEM_EVENT_ACTIVE)
                 ->filterByItemType('product-category')
                 ->findOne();
 
             if (!$touchedProduct) {
-                $touchedProduct = new \ProjectA_Zed_YvesExport_Persistence_Propel_PacYvesExportTouch();
+                $touchedProduct = new \SprykerCore_Zed_Touch_Persistence_Propel_PacTouch();
             }
 
             $touchedProduct->setItemType('product-category');
-            $touchedProduct->setItemEvent(\ProjectA_Zed_YvesExport_Persistence_Propel_PacYvesExportTouchPeer::ITEM_EVENT_ACTIVE);
-            $touchedProduct->setExportType(\ProjectA_Zed_YvesExport_Persistence_Propel_PacYvesExportTouchPeer::EXPORT_TYPE_SEARCH);
+            $touchedProduct->setItemEvent(\SprykerCore_Zed_Touch_Persistence_Propel_PacTouchPeer::ITEM_EVENT_ACTIVE);
             $touchedProduct->setTouched(new \DateTime());
             $touchedProduct->setItemId($categoryNodeId);
             $touchedProduct->save();

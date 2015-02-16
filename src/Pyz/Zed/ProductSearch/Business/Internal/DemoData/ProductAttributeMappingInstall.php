@@ -163,21 +163,19 @@ class ProductAttributeMappingInstall implements DemoDataInstallInterface
 
         /** @var \ProjectA_Zed_Product_Persistence_Propel_PacProduct $product */
         foreach ($products as $product) {
-            $touchedProduct = \ProjectA_Zed_YvesExport_Persistence_Propel_PacYvesExportTouchQuery::create()
+            $touchedProduct = \SprykerCore_Zed_Touch_Persistence_Propel_PacTouchQuery::create()
                 ->filterByItemId($product->getProductId())
-                ->filterByExportType(\ProjectA_Zed_YvesExport_Persistence_Propel_PacYvesExportTouchPeer::EXPORT_TYPE_SEARCH)
-                ->filterByItemEvent(\ProjectA_Zed_YvesExport_Persistence_Propel_PacYvesExportTouchPeer::ITEM_EVENT_ACTIVE)
+                ->filterByItemEvent(\SprykerCore_Zed_Touch_Persistence_Propel_PacTouchPeer::ITEM_EVENT_ACTIVE)
                 ->filterByItemType('product')
                 ->findOne();
 
             if (!$touchedProduct) {
-                $touchedProduct = new \ProjectA_Zed_YvesExport_Persistence_Propel_PacYvesExportTouch();
+                $touchedProduct = new \SprykerCore_Zed_Touch_Persistence_Propel_PacTouch();
 
             }
 
             $touchedProduct->setItemType('product');
-            $touchedProduct->setItemEvent(\ProjectA_Zed_YvesExport_Persistence_Propel_PacYvesExportTouchPeer::ITEM_EVENT_ACTIVE);
-            $touchedProduct->setExportType(\ProjectA_Zed_YvesExport_Persistence_Propel_PacYvesExportTouchPeer::EXPORT_TYPE_SEARCH);
+            $touchedProduct->setItemEvent(\SprykerCore_Zed_Touch_Persistence_Propel_PacTouchPeer::ITEM_EVENT_ACTIVE);
             $touchedProduct->setTouched(new \DateTime());
             $touchedProduct->setItemId($product->getProductId());
             $touchedProduct->save();

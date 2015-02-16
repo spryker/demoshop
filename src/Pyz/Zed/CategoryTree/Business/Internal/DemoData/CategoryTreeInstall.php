@@ -42,7 +42,8 @@ class CategoryTreeInstall implements DemoDataInstallInterface
     {
         // TODO must be injected
         $locator = new Locator();
-        $this->locale = \ProjectA_Shared_Library_Store::getInstance()->getCurrentLocale();
+        $this->locale = \SprykerCore_Zed_Locale_Persistence_Propel_PacLocaleQuery::create()
+            ->findOneByLocaleName(\ProjectA_Shared_Library_Store::getInstance()->getCurrentLocale());
         $this->queryContainer = $locator->categoryTree()->queryContainer();
         $this->categoryFacade = $locator->categoryTree()->facade();
     }
@@ -151,21 +152,19 @@ class CategoryTreeInstall implements DemoDataInstallInterface
 
         /** @var \ProjectA_Zed_CategoryTree_Persistence_Propel_PacCategoryNode $node */
         foreach ($nodes as $node) {
-            $nodeTouched = \ProjectA_Zed_YvesExport_Persistence_Propel_PacYvesExportTouchQuery::create()
+            $nodeTouched = \SprykerCore_Zed_Touch_Persistence_Propel_PacTouchQuery::create()
                 ->filterByItemId($node->getIdCategoryNode())
-                ->filterByItemEvent(\ProjectA_Zed_YvesExport_Persistence_Propel_PacYvesExportTouchPeer::ITEM_EVENT_ACTIVE)
+                ->filterByItemEvent(\SprykerCore_Zed_Touch_Persistence_Propel_PacTouchPeer::ITEM_EVENT_ACTIVE)
                 ->filterByItemType('category-node')
-                ->filterByExportType(\ProjectA_Zed_YvesExport_Persistence_Propel_PacYvesExportTouchPeer::EXPORT_TYPE_KEYVALUE)
                 ->findOne();
 
             if (!$nodeTouched) {
-                $nodeTouched = new \ProjectA_Zed_YvesExport_Persistence_Propel_PacYvesExportTouch();
+                $nodeTouched = new \SprykerCore_Zed_Touch_Persistence_Propel_PacTouch();
             }
 
             $nodeTouched
-                ->setExportType(\ProjectA_Zed_YvesExport_Persistence_Propel_PacYvesExportTouchPeer::EXPORT_TYPE_KEYVALUE)
                 ->setItemType('category-node')
-                ->setItemEvent(\ProjectA_Zed_YvesExport_Persistence_Propel_PacYvesExportTouchPeer::ITEM_EVENT_ACTIVE)
+                ->setItemEvent(\SprykerCore_Zed_Touch_Persistence_Propel_PacTouchPeer::ITEM_EVENT_ACTIVE)
                 ->setItemId($node->getIdCategoryNode())
                 ->setTouched(new \DateTime())
                 ->save();
@@ -178,20 +177,18 @@ class CategoryTreeInstall implements DemoDataInstallInterface
      */
     protected function touchNavigation()
     {
-        $navigationTouched = \ProjectA_Zed_YvesExport_Persistence_Propel_PacYvesExportTouchQuery::create()
-            ->filterByItemEvent(\ProjectA_Zed_YvesExport_Persistence_Propel_PacYvesExportTouchPeer::ITEM_EVENT_ACTIVE)
+        $navigationTouched = \SprykerCore_Zed_Touch_Persistence_Propel_PacTouchQuery::create()
+            ->filterByItemEvent(\SprykerCore_Zed_Touch_Persistence_Propel_PacTouchPeer::ITEM_EVENT_ACTIVE)
             ->filterByItemType('navigation')
-            ->filterByExportType(\ProjectA_Zed_YvesExport_Persistence_Propel_PacYvesExportTouchPeer::EXPORT_TYPE_KEYVALUE)
             ->findOne();
 
         if (!$navigationTouched) {
-            $navigationTouched = new \ProjectA_Zed_YvesExport_Persistence_Propel_PacYvesExportTouch();
+            $navigationTouched = new \SprykerCore_Zed_Touch_Persistence_Propel_PacTouch();
         }
 
         $navigationTouched
-            ->setExportType(\ProjectA_Zed_YvesExport_Persistence_Propel_PacYvesExportTouchPeer::EXPORT_TYPE_KEYVALUE)
             ->setItemType('navigation')
-            ->setItemEvent(\ProjectA_Zed_YvesExport_Persistence_Propel_PacYvesExportTouchPeer::ITEM_EVENT_ACTIVE)
+            ->setItemEvent(\SprykerCore_Zed_Touch_Persistence_Propel_PacTouchPeer::ITEM_EVENT_ACTIVE)
             ->setItemId(1)
             ->setTouched(new \DateTime())
             ->save();
