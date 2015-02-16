@@ -107,7 +107,7 @@ class ZedBootstrap extends Bootstrap
             new SecurityServiceProvider(),
             new UrlGeneratorServiceProvider(),
 //            new ProductImageServiceProvider(), You can find this in catalog-package feature/387-replace-zf-with-silex
-            new CmsServiceProvider(),
+//            new CmsServiceProvider(),
             new NewRelicServiceProvider(),
         ];
 
