@@ -164,7 +164,7 @@ class YvesBootstrap extends Bootstrap
             new CheckoutControllerProvider($ssl),
             new CustomerControllerProvider($ssl),
             new NewsletterControllerProvider(),
-            new CmsControllerProvider(),
+//            new CmsControllerProvider(),
         ];
     }
 
