@@ -13,6 +13,7 @@ use ProjectA\Shared\Application\Business\Routing\SilexRouter;
 
 use ProjectA\Zed\Application\Business\Model\Router\MvcRouter;
 use ProjectA\Zed\Application\Business\Model\Twig\ZedExtension;
+use ProjectA\Zed\Application\Communication\Plugin\Pimple;
 use ProjectA\Zed\Application\Communication\Plugin\ServiceProvider\EnvironmentInformationServiceProvider;
 use ProjectA\Zed\Application\Communication\Plugin\ServiceProvider\NewRelicServiceProvider;
 use ProjectA\Zed\Application\Communication\Plugin\ServiceProvider\PropelServiceProvider;
@@ -47,7 +48,11 @@ class ZedBootstrap extends Bootstrap
      */
     protected function getBaseApplication()
     {
-        return new Application();
+        $application = new Application();
+
+        Pimple::setApplication($application);
+
+        return $application;
     }
 
     /**
