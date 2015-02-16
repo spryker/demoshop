@@ -18,6 +18,7 @@ class StockInstall implements DemoDataInstallInterface
     const SKU = 'sku';
     const QUANTITY = 'quantity';
     const NEVER_OUT_OF_STOCK = 'is_never_out_of_stock';
+    const TYPE = 'type';
 
     /** @var StockQueryContainer */
     protected $queryContainer;
@@ -62,7 +63,7 @@ class StockInstall implements DemoDataInstallInterface
     {
         foreach ($demoStock as $row) {
             $this->addEntry($row);
-         }
+        }
     }
 
     /**
@@ -70,8 +71,21 @@ class StockInstall implements DemoDataInstallInterface
      */
     protected function addEntry(array $row)
     {
-        $stock = $this->stockFacade->setPhysicalStock($row[self::SKU], $row[self::QUANTITY], $row[self::NEVER_OUT_OF_STOCK]);
-        $this-> touchStock($stock->getIdStockProduct());
+        $stockType = \ProjectA_Zed_Stock_Persistence_Propel_PacStockQuery::create()
+            ->filterByName($row[self::TYPE])
+            ->findOneOrCreate();
+
+        if ($stockType->isNew()) {
+            $stockType->save();
+        }
+
+        $stock = $this->stockFacade->setStockProduct(
+            $row[self::SKU],
+            $row[self::QUANTITY],
+            $row[self::TYPE],
+            $row[self::NEVER_OUT_OF_STOCK]
+        );
+        $this->touchStock($stock->getIdStockProduct());
     }
 
     /**
@@ -79,21 +93,19 @@ class StockInstall implements DemoDataInstallInterface
      */
     protected function touchStock($stockId)
     {
-        $stockTouched = \ProjectA_Zed_YvesExport_Persistence_Propel_PacYvesExportTouchQuery::create()
+        $stockTouched = \SprykerCore_Zed_Touch_Persistence_Propel_PacTouchQuery::create()
             ->filterByItemId($stockId)
-            ->filterByItemEvent(\ProjectA_Zed_YvesExport_Persistence_Propel_PacYvesExportTouchPeer::ITEM_EVENT_ACTIVE)
+            ->filterByItemEvent(\SprykerCore_Zed_Touch_Persistence_Propel_PacTouchPeer::ITEM_EVENT_ACTIVE)
             ->filterByItemType('stock-product')
-            ->filterByExportType(\ProjectA_Zed_YvesExport_Persistence_Propel_PacYvesExportTouchPeer::EXPORT_TYPE_KEYVALUE)
             ->findOne();
 
         if (!$stockTouched) {
-            $stockTouched = new \ProjectA_Zed_YvesExport_Persistence_Propel_PacYvesExportTouch();
+            $stockTouched = new \SprykerCore_Zed_Touch_Persistence_Propel_PacTouch();
         }
 
         $stockTouched
-            ->setExportType(\ProjectA_Zed_YvesExport_Persistence_Propel_PacYvesExportTouchPeer::EXPORT_TYPE_KEYVALUE)
             ->setItemType('stock-product')
-            ->setItemEvent(\ProjectA_Zed_YvesExport_Persistence_Propel_PacYvesExportTouchPeer::ITEM_EVENT_ACTIVE)
+            ->setItemEvent(\SprykerCore_Zed_Touch_Persistence_Propel_PacTouchPeer::ITEM_EVENT_ACTIVE)
             ->setItemId($stockId)
             ->setTouched(new \DateTime())
             ->save();

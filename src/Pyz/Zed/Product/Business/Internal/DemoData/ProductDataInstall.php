@@ -87,6 +87,9 @@ class ProductDataInstall implements DemoDataInstallInterface
      */
     protected function createProduct()
     {
+        $locale = \SprykerCore_Zed_Locale_Persistence_Propel_PacLocaleQuery::create()
+            ->findOneByLocaleName('de_DE');
+
         foreach ($this->getProductsFromCsv() as $p) {
             $sku = $p['sku'];
             $abstractProductQuery = new \ProjectA_Zed_Product_Persistence_Propel_PacAbstractProductQuery();
@@ -97,7 +100,7 @@ class ProductDataInstall implements DemoDataInstallInterface
             $abstractProduct->setSku($sku);
 
             $abstractProductAttributes = new \ProjectA_Zed_Product_Persistence_Propel_PacLocalizedAbstractProductAttributes();
-            $abstractProductAttributes->setLocale('de_DE');
+            $abstractProductAttributes->setLocale($locale);
             $abstractProductAttributes->setName($p['name']);
             $abstractProductAttributes->setAttributes($p['attributes']);
             $abstractProductAttributes->setPacAbstractProduct($abstractProduct);
@@ -109,7 +112,7 @@ class ProductDataInstall implements DemoDataInstallInterface
                 $product->setPacAbstractProduct($abstractProduct);
 
                 $productAttributes = new \ProjectA_Zed_Product_Persistence_Propel_PacLocalizedProductAttributes();
-                $productAttributes->setLocale('de_DE');
+                $productAttributes->setLocale($locale);
                 $productAttributes->setName($pc['name']);
                 $productAttributes->setUrl($pc['url']);
                 $productAttributes->setAttributes($pc['attributes']);
@@ -117,10 +120,9 @@ class ProductDataInstall implements DemoDataInstallInterface
 
                 $product->save();
 
-                $touch = new \ProjectA_Zed_YvesExport_Persistence_Propel_PacYvesExportTouch();
+                $touch = new \SprykerCore_Zed_Touch_Persistence_Propel_PacTouch();
                 $touch->setItemType('product');
-                $touch->setItemEvent(\ProjectA_Zed_YvesExport_Persistence_Propel_PacYvesExportTouchPeer::ITEM_EVENT_ACTIVE);
-                $touch->setExportType(\ProjectA_Zed_YvesExport_Persistence_Propel_PacYvesExportTouchPeer::EXPORT_TYPE_KEYVALUE);
+                $touch->setItemEvent(\SprykerCore_Zed_Touch_Persistence_Propel_PacTouchPeer::ITEM_EVENT_ACTIVE);
                 $touch->setTouched(new \DateTime());
                 $touch->setItemId($product->getProductId());
                 $touch->save();
