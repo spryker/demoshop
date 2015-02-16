@@ -57,6 +57,6 @@ return [
     ],
 
     \ProjectA\Shared\Library\Bundle\BundleConfig::NAMESPACE_SPRYKERFEATURE => [
-        'Cms' => $schema
+        'Cms' => $allElements
     ]
 ];
