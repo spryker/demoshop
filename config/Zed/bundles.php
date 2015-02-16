@@ -20,7 +20,6 @@ return [
     ProjectA\Shared\Library\Bundle\BundleConfig::NAMESPACE_CORE => [
         'Acl' => $schemaAndNavigation,
         'Cart' => $schema,
-        'Cms' => $allElements,
         'Catalog' => $schemaAndNavigation,
         'Category' => $schema,
         'CategoryTree' => $schemaAndNavigation,
