@@ -32,7 +32,7 @@ class CatalogController extends AbstractController
      */
     public function fulltextSearchAction(Request $request)
     {
-        $search = $this->locator->catalog()->sdk()->createFulltextSearch();
+        $search = $this->locator->catalog()->sdk()->createFulltextSearch($request);
 
         return array_merge($search->getResult(), ['searchString' => $request->get('q')]);
     }

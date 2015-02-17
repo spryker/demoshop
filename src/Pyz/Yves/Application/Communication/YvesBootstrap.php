@@ -2,7 +2,6 @@
 
 namespace Pyz\Yves\Application\Communication;
 
-use Generated\Yves\Factory;
 use ProjectA\Shared\Application\Business\Application;
 use ProjectA\Shared\Application\Business\Bootstrap;
 
@@ -22,7 +21,7 @@ use Pyz\Yves\Cart\Communication\Plugin\CartControllerProvider;
 use SprykerCore\Yves\Kernel\Locator;
 use ProjectA\Yves\Library\Asset\AssetManager;
 use SprykerCore\Yves\Application\Business\Twig\YvesExtension;
-use ProjectA\Yves\Newsletter\Communication\Plugin\NewsletterControllerProvider;
+use Pyz\Yves\Newsletter\Communication\Plugin\NewsletterControllerProvider;
 use Pyz\Yves\Application\Communication\Plugin\ApplicationControllerProvider;
 use Pyz\Yves\Library\Silex\Provider\TrackingServiceProvider;
 
@@ -180,15 +179,12 @@ class YvesBootstrap extends Bootstrap
 
         return [
             $locator->setup()->pluginMonitoringRouter()->createMonitoringRouter($app, false),
-//            Factory::getInstance()->createCmsModelRouterRedirectRouter($app),
             $locator->frontendExporter()->pluginStorageRouter()->createStorageRouter($app, false)
                 ->addResourceCreator($productResourceCreatorPlugin->createProductResourceCreator())
                 ->addResourceCreator($categoryResourceCreatorPlugin->createCategoryResourceCreator())
             ,
-            Factory::getInstance()->createCatalogModelRouterSearchRouter($app),
-//            Factory::getInstance()->createCmsModelRouterCmsRouter($app),
+            $locator->catalog()->pluginSearchRouter()->createSearchRouter($app, false),
             $locator->cart()->pluginCartRouter()->createCartRouter($app, false),
-
             /*
              * SilexRouter should come last, as it is not the fastest one if it can
              * not find a matching route (lots of magic)
