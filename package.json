@@ -23,6 +23,11 @@
     "grunt-contrib-watch": "~0.5",
     "matchdep": "~0.3",
     "grunt-concurrent": "~0.4",
-    "grunt-bushcaster": "0.0.7"
+    "grunt-bushcaster": "0.0.7",
+
+    "gulp": "~3.8",
+    "gulp-rename":"~1.2",
+
+    "del": "~1.1"
   }
 }
