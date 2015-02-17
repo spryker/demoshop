@@ -33,7 +33,7 @@ class FrontendExporterSettings extends CoreSettings
         return [
             //product export processors
             $this->locator->productFrontendExporterConnector()->pluginProductProcessorPlugin(),
-            $this->locator->frontendProductAvailabilityConnector()->pluginProductAvailabilityProcessorPlugin(),
+            $this->locator->productFrontendExporterAvailabilityConnector()->pluginProductAvailabilityProcessorPlugin(),
             $this->locator->productFrontendExporterConnector()->pluginProductUrlProcessorPlugin(),
 
             //translations
@@ -59,7 +59,8 @@ class FrontendExporterSettings extends CoreSettings
         return [
             //product query expander
             $this->locator->productFrontendExporterConnector()->pluginProductQueryExpanderPlugin(),
-            $this->locator->frontendProductAvailabilityConnector()->pluginProductAvailabilityQueryExpanderPlugin(),
+            $this->locator->productFrontendExporterAvailabilityConnector()
+                ->pluginProductAvailabilityQueryExpanderPlugin(),
             $this->locator->glossaryExporter()->pluginTranslationQueryExpanderPlugin(),
         ];
     }
