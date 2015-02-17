@@ -33,6 +33,7 @@ use \ProjectA\Deprecated\ProductImage\Business\Dependency\ProductImageFacadeTrai
 use \ProjectA\Deprecated\Invoice\Business\Dependency\InvoiceFacadeTrait;
 use \ProjectA\Deprecated\Document\Business\Dependency\DocumentFacadeTrait;
 use \ProjectA\Deprecated\Payone\Business\Dependency\PayoneFacadeTrait;
+use ProjectA\Zed\Glossary\Business\GlossaryFacade;
 use ProjectA\Zed\Kernel\Locator;
 use ProjectA\Zed\ProductSearch\Business\ProductSearchFacade;
 use ProjectA\Zed\Stock\Business\StockFacade;
@@ -47,27 +48,24 @@ class Installer extends \ProjectA_Zed_Installer_Business_Model_Installer
     implements
     AclFacadeInterface,
     MiscFacadeInterface,
-    StockFacadeInterface,
     CmsFacadeInterface,
     SalesFacadeInterface,
     ProductImageFacadeInterface,
     InvoiceFacadeInterface,
     PayoneFacadeInterface,
-    GlossaryFacadeInterface,
     DocumentFacadeInterface,
     PriceFacadeInterface
 {
     use AclFacadeTrait;
     use MiscFacadeTrait;
     use PriceFacadeTrait;
-    use StockFacadeTrait;
     use CmsFacadeTrait;
     use SalesFacadeTrait;
     use InvoiceFacadeTrait;
     use DocumentFacadeTrait;
     use ProductImageFacadeTrait;
     use PayoneFacadeTrait;
-    use GlossaryFacadeTrait;
+    use ProductFacadeTrait;
 
     /**
      * @var \Generated\Zed\Ide\AutoCompletion
@@ -92,7 +90,8 @@ class Installer extends \ProjectA_Zed_Installer_Business_Model_Installer
         $yvesExportFacade = $this->locator->yvesExport()->facade();
         /** @var ProductSearchFacade $productSearchFacade */
         $productSearchFacade = $this->locator->productSearch()->facade();
-
+        /** @var GlossaryFacade $glossaryFacade */
+        $glossaryFacade = $this->locator->glossary()->facade();
         return [
             $this->facadeAcl->createInternalInstall(),
 //            $this->facadeCustomer->createInternalInstall(),
@@ -102,8 +101,6 @@ class Installer extends \ProjectA_Zed_Installer_Business_Model_Installer
 //            $this->facadeCategory->createInternalInstall(),
             $this->facadeMisc->createInternalInstall(),
             $this->facadePrice->createInternalInstall(),
-            $this->facadeStock->createInternalInstall(),
-            $this->facadeGlossary->createInternalInstall(),
             $this->facadeSales->createInternalInstall(),
             $this->facadeProductImage->createInternalInstall(),
             $this->facadeDocument->createInternalInstall(),
@@ -111,7 +108,8 @@ class Installer extends \ProjectA_Zed_Installer_Business_Model_Installer
             $this->facadePayone->createInternalInstall(),
             $this->locator->product()->facade()->createInternalInstall(),
             $yvesExportFacade->createInternalInstall(),
-            $productSearchFacade->createInternalInstall()
+            $productSearchFacade->createInternalInstall(),
+            $glossaryFacade->getGlossaryInstaller(),
         ];
     }
 }

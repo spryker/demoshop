@@ -27,7 +27,7 @@ use ProjectA\Yves\Application\Communication\Plugin\ServiceProvider\MonologServic
 use ProjectA\Yves\Application\Communication\Plugin\ServiceProvider\SessionServiceProvider;
 use ProjectA\Yves\Application\Communication\Plugin\ServiceProvider\StorageServiceProvider;
 use ProjectA\Yves\Application\Communication\Plugin\ServiceProvider\ExceptionServiceProvider;
-use ProjectA\Yves\Application\Communication\Plugin\ServiceProvider\TranslationServiceProvider;
+use SprykerFeature\Sdk\Glossary\Provider\TranslationServiceProvider;
 use ProjectA\Yves\Application\Communication\Plugin\ServiceProvider\TwigServiceProvider;
 use ProjectA\Yves\Application\Communication\Plugin\ServiceProvider\YvesLoggingServiceProvider;
 
@@ -119,7 +119,7 @@ class YvesBootstrap extends Bootstrap
             new RememberMeServiceProvider(),
             new RoutingServiceProvider(),
             new StorageServiceProvider(),
-            new TranslationServiceProvider('ProjectA\Shared\Glossary\Code\Storage\StorageKeyGenerator'),
+            new TranslationServiceProvider(),
             new ValidatorServiceProvider(),
             new FormServiceProvider(),
             new TwigServiceProvider(),
@@ -163,7 +163,7 @@ class YvesBootstrap extends Bootstrap
         return [
             Factory::getInstance()->createSetupModelRouterMonitoringRouter($app),
             Factory::getInstance()->createCmsModelRouterRedirectRouter($app),
-            Factory::getInstance()->createYvesExportDependencyContainer()->createKvStorageRouter($app)
+            Factory::getInstance()->createFrontendExporterDependencyContainer()->createKvStorageRouter($app)
                 ->addResourceCreator($productResourceCreator)
                 ->addResourceCreator($categoryResourceCreator),
             Factory::getInstance()->createCatalogModelRouterSearchRouter($app),
@@ -184,7 +184,10 @@ class YvesBootstrap extends Bootstrap
     protected function globalTemplateVariables(Application $app)
     {
         return [
-            'categories' => Factory::getInstance()->createCategoryExporterDependencyContainer()->createNavigation()->getCategories($app['locale']),
+            'categories' => Factory::getInstance()
+                ->createCategoryExporterDependencyContainer()
+                ->createNavigation()
+                ->getCategories($app['locale']),
             'cartItemCount' => Factory::getInstance()->createCartModelSessionCartCount($app->getSession())->getCount(),
             'tracking' => Tracking::getInstance(),
             'environment' => \ProjectA_Shared_Library_Environment::getEnvironment(),

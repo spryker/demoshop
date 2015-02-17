@@ -11,7 +11,7 @@ use Pyz\Shared\Catalog\Code\ProductAttributeConstantInterface;
 use Pyz\Shared\Catalog\Code\ProductAttributeSetConstantInterface;
 
 abstract class ProductsExporter extends CoreProductsExporter implements
-    \ProjectA_Zed_Yves_Business_Interface_Exporter_KeyValue,
+//    \ProjectA_Zed_Yves_Business_Interface_Exporter_KeyValue,
     ProductAttributeConstantInterface,
     ProductAttributeSetConstantInterface,
     \Pyz_Shared_Library_StorageKeyConstant,
