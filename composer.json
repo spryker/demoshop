@@ -1,7 +1,7 @@
 {
   "require": {
-    "spryker/yves-package": "dev-master",
-    "spryker/zed-package": "dev-feature/429-Zed-UI-Refresh-Zed_Package",
+    "spryker/yves-package": "dev-FrontendExporter-Pipeline-Refactoring as dev-master",
+    "spryker/zed-package": "dev-FrontendExporter-Pipeline-Refactoring as dev-master",
 
     "psr/log": "~1.0",
     "phing/phing": "~2.6.0",

@@ -4,7 +4,7 @@
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "6d6e52ba902924c428005ab8d055dc7f",
+    "hash": "54aba7968c7d65590985bbd18266f7e0",
     "packages": [
         {
             "name": "digital-canvas/zend-framework",
@@ -926,11 +926,11 @@
         },
         {
             "name": "spryker/yves-package",
-            "version": "dev-master",
+            "version": "dev-FrontendExporter-Pipeline-Refactoring",
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/yves.git",
-                "reference": "92359d4a5228e4e7c9f1f5dff300d6b0cc2e007c"
+                "reference": "130220f20a6658f0a36fb8b36de41aeb909d6b23"
             },
             "require": {
                 "php": ">=5.4.0"
@@ -960,15 +960,15 @@
                 "Application",
                 "Yves"
             ],
-            "time": "2015-02-11 14:10:48"
+            "time": "2015-02-16 11:31:52"
         },
         {
             "name": "spryker/zed-package",
-            "version": "dev-feature/429-Zed-UI-Refresh-Zed_Package",
+            "version": "dev-FrontendExporter-Pipeline-Refactoring",
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/zed.git",
-                "reference": "9580868a4488708a023af9c083d1deb3d7dcd358"
+                "reference": "4268f39b1b21125ae175cf774352cc0a3728fbee"
             },
             "require": {
                 "digital-canvas/zend-framework": ">=1.12.2",
@@ -1035,7 +1035,7 @@
                 "Application",
                 "Zed"
             ],
-            "time": "2015-02-13 16:05:37"
+            "time": "2015-02-17 09:36:34"
         },
         {
             "name": "symfony-cmf/routing",
@@ -4208,7 +4208,20 @@
             "time": "2015-01-26 16:00:24"
         }
     ],
-    "aliases": [],
+    "aliases": [
+        {
+            "alias": "dev-master",
+            "alias_normalized": "9999999-dev",
+            "version": "dev-FrontendExporter-Pipeline-Refactoring",
+            "package": "spryker/yves-package"
+        },
+        {
+            "alias": "dev-master",
+            "alias_normalized": "9999999-dev",
+            "version": "dev-FrontendExporter-Pipeline-Refactoring",
+            "package": "spryker/zed-package"
+        }
+    ],
     "minimum-stability": "stable",
     "stability-flags": {
         "spryker/yves-package": 20,
