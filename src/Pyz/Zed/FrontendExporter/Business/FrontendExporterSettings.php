@@ -72,7 +72,8 @@ class FrontendExporterSettings extends CoreSettings
     public function getSearchProcessors()
     {
         return [
-            $this->locator->productSearch()->pluginProductProcessorPlugin()
+            $this->locator->productSearch()->pluginProductSearchProcessorPlugin(),
+            $this->locator->productSearch()->pluginProductAttributesProcessorPlugin()
         ];
     }
 
