@@ -73,7 +73,8 @@ class FrontendExporterSettings extends CoreSettings
     {
         return [
             $this->locator->productSearch()->pluginProductSearchProcessorPlugin(),
-            $this->locator->productSearch()->pluginProductAttributesProcessorPlugin()
+            $this->locator->productSearch()->pluginProductAttributesProcessorPlugin(),
+            $this->locator->productSearchAvailabilityConnector()->pluginProductAvailabilityProcessorPlugin(),
         ];
     }
 
@@ -83,7 +84,8 @@ class FrontendExporterSettings extends CoreSettings
     public function getSearchQueryExpander()
     {
         return [
-            $this->locator->productSearch()->pluginProductQueryExpanderPlugin()
+            $this->locator->productSearch()->pluginProductQueryExpanderPlugin(),
+            $this->locator->productSearchAvailabilityConnector()->pluginProductAvailabilityQueryExpanderPlugin(),
         ];
     }
 
