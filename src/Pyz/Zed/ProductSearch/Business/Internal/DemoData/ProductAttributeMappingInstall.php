@@ -159,6 +159,8 @@ class ProductAttributeMappingInstall implements DemoDataInstallInterface
 
     protected function makeProductsSearchable()
     {
+        $locale = \SprykerCore_Zed_Locale_Persistence_Propel_PacLocaleQuery::create()
+            ->findOneByLocaleName('de_DE');
         $products = \ProjectA_Zed_Product_Persistence_Propel_PacProductQuery::create()->find();
 
         /** @var \ProjectA_Zed_Product_Persistence_Propel_PacProduct $product */
@@ -171,7 +173,6 @@ class ProductAttributeMappingInstall implements DemoDataInstallInterface
 
             if (!$touchedProduct) {
                 $touchedProduct = new \SprykerCore_Zed_Touch_Persistence_Propel_PacTouch();
-
             }
 
             $touchedProduct->setItemType('product');
@@ -179,6 +180,11 @@ class ProductAttributeMappingInstall implements DemoDataInstallInterface
             $touchedProduct->setTouched(new \DateTime());
             $touchedProduct->setItemId($product->getProductId());
             $touchedProduct->save();
+
+            $searchableProduct = new \ProjectA_Zed_ProductSearch_Persistence_Propel_PacSearchableProducts();
+            $searchableProduct->setPacProduct($product);
+            $searchableProduct->setPacLocale($locale);
+            $searchableProduct->save();
         }
     }
 }

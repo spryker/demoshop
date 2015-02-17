@@ -3,7 +3,6 @@
 namespace Pyz\Zed\FrontendExporter\Business;
 
 use ProjectA\Zed\ProductCategorySearch\Communication\Plugin\ProductCategorySearchDataProcessorPlugin;
-use ProjectA\Zed\ProductSearch\Communication\Plugin\ProductDataProcessorPlugin as ProductSearchProcessorPlugin;
 use ProjectA\Zed\FrontendExporter\Business\FrontendExporterSettings as CoreSettings;
 
 /**
@@ -18,11 +17,13 @@ class FrontendExporterSettings extends CoreSettings
      */
     protected $locator;
 
+    /**
+     * @param $locator
+     */
     public function __construct($locator)
     {
         $this->locator = $locator;
     }
-
 
     /**
      * @return array
@@ -35,6 +36,9 @@ class FrontendExporterSettings extends CoreSettings
         ];
     }
 
+    /**
+     * @return array|\ProjectA\Zed\FrontendExporter\Dependency\Plugin\ExportFailedDeciderPluginInterface[]
+     */
     public function getKeyValueExportFailedDeciders()
     {
         return [
@@ -42,6 +46,9 @@ class FrontendExporterSettings extends CoreSettings
         ];
     }
 
+    /**
+     * @return array|\ProjectA\Zed\FrontendExporter\Dependency\Plugin\QueryExpanderPluginInterface[]
+     */
     public function getKeyValueQueryExpander()
     {
         return [
@@ -52,14 +59,32 @@ class FrontendExporterSettings extends CoreSettings
 
 
     /**
-     * @return array|\ProjectA\Zed\YvesExport\Communication\Plugin\ProcessorPluginInterface[]
+     * @return array|\ProjectA\Zed\FrontendExporter\Dependency\Plugin\DataProcessorPluginInterface[]
      */
     public function getSearchProcessors()
     {
         return [
-            new ProductSearchProcessorPlugin(100, 10)
+            $this->locator->productSearch()->pluginProductProcessorPlugin()
         ];
     }
+
+    /**
+     * @return array|\ProjectA\Zed\FrontendExporter\Dependency\Plugin\QueryExpanderPluginInterface[]
+     */
+    public function getSearchQueryExpander()
+    {
+        return [
+            $this->locator->productSearch()->pluginProductQueryExpanderPlugin()
+        ];
+    }
+
+    public function getSearchExportFailedDeciders()
+    {
+        return [
+            $this->locator->productSearch()->pluginProductSearchFailedDeciderPlugin()
+        ];
+    }
+
 
     /**
      * @return array
