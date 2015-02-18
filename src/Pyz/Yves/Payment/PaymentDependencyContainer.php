@@ -23,7 +23,8 @@ class PaymentDependencyContainer extends AbstractDependencyContainer
     {
         return $this->factory->create(
             'Form\\PaymentType',
-            $paymentMethods
+            $paymentMethods,
+            $this->locator
         );
     }
 
@@ -35,7 +36,8 @@ class PaymentDependencyContainer extends AbstractDependencyContainer
     {
         return $this->factory->create(
             'Form\\CreditCard',
-            $paymentMethods
+            $paymentMethods,
+            $this->locator
         );
     }
 
@@ -47,7 +49,8 @@ class PaymentDependencyContainer extends AbstractDependencyContainer
     {
         return $this->factory->create(
             'Form\\DirectDebit',
-            $paymentMethods
+            $paymentMethods,
+            $this->locator
         );
     }
 }

@@ -2,8 +2,8 @@
 namespace Pyz\Yves\Library\Tracking\Provider;
 
 use ProjectA\Shared\Sales\Transfer\Order;
-use ProjectA\Yves\Cart\Business\Model\Tracking\CartDataProvider;
-use ProjectA\Yves\Cart\Business\Model\Tracking\ItemDataProvider;
+use SprykerFeature\Yves\Cart\Tracking\CartDataProvider;
+use SprykerFeature\Yves\Cart\Tracking\ItemDataProvider;
 use ProjectA\Yves\Customer\Business\Model\Tracking\CustomerDataProvider;
 use Pyz\Yves\Library\Tracking\PageTypeInterface;
 use ProjectA\Yves\Library\Tracking\Provider\ProviderInterface;

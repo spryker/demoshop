@@ -2,6 +2,7 @@
 namespace Pyz\Yves\Cart\Communication\Helper;
 
 use ProjectA\Shared\Kernel\LocatorLocatorInterface;
+use SprykerFeature\Yves\Cart\Model\ZedCart;
 use Symfony\Component\HttpFoundation\Request;
 
 /**
@@ -12,7 +13,7 @@ trait CartControllerTrait
 {
     /**
      * @param Request $request
-     * @return \ProjectA\Yves\Cart\Business\Model\ZedCart
+     * @return ZedCart
      */
     protected function getCart(Request $request)
     {
