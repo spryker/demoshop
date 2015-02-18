@@ -4,20 +4,20 @@
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "6d6e52ba902924c428005ab8d055dc7f",
+    "hash": "165caadbabc9ca6f722841c2697d3637",
     "packages": [
         {
             "name": "digital-canvas/zend-framework",
-            "version": "1.12.10",
+            "version": "1.12.11",
             "source": {
                 "type": "git",
                 "url": "https://github.com/digital-canvas/zend-framework.git",
-                "reference": "c1de5e836464b7ad6a1f35c5996d9e83558afc64"
+                "reference": "c98fec8e6cc3ea947fa857bdf784228e1e492581"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/digital-canvas/zend-framework/zipball/c1de5e836464b7ad6a1f35c5996d9e83558afc64",
-                "reference": "c1de5e836464b7ad6a1f35c5996d9e83558afc64",
+                "url": "https://api.github.com/repos/digital-canvas/zend-framework/zipball/c98fec8e6cc3ea947fa857bdf784228e1e492581",
+                "reference": "c98fec8e6cc3ea947fa857bdf784228e1e492581",
                 "shasum": ""
             },
             "require": {
@@ -45,7 +45,7 @@
                 "zend",
                 "zf"
             ],
-            "time": "2015-01-28 00:34:43"
+            "time": "2015-02-12 17:40:15"
         },
         {
             "name": "doctrine/inflector",
@@ -930,7 +930,7 @@
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/yves.git",
-                "reference": "832684c93b736839fb050b1027d67dcd5573bf77"
+                "reference": "92359d4a5228e4e7c9f1f5dff300d6b0cc2e007c"
             },
             "require": {
                 "php": ">=5.4.0"
@@ -960,15 +960,15 @@
                 "Application",
                 "Yves"
             ],
-            "time": "2015-02-09 09:19:38"
+            "time": "2015-02-11 14:10:48"
         },
         {
             "name": "spryker/zed-package",
-            "version": "dev-feature/429-Zed-UI-Refresh-Zed_Package",
+            "version": "dev-master",
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/zed.git",
-                "reference": "14d9c9ccfe93ae54803f43da96deb0b7e30457a6"
+                "reference": "6059ce9e9fc1dd0754686f5082c701ee4c91b9c9"
             },
             "require": {
                 "digital-canvas/zend-framework": ">=1.12.2",
@@ -1035,7 +1035,7 @@
                 "Application",
                 "Zed"
             ],
-            "time": "2015-02-09 14:18:53"
+            "time": "2015-02-17 14:54:13"
         },
         {
             "name": "symfony-cmf/routing",
@@ -2403,12 +2403,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/zendesk/zendesk_api_client_php.git",
-                "reference": "5b2f5ecd5d231df5d41123f5fa5e1f980beb961d"
+                "reference": "cf00164cc434458b589619cc6e671cd8bc5119ae"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/zendesk/zendesk_api_client_php/zipball/5b2f5ecd5d231df5d41123f5fa5e1f980beb961d",
-                "reference": "5b2f5ecd5d231df5d41123f5fa5e1f980beb961d",
+                "url": "https://api.github.com/repos/zendesk/zendesk_api_client_php/zipball/cf00164cc434458b589619cc6e671cd8bc5119ae",
+                "reference": "cf00164cc434458b589619cc6e671cd8bc5119ae",
                 "shasum": ""
             },
             "require": {
@@ -2439,7 +2439,7 @@
             ],
             "description": "PHP Client for Zendesk REST API. See http://developer.zendesk.com/api-docs",
             "homepage": "https://github.com/zendesk/zendesk_api_client_php",
-            "time": "2015-02-03 22:12:23"
+            "time": "2015-02-10 18:19:56"
         },
         {
             "name": "zendframework/zend-code",
