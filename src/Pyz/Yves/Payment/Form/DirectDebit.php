@@ -1,10 +1,13 @@
 <?php
-namespace Pyz\Yves\Payment\Communication\Form;
+namespace Pyz\Yves\Payment\Form;
 
-use ProjectA\Yves\Payment\Communication\Form\PaymentType as CorePaymentType;
 use Symfony\Component\Form\FormBuilderInterface;
 
-class DirectDebit extends CorePaymentType
+/**
+ * Class DirectDebit
+ * @package Pyz\Yves\Payment\Form
+ */
+class DirectDebit extends PaymentType
 {
 
     /**
