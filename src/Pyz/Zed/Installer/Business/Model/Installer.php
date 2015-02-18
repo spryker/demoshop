@@ -8,10 +8,8 @@ use \ProjectA\Deprecated\Category\Business\Dependency\CategoryFacadeInterface;
 use \ProjectA\Deprecated\Cms\Business\Dependency\CmsFacadeInterface;
 use \ProjectA\Deprecated\Customer\Business\Dependency\CustomerFacadeInterface;
 use \ProjectA\Deprecated\Misc\Business\Dependency\MiscFacadeInterface;
-use \ProjectA\Deprecated\Price\Business\Dependency\PriceFacadeInterface;
 use ProjectA\Deprecated\Product\Business\Dependency\ProductFacadeInterface;
 use ProjectA\Deprecated\Product\Business\Dependency\ProductFacadeTrait;
-use \ProjectA\Deprecated\Stock\Business\Dependency\StockFacadeInterface;
 use \ProjectA\Deprecated\Glossary\Business\Dependency\GlossaryFacadeInterface;
 use \ProjectA\Deprecated\Sales\Business\Dependency\SalesFacadeInterface;
 use \ProjectA\Deprecated\ProductImage\Business\Dependency\ProductImageFacadeInterface;
@@ -25,8 +23,6 @@ use \ProjectA\Deprecated\Category\Business\Dependency\CategoryFacadeTrait;
 use \ProjectA\Deprecated\Cms\Business\Dependency\CmsFacadeTrait;
 use \ProjectA\Deprecated\Customer\Business\Dependency\CustomerFacadeTrait;
 use \ProjectA\Deprecated\Misc\Business\Dependency\MiscFacadeTrait;
-use \ProjectA\Deprecated\Price\Business\Dependency\PriceFacadeTrait;
-use \ProjectA\Deprecated\Stock\Business\Dependency\StockFacadeTrait;
 use \ProjectA\Deprecated\Glossary\Business\Dependency\GlossaryFacadeTrait;
 use \ProjectA\Deprecated\Sales\Business\Dependency\SalesFacadeTrait;
 use \ProjectA\Deprecated\ProductImage\Business\Dependency\ProductImageFacadeTrait;
@@ -36,8 +32,8 @@ use \ProjectA\Deprecated\Payone\Business\Dependency\PayoneFacadeTrait;
 use ProjectA\Zed\Glossary\Business\GlossaryFacade;
 use ProjectA\Zed\Kernel\Locator;
 use ProjectA\Zed\ProductSearch\Business\ProductSearchFacade;
-use ProjectA\Zed\Stock\Business\StockFacade;
 use ProjectA\Zed\YvesExport\Business\YvesExportFacade;
+use ProjectA\Zed\Price\Business\PriceFacade;
 
 /**
  * Class Installer
@@ -53,12 +49,10 @@ class Installer extends \ProjectA_Zed_Installer_Business_Model_Installer
     ProductImageFacadeInterface,
     InvoiceFacadeInterface,
     PayoneFacadeInterface,
-    DocumentFacadeInterface,
-    PriceFacadeInterface
+    DocumentFacadeInterface
 {
     use AclFacadeTrait;
     use MiscFacadeTrait;
-    use PriceFacadeTrait;
     use CmsFacadeTrait;
     use SalesFacadeTrait;
     use InvoiceFacadeTrait;
@@ -92,15 +86,16 @@ class Installer extends \ProjectA_Zed_Installer_Business_Model_Installer
         $productSearchFacade = $this->locator->productSearch()->facade();
         /** @var GlossaryFacade $glossaryFacade */
         $glossaryFacade = $this->locator->glossary()->facade();
+        /** @var PriceFacade $priceFacade */
+        $priceFacade = $this->locator->price()->facade();
         return [
             $this->facadeAcl->createInternalInstall(),
 //            $this->facadeCustomer->createInternalInstall(),
             $this->facadeCms->createInternalInstall(),
-            // TODO: installer broken
+//            // TODO: installer broken
 //            $this->facadeCatalog->createInternalInstall(),
 //            $this->facadeCategory->createInternalInstall(),
             $this->facadeMisc->createInternalInstall(),
-            $this->facadePrice->createInternalInstall(),
             $this->facadeSales->createInternalInstall(),
             $this->facadeProductImage->createInternalInstall(),
             $this->facadeDocument->createInternalInstall(),
@@ -110,6 +105,7 @@ class Installer extends \ProjectA_Zed_Installer_Business_Model_Installer
             $yvesExportFacade->createInternalInstall(),
             $productSearchFacade->createInternalInstall(),
             $glossaryFacade->getGlossaryInstaller(),
+            $priceFacade->createInternalInstall()
         ];
     }
 }
