@@ -68,20 +68,20 @@ class ProductCategoryMappingInstall implements DemoDataInstallInterface
     {
         /** @var \ProjectA_Zed_ProductCategory_Persistence_Propel_PacProductCategory $productCategory */
         foreach ($categoryNodeIds as $categoryNodeId) {
-            $touchedProduct = \ProjectA_Zed_YvesExport_Persistence_Propel_PacYvesExportTouchQuery::create()
+            $touchedProduct = \ProjectA_Zed_FrontendExporter_Persistence_Propel_PacFrontendExporterTouchQuery::create()
                 ->filterByItemId($categoryNodeId)
-                ->filterByExportType(\ProjectA_Zed_YvesExport_Persistence_Propel_PacYvesExportTouchPeer::EXPORT_TYPE_SEARCH)
-                ->filterByItemEvent(\ProjectA_Zed_YvesExport_Persistence_Propel_PacYvesExportTouchPeer::ITEM_EVENT_ACTIVE)
+                ->filterByExportType(\ProjectA_Zed_FrontendExporter_Persistence_Propel_PacFrontendExporterTouchPeer::EXPORT_TYPE_SEARCH)
+                ->filterByItemEvent(\ProjectA_Zed_FrontendExporter_Persistence_Propel_PacFrontendExporterTouchPeer::ITEM_EVENT_ACTIVE)
                 ->filterByItemType('product-category')
                 ->findOne();
 
             if (!$touchedProduct) {
-                $touchedProduct = new \ProjectA_Zed_YvesExport_Persistence_Propel_PacYvesExportTouch();
+                $touchedProduct = new \ProjectA_Zed_FrontendExporter_Persistence_Propel_PacFrontendExporterTouch();
             }
 
             $touchedProduct->setItemType('product-category');
-            $touchedProduct->setItemEvent(\ProjectA_Zed_YvesExport_Persistence_Propel_PacYvesExportTouchPeer::ITEM_EVENT_ACTIVE);
-            $touchedProduct->setExportType(\ProjectA_Zed_YvesExport_Persistence_Propel_PacYvesExportTouchPeer::EXPORT_TYPE_SEARCH);
+            $touchedProduct->setItemEvent(\ProjectA_Zed_FrontendExporter_Persistence_Propel_PacFrontendExporterTouchPeer::ITEM_EVENT_ACTIVE);
+            $touchedProduct->setExportType(\ProjectA_Zed_FrontendExporter_Persistence_Propel_PacFrontendExporterTouchPeer::EXPORT_TYPE_SEARCH);
             $touchedProduct->setTouched(new \DateTime());
             $touchedProduct->setItemId($categoryNodeId);
             $touchedProduct->save();

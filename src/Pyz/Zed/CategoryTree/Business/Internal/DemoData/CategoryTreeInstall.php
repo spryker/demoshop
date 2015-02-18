@@ -151,21 +151,21 @@ class CategoryTreeInstall implements DemoDataInstallInterface
 
         /** @var \ProjectA_Zed_CategoryTree_Persistence_Propel_PacCategoryNode $node */
         foreach ($nodes as $node) {
-            $nodeTouched = \ProjectA_Zed_YvesExport_Persistence_Propel_PacYvesExportTouchQuery::create()
+            $nodeTouched = \ProjectA_Zed_FrontendExporter_Persistence_Propel_PacFrontendExporterTouchQuery::create()
                 ->filterByItemId($node->getIdCategoryNode())
-                ->filterByItemEvent(\ProjectA_Zed_YvesExport_Persistence_Propel_PacYvesExportTouchPeer::ITEM_EVENT_ACTIVE)
+                ->filterByItemEvent(\ProjectA_Zed_FrontendExporter_Persistence_Propel_PacFrontendExporterTouchPeer::ITEM_EVENT_ACTIVE)
                 ->filterByItemType('category-node')
-                ->filterByExportType(\ProjectA_Zed_YvesExport_Persistence_Propel_PacYvesExportTouchPeer::EXPORT_TYPE_KEYVALUE)
+                ->filterByExportType(\ProjectA_Zed_FrontendExporter_Persistence_Propel_PacFrontendExporterTouchPeer::EXPORT_TYPE_KEYVALUE)
                 ->findOne();
 
             if (!$nodeTouched) {
-                $nodeTouched = new \ProjectA_Zed_YvesExport_Persistence_Propel_PacYvesExportTouch();
+                $nodeTouched = new \ProjectA_Zed_FrontendExporter_Persistence_Propel_PacFrontendExporterTouch();
             }
 
             $nodeTouched
-                ->setExportType(\ProjectA_Zed_YvesExport_Persistence_Propel_PacYvesExportTouchPeer::EXPORT_TYPE_KEYVALUE)
+                ->setExportType(\ProjectA_Zed_FrontendExporter_Persistence_Propel_PacFrontendExporterTouchPeer::EXPORT_TYPE_KEYVALUE)
                 ->setItemType('category-node')
-                ->setItemEvent(\ProjectA_Zed_YvesExport_Persistence_Propel_PacYvesExportTouchPeer::ITEM_EVENT_ACTIVE)
+                ->setItemEvent(\ProjectA_Zed_FrontendExporter_Persistence_Propel_PacFrontendExporterTouchPeer::ITEM_EVENT_ACTIVE)
                 ->setItemId($node->getIdCategoryNode())
                 ->setTouched(new \DateTime())
                 ->save();
@@ -178,20 +178,20 @@ class CategoryTreeInstall implements DemoDataInstallInterface
      */
     protected function touchNavigation()
     {
-        $navigationTouched = \ProjectA_Zed_YvesExport_Persistence_Propel_PacYvesExportTouchQuery::create()
-            ->filterByItemEvent(\ProjectA_Zed_YvesExport_Persistence_Propel_PacYvesExportTouchPeer::ITEM_EVENT_ACTIVE)
+        $navigationTouched = \ProjectA_Zed_FrontendExporter_Persistence_Propel_PacFrontendExporterTouchQuery::create()
+            ->filterByItemEvent(\ProjectA_Zed_FrontendExporter_Persistence_Propel_PacFrontendExporterTouchPeer::ITEM_EVENT_ACTIVE)
             ->filterByItemType('navigation')
-            ->filterByExportType(\ProjectA_Zed_YvesExport_Persistence_Propel_PacYvesExportTouchPeer::EXPORT_TYPE_KEYVALUE)
+            ->filterByExportType(\ProjectA_Zed_FrontendExporter_Persistence_Propel_PacFrontendExporterTouchPeer::EXPORT_TYPE_KEYVALUE)
             ->findOne();
 
         if (!$navigationTouched) {
-            $navigationTouched = new \ProjectA_Zed_YvesExport_Persistence_Propel_PacYvesExportTouch();
+            $navigationTouched = new \ProjectA_Zed_FrontendExporter_Persistence_Propel_PacFrontendExporterTouch();
         }
 
         $navigationTouched
-            ->setExportType(\ProjectA_Zed_YvesExport_Persistence_Propel_PacYvesExportTouchPeer::EXPORT_TYPE_KEYVALUE)
+            ->setExportType(\ProjectA_Zed_FrontendExporter_Persistence_Propel_PacFrontendExporterTouchPeer::EXPORT_TYPE_KEYVALUE)
             ->setItemType('navigation')
-            ->setItemEvent(\ProjectA_Zed_YvesExport_Persistence_Propel_PacYvesExportTouchPeer::ITEM_EVENT_ACTIVE)
+            ->setItemEvent(\ProjectA_Zed_FrontendExporter_Persistence_Propel_PacFrontendExporterTouchPeer::ITEM_EVENT_ACTIVE)
             ->setItemId(1)
             ->setTouched(new \DateTime())
             ->save();
