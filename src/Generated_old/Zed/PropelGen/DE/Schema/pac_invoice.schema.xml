@@ -1,0 +1,76 @@
+<?xml version="1.0"?>
+<database name="zed"
+          package="vendor/spryker/zed-package/src/ProjectA/Zed/Invoice/Persistence/Propel"
+          defaultIdMethod="native"
+          defaultPhpNamingMethod="underscore"
+          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+          xsi:noNamespaceSchemaLocation="http://xsd.propelorm.org/1.6/database.xsd">
+
+    <table name="pac_invoice" phpName="PacInvoice">
+        <column name="id_invoice" required="true" type="INTEGER" autoIncrement="true" primaryKey="true" />
+        <column name="fk_sales_order" required="true" type="INTEGER" />
+
+        <column name="invoice_number" type="VARCHAR" size="255" required="false" />
+        <column name="type" type="ENUM" valueSet="invoice,reverse_invoice" required="true" default="invoice" />
+
+        <behavior name="timestampable"/>
+        <unique>
+            <unique-column name="invoice_number"/>
+        </unique>
+
+        <foreign-key foreignTable="pac_sales_order" phpName="Order" refPhpName="Invoice">
+            <reference local="fk_sales_order" foreign="id_sales_order"/>
+        </foreign-key>
+    </table>
+
+    <table name="pac_invoice_configuration" phpName="PacInvoiceConfiguration">
+        <column name="id_invoice_configuration" required="true" type="INTEGER" autoIncrement="true" primaryKey="true" />
+        <column name="fk_document_configuration" required="true" type="INTEGER" />
+
+        <column name="type" type="ENUM" valueSet="invoice,reverse_invoice" required="true" default="invoice" />
+
+        <behavior name="timestampable"/>
+
+        <unique>
+            <unique-column name="type"/>
+        </unique>
+        <foreign-key foreignTable="pac_document_configuration" phpName="DocumentConfiguration" refPhpName="Invoice">
+            <reference local="fk_document_configuration" foreign="id_document_configuration"/>
+        </foreign-key>
+    </table>
+
+    <table name="pac_invoice_document" phpName="PacInvoiceDocument">
+        <column name="id_invoice_document" required="true" type="INTEGER" autoIncrement="true" primaryKey="true" />
+        <column name="fk_invoice" type="INTEGER" required="true"/>
+        <column name="fk_document" type="INTEGER" required="true"/>
+
+        <column name="layout_type" type="TINYINT" required="true" default="0"/>
+        <column name="filename" type="VARCHAR" size="255" required="false" />
+
+        <behavior name="timestampable"/>
+
+        <index>
+            <index-column name="layout_type" />
+        </index>
+        <foreign-key foreignTable="pac_invoice" phpName="Invoice" refPhpName="InvoiceDocument">
+            <reference local="fk_invoice" foreign="id_invoice"/>
+        </foreign-key>
+        <foreign-key foreignTable="pac_document" phpName="Document" refPhpName="InvoiceDocument">
+            <reference local="fk_document" foreign="id_document"/>
+        </foreign-key>
+    </table>
+
+    <table name="pac_invoice_number" phpName="PacInvoiceNumber">
+        <column name="id_invoice_number" required="true" type="INTEGER" autoIncrement="true" primaryKey="true" />
+
+        <column name="date" type="INTEGER" size="6" required="true"/>
+        <column name="increment_id" type="VARCHAR" size="35" required="true"/>
+
+        <behavior name="timestampable"/>
+
+        <index>
+            <index-column name="increment_id" />
+        </index>
+    </table>
+
+</database>

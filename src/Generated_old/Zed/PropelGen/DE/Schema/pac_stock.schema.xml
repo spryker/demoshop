@@ -1,0 +1,39 @@
+<?xml version="1.0"?>
+<database name="zed"
+          defaultIdMethod="native"
+          package="vendor/spryker/zed-package/src/ProjectA/Zed/Stock/Persistence/Propel"
+          defaultPhpNamingMethod="underscore"
+          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+          xsi:noNamespaceSchemaLocation="http://xsd.propelorm.org/1.6/database.xsd">
+
+    <table name="pac_stock" phpName="PacStock">
+        <column name="id_stock" type="INTEGER" required="true" primaryKey="true" autoIncrement="true" />
+        <column name="name" type="VARCHAR" size="255" required="true" />
+
+        <unique>
+            <unique-column name="name" />
+        </unique>
+    </table>
+
+    <table name="pac_stock_product" phpName="PacStockProduct">
+        <column name="id_stock_product" type="INTEGER" required="true" primaryKey="true" autoIncrement="true" />
+        <column name="fk_product" type="INTEGER" required="true" />
+        <column name="fk_stock" type="INTEGER" required="true" />
+        <column name="quantity" type="INTEGER" required="true" defaultValue="0" />
+        <column name="is_never_out_of_stock" type="BOOLEAN" required="true" defaultValue="false" />
+
+        <foreign-key foreignTable="pac_product" phpName="PacProduct" refPhpName="StockProduct">
+            <reference local="fk_product" foreign="product_id" />
+        </foreign-key>
+
+        <foreign-key foreignTable="pac_stock" phpName="Stock" refPhpName="StockProduct">
+            <reference local="fk_stock" foreign="id_stock" />
+        </foreign-key>
+
+        <unique>
+            <unique-column name="fk_stock" />
+            <unique-column name="fk_product" />
+        </unique>
+    </table>
+
+</database>

@@ -1,0 +1,68 @@
+<?xml version="1.0"?>
+<database name="zed"
+          package="vendor/spryker/zed-package/src/ProjectA/Zed/Cart/Persistence/Propel"
+          defaultIdMethod="native"
+          defaultPhpNamingMethod="underscore"
+          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+          xsi:noNamespaceSchemaLocation="http://xsd.propelorm.org/1.6/database.xsd">
+
+    <table name="pac_cart" idMethod="native" phpName="PacCart">
+        <column name="id_cart" required="true" type="INTEGER" autoIncrement="true" primaryKey="true" />
+        <column name="cart_hash" required="true" size="255" type="VARCHAR"/>
+        <behavior name="timestampable"/>
+        <index>
+            <index-column name="cart_hash" />
+        </index>
+    </table>
+
+    <table name="pac_cart_item" idMethod="native" phpName="PacCartItem">
+        <column name="id_cart_item" required="true" type="INTEGER" autoIncrement="true" primaryKey="true" />
+        <column name="fk_cart" required="true" type="INTEGER"/>
+        <column name="unique_identifier" required="true" size="255" type="VARCHAR"/>
+        <column name="sku" required="true" size="255" type="VARCHAR"/>
+        <column name="quantity" type="INTEGER" default="0"/>
+        <column name="is_deleted" type="BOOLEAN" default="FALSE"/>
+        <column name="delete_cause" type="TINYINT" default="0"/>
+        <behavior name="timestampable"/>
+        <foreign-key foreignTable="pac_cart" phpName="Cart" refPhpName="CartItem">
+            <reference local="fk_cart" foreign="id_cart"/>
+        </foreign-key>
+    </table>
+
+    <table name="pac_cart_item_option" idMethod="native" phpName="PacCartItemOption">
+        <column name="id_cart_item_option" required="true" type="INTEGER" autoIncrement="true" primaryKey="true" />
+        <column name="fk_cart_item" required="true" type="INTEGER"/>
+        <column name="identifier" required="true" size="255" type="VARCHAR"/>
+        <behavior name="timestampable"/>
+        <foreign-key foreignTable="pac_cart_item" phpName="CartItem" refPhpName="Option" onDelete="CASCADE">
+            <reference local="fk_cart_item" foreign="id_cart_item"/>
+        </foreign-key>
+    </table>
+
+    <table name="pac_cart_user" idMethod="native" phpName="PacCartUser">
+        <column name="id_cart_user" required="true" type="INTEGER" autoIncrement="true" primaryKey="true" />
+        <column name="fk_cart" required="true" type="INTEGER"/>
+        <column name="fk_customer" required="false" type="INTEGER" default="NULL"/>
+        <behavior name="timestampable"/>
+        <foreign-key foreignTable="pac_cart" phpName="Cart" refPhpName="CartUser">
+            <reference local="fk_cart" foreign="id_cart"/>
+        </foreign-key>
+        <foreign-key foreignTable="pac_customer" phpName="Customer" refPhpName="CartUser">
+            <reference local="fk_customer" foreign="id_customer"/>
+        </foreign-key>
+    </table>
+
+    <table name="pac_cart_user_step" phpName="PacCartUserStep">
+        <column name="id_cart_user_step" type="INTEGER" required="true" primaryKey="true" />
+        <column name="step" type="VARCHAR" size="30" required="true" description="Explicit no FK to step table. As so you will be able to use other step tools later." />
+        <column name="current_position" type="INTEGER" required="false" default="1" />
+        <behavior name="timestampable"/>
+        <foreign-key foreignTable="pac_cart_user" phpName="CartUser" refPhpName="CartUserStep">
+            <reference local="id_cart_user_step" foreign="id_cart_user" />
+        </foreign-key>
+        <index>
+            <index-column name="step" />
+        </index>
+    </table>
+
+</database>

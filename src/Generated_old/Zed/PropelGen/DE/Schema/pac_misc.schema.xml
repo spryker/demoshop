@@ -1,0 +1,53 @@
+<?xml version="1.0"?>
+<database name="zed"
+          package="vendor/spryker/zed-package/src/ProjectA/Zed/Misc/Persistence/Propel"
+          defaultIdMethod="native"
+          defaultPhpNamingMethod="underscore"
+          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+          xsi:noNamespaceSchemaLocation="http://xsd.propelorm.org/1.6/database.xsd">
+
+    <table name="pac_misc_country" phpName="PacMiscCountry">
+        <column name="id_misc_country" required="true" type="INTEGER" autoIncrement="true" primaryKey="true" />
+
+        <column name="iso2_code" type="VARCHAR" size="2" required="true" />
+        <column name="iso3_code" type="VARCHAR" size="3" required="true" />
+        <column name="name" type="VARCHAR" size="255" required="true" />
+        <column name="postal_code_madatory" type="BOOLEAN" default="false" />
+        <column name="postal_code_regex" type="VARCHAR" size="500" />
+        <unique>
+            <unique-column name="iso2_code"/>
+        </unique>
+        <unique>
+            <unique-column name="iso3_code"/>
+        </unique>
+    </table>
+
+    <table name="pac_misc_region" phpName="PacMiscRegion">
+        <column name="id_misc_region" required="true" type="INTEGER" autoIncrement="true" primaryKey="true" />
+        <column name="fk_misc_country" type="INTEGER" />
+
+        <column name="name" type="VARCHAR" size="100" required="true" />
+        <column name="iso2_code" type="VARCHAR" size="6" required="true" />
+
+        <unique>
+            <unique-column name="iso2_code"/>
+        </unique>
+
+        <foreign-key foreignTable="pac_misc_country" phpName="Country" refPhpName="Region">
+            <reference local="fk_misc_country" foreign="id_misc_country" />
+        </foreign-key>
+    </table>
+
+    <table name="pac_misc_lock" phpName="PacMiscLock">
+        <column name="id_misc_lock" required="true" type="INTEGER" autoIncrement="true" primaryKey="true" />
+        <column name="uid" required="true" type="VARCHAR" size="255" />
+        <column name="resource" required="true" type="VARCHAR" size="255" />
+        <column name="expires_at" required="true" type="TIMESTAMP" />
+        <behavior name="timestampable" />
+        <unique>
+            <unique-column name="uid" />
+            <unique-column name="resource" />
+        </unique>
+    </table>
+
+</database>

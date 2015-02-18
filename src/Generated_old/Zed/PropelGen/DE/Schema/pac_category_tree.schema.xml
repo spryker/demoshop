@@ -1,0 +1,66 @@
+<?xml version="1.0"?>
+<database name="zed"
+          package="vendor/spryker/zed-package/src/ProjectA/Zed/CategoryTree/Persistence/Propel"
+          defaultIdMethod="native"
+          defaultPhpNamingMethod="underscore"
+          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+          xsi:noNamespaceSchemaLocation="http://xsd.propelorm.org/1.6/database.xsd">
+
+    <table name="pac_category_tree" idMethod="native" phpName="PacCategoryTree">
+        <column name="id_category" required="true" type="INTEGER" autoIncrement="true" primaryKey="true" />
+        <column name="is_active" default="true" type="BOOLEAN" />
+    </table>
+
+    <table name="pac_category_node" idMethod="native" phpName="PacCategoryNode">
+        <column name="id_category_node" required="true" type="INTEGER" autoIncrement="true" primaryKey="true" />
+        <column name="fk_category" required="true" type="INTEGER" />
+        <column name="fk_parent_category_node" required="false" type="INTEGER" default="NULL" />
+        <column name="is_root" type="BOOLEAN" default="false" />
+
+        <foreign-key foreignTable="pac_category_node" phpName="CategoryNode" refPhpName="Node">
+            <reference foreign="id_category_node" local="fk_parent_category_node"/>
+        </foreign-key>
+
+        <foreign-key foreignTable="pac_category_tree" phpName="Category" refPhpName="Node">
+            <reference foreign="id_category" local="fk_category"/>
+        </foreign-key>
+    </table>
+
+    <table name="pac_category_closure_table" idMethod="native" phpName="PacCategoryClosureTable">
+        <column name="id_category_closure_table" required="true" type="INTEGER" autoIncrement="true" primaryKey="true" />
+        <column name="fk_category_node" required="true" type="INTEGER" />
+        <column name="fk_category_node_descendant" required="true" type="INTEGER" />
+        <column name="depth" required="true" type="INTEGER" />
+
+        <foreign-key foreignTable="pac_category_node" phpName="Node" refPhpName="ClosureTable">
+            <reference foreign="id_category_node" local="fk_category_node"/>
+        </foreign-key>
+
+        <foreign-key foreignTable="pac_category_node" phpName="DescendantNode" refPhpName="Descendant">
+            <reference foreign="id_category_node" local="fk_category_node_descendant"/>
+        </foreign-key>
+
+    </table>
+
+    <table name="pac_category_tree_attribute" idMethod="native" phpName="PacCategoryTreeAttribute">
+        <column name="id_category_attribute" required="true" type="INTEGER" autoIncrement="true" primaryKey="true" />
+        <column name="fk_category" required="true" type="INTEGER" />
+        <column name="name" type="VARCHAR" size="255" required="true" />
+        <column name="locale_id" required="true" type="INTEGER" size="5"/>
+        <column name="url_key" required="false" type="VARCHAR" size="255" />
+        <column name="meta_title" required="false" type="LONGVARCHAR" />
+        <column name="meta_description" required="false" type="LONGVARCHAR" />
+        <column name="meta_keywords" required="false" type="LONGVARCHAR" />
+        <column name="category_image_name" required="false" type="VARCHAR" size="255" />
+
+        <behavior name="timestampable"/>
+
+        <foreign-key foreignTable="pac_locale" phpName="Locale">
+            <reference local="locale_id" foreign="id_locale"/>
+        </foreign-key>
+        <foreign-key foreignTable="pac_category_tree" phpName="Category" refPhpName="Attribute">
+            <reference foreign="id_category" local="fk_category"/>
+        </foreign-key>
+
+    </table>
+</database>

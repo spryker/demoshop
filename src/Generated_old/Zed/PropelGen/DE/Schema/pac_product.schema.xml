@@ -1,0 +1,122 @@
+<?xml version="1.0"?>
+<database name="zed"
+          defaultIdMethod="native"
+          package="vendor/spryker/zed-package/src/ProjectA/Zed/Product/Persistence/Propel"
+          defaultPhpNamingMethod="underscore"
+          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+          xsi:noNamespaceSchemaLocation="http://xsd.propelorm.org/1.6/database.xsd">
+    <table name="pac_abstract_product" idMethod="native" allowPkInsert="true" phpName="PacAbstractProduct">
+        <column name="abstract_product_id" required="true" type="INTEGER" primaryKey="true" autoIncrement="true"/>
+        <column name="sku" required="true" type="VARCHAR" size="255"/>
+        <unique>
+            <unique-column name="sku"/>
+        </unique>
+    </table>
+
+    <table name="pac_abstract_product_localized_attributes" idMethod="native" allowPkInsert="true" phpName="PacLocalizedAbstractProductAttributes">
+        <column name="attributes_id" required="true" type="INTEGER" primaryKey="true" autoIncrement="true"/>
+        <column name="abstract_product_id" required="true" type="INTEGER"/>
+        <column name="locale_id" required="true" type="INTEGER"/>
+        <column name="name" required="true" type="VARCHAR"/>
+        <column name="attributes" required="true" type="LONGVARCHAR"/>
+        <foreign-key foreignTable="pac_abstract_product" onDelete="CASCADE" onUpdate="CASCADE">
+            <reference local="abstract_product_id" foreign="abstract_product_id"/>
+        </foreign-key>
+        <foreign-key foreignTable="pac_locale" phpName="Locale">
+            <reference local="locale_id" foreign="id_locale"/>
+        </foreign-key>
+        <unique>
+            <unique-column name="abstract_product_id"/>
+            <unique-column name="locale_id"/>
+        </unique>
+    </table>
+    <table name="pac_product" idMethod="native" allowPkInsert="true" phpName="PacProduct">
+        <column name="product_id" required="true" type="INTEGER" primaryKey="true" autoIncrement="true"/>
+        <column name="sku" required="true" type="VARCHAR" size="255"/>
+        <column name="is_active" required="true" defaultValue="true" type="BOOLEAN"/>
+        <column name="abstract_product_id" required="true" type="INTEGER"/>
+        <unique>
+            <unique-column name="sku"/>
+        </unique>
+        <foreign-key foreignTable="pac_abstract_product">
+            <reference local="abstract_product_id" foreign="abstract_product_id"/>
+        </foreign-key>
+    </table>
+    <table name="pac_product_localized_attributes" idMethod="native" allowPkInsert="true" phpName="PacLocalizedProductAttributes">
+        <column name="attributes_id" required="true" type="INTEGER" primaryKey="true" autoIncrement="true"/>
+        <column name="product_id" required="true" type="INTEGER"/>
+        <column name="locale_id" required="true" type="INTEGER"/>
+        <column name="name" required="true" type="VARCHAR"/>
+        <column name="attributes" required="true" type="LONGVARCHAR"/>
+        <column name="url" required="true" type="VARCHAR" size="255"/>
+        <column name="is_complete" required="false" defaultValue="true" type="BOOLEAN"/>
+        <column name="tax_id" type="INTEGER" required="false" />
+        <foreign-key foreignTable="pac_product" onDelete="CASCADE" onUpdate="CASCADE">
+            <reference local="product_id" foreign="product_id"/>
+        </foreign-key>
+        <foreign-key foreignTable="pac_tax">
+            <reference local="tax_id" foreign="tax_id"/>
+        </foreign-key>
+        <foreign-key foreignTable="pac_locale" phpName="Locale">
+            <reference local="locale_id" foreign="id_locale"/>
+        </foreign-key>
+        <unique>
+            <unique-column name="product_id"/>
+            <unique-column name="locale_id"/>
+        </unique>
+    </table>
+
+    <table name="pac_product_to_bundle">
+        <column name="product_id" type="INTEGER" required="true" primaryKey="true"/>
+        <column name="related_product_id" type="INTEGER" required="true" primaryKey="true"/>
+        <foreign-key foreignTable="pac_product">
+            <reference local="product_id" foreign="product_id"/>
+        </foreign-key>
+        <foreign-key foreignTable="pac_product" phpName="BundleProduct" refPhpName="BundleProduct">
+            <reference local="related_product_id" foreign="product_id" />
+        </foreign-key>
+    </table>
+
+    <table name="pac_tax" idMethod="native" allowPkInsert="true" phpName="PacTax">
+        <column name="tax_id" type="INTEGER" primaryKey="true" autoIncrement="true"/>
+        <column name="rate" type="INTEGER" required="true"/>
+        <column name="locale_id" type="INTEGER" required="true"/>
+
+        <foreign-key foreignTable="pac_locale" phpName="Locale">
+            <reference local="locale_id" foreign="id_locale"/>
+        </foreign-key>
+    </table>
+    <table name="pac_attributes_metadata" idMethod="native" allowPkInsert="true" phpName="PacProductAttributesMetadata">
+        <column name="attribute_id" primaryKey="true" type="INTEGER" autoIncrement="true"/>
+        <column name="key" required="true" type="VARCHAR"/>
+        <column name="is_editable" required="true" defaultValue="true" type="BOOLEAN"/>
+        <column name="type_id" type="INTEGER"/>
+        <foreign-key foreignTable="pac_attribute_type">
+            <reference local="type_id" foreign="type_id"/>
+        </foreign-key>
+    </table>
+    <table name="pac_attribute_type" idMethod="native" allowPkInsert="true" phpName="PacProductAttributeType">
+        <column name="type_id" type="INTEGER" autoIncrement="true" primaryKey="true"/>
+        <column name="name" type="VARCHAR" required="true"/>
+        <column name="parent_type_id" type="INTEGER" required="false"/>
+        <column name="input_representation" type="VARCHAR" required="true"/>
+        <foreign-key foreignTable="pac_attribute_type">
+            <reference local="parent_type_id" foreign="type_id"/>
+        </foreign-key>
+    </table>
+    <table name="pac_attribute_type_value" idMethod="native" allowPkInsert="true" phpName="PacTypeValue">
+        <column name="id" autoIncrement="true" primaryKey="true" type="INTEGER"/>
+        <column name="type_id" type="INTEGER" required="true" />
+        <column name="key" type="VARCHAR" required="true"/>
+        <column name="value" type="VARCHAR" required="true"/>
+        <column name="locale_id" type="INTEGER" required="false"/>
+        <foreign-key foreignTable="pac_locale" phpName="Locale">
+            <reference local="locale_id" foreign="id_locale"/>
+        </foreign-key>
+        <unique>
+            <unique-column name="locale_id"/>
+            <unique-column name="type_id"/>
+            <unique-column name="key"/>
+        </unique>
+    </table>
+</database>

@@ -1,0 +1,52 @@
+<?xml version="1.0"?>
+<database xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+          name="zed"
+          defaultIdMethod="native"
+          defaultPhpNamingMethod="underscore"
+          xsi:noNamespaceSchemaLocation="http://xsd.propelorm.org/1.6/database.xsd">
+
+    <table name="pac_glossary_key" package="vendor/spryker/zed-package/src/ProjectA/Zed/Glossary/Persistence/Propel"
+           phpName="PacGlossaryKey">
+        <column name="id_glossary_key" required="true" type="INTEGER" autoIncrement="true" primaryKey="true"/>
+        <column name="key" type="VARCHAR" size="255" required="true"/>
+        <column name="is_active" type="BOOLEAN" default="true" required="true"/>
+        <unique>
+            <unique-column name="key"/>
+        </unique>
+        <index name="key">
+            <index-column name="key"/>
+        </index>
+        <index name="is_active">
+            <index-column name="is_active"/>
+        </index>
+        <validator column="key">
+            <rule name="unique" message="This glossary key already exists!"/>
+        </validator>
+    </table>
+
+    <table name="pac_glossary_translation"
+           package="vendor/spryker/zed-package/src/ProjectA/Zed/Glossary/Persistence/Propel"
+           phpName="PacGlossaryTranslation">
+        <column name="id_glossary_translation" required="true" type="INTEGER" autoIncrement="true" primaryKey="true"/>
+        <column name="fk_glossary_key" type="INTEGER" required="true"/>
+        <column name="fk_locale" type="INTEGER" required="true"/>
+        <column name="value" type="LONGVARCHAR" required="true"/>
+        <column name="is_active" type="BOOLEAN" default="true" required="true"/>
+        <foreign-key foreignTable="pac_glossary_key" phpName="GlossaryKey" onDelete="CASCADE">
+            <reference foreign="id_glossary_key" local="fk_glossary_key"/>
+        </foreign-key>
+        <foreign-key foreignTable="pac_locale" phpName="GlossaryLocale" onDelete="CASCADE">
+            <reference foreign="id_locale" local="fk_locale"/>
+        </foreign-key>
+        <unique>
+            <unique-column name="fk_glossary_key"/>
+            <unique-column name="fk_locale"/>
+        </unique>
+        <index name="locale">
+            <index-column name="fk_locale"/>
+        </index>
+        <index name="is_active">
+            <index-column name="is_active"/>
+        </index>
+    </table>
+</database>

@@ -1,0 +1,22 @@
+<?xml version="1.0"?>
+<database name="zed"
+          package="vendor/spryker/zed-package/src/ProjectA/Zed/Newsletter/Persistence/Propel"
+          defaultIdMethod="native"
+          defaultPhpNamingMethod="underscore"
+          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+          xsi:noNamespaceSchemaLocation="http://xsd.propelorm.org/1.6/database.xsd">
+
+    <table name="pac_newsletter_subscription" phpName="PacNewsletterSubscription">
+        <column name="id_newsletter_subscription" required="true" type="INTEGER" autoIncrement="true" primaryKey="true" />
+        <column name="email" type="VARCHAR" size="255" required="true"/>
+        <column name="status" type="ENUM" valueSet="confirmation_pending,subscribed,unsubscribed" default="confirmation_pending"/>
+        <column name="confirmation_key" type="VARCHAR" size="32" required="true"/>
+        <column name="unsubscription_key" type="VARCHAR" size="32"/>
+        <column name="subscribed_at" type="TIMESTAMP" required="false" default="NULL"/>
+        <column name="confirmed_at" type="TIMESTAMP" required="false" default="NULL"/>
+        <column name="unsubscribed_at" type="TIMESTAMP" required="false" default="NULL"/>
+        <unique name="newsletter_subscription_email">
+            <unique-column name="email"/>
+        </unique>
+    </table>
+</database>

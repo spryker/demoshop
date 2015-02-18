@@ -1,0 +1,53 @@
+<?xml version="1.0"?>
+<database name="zed"
+          package="vendor/spryker/zed-package/src/ProjectA/Zed/Mail/Persistence/Propel"
+          defaultIdMethod="native"
+          defaultPhpNamingMethod="underscore"
+          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+          xsi:noNamespaceSchemaLocation="http://xsd.propelorm.org/1.6/database.xsd">
+
+    <table name="pac_mail_queue" phpName="PacMailQueue">
+        <column name="id_mail_queue" required="true" type="INTEGER" autoIncrement="true" primaryKey="true" />
+        <column name="mail_type" type="VARCHAR" size="255" required="true" />
+        <column name="transfer_string" type="CLOB" required="true"/>
+        <column name="reference_id" type="INTEGER" required="true" />
+        <column name="sent" type="BOOLEAN" required="true" default="false" />
+        <column name="send_tries" type="INTEGER" size="2" required="true" default="0" />
+        <column name="send_after" type="TIMESTAMP" required="false" />
+        <column name="last_response" type="CLOB" />
+
+        <behavior name="timestampable"/>
+
+        <index>
+            <index-column name="sent" />
+        </index>
+    </table>
+
+    <table name="pac_mail_template" phpName="PacMailTemplate">
+        <column name="id_mail_template" type="INTEGER" required="true" primaryKey="true" autoIncrement="true" />
+        <column name="name" type="VARCHAR" size="50" required="true" />
+        <column name="subject" type="VARCHAR" size="255" required="false" />
+        <column name="sender" type="VARCHAR" size="255" required="false" />
+        <column name="sender_name" type="VARCHAR" size="255" required="false" />
+        <column name="text" type="LONGVARCHAR" required="false" />
+        <column name="html" type="LONGVARCHAR" required="false" />
+        <column name="date_interval" type="VARCHAR" required="false" />
+        <column name="wrapper" type="INTEGER" required="false" />
+        <column name="deleted" type="BOOLEAN" required="false" default="0" />
+
+        <foreign-key foreignTable="pac_mail_template" phpName="MailTemplateWrapper" refPhpName="MailTemplate">
+            <reference local="wrapper" foreign="id_mail_template" />
+        </foreign-key>
+
+        <behavior name="versionable">
+            <parameter name="version_table" value="pac_mail_template_version" />
+            <parameter name="log_created_at" value="true" />
+            <parameter name="log_created_by" value="true" />
+        </behavior>
+
+        <unique>
+            <unique-column name="name" />
+        </unique>
+    </table>
+
+</database>

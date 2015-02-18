@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<config>
+    <propel>
+        <datasources default="zed">
+            <datasource id="zed">
+                <adapter>mysql</adapter>
+                <connection>
+                    <dsn>mysql:host=127.0.0.1;port=3306;dbname=DE_development_zed</dsn>
+                    <user>development</user>
+                    <password><![CDATA[mate20mg]]></password>
+                    <settings>
+                        <setting id="charset">utf8</setting>
+                    </settings>
+                    <options>
+                        <option id="MYSQL_ATTR_INIT_COMMAND">SET NAMES utf8 COLLATE utf8_general_ci</option>
+                    </options>
+                </connection>
+            </datasource>
+        </datasources>
+    </propel>
+</config>
