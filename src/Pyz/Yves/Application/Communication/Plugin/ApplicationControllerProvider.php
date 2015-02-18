@@ -2,7 +2,7 @@
 
 namespace Pyz\Yves\Application\Communication\Plugin;
 
-use ProjectA\Yves\Application\Communication\Plugin\YvesControllerProvider;
+use SprykerCore\Yves\Application\Communication\Plugin\YvesControllerProvider;
 use Silex\Application;
 
 class ApplicationControllerProvider extends YvesControllerProvider

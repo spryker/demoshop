@@ -7,10 +7,8 @@ use ProjectA\Shared\Application\Business\Bootstrap;
 use ProjectA\Shared\Application\Communication\Plugin\ServiceProvider\RoutingServiceProvider;
 use ProjectA\Shared\Application\Communication\Plugin\ServiceProvider\UrlGeneratorServiceProvider;
 use ProjectA\Shared\Library\Config;
-
 use ProjectA\Shared\System\SystemConfig;
 use ProjectA\Shared\Application\Business\Routing\SilexRouter;
-
 use ProjectA\Zed\Application\Business\Model\Router\MvcRouter;
 use ProjectA\Zed\Application\Business\Model\Twig\ZedExtension;
 use ProjectA\Zed\Application\Communication\Plugin\Pimple;
@@ -21,25 +19,15 @@ use ProjectA\Zed\Application\Communication\Plugin\ServiceProvider\RequestService
 use ProjectA\Zed\Application\Communication\Plugin\ServiceProvider\SessionServiceProvider;
 use ProjectA\Zed\Application\Communication\Plugin\ServiceProvider\SslServiceProvider;
 use ProjectA\Zed\Application\Communication\Plugin\ServiceProvider\TranslationServiceProvider;
-
 use ProjectA\Zed\Application\Communication\Plugin\ServiceProvider\TwigServiceProvider;
 use ProjectA\Zed\Auth\Business\Model\Auth;
-
 use ProjectA\Zed\Cms\Communication\Plugin\ServiceProvider\CmsServiceProvider;
-
-use ProjectA\Zed\ProductImage\Business\ServiceProvider\ProductImageServiceProvider;
-
 use ProjectA\Zed\Auth\Communication\Plugin\ServiceProvider\SecurityServiceProvider;
 use ProjectA\Zed\Yves\Communication\Plugin\ServiceProvider\FrontendServiceProvider;
-
 use Silex\Provider\FormServiceProvider;
-use Silex\Provider\HttpFragmentServiceProvider;
-use Silex\Provider\RememberMeServiceProvider;
 use Silex\Provider\ServiceControllerServiceProvider;
 use Silex\Provider\ValidatorServiceProvider;
 use Silex\Provider\WebProfilerServiceProvider;
-
-use Symfony\Component\HttpFoundation\Request;
 
 class ZedBootstrap extends Bootstrap
 {
@@ -89,7 +77,7 @@ class ZedBootstrap extends Bootstrap
     /**
      * @return \Silex\ServiceProviderInterface[]
      */
-    protected function getServiceProviders()
+    protected function getServiceProviders(Application $app)
     {
         $providers = [
             new RequestServiceProvider(),

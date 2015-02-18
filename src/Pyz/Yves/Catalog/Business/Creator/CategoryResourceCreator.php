@@ -4,12 +4,12 @@ namespace Pyz\Yves\Catalog\Business\Creator;
 
 use ProjectA\Shared\Application\Communication\ControllerServiceBuilder;
 use ProjectA\Yves\FrontendExporter\Business\Creator\ResourceCreatorInterface;
-use ProjectA\Yves\Kernel\Communication\BundleControllerAction;
-use ProjectA\Yves\Kernel\Communication\Controller\BundleControllerActionRouteNameResolver;
-use ProjectA\Yves\Kernel\Communication\ControllerLocator;
-use ProjectA\Yves\Kernel\Locator;
 use Pyz\Yves\Catalog\Business\Model\FacetConfig;
 use Silex\Application;
+use SprykerCore\Yves\Kernel\Communication\BundleControllerAction;
+use SprykerCore\Yves\Kernel\Communication\Controller\BundleControllerActionRouteNameResolver;
+use SprykerCore\Yves\Kernel\Communication\ControllerLocator;
+use SprykerCore\Yves\Kernel\Locator;
 
 /**
  * Class CategoryResourceCreator

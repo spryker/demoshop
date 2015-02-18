@@ -6,7 +6,7 @@ use ProjectA\Shared\Price\Code\PriceTypeConstants;
 use ProjectA\Shared\System\SystemConfig;
 use Pyz\Shared\Catalog\Code\ProductAttributeConstantInterface;
 use ProjectA\Shared\Library\Currency\CurrencyManager;
-use ProjectA\Yves\Application\Business\Application;
+use SprykerCore\Yves\Application\Business\Application;
 use ProjectA\Yves\Library\Tracking\DataProvider\AbstractDataProvider;
 use ProjectA\Yves\Library\Tracking\Tracking;
 
@@ -25,7 +25,7 @@ class ProductDetailProvider extends AbstractDataProvider
     protected $product;
 
     /**
-     * @param Application $app
+     * @param \SprykerCore\Yves\Application\Business\Application $app
      */
     public function __construct(Application $app)
     {
@@ -91,7 +91,8 @@ class ProductDetailProvider extends AbstractDataProvider
         if (!$product) {
             return false;
         }
-        return CurrencyManager::getInstance()->convertCentToDecimal($product[PriceTypeConstants::RECOMMENDED_RETAIL_PRICE]);
+        return CurrencyManager::getInstance()
+            ->convertCentToDecimal($product[PriceTypeConstants::RECOMMENDED_RETAIL_PRICE]);
     }
 
     /**

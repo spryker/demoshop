@@ -1,7 +1,7 @@
 <?php
 namespace Pyz\Yves\Application\Communication\Controller;
 
-use ProjectA\Yves\Application\Communication\Controller\AbstractController;
+use SprykerCore\Yves\Application\Communication\Controller\AbstractController;
 use Pyz\Yves\Library\Tracking\PageTypeInterface;
 use ProjectA\Yves\Library\Tracking\Tracking;
 use Symfony\Component\HttpFoundation\Request;
