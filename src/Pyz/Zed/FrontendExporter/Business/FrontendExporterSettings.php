@@ -4,7 +4,7 @@ namespace Pyz\Zed\FrontendExporter\Business;
 
 use ProjectA\Zed\CategoryExporter\Communication\Plugin\CategoryNodeProcessorPlugin;
 use ProjectA\Zed\CategoryExporter\Communication\Plugin\NavigationProcessorPlugin;
-use ProjectA\Zed\FrontendExporter\Business\FrontendExporterSettings as CoreYvesExportSettings;
+use ProjectA\Zed\FrontendExporter\Business\FrontendExporterSettings as CoreFrontendExporterSettings;
 use ProjectA\Zed\GlossaryExporter\Communication\Plugin\KeyBuilderAwareInterface;
 use ProjectA\Zed\GlossaryExporter\Communication\Plugin\KeyBuilderPlugin;
 use ProjectA\Zed\ProductCategorySearch\Communication\Plugin\ProductCategorySearchProcessorPlugin;
@@ -12,11 +12,11 @@ use ProjectA\Zed\ProductExporter\Communication\Plugin\ProductProcessorPlugin;
 use ProjectA\Zed\ProductSearch\Communication\Plugin\ProductProcessorPlugin as ProductSearchProcessorPlugin;
 
 /**
- * Class YvesExportSettings
+ * Class FrontendExporterSettings
  *
- * @package Pyz\Zed\YvesExport\Business
+ * @package Pyz\Zed\FrontendExporter\Business
  */
-class FrontendExporterSettings extends CoreYvesExportSettings
+class FrontendExporterSettings extends CoreFrontendExporterSettings
 {
     protected $locator;
 
