@@ -44,7 +44,7 @@ use ProjectA\Zed\FrontendExporter\Business\FrontendExporterFacade;
  *
  * @package Pyz\Zed\Installer\Business\Model
  */
-class Installer extends \ProjectA_Zed_Installer_Business_Model_Installer implements
+class Installer extends \ProjectA\Zed\Installer\Business\Model\Installer implements
     AclFacadeInterface,
     MiscFacadeInterface,
     CmsFacadeInterface,

@@ -68,20 +68,21 @@ class ProductCategoryMappingInstall implements DemoDataInstallInterface
     {
         /** @var \ProjectA\Zed\ProductCategory\Persistence\Propel\PacProductCategory $productCategory */
         foreach ($categoryNodeIds as $categoryNodeId) {
-            $touchedProduct = \ProjectA\Zed\YvesExport\Persistence\Propel\PacYvesExportTouchQuery::create()
+            $touchedProduct = \ProjectA\Zed\FrontendExporter\Persistence\Propel\PacFrontendExporterTouchQuery::create()
                 ->filterByItemId($categoryNodeId)
-                ->filterByExportType(\ProjectA\Zed\YvesExport\Persistence\Propel\Map\PacYvesExportTouchTableMap::COL_EXPORT_TYPE_SEARCH)
-                ->filterByItemEvent(\ProjectA\Zed\YvesExport\Persistence\Propel\Map\PacYvesExportTouchTableMap::COL_ITEM_EVENT_ACTIVE)
+                ->filterByExportType(\ProjectA\Zed\FrontendExporter\Persistence\Propel\Map\PacFrontendExporterTouchTableMap::COL_EXPORT_TYPE_SEARCH)
+                ->filterByItemEvent(\ProjectA\Zed\FrontendExporter\Persistence\Propel\Map\PacFrontendExporterTouchTableMap::COL_ITEM_EVENT_ACTIVE)
                 ->filterByItemType('product-category')
                 ->findOne();
 
             if (!$touchedProduct) {
-                $touchedProduct = new \ProjectA\Zed\YvesExport\Persistence\Propel\PacYvesExportTouch();
+                $touchedProduct = new \ProjectA\Zed\FrontendExporter\Persistence\Propel\PacFrontendExporterTouch();
             }
 
             $touchedProduct->setItemType('product-category');
-            $touchedProduct->setItemEvent(\ProjectA\Zed\YvesExport\Persistence\Propel\Map\PacYvesExportTouchTableMap::COL_ITEM_EVENT_ACTIVE);
-            $touchedProduct->setExportType(\ProjectA\Zed\YvesExport\Persistence\Propel\Map\PacYvesExportTouchTableMap::COL_EXPORT_TYPE_SEARCH);
+            $touchedProduct->setItemEvent(\ProjectA\Zed\FrontendExporter\Persistence\Propel\Map\PacFrontendExporterTouchTableMap::COL_ITEM_EVENT_ACTIVE);
+            $touchedProduct->setExportType(\ProjectA\Zed\FrontendExporter\Persistence\Propel\Map\PacFrontendExporterTouchTableMap::COL_EXPORT_TYPE_SEARCH);
+
             $touchedProduct->setTouched(new \DateTime());
             $touchedProduct->setItemId($categoryNodeId);
             $touchedProduct->save();
@@ -118,6 +119,7 @@ class ProductCategoryMappingInstall implements DemoDataInstallInterface
                 ->endUse()
             ->endUse()
             ->findOne();
+
         if ($categoryNodeEntity instanceof \ProjectA\Zed\CategoryTree\Persistence\Propel\PacCategoryNode) {
             return $categoryNodeEntity->getIdCategoryNode();
         }

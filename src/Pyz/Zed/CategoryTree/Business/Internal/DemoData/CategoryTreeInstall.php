@@ -151,21 +151,21 @@ class CategoryTreeInstall implements DemoDataInstallInterface
 
         /** @var \ProjectA\Zed\CategoryTree\Persistence\Propel\PacCategoryNode $node */
         foreach ($nodes as $node) {
-            $nodeTouched = \ProjectA\Zed\YvesExport\Persistence\Propel\PacYvesExportTouchQuery::create()
+            $nodeTouched = \ProjectA\Zed\FrontendExporter\Persistence\Propel\PacFrontendExporterTouchQuery::create()
                 ->filterByItemId($node->getIdCategoryNode())
-                ->filterByItemEvent(\ProjectA\Zed\YvesExport\Persistence\Propel\Map\PacYvesExportTouchTableMap::COL_ITEM_EVENT_ACTIVE)
+                ->filterByItemEvent(\ProjectA\Zed\FrontendExporter\Persistence\Propel\Map\PacFrontendExporterTouchTableMap::COL_ITEM_EVENT_ACTIVE)
                 ->filterByItemType('category-node')
-                ->filterByExportType(\ProjectA\Zed\YvesExport\Persistence\Propel\Map\PacYvesExportTouchTableMap::COL_EXPORT_TYPE_KEYVALUE)
+                ->filterByExportType(\ProjectA\Zed\FrontendExporter\Persistence\Propel\Map\PacFrontendExporterTouchTableMap::COL_EXPORT_TYPE_KEYVALUE)
                 ->findOne();
 
             if (!$nodeTouched) {
-                $nodeTouched = new \ProjectA\Zed\YvesExport\Persistence\Propel\PacYvesExportTouch();
+                $nodeTouched = new \ProjectA\Zed\FrontendExporter\Persistence\Propel\PacFrontendExporterTouch();
             }
 
             $nodeTouched
-                ->setExportType(\ProjectA\Zed\YvesExport\Persistence\Propel\Map\PacYvesExportTouchTableMap::COL_EXPORT_TYPE_KEYVALUE)
+                ->setExportType(\ProjectA\Zed\FrontendExporter\Persistence\Propel\Map\PacFrontendExporterTouchTableMap::COL_EXPORT_TYPE_KEYVALUE)
                 ->setItemType('category-node')
-                ->setItemEvent(\ProjectA\Zed\YvesExport\Persistence\Propel\Map\PacYvesExportTouchTableMap::COL_ITEM_EVENT_ACTIVE)
+                ->setItemEvent(\ProjectA\Zed\FrontendExporter\Persistence\Propel\Map\PacFrontendExporterTouchTableMap::COL_ITEM_EVENT_ACTIVE)
                 ->setItemId($node->getIdCategoryNode())
                 ->setTouched(new \DateTime())
                 ->save();
@@ -178,20 +178,20 @@ class CategoryTreeInstall implements DemoDataInstallInterface
      */
     protected function touchNavigation()
     {
-        $navigationTouched = \ProjectA\Zed\YvesExport\Persistence\Propel\PacYvesExportTouchQuery::create()
-            ->filterByItemEvent(\ProjectA\Zed\YvesExport\Persistence\Propel\Map\PacYvesExportTouchTableMap::COL_ITEM_EVENT_ACTIVE)
+        $navigationTouched = \ProjectA\Zed\FrontendExporter\Persistence\Propel\PacFrontendExporterTouchQuery::create()
+            ->filterByItemEvent(\ProjectA\Zed\FrontendExporter\Persistence\Propel\Map\PacFrontendExporterTouchTableMap::COL_ITEM_EVENT_ACTIVE)
             ->filterByItemType('navigation')
-            ->filterByExportType(\ProjectA\Zed\YvesExport\Persistence\Propel\Map\PacYvesExportTouchTableMap::COL_EXPORT_TYPE_KEYVALUE)
+            ->filterByExportType(\ProjectA\Zed\FrontendExporter\Persistence\Propel\Map\PacFrontendExporterTouchTableMap::COL_EXPORT_TYPE_KEYVALUE)
             ->findOne();
 
         if (!$navigationTouched) {
-            $navigationTouched = new \ProjectA\Zed\YvesExport\Persistence\Propel\PacYvesExportTouch();
+            $navigationTouched = new \ProjectA\Zed\FrontendExporter\Persistence\Propel\PacFrontendExporterTouch();
         }
 
         $navigationTouched
-            ->setExportType(\ProjectA\Zed\YvesExport\Persistence\Propel\Map\PacYvesExportTouchTableMap::COL_EXPORT_TYPE_KEYVALUE)
+            ->setExportType(\ProjectA\Zed\FrontendExporter\Persistence\Propel\Map\PacFrontendExporterTouchTableMap::COL_EXPORT_TYPE_KEYVALUE)
             ->setItemType('navigation')
-            ->setItemEvent(\ProjectA\Zed\YvesExport\Persistence\Propel\Map\PacYvesExportTouchTableMap::COL_ITEM_EVENT_ACTIVE)
+            ->setItemEvent(\ProjectA\Zed\FrontendExporter\Persistence\Propel\Map\PacFrontendExporterTouchTableMap::COL_ITEM_EVENT_ACTIVE)
             ->setItemId(1)
             ->setTouched(new \DateTime())
             ->save();
