@@ -5,7 +5,7 @@ namespace Pyz\Yves\Library\Controller;
 use Symfony\Component\Debug\Exception\FlattenException;
 use WebDriver\Exception;
 
-class ExceptionController extends \ProjectA\Yves\Application\Communication\Controller\ExceptionController
+class ExceptionController extends \SprykerCore\Yves\Application\Communication\Controller\ExceptionController
 {
     /**
      * @param FlattenException $exception
