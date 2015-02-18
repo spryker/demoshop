@@ -5,7 +5,7 @@ namespace Pyz\Yves\Catalog\Business;
 use ProjectA\Yves\Catalog\Business\DependencyContainer as CoreDependencyContainer;
 
 /**
- * Class YvesExportDependencyContainer
+ * Class FrontendExporterDependencyContainer
  * @package Pyz\Yves\Catalog\Business
  */
 class DependencyContainer extends CoreDependencyContainer

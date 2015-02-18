@@ -26,6 +26,8 @@ use ProjectA\Zed\Glossary\Business\GlossaryFacade;
 use ProjectA\Zed\Kernel\Locator;
 use ProjectA\Zed\Product\Business\ProductFacade;
 use ProjectA\Zed\ProductSearch\Business\ProductSearchFacade;
+use ProjectA\Zed\Stock\Business\StockFacade;
+use ProjectA\Zed\YvesExport\Business\YvesExportFacade;
 
 /**
  * Class Installer
