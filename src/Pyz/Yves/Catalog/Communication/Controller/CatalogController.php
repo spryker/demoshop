@@ -2,59 +2,37 @@
 
 namespace Pyz\Yves\Catalog\Communication\Controller;
 
-use ProjectA\Shared\Library\Config;
-use ProjectA\Shared\System\SystemConfig;
+use SprykerCore\Yves\Application\Communication\Controller\AbstractController;
 use Pyz\Yves\Library\Tracking\DataProvider\ProductDetailProvider;
 use Pyz\Yves\Library\Tracking\PageTypeInterface;
-use ProjectA\Yves\Catalog\Communication\Controller\CatalogController as CoreCatalogController;
-use Pyz\Yves\Catalog\Business\Model\FacetConfig;
 use ProjectA\Yves\Library\Tracking\Tracking;
 use Symfony\Component\HttpFoundation\Request;
 
 /**
  * @package Pyz\Yves\Catalog\Communication\Controller
  */
-class CatalogController extends CoreCatalogController
+class CatalogController extends AbstractController
 {
     /**
-     * @param array       $category
-     * @param FacetConfig $facetConfig
-     * @param Request     $request
+     * @param array $category
+     * @param Request $request
      * @return array
-     * @throws \Exception
      */
-    public function indexAction(array $category, FacetConfig $facetConfig, Request $request)
+    public function indexAction(array $category, Request $request)
     {
-        $search = $this->getFactory()->createCatalogDependencyContainer()->createFacetSearch(
-            $request,
-            $this->getElasticsearchIndex(),
-            $this->getStorageKeyValue(),
-            $category,
-            $facetConfig
-        );
-        $result = $search->getResult();
+        $search = $this->locator->catalog()->sdk()->createFacetSearch($request, $category);
+        $categoryTree = $this->locator->categoryExporter()->sdk()->getTreeFromCategory($category, $this->getLocale());
 
-        $categoryTreeBuilder = $this->getFactory()
-            ->createCategoryExporterDependencyContainer()
-            ->createSubtreeBuilder();
-        $categoryTree = $categoryTreeBuilder->createFromCategory($category, $this->getLocale());
-
-        return array_merge($result, ['category' => $category, 'categoryTree' => $categoryTree]);
+        return array_merge($search->getResult(), ['category' => $category, 'categoryTree' => $categoryTree]);
     }
 
     /**
-     * @param Request     $request
-     * @param FacetConfig $facetConfig
+     * @param Request $request
      * @return array
      */
-    public function fulltextSearchAction(Request $request, FacetConfig $facetConfig)
+    public function fulltextSearchAction(Request $request)
     {
-        $search = $this->getFactory()->createCatalogDependencyContainer()->createFulltextSearch(
-            $request,
-            $this->getElasticsearchIndex(),
-            $this->getStorageKeyValue(),
-            $facetConfig
-        );
+        $search = $this->locator->catalog()->sdk()->createFulltextSearch($request);
 
         return array_merge($search->getResult(), ['searchString' => $request->get('q')]);
     }
@@ -69,19 +47,12 @@ class CatalogController extends CoreCatalogController
             ->setPageType(PageTypeInterface::PAGE_TYPE_PRODUCT_DETAIL)
             ->buildTracking()
             ->setValue(ProductDetailProvider::KEY_PRODUCT_DETAIL, $product);
+//        $catalogModel = Factory::getInstance()->createCatalogModelCatalog();
+//        $subProducts = $catalogModel->getSubProducts($product, $this->getApplication()->getStorageKeyValue());
 
-        return parent::detailAction($product);
-    }
-
-    /**
-     * @return \Elastica\Index
-     * @throws \Exception
-     */
-    protected function getElasticsearchIndex()
-    {
-        $indexName = Config::get(SystemConfig::ELASTICA_PARAMETER__INDEX_NAME);
-        $searchClient = $this->getStorageElasticsearch();
-
-        return $searchClient->getIndex($indexName);
+        return [
+            'product' => $product,
+//            'subProducts' => $subProducts
+        ];
     }
 }

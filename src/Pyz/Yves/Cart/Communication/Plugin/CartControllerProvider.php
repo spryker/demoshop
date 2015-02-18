@@ -40,16 +40,11 @@ class CartControllerProvider extends \SprykerCore\Yves\Application\Communication
             ->assert('sku', '[a-zA-Z0-9-_]+') // sku
             ->convert('cartItem', [$this, 'convertCartItem']);
 
-        $this->createGetController(
-            '/cart/quantity/{sku}/{uid}/{absolute}',
-            self::ROUTE_CART_CHANGE_QUANTITY,
-            'Cart',
-            'Cart',
-            'change'
-        )->assert('uid', '[a-zA-Z0-9-_]+') // uid
-         ->assert('sku', '[a-zA-Z0-9-_]+') // sku
-         ->assert('absolute', '[0-1-_]+') // absolute
-         ->convert('cartItem', [$this, 'convertCartItem']);
+        $this->createGetController('/cart/quantity/{sku}/{uid}/{absolute}', self::ROUTE_CART_CHANGE_QUANTITY, 'Cart', 'Cart', 'change')
+            ->assert('uid', '[a-zA-Z0-9-_]+') // uid
+            ->assert('sku', '[a-zA-Z0-9-_]+') // sku
+            ->assert('absolute', '[0-1-_]+') // absolute
+            ->convert('cartItem', [$this, 'convertCartItem']);
 
         $this->createGetController('/cart/coupon/add', self::ROUTE_CART_COUPON_ADD, 'Cart', 'Coupon', 'add')
             ->convert(
@@ -59,13 +54,7 @@ class CartControllerProvider extends \SprykerCore\Yves\Application\Communication
                 }
             );
 
-        $this->createGetController(
-            '/cart/coupon/remove/{couponCode}',
-            self::ROUTE_CART_COUPON_REMOVE,
-            'Cart',
-            'Coupon',
-            'remove'
-        );
+        $this->createGetController('/cart/coupon/remove/{couponCode}', self::ROUTE_CART_COUPON_REMOVE, 'Cart', 'Coupon', 'remove');
 
         $this->createGetController('/cart/coupon/clear', self::ROUTE_CART_COUPON_CLEAR, 'Cart', 'Coupon', 'clear');
     }

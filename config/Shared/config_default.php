@@ -45,13 +45,13 @@ $config[SystemConfig::HOST_YVES]
     = $config[SystemConfig::HOST_SSL_YVES]
     = $config[SystemConfig::HOST_SSL_STATIC_ASSETS]
     = $config[SystemConfig::HOST_SSL_STATIC_MEDIA]
-    = 'www-development.project-yz.de';
+    = 'spryker-hackathon.dev';
 
 $config[SystemConfig::HOST_ZED_GUI]
     = $config[SystemConfig::HOST_ZED_API]
     = $config[SystemConfig::HOST_SSL_ZED_GUI]
     = $config[SystemConfig::HOST_SSL_ZED_API]
-    = 'zed-development.project-yz.de';
+    = 'zed.spryker-hackathon.dev';
 
 $config[SystemConfig::LOG_LEVEL] = Monolog\Logger::INFO;
 $config[SystemConfig::LOG_PROPEL_SQL] = true;
