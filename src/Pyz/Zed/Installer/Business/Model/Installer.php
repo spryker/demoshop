@@ -32,16 +32,16 @@ use \ProjectA\Deprecated\Payone\Business\Dependency\PayoneFacadeTrait;
 use ProjectA\Zed\Glossary\Business\GlossaryFacade;
 use ProjectA\Zed\Kernel\Locator;
 use ProjectA\Zed\ProductSearch\Business\ProductSearchFacade;
-use ProjectA\Zed\YvesExport\Business\YvesExportFacade;
+use ProjectA\Zed\FrontendExporter\Business\FrontendExporterFacade;
 use ProjectA\Zed\Price\Business\PriceFacade;
+
 
 /**
  * Class Installer
  *
  * @package Pyz\Zed\Installer\Business\Model
  */
-class Installer extends \ProjectA_Zed_Installer_Business_Model_Installer
-    implements
+class Installer extends \ProjectA\Zed\Installer\Business\Model\Installer implements
     AclFacadeInterface,
     MiscFacadeInterface,
     CmsFacadeInterface,
@@ -80,8 +80,8 @@ class Installer extends \ProjectA_Zed_Installer_Business_Model_Installer
      */
     protected function getInstaller()
     {
-        /** @var YvesExportFacade $yvesExportFacade */
-        $yvesExportFacade = $this->locator->yvesExport()->facade();
+        /** @var FrontendExporterFacade $yvesExportFacade */
+        $yvesExportFacade = $this->locator->frontendExporter()->facade();
         /** @var ProductSearchFacade $productSearchFacade */
         $productSearchFacade = $this->locator->productSearch()->facade();
         /** @var GlossaryFacade $glossaryFacade */
