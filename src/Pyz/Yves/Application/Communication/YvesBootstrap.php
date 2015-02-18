@@ -28,7 +28,6 @@ use Pyz\Yves\Library\Silex\Provider\TrackingServiceProvider;
 use SprykerCore\Yves\Application\Communication\Plugin\ServiceProvider\CookieServiceProvider;
 use SprykerCore\Yves\Application\Communication\Plugin\ServiceProvider\MonologServiceProvider;
 use SprykerCore\Yves\Application\Communication\Plugin\ServiceProvider\SessionServiceProvider;
-use SprykerCore\Yves\Application\Communication\Plugin\ServiceProvider\StorageServiceProvider;
 use SprykerCore\Yves\Application\Communication\Plugin\ServiceProvider\ExceptionServiceProvider;
 use SprykerFeature\Sdk\Glossary\KeyBuilder\SdkGlossaryKeyBuilder;
 use SprykerFeature\Yves\Glossary\KVTranslatorPlugin;
@@ -135,7 +134,7 @@ class YvesBootstrap extends Bootstrap
             new SecurityServiceProvider(),
             new RememberMeServiceProvider(),
             new RoutingServiceProvider(),
-            new StorageServiceProvider(),
+//            new StorageServiceProvider(),
             $translationServiceProvider,
             new ValidatorServiceProvider(),
             new FormServiceProvider(),
