@@ -11,10 +11,10 @@ use ProjectA\Shared\Library\Config;
 use ProjectA\Shared\Library\Storage\StorageInstanceBuilder;
 use ProjectA\Shared\System\SystemConfig;
 use ProjectA\Shared\Yves\YvesConfig;
+use ProjectA\Yves\Cms\Communication\Plugin\CmsControllerProvider;
 use SprykerCore\Yves\Application\Communication\Plugin\ControllerProviderInterface;
 
 use ProjectA\Yves\Checkout\Communication\Plugin\CheckoutControllerProvider;
-use ProjectA\Yves\Cms\Communication\CmsControllerProvider;
 use ProjectA\Yves\Customer\Business\Model\Security\SecurityServiceProvider;
 use ProjectA\Yves\Customer\Communication\Plugin\CustomerControllerProvider;
 use Pyz\Yves\Cart\Communication\Plugin\CartControllerProvider;
@@ -29,6 +29,7 @@ use SprykerCore\Yves\Application\Communication\Plugin\ServiceProvider\CookieServ
 use SprykerCore\Yves\Application\Communication\Plugin\ServiceProvider\MonologServiceProvider;
 use SprykerCore\Yves\Application\Communication\Plugin\ServiceProvider\SessionServiceProvider;
 use SprykerCore\Yves\Application\Communication\Plugin\ServiceProvider\ExceptionServiceProvider;
+use SprykerFeature\Sdk\Cms\KeyBuilder\SdkCmsUrlKeyBuilder;
 use SprykerFeature\Sdk\Glossary\KeyBuilder\SdkGlossaryKeyBuilder;
 use SprykerFeature\Yves\Glossary\KVTranslatorPlugin;
 use SprykerCore\Yves\Application\Communication\Plugin\ServiceProvider\TwigServiceProvider;
@@ -162,7 +163,7 @@ class YvesBootstrap extends Bootstrap
             new CheckoutControllerProvider($ssl),
             new CustomerControllerProvider($ssl),
             new NewsletterControllerProvider(),
-//            new CmsControllerProvider(),
+            new CmsControllerProvider(),
         ];
     }
 
@@ -184,6 +185,7 @@ class YvesBootstrap extends Bootstrap
             ,
             $locator->catalog()->pluginSearchRouter()->createSearchRouter($app, false),
             $locator->cart()->pluginCartRouter()->createCartRouter($app, false),
+            $locator->cms()->pluginCmsRouter()->createCmsRouter($app, false, $locator, StorageInstanceBuilder::getKvStorageReadInstance(), new SdkCmsUrlKeyBuilder()),
             /*
              * SilexRouter should come last, as it is not the fastest one if it can
              * not find a matching route (lots of magic)
