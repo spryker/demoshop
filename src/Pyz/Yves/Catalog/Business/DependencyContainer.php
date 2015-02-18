@@ -2,13 +2,13 @@
 
 namespace Pyz\Yves\Catalog\Business;
 
-use ProjectA\Yves\Catalog\Business\DependencyContainer as CoreDependencyContainer;
+use SprykerFeature\Yves\Catalog\CatalogDependencyContainer;
 
 /**
  * Class FrontendExporterDependencyContainer
  * @package Pyz\Yves\Catalog\Business
  */
-class DependencyContainer extends CoreDependencyContainer
+class DependencyContainer extends CatalogDependencyContainer
 {
     /**
      * @return Creator\CategoryResourceCreator

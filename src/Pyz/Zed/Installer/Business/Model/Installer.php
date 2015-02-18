@@ -47,7 +47,6 @@ use ProjectA\Zed\Stock\Business\StockFacade;
 class Installer extends \ProjectA\Zed\Installer\Business\Model\Installer implements
     AclFacadeInterface,
     MiscFacadeInterface,
-    CmsFacadeInterface,
     SalesFacadeInterface,
     ProductImageFacadeInterface,
     InvoiceFacadeInterface,
@@ -58,7 +57,6 @@ class Installer extends \ProjectA\Zed\Installer\Business\Model\Installer impleme
     use AclFacadeTrait;
     use MiscFacadeTrait;
     use PriceFacadeTrait;
-    use CmsFacadeTrait;
     use SalesFacadeTrait;
     use InvoiceFacadeTrait;
     use DocumentFacadeTrait;
@@ -94,7 +92,7 @@ class Installer extends \ProjectA\Zed\Installer\Business\Model\Installer impleme
         return [
             $this->facadeAcl->createInternalInstall(),
 //            $this->facadeCustomer->createInternalInstall(),
-            $this->facadeCms->createInternalInstall(),
+            //TODO insert cms installer
             // TODO: installer broken
 //            $this->facadeCatalog->createInternalInstall(),
 //            $this->facadeCategory->createInternalInstall(),
