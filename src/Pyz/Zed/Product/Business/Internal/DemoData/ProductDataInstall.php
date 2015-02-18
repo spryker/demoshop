@@ -124,7 +124,13 @@ class ProductDataInstall implements DemoDataInstallInterface
 
                 $product->save();
 
-                $touchFacade->touchActive('product', $product->getProductId());
+                $touch = new \ProjectA_Zed_FrontendExporter_Persistence_Propel_PacFrontendExporterTouch();
+                $touch->setItemType('product');
+                $touch->setItemEvent(\ProjectA_Zed_FrontendExporter_Persistence_Propel_PacFrontendExporterTouchPeer::ITEM_EVENT_ACTIVE);
+                $touch->setExportType(\ProjectA_Zed_FrontendExporter_Persistence_Propel_PacFrontendExporterTouchPeer::EXPORT_TYPE_KEYVALUE);
+                $touch->setTouched(new \DateTime());
+                $touch->setItemId($product->getProductId());
+                $touch->save();
             }
 
         }

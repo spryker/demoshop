@@ -8,29 +8,24 @@ use ProjectA\Shared\Application\Business\Bootstrap;
 use ProjectA\Shared\Application\Communication\Plugin\ServiceProvider\RoutingServiceProvider;
 use ProjectA\Shared\Application\Communication\Plugin\ServiceProvider\UrlGeneratorServiceProvider;
 use ProjectA\Shared\Library\Config;
-use ProjectA\Shared\Library\Storage\StorageInstanceBuilder;
 use ProjectA\Shared\System\SystemConfig;
 use ProjectA\Shared\Yves\YvesConfig;
 use SprykerCore\Yves\Application\Communication\Plugin\ControllerProviderInterface;
 
-use ProjectA\Yves\Checkout\Communication\Plugin\CheckoutControllerProvider;
+use Pyz\Yves\Checkout\Communication\Plugin\CheckoutControllerProvider;
 use ProjectA\Yves\Customer\Business\Model\Security\SecurityServiceProvider;
 use ProjectA\Yves\Customer\Communication\Plugin\CustomerControllerProvider;
 use Pyz\Yves\Cart\Communication\Plugin\CartControllerProvider;
 use SprykerCore\Yves\Kernel\Locator;
 use ProjectA\Yves\Library\Asset\AssetManager;
-use SprykerCore\Yves\Application\Business\Twig\YvesExtension;
 use Pyz\Yves\Newsletter\Communication\Plugin\NewsletterControllerProvider;
 use Pyz\Yves\Application\Communication\Plugin\ApplicationControllerProvider;
-use Pyz\Yves\Library\Silex\Provider\TrackingServiceProvider;
+use SprykerCore\Yves\Application\Business\Twig\YvesExtension;
 
 use SprykerCore\Yves\Application\Communication\Plugin\ServiceProvider\CookieServiceProvider;
 use SprykerCore\Yves\Application\Communication\Plugin\ServiceProvider\MonologServiceProvider;
 use SprykerCore\Yves\Application\Communication\Plugin\ServiceProvider\SessionServiceProvider;
-use SprykerCore\Yves\Application\Communication\Plugin\ServiceProvider\StorageServiceProvider;
 use SprykerCore\Yves\Application\Communication\Plugin\ServiceProvider\ExceptionServiceProvider;
-use SprykerFeature\Sdk\Glossary\KeyBuilder\SdkGlossaryKeyBuilder;
-use SprykerFeature\Yves\Glossary\KVTranslatorPlugin;
 use SprykerCore\Yves\Application\Communication\Plugin\ServiceProvider\TwigServiceProvider;
 use SprykerCore\Yves\Application\Communication\Plugin\ServiceProvider\YvesLoggingServiceProvider;
 
@@ -118,11 +113,6 @@ class YvesBootstrap extends Bootstrap
             ->pluginTranslationService()
             ->createTranslationServiceProvider();
 
-        $translator = new KVTranslatorPlugin();
-        $keyBuilder = new SdkGlossaryKeyBuilder();
-        $translator->setKeyBuilder($keyBuilder);
-        $translator->setKeyValueReader(StorageInstanceBuilder::getKvStorageReadInstance());
-
         $providers = [
             new ExceptionServiceProvider('\Pyz\Yves\Library\Controller\ExceptionController'),
             new YvesLoggingServiceProvider(),
@@ -134,12 +124,11 @@ class YvesBootstrap extends Bootstrap
             new SecurityServiceProvider(),
             new RememberMeServiceProvider(),
             new RoutingServiceProvider(),
-            new StorageServiceProvider(),
             $translationServiceProvider,
             new ValidatorServiceProvider(),
             new FormServiceProvider(),
             new TwigServiceProvider(),
-            new TrackingServiceProvider()
+//            new TrackingServiceProvider()
         ];
 
         if (\ProjectA_Shared_Library_Environment::isDevelopment()) {

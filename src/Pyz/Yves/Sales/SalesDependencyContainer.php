@@ -6,7 +6,7 @@ use ProjectA\Shared\Payment\Transfer\PaymentMethodCollection;
 use Pyz\Yves\Sales\Form\BillingAddressType;
 use Pyz\Yves\Sales\Form\OrderType;
 use Pyz\Yves\Sales\Form\ShippingAddressType;
-use SprykerCore\Yves\Kernel\Communication\AbstractDependencyContainer;
+use SprykerCore\Yves\Kernel\AbstractDependencyContainer;
 
 /**
  * Class SalesDependencyContainer
@@ -22,10 +22,10 @@ class SalesDependencyContainer extends AbstractDependencyContainer
     {
         return $this->factory->create(
             'Form\\OrderType',
+            $this->locator,
             $this->createBillingAddressTypeForm(),
             $this->createShippingAddressTypeForm(),
-            $this->locator->payment()->pluginPaymentTypeForm()->createPaymentTypeForm($paymentMethods),
-            $this->locator
+            $this->locator->payment()->pluginPaymentTypeForm()->createPaymentTypeForm($paymentMethods)
         );
     }
 
