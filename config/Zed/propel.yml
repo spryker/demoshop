@@ -28,8 +28,7 @@ propel:
 
   paths:
       phpDir: /data/shop/development/current
-      propelGenDir: %phpDir%/src/Generated/Propel
-      sqlDir: %propelGenDir%/Sql
-      migrationDir: %propelGenDir%/Migration
-      phpConfDir: %propelGenDir%/Config
-      schemaDir: %propelGenDir%/Schema
+      sqlDir: %phpDir%/src/Generated/Propel/Sql
+      migrationDir: %phpDir%/src/Generated/Propel/Migration
+      phpConfDir: %phpDir%/src/Generated/Propel/Config
+#      schemaDir: %phpDir%/src/Generated/Propel/Schema
