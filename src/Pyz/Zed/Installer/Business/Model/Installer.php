@@ -80,8 +80,9 @@ class Installer extends \ProjectA\Zed\Installer\Business\Model\Installer impleme
      */
     protected function getInstaller()
     {
-        /** @var FrontendExporterFacade $yvesExportFacade */
-        $yvesExportFacade = $this->locator->frontendExporter()->facade();
+
+        /** @var FrontendExporterFacade $frontendExporterFacade */
+        $frontendExporterFacade = $this->locator->frontendExporter()->facade();
         /** @var ProductSearchFacade $productSearchFacade */
         $productSearchFacade = $this->locator->productSearch()->facade();
         /** @var GlossaryFacade $glossaryFacade */
@@ -102,7 +103,7 @@ class Installer extends \ProjectA\Zed\Installer\Business\Model\Installer impleme
             $this->facadeInvoice->createInternalInstall(),
             $this->facadePayone->createInternalInstall(),
             $this->locator->product()->facade()->createInternalInstall(),
-            $yvesExportFacade->createInternalInstall(),
+            $frontendExporterFacade->createInternalInstall(),
             $productSearchFacade->createInternalInstall(),
             $glossaryFacade->getGlossaryInstaller(),
             $priceFacade->createInternalInstall()

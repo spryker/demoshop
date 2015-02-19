@@ -1,7 +1,8 @@
 <?php
 
-namespace Pyz\Yves\Catalog\Business\Model;
-use ProjectA\Yves\Catalog\Business\Model\FacetConfig as CoreFacetConfig;
+namespace Pyz\Sdk\Catalog\Model;
+
+use SprykerFeature\Sdk\Catalog\Model\FacetConfig as CoreFacetConfig;
 
 /**
  * @package Pyz\Yves\Catalog\Business\Model
