@@ -99,7 +99,6 @@ class CategoryTreeInstall implements DemoDataInstallInterface
     {
         $category = $this->categoryFacade->createCategory($rawNode[self::CATEGORY_NAME], $this->locale);
         $this->categoryFacade->createCategoryNode($category->getIdCategory(), $this->locale);
-        $this->touchNavigation();
     }
 
     /**
@@ -110,7 +109,6 @@ class CategoryTreeInstall implements DemoDataInstallInterface
         $category = $this->categoryFacade->createCategory($rawNode[self::CATEGORY_NAME], $this->locale);
         $parentId = $this->getParentId($rawNode);
         $this->categoryFacade->createCategoryNode($category->getIdCategory(), $this->locale, $parentId);
-        $this->touchCategory($category->getIdCategory());
     }
 
     /**
@@ -137,63 +135,5 @@ class CategoryTreeInstall implements DemoDataInstallInterface
     {
         // TODO this must be injected
         return (new Locator())->categoryTree()->queryContainer();
-    }
-
-    /**
-     * @param int $categoryId
-     *
-     * @throws \Exception
-     * @throws \PropelException
-     */
-    protected function touchCategory($categoryId)
-    {
-        $nodes = $this->getQueryContainer()->getNodesByCategoryId($categoryId)->find();
-
-        /** @var \ProjectA\Zed\CategoryTree\Persistence\Propel\PacCategoryNode $node */
-        foreach ($nodes as $node) {
-            $nodeTouched = \ProjectA\Zed\FrontendExporter\Persistence\Propel\PacFrontendExporterTouchQuery::create()
-                ->filterByItemId($node->getIdCategoryNode())
-                ->filterByItemEvent(\ProjectA\Zed\FrontendExporter\Persistence\Propel\Map\PacFrontendExporterTouchTableMap::COL_ITEM_EVENT_ACTIVE)
-                ->filterByItemType('category-node')
-                ->filterByExportType(\ProjectA\Zed\FrontendExporter\Persistence\Propel\Map\PacFrontendExporterTouchTableMap::COL_EXPORT_TYPE_KEYVALUE)
-                ->findOne();
-
-            if (!$nodeTouched) {
-                $nodeTouched = new \ProjectA\Zed\FrontendExporter\Persistence\Propel\PacFrontendExporterTouch();
-            }
-
-            $nodeTouched
-                ->setExportType(\ProjectA\Zed\FrontendExporter\Persistence\Propel\Map\PacFrontendExporterTouchTableMap::COL_EXPORT_TYPE_KEYVALUE)
-                ->setItemType('category-node')
-                ->setItemEvent(\ProjectA\Zed\FrontendExporter\Persistence\Propel\Map\PacFrontendExporterTouchTableMap::COL_ITEM_EVENT_ACTIVE)
-                ->setItemId($node->getIdCategoryNode())
-                ->setTouched(new \DateTime())
-                ->save();
-        }
-    }
-
-    /**
-     * @throws \Exception
-     * @throws \PropelException
-     */
-    protected function touchNavigation()
-    {
-        $navigationTouched = \ProjectA\Zed\FrontendExporter\Persistence\Propel\PacFrontendExporterTouchQuery::create()
-            ->filterByItemEvent(\ProjectA\Zed\FrontendExporter\Persistence\Propel\Map\PacFrontendExporterTouchTableMap::COL_ITEM_EVENT_ACTIVE)
-            ->filterByItemType('navigation')
-            ->filterByExportType(\ProjectA\Zed\FrontendExporter\Persistence\Propel\Map\PacFrontendExporterTouchTableMap::COL_EXPORT_TYPE_KEYVALUE)
-            ->findOne();
-
-        if (!$navigationTouched) {
-            $navigationTouched = new \ProjectA\Zed\FrontendExporter\Persistence\Propel\PacFrontendExporterTouch();
-        }
-
-        $navigationTouched
-            ->setExportType(\ProjectA\Zed\FrontendExporter\Persistence\Propel\Map\PacFrontendExporterTouchTableMap::COL_EXPORT_TYPE_KEYVALUE)
-            ->setItemType('navigation')
-            ->setItemEvent(\ProjectA\Zed\FrontendExporter\Persistence\Propel\Map\PacFrontendExporterTouchTableMap::COL_ITEM_EVENT_ACTIVE)
-            ->setItemId(1)
-            ->setTouched(new \DateTime())
-            ->save();
     }
 }

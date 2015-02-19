@@ -2,7 +2,9 @@
 
 namespace Pyz\Zed\Product\Business\Internal\DemoData;
 
+use Generated\Zed\Ide\AutoCompletion;
 use ProjectA\Zed\Console\Business\Model\Console;
+use ProjectA\Zed\Kernel\Locator;
 use ProjectA\Zed\Library\Business\DemoDataInstallInterface;
 use ProjectA\Zed\Library\Import\Reader\CsvFileReader;
 
@@ -87,6 +89,11 @@ class ProductDataInstall implements DemoDataInstallInterface
      */
     protected function createProduct()
     {
+        //TODO inject
+        /** @var AutoCompletion $locator */
+        $locator = new Locator();
+        $touchFacade = $locator->touch()->facade();
+
         foreach ($this->getProductsFromCsv() as $p) {
             $sku = $p['sku'];
             $abstractProductQuery = new \ProjectA\Zed\Product\Persistence\Propel\PacAbstractProductQuery();

@@ -2,7 +2,9 @@
 
 namespace Pyz\Zed\ProductCategory\Business\Internal\DemoData;
 
+use Generated\Zed\Ide\AutoCompletion;
 use ProjectA\Zed\Console\Business\Model\Console;
+use ProjectA\Zed\Kernel\Locator;
 use ProjectA\Zed\Library\Business\DemoDataInstallInterface;
 use ProjectA\Zed\Library\Import\Reader\CsvFileReader;
 
@@ -66,26 +68,13 @@ class ProductCategoryMappingInstall implements DemoDataInstallInterface
      */
     protected function touchProductCategories(array $categoryNodeIds)
     {
+        /** @var AutoCompletion $locator */
+        $locator = new Locator();
+        $touchFacade = $locator->touch()->facade();
+
         /** @var \ProjectA\Zed\ProductCategory\Persistence\Propel\PacProductCategory $productCategory */
         foreach ($categoryNodeIds as $categoryNodeId) {
-            $touchedProduct = \ProjectA\Zed\FrontendExporter\Persistence\Propel\PacFrontendExporterTouchQuery::create()
-                ->filterByItemId($categoryNodeId)
-                ->filterByExportType(\ProjectA\Zed\FrontendExporter\Persistence\Propel\Map\PacFrontendExporterTouchTableMap::COL_EXPORT_TYPE_SEARCH)
-                ->filterByItemEvent(\ProjectA\Zed\FrontendExporter\Persistence\Propel\Map\PacFrontendExporterTouchTableMap::COL_ITEM_EVENT_ACTIVE)
-                ->filterByItemType('product-category')
-                ->findOne();
-
-            if (!$touchedProduct) {
-                $touchedProduct = new \ProjectA\Zed\FrontendExporter\Persistence\Propel\PacFrontendExporterTouch();
-            }
-
-            $touchedProduct->setItemType('product-category');
-            $touchedProduct->setItemEvent(\ProjectA\Zed\FrontendExporter\Persistence\Propel\Map\PacFrontendExporterTouchTableMap::COL_ITEM_EVENT_ACTIVE);
-            $touchedProduct->setExportType(\ProjectA\Zed\FrontendExporter\Persistence\Propel\Map\PacFrontendExporterTouchTableMap::COL_EXPORT_TYPE_SEARCH);
-
-            $touchedProduct->setTouched(new \DateTime());
-            $touchedProduct->setItemId($categoryNodeId);
-            $touchedProduct->save();
+            $touchFacade->touchActive('product-category', $categoryNodeId);
         }
     }
 

@@ -2,7 +2,9 @@
 
 namespace Pyz\Zed\ProductSearch\Business\Internal\DemoData;
 
+use Generated\Zed\Ide\AutoCompletion;
 use ProjectA\Zed\Console\Business\Model\Console;
+use ProjectA\Zed\Kernel\Locator;
 use ProjectA\Zed\Library\Business\DemoDataInstallInterface;
 
 /**
@@ -160,28 +162,14 @@ class ProductAttributeMappingInstall implements DemoDataInstallInterface
     protected function makeProductsSearchable()
     {
         $products = \ProjectA\Zed\Product\Persistence\Propel\PacProductQuery::create()->find();
+        /** @var AutoCompletion $locator */
+        $locator = new Locator();
+
+        $touchFacade = $locator->touch()->facade();
 
         /** @var \ProjectA\Zed\Product\Persistence\Propel\PacProduct $product */
         foreach ($products as $product) {
-            $touchedProduct = \ProjectA\Zed\FrontendExporter\Persistence\Propel\PacFrontendExporterTouchQuery::create()
-                ->filterByItemId($product->getProductId())
-                ->filterByExportType(\ProjectA\Zed\FrontendExporter\Persistence\Propel\Map\PacFrontendExporterTouchTableMap::COL_EXPORT_TYPE_SEARCH)
-                ->filterByItemEvent(\ProjectA\Zed\FrontendExporter\Persistence\Propel\Map\PacFrontendExporterTouchTableMap::COL_ITEM_EVENT_ACTIVE)
-                ->filterByItemType('product')
-                ->findOne();
-
-            if (!$touchedProduct) {
-                $touchedProduct = new \ProjectA\Zed\FrontendExporter\Persistence\Propel\PacFrontendExporterTouch();
-            }
-
-            $touchedProduct->setItemType('product');
-
-            $touchedProduct->setItemEvent(\ProjectA\Zed\FrontendExporter\Persistence\Propel\Map\PacFrontendExporterTouchTableMap::COL_ITEM_EVENT_ACTIVE);
-            $touchedProduct->setExportType(\ProjectA\Zed\FrontendExporter\Persistence\Propel\Map\PacFrontendExporterTouchTableMap::COL_EXPORT_TYPE_SEARCH);
-
-            $touchedProduct->setTouched(new \DateTime());
-            $touchedProduct->setItemId($product->getProductId());
-            $touchedProduct->save();
+            $touchFacade->touchActive('searchableProduct', $product->getProductId());
         }
     }
 }
