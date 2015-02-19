@@ -135,7 +135,7 @@ class YvesBootstrap extends Bootstrap
             new SecurityServiceProvider(),
             new RememberMeServiceProvider(),
             new RoutingServiceProvider(),
-            //new StorageServiceProvider(),
+//            new StorageServiceProvider(),
             $translationServiceProvider,
             new ValidatorServiceProvider(),
             new FormServiceProvider(),

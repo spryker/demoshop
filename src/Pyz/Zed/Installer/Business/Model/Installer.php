@@ -38,18 +38,15 @@ use ProjectA\Zed\Glossary\Business\GlossaryFacade;
 use ProjectA\Zed\Kernel\Locator;
 use ProjectA\Zed\ProductSearch\Business\ProductSearchFacade;
 use ProjectA\Zed\Stock\Business\StockFacade;
-use ProjectA\Zed\YvesExport\Business\YvesExportFacade;
 
 /**
  * Class Installer
  *
  * @package Pyz\Zed\Installer\Business\Model
  */
-class Installer extends \ProjectA_Zed_Installer_Business_Model_Installer
-    implements
+class Installer extends \ProjectA\Zed\Installer\Business\Model\Installer implements
     AclFacadeInterface,
     MiscFacadeInterface,
-    CmsFacadeInterface,
     SalesFacadeInterface,
     ProductImageFacadeInterface,
     InvoiceFacadeInterface,
@@ -60,7 +57,6 @@ class Installer extends \ProjectA_Zed_Installer_Business_Model_Installer
     use AclFacadeTrait;
     use MiscFacadeTrait;
     use PriceFacadeTrait;
-    use CmsFacadeTrait;
     use SalesFacadeTrait;
     use InvoiceFacadeTrait;
     use DocumentFacadeTrait;
@@ -96,7 +92,7 @@ class Installer extends \ProjectA_Zed_Installer_Business_Model_Installer
         return [
             $this->facadeAcl->createInternalInstall(),
 //            $this->facadeCustomer->createInternalInstall(),
-            $this->facadeCms->createInternalInstall(),
+            //TODO insert cms installer
             // TODO: installer broken
 //            $this->facadeCatalog->createInternalInstall(),
 //            $this->facadeCategory->createInternalInstall(),
