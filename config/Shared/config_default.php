@@ -87,31 +87,39 @@ $config[YvesConfig::YVES_SESSION_NAME] = 'yves_session';
 $config[YvesConfig::YVES_SESSION_COOKIE_DOMAIN] = $config[SystemConfig::HOST_YVES];
 $config[YvesConfig::YVES_ERROR_PAGE] = APPLICATION_ROOT_DIR.'/static/public/Yves/errorpage/error.html';
 
-$config[SystemConfig::PROPEL] = array(
-    'propel.project.dir' =>
-        APPLICATION_SOURCE_DIR . '/Generated/Zed/PropelGen/' . \ProjectA_Shared_Library_Store::getInstance()->getStoreName() . '/',
-    'propel.schema.dir' =>
-        APPLICATION_SOURCE_DIR . '/Generated/Zed/PropelGen/' . \ProjectA_Shared_Library_Store::getInstance()->getStoreName() . '/Schema',
-    'propel.php.dir' => APPLICATION_ROOT_DIR,
-    'propel.gen.dir' => APPLICATION_SOURCE_DIR . '/Generated/PropelGen/' . \ProjectA_Shared_Library_Store::getInstance()->getStoreName() . '/',
-    'propel.packageObjectModel' => 'true',
-    'propel.project' => 'zed',
-    'propel.targetPackage' => 'Zed',
-    'propel.database' => 'mysql',
-    'propel.database.encoding' => 'utf8',
-    'propel.mysql.tableType' => 'InnoDB',
-    'propel.behavior.lumberjack.class' => '\ProjectA\Zed\Lumberjack\Business\Model\Behaviour\Lumberjack',
-    'propel.behavior.changepaldefaults.class' => 'ProjectA_Zed_Library_Propel_Behavior_ChangePalDefaults',
-    'propel.behavior.default' => 'lumberjack, changepaldefaults',
-    'propel.builder.pluralizer.class' => 'builder.util.StandardEnglishPluralizer',
-    'propel.builder.object.class' => 'ProjectA_Zed_Library_Propel_Builder_Om_PHP5ObjectBuilder',
-    'propel.builder.peer.class' => 'ProjectA_Zed_Library_Propel_Builder_Om_PHP5PeerBuilder',
-    'propel.builder.tablemap.class' => 'ProjectA_Zed_Library_Propel_Builder_Map_PHP5TableMapBuilder',
-    'propel.builder.peerstub.class' => 'ProjectA_Zed_Library_Propel_Builder_Om_PHP5PeerStubBuilder',
-    'propel.builder.objectstub.class' => 'ProjectA_Zed_Library_Propel_Builder_Om_PHP5ObjectStubBuilder',
-    'propel.builder.query.class' => 'ProjectA_Zed_Library_Propel_Builder_Om_PHP5QueryBuilder',
-    'propel.builder.querystub.class' => 'ProjectA_Zed_Library_Propel_Builder_Om_PHP5QueryStubBuilder',
-);
+$store = \ProjectA_Shared_Library_Store::getInstance()->getStoreName();
+$config[SystemConfig::PROPEL] = [
+    'generateDirectory' =>
+        APPLICATION_SOURCE_DIR . '/Generated/Zed/PropelGen/' . $store . '/',
+    'schemaDirectory' =>
+        APPLICATION_SOURCE_DIR . '/Generated/Zed/PropelGen/' . $store. '/Schema',
+];
+
+//$config[SystemConfig::PROPEL] = array(
+//    'propel.project.dir' =>
+//        APPLICATION_SOURCE_DIR . '/Generated/Zed/PropelGen/' . \ProjectA_Shared_Library_Store::getInstance()->getStoreName() . '/',
+//    'propel.schema.dir' =>
+//        APPLICATION_SOURCE_DIR . '/Generated/Zed/PropelGen/' . \ProjectA_Shared_Library_Store::getInstance()->getStoreName() . '/Schema',
+//    'propel.php.dir' => APPLICATION_ROOT_DIR,
+//    'propel.gen.dir' => APPLICATION_SOURCE_DIR . '/Generated/PropelGen/' . \ProjectA_Shared_Library_Store::getInstance()->getStoreName() . '/',
+//    'propel.packageObjectModel' => 'true',
+//    'propel.project' => 'zed',
+//    'propel.targetPackage' => 'Zed',
+//    'propel.database' => 'mysql',
+//    'propel.database.encoding' => 'utf8',
+//    'propel.mysql.tableType' => 'InnoDB',
+//    'propel.behavior.lumberjack.class' => '\ProjectA\Zed\Lumberjack\Business\Model\Behaviour\Lumberjack',
+//    'propel.behavior.changepaldefaults.class' => 'ProjectA_Zed_Library_Propel_Behavior_ChangePalDefaults',
+//    'propel.behavior.default' => 'lumberjack, changepaldefaults',
+//    'propel.builder.pluralizer.class' => 'builder.util.StandardEnglishPluralizer',
+//    'propel.builder.object.class' => 'ProjectA_Zed_Library_Propel_Builder_Om_PHP5ObjectBuilder',
+//    'propel.builder.peer.class' => 'ProjectA_Zed_Library_Propel_Builder_Om_PHP5PeerBuilder',
+//    'propel.builder.tablemap.class' => 'ProjectA_Zed_Library_Propel_Builder_Map_PHP5TableMapBuilder',
+//    'propel.builder.peerstub.class' => 'ProjectA_Zed_Library_Propel_Builder_Om_PHP5PeerStubBuilder',
+//    'propel.builder.objectstub.class' => 'ProjectA_Zed_Library_Propel_Builder_Om_PHP5ObjectStubBuilder',
+//    'propel.builder.query.class' => 'ProjectA_Zed_Library_Propel_Builder_Om_PHP5QueryBuilder',
+//    'propel.builder.querystub.class' => 'ProjectA_Zed_Library_Propel_Builder_Om_PHP5QueryStubBuilder',
+//);
 
 $config[CustomerConfig::CUSTOMER_MINUTES_BEFORE_RESTORE_PASSWORD_INVALID] = 60;
 $config[CustomerConfig::CUSTOMER_DOUBLE_OPT_IN_REGISTRATION] = true;

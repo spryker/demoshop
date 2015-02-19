@@ -27,4 +27,9 @@ propel:
           - zed
 
   paths:
-      phpDir: /data/shop/development/current/
+      phpDir: /data/shop/development/current
+      propelGenDir: %phpDir%/src/Generated/Propel
+      sqlDir: %propelGenDir%/Sql
+      migrationDir: %propelGenDir%/Migration
+      phpConfDir: %propelGenDir%/Config
+      schemaDir: %propelGenDir%/Schema
