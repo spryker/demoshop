@@ -586,12 +586,12 @@
             "version": "v1.1.1",
             "source": {
                 "type": "git",
-                "url": "https://github.com/silexphp/Pimple.git",
+                "url": "https://github.com/fabpot/Pimple.git",
                 "reference": "2019c145fe393923f3441b23f29bbdfaa5c58c4d"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/silexphp/Pimple/zipball/2019c145fe393923f3441b23f29bbdfaa5c58c4d",
+                "url": "https://api.github.com/repos/fabpot/Pimple/zipball/2019c145fe393923f3441b23f29bbdfaa5c58c4d",
                 "reference": "2019c145fe393923f3441b23f29bbdfaa5c58c4d",
                 "shasum": ""
             },
@@ -616,7 +616,9 @@
             "authors": [
                 {
                     "name": "Fabien Potencier",
-                    "email": "fabien@symfony.com"
+                    "email": "fabien@symfony.com",
+                    "homepage": "http://fabien.potencier.org",
+                    "role": "Lead Developer"
                 }
             ],
             "description": "Pimple is a simple Dependency Injection Container for PHP 5.3",
@@ -970,7 +972,7 @@
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/zed.git",
-                "reference": "c7b6ba715fe9aa3bd8ec5ad9fb9084b96fee8828"
+                "reference": "aebd4597482334158088f1fb6bb74098af4f2e59"
             },
             "require": {
                 "digital-canvas/zend-framework": ">=1.12.2",
@@ -1037,7 +1039,7 @@
                 "Application",
                 "Zed"
             ],
-            "time": "2015-02-19 07:20:31"
+            "time": "2015-02-19 09:37:27"
         },
         {
             "name": "symfony-cmf/routing",
@@ -2340,12 +2342,12 @@
             "version": "v1.15.1",
             "source": {
                 "type": "git",
-                "url": "https://github.com/twigphp/Twig.git",
+                "url": "https://github.com/fabpot/Twig.git",
                 "reference": "1fb5784662f438d7d96a541e305e28b812e2eeed"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/twigphp/Twig/zipball/1fb5784662f438d7d96a541e305e28b812e2eeed",
+                "url": "https://api.github.com/repos/fabpot/Twig/zipball/1fb5784662f438d7d96a541e305e28b812e2eeed",
                 "reference": "1fb5784662f438d7d96a541e305e28b812e2eeed",
                 "shasum": ""
             },
