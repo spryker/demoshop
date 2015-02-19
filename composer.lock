@@ -4,7 +4,7 @@
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "165caadbabc9ca6f722841c2697d3637",
+    "hash": "f1530aef45be8d7403cbd79fba3d0bfa",
     "packages": [
         {
             "name": "digital-canvas/zend-framework",
@@ -926,7 +926,7 @@
         },
         {
             "name": "spryker/yves-package",
-            "version": "dev-master",
+            "version": "dev-yves",
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/yves.git",
@@ -964,11 +964,11 @@
         },
         {
             "name": "spryker/zed-package",
-            "version": "dev-master",
+            "version": "dev-feature/460-cms-preview-zed",
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/zed.git",
-                "reference": "c7b6ba715fe9aa3bd8ec5ad9fb9084b96fee8828"
+                "reference": "ad54b1367b1cea1007e3ab84e44bf4625c1db0b6"
             },
             "require": {
                 "digital-canvas/zend-framework": ">=1.12.2",
@@ -1035,7 +1035,7 @@
                 "Application",
                 "Zed"
             ],
-            "time": "2015-02-19 07:20:31"
+            "time": "2015-02-19 09:03:37"
         },
         {
             "name": "symfony-cmf/routing",
@@ -3364,7 +3364,7 @@
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/newLoki/PropelModule/zipball/ab6164e684113e20d5754fd61fe0ea86331ebd0b",
+                "url": "https://api.github.com/repos/newLoki/PropelModule/zipball/9de9316361e3dddb6b29f5dd93b7456e19e042e3",
                 "reference": "9de9316361e3dddb6b29f5dd93b7456e19e042e3",
                 "shasum": ""
             },
