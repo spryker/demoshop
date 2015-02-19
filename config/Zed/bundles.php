@@ -28,6 +28,7 @@ return [
         'Customer2' => $schema,
         'Discount' => $schema,
         'Document' => $schema,
+        'FrontendExporter' => $schema,
         'Glossary' => $allElements,
         'Invoice' => $schema,
         'Kendo' => $schema,

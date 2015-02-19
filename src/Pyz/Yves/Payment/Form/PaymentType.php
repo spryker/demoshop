@@ -1,17 +1,43 @@
 <?php
-namespace Pyz\Yves\Payment\Communication\Form;
+namespace Pyz\Yves\Payment\Form;
 
-use ProjectA\Yves\Payment\Communication\Form\PaymentType as CorePaymentType;
+use ProjectA\Shared\Kernel\LocatorLocatorInterface;
+use ProjectA\Shared\Payment\Transfer\PaymentMethod;
+use ProjectA\Shared\Payment\Transfer\PaymentMethodCollection;
+use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\Validator\Constraints\CardScheme;
 use Symfony\Component\Validator\Constraints\Luhn;
 use Symfony\Component\Form\FormEvents;
 use Symfony\Component\Form\FormEvent;
-use ProjectA\Shared\Library\TransferLoader;
 use Symfony\Component\OptionsResolver\OptionsResolverInterface;
 
-class PaymentType extends CorePaymentType
+/**
+ * Class PaymentType
+ * @package Pyz\Yves\Payment\Form
+ */
+class PaymentType extends AbstractType
 {
+
+    /**
+     * @var PaymentMethodCollection|PaymentMethod[]
+     */
+    protected $paymentMethods;
+
+    /**
+     * @var LocatorLocatorInterface
+     */
+    protected $locator;
+
+    /**
+     * @param PaymentMethodCollection $paymentMethods
+     * @param LocatorLocatorInterface $locator
+     */
+    public function __construct(PaymentMethodCollection $paymentMethods, LocatorLocatorInterface $locator)
+    {
+        $this->paymentMethods = $paymentMethods;
+        $this->locator = $locator;
+    }
 
     /**
      * {@inheritdoc}
@@ -20,7 +46,7 @@ class PaymentType extends CorePaymentType
     {
         $resolver->setDefaults(
             [
-                'data_class' => get_class((new \ProjectA\Shared\Kernel\TransferLocator())->locatePayonePaymentPayone()),
+                'data_class' => get_class($this->locator->payone()->transferPaymentPayone()),
             ]
         );
     }
@@ -31,10 +57,19 @@ class PaymentType extends CorePaymentType
      */
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
-        parent::buildForm($builder, $options);
+        $builder->add(
+            'method',
+            'choice',
+            [
+                'choices' => [
+                    $this->extractPaymentMethodNames(),
+                ],
+                'expanded' => true,
+            ]
+        );
 
-        foreach($this->paymentMethods as $paymentMethod) {
-            switch($paymentMethod->getName()) {
+        foreach ($this->paymentMethods as $paymentMethod) {
+            switch ($paymentMethod->getName()) {
                 case 'payment.payone.creditcard_pseudo' :
                     $this->buildCreditCardForm($builder, $options);
                     break;
@@ -119,7 +154,7 @@ class PaymentType extends CorePaymentType
     }
 
     /**
-     * @param \Symfony\Component\Form\FormEvent $events
+     * @param FormEvent $event
      */
     public function preparePaymentTransfer(FormEvent $event)
     {
@@ -134,4 +169,26 @@ class PaymentType extends CorePaymentType
         $transferOrder->setPayment($transferPayment);
     }
 
+    /**
+     * {@inheritdoc}
+     */
+    public function getName()
+    {
+        return 'salesOrder';
+    }
+
+    /**
+     * @return array
+     */
+    protected function extractPaymentMethodNames()
+    {
+        $methods = [];
+        foreach ($this->paymentMethods as $method) {
+            if ($method->getIsActive()) {
+                $name = $method->getName();
+                $methods[$name] = $name;
+            }
+        }
+        return $methods;
+    }
 }

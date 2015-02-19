@@ -183,6 +183,10 @@ keys:
     translations:
       de_DE: Name
       en_US: Name
+  checkout.address.shipping.company:
+    translations:
+      de_DE: Firma
+      en_US: Company
   demopayment.demomethod:
     translations:
       de_DE: 'Demo-Zahlungsmethode'
