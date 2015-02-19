@@ -4,7 +4,7 @@ namespace Pyz\Yves\Catalog\Business\Creator;
 
 use ProjectA\Shared\Application\Communication\ControllerServiceBuilder;
 use ProjectA\Yves\FrontendExporter\Business\Creator\ResourceCreatorInterface;
-use Pyz\Sdk\Catalog\Model\FacetConfig;
+use Pyz\Yves\Catalog\Business\Model\FacetConfig;
 use Silex\Application;
 use SprykerCore\Yves\Kernel\Communication\BundleControllerAction;
 use SprykerCore\Yves\Kernel\Communication\Controller\BundleControllerActionRouteNameResolver;
