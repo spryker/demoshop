@@ -166,11 +166,18 @@ class ProductAttributeMappingInstall implements DemoDataInstallInterface
 
         $touchFacade = $locator->touch()->facade();
 
+        $locale = \SprykerCore_Zed_Locale_Persistence_Propel_PacLocaleQuery::create()
+            ->findOneByLocaleName('de_DE');
         $products = \ProjectA_Zed_Product_Persistence_Propel_PacProductQuery::create()->find();
 
         /** @var \ProjectA_Zed_Product_Persistence_Propel_PacProduct $product */
         foreach ($products as $product) {
             $touchFacade->touchActive('searchableProduct', $product->getProductId());
+
+            $searchableProduct = new \ProjectA_Zed_ProductSearch_Persistence_Propel_PacSearchableProducts();
+            $searchableProduct->setPacProduct($product);
+            $searchableProduct->setPacLocale($locale);
+            $searchableProduct->save();
         }
     }
 }

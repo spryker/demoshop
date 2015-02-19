@@ -42,7 +42,8 @@ class CategoryTreeInstall implements DemoDataInstallInterface
     {
         // TODO must be injected
         $locator = new Locator();
-        $this->locale = \ProjectA_Shared_Library_Store::getInstance()->getCurrentLocale();
+        $this->locale = \SprykerCore_Zed_Locale_Persistence_Propel_PacLocaleQuery::create()
+            ->findOneByLocaleName(\ProjectA_Shared_Library_Store::getInstance()->getCurrentLocale());
         $this->queryContainer = $locator->categoryTree()->queryContainer();
         $this->categoryFacade = $locator->categoryTree()->facade();
     }

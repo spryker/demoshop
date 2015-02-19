@@ -11,9 +11,10 @@ use ProjectA\Shared\Library\Config;
 use ProjectA\Shared\System\SystemConfig;
 use ProjectA\Shared\Yves\YvesConfig;
 use ProjectA\Yves\Cms\Communication\Plugin\CmsControllerProvider;
-use SprykerCore\Yves\Application\Communication\Plugin\ControllerProviderInterface;
 
 use Pyz\Yves\Checkout\Communication\Plugin\CheckoutControllerProvider;
+use SprykerCore\Yves\Application\Communication\Plugin\ControllerProviderInterface;
+
 use ProjectA\Yves\Customer\Business\Model\Security\SecurityServiceProvider;
 use ProjectA\Yves\Customer\Communication\Plugin\CustomerControllerProvider;
 use Pyz\Yves\Cart\Communication\Plugin\CartControllerProvider;
@@ -27,11 +28,9 @@ use SprykerCore\Yves\Application\Communication\Plugin\ServiceProvider\CookieServ
 use SprykerCore\Yves\Application\Communication\Plugin\ServiceProvider\MonologServiceProvider;
 use SprykerCore\Yves\Application\Communication\Plugin\ServiceProvider\SessionServiceProvider;
 use SprykerCore\Yves\Application\Communication\Plugin\ServiceProvider\ExceptionServiceProvider;
-use SprykerFeature\Sdk\Cms\KeyBuilder\SdkCmsUrlKeyBuilder;
-use SprykerFeature\Sdk\Glossary\KeyBuilder\SdkGlossaryKeyBuilder;
-use SprykerFeature\Yves\Glossary\KVTranslatorPlugin;
 use SprykerCore\Yves\Application\Communication\Plugin\ServiceProvider\TwigServiceProvider;
 use SprykerCore\Yves\Application\Communication\Plugin\ServiceProvider\YvesLoggingServiceProvider;
+use SprykerFeature\Sdk\Cms\KeyBuilder\SdkCmsUrlKeyBuilder;
 
 use ProjectA\Shared\Application\Business\Routing\SilexRouter;
 

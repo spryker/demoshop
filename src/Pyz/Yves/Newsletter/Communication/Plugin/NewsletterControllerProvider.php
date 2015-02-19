@@ -29,5 +29,4 @@ class NewsletterControllerProvider extends YvesControllerProvider
         $this->createController('/subscription-cancelled', self::ROUTE_NEWSLETTER_CANCEL_SUBSCRIPTION_SUCCESS, 'Newsletter', 'Newsletter', 'subscriptionCancelled');
         $this->createController('/subscription-not-cancelled', self::ROUTE_NEWSLETTER_CANCEL_SUBSCRIPTION_FAILURE, 'Newsletter', 'Newsletter', 'subscriptionNotCancelled');
     }
-
 }

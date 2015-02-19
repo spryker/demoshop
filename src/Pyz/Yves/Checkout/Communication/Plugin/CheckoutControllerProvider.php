@@ -5,7 +5,7 @@ namespace Pyz\Yves\Checkout\Communication\Plugin;
 use SprykerCore\Yves\Application\Communication\Plugin\YvesControllerProvider;
 use Silex\Application;
 
-class CheckoutControllerProvider extends \SprykerCore\Yves\Application\Communication\Plugin\YvesControllerProvider
+class CheckoutControllerProvider extends YvesControllerProvider
 {
     const ROUTE_CHECKOUT = 'checkout';
     const ROUTE_CHECKOUT_SUCCESS = 'checkout/success';

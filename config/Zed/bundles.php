@@ -48,7 +48,8 @@ return [
         'Setup' => $navigation,
         'Stock' => $schema,
         'System' => $navigation,
-        'Yves' => $schemaAndNavigation
+        'Yves' => $schemaAndNavigation,
+        'FrontendExporter' => $schema
     ],
 
     \ProjectA\Shared\Library\Bundle\BundleConfig::NAMESPACE_SPRYKERCORE => [

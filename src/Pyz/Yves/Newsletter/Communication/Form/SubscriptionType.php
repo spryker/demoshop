@@ -2,6 +2,7 @@
 
 namespace Pyz\Yves\Newsletter\Communication\Form;
 
+use ProjectA\Shared\Kernel\TransferLocator;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolverInterface;
@@ -30,7 +31,7 @@ class SubscriptionType extends AbstractType
     {
         $resolver->setDefaults(
             [
-                'data_class' => get_class((new \ProjectA\Shared\Kernel\TransferLocator())->locateNewsletterSubscription()),
+                'data_class' => get_class((new TransferLocator())->locateNewsletterSubscription()),
                 'cascade_validation' => true,
                 'csrf_message' => 'form.csrf.failed',
             ]
@@ -44,5 +45,4 @@ class SubscriptionType extends AbstractType
     {
         $builder->add('email', 'email', ['constraints' => [new NotBlank(), new Email()]]);
     }
-
 }
