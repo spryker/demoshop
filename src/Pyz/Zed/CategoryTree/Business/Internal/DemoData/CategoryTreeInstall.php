@@ -26,7 +26,7 @@ class CategoryTreeInstall implements DemoDataInstallInterface
     protected $queryContainer;
 
     /**
-     * @var string
+     * @var \SprykerCore_Zed_Locale_Persistence_Propel_PacLocale
      */
     protected $locale;
 
