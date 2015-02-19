@@ -33,11 +33,11 @@ use \ProjectA\Deprecated\ProductImage\Business\Dependency\ProductImageFacadeTrai
 use \ProjectA\Deprecated\Invoice\Business\Dependency\InvoiceFacadeTrait;
 use \ProjectA\Deprecated\Document\Business\Dependency\DocumentFacadeTrait;
 use \ProjectA\Deprecated\Payone\Business\Dependency\PayoneFacadeTrait;
-use ProjectA\Zed\FrontendExporter\Business\FrontendExporterFacade;
 use ProjectA\Zed\Glossary\Business\GlossaryFacade;
 use ProjectA\Zed\Kernel\Locator;
 use ProjectA\Zed\ProductSearch\Business\ProductSearchFacade;
 use ProjectA\Zed\Stock\Business\StockFacade;
+use ProjectA\Zed\FrontendExporter\Business\FrontendExporterFacade;
 
 /**
  * Class Installer

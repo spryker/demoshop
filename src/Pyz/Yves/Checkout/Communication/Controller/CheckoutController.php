@@ -4,7 +4,7 @@ namespace Pyz\Yves\Checkout\Communication\Controller;
 use ProjectA\Shared\Kernel\LocatorLocatorInterface;
 use ProjectA\Shared\Sales\Transfer\Order;
 use ProjectA\Shared\Sales\Transfer\Payment;
-use ProjectA\Yves\Checkout\Communication\Plugin\CheckoutControllerProvider;
+use Pyz\Yves\Checkout\Communication\Plugin\CheckoutControllerProvider;
 use Pyz\Yves\Cart\Communication\Helper\CartControllerTrait;
 use Pyz\Yves\Cart\Communication\Plugin\CartControllerProvider;
 use Pyz\Yves\Library\Tracking\PageTypeInterface;

@@ -4,7 +4,7 @@
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "f1530aef45be8d7403cbd79fba3d0bfa",
+    "hash": "165caadbabc9ca6f722841c2697d3637",
     "packages": [
         {
             "name": "digital-canvas/zend-framework",
@@ -926,11 +926,11 @@
         },
         {
             "name": "spryker/yves-package",
-            "version": "dev-yves",
+            "version": "dev-master",
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/yves.git",
-                "reference": "bfedb7f257f0055564178c22ad3d1a54a5d5acb9"
+                "reference": "35772a862823015e726d0982ae2e15bf98b7cfb8"
             },
             "require": {
                 "php": ">=5.4.0"
@@ -960,15 +960,15 @@
                 "Application",
                 "Yves"
             ],
-            "time": "2015-02-18 09:51:40"
+            "time": "2015-02-18 16:29:23"
         },
         {
             "name": "spryker/zed-package",
-            "version": "dev-feature/460-cms-preview-zed",
+            "version": "dev-master",
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/zed.git",
-                "reference": "6b0762a4484a5fed3c03c5925210e7c4279b125b"
+                "reference": "c7b6ba715fe9aa3bd8ec5ad9fb9084b96fee8828"
             },
             "require": {
                 "digital-canvas/zend-framework": ">=1.12.2",
@@ -1035,7 +1035,7 @@
                 "Application",
                 "Zed"
             ],
-            "time": "2015-02-18 10:16:13"
+            "time": "2015-02-19 07:20:31"
         },
         {
             "name": "symfony-cmf/routing",
@@ -3364,7 +3364,7 @@
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/newLoki/PropelModule/zipball/9de9316361e3dddb6b29f5dd93b7456e19e042e3",
+                "url": "https://api.github.com/repos/newLoki/PropelModule/zipball/ab6164e684113e20d5754fd61fe0ea86331ebd0b",
                 "reference": "9de9316361e3dddb6b29f5dd93b7456e19e042e3",
                 "shasum": ""
             },
