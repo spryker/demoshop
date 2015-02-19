@@ -7,6 +7,7 @@ use ProjectA\Zed\Kernel\Locator;
 use ProjectA\Zed\Library\Business\DemoDataInstallInterface;
 use ProjectA\Zed\Library\Import\Reader\CsvFileReader;
 use ProjectA\Zed\Price\Business\PriceFacade;
+use ProjectA\Shared\Price\Transfer\Product;
 
 class PriceInstall implements DemoDataInstallInterface
 {
@@ -66,7 +67,16 @@ class PriceInstall implements DemoDataInstallInterface
 
         $validFrom = new \DateTime($row[self::VALID_FROM]);
         $validTo = new \DateTime($row[self::VALID_TO]);
-        $this->priceFacade->setPrice($row[self::SKU], $row[self::PRICE], $stockType->getName(), $validFrom, $validTo);
+
+        $transferPriceProduct = (new Locator())->price()->transferProduct();
+        /** @var Product $transferPriceProduct */
+        $transferPriceProduct->setPrice($row[self::PRICE])
+                            ->setValidFrom($validFrom)
+                            ->setValidTo($validTo)
+                            ->setPriceTypeName($stockType->getName())
+                            ->setSkuProduct($row[self::SKU]);
+
+        $this->priceFacade->setPrice($transferPriceProduct);
     }
 
 }
