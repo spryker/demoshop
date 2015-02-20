@@ -31,7 +31,7 @@ class PriceInstall implements DemoDataInstallInterface
      */
     public function install(Console $console)
     {
-        $console->info("This will install a dummy set of prices in the demo shop ");
+        $console->info("This will install a dummy set of prices in the demo shop (you have to install the products before!)");
         if ($console->askConfirmation('Do you really want this?')) {
             $demoPrices = $this->getDemoPrices();
             $this->writePrices($demoPrices);
