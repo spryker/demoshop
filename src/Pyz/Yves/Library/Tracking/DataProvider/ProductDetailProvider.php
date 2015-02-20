@@ -91,7 +91,8 @@ class ProductDetailProvider extends AbstractDataProvider
         if (!$product) {
             return false;
         }
-        return CurrencyManager::getInstance()->convertCentToDecimal($product[PriceTypeConstants::RECOMMENDED_RETAIL_PRICE]);
+        return CurrencyManager::getInstance()
+            ->convertCentToDecimal($product[PriceTypeConstants::RECOMMENDED_RETAIL_PRICE]);
     }
 
     /**
