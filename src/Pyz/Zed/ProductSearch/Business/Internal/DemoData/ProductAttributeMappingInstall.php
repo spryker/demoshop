@@ -165,11 +165,20 @@ class ProductAttributeMappingInstall implements DemoDataInstallInterface
         $locator = new Locator();
 
         $touchFacade = $locator->touch()->facade();
+        $localeFacade = $locator->locale()->facade();
 
+        $localeId = $localeFacade->getLocaleIdentifier('de_DE');
         $products = \ProjectA_Zed_Product_Persistence_Propel_PacProductQuery::create()->find();
 
         /** @var \ProjectA_Zed_Product_Persistence_Propel_PacProduct $product */
         foreach ($products as $product) {
+            $searchableProduct = \ProjectA_Zed_ProductSearch_Persistence_Propel_PacSearchableProductsQuery::create()
+                ->filterByFkProduct($product->getProductId())
+                ->filterByFkLocale($localeId)
+                ->findOneOrCreate();
+            $searchableProduct->setIsSearchable(true);
+            $searchableProduct->save();
+
             $touchFacade->touchActive('searchableProduct', $product->getProductId());
         }
     }
