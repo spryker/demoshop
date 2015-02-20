@@ -87,12 +87,44 @@ $config[YvesConfig::YVES_SESSION_NAME] = 'yves_session';
 $config[YvesConfig::YVES_SESSION_COOKIE_DOMAIN] = $config[SystemConfig::HOST_YVES];
 $config[YvesConfig::YVES_ERROR_PAGE] = APPLICATION_ROOT_DIR.'/static/public/Yves/errorpage/error.html';
 
-$store = \ProjectA_Shared_Library_Store::getInstance()->getStoreName();
 $config[SystemConfig::PROPEL] = [
-    'generateDirectory' =>
-        APPLICATION_SOURCE_DIR . '/Generated/Zed/PropelGen/' . $store . '/',
-    'schemaDirectory' =>
-        APPLICATION_SOURCE_DIR . '/Generated/Zed/PropelGen/' . $store. '/Schema',
+    'database' => [
+        'connections' => [
+            'default' => [
+                'adapter' => 'mysql',
+                'dsn' => 'mysql:host=localhost;dbname=DE_development_zed',
+                'user' => 'development',
+                'password' => 'mate20mg',
+                'settings' => [
+                    'charset' => 'utf8',
+                    'queries' => [
+                        'utf8' => 'SET NAMES utf8 COLLATE utf8_unicode_ci, COLLATION_CONNECTION = utf8_unicode_ci, COLLATION_DATABASE = utf8_unicode_ci, COLLATION_SERVER = utf8_unicode_ci'
+                    ]
+                ]
+            ],
+            'zed' => [
+                'adapter' => 'mysql',
+                'classname' => 'Propel\Runtime\Connection\ConnectionWrapper',
+                'dsn' => 'mysql:host=localhost;dbname=DE_development_zed',
+                'user' => 'development',
+                'password' => 'mate20mg'
+            ]
+        ]
+    ],
+    'runtime' => [
+        'defaultConnection' => 'zed',
+        'connections' => ['zed']
+    ],
+    'generator' => [
+        'defaultConnection' => 'zed',
+        'connections' => ['zed']
+    ],
+    'paths' => [
+        'phpDir' => APPLICATION_ROOT_DIR,
+        'sqlDir' => APPLICATION_ROOT_DIR . '/src/Generated/Propel/Sql',
+        'migrationDir' => APPLICATION_ROOT_DIR . '/src/Generated/Propel/Migration',
+        'phpConfDir' => APPLICATION_ROOT_DIR . '/src/Generated/Propel/Config'
+    ]
 ];
 
 //$config[SystemConfig::PROPEL] = array(
