@@ -8,6 +8,10 @@ use ProjectA\Zed\Library\Business\DemoDataInstallInterface;
 use ProjectA\Zed\Library\Import\Reader\CsvFileReader;
 use ProjectA\Zed\Stock\Business\StockFacade;
 
+/**
+ * Class StockInstall
+ * @package Pyz\Zed\Stock\Business\Internal\DemoData
+ */
 class StockInstall implements DemoDataInstallInterface
 {
     const SKU = 'sku';
