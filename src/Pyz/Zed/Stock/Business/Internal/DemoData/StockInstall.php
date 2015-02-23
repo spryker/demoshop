@@ -7,8 +7,13 @@ use ProjectA\Zed\Installer\Business\Model\AbstractInstaller;
 use ProjectA\Zed\Kernel\Locator;
 use ProjectA\Zed\Library\Import\Reader\CsvFileReader;
 use ProjectA\Zed\Stock\Business\StockFacade;
+use ProjectA\Shared\Stock\Transfer\StockProduct;
 
-class StockInstall extends AbstractInstaller
+/**
+ * Class StockInstall
+ * @package Pyz\Zed\Stock\Business\Internal\DemoData
+ */
+class StockInstall implements DemoDataInstallInterface
 {
     const SKU = 'sku';
     const QUANTITY = 'quantity';
