@@ -4,7 +4,7 @@
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "efb05b39e29cb4e738348a8bc70a6924",
+    "hash": "165caadbabc9ca6f722841c2697d3637",
     "packages": [
         {
             "name": "digital-canvas/zend-framework",
@@ -926,11 +926,11 @@
         },
         {
             "name": "spryker/yves-package",
-            "version": "dev-yves",
+            "version": "dev-master",
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/yves.git",
-                "reference": "35772a862823015e726d0982ae2e15bf98b7cfb8"
+                "reference": "c54f863d499dfb86db52f92d3422c89e75978dcd"
             },
             "require": {
                 "php": ">=5.4.0"
@@ -942,8 +942,11 @@
             "autoload": {
                 "psr-0": {
                     "ProjectA": "src/",
+                    "SprykerCore": "src/",
+                    "SprykerFeature": "src/",
                     "Acceptance": "tests/",
-                    "Functional": "tests/",
+                    "Function": "tests/",
+                    "Integration": "tests/",
                     "Unit": "tests/"
                 }
             },
@@ -960,15 +963,15 @@
                 "Application",
                 "Yves"
             ],
-            "time": "2015-02-18 16:29:23"
+            "time": "2015-02-20 15:28:47"
         },
         {
             "name": "spryker/zed-package",
-            "version": "dev-feature/glossary-zed",
+            "version": "dev-master",
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/zed.git",
-                "reference": "2fd2c7eb07bcc93ae9080b271b6ed4e88895b298"
+                "reference": "689d9e7463cf40c89a4562ea858d4b5a99966608"
             },
             "require": {
                 "digital-canvas/zend-framework": ">=1.12.2",
@@ -1035,7 +1038,7 @@
                 "Application",
                 "Zed"
             ],
-            "time": "2015-02-20 16:46:02"
+            "time": "2015-02-23 14:46:46"
         },
         {
             "name": "symfony-cmf/routing",
