@@ -7,6 +7,7 @@ use ProjectA\Zed\Kernel\Locator;
 use ProjectA\Zed\Library\Business\DemoDataInstallInterface;
 use ProjectA\Zed\Library\Import\Reader\CsvFileReader;
 use ProjectA\Zed\Stock\Business\StockFacade;
+use ProjectA\Shared\Stock\Transfer\StockProduct;
 
 /**
  * Class StockInstall
@@ -65,8 +66,23 @@ class StockInstall implements DemoDataInstallInterface
      */
     protected function addEntry(array $row)
     {
-        $stockType = $this->stockFacade->createStock($row[self::STOCK_TYPE]);
-        $this->stockFacade->setStockProduct($row[self::SKU], $row[self::QUANTITY],$stockType->getName(), $row[self::NEVER_OUT_OF_STOCK]);
-    }
+        $stockType = $this->stockFacade->createStockType($row[self::STOCK_TYPE]);
+        $transferStockProduct = (new Locator)->stock()->transferStockProduct();
+        /** @var $transferStockProduct StockProduct */
+        $transferStockProduct->setSku($row[self::SKU])
+            ->setIsNeverOutOfStock($row[self::NEVER_OUT_OF_STOCK])
+            ->setQuantity($row[self::QUANTITY])
+            ->setFkStock($stockType->getName());
 
+        if ($this->stockFacade->hasStockProduct($transferStockProduct->getSku(), $transferStockProduct->getFkStock())) {
+
+            $idStockProduct = $this->stockFacade->getIdStockProduct($transferStockProduct->getSku(), $transferStockProduct->getFkStock());
+            $transferStockProduct->setIdStockProduct($idStockProduct);
+            $this->stockFacade->setStockProduct($transferStockProduct);
+
+        } else {
+            $this->stockFacade->createStockProduct($transferStockProduct);
+        }
+
+    }
 }
