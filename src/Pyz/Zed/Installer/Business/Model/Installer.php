@@ -5,8 +5,10 @@ namespace Pyz\Zed\Installer\Business\Model;
 use \ProjectA\Deprecated\Acl\Business\Dependency\AclFacadeInterface;
 use \ProjectA\Deprecated\Cms\Business\Dependency\CmsFacadeInterface;
 use \ProjectA\Deprecated\Misc\Business\Dependency\MiscFacadeInterface;
-use \ProjectA\Deprecated\Price\Business\Dependency\PriceFacadeInterface;
+
+use ProjectA\Deprecated\Product\Business\Dependency\ProductFacadeInterface;
 use ProjectA\Deprecated\Product\Business\Dependency\ProductFacadeTrait;
+use \ProjectA\Deprecated\Glossary\Business\Dependency\GlossaryFacadeInterface;
 use \ProjectA\Deprecated\Sales\Business\Dependency\SalesFacadeInterface;
 use \ProjectA\Deprecated\ProductImage\Business\Dependency\ProductImageFacadeInterface;
 use \ProjectA\Deprecated\Invoice\Business\Dependency\InvoiceFacadeInterface;
@@ -15,7 +17,9 @@ use \ProjectA\Deprecated\Payone\Business\Dependency\PayoneFacadeInterface;
 use \ProjectA\Deprecated\Acl\Business\Dependency\AclFacadeTrait;
 use \ProjectA\Deprecated\Cms\Business\Dependency\CmsFacadeTrait;
 use \ProjectA\Deprecated\Misc\Business\Dependency\MiscFacadeTrait;
-use \ProjectA\Deprecated\Price\Business\Dependency\PriceFacadeTrait;
+
+use \ProjectA\Deprecated\Glossary\Business\Dependency\GlossaryFacadeTrait;
+
 use \ProjectA\Deprecated\Sales\Business\Dependency\SalesFacadeTrait;
 use \ProjectA\Deprecated\ProductImage\Business\Dependency\ProductImageFacadeTrait;
 use \ProjectA\Deprecated\Invoice\Business\Dependency\InvoiceFacadeTrait;
@@ -26,7 +30,6 @@ use ProjectA\Zed\Installer\Business\Model\Installer as CoreInstaller;
 use ProjectA\Zed\Kernel\Locator;
 use ProjectA\Zed\Product\Business\ProductFacade;
 use ProjectA\Zed\ProductSearch\Business\ProductSearchFacade;
-use ProjectA\Zed\Stock\Business\StockFacade;
 use ProjectA\Zed\FrontendExporter\Business\FrontendExporterFacade;
 
 /**
@@ -42,12 +45,10 @@ class Installer extends CoreInstaller implements
     ProductImageFacadeInterface,
     InvoiceFacadeInterface,
     PayoneFacadeInterface,
-    DocumentFacadeInterface,
-    PriceFacadeInterface
+    DocumentFacadeInterface
 {
     use AclFacadeTrait;
     use MiscFacadeTrait;
-    use PriceFacadeTrait;
     use CmsFacadeTrait;
     use SalesFacadeTrait;
     use InvoiceFacadeTrait;
@@ -75,23 +76,19 @@ class Installer extends CoreInstaller implements
      */
     protected function getInstaller()
     {
-        /** @var FrontendExporterFacade $frontendExporterFacade */
         $frontendExporterFacade = $this->locator->frontendExporter()->facade();
-        /** @var ProductFacade $productFacade */
         $productFacade = $this->locator->product()->facade();
-        /** @var ProductSearchFacade $productSearchFacade */
         $productSearchFacade = $this->locator->productSearch()->facade();
-        /** @var GlossaryFacade $glossaryFacade */
         $glossaryFacade = $this->locator->glossary()->facade();
+        $priceFacade = $this->locator->price()->facade();
         return [
             $this->facadeAcl->createInternalInstall(),
 //            $this->facadeCustomer->createInternalInstall(),
             $this->facadeCms->createInternalInstall(),
-            // TODO: installer broken
+//            // TODO: installer broken
 //            $this->facadeCatalog->createInternalInstall(),
 //            $this->facadeCategory->createInternalInstall(),
             $this->facadeMisc->createInternalInstall(),
-            $this->facadePrice->createInternalInstall(),
             $this->facadeSales->createInternalInstall(),
             $this->facadeProductImage->createInternalInstall(),
             $this->facadeDocument->createInternalInstall(),
@@ -101,6 +98,7 @@ class Installer extends CoreInstaller implements
             $frontendExporterFacade->createInternalInstall(),
             $productSearchFacade->createInternalInstall(),
             $glossaryFacade->getGlossaryInstaller(),
+            $priceFacade->createInternalInstall()
         ];
     }
 }
