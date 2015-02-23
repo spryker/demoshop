@@ -72,17 +72,17 @@ class StockInstall implements DemoDataInstallInterface
         $transferStockProduct->setSku($row[self::SKU])
             ->setIsNeverOutOfStock($row[self::NEVER_OUT_OF_STOCK])
             ->setQuantity($row[self::QUANTITY])
-            ->setFkStock($stockType->getName());
+            ->setStockType($stockType->getName());
 
-        if ($this->stockFacade->hasStockProduct($transferStockProduct->getSku(), $transferStockProduct->getFkStock())) {
+        if ($this->stockFacade->hasStockProduct($transferStockProduct->getSku(), $transferStockProduct->getStockType())) {
 
-            $idStockProduct = $this->stockFacade->getIdStockProduct($transferStockProduct->getSku(), $transferStockProduct->getFkStock());
+            $idStockProduct = $this->stockFacade->getIdStockProduct($transferStockProduct->getSku(), $transferStockProduct->getStockType());
             $transferStockProduct->setIdStockProduct($idStockProduct);
             $this->stockFacade->setStockProduct($transferStockProduct);
 
         } else {
             $this->stockFacade->createStockProduct($transferStockProduct);
         }
-
     }
+
 }
