@@ -971,7 +971,7 @@
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/zed.git",
-                "reference": "94c0203c95d93bd89d6662a8083cf5f8e8009b62"
+                "reference": "689d9e7463cf40c89a4562ea858d4b5a99966608"
             },
             "require": {
                 "digital-canvas/zend-framework": ">=1.12.2",
@@ -1038,7 +1038,7 @@
                 "Application",
                 "Zed"
             ],
-            "time": "2015-02-20 15:30:35"
+            "time": "2015-02-23 14:46:46"
         },
         {
             "name": "symfony-cmf/routing",
@@ -3367,7 +3367,7 @@
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/newLoki/PropelModule/zipball/ab6164e684113e20d5754fd61fe0ea86331ebd0b",
+                "url": "https://api.github.com/repos/newLoki/PropelModule/zipball/9de9316361e3dddb6b29f5dd93b7456e19e042e3",
                 "reference": "9de9316361e3dddb6b29f5dd93b7456e19e042e3",
                 "shasum": ""
             },

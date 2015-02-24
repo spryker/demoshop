@@ -1,9 +1,9 @@
 <?php
 namespace Pyz\Zed\Glossary\Business;
 
-use ProjectA\Zed\Glossary\Dependency\Plugin\GlossaryInstallerPluginInterface;
+use ProjectA\Zed\Glossary\Business\GlossarySettings as CoreGlossarySettings;
 
-class GlossarySettings
+class GlossarySettings extends CoreGlossarySettings
 {
     /**
      * @var \Generated\Zed\Ide\AutoCompletion
@@ -13,15 +13,5 @@ class GlossarySettings
     public function __construct($locator)
     {
         $this->locator = $locator;
-    }
-
-    /**
-     * @return GlossaryInstallerPluginInterface[]
-     */
-    public function getGlossaryInstallers()
-    {
-        return [
-            $this->locator->glossary()->pluginYamlInstallerPlugin()
-        ];
     }
 }

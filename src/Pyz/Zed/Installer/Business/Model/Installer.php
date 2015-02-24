@@ -95,7 +95,6 @@ class Installer extends CoreInstaller implements
             $productFacade->createInternalInstall(),
             $frontendExporterFacade->createInternalInstall(),
             $productSearchFacade->createInternalInstall(),
-            $glossaryFacade->getGlossaryInstaller(),
             $priceFacade->createInternalInstall()
         ];
     }
