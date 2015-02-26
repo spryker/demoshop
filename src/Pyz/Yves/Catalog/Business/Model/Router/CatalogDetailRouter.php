@@ -10,7 +10,7 @@ use SprykerCore\Yves\Kernel\Communication\BundleControllerAction;
 use SprykerCore\Yves\Kernel\Communication\Controller\RouteNameResolver;
 use SprykerCore\Yves\Kernel\Communication\ControllerLocator;
 
-use ProjectA\Yves\Kernel\Locator;
+use SprykerCore\Yves\Kernel\Locator;
 use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\Routing\Exception\ResourceNotFoundException;
 use Symfony\Component\Routing\Exception\RouteNotFoundException;

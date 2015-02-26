@@ -2,59 +2,103 @@
 
 namespace Pyz\Zed\FrontendExporter\Business;
 
-use ProjectA\Zed\CategoryExporter\Communication\Plugin\CategoryNodeProcessorPlugin;
-use ProjectA\Zed\CategoryExporter\Communication\Plugin\NavigationProcessorPlugin;
-use ProjectA\Zed\FrontendExporter\Business\FrontendExporterSettings as CoreFrontendExporterSettings;
-use ProjectA\Zed\GlossaryExporter\Communication\Plugin\KeyBuilderAwareInterface;
-use ProjectA\Zed\GlossaryExporter\Communication\Plugin\KeyBuilderPlugin;
-use ProjectA\Zed\ProductCategorySearch\Communication\Plugin\ProductCategorySearchProcessorPlugin;
-use ProjectA\Zed\ProductExporter\Communication\Plugin\ProductProcessorPlugin;
-use ProjectA\Zed\ProductSearch\Communication\Plugin\ProductProcessorPlugin as ProductSearchProcessorPlugin;
+use ProjectA\Zed\ProductCategorySearch\Communication\Plugin\ProductCategorySearchDataProcessorPlugin;
+use ProjectA\Zed\FrontendExporter\Business\FrontendExporterSettings as CoreSettings;
 
 /**
  * Class FrontendExporterSettings
  *
  * @package Pyz\Zed\FrontendExporter\Business
  */
-class FrontendExporterSettings extends CoreFrontendExporterSettings
+class FrontendExporterSettings extends CoreSettings
 {
+    /**
+     * @var \Generated\Zed\Ide\AutoCompletion
+     */
     protected $locator;
 
+    /**
+     * @param $locator
+     */
     public function __construct($locator)
     {
         $this->locator = $locator;
     }
-
 
     /**
      * @return array
      */
     public function getKeyValueProcessors()
     {
-        /** @var KeyBuilderAwareInterface $translationProcessorPlugin */
-        $translationProcessorPlugin = $this->locator->glossaryExporter()->pluginTranslationProcessorPlugin();
-        /** @var KeyBuilderPlugin $keyBuilderPlugin */
-        $keyBuilderPlugin = $this->locator->glossaryExporter()->pluginKeyBuilderPlugin();
-
-        $translationProcessorPlugin->setKeyBuilder($keyBuilderPlugin);
-
         return [
-            new ProductProcessorPlugin(100, 10),
-            new NavigationProcessorPlugin(),
-            new CategoryNodeProcessorPlugin(100),
-            $translationProcessorPlugin
+            //product export processors
+            $this->locator->productFrontendExporterConnector()->pluginProductProcessorPlugin(),
+            $this->locator->productFrontendExporterAvailabilityConnector()->pluginProductAvailabilityProcessorPlugin(),
+            $this->locator->productFrontendExporterConnector()->pluginProductUrlProcessorPlugin(),
+
+            //translations
+            $this->locator->glossaryExporter()->pluginTranslationProcessorPlugin(),
         ];
     }
 
     /**
-     * @return array|\ProjectA\Zed\FrontendExporter\Communication\Plugin\ProcessorPluginInterface[]
+     * @return array|\ProjectA\Zed\FrontendExporter\Dependency\Plugin\ExportFailedDeciderPluginInterface[]
+     */
+    public function getKeyValueExportFailedDeciders()
+    {
+        return [
+            $this->locator->productFrontendExporterConnector()->pluginProductExportIsFailedDeciderPlugin()
+        ];
+    }
+
+    /**
+     * @return array|\ProjectA\Zed\FrontendExporter\Dependency\Plugin\QueryExpanderPluginInterface[]
+     */
+    public function getKeyValueQueryExpander()
+    {
+        return [
+            //product query expander
+            $this->locator->productFrontendExporterConnector()->pluginProductQueryExpanderPlugin(),
+            $this->locator->productFrontendExporterAvailabilityConnector()
+                ->pluginProductAvailabilityQueryExpanderPlugin(),
+            $this->locator->glossaryExporter()->pluginTranslationQueryExpanderPlugin(),
+        ];
+    }
+
+
+    /**
+     * @return array|\ProjectA\Zed\FrontendExporter\Dependency\Plugin\DataProcessorPluginInterface[]
      */
     public function getSearchProcessors()
     {
         return [
-            new ProductSearchProcessorPlugin(100, 10)
+            $this->locator->productSearch()->pluginProductSearchProcessorPlugin(),
+            $this->locator->productSearch()->pluginProductAttributesProcessorPlugin(),
+            $this->locator->productSearchAvailabilityConnector()->pluginProductAvailabilityProcessorPlugin(),
         ];
     }
+
+    /**
+     * @return array|\ProjectA\Zed\FrontendExporter\Dependency\Plugin\QueryExpanderPluginInterface[]
+     */
+    public function getSearchQueryExpander()
+    {
+        return [
+            $this->locator->productSearch()->pluginProductQueryExpanderPlugin(),
+            $this->locator->productSearchAvailabilityConnector()->pluginProductAvailabilityQueryExpanderPlugin(),
+        ];
+    }
+
+    /**
+     * @return array|\ProjectA\Zed\FrontendExporter\Dependency\Plugin\ExportFailedDeciderPluginInterface[]
+     */
+    public function getSearchExportFailedDeciders()
+    {
+        return [
+            $this->locator->productSearch()->pluginProductSearchFailedDeciderPlugin()
+        ];
+    }
+
 
     /**
      * @return array
@@ -62,7 +106,7 @@ class FrontendExporterSettings extends CoreFrontendExporterSettings
     public function getSearchUpdateProcessors()
     {
         return [
-            new ProductCategorySearchProcessorPlugin(100, 10),
+            new ProductCategorySearchDataProcessorPlugin(100, 10),
         ];
     }
 }

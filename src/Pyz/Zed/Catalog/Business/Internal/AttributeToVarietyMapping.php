@@ -6,9 +6,9 @@ use Pyz\Shared\Catalog\Code\ProductAttributeSetConstantInterface;
 use \ProjectA\Zed\Catalog\Persistence\Propel\Map\PacCatalogValueTypeTableMap as ValueTypePeer;
 
 /**
- * self::ATTRIBUTE_NAME => \ProjectA\Zed\Catalog\Persistence\Propel\Map\PacCatalogValueTypeTableMap::COL_VARIETY_TEXT,
- * self::ATTRIBUTE_TAX_RATE => \ProjectA\Zed\Catalog\Persistence\Propel\Map\PacCatalogValueTypeTableMap::COL_VARIETY_OPTIONSINGLE,
- * self::ATTRIBUTE_MAX_QUANTITY => \ProjectA\Zed\Catalog\Persistence\Propel\Map\PacCatalogValueTypeTableMap::COL_VARIETY_INTEGER,
+ * self::ATTRIBUTE_NAME => \ProjectA\Zed\Catalog\Persistence\Propel\Map\PacCatalogValueTypeTableMap::COL_COL_VARIETY_TEXT,
+ * self::ATTRIBUTE_TAX_RATE => \ProjectA\Zed\Catalog\Persistence\Propel\Map\PacCatalogValueTypeTableMap::COL_COL_VARIETY_OPTIONSINGLE,
+ * self::ATTRIBUTE_MAX_QUANTITY => \ProjectA\Zed\Catalog\Persistence\Propel\Map\PacCatalogValueTypeTableMap::COL_COL_VARIETY_INTEGER,
  *
  */
 // TODO check if class can be deleted its only used in the installer
@@ -86,6 +86,6 @@ class AttributeToVarietyMapping implements
      */
     public static function getVarietyForAttributeByAttributeSet($attributeName, $attributeSetName)
     {
-        return isset(static::$attributesToVarietyMapping[$attributeSetName][$attributeName]) ? static::$attributesToVarietyMapping[$attributeSetName][$attributeName] : \ProjectA\Zed\Catalog\Persistence\Propel\Map\PacCatalogValueTypeTableMap::COL_VARIETY_TEXT;
+        return isset(static::$attributesToVarietyMapping[$attributeSetName][$attributeName]) ? static::$attributesToVarietyMapping[$attributeSetName][$attributeName] : \ProjectA\Zed\Catalog\Persistence\Propel\Map\PacCatalogValueTypeTableMap::COL_COL_VARIETY_TEXT;
     }
 }

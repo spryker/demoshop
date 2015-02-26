@@ -54,8 +54,8 @@ class ProductDataInstall implements DemoDataInstallInterface
         $typeEntities = \ProjectA\Zed\Product\Persistence\Propel\PacProductAttributeTypeQuery::create()
             ->select(
                 [
-                    \ProjectA\Zed\Product\Persistence\Propel\Map\PacProductAttributeTypeTableMap::COL_NAME,
-                    \ProjectA\Zed\Product\Persistence\Propel\Map\PacProductAttributeTypeTableMap::COL_TYPE_ID
+                    \ProjectA\Zed\Product\Persistence\Propel\Map\PacProductAttributeTypeTableMap::COL_COL_NAME,
+                    \ProjectA\Zed\Product\Persistence\Propel\Map\PacProductAttributeTypeTableMap::COL_COL_TYPE_ID
                 ]
             )->setFormatter(
                 new \PropelSimpleArrayFormatter()
@@ -94,6 +94,9 @@ class ProductDataInstall implements DemoDataInstallInterface
         $locator = new Locator();
         $touchFacade = $locator->touch()->facade();
 
+        $locale = \SprykerCore\Zed\Locale\Persistence\Propel\PacLocaleQuery::create()
+            ->findOneByLocaleName('de_DE');
+
         foreach ($this->getProductsFromCsv() as $p) {
             $sku = $p['sku'];
             $abstractProductQuery = new \ProjectA\Zed\Product\Persistence\Propel\PacAbstractProductQuery();
@@ -104,7 +107,7 @@ class ProductDataInstall implements DemoDataInstallInterface
             $abstractProduct->setSku($sku);
 
             $abstractProductAttributes = new \ProjectA\Zed\Product\Persistence\Propel\PacLocalizedAbstractProductAttributes();
-            $abstractProductAttributes->setLocale('de_DE');
+            $abstractProductAttributes->setLocale($locale);
             $abstractProductAttributes->setName($p['name']);
             $abstractProductAttributes->setAttributes($p['attributes']);
             $abstractProductAttributes->setPacAbstractProduct($abstractProduct);
@@ -116,7 +119,7 @@ class ProductDataInstall implements DemoDataInstallInterface
                 $product->setPacAbstractProduct($abstractProduct);
 
                 $productAttributes = new \ProjectA\Zed\Product\Persistence\Propel\PacLocalizedProductAttributes();
-                $productAttributes->setLocale('de_DE');
+                $productAttributes->setLocale($locale);
                 $productAttributes->setName($pc['name']);
                 $productAttributes->setUrl($pc['url']);
                 $productAttributes->setAttributes($pc['attributes']);
@@ -124,14 +127,7 @@ class ProductDataInstall implements DemoDataInstallInterface
 
                 $product->save();
 
-                $touch = new \ProjectA\Zed\FrontendExporter\Persistence\Propel\PacFrontendExporterTouch();
-                $touch->setItemType('product');
-                $touch->setItemEvent(\ProjectA\Zed\FrontendExporter\Persistence\Propel\Map\PacFrontendExporterTouchTableMap::COL_ITEM_EVENT_ACTIVE);
-                $touch->setExportType(\ProjectA\Zed\FrontendExporter\Persistence\Propel\Map\PacFrontendExporterTouchTableMap::COL_EXPORT_TYPE_KEYVALUE);
-
-                $touch->setTouched(new \DateTime());
-                $touch->setItemId($product->getProductId());
-                $touch->save();
+                $touchFacade->touchActive('product', $product->getProductId());
             }
 
         }

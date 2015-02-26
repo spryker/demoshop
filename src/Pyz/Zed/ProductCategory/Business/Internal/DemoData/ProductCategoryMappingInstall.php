@@ -20,7 +20,12 @@ class ProductCategoryMappingInstall implements DemoDataInstallInterface
      */
     public function install(Console $console)
     {
-        $locale = \ProjectA_Shared_Library_Store::getInstance()->getCurrentLocale();
+        /** @var AutoCompletion $locator */
+        $locator = new Locator();
+        //we should use the locale facade to get the current Locale
+        $localeFacade = $locator->locale()->facade();
+        $locale = \SprykerCore\Zed\Locale\Persistence\Propel\PacLocaleQuery::create()
+            ->findOneByLocaleName($localeFacade->getCurrentLocale());
         $categoryNodeIds = $this->installProductCategories($locale);
         $this->touchProductCategories($categoryNodeIds);
     }
