@@ -44,7 +44,7 @@ class YamlInstallerPlugin extends AbstractPlugin implements GlossaryInstallerPlu
 
             foreach ($data['translations'] as $localeName => $text) {
                 if (!$glossaryFacade->hasTranslation($keyName, $localeName)) {
-                    $glossaryFacade->createTranslation($keyName, $localeName, $text, true);
+                    $glossaryFacade->createAndTouchTranslation($keyName, $localeName, $text, true);
                 }
             }
         }
