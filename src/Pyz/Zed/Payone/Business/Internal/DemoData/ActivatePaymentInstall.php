@@ -18,7 +18,7 @@ class ActivatePaymentInstall implements DemoDataInstallInterface
         if ($console->askConfirmation('Would you like to activate Prepayment?')) {
             /** @var \ProjectA_Zed_Payment_Persistence_Propel_PacPaymentConfig $entity */
             $entity = \ProjectA_Zed_Payment_Persistence_Propel_PacPaymentConfigQuery::create()
-                ->findOneByIdentifier('Prepayment');
+                ->findOneByName('Prepayment');
 
             if ($entity) {
                 $entity->setIsActive(true);
