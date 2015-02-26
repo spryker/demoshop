@@ -38,6 +38,8 @@ class FrontendExporterSettings extends CoreSettings
 
             //translations
             $this->locator->glossaryExporter()->pluginTranslationProcessorPlugin(),
+
+            $this->locator->cmsExporter()->pluginCmsPageProcessorPlugin(),
         ];
     }
 
@@ -62,6 +64,7 @@ class FrontendExporterSettings extends CoreSettings
             $this->locator->productFrontendExporterAvailabilityConnector()
                 ->pluginProductAvailabilityQueryExpanderPlugin(),
             $this->locator->glossaryExporter()->pluginTranslationQueryExpanderPlugin(),
+            $this->locator->cmsExporter()->pluginCmsQueryExpanderPlugin()
         ];
     }
 
