@@ -8,7 +8,7 @@ use ProjectA\Zed\FrontendExporter\Business\FrontendExporterSettings as CoreSetti
 /**
  * Class FrontendExporterSettings
  *
- * @package Pyz\Zed\YvesExport\Business
+ * @package Pyz\Zed\FrontendExporter\Business
  */
 class FrontendExporterSettings extends CoreSettings
 {
@@ -35,6 +35,11 @@ class FrontendExporterSettings extends CoreSettings
             $this->locator->productFrontendExporterConnector()->pluginProductProcessorPlugin(),
             $this->locator->productFrontendExporterAvailabilityConnector()->pluginProductAvailabilityProcessorPlugin(),
             $this->locator->productFrontendExporterConnector()->pluginProductUrlProcessorPlugin(),
+
+            // category nodes
+            $this->locator->categoryExporter()->pluginNavigationProcessorPlugin(),
+            $this->locator->categoryExporter()->pluginCategoryNodeProcessorPlugin(),
+            $this->locator->categoryExporter()->pluginCategoryNodeUrlProcessorPlugin(),
 
             //translations
             $this->locator->glossaryExporter()->pluginTranslationProcessorPlugin(),
@@ -64,6 +69,8 @@ class FrontendExporterSettings extends CoreSettings
             $this->locator->productFrontendExporterAvailabilityConnector()
                 ->pluginProductAvailabilityQueryExpanderPlugin(),
             $this->locator->glossaryExporter()->pluginTranslationQueryExpanderPlugin(),
+            $this->locator->categoryExporter()->pluginNavigationQueryExpanderPlugin(),
+            $this->locator->categoryExporter()->pluginCategoryNodeQueryExpanderPlugin(),
             $this->locator->cmsExporter()->pluginCmsQueryExpanderPlugin()
         ];
     }
@@ -78,6 +85,7 @@ class FrontendExporterSettings extends CoreSettings
             $this->locator->productSearch()->pluginProductSearchProcessorPlugin(),
             $this->locator->productSearch()->pluginProductAttributesProcessorPlugin(),
             $this->locator->productSearchAvailabilityConnector()->pluginProductAvailabilityProcessorPlugin(),
+            $this->locator->productCategorySearch()->pluginProductCategorySearchProcessorPlugin(),
         ];
     }
 
@@ -89,6 +97,7 @@ class FrontendExporterSettings extends CoreSettings
         return [
             $this->locator->productSearch()->pluginProductQueryExpanderPlugin(),
             $this->locator->productSearchAvailabilityConnector()->pluginProductAvailabilityQueryExpanderPlugin(),
+            $this->locator->productCategorySearch()->pluginProductCategorySearchQueryExpanderPlugin(),
         ];
     }
 

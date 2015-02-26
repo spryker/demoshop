@@ -10,11 +10,9 @@ use ProjectA\Shared\Application\Communication\Plugin\ServiceProvider\UrlGenerato
 use ProjectA\Shared\Library\Config;
 use ProjectA\Shared\System\SystemConfig;
 use ProjectA\Shared\Yves\YvesConfig;
-use ProjectA\Yves\Cms\Communication\Plugin\CmsControllerProvider;
-
-use Pyz\Yves\Checkout\Communication\Plugin\CheckoutControllerProvider;
 use SprykerCore\Yves\Application\Communication\Plugin\ControllerProviderInterface;
 
+use Pyz\Yves\Checkout\Communication\Plugin\CheckoutControllerProvider;
 use ProjectA\Yves\Customer\Business\Model\Security\SecurityServiceProvider;
 use ProjectA\Yves\Customer\Communication\Plugin\CustomerControllerProvider;
 use Pyz\Yves\Cart\Communication\Plugin\CartControllerProvider;
@@ -30,7 +28,6 @@ use SprykerCore\Yves\Application\Communication\Plugin\ServiceProvider\SessionSer
 use SprykerCore\Yves\Application\Communication\Plugin\ServiceProvider\ExceptionServiceProvider;
 use SprykerCore\Yves\Application\Communication\Plugin\ServiceProvider\TwigServiceProvider;
 use SprykerCore\Yves\Application\Communication\Plugin\ServiceProvider\YvesLoggingServiceProvider;
-use SprykerFeature\Sdk\Cms\KeyBuilder\SdkCmsUrlKeyBuilder;
 
 use ProjectA\Shared\Application\Business\Routing\SilexRouter;
 
@@ -72,8 +69,9 @@ class YvesBootstrap extends Bootstrap
      */
     protected function getTwigExtensions(Application $app)
     {
+        $translator = $app['locator']->glossary()->sdk()->createTranslator($app['locale']);
         $assetManager = new AssetManager($app['request_stack']);
-        $yvesExtension = new YvesExtension($assetManager);
+        $yvesExtension = new YvesExtension($assetManager, $app['request_stack'], $translator);
 
         return [
             $yvesExtension
@@ -153,8 +151,7 @@ class YvesBootstrap extends Bootstrap
             new CartControllerProvider(false),
             new CheckoutControllerProvider($ssl),
             new CustomerControllerProvider($ssl),
-            new NewsletterControllerProvider(),
-            new CmsControllerProvider(),
+            new NewsletterControllerProvider()
         ];
     }
 
@@ -167,6 +164,7 @@ class YvesBootstrap extends Bootstrap
         $locator = $this->getLocator($app);
         $productResourceCreatorPlugin = $locator->productExporter()->pluginProductResourceCreator();
         $categoryResourceCreatorPlugin = $locator->categoryExporter()->pluginCategoryResourceCreator();
+        $cmsUrlResolver = $locator->cms()->sdk()->createUrlResolver($app['locale']);
 
         return [
             $locator->setup()->pluginMonitoringRouter()->createMonitoringRouter($app, false),
@@ -176,7 +174,7 @@ class YvesBootstrap extends Bootstrap
             ,
             $locator->catalog()->pluginSearchRouter()->createSearchRouter($app, false),
             $locator->cart()->pluginCartRouter()->createCartRouter($app, false),
-            $locator->cms()->pluginCmsRouter()->createCmsRouter($app, false, $locator, StorageInstanceBuilder::getKvStorageReadInstance(), new SdkCmsUrlKeyBuilder()),
+            $locator->cms()->pluginCmsRouter()->createCmsRouter($app, $cmsUrlResolver, false),
             /*
              * SilexRouter should come last, as it is not the fastest one if it can
              * not find a matching route (lots of magic)

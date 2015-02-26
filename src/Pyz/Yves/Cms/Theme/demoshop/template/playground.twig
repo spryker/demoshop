@@ -1,10 +1,6 @@
-{% extends '@cms/template/default.twig' %}
+{% extends '@Cms/layout/full.twig' %}
 
-{% block beforePartials %}
-    {{ spy_cms('heading') }}
-    {{ spy_cms('footer') }}
-{% endblock %}
-
-{% block afterPartials %}
-    <p>Some content after partials</p>
+{% block content %}
+    {{ spyCms('heading') }}
+    {{ spyCms('footer') }}
 {% endblock %}
