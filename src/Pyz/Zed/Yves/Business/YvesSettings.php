@@ -20,13 +20,11 @@ use ProjectA\Deprecated\Catalog\Business\Dependency\CatalogFacadeTrait;
 class YvesSettings extends ProjectAYvesSettings implements
     GlossaryFacadeInterface,
     MiscFacadeInterface,
-    CatalogFacadeInterface,
-    CmsFacadeInterface
+    CatalogFacadeInterface
 {
     use GlossaryFacadeTrait;
     use MiscFacadeTrait;
     use CatalogFacadeTrait;
-    use CmsFacadeTrait;
 
     /**
      * @param string $exportIdentifier
@@ -57,9 +55,8 @@ class YvesSettings extends ProjectAYvesSettings implements
 //
 //            $this->facadeCatalog->createExporterKeyValueProductOptionsExporter(),
 //            $this->facadeCategory->createExporterKeyValueCategoriesExporter(),
-            $this->facadeGlossary->createExporterKeyValueGlossaryExporter(),
+//            $this->facadeGlossary->createExporterKeyValueGlossaryExporter(),
 //            $this->facadeCms->createExporterKeyValueCmsExporter(),
-            $this->facadeCms->createExporterKeyValueRedirectionExporter(),
             $this->facadeMisc->createExporterKeyValueCountryExporter(),
         ];
     }
