@@ -35,6 +35,7 @@ class FrontendExporterSettings extends CoreSettings
             $this->locator->productFrontendExporterConnector()->pluginProductProcessorPlugin(),
             $this->locator->productFrontendExporterAvailabilityConnector()->pluginProductAvailabilityProcessorPlugin(),
             $this->locator->productFrontendExporterConnector()->pluginProductUrlProcessorPlugin(),
+            $this->locator->productFrontendExporterPriceConnector()->pluginProductPriceProcessorPlugin(),
 
             //translations
             $this->locator->glossaryExporter()->pluginTranslationProcessorPlugin(),
@@ -61,6 +62,7 @@ class FrontendExporterSettings extends CoreSettings
             $this->locator->productFrontendExporterConnector()->pluginProductQueryExpanderPlugin(),
             $this->locator->productFrontendExporterAvailabilityConnector()
                 ->pluginProductAvailabilityQueryExpanderPlugin(),
+            $this->locator->productFrontendExporterPriceConnector()->pluginProductPriceQueryExpanderPlugin(),
             $this->locator->glossaryExporter()->pluginTranslationQueryExpanderPlugin(),
         ];
     }
