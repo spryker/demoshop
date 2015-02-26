@@ -932,7 +932,7 @@
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/yves.git",
-                "reference": "c54f863d499dfb86db52f92d3422c89e75978dcd"
+                "reference": "e463922986213f07ee7ac3ed642d76d17575bcc6"
             },
             "require": {
                 "php": ">=5.4.0"
@@ -965,7 +965,7 @@
                 "Application",
                 "Yves"
             ],
-            "time": "2015-02-20 15:28:47"
+            "time": "2015-02-26 08:20:31"
         },
         {
             "name": "spryker/zed-package",
@@ -973,7 +973,7 @@
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/zed.git",
-                "reference": "4283337d639dda24773a11950220420c51885765"
+                "reference": "d132e83db5b649c312e28a4ed0e8531393eb5638"
             },
             "require": {
                 "digital-canvas/zend-framework": ">=1.12.2",
@@ -1040,7 +1040,7 @@
                 "Application",
                 "Zed"
             ],
-            "time": "2015-02-23 13:29:41"
+            "time": "2015-02-26 09:16:12"
         },
         {
             "name": "symfony-cmf/routing",
@@ -2408,19 +2408,19 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/zendesk/zendesk_api_client_php.git",
-                "reference": "46a5c146715f99d9e3592298d7e91a6a29ccb015"
+                "reference": "41d42e14b932301d12f580bb6cebabd883a2696a"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/zendesk/zendesk_api_client_php/zipball/46a5c146715f99d9e3592298d7e91a6a29ccb015",
-                "reference": "46a5c146715f99d9e3592298d7e91a6a29ccb015",
+                "url": "https://api.github.com/repos/zendesk/zendesk_api_client_php/zipball/41d42e14b932301d12f580bb6cebabd883a2696a",
+                "reference": "41d42e14b932301d12f580bb6cebabd883a2696a",
                 "shasum": ""
             },
             "require": {
                 "php": ">=5.3.1"
             },
             "require-dev": {
-                "phpunit/phpunit": "3.7.*"
+                "phpunit/phpunit": "4.5.*"
             },
             "type": "library",
             "autoload": {
@@ -2444,7 +2444,7 @@
             ],
             "description": "PHP Client for Zendesk REST API. See http://developer.zendesk.com/api-docs",
             "homepage": "https://github.com/zendesk/zendesk_api_client_php",
-            "time": "2015-02-18 18:50:38"
+            "time": "2015-02-24 21:34:57"
         },
         {
             "name": "zendframework/zend-code",
