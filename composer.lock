@@ -971,7 +971,7 @@
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/zed.git",
-                "reference": "689d9e7463cf40c89a4562ea858d4b5a99966608"
+                "reference": "7ff888c0202f6f89a762b5be700bd19dd633a1ef"
             },
             "require": {
                 "digital-canvas/zend-framework": ">=1.12.2",
@@ -1038,7 +1038,7 @@
                 "Application",
                 "Zed"
             ],
-            "time": "2015-02-23 14:46:46"
+            "time": "2015-02-23 16:47:06"
         },
         {
             "name": "symfony-cmf/routing",
@@ -2406,19 +2406,19 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/zendesk/zendesk_api_client_php.git",
-                "reference": "46a5c146715f99d9e3592298d7e91a6a29ccb015"
+                "reference": "41d42e14b932301d12f580bb6cebabd883a2696a"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/zendesk/zendesk_api_client_php/zipball/46a5c146715f99d9e3592298d7e91a6a29ccb015",
-                "reference": "46a5c146715f99d9e3592298d7e91a6a29ccb015",
+                "url": "https://api.github.com/repos/zendesk/zendesk_api_client_php/zipball/41d42e14b932301d12f580bb6cebabd883a2696a",
+                "reference": "41d42e14b932301d12f580bb6cebabd883a2696a",
                 "shasum": ""
             },
             "require": {
                 "php": ">=5.3.1"
             },
             "require-dev": {
-                "phpunit/phpunit": "3.7.*"
+                "phpunit/phpunit": "4.5.*"
             },
             "type": "library",
             "autoload": {
@@ -2442,7 +2442,7 @@
             ],
             "description": "PHP Client for Zendesk REST API. See http://developer.zendesk.com/api-docs",
             "homepage": "https://github.com/zendesk/zendesk_api_client_php",
-            "time": "2015-02-18 18:50:38"
+            "time": "2015-02-24 21:34:57"
         },
         {
             "name": "zendframework/zend-code",
@@ -3367,7 +3367,7 @@
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/newLoki/PropelModule/zipball/9de9316361e3dddb6b29f5dd93b7456e19e042e3",
+                "url": "https://api.github.com/repos/newLoki/PropelModule/zipball/ab6164e684113e20d5754fd61fe0ea86331ebd0b",
                 "reference": "9de9316361e3dddb6b29f5dd93b7456e19e042e3",
                 "shasum": ""
             },
