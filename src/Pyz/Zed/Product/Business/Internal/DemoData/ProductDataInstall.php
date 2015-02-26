@@ -97,6 +97,9 @@ class ProductDataInstall implements DemoDataInstallInterface
         $locator = new Locator();
         $touchFacade = $locator->touch()->facade();
 
+        $locale = \SprykerCore_Zed_Locale_Persistence_Propel_PacLocaleQuery::create()
+            ->findOneByLocaleName('de_DE');
+
         foreach ($this->getProductsFromCsv() as $p) {
             $sku = $p['sku'];
             $abstractProductQuery = new \ProjectA_Zed_Product_Persistence_Propel_PacAbstractProductQuery();

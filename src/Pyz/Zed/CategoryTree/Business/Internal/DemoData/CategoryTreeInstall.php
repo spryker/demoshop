@@ -2,6 +2,7 @@
 
 namespace Pyz\Zed\CategoryTree\Business\Internal\DemoData;
 
+use Generated\Zed\Ide\AutoCompletion;
 use ProjectA\Zed\CategoryTree\Persistence\CategoryTreeQueryContainer;
 use ProjectA\Zed\Console\Business\Model\Console;
 use ProjectA\Zed\Kernel\Locator;
@@ -41,9 +42,12 @@ class CategoryTreeInstall implements DemoDataInstallInterface
     public function __construct()
     {
         // TODO must be injected
+        /** @var AutoCompletion $locator */
         $locator = new Locator();
+        //we should use the locale facade to get the current Locale
+        $localeFacade = $locator->locale()->facade();
         $this->locale = \SprykerCore_Zed_Locale_Persistence_Propel_PacLocaleQuery::create()
-            ->findOneByLocaleName(\ProjectA_Shared_Library_Store::getInstance()->getCurrentLocale());
+            ->findOneByLocaleName($localeFacade->getCurrentLocale());
         $this->queryContainer = $locator->categoryTree()->queryContainer();
         $this->categoryFacade = $locator->categoryTree()->facade();
     }

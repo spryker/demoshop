@@ -14,7 +14,19 @@ class CheckoutControllerProvider extends YvesControllerProvider
     protected function defineControllers(Application $app)
     {
         $this->createController('/checkout', self::ROUTE_CHECKOUT, 'Checkout', 'Checkout')->method('GET|POST');
-        $this->createGetController('/checkout/success', self::ROUTE_CHECKOUT_SUCCESS, 'Checkout', 'Checkout', 'success');
-        $this->createGetController('/checkout/regular-redirect-payment-cancellation', self::ROUTE_CHECKOUT_REGULAR_REDIRECT_PAYMENT_CANCELLATION, 'Checkout', 'Checkout', 'regularRedirectPaymentCancellation')->method('GET|POST');
+        $this->createGetController(
+            '/checkout/success',
+            self::ROUTE_CHECKOUT_SUCCESS,
+            'Checkout',
+            'Checkout',
+            'success'
+        );
+        $this->createGetController(
+            '/checkout/regular-redirect-payment-cancellation',
+            self::ROUTE_CHECKOUT_REGULAR_REDIRECT_PAYMENT_CANCELLATION,
+            'Checkout',
+            'Checkout',
+            'regularRedirectPaymentCancellation'
+        )->method('GET|POST');
     }
 }
