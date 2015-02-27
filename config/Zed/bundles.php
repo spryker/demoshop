@@ -49,12 +49,12 @@ return [
         'Stock' => $schema,
         'System' => $navigation,
         'Yves' => $schemaAndNavigation,
-        'FrontendExporter' => $schema
     ],
 
     \ProjectA\Shared\Library\Bundle\BundleConfig::NAMESPACE_SPRYKERCORE => [
         'Locale' => $schema,
-        'Touch' => $schema
+        'Touch' => $schema,
+        'Url' => $schema
     ],
 
     \ProjectA\Shared\Library\Bundle\BundleConfig::NAMESPACE_SPRYKERFEATURE => [
