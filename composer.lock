@@ -4,7 +4,7 @@
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "93bc5ece558d3b8ef128104b7c371797",
+    "hash": "967fa440cd1ca8ec2819340975133207",
     "packages": [
         {
             "name": "digital-canvas/zend-framework",
@@ -964,11 +964,11 @@
         },
         {
             "name": "spryker/zed-package",
-            "version": "dev-cms-exporter",
+            "version": "dev-extract-redirect-url",
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/zed.git",
-                "reference": "8b3d0cabddacfac3b2032043da154bdd56bdd2c2"
+                "reference": "74c499e861d6d63fc22c854120e3bacfbe63d23f"
             },
             "require": {
                 "digital-canvas/zend-framework": ">=1.12.2",
@@ -1035,7 +1035,7 @@
                 "Application",
                 "Zed"
             ],
-            "time": "2015-02-26 16:53:39"
+            "time": "2015-02-27 16:53:29"
         },
         {
             "name": "symfony-cmf/routing",
@@ -3389,16 +3389,16 @@
         },
         {
             "name": "pdepend/pdepend",
-            "version": "2.0.4",
+            "version": "2.0.5",
             "source": {
                 "type": "git",
                 "url": "https://github.com/pdepend/pdepend.git",
-                "reference": "1b0acf162da4f30237987e61e177a57f78e3d87e"
+                "reference": "5714f56f40e361f63a0562fd6e15a4c8782dae27"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/pdepend/pdepend/zipball/1b0acf162da4f30237987e61e177a57f78e3d87e",
-                "reference": "1b0acf162da4f30237987e61e177a57f78e3d87e",
+                "url": "https://api.github.com/repos/pdepend/pdepend/zipball/5714f56f40e361f63a0562fd6e15a4c8782dae27",
+                "reference": "5714f56f40e361f63a0562fd6e15a4c8782dae27",
                 "shasum": ""
             },
             "require": {
@@ -3424,7 +3424,7 @@
                 "BSD-3-Clause"
             ],
             "description": "Official version of pdepend to be handled with Composer",
-            "time": "2014-12-04 12:38:39"
+            "time": "2015-02-27 15:50:01"
         },
         {
             "name": "phpunit/php-code-coverage",
@@ -4219,6 +4219,7 @@
         "newloki/propel-module": 20
     },
     "prefer-stable": true,
+    "prefer-lowest": false,
     "platform": [],
     "platform-dev": []
 }
