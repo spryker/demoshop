@@ -968,7 +968,7 @@
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/zed.git",
-                "reference": "7e3fdc83901bb1eedb0db56fcfffbfa8eadcd87b"
+                "reference": "8b3d0cabddacfac3b2032043da154bdd56bdd2c2"
             },
             "require": {
                 "digital-canvas/zend-framework": ">=1.12.2",
@@ -1035,7 +1035,7 @@
                 "Application",
                 "Zed"
             ],
-            "time": "2015-02-26 14:26:43"
+            "time": "2015-02-26 16:53:39"
         },
         {
             "name": "symfony-cmf/routing",
@@ -4219,7 +4219,6 @@
         "newloki/propel-module": 20
     },
     "prefer-stable": true,
-    "prefer-lowest": false,
     "platform": [],
     "platform-dev": []
 }
