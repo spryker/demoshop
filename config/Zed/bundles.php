@@ -58,6 +58,7 @@ return [
     ],
 
     \ProjectA\Shared\Library\Bundle\BundleConfig::NAMESPACE_SPRYKERFEATURE => [
-        'Cms' => $allElements
+        'Cms' => $allElements,
+        'Redirect' => $schema
     ]
 ];
