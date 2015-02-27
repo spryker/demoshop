@@ -76,7 +76,7 @@ class PriceInstall implements DemoDataInstallInterface
                             ->setPriceTypeName($stockType->getName())
                             ->setSkuProduct($row[self::SKU]);
 
-        $this->priceFacade->setPrice($transferPriceProduct);
+        $this->priceFacade->createPriceForProduct($transferPriceProduct);
     }
 
 }
