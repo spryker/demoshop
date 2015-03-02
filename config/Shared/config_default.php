@@ -107,11 +107,11 @@ $config[SystemConfig::PROPEL] = [
     ],
     'runtime' => [
         'defaultConnection' => 'default',
-        'connections' => ['default']
+        'connections' => ['default', 'zed']
     ],
     'generator' => [
         'defaultConnection' => 'default',
-        'connections' => ['default'],
+        'connections' => ['default', 'zed'],
         'objectModel' => [
             'builders' => [
                 'tablemap' => '\ProjectA\Zed\Kernel\Persistence\Propel\Builder\TableMapBuilder'
