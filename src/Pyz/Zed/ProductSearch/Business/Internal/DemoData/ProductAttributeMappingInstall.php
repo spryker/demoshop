@@ -64,7 +64,7 @@ class ProductAttributeMappingInstall implements DemoDataInstallInterface
                 'CopyToFacet' => [
                     'integer-facet',
                 ],
-                'CopyToField' => [
+                'CopyToMultiField' => [
                     'integer-sort'
                 ]
             ],
