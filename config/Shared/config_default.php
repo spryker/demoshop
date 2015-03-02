@@ -87,43 +87,42 @@ $config[YvesConfig::YVES_SESSION_NAME] = 'yves_session';
 $config[YvesConfig::YVES_SESSION_COOKIE_DOMAIN] = $config[SystemConfig::HOST_YVES];
 $config[YvesConfig::YVES_ERROR_PAGE] = APPLICATION_ROOT_DIR.'/static/public/Yves/errorpage/error.html';
 
+$currentStore = ProjectA_Shared_Library_Store::getInstance()->getStoreName();
 $config[SystemConfig::PROPEL] = [
     'database' => [
         'connections' => [
             'default' => [
                 'adapter' => 'mysql',
-                'dsn' => 'mysql:host=localhost;dbname=DE_development_zed',
-                'user' => 'development',
-                'password' => 'mate20mg',
+                'dsn' => '',
+                'user' => '',
+                'password' => '',
                 'settings' => [
                     'charset' => 'utf8',
                     'queries' => [
                         'utf8' => 'SET NAMES utf8 COLLATE utf8_unicode_ci, COLLATION_CONNECTION = utf8_unicode_ci, COLLATION_DATABASE = utf8_unicode_ci, COLLATION_SERVER = utf8_unicode_ci'
                     ]
                 ]
-            ],
-            'zed' => [
-                'adapter' => 'mysql',
-                'classname' => 'Propel\Runtime\Connection\ConnectionWrapper',
-                'dsn' => 'mysql:host=localhost;dbname=DE_development_zed',
-                'user' => 'development',
-                'password' => 'mate20mg'
             ]
         ]
     ],
     'runtime' => [
-        'defaultConnection' => 'zed',
-        'connections' => ['zed']
+        'defaultConnection' => 'default',
+        'connections' => ['default']
     ],
     'generator' => [
-        'defaultConnection' => 'zed',
-        'connections' => ['zed']
+        'defaultConnection' => 'default',
+        'connections' => ['default'],
+        'objectModel' => [
+            'builders' => [
+                'tablemap' => '\ProjectA\Zed\Kernel\Persistence\Propel\Builder\TableMapBuilder'
+            ]
+        ]
     ],
     'paths' => [
         'phpDir' => APPLICATION_ROOT_DIR,
-        'sqlDir' => APPLICATION_ROOT_DIR . '/src/Generated/Propel/Sql',
-        'migrationDir' => APPLICATION_ROOT_DIR . '/src/Generated/Propel/Migration',
-        'phpConfDir' => APPLICATION_ROOT_DIR . '/src/Generated/Propel/Config'
+        'sqlDir' => APPLICATION_ROOT_DIR . '/src/Generated/Propel/' . $currentStore . '/Sql',
+        'migrationDir' => APPLICATION_ROOT_DIR . '/src/Generated/Propel/' . $currentStore . '/Migration',
+        'phpConfDir' => APPLICATION_ROOT_DIR . '/src/Generated/Propel/' . $currentStore . '/Config'
     ]
 ];
 
