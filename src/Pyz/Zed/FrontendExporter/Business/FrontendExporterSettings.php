@@ -45,6 +45,7 @@ class FrontendExporterSettings extends CoreSettings
             $this->locator->glossaryExporter()->pluginTranslationProcessorPlugin(),
 
             $this->locator->cmsExporter()->pluginCmsPageProcessorPlugin(),
+            $this->locator->cmsExporter()->pluginCmsPageUrlProcessorPlugin()
         ];
     }
 
