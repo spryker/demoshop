@@ -105,7 +105,7 @@ class ProductCategoryMappingInstall implements DemoDataInstallInterface
      */
     protected function getCategoryNodeId($categoryName, $locale)
     {
-        $categoryNodeEntity = \ProjectA\Zed\CategoryTree\Persistence\Propel\PacCategoryNodeQuery::create()
+        $categoryNodeEntity = \ProjectA\Zed\Category\Persistence\Propel\PacCategoryNodeQuery::create()
             ->useCategoryQuery()
                 ->useAttributeQuery()
                     ->filterByLocale($locale)
@@ -114,7 +114,7 @@ class ProductCategoryMappingInstall implements DemoDataInstallInterface
             ->endUse()
             ->findOne();
 
-        if ($categoryNodeEntity instanceof \ProjectA\Zed\CategoryTree\Persistence\Propel\PacCategoryNode) {
+        if ($categoryNodeEntity instanceof \ProjectA\Zed\Category\Persistence\Propel\PacCategoryNode) {
             return $categoryNodeEntity->getIdCategoryNode();
         }
 

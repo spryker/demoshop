@@ -7,6 +7,7 @@ use ProjectA\Zed\Console\Business\Model\Console;
 use ProjectA\Zed\Kernel\Locator;
 use ProjectA\Zed\Library\Business\DemoDataInstallInterface;
 use ProjectA\Zed\Library\Import\Reader\CsvFileReader;
+use Propel\Runtime\Formatter\SimpleArrayFormatter;
 
 /**
  * Class ProductDataInstall
@@ -18,9 +19,6 @@ class ProductDataInstall implements DemoDataInstallInterface
 
     /**
      * @param Console $console
-     *
-     * @throws \Exception
-     * @throws \PropelException
      */
     public function install(Console $console)
     {
@@ -54,11 +52,11 @@ class ProductDataInstall implements DemoDataInstallInterface
         $typeEntities = \ProjectA\Zed\Product\Persistence\Propel\PacProductAttributeTypeQuery::create()
             ->select(
                 [
-                    \ProjectA\Zed\Product\Persistence\Propel\Map\PacProductAttributeTypeTableMap::COL_COL_NAME,
-                    \ProjectA\Zed\Product\Persistence\Propel\Map\PacProductAttributeTypeTableMap::COL_COL_TYPE_ID
+                    \ProjectA\Zed\Product\Persistence\Propel\Map\PacProductAttributeTypeTableMap::COL_NAME,
+                    \ProjectA\Zed\Product\Persistence\Propel\Map\PacProductAttributeTypeTableMap::COL_TYPE_ID
                 ]
             )->setFormatter(
-                new \PropelSimpleArrayFormatter()
+                new SimpleArrayFormatter()
             )->find()->getArrayCopy();
 
         $types = [];

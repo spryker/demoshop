@@ -147,7 +147,7 @@ class ProductAttributeMappingInstall implements DemoDataInstallInterface
         $attributeOperationExists = \ProjectA\Zed\ProductSearch\Persistence\Propel\PacProductSearchAttributesOperationQuery::create()
             ->filterBySourceAttributeId($attributeId)
             ->filterByTargetField($copyTarget)
-            ->exists();
+            ->findOne();
 
         if (!$attributeOperationExists) {
             $attributeOperation = new \ProjectA\Zed\ProductSearch\Persistence\Propel\PacProductSearchAttributesOperation();
