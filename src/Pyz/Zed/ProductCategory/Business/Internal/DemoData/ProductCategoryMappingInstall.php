@@ -38,13 +38,10 @@ class ProductCategoryMappingInstall implements DemoDataInstallInterface
      */
     protected function installProductCategories($locale)
     {
-        $localeEntity = \SprykerCore_Zed_Locale_Persistence_Propel_PacLocaleQuery::create()
-            ->findOneByLocaleName($locale);
-
         $categoryNodeIds = [];
         foreach ($this->getDemoProductCategories() as $demoProductCategory) {
             $productId = $this->getProductId($demoProductCategory['sku']);
-            $categoryNodeId = $this->getCategoryNodeId($demoProductCategory['category'], $localeEntity);
+            $categoryNodeId = $this->getCategoryNodeId($demoProductCategory['category'], $locale);
 
             if ($productId && $categoryNodeId && !($this->relationExists($productId, $categoryNodeId))) {
                 $productCategory = new \ProjectA_Zed_ProductCategory_Persistence_Propel_PacProductCategory();

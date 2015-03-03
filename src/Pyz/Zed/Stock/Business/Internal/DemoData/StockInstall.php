@@ -2,6 +2,7 @@
 
 namespace Pyz\Zed\Stock\Business\Internal\DemoData;
 
+use Generated\Zed\Ide\AutoCompletion;
 use ProjectA\Zed\Console\Business\Model\Console;
 use ProjectA\Zed\Kernel\Locator;
 use ProjectA\Zed\Library\Business\DemoDataInstallInterface;
@@ -18,7 +19,12 @@ class StockInstall implements DemoDataInstallInterface
     const SKU = 'sku';
     const QUANTITY = 'quantity';
     const NEVER_OUT_OF_STOCK = 'is_never_out_of_stock';
-    const TYPE = 'type';
+    const TYPE = 'stock_type';
+
+    /**
+     * @var AutoCompletion
+     */
+    protected $locator;
 
     /** @var StockQueryContainer */
     protected $queryContainer;
@@ -28,9 +34,9 @@ class StockInstall implements DemoDataInstallInterface
 
     public function __construct()
     {
-        $locator = new Locator();
-        $this->queryContainer = $locator->stock()->queryContainer();
-        $this->stockFacade = $locator->stock()->facade();
+        $this->locator = new Locator();
+        $this->queryContainer = $this->locator->stock()->queryContainer();
+        $this->stockFacade = $this->locator->stock()->facade();
     }
 
     /**
@@ -79,13 +85,11 @@ class StockInstall implements DemoDataInstallInterface
             $stockType->save();
         }
 
-        $stock = $this->stockFacade->setStockProduct(
-            $row[self::SKU],
-            $row[self::QUANTITY],
-            $row[self::TYPE],
-            $row[self::NEVER_OUT_OF_STOCK]
-        );
-        $this->touchStock($stock->getIdStockProduct());
+        $stockTransfer = $this->locator->stock()->transferStockProduct();
+        $stockTransfer->fromArray($row);
+
+        $stockTransfer = $this->stockFacade->setStockProduct($stockTransfer);
+        $this->touchStock($stockTransfer->getIdStockProduct());
     }
 
     /**
