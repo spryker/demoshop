@@ -975,7 +975,7 @@
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/zed.git",
-                "reference": "d132e83db5b649c312e28a4ed0e8531393eb5638"
+                "reference": "effcc61cc4c023907311a22ba9eb75746384682c"
             },
             "require": {
                 "digital-canvas/zend-framework": ">=1.12.2",
@@ -1042,7 +1042,7 @@
                 "Application",
                 "Zed"
             ],
-            "time": "2015-02-26 09:16:12"
+            "time": "2015-03-03 09:05:09"
         },
         {
             "name": "symfony-cmf/routing",
@@ -2403,12 +2403,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/zendesk/zendesk_api_client_php.git",
-                "reference": "41d42e14b932301d12f580bb6cebabd883a2696a"
+                "reference": "8f136a76d784c371524e0aa259bdbd796c7d4ee2"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/zendesk/zendesk_api_client_php/zipball/41d42e14b932301d12f580bb6cebabd883a2696a",
-                "reference": "41d42e14b932301d12f580bb6cebabd883a2696a",
+                "url": "https://api.github.com/repos/zendesk/zendesk_api_client_php/zipball/8f136a76d784c371524e0aa259bdbd796c7d4ee2",
+                "reference": "8f136a76d784c371524e0aa259bdbd796c7d4ee2",
                 "shasum": ""
             },
             "require": {
@@ -2427,19 +2427,9 @@
             "license": [
                 "Apache License Version 2.0"
             ],
-            "authors": [
-                {
-                    "name": "DeVaris Brown",
-                    "email": "dbrown@zendesk.com"
-                },
-                {
-                    "name": "John Ginsberg",
-                    "email": "john.ginsberg@toptal.com"
-                }
-            ],
             "description": "PHP Client for Zendesk REST API. See http://developer.zendesk.com/api-docs",
             "homepage": "https://github.com/zendesk/zendesk_api_client_php",
-            "time": "2015-02-24 21:34:57"
+            "time": "2015-02-27 22:40:36"
         },
         {
             "name": "zendframework/zend-code",
@@ -3356,16 +3346,16 @@
         },
         {
             "name": "pdepend/pdepend",
-            "version": "2.0.4",
+            "version": "2.0.6",
             "source": {
                 "type": "git",
                 "url": "https://github.com/pdepend/pdepend.git",
-                "reference": "1b0acf162da4f30237987e61e177a57f78e3d87e"
+                "reference": "a15ffcbfbcc4570d4a733ca7b76e9cac0a56c3f4"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/pdepend/pdepend/zipball/1b0acf162da4f30237987e61e177a57f78e3d87e",
-                "reference": "1b0acf162da4f30237987e61e177a57f78e3d87e",
+                "url": "https://api.github.com/repos/pdepend/pdepend/zipball/a15ffcbfbcc4570d4a733ca7b76e9cac0a56c3f4",
+                "reference": "a15ffcbfbcc4570d4a733ca7b76e9cac0a56c3f4",
                 "shasum": ""
             },
             "require": {
@@ -3391,7 +3381,7 @@
                 "BSD-3-Clause"
             ],
             "description": "Official version of pdepend to be handled with Composer",
-            "time": "2014-12-04 12:38:39"
+            "time": "2015-03-02 08:06:43"
         },
         {
             "name": "phpunit/php-code-coverage",

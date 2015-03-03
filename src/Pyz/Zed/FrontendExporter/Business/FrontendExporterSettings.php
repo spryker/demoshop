@@ -35,6 +35,7 @@ class FrontendExporterSettings extends CoreSettings
             $this->locator->productFrontendExporterConnector()->pluginProductProcessorPlugin(),
             $this->locator->productFrontendExporterAvailabilityConnector()->pluginProductAvailabilityProcessorPlugin(),
             $this->locator->productFrontendExporterConnector()->pluginProductUrlProcessorPlugin(),
+            $this->locator->productCategoryFrontendExporterConnector()->pluginProductCategoryBreadcrumbProcessorPlugin(),
 
             // category nodes
             $this->locator->categoryExporter()->pluginNavigationProcessorPlugin(),
@@ -66,6 +67,8 @@ class FrontendExporterSettings extends CoreSettings
             $this->locator->productFrontendExporterConnector()->pluginProductQueryExpanderPlugin(),
             $this->locator->productFrontendExporterAvailabilityConnector()
                 ->pluginProductAvailabilityQueryExpanderPlugin(),
+            $this->locator->productCategoryFrontendExporterConnector()
+                ->pluginProductCategoryBreadcrumbQueryExpanderPlugin(),
             $this->locator->glossaryExporter()->pluginTranslationQueryExpanderPlugin(),
             $this->locator->categoryExporter()->pluginNavigationQueryExpanderPlugin(),
             $this->locator->categoryExporter()->pluginCategoryNodeQueryExpanderPlugin(),
@@ -94,7 +97,7 @@ class FrontendExporterSettings extends CoreSettings
         return [
             $this->locator->productSearch()->pluginProductQueryExpanderPlugin(),
             $this->locator->productSearchAvailabilityConnector()->pluginProductAvailabilityQueryExpanderPlugin(),
-            $this->locator->productCategorySearch()->pluginProductCategorySearchQueryExpanderPlugin(),
+            $this->locator->productCategory()->pluginProductCategoryPathQueryExpanderPlugin(),
         ];
     }
 
@@ -114,8 +117,6 @@ class FrontendExporterSettings extends CoreSettings
      */
     public function getSearchUpdateProcessors()
     {
-        return [
-            new ProductCategorySearchDataProcessorPlugin(100, 10),
-        ];
+        return [];
     }
 }
