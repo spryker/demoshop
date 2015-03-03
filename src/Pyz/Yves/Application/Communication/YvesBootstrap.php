@@ -162,19 +162,10 @@ class YvesBootstrap extends Bootstrap
     protected function getRouters(Application $app)
     {
         $locator = $this->getLocator($app);
-        $productResourceCreatorPlugin = $locator->productExporter()->pluginProductResourceCreator();
-        $categoryResourceCreatorPlugin = $locator->categoryExporter()->pluginCategoryResourceCreator();
-        $redirectResourceCreatorPlugin = $locator->redirectExporter()->pluginRedirectResourceCreator();
-        $pageResourceCreatorPlugin = $locator->cmsExporter()->pluginPageResourceCreator();
 
         return [
             $locator->setup()->pluginMonitoringRouter()->createMonitoringRouter($app, false),
-            $locator->frontendExporter()->pluginStorageRouter()->createStorageRouter($app, false)
-                ->addResourceCreator($productResourceCreatorPlugin->createProductResourceCreator())
-                ->addResourceCreator($categoryResourceCreatorPlugin->createCategoryResourceCreator())
-                ->addResourceCreator($redirectResourceCreatorPlugin->createRedirectResourceCreator())
-                ->addResourceCreator($pageResourceCreatorPlugin->createPageResourceCreator())
-            ,
+            $locator->frontendExporter()->pluginStorageRouter()->createStorageRouter($app, false),
             $locator->catalog()->pluginSearchRouter()->createSearchRouter($app, false),
             $locator->cart()->pluginCartRouter()->createCartRouter($app, false),
             /*
