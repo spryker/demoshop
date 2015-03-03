@@ -164,17 +164,17 @@ class YvesBootstrap extends Bootstrap
         $locator = $this->getLocator($app);
         $productResourceCreatorPlugin = $locator->productExporter()->pluginProductResourceCreator();
         $categoryResourceCreatorPlugin = $locator->categoryExporter()->pluginCategoryResourceCreator();
-        $cmsUrlResolver = $locator->cms()->sdk()->createUrlResolver($app['locale']);
+        $redirectResourceCreatorPlugin = $locator->redirectExporter()->pluginRedirectResourceCreator();
 
         return [
             $locator->setup()->pluginMonitoringRouter()->createMonitoringRouter($app, false),
             $locator->frontendExporter()->pluginStorageRouter()->createStorageRouter($app, false)
                 ->addResourceCreator($productResourceCreatorPlugin->createProductResourceCreator())
                 ->addResourceCreator($categoryResourceCreatorPlugin->createCategoryResourceCreator())
+                ->addResourceCreator($redirectResourceCreatorPlugin->createRedirectResourceCreator())
             ,
             $locator->catalog()->pluginSearchRouter()->createSearchRouter($app, false),
             $locator->cart()->pluginCartRouter()->createCartRouter($app, false),
-            $locator->cms()->pluginCmsRouter()->createCmsRouter($app, $cmsUrlResolver, false),
             /*
              * SilexRouter should come last, as it is not the fastest one if it can
              * not find a matching route (lots of magic)
