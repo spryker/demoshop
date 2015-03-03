@@ -1,6 +1,6 @@
 {
   "require": {
-    "spryker/yves-package": "dev-master",
+    "spryker/yves-package": "dev-feature/460-cms-preview-yves",
     "spryker/zed-package": "dev-cms-exporter",
 
     "psr/log": "~1.0",
