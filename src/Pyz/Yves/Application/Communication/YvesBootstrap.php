@@ -165,6 +165,7 @@ class YvesBootstrap extends Bootstrap
         $productResourceCreatorPlugin = $locator->productExporter()->pluginProductResourceCreator();
         $categoryResourceCreatorPlugin = $locator->categoryExporter()->pluginCategoryResourceCreator();
         $redirectResourceCreatorPlugin = $locator->redirectExporter()->pluginRedirectResourceCreator();
+        $pageResourceCreatorPlugin = $locator->cmsExporter()->pluginPageResourceCreator();
 
         return [
             $locator->setup()->pluginMonitoringRouter()->createMonitoringRouter($app, false),
@@ -172,6 +173,7 @@ class YvesBootstrap extends Bootstrap
                 ->addResourceCreator($productResourceCreatorPlugin->createProductResourceCreator())
                 ->addResourceCreator($categoryResourceCreatorPlugin->createCategoryResourceCreator())
                 ->addResourceCreator($redirectResourceCreatorPlugin->createRedirectResourceCreator())
+                ->addResourceCreator($pageResourceCreatorPlugin->createPageResourceCreator())
             ,
             $locator->catalog()->pluginSearchRouter()->createSearchRouter($app, false),
             $locator->cart()->pluginCartRouter()->createCartRouter($app, false),
