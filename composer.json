@@ -1,7 +1,7 @@
 {
   "require": {
-    "spryker/yves-package": "dev-yves",
-    "spryker/zed-package": "dev-extract-redirect-url",
+    "spryker/yves-package": "dev-master",
+    "spryker/zed-package": "dev-cms-exporter",
 
     "psr/log": "~1.0",
     "phing/phing": "~2.6.0",

@@ -4,7 +4,7 @@
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "967fa440cd1ca8ec2819340975133207",
+    "hash": "6c45d6f81b1f5d9883a86be45a9d3921",
     "packages": [
         {
             "name": "digital-canvas/zend-framework",
@@ -926,11 +926,11 @@
         },
         {
             "name": "spryker/yves-package",
-            "version": "dev-yves",
+            "version": "dev-master",
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/yves.git",
-                "reference": "35772a862823015e726d0982ae2e15bf98b7cfb8"
+                "reference": "e463922986213f07ee7ac3ed642d76d17575bcc6"
             },
             "require": {
                 "php": ">=5.4.0"
@@ -942,8 +942,11 @@
             "autoload": {
                 "psr-0": {
                     "ProjectA": "src/",
+                    "SprykerCore": "src/",
+                    "SprykerFeature": "src/",
                     "Acceptance": "tests/",
-                    "Functional": "tests/",
+                    "Function": "tests/",
+                    "Integration": "tests/",
                     "Unit": "tests/"
                 }
             },
@@ -960,15 +963,15 @@
                 "Application",
                 "Yves"
             ],
-            "time": "2015-02-18 16:29:23"
+            "time": "2015-02-26 08:20:31"
         },
         {
             "name": "spryker/zed-package",
-            "version": "dev-extract-redirect-url",
+            "version": "dev-cms-exporter",
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/zed.git",
-                "reference": "74c499e861d6d63fc22c854120e3bacfbe63d23f"
+                "reference": "e2e418b65ee37800d47266380ded1e24130ae08e"
             },
             "require": {
                 "digital-canvas/zend-framework": ">=1.12.2",
@@ -1035,7 +1038,7 @@
                 "Application",
                 "Zed"
             ],
-            "time": "2015-02-27 16:53:29"
+            "time": "2015-03-03 11:29:36"
         },
         {
             "name": "symfony-cmf/routing",
@@ -2403,12 +2406,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/zendesk/zendesk_api_client_php.git",
-                "reference": "41d42e14b932301d12f580bb6cebabd883a2696a"
+                "reference": "8f136a76d784c371524e0aa259bdbd796c7d4ee2"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/zendesk/zendesk_api_client_php/zipball/41d42e14b932301d12f580bb6cebabd883a2696a",
-                "reference": "41d42e14b932301d12f580bb6cebabd883a2696a",
+                "url": "https://api.github.com/repos/zendesk/zendesk_api_client_php/zipball/8f136a76d784c371524e0aa259bdbd796c7d4ee2",
+                "reference": "8f136a76d784c371524e0aa259bdbd796c7d4ee2",
                 "shasum": ""
             },
             "require": {
@@ -2427,19 +2430,9 @@
             "license": [
                 "Apache License Version 2.0"
             ],
-            "authors": [
-                {
-                    "name": "DeVaris Brown",
-                    "email": "dbrown@zendesk.com"
-                },
-                {
-                    "name": "John Ginsberg",
-                    "email": "john.ginsberg@toptal.com"
-                }
-            ],
             "description": "PHP Client for Zendesk REST API. See http://developer.zendesk.com/api-docs",
             "homepage": "https://github.com/zendesk/zendesk_api_client_php",
-            "time": "2015-02-24 21:34:57"
+            "time": "2015-02-27 22:40:36"
         },
         {
             "name": "zendframework/zend-code",
@@ -3389,16 +3382,16 @@
         },
         {
             "name": "pdepend/pdepend",
-            "version": "2.0.5",
+            "version": "2.0.6",
             "source": {
                 "type": "git",
                 "url": "https://github.com/pdepend/pdepend.git",
-                "reference": "5714f56f40e361f63a0562fd6e15a4c8782dae27"
+                "reference": "a15ffcbfbcc4570d4a733ca7b76e9cac0a56c3f4"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/pdepend/pdepend/zipball/5714f56f40e361f63a0562fd6e15a4c8782dae27",
-                "reference": "5714f56f40e361f63a0562fd6e15a4c8782dae27",
+                "url": "https://api.github.com/repos/pdepend/pdepend/zipball/a15ffcbfbcc4570d4a733ca7b76e9cac0a56c3f4",
+                "reference": "a15ffcbfbcc4570d4a733ca7b76e9cac0a56c3f4",
                 "shasum": ""
             },
             "require": {
@@ -3424,7 +3417,7 @@
                 "BSD-3-Clause"
             ],
             "description": "Official version of pdepend to be handled with Composer",
-            "time": "2015-02-27 15:50:01"
+            "time": "2015-03-02 08:06:43"
         },
         {
             "name": "phpunit/php-code-coverage",
