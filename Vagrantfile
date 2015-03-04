@@ -1,24 +1,42 @@
 VAGRANTFILE_API_VERSION = "2"
 SALT_DIRECTORY="./vendor/spryker/saltstack"
-PILLAR_DIRECTORY="./spryker/pillar"
+SALT_REPOSITORY="git@github.com:spryker/saltstack.git"
+SALT_BRANCH="master"
+PILLAR_DIRECTORY="./vendor/spryker/pillar"
+PILLAR_REPOSITORY="git@github.com:spryker/pillar.git"
+PILLAR_BRANCH="master"
+HOSTS=%w() TODO
 
-# Verify required vagrant plugins
-#required_plugins=["vagrant-hostmanager"]
-#missing_plugins = required_plugins.reject { |p| Vagrant.has_plugin? p }
+required_plugins = %w(vagrant-hostmanager)
 
-#if not Vagrant.has_plugin?("vagrant-hostmanager")
-#  raise "ERROR: Required vagrant plugin hostmanager is not installed.\n\n\033[0m" +
-#    "\nTo install plugin, use command:\ngem install ffi; vagrant plugin install vagrant-hostmanager\n"
-#end
+required_plugins.each do |plugin|
+  need_restart = false
+  unless Vagrant.has_plugin? plugin
+    system "vagrant plugin install #{plugin}"
+    need_restart = true
+  end
+  exec "vagrant #{ARGV.join(' ')}" if need_restart
+end
 
 # Verify if salt/pillar directories are present
+require 'mkmf'
+
 if !Dir.exists?(SALT_DIRECTORY)
-  raise "ERROR: Salt directory not found.\n\n\033[0m" +
-    "You must clone saltstack repository to #{SALT_DIRECTORY} and/or provide correct path in Vagrantfile"
+  if find_executable 'git'
+    system "git clone #{SALT_REPOSITORY} --branch #{SALT_BRANCH} #{SALT_DIRECTORY}"
+  else
+    raise "ERROR: Required #{SALT_DIRECTORY} could not be find and no git executable was found to solve this problem." +
+    "\n\n\033[0m"
+  end
 end
+
 if !Dir.exists?(PILLAR_DIRECTORY)
-  raise "ERROR: Pillar directory not found.\n\n\033[0m" +
-    "You must clone pillar repository to #{PILLAR_DIRECTORY} and/or provide correct path in Vagrantfile"
+  if find_executable 'git'
+    system "git clone #{PILLAR_REPOSITORY} --branch #{PILLAR_BRANCH} #{PILLAR_DIRECTORY}"
+  else
+    raise "ERROR: Required #{PILLAR_DIRECTORY} could not be find and no git executable was found to solve this problem." +
+    "\n\n\033[0m"
+  end
 end
 
 Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
@@ -42,11 +60,15 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   config.vm.network "forwarded_port", guest: 9292, host: 9292   # ELK-Kibana
 
   # SaltStack masterless setup
-  config.vm.synced_folder SALT_DIRECTORY,   "/srv/salt/"
-  config.vm.synced_folder PILLAR_DIRECTORY, "/srv/pillar/"
-  config.vm.provision :salt do |salt|
-    salt.minion_config = "salt/minion"
-    salt.run_highstate = true
+  if Dir.exists?(PILLAR_DIRECTORY) && Dir.exists?(SALT_DIRECTORY)
+    config.vm.synced_folder SALT_DIRECTORY,   "/srv/salt/"
+    config.vm.synced_folder PILLAR_DIRECTORY, "/srv/pillar/"
+    config.vm.provision :salt do |salt|
+      salt.minion_config = "salt/minion"
+      salt.run_highstate = true
+    end
+  else
+    raise "ERROR: Salt (#{SALT_DIRECTORY}) or Pillar (#{PILLAR_DIRECTORY}) directory not found.\n\n\033[0m"
   end
 
   # Share the application code with VM
