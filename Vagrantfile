@@ -5,18 +5,7 @@ SALT_BRANCH="master"
 PILLAR_DIRECTORY="./vendor/spryker/pillar"
 PILLAR_REPOSITORY="git@github.com:spryker/pillar.git"
 PILLAR_BRANCH="master"
-HOSTS=%w() TODO
-
-required_plugins = %w(vagrant-hostmanager)
-
-required_plugins.each do |plugin|
-  need_restart = false
-  unless Vagrant.has_plugin? plugin
-    system "vagrant plugin install #{plugin}"
-    need_restart = true
-  end
-  exec "vagrant #{ARGV.join(' ')}" if need_restart
-end
+HOSTS=%w(zed-development.project-yz.de, www-development.project-yz.de)
 
 # Verify if salt/pillar directories are present
 require 'mkmf'
@@ -69,6 +58,18 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
     end
   else
     raise "ERROR: Salt (#{SALT_DIRECTORY}) or Pillar (#{PILLAR_DIRECTORY}) directory not found.\n\n\033[0m"
+  end
+
+  # add hosts to /etc/hosts
+  if Vagrant.has_plugin? 'vagrant-hostmanager1'
+    config.hostmanager.enabled = true
+    config.hostmanager.manage_host = true
+    config.hostmanager.ignore_private_ip = false
+    config.hostmanager.include_offline = true
+    config.hostmanager.aliases = HOSTS
+  else
+    puts "WARNING: Please add the following entries to your /etc/hosts \n\n\033[0m"
+    puts "10.10.0.66 #{HOSTS.join(' ')}\n"
   end
 
   # Share the application code with VM
