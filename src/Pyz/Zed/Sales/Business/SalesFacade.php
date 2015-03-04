@@ -9,10 +9,10 @@ class SalesFacade extends CoreSalesFacade
 {
 
     /**
-     * @param \ProjectA_Zed_Sales_Persistence_Propel_PacSalesOrder $order
+     * @param \ProjectA\Zed\Sales\Persistence\Propel\PacSalesOrder $order
      * @return \ProjectA_Zed_Sales_Business_Model_Orderprocess_Filter_MetaInfo
      */
-    public function getFlaggedDemoItems(\ProjectA_Zed_Sales_Persistence_Propel_PacSalesOrder $order, $flag)
+    public function getFlaggedDemoItems(\ProjectA\Zed\Sales\Persistence\Propel\PacSalesOrder $order, $flag)
     {
         /* @var Finder $finder */
         $finder = $this->factory->createModelOrderprocessFinder();

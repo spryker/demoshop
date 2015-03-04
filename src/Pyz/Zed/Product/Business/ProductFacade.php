@@ -8,7 +8,7 @@ use ProjectA\Zed\ProductFrontendExporterConnector\Dependency\Facade\ProductFront
 use ProjectA\Zed\ProductSearch\Dependency\Facade\ProductSearchToProductInterface;
 
 /**
- * Class ProductFacadeFrontend
+ * Class ProductFacade
  *
  * @package Pyz\Zed\Product\Business
  *

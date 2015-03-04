@@ -77,7 +77,7 @@ class StockInstall implements DemoDataInstallInterface
      */
     protected function addEntry(array $row)
     {
-        $stockType = \ProjectA_Zed_Stock_Persistence_Propel_PacStockQuery::create()
+        $stockType = \ProjectA\Zed\Stock\Persistence\Propel\PacStockQuery::create()
             ->filterByName($row[self::TYPE])
             ->findOneOrCreate();
 
@@ -97,14 +97,14 @@ class StockInstall implements DemoDataInstallInterface
      */
     protected function touchStock($stockId)
     {
-        $stockTouched = \SprykerCore_Zed_Touch_Persistence_Propel_PacTouchQuery::create()
+        $stockTouched = \SprykerCore\Zed\Touch\Persistence\Propel\PacTouchQuery::create()
             ->filterByItemId($stockId)
             ->filterByItemEvent(\SprykerCore_Zed_Touch_Persistence_Propel_PacTouchPeer::ITEM_EVENT_ACTIVE)
             ->filterByItemType('stock-product')
             ->findOne();
 
         if (!$stockTouched) {
-            $stockTouched = new \SprykerCore_Zed_Touch_Persistence_Propel_PacTouch();
+            $stockTouched = new \SprykerCore\Zed\Touch\Persistence\Propel\PacTouch();
         }
 
         $stockTouched

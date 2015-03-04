@@ -46,8 +46,9 @@ class CategoryTreeInstall implements DemoDataInstallInterface
         $locator = new Locator();
         //we should use the locale facade to get the current Locale
         $localeFacade = $locator->locale()->facade();
-        $this->locale = \SprykerCore_Zed_Locale_Persistence_Propel_PacLocaleQuery::create()
+        $this->locale = \SprykerCore\Zed\Locale\Persistence\Propel\PacLocaleQuery::create()
             ->findOneByLocaleName($localeFacade->getCurrentLocale());
+
         $this->queryContainer = $locator->categoryTree()->queryContainer();
         $this->categoryFacade = $locator->categoryTree()->facade();
     }

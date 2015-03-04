@@ -24,7 +24,7 @@ class ProductCategoryMappingInstall implements DemoDataInstallInterface
         $locator = new Locator();
         //we should use the locale facade to get the current Locale
         $localeFacade = $locator->locale()->facade();
-        $locale = \SprykerCore_Zed_Locale_Persistence_Propel_PacLocaleQuery::create()
+        $locale = \SprykerCore\Zed\Locale\Persistence\Propel\PacLocaleQuery::create()
             ->findOneByLocaleName($localeFacade->getCurrentLocale());
         $categoryNodeIds = $this->installProductCategories($locale);
         $this->touchProductCategories($categoryNodeIds);
@@ -44,7 +44,7 @@ class ProductCategoryMappingInstall implements DemoDataInstallInterface
             $categoryNodeId = $this->getCategoryNodeId($demoProductCategory['category'], $locale);
 
             if ($productId && $categoryNodeId && !($this->relationExists($productId, $categoryNodeId))) {
-                $productCategory = new \ProjectA_Zed_ProductCategory_Persistence_Propel_PacProductCategory();
+                $productCategory = new \ProjectA\Zed\ProductCategory\Persistence\Propel\PacProductCategory();
                 $productCategory->setFkProduct($productId);
                 $productCategory->setFkCategoryNode($categoryNodeId);
                 $productCategory->save();
@@ -77,7 +77,7 @@ class ProductCategoryMappingInstall implements DemoDataInstallInterface
         $locator = new Locator();
         $touchFacade = $locator->touch()->facade();
 
-        /** @var \ProjectA_Zed_ProductCategory_Persistence_Propel_PacProductCategory $productCategory */
+        /** @var \ProjectA\Zed\ProductCategory\Persistence\Propel\PacProductCategory $productCategory */
         foreach ($categoryNodeIds as $categoryNodeId) {
             $touchFacade->touchActive('product-category', $categoryNodeId);
         }
@@ -89,7 +89,7 @@ class ProductCategoryMappingInstall implements DemoDataInstallInterface
      */
     protected function getProductId($productSku)
     {
-        $productEntity = \ProjectA_Zed_Product_Persistence_Propel_PacProductQuery::create()
+        $productEntity = \ProjectA\Zed\Product\Persistence\Propel\PacProductQuery::create()
             ->findOneBySku($productSku);
         if ($productEntity) {
             return $productEntity->getProductId();
@@ -105,7 +105,7 @@ class ProductCategoryMappingInstall implements DemoDataInstallInterface
      */
     protected function getCategoryNodeId($categoryName, $locale)
     {
-        $categoryNodeEntity = \ProjectA_Zed_CategoryTree_Persistence_Propel_PacCategoryNodeQuery::create()
+        $categoryNodeEntity = \ProjectA\Zed\Category\Persistence\Propel\PacCategoryNodeQuery::create()
             ->useCategoryQuery()
                 ->useAttributeQuery()
                     ->filterByLocale($locale)
@@ -113,7 +113,8 @@ class ProductCategoryMappingInstall implements DemoDataInstallInterface
                 ->endUse()
             ->endUse()
             ->findOne();
-        if ($categoryNodeEntity instanceof \ProjectA_Zed_CategoryTree_Persistence_Propel_PacCategoryNode) {
+
+        if ($categoryNodeEntity instanceof \ProjectA\Zed\Category\Persistence\Propel\PacCategoryNode) {
             return $categoryNodeEntity->getIdCategoryNode();
         }
 
@@ -128,7 +129,7 @@ class ProductCategoryMappingInstall implements DemoDataInstallInterface
      */
     private function relationExists($productId, $categoryNodeId)
     {
-        return \ProjectA_Zed_ProductCategory_Persistence_Propel_PacProductCategoryQuery::create()
+        return \ProjectA\Zed\ProductCategory\Persistence\Propel\PacProductCategoryQuery::create()
             ->filterByFkProduct($productId)
             ->filterByFkCategoryNode($categoryNodeId)
             ->exists();

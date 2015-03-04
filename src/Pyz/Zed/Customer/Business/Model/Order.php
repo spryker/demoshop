@@ -35,16 +35,16 @@ class Order extends CoreOrder
     }
 
     /**
-     * @param \ProjectA_Zed_Sales_Persistence_Propel_PacSalesOrder $orderEntity
+     * @param \ProjectA\Zed\Sales\Persistence\Propel\PacSalesOrder $orderEntity
      * @return \ProjectA\Shared\Customer\Transfer\OrderItemCollection
      */
-    protected function createCustomerOrderItemCollectionTransfer(\ProjectA_Zed_Sales_Persistence_Propel_PacSalesOrder $orderEntity)
+    protected function createCustomerOrderItemCollectionTransfer(\ProjectA\Zed\Sales\Persistence\Propel\PacSalesOrder $orderEntity)
     {
         $groupedCustomerOrderItemTransfers = [];
         $customerOrderItemTransferTemplate = (new \ProjectA\Shared\Kernel\TransferLocator())->locateCustomerOrderItem();
 
         $orderItemEntityCollection = $this->findOrderItemsGroupedByStatusAndSku($orderEntity->getIdSalesOrder());
-        /** @var \ProjectA_Zed_Sales_Persistence_Propel_PacSalesOrderItem $orderItemEntity */
+        /** @var \ProjectA\Zed\Sales\Persistence\Propel\PacSalesOrderItem $orderItemEntity */
         foreach ($orderItemEntityCollection as $orderItemEntity) {
             $sku = $orderItemEntity->getSku();
             $customerItemStatus = $this->findCustomerItemStatusName($orderItemEntity);
@@ -84,7 +84,7 @@ class Order extends CoreOrder
      */
     protected function findOrderItemsGroupedByStatusAndSku($orderId)
     {
-        return \ProjectA_Zed_Sales_Persistence_Propel_PacSalesOrderItemQuery::create()
+        return \ProjectA\Zed\Sales\Persistence\Propel\PacSalesOrderItemQuery::create()
             ->filterByFkSalesOrder($orderId)
             ->joinStatus()
             ->joinProcess()
