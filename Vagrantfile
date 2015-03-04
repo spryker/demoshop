@@ -14,7 +14,7 @@ if !Dir.exists?(SALT_DIRECTORY)
   if find_executable 'git'
     system "git clone #{SALT_REPOSITORY} --branch #{SALT_BRANCH} #{SALT_DIRECTORY}"
   else
-    raise "ERROR: Required #{SALT_DIRECTORY} could not be find and no git executable was found to solve this problem." +
+    raise "ERROR: Required #{SALT_DIRECTORY} could not be found and no git executable was found to solve this problem." +
     "\n\n\033[0m"
   end
 end
@@ -23,7 +23,7 @@ if !Dir.exists?(PILLAR_DIRECTORY)
   if find_executable 'git'
     system "git clone #{PILLAR_REPOSITORY} --branch #{PILLAR_BRANCH} #{PILLAR_DIRECTORY}"
   else
-    raise "ERROR: Required #{PILLAR_DIRECTORY} could not be find and no git executable was found to solve this problem." +
+    raise "ERROR: Required #{PILLAR_DIRECTORY} could not be found and no git executable was found to solve this problem." +
     "\n\n\033[0m"
   end
 end
