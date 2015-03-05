@@ -28,12 +28,12 @@ class ImportProductOptions implements
     {
         foreach ($this->getProductOptions() as $option) {
 
-            $optionType = (new \ProjectA_Zed_Catalog_Persistence_Propel_PacCatalogOptionTypeQuery)->filterByName($option[self::KEY_OPTION_TYPE])->findOne();
+            $optionType = (new \ProjectA\Zed\Catalog\Persistence\Propel\PacCatalogOptionTypeQuery)->filterByName($option[self::KEY_OPTION_TYPE])->findOne();
             if (!$optionType) {
                 throw new \RuntimeException('invalid product option type: "' . $option[self::KEY_OPTION_TYPE] . '" in "' . self::FILE_NAME . '"');
             }
 
-            $catalogOption = (new \ProjectA_Zed_Catalog_Persistence_Propel_PacCatalogOptionQuery())
+            $catalogOption = (new \ProjectA\Zed\Catalog\Persistence\Propel\PacCatalogOptionQuery())
                 ->filterByIdentifier($option[self::KEY_IDENTIFIER])->findOneOrCreate();
 
             $catalogOption->setOptionType($optionType);

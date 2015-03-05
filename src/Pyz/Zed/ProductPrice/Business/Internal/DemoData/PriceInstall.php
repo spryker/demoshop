@@ -23,7 +23,7 @@ class PriceInstall implements DemoDataInstallInterface
 
     public function __construct()
     {
-        $locator = new Locator();
+        $locator = Locator::getInstance();
         $this->priceFacade = $locator->price()->facade();
     }
 
@@ -67,6 +67,7 @@ class PriceInstall implements DemoDataInstallInterface
         $stockType = $this->priceFacade->createPriceType($row[self::PRICE_TYPE]);
 
         $transferPriceProduct = (new Locator())->price()->transferProduct();
+
         /** @var Product $transferPriceProduct */
         $transferPriceProduct->setPrice($row[self::PRICE])
                             ->setPriceTypeName($stockType->getName())

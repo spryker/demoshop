@@ -36,7 +36,7 @@ class ProductAttributeMappingInstall implements DemoDataInstallInterface
             $weight = 0;
             foreach ($operations as $operation => $targetFields) {
                 foreach ($targetFields as $targetField) {
-                    $attribute = \ProjectA_Zed_Product_Persistence_Propel_PacProductAttributesMetadataQuery::create()
+                    $attribute = \ProjectA\Zed\Product\Persistence\Propel\PacProductAttributesMetadataQuery::create()
                         ->findOneByKey($sourceField);
                     if ($attribute) {
                         $weight++;
@@ -144,13 +144,13 @@ class ProductAttributeMappingInstall implements DemoDataInstallInterface
      */
     protected function addOperation($attributeId, $copyTarget, $operation, $weight)
     {
-        $attributeOperationExists = \ProjectA_Zed_ProductSearch_Persistence_Propel_PacProductSearchAttributesOperationQuery::create()
+        $attributeOperationExists = \ProjectA\Zed\ProductSearch\Persistence\Propel\PacProductSearchAttributesOperationQuery::create()
             ->filterBySourceAttributeId($attributeId)
             ->filterByTargetField($copyTarget)
-            ->exists();
+            ->findOne();
 
         if (!$attributeOperationExists) {
-            $attributeOperation = new \ProjectA_Zed_ProductSearch_Persistence_Propel_PacProductSearchAttributesOperation();
+            $attributeOperation = new \ProjectA\Zed\ProductSearch\Persistence\Propel\PacProductSearchAttributesOperation();
             $attributeOperation->setTargetField($copyTarget);
             $attributeOperation->setOperation($operation);
             $attributeOperation->setWeighting($weight);
@@ -161,18 +161,20 @@ class ProductAttributeMappingInstall implements DemoDataInstallInterface
 
     protected function makeProductsSearchable()
     {
+        $products = \ProjectA\Zed\Product\Persistence\Propel\PacProductQuery::create()->find();
         /** @var AutoCompletion $locator */
-        $locator = new Locator();
+        $locator = Locator::getInstance();
 
         $touchFacade = $locator->touch()->facade();
         $localeFacade = $locator->locale()->facade();
 
+        // TODO check hardcoded locale
         $localeId = $localeFacade->getLocaleIdentifier('de_DE');
-        $products = \ProjectA_Zed_Product_Persistence_Propel_PacProductQuery::create()->find();
+        $products = \ProjectA\Zed\Product\Persistence\Propel\PacProductQuery::create()->find();
 
-        /** @var \ProjectA_Zed_Product_Persistence_Propel_PacProduct $product */
+        /** @var \ProjectA\Zed\Product\Persistence\Propel\PacProduct $product */
         foreach ($products as $product) {
-            $searchableProduct = \ProjectA_Zed_ProductSearch_Persistence_Propel_PacSearchableProductsQuery::create()
+            $searchableProduct = \ProjectA\Zed\ProductSearch\Persistence\Propel\PacSearchableProductsQuery::create()
                 ->filterByFkProduct($product->getProductId())
                 ->filterByFkLocale($localeId)
                 ->findOneOrCreate();

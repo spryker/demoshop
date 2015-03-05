@@ -5,7 +5,7 @@
 
     "psr/log": "~1.0",
     "phing/phing": "~2.6.0",
-    "propel/propel1": "1.7.0",
+    "propel/propel": "~2.0@dev",
     "silex/silex": "1.2.*@dev",
     "pimple/pimple": "1.1.*@dev",
     "zendesk/zendesk_api_client_php": "dev-master",
@@ -14,7 +14,6 @@
     "knplabs/knp-menu": "2.0.1",
     "symfony/validator": "2.5.*",
     "symfony/var-dumper": "2.*",
-    "symfony/propel1-bridge": "*",
     "symfony/twig-bridge": "~2.3,<3.0"
   },
   "require-dev": {
@@ -22,7 +21,6 @@
     "pdepend/pdepend": "*",
     "phpunit/phpunit": "~3.7.0",
     "codeception/codeception": "*",
-    "newloki/propel-module": "dev-master#9de9316361e3dddb6b29f5dd93b7456e19e042e3",
     "fzaninotto/faker": "1.4.*",
     "codeception/remote-debug": "*"
   },
