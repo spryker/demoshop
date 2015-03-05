@@ -46,7 +46,7 @@ class CatalogDetailRouter extends AbstractRouter
 
             $service = (new ControllerServiceBuilder())->createServiceForController(
                 $this->app,
-                new Locator(),
+                Locator::getInstance(),
                 $bundleControllerAction,
                 $controllerResolver,
                 $routeResolver

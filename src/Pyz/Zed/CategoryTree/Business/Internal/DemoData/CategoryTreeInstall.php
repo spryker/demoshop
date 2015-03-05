@@ -43,7 +43,7 @@ class CategoryTreeInstall implements DemoDataInstallInterface
     {
         // TODO must be injected
         /** @var AutoCompletion $locator */
-        $locator = new Locator();
+        $locator = Locator::getInstance();
         //we should use the locale facade to get the current Locale
         $localeFacade = $locator->locale()->facade();
         $this->locale = \SprykerCore\Zed\Locale\Persistence\Propel\PacLocaleQuery::create()
@@ -140,6 +140,6 @@ class CategoryTreeInstall implements DemoDataInstallInterface
     protected function getQueryContainer()
     {
         // TODO this must be injected
-        return (new Locator())->categoryTree()->queryContainer();
+        return Locator::getInstance()->categoryTree()->queryContainer();
     }
 }

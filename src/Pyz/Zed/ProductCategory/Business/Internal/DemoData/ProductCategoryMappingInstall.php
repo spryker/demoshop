@@ -21,7 +21,7 @@ class ProductCategoryMappingInstall implements DemoDataInstallInterface
     public function install(Console $console)
     {
         /** @var AutoCompletion $locator */
-        $locator = new Locator();
+        $locator = Locator::getInstance();
         //we should use the locale facade to get the current Locale
         $localeFacade = $locator->locale()->facade();
         $locale = \SprykerCore\Zed\Locale\Persistence\Propel\PacLocaleQuery::create()
@@ -74,7 +74,7 @@ class ProductCategoryMappingInstall implements DemoDataInstallInterface
     protected function touchProductCategories(array $categoryNodeIds)
     {
         /** @var AutoCompletion $locator */
-        $locator = new Locator();
+        $locator = Locator::getInstance();
         $touchFacade = $locator->touch()->facade();
 
         /** @var \ProjectA\Zed\ProductCategory\Persistence\Propel\PacProductCategory $productCategory */

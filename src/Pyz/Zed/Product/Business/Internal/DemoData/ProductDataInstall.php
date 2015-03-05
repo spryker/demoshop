@@ -89,7 +89,7 @@ class ProductDataInstall implements DemoDataInstallInterface
     {
         //TODO inject
         /** @var AutoCompletion $locator */
-        $locator = new Locator();
+        $locator = Locator::getInstance();
         $touchFacade = $locator->touch()->facade();
 
         $locale = \SprykerCore\Zed\Locale\Persistence\Propel\PacLocaleQuery::create()
