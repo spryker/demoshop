@@ -16,7 +16,6 @@ use Pyz\Yves\Checkout\Communication\Plugin\CheckoutControllerProvider;
 use ProjectA\Yves\Customer\Business\Model\Security\SecurityServiceProvider;
 use ProjectA\Yves\Customer\Communication\Plugin\CustomerControllerProvider;
 use Pyz\Yves\Cart\Communication\Plugin\CartControllerProvider;
-use SprykerCore\Yves\Kernel\Locator;
 use ProjectA\Yves\Library\Asset\AssetManager;
 use Pyz\Yves\Newsletter\Communication\Plugin\NewsletterControllerProvider;
 use Pyz\Yves\Application\Communication\Plugin\ApplicationControllerProvider;
@@ -37,6 +36,7 @@ use Silex\Provider\RememberMeServiceProvider;
 use Silex\Provider\ServiceControllerServiceProvider;
 use Silex\Provider\ValidatorServiceProvider;
 use Silex\Provider\WebProfilerServiceProvider;
+use SprykerCore\Yves\Kernel\Locator;
 use Symfony\Component\HttpFoundation\Request;
 
 class YvesBootstrap extends Bootstrap
