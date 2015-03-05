@@ -24,7 +24,7 @@ class StockInstall implements DemoDataInstallInterface
 
     public function __construct()
     {
-        $locator = new Locator();
+        $locator = Locator::getInstance();
         $this->stockFacade = $locator->stock()->facade();
     }
 

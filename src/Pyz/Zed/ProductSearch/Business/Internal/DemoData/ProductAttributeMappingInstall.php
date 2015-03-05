@@ -163,11 +163,12 @@ class ProductAttributeMappingInstall implements DemoDataInstallInterface
     {
         $products = \ProjectA\Zed\Product\Persistence\Propel\PacProductQuery::create()->find();
         /** @var AutoCompletion $locator */
-        $locator = new Locator();
+        $locator = Locator::getInstance();
 
         $touchFacade = $locator->touch()->facade();
         $localeFacade = $locator->locale()->facade();
 
+        // TODO check hardcoded locale
         $localeId = $localeFacade->getLocaleIdentifier('de_DE');
         $products = \ProjectA\Zed\Product\Persistence\Propel\PacProductQuery::create()->find();
 
