@@ -92,7 +92,7 @@ class FrontendExporterSettings extends CoreSettings
         return [
             $this->locator->productSearch()->pluginProductSearchProcessorPlugin(),
             $this->locator->productSearch()->pluginProductAttributesProcessorPlugin(),
-//            $this->locator->productSearchAvailabilityConnector()->pluginProductAvailabilityProcessorPlugin(),
+            $this->locator->productSearchAvailabilityConnector()->pluginProductAvailabilityProcessorPlugin(),
             $this->locator->productCategorySearch()->pluginProductCategorySearchProcessorPlugin(),
         ];
     }
@@ -104,7 +104,7 @@ class FrontendExporterSettings extends CoreSettings
     {
         return [
             $this->locator->productSearch()->pluginProductQueryExpanderPlugin(),
-//            $this->locator->productSearchAvailabilityConnector()->pluginProductAvailabilityQueryExpanderPlugin(),
+            $this->locator->productSearchAvailabilityConnector()->pluginProductAvailabilityQueryExpanderPlugin(),
             $this->locator->productCategory()->pluginProductCategoryPathQueryExpanderPlugin(),
         ];
     }
