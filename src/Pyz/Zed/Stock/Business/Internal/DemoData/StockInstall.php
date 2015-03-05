@@ -69,7 +69,7 @@ class StockInstall implements DemoDataInstallInterface
     protected function addEntry(array $row)
     {
         $stockType = $this->stockFacade->createStockType($row[self::STOCK_TYPE]);
-        $transferStockProduct = (new Locator)->stock()->transferStockProduct();
+        $transferStockProduct = Locator::getInstance()->stock()->transferStockProduct();
         /** @var $transferStockProduct StockProduct */
         $transferStockProduct->setSku($row[self::SKU])
             ->setIsNeverOutOfStock($row[self::NEVER_OUT_OF_STOCK])
