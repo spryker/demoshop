@@ -21,7 +21,6 @@ return [
         'Acl' => $schemaAndNavigation,
         'Cart' => $schema,
         'Cms' => $allElements,
-        'Catalog' => $schemaAndNavigation,
         'Category' => $schemaAndNavigation,
         'Customer' => $schemaAndNavigation,
         'Customer2' => $schema,
