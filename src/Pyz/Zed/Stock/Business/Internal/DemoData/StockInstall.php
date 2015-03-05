@@ -2,11 +2,14 @@
 
 namespace Pyz\Zed\Stock\Business\Internal\DemoData;
 
+
+use Generated\Zed\Ide\AutoCompletion;
 use ProjectA\Zed\Console\Business\Model\Console;
 use ProjectA\Zed\Kernel\Locator;
 use ProjectA\Zed\Library\Business\DemoDataInstallInterface;
 use ProjectA\Zed\Library\Import\Reader\CsvFileReader;
 use ProjectA\Zed\Stock\Business\StockFacade;
+use ProjectA\Shared\Stock\Transfer\StockProduct;
 
 /**
  * Class StockInstall
@@ -24,6 +27,7 @@ class StockInstall implements DemoDataInstallInterface
 
     public function __construct()
     {
+        /** @var AutoCompletion $locator */
         $locator = Locator::getInstance();
         $this->stockFacade = $locator->stock()->facade();
     }
@@ -47,7 +51,7 @@ class StockInstall implements DemoDataInstallInterface
     {
         foreach ($demoStock as $row) {
             $this->addEntry($row);
-          }
+        }
     }
 
     /**
@@ -56,7 +60,6 @@ class StockInstall implements DemoDataInstallInterface
     protected function getDemoStockProducts()
     {
         $reader = new CsvFileReader();
-
         return $reader->read(__DIR__ . '/demo-stock.csv')->getData();
     }
 
@@ -65,30 +68,19 @@ class StockInstall implements DemoDataInstallInterface
      */
     protected function addEntry(array $row)
     {
-        // TODO fix me
-        return;
-        $stockTouched = \ProjectA\Zed\YvesExport\Persistence\Propel\PacYvesExportTouchQuery::create()
-            ->filterByItemId($stockId)
-            ->filterByItemEvent(\ProjectA\Zed\YvesExport\Persistence\Propel\Map\PacYvesExportTouchTableMap::COL_ITEM_EVENT_ACTIVE)
-            ->filterByItemType('stock-product')
-            ->filterByExportType(\ProjectA\Zed\YvesExport\Persistence\Propel\Map\PacYvesExportTouchTableMap::COL_EXPORT_TYPE_KEYVALUE)
-            ->findOne();
-
-        if (!$stockTouched) {
-            $stockTouched = new \ProjectA\Zed\YvesExport\Persistence\Propel\PacYvesExportTouch();
+        $stockType = $this->stockFacade->createStockType($row[self::STOCK_TYPE]);
+        $transferStockProduct = (new Locator)->stock()->transferStockProduct();
+        /** @var $transferStockProduct StockProduct */
+        $transferStockProduct->setSku($row[self::SKU])
+            ->setIsNeverOutOfStock($row[self::NEVER_OUT_OF_STOCK])
+            ->setQuantity($row[self::QUANTITY])
+            ->setStockType($stockType->getName());
+        if ($this->stockFacade->hasStockProduct($transferStockProduct->getSku(), $transferStockProduct->getStockType())) {
+            $idStockProduct = $this->stockFacade->getIdStockProduct($transferStockProduct->getSku(), $transferStockProduct->getStockType());
+            $transferStockProduct->setIdStockProduct($idStockProduct);
+            $this->stockFacade->setStockProduct($transferStockProduct);
+        } else {
+            $this->stockFacade->createStockProduct($transferStockProduct);
         }
-
-        $stockTouched
-            ->setExportType(\ProjectA\Zed\YvesExport\Persistence\Propel\Map\PacYvesExportTouchTableMap::COL_EXPORT_TYPE_KEYVALUE)
-            ->setItemType('stock-product')
-            ->setItemEvent(\ProjectA\Zed\YvesExport\Persistence\Propel\Map\PacYvesExportTouchTableMap::COL_ITEM_EVENT_ACTIVE)
-            ->setItemId($stockId)
-            ->setTouched(new \DateTime())
-            ->save();
-
-        $stockType = $this->stockFacade->createStock($row[self::STOCK_TYPE]);
-
-        $this->stockFacade->setStockProduct($row[self::SKU], $row[self::QUANTITY],$stockType->getName(), $row[self::NEVER_OUT_OF_STOCK]);
     }
-
 }
