@@ -2,13 +2,14 @@
 
 namespace Pyz\Zed\Stock\Business\Internal\DemoData;
 
+
 use Generated\Zed\Ide\AutoCompletion;
 use ProjectA\Zed\Console\Business\Model\Console;
 use ProjectA\Zed\Kernel\Locator;
 use ProjectA\Zed\Library\Business\DemoDataInstallInterface;
 use ProjectA\Zed\Library\Import\Reader\CsvFileReader;
-use ProjectA\Zed\Stock\Persistence\StockQueryContainer;
 use ProjectA\Zed\Stock\Business\StockFacade;
+use ProjectA\Shared\Stock\Transfer\StockProduct;
 
 /**
  * Class StockInstall
@@ -19,23 +20,17 @@ class StockInstall implements DemoDataInstallInterface
     const SKU = 'sku';
     const QUANTITY = 'quantity';
     const NEVER_OUT_OF_STOCK = 'is_never_out_of_stock';
-    const TYPE = 'stock_type';
+    const STOCK_TYPE = 'stock_type';
 
-    /**
-     * @var AutoCompletion
-     */
+    /** @var AutoCompletion $locator */
     protected $locator;
-
-    /** @var StockQueryContainer */
-    protected $queryContainer;
 
     /** @var StockFacade */
     protected $stockFacade;
 
     public function __construct()
     {
-        $this->locator = new Locator();
-        $this->queryContainer = $this->locator->stock()->queryContainer();
+        $this->locator = Locator::getInstance();
         $this->stockFacade = $this->locator->stock()->facade();
     }
 
@@ -46,16 +41,25 @@ class StockInstall implements DemoDataInstallInterface
     {
         $console->info("This will install a dummy set of stocks in the demo shop ");
         if ($console->askConfirmation('Do you really want this?')) {
-            $demoStock = $this->getDemoStock();
-
-            $this->write($demoStock);
+            $demoStockProducts = $this->getDemoStockProducts();
+            $this->writeStockProduct($demoStockProducts);
         }
+    }
+
+    /**
+     * @param array $demoStock
+     */
+    protected function writeStockProduct(array $demoStock)
+    {
+        foreach ($demoStock as $row) {
+            $this->addEntry($row);
+          }
     }
 
     /**
      * @return array
      */
-    protected function getDemoStock()
+    protected function getDemoStockProducts()
     {
         $reader = new CsvFileReader();
 
@@ -63,57 +67,22 @@ class StockInstall implements DemoDataInstallInterface
     }
 
     /**
-     * @param array $demoStock
-     */
-    protected function write(array $demoStock)
-    {
-        foreach ($demoStock as $row) {
-            $this->addEntry($row);
-        }
-    }
-
-    /**
      * @param array $row
      */
     protected function addEntry(array $row)
     {
-        $stockType = \ProjectA\Zed\Stock\Persistence\Propel\PacStockQuery::create()
-            ->filterByName($row[self::TYPE])
-            ->findOneOrCreate();
-
-        if ($stockType->isNew()) {
-            $stockType->save();
+        $stockType = $this->stockFacade->createStockType($row[self::STOCK_TYPE]);
+        $transferStockProduct = $this->locator->stock()->transferStockProduct();
+        /** @var $transferStockProduct StockProduct */
+        $transferStockProduct->setSku($row[self::SKU])
+            ->setIsNeverOutOfStock($row[self::NEVER_OUT_OF_STOCK])
+            ->setQuantity($row[self::QUANTITY])
+            ->setStockType($stockType->getName());
+        if ($this->stockFacade->hasStockProduct($transferStockProduct->getSku(), $transferStockProduct->getStockType())) {
+            $idStockProduct = $this->stockFacade->getIdStockProduct($transferStockProduct->getSku(), $transferStockProduct->getStockType());
+            $transferStockProduct->setIdStockProduct($idStockProduct);
+            $this->stockFacade->setStockProduct($transferStockProduct);
+        } else {
+            $this->stockFacade->createStockProduct($transferStockProduct);
         }
-
-        $stockTransfer = $this->locator->stock()->transferStockProduct();
-        $stockTransfer->fromArray($row);
-
-        $stockTransfer = $this->stockFacade->setStockProduct($stockTransfer);
-        $this->touchStock($stockTransfer->getIdStockProduct());
-    }
-
-    /**
-     * @param int $stockId
-     */
-    protected function touchStock($stockId)
-    {
-        $stockTouched = \SprykerCore\Zed\Touch\Persistence\Propel\PacTouchQuery::create()
-            ->filterByItemId($stockId)
-            ->filterByItemEvent(\SprykerCore_Zed_Touch_Persistence_Propel_PacTouchPeer::ITEM_EVENT_ACTIVE)
-            ->filterByItemType('stock-product')
-            ->findOne();
-
-        if (!$stockTouched) {
-            $stockTouched = new \SprykerCore\Zed\Touch\Persistence\Propel\PacTouch();
-        }
-
-        $stockTouched
-            ->setItemType('stock-product')
-            ->setItemEvent(\SprykerCore_Zed_Touch_Persistence_Propel_PacTouchPeer::ITEM_EVENT_ACTIVE)
-            ->setItemId($stockId)
-            ->setTouched(new \DateTime())
-            ->save();
-
-    }
-
-}
+    }}

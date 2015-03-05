@@ -44,7 +44,7 @@ class CategoryTreeInstall implements DemoDataInstallInterface
     {
         // TODO must be injected
         /** @var AutoCompletion $locator */
-        $locator = new Locator();
+        $locator = Locator::getInstance();
         //we should use the locale facade to get the current Locale
         $localeFacade = $locator->locale()->facade();
         $this->locale = PacLocaleQuery::create()
