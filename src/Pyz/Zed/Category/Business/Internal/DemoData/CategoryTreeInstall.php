@@ -1,14 +1,15 @@
 <?php
 
-namespace Pyz\Zed\CategoryTree\Business\Internal\DemoData;
+namespace Pyz\Zed\Category\Business\Internal\DemoData;
 
 use Generated\Zed\Ide\AutoCompletion;
-use ProjectA\Zed\CategoryTree\Persistence\CategoryTreeQueryContainer;
+use ProjectA\Zed\Category\Business\CategoryFacade;
+use ProjectA\Zed\Category\Persistence\CategoryQueryContainer;
 use ProjectA\Zed\Console\Business\Model\Console;
 use ProjectA\Zed\Kernel\Locator;
 use ProjectA\Zed\Library\Business\DemoDataInstallInterface;
 use ProjectA\Zed\Library\Import\Reader\CsvFileReader;
-use Pyz\Zed\CategoryTree\Business\CategoryTreeFacade;
+use SprykerCore\Zed\Locale\Persistence\Propel\PacLocaleQuery;
 
 /**
  * Class CategoryTreeInstall
@@ -22,7 +23,7 @@ class CategoryTreeInstall implements DemoDataInstallInterface
     const PARENT_NAME = 'parent_name';
 
     /**
-     * @var CategoryTreeQueryContainer
+     * @var CategoryQueryContainer
      */
     protected $queryContainer;
 
@@ -32,7 +33,7 @@ class CategoryTreeInstall implements DemoDataInstallInterface
     protected $locale;
 
     /**
-     * @var CategoryTreeFacade
+     * @var CategoryFacade
      */
     protected $categoryFacade;
 
@@ -46,11 +47,11 @@ class CategoryTreeInstall implements DemoDataInstallInterface
         $locator = Locator::getInstance();
         //we should use the locale facade to get the current Locale
         $localeFacade = $locator->locale()->facade();
-        $this->locale = \SprykerCore\Zed\Locale\Persistence\Propel\PacLocaleQuery::create()
+        $this->locale = PacLocaleQuery::create()
             ->findOneByLocaleName($localeFacade->getCurrentLocale());
 
-        $this->queryContainer = $locator->categoryTree()->queryContainer();
-        $this->categoryFacade = $locator->categoryTree()->facade();
+        $this->queryContainer = $locator->category()->queryContainer();
+        $this->categoryFacade = $locator->category()->facade();
     }
 
 
@@ -132,14 +133,5 @@ class CategoryTreeInstall implements DemoDataInstallInterface
         }
 
         return false;
-    }
-
-    /**
-     * @return CategoryTreeQueryContainer
-     */
-    protected function getQueryContainer()
-    {
-        // TODO this must be injected
-        return Locator::getInstance()->categoryTree()->queryContainer();
     }
 }
