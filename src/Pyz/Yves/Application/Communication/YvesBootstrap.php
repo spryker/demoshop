@@ -47,7 +47,7 @@ class YvesBootstrap extends Bootstrap
      */
     protected function getBaseApplication()
     {
-        return new Application();
+        return new \SprykerCore\Yves\Application\Business\Application();
     }
 
     /**
