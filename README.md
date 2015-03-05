@@ -27,3 +27,4 @@ If all requirements are satisfied you can bring up a new development VM by just 
 After about 20 minutes you can access the VM via:
 
 ```vagrant ssh``
+
