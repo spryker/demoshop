@@ -86,7 +86,7 @@ class YvesBootstrap extends Bootstrap
         if (\ProjectA_Shared_Library_Environment::isDevelopment()) {
             $app['profiler.cache_dir'] = \ProjectA_Shared_Library_Data::getLocalStoreSpecificPath('cache/profiler');
         }
-        $app['locator'] = new Locator();
+        $app['locator'] = Locator::getInstance();
 
         $proxies = Config::get(YvesConfig::YVES_TRUSTED_PROXIES);
 

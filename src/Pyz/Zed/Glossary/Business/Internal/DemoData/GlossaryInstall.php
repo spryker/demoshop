@@ -20,7 +20,7 @@ class GlossaryInstall implements DemoDataInstallInterface
     {
         //TODO initialize this elsewhere
         /** @var AutoCompletion $locator */
-        $locator = new Locator();
+        $locator = Locator::getInstance();
         $this->installers = [
             $locator->glossary()->pluginYamlInstallerPlugin()
         ];
