@@ -113,7 +113,11 @@ $config[SystemConfig::PROPEL] = [
         'defaultConnection' => 'default',
         'connections' => ['default', 'zed'],
         'objectModel' => [
-            'defaultKeyType' => 'fieldName'
+            'defaultKeyType' => 'fieldName',
+            'builders' => [
+                'tablemap' => '\ProjectA\Zed\Kernel\Persistence\Propel\Builder\TableMapBuilder',
+                'query' => '\ProjectA\Zed\Kernel\Persistence\Propel\Builder\QueryBuilder'
+            ]
         ]
     ],
     'paths' => [
