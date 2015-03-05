@@ -22,14 +22,17 @@ class StockInstall implements DemoDataInstallInterface
     const NEVER_OUT_OF_STOCK = 'is_never_out_of_stock';
     const STOCK_TYPE = 'stock_type';
 
+    /** @var AutoCompletion $locator */
+    protected $locator;
+
     /** @var StockFacade */
     protected $stockFacade;
 
     public function __construct()
     {
-        /** @var AutoCompletion $locator */
-        $locator = Locator::getInstance();
-        $this->stockFacade = $locator->stock()->facade();
+
+        $this->locator = Locator::getInstance();
+        $this->stockFacade = $this->locator->stock()->facade();
     }
 
     /**
@@ -69,7 +72,7 @@ class StockInstall implements DemoDataInstallInterface
     protected function addEntry(array $row)
     {
         $stockType = $this->stockFacade->createStockType($row[self::STOCK_TYPE]);
-        $transferStockProduct = (new Locator)->stock()->transferStockProduct();
+        $transferStockProduct = $this->locator->stock()->transferStockProduct();
         /** @var $transferStockProduct StockProduct */
         $transferStockProduct->setSku($row[self::SKU])
             ->setIsNeverOutOfStock($row[self::NEVER_OUT_OF_STOCK])
