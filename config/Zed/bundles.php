@@ -40,7 +40,7 @@ return [
         'Payment' => $schemaAndNavigation,
         'Payone' => $schema,
         'PaymentControl' => $schema,
-        'Price' => $schema,
+        'Price' => $schemaAndNavigation,
         'Product' => $schemaAndNavigation,
         'ProductCategory' => $schema,
         'ProductSearch' => $schema,

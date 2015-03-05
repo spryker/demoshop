@@ -16,6 +16,7 @@ class PriceInstall implements DemoDataInstallInterface
     const VALID_FROM = 'valid_from';
     const PRICE_TYPE = 'price_type';
     const VALID_TO = 'valid_to';
+    const IS_ACTiVE = 'is_active';
 
     /** @var PriceFacade */
     protected $priceFacade;
@@ -65,16 +66,12 @@ class PriceInstall implements DemoDataInstallInterface
     {
         $stockType = $this->priceFacade->createPriceType($row[self::PRICE_TYPE]);
 
-        $validFrom = new \DateTime($row[self::VALID_FROM]);
-        $validTo = new \DateTime($row[self::VALID_TO]);
-
         $transferPriceProduct = (new Locator())->price()->transferProduct();
         /** @var Product $transferPriceProduct */
         $transferPriceProduct->setPrice($row[self::PRICE])
-                            ->setValidFrom($validFrom)
-                            ->setValidTo($validTo)
                             ->setPriceTypeName($stockType->getName())
-                            ->setSkuProduct($row[self::SKU]);
+                            ->setSkuProduct($row[self::SKU])
+                            ->setIsActive($row[self::IS_ACTiVE]);
 
         $this->priceFacade->createPriceForProduct($transferPriceProduct);
     }
