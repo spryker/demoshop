@@ -4,7 +4,7 @@
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "10814751ea1155f42737b62b37480b88",
+    "hash": "1e01dec6ea6421653a38e1098b1a671f",
     "packages": [
         {
             "name": "digital-canvas/zend-framework",
@@ -412,16 +412,16 @@
         },
         {
             "name": "monolog/monolog",
-            "version": "1.12.0",
+            "version": "1.13.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/Seldaek/monolog.git",
-                "reference": "1fbe8c2641f2b163addf49cc5e18f144bec6b19f"
+                "reference": "c41c218e239b50446fd883acb1ecfd4b770caeae"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Seldaek/monolog/zipball/1fbe8c2641f2b163addf49cc5e18f144bec6b19f",
-                "reference": "1fbe8c2641f2b163addf49cc5e18f144bec6b19f",
+                "url": "https://api.github.com/repos/Seldaek/monolog/zipball/c41c218e239b50446fd883acb1ecfd4b770caeae",
+                "reference": "c41c218e239b50446fd883acb1ecfd4b770caeae",
                 "shasum": ""
             },
             "require": {
@@ -438,6 +438,7 @@
                 "phpunit/phpunit": "~4.0",
                 "raven/raven": "~0.5",
                 "ruflin/elastica": "0.90.*",
+                "swiftmailer/swiftmailer": "~5.3",
                 "videlalvaro/php-amqplib": "~2.4"
             },
             "suggest": {
@@ -454,7 +455,7 @@
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "1.12.x-dev"
+                    "dev-master": "1.13.x-dev"
                 }
             },
             "autoload": {
@@ -480,7 +481,7 @@
                 "logging",
                 "psr-3"
             ],
-            "time": "2014-12-29 21:29:35"
+            "time": "2015-03-05 01:12:12"
         },
         {
             "name": "nesbot/carbon",
@@ -969,11 +970,11 @@
         },
         {
             "name": "spryker/zed-package",
-            "version": "dev-master",
+            "version": "dev-feature/463-no-new-in-table-map-classes",
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/zed.git",
-                "reference": "398406dcfb98d345944e6c11d0de9b486ed60475"
+                "reference": "4d0d6f6455abd0d3e6f21661a7d3df2cd2e77f49"
             },
             "require": {
                 "digital-canvas/zend-framework": ">=1.12.2",
@@ -1040,7 +1041,7 @@
                 "Application",
                 "Zed"
             ],
-            "time": "2015-03-04 11:08:48"
+            "time": "2015-03-05 07:30:57"
         },
         {
             "name": "symfony-cmf/routing",
