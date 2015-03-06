@@ -79,7 +79,7 @@ class CartControllerProvider extends \SprykerCore\Yves\Application\Communication
     {
         $quantity = $request->query->get('quantity', $request->request->get('quantity', 1));
         $sku = $request->attributes->get('sku');
-        $locator = new Locator();
+        $locator = Locator::getInstance();
         if (false == $request->attributes->get('absolute')) {
             $cart = $locator->cart()->pluginCartSession()->createCartSession($this->getTransferSession());
             $quantityInCart = $cart->getQuantityBySku($sku);

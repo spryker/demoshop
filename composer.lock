@@ -412,16 +412,16 @@
         },
         {
             "name": "monolog/monolog",
-            "version": "1.12.0",
+            "version": "1.13.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/Seldaek/monolog.git",
-                "reference": "1fbe8c2641f2b163addf49cc5e18f144bec6b19f"
+                "reference": "c41c218e239b50446fd883acb1ecfd4b770caeae"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Seldaek/monolog/zipball/1fbe8c2641f2b163addf49cc5e18f144bec6b19f",
-                "reference": "1fbe8c2641f2b163addf49cc5e18f144bec6b19f",
+                "url": "https://api.github.com/repos/Seldaek/monolog/zipball/c41c218e239b50446fd883acb1ecfd4b770caeae",
+                "reference": "c41c218e239b50446fd883acb1ecfd4b770caeae",
                 "shasum": ""
             },
             "require": {
@@ -438,6 +438,7 @@
                 "phpunit/phpunit": "~4.0",
                 "raven/raven": "~0.5",
                 "ruflin/elastica": "0.90.*",
+                "swiftmailer/swiftmailer": "~5.3",
                 "videlalvaro/php-amqplib": "~2.4"
             },
             "suggest": {
@@ -454,7 +455,7 @@
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "1.12.x-dev"
+                    "dev-master": "1.13.x-dev"
                 }
             },
             "autoload": {
@@ -480,7 +481,7 @@
                 "logging",
                 "psr-3"
             ],
-            "time": "2014-12-29 21:29:35"
+            "time": "2015-03-05 01:12:12"
         },
         {
             "name": "nesbot/carbon",
@@ -932,7 +933,7 @@
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/yves.git",
-                "reference": "9bf6014dcf37a56476deb70132a2ecfd0487dfca"
+                "reference": "dfb1657dd6952760f28500fdc6c9b24e553e48a3"
             },
             "require": {
                 "php": ">=5.4.0"
@@ -965,7 +966,7 @@
                 "Application",
                 "Yves"
             ],
-            "time": "2015-03-03 07:36:51"
+            "time": "2015-03-05 11:04:28"
         },
         {
             "name": "spryker/zed-package",
@@ -973,7 +974,7 @@
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/zed.git",
-                "reference": "464f3c4b7fc5a781c3724247ea6e31c1281eae63"
+                "reference": "073b3f557098260957bc047c9bb316cc15a04746"
             },
             "require": {
                 "digital-canvas/zend-framework": ">=1.12.2",
@@ -1040,7 +1041,7 @@
                 "Application",
                 "Zed"
             ],
-            "time": "2015-03-04 07:32:25"
+            "time": "2015-03-05 12:10:12"
         },
         {
             "name": "symfony-cmf/routing",
