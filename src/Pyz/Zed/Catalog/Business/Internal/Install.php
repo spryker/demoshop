@@ -66,7 +66,7 @@ class Install extends \ProjectA\Zed\Catalog\Business\Internal\Install implements
     {
         $constantInterface = new \ReflectionClass($this->attributeSetConstantInterface);
         foreach ($constantInterface->getConstants() as $name) {
-            $query = new \ProjectA_Zed_Catalog_Persistence_Propel_PacCatalogAttributeSetQuery();
+            $query = new \ProjectA\Zed\Catalog\Persistence\Propel\PacCatalogAttributeSetQuery();
             $query->filterByName($name);
             $query->findOneOrCreate()->save();
         }
@@ -86,15 +86,15 @@ class Install extends \ProjectA\Zed\Catalog\Business\Internal\Install implements
         $attributes = $this->factory->createModelFinder()->getAttributesMap();
         $attributeSets = $this->factory->createModelFinder()->getAttributeSetsMap();
         foreach(AttributeToVarietyMapping::$attributesToVarietyMapping as $attributeSetName => $attributesToVarietyMapping) {
-            /* @var $attributeSet \ProjectA_Zed_Catalog_Persistence_Propel_PacCatalogAttributeSet */
+            /* @var $attributeSet \ProjectA\Zed\Catalog\Persistence\Propel\PacCatalogAttributeSet */
             $attributeSet = $attributeSets->get($attributeSetName);
             if (is_array($attributesToVarietyMapping) && !empty($attributesToVarietyMapping)) {
                 foreach ($attributesToVarietyMapping as $attributeName => $variety) {
-                    /* @var $attribute \ProjectA_Zed_Catalog_Persistence_Propel_PacCatalogAttribute */
+                    /* @var $attribute \ProjectA\Zed\Catalog\Persistence\Propel\PacCatalogAttribute */
                     $attribute = $attributes->get($attributeName);
                     // check if the value variety of that attribute for the specific attributeSet is already set
-                    $attributeValueTypeQuery = new \ProjectA_Zed_Catalog_Persistence_Propel_PacCatalogValueTypeQuery();
-                    /* @var $valueType \ProjectA_Zed_Catalog_Persistence_Propel_PacCatalogValueType */
+                    $attributeValueTypeQuery = new \ProjectA\Zed\Catalog\Persistence\Propel\PacCatalogValueTypeQuery();
+                    /* @var $valueType \ProjectA\Zed\Catalog\Persistence\Propel\PacCatalogValueType */
                     $valueType =
                         $attributeValueTypeQuery
                             ->filterByAttributeSet($attributeSet)
@@ -103,7 +103,7 @@ class Install extends \ProjectA\Zed\Catalog\Business\Internal\Install implements
 
                     if (!$valueType) {
                         // now create the value type entry
-                        $entityValueType = new \ProjectA_Zed_Catalog_Persistence_Propel_PacCatalogValueType();
+                        $entityValueType = new \ProjectA\Zed\Catalog\Persistence\Propel\PacCatalogValueType();
                         $entityValueType->setAttributeSet($attributeSet);
                         $entityValueType->setAttribute($attribute);
                         $entityValueType->setVariety($variety);
@@ -127,7 +127,7 @@ class Install extends \ProjectA\Zed\Catalog\Business\Internal\Install implements
         $attributes = $this->factory->createModelFinder()->getAttributesMap();
 
         foreach (AttributeToAttributeGroupMapping::$attributesToGroupMapping as $attributeName => $groupNames) {
-            /* @var $attribute \ProjectA_Zed_Catalog_Persistence_Propel_PacCatalogAttribute */
+            /* @var $attribute \ProjectA\Zed\Catalog\Persistence\Propel\PacCatalogAttribute */
             $attribute = $attributes->get($attributeName);
             $attribute->getGroups();
             foreach ($groupNames as $groupName) {
@@ -154,14 +154,14 @@ class Install extends \ProjectA\Zed\Catalog\Business\Internal\Install implements
                 foreach ($valueTypeToAttributeSetGroupMapping as $attributeName => $groupNames) {
 
                     //first we need to catch the valueType
-                    $query = new \ProjectA_Zed_Catalog_Persistence_Propel_PacCatalogValueTypeQuery();
+                    $query = new \ProjectA\Zed\Catalog\Persistence\Propel\PacCatalogValueTypeQuery();
                     $query->filterByAttribute($attributes->get($attributeName));
                     $query->filterByAttributeSet($attributeSets->get($attributeSetName));
                     $valueTypeEntity = $query->findOne();
 
                     //now we can add the attributeSetGroups to the valueType
                     foreach ($groupNames as $group) {
-                        $query = new \ProjectA_Zed_Catalog_Persistence_Propel_PacCatalogAttributeSetGroupQuery();
+                        $query = new \ProjectA\Zed\Catalog\Persistence\Propel\PacCatalogAttributeSetGroupQuery();
                         $query->filterByGroup($groups->get($group));
                         $query->filterByValueType($valueTypeEntity);
                         $query->findOneOrCreate()->save();
@@ -177,19 +177,19 @@ class Install extends \ProjectA\Zed\Catalog\Business\Internal\Install implements
      */
     protected function addOptionValuesForAttributes()
     {
-        /* @var $attributeSet \ProjectA_Zed_Catalog_Persistence_Propel_PacCatalogAttributeSet */
+        /* @var $attributeSet \ProjectA\Zed\Catalog\Persistence\Propel\PacCatalogAttributeSet */
         foreach ($this->factory->createModelFinder()->getAttributeSetsMap() as $attributeSet) {
             $attributeOptionsMap = $this->factory->createInternalImportOptionsForAttributes()->getOptionsForAttributeMap($attributeSet->getName());
             foreach ($attributeOptionsMap as $attributeName => $attributeOptions) {
-                $query = new \ProjectA_Zed_Catalog_Persistence_Propel_PacCatalogValueTypeQuery();
-                /* @var $entityValueType \ProjectA_Zed_Catalog_Persistence_Propel_PacCatalogValueType */
+                $query = new \ProjectA\Zed\Catalog\Persistence\Propel\PacCatalogValueTypeQuery();
+                /* @var $entityValueType \ProjectA\Zed\Catalog\Persistence\Propel\PacCatalogValueType */
                 $entityValueType =
                     $query
                         ->filterByAttributeSet($attributeSet)
                         ->useAttributeQuery()->filterByName($attributeName)->endUse()
                         ->findOne();
                 foreach ($attributeOptions as $option) {
-                    $valueOptionQuery = new \ProjectA_Zed_Catalog_Persistence_Propel_PacCatalogValueOptionQuery();
+                    $valueOptionQuery = new \ProjectA\Zed\Catalog\Persistence\Propel\PacCatalogValueOptionQuery();
                     $valueOptionQuery
                         ->filterByValueType($entityValueType)
                         ->filterByName($option)

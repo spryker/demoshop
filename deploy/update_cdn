@@ -11,7 +11,8 @@ outfile=`mktemp /tmp/deploy-perfmig-XXXXXX`
 cd $destination_release_dir
 
 echo "Distributing assets to CDN - if configured"
-APPLICATION_ENV=$environment php -d "newrelic.appname='Deploy($environment)'" vendor/bin/console cloud:publish-files -e $environment -s ${APPLICATION_STORE} &> $outfile
+#APPLICATION_ENV=$environment php -d "newrelic.appname='Deploy($environment)'" vendor/bin/console cloud:publish-files -e $environment -s ${APPLICATION_STORE} &> $outfile
+echo "...manually disabled in file ${0}..."
 return=$?
 
 echo "CDN output saved in $outfile"

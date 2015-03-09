@@ -31,8 +31,6 @@ use ProjectA\Zed\Kernel\Locator;
 use ProjectA\Zed\Product\Business\ProductFacade;
 use ProjectA\Zed\ProductSearch\Business\ProductSearchFacade;
 use ProjectA\Zed\FrontendExporter\Business\FrontendExporterFacade;
-use ProjectA\Zed\Price\Business\PriceFacade;
-
 
 /**
  * Class Installer
@@ -70,7 +68,7 @@ class Installer extends CoreInstaller implements
     public function __construct()
     {
         // TODO this must be injected
-        $this->locator = new Locator();
+        $this->locator = Locator::getInstance();
     }
 
     /**
@@ -78,15 +76,10 @@ class Installer extends CoreInstaller implements
      */
     protected function getInstaller()
     {
-        /** @var FrontendExporterFacade $frontendExporterFacade */
         $frontendExporterFacade = $this->locator->frontendExporter()->facade();
-        /** @var ProductFacade $productFacade */
         $productFacade = $this->locator->product()->facade();
-        /** @var ProductSearchFacade $productSearchFacade */
         $productSearchFacade = $this->locator->productSearch()->facade();
-        /** @var GlossaryFacade $glossaryFacade */
         $glossaryFacade = $this->locator->glossary()->facade();
-        /** @var PriceFacade $priceFacade */
         $priceFacade = $this->locator->price()->facade();
         return [
             $this->facadeAcl->createInternalInstall(),
@@ -104,7 +97,6 @@ class Installer extends CoreInstaller implements
             $productFacade->createInternalInstall(),
             $frontendExporterFacade->createInternalInstall(),
             $productSearchFacade->createInternalInstall(),
-            $glossaryFacade->getGlossaryInstaller(),
             $priceFacade->createInternalInstall()
         ];
     }
