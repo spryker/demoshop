@@ -3,21 +3,8 @@
 namespace Pyz\Zed\Calculation\Business;
 
 use \ProjectA\Zed\Calculation\Business\CalculationSettings as CoreCalculationSettings;
-use ProjectA\Zed\Calculation\Business\Model\Calculator\CalculatorInterface;
-use ProjectA\Zed\Calculation\Business\Model\Calculator\TotalsCalculatorInterface;
-use ProjectA\Zed\Calculation\Communication\Plugin\DiscountTotalsCalculatorPlugin;
-use ProjectA\Zed\Calculation\Communication\Plugin\ExpensePriceToPayCalculatorPlugin;
-use ProjectA\Zed\Calculation\Communication\Plugin\ExpenseTotalsCalculatorPlugin;
-use ProjectA\Zed\Calculation\Communication\Plugin\GrandTotalTotalsCalculatorPlugin;
-use ProjectA\Zed\Calculation\Communication\Plugin\GrandTotalWithoutDiscountsTotalsCalculatorPlugin;
-use ProjectA\Zed\Calculation\Communication\Plugin\ItemPriceToPayCalculatorPlugin;
-use ProjectA\Zed\Calculation\Communication\Plugin\OptionPriceToPayCalculatorPlugin;
-use ProjectA\Zed\Calculation\Communication\Plugin\RemoveAllCalculatedDiscountsCalculatorPlugin;
-use ProjectA\Zed\Calculation\Communication\Plugin\RemoveAllExpensesCalculatorPlugin;
-use ProjectA\Zed\Calculation\Communication\Plugin\RemoveTotalsCalculatorPlugin;
-use ProjectA\Zed\Calculation\Communication\Plugin\SubtotalTotalsCalculatorPlugin;
-use ProjectA\Zed\Calculation\Communication\Plugin\SubtotalWithoutItemExpensesTotalsCalculatorPlugin;
-use ProjectA\Zed\Calculation\Communication\Plugin\TaxTotalsCalculatorPlugin;
+use ProjectA\Zed\Calculation\Dependency\Plugin\CalculatorPluginInterface;
+use ProjectA\Zed\Calculation\Dependency\Plugin\TotalsCalculatorPluginInterface;
 
 /**
  * Class CalculationSettings
@@ -26,26 +13,24 @@ use ProjectA\Zed\Calculation\Communication\Plugin\TaxTotalsCalculatorPlugin;
 class CalculationSettings extends CoreCalculationSettings
 {
     /**
-     * @return array|\ProjectA\Zed\Calculation\Business\Model\Calculator\CalculatorInterface[]|\ProjectA\Zed\Calculation\Business\Model\Calculator\TotalsCalculatorInterface[]
+     * @return CalculatorPluginInterface[]|TotalsCalculatorPluginInterface[]
      */
     public function getCalculatorStack()
     {
         return [
-            new RemoveTotalsCalculatorPlugin(),
-            new RemoveAllExpensesCalculatorPlugin(),
-            new RemoveAllCalculatedDiscountsCalculatorPlugin(),
-            new ExpenseTotalsCalculatorPlugin(),
-            new SubtotalTotalsCalculatorPlugin(),
-            new SubtotalWithoutItemExpensesTotalsCalculatorPlugin(),
-            new GrandTotalWithoutDiscountsTotalsCalculatorPlugin(),
-            // Salesrule
-            new ExpensePriceToPayCalculatorPlugin(),
-            new ItemPriceToPayCalculatorPlugin(),
-            new OptionPriceToPayCalculatorPlugin(),
-            new DiscountTotalsCalculatorPlugin(),
-            new GrandTotalTotalsCalculatorPlugin(),
-            new TaxTotalsCalculatorPlugin(),
+            $this->locator->discount()->pluginRemoveTotalsCalculatorPlugin(),
+            $this->locator->discount()->pluginRemoveAllExpensesCalculatorPlugin(),
+            $this->locator->discount()->pluginRemoveAllCalculatedDiscountsCalculatorPlugin(),
+            $this->locator->discount()->pluginExpenseTotalsCalculatorPlugin(),
+            $this->locator->discount()->pluginSubtotalTotalsCalculatorPlugin(),
+            $this->locator->discount()->pluginSubtotalWithoutItemExpenseTotalsCalculatorPlugin(),
+            $this->locator->discount()->pluginGrandTotalWithoutDiscountsTotalsCalculatorPlugin(),
+            $this->locator->discount()->pluginExpensePriceToPayCalculatorPlugin(),
+            $this->locator->discount()->pluginItemPriceToPayCalculatorPlugin(),
+            $this->locator->discount()->pluginOptionPriceToPayCalculatorPlugin(),
+            $this->locator->discount()->pluginDiscountTotalsCalculatorPlugin(),
+            $this->locator->discount()->pluginGrandTotalTotalsCalculatorPlugin(),
+            $this->locator->discount()->pluginTaxTotalsCalculatorPlugin(),
         ];
     }
-
 }
