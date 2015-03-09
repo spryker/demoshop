@@ -8,6 +8,8 @@ use ProjectA\Zed\Library\Business\DemoDataInstallInterface;
 use ProjectA\Zed\Library\Import\Reader\CsvFileReader;
 use ProjectA\Zed\Price\Business\PriceFacade;
 use ProjectA\Shared\Price\Transfer\Product;
+use ProjectA\Zed\Price\Persistence\Propel\PacPriceProduct;
+use ProjectA\Zed\Price\Persistence\Propel\PacPriceProductQuery;
 
 class PriceInstall implements DemoDataInstallInterface
 {
@@ -21,10 +23,12 @@ class PriceInstall implements DemoDataInstallInterface
     /** @var PriceFacade */
     protected $priceFacade;
 
+    protected $locator;
+
     public function __construct()
     {
-        $locator = Locator::getInstance();
-        $this->priceFacade = $locator->price()->facade();
+        $this->locator = Locator::getInstance();
+        $this->priceFacade = $this->locator->price()->facade();
     }
 
     /**
@@ -66,7 +70,7 @@ class PriceInstall implements DemoDataInstallInterface
     {
         $stockType = $this->priceFacade->createPriceType($row[self::PRICE_TYPE]);
 
-        $transferPriceProduct = (new Locator())->price()->transferProduct();
+        $transferPriceProduct = $this->locator->price()->transferProduct();
 
         /** @var Product $transferPriceProduct */
         $transferPriceProduct->setPrice($row[self::PRICE])
@@ -74,7 +78,13 @@ class PriceInstall implements DemoDataInstallInterface
                             ->setSkuProduct($row[self::SKU])
                             ->setIsActive($row[self::IS_ACTiVE]);
 
-        $this->priceFacade->createPriceForProduct($transferPriceProduct);
+        if ($this->priceFacade->hasValidPrice($transferPriceProduct->getSkuProduct(), $transferPriceProduct->getPriceTypeName())) {
+            $idPriceProduct = $this->priceFacade->getIdPriceProduct($transferPriceProduct->getSkuProduct(), $transferPriceProduct->getPriceTypeName());
+            $transferPriceProduct->setIdPriceProduct($idPriceProduct);
+            $this->priceFacade->setPriceForProduct($transferPriceProduct);
+        } else {
+            $this->priceFacade->createPriceForProduct($transferPriceProduct);
+        }
     }
 
 }
