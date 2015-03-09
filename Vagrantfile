@@ -5,7 +5,7 @@ SALT_BRANCH="master"
 PILLAR_DIRECTORY="./vendor/spryker/pillar"
 PILLAR_REPOSITORY="git@github.com:spryker/pillar.git"
 PILLAR_BRANCH="master"
-HOSTS=["spryker.dev", "zed.spryker.dev","zed.com.spryker.dev", "www.com.spryker.dev", "com.spryker.dev", "static.com.spryker.dev", "www.de.spryker.dev", "de.spryker.dev", "static.de.spryker.dev", "kibana.spryker.dev"]
+HOSTS=["spryker.dev", "zed.de.spryker.dev","zed.com.spryker.dev", "www.com.spryker.dev", "com.spryker.dev", "static.com.spryker.dev", "www.de.spryker.dev", "de.spryker.dev", "static.de.spryker.dev", "kibana.spryker.dev"]
 
 # Verify if salt/pillar directories are present
 require 'mkmf'
