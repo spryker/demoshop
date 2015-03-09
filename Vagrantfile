@@ -41,12 +41,12 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   config.ssh.forward_agent = true
 
   # The VirtualBox IP-address for the browser
-  config.vm.network :private_network, ip: "10.10.0.66"
+  config.vm.network :private_network, ip: "10.10.0.33"
 
   # Port forwarding for services running on VM:
-  config.vm.network "forwarded_port", guest: 1080, host: 1080   # Mailcatcher
-  config.vm.network "forwarded_port", guest: 9200, host: 9200   # ELK-Elasticsearch
-  config.vm.network "forwarded_port", guest: 9292, host: 9292   # ELK-Kibana
+  config.vm.network "forwarded_port", guest: 1080, host: 1080, auto_correct: true   # Mailcatcher
+  config.vm.network "forwarded_port", guest: 9200, host: 9201, auto_correct: true   # ELK-Elasticsearch
+  config.vm.network "forwarded_port", guest: 9292, host: 9291, auto_correct: true   # ELK-Kibana
 
   # SaltStack masterless setup
   if Dir.exists?(PILLAR_DIRECTORY) && Dir.exists?(SALT_DIRECTORY)
@@ -69,7 +69,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
     config.hostmanager.aliases = HOSTS
   else
     puts "WARNING: Please add the following entries to your /etc/hosts \n\n\033[0m"
-    puts "10.10.0.66 #{HOSTS.join(' ')}\n"
+    puts "10.10.0.33 #{HOSTS.join(' ')}\n"
   end
 
   # Share the application code with VM
