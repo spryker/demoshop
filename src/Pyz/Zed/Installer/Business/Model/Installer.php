@@ -65,7 +65,7 @@ class Installer extends CoreInstaller implements
     public function __construct()
     {
         // TODO this must be injected
-        $this->locator = new Locator();
+        $this->locator = Locator::getInstance();
     }
 
     /**

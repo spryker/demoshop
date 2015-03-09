@@ -113,7 +113,11 @@ $config[SystemConfig::PROPEL] = [
         'defaultConnection' => 'default',
         'connections' => ['default', 'zed'],
         'objectModel' => [
-            'defaultKeyType' => 'fieldName'
+            'defaultKeyType' => 'fieldName',
+            'builders' => [
+                'tablemap' => '\ProjectA\Zed\Kernel\Persistence\Propel\Builder\TableMapBuilder',
+                'query' => '\ProjectA\Zed\Kernel\Persistence\Propel\Builder\QueryBuilder'
+            ]
         ]
     ],
     'paths' => [
@@ -124,32 +128,6 @@ $config[SystemConfig::PROPEL] = [
         'phpConfDir' => APPLICATION_ROOT_DIR . '/src/Generated/Propel/' . $currentStore . '/Config'
     ]
 ];
-
-//$config[SystemConfig::PROPEL] = array(
-//    'propel.project.dir' =>
-//        APPLICATION_SOURCE_DIR . '/Generated/Zed/PropelGen/' . \ProjectA_Shared_Library_Store::getInstance()->getStoreName() . '/',
-//    'propel.schema.dir' =>
-//        APPLICATION_SOURCE_DIR . '/Generated/Zed/PropelGen/' . \ProjectA_Shared_Library_Store::getInstance()->getStoreName() . '/Schema',
-//    'propel.php.dir' => APPLICATION_ROOT_DIR,
-//    'propel.gen.dir' => APPLICATION_SOURCE_DIR . '/Generated/PropelGen/' . \ProjectA_Shared_Library_Store::getInstance()->getStoreName() . '/',
-//    'propel.packageObjectModel' => 'true',
-//    'propel.project' => 'zed',
-//    'propel.targetPackage' => 'Zed',
-//    'propel.database' => 'mysql',
-//    'propel.database.encoding' => 'utf8',
-//    'propel.mysql.tableType' => 'InnoDB',
-//    'propel.behavior.lumberjack.class' => '\ProjectA\Zed\Lumberjack\Business\Model\Behaviour\Lumberjack',
-//    'propel.behavior.changepaldefaults.class' => 'ProjectA_Zed_Library_Propel_Behavior_ChangePalDefaults',
-//    'propel.behavior.default' => 'lumberjack, changepaldefaults',
-//    'propel.builder.pluralizer.class' => 'builder.util.StandardEnglishPluralizer',
-//    'propel.builder.object.class' => 'ProjectA_Zed_Library_Propel_Builder_Om_PHP5ObjectBuilder',
-//    'propel.builder.peer.class' => 'ProjectA_Zed_Library_Propel_Builder_Om_PHP5PeerBuilder',
-//    'propel.builder.tablemap.class' => 'ProjectA_Zed_Library_Propel_Builder_Map_PHP5TableMapBuilder',
-//    'propel.builder.peerstub.class' => 'ProjectA_Zed_Library_Propel_Builder_Om_PHP5PeerStubBuilder',
-//    'propel.builder.objectstub.class' => 'ProjectA_Zed_Library_Propel_Builder_Om_PHP5ObjectStubBuilder',
-//    'propel.builder.query.class' => 'ProjectA_Zed_Library_Propel_Builder_Om_PHP5QueryBuilder',
-//    'propel.builder.querystub.class' => 'ProjectA_Zed_Library_Propel_Builder_Om_PHP5QueryStubBuilder',
-//);
 
 $config[CustomerConfig::CUSTOMER_MINUTES_BEFORE_RESTORE_PASSWORD_INVALID] = 60;
 $config[CustomerConfig::CUSTOMER_DOUBLE_OPT_IN_REGISTRATION] = true;
