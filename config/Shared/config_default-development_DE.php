@@ -19,14 +19,11 @@ $config[PayoneConfig::PAYONE_PORTALID] = '2018246';
 $config[PayoneConfig::PAYONE_KEY] = 'dFWR8GlNG8aonscn';
 
 $yvesHost = 'www.de.spryker.dev';
-$config[SystemConfig::HOST_YVES]
-    = $config[SystemConfig::HOST_STATIC_ASSETS]
-    = $config[SystemConfig::HOST_STATIC_MEDIA]
-    = $yvesHost;
-$config[SystemConfig::HOST_SSL_YVES]
-    = $config[SystemConfig::HOST_SSL_STATIC_ASSETS]
-    = $config[SystemConfig::HOST_SSL_STATIC_MEDIA]
-    = 'https://' . $yvesHost;
+$config[SystemConfig::HOST_YVES] = 'http://' . $yvesHost;
+$config[SystemConfig::HOST_STATIC_ASSETS] = $config[SystemConfig::HOST_STATIC_MEDIA] = $yvesHost;
+
+$config[SystemConfig::HOST_SSL_YVES] = 'https://' . $yvesHost;
+$config[SystemConfig::HOST_SSL_STATIC_ASSETS] = $config[SystemConfig::HOST_SSL_STATIC_MEDIA] = $yvesHost;
 
 $zedHost = 'zed.de.spryker.dev';
 $config[SystemConfig::HOST_ZED_GUI]
