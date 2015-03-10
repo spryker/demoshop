@@ -28,13 +28,11 @@ class Installer extends CoreInstaller implements
     CmsFacadeInterface,
     ProductImageFacadeInterface,
     InvoiceFacadeInterface,
-    PayoneFacadeInterface,
-    DocumentFacadeInterface
+    PayoneFacadeInterface
 {
     use AclFacadeTrait;
     use CmsFacadeTrait;
     use InvoiceFacadeTrait;
-    use DocumentFacadeTrait;
     use ProductImageFacadeTrait;
     use PayoneFacadeTrait;
     use ProductFacadeTrait;
@@ -73,7 +71,6 @@ class Installer extends CoreInstaller implements
             $this->locator->misc()->facade()->createInternalInstall(),
             $this->locator->sales()->facade()->createInternalInstall(),
             $this->facadeProductImage->createInternalInstall(),
-            $this->facadeDocument->createInternalInstall(),
             $this->facadeInvoice->createInternalInstall(),
             $this->facadePayone->createInternalInstall(),
             $productFacade->createInternalInstall(),

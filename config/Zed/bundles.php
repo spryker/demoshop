@@ -23,7 +23,6 @@ return [
         'Cms' => $allElements,
         'Category' => $schemaAndNavigation,
         'Customer2' => $schema,
-        'Document' => $schema,
         'FrontendExporter' => $schema,
         'Glossary' => $allElements,
         'Invoice' => $schema,
