@@ -38,7 +38,7 @@ Inside the VM you have to install the application and prepare everything for you
 cd /data/shop/development/current
 php composer.phar install
 console setup:install
-cd /data/shop/development/current/vendor/zed-package
+cd /data/shop/development/current/vendor/spryker/zed-package
 npm install
 gulp
 cd /data/shop/development/current
