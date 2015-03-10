@@ -28,7 +28,6 @@ return [
         'Lumberjack' => $navigation,
         'Mail' => $schemaAndNavigation,
         'Misc' => $schema,
-        'Newsletter' => $schema,
         'Oms' => $schema,
         'ProductImage' => $schema,
         'Payment' => $schemaAndNavigation,
