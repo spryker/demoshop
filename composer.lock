@@ -4,7 +4,7 @@
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "10814751ea1155f42737b62b37480b88",
+    "hash": "8c64c3919ede45bb6d63e8be17602d3f",
     "packages": [
         {
             "name": "digital-canvas/zend-framework",
@@ -587,12 +587,12 @@
             "version": "v1.1.1",
             "source": {
                 "type": "git",
-                "url": "https://github.com/silexphp/Pimple.git",
+                "url": "https://github.com/fabpot/Pimple.git",
                 "reference": "2019c145fe393923f3441b23f29bbdfaa5c58c4d"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/silexphp/Pimple/zipball/2019c145fe393923f3441b23f29bbdfaa5c58c4d",
+                "url": "https://api.github.com/repos/fabpot/Pimple/zipball/2019c145fe393923f3441b23f29bbdfaa5c58c4d",
                 "reference": "2019c145fe393923f3441b23f29bbdfaa5c58c4d",
                 "shasum": ""
             },
@@ -617,7 +617,9 @@
             "authors": [
                 {
                     "name": "Fabien Potencier",
-                    "email": "fabien@symfony.com"
+                    "email": "fabien@symfony.com",
+                    "homepage": "http://fabien.potencier.org",
+                    "role": "Lead Developer"
                 }
             ],
             "description": "Pimple is a simple Dependency Injection Container for PHP 5.3",
@@ -929,11 +931,11 @@
         },
         {
             "name": "spryker/yves-package",
-            "version": "dev-master",
+            "version": "dev-yves-autocompletion",
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/yves.git",
-                "reference": "dfb1657dd6952760f28500fdc6c9b24e553e48a3"
+                "reference": "873c5e8b84040ecea47c813031ec5b8ff3d42406"
             },
             "require": {
                 "php": ">=5.4.0"
@@ -966,15 +968,15 @@
                 "Application",
                 "Yves"
             ],
-            "time": "2015-03-05 11:04:28"
+            "time": "2015-03-10 09:26:52"
         },
         {
             "name": "spryker/zed-package",
-            "version": "dev-master",
+            "version": "dev-yves-autocompletion",
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/zed.git",
-                "reference": "073b3f557098260957bc047c9bb316cc15a04746"
+                "reference": "0617a8b6ffe36dc61307ae99047b13ec26f44b63"
             },
             "require": {
                 "digital-canvas/zend-framework": ">=1.12.2",
@@ -1041,7 +1043,7 @@
                 "Application",
                 "Zed"
             ],
-            "time": "2015-03-05 12:10:12"
+            "time": "2015-03-10 09:28:52"
         },
         {
             "name": "symfony-cmf/routing",
@@ -2344,12 +2346,12 @@
             "version": "v1.15.1",
             "source": {
                 "type": "git",
-                "url": "https://github.com/twigphp/Twig.git",
+                "url": "https://github.com/fabpot/Twig.git",
                 "reference": "1fb5784662f438d7d96a541e305e28b812e2eeed"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/twigphp/Twig/zipball/1fb5784662f438d7d96a541e305e28b812e2eeed",
+                "url": "https://api.github.com/repos/fabpot/Twig/zipball/1fb5784662f438d7d96a541e305e28b812e2eeed",
                 "reference": "1fb5784662f438d7d96a541e305e28b812e2eeed",
                 "shasum": ""
             },

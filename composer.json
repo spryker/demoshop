@@ -1,7 +1,7 @@
 {
   "require": {
-    "spryker/yves-package": "dev-master",
-    "spryker/zed-package": "dev-master",
+    "spryker/yves-package": "dev-yves-autocompletion",
+    "spryker/zed-package": "dev-yves-autocompletion",
 
     "psr/log": "~1.0",
     "phing/phing": "~2.6.0",
