@@ -120,7 +120,7 @@ if is_default_store; then
     exit 2
   fi
 
-  "echo - gulp dist: Zed"
+  echo " - gulp dist: Zed"
   [ -z `which gulp` ] && npm install -g gulp
   pushd ./vendor/spryker/zed-package
   npm install --silent
