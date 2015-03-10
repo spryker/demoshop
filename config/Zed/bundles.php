@@ -26,7 +26,6 @@ return [
         'FrontendExporter' => $schema,
         'Glossary' => $allElements,
         'Invoice' => $schema,
-        'Kendo' => $schema,
         'Lumberjack' => $navigation,
         'Mail' => $schemaAndNavigation,
         'Misc' => $schema,
