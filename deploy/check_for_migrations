@@ -15,7 +15,7 @@ outfile=`mktemp /tmp/deploy-diff-XXXXXX`
 cd $destination_release_dir
 
 # Remove old Propel migration files
-rm -fr src/Generated/Zed/PropelGen/$APPLICATION_STORE/build/migrations
+rm -fr src/Generated/Propel/$APPLICATION_STORE/Migration
 
 modified_text="Structure of database was modified in datasource"
 same_text="Same XML and database structures"

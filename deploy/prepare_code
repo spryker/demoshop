@@ -66,7 +66,7 @@ if is_default_store; then
   generated_cache_dir=/data/deploy/${environment}/Generated
   [ ! -d $generated_cache_dir ] && mkdir -p $generated_cache_dir
   cp -r --reflink=auto $generated_cache_dir src/
-  rm -rf src/Generated/Zed/PropelGen
+  rm -rf src/Generated/Propel
 fi
 
 chown -R www-data. .
