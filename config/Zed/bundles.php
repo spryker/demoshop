@@ -25,7 +25,6 @@ return [
         'Customer2' => $schema,
         'FrontendExporter' => $schema,
         'Glossary' => $allElements,
-        'Invoice' => $schema,
         'Lumberjack' => $navigation,
         'Mail' => $schemaAndNavigation,
         'Misc' => $schema,
