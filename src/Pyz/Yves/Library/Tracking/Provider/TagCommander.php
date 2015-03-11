@@ -47,7 +47,7 @@ class TagCommander implements ProviderInterface
             . '<!--' . PHP_EOL
             . '//TC Declared Variables' . PHP_EOL
             . 'var tc_vars = new Array();' . PHP_EOL
-            . 'tc_vars["env_work"] = "' . \ProjectA_Shared_Library_Environment::getEnvironment() . '";' . PHP_EOL
+            . 'tc_vars["env_work"] = "' . \ProjectA\Shared\Library\Environment::getEnvironment() . '";' . PHP_EOL
             . 'tc_vars["user_id"] = "' . $incrementId . '";' . PHP_EOL
             . 'tc_vars["user_gender"] = "' . $gender . '";' . PHP_EOL
             . 'tc_vars["user_logged"] = "' . $userLoggedIn . '";' . PHP_EOL

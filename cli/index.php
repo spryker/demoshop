@@ -26,7 +26,7 @@ ProjectA_Shared_Library_Context::setDefaultContext(\ProjectA_Shared_Library_Cont
 if (file_exists(APPLICATION_SOURCE_DIR . '/Generated/Zed/DependencyInjectionContainer.php')) {
     require_once(APPLICATION_SOURCE_DIR . '/Generated/Zed/DependencyInjectionContainer.php');
 }
-\ProjectA_Shared_Library_NewRelic_Api::getInstance()->markAsBackgroundJob(false);
+\ProjectA\Shared\Library\NewRelic\Api::getInstance()->markAsBackgroundJob(false);
 
 $bootstrap = new ZedBootstrap();
 $bootstrap
