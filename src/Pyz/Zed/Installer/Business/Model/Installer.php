@@ -2,7 +2,7 @@
 
 namespace Pyz\Zed\Installer\Business\Model;
 
-use \ProjectA\Deprecated\Acl\Business\Dependency\AclFacadeInterface;
+//use \ProjectA\Deprecated\Acl\Business\Dependency\AclFacadeInterface;
 use \ProjectA\Deprecated\Cms\Business\Dependency\CmsFacadeInterface;
 use \ProjectA\Deprecated\Misc\Business\Dependency\MiscFacadeInterface;
 
@@ -14,7 +14,7 @@ use \ProjectA\Deprecated\ProductImage\Business\Dependency\ProductImageFacadeInte
 use \ProjectA\Deprecated\Invoice\Business\Dependency\InvoiceFacadeInterface;
 use \ProjectA\Deprecated\Document\Business\Dependency\DocumentFacadeInterface;
 use \ProjectA\Deprecated\Payone\Business\Dependency\PayoneFacadeInterface;
-use \ProjectA\Deprecated\Acl\Business\Dependency\AclFacadeTrait;
+//use \ProjectA\Deprecated\Acl\Business\Dependency\AclFacadeTrait;
 use \ProjectA\Deprecated\Cms\Business\Dependency\CmsFacadeTrait;
 use \ProjectA\Deprecated\Misc\Business\Dependency\MiscFacadeTrait;
 
@@ -38,7 +38,6 @@ use ProjectA\Zed\FrontendExporter\Business\FrontendExporterFacade;
  * @package Pyz\Zed\Installer\Business\Model
  */
 class Installer extends CoreInstaller implements
-    AclFacadeInterface,
     MiscFacadeInterface,
     CmsFacadeInterface,
     SalesFacadeInterface,
@@ -47,7 +46,6 @@ class Installer extends CoreInstaller implements
     PayoneFacadeInterface,
     DocumentFacadeInterface
 {
-    use AclFacadeTrait;
     use MiscFacadeTrait;
     use CmsFacadeTrait;
     use SalesFacadeTrait;
@@ -82,7 +80,6 @@ class Installer extends CoreInstaller implements
         $glossaryFacade = $this->locator->glossary()->facade();
         $priceFacade = $this->locator->price()->facade();
         return [
-            $this->facadeAcl->createInternalInstall(),
 //            $this->facadeCustomer->createInternalInstall(),
             $this->facadeCms->createInternalInstall(),
 //            // TODO: installer broken
