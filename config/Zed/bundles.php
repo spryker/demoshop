@@ -16,9 +16,13 @@ $schema = [ProjectA\Shared\Library\Bundle\BundleConfig::ACTIVATE_SCHEMA];
 return [
     // Project bundles
     Config::get(SystemConfig::PROJECT_NAMESPACE) => [],
+    //@TODO NEW CORE: need to move CORE2 to CORE
+    ProjectA\Shared\Library\Bundle\BundleConfig::NAMESPACE_CORE2 => [
+        'Acl' => $schema
+    ],
     // Core bundles
     ProjectA\Shared\Library\Bundle\BundleConfig::NAMESPACE_CORE => [
-        'Acl' => $schemaAndNavigation,
+//        'Acl' => $schemaAndNavigation,
         'Cart' => $schema,
         'Cms' => $allElements,
         'Catalog' => $schemaAndNavigation,
