@@ -4,7 +4,7 @@
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "10814751ea1155f42737b62b37480b88",
+    "hash": "8c64c3919ede45bb6d63e8be17602d3f",
     "packages": [
         {
             "name": "digital-canvas/zend-framework",
@@ -929,11 +929,11 @@
         },
         {
             "name": "spryker/yves-package",
-            "version": "dev-master",
+            "version": "dev-yves-autocompletion",
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/yves.git",
-                "reference": "dfb1657dd6952760f28500fdc6c9b24e553e48a3"
+                "reference": "873c5e8b84040ecea47c813031ec5b8ff3d42406"
             },
             "require": {
                 "php": ">=5.4.0"
@@ -966,15 +966,15 @@
                 "Application",
                 "Yves"
             ],
-            "time": "2015-03-05 11:04:28"
+            "time": "2015-03-10 09:26:52"
         },
         {
             "name": "spryker/zed-package",
-            "version": "dev-master",
+            "version": "dev-yves-autocompletion",
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/zed.git",
-                "reference": "941fa11a45e7cf00e38c436206f7495040dd3d04"
+                "reference": "5f2e1ce90f44c4fb9314e87597202ed9060afc84"
             },
             "require": {
                 "digital-canvas/zend-framework": ">=1.12.2",
@@ -1041,7 +1041,7 @@
                 "Application",
                 "Zed"
             ],
-            "time": "2015-03-09 14:05:32"
+            "time": "2015-03-11 07:42:54"
         },
         {
             "name": "symfony-cmf/routing",
@@ -2402,12 +2402,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/zendesk/zendesk_api_client_php.git",
-                "reference": "8f136a76d784c371524e0aa259bdbd796c7d4ee2"
+                "reference": "330cdde52e5f9ddfcea9caa29db7c464b73a7abd"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/zendesk/zendesk_api_client_php/zipball/8f136a76d784c371524e0aa259bdbd796c7d4ee2",
-                "reference": "8f136a76d784c371524e0aa259bdbd796c7d4ee2",
+                "url": "https://api.github.com/repos/zendesk/zendesk_api_client_php/zipball/330cdde52e5f9ddfcea9caa29db7c464b73a7abd",
+                "reference": "330cdde52e5f9ddfcea9caa29db7c464b73a7abd",
                 "shasum": ""
             },
             "require": {
@@ -2428,7 +2428,7 @@
             ],
             "description": "PHP Client for Zendesk REST API. See http://developer.zendesk.com/api-docs",
             "homepage": "https://github.com/zendesk/zendesk_api_client_php",
-            "time": "2015-02-27 22:40:36"
+            "time": "2015-03-10 18:26:31"
         },
         {
             "name": "zendframework/zend-code",
