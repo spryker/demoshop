@@ -104,9 +104,7 @@ class ZedBootstrap extends Bootstrap
             new SessionServiceProvider(),
             new PropelServiceProvider(),
             new FrontendServiceProvider(),
-            new SecurityServiceProvider(),
             new UrlGeneratorServiceProvider(),
-//            new ProductImageServiceProvider(), You can find this in catalog-package feature/387-replace-zf-with-silex
             new CmsServiceProvider(),
             new NewRelicServiceProvider(),
         ];
@@ -139,7 +137,6 @@ class ZedBootstrap extends Bootstrap
         return [
             'environment' => APPLICATION_ENV,
             'store' => \ProjectA_Shared_Library_Store::getInstance()->getStoreName(),
-            'identity' => (Auth::getInstance()->hasIdentity()) ? Auth::getInstance()->getIdentity() : false,
             'title' => Config::get(SystemConfig::PROJECT_NAMESPACE) . ' | Zed | ' . ucfirst(APPLICATION_ENV),
             'currentController' => get_class($this)
         ];
