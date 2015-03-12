@@ -54,6 +54,9 @@ return [
     \ProjectA\Shared\Library\Bundle\BundleConfig::NAMESPACE_SPRYKERCORE => [
         'Locale' => $schema,
         'Touch' => $schema,
+    ],
+
+    \ProjectA\Shared\Library\Bundle\BundleConfig::NAMESPACE_CORE2 => [
         'Url' => $schema,
     ]
 ];
