@@ -53,11 +53,11 @@ return [
     \ProjectA\Shared\Library\Bundle\BundleConfig::NAMESPACE_SPRYKERCORE => [
         'Locale' => $schema,
         'Touch' => $schema,
-        'Url' => $schema
     ],
 
     \ProjectA\Shared\Library\Bundle\BundleConfig::NAMESPACE_SPRYKERFEATURE => [
         'Cms' => $allElements,
-        'Redirect' => $schema
+        'Redirect' => $schema,
+        'Url' => $schema
     ]
 ];
