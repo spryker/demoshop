@@ -7,6 +7,7 @@ use ProjectA\Zed\Console\Business\Model\Console;
 use ProjectA\Zed\Kernel\Locator;
 use ProjectA\Zed\Library\Business\DemoDataInstallInterface;
 use ProjectA\Zed\Library\Import\Reader\CsvFileReader;
+use Propel\Runtime\Exception\PropelException;
 use Propel\Runtime\Formatter\SimpleArrayFormatter;
 
 /**
@@ -83,13 +84,10 @@ class ProductDataInstall implements DemoDataInstallInterface
 
     /**
      * @throws \Exception
-     * @throws \PropelException
+     * @throws PropelException
      */
     protected function createProduct()
     {
-        $locale = \SprykerCore_Zed_Locale_Persistence_Propel_PacLocaleQuery::create()
-            ->findOneByLocaleName('de_DE');
-
         //TODO inject
         /** @var AutoCompletion $locator */
         $locator = Locator::getInstance();

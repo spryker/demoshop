@@ -8,7 +8,6 @@ use ProjectA\Zed\Kernel\Locator;
 use ProjectA\Zed\Library\Business\DemoDataInstallInterface;
 use ProjectA\Zed\Library\Import\Reader\CsvFileReader;
 use ProjectA\Zed\Stock\Business\StockFacade;
-use ProjectA\Shared\Stock\Transfer\StockProduct;
 
 /**
  * Class StockInstall

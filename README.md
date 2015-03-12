@@ -12,18 +12,18 @@ sudo npm install -d
 
 ## Development
 
-### Product Data
+### Setup a development VM
 
-Go to [Product import](http://zed-development.project-yz.de/product/import) and upload the demodata from
-*development/product-import/Products-Demodata.csv*.
+__Requirements:__
 
-When the upload was successful, please execute the following SQL:
+* [Virtualbox](https://www.virtualbox.org/wiki/Downloads)
+* [Vagrant](https://www.vagrantup.com/downloads.html)
+* [Vagrant-Hostmanager Plugin](https://github.com/smdahlen/vagrant-hostmanager)
 
-```SQL
-INSERT INTO `pac_yves_export_touch` (`id_yves_export_touch`, `item_type`, `item_event`, `item_id`, `touched`)
-VALUES
-    (1, 'product', 0, '1', NOW()),
-    (2, 'product', 0, '2', NOW());
-```
+If all requirements are satisfied you can bring up a new development VM by just calling:
 
-Then you can export the products into the KV Storage by just accessing [Yves KV Exporter](http://zed-development.project-yz.de/yves-export/cronjob/export-key-value).
+```vagrant up```
+
+After about 20 minutes you can access the VM via:
+
+```vagrant ssh``
