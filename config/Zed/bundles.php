@@ -18,11 +18,10 @@ return [
     Config::get(SystemConfig::PROJECT_NAMESPACE) => [],
     //@TODO NEW CORE: need to move CORE2 to CORE
     ProjectA\Shared\Library\Bundle\BundleConfig::NAMESPACE_CORE2 => [
-        'Acl' => $schema
+        'Acl' => $schemaAndNavigation
     ],
     // Core bundles
     ProjectA\Shared\Library\Bundle\BundleConfig::NAMESPACE_CORE => [
-//        'Acl' => $schemaAndNavigation,
         'Cart' => $schema,
         'Cms' => $allElements,
         'Catalog' => $schemaAndNavigation,
