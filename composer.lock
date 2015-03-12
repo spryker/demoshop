@@ -4,7 +4,7 @@
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "bdc7b23f520a1d6ec7aa7bc6be0f81bf",
+    "hash": "b9ed9ef9778d2044be5d0e8557b035b8",
     "packages": [
         {
             "name": "digital-canvas/zend-framework",
@@ -412,16 +412,16 @@
         },
         {
             "name": "monolog/monolog",
-            "version": "1.13.0",
+            "version": "1.13.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/Seldaek/monolog.git",
-                "reference": "c41c218e239b50446fd883acb1ecfd4b770caeae"
+                "reference": "c31a2c4e8db5da8b46c74cf275d7f109c0f249ac"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Seldaek/monolog/zipball/c41c218e239b50446fd883acb1ecfd4b770caeae",
-                "reference": "c41c218e239b50446fd883acb1ecfd4b770caeae",
+                "url": "https://api.github.com/repos/Seldaek/monolog/zipball/c31a2c4e8db5da8b46c74cf275d7f109c0f249ac",
+                "reference": "c31a2c4e8db5da8b46c74cf275d7f109c0f249ac",
                 "shasum": ""
             },
             "require": {
@@ -481,7 +481,7 @@
                 "logging",
                 "psr-3"
             ],
-            "time": "2015-03-05 01:12:12"
+            "time": "2015-03-09 09:58:04"
         },
         {
             "name": "nesbot/carbon",
@@ -970,11 +970,11 @@
         },
         {
             "name": "spryker/zed-package",
-            "version": "dev-feature/glossary-zed",
+            "version": "dev-feature/cms-zed",
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/zed.git",
-                "reference": "2c3f4c8e9ee9ce258427d5d8049fc2428c1ee1eb"
+                "reference": "92084cf4e0c5b850b413e1e60f30247028d080a3"
             },
             "require": {
                 "digital-canvas/zend-framework": ">=1.12.2",
@@ -1041,7 +1041,7 @@
                 "Application",
                 "Zed"
             ],
-            "time": "2015-03-10 19:13:30"
+            "time": "2015-03-12 21:02:57"
         },
         {
             "name": "symfony-cmf/routing",
