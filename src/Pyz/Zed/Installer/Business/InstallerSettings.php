@@ -22,9 +22,6 @@ class InstallerSettings extends SprykerInstallerSettings
 //            $this->locator->cms()->pluginInstaller(),
             $this->locator->misc()->pluginInstaller(),
             $this->locator->sales()->pluginInstaller(),
-            $this->locator->productImage()->pluginInstaller(),
-            $this->locator->document()->pluginInstaller(),
-            $this->locator->payone()->pluginInstaller(),
         ];
     }
 }

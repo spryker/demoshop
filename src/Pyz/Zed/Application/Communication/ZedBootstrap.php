@@ -7,8 +7,10 @@ use ProjectA\Shared\Application\Business\Bootstrap;
 use ProjectA\Shared\Application\Communication\Plugin\ServiceProvider\RoutingServiceProvider;
 use ProjectA\Shared\Application\Communication\Plugin\ServiceProvider\UrlGeneratorServiceProvider;
 use ProjectA\Shared\Library\Config;
+
 use ProjectA\Shared\System\SystemConfig;
 use ProjectA\Shared\Application\Business\Routing\SilexRouter;
+
 use ProjectA\Zed\Application\Business\Model\Router\MvcRouter;
 use ProjectA\Zed\Application\Business\Model\Twig\ZedExtension;
 use ProjectA\Zed\Application\Communication\Plugin\Pimple;
@@ -19,15 +21,19 @@ use ProjectA\Zed\Application\Communication\Plugin\ServiceProvider\RequestService
 use ProjectA\Zed\Application\Communication\Plugin\ServiceProvider\SessionServiceProvider;
 use ProjectA\Zed\Application\Communication\Plugin\ServiceProvider\SslServiceProvider;
 use ProjectA\Zed\Application\Communication\Plugin\ServiceProvider\TranslationServiceProvider;
+
 use ProjectA\Zed\Application\Communication\Plugin\ServiceProvider\TwigServiceProvider;
 use ProjectA\Zed\Auth\Business\Model\Auth;
-use ProjectA\Zed\Cms\Communication\Plugin\ServiceProvider\CmsServiceProvider;
+
+use ProjectA\Zed\Kernel\Locator;
+
 use ProjectA\Zed\Auth\Communication\Plugin\ServiceProvider\SecurityServiceProvider;
-use ProjectA\Zed\Yves\Communication\Plugin\ServiceProvider\FrontendServiceProvider;
+
 use Silex\Provider\FormServiceProvider;
 use Silex\Provider\ServiceControllerServiceProvider;
 use Silex\Provider\ValidatorServiceProvider;
 use Silex\Provider\WebProfilerServiceProvider;
+
 
 class ZedBootstrap extends Bootstrap
 {
@@ -76,7 +82,7 @@ class ZedBootstrap extends Bootstrap
 
     /**
      * @param Application $app
-     * @return array|\Silex\ServiceProviderInterface[]
+     * @return \Silex\ServiceProviderInterface[]
      */
     protected function getServiceProviders(Application $app)
     {
@@ -92,11 +98,9 @@ class ZedBootstrap extends Bootstrap
             new TranslationServiceProvider(),
             new SessionServiceProvider(),
             new PropelServiceProvider(),
-            new FrontendServiceProvider(),
+            $this->getSdkServiceProvider(),
             new SecurityServiceProvider(),
             new UrlGeneratorServiceProvider(),
-//            new ProductImageServiceProvider(), You can find this in catalog-package feature/387-replace-zf-with-silex
-//            new CmsServiceProvider(),
             new NewRelicServiceProvider(),
         ];
 
@@ -132,6 +136,27 @@ class ZedBootstrap extends Bootstrap
             'title' => Config::get(SystemConfig::PROJECT_NAMESPACE) . ' | Zed | ' . ucfirst(APPLICATION_ENV),
             'currentController' => get_class($this)
         ];
+    }
+
+    /**
+     * @return \Generated\Zed\Ide\AutoCompletion
+     */
+    public function getLocator()
+    {
+        return Locator::getInstance();
+    }
+
+    /**
+     * @return \ProjectA\Zed\Sdk\Communication\Plugin\SdkServiceProviderPlugin
+     */
+    protected function getSdkServiceProvider()
+    {
+        $locator = $this->getLocator();
+        $controllerListener = $locator->sdk()->pluginSdkControllerListenerPlugin();
+        $sdkServiceProvider = $locator->sdk()->pluginSdkServiceProviderPlugin();
+        $sdkServiceProvider->setControllerListener($controllerListener);
+
+        return $sdkServiceProvider;
     }
 }
 
