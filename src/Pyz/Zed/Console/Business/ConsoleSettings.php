@@ -18,7 +18,7 @@ class ConsoleSettings extends SprykerConsoleSettings
 {
 
     /**
-     * @return array|Command[]
+     * @return Command[]
      */
     public function getConsoleCommands()
     {
