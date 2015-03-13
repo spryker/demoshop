@@ -3,18 +3,7 @@
 namespace Pyz\Zed\Installer\Business\Model;
 
 use \ProjectA\Deprecated\Acl\Business\Dependency\AclFacadeInterface;
-use \ProjectA\Deprecated\Cms\Business\Dependency\CmsFacadeInterface;
-use ProjectA\Deprecated\Product\Business\Dependency\ProductFacadeTrait;
-use \ProjectA\Deprecated\ProductImage\Business\Dependency\ProductImageFacadeInterface;
-use \ProjectA\Deprecated\Invoice\Business\Dependency\InvoiceFacadeInterface;
-use \ProjectA\Deprecated\Document\Business\Dependency\DocumentFacadeInterface;
-use \ProjectA\Deprecated\Payone\Business\Dependency\PayoneFacadeInterface;
 use \ProjectA\Deprecated\Acl\Business\Dependency\AclFacadeTrait;
-use \ProjectA\Deprecated\Cms\Business\Dependency\CmsFacadeTrait;
-use \ProjectA\Deprecated\ProductImage\Business\Dependency\ProductImageFacadeTrait;
-use \ProjectA\Deprecated\Invoice\Business\Dependency\InvoiceFacadeTrait;
-use \ProjectA\Deprecated\Document\Business\Dependency\DocumentFacadeTrait;
-use \ProjectA\Deprecated\Payone\Business\Dependency\PayoneFacadeTrait;
 use ProjectA\Zed\Installer\Business\Model\Installer as CoreInstaller;
 use ProjectA\Zed\Kernel\Locator;
 
@@ -23,13 +12,9 @@ use ProjectA\Zed\Kernel\Locator;
  *
  * @package Pyz\Zed\Installer\Business\Model
  */
-class Installer extends CoreInstaller implements
-    AclFacadeInterface,
-    ProductImageFacadeInterface
+class Installer extends CoreInstaller implements AclFacadeInterface
 {
     use AclFacadeTrait;
-    use ProductImageFacadeTrait;
-    use ProductFacadeTrait;
 
     /**
      * @var \Generated\Zed\Ide\AutoCompletion
@@ -56,13 +41,8 @@ class Installer extends CoreInstaller implements
         $priceFacade = $this->locator->price()->facade();
         return [
             $this->facadeAcl->createInternalInstall(),
-//            $this->facadeCustomer->createInternalInstall(),
-//            // TODO: installer broken
-//            $this->facadeCatalog->createInternalInstall(),
-//            $this->facadeCategory->createInternalInstall(),
             $this->locator->misc()->facade()->createInternalInstall(),
             $this->locator->sales()->facade()->createInternalInstall(),
-            $this->facadeProductImage->createInternalInstall(),
             $productFacade->createInternalInstall(),
             $frontendExporterFacade->createInternalInstall(),
             $productSearchFacade->createInternalInstall(),

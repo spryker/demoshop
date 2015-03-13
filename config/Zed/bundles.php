@@ -29,7 +29,6 @@ return [
         'Mail' => $schemaAndNavigation,
         'Misc' => $schema,
         'Oms' => $schema,
-        'ProductImage' => $schema,
         'Price' => $schema,
         'Product' => $schemaAndNavigation,
         'ProductCategory' => $schema,
