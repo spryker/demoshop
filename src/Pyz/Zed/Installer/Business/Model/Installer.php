@@ -25,11 +25,9 @@ use ProjectA\Zed\Kernel\Locator;
  */
 class Installer extends CoreInstaller implements
     AclFacadeInterface,
-    CmsFacadeInterface,
     ProductImageFacadeInterface
 {
     use AclFacadeTrait;
-    use CmsFacadeTrait;
     use ProductImageFacadeTrait;
     use ProductFacadeTrait;
 
@@ -59,7 +57,6 @@ class Installer extends CoreInstaller implements
         return [
             $this->facadeAcl->createInternalInstall(),
 //            $this->facadeCustomer->createInternalInstall(),
-            $this->facadeCms->createInternalInstall(),
 //            // TODO: installer broken
 //            $this->facadeCatalog->createInternalInstall(),
 //            $this->facadeCategory->createInternalInstall(),

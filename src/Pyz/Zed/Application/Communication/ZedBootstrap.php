@@ -87,8 +87,6 @@ class ZedBootstrap extends Bootstrap
      */
     protected function getServiceProviders(Application $app)
     {
-        $locator = $this->getLocator();
-        $sdkServiceProvider = $locator->sdk()->pl;
         $providers = [
             new RequestServiceProvider(),
             new SslServiceProvider(),
@@ -101,10 +99,9 @@ class ZedBootstrap extends Bootstrap
             new TranslationServiceProvider(),
             new SessionServiceProvider(),
             new PropelServiceProvider(),
-            $sdkServiceProvider,
+            $this->getSdkServiceProvider(),
             new SecurityServiceProvider(),
             new UrlGeneratorServiceProvider(),
-//            new ProductImageServiceProvider(), You can find this in catalog-package feature/387-replace-zf-with-silex
             new CmsServiceProvider(),
             new NewRelicServiceProvider(),
         ];
@@ -149,6 +146,19 @@ class ZedBootstrap extends Bootstrap
     public function getLocator()
     {
         return Locator::getInstance();
+    }
+
+    /**
+     * @return \ProjectA\Zed\Sdk\Communication\Plugin\SdkServiceProviderPlugin
+     */
+    protected function getSdkServiceProvider()
+    {
+        $locator = $this->getLocator();
+        $controllerListener = $locator->sdk()->pluginSdkControllerListenerPlugin();
+        $sdkServiceProvider = $locator->sdk()->pluginSdkServiceProviderPlugin();
+        $sdkServiceProvider->setControllerListener($controllerListener);
+
+        return $sdkServiceProvider;
     }
 }
 
