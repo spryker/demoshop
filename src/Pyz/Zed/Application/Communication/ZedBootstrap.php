@@ -27,19 +27,15 @@ use ProjectA\Zed\Auth\Business\Model\Auth;
 
 use ProjectA\Zed\Cms\Communication\Plugin\ServiceProvider\CmsServiceProvider;
 
-use ProjectA\Zed\ProductImage\Business\ServiceProvider\ProductImageServiceProvider;
+use ProjectA\Zed\Kernel\Locator;
 
 use ProjectA\Zed\Auth\Communication\Plugin\ServiceProvider\SecurityServiceProvider;
-use ProjectA\Zed\Yves\Communication\Plugin\ServiceProvider\FrontendServiceProvider;
 
 use Silex\Provider\FormServiceProvider;
-use Silex\Provider\HttpFragmentServiceProvider;
-use Silex\Provider\RememberMeServiceProvider;
 use Silex\Provider\ServiceControllerServiceProvider;
 use Silex\Provider\ValidatorServiceProvider;
 use Silex\Provider\WebProfilerServiceProvider;
 
-use Symfony\Component\HttpFoundation\Request;
 
 class ZedBootstrap extends Bootstrap
 {
@@ -91,6 +87,8 @@ class ZedBootstrap extends Bootstrap
      */
     protected function getServiceProviders(Application $app)
     {
+        $locator = $this->getLocator();
+        $sdkServiceProvider = $locator->sdk()->pl;
         $providers = [
             new RequestServiceProvider(),
             new SslServiceProvider(),
@@ -103,7 +101,7 @@ class ZedBootstrap extends Bootstrap
             new TranslationServiceProvider(),
             new SessionServiceProvider(),
             new PropelServiceProvider(),
-            new FrontendServiceProvider(),
+            $sdkServiceProvider,
             new SecurityServiceProvider(),
             new UrlGeneratorServiceProvider(),
 //            new ProductImageServiceProvider(), You can find this in catalog-package feature/387-replace-zf-with-silex
@@ -143,6 +141,14 @@ class ZedBootstrap extends Bootstrap
             'title' => Config::get(SystemConfig::PROJECT_NAMESPACE) . ' | Zed | ' . ucfirst(APPLICATION_ENV),
             'currentController' => get_class($this)
         ];
+    }
+
+    /**
+     * @return \Generated\Zed\Ide\AutoCompletion
+     */
+    public function getLocator()
+    {
+        return Locator::getInstance();
     }
 }
 
