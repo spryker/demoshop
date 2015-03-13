@@ -150,7 +150,6 @@ class YvesBootstrap extends Bootstrap
             new CartControllerProvider(false),
             new CheckoutControllerProvider($ssl),
 //            new CustomerControllerProvider($ssl),
-            new NewsletterControllerProvider(),
         ];
     }
 

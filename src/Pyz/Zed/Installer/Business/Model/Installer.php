@@ -26,13 +26,11 @@ use ProjectA\Zed\Kernel\Locator;
 class Installer extends CoreInstaller implements
     AclFacadeInterface,
     CmsFacadeInterface,
-    ProductImageFacadeInterface,
-    PayoneFacadeInterface
+    ProductImageFacadeInterface
 {
     use AclFacadeTrait;
     use CmsFacadeTrait;
     use ProductImageFacadeTrait;
-    use PayoneFacadeTrait;
     use ProductFacadeTrait;
 
     /**
@@ -57,7 +55,6 @@ class Installer extends CoreInstaller implements
         $frontendExporterFacade = $this->locator->frontendExporter()->facade();
         $productFacade = $this->locator->product()->facade();
         $productSearchFacade = $this->locator->productSearch()->facade();
-        $glossaryFacade = $this->locator->glossary()->facade();
         $priceFacade = $this->locator->price()->facade();
         return [
             $this->facadeAcl->createInternalInstall(),
@@ -69,7 +66,6 @@ class Installer extends CoreInstaller implements
             $this->locator->misc()->facade()->createInternalInstall(),
             $this->locator->sales()->facade()->createInternalInstall(),
             $this->facadeProductImage->createInternalInstall(),
-            $this->facadePayone->createInternalInstall(),
             $productFacade->createInternalInstall(),
             $frontendExporterFacade->createInternalInstall(),
             $productSearchFacade->createInternalInstall(),

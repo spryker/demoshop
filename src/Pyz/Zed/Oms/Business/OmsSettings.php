@@ -20,11 +20,9 @@ use ProjectA\Zed\Payone\Business\Model\Api\ApiConstants as PayoneApiConstants;
  * @property SalesFacade $facadeSales
  */
 class OmsSettings extends AbstractOmsSettings implements
-    PayoneFacadeInterface,
     SalesFacadeInterface
 {
 
-    use PayoneFacadeTrait;
     use SalesFacadeTrait;
 
     const ORDER_PROCESS_PAYONE_PRE_PAYMENT_01 = 'PayonePrePayment01';
@@ -55,9 +53,9 @@ class OmsSettings extends AbstractOmsSettings implements
     public function selectProcess(OrderTransfer $orderTransfer)
     {
         $selectedProcessName = null;
-        $method = $orderTransfer->getPayment()->getMethod();
+        $method = 'prepayment';
         switch ($method) {
-            case PayoneApiConstants::PAYMENT_METHOD_PREPAYMENT:
+            case 'prepayment':
                 $selectedProcessName =  self::ORDER_PROCESS_PAYONE_PRE_PAYMENT_01;
                 break;
             default:
