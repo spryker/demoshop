@@ -1,9 +1,0 @@
-<nav class="col col20 hideonprint">
-    {% if active is defined %}
-    <ul class="navigation mod:box">
-        <li{% if active == 'profile' %} class="active"{% endif %}><a href="{{ url('profile') }}">{{ 'customer.account.profile'|trans }}</a></li>
-        <li{% if active == 'addresses' %} class="active"{% endif %}><a href="{{ url('addresses') }}">{{ 'customer.account.addresses'|trans }}</a></li>
-        <li{% if active == 'orders' %} class="active"{% endif %}><a href="{{ url('orders') }}">{{ 'customer.account.orders'|trans }}</a></li>
-    </ul>
-    {% endif %}
-</nav>
