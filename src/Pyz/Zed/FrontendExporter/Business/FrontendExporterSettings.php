@@ -46,8 +46,9 @@ class FrontendExporterSettings extends CoreSettings
             $this->locator->glossaryExporter()->pluginTranslationProcessorPlugin(),
 
             $this->locator->cmsExporter()->pluginCmsPageProcessorPlugin(),
+            $this->locator->urlExporter()->pluginRedirectProcessorPlugin(),
 
-            $this->locator->redirectExporter()->pluginRedirectProcessorPlugin(),
+            $this->locator->urlExporter()->pluginUrlProcessorPlugin(),
         ];
     }
 
@@ -77,7 +78,8 @@ class FrontendExporterSettings extends CoreSettings
             $this->locator->categoryExporter()->pluginNavigationQueryExpanderPlugin(),
             $this->locator->categoryExporter()->pluginCategoryNodeQueryExpanderPlugin(),
             $this->locator->cmsExporter()->pluginCmsQueryExpanderPlugin(),
-            $this->locator->redirectExporter()->pluginRedirectQueryExpanderPlugin(),
+            $this->locator->urlExporter()->pluginRedirectQueryExpanderPlugin(),
+            $this->locator->urlExporter()->pluginUrlQueryExpanderPlugin(),
         ];
     }
 
