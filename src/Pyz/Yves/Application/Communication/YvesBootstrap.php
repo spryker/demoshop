@@ -121,8 +121,8 @@ class YvesBootstrap extends Bootstrap
             new SessionServiceProvider(),
             new UrlGeneratorServiceProvider(),
             new ServiceControllerServiceProvider(),
-            new SecurityServiceProvider(),
-            new RememberMeServiceProvider(),
+//            new SecurityServiceProvider(),
+//            new RememberMeServiceProvider(),
             new RoutingServiceProvider(),
             $translationServiceProvider,
             new ValidatorServiceProvider(),
@@ -149,8 +149,7 @@ class YvesBootstrap extends Bootstrap
             new ApplicationControllerProvider(false),
             new CartControllerProvider(false),
             new CheckoutControllerProvider($ssl),
-            new CustomerControllerProvider($ssl),
-            new NewsletterControllerProvider(),
+//            new CustomerControllerProvider($ssl),
         ];
     }
 
