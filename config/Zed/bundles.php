@@ -20,9 +20,7 @@ return [
     ProjectA\Shared\Library\Bundle\BundleConfig::NAMESPACE_CORE => [
         'Acl' => $schemaAndNavigation,
         'Cart' => $schema,
-        'Catalog' => $schemaAndNavigation,
         'Category' => $schemaAndNavigation,
-        'Cms' => $allElements,
         'Customer2' => $schema,
         'FrontendExporter' => $schema,
         'Glossary' => $allElements,
@@ -39,7 +37,6 @@ return [
         'Setup' => $navigation,
         'Stock' => $schema,
         'System' => $navigation,
-        'Yves' => $schemaAndNavigation,
     ],
 
     \ProjectA\Shared\Library\Bundle\BundleConfig::NAMESPACE_SPRYKERCORE => [
