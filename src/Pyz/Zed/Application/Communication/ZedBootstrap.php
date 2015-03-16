@@ -2,6 +2,7 @@
 
 namespace Pyz\Zed\Application\Communication;
 
+use Generated\Zed\Ide\AutoCompletion;
 use ProjectA\Shared\Application\Business\Application;
 use ProjectA\Shared\Application\Business\Bootstrap;
 use ProjectA\Shared\Application\Communication\Plugin\ServiceProvider\RoutingServiceProvider;
@@ -27,6 +28,7 @@ use ProjectA\Zed\Auth\Business\Model\Auth;
 
 use ProjectA\Zed\Cms\Communication\Plugin\ServiceProvider\CmsServiceProvider;
 
+use ProjectA\Zed\Kernel\Locator;
 use ProjectA\Zed\ProductImage\Business\ServiceProvider\ProductImageServiceProvider;
 
 use ProjectA\Zed\Auth\Communication\Plugin\ServiceProvider\SecurityServiceProvider;
@@ -92,12 +94,15 @@ class ZedBootstrap extends Bootstrap
      */
     protected function getServiceProviders(Application $app)
     {
+        /** @var AutoCompletion $locator */
+        $locator = Locator::getInstance();
+
         $providers = [
             new RequestServiceProvider(),
             new SslServiceProvider(),
             new ServiceControllerServiceProvider(),
             new RoutingServiceProvider(),
-            new AclServiceProvider(),
+            $locator->acl()->pluginBootstrapAclBootstrapProvider(),
             new ValidatorServiceProvider(),
             new FormServiceProvider(),
             new TwigServiceProvider(),
