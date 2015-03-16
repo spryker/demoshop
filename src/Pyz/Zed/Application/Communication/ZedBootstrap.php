@@ -39,6 +39,7 @@ use Silex\Provider\ServiceControllerServiceProvider;
 use Silex\Provider\ValidatorServiceProvider;
 use Silex\Provider\WebProfilerServiceProvider;
 
+use SprykerFeature\Zed\Acl\Communication\Plugin\ServiceProvider\AclServiceProvider;
 use Symfony\Component\HttpFoundation\Request;
 
 class ZedBootstrap extends Bootstrap
@@ -96,6 +97,7 @@ class ZedBootstrap extends Bootstrap
             new SslServiceProvider(),
             new ServiceControllerServiceProvider(),
             new RoutingServiceProvider(),
+            new AclServiceProvider(),
             new ValidatorServiceProvider(),
             new FormServiceProvider(),
             new TwigServiceProvider(),
