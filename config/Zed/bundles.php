@@ -40,6 +40,7 @@ return [
         'Payone' => $schema,
         'PaymentControl' => $schema,
         'Price' => $schemaAndNavigation,
+        'Price' => $schemaAndNavigation,
         'Product' => $schemaAndNavigation,
         'ProductCategory' => $schema,
         'ProductSearch' => $schema,
@@ -48,7 +49,6 @@ return [
         'Setup' => $navigation,
         'Stock' => $schema,
         'System' => $navigation,
-        'Yves' => $schemaAndNavigation
     ],
 
     \ProjectA\Shared\Library\Bundle\BundleConfig::NAMESPACE_SPRYKERCORE => [
