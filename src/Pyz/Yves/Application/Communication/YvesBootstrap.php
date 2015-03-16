@@ -16,7 +16,6 @@ use Pyz\Yves\Checkout\Communication\Plugin\CheckoutControllerProvider;
 use ProjectA\Yves\Customer\Business\Model\Security\SecurityServiceProvider;
 use ProjectA\Yves\Customer\Communication\Plugin\CustomerControllerProvider;
 use Pyz\Yves\Cart\Communication\Plugin\CartControllerProvider;
-use SprykerCore\Yves\Kernel\Locator;
 use ProjectA\Yves\Library\Asset\AssetManager;
 use Pyz\Yves\Newsletter\Communication\Plugin\NewsletterControllerProvider;
 use Pyz\Yves\Application\Communication\Plugin\ApplicationControllerProvider;
@@ -37,6 +36,7 @@ use Silex\Provider\RememberMeServiceProvider;
 use Silex\Provider\ServiceControllerServiceProvider;
 use Silex\Provider\ValidatorServiceProvider;
 use Silex\Provider\WebProfilerServiceProvider;
+use SprykerCore\Yves\Kernel\Locator;
 use Symfony\Component\HttpFoundation\Request;
 
 class YvesBootstrap extends Bootstrap
@@ -86,7 +86,7 @@ class YvesBootstrap extends Bootstrap
         if (\ProjectA_Shared_Library_Environment::isDevelopment()) {
             $app['profiler.cache_dir'] = \ProjectA_Shared_Library_Data::getLocalStoreSpecificPath('cache/profiler');
         }
-        $app['locator'] = new Locator();
+        $app['locator'] = Locator::getInstance();
 
         $proxies = Config::get(YvesConfig::YVES_TRUSTED_PROXIES);
 
@@ -121,8 +121,8 @@ class YvesBootstrap extends Bootstrap
             new SessionServiceProvider(),
             new UrlGeneratorServiceProvider(),
             new ServiceControllerServiceProvider(),
-            new SecurityServiceProvider(),
-            new RememberMeServiceProvider(),
+//            new SecurityServiceProvider(),
+//            new RememberMeServiceProvider(),
             new RoutingServiceProvider(),
             $translationServiceProvider,
             new ValidatorServiceProvider(),
@@ -149,8 +149,7 @@ class YvesBootstrap extends Bootstrap
             new ApplicationControllerProvider(false),
             new CartControllerProvider(false),
             new CheckoutControllerProvider($ssl),
-            new CustomerControllerProvider($ssl),
-            new NewsletterControllerProvider(),
+//            new CustomerControllerProvider($ssl),
         ];
     }
 

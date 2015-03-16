@@ -7,8 +7,10 @@
     <section class="consumeHeight" id="product">
 
         <ul id="breadcrumbs">
-            <li><hardcoded><a href="/">Home</a></hardcoded></li>
-            <li>{{ product.name }}</li>
+            <li><a href="/">Home</a></li>
+            {% for category in product.category %}
+                <li><a href="{{ category.url }}">{{ category.name }}</a></li>
+            {% endfor %}
         </ul>
         <aside class="assist col col25">
             <ul class="usps">
@@ -95,7 +97,7 @@
             <h4>{{ 'catalog.product.more_information'|trans }}</h4>
             <table class="attributes">
                 {% for attributeName, attributeValue in product.attributes %}
-                    {% if not (attributeName in ['image_url',  'thumbnail_url', 'price', 'description', 'url', 'gender', 'main_color', 'material', 'other_colors']) and not (attributeValue is empty) %}
+                    {% if not (attributeName in ['image_url',  'thumbnail_url', 'price', 'description', 'url', 'gender', 'main_color', 'material', 'other_colors', 'category']) and not (attributeValue is empty) %}
                         {% set meassurement = ('catalog.product.attribute.' ~ attributeName ~ '.meassurement')|trans %}
                         <tr>
                             <td class="product_attribute">{{ ('catalog.product.attribute.' ~ attributeName)|trans }}:</td>
