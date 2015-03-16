@@ -45,6 +45,8 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
 
   # Port forwarding for services running on VM:
   config.vm.network "forwarded_port", guest: 1080, host: 1080, auto_correct: true   # Mailcatcher
+  config.vm.network "forwarded_port", guest: 3306, host: 3306, auto_correct: true   # MySQL
+  config.vm.network "forwarded_port", guest: 5432, host: 5432, auto_correct: true   # PostgreSQL
   config.vm.network "forwarded_port", guest: 9200, host: 9201, auto_correct: true   # ELK-Elasticsearch
   config.vm.network "forwarded_port", guest: 9292, host: 9291, auto_correct: true   # ELK-Kibana
 
