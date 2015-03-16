@@ -974,7 +974,7 @@
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/zed.git",
-                "reference": "7d36e22ac49c82200786fcb3e711f65cdbff82a6"
+                "reference": "241d6d4d9721514eadade90c335657a95379967e"
             },
             "require": {
                 "digital-canvas/zend-framework": ">=1.12.2",
@@ -1041,7 +1041,7 @@
                 "Application",
                 "Zed"
             ],
-            "time": "2015-03-16 09:42:06"
+            "time": "2015-03-16 11:44:47"
         },
         {
             "name": "symfony-cmf/routing",
