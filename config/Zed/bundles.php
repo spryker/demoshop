@@ -24,24 +24,14 @@ return [
     ProjectA\Shared\Library\Bundle\BundleConfig::NAMESPACE_CORE => [
         'Cart' => $schema,
         'Cms' => $allElements,
-        'Catalog' => $schemaAndNavigation,
         'Category' => $schemaAndNavigation,
-        'Customer' => $schemaAndNavigation,
         'Customer2' => $schema,
-        'Document' => $schema,
         'FrontendExporter' => $schema,
         'Glossary' => $allElements,
-        'Invoice' => $schema,
-        'Kendo' => $schema,
         'Lumberjack' => $navigation,
         'Mail' => $schemaAndNavigation,
         'Misc' => $schema,
-        'Newsletter' => $schema,
         'Oms' => $schema,
-        'ProductImage' => $schema,
-        'Payment' => $schemaAndNavigation,
-        'Payone' => $schema,
-        'PaymentControl' => $schema,
         'Price' => $schema,
         'Product' => $schemaAndNavigation,
         'ProductCategory' => $schema,
@@ -51,7 +41,6 @@ return [
         'Setup' => $navigation,
         'Stock' => $schema,
         'System' => $navigation,
-        'Yves' => $schemaAndNavigation
     ],
 
     \ProjectA\Shared\Library\Bundle\BundleConfig::NAMESPACE_SPRYKERCORE => [

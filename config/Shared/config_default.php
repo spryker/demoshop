@@ -65,13 +65,6 @@ $config[YvesConfig::TRANSFER_DEBUG_SESSION_NAME] = 'XDEBUG_SESSION';
 $config[SystemConfig::ZED_LIBRARY_PASSWORD_ALGORITHM] = PASSWORD_BCRYPT;
 $config[SystemConfig::ZED_LIBRARY_PASSWORD_OPTIONS] = [];
 
-$config[PayoneConfig::PAYONE_MODE] = 'test';
-$config[PayoneConfig::PAYONE_MID] = '25735';
-$config[PayoneConfig::PAYONE_AID] = '25811';
-$config[PayoneConfig::PAYONE_ENCODING] = 'UTF-8';
-$config[PayoneConfig::PAYONE_CURRENCY] = 'EUR';
-$config[PayoneConfig::PAYONE_GATEWAYURL] = 'https://api.pay1.de/post-gateway/';
-
 $config[SystemConfig::ZED_SESSION_SAVE_HANDLER] = null;
 
 $config[SystemConfig::ZED_SSL_ENABLED] = false;
