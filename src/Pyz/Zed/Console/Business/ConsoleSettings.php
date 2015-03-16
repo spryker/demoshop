@@ -38,7 +38,7 @@ class ConsoleSettings extends SprykerConsoleSettings
             $this->locator->installer()->pluginCliDemoDataInstall(),
             $this->locator->setup()->pluginCliGulpRunner(),
             $this->locator->setup()->pluginCliGruntRunner(),
-            $this->locator->application()->pluginCliApplicationCheck(),
+            $this->locator->application()->pluginCliApplicationIntegrationCheck(),
         ];
 
         $gitCommands = $this->locator->git()->facade()->getConsoleCommands();
