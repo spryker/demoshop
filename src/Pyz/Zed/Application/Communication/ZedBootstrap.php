@@ -96,7 +96,6 @@ class ZedBootstrap extends Bootstrap
             new SessionServiceProvider(),
             new PropelServiceProvider(),
             $this->getSdkServiceProvider(),
-            new SecurityServiceProvider(),
             new UrlGeneratorServiceProvider(),
             new CmsServiceProvider(),
             new NewRelicServiceProvider(),
