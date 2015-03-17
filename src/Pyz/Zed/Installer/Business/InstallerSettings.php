@@ -31,8 +31,8 @@ class InstallerSettings extends SprykerInstallerSettings
     {
         return [
 //            $this->locator->category()->pluginDemoDataInstaller(),
-            $this->locator->glossary()->pluginDemoDataInstaller(),
-            // ProductData
+//            $this->locator->glossary()->pluginDemoDataInstaller(),
+            $this->locator->product()->pluginDemoDataInstaller(),
             // ProductCategory
             // Price
             // ProductAttributeMappingInstall

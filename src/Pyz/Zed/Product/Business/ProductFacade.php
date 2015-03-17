@@ -3,9 +3,11 @@
 
 namespace Pyz\Zed\Product\Business;
 
+use ProjectA\Zed\Product\Business\ProductDependencyContainer;
 use ProjectA\Zed\Product\Business\ProductFacade as CoreProductFacade;
 use ProjectA\Zed\ProductFrontendExporterConnector\Dependency\Facade\ProductFrontendExporterToProductInterface;
 use ProjectA\Zed\ProductSearch\Dependency\Facade\ProductSearchToProductInterface;
+use Psr\Log\LoggerInterface;
 
 /**
  * Class ProductFacade
@@ -18,6 +20,12 @@ class ProductFacade extends CoreProductFacade implements
     ProductFrontendExporterToProductInterface,
     ProductSearchToProductInterface
 {
+
+    /**
+     * @var ProductDependencyContainer
+     */
+    protected $dependencyContainer;
+
     /**
      * @param array $productsData
      *
@@ -36,5 +44,13 @@ class ProductFacade extends CoreProductFacade implements
     public function buildSearchProducts(array $productsData)
     {
         return $this->dependencyContainer->getProductBuilder()->buildProducts($productsData);
+    }
+
+    /**
+     * @param LoggerInterface $logger
+     */
+    public function installDemoData(LoggerInterface $logger = null)
+    {
+        $this->dependencyContainer->getDemoDataInstaller($logger)->install();
     }
 }

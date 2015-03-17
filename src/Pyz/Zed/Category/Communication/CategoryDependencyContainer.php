@@ -15,4 +15,5 @@ class CategoryDependencyContainer extends AbstractDependencyContainer
     {
         return $this->locator->category()->facade();
     }
+
 }
