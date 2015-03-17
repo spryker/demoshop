@@ -8,7 +8,6 @@ use ProjectA\Zed\Category\Persistence\CategoryQueryContainer;
 use ProjectA\Zed\Console\Business\Model\Console;
 use ProjectA\Zed\Installer\Business\Model\AbstractInstaller;
 use ProjectA\Zed\Kernel\Locator;
-use ProjectA\Zed\Library\Business\DemoDataInstallInterface;
 use ProjectA\Zed\Library\Import\Reader\CsvFileReader;
 use SprykerCore\Zed\Locale\Business\LocaleFacade;
 use SprykerCore\Zed\Locale\Persistence\Propel\PacLocaleQuery;
