@@ -412,16 +412,16 @@
         },
         {
             "name": "monolog/monolog",
-            "version": "1.13.0",
+            "version": "1.13.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/Seldaek/monolog.git",
-                "reference": "c41c218e239b50446fd883acb1ecfd4b770caeae"
+                "reference": "c31a2c4e8db5da8b46c74cf275d7f109c0f249ac"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Seldaek/monolog/zipball/c41c218e239b50446fd883acb1ecfd4b770caeae",
-                "reference": "c41c218e239b50446fd883acb1ecfd4b770caeae",
+                "url": "https://api.github.com/repos/Seldaek/monolog/zipball/c31a2c4e8db5da8b46c74cf275d7f109c0f249ac",
+                "reference": "c31a2c4e8db5da8b46c74cf275d7f109c0f249ac",
                 "shasum": ""
             },
             "require": {
@@ -481,7 +481,7 @@
                 "logging",
                 "psr-3"
             ],
-            "time": "2015-03-05 01:12:12"
+            "time": "2015-03-09 09:58:04"
         },
         {
             "name": "nesbot/carbon",
@@ -933,7 +933,7 @@
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/yves.git",
-                "reference": "dfb1657dd6952760f28500fdc6c9b24e553e48a3"
+                "reference": "4280c150319dd035157cfd1baebce2fc72acb434"
             },
             "require": {
                 "php": ">=5.4.0"
@@ -966,7 +966,7 @@
                 "Application",
                 "Yves"
             ],
-            "time": "2015-03-05 11:04:28"
+            "time": "2015-03-13 16:12:14"
         },
         {
             "name": "spryker/zed-package",
@@ -974,7 +974,7 @@
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/zed.git",
-                "reference": "72210a67810c869b57a97cdbc65c5ddcde2c5c8d"
+                "reference": "76e7c948008c6b8b8203a2d9de21ff5b239f31ff"
             },
             "require": {
                 "digital-canvas/zend-framework": ">=1.12.2",
@@ -1041,7 +1041,7 @@
                 "Application",
                 "Zed"
             ],
-            "time": "2015-03-05 13:30:00"
+            "time": "2015-03-13 16:11:59"
         },
         {
             "name": "symfony-cmf/routing",
@@ -2402,12 +2402,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/zendesk/zendesk_api_client_php.git",
-                "reference": "8f136a76d784c371524e0aa259bdbd796c7d4ee2"
+                "reference": "330cdde52e5f9ddfcea9caa29db7c464b73a7abd"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/zendesk/zendesk_api_client_php/zipball/8f136a76d784c371524e0aa259bdbd796c7d4ee2",
-                "reference": "8f136a76d784c371524e0aa259bdbd796c7d4ee2",
+                "url": "https://api.github.com/repos/zendesk/zendesk_api_client_php/zipball/330cdde52e5f9ddfcea9caa29db7c464b73a7abd",
+                "reference": "330cdde52e5f9ddfcea9caa29db7c464b73a7abd",
                 "shasum": ""
             },
             "require": {
@@ -2428,7 +2428,7 @@
             ],
             "description": "PHP Client for Zendesk REST API. See http://developer.zendesk.com/api-docs",
             "homepage": "https://github.com/zendesk/zendesk_api_client_php",
-            "time": "2015-02-27 22:40:36"
+            "time": "2015-03-10 18:26:31"
         },
         {
             "name": "zendframework/zend-code",

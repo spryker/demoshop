@@ -7,7 +7,6 @@ use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\Form\FormTypeInterface;
 use Symfony\Component\OptionsResolver\OptionsResolverInterface;
 use ProjectA\Shared\Sales\Transfer\Order;
-use ProjectA\Yves\Customer\Business\Model\Customer;
 use Symfony\Component\Form\FormEvent;
 use Symfony\Component\Form\FormEvents;
 use Symfony\Component\Validator\Constraints\NotBlank;
@@ -18,11 +17,6 @@ use Symfony\Component\Validator\Constraints\NotBlank;
  */
 class OrderType extends AbstractType
 {
-    /**
-     * @var Customer
-     */
-    protected $customerModel;
-
     /**
      * @var LocatorLocatorInterface
      */
@@ -39,29 +33,18 @@ class OrderType extends AbstractType
     protected $shippingAddressType;
 
     /**
-     * @var FormTypeInterface
-     */
-    protected $paymentAddressType;
-
-    /**
      * @param LocatorLocatorInterface $locator
      * @param FormTypeInterface $billingAddressType
      * @param FormTypeInterface $shippingAddressType
-     * @param FormTypeInterface $paymentAddressType
-     * @param Customer $customer
      */
     public function __construct(
         LocatorLocatorInterface $locator,
         FormTypeInterface $billingAddressType,
-        FormTypeInterface $shippingAddressType,
-        FormTypeInterface $paymentAddressType,
-        Customer $customer = null
+        FormTypeInterface $shippingAddressType
     ) {
         $this->locator = $locator;
         $this->billingAddressType = $billingAddressType;
         $this->shippingAddressType = $shippingAddressType;
-        $this->paymentAddressType = $paymentAddressType;
-        $this->customerModel = $customer;
     }
 
     /**
@@ -94,15 +77,6 @@ class OrderType extends AbstractType
 //        $builder->addEventListener(FormEvents::PRE_SET_DATA, [$this, 'addGuestFields']);
         $builder->addEventListener(FormEvents::PRE_SET_DATA, [$this, 'setNameFromBillingAddress']);
         $builder->addEventListener(FormEvents::SUBMIT, [$this, 'setNameFromBillingAddress']);
-
-        $builder->add(
-            'payment',
-            $this->paymentAddressType,
-            [
-                'property_path' => 'payment.paymentData',
-                'empty_data' => $this->locator->payone()->transferPaymentPayone()
-            ]
-        );
     }
 
 
@@ -117,23 +91,18 @@ class OrderType extends AbstractType
     /**
      * @param FormEvent $event
      */
-    public function addCustomer(FormEvent $event)
-    {
-        if ($this->customerModel && $this->customerModel->isAuthenticated()) {
-            /* @var Order $transferOrder */
-            $transferOrder = $event->getData();
-            $transferOrder->setCustomer($this->customerModel->getTransfer());
-        }
-    }
-
-    /**
-     * @param FormEvent $event
-     */
     public function addGuestFields(FormEvent $event)
     {
 //        if (!$this->customerModel || !$this->customerModel->isAuthenticated()) {
 //            $event->getForm()->add('email', 'email', ['required' => true, 'constraints' => [new NotBlank(), new Email()]]);
 //        }
+    }
+
+    /**
+     * @param FormEvent $event
+     */
+    public function addCustomer(FormEvent $event)
+    {
     }
 
     /**
