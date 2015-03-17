@@ -39,13 +39,15 @@ APPLICATION_ENV=development APPLICATION_STORE=DE console code:gulp
 
 This demoshop comes with some default data to play around with which are installable via:
 
-```console setup:install-demo-data```
+```bash
+APPLICATION_ENV=development APPLICATION_STORE=DE console setup:install-demo-data
+```
 Afterwards you should call the following two URL's to export all demo products and needed translations to the frontend:
 
-[Search Exporter](http://zed.de.spryker.dev/frontend-exporter/cronjob/export-search?verbose=true)
+[Search Exporter](http://zed.de.spryker.dev/frontend-exporter/cronjob/export-search?verbose=true)  
 [Key Value Exporter](http://zed.de.spryker.dev/frontend-exporter/cronjob/export-key-value?verbose=true)
 
 If you need to login into Zed, use the following credentials:
 
-**Username:** admin
+**Username:** admin  
 **Password:** Avv3$0M3PA55vv0RD
