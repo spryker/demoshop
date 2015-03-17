@@ -18,6 +18,7 @@ use SprykerCore\Zed\Locale\Persistence\Propel\PacLocaleQuery;
  */
 class CategoryTreeInstall implements DemoDataInstallInterface
 {
+
     const IS_ROOT = 'is_root';
     const CATEGORY_NAME = 'name';
     const PARENT_NAME = 'parent_name';
