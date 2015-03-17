@@ -38,6 +38,7 @@ return [
         'Setup' => $navigation,
         'Stock' => $schema,
         'System' => $navigation,
+        'UiExample' => $schemaAndNavigation
     ],
 
     \ProjectA\Shared\Library\Bundle\BundleConfig::NAMESPACE_SPRYKERCORE => [
