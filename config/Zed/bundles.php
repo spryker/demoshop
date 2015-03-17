@@ -23,7 +23,6 @@ return [
         'Category' => $schemaAndNavigation,
         'Customer2' => $schema,
         'FrontendExporter' => $schema,
-        'Glossary' => $allElements,
         'Lumberjack' => $navigation,
         'Mail' => $schemaAndNavigation,
         'Misc' => $schema,
@@ -48,6 +47,7 @@ return [
 
     \ProjectA\Shared\Library\Bundle\BundleConfig::NAMESPACE_SPRYKERFEATURE => [
         'Cms' => $allElements,
+        'Glossary' => $allElements,
         'Redirect' => $schema
     ]
 ];

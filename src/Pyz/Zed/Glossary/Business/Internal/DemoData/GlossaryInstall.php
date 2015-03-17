@@ -5,9 +5,9 @@ namespace Pyz\Zed\Glossary\Business\Internal\DemoData;
 
 use Generated\Zed\Ide\AutoCompletion;
 use ProjectA\Zed\Console\Business\Model\Console;
-use ProjectA\Zed\Glossary\Dependency\Plugin\GlossaryInstallerPluginInterface;
 use ProjectA\Zed\Kernel\Locator;
 use ProjectA\Zed\Library\Business\DemoDataInstallInterface;
+use SprykerFeature\Zed\Glossary\Dependency\Plugin\GlossaryInstallerPluginInterface;
 
 class GlossaryInstall implements DemoDataInstallInterface
 {
