@@ -4,7 +4,7 @@
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "d7246abd6e1a3df1bd32021d69bf92f3",
+    "hash": "10814751ea1155f42737b62b37480b88",
     "packages": [
         {
             "name": "digital-canvas/zend-framework",
@@ -1080,11 +1080,11 @@
         },
         {
             "name": "spryker/zed-package",
-            "version": "dev-feature/price-exporter",
+            "version": "dev-master",
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/zed.git",
-                "reference": "d5cc0f096c22885c19c711ac905d378577a1e9fb"
+                "reference": "f1b3f435e7c9275382672ddc8ced21342c604519"
             },
             "require": {
                 "digital-canvas/zend-framework": ">=1.12.2",
@@ -1151,7 +1151,7 @@
                 "Application",
                 "Zed"
             ],
-            "time": "2015-03-16 14:13:08"
+            "time": "2015-03-17 13:08:50"
         },
         {
             "name": "symfony-cmf/routing",
@@ -2740,17 +2740,17 @@
         },
         {
             "name": "zendframework/zend-memory",
-            "version": "2.3.4",
+            "version": "2.3.7",
             "target-dir": "Zend/Memory",
             "source": {
                 "type": "git",
                 "url": "https://github.com/zendframework/Component_ZendMemory.git",
-                "reference": "45a40d6ab5d9b7750a043da867433f19682d2ab0"
+                "reference": "7965bf2af530d9b21dd80259092bcd3dbfc1785c"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/zendframework/Component_ZendMemory/zipball/45a40d6ab5d9b7750a043da867433f19682d2ab0",
-                "reference": "45a40d6ab5d9b7750a043da867433f19682d2ab0",
+                "url": "https://api.github.com/repos/zendframework/Component_ZendMemory/zipball/7965bf2af530d9b21dd80259092bcd3dbfc1785c",
+                "reference": "7965bf2af530d9b21dd80259092bcd3dbfc1785c",
                 "shasum": ""
             },
             "require": {
@@ -2783,21 +2783,21 @@
                 "memory",
                 "zf2"
             ],
-            "time": "2015-01-14 16:44:17"
+            "time": "2015-03-12 16:55:53"
         },
         {
             "name": "zendframework/zend-servicemanager",
-            "version": "2.3.4",
+            "version": "2.3.7",
             "target-dir": "Zend/ServiceManager",
             "source": {
                 "type": "git",
                 "url": "https://github.com/zendframework/Component_ZendServiceManager.git",
-                "reference": "148b1ce06fa0ac7fe58e3bd396df57f1ee0e9e82"
+                "reference": "10c7dfcd3b0e5856a53663c0971159573ec37ffa"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/zendframework/Component_ZendServiceManager/zipball/148b1ce06fa0ac7fe58e3bd396df57f1ee0e9e82",
-                "reference": "148b1ce06fa0ac7fe58e3bd396df57f1ee0e9e82",
+                "url": "https://api.github.com/repos/zendframework/Component_ZendServiceManager/zipball/10c7dfcd3b0e5856a53663c0971159573ec37ffa",
+                "reference": "10c7dfcd3b0e5856a53663c0971159573ec37ffa",
                 "shasum": ""
             },
             "require": {
@@ -2831,7 +2831,7 @@
                 "servicemanager",
                 "zf2"
             ],
-            "time": "2015-01-14 16:44:17"
+            "time": "2015-03-12 16:55:53"
         },
         {
             "name": "zendframework/zend-stdlib",
