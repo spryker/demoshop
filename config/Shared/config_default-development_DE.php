@@ -14,9 +14,7 @@ $config[SystemConfig::ZED_MYSQL_PORT] = 3306;
 
 $config[SystemConfig::ELASTICA_PARAMETER__INDEX_NAME] = 'de_development_catalog';
 $config[SystemConfig::ELASTICA_PARAMETER__DOCUMENT_TYPE] = 'page';
-
-$config[PayoneConfig::PAYONE_PORTALID] = '2018246';
-$config[PayoneConfig::PAYONE_KEY] = 'dFWR8GlNG8aonscn';
+$config[SystemConfig::ELASTICA_PARAMETER__PORT] = '10005';
 
 $yvesHost = 'www.de.spryker.dev';
 $config[SystemConfig::HOST_YVES] = 'http://' . $yvesHost;

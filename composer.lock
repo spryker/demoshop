@@ -2630,17 +2630,17 @@
         },
         {
             "name": "zendframework/zend-memory",
-            "version": "2.3.4",
+            "version": "2.3.7",
             "target-dir": "Zend/Memory",
             "source": {
                 "type": "git",
                 "url": "https://github.com/zendframework/Component_ZendMemory.git",
-                "reference": "45a40d6ab5d9b7750a043da867433f19682d2ab0"
+                "reference": "7965bf2af530d9b21dd80259092bcd3dbfc1785c"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/zendframework/Component_ZendMemory/zipball/45a40d6ab5d9b7750a043da867433f19682d2ab0",
-                "reference": "45a40d6ab5d9b7750a043da867433f19682d2ab0",
+                "url": "https://api.github.com/repos/zendframework/Component_ZendMemory/zipball/7965bf2af530d9b21dd80259092bcd3dbfc1785c",
+                "reference": "7965bf2af530d9b21dd80259092bcd3dbfc1785c",
                 "shasum": ""
             },
             "require": {
@@ -2673,21 +2673,21 @@
                 "memory",
                 "zf2"
             ],
-            "time": "2015-01-14 16:44:17"
+            "time": "2015-03-12 16:55:53"
         },
         {
             "name": "zendframework/zend-servicemanager",
-            "version": "2.3.4",
+            "version": "2.3.7",
             "target-dir": "Zend/ServiceManager",
             "source": {
                 "type": "git",
                 "url": "https://github.com/zendframework/Component_ZendServiceManager.git",
-                "reference": "148b1ce06fa0ac7fe58e3bd396df57f1ee0e9e82"
+                "reference": "10c7dfcd3b0e5856a53663c0971159573ec37ffa"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/zendframework/Component_ZendServiceManager/zipball/148b1ce06fa0ac7fe58e3bd396df57f1ee0e9e82",
-                "reference": "148b1ce06fa0ac7fe58e3bd396df57f1ee0e9e82",
+                "url": "https://api.github.com/repos/zendframework/Component_ZendServiceManager/zipball/10c7dfcd3b0e5856a53663c0971159573ec37ffa",
+                "reference": "10c7dfcd3b0e5856a53663c0971159573ec37ffa",
                 "shasum": ""
             },
             "require": {
@@ -2721,7 +2721,7 @@
                 "servicemanager",
                 "zf2"
             ],
-            "time": "2015-01-14 16:44:17"
+            "time": "2015-03-12 16:55:53"
         },
         {
             "name": "zendframework/zend-stdlib",
