@@ -10,7 +10,6 @@ class InstallerSettings extends SprykerInstallerSettings
     public function getInstallerStack()
     {
         return [
-            $this->locator->acl()->pluginInstaller(),
             $this->locator->frontendExporter()->pluginInstaller(),
             $this->locator->product()->pluginInstaller(),
             $this->locator->productSearch()->pluginInstaller(),
