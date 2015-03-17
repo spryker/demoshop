@@ -2,8 +2,6 @@
 
 namespace Pyz\Yves\Sales;
 
-use ProjectA\Shared\Payment\Transfer\PaymentMethodCollection;
-use Pyz\Yves\Sales\Form\OrderType;
 use SprykerCore\Yves\Kernel\AbstractPlugin;
 
 /**
@@ -13,11 +11,10 @@ use SprykerCore\Yves\Kernel\AbstractPlugin;
 class OrderTypeFormPlugin extends AbstractPlugin
 {
     /**
-     * @param PaymentMethodCollection $paymentMethods
-     * @return OrderType
+     * @return mixed
      */
-    public function createOrderTypeForm(PaymentMethodCollection $paymentMethods)
+    public function createOrderTypeForm()
     {
-        return $this->dependencyContainer->createOrderTypeForm($paymentMethods);
+        return $this->dependencyContainer->createOrderTypeForm();
     }
 }
