@@ -4,30 +4,20 @@ namespace Pyz\Zed\ProductSearch\Business\Internal\DemoData;
 
 use Generated\Zed\Ide\AutoCompletion;
 use ProjectA\Zed\Console\Business\Model\Console;
+use ProjectA\Zed\Installer\Business\Model\AbstractInstaller;
 use ProjectA\Zed\Kernel\Locator;
-use ProjectA\Zed\Library\Business\DemoDataInstallInterface;
 
-/**
- * Class ProductAttributeMappingInstall
- *
- * @package Zed\ProductSearch\Business\Internal\DemoData
- */
-class ProductAttributeMappingInstall implements DemoDataInstallInterface
+class ProductAttributeMappingInstall extends AbstractInstaller
 {
-    /**
-     * @param Console $console
-     *
-     * @throws \PropelException
-     */
-    public function install(Console $console)
+
+    public function install()
     {
-        $console->info('This will map installed product attributes to search attributes and will make products exportable for the search');
+        $this->info(
+            'Map installed product attributes to search attributes and will make products exportable for the search'
+        );
 
-        if ($console->askConfirmation('Do you really want this?')) {
-            $this->installAttributeOperations();
-            $this->makeProductsSearchable();
-        }
-
+        $this->installAttributeOperations();
+        $this->makeProductsSearchable();
     }
 
     protected function installAttributeOperations()
