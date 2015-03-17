@@ -3,8 +3,8 @@
 namespace Pyz\Zed\Category\Business;
 
 use ProjectA\Zed\Category\Business\CategoryDependencyContainer as SprykerCategoryDependencyContainer;
-use Psr\Log\LoggerInterface;
 use Pyz\Zed\Category\Business\Internal\DemoData\CategoryTreeInstall;
+use Psr\Log\LoggerInterface;
 
 class CategoryDependencyContainer extends SprykerCategoryDependencyContainer
 {
@@ -25,4 +25,5 @@ class CategoryDependencyContainer extends SprykerCategoryDependencyContainer
 
         return $installer;
     }
+
 }
