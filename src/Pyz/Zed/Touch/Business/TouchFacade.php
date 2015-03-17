@@ -1,5 +1,8 @@
 <?php
 
+/*
+ * (c) Copyright Spryker Systems GmbH 2015
+ */
 
 namespace Pyz\Zed\Touch\Business;
 

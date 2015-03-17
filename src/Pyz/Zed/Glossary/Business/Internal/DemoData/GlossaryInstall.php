@@ -1,7 +1,10 @@
 <?php
 
-namespace Pyz\Zed\Glossary\Business\Internal\DemoData;
+/*
+ * (c) Copyright Spryker Systems GmbH 2015
+ */
 
+namespace Pyz\Zed\Glossary\Business\Internal\DemoData;
 
 use Generated\Zed\Ide\AutoCompletion;
 use ProjectA\Zed\Console\Business\Model\Console;
