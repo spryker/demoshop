@@ -7,8 +7,18 @@ use ProjectA\Zed\Console\Business\Model\Console;
 use ProjectA\Zed\Kernel\Locator;
 use ProjectA\Zed\Library\Business\DemoDataInstallInterface;
 use ProjectA\Zed\Library\Import\Reader\CsvFileReader;
+use ProjectA\Zed\Product\Persistence\Propel\Map\PacProductAttributeTypeTableMap;
+use ProjectA\Zed\Product\Persistence\Propel\PacAbstractProduct;
+use ProjectA\Zed\Product\Persistence\Propel\PacAbstractProductQuery;
+use ProjectA\Zed\Product\Persistence\Propel\PacLocalizedAbstractProductAttributes;
+use ProjectA\Zed\Product\Persistence\Propel\PacLocalizedProductAttributes;
+use ProjectA\Zed\Product\Persistence\Propel\PacProduct;
+use ProjectA\Zed\Product\Persistence\Propel\PacProductAttributesMetadata;
+use ProjectA\Zed\Product\Persistence\Propel\PacProductAttributesMetadataQuery;
+use ProjectA\Zed\Product\Persistence\Propel\PacProductAttributeTypeQuery;
 use Propel\Runtime\Exception\PropelException;
 use Propel\Runtime\Formatter\SimpleArrayFormatter;
+use SprykerCore\Zed\Locale\Persistence\Propel\PacLocaleQuery;
 
 /**
  * Class ProductDataInstall
@@ -50,11 +60,11 @@ class ProductDataInstall implements DemoDataInstallInterface
             'description' => 'string',
         ];
 
-        $typeEntities = \ProjectA\Zed\Product\Persistence\Propel\PacProductAttributeTypeQuery::create()
+        $typeEntities = PacProductAttributeTypeQuery::create()
             ->select(
                 [
-                    \ProjectA\Zed\Product\Persistence\Propel\Map\PacProductAttributeTypeTableMap::COL_NAME,
-                    \ProjectA\Zed\Product\Persistence\Propel\Map\PacProductAttributeTypeTableMap::COL_TYPE_ID
+                    PacProductAttributeTypeTableMap::COL_NAME,
+                    PacProductAttributeTypeTableMap::COL_TYPE_ID
                 ]
             )->setFormatter(
                 new SimpleArrayFormatter()
@@ -67,12 +77,12 @@ class ProductDataInstall implements DemoDataInstallInterface
         }
 
         foreach ($attributes as $attribute => $type) {
-            if (\ProjectA\Zed\Product\Persistence\Propel\PacProductAttributesMetadataQuery::create()->findOneByKey($attribute)) {
+            if (PacProductAttributesMetadataQuery::create()->findOneByKey($attribute)) {
                 continue;
             }
 
             if (array_key_exists($type, $types)) {
-                $attributeEntity = new \ProjectA\Zed\Product\Persistence\Propel\PacProductAttributesMetadata();
+                $attributeEntity = new PacProductAttributesMetadata();
                 $attributeEntity->setAttributeId(null);
                 $attributeEntity->setKey($attribute);
                 $attributeEntity->setTypeId($types[$type]);
@@ -93,31 +103,31 @@ class ProductDataInstall implements DemoDataInstallInterface
         $locator = Locator::getInstance();
         $touchFacade = $locator->touch()->facade();
 
-        $locale = \SprykerCore\Zed\Locale\Persistence\Propel\PacLocaleQuery::create()
+        $locale = PacLocaleQuery::create()
             ->findOneByLocaleName('de_DE');
 
         foreach ($this->getProductsFromCsv() as $p) {
             $sku = $p['sku'];
-            $abstractProductQuery = new \ProjectA\Zed\Product\Persistence\Propel\PacAbstractProductQuery();
+            $abstractProductQuery = new PacAbstractProductQuery();
             if ($abstractProductQuery->findOneBySku($sku)) {
                 continue;
             }
-            $abstractProduct = new \ProjectA\Zed\Product\Persistence\Propel\PacAbstractProduct();
+            $abstractProduct = new PacAbstractProduct();
             $abstractProduct->setSku($sku);
 
-            $abstractProductAttributes = new \ProjectA\Zed\Product\Persistence\Propel\PacLocalizedAbstractProductAttributes();
+            $abstractProductAttributes = new PacLocalizedAbstractProductAttributes();
             $abstractProductAttributes->setLocale($locale);
             $abstractProductAttributes->setName($p['name']);
             $abstractProductAttributes->setAttributes($p['attributes']);
             $abstractProductAttributes->setPacAbstractProduct($abstractProduct);
 
             foreach ($p['products'] as $pc) {
-                $product = new \ProjectA\Zed\Product\Persistence\Propel\PacProduct();
+                $product = new PacProduct();
                 $product->setSku($pc['sku']);
                 $product->setIsActive(true);
                 $product->setPacAbstractProduct($abstractProduct);
 
-                $productAttributes = new \ProjectA\Zed\Product\Persistence\Propel\PacLocalizedProductAttributes();
+                $productAttributes = new PacLocalizedProductAttributes();
                 $productAttributes->setLocale($locale);
                 $productAttributes->setName($pc['name']);
                 $productAttributes->setUrl($pc['url']);
