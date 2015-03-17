@@ -15,17 +15,15 @@ use SprykerCore\Yves\Kernel\AbstractDependencyContainer;
 class SalesDependencyContainer extends AbstractDependencyContainer
 {
     /**
-     * @param PaymentMethodCollection $paymentMethods
-     * @return OrderType
+     * @return object
      */
-    public function createOrderTypeForm(PaymentMethodCollection $paymentMethods)
+    public function createOrderTypeForm()
     {
         return $this->factory->create(
             'Form\\OrderType',
             $this->locator,
             $this->createBillingAddressTypeForm(),
-            $this->createShippingAddressTypeForm(),
-            $this->locator->payment()->pluginPaymentTypeForm()->createPaymentTypeForm($paymentMethods)
+            $this->createShippingAddressTypeForm()
         );
     }
 
