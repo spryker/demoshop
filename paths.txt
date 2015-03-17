@@ -1,0 +1,7 @@
+src/Pyz/Zed/Glossary
+src/Pyz/Zed/Locale
+src/Pyz/Zed/Touch
+vendor/spryker/zed-package/src/SprykerCore/Zed/Locale
+vendor/spryker/zed-package/src/SprykerCore/Zed/Touch
+vendor/spryker/zed-package/src/SprykerFeature/Zed/Glossary
+vendor/spryker/zed-package/src/SprykerFeature/Shared/Glossary
