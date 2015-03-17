@@ -2,10 +2,7 @@
 
 namespace Pyz\Zed\Glossary\Communication\Plugin;
 
-use ProjectA\Zed\Glossary\Business\GlossaryFacade;
-use ProjectA\Zed\Kernel\Business\FacadeLocator;
 use ProjectA\Zed\Kernel\Communication\AbstractPlugin;
-use ProjectA\Zed\Kernel\Locator;
 use SprykerFeature\Zed\Glossary\Communication\GlossaryDependencyContainer;
 use SprykerFeature\Zed\Glossary\Dependency\Plugin\GlossaryInstallerPluginInterface;
 use Symfony\Component\Yaml\Yaml;
