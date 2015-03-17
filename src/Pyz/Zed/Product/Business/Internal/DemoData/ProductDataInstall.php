@@ -119,7 +119,6 @@ class ProductDataInstall implements DemoDataInstallInterface
                 $productAttributes = new \ProjectA\Zed\Product\Persistence\Propel\PacLocalizedProductAttributes();
                 $productAttributes->setLocale($locale);
                 $productAttributes->setName($pc['name']);
-                $productAttributes->setUrl($pc['url']);
                 $productAttributes->setAttributes($pc['attributes']);
                 $productAttributes->setPacProduct($product);
 
