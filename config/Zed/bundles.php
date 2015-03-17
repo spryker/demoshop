@@ -23,7 +23,6 @@ return [
         'Category' => $schemaAndNavigation,
         'Customer2' => $schema,
         'FrontendExporter' => $schema,
-        'Glossary' => $allElements,
         'Lumberjack' => $navigation,
         'Mail' => $schemaAndNavigation,
         'Misc' => $schema,
@@ -37,6 +36,7 @@ return [
         'Setup' => $navigation,
         'Stock' => $schema,
         'System' => $navigation,
+        'UiExample' => $schemaAndNavigation
     ],
 
     \ProjectA\Shared\Library\Bundle\BundleConfig::NAMESPACE_SPRYKERCORE => [
@@ -46,6 +46,7 @@ return [
 
     \ProjectA\Shared\Library\Bundle\BundleConfig::NAMESPACE_SPRYKERFEATURE => [
         'Cms' => $allElements,
+        'Glossary' => $allElements,
         'Url' => $schema
     ]
 ];

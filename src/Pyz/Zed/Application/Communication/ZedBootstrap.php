@@ -28,6 +28,7 @@ use ProjectA\Zed\Auth\Business\Model\Auth;
 use ProjectA\Zed\Kernel\Locator;
 
 use ProjectA\Zed\Auth\Communication\Plugin\ServiceProvider\SecurityServiceProvider;
+use ProjectA\Zed\Yves\Communication\Plugin\ServiceProvider\FrontendServiceProvider;
 
 use Silex\Provider\FormServiceProvider;
 use Silex\Provider\ServiceControllerServiceProvider;
