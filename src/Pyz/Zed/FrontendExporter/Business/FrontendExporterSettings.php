@@ -34,13 +34,11 @@ class FrontendExporterSettings extends CoreSettings
             //product export processors
             $this->locator->productFrontendExporterConnector()->pluginProductProcessorPlugin(),
             $this->locator->productFrontendExporterAvailabilityConnector()->pluginProductAvailabilityProcessorPlugin(),
-            $this->locator->productFrontendExporterConnector()->pluginProductUrlProcessorPlugin(),
             $this->locator->productCategoryFrontendExporterConnector()->pluginProductCategoryBreadcrumbProcessorPlugin(),
 
             // category nodes
             $this->locator->categoryExporter()->pluginNavigationProcessorPlugin(),
             $this->locator->categoryExporter()->pluginCategoryNodeProcessorPlugin(),
-            $this->locator->categoryExporter()->pluginCategoryNodeUrlProcessorPlugin(),
 
             //translations
             $this->locator->glossaryExporter()->pluginTranslationProcessorPlugin(),
