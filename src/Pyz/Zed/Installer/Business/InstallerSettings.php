@@ -30,7 +30,7 @@ class InstallerSettings extends SprykerInstallerSettings
     public function getDemoDataInstallerStack()
     {
         return [
-            // CategoryTree
+            $this->locator->category()->pluginDemoDataInstaller(),
             // Glossary
             // ProductData
             // ProductCategory
