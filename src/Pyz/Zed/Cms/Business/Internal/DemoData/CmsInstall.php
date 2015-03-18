@@ -2,19 +2,15 @@
 
 namespace Pyz\Zed\Cms\Business\Internal\DemoData;
 
-use ProjectA\Deprecated\Cms\Business\CmsFactory;
 use ProjectA\Zed\Console\Business\Model\Console;
-use ProjectA\Zed\Cms\Business\Internal\DemoData\CmsInstall AS CoreCmsInstall;
+use ProjectA\Zed\Cms\Business\Internal\DemoData\CmsInstall as CoreCmsInstall;
 
-/**
- * @property CmsFactory $factory
- */
 class CmsInstall extends CoreCmsInstall
 {
     const TEMPLATE_INDEX = 'index';
     const TEMPLATE_LANDING_PAGE = 'landing_page';
 
-    function __construct()
+    public function __construct()
     {
         $this->pagesToCreate = [
             [
