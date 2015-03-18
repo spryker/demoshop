@@ -1,5 +1,3 @@
-@import "compass";
-
 html { background:#ffffff; color:#333; font-size:14px; }
 
 hardcoded { display:inline; }
@@ -212,10 +210,15 @@ footer .poweredBy {
 
 .alert {
   border: 1px solid #ccc;
-  @include border-radius(5px);
+
+  -moz-border-radius:5px;
+  -webkit-border-radius:5px;
+  -ms-border-radius:5px;
+  border-radius:5px;
+
   padding: 5px;
    .close {
-     @include opacity(0.5);
+	 opacity:0.5;
      color: #000000;
    }
 }
