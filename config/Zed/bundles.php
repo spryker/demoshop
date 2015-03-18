@@ -37,8 +37,7 @@ return [
         'Salesrule' => $schemaAndNavigation,
         'Setup' => $navigation,
         'Stock' => $schema,
-        'System' => $navigation,
-        'UiExample' => $schemaAndNavigation
+        'System' => $navigation
     ],
 
     \ProjectA\Shared\Library\Bundle\BundleConfig::NAMESPACE_SPRYKERCORE => [
