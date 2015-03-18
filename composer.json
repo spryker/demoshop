@@ -1,7 +1,7 @@
 {
   "require": {
     "spryker/yves-package": "dev-master",
-    "spryker/zed-package": "dev-master",
+    "spryker/zed-package": "dev-feature/476-remove-deprecated",
 
     "psr/log": "~1.0",
     "phing/phing": "~2.6.0",
