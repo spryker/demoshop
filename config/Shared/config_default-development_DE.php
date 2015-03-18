@@ -4,6 +4,7 @@ use ProjectA\Shared\Mail\MailConfig;
 use ProjectA\Shared\Payone\PayoneConfig;
 use ProjectA\Shared\Setup\SetupConfig;
 use ProjectA\Shared\System\SystemConfig;
+use ProjectA\Shared\Yves\YvesConfig;
 
 $config[SystemConfig::ZED_MYSQL_USERNAME] = 'development';
 $config[SystemConfig::ZED_MYSQL_PASSWORD] = 'mate20mg';
@@ -17,6 +18,7 @@ $config[SystemConfig::ELASTICA_PARAMETER__DOCUMENT_TYPE] = 'page';
 $config[SystemConfig::ELASTICA_PARAMETER__PORT] = '9200';
 
 $yvesHost = 'www.de.spryker.dev';
+$config[YvesConfig::YVES_SESSION_COOKIE_DOMAIN] = $yvesHost;
 $config[SystemConfig::HOST_YVES] = 'http://' . $yvesHost;
 $config[SystemConfig::HOST_STATIC_ASSETS] = $config[SystemConfig::HOST_STATIC_MEDIA] = $yvesHost;
 
