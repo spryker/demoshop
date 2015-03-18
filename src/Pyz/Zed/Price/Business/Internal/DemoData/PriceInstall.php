@@ -2,40 +2,42 @@
 
 namespace Pyz\Zed\Price\Business\Internal\DemoData;
 
-use ProjectA\Zed\Console\Business\Model\Console;
+use ProjectA\Zed\Installer\Business\Model\AbstractInstaller;
 use ProjectA\Zed\Kernel\Locator;
-use ProjectA\Zed\Library\Business\DemoDataInstallInterface;
 use ProjectA\Zed\Library\Import\Reader\CsvFileReader;
 use ProjectA\Zed\Price\Business\PriceFacade;
 use ProjectA\Shared\Price\Transfer\Product;
 
-class PriceInstall implements DemoDataInstallInterface
+class PriceInstall extends AbstractInstaller
 {
+
     const SKU = 'sku';
     const PRICE = 'price';
     const VALID_FROM = 'valid_from';
     const PRICE_TYPE = 'price_type';
     const VALID_TO = 'valid_to';
 
-    /** @var PriceFacade */
+    /**
+     * @var PriceFacade
+     */
     protected $priceFacade;
 
-    public function __construct()
+    /**
+     * @param PriceFacade $priceFacade
+     */
+    public function __construct(PriceFacade $priceFacade)
     {
-        $locator = Locator::getInstance();
-        $this->priceFacade = $locator->price()->facade();
+        $this->priceFacade = $priceFacade;
     }
 
-    /**
-     * @param Console $console
-     */
-    public function install(Console $console)
+    public function install()
     {
-        $console->info("This will install a dummy set of prices in the demo shop (you have to install the products before!)");
-        if ($console->askConfirmation('Do you really want this?')) {
-            $demoPrices = $this->getDemoPrices();
-            $this->writePrices($demoPrices);
-        }
+        $this->info(
+            'This will install a dummy set of prices in the demo shop (you have to install the products before!)'
+        );
+
+        $demoPrices = $this->getDemoPrices();
+        $this->writePrices($demoPrices);
     }
 
     /**
@@ -71,10 +73,10 @@ class PriceInstall implements DemoDataInstallInterface
         $transferPriceProduct = Locator::getInstance()->price()->transferProduct();
         /** @var Product $transferPriceProduct */
         $transferPriceProduct->setPrice($row[self::PRICE])
-                            ->setValidFrom($validFrom)
-                            ->setValidTo($validTo)
-                            ->setPriceTypeName($stockType->getName())
-                            ->setSkuProduct($row[self::SKU]);
+            ->setValidFrom($validFrom)
+            ->setValidTo($validTo)
+            ->setPriceTypeName($stockType->getName())
+            ->setSkuProduct($row[self::SKU]);
 
         $this->priceFacade->setPrice($transferPriceProduct);
     }
