@@ -3,9 +3,8 @@
 namespace Pyz\Zed\Product\Business\Internal\DemoData;
 
 use Generated\Zed\Ide\AutoCompletion;
-use ProjectA\Zed\Console\Business\Model\Console;
+use ProjectA\Zed\Installer\Business\Model\AbstractInstaller;
 use ProjectA\Zed\Kernel\Locator;
-use ProjectA\Zed\Library\Business\DemoDataInstallInterface;
 use ProjectA\Zed\Library\Import\Reader\CsvFileReader;
 use ProjectA\Zed\Product\Persistence\Propel\Map\PacProductAttributeTypeTableMap;
 use ProjectA\Zed\Product\Persistence\Propel\PacAbstractProduct;
@@ -20,25 +19,15 @@ use Propel\Runtime\Exception\PropelException;
 use Propel\Runtime\Formatter\SimpleArrayFormatter;
 use SprykerCore\Zed\Locale\Persistence\Propel\PacLocaleQuery;
 
-/**
- * Class ProductDataInstall
- *
- * @package Pyz\Zed\Product\Business\Internal\DemoData
- */
-class ProductDataInstall implements DemoDataInstallInterface
+class ProductDataInstall extends AbstractInstaller
 {
 
-    /**
-     * @param Console $console
-     */
-    public function install(Console $console)
+    public function install()
     {
-        $console->info('This will install some demo products and related attributes');
+        $this->info('This will install some demo products and related attributes');
 
-        if ($console->askConfirmation('Do you really want this?')) {
-            $this->createProduct();
-            $this->createAttributes();
-        }
+        $this->createProduct();
+        $this->createAttributes();
     }
 
     protected function createAttributes()
