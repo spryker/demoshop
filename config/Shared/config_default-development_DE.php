@@ -14,7 +14,7 @@ $config[SystemConfig::ZED_MYSQL_PORT] = 3306;
 
 $config[SystemConfig::ELASTICA_PARAMETER__INDEX_NAME] = 'de_development_catalog';
 $config[SystemConfig::ELASTICA_PARAMETER__DOCUMENT_TYPE] = 'page';
-$config[SystemConfig::ELASTICA_PARAMETER__PORT] = '10005';
+$config[SystemConfig::ELASTICA_PARAMETER__PORT] = '9200';
 
 $yvesHost = 'www.de.spryker.dev';
 $config[SystemConfig::HOST_YVES] = 'http://' . $yvesHost;
@@ -25,8 +25,8 @@ $config[SystemConfig::HOST_SSL_STATIC_ASSETS] = $config[SystemConfig::HOST_SSL_S
 
 $zedHost = 'zed.de.spryker.dev';
 $config[SystemConfig::HOST_ZED_GUI]
-    = $config[SystemConfig::HOST_ZED_API]
     = 'http://' . $zedHost;
+$config[SystemConfig::HOST_ZED_API] = $zedHost;
 $config[SystemConfig::HOST_SSL_ZED_GUI]
     = $config[SystemConfig::HOST_SSL_ZED_API]
     = 'https://' . $zedHost;
