@@ -18,6 +18,7 @@ settings:
 extensions:
   enabled:
     - Codeception\Extension\RemoteDebug
+    - SprykerCore\Shared\Codeception\PropelTransaction
   config:
     Codeception\Extension\RemoteDebug:
       sessionName: phpstorm

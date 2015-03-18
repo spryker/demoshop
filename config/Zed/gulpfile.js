@@ -1,6 +1,6 @@
 var _gulp   = require('gulp');
 var _rename = require('gulp-rename');
-//var _core = require('./vendor/spryker/zed-package/gulpfile');
+var _core   = require('../../vendor/spryker/zed-package/gulpfile');
 
 var _path   = require('path');
 var _del    = require('del');
@@ -74,26 +74,25 @@ _gulp.task('copy-fonts', ['clean-fonts'], function() {
 });
 
 
-_gulp.task('watcher', ['dev'], function() {
-	_gulp.watch([
-		_dirCore + '/*/Static/Public/*/styles/**/*.css',
-		_dirProj + '/*/Static/Public/*/styles/**/*.css'
-	], ['clean-css', 'copy-css']);
+_gulp.task('core-dev', function(done) {
+	_core.createCoreResources('./vendor/spryker/zed-package', 'dev', done);
+});
 
-	_gulp.watch([
-		_dirCore + '/*/Static/Public/*/scripts/**/*.js',
-		_dirProj + '/*/Static/Public/*/scripts/**/*.js'
-	],['clean-js', 'copy-js']);
+_gulp.task('core-dist', function(done) {
+	_core.createCoreResources('./vendor/spryker/zed-package', 'dist', done);
+});
 
-	_gulp.watch([
-		_dirCore + '/*/Static/Public/*/images/**/*.{svg,png,jpeg,gif}',
-		_dirProj + '/*/Static/Public/*/images/**/*.{svg,png,jpeg,gif}'
-	], ['clean-images', 'copy-images']);
+_gulp.task('watcher', function() {
+	_core.watchCoreResources('./vendor/spryker/zed-package', function(task) {
+		var map = {
+			'dev-css'    : 'copy-css',
+			'dev-js'     : 'copy-js',
+			'dev-images' : 'copy-images',
+			'dev-fonts'  : 'copy-fonts'
+		};
 
-	_gulp.watch([
-		_dirCore + '/*/Static/Public/*/fonts/**/*.{svg,woff,otf,ttf,eot}',
-		_dirProj + '/*/Static/Public/*/fonts/**/*.{svg,woff,otf,ttf,eot}'
-	], ['clean-fonts', 'copy-fonts']);
+		if (task in map) _gulp.start(map[task]);
+	});
 });
 
 
@@ -118,6 +117,33 @@ _gulp.task('dist', [
 	'copy-images',
 	'copy-fonts'
 ]);
+
+
+_gulp.task('dev-all', ['core-dev'], function(done) {
+	_gulp.start([
+		'clean-css',
+		'clean-js',
+		'clean-images',
+		'clean-fonts',
+		'copy-css',
+		'copy-js',
+		'copy-images',
+		'copy-fonts'
+	], done);
+});
+
+_gulp.task('dist-all', ['core-dist'], function(done) {
+	_gulp.start([
+		'clean-css',
+		'clean-js',
+		'clean-images',
+		'clean-fonts',
+		'copy-css',
+		'copy-js',
+		'copy-images',
+		'copy-fonts'
+	], done);
+});
 
 
 _gulp.task('default', [
