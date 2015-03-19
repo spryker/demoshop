@@ -4,19 +4,12 @@
 namespace Pyz\Zed\Mail\Business\Model\Provider;
 
 use ProjectA\Shared\Mail\Transfer\Mail as MailTransfer;
-use ProjectA\Deprecated\Mail\Business\Dependency\MailFactoryTrait;
-use ProjectA\Zed\Library\Dependency\DependencyFactoryInterface;
 use ProjectA\Zed\Mail\Business\Model\Provider\AbstractMailProvider;
 use ProjectA\Zed\Mail\Business\Model\Provider\MailProviderResponse;
 use Pyz\Zed\Mail\Business\Model\Provider\Mandrill\MandrillSettings;
 
-/**
- * Class MandrillMailProvider
- * @package Zoo\Zed\Mail\Component\Model\Provider
- */
-class MandrillMailProvider extends AbstractMailProvider implements DependencyFactoryInterface
+class MandrillMailProvider extends AbstractMailProvider
 {
-    use MailFactoryTrait;
 
     /**
      * @param MailTransfer $mailTransfer
