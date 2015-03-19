@@ -38,7 +38,8 @@ foreach ($finder->files()->in($path) as $schema) {
     file_put_contents($schema->getPathname(), $schemaContent);
 
     $oldPath = $schema->getPathname();
-    if (strstr($oldPath, 'pac') !== false) {
+
+    if (substr($schema->getFilename(), 0, 3) === 'pac') {
         $newPath = str_replace('pac_', 'spy_', $oldPath);
         $fileSystem->rename($oldPath, $newPath);
     }
