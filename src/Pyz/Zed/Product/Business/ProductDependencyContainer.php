@@ -7,11 +7,6 @@ use ProjectA\Zed\Product\Business\ProductDependencyContainer as CoreDependencyCo
 use Psr\Log\LoggerInterface;
 use Pyz\Zed\Product\Business\Internal\DemoData\ProductDataInstall;
 
-/**
- * Class ProductDependencyContainer
- *
- * @package Pyz\Zed\Product\Business
- */
 class ProductDependencyContainer extends CoreDependencyContainer
 {
     /**
