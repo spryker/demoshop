@@ -122,19 +122,6 @@ if is_default_store; then
   # rsync node_modules back to cache
   rsync -ra --delete node_modules/ $npm_cache_dir
 
-  # Run grunt deployment tasks
-  echo " - grunt dist: Yves"
-  APPLICATION_STORE=${APPLICATION_STORE} APPLICATION_ENV=${environment} grunt dist -gruntfile config/Yves/Gruntfile.js >> $outfile
-  if [ $? -ne 0 ]; then
-    echo "!!! FATAL: grunt failed"
-    cat $outfile
-    echo " --- to force deployment with failing grunt, edit deploy/prepare_code file ---"
-    ###
-    ### Remove (or comment out) next line to ignore grunt errors during deployment.
-    ### this should be used as hotfix only
-    ###
-    exit 2
-  fi
 
   echo " - gulp dist: Zed"
   [ -z `which gulp` ] && npm install -g gulp
@@ -142,7 +129,8 @@ if is_default_store; then
   npm install --silent
   gulp
   popd
-  APPLICATION_STORE=${APPLICATION_STORE} APPLICATION_ENV=${environment} gulp dist -gulpfile config/$app/Gulpfile.js >> $outfile
+  APPLICATION_STORE=${APPLICATION_STORE} APPLICATION_ENV=${environment} gulp dist -gulpfile config/Yves/Gulpfile.js >> $outfile
+  APPLICATION_STORE=${APPLICATION_STORE} APPLICATION_ENV=${environment} gulp dist -gulpfile config/Zed/Gulpfile.js >> $outfile
 fi
 
 ### Allright, no error, deployment continues.
