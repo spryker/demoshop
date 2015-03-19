@@ -22,7 +22,7 @@ class ConsoleSettings extends SprykerConsoleSettings
      */
     public function getConsoleCommands()
     {
-        return [
+        $commands = [
             $this->locator->setup()->pluginCliInstall(),
             $this->locator->setup()->pluginCliPropel(),
             $this->locator->setup()->pluginCliPropelBuildModel(),
@@ -38,8 +38,13 @@ class ConsoleSettings extends SprykerConsoleSettings
             $this->locator->installer()->pluginCliDemoDataInstall(),
             $this->locator->setup()->pluginCliGulpRunner(),
             $this->locator->setup()->pluginCliGruntRunner(),
-            $this->locator->git()->pluginCliPrepareTag(),
+            $this->locator->application()->pluginCliApplicationIntegrationCheck(),
         ];
+
+        $gitCommands = $this->locator->git()->facade()->getConsoleCommands();
+        $commands = array_merge($commands, $gitCommands);
+
+        return $commands;
     }
 
 }

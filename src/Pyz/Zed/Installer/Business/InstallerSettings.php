@@ -3,10 +3,14 @@
 namespace Pyz\Zed\Installer\Business;
 
 use ProjectA\Zed\Installer\Business\InstallerSettings as SprykerInstallerSettings;
+use ProjectA\Zed\Installer\Business\Model\AbstractInstaller;
 
 class InstallerSettings extends SprykerInstallerSettings
 {
 
+    /**
+     * @return AbstractInstaller[]
+     */
     public function getInstallerStack()
     {
         return [
@@ -15,12 +19,23 @@ class InstallerSettings extends SprykerInstallerSettings
             $this->locator->productSearch()->pluginInstaller(),
             $this->locator->price()->pluginInstaller(),
             $this->locator->locale()->pluginInstaller(),
-            // TODO check after re-integration of customer2 bundle
-//            $this->locator->customer()->pluginInstaller(),
-            // TODO check after refactoring cms bundle
-//            $this->locator->cms()->pluginInstaller(),
             $this->locator->misc()->pluginInstaller(),
-            $this->locator->sales()->pluginInstaller(),
+        ];
+    }
+
+    /**
+     * @return AbstractInstaller[]
+     */
+    public function getDemoDataInstallerStack()
+    {
+        return [
+            $this->locator->category()->pluginDemoDataInstaller(),
+            $this->locator->glossary()->pluginDemoDataInstaller(),
+            $this->locator->product()->pluginDemoDataInstaller(),
+            $this->locator->productCategory()->pluginDemoDataInstaller(),
+            $this->locator->price()->pluginDemoDataInstaller(),
+            $this->locator->productSearch()->pluginDemoDataInstaller(),
+            $this->locator->stock()->pluginDemoDataInstaller()
         ];
     }
 }
