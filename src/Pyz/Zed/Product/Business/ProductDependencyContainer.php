@@ -14,7 +14,7 @@ class ProductDependencyContainer extends CoreDependencyContainer
      */
     public function getProductBuilder()
     {
-        return $this->factory->create('Builder\\SimpleAttributeMergeBuilder');
+        return $this->factory->createBuilderSimpleAttributeMergeBuilder();
     }
 
     /**
