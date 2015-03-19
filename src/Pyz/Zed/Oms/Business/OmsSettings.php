@@ -1,29 +1,16 @@
 <?php
 
-
 namespace Pyz\Zed\Oms\Business;
 
 use ProjectA\Zed\Library\Business\FactoryInterface;
 use ProjectA\Zed\Library\Business\Model\FacadeAbstract;
-use ProjectA\Zed\Library\Dependency\DependencyFactoryTrait;
 use Pyz\Zed\Oms\Communication\Plugin\Oms\FakeAuthPayment;
 use Pyz\Zed\Sales\Business\SalesFacade;
 use ProjectA\Shared\Sales\Transfer\Order as OrderTransfer;
-use ProjectA\Deprecated\Payone\Business\Dependency\PayoneFacadeInterface;
-use ProjectA\Deprecated\Payone\Business\Dependency\PayoneFacadeTrait;
-use ProjectA\Deprecated\Sales\Business\Dependency\SalesFacadeInterface;
-use ProjectA\Deprecated\Sales\Business\Dependency\SalesFacadeTrait;
 use ProjectA\Zed\Oms\Business\AbstractOmsSettings;
-use ProjectA\Zed\Payone\Business\Model\Api\ApiConstants as PayoneApiConstants;
 
-/**
- * @property SalesFacade $facadeSales
- */
-class OmsSettings extends AbstractOmsSettings implements
-    SalesFacadeInterface
+class OmsSettings extends AbstractOmsSettings
 {
-
-    use SalesFacadeTrait;
 
     const ORDER_PROCESS_PAYONE_PRE_PAYMENT_01 = 'PayonePrePayment01';
 

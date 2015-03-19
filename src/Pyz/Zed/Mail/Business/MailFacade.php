@@ -3,11 +3,6 @@ namespace Pyz\Zed\Mail\Business;
 
 use ProjectA\Zed\Mail\Business\MailFacade as CoreMailFacade;
 
-/**
- * Class MailFacade
- * @package Pyz\Zed\Mail\Business
- * @property \ProjectA\Deprecated\Mail\Business\MailFactory $factory
- */
 class MailFacade extends CoreMailFacade
 {
 
