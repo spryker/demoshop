@@ -20,6 +20,21 @@ if (file_exists(APPLICATION_SOURCE_DIR . '/Generated/Zed/DependencyInjectionCont
     require_once(APPLICATION_SOURCE_DIR . '/Generated/Zed/DependencyInjectionContainer.php');
 }
 
+//// PHP < 5.5 Fallback
+if (!function_exists('array_column')) {
+    function array_column(array $a, $name)
+    {
+        $b = [];
+        foreach ($a as $aa) {
+            if (isset($aa[$name])) {
+                $b[] = $aa[$name];
+            }
+        }
+
+        return $b;
+    }
+}
+
 $bootstrap = new ZedBootstrap();
 $bootstrap
     ->boot()
