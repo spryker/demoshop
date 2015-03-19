@@ -29,12 +29,11 @@ Inside the VM you have to install the application and prepare everything for you
 cd /data/shop/development/current
 php composer.phar install
 npm install -d
-APPLICATION_ENV=development APPLICATION_STORE=DE console setup:install
 cd /data/shop/development/current/vendor/spryker/zed-package
 npm install -d
 gulp
 cd /data/shop/development/current
-APPLICATION_ENV=development APPLICATION_STORE=DE console code:gulp
+APPLICATION_ENV=development APPLICATION_STORE=DE console setup:install
 ```
 
 This demoshop comes with some default data to play around with which are installable via:
