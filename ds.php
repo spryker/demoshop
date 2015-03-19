@@ -59,7 +59,7 @@ $path = __DIR__ . '/vendor/spryker/zed-package/src/';
 foreach ($finder->files()->in($path)->name('*.php') as $file) {
     $fileContent = file_get_contents($file->getPathname());
     $fileContent = str_replace(array_keys($searchAndReplace), array_values($searchAndReplace), $fileContent);
-    file_put_contents($fileContent, $file->getPathname());
+    file_put_contents($file->getPathname(), $fileContent);
 }
 
 // rename entities
