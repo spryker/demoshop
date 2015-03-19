@@ -9,8 +9,9 @@ use Symfony\Component\Finder\SplFileInfo;
 
 require_once(__DIR__ . '/vendor/autoload.php');
 
+$fileSystem = new Filesystem();
 $finder = new Finder();
-$path = __DIR__ . '/vendor/spryker/zed-package/src/ProjectA/Zed/*/Persistence/Propel/Schema/';
+$path = __DIR__ . '/vendor/spryker/zed-package/src/*/Zed/*/Persistence/Propel/Schema/';
 
 $searchAndReplace = [];
 
@@ -35,12 +36,16 @@ foreach ($finder->files()->in($path) as $schema) {
 
     $schemaContent = str_replace(['pac_', '"Pac'], ['spy_', '"Spy'], $schemaContent);
     file_put_contents($schema->getPathname(), $schemaContent);
+
+    $oldPath = $schema->getPathname();
+    $newPath = str_replace('pac_', 'spy_', $oldPath);
+    $fileSystem->rename($oldPath, $newPath);
 }
 
 $finder = new Finder();
-$path = __DIR__ . '/vendor/spryker/zed-package/src/ProjectA/Zed/*/Persistence/Propel/';
+$path = __DIR__ . '/vendor/spryker/zed-package/src/*/Zed/*/Persistence/Propel/';
 
-$fileSystem = new Filesystem();
+
 /* @var $entity SplFileInfo */
 foreach ($finder->files()->in($path)->depth('< 1')->name('*.php') as $entity) {
     $key = str_replace('.php', '', $entity->getFilename());
@@ -53,7 +58,10 @@ foreach ($finder->files()->in($path)->depth('< 1')->name('*.php') as $entity) {
 }
 
 $finder = new Finder();
-$path = __DIR__ . '/vendor/spryker/zed-package/src/';
+$path = [
+    __DIR__ . '/vendor/spryker/zed-package/src/',
+    __DIR__ . '/src/Pyz/',
+];
 
 /* @var $file SplFileInfo */
 foreach ($finder->files()->in($path)->name('*.php') as $file) {
