@@ -2,6 +2,7 @@
 
 namespace ReneFactor;
 
+use Symfony\Component\Filesystem\Filesystem;
 use Symfony\Component\Finder\Finder;
 use Symfony\Component\Finder\SplFileInfo;
 
@@ -30,11 +31,25 @@ foreach ($finder->files()->in($path) as $schema) {
         }
     }
 
-    
+    $schemaContent = str_replace(['pac_', '"Pac'], ['spy_', '"Spy'], $schemaContent);
+//    file_put_contents($schema->getPathname(), $schemaContent);
 }
+
+// find all entities
+$finder = new Finder();
+$path = __DIR__ . '/vendor/spryker/zed-package/src/ProjectA/Zed/*/Persistence/Propel/';
+
+$fileSystem = new Filesystem();
+/* @var $entity SplFileInfo */
+foreach ($finder->files()->in($path)->depth('< 1')->name('*.php') as $entity) {
+    $key = str_replace('.php', '', $entity->getFilename());
+    $value = 'Spy' . substr($key, strlen('Pac'));
+    $searchAndReplace[$key] = $value;
+
+    $oldPath = $entity->getPathname();
+    $newPath = str_replace($key, $value, $oldPath);
+//    $fileSystem->rename($schema->getPathname(), $newPath);
+}
+
 echo '<pre>' . PHP_EOL . \Symfony\Component\VarDumper\VarDumper::dump($searchAndReplace) . PHP_EOL . 'Line: ' . __LINE__ . PHP_EOL . 'File: ' . __FILE__ . die();
-// find all refPhpName="(.*?)"
-// replace name="pac with name="spy
-// replace phpName="Pac with phpName="Spy
-
-
+// rename entities
