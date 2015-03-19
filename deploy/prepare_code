@@ -66,33 +66,31 @@ if is_default_store; then
   generated_cache_dir=/data/deploy/${environment}/Generated
   [ ! -d $generated_cache_dir ] && mkdir -p $generated_cache_dir
   cp -r --reflink=auto $generated_cache_dir src/
-  rm -rf src/Generated/Zed/PropelGen
+  rm -rf src/Generated/Propel
 fi
 
 chown -R www-data. .
 
-## ZED - Generate BundlePackageMapper
-echo " - Generate BundlePackageMapper"
-APPLICATION_ENV=$environment sudo -E -u www-data php -d "newrelic.appname='Deploy($environment)'" vendor/bin/console setup:generate-bundle-package-mapper &> $outfile
-if [ $? -ne 0 ]; then
-  echo "!!! FATAL: There was an error in console setup:generate-bundle-package-mapper"
-  cat $outfile
-  exit 1
-fi
-
-## ZED - Execute install.php
-echo " - propel setup"
-APPLICATION_ENV=$environment sudo -E -u www-data php -d "newrelic.appname='Deploy($environment)'" vendor/bin/console setup:propel:install -s ${APPLICATION_STORE} -e ${environment} &> $outfile
-if [ $? -ne 0 ]; then
-  echo "!!! FATAL: There was an error in console setup:propel:install"
-  cat $outfile
-  exit 1
-fi
-
 ### Generate Code
 if is_default_store; then
-  echo " - generate code"
-  APPLICATION_ENV=$environment sudo -E -u www-data php -d "newrelic.appname='Deploy($environment)'" vendor/bin/console setup:generate &> $outfile
+  echo " - generating propel config code"
+  APPLICATION_ENV=$environment sudo -E -u www-data php -d "newrelic.appname='Deploy($environment)'" vendor/bin/console setup:propel:config:convert &> $outfile
+  if [ $? -ne 0 ]; then
+    echo "!!! FATAL: There was an error in console setup:generate"
+    cat $outfile
+    exit 2
+  fi
+
+  echo " - copy propel schemata"
+  APPLICATION_ENV=$environment sudo -E -u www-data php -d "newrelic.appname='Deploy($environment)'" vendor/bin/console setup:propel:schema:copy &> $outfile
+  if [ $? -ne 0 ]; then
+    echo "!!! FATAL: There was an error in console setup:generate"
+    cat $outfile
+    exit 2
+  fi
+
+  echo " - building propel entities and queries"
+  APPLICATION_ENV=$environment sudo -E -u www-data php -d "newrelic.appname='Deploy($environment)'" vendor/bin/console setup:propel:build:model &> $outfile
   if [ $? -ne 0 ]; then
     echo "!!! FATAL: There was an error in console setup:generate"
     cat $outfile
@@ -124,21 +122,15 @@ if is_default_store; then
   # rsync node_modules back to cache
   rsync -ra --delete node_modules/ $npm_cache_dir
 
-  # Run grunt deployment tasks
-  for app in Yves Zed; do
-    echo " - grunt dist: $app"
-    APPLICATION_STORE=${APPLICATION_STORE} APPLICATION_ENV=${environment} grunt dist -gruntfile config/$app/Gruntfile.js >> $outfile
-    if [ $? -ne 0 ]; then
-      echo "!!! FATAL: grunt failed"
-      cat $outfile
-      echo " --- to force deployment with failing grunt, edit deploy/prepare_code file ---"
-      ###
-      ### Remove (or comment out) next line to ignore grunt errors during deployment.
-      ### this should be used as hotfix only
-      ###
-      exit 2
-    fi
-  done
+
+  echo " - gulp dist: Zed"
+  [ -z `which gulp` ] && npm install -g gulp
+  pushd ./vendor/spryker/zed-package
+  npm install --silent
+  gulp
+  popd
+  APPLICATION_STORE=${APPLICATION_STORE} APPLICATION_ENV=${environment} gulp dist -gulpfile config/Yves/Gulpfile.js >> $outfile
+  APPLICATION_STORE=${APPLICATION_STORE} APPLICATION_ENV=${environment} gulp dist -gulpfile config/Zed/Gulpfile.js >> $outfile
 fi
 
 ### Allright, no error, deployment continues.
