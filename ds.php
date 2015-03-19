@@ -2,6 +2,7 @@
 
 namespace ReneFactor;
 
+use ProjectA\Shared\Library\Config;
 use Symfony\Component\Filesystem\Filesystem;
 use Symfony\Component\Finder\Finder;
 use Symfony\Component\Finder\SplFileInfo;
@@ -23,6 +24,7 @@ foreach ($finder->files()->in($path) as $schema) {
             }
         }
     }
+
     if (preg_match_all('/phpName="(.*?)"/', $schemaContent, $matches)) {
         foreach ($matches[1] as $match) {
             if (strpos($match, 'Pac') === 0) {
@@ -35,7 +37,6 @@ foreach ($finder->files()->in($path) as $schema) {
 //    file_put_contents($schema->getPathname(), $schemaContent);
 }
 
-// find all entities
 $finder = new Finder();
 $path = __DIR__ . '/vendor/spryker/zed-package/src/ProjectA/Zed/*/Persistence/Propel/';
 
@@ -51,5 +52,15 @@ foreach ($finder->files()->in($path)->depth('< 1')->name('*.php') as $entity) {
 //    $fileSystem->rename($schema->getPathname(), $newPath);
 }
 
-echo '<pre>' . PHP_EOL . \Symfony\Component\VarDumper\VarDumper::dump($searchAndReplace) . PHP_EOL . 'Line: ' . __LINE__ . PHP_EOL . 'File: ' . __FILE__ . die();
+$finder = new Finder();
+$path = __DIR__ . '/vendor/spryker/zed-package/src/';
+
+/* @var $entity SplFileInfo */
+foreach ($finder->files()->in($path)->name('*.php') as $file) {
+    $fileContent = file_get_contents($file->getPathname());
+    $fileContent = str_replace(array_keys($searchAndReplace), array_values($searchAndReplace), $fileContent);
+//    file_put_contents($fileContent, $file->getPathname());
+    echo '<pre>' . PHP_EOL . \Symfony\Component\VarDumper\VarDumper::dump($fileContent) . PHP_EOL . 'Line: ' . __LINE__ . PHP_EOL . 'File: ' . __FILE__ . die();
+}
+
 // rename entities
