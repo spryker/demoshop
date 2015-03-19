@@ -38,8 +38,10 @@ foreach ($finder->files()->in($path) as $schema) {
     file_put_contents($schema->getPathname(), $schemaContent);
 
     $oldPath = $schema->getPathname();
-    $newPath = str_replace('pac_', 'spy_', $oldPath);
-    $fileSystem->rename($oldPath, $newPath);
+    if (strstr($oldPath, 'pac') !== false) {
+        $newPath = str_replace('pac_', 'spy_', $oldPath);
+        $fileSystem->rename($oldPath, $newPath);
+    }
 }
 
 $finder = new Finder();
