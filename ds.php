@@ -34,7 +34,7 @@ foreach ($finder->files()->in($path) as $schema) {
     }
 
     $schemaContent = str_replace(['pac_', '"Pac'], ['spy_', '"Spy'], $schemaContent);
-//    file_put_contents($schema->getPathname(), $schemaContent);
+    file_put_contents($schema->getPathname(), $schemaContent);
 }
 
 $finder = new Finder();
@@ -49,18 +49,17 @@ foreach ($finder->files()->in($path)->depth('< 1')->name('*.php') as $entity) {
 
     $oldPath = $entity->getPathname();
     $newPath = str_replace($key, $value, $oldPath);
-//    $fileSystem->rename($schema->getPathname(), $newPath);
+    $fileSystem->rename($entity->getPathname(), $newPath);
 }
 
 $finder = new Finder();
 $path = __DIR__ . '/vendor/spryker/zed-package/src/';
 
-/* @var $entity SplFileInfo */
+/* @var $file SplFileInfo */
 foreach ($finder->files()->in($path)->name('*.php') as $file) {
     $fileContent = file_get_contents($file->getPathname());
     $fileContent = str_replace(array_keys($searchAndReplace), array_values($searchAndReplace), $fileContent);
-//    file_put_contents($fileContent, $file->getPathname());
-    echo '<pre>' . PHP_EOL . \Symfony\Component\VarDumper\VarDumper::dump($fileContent) . PHP_EOL . 'Line: ' . __LINE__ . PHP_EOL . 'File: ' . __FILE__ . die();
+    file_put_contents($fileContent, $file->getPathname());
 }
 
 // rename entities
