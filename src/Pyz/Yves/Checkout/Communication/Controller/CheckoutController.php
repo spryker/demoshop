@@ -3,22 +3,16 @@ namespace Pyz\Yves\Checkout\Communication\Controller;
 
 use ProjectA\Shared\Kernel\LocatorLocatorInterface;
 use ProjectA\Shared\Sales\Transfer\Order;
-use ProjectA\Shared\Sales\Transfer\Payment;
 use Pyz\Yves\Checkout\Communication\Plugin\CheckoutControllerProvider;
 use Pyz\Yves\Cart\Communication\Helper\CartControllerTrait;
 use Pyz\Yves\Cart\Communication\Plugin\CartControllerProvider;
-use Pyz\Yves\Library\Tracking\PageTypeInterface;
-use ProjectA\Yves\Library\Tracking\Tracking;
 use SprykerCore\Yves\Application\Communication\Controller\AbstractController;
 use SprykerFeature\Sdk\Cart\CartSdk;
 use SprykerFeature\Sdk\Checkout\CheckoutSdk;
-use SprykerFeature\Sdk\Payment\PaymentSdk;
-use SprykerFeature\Sdk\Payone\PayoneSdk;
 use Symfony\Component\Form\FormInterface;
 use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
-use ProjectA\Shared\Payment\Transfer\PaymentMethodCollection;
 
 /**
  * Class CheckoutController
@@ -35,19 +29,9 @@ class CheckoutController extends AbstractController
      */
     public function indexAction(Request $request)
     {
-        Tracking::getInstance()
-            ->setPageType(PageTypeInterface::PAGE_TYPE_CHECKOUT)
-            ->buildTracking();
-
         $response = $this->handleRequest($request);
         if ($response instanceof Response) {
             return $response;
-        }
-
-        if (is_array($response)) {
-            $payoneSdk = $this->getPayoneSdk();
-            $requestContainer = $payoneSdk->creditCardCheck();
-            $response['payoneCreditcardCheckData'] = $requestContainer->toArray();
         }
 
         return $response;
@@ -67,12 +51,6 @@ class CheckoutController extends AbstractController
             return $this->redirectResponseInternal('home');
         }
 
-//        $customerModel = Factory::getInstance()
-//            ->createCustomerModelCustomer($this->getApplication());
-//
-//        $customer = $order->getCustomer();
-//        $customerModel->refreshCustomerInSession($customer);
-
         $cart->clear();
         $productData = $this->getCartSdk()->getProductDataForCartItems($cartItems);
         $cartModel = $this->locator->cart()->pluginCartSession()->createCartSession($this->getTransferSession());
@@ -91,12 +69,11 @@ class CheckoutController extends AbstractController
     }
 
     /**
-     * @param PaymentMethodCollection $paymentMethods
-     * @return \Pyz\Yves\Sales\Form\OrderType
+     * @return mixed
      */
-    protected function createOrderForm(PaymentMethodCollection $paymentMethods)
+    protected function createOrderForm()
     {
-        return $this->locator->sales()->pluginOrderTypeForm()->createOrderTypeForm($paymentMethods);
+        return $this->locator->sales()->pluginOrderTypeForm()->createOrderTypeForm();
     }
 
     /**
@@ -107,40 +84,18 @@ class CheckoutController extends AbstractController
     protected function validateForm(Request $request, FormInterface $form)
     {
         if ($form->isValid()) {
-            $paymentSdk = $this->getPaymentSdk();
-            $paymentSdk->registerPaymentToZedRequest($request->getClientIp(), $request->server->get('HTTP_USER_AGENT'));
-
             $checkoutSdk = $this->getCheckoutSdk($request);
             /** @var Order $orderTransfer */
             $orderTransfer = $form->getData();
-
-//            $customerModel = Factory::getInstance()->createCustomerModelCustomer($this->getApplication());
-//            $orderTransfer->setCustomer($customerModel->getTransfer());
-
-            /** @var Payment $payment */
-            $payment = $this->locator->sales()->transferPayment();
-            $payment->setMethod('payment.payone.prepayment');
-
-            $orderTransfer->setPayment($payment);
 
             $transferResponse = $checkoutSdk->saveOrder($orderTransfer);
             $order = $transferResponse->getTransfer();
             $cart = $this->getCart($request);
             $cart->setOrder($order);
-
-            /** @var  \ProjectA\Shared\Sales\Transfer\Order $order */
-//            $order = $transferResponse->getTransfer();
-//            $customerModel->refreshCustomerInSession($order->getCustomer());
-
             $this->addMessagesFromZedResponse($transferResponse);
 
             if ($transferResponse->isSuccess()) {
-                $redirectUrl = $order->getPayment()->getRedirectUrl();
-                if (!empty($redirectUrl)) {
-                    return $this->redirectResponseExternal($redirectUrl);
-                } else {
-                    return $this->redirectResponseInternal(CheckoutControllerProvider::ROUTE_CHECKOUT_SUCCESS);
-                }
+                return $this->redirectResponseInternal(CheckoutControllerProvider::ROUTE_CHECKOUT_SUCCESS);
             } elseif ($transferResponse->hasErrorMessage(
                 \ProjectA_Shared_Checkout_Code_Messages::ERROR_ORDER_IS_ALREADY_SAVED
             )
@@ -164,18 +119,10 @@ class CheckoutController extends AbstractController
             return $this->redirectResponseInternal('home');
         }
 
-//        $userTransfer = $this->getApplication()['security']->getToken()->getUser()->getTransfer();
-//        $customer = Factory::getInstance()->createCustomerModelCustomer($this->getApplication());
-        /* @var $userTransferUpdated Customer */
-//        $userTransferUpdated = $customer->updateTransfer($userTransfer)->getTransfer();
-
         $order = $cart->getOrder();
         $checkoutSdk = $this->getCheckoutSdk($request);
         $checkoutSdk->clearReferences($order);
-        $checkoutSdk->clearPayment($order);
         $cart->setOrder($order);
-
-//        $this->getApplication()['security']->getToken()->getUser()->setTransfer($userTransferUpdated);
 
         // This is really ugly, but i need this to have valid data for the payment control
         // This needs to be refactored after discussion...
@@ -184,17 +131,11 @@ class CheckoutController extends AbstractController
         if (isset($all['salesOrder']) && isset($all['salesOrder']['billingAddress'])) {
             $billingAddress->fromArray($all['salesOrder']['billingAddress'], true);
         }
-//        else {
-//            $billingAddress->fromArray($userTransferUpdated->getBillingAddress()->toArray(), true);
-//        }
 
         $shippingAddress = $this->locator->sales()->transferAddress();
         if (isset($all['salesOrder']) && isset($all['salesOrder']['shippingAddress'])) {
             $shippingAddress->fromArray($all['salesOrder']['shippingAddress'], true);
         }
-//        else {
-//            $shippingAddress->fromArray($userTransferUpdated->getShippingAddress()->toArray(), true);
-//        }
 
         $orderBillingAddressArray = $order->getBillingAddress()->toArray();
         unset($orderBillingAddressArray['id_sales_order_address'], $orderBillingAddressArray['id_customer_address']);
@@ -223,21 +164,12 @@ class CheckoutController extends AbstractController
             $order->setLastName($order->getBillingAddress()->getLastName());
         }
 
-        $paymentSdk = $this->getPaymentSdk();
-        $methods = $paymentSdk->getOfferedPaymentMethods(
-            $order,
-            $request->getClientIp(),
-            $request->server->get('HTTP_USER_AGENT')
-        );
-        $form = $this->createForm($this->createOrderForm($methods), $order);
+        $form = $this->createForm($this->createOrderForm(), $order);
 
         if (($parameters = $this->validateForm($request, $form)) !== null) {
             return $parameters;
         }
         $productData = $this->getCartSdk()->getProductDataForCartItems($cart->getItems());
-
-//        $userAddresses = $customer->getAddresses($userTransferUpdated)->getTransfer();
-//        $userAddressesJson = ($userAddresses) ? json_encode($userAddresses->toArray()) : null;
 
         return [
             'form' => $form->createView(),
@@ -246,26 +178,7 @@ class CheckoutController extends AbstractController
             'products' => $productData,
             'userAddresses' => [],//$userAddresses,
             'userAddressesJson' => [],//$userAddressesJson,
-            'paymentMethodCollection' => $methods
         ];
-    }
-
-    /**
-     * @param Request $request
-     * @return array|RedirectResponse
-     */
-    //public function triggerPaymentCancelledRegularAction(Request $request)
-    public function regularRedirectPaymentCancellationAction(Request $request)
-    {
-        $checkoutSdk = $this->getCheckoutSdk($request);
-        $cart = $this->getCart($request);
-        $order = $cart->getOrder();
-        $checkoutSdk->setOrderInvalid($order);
-        $checkoutSdk->clearReferences($order);
-        $checkoutSdk->clearPayment($order);
-        $cart->setOrder($order);
-
-        return $this->redirectResponseInternal(CheckoutControllerProvider::ROUTE_CHECKOUT);
     }
 
     /**
@@ -277,27 +190,11 @@ class CheckoutController extends AbstractController
     }
 
     /**
-     * @return PaymentSdk
-     */
-    protected function getPaymentSdk()
-    {
-        return $this->locator->payment()->sdk();
-    }
-
-    /**
      * @return CartSdk
      */
     protected function getCartSdk()
     {
         return $this->locator->cart()->sdk();
-    }
-
-    /**
-     * @return PayoneSdk
-     */
-    protected function getPayoneSdk()
-    {
-        return $this->locator->payone()->sdk();
     }
 
     /**

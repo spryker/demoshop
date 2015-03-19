@@ -45,13 +45,13 @@ $config[SystemConfig::HOST_YVES]
     = $config[SystemConfig::HOST_SSL_YVES]
     = $config[SystemConfig::HOST_SSL_STATIC_ASSETS]
     = $config[SystemConfig::HOST_SSL_STATIC_MEDIA]
-    = 'www-development.project-yz.de';
+    = 'www.spryker.dev';
 
 $config[SystemConfig::HOST_ZED_GUI]
     = $config[SystemConfig::HOST_ZED_API]
     = $config[SystemConfig::HOST_SSL_ZED_GUI]
     = $config[SystemConfig::HOST_SSL_ZED_API]
-    = 'zed-development.project-yz.de';
+    = 'zed.spryker.dev';
 
 $config[SystemConfig::LOG_LEVEL] = Monolog\Logger::INFO;
 $config[SystemConfig::LOG_PROPEL_SQL] = true;
@@ -64,13 +64,6 @@ $config[YvesConfig::TRANSFER_DEBUG_SESSION_NAME] = 'XDEBUG_SESSION';
 
 $config[SystemConfig::ZED_LIBRARY_PASSWORD_ALGORITHM] = PASSWORD_BCRYPT;
 $config[SystemConfig::ZED_LIBRARY_PASSWORD_OPTIONS] = [];
-
-$config[PayoneConfig::PAYONE_MODE] = 'test';
-$config[PayoneConfig::PAYONE_MID] = '25735';
-$config[PayoneConfig::PAYONE_AID] = '25811';
-$config[PayoneConfig::PAYONE_ENCODING] = 'UTF-8';
-$config[PayoneConfig::PAYONE_CURRENCY] = 'EUR';
-$config[PayoneConfig::PAYONE_GATEWAYURL] = 'https://api.pay1.de/post-gateway/';
 
 $config[SystemConfig::ZED_SESSION_SAVE_HANDLER] = null;
 
