@@ -130,7 +130,7 @@ class ProductAttributeMappingInstall extends AbstractInstaller
      * @param string $operation
      *
      * @throws \Exception
-     * @throws \PropelException
+     * @throws \Propel\Runtime\Exception\PropelException
      */
     protected function addOperation($attributeId, $copyTarget, $operation, $weight)
     {

@@ -72,7 +72,7 @@ class ProductDataInstall extends AbstractInstaller
 
     /**
      * @throws \Exception
-     * @throws \PropelException
+     * @throws \Propel\Runtime\Exception\PropelException
      */
     protected function createProduct()
     {
