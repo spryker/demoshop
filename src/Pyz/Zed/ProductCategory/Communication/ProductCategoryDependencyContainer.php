@@ -4,9 +4,9 @@ namespace Pyz\Zed\ProductCategory\Communication;
 
 use Pyz\Zed\ProductCategory\Business\ProductCategoryFacade;
 use ProjectA\Zed\ProductCategory\Communication\ProductCategoryDependencyContainer as
-    CoreProductCategoryDependencyContainer;
+    SprykerProductCategoryDependencyContainer;
 
-class ProductCategoryDependencyContainer extends CoreProductCategoryDependencyContainer
+class ProductCategoryDependencyContainer extends SprykerProductCategoryDependencyContainer
 {
 
     /**
