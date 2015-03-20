@@ -64,7 +64,9 @@ foreach ($finder->files()->in($path)->depth('< 1')->name('*.php') as $entity) {
 
     $oldPath = $entity->getPathname();
     $newPath = str_replace($key, $value, $oldPath);
-    $fileSystem->rename($entity->getPathname(), $newPath);
+    if (!file_exists($newPath)) {
+        $fileSystem->rename($entity->getPathname(), $newPath);
+    }
 }
 
 $finder = new Finder();
@@ -72,7 +74,7 @@ $path = [
     __DIR__ . '/vendor/spryker/zed-package/src/',
     __DIR__ . '/vendor/spryker/zed-package/tests/',
     __DIR__ . '/src/Pyz/',
-    __DIR__ . '/tests/Pyz/',
+    __DIR__ . '/tests/',
 ];
 
 /* @var $file SplFileInfo */
