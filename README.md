@@ -78,7 +78,7 @@ vagrant ssh
 Inside the VM:
 ```
 sudo su
-salt-call --local state-highstate
+salt-call --local state.highstate
 ```
 
 Afterwards your VM has the newest configuration and dependencies
