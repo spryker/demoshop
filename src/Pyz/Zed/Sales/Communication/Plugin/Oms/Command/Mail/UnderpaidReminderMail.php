@@ -14,13 +14,13 @@ class UnderpaidReminderMail extends AbstractMail implements CommandByOrderInterf
 
     /**
      * @param array $orderItems
-     * @param \ProjectA\Zed\Sales\Persistence\Propel\PacSalesOrder $orderEntity
+     * @param \ProjectA\Zed\Sales\Persistence\Propel\SpySalesOrder $orderEntity
      * @param ReadOnlyArrayObject $data
      * @return array|void
      */
     public function run(
         array $orderItems,
-        \ProjectA\Zed\Sales\Persistence\Propel\PacSalesOrder $orderEntity,
+        \ProjectA\Zed\Sales\Persistence\Propel\SpySalesOrder $orderEntity,
         ReadOnlyArrayObject $data
     ) {
         $transactionStatusRequest = $context[StateMachineConstants::STATEMACHINE_CONTEXT_TRANSACTION_STATUS_REQUEST];
