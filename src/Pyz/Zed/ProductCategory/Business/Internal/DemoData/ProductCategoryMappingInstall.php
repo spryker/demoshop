@@ -10,6 +10,7 @@ use ProjectA\Zed\Library\Import\Reader\CsvFileReader;
 use ProjectA\Zed\Product\Persistence\Propel\PacProductQuery;
 use ProjectA\Zed\ProductCategory\Persistence\Propel\PacProductCategory;
 use ProjectA\Zed\ProductCategory\Persistence\Propel\PacProductCategoryQuery;
+use Propel\Runtime\Exception\PropelException;
 use SprykerCore\Zed\Locale\Business\LocaleFacade;
 use SprykerCore\Zed\Locale\Persistence\Propel\PacLocaleQuery;
 use SprykerCore\Zed\Touch\Business\TouchFacade;
@@ -49,7 +50,7 @@ class ProductCategoryMappingInstall extends AbstractInstaller
     /**
      * @param $locale
      * @return array
-     * @throws \Propel\Runtime\Exception\PropelException
+     * @throws PropelException
      */
     protected function installProductCategories($locale)
     {
