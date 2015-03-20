@@ -9,6 +9,13 @@ use Symfony\Component\Finder\SplFileInfo;
 
 require_once(__DIR__ . '/vendor/autoload.php');
 
+// remove map and base files
+$finder = new Finder();
+$path = [
+    __DIR__ . '/vendor/spryker/zed-package/src/*/Zed/*/Persistence/Propel/Map/',
+    __DIR__ . '/vendor/spryker/zed-package/src/*/Zed/*/Persistence/Propel/Base/',
+];
+
 $fileSystem = new Filesystem();
 $finder = new Finder();
 $path = __DIR__ . '/vendor/spryker/zed-package/src/*/Zed/*/Persistence/Propel/Schema/';
@@ -63,7 +70,9 @@ foreach ($finder->files()->in($path)->depth('< 1')->name('*.php') as $entity) {
 $finder = new Finder();
 $path = [
     __DIR__ . '/vendor/spryker/zed-package/src/',
+    __DIR__ . '/vendor/spryker/zed-package/tests/',
     __DIR__ . '/src/Pyz/',
+    __DIR__ . '/tests/Pyz/',
 ];
 
 /* @var $file SplFileInfo */
