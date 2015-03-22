@@ -14,11 +14,11 @@ class OrderMailWithAdditionalDataCollector extends CoreOrderMailCollector
 
     /**
      * @param $mailType
-     * @param \ProjectA\Zed\Sales\Persistence\Propel\PacSalesOrder $orderEntity
+     * @param \ProjectA\Zed\Sales\Persistence\Propel\SpySalesOrder $orderEntity
      * @param array $additionalData
      * @param bool $isUnique
      */
-    public function __construct($mailType, \ProjectA\Zed\Sales\Persistence\Propel\PacSalesOrder $orderEntity, array $additionalData, $isUnique = true)
+    public function __construct($mailType, \ProjectA\Zed\Sales\Persistence\Propel\SpySalesOrder $orderEntity, array $additionalData, $isUnique = true)
     {
         parent::__construct($mailType, $orderEntity, $isUnique);
         $this->additionalData = $additionalData;

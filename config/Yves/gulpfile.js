@@ -180,7 +180,6 @@ _gulp.task('dist', [
 	'clean-js',
 	'clean-images',
 	'clean-fonts',
-	'dist-lint-js',
 	'dist-css',
 	'dist-js',
 	'dist-images',
