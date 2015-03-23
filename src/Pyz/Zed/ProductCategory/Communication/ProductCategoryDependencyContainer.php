@@ -2,10 +2,11 @@
 
 namespace Pyz\Zed\ProductCategory\Communication;
 
-use ProjectA\Zed\Kernel\Communication\AbstractDependencyContainer;
 use Pyz\Zed\ProductCategory\Business\ProductCategoryFacade;
+use ProjectA\Zed\ProductCategory\Communication\ProductCategoryDependencyContainer as
+    SprykerProductCategoryDependencyContainer;
 
-class ProductCategoryDependencyContainer extends AbstractDependencyContainer
+class ProductCategoryDependencyContainer extends SprykerProductCategoryDependencyContainer
 {
 
     /**

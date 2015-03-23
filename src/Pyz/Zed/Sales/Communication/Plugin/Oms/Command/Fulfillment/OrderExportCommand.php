@@ -16,11 +16,11 @@ class OrderExportCommand extends AbstractCommand implements CommandByOrderInterf
 
     /**
      * @param array $orderItems
-     * @param \ProjectA\Zed\Sales\Persistence\Propel\PacSalesOrder $orderEntity
+     * @param \ProjectA\Zed\Sales\Persistence\Propel\SpySalesOrder $orderEntity
      * @param ReadOnlyArrayObject $data
      * @return array|void
      */
-    public function run(array $orderItems, \ProjectA\Zed\Sales\Persistence\Propel\PacSalesOrder $orderEntity, ReadOnlyArrayObject $data)
+    public function run(array $orderItems, \ProjectA\Zed\Sales\Persistence\Propel\SpySalesOrder $orderEntity, ReadOnlyArrayObject $data)
     {
         // TODO: needs implementation
     }
