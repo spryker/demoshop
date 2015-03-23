@@ -23,22 +23,22 @@ class ConsoleSettings extends SprykerConsoleSettings
     public function getConsoleCommands()
     {
         $commands = [
-            $this->locator->setup()->pluginCliInstall(),
-            $this->locator->setup()->pluginCliPropel(),
-            $this->locator->setup()->pluginCliPropelBuildModel(),
-            $this->locator->setup()->pluginCliPropelBuildSql(),
-            $this->locator->setup()->pluginCliPropelConvertConfig(),
-            $this->locator->setup()->pluginCliPropelCreateDatabase(),
-            $this->locator->setup()->pluginCliPropelDiff(),
-            $this->locator->setup()->pluginCliPropelInsertSql(),
-            $this->locator->setup()->pluginCliPropelMigrate(),
-            $this->locator->setup()->pluginCliPropelSchemaCopy(),
-            $this->locator->setup()->pluginCliGenerateIdeAutoCompletion(),
-            $this->locator->installer()->pluginCliInitializeDatabase(),
-            $this->locator->installer()->pluginCliDemoDataInstall(),
-            $this->locator->setup()->pluginCliGulpRunner(),
-            $this->locator->setup()->pluginCliGruntRunner(),
-            $this->locator->application()->pluginCliApplicationIntegrationCheck(),
+            $this->locator->setup()->consoleInstallConsole(),
+            $this->locator->setup()->consolePropelConsole(),
+            $this->locator->setup()->consolePropelBuildModelConsole(),
+            $this->locator->setup()->consolePropelBuildSqlConsole(),
+            $this->locator->setup()->consolePropelConvertConfigConsole(),
+            $this->locator->setup()->consolePropelCreateDatabaseConsole(),
+            $this->locator->setup()->consolePropelDiffConsole(),
+            $this->locator->setup()->consolePropelInsertSqlConsole(),
+            $this->locator->setup()->consolePropelMigrateConsole(),
+            $this->locator->setup()->consolePropelSchemaCopyConsole(),
+            $this->locator->setup()->consoleGenerateIdeAutoCompletionConsole(),
+            $this->locator->setup()->consoleGulpRunnerConsole(),
+            $this->locator->setup()->consoleGruntRunnerConsole(),
+            $this->locator->installer()->consoleInitializeDatabaseConsole(),
+            $this->locator->installer()->consoleDemoDataInstallConsole(),
+            $this->locator->application()->consoleApplicationIntegrationCheckConsole(),
         ];
 
         $gitCommands = $this->locator->git()->facade()->getConsoleCommands();
