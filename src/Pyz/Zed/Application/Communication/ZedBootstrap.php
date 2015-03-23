@@ -87,6 +87,7 @@ class ZedBootstrap extends Bootstrap
             new SslServiceProvider(),
             new ServiceControllerServiceProvider(),
             new RoutingServiceProvider(),
+            $locator->auth()->pluginBootstrapAuthBootstrapProvider(),
             $locator->acl()->pluginBootstrapAclBootstrapProvider(),
             new ValidatorServiceProvider(),
             new FormServiceProvider(),

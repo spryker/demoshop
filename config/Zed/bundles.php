@@ -19,7 +19,8 @@ return [
     //@TODO NEW CORE: need to move CORE2 to CORE
     ProjectA\Shared\Library\Bundle\BundleConfig::NAMESPACE_SPRYKERFEATURE => [
         'Acl' => $schemaAndNavigation,
-        'User' => $schemaAndNavigation
+        'User' => $schemaAndNavigation,
+        'Auth' => $navigation
     ],
     // Core bundles
     ProjectA\Shared\Library\Bundle\BundleConfig::NAMESPACE_CORE => [
