@@ -3,15 +3,6 @@
 namespace Pyz\Zed\Console\Business;
 
 use ProjectA\Zed\Console\Business\ConsoleSettings as SprykerConsoleSettings;
-use ProjectA\Zed\Console\Business\Model\Console;
-use ProjectA\Zed\Git\Communication\Plugin\Cli\PrepareTag;
-use ProjectA\Zed\Installer\Communication\Plugin\Cli\DemoDataInstall;
-use ProjectA\Zed\Installer\Communication\Plugin\Cli\InitializeDatabase;
-use ProjectA\Zed\Setup\Communication\Plugin\Cli\GenerateIdeAutoCompletion;
-use ProjectA\Zed\Setup\Communication\Plugin\Cli\Grunt\Runner as GruntRunner;
-use ProjectA\Zed\Setup\Communication\Plugin\Cli\Gulp\Runner as GulpRunner;
-use ProjectA\Zed\Setup\Communication\Plugin\Cli\Install;
-use ProjectA\Zed\Setup\Communication\Plugin\Cli\Propel;
 use Symfony\Component\Console\Command\Command;
 
 class ConsoleSettings extends SprykerConsoleSettings
@@ -39,6 +30,12 @@ class ConsoleSettings extends SprykerConsoleSettings
             $this->locator->installer()->consoleInitializeDatabaseConsole(),
             $this->locator->installer()->consoleDemoDataInstallConsole(),
             $this->locator->application()->consoleApplicationIntegrationCheckConsole(),
+            $this->locator->frontendExporter()->consoleExportKeyValueConsole(),
+            $this->locator->frontendExporter()->consoleExportSearchConsole(),
+            $this->locator->frontendExporter()->consoleUpdateSearchConsole(),
+            $this->locator->oms()->consoleCheckConditionConsole(),
+            $this->locator->oms()->consoleCheckTimeoutConsole(),
+            $this->locator->mail()->consoleSendMailConsole(),
         ];
 
         $gitCommands = $this->locator->git()->facade()->getConsoleCommands();
