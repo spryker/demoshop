@@ -90,7 +90,7 @@ if is_default_store; then
   fi
 
   echo " - building propel entities and queries"
-  APPLICATION_ENV=$environment sudo -E -u www-data php -d "newrelic.appname='Deploy($environment)'" vendor/bin/console setup:propel:model &> $outfile
+  APPLICATION_ENV=$environment sudo -E -u www-data php -d "newrelic.appname='Deploy($environment)'" vendor/bin/console setup:propel:model:build &> $outfile
   if [ $? -ne 0 ]; then
     echo "!!! FATAL: There was an error in console setup:generate"
     cat $outfile
