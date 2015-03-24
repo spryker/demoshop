@@ -2,10 +2,10 @@
 
 namespace Pyz\Zed\ProductCategory\Business;
 
-use ProjectA\Zed\Kernel\Business\AbstractFacade;
+use ProjectA\Zed\ProductCategory\Business\ProductCategoryFacade as CoreProductCategoryFacade;
 use Psr\Log\LoggerInterface;
 
-class ProductCategoryFacade extends AbstractFacade
+class ProductCategoryFacade extends CoreProductCategoryFacade
 {
 
     /**
