@@ -6,6 +6,7 @@ use Generated\Zed\Ide\AutoCompletion;
 use ProjectA\Zed\Installer\Business\Model\AbstractInstaller;
 use ProjectA\Zed\Kernel\Locator;
 use ProjectA\Zed\Library\Import\Reader\CsvFileReader;
+use Propel\Runtime\Exception\PropelException;
 use Propel\Runtime\Formatter\SimpleArrayFormatter;
 
 class ProductDataInstall extends AbstractInstaller
@@ -72,7 +73,11 @@ class ProductDataInstall extends AbstractInstaller
 
     /**
      * @throws \Exception
-     * @throws \PropelException
+<<<<<<< HEAD
+     * @throws \Propel\Runtime\Exception\PropelException
+=======
+     * @throws PropelException
+>>>>>>> b5d83b54e2b90553360ff412588c4de69ccf40ba
      */
     protected function createProduct()
     {
