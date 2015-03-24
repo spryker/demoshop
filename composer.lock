@@ -4,7 +4,7 @@
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "bb40065dbffacc299dc9cee0817a6d61",
+    "hash": "1012f32e49fb7e8e440ba865f81c9bae",
     "packages": [
         {
             "name": "digital-canvas/zend-framework",
@@ -934,7 +934,7 @@
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/yves.git",
-                "reference": "701e0893e09bf68fe91677bbc596fa77408b1c34"
+                "reference": "e41fa29e7f676a1ba044ab5cc3d08b781c710587"
             },
             "require": {
                 "php": ">=5.4.0"
@@ -967,15 +967,15 @@
                 "Application",
                 "Yves"
             ],
-            "time": "2015-03-19 07:30:09"
+            "time": "2015-03-24 14:59:49"
         },
         {
             "name": "spryker/zed-package",
-            "version": "dev-feature/499-cleanup-navigation",
+            "version": "dev-feature/url-zed",
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/zed.git",
-                "reference": "e6c4ba5249369a9260172b96121fdd6ba4d069b9"
+                "reference": "220aae14566a382737f80c2701f42c4e2f45484f"
             },
             "require": {
                 "digital-canvas/zend-framework": ">=1.12.2",
@@ -1042,7 +1042,7 @@
                 "Application",
                 "Zed"
             ],
-            "time": "2015-03-23 11:25:26"
+            "time": "2015-03-24 23:04:18"
         },
         {
             "name": "symfony-cmf/routing",
