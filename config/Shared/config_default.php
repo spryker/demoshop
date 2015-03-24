@@ -23,7 +23,6 @@ $config[SystemConfig::CURRENT_APPLICATION_ENV] = APPLICATION_ENV;
 
 $config[SystemConfig::PROJECT_TIMEZONE] = 'UTC';
 $config[SystemConfig::PROJECT_NAMESPACE] = 'Pyz';
-$config[SystemConfig::CODE_GENERATORS] = ['transfer', 'zed', 'yves'];
 
 $config[DbDumpConfig::DB_DUMP_USERNAME] = '';
 $config[DbDumpConfig::DB_DUMP_PASSWORD] = '';
