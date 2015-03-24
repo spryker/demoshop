@@ -1,7 +1,7 @@
 {
   "require": {
     "spryker/yves-package": "dev-master",
-    "spryker/zed-package": "dev-bugfix/500-wrong-propel-exception-type-hint",
+    "spryker/zed-package": "dev-master",
 
     "psr/log": "~1.0",
     "phing/phing": "~2.6.0",
