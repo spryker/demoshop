@@ -1,7 +1,7 @@
 {
   "require": {
     "spryker/yves-package": "dev-master",
-    "spryker/zed-package": "dev-feature/499-cleanup-navigation",
+    "spryker/zed-package": "dev-master",
 
     "psr/log": "~1.0",
     "phing/phing": "~2.6.0",
