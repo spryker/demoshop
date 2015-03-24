@@ -6,6 +6,7 @@ use Generated\Zed\Ide\AutoCompletion;
 use ProjectA\Zed\Console\Business\Model\Console;
 use ProjectA\Zed\Installer\Business\Model\AbstractInstaller;
 use ProjectA\Zed\Kernel\Locator;
+use Propel\Runtime\Exception\PropelException;
 
 class ProductAttributeMappingInstall extends AbstractInstaller
 {
@@ -130,7 +131,7 @@ class ProductAttributeMappingInstall extends AbstractInstaller
      * @param string $operation
      *
      * @throws \Exception
-     * @throws \Propel\Runtime\Exception\PropelException
+     * @throws PropelException
      */
     protected function addOperation($attributeId, $copyTarget, $operation, $weight)
     {
