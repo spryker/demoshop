@@ -6,6 +6,7 @@ use Generated\Zed\Ide\AutoCompletion;
 use ProjectA\Zed\Console\Business\Model\Console;
 use ProjectA\Zed\Installer\Business\Model\AbstractInstaller;
 use ProjectA\Zed\Kernel\Locator;
+use Propel\Runtime\Exception\PropelException;
 
 class ProductAttributeMappingInstall extends AbstractInstaller
 {
@@ -26,7 +27,7 @@ class ProductAttributeMappingInstall extends AbstractInstaller
             $weight = 0;
             foreach ($operations as $operation => $targetFields) {
                 foreach ($targetFields as $targetField) {
-                    $attribute = \ProjectA\Zed\Product\Persistence\Propel\PacProductAttributesMetadataQuery::create()
+                    $attribute = \ProjectA\Zed\Product\Persistence\Propel\SpyProductAttributesMetadataQuery::create()
                         ->findOneByKey($sourceField);
                     if ($attribute) {
                         $weight++;
@@ -130,17 +131,17 @@ class ProductAttributeMappingInstall extends AbstractInstaller
      * @param string $operation
      *
      * @throws \Exception
-     * @throws \PropelException
+     * @throws PropelException
      */
     protected function addOperation($attributeId, $copyTarget, $operation, $weight)
     {
-        $attributeOperationExists = \ProjectA\Zed\ProductSearch\Persistence\Propel\PacProductSearchAttributesOperationQuery::create()
+        $attributeOperationExists = \ProjectA\Zed\ProductSearch\Persistence\Propel\SpyProductSearchAttributesOperationQuery::create()
             ->filterBySourceAttributeId($attributeId)
             ->filterByTargetField($copyTarget)
             ->findOne();
 
         if (!$attributeOperationExists) {
-            $attributeOperation = new \ProjectA\Zed\ProductSearch\Persistence\Propel\PacProductSearchAttributesOperation();
+            $attributeOperation = new \ProjectA\Zed\ProductSearch\Persistence\Propel\SpyProductSearchAttributesOperation();
             $attributeOperation->setTargetField($copyTarget);
             $attributeOperation->setOperation($operation);
             $attributeOperation->setWeighting($weight);
@@ -151,7 +152,7 @@ class ProductAttributeMappingInstall extends AbstractInstaller
 
     protected function makeProductsSearchable()
     {
-        $products = \ProjectA\Zed\Product\Persistence\Propel\PacProductQuery::create()->find();
+        $products = \ProjectA\Zed\Product\Persistence\Propel\SpyProductQuery::create()->find();
         /** @var AutoCompletion $locator */
         $locator = Locator::getInstance();
 
@@ -160,11 +161,11 @@ class ProductAttributeMappingInstall extends AbstractInstaller
 
         // TODO check hardcoded locale
         $localeId = $localeFacade->getLocaleIdentifier('de_DE');
-        $products = \ProjectA\Zed\Product\Persistence\Propel\PacProductQuery::create()->find();
+        $products = \ProjectA\Zed\Product\Persistence\Propel\SpyProductQuery::create()->find();
 
-        /** @var \ProjectA\Zed\Product\Persistence\Propel\PacProduct $product */
+        /** @var \ProjectA\Zed\Product\Persistence\Propel\SpyProduct $product */
         foreach ($products as $product) {
-            $searchableProduct = \ProjectA\Zed\ProductSearch\Persistence\Propel\PacSearchableProductsQuery::create()
+            $searchableProduct = \ProjectA\Zed\ProductSearch\Persistence\Propel\SpySearchableProductsQuery::create()
                 ->filterByFkProduct($product->getProductId())
                 ->filterByFkLocale($localeId)
                 ->findOneOrCreate();

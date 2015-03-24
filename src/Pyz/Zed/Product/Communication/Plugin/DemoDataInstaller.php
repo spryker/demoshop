@@ -2,7 +2,7 @@
 
 namespace Pyz\Zed\Product\Communication\Plugin;
 
-use ProjectA\Zed\Installer\Communication\Plugin\Cli\AbstractInstallerPlugin;
+use ProjectA\Zed\Installer\Communication\Plugin\AbstractInstallerPlugin;
 use Pyz\Zed\Product\Communication\ProductDependencyContainer;
 
 class DemoDataInstaller extends AbstractInstallerPlugin
