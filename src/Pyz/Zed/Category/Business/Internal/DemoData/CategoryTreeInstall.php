@@ -10,7 +10,7 @@ use ProjectA\Zed\Installer\Business\Model\AbstractInstaller;
 use ProjectA\Zed\Kernel\Locator;
 use ProjectA\Zed\Library\Import\Reader\CsvFileReader;
 use SprykerCore\Zed\Locale\Business\LocaleFacade;
-use SprykerCore\Zed\Locale\Persistence\Propel\PacLocaleQuery;
+use SprykerCore\Zed\Locale\Persistence\Propel\SpyLocaleQuery;
 
 class CategoryTreeInstall extends AbstractInstaller
 {
@@ -47,7 +47,7 @@ class CategoryTreeInstall extends AbstractInstaller
         $this->categoryFacade = $categoryFacade;
         $this->queryContainer = $categoryQueryContainer;
 
-        $this->locale = PacLocaleQuery::create()
+        $this->locale = SpyLocaleQuery::create()
             ->findOneByLocaleName($localeFacade->getCurrentLocale());
     }
 

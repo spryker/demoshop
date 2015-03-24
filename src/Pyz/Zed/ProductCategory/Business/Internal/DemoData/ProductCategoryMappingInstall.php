@@ -2,17 +2,16 @@
 
 namespace Pyz\Zed\ProductCategory\Business\Internal\DemoData;
 
-use ProjectA\Zed\Category\Persistence\Propel\PacCategoryNode;
-use ProjectA\Zed\Category\Persistence\Propel\PacCategoryNodeQuery;
+use ProjectA\Zed\Category\Persistence\Propel\SpyCategoryNode;
+use ProjectA\Zed\Category\Persistence\Propel\SpyCategoryNodeQuery;
 use ProjectA\Zed\Installer\Business\Model\AbstractInstaller;
 use ProjectA\Zed\Kernel\Locator;
 use ProjectA\Zed\Library\Import\Reader\CsvFileReader;
-use ProjectA\Zed\Product\Persistence\Propel\PacProductQuery;
-use ProjectA\Zed\ProductCategory\Persistence\Propel\PacProductCategory;
-use ProjectA\Zed\ProductCategory\Persistence\Propel\PacProductCategoryQuery;
-use Propel\Runtime\Exception\PropelException;
+use ProjectA\Zed\Product\Persistence\Propel\SpyProductQuery;
+use ProjectA\Zed\ProductCategory\Persistence\Propel\SpyProductCategory;
+use ProjectA\Zed\ProductCategory\Persistence\Propel\SpyProductCategoryQuery;
 use SprykerCore\Zed\Locale\Business\LocaleFacade;
-use SprykerCore\Zed\Locale\Persistence\Propel\PacLocaleQuery;
+use SprykerCore\Zed\Locale\Persistence\Propel\SpyLocaleQuery;
 use SprykerCore\Zed\Touch\Business\TouchFacade;
 
 class ProductCategoryMappingInstall extends AbstractInstaller
@@ -40,7 +39,7 @@ class ProductCategoryMappingInstall extends AbstractInstaller
 
     public function install()
     {
-        $locale = PacLocaleQuery::create()
+        $locale = SpyLocaleQuery::create()
             ->findOneByLocaleName($this->localeFacade->getCurrentLocale());
 
         $categoryNodeIds = $this->installProductCategories($locale);
@@ -60,7 +59,7 @@ class ProductCategoryMappingInstall extends AbstractInstaller
             $categoryNodeId = $this->getCategoryNodeId($demoProductCategory['category'], $locale);
 
             if ($productId && $categoryNodeId && !($this->relationExists($productId, $categoryNodeId))) {
-                $productCategory = new PacProductCategory();
+                $productCategory = new SpyProductCategory();
                 $productCategory->setFkProduct($productId);
                 $productCategory->setFkCategoryNode($categoryNodeId);
                 $productCategory->save();
@@ -87,7 +86,7 @@ class ProductCategoryMappingInstall extends AbstractInstaller
      */
     protected function touchProductCategories(array $categoryNodeIds)
     {
-        /** @var \ProjectA\Zed\ProductCategory\Persistence\Propel\PacProductCategory $productCategory */
+        /** @var \ProjectA\Zed\ProductCategory\Persistence\Propel\SpyProductCategory $productCategory */
         foreach ($categoryNodeIds as $categoryNodeId) {
             $this->touchFacade->touchActive('product-category', $categoryNodeId);
         }
@@ -99,7 +98,7 @@ class ProductCategoryMappingInstall extends AbstractInstaller
      */
     protected function getProductId($productSku)
     {
-        $productEntity = PacProductQuery::create()
+        $productEntity = SpyProductQuery::create()
             ->findOneBySku($productSku);
 
         if ($productEntity) {
@@ -116,7 +115,7 @@ class ProductCategoryMappingInstall extends AbstractInstaller
      */
     protected function getCategoryNodeId($categoryName, $locale)
     {
-        $categoryNodeEntity = PacCategoryNodeQuery::create()
+        $categoryNodeEntity = SpyCategoryNodeQuery::create()
             ->useCategoryQuery()
                 ->useAttributeQuery()
                     ->filterByLocale($locale)
@@ -125,7 +124,7 @@ class ProductCategoryMappingInstall extends AbstractInstaller
             ->endUse()
             ->findOne();
 
-        if ($categoryNodeEntity instanceof PacCategoryNode) {
+        if ($categoryNodeEntity instanceof SpyCategoryNode) {
             return $categoryNodeEntity->getIdCategoryNode();
         }
 
@@ -140,7 +139,7 @@ class ProductCategoryMappingInstall extends AbstractInstaller
      */
     private function relationExists($productId, $categoryNodeId)
     {
-        return PacProductCategoryQuery::create()
+        return SpyProductCategoryQuery::create()
             ->filterByFkProduct($productId)
             ->filterByFkCategoryNode($categoryNodeId)
             ->count() > 0;
