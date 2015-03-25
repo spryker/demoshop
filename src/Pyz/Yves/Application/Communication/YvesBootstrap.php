@@ -13,11 +13,9 @@ use ProjectA\Shared\Yves\YvesConfig;
 use SprykerCore\Yves\Application\Communication\Plugin\ControllerProviderInterface;
 
 use Pyz\Yves\Checkout\Communication\Plugin\CheckoutControllerProvider;
-use ProjectA\Yves\Customer\Business\Model\Security\SecurityServiceProvider;
-use ProjectA\Yves\Customer\Communication\Plugin\CustomerControllerProvider;
+use Pyz\Yves\Customer\Communication\Plugin\CustomerControllerProvider;
 use Pyz\Yves\Cart\Communication\Plugin\CartControllerProvider;
 use ProjectA\Yves\Library\Asset\AssetManager;
-use Pyz\Yves\Newsletter\Communication\Plugin\NewsletterControllerProvider;
 use Pyz\Yves\Application\Communication\Plugin\ApplicationControllerProvider;
 use SprykerCore\Yves\Application\Business\Twig\YvesExtension;
 
@@ -27,12 +25,13 @@ use SprykerCore\Yves\Application\Communication\Plugin\ServiceProvider\SessionSer
 use SprykerCore\Yves\Application\Communication\Plugin\ServiceProvider\ExceptionServiceProvider;
 use SprykerCore\Yves\Application\Communication\Plugin\ServiceProvider\TwigServiceProvider;
 use SprykerCore\Yves\Application\Communication\Plugin\ServiceProvider\YvesLoggingServiceProvider;
+use SprykerFeature\Yves\Customer\SecurityServiceProvider;
 
 use ProjectA\Shared\Application\Business\Routing\SilexRouter;
 
 use ProjectA\Yves\Library\Tracking\Tracking;
 use Silex\Provider\FormServiceProvider;
-use Silex\Provider\RememberMeServiceProvider;
+//use Silex\Provider\RememberMeServiceProvider;
 use Silex\Provider\ServiceControllerServiceProvider;
 use Silex\Provider\ValidatorServiceProvider;
 use Silex\Provider\WebProfilerServiceProvider;
@@ -99,6 +98,7 @@ class YvesBootstrap extends Bootstrap
     protected function afterBoot(Application $app)
     {
         $app['monolog.level'] = Config::get(SystemConfig::LOG_LEVEL);
+        $app["debug" ] = true; //DBG
     }
 
     /**
@@ -113,6 +113,11 @@ class YvesBootstrap extends Bootstrap
             ->pluginTranslationService()
             ->createTranslationServiceProvider();
 
+        /** @var SecurityServiceProvider $securityServiceProvider */
+        $securityServiceProvider = $locator->customer()
+            ->pluginSecurityService()
+            ->createSecurityServiceProvider();
+
         $providers = [
             new ExceptionServiceProvider('\Pyz\Yves\Library\Controller\ExceptionController'),
             new YvesLoggingServiceProvider(),
@@ -121,7 +126,7 @@ class YvesBootstrap extends Bootstrap
             new SessionServiceProvider(),
             new UrlGeneratorServiceProvider(),
             new ServiceControllerServiceProvider(),
-//            new SecurityServiceProvider(),
+            $securityServiceProvider,
 //            new RememberMeServiceProvider(),
             new RoutingServiceProvider(),
             $translationServiceProvider,
@@ -149,7 +154,7 @@ class YvesBootstrap extends Bootstrap
             new ApplicationControllerProvider(false),
             new CartControllerProvider(false),
             new CheckoutControllerProvider($ssl),
-//            new CustomerControllerProvider($ssl),
+            new CustomerControllerProvider($ssl),
         ];
     }
 

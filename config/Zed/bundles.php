@@ -22,7 +22,7 @@ return [
         'Cart' => $schema,
         'Cms' => $allElements,
         'Category' => $schemaAndNavigation,
-        'Customer2' => $schema,
+        'Customer' => $schema,
         'FrontendExporter' => $schema,
         'Glossary' => $allElements,
         'Lumberjack' => $navigation,
