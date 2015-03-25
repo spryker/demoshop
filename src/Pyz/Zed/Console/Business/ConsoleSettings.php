@@ -26,7 +26,6 @@ class ConsoleSettings extends SprykerConsoleSettings
             $this->locator->setup()->consolePropelSchemaCopyConsole(),
             $this->locator->setup()->consoleGenerateIdeAutoCompletionConsole(),
             $this->locator->setup()->consoleGulpRunnerConsole(),
-            $this->locator->setup()->consoleGruntRunnerConsole(),
             $this->locator->installer()->consoleInitializeDatabaseConsole(),
             $this->locator->installer()->consoleDemoDataInstallConsole(),
             $this->locator->application()->consoleApplicationIntegrationCheckConsole(),
