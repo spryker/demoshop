@@ -16,14 +16,14 @@ $schema = [ProjectA\Shared\Library\Bundle\BundleConfig::ACTIVATE_SCHEMA];
 return [
     // Project bundles
     Config::get(SystemConfig::PROJECT_NAMESPACE) => [],
-    //@TODO NEW CORE: need to move CORE2 to CORE
-    ProjectA\Shared\Library\Bundle\BundleConfig::NAMESPACE_SPRYKERFEATURE => [
-        'Acl' => $schemaAndNavigation,
-        'User' => $schemaAndNavigation,
-        'Auth' => $navigation
-    ],
-    // Core bundles
 
+    ProjectA\Shared\Library\Bundle\BundleConfig::NAMESPACE_SPRYKERFEATURE => [
+        'Auth' => $navigation,
+        'Acl' => $schemaAndNavigation,
+        'User' => $schemaAndNavigation
+    ],
+
+    // Core bundles
     ProjectA\Shared\Library\Bundle\BundleConfig::VENDOR => [
         'Cart' => $schema,
         'Cms' => $allElements,

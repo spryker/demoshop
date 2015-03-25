@@ -17,17 +17,18 @@ use ProjectA\Zed\Application\Communication\Plugin\ServiceProvider\EnvironmentInf
 use ProjectA\Zed\Application\Communication\Plugin\ServiceProvider\NewRelicServiceProvider;
 use ProjectA\Zed\Application\Communication\Plugin\ServiceProvider\PropelServiceProvider;
 use ProjectA\Zed\Application\Communication\Plugin\ServiceProvider\RequestServiceProvider;
-use ProjectA\Zed\Application\Communication\Plugin\ServiceProvider\SessionServiceProvider;
 use ProjectA\Zed\Application\Communication\Plugin\ServiceProvider\SslServiceProvider;
 use ProjectA\Zed\Application\Communication\Plugin\ServiceProvider\TranslationServiceProvider;
 use ProjectA\Zed\Application\Communication\Plugin\ServiceProvider\TwigServiceProvider;
 use ProjectA\Zed\Cms\Communication\Plugin\ServiceProvider\CmsServiceProvider;
 use ProjectA\Zed\Kernel\Locator;
 use Silex\Provider\FormServiceProvider;
+use Silex\Provider\SecurityServiceProvider;
 use Silex\Provider\ServiceControllerServiceProvider;
 use Silex\Provider\ValidatorServiceProvider;
 use Silex\Provider\WebProfilerServiceProvider;
 use Symfony\Component\HttpFoundation\Request;
+use Silex\Provider\SessionServiceProvider;
 
 class ZedBootstrap extends Bootstrap
 {
@@ -83,6 +84,9 @@ class ZedBootstrap extends Bootstrap
         $locator = Locator::getInstance();
 
         $providers = [
+            new SessionServiceProvider(),
+            new PropelServiceProvider(),
+            $locator->application()->pluginSession(),
             $locator->auth()->pluginBootstrapAuthBootstrapProvider(),
             new RequestServiceProvider(),
             new SslServiceProvider(),
@@ -94,8 +98,6 @@ class ZedBootstrap extends Bootstrap
             new TwigServiceProvider(),
             new EnvironmentInformationServiceProvider(),
             new TranslationServiceProvider(),
-            new SessionServiceProvider(),
-            new PropelServiceProvider(),
             $this->getSdkServiceProvider(),
             new UrlGeneratorServiceProvider(),
             new CmsServiceProvider(),
