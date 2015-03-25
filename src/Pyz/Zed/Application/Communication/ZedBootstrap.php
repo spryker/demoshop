@@ -83,11 +83,11 @@ class ZedBootstrap extends Bootstrap
         $locator = Locator::getInstance();
 
         $providers = [
+            $locator->auth()->pluginBootstrapAuthBootstrapProvider(),
             new RequestServiceProvider(),
             new SslServiceProvider(),
             new ServiceControllerServiceProvider(),
             new RoutingServiceProvider(),
-            $locator->auth()->pluginBootstrapAuthBootstrapProvider(),
             $locator->acl()->pluginBootstrapAclBootstrapProvider(),
             new ValidatorServiceProvider(),
             new FormServiceProvider(),
