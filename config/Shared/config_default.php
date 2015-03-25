@@ -23,7 +23,6 @@ $config[SystemConfig::CURRENT_APPLICATION_ENV] = APPLICATION_ENV;
 
 $config[SystemConfig::PROJECT_TIMEZONE] = 'UTC';
 $config[SystemConfig::PROJECT_NAMESPACE] = 'Pyz';
-$config[SystemConfig::CODE_GENERATORS] = ['transfer', 'zed', 'yves'];
 
 $config[DbDumpConfig::DB_DUMP_USERNAME] = '';
 $config[DbDumpConfig::DB_DUMP_PASSWORD] = '';
@@ -45,13 +44,13 @@ $config[SystemConfig::HOST_YVES]
     = $config[SystemConfig::HOST_SSL_YVES]
     = $config[SystemConfig::HOST_SSL_STATIC_ASSETS]
     = $config[SystemConfig::HOST_SSL_STATIC_MEDIA]
-    = 'www-development.project-yz.de';
+    = 'www.spryker.dev';
 
 $config[SystemConfig::HOST_ZED_GUI]
     = $config[SystemConfig::HOST_ZED_API]
     = $config[SystemConfig::HOST_SSL_ZED_GUI]
     = $config[SystemConfig::HOST_SSL_ZED_API]
-    = 'zed-development.project-yz.de';
+    = 'zed.spryker.dev';
 
 $config[SystemConfig::LOG_LEVEL] = Monolog\Logger::INFO;
 $config[SystemConfig::LOG_PROPEL_SQL] = true;

@@ -17,7 +17,7 @@ return [
     // Project bundles
     Config::get(SystemConfig::PROJECT_NAMESPACE) => [],
     // Core bundles
-    ProjectA\Shared\Library\Bundle\BundleConfig::NAMESPACE_CORE => [
+    ProjectA\Shared\Library\Bundle\BundleConfig::VENDOR => [
         'Acl' => $schemaAndNavigation,
         'Cart' => $schema,
         'Cms' => $allElements,
@@ -39,11 +39,8 @@ return [
         'Setup' => $navigation,
         'Stock' => $schema,
         'System' => $navigation,
-        'UiExample' => $schemaAndNavigation
-    ],
-
-    \ProjectA\Shared\Library\Bundle\BundleConfig::NAMESPACE_SPRYKERCORE => [
+        'UiExample' => $schemaAndNavigation,
         'Locale' => $schema,
         'Touch' => $schema
-    ]
+    ],
 ];
