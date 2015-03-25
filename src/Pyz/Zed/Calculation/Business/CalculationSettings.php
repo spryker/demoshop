@@ -18,19 +18,19 @@ class CalculationSettings extends CoreCalculationSettings
     public function getCalculatorStack()
     {
         return [
-            $this->locator->discount()->pluginRemoveTotalsCalculatorPlugin(),
-            $this->locator->discount()->pluginRemoveAllExpensesCalculatorPlugin(),
-            $this->locator->discount()->pluginRemoveAllCalculatedDiscountsCalculatorPlugin(),
-            $this->locator->discount()->pluginExpenseTotalsCalculatorPlugin(),
-            $this->locator->discount()->pluginSubtotalTotalsCalculatorPlugin(),
-            $this->locator->discount()->pluginSubtotalWithoutItemExpenseTotalsCalculatorPlugin(),
-            $this->locator->discount()->pluginGrandTotalWithoutDiscountsTotalsCalculatorPlugin(),
-            $this->locator->discount()->pluginExpensePriceToPayCalculatorPlugin(),
-            $this->locator->discount()->pluginItemPriceToPayCalculatorPlugin(),
-            $this->locator->discount()->pluginOptionPriceToPayCalculatorPlugin(),
-            $this->locator->discount()->pluginDiscountTotalsCalculatorPlugin(),
-            $this->locator->discount()->pluginGrandTotalTotalsCalculatorPlugin(),
-            $this->locator->discount()->pluginTaxTotalsCalculatorPlugin(),
+            $this->locator->calculation()->pluginRemoveTotalsCalculatorPlugin(),
+            $this->locator->calculation()->pluginRemoveAllExpensesCalculatorPlugin(),
+            $this->locator->calculation()->pluginRemoveAllCalculatedDiscountsCalculatorPlugin(),
+            $this->locator->calculation()->pluginExpenseTotalsCalculatorPlugin(),
+            $this->locator->calculation()->pluginSubtotalTotalsCalculatorPlugin(),
+//            $this->locator->calculation()->pluginSubtotalWithoutItemExpenseTotalsCalculatorPlugin(),
+            $this->locator->calculation()->pluginGrandTotalWithoutDiscountsTotalsCalculatorPlugin(),
+            $this->locator->calculation()->pluginExpensePriceToPayCalculatorPlugin(),
+            $this->locator->calculation()->pluginItemPriceToPayCalculatorPlugin(),
+            $this->locator->calculation()->pluginOptionPriceToPayCalculatorPlugin(),
+            $this->locator->calculation()->pluginDiscountTotalsCalculatorPlugin(),
+            $this->locator->calculation()->pluginGrandTotalTotalsCalculatorPlugin(),
+            $this->locator->calculation()->pluginTaxTotalsCalculatorPlugin(),
         ];
     }
 }

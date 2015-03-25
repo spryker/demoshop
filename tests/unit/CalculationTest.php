@@ -1,9 +1,9 @@
 <?php
 
-use ProjectA\Shared\Library\TransferLoader;
 use ProjectA\Shared\Sales\Transfer\Order;
 use ProjectA\Shared\Sales\Transfer\OrderItem;
 use \ProjectA\Zed\Calculation\Business\CalculationFacade;
+use \ProjectA\Zed\Kernel\Locator;
 
 /**
  * Class CalculationTest
@@ -18,6 +18,11 @@ class CalculationTest extends \Codeception\TestCase\Test
     const ORDER_SHIPPING_COSTS = 2000;
 
     /**
+     * @var \Generated\Zed\Ide\AutoCompletion
+     */
+    protected $locator;
+
+    /**
      * @var CalculationFacade
      */
     private $facadeCalculation;
@@ -25,7 +30,8 @@ class CalculationTest extends \Codeception\TestCase\Test
     protected function setUp()
     {
         parent::setUp();
-        $this->facadeCalculation = (new \ProjectA\Zed\Kernel\Business\FacadeLocator())->locate('Calculation');
+        $this->locator = Locator::getInstance();
+        $this->facadeCalculation = $this->locator->calculation()->facade();
     }
 
     /**
@@ -34,15 +40,15 @@ class CalculationTest extends \Codeception\TestCase\Test
     protected function getOrder()
     {
         /* @var Order $order */
-        $order = TransferLoader::loadSalesOrder();
+        $order = $this->locator->sales()->transferOrder();
         $order->fillWithFixtureData();
 
-        $expense = TransferLoader::loadSalesPriceExpense();
+        $expense = $this->locator->sales()->transferPriceExpense();
         $expense->fillWithFixtureData();
         $expense->setGrossPrice(self::EXPENSE_1000);
 
         /* @var OrderItem $item */
-        $item = TransferLoader::loadSalesOrderItem();
+        $item = $this->locator->sales()->transferOrderItem();
         $item->fillWithFixtureData();
         $item->setGrossPrice(self::ITEM_GROSS_PRICE);
         $item->addExpense($expense);
@@ -52,9 +58,12 @@ class CalculationTest extends \Codeception\TestCase\Test
         return $order;
     }
 
+    /**
+     * @return \ProjectA\Shared\Sales\Transfer\Price\Totals
+     */
     protected function getTotals()
     {
-        return '';
+        return $this->locator->sales()->transferPriceTotals();
     }
 
     /**
