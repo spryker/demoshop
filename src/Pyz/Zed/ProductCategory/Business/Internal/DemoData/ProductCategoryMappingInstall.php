@@ -49,7 +49,7 @@ class ProductCategoryMappingInstall extends AbstractInstaller
     /**
      * @param $locale
      * @return array
-     * @throws \Propel\Runtime\Exception\PropelException
+     * @throws PropelException
      */
     protected function installProductCategories($locale)
     {

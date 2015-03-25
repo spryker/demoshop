@@ -23,7 +23,8 @@ return [
         'Auth' => $navigation
     ],
     // Core bundles
-    ProjectA\Shared\Library\Bundle\BundleConfig::NAMESPACE_CORE => [
+
+    ProjectA\Shared\Library\Bundle\BundleConfig::VENDOR => [
         'Cart' => $schema,
         'Cms' => $allElements,
         'Category' => $schemaAndNavigation,
@@ -43,11 +44,8 @@ return [
         'Setup' => $navigation,
         'Stock' => $schema,
         'System' => $navigation,
-        'UiExample' => $schemaAndNavigation
-    ],
-
-    \ProjectA\Shared\Library\Bundle\BundleConfig::NAMESPACE_SPRYKERCORE => [
+        'UiExample' => $schemaAndNavigation,
         'Locale' => $schema,
         'Touch' => $schema
-    ]
+    ],
 ];
