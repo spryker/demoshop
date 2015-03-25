@@ -60,10 +60,21 @@ _gulp.task('clean-fonts', function(done) {
 });
 
 
+_gulp.task('copy-pub', function() {
+	return _gulp.src([
+		_path.join(_dirBase, _directories['source'], '*'),
+		_path.join(_dirBase, _directories['source'], '**/*.html')
+	], {
+		dot : true
+	})
+		.pipe(_gulp.dest(_path.join(_dirBase, _directories['target'])));
+});
+
+
 _gulp.task('dev-lint-js', function() {
 	return _gulp
 		.src(_path.join(_dirBase, _directories['source'], _dirJs, '**/*.{js,json}'))
-		.pipe(_jshint(_path.join(_dirBase, _directories['source'], '.jshintrc')))
+		.pipe(_jshint('config/Yves/.jshintrc'))
 		.pipe(_jshint.reporter('default'))
 		/*.pipe(_jshint.reporter('fail'))*/;
 });
@@ -121,7 +132,7 @@ _gulp.task('dev-ts', function(done) {
 _gulp.task('dist-lint-js', function() {
 	return _gulp
 		.src(_path.join(_dirBase, _directories['source'], _dirJs, '**/*.{js,json}'))
-		.pipe(_jshint(_path.join(_dirBase, _directories['source'], '.jshintrc-dist')))
+		.pipe(_jshint('config/Yves/.jshintrc-dist'))
 		.pipe(_jshint.reporter('default'))
 });
 
@@ -167,6 +178,7 @@ _gulp.task('dev', [
 	'clean-js',
 	'clean-images',
 	'clean-fonts',
+	'copy-pub',
 	'dev-lint-js',
 	'dev-css',
 	'dev-js',
@@ -180,6 +192,7 @@ _gulp.task('dist', [
 	'clean-js',
 	'clean-images',
 	'clean-fonts',
+	'copy-pub',
 	'dist-css',
 	'dist-js',
 	'dist-images',
