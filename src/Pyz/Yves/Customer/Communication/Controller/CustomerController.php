@@ -95,8 +95,6 @@ class CustomerController extends AbstractController
     {
         /** @var CustomerTransfer $customerTransfer */
         $customerTransfer = $this->locator->customer()->transferCustomer();
-        $customerTransfer->setEmail($this->getUser()->getUsername());
-        $customerTransfer = $this->locator->customer()->sdk()->getCustomer($customerTransfer);
 
         $form = $this->createForm(
             $this->locator->customer()
@@ -106,10 +104,20 @@ class CustomerController extends AbstractController
 
         if ($form->isValid()) {
             $customerTransfer->fromArray($form->getData());
-            $customerTransfer = $this->locator->customer()->sdk()->updateCustomer($customerTransfer);
+            $customerTransfer->setEmail($this->getUser()->getUsername());
+            $this->locator->customer()->sdk()->updateCustomer($customerTransfer);
+            return $this->redirectResponseInternal("profile");
         }
 
-        $form->setData($customerTransfer->toArray());
+        $customerTransfer->setEmail($this->getUser()->getUsername());
+        $customerTransfer = $this->locator->customer()->sdk()->getCustomer($customerTransfer);
+        $form->setData([
+            "firstName" => $customerTransfer->getFirstName(),
+            "middleName" => $customerTransfer->getMiddleName(),
+            "lastName" => $customerTransfer->getLastName(),
+            "company" => $customerTransfer->getCompany(),
+            "dateOfBirth" => $customerTransfer->getDateOfBirth(),
+        ]);
 
         return ["form" => $form->createView()];
     }
