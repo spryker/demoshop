@@ -23,8 +23,8 @@ class CustomerController extends AbstractController
     {
         $this->locator->customer()
             ->pluginSecurityService()
-            ->createUserProvider()
-            ->logout($this->getUser()->getUsername());
+            ->createUserProvider($this->getSession())
+            ->logout($this->getUsername());
         return $this->redirectResponseInternal("home");
     }
 
@@ -90,7 +90,7 @@ class CustomerController extends AbstractController
         $form = $this->createForm(
             $this->locator->customer()
                 ->pluginSecurityService()
-                ->createFormReset()
+                ->createFormRestore()
         );
 
         if ($form->isValid()) {
@@ -100,14 +100,13 @@ class CustomerController extends AbstractController
             $this->locator->customer()->sdk()->restorePassword($customerTransfer);
             $this->locator->customer()
                 ->pluginSecurityService()
-                ->createUserProvider()
-                ->logout($this->getUser()->getUsername());
+                ->createUserProvider($this->getSession())
+                ->logout($this->getUsername());
             return $this->redirectResponseInternal("login");
         }
 
         return ["form" => $form->createView()];
     }
-
 
     public function deleteAction()
     {
@@ -120,12 +119,12 @@ class CustomerController extends AbstractController
         if ($form->isValid()) {
             /** @var CustomerTransfer $customerTransfer */
             $customerTransfer = $this->locator->customer()->transferCustomer();
-            $customerTransfer->setEmail($this->getUser()->getUsername());
+            $customerTransfer->setEmail($this->getUsername());
             if ($this->locator->customer()->sdk()->deleteCustomer($customerTransfer)) {
                 $this->locator->customer()
                     ->pluginSecurityService()
-                    ->createUserProvider()
-                    ->logout($this->getUser()->getUsername());
+                    ->createUserProvider($this->getSession())
+                    ->logout($this->getUsername());
                 return $this->redirectResponseInternal("home");
             } else {
                 $this->addMessageError("customer.delete.failed");
@@ -148,12 +147,12 @@ class CustomerController extends AbstractController
 
         if ($form->isValid()) {
             $customerTransfer->fromArray($form->getData());
-            $customerTransfer->setEmail($this->getUser()->getUsername());
+            $customerTransfer->setEmail($this->getUsername());
             $this->locator->customer()->sdk()->updateCustomer($customerTransfer);
             return $this->redirectResponseInternal("profile");
         }
 
-        $customerTransfer->setEmail($this->getUser()->getUsername());
+        $customerTransfer->setEmail($this->getUsername());
         $customerTransfer = $this->locator->customer()->sdk()->getCustomer($customerTransfer);
         $form->setData([
             "firstName" => $customerTransfer->getFirstName(),
@@ -164,5 +163,14 @@ class CustomerController extends AbstractController
         ]);
 
         return ["form" => $form->createView()];
+    }
+
+    protected function getUsername()
+    {
+        $user = $this->getUser();
+        if (is_string($user)) {
+            return $user;
+        }
+        return $user->getUsername();
     }
 }
