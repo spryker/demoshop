@@ -19,11 +19,11 @@ class CustomerController extends AbstractController
         ];
     }
 
-    public function logoutAction()
+    public function logoutAction(Request $request)
     {
         $this->locator->customer()
             ->pluginSecurityService()
-            ->createUserProvider($this->getSession())
+            ->createUserProvider($request->getSession())
             ->logout($this->getUsername());
         return $this->redirectResponseInternal("home");
     }
@@ -100,7 +100,7 @@ class CustomerController extends AbstractController
             $this->locator->customer()->sdk()->restorePassword($customerTransfer);
             $this->locator->customer()
                 ->pluginSecurityService()
-                ->createUserProvider($this->getSession())
+                ->createUserProvider($request->getSession())
                 ->logout($this->getUsername());
             return $this->redirectResponseInternal("login");
         }
@@ -108,7 +108,7 @@ class CustomerController extends AbstractController
         return ["form" => $form->createView()];
     }
 
-    public function deleteAction()
+    public function deleteAction(Request $request)
     {
         $form = $this->createForm(
             $registration = $this->locator->customer()
@@ -123,7 +123,7 @@ class CustomerController extends AbstractController
             if ($this->locator->customer()->sdk()->deleteCustomer($customerTransfer)) {
                 $this->locator->customer()
                     ->pluginSecurityService()
-                    ->createUserProvider($this->getSession())
+                    ->createUserProvider($request->getSession())
                     ->logout($this->getUsername());
                 return $this->redirectResponseInternal("home");
             } else {
