@@ -65,6 +65,50 @@ class CustomerController extends AbstractController
         return $this->redirectResponseInternal("home");
     }
 
+    public function forgotPasswordAction()
+    {
+        $form = $this->createForm(
+            $this->locator->customer()
+                ->pluginSecurityService()
+                ->createFormForgot()
+        );
+
+        if ($form->isValid()) {
+            /** @var CustomerTransfer $customerTransfer */
+            $customerTransfer = $this->locator->customer()->transferCustomer();
+            $customerTransfer->setEmail($form->getData()["email"]);
+            $this->locator->customer()->sdk()->forgotPassword($customerTransfer);
+            $this->addMessageSuccess("customer.password.recovery.mail.sent");
+            return $this->redirectResponseInternal("home");
+        }
+
+        return ["form" => $form->createView()];
+    }
+
+    public function restorePasswordAction(Request $request)
+    {
+        $form = $this->createForm(
+            $this->locator->customer()
+                ->pluginSecurityService()
+                ->createFormReset()
+        );
+
+        if ($form->isValid()) {
+            /** @var CustomerTransfer $customerTransfer */
+            $customerTransfer = $this->locator->customer()->transferCustomer();
+            $customerTransfer->setRestorePasswordKey($request->query->get("token"));
+            $this->locator->customer()->sdk()->restorePassword($customerTransfer);
+            $this->locator->customer()
+                ->pluginSecurityService()
+                ->createUserProvider()
+                ->logout($this->getUser()->getUsername());
+            return $this->redirectResponseInternal("login");
+        }
+
+        return ["form" => $form->createView()];
+    }
+
+
     public function deleteAction()
     {
         $form = $this->createForm(
