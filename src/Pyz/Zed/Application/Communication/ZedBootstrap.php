@@ -136,7 +136,8 @@ class ZedBootstrap extends Bootstrap
             'store' => \ProjectA_Shared_Library_Store::getInstance()->getStoreName(),
             'identity' => (Auth::getInstance()->hasIdentity()) ? Auth::getInstance()->getIdentity() : false,
             'title' => Config::get(SystemConfig::PROJECT_NAMESPACE) . ' | Zed | ' . ucfirst(APPLICATION_ENV),
-            'currentController' => get_class($this)
+            'currentController' => get_class($this),
+            'navigation' => $this->getNavigation(),
         ];
     }
 
@@ -159,6 +160,14 @@ class ZedBootstrap extends Bootstrap
         $sdkServiceProvider->setControllerListener($controllerListener);
 
         return $sdkServiceProvider;
+    }
+
+    /**
+     * @return array
+     */
+    public function getNavigation()
+    {
+        return $this->getLocator()->application()->pluginNavigation()->buildNavigation();
     }
 }
 
