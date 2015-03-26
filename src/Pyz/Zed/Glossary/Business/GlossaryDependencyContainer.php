@@ -10,14 +10,14 @@ class GlossaryDependencyContainer extends SprykerGlossaryDependencyContainer
 {
 
     /**
-     * @param LoggerInterface $logger
+     * @param LoggerInterface $messenger
      *
      * @return GlossaryInstall
      */
-    public function getDemoDataInstaller(LoggerInterface $logger = null)
+    public function getDemoDataInstaller(LoggerInterface $messenger = null)
     {
         $installer = $this->factory->createInternalDemoDataGlossaryInstall($this->locator);
-        $installer->setLogger($logger);
+        $installer->setMessenger($messenger);
 
         return $installer;
     }

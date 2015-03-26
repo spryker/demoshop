@@ -16,16 +16,16 @@ class PriceDependencyContainer extends SprykerPriceDependencyContainer
     protected $factory;
 
     /**
-     * @param LoggerInterface $logger
+     * @param LoggerInterface $messenger
      *
      * @return PriceInstall
      */
-    public function getDemoDataInstaller(LoggerInterface $logger = null)
+    public function getDemoDataInstaller(LoggerInterface $messenger = null)
     {
         $installer = $this->factory->createInternalDemoDataPriceInstall(
             $this->locator->price()->facade()
         );
-        $installer->setLogger($logger);
+        $installer->setMessenger($messenger);
 
         return $installer;
     }

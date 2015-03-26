@@ -14,10 +14,10 @@ class ProductCategoryFacade extends AbstractFacade
     protected $dependencyContainer;
 
     /**
-     * @param LoggerInterface $logger
+     * @param LoggerInterface $messenger
      */
-    public function installDemoData(LoggerInterface $logger = null)
+    public function installDemoData(LoggerInterface $messenger = null)
     {
-        $this->dependencyContainer->getDemoDataInstaller($logger)->install();
+        $this->dependencyContainer->getDemoDataInstaller($messenger)->install();
     }
 }
