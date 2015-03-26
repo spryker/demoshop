@@ -57,6 +57,14 @@ _gulp.task('clean-fonts', function(done) {
 });
 
 
+_gulp.task('copy-pub', function() {
+	return _gulp.src('static/assets/Zed/*', {
+		dot : true
+	})
+		.pipe(_gulp.dest('static/public/Zed'));
+});
+
+
 _gulp.task('copy-css', ['clean-css'], function() {
 	return _copy('css');
 });
@@ -101,6 +109,7 @@ _gulp.task('dev', [
 	'clean-js',
 	'clean-images',
 	'clean-fonts',
+	'copy-pub',
 	'copy-css',
 	'copy-js',
 	'copy-images',
@@ -112,6 +121,7 @@ _gulp.task('dist', [
 	'clean-js',
 	'clean-images',
 	'clean-fonts',
+	'copy-pub',
 	'copy-css',
 	'copy-js',
 	'copy-images',
@@ -125,6 +135,7 @@ _gulp.task('dev-all', ['core-dev'], function(done) {
 		'clean-js',
 		'clean-images',
 		'clean-fonts',
+		'copy-pub',
 		'copy-css',
 		'copy-js',
 		'copy-images',
@@ -138,6 +149,7 @@ _gulp.task('dist-all', ['core-dist'], function(done) {
 		'clean-js',
 		'clean-images',
 		'clean-fonts',
+		'copy-pub',
 		'copy-css',
 		'copy-js',
 		'copy-images',
