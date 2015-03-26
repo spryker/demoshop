@@ -2,12 +2,9 @@
 
 use ProjectA\Shared\Sales\Transfer\Order;
 use ProjectA\Shared\Sales\Transfer\OrderItem;
-use \ProjectA\Zed\Calculation\Business\CalculationFacade;
-use \ProjectA\Zed\Kernel\Locator;
+use ProjectA\Zed\Calculation\Business\CalculationFacade;
+use ProjectA\Zed\Kernel\Locator;
 
-/**
- * Class CalculationTest
- */
 class CalculationTest extends \Codeception\TestCase\Test
 {
 
@@ -35,11 +32,12 @@ class CalculationTest extends \Codeception\TestCase\Test
     }
 
     /**
+     * @var Order $order
+     * @var OrderItem $item
      * @return Order
      */
     protected function getOrder()
     {
-        /* @var Order $order */
         $order = $this->locator->sales()->transferOrder();
         $order->fillWithFixtureData();
 
@@ -47,7 +45,6 @@ class CalculationTest extends \Codeception\TestCase\Test
         $expense->fillWithFixtureData();
         $expense->setGrossPrice(self::EXPENSE_1000);
 
-        /* @var OrderItem $item */
         $item = $this->locator->sales()->transferOrderItem();
         $item->fillWithFixtureData();
         $item->setGrossPrice(self::ITEM_GROSS_PRICE);

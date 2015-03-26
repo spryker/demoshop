@@ -2,7 +2,7 @@
 
 namespace Pyz\Zed\Calculation\Business;
 
-use \ProjectA\Zed\Calculation\Business\CalculationSettings as CoreCalculationSettings;
+use ProjectA\Zed\Calculation\Business\CalculationSettings as CoreCalculationSettings;
 use ProjectA\Zed\Calculation\Dependency\Plugin\CalculatorPluginInterface;
 use ProjectA\Zed\Calculation\Dependency\Plugin\TotalsCalculatorPluginInterface;
 
@@ -23,7 +23,7 @@ class CalculationSettings extends CoreCalculationSettings
             $this->locator->calculation()->pluginRemoveAllCalculatedDiscountsCalculatorPlugin(),
             $this->locator->calculation()->pluginExpenseTotalsCalculatorPlugin(),
             $this->locator->calculation()->pluginSubtotalTotalsCalculatorPlugin(),
-//            $this->locator->calculation()->pluginSubtotalWithoutItemExpenseTotalsCalculatorPlugin(),
+            $this->locator->calculation()->pluginSubtotalWithoutItemExpensesTotalsCalculatorPlugin(),
             $this->locator->calculation()->pluginGrandTotalWithoutDiscountsTotalsCalculatorPlugin(),
             $this->locator->calculation()->pluginExpensePriceToPayCalculatorPlugin(),
             $this->locator->calculation()->pluginItemPriceToPayCalculatorPlugin(),
