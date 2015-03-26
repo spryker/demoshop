@@ -4,7 +4,6 @@ namespace Pyz\Yves\Customer\Communication\Controller;
 use SprykerCore\Yves\Application\Communication\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use ProjectA\Shared\Customer\Transfer\Customer as CustomerTransfer;
-use SprykerFeature\Yves\Customer\Form\Register;
 
 class CustomerController extends AbstractController
 {
@@ -22,17 +21,20 @@ class CustomerController extends AbstractController
 
     public function logoutAction()
     {
+        $this->locator->customer()
+            ->pluginSecurityService()
+            ->createUserProvider()
+            ->logout($this->getUser()->getUsername());
         return $this->redirectResponseInternal("home");
     }
 
     public function registerAction()
     {
-        /** @var Register $register */
-        $registration = $this->locator->customer()
-            ->pluginSecurityService()
-            ->createFormRegister();
-
-        $form = $this->createForm($registration);
+        $form = $this->createForm(
+            $registration = $this->locator->customer()
+                ->pluginSecurityService()
+                ->createFormRegister()
+        );
 
         if ($form->isValid()) {
             /** @var CustomerTransfer $customerTransfer */
@@ -59,7 +61,56 @@ class CustomerController extends AbstractController
             $this->addMessageSuccess("customer.registration.confirmed");
             return $this->redirectResponseInternal("login");
         }
-        $this->addMessageError("customer.registrationtoken.timeout");
+        $this->addMessageError("customer.registration.timeout");
         return $this->redirectResponseInternal("home");
+    }
+
+    public function deleteAction()
+    {
+        $form = $this->createForm(
+            $registration = $this->locator->customer()
+                ->pluginSecurityService()
+                ->createFormDelete()
+        );
+
+        if ($form->isValid()) {
+            /** @var CustomerTransfer $customerTransfer */
+            $customerTransfer = $this->locator->customer()->transferCustomer();
+            $customerTransfer->setEmail($this->getUser()->getUsername());
+            if ($this->locator->customer()->sdk()->deleteCustomer($customerTransfer)) {
+                $this->locator->customer()
+                    ->pluginSecurityService()
+                    ->createUserProvider()
+                    ->logout($this->getUser()->getUsername());
+                return $this->redirectResponseInternal("home");
+            } else {
+                $this->addMessageError("customer.delete.failed");
+            }
+        }
+
+        return ["form" => $form->createView()];
+    }
+
+    public function profileAction()
+    {
+        /** @var CustomerTransfer $customerTransfer */
+        $customerTransfer = $this->locator->customer()->transferCustomer();
+        $customerTransfer->setEmail($this->getUser()->getUsername());
+        $customerTransfer = $this->locator->customer()->sdk()->getCustomer($customerTransfer);
+
+        $form = $this->createForm(
+            $this->locator->customer()
+                ->pluginCustomerProfile()
+                ->createFormProfile()
+        );
+
+        if ($form->isValid()) {
+            $customerTransfer->fromArray($form->getData());
+            $customerTransfer = $this->locator->customer()->sdk()->updateCustomer($customerTransfer);
+        }
+
+        $form->setData($customerTransfer->toArray());
+
+        return ["form" => $form->createView()];
     }
 }

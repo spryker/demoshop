@@ -31,7 +31,7 @@ use ProjectA\Shared\Application\Business\Routing\SilexRouter;
 
 use ProjectA\Yves\Library\Tracking\Tracking;
 use Silex\Provider\FormServiceProvider;
-//use Silex\Provider\RememberMeServiceProvider;
+use Silex\Provider\RememberMeServiceProvider;
 use Silex\Provider\ServiceControllerServiceProvider;
 use Silex\Provider\ValidatorServiceProvider;
 use Silex\Provider\WebProfilerServiceProvider;
@@ -127,7 +127,7 @@ class YvesBootstrap extends Bootstrap
             new UrlGeneratorServiceProvider(),
             new ServiceControllerServiceProvider(),
             $securityServiceProvider,
-//            new RememberMeServiceProvider(),
+            new RememberMeServiceProvider(),
             new RoutingServiceProvider(),
             $translationServiceProvider,
             new ValidatorServiceProvider(),
