@@ -15,4 +15,24 @@ class CustomerDependencyContainer extends CoreCustomerDependencyContainer
     {
         return $this->factory->create("Form\\Register");
     }
+
+    public function createFormDelete()
+    {
+        return $this->factory->create("Form\\Delete");
+    }
+
+    public function createFormForgot()
+    {
+        return $this->factory->create("Form\\Forgot");
+    }
+
+    public function createFormProfile()
+    {
+        return $this->factory->create("Form\\Profile");
+    }
+
+    public function createFormRestore()
+    {
+        return $this->factory->create("Form\\Restore");
+    }
 }

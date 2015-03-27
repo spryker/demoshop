@@ -36,8 +36,7 @@ class CustomerController extends AbstractController
         if ($form->isValid()) {
             /** @var CustomerTransfer $customerTransfer */
             $customerTransfer = $this->locator->customer()->transferCustomer();
-            $customerTransfer->setEmail($form->getData()["email"]);
-            $customerTransfer->setPassword($form->getData()["password"]);
+            $customerTransfer->fromArray($form->getData());
             $customerTransfer = $this->locator->customer()->sdk()->registerCustomer($customerTransfer);
             if ($customerTransfer->getRegistrationKey()) {
                 $this->addMessageWarning("customer.registration.success");
@@ -69,7 +68,7 @@ class CustomerController extends AbstractController
         if ($form->isValid()) {
             /** @var CustomerTransfer $customerTransfer */
             $customerTransfer = $this->locator->customer()->transferCustomer();
-            $customerTransfer->setEmail($form->getData()["email"]);
+            $customerTransfer->fromArray($form->getData());
             $this->locator->customer()->sdk()->forgotPassword($customerTransfer);
             $this->addMessageSuccess("customer.password.recovery.mail.sent");
             return $this->redirectResponseInternal("home");
@@ -135,13 +134,7 @@ class CustomerController extends AbstractController
 
         $customerTransfer->setEmail($this->getUsername());
         $customerTransfer = $this->locator->customer()->sdk()->getCustomer($customerTransfer);
-        $form->setData([
-            "firstName" => $customerTransfer->getFirstName(),
-            "middleName" => $customerTransfer->getMiddleName(),
-            "lastName" => $customerTransfer->getLastName(),
-            "company" => $customerTransfer->getCompany(),
-            "dateOfBirth" => $customerTransfer->getDateOfBirth(),
-        ]);
+        $form->setData($customerTransfer->toArray());
 
         return [
             "form" => $form->createView(),
@@ -161,7 +154,7 @@ class CustomerController extends AbstractController
         if ($form->isValid()) {
             /** @var AddressTransfer $addressTransfer */
             $addressTransfer = $this->locator->customer()->transferAddress();
-            $this->addressFormToTransfer($form, $addressTransfer);
+            $addressTransfer->fromArray($form->getData());
             $this->locator->customer()->sdk()->newAddress($addressTransfer);
             $this->addMessageSuccess("customer.address.added");
             return $this->redirectResponseInternal("profile");
@@ -171,34 +164,9 @@ class CustomerController extends AbstractController
         $customerTransfer = $this->locator->customer()->transferCustomer();
         $customerTransfer->setEmail($this->getUsername());
         $customerTransfer = $this->locator->customer()->sdk()->getCustomer($customerTransfer);
-        $form->setData([
-            "salutation" => $customerTransfer->getSalutation(),
-            "firstName" => $customerTransfer->getFirstName(),
-            "middleName" => $customerTransfer->getMiddleName(),
-            "lastName" => $customerTransfer->getLastName(),
-            "company" => $customerTransfer->getCompany(),
-        ]);
+        $form->setData($customerTransfer->toArray());
 
         return ["form" => $form->createView()];
-    }
-
-    protected function addressFormToTransfer($form, AddressTransfer $addressTransfer)
-    {
-        $addressTransfer->setSalutation($form->getData()["salutation"]);
-        $addressTransfer->setFirstName($form->getData()["firstName"]);
-        $addressTransfer->setMiddleName($form->getData()["middleName"]);
-        $addressTransfer->setLastName($form->getData()["lastName"]);
-        $addressTransfer->setCompany($form->getData()["company"]);
-        $addressTransfer->setAddress1($form->getData()["address1"]);
-        $addressTransfer->setAddress2($form->getData()["address2"]);
-        $addressTransfer->setAddress3($form->getData()["address3"]);
-        $addressTransfer->setCity($form->getData()["city"]);
-        $addressTransfer->setZipCode($form->getData()["zipCode"]);
-        $addressTransfer->setPoBox($form->getData()["poBox"]);
-        $addressTransfer->setPhone($form->getData()["phone"]);
-        $addressTransfer->setCellPhone($form->getData()["cellPhone"]);
-        $addressTransfer->setComment($form->getData()["comment"]);
-        return $addressTransfer;
     }
 
     protected function getUsername()
