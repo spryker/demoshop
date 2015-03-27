@@ -1,12 +1,12 @@
 <?php
 
 
-namespace Pyz\Zed\ProductFrontendExporterConnector\Communication;
+namespace Pyz\Zed\ProductFrontendExporterConnector\Persistence;
 
 use Generated\Zed\Ide\AutoCompletion;
 use ProjectA\Shared\Kernel\LocatorLocatorInterface;
-use ProjectA\Zed\ProductFrontendExporterConnector\Communication\Plugin\AdditionalProductQueryExpanderPluginInterface;
-use ProjectA\Zed\ProductFrontendExporterConnector\Communication\ProductFrontendExporterConnectorSettings as CoreSettings;
+use ProjectA\Zed\ProductFrontendExporterConnector\Dependency\Plugin\AdditionalProductQueryExpanderPluginInterface;
+use ProjectA\Zed\ProductFrontendExporterConnector\Persistence\ProductFrontendExporterConnectorSettings as CoreSettings;
 
 class ProductFrontendExporterConnectorSettings extends CoreSettings
 {
