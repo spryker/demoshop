@@ -54,6 +54,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   if Dir.exists?(PILLAR_DIRECTORY) && Dir.exists?(SALT_DIRECTORY)
     config.vm.synced_folder SALT_DIRECTORY,   "/srv/salt/"
     config.vm.synced_folder PILLAR_DIRECTORY, "/srv/pillar/"
+    config.vm.provision "shell", path: "bash/script.sh"
     config.vm.provision :salt do |salt|
       salt.minion_config = "salt/minion"
       salt.run_highstate = true
