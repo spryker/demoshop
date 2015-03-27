@@ -133,8 +133,6 @@ class ZedBootstrap extends Bootstrap
      */
     protected function globalTemplateVariables(Application $app)
     {
-        echo '<pre>' . print_r($this->getNavigation(), true) . '</pre>';
-        die;
         return [
             'environment' => APPLICATION_ENV,
             'store' => \ProjectA_Shared_Library_Store::getInstance()->getStoreName(),
