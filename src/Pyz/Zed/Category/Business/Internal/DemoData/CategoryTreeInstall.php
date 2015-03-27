@@ -94,8 +94,8 @@ class CategoryTreeInstall extends AbstractInstaller
      */
     protected function addRootNode(array $rawNode)
     {
-        $category = $this->categoryFacade->createCategory($rawNode[self::CATEGORY_NAME], $this->localeName);
-        $this->categoryFacade->createCategoryNode($category->getIdCategory(), $this->localeName);
+        $idCategory = $this->categoryFacade->createCategory($rawNode[self::CATEGORY_NAME], $this->localeName);
+        $this->categoryFacade->createCategoryNode($idCategory, $this->localeName);
     }
 
     /**
@@ -103,9 +103,9 @@ class CategoryTreeInstall extends AbstractInstaller
      */
     protected function addChild($rawNode)
     {
-        $category = $this->categoryFacade->createCategory($rawNode[self::CATEGORY_NAME], $this->localeName);
+        $idCategory = $this->categoryFacade->createCategory($rawNode[self::CATEGORY_NAME], $this->localeName);
         $parentId = $this->getParentId($rawNode);
-        $this->categoryFacade->createCategoryNode($category->getIdCategory(), $this->localeName, $parentId);
+        $this->categoryFacade->createCategoryNode($idCategory, $this->localeName, $parentId);
     }
 
     /**
