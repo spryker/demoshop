@@ -16,6 +16,8 @@ class CustomerControllerProvider extends YvesControllerProvider
     const ROUTE_PASSWORD_RESTORE = "restore";
     const ROUTE_DELETE = "delete";
     const ROUTE_CUSTOMER_PROFILE = "profile";
+    const ROUTE_CUSTOMER_ADDRESS = "address";
+    const ROUTE_CUSTOMER_NEWADDRESS = "new_address";
 
     protected function defineControllers(Application $app)
     {
@@ -28,5 +30,7 @@ class CustomerControllerProvider extends YvesControllerProvider
         $this->createController("/password/restore", self::ROUTE_PASSWORD_RESTORE, "Customer", "Customer", "restorePassword");
         $this->createController("/customer/delete", self::ROUTE_DELETE, "Customer", "Customer", "delete");
         $this->createController("/customer/profile", self::ROUTE_CUSTOMER_PROFILE, "Customer", "Customer", "profile");
+        $this->createController("/customer/address", self::ROUTE_CUSTOMER_ADDRESS, "Customer", "Customer", "address");
+        $this->createController("/customer/address/new", self::ROUTE_CUSTOMER_NEWADDRESS, "Customer", "Customer", "newAddress");
     }
 }

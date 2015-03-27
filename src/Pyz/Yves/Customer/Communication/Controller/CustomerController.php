@@ -4,6 +4,7 @@ namespace Pyz\Yves\Customer\Communication\Controller;
 use SprykerCore\Yves\Application\Communication\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use ProjectA\Shared\Customer\Transfer\Customer as CustomerTransfer;
+use ProjectA\Shared\Customer\Transfer\Address as AddressTransfer;
 
 class CustomerController extends AbstractController
 {
@@ -30,11 +31,7 @@ class CustomerController extends AbstractController
 
     public function registerAction()
     {
-        $form = $this->createForm(
-            $registration = $this->locator->customer()
-                ->pluginSecurityService()
-                ->createFormRegister()
-        );
+        $form = $this->createForm($this->dependencyContainer->createFormRegister());
 
         if ($form->isValid()) {
             /** @var CustomerTransfer $customerTransfer */
@@ -67,11 +64,7 @@ class CustomerController extends AbstractController
 
     public function forgotPasswordAction()
     {
-        $form = $this->createForm(
-            $this->locator->customer()
-                ->pluginSecurityService()
-                ->createFormForgot()
-        );
+        $form = $this->createForm($this->dependencyContainer->createFormForgot());
 
         if ($form->isValid()) {
             /** @var CustomerTransfer $customerTransfer */
@@ -87,11 +80,7 @@ class CustomerController extends AbstractController
 
     public function restorePasswordAction(Request $request)
     {
-        $form = $this->createForm(
-            $this->locator->customer()
-                ->pluginSecurityService()
-                ->createFormRestore()
-        );
+        $form = $this->createForm($this->locator->customer()->createFormRestore());
 
         if ($form->isValid()) {
             /** @var CustomerTransfer $customerTransfer */
@@ -110,11 +99,7 @@ class CustomerController extends AbstractController
 
     public function deleteAction(Request $request)
     {
-        $form = $this->createForm(
-            $registration = $this->locator->customer()
-                ->pluginSecurityService()
-                ->createFormDelete()
-        );
+        $form = $this->createForm($registration = $this->dependencyContainer->createFormDelete());
 
         if ($form->isValid()) {
             /** @var CustomerTransfer $customerTransfer */
@@ -139,11 +124,7 @@ class CustomerController extends AbstractController
         /** @var CustomerTransfer $customerTransfer */
         $customerTransfer = $this->locator->customer()->transferCustomer();
 
-        $form = $this->createForm(
-            $this->locator->customer()
-                ->pluginCustomerProfile()
-                ->createFormProfile()
-        );
+        $form = $this->createForm($this->dependencyContainer->createFormProfile());
 
         if ($form->isValid()) {
             $customerTransfer->fromArray($form->getData());
@@ -162,7 +143,62 @@ class CustomerController extends AbstractController
             "dateOfBirth" => $customerTransfer->getDateOfBirth(),
         ]);
 
+        return [
+            "form" => $form->createView(),
+            "addresses" => $customerTransfer->getAddresses(),
+        ];
+    }
+
+    public function addressAction()
+    {
+
+    }
+
+    public function newAddressAction()
+    {
+        $form = $this->createForm($this->dependencyContainer->createFormAddress());
+
+        if ($form->isValid()) {
+            /** @var AddressTransfer $addressTransfer */
+            $addressTransfer = $this->locator->customer()->transferAddress();
+            $this->addressFormToTransfer($form, $addressTransfer);
+            $this->locator->customer()->sdk()->newAddress($addressTransfer);
+            $this->addMessageSuccess("customer.address.added");
+            return $this->redirectResponseInternal("profile");
+        }
+
+        /** @var CustomerTransfer $customerTransfer */
+        $customerTransfer = $this->locator->customer()->transferCustomer();
+        $customerTransfer->setEmail($this->getUsername());
+        $customerTransfer = $this->locator->customer()->sdk()->getCustomer($customerTransfer);
+        $form->setData([
+            "salutation" => $customerTransfer->getSalutation(),
+            "firstName" => $customerTransfer->getFirstName(),
+            "middleName" => $customerTransfer->getMiddleName(),
+            "lastName" => $customerTransfer->getLastName(),
+            "company" => $customerTransfer->getCompany(),
+        ]);
+
         return ["form" => $form->createView()];
+    }
+
+    protected function addressFormToTransfer($form, AddressTransfer $addressTransfer)
+    {
+        $addressTransfer->setSalutation($form->getData()["salutation"]);
+        $addressTransfer->setFirstName($form->getData()["firstName"]);
+        $addressTransfer->setMiddleName($form->getData()["middleName"]);
+        $addressTransfer->setLastName($form->getData()["lastName"]);
+        $addressTransfer->setCompany($form->getData()["company"]);
+        $addressTransfer->setAddress1($form->getData()["address1"]);
+        $addressTransfer->setAddress2($form->getData()["address2"]);
+        $addressTransfer->setAddress3($form->getData()["address3"]);
+        $addressTransfer->setCity($form->getData()["city"]);
+        $addressTransfer->setZipCode($form->getData()["zipCode"]);
+        $addressTransfer->setPoBox($form->getData()["poBox"]);
+        $addressTransfer->setPhone($form->getData()["phone"]);
+        $addressTransfer->setCellPhone($form->getData()["cellPhone"]);
+        $addressTransfer->setComment($form->getData()["comment"]);
+        return $addressTransfer;
     }
 
     protected function getUsername()

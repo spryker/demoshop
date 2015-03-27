@@ -1,14 +1,8 @@
 {% extends "@application/layout/reduced.twig" %}
 
 {% block content %}
-    <h1>Profile</h1>
+    <h1>New Address</h1>
     {{ form_start(form) }}
     {{ form_widget(form) }}
     {{ form_end(form) }}
-
-    <div>
-        {% for address in addresses %}
-            hello, world
-        {% endfor %}
-    </div>
 {% endblock %}
