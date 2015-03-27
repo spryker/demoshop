@@ -17,20 +17,20 @@ class CustomerControllerProvider extends YvesControllerProvider
     const ROUTE_DELETE = "delete";
     const ROUTE_CUSTOMER_PROFILE = "profile";
     const ROUTE_CUSTOMER_ADDRESS = "address";
-    const ROUTE_CUSTOMER_NEWADDRESS = "new_address";
+    const ROUTE_CUSTOMER_NEW_ADDRESS = "new_address";
 
     protected function defineControllers(Application $app)
     {
         $this->createController("/login", self::ROUTE_LOGIN, "Customer", "Customer", "login");
         $this->createController("/login_check", self::ROUTE_LOGIN_CHECK, "Customer", "Customer", "loginCheck");
-        $this->createController("/logout", self::ROUTE_LOGOUT, "Customer", "Customer", "logout");
         $this->createController("/register", self::ROUTE_REGISTER, "Customer", "Customer", "register");
         $this->createController("/register/confirm", self::ROUTE_CONFIRM_REGISTRATION, "Customer", "Customer", "confirmRegistration");
         $this->createController("/password/forgot", self::ROUTE_PASSWORD_FORGOT, "Customer", "Customer", "forgotPassword");
         $this->createController("/password/restore", self::ROUTE_PASSWORD_RESTORE, "Customer", "Customer", "restorePassword");
+        $this->createController("/customer/logout", self::ROUTE_LOGOUT, "Customer", "Customer", "logout");
         $this->createController("/customer/delete", self::ROUTE_DELETE, "Customer", "Customer", "delete");
         $this->createController("/customer/profile", self::ROUTE_CUSTOMER_PROFILE, "Customer", "Customer", "profile");
         $this->createController("/customer/address", self::ROUTE_CUSTOMER_ADDRESS, "Customer", "Customer", "address");
-        $this->createController("/customer/address/new", self::ROUTE_CUSTOMER_NEWADDRESS, "Customer", "Customer", "newAddress");
+        $this->createController("/customer/address/new", self::ROUTE_CUSTOMER_NEW_ADDRESS, "Customer", "Customer", "newAddress");
     }
 }

@@ -98,7 +98,6 @@ class YvesBootstrap extends Bootstrap
     protected function afterBoot(Application $app)
     {
         $app['monolog.level'] = Config::get(SystemConfig::LOG_LEVEL);
-        $app["debug" ] = true; //DBG
     }
 
     /**
