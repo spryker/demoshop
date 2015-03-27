@@ -3,7 +3,7 @@
 namespace Pyz\Zed\ProductCategory\Business\Internal\DemoData;
 
 use ProjectA\Zed\Installer\Business\Model\AbstractInstaller;
-use ProjectA\Zed\Product\Business\Importer\Reader\File\IteratorReaderInterface;
+use ProjectA\Zed\Library\Import\ReaderInterface;
 use ProjectA\Zed\ProductCategory\Business\ProductCategoryManagerInterface;
 use ProjectA\Zed\ProductCategory\Dependency\Facade\ProductCategoryToCategoryInterface;
 use ProjectA\Zed\ProductCategory\Dependency\Facade\ProductCategoryToLocaleInterface;
@@ -19,7 +19,7 @@ class ProductCategoryMappingInstall extends AbstractInstaller
     protected $localeFacade;
 
     /**
-     * @var IteratorReaderInterface
+     * @var ReaderInterface
      */
     protected $reader;
 
@@ -48,7 +48,7 @@ class ProductCategoryMappingInstall extends AbstractInstaller
      * @param ProductCategoryToCategoryInterface $categoryFacade
      * @param ProductCategoryToProductInterface $productFacade
      * @param ProductCategoryToLocaleInterface $localeFacade
-     * @param IteratorReaderInterface $reader
+     * @param ReaderInterface $reader
      * @param string $csvPath
      */
     public function __construct(
@@ -56,7 +56,7 @@ class ProductCategoryMappingInstall extends AbstractInstaller
         ProductCategoryToCategoryInterface $categoryFacade,
         ProductCategoryToProductInterface $productFacade,
         ProductCategoryToLocaleInterface $localeFacade,
-        IteratorReaderInterface $reader,
+        ReaderInterface $reader,
         $csvPath
     ) {
         $this->localeFacade = $localeFacade;
@@ -98,11 +98,10 @@ class ProductCategoryMappingInstall extends AbstractInstaller
     }
 
     /**
-     * @return \Iterator
+     * @return array
      */
     protected function getDemoProductCategories()
     {
-        $splFileInfo = new \SplFileInfo($this->csvPath);
-        return $this->reader->getIteratorFromFile($splFileInfo);
+        return $this->reader->read($this->csvPath)->getData();
     }
 }
