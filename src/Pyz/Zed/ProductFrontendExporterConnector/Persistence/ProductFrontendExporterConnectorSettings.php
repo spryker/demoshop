@@ -29,7 +29,7 @@ class ProductFrontendExporterConnectorSettings extends CoreSettings
     public function getAdditionalPlugins()
     {
         return [
-            $this->locator->productFrontendExporterConnector()->pluginUrlProductQueryExpanderPlugin(),
+            $this->locator->productUrlExporter()->pluginUrlProductQueryExpanderPlugin(),
         ];
     }
 }
