@@ -15,7 +15,7 @@ class Restore extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add("restoreKey", "hidden")
+            ->add("restore_key", "hidden")
             ->add("password", "password", [
                 "label" => "Password"
             ])

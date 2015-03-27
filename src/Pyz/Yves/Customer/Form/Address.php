@@ -19,15 +19,15 @@ class Address extends AbstractType
                 "choices" => ["Mr", "Mrs", "Dr"],
                 "label" => "Salutation",
             ])
-            ->add("firstName", "text", [
+            ->add("first_name", "text", [
                 "label" => "First Name",
                 "required" => false,
             ])
-            ->add("middleName", "text", [
+            ->add("middle_name", "text", [
                 "label" => "Middle Name",
                 "required" => false,
             ])
-            ->add("lastName", "text", [
+            ->add("last_name", "text", [
                 "label" => "Last Name",
                 "required" => false,
             ])
@@ -51,11 +51,11 @@ class Address extends AbstractType
                 "label" => "City",
                 "required" => false,
             ])
-            ->add("zipCode", "text", [
+            ->add("zip_code", "text", [
                 "label" => "Zip Code",
                 "required" => false,
             ])
-            ->add("poBox", "text", [
+            ->add("po_box", "text", [
                 "label" => "PO Box",
                 "required" => false,
             ])
@@ -63,7 +63,7 @@ class Address extends AbstractType
                 "label" => "Phone",
                 "required" => false,
             ])
-            ->add("cellPhone", "text", [
+            ->add("cell_phone", "text", [
                 "label" => "Cell phone",
                 "required" => false,
             ])
