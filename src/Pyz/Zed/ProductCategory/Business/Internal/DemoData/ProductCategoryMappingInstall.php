@@ -2,17 +2,12 @@
 
 namespace Pyz\Zed\ProductCategory\Business\Internal\DemoData;
 
-use ProjectA\Zed\Category\Persistence\Propel\SpyCategoryNode;
-use ProjectA\Zed\Category\Persistence\Propel\SpyCategoryNodeQuery;
 use ProjectA\Zed\Installer\Business\Model\AbstractInstaller;
 use ProjectA\Zed\Product\Business\Importer\Reader\File\IteratorReaderInterface;
-use ProjectA\Zed\Product\Persistence\Propel\SpyProductQuery;
 use ProjectA\Zed\ProductCategory\Business\ProductCategoryManagerInterface;
 use ProjectA\Zed\ProductCategory\Dependency\Facade\ProductCategoryToCategoryInterface;
 use ProjectA\Zed\ProductCategory\Dependency\Facade\ProductCategoryToLocaleInterface;
 use ProjectA\Zed\ProductCategory\Dependency\Facade\ProductCategoryToProductInterface;
-use ProjectA\Zed\ProductCategory\Persistence\Propel\SpyProductCategory;
-use ProjectA\Zed\ProductCategory\Persistence\Propel\SpyProductCategoryQuery;
 use Propel\Runtime\Exception\PropelException;
 
 class ProductCategoryMappingInstall extends AbstractInstaller
