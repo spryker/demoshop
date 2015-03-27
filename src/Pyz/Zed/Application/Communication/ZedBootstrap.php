@@ -15,6 +15,7 @@ use ProjectA\Zed\Application\Business\Model\Router\MvcRouter;
 use ProjectA\Zed\Application\Business\Model\Twig\ZedExtension;
 use ProjectA\Zed\Application\Communication\Plugin\Pimple;
 use ProjectA\Zed\Application\Communication\Plugin\ServiceProvider\EnvironmentInformationServiceProvider;
+use ProjectA\Zed\Application\Communication\Plugin\ServiceProvider\Navigation;
 use ProjectA\Zed\Application\Communication\Plugin\ServiceProvider\NewRelicServiceProvider;
 use ProjectA\Zed\Application\Communication\Plugin\ServiceProvider\PropelServiceProvider;
 use ProjectA\Zed\Application\Communication\Plugin\ServiceProvider\RequestServiceProvider;
@@ -31,11 +32,12 @@ use ProjectA\Zed\Kernel\Locator;
 
 use ProjectA\Zed\Auth\Communication\Plugin\ServiceProvider\SecurityServiceProvider;
 
+use ProjectA\Zed\Sdk\Communication\Plugin\SdkServiceProviderPlugin;
 use Silex\Provider\FormServiceProvider;
 use Silex\Provider\ServiceControllerServiceProvider;
 use Silex\Provider\ValidatorServiceProvider;
 use Silex\Provider\WebProfilerServiceProvider;
-
+use Symfony\Component\HttpFoundation\Request;
 
 class ZedBootstrap extends Bootstrap
 {
@@ -131,6 +133,8 @@ class ZedBootstrap extends Bootstrap
      */
     protected function globalTemplateVariables(Application $app)
     {
+        echo '<pre>' . print_r($this->getNavigation(), true) . '</pre>';
+        die;
         return [
             'environment' => APPLICATION_ENV,
             'store' => \ProjectA_Shared_Library_Store::getInstance()->getStoreName(),
@@ -150,7 +154,7 @@ class ZedBootstrap extends Bootstrap
     }
 
     /**
-     * @return \ProjectA\Zed\Sdk\Communication\Plugin\SdkServiceProviderPlugin
+     * @return SdkServiceProviderPlugin
      */
     protected function getSdkServiceProvider()
     {
@@ -163,11 +167,15 @@ class ZedBootstrap extends Bootstrap
     }
 
     /**
-     * @return array
+     * @return string
      */
-    public function getNavigation()
+    protected function getNavigation()
     {
-        return $this->getLocator()->application()->pluginNavigation()->buildNavigation();
+        $request = Request::createFromGlobals();
+
+        return $this->getLocator()
+            ->application()
+            ->pluginNavigation()
+            ->buildNavigation($request->getPathInfo());
     }
 }
-
