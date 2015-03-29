@@ -975,7 +975,7 @@
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/zed.git",
-                "reference": "251d0495db980e54962f25c78f5742cc4242f58b"
+                "reference": "22d8ce80600f9106237ed0d994ef93f1d1dacb51"
             },
             "require": {
                 "digital-canvas/zend-framework": ">=1.12.2",
@@ -1042,7 +1042,7 @@
                 "Application",
                 "Zed"
             ],
-            "time": "2015-03-27 13:15:22"
+            "time": "2015-03-27 17:29:00"
         },
         {
             "name": "symfony-cmf/routing",
@@ -3770,17 +3770,17 @@
         },
         {
             "name": "silex/web-profiler",
-            "version": "v1.0.4",
+            "version": "v1.0.5",
             "target-dir": "Silex/Provider",
             "source": {
                 "type": "git",
                 "url": "https://github.com/silexphp/Silex-WebProfiler.git",
-                "reference": "dc371e211d1f3ee62cb822518f4f97b44d1c250a"
+                "reference": "f0797151b766e41ab953e81bc66eb9d9114800f5"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/silexphp/Silex-WebProfiler/zipball/dc371e211d1f3ee62cb822518f4f97b44d1c250a",
-                "reference": "dc371e211d1f3ee62cb822518f4f97b44d1c250a",
+                "url": "https://api.github.com/repos/silexphp/Silex-WebProfiler/zipball/f0797151b766e41ab953e81bc66eb9d9114800f5",
+                "reference": "f0797151b766e41ab953e81bc66eb9d9114800f5",
                 "shasum": ""
             },
             "require": {
@@ -3811,7 +3811,7 @@
             ],
             "description": "A WebProfiler for Silex",
             "homepage": "http://silex.sensiolabs.org/",
-            "time": "2014-11-24 08:26:12"
+            "time": "2015-03-27 13:32:13"
         },
         {
             "name": "symfony/browser-kit",
