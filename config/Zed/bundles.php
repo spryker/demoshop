@@ -33,7 +33,6 @@ return [
         'Product' => $schemaAndNavigation,
         'ProductCategory' => $schema,
         'ProductSearch' => $schema,
-        'Redirect' => $schema,
         'Sales' => $schemaAndNavigation,
         'Salesrule' => $schemaAndNavigation,
         'Setup' => $navigation,
