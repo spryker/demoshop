@@ -33,20 +33,57 @@ cd /data/shop/development/current/vendor/spryker/zed-package
 npm install -d
 gulp
 cd /data/shop/development/current
-APPLICATION_ENV=development APPLICATION_STORE=DE console setup:install
+vendor/bin/console setup:install
 ```
 
 This demoshop comes with some default data to play around with which are installable via:
 
 ```bash
-APPLICATION_ENV=development APPLICATION_STORE=DE console setup:install-demo-data
+vendor/bin/console setup:install-demo-data
 ```
-Afterwards you should call the following two URL's to export all demo products and needed translations to the frontend:
+Afterwards you should call the following two commands to export all demo products and needed translations to the frontend:
 
-[Search Exporter](http://zed.de.spryker.dev/frontend-exporter/cronjob/export-search?verbose=true)  
-[Key Value Exporter](http://zed.de.spryker.dev/frontend-exporter/cronjob/export-key-value?verbose=true)
+```bash
+vendor/bin/console frontend-exporter:export-search
+```
+
+```bash
+vendor/bin/console frontend-exporter:export-key-value
+```
 
 If you need to login into Zed, use the following credentials:
 
-**Username:** admin  
+**Username:** admin
 **Password:** Avv3$0M3PA55vv0RD
+
+
+### Configure the VM to your needs
+
+If you want to commit from within the VM just set the right git preferences:
+
+```
+git config --global user.email <your.email@domain.tld>
+git config --global user.name <Your Name>
+```
+
+### Update the VM configuration
+
+When the VM configuration should be updated via saltstack there is no need to destroy your VM and create a new one, just execute the following commands:
+
+In the project directory (outside of VM):
+```
+cd vendor/spryker/saltstack
+git pull
+cd ../pillar
+git pull
+cd ../../..
+vagrant ssh
+```
+
+Inside the VM:
+```
+sudo su
+salt-call --local state.highstate
+```
+
+Afterwards your VM has the newest configuration and dependencies

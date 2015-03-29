@@ -2,32 +2,94 @@
 
 namespace Pyz\Zed\Product\Business\Internal\DemoData;
 
-use Generated\Zed\Ide\AutoCompletion;
 use ProjectA\Zed\Installer\Business\Model\AbstractInstaller;
-use ProjectA\Zed\Kernel\Locator;
-use ProjectA\Zed\Library\Import\Reader\CsvFileReader;
-use ProjectA\Zed\Product\Persistence\Propel\Map\PacProductAttributeTypeTableMap;
-use ProjectA\Zed\Product\Persistence\Propel\PacAbstractProduct;
-use ProjectA\Zed\Product\Persistence\Propel\PacAbstractProductQuery;
-use ProjectA\Zed\Product\Persistence\Propel\PacLocalizedAbstractProductAttributes;
-use ProjectA\Zed\Product\Persistence\Propel\PacLocalizedProductAttributes;
-use ProjectA\Zed\Product\Persistence\Propel\PacProduct;
-use ProjectA\Zed\Product\Persistence\Propel\PacProductAttributesMetadata;
-use ProjectA\Zed\Product\Persistence\Propel\PacProductAttributesMetadataQuery;
-use ProjectA\Zed\Product\Persistence\Propel\PacProductAttributeTypeQuery;
-use Propel\Runtime\Exception\PropelException;
-use Propel\Runtime\Formatter\SimpleArrayFormatter;
-use SprykerCore\Zed\Locale\Persistence\Propel\PacLocaleQuery;
+use ProjectA\Zed\Product\Business\Attribute\AttributeManagerInterface;
+use ProjectA\Zed\Product\Business\Importer\Reader\File\IteratorReaderInterface;
+use ProjectA\Zed\Product\Business\Product\ProductManagerInterface;
+use ProjectA\Zed\Product\Dependency\Facade\ProductToLocaleInterface;
+use ProjectA\Zed\Product\Dependency\Facade\ProductToTouchInterface;
 
 class ProductDataInstall extends AbstractInstaller
 {
+    /**
+     * @var AttributeManagerInterface
+     */
+    protected $attributeManager;
+
+    /**
+     * @var ProductManagerInterface
+     */
+    protected $productManager;
+
+    /**
+     * @var ProductToLocaleInterface
+     */
+    protected $localeFacade;
+
+    /**
+     * @var ProductToTouchInterface
+     */
+    protected $touchFacade;
+
+    /**
+     * @var IteratorReaderInterface
+     */
+    protected $fileReader;
+
+    /**
+     * @var string
+     */
+    protected $filePath;
+
+    /**
+     * @param AttributeManagerInterface $attributeManager
+     * @param ProductManagerInterface $productManager
+     * @param ProductToLocaleInterface $localeFacade
+     * @param IteratorReaderInterface $fileReader
+     * @param $filePath
+     */
+    public function __construct(
+        AttributeManagerInterface $attributeManager,
+        ProductManagerInterface $productManager,
+        ProductToLocaleInterface $localeFacade,
+        IteratorReaderInterface $fileReader,
+        $filePath
+    ) {
+        $this->attributeManager = $attributeManager;
+        $this->productManager = $productManager;
+        $this->localeFacade = $localeFacade;
+        $this->fileReader = $fileReader;
+        $this->filePath = $filePath;
+    }
 
     public function install()
     {
         $this->info('This will install some demo products and related attributes');
 
-        $this->createProduct();
+        $this->createProducts();
         $this->createAttributes();
+
+    }
+
+    protected function createProducts()
+    {
+        $fkCurrentLocale = $this->localeFacade->getCurrentLocaleIdentifier();
+        foreach ($this->getProductsFromFile() as $p) {
+            $sku = $p['sku'];
+
+            if ($this->productManager->hasAbstractProduct($sku)) {
+                continue;
+            }
+
+            $idAbstractProduct = $this->productManager->createAbstractProduct($sku);
+            $this->productManager->createAbstractProductAttributes($idAbstractProduct, $fkCurrentLocale, $p['name'], $p['attributes']);
+
+            foreach ($p['products'] as $pc) {
+                $idConcreteProduct = $this->productManager->createConcreteProduct($pc['sku'], $idAbstractProduct, true);
+                $this->productManager->createConcreteProductAttributes($idConcreteProduct, $fkCurrentLocale, $pc['name'], $pc['attributes']);
+                $this->productManager->touchProductActive($idConcreteProduct);
+            }
+        }
     }
 
     protected function createAttributes()
@@ -49,94 +111,24 @@ class ProductDataInstall extends AbstractInstaller
             'description' => 'string',
         ];
 
-        $typeEntities = PacProductAttributeTypeQuery::create()
-            ->select(
-                [
-                    PacProductAttributeTypeTableMap::COL_NAME,
-                    PacProductAttributeTypeTableMap::COL_TYPE_ID
-                ]
-            )->setFormatter(
-                new SimpleArrayFormatter()
-            )->find()->getArrayCopy();
-
-        $types = [];
-        foreach ($typeEntities as $typeEntity) {
-            $typeKey = array_shift($typeEntity);
-            $types[$typeKey] = array_shift($typeEntity);
-        }
-
-        foreach ($attributes as $attribute => $type) {
-            if (PacProductAttributesMetadataQuery::create()->findOneByKey($attribute)) {
+        foreach ($attributes as $attributeName => $attributeType) {
+            if (!$this->attributeManager->hasAttributeType($attributeType)) {
                 continue;
             }
 
-            if (array_key_exists($type, $types)) {
-                $attributeEntity = new PacProductAttributesMetadata();
-                $attributeEntity->setAttributeId(null);
-                $attributeEntity->setKey($attribute);
-                $attributeEntity->setTypeId($types[$type]);
-                $attributeEntity->setIsEditable(true);
-                $attributeEntity->save();
+            if (!$this->attributeManager->hasAttribute($attributeName)) {
+                $this->attributeManager->createAttribute($attributeName, $attributeType, true);
             }
-        }
-    }
-
-    /**
-     * @throws \Exception
-     * @throws PropelException
-     */
-    protected function createProduct()
-    {
-        //TODO inject
-        /** @var AutoCompletion $locator */
-        $locator = Locator::getInstance();
-        $touchFacade = $locator->touch()->facade();
-
-        $locale = PacLocaleQuery::create()
-            ->findOneByLocaleName('de_DE');
-
-        foreach ($this->getProductsFromCsv() as $p) {
-            $sku = $p['sku'];
-            $abstractProductQuery = new PacAbstractProductQuery();
-            if ($abstractProductQuery->findOneBySku($sku)) {
-                continue;
-            }
-            $abstractProduct = new PacAbstractProduct();
-            $abstractProduct->setSku($sku);
-
-            $abstractProductAttributes = new PacLocalizedAbstractProductAttributes();
-            $abstractProductAttributes->setLocale($locale);
-            $abstractProductAttributes->setName($p['name']);
-            $abstractProductAttributes->setAttributes($p['attributes']);
-            $abstractProductAttributes->setPacAbstractProduct($abstractProduct);
-
-            foreach ($p['products'] as $pc) {
-                $product = new PacProduct();
-                $product->setSku($pc['sku']);
-                $product->setIsActive(true);
-                $product->setPacAbstractProduct($abstractProduct);
-
-                $productAttributes = new PacLocalizedProductAttributes();
-                $productAttributes->setLocale($locale);
-                $productAttributes->setName($pc['name']);
-                $productAttributes->setAttributes($pc['attributes']);
-                $productAttributes->setPacProduct($product);
-
-                $product->save();
-
-                $touchFacade->touchActive('product', $product->getProductId());
-            }
-
         }
     }
 
     /**
      * @return array
      */
-    protected function getProductsFromCsv()
+    protected function getProductsFromFile()
     {
-        $fileReader = $this->getFileReader(',');
-        $productData = $fileReader->read(__DIR__ . '/demo-product-data.csv')->getData();
+        $splFileInfo = new \SplFileInfo($this->filePath);
+        $productData = $this->fileReader->getIteratorFromFile($splFileInfo);
 
         $formattedProduct = [];
         foreach ($productData as $product) {
@@ -183,16 +175,5 @@ class ProductDataInstall extends AbstractInstaller
                 ]
             ]
         ];
-    }
-
-    /**
-     * @param string $delimiter
-     * @param string $enclosure
-     * @param string $escape
-     * @return CsvFileReader
-     */
-    protected function getFileReader($delimiter = ';', $enclosure = '"', $escape = '\\')
-    {
-        return new CsvFileReader($delimiter, $enclosure, $escape);
     }
 }

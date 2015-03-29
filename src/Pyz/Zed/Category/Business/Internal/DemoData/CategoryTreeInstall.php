@@ -10,7 +10,7 @@ use ProjectA\Zed\Installer\Business\Model\AbstractInstaller;
 use ProjectA\Zed\Kernel\Locator;
 use ProjectA\Zed\Library\Import\Reader\CsvFileReader;
 use SprykerCore\Zed\Locale\Business\LocaleFacade;
-use SprykerCore\Zed\Locale\Persistence\Propel\PacLocaleQuery;
+use SprykerCore\Zed\Locale\Persistence\Propel\SpyLocaleQuery;
 
 class CategoryTreeInstall extends AbstractInstaller
 {
@@ -27,7 +27,7 @@ class CategoryTreeInstall extends AbstractInstaller
     /**
      * @var \SprykerCore_Zed_Locale_Persistence_Propel_PacLocale
      */
-    protected $locale;
+    protected $localeName;
 
     /**
      * @var CategoryFacade
@@ -47,8 +47,7 @@ class CategoryTreeInstall extends AbstractInstaller
         $this->categoryFacade = $categoryFacade;
         $this->queryContainer = $categoryQueryContainer;
 
-        $this->locale = PacLocaleQuery::create()
-            ->findOneByLocaleName($localeFacade->getCurrentLocale());
+        $this->localeName = $localeFacade->getCurrentLocale();
     }
 
     public function install()
@@ -95,8 +94,8 @@ class CategoryTreeInstall extends AbstractInstaller
      */
     protected function addRootNode(array $rawNode)
     {
-        $category = $this->categoryFacade->createCategory($rawNode[self::CATEGORY_NAME], $this->locale);
-        $this->categoryFacade->createCategoryNode($category->getIdCategory(), $this->locale);
+        $idCategory = $this->categoryFacade->createCategory($rawNode[self::CATEGORY_NAME], $this->localeName);
+        $this->categoryFacade->createCategoryNode($idCategory, $this->localeName);
     }
 
     /**
@@ -104,9 +103,9 @@ class CategoryTreeInstall extends AbstractInstaller
      */
     protected function addChild($rawNode)
     {
-        $category = $this->categoryFacade->createCategory($rawNode[self::CATEGORY_NAME], $this->locale);
+        $idCategory = $this->categoryFacade->createCategory($rawNode[self::CATEGORY_NAME], $this->localeName);
         $parentId = $this->getParentId($rawNode);
-        $this->categoryFacade->createCategoryNode($category->getIdCategory(), $this->locale, $parentId);
+        $this->categoryFacade->createCategoryNode($idCategory, $this->localeName, $parentId);
     }
 
     /**
@@ -116,7 +115,7 @@ class CategoryTreeInstall extends AbstractInstaller
      */
     protected function getParentId($rawNode)
     {
-        $nodeQuery = $this->queryContainer->getNodeQueryByCategoryName($rawNode[self::PARENT_NAME], $this->locale);
+        $nodeQuery = $this->queryContainer->getNodeQueryByCategoryName($rawNode[self::PARENT_NAME], $this->localeName);
         $nodeEntity = $nodeQuery->findOne();
 
         if ($nodeEntity) {
