@@ -68,7 +68,6 @@ class ProductDataInstall extends AbstractInstaller
 
         $this->createProducts();
         $this->createAttributes();
-
     }
 
     protected function createProducts()
