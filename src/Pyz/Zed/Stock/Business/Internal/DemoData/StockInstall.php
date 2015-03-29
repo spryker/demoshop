@@ -3,18 +3,13 @@
 namespace Pyz\Zed\Stock\Business\Internal\DemoData;
 
 use Generated\Zed\Ide\AutoCompletion;
-use ProjectA\Zed\Console\Business\Model\Console;
+use ProjectA\Zed\Installer\Business\Model\AbstractInstaller;
 use ProjectA\Zed\Kernel\Locator;
-use ProjectA\Zed\Library\Business\DemoDataInstallInterface;
 use ProjectA\Zed\Library\Import\Reader\CsvFileReader;
 use ProjectA\Zed\Stock\Business\StockFacade;
 use ProjectA\Shared\Stock\Transfer\StockProduct;
 
-/**
- * Class StockInstall
- * @package Pyz\Zed\Stock\Business\Internal\DemoData
- */
-class StockInstall implements DemoDataInstallInterface
+class StockInstall extends AbstractInstaller
 {
 
     const SKU = 'sku';
@@ -23,7 +18,7 @@ class StockInstall implements DemoDataInstallInterface
     const STOCK_TYPE = 'stock_type';
 
     /**
-     * @var AutoCompletion $locator
+     * @var AutoCompletion
      */
     protected $locator;
 
@@ -32,22 +27,20 @@ class StockInstall implements DemoDataInstallInterface
      */
     protected $stockFacade;
 
-    public function __construct()
+    /**
+     * @param Locator|AutoCompletion $locator
+     */
+    public function __construct(Locator $locator)
     {
-        $this->locator = Locator::getInstance();
-        $this->stockFacade = $this->locator->stock()->facade();
+        $this->locator = $locator;
+        $this->stockFacade = $locator->stock()->facade();
     }
 
-    /**
-     * @param Console $console
-     */
-    public function install(Console $console)
+    public function install()
     {
-        $console->info("This will install a dummy set of stocks in the demo shop ");
-        if ($console->askConfirmation('Do you really want this?')) {
-            $demoStockProducts = $this->getDemoStockProducts();
-            $this->writeStockProduct($demoStockProducts);
-        }
+        $this->info('This will install a dummy set of stocks in the demo shop');
+        $demoStockProducts = $this->getDemoStockProducts();
+        $this->writeStockProduct($demoStockProducts);
     }
 
     /**

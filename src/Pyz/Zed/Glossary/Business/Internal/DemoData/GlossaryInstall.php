@@ -7,36 +7,34 @@
 namespace Pyz\Zed\Glossary\Business\Internal\DemoData;
 
 use Generated\Zed\Ide\AutoCompletion;
-use ProjectA\Zed\Console\Business\Model\Console;
+use ProjectA\Zed\Installer\Business\Model\AbstractInstaller;
 use ProjectA\Zed\Kernel\Locator;
-use ProjectA\Zed\Library\Business\DemoDataInstallInterface;
 use SprykerFeature\Zed\Glossary\Dependency\Plugin\GlossaryInstallerPluginInterface;
 
-class GlossaryInstall implements DemoDataInstallInterface
+class GlossaryInstall extends AbstractInstaller
 {
+
     /**
      * @var GlossaryInstallerPluginInterface[]
      */
     protected $installers;
 
-    public function __construct()
+    /**
+     * @param Locator|AutoCompletion $locator
+     */
+    public function __construct(Locator $locator)
     {
-        //TODO initialize this elsewhere
-        /** @var AutoCompletion $locator */
-        $locator = Locator::getInstance();
         $this->installers = [
             $locator->glossary()->pluginYamlInstallerPlugin()
         ];
     }
 
-    public function install(Console $console)
+    public function install()
     {
-        $console->info("This will install a standard set of translations in the demo shop ");
+        $this->info("This will install a standard set of translations in the demo shop ");
 
-        if ($console->askConfirmation('Do you really want this')) {
-            foreach ($this->installers as $installer) {
-                $installer->installGlossaryData();
-            }
+        foreach ($this->installers as $installer) {
+            $installer->installGlossaryData();
         }
     }
 }

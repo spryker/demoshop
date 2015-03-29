@@ -17,12 +17,14 @@ return [
     // Project bundles
     Config::get(SystemConfig::PROJECT_NAMESPACE) => [],
     // Core bundles
-    ProjectA\Shared\Library\Bundle\BundleConfig::NAMESPACE_CORE => [
+    ProjectA\Shared\Library\Bundle\BundleConfig::VENDOR => [
         'Acl' => $schemaAndNavigation,
         'Cart' => $schema,
+        'Cms' => $allElements,
         'Category' => $schemaAndNavigation,
         'Customer2' => $schema,
         'FrontendExporter' => $schema,
+        'Glossary' => $allElements,
         'Lumberjack' => $navigation,
         'Mail' => $schemaAndNavigation,
         'Misc' => $schema,
@@ -31,23 +33,15 @@ return [
         'Product' => $schemaAndNavigation,
         'ProductCategory' => $schema,
         'ProductSearch' => $schema,
+        'Redirect' => $schema,
         'Sales' => $schemaAndNavigation,
         'Salesrule' => $schemaAndNavigation,
         'Setup' => $navigation,
         'Stock' => $schema,
         'System' => $navigation,
-        'UiExample' => $schemaAndNavigation
-    ],
-
-    \ProjectA\Shared\Library\Bundle\BundleConfig::NAMESPACE_SPRYKERCORE => [
+        'UiExample' => $schemaAndNavigation,
         'Locale' => $schema,
         'Touch' => $schema,
-        'Url' => $schema
+        'Url' => $schema,
     ],
-
-    \ProjectA\Shared\Library\Bundle\BundleConfig::NAMESPACE_SPRYKERFEATURE => [
-        'Cms' => $allElements,
-        'Glossary' => $allElements,
-        'Redirect' => $schema
-    ]
 ];

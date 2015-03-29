@@ -2,36 +2,46 @@
 
 namespace Pyz\Zed\ProductCategory\Business\Internal\DemoData;
 
-use Generated\Zed\Ide\AutoCompletion;
-use ProjectA\Zed\Category\Persistence\Propel\PacCategoryNode;
-use ProjectA\Zed\Category\Persistence\Propel\PacCategoryNodeQuery;
-use ProjectA\Zed\Console\Business\Model\Console;
+use ProjectA\Zed\Category\Persistence\Propel\SpyCategoryNode;
+use ProjectA\Zed\Category\Persistence\Propel\SpyCategoryNodeQuery;
+use ProjectA\Zed\Installer\Business\Model\AbstractInstaller;
 use ProjectA\Zed\Kernel\Locator;
-use ProjectA\Zed\Library\Business\DemoDataInstallInterface;
 use ProjectA\Zed\Library\Import\Reader\CsvFileReader;
-use ProjectA\Zed\Product\Persistence\Propel\PacProductQuery;
-use ProjectA\Zed\ProductCategory\Persistence\Propel\PacProductCategory;
-use ProjectA\Zed\ProductCategory\Persistence\Propel\PacProductCategoryQuery;
-use SprykerCore\Zed\Locale\Persistence\Propel\PacLocaleQuery;
+use ProjectA\Zed\Product\Persistence\Propel\SpyProductQuery;
+use ProjectA\Zed\ProductCategory\Persistence\Propel\SpyProductCategory;
+use ProjectA\Zed\ProductCategory\Persistence\Propel\SpyProductCategoryQuery;
+use SprykerCore\Zed\Locale\Business\LocaleFacade;
+use SprykerCore\Zed\Locale\Persistence\Propel\SpyLocaleQuery;
+use SprykerCore\Zed\Touch\Business\TouchFacade;
 
-/**
- * Class ProductCategoryMappingInstall
- * @package Pyz\Zed\ProductCategory\Business\Internal\DemoData
- */
-class ProductCategoryMappingInstall implements DemoDataInstallInterface
+class ProductCategoryMappingInstall extends AbstractInstaller
 {
 
     /**
-     * @param Console $console
+     * @var LocaleFacade
      */
-    public function install(Console $console)
+    protected $localeFacade;
+
+    /**
+     * @var TouchFacade
+     */
+    protected $touchFacade;
+
+    /**
+     * @param LocaleFacade $localeFacade
+     * @param TouchFacade $touchFacade
+     */
+    public function __construct(LocaleFacade $localeFacade, TouchFacade $touchFacade)
     {
-        /** @var AutoCompletion $locator */
-        $locator = Locator::getInstance();
-        //we should use the locale facade to get the current Locale
-        $localeFacade = $locator->locale()->facade();
-        $locale = PacLocaleQuery::create()
-            ->findOneByLocaleName($localeFacade->getCurrentLocale());
+        $this->localeFacade = $localeFacade;
+        $this->touchFacade = $touchFacade;
+    }
+
+    public function install()
+    {
+        $locale = SpyLocaleQuery::create()
+            ->findOneByLocaleName($this->localeFacade->getCurrentLocale());
+
         $categoryNodeIds = $this->installProductCategories($locale);
         $this->touchProductCategories($categoryNodeIds);
     }
@@ -39,7 +49,7 @@ class ProductCategoryMappingInstall implements DemoDataInstallInterface
     /**
      * @param $locale
      * @return array
-     * @throws \Propel\Runtime\Exception\PropelException
+     * @throws PropelException
      */
     protected function installProductCategories($locale)
     {
@@ -49,7 +59,7 @@ class ProductCategoryMappingInstall implements DemoDataInstallInterface
             $categoryNodeId = $this->getCategoryNodeId($demoProductCategory['category'], $locale);
 
             if ($productId && $categoryNodeId && !($this->relationExists($productId, $categoryNodeId))) {
-                $productCategory = new PacProductCategory();
+                $productCategory = new SpyProductCategory();
                 $productCategory->setFkProduct($productId);
                 $productCategory->setFkCategoryNode($categoryNodeId);
                 $productCategory->save();
@@ -76,13 +86,9 @@ class ProductCategoryMappingInstall implements DemoDataInstallInterface
      */
     protected function touchProductCategories(array $categoryNodeIds)
     {
-        /** @var AutoCompletion $locator */
-        $locator = Locator::getInstance();
-        $touchFacade = $locator->touch()->facade();
-
-        /** @var \ProjectA\Zed\ProductCategory\Persistence\Propel\PacProductCategory $productCategory */
+        /** @var \ProjectA\Zed\ProductCategory\Persistence\Propel\SpyProductCategory $productCategory */
         foreach ($categoryNodeIds as $categoryNodeId) {
-            $touchFacade->touchActive('product-category', $categoryNodeId);
+            $this->touchFacade->touchActive('product-category', $categoryNodeId);
         }
     }
 
@@ -92,8 +98,9 @@ class ProductCategoryMappingInstall implements DemoDataInstallInterface
      */
     protected function getProductId($productSku)
     {
-        $productEntity = PacProductQuery::create()
+        $productEntity = SpyProductQuery::create()
             ->findOneBySku($productSku);
+
         if ($productEntity) {
             return $productEntity->getProductId();
         }
@@ -108,7 +115,7 @@ class ProductCategoryMappingInstall implements DemoDataInstallInterface
      */
     protected function getCategoryNodeId($categoryName, $locale)
     {
-        $categoryNodeEntity = PacCategoryNodeQuery::create()
+        $categoryNodeEntity = SpyCategoryNodeQuery::create()
             ->useCategoryQuery()
                 ->useAttributeQuery()
                     ->filterByLocale($locale)
@@ -117,7 +124,7 @@ class ProductCategoryMappingInstall implements DemoDataInstallInterface
             ->endUse()
             ->findOne();
 
-        if ($categoryNodeEntity instanceof PacCategoryNode) {
+        if ($categoryNodeEntity instanceof SpyCategoryNode) {
             return $categoryNodeEntity->getIdCategoryNode();
         }
 
@@ -132,7 +139,7 @@ class ProductCategoryMappingInstall implements DemoDataInstallInterface
      */
     private function relationExists($productId, $categoryNodeId)
     {
-        return PacProductCategoryQuery::create()
+        return SpyProductCategoryQuery::create()
             ->filterByFkProduct($productId)
             ->filterByFkCategoryNode($categoryNodeId)
             ->count() > 0;

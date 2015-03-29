@@ -2,26 +2,20 @@
 
 namespace Pyz\Zed\Sales\Communication\Plugin\Oms\Command;
 
-use ProjectA\Deprecated\Salesrule\Business\Dependency\SalesruleFacadeInterface;
-use ProjectA\Deprecated\Salesrule\Business\Dependency\SalesruleFacadeTrait;
 use ProjectA\Zed\Oms\Business\Model\Util\ReadOnlyArrayObject;
 use ProjectA\Zed\Oms\Communication\Plugin\Oms\Command\AbstractCommand;
 use ProjectA\Zed\Oms\Communication\Plugin\Oms\Command\CommandByOrderInterface;
 
-/**
- * @author Michael Kugele, jstick
- */
-class PurgeCodeUsage extends AbstractCommand implements CommandByOrderInterface, SalesruleFacadeInterface
+class PurgeCodeUsage extends AbstractCommand implements CommandByOrderInterface
 {
-    use SalesruleFacadeTrait;
 
     /**
-     * @param \ProjectA\Zed\Sales\Persistence\Propel\PacSalesOrderItem[] $orderItems
-     * @param \ProjectA\Zed\Sales\Persistence\Propel\PacSalesOrder $orderEntity
+     * @param \ProjectA\Zed\Sales\Persistence\Propel\SpySalesOrderItem[] $orderItems
+     * @param \ProjectA\Zed\Sales\Persistence\Propel\SpySalesOrder $orderEntity
      * @param ReadOnlyArrayObject $data
      * @return array $returnArray
      */
-    public function run(array $orderItems, \ProjectA\Zed\Sales\Persistence\Propel\PacSalesOrder $orderEntity, ReadOnlyArrayObject $data)
+    public function run(array $orderItems, \ProjectA\Zed\Sales\Persistence\Propel\SpySalesOrder $orderEntity, ReadOnlyArrayObject $data)
     {
         $purgedCodes = $this->facadeSalesrule->purgeSalesruleCodeUsage($orderEntity->getPrimaryKey());
 

@@ -8,9 +8,6 @@ use Pyz\Zed\Sales\Business\ConstantsInterface\Orderprocess;
 use ProjectA\Zed\Payone\Business\Model\Api\ApiConstants as PayoneApiConstants;
 use ProjectA\Shared\Sales\Transfer\OrderItem;
 
-/**
- * @property \ProjectA\Deprecated\Sales\Business\SalesFactory $factory
- */
 class SalesSettings extends ProjectASalesSettings
 {
     /**
