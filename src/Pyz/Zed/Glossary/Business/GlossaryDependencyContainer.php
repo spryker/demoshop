@@ -2,9 +2,9 @@
 
 namespace Pyz\Zed\Glossary\Business;
 
-use ProjectA\Zed\Glossary\Business\GlossaryDependencyContainer as SprykerGlossaryDependencyContainer;
 use Psr\Log\LoggerInterface;
 use Pyz\Zed\Glossary\Business\Internal\DemoData\GlossaryInstall;
+use SprykerFeature\Zed\Glossary\Business\GlossaryDependencyContainer as SprykerGlossaryDependencyContainer;
 
 class GlossaryDependencyContainer extends SprykerGlossaryDependencyContainer
 {
