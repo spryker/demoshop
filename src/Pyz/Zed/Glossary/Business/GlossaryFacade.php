@@ -2,8 +2,8 @@
 
 namespace Pyz\Zed\Glossary\Business;
 
-use ProjectA\Zed\Glossary\Business\GlossaryFacade as SprykerGlossaryFacade;
 use Psr\Log\LoggerInterface;
+use SprykerFeature\Zed\Glossary\Business\GlossaryFacade as SprykerGlossaryFacade;
 
 class GlossaryFacade extends SprykerGlossaryFacade
 {
