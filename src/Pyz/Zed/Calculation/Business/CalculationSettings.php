@@ -6,10 +6,6 @@ use ProjectA\Zed\Calculation\Business\CalculationSettings as CoreCalculationSett
 use ProjectA\Zed\Calculation\Dependency\Plugin\CalculatorPluginInterface;
 use ProjectA\Zed\Calculation\Dependency\Plugin\TotalsCalculatorPluginInterface;
 
-/**
- * Class CalculationSettings
- * @package Pyz\Zed\Calculation\Business
- */
 class CalculationSettings extends CoreCalculationSettings
 {
     /**
