@@ -87,6 +87,7 @@ class ProductDataInstall extends AbstractInstaller
             foreach ($p['products'] as $pc) {
                 $idConcreteProduct = $this->productManager->createConcreteProduct($pc['sku'], $idAbstractProduct, true);
                 $this->productManager->createConcreteProductAttributes($idConcreteProduct, $fkCurrentLocale, $pc['name'], $pc['attributes']);
+                $this->productManager->createAndTouchProductUrlByIds($idConcreteProduct, '/' . str_replace(' ', '-', trim($pc['name'])), $fkCurrentLocale);
                 $this->productManager->touchProductActive($idConcreteProduct);
             }
         }
