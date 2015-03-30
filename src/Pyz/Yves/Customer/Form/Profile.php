@@ -17,30 +17,30 @@ class Profile extends AbstractType
         $builder
             ->add("salutation", "choice", [
                 "choices" => ["Mr", "Mrs", "Dr"],
-                "label" => "Salutation",
+                "label" => "profile.form.salutation",
             ])
             ->add("first_name", "text", [
-                "label" => "First Name",
+                "label" => "customer.profile.first_name",
                 "required" => false,
             ])
             ->add("middle_name", "text", [
-                "label" => "Middle Name",
+                "label" => "customer.profile.middle_name",
                 "required" => false,
             ])
             ->add("last_name", "text", [
-                "label" => "Last Name",
+                "label" => "customer.profile.last_name",
                 "required" => false,
             ])
             ->add("company", "text", [
-                "label" => "Company",
+                "label" => "customer.profile.company",
                 "required" => false,
             ])
             ->add("date_of_birth", "birthday", [
-                "label" => "Date of Birth",
+                "label" => "customer.profile.date_of_birth",
                 "required" => false,
             ])
             ->add("submit", "submit", [
-                "label" => "Update"
+                "label" => "customer.profile.submit"
             ])
         ;
     }

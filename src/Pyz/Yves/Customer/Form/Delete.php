@@ -16,7 +16,7 @@ class Delete extends AbstractType
     {
         $builder
             ->add("submit", "submit", [
-                "label" => "DELETE ACCOUNT"
+                "label" => "customer.delete.submit"
             ])
         ;
     }

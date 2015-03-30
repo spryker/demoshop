@@ -17,10 +17,10 @@ class Restore extends AbstractType
         $builder
             ->add("restore_key", "hidden")
             ->add("password", "password", [
-                "label" => "Password"
+                "label" => "customer.restore.password"
             ])
             ->add("submit", "submit", [
-                "label" => "Restore Password"
+                "label" => "customer.restore.submit"
             ])
         ;
     }

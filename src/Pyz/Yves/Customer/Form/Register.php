@@ -17,15 +17,15 @@ class Register extends AbstractType
     {
         $builder
             ->add('email', 'text', [
-                'label' => 'E-Mail',
+                'label' => 'customer.register.email',
                 'constraints' => [new NotBlank()]
             ])
             ->add('password', 'password', [
-                'label' => 'Password',
+                'label' => 'customer.register.password',
                 'constraints' => [new NotBlank()]
             ])
             ->add('submit', 'submit', [
-                'label' => 'Register'
+                'label' => 'customer.register.submit'
             ])
         ;
     }

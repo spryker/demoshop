@@ -17,62 +17,62 @@ class Address extends AbstractType
         $builder
             ->add("salutation", "choice", [
                 "choices" => ["Mr", "Mrs", "Dr"],
-                "label" => "Salutation",
+                "label" => "customer.address.salutation",
             ])
             ->add("first_name", "text", [
-                "label" => "First Name",
+                "label" => "customer.address.first_name",
                 "required" => false,
             ])
             ->add("middle_name", "text", [
-                "label" => "Middle Name",
+                "label" => "customer.address.middle_name",
                 "required" => false,
             ])
             ->add("last_name", "text", [
-                "label" => "Last Name",
+                "label" => "customer.address.last_name",
                 "required" => false,
             ])
             ->add("address1", "text", [
-                "label" => "Address",
+                "label" => "customer.address.address1",
                 "required" => false,
             ])
             ->add("address2", "text", [
-                "label" => "",
+                "label" => "customer.address.address2",
                 "required" => false,
             ])
             ->add("address3", "text", [
-                "label" => "",
+                "label" => "customer.address.address3",
                 "required" => false,
             ])
             ->add("company", "text", [
-                "label" => "Company",
+                "label" => "customer.address.company",
                 "required" => false,
             ])
             ->add("city", "text", [
-                "label" => "City",
+                "label" => "customer.address.city",
                 "required" => false,
             ])
             ->add("zip_code", "text", [
-                "label" => "Zip Code",
+                "label" => "customer.address.zip_code",
                 "required" => false,
             ])
             ->add("po_box", "text", [
-                "label" => "PO Box",
+                "label" => "customer.address.po_box",
                 "required" => false,
             ])
             ->add("phone", "text", [
-                "label" => "Phone",
+                "label" => "customer.address.phone",
                 "required" => false,
             ])
             ->add("cell_phone", "text", [
-                "label" => "Cell phone",
+                "label" => "customer.address.cell_phone",
                 "required" => false,
             ])
             ->add("comment", "text", [
-                "label" => "Comment",
+                "label" => "customer.address.comment",
                 "required" => false,
             ])
             ->add("submit", "submit", [
-                "label" => "Update"
+                "label" => "customer.address.submit"
             ])
         ;
     }

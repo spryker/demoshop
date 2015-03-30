@@ -16,10 +16,10 @@ class Forgot extends AbstractType
     {
         $builder
             ->add("email", "email", [
-                "label" => "E-Mail"
+                "label" => "customer.forgot.email"
             ])
             ->add("submit", "submit", [
-                "label" => "Send recovery link"
+                "label" => "customer.forgot.submit"
             ])
         ;
     }
