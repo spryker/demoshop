@@ -1,6 +1,5 @@
 <?php
 
-use ProjectA\Shared\Customer\CustomerConfig;
 use ProjectA\Shared\DbDump\DbDumpConfig;
 use ProjectA\Shared\Glossary\GlossaryConfig;
 use Pyz\Shared\Mail\MailConfig;
@@ -120,9 +119,6 @@ $config[SystemConfig::PROPEL] = [
         'phpConfDir' => APPLICATION_ROOT_DIR . '/src/Generated/Propel/' . $currentStore . '/Config'
     ]
 ];
-
-$config[CustomerConfig::CUSTOMER_MINUTES_BEFORE_RESTORE_PASSWORD_INVALID] = 60;
-$config[CustomerConfig::CUSTOMER_DOUBLE_OPT_IN_REGISTRATION] = true;
 
 $config[SystemConfig::CLOUD_ENABLED] = false;
 $config[SystemConfig::CLOUD_OBJECT_STORAGE_ENABLED] = false;
