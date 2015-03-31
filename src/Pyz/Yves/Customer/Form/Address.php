@@ -7,11 +7,18 @@ use Symfony\Component\Form\FormBuilderInterface;
 
 class Address extends AbstractType
 {
+    /**
+     * @return string
+     */
     public function getName()
     {
         return "profileForm";
     }
 
+    /**
+     * @param FormBuilderInterface $builder
+     * @param array $options
+     */
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder

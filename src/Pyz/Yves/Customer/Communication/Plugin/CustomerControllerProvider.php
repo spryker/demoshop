@@ -19,6 +19,9 @@ class CustomerControllerProvider extends YvesControllerProvider
     const ROUTE_CUSTOMER_ADDRESS = "address";
     const ROUTE_CUSTOMER_NEW_ADDRESS = "new_address";
 
+    /**
+     * @param Application $app
+     */
     protected function defineControllers(Application $app)
     {
         $this->createController("/login", self::ROUTE_LOGIN, "Customer", "Customer", "login");

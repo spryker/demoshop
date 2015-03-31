@@ -8,11 +8,18 @@ use Symfony\Component\Validator\Constraints\NotBlank;
 
 class Register extends AbstractType
 {
+    /**
+     * @return string
+     */
     public function getName()
     {
         return "registerForm";
     }
 
+    /**
+     * @param FormBuilderInterface $builder
+     * @param array $options
+     */
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder

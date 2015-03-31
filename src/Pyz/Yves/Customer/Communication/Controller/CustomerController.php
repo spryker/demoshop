@@ -6,9 +6,14 @@ use Symfony\Component\HttpFoundation\Request;
 use ProjectA\Shared\Customer\Transfer\Customer as CustomerTransfer;
 use ProjectA\Shared\Customer\Transfer\Address as AddressTransfer;
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
+use Symfony\Component\HttpFoundation\RedirectResponse;
 
 class CustomerController extends AbstractController
 {
+    /**
+     * @param Request $request
+     * @return array|RedirectResponse
+     */
     public function loginAction(Request $request)
     {
         if ($this->isGranted("ROLE_USER")) {
@@ -21,6 +26,10 @@ class CustomerController extends AbstractController
         ];
     }
 
+    /**
+     * @param Request $request
+     * @return RedirectResponse
+     */
     public function logoutAction(Request $request)
     {
         $this->locator->customer()
@@ -30,6 +39,9 @@ class CustomerController extends AbstractController
         return $this->redirectResponseInternal("home");
     }
 
+    /**
+     * @return array|RedirectResponse
+     */
     public function registerAction()
     {
         $form = $this->createForm($this->dependencyContainer->createFormRegister());
@@ -48,6 +60,10 @@ class CustomerController extends AbstractController
         return ["registerForm" => $form->createView()];
     }
 
+    /**
+     * @param Request $request
+     * @return RedirectResponse
+     */
     public function confirmRegistrationAction(Request $request)
     {
         /** @var CustomerTransfer $customerTransfer */
@@ -62,6 +78,9 @@ class CustomerController extends AbstractController
         return $this->redirectResponseInternal("home");
     }
 
+    /**
+     * @return array|RedirectResponse
+     */
     public function forgotPasswordAction()
     {
         $form = $this->createForm($this->dependencyContainer->createFormForgot());
@@ -78,6 +97,10 @@ class CustomerController extends AbstractController
         return ["form" => $form->createView()];
     }
 
+    /**
+     * @param Request $request
+     * @return array|RedirectResponse
+     */
     public function restorePasswordAction(Request $request)
     {
         $form = $this->createForm($this->locator->customer()->createFormRestore());
@@ -97,6 +120,10 @@ class CustomerController extends AbstractController
         return ["form" => $form->createView()];
     }
 
+    /**
+     * @param Request $request
+     * @return array|RedirectResponse
+     */
     public function deleteAction(Request $request)
     {
         $form = $this->createForm($registration = $this->dependencyContainer->createFormDelete());
@@ -119,6 +146,9 @@ class CustomerController extends AbstractController
         return ["form" => $form->createView()];
     }
 
+    /**
+     * @return array|RedirectResponse
+     */
     public function profileAction()
     {
         /** @var CustomerTransfer $customerTransfer */
@@ -143,6 +173,10 @@ class CustomerController extends AbstractController
         ];
     }
 
+    /**
+     * @param Request $request
+     * @return array|RedirectResponse
+     */
     public function addressAction(Request $request)
     {
         $addressId = $request->query->get("id");
@@ -180,6 +214,9 @@ class CustomerController extends AbstractController
         return ["form" => $form->createView()];
     }
 
+    /**
+     * @return array|RedirectResponse
+     */
     public function newAddressAction()
     {
         $form = $this->createForm($this->dependencyContainer->createFormAddress());
@@ -207,6 +244,9 @@ class CustomerController extends AbstractController
         return ["form" => $form->createView()];
     }
 
+    /**
+     * @return string
+     */
     protected function getUsername()
     {
         $user = $this->getUser();
