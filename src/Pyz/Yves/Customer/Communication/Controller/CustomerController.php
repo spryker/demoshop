@@ -21,9 +21,7 @@ class CustomerController extends AbstractController
             return $this->redirectResponseInternal("home");
         }
 
-        return [
-            "error" => $this->getSecurityError($request),
-        ];
+        return ["error" => $this->getSecurityError($request)];
     }
 
     /**
