@@ -1383,11 +1383,11 @@ keys:
     translation:
       de_DE: 'Speichern'
       en_US: 'Save'
-  customer.forgot.email
+  customer.forgot.email:
     translation:
       de_DE: 'E-Mail'
       en_US: 'E-Mail'
-  customer.forgot.submit
+  customer.forgot.submit:
     translation:
       de_DE: 'Passwort zurücksetzen'
       en_US: 'Restore Password'
