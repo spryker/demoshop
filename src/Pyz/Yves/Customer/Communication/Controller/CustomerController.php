@@ -236,7 +236,7 @@ class CustomerController extends AbstractController
             $addressTransfer->fromArray($form->getData());
             $addressTransfer->setEmail($this->getUsername());
             $addressTransfer = $this->locator->customer()->sdk()->newAddress($addressTransfer);
-            if ($addressTransfer->isSuccess()) {
+            if ($addressTransfer) {
                 $this->addMessageSuccess("customer.address.added");
 
                 return $this->redirectResponseInternal("profile");
