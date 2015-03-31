@@ -18,6 +18,7 @@ class CustomerController extends AbstractController
     {
         if ($this->isGranted("ROLE_USER")) {
             $this->addMessageWarning("customer.already.authenticated");
+
             return $this->redirectResponseInternal("home");
         }
 
@@ -34,6 +35,7 @@ class CustomerController extends AbstractController
             ->pluginSecurityService()
             ->createUserProvider($request->getSession())
             ->logout($this->getUsername());
+
         return $this->redirectResponseInternal("home");
     }
 
@@ -51,6 +53,7 @@ class CustomerController extends AbstractController
             $customerTransfer = $this->locator->customer()->sdk()->registerCustomer($customerTransfer);
             if ($customerTransfer->getRegistrationKey()) {
                 $this->addMessageWarning("customer.registration.success");
+
                 return $this->redirectResponseInternal("login");
             }
         }
@@ -70,9 +73,11 @@ class CustomerController extends AbstractController
         $customerTransfer = $this->locator->customer()->sdk()->confirmRegistration($customerTransfer);
         if ($customerTransfer->getRegistered()) {
             $this->addMessageSuccess("customer.registration.confirmed");
+
             return $this->redirectResponseInternal("login");
         }
         $this->addMessageError("customer.registration.timeout");
+
         return $this->redirectResponseInternal("home");
     }
 
@@ -89,6 +94,7 @@ class CustomerController extends AbstractController
             $customerTransfer->fromArray($form->getData());
             $this->locator->customer()->sdk()->forgotPassword($customerTransfer);
             $this->addMessageSuccess("customer.password.recovery.mail.sent");
+
             return $this->redirectResponseInternal("home");
         }
 
@@ -112,6 +118,7 @@ class CustomerController extends AbstractController
                 ->pluginSecurityService()
                 ->createUserProvider($request->getSession())
                 ->logout($this->getUsername());
+
             return $this->redirectResponseInternal("login");
         }
 
@@ -135,6 +142,7 @@ class CustomerController extends AbstractController
                     ->pluginSecurityService()
                     ->createUserProvider($request->getSession())
                     ->logout($this->getUsername());
+
                 return $this->redirectResponseInternal("home");
             } else {
                 $this->addMessageError("customer.delete.failed");
@@ -158,6 +166,7 @@ class CustomerController extends AbstractController
             $customerTransfer->fromArray($form->getData());
             $customerTransfer->setEmail($this->getUsername());
             $this->locator->customer()->sdk()->updateCustomer($customerTransfer);
+
             return $this->redirectResponseInternal("profile");
         }
 
@@ -193,9 +202,11 @@ class CustomerController extends AbstractController
             $addressTransfer = $this->locator->customer()->sdk()->updateAddress($addressTransfer);
             if ($addressTransfer->isSuccess()) {
                 $this->addMessageSuccess("customer.address.updated");
+
                 return $this->redirectResponseInternal("profile");
             }
             $this->addMessageError("customer.address.not.added");
+
             return $this->redirectResponseInternal("address");
         }
 
@@ -227,9 +238,11 @@ class CustomerController extends AbstractController
             $addressTransfer = $this->locator->customer()->sdk()->newAddress($addressTransfer);
             if ($addressTransfer->isSuccess()) {
                 $this->addMessageSuccess("customer.address.added");
+
                 return $this->redirectResponseInternal("profile");
             }
             $this->addMessageError("customer.address.not.added");
+
             return $this->redirectResponseInternal("new-address");
         }
 
@@ -251,6 +264,7 @@ class CustomerController extends AbstractController
         if (is_string($user)) {
             return $user;
         }
+
         return $user->getUsername();
     }
 }
