@@ -17,7 +17,7 @@ class CustomerDependencyContainer extends CoreCustomerDependencyContainer
      */
     public function createFormAddress()
     {
-        return $this->factory->create("Form\\Address");
+        return $this->factory->createFormAddress();
     }
 
     /**
@@ -25,7 +25,7 @@ class CustomerDependencyContainer extends CoreCustomerDependencyContainer
      */
     public function createFormRegister()
     {
-        return $this->factory->create("Form\\Register");
+        return $this->factory->createFormRegister();
     }
 
     /**
@@ -33,7 +33,7 @@ class CustomerDependencyContainer extends CoreCustomerDependencyContainer
      */
     public function createFormDelete()
     {
-        return $this->factory->create("Form\\Delete");
+        return $this->factory->createFormDelete();
     }
 
     /**
@@ -41,7 +41,7 @@ class CustomerDependencyContainer extends CoreCustomerDependencyContainer
      */
     public function createFormForgot()
     {
-        return $this->factory->create("Form\\Forgot");
+        return $this->factory->createFormForgot();
     }
 
     /**
@@ -49,7 +49,7 @@ class CustomerDependencyContainer extends CoreCustomerDependencyContainer
      */
     public function createFormProfile()
     {
-        return $this->factory->create("Form\\Profile");
+        return $this->factory->createFormProfile();
     }
 
     /**
@@ -57,6 +57,6 @@ class CustomerDependencyContainer extends CoreCustomerDependencyContainer
      */
     public function createFormRestore()
     {
-        return $this->factory->create("Form\\Restore");
+        return $this->factory->createFormRestore();
     }
 }
