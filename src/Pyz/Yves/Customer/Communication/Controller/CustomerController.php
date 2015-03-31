@@ -5,6 +5,7 @@ use SprykerCore\Yves\Application\Communication\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use ProjectA\Shared\Customer\Transfer\Customer as CustomerTransfer;
 use ProjectA\Shared\Customer\Transfer\Address as AddressTransfer;
+use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 
 class CustomerController extends AbstractController
 {
@@ -142,9 +143,41 @@ class CustomerController extends AbstractController
         ];
     }
 
-    public function addressAction()
+    public function addressAction(Request $request)
     {
+        $addressId = $request->query->get("id");
+        if (!$addressId) {
+            throw new NotFoundHttpException("Unknown address.");
+        }
 
+        $form = $this->createForm($this->dependencyContainer->createFormAddress());
+
+        if ($form->isValid()) {
+            /** @var AddressTransfer $addressTransfer */
+            $addressTransfer = $this->locator->customer()->transferAddress();
+            $addressTransfer->fromArray($form->getData());
+            $addressTransfer->setEmail($this->getUsername());
+            $addressTransfer->setIdCustomerAddress($addressId);
+            $addressTransfer = $this->locator->customer()->sdk()->updateAddress($addressTransfer);
+            if ($addressTransfer->isSuccess()) {
+                $this->addMessageSuccess("customer.address.updated");
+                return $this->redirectResponseInternal("profile");
+            }
+            $this->addMessageError("customer.address.not.added");
+            return $this->redirectResponseInternal("address");
+        }
+
+        /** @var AddressTransfer $customerTransfer */
+        $addressTransfer = $this->locator->customer()->transferAddress();
+        $addressTransfer->setEmail($this->getUsername());
+        $addressTransfer->setIdCustomerAddress($addressId);
+        $addressTransfer = $this->locator->customer()->sdk()->getAddress($addressTransfer);
+        if (!$addressTransfer->isSuccess()) {
+            throw new NotFoundHttpException("Unknown address.");
+        }
+        $form->setData($addressTransfer->toArray());
+
+        return ["form" => $form->createView()];
     }
 
     public function newAddressAction()
