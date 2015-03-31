@@ -1352,114 +1352,114 @@ keys:
       de_DE: 'Passwort'
       en_US: 'Password'
   customer.register.submit:
-    translation:
+    translations:
       de_DE: 'Registrieren'
       en_US: 'Register'
   profile.form.salutation:
-    translation:
+    translations:
       de_DE: 'Anrede'
       en_US: 'Salutation'
   customer.profile.first_name:
-    translation:
+    translations:
       de_DE: 'Vorname'
       en_US: 'First name'
   customer.profile.middle_name:
-    translation:
+    translations:
       de_DE: 'Zwischenname'
       en_US: 'Middle name'
   customer.profile.last_name:
-    translation:
+    translations:
       de_DE: 'Nachname'
       en_US: 'Last name'
   customer.profile.company:
-    translation:
+    translations:
       de_DE: 'Unternehmen'
       en_US: 'Company'
   customer.profile.date_of_birth:
-    translation:
+    translations:
       de_DE: 'Geburtstag'
       en_US: 'Date of birth'
   customer.profile.submit:
-    translation:
+    translations:
       de_DE: 'Speichern'
       en_US: 'Save'
   customer.forgot.email:
-    translation:
+    translations:
       de_DE: 'E-Mail'
       en_US: 'E-Mail'
   customer.forgot.submit:
-    translation:
+    translations:
       de_DE: 'Passwort zurücksetzen'
       en_US: 'Restore Password'
   customer.delete.submit:
-    translation:
+    translations:
       de_DE: 'Account löschen'
       en_US: 'Delete account'
   customer.restore.password:
-    translation:
+    translations:
       de_DE: 'Neues Passwort'
       en_US: 'New Password'
   customer.restore.submit:
-    translation:
+    translations:
       de_DE: 'Password setzen'
       en_US: 'Set password'
   customer.address.salutation:
-    translation:
+    translations:
       de_DE: 'Anrede'
       en_US: 'Salutation'
   customer.address.first_name:
-    translation:
+    translations:
       de_DE: 'Vorname'
       en_US: 'First name'
   customer.address.middle_name:
-    translation:
+    translations:
       de_DE: 'Zwischenname'
       en_US: 'Middle name'
   customer.address.last_name:
-    translation:
+    translations:
       de_DE: 'Nachname'
       en_US: 'Last name'
   customer.address.address1:
-    translation:
+    translations:
       de_DE: ''
       en_US: ''
   customer.address.address2:
-    translation:
+    translations:
       de_DE: ''
       en_US: ''
   customer.address.address3:
-    translation:
+    translations:
       de_DE: ''
       en_US: ''
   customer.address.company:
-    translation:
+    translations:
       de_DE: 'Unternehmen'
       en_US: 'Company'
   customer.address.city:
-    translation:
+    translations:
       de_DE: 'Stadt'
       en_US: 'City'
   customer.address.zip_code:
-    translation:
+    translations:
       de_DE: 'Postleitzahl'
       en_US: 'Zip code'
   customer.address.po_box:
-    translation:
+    translations:
       de_DE: 'Postfach'
       en_US: 'PO box'
   customer.address.phone:
-    translation:
+    translations:
       de_DE: 'Telefon'
       en_US: 'Phone'
   customer.address.cell_phone:
-    translation:
+    translations:
       de_DE: 'Mobiltelefon'
       en_US: 'Cell phone'
   customer.address.comment:
-    translation:
+    translations:
       de_DE: 'Kommentar'
       en_US: 'Comment'
   customer.address.submit:
-    translation:
+    translations:
       de_DE: 'Speichern'
       en_US: 'Update'
