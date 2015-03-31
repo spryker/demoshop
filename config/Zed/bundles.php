@@ -17,14 +17,11 @@ return [
     // Project bundles
     Config::get(SystemConfig::PROJECT_NAMESPACE) => [],
 
-    ProjectA\Shared\Library\Bundle\BundleConfig::NAMESPACE_SPRYKERFEATURE => [
-//        'Auth' => $navigation,
-        'Acl' => $schema,
-        'User' => $schema
-    ],
-
     // Core bundles
     ProjectA\Shared\Library\Bundle\BundleConfig::VENDOR => [
+        'Auth' => $navigation,
+        'Acl' => $schema,
+        'User' => $schema,
         'Cart' => $schema,
         'Cms' => $allElements,
         'Category' => $schemaAndNavigation,
