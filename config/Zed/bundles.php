@@ -18,9 +18,9 @@ return [
     Config::get(SystemConfig::PROJECT_NAMESPACE) => [],
 
     ProjectA\Shared\Library\Bundle\BundleConfig::NAMESPACE_SPRYKERFEATURE => [
-        'Auth' => $navigation,
-        'Acl' => $schemaAndNavigation,
-        'User' => $schemaAndNavigation
+//        'Auth' => $navigation,
+        'Acl' => $schema,
+        'User' => $schema
     ],
 
     // Core bundles
