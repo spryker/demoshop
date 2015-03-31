@@ -200,7 +200,7 @@ class CustomerController extends AbstractController
             $addressTransfer->setEmail($this->getUsername());
             $addressTransfer->setIdCustomerAddress($addressId);
             $addressTransfer = $this->locator->customer()->sdk()->updateAddress($addressTransfer);
-            if ($addressTransfer->isSuccess()) {
+            if ($addressTransfer) {
                 $this->addMessageSuccess("customer.address.updated");
 
                 return $this->redirectResponseInternal("profile");
@@ -215,7 +215,7 @@ class CustomerController extends AbstractController
         $addressTransfer->setEmail($this->getUsername());
         $addressTransfer->setIdCustomerAddress($addressId);
         $addressTransfer = $this->locator->customer()->sdk()->getAddress($addressTransfer);
-        if (!$addressTransfer->isSuccess()) {
+        if (!$addressTransfer) {
             throw new NotFoundHttpException("Unknown address.");
         }
         $form->setData($addressTransfer->toArray());
