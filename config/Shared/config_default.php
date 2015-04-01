@@ -170,3 +170,15 @@ $config[MailConfig::MAIL_PROVIDER_MANDRILL] = [
     'from_mail' => 'service@demoshop.de',
     'from_name' => 'Demoshop'
 ];
+
+$config[SystemConfig::ZED_AUTH_SETTINGS] = [
+    'credentials' => [
+        'token' => 'JDJ5JDEwJFE0cXBwYnVVTTV6YVZXSnVmM2l1UWVhRE94WkQ4UjBUeHBEWTNHZlFRTEd4U2F6QVBqejQ2'
+    ]
+];
+
+$config[YvesConfig::YVES_AUTH_SETTINGS] = [
+    'credentials' => [
+        'token' => 'JDJ5JDEwJFE0cXBwYnVVTTV6YVZXSnVmM2l1UWVhRE94WkQ4UjBUeHBEWTNHZlFRTEd4U2F6QVBqejQ2'
+    ]
+];
