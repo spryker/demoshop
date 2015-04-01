@@ -2,6 +2,7 @@
 
 use ProjectA\Shared\DbDump\DbDumpConfig;
 use ProjectA\Shared\Glossary\GlossaryConfig;
+use ProjectA\Shared\Customer\CustomerConfig;
 use Pyz\Shared\Mail\MailConfig;
 use ProjectA\Shared\Payone\PayoneConfig;
 use ProjectA\Shared\ProductImage\ProductImageConfig;
@@ -77,6 +78,9 @@ $config[YvesConfig::YVES_SESSION_SAVE_HANDLER] = null;
 $config[YvesConfig::YVES_SESSION_NAME] = 'yves_session';
 $config[YvesConfig::YVES_SESSION_COOKIE_DOMAIN] = $config[SystemConfig::HOST_YVES];
 $config[YvesConfig::YVES_ERROR_PAGE] = APPLICATION_ROOT_DIR.'/static/public/Yves/errorpage/error.html';
+
+$config[CustomerConfig::CUSTOMER_SECURED_PATTERN] = "(^/login_check$|^/customer)";
+$config[CustomerConfig::CUSTOMER_ANONYMOUS_PATTERN] = "^/.*";
 
 $currentStore = ProjectA_Shared_Library_Store::getInstance()->getStoreName();
 $config[SystemConfig::PROPEL] = [
