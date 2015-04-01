@@ -975,7 +975,7 @@
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/zed.git",
-                "reference": "dac732b0a6dedab092dcc5f13560fa139562b2f0"
+                "reference": "72936ba20a59024cc2ca9254f205485e3500096c"
             },
             "require": {
                 "digital-canvas/zend-framework": ">=1.12.2",
