@@ -2,6 +2,7 @@
 
 namespace Pyz\Yves\Customer\Communication\Controller;
 
+use ProjectA\Shared\Customer\Code\Messages;
 use SprykerCore\Yves\Application\Communication\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\HttpFoundation\Request;
@@ -20,7 +21,7 @@ class AddressController extends AbstractController
     {
         $addressId = $request->query->get("id");
         if (!$addressId) {
-            $this->addMessageError("customer.address.unknown");
+            $this->addMessageError(Messages::CUSTOMER_ADDRESS_UNKNOWN);
             return $this->redirectResponseInternal("profile");
         }
 
@@ -34,11 +35,11 @@ class AddressController extends AbstractController
             $addressTransfer->setIdCustomerAddress($addressId);
             $addressTransfer = $this->locator->customer()->sdk()->updateAddress($addressTransfer);
             if ($addressTransfer) {
-                $this->addMessageSuccess("customer.address.updated");
+                $this->addMessageSuccess(Messages::CUSTOMER_ADDRESS_UPDATED);
 
                 return $this->redirectResponseInternal("profile");
             }
-            $this->addMessageError("customer.address.not.added");
+            $this->addMessageError(Messages::CUSTOMER_ADDRESS_NOT_ADDED);
 
             return $this->redirectResponseInternal("address");
         }
@@ -49,7 +50,7 @@ class AddressController extends AbstractController
         $addressTransfer->setIdCustomerAddress($addressId);
         $addressTransfer = $this->locator->customer()->sdk()->getAddress($addressTransfer);
         if (!$addressTransfer) {
-            $this->addMessageError("customer.address.unknown");
+            $this->addMessageError(Messages::CUSTOMER_ADDRESS_UNKNOWN);
             return $this->redirectResponseInternal("profile");
         }
         $form->setData($addressTransfer->toArray());
@@ -71,11 +72,11 @@ class AddressController extends AbstractController
             $addressTransfer->setEmail($this->getUsername());
             $addressTransfer = $this->locator->customer()->sdk()->newAddress($addressTransfer);
             if ($addressTransfer) {
-                $this->addMessageSuccess("customer.address.added");
+                $this->addMessageSuccess(Messages::CUSTOMER_ADDRESS_ADDED);
 
                 return $this->redirectResponseInternal("profile");
             }
-            $this->addMessageError("customer.address.not.added");
+            $this->addMessageError(Messages::CUSTOMER_ADDRESS_NOT_ADDED);
 
             return $this->redirectResponseInternal("new-address");
         }
@@ -102,9 +103,9 @@ class AddressController extends AbstractController
             $addressTransfer->setEmail($this->getUsername());
             $deletion = $this->locator->customer()->sdk()->deleteAddress($addressTransfer);
             if ($deletion->isSuccess()) {
-                $this->addMessageSuccess("customer.address.delete.success");
+                $this->addMessageSuccess(Messages::CUSTOMER_ADDRESS_DELETE_SUCCESS);
             } else {
-                $this->addMessageError("customer.address.delete.failed");
+                $this->addMessageError(Messages::CUSTOMER_ADDRESS_DELETE_FAILED);
             }
             /** @var AddressTransfer $addressTransfer */
             $addressTransfer = $this->locator->customer()->transferAddress();
@@ -112,9 +113,9 @@ class AddressController extends AbstractController
             $addressTransfer->setEmail($this->getUsername());
             $deletion = $this->locator->customer()->sdk()->deleteAddress($addressTransfer);
             if ($deletion->isSuccess()) {
-                $this->addMessageSuccess("customer.address.delete.success");
+                $this->addMessageSuccess(Messages::CUSTOMER_ADDRESS_DELETE_SUCCESS);
             } else {
-                $this->addMessageError("customer.address.delete.failed");
+                $this->addMessageError(Messages::CUSTOMER_ADDRESS_DELETE_FAILED);
             }
         }
 

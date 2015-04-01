@@ -5,6 +5,7 @@ use SprykerCore\Yves\Application\Communication\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use ProjectA\Shared\Customer\Transfer\Customer as CustomerTransfer;
 use Symfony\Component\HttpFoundation\RedirectResponse;
+use ProjectA\Shared\Customer\Code\Messages;
 
 class CustomerController extends AbstractController
 {
@@ -20,7 +21,7 @@ class CustomerController extends AbstractController
             $customerTransfer = $this->locator->customer()->transferCustomer();
             $customerTransfer->fromArray($form->getData());
             $this->locator->customer()->sdk()->forgotPassword($customerTransfer);
-            $this->addMessageSuccess("customer.password.recovery.mail.sent");
+            $this->addMessageSuccess(Messages::CUSTOMER_PASSWORD_RECOVERY_MAIL_SENT);
 
             return $this->redirectResponseInternal("home");
         }
@@ -72,7 +73,7 @@ class CustomerController extends AbstractController
 
                 return $this->redirectResponseInternal("home");
             } else {
-                $this->addMessageError("customer.delete.failed");
+                $this->addMessageError(Messages::CUSTOMER_DELETE_FAILED);
             }
         }
 

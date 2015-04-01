@@ -5,6 +5,7 @@ namespace Pyz\Yves\Customer\Communication\Controller;
 use SprykerCore\Yves\Application\Communication\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\RedirectResponse;
+use ProjectA\Shared\Customer\Code\Messages;
 
 class SecurityController extends AbstractController
 {
@@ -15,7 +16,7 @@ class SecurityController extends AbstractController
     public function loginAction(Request $request)
     {
         if ($this->isGranted("ROLE_USER")) {
-            $this->addMessageWarning("customer.already.authenticated");
+            $this->addMessageWarning(Messages::CUSTOMER_ALREADY_AUTHENTICATED);
 
             return $this->redirectResponseInternal("home");
         }
@@ -50,7 +51,7 @@ class SecurityController extends AbstractController
             $customerTransfer->fromArray($form->getData());
             $customerTransfer = $this->locator->customer()->sdk()->registerCustomer($customerTransfer);
             if ($customerTransfer->getRegistrationKey()) {
-                $this->addMessageWarning("customer.registration.success");
+                $this->addMessageWarning(Messages::CUSTOMER_REGISTRATION_SUCCESS);
 
                 return $this->redirectResponseInternal("login");
             }
@@ -70,11 +71,11 @@ class SecurityController extends AbstractController
         $customerTransfer->setRegistrationKey($request->query->get("token"));
         $customerTransfer = $this->locator->customer()->sdk()->confirmRegistration($customerTransfer);
         if ($customerTransfer->getRegistered()) {
-            $this->addMessageSuccess("customer.registration.confirmed");
+            $this->addMessageSuccess(Messages::CUSTOMER_REGISTRATION_CONFIRMED);
 
             return $this->redirectResponseInternal("login");
         }
-        $this->addMessageError("customer.registration.timeout");
+        $this->addMessageError(Messages::CUSTOMER_REGISTRATION_TIMEOUT);
 
         return $this->redirectResponseInternal("home");
     }
