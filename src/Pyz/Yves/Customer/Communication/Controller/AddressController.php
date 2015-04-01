@@ -20,7 +20,8 @@ class AddressController extends AbstractController
     {
         $addressId = $request->query->get("id");
         if (!$addressId) {
-            throw new NotFoundHttpException("Unknown address.");
+            $this->addMessageError("customer.address.unknown");
+            return $this->redirectResponseInternal("profile");
         }
 
         $form = $this->createForm($this->dependencyContainer->createFormAddress());
@@ -48,7 +49,8 @@ class AddressController extends AbstractController
         $addressTransfer->setIdCustomerAddress($addressId);
         $addressTransfer = $this->locator->customer()->sdk()->getAddress($addressTransfer);
         if (!$addressTransfer) {
-            throw new NotFoundHttpException("Unknown address.");
+            $this->addMessageError("customer.address.unknown");
+            return $this->redirectResponseInternal("profile");
         }
         $form->setData($addressTransfer->toArray());
 
