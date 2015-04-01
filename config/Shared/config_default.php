@@ -171,14 +171,39 @@ $config[MailConfig::MAIL_PROVIDER_MANDRILL] = [
     'from_name' => 'Demoshop'
 ];
 
-$config[SystemConfig::ZED_AUTH_SETTINGS] = [
-    'credentials' => [
-        'token' => 'JDJ5JDEwJFE0cXBwYnVVTTV6YVZXSnVmM2l1UWVhRE94WkQ4UjBUeHBEWTNHZlFRTEd4U2F6QVBqejQ2'
+$config[SystemConfig::ZED_USER_SETTINGS] = [
+    'system_users' => [
+        '_yves', '_console'
     ]
 ];
 
-$config[YvesConfig::YVES_AUTH_SETTINGS] = [
+$config[SystemConfig::ZED_AUTH_SETTINGS] = [
     'credentials' => [
-        'token' => 'JDJ5JDEwJFE0cXBwYnVVTTV6YVZXSnVmM2l1UWVhRE94WkQ4UjBUeHBEWTNHZlFRTEd4U2F6QVBqejQ2'
+        '_yves' => [
+            'ignore' => [
+                [
+                    "module" => "*",
+                    "controller" => "*",
+                    "action" => "*"
+                ]
+            ],
+            'token' => 'JDJ5JDEwJFE0cXBwYnVVTTV6YVZXSnVmM2l1UWVhRE94WkQ4UjBUeHBEWTNHZlFRTEd4U2F6QVBqejQ2'
+        ]
+    ]
+
+];
+
+$config[SystemConfig::ZED_ACL_SETTINGS] = [
+    'credentials' => [
+        '_yves' => [
+            'allowed' => [
+                [
+                    "module" => "*",
+                    "controller" => "*",
+                    "action" => "*"
+                ]
+            ],
+            'denied' => []
+        ]
     ]
 ];
