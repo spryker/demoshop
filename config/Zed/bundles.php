@@ -23,6 +23,7 @@ return [
         'Cms' => $allElements,
         'Category' => $schemaAndNavigation,
         'Customer2' => $schema,
+        'Discount' => $schemaAndNavigation,
         'FrontendExporter' => $schema,
         'Glossary' => $allElements,
         'Lumberjack' => $navigation,
