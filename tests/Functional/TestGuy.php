@@ -3,8 +3,9 @@
 // You should not change it manually as it will be overwritten on next build
 // @codingStandardsIgnoreFile
 
-
+namespace Pyz;
 use \Codeception\Maybe;
+use Codeception\Module\Filesystem;
 
 /**
  * Inherited methods
