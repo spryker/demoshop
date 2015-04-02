@@ -8,16 +8,14 @@ use ProjectA\Shared\Application\Business\Bootstrap;
 use ProjectA\Shared\Application\Communication\Plugin\ServiceProvider\RoutingServiceProvider;
 use ProjectA\Shared\Application\Communication\Plugin\ServiceProvider\UrlGeneratorServiceProvider;
 use ProjectA\Shared\Library\Config;
+use ProjectA\Shared\Library\Environment;
 use ProjectA\Shared\System\SystemConfig;
 use ProjectA\Shared\Yves\YvesConfig;
 use SprykerCore\Yves\Application\Communication\Plugin\ControllerProviderInterface;
 
 use Pyz\Yves\Checkout\Communication\Plugin\CheckoutControllerProvider;
-use ProjectA\Yves\Customer\Business\Model\Security\SecurityServiceProvider;
-use ProjectA\Yves\Customer\Communication\Plugin\CustomerControllerProvider;
 use Pyz\Yves\Cart\Communication\Plugin\CartControllerProvider;
 use ProjectA\Yves\Library\Asset\AssetManager;
-use Pyz\Yves\Newsletter\Communication\Plugin\NewsletterControllerProvider;
 use Pyz\Yves\Application\Communication\Plugin\ApplicationControllerProvider;
 use SprykerCore\Yves\Application\Business\Twig\YvesExtension;
 
@@ -32,7 +30,6 @@ use ProjectA\Shared\Application\Business\Routing\SilexRouter;
 
 use ProjectA\Yves\Library\Tracking\Tracking;
 use Silex\Provider\FormServiceProvider;
-use Silex\Provider\RememberMeServiceProvider;
 use Silex\Provider\ServiceControllerServiceProvider;
 use Silex\Provider\ValidatorServiceProvider;
 use Silex\Provider\WebProfilerServiceProvider;
@@ -83,7 +80,7 @@ class YvesBootstrap extends Bootstrap
     protected function beforeBoot(Application $app)
     {
         $app['locale'] = \ProjectA_Shared_Library_Store::getInstance()->getCurrentLocale();
-        if (\ProjectA_Shared_Library_Environment::isDevelopment()) {
+        if (Environment::isDevelopment()) {
             $app['profiler.cache_dir'] = \ProjectA_Shared_Library_Data::getLocalStoreSpecificPath('cache/profiler');
         }
         $app['locator'] = Locator::getInstance();
@@ -131,7 +128,7 @@ class YvesBootstrap extends Bootstrap
 //            new TrackingServiceProvider()
         ];
 
-        if (\ProjectA_Shared_Library_Environment::isDevelopment()) {
+        if (Environment::isDevelopment()) {
             $providers[] = new WebProfilerServiceProvider();
         }
 
@@ -203,7 +200,7 @@ class YvesBootstrap extends Bootstrap
                 ->createCartSessionCount($app->getSession())
                 ->getCount(),
             'tracking' => Tracking::getInstance(),
-            'environment' => \ProjectA_Shared_Library_Environment::getEnvironment(),
+            'environment' => Environment::getEnvironment(),
         ];
     }
 }
