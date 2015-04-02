@@ -13,30 +13,24 @@ use ProjectA\Shared\Yves\YvesConfig;
 use SprykerCore\Yves\Application\Communication\Plugin\ControllerProviderInterface;
 
 use Pyz\Yves\Checkout\Communication\Plugin\CheckoutControllerProvider;
-use ProjectA\Yves\Customer\Business\Model\Security\SecurityServiceProvider;
-use ProjectA\Yves\Customer\Communication\Plugin\CustomerControllerProvider;
 use Pyz\Yves\Cart\Communication\Plugin\CartControllerProvider;
-use ProjectA\Yves\Library\Asset\AssetManager;
-use Pyz\Yves\Newsletter\Communication\Plugin\NewsletterControllerProvider;
 use Pyz\Yves\Application\Communication\Plugin\ApplicationControllerProvider;
-use SprykerCore\Yves\Application\Business\Twig\YvesExtension;
 
 use SprykerCore\Yves\Application\Communication\Plugin\ServiceProvider\CookieServiceProvider;
 use SprykerCore\Yves\Application\Communication\Plugin\ServiceProvider\MonologServiceProvider;
 use SprykerCore\Yves\Application\Communication\Plugin\ServiceProvider\SessionServiceProvider;
 use SprykerCore\Yves\Application\Communication\Plugin\ServiceProvider\ExceptionServiceProvider;
-use SprykerCore\Yves\Application\Communication\Plugin\ServiceProvider\TwigServiceProvider;
 use SprykerCore\Yves\Application\Communication\Plugin\ServiceProvider\YvesLoggingServiceProvider;
 
 use ProjectA\Shared\Application\Business\Routing\SilexRouter;
 
 use ProjectA\Yves\Library\Tracking\Tracking;
 use Silex\Provider\FormServiceProvider;
-use Silex\Provider\RememberMeServiceProvider;
 use Silex\Provider\ServiceControllerServiceProvider;
 use Silex\Provider\ValidatorServiceProvider;
 use Silex\Provider\WebProfilerServiceProvider;
 use SprykerCore\Yves\Kernel\Locator;
+use SprykerFeature\Yves\Twig\Plugin\TwigServiceProvider;
 use Symfony\Component\HttpFoundation\Request;
 
 class YvesBootstrap extends Bootstrap
@@ -60,21 +54,6 @@ class YvesBootstrap extends Bootstrap
         foreach ($this->getControllerProviders() as $provider) {
             $app->mount($provider->getUrlPrefix(), $provider);
         }
-    }
-
-    /**
-     * @param Application $app
-     *
-     * @return \Twig_Extension[]
-     */
-    protected function getTwigExtensions(Application $app)
-    {
-        $assetManager = new AssetManager($app['request_stack']);
-        $yvesExtension = new YvesExtension($assetManager);
-
-        return [
-            $yvesExtension
-        ];
     }
 
     /**
