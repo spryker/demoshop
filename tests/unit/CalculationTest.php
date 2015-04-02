@@ -3,6 +3,7 @@
 use ProjectA\Shared\Sales\Transfer\Order;
 use ProjectA\Shared\Sales\Transfer\OrderItem;
 use ProjectA\Zed\Calculation\Business\CalculationFacade;
+use ProjectA\Zed\DiscountCalculationConnector\Business\DiscountCalculationConnectorFacade;
 use ProjectA\Zed\Kernel\Locator;
 
 class CalculationTest extends \Codeception\TestCase\Test
@@ -22,13 +23,19 @@ class CalculationTest extends \Codeception\TestCase\Test
     /**
      * @var CalculationFacade
      */
-    private $facadeCalculation;
+    protected $facadeCalculation;
+
+    /**
+     * @var DiscountCalculationConnectorFacade
+     */
+    protected $facadeDiscountCalculation;
 
     protected function setUp()
     {
         parent::setUp();
         $this->locator = Locator::getInstance();
         $this->facadeCalculation = $this->locator->calculation()->facade();
+        $this->facadeDiscountCalculation = $this->locator->discountCalculationConnector()->facade();
     }
 
     /**
@@ -79,7 +86,7 @@ class CalculationTest extends \Codeception\TestCase\Test
     {
         $order = $this->getOrder();
         $totals = $this->getTotals();
-        $this->facadeCalculation->recalculateDiscountTotals($totals, $order, $order->getItems());
+        $this->facadeDiscountCalculation->recalculateDiscountTotals($totals, $order, $order->getItems());
     }
 
     /**
@@ -118,7 +125,7 @@ class CalculationTest extends \Codeception\TestCase\Test
     {
         $order = $this->getOrder();
         $totals = $this->getTotals();
-        $this->facadeCalculation->recalculateGrandTotalWithoutDiscountsTotals($totals, $order, $order->getItems());
+        $this->facadeCalculation->recalculateGrandTotalTotals($totals, $order, $order->getItems());
     }
 
     /**
@@ -145,7 +152,7 @@ class CalculationTest extends \Codeception\TestCase\Test
     public function testRecalculateRemoveAllCalculatedDiscounts()
     {
         $order = $this->getOrder();
-        $this->facadeCalculation->recalculateRemoveAllCalculatedDiscounts($order);
+        $this->facadeDiscountCalculation->recalculateRemoveAllCalculatedDiscounts($order);
     }
 
     /**

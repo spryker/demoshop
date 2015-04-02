@@ -16,15 +16,15 @@ class CalculationSettings extends CoreCalculationSettings
         return [
             $this->locator->calculation()->pluginRemoveTotalsCalculatorPlugin(),
             $this->locator->calculation()->pluginRemoveAllExpensesCalculatorPlugin(),
-            $this->locator->calculation()->pluginRemoveAllCalculatedDiscountsCalculatorPlugin(),
+            $this->locator->discountCalculationConnector()->pluginRemoveAllCalculatedDiscountsCalculatorPlugin(),
             $this->locator->calculation()->pluginExpenseTotalsCalculatorPlugin(),
             $this->locator->calculation()->pluginSubtotalTotalsCalculatorPlugin(),
             $this->locator->calculation()->pluginSubtotalWithoutItemExpensesTotalsCalculatorPlugin(),
-            $this->locator->calculation()->pluginGrandTotalWithoutDiscountsTotalsCalculatorPlugin(),
+            $this->locator->calculation()->pluginGrandTotalTotalsCalculatorPlugin(),
             $this->locator->calculation()->pluginExpensePriceToPayCalculatorPlugin(),
             $this->locator->calculation()->pluginItemPriceToPayCalculatorPlugin(),
             $this->locator->calculation()->pluginOptionPriceToPayCalculatorPlugin(),
-            $this->locator->calculation()->pluginDiscountTotalsCalculatorPlugin(),
+            $this->locator->discountCalculationConnector()->pluginDiscountTotalsCalculatorPlugin(),
             $this->locator->calculation()->pluginGrandTotalTotalsCalculatorPlugin(),
             $this->locator->calculation()->pluginTaxTotalsCalculatorPlugin(),
         ];
