@@ -1,22 +1,14 @@
 <?php
 
-
 namespace Pyz\Zed\Mail\Business\Model\Provider\Mandrill;
 
-use ProjectA\Zed\Library\Dependency\DependencyFactoryInterface;
-use ProjectA\Zed\Library\Dependency\DependencyFactoryTrait;
 use ProjectA\Zed\Mail\Business\Model\Provider\Mandrill\MandrillSettings as CoreMandrillSettings;
 use ProjectA\Shared\Library\Config;
 use Pyz\Zed\Mail\Business\Model\MailTypesConstantInterface;
 use Pyz\Shared\Mail\MailConfig;
 
-/**
- * Class MandrillSettings
- * @package Zoo\Zed\Mail\Component\Model\Provider\Mandrill
- */
-class MandrillSettings extends CoreMandrillSettings implements DependencyFactoryInterface
+class MandrillSettings extends CoreMandrillSettings
 {
-    use DependencyFactoryTrait;
 
     /**
      * @var \ArrayObject
@@ -86,4 +78,3 @@ class MandrillSettings extends CoreMandrillSettings implements DependencyFactory
         return $this->config;
     }
 }
- 

@@ -27,18 +27,15 @@ use ProjectA\Zed\Auth\Business\Model\Auth;
 
 use ProjectA\Zed\Cms\Communication\Plugin\ServiceProvider\CmsServiceProvider;
 
-use ProjectA\Zed\ProductImage\Business\ServiceProvider\ProductImageServiceProvider;
+use ProjectA\Zed\Kernel\Locator;
 
 use ProjectA\Zed\Auth\Communication\Plugin\ServiceProvider\SecurityServiceProvider;
-use ProjectA\Zed\Yves\Communication\Plugin\ServiceProvider\FrontendServiceProvider;
 
+use ProjectA\Zed\Sdk\Communication\Plugin\SdkServiceProviderPlugin;
 use Silex\Provider\FormServiceProvider;
-use Silex\Provider\HttpFragmentServiceProvider;
-use Silex\Provider\RememberMeServiceProvider;
 use Silex\Provider\ServiceControllerServiceProvider;
 use Silex\Provider\ValidatorServiceProvider;
 use Silex\Provider\WebProfilerServiceProvider;
-
 use Symfony\Component\HttpFoundation\Request;
 
 class ZedBootstrap extends Bootstrap
@@ -103,10 +100,9 @@ class ZedBootstrap extends Bootstrap
             new TranslationServiceProvider(),
             new SessionServiceProvider(),
             new PropelServiceProvider(),
-            new FrontendServiceProvider(),
+            $this->getSdkServiceProvider(),
             new SecurityServiceProvider(),
             new UrlGeneratorServiceProvider(),
-//            new ProductImageServiceProvider(), You can find this in catalog-package feature/387-replace-zf-with-silex
             new CmsServiceProvider(),
             new NewRelicServiceProvider(),
         ];
@@ -141,8 +137,42 @@ class ZedBootstrap extends Bootstrap
             'store' => \ProjectA_Shared_Library_Store::getInstance()->getStoreName(),
             'identity' => (Auth::getInstance()->hasIdentity()) ? Auth::getInstance()->getIdentity() : false,
             'title' => Config::get(SystemConfig::PROJECT_NAMESPACE) . ' | Zed | ' . ucfirst(APPLICATION_ENV),
-            'currentController' => get_class($this)
+            'currentController' => get_class($this),
+            'navigation' => $this->getNavigation(),
         ];
     }
-}
 
+    /**
+     * @return \Generated\Zed\Ide\AutoCompletion
+     */
+    public function getLocator()
+    {
+        return Locator::getInstance();
+    }
+
+    /**
+     * @return SdkServiceProviderPlugin
+     */
+    protected function getSdkServiceProvider()
+    {
+        $locator = $this->getLocator();
+        $controllerListener = $locator->sdk()->pluginSdkControllerListenerPlugin();
+        $sdkServiceProvider = $locator->sdk()->pluginSdkServiceProviderPlugin();
+        $sdkServiceProvider->setControllerListener($controllerListener);
+
+        return $sdkServiceProvider;
+    }
+
+    /**
+     * @return string
+     */
+    protected function getNavigation()
+    {
+        $request = Request::createFromGlobals();
+
+        return $this->getLocator()
+            ->application()
+            ->pluginNavigation()
+            ->buildNavigation($request->getPathInfo());
+    }
+}
