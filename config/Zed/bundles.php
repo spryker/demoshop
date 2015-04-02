@@ -26,7 +26,6 @@ return [
         'FrontendExporter' => $schema,
         'Glossary' => $allElements,
         'Lumberjack' => $navigation,
-        'Mail' => $schema,
         'Misc' => $schema,
         'Oms' => $schema,
         'Price' => $schema,
