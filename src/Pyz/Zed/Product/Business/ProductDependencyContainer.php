@@ -18,7 +18,7 @@ class ProductDependencyContainer extends SprykerDependencyContainer
     /**
      * @return SimpleAttributeMergeBuilder
      */
-    public function getProductBuilder()
+    public function createProductBuilder()
     {
         return $this->factory->createBuilderSimpleAttributeMergeBuilder();
     }
@@ -28,7 +28,7 @@ class ProductDependencyContainer extends SprykerDependencyContainer
      *
      * @return ProductDataInstall
      */
-    public function getDemoDataInstaller(LoggerInterface $logger = null)
+    public function createDemoDataInstaller(LoggerInterface $logger = null)
     {
         $installer = $this->factory->createInternalDemoDataProductDataInstall(
             $this->createAttributeManager(),
