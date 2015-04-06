@@ -36,7 +36,7 @@ class ProductAttributeMappingInstall extends AbstractInstaller
                         ->findOneByKey($sourceField);
                     if ($attribute) {
                         $weight++;
-                        $attributeId = $attribute->getAttributeId();
+                        $attributeId = $attribute->getIdAttributesMetadata();
                         $this->addOperation($attributeId, $targetField, $operation, $weight);
 
                     }
@@ -170,14 +170,14 @@ class ProductAttributeMappingInstall extends AbstractInstaller
 
         /** @var \ProjectA\Zed\Product\Persistence\Propel\SpyProduct $product */
         foreach ($products as $product) {
-                ->filterByFkProduct($product->getProductId())
             $searchableProduct = SpySearchableProductsQuery::create()
+                ->filterByFkProduct($product->getIdProduct())
                 ->filterByFkLocale($localeId)
                 ->findOneOrCreate();
             $searchableProduct->setIsSearchable(true);
             $searchableProduct->save();
 
-            $touchFacade->touchActive('searchableProduct', $product->getProductId());
+            $touchFacade->touchActive('searchableProduct', $product->getIdProduct());
         }
     }
 }
