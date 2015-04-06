@@ -29,7 +29,7 @@ class ProductFacade extends CoreProductFacade implements
      */
     public function buildProducts(array $productsData)
     {
-        return $this->dependencyContainer->getProductBuilder()->buildProducts($productsData);
+        return $this->dependencyContainer->createProductBuilder()->buildProducts($productsData);
     }
 
     /**
@@ -39,7 +39,7 @@ class ProductFacade extends CoreProductFacade implements
      */
     public function buildSearchProducts(array $productsData)
     {
-        return $this->dependencyContainer->getProductBuilder()->buildProducts($productsData);
+        return $this->dependencyContainer->createProductBuilder()->buildProducts($productsData);
     }
 
     /**
@@ -47,6 +47,6 @@ class ProductFacade extends CoreProductFacade implements
      */
     public function installDemoData(LoggerInterface $logger = null)
     {
-        $this->dependencyContainer->getDemoDataInstaller($logger)->install();
+        $this->dependencyContainer->createDemoDataInstaller($logger)->install();
     }
 }

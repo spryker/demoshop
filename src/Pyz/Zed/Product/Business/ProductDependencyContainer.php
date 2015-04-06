@@ -25,11 +25,11 @@ class ProductDependencyContainer extends CoreDependencyContainer
     public function getDemoDataInstaller(LoggerInterface $logger = null)
     {
         $installer = $this->factory->createInternalDemoDataProductDataInstall(
-            $this->getAttributeManager(),
-            $this->getProductManager(),
-            $this->getLocaleFacade(),
-            $this->getCSVReader(),
-            $this->getCSVPath()
+            $this->createAttributeManager(),
+            $this->createProductManager(),
+            $this->createLocaleFacade(),
+            $this->createCSVReader(),
+            $this->createSettings()->getDemoDataPath()
         );
         $installer->setLogger($logger);
 
@@ -37,10 +37,10 @@ class ProductDependencyContainer extends CoreDependencyContainer
     }
 
     /**
-     * @return string
+     * @return ProductSettings
      */
-    protected function getCSVPath()
+    public function createSettings()
     {
-        return __DIR__ . '/Internal/DemoData/demo-product-data.csv';
+        return $this->factory->createProductSettings();
     }
 }
