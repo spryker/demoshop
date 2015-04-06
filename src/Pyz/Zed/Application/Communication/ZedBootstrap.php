@@ -15,7 +15,6 @@ use ProjectA\Zed\Application\Business\Model\Router\MvcRouter;
 use ProjectA\Zed\Application\Business\Model\Twig\ZedExtension;
 use ProjectA\Zed\Application\Communication\Plugin\Pimple;
 use ProjectA\Zed\Application\Communication\Plugin\ServiceProvider\EnvironmentInformationServiceProvider;
-use ProjectA\Zed\Application\Communication\Plugin\ServiceProvider\Navigation;
 use ProjectA\Zed\Application\Communication\Plugin\ServiceProvider\NewRelicServiceProvider;
 use ProjectA\Zed\Application\Communication\Plugin\ServiceProvider\PropelServiceProvider;
 use ProjectA\Zed\Application\Communication\Plugin\ServiceProvider\RequestServiceProvider;

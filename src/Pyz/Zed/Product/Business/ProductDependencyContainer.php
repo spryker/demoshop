@@ -2,17 +2,23 @@
 
 namespace Pyz\Zed\Product\Business;
 
+use Generated\Zed\Ide\FactoryAutoCompletion\ProductBusiness;
 use ProjectA\Zed\Product\Business\Builder\SimpleAttributeMergeBuilder;
-use ProjectA\Zed\Product\Business\ProductDependencyContainer as CoreDependencyContainer;
+use ProjectA\Zed\Product\Business\ProductDependencyContainer as SprykerDependencyContainer;
 use Psr\Log\LoggerInterface;
 use Pyz\Zed\Product\Business\Internal\DemoData\ProductDataInstall;
 
-class ProductDependencyContainer extends CoreDependencyContainer
+class ProductDependencyContainer extends SprykerDependencyContainer
 {
+    /**
+     * @var ProductBusiness
+     */
+    protected $factory;
+
     /**
      * @return SimpleAttributeMergeBuilder
      */
-    public function getProductBuilder()
+    public function createProductBuilder()
     {
         return $this->factory->createBuilderSimpleAttributeMergeBuilder();
     }
@@ -22,14 +28,14 @@ class ProductDependencyContainer extends CoreDependencyContainer
      *
      * @return ProductDataInstall
      */
-    public function getDemoDataInstaller(LoggerInterface $logger = null)
+    public function createDemoDataInstaller(LoggerInterface $logger = null)
     {
         $installer = $this->factory->createInternalDemoDataProductDataInstall(
-            $this->getAttributeManager(),
-            $this->getProductManager(),
-            $this->getLocaleFacade(),
-            $this->getCSVReader(),
-            $this->getCSVPath()
+            $this->createAttributeManager(),
+            $this->createProductManager(),
+            $this->createLocaleFacade(),
+            $this->createCSVReader(),
+            $this->createSettings()->getDemoDataPath()
         );
         $installer->setLogger($logger);
 
@@ -37,10 +43,10 @@ class ProductDependencyContainer extends CoreDependencyContainer
     }
 
     /**
-     * @return string
+     * @return ProductSettings
      */
-    protected function getCSVPath()
+    public function createSettings()
     {
-        return __DIR__ . '/Internal/DemoData/demo-product-data.csv';
+        return $this->factory->createProductSettings();
     }
 }
