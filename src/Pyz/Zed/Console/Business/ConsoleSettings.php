@@ -35,7 +35,6 @@ class ConsoleSettings extends SprykerConsoleSettings
             $this->locator->frontendExporter()->consoleUpdateSearchConsole(),
             $this->locator->oms()->consoleCheckConditionConsole(),
             $this->locator->oms()->consoleCheckTimeoutConsole(),
-            $this->locator->mail()->consoleSendMailConsole(),
         ];
 
         $gitCommands = $this->locator->git()->facade()->getConsoleCommands();
