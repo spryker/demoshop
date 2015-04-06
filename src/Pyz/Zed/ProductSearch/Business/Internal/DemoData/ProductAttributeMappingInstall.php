@@ -6,6 +6,11 @@ use Generated\Zed\Ide\AutoCompletion;
 use ProjectA\Zed\Console\Business\Model\Console;
 use ProjectA\Zed\Installer\Business\Model\AbstractInstaller;
 use ProjectA\Zed\Kernel\Locator;
+use ProjectA\Zed\Product\Persistence\Propel\SpyProductAttributesMetadataQuery;
+use ProjectA\Zed\Product\Persistence\Propel\SpyProductQuery;
+use ProjectA\Zed\ProductSearch\Persistence\Propel\SpyProductSearchAttributesOperation;
+use ProjectA\Zed\ProductSearch\Persistence\Propel\SpyProductSearchAttributesOperationQuery;
+use ProjectA\Zed\ProductSearch\Persistence\Propel\SpySearchableProductsQuery;
 use Propel\Runtime\Exception\PropelException;
 
 class ProductAttributeMappingInstall extends AbstractInstaller
@@ -27,11 +32,11 @@ class ProductAttributeMappingInstall extends AbstractInstaller
             $weight = 0;
             foreach ($operations as $operation => $targetFields) {
                 foreach ($targetFields as $targetField) {
-                    $attribute = \ProjectA\Zed\Product\Persistence\Propel\SpyProductAttributesMetadataQuery::create()
+                    $attribute = SpyProductAttributesMetadataQuery::create()
                         ->findOneByKey($sourceField);
                     if ($attribute) {
                         $weight++;
-                        $attributeId = $attribute->getAttributeId();
+                        $attributeId = $attribute->getIdAttributesMetadata();
                         $this->addOperation($attributeId, $targetField, $operation, $weight);
 
                     }
@@ -135,13 +140,13 @@ class ProductAttributeMappingInstall extends AbstractInstaller
      */
     protected function addOperation($attributeId, $copyTarget, $operation, $weight)
     {
-        $attributeOperationExists = \ProjectA\Zed\ProductSearch\Persistence\Propel\SpyProductSearchAttributesOperationQuery::create()
+        $attributeOperationExists = SpyProductSearchAttributesOperationQuery::create()
             ->filterBySourceAttributeId($attributeId)
             ->filterByTargetField($copyTarget)
             ->findOne();
 
         if (!$attributeOperationExists) {
-            $attributeOperation = new \ProjectA\Zed\ProductSearch\Persistence\Propel\SpyProductSearchAttributesOperation();
+            $attributeOperation = new SpyProductSearchAttributesOperation();
             $attributeOperation->setTargetField($copyTarget);
             $attributeOperation->setOperation($operation);
             $attributeOperation->setWeighting($weight);
@@ -152,7 +157,7 @@ class ProductAttributeMappingInstall extends AbstractInstaller
 
     protected function makeProductsSearchable()
     {
-        $products = \ProjectA\Zed\Product\Persistence\Propel\SpyProductQuery::create()->find();
+        $products = SpyProductQuery::create()->find();
         /** @var AutoCompletion $locator */
         $locator = Locator::getInstance();
 
@@ -161,18 +166,18 @@ class ProductAttributeMappingInstall extends AbstractInstaller
 
         // TODO check hardcoded locale
         $localeId = $localeFacade->getLocaleIdentifier('de_DE');
-        $products = \ProjectA\Zed\Product\Persistence\Propel\SpyProductQuery::create()->find();
+        $products = SpyProductQuery::create()->find();
 
         /** @var \ProjectA\Zed\Product\Persistence\Propel\SpyProduct $product */
         foreach ($products as $product) {
-            $searchableProduct = \ProjectA\Zed\ProductSearch\Persistence\Propel\SpySearchableProductsQuery::create()
-                ->filterByFkProduct($product->getProductId())
+            $searchableProduct = SpySearchableProductsQuery::create()
+                ->filterByFkProduct($product->getIdProduct())
                 ->filterByFkLocale($localeId)
                 ->findOneOrCreate();
             $searchableProduct->setIsSearchable(true);
             $searchableProduct->save();
 
-            $touchFacade->touchActive('searchableProduct', $product->getProductId());
+            $touchFacade->touchActive('searchableProduct', $product->getIdProduct());
         }
     }
 }
