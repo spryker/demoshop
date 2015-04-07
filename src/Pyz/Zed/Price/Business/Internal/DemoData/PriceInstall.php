@@ -75,10 +75,12 @@ class PriceInstall extends AbstractInstaller
         $transferPriceProduct->setPrice($row[self::PRICE])
             ->setPriceTypeName($stockType->getName())
             ->setSkuProduct($row[self::SKU])
-            ->setIsActive($row[self::IS_ACTiVE]);
+            ;
 
-        if ($this->priceFacade->hasValidPrice($transferPriceProduct->getSkuProduct(), $transferPriceProduct->getPriceTypeName())) {
-            $idPriceProduct = $this->priceFacade->getIdPriceProduct($transferPriceProduct->getSkuProduct(), $transferPriceProduct->getPriceTypeName());
+        $sku = $transferPriceProduct->getSkuProduct();
+        $priceType = $transferPriceProduct->getPriceTypeName();
+        if ($this->priceFacade->hasValidPrice($sku, $priceType)) {
+            $idPriceProduct = $this->priceFacade->getIdPriceProduct($sku, $priceType);
             $transferPriceProduct->setIdPriceProduct($idPriceProduct);
             $this->priceFacade->setPriceForProduct($transferPriceProduct);
         } else {
