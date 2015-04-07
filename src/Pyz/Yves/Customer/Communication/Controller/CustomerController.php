@@ -17,16 +17,15 @@ class CustomerController extends AbstractController
         $form = $this->createForm($this->dependencyContainer->createFormForgot());
 
         if ($form->isValid()) {
-            /** @var CustomerTransfer $customerTransfer */
             $customerTransfer = $this->locator->customer()->transferCustomer();
             $customerTransfer->fromArray($form->getData());
             $this->locator->customer()->sdk()->forgotPassword($customerTransfer);
             $this->addMessageSuccess(Messages::CUSTOMER_PASSWORD_RECOVERY_MAIL_SENT);
 
-            return $this->redirectResponseInternal("home");
+            return $this->redirectResponseInternal('home');
         }
 
-        return ["form" => $form->createView()];
+        return ['form' => $form->createView()];
     }
 
     /**
@@ -38,19 +37,18 @@ class CustomerController extends AbstractController
         $form = $this->createForm($this->dependencyContainer->createFormRestore());
 
         if ($form->isValid()) {
-            /** @var CustomerTransfer $customerTransfer */
             $customerTransfer = $this->locator->customer()->transferCustomer();
-            $customerTransfer->setRestorePasswordKey($request->query->get("token"));
+            $customerTransfer->setRestorePasswordKey($request->query->get('token'));
             $this->locator->customer()->sdk()->restorePassword($customerTransfer);
             $this->locator->customer()
                 ->pluginSecurityService()
                 ->createUserProvider($request->getSession())
                 ->logout($this->getUsername());
 
-            return $this->redirectResponseInternal("login");
+            return $this->redirectResponseInternal('login');
         }
 
-        return ["form" => $form->createView()];
+        return ['form' => $form->createView()];
     }
 
     /**
@@ -62,7 +60,6 @@ class CustomerController extends AbstractController
         $form = $this->createForm($this->dependencyContainer->createFormDelete());
 
         if ($form->isValid()) {
-            /** @var CustomerTransfer $customerTransfer */
             $customerTransfer = $this->locator->customer()->transferCustomer();
             $customerTransfer->setEmail($this->getUsername());
             if ($this->locator->customer()->sdk()->deleteCustomer($customerTransfer)) {
@@ -71,13 +68,13 @@ class CustomerController extends AbstractController
                     ->createUserProvider($request->getSession())
                     ->logout($this->getUsername());
 
-                return $this->redirectResponseInternal("home");
+                return $this->redirectResponseInternal('home');
             } else {
                 $this->addMessageError(Messages::CUSTOMER_DELETE_FAILED);
             }
         }
 
-        return ["form" => $form->createView()];
+        return ['form' => $form->createView()];
     }
 
     /**
@@ -85,7 +82,6 @@ class CustomerController extends AbstractController
      */
     public function profileAction()
     {
-        /** @var CustomerTransfer $customerTransfer */
         $customerTransfer = $this->locator->customer()->transferCustomer();
 
         $form = $this->createForm($this->dependencyContainer->createFormProfile());
@@ -95,7 +91,7 @@ class CustomerController extends AbstractController
             $customerTransfer->setEmail($this->getUsername());
             $this->locator->customer()->sdk()->updateCustomer($customerTransfer);
 
-            return $this->redirectResponseInternal("profile");
+            return $this->redirectResponseInternal('profile');
         }
 
         $customerTransfer->setEmail($this->getUsername());
@@ -103,8 +99,8 @@ class CustomerController extends AbstractController
         $form->setData($customerTransfer->toArray());
 
         return [
-            "form" => $form->createView(),
-            "addresses" => $customerTransfer->getAddresses(),
+            'form' => $form->createView(),
+            'addresses' => $customerTransfer->getAddresses(),
         ];
     }
 }

@@ -5,14 +5,14 @@ namespace Pyz\Yves\Customer\Form;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 
-class Restore extends AbstractType
+class ForgotPassword extends AbstractType
 {
     /**
      * @return string
      */
     public function getName()
     {
-        return "restoreForm";
+        return 'forgotForm';
     }
 
     /**
@@ -22,12 +22,11 @@ class Restore extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add("restore_key", "hidden")
-            ->add("password", "password", [
-                "label" => "customer.restore.password"
+            ->add('email', 'email', [
+                'label' => 'customer.forgot.email'
             ])
-            ->add("submit", "submit", [
-                "label" => "customer.restore.submit"
+            ->add('submit', 'submit', [
+                'label' => 'customer.forgot.submit'
             ])
         ;
     }

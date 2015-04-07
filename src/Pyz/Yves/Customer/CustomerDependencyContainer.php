@@ -4,11 +4,11 @@ namespace Pyz\Yves\Customer;
 
 use SprykerFeature\Yves\Customer\CustomerDependencyContainer as CoreCustomerDependencyContainer;
 use Pyz\Yves\Customer\Form\Address;
-use Pyz\Yves\Customer\Form\Register;
-use Pyz\Yves\Customer\Form\Delete;
-use Pyz\Yves\Customer\Form\Forgot;
+use Pyz\Yves\Customer\Form\RegisterCustomer;
+use Pyz\Yves\Customer\Form\DeleteCustomer;
+use Pyz\Yves\Customer\Form\ForgotPassword;
 use Pyz\Yves\Customer\Form\Profile;
-use Pyz\Yves\Customer\Form\Restore;
+use Pyz\Yves\Customer\Form\RestorePassword;
 
 class CustomerDependencyContainer extends CoreCustomerDependencyContainer
 {
@@ -21,27 +21,27 @@ class CustomerDependencyContainer extends CoreCustomerDependencyContainer
     }
 
     /**
-     * @return Register
+     * @return RegisterCustomer
      */
     public function createFormRegister()
     {
-        return $this->factory->createFormRegister();
+        return $this->factory->createFormRegisterCustomer();
     }
 
     /**
-     * @return Delete
+     * @return DeleteCustomer
      */
     public function createFormDelete()
     {
-        return $this->factory->createFormDelete();
+        return $this->factory->createFormDeleteCustomer();
     }
 
     /**
-     * @return Forgot
+     * @return ForgotPassword
      */
     public function createFormForgot()
     {
-        return $this->factory->createFormForgot();
+        return $this->factory->createFormForgotPassword();
     }
 
     /**
@@ -53,10 +53,10 @@ class CustomerDependencyContainer extends CoreCustomerDependencyContainer
     }
 
     /**
-     * @return Restore
+     * @return RestorePassword
      */
     public function createFormRestore()
     {
-        return $this->factory->createFormRestore();
+        return $this->factory->createFormRestorePassword();
     }
 }
