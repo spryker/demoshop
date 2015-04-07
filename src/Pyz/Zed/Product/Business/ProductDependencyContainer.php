@@ -27,7 +27,7 @@ class ProductDependencyContainer extends CoreDependencyContainer
      *
      * @return ProductDataInstall
      */
-    public function getDemoDataInstaller(LoggerInterface $messenger = null)
+    public function getDemoDataInstaller(LoggerInterface $messenger)
     {
         $installer = $this->factory->createInternalDemoDataProductDataInstall();
         $installer->setMessenger($messenger);

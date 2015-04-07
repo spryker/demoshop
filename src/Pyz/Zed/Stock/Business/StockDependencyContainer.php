@@ -21,7 +21,7 @@ class StockDependencyContainer extends SprykerStockDependencyContainer
      *
      * @return StockInstall
      */
-    public function getDemoDataInstaller(LoggerInterface $messenger = null)
+    public function getDemoDataInstaller(LoggerInterface $messenger)
     {
         $installer = $this->factory->createInternalDemoDataStockInstall(
             $this->locator

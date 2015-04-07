@@ -19,7 +19,7 @@ class ProductSearchDependencyContainer extends SprykerProductSearchDependencyCon
      *
      * @return Internal\DemoData\ProductAttributeMappingInstall
      */
-    public function getDemoDataInstaller(LoggerInterface $messenger = null)
+    public function getDemoDataInstaller(LoggerInterface $messenger)
     {
         $installer = $this->factory->createInternalDemoDataProductAttributeMappingInstall();
         $installer->setMessenger($messenger);

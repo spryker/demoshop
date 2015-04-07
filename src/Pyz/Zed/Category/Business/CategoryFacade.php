@@ -16,7 +16,7 @@ class CategoryFacade extends SprykerCategoryFacade
     /**
      * @param LoggerInterface $messenger
      */
-    public function installDemoData(LoggerInterface $messenger = null)
+    public function installDemoData(LoggerInterface $messenger)
     {
         $this->dependencyContainer->getDemoDataInstaller($messenger)->install();
     }
