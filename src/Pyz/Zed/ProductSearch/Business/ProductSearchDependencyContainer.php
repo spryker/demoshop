@@ -17,6 +17,7 @@ class ProductSearchDependencyContainer extends SprykerProductSearchDependencyCon
     public function getDemoDataInstaller(LoggerInterface $logger = null)
     {
         $installer = $this->getFactory()->createInternalDemoDataProductAttributeMappingInstall(
+            $this->createOperationManager(),
             $this->createLocaleFacade(),
             $this->createTouchFacade()
         );
