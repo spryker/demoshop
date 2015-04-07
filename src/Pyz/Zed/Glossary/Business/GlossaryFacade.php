@@ -7,7 +7,6 @@ use SprykerFeature\Zed\Glossary\Business\GlossaryFacade as SprykerGlossaryFacade
 
 class GlossaryFacade extends SprykerGlossaryFacade
 {
-
     /**
      * @var GlossaryDependencyContainer
      */

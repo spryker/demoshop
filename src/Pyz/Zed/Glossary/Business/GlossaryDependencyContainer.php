@@ -8,7 +8,6 @@ use SprykerFeature\Zed\Glossary\Business\GlossaryDependencyContainer as SprykerG
 
 class GlossaryDependencyContainer extends SprykerGlossaryDependencyContainer
 {
-
     /**
      * @param LoggerInterface $logger
      *
@@ -21,5 +20,4 @@ class GlossaryDependencyContainer extends SprykerGlossaryDependencyContainer
 
         return $installer;
     }
-
 }
