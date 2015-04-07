@@ -2,19 +2,47 @@
 
 namespace Pyz\Zed\ProductSearch\Business\Internal\DemoData;
 
-use Generated\Zed\Ide\AutoCompletion;
-use ProjectA\Zed\Console\Business\Model\Console;
 use ProjectA\Zed\Installer\Business\Model\AbstractInstaller;
-use ProjectA\Zed\Kernel\Locator;
+use ProjectA\Zed\Product\Persistence\Propel\SpyProduct;
 use ProjectA\Zed\Product\Persistence\Propel\SpyProductAttributesMetadataQuery;
 use ProjectA\Zed\Product\Persistence\Propel\SpyProductQuery;
-use ProjectA\Zed\ProductSearch\Persistence\Propel\SpyProductSearchAttributesOperation;
-use ProjectA\Zed\ProductSearch\Persistence\Propel\SpyProductSearchAttributesOperationQuery;
+use ProjectA\Zed\ProductSearch\Business\Operation\OperationManagerInterface;
+use ProjectA\Zed\ProductSearch\Dependency\Facade\ProductSearchToLocaleInterface;
+use ProjectA\Zed\ProductSearch\Dependency\Facade\ProductSearchToTouchInterface;
 use ProjectA\Zed\ProductSearch\Persistence\Propel\SpySearchableProductsQuery;
 use Propel\Runtime\Exception\PropelException;
 
 class ProductAttributeMappingInstall extends AbstractInstaller
 {
+    /**
+     * @var OperationManagerInterface
+     */
+    protected $operationManager;
+
+    /**
+     * @var ProductSearchToLocaleInterface
+     */
+    protected $localeFacade;
+
+    /**
+     * @var ProductSearchToTouchInterface
+     */
+    protected $touchFacade;
+
+    /**
+     * @param OperationManagerInterface $operationManager
+     * @param ProductSearchToLocaleInterface $localeFacade
+     * @param ProductSearchToTouchInterface $touchFacade
+     */
+    public function __construct(
+        OperationManagerInterface $operationManager,
+        ProductSearchToLocaleInterface $localeFacade,
+        ProductSearchToTouchInterface $touchFacade
+    ) {
+        $this->operationManager = $operationManager;
+        $this->localeFacade = $localeFacade;
+        $this->touchFacade = $touchFacade;
+    }
 
     public function install()
     {
@@ -36,8 +64,8 @@ class ProductAttributeMappingInstall extends AbstractInstaller
                         ->findOneByKey($sourceField);
                     if ($attribute) {
                         $weight++;
-                        $attributeId = $attribute->getIdAttributesMetadata();
-                        $this->addOperation($attributeId, $targetField, $operation, $weight);
+                        $idAttribute = $attribute->getIdAttributesMetadata();
+                        $this->addOperation($idAttribute, $targetField, $operation, $weight);
 
                     }
                 }
@@ -131,53 +159,37 @@ class ProductAttributeMappingInstall extends AbstractInstaller
     }
 
     /**
-     * @param int $attributeId
+     * @param int $idAttribute
      * @param string $copyTarget
      * @param string $operation
+     * @param int $weight
      *
      * @throws \Exception
      * @throws PropelException
      */
-    protected function addOperation($attributeId, $copyTarget, $operation, $weight)
+    protected function addOperation($idAttribute, $copyTarget, $operation, $weight)
     {
-        $attributeOperationExists = SpyProductSearchAttributesOperationQuery::create()
-            ->filterBySourceAttributeId($attributeId)
-            ->filterByTargetField($copyTarget)
-            ->findOne();
-
-        if (!$attributeOperationExists) {
-            $attributeOperation = new SpyProductSearchAttributesOperation();
-            $attributeOperation->setTargetField($copyTarget);
-            $attributeOperation->setOperation($operation);
-            $attributeOperation->setWeighting($weight);
-            $attributeOperation->setSourceAttributeId($attributeId);
-            $attributeOperation->save();
+        if (!$this->operationManager->hasAttributeOperation($idAttribute, $copyTarget)) {
+            $this->operationManager->createAttributeOperation($idAttribute, $copyTarget, $operation, $weight);
         }
     }
 
     protected function makeProductsSearchable()
     {
-        $products = SpyProductQuery::create()->find();
-        /** @var AutoCompletion $locator */
-        $locator = Locator::getInstance();
-
-        $touchFacade = $locator->touch()->facade();
-        $localeFacade = $locator->locale()->facade();
-
-        // TODO check hardcoded locale
-        $localeId = $localeFacade->getLocaleIdentifier('de_DE');
+        $idLocale = $this->localeFacade->getCurrentLocaleIdentifier();
         $products = SpyProductQuery::create()->find();
 
-        /** @var \ProjectA\Zed\Product\Persistence\Propel\SpyProduct $product */
+        /** @var SpyProduct $product */
+        //TODO move this to product search facade
         foreach ($products as $product) {
             $searchableProduct = SpySearchableProductsQuery::create()
                 ->filterByFkProduct($product->getIdProduct())
-                ->filterByFkLocale($localeId)
+                ->filterByFkLocale($idLocale)
                 ->findOneOrCreate();
             $searchableProduct->setIsSearchable(true);
             $searchableProduct->save();
 
-            $touchFacade->touchActive('searchableProduct', $product->getIdProduct());
+            $this->touchFacade->touchActive('searchableProduct', $product->getIdProduct());
         }
     }
 }
