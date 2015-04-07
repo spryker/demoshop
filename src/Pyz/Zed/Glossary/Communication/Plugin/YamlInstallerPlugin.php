@@ -17,7 +17,6 @@ class YamlInstallerPlugin extends AbstractPlugin implements GlossaryInstallerPlu
      */
     protected $dependencyContainer;
 
-
     public function installGlossaryData()
     {
         $filePath = __DIR__ . '/../../File/initial_translation.yml';
@@ -25,9 +24,14 @@ class YamlInstallerPlugin extends AbstractPlugin implements GlossaryInstallerPlu
         $this->installKeysAndTranslations($translations);
     }
 
+    /**
+     * @param $filePath
+     * @return array
+     */
     protected function parseYamlFile($filePath)
     {
         $yamlParser = new Yaml();
+
         return $yamlParser->parse(file_get_contents($filePath));
     }
 

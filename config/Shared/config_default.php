@@ -23,7 +23,6 @@ $config[SystemConfig::CURRENT_APPLICATION_ENV] = APPLICATION_ENV;
 
 $config[SystemConfig::PROJECT_TIMEZONE] = 'UTC';
 $config[SystemConfig::PROJECT_NAMESPACE] = 'Pyz';
-$config[SystemConfig::CODE_GENERATORS] = ['transfer', 'zed', 'yves'];
 
 $config[DbDumpConfig::DB_DUMP_USERNAME] = '';
 $config[DbDumpConfig::DB_DUMP_PASSWORD] = '';
@@ -45,13 +44,13 @@ $config[SystemConfig::HOST_YVES]
     = $config[SystemConfig::HOST_SSL_YVES]
     = $config[SystemConfig::HOST_SSL_STATIC_ASSETS]
     = $config[SystemConfig::HOST_SSL_STATIC_MEDIA]
-    = 'www-development.project-yz.de';
+    = 'www.spryker.dev';
 
 $config[SystemConfig::HOST_ZED_GUI]
     = $config[SystemConfig::HOST_ZED_API]
     = $config[SystemConfig::HOST_SSL_ZED_GUI]
     = $config[SystemConfig::HOST_SSL_ZED_API]
-    = 'zed-development.project-yz.de';
+    = 'zed.spryker.dev';
 
 $config[SystemConfig::LOG_LEVEL] = Monolog\Logger::INFO;
 $config[SystemConfig::LOG_PROPEL_SQL] = true;
@@ -162,12 +161,11 @@ $config[SystemConfig::CLOUD_CDN_PRODUCT_IMAGES_PATH_NAME] = '/images/products/';
 $config[SystemConfig::CLOUD_CDN_DELETE_LOCAL_PROCESSED_IMAGES] = false;
 $config[SystemConfig::CLOUD_CDN_DELETE_LOCAL_ORIGINAL_IMAGES] = false;
 
-//TODO: change this to our settings instead of using the zooron mandrill account
 $config[MailConfig::MAIL_PROVIDER_MANDRILL] = [
-    'api-key' => 'weUrHb0QNJaZNEvwZa03xA',
+    'api-key' => '1zPena6fBFPIxctt6VgCSQ',
     'host' => 'smtp.mandrillapp.com',
     'port' => '587',
-    'username' => 'tamer.el-hawari@project-a.com',
+    'username' => 'fabian.wesner@spryker.com',
     'from_mail' => 'service@demoshop.de',
     'from_name' => 'Demoshop'
 ];
