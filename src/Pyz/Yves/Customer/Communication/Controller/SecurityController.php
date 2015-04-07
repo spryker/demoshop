@@ -6,6 +6,7 @@ use SprykerCore\Yves\Application\Communication\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\RedirectResponse;
 use ProjectA\Shared\Customer\Code\Messages;
+use Pyz\Yves\Customer\Communication\Plugin\CustomerControllerProvider;
 
 class SecurityController extends AbstractController
 {
@@ -52,7 +53,7 @@ class SecurityController extends AbstractController
             if ($customerTransfer->getRegistrationKey()) {
                 $this->addMessageWarning(Messages::CUSTOMER_REGISTRATION_SUCCESS);
 
-                return $this->redirectResponseInternal("login");
+                return $this->redirectResponseInternal(CustomerControllerProvider::ROUTE_LOGIN);
             }
         }
 
@@ -71,7 +72,7 @@ class SecurityController extends AbstractController
         if ($customerTransfer->getRegistered()) {
             $this->addMessageSuccess(Messages::CUSTOMER_REGISTRATION_CONFIRMED);
 
-            return $this->redirectResponseInternal("login");
+            return $this->redirectResponseInternal(CustomerControllerProvider::ROUTE_LOGIN);
         }
         $this->addMessageError(Messages::CUSTOMER_REGISTRATION_TIMEOUT);
 

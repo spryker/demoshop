@@ -1,6 +1,8 @@
 <?php
 namespace Pyz\Yves\Customer\Communication\Controller;
 
+use Pyz\Yves\Customer\Communication\Plugin\CustomerControllerProvider;
+use Silex\Tests\Provider\ValidatorServiceProviderTest\Constraint\Custom;
 use SprykerCore\Yves\Application\Communication\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use ProjectA\Shared\Customer\Transfer\Customer as CustomerTransfer;
@@ -45,7 +47,7 @@ class CustomerController extends AbstractController
                 ->createUserProvider($request->getSession())
                 ->logout($this->getUsername());
 
-            return $this->redirectResponseInternal('login');
+            return $this->redirectResponseInternal(CustomerControllerProvider::ROUTE_LOGIN);
         }
 
         return ['form' => $form->createView()];
@@ -91,7 +93,7 @@ class CustomerController extends AbstractController
             $customerTransfer->setEmail($this->getUsername());
             $this->locator->customer()->sdk()->updateCustomer($customerTransfer);
 
-            return $this->redirectResponseInternal('profile');
+            return $this->redirectResponseInternal(CustomerControllerProvider::ROUTE_CUSTOMER_PROFILE);
         }
 
         $customerTransfer->setEmail($this->getUsername());

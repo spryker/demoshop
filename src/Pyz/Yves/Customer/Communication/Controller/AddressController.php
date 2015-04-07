@@ -7,6 +7,7 @@ use SprykerCore\Yves\Application\Communication\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
+use Pyz\Yves\Customer\Communication\Plugin\CustomerControllerProvider;
 
 class AddressController extends AbstractController
 {
@@ -15,12 +16,12 @@ class AddressController extends AbstractController
      * @return array|RedirectResponse
      * @throws NotFoundHttpException
      */
-    public function addressAction(Request $request)
+    public function updateAction(Request $request)
     {
         $addressId = $request->query->get('id');
         if (!$addressId) {
             $this->addMessageError(Messages::CUSTOMER_ADDRESS_UNKNOWN);
-            return $this->redirectResponseInternal('profile');
+            return $this->redirectResponseInternal(CustomerControllerProvider::ROUTE_CUSTOMER_PROFILE);
         }
 
         $form = $this->createForm($this->dependencyContainer->createFormAddress());
@@ -34,11 +35,11 @@ class AddressController extends AbstractController
             if ($addressTransfer) {
                 $this->addMessageSuccess(Messages::CUSTOMER_ADDRESS_UPDATED);
 
-                return $this->redirectResponseInternal('profile');
+                return $this->redirectResponseInternal(CustomerControllerProvider::ROUTE_CUSTOMER_PROFILE);
             }
             $this->addMessageError(Messages::CUSTOMER_ADDRESS_NOT_ADDED);
 
-            return $this->redirectResponseInternal('address');
+            return $this->redirectResponseInternal(CustomerControllerProvider::ROUTE_CUSTOMER_ADDRESS);
         }
 
         $addressTransfer = $this->locator->customer()->transferAddress();
@@ -47,7 +48,7 @@ class AddressController extends AbstractController
         $addressTransfer = $this->locator->customer()->sdk()->getAddress($addressTransfer);
         if (!$addressTransfer) {
             $this->addMessageError(Messages::CUSTOMER_ADDRESS_UNKNOWN);
-            return $this->redirectResponseInternal('profile');
+            return $this->redirectResponseInternal(CustomerControllerProvider::ROUTE_CUSTOMER_PROFILE);
         }
         $form->setData($addressTransfer->toArray());
 
@@ -69,11 +70,11 @@ class AddressController extends AbstractController
             if ($addressTransfer) {
                 $this->addMessageSuccess(Messages::CUSTOMER_ADDRESS_ADDED);
 
-                return $this->redirectResponseInternal('profile');
+                return $this->redirectResponseInternal(CustomerControllerProvider::ROUTE_CUSTOMER_PROFILE);
             }
             $this->addMessageError(Messages::CUSTOMER_ADDRESS_NOT_ADDED);
 
-            return $this->redirectResponseInternal('new-address');
+            return $this->redirectResponseInternal(CustomerControllerProvider::ROUTE_CUSTOMER_NEW_ADDRESS);
         }
 
         $customerTransfer = $this->locator->customer()->transferCustomer();
@@ -111,6 +112,6 @@ class AddressController extends AbstractController
             }
         }
 
-        return $this->redirectResponseInternal('profile');
+        return $this->redirectResponseInternal(CustomerControllerProvider::ROUTE_CUSTOMER_PROFILE);
     }
 }
