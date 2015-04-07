@@ -6,9 +6,9 @@
 
 namespace Pyz\Zed\Glossary\Business;
 
-use SprykerFeature\Zed\Glossary\Business\GlossarySettings as CoreGlossarySettings;
+use SprykerFeature\Zed\Glossary\Business\GlossarySettings as SprykerGlossarySettings;
 
-class GlossarySettings extends CoreGlossarySettings
+class GlossarySettings extends SprykerGlossarySettings
 {
 
 }

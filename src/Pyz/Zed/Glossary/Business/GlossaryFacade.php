@@ -7,17 +7,19 @@ use SprykerFeature\Zed\Glossary\Business\GlossaryFacade as SprykerGlossaryFacade
 
 class GlossaryFacade extends SprykerGlossaryFacade
 {
-
     /**
-     * @var GlossaryDependencyContainer
+     * @return GlossaryDependencyContainer
      */
-    protected $dependencyContainer;
+    protected function getDependencyContainer()
+    {
+        return $this->dependencyContainer;
+    }
 
     /**
      * @param LoggerInterface $logger
      */
     public function installDemoData(LoggerInterface $logger = null)
     {
-        $this->dependencyContainer->getDemoDataInstaller($logger)->install();
+        $this->getDependencyContainer()->createDemoDataInstaller($logger)->install();
     }
 }
