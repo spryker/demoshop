@@ -200,7 +200,8 @@ $config[SystemConfig::ZED_ACL_SETTINGS] = [
                 [
                     "module" => "*",
                     "controller" => "*",
-                    "action" => "*"
+                    "action" => "*",
+                    "type" => "allow"
                 ]
             ],
             'denied' => []
