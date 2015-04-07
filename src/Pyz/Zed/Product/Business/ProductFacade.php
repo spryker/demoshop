@@ -16,7 +16,6 @@ class ProductFacade extends CoreProductFacade implements
     StockToProductInterface,
     ProductCategoryToProductInterface
 {
-
     /**
      * @var ProductDependencyContainer
      */
