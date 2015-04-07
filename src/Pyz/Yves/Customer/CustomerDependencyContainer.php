@@ -2,7 +2,7 @@
 
 namespace Pyz\Yves\Customer;
 
-use SprykerFeature\Yves\Customer\CustomerDependencyContainer as CoreCustomerDependencyContainer;
+use SprykerFeature\Yves\Customer\CustomerDependencyContainer as SprykerFeatureCustomerDependencyContainer;
 use Pyz\Yves\Customer\Form\Address;
 use Pyz\Yves\Customer\Form\RegisterCustomer;
 use Pyz\Yves\Customer\Form\DeleteCustomer;
@@ -10,7 +10,7 @@ use Pyz\Yves\Customer\Form\ForgotPassword;
 use Pyz\Yves\Customer\Form\Profile;
 use Pyz\Yves\Customer\Form\RestorePassword;
 
-class CustomerDependencyContainer extends CoreCustomerDependencyContainer
+class CustomerDependencyContainer extends SprykerFeatureCustomerDependencyContainer
 {
     /**
      * @return Address
