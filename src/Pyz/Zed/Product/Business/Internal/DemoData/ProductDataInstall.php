@@ -82,14 +82,16 @@ class ProductDataInstall extends AbstractInstaller
 
             $idAbstractProduct = $this->productManager->createAbstractProduct($sku);
             $this->productManager->createAbstractProductAttributes($idAbstractProduct, $fkCurrentLocale, $currentAbstractProduct['name'], $currentAbstractProduct['attributes']);
-            $this->createConcreteProducts($currentAbstractProduct['products']);
+            $this->createConcreteProducts($currentAbstractProduct['products'], $idAbstractProduct, $fkCurrentLocale);
         }
     }
 
     /**
      * @param array $products
+     * @param int $idAbstractProduct
+     * @param int $fkCurrentLocale
      */
-    protected function createConcreteProducts(array $products)
+    protected function createConcreteProducts(array $products, $idAbstractProduct, $fkCurrentLocale)
     {
         foreach ($products as $concreteProduct) {
             $idConcreteProduct = $this->productManager->createConcreteProduct($concreteProduct['sku'], $idAbstractProduct, true);
