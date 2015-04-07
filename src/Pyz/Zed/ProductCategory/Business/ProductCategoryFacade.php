@@ -2,10 +2,10 @@
 
 namespace Pyz\Zed\ProductCategory\Business;
 
-use ProjectA\Zed\ProductCategory\Business\ProductCategoryFacade as CoreProductCategoryFacade;
+use ProjectA\Zed\ProductCategory\Business\ProductCategoryFacade as SprykerProductCategoryFacade;
 use Psr\Log\LoggerInterface;
 
-class ProductCategoryFacade extends CoreProductCategoryFacade
+class ProductCategoryFacade extends SprykerProductCategoryFacade
 {
 
     /**

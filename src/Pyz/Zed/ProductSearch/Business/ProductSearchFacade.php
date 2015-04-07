@@ -3,10 +3,10 @@
 namespace Pyz\Zed\ProductSearch\Business;
 
 use ProjectA\Zed\ProductCategorySearch\Business\External\ProductCategorySearchToProductSearchInterface;
-use ProjectA\Zed\ProductSearch\Business\ProductSearchFacade as CoreProductSearchFacade;
+use ProjectA\Zed\ProductSearch\Business\ProductSearchFacade as SprykerProductSearchFacade;
 use Psr\Log\LoggerInterface;
 
-class ProductSearchFacade extends CoreProductSearchFacade implements ProductCategorySearchToProductSearchInterface
+class ProductSearchFacade extends SprykerProductSearchFacade implements ProductCategorySearchToProductSearchInterface
 {
 
     /**

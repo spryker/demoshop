@@ -7,9 +7,9 @@ use ProjectA\Zed\Library\Import\Reader\CsvFileReader;
 use ProjectA\Zed\Library\Import\ReaderInterface;
 use Psr\Log\LoggerInterface;
 use Pyz\Zed\ProductCategory\Business\Internal\DemoData\ProductCategoryMappingInstall;
-use ProjectA\Zed\ProductCategory\Business\ProductCategoryDependencyContainer as CoreDependencyContainer;
+use ProjectA\Zed\ProductCategory\Business\ProductCategoryDependencyContainer as SprykerDependencyContainer;
 
-class ProductCategoryDependencyContainer extends CoreDependencyContainer
+class ProductCategoryDependencyContainer extends SprykerDependencyContainer
 {
 
     /**
