@@ -17,9 +17,12 @@ class ProductFacade extends CoreProductFacade implements
     ProductCategoryToProductInterface
 {
     /**
-     * @var ProductDependencyContainer
+     * @return ProductDependencyContainer
      */
-    protected $dependencyContainer;
+    protected function getDependencyContainer()
+    {
+        return $this->dependencyContainer;
+    }
 
     /**
      * @param array $productsData
@@ -28,7 +31,7 @@ class ProductFacade extends CoreProductFacade implements
      */
     public function buildProducts(array $productsData)
     {
-        return $this->dependencyContainer->createProductBuilder()->buildProducts($productsData);
+        return $this->getDependencyContainer()->createProductBuilder()->buildProducts($productsData);
     }
 
     /**
@@ -38,7 +41,7 @@ class ProductFacade extends CoreProductFacade implements
      */
     public function buildSearchProducts(array $productsData)
     {
-        return $this->dependencyContainer->createProductBuilder()->buildProducts($productsData);
+        return $this->getDependencyContainer()->createProductBuilder()->buildProducts($productsData);
     }
 
     /**
@@ -46,6 +49,6 @@ class ProductFacade extends CoreProductFacade implements
      */
     public function installDemoData(LoggerInterface $logger = null)
     {
-        $this->dependencyContainer->createDemoDataInstaller($logger)->install();
+        $this->getDependencyContainer()->createDemoDataInstaller($logger)->install();
     }
 }
