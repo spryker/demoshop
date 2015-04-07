@@ -2,7 +2,6 @@
 
 namespace Pyz\Zed\ProductCategory\Business;
 
-use Generated\Zed\Ide\FactoryAutoCompletion\ProductCategoryBusiness;
 use ProjectA\Zed\Library\Import\Reader\CsvFileReader;
 use ProjectA\Zed\Library\Import\ReaderInterface;
 use Psr\Log\LoggerInterface;
@@ -11,12 +10,6 @@ use ProjectA\Zed\ProductCategory\Business\ProductCategoryDependencyContainer as 
 
 class ProductCategoryDependencyContainer extends SprykerDependencyContainer
 {
-
-    /**
-     * @var ProductCategoryBusiness
-     */
-    protected $factory;
-
     /**
      * @param LoggerInterface $logger
      *
@@ -24,7 +17,7 @@ class ProductCategoryDependencyContainer extends SprykerDependencyContainer
      */
     public function createDemoDataInstaller(LoggerInterface $logger = null)
     {
-        $installer = $this->factory->createInternalDemoDataProductCategoryMappingInstall(
+        $installer = $this->getFactory()->createInternalDemoDataProductCategoryMappingInstall(
             $this->createProductCategoryManager(),
             $this->createCategoryFacade(),
             $this->createProductFacade(),
@@ -50,6 +43,6 @@ class ProductCategoryDependencyContainer extends SprykerDependencyContainer
      */
     protected function createSettings()
     {
-        return $this->factory->createProductCategorySettings();
+        return $this->getFactory()->createProductCategorySettings();
     }
 }
