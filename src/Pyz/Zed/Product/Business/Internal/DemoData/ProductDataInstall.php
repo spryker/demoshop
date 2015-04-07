@@ -73,22 +73,29 @@ class ProductDataInstall extends AbstractInstaller
     protected function createProducts()
     {
         $fkCurrentLocale = $this->localeFacade->getCurrentLocaleIdentifier();
-        foreach ($this->getProductsFromFile() as $p) {
-            $sku = $p['sku'];
+        foreach ($this->getProductsFromFile() as $currentAbstractProduct) {
+            $sku = $currentAbstractProduct['sku'];
 
             if ($this->productManager->hasAbstractProduct($sku)) {
                 continue;
             }
 
             $idAbstractProduct = $this->productManager->createAbstractProduct($sku);
-            $this->productManager->createAbstractProductAttributes($idAbstractProduct, $fkCurrentLocale, $p['name'], $p['attributes']);
+            $this->productManager->createAbstractProductAttributes($idAbstractProduct, $fkCurrentLocale, $currentAbstractProduct['name'], $currentAbstractProduct['attributes']);
+            $this->createConcreteProducts($currentAbstractProduct['products']);
+        }
+    }
 
-            foreach ($p['products'] as $pc) {
-                $idConcreteProduct = $this->productManager->createConcreteProduct($pc['sku'], $idAbstractProduct, true);
-                $this->productManager->createConcreteProductAttributes($idConcreteProduct, $fkCurrentLocale, $pc['name'], $pc['attributes']);
-                $this->productManager->createAndTouchProductUrlByIds($idConcreteProduct, '/' . str_replace(' ', '-', trim($pc['name'])), $fkCurrentLocale);
-                $this->productManager->touchProductActive($idConcreteProduct);
-            }
+    /**
+     * @param array $products
+     */
+    protected function createConcreteProducts(array $products)
+    {
+        foreach ($products as $concreteProduct) {
+            $idConcreteProduct = $this->productManager->createConcreteProduct($concreteProduct['sku'], $idAbstractProduct, true);
+            $this->productManager->createConcreteProductAttributes($idConcreteProduct, $fkCurrentLocale, $concreteProduct['name'], $concreteProduct['attributes']);
+            $this->productManager->createAndTouchProductUrlByIds($idConcreteProduct, '/' . str_replace(' ', '-', trim($concreteProduct['name'])), $fkCurrentLocale);
+            $this->productManager->touchProductActive($idConcreteProduct);
         }
     }
 
