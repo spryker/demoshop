@@ -1,6 +1,5 @@
 <?php
 
-
 namespace Pyz\Zed\Url\Business;
 
 use ProjectA\Zed\Category\Dependency\Facade\CategoryToUrlInterface;

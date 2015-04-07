@@ -1,6 +1,5 @@
 <?php
 
-
 namespace Pyz\Zed\Touch\Business;
 
 use ProjectA\Zed\Category\Dependency\Facade\CategoryToTouchInterface;

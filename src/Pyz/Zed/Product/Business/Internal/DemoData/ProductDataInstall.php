@@ -46,7 +46,7 @@ class ProductDataInstall extends AbstractInstaller
      * @param ProductManagerInterface $productManager
      * @param ProductToLocaleInterface $localeFacade
      * @param IteratorReaderInterface $fileReader
-     * @param $filePath
+     * @param string $filePath
      */
     public function __construct(
         AttributeManagerInterface $attributeManager,
@@ -68,7 +68,6 @@ class ProductDataInstall extends AbstractInstaller
 
         $this->createProducts();
         $this->createAttributes();
-
     }
 
     protected function createProducts()

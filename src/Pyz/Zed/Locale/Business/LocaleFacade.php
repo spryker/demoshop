@@ -1,6 +1,5 @@
 <?php
 
-
 namespace Pyz\Zed\Locale\Business;
 
 use ProjectA\Zed\Category\Dependency\Facade\CategoryToLocaleInterface;
