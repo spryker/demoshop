@@ -22,7 +22,7 @@ class ProductSearchFacade extends CoreProductSearchFacade implements ProductCate
     public function buildProductKey($data, $locale)
     {
         return $this->dependencyContainer
-            ->getKeyBuilder()
+            ->createKeyBuilder()
             ->generateKey($data, $locale);
     }
 

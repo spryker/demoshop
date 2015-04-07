@@ -18,6 +18,6 @@ class ProductCategoryFacade extends CoreProductCategoryFacade
      */
     public function installDemoData(LoggerInterface $logger = null)
     {
-        $this->dependencyContainer->getDemoDataInstaller($logger)->install();
+        $this->dependencyContainer->createDemoDataInstaller($logger)->install();
     }
 }

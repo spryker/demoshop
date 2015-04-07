@@ -22,15 +22,15 @@ class ProductCategoryDependencyContainer extends CoreDependencyContainer
      *
      * @return ProductCategoryMappingInstall
      */
-    public function getDemoDataInstaller(LoggerInterface $logger = null)
+    public function createDemoDataInstaller(LoggerInterface $logger = null)
     {
         $installer = $this->factory->createInternalDemoDataProductCategoryMappingInstall(
-            $this->getProductCategoryManager(),
-            $this->getCategoryFacade(),
-            $this->getProductFacade(),
-            $this->getLocaleFacade(),
-            $this->getCSVReader(),
-            $this->getCSVPath()
+            $this->createProductCategoryManager(),
+            $this->createCategoryFacade(),
+            $this->createProductFacade(),
+            $this->createLocaleFacade(),
+            $this->createCSVReader(),
+            $this->createSettings()->getDemoDataCSVPath()
         );
         $installer->setLogger($logger);
 
@@ -40,13 +40,16 @@ class ProductCategoryDependencyContainer extends CoreDependencyContainer
     /**
      * @return ReaderInterface
      */
-    protected function getCSVReader()
+    protected function createCSVReader()
     {
         return new CsvFileReader();
     }
 
-    protected function getCSVPath()
+    /**
+     * @return ProductCategorySettings
+     */
+    protected function createSettings()
     {
-        return __DIR__ . '/Internal/DemoData/demo-product-category-data.csv';
+        return $this->factory->createProductCategorySettings();
     }
 }
