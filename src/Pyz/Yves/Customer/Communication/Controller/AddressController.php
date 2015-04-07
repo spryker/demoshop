@@ -58,7 +58,7 @@ class AddressController extends AbstractController
     /**
      * @return array|RedirectResponse
      */
-    public function newAction()
+    public function createAction()
     {
         $form = $this->createForm($this->dependencyContainer->createFormAddress());
 
