@@ -110,12 +110,14 @@ class YvesBootstrap extends Bootstrap
 
         $translationServiceProvider = $locator->glossary()
             ->pluginTranslationService()
-            ->createTranslationServiceProvider();
+            ->createTranslationServiceProvider()
+        ;
 
         /** @var SecurityServiceProvider $securityServiceProvider */
         $securityServiceProvider = $locator->customer()
             ->pluginSecurityService()
-            ->createSecurityServiceProvider();
+            ->createSecurityServiceProvider()
+        ;
 
         $providers = [
             new ExceptionServiceProvider('\Pyz\Yves\Library\Controller\ExceptionController'),
