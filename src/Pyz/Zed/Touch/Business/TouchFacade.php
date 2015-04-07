@@ -12,8 +12,7 @@ class TouchFacade extends SprykerTouchFacade implements
     CategoryToTouchInterface,
     ProductSearchToTouchInterface,
     ProductToTouchInterface,
-    UrlToTouchInterface,
-    CategoryToTouchInterface
+    UrlToTouchInterface
 {
 
 }
