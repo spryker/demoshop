@@ -1,7 +1,7 @@
 {
   "require": {
     "spryker/yves-package": "dev-master",
-    "spryker/zed-package": "dev-refactoring/505-component-model-result",
+    "spryker/zed-package": "dev-master",
 
     "psr/log": "~1.0",
     "phing/phing": "~2.6.0",
