@@ -161,19 +161,18 @@ $config[SystemConfig::CLOUD_CDN_PRODUCT_IMAGES_PATH_NAME] = '/images/products/';
 $config[SystemConfig::CLOUD_CDN_DELETE_LOCAL_PROCESSED_IMAGES] = false;
 $config[SystemConfig::CLOUD_CDN_DELETE_LOCAL_ORIGINAL_IMAGES] = false;
 
-//TODO: change this to our settings instead of using the zooron mandrill account
 $config[MailConfig::MAIL_PROVIDER_MANDRILL] = [
-    'api-key' => 'weUrHb0QNJaZNEvwZa03xA',
+    'api-key' => '1zPena6fBFPIxctt6VgCSQ',
     'host' => 'smtp.mandrillapp.com',
     'port' => '587',
-    'username' => 'tamer.el-hawari@project-a.com',
+    'username' => 'fabian.wesner@spryker.com',
     'from_mail' => 'service@demoshop.de',
     'from_name' => 'Demoshop'
 ];
 
 $config[SystemConfig::ZED_USER_SETTINGS] = [
     'system_users' => [
-        '_yves', '_console'
+        '_yves'
     ]
 ];
 
@@ -194,17 +193,26 @@ $config[SystemConfig::ZED_AUTH_SETTINGS] = [
 ];
 
 $config[SystemConfig::ZED_ACL_SETTINGS] = [
+    'default' => [
+        'rules' => [
+            [
+                "module" => "auth",
+                "controller" => "login",
+                "action" => "*",
+                "type" => "allow"
+            ]
+        ]
+    ],
     'credentials' => [
         '_yves' => [
-            'allowed' => [
+            'rules' => [
                 [
                     "module" => "*",
                     "controller" => "*",
                     "action" => "*",
                     "type" => "allow"
                 ]
-            ],
-            'denied' => []
+            ]
         ]
     ]
 ];
