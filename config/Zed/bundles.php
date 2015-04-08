@@ -32,7 +32,7 @@ return [
         'Lumberjack' => $navigation,
         'Misc' => $schema,
         'Oms' => $schema,
-        'Price' => $schema,
+        'Price' => $schemaAndNavigation,
         'Product' => $schemaAndNavigation,
         'ProductCategory' => $schema,
         'ProductSearch' => $schema,
