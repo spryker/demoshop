@@ -13,6 +13,6 @@ class GlossaryDependencyContainer extends SprykerGlossaryDependencyContainer
      */
     public function getInstallerFacade()
     {
-        return $this->locator->glossary()->facade();
+        return $this->getLocator()->glossary()->facade();
     }
 }
