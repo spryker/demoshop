@@ -4,7 +4,7 @@
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "d7246abd6e1a3df1bd32021d69bf92f3",
+    "hash": "10814751ea1155f42737b62b37480b88",
     "packages": [
         {
             "name": "digital-canvas/zend-framework",
@@ -971,11 +971,11 @@
         },
         {
             "name": "spryker/zed-package",
-            "version": "dev-feature/price-exporter",
+            "version": "dev-master",
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/zed.git",
-                "reference": "c2e543d77b040fb4132903536a3af06e924e85f1"
+                "reference": "c3b3601df2ff48cb33eca66578a7e06f2841f774"
             },
             "require": {
                 "digital-canvas/zend-framework": ">=1.12.2",
@@ -1042,7 +1042,7 @@
                 "Application",
                 "Zed"
             ],
-            "time": "2015-04-07 16:23:10"
+            "time": "2015-04-08 15:33:56"
         },
         {
             "name": "symfony-cmf/routing",
@@ -2422,12 +2422,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/zendesk/zendesk_api_client_php.git",
-                "reference": "330cdde52e5f9ddfcea9caa29db7c464b73a7abd"
+                "reference": "08aa372545bdf44f9e34cd007df61d69c5d2443f"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/zendesk/zendesk_api_client_php/zipball/330cdde52e5f9ddfcea9caa29db7c464b73a7abd",
-                "reference": "330cdde52e5f9ddfcea9caa29db7c464b73a7abd",
+                "url": "https://api.github.com/repos/zendesk/zendesk_api_client_php/zipball/08aa372545bdf44f9e34cd007df61d69c5d2443f",
+                "reference": "08aa372545bdf44f9e34cd007df61d69c5d2443f",
                 "shasum": ""
             },
             "require": {
@@ -2448,7 +2448,7 @@
             ],
             "description": "PHP Client for Zendesk REST API. See http://developer.zendesk.com/api-docs",
             "homepage": "https://github.com/zendesk/zendesk_api_client_php",
-            "time": "2015-03-10 18:26:31"
+            "time": "2015-04-08 08:46:37"
         },
         {
             "name": "zendframework/zend-code",
