@@ -55,7 +55,7 @@ class CalculationTest extends \Codeception\TestCase\Test
         $item = $this->locator->sales()->transferOrderItem();
         $item->fillWithFixtureData();
         $item->setGrossPrice(self::ITEM_GROSS_PRICE);
-        $item->addExpense($expense);
+        $item->addExpenseItem($expense);
 
         $order->addItem($item);
 

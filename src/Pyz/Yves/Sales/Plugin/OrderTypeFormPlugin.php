@@ -1,13 +1,9 @@
 <?php
 
-namespace Pyz\Yves\Sales;
+namespace Pyz\Yves\Sales\Plugin;
 
 use SprykerCore\Yves\Kernel\AbstractPlugin;
 
-/**
- * Class OrderFormPlugin
- * @package Pyz\Yves\Sales
- */
 class OrderTypeFormPlugin extends AbstractPlugin
 {
     /**

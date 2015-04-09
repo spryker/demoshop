@@ -2,7 +2,7 @@
 namespace Pyz\Yves\Library\Tracking\Provider;
 
 use ProjectA\Shared\Customer\Transfer\Address;
-use ProjectA\Shared\Library\Environment;
+use ProjectA\Shared\Library\ProjectA_Shared_Library_Environment;
 use ProjectA\Shared\Sales\Transfer\Order;
 use ProjectA\Yves\Customer\Business\Model\Tracking\CustomerDataProvider;
 use Pyz\Yves\Library\Tracking\DataProvider\ProductDetailProvider;
@@ -48,7 +48,7 @@ class TagCommander implements ProviderInterface
             . '<!--' . PHP_EOL
             . '//TC Declared Variables' . PHP_EOL
             . 'var tc_vars = new Array();' . PHP_EOL
-            . 'tc_vars["env_work"] = "' . Environment::getEnvironment() . '";' . PHP_EOL
+            . 'tc_vars["env_work"] = "' . ProjectA_Shared_Library_Environment::getEnvironment() . '";' . PHP_EOL
             . 'tc_vars["user_id"] = "' . $incrementId . '";' . PHP_EOL
             . 'tc_vars["user_gender"] = "' . $gender . '";' . PHP_EOL
             . 'tc_vars["user_logged"] = "' . $userLoggedIn . '";' . PHP_EOL

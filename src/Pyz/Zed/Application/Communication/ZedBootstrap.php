@@ -8,7 +8,7 @@ use ProjectA\Shared\Application\Communication\Plugin\ServiceProvider\RoutingServ
 use ProjectA\Shared\Application\Communication\Plugin\ServiceProvider\UrlGeneratorServiceProvider;
 use ProjectA\Shared\Library\Config;
 
-use ProjectA\Shared\Library\Environment;
+use ProjectA\Shared\Library\ProjectA_Shared_Library_Environment;
 use ProjectA\Shared\System\SystemConfig;
 use ProjectA\Shared\Application\Business\Routing\SilexRouter;
 
@@ -71,7 +71,7 @@ class ZedBootstrap extends Bootstrap
     protected function beforeBoot(Application $app)
     {
         $app['locale'] = \ProjectA_Shared_Library_Store::getInstance()->getCurrentLocale();
-        if (Environment::isDevelopment()) {
+        if (\ProjectA_Shared_Library_Environment::isDevelopment()) {
             $app['profiler.cache_dir'] = \ProjectA_Shared_Library_Data::getLocalStoreSpecificPath('cache/profiler');
         }
     }
@@ -108,7 +108,7 @@ class ZedBootstrap extends Bootstrap
             new NewRelicServiceProvider(),
         ];
 
-        if (Environment::isDevelopment()) {
+        if (\ProjectA_Shared_Library_Environment::isDevelopment()) {
             $providers[] = new WebProfilerServiceProvider();
         }
 
