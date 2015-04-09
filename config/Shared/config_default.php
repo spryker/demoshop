@@ -251,9 +251,10 @@ $config[SystemConfig::ZED_ACL_SETTINGS] = [
             ]
         ],
         'users' => [
-            [
-                "admin@spryker.com"
-            ] //this is related to existent usernames and will be searched into the database
+            'admin@spryker.com' => [
+                'group' => "_root_group"
+            ]
+            //this is related to existent usernames and will be searched into the database
         ]
     ]
 ];
