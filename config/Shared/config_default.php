@@ -173,6 +173,17 @@ $config[MailConfig::MAIL_PROVIDER_MANDRILL] = [
 $config[SystemConfig::ZED_USER_SETTINGS] = [
     'system_users' => [
         '_yves'
+    ],
+
+    'installer_data' => [
+        'users' => [
+            [
+                "firstName" => "Admin",
+                "lastName" => "Spryker",
+                "username" => "admin@spryker.com",
+                "password" => "change123"
+            ]
+        ]
     ]
 ];
 
@@ -213,6 +224,36 @@ $config[SystemConfig::ZED_ACL_SETTINGS] = [
                     "type" => "allow"
                 ]
             ]
+        ]
+    ],
+
+    'installer_data' => [
+        'groups' => [
+            [
+                "name" => "_root_group"
+            ]
+        ],
+        'roles' => [
+            [
+                "name" => "_root_role",
+                "group" => "_root_group"
+                //this is related to the installer_data only and will not interact with existing data if there is any
+            ]
+        ],
+        'rules' => [
+            [
+                "module" => "*",
+                "controller" => "*",
+                "action" => "*",
+                "type" => "allow",
+                "role" => "_root_role"
+                //this is related to the installer_data only and will not interact with existing data if there is any
+            ]
+        ],
+        'users' => [
+            [
+                "admin@spryker.com"
+            ] //this is related to existent usernames and will be searched into the database
         ]
     ]
 ];

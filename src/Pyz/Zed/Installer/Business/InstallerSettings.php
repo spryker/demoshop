@@ -20,6 +20,8 @@ class InstallerSettings extends SprykerInstallerSettings
             $this->locator->price()->pluginInstaller(),
             $this->locator->locale()->pluginInstaller(),
             $this->locator->misc()->pluginInstaller(),
+            $this->locator->user()->pluginInstaller(),
+            $this->locator->acl()->pluginInstaller()
         ];
     }
 
