@@ -9,14 +9,14 @@ use SprykerFeature\Zed\Glossary\Business\GlossaryDependencyContainer as SprykerG
 class GlossaryDependencyContainer extends SprykerGlossaryDependencyContainer
 {
     /**
-     * @param LoggerInterface $logger
+     * @param LoggerInterface $messenger
      *
      * @return GlossaryInstall
      */
-    public function createDemoDataInstaller(LoggerInterface $logger = null)
+    public function createDemoDataInstaller(LoggerInterface $messenger)
     {
-        $installer = $this->getFactory()->createInternalDemoDataGlossaryInstall($this->locator);
-        $installer->setLogger($logger);
+        $installer = $this->factory->createInternalDemoDataGlossaryInstall($this->locator);
+        $installer->setMessenger($messenger);
 
         return $installer;
     }

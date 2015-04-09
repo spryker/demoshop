@@ -24,11 +24,11 @@ class ProductDependencyContainer extends SprykerDependencyContainer
     }
 
     /**
-     * @param LoggerInterface $logger
+     * @param LoggerInterface $messenger
      *
      * @return ProductDataInstall
      */
-    public function createDemoDataInstaller(LoggerInterface $logger = null)
+    public function createDemoDataInstaller(LoggerInterface $messenger)
     {
         $installer = $this->factory->createInternalDemoDataProductDataInstall(
             $this->createAttributeManager(),
@@ -37,7 +37,7 @@ class ProductDependencyContainer extends SprykerDependencyContainer
             $this->createCSVReader(),
             $this->createSettings()->getDemoDataPath()
         );
-        $installer->setLogger($logger);
+        $installer->setMessenger($messenger);
 
         return $installer;
     }

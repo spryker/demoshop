@@ -11,11 +11,11 @@ use ProjectA\Zed\ProductCategory\Business\ProductCategoryDependencyContainer as 
 class ProductCategoryDependencyContainer extends SprykerDependencyContainer
 {
     /**
-     * @param LoggerInterface $logger
+     * @param LoggerInterface $messenger
      *
      * @return ProductCategoryMappingInstall
      */
-    public function createDemoDataInstaller(LoggerInterface $logger = null)
+    public function createDemoDataInstaller(LoggerInterface $messenger)
     {
         $installer = $this->getFactory()->createInternalDemoDataProductCategoryMappingInstall(
             $this->createProductCategoryManager(),
@@ -25,7 +25,7 @@ class ProductCategoryDependencyContainer extends SprykerDependencyContainer
             $this->createCSVReader(),
             $this->createSettings()->getDemoDataCSVPath()
         );
-        $installer->setLogger($logger);
+        $installer->setMessenger($messenger);
 
         return $installer;
     }

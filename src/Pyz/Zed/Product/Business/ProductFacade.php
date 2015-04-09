@@ -45,10 +45,10 @@ class ProductFacade extends CoreProductFacade implements
     }
 
     /**
-     * @param LoggerInterface $logger
+     * @param LoggerInterface $messenger
      */
-    public function installDemoData(LoggerInterface $logger = null)
+    public function installDemoData(LoggerInterface $messenger)
     {
-        $this->getDependencyContainer()->createDemoDataInstaller($logger)->install();
+        $this->getDependencyContainer()->createDemoDataInstaller($messenger)->install();
     }
 }

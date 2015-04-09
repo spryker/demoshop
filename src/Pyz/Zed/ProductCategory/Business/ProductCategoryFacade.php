@@ -14,10 +14,10 @@ class ProductCategoryFacade extends SprykerProductCategoryFacade
     protected $dependencyContainer;
 
     /**
-     * @param LoggerInterface $logger
+     * @param LoggerInterface $messenger
      */
-    public function installDemoData(LoggerInterface $logger = null)
+    public function installDemoData(LoggerInterface $messenger)
     {
-        $this->dependencyContainer->createDemoDataInstaller($logger)->install();
+        $this->dependencyContainer->createDemoDataInstaller($messenger)->install();
     }
 }
