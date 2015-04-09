@@ -13,20 +13,22 @@ class PriceInstall extends AbstractInstaller
 
     const SKU = 'sku';
     const PRICE = 'price';
-    const VALID_FROM = 'valid_from';
     const PRICE_TYPE = 'price_type';
-    const VALID_TO = 'valid_to';
+    const IS_ACTIVE = 'is_active';
 
     /**
      * @var PriceFacade
      */
     protected $priceFacade;
 
+    protected $locator;
+
     /**
      * @param PriceFacade $priceFacade
      */
     public function __construct(PriceFacade $priceFacade)
     {
+        $this->locator = Locator::getInstance();
         $this->priceFacade = $priceFacade;
     }
 
@@ -67,18 +69,23 @@ class PriceInstall extends AbstractInstaller
     {
         $stockType = $this->priceFacade->createPriceType($row[self::PRICE_TYPE]);
 
-        $validFrom = new \DateTime($row[self::VALID_FROM]);
-        $validTo = new \DateTime($row[self::VALID_TO]);
+        $transferPriceProduct = $this->locator->price()->transferProduct();
 
-        $transferPriceProduct = Locator::getInstance()->price()->transferProduct();
         /** @var Product $transferPriceProduct */
         $transferPriceProduct->setPrice($row[self::PRICE])
-            ->setValidFrom($validFrom)
-            ->setValidTo($validTo)
             ->setPriceTypeName($stockType->getName())
-            ->setSkuProduct($row[self::SKU]);
+            ->setSkuProduct($row[self::SKU])
+            ;
 
-        $this->priceFacade->setPrice($transferPriceProduct);
+        $sku = $transferPriceProduct->getSkuProduct();
+        $priceType = $transferPriceProduct->getPriceTypeName();
+        if ($this->priceFacade->hasValidPrice($sku, $priceType)) {
+            $idPriceProduct = $this->priceFacade->getIdPriceProduct($sku, $priceType);
+            $transferPriceProduct->setIdPriceProduct($idPriceProduct);
+            $this->priceFacade->setPriceForProduct($transferPriceProduct);
+        } else {
+            $this->priceFacade->createPriceForProduct($transferPriceProduct);
+        }
     }
 
 }
