@@ -34,6 +34,7 @@ class FrontendExporterSettings extends CoreSettings
             //product export processors
             $this->locator->productFrontendExporterConnector()->pluginProductProcessorPlugin(),
             $this->locator->productFrontendExporterAvailabilityConnector()->pluginProductAvailabilityProcessorPlugin(),
+            $this->locator->productFrontendExporterPriceConnector()->pluginProductPriceProcessorPlugin(),
             $this->locator->productCategoryFrontendExporterConnector()->pluginProductCategoryBreadcrumbProcessorPlugin(),
 
             // category nodes
@@ -69,8 +70,12 @@ class FrontendExporterSettings extends CoreSettings
             $this->locator->productFrontendExporterConnector()->pluginProductQueryExpanderPlugin(),
             $this->locator->productFrontendExporterAvailabilityConnector()
                 ->pluginProductAvailabilityQueryExpanderPlugin(),
+
+            $this->locator->productFrontendExporterPriceConnector()->pluginProductPriceQueryExpanderPlugin(),
+
             $this->locator->productCategoryFrontendExporterConnector()
                 ->pluginProductCategoryBreadcrumbQueryExpanderPlugin(),
+
             $this->locator->glossaryExporter()->pluginTranslationQueryExpanderPlugin(),
             $this->locator->categoryExporter()->pluginNavigationQueryExpanderPlugin(),
             $this->locator->categoryExporter()->pluginCategoryNodeQueryExpanderPlugin(),
