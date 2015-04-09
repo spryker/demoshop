@@ -8,7 +8,6 @@ use ProjectA\Shared\Application\Communication\Plugin\ServiceProvider\RoutingServ
 use ProjectA\Shared\Application\Communication\Plugin\ServiceProvider\UrlGeneratorServiceProvider;
 use ProjectA\Shared\Library\Config;
 
-use ProjectA\Shared\Library\ProjectA_Shared_Library_Environment;
 use ProjectA\Shared\System\SystemConfig;
 use ProjectA\Shared\Application\Business\Routing\SilexRouter;
 
