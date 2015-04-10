@@ -26,13 +26,14 @@ use SprykerCore\Yves\Application\Communication\Plugin\ServiceProvider\SessionSer
 use SprykerCore\Yves\Application\Communication\Plugin\ServiceProvider\ExceptionServiceProvider;
 use SprykerCore\Yves\Application\Communication\Plugin\ServiceProvider\TwigServiceProvider;
 use SprykerCore\Yves\Application\Communication\Plugin\ServiceProvider\YvesLoggingServiceProvider;
-use SprykerFeature\Yves\Customer\SecurityServiceProvider;
+use SprykerFeature\Yves\Customer\Provider\SecurityServiceProvider;
 
 use ProjectA\Shared\Application\Business\Routing\SilexRouter;
 
 use ProjectA\Yves\Library\Tracking\Tracking;
 use Silex\Provider\FormServiceProvider;
 use Silex\Provider\ServiceControllerServiceProvider;
+use Silex\Provider\RememberMeServiceProvider;
 use Silex\Provider\ValidatorServiceProvider;
 use Silex\Provider\WebProfilerServiceProvider;
 use SprykerCore\Yves\Kernel\Locator;
