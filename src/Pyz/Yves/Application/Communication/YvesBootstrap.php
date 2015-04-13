@@ -3,20 +3,16 @@
 namespace Pyz\Yves\Application\Communication;
 
 use ProjectA\Shared\Application\Business\Application;
-use ProjectA\Shared\Application\Business\Bootstrap;
-
 use ProjectA\Shared\Application\Communication\Plugin\ServiceProvider\RoutingServiceProvider;
 use ProjectA\Shared\Application\Communication\Plugin\ServiceProvider\UrlGeneratorServiceProvider;
 use ProjectA\Shared\Library\Config;
-use ProjectA\Shared\Library\ProjectA_Shared_Library_Environment;
 use ProjectA\Shared\System\SystemConfig;
 use ProjectA\Shared\Yves\YvesConfig;
+use SprykerCore\Yves\Application\Business\YvesBootstrap as SprykerYvesBootstrap;
 use SprykerCore\Yves\Application\Communication\Plugin\ControllerProviderInterface;
-
 use Pyz\Yves\Checkout\Communication\Plugin\CheckoutControllerProvider;
 use Pyz\Yves\Cart\Communication\Plugin\CartControllerProvider;
 use Pyz\Yves\Application\Communication\Plugin\ApplicationControllerProvider;
-
 use SprykerCore\Yves\Application\Communication\Plugin\ServiceProvider\CookieServiceProvider;
 use SprykerCore\Yves\Application\Communication\Plugin\ServiceProvider\MonologServiceProvider;
 use SprykerCore\Yves\Application\Communication\Plugin\ServiceProvider\SessionServiceProvider;
@@ -34,29 +30,8 @@ use SprykerCore\Yves\Kernel\Locator;
 use SprykerFeature\Yves\Twig\Plugin\TwigServiceProvider;
 use Symfony\Component\HttpFoundation\Request;
 
-class YvesBootstrap extends Bootstrap
+class YvesBootstrap extends SprykerYvesBootstrap
 {
-
-    /**
-     * @return Application
-     */
-    protected function getBaseApplication()
-    {
-        return new \SprykerCore\Yves\Application\Business\Application();
-    }
-
-    /**
-     * @param Application $app
-     */
-    protected function addProvidersToApp(Application $app)
-    {
-        parent::addProvidersToApp($app);
-
-        foreach ($this->getControllerProviders() as $provider) {
-            $app->mount($provider->getUrlPrefix(), $provider);
-        }
-    }
-
     /**
      * @param Application $app
      */
@@ -174,9 +149,11 @@ class YvesBootstrap extends Bootstrap
      */
     protected function globalTemplateVariables(Application $app)
     {
+        $existingGlobalVars = parent::globalTemplateVariables($app);
+
         $locator = $this->getLocator($app);
 
-        return [
+        return array_merge($existingGlobalVars, [
             'categories' => $locator->categoryExporter()->sdk()->getNavigationCategories($app['locale']),
             'cartItemCount' => $locator->cart()
                 ->pluginCartSessionCount()
@@ -184,6 +161,6 @@ class YvesBootstrap extends Bootstrap
                 ->getCount(),
             'tracking' => Tracking::getInstance(),
             'environment' => \ProjectA_Shared_Library_Environment::getEnvironment(),
-        ];
+        ]);
     }
 }
