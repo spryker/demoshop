@@ -42,5 +42,5 @@ return [
         'Locale' => $schema,
         'Touch' => $schema,
         'Url' => $schema,
-    ]
+    ],
 ];

@@ -2,31 +2,30 @@
 
 namespace Pyz\Zed\FrontendExporter\Business;
 
-use ProjectA\Zed\ProductCategorySearch\Communication\Plugin\ProductCategorySearchDataProcessorPlugin;
-use ProjectA\Zed\FrontendExporter\Business\FrontendExporterSettings as CoreSettings;
+use Generated\Zed\Ide\AutoCompletion;
+use ProjectA\Shared\Kernel\LocatorLocatorInterface;
+use ProjectA\Zed\FrontendExporter\Dependency\Plugin\DataProcessorPluginInterface;
+use ProjectA\Zed\FrontendExporter\Dependency\Plugin\ExportFailedDeciderPluginInterface;
+use ProjectA\Zed\FrontendExporter\Dependency\Plugin\QueryExpanderPluginInterface;
+use ProjectA\Zed\FrontendExporter\Business\FrontendExporterSettings as SprykerFrontendExporterSettings;
 
-/**
- * Class FrontendExporterSettings
- *
- * @package Pyz\Zed\FrontendExporter\Business
- */
-class FrontendExporterSettings extends CoreSettings
+class FrontendExporterSettings extends SprykerFrontendExporterSettings
 {
     /**
-     * @var \Generated\Zed\Ide\AutoCompletion
+     * @var AutoCompletion
      */
     protected $locator;
 
     /**
-     * @param $locator
+     * @param LocatorLocatorInterface $locator
      */
-    public function __construct($locator)
+    public function __construct(LocatorLocatorInterface $locator)
     {
         $this->locator = $locator;
     }
 
     /**
-     * @return array
+     * @return DataProcessorPluginInterface[]
      */
     public function getKeyValueProcessors()
     {
@@ -52,7 +51,7 @@ class FrontendExporterSettings extends CoreSettings
     }
 
     /**
-     * @return array|\ProjectA\Zed\FrontendExporter\Dependency\Plugin\ExportFailedDeciderPluginInterface[]
+     * @return ExportFailedDeciderPluginInterface[]
      */
     public function getKeyValueExportFailedDeciders()
     {
@@ -62,7 +61,7 @@ class FrontendExporterSettings extends CoreSettings
     }
 
     /**
-     * @return array|\ProjectA\Zed\FrontendExporter\Dependency\Plugin\QueryExpanderPluginInterface[]
+     * @return QueryExpanderPluginInterface[]
      */
     public function getKeyValueQueryExpander()
     {
@@ -86,9 +85,8 @@ class FrontendExporterSettings extends CoreSettings
         ];
     }
 
-
     /**
-     * @return array|\ProjectA\Zed\FrontendExporter\Dependency\Plugin\DataProcessorPluginInterface[]
+     * @return DataProcessorPluginInterface[]
      */
     public function getSearchProcessors()
     {
@@ -101,7 +99,7 @@ class FrontendExporterSettings extends CoreSettings
     }
 
     /**
-     * @return array|\ProjectA\Zed\FrontendExporter\Dependency\Plugin\QueryExpanderPluginInterface[]
+     * @return QueryExpanderPluginInterface[]
      */
     public function getSearchQueryExpander()
     {
@@ -113,7 +111,7 @@ class FrontendExporterSettings extends CoreSettings
     }
 
     /**
-     * @return array|\ProjectA\Zed\FrontendExporter\Dependency\Plugin\ExportFailedDeciderPluginInterface[]
+     * @return ExportFailedDeciderPluginInterface[]
      */
     public function getSearchExportFailedDeciders()
     {
@@ -121,7 +119,6 @@ class FrontendExporterSettings extends CoreSettings
             $this->locator->productSearch()->pluginProductSearchFailedDeciderPlugin()
         ];
     }
-
 
     /**
      * @return array
