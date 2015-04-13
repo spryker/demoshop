@@ -2,31 +2,30 @@
 
 namespace Pyz\Zed\FrontendExporter\Business;
 
-use ProjectA\Zed\ProductCategorySearch\Communication\Plugin\ProductCategorySearchDataProcessorPlugin;
-use ProjectA\Zed\FrontendExporter\Business\FrontendExporterSettings as CoreSettings;
+use Generated\Zed\Ide\AutoCompletion;
+use ProjectA\Shared\Kernel\LocatorLocatorInterface;
+use ProjectA\Zed\FrontendExporter\Dependency\Plugin\DataProcessorPluginInterface;
+use ProjectA\Zed\FrontendExporter\Dependency\Plugin\ExportFailedDeciderPluginInterface;
+use ProjectA\Zed\FrontendExporter\Dependency\Plugin\QueryExpanderPluginInterface;
+use ProjectA\Zed\FrontendExporter\Business\FrontendExporterSettings as SprykerFrontendExporterSettings;
 
-/**
- * Class FrontendExporterSettings
- *
- * @package Pyz\Zed\FrontendExporter\Business
- */
-class FrontendExporterSettings extends CoreSettings
+class FrontendExporterSettings extends SprykerFrontendExporterSettings
 {
     /**
-     * @var \Generated\Zed\Ide\AutoCompletion
+     * @var AutoCompletion
      */
     protected $locator;
 
     /**
-     * @param $locator
+     * @param LocatorLocatorInterface $locator
      */
-    public function __construct($locator)
+    public function __construct(LocatorLocatorInterface $locator)
     {
         $this->locator = $locator;
     }
 
     /**
-     * @return array
+     * @return DataProcessorPluginInterface[]
      */
     public function getKeyValueProcessors()
     {
@@ -34,28 +33,24 @@ class FrontendExporterSettings extends CoreSettings
             //product export processors
             $this->locator->productFrontendExporterConnector()->pluginProductProcessorPlugin(),
             $this->locator->productFrontendExporterAvailabilityConnector()->pluginProductAvailabilityProcessorPlugin(),
-            $this->locator->productFrontendExporterConnector()->pluginProductUrlProcessorPlugin(),
             $this->locator->productFrontendExporterPriceConnector()->pluginProductPriceProcessorPlugin(),
             $this->locator->productCategoryFrontendExporterConnector()->pluginProductCategoryBreadcrumbProcessorPlugin(),
 
             // category nodes
             $this->locator->categoryExporter()->pluginNavigationProcessorPlugin(),
             $this->locator->categoryExporter()->pluginCategoryNodeProcessorPlugin(),
-            $this->locator->categoryExporter()->pluginCategoryNodeUrlProcessorPlugin(),
 
             //translations
             $this->locator->glossaryExporter()->pluginTranslationProcessorPlugin(),
 
-            $this->locator->cmsExporter()->pluginCmsPageProcessorPlugin(),
-            $this->locator->cmsExporter()->pluginCmsPageUrlProcessorPlugin(),
+            $this->locator->urlExporter()->pluginRedirectProcessorPlugin(),
 
-            $this->locator->redirectExporter()->pluginRedirectProcessorPlugin(),
-            $this->locator->redirectExporter()->pluginRedirectUrlProcessorPlugin(),
+            $this->locator->urlExporter()->pluginUrlProcessorPlugin(),
         ];
     }
 
     /**
-     * @return array|\ProjectA\Zed\FrontendExporter\Dependency\Plugin\ExportFailedDeciderPluginInterface[]
+     * @return ExportFailedDeciderPluginInterface[]
      */
     public function getKeyValueExportFailedDeciders()
     {
@@ -65,7 +60,7 @@ class FrontendExporterSettings extends CoreSettings
     }
 
     /**
-     * @return array|\ProjectA\Zed\FrontendExporter\Dependency\Plugin\QueryExpanderPluginInterface[]
+     * @return QueryExpanderPluginInterface[]
      */
     public function getKeyValueQueryExpander()
     {
@@ -83,14 +78,13 @@ class FrontendExporterSettings extends CoreSettings
             $this->locator->glossaryExporter()->pluginTranslationQueryExpanderPlugin(),
             $this->locator->categoryExporter()->pluginNavigationQueryExpanderPlugin(),
             $this->locator->categoryExporter()->pluginCategoryNodeQueryExpanderPlugin(),
-            $this->locator->cmsExporter()->pluginCmsQueryExpanderPlugin(),
-            $this->locator->redirectExporter()->pluginRedirectQueryExpanderPlugin(),
+            $this->locator->urlExporter()->pluginRedirectQueryExpanderPlugin(),
+            $this->locator->urlExporter()->pluginUrlQueryExpanderPlugin(),
         ];
     }
 
-
     /**
-     * @return array|\ProjectA\Zed\FrontendExporter\Dependency\Plugin\DataProcessorPluginInterface[]
+     * @return DataProcessorPluginInterface[]
      */
     public function getSearchProcessors()
     {
@@ -103,7 +97,7 @@ class FrontendExporterSettings extends CoreSettings
     }
 
     /**
-     * @return array|\ProjectA\Zed\FrontendExporter\Dependency\Plugin\QueryExpanderPluginInterface[]
+     * @return QueryExpanderPluginInterface[]
      */
     public function getSearchQueryExpander()
     {
@@ -115,7 +109,7 @@ class FrontendExporterSettings extends CoreSettings
     }
 
     /**
-     * @return array|\ProjectA\Zed\FrontendExporter\Dependency\Plugin\ExportFailedDeciderPluginInterface[]
+     * @return ExportFailedDeciderPluginInterface[]
      */
     public function getSearchExportFailedDeciders()
     {
@@ -123,7 +117,6 @@ class FrontendExporterSettings extends CoreSettings
             $this->locator->productSearch()->pluginProductSearchFailedDeciderPlugin()
         ];
     }
-
 
     /**
      * @return array
