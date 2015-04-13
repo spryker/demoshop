@@ -196,7 +196,7 @@ $config[SystemConfig::ZED_ACL_SETTINGS] = [
         'rules' => [
             [
                 "module" => "auth",
-                "controller" => "login",
+                "controller" => "*",
                 "action" => "*",
                 "type" => "allow"
             ]

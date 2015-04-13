@@ -19,7 +19,7 @@ return [
 
     // Core bundles
     ProjectA\Shared\Library\Bundle\BundleConfig::VENDOR => [
-        'Auth' => $navigation,
+        'Auth' => $schema,
         'Acl' => $schema,
         'User' => $schema,
         'Cart' => $schema,
