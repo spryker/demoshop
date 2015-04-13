@@ -8,6 +8,7 @@ use ProjectA\Shared\Application\Business\Bootstrap;
 use ProjectA\Shared\Application\Communication\Plugin\ServiceProvider\RoutingServiceProvider;
 use ProjectA\Shared\Application\Communication\Plugin\ServiceProvider\UrlGeneratorServiceProvider;
 use ProjectA\Shared\Library\Config;
+use ProjectA\Shared\Library\ProjectA_Shared_Library_Environment;
 use ProjectA\Shared\System\SystemConfig;
 use ProjectA\Shared\Yves\YvesConfig;
 use SprykerCore\Yves\Application\Communication\Plugin\ControllerProviderInterface;
