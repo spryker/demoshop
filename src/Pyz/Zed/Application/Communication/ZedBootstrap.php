@@ -23,19 +23,19 @@ use ProjectA\Zed\Application\Communication\Plugin\ServiceProvider\SslServiceProv
 use ProjectA\Zed\Application\Communication\Plugin\ServiceProvider\TranslationServiceProvider;
 
 use ProjectA\Zed\Application\Communication\Plugin\ServiceProvider\TwigServiceProvider;
-use ProjectA\Zed\Auth\Business\Model\Auth;
 
 use ProjectA\Zed\Kernel\Locator;
 
 use ProjectA\Zed\Auth\Communication\Plugin\ServiceProvider\SecurityServiceProvider;
-use ProjectA\Zed\Yves\Communication\Plugin\ServiceProvider\FrontendServiceProvider;
 
 use ProjectA\Zed\Sdk\Communication\Plugin\SdkServiceProviderPlugin;
 use Silex\Provider\FormServiceProvider;
 use Silex\Provider\ServiceControllerServiceProvider;
 use Silex\Provider\ValidatorServiceProvider;
 use Silex\Provider\WebProfilerServiceProvider;
+use Silex\ServiceProviderInterface;
 use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\Routing\RouterInterface;
 
 class ZedBootstrap extends Bootstrap
 {
@@ -84,7 +84,7 @@ class ZedBootstrap extends Bootstrap
 
     /**
      * @param Application $app
-     * @return \Silex\ServiceProviderInterface[]
+     * @return ServiceProviderInterface[]
      */
     protected function getServiceProviders(Application $app)
     {
@@ -115,7 +115,7 @@ class ZedBootstrap extends Bootstrap
 
     /**
      * @param Application $app
-     * @return \Symfony\Component\Routing\RouterInterface[]
+     * @return RouterInterface[]
      */
     protected function getRouters(Application $app)
     {
@@ -142,7 +142,7 @@ class ZedBootstrap extends Bootstrap
     }
 
     /**
-     * @return \Generated\Zed\Ide\AutoCompletion
+     * @return AutoCompletion
      */
     public function getLocator()
     {
