@@ -4,7 +4,7 @@
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "802e0fc63cbaf072e3ef1e6b4dd3c379",
+    "hash": "10814751ea1155f42737b62b37480b88",
     "packages": [
         {
             "name": "digital-canvas/zend-framework",
@@ -930,11 +930,11 @@
         },
         {
             "name": "spryker/yves-package",
-            "version": "dev-feature/core-65-refactor-yves-extension",
+            "version": "dev-master",
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/yves.git",
-                "reference": "988c71a2bdfaf79a70687a4f5a9216708f516b05"
+                "reference": "34444d21ff98e867e43e2886dd17133e1455f490"
             },
             "require": {
                 "php": ">=5.4.0"
@@ -967,15 +967,15 @@
                 "Application",
                 "Yves"
             ],
-            "time": "2015-04-13 14:28:21"
+            "time": "2015-04-09 13:30:51"
         },
         {
             "name": "spryker/zed-package",
-            "version": "dev-feature/core-65-refactor-yves-extension",
+            "version": "dev-master",
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/zed.git",
-                "reference": "1ee08a37e53a0d9530dfed2abd5d05ed572f56ed"
+                "reference": "416f3c4341657d08185ba33defe67c0f55c27c80"
             },
             "require": {
                 "digital-canvas/zend-framework": ">=1.12.2",
@@ -1027,9 +1027,6 @@
                     "Integration": "tests/",
                     "Unit": "tests/",
                     "Kendo": "src/"
-                },
-                "psr-4": {
-                    "Codeception\\Module\\": "src/SprykerCore/Shared/Codeception"
                 }
             },
             "authors": [
@@ -1045,7 +1042,7 @@
                 "Application",
                 "Zed"
             ],
-            "time": "2015-04-13 14:28:21"
+            "time": "2015-04-13 14:44:42"
         },
         {
             "name": "symfony-cmf/routing",
