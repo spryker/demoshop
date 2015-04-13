@@ -4,7 +4,7 @@
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "10814751ea1155f42737b62b37480b88",
+    "hash": "802e0fc63cbaf072e3ef1e6b4dd3c379",
     "packages": [
         {
             "name": "digital-canvas/zend-framework",
@@ -848,46 +848,46 @@
         },
         {
             "name": "silex/silex",
-            "version": "v1.2.3",
+            "version": "v1.2.4",
             "source": {
                 "type": "git",
                 "url": "https://github.com/silexphp/Silex.git",
-                "reference": "57c98ea0cb47664096094912920951fde1f4631a"
+                "reference": "417deb440eecf776df868d8760d0b7d8e2c4e6d1"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/silexphp/Silex/zipball/57c98ea0cb47664096094912920951fde1f4631a",
-                "reference": "57c98ea0cb47664096094912920951fde1f4631a",
+                "url": "https://api.github.com/repos/silexphp/Silex/zipball/417deb440eecf776df868d8760d0b7d8e2c4e6d1",
+                "reference": "417deb440eecf776df868d8760d0b7d8e2c4e6d1",
                 "shasum": ""
             },
             "require": {
                 "php": ">=5.3.3",
                 "pimple/pimple": "~1.0",
-                "symfony/event-dispatcher": "~2.3,<3.0",
-                "symfony/http-foundation": "~2.3,<3.0",
-                "symfony/http-kernel": "~2.3,<3.0",
-                "symfony/routing": "~2.3,<3.0"
+                "symfony/event-dispatcher": "~2.3,<2.7",
+                "symfony/http-foundation": "~2.3,<2.7",
+                "symfony/http-kernel": "~2.3,<2.7",
+                "symfony/routing": "~2.3,<2.7"
             },
             "require-dev": {
                 "doctrine/dbal": "~2.2",
                 "monolog/monolog": "~1.4,>=1.4.1",
                 "swiftmailer/swiftmailer": "5.*",
-                "symfony/browser-kit": "~2.3,<3.0",
-                "symfony/config": "~2.3,<3.0",
-                "symfony/css-selector": "~2.3,<3.0",
-                "symfony/debug": "~2.3,<3.0",
-                "symfony/dom-crawler": "~2.3,<3.0",
-                "symfony/finder": "~2.3,<3.0",
-                "symfony/form": "~2.3,<3.0",
-                "symfony/locale": "~2.3,<3.0",
-                "symfony/monolog-bridge": "~2.3,<3.0",
-                "symfony/options-resolver": "~2.3,<3.0",
-                "symfony/process": "~2.3,<3.0",
-                "symfony/security": "~2.3,<3.0",
-                "symfony/serializer": "~2.3,<3.0",
-                "symfony/translation": "~2.3,<3.0",
-                "symfony/twig-bridge": "~2.3,<3.0",
-                "symfony/validator": "~2.3,<3.0",
+                "symfony/browser-kit": "~2.3,<2.7",
+                "symfony/config": "~2.3,<2.7",
+                "symfony/css-selector": "~2.3,<2.7",
+                "symfony/debug": "~2.3,<2.7",
+                "symfony/dom-crawler": "~2.3,<2.7",
+                "symfony/finder": "~2.3,<2.7",
+                "symfony/form": "~2.3,<2.7",
+                "symfony/locale": "~2.3,<2.7",
+                "symfony/monolog-bridge": "~2.3,<2.7",
+                "symfony/options-resolver": "~2.3,<2.7",
+                "symfony/process": "~2.3,<2.7",
+                "symfony/security": "~2.3,<2.7",
+                "symfony/serializer": "~2.3,<2.7",
+                "symfony/translation": "~2.3,<2.7",
+                "symfony/twig-bridge": "~2.3,<2.7",
+                "symfony/validator": "~2.3,<2.7",
                 "twig/twig": ">=1.8.0,<2.0-dev"
             },
             "suggest": {
@@ -926,15 +926,15 @@
             "keywords": [
                 "microframework"
             ],
-            "time": "2015-01-20 16:45:58"
+            "time": "2015-04-11 12:43:27"
         },
         {
             "name": "spryker/yves-package",
-            "version": "dev-master",
+            "version": "dev-feature/core-65-refactor-yves-extension",
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/yves.git",
-                "reference": "34444d21ff98e867e43e2886dd17133e1455f490"
+                "reference": "2b4ace1f2525383fbbd32709f786a7a8b9459fe5"
             },
             "require": {
                 "php": ">=5.4.0"
@@ -967,15 +967,15 @@
                 "Application",
                 "Yves"
             ],
-            "time": "2015-04-09 13:30:51"
+            "time": "2015-04-13 08:34:27"
         },
         {
             "name": "spryker/zed-package",
-            "version": "dev-master",
+            "version": "dev-feature/core-65-refactor-yves-extension",
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/zed.git",
-                "reference": "ea3a04f4bafb1e1b14424e5cfe49022552f59f83"
+                "reference": "f273f290f3e9d047a8f2f192b958e2cc058ac7be"
             },
             "require": {
                 "digital-canvas/zend-framework": ">=1.12.2",
@@ -1027,6 +1027,9 @@
                     "Integration": "tests/",
                     "Unit": "tests/",
                     "Kendo": "src/"
+                },
+                "psr-4": {
+                    "Codeception\\Module\\": "src/SprykerCore/Shared/Codeception"
                 }
             },
             "authors": [
@@ -1042,7 +1045,7 @@
                 "Application",
                 "Zed"
             ],
-            "time": "2015-04-09 13:48:53"
+            "time": "2015-04-13 07:57:20"
         },
         {
             "name": "symfony-cmf/routing",
@@ -2841,12 +2844,12 @@
             "version": "v1.5.0",
             "source": {
                 "type": "git",
-                "url": "https://github.com/minkphp/Mink.git",
+                "url": "https://github.com/Behat/Mink.git",
                 "reference": "0769e6d9726c140a54dbf827a438c0f9912749fe"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/minkphp/Mink/zipball/0769e6d9726c140a54dbf827a438c0f9912749fe",
+                "url": "https://api.github.com/repos/Behat/Mink/zipball/0769e6d9726c140a54dbf827a438c0f9912749fe",
                 "reference": "0769e6d9726c140a54dbf827a438c0f9912749fe",
                 "shasum": ""
             },
@@ -2896,12 +2899,12 @@
             "version": "v1.1.0",
             "source": {
                 "type": "git",
-                "url": "https://github.com/minkphp/MinkBrowserKitDriver.git",
+                "url": "https://github.com/Behat/MinkBrowserKitDriver.git",
                 "reference": "63960c8fcad4529faad1ff33e950217980baa64c"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/minkphp/MinkBrowserKitDriver/zipball/63960c8fcad4529faad1ff33e950217980baa64c",
+                "url": "https://api.github.com/repos/Behat/MinkBrowserKitDriver/zipball/63960c8fcad4529faad1ff33e950217980baa64c",
                 "reference": "63960c8fcad4529faad1ff33e950217980baa64c",
                 "shasum": ""
             },
@@ -2951,12 +2954,12 @@
             "version": "v1.0.9",
             "source": {
                 "type": "git",
-                "url": "https://github.com/minkphp/MinkGoutteDriver.git",
+                "url": "https://github.com/Behat/MinkGoutteDriver.git",
                 "reference": "fa1b073b48761464feb0b05e6825da44b20118d8"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/minkphp/MinkGoutteDriver/zipball/fa1b073b48761464feb0b05e6825da44b20118d8",
+                "url": "https://api.github.com/repos/Behat/MinkGoutteDriver/zipball/fa1b073b48761464feb0b05e6825da44b20118d8",
                 "reference": "fa1b073b48761464feb0b05e6825da44b20118d8",
                 "shasum": ""
             },
@@ -3002,12 +3005,12 @@
             "version": "v1.1.1",
             "source": {
                 "type": "git",
-                "url": "https://github.com/minkphp/MinkSelenium2Driver.git",
+                "url": "https://github.com/Behat/MinkSelenium2Driver.git",
                 "reference": "bcf1b537de37db6db0822d9e7bd97e600fd7a476"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/minkphp/MinkSelenium2Driver/zipball/bcf1b537de37db6db0822d9e7bd97e600fd7a476",
+                "url": "https://api.github.com/repos/Behat/MinkSelenium2Driver/zipball/bcf1b537de37db6db0822d9e7bd97e600fd7a476",
                 "reference": "bcf1b537de37db6db0822d9e7bd97e600fd7a476",
                 "shasum": ""
             },
