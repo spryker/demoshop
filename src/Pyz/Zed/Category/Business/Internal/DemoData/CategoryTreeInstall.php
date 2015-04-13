@@ -25,7 +25,7 @@ class CategoryTreeInstall extends AbstractInstaller
     protected $queryContainer;
 
     /**
-     * @var \SprykerCore_Zed_Locale_Persistence_Propel_PacLocale
+     * @var string
      */
     protected $localeName;
 
