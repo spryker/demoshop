@@ -16,17 +16,17 @@ class ProductCategoryDependencyContainer extends AbstractDependencyContainer
     protected $factory;
 
     /**
-     * @param LoggerInterface $logger
+     * @param LoggerInterface $messenger
      *
      * @return ProductCategoryMappingInstall
      */
-    public function getDemoDataInstaller(LoggerInterface $logger = null)
+    public function getDemoDataInstaller(LoggerInterface $messenger)
     {
         $installer = $this->factory->createInternalDemoDataProductCategoryMappingInstall(
             $this->locator->locale()->facade(),
             $this->locator->touch()->facade()
         );
-        $installer->setLogger($logger);
+        $installer->setMessenger($messenger);
 
         return $installer;
     }

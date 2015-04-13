@@ -15,14 +15,14 @@ class ProductSearchDependencyContainer extends SprykerProductSearchDependencyCon
     protected $factory;
 
     /**
-     * @param LoggerInterface $logger
+     * @param LoggerInterface $messenger
      *
      * @return Internal\DemoData\ProductAttributeMappingInstall
      */
-    public function getDemoDataInstaller(LoggerInterface $logger = null)
+    public function getDemoDataInstaller(LoggerInterface $messenger)
     {
         $installer = $this->factory->createInternalDemoDataProductAttributeMappingInstall();
-        $installer->setLogger($logger);
+        $installer->setMessenger($messenger);
 
         return $installer;
     }
