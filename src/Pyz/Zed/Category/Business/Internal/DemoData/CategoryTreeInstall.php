@@ -57,7 +57,7 @@ class CategoryTreeInstall extends AbstractInstaller
 
         $demoTree = $this->getDemoTree();
 
-        if ($this->categoryFacade->getRootNode()) {
+        if ($this->queryContainer->queryRootNode()->find()) {
             $this->warning('Dummy CategoryTree already installed. Skipping.');
 
             return;
@@ -116,7 +116,7 @@ class CategoryTreeInstall extends AbstractInstaller
      */
     protected function getParentId($rawNode)
     {
-        $nodeQuery = $this->queryContainer->getNodeQueryByCategoryName($rawNode[self::PARENT_NAME], $this->locale);
+        $nodeQuery = $this->queryContainer->queryNodeByCategoryName($rawNode[self::PARENT_NAME], $this->locale);
         $nodeEntity = $nodeQuery->findOne();
 
         if ($nodeEntity) {
