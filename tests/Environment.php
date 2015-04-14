@@ -4,22 +4,11 @@ namespace Test;
 
 class Environment
 {
-
-    public static function initialize()
+    public static function initialize($application)
     {
         self::setApplicationRootDir();
-        //self::setApplication();
 
-        \ProjectA\Shared\Library\Application\Environment::initialize();
-    }
-
-    private static function setApplication()
-    {
-        if (isset($_SERVER['APPLICATION'])) {
-            define('APPLICATION', $_SERVER['APPLICATION']);
-        } else {
-            defined('APPLICATION') || define('APPLICATION', 'ZED');
-        }
+        \ProjectA\Shared\Library\Application\Environment::initialize($application);
     }
 
     private static function setApplicationRootDir()
