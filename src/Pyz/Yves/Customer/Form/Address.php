@@ -26,16 +26,8 @@ class Address extends AbstractType
                 'choices' => ['Mr', 'Mrs', 'Dr'],
                 'label' => 'customer.address.salutation',
             ])
-            ->add('first_name', 'text', [
-                'label' => 'customer.address.first_name',
-                'required' => false,
-            ])
-            ->add('middle_name', 'text', [
-                'label' => 'customer.address.middle_name',
-                'required' => false,
-            ])
-            ->add('last_name', 'text', [
-                'label' => 'customer.address.last_name',
+            ->add('name', 'text', [
+                'label' => 'customer.address.name',
                 'required' => false,
             ])
             ->add('address1', 'text', [
