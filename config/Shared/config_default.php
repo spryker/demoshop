@@ -169,3 +169,49 @@ $config[MailConfig::MAIL_PROVIDER_MANDRILL] = [
     'from_mail' => 'service@demoshop.de',
     'from_name' => 'Demoshop'
 ];
+
+$config[SystemConfig::ZED_USER_SETTINGS] = [
+    'system_users' => [
+        '_yves'
+    ]
+];
+
+$config[SystemConfig::ZED_AUTH_SETTINGS] = [
+    'credentials' => [
+        '_yves' => [
+            'ignore' => [
+                [
+                    "module" => "*",
+                    "controller" => "*",
+                    "action" => "*"
+                ]
+            ],
+            'token' => 'JDJ5JDEwJFE0cXBwYnVVTTV6YVZXSnVmM2l1UWVhRE94WkQ4UjBUeHBEWTNHZlFRTEd4U2F6QVBqejQ2'
+        ]
+    ]
+];
+
+$config[SystemConfig::ZED_ACL_SETTINGS] = [
+    'default' => [
+        'rules' => [
+            [
+                "module" => "auth",
+                "controller" => "*",
+                "action" => "*",
+                "type" => "allow"
+            ]
+        ]
+    ],
+    'credentials' => [
+        '_yves' => [
+            'rules' => [
+                [
+                    "module" => "*",
+                    "controller" => "*",
+                    "action" => "*",
+                    "type" => "allow"
+                ]
+            ]
+        ]
+    ]
+];

@@ -15,6 +15,7 @@ $config[SystemConfig::ZED_MYSQL_PORT] = 3306;
 
 $config[SystemConfig::ELASTICA_PARAMETER__INDEX_NAME] = 'de_development_catalog';
 $config[SystemConfig::ELASTICA_PARAMETER__DOCUMENT_TYPE] = 'page';
+
 $config[SystemConfig::ELASTICA_PARAMETER__PORT] = '9200';
 
 $yvesHost = 'www.de.spryker.dev';
