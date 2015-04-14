@@ -25,7 +25,7 @@ class FactoryPropertyRemover extends AbstractRefactorer
     {
         $methodDocBlock = '/**' . PHP_EOL . ' * @method {{bundle}}{{layer}} getFactory()' . PHP_EOL . ' */' . PHP_EOL . '$0';
 
-        $searchPattern = '/\/\*\*\n\s+\*\s+@var\s(.*?)(Business|Communication|Persistence)\n+\s+\*\/\n\s+protected\s\$factory;\n/';
+        $searchPattern = '/\/\*\*\n\s+\*\s+@var\s(.*?)(Business|Communication|Persistence)\n+\s+\*\/\n\s+protected\s\$factory;\n\n/';
 
         $content = $this->file->getContents();
 

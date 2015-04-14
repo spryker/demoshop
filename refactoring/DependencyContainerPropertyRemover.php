@@ -25,7 +25,7 @@ class DependencyContainerPropertyRemover extends AbstractRefactorer
     {
         $methodDocBlock = '/**' . PHP_EOL . ' * @method {{dependencyContainerPrefix}}DependencyContainer getDependencyContainer()' . PHP_EOL . ' */' . PHP_EOL . '$0';
 
-        $searchPattern = '/\/\*\*\n\s+\*\s+@var\s(.*?)DependencyContainer\n+\s+\*\/\n\s+protected\s\$dependencyContainer;\n/';
+        $searchPattern = '/\/\*\*\n\s+\*\s+@var\s(.*?)DependencyContainer\n+\s+\*\/\n\s+protected\s\$dependencyContainer;\n\n/';
 
         $content = $this->file->getContents();
 

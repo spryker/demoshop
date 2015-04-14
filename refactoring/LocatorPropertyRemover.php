@@ -23,7 +23,7 @@ class LocatorPropertyRemover extends AbstractRefactorer
 
     public function refactor()
     {
-        $searchPattern = '/\/\*\*\n\s+\*\s+@var\s(.*?)\n+\s+\*\/\n\s+protected\s\$locator;\n/';
+        $searchPattern = '/\/\*\*\n\s+\*\s+@var\s(.*?)\n+\s+\*\/\n\s+protected\s\$locator;\n\n/';
 
         $content = $this->file->getContents();
 
