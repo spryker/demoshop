@@ -23,7 +23,7 @@ class LocatorPropertyRemover extends AbstractRefactorer
 
     public function refactor()
     {
-        $searchPattern = '/\/\*\*\n\s+\*\s+@var\s(.*?)\n+\s+\*\/\n\s+protected\s\$locator;/';
+        $searchPattern = '/\/\*\*\n\s+\*\s+@var\s(.*?)\n+\s+\*\/\n\s+protected\s\$locator;\n/';
 
         $content = $this->file->getContents();
 
@@ -33,7 +33,6 @@ class LocatorPropertyRemover extends AbstractRefactorer
             $dependencyContainerPrefix = $matches[1];
 
             $content = preg_replace($searchPattern, '', $content);
-            $content = preg_replace('/\n\n/', PHP_EOL, $content);
 
             $this->info($this->file->getPathname());
             file_put_contents($this->file->getPathname(), $content);

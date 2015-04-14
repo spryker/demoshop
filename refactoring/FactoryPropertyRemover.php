@@ -25,7 +25,7 @@ class FactoryPropertyRemover extends AbstractRefactorer
     {
         $methodDocBlock = '/**' . PHP_EOL . ' * @method {{bundle}}{{layer}} getFactory()' . PHP_EOL . ' */' . PHP_EOL . '$0';
 
-        $searchPattern = '/\/\*\*\n\s+\*\s+@var\s(.*?)(Business|Communication|Persistence)\n+\s+\*\/\n\s+protected\s\$factory;/';
+        $searchPattern = '/\/\*\*\n\s+\*\s+@var\s(.*?)(Business|Communication|Persistence)\n+\s+\*\/\n\s+protected\s\$factory;\n/';
 
         $content = $this->file->getContents();
 
@@ -35,12 +35,11 @@ class FactoryPropertyRemover extends AbstractRefactorer
             $bundle = $matches[1];
             $layer = $matches[2];
 
-            $docBlock = str_replace('{{bundle}}', $bundle, $methodDocBlock);
-            $docBlock = str_replace('{{layer}}', $layer, $methodDocBlock);
+            $methodDocBlock = str_replace('{{bundle}}', $bundle, $methodDocBlock);
+            $methodDocBlock = str_replace('{{layer}}', $layer, $methodDocBlock);
 
-            $content = preg_replace('/(final|abstract|class|interface)/', $docBlock, $content);
+            $content = preg_replace('/(final|abstract|class|interface)/', $methodDocBlock, $content);
             $content = preg_replace($searchPattern, '', $content);
-            $content = preg_replace('/\n\n/', PHP_EOL, $content);
 
             $this->info($this->file->getPathname());
             file_put_contents($this->file->getPathname(), $content);
