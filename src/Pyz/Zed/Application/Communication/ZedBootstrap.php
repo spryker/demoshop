@@ -2,6 +2,7 @@
 
 namespace Pyz\Zed\Application\Communication;
 
+use Generated\Zed\Ide\AutoCompletion;
 use ProjectA\Shared\Application\Business\Application;
 use ProjectA\Shared\Application\Business\Bootstrap;
 use ProjectA\Shared\Application\Communication\Plugin\ServiceProvider\RoutingServiceProvider;
@@ -24,6 +25,7 @@ use ProjectA\Zed\Application\Communication\Plugin\ServiceProvider\TranslationSer
 
 use ProjectA\Zed\Application\Communication\Plugin\ServiceProvider\TwigServiceProvider;
 
+use ProjectA\Zed\Auth\Business\Model\Auth;
 use ProjectA\Zed\Kernel\Locator;
 
 use ProjectA\Zed\Auth\Communication\Plugin\ServiceProvider\SecurityServiceProvider;
