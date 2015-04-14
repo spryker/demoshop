@@ -153,7 +153,7 @@ class YvesBootstrap extends SprykerYvesBootstrap
 
         $locator = $this->getLocator($app);
 
-        return array_merge($existingGlobalVars, [
+        $addditionalGlobalVars = [
             'categories' => $locator->categoryExporter()->sdk()->getNavigationCategories($app['locale']),
             'cartItemCount' => $locator->cart()
                 ->pluginCartSessionCount()
@@ -161,6 +161,8 @@ class YvesBootstrap extends SprykerYvesBootstrap
                 ->getCount(),
             'tracking' => Tracking::getInstance(),
             'environment' => \ProjectA_Shared_Library_Environment::getEnvironment(),
-        ]);
+        ];
+
+        return array_merge($existingGlobalVars, $addditionalGlobalVars);
     }
 }
