@@ -40,6 +40,7 @@ class FactoryPropertyRemover extends AbstractRefactorer
 
             $content = preg_replace('/(final|abstract|class|interface)/', $methodDocBlock, $content);
             $content = preg_replace($searchPattern, '', $content);
+            $content = str_replace('        /**', '    /**', $content);
 
             $this->info($this->file->getPathname());
             file_put_contents($this->file->getPathname(), $content);

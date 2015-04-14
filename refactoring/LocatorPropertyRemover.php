@@ -33,6 +33,7 @@ class LocatorPropertyRemover extends AbstractRefactorer
             $dependencyContainerPrefix = $matches[1];
 
             $content = preg_replace($searchPattern, '', $content);
+            $content = str_replace('        /**', '    /**', $content);
 
             $this->info($this->file->getPathname());
             file_put_contents($this->file->getPathname(), $content);
