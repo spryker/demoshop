@@ -3,80 +3,35 @@
 namespace Pyz\Yves\Application\Communication;
 
 use ProjectA\Shared\Application\Business\Application;
-use ProjectA\Shared\Application\Business\Bootstrap;
-
 use ProjectA\Shared\Application\Communication\Plugin\ServiceProvider\RoutingServiceProvider;
 use ProjectA\Shared\Application\Communication\Plugin\ServiceProvider\UrlGeneratorServiceProvider;
 use ProjectA\Shared\Library\Config;
 use ProjectA\Shared\System\SystemConfig;
 use ProjectA\Shared\Yves\YvesConfig;
+use SprykerCore\Yves\Application\Business\YvesBootstrap as SprykerYvesBootstrap;
 use SprykerCore\Yves\Application\Communication\Plugin\ControllerProviderInterface;
-
 use Pyz\Yves\Checkout\Communication\Plugin\CheckoutControllerProvider;
-use ProjectA\Yves\Customer\Business\Model\Security\SecurityServiceProvider;
-use ProjectA\Yves\Customer\Communication\Plugin\CustomerControllerProvider;
 use Pyz\Yves\Cart\Communication\Plugin\CartControllerProvider;
-use ProjectA\Yves\Library\Asset\AssetManager;
-use Pyz\Yves\Newsletter\Communication\Plugin\NewsletterControllerProvider;
 use Pyz\Yves\Application\Communication\Plugin\ApplicationControllerProvider;
-use SprykerCore\Yves\Application\Business\Twig\YvesExtension;
-
 use SprykerCore\Yves\Application\Communication\Plugin\ServiceProvider\CookieServiceProvider;
 use SprykerCore\Yves\Application\Communication\Plugin\ServiceProvider\MonologServiceProvider;
 use SprykerCore\Yves\Application\Communication\Plugin\ServiceProvider\SessionServiceProvider;
 use SprykerCore\Yves\Application\Communication\Plugin\ServiceProvider\ExceptionServiceProvider;
-use SprykerCore\Yves\Application\Communication\Plugin\ServiceProvider\TwigServiceProvider;
 use SprykerCore\Yves\Application\Communication\Plugin\ServiceProvider\YvesLoggingServiceProvider;
 
 use ProjectA\Shared\Application\Business\Routing\SilexRouter;
 
 use ProjectA\Yves\Library\Tracking\Tracking;
 use Silex\Provider\FormServiceProvider;
-use Silex\Provider\RememberMeServiceProvider;
 use Silex\Provider\ServiceControllerServiceProvider;
 use Silex\Provider\ValidatorServiceProvider;
 use Silex\Provider\WebProfilerServiceProvider;
 use SprykerCore\Yves\Kernel\Locator;
+use SprykerFeature\Yves\Twig\Plugin\TwigServiceProvider;
 use Symfony\Component\HttpFoundation\Request;
 
-class YvesBootstrap extends Bootstrap
+class YvesBootstrap extends SprykerYvesBootstrap
 {
-
-    /**
-     * @return Application
-     */
-    protected function getBaseApplication()
-    {
-        return new \SprykerCore\Yves\Application\Business\Application();
-    }
-
-    /**
-     * @param Application $app
-     */
-    protected function addProvidersToApp(Application $app)
-    {
-        parent::addProvidersToApp($app);
-
-        foreach ($this->getControllerProviders() as $provider) {
-            $app->mount($provider->getUrlPrefix(), $provider);
-        }
-    }
-
-    /**
-     * @param Application $app
-     *
-     * @return \Twig_Extension[]
-     */
-    protected function getTwigExtensions(Application $app)
-    {
-        $assetManager = new AssetManager($app['request_stack']);
-        $yvesExtension = new YvesExtension($assetManager);
-
-        return [
-            $yvesExtension
-        ];
-    }
-
     /**
      * @param Application $app
      */
@@ -194,9 +149,11 @@ class YvesBootstrap extends Bootstrap
      */
     protected function globalTemplateVariables(Application $app)
     {
+        $existingGlobalVars = parent::globalTemplateVariables($app);
+
         $locator = $this->getLocator($app);
 
-        return [
+        $addditionalGlobalVars = [
             'categories' => $locator->categoryExporter()->sdk()->getNavigationCategories($app['locale']),
             'cartItemCount' => $locator->cart()
                 ->pluginCartSessionCount()
@@ -205,5 +162,7 @@ class YvesBootstrap extends Bootstrap
             'tracking' => Tracking::getInstance(),
             'environment' => \ProjectA_Shared_Library_Environment::getEnvironment(),
         ];
+
+        return array_merge($existingGlobalVars, $addditionalGlobalVars);
     }
 }

@@ -28,6 +28,7 @@ if is_default_store; then
 fi
 
 rm -f config/config_local_${APPLICATION_STORE}.php; ln -sf $shared_dir/config_local_${APPLICATION_STORE}.php config/Shared/config_local_${APPLICATION_STORE}.php
+rm -f config/Shared/console_env_local.php; ln -sf $shared_dir/console_env_local.php config/Shared/console_env_local.php
 
 ### Composer
 if is_default_store; then
