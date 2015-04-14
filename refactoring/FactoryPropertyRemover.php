@@ -32,9 +32,9 @@ class FactoryPropertyRemover extends AbstractRefactorer
         if (preg_match($searchPattern, $content, $matches)) {
             $this->info($this->file->getPathname());
 
-            echo '<pre>' . PHP_EOL . \Symfony\Component\VarDumper\VarDumper::dump($matches) . PHP_EOL . 'Line: ' . __LINE__ . PHP_EOL . 'File: ' . __FILE__ . die();
             $bundle = $matches[1];
             $layer = $matches[2];
+
             $docBlock = str_replace('{{bundle}}', $bundle, $methodDocBlock);
             $docBlock = str_replace('{{layer}}', $layer, $methodDocBlock);
 
@@ -43,7 +43,7 @@ class FactoryPropertyRemover extends AbstractRefactorer
             $content = preg_replace('/\n\n/', PHP_EOL, $content);
 
             $this->info($this->file->getPathname());
-//            file_put_contents($this->file->getPathname(), $content);
+            file_put_contents($this->file->getPathname(), $content);
         }
     }
 

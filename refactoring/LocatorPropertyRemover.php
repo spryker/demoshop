@@ -36,7 +36,7 @@ class LocatorPropertyRemover extends AbstractRefactorer
             $content = preg_replace('/\n\n/', PHP_EOL, $content);
 
             $this->info($this->file->getPathname());
-//            file_put_contents($this->file->getPathname(), $content);
+            file_put_contents($this->file->getPathname(), $content);
         }
     }
 
