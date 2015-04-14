@@ -5,7 +5,7 @@ namespace ReneFactor;
 use Symfony\Component\Finder\Finder;
 use Symfony\Component\Finder\SplFileInfo;
 
-class DependencyContainerAccessReplacer extends AbstractRefactorer
+class FactoryAccessReplacer extends AbstractRefactorer
 {
 
     /**
@@ -24,11 +24,11 @@ class DependencyContainerAccessReplacer extends AbstractRefactorer
     public function refactor()
     {
         $content = $this->file->getContents();
-        if (preg_match('/->dependencyContainer/', $content)) {
+        if (preg_match('/->factory/', $content)) {
             $this->info($this->file->getPathname());
-            $content = str_replace('->dependencyContainer', '->getDependencyContainer()', $content);
-            $content = str_replace('->getDependencyContainer() =', '->dependencyContainer =', $content);
-            file_put_contents($this->file->getPathname(), $content);
+            $content = str_replace('->factory', '->getFactory()', $content);
+            $content = str_replace('->getFactory() =', '->factory =', $content);
+//            file_put_contents($this->file->getPathname(), $content);
         }
     }
 

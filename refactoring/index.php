@@ -19,4 +19,7 @@ $consoleLogger = new ConsoleLogger(
 $consoleLogger->info('starting refactoring');
 
 $refactor = new \ReneFactor\LocateAbleDependencyContainerReplacer($consoleLogger);
+//$refactor->refactor();
+
+$refactor = new \ReneFactor\DependencyContainerRefactorer($consoleLogger);
 $refactor->refactor();

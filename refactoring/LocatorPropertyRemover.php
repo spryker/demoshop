@@ -5,7 +5,7 @@ namespace ReneFactor;
 use Symfony\Component\Finder\Finder;
 use Symfony\Component\Finder\SplFileInfo;
 
-class DependencyContainerPropertyRemover extends AbstractRefactorer
+class LocatorPropertyRemover extends AbstractRefactorer
 {
 
     /**
@@ -23,9 +23,7 @@ class DependencyContainerPropertyRemover extends AbstractRefactorer
 
     public function refactor()
     {
-        $methodDocBlock = '/**' . PHP_EOL . ' * @method {{dependencyContainerPrefix}}DependencyContainer getDependencyContainer()' . PHP_EOL . ' */' . PHP_EOL . '$0';
-
-        $searchPattern = '/\/\*\*\n\s+\*\s+@var\s(.*?)DependencyContainer\n+\s+\*\/\n\s+protected\s\$dependencyContainer;/';
+        $searchPattern = '/\/\*\*\n\s+\*\s+@var\s(.*?)\n+\s+\*\/\n\s+protected\s\$locator;/';
 
         $content = $this->file->getContents();
 
@@ -33,14 +31,12 @@ class DependencyContainerPropertyRemover extends AbstractRefactorer
             $this->info($this->file->getPathname());
 
             $dependencyContainerPrefix = $matches[1];
-            $docBlock = str_replace('{{dependencyContainerPrefix}}', $dependencyContainerPrefix, $methodDocBlock);
 
-            $content = preg_replace('/(final|abstract|class|interface)/', $docBlock, $content);
             $content = preg_replace($searchPattern, '', $content);
             $content = preg_replace('/\n\n/', PHP_EOL, $content);
 
             $this->info($this->file->getPathname());
-            file_put_contents($this->file->getPathname(), $content);
+//            file_put_contents($this->file->getPathname(), $content);
         }
     }
 
