@@ -40,6 +40,7 @@ return [
         'System' => $navigation,
         'UiExample' => $schemaAndNavigation,
         'Locale' => $schema,
-        'Touch' => $schema
-    ],
+        'Touch' => $schema,
+        'Url' => $schema,
+    ]
 ];

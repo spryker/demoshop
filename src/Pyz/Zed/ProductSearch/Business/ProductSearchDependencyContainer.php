@@ -2,26 +2,24 @@
 
 namespace Pyz\Zed\ProductSearch\Business;
 
-use Generated\Zed\Ide\FactoryAutoCompletion\ProductSearchBusiness;
 use ProjectA\Zed\ProductSearch\Business\ProductSearchDependencyContainer as SprykerProductSearchDependencyContainer;
 use Psr\Log\LoggerInterface;
+use Pyz\Zed\ProductSearch\Business\Internal\DemoData\ProductAttributeMappingInstall;
 
 class ProductSearchDependencyContainer extends SprykerProductSearchDependencyContainer
 {
-
-    /**
-     * @var ProductSearchBusiness
-     */
-    protected $factory;
-
     /**
      * @param LoggerInterface $messenger
      *
-     * @return Internal\DemoData\ProductAttributeMappingInstall
+     * @return ProductAttributeMappingInstall
      */
     public function getDemoDataInstaller(LoggerInterface $messenger)
     {
-        $installer = $this->factory->createInternalDemoDataProductAttributeMappingInstall();
+        $installer = $this->getFactory()->createInternalDemoDataProductAttributeMappingInstall(
+            $this->createOperationManager(),
+            $this->createLocaleFacade(),
+            $this->createTouchFacade()
+        );
         $installer->setMessenger($messenger);
 
         return $installer;

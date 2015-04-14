@@ -3,14 +3,12 @@
 namespace Pyz\Zed\Category\Business\Internal\DemoData;
 
 use Generated\Zed\Ide\AutoCompletion;
+use ProjectA\Shared\Kernel\LocatorLocatorInterface;
 use ProjectA\Zed\Category\Business\CategoryFacade;
 use ProjectA\Zed\Category\Persistence\CategoryQueryContainer;
-use ProjectA\Zed\Console\Business\Model\Console;
 use ProjectA\Zed\Installer\Business\Model\AbstractInstaller;
-use ProjectA\Zed\Kernel\Locator;
 use ProjectA\Zed\Library\Import\Reader\CsvFileReader;
 use SprykerCore\Zed\Locale\Business\LocaleFacade;
-use SprykerCore\Zed\Locale\Persistence\Propel\SpyLocaleQuery;
 
 class CategoryTreeInstall extends AbstractInstaller
 {
@@ -27,7 +25,7 @@ class CategoryTreeInstall extends AbstractInstaller
     /**
      * @var string
      */
-    protected $locale;
+    protected $localeId;
 
     /**
      * @var CategoryFacade
@@ -35,20 +33,26 @@ class CategoryTreeInstall extends AbstractInstaller
     protected $categoryFacade;
 
     /**
+     * @var LocatorLocatorInterface|AutoCompletion
+     */
+    protected $locator;
+
+    /**
      * @param CategoryFacade $categoryFacade
      * @param CategoryQueryContainer $categoryQueryContainer
      * @param LocaleFacade $localeFacade
+     * @param LocatorLocatorInterface $locator
      */
     public function __construct(
         CategoryFacade $categoryFacade,
         CategoryQueryContainer $categoryQueryContainer,
-        LocaleFacade $localeFacade
+        LocaleFacade $localeFacade,
+        LocatorLocatorInterface $locator
     ) {
         $this->categoryFacade = $categoryFacade;
         $this->queryContainer = $categoryQueryContainer;
-
-        $this->locale = SpyLocaleQuery::create()
-            ->findOneByLocaleName($localeFacade->getCurrentLocale());
+        $this->localeId = $localeFacade->getCurrentLocaleIdentifier();
+        $this->locator = $locator;
     }
 
     public function install()
@@ -57,7 +61,7 @@ class CategoryTreeInstall extends AbstractInstaller
 
         $demoTree = $this->getDemoTree();
 
-        if ($this->queryContainer->queryRootNode()->find()) {
+        if ($this->queryContainer->queryRootNode()->count() > 0) {
             $this->warning('Dummy CategoryTree already installed. Skipping.');
 
             return;
@@ -95,8 +99,12 @@ class CategoryTreeInstall extends AbstractInstaller
      */
     protected function addRootNode(array $rawNode)
     {
-        $category = $this->categoryFacade->createCategory($rawNode[self::CATEGORY_NAME], $this->locale);
-        $this->categoryFacade->createCategoryNode($category->getIdCategory(), $this->locale);
+        $idCategory = $this->createCategory($rawNode);
+
+        $categoryNodeTransfer = $this->locator->category()->transferCategoryNode();
+        $categoryNodeTransfer->setIsRoot(true);
+        $categoryNodeTransfer->setFkCategory($idCategory);
+        $this->categoryFacade->createCategoryNode($categoryNodeTransfer, $this->localeId);
     }
 
     /**
@@ -104,9 +112,13 @@ class CategoryTreeInstall extends AbstractInstaller
      */
     protected function addChild($rawNode)
     {
-        $category = $this->categoryFacade->createCategory($rawNode[self::CATEGORY_NAME], $this->locale);
-        $parentId = $this->getParentId($rawNode);
-        $this->categoryFacade->createCategoryNode($category->getIdCategory(), $this->locale, $parentId);
+        $idCategory = $this->createCategory($rawNode);
+
+        $categoryNodeTransfer = $this->locator->category()->transferCategoryNode();
+        $categoryNodeTransfer->setIsRoot(false);
+        $categoryNodeTransfer->setFkCategory($idCategory);
+        $categoryNodeTransfer->setFkParentCategoryNode($this->getParentId($rawNode));
+        $this->categoryFacade->createCategoryNode($categoryNodeTransfer, $this->localeId);
     }
 
     /**
@@ -116,7 +128,7 @@ class CategoryTreeInstall extends AbstractInstaller
      */
     protected function getParentId($rawNode)
     {
-        $nodeQuery = $this->queryContainer->queryNodeByCategoryName($rawNode[self::PARENT_NAME], $this->locale);
+        $nodeQuery = $this->queryContainer->queryNodeByCategoryName($rawNode[self::PARENT_NAME], $this->localeId);
         $nodeEntity = $nodeQuery->findOne();
 
         if ($nodeEntity) {
@@ -124,5 +136,18 @@ class CategoryTreeInstall extends AbstractInstaller
         }
 
         return false;
+    }
+
+    /**
+     * @param $rawNode
+     * @return int
+     */
+    protected function createCategory($rawNode)
+    {
+        $categoryTransfer = $this->locator->category()->transferCategory();
+        $categoryTransfer->setName($rawNode[self::CATEGORY_NAME]);
+        $idCategory = $this->categoryFacade->createCategory($categoryTransfer, $this->localeId);
+
+        return $idCategory;
     }
 }

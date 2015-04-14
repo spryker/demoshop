@@ -34,17 +34,19 @@ class FrontendExporterSettings extends CoreSettings
             //product export processors
             $this->locator->productFrontendExporterConnector()->pluginProductProcessorPlugin(),
             $this->locator->productFrontendExporterAvailabilityConnector()->pluginProductAvailabilityProcessorPlugin(),
-            $this->locator->productFrontendExporterConnector()->pluginProductUrlProcessorPlugin(),
             $this->locator->productFrontendExporterPriceConnector()->pluginProductPriceProcessorPlugin(),
             $this->locator->productCategoryFrontendExporterConnector()->pluginProductCategoryBreadcrumbProcessorPlugin(),
 
             // category nodes
             $this->locator->categoryExporter()->pluginNavigationProcessorPlugin(),
             $this->locator->categoryExporter()->pluginCategoryNodeProcessorPlugin(),
-            $this->locator->categoryExporter()->pluginCategoryNodeUrlProcessorPlugin(),
 
             //translations
             $this->locator->glossaryExporter()->pluginTranslationProcessorPlugin(),
+
+            $this->locator->urlExporter()->pluginRedirectProcessorPlugin(),
+
+            $this->locator->urlExporter()->pluginUrlProcessorPlugin(),
         ];
     }
 
@@ -77,6 +79,8 @@ class FrontendExporterSettings extends CoreSettings
             $this->locator->glossaryExporter()->pluginTranslationQueryExpanderPlugin(),
             $this->locator->categoryExporter()->pluginNavigationQueryExpanderPlugin(),
             $this->locator->categoryExporter()->pluginCategoryNodeQueryExpanderPlugin(),
+            $this->locator->urlExporter()->pluginRedirectQueryExpanderPlugin(),
+            $this->locator->urlExporter()->pluginUrlQueryExpanderPlugin(),
         ];
     }
 
