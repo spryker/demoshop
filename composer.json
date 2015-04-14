@@ -1,7 +1,7 @@
 {
   "require": {
-    "spryker/yves-package": "dev-feature/core-65-refactor-yves-extension",
-    "spryker/zed-package": "dev-feature/core-65-refactor-yves-extension",
+    "spryker/yves-package": "dev-master",
+    "spryker/zed-package": "dev-master",
 
     "psr/log": "~1.0",
     "phing/phing": "~2.6.0",
