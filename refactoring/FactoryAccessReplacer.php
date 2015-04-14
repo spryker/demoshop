@@ -28,6 +28,7 @@ class FactoryAccessReplacer extends AbstractRefactorer
             $this->info($this->file->getPathname());
             $content = str_replace('->factory', '->getFactory()', $content);
             $content = str_replace('->getFactory() =', '->factory =', $content);
+            $content = str_replace('->getFactory();', '->factory;', $content);
             file_put_contents($this->file->getPathname(), $content);
         }
     }

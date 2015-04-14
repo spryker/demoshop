@@ -28,6 +28,7 @@ class DependencyContainerAccessReplacer extends AbstractRefactorer
             $this->info($this->file->getPathname());
             $content = str_replace('->dependencyContainer', '->getDependencyContainer()', $content);
             $content = str_replace('->getDependencyContainer() =', '->dependencyContainer =', $content);
+            $content = str_replace('->getDependencyContainer();', '->dependencyContainer;', $content);
             file_put_contents($this->file->getPathname(), $content);
         }
     }

@@ -28,6 +28,7 @@ class LocatorAccessReplacer extends AbstractRefactorer
             $this->info($this->file->getPathname());
             $content = str_replace('->locator', '->getLocator()', $content);
             $content = str_replace('->getLocator() =', '->locator =', $content);
+            $content = str_replace('->getLocator();', '->locator;', $content);
             file_put_contents($this->file->getPathname(), $content);
         }
     }
