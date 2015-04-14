@@ -7,7 +7,6 @@
 namespace Pyz\Zed\Locale\Business;
 
 use ProjectA\Zed\Category\Dependency\Facade\CategoryToLocaleInterface;
-use ProjectA\Zed\Glossary\Dependency\Facade\GlossaryToLocaleInterface;
 use ProjectA\Zed\Product\Dependency\Facade\ProductToLocaleInterface;
 use ProjectA\Zed\ProductCategory\Dependency\Facade\ProductCategoryToLocaleInterface;
 use ProjectA\Zed\ProductSearch\Dependency\Facade\ProductSearchToLocaleInterface;
