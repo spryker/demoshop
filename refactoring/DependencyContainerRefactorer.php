@@ -16,9 +16,12 @@ class DependencyContainerRefactorer extends AbstractRefactorer
 
         $locatorAccessReplacer = new LocatorAccessReplacer($this->logger);
         $locatorPropertyRemover = new LocatorPropertyRemover($this->logger);
+        $locatorMethodRemover = new LocatorMethodRemover($this->logger);
 
         $factoryAccessReplacer = new FactoryAccessReplacer($this->logger);
         $factoryPropertyRemover = new FactoryPropertyRemover($this->logger);
+        $factoryMethodRemover = new FactoryMethodRemover($this->logger);
+
         foreach ($finder as $file) {
             $this->info($file->getPathname());
 
@@ -28,11 +31,17 @@ class DependencyContainerRefactorer extends AbstractRefactorer
             $locatorPropertyRemover->setFile($file);
             $locatorPropertyRemover->refactor();
 
+            $locatorMethodRemover->setFile($file);
+            $locatorMethodRemover->refactor();
+
             $factoryAccessReplacer->setFile($file);
             $factoryAccessReplacer->refactor();
 
             $factoryPropertyRemover->setFile($file);
             $factoryPropertyRemover->refactor();
+
+            $factoryMethodRemover->setFile($file);
+            $factoryMethodRemover->refactor();
         }
     }
 
