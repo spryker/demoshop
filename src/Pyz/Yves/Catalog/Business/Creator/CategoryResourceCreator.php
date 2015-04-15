@@ -11,10 +11,6 @@ use SprykerCore\Yves\Kernel\Communication\Controller\BundleControllerActionRoute
 use SprykerCore\Yves\Kernel\Communication\ControllerLocator;
 use SprykerCore\Yves\Kernel\Locator;
 
-/**
- * Class CategoryResourceCreator
- * @package Pyz\Yves\Catalog\Business\Creator
- */
 class CategoryResourceCreator implements ResourceCreatorInterface
 {
     /**
@@ -41,6 +37,7 @@ class CategoryResourceCreator implements ResourceCreatorInterface
     /**
      * @param Application $app
      * @param $data
+     *
      * @return array
      */
     public function createResource(Application $app, $data)

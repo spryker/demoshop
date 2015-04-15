@@ -86,6 +86,7 @@ class ZedBootstrap extends Bootstrap
 
     /**
      * @param Application $app
+     *
      * @return ServiceProviderInterface[]
      */
     protected function getServiceProviders(Application $app)
