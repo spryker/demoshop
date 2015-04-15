@@ -32,7 +32,7 @@ class DependencyContainerMethodRemover extends AbstractRefactorer
 
             $content = preg_replace($searchPattern, '', $content);
             $content = preg_replace('/[\s]{8}\/\*\*/', '    /**', $content);
-            $content = preg_replace('/[\s]{8}(protected|private|public)', '    $0', $content);
+            $content = preg_replace('/[\s]{8}(protected|private|public)/', '    $0', $content);
 
             $this->info($this->file->getPathname());
             file_put_contents($this->file->getPathname(), $content);
