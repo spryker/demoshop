@@ -69,7 +69,7 @@ class YvesBootstrap extends SprykerYvesBootstrap
             ->createTranslationServiceProvider();
 
         $providers = [
-            new ExceptionServiceProvider('\Pyz\Yves\Library\Controller\ExceptionController'),
+            new ExceptionServiceProvider('\SprykerCore\Yves\Application\Communication\Controller\ExceptionController'),
             new YvesLoggingServiceProvider(),
             new MonologServiceProvider(),
             new CookieServiceProvider(),
@@ -83,7 +83,6 @@ class YvesBootstrap extends SprykerYvesBootstrap
             new ValidatorServiceProvider(),
             new FormServiceProvider(),
             new TwigServiceProvider(),
-//            new TrackingServiceProvider()
         ];
 
         if (\ProjectA_Shared_Library_Environment::isDevelopment()) {
