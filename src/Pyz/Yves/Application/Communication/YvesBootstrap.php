@@ -115,15 +115,10 @@ class YvesBootstrap extends SprykerYvesBootstrap
     protected function getRouters(Application $app)
     {
         $locator = $this->getLocator($app);
-        $productResourceCreatorPlugin = $locator->productExporter()->pluginProductResourceCreator();
-        $categoryResourceCreatorPlugin = $locator->categoryExporter()->pluginCategoryResourceCreator();
 
         return [
             $locator->setup()->pluginMonitoringRouter()->createMonitoringRouter($app, false),
-            $locator->frontendExporter()->pluginStorageRouter()->createStorageRouter($app, false)
-                ->addResourceCreator($productResourceCreatorPlugin->createProductResourceCreator())
-                ->addResourceCreator($categoryResourceCreatorPlugin->createCategoryResourceCreator())
-            ,
+            $locator->frontendExporter()->pluginStorageRouter()->createStorageRouter($app, false),
             $locator->catalog()->pluginSearchRouter()->createSearchRouter($app, false),
             $locator->cart()->pluginCartRouter()->createCartRouter($app, false),
             /*
