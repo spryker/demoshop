@@ -19,6 +19,7 @@ class LocateAbleDependencyContainerReplacer extends AbstractRefactorer
 
         $dependencyContainerPropertyRemover = new DependencyContainerPropertyRemover($this->logger);
         $dependencyContainerAccessReplacer = new DependencyContainerAccessReplacer($this->logger);
+        $dependencyContainerMethodRemover = new DependencyContainerMethodRemover($this->logger);
         foreach ($finderCollection as $finder) {
             foreach ($finder as $file) {
                 $dependencyContainerPropertyRemover->setFile($file);
@@ -26,6 +27,9 @@ class LocateAbleDependencyContainerReplacer extends AbstractRefactorer
 
                 $dependencyContainerAccessReplacer->setFile($file);
                 $dependencyContainerAccessReplacer->refactor();
+
+                $dependencyContainerMethodRemover->setFile($file);
+                $dependencyContainerMethodRemover->refactor();
             }
         }
     }
