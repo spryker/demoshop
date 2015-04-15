@@ -13,13 +13,15 @@ class LocateAbleDependencyContainerReplacer extends AbstractRefactorer
         $this->info('Start');
 
         $finderCollection = [];
-        $finderCollection[] = $this->getFacadesFinder();
+        $finderCollection[] = $this->getFacadeFinder();
+        $finderCollection[] = $this->getSdkFinder();
         $finderCollection[] = $this->getQueryContainerFinder();
         $finderCollection[] = $this->getPluginFinder();
 
         $dependencyContainerPropertyRemover = new DependencyContainerPropertyRemover($this->logger);
         $dependencyContainerAccessReplacer = new DependencyContainerAccessReplacer($this->logger);
         $dependencyContainerMethodRemover = new DependencyContainerMethodRemover($this->logger);
+
         foreach ($finderCollection as $finder) {
             foreach ($finder as $file) {
                 $dependencyContainerPropertyRemover->setFile($file);
@@ -37,7 +39,7 @@ class LocateAbleDependencyContainerReplacer extends AbstractRefactorer
     /**
      * @return Finder
      */
-    private function getFacadesFinder()
+    private function getFacadeFinder()
     {
         $paths = [
             __DIR__ . '/../src/Pyz/*/*/Business/',
@@ -46,6 +48,22 @@ class LocateAbleDependencyContainerReplacer extends AbstractRefactorer
         ];
         $finder = new Finder();
         $finder->files()->in($paths)->name('*Facade.php');
+
+        return $finder;
+    }
+
+    /**
+     * @return Finder
+     */
+    private function getSdkFinder()
+    {
+        $paths = [
+            __DIR__ . '/../src/Pyz/*/*/',
+            __DIR__ . '/../vendor/spryker/*/src/*/*/*/',
+            __DIR__ . '/../vendor/spryker/*/tests/*/*/*/*/',
+        ];
+        $finder = new Finder();
+        $finder->files()->in($paths)->name('*Sdk.php');
 
         return $finder;
     }
@@ -72,7 +90,9 @@ class LocateAbleDependencyContainerReplacer extends AbstractRefactorer
     {
         $paths = [
             __DIR__ . '/../src/Pyz/*/*/Communication/Plugin/',
+            __DIR__ . '/../src/Pyz/*/*/Plugin/',
             __DIR__ . '/../vendor/spryker/*/src/*/*/*/Communication/Plugin/',
+            __DIR__ . '/../vendor/spryker/*/src/*/*/*/Plugin/',
         ];
         $finder = new Finder();
         $finder->files()->in($paths);

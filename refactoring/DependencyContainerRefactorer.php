@@ -51,9 +51,9 @@ class DependencyContainerRefactorer extends AbstractRefactorer
     private function getDependencyContainerFinder()
     {
         $paths = [
-            __DIR__ . '/../src/Pyz/*/*/*/',
-            __DIR__ . '/../vendor/spryker/*/src/*/*/*/*/',
-            __DIR__ . '/../vendor/spryker/*/tests/*/*/*/*/*/',
+            __DIR__ . '/../src/Pyz/*/*/',
+            __DIR__ . '/../vendor/spryker/*/src/*/*/*/',
+            __DIR__ . '/../vendor/spryker/*/tests/*/*/*/*/',
         ];
         $finder = new Finder();
         $finder->files()->in($paths)->name('*DependencyContainer.php');
