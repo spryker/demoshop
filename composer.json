@@ -1,6 +1,6 @@
 {
   "require": {
-    "spryker/yves-package": "dev-master",
+    "spryker/yves-package": "dev-feature/442-customerbundle",
     "spryker/zed-package": "dev-feature/442-customerbundle",
 
     "psr/log": "~1.0",
