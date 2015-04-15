@@ -8,7 +8,17 @@
 
     <div>
         {% for address in addresses %}
-            hello, world
+            <pre>
+                {{ address.company }}
+                {{ address.name }}
+                {{ address.address1 }}
+                {{ address.address2 }}
+                {{ address.zipcode }} {{ address.city }}
+                {{ address.iso2country }}
+                <a href="/customer/address?id={{ address.id }}">{{ "customer.profile.address.edit" | trans }}</a>
+            </pre>
         {% endfor %}
+        <br>
+        <a href="/customer/address/new">{{ "customer.profile.address.new" | trans }}</a>
     </div>
 {% endblock %}
