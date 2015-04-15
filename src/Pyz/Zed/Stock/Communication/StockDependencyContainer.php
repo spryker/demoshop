@@ -14,7 +14,7 @@ class StockDependencyContainer extends SprykerStockDependencyContainer
      */
     public function getInstallerFacade()
     {
-        return $this->locator->stock()->facade();
+        return $this->getLocator()->stock()->facade();
     }
 
 }

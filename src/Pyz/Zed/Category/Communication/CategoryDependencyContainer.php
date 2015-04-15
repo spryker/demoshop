@@ -13,7 +13,7 @@ class CategoryDependencyContainer extends AbstractDependencyContainer
      */
     public function getInstallerFacade()
     {
-        return $this->locator->category()->facade();
+        return $this->getLocator()->category()->facade();
     }
 
 }

@@ -10,14 +10,12 @@ use ProjectA\Zed\Kernel\Communication\AbstractPlugin;
 use ProjectA\Zed\Kernel\Locator;
 use Symfony\Component\Yaml\Yaml;
 
+/**
+ * @method GlossaryDependencyContainer getDependencyContainer()
+ */
 class YamlInstallerPlugin extends AbstractPlugin implements GlossaryInstallerPluginInterface
 {
-    /**
-     * @var GlossaryDependencyContainer
-     */
-    protected $dependencyContainer;
-
-    public function installGlossaryData()
+            public function installGlossaryData()
     {
         $filePath = __DIR__ . '/../../File/initial_translation.yml';
         $translations = $this->parseYamlFile($filePath);
@@ -40,7 +38,7 @@ class YamlInstallerPlugin extends AbstractPlugin implements GlossaryInstallerPlu
      */
     protected function installKeysAndTranslations(array $translations)
     {
-        $glossaryFacade = $this->dependencyContainer->getGlossaryFacade();
+        $glossaryFacade = $this->getDependencyContainer()->getGlossaryFacade();
         foreach ($translations['keys'] as $keyName => $data) {
             if (!$glossaryFacade->hasKey($keyName)) {
                 $glossaryFacade->createKey($keyName);

@@ -16,10 +16,10 @@ class CategoryDependencyContainer extends SprykerCategoryDependencyContainer
      */
     public function getDemoDataInstaller(LoggerInterface $messenger)
     {
-        $installer = $this->factory->createInternalDemoDataCategoryTreeInstall(
-            $this->locator->category()->facade(),
-            $this->locator->category()->queryContainer(),
-            $this->locator->locale()->facade()
+        $installer = $this->getFactory()->createInternalDemoDataCategoryTreeInstall(
+            $this->getLocator()->category()->facade(),
+            $this->getLocator()->category()->queryContainer(),
+            $this->getLocator()->locale()->facade()
         );
         $installer->setMessenger($messenger);
 

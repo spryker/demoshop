@@ -18,7 +18,7 @@ class CategoryExporterFacade extends CoreCategoryExporterFacade implements
      */
     public function explodeGroupedNodes(array $data, $idsField, $namesField, $urlsField)
     {
-        return $this->dependencyContainer->createGroupedNodeExploder()
+        return $this->getDependencyContainer()->createGroupedNodeExploder()
             ->explodeGroupedNodes(
                 $data,
                 $idsField,

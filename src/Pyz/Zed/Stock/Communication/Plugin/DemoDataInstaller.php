@@ -5,16 +5,14 @@ namespace Pyz\Zed\Stock\Communication\Plugin;
 use ProjectA\Zed\Installer\Communication\Plugin\AbstractInstallerPlugin;
 use Pyz\Zed\Stock\Communication\StockDependencyContainer;
 
+/**
+ * @method StockDependencyContainer getDependencyContainer()
+ */
 class DemoDataInstaller extends AbstractInstallerPlugin
 {
 
-    /**
-     * @var StockDependencyContainer
-     */
-    protected $dependencyContainer;
-
-    public function install()
+            public function install()
     {
-        $this->dependencyContainer->getInstallerFacade()->installDemoData($this->messenger);
+        $this->getDependencyContainer()->getInstallerFacade()->installDemoData($this->messenger);
     }
 }

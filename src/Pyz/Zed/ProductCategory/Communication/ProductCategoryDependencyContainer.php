@@ -14,7 +14,7 @@ class ProductCategoryDependencyContainer extends SprykerProductCategoryDependenc
      */
     public function getInstallerFacade()
     {
-        return $this->locator->productCategory()->facade();
+        return $this->getLocator()->productCategory()->facade();
     }
 
 }

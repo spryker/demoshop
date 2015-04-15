@@ -8,13 +8,11 @@ use ProjectA\Zed\Stock\Business\StockDependencyContainer as SprykerStockDependen
 use Psr\Log\LoggerInterface;
 use Pyz\Zed\Stock\Business\Internal\DemoData\StockInstall;
 
+/**
+ * @method StockBusiness getFactory()
+ */
 class StockDependencyContainer extends SprykerStockDependencyContainer
 {
-
-    /**
-     * @var StockBusiness
-     */
-    protected $factory;
 
     /**
      * @param LoggerInterface $messenger
@@ -23,8 +21,8 @@ class StockDependencyContainer extends SprykerStockDependencyContainer
      */
     public function getDemoDataInstaller(LoggerInterface $messenger)
     {
-        $installer = $this->factory->createInternalDemoDataStockInstall(
-            $this->locator
+        $installer = $this->getFactory()->createInternalDemoDataStockInstall(
+            $this->getLocator()
         );
         $installer->setMessenger($messenger);
 

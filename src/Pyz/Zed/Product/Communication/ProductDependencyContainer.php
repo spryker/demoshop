@@ -13,7 +13,7 @@ class ProductDependencyContainer extends SprykerProductDependencyContainer
      */
     public function getInstallerFacade()
     {
-        return $this->locator->product()->facade();
+        return $this->getLocator()->product()->facade();
     }
 
 }
