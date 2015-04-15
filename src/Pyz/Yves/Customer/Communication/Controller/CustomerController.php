@@ -2,10 +2,8 @@
 namespace Pyz\Yves\Customer\Communication\Controller;
 
 use Pyz\Yves\Customer\Communication\Plugin\CustomerControllerProvider;
-use Silex\Tests\Provider\ValidatorServiceProviderTest\Constraint\Custom;
 use SprykerCore\Yves\Application\Communication\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
-use ProjectA\Shared\Customer\Transfer\Customer as CustomerTransfer;
 use Symfony\Component\HttpFoundation\RedirectResponse;
 use ProjectA\Shared\Customer\Code\Messages;
 
