@@ -23,9 +23,9 @@ class CategoryTreeInstall extends AbstractInstaller
     protected $queryContainer;
 
     /**
-     * @var string
+     * @var int
      */
-    protected $localeId;
+    protected $idLocale;
 
     /**
      * @var CategoryFacade
@@ -51,7 +51,7 @@ class CategoryTreeInstall extends AbstractInstaller
     ) {
         $this->categoryFacade = $categoryFacade;
         $this->queryContainer = $categoryQueryContainer;
-        $this->localeId = $localeFacade->getCurrentLocaleIdentifier();
+        $this->idLocale = $localeFacade->getCurrentLocaleIdentifier();
         $this->locator = $locator;
     }
 
@@ -105,13 +105,13 @@ class CategoryTreeInstall extends AbstractInstaller
         $categoryNodeTransfer->setIsRoot(true);
         $categoryNodeTransfer->setFkCategory($idCategory);
 
-        $this->categoryFacade->createCategoryNode($categoryNodeTransfer, $this->localeId);
+        $this->categoryFacade->createCategoryNode($categoryNodeTransfer, $this->idLocale);
     }
 
     /**
      * @param array $rawNode
      */
-    protected function addChild($rawNode)
+    protected function addChild(array $rawNode)
     {
         $idCategory = $this->createCategory($rawNode);
 
@@ -120,7 +120,7 @@ class CategoryTreeInstall extends AbstractInstaller
         $categoryNodeTransfer->setFkCategory($idCategory);
         $categoryNodeTransfer->setFkParentCategoryNode($this->getParentId($rawNode));
 
-        $this->categoryFacade->createCategoryNode($categoryNodeTransfer, $this->localeId);
+        $this->categoryFacade->createCategoryNode($categoryNodeTransfer, $this->idLocale);
     }
 
     /**
@@ -128,9 +128,9 @@ class CategoryTreeInstall extends AbstractInstaller
      *
      * @return bool
      */
-    protected function getParentId($rawNode)
+    protected function getParentId(array $rawNode)
     {
-        $nodeQuery = $this->queryContainer->queryNodeByCategoryName($rawNode[self::PARENT_NAME], $this->localeId);
+        $nodeQuery = $this->queryContainer->queryNodeByCategoryName($rawNode[self::PARENT_NAME], $this->idLocale);
         $nodeEntity = $nodeQuery->findOne();
 
         if ($nodeEntity) {
@@ -145,11 +145,11 @@ class CategoryTreeInstall extends AbstractInstaller
      *
      * @return int
      */
-    protected function createCategory($rawNode)
+    protected function createCategory(array $rawNode)
     {
         $categoryTransfer = $this->locator->category()->transferCategory();
         $categoryTransfer->setName($rawNode[self::CATEGORY_NAME]);
-        $idCategory = $this->categoryFacade->createCategory($categoryTransfer, $this->localeId);
+        $idCategory = $this->categoryFacade->createCategory($categoryTransfer, $this->idLocale);
 
         return $idCategory;
     }

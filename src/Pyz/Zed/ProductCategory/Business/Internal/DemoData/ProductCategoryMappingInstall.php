@@ -69,8 +69,8 @@ class ProductCategoryMappingInstall extends AbstractInstaller
 
     public function install()
     {
-        $currentLocaleId = $this->localeFacade->getCurrentLocaleIdentifier();
-        $this->installProductCategories($currentLocaleId);
+        $currentIdLocale = $this->localeFacade->getCurrentLocaleIdentifier();
+        $this->installProductCategories($currentIdLocale);
     }
 
     /**
@@ -93,7 +93,8 @@ class ProductCategoryMappingInstall extends AbstractInstaller
 
             if (!$this->productCategoryManager->hasProductCategoryMapping($sku, $categoryName, $localeId)) {
                 $categoryNodeIds[] = $this->productCategoryManager
-                    ->createProductCategoryMapping($sku, $categoryName, $localeId);
+                    ->createProductCategoryMapping($sku, $categoryName, $localeId)
+                ;
             }
         }
     }
