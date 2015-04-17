@@ -975,7 +975,8 @@
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/zed.git",
-                "reference": "30c2739dbfcef7af525fbd3a1aceac7bde9d4ba1"
+                "reference": "3f783a87e2b2f067ddcad980d2c2ec7f2ff5268c"
+
             },
             "require": {
                 "digital-canvas/zend-framework": ">=1.12.2",
@@ -1045,6 +1046,7 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
             "time": "2015-04-07 09:06:07"
 
 =======
@@ -1055,6 +1057,9 @@
 >>>>>>> origin/master
 =======
             "time": "2015-04-14 09:51:17"
+>>>>>>> origin/master
+=======
+            "time": "2015-04-17 09:00:44"
 >>>>>>> origin/master
         },
         {
