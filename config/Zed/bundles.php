@@ -25,7 +25,7 @@ return [
         'Customer2' => $schema,
         'Discount' => $schemaAndNavigation,
         'FrontendExporter' => $schema,
-        'Glossary' => $schema,
+        'Glossary' => $schemaAndNavigation,
         'Lumberjack' => $navigation,
         'Misc' => $schema,
         'Oms' => $schema,
