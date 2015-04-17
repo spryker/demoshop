@@ -4,7 +4,7 @@
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "b9ed9ef9778d2044be5d0e8557b035b8",
+    "hash": "10814751ea1155f42737b62b37480b88",
     "packages": [
         {
             "name": "digital-canvas/zend-framework",
@@ -930,11 +930,11 @@
         },
         {
             "name": "spryker/yves-package",
-            "version": "dev-feature/460-cms-preview-yves",
+            "version": "dev-master",
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/yves.git",
-                "reference": "f7754146ac347a7293ba02c1eca5a48c5f465176"
+                "reference": "a1aae343e9ae6e7b6c7b778616d7c5c5da80504e"
             },
             "require": {
                 "php": ">=5.4.0"
@@ -967,15 +967,15 @@
                 "Application",
                 "Yves"
             ],
-            "time": "2015-04-15 15:49:33"
+            "time": "2015-04-14 09:53:43"
         },
         {
             "name": "spryker/zed-package",
-            "version": "dev-feature/cms-zed",
+            "version": "dev-master",
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/zed.git",
-                "reference": "23994c172db2f0602f1a5b46146be09cf76a3a92"
+                "reference": "a78302b31341d8add6a74e1a3a39e4b053d8a06d"
             },
             "require": {
                 "digital-canvas/zend-framework": ">=1.12.2",
@@ -1042,7 +1042,7 @@
                 "Application",
                 "Zed"
             ],
-            "time": "2015-04-15 15:58:27"
+            "time": "2015-04-17 15:16:00"
         },
         {
             "name": "symfony-cmf/routing",
