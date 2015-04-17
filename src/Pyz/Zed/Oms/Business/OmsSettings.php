@@ -2,8 +2,6 @@
 
 namespace Pyz\Zed\Oms\Business;
 
-use ProjectA\Zed\Library\Business\FactoryInterface;
-use ProjectA\Zed\Library\Business\Model\FacadeAbstract;
 use Pyz\Zed\Oms\Communication\Plugin\Oms\FakeAuthPayment;
 use Pyz\Zed\Sales\Business\SalesFacade;
 use ProjectA\Shared\Sales\Transfer\Order as OrderTransfer;
