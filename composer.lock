@@ -975,7 +975,7 @@
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/zed.git",
-                "reference": "3f783a87e2b2f067ddcad980d2c2ec7f2ff5268c"
+                "reference": "efb947bfa975671c56e40f2392dde7cd4b245464"
 
             },
             "require": {
