@@ -79,7 +79,7 @@ $config[YvesConfig::YVES_SESSION_NAME] = 'yves_session';
 $config[YvesConfig::YVES_SESSION_COOKIE_DOMAIN] = $config[SystemConfig::HOST_YVES];
 $config[YvesConfig::YVES_ERROR_PAGE] = APPLICATION_ROOT_DIR.'/static/public/Yves/errorpage/error.html';
 
-$currentStore = ProjectA_Shared_Library_Store::getInstance()->getStoreName();
+$currentStore = \ProjectA\Shared\Library\Store::getInstance()->getStoreName();
 $config[SystemConfig::PROPEL] = [
     'database' => [
         'connections' => [
