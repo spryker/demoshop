@@ -53,8 +53,8 @@ vendor/bin/console frontend-exporter:export-key-value
 
 If you need to login into Zed, use the following credentials:
 
-**Username:** admin
-**Password:** Avv3$0M3PA55vv0RD
+**Username:** admin@spryker.com
+**Password:** change123
 
 
 ### Configure the VM to your needs

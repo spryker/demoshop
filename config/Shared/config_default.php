@@ -1,8 +1,8 @@
 <?php
 
-use ProjectA\Shared\Customer\CustomerConfig;
 use ProjectA\Shared\DbDump\DbDumpConfig;
 use ProjectA\Shared\Glossary\GlossaryConfig;
+use ProjectA\Shared\Customer\CustomerConfig;
 use Pyz\Shared\Mail\MailConfig;
 use ProjectA\Shared\Payone\PayoneConfig;
 use ProjectA\Shared\ProductImage\ProductImageConfig;
@@ -79,6 +79,9 @@ $config[YvesConfig::YVES_SESSION_NAME] = 'yves_session';
 $config[YvesConfig::YVES_SESSION_COOKIE_DOMAIN] = $config[SystemConfig::HOST_YVES];
 $config[YvesConfig::YVES_ERROR_PAGE] = APPLICATION_ROOT_DIR.'/static/public/Yves/errorpage/error.html';
 
+$config[CustomerConfig::CUSTOMER_SECURED_PATTERN] = "(^/login_check$|^/customer)";
+$config[CustomerConfig::CUSTOMER_ANONYMOUS_PATTERN] = "^/.*";
+
 $currentStore = ProjectA_Shared_Library_Store::getInstance()->getStoreName();
 $config[SystemConfig::PROPEL] = [
     'database' => [
@@ -120,9 +123,6 @@ $config[SystemConfig::PROPEL] = [
         'phpConfDir' => APPLICATION_ROOT_DIR . '/src/Generated/Propel/' . $currentStore . '/Config'
     ]
 ];
-
-$config[CustomerConfig::CUSTOMER_MINUTES_BEFORE_RESTORE_PASSWORD_INVALID] = 60;
-$config[CustomerConfig::CUSTOMER_DOUBLE_OPT_IN_REGISTRATION] = true;
 
 $config[SystemConfig::CLOUD_ENABLED] = false;
 $config[SystemConfig::CLOUD_OBJECT_STORAGE_ENABLED] = false;
@@ -168,4 +168,50 @@ $config[MailConfig::MAIL_PROVIDER_MANDRILL] = [
     'username' => 'fabian.wesner@spryker.com',
     'from_mail' => 'service@demoshop.de',
     'from_name' => 'Demoshop'
+];
+
+$config[SystemConfig::ZED_USER_SETTINGS] = [
+    'system_users' => [
+        '_yves'
+    ]
+];
+
+$config[SystemConfig::ZED_AUTH_SETTINGS] = [
+    'credentials' => [
+        '_yves' => [
+            'ignore' => [
+                [
+                    "module" => "*",
+                    "controller" => "*",
+                    "action" => "*"
+                ]
+            ],
+            'token' => 'JDJ5JDEwJFE0cXBwYnVVTTV6YVZXSnVmM2l1UWVhRE94WkQ4UjBUeHBEWTNHZlFRTEd4U2F6QVBqejQ2'
+        ]
+    ]
+];
+
+$config[SystemConfig::ZED_ACL_SETTINGS] = [
+    'default' => [
+        'rules' => [
+            [
+                "module" => "auth",
+                "controller" => "*",
+                "action" => "*",
+                "type" => "allow"
+            ]
+        ]
+    ],
+    'credentials' => [
+        '_yves' => [
+            'rules' => [
+                [
+                    "module" => "*",
+                    "controller" => "*",
+                    "action" => "*",
+                    "type" => "allow"
+                ]
+            ]
+        ]
+    ]
 ];

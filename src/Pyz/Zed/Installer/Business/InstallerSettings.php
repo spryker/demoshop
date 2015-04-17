@@ -14,13 +14,14 @@ class InstallerSettings extends SprykerInstallerSettings
     public function getInstallerStack()
     {
         return [
-            $this->locator->acl()->pluginInstaller(),
             $this->locator->frontendExporter()->pluginInstaller(),
             $this->locator->product()->pluginInstaller(),
             $this->locator->productSearch()->pluginInstaller(),
             $this->locator->price()->pluginInstaller(),
             $this->locator->locale()->pluginInstaller(),
             $this->locator->misc()->pluginInstaller(),
+            $this->locator->user()->pluginInstaller(),
+            $this->locator->acl()->pluginInstaller()
         ];
     }
 
