@@ -37,7 +37,7 @@ class YvesBootstrap extends SprykerYvesBootstrap
      */
     protected function beforeBoot(Application $app)
     {
-        $app['locale'] = \ProjectA\Shared\Library\Store::getInstance()->getCurrentLocale();
+        $app['locale'] = \ProjectA\Shared\Kernel\Store::getInstance()->getCurrentLocale();
         if (\ProjectA_Shared_Library_Environment::isDevelopment()) {
             $app['profiler.cache_dir'] = \ProjectA_Shared_Library_Data::getLocalStoreSpecificPath('cache/profiler');
         }

@@ -69,7 +69,7 @@ class ZedBootstrap extends Bootstrap
      */
     protected function beforeBoot(Application $app)
     {
-        $app['locale'] = \ProjectA\Shared\Library\Store::getInstance()->getCurrentLocale();
+        $app['locale'] = \ProjectA\Shared\Kernel\Store::getInstance()->getCurrentLocale();
         if (\ProjectA_Shared_Library_Environment::isDevelopment()) {
             $app['profiler.cache_dir'] = \ProjectA_Shared_Library_Data::getLocalStoreSpecificPath('cache/profiler');
         }
@@ -134,7 +134,7 @@ class ZedBootstrap extends Bootstrap
     {
         return [
             'environment' => APPLICATION_ENV,
-            'store' => \ProjectA\Shared\Library\Store::getInstance()->getStoreName(),
+            'store' => \ProjectA\Shared\Kernel\Store::getInstance()->getStoreName(),
             'identity' => (Auth::getInstance()->hasIdentity()) ? Auth::getInstance()->getIdentity() : false,
             'title' => Config::get(SystemConfig::PROJECT_NAMESPACE) . ' | Zed | ' . ucfirst(APPLICATION_ENV),
             'currentController' => get_class($this),
