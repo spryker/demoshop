@@ -2,10 +2,10 @@
 
 namespace Pyz\Zed\Category\Communication;
 
-use ProjectA\Zed\Kernel\Communication\AbstractDependencyContainer;
+use ProjectA\Zed\Category\Communication\CategoryDependencyContainer as ProjectACategoryDependencyContainer;
 use Pyz\Zed\Category\Business\CategoryFacade;
 
-class CategoryDependencyContainer extends AbstractDependencyContainer
+class CategoryDependencyContainer extends ProjectACategoryDependencyContainer
 {
 
     /**
@@ -15,5 +15,4 @@ class CategoryDependencyContainer extends AbstractDependencyContainer
     {
         return $this->locator->category()->facade();
     }
-
 }

@@ -69,16 +69,16 @@ class ProductCategoryMappingInstall extends AbstractInstaller
 
     public function install()
     {
-        $currentLocaleName = $this->localeFacade->getCurrentLocale();
-        $this->installProductCategories($currentLocaleName);
+        $currentIdLocale = $this->localeFacade->getCurrentLocaleIdentifier();
+        $this->installProductCategories($currentIdLocale);
     }
 
     /**
-     * @param string $localeName
+     * @param int $localeId
      *
      * @throws PropelException
      */
-    protected function installProductCategories($localeName)
+    protected function installProductCategories($localeId)
     {
         foreach ($this->getDemoProductCategories() as $demoProductCategory) {
             $sku = $demoProductCategory['sku'];
@@ -87,12 +87,14 @@ class ProductCategoryMappingInstall extends AbstractInstaller
             }
 
             $categoryName = $demoProductCategory['category'];
-            if (!$this->categoryFacade->hasCategoryNode($categoryName, $localeName)) {
+            if (!$this->categoryFacade->hasCategoryNode($categoryName, $localeId)) {
                 continue;
             }
 
-            if (!$this->productCategoryManager->hasProductCategoryMapping($sku, $categoryName, $localeName)) {
-                $categoryNodeIds[] = $this->productCategoryManager->createProductCategoryMapping($sku, $categoryName, $localeName);
+            if (!$this->productCategoryManager->hasProductCategoryMapping($sku, $categoryName, $localeId)) {
+                $categoryNodeIds[] = $this->productCategoryManager
+                    ->createProductCategoryMapping($sku, $categoryName, $localeId)
+                ;
             }
         }
     }
