@@ -3,14 +3,14 @@
 namespace Pyz\Zed\Customer\Business;
 
 use ProjectA\Zed\Customer\Business\CustomerSettings as SprykerCustomerSettings;
-use ProjectA\Zed\Customer\Dependency\Plugin\SendPasswordRestoredConfirmationPluginInterface;
-use ProjectA\Zed\Customer\Dependency\Plugin\SendPasswordRestoreTokenPluginInterface;
-use ProjectA\Zed\Customer\Dependency\Plugin\SendRegistrationTokenPluginInterface;
+use ProjectA\Zed\Customer\Dependency\Plugin\PasswordRestoredConfirmationSenderPluginInterface;
+use ProjectA\Zed\Customer\Dependency\Plugin\PasswordRestoreTokenSenderPluginInterface;
+use ProjectA\Zed\Customer\Dependency\Plugin\RegistrationTokenSenderPluginInterface;
 
 class CustomerSettings extends SprykerCustomerSettings
 {
     /**
-     * @return SendPasswordRestoredConfirmationPluginInterface[]
+     * @return PasswordRestoredConfirmationSenderPluginInterface[]
      */
     public function getPasswordRestoredConfirmationSenders()
     {
@@ -20,18 +20,22 @@ class CustomerSettings extends SprykerCustomerSettings
     }
 
     /**
-     * @return SendPasswordRestoreTokenPluginInterface[]
+     * @return PasswordRestoreTokenSenderPluginInterface[]
      */
     public function getPasswordRestoreTokenSenders()
     {
-        return [];
+        return [
+            $this->locator->customerMailConnector()->pluginRestoreTokenSender(),
+        ];
     }
 
     /**
-     * @return SendRegistrationTokenPluginInterface[]
+     * @return RegistrationTokenSenderPluginInterface[]
      */
     public function getRegistrationTokenSenders()
     {
-        return [];
+        return [
+            $this->locator->customerMailConnector()->pluginRegistrationTokenSender(),
+        ];
     }
 }
