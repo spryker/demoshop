@@ -25,6 +25,7 @@ return [
         'Cart' => $schema,
         'Cms' => $schema,
         'Category' => $schemaAndNavigation,
+        'Country' => $schema,
         'Customer2' => $schema,
         'Discount' => $schemaAndNavigation,
         'FrontendExporter' => $schema,
