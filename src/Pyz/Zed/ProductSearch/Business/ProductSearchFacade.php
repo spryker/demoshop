@@ -3,10 +3,10 @@
 namespace Pyz\Zed\ProductSearch\Business;
 
 use ProjectA\Zed\ProductCategorySearch\Business\External\ProductCategorySearchToProductSearchInterface;
-use ProjectA\Zed\ProductSearch\Business\ProductSearchFacade as CoreProductSearchFacade;
+use ProjectA\Zed\ProductSearch\Business\ProductSearchFacade as SprykerProductSearchFacade;
 use Psr\Log\LoggerInterface;
 
-class ProductSearchFacade extends CoreProductSearchFacade implements ProductCategorySearchToProductSearchInterface
+class ProductSearchFacade extends SprykerProductSearchFacade implements ProductCategorySearchToProductSearchInterface
 {
 
     /**
@@ -22,16 +22,16 @@ class ProductSearchFacade extends CoreProductSearchFacade implements ProductCate
     public function buildProductKey($data, $locale)
     {
         return $this->dependencyContainer
-            ->getKeyBuilder()
+            ->createKeyBuilder()
             ->generateKey($data, $locale);
     }
 
     /**
-     * @param LoggerInterface $logger
+     * @param LoggerInterface $messenger
      */
-    public function installDemoData(LoggerInterface $logger = null)
+    public function installDemoData(LoggerInterface $messenger)
     {
-        $this->dependencyContainer->getDemoDataInstaller($logger)->install();
+        $this->dependencyContainer->getDemoDataInstaller($messenger)->install();
     }
 
 }

@@ -25,6 +25,9 @@ class ConsoleSettings extends SprykerConsoleSettings
             $this->locator->setup()->consolePropelMigrateConsole(),
             $this->locator->setup()->consolePropelSchemaCopyConsole(),
             $this->locator->setup()->consoleGenerateIdeAutoCompletionConsole(),
+            $this->locator->setup()->consoleGenerateZedIdeAutoCompletionConsole(),
+            $this->locator->setup()->consoleGenerateYvesIdeAutoCompletionConsole(),
+            $this->locator->setup()->consoleGenerateSdkIdeAutoCompletionConsole(),
             $this->locator->setup()->consoleGulpRunnerConsole(),
             $this->locator->installer()->consoleInitializeDatabaseConsole(),
             $this->locator->installer()->consoleDemoDataInstallConsole(),
@@ -34,7 +37,6 @@ class ConsoleSettings extends SprykerConsoleSettings
             $this->locator->frontendExporter()->consoleUpdateSearchConsole(),
             $this->locator->oms()->consoleCheckConditionConsole(),
             $this->locator->oms()->consoleCheckTimeoutConsole(),
-            $this->locator->mail()->consoleSendMailConsole(),
         ];
 
         $gitCommands = $this->locator->git()->facade()->getConsoleCommands();

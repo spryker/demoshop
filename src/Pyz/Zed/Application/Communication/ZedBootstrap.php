@@ -2,15 +2,14 @@
 
 namespace Pyz\Zed\Application\Communication;
 
+use Generated\Zed\Ide\AutoCompletion;
 use ProjectA\Shared\Application\Business\Application;
 use ProjectA\Shared\Application\Business\Bootstrap;
 use ProjectA\Shared\Application\Communication\Plugin\ServiceProvider\RoutingServiceProvider;
 use ProjectA\Shared\Application\Communication\Plugin\ServiceProvider\UrlGeneratorServiceProvider;
 use ProjectA\Shared\Library\Config;
-
 use ProjectA\Shared\System\SystemConfig;
 use ProjectA\Shared\Application\Business\Routing\SilexRouter;
-
 use ProjectA\Zed\Application\Business\Model\Router\MvcRouter;
 use ProjectA\Zed\Application\Business\Model\Twig\ZedExtension;
 use ProjectA\Zed\Application\Communication\Plugin\Pimple;
@@ -18,24 +17,19 @@ use ProjectA\Zed\Application\Communication\Plugin\ServiceProvider\EnvironmentInf
 use ProjectA\Zed\Application\Communication\Plugin\ServiceProvider\NewRelicServiceProvider;
 use ProjectA\Zed\Application\Communication\Plugin\ServiceProvider\PropelServiceProvider;
 use ProjectA\Zed\Application\Communication\Plugin\ServiceProvider\RequestServiceProvider;
-use ProjectA\Zed\Application\Communication\Plugin\ServiceProvider\SessionServiceProvider;
 use ProjectA\Zed\Application\Communication\Plugin\ServiceProvider\SslServiceProvider;
 use ProjectA\Zed\Application\Communication\Plugin\ServiceProvider\TranslationServiceProvider;
-
 use ProjectA\Zed\Application\Communication\Plugin\ServiceProvider\TwigServiceProvider;
-use ProjectA\Zed\Auth\Business\Model\Auth;
-
-use ProjectA\Zed\Cms\Communication\Plugin\ServiceProvider\CmsServiceProvider;
-
 use ProjectA\Zed\Kernel\Locator;
-
-use ProjectA\Zed\Auth\Communication\Plugin\ServiceProvider\SecurityServiceProvider;
-
+use ProjectA\Zed\Sdk\Communication\Plugin\SdkServiceProviderPlugin;
 use Silex\Provider\FormServiceProvider;
 use Silex\Provider\ServiceControllerServiceProvider;
 use Silex\Provider\ValidatorServiceProvider;
 use Silex\Provider\WebProfilerServiceProvider;
-
+use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\Routing\RouterInterface;
+use Silex\ServiceProviderInterface;
+use Silex\Provider\SessionServiceProvider;
 
 class ZedBootstrap extends Bootstrap
 {
@@ -83,26 +77,32 @@ class ZedBootstrap extends Bootstrap
     }
 
     /**
-     * @return \Silex\ServiceProviderInterface[]
+     * @param Application $app
+     *
+     * @return ServiceProviderInterface[]
      */
     protected function getServiceProviders(Application $app)
     {
+        /** @var AutoCompletion $locator */
+        $locator = Locator::getInstance();
+
         $providers = [
+            new SessionServiceProvider(),
+            new PropelServiceProvider(),
+            $locator->application()->pluginSession(),
+            $locator->auth()->pluginBootstrapAuthBootstrapProvider(),
             new RequestServiceProvider(),
             new SslServiceProvider(),
             new ServiceControllerServiceProvider(),
             new RoutingServiceProvider(),
+            $locator->acl()->pluginBootstrapAclBootstrapProvider(),
             new ValidatorServiceProvider(),
             new FormServiceProvider(),
             new TwigServiceProvider(),
             new EnvironmentInformationServiceProvider(),
             new TranslationServiceProvider(),
-            new SessionServiceProvider(),
-            new PropelServiceProvider(),
             $this->getSdkServiceProvider(),
-            new SecurityServiceProvider(),
             new UrlGeneratorServiceProvider(),
-            new CmsServiceProvider(),
             new NewRelicServiceProvider(),
         ];
 
@@ -115,7 +115,7 @@ class ZedBootstrap extends Bootstrap
 
     /**
      * @param Application $app
-     * @return \Symfony\Component\Routing\RouterInterface[]
+     * @return RouterInterface[]
      */
     protected function getRouters(Application $app)
     {
@@ -134,14 +134,14 @@ class ZedBootstrap extends Bootstrap
         return [
             'environment' => APPLICATION_ENV,
             'store' => \ProjectA_Shared_Library_Store::getInstance()->getStoreName(),
-            'identity' => (Auth::getInstance()->hasIdentity()) ? Auth::getInstance()->getIdentity() : false,
             'title' => Config::get(SystemConfig::PROJECT_NAMESPACE) . ' | Zed | ' . ucfirst(APPLICATION_ENV),
-            'currentController' => get_class($this)
+            'currentController' => get_class($this),
+            'navigation' => $this->getNavigation(),
         ];
     }
 
     /**
-     * @return \Generated\Zed\Ide\AutoCompletion
+     * @return AutoCompletion
      */
     public function getLocator()
     {
@@ -149,7 +149,7 @@ class ZedBootstrap extends Bootstrap
     }
 
     /**
-     * @return \ProjectA\Zed\Sdk\Communication\Plugin\SdkServiceProviderPlugin
+     * @return SdkServiceProviderPlugin
      */
     protected function getSdkServiceProvider()
     {
@@ -160,5 +160,17 @@ class ZedBootstrap extends Bootstrap
 
         return $sdkServiceProvider;
     }
-}
 
+    /**
+     * @return string
+     */
+    protected function getNavigation()
+    {
+        $request = Request::createFromGlobals();
+
+        return $this->getLocator()
+            ->application()
+            ->pluginNavigation()
+            ->buildNavigation($request->getPathInfo());
+    }
+}

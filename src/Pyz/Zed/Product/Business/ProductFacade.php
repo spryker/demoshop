@@ -4,19 +4,25 @@
 namespace Pyz\Zed\Product\Business;
 
 use ProjectA\Zed\Product\Business\ProductFacade as CoreProductFacade;
+use ProjectA\Zed\ProductCategory\Dependency\Facade\ProductCategoryToProductInterface;
 use ProjectA\Zed\ProductFrontendExporterConnector\Dependency\Facade\ProductFrontendExporterToProductInterface;
 use ProjectA\Zed\ProductSearch\Dependency\Facade\ProductSearchToProductInterface;
+use ProjectA\Zed\Stock\Dependency\Facade\StockToProductInterface;
 use Psr\Log\LoggerInterface;
 
 class ProductFacade extends CoreProductFacade implements
     ProductFrontendExporterToProductInterface,
-    ProductSearchToProductInterface
+    ProductSearchToProductInterface,
+    StockToProductInterface,
+    ProductCategoryToProductInterface
 {
-
     /**
-     * @var ProductDependencyContainer
+     * @return ProductDependencyContainer
      */
-    protected $dependencyContainer;
+    protected function getDependencyContainer()
+    {
+        return $this->dependencyContainer;
+    }
 
     /**
      * @param array $productsData
@@ -25,7 +31,7 @@ class ProductFacade extends CoreProductFacade implements
      */
     public function buildProducts(array $productsData)
     {
-        return $this->dependencyContainer->getProductBuilder()->buildProducts($productsData);
+        return $this->getDependencyContainer()->createProductBuilder()->buildProducts($productsData);
     }
 
     /**
@@ -35,14 +41,14 @@ class ProductFacade extends CoreProductFacade implements
      */
     public function buildSearchProducts(array $productsData)
     {
-        return $this->dependencyContainer->getProductBuilder()->buildProducts($productsData);
+        return $this->getDependencyContainer()->createProductBuilder()->buildProducts($productsData);
     }
 
     /**
-     * @param LoggerInterface $logger
+     * @param LoggerInterface $messenger
      */
-    public function installDemoData(LoggerInterface $logger = null)
+    public function installDemoData(LoggerInterface $messenger)
     {
-        $this->dependencyContainer->getDemoDataInstaller($logger)->install();
+        $this->getDependencyContainer()->createDemoDataInstaller($messenger)->install();
     }
 }

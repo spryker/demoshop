@@ -6,9 +6,11 @@ var _path   = require('path');
 var _del    = require('del');
 
 
-var _dirCore = 'vendor/spryker/zed-package/src/ProjectA/Zed';
-var _dirProj = 'src/Pyz/Zed';
-var _dirPub  = 'static/public/Zed/bundles';
+var _dirPAV     = 'vendor/spryker/zed-package/src/ProjectA/Zed';
+var _dirCore    = 'vendor/spryker/zed-package/src/SprykerCore/Zed';
+var _dirFeature = 'vendor/spryker/zed-package/src/SprykerFeature/Zed';
+var _dirProj    = 'src/Pyz/Zed';
+var _dirPub     = 'static/public/Zed/bundles';
 
 var _dirStatPub = '/Static/Public';
 
@@ -23,8 +25,10 @@ function _buildSource(type) {
 	};
 
 	return [
-		_path.join(_dirCore, '*', _dirStatPub, source[type]),
-		_path.join(_dirProj, '*', _dirStatPub, source[type])
+		_path.join(_dirPAV    , '*', _dirStatPub, source[type]),
+		_path.join(_dirCore   , '*', _dirStatPub, source[type]),
+		_path.join(_dirFeature, '*', _dirStatPub, source[type]),
+		_path.join(_dirProj   , '*', _dirStatPub, source[type])
 	];
 }
 

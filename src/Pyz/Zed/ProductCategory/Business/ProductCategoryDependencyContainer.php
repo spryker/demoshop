@@ -2,33 +2,47 @@
 
 namespace Pyz\Zed\ProductCategory\Business;
 
-use Generated\Zed\Ide\FactoryAutoCompletion\ProductCategoryBusiness;
-use ProjectA\Zed\Kernel\Business\AbstractDependencyContainer;
+use ProjectA\Zed\Library\Import\Reader\CsvFileReader;
+use ProjectA\Zed\Library\Import\ReaderInterface;
 use Psr\Log\LoggerInterface;
 use Pyz\Zed\ProductCategory\Business\Internal\DemoData\ProductCategoryMappingInstall;
+use ProjectA\Zed\ProductCategory\Business\ProductCategoryDependencyContainer as SprykerDependencyContainer;
 
-class ProductCategoryDependencyContainer extends AbstractDependencyContainer
+class ProductCategoryDependencyContainer extends SprykerDependencyContainer
 {
-
     /**
-     * @var ProductCategoryBusiness
-     */
-    protected $factory;
-
-    /**
-     * @param LoggerInterface $logger
+     * @param LoggerInterface $messenger
      *
      * @return ProductCategoryMappingInstall
      */
-    public function getDemoDataInstaller(LoggerInterface $logger = null)
+    public function createDemoDataInstaller(LoggerInterface $messenger)
     {
-        $installer = $this->factory->createInternalDemoDataProductCategoryMappingInstall(
-            $this->locator->locale()->facade(),
-            $this->locator->touch()->facade()
+        $installer = $this->getFactory()->createInternalDemoDataProductCategoryMappingInstall(
+            $this->createProductCategoryManager(),
+            $this->createCategoryFacade(),
+            $this->createProductFacade(),
+            $this->createLocaleFacade(),
+            $this->createCSVReader(),
+            $this->createSettings()->getDemoDataCSVPath()
         );
-        $installer->setLogger($logger);
+        $installer->setMessenger($messenger);
 
         return $installer;
     }
 
+    /**
+     * @return ReaderInterface
+     */
+    protected function createCSVReader()
+    {
+        return new CsvFileReader();
+    }
+
+    /**
+     * @return ProductCategorySettings
+     */
+    protected function createSettings()
+    {
+        return $this->getFactory()->createProductCategorySettings();
+    }
 }

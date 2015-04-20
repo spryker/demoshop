@@ -8,6 +8,9 @@ use ProjectA\Shared\Payone\PayoneConfig;
 use ProjectA\Shared\ProductImage\ProductImageConfig;
 use ProjectA\Shared\System\SystemConfig;
 use ProjectA\Shared\Yves\YvesConfig;
+use SprykerFeature\Zed\Acl\Business\AclSettings;
+use SprykerFeature\Zed\Auth\Business\AuthSettings;
+use SprykerFeature\Zed\User\Business\UserSettings;
 
 $config[SystemConfig::PROJECT_NAMESPACES] = [
     'Pyz'
@@ -77,7 +80,7 @@ $config[YvesConfig::YVES_SSL_EXCLUDED] = ['/monitoring/heartbeat'];
 $config[YvesConfig::YVES_SESSION_SAVE_HANDLER] = null;
 $config[YvesConfig::YVES_SESSION_NAME] = 'yves_session';
 $config[YvesConfig::YVES_SESSION_COOKIE_DOMAIN] = $config[SystemConfig::HOST_YVES];
-$config[YvesConfig::YVES_ERROR_PAGE] = APPLICATION_ROOT_DIR.'/static/public/Yves/errorpage/error.html';
+$config[YvesConfig::YVES_ERROR_PAGE] = APPLICATION_ROOT_DIR . '/static/public/Yves/errorpage/error.html';
 
 $currentStore = ProjectA_Shared_Library_Store::getInstance()->getStoreName();
 $config[SystemConfig::PROPEL] = [
@@ -161,12 +164,56 @@ $config[SystemConfig::CLOUD_CDN_PRODUCT_IMAGES_PATH_NAME] = '/images/products/';
 $config[SystemConfig::CLOUD_CDN_DELETE_LOCAL_PROCESSED_IMAGES] = false;
 $config[SystemConfig::CLOUD_CDN_DELETE_LOCAL_ORIGINAL_IMAGES] = false;
 
-//TODO: change this to our settings instead of using the zooron mandrill account
 $config[MailConfig::MAIL_PROVIDER_MANDRILL] = [
-    'api-key' => 'weUrHb0QNJaZNEvwZa03xA',
+    'api-key' => '1zPena6fBFPIxctt6VgCSQ',
     'host' => 'smtp.mandrillapp.com',
     'port' => '587',
-    'username' => 'tamer.el-hawari@project-a.com',
+    'username' => 'fabian.wesner@spryker.com',
     'from_mail' => 'service@demoshop.de',
     'from_name' => 'Demoshop'
+];
+
+$config[UserSettings::USER_SYSTEM_USERS] = [
+    'yves_system'
+];
+
+$config[AuthSettings::AUTH_DEFAULT_CREDENTIALS] = [
+    'yves_system' => [
+        'rules' => [
+            [
+                "bundle" => "*",
+                "controller" => "sdk",
+                "action" => "*"
+            ]
+        ],
+        'token' => 'JDJ5JDEwJFE0cXBwYnVVTTV6YVZXSnVmM2l1UWVhRE94WkQ4UjBUeHBEWTNHZlFRTEd4U2F6QVBqejQ2'
+    ]
+];
+
+$config[AclSettings::ACL_DEFAULT_RULES] = [
+    [
+        "bundle" => "auth",
+        "controller" => "login",
+        "action" => "index",
+        "type" => "allow"
+    ],
+    [
+        "bundle" => "auth",
+        "controller" => "login",
+        "action" => "check",
+        "type" => "allow"
+    ]
+];
+
+$config[AclSettings::ACL_DEFAULT_CREDENTIALS] = [
+    'yves_system' => [
+        'rules' => [
+            [
+                "bundle" => "*",
+                "controller" => "sdk",
+                "action" => "*",
+                "type" => "allow"
+            ]
+        ]
+    ]
 ];

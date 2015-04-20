@@ -2,10 +2,10 @@
 
 namespace Pyz\Zed\ProductCategory\Business;
 
-use ProjectA\Zed\Kernel\Business\AbstractFacade;
+use ProjectA\Zed\ProductCategory\Business\ProductCategoryFacade as SprykerProductCategoryFacade;
 use Psr\Log\LoggerInterface;
 
-class ProductCategoryFacade extends AbstractFacade
+class ProductCategoryFacade extends SprykerProductCategoryFacade
 {
 
     /**
@@ -14,10 +14,10 @@ class ProductCategoryFacade extends AbstractFacade
     protected $dependencyContainer;
 
     /**
-     * @param LoggerInterface $logger
+     * @param LoggerInterface $messenger
      */
-    public function installDemoData(LoggerInterface $logger = null)
+    public function installDemoData(LoggerInterface $messenger)
     {
-        $this->dependencyContainer->getDemoDataInstaller($logger)->install();
+        $this->dependencyContainer->createDemoDataInstaller($messenger)->install();
     }
 }

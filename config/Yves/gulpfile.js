@@ -200,6 +200,14 @@ _gulp.task('dist', [
 	'dist-ts'
 ]);
 
+_gulp.task('dev-all', [
+	'dev'
+]);
+
+_gulp.task('dist-all', [
+	'dist'
+]);
+
 _gulp.task('default', [
 	'dist'
 ]);
