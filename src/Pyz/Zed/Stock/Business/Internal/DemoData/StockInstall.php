@@ -3,6 +3,7 @@
 namespace Pyz\Zed\Stock\Business\Internal\DemoData;
 
 use Generated\Zed\Ide\AutoCompletion;
+use ProjectA\Shared\Kernel\LocatorLocatorInterface;
 use ProjectA\Shared\Stock\Transfer\StockProduct;
 use ProjectA\Shared\Stock\Transfer\StockType;
 use ProjectA\Zed\Installer\Business\Model\AbstractInstaller;
@@ -39,13 +40,18 @@ class StockInstall implements DemoDataInstallInterface
     protected $queryContainer;
 
     /**
-     * @param Locator|AutoCompletion $locator
+     * @param LocatorLocatorInterface $locator
+     * @param StockQueryContainer $queryContainer
+     * @param StockFacade $stockFacade
      */
-    public function __construct(Locator $locator)
-    {
+    public function __construct(
+        LocatorLocatorInterface $locator,
+        StockQueryContainer $queryContainer,
+        StockFacade $stockFacade
+    ) {
         $this->locator = $locator;
-        $this->stockFacade = $locator->stock()->facade();
-        $this->queryContainer = $locator->stock()->queryContainer();
+        $this->queryContainer = $queryContainer;
+        $this->stockFacade = $stockFacade;
     }
 
     public function install()
