@@ -28,8 +28,6 @@ class TwigSettings extends SprykerTwigSettings
         $twigFunctions[] = $this->getLocator()->assets()->pluginTwigAsset();
         $twigFunctions[] = $this->getLocator()->customer()->pluginTwigCustomer();
 
-        file_put_contents("/tmp/testme", "hello, world");
-
         return $twigFunctions;
     }
 }
