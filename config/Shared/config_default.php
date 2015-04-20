@@ -1,8 +1,8 @@
 <?php
 
-use ProjectA\Shared\Customer\CustomerConfig;
 use ProjectA\Shared\DbDump\DbDumpConfig;
 use ProjectA\Shared\Glossary\GlossaryConfig;
+use ProjectA\Shared\Customer\CustomerConfig;
 use Pyz\Shared\Mail\MailConfig;
 use ProjectA\Shared\Payone\PayoneConfig;
 use ProjectA\Shared\ProductImage\ProductImageConfig;
@@ -82,6 +82,9 @@ $config[YvesConfig::YVES_SESSION_NAME] = 'yves_session';
 $config[YvesConfig::YVES_SESSION_COOKIE_DOMAIN] = $config[SystemConfig::HOST_YVES];
 $config[YvesConfig::YVES_ERROR_PAGE] = APPLICATION_ROOT_DIR . '/static/public/Yves/errorpage/error.html';
 
+$config[CustomerConfig::CUSTOMER_SECURED_PATTERN] = "(^/login_check$|^/customer)";
+$config[CustomerConfig::CUSTOMER_ANONYMOUS_PATTERN] = "^/.*";
+
 $currentStore = \ProjectA\Shared\Kernel\Store::getInstance()->getStoreName();
 $config[SystemConfig::PROPEL] = [
     'database' => [
@@ -123,9 +126,6 @@ $config[SystemConfig::PROPEL] = [
         'phpConfDir' => APPLICATION_ROOT_DIR . '/src/Generated/Propel/' . $currentStore . '/Config'
     ]
 ];
-
-$config[CustomerConfig::CUSTOMER_MINUTES_BEFORE_RESTORE_PASSWORD_INVALID] = 60;
-$config[CustomerConfig::CUSTOMER_DOUBLE_OPT_IN_REGISTRATION] = true;
 
 $config[SystemConfig::CLOUD_ENABLED] = false;
 $config[SystemConfig::CLOUD_OBJECT_STORAGE_ENABLED] = false;
