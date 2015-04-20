@@ -2,17 +2,16 @@
 
 namespace Pyz\Zed\Glossary\Communication;
 
-use ProjectA\Zed\Glossary\Communication\GlossaryDependencyContainer as SprykerGlossaryDependencyContainer;
 use Pyz\Zed\Glossary\Business\GlossaryFacade;
+use SprykerFeature\Zed\Glossary\Communication\GlossaryDependencyContainer as SprykerGlossaryDependencyContainer;
 
 class GlossaryDependencyContainer extends SprykerGlossaryDependencyContainer
 {
-
     /**
      * @return GlossaryFacade
      */
     public function getInstallerFacade()
     {
-        return $this->locator->glossary()->facade();
+        return $this->getLocator()->glossary()->facade();
     }
 }

@@ -19,7 +19,8 @@ class CategoryDependencyContainer extends SprykerCategoryDependencyContainer
         $installer = $this->factory->createInternalDemoDataCategoryTreeInstall(
             $this->locator->category()->facade(),
             $this->locator->category()->queryContainer(),
-            $this->locator->locale()->facade()
+            $this->locator->locale()->facade(),
+            $this->locator
         );
         $installer->setMessenger($messenger);
 

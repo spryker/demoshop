@@ -4,7 +4,7 @@ namespace Pyz\Yves\Catalog\Communication\Controller;
 
 use SprykerCore\Yves\Application\Communication\Controller\AbstractController;
 use Pyz\Yves\Library\Tracking\DataProvider\ProductDetailProvider;
-use Pyz\Yves\Library\Tracking\PageTypeInterface;
+use ProjectA\Yves\Library\Tracking\PageTypeInterface;
 use ProjectA\Yves\Library\Tracking\Tracking;
 use Symfony\Component\HttpFoundation\Request;
 
@@ -43,16 +43,8 @@ class CatalogController extends AbstractController
      */
     public function detailAction(array $product)
     {
-        Tracking::getInstance()
-            ->setPageType(PageTypeInterface::PAGE_TYPE_PRODUCT_DETAIL)
-            ->buildTracking()
-            ->setValue(ProductDetailProvider::KEY_PRODUCT_DETAIL, $product);
-//        $catalogModel = Factory::getInstance()->createCatalogModelCatalog();
-//        $subProducts = $catalogModel->getSubProducts($product, $this->getApplication()->getStorageKeyValue());
-
         return [
-            'product' => $product,
-//            'subProducts' => $subProducts
+            'product' => $product
         ];
     }
 }
