@@ -152,11 +152,11 @@ class SplitYvesPackage extends AbstractRefactorer
     private function createComposerJson($bundle, $namespaces)
     {
         $tpl = file_get_contents(__DIR__ . '/Templates/composer.json');
-        $content = str_replace('{{bundle}}', $bundle, $tpl);
+        $content = str_replace('{{bundle}}', $this->getFilteredBundle($bundle), $tpl);
         $namespaceStrings = [];
         foreach ($namespaces as $namespace) {
-            $namespaceStrings[] = '"' . $namespace . '": "src/"';
-            $namespaceStrings[] = '"' . $namespace . '": "tests/"';
+            $namespaceStrings[] = '      "' . $namespace . '": "src/"';
+            $namespaceStrings[] = '      "' . $namespace . '": "tests/"';
         }
         $content = str_replace('{{namespaces}}', implode(",\n", $namespaceStrings), $content);
 
