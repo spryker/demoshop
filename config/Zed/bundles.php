@@ -23,12 +23,13 @@ return [
         'Acl' => $schema,
         'User' => $schema,
         'Cart' => $schema,
-        'Cms' => $allElements,
+        'Cms' => $schema,
         'Category' => $schemaAndNavigation,
-        'Customer' => $schemaAndNavigation,
+        'Country' => $schema,
+        'Customer' => $schema,
         'Discount' => $schemaAndNavigation,
         'FrontendExporter' => $schema,
-        'Glossary' => $allElements,
+        'Glossary' => $schemaAndNavigation,
         'Lumberjack' => $navigation,
         'Misc' => $schema,
         'Oms' => $schema,
@@ -45,5 +46,5 @@ return [
         'Locale' => $schema,
         'Touch' => $schema,
         'Url' => $schema,
-    ]
+    ],
 ];
