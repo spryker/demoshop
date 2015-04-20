@@ -85,7 +85,7 @@ $config[YvesConfig::YVES_ERROR_PAGE] = APPLICATION_ROOT_DIR . '/static/public/Yv
 $config[CustomerConfig::CUSTOMER_SECURED_PATTERN] = "(^/login_check$|^/customer)";
 $config[CustomerConfig::CUSTOMER_ANONYMOUS_PATTERN] = "^/.*";
 
-$currentStore = ProjectA_Shared_Library_Store::getInstance()->getStoreName();
+$currentStore = \ProjectA\Shared\Kernel\Store::getInstance()->getStoreName();
 $config[SystemConfig::PROPEL] = [
     'database' => [
         'connections' => [

@@ -4,7 +4,7 @@ namespace Pyz\Yves\Cart\Communication\Controller;
 use ProjectA\Shared\Kernel\LocatorLocatorInterface;
 use SprykerCore\Yves\Application\Communication\Controller\AbstractController;
 use Pyz\Yves\Cart\Communication\Helper\CartControllerTrait;
-use Pyz\Yves\Library\Tracking\PageTypeInterface;
+use ProjectA\Yves\Library\Tracking\PageTypeInterface;
 use ProjectA\Yves\Library\Tracking\Tracking;
 use Symfony\Component\HttpFoundation\Request;
 use ProjectA\Shared\Cart\Transfer\CartItem;
@@ -21,10 +21,6 @@ class CartController extends AbstractController
 
     public function indexAction(Request $request)
     {
-        Tracking::getInstance()
-            ->setPageType(PageTypeInterface::PAGE_TYPE_CART)
-            ->buildTracking();
-
         $cart = $this->getCart($request);
         $productData = $this->locator->cart()->sdk()->getProductDataForCartItems($cart->getItems());
 

@@ -43,7 +43,7 @@ class YvesBootstrap extends SprykerYvesBootstrap
      */
     protected function beforeBoot(Application $app)
     {
-        $app['locale'] = \ProjectA_Shared_Library_Store::getInstance()->getCurrentLocale();
+        $app['locale'] = \ProjectA\Shared\Kernel\Store::getInstance()->getCurrentLocale();
         if (\ProjectA_Shared_Library_Environment::isDevelopment()) {
             $app['profiler.cache_dir'] = \ProjectA_Shared_Library_Data::getLocalStoreSpecificPath('cache/profiler');
         }
@@ -82,7 +82,7 @@ class YvesBootstrap extends SprykerYvesBootstrap
         ;
 
         $providers = [
-            new ExceptionServiceProvider('\\Pyz\\Yves\\Library\\Controller\\ExceptionController'),
+            new ExceptionServiceProvider('\\SprykerCore\\Yves\\Application\\Communication\\Controller\\ExceptionController'),
             new YvesLoggingServiceProvider(),
             new MonologServiceProvider(),
             new CookieServiceProvider(),
@@ -96,7 +96,6 @@ class YvesBootstrap extends SprykerYvesBootstrap
             new ValidatorServiceProvider(),
             new FormServiceProvider(),
             new TwigServiceProvider(),
-//            new TrackingServiceProvider()
         ];
 
         if (\ProjectA_Shared_Library_Environment::isDevelopment()) {
@@ -162,16 +161,15 @@ class YvesBootstrap extends SprykerYvesBootstrap
 
         $locator = $this->getLocator($app);
 
-        $addditionalGlobalVars = [
+        $additionalGlobalVars = [
             'categories' => $locator->categoryExporter()->sdk()->getNavigationCategories($app['locale']),
             'cartItemCount' => $locator->cart()
                 ->pluginCartSessionCount()
                 ->createCartSessionCount($app->getSession())
                 ->getCount(),
-            'tracking' => Tracking::getInstance(),
             'environment' => \ProjectA_Shared_Library_Environment::getEnvironment(),
         ];
 
-        return array_merge($existingGlobalVars, $addditionalGlobalVars);
+        return array_merge($existingGlobalVars, $additionalGlobalVars);
     }
 }
