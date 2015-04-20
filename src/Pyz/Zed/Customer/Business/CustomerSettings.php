@@ -15,7 +15,7 @@ class CustomerSettings extends SprykerCustomerSettings
     public function getPasswordRestoredConfirmationSenders()
     {
         return [
-            $this->locator->customerMailConnector()->pluginPasswordRestoredConfirmationSender(),
+        //    $this->locator->customerMailConnector()->pluginPasswordRestoredConfirmationSender(),
         ];
     }
 
@@ -25,7 +25,7 @@ class CustomerSettings extends SprykerCustomerSettings
     public function getPasswordRestoreTokenSenders()
     {
         return [
-            $this->locator->customerMailConnector()->pluginPasswordRestoreTokenSender(),
+        //    $this->locator->customerMailConnector()->pluginPasswordRestoreTokenSender(),
         ];
     }
 
@@ -35,7 +35,7 @@ class CustomerSettings extends SprykerCustomerSettings
     public function getRegistrationTokenSenders()
     {
         return [
-            $this->locator->customerMailConnector()->pluginRegistrationTokenSender(),
+        //    $this->locator->customerMailConnector()->pluginRegistrationTokenSender(),
         ];
     }
 }
