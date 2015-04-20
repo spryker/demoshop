@@ -51,7 +51,7 @@ class CategoryTreeInstall extends AbstractInstaller
     ) {
         $this->categoryFacade = $categoryFacade;
         $this->queryContainer = $categoryQueryContainer;
-        $this->idLocale = $localeFacade->getCurrentLocaleIdentifier();
+        $this->idLocale = $localeFacade->getCurrentIdLocale();
         $this->locator = $locator;
     }
 

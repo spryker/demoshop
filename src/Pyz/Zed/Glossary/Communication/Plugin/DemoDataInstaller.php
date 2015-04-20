@@ -7,7 +7,6 @@ use Pyz\Zed\Glossary\Communication\GlossaryDependencyContainer;
 
 class DemoDataInstaller extends AbstractInstallerPlugin
 {
-
     /**
      * @var GlossaryDependencyContainer
      */

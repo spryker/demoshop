@@ -6,9 +6,11 @@ var _path   = require('path');
 var _del    = require('del');
 
 
-var _dirCore = 'vendor/spryker/zed-package/src/ProjectA/Zed';
-var _dirProj = 'src/Pyz/Zed';
-var _dirPub  = 'static/public/Zed/bundles';
+var _dirPAV     = 'vendor/spryker/zed-package/src/ProjectA/Zed';
+var _dirCore    = 'vendor/spryker/zed-package/src/SprykerCore/Zed';
+var _dirFeature = 'vendor/spryker/zed-package/src/SprykerFeature/Zed';
+var _dirProj    = 'src/Pyz/Zed';
+var _dirPub     = 'static/public/Zed/bundles';
 
 var _dirStatPub = '/Static/Public';
 
@@ -23,8 +25,10 @@ function _buildSource(type) {
 	};
 
 	return [
-		_path.join(_dirCore, '*', _dirStatPub, source[type]),
-		_path.join(_dirProj, '*', _dirStatPub, source[type])
+		_path.join(_dirPAV    , '*', _dirStatPub, source[type]),
+		_path.join(_dirCore   , '*', _dirStatPub, source[type]),
+		_path.join(_dirFeature, '*', _dirStatPub, source[type]),
+		_path.join(_dirProj   , '*', _dirStatPub, source[type])
 	];
 }
 
@@ -54,6 +58,14 @@ _gulp.task('clean-images', function(done) {
 
 _gulp.task('clean-fonts', function(done) {
 	_del(_dirPub + '/*/fonts', done);
+});
+
+
+_gulp.task('copy-pub', function() {
+	return _gulp.src('static/assets/Zed/*', {
+		dot : true
+	})
+		.pipe(_gulp.dest('static/public/Zed'));
 });
 
 
@@ -101,6 +113,7 @@ _gulp.task('dev', [
 	'clean-js',
 	'clean-images',
 	'clean-fonts',
+	'copy-pub',
 	'copy-css',
 	'copy-js',
 	'copy-images',
@@ -112,6 +125,7 @@ _gulp.task('dist', [
 	'clean-js',
 	'clean-images',
 	'clean-fonts',
+	'copy-pub',
 	'copy-css',
 	'copy-js',
 	'copy-images',
@@ -125,6 +139,7 @@ _gulp.task('dev-all', ['core-dev'], function(done) {
 		'clean-js',
 		'clean-images',
 		'clean-fonts',
+		'copy-pub',
 		'copy-css',
 		'copy-js',
 		'copy-images',
@@ -138,6 +153,7 @@ _gulp.task('dist-all', ['core-dist'], function(done) {
 		'clean-js',
 		'clean-images',
 		'clean-fonts',
+		'copy-pub',
 		'copy-css',
 		'copy-js',
 		'copy-images',

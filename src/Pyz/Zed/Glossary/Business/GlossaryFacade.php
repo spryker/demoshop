@@ -2,22 +2,26 @@
 
 namespace Pyz\Zed\Glossary\Business;
 
-use ProjectA\Zed\Glossary\Business\GlossaryFacade as SprykerGlossaryFacade;
 use Psr\Log\LoggerInterface;
+use SprykerFeature\Zed\Cms\Dependency\Facade\CmsToGlossaryInterface;
+use SprykerFeature\Zed\Glossary\Business\GlossaryFacade as SprykerGlossaryFacade;
 
-class GlossaryFacade extends SprykerGlossaryFacade
+class GlossaryFacade extends SprykerGlossaryFacade implements
+    CmsToGlossaryInterface
 {
-
     /**
-     * @var GlossaryDependencyContainer
+     * @return GlossaryDependencyContainer
      */
-    protected $dependencyContainer;
+    protected function getDependencyContainer()
+    {
+        return $this->dependencyContainer;
+    }
 
     /**
      * @param LoggerInterface $messenger
      */
     public function installDemoData(LoggerInterface $messenger)
     {
-        $this->dependencyContainer->getDemoDataInstaller($messenger)->install();
+        $this->getDependencyContainer()->createDemoDataInstaller($messenger)->install();
     }
 }
