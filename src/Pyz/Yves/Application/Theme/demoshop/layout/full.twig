@@ -39,6 +39,14 @@
                 </ul>
             </div>
         </div>
+        <div class="row">
+            {% if isLoggedIn() %}
+                {{ 'header.user.greeting' | trans }} {{ getUsername() }}
+            {% else %}
+                <a href="/login">{{ 'customer.login' | trans }}</a>
+                <a href="/register">{{ 'customer.register' | trans }}</a>
+            {% endif %}
+        </div>
     </header>
 </section>
 
