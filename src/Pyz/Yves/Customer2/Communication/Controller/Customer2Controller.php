@@ -6,22 +6,22 @@ use SprykerCore\Yves\Application\Communication\Controller\AbstractController;
 use ProjectA\Shared\Customer\Transfer as CustomerTransfer;
 use Symfony\Component\HttpFoundation\Request;
 
-class Customer2Controller extends \SprykerCore\Yves\Application\Communication\Controller\AbstractController
+class Customer2Controller extends AbstractController
 {
     public function loginAction(Request $req)
     {
         /** @var CustomerTransfer $customerTransfer */
-        $customerTransfer = $this->locator->transfer()->customer();
+        $customerTransfer = $this->locator->customer()->transferCustomer();
 
         if ($req->isMethod("POST")) {
             $customerTransfer->setEmail($req->get("email"));
             $customerTransfer->setPassword($req->get("password"));
 
             if ($this->locator->customer2()->pluginAuth()->login($customerTransfer)) {
-                $this->addMessageSuccess("LOGIN SUCCESSFUL");
+                $this->addMessageSuccess("login.successful");
                 return $this->redirectResponseInternal("/");
             } else {
-                $this->addMessageError("LOGIN FAILED");
+                $this->addMessageError("login.failed");
             }
         }
 
@@ -38,17 +38,17 @@ class Customer2Controller extends \SprykerCore\Yves\Application\Communication\Co
     public function registerAction(Request $req)
     {
         /** @var CustomerTransfer $customerTransfer */
-        $customerTransfer = $this->locator->transfer()->customer();
+        $customerTransfer = $this->locator->customer()->transferCustomer();
 
         if ($req->isMethod("POST")) {
             $customerTransfer->setEmail($req->get("email"));
             // etc.
 
             if ($this->locator->customer2()->sdk()->register($customerTransfer)) {
-                $this->addMessageSuccess("REGISTRATION CONFIRMATION MAIL SENT");
+                $this->addMessageSuccess("registration.confirmation.mail.sent");
                 return $this->redirectResponseInternal("/");
             } else {
-                $this->addMessageError("REGISTRATION FAILED");
+                $this->addMessageError("registration.failed");
             }
         }
 
@@ -58,9 +58,9 @@ class Customer2Controller extends \SprykerCore\Yves\Application\Communication\Co
     public function confirmRegistrationAction(Request $req)
     {
         if ($this->locator->customer2()->sdk()->confirmRegistration($req->get("token"))) {
-            $this->addMessageSuccess("REGISTRATION CONFIRMED");
+            $this->addMessageSuccess("registration.confirmed");
         } else {
-            $this->addMessageError("REGISTRATION TOKEN EXPIRED");
+            $this->addMessageError("registration.token.expired");
         }
         return $this->redirectResponseInternal("/");
     }

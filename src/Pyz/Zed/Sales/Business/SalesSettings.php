@@ -11,7 +11,7 @@ use ProjectA\Shared\Sales\Transfer\OrderItem;
 class SalesSettings extends ProjectASalesSettings
 {
     /**
-     * @throws \ProjectA_Zed_Library_Exception
+     * @throws \Exception
      * @return \ProjectA_Zed_Sales_Business_Interface_StatemachineFactoryHook
      */
     public function getStateMachineFactoryHook()
@@ -20,7 +20,7 @@ class SalesSettings extends ProjectASalesSettings
     }
 
     /**
-     * @throws \ProjectA_Zed_Library_Exception
+     * @throws \Exception
      * @return \ProjectA_Zed_Library_StateMachine_Definition_Container
      */
     public function getStatemachineDefinitionContainer()

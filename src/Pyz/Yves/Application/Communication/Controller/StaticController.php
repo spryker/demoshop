@@ -2,7 +2,7 @@
 namespace Pyz\Yves\Application\Communication\Controller;
 
 use SprykerCore\Yves\Application\Communication\Controller\AbstractController;
-use Pyz\Yves\Library\Tracking\PageTypeInterface;
+use ProjectA\Yves\Library\Tracking\PageTypeInterface;
 use ProjectA\Yves\Library\Tracking\Tracking;
 use Symfony\Component\HttpFoundation\Request;
 
@@ -17,10 +17,6 @@ class StaticController extends AbstractController
     {
         $routeName = $request->attributes->get('_route');
         $content = 'static.pages.' . $routeName;
-
-        Tracking::getInstance()
-            ->setPageType(PageTypeInterface::PAGE_TYPE_STATIC)
-            ->buildTracking();
 
         return $this->viewResponse(['data' => $content]);
     }
