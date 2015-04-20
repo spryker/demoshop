@@ -1,6 +1,6 @@
 <?php
 
-namespace Pyz\Zed\Category\Business\Internal\DemoData;
+namespace Pyz\Zed\Installer\Business\DemoData;
 
 use Generated\Zed\Ide\AutoCompletion;
 use ProjectA\Shared\Kernel\LocatorLocatorInterface;
@@ -10,7 +10,7 @@ use ProjectA\Zed\Installer\Business\Model\AbstractInstaller;
 use ProjectA\Zed\Library\Import\Reader\CsvFileReader;
 use SprykerCore\Zed\Locale\Business\LocaleFacade;
 
-class CategoryTreeInstall extends AbstractInstaller
+class CategoryTreeInstaller extends AbstractInstaller
 {
 
     const IS_ROOT = 'is_root';

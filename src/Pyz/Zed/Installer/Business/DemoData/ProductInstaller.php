@@ -3,63 +3,45 @@
 namespace Pyz\Zed\Product\Business\Internal\DemoData;
 
 use ProjectA\Zed\Installer\Business\Model\AbstractInstaller;
-use ProjectA\Zed\Product\Business\Attribute\AttributeManagerInterface;
-use ProjectA\Zed\Product\Business\Importer\Reader\File\IteratorReaderInterface;
-use ProjectA\Zed\Product\Business\Product\ProductManagerInterface;
-use ProjectA\Zed\Product\Dependency\Facade\ProductToLocaleInterface;
-use ProjectA\Zed\Product\Dependency\Facade\ProductToTouchInterface;
+use ProjectA\Zed\Product\Business\ProductFacade;
+use SprykerCore\Zed\Locale\Business\LocaleFacade;
+use SprykerCore\Zed\Locale\Business\TouchFacade;
 
-class ProductDataInstall extends AbstractInstaller
+class ProductInstaller extends AbstractInstaller
 {
     /**
-     * @var AttributeManagerInterface
+     * @var ProductFacade
      */
-    protected $attributeManager;
+    protected $productFacade;
 
     /**
-     * @var ProductManagerInterface
-     */
-    protected $productManager;
-
-    /**
-     * @var ProductToLocaleInterface
+     * @var LocaleInterface
      */
     protected $localeFacade;
 
     /**
-     * @var ProductToTouchInterface
+     * @var TouchInterface
      */
     protected $touchFacade;
 
     /**
-     * @var IteratorReaderInterface
+     * @var array
      */
-    protected $fileReader;
+    protected $rawProductData;
 
     /**
-     * @var string
-     */
-    protected $filePath;
-
-    /**
-     * @param AttributeManagerInterface $attributeManager
-     * @param ProductManagerInterface $productManager
-     * @param ProductToLocaleInterface $localeFacade
-     * @param IteratorReaderInterface $fileReader
-     * @param string $filePath
+     * @param ProductFacade $productFacade
+     * @param LocaleFacade $localeFacade
+     * @param array $rawProductData
      */
     public function __construct(
-        AttributeManagerInterface $attributeManager,
-        ProductManagerInterface $productManager,
-        ProductToLocaleInterface $localeFacade,
-        IteratorReaderInterface $fileReader,
-        $filePath
+        ProductFacade $productFacade,
+        LocaleFacade $localeFacade,
+        $rawProductData
     ) {
-        $this->attributeManager = $attributeManager;
-        $this->productManager = $productManager;
+        $this->productFacade = $productFacade;
         $this->localeFacade = $localeFacade;
-        $this->fileReader = $fileReader;
-        $this->filePath = $filePath;
+        $this->rawProductData = $rawProductData;
     }
 
     public function install()
@@ -73,15 +55,16 @@ class ProductDataInstall extends AbstractInstaller
     protected function createProducts()
     {
         $fkCurrentLocale = $this->localeFacade->getCurrentIdLocale();
-        foreach ($this->getProductsFromFile() as $currentAbstractProduct) {
+        foreach ($this->rawProductData as $rawProduct) {
+            $currentAbstractProduct = $this->formatProduct($rawProduct);
             $sku = $currentAbstractProduct['sku'];
 
-            if ($this->productManager->hasAbstractProduct($sku)) {
+            if ($this->productFacade->hasAbstractProduct($sku)) {
                 continue;
             }
 
-            $idAbstractProduct = $this->productManager->createAbstractProduct($sku);
-            $this->productManager->createAbstractProductAttributes($idAbstractProduct, $fkCurrentLocale, $currentAbstractProduct['name'], $currentAbstractProduct['attributes']);
+            $idAbstractProduct = $this->productFacade->createAbstractProduct($sku);
+            $this->productFacade->createAbstractProductAttributes($idAbstractProduct, $fkCurrentLocale, $currentAbstractProduct['name'], $currentAbstractProduct['attributes']);
             $this->createConcreteProducts($currentAbstractProduct['products'], $idAbstractProduct, $fkCurrentLocale);
         }
     }
@@ -94,10 +77,15 @@ class ProductDataInstall extends AbstractInstaller
     protected function createConcreteProducts(array $products, $idAbstractProduct, $fkCurrentLocale)
     {
         foreach ($products as $concreteProduct) {
-            $idConcreteProduct = $this->productManager->createConcreteProduct($concreteProduct['sku'], $idAbstractProduct, true);
-            $this->productManager->createConcreteProductAttributes($idConcreteProduct, $fkCurrentLocale, $concreteProduct['name'], $concreteProduct['attributes']);
-            $this->productManager->createAndTouchProductUrlByIds($idConcreteProduct, '/' . str_replace(' ', '-', trim($concreteProduct['name'])), $fkCurrentLocale);
-            $this->productManager->touchProductActive($idConcreteProduct);
+            $idConcreteProduct = $this->productFacade->createConcreteProduct($concreteProduct['sku'], $idAbstractProduct, true);
+            $this->productFacade->createConcreteProductAttributes($idConcreteProduct, $fkCurrentLocale, $concreteProduct['name'], $concreteProduct['attributes']);
+            // FIXME: ProductFacade or Touch Bundle
+//            createAndTouchProductUrlByIds($idConcreteProduct, $url, $idLocale)
+            $url = '/' . str_replace( ' ', '-', trim( $concreteProduct['name'] ) );
+//            $this->productFacade->createAndTouchProductUrlByIds($idConcreteProduct, $url, $fkCurrentLocale);
+//            createAndTouchProductUrl($sku, $url, $localeName)
+            $this->productFacade->createAndTouchProductUrl($concreteProduct['sku'], $url, $this->localeFacade->getCurrentLocale());
+            $this->productFacade->touchProductActive($idConcreteProduct);
         }
     }
 
@@ -121,30 +109,14 @@ class ProductDataInstall extends AbstractInstaller
         ];
 
         foreach ($attributes as $attributeName => $attributeType) {
-            if (!$this->attributeManager->hasAttributeType($attributeType)) {
+            if (!$this->productFacade->hasAttributeType($attributeType)) {
                 continue;
             }
 
-            if (!$this->attributeManager->hasAttribute($attributeName)) {
-                $this->attributeManager->createAttribute($attributeName, $attributeType, true);
+            if (!$this->productFacade->hasAttribute($attributeName)) {
+                $this->productFacade->createAttribute($attributeName, $attributeType, true);
             }
         }
-    }
-
-    /**
-     * @return array
-     */
-    protected function getProductsFromFile()
-    {
-        $splFileInfo = new \SplFileInfo($this->filePath);
-        $productData = $this->fileReader->getIteratorFromFile($splFileInfo);
-
-        $formattedProduct = [];
-        foreach ($productData as $product) {
-            $formattedProduct[] = $this->formatProduct($product);
-        }
-
-        return $formattedProduct;
     }
 
     /**
