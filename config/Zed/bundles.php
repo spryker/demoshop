@@ -26,7 +26,7 @@ return [
         'Cms' => $schema,
         'Category' => $schemaAndNavigation,
         'Country' => $schema,
-        'Customer2' => $schema,
+        'Customer' => $schema,
         'Discount' => $schemaAndNavigation,
         'FrontendExporter' => $schema,
         'Glossary' => $schemaAndNavigation,

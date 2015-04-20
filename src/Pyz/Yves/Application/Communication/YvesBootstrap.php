@@ -13,6 +13,7 @@ use Silex\ServiceProviderInterface;
 use SprykerCore\Yves\Application\Business\YvesBootstrap as SprykerYvesBootstrap;
 use SprykerCore\Yves\Application\Communication\Plugin\ControllerProviderInterface;
 use Pyz\Yves\Checkout\Communication\Plugin\CheckoutControllerProvider;
+use Pyz\Yves\Customer\Communication\Plugin\CustomerControllerProvider;
 use Pyz\Yves\Cart\Communication\Plugin\CartControllerProvider;
 use Pyz\Yves\Application\Communication\Plugin\ApplicationControllerProvider;
 use SprykerCore\Yves\Application\Communication\Plugin\ServiceProvider\CookieServiceProvider;
@@ -20,12 +21,14 @@ use SprykerCore\Yves\Application\Communication\Plugin\ServiceProvider\MonologSer
 use SprykerCore\Yves\Application\Communication\Plugin\ServiceProvider\SessionServiceProvider;
 use SprykerCore\Yves\Application\Communication\Plugin\ServiceProvider\ExceptionServiceProvider;
 use SprykerCore\Yves\Application\Communication\Plugin\ServiceProvider\YvesLoggingServiceProvider;
+use SprykerFeature\Yves\Customer\Provider\SecurityServiceProvider;
 
 use ProjectA\Shared\Application\Business\Routing\SilexRouter;
 
 use ProjectA\Yves\Library\Tracking\Tracking;
 use Silex\Provider\FormServiceProvider;
 use Silex\Provider\ServiceControllerServiceProvider;
+use Silex\Provider\RememberMeServiceProvider;
 use Silex\Provider\ValidatorServiceProvider;
 use Silex\Provider\WebProfilerServiceProvider;
 use SprykerCore\Yves\Kernel\Locator;
@@ -69,7 +72,14 @@ class YvesBootstrap extends SprykerYvesBootstrap
 
         $translationServiceProvider = $locator->glossary()
             ->pluginTranslationService()
-            ->createTranslationServiceProvider();
+            ->createTranslationServiceProvider()
+        ;
+
+        /** @var SecurityServiceProvider $securityServiceProvider */
+        $securityServiceProvider = $locator->customer()
+            ->pluginSecurityService()
+            ->createSecurityServiceProvider()
+        ;
 
         $providers = [
             new ExceptionServiceProvider('\\SprykerCore\\Yves\\Application\\Communication\\Controller\\ExceptionController'),
@@ -79,8 +89,8 @@ class YvesBootstrap extends SprykerYvesBootstrap
             new SessionServiceProvider(),
             new UrlGeneratorServiceProvider(),
             new ServiceControllerServiceProvider(),
-//            new SecurityServiceProvider(),
-//            new RememberMeServiceProvider(),
+            $securityServiceProvider,
+            new RememberMeServiceProvider(),
             new RoutingServiceProvider(),
             $translationServiceProvider,
             new ValidatorServiceProvider(),
@@ -106,7 +116,7 @@ class YvesBootstrap extends SprykerYvesBootstrap
             new ApplicationControllerProvider(false),
             new CartControllerProvider(false),
             new CheckoutControllerProvider($ssl),
-//            new CustomerControllerProvider($ssl),
+            new CustomerControllerProvider($ssl),
         ];
     }
 
