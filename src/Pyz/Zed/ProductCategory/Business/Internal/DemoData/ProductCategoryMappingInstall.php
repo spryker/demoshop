@@ -69,7 +69,7 @@ class ProductCategoryMappingInstall extends AbstractInstaller
 
     public function install()
     {
-        $currentIdLocale = $this->localeFacade->getCurrentLocaleIdentifier();
+        $currentIdLocale = $this->localeFacade->getCurrentIdLocale();
         $this->installProductCategories($currentIdLocale);
     }
 

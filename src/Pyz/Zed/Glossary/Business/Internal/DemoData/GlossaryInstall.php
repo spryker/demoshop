@@ -1,15 +1,18 @@
 <?php
 
+/*
+ * (c) Copyright Spryker Systems GmbH 2015
+ */
+
 namespace Pyz\Zed\Glossary\Business\Internal\DemoData;
 
 use Generated\Zed\Ide\AutoCompletion;
-use ProjectA\Zed\Glossary\Dependency\Plugin\GlossaryInstallerPluginInterface;
 use ProjectA\Zed\Installer\Business\Model\AbstractInstaller;
 use ProjectA\Zed\Kernel\Locator;
+use SprykerFeature\Zed\Glossary\Dependency\Plugin\GlossaryInstallerPluginInterface;
 
 class GlossaryInstall extends AbstractInstaller
 {
-
     /**
      * @var GlossaryInstallerPluginInterface[]
      */

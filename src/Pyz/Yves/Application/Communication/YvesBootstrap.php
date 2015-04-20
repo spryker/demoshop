@@ -2,12 +2,14 @@
 
 namespace Pyz\Yves\Application\Communication;
 
+use Generated\Yves\Ide\AutoCompletion;
 use ProjectA\Shared\Application\Business\Application;
 use ProjectA\Shared\Application\Communication\Plugin\ServiceProvider\RoutingServiceProvider;
 use ProjectA\Shared\Application\Communication\Plugin\ServiceProvider\UrlGeneratorServiceProvider;
 use ProjectA\Shared\Library\Config;
 use ProjectA\Shared\System\SystemConfig;
 use ProjectA\Shared\Yves\YvesConfig;
+use Silex\ServiceProviderInterface;
 use SprykerCore\Yves\Application\Business\YvesBootstrap as SprykerYvesBootstrap;
 use SprykerCore\Yves\Application\Communication\Plugin\ControllerProviderInterface;
 use Pyz\Yves\Checkout\Communication\Plugin\CheckoutControllerProvider;
@@ -29,6 +31,7 @@ use Silex\Provider\WebProfilerServiceProvider;
 use SprykerCore\Yves\Kernel\Locator;
 use SprykerFeature\Yves\Twig\Plugin\TwigServiceProvider;
 use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\Routing\RouterInterface;
 
 class YvesBootstrap extends SprykerYvesBootstrap
 {
@@ -58,7 +61,7 @@ class YvesBootstrap extends SprykerYvesBootstrap
 
     /**
      * @param Application $app
-     * @return \Silex\ServiceProviderInterface[]
+     * @return ServiceProviderInterface[]
      */
     protected function getServiceProviders(Application $app)
     {
@@ -69,7 +72,7 @@ class YvesBootstrap extends SprykerYvesBootstrap
             ->createTranslationServiceProvider();
 
         $providers = [
-            new ExceptionServiceProvider('\Pyz\Yves\Library\Controller\ExceptionController'),
+            new ExceptionServiceProvider('\\Pyz\\Yves\\Library\\Controller\\ExceptionController'),
             new YvesLoggingServiceProvider(),
             new MonologServiceProvider(),
             new CookieServiceProvider(),
@@ -110,20 +113,15 @@ class YvesBootstrap extends SprykerYvesBootstrap
 
     /**
      * @param Application $app
-     * @return \Symfony\Component\Routing\RouterInterface[]
+     * @return RouterInterface[]
      */
     protected function getRouters(Application $app)
     {
         $locator = $this->getLocator($app);
-        $productResourceCreatorPlugin = $locator->productExporter()->pluginProductResourceCreator();
-        $categoryResourceCreatorPlugin = $locator->categoryExporter()->pluginCategoryResourceCreator();
 
         return [
             $locator->setup()->pluginMonitoringRouter()->createMonitoringRouter($app, false),
-            $locator->frontendExporter()->pluginStorageRouter()->createStorageRouter($app, false)
-                ->addResourceCreator($productResourceCreatorPlugin->createProductResourceCreator())
-                ->addResourceCreator($categoryResourceCreatorPlugin->createCategoryResourceCreator())
-            ,
+            $locator->frontendExporter()->pluginStorageRouter()->createStorageRouter($app, false),
             $locator->catalog()->pluginSearchRouter()->createSearchRouter($app, false),
             $locator->cart()->pluginCartRouter()->createCartRouter($app, false),
             /*
@@ -136,7 +134,8 @@ class YvesBootstrap extends SprykerYvesBootstrap
 
     /**
      * @param Application $app
-     * @return \Generated\Yves\Ide\AutoCompletion
+     *
+     * @return AutoCompletion
      */
     protected function getLocator(Application $app)
     {
