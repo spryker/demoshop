@@ -20,7 +20,6 @@ use ProjectA\Zed\Application\Communication\Plugin\ServiceProvider\RequestService
 use ProjectA\Zed\Application\Communication\Plugin\ServiceProvider\SslServiceProvider;
 use ProjectA\Zed\Application\Communication\Plugin\ServiceProvider\TranslationServiceProvider;
 use ProjectA\Zed\Application\Communication\Plugin\ServiceProvider\TwigServiceProvider;
-use ProjectA\Zed\Cms\Communication\Plugin\ServiceProvider\CmsServiceProvider;
 use ProjectA\Zed\Kernel\Locator;
 use ProjectA\Zed\Sdk\Communication\Plugin\SdkServiceProviderPlugin;
 use Silex\Provider\FormServiceProvider;
@@ -28,6 +27,8 @@ use Silex\Provider\ServiceControllerServiceProvider;
 use Silex\Provider\ValidatorServiceProvider;
 use Silex\Provider\WebProfilerServiceProvider;
 use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\Routing\RouterInterface;
+use Silex\ServiceProviderInterface;
 use Silex\Provider\SessionServiceProvider;
 
 class ZedBootstrap extends Bootstrap
@@ -61,7 +62,7 @@ class ZedBootstrap extends Bootstrap
      */
     protected function beforeBoot(Application $app)
     {
-        $app['locale'] = \ProjectA_Shared_Library_Store::getInstance()->getCurrentLocale();
+        $app['locale'] = \ProjectA\Shared\Kernel\Store::getInstance()->getCurrentLocale();
         if (\ProjectA_Shared_Library_Environment::isDevelopment()) {
             $app['profiler.cache_dir'] = \ProjectA_Shared_Library_Data::getLocalStoreSpecificPath('cache/profiler');
         }
@@ -76,7 +77,9 @@ class ZedBootstrap extends Bootstrap
     }
 
     /**
-     * @return \Silex\ServiceProviderInterface[]
+     * @param Application $app
+     *
+     * @return ServiceProviderInterface[]
      */
     protected function getServiceProviders(Application $app)
     {
@@ -100,7 +103,6 @@ class ZedBootstrap extends Bootstrap
             new TranslationServiceProvider(),
             $this->getSdkServiceProvider(),
             new UrlGeneratorServiceProvider(),
-            new CmsServiceProvider(),
             new NewRelicServiceProvider(),
         ];
 
@@ -113,7 +115,7 @@ class ZedBootstrap extends Bootstrap
 
     /**
      * @param Application $app
-     * @return \Symfony\Component\Routing\RouterInterface[]
+     * @return RouterInterface[]
      */
     protected function getRouters(Application $app)
     {
@@ -131,7 +133,7 @@ class ZedBootstrap extends Bootstrap
     {
         return [
             'environment' => APPLICATION_ENV,
-            'store' => \ProjectA_Shared_Library_Store::getInstance()->getStoreName(),
+            'store' => \ProjectA\Shared\Kernel\Store::getInstance()->getStoreName(),
             'title' => Config::get(SystemConfig::PROJECT_NAMESPACE) . ' | Zed | ' . ucfirst(APPLICATION_ENV),
             'currentController' => get_class($this),
             'navigation' => $this->getNavigation(),
@@ -139,7 +141,7 @@ class ZedBootstrap extends Bootstrap
     }
 
     /**
-     * @return \Generated\Zed\Ide\AutoCompletion
+     * @return AutoCompletion
      */
     public function getLocator()
     {

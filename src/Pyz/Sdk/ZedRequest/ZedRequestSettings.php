@@ -22,7 +22,7 @@ class ZedRequestSettings
     }
 
     /**
-     * @return mixed
+     * @return array
      * @throws \Exception
      */
     public function getHeaders()

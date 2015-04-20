@@ -13,6 +13,7 @@ class AddressController extends AbstractController
 {
     /**
      * @param Request $request
+     *
      * @return array|RedirectResponse
      * @throws NotFoundHttpException
      */
@@ -87,6 +88,7 @@ class AddressController extends AbstractController
 
     /**
      * @param Request $request
+     *
      * @return RedirectResponse
      */
     public function deleteAction(Request $request)

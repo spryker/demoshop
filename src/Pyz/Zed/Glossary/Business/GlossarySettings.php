@@ -1,17 +1,14 @@
 <?php
+
+/*
+ * (c) Copyright Spryker Systems GmbH 2015
+ */
+
 namespace Pyz\Zed\Glossary\Business;
 
-use ProjectA\Zed\Glossary\Business\GlossarySettings as CoreGlossarySettings;
+use SprykerFeature\Zed\Glossary\Business\GlossarySettings as SprykerGlossarySettings;
 
-class GlossarySettings extends CoreGlossarySettings
+class GlossarySettings extends SprykerGlossarySettings
 {
-    /**
-     * @var \Generated\Zed\Ide\AutoCompletion
-     */
-    protected $locator;
 
-    public function __construct($locator)
-    {
-        $this->locator = $locator;
-    }
 }
