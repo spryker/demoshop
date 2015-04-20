@@ -30,6 +30,7 @@ class CustomerController extends AbstractController
 
     /**
      * @param Request $request
+     *
      * @return array|RedirectResponse
      */
     public function restorePasswordAction(Request $request)
@@ -53,6 +54,7 @@ class CustomerController extends AbstractController
 
     /**
      * @param Request $request
+     *
      * @return array|RedirectResponse
      */
     public function deleteAction(Request $request)

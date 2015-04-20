@@ -12,6 +12,7 @@ class SecurityController extends AbstractController
 {
     /**
      * @param Request $request
+     *
      * @return array|RedirectResponse
      */
     public function loginAction(Request $request)
@@ -27,6 +28,7 @@ class SecurityController extends AbstractController
 
     /**
      * @param Request $request
+     *
      * @return RedirectResponse
      */
     public function logoutAction(Request $request)
@@ -62,6 +64,7 @@ class SecurityController extends AbstractController
 
     /**
      * @param Request $request
+     *
      * @return RedirectResponse
      */
     public function confirmRegistrationAction(Request $request)
