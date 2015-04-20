@@ -29,7 +29,7 @@ return [
         'Customer' => $schema,
         'Discount' => $schemaAndNavigation,
         'FrontendExporter' => $schema,
-        'Glossary' => $schemaAndNavigation,
+        'Glossary' => $schema,
         'Lumberjack' => $navigation,
         'Oms' => $schema,
         'Price' => $schemaAndNavigation,
