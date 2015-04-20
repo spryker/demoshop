@@ -2,6 +2,7 @@
 
 namespace ReneFactor;
 
+use Symfony\Component\Filesystem\Filesystem;
 use Symfony\Component\Finder\Finder;
 use Symfony\Component\Finder\SplFileInfo;
 use Zend\Filter\Word\CamelCaseToDash;
@@ -21,6 +22,7 @@ class SplitYvesPackage extends AbstractRefactorer
 
     public function refactor()
     {
+        $fileSystem = new Filesystem();
         $finder = $this->getYvesPackageFinder();
 
         foreach ($finder as $file) {
@@ -41,10 +43,10 @@ class SplitYvesPackage extends AbstractRefactorer
             }
             $this->bundles[$bundle][] = $namespace;
 
+            $destination = $this->getDestinationPath($bundle, $file);
 
-
-            $path = str_replace('yves-package', $this->getFilteredBundle($bundle), $file->getPathname());
-            echo '<pre>' . PHP_EOL . \Symfony\Component\VarDumper\VarDumper::dump($path) . PHP_EOL . 'Line: ' . __LINE__ . PHP_EOL . 'File: ' . __FILE__ . die();
+            $fileSystem->copy($file->getPathname(), $destination);
+            $fileSystem->remove($file->getPathname());
         }
 
         $this->createBundleDefaultFiles();
@@ -102,9 +104,19 @@ class SplitYvesPackage extends AbstractRefactorer
 
     private function createBundleDefaultFiles()
     {
+        $fileSystem = new Filesystem();
         foreach ($this->bundles as $bundle => $namespaces) {
             $this->createCodeCeption($bundle);
             $this->createComposerJson($bundle, $namespaces);
+
+            foreach ($this->globalFiles as $file) {
+                $destination = $this->getDestinationPath($bundle, $file);
+                $fileSystem->copy($file->getPathname(), $destination);
+            }
+        }
+
+        foreach ($this->globalFiles as $file) {
+            $fileSystem->remove($file->getPathname());
         }
     }
 
@@ -118,8 +130,7 @@ class SplitYvesPackage extends AbstractRefactorer
 
         $path = $this->getPathToBundle($bundle);
 
-        echo '<pre>' . PHP_EOL . \Symfony\Component\VarDumper\VarDumper::dump($content) . PHP_EOL . 'Line: ' . __LINE__ . PHP_EOL . 'File: ' . __FILE__ . die();
-//        file_put_contents($path . '/codeception.yml', $content);
+        file_put_contents($path . '/codeception.yml', $content);
     }
 
     /**
@@ -150,8 +161,8 @@ class SplitYvesPackage extends AbstractRefactorer
         $content = str_replace('{{namespaces}}', implode(",\n", $namespaceStrings), $content);
 
         $path = $this->getPathToBundle($bundle);
-        echo '<pre>' . PHP_EOL . \Symfony\Component\VarDumper\VarDumper::dump($content) . PHP_EOL . 'Line: ' . __LINE__ . PHP_EOL . 'File: ' . __FILE__ . die();
-//        file_put_contents($path . '/composer.json', $content);
+
+        file_put_contents($path . '/composer.json', $content);
     }
 
     /**
@@ -179,6 +190,19 @@ class SplitYvesPackage extends AbstractRefactorer
         $filteredBundle = $filter->filter($bundle);
 
         return strtolower($filteredBundle);
+    }
+
+    /**
+     * @param $bundle
+     * @param SplFileInfo $file
+     *
+     * @return string
+     */
+    private function getDestinationPath($bundle, SplFileInfo $file)
+    {
+        $path = str_replace('yves-package', $this->getFilteredBundle($bundle), $file->getPathname());
+
+        return $path;
     }
 
 }
