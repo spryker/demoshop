@@ -16,18 +16,21 @@ $schema = [ProjectA\Shared\Library\Bundle\BundleConfig::ACTIVATE_SCHEMA];
 return [
     // Project bundles
     Config::get(SystemConfig::PROJECT_NAMESPACE) => [],
+
     // Core bundles
     ProjectA\Shared\Library\Bundle\BundleConfig::VENDOR => [
-        'Acl' => $schemaAndNavigation,
+        'Auth' => $schema,
+        'Acl' => $schema,
+        'User' => $schema,
         'Cart' => $schema,
-        'Cms' => $allElements,
+        'Cms' => $schema,
         'Category' => $schemaAndNavigation,
+        'Country' => $schema,
         'Customer2' => $schema,
         'Discount' => $schemaAndNavigation,
         'FrontendExporter' => $schema,
-        'Glossary' => $allElements,
+        'Glossary' => $schemaAndNavigation,
         'Lumberjack' => $navigation,
-        'Misc' => $schema,
         'Oms' => $schema,
         'Price' => $schemaAndNavigation,
         'Product' => $schemaAndNavigation,
@@ -42,5 +45,5 @@ return [
         'Locale' => $schema,
         'Touch' => $schema,
         'Url' => $schema,
-    ]
+    ],
 ];

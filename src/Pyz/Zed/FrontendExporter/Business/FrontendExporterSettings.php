@@ -43,6 +43,7 @@ class FrontendExporterSettings extends SprykerFrontendExporterSettings
             //translations
             $this->locator->glossaryExporter()->pluginTranslationProcessorPlugin(),
 
+            $this->locator->cmsExporter()->pluginCmsPageProcessorPlugin(),
             $this->locator->urlExporter()->pluginRedirectProcessorPlugin(),
 
             $this->locator->urlExporter()->pluginUrlProcessorPlugin(),
@@ -78,6 +79,7 @@ class FrontendExporterSettings extends SprykerFrontendExporterSettings
             $this->locator->glossaryExporter()->pluginTranslationQueryExpanderPlugin(),
             $this->locator->categoryExporter()->pluginNavigationQueryExpanderPlugin(),
             $this->locator->categoryExporter()->pluginCategoryNodeQueryExpanderPlugin(),
+            $this->locator->cmsExporter()->pluginCmsQueryExpanderPlugin(),
             $this->locator->urlExporter()->pluginRedirectQueryExpanderPlugin(),
             $this->locator->urlExporter()->pluginUrlQueryExpanderPlugin(),
         ];
