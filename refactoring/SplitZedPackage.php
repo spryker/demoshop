@@ -61,6 +61,7 @@ class SplitZedPackage extends AbstractRefactorer
             }
 
             $bundle = $this->getBundleFromFile($file);
+            $bundle = str_replace('-de', '', $bundle);
 
             if (!$bundle) {
                 $this->globalFiles[] = $file;
@@ -75,12 +76,10 @@ class SplitZedPackage extends AbstractRefactorer
             }
             $this->bundles[$bundle][] = $namespace;
 
-            echo $bundle . PHP_EOL;
             $destination = $this->getDestinationPath($bundle, $file);
 
-//            chmod(dirname($destination), 777);
-//            $fileSystem->copy($file->getPathname(), $destination);
-//            $fileSystem->remove($file->getPathname());
+            $fileSystem->copy($file->getPathname(), $destination);
+            $fileSystem->remove($file->getPathname());
         }
 
         $this->createBundleDefaultFiles();
@@ -111,12 +110,6 @@ class SplitZedPackage extends AbstractRefactorer
     {
         $path = str_replace(__DIR__ . '/../vendor/spryker/zed-package/', '', $file->getPathname());
         $pathParts = explode('/', $path);
-
-
-        if ($file->getFilename() === 'AuthTest.php') {
-            echo '<pre>' . PHP_EOL . \Symfony\Component\VarDumper\VarDumper::dump($pathParts) . PHP_EOL . 'Line: ' . __LINE__ . PHP_EOL . 'File: ' . __FILE__ . die();
-        }
-
 
         if (count($pathParts) <= 3) {
             return false;
@@ -215,6 +208,7 @@ class SplitZedPackage extends AbstractRefactorer
     private function isTestFile(SplFileInfo $file)
     {
         $pathParts = explode('/', $file->getPathname());
+
         if ($pathParts[10] === 'tests') {
             return true;
         }
