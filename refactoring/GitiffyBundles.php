@@ -37,15 +37,20 @@ class GitiffyBundles extends AbstractRefactorer
             $bundle = $dir->getFilename();
             $this->info($bundle);
 
-//            $cwd = $dir->getPathname();
-//
-//            $repository = $this->createRepository($bundle);
-//            $this->init($bundle, $cwd);
-//            $this->commit($bundle, $cwd);
-//            $this->addRemote($bundle, $cwd);
-//
-//            $this->push($bundle, $cwd);
-            echo '"spryker/' . $bundle . '": "dev-master",' . PHP_EOL;
+            $cwd = $dir->getPathname();
+
+            $repository = $this->createRepository($bundle);
+            $this->init($bundle, $cwd);
+            $this->commit($bundle, $cwd);
+            $this->addRemote($bundle, $cwd);
+
+            $this->push($bundle, $cwd);
+
+            $this->buildComposerJsonConfig();
+            $this->buildComposerJsonRepoList();
+
+
+
         }
     }
 
@@ -149,6 +154,29 @@ class GitiffyBundles extends AbstractRefactorer
         $process = new Process($command, $cwd);
 
         $process->run();
+    }
+
+    /**
+     * @param $bundle
+     */
+    private function buildComposerJsonConfig($bundle)
+    {
+        echo '"spryker/' . $bundle . '": "dev-master",' . PHP_EOL;
+    }
+
+    /**
+     * @param $bundle
+     */
+    private function buildComposerJsonRepo($bundle)
+    {
+        $repo = '
+        {
+            "type": "git",
+            "url": "git@github.com:spryker/' . $bundle . '.git"
+        },
+        ';
+
+        echo $repo . PHP_EOL;
     }
 
 }
