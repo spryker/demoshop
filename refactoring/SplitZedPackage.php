@@ -165,6 +165,12 @@ class SplitZedPackage extends AbstractRefactorer
 
                 $content = str_replace($search, $bundle, $file->getContents());
                 $destination = $this->getDestinationPath($bundle, $file);
+
+                $dir = dirname($destination);
+                if (!is_dir($dir)) {
+                    mkdir($dir);
+                }
+
                 file_put_contents($destination, $content);
 
                 $fileSystem->copy($file->getPathname(), $destination);
