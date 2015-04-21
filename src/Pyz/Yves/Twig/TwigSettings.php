@@ -26,9 +26,8 @@ class TwigSettings extends SprykerTwigSettings
         $twigFunctions = parent::getTwigFunctions();
 
         $twigFunctions[] = $this->getLocator()->assets()->pluginTwigAsset();
+        $twigFunctions[] = $this->getLocator()->customer()->pluginTwigCustomer();
 
         return $twigFunctions;
     }
-
 }
- 

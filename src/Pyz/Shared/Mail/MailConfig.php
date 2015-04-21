@@ -2,7 +2,7 @@
 
 namespace Pyz\Shared\Mail;
 
-use ProjectA\Shared\Mail\MailConfig as CoreMailConfig;
+use SprykerFeature\Shared\Mail\MailConfig as CoreMailConfig;
 
 interface MailConfig extends CoreMailConfig
 {

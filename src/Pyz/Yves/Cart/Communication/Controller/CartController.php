@@ -1,13 +1,13 @@
 <?php
 namespace Pyz\Yves\Cart\Communication\Controller;
 
-use ProjectA\Shared\Kernel\LocatorLocatorInterface;
-use SprykerCore\Yves\Application\Communication\Controller\AbstractController;
+use SprykerEngine\Shared\Kernel\LocatorLocatorInterface;
+use SprykerEngine\Yves\Application\Communication\Controller\AbstractController;
 use Pyz\Yves\Cart\Communication\Helper\CartControllerTrait;
-use ProjectA\Yves\Library\Tracking\PageTypeInterface;
-use ProjectA\Yves\Library\Tracking\Tracking;
+use SprykerFeature\Yves\Library\Tracking\PageTypeInterface;
+use SprykerFeature\Yves\Library\Tracking\Tracking;
 use Symfony\Component\HttpFoundation\Request;
-use ProjectA\Shared\Cart\Transfer\CartItem;
+use SprykerFeature\Shared\Cart\Transfer\CartItem;
 use Pyz\Yves\Cart\Communication\Plugin\CartControllerProvider;
 use Symfony\Component\HttpFoundation\RedirectResponse;
 

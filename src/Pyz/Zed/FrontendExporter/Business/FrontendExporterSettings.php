@@ -3,11 +3,11 @@
 namespace Pyz\Zed\FrontendExporter\Business;
 
 use Generated\Zed\Ide\AutoCompletion;
-use ProjectA\Shared\Kernel\LocatorLocatorInterface;
-use ProjectA\Zed\FrontendExporter\Dependency\Plugin\DataProcessorPluginInterface;
-use ProjectA\Zed\FrontendExporter\Dependency\Plugin\ExportFailedDeciderPluginInterface;
-use ProjectA\Zed\FrontendExporter\Dependency\Plugin\QueryExpanderPluginInterface;
-use ProjectA\Zed\FrontendExporter\Business\FrontendExporterSettings as SprykerFrontendExporterSettings;
+use SprykerEngine\Shared\Kernel\LocatorLocatorInterface;
+use SprykerFeature\Zed\FrontendExporter\Dependency\Plugin\DataProcessorPluginInterface;
+use SprykerFeature\Zed\FrontendExporter\Dependency\Plugin\ExportFailedDeciderPluginInterface;
+use SprykerFeature\Zed\FrontendExporter\Dependency\Plugin\QueryExpanderPluginInterface;
+use SprykerFeature\Zed\FrontendExporter\Business\FrontendExporterSettings as SprykerFrontendExporterSettings;
 
 class FrontendExporterSettings extends SprykerFrontendExporterSettings
 {

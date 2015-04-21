@@ -4,7 +4,7 @@
  */
 
 
-use ProjectA\Shared\System\SystemConfig;
+use SprykerFeature\Shared\System\SystemConfig;
 
 $config[SystemConfig::CLOUD_ENABLED] = true;
 $config[SystemConfig::CLOUD_OBJECT_STORAGE_ENABLED] = true;

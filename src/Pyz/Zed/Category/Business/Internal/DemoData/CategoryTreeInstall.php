@@ -3,12 +3,12 @@
 namespace Pyz\Zed\Category\Business\Internal\DemoData;
 
 use Generated\Zed\Ide\AutoCompletion;
-use ProjectA\Shared\Kernel\LocatorLocatorInterface;
-use ProjectA\Zed\Category\Business\CategoryFacade;
-use ProjectA\Zed\Category\Persistence\CategoryQueryContainer;
-use ProjectA\Zed\Installer\Business\Model\AbstractInstaller;
-use ProjectA\Zed\Library\Import\Reader\CsvFileReader;
-use SprykerCore\Zed\Locale\Business\LocaleFacade;
+use SprykerEngine\Shared\Kernel\LocatorLocatorInterface;
+use SprykerFeature\Zed\Category\Business\CategoryFacade;
+use SprykerFeature\Zed\Category\Persistence\CategoryQueryContainer;
+use SprykerFeature\Zed\Installer\Business\Model\AbstractInstaller;
+use SprykerFeature\Zed\Library\Import\Reader\CsvFileReader;
+use SprykerEngine\Zed\Locale\Business\LocaleFacade;
 
 class CategoryTreeInstall extends AbstractInstaller
 {

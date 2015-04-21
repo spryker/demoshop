@@ -6,11 +6,11 @@
 
 namespace Pyz\Zed\Locale\Business;
 
-use ProjectA\Zed\Category\Dependency\Facade\CategoryToLocaleInterface;
-use ProjectA\Zed\Product\Dependency\Facade\ProductToLocaleInterface;
-use ProjectA\Zed\ProductCategory\Dependency\Facade\ProductCategoryToLocaleInterface;
-use ProjectA\Zed\ProductSearch\Dependency\Facade\ProductSearchToLocaleInterface;
-use SprykerCore\Zed\Locale\Business\LocaleFacade as SprykerLocaleFacade;
+use SprykerFeature\Zed\Category\Dependency\Facade\CategoryToLocaleInterface;
+use SprykerFeature\Zed\Product\Dependency\Facade\ProductToLocaleInterface;
+use SprykerFeature\Zed\ProductCategory\Dependency\Facade\ProductCategoryToLocaleInterface;
+use SprykerFeature\Zed\ProductSearch\Dependency\Facade\ProductSearchToLocaleInterface;
+use SprykerEngine\Zed\Locale\Business\LocaleFacade as SprykerLocaleFacade;
 use SprykerFeature\Zed\Glossary\Dependency\Facade\GlossaryToLocaleInterface;
 use SprykerFeature\Zed\Url\Dependency\UrlToLocaleInterface;
 

@@ -1,7 +1,7 @@
 <?php
 namespace Pyz\Yves\Cart\Communication\Helper;
 
-use ProjectA\Shared\Kernel\LocatorLocatorInterface;
+use SprykerEngine\Shared\Kernel\LocatorLocatorInterface;
 use SprykerFeature\Yves\Cart\Model\ZedCart;
 use Symfony\Component\HttpFoundation\Request;
 
@@ -36,7 +36,7 @@ trait CartControllerTrait
     abstract protected function getCookieBag();
 
     /**
-     * @return \ProjectA\Yves\Library\Session\TransferSession
+     * @return \SprykerFeature\Yves\Library\Session\TransferSession
      */
     abstract protected function getTransferSession();
 }

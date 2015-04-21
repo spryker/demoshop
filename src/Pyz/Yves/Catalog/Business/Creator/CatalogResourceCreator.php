@@ -2,14 +2,14 @@
 
 namespace Pyz\Yves\Catalog\Business\Creator;
 
-use ProjectA\Shared\Application\Communication\ControllerServiceBuilder;
-use ProjectA\Yves\FrontendExporter\Business\Creator\ResourceCreatorInterface;
+use SprykerFeature\Shared\Application\Communication\ControllerServiceBuilder;
+use SprykerFeature\Yves\FrontendExporter\Business\Creator\ResourceCreatorInterface;
 use Pyz\Sdk\Catalog\Model\FacetConfig;
 use Silex\Application;
-use SprykerCore\Yves\Kernel\Communication\BundleControllerAction;
-use SprykerCore\Yves\Kernel\Communication\Controller\BundleControllerActionRouteNameResolver;
-use SprykerCore\Yves\Kernel\Communication\ControllerLocator;
-use SprykerCore\Yves\Kernel\Locator;
+use SprykerEngine\Yves\Kernel\Communication\BundleControllerAction;
+use SprykerEngine\Yves\Kernel\Communication\Controller\BundleControllerActionRouteNameResolver;
+use SprykerEngine\Yves\Kernel\Communication\ControllerLocator;
+use SprykerEngine\Yves\Kernel\Locator;
 
 class CategoryResourceCreator implements ResourceCreatorInterface
 {

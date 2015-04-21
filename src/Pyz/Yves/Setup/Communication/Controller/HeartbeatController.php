@@ -2,7 +2,7 @@
 
 namespace Pyz\Yves\Setup\Communication\Controller;
 
-use SprykerCore\Yves\Application\Communication\Controller\AbstractController;
+use SprykerEngine\Yves\Application\Communication\Controller\AbstractController;
 
 class HeartbeatController extends AbstractController
 {

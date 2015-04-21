@@ -3,8 +3,8 @@
  * This is the global runtime configuration for Yves and Generated_Yves_Zed in a development environment.
  */
 
-use ProjectA\Shared\System\SystemConfig;
-use ProjectA\Shared\Yves\YvesConfig;
+use SprykerFeature\Shared\System\SystemConfig;
+use SprykerFeature\Shared\Yves\YvesConfig;
 
 $config[SystemConfig::ZED_SESSION_SAVE_HANDLER]
     = $config[YvesConfig::YVES_SESSION_SAVE_HANDLER]
