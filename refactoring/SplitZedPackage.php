@@ -67,6 +67,7 @@ class SplitZedPackage extends AbstractRefactorer
 
                 continue;
             }
+
             $namespace = $this->getNamespaceFromFile($file);
 
             if (!in_array($bundle, $this->bundles)) {
@@ -74,11 +75,12 @@ class SplitZedPackage extends AbstractRefactorer
             }
             $this->bundles[$bundle][] = $namespace;
 
+            echo $bundle . PHP_EOL;
             $destination = $this->getDestinationPath($bundle, $file);
 
 //            chmod(dirname($destination), 777);
-            $fileSystem->copy($file->getPathname(), $destination);
-            $fileSystem->remove($file->getPathname());
+//            $fileSystem->copy($file->getPathname(), $destination);
+//            $fileSystem->remove($file->getPathname());
         }
 
         $this->createBundleDefaultFiles();
@@ -114,8 +116,10 @@ class SplitZedPackage extends AbstractRefactorer
             return false;
         }
         if ($this->isTestFile($file)) {
+            echo $pathParts[4] . PHP_EOL;
             return $pathParts[4];
         }
+        echo $pathParts[3] . PHP_EOL;
 
         return $pathParts[3];
     }
