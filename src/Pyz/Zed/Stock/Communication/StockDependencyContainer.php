@@ -2,9 +2,9 @@
 
 namespace Pyz\Zed\Stock\Communication;
 
-use ProjectA\Zed\Kernel\Communication\AbstractDependencyContainer;
+use SprykerEngine\Zed\Kernel\Communication\AbstractDependencyContainer;
 use Pyz\Zed\Stock\Business\StockFacade;
-use ProjectA\Zed\Stock\Communication\StockDependencyContainer as SprykerStockDependencyContainer;
+use SprykerFeature\Zed\Stock\Communication\StockDependencyContainer as SprykerStockDependencyContainer;
 
 class StockDependencyContainer extends SprykerStockDependencyContainer
 {
@@ -14,7 +14,7 @@ class StockDependencyContainer extends SprykerStockDependencyContainer
      */
     public function getInstallerFacade()
     {
-        return $this->locator->stock()->facade();
+        return $this->getLocator()->stock()->facade();
     }
 
 }

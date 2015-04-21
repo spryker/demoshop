@@ -2,7 +2,7 @@
 
 namespace Pyz\Zed\Product\Business;
 
-use ProjectA\Zed\Product\Business\ProductSettings as SprykerProductSettings;
+use SprykerFeature\Zed\Product\Business\ProductSettings as SprykerProductSettings;
 
 class ProductSettings extends SprykerProductSettings
 {

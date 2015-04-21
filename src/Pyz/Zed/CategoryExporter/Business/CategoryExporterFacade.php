@@ -2,8 +2,8 @@
 
 namespace Pyz\Zed\CategoryExporter\Business;
 
-use \ProjectA\Zed\CategoryExporter\Business\CategoryExporterFacade as CoreCategoryExporterFacade;
-use ProjectA\Zed\ProductCategoryFrontendExporterConnector\Dependency\Facade\ProductCategoryFrontendExporterToCategoryExporterInterface;
+use \SprykerFeature\Zed\CategoryExporter\Business\CategoryExporterFacade as CoreCategoryExporterFacade;
+use SprykerFeature\Zed\ProductCategoryFrontendExporterConnector\Dependency\Facade\ProductCategoryFrontendExporterToCategoryExporterInterface;
 
 
 class CategoryExporterFacade extends CoreCategoryExporterFacade implements
@@ -18,7 +18,7 @@ class CategoryExporterFacade extends CoreCategoryExporterFacade implements
      */
     public function explodeGroupedNodes(array $data, $idsField, $namesField, $urlsField)
     {
-        return $this->dependencyContainer->createGroupedNodeExploder()
+        return $this->getDependencyContainer()->createGroupedNodeExploder()
             ->explodeGroupedNodes(
                 $data,
                 $idsField,

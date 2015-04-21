@@ -2,7 +2,7 @@
 
 namespace Pyz\Yves\Application\Communication\Controller;
 
-use SprykerCore\Yves\Application\Communication\Controller\AbstractController;
+use SprykerEngine\Yves\Application\Communication\Controller\AbstractController;
 
 class IndexController extends AbstractController
 {

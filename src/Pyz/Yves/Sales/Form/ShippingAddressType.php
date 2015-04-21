@@ -2,8 +2,8 @@
 
 namespace Pyz\Yves\Sales\Form;
 
-use ProjectA\Shared\Sales\Transfer\Address;
-use ProjectA\Shared\Sales\Transfer\Order;
+use SprykerFeature\Shared\Sales\Transfer\Address;
+use SprykerFeature\Shared\Sales\Transfer\Order;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\Form\FormEvent;
 use Symfony\Component\Form\FormEvents;

@@ -1,0 +1,13 @@
+{% extends "@application/layout/reduced.twig" %}
+
+{% block content %}
+    {% if error  %}
+        <b>{{ error }}</b>
+    {% endif %}
+    <h1>{{ "customer.login" | trans }}</h1>
+    <form action="{{ path('login_check') }}" method="post">
+        <input type="text" name="_username" />
+        <input type="password" name="_password" value="" />
+        <input type="submit" />
+    </form>
+{% endblock %}

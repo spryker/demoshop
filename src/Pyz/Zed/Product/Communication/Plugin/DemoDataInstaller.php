@@ -2,19 +2,17 @@
 
 namespace Pyz\Zed\Product\Communication\Plugin;
 
-use ProjectA\Zed\Installer\Communication\Plugin\AbstractInstallerPlugin;
+use SprykerFeature\Zed\Installer\Communication\Plugin\AbstractInstallerPlugin;
 use Pyz\Zed\Product\Communication\ProductDependencyContainer;
 
+/**
+ * @method ProductDependencyContainer getDependencyContainer()
+ */
 class DemoDataInstaller extends AbstractInstallerPlugin
 {
 
-    /**
-     * @var ProductDependencyContainer
-     */
-    protected $dependencyContainer;
-
-    public function install()
+            public function install()
     {
-        $this->dependencyContainer->getInstallerFacade()->installDemoData($this->messenger);
+        $this->getDependencyContainer()->getInstallerFacade()->installDemoData($this->messenger);
     }
 }

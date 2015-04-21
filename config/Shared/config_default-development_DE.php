@@ -1,10 +1,10 @@
 <?php
 
-use ProjectA\Shared\Mail\MailConfig;
-use ProjectA\Shared\Payone\PayoneConfig;
-use ProjectA\Shared\Setup\SetupConfig;
-use ProjectA\Shared\System\SystemConfig;
-use ProjectA\Shared\Yves\YvesConfig;
+use SprykerFeature\Shared\Mail\MailConfig;
+use SprykerFeature\Shared\Payone\PayoneConfig;
+use SprykerFeature\Shared\Setup\SetupConfig;
+use SprykerFeature\Shared\System\SystemConfig;
+use SprykerFeature\Shared\Yves\YvesConfig;
 
 $config[SystemConfig::ZED_MYSQL_USERNAME] = 'development';
 $config[SystemConfig::ZED_MYSQL_PASSWORD] = 'mate20mg';

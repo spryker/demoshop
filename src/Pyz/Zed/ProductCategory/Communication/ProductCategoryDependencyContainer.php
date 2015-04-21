@@ -3,7 +3,7 @@
 namespace Pyz\Zed\ProductCategory\Communication;
 
 use Pyz\Zed\ProductCategory\Business\ProductCategoryFacade;
-use ProjectA\Zed\ProductCategory\Communication\ProductCategoryDependencyContainer as
+use SprykerFeature\Zed\ProductCategory\Communication\ProductCategoryDependencyContainer as
     SprykerProductCategoryDependencyContainer;
 
 class ProductCategoryDependencyContainer extends SprykerProductCategoryDependencyContainer
@@ -14,7 +14,7 @@ class ProductCategoryDependencyContainer extends SprykerProductCategoryDependenc
      */
     public function getInstallerFacade()
     {
-        return $this->locator->productCategory()->facade();
+        return $this->getLocator()->productCategory()->facade();
     }
 
 }
