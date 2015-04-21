@@ -112,14 +112,18 @@ class SplitZedPackage extends AbstractRefactorer
         $path = str_replace(__DIR__ . '/../vendor/spryker/zed-package/', '', $file->getPathname());
         $pathParts = explode('/', $path);
 
+
+        if ($file->getFilename() === 'AuthTest.php') {
+            echo '<pre>' . PHP_EOL . \Symfony\Component\VarDumper\VarDumper::dump($pathParts) . PHP_EOL . 'Line: ' . __LINE__ . PHP_EOL . 'File: ' . __FILE__ . die();
+        }
+
+
         if (count($pathParts) <= 3) {
             return false;
         }
         if ($this->isTestFile($file)) {
-            echo $pathParts[4] . PHP_EOL;
             return $pathParts[4];
         }
-        echo $pathParts[3] . PHP_EOL;
 
         return $pathParts[3];
     }
