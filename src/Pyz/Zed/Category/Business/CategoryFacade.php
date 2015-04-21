@@ -2,9 +2,9 @@
 
 namespace Pyz\Zed\Category\Business;
 
+use ProjectA\Zed\Category\Business\CategoryDependencyContainer;
 use ProjectA\Zed\Category\Business\CategoryFacade as SprykerCategoryFacade;
 use ProjectA\Zed\ProductCategory\Dependency\Facade\ProductCategoryToCategoryInterface;
-use Psr\Log\LoggerInterface;
 
 class CategoryFacade extends SprykerCategoryFacade implements ProductCategoryToCategoryInterface
 {
@@ -14,11 +14,4 @@ class CategoryFacade extends SprykerCategoryFacade implements ProductCategoryToC
      */
     protected $dependencyContainer;
 
-    /**
-     * @param LoggerInterface $messenger
-     */
-    public function installDemoData(LoggerInterface $messenger)
-    {
-        $this->dependencyContainer->getDemoDataInstaller($messenger)->install();
-    }
 }
