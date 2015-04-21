@@ -17,6 +17,7 @@
     "symfony/twig-bridge": "~2.3,<3.0"
   },
   "require-dev": {
+    "knplabs/github-api": "1.4.7",
     "silex/web-profiler": "~1.0.2",
     "pdepend/pdepend": "*",
     "phpunit/phpunit": "~3.7.0",
@@ -38,11 +39,11 @@
   "repositories": [
     {
       "type": "git",
-      "url": "git@github.com:spryker/yves.git"
+      "url": "git@github.com:spryker/yves-package.git"
     },
     {
       "type": "git",
-      "url": "git@github.com:spryker/zed.git"
+      "url": "git@github.com:spryker/zed-package.git"
     }
   ]
 }
