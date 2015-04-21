@@ -22,7 +22,7 @@ class GitiffyBundles extends AbstractRefactorer
         $finder = $this->getBundleFinder();
 
         foreach ($finder as $dir) {
-
+            echo '<pre>' . PHP_EOL . var_dump($dir) . PHP_EOL . 'Line: ' . __LINE__ . PHP_EOL . 'File: ' . __FILE__ . die();
             // git init
             // git add
             // create repo
