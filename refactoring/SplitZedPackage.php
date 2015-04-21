@@ -127,7 +127,7 @@ class SplitZedPackage extends AbstractRefactorer
      */
     private function getNamespaceFromFile(SplFileInfo $file)
     {
-        $path = str_replace(__DIR__ . '/../vendor/spryker/yves-package/', '', $file->getPathname());
+        $path = str_replace(__DIR__ . '/../vendor/spryker/zed-package/', '', $file->getPathname());
         $pathParts = explode('/', $path);
 
         if ($this->isTestFile($file)) {

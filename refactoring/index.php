@@ -18,8 +18,8 @@ $consoleLogger = new ConsoleLogger(
 );
 $consoleLogger->info('starting refactoring');
 
-$refactor = new \ReneFactor\SplitYvesPackage($consoleLogger);
-$refactor->refactor();
+//$refactor = new \ReneFactor\SplitYvesPackage($consoleLogger);
+//$refactor->refactor();
 
 $refactor = new \ReneFactor\SplitZedPackage($consoleLogger);
 $refactor->refactor();
