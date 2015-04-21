@@ -64,6 +64,7 @@ class SplitZedPackage extends AbstractRefactorer
 
             if (!$bundle) {
                 $this->globalFiles[] = $file;
+
                 continue;
             }
             $namespace = $this->getNamespaceFromFile($file);
@@ -75,10 +76,11 @@ class SplitZedPackage extends AbstractRefactorer
 
             $destination = $this->getDestinationPath($bundle, $file);
 
-            $fileSystem->copy($file->getPathname(), $destination);
-            $fileSystem->remove($file->getPathname());
+//            $fileSystem->copy($file->getPathname(), $destination);
+//            $fileSystem->remove($file->getPathname());
         }
 
+        echo '<pre>' . PHP_EOL . \Symfony\Component\VarDumper\VarDumper::dump($this->bundles) . PHP_EOL . 'Line: ' . __LINE__ . PHP_EOL . 'File: ' . __FILE__ . die();
         $this->createBundleDefaultFiles();
         $this->addBundleFiles();
     }
