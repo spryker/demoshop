@@ -164,9 +164,9 @@ class SplitZedPackage extends AbstractRefactorer
                 $search = 'ZedPackage';
 
                 $content = str_replace($search, $bundle, $file->getContents());
-                file_put_contents($file->getPathname(), $content);
-
                 $destination = $this->getDestinationPath($bundle, $file);
+                file_put_contents($destination, $content);
+
                 $fileSystem->copy($file->getPathname(), $destination);
             }
         }
