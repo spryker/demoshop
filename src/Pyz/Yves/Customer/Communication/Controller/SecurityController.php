@@ -2,12 +2,16 @@
 
 namespace Pyz\Yves\Customer\Communication\Controller;
 
+use Pyz\Yves\Customer\CustomerDependencyContainer;
 use SprykerEngine\Yves\Application\Communication\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\RedirectResponse;
 use SprykerFeature\Shared\Customer\Code\Messages;
 use Pyz\Yves\Customer\Communication\Plugin\CustomerControllerProvider;
 
+/**
+ * @method CustomerDependencyContainer getDependencyContainer()
+ */
 class SecurityController extends AbstractController
 {
     /**
@@ -33,7 +37,7 @@ class SecurityController extends AbstractController
      */
     public function logoutAction(Request $request)
     {
-        $this->locator->customer()
+        $this->getLocator()->customer()
             ->pluginSecurityService()
             ->createUserProvider($request->getSession())
             ->logout($this->getUsername());
@@ -46,12 +50,12 @@ class SecurityController extends AbstractController
      */
     public function registerAction()
     {
-        $form = $this->createForm($this->dependencyContainer->createFormRegister());
+        $form = $this->createForm($this->getDependencyContainer()->createFormRegister());
 
         if ($form->isValid()) {
-            $customerTransfer = $this->locator->customer()->transferCustomer();
+            $customerTransfer = $this->getLocator()->customer()->transferCustomer();
             $customerTransfer->fromArray($form->getData());
-            $customerTransfer = $this->locator->customer()->sdk()->registerCustomer($customerTransfer);
+            $customerTransfer = $this->getLocator()->customer()->sdk()->registerCustomer($customerTransfer);
             if ($customerTransfer->getRegistrationKey()) {
                 $this->addMessageWarning(Messages::CUSTOMER_REGISTRATION_SUCCESS);
 
@@ -69,9 +73,9 @@ class SecurityController extends AbstractController
      */
     public function confirmRegistrationAction(Request $request)
     {
-        $customerTransfer = $this->locator->customer()->transferCustomer();
+        $customerTransfer = $this->getLocator()->customer()->transferCustomer();
         $customerTransfer->setRegistrationKey($request->query->get("token"));
-        $customerTransfer = $this->locator->customer()->sdk()->confirmRegistration($customerTransfer);
+        $customerTransfer = $this->getLocator()->customer()->sdk()->confirmRegistration($customerTransfer);
         if ($customerTransfer->getRegistered()) {
             $this->addMessageSuccess(Messages::CUSTOMER_REGISTRATION_CONFIRMED);
 

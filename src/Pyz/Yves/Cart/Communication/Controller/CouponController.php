@@ -49,11 +49,4 @@ class CouponController extends \SprykerEngine\Yves\Application\Communication\Con
         return $this->redirectResponseInternal(CartControllerProvider::ROUTE_CART);
     }
 
-    /**
-     * @return LocatorLocatorInterface
-     */
-    protected function getLocator()
-    {
-        return $this->locator;
     }
-}

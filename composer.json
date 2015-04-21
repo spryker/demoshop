@@ -39,11 +39,11 @@
   "repositories": [
     {
       "type": "git",
-      "url": "git@github.com:spryker/yves.git"
+      "url": "git@github.com:spryker/yves-package.git"
     },
     {
       "type": "git",
-      "url": "git@github.com:spryker/zed.git"
+      "url": "git@github.com:spryker/zed-package.git"
     }
   ]
 }

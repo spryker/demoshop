@@ -39,7 +39,7 @@ return [
         'Sales' => $schemaAndNavigation,
         'Salesrule' => $schemaAndNavigation,
         'Setup' => $navigation,
-        'Stock' => $schema,
+        'Stock' => $schemaAndNavigation,
         'System' => $navigation,
         'UiExample' => $schemaAndNavigation,
         'Locale' => $schema,

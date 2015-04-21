@@ -22,7 +22,7 @@ class CartController extends AbstractController
     public function indexAction(Request $request)
     {
         $cart = $this->getCart($request);
-        $productData = $this->locator->cart()->sdk()->getProductDataForCartItems($cart->getItems());
+        $productData = $this->getLocator()->cart()->sdk()->getProductDataForCartItems($cart->getItems());
 
         return $this->viewResponse([
             'cartItems' => $cart->getItems(),
@@ -71,11 +71,4 @@ class CartController extends AbstractController
         return $this->redirectResponseInternal(CartControllerProvider::ROUTE_CART);
     }
 
-    /**
-     * @return LocatorLocatorInterface
-     */
-    protected function getLocator()
-    {
-        return $this->locator;
     }
-}

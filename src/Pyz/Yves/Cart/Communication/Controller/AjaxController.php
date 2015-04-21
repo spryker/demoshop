@@ -30,11 +30,4 @@ class AjaxController extends AbstractController
         ]);
     }
 
-    /**
-     * @return LocatorLocatorInterface
-     */
-    protected function getLocator()
-    {
-        return $this->locator;
-    }
 }
