@@ -11,6 +11,10 @@ use Zend\Filter\Word\CamelCaseToDash;
 class GitiffyBundles extends AbstractRefactorer
 {
 
+    /**
+     * @var string
+     */
+    private $token = 'e62f441e558d0bf7d3960697754fbf0c9e7bd013';
 
     public function refactor()
     {

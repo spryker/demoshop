@@ -4,7 +4,7 @@
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "e3d3b81aab5ce4e2a9b57517c560d4d8",
+    "hash": "a05888b80a2bc1908b09be796186fa4b",
     "packages": [
         {
             "name": "digital-canvas/zend-framework",
@@ -934,7 +934,7 @@
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/yves.git",
-                "reference": "59962bbdab4aa5eabed9685a87c8183f0d58b01b"
+                "reference": "8a5c4085969f5bd693b928a628277bb9f4e080be"
             },
             "require": {
                 "php": ">=5.4.0"
@@ -946,7 +946,7 @@
             "autoload": {
                 "psr-0": {
                     "SprykerFeature": "src/",
-                    "SprykerCore": "src/",
+                    "SprykerEngine": "src/",
                     "Acceptance": "tests/",
                     "Function": "tests/",
                     "Integration": "tests/",
@@ -966,15 +966,15 @@
                 "Application",
                 "Yves"
             ],
-            "time": "2015-04-21 06:24:05"
+            "time": "2015-04-21 10:32:50"
         },
         {
             "name": "spryker/zed-package",
-            "version": "dev-feature/s-5-new-cart",
+            "version": "dev-master",
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/zed.git",
-                "reference": "32356936a7dc926eeca8c225530c200da8789122"
+                "reference": "0655ed7a3669cec19fcc16787fab222cc11af2a6"
             },
             "require": {
                 "digital-canvas/zend-framework": ">=1.12.2",
@@ -1018,9 +1018,9 @@
             "type": "library",
             "autoload": {
                 "psr-0": {
-                    "ProjectA": "src/",
-                    "SprykerCore": "src/",
                     "SprykerFeature": "src/",
+                    "SprykerCore": "src/",
+                    "SprykerEngine": "src/",
                     "Acceptance": "tests/",
                     "Function": "tests/",
                     "Integration": "tests/",
@@ -1041,7 +1041,7 @@
                 "Application",
                 "Zed"
             ],
-            "time": "2015-04-20 21:28:53"
+            "time": "2015-04-21 13:14:18"
         },
         {
             "name": "symfony-cmf/routing",
@@ -3360,6 +3360,67 @@
                 "webtest"
             ],
             "time": "2013-10-04 15:03:51"
+        },
+        {
+            "name": "knplabs/github-api",
+            "version": "1.4.7",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/KnpLabs/php-github-api.git",
+                "reference": "d2729cf6b9d5b6fa340b1ff001dd89e319741baa"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/KnpLabs/php-github-api/zipball/d2729cf6b9d5b6fa340b1ff001dd89e319741baa",
+                "reference": "d2729cf6b9d5b6fa340b1ff001dd89e319741baa",
+                "shasum": ""
+            },
+            "require": {
+                "ext-curl": "*",
+                "guzzle/guzzle": "~3.7",
+                "php": ">=5.3.2"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "~4.0"
+            },
+            "suggest": {
+                "knplabs/gaufrette": "Needed for optional Gaufrette cache"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "1.4.x-dev"
+                }
+            },
+            "autoload": {
+                "psr-0": {
+                    "Github\\": "lib/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Thibault Duplessis",
+                    "email": "thibault.duplessis@gmail.com",
+                    "homepage": "http://ornicar.github.com"
+                },
+                {
+                    "name": "KnpLabs Team",
+                    "homepage": "http://knplabs.com"
+                }
+            ],
+            "description": "GitHub API v3 client",
+            "homepage": "https://github.com/KnpLabs/php-github-api",
+            "keywords": [
+                "api",
+                "gh",
+                "gist",
+                "github"
+            ],
+            "time": "2015-04-07 20:24:33"
         },
         {
             "name": "pdepend/pdepend",
