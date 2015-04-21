@@ -35,6 +35,7 @@ class SplitZedPackage extends AbstractRefactorer
             if ($file->getFilename() === 'codeception.yml'
                 || $file->getFilename() === 'composer.json'
                 || $file->getFilename() === '.gitignore'
+                || $file->getFilename() === '.php_cs'
             ) {
                 continue;
             }
@@ -78,8 +79,19 @@ class SplitZedPackage extends AbstractRefactorer
 
             $destination = $this->getDestinationPath($bundle, $file);
 
+            if ($this->isTestFile($file)) {
+                $search = 'namespace ZedPackage;';
+                $replace = 'namespace ' . $bundle . ';';
+
+                $content = str_replace($search, $replace, $file->getContents());
+
+                file_put_contents($file->getPathname(), $content);
+            }
+
             $fileSystem->copy($file->getPathname(), $destination);
             $fileSystem->remove($file->getPathname());
+
+
         }
 
         $this->createBundleDefaultFiles();
