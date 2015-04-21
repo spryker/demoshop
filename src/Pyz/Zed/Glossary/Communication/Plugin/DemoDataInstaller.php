@@ -2,7 +2,7 @@
 
 namespace Pyz\Zed\Glossary\Communication\Plugin;
 
-use ProjectA\Zed\Installer\Communication\Plugin\AbstractInstallerPlugin;
+use SprykerFeature\Zed\Installer\Communication\Plugin\AbstractInstallerPlugin;
 use Pyz\Zed\Glossary\Communication\GlossaryDependencyContainer;
 
 class DemoDataInstaller extends AbstractInstallerPlugin

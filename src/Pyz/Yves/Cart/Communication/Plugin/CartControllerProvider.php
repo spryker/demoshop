@@ -2,16 +2,16 @@
 
 namespace Pyz\Yves\Cart\Communication\Plugin;
 
-use SprykerCore\Yves\Application\Communication\Plugin\YvesControllerProvider;
+use SprykerEngine\Yves\Application\Communication\Plugin\YvesControllerProvider;
 use Silex\Application;
-use SprykerCore\Yves\Kernel\Locator;
+use SprykerEngine\Yves\Kernel\Locator;
 use Symfony\Component\HttpFoundation\Request;
 
 /**
  * Class CartControllerProvider
  * @package Pyz\Yves\Cart\Communication\Plugin
  */
-class CartControllerProvider extends \SprykerCore\Yves\Application\Communication\Plugin\YvesControllerProvider
+class CartControllerProvider extends \SprykerEngine\Yves\Application\Communication\Plugin\YvesControllerProvider
 {
     const ROUTE_CART = 'cart';
     const ROUTE_CART_ADD = 'cart/add';
@@ -73,7 +73,7 @@ class CartControllerProvider extends \SprykerCore\Yves\Application\Communication
     /**
      * @param mixed   $unused
      * @param Request $request
-     * @return \ProjectA\Shared\Cart\Transfer\CartItem
+     * @return \SprykerFeature\Shared\Cart\Transfer\CartItem
      */
     public function convertCartItem($unused, Request $request)
     {

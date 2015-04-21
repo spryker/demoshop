@@ -2,8 +2,8 @@
 
 namespace Pyz\Zed\Installer\Business;
 
-use ProjectA\Zed\Installer\Business\InstallerSettings as SprykerInstallerSettings;
-use ProjectA\Zed\Installer\Business\Model\AbstractInstaller;
+use SprykerFeature\Zed\Installer\Business\InstallerSettings as SprykerInstallerSettings;
+use SprykerFeature\Zed\Installer\Business\Model\AbstractInstaller;
 
 class InstallerSettings extends SprykerInstallerSettings
 {

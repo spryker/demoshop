@@ -6,12 +6,12 @@
 
 namespace Pyz\Zed\Touch\Business;
 
-use ProjectA\Zed\Category\Dependency\Facade\CategoryToTouchInterface;
-use ProjectA\Zed\Price\Dependency\Facade\PriceToTouchInterface;
-use ProjectA\Zed\Product\Dependency\Facade\ProductToTouchInterface;
-use ProjectA\Zed\ProductSearch\Dependency\Facade\ProductSearchToTouchInterface;
-use ProjectA\Zed\Stock\Dependency\Facade\StockToTouchInterface;
-use SprykerCore\Zed\Touch\Business\TouchFacade as SprykerTouchFacade;
+use SprykerFeature\Zed\Category\Dependency\Facade\CategoryToTouchInterface;
+use SprykerFeature\Zed\Price\Dependency\Facade\PriceToTouchInterface;
+use SprykerFeature\Zed\Product\Dependency\Facade\ProductToTouchInterface;
+use SprykerFeature\Zed\ProductSearch\Dependency\Facade\ProductSearchToTouchInterface;
+use SprykerFeature\Zed\Stock\Dependency\Facade\StockToTouchInterface;
+use SprykerEngine\Zed\Touch\Business\TouchFacade as SprykerTouchFacade;
 use SprykerFeature\Zed\Cms\Dependency\Facade\CmsToTouchInterface;
 use SprykerFeature\Zed\Glossary\Dependency\Facade\GlossaryToTouchInterface;
 use SprykerFeature\Zed\Url\Dependency\UrlToTouchInterface;

@@ -1,13 +1,13 @@
 <?php
 
-use ProjectA\Shared\DbDump\DbDumpConfig;
-use ProjectA\Shared\Glossary\GlossaryConfig;
-use ProjectA\Shared\Customer\CustomerConfig;
+use SprykerFeature\Shared\DbDump\DbDumpConfig;
+use SprykerFeature\Shared\Glossary\GlossaryConfig;
+use SprykerFeature\Shared\Customer\CustomerConfig;
 use Pyz\Shared\Mail\MailConfig;
-use ProjectA\Shared\Payone\PayoneConfig;
-use ProjectA\Shared\ProductImage\ProductImageConfig;
-use ProjectA\Shared\System\SystemConfig;
-use ProjectA\Shared\Yves\YvesConfig;
+use SprykerFeature\Shared\Payone\PayoneConfig;
+use SprykerFeature\Shared\ProductImage\ProductImageConfig;
+use SprykerFeature\Shared\System\SystemConfig;
+use SprykerFeature\Shared\Yves\YvesConfig;
 use SprykerFeature\Zed\Acl\Business\AclSettings;
 use SprykerFeature\Zed\Auth\Business\AuthSettings;
 use SprykerFeature\Zed\User\Business\UserSettings;
@@ -16,9 +16,8 @@ $config[SystemConfig::PROJECT_NAMESPACES] = [
     'Pyz'
 ];
 $config[SystemConfig::CORE_NAMESPACES] = [
-    'ProjectA',
     'SprykerFeature',
-    'SprykerCore'
+    'SprykerEngine'
 ];
 
 $config[SystemConfig::CURRENT_APPLICATION_STORE] = APPLICATION_STORE;
@@ -85,7 +84,7 @@ $config[YvesConfig::YVES_ERROR_PAGE] = APPLICATION_ROOT_DIR . '/static/public/Yv
 $config[CustomerConfig::CUSTOMER_SECURED_PATTERN] = "(^/login_check$|^/customer)";
 $config[CustomerConfig::CUSTOMER_ANONYMOUS_PATTERN] = "^/.*";
 
-$currentStore = \ProjectA\Shared\Kernel\Store::getInstance()->getStoreName();
+$currentStore = \SprykerEngine\Shared\Kernel\Store::getInstance()->getStoreName();
 $config[SystemConfig::PROPEL] = [
     'database' => [
         'connections' => [
@@ -113,8 +112,8 @@ $config[SystemConfig::PROPEL] = [
         'objectModel' => [
             'defaultKeyType' => 'fieldName',
             'builders' => [
-                'tablemap' => '\ProjectA\Zed\Kernel\Persistence\Propel\Builder\TableMapBuilder',
-                'query' => '\ProjectA\Zed\Kernel\Persistence\Propel\Builder\QueryBuilder'
+                'tablemap' => '\SprykerEngine\Zed\Kernel\Persistence\Propel\Builder\TableMapBuilder',
+                'query' => '\SprykerEngine\Zed\Kernel\Persistence\Propel\Builder\QueryBuilder'
             ]
         ]
     ],

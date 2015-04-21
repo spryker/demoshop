@@ -3,7 +3,7 @@
 namespace Pyz\Zed\Price\Business;
 
 use Generated\Zed\Ide\FactoryAutoCompletion\PriceBusiness;
-use ProjectA\Zed\Price\Business\PriceDependencyContainer as SprykerPriceDependencyContainer;
+use SprykerFeature\Zed\Price\Business\PriceDependencyContainer as SprykerPriceDependencyContainer;
 use Psr\Log\LoggerInterface;
 use Pyz\Zed\Price\Business\Internal\DemoData\PriceInstall;
 

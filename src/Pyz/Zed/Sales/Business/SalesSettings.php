@@ -2,17 +2,17 @@
 
 namespace Pyz\Zed\Sales\Business;
 
-use ProjectA\Shared\Sales\Transfer\Order;
-use ProjectA\Zed\Sales\Business\SalesSettings as ProjectASalesSettings;
+use SprykerFeature\Shared\Sales\Transfer\Order;
+use SprykerFeature\Zed\Sales\Business\SalesSettings as SprykerFeatureSalesSettings;
 use Pyz\Zed\Sales\Business\ConstantsInterface\Orderprocess;
-use ProjectA\Zed\Payone\Business\Model\Api\ApiConstants as PayoneApiConstants;
-use ProjectA\Shared\Sales\Transfer\OrderItem;
+use SprykerFeature\Zed\Payone\Business\Model\Api\ApiConstants as PayoneApiConstants;
+use SprykerFeature\Shared\Sales\Transfer\OrderItem;
 
-class SalesSettings extends ProjectASalesSettings
+class SalesSettings extends SprykerFeatureSalesSettings
 {
     /**
      * @throws \Exception
-     * @return \ProjectA_Zed_Sales_Business_Interface_StatemachineFactoryHook
+     * @return \SprykerFeature_Zed_Sales_Business_Interface_StatemachineFactoryHook
      */
     public function getStateMachineFactoryHook()
     {
@@ -21,7 +21,7 @@ class SalesSettings extends ProjectASalesSettings
 
     /**
      * @throws \Exception
-     * @return \ProjectA_Zed_Library_StateMachine_Definition_Container
+     * @return \SprykerFeature_Zed_Library_StateMachine_Definition_Container
      */
     public function getStatemachineDefinitionContainer()
     {

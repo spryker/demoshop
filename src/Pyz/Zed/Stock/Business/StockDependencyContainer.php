@@ -3,8 +3,8 @@
 namespace Pyz\Zed\Stock\Business;
 
 use Generated\Zed\Ide\FactoryAutoCompletion\StockBusiness;
-use ProjectA\Zed\Stock\Business\StockDependencyContainer as SprykerStockDependencyContainer;
-use ProjectA\Zed\Stock\Persistence\StockQueryContainer;
+use SprykerFeature\Zed\Stock\Business\StockDependencyContainer as SprykerStockDependencyContainer;
+use SprykerFeature\Zed\Stock\Persistence\StockQueryContainer;
 use Psr\Log\LoggerInterface;
 use Pyz\Zed\Stock\Business\Internal\DemoData\StockInstall;
 

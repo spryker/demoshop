@@ -3,15 +3,15 @@
 namespace Pyz\Zed\Stock\Business\Internal\DemoData;
 
 use Generated\Zed\Ide\AutoCompletion;
-use ProjectA\Shared\Kernel\LocatorLocatorInterface;
-use ProjectA\Shared\Stock\Transfer\StockProduct;
-use ProjectA\Shared\Stock\Transfer\StockType;
-use ProjectA\Zed\Installer\Business\Model\AbstractInstaller;
-use ProjectA\Zed\Kernel\Locator;
-use ProjectA\Zed\Library\Import\Reader\CsvFileReader;
-use ProjectA\Zed\Stock\Business\StockFacade;
-use ProjectA\Zed\Stock\Persistence\Propel\SpyStock;
-use ProjectA\Zed\Stock\Persistence\StockQueryContainer;
+use SprykerEngine\Shared\Kernel\LocatorLocatorInterface;
+use SprykerFeature\Shared\Stock\Transfer\StockProduct;
+use SprykerFeature\Shared\Stock\Transfer\StockType;
+use SprykerFeature\Zed\Installer\Business\Model\AbstractInstaller;
+use SprykerEngine\Zed\Kernel\Locator;
+use SprykerFeature\Zed\Library\Import\Reader\CsvFileReader;
+use SprykerFeature\Zed\Stock\Business\StockFacade;
+use SprykerFeature\Zed\Stock\Persistence\Propel\SpyStock;
+use SprykerFeature\Zed\Stock\Persistence\StockQueryContainer;
 
 class StockInstall extends AbstractInstaller
 {

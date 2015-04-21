@@ -6,7 +6,7 @@
 
 namespace Pyz\Zed\Glossary\Communication\Plugin;
 
-use ProjectA\Zed\Kernel\Communication\AbstractPlugin;
+use SprykerEngine\Zed\Kernel\Communication\AbstractPlugin;
 use SprykerFeature\Zed\Glossary\Communication\GlossaryDependencyContainer;
 use SprykerFeature\Zed\Glossary\Dependency\Plugin\GlossaryInstallerPluginInterface;
 use Symfony\Component\Yaml\Yaml;

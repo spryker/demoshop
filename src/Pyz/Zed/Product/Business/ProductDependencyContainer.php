@@ -3,8 +3,8 @@
 namespace Pyz\Zed\Product\Business;
 
 use Generated\Zed\Ide\FactoryAutoCompletion\ProductBusiness;
-use ProjectA\Zed\Product\Business\Builder\SimpleAttributeMergeBuilder;
-use ProjectA\Zed\Product\Business\ProductDependencyContainer as SprykerDependencyContainer;
+use SprykerFeature\Zed\Product\Business\Builder\SimpleAttributeMergeBuilder;
+use SprykerFeature\Zed\Product\Business\ProductDependencyContainer as SprykerDependencyContainer;
 use Psr\Log\LoggerInterface;
 use Pyz\Zed\Product\Business\Internal\DemoData\ProductDataInstall;
 

@@ -2,10 +2,10 @@
 
 namespace Pyz\Yves\Customer\Communication\Controller;
 
-use SprykerCore\Yves\Application\Communication\Controller\AbstractController;
+use SprykerEngine\Yves\Application\Communication\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\RedirectResponse;
-use ProjectA\Shared\Customer\Code\Messages;
+use SprykerFeature\Shared\Customer\Code\Messages;
 use Pyz\Yves\Customer\Communication\Plugin\CustomerControllerProvider;
 
 class SecurityController extends AbstractController

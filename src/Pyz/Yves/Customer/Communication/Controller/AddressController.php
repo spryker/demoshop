@@ -2,8 +2,8 @@
 
 namespace Pyz\Yves\Customer\Communication\Controller;
 
-use ProjectA\Shared\Customer\Code\Messages;
-use SprykerCore\Yves\Application\Communication\Controller\AbstractController;
+use SprykerFeature\Shared\Customer\Code\Messages;
+use SprykerEngine\Yves\Application\Communication\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;

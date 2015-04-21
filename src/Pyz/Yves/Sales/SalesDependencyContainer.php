@@ -2,11 +2,11 @@
 
 namespace Pyz\Yves\Sales;
 
-use ProjectA\Shared\Payment\Transfer\PaymentMethodCollection;
+use SprykerFeature\Shared\Payment\Transfer\PaymentMethodCollection;
 use Pyz\Yves\Sales\Form\BillingAddressType;
 use Pyz\Yves\Sales\Form\OrderType;
 use Pyz\Yves\Sales\Form\ShippingAddressType;
-use SprykerCore\Yves\Kernel\AbstractDependencyContainer;
+use SprykerEngine\Yves\Kernel\AbstractDependencyContainer;
 
 /**
  * Class SalesDependencyContainer

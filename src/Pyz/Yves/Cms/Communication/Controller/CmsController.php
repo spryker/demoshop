@@ -2,7 +2,7 @@
 
 namespace Pyz\Yves\Cms\Communication\Controller;
 
-use SprykerCore\Yves\Application\Communication\Controller\AbstractController;
+use SprykerEngine\Yves\Application\Communication\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 

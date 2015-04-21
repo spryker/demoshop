@@ -2,10 +2,10 @@
 
 namespace Pyz\Sdk\ZedRequest;
 
-use ProjectA\Shared\Kernel\LocatorLocatorInterface;
+use SprykerEngine\Shared\Kernel\LocatorLocatorInterface;
 use SprykerFeature\Sdk\Auth\Client\StaticToken;
-use ProjectA\Shared\Library\Config;
-use ProjectA\Shared\System\SystemConfig;
+use SprykerFeature\Shared\Library\Config;
+use SprykerFeature\Shared\System\SystemConfig;
 use Generated\Yves\Ide\AutoCompletion;
 
 class ZedRequestSettings

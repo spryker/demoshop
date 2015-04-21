@@ -2,10 +2,10 @@
 
 namespace Pyz\Yves\Catalog\Communication\Controller;
 
-use SprykerCore\Yves\Application\Communication\Controller\AbstractController;
+use SprykerEngine\Yves\Application\Communication\Controller\AbstractController;
 use Pyz\Yves\Library\Tracking\DataProvider\ProductDetailProvider;
-use ProjectA\Yves\Library\Tracking\PageTypeInterface;
-use ProjectA\Yves\Library\Tracking\Tracking;
+use SprykerFeature\Yves\Library\Tracking\PageTypeInterface;
+use SprykerFeature\Yves\Library\Tracking\Tracking;
 use Symfony\Component\HttpFoundation\Request;
 
 class CatalogController extends AbstractController

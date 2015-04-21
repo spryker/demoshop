@@ -1,7 +1,7 @@
 <?php
 
 namespace Pyz\Yves\Catalog\Business;
-use ProjectA\Shared\Price\Code\PriceTypeConstants;
+use SprykerFeature\Shared\Price\Code\PriceTypeConstants;
 
 /**
  * @package Pyz\Yves\Catalog\Business

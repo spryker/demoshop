@@ -2,7 +2,7 @@
 
 namespace Pyz\Zed\Category\Business;
 
-use ProjectA\Zed\Category\Business\CategoryDependencyContainer as SprykerCategoryDependencyContainer;
+use SprykerFeature\Zed\Category\Business\CategoryDependencyContainer as SprykerCategoryDependencyContainer;
 use Pyz\Zed\Category\Business\Internal\DemoData\CategoryTreeInstall;
 use Psr\Log\LoggerInterface;
 

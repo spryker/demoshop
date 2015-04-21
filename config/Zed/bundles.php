@@ -1,24 +1,24 @@
 <?php
-use ProjectA\Shared\Library\Config;
-use ProjectA\Shared\System\SystemConfig;
+use SprykerFeature\Shared\Library\Config;
+use SprykerFeature\Shared\System\SystemConfig;
 
 $allElements = [
-    ProjectA\Shared\Library\Bundle\BundleConfig::ACTIVATE_NAVIGATION,
-    ProjectA\Shared\Library\Bundle\BundleConfig::ACTIVATE_SCHEMA
+    SprykerFeature\Shared\Library\Bundle\BundleConfig::ACTIVATE_NAVIGATION,
+    SprykerFeature\Shared\Library\Bundle\BundleConfig::ACTIVATE_SCHEMA
 ];
 $schemaAndNavigation = [
-    ProjectA\Shared\Library\Bundle\BundleConfig::ACTIVATE_SCHEMA,
-    ProjectA\Shared\Library\Bundle\BundleConfig::ACTIVATE_NAVIGATION
+    SprykerFeature\Shared\Library\Bundle\BundleConfig::ACTIVATE_SCHEMA,
+    SprykerFeature\Shared\Library\Bundle\BundleConfig::ACTIVATE_NAVIGATION
 ];
-$navigation = [ProjectA\Shared\Library\Bundle\BundleConfig::ACTIVATE_NAVIGATION];
-$schema = [ProjectA\Shared\Library\Bundle\BundleConfig::ACTIVATE_SCHEMA];
+$navigation = [SprykerFeature\Shared\Library\Bundle\BundleConfig::ACTIVATE_NAVIGATION];
+$schema = [SprykerFeature\Shared\Library\Bundle\BundleConfig::ACTIVATE_SCHEMA];
 
 return [
     // Project bundles
     Config::get(SystemConfig::PROJECT_NAMESPACE) => [],
 
     // Core bundles
-    ProjectA\Shared\Library\Bundle\BundleConfig::VENDOR => [
+    SprykerFeature\Shared\Library\Bundle\BundleConfig::VENDOR => [
         'Auth' => $schema,
         'Acl' => $schema,
         'User' => $schema,
