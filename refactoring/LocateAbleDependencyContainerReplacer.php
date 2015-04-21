@@ -17,13 +17,26 @@ class LocateAbleDependencyContainerReplacer extends AbstractRefactorer
         $finderCollection[] = $this->getSdkFinder();
         $finderCollection[] = $this->getQueryContainerFinder();
         $finderCollection[] = $this->getPluginFinder();
+//        $finderCollection[] = $this->getControllerFinder();
 
         $dependencyContainerPropertyRemover = new DependencyContainerPropertyRemover($this->logger);
         $dependencyContainerAccessReplacer = new DependencyContainerAccessReplacer($this->logger);
         $dependencyContainerMethodRemover = new DependencyContainerMethodRemover($this->logger);
+        $locatorAccessReplacer = new LocatorAccessReplacer($this->logger);
+        $locatorPropertyRemover = new LocatorPropertyRemover($this->logger);
+        $locatorMethodRemover = new LocatorMethodRemover($this->logger);
 
         foreach ($finderCollection as $finder) {
             foreach ($finder as $file) {
+                $locatorAccessReplacer->setFile($file);
+                $locatorAccessReplacer->refactor();
+
+                $locatorPropertyRemover->setFile($file);
+                $locatorPropertyRemover->refactor();
+
+                $locatorMethodRemover->setFile($file);
+                $locatorMethodRemover->refactor();
+
                 $dependencyContainerPropertyRemover->setFile($file);
                 $dependencyContainerPropertyRemover->refactor();
 
@@ -93,6 +106,23 @@ class LocateAbleDependencyContainerReplacer extends AbstractRefactorer
             __DIR__ . '/../src/Pyz/*/*/Plugin/',
             __DIR__ . '/../vendor/spryker/*/src/*/*/*/Communication/Plugin/',
             __DIR__ . '/../vendor/spryker/*/src/*/*/*/Plugin/',
+        ];
+        $finder = new Finder();
+        $finder->files()->in($paths);
+
+        return $finder;
+    }
+
+    /**
+     * @return Finder
+     */
+    private function getControllerFinder()
+    {
+        $paths = [
+            __DIR__ . '/../src/Pyz/*/*/Communication/Controller/',
+//            __DIR__ . '/../src/Pyz/*/*/Controller/',
+            __DIR__ . '/../vendor/spryker/*/src/*/*/*/Communication/Controller/',
+            __DIR__ . '/../vendor/spryker/*/src/*/*/*/Controller/',
         ];
         $finder = new Finder();
         $finder->files()->in($paths);

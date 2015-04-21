@@ -5,8 +5,8 @@ namespace Pyz\Sdk\ZedRequest;
 use SprykerEngine\Shared\Kernel\LocatorLocatorInterface;
 use SprykerFeature\Sdk\Auth\Client\StaticToken;
 use SprykerFeature\Shared\Library\Config;
-use SprykerFeature\Shared\System\SystemConfig;
 use Generated\Yves\Ide\AutoCompletion;
+use SprykerFeature\Shared\Auth\AuthConfig;
 
 class ZedRequestSettings
 {
@@ -27,8 +27,8 @@ class ZedRequestSettings
      */
     public function getHeaders()
     {
-        $authConfig = Config::get(SystemConfig::ZED_AUTH_SETTINGS);
-        $rawToken = $authConfig['credentials']['_yves']['token'];
+        $authConfig = Config::get(AuthConfig::AUTH_DEFAULT_CREDENTIALS);
+        $rawToken = $authConfig['yves_system']['token'];
 
         $staticToken = $this->getStaticToken();
         $staticToken->setRawToken($rawToken);

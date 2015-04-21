@@ -53,9 +53,9 @@ class CheckoutController extends AbstractController
 
         $cart->clear();
         $productData = $this->getCartSdk()->getProductDataForCartItems($cartItems);
-        $cartModel = $this->locator->cart()->pluginCartSession()->createCartSession($this->getTransferSession());
+        $cartModel = $this->getLocator()->cart()->pluginCartSession()->createCartSession($this->getTransferSession());
         $cartModel->clear();
-        $cartItemCount = $this->locator->cart()
+        $cartItemCount = $this->getLocator()->cart()
             ->pluginCartSessionCount()
             ->createCartSessionCount($request->getSession())->getCount();
 
@@ -73,7 +73,7 @@ class CheckoutController extends AbstractController
      */
     protected function createOrderForm()
     {
-        return $this->locator->sales()->pluginOrderTypeForm()->createOrderTypeForm();
+        return $this->getLocator()->sales()->pluginOrderTypeForm()->createOrderTypeForm();
     }
 
     /**
@@ -85,7 +85,7 @@ class CheckoutController extends AbstractController
     {
         if ($form->isValid()) {
             $checkoutSdk = $this->getCheckoutSdk($request);
-            /** @var Order $orderTransfer */
+        /** @var Order $orderTransfer */
             $orderTransfer = $form->getData();
 
             $transferResponse = $checkoutSdk->saveOrder($orderTransfer);
@@ -100,7 +100,7 @@ class CheckoutController extends AbstractController
                 \SprykerFeature_Shared_Checkout_Code_Messages::ERROR_ORDER_IS_ALREADY_SAVED
             )
             ) {
-                $cart->setOrder($this->locator->sales()->transferSalesOrder());
+                $cart->setOrder($this->getLocator()->sales()->transferSalesOrder());
                 return $this->redirectResponseInternal(CartControllerProvider::ROUTE_CART);
             }
         }
@@ -127,12 +127,12 @@ class CheckoutController extends AbstractController
         // This is really ugly, but i need this to have valid data for the payment control
         // This needs to be refactored after discussion...
         $all = $request->request->all();
-        $billingAddress = $this->locator->sales()->transferAddress();
+        $billingAddress = $this->getLocator()->sales()->transferAddress();
         if (isset($all['salesOrder']) && isset($all['salesOrder']['billingAddress'])) {
             $billingAddress->fromArray($all['salesOrder']['billingAddress'], true);
         }
 
-        $shippingAddress = $this->locator->sales()->transferAddress();
+        $shippingAddress = $this->getLocator()->sales()->transferAddress();
         if (isset($all['salesOrder']) && isset($all['salesOrder']['shippingAddress'])) {
             $shippingAddress->fromArray($all['salesOrder']['shippingAddress'], true);
         }
@@ -186,7 +186,7 @@ class CheckoutController extends AbstractController
      */
     protected function getCheckoutSdk()
     {
-        return $this->locator->checkout()->sdk();
+        return $this->getLocator()->checkout()->sdk();
     }
 
     /**
@@ -194,14 +194,7 @@ class CheckoutController extends AbstractController
      */
     protected function getCartSdk()
     {
-        return $this->locator->cart()->sdk();
+        return $this->getLocator()->cart()->sdk();
     }
 
-    /**
-     * @return LocatorLocatorInterface
-     */
-    protected function getLocator()
-    {
-        return $this->locator;
     }
-}
