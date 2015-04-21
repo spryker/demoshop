@@ -1,0 +1,50 @@
+{{> head}}
+{{> header}}
+<div class="catalog">
+  <h1 class="catalog__section-title">Wild life</h1>
+
+  <div class="catalog__filter">
+    <section class="filter__category">
+      <ul class="filter__category-list">
+        <li>{{> catalog/filter-category name='Alle' id='123' quantity='40' checked=true}}</li>
+        <li>{{> catalog/filter-category name='Afrika' id='456' quantity='12'}}</li>
+        <li>{{> catalog/filter-category name='Asien und Australien' id='789' quantity='8'}}</li>
+        <li>{{> catalog/filter-category name='Arktis und Antarktis' id='135' quantity='5'}}</li>
+        <li>{{> catalog/filter-category name='Amerika' id='246' quantity='7'}}</li>
+        <li>{{> catalog/filter-category name='Meere' id='123' quantity='8'}}</li>
+      </ul>
+    </section>
+
+    <section class="filter__color">
+      <h1 class="filter__title">Farbe</h1>
+      <ul class="filter__color-list">
+        <li>{{> catalog/filter-color hex='#ffffff' id='123' quantity='40' checked=true}}</li>
+        <li>{{> catalog/filter-color hex='#000000' id='456' quantity='12'}}</li>
+        <li>{{> catalog/filter-color hex='#4c90dd' id='789' quantity='8'}}</li>
+        <li>{{> catalog/filter-color hex='#89562b' id='135' quantity='5'}}</li>
+        <li>{{> catalog/filter-color hex='#9b9b9b' id='246' quantity='7'}}</li>
+      </ul>
+    </section>
+
+    <section class="filter__price">
+      <h1 class="filter__title">Preis</h1>
+      <div class="filter__price-slider js-price-slider"></div>
+      <p>Preisspanne von <span class="filter__price-min js-filter-price-min">0</span> bis <span class="filter__price-max js-filter-price-max">200</span></p>
+    </section>
+
+    <section class="filter__extras">
+      <h1 class="filter__title">Sonstige Merkmale</h1>
+      <ul class="filter__extras-list">
+        <li>{{> catalog/filter-extras name='Neu' id='123' quantity='40'}}</li>
+        <li>{{> catalog/filter-extras name='Sale' id='456' quantity='12'}}</li>
+        <li>{{> catalog/filter-extras name='Besonders toll' id='789' quantity='8'}}</li>
+        <li>{{> catalog/filter-extras name='Aus Kunststoff' id='135' quantity='5'}}</li>
+        <li>{{> catalog/filter-extras name='Aus Holz' id='246' quantity='7'}}</li>
+      </ul>
+    </section>
+  </div>
+</div>
+
+
+{{> footer}}
+{{> foot}}

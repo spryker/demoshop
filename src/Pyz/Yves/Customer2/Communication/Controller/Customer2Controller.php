@@ -8,6 +8,11 @@ use Symfony\Component\HttpFoundation\Request;
 
 class Customer2Controller extends AbstractController
 {
+
+    /**
+     * @param Request $req
+     * @return array|\Symfony\Component\HttpFoundation\RedirectResponse
+     */
     public function loginAction(Request $req)
     {
         /** @var CustomerTransfer $customerTransfer */
@@ -25,9 +30,12 @@ class Customer2Controller extends AbstractController
             }
         }
 
-        return $this->viewResponse(["customer" => $customerTransfer]);
+        return $this->redirectResponseInternal("/");
     }
 
+    /**
+     * @param Request $req
+     */
     public function logoutAction(Request $req)
     {
         if ($req->isMethod("POST")) {
@@ -35,6 +43,10 @@ class Customer2Controller extends AbstractController
         }
     }
 
+    /**
+     * @param Request $req
+     * @return array|\Symfony\Component\HttpFoundation\RedirectResponse
+     */
     public function registerAction(Request $req)
     {
         /** @var CustomerTransfer $customerTransfer */
@@ -52,9 +64,13 @@ class Customer2Controller extends AbstractController
             }
         }
 
-        return $this->viewResponse(["customer" => $customerTransfer]);
+        return $this->redirectResponseInternal("/");
     }
 
+    /**
+     * @param Request $req
+     * @return \Symfony\Component\HttpFoundation\RedirectResponse
+     */
     public function confirmRegistrationAction(Request $req)
     {
         if ($this->locator->customer2()->sdk()->confirmRegistration($req->get("token"))) {

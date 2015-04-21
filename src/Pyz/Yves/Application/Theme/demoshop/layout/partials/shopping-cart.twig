@@ -1,0 +1,38 @@
+<div class="shopping-cart js-shopping-cart">
+  <a href="#" class="cart__toggle js-cart-toggle">Warenkorb</a>
+  <a href="#" class="cart__close js-cart-close">Close</a>
+  <div class="cart__contents">
+    <table class="cart__content-list">
+      <tr>
+        <th class="cart__item-name">Deine Bestellung</th>
+        <th class="cart__item-quantity"></th>
+        <th class="cart__item-price">Preis</th>
+      </tr>
+      <tr>
+        <td class="cart__item-name">Batman</td>
+        <td class="cart__item-quantity">{% include "@application/layout/partials/spinner.twig" with {color:"light", value:"10"} %}</td>
+        <td class="cart__item-price">€ 12,99</td>
+      </tr>
+      <tr>
+        <td class="cart__item-name">Brillenpinguin</td>
+        <td class="cart__item-quantity">{% include "@application/layout/partials/spinner.twig" with {color:"light", value:"1"} %}</td>
+        <td class="cart__item-price">€ 8,99</td>
+      </tr>
+      <tr>
+        <td class="cart__item-name">Drachenritter Berserker</td>
+        <td class="cart__item-quantity">{% include "@application/layout/partials/spinner.twig" with {color:"light", value:"2"} %}</td>
+        <td class="cart__item-price">€ 28,99</td>
+      </tr>
+      <tr>
+        <td class="cart__item-name">+ Versand</td>
+        <td class="cart__item-quantity"></td>
+        <td class="cart__item-price">€ 2,50</td>
+      </tr>
+      <tr class="cart__totals">
+        <td class="cart__total-label" colspan="2">Gesamt</td>
+        <td class="cart__total-price">€ 53,47</td>
+      </tr>
+    </table>
+    <a class="cart__to-checkout cta">Zur Kasse</a>
+  </div>
+</div>

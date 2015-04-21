@@ -1,0 +1,41 @@
+{% extends "@application/layout/full.twig" %}
+
+{% block content %}
+    {% include "@application/partials/navbar.twig" with {'categories': categories } only %}
+    <link rel="stylesheet" href="{{ asset('/styles/home.css') }}" />
+
+    <div class="consumeHeight" id="home">
+        <section id="teaser" class="slideshow borders">
+            <ul>
+                <li><a href="/wuff-the-dog"><img src="images/slide1.jpg" width="100%" alt="" /></a></li>
+                {#<li><a href="/stehleuchte-lupus-wald"><img src="images/slide2.jpg" width="100%" alt="" /></a></li>#}
+                {#<li><a href="/kronleuchter-green-majestix"><img src="images/slide3.jpg" width="100%" alt="" /></a></li>#}
+            </ul>
+        </section>
+        <section id="recommendations">
+            <h3>Most popular</h3>
+            <ul>
+                <li>
+                    <a href="/mike-the-monkey">
+                        <img width="100%" src="images/product/ct_monkey.png" alt="" />
+                        <h4>Mike the Monkey</h4>
+                    </a>
+                </li>
+                <li>
+                    <a href="/tim-the-crocodile">
+                        <img width="100%" src="images/product/ct_crocodile.png" alt="" />
+                        <h4>Tim the Crocodile</h4>
+                    </a>
+                </li>
+                <li>
+                    <a href="/wilson-dog-robot">
+                        <img width="100%" src="images/product/robot_dog_red.png" alt="" />
+                        <h4>Wilson Dog Robot</h4>
+                    </a>
+                </li>
+            </ul>
+        </section>
+
+    </div>
+
+{% endblock %}

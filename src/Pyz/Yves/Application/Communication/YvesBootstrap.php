@@ -9,6 +9,7 @@ use ProjectA\Shared\Application\Communication\Plugin\ServiceProvider\UrlGenerato
 use ProjectA\Shared\Library\Config;
 use ProjectA\Shared\System\SystemConfig;
 use ProjectA\Shared\Yves\YvesConfig;
+use Pyz\Yves\Customer2\Communication\Plugin\CustomerControllerProvider;
 use Silex\ServiceProviderInterface;
 use SprykerCore\Yves\Application\Business\YvesBootstrap as SprykerYvesBootstrap;
 use SprykerCore\Yves\Application\Communication\Plugin\ControllerProviderInterface;
@@ -106,7 +107,7 @@ class YvesBootstrap extends SprykerYvesBootstrap
             new ApplicationControllerProvider(false),
             new CartControllerProvider(false),
             new CheckoutControllerProvider($ssl),
-//            new CustomerControllerProvider($ssl),
+            new CustomerControllerProvider($ssl),
         ];
     }
 
