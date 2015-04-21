@@ -142,7 +142,6 @@ class SplitZedPackage extends AbstractRefactorer
         $fileSystem = new Filesystem();
         foreach ($this->bundles as $bundle => $namespaces) {
             $path = __DIR__ . '/../vendor/spryker/' . $this->getFilteredBundle($bundle);
-            echo $path;exit;
             if (!is_dir($path)) {
                 mkdir($path);
             }
