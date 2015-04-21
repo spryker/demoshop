@@ -2,7 +2,7 @@
 
 namespace Pyz\Zed\Acl\Communication\Grid;
 
-use ProjectA\Zed\Ui\Dependency\Grid\AbstractGrid;
+use SprykerFeature\Zed\Ui\Dependency\Grid\AbstractGrid;
 
 class UsersWithGroupGrid extends AbstractGrid
 {

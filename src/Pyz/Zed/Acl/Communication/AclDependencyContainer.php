@@ -12,7 +12,7 @@ class AclDependencyContainer extends \SprykerFeature\Zed\Acl\Communication\AclDe
     {
         $aclQueryContainer = $this->createAclQueryContainer();
         $query = $aclQueryContainer->queryUsersWithGroup();
-        return $this->factory->createGridUsersWithGroupGrid(
+        return $this->getFactory()->createGridUsersWithGroupGrid(
             $query,
             $request,
             $this->locator
