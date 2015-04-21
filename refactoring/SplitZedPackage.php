@@ -277,4 +277,18 @@ class SplitZedPackage extends AbstractRefactorer
 
     }
 
+    private function cleanPreviousRuns()
+    {
+        $finder = new Finder();
+        $finder->directories()->in(
+            __DIR__ . '/../vendor/spryker'
+        );
+        $finder->exclude(['pillar', 'saltstack', 'yves-package', 'zed-package']);
+
+        $fileSystem = new Filesystem();
+        foreach ($finder as $dir) {
+            $fileSystem->remove($dir->getPathName());
+        }
+    }
+
 }
