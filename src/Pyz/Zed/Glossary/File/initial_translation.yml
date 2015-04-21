@@ -1343,3 +1343,123 @@ keys:
     translations:
       de_DE: 'Zusätzliche Farben'
       en_US: 'Additional colors'
+  customer.register.email:
+    translations:
+      de_DE: 'E-Mail'
+      en_US: 'E-Mail'
+  customer.register.password:
+    translations:
+      de_DE: 'Passwort'
+      en_US: 'Password'
+  customer.register.submit:
+    translations:
+      de_DE: 'Registrieren'
+      en_US: 'Register'
+  profile.form.salutation:
+    translations:
+      de_DE: 'Anrede'
+      en_US: 'Salutation'
+  customer.profile.first_name:
+    translations:
+      de_DE: 'Vorname'
+      en_US: 'First name'
+  customer.profile.middle_name:
+    translations:
+      de_DE: 'Zwischenname'
+      en_US: 'Middle name'
+  customer.profile.last_name:
+    translations:
+      de_DE: 'Nachname'
+      en_US: 'Last name'
+  customer.profile.company:
+    translations:
+      de_DE: 'Unternehmen'
+      en_US: 'Company'
+  customer.profile.date_of_birth:
+    translations:
+      de_DE: 'Geburtstag'
+      en_US: 'Date of birth'
+  customer.profile.submit:
+    translations:
+      de_DE: 'Speichern'
+      en_US: 'Save'
+  customer.forgot.email:
+    translations:
+      de_DE: 'E-Mail'
+      en_US: 'E-Mail'
+  customer.forgot.submit:
+    translations:
+      de_DE: 'Passwort zurücksetzen'
+      en_US: 'Restore Password'
+  customer.delete.submit:
+    translations:
+      de_DE: 'Account löschen'
+      en_US: 'Delete account'
+  customer.restore.password:
+    translations:
+      de_DE: 'Neues Passwort'
+      en_US: 'New Password'
+  customer.restore.submit:
+    translations:
+      de_DE: 'Password setzen'
+      en_US: 'Set password'
+  customer.address.salutation:
+    translations:
+      de_DE: 'Anrede'
+      en_US: 'Salutation'
+  customer.address.first_name:
+    translations:
+      de_DE: 'Vorname'
+      en_US: 'First name'
+  customer.address.middle_name:
+    translations:
+      de_DE: 'Zwischenname'
+      en_US: 'Middle name'
+  customer.address.last_name:
+    translations:
+      de_DE: 'Nachname'
+      en_US: 'Last name'
+  customer.address.address1:
+    translations:
+      de_DE: ''
+      en_US: ''
+  customer.address.address2:
+    translations:
+      de_DE: ''
+      en_US: ''
+  customer.address.address3:
+    translations:
+      de_DE: ''
+      en_US: ''
+  customer.address.company:
+    translations:
+      de_DE: 'Unternehmen'
+      en_US: 'Company'
+  customer.address.city:
+    translations:
+      de_DE: 'Stadt'
+      en_US: 'City'
+  customer.address.zip_code:
+    translations:
+      de_DE: 'Postleitzahl'
+      en_US: 'Zip code'
+  customer.address.po_box:
+    translations:
+      de_DE: 'Postfach'
+      en_US: 'PO box'
+  customer.address.phone:
+    translations:
+      de_DE: 'Telefon'
+      en_US: 'Phone'
+  customer.address.cell_phone:
+    translations:
+      de_DE: 'Mobiltelefon'
+      en_US: 'Cell phone'
+  customer.address.comment:
+    translations:
+      de_DE: 'Kommentar'
+      en_US: 'Comment'
+  customer.address.submit:
+    translations:
+      de_DE: 'Speichern'
+      en_US: 'Update'

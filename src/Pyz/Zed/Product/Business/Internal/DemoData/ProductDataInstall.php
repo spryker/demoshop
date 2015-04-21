@@ -72,7 +72,7 @@ class ProductDataInstall extends AbstractInstaller
 
     protected function createProducts()
     {
-        $fkCurrentLocale = $this->localeFacade->getCurrentLocaleIdentifier();
+        $fkCurrentLocale = $this->localeFacade->getCurrentIdLocale();
         foreach ($this->getProductsFromFile() as $currentAbstractProduct) {
             $sku = $currentAbstractProduct['sku'];
 
