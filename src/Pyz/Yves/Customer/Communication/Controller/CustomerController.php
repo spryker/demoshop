@@ -2,11 +2,15 @@
 namespace Pyz\Yves\Customer\Communication\Controller;
 
 use Pyz\Yves\Customer\Communication\Plugin\CustomerControllerProvider;
+use Pyz\Yves\Customer\CustomerDependencyContainer;
 use SprykerEngine\Yves\Application\Communication\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\RedirectResponse;
 use SprykerFeature\Shared\Customer\Code\Messages;
 
+/**
+ * @method CustomerDependencyContainer getDependencyContainer()
+ */
 class CustomerController extends AbstractController
 {
     /**
@@ -14,12 +18,12 @@ class CustomerController extends AbstractController
      */
     public function forgotPasswordAction()
     {
-        $form = $this->createForm($this->dependencyContainer->createFormForgot());
+        $form = $this->createForm($this->getDependencyContainer()->createFormForgot());
 
         if ($form->isValid()) {
-            $customerTransfer = $this->locator->customer()->transferCustomer();
+            $customerTransfer = $this->getLocator()->customer()->transferCustomer();
             $customerTransfer->fromArray($form->getData());
-            $this->locator->customer()->sdk()->forgotPassword($customerTransfer);
+            $this->getLocator()->customer()->sdk()->forgotPassword($customerTransfer);
             $this->addMessageSuccess(Messages::CUSTOMER_PASSWORD_RECOVERY_MAIL_SENT);
 
             return $this->redirectResponseInternal('home');
@@ -35,13 +39,13 @@ class CustomerController extends AbstractController
      */
     public function restorePasswordAction(Request $request)
     {
-        $form = $this->createForm($this->dependencyContainer->createFormRestore());
+        $form = $this->createForm($this->getDependencyContainer()->createFormRestore());
 
         if ($form->isValid()) {
-            $customerTransfer = $this->locator->customer()->transferCustomer();
+            $customerTransfer = $this->getLocator()->customer()->transferCustomer();
             $customerTransfer->setRestorePasswordKey($request->query->get('token'));
-            $this->locator->customer()->sdk()->restorePassword($customerTransfer);
-            $this->locator->customer()
+            $this->getLocator()->customer()->sdk()->restorePassword($customerTransfer);
+            $this->getLocator()->customer()
                 ->pluginSecurityService()
                 ->createUserProvider($request->getSession())
                 ->logout($this->getUsername());
@@ -59,13 +63,13 @@ class CustomerController extends AbstractController
      */
     public function deleteAction(Request $request)
     {
-        $form = $this->createForm($this->dependencyContainer->createFormDelete());
+        $form = $this->createForm($this->getDependencyContainer()->createFormDelete());
 
         if ($form->isValid()) {
-            $customerTransfer = $this->locator->customer()->transferCustomer();
+            $customerTransfer = $this->getLocator()->customer()->transferCustomer();
             $customerTransfer->setEmail($this->getUsername());
-            if ($this->locator->customer()->sdk()->deleteCustomer($customerTransfer)) {
-                $this->locator->customer()
+            if ($this->getLocator()->customer()->sdk()->deleteCustomer($customerTransfer)) {
+                $this->getLocator()->customer()
                     ->pluginSecurityService()
                     ->createUserProvider($request->getSession())
                     ->logout($this->getUsername());
@@ -84,20 +88,20 @@ class CustomerController extends AbstractController
      */
     public function profileAction()
     {
-        $customerTransfer = $this->locator->customer()->transferCustomer();
+        $customerTransfer = $this->getLocator()->customer()->transferCustomer();
 
-        $form = $this->createForm($this->dependencyContainer->createFormProfile());
+        $form = $this->createForm($this->getDependencyContainer()->createFormProfile());
 
         if ($form->isValid()) {
             $customerTransfer->fromArray($form->getData());
             $customerTransfer->setEmail($this->getUsername());
-            $this->locator->customer()->sdk()->updateCustomer($customerTransfer);
+            $this->getLocator()->customer()->sdk()->updateCustomer($customerTransfer);
 
             return $this->redirectResponseInternal(CustomerControllerProvider::ROUTE_CUSTOMER_PROFILE);
         }
 
         $customerTransfer->setEmail($this->getUsername());
-        $customerTransfer = $this->locator->customer()->sdk()->getCustomer($customerTransfer);
+        $customerTransfer = $this->getLocator()->customer()->sdk()->getCustomer($customerTransfer);
         $form->setData($customerTransfer->toArray());
 
         return [
