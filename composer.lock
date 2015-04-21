@@ -934,7 +934,7 @@
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/yves.git",
-                "reference": "a6d6d7ea9d8e51a661f411db5d5e8c2c071c4174"
+                "reference": "59962bbdab4aa5eabed9685a87c8183f0d58b01b"
             },
             "require": {
                 "php": ">=5.4.0"
@@ -945,9 +945,8 @@
             "type": "library",
             "autoload": {
                 "psr-0": {
-                    "ProjectA": "src/",
-                    "SprykerCore": "src/",
                     "SprykerFeature": "src/",
+                    "SprykerCore": "src/",
                     "Acceptance": "tests/",
                     "Function": "tests/",
                     "Integration": "tests/",
@@ -967,7 +966,7 @@
                 "Application",
                 "Yves"
             ],
-            "time": "2015-04-20 09:25:56"
+            "time": "2015-04-21 06:24:05"
         },
         {
             "name": "spryker/zed-package",
