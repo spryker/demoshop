@@ -1,6 +1,6 @@
 <?php
 
-use ProjectA\Shared\System\SystemConfig;
+use SprykerFeature\Shared\System\SystemConfig;
 /**
  * This is the global runtime configuration for Yves and Generated_Yves_Zed in a production environment.
  */

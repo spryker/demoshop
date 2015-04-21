@@ -1,11 +1,11 @@
 <?php
 namespace Pyz\Yves\Cart\Communication\Controller;
 
-use ProjectA\Shared\Cart\Transfer\CartItem;
-use ProjectA\Shared\Kernel\LocatorLocatorInterface;
+use SprykerFeature\Shared\Cart\Transfer\CartItem;
+use SprykerEngine\Shared\Kernel\LocatorLocatorInterface;
 use Pyz\Yves\Cart\Communication\Helper\CartControllerTrait;
-use ProjectA\Yves\Library\Communication\MessageParser;
-use SprykerCore\Yves\Application\Communication\Controller\AbstractController;
+use SprykerFeature\Yves\Library\Communication\MessageParser;
+use SprykerEngine\Yves\Application\Communication\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 
 class AjaxController extends AbstractController
@@ -30,11 +30,4 @@ class AjaxController extends AbstractController
         ]);
     }
 
-    /**
-     * @return LocatorLocatorInterface
-     */
-    protected function getLocator()
-    {
-        return $this->locator;
-    }
 }

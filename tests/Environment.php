@@ -8,7 +8,7 @@ class Environment
     {
         self::setApplicationRootDir();
 
-        \ProjectA\Shared\Library\Application\Environment::initialize($application);
+        \SprykerFeature\Shared\Library\Application\Environment::initialize($application);
     }
 
     private static function setApplicationRootDir()

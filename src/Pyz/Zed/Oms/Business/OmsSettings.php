@@ -4,8 +4,8 @@ namespace Pyz\Zed\Oms\Business;
 
 use Pyz\Zed\Oms\Communication\Plugin\Oms\FakeAuthPayment;
 use Pyz\Zed\Sales\Business\SalesFacade;
-use ProjectA\Shared\Sales\Transfer\Order as OrderTransfer;
-use ProjectA\Zed\Oms\Business\AbstractOmsSettings;
+use SprykerFeature\Shared\Sales\Transfer\Order as OrderTransfer;
+use SprykerFeature\Zed\Oms\Business\AbstractOmsSettings;
 
 class OmsSettings extends AbstractOmsSettings
 {

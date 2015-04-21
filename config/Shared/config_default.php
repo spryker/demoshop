@@ -1,24 +1,20 @@
 <?php
 
-use ProjectA\Shared\Customer\CustomerConfig;
-use ProjectA\Shared\DbDump\DbDumpConfig;
-use ProjectA\Shared\Glossary\GlossaryConfig;
+use SprykerFeature\Shared\Acl\AclConfig;
+use SprykerFeature\Shared\Auth\AuthConfig;
+use SprykerFeature\Shared\DbDump\DbDumpConfig;
+use SprykerFeature\Shared\Customer\CustomerConfig;
 use Pyz\Shared\Mail\MailConfig;
-use ProjectA\Shared\Payone\PayoneConfig;
-use ProjectA\Shared\ProductImage\ProductImageConfig;
-use ProjectA\Shared\System\SystemConfig;
-use ProjectA\Shared\Yves\YvesConfig;
-use SprykerFeature\Zed\Acl\Business\AclSettings;
-use SprykerFeature\Zed\Auth\Business\AuthSettings;
-use SprykerFeature\Zed\User\Business\UserSettings;
+use SprykerFeature\Shared\System\SystemConfig;
+use SprykerFeature\Shared\User\UserConfig;
+use SprykerFeature\Shared\Yves\YvesConfig;
 
 $config[SystemConfig::PROJECT_NAMESPACES] = [
     'Pyz'
 ];
 $config[SystemConfig::CORE_NAMESPACES] = [
-    'ProjectA',
     'SprykerFeature',
-    'SprykerCore'
+    'SprykerEngine'
 ];
 
 $config[SystemConfig::CURRENT_APPLICATION_STORE] = APPLICATION_STORE;
@@ -82,7 +78,10 @@ $config[YvesConfig::YVES_SESSION_NAME] = 'yves_session';
 $config[YvesConfig::YVES_SESSION_COOKIE_DOMAIN] = $config[SystemConfig::HOST_YVES];
 $config[YvesConfig::YVES_ERROR_PAGE] = APPLICATION_ROOT_DIR . '/static/public/Yves/errorpage/error.html';
 
-$currentStore = \ProjectA\Shared\Kernel\Store::getInstance()->getStoreName();
+$config[CustomerConfig::CUSTOMER_SECURED_PATTERN] = "(^/login_check$|^/customer)";
+$config[CustomerConfig::CUSTOMER_ANONYMOUS_PATTERN] = "^/.*";
+
+$currentStore = \SprykerEngine\Shared\Kernel\Store::getInstance()->getStoreName();
 $config[SystemConfig::PROPEL] = [
     'database' => [
         'connections' => [
@@ -110,8 +109,8 @@ $config[SystemConfig::PROPEL] = [
         'objectModel' => [
             'defaultKeyType' => 'fieldName',
             'builders' => [
-                'tablemap' => '\ProjectA\Zed\Kernel\Persistence\Propel\Builder\TableMapBuilder',
-                'query' => '\ProjectA\Zed\Kernel\Persistence\Propel\Builder\QueryBuilder'
+                'tablemap' => '\SprykerEngine\Zed\Kernel\Persistence\Propel\Builder\TableMapBuilder',
+                'query' => '\SprykerEngine\Zed\Kernel\Persistence\Propel\Builder\QueryBuilder'
             ]
         ]
     ],
@@ -123,9 +122,6 @@ $config[SystemConfig::PROPEL] = [
         'phpConfDir' => APPLICATION_ROOT_DIR . '/src/Generated/Propel/' . $currentStore . '/Config'
     ]
 ];
-
-$config[CustomerConfig::CUSTOMER_MINUTES_BEFORE_RESTORE_PASSWORD_INVALID] = 60;
-$config[CustomerConfig::CUSTOMER_DOUBLE_OPT_IN_REGISTRATION] = true;
 
 $config[SystemConfig::CLOUD_ENABLED] = false;
 $config[SystemConfig::CLOUD_OBJECT_STORAGE_ENABLED] = false;
@@ -173,11 +169,11 @@ $config[MailConfig::MAIL_PROVIDER_MANDRILL] = [
     'from_name' => 'Demoshop'
 ];
 
-$config[UserSettings::USER_SYSTEM_USERS] = [
+$config[UserConfig::USER_SYSTEM_USERS] = [
     'yves_system'
 ];
 
-$config[AuthSettings::AUTH_DEFAULT_CREDENTIALS] = [
+$config[AuthConfig::AUTH_DEFAULT_CREDENTIALS] = [
     'yves_system' => [
         'rules' => [
             [
@@ -190,7 +186,7 @@ $config[AuthSettings::AUTH_DEFAULT_CREDENTIALS] = [
     ]
 ];
 
-$config[AclSettings::ACL_DEFAULT_RULES] = [
+$config[AclConfig::ACL_DEFAULT_RULES] = [
     [
         "bundle" => "auth",
         "controller" => "login",
@@ -205,7 +201,7 @@ $config[AclSettings::ACL_DEFAULT_RULES] = [
     ]
 ];
 
-$config[AclSettings::ACL_DEFAULT_CREDENTIALS] = [
+$config[AclConfig::ACL_DEFAULT_CREDENTIALS] = [
     'yves_system' => [
         'rules' => [
             [

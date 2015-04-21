@@ -6,7 +6,7 @@ var _path   = require('path');
 var _del    = require('del');
 
 
-var _dirPAV     = 'vendor/spryker/zed-package/src/ProjectA/Zed';
+var _dirPAV     = 'vendor/spryker/zed-package/src/SprykerFeature/Zed';
 var _dirCore    = 'vendor/spryker/zed-package/src/SprykerCore/Zed';
 var _dirFeature = 'vendor/spryker/zed-package/src/SprykerFeature/Zed';
 var _dirProj    = 'src/Pyz/Zed';

@@ -3,10 +3,15 @@
 namespace Pyz\Zed\Stock\Business\Internal\DemoData;
 
 use Generated\Zed\Ide\AutoCompletion;
-use ProjectA\Zed\Installer\Business\Model\AbstractInstaller;
-use ProjectA\Zed\Kernel\Locator;
-use ProjectA\Zed\Library\Import\Reader\CsvFileReader;
-use ProjectA\Zed\Stock\Business\StockFacade;
+use SprykerEngine\Shared\Kernel\LocatorLocatorInterface;
+use SprykerFeature\Shared\Stock\Transfer\StockProduct;
+use SprykerFeature\Shared\Stock\Transfer\StockType;
+use SprykerFeature\Zed\Installer\Business\Model\AbstractInstaller;
+use SprykerEngine\Zed\Kernel\Locator;
+use SprykerFeature\Zed\Library\Import\Reader\CsvFileReader;
+use SprykerFeature\Zed\Stock\Business\StockFacade;
+use SprykerFeature\Zed\Stock\Persistence\Propel\SpyStock;
+use SprykerFeature\Zed\Stock\Persistence\StockQueryContainer;
 
 class StockInstall extends AbstractInstaller
 {
@@ -26,12 +31,23 @@ class StockInstall extends AbstractInstaller
     protected $stockFacade;
 
     /**
-     * @param Locator|AutoCompletion $locator
+     * @var StockQueryContainer
      */
-    public function __construct(Locator $locator)
-    {
+    protected $queryContainer;
+
+    /**
+     * @param LocatorLocatorInterface $locator
+     * @param StockQueryContainer $queryContainer
+     * @param StockFacade $stockFacade
+     */
+    public function __construct(
+        LocatorLocatorInterface $locator,
+        StockQueryContainer $queryContainer,
+        StockFacade $stockFacade
+    ) {
         $this->locator = $locator;
-        $this->stockFacade = $locator->stock()->facade();
+        $this->queryContainer = $queryContainer;
+        $this->stockFacade = $stockFacade;
     }
 
     public function install()
@@ -66,27 +82,69 @@ class StockInstall extends AbstractInstaller
      */
     protected function addEntry(array $row)
     {
-        $stockType = $this->stockFacade->createStockType($row[self::STOCK_TYPE]);
+        $stockType = $this->createStockTypeTransfer($row);
+        if (!$this->doesStockExist($stockType)) {
+            $this->stockFacade->createStockType($stockType);
+        }
+        $stockProductTransfer = $this->createStockProductTransfer($row, $stockType);
+        $hasProduct = $this->stockFacade->hasStockProduct(
+            $stockProductTransfer->getSku(),
+            $stockProductTransfer->getStockType()
+        );
+
+        if ($hasProduct) {
+            $idStockProduct = $this->stockFacade->getIdStockProduct(
+                $stockProductTransfer->getSku(),
+                $stockProductTransfer->getStockType()
+            );
+            $stockProductTransfer->setIdStockProduct($idStockProduct);
+            $this->stockFacade->updateStockProduct($stockProductTransfer);
+        } else {
+            $this->stockFacade->createStockProduct($stockProductTransfer);
+        }
+    }
+
+    /**
+     * @param array $row
+     *
+     * @return StockType
+     */
+    protected function createStockTypeTransfer(array $row)
+    {
+        $stockType = $this->locator->stock()->transferStockType();
+        $stockType->setName($row[self::STOCK_TYPE]);
+
+        return $stockType;
+    }
+
+    /**
+     * @param array $row
+     * @param StockType $stockType
+     *
+     * @return StockProduct
+     */
+    protected function createStockProductTransfer(array $row, StockType $stockType)
+    {
         $transferStockProduct = $this->locator->stock()->transferStockProduct();
         $transferStockProduct->setSku($row[self::SKU])
             ->setIsNeverOutOfStock($row[self::NEVER_OUT_OF_STOCK])
             ->setQuantity($row[self::QUANTITY])
             ->setStockType($stockType->getName());
 
-        $hasProduct = $this->stockFacade->hasStockProduct(
-            $transferStockProduct->getSku(),
-            $transferStockProduct->getStockType()
-        );
+        return $transferStockProduct;
+    }
 
-        if ($hasProduct) {
-            $idStockProduct = $this->stockFacade->getIdStockProduct(
-                $transferStockProduct->getSku(),
-                $transferStockProduct->getStockType()
-            );
-            $transferStockProduct->setIdStockProduct($idStockProduct);
-            $this->stockFacade->setStockProduct($transferStockProduct);
-        } else {
-            $this->stockFacade->createStockProduct($transferStockProduct);
-        }
+    /**
+     * @param StockType $stockType
+     * @return SpyStock
+     */
+    protected function doesStockExist(StockType $stockType)
+    {
+        $stockCount = $this->queryContainer
+            ->queryStockByName($stockType->getName())
+            ->count()
+        ;
+
+        return $stockCount > 0;
     }
 }

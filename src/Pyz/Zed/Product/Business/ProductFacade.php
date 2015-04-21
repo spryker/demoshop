@@ -3,27 +3,22 @@
 
 namespace Pyz\Zed\Product\Business;
 
-use ProjectA\Zed\Product\Business\ProductFacade as CoreProductFacade;
-use ProjectA\Zed\ProductCategory\Dependency\Facade\ProductCategoryToProductInterface;
-use ProjectA\Zed\ProductFrontendExporterConnector\Dependency\Facade\ProductFrontendExporterToProductInterface;
-use ProjectA\Zed\ProductSearch\Dependency\Facade\ProductSearchToProductInterface;
-use ProjectA\Zed\Stock\Dependency\Facade\StockToProductInterface;
+use SprykerFeature\Zed\Product\Business\ProductFacade as CoreProductFacade;
+use SprykerFeature\Zed\ProductCategory\Dependency\Facade\ProductCategoryToProductInterface;
+use SprykerFeature\Zed\ProductFrontendExporterConnector\Dependency\Facade\ProductFrontendExporterToProductInterface;
+use SprykerFeature\Zed\ProductSearch\Dependency\Facade\ProductSearchToProductInterface;
+use SprykerFeature\Zed\Stock\Dependency\Facade\StockToProductInterface;
 use Psr\Log\LoggerInterface;
 
+/**
+ * @method ProductDependencyContainer getDependencyContainer()
+ */
 class ProductFacade extends CoreProductFacade implements
     ProductFrontendExporterToProductInterface,
     ProductSearchToProductInterface,
     StockToProductInterface,
     ProductCategoryToProductInterface
 {
-    /**
-     * @return ProductDependencyContainer
-     */
-    protected function getDependencyContainer()
-    {
-        return $this->dependencyContainer;
-    }
-
     /**
      * @param array $productsData
      *

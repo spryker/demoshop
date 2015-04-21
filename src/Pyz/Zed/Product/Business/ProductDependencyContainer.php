@@ -3,24 +3,22 @@
 namespace Pyz\Zed\Product\Business;
 
 use Generated\Zed\Ide\FactoryAutoCompletion\ProductBusiness;
-use ProjectA\Zed\Product\Business\Builder\SimpleAttributeMergeBuilder;
-use ProjectA\Zed\Product\Business\ProductDependencyContainer as SprykerDependencyContainer;
+use SprykerFeature\Zed\Product\Business\Builder\SimpleAttributeMergeBuilder;
+use SprykerFeature\Zed\Product\Business\ProductDependencyContainer as SprykerDependencyContainer;
 use Psr\Log\LoggerInterface;
 use Pyz\Zed\Product\Business\Internal\DemoData\ProductDataInstall;
 
+/**
+ * @method ProductBusiness getFactory()
+ */
 class ProductDependencyContainer extends SprykerDependencyContainer
 {
-    /**
-     * @var ProductBusiness
-     */
-    protected $factory;
-
     /**
      * @return SimpleAttributeMergeBuilder
      */
     public function createProductBuilder()
     {
-        return $this->factory->createBuilderSimpleAttributeMergeBuilder();
+        return $this->getFactory()->createBuilderSimpleAttributeMergeBuilder();
     }
 
     /**
@@ -30,7 +28,7 @@ class ProductDependencyContainer extends SprykerDependencyContainer
      */
     public function createDemoDataInstaller(LoggerInterface $messenger)
     {
-        $installer = $this->factory->createInternalDemoDataProductDataInstall(
+        $installer = $this->getFactory()->createInternalDemoDataProductDataInstall(
             $this->createAttributeManager(),
             $this->createProductManager(),
             $this->createLocaleFacade(),
@@ -47,6 +45,6 @@ class ProductDependencyContainer extends SprykerDependencyContainer
      */
     public function createSettings()
     {
-        return $this->factory->createProductSettings();
+        return $this->getFactory()->createProductSettings();
     }
 }

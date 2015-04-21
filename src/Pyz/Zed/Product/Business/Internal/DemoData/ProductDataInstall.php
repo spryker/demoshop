@@ -2,12 +2,12 @@
 
 namespace Pyz\Zed\Product\Business\Internal\DemoData;
 
-use ProjectA\Zed\Installer\Business\Model\AbstractInstaller;
-use ProjectA\Zed\Product\Business\Attribute\AttributeManagerInterface;
-use ProjectA\Zed\Product\Business\Importer\Reader\File\IteratorReaderInterface;
-use ProjectA\Zed\Product\Business\Product\ProductManagerInterface;
-use ProjectA\Zed\Product\Dependency\Facade\ProductToLocaleInterface;
-use ProjectA\Zed\Product\Dependency\Facade\ProductToTouchInterface;
+use SprykerFeature\Zed\Installer\Business\Model\AbstractInstaller;
+use SprykerFeature\Zed\Product\Business\Attribute\AttributeManagerInterface;
+use SprykerFeature\Zed\Product\Business\Importer\Reader\File\IteratorReaderInterface;
+use SprykerFeature\Zed\Product\Business\Product\ProductManagerInterface;
+use SprykerFeature\Zed\Product\Dependency\Facade\ProductToLocaleInterface;
+use SprykerFeature\Zed\Product\Dependency\Facade\ProductToTouchInterface;
 
 class ProductDataInstall extends AbstractInstaller
 {

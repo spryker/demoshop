@@ -3,25 +3,25 @@
 namespace Pyz\Zed\Application\Communication;
 
 use Generated\Zed\Ide\AutoCompletion;
-use ProjectA\Shared\Application\Business\Application;
-use ProjectA\Shared\Application\Business\Bootstrap;
-use ProjectA\Shared\Application\Communication\Plugin\ServiceProvider\RoutingServiceProvider;
-use ProjectA\Shared\Application\Communication\Plugin\ServiceProvider\UrlGeneratorServiceProvider;
-use ProjectA\Shared\Library\Config;
-use ProjectA\Shared\System\SystemConfig;
-use ProjectA\Shared\Application\Business\Routing\SilexRouter;
-use ProjectA\Zed\Application\Business\Model\Router\MvcRouter;
-use ProjectA\Zed\Application\Business\Model\Twig\ZedExtension;
-use ProjectA\Zed\Application\Communication\Plugin\Pimple;
-use ProjectA\Zed\Application\Communication\Plugin\ServiceProvider\EnvironmentInformationServiceProvider;
-use ProjectA\Zed\Application\Communication\Plugin\ServiceProvider\NewRelicServiceProvider;
-use ProjectA\Zed\Application\Communication\Plugin\ServiceProvider\PropelServiceProvider;
-use ProjectA\Zed\Application\Communication\Plugin\ServiceProvider\RequestServiceProvider;
-use ProjectA\Zed\Application\Communication\Plugin\ServiceProvider\SslServiceProvider;
-use ProjectA\Zed\Application\Communication\Plugin\ServiceProvider\TranslationServiceProvider;
-use ProjectA\Zed\Application\Communication\Plugin\ServiceProvider\TwigServiceProvider;
-use ProjectA\Zed\Kernel\Locator;
-use ProjectA\Zed\Sdk\Communication\Plugin\SdkServiceProviderPlugin;
+use SprykerFeature\Shared\Application\Business\Application;
+use SprykerFeature\Shared\Application\Business\Bootstrap;
+use SprykerFeature\Shared\Application\Communication\Plugin\ServiceProvider\RoutingServiceProvider;
+use SprykerFeature\Shared\Application\Communication\Plugin\ServiceProvider\UrlGeneratorServiceProvider;
+use SprykerFeature\Shared\Library\Config;
+use SprykerFeature\Shared\System\SystemConfig;
+use SprykerFeature\Shared\Application\Business\Routing\SilexRouter;
+use SprykerFeature\Zed\Application\Business\Model\Router\MvcRouter;
+use SprykerFeature\Zed\Application\Business\Model\Twig\ZedExtension;
+use SprykerFeature\Zed\Application\Communication\Plugin\Pimple;
+use SprykerFeature\Zed\Application\Communication\Plugin\ServiceProvider\EnvironmentInformationServiceProvider;
+use SprykerFeature\Zed\Application\Communication\Plugin\ServiceProvider\NewRelicServiceProvider;
+use SprykerFeature\Zed\Application\Communication\Plugin\ServiceProvider\PropelServiceProvider;
+use SprykerFeature\Zed\Application\Communication\Plugin\ServiceProvider\RequestServiceProvider;
+use SprykerFeature\Zed\Application\Communication\Plugin\ServiceProvider\SslServiceProvider;
+use SprykerFeature\Zed\Application\Communication\Plugin\ServiceProvider\TranslationServiceProvider;
+use SprykerFeature\Zed\Application\Communication\Plugin\ServiceProvider\TwigServiceProvider;
+use SprykerEngine\Zed\Kernel\Locator;
+use SprykerFeature\Zed\Sdk\Communication\Plugin\SdkServiceProviderPlugin;
 use Silex\Provider\FormServiceProvider;
 use Silex\Provider\ServiceControllerServiceProvider;
 use Silex\Provider\ValidatorServiceProvider;
@@ -62,9 +62,9 @@ class ZedBootstrap extends Bootstrap
      */
     protected function beforeBoot(Application $app)
     {
-        $app['locale'] = \ProjectA\Shared\Kernel\Store::getInstance()->getCurrentLocale();
-        if (\ProjectA_Shared_Library_Environment::isDevelopment()) {
-            $app['profiler.cache_dir'] = \ProjectA_Shared_Library_Data::getLocalStoreSpecificPath('cache/profiler');
+        $app['locale'] = \SprykerEngine\Shared\Kernel\Store::getInstance()->getCurrentLocale();
+        if (\SprykerFeature_Shared_Library_Environment::isDevelopment()) {
+            $app['profiler.cache_dir'] = \SprykerFeature_Shared_Library_Data::getLocalStoreSpecificPath('cache/profiler');
         }
     }
 
@@ -106,7 +106,7 @@ class ZedBootstrap extends Bootstrap
             new NewRelicServiceProvider(),
         ];
 
-        if (\ProjectA_Shared_Library_Environment::isDevelopment()) {
+        if (\SprykerFeature_Shared_Library_Environment::isDevelopment()) {
             $providers[] = new WebProfilerServiceProvider();
         }
 
@@ -133,7 +133,7 @@ class ZedBootstrap extends Bootstrap
     {
         return [
             'environment' => APPLICATION_ENV,
-            'store' => \ProjectA\Shared\Kernel\Store::getInstance()->getStoreName(),
+            'store' => \SprykerEngine\Shared\Kernel\Store::getInstance()->getStoreName(),
             'title' => Config::get(SystemConfig::PROJECT_NAMESPACE) . ' | Zed | ' . ucfirst(APPLICATION_ENV),
             'currentController' => get_class($this),
             'navigation' => $this->getNavigation(),

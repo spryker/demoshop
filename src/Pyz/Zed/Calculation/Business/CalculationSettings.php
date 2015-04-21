@@ -2,9 +2,9 @@
 
 namespace Pyz\Zed\Calculation\Business;
 
-use ProjectA\Zed\Calculation\Business\CalculationSettings as CoreCalculationSettings;
-use ProjectA\Zed\Calculation\Dependency\Plugin\CalculatorPluginInterface;
-use ProjectA\Zed\Calculation\Dependency\Plugin\TotalsCalculatorPluginInterface;
+use SprykerFeature\Zed\Calculation\Business\CalculationSettings as CoreCalculationSettings;
+use SprykerFeature\Zed\Calculation\Dependency\Plugin\CalculatorPluginInterface;
+use SprykerFeature\Zed\Calculation\Dependency\Plugin\TotalsCalculatorPluginInterface;
 
 class CalculationSettings extends CoreCalculationSettings
 {

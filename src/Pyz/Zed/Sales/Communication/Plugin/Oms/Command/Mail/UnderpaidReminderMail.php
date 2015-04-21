@@ -2,25 +2,25 @@
 
 namespace Pyz\Zed\Sales\Communication\Plugin\Oms\Command\Mail;
 
-use ProjectA\Zed\Oms\Business\Model\Util\ReadOnlyArrayObject;
-use ProjectA\Zed\Oms\Communication\Plugin\Oms\Command\CommandByOrderInterface;
-use ProjectA\Zed\Payone\Communication\Plugin\Oms\StateMachineConstants;
-use ProjectA\Zed\Sales\Communication\Plugin\Oms\Command\AbstractMail;
+use SprykerFeature\Zed\Oms\Business\Model\Util\ReadOnlyArrayObject;
+use SprykerFeature\Zed\Oms\Communication\Plugin\Oms\Command\CommandByOrderInterface;
+use SprykerFeature\Zed\Payone\Communication\Plugin\Oms\StateMachineConstants;
+use SprykerFeature\Zed\Sales\Communication\Plugin\Oms\Command\AbstractMail;
 use Pyz\Zed\Mail\Business\Model\MailTypesConstantInterface;
-use ProjectA\Shared\Library\Currency\CurrencyManager;
+use SprykerFeature\Shared\Library\Currency\CurrencyManager;
 
 class UnderpaidReminderMail extends AbstractMail implements CommandByOrderInterface
 {
 
     /**
      * @param array $orderItems
-     * @param \ProjectA\Zed\Sales\Persistence\Propel\SpySalesOrder $orderEntity
+     * @param \SprykerFeature\Zed\Sales\Persistence\Propel\SpySalesOrder $orderEntity
      * @param ReadOnlyArrayObject $data
      * @return array|void
      */
     public function run(
         array $orderItems,
-        \ProjectA\Zed\Sales\Persistence\Propel\SpySalesOrder $orderEntity,
+        \SprykerFeature\Zed\Sales\Persistence\Propel\SpySalesOrder $orderEntity,
         ReadOnlyArrayObject $data
     ) {
         $transactionStatusRequest = $context[StateMachineConstants::STATEMACHINE_CONTEXT_TRANSACTION_STATUS_REQUEST];

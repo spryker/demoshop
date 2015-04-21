@@ -2,7 +2,7 @@
 
 namespace Pyz\Zed\Console\Business;
 
-use ProjectA\Zed\Console\Business\ConsoleSettings as SprykerConsoleSettings;
+use SprykerFeature\Zed\Console\Business\ConsoleSettings as SprykerConsoleSettings;
 use Symfony\Component\Console\Command\Command;
 
 class ConsoleSettings extends SprykerConsoleSettings

@@ -2,15 +2,15 @@
 
 namespace Pyz\Yves\Catalog\Business\Model\Router;
 
-use ProjectA\Shared\Application\Communication\ControllerServiceBuilder;
+use SprykerFeature\Shared\Application\Communication\ControllerServiceBuilder;
 
-use SprykerCore\Yves\Application\Business\Routing\AbstractRouter;
-use ProjectA\Yves\Catalog\Business\Model\Exception\ProductNotFoundException;
-use SprykerCore\Yves\Kernel\Communication\BundleControllerAction;
-use SprykerCore\Yves\Kernel\Communication\Controller\RouteNameResolver;
-use SprykerCore\Yves\Kernel\Communication\ControllerLocator;
+use SprykerEngine\Yves\Application\Business\Routing\AbstractRouter;
+use SprykerFeature\Yves\Catalog\Business\Model\Exception\ProductNotFoundException;
+use SprykerEngine\Yves\Kernel\Communication\BundleControllerAction;
+use SprykerEngine\Yves\Kernel\Communication\Controller\RouteNameResolver;
+use SprykerEngine\Yves\Kernel\Communication\ControllerLocator;
 
-use SprykerCore\Yves\Kernel\Locator;
+use SprykerEngine\Yves\Kernel\Locator;
 use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\Routing\Exception\ResourceNotFoundException;
 use Symfony\Component\Routing\Exception\RouteNotFoundException;

@@ -2,7 +2,7 @@
 
 namespace Pyz\Zed\Category\Business;
 
-use ProjectA\Zed\Category\Business\CategoryDependencyContainer as SprykerCategoryDependencyContainer;
+use SprykerFeature\Zed\Category\Business\CategoryDependencyContainer as SprykerCategoryDependencyContainer;
 use Pyz\Zed\Category\Business\Internal\DemoData\CategoryTreeInstall;
 use Psr\Log\LoggerInterface;
 
@@ -16,11 +16,11 @@ class CategoryDependencyContainer extends SprykerCategoryDependencyContainer
      */
     public function getDemoDataInstaller(LoggerInterface $messenger)
     {
-        $installer = $this->factory->createInternalDemoDataCategoryTreeInstall(
-            $this->locator->category()->facade(),
-            $this->locator->category()->queryContainer(),
-            $this->locator->locale()->facade(),
-            $this->locator
+        $installer = $this->getFactory()->createInternalDemoDataCategoryTreeInstall(
+            $this->getLocator()->category()->facade(),
+            $this->getLocator()->category()->queryContainer(),
+            $this->getLocator()->locale()->facade(),
+            $this->getLocator()
         );
         $installer->setMessenger($messenger);
 

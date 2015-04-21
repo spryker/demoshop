@@ -2,14 +2,14 @@
 
 namespace Pyz\Zed\ProductSearch\Business\Internal\DemoData;
 
-use ProjectA\Zed\Installer\Business\Model\AbstractInstaller;
-use ProjectA\Zed\Product\Persistence\Propel\SpyProduct;
-use ProjectA\Zed\Product\Persistence\Propel\SpyProductAttributesMetadataQuery;
-use ProjectA\Zed\Product\Persistence\Propel\SpyProductQuery;
-use ProjectA\Zed\ProductSearch\Business\Operation\OperationManagerInterface;
-use ProjectA\Zed\ProductSearch\Dependency\Facade\ProductSearchToLocaleInterface;
-use ProjectA\Zed\ProductSearch\Dependency\Facade\ProductSearchToTouchInterface;
-use ProjectA\Zed\ProductSearch\Persistence\Propel\SpySearchableProductsQuery;
+use SprykerFeature\Zed\Installer\Business\Model\AbstractInstaller;
+use SprykerFeature\Zed\Product\Persistence\Propel\SpyProduct;
+use SprykerFeature\Zed\Product\Persistence\Propel\SpyProductAttributesMetadataQuery;
+use SprykerFeature\Zed\Product\Persistence\Propel\SpyProductQuery;
+use SprykerFeature\Zed\ProductSearch\Business\Operation\OperationManagerInterface;
+use SprykerFeature\Zed\ProductSearch\Dependency\Facade\ProductSearchToLocaleInterface;
+use SprykerFeature\Zed\ProductSearch\Dependency\Facade\ProductSearchToTouchInterface;
+use SprykerFeature\Zed\ProductSearch\Persistence\Propel\SpySearchableProductsQuery;
 use Propel\Runtime\Exception\PropelException;
 
 class ProductAttributeMappingInstall extends AbstractInstaller

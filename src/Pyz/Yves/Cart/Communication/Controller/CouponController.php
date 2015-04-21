@@ -1,13 +1,13 @@
 <?php
 namespace Pyz\Yves\Cart\Communication\Controller;
 
-use ProjectA\Shared\Kernel\LocatorLocatorInterface;
+use SprykerEngine\Shared\Kernel\LocatorLocatorInterface;
 use Pyz\Yves\Cart\Communication\Plugin\CartControllerProvider;
 use Pyz\Yves\Cart\Communication\Helper\CartControllerTrait;
-use SprykerCore\Yves\Application\Communication\Controller\AbstractController;
+use SprykerEngine\Yves\Application\Communication\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 
-class CouponController extends \SprykerCore\Yves\Application\Communication\Controller\AbstractController
+class CouponController extends \SprykerEngine\Yves\Application\Communication\Controller\AbstractController
 {
     use CartControllerTrait;
 
@@ -49,11 +49,4 @@ class CouponController extends \SprykerCore\Yves\Application\Communication\Contr
         return $this->redirectResponseInternal(CartControllerProvider::ROUTE_CART);
     }
 
-    /**
-     * @return LocatorLocatorInterface
-     */
-    protected function getLocator()
-    {
-        return $this->locator;
     }
-}

@@ -1,7 +1,7 @@
 <?php
 namespace Pyz\Yves\Sales\Form;
 
-use ProjectA\Shared\Kernel\LocatorLocatorInterface;
+use SprykerEngine\Shared\Kernel\LocatorLocatorInterface;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolverInterface;
