@@ -1,5 +1,97 @@
 {
   "require": {
+    "spryker/acl": "dev-master",
+    "spryker/application": "dev-master",
+    "spryker/assets": "dev-master",
+    "spryker/auth": "dev-master",
+    "spryker/availability": "dev-master",
+    "spryker/availability-cart-connector": "dev-master",
+    "spryker/availability-checkout-connector": "dev-master",
+    "spryker/calculation": "dev-master",
+    "spryker/cart": "dev-master",
+    "spryker/cart2": "dev-master",
+    "spryker/catalog": "dev-master",
+    "spryker/category": "dev-master",
+    "spryker/category-exporter": "dev-master",
+    "spryker/checkout": "dev-master",
+    "spryker/cms": "dev-master",
+    "spryker/cms-exporter": "dev-master",
+    "spryker/console": "dev-master",
+    "spryker/country": "dev-master",
+    "spryker/customer": "dev-master",
+    "spryker/customer-mail-connector": "dev-master",
+    "spryker/db-dump": "dev-master",
+    "spryker/discount": "dev-master",
+    "spryker/discount-calculation-connector": "dev-master",
+    "spryker/document": "dev-master",
+    "spryker/frontend-exporter": "dev-master",
+    "spryker/git": "dev-master",
+    "spryker/glossary": "dev-master",
+    "spryker/glossary-exporter": "dev-master",
+    "spryker/installer": "dev-master",
+    "spryker/invoice": "dev-master",
+    "spryker/kernel": "dev-master",
+    "spryker/kernel-de": "dev-master",
+    "spryker/kv-storage": "dev-master",
+    "spryker/kv-store-aware.php": "dev-master",
+    "spryker/library": "dev-master",
+    "spryker/locale": "dev-master",
+    "spryker/lumberjack": "dev-master",
+    "spryker/mail": "dev-master",
+    "spryker/misc": "dev-master",
+    "spryker/oms": "dev-master",
+    "spryker/price": "dev-master",
+    "spryker/price-cart-connector": "dev-master",
+    "spryker/product": "dev-master",
+    "spryker/product-category": "dev-master",
+    "spryker/product-category-frontend-exporter-connector": "dev-master",
+    "spryker/product-category-search": "dev-master",
+    "spryker/product-exporter": "dev-master",
+    "spryker/product-frontend-exporter-availability-connector": "dev-master",
+    "spryker/product-frontend-exporter-connector": "dev-master",
+    "spryker/product-frontend-exporter-price-connector": "dev-master",
+    "spryker/product-image": "dev-master",
+    "spryker/product-search": "dev-master",
+    "spryker/product-search-availability-connector": "dev-master",
+    "spryker/redirect": "dev-master",
+    "spryker/redirect-exporter": "dev-master",
+    "spryker/sales": "dev-master",
+    "spryker/salesrule": "dev-master",
+    "spryker/sdk": "dev-master",
+    "spryker/search": "dev-master",
+    "spryker/setup": "dev-master",
+    "spryker/stock": "dev-master",
+    "spryker/stock-sales-connector": "dev-master",
+    "spryker/system": "dev-master",
+    "spryker/touch": "dev-master",
+    "spryker/twig": "dev-master",
+    "spryker/ui": "dev-master",
+    "spryker/ui-example": "dev-master",
+    "spryker/url": "dev-master",
+    "spryker/url-exporter": "dev-master",
+    "spryker/user": "dev-master",
+    "spryker/yves": "dev-master",
+    "spryker/zed-request": "dev-master",
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
     "spryker/yves-package": "dev-master",
     "spryker/zed-package": "dev-master",
 
@@ -37,6 +129,365 @@
     "use-include-path": true
   },
   "repositories": [
+    {
+      "type": "git",
+      "url": "git@github.com:spryker/acl.git"
+    },
+
+    {
+      "type": "git",
+      "url": "git@github.com:spryker/application.git"
+    },
+
+    {
+      "type": "git",
+      "url": "git@github.com:spryker/assets.git"
+    },
+
+    {
+      "type": "git",
+      "url": "git@github.com:spryker/auth.git"
+    },
+
+    {
+      "type": "git",
+      "url": "git@github.com:spryker/availability.git"
+    },
+
+    {
+      "type": "git",
+      "url": "git@github.com:spryker/availability-cart-connector.git"
+    },
+
+    {
+      "type": "git",
+      "url": "git@github.com:spryker/availability-checkout-connector.git"
+    },
+
+    {
+      "type": "git",
+      "url": "git@github.com:spryker/calculation.git"
+    },
+
+    {
+      "type": "git",
+      "url": "git@github.com:spryker/cart.git"
+    },
+
+    {
+      "type": "git",
+      "url": "git@github.com:spryker/cart2.git"
+    },
+
+    {
+      "type": "git",
+      "url": "git@github.com:spryker/catalog.git"
+    },
+
+    {
+      "type": "git",
+      "url": "git@github.com:spryker/category.git"
+    },
+
+    {
+      "type": "git",
+      "url": "git@github.com:spryker/category-exporter.git"
+    },
+
+    {
+      "type": "git",
+      "url": "git@github.com:spryker/checkout.git"
+    },
+
+    {
+      "type": "git",
+      "url": "git@github.com:spryker/cms.git"
+    },
+
+    {
+      "type": "git",
+      "url": "git@github.com:spryker/cms-exporter.git"
+    },
+
+    {
+      "type": "git",
+      "url": "git@github.com:spryker/console.git"
+    },
+
+    {
+      "type": "git",
+      "url": "git@github.com:spryker/country.git"
+    },
+
+    {
+      "type": "git",
+      "url": "git@github.com:spryker/customer.git"
+    },
+
+    {
+      "type": "git",
+      "url": "git@github.com:spryker/customer-mail-connector.git"
+    },
+
+    {
+      "type": "git",
+      "url": "git@github.com:spryker/db-dump.git"
+    },
+
+    {
+      "type": "git",
+      "url": "git@github.com:spryker/discount.git"
+    },
+
+    {
+      "type": "git",
+      "url": "git@github.com:spryker/discount-calculation-connector.git"
+    },
+
+    {
+      "type": "git",
+      "url": "git@github.com:spryker/document.git"
+    },
+
+    {
+      "type": "git",
+      "url": "git@github.com:spryker/frontend-exporter.git"
+    },
+
+    {
+      "type": "git",
+      "url": "git@github.com:spryker/git.git"
+    },
+
+    {
+      "type": "git",
+      "url": "git@github.com:spryker/glossary.git"
+    },
+
+    {
+      "type": "git",
+      "url": "git@github.com:spryker/glossary-exporter.git"
+    },
+
+    {
+      "type": "git",
+      "url": "git@github.com:spryker/installer.git"
+    },
+
+    {
+      "type": "git",
+      "url": "git@github.com:spryker/invoice.git"
+    },
+
+    {
+      "type": "git",
+      "url": "git@github.com:spryker/kernel.git"
+    },
+
+    {
+      "type": "git",
+      "url": "git@github.com:spryker/kernel-de.git"
+    },
+
+    {
+      "type": "git",
+      "url": "git@github.com:spryker/kv-storage.git"
+    },
+
+    {
+      "type": "git",
+      "url": "git@github.com:spryker/kv-store-aware.php.git"
+    },
+
+    {
+      "type": "git",
+      "url": "git@github.com:spryker/library.git"
+    },
+
+    {
+      "type": "git",
+      "url": "git@github.com:spryker/locale.git"
+    },
+
+    {
+      "type": "git",
+      "url": "git@github.com:spryker/lumberjack.git"
+    },
+
+    {
+      "type": "git",
+      "url": "git@github.com:spryker/mail.git"
+    },
+
+    {
+      "type": "git",
+      "url": "git@github.com:spryker/misc.git"
+    },
+
+    {
+      "type": "git",
+      "url": "git@github.com:spryker/oms.git"
+    },
+
+    {
+      "type": "git",
+      "url": "git@github.com:spryker/price.git"
+    },
+
+    {
+      "type": "git",
+      "url": "git@github.com:spryker/price-cart-connector.git"
+    },
+
+    {
+      "type": "git",
+      "url": "git@github.com:spryker/product.git"
+    },
+
+    {
+      "type": "git",
+      "url": "git@github.com:spryker/product-category.git"
+    },
+
+    {
+      "type": "git",
+      "url": "git@github.com:spryker/product-category-frontend-exporter-connector.git"
+    },
+
+    {
+      "type": "git",
+      "url": "git@github.com:spryker/product-category-search.git"
+    },
+
+    {
+      "type": "git",
+      "url": "git@github.com:spryker/product-exporter.git"
+    },
+
+    {
+      "type": "git",
+      "url": "git@github.com:spryker/product-frontend-exporter-availability-connector.git"
+    },
+
+    {
+      "type": "git",
+      "url": "git@github.com:spryker/product-frontend-exporter-connector.git"
+    },
+
+    {
+      "type": "git",
+      "url": "git@github.com:spryker/product-frontend-exporter-price-connector.git"
+    },
+
+    {
+      "type": "git",
+      "url": "git@github.com:spryker/product-image.git"
+    },
+
+    {
+      "type": "git",
+      "url": "git@github.com:spryker/product-search.git"
+    },
+
+    {
+      "type": "git",
+      "url": "git@github.com:spryker/product-search-availability-connector.git"
+    },
+
+    {
+      "type": "git",
+      "url": "git@github.com:spryker/redirect.git"
+    },
+
+    {
+      "type": "git",
+      "url": "git@github.com:spryker/redirect-exporter.git"
+    },
+
+    {
+      "type": "git",
+      "url": "git@github.com:spryker/sales.git"
+    },
+
+    {
+      "type": "git",
+      "url": "git@github.com:spryker/salesrule.git"
+    },
+
+    {
+      "type": "git",
+      "url": "git@github.com:spryker/sdk.git"
+    },
+
+    {
+      "type": "git",
+      "url": "git@github.com:spryker/search.git"
+    },
+
+    {
+      "type": "git",
+      "url": "git@github.com:spryker/setup.git"
+    },
+
+    {
+      "type": "git",
+      "url": "git@github.com:spryker/stock.git"
+    },
+
+    {
+      "type": "git",
+      "url": "git@github.com:spryker/stock-sales-connector.git"
+    },
+
+    {
+      "type": "git",
+      "url": "git@github.com:spryker/system.git"
+    },
+
+    {
+      "type": "git",
+      "url": "git@github.com:spryker/touch.git"
+    },
+
+    {
+      "type": "git",
+      "url": "git@github.com:spryker/twig.git"
+    },
+
+    {
+      "type": "git",
+      "url": "git@github.com:spryker/ui.git"
+    },
+
+    {
+      "type": "git",
+      "url": "git@github.com:spryker/ui-example.git"
+    },
+
+    {
+      "type": "git",
+      "url": "git@github.com:spryker/url.git"
+    },
+
+    {
+      "type": "git",
+      "url": "git@github.com:spryker/url-exporter.git"
+    },
+
+    {
+      "type": "git",
+      "url": "git@github.com:spryker/user.git"
+    },
+
+    {
+      "type": "git",
+      "url": "git@github.com:spryker/yves.git"
+    },
+
+    {
+      "type": "git",
+      "url": "git@github.com:spryker/zed-request.git"
+    },
     {
       "type": "git",
       "url": "git@github.com:spryker/yves-package.git"

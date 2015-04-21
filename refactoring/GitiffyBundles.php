@@ -35,19 +35,17 @@ class GitiffyBundles extends AbstractRefactorer
 
         foreach ($finder as $dir) {
             $bundle = $dir->getFilename();
-            $this->info($bundle);
-
             $cwd = $dir->getPathname();
 
-            $repository = $this->createRepository($bundle);
-            $this->init($bundle, $cwd);
-            $this->commit($bundle, $cwd);
-            $this->addRemote($bundle, $cwd);
+//            $repository = $this->createRepository($bundle);
+//            $this->init($bundle, $cwd);
+//            $this->commit($bundle, $cwd);
+//            $this->addRemote($bundle, $cwd);
+//
+//            $this->push($bundle, $cwd);
 
-            $this->push($bundle, $cwd);
-
-            $this->buildComposerJsonConfig();
-            $this->buildComposerJsonRepoList();
+//            $this->buildComposerJsonConfig($bundle);
+            $this->buildComposerJsonRepoList($bundle);
 
 
 
@@ -167,7 +165,7 @@ class GitiffyBundles extends AbstractRefactorer
     /**
      * @param $bundle
      */
-    private function buildComposerJsonRepo($bundle)
+    private function buildComposerJsonRepoList($bundle)
     {
         $repo = '
         {
@@ -176,7 +174,7 @@ class GitiffyBundles extends AbstractRefactorer
         },
         ';
 
-        echo $repo . PHP_EOL;
+        echo $repo;
     }
 
 }
