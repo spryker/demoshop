@@ -80,11 +80,9 @@ class SplitZedPackage extends AbstractRefactorer
             $destination = $this->getDestinationPath($bundle, $file);
 
             if ($this->isTestFile($file)) {
-                $search = 'namespace ZedPackage;';
-                $replace = 'namespace ' . $bundle . ';';
+                $search = 'ZedPackage';
 
-                $content = str_replace($search, $replace, $file->getContents());
-
+                $content = str_replace($search, $bundle, $file->getContents());
                 file_put_contents($file->getPathname(), $content);
             }
 
