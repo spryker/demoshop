@@ -2,26 +2,33 @@
 
 namespace Pyz\Zed\Acl\Communication\Controller;
 
-use ProjectA\Zed\Application\Communication\Controller\AbstractController;
-use Pyz\Zed\Acl\Communication\AclDependencyContainer;
+use SprykerFeature\Zed\Acl\Communication\AclDependencyContainer;
+use SprykerFeature\Zed\Application\Communication\Controller\AbstractController;
+use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
 
+/**
+ * @method AclDependencyContainer getDependencyContainer()
+ */
 class UsersController extends AbstractController
 {
-
     /**
-     * @var AclDependencyContainer
+     *
      */
-    protected $dependencyContainer;
-
     public function indexAction()
     {
+
     }
 
+    /**
+     * @param Request $request
+     *
+     * @return JsonResponse
+     */
     public function listAction(Request $request)
     {
-        $grid = $this->dependencyContainer->createUsersWithGroupGrid($request);
+        $grid = $this->getDependencyContainer()->createUsersWithGroupGrid($request);
 
-        return $this->jsonResponse($grid->toArray());
+        return $this->jsonResponse($grid->renderData());
     }
 }
