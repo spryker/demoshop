@@ -1,0 +1,50 @@
+{% extends '@Application/layout.twig' %}
+
+
+{% block body_class %}spy-page{% endblock %}
+
+
+{% block content %}
+
+    <section
+            class="spy-grid"
+            spy-app="spyFormat, spyGrid, spyForm, spyLayout"
+            ng-controller="GridController"
+            ng-strict-di
+            src="/acl/users/list"
+            name="grid"
+            on="{ form_success : 'update' }"
+            ng-class="{ query : queryActive }"
+            >
+        <h3>Users</h3>
+
+        <div spy-grid-pages="pages" labels="{ items : 'Show %n items', pages : 'Page %n of %m' }"></div>
+
+        <table>
+            <thead>
+            <tr>
+                <th spy-grid-head="columns['username']" label="Name"></th>
+                <th spy-grid-head="columns['first_name']" label="First name"></th>
+                <th spy-grid-head="columns['last_name']" label="Last name"></th>
+                <th spy-grid-head="columns['group_name']" label="Group"></th>
+            </tr>
+            </thead>
+
+            <tbody>
+            <tr ng-repeat="row in rows">
+                <td>{[{ row['username'] }]}</td>
+                <td>{[{ row['first_name'] }]}</td>
+                <td>{[{ row['last_name'] }]}</td>
+                <td>{[{ row['group_name'] }]}</td>
+            </tr>
+            </tbody>
+        </table>
+
+        <div spy-grid-pages="pages" labels="{ items : 'Show %n items', pages : 'Page %n of %m' }"></div>
+    </section>
+
+    <a href="/acl/users/add" class="button default">
+        Add new Backend User
+    </a>
+
+{% endblock %}
