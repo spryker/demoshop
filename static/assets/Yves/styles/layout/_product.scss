@@ -1,0 +1,147 @@
+.product {
+
+  .product__overview {
+
+    // make space for the header
+    padding-top: $step*3;
+    background-color: $pale-color;
+    text-align: center;
+
+    @include media-query('medium') {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 50%;
+      height: 100%;
+      padding: $step*6 $step*2;
+    }
+
+    @include media-query('huge') {
+      padding: $step*8 $step*4;
+    }
+  }
+
+  .product__category {
+    color: $mid-color;
+  }
+
+  .product__price {
+    font-size: $step;
+    line-height: $step;
+    font-weight: $bold-font-weight;
+    color: $dark-color;
+  }
+
+  .product__quantity {
+    margin-bottom: $step;
+  }
+
+  .product__add-button {
+    width: 80%;
+    padding: $step*.5;
+    margin: 0 auto $step;
+  }
+
+  .product__main-image {
+    padding-bottom: 0;
+
+    img {
+      width: 100%;
+    }
+
+    @include media-query('medium') {
+      // make space for the header
+      padding-top: $step*3;
+
+      img {
+        max-height: 90vh;
+        width: auto;
+        position: relative;
+        left: 50%;
+        transform: translateX(-50%);
+      }
+    }
+  }
+
+  .product__details {
+    background-color: $dark-color;
+    color: $light-color;
+
+    P:first-of-type {
+      font-size: $step;
+      line-height: $step*1.5;
+    }
+  }
+
+  .product__specifications {
+    dt {
+      display: inline-block;
+      font-weight: $bold-font-weight;
+
+      &::after {
+        content: ':';
+      }
+    }
+
+    dd {
+      display: inline;
+      margin: 0;
+
+      &:after {
+        display: block;
+        content: '';
+      }
+    }
+  }
+
+  .product__gallery {
+    @include clearfix();
+    padding: 0;
+
+    img {
+      display: block;
+      width: 100%;
+
+      @include media-query('large') {
+        width: 50%;
+        float: left;
+      }
+    }
+  }
+
+  .product__warnings {
+
+    p {
+      margin: 0;
+      padding-left: $step*2.25;
+      min-height: $step*1.5;
+      font-size: $step*.5;
+      line-height: $step*.75;
+      color: $paler-color;
+
+      background-position: left center;
+      background-repeat: no-repeat;
+      background-size: contain;
+
+      &.warning__under-3 {
+        background-image: url(/images/warnung-0-3.png);
+      }
+
+    }
+
+    @include media-query('large') {
+      padding: $step;
+
+      p {
+        margin: 0 $step*3;
+      }
+    }
+  }
+
+  @include media-query('medium') {
+    section:not(.product__overview) {
+      margin-left: 50%;
+    }
+  }
+}
+

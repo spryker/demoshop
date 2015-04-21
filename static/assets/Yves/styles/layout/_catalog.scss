@@ -1,0 +1,124 @@
+.catalog {
+
+  // make space for the header
+  padding: $step*3 $step;
+  background-color: $pale-color;
+  color: $mid-color;
+
+  @include media-query('medium') {
+    padding: $step*4 $step;
+  }
+
+  @include media-query('huge') {
+    padding: $step*5 $step;
+  }
+
+  h1 {
+    color: $mid-color;
+
+    &.catalog__section-title {
+      font-size: $step*1.5;
+    }
+  }
+
+  .catalog__filter {
+
+    @include media-query('medium') {
+      width: calc(50% - #{$step*2});
+      margin-right: $step*2;
+    }
+
+    @include media-query('large') {
+      width: calc(25% - #{$step});
+    }
+
+    section {
+      padding: $step 0;
+      border-bottom: 1px solid $light-color;
+
+      &:first-child {
+        padding-top: 0;
+      }
+
+      ul {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+
+        li {
+          margin: 0;
+          padding: 0;
+
+          input[type=radio], input[type=checkbox] {
+            display: none;
+          }
+
+          input[type=radio]:checked + label, input[type=checkbox]:checked + label {
+            font-weight: 600;
+          }
+        }
+      }
+      label {
+        text-transform: uppercase;
+      }
+    }
+
+    .filter__title {
+      font-size: $step;
+    }
+
+    .filter__quantity {
+      &::before {
+        content: '(';
+      }
+      &::after {
+        content: ')';
+      }
+      color: $paler-color;
+    }
+
+    .filter__color {
+      li {
+        display: inline-block;
+        margin-right: $step*.5;
+      }
+
+      .filter__color-name {
+        display: block;
+        width: $step;
+        height: $step;
+        border-radius: 6px;
+        overflow: hidden;
+        color: rgba(0,0,0,0);
+        background-color: #fff;
+        border: 2px solid $paler-color;
+        @include bounce-transition;
+      }
+
+      input[type=radio]:checked + label {
+        transform: scale(1.4);
+      }
+    }
+
+    .filter__price {
+      .filter__price-slider {
+        margin-bottom: $step;
+      }
+
+      .filter__price-min, .filter__price-max {
+        padding: 0 $step*.5;
+        background-color: $light-color;
+        border: 1px solid $paler-color;
+        border-radius: 3px;
+
+        &::before {
+          content: '€';
+        }
+      }
+      p {
+        margin: 0;
+      }
+    }
+
+  }
+}

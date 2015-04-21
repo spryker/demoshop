@@ -1,0 +1,39 @@
+.header__search {
+  // position: absolute;
+  // top: 0;
+  // right: $step*6;
+  // width: $step*1.5;
+  height: $step*1.5;
+
+  border: 1px solid $dark-color;
+  border-radius: $step;
+}
+
+.search__box {
+  position: relative;
+  left: -5px;
+  width: 0;
+  padding: 0;
+  margin: 0;
+  outline: none;
+  @include bounce-transition;
+
+  .active & {
+    width: 300px;
+  }
+}
+
+.search__button {
+  width: 35px;
+  padding: 0 10px 1px;
+  background-color: transparent;
+  color: transparent;
+  border: 0;
+
+  font-family: 'icomoon';
+  &::before {
+    content: '\f002';
+    color: $dark-color;
+  }
+
+}

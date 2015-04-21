@@ -1,0 +1,15 @@
+section {
+  padding: $step $step*.5;
+
+  @include media-query('medium') {
+    padding: $step;
+  }
+
+  @include media-query('large') {
+    padding: $step*2 $step;
+  }
+
+  @include media-query('huge') {
+    padding: $step*2;
+  }
+}
