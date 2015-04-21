@@ -6,17 +6,12 @@ use Psr\Log\LoggerInterface;
 use SprykerFeature\Zed\Cms\Dependency\Facade\CmsToGlossaryInterface;
 use SprykerFeature\Zed\Glossary\Business\GlossaryFacade as SprykerGlossaryFacade;
 
+/**
+ * @method GlossaryDependencyContainer getDependencyContainer()
+ */
 class GlossaryFacade extends SprykerGlossaryFacade implements
     CmsToGlossaryInterface
 {
-    /**
-     * @return GlossaryDependencyContainer
-     */
-    protected function getDependencyContainer()
-    {
-        return $this->dependencyContainer;
-    }
-
     /**
      * @param LoggerInterface $messenger
      */

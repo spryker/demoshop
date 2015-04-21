@@ -14,7 +14,7 @@ class PriceDependencyContainer extends SprykerPriceDependencyContainer
      */
     public function getInstallerFacade()
     {
-        return $this->locator->price()->facade();
+        return $this->getLocator()->price()->facade();
     }
 
 }

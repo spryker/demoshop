@@ -5,15 +5,13 @@ namespace Pyz\Zed\Glossary\Communication\Plugin;
 use SprykerFeature\Zed\Installer\Communication\Plugin\AbstractInstallerPlugin;
 use Pyz\Zed\Glossary\Communication\GlossaryDependencyContainer;
 
+/**
+ * @method GlossaryDependencyContainer getDependencyContainer()
+ */
 class DemoDataInstaller extends AbstractInstallerPlugin
 {
-    /**
-     * @var GlossaryDependencyContainer
-     */
-    protected $dependencyContainer;
-
-    public function install()
+            public function install()
     {
-        $this->dependencyContainer->getInstallerFacade()->installDemoData($this->messenger);
+        $this->getDependencyContainer()->getInstallerFacade()->installDemoData($this->messenger);
     }
 }

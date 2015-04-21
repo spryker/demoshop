@@ -13,6 +13,6 @@ class CategoryDependencyContainer extends SprykerFeatureCategoryDependencyContai
      */
     public function getInstallerFacade()
     {
-        return $this->locator->category()->facade();
+        return $this->getLocator()->category()->facade();
     }
 }

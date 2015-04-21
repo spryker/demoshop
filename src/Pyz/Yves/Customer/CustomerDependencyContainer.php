@@ -17,7 +17,7 @@ class CustomerDependencyContainer extends SprykerFeatureCustomerDependencyContai
      */
     public function createFormAddress()
     {
-        return $this->factory->createFormAddress();
+        return $this->getFactory()->createFormAddress();
     }
 
     /**
@@ -25,7 +25,7 @@ class CustomerDependencyContainer extends SprykerFeatureCustomerDependencyContai
      */
     public function createFormRegister()
     {
-        return $this->factory->createFormRegisterCustomer();
+        return $this->getFactory()->createFormRegisterCustomer();
     }
 
     /**
@@ -33,7 +33,7 @@ class CustomerDependencyContainer extends SprykerFeatureCustomerDependencyContai
      */
     public function createFormDelete()
     {
-        return $this->factory->createFormDeleteCustomer();
+        return $this->getFactory()->createFormDeleteCustomer();
     }
 
     /**
@@ -41,7 +41,7 @@ class CustomerDependencyContainer extends SprykerFeatureCustomerDependencyContai
      */
     public function createFormForgot()
     {
-        return $this->factory->createFormForgotPassword();
+        return $this->getFactory()->createFormForgotPassword();
     }
 
     /**
@@ -49,7 +49,7 @@ class CustomerDependencyContainer extends SprykerFeatureCustomerDependencyContai
      */
     public function createFormProfile()
     {
-        return $this->factory->createFormProfile();
+        return $this->getFactory()->createFormProfile();
     }
 
     /**
@@ -57,6 +57,6 @@ class CustomerDependencyContainer extends SprykerFeatureCustomerDependencyContai
      */
     public function createFormRestore()
     {
-        return $this->factory->createFormRestorePassword();
+        return $this->getFactory()->createFormRestorePassword();
     }
 }

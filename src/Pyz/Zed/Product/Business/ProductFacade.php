@@ -10,20 +10,15 @@ use SprykerFeature\Zed\ProductSearch\Dependency\Facade\ProductSearchToProductInt
 use SprykerFeature\Zed\Stock\Dependency\Facade\StockToProductInterface;
 use Psr\Log\LoggerInterface;
 
+/**
+ * @method ProductDependencyContainer getDependencyContainer()
+ */
 class ProductFacade extends CoreProductFacade implements
     ProductFrontendExporterToProductInterface,
     ProductSearchToProductInterface,
     StockToProductInterface,
     ProductCategoryToProductInterface
 {
-    /**
-     * @return ProductDependencyContainer
-     */
-    protected function getDependencyContainer()
-    {
-        return $this->dependencyContainer;
-    }
-
     /**
      * @param array $productsData
      *

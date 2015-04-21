@@ -6,13 +6,11 @@ use SprykerFeature\Zed\ProductCategorySearch\Business\External\ProductCategorySe
 use SprykerFeature\Zed\ProductSearch\Business\ProductSearchFacade as SprykerProductSearchFacade;
 use Psr\Log\LoggerInterface;
 
+/**
+ * @method ProductSearchDependencyContainer getDependencyContainer()
+ */
 class ProductSearchFacade extends SprykerProductSearchFacade implements ProductCategorySearchToProductSearchInterface
 {
-
-    /**
-     * @var ProductSearchDependencyContainer
-     */
-    protected $dependencyContainer;
 
     /**
      * @param $data
@@ -21,7 +19,7 @@ class ProductSearchFacade extends SprykerProductSearchFacade implements ProductC
      */
     public function buildProductKey($data, $locale)
     {
-        return $this->dependencyContainer
+        return $this->getDependencyContainer()
             ->createKeyBuilder()
             ->generateKey($data, $locale);
     }
@@ -31,7 +29,7 @@ class ProductSearchFacade extends SprykerProductSearchFacade implements ProductC
      */
     public function installDemoData(LoggerInterface $messenger)
     {
-        $this->dependencyContainer->getDemoDataInstaller($messenger)->install();
+        $this->getDependencyContainer()->getDemoDataInstaller($messenger)->install();
     }
 
 }

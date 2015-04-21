@@ -16,7 +16,7 @@ class ProductSearchDependencyContainer extends SprykerProductSearchDependencyCon
      */
     public function getInstallerFacade()
     {
-        return $this->locator->productSearch()->facade();
+        return $this->getLocator()->productSearch()->facade();
     }
 
 }

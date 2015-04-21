@@ -8,13 +8,11 @@ use SprykerFeature\Zed\Stock\Persistence\StockQueryContainer;
 use Psr\Log\LoggerInterface;
 use Pyz\Zed\Stock\Business\Internal\DemoData\StockInstall;
 
+/**
+ * @method StockBusiness getFactory()
+ */
 class StockDependencyContainer extends SprykerStockDependencyContainer
 {
-
-    /**
-     * @var StockBusiness
-     */
-    protected $factory;
 
     /**
      * @param LoggerInterface $messenger
@@ -23,8 +21,8 @@ class StockDependencyContainer extends SprykerStockDependencyContainer
      */
     public function getDemoDataInstaller(LoggerInterface $messenger)
     {
-        $installer = $this->factory->createInternalDemoDataStockInstall(
-            $this->locator,
+        $installer = $this->getFactory()->createInternalDemoDataStockInstall(
+            $this->getLocator(),
             $this->getQueryContainer(),
             $this->getStockFacade()
         );
@@ -38,7 +36,7 @@ class StockDependencyContainer extends SprykerStockDependencyContainer
      */
     protected function getQueryContainer()
     {
-        return $this->locator->stock()->queryContainer();
+        return $this->getLocator()->stock()->queryContainer();
     }
 
     /**
@@ -46,6 +44,6 @@ class StockDependencyContainer extends SprykerStockDependencyContainer
      */
     protected function getStockFacade()
     {
-        return $this->locator->stock()->facade();
+        return $this->getLocator()->stock()->facade();
     }
 }

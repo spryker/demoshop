@@ -11,6 +11,6 @@ class OrderTypeFormPlugin extends AbstractPlugin
      */
     public function createOrderTypeForm()
     {
-        return $this->dependencyContainer->createOrderTypeForm();
+        return $this->getDependencyContainer()->createOrderTypeForm();
     }
 }
