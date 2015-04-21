@@ -13,11 +13,7 @@ use ProjectA\Zed\Stock\Business\StockFacade;
 use ProjectA\Zed\Stock\Persistence\Propel\SpyStock;
 use ProjectA\Zed\Stock\Persistence\StockQueryContainer;
 
-/**
- * Class StockInstall
- * @package Pyz\Zed\Stock\Business\Internal\DemoData
- */
-class StockInstall implements DemoDataInstallInterface
+class StockInstall extends AbstractInstaller
 {
     const SKU = 'sku';
     const QUANTITY = 'quantity';
