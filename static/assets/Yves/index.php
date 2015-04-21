@@ -5,6 +5,7 @@
 use Pyz\Yves\Application\Communication\YvesBootstrap;
 use SprykerFeature\Shared\Library\Application\Environment;
 
+
 define('YVES_START', microtime(true));
 
 define('APPLICATION', 'YVES');
