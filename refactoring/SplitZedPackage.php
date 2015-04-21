@@ -241,7 +241,7 @@ class SplitZedPackage extends AbstractRefactorer
      */
     private function getDestinationPath($bundle, SplFileInfo $file)
     {
-        $path = str_replace('yves-package', $this->getFilteredBundle($bundle), $file->getPathname());
+        $path = str_replace('zed-package', $this->getFilteredBundle($bundle), $file->getPathname());
 
         return $path;
     }
