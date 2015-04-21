@@ -1,7 +1,7 @@
 {
   "require": {
     "spryker/yves-package": "dev-master",
-    "spryker/zed-package": "dev-feature/s-5-new-cart",
+    "spryker/zed-package": "dev-master",
 
     "psr/log": "~1.0",
     "phing/phing": "~2.6.0",
@@ -17,6 +17,7 @@
     "symfony/twig-bridge": "~2.3,<3.0"
   },
   "require-dev": {
+    "knplabs/github-api": "1.4.7",
     "silex/web-profiler": "~1.0.2",
     "pdepend/pdepend": "*",
     "phpunit/phpunit": "~3.7.0",
