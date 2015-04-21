@@ -76,7 +76,7 @@ class SplitZedPackage extends AbstractRefactorer
 
             $destination = $this->getDestinationPath($bundle, $file);
 
-            chmod(dirname($destination), 777);
+//            chmod(dirname($destination), 777);
             $fileSystem->copy($file->getPathname(), $destination);
             $fileSystem->remove($file->getPathname());
         }
