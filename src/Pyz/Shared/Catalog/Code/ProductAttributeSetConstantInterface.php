@@ -1,7 +1,7 @@
 <?php
 namespace Pyz\Shared\Catalog\Code;
 
-use ProjectA\Shared\Catalog\Code\ProductAttributeSetConstantInterface as CoreProductAttributeSetConstantInterface;
+use SprykerFeature\Shared\Catalog\Code\ProductAttributeSetConstantInterface as CoreProductAttributeSetConstantInterface;
 
 interface ProductAttributeSetConstantInterface extends CoreProductAttributeSetConstantInterface
 {

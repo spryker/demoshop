@@ -2,8 +2,8 @@
 
 namespace Pyz\Zed\Price\Communication;
 
-use ProjectA\Zed\Kernel\Communication\AbstractDependencyContainer;
-use ProjectA\Zed\Price\Communication\PriceDependencyContainer as SprykerPriceDependencyContainer;
+use SprykerEngine\Zed\Kernel\Communication\AbstractDependencyContainer;
+use SprykerFeature\Zed\Price\Communication\PriceDependencyContainer as SprykerPriceDependencyContainer;
 use Pyz\Zed\Price\Business\PriceFacade;
 
 class PriceDependencyContainer extends SprykerPriceDependencyContainer

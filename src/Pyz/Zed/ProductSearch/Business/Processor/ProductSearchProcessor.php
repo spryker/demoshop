@@ -2,7 +2,7 @@
 
 namespace Pyz\Zed\ProductSearch\Business\Processor;
 
-use ProjectA\Zed\ProductSearch\Business\Processor\ProductSearchProcessor as CoreProductSearchProcessor;
+use SprykerFeature\Zed\ProductSearch\Business\Processor\ProductSearchProcessor as CoreProductSearchProcessor;
 
 class ProductSearchProcessor extends CoreProductSearchProcessor
 {

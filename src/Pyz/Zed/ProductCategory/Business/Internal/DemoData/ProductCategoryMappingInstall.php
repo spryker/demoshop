@@ -2,12 +2,12 @@
 
 namespace Pyz\Zed\ProductCategory\Business\Internal\DemoData;
 
-use ProjectA\Zed\Installer\Business\Model\AbstractInstaller;
-use ProjectA\Zed\Library\Import\ReaderInterface;
-use ProjectA\Zed\ProductCategory\Business\ProductCategoryManagerInterface;
-use ProjectA\Zed\ProductCategory\Dependency\Facade\ProductCategoryToCategoryInterface;
-use ProjectA\Zed\ProductCategory\Dependency\Facade\ProductCategoryToLocaleInterface;
-use ProjectA\Zed\ProductCategory\Dependency\Facade\ProductCategoryToProductInterface;
+use SprykerFeature\Zed\Installer\Business\Model\AbstractInstaller;
+use SprykerFeature\Zed\Library\Import\ReaderInterface;
+use SprykerFeature\Zed\ProductCategory\Business\ProductCategoryManagerInterface;
+use SprykerFeature\Zed\ProductCategory\Dependency\Facade\ProductCategoryToCategoryInterface;
+use SprykerFeature\Zed\ProductCategory\Dependency\Facade\ProductCategoryToLocaleInterface;
+use SprykerFeature\Zed\ProductCategory\Dependency\Facade\ProductCategoryToProductInterface;
 use Propel\Runtime\Exception\PropelException;
 
 class ProductCategoryMappingInstall extends AbstractInstaller

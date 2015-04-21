@@ -3,7 +3,7 @@
 namespace Pyz\Zed\ProductCategory\Communication;
 
 use Pyz\Zed\ProductCategory\Business\ProductCategoryFacade;
-use ProjectA\Zed\ProductCategory\Communication\ProductCategoryDependencyContainer as
+use SprykerFeature\Zed\ProductCategory\Communication\ProductCategoryDependencyContainer as
     SprykerProductCategoryDependencyContainer;
 
 class ProductCategoryDependencyContainer extends SprykerProductCategoryDependencyContainer

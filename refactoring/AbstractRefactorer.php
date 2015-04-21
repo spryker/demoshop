@@ -11,7 +11,11 @@ abstract class AbstractRefactorer extends AbstractLogger implements RefactorerIn
     /**
      * @var LoggerInterface
      */
+<<<<<<< HEAD
     protected $logger;
+=======
+    private $logger;
+>>>>>>> master
 
     /**
      * @param LoggerInterface $logger

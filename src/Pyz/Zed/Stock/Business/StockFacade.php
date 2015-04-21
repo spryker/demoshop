@@ -2,8 +2,8 @@
 
 namespace Pyz\Zed\Stock\Business;
 
-use ProjectA\Zed\Kernel\Business\AbstractFacade;
-use ProjectA\Zed\Stock\Business\StockFacade as SprykerStockFacade;
+use SprykerEngine\Zed\Kernel\Business\AbstractFacade;
+use SprykerFeature\Zed\Stock\Business\StockFacade as SprykerStockFacade;
 use Psr\Log\LoggerInterface;
 
 class StockFacade extends SprykerStockFacade

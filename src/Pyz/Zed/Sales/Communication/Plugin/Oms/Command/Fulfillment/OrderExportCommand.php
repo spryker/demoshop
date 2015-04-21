@@ -2,9 +2,9 @@
 
 namespace Pyz\Zed\Sales\Communication\Plugin\Oms\Command\Fulfillment;
 
-use ProjectA\Zed\Oms\Business\Model\Util\ReadOnlyArrayObject;
-use ProjectA\Zed\Oms\Communication\Plugin\Oms\Command\AbstractCommand;
-use ProjectA\Zed\Oms\Communication\Plugin\Oms\Command\CommandByOrderInterface;
+use SprykerFeature\Zed\Oms\Business\Model\Util\ReadOnlyArrayObject;
+use SprykerFeature\Zed\Oms\Communication\Plugin\Oms\Command\AbstractCommand;
+use SprykerFeature\Zed\Oms\Communication\Plugin\Oms\Command\CommandByOrderInterface;
 use Zend\Stdlib\ArrayObject;
 
 /**
@@ -16,11 +16,11 @@ class OrderExportCommand extends AbstractCommand implements CommandByOrderInterf
 
     /**
      * @param array $orderItems
-     * @param \ProjectA\Zed\Sales\Persistence\Propel\SpySalesOrder $orderEntity
+     * @param \SprykerFeature\Zed\Sales\Persistence\Propel\SpySalesOrder $orderEntity
      * @param ReadOnlyArrayObject $data
      * @return array|void
      */
-    public function run(array $orderItems, \ProjectA\Zed\Sales\Persistence\Propel\SpySalesOrder $orderEntity, ReadOnlyArrayObject $data)
+    public function run(array $orderItems, \SprykerFeature\Zed\Sales\Persistence\Propel\SpySalesOrder $orderEntity, ReadOnlyArrayObject $data)
     {
         // TODO: needs implementation
     }

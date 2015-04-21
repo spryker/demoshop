@@ -2,8 +2,8 @@
 
 namespace Pyz\Zed\ProductSearch\Communication;
 
-use ProjectA\Zed\Kernel\Communication\AbstractDependencyContainer;
-use ProjectA\Zed\ProductSearch\Communication\ProductSearchDependencyContainer
+use SprykerEngine\Zed\Kernel\Communication\AbstractDependencyContainer;
+use SprykerFeature\Zed\ProductSearch\Communication\ProductSearchDependencyContainer
     as SprykerProductSearchDependencyContainer;
 
 use Pyz\Zed\ProductSearch\Business\ProductSearchFacade;

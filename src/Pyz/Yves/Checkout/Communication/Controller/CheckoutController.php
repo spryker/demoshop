@@ -1,12 +1,12 @@
 <?php
 namespace Pyz\Yves\Checkout\Communication\Controller;
 
-use ProjectA\Shared\Kernel\LocatorLocatorInterface;
-use ProjectA\Shared\Sales\Transfer\Order;
+use SprykerEngine\Shared\Kernel\LocatorLocatorInterface;
+use SprykerFeature\Shared\Sales\Transfer\Order;
 use Pyz\Yves\Checkout\Communication\Plugin\CheckoutControllerProvider;
 use Pyz\Yves\Cart\Communication\Helper\CartControllerTrait;
 use Pyz\Yves\Cart\Communication\Plugin\CartControllerProvider;
-use SprykerCore\Yves\Application\Communication\Controller\AbstractController;
+use SprykerEngine\Yves\Application\Communication\Controller\AbstractController;
 use SprykerFeature\Sdk\Cart\CartSdk;
 use SprykerFeature\Sdk\Checkout\CheckoutSdk;
 use Symfony\Component\Form\FormInterface;
@@ -97,7 +97,7 @@ class CheckoutController extends AbstractController
             if ($transferResponse->isSuccess()) {
                 return $this->redirectResponseInternal(CheckoutControllerProvider::ROUTE_CHECKOUT_SUCCESS);
             } elseif ($transferResponse->hasErrorMessage(
-                \ProjectA_Shared_Checkout_Code_Messages::ERROR_ORDER_IS_ALREADY_SAVED
+                \SprykerFeature_Shared_Checkout_Code_Messages::ERROR_ORDER_IS_ALREADY_SAVED
             )
             ) {
                 $cart->setOrder($this->locator->sales()->transferSalesOrder());

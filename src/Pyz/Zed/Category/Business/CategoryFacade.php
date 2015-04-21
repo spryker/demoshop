@@ -2,8 +2,8 @@
 
 namespace Pyz\Zed\Category\Business;
 
-use ProjectA\Zed\Category\Business\CategoryFacade as SprykerCategoryFacade;
-use ProjectA\Zed\ProductCategory\Dependency\Facade\ProductCategoryToCategoryInterface;
+use SprykerFeature\Zed\Category\Business\CategoryFacade as SprykerCategoryFacade;
+use SprykerFeature\Zed\ProductCategory\Dependency\Facade\ProductCategoryToCategoryInterface;
 use Psr\Log\LoggerInterface;
 
 class CategoryFacade extends SprykerCategoryFacade implements ProductCategoryToCategoryInterface

@@ -1,8 +1,8 @@
 <?php
 
-use ProjectA\Shared\Mail\MailConfig;
-use ProjectA\Shared\Setup\SetupConfig;
-use ProjectA\Shared\System\SystemConfig;
+use SprykerFeature\Shared\Mail\MailConfig;
+use SprykerFeature\Shared\Setup\SetupConfig;
+use SprykerFeature\Shared\System\SystemConfig;
 
 $config[SystemConfig::ZED_MYSQL_USERNAME] = 'development';
 $config[SystemConfig::ZED_MYSQL_PASSWORD] = 'mate20mg';
