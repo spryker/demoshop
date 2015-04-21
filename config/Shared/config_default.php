@@ -1,16 +1,13 @@
 <?php
 
+use SprykerFeature\Shared\Acl\AclConfig;
+use SprykerFeature\Shared\Auth\AuthConfig;
 use SprykerFeature\Shared\DbDump\DbDumpConfig;
-use SprykerFeature\Shared\Glossary\GlossaryConfig;
 use SprykerFeature\Shared\Customer\CustomerConfig;
 use Pyz\Shared\Mail\MailConfig;
-use SprykerFeature\Shared\Payone\PayoneConfig;
-use SprykerFeature\Shared\ProductImage\ProductImageConfig;
 use SprykerFeature\Shared\System\SystemConfig;
+use SprykerFeature\Shared\User\UserConfig;
 use SprykerFeature\Shared\Yves\YvesConfig;
-use SprykerFeature\Zed\Acl\Business\AclSettings;
-use SprykerFeature\Zed\Auth\Business\AuthSettings;
-use SprykerFeature\Zed\User\Business\UserSettings;
 
 $config[SystemConfig::PROJECT_NAMESPACES] = [
     'Pyz'
@@ -172,11 +169,11 @@ $config[MailConfig::MAIL_PROVIDER_MANDRILL] = [
     'from_name' => 'Demoshop'
 ];
 
-$config[UserSettings::USER_SYSTEM_USERS] = [
+$config[UserConfig::USER_SYSTEM_USERS] = [
     'yves_system'
 ];
 
-$config[AuthSettings::AUTH_DEFAULT_CREDENTIALS] = [
+$config[AuthConfig::AUTH_DEFAULT_CREDENTIALS] = [
     'yves_system' => [
         'rules' => [
             [
@@ -189,7 +186,7 @@ $config[AuthSettings::AUTH_DEFAULT_CREDENTIALS] = [
     ]
 ];
 
-$config[AclSettings::ACL_DEFAULT_RULES] = [
+$config[AclConfig::ACL_DEFAULT_RULES] = [
     [
         "bundle" => "auth",
         "controller" => "login",
@@ -204,7 +201,7 @@ $config[AclSettings::ACL_DEFAULT_RULES] = [
     ]
 ];
 
-$config[AclSettings::ACL_DEFAULT_CREDENTIALS] = [
+$config[AclConfig::ACL_DEFAULT_CREDENTIALS] = [
     'yves_system' => [
         'rules' => [
             [
