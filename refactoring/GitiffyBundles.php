@@ -35,14 +35,16 @@ class GitiffyBundles extends AbstractRefactorer
 
         foreach ($finder as $dir) {
             $bundle = $dir->getFilename();
-            $cwd = $dir->getPathname();
+            $this->info($bundle);
 
-            $repository = $this->createRepository($bundle);
-            $this->init($bundle, $cwd);
-            $this->commit($bundle, $cwd);
-            $this->addRemote($bundle, $cwd);
-
-            $this->push($bundle, $cwd);
+//            $cwd = $dir->getPathname();
+//
+//            $repository = $this->createRepository($bundle);
+//            $this->init($bundle, $cwd);
+//            $this->commit($bundle, $cwd);
+//            $this->addRemote($bundle, $cwd);
+//
+//            $this->push($bundle, $cwd);
             echo '"spryker/' . $bundle . '": "dev-master",' . PHP_EOL;
         }
     }
@@ -62,6 +64,7 @@ class GitiffyBundles extends AbstractRefactorer
                 'yves-package',
                 'zed-package'
             ])
+            ->depth('< 1')
         ;
 
         return $finder;
