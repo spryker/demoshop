@@ -160,6 +160,12 @@ class SplitZedPackage extends AbstractRefactorer
             $this->createComposerJson($bundle, $namespaces);
 
             foreach ($this->globalFiles as $file) {
+
+                $search = 'ZedPackage';
+
+                $content = str_replace($search, $bundle, $file->getContents());
+                file_put_contents($file->getPathname(), $content);
+
                 $destination = $this->getDestinationPath($bundle, $file);
                 $fileSystem->copy($file->getPathname(), $destination);
             }
