@@ -45,7 +45,7 @@ class SplitYvesPackage extends AbstractRefactorer
 
             $destination = $this->getDestinationPath($bundle, $file);
 
-//            $fileSystem->copy($file->getPathname(), $destination);
+            $fileSystem->copy($file->getPathname(), $destination);
 //            $fileSystem->remove($file->getPathname());
         }
 
