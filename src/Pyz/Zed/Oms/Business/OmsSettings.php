@@ -3,11 +3,12 @@
 namespace Pyz\Zed\Oms\Business;
 
 use Pyz\Zed\Oms\Communication\Plugin\Oms\FakeAuthPayment;
-use Pyz\Zed\Sales\Business\SalesFacade;
 use SprykerFeature\Shared\Sales\Transfer\Order as OrderTransfer;
-use SprykerFeature\Zed\Oms\Business\AbstractOmsSettings;
+use SprykerFeature\Zed\Oms\Business\OmsSettings as SprykerOmsSettings;
+use SprykerFeature\Zed\Oms\Communication\Plugin\Oms\Command\CommandInterface;
+use SprykerFeature\Zed\Oms\Communication\Plugin\Oms\Condition\ConditionInterface;
 
-class OmsSettings extends AbstractOmsSettings
+class OmsSettings extends SprykerOmsSettings
 {
 
     const ORDER_PROCESS_PAYONE_PRE_PAYMENT_01 = 'PayonePrePayment01';
@@ -55,7 +56,7 @@ class OmsSettings extends AbstractOmsSettings
     }
 
     /**
-     * @return array
+     * @return CommandInterface[]
      */
     public function getCommands()
     {
@@ -65,11 +66,10 @@ class OmsSettings extends AbstractOmsSettings
     }
 
     /**
-     * @return array
+     * @return ConditionInterface[]
      */
     public function getConditions()
     {
         return [];
     }
 }
-
