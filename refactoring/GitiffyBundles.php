@@ -4,6 +4,7 @@ namespace ReneFactor;
 
 use Faker\Provider\File;
 use Github\Client;
+use Github\Exception\ValidationFailedException;
 use Symfony\Component\Filesystem\Filesystem;
 use Symfony\Component\Finder\Finder;
 use Symfony\Component\Finder\SplFileInfo;
@@ -37,17 +38,19 @@ class GitiffyBundles extends AbstractRefactorer
             $bundle = $dir->getFilename();
             $cwd = $dir->getPathname();
 
-//            $repository = $this->createRepository($bundle);
-//            $this->init($bundle, $cwd);
-//            $this->commit($bundle, $cwd);
-//            $this->addRemote($bundle, $cwd);
-//
-//            $this->push($bundle, $cwd);
+            $this->info($bundle);
+            $this->info($cwd);
+
+            $repository = $this->createRepository($bundle);
+
+            $this->init($bundle, $cwd);
+            $this->add($bundle, $cwd);
+            $this->commit($bundle, $cwd);
+            $this->addRemote($bundle, $cwd);
+            $this->push($bundle, $cwd);
 
 //            $this->buildComposerJsonConfig($bundle);
-            $this->buildComposerJsonRepoList($bundle);
-
-
+//            $this->buildComposerJsonRepoList($bundle);
 
         }
     }
@@ -76,21 +79,30 @@ class GitiffyBundles extends AbstractRefactorer
     /**
      * @param $bundle
      *
-     * @return mixed
+     * @throws ValidationFailedException
+     * @throws \Exception
+     *
+     * @return bool
      */
     private function createRepository($bundle)
     {
         $client = $this->getGithubClient();
 
-        $repository = $client->api('repo')->create(
-            $bundle,
-            'This is the new ' . $bundle . ' repository',
-            'http://www.spryker.com',
-            false,
-            'spryker'
-        );
+        try {
+            $repository = $client->api('repo')->create(
+                $bundle,
+                'This is the new ' . $bundle . ' repository',
+                'http://www.spryker.com',
+                false,
+                'spryker'
+            );
 
-        return $repository;
+            return $repository;
+        } catch (ValidationFailedException $e) {
+            $this->warning($e->getMessage());
+
+            return false;
+        }
     }
 
     /**
@@ -113,9 +125,37 @@ class GitiffyBundles extends AbstractRefactorer
     private function init($bundle, $cwd)
     {
         $command = 'git init';
+        $this->info($command);
         $process = new Process($command, $cwd);
 
-        $process->run();
+        $process->run($this->getProcessCallBack());
+    }
+
+    /**
+     * @return callable
+     */
+    private function getProcessCallBack()
+    {
+        return function ($type, $buffer) {
+            if (Process::ERR === $type) {
+                echo 'ERR > '.$buffer;
+            } else {
+                echo 'OUT > '.$buffer;
+            }
+        };
+    }
+
+    /**
+     * @param $bundle
+     * @param $cwd
+     */
+    private function add($bundle, $cwd)
+    {
+        $command = 'git add . ';
+        $this->info($command);
+        $process = new Process($command, $cwd);
+
+        $process->run($this->getProcessCallBack());
     }
 
     /**
@@ -125,9 +165,10 @@ class GitiffyBundles extends AbstractRefactorer
     private function commit($bundle, $cwd)
     {
         $command = 'git commit -m "Spryke!"';
+        $this->info($command);
         $process = new Process($command, $cwd);
 
-        $process->run();
+        $process->run($this->getProcessCallBack());
     }
 
     /**
@@ -137,9 +178,10 @@ class GitiffyBundles extends AbstractRefactorer
     private function addRemote($bundle, $cwd)
     {
         $command = 'git remote add origin git@github.com:spryker/' . $bundle . '.git';
+        $this->info($command);
         $process = new Process($command, $cwd);
 
-        $process->run();
+        $process->run($this->getProcessCallBack());
     }
 
     /**
@@ -149,9 +191,10 @@ class GitiffyBundles extends AbstractRefactorer
     private function push($bundle, $cwd)
     {
         $command = 'git push -u origin master';
+        $this->info($command);
         $process = new Process($command, $cwd);
 
-        $process->run();
+        $process->run($this->getProcessCallBack());
     }
 
     /**
