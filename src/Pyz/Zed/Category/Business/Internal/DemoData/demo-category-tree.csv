@@ -1,8 +1,5 @@
 "is_root";"name";"parent_name"
-1;"Toys";NULL
-0;"Robot";"Toys"
-0;"Soft Toy";"Toys"
-0;"Wind-Up";"Robot"
-0;"No Wind-up";"Robot"
-0;"Exotic";"Soft Toy"
-0;"Local";"Soft Toy"
+1;"All";NULL
+0;"Wald und Wiese";"All"
+0;"Wilde Tiere";"All"
+0;"Meere";"All"
