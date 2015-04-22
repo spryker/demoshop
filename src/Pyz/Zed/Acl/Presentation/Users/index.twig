@@ -27,6 +27,7 @@
                 <th spy-grid-head="columns['first_name']" label="First name"></th>
                 <th spy-grid-head="columns['last_name']" label="Last name"></th>
                 <th spy-grid-head="columns['group_name']" label="Group"></th>
+                <th spy-grid-head="" label="Actions"></th>
             </tr>
             </thead>
 
@@ -36,6 +37,9 @@
                 <td>{[{ row['first_name'] }]}</td>
                 <td>{[{ row['last_name'] }]}</td>
                 <td>{[{ row['group_name'] }]}</td>
+                <td>
+                    <a href="/acl/users/form/{[{ row['id_user_user'] }]}" class="button default">edit</a>
+                </td>
             </tr>
             </tbody>
         </table>

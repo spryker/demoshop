@@ -27,8 +27,13 @@ class UsersController extends AbstractController
      */
     public function listAction(Request $request)
     {
-        $grid = $this->getDependencyContainer()->createUsersWithGroupGrid($request);
+        $grid = $this->getDependencyContainer()->createUserGrid($request);
 
         return $this->jsonResponse($grid->renderData());
+    }
+
+    public function formAction()
+    {
+
     }
 }

@@ -4,7 +4,7 @@ namespace Pyz\Zed\Acl\Communication\Grid;
 
 use SprykerFeature\Zed\Ui\Dependency\Grid\AbstractGrid;
 
-class UsersWithGroupGrid extends AbstractGrid
+class UserGrid extends AbstractGrid
 {
     /**
      * @return array
