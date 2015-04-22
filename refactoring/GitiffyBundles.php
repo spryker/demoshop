@@ -4,6 +4,7 @@ namespace ReneFactor;
 
 use Faker\Provider\File;
 use Github\Client;
+use Github\Exception\RuntimeException;
 use Github\Exception\ValidationFailedException;
 use Symfony\Component\Filesystem\Filesystem;
 use Symfony\Component\Finder\Finder;
@@ -38,6 +39,15 @@ class GitiffyBundles extends AbstractRefactorer
             $bundle = $dir->getFilename();
             $cwd = $dir->getPathname();
 
+            $this->info('Delete ' . $bundle . ' repository');
+            $this->deleteRepository($bundle);
+            $this->deleteGitInfo($bundle, $cwd);
+        }
+
+        foreach ($finder as $dir) {
+            $bundle = $dir->getFilename();
+            $cwd = $dir->getPathname();
+
             $this->info($bundle);
             $this->info($cwd);
 
@@ -53,6 +63,7 @@ class GitiffyBundles extends AbstractRefactorer
 //            $this->buildComposerJsonRepoList($bundle);
 
         }
+
     }
 
     /**
@@ -74,6 +85,43 @@ class GitiffyBundles extends AbstractRefactorer
         ;
 
         return $finder;
+    }
+
+    /**
+     * @param $bundle
+     *
+     * @throws ValidationFailedException
+     * @throws \Exception
+     *
+     * @return bool
+     */
+    private function deleteRepository($bundle)
+    {
+        $client = $this->getGithubClient();
+
+        try {
+            $repository = $client->api('repo')->remove(
+                'spryker',
+                $bundle
+            );
+
+            return $repository;
+        } catch (RuntimeException $e) {
+            $this->warning($e->getMessage());
+
+            return false;
+        }
+    }
+
+    /**
+     * @param $bundle
+     * @param $cwd
+     */
+    private function deleteGitInfo($bundle, $cwd)
+    {
+        $this->info('Remove '. $cwd . '/.git');
+        $fileSystem = new Filesystem();
+        $fileSystem->remove($cwd . '/.git');
     }
 
     /**
