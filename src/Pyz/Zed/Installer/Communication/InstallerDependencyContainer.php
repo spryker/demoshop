@@ -1,20 +1,19 @@
 <?php
 
-namespace Pyz\Zed\ProductCategory\Communication;
+namespace Pyz\Zed\Installer\Communication;
 
-use Pyz\Zed\ProductCategory\Business\ProductCategoryFacade;
-use ProjectA\Zed\ProductCategory\Communication\ProductCategoryDependencyContainer as
-    SprykerProductCategoryDependencyContainer;
+use Pyz\Zed\Installer\Business\InstallerFacade;
+use ProjectA\Zed\Kernel\Communication\AbstractDependencyContainer;
 
-class InstallerDependencyContainer extends SprykerProductCategoryDependencyContainer
+class InstallerDependencyContainer extends AbstractDependencyContainer
 {
 
     /**
-     * @return ProductCategoryFacade
+     * @return InstallerFacade
      */
     public function getInstallerFacade()
     {
-        return $this->locator->productCategory()->facade();
+        return $this->locator->installer()->facade();
     }
 
 }

@@ -15,6 +15,6 @@ class PriceDemoDataInstaller extends AbstractInstallerPlugin
 
     public function install()
     {
-        $this->dependencyContainer->getInstallerFacade()->installProductDemoData($this->messenger);
+        $this->dependencyContainer->getInstallerFacade()->installPriceDemoData($this->messenger);
     }
 }

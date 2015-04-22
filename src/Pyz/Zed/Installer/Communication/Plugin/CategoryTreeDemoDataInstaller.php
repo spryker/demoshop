@@ -5,7 +5,7 @@ namespace Pyz\Zed\Installer\Communication\Plugin;
 use ProjectA\Zed\Installer\Communication\Plugin\AbstractInstallerPlugin;
 use Pyz\Zed\Installer\Communication\InstallerDependencyContainer;
 
-class ProductCategoryDemoDataInstaller extends AbstractInstallerPlugin
+class CategoryTreeDemoDataInstaller extends AbstractInstallerPlugin
 {
 
     /**
@@ -15,6 +15,6 @@ class ProductCategoryDemoDataInstaller extends AbstractInstallerPlugin
 
     public function install()
     {
-        $this->dependencyContainer->getInstallerFacade()->installProductCategoryDemoData($this->messenger);
+        $this->dependencyContainer->getInstallerFacade()->installCategoryTreeDemoData($this->messenger);
     }
 }

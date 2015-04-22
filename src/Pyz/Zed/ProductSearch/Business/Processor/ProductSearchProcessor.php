@@ -16,7 +16,7 @@ class ProductSearchProcessor extends CoreProductSearchProcessor
     {
         $baseProduct = parent::buildBaseProduct($productData, $locale);
 
-        //@todo this is only a hack unless we have bundles to export product images and prices
+        //@todo this is only a hack until we have bundles to export product images and prices
         $productAttributes = json_decode($productData['attributes'], true);
         $abstractAttributes = json_decode($productData['abstract_attributes'], true);
         $attributes = array_merge($abstractAttributes, $productAttributes);

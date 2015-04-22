@@ -3,6 +3,7 @@
 namespace Pyz\Zed\Installer\Business;
 
 use ProjectA\Zed\Installer\Business\InstallerFacade as SprykerInstallerFacade;
+use Psr\Log\LoggerInterface;
 
 class InstallerFacade extends SprykerInstallerFacade
 {
@@ -13,18 +14,42 @@ class InstallerFacade extends SprykerInstallerFacade
     protected $dependencyContainer;
 
     /**
-     * @return DemoData\CategoryTreeInstaller
+     * @param LoggerInterface $messenger
      */
-    public function demoDataCategoryTreeInstaller()
+    public function installCategoryTreeDemoData(LoggerInterface $messenger)
     {
-        return $this->dependencyContainer->createDemoDataCategoryTreeInstaller();
+        $this->dependencyContainer->createDemoDataCategoryTreeInstaller($messenger)->install();
     }
 
     /**
-     * @return DemoData\ProductInstaller
+     * @param LoggerInterface $messenger
      */
-    public function demoDataProductInstaller()
+    public function installProductDemoData(LoggerInterface $messenger)
     {
-        return $this->dependencyContainer->getDemoDataProductInstaller();
+        $this->dependencyContainer->createDemoDataProductInstaller($messenger)->install();
+    }
+
+    /**
+     * @param LoggerInterface $messenger
+     */
+    public function installProductCategoryDemoData(LoggerInterface $messenger)
+    {
+        $this->dependencyContainer->createDemoDataProductCategoryInstaller($messenger)->install();
+    }
+
+    /**
+     * @param LoggerInterface $messenger
+     */
+    public function installPriceDemoData(LoggerInterface $messenger)
+    {
+        $this->dependencyContainer->createDemoDataPriceInstaller($messenger)->install();
+    }
+
+    /**
+     * @param LoggerInterface $messenger
+     */
+    public function installStockDemoData(LoggerInterface $messenger)
+    {
+        $this->dependencyContainer->createDemoDataStockInstaller($messenger)->install();
     }
 }

@@ -9,12 +9,12 @@ class ProductCategoryDemoDataInstaller extends AbstractInstallerPlugin
 {
 
     /**
-     * @var ProductCategoryDependencyContainer
+     * @var InstallerDependencyContainer
      */
     protected $dependencyContainer;
 
     public function install()
     {
-        $this->dependencyContainer->getInstallerFacade()->installDemoData($this->messenger);
+        $this->dependencyContainer->getInstallerFacade()->installProductCategoryDemoData($this->messenger);
     }
 }

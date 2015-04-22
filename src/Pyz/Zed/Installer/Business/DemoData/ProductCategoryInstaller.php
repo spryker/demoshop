@@ -1,14 +1,13 @@
 <?php
 
-namespace Pyz\Zed\Installer\Business\Internal\DemoData;
+namespace Pyz\Zed\Installer\Business\DemoData;
 
 use ProjectA\Zed\Installer\Business\Model\AbstractInstaller;
-use ProjectA\Zed\Library\Import\ReaderInterface;
-use ProjectA\Zed\ProductCategory\Business\ProductCategoryManagerInterface;
-use ProjectA\Zed\ProductCategory\Dependency\Facade\ProductCategoryToCategoryInterface;
-use ProjectA\Zed\ProductCategory\Dependency\Facade\ProductCategoryToLocaleInterface;
-use ProjectA\Zed\ProductCategory\Dependency\Facade\ProductCategoryToProductInterface;
+use ProjectA\Zed\Category\Business\CategoryFacade;
+use ProjectA\Zed\Product\Business\ProductFacade;
+use ProjectA\Zed\ProductCategory\Business\ProductCategoryFacade;
 use Propel\Runtime\Exception\PropelException;
+use SprykerCore\Zed\Locale\Business\LocaleFacade;
 
 class ProductCategoryInstaller extends AbstractInstaller
 {
@@ -19,52 +18,44 @@ class ProductCategoryInstaller extends AbstractInstaller
     protected $localeFacade;
 
     /**
-     * @var ReaderInterface
+     * @var ProductCategoryFacade
      */
-    protected $reader;
+    protected $productCategoryFacade;
 
     /**
-     * @var string
-     */
-    protected $csvPath;
-
-    /**
-     * @var ProductCategoryManagerInterface
-     */
-    protected $productCategoryManager;
-
-    /**
-     * @var ProductCategoryToProductInterface
+     * @var ProductFacade
      */
     protected $productFacade;
 
     /**
-     * @var ProductCategoryToCategoryInterface
+     * @var CategoryFacade
      */
     protected $categoryFacade;
 
     /**
-     * @param ProductCategoryManagerInterface $productCategoryManager
-     * @param ProductCategoryToCategoryInterface $categoryFacade
-     * @param ProductCategoryToProductInterface $productFacade
-     * @param ProductCategoryToLocaleInterface $localeFacade
-     * @param ReaderInterface $reader
-     * @param string $csvPath
+     * @var array
+     */
+    protected $rawProductData;
+
+    /**
+     * @param ProductCategoryFacade $productCategoryFacade
+     * @param CategoryFacade $categoryFacade
+     * @param ProductFacade $productFacade
+     * @param LocaleFacade $localeFacade
+     * @param array $rawProductData
      */
     public function __construct(
-        ProductCategoryManagerInterface $productCategoryManager,
-        ProductCategoryToCategoryInterface $categoryFacade,
-        ProductCategoryToProductInterface $productFacade,
-        ProductCategoryToLocaleInterface $localeFacade,
-        ReaderInterface $reader,
-        $csvPath
+        ProductCategoryFacade $productCategoryFacade,
+        CategoryFacade $categoryFacade,
+        ProductFacade $productFacade,
+        LocaleFacade $localeFacade,
+        $rawProductData
     ) {
-        $this->localeFacade = $localeFacade;
-        $this->reader = $reader;
-        $this->csvPath = $csvPath;
-        $this->productCategoryManager = $productCategoryManager;
-        $this->productFacade = $productFacade;
+        $this->productCategoryFacade = $productCategoryFacade;
         $this->categoryFacade = $categoryFacade;
+        $this->productFacade = $productFacade;
+        $this->localeFacade = $localeFacade;
+        $this->rawProductData = $rawProductData;
     }
 
     public function install()
@@ -80,30 +71,21 @@ class ProductCategoryInstaller extends AbstractInstaller
      */
     protected function installProductCategories($localeId)
     {
-        foreach ($this->getDemoProductCategories() as $demoProductCategory) {
-            $sku = $demoProductCategory['sku'];
+        foreach ($this->rawProductData as $rawProduct) {
+            $sku = $rawProduct['sku'];
             if (!$this->productFacade->hasConcreteProduct($sku)) {
                 continue;
             }
 
-            $categoryName = $demoProductCategory['category'];
+            $categoryName = $rawProduct['category'];
             if (!$this->categoryFacade->hasCategoryNode($categoryName, $localeId)) {
                 continue;
             }
 
-            if (!$this->productCategoryManager->hasProductCategoryMapping($sku, $categoryName, $localeId)) {
-                $categoryNodeIds[] = $this->productCategoryManager
-                    ->createProductCategoryMapping($sku, $categoryName, $localeId)
-                ;
+            if (!$this->productCategoryFacade->hasProductCategoryMapping($sku, $categoryName, $localeId)) {
+                $categoryNodeIds[] = $this->productCategoryFacade
+                    ->createProductCategoryMapping($sku, $categoryName, $localeId);
             }
         }
-    }
-
-    /**
-     * @return array
-     */
-    protected function getDemoProductCategories()
-    {
-        return $this->reader->read($this->csvPath)->getData();
     }
 }

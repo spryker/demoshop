@@ -1,6 +1,6 @@
 <?php
 
-namespace Pyz\Zed\Price\Business\Internal\DemoData;
+namespace Pyz\Zed\Installer\Business\DemoData;
 
 use ProjectA\Zed\Installer\Business\Model\AbstractInstaller;
 use ProjectA\Zed\Kernel\Locator;
@@ -11,11 +11,6 @@ use ProjectA\Shared\Price\Transfer\Product;
 class PriceInstaller extends AbstractInstaller
 {
 
-    const SKU = 'sku';
-    const PRICE = 'price';
-    const PRICE_TYPE = 'price_type';
-    const IS_ACTIVE = 'is_active';
-
     /**
      * @var PriceFacade
      */
@@ -24,12 +19,22 @@ class PriceInstaller extends AbstractInstaller
     protected $locator;
 
     /**
-     * @param PriceFacade $priceFacade
+     * @var array
      */
-    public function __construct(PriceFacade $priceFacade)
+    protected $rawProductData;
+
+    /**
+     * @param PriceFacade $priceFacade
+     * @param array $rawProductData
+     */
+    public function __construct(
+        PriceFacade $priceFacade,
+        $rawProductData
+    )
     {
         $this->locator = Locator::getInstance();
         $this->priceFacade = $priceFacade;
+        $this->rawProductData = $rawProductData;
     }
 
     public function install()
@@ -38,8 +43,7 @@ class PriceInstaller extends AbstractInstaller
             'This will install a dummy set of prices in the demo shop (you have to install the products before!)'
         );
 
-        $demoPrices = $this->getDemoPrices();
-        $this->writePrices($demoPrices);
+        $this->writePrices($this->rawProductData);
     }
 
     /**
@@ -53,28 +57,18 @@ class PriceInstaller extends AbstractInstaller
     }
 
     /**
-     * @return array
-     */
-    protected function getDemoPrices()
-    {
-        $reader = new CsvFileReader();
-
-        return $reader->read(__DIR__ . '/demo-price.csv')->getData();
-    }
-
-    /**
      * @param array $row
      */
     protected function addEntry(array $row)
     {
-        $stockType = $this->priceFacade->createPriceType($row[self::PRICE_TYPE]);
+        $stockType = $this->priceFacade->createPriceType('DEFAULT');
 
         $transferPriceProduct = $this->locator->price()->transferProduct();
 
         /** @var Product $transferPriceProduct */
-        $transferPriceProduct->setPrice($row[self::PRICE])
+        $transferPriceProduct->setPrice((integer) $row['price'] * 100)
             ->setPriceTypeName($stockType->getName())
-            ->setSkuProduct($row[self::SKU])
+            ->setSkuProduct($row['sku'])
             ;
 
         $sku = $transferPriceProduct->getSkuProduct();

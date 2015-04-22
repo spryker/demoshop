@@ -31,14 +31,30 @@ class InstallerSettings extends SprykerInstallerSettings
     public function getDemoDataInstallerStack()
     {
         return [
-            $this->locator->installer()->facade()->demoDataCategoryTreeInstaller(),
+            $this->locator->installer()->pluginCategoryTreeDemoDataInstaller(),
             $this->locator->glossary()->pluginDemoDataInstaller(),
-//            $this->locator->product()->pluginDemoDataInstaller(),
-            $this->locator->installer()->facade()->demoDataProductInstaller(),
-            $this->locator->productCategory()->pluginDemoDataInstaller(),
-            $this->locator->price()->pluginDemoDataInstaller(),
+            $this->locator->installer()->pluginProductDemoDataInstaller(),
+            $this->locator->installer()->pluginProductCategoryDemoDataInstaller(),
+            $this->locator->installer()->pluginPriceDemoDataInstaller(),
             $this->locator->productSearch()->pluginDemoDataInstaller(),
-            $this->locator->stock()->pluginDemoDataInstaller()
+            $this->locator->installer()->pluginStockDemoDataInstaller()
         ];
     }
+
+    /**
+     * @return string
+     */
+    public function getDemoDataProductCSVPath()
+    {
+        return __DIR__ . '/DemoData/Data/demo-products.csv';
+    }
+
+    /**
+     * @return string
+     */
+    public function getDemoDataCategoryTreeCSVPath()
+    {
+        return __DIR__ . '/DemoData/Data/demo-category-tree.csv';
+    }
+
 }

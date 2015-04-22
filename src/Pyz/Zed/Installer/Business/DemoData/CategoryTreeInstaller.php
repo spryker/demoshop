@@ -7,7 +7,6 @@ use ProjectA\Shared\Kernel\LocatorLocatorInterface;
 use ProjectA\Zed\Category\Business\CategoryFacade;
 use ProjectA\Zed\Category\Persistence\CategoryQueryContainer;
 use ProjectA\Zed\Installer\Business\Model\AbstractInstaller;
-use ProjectA\Zed\Library\Import\Reader\CsvFileReader;
 use SprykerCore\Zed\Locale\Business\LocaleFacade;
 
 class CategoryTreeInstaller extends AbstractInstaller
@@ -38,28 +37,34 @@ class CategoryTreeInstaller extends AbstractInstaller
     protected $locator;
 
     /**
+     * @var array
+     */
+    protected $rawCategoryTreeData;
+
+    /**
      * @param CategoryFacade $categoryFacade
      * @param CategoryQueryContainer $categoryQueryContainer
      * @param LocaleFacade $localeFacade
      * @param LocatorLocatorInterface $locator
+     * @param $rawCategoryTreeData
      */
     public function __construct(
         CategoryFacade $categoryFacade,
         CategoryQueryContainer $categoryQueryContainer,
         LocaleFacade $localeFacade,
-        LocatorLocatorInterface $locator
+        LocatorLocatorInterface $locator,
+        $rawCategoryTreeData
     ) {
         $this->categoryFacade = $categoryFacade;
         $this->queryContainer = $categoryQueryContainer;
         $this->idLocale = $localeFacade->getCurrentIdLocale();
         $this->locator = $locator;
+        $this->rawCategoryTreeData = $rawCategoryTreeData;
     }
 
     public function install()
     {
         $this->info('This will install a Dummy CategoryTree in the demo shop');
-
-        $demoTree = $this->getDemoTree();
 
         if ($this->queryContainer->queryRootNode()->count() > 0) {
             $this->warning('Dummy CategoryTree already installed. Skipping.');
@@ -67,17 +72,7 @@ class CategoryTreeInstaller extends AbstractInstaller
             return;
         }
 
-        $this->write($demoTree);
-    }
-
-    /**
-     * @return array
-     */
-    protected function getDemoTree()
-    {
-        $reader = new CsvFileReader();
-
-        return $reader->read(__DIR__ . '/demo-category-tree.csv')->getData();
+        $this->write($this->rawCategoryTreeData);
     }
 
     /**

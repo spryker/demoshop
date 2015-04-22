@@ -1,6 +1,6 @@
 <?php
 
-namespace Pyz\Zed\Product\Business\Internal\DemoData;
+namespace Pyz\Zed\Installer\Business\DemoData;
 
 use ProjectA\Zed\Installer\Business\Model\AbstractInstaller;
 use ProjectA\Zed\Product\Business\ProductFacade;
@@ -79,11 +79,7 @@ class ProductInstaller extends AbstractInstaller
         foreach ($products as $concreteProduct) {
             $idConcreteProduct = $this->productFacade->createConcreteProduct($concreteProduct['sku'], $idAbstractProduct, true);
             $this->productFacade->createConcreteProductAttributes($idConcreteProduct, $fkCurrentLocale, $concreteProduct['name'], $concreteProduct['attributes']);
-            // FIXME: ProductFacade or Touch Bundle
-//            createAndTouchProductUrlByIds($idConcreteProduct, $url, $idLocale)
             $url = '/' . str_replace( ' ', '-', trim( $concreteProduct['name'] ) );
-//            $this->productFacade->createAndTouchProductUrlByIds($idConcreteProduct, $url, $fkCurrentLocale);
-//            createAndTouchProductUrl($sku, $url, $localeName)
             $this->productFacade->createAndTouchProductUrl($concreteProduct['sku'], $url, $this->localeFacade->getCurrentLocale());
             $this->productFacade->touchProductActive($idConcreteProduct);
         }
@@ -92,7 +88,6 @@ class ProductInstaller extends AbstractInstaller
     protected function createAttributes()
     {
         $attributes = [
-            'weight' => 'float',
             'width' => 'float',
             'height' => 'float',
             'depth' => 'float',
@@ -101,11 +96,10 @@ class ProductInstaller extends AbstractInstaller
             'price' => 'integer',
             'main_color' => 'string',
             'other_colors' => 'string',
-            'material' => 'string',
-            'gender' => 'string',
-            'age' => 'integer',
-            'brand' => 'string',
-            'description' => 'string',
+            'description_short' => 'string',
+            'description_long' => 'string',
+            'fun_fact' => 'string',
+            'scientific_name' => 'string',
         ];
 
         foreach ($attributes as $attributeName => $attributeType) {
@@ -127,20 +121,18 @@ class ProductInstaller extends AbstractInstaller
     {
         $productImageUrl = '/' . strtolower(str_replace(',', '', str_replace(' ', '-', trim($product['name']))));
         $productAttributes = [
-            'image_url' => $product['image'],
+            'image_url' => '/images/product/default.png',
             'thumbnail_url' => '/images/product/default.png',
             'price' => (float) $product['price'],
-            'width' => (float) $product['width'],
-            'height' => (float) $product['height'],
-            'depth' => (float) $product['depth'],
-            'main_color' => $product['main_color'],
-            'other_colors' => $product['other_colors'],
-            'weight' => (float) $product['weight'],
-            'material' => $product['material'],
-            'gender' => $product['gender'],
-            'age' => (float) $product['age'],
-            'brand' => $product['brand'],
-            'description' => $product['description'],
+            'width' => (float) $product['Item Size width cm'],
+            'height' => (float) $product['Item Size height cm'],
+            'depth' => (float) $product['Item Size depth cm'],
+            'main_color' => 'rot',
+            'other_colors' => 'schwarz, blau',
+            'description_short' => $product['Product Description Short'],
+            'description_long' => $product['Product Description Long'],
+            'fun_fact' => $product['FunFact'],
+            'scientific_name' => $product['Scientific Name'],
         ];
 
         return [

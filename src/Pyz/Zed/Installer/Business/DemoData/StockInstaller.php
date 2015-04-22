@@ -1,11 +1,10 @@
 <?php
 
-namespace Pyz\Zed\Stock\Business\Internal\DemoData;
+namespace Pyz\Zed\Installer\Business\DemoData;
 
 use Generated\Zed\Ide\AutoCompletion;
 use ProjectA\Zed\Installer\Business\Model\AbstractInstaller;
 use ProjectA\Zed\Kernel\Locator;
-use ProjectA\Zed\Library\Import\Reader\CsvFileReader;
 use ProjectA\Zed\Stock\Business\StockFacade;
 
 class StockInstaller extends AbstractInstaller
@@ -26,51 +25,50 @@ class StockInstaller extends AbstractInstaller
     protected $stockFacade;
 
     /**
-     * @param Locator|AutoCompletion $locator
+     * @var array
      */
-    public function __construct(Locator $locator)
+    protected $rawProductData;
+
+    /**
+     * @param Locator|AutoCompletion $locator
+     * @param array $rawProductData
+     */
+    public function __construct(
+        Locator $locator,
+        $rawProductData
+    )
     {
         $this->locator = $locator;
         $this->stockFacade = $locator->stock()->facade();
+        $this->rawProductData = $rawProductData;
     }
 
     public function install()
     {
         $this->info('This will install a dummy set of stocks in the demo shop');
-        $demoStockProducts = $this->getDemoStockProducts();
-        $this->writeStockProduct($demoStockProducts);
+        $this->writeStockProduct();
     }
 
     /**
      * @param array $demoStock
      */
-    protected function writeStockProduct(array $demoStock)
+    protected function writeStockProduct()
     {
-        foreach ($demoStock as $row) {
-            $this->addEntry($row);
+        foreach ($this->rawProductData as $rawProduct) {
+            $this->addEntry($rawProduct);
         }
     }
 
     /**
-     * @return array
+     * @param array $product
      */
-    protected function getDemoStockProducts()
+    protected function addEntry(array $product)
     {
-        $reader = new CsvFileReader();
-
-        return $reader->read(__DIR__ . '/demo-stock.csv')->getData();
-    }
-
-    /**
-     * @param array $row
-     */
-    protected function addEntry(array $row)
-    {
-        $stockType = $this->stockFacade->createStockType($row[self::STOCK_TYPE]);
+        $stockType = $this->stockFacade->createStockType('Warehouse');
         $transferStockProduct = $this->locator->stock()->transferStockProduct();
-        $transferStockProduct->setSku($row[self::SKU])
-            ->setIsNeverOutOfStock($row[self::NEVER_OUT_OF_STOCK])
-            ->setQuantity($row[self::QUANTITY])
+        $transferStockProduct->setSku($product[self::SKU])
+            ->setIsNeverOutOfStock(false)
+            ->setQuantity(10)
             ->setStockType($stockType->getName());
 
         $hasProduct = $this->stockFacade->hasStockProduct(
