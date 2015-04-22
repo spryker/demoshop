@@ -31,9 +31,7 @@
     "spryker/installer": "dev-master",
     "spryker/invoice": "dev-master",
     "spryker/kernel": "dev-master",
-    "spryker/kernel-de": "dev-master",
     "spryker/kv-storage": "dev-master",
-    "spryker/kv-store-aware.php": "dev-master",
     "spryker/library": "dev-master",
     "spryker/locale": "dev-master",
     "spryker/lumberjack": "dev-master",
@@ -74,27 +72,6 @@
     "spryker/zed-request": "dev-master",
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    "spryker/yves-package": "dev-master",
-    "spryker/zed-package": "dev-master",
-
     "psr/log": "~1.0",
     "phing/phing": "~2.6.0",
     "propel/propel": "~2.0@dev",
@@ -106,7 +83,44 @@
     "knplabs/knp-menu": "2.0.1",
     "symfony/validator": "2.5.*",
     "symfony/var-dumper": "2.*",
-    "symfony/twig-bridge": "~2.3,<3.0"
+    "symfony/twig-bridge": "~2.3,<3.0",
+    "digital-canvas/zend-framework": ">=1.12.2",
+    "doctrine/inflector": "~1.0.0",
+
+    "guzzle/http": "~3.7, <= 3.8",
+    "ircmaxell/password-compat": "~1.0.0",
+    "league/csv": "*",
+
+    "monolog/monolog": "~1.7",
+
+    "php": ">=5.4.0",
+    "ruflin/elastica": "1.3.4.0",
+
+    "symfony/console": "~2.0",
+    "symfony/security": "2.5.*",
+    "symfony/yaml": ">=2.3",
+    "silex/silex": "~1.2.0",
+    "symfony/http-foundation": "2.5.*",
+    "symfony/http-kernel": "2.5.*",
+    "symfony/translation": "2.5.*",
+    "symfony/debug": "2.5.*",
+    "symfony/routing": "2.5.*",
+    "symfony/form": "2.6.*",
+    "symfony/finder": "2.5.*",
+    "symfony/filesystem": "2.5.*",
+    "symfony/serializer": "2.5.*",
+    "symfony/process": "2.5.*",
+    "symfony-cmf/routing": "~1.0",
+
+    "twig/twig": "~1.15.0",
+
+    "zendframework/zend-code": "2.3.1",
+    "zendframework/zend-config": "~2.3.0",
+    "zendframework/zend-filter": "~2.3.0",
+    "zendframework/zend-servicemanager": "~2.3.0",
+    "zendframework/zendpdf": "~2.0.0",
+
+    "nesbot/carbon": "1.13.0"
   },
   "require-dev": {
     "knplabs/github-api": "1.4.7",
@@ -133,357 +147,278 @@
       "type": "git",
       "url": "git@github.com:spryker/acl.git"
     },
-
     {
       "type": "git",
       "url": "git@github.com:spryker/application.git"
     },
-
     {
       "type": "git",
       "url": "git@github.com:spryker/assets.git"
     },
-
     {
       "type": "git",
       "url": "git@github.com:spryker/auth.git"
     },
-
     {
       "type": "git",
       "url": "git@github.com:spryker/availability.git"
     },
-
     {
       "type": "git",
       "url": "git@github.com:spryker/availability-cart-connector.git"
     },
-
     {
       "type": "git",
       "url": "git@github.com:spryker/availability-checkout-connector.git"
     },
-
     {
       "type": "git",
       "url": "git@github.com:spryker/calculation.git"
     },
-
     {
       "type": "git",
       "url": "git@github.com:spryker/cart.git"
     },
-
     {
       "type": "git",
       "url": "git@github.com:spryker/cart2.git"
     },
-
     {
       "type": "git",
       "url": "git@github.com:spryker/catalog.git"
     },
-
     {
       "type": "git",
       "url": "git@github.com:spryker/category.git"
     },
-
     {
       "type": "git",
       "url": "git@github.com:spryker/category-exporter.git"
     },
-
     {
       "type": "git",
       "url": "git@github.com:spryker/checkout.git"
     },
-
     {
       "type": "git",
       "url": "git@github.com:spryker/cms.git"
     },
-
     {
       "type": "git",
       "url": "git@github.com:spryker/cms-exporter.git"
     },
-
     {
       "type": "git",
       "url": "git@github.com:spryker/console.git"
     },
-
     {
       "type": "git",
       "url": "git@github.com:spryker/country.git"
     },
-
     {
       "type": "git",
       "url": "git@github.com:spryker/customer.git"
     },
-
     {
       "type": "git",
       "url": "git@github.com:spryker/customer-mail-connector.git"
     },
-
     {
       "type": "git",
       "url": "git@github.com:spryker/db-dump.git"
     },
-
     {
       "type": "git",
       "url": "git@github.com:spryker/discount.git"
     },
-
     {
       "type": "git",
       "url": "git@github.com:spryker/discount-calculation-connector.git"
     },
-
     {
       "type": "git",
       "url": "git@github.com:spryker/document.git"
     },
-
     {
       "type": "git",
       "url": "git@github.com:spryker/frontend-exporter.git"
     },
-
     {
       "type": "git",
       "url": "git@github.com:spryker/git.git"
     },
-
     {
       "type": "git",
       "url": "git@github.com:spryker/glossary.git"
     },
-
     {
       "type": "git",
       "url": "git@github.com:spryker/glossary-exporter.git"
     },
-
     {
       "type": "git",
       "url": "git@github.com:spryker/installer.git"
     },
-
     {
       "type": "git",
       "url": "git@github.com:spryker/invoice.git"
     },
-
     {
       "type": "git",
       "url": "git@github.com:spryker/kernel.git"
     },
-
-    {
-      "type": "git",
-      "url": "git@github.com:spryker/kernel-de.git"
-    },
-
     {
       "type": "git",
       "url": "git@github.com:spryker/kv-storage.git"
     },
-
-    {
-      "type": "git",
-      "url": "git@github.com:spryker/kv-store-aware.php.git"
-    },
-
     {
       "type": "git",
       "url": "git@github.com:spryker/library.git"
     },
-
     {
       "type": "git",
       "url": "git@github.com:spryker/locale.git"
     },
-
     {
       "type": "git",
       "url": "git@github.com:spryker/lumberjack.git"
     },
-
     {
       "type": "git",
       "url": "git@github.com:spryker/mail.git"
     },
-
     {
       "type": "git",
       "url": "git@github.com:spryker/misc.git"
     },
-
     {
       "type": "git",
       "url": "git@github.com:spryker/oms.git"
     },
-
     {
       "type": "git",
       "url": "git@github.com:spryker/price.git"
     },
-
     {
       "type": "git",
       "url": "git@github.com:spryker/price-cart-connector.git"
     },
-
     {
       "type": "git",
       "url": "git@github.com:spryker/product.git"
     },
-
     {
       "type": "git",
       "url": "git@github.com:spryker/product-category.git"
     },
-
     {
       "type": "git",
       "url": "git@github.com:spryker/product-category-frontend-exporter-connector.git"
     },
-
     {
       "type": "git",
       "url": "git@github.com:spryker/product-category-search.git"
     },
-
     {
       "type": "git",
       "url": "git@github.com:spryker/product-exporter.git"
     },
-
     {
       "type": "git",
       "url": "git@github.com:spryker/product-frontend-exporter-availability-connector.git"
     },
-
     {
       "type": "git",
       "url": "git@github.com:spryker/product-frontend-exporter-connector.git"
     },
-
     {
       "type": "git",
       "url": "git@github.com:spryker/product-frontend-exporter-price-connector.git"
     },
-
     {
       "type": "git",
       "url": "git@github.com:spryker/product-image.git"
     },
-
     {
       "type": "git",
       "url": "git@github.com:spryker/product-search.git"
     },
-
     {
       "type": "git",
       "url": "git@github.com:spryker/product-search-availability-connector.git"
     },
-
     {
       "type": "git",
       "url": "git@github.com:spryker/redirect.git"
     },
-
     {
       "type": "git",
       "url": "git@github.com:spryker/redirect-exporter.git"
     },
-
     {
       "type": "git",
       "url": "git@github.com:spryker/sales.git"
     },
-
     {
       "type": "git",
       "url": "git@github.com:spryker/salesrule.git"
     },
-
     {
       "type": "git",
       "url": "git@github.com:spryker/sdk.git"
     },
-
     {
       "type": "git",
       "url": "git@github.com:spryker/search.git"
     },
-
     {
       "type": "git",
       "url": "git@github.com:spryker/setup.git"
     },
-
     {
       "type": "git",
       "url": "git@github.com:spryker/stock.git"
     },
-
     {
       "type": "git",
       "url": "git@github.com:spryker/stock-sales-connector.git"
     },
-
     {
       "type": "git",
       "url": "git@github.com:spryker/system.git"
     },
-
     {
       "type": "git",
       "url": "git@github.com:spryker/touch.git"
     },
-
     {
       "type": "git",
       "url": "git@github.com:spryker/twig.git"
     },
-
     {
       "type": "git",
       "url": "git@github.com:spryker/ui.git"
     },
-
     {
       "type": "git",
       "url": "git@github.com:spryker/ui-example.git"
     },
-
     {
       "type": "git",
       "url": "git@github.com:spryker/url.git"
     },
-
     {
       "type": "git",
       "url": "git@github.com:spryker/url-exporter.git"
     },
-
     {
       "type": "git",
       "url": "git@github.com:spryker/user.git"
     },
-
     {
       "type": "git",
       "url": "git@github.com:spryker/yves.git"
     },
-
     {
       "type": "git",
       "url": "git@github.com:spryker/zed-request.git"

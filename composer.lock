@@ -4,7 +4,7 @@
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "cd2de5c96ab6d75e2ae404bdc20da4d2",
+    "hash": "0ac90e584b6dfc085bad81fb2e3b6477",
     "packages": [
         {
             "name": "digital-canvas/zend-framework",
@@ -1270,8 +1270,11 @@
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/console.git",
-                "reference": "13c1e3ef5841253a0e5018e480a7720077ae05cb"
+                "reference": "716435b094354014791967b2df457456eb45c0c6"
             },
+            "bin": [
+                "bin/console"
+            ],
             "type": "library",
             "autoload": {
                 "psr-0": {
@@ -1283,7 +1286,7 @@
                     "YvesUnit": "tests/"
                 }
             },
-            "time": "2015-04-22 08:50:25"
+            "time": "2015-04-22 10:07:00"
         },
         {
             "name": "spryker/country",
@@ -1648,7 +1651,7 @@
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/library.git",
-                "reference": "cfba34ca868598d3ba6fc1aeaf67c296958ec186"
+                "reference": "0ca6487cc61965711279271ee2294b530994dd69"
             },
             "type": "library",
             "autoload": {
@@ -1661,7 +1664,7 @@
                     "YvesUnit": "tests/"
                 }
             },
-            "time": "2015-04-22 08:52:53"
+            "time": "2015-04-22 12:08:01"
         },
         {
             "name": "spryker/locale",
@@ -2418,121 +2421,6 @@
                 }
             },
             "time": "2015-04-22 08:57:51"
-        },
-        {
-            "name": "spryker/yves-package",
-            "version": "dev-master",
-            "source": {
-                "type": "git",
-                "url": "git@github.com:spryker/yves-package.git",
-                "reference": "1487d014425f2d6c2e1079f3fd1b046b1a3d8789"
-            },
-            "require": {
-                "php": ">=5.4.0"
-            },
-            "require-dev": {
-                "codeception/codeception": "*"
-            },
-            "type": "library",
-            "autoload": {
-                "psr-0": {
-                    "SprykerFeature": "src/",
-                    "SprykerEngine": "src/",
-                    "Acceptance": "tests/",
-                    "Function": "tests/",
-                    "Integration": "tests/",
-                    "Unit": "tests/"
-                }
-            },
-            "authors": [
-                {
-                    "name": "René Klatt",
-                    "email": "rene.klatt@project-a.com",
-                    "homepage": "http://www.project-a.com",
-                    "role": "PHP-Developer"
-                }
-            ],
-            "description": "Yves package",
-            "keywords": [
-                "Application",
-                "Yves"
-            ],
-            "time": "2015-04-21 15:00:52"
-        },
-        {
-            "name": "spryker/zed-package",
-            "version": "dev-master",
-            "source": {
-                "type": "git",
-                "url": "git@github.com:spryker/zed-package.git",
-                "reference": "6fc9dc8a63b426e1a3782c8a953ce2a7285d3622"
-            },
-            "require": {
-                "digital-canvas/zend-framework": ">=1.12.2",
-                "doctrine/inflector": "~1.0.0",
-                "ext-mysqli": "*",
-                "guzzle/http": "~3.7, <= 3.8",
-                "ircmaxell/password-compat": "~1.0.0",
-                "league/csv": "*",
-                "monolog/monolog": "~1.7",
-                "nesbot/carbon": "1.13.0",
-                "php": ">=5.4.0",
-                "ruflin/elastica": "1.3.4.0",
-                "silex/silex": "~1.2.0",
-                "symfony-cmf/routing": "~1.0",
-                "symfony/console": "~2.0",
-                "symfony/debug": "2.5.*",
-                "symfony/filesystem": "2.5.*",
-                "symfony/finder": "2.5.*",
-                "symfony/form": "2.6.*",
-                "symfony/http-foundation": "2.5.*",
-                "symfony/http-kernel": "2.5.*",
-                "symfony/process": "2.5.*",
-                "symfony/routing": "2.5.*",
-                "symfony/security": "2.5.*",
-                "symfony/serializer": "2.5.*",
-                "symfony/translation": "2.5.*",
-                "symfony/yaml": ">=2.3",
-                "twig/twig": "~1.15.0",
-                "zendframework/zend-code": "2.3.1",
-                "zendframework/zend-config": "~2.3.0",
-                "zendframework/zend-filter": "~2.3.0",
-                "zendframework/zend-servicemanager": "~2.3.0",
-                "zendframework/zendpdf": "~2.0.0"
-            },
-            "require-dev": {
-                "codeception/codeception": "*"
-            },
-            "bin": [
-                "bin/console"
-            ],
-            "type": "library",
-            "autoload": {
-                "psr-0": {
-                    "SprykerFeature": "src/",
-                    "SprykerCore": "src/",
-                    "SprykerEngine": "src/",
-                    "Acceptance": "tests/",
-                    "Function": "tests/",
-                    "Integration": "tests/",
-                    "Unit": "tests/",
-                    "Kendo": "src/"
-                }
-            },
-            "authors": [
-                {
-                    "name": "René Klatt",
-                    "email": "rene.klatt@project-a.com",
-                    "homepage": "http://www.project-a.com",
-                    "role": "PHP-Developer"
-                }
-            ],
-            "description": "Zed package",
-            "keywords": [
-                "Application",
-                "Zed"
-            ],
-            "time": "2015-04-22 09:27:42"
         },
         {
             "name": "spryker/zed-request",
@@ -5794,15 +5682,14 @@
         "spryker/user": 20,
         "spryker/yves": 20,
         "spryker/zed-request": 20,
-        "spryker/yves-package": 20,
-        "spryker/zed-package": 20,
         "propel/propel": 20,
-        "silex/silex": 20,
         "pimple/pimple": 20,
         "zendesk/zendesk_api_client_php": 20
     },
     "prefer-stable": true,
     "prefer-lowest": false,
-    "platform": [],
+    "platform": {
+        "php": ">=5.4.0"
+    },
     "platform-dev": []
 }
