@@ -1,6 +1,6 @@
 <?php
 
-namespace Pyz\Zed\ProductCategory\Business\Internal\DemoData;
+namespace Pyz\Zed\Installer\Business\Internal\DemoData;
 
 use ProjectA\Zed\Installer\Business\Model\AbstractInstaller;
 use ProjectA\Zed\Library\Import\ReaderInterface;
@@ -10,7 +10,7 @@ use ProjectA\Zed\ProductCategory\Dependency\Facade\ProductCategoryToLocaleInterf
 use ProjectA\Zed\ProductCategory\Dependency\Facade\ProductCategoryToProductInterface;
 use Propel\Runtime\Exception\PropelException;
 
-class ProductCategoryMappingInstall extends AbstractInstaller
+class ProductCategoryInstaller extends AbstractInstaller
 {
 
     /**

@@ -8,7 +8,7 @@ use ProjectA\Zed\Library\Import\Reader\CsvFileReader;
 use ProjectA\Zed\Price\Business\PriceFacade;
 use ProjectA\Shared\Price\Transfer\Product;
 
-class PriceInstall extends AbstractInstaller
+class PriceInstaller extends AbstractInstaller
 {
 
     const SKU = 'sku';

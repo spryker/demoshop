@@ -8,7 +8,7 @@ use ProjectA\Zed\Kernel\Locator;
 use ProjectA\Zed\Library\Import\Reader\CsvFileReader;
 use ProjectA\Zed\Stock\Business\StockFacade;
 
-class StockInstall extends AbstractInstaller
+class StockInstaller extends AbstractInstaller
 {
     const SKU = 'sku';
     const QUANTITY = 'quantity';

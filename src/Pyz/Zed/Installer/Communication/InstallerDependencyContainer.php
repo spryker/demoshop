@@ -6,7 +6,7 @@ use Pyz\Zed\ProductCategory\Business\ProductCategoryFacade;
 use ProjectA\Zed\ProductCategory\Communication\ProductCategoryDependencyContainer as
     SprykerProductCategoryDependencyContainer;
 
-class ProductCategoryDependencyContainer extends SprykerProductCategoryDependencyContainer
+class InstallerDependencyContainer extends SprykerProductCategoryDependencyContainer
 {
 
     /**

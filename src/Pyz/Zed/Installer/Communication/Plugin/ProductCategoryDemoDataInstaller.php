@@ -1,11 +1,11 @@
 <?php
 
-namespace Pyz\Zed\ProductCategory\Communication\Plugin;
+namespace Pyz\Zed\Installer\Communication\Plugin;
 
 use ProjectA\Zed\Installer\Communication\Plugin\AbstractInstallerPlugin;
-use Pyz\Zed\ProductCategory\Communication\ProductCategoryDependencyContainer;
+use Pyz\Zed\Installer\Communication\InstallerDependencyContainer;
 
-class DemoDataInstaller extends AbstractInstallerPlugin
+class ProductCategoryDemoDataInstaller extends AbstractInstallerPlugin
 {
 
     /**
