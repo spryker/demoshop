@@ -116,7 +116,7 @@ class SplitYvesPackage extends AbstractRefactorer
         }
 
         foreach ($this->globalFiles as $file) {
-            $fileSystem->remove($file->getPathname());
+//            $fileSystem->remove($file->getPathname());
         }
     }
 

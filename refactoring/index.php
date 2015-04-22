@@ -25,4 +25,4 @@ $refactor = new \ReneFactor\SplitZedPackage($consoleLogger);
 $refactor->refactor();
 
 $refactor = new \ReneFactor\GitiffyBundles($consoleLogger);
-$refactor->refactor();
+//$refactor->refactor();
