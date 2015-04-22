@@ -104,7 +104,6 @@ class ProductDataInstall extends AbstractInstaller
     protected function createAttributes()
     {
         $attributes = [
-            'weight' => 'float',
             'width' => 'float',
             'height' => 'float',
             'depth' => 'float',
@@ -113,11 +112,10 @@ class ProductDataInstall extends AbstractInstaller
             'price' => 'integer',
             'main_color' => 'string',
             'other_colors' => 'string',
-            'material' => 'string',
-            'gender' => 'string',
-            'age' => 'integer',
-            'brand' => 'string',
             'description' => 'string',
+            'description_long' => 'string',
+            'fun_fact' => 'string',
+            'scientific_name' => 'string',
         ];
 
         foreach ($attributes as $attributeName => $attributeType) {
@@ -155,7 +153,7 @@ class ProductDataInstall extends AbstractInstaller
     {
         $productImageUrl = '/' . strtolower(str_replace(',', '', str_replace(' ', '-', trim($product['name']))));
         $productAttributes = [
-            'image_url' => $product['image'],
+            'image_url' => '/images/product/' . $product['image'],
             'thumbnail_url' => '/images/product/default.png',
             'price' => (float) $product['price'],
             'width' => (float) $product['width'],
@@ -163,12 +161,10 @@ class ProductDataInstall extends AbstractInstaller
             'depth' => (float) $product['depth'],
             'main_color' => $product['main_color'],
             'other_colors' => $product['other_colors'],
-            'weight' => (float) $product['weight'],
-            'material' => $product['material'],
-            'gender' => $product['gender'],
-            'age' => (float) $product['age'],
-            'brand' => $product['brand'],
             'description' => $product['description'],
+            'description_long' => $product['description_long'],
+            'fun_fact' => $product['fun_fact'],
+            'scientific_name' => $product['scientific_name'],
         ];
 
         return [
