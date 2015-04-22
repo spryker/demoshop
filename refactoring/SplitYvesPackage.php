@@ -45,8 +45,8 @@ class SplitYvesPackage extends AbstractRefactorer
 
             $destination = $this->getDestinationPath($bundle, $file);
 
-            $fileSystem->copy($file->getPathname(), $destination);
-            $fileSystem->remove($file->getPathname());
+//            $fileSystem->copy($file->getPathname(), $destination);
+//            $fileSystem->remove($file->getPathname());
         }
 
         $this->createBundleDefaultFiles();
@@ -156,8 +156,14 @@ class SplitYvesPackage extends AbstractRefactorer
         $namespaceStrings = [];
         foreach ($namespaces as $namespace) {
             $namespaceStrings[] = '      "' . $namespace . '": "src/"';
-            $namespaceStrings[] = '      "' . $namespace . '": "tests/"';
         }
+
+        $namespaceStrings[] = '      "Acceptance": "tests/"';
+        $namespaceStrings[] = '      "Function": "tests/"';
+        $namespaceStrings[] = '      "Integration": "tests/"';
+        $namespaceStrings[] = '      "Unit": "tests/"';
+        $namespaceStrings[] = '      "YvesUnit": "tests/"';
+
         $content = str_replace('{{namespaces}}', implode(",\n", $namespaceStrings), $content);
 
         $path = $this->getPathToBundle($bundle);

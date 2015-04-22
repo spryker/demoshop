@@ -79,15 +79,15 @@ class SplitZedPackage extends AbstractRefactorer
 
             $destination = $this->getDestinationPath($bundle, $file);
 
-            if ($this->isTestFile($file)) {
-                $search = 'ZedPackage';
-
-                $content = str_replace($search, $bundle, $file->getContents());
-                file_put_contents($file->getPathname(), $content);
-            }
-
-            $fileSystem->copy($file->getPathname(), $destination);
-            $fileSystem->remove($file->getPathname());
+//            if ($this->isTestFile($file)) {
+//                $search = 'ZedPackage';
+//
+//                $content = str_replace($search, $bundle, $file->getContents());
+//                file_put_contents($file->getPathname(), $content);
+//            }
+//
+//            $fileSystem->copy($file->getPathname(), $destination);
+//            $fileSystem->remove($file->getPathname());
 
 
         }
@@ -218,8 +218,15 @@ class SplitZedPackage extends AbstractRefactorer
         $namespaceStrings = [];
         foreach ($namespaces as $namespace) {
             $namespaceStrings[] = '      "' . $namespace . '": "src/"';
-            $namespaceStrings[] = '      "' . $namespace . '": "tests/"';
         }
+
+        $namespaceStrings[] = '      "Acceptance": "tests/"';
+        $namespaceStrings[] = '      "Function": "tests/"';
+        $namespaceStrings[] = '      "Integration": "tests/"';
+        $namespaceStrings[] = '      "Unit": "tests/"';
+        $namespaceStrings[] = '      "YvesUnit": "tests/"';
+
+
         $content = str_replace('{{namespaces}}', implode(",\n", $namespaceStrings), $content);
 
         $path = $this->getPathToBundle($bundle);
