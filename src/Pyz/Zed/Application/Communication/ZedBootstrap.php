@@ -116,6 +116,7 @@ class ZedBootstrap extends Bootstrap
 
     /**
      * @param Application $app
+     *
      * @return RouterInterface[]
      */
     protected function getRouters(Application $app)
@@ -128,6 +129,7 @@ class ZedBootstrap extends Bootstrap
 
     /**
      * @param Application $app
+     *
      * @return array
      */
     protected function globalTemplateVariables(Application $app)
