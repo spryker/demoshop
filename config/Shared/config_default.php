@@ -198,6 +198,12 @@ $config[AclConfig::ACL_DEFAULT_RULES] = [
         "controller" => "login",
         "action" => "check",
         "type" => "allow"
+    ],
+    [
+        "bundle" => "auth",
+        "controller" => "password",
+        "action" => "reset",
+        "type" => "allow"
     ]
 ];
 
