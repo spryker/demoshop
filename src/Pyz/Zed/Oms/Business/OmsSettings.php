@@ -5,9 +5,8 @@ namespace Pyz\Zed\Oms\Business;
 use Pyz\Zed\Oms\Communication\Plugin\Oms\FakeAuthPayment;
 use Pyz\Zed\Sales\Business\SalesFacade;
 use SprykerFeature\Shared\Sales\Transfer\Order as OrderTransfer;
-use SprykerFeature\Zed\Oms\Business\AbstractOmsSettings;
 
-class OmsSettings extends AbstractOmsSettings
+class OmsSettings extends \SprykerFeature\Zed\Oms\Business\OmsSettings
 {
 
     const ORDER_PROCESS_PAYONE_PRE_PAYMENT_01 = 'PayonePrePayment01';
