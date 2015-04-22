@@ -22,6 +22,7 @@ class CatalogController extends AbstractController
         $categoryTree = $this->getLocator()->categoryExporter()->sdk()->getTreeFromCategoryNode($categoryNode, $this->getLocale());
 
         //TODO check if this should be renamed to categoryNode
+        //TODO Why does $categoryNode & $categoryTree contain exactly the same value?
         return array_merge($search->getResult(), ['category' => $categoryNode, 'categoryTree' => $categoryTree]);
     }
 
