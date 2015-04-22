@@ -30,6 +30,7 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Routing\RouterInterface;
 use Silex\ServiceProviderInterface;
 use Silex\Provider\SessionServiceProvider;
+use SprykerEngine\Shared\Kernel\Store;
 
 class ZedBootstrap extends Bootstrap
 {
@@ -62,7 +63,7 @@ class ZedBootstrap extends Bootstrap
      */
     protected function beforeBoot(Application $app)
     {
-        $app['locale'] = \SprykerEngine\Shared\Kernel\Store::getInstance()->getCurrentLocale();
+        $app['locale'] = Store::getInstance()->getCurrentLocale();
         if (\SprykerFeature_Shared_Library_Environment::isDevelopment()) {
             $app['profiler.cache_dir'] = \SprykerFeature_Shared_Library_Data::getLocalStoreSpecificPath('cache/profiler');
         }
@@ -115,6 +116,7 @@ class ZedBootstrap extends Bootstrap
 
     /**
      * @param Application $app
+     *
      * @return RouterInterface[]
      */
     protected function getRouters(Application $app)
@@ -127,13 +129,14 @@ class ZedBootstrap extends Bootstrap
 
     /**
      * @param Application $app
+     *
      * @return array
      */
     protected function globalTemplateVariables(Application $app)
     {
         return [
             'environment' => APPLICATION_ENV,
-            'store' => \SprykerEngine\Shared\Kernel\Store::getInstance()->getStoreName(),
+            'store' => Store::getInstance()->getStoreName(),
             'title' => Config::get(SystemConfig::PROJECT_NAMESPACE) . ' | Zed | ' . ucfirst(APPLICATION_ENV),
             'currentController' => get_class($this),
             'navigation' => $this->getNavigation(),

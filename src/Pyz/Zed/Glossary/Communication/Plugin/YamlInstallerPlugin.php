@@ -16,7 +16,8 @@ use Symfony\Component\Yaml\Yaml;
  */
 class YamlInstallerPlugin extends AbstractPlugin implements GlossaryInstallerPluginInterface
 {
-            public function installGlossaryData()
+
+    public function installGlossaryData()
     {
         $filePath = __DIR__ . '/../../File/initial_translation.yml';
         $translations = $this->parseYamlFile($filePath);
@@ -25,6 +26,7 @@ class YamlInstallerPlugin extends AbstractPlugin implements GlossaryInstallerPlu
 
     /**
      * @param $filePath
+     *
      * @return array
      */
     protected function parseYamlFile($filePath)
