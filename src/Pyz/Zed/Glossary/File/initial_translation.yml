@@ -1463,3 +1463,47 @@ keys:
     translations:
       de_DE: 'Speichern'
       en_US: 'Update'
+  customer.index:
+    translations:
+      de_DE: 'Kunden'
+      en_US: 'Customers'
+  customer.profile.update:
+    translations:
+      de_DE: 'Speichern'
+      en_US: 'Save'
+  customer.profile.send.registertoken:
+    translations:
+      de_DE: 'Passwortlink senden'
+      en_US: 'Send password recovery e-mail'
+  customer.profile.address.edit:
+    translations:
+      de_DE: 'bearbeiten'
+      en_US: 'Edit'
+  customer.profile.registered:
+    translations:
+      de_DE: 'Registriert am '
+      en_US: 'Registered on '
+  customer.profile.id:
+    translations:
+      de_DE: 'Kundennr.: '
+      en_US: 'Customer ID: '
+  customer.address.set.default.billing:
+    translations:
+      de_DE: 'Als Standardrechnungsaddresse setzen'
+      en_US: 'Set as default invoice address'
+  customer.address.is.default.billing:
+    translations:
+      de_DE: 'Standardrechnungsaddresse'
+      en_US: 'Invoice default'
+  customer.address.set.default.shipping:
+    translations:
+      de_DE: 'Als Standardlieferaddresse setzen'
+      en_US: 'Set as default delivery address'
+  customer.address.is.default.shipping:
+    translations:
+      de_DE: 'Standardlieferaddresse'
+      en_US: 'Delivery default'
+  customer.profile.address.new:
+    translations:
+      de_DE: 'Neue Address'
+      en_US: 'New address'
