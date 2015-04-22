@@ -34,4 +34,7 @@ $refactor = new \ReneFactor\CodeCeptionIncludeList($consoleLogger);
 //$refactor->refactor();
 
 $refactor = new \ReneFactor\YvesPackageNamespaceReplacer($consoleLogger);
+//$refactor->refactor();
+
+$refactor = new \ReneFactor\GitIgnore($consoleLogger);
 $refactor->refactor();

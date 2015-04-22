@@ -1,0 +1,27 @@
+# IDEs
+/.idea
+/.project
+/nbproject
+/.buildpath
+/.settings
+*.sublime-*
+*.AppleDouble
+*.AppleDB
+*.AppleDesktop
+
+# built client resources
+/src/*/Zed/*/Static/Public
+/src/*/Zed/*/Static/Assets/sprite
+
+# propel classes
+/src/*/Zed/*/Persistence/Propel/Base/*
+/src/*/Zed/*/Persistence/Propel/Map/*
+
+# OS
+.DS_Store
+
+# grunt stuff
+.grunt
+.sass-cache
+/node_modules/
+tests/_log/
