@@ -33,7 +33,6 @@ include:
  - vendor/spryker/invoice/
  - vendor/spryker/kernel/
  - vendor/spryker/kv-storage/
- - vendor/spryker/kv-store-aware.php/
  - vendor/spryker/library/
  - vendor/spryker/locale/
  - vendor/spryker/lumberjack/
