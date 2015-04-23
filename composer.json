@@ -70,9 +70,6 @@
     "spryker/user": "dev-master",
     "spryker/yves": "dev-master",
     "spryker/zed-request": "dev-master",
-    "spryker/zed-package": "dev-master",
-    "spryker/yves-package": "dev-master",
-
 
     "psr/log": "~1.0",
     "phing/phing": "~2.6.0",
@@ -424,14 +421,6 @@
     {
       "type": "git",
       "url": "git@github.com:spryker/zed-request.git"
-    },
-    {
-      "type": "git",
-      "url": "git@github.com:spryker/yves-package.git"
-    },
-    {
-      "type": "git",
-      "url": "git@github.com:spryker/zed-package.git"
     }
   ]
 }
