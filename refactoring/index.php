@@ -19,11 +19,11 @@ $consoleLogger = new ConsoleLogger(
 $consoleLogger->info('starting refactoring');
 
 $refactor = new \ReneFactor\SplitYvesPackage($consoleLogger);
-$refactor->refactor();
-//
+//$refactor->refactor();
+
 $refactor = new \ReneFactor\SplitZedPackage($consoleLogger);
-$refactor->refactor();
-//
+//$refactor->refactor();
+
 $refactor = new \ReneFactor\GitiffyBundles($consoleLogger);
 //$refactor->refactor();
 
@@ -38,3 +38,6 @@ $refactor = new \ReneFactor\YvesPackageNamespaceReplacer($consoleLogger);
 
 $refactor = new \ReneFactor\GitIgnore($consoleLogger);
 //$refactor->refactor();
+
+$refactor = new \ReneFactor\YvesTestMover($consoleLogger);
+$refactor->refactor();
