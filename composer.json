@@ -113,12 +113,15 @@
 
     "twig/twig": "~1.15.0",
 
+    "zendframework/zend-code": "2.3.1",
     "zendframework/zend-config": "~2.3.0",
     "zendframework/zend-filter": "~2.3.0",
+    "zendframework/zend-servicemanager": "~2.3.0",
 
     "nesbot/carbon": "1.13.0"
   },
   "require-dev": {
+    "knplabs/github-api": "1.4.7",
     "silex/web-profiler": "~1.0.2",
     "pdepend/pdepend": "*",
     "phpunit/phpunit": "~3.7.0",
