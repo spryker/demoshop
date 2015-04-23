@@ -7,7 +7,6 @@ use SprykerEngine\Shared\Kernel\LocatorLocatorInterface;
 use SprykerFeature\Shared\Stock\Transfer\StockProduct;
 use SprykerFeature\Shared\Stock\Transfer\StockType;
 use SprykerFeature\Zed\Installer\Business\Model\AbstractInstaller;
-use SprykerEngine\Zed\Kernel\Locator;
 use SprykerFeature\Zed\Library\Import\Reader\CsvFileReader;
 use SprykerFeature\Zed\Stock\Business\StockFacade;
 use SprykerFeature\Zed\Stock\Persistence\Propel\SpyStock;
@@ -52,6 +51,13 @@ class StockInstall extends AbstractInstaller
 
     public function install()
     {
+        $query = $this->queryContainer->queryAllStockTypes();
+        if ($query->count() > 0) {
+            $this->warning('Stock-Data is already installed. Skipping');
+
+            return;
+        }
+
         $this->info('This will install a dummy set of stocks in the demo shop');
         $demoStockProducts = $this->getDemoStockProducts();
         $this->writeStockProduct($demoStockProducts);
@@ -129,7 +135,8 @@ class StockInstall extends AbstractInstaller
         $transferStockProduct->setSku($row[self::SKU])
             ->setIsNeverOutOfStock($row[self::NEVER_OUT_OF_STOCK])
             ->setQuantity($row[self::QUANTITY])
-            ->setStockType($stockType->getName());
+            ->setStockType($stockType->getName())
+        ;
 
         return $transferStockProduct;
     }
