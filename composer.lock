@@ -1568,7 +1568,7 @@
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/kernel.git",
-                "reference": "4a3f137a8d0b622792bdb0f8f0b028e082481b00"
+                "reference": "1242a1233f285b5f92b1b5c9eb58b09214f33e71"
             },
             "type": "library",
             "autoload": {
