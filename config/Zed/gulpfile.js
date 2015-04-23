@@ -1,18 +1,15 @@
 var _gulp   = require('gulp');
 var _rename = require('gulp-rename');
-var _core   = require('../../vendor/spryker/zed-package/gulpfile');
+var _core   = require('../../vendor/spryker/ui/gulpfile');
 
 var _path   = require('path');
 var _del    = require('del');
 
 
-var _dirPAV     = 'vendor/spryker/zed-package/src/SprykerFeature/Zed';
-var _dirCore    = 'vendor/spryker/zed-package/src/SprykerCore/Zed';
-var _dirFeature = 'vendor/spryker/zed-package/src/SprykerFeature/Zed';
-var _dirProj    = 'src/Pyz/Zed';
+var _dirFeature = 'vendor/spryker/*/src/SprykerFeature/Zed/*/Static/Public';
 var _dirPub     = 'static/public/Zed/bundles';
 
-var _dirStatPub = '/Static/Public';
+var _match = /[^\/]+\/src\/SprykerFeature\/Zed\/([^\/]+)\/Static\/Public/;
 
 
 
@@ -25,15 +22,14 @@ function _buildSource(type) {
 	};
 
 	return [
-		_path.join(_dirPAV    , '*', _dirStatPub, source[type]),
-		_path.join(_dirCore   , '*', _dirStatPub, source[type]),
-		_path.join(_dirFeature, '*', _dirStatPub, source[type]),
-		_path.join(_dirProj   , '*', _dirStatPub, source[type])
+		_path.join(_dirFeature, source[type])
 	];
 }
 
 function _changeDest(path) {
-	path.dirname = path.dirname.replace(_dirStatPub, '');
+	path.dirname = path.dirname.replace(_match, function(match, p1) {
+		return p1;
+	});
 }
 
 function _copy(type) {
@@ -87,15 +83,15 @@ _gulp.task('copy-fonts', ['clean-fonts'], function() {
 
 
 _gulp.task('core-dev', function(done) {
-	_core.createCoreResources('./vendor/spryker/zed-package', 'dev', done);
+	_core.createCoreResources('./vendor/spryker/ui', 'dev', done);
 });
 
 _gulp.task('core-dist', function(done) {
-	_core.createCoreResources('./vendor/spryker/zed-package', 'dist', done);
+	_core.createCoreResources('./vendor/spryker/ui', 'dist', done);
 });
 
 _gulp.task('watcher', function() {
-	_core.watchCoreResources('./vendor/spryker/zed-package', function(task) {
+	_core.watchCoreResources('./vendor/spryker/ui', function(task) {
 		var map = {
 			'dev-css'    : 'copy-css',
 			'dev-js'     : 'copy-js',
