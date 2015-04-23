@@ -1,0 +1,105 @@
+// http://www.paulirish.com/2012/box-sizing-border-box-ftw/
+html {
+  box-sizing: border-box;
+}
+*, *:before, *:after {
+  box-sizing: inherit;
+}
+
+img {
+  width: 100%;
+}
+
+button, input[type="submit"] {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+
+  padding: $step * .375 $step * .5 $step * .25;
+  margin: 0;
+  border-radius: $step;
+  border: 1px solid $text-color;
+  color: $text-color;
+  background-color: transparent;
+  line-height: 1;
+  text-transform: uppercase;
+  vertical-align: middle;
+  outline: none;
+
+  .main-footer & {
+    color: $light-color;
+    border-color: $light-color;
+  }
+}
+
+input, textarea, select {
+  border: none;
+  border-radius: 3px;
+  padding: 6px;
+  margin: 0 0 $step;
+  outline-color: $brand-color;
+  outline-width: 2px;
+  color: $text-color;
+  background-color: $light-color;
+  line-height: $step;
+}
+
+select {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+}
+
+a, a:visited {
+  color: $brand-color;
+  text-decoration: none;
+
+  &:hover {
+    text-decoration: underline;
+  }
+}
+
+a.cta-light, input.cta-light {
+  display: inline-block;
+  padding: $step*.3 $step*2 $step*.2;
+  border-radius: 5px;
+  text-align: center;
+  text-transform: uppercase;
+  text-decoration: none;
+  border: 1px solid;
+
+  &:hover {
+    background-color: $brand-color;
+    color: white;
+  }
+}
+
+a.cta, input.cta {
+  @extend .cta-light;
+  display: block;
+  padding: $step*.6 $step*2 $step*.4;
+  background-color: $brand-color;
+  color: white;
+  border: 0;
+  box-shadow: 0 2px 0 darken($brand-color, 30%);
+  font-weight: 500;
+  -webkit-font-smoothing: antialiased;
+  @include bounce-transition();
+
+  &:hover {
+    background-color: saturate($brand-color, 5%);
+    transform: translateY(-3px);
+    box-shadow: 0 5px 0 darken($brand-color, 30%);
+  }
+
+  &:active {
+    transform: translateY(0);
+    box-shadow: 0 2px 0 darken($brand-color, 30%);
+  }
+
+  @include media-query(small) {
+    display: inline-block;
+  }
+}
+
+a, button {
+  transition: color .2s, border-color .2s;
+}

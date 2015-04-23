@@ -92,27 +92,6 @@ class ProductAttributeMappingInstall extends AbstractInstaller
                     'integer-sort'
                 ]
             ],
-            'weight' => [
-                'CopyToFacet' => [
-                    'float-facet'
-                ]
-            ],
-            'age' => [
-                'CopyToFacet' => [
-                    'integer-facet'
-                ]
-            ],
-            'brand' => [
-                'CopyToField' => [
-                    'full-text',
-                    'full-text-boosted',
-                    'completion-terms',
-                    'suggestion-term',
-                ],
-                'CopyToFacet' => [
-                    'string-facet',
-                ]
-            ],
             'depth' => [
                 'CopyToFacet' => [
                     'float-facet'
@@ -126,22 +105,6 @@ class ProductAttributeMappingInstall extends AbstractInstaller
             'height' => [
                 'CopyToFacet' => [
                     'float-facet'
-                ]
-            ],
-            'gender' => [
-                'CopyToFacet' => [
-                    'string-facet'
-                ]
-            ],
-            'material' => [
-                'CopyToField' => [
-                    'full-text',
-                    'full-text-boosted',
-                    'completion-terms',
-                    'suggestion-term',
-                ],
-                'CopyToFacet' => [
-                    'string-facet',
                 ]
             ],
             'main_color' => [

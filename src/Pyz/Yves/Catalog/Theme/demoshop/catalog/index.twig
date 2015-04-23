@@ -1,36 +1,5 @@
-{% extends "@application/layout/full.twig" %}
+{% extends "@application/layout/layout.twig" %}
 
 {% block content %}
-    {% include "@application/partials/navbar.twig" with {'categories': categories } only %}
-    <link rel="stylesheet" href="{{ asset('/styles/catalog.css') }}" />
-    <script src="{{ asset('/scripts/app/catalog.js') }}"></script>
-
-    <section class="consumeHeight" id="catalog">
-        <div>
-            {% include "@catalog/partials/breadcrumbs.twig" with {'category': category, 'numFound': numFound} only %}
-        </div>
-        <div  class="col col25">
-            <div class="sidebar">
-                {% include "@catalog/partials/category-tree.twig" with {'categoryTree': categoryTree, 'activeCategory': category} only %}
-            </div>
-            <div class="sidebar">
-                {% include "@catalog/partials/filters.twig" with {'facets': facets, 'url': category.url} only %}
-            </div>
-        </div>
-
-        <div class="col col75">
-            <div id="options" class="results">
-                {% include "@catalog/partials/options.twig" with {'url': category.url, 'numFound': numFound} %}
-            </div>
-            <div>
-                {% if products|length > 0 %}
-                    {% include "@catalog/partials/product-list.twig" with {'products': products} only %}
-                {% else %}
-                    <div class="missingProducts">
-                        {{ '0 ' ~ 'catalog.products.found'|trans }}
-                    </div>
-                {% endif %}
-            </div>
-        </div>
-    </section>
+    {% include "@catalog/partials/product-list.twig" with {'products': products} only %}
 {% endblock %}

@@ -37,9 +37,9 @@ class CustomerControllerProvider extends YvesControllerProvider
     protected function defineControllers(Application $app)
     {
         $this->createController("/login", self::ROUTE_CUSTOMER_LOGIN, "Customer2", "Customer2", "login");
+        $this->createController('/register', self::ROUTE_CUSTOMER_REGISTER, 'Customer2', 'Customer2', 'register');
+
         /**
-        $this->createController('/login', self::ROUTE_CUSTOMER_LOGIN, 'Customer', 'Security', 'login');
-        $this->createController('/register', self::ROUTE_CUSTOMER_REGISTER, 'Customer', 'Security', 'register');
         $this->createController('/forgot-password', self::ROUTE_CUSTOMER_FORGOT_PASSWORD, 'Customer', 'Security', 'forgotPassword');
         $this->createController('/restore-password', self::ROUTE_CUSTOMER_RESTORE_PASSWORD, 'Customer', 'Security', 'restorePassword');
         $this->createController('/restore-password-mail-sent', self::ROUTE_CUSTOMER_PASSWORD_MAIL_SENT, 'Customer', 'Security', 'passwordMailSent');

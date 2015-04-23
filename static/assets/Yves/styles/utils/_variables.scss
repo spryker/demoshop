@@ -1,0 +1,31 @@
+// Our variables
+$step: 26px;
+
+$light-color: #fdfdfd;
+$light-color-transparent: rgba(253,253,253,0);
+$pale-color: #f3f3f5;
+$pale-color-transparent: rgba(243,243,245,0);
+$paler-color: #c3bec2;
+$muted-color: #868d9d;
+$mid-color: #757c8c;
+$dark-color: #393C44;
+$darker-color: #22242b;
+$brand-color: #e2694a;
+
+$text-color: $darker-color;
+$heading-color: #393C44;
+$text-color-light: #eee;
+$background-color: $light-color;
+$background-color-dark: #0d212f;
+
+
+$page-width: 960px;
+$huge-page-width: 1100px;
+
+// responsive
+$breakpoints: (
+  'small': 500px,
+  'medium': 800px,
+  'large': 1000px,
+  'huge': 1200px,
+);

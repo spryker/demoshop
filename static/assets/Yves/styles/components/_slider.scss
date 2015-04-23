@@ -1,0 +1,15 @@
+.ui-slider {
+
+  .ui-slider-handle {
+    background-image: none !important;
+    background-color: $dark-color !important;
+    border-color: darken($dark-color, 10%) !important;
+    border-radius: 5px !important;
+    outline: none !important;
+  }
+
+  .ui-widget-header{
+    background-image: none !important;
+    background-color: lighten($muted-color, 10%) !important;
+  }
+}

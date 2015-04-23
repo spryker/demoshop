@@ -1,0 +1,11 @@
+{# partial takes some optional arguments: #}
+{# class: additional classname(s) for the spinner element #}
+{# style: minimal (default) | caplet       #}
+{# color: dark (default) | light           #}
+{# name: name for the number form element  #}
+{# value: initial value for the number form element  #}
+<div class="spinner {% if style is defined %}{{style}}{% endif %} {% if class is defined %}{{class}}{% endif %} {% if color is defined %}{{color}}{% endif %}">
+  <input type="button" value="-"class="spinner__decrement js-spinner__decrement"></input>
+  <input type="number" value="{% if value is defined %}{{value}}{% else %}1{% endif %}" min="1" class="spinner__number js-spinner__number"{% if name is defined %} name="{{name}}"{% endif %}></input>
+  <input type="button" value="+" class="spinner__increment js-spinner__increment"></input>
+</div>
