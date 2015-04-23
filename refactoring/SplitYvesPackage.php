@@ -49,7 +49,7 @@ class SplitYvesPackage extends AbstractRefactorer
 //            $fileSystem->remove($file->getPathname());
         }
 
-        $this->createBundleDefaultFiles();
+//        $this->createBundleDefaultFiles();
     }
 
     /**

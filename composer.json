@@ -70,6 +70,8 @@
     "spryker/user": "dev-master",
     "spryker/yves": "dev-master",
     "spryker/zed-request": "dev-master",
+    "spryker/zed-package": "dev-master",
+    "spryker/yves-package": "dev-master",
 
 
     "psr/log": "~1.0",
