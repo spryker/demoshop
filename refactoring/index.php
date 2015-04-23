@@ -40,4 +40,7 @@ $refactor = new \ReneFactor\GitIgnore($consoleLogger);
 //$refactor->refactor();
 
 $refactor = new \ReneFactor\YvesTestMover($consoleLogger);
+//$refactor->refactor();
+
+$refactor = new \ReneFactor\GithubTeamAdd($consoleLogger);
 $refactor->refactor();

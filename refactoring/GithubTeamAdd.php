@@ -28,7 +28,7 @@ class GithubTeamAdd extends AbstractRefactorer
     /**
      * @var string
      */
-    private $team = 'core-development';
+    private $team = '1176320';
 
     /**
      * @var string
@@ -48,7 +48,7 @@ class GithubTeamAdd extends AbstractRefactorer
             $this->info($cwd);
 
             $client = $this->getGithubClient();
-            $client->organization()
+            $client->organizations()
                 ->teams()
                 ->addRepository(
                     $this->team,
