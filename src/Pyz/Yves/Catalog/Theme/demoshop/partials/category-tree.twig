@@ -1,5 +1,0 @@
-<h3>{{ 'catalog.categories'|trans }}</h3>
-<div id="categories">
-    <a href="{{ categoryTree.url }}" {{ activeCategory.url == categoryTree.url ? 'class="active"' : '' }}>{{ categoryTree.name }}</a>
-{% include "@catalog/partials/category-children.twig" with {'activeCategory': activeCategory, 'categoryChildren': categoryTree.children, 'maxLevel': categoryTree.depth, 'currentLevel': 1} only %}
-</div>

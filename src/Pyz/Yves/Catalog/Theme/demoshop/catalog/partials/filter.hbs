@@ -1,0 +1,9 @@
+{{#if type == 'default'}}
+  <input type="radio"
+          id="filter-{{name}}-{{id}}"
+          name="filter-{{id}}"
+          value="{{id}}"
+          {{#if checked}} checked=true{{/if}}>
+  <label for="filter-{{name}}-{{id}}">{{name}}
+    <span class="filter__quantity">{{quantity}}</span>
+  </label>
