@@ -1568,7 +1568,7 @@
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/kernel.git",
-                "reference": "1242a1233f285b5f92b1b5c9eb58b09214f33e71"
+                "reference": "e5e16f06e4a10a686e89770a4f9987bbbf4bd219"
             },
             "type": "library",
             "autoload": {
@@ -1610,7 +1610,7 @@
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/library.git",
-                "reference": "0621571807fb5f957831e25278b9583f40c98b6f"
+                "reference": "45995253f3b365d938b1fe93ed39e83efc9a4c01"
             },
             "type": "library",
             "autoload": {
