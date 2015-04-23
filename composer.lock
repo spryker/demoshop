@@ -1484,7 +1484,7 @@
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/glossary.git",
-                "reference": "07106439a4d1ac4136dd2d917191feef014946e1"
+                "reference": "7cba1aea0dcf5ba726ae2a76f6be4003cfb82413"
             },
             "type": "library",
             "autoload": {
@@ -1497,7 +1497,7 @@
                     "YvesUnit": "tests/"
                 }
             },
-            "time": "2015-04-22 15:19:35"
+            "time": "2015-04-23 12:18:26"
         },
         {
             "name": "spryker/glossary-exporter",
