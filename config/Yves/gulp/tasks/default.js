@@ -1,3 +1,3 @@
 var gulp = require('gulp');
 
-gulp.task('dev', ['styles', 'images', 'scripts', 'watch', 'fonts', 'copy-pub']);
+gulp.task('dev', ['styles', 'images', 'scripts', 'fonts', 'copy-pub']);
