@@ -1484,7 +1484,7 @@
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/glossary.git",
-                "reference": "7cba1aea0dcf5ba726ae2a76f6be4003cfb82413"
+                "reference": "1d78833288e06cc2d23c179cbb92c75979c84fb9"
             },
             "type": "library",
             "autoload": {
