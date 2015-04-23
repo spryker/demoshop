@@ -19,6 +19,7 @@ class YvesTestMover extends AbstractRefactorer
 
             $dir = dirname($destination);
             if (!is_dir($dir)) {
+                chmod($dir, 777);
                 mkdir($dir, 777, true);
             }
 

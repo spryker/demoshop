@@ -22,7 +22,7 @@ $refactor = new \ReneFactor\SplitYvesPackage($consoleLogger);
 //$refactor->refactor();
 
 $refactor = new \ReneFactor\SplitZedPackage($consoleLogger);
-$refactor->refactor();
+//$refactor->refactor();
 
 $refactor = new \ReneFactor\GitiffyBundles($consoleLogger);
 //$refactor->refactor();
