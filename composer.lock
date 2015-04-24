@@ -1187,7 +1187,7 @@
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/category-exporter.git",
-                "reference": "c92a3337ec92a54f724369cf99d87a752e3e8de6"
+                "reference": "61807e74801c50fdfc9df25ca889b0a2461559d6"
             },
             "type": "library",
             "autoload": {
@@ -1200,7 +1200,7 @@
                     "YvesUnit": "tests/"
                 }
             },
-            "time": "2015-04-24 08:31:14"
+            "time": "2015-04-24 10:22:49"
         },
         {
             "name": "spryker/checkout",
@@ -1229,7 +1229,7 @@
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/cms.git",
-                "reference": "019e88631ff2928367accfda5a4f10dee59a6b68"
+                "reference": "fed3477af5a0bd57db24afd78f02ec83fee573c7"
             },
             "type": "library",
             "autoload": {
@@ -1242,7 +1242,7 @@
                     "YvesUnit": "tests/"
                 }
             },
-            "time": "2015-04-22 15:19:34"
+            "time": "2015-04-24 12:01:43"
         },
         {
             "name": "spryker/cms-exporter",
