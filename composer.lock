@@ -998,7 +998,7 @@
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/auth.git",
-                "reference": "77be9186ff055835d03ce308b0998607ac0a5241"
+                "reference": "d40982cb33b8d8f4ad48d287b508cdf25189c4b1"
             },
             "type": "library",
             "autoload": {
@@ -1011,7 +1011,7 @@
                     "YvesUnit": "tests/"
                 }
             },
-            "time": "2015-04-23 15:21:21"
+            "time": "2015-04-23 15:55:22"
         },
         {
             "name": "spryker/availability",
@@ -1166,7 +1166,7 @@
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/category.git",
-                "reference": "c0c805ffa2240af0ab202e52b19b83f3e9b32b10"
+                "reference": "eb428338546a2507580bdc852c97cda0519fba36"
             },
             "type": "library",
             "autoload": {
@@ -1179,7 +1179,7 @@
                     "YvesUnit": "tests/"
                 }
             },
-            "time": "2015-04-23 09:31:06"
+            "time": "2015-04-24 08:28:56"
         },
         {
             "name": "spryker/category-exporter",
@@ -1187,7 +1187,7 @@
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/category-exporter.git",
-                "reference": "2171d58a1bc2c468fd5d15f0af6ca86fe96f9517"
+                "reference": "c92a3337ec92a54f724369cf99d87a752e3e8de6"
             },
             "type": "library",
             "autoload": {
@@ -1200,7 +1200,7 @@
                     "YvesUnit": "tests/"
                 }
             },
-            "time": "2015-04-23 10:08:08"
+            "time": "2015-04-24 08:31:14"
         },
         {
             "name": "spryker/checkout",
@@ -3780,12 +3780,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/zendesk/zendesk_api_client_php.git",
-                "reference": "08aa372545bdf44f9e34cd007df61d69c5d2443f"
+                "reference": "d4a0a555ac9180ed138f6de042e7618b731613b5"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/zendesk/zendesk_api_client_php/zipball/08aa372545bdf44f9e34cd007df61d69c5d2443f",
-                "reference": "08aa372545bdf44f9e34cd007df61d69c5d2443f",
+                "url": "https://api.github.com/repos/zendesk/zendesk_api_client_php/zipball/d4a0a555ac9180ed138f6de042e7618b731613b5",
+                "reference": "d4a0a555ac9180ed138f6de042e7618b731613b5",
                 "shasum": ""
             },
             "require": {
@@ -3806,7 +3806,7 @@
             ],
             "description": "PHP Client for Zendesk REST API. See http://developer.zendesk.com/api-docs",
             "homepage": "https://github.com/zendesk/zendesk_api_client_php",
-            "time": "2015-04-08 08:46:37"
+            "time": "2015-04-23 17:46:02"
         },
         {
             "name": "zendframework/zend-code",
