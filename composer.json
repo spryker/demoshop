@@ -36,7 +36,6 @@
     "spryker/locale": "dev-master",
     "spryker/lumberjack": "dev-master",
     "spryker/mail": "dev-master",
-    "spryker/misc": "dev-master",
     "spryker/oms": "dev-master",
     "spryker/price": "dev-master",
     "spryker/price-cart-connector": "dev-master",

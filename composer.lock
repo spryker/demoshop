@@ -4,7 +4,7 @@
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "66c4a89c956523ec8951635d1eca225e",
+    "hash": "c276e6d05a978bc6aaccc4d1e79d71bd",
     "packages": [
         {
             "name": "digital-canvas/zend-framework",
@@ -1689,33 +1689,12 @@
             "time": "2015-04-22 15:19:37"
         },
         {
-            "name": "spryker/misc",
-            "version": "dev-master",
-            "source": {
-                "type": "git",
-                "url": "git@github.com:spryker/misc.git",
-                "reference": "f5a10a13b9a962481da8bf6cb8d135eac05dbc5c"
-            },
-            "type": "library",
-            "autoload": {
-                "psr-0": {
-                    "SprykerFeature": "src/",
-                    "Acceptance": "tests/",
-                    "Function": "tests/",
-                    "Integration": "tests/",
-                    "Unit": "tests/",
-                    "YvesUnit": "tests/"
-                }
-            },
-            "time": "2015-04-22 15:19:37"
-        },
-        {
             "name": "spryker/oms",
             "version": "dev-master",
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/oms.git",
-                "reference": "6e5aa3170b772ed574dbb06257bab04b15901c8c"
+                "reference": "2e31887714b9741c14d33d43f41c9d6262772103"
             },
             "type": "library",
             "autoload": {
@@ -1728,7 +1707,7 @@
                     "YvesUnit": "tests/"
                 }
             },
-            "time": "2015-04-22 15:19:37"
+            "time": "2015-04-27 15:12:56"
         },
         {
             "name": "spryker/price",
@@ -5517,7 +5496,6 @@
         "spryker/locale": 20,
         "spryker/lumberjack": 20,
         "spryker/mail": 20,
-        "spryker/misc": 20,
         "spryker/oms": 20,
         "spryker/price": 20,
         "spryker/price-cart-connector": 20,
