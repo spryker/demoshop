@@ -1,0 +1,8 @@
+<input type="checkbox"
+       id="filter-{{filterId}}-{{id}}"
+       name="filter-{{filterId}}"
+       value="{{id}}"
+       {% if checked is defined and checked == true %} checked=true{% endif %}>
+<label for="filter-{{filterId}}-{{id}}">{{name}}
+  <span class="filter__quantity">{{quantity}}</span>
+</label>

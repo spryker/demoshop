@@ -1,7 +1,8 @@
 {% extends "@application/layout/layout.twig" %}
 
 {% block content %}
-    {#{% include "@catalog/catalog/catalog.twig" %}#}
+
+    {% include "@catalog/catalog/catalog.twig" %}
     <h2 style="margin-top: 80px">Category</h2>
     {{ dump (category) }}
     <h2>Categories</h2>
