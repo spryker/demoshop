@@ -1,5 +1,22 @@
 {% extends "@application/layout/layout.twig" %}
 
 {% block content %}
-    <h1>Index Page</h1>
+    <div class="featured-products">
+        <div class="featured-products__quarter">
+            {% include "@application/homepage/featured.twig" with {width:"1", height:"2", name:"Batman", category:"Justice League", img:"/images/homepage/batman.jpg", url:"/product-detail.html?batman" } %}
+            {% include "@application/homepage/featured.twig" with {width:"1", height:"2", name:"Brillenpinguin", category:"Wild Life", img:"/images/homepage/penguin.jpg", url:"/product-detail.html?penguin" } %}
+        </div>
+        <div class="featured-products__quarter js-featured-carousel">
+            {% include "@application/homepage/featured.twig" with {width:"2", height:"2", img:"/images/homepage/wildlife.jpg", url:"/product-detail.html?wildlife" } %}
+            {% include "@application/homepage/featured.twig" with {width:"2", height:"2", img:"/images/homepage/dragon.jpg", url:"/product-detail.html?dragon" } %}
+        </div>
+        <div class="featured-products__quarter">
+            {% include "@application/homepage/featured.twig" with {width:"2", height:"1", name:"Asien & Australien", category:"Wild Life", img:"/images/homepage/asien-australien.jpg", url:"/catalog.html?category:asien%20und%20australien" } %}
+            {% include "@application/homepage/featured.twig" with {width:"2", height:"1", name:"Meere", category:"Wild Life", img:"/images/homepage/sea.jpg", url:"/product-detail.html?sea" } %}
+        </div>
+        <div class="featured-products__quarter">
+            {% include "@application/homepage/featured.twig" with {width:"1", height:"2", name:"Gibbon Junges", category:"Wild Life", img:"/images/homepage/gibbon.jpg", url:"/product-detail.html?gibbon" } %}
+            {% include "@application/homepage/featured.twig" with {width:"1", height:"2", name:"Berserker", category:"World of History", img:"/images/homepage/berserker.jpg", url:"/product-detail.html?berserker" } %}
+        </div>
+    </div>
 {% endblock %}

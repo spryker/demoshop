@@ -77,7 +77,7 @@ class CatalogController extends AbstractController
         ];
 
         foreach ($products as $key => $val) {
-            $products[$key] = $val;
+            $products[$key] = json_decode($val, 1);
         }
 
         return $products;

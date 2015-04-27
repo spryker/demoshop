@@ -7,7 +7,9 @@ var $ = require('jquery'),
     overlay = require('./ui/overlay'),
     loginForm = require('./ui/login-form'),
     filter = require('./ui/catalog/filters'),
-    pagination = require('./ui/catalog/pagination');
+    pagination = require('./ui/catalog/pagination'),
+    homepage = require('./ui/homepage'),
+    slick = require('slick-carousel');
 
 $(function() {
 
@@ -24,6 +26,9 @@ $(function() {
   // TODO only call this on catalog page
   filter.init();
   pagination.init();
+
+  // TODO only call this on homepage
+  homepage.init();
 
   // TODO remove, probably
   window.$ = $;

@@ -1,0 +1,11 @@
+{#{{!-- height and width should be either 1 or 2 --}}#}
+<a class="featured__link" href="{{url}}">
+  <article class="featured featured--width-{{width}} featured--height-{{height}}" style="background-image: url('{{img}}')">
+    {% if name is defined %}
+        <h1 class="featured__name">{{name}}</h1>
+    {% endif %}
+    {% if category is defined %}
+        <h2 class="featured__category">{{category}}</h2>
+    {% endif %}
+  </article>
+</a>

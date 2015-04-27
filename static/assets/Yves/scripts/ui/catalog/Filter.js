@@ -7,7 +7,6 @@ var $ = require('jquery'),
 var Filter = function ($el) {
   this.$el = $el;
   this.type = $el.data('filter-type');
-  this.id = $el.data('filter-id');
   this.name = $el.data('filter-name');
 
   if (this.type == 'range') {
@@ -149,7 +148,6 @@ Filter.prototype.clear = function() {
   } else if (this.type == 'range') {
     var $slider = this.$el.find('.ui-slider');
     $slider.slider('values', [this.min, this.max]);
-    $('.active-filter[data-filter-id="'+this.id+'"]').attr('data-filter-value', '');
     $slider.trigger('slide', [{ values: [this.min, this.max] }]);
     this.updateSliderValueDisplay(this.min, this.max);
   }
