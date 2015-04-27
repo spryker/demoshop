@@ -955,7 +955,7 @@
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/application.git",
-                "reference": "cce7294dff3b02b790a37e915774ed3370b33b67"
+                "reference": "af06b4975b464dcc0916cc8f4f573f1673b33d98"
             },
             "type": "library",
             "autoload": {
@@ -969,7 +969,7 @@
                     "YvesUnit": "tests/"
                 }
             },
-            "time": "2015-04-27 10:41:14"
+            "time": "2015-04-27 11:14:27"
         },
         {
             "name": "spryker/assets",
@@ -1316,7 +1316,7 @@
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/customer.git",
-                "reference": "1aa9980a2c6dcb5d60ce22015519bddc26da1df7"
+                "reference": "9eea3d72c31a91f7a83fa3ec005570748bf31731"
             },
             "type": "library",
             "autoload": {
@@ -1329,7 +1329,7 @@
                     "YvesUnit": "tests/"
                 }
             },
-            "time": "2015-04-27 10:41:36"
+            "time": "2015-04-27 11:14:09"
         },
         {
             "name": "spryker/customer-mail-connector",
