@@ -1,7 +1,7 @@
 {
   "require": {
     "spryker/acl": "dev-master",
-    "spryker/application": "dev-master",
+    "spryker/application": "dev-feature/core-102-rework-navigation",
     "spryker/assets": "dev-master",
     "spryker/auth": "dev-master",
     "spryker/availability": "dev-master",
@@ -18,7 +18,7 @@
     "spryker/cms-exporter": "dev-master",
     "spryker/console": "dev-master",
     "spryker/country": "dev-master",
-    "spryker/customer": "dev-master",
+    "spryker/customer": "dev-feature/core-102-rework-navigation",
     "spryker/customer-mail-connector": "dev-master",
     "spryker/db-dump": "dev-master",
     "spryker/discount": "dev-master",
