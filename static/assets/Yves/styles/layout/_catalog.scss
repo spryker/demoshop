@@ -1,5 +1,7 @@
 .catalog {
 
+  @include clearfix();
+
   // make space for the header
   padding: $step*3 $step;
   background-color: $pale-color;
@@ -15,110 +17,239 @@
 
   h1 {
     color: $mid-color;
+  }
+}
 
-    &.catalog__section-title {
-      font-size: $step*1.5;
+.catalog__section-title, .catalog__filter {
+
+  // @include media-query('medium') {
+  //   width: calc(50% - #{$step*2});
+  // }
+
+  @include media-query('medium') {
+    margin-right: $step;
+    float: left;
+    clear: left;
+    width: calc(25% - #{$step});
+  }
+}
+
+.catalog__section-title {
+  font-size: $step*1.5;
+  margin-bottom: $step*1.5;
+}
+
+.catalog__filter {
+  // specifics are in components/_catalog-filters.scss
+}
+
+.catalog__active-filters {
+  margin: 0;
+
+  @include media-query('medium') {
+    margin-left: 50%;
+  }
+  @include media-query('large') {
+    margin-left: 25%;
+  }
+  padding: 0 0 $step;
+  border-bottom: 1px solid $light-color;
+  // specifics are in components/_catalog-filters.scss
+}
+
+.catalog__summary {
+  margin: $step 0;
+  text-transform: uppercase;
+}
+
+.summary__total-count {
+  margin-bottom: $step*.5;
+  @include media-query('medium') {
+    float: left;
+    width: 30%;
+    margin-bottom: 0;
+  }
+}
+
+.summary__sorting {
+  font-size: 0;
+
+  @include media-query('medium') {
+    font-size: $base-font-size;
+    text-align: right;
+  }
+}
+
+.sorting__button--inc, .sorting__button--dec {
+  padding: $step*.25 $step*.5;
+  border-color: $muted-color;
+  font-size: $step*.5;
+}
+
+.sorting__button--inc {
+  border-radius: $step 0 0 $step;
+}
+
+.sorting__button--dec {
+  margin-left: -1px;
+  margin-right: $step;
+  border-radius: 0 $step $step 0;
+
+  &:last-of-type {
+    margin-right: 0;
+  }
+}
+
+.sorting__label--small {
+  font-size: $step*.4;
+}
+.sorting__label--medium {
+  font-size: $step*.5;
+}
+.sorting__label--large {
+  font-size: $step*.6;
+}
+
+.catalog__products-holder {
+  position: relative;
+  overflow: hidden;
+  height: 100%;
+}
+
+.catalog__products {
+  display: flex;
+  flex-wrap: wrap;
+  transition: transform .5s;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  transform: scale3d(1,1,1);
+}
+
+@keyframes loading {
+  0% { transform: scale3d(0.05, 0.05, 1) rotate(0deg); }
+  10% { transform: scale3d(0.05, 0.05, 1) rotate(90deg); }
+  25% { transform: scale3d(0.05, 0.05, 1) rotate(90deg); }
+  35% { transform: scale3d(0.05, 0.05, 1) rotate(180deg); }
+  50% { transform: scale3d(0.05, 0.05, 1) rotate(180deg); }
+  60% { transform: scale3d(0.05, 0.05, 1) rotate(270deg); }
+  75% { transform: scale3d(0.05, 0.05, 1) rotate(270deg); }
+  85% { transform: scale3d(0.05, 0.05, 1) rotate(360deg); }
+}
+
+.js-products-prev {
+  position: absolute;
+  top: 0;
+  left: 0;
+  transform: translateX(calc(-100% - #{$step}));
+}
+
+.js-products-next {
+  position: absolute;
+  top: 0;
+  left: 0;
+  transform: translateX(calc(100% + #{$step}));
+}
+
+.js-products-loading {
+  transform: scale3d(0.05, 0.05, 1);
+
+  &.js-products-prev {
+    transform: translateX(calc(-100% - #{$step})) scale3d(0.05, 0.05, 1);
+  }
+
+  &.js-products-next {
+    transform: translateX(calc(100% + #{$step})) scale3d(0.05, 0.05, 1);
+  }
+
+  &.js-products-spinning.js-products-current {
+    animation-duration: 4s;
+    animation-name: loading;
+    animation-iteration-count: infinite;
+    animation-timing-function: cubic-bezier(.3,-2,.7,1.5);
+  }
+}
+
+.catalog__loading-text {
+  position: absolute;
+  top: calc(50% - #{$step*5});
+  left: 50%;
+  transform: translateX(-50%);
+  color: $light-color;
+  font-size: $step*2;
+
+  opacity: 0;
+  transition: opacity .2s;
+
+  .js-products-loading + & {
+    opacity: 1;
+  }
+}
+
+.catalog__product {
+  position: relative;
+  display: block;
+  width: 100%;
+  margin: 0 0 $step;
+  padding-bottom: 100%;
+  background-color: white;
+  border-radius: $step*.25;
+  box-shadow: 0 0 5px rgba(0,0,0,0.1);
+
+
+  @include media-query('small') {
+    width: calc(33% - #{ceil($step*.55)});
+    margin: 0 $step $step 0;
+    padding-bottom: 30%;
+
+    &:nth-of-type(3n+3) {
+      margin-right: 0;
     }
   }
 
-  .catalog__filter {
+}
 
-    @include media-query('medium') {
-      width: calc(50% - #{$step*2});
-      margin-right: $step*2;
-    }
+.product__image, .product__name, .product__price {
+  position: absolute;
+}
 
-    @include media-query('large') {
-      width: calc(25% - #{$step});
-    }
+.product__image {
+  top: $step*.5;;
+  left: 10%;
+  width: 80%;
+}
 
-    section {
-      padding: $step 0;
-      border-bottom: 1px solid $light-color;
+.product__name, .product__price {
+  left: 0;
+  width: 100%;
+  margin: 0;
+  background-color: rgba(255,255,255,0.8);
+  text-align: center;
+}
 
-      &:first-child {
-        padding-top: 0;
-      }
+h1.product__name {
+  bottom: $step*1.5;
+  color: $dark-color;
+  font-size: $base-font-size;
+  line-height: $step;
+  text-transform: uppercase;
+}
 
-      ul {
-        list-style: none;
-        margin: 0;
-        padding: 0;
+.product__price {
+  bottom: $step*.5;
+  color: $brand-color;
+  font-size: $step;
+}
 
-        li {
-          margin: 0;
-          padding: 0;
+.catalog__pagination {
+  margin: 0;
 
-          input[type=radio], input[type=checkbox] {
-            display: none;
-          }
-
-          input[type=radio]:checked + label, input[type=checkbox]:checked + label {
-            font-weight: 600;
-          }
-        }
-      }
-      label {
-        text-transform: uppercase;
-      }
-    }
-
-    .filter__title {
-      font-size: $step;
-    }
-
-    .filter__quantity {
-      &::before {
-        content: '(';
-      }
-      &::after {
-        content: ')';
-      }
-      color: $paler-color;
-    }
-
-    .filter__color {
-      li {
-        display: inline-block;
-        margin-right: $step*.5;
-      }
-
-      .filter__color-name {
-        display: block;
-        width: $step;
-        height: $step;
-        border-radius: 6px;
-        overflow: hidden;
-        color: rgba(0,0,0,0);
-        background-color: #fff;
-        border: 2px solid $paler-color;
-        @include bounce-transition;
-      }
-
-      input[type=radio]:checked + label {
-        transform: scale(1.4);
-      }
-    }
-
-    .filter__price {
-      .filter__price-slider {
-        margin-bottom: $step;
-      }
-
-      .filter__price-min, .filter__price-max {
-        padding: 0 $step*.5;
-        background-color: $light-color;
-        border: 1px solid $paler-color;
-        border-radius: 3px;
-
-        &::before {
-          content: '€';
-        }
-      }
-      p {
-        margin: 0;
-      }
-    }
-
+  @include media-query('medium') {
+    margin-left: 50%;
   }
+  @include media-query('large') {
+    margin-left: 25%;
+  }
+  padding: 0 0 $step;
+  text-align: center;
 }

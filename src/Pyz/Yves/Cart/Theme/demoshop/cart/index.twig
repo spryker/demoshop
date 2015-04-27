@@ -1,7 +1,6 @@
-{% extends "@application/layout/full.twig" %}
+{% extends "@application/layout/layout.twig" %}
 
 {% block content %}
-    {% include "@application/partials/navbar.twig" with {'categories': categories } only %}
     <link rel="stylesheet" href="{{ asset('/styles/cart.css') }}" />
     <script src="{{ asset('/scripts/app/cart.js') }}"></script>
 

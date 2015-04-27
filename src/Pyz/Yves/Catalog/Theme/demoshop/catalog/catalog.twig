@@ -1,181 +1,71 @@
 {% extends "@application/layout/layout.twig" %}
 
 {% block content %}
-<div class="catalog">
-  <h1 class="catalog__section-title">Wild life</h1>
+    <div class="catalog">
+        <h1 class="catalog__section-title">Wild life</h1>
 
-  <aside class="catalog__filter">
-    <section class="filter js-filter js-filter-default filter__category" data-filterId="1">
-      <ul class="filter__category-list">
-        <li>{% include "@catalog/catalog/partials/filter-default.twig" with {filterId:'1', name:'Alle', id:'123', quantity:'40', default:true} %}</li>
-        <li>{% include "@catalog/catalog/partials/filter-default.twig" with {filterId:'1', name:'Afrika', id:'456', quantity:'12'} %}</li>
-        <li>{% include "@catalog/catalog/partials/filter-default.twig" with {filterId:'1', name:'Asien und Australien', id:'789', quantity:'8'} %}</li>
-        <li>{% include "@catalog/catalog/partials/filter-default.twig" with {filterId:'1', name:'Arktis und Antarktis', id:'135', quantity:'5'} %}</li>
-        <li>{% include "@catalog/catalog/partials/filter-default.twig" with {filterId:'1', name:'Amerika', id:'246', quantity:'7'} %}</li>
-        <li>{% include "@catalog/catalog/partials/filter-default.twig" with {filterId:'1', name:'Meere', id:'999', quantity:'8'} %}</li>
-      </ul>
-    </section>
+        <aside class="catalog__filter js-filters">
+            {% include "@catalog/catalog/partials/filter-default.twig" with {filterName:'category'} %}
+            {% include "@catalog/catalog/partials/filter-color.twig" with {filterName:'color' } %}
+            {% include "@catalog/catalog/partials/filter-range.twig" with {filterName:'price', min:'0', max:'200'} %}
+            {% include "@catalog/catalog/partials/filter-multivalue.twig" with {filterName:'extras'} %}
+        </aside>
+        <button class="catalog__toggle-filters js-toggle-filters">
+            <span class="js-show-filters">Show filters</span>
+            <span class="js-hide-filters">Hide filters</span>
+        </button>
 
-    <section class="filter js-filter filter__color" data-filterId="2">
-      <h1 class="filter__title">Farbe</h1>
-      <ul class="filter__color-list">
-        <li>{% include "@catalog/catalog/partials/filter-color.twig" with {filterId:2, hex:'#ffffff', id:'123', quantity:'40', checked:true } %}</li>
-        <li>{% include "@catalog/catalog/partials/filter-color.twig" with {filterId:2, hex:'#000000', id:'456', quantity:'12' } %}</li>
-        <li>{% include "@catalog/catalog/partials/filter-color.twig" with {filterId:2, hex:'#4c90dd', id:'789', quantity:'8' } %}</li>
-        <li>{% include "@catalog/catalog/partials/filter-color.twig" with {filterId:2, hex:'#89562b', id:'135', quantity:'5' } %}</li>
-        <li>{% include "@catalog/catalog/partials/filter-color.twig" with {filterId:2, hex:'#9b9b9b', id:'246', quantity:'7' } %}</li>
-      </ul>
-    </section>
+        <section class="catalog__active-filters">
+            <h1>Aktive filter</h1>
+            <ul class="active-filter__list">
+                {% include "@catalog/catalog/partials/active-filter.twig" with {name:'category', value:'' } %}
+                {% include "@catalog/catalog/partials/active-filter.twig" with {name:'color', value:'' } %}
+                {% include "@catalog/catalog/partials/active-filter.twig" with {name:'price', value:'' } %}
+                {% include "@catalog/catalog/partials/active-filter.twig" with {name:'extras', value:'' } %}
+            </ul>
+        </section>
 
-    <section class="filter js-filter filter__price" data-filterId="3">
-      <h1 class="filter__title">Preis</h1>
-      <div class="filter__price-slider js-price-slider"></div>
-      <p>Preisspanne von <span class="filter__price-min js-filter-price-min">0</span> bis <span class="filter__price-max js-filter-price-max">200</span></p>
-    </section>
+        <header class="catalog__summary">
+            <div class="summary__total-count">67 figuren gefunden</div>
+            <div class="summary__sorting">
+                Sortieren
+                <button class="sorting__button--inc">A-Z</button>
+                <button class="sorting__button--dec">Z-A</button>
+                <button class="sorting__button--inc">
+                    <span class="sorting__label--small">€</span>
+                    <span class="sorting__label--medium">€</span>
+                    <span class="sorting__label--large">€</span>
+                </button>
+                <button class="sorting__button--dec">
+                    <span class="sorting__label--large">€</span>
+                    <span class="sorting__label--medium">€</span>
+                    <span class="sorting__label--small">€</span>
+                </button>
+            </div>
+        </header>
 
-    <section class="filter js-filter filter__extras" data-filterId="4">
-      <h1 class="filter__title">Sonstige Merkmale</h1>
-      <ul class="filter__extras-list">
-        <li>{% include "@catalog/catalog/partials/filter-multivalue.twig" with {filterId:4, name:'Neu', id:'123', quantity:'40'} %}</li>
-        <li>{% include "@catalog/catalog/partials/filter-multivalue.twig" with {filterId:4, name:'Sale', id:'456', quantity:'12'} %}</li>
-        <li>{% include "@catalog/catalog/partials/filter-multivalue.twig" with {filterId:4, name:'Besonders toll', id:'789', quantity:'8'} %}</li>
-        <li>{% include "@catalog/catalog/partials/filter-multivalue.twig" with {filterId:4, name:'Aus Kunststoff', id:'135', quantity:'5'} %}</li>
-        <li>{% include "@catalog/catalog/partials/filter-multivalue.twig" with {filterId:4, name:'Aus Holz', id:'246', quantity:'7'} %}</li>
-      </ul>
-    </section>
-  </aside>
+        <div class="catalog__products-holder js-products-holder">
+            <section class="catalog__products js-products-current">
+                {% include "@catalog/catalog/partials/product.twig" with {detailsUrl:'/product-detail.html?id=123', imageUrl:'/images/products/baby-panda.jpg', name:'Babypanda', price:'€9,99'} %}
+            </section>
+            <div class="catalog__loading-text">Loading...</div>
 
-  <section class="catalog__active-filters">
-    <h1>Aktive filter</h1>
-    <ul class="active-filter__list">
-      {% include "@catalog/catalog/partials/active-filter.twig" with {filterId:3, name:'category', id:'1',  value:''} %}
-      {% include "@catalog/catalog/partials/active-filter.twig" with {filterId:3, name:'color', id:'2',  value:''} %}
-      {% include "@catalog/catalog/partials/active-filter.twig" with {filterId:3, name:'price', id:'3',  value:''} %}
-      {% include "@catalog/catalog/partials/active-filter.twig" with {filterId:3, name:'extras', id:'4',  value:''} %}
-    </ul>
-  </section>
+            {#<section class="catalog__products js-productsNext">#}
+                {#{% include "@catalog/catalog/partials/product detailsUrl='/product-detail.html?id=123' imageUrl='/images/products/horse-begging.jpg' name='Pferd' price='€9,99' }}#}
+                {#{% include "@catalog/catalog/partials/product detailsUrl='/product-detail.html?id=123' imageUrl='/images/products/horse-black-white.jpg' name='Pferd 2' price='€9,99' }}#}
+                {#{% include "@catalog/catalog/partials/product detailsUrl='/product-detail.html?id=123' imageUrl='/images/products/lion.jpg' name='Löwe' price='€9,99' }}#}
+                {#{% include "@catalog/catalog/partials/product detailsUrl='/product-detail.html?id=123' imageUrl='/images/products/ostrich.jpg' name='Strauß' price='€9,99' }}#}
+                {#{% include "@catalog/catalog/partials/product detailsUrl='/product-detail.html?id=123' imageUrl='/images/products/rhinoceros.jpg' name='Nashorn' price='€9,99' }}#}
+                {#{% include "@catalog/catalog/partials/product detailsUrl='/product-detail.html?id=123' imageUrl='/images/products/baby-panda.jpg' name='Pandababy' price='€9,99' }}#}
+                {#{% include "@catalog/catalog/partials/product detailsUrl='/product-detail.html?id=123' imageUrl='/images/products/baby-white-tiger.jpg' name='Weißtigerbaby' price='€9,99' }}#}
+                {#{% include "@catalog/catalog/partials/product detailsUrl='/product-detail.html?id=123' imageUrl='/images/products/baby-tiger.jpg' name='Tigerbaby' price='€9,99' }}#}
+                {#{% include "@catalog/catalog/partials/product detailsUrl='/product-detail.html?id=123' imageUrl='/images/products/crocodile.jpg' name='Krokodil' price='€9,99' }}#}
+            {#</section>#}
+        </div>
 
-  <header class="catalog__summary">
-    <div class="summary__total-count">67 figuren gefunden</div>
-    <div class="summary__sorting">
-      Sortieren
-      <button class="sorting__button--inc">A-Z</button>
-      <button class="sorting__button--dec">Z-A</button>
-      <button class="sorting__button--inc">
-        <span class="sorting__label--small">€</span>
-        <span class="sorting__label--medium">€</span>
-        <span class="sorting__label--large">€</span>
-      </button>
-      <button class="sorting__button--dec">
-        <span class="sorting__label--large">€</span>
-        <span class="sorting__label--medium">€</span>
-        <span class="sorting__label--small">€</span>
-      </button>
+        <div class="catalog__pagination">
+            <button class="pagination__button js-pagination-prev">Prev</button>
+            <button class="pagination__button js-paginationNext">Next</button>
+        </div>
     </div>
-  </header>
-
-  <div class="catalog__products-holder js-products-holder">
-    <ul class="catalog__products js-products-current">
-      <li class="catalog__product">
-        <img src="/images/products/baby-panda.jpg" alt="" class="product__image">
-        <h1 class="product__name">Pandababy</h1>
-        <h2 class="product__price">€9,99</h2>
-      </li>
-      <li class="catalog__product">
-        <img src="/images/products/baby-white-tiger.jpg" alt="" class="product__image">
-        <h1 class="product__name">Weißtigerbaby</h1>
-        <h2 class="product__price">€9,99</h2>
-      </li>
-      <li class="catalog__product">
-        <img src="/images/products/baby-tiger.jpg" alt="" class="product__image">
-        <h1 class="product__name">Tigerbaby</h1>
-        <h2 class="product__price">€9,99</h2>
-      </li>
-      <li class="catalog__product">
-        <img src="/images/products/crocodile.jpg" alt="" class="product__image">
-        <h1 class="product__name">Krokodil</h1>
-        <h2 class="product__price">€9,99</h2>
-      </li>
-      <li class="catalog__product">
-        <img src="/images/products/horse-begging.jpg" alt="" class="product__image">
-        <h1 class="product__name">Pferd</h1>
-        <h2 class="product__price">€9,99</h2>
-      </li>
-      <li class="catalog__product">
-        <img src="/images/products/horse-black-white.jpg" alt="" class="product__image">
-        <h1 class="product__name">Pferd 2</h1>
-        <h2 class="product__price">€9,99</h2>
-      </li>
-      <li class="catalog__product">
-        <img src="/images/products/lion.jpg" alt="" class="product__image">
-        <h1 class="product__name">Löwe</h1>
-        <h2 class="product__price">€9,99</h2>
-      </li>
-      <li class="catalog__product">
-        <img src="/images/products/ostrich.jpg" alt="" class="product__image">
-        <h1 class="product__name">Strauß</h1>
-        <h2 class="product__price">€9,99</h2>
-      </li>
-      <li class="catalog__product">
-        <img src="/images/products/rhinoceros.jpg" alt="" class="product__image">
-        <h1 class="product__name">Nashorn</h1>
-        <h2 class="product__price">€9,99</h2>
-      </li>
-    </ul>
-
-    <ul class="catalog__products js-products-next">
-      <li class="catalog__product">
-        <img src="/images/products/baby-panda.jpg" alt="" class="product__image">
-        <h1 class="product__name">Pandababy</h1>
-        <h2 class="product__price">€9,99</h2>
-      </li>
-      <li class="catalog__product">
-        <img src="/images/products/baby-white-tiger.jpg" alt="" class="product__image">
-        <h1 class="product__name">Weißtigerbaby</h1>
-        <h2 class="product__price">€9,99</h2>
-      </li>
-      <li class="catalog__product">
-        <img src="/images/products/baby-tiger.jpg" alt="" class="product__image">
-        <h1 class="product__name">Tigerbaby</h1>
-        <h2 class="product__price">€9,99</h2>
-      </li>
-      <li class="catalog__product">
-        <img src="/images/products/crocodile.jpg" alt="" class="product__image">
-        <h1 class="product__name">Krokodil</h1>
-        <h2 class="product__price">€9,99</h2>
-      </li>
-      <li class="catalog__product">
-        <img src="/images/products/horse-begging.jpg" alt="" class="product__image">
-        <h1 class="product__name">Pferd</h1>
-        <h2 class="product__price">€9,99</h2>
-      </li>
-      <li class="catalog__product">
-        <img src="/images/products/horse-black-white.jpg" alt="" class="product__image">
-        <h1 class="product__name">Pferd 2</h1>
-        <h2 class="product__price">€9,99</h2>
-      </li>
-      <li class="catalog__product">
-        <img src="/images/products/lion.jpg" alt="" class="product__image">
-        <h1 class="product__name">Löwe</h1>
-        <h2 class="product__price">€9,99</h2>
-      </li>
-      <li class="catalog__product">
-        <img src="/images/products/ostrich.jpg" alt="" class="product__image">
-        <h1 class="product__name">Strauß</h1>
-        <h2 class="product__price">€9,99</h2>
-      </li>
-      <li class="catalog__product">
-        <img src="/images/products/rhinoceros.jpg" alt="" class="product__image">
-        <h1 class="product__name">Nashorn</h1>
-        <h2 class="product__price">€9,99</h2>
-      </li>
-    </ul>
-  </div>
-
-  <div class="catalog__pagination">
-    <button class="pagination__button js-pagination-prev">Prev</button>
-    <button class="pagination__button js-pagination-next">Next</button>
-  </div>
-</div>
-
 {% endblock %}

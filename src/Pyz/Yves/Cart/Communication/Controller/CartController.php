@@ -33,7 +33,7 @@ class CartController extends AbstractController
     }
 
     /**
-     * @param Request  $request
+     * @param Request $request
      * @param CartItem $cartItem
      * @return RedirectResponse
      */
@@ -46,7 +46,7 @@ class CartController extends AbstractController
     }
 
     /**
-     * @param Request  $request
+     * @param Request $request
      * @param CartItem $cartItem
      * @return RedirectResponse
      */
@@ -59,7 +59,7 @@ class CartController extends AbstractController
     }
 
     /**
-     * @param Request  $request
+     * @param Request $request
      * @param CartItem $cartItem
      * @return RedirectResponse
      */
@@ -71,4 +71,4 @@ class CartController extends AbstractController
         return $this->redirectResponseInternal(CartControllerProvider::ROUTE_CART);
     }
 
-    }
+}

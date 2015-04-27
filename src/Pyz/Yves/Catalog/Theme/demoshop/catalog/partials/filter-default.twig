@@ -1,11 +1,10 @@
-<input type="radio"
-        id="filter-{{filterId}}-{{id}}"
-        name="filter-{{filterId}}"
-        value="{{id}}"
-        {% if default is defined %}
-          checked=true
-          class="js-filter-default-value"
-        {% endif %}>
-<label for="filter-{{filterId}}-{{id}}">{{name}}
-  <span class="filter__quantity">{{quantity}}</span>
-</label>
+<section class="filter js-filter js-filter-default filter__{{ filterName }}" data-filter-name="{{filterName}}" data-filter-type="default">
+    <ul class="filter__{{ filterName }}-list">
+        <li>{% include "@catalog/catalog/partials/filter-default-value.twig" with {displayValue:'Alle', value:'alle', quantity:'40', default:true} %}</li>
+        <li>{% include "@catalog/catalog/partials/filter-default-value.twig" with {displayValue:'Afrika', value:'afrika', quantity:'12'} %}</li>
+        <li>{% include "@catalog/catalog/partials/filter-default-value.twig" with {displayValue:'Asien und Australien', value:'asien%20und%20australien', quantity:'8'} %}</li>
+        <li>{% include "@catalog/catalog/partials/filter-default-value.twig" with {displayValue:'Arktis und Antarktis', value:'arktis%20und%20antarktis', quantity:'5'} %}</li>
+        <li>{% include "@catalog/catalog/partials/filter-default-value.twig" with {displayValue:'Amerika', value:'amerika', quantity:'7'} %}</li>
+        <li>{% include "@catalog/catalog/partials/filter-default-value.twig" with {displayValue:'Meere', value:'meere', quantity:'8'} %}</li>
+    </ul>
+</section>

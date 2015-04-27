@@ -6,9 +6,15 @@ var $ = require('jquery'),
     cart = require('./ui/shopping-cart'),
     overlay = require('./ui/overlay'),
     loginForm = require('./ui/login-form'),
-    catalog = require('./ui/catalog');
+    filter = require('./ui/catalog/filters'),
+    pagination = require('./ui/catalog/pagination');
 
 $(function() {
+
+  if (window.innerWidth < 1000) {
+    $('html').addClass('mobile');
+  }
+
   spinner.init();
   search.init();
   cart.init();
@@ -16,5 +22,9 @@ $(function() {
   loginForm.init();
 
   // TODO only call this on catalog page
-  catalog.init();
+  filter.init();
+  pagination.init();
+
+  // TODO remove, probably
+  window.$ = $;
 });
