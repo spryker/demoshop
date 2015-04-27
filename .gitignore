@@ -49,6 +49,8 @@ config/Yves/cache_bust.php
 # profiling
 /profiler
 
+# logs
 npm-debug.log
 tests/_log/
+mkmf.log
 
