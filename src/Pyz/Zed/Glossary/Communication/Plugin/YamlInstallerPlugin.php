@@ -26,7 +26,7 @@ class YamlInstallerPlugin extends AbstractPlugin implements GlossaryInstallerPlu
     }
 
     /**
-     * @param $filePath
+     * @param string $filePath
      *
      * @return array
      */
