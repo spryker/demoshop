@@ -114,7 +114,6 @@ class YvesBootstrap extends SprykerYvesBootstrap
 
         return [
             new ApplicationControllerProvider(false),
-            new CartControllerProvider(false),
             new CheckoutControllerProvider($ssl),
             new CustomerControllerProvider($ssl),
         ];
@@ -132,7 +131,6 @@ class YvesBootstrap extends SprykerYvesBootstrap
             $locator->setup()->pluginMonitoringRouter()->createMonitoringRouter($app, false),
             $locator->frontendExporter()->pluginStorageRouter()->createStorageRouter($app, false),
             $locator->catalog()->pluginSearchRouter()->createSearchRouter($app, false),
-            $locator->cart()->pluginCartRouter()->createCartRouter($app, false),
             /*
              * SilexRouter should come last, as it is not the fastest one if it can
              * not find a matching route (lots of magic)
@@ -163,10 +161,6 @@ class YvesBootstrap extends SprykerYvesBootstrap
 
         $additionalGlobalVars = [
             'categories' => $locator->categoryExporter()->sdk()->getNavigationCategories($app['locale']),
-            'cartItemCount' => $locator->cart()
-                ->pluginCartSessionCount()
-                ->createCartSessionCount($app->getSession())
-                ->getCount(),
             'environment' => \SprykerFeature_Shared_Library_Environment::getEnvironment(),
         ];
 
