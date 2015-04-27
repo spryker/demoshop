@@ -4,7 +4,7 @@
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "66c4a89c956523ec8951635d1eca225e",
+    "hash": "98a54bc3cf54cde517374aa4ffc7b8bc",
     "packages": [
         {
             "name": "digital-canvas/zend-framework",
@@ -951,11 +951,11 @@
         },
         {
             "name": "spryker/application",
-            "version": "dev-master",
+            "version": "dev-feature/core-102-rework-navigation",
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/application.git",
-                "reference": "9ab223111005980764d6de9ecdf035385513bcf6"
+                "reference": "33bde1c4be62263610ada72993c923f41b87763e"
             },
             "type": "library",
             "autoload": {
@@ -969,7 +969,7 @@
                     "YvesUnit": "tests/"
                 }
             },
-            "time": "2015-04-23 14:55:39"
+            "time": "2015-04-27 12:15:38"
         },
         {
             "name": "spryker/assets",
@@ -998,7 +998,7 @@
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/auth.git",
-                "reference": "d40982cb33b8d8f4ad48d287b508cdf25189c4b1"
+                "reference": "c42619ac2c8a28d4e99cebec75c711cb3a64d8c3"
             },
             "type": "library",
             "autoload": {
@@ -1011,7 +1011,7 @@
                     "YvesUnit": "tests/"
                 }
             },
-            "time": "2015-04-23 15:55:22"
+            "time": "2015-04-24 12:23:22"
         },
         {
             "name": "spryker/availability",
@@ -1312,11 +1312,11 @@
         },
         {
             "name": "spryker/customer",
-            "version": "dev-master",
+            "version": "dev-feature/core-102-rework-navigation",
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/customer.git",
-                "reference": "d00b62cf90fdf714146d580518a80f2e36458043"
+                "reference": "2ac166bbb813fa5f772dc262ca15610141404f6e"
             },
             "type": "library",
             "autoload": {
@@ -1329,7 +1329,7 @@
                     "YvesUnit": "tests/"
                 }
             },
-            "time": "2015-04-23 10:08:08"
+            "time": "2015-04-27 12:15:52"
         },
         {
             "name": "spryker/customer-mail-connector",
@@ -2261,7 +2261,7 @@
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/ui.git",
-                "reference": "ee25a86048a359adf4399935f5fb298b1ae750c5"
+                "reference": "e340b898ffd7327da9cb9119f1f0180925396cba"
             },
             "type": "library",
             "autoload": {
@@ -2274,7 +2274,7 @@
                     "YvesUnit": "tests/"
                 }
             },
-            "time": "2015-04-23 14:53:08"
+            "time": "2015-04-24 12:21:24"
         },
         {
             "name": "spryker/ui-example",
@@ -2282,7 +2282,7 @@
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/ui-example.git",
-                "reference": "595d7058c0397cb96702a1969b0d5fe3ea7b3d40"
+                "reference": "6956e9b03cd632e7aceed86b9ce2c993e71a4cec"
             },
             "type": "library",
             "autoload": {
@@ -2295,7 +2295,7 @@
                     "YvesUnit": "tests/"
                 }
             },
-            "time": "2015-04-23 14:54:53"
+            "time": "2015-04-24 12:23:50"
         },
         {
             "name": "spryker/url",
@@ -4111,12 +4111,12 @@
             "version": "v1.5.0",
             "source": {
                 "type": "git",
-                "url": "https://github.com/Behat/Mink.git",
+                "url": "https://github.com/minkphp/Mink.git",
                 "reference": "0769e6d9726c140a54dbf827a438c0f9912749fe"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Behat/Mink/zipball/0769e6d9726c140a54dbf827a438c0f9912749fe",
+                "url": "https://api.github.com/repos/minkphp/Mink/zipball/0769e6d9726c140a54dbf827a438c0f9912749fe",
                 "reference": "0769e6d9726c140a54dbf827a438c0f9912749fe",
                 "shasum": ""
             },
@@ -4166,12 +4166,12 @@
             "version": "v1.1.0",
             "source": {
                 "type": "git",
-                "url": "https://github.com/Behat/MinkBrowserKitDriver.git",
+                "url": "https://github.com/minkphp/MinkBrowserKitDriver.git",
                 "reference": "63960c8fcad4529faad1ff33e950217980baa64c"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Behat/MinkBrowserKitDriver/zipball/63960c8fcad4529faad1ff33e950217980baa64c",
+                "url": "https://api.github.com/repos/minkphp/MinkBrowserKitDriver/zipball/63960c8fcad4529faad1ff33e950217980baa64c",
                 "reference": "63960c8fcad4529faad1ff33e950217980baa64c",
                 "shasum": ""
             },
@@ -4221,12 +4221,12 @@
             "version": "v1.0.9",
             "source": {
                 "type": "git",
-                "url": "https://github.com/Behat/MinkGoutteDriver.git",
+                "url": "https://github.com/minkphp/MinkGoutteDriver.git",
                 "reference": "fa1b073b48761464feb0b05e6825da44b20118d8"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Behat/MinkGoutteDriver/zipball/fa1b073b48761464feb0b05e6825da44b20118d8",
+                "url": "https://api.github.com/repos/minkphp/MinkGoutteDriver/zipball/fa1b073b48761464feb0b05e6825da44b20118d8",
                 "reference": "fa1b073b48761464feb0b05e6825da44b20118d8",
                 "shasum": ""
             },
@@ -4272,12 +4272,12 @@
             "version": "v1.1.1",
             "source": {
                 "type": "git",
-                "url": "https://github.com/Behat/MinkSelenium2Driver.git",
+                "url": "https://github.com/minkphp/MinkSelenium2Driver.git",
                 "reference": "bcf1b537de37db6db0822d9e7bd97e600fd7a476"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Behat/MinkSelenium2Driver/zipball/bcf1b537de37db6db0822d9e7bd97e600fd7a476",
+                "url": "https://api.github.com/repos/minkphp/MinkSelenium2Driver/zipball/bcf1b537de37db6db0822d9e7bd97e600fd7a476",
                 "reference": "bcf1b537de37db6db0822d9e7bd97e600fd7a476",
                 "shasum": ""
             },
