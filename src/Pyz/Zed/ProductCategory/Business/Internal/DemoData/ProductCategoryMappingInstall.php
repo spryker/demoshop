@@ -2,6 +2,7 @@
 
 namespace Pyz\Zed\ProductCategory\Business\Internal\DemoData;
 
+use SprykerEngine\Shared\Dto\LocaleDto;
 use SprykerFeature\Zed\Installer\Business\Model\AbstractInstaller;
 use SprykerFeature\Zed\Library\Import\ReaderInterface;
 use SprykerFeature\Zed\ProductCategory\Business\ProductCategoryManagerInterface;
@@ -69,16 +70,16 @@ class ProductCategoryMappingInstall extends AbstractInstaller
 
     public function install()
     {
-        $currentIdLocale = $this->localeFacade->getCurrentLocale()->getIdLocale();
-        $this->installProductCategories($currentIdLocale);
+        $currentLocale = $this->localeFacade->getCurrentLocale();
+        $this->installProductCategories($currentLocale);
     }
 
     /**
-     * @param int $localeId
+     * @param LocaleDto $locale
      *
      * @throws PropelException
      */
-    protected function installProductCategories($localeId)
+    protected function installProductCategories(LocaleDto $locale)
     {
         foreach ($this->getDemoProductCategories() as $demoProductCategory) {
             $sku = $demoProductCategory['sku'];
@@ -87,13 +88,13 @@ class ProductCategoryMappingInstall extends AbstractInstaller
             }
 
             $categoryName = $demoProductCategory['category'];
-            if (!$this->categoryFacade->hasCategoryNode($categoryName, $localeId)) {
+            if (!$this->categoryFacade->hasCategoryNode($categoryName, $locale)) {
                 continue;
             }
 
-            if (!$this->productCategoryManager->hasProductCategoryMapping($sku, $categoryName, $localeId)) {
+            if (!$this->productCategoryManager->hasProductCategoryMapping($sku, $categoryName, $locale)) {
                 $categoryNodeIds[] = $this->productCategoryManager
-                    ->createProductCategoryMapping($sku, $categoryName, $localeId)
+                    ->createProductCategoryMapping($sku, $categoryName, $locale)
                 ;
             }
         }

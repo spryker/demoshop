@@ -2,17 +2,18 @@
 
 namespace Pyz\Zed\ProductSearch\Business\Processor;
 
+use SprykerEngine\Shared\Dto\LocaleDto;
 use SprykerFeature\Zed\ProductSearch\Business\Processor\ProductSearchProcessor as CoreProductSearchProcessor;
 
 class ProductSearchProcessor extends CoreProductSearchProcessor
 {
     /**
      * @param array $productData
-     * @param string $locale
+     * @param LocaleDto $locale
      *
      * @return array
      */
-    protected function buildBaseProduct(array $productData, $locale)
+    protected function buildBaseProduct(array $productData, LocaleDto $locale)
     {
         $baseProduct = parent::buildBaseProduct($productData, $locale);
 
