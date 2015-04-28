@@ -4,11 +4,11 @@
     xsi:noNamespaceSchemaLocation="process.xsd">>
 
     <process name="PayonePrePayment01" main="true">
-        <statuses>
-            <status name="new" reserved="true"/>
-            <status name="paid" display="customer.order.status.received" />
-            <status name="shipped" display="custom.order.status.shipped" />
-        </statuses>
+        <states>
+            <state name="new" reserved="true"/>
+            <state name="paid" display="customer.order.status.received" />
+            <state name="shipped" display="custom.order.status.shipped" />
+        </states>
 
 
         <transitions>
