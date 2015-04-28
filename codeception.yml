@@ -17,6 +17,7 @@ include:
  - vendor/spryker/checkout/
  - vendor/spryker/cms/
  - vendor/spryker/cms-exporter/
+ - vendor/spryker/config/
  - vendor/spryker/console/
  - vendor/spryker/country/
  - vendor/spryker/customer/
