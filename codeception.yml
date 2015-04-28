@@ -37,7 +37,6 @@ include:
  - vendor/spryker/locale/
  - vendor/spryker/lumberjack/
  - vendor/spryker/mail/
- - vendor/spryker/misc/
  - vendor/spryker/oms/
  - vendor/spryker/price/
  - vendor/spryker/price-cart-connector/
