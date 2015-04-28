@@ -4,7 +4,7 @@
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "30e21c622eeba8c440977ca0621aa399",
+    "hash": "c276e6d05a978bc6aaccc4d1e79d71bd",
     "packages": [
         {
             "name": "digital-canvas/zend-framework",
@@ -929,18 +929,33 @@
             "time": "2015-04-11 12:43:27"
         },
         {
-            "name": "spryker/yves-package",
+            "name": "spryker/acl",
             "version": "dev-master",
             "source": {
                 "type": "git",
-                "url": "git@github.com:spryker/yves-package.git",
-                "reference": "1487d014425f2d6c2e1079f3fd1b046b1a3d8789"
+                "url": "git@github.com:spryker/acl.git",
+                "reference": "b2b1d440800d9064087256522b68815af4ceeed2"
             },
-            "require": {
-                "php": ">=5.4.0"
+            "type": "library",
+            "autoload": {
+                "psr-0": {
+                    "SprykerFeature": "src/",
+                    "Acceptance": "tests/",
+                    "Function": "tests/",
+                    "Integration": "tests/",
+                    "Unit": "tests/",
+                    "YvesUnit": "tests/"
+                }
             },
-            "require-dev": {
-                "codeception/codeception": "*"
+            "time": "2015-04-23 10:08:07"
+        },
+        {
+            "name": "spryker/application",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "git@github.com:spryker/application.git",
+                "reference": "2ab17c49a0d2068c68bf0e0181c6689bc1259521"
             },
             "type": "library",
             "autoload": {
@@ -950,67 +965,313 @@
                     "Acceptance": "tests/",
                     "Function": "tests/",
                     "Integration": "tests/",
-                    "Unit": "tests/"
+                    "Unit": "tests/",
+                    "YvesUnit": "tests/"
                 }
             },
-            "authors": [
-                {
-                    "name": "René Klatt",
-                    "email": "rene.klatt@project-a.com",
-                    "homepage": "http://www.project-a.com",
-                    "role": "PHP-Developer"
-                }
-            ],
-            "description": "Yves package",
-            "keywords": [
-                "Application",
-                "Yves"
-            ],
-            "time": "2015-04-21 15:00:52"
+            "time": "2015-04-27 13:01:48"
         },
         {
-            "name": "spryker/zed-package",
+            "name": "spryker/assets",
             "version": "dev-master",
             "source": {
                 "type": "git",
-                "url": "git@github.com:spryker/zed-package.git",
-                "reference": "de4c8fbbc1e7a978c4d9efacef23223c57c0682a"
+                "url": "git@github.com:spryker/assets.git",
+                "reference": "faa3b62d04e06af5538c3d89bd208ca545818e6d"
             },
-            "require": {
-                "digital-canvas/zend-framework": ">=1.12.2",
-                "doctrine/inflector": "~1.0.0",
-                "ext-mysqli": "*",
-                "guzzle/http": "~3.7, <= 3.8",
-                "ircmaxell/password-compat": "~1.0.0",
-                "league/csv": "*",
-                "monolog/monolog": "~1.7",
-                "nesbot/carbon": "1.13.0",
-                "php": ">=5.4.0",
-                "ruflin/elastica": "1.3.4.0",
-                "silex/silex": "~1.2.0",
-                "symfony-cmf/routing": "~1.0",
-                "symfony/console": "~2.0",
-                "symfony/debug": "2.5.*",
-                "symfony/filesystem": "2.5.*",
-                "symfony/finder": "2.5.*",
-                "symfony/form": "2.6.*",
-                "symfony/http-foundation": "2.5.*",
-                "symfony/http-kernel": "2.5.*",
-                "symfony/process": "2.5.*",
-                "symfony/routing": "2.5.*",
-                "symfony/security": "2.5.*",
-                "symfony/serializer": "2.5.*",
-                "symfony/translation": "2.5.*",
-                "symfony/yaml": ">=2.3",
-                "twig/twig": "~1.15.0",
-                "zendframework/zend-code": "2.3.1",
-                "zendframework/zend-config": "~2.3.0",
-                "zendframework/zend-filter": "~2.3.0",
-                "zendframework/zend-servicemanager": "~2.3.0",
-                "zendframework/zendpdf": "~2.0.0"
+            "type": "library",
+            "autoload": {
+                "psr-0": {
+                    "SprykerFeature": "src/",
+                    "Acceptance": "tests/",
+                    "Function": "tests/",
+                    "Integration": "tests/",
+                    "Unit": "tests/",
+                    "YvesUnit": "tests/"
+                }
             },
-            "require-dev": {
-                "codeception/codeception": "*"
+            "time": "2015-04-22 15:19:33"
+        },
+        {
+            "name": "spryker/auth",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "git@github.com:spryker/auth.git",
+                "reference": "c42619ac2c8a28d4e99cebec75c711cb3a64d8c3"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-0": {
+                    "SprykerFeature": "src/",
+                    "Acceptance": "tests/",
+                    "Function": "tests/",
+                    "Integration": "tests/",
+                    "Unit": "tests/",
+                    "YvesUnit": "tests/"
+                }
+            },
+            "time": "2015-04-24 12:23:22"
+        },
+        {
+            "name": "spryker/availability",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "git@github.com:spryker/availability.git",
+                "reference": "fee11f04e0b815bfca078ea6c64bc1388f7fee01"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-0": {
+                    "SprykerFeature": "src/",
+                    "Acceptance": "tests/",
+                    "Function": "tests/",
+                    "Integration": "tests/",
+                    "Unit": "tests/",
+                    "YvesUnit": "tests/"
+                }
+            },
+            "time": "2015-04-22 15:19:33"
+        },
+        {
+            "name": "spryker/availability-cart-connector",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "git@github.com:spryker/availability-cart-connector.git",
+                "reference": "a5f46d3bf0e16e77c8bd355179c223510692fa0e"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-0": {
+                    "SprykerFeature": "src/",
+                    "Acceptance": "tests/",
+                    "Function": "tests/",
+                    "Integration": "tests/",
+                    "Unit": "tests/",
+                    "YvesUnit": "tests/"
+                }
+            },
+            "time": "2015-04-22 15:19:33"
+        },
+        {
+            "name": "spryker/availability-checkout-connector",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "git@github.com:spryker/availability-checkout-connector.git",
+                "reference": "66f5640917c28f70b75994e4428d7bafaeac3c92"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-0": {
+                    "SprykerFeature": "src/",
+                    "Acceptance": "tests/",
+                    "Function": "tests/",
+                    "Integration": "tests/",
+                    "Unit": "tests/",
+                    "YvesUnit": "tests/"
+                }
+            },
+            "time": "2015-04-22 15:19:33"
+        },
+        {
+            "name": "spryker/calculation",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "git@github.com:spryker/calculation.git",
+                "reference": "0a59b8eacfa7db45b64d1ae2315d6fad5778dc5e"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-0": {
+                    "SprykerFeature": "src/",
+                    "Acceptance": "tests/",
+                    "Function": "tests/",
+                    "Integration": "tests/",
+                    "Unit": "tests/",
+                    "YvesUnit": "tests/"
+                }
+            },
+            "time": "2015-04-22 15:19:34"
+        },
+        {
+            "name": "spryker/cart",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "git@github.com:spryker/cart.git",
+                "reference": "62a724e1e9e3297538f4166e662f26107f971f48"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-0": {
+                    "SprykerFeature": "src/",
+                    "Acceptance": "tests/",
+                    "Function": "tests/",
+                    "Integration": "tests/",
+                    "Unit": "tests/",
+                    "YvesUnit": "tests/"
+                }
+            },
+            "time": "2015-04-22 15:19:34"
+        },
+        {
+            "name": "spryker/cart2",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "git@github.com:spryker/cart2.git",
+                "reference": "53f1f4905ba8909088e73059c18ddbfd34295965"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-0": {
+                    "SprykerFeature": "src/",
+                    "Acceptance": "tests/",
+                    "Function": "tests/",
+                    "Integration": "tests/",
+                    "Unit": "tests/",
+                    "YvesUnit": "tests/"
+                }
+            },
+            "time": "2015-04-23 10:08:08"
+        },
+        {
+            "name": "spryker/catalog",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "git@github.com:spryker/catalog.git",
+                "reference": "b79abacd72e6f27e4d44ee2978550e472c48a822"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-0": {
+                    "SprykerFeature": "src/",
+                    "Acceptance": "tests/",
+                    "Function": "tests/",
+                    "Integration": "tests/",
+                    "Unit": "tests/",
+                    "YvesUnit": "tests/"
+                }
+            },
+            "time": "2015-04-22 15:19:34"
+        },
+        {
+            "name": "spryker/category",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "git@github.com:spryker/category.git",
+                "reference": "eb428338546a2507580bdc852c97cda0519fba36"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-0": {
+                    "SprykerFeature": "src/",
+                    "Acceptance": "tests/",
+                    "Function": "tests/",
+                    "Integration": "tests/",
+                    "Unit": "tests/",
+                    "YvesUnit": "tests/"
+                }
+            },
+            "time": "2015-04-24 08:28:56"
+        },
+        {
+            "name": "spryker/category-exporter",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "git@github.com:spryker/category-exporter.git",
+                "reference": "61807e74801c50fdfc9df25ca889b0a2461559d6"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-0": {
+                    "SprykerFeature": "src/",
+                    "Acceptance": "tests/",
+                    "Function": "tests/",
+                    "Integration": "tests/",
+                    "Unit": "tests/",
+                    "YvesUnit": "tests/"
+                }
+            },
+            "time": "2015-04-24 10:22:49"
+        },
+        {
+            "name": "spryker/checkout",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "git@github.com:spryker/checkout.git",
+                "reference": "8f13e52c0c5bf3a42620c5430889d80784def9ac"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-0": {
+                    "SprykerFeature": "src/",
+                    "Acceptance": "tests/",
+                    "Function": "tests/",
+                    "Integration": "tests/",
+                    "Unit": "tests/",
+                    "YvesUnit": "tests/"
+                }
+            },
+            "time": "2015-04-22 15:19:34"
+        },
+        {
+            "name": "spryker/cms",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "git@github.com:spryker/cms.git",
+                "reference": "fed3477af5a0bd57db24afd78f02ec83fee573c7"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-0": {
+                    "SprykerFeature": "src/",
+                    "Acceptance": "tests/",
+                    "Function": "tests/",
+                    "Integration": "tests/",
+                    "Unit": "tests/",
+                    "YvesUnit": "tests/"
+                }
+            },
+            "time": "2015-04-24 12:01:43"
+        },
+        {
+            "name": "spryker/cms-exporter",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "git@github.com:spryker/cms-exporter.git",
+                "reference": "adc476104bb283b6df1a2c472757b61a04753c1b"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-0": {
+                    "SprykerFeature": "src/",
+                    "Acceptance": "tests/",
+                    "Function": "tests/",
+                    "Integration": "tests/",
+                    "Unit": "tests/",
+                    "YvesUnit": "tests/"
+                }
+            },
+            "time": "2015-04-23 10:08:08"
+        },
+        {
+            "name": "spryker/console",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "git@github.com:spryker/console.git",
+                "reference": "db9fb9de65d1380424cd87645e6672b268be8022"
             },
             "bin": [
                 "bin/console"
@@ -1019,29 +1280,1106 @@
             "autoload": {
                 "psr-0": {
                     "SprykerFeature": "src/",
-                    "SprykerCore": "src/",
+                    "Acceptance": "tests/",
+                    "Function": "tests/",
+                    "Integration": "tests/",
+                    "Unit": "tests/",
+                    "YvesUnit": "tests/"
+                }
+            },
+            "time": "2015-04-22 15:19:34"
+        },
+        {
+            "name": "spryker/country",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "git@github.com:spryker/country.git",
+                "reference": "bca71b92dd283ea86a6ebcc7919d856c9d817e95"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-0": {
+                    "SprykerFeature": "src/",
+                    "Acceptance": "tests/",
+                    "Function": "tests/",
+                    "Integration": "tests/",
+                    "Unit": "tests/",
+                    "YvesUnit": "tests/"
+                }
+            },
+            "time": "2015-04-22 15:19:35"
+        },
+        {
+            "name": "spryker/customer",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "git@github.com:spryker/customer.git",
+                "reference": "3f1a7b0ba9d894ce3926d6a204c029694a304ce1"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-0": {
+                    "SprykerFeature": "src/",
+                    "Acceptance": "tests/",
+                    "Function": "tests/",
+                    "Integration": "tests/",
+                    "Unit": "tests/",
+                    "YvesUnit": "tests/"
+                }
+            },
+            "time": "2015-04-27 13:01:54"
+        },
+        {
+            "name": "spryker/customer-mail-connector",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "git@github.com:spryker/customer-mail-connector.git",
+                "reference": "c3221dd331de09042851f8d725e69a78c64a0db2"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-0": {
+                    "SprykerFeature": "src/",
+                    "Acceptance": "tests/",
+                    "Function": "tests/",
+                    "Integration": "tests/",
+                    "Unit": "tests/",
+                    "YvesUnit": "tests/"
+                }
+            },
+            "time": "2015-04-22 15:19:35"
+        },
+        {
+            "name": "spryker/db-dump",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "git@github.com:spryker/db-dump.git",
+                "reference": "d74a74667398f2aa86b1f8ce89642748c7345564"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-0": {
+                    "SprykerFeature": "src/",
+                    "Acceptance": "tests/",
+                    "Function": "tests/",
+                    "Integration": "tests/",
+                    "Unit": "tests/",
+                    "YvesUnit": "tests/"
+                }
+            },
+            "time": "2015-04-22 15:19:35"
+        },
+        {
+            "name": "spryker/discount",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "git@github.com:spryker/discount.git",
+                "reference": "647955425314e169e2fa08839e2a7d368e3f456d"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-0": {
+                    "SprykerFeature": "src/",
+                    "Acceptance": "tests/",
+                    "Function": "tests/",
+                    "Integration": "tests/",
+                    "Unit": "tests/",
+                    "YvesUnit": "tests/"
+                }
+            },
+            "time": "2015-04-23 09:31:06"
+        },
+        {
+            "name": "spryker/discount-calculation-connector",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "git@github.com:spryker/discount-calculation-connector.git",
+                "reference": "911855ed87ffaa82ba8e327d93dd129e0885a7f0"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-0": {
+                    "SprykerFeature": "src/",
+                    "Acceptance": "tests/",
+                    "Function": "tests/",
+                    "Integration": "tests/",
+                    "Unit": "tests/",
+                    "YvesUnit": "tests/"
+                }
+            },
+            "time": "2015-04-22 15:19:35"
+        },
+        {
+            "name": "spryker/document",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "git@github.com:spryker/document.git",
+                "reference": "cd52a93d6c040963f2f79b4ee6d2c2f6d32ec350"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-0": {
+                    "SprykerFeature": "src/",
+                    "Acceptance": "tests/",
+                    "Function": "tests/",
+                    "Integration": "tests/",
+                    "Unit": "tests/",
+                    "YvesUnit": "tests/"
+                }
+            },
+            "time": "2015-04-22 15:19:35"
+        },
+        {
+            "name": "spryker/frontend-exporter",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "git@github.com:spryker/frontend-exporter.git",
+                "reference": "96d8880908f19e8c6c9842ca613299bf601e9791"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-0": {
+                    "SprykerFeature": "src/",
+                    "Acceptance": "tests/",
+                    "Function": "tests/",
+                    "Integration": "tests/",
+                    "Unit": "tests/",
+                    "YvesUnit": "tests/"
+                }
+            },
+            "time": "2015-04-23 10:08:09"
+        },
+        {
+            "name": "spryker/git",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "git@github.com:spryker/git.git",
+                "reference": "ae6dc919e8bfe5c6c590df7eff75e2a27627e910"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-0": {
+                    "SprykerFeature": "src/",
+                    "Acceptance": "tests/",
+                    "Function": "tests/",
+                    "Integration": "tests/",
+                    "Unit": "tests/",
+                    "YvesUnit": "tests/"
+                }
+            },
+            "time": "2015-04-22 15:19:35"
+        },
+        {
+            "name": "spryker/glossary",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "git@github.com:spryker/glossary.git",
+                "reference": "1d78833288e06cc2d23c179cbb92c75979c84fb9"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-0": {
+                    "SprykerFeature": "src/",
+                    "Acceptance": "tests/",
+                    "Function": "tests/",
+                    "Integration": "tests/",
+                    "Unit": "tests/",
+                    "YvesUnit": "tests/"
+                }
+            },
+            "time": "2015-04-23 14:54:44"
+        },
+        {
+            "name": "spryker/glossary-exporter",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "git@github.com:spryker/glossary-exporter.git",
+                "reference": "0d5fcf4b71ad5b601020940c0eb36e0c006c10c9"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-0": {
+                    "SprykerFeature": "src/",
+                    "Acceptance": "tests/",
+                    "Function": "tests/",
+                    "Integration": "tests/",
+                    "Unit": "tests/",
+                    "YvesUnit": "tests/"
+                }
+            },
+            "time": "2015-04-22 15:19:36"
+        },
+        {
+            "name": "spryker/installer",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "git@github.com:spryker/installer.git",
+                "reference": "c23a8a4eb34640525383c4ae6a064a09022baeb0"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-0": {
+                    "SprykerFeature": "src/",
+                    "Acceptance": "tests/",
+                    "Function": "tests/",
+                    "Integration": "tests/",
+                    "Unit": "tests/",
+                    "YvesUnit": "tests/"
+                }
+            },
+            "time": "2015-04-22 15:19:36"
+        },
+        {
+            "name": "spryker/invoice",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "git@github.com:spryker/invoice.git",
+                "reference": "efe47bc842c49e083fe7055b140616a0b3b0eb91"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-0": {
+                    "SprykerFeature": "src/",
+                    "Acceptance": "tests/",
+                    "Function": "tests/",
+                    "Integration": "tests/",
+                    "Unit": "tests/",
+                    "YvesUnit": "tests/"
+                }
+            },
+            "time": "2015-04-22 15:19:36"
+        },
+        {
+            "name": "spryker/kernel",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "git@github.com:spryker/kernel.git",
+                "reference": "e5e16f06e4a10a686e89770a4f9987bbbf4bd219"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-0": {
                     "SprykerEngine": "src/",
                     "Acceptance": "tests/",
                     "Function": "tests/",
                     "Integration": "tests/",
                     "Unit": "tests/",
-                    "Kendo": "src/"
+                    "YvesUnit": "tests/"
                 }
             },
-            "authors": [
-                {
-                    "name": "René Klatt",
-                    "email": "rene.klatt@project-a.com",
-                    "homepage": "http://www.project-a.com",
-                    "role": "PHP-Developer"
+            "time": "2015-04-23 14:15:29"
+        },
+        {
+            "name": "spryker/kv-storage",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "git@github.com:spryker/kv-storage.git",
+                "reference": "e9306797452a12dd76e98188e7342c20ea8309da"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-0": {
+                    "SprykerFeature": "src/",
+                    "Acceptance": "tests/",
+                    "Function": "tests/",
+                    "Integration": "tests/",
+                    "Unit": "tests/",
+                    "YvesUnit": "tests/"
                 }
-            ],
-            "description": "Zed package",
-            "keywords": [
-                "Application",
-                "Zed"
-            ],
-            "time": "2015-04-22 15:09:47"
+            },
+            "time": "2015-04-22 15:19:36"
+        },
+        {
+            "name": "spryker/library",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "git@github.com:spryker/library.git",
+                "reference": "45995253f3b365d938b1fe93ed39e83efc9a4c01"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-0": {
+                    "SprykerFeature": "src/",
+                    "Acceptance": "tests/",
+                    "Function": "tests/",
+                    "Integration": "tests/",
+                    "Unit": "tests/",
+                    "YvesUnit": "tests/"
+                }
+            },
+            "time": "2015-04-23 14:17:20"
+        },
+        {
+            "name": "spryker/locale",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "git@github.com:spryker/locale.git",
+                "reference": "3eece0d848bc7acf1f392d3343c67bab2acf7a58"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-0": {
+                    "SprykerEngine": "src/",
+                    "Acceptance": "tests/",
+                    "Function": "tests/",
+                    "Integration": "tests/",
+                    "Unit": "tests/",
+                    "YvesUnit": "tests/"
+                }
+            },
+            "time": "2015-04-22 15:19:36"
+        },
+        {
+            "name": "spryker/lumberjack",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "git@github.com:spryker/lumberjack.git",
+                "reference": "24a1f5abfb2deab665890b096cbf95929d488507"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-0": {
+                    "SprykerFeature": "src/",
+                    "Acceptance": "tests/",
+                    "Function": "tests/",
+                    "Integration": "tests/",
+                    "Unit": "tests/",
+                    "YvesUnit": "tests/"
+                }
+            },
+            "time": "2015-04-22 15:19:36"
+        },
+        {
+            "name": "spryker/mail",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "git@github.com:spryker/mail.git",
+                "reference": "eacc962a31233cde0ff93bbe3fd1c7724f597851"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-0": {
+                    "SprykerFeature": "src/",
+                    "Acceptance": "tests/",
+                    "Function": "tests/",
+                    "Integration": "tests/",
+                    "Unit": "tests/",
+                    "YvesUnit": "tests/"
+                }
+            },
+            "time": "2015-04-22 15:19:37"
+        },
+        {
+            "name": "spryker/oms",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "git@github.com:spryker/oms.git",
+                "reference": "2e31887714b9741c14d33d43f41c9d6262772103"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-0": {
+                    "SprykerFeature": "src/",
+                    "Acceptance": "tests/",
+                    "Function": "tests/",
+                    "Integration": "tests/",
+                    "Unit": "tests/",
+                    "YvesUnit": "tests/"
+                }
+            },
+            "time": "2015-04-27 15:12:56"
+        },
+        {
+            "name": "spryker/price",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "git@github.com:spryker/price.git",
+                "reference": "15677e8028db8efc9e64bb7daf03647307fc3736"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-0": {
+                    "SprykerFeature": "src/",
+                    "Acceptance": "tests/",
+                    "Function": "tests/",
+                    "Integration": "tests/",
+                    "Unit": "tests/",
+                    "YvesUnit": "tests/"
+                }
+            },
+            "time": "2015-04-22 15:19:37"
+        },
+        {
+            "name": "spryker/price-cart-connector",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "git@github.com:spryker/price-cart-connector.git",
+                "reference": "0f27dbe49bf516ca73a45598bd718a4540953a7a"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-0": {
+                    "SprykerFeature": "src/",
+                    "Acceptance": "tests/",
+                    "Function": "tests/",
+                    "Integration": "tests/",
+                    "Unit": "tests/",
+                    "YvesUnit": "tests/"
+                }
+            },
+            "time": "2015-04-22 15:19:37"
+        },
+        {
+            "name": "spryker/product",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "git@github.com:spryker/product.git",
+                "reference": "41f4b7384a752dbafbcd53fedf8c76da4fbd2655"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-0": {
+                    "SprykerFeature": "src/",
+                    "Acceptance": "tests/",
+                    "Function": "tests/",
+                    "Integration": "tests/",
+                    "Unit": "tests/",
+                    "YvesUnit": "tests/"
+                }
+            },
+            "time": "2015-04-22 15:19:37"
+        },
+        {
+            "name": "spryker/product-category",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "git@github.com:spryker/product-category.git",
+                "reference": "79055978be8b4902bb541fdebba57aa15643ba3d"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-0": {
+                    "SprykerFeature": "src/",
+                    "Acceptance": "tests/",
+                    "Function": "tests/",
+                    "Integration": "tests/",
+                    "Unit": "tests/",
+                    "YvesUnit": "tests/"
+                }
+            },
+            "time": "2015-04-22 15:19:37"
+        },
+        {
+            "name": "spryker/product-category-frontend-exporter-connector",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "git@github.com:spryker/product-category-frontend-exporter-connector.git",
+                "reference": "d0860ab2cfc37b737a5dfa131ffa8c7f59e95445"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-0": {
+                    "SprykerFeature": "src/",
+                    "Acceptance": "tests/",
+                    "Function": "tests/",
+                    "Integration": "tests/",
+                    "Unit": "tests/",
+                    "YvesUnit": "tests/"
+                }
+            },
+            "time": "2015-04-22 15:19:37"
+        },
+        {
+            "name": "spryker/product-category-search",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "git@github.com:spryker/product-category-search.git",
+                "reference": "5986b754b3a4f655289a2c55716379dc198e27c3"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-0": {
+                    "SprykerFeature": "src/",
+                    "Acceptance": "tests/",
+                    "Function": "tests/",
+                    "Integration": "tests/",
+                    "Unit": "tests/",
+                    "YvesUnit": "tests/"
+                }
+            },
+            "time": "2015-04-22 15:19:37"
+        },
+        {
+            "name": "spryker/product-exporter",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "git@github.com:spryker/product-exporter.git",
+                "reference": "37bf080f1068db2b43e919e294f91d655ea5206f"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-0": {
+                    "SprykerFeature": "src/",
+                    "Acceptance": "tests/",
+                    "Function": "tests/",
+                    "Integration": "tests/",
+                    "Unit": "tests/",
+                    "YvesUnit": "tests/"
+                }
+            },
+            "time": "2015-04-22 15:19:38"
+        },
+        {
+            "name": "spryker/product-frontend-exporter-availability-connector",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "git@github.com:spryker/product-frontend-exporter-availability-connector.git",
+                "reference": "5f37852b61e17160e85352b5b0fefafe5d24bf1f"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-0": {
+                    "SprykerFeature": "src/",
+                    "Acceptance": "tests/",
+                    "Function": "tests/",
+                    "Integration": "tests/",
+                    "Unit": "tests/",
+                    "YvesUnit": "tests/"
+                }
+            },
+            "time": "2015-04-22 15:19:38"
+        },
+        {
+            "name": "spryker/product-frontend-exporter-connector",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "git@github.com:spryker/product-frontend-exporter-connector.git",
+                "reference": "0a31d837233c436e87c28671c42019198786101a"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-0": {
+                    "SprykerFeature": "src/",
+                    "Acceptance": "tests/",
+                    "Function": "tests/",
+                    "Integration": "tests/",
+                    "Unit": "tests/",
+                    "YvesUnit": "tests/"
+                }
+            },
+            "time": "2015-04-23 10:08:10"
+        },
+        {
+            "name": "spryker/product-frontend-exporter-price-connector",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "git@github.com:spryker/product-frontend-exporter-price-connector.git",
+                "reference": "0cc03eb25b281e0aef673f0b688c860865446bc5"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-0": {
+                    "SprykerFeature": "src/",
+                    "Acceptance": "tests/",
+                    "Function": "tests/",
+                    "Integration": "tests/",
+                    "Unit": "tests/",
+                    "YvesUnit": "tests/"
+                }
+            },
+            "time": "2015-04-22 15:19:38"
+        },
+        {
+            "name": "spryker/product-image",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "git@github.com:spryker/product-image.git",
+                "reference": "cf326ece2abee36ecc27f2604b1fef8b48d649bc"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-0": {
+                    "SprykerFeature": "src/",
+                    "Acceptance": "tests/",
+                    "Function": "tests/",
+                    "Integration": "tests/",
+                    "Unit": "tests/",
+                    "YvesUnit": "tests/"
+                }
+            },
+            "time": "2015-04-22 15:19:38"
+        },
+        {
+            "name": "spryker/product-search",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "git@github.com:spryker/product-search.git",
+                "reference": "0fb61379ec504531ece4155009f4dffb62da52a6"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-0": {
+                    "SprykerFeature": "src/",
+                    "Acceptance": "tests/",
+                    "Function": "tests/",
+                    "Integration": "tests/",
+                    "Unit": "tests/",
+                    "YvesUnit": "tests/"
+                }
+            },
+            "time": "2015-04-23 10:08:10"
+        },
+        {
+            "name": "spryker/product-search-availability-connector",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "git@github.com:spryker/product-search-availability-connector.git",
+                "reference": "ced0e999ea36cb9caa45c9fc6846a322d6d0ba0a"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-0": {
+                    "SprykerFeature": "src/",
+                    "Acceptance": "tests/",
+                    "Function": "tests/",
+                    "Integration": "tests/",
+                    "Unit": "tests/",
+                    "YvesUnit": "tests/"
+                }
+            },
+            "time": "2015-04-22 15:19:38"
+        },
+        {
+            "name": "spryker/redirect",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "git@github.com:spryker/redirect.git",
+                "reference": "048fb195164ea984ce34ef5454668e8ad46327c4"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-0": {
+                    "SprykerFeature": "src/",
+                    "Acceptance": "tests/",
+                    "Function": "tests/",
+                    "Integration": "tests/",
+                    "Unit": "tests/",
+                    "YvesUnit": "tests/"
+                }
+            },
+            "time": "2015-04-22 15:19:38"
+        },
+        {
+            "name": "spryker/redirect-exporter",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "git@github.com:spryker/redirect-exporter.git",
+                "reference": "0fcacc1bad3c97d1cfc2c5cc11babf24b93496c1"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-0": {
+                    "SprykerFeature": "src/",
+                    "Acceptance": "tests/",
+                    "Function": "tests/",
+                    "Integration": "tests/",
+                    "Unit": "tests/",
+                    "YvesUnit": "tests/"
+                }
+            },
+            "time": "2015-04-22 15:19:38"
+        },
+        {
+            "name": "spryker/sales",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "git@github.com:spryker/sales.git",
+                "reference": "af926cb5173532ce49a7be921875651ed974b2f0"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-0": {
+                    "SprykerFeature": "src/",
+                    "Acceptance": "tests/",
+                    "Function": "tests/",
+                    "Integration": "tests/",
+                    "Unit": "tests/",
+                    "YvesUnit": "tests/"
+                }
+            },
+            "time": "2015-04-22 15:19:38"
+        },
+        {
+            "name": "spryker/salesrule",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "git@github.com:spryker/salesrule.git",
+                "reference": "f593ebe11452d62871be2ef921862e11ac1689a2"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-0": {
+                    "SprykerFeature": "src/",
+                    "Acceptance": "tests/",
+                    "Function": "tests/",
+                    "Integration": "tests/",
+                    "Unit": "tests/",
+                    "YvesUnit": "tests/"
+                }
+            },
+            "time": "2015-04-22 15:19:38"
+        },
+        {
+            "name": "spryker/sdk",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "git@github.com:spryker/sdk.git",
+                "reference": "3d041867177a338a8d9014843dfa569a97725515"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-0": {
+                    "SprykerFeature": "src/",
+                    "Acceptance": "tests/",
+                    "Function": "tests/",
+                    "Integration": "tests/",
+                    "Unit": "tests/",
+                    "YvesUnit": "tests/"
+                }
+            },
+            "time": "2015-04-23 10:08:11"
+        },
+        {
+            "name": "spryker/search",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "git@github.com:spryker/search.git",
+                "reference": "f6841ca91f84b59dcd2aa383347a58eb00e920e0"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-0": {
+                    "SprykerFeature": "src/",
+                    "Acceptance": "tests/",
+                    "Function": "tests/",
+                    "Integration": "tests/",
+                    "Unit": "tests/",
+                    "YvesUnit": "tests/"
+                }
+            },
+            "time": "2015-04-22 15:19:39"
+        },
+        {
+            "name": "spryker/setup",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "git@github.com:spryker/setup.git",
+                "reference": "0f81fb24afb32c059c16f42a4d9c4523eb1c9a5f"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-0": {
+                    "SprykerFeature": "src/",
+                    "Acceptance": "tests/",
+                    "Function": "tests/",
+                    "Integration": "tests/",
+                    "Unit": "tests/",
+                    "YvesUnit": "tests/"
+                }
+            },
+            "time": "2015-04-22 15:19:39"
+        },
+        {
+            "name": "spryker/stock",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "git@github.com:spryker/stock.git",
+                "reference": "4ca65826924771cc53c58cfd5d168c7ffabf1fc9"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-0": {
+                    "SprykerFeature": "src/",
+                    "Acceptance": "tests/",
+                    "Function": "tests/",
+                    "Integration": "tests/",
+                    "Unit": "tests/",
+                    "YvesUnit": "tests/"
+                }
+            },
+            "time": "2015-04-23 09:31:09"
+        },
+        {
+            "name": "spryker/stock-sales-connector",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "git@github.com:spryker/stock-sales-connector.git",
+                "reference": "87e99441ff12ca98174c2e73e84edf8392e97436"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-0": {
+                    "SprykerFeature": "src/",
+                    "Acceptance": "tests/",
+                    "Function": "tests/",
+                    "Integration": "tests/",
+                    "Unit": "tests/",
+                    "YvesUnit": "tests/"
+                }
+            },
+            "time": "2015-04-22 15:19:39"
+        },
+        {
+            "name": "spryker/system",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "git@github.com:spryker/system.git",
+                "reference": "fe7a7ac9cf6c084b95256409741a337dd15d2be0"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-0": {
+                    "SprykerFeature": "src/",
+                    "Acceptance": "tests/",
+                    "Function": "tests/",
+                    "Integration": "tests/",
+                    "Unit": "tests/",
+                    "YvesUnit": "tests/"
+                }
+            },
+            "time": "2015-04-22 15:19:39"
+        },
+        {
+            "name": "spryker/touch",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "git@github.com:spryker/touch.git",
+                "reference": "0075a7d0ee240332ab45ed82504a2cf668b02844"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-0": {
+                    "SprykerEngine": "src/",
+                    "Acceptance": "tests/",
+                    "Function": "tests/",
+                    "Integration": "tests/",
+                    "Unit": "tests/",
+                    "YvesUnit": "tests/"
+                }
+            },
+            "time": "2015-04-22 15:19:39"
+        },
+        {
+            "name": "spryker/twig",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "git@github.com:spryker/twig.git",
+                "reference": "59bf78a40d44ee7adc1d3711ef2e8b0b3bf94829"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-0": {
+                    "SprykerFeature": "src/",
+                    "Acceptance": "tests/",
+                    "Function": "tests/",
+                    "Integration": "tests/",
+                    "Unit": "tests/",
+                    "YvesUnit": "tests/"
+                }
+            },
+            "time": "2015-04-22 15:19:39"
+        },
+        {
+            "name": "spryker/ui",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "git@github.com:spryker/ui.git",
+                "reference": "e340b898ffd7327da9cb9119f1f0180925396cba"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-0": {
+                    "SprykerFeature": "src/",
+                    "Acceptance": "tests/",
+                    "Function": "tests/",
+                    "Integration": "tests/",
+                    "Unit": "tests/",
+                    "YvesUnit": "tests/"
+                }
+            },
+            "time": "2015-04-24 12:21:24"
+        },
+        {
+            "name": "spryker/ui-example",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "git@github.com:spryker/ui-example.git",
+                "reference": "6956e9b03cd632e7aceed86b9ce2c993e71a4cec"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-0": {
+                    "SprykerFeature": "src/",
+                    "Acceptance": "tests/",
+                    "Function": "tests/",
+                    "Integration": "tests/",
+                    "Unit": "tests/",
+                    "YvesUnit": "tests/"
+                }
+            },
+            "time": "2015-04-24 12:23:50"
+        },
+        {
+            "name": "spryker/url",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "git@github.com:spryker/url.git",
+                "reference": "9ed2feb46019c8135af0d5d80b662056546e6e1f"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-0": {
+                    "SprykerFeature": "src/",
+                    "Acceptance": "tests/",
+                    "Function": "tests/",
+                    "Integration": "tests/",
+                    "Unit": "tests/",
+                    "YvesUnit": "tests/"
+                }
+            },
+            "time": "2015-04-22 15:19:40"
+        },
+        {
+            "name": "spryker/url-exporter",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "git@github.com:spryker/url-exporter.git",
+                "reference": "4d822fcff7c628b221b7495e826094159e38b783"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-0": {
+                    "SprykerFeature": "src/",
+                    "Acceptance": "tests/",
+                    "Function": "tests/",
+                    "Integration": "tests/",
+                    "Unit": "tests/",
+                    "YvesUnit": "tests/"
+                }
+            },
+            "time": "2015-04-23 10:08:11"
+        },
+        {
+            "name": "spryker/user",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "git@github.com:spryker/user.git",
+                "reference": "a010739e5fe270cdc59fb7112f14ac9dc0dc3b06"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-0": {
+                    "SprykerFeature": "src/",
+                    "Acceptance": "tests/",
+                    "Function": "tests/",
+                    "Integration": "tests/",
+                    "Unit": "tests/",
+                    "YvesUnit": "tests/"
+                }
+            },
+            "time": "2015-04-23 10:08:11"
+        },
+        {
+            "name": "spryker/yves",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "git@github.com:spryker/yves.git",
+                "reference": "8ecef876d34cc58437b5ac0c58fd2b403c6ba6a9"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-0": {
+                    "SprykerFeature": "src/",
+                    "Acceptance": "tests/",
+                    "Function": "tests/",
+                    "Integration": "tests/",
+                    "Unit": "tests/",
+                    "YvesUnit": "tests/"
+                }
+            },
+            "time": "2015-04-22 15:19:40"
+        },
+        {
+            "name": "spryker/zed-request",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "git@github.com:spryker/zed-request.git",
+                "reference": "9c19006ec5e7b6041d9e5600f3a14aa5e2aafd60"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-0": {
+                    "SprykerFeature": "src/",
+                    "Acceptance": "tests/",
+                    "Function": "tests/",
+                    "Integration": "tests/",
+                    "Unit": "tests/",
+                    "YvesUnit": "tests/"
+                }
+            },
+            "time": "2015-04-22 15:19:40"
         },
         {
             "name": "symfony-cmf/routing",
@@ -2421,12 +3759,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/zendesk/zendesk_api_client_php.git",
-                "reference": "08aa372545bdf44f9e34cd007df61d69c5d2443f"
+                "reference": "d4a0a555ac9180ed138f6de042e7618b731613b5"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/zendesk/zendesk_api_client_php/zipball/08aa372545bdf44f9e34cd007df61d69c5d2443f",
-                "reference": "08aa372545bdf44f9e34cd007df61d69c5d2443f",
+                "url": "https://api.github.com/repos/zendesk/zendesk_api_client_php/zipball/d4a0a555ac9180ed138f6de042e7618b731613b5",
+                "reference": "d4a0a555ac9180ed138f6de042e7618b731613b5",
                 "shasum": ""
             },
             "require": {
@@ -2447,7 +3785,7 @@
             ],
             "description": "PHP Client for Zendesk REST API. See http://developer.zendesk.com/api-docs",
             "homepage": "https://github.com/zendesk/zendesk_api_client_php",
-            "time": "2015-04-08 08:46:37"
+            "time": "2015-04-23 17:46:02"
         },
         {
             "name": "zendframework/zend-code",
@@ -2648,52 +3986,6 @@
             "time": "2014-04-15 15:28:47"
         },
         {
-            "name": "zendframework/zend-memory",
-            "version": "2.4.0",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/zendframework/Component_ZendMemory.git",
-                "reference": "3153bac4d685eece09fbc7a92cc4d5f3d7fc8e6d"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/zendframework/Component_ZendMemory/zipball/3153bac4d685eece09fbc7a92cc4d5f3d7fc8e6d",
-                "reference": "3153bac4d685eece09fbc7a92cc4d5f3d7fc8e6d",
-                "shasum": ""
-            },
-            "require": {
-                "php": ">=5.3.23"
-            },
-            "require-dev": {
-                "zendframework/zend-cache": "self.version"
-            },
-            "suggest": {
-                "zendframework/zend-cache": "To support swap the memory objects"
-            },
-            "type": "library",
-            "extra": {
-                "branch-alias": {
-                    "dev-master": "2.3-dev",
-                    "dev-develop": "2.4-dev"
-                }
-            },
-            "autoload": {
-                "psr-4": {
-                    "Zend\\Memory\\": ""
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "BSD-3-Clause"
-            ],
-            "homepage": "https://github.com/zendframework/zf2",
-            "keywords": [
-                "memory",
-                "zf2"
-            ],
-            "time": "2015-04-01 18:09:27"
-        },
-        {
             "name": "zendframework/zend-servicemanager",
             "version": "2.3.7",
             "target-dir": "Zend/ServiceManager",
@@ -2790,48 +4082,6 @@
                 "zf2"
             ],
             "time": "2014-04-15 15:28:48"
-        },
-        {
-            "name": "zendframework/zendpdf",
-            "version": "2.0.2",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/zendframework/ZendPdf.git",
-                "reference": "041f90c339cff63a3c4d03a28ef1ea5188059793"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/zendframework/ZendPdf/zipball/041f90c339cff63a3c4d03a28ef1ea5188059793",
-                "reference": "041f90c339cff63a3c4d03a28ef1ea5188059793",
-                "shasum": ""
-            },
-            "require": {
-                "php": ">=5.3.3",
-                "zendframework/zend-memory": ">=2.0.0",
-                "zendframework/zend-stdlib": ">=2.0.0"
-            },
-            "type": "library",
-            "extra": {
-                "branch-alias": {
-                    "dev-master": "2.0.x-dev"
-                }
-            },
-            "autoload": {
-                "psr-0": {
-                    "ZendPdf\\": "library/"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "BSD-3-Clause"
-            ],
-            "description": "Zend Pdf Component",
-            "homepage": "http://packages.zendframework.com/",
-            "keywords": [
-                "pdf",
-                "zf2"
-            ],
-            "time": "2012-11-16 11:16:01"
         }
     ],
     "packages-dev": [
@@ -4210,15 +5460,83 @@
     "aliases": [],
     "minimum-stability": "stable",
     "stability-flags": {
-        "spryker/yves-package": 20,
-        "spryker/zed-package": 20,
+        "spryker/acl": 20,
+        "spryker/application": 20,
+        "spryker/assets": 20,
+        "spryker/auth": 20,
+        "spryker/availability": 20,
+        "spryker/availability-cart-connector": 20,
+        "spryker/availability-checkout-connector": 20,
+        "spryker/calculation": 20,
+        "spryker/cart": 20,
+        "spryker/cart2": 20,
+        "spryker/catalog": 20,
+        "spryker/category": 20,
+        "spryker/category-exporter": 20,
+        "spryker/checkout": 20,
+        "spryker/cms": 20,
+        "spryker/cms-exporter": 20,
+        "spryker/console": 20,
+        "spryker/country": 20,
+        "spryker/customer": 20,
+        "spryker/customer-mail-connector": 20,
+        "spryker/db-dump": 20,
+        "spryker/discount": 20,
+        "spryker/discount-calculation-connector": 20,
+        "spryker/document": 20,
+        "spryker/frontend-exporter": 20,
+        "spryker/git": 20,
+        "spryker/glossary": 20,
+        "spryker/glossary-exporter": 20,
+        "spryker/installer": 20,
+        "spryker/invoice": 20,
+        "spryker/kernel": 20,
+        "spryker/kv-storage": 20,
+        "spryker/library": 20,
+        "spryker/locale": 20,
+        "spryker/lumberjack": 20,
+        "spryker/mail": 20,
+        "spryker/oms": 20,
+        "spryker/price": 20,
+        "spryker/price-cart-connector": 20,
+        "spryker/product": 20,
+        "spryker/product-category": 20,
+        "spryker/product-category-frontend-exporter-connector": 20,
+        "spryker/product-category-search": 20,
+        "spryker/product-exporter": 20,
+        "spryker/product-frontend-exporter-availability-connector": 20,
+        "spryker/product-frontend-exporter-connector": 20,
+        "spryker/product-frontend-exporter-price-connector": 20,
+        "spryker/product-image": 20,
+        "spryker/product-search": 20,
+        "spryker/product-search-availability-connector": 20,
+        "spryker/redirect": 20,
+        "spryker/redirect-exporter": 20,
+        "spryker/sales": 20,
+        "spryker/salesrule": 20,
+        "spryker/sdk": 20,
+        "spryker/search": 20,
+        "spryker/setup": 20,
+        "spryker/stock": 20,
+        "spryker/stock-sales-connector": 20,
+        "spryker/system": 20,
+        "spryker/touch": 20,
+        "spryker/twig": 20,
+        "spryker/ui": 20,
+        "spryker/ui-example": 20,
+        "spryker/url": 20,
+        "spryker/url-exporter": 20,
+        "spryker/user": 20,
+        "spryker/yves": 20,
+        "spryker/zed-request": 20,
         "propel/propel": 20,
-        "silex/silex": 20,
         "pimple/pimple": 20,
         "zendesk/zendesk_api_client_php": 20
     },
     "prefer-stable": true,
     "prefer-lowest": false,
-    "platform": [],
+    "platform": {
+        "php": ">=5.4.0"
+    },
     "platform-dev": []
 }

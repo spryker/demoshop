@@ -134,12 +134,16 @@ class ZedBootstrap extends Bootstrap
      */
     protected function globalTemplateVariables(Application $app)
     {
+        $navigation = $this->getNavigation();
+        $breadcrumbs =  $navigation['path'];
+
         return [
             'environment' => APPLICATION_ENV,
             'store' => Store::getInstance()->getStoreName(),
             'title' => Config::get(SystemConfig::PROJECT_NAMESPACE) . ' | Zed | ' . ucfirst(APPLICATION_ENV),
             'currentController' => get_class($this),
             'navigation' => $this->getNavigation(),
+            'breadcrumbs' => $breadcrumbs,
         ];
     }
 

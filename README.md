@@ -29,10 +29,6 @@ Inside the VM you have to install the application and prepare everything for you
 cd /data/shop/development/current
 php composer.phar install
 npm install -d
-cd /data/shop/development/current/vendor/spryker/zed-package
-npm install -d
-gulp
-cd /data/shop/development/current
 vendor/bin/console setup:install
 ```
 
