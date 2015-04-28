@@ -1,14 +1,14 @@
 <?php
 
-namespace Pyz\Zed\Oms\Business;
+namespace Pyz\Zed\Oms;
 
 use Pyz\Zed\Oms\Communication\Plugin\Oms\FakeAuthPayment;
 use SprykerFeature\Shared\Sales\Transfer\Order as OrderTransfer;
-use SprykerFeature\Zed\Oms\Business\OmsSettings as SprykerOmsSettings;
+use SprykerFeature\Zed\Oms\OmsConfig as SprykerOmsConfig;
 use SprykerFeature\Zed\Oms\Communication\Plugin\Oms\Command\CommandInterface;
 use SprykerFeature\Zed\Oms\Communication\Plugin\Oms\Condition\ConditionInterface;
 
-class OmsSettings extends SprykerOmsSettings
+class OmsConfig extends SprykerOmsConfig
 {
 
     const ORDER_PROCESS_PAYONE_PRE_PAYMENT_01 = 'PayonePrePayment01';

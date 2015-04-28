@@ -1,15 +1,13 @@
 <?php
 
-namespace Pyz\Zed\FrontendExporter\Business;
+namespace Pyz\Zed\FrontendExporter;
 
-use Generated\Zed\Ide\AutoCompletion;
-use SprykerEngine\Shared\Kernel\LocatorLocatorInterface;
 use SprykerFeature\Zed\FrontendExporter\Dependency\Plugin\DataProcessorPluginInterface;
 use SprykerFeature\Zed\FrontendExporter\Dependency\Plugin\ExportFailedDeciderPluginInterface;
 use SprykerFeature\Zed\FrontendExporter\Dependency\Plugin\QueryExpanderPluginInterface;
-use SprykerFeature\Zed\FrontendExporter\Business\FrontendExporterSettings as SprykerFrontendExporterSettings;
+use SprykerFeature\Zed\FrontendExporter\FrontendExporterConfig as SprykerFrontendExporterConfig;
 
-class FrontendExporterSettings extends SprykerFrontendExporterSettings
+class FrontendExporterConfig extends SprykerFrontendExporterConfig
 {
 
     /**

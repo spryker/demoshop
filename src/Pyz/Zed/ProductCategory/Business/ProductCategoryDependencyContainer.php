@@ -2,12 +2,16 @@
 
 namespace Pyz\Zed\ProductCategory\Business;
 
+use Pyz\Zed\ProductCategory\ProductCategoryConfig;
 use SprykerFeature\Zed\Library\Import\Reader\CsvFileReader;
 use SprykerFeature\Zed\Library\Import\ReaderInterface;
 use Psr\Log\LoggerInterface;
 use Pyz\Zed\ProductCategory\Business\Internal\DemoData\ProductCategoryMappingInstall;
 use SprykerFeature\Zed\ProductCategory\Business\ProductCategoryDependencyContainer as SprykerDependencyContainer;
 
+/**
+ * @method ProductCategoryConfig getConfig()
+ */
 class ProductCategoryDependencyContainer extends SprykerDependencyContainer
 {
     /**
@@ -23,7 +27,7 @@ class ProductCategoryDependencyContainer extends SprykerDependencyContainer
             $this->createProductFacade(),
             $this->createLocaleFacade(),
             $this->createCSVReader(),
-            $this->createSettings()->getDemoDataCSVPath()
+            $this->getConfig()->getDemoDataCSVPath()
         );
         $installer->setMessenger($messenger);
 
@@ -36,13 +40,5 @@ class ProductCategoryDependencyContainer extends SprykerDependencyContainer
     protected function createCSVReader()
     {
         return new CsvFileReader();
-    }
-
-    /**
-     * @return ProductCategorySettings
-     */
-    protected function createSettings()
-    {
-        return $this->getFactory()->createProductCategorySettings();
     }
 }

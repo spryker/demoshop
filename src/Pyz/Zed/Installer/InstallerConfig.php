@@ -1,11 +1,11 @@
 <?php
 
-namespace Pyz\Zed\Installer\Business;
+namespace Pyz\Zed\Installer;
 
-use SprykerFeature\Zed\Installer\Business\InstallerSettings as SprykerInstallerSettings;
+use SprykerFeature\Zed\Installer\InstallerConfig as SprykerInstallerConfig;
 use SprykerFeature\Zed\Installer\Business\Model\AbstractInstaller;
 
-class InstallerSettings extends SprykerInstallerSettings
+class InstallerConfig extends SprykerInstallerConfig
 {
 
     /**

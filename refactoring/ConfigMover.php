@@ -11,6 +11,9 @@ class ConfigMover extends AbstractRefactorer
     public function refactor()
     {
         $finder = $this->getSettingsFinder();
+
+        echo '<pre>' . PHP_EOL . \Symfony\Component\VarDumper\VarDumper::dump($finder->count()) . PHP_EOL . 'Line: ' . __LINE__ . PHP_EOL . 'File: ' . __FILE__ . die();
+
         foreach ($finder as $file) {
             $bundle = str_replace('Settings.php', '', $file->getFilename());
             $path = str_replace('Business/' . $file->getFilename(), '', $file->getPathname());
@@ -24,7 +27,6 @@ class ConfigMover extends AbstractRefactorer
 
             $content = str_replace($search, $replace, $content);
 
-            echo '<pre>' . PHP_EOL . \Symfony\Component\VarDumper\VarDumper::dump($path . $newName) . PHP_EOL . 'Line: ' . __LINE__ . PHP_EOL . 'File: ' . __FILE__ . die();
             file_put_contents($path . $newName, $content);
 
         }
