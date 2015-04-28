@@ -3,7 +3,7 @@
 
 namespace Pyz\Zed\Product\Business;
 
-use SprykerFeature\Zed\Product\Business\ProductFacade as CoreProductFacade;
+use SprykerFeature\Zed\Product\Business\ProductFacade as SprykerProductFacade;
 use SprykerFeature\Zed\ProductCategory\Dependency\Facade\ProductCategoryToProductInterface;
 use SprykerFeature\Zed\ProductFrontendExporterConnector\Dependency\Facade\ProductFrontendExporterToProductInterface;
 use SprykerFeature\Zed\ProductSearch\Dependency\Facade\ProductSearchToProductInterface;
@@ -13,7 +13,7 @@ use Psr\Log\LoggerInterface;
 /**
  * @method ProductDependencyContainer getDependencyContainer()
  */
-class ProductFacade extends CoreProductFacade implements
+class ProductFacade extends SprykerProductFacade implements
     ProductFrontendExporterToProductInterface,
     ProductSearchToProductInterface,
     StockToProductInterface,
