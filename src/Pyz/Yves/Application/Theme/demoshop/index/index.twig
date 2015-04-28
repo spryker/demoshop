@@ -3,20 +3,31 @@
 {% block content %}
     <div class="featured-products">
         <div class="featured-products__quarter">
-            {% include "@application/homepage/featured.twig" with {width:"1", height:"2", name:"Batman", category:"Justice League", img:"/images/homepage/batman.jpg", url:"/product-detail.html?batman" } %}
-            {% include "@application/homepage/featured.twig" with {width:"1", height:"2", name:"Brillenpinguin", category:"Wild Life", img:"/images/homepage/penguin.jpg", url:"/product-detail.html?penguin" } %}
+            {% include "@application/index/partials/featured.twig" with {width: "page.home.featured.top-left.left.width"| trans, height: "page.home.featured.top-left.left.height" | trans, name: "page.home.featured.top-left.left.name"| trans, category: "page.home.featured.top-left.left.category" | trans, img: "page.home.featured.top-left.left.img"| trans, url: "page.home.featured.top-left.left.url" | trans} %}
+            {% include "@application/index/partials/featured.twig" with {width: "page.home.featured.top-left.right.width"| trans, height: "page.home.featured.top-left.right.height" | trans, name: "page.home.featured.top-left.right.name"| trans, category: "page.home.featured.top-left.right.category" | trans, img: "page.home.featured.top-left.right.img"| trans, url: "page.home.featured.top-left.right.url" | trans} %}
         </div>
         <div class="featured-products__quarter js-featured-carousel">
-            {% include "@application/homepage/featured.twig" with {width:"2", height:"2", img:"/images/homepage/wildlife.jpg", url:"/product-detail.html?wildlife" } %}
-            {% include "@application/homepage/featured.twig" with {width:"2", height:"2", img:"/images/homepage/dragon.jpg", url:"/product-detail.html?dragon" } %}
+            {% include "@application/index/partials/featured.twig" with {width: "page.home.featured.top-right.first.width"| trans, height: "page.home.featured.top-right.first.height" | trans, img: "page.home.featured.top-right.first.img"| trans, url: "page.home.featured.top-right.first.url" | trans} %}
+            {% include "@application/index/partials/featured.twig" with {width: "page.home.featured.top-right.second.width"| trans, height: "page.home.featured.top-right.second.height" | trans, img: "page.home.featured.top-right.second.img"| trans, url: "page.home.featured.top-right.second.url" | trans} %}
         </div>
         <div class="featured-products__quarter">
-            {% include "@application/homepage/featured.twig" with {width:"2", height:"1", name:"Asien & Australien", category:"Wild Life", img:"/images/homepage/asien-australien.jpg", url:"/catalog.html?category:asien%20und%20australien" } %}
-            {% include "@application/homepage/featured.twig" with {width:"2", height:"1", name:"Meere", category:"Wild Life", img:"/images/homepage/sea.jpg", url:"/product-detail.html?sea" } %}
+            {% include "@application/index/partials/featured.twig" with {width: "page.home.featured.bottom-left.top.width"| trans, height: "page.home.featured.bottom-left.top.height" | trans, name: "page.home.featured.bottom-left.top.name"| trans, category: "page.home.featured.bottom-left.top.category" | trans, img: "page.home.featured.bottom-left.top.img"| trans, url: "page.home.featured.bottom-left.top.url" | trans} %}
+            {% include "@application/index/partials/featured.twig" with {width: "page.home.featured.bottom-left.bottom.width"| trans, height: "page.home.featured.bottom-left.bottom.height" | trans, name: "page.home.featured.bottom-left.bottom.name"| trans, category: "page.home.featured.bottom-left.bottom.category" | trans, img: "page.home.featured.bottom-left.bottom.img"| trans, url: "page.home.featured.bottom-left.bottom.url" | trans} %}
         </div>
         <div class="featured-products__quarter">
-            {% include "@application/homepage/featured.twig" with {width:"1", height:"2", name:"Gibbon Junges", category:"Wild Life", img:"/images/homepage/gibbon.jpg", url:"/product-detail.html?gibbon" } %}
-            {% include "@application/homepage/featured.twig" with {width:"1", height:"2", name:"Berserker", category:"World of History", img:"/images/homepage/berserker.jpg", url:"/product-detail.html?berserker" } %}
+            {% include "@application/index/partials/featured.twig" with {width: "page.home.featured.bottom-right.left.width"| trans, height: "page.home.featured.bottom-right.left.height" | trans, name: "page.home.featured.bottom-right.left.name"| trans, category: "page.home.featured.bottom-right.left.category" | trans, img: "page.home.featured.bottom-right.left.img"| trans, url: "page.home.featured.bottom-right.left.url" | trans} %}
+            {% include "@application/index/partials/featured.twig" with {width: "page.home.featured.bottom-right.right.width"| trans, height: "page.home.featured.bottom-right.right.height" | trans, name: "page.home.featured.bottom-right.right.name"| trans, category: "page.home.featured.bottom-right.right.category" | trans, img: "page.home.featured.bottom-right.right.img"| trans, url: "page.home.featured.bottom-right.right.url" | trans} %}
         </div>
     </div>
 {% endblock %}
+
+
+
+
+
+
+
+
+
+
+
