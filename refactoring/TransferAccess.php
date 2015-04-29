@@ -8,7 +8,8 @@ use Symfony\Component\Finder\SplFileInfo;
 class TransferAccess extends AbstractRefactorer
 {
 
-    const REGEX = '/\$this->(?:locator|getLocator\(\))->(.*?)\(\)->transfer(.*?)\(\)/';
+    const REGEX_1 = '/\$this->(?:locator|getLocator\(\))->(.*?)\(\)->transfer(.*?)\(\)/';
+    const REGEX_2 = '/Locator::getInstance\(\)->(.*?)\(\)->transfer(.*?)\(\)/';
 
     public function refactor()
     {
@@ -16,16 +17,22 @@ class TransferAccess extends AbstractRefactorer
 
         foreach ($finder as $file) {
             $content = $file->getContents();
-            if (preg_match(self::REGEX, $content, $matches)) {
+            if (preg_match(self::REGEX_1, $content, $matches)) {
                 $bundle = ucfirst($matches[1]);
                 $type = ucfirst($matches[2]);
                 if (strstr($type, 'Collection') !== false) {
                     continue;
                 } else {
-                    $replaceWith = 'new \\Generated\\Shared\\Transfer\\' . $bundle . $type . 'Transfer()';
-                    $content = preg_replace(self::REGEX, $replaceWith, $content);
-                    file_put_contents($file->getPathname(), $content);
-//                    echo '<pre>' . PHP_EOL . var_dump($file) . PHP_EOL . 'Line: ' . __LINE__ . PHP_EOL . 'File: ' . __FILE__ . die();
+                    $content = $this->rename($bundle, $type, $content, $file);
+                }
+            }
+            if (preg_match(self::REGEX_2, $content, $matches)) {
+                $bundle = ucfirst($matches[1]);
+                $type = ucfirst($matches[2]);
+                if (strstr($type, 'Collection') !== false) {
+                    continue;
+                } else {
+                    $content = $this->rename($bundle, $type, $content, $file);
                 }
             }
 
@@ -48,5 +55,20 @@ class TransferAccess extends AbstractRefactorer
         ;
 
         return $finder;
+    }
+
+    /**
+     * @param $bundle
+     * @param $type
+     * @param $content
+     * @param $file
+     * @return mixed
+     */
+    private function rename($bundle, $type, $content, $file)
+    {
+        $replaceWith = 'new \\Generated\\Shared\\Transfer\\' . $bundle . $type . 'Transfer()';
+        $content = preg_replace(self::REGEX, $replaceWith, $content);
+        file_put_contents($file->getPathname(), $content);
+        return $content;
     }
 }
