@@ -8,8 +8,7 @@ use Symfony\Component\Finder\SplFileInfo;
 class TransferAccess extends AbstractRefactorer
 {
 
-    const REGEX_1 = '/\$this->(?:locator|getLocator\(\))->(.*?)\(\)->transfer(.*?)\(\)/';
-    const REGEX_2 = '/Locator::getInstance\(\)->(.*?)\(\)->transfer(.*?)\(\)/';
+    const REGEX = '/(?:\$this->locator|\$this->getLocator\(\)|Locator::getInstance\(\)|\$locator)->(.*?)\(\)->transfer(.*?)\(\)/';
 
     public function refactor()
     {
@@ -17,27 +16,21 @@ class TransferAccess extends AbstractRefactorer
 
         foreach ($finder as $file) {
             $content = $file->getContents();
-            if (preg_match(self::REGEX_1, $content, $matches)) {
-                $bundle = ucfirst($matches[1]);
-                $type = ucfirst($matches[2]);
-                if (strstr($type, 'Collection') !== false) {
-                    continue;
-                } else {
-                    $content = $this->rename($bundle, $type, $content, $file, self::REGEX_1);
-                }
-            }
-            if (preg_match(self::REGEX_2, $content, $matches)) {
-                $bundle = ucfirst($matches[1]);
-                $type = ucfirst($matches[2]);
-                if (strstr($type, 'Collection') !== false) {
-                    continue;
-                } else {
-                    $content = $this->rename($bundle, $type, $content, $file, self::REGEX_2);
-                }
-            }
 
+            $callback = function ($match) use ($content, $file) {
+                $bundle = ucfirst($match[1]);
+                $type = ucfirst($match[2]);
+
+                if (strstr($type, 'Collection') !== false) {
+                } else {
+                    $replaceWith = 'new \\Generated\\Shared\\Transfer\\' . $bundle . $type . 'Transfer()';
+                    $content = str_replace($match[0], $replaceWith, $content);
+                    file_put_contents($file->getPathname(), $content);
+                    $this->info($file->getFilename());
+                }
+            };
+            preg_replace_callback(self::REGEX, $callback, $content);
         }
-
     }
 
     /**
@@ -47,29 +40,15 @@ class TransferAccess extends AbstractRefactorer
     {
         $finder = new Finder();
         $finder->files()
-            ->in(__DIR__ . '/../src/Pyz/')
-            ->in(__DIR__ . '/../tests/')
-            ->in(__DIR__ . '/../vendor/spryker/*/src/*/')
-            ->in(__DIR__ . '/../vendor/spryker/*/tests/*/')
+//            ->in(__DIR__ . '/../src/Pyz/')
+//            ->in(__DIR__ . '/../tests/')
+//            ->in(__DIR__ . '/../vendor/spryker/*/src/*/')
+            ->in(__DIR__ . '/../vendor/spryker/acl/src/SprykerFeature/')
+//            ->in(__DIR__ . '/../vendor/spryker/*/tests/*/')
             ->name('*.php')
         ;
 
         return $finder;
     }
 
-    /**
-     * @param $bundle
-     * @param $type
-     * @param $content
-     * @param $file
-     * @return mixed
-     */
-    private function rename($bundle, $type, $content, SplFileInfo $file, $regex)
-    {
-        $replaceWith = 'new \\Generated\\Shared\\Transfer\\' . $bundle . $type . 'Transfer()';
-        $content = preg_replace($regex, $replaceWith, $content);
-        file_put_contents($file->getPathname(), $content);
-
-        return $content;
-    }
 }
