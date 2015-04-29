@@ -1484,7 +1484,11 @@
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/generator.git",
+<<<<<<< HEAD
                 "reference": "9a65bbe70195ccc14419f226f76e6b10642ed445"
+=======
+                "reference": "6c767eb80e54888a6e400a9322665669bffc5b7f"
+>>>>>>> Update compsoer
             },
             "require": {
                 "twig/twig": "~1.0"
@@ -1493,7 +1497,10 @@
             "autoload": {
                 "psr-0": {
                     "SprykerFeature": "src/",
+<<<<<<< HEAD
                     "SprykerEngine": "src/",
+=======
+>>>>>>> Update compsoer
                     "Acceptance": "tests/",
                     "Function": "tests/",
                     "Integration": "tests/",
@@ -1501,7 +1508,11 @@
                     "YvesUnit": "tests/"
                 }
             },
+<<<<<<< HEAD
             "time": "2015-04-29 10:00:04"
+=======
+            "time": "2015-04-29 08:49:06"
+>>>>>>> Update compsoer
         },
         {
             "name": "spryker/git",
