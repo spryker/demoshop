@@ -30,6 +30,7 @@ class TransferToXml extends AbstractRefactorer
                 continue;
             }
 
+            $this->info($className);
             $instance = new $className(Locator::getInstance());
 
             require_once ($file->getPathname());
@@ -199,9 +200,11 @@ class TransferToXml extends AbstractRefactorer
     {
         $content = $file->getContents();
 
+
+
         $uses = [];
 
-        if (preg_match_all('/use(.*?);/', $content, $matches, PREG_SET_ORDER)) {
+        if (preg_match_all('/use\s(.*?);/', $content, $matches, PREG_SET_ORDER)) {
             foreach ($matches as $match) {
                 $use = trim($match[1]);
                 $uses[] = new UseStatement($use);
