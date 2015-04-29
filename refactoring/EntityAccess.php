@@ -5,10 +5,10 @@ namespace ReneFactor;
 use Symfony\Component\Finder\Finder;
 use Symfony\Component\Finder\SplFileInfo;
 
-class TransferAccess extends AbstractRefactorer
+class EntityAccess extends AbstractRefactorer
 {
 
-    const REGEX = '/(?:\$this(?:\s*?)->locator|\$locator|\$this->getLocator\(\)|Locator::getInstance\(\))(?:\s*?)->(.*?)\(\)(?:\s*?)->transfer(.*?)(?:Collection)\(\)/';
+    const REGEX = '/(?:\$this(?:\s*?)->locator|\$locator|\$this->getLocator\(\)|Locator::getInstance\(\))(?:\s*?)->(.*?)\(\)(?:\s*?)->entity(.*?)\(\)/';
 
     public function refactor()
     {
@@ -21,14 +21,12 @@ class TransferAccess extends AbstractRefactorer
                 foreach ($matches as $match) {
                     $bundle = ucfirst($match[1]);
                     $type = ucfirst($match[2]);
-                    if (strstr($type, 'Collection') !== false) {
-                        continue;
-                    } else {
-                        $replaceWith = 'new \\Generated\\Shared\\Transfer\\' . $bundle . $type . 'Transfer()';
-                        $content = str_replace($match[0], $replaceWith, $content);
-                        file_put_contents($file->getPathname(), $content);
-                        $this->info($file->getFilename());
-                    }
+
+                    $replaceWith = 'new \\SprykerFeature\\Zed\\' . $bundle . '\\Persistence\\Propel\\' . $type . '()';
+                    $content = str_replace($match[0], $replaceWith, $content);
+                    file_put_contents($file->getPathname(), $content);
+
+                    $this->info($file->getFilename());
                 }
             }
         }
