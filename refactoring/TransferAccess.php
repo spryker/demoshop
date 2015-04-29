@@ -40,11 +40,10 @@ class TransferAccess extends AbstractRefactorer
     {
         $finder = new Finder();
         $finder->files()
-//            ->in(__DIR__ . '/../src/Pyz/')
-//            ->in(__DIR__ . '/../tests/')
-//            ->in(__DIR__ . '/../vendor/spryker/*/src/*/')
-            ->in(__DIR__ . '/../vendor/spryker/acl/src/SprykerFeature/')
-//            ->in(__DIR__ . '/../vendor/spryker/*/tests/*/')
+            ->in(__DIR__ . '/../src/Pyz/')
+            ->in(__DIR__ . '/../tests/')
+            ->in(__DIR__ . '/../vendor/spryker/*/src/')
+            ->in(__DIR__ . '/../vendor/spryker/*/tests/')
             ->name('*.php')
         ;
 
