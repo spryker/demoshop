@@ -18,5 +18,5 @@ $consoleLogger = new ConsoleLogger(
 );
 $consoleLogger->info('starting refactoring');
 
-$refactor = new \ReneFactor\ConfigMover($consoleLogger);
+$refactor = new \ReneFactor\TransferAccess($consoleLogger);
 $refactor->refactor();
