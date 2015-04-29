@@ -23,7 +23,7 @@ class TransferAccess extends AbstractRefactorer
                 if (strstr($type, 'Collection') !== false) {
                     continue;
                 } else {
-                    $content = $this->rename($bundle, $type, $content, $file);
+                    $content = $this->rename($bundle, $type, $content, $file, self::REGEX_1);
                 }
             }
             if (preg_match(self::REGEX_2, $content, $matches)) {
@@ -32,7 +32,7 @@ class TransferAccess extends AbstractRefactorer
                 if (strstr($type, 'Collection') !== false) {
                     continue;
                 } else {
-                    $content = $this->rename($bundle, $type, $content, $file);
+                    $content = $this->rename($bundle, $type, $content, $file, self::REGEX_2);
                 }
             }
 
@@ -64,11 +64,12 @@ class TransferAccess extends AbstractRefactorer
      * @param $file
      * @return mixed
      */
-    private function rename($bundle, $type, $content, $file)
+    private function rename($bundle, $type, $content, SplFileInfo $file, $regex)
     {
         $replaceWith = 'new \\Generated\\Shared\\Transfer\\' . $bundle . $type . 'Transfer()';
-        $content = preg_replace(self::REGEX, $replaceWith, $content);
+        $content = preg_replace($regex, $replaceWith, $content);
         file_put_contents($file->getPathname(), $content);
+
         return $content;
     }
 }
