@@ -22,4 +22,4 @@ $refactor = new \ReneFactor\TransferAccess($consoleLogger);
 $refactor->refactor();
 
 $refactor = new \ReneFactor\EntityAccess($consoleLogger);
-$refactor->refactor();
+//$refactor->refactor();
