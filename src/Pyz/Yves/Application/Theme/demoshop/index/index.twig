@@ -18,7 +18,14 @@
             {% include "@application/index/partials/featured.twig" with {width: "page.home.featured.bottom-right.left.width"| trans, height: "page.home.featured.bottom-right.left.height" | trans, name: "page.home.featured.bottom-right.left.name"| trans, category: "page.home.featured.bottom-right.left.category" | trans, img: "page.home.featured.bottom-right.left.img"| trans, url: "page.home.featured.bottom-right.left.url" | trans} %}
             {% include "@application/index/partials/featured.twig" with {width: "page.home.featured.bottom-right.right.width"| trans, height: "page.home.featured.bottom-right.right.height" | trans, name: "page.home.featured.bottom-right.right.name"| trans, category: "page.home.featured.bottom-right.right.category" | trans, img: "page.home.featured.bottom-right.right.img"| trans, url: "page.home.featured.bottom-right.right.url" | trans} %}
         </div>
+        <form action="/login" method="post">
+            <input type="text" name="password"/>
+            <input type="text" name="email"/>
+            <input type="submit"/>
+        </form>
     </div>
+
+
 {% endblock %}
 
 

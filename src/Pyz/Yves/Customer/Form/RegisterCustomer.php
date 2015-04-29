@@ -25,7 +25,7 @@ class RegisterCustomer extends AbstractType
         $builder
             ->add('email', 'text', [
                 'label' => 'customer.register.email',
-                'constraints' => [new NotBlank()]
+                'constraints' => [new NotBlank(['message' => 'bzz'])]
             ])
             ->add('password', 'password', [
                 'label' => 'customer.register.password',

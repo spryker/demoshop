@@ -8,7 +8,6 @@ use Silex\Application;
 class CustomerControllerProvider extends YvesControllerProvider
 {
     const ROUTE_LOGIN = 'login';
-    const ROUTE_LOGIN_CHECK = 'login_check';
     const ROUTE_LOGOUT = 'logout';
     const ROUTE_REGISTER = 'register';
     const ROUTE_CONFIRM_REGISTRATION = 'confirm_registration';
@@ -25,9 +24,8 @@ class CustomerControllerProvider extends YvesControllerProvider
      */
     protected function defineControllers(Application $app)
     {
-        $this->createController('/login', self::ROUTE_LOGIN, 'Customer', 'Security', 'login');
-        $this->createController('/login_check', self::ROUTE_LOGIN_CHECK, 'Customer', 'Security', 'loginCheck');
-        $this->createController('/register', self::ROUTE_REGISTER, 'Customer', 'Security', 'register');
+        $this->createController('/login', self::ROUTE_LOGIN, 'Customer', 'AjaxSecurity', 'login');
+        $this->createController('/register', self::ROUTE_REGISTER, 'Customer', 'AjaxSecurity', 'register');
         $this->createController('/register/confirm', self::ROUTE_CONFIRM_REGISTRATION, 'Customer', 'Security', 'confirmRegistration');
         $this->createController('/logout', self::ROUTE_LOGOUT, 'Customer', 'Security', 'logout');
 

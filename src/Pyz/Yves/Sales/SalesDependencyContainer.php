@@ -21,7 +21,6 @@ class SalesDependencyContainer extends AbstractDependencyContainer
     {
         return $this->getFactory()->create(
             'Form\\OrderType',
-            $this->getLocator(),
             $this->createBillingAddressTypeForm(),
             $this->createShippingAddressTypeForm()
         );
@@ -32,7 +31,7 @@ class SalesDependencyContainer extends AbstractDependencyContainer
      */
     protected function createBillingAddressTypeForm()
     {
-        return $this->getFactory()->create('Form\\BillingAddressType', $this->getLocator());
+        return $this->getFactory()->create('Form\\BillingAddressType');
     }
 
     /**
@@ -40,6 +39,6 @@ class SalesDependencyContainer extends AbstractDependencyContainer
      */
     protected function createShippingAddressTypeForm()
     {
-        return $this->getFactory()->create('Form\\ShippingAddressType', $this->getLocator());
+        return $this->getFactory()->create('Form\\ShippingAddressType');
     }
 }

@@ -34,19 +34,17 @@ class UserForm extends AbstractForm
 
     /**
      * @param Request $request
-     * @param LocatorLocatorInterface $locator
      * @param FactoryInterface $factory
      * @param AclQueryContainer $queryContainer
      */
     public function __construct(
         Request $request,
-        LocatorLocatorInterface $locator,
         FactoryInterface $factory,
         AclQueryContainer $queryContainer = null
     ) {
         $this->factory = $factory;
         $this->aclQueryContainer = $queryContainer;
-        parent::__construct($request, $locator);
+        parent::__construct($request);
     }
 
     /**
