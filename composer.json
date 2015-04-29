@@ -57,6 +57,7 @@
     "spryker/salesrule": "dev-master",
     "spryker/sdk": "dev-master",
     "spryker/search": "dev-master",
+    "spryker/search-page": "dev-master",
     "spryker/setup": "dev-master",
     "spryker/stock": "dev-master",
     "spryker/stock-sales-connector": "dev-master",
@@ -372,6 +373,10 @@
     {
       "type": "git",
       "url": "git@github.com:spryker/search.git"
+    },
+    {
+      "type": "git",
+      "url": "git@github.com:spryker/search-page.git"
     },
     {
       "type": "git",
