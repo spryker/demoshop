@@ -65,7 +65,8 @@ class ZedBootstrap extends Bootstrap
     {
         $app['locale'] = Store::getInstance()->getCurrentLocale();
         if (\SprykerFeature_Shared_Library_Environment::isDevelopment()) {
-            $app['profiler.cache_dir'] = \SprykerFeature_Shared_Library_Data::getLocalStoreSpecificPath('cache/profiler');
+            $app['profiler.cache_dir'] =
+                \SprykerFeature_Shared_Library_Data::getLocalStoreSpecificPath('cache/profiler');
         }
     }
 
@@ -134,12 +135,16 @@ class ZedBootstrap extends Bootstrap
      */
     protected function globalTemplateVariables(Application $app)
     {
+        $navigation = $this->getNavigation();
+        $breadcrumbs =  $navigation['path'];
+
         return [
             'environment' => APPLICATION_ENV,
             'store' => Store::getInstance()->getStoreName(),
             'title' => Config::get(SystemConfig::PROJECT_NAMESPACE) . ' | Zed | ' . ucfirst(APPLICATION_ENV),
             'currentController' => get_class($this),
             'navigation' => $this->getNavigation(),
+            'breadcrumbs' => $breadcrumbs,
         ];
     }
 

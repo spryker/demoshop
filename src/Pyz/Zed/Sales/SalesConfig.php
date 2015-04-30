@@ -1,14 +1,14 @@
 <?php
 
-namespace Pyz\Zed\Sales\Business;
+namespace Pyz\Zed\Sales;
 
 use SprykerFeature\Shared\Sales\Transfer\Order;
-use SprykerFeature\Zed\Sales\Business\SalesSettings as SprykerFeatureSalesSettings;
+use SprykerFeature\Zed\Sales\SalesConfig as SprykerFeatureSalesConfig;
 use Pyz\Zed\Sales\Business\ConstantsInterface\Orderprocess;
-use SprykerFeature\Zed\Payone\Business\Model\Api\ApiConstants as PayoneApiConstants;
 use SprykerFeature\Shared\Sales\Transfer\OrderItem;
+use SprykerFeature\Zed\Payone\Business\Model\Api\ApiConstants as PayoneApiConstants;
 
-class SalesSettings extends SprykerFeatureSalesSettings
+class SalesConfig extends SprykerFeatureSalesConfig
 {
     /**
      * @throws \Exception

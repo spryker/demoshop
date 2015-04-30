@@ -15,6 +15,7 @@
     "spryker/checkout": "dev-master",
     "spryker/cms": "dev-master",
     "spryker/cms-exporter": "dev-master",
+    "spryker/config": "dev-master",
     "spryker/console": "dev-master",
     "spryker/country": "dev-master",
     "spryker/customer": "dev-master",
@@ -35,7 +36,6 @@
     "spryker/locale": "dev-master",
     "spryker/lumberjack": "dev-master",
     "spryker/mail": "dev-master",
-    "spryker/misc": "dev-master",
     "spryker/oms": "dev-master",
     "spryker/price": "dev-master",
     "spryker/price-cart-connector": "dev-master",
@@ -56,6 +56,7 @@
     "spryker/salesrule": "dev-master",
     "spryker/sdk": "dev-master",
     "spryker/search": "dev-master",
+    "spryker/search-page": "dev-master",
     "spryker/setup": "dev-master",
     "spryker/stock": "dev-master",
     "spryker/stock-sales-connector": "dev-master",
@@ -203,6 +204,10 @@
     {
       "type": "git",
       "url": "git@github.com:spryker/cms-exporter.git"
+    },
+    {
+      "type": "git",
+      "url": "git@github.com:spryker/config.git"
     },
     {
       "type": "git",
@@ -367,6 +372,10 @@
     {
       "type": "git",
       "url": "git@github.com:spryker/search.git"
+    },
+    {
+      "type": "git",
+      "url": "git@github.com:spryker/search-page.git"
     },
     {
       "type": "git",

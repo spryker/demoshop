@@ -6,6 +6,7 @@
 
 namespace Pyz\Zed\Glossary\Communication\Plugin;
 
+use SprykerEngine\Shared\Dto\LocaleDto;
 use SprykerEngine\Zed\Kernel\Communication\AbstractPlugin;
 use SprykerFeature\Zed\Glossary\Communication\GlossaryDependencyContainer;
 use SprykerFeature\Zed\Glossary\Dependency\Plugin\GlossaryInstallerPluginInterface;
@@ -25,7 +26,7 @@ class YamlInstallerPlugin extends AbstractPlugin implements GlossaryInstallerPlu
     }
 
     /**
-     * @param $filePath
+     * @param string $filePath
      *
      * @return array
      */
@@ -48,8 +49,10 @@ class YamlInstallerPlugin extends AbstractPlugin implements GlossaryInstallerPlu
             }
 
             foreach ($data['translations'] as $localeName => $text) {
-                if (!$glossaryFacade->hasTranslation($keyName, $localeName)) {
-                    $glossaryFacade->createAndTouchTranslation($keyName, $localeName, $text, true);
+                $localeDto = new LocaleDto();
+                $localeDto->setLocaleName($localeName);
+                if (!$glossaryFacade->hasTranslation($keyName, $localeDto)) {
+                    $glossaryFacade->createAndTouchTranslation($keyName, $localeDto, $text, true);
                 }
             }
         }

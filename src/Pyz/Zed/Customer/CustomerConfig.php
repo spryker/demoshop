@@ -1,13 +1,13 @@
 <?php
 
-namespace Pyz\Zed\Customer\Business;
+namespace Pyz\Zed\Customer;
 
-use SprykerFeature\Zed\Customer\Business\CustomerSettings as SprykerCustomerSettings;
+use SprykerFeature\Zed\Customer\CustomerConfig as SprykerCustomerConfig;
 use SprykerFeature\Zed\Customer\Dependency\Plugin\PasswordRestoredConfirmationSenderPluginInterface;
 use SprykerFeature\Zed\Customer\Dependency\Plugin\PasswordRestoreTokenSenderPluginInterface;
 use SprykerFeature\Zed\Customer\Dependency\Plugin\RegistrationTokenSenderPluginInterface;
 
-class CustomerSettings extends SprykerCustomerSettings
+class CustomerConfig extends SprykerCustomerConfig
 {
     /**
      * @return PasswordRestoredConfirmationSenderPluginInterface[]

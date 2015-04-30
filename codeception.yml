@@ -16,6 +16,7 @@ include:
  - vendor/spryker/checkout/
  - vendor/spryker/cms/
  - vendor/spryker/cms-exporter/
+ - vendor/spryker/config/
  - vendor/spryker/console/
  - vendor/spryker/country/
  - vendor/spryker/customer/
@@ -36,7 +37,6 @@ include:
  - vendor/spryker/locale/
  - vendor/spryker/lumberjack/
  - vendor/spryker/mail/
- - vendor/spryker/misc/
  - vendor/spryker/oms/
  - vendor/spryker/price/
  - vendor/spryker/price-cart-connector/
