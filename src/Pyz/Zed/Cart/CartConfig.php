@@ -1,11 +1,11 @@
 <?php
 
-namespace Pyz\Zed\Cart\Business;
+namespace Pyz\Zed\Cart;
 
-use SprykerFeature\Zed\Cart\Business\CartSettings as SprykerCartSettings;
+use SprykerFeature\Zed\Cart\CartConfig as SprykerCartConfig;
 use SprykerFeature\Zed\Cart\Dependency\ItemExpanderPluginInterface;
 
-class CartSettings extends SprykerCartSettings
+class CartConfig extends SprykerCartConfig
 {
     /**
      * @return array|ItemExpanderPluginInterface[]

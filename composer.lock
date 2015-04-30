@@ -4,7 +4,7 @@
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "e7eeb244f6fa29678199d100820c7393",
+    "hash": "edb77251d9397d19b56b8893c92f4a19",
     "packages": [
         {
             "name": "digital-canvas/zend-framework",
@@ -1099,11 +1099,11 @@
         },
         {
             "name": "spryker/cart",
-            "version": "dev-master",
+            "version": "dev-feature/core19-cart",
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/cart.git",
-                "reference": "b3e0052d047e213644b19741d4703cb2591f6250"
+                "reference": "583b81e7f74a34b2b10b813f56c705550f2b1071"
             },
             "type": "library",
             "autoload": {
@@ -1116,28 +1116,7 @@
                     "YvesUnit": "tests/"
                 }
             },
-            "time": "2015-04-28 14:01:53"
-        },
-        {
-            "name": "spryker/cart2",
-            "version": "dev-master",
-            "source": {
-                "type": "git",
-                "url": "git@github.com:spryker/cart2.git",
-                "reference": "9df0de5a7e7a0f12924ef9702c13ae7c8fecd28a"
-            },
-            "type": "library",
-            "autoload": {
-                "psr-0": {
-                    "SprykerFeature": "src/",
-                    "Acceptance": "tests/",
-                    "Functional": "tests/",
-                    "Integration": "tests/",
-                    "Unit": "tests/",
-                    "YvesUnit": "tests/"
-                }
-            },
-            "time": "2015-04-28 14:51:54"
+            "time": "2015-04-30 12:06:42"
         },
         {
             "name": "spryker/catalog",
@@ -5511,7 +5490,6 @@
         "spryker/availability-checkout-connector": 20,
         "spryker/calculation": 20,
         "spryker/cart": 20,
-        "spryker/cart2": 20,
         "spryker/catalog": 20,
         "spryker/category": 20,
         "spryker/category-exporter": 20,
