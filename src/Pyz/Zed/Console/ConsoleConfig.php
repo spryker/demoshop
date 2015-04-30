@@ -28,7 +28,7 @@ class ConsoleConfig extends SprykerConsoleConfig
             $this->getLocator()->setup()->consoleGenerateZedIdeAutoCompletionConsole(),
             $this->getLocator()->setup()->consoleGenerateYvesIdeAutoCompletionConsole(),
             $this->getLocator()->setup()->consoleGenerateSdkIdeAutoCompletionConsole(),
-            $this->getLocator()->setup()->consoleGulpRunnerConsole(),
+            $this->getLocator()->setup()->consoleNpmRunnerConsole(),
             $this->getLocator()->installer()->consoleInitializeDatabaseConsole(),
             $this->getLocator()->installer()->consoleDemoDataInstallConsole(),
             $this->getLocator()->application()->consoleApplicationIntegrationCheckConsole(),
