@@ -4,7 +4,7 @@
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "f819001ac88ba8b78c01be80570fb440",
+    "hash": "32c115f560cbf8994831fcc6e14c08a6",
     "packages": [
         {
             "name": "digital-canvas/zend-framework",
@@ -1572,7 +1572,7 @@
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/installer.git",
-                "reference": "0fd18d413f7a59aaf1ca8b9ba9376f714ff6cc9b"
+                "reference": "c0bd108b3978f6f021f5b43b710648fa718b2b86"
             },
             "type": "library",
             "autoload": {
@@ -1585,7 +1585,7 @@
                     "YvesUnit": "tests/"
                 }
             },
-            "time": "2015-04-28 14:01:55"
+            "time": "2015-04-30 06:58:00"
         },
         {
             "name": "spryker/invoice",
@@ -2156,7 +2156,7 @@
         },
         {
             "name": "spryker/search-page",
-            "version": "dev-master",
+            "version": "dev-refactoring/transfer",
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/search-page.git",
@@ -5866,6 +5866,12 @@
             "alias_normalized": "9999999-dev",
             "version": "dev-refactoring/transfer",
             "package": "spryker/search"
+        },
+        {
+            "alias": "master",
+            "alias_normalized": "9999999-dev",
+            "version": "dev-refactoring/transfer",
+            "package": "spryker/search-page"
         },
         {
             "alias": "master",
