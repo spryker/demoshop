@@ -58,6 +58,7 @@
     "spryker/salesrule": "dev-refactoring/transfer as master",
     "spryker/sdk": "dev-refactoring/transfer as master",
     "spryker/search": "dev-refactoring/transfer as master",
+    "spryker/search-page": "dev-master",
     "spryker/setup": "dev-refactoring/transfer as master",
     "spryker/stock": "dev-refactoring/transfer as master",
     "spryker/stock-sales-connector": "dev-refactoring/transfer as master",
@@ -377,6 +378,10 @@
     {
       "type": "git",
       "url": "git@github.com:spryker/search.git"
+    },
+    {
+      "type": "git",
+      "url": "git@github.com:spryker/search-page.git"
     },
     {
       "type": "git",
