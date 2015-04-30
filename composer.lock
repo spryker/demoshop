@@ -1103,7 +1103,7 @@
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/cart.git",
-                "reference": "776ebbd9bf3df49a618886829678e652e9524581"
+                "reference": "2082019f930037e6993b85a96c94b2e7c9f7638a"
             },
             "type": "library",
             "autoload": {
@@ -1116,7 +1116,7 @@
                     "YvesUnit": "tests/"
                 }
             },
-            "time": "2015-04-30 13:59:23"
+            "time": "2015-04-30 14:09:35"
         },
         {
             "name": "spryker/cart2",
@@ -1740,7 +1740,7 @@
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/oms.git",
-                "reference": "76fd899c87311f6ba793355630daafbd4176a19b"
+                "reference": "dc2d630eda6c7f7b82fa82d4dde8dc5efca8bab7"
             },
             "type": "library",
             "autoload": {
@@ -1753,7 +1753,7 @@
                     "YvesUnit": "tests/"
                 }
             },
-            "time": "2015-04-29 12:45:26"
+            "time": "2015-04-30 14:51:21"
         },
         {
             "name": "spryker/price",
@@ -1782,7 +1782,7 @@
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/price-cart-connector.git",
-                "reference": "a0c95baf2915246af9514142720e3a1325594be0"
+                "reference": "1a813b18d96f4219f902ad7dd856c7955339763d"
             },
             "type": "library",
             "autoload": {
@@ -1795,7 +1795,7 @@
                     "YvesUnit": "tests/"
                 }
             },
-            "time": "2015-04-28 07:11:56"
+            "time": "2015-04-30 12:05:49"
         },
         {
             "name": "spryker/product",
@@ -2181,7 +2181,7 @@
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/setup.git",
-                "reference": "35f1239c3ed9c0fe535e9c0ee2b7e138c9ec0873"
+                "reference": "f31c74fb8d10598f8708d82aa1572c43a0cc8c68"
             },
             "type": "library",
             "autoload": {
@@ -2194,7 +2194,7 @@
                     "YvesUnit": "tests/"
                 }
             },
-            "time": "2015-04-28 14:01:58"
+            "time": "2015-04-30 14:54:39"
         },
         {
             "name": "spryker/stock",
@@ -4157,12 +4157,12 @@
             "version": "v1.5.0",
             "source": {
                 "type": "git",
-                "url": "https://github.com/Behat/Mink.git",
+                "url": "https://github.com/minkphp/Mink.git",
                 "reference": "0769e6d9726c140a54dbf827a438c0f9912749fe"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Behat/Mink/zipball/0769e6d9726c140a54dbf827a438c0f9912749fe",
+                "url": "https://api.github.com/repos/minkphp/Mink/zipball/0769e6d9726c140a54dbf827a438c0f9912749fe",
                 "reference": "0769e6d9726c140a54dbf827a438c0f9912749fe",
                 "shasum": ""
             },
@@ -4212,12 +4212,12 @@
             "version": "v1.1.0",
             "source": {
                 "type": "git",
-                "url": "https://github.com/Behat/MinkBrowserKitDriver.git",
+                "url": "https://github.com/minkphp/MinkBrowserKitDriver.git",
                 "reference": "63960c8fcad4529faad1ff33e950217980baa64c"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Behat/MinkBrowserKitDriver/zipball/63960c8fcad4529faad1ff33e950217980baa64c",
+                "url": "https://api.github.com/repos/minkphp/MinkBrowserKitDriver/zipball/63960c8fcad4529faad1ff33e950217980baa64c",
                 "reference": "63960c8fcad4529faad1ff33e950217980baa64c",
                 "shasum": ""
             },
@@ -4267,12 +4267,12 @@
             "version": "v1.0.9",
             "source": {
                 "type": "git",
-                "url": "https://github.com/Behat/MinkGoutteDriver.git",
+                "url": "https://github.com/minkphp/MinkGoutteDriver.git",
                 "reference": "fa1b073b48761464feb0b05e6825da44b20118d8"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Behat/MinkGoutteDriver/zipball/fa1b073b48761464feb0b05e6825da44b20118d8",
+                "url": "https://api.github.com/repos/minkphp/MinkGoutteDriver/zipball/fa1b073b48761464feb0b05e6825da44b20118d8",
                 "reference": "fa1b073b48761464feb0b05e6825da44b20118d8",
                 "shasum": ""
             },
@@ -4318,12 +4318,12 @@
             "version": "v1.1.1",
             "source": {
                 "type": "git",
-                "url": "https://github.com/Behat/MinkSelenium2Driver.git",
+                "url": "https://github.com/minkphp/MinkSelenium2Driver.git",
                 "reference": "bcf1b537de37db6db0822d9e7bd97e600fd7a476"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Behat/MinkSelenium2Driver/zipball/bcf1b537de37db6db0822d9e7bd97e600fd7a476",
+                "url": "https://api.github.com/repos/minkphp/MinkSelenium2Driver/zipball/bcf1b537de37db6db0822d9e7bd97e600fd7a476",
                 "reference": "bcf1b537de37db6db0822d9e7bd97e600fd7a476",
                 "shasum": ""
             },
