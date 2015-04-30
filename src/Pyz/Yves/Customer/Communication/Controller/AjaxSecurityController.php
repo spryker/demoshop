@@ -21,7 +21,6 @@ class AjaxSecurityController extends AbstractController
      */
     public function loginAction(Request $request)
     {
-        var_dump($request->request); die();
         if ($this->isGranted("ROLE_USER")) {
             $this->addMessageWarning(Messages::CUSTOMER_ALREADY_AUTHENTICATED);
 
@@ -64,12 +63,7 @@ class AjaxSecurityController extends AbstractController
             }
         }
 
-        $m = [];
-        foreach ($form->getErrors() as $error) {
-            $m[] = $error->getMessage();
-        }
-
-        return $this->jsonResponse($request->query->keys());
+        return $this->jsonResponse($form->getErrors()->count());
     }
 
     /**

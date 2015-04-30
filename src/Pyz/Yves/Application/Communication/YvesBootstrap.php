@@ -25,7 +25,6 @@ use SprykerFeature\Yves\Customer\Provider\SecurityServiceProvider;
 
 use SprykerFeature\Shared\Application\Business\Routing\SilexRouter;
 
-use SprykerFeature\Yves\Library\Tracking\Tracking;
 use Silex\Provider\FormServiceProvider;
 use Silex\Provider\ServiceControllerServiceProvider;
 use Silex\Provider\RememberMeServiceProvider;
