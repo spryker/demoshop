@@ -102,7 +102,7 @@ class CategoryTreeInstall extends AbstractInstaller
     {
         $idCategory = $this->createCategory($rawNode);
 
-        $categoryNodeTransfer = $this->locator->category()->transferCategoryNode();
+        $categoryNodeTransfer = new \Generated\Shared\Transfer\CategoryCategoryNodeTransfer();
         $categoryNodeTransfer->setIsRoot(true);
         $categoryNodeTransfer->setFkCategory($idCategory);
 
@@ -116,7 +116,7 @@ class CategoryTreeInstall extends AbstractInstaller
     {
         $idCategory = $this->createCategory($rawNode);
 
-        $categoryNodeTransfer = $this->locator->category()->transferCategoryNode();
+        $categoryNodeTransfer = new \Generated\Shared\Transfer\CategoryCategoryNodeTransfer();
         $categoryNodeTransfer->setIsRoot(false);
         $categoryNodeTransfer->setFkCategory($idCategory);
         $categoryNodeTransfer->setFkParentCategoryNode($this->getParentId($rawNode));
@@ -148,7 +148,7 @@ class CategoryTreeInstall extends AbstractInstaller
      */
     protected function createCategory(array $rawNode)
     {
-        $categoryTransfer = $this->locator->category()->transferCategory();
+        $categoryTransfer = new \Generated\Shared\Transfer\CategoryCategoryTransfer();
         $categoryTransfer->setName($rawNode[self::CATEGORY_NAME]);
         $idCategory = $this->categoryFacade->createCategory($categoryTransfer, $this->locale);
 

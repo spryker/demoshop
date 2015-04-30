@@ -54,7 +54,7 @@ class OrderType extends AbstractType
     {
         $resolver->setDefaults(
             [
-                'data_class' => get_class($this->locator->sales()->transferOrder()),
+                'data_class' => get_class(new \Generated\Shared\Transfer\SalesOrderTransfer()),
                 'cascade_validation' => true,
                 'csrf_message' => 'form.csrf.failed',
             ]

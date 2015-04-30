@@ -53,7 +53,7 @@ class SecurityController extends AbstractController
         $form = $this->createForm($this->getDependencyContainer()->createFormRegister());
 
         if ($form->isValid()) {
-            $customerTransfer = $this->getLocator()->customer()->transferCustomer();
+            $customerTransfer = new \Generated\Shared\Transfer\CustomerCustomerTransfer();
             $customerTransfer->fromArray($form->getData());
             $customerTransfer = $this->getLocator()->customer()->sdk()->registerCustomer($customerTransfer);
             if ($customerTransfer->getRegistrationKey()) {
@@ -73,7 +73,7 @@ class SecurityController extends AbstractController
      */
     public function confirmRegistrationAction(Request $request)
     {
-        $customerTransfer = $this->getLocator()->customer()->transferCustomer();
+        $customerTransfer = new \Generated\Shared\Transfer\CustomerCustomerTransfer();
         $customerTransfer->setRegistrationKey($request->query->get("token"));
         $customerTransfer = $this->getLocator()->customer()->sdk()->confirmRegistration($customerTransfer);
         if ($customerTransfer->getRegistered()) {

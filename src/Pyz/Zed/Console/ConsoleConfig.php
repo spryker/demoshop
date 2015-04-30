@@ -37,6 +37,7 @@ class ConsoleConfig extends SprykerConsoleConfig
             $this->getLocator()->frontendExporter()->consoleUpdateSearchConsole(),
             $this->getLocator()->oms()->consoleCheckConditionConsole(),
             $this->getLocator()->oms()->consoleCheckTimeoutConsole(),
+            $this->getLocator()->transfer()->consoleGeneratorConsole(),
         ];
 
         $gitCommands = $this->getLocator()->git()->facade()->getConsoleCommands();

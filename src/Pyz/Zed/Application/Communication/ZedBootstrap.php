@@ -65,7 +65,8 @@ class ZedBootstrap extends Bootstrap
     {
         $app['locale'] = Store::getInstance()->getCurrentLocale();
         if (\SprykerFeature_Shared_Library_Environment::isDevelopment()) {
-            $app['profiler.cache_dir'] = \SprykerFeature_Shared_Library_Data::getLocalStoreSpecificPath('cache/profiler');
+            $app['profiler.cache_dir'] =
+                \SprykerFeature_Shared_Library_Data::getLocalStoreSpecificPath('cache/profiler');
         }
     }
 

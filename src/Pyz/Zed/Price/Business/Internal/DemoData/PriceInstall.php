@@ -69,7 +69,7 @@ class PriceInstall extends AbstractInstaller
     {
         $stockType = $this->priceFacade->createPriceType($row[self::PRICE_TYPE]);
 
-        $transferPriceProduct = $this->locator->price()->transferProduct();
+        $transferPriceProduct = new \Generated\Shared\Transfer\PriceProductTransfer();
 
         /** @var Product $transferPriceProduct */
         $transferPriceProduct->setPrice($row[self::PRICE])

@@ -13,15 +13,18 @@ class InstallerConfig extends SprykerInstallerConfig
      */
     public function getInstallerStack()
     {
+        $locator = $this->getLocator();
         return [
-            $this->getLocator()->frontendExporter()->pluginInstaller(),
-            $this->getLocator()->product()->pluginInstaller(),
-            $this->getLocator()->productSearch()->pluginInstaller(),
-            $this->getLocator()->price()->pluginInstaller(),
-            $this->getLocator()->locale()->pluginInstaller(),
-            $this->getLocator()->country()->pluginInstaller(),
-            $this->getLocator()->user()->pluginInstaller(),
-            $this->getLocator()->acl()->pluginInstaller()
+            $locator->frontendExporter()->pluginInstaller(),
+            $locator->product()->pluginInstaller(),
+            $locator->productSearch()->pluginInstaller(),
+            $locator->price()->pluginInstaller(),
+            $locator->locale()->pluginInstaller(),
+            $locator->country()->pluginInstaller(),
+            $locator->user()->pluginInstaller(),
+            $locator->acl()->pluginInstaller(),
+            $locator->searchPage()->pluginTemplateInstaller(),
+            $locator->searchPage()->pluginDocumentAttributeInstaller(),
         ];
     }
 
@@ -30,14 +33,15 @@ class InstallerConfig extends SprykerInstallerConfig
      */
     public function getDemoDataInstallerStack()
     {
+        $locator = $this->getLocator();
         return [
-            $this->getLocator()->category()->pluginDemoDataInstaller(),
-            $this->getLocator()->glossary()->pluginDemoDataInstaller(),
-            $this->getLocator()->product()->pluginDemoDataInstaller(),
-            $this->getLocator()->productCategory()->pluginDemoDataInstaller(),
-            $this->getLocator()->price()->pluginDemoDataInstaller(),
-            $this->getLocator()->productSearch()->pluginDemoDataInstaller(),
-            $this->getLocator()->stock()->pluginDemoDataInstaller()
+            $locator->category()->pluginDemoDataInstaller(),
+            $locator->glossary()->pluginDemoDataInstaller(),
+            $locator->product()->pluginDemoDataInstaller(),
+            $locator->productCategory()->pluginDemoDataInstaller(),
+            $locator->price()->pluginDemoDataInstaller(),
+            $locator->productSearch()->pluginDemoDataInstaller(),
+            $locator->stock()->pluginDemoDataInstaller()
         ];
     }
 }

@@ -4,7 +4,7 @@
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "5fe16a9351702365d614282fd94b7f03",
+    "hash": "6f124ff6eb26c79f82346946a160e29f",
     "packages": [
         {
             "name": "digital-canvas/zend-framework",
@@ -934,7 +934,7 @@
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/acl.git",
-                "reference": "d8a91cc194cd8b2a8b0770b8a9de84c8174860fa"
+                "reference": "b76fb3dd11f4a84b5387132c41436d3f85839e49"
             },
             "type": "library",
             "autoload": {
@@ -947,7 +947,7 @@
                     "YvesUnit": "tests/"
                 }
             },
-            "time": "2015-04-28 15:19:31"
+            "time": "2015-04-30 13:59:22"
         },
         {
             "name": "spryker/application",
@@ -955,7 +955,7 @@
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/application.git",
-                "reference": "3b3e8e6fb9dd23aa5baee75c65094f700eed3262"
+                "reference": "eff420062a6e3d14178de2f4a6fe8745dffcbc62"
             },
             "type": "library",
             "autoload": {
@@ -969,7 +969,7 @@
                     "YvesUnit": "tests/"
                 }
             },
-            "time": "2015-04-28 14:01:52"
+            "time": "2015-04-30 09:19:30"
         },
         {
             "name": "spryker/assets",
@@ -998,7 +998,7 @@
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/auth.git",
-                "reference": "18049c7c889680f10ab1b0c8b04697a919dbdcaa"
+                "reference": "353d9eb6d538693577571e0527c53e8b4167a8ff"
             },
             "type": "library",
             "autoload": {
@@ -1011,7 +1011,7 @@
                     "YvesUnit": "tests/"
                 }
             },
-            "time": "2015-04-28 14:01:53"
+            "time": "2015-04-30 13:17:37"
         },
         {
             "name": "spryker/availability",
@@ -1082,7 +1082,7 @@
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/calculation.git",
-                "reference": "c4f60a7630e00d988359a02aaab214910c7e4759"
+                "reference": "a02d0ae415991fcd0ad51d09ff53328278cbeee1"
             },
             "type": "library",
             "autoload": {
@@ -1095,7 +1095,7 @@
                     "YvesUnit": "tests/"
                 }
             },
-            "time": "2015-04-28 14:51:54"
+            "time": "2015-04-30 13:59:22"
         },
         {
             "name": "spryker/cart",
@@ -1103,7 +1103,7 @@
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/cart.git",
-                "reference": "b3e0052d047e213644b19741d4703cb2591f6250"
+                "reference": "776ebbd9bf3df49a618886829678e652e9524581"
             },
             "type": "library",
             "autoload": {
@@ -1116,7 +1116,7 @@
                     "YvesUnit": "tests/"
                 }
             },
-            "time": "2015-04-28 14:01:53"
+            "time": "2015-04-30 13:59:23"
         },
         {
             "name": "spryker/cart2",
@@ -1124,7 +1124,7 @@
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/cart2.git",
-                "reference": "9df0de5a7e7a0f12924ef9702c13ae7c8fecd28a"
+                "reference": "bec8c50055210ebbf17e55ffaa6a41585eb94f61"
             },
             "type": "library",
             "autoload": {
@@ -1137,7 +1137,7 @@
                     "YvesUnit": "tests/"
                 }
             },
-            "time": "2015-04-28 14:51:54"
+            "time": "2015-04-30 13:59:23"
         },
         {
             "name": "spryker/catalog",
@@ -1145,7 +1145,7 @@
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/catalog.git",
-                "reference": "3a371d04d65fe475226b1d674661288658749f96"
+                "reference": "34a43928ab1f9bbc7980f7e86d84441b6838c3a6"
             },
             "type": "library",
             "autoload": {
@@ -1158,7 +1158,7 @@
                     "YvesUnit": "tests/"
                 }
             },
-            "time": "2015-04-28 07:11:54"
+            "time": "2015-04-30 06:10:01"
         },
         {
             "name": "spryker/category",
@@ -1166,7 +1166,7 @@
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/category.git",
-                "reference": "e9d7033817d687000e275d9b08271456dbaaa683"
+                "reference": "fc9730a87bc7779336b93ff595c37a02b4b5adaf"
             },
             "type": "library",
             "autoload": {
@@ -1179,7 +1179,7 @@
                     "YvesUnit": "tests/"
                 }
             },
-            "time": "2015-04-28 14:51:55"
+            "time": "2015-04-30 13:17:38"
         },
         {
             "name": "spryker/category-exporter",
@@ -1208,7 +1208,7 @@
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/checkout.git",
-                "reference": "874b29ada7d10fe8e01df496db5503c7afca17e6"
+                "reference": "3e540ec6eba3d9f2041e6c6c3b0587ed7e6bb278"
             },
             "type": "library",
             "autoload": {
@@ -1221,7 +1221,7 @@
                     "YvesUnit": "tests/"
                 }
             },
-            "time": "2015-04-28 14:01:54"
+            "time": "2015-04-30 13:59:23"
         },
         {
             "name": "spryker/cms",
@@ -1229,7 +1229,7 @@
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/cms.git",
-                "reference": "9ebd5f3235d22b6b93eceb1500259606ceca8a49"
+                "reference": "3eb25d2db59eaf94613c9f9bed0e4a1ca48232e8"
             },
             "type": "library",
             "autoload": {
@@ -1242,7 +1242,7 @@
                     "YvesUnit": "tests/"
                 }
             },
-            "time": "2015-04-28 14:51:55"
+            "time": "2015-04-30 13:17:38"
         },
         {
             "name": "spryker/cms-exporter",
@@ -1292,7 +1292,7 @@
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/console.git",
-                "reference": "c682dac97cb598b163628797c1b3fef676f7e71a"
+                "reference": "21c84847560cc4884bca44799e6fcd0205c830e1"
             },
             "bin": [
                 "bin/console"
@@ -1308,7 +1308,7 @@
                     "YvesUnit": "tests/"
                 }
             },
-            "time": "2015-04-28 14:01:54"
+            "time": "2015-04-30 09:56:02"
         },
         {
             "name": "spryker/country",
@@ -1337,7 +1337,7 @@
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/customer.git",
-                "reference": "6fd05dbc4d8433ea55b981383c7995a01e7fcef3"
+                "reference": "fa331c1055b5385154a29d4f80e3b01b531f2f51"
             },
             "type": "library",
             "autoload": {
@@ -1350,7 +1350,7 @@
                     "YvesUnit": "tests/"
                 }
             },
-            "time": "2015-04-28 14:04:33"
+            "time": "2015-04-30 13:59:24"
         },
         {
             "name": "spryker/customer-mail-connector",
@@ -1358,7 +1358,7 @@
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/customer-mail-connector.git",
-                "reference": "3a5503a4465db42f776a06f34e115f629c4da7ff"
+                "reference": "ef0ca9e8118a1b68dcaad099de0ea1cf459a0431"
             },
             "type": "library",
             "autoload": {
@@ -1371,7 +1371,7 @@
                     "YvesUnit": "tests/"
                 }
             },
-            "time": "2015-04-28 07:11:54"
+            "time": "2015-04-30 13:17:38"
         },
         {
             "name": "spryker/db-dump",
@@ -1400,7 +1400,7 @@
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/discount.git",
-                "reference": "10446b723675debb06466b56cb827c8b4a7c7f13"
+                "reference": "ffa162da7ac9b1a6130c5b85192c0f2ffa4004bf"
             },
             "type": "library",
             "autoload": {
@@ -1413,7 +1413,7 @@
                     "YvesUnit": "tests/"
                 }
             },
-            "time": "2015-04-29 07:45:06"
+            "time": "2015-04-30 13:59:24"
         },
         {
             "name": "spryker/discount-calculation-connector",
@@ -1421,7 +1421,7 @@
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/discount-calculation-connector.git",
-                "reference": "408f93b40e060e9da95a37a0d67a0f74cb35753e"
+                "reference": "47588bfe01a1ccacb4ddfe7186ad3dd57976d345"
             },
             "type": "library",
             "autoload": {
@@ -1434,7 +1434,7 @@
                     "YvesUnit": "tests/"
                 }
             },
-            "time": "2015-04-28 14:51:55"
+            "time": "2015-04-30 13:59:24"
         },
         {
             "name": "spryker/document",
@@ -1442,7 +1442,7 @@
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/document.git",
-                "reference": "4d25da50045f5a6777b516bdbf50f2d2cc56fdf5"
+                "reference": "d497c85cf39312a5917b7509b2dc5a6b19cefc9a"
             },
             "type": "library",
             "autoload": {
@@ -1455,7 +1455,7 @@
                     "YvesUnit": "tests/"
                 }
             },
-            "time": "2015-04-28 07:11:55"
+            "time": "2015-04-30 06:10:01"
         },
         {
             "name": "spryker/frontend-exporter",
@@ -1479,12 +1479,37 @@
             "time": "2015-04-28 16:42:08"
         },
         {
+            "name": "spryker/generator",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "git@github.com:spryker/generator.git",
+                "reference": "a64c3bea6c92e838c5395570456007320471234e"
+            },
+            "require": {
+                "twig/twig": "~1.0"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-0": {
+                    "SprykerFeature": "src/",
+                    "SprykerEngine": "src/",
+                    "Acceptance": "tests/",
+                    "Function": "tests/",
+                    "Integration": "tests/",
+                    "Unit": "tests/",
+                    "YvesUnit": "tests/"
+                }
+            },
+            "time": "2015-04-30 12:34:18"
+        },
+        {
             "name": "spryker/git",
             "version": "dev-master",
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/git.git",
-                "reference": "035d7b7997d475cb9cd38e8619af3d07a9bd324d"
+                "reference": "fb14dbf8f0825d06956c29e855012b02f3d314f8"
             },
             "type": "library",
             "autoload": {
@@ -1497,7 +1522,7 @@
                     "YvesUnit": "tests/"
                 }
             },
-            "time": "2015-04-28 14:01:55"
+            "time": "2015-04-30 13:59:24"
         },
         {
             "name": "spryker/glossary",
@@ -1505,7 +1530,7 @@
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/glossary.git",
-                "reference": "377a8e983c113c8b97cafdfbb7484fe6d79abb83"
+                "reference": "8743da04fe94375cca1548174ba150be29319101"
             },
             "type": "library",
             "autoload": {
@@ -1518,7 +1543,7 @@
                     "YvesUnit": "tests/"
                 }
             },
-            "time": "2015-04-29 07:44:35"
+            "time": "2015-04-30 13:23:53"
         },
         {
             "name": "spryker/glossary-exporter",
@@ -1526,7 +1551,7 @@
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/glossary-exporter.git",
-                "reference": "85256037eb21a7e377ba863a9b726517b29a9eb1"
+                "reference": "62ba5ff872104ff03add103b47c8caa83f070536"
             },
             "type": "library",
             "autoload": {
@@ -1539,7 +1564,7 @@
                     "YvesUnit": "tests/"
                 }
             },
-            "time": "2015-04-28 16:40:08"
+            "time": "2015-04-30 13:59:25"
         },
         {
             "name": "spryker/installer",
@@ -1547,7 +1572,7 @@
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/installer.git",
-                "reference": "0fd18d413f7a59aaf1ca8b9ba9376f714ff6cc9b"
+                "reference": "0321616f5936ace82f303ba1782b63dd84fcd6f1"
             },
             "type": "library",
             "autoload": {
@@ -1560,7 +1585,7 @@
                     "YvesUnit": "tests/"
                 }
             },
-            "time": "2015-04-28 14:01:55"
+            "time": "2015-04-30 10:06:56"
         },
         {
             "name": "spryker/invoice",
@@ -1631,7 +1656,7 @@
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/library.git",
-                "reference": "84125bf2d0736d03f8748b041ba0779d2dbc8e46"
+                "reference": "d1e435a85d0e1c66635ce2380caec434960c232d"
             },
             "type": "library",
             "autoload": {
@@ -1644,7 +1669,7 @@
                     "YvesUnit": "tests/"
                 }
             },
-            "time": "2015-04-28 14:21:07"
+            "time": "2015-04-30 13:17:40"
         },
         {
             "name": "spryker/locale",
@@ -1673,7 +1698,7 @@
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/lumberjack.git",
-                "reference": "0436608fdc4b6dcd15605f2851d9ac89188b41af"
+                "reference": "ff4cbf656265539aaa8f095bb9352e6b949fb7ab"
             },
             "type": "library",
             "autoload": {
@@ -1686,7 +1711,7 @@
                     "YvesUnit": "tests/"
                 }
             },
-            "time": "2015-04-28 14:01:56"
+            "time": "2015-04-30 06:10:02"
         },
         {
             "name": "spryker/mail",
@@ -1694,7 +1719,7 @@
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/mail.git",
-                "reference": "a752cd8f7a493ebd1fdc4002608eee9ea140e0d9"
+                "reference": "c9e76ffebdc4234bd9f061d0d4aac94e7031112e"
             },
             "type": "library",
             "autoload": {
@@ -1707,7 +1732,7 @@
                     "YvesUnit": "tests/"
                 }
             },
-            "time": "2015-04-28 07:11:56"
+            "time": "2015-04-30 06:10:02"
         },
         {
             "name": "spryker/oms",
@@ -1715,7 +1740,7 @@
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/oms.git",
-                "reference": "52f59413d5ad60e9f5c6ebddcfb1b23e4677fa1b"
+                "reference": "76fd899c87311f6ba793355630daafbd4176a19b"
             },
             "type": "library",
             "autoload": {
@@ -1728,7 +1753,7 @@
                     "YvesUnit": "tests/"
                 }
             },
-            "time": "2015-04-28 14:51:56"
+            "time": "2015-04-29 12:45:26"
         },
         {
             "name": "spryker/price",
@@ -1736,7 +1761,7 @@
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/price.git",
-                "reference": "4604434dadebdad9e95d021390dd5b819b022b95"
+                "reference": "63d469c91d520a5a3bcb1835a78948da07ebf870"
             },
             "type": "library",
             "autoload": {
@@ -1749,7 +1774,7 @@
                     "YvesUnit": "tests/"
                 }
             },
-            "time": "2015-04-28 14:01:57"
+            "time": "2015-04-30 13:17:40"
         },
         {
             "name": "spryker/price-cart-connector",
@@ -1799,7 +1824,7 @@
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/product-category.git",
-                "reference": "9f645e82064e1c360af24ffe7aa3fafdfa276e3b"
+                "reference": "e7cde0d1c5030f92e45c8b47e11c0f468c75e14f"
             },
             "type": "library",
             "autoload": {
@@ -1812,7 +1837,7 @@
                     "YvesUnit": "tests/"
                 }
             },
-            "time": "2015-04-28 12:44:19"
+            "time": "2015-04-30 13:17:41"
         },
         {
             "name": "spryker/product-category-frontend-exporter-connector",
@@ -1904,7 +1929,7 @@
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/product-frontend-exporter-connector.git",
-                "reference": "1cd552960e31aff666292482e739b1c4cbe837fe"
+                "reference": "999c871a61355a119aa04404897059c358a1e002"
             },
             "type": "library",
             "autoload": {
@@ -1917,7 +1942,7 @@
                     "YvesUnit": "tests/"
                 }
             },
-            "time": "2015-04-28 16:39:48"
+            "time": "2015-04-30 13:17:41"
         },
         {
             "name": "spryker/product-frontend-exporter-price-connector",
@@ -2051,7 +2076,7 @@
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/sales.git",
-                "reference": "ebe73c46c28351ba1f6cd2399c4cae32508f6e1d"
+                "reference": "3a67339f3b22a062a92a687fd2a6724ad08b99b0"
             },
             "type": "library",
             "autoload": {
@@ -2064,7 +2089,7 @@
                     "YvesUnit": "tests/"
                 }
             },
-            "time": "2015-04-28 14:01:58"
+            "time": "2015-04-30 13:59:27"
         },
         {
             "name": "spryker/salesrule",
@@ -2072,7 +2097,7 @@
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/salesrule.git",
-                "reference": "b9f5712487f3f0c3fceb1cdb874b882b42374c82"
+                "reference": "c317481dc6da08fbbfc70fec82798d7ccbcea470"
             },
             "type": "library",
             "autoload": {
@@ -2085,7 +2110,7 @@
                     "YvesUnit": "tests/"
                 }
             },
-            "time": "2015-04-29 07:42:43"
+            "time": "2015-04-30 13:59:27"
         },
         {
             "name": "spryker/sdk",
@@ -2130,6 +2155,27 @@
             "time": "2015-04-28 07:11:58"
         },
         {
+            "name": "spryker/search-page",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "git@github.com:spryker/search-page.git",
+                "reference": "8ab604a1abfb3899ffb83dc0928007c7088d92ef"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-0": {
+                    "SprykerFeature": "src/",
+                    "Acceptance": "tests/",
+                    "Function": "tests/",
+                    "Integration": "tests/",
+                    "Unit": "tests/",
+                    "YvesUnit": "tests/"
+                }
+            },
+            "time": "2015-04-30 13:17:42"
+        },
+        {
             "name": "spryker/setup",
             "version": "dev-master",
             "source": {
@@ -2156,7 +2202,7 @@
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/stock.git",
-                "reference": "5aa3f2710d0c3d6164bec4ad4e9638b1aff5eed6"
+                "reference": "ecadd461045b1187124714b6c8bb964edcaf7a46"
             },
             "type": "library",
             "autoload": {
@@ -2169,7 +2215,7 @@
                     "YvesUnit": "tests/"
                 }
             },
-            "time": "2015-04-28 16:11:59"
+            "time": "2015-04-30 13:17:42"
         },
         {
             "name": "spryker/stock-sales-connector",
@@ -2198,7 +2244,7 @@
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/system.git",
-                "reference": "7897c34c69e90dc15dc25f39960ff6258e37cb28"
+                "reference": "8bce8559e72ea09c6137a3232e9c9372ef59acbc"
             },
             "type": "library",
             "autoload": {
@@ -2211,7 +2257,7 @@
                     "YvesUnit": "tests/"
                 }
             },
-            "time": "2015-04-28 14:01:59"
+            "time": "2015-04-30 06:10:03"
         },
         {
             "name": "spryker/touch",
@@ -2261,7 +2307,7 @@
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/ui.git",
-                "reference": "5e066d4315cde3c09b520bd3fddb1e72be790c64"
+                "reference": "d76eca4da859ad01f1c63313a59ee6b3b3e18549"
             },
             "type": "library",
             "autoload": {
@@ -2274,7 +2320,7 @@
                     "YvesUnit": "tests/"
                 }
             },
-            "time": "2015-04-28 15:07:09"
+            "time": "2015-04-30 09:21:13"
         },
         {
             "name": "spryker/ui-example",
@@ -2282,7 +2328,7 @@
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/ui-example.git",
-                "reference": "9f8cbce986535dff1c0b4b27369070951e8d1579"
+                "reference": "888d4d6026c5fc4661a725fc4d06b10855aa206f"
             },
             "type": "library",
             "autoload": {
@@ -2295,7 +2341,7 @@
                     "YvesUnit": "tests/"
                 }
             },
-            "time": "2015-04-28 08:24:23"
+            "time": "2015-04-30 09:24:14"
         },
         {
             "name": "spryker/url",
@@ -2303,7 +2349,7 @@
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/url.git",
-                "reference": "a7bd62fd124d4bf9665907a66797d443665e2ab9"
+                "reference": "1a9ed1e1ed33e82394a685a5e6851423f52b83cf"
             },
             "type": "library",
             "autoload": {
@@ -2316,7 +2362,7 @@
                     "YvesUnit": "tests/"
                 }
             },
-            "time": "2015-04-28 14:51:58"
+            "time": "2015-04-30 13:17:43"
         },
         {
             "name": "spryker/url-exporter",
@@ -2345,7 +2391,7 @@
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/user.git",
-                "reference": "50eb4b160e666f918924cfdf5e038341a3b2748c"
+                "reference": "5db1d63a2df5b66658560614925dec0fb8472be8"
             },
             "type": "library",
             "autoload": {
@@ -2358,7 +2404,7 @@
                     "YvesUnit": "tests/"
                 }
             },
-            "time": "2015-04-28 14:10:28"
+            "time": "2015-04-30 13:59:28"
         },
         {
             "name": "spryker/yves",
@@ -2387,7 +2433,7 @@
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/zed-request.git",
-                "reference": "ce155d0648718a1712d04e56709caace46e30489"
+                "reference": "4ed1826cdbb0d2c83e91ad0cd874529a61e834c1"
             },
             "type": "library",
             "autoload": {
@@ -2400,7 +2446,7 @@
                     "YvesUnit": "tests/"
                 }
             },
-            "time": "2015-04-28 07:11:59"
+            "time": "2015-04-30 13:17:44"
         },
         {
             "name": "symfony-cmf/routing",
@@ -5507,6 +5553,7 @@
         "spryker/discount-calculation-connector": 20,
         "spryker/document": 20,
         "spryker/frontend-exporter": 20,
+        "spryker/generator": 20,
         "spryker/git": 20,
         "spryker/glossary": 20,
         "spryker/glossary-exporter": 20,
@@ -5538,6 +5585,7 @@
         "spryker/salesrule": 20,
         "spryker/sdk": 20,
         "spryker/search": 20,
+        "spryker/search-page": 20,
         "spryker/setup": 20,
         "spryker/stock": 20,
         "spryker/stock-sales-connector": 20,

@@ -26,6 +26,7 @@
     "spryker/discount-calculation-connector": "dev-master",
     "spryker/document": "dev-master",
     "spryker/frontend-exporter": "dev-master",
+    "spryker/generator": "dev-master",
     "spryker/git": "dev-master",
     "spryker/glossary": "dev-master",
     "spryker/glossary-exporter": "dev-master",
@@ -57,6 +58,7 @@
     "spryker/salesrule": "dev-master",
     "spryker/sdk": "dev-master",
     "spryker/search": "dev-master",
+    "spryker/search-page": "dev-master",
     "spryker/setup": "dev-master",
     "spryker/stock": "dev-master",
     "spryker/stock-sales-connector": "dev-master",
@@ -247,6 +249,10 @@
     },
     {
       "type": "git",
+      "url": "git@github.com:spryker/generator.git"
+    },
+    {
+      "type": "git",
       "url": "git@github.com:spryker/git.git"
     },
     {
@@ -372,6 +378,10 @@
     {
       "type": "git",
       "url": "git@github.com:spryker/search.git"
+    },
+    {
+      "type": "git",
+      "url": "git@github.com:spryker/search-page.git"
     },
     {
       "type": "git",
