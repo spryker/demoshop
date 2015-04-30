@@ -1292,7 +1292,7 @@
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/console.git",
-                "reference": "c682dac97cb598b163628797c1b3fef676f7e71a"
+                "reference": "21c84847560cc4884bca44799e6fcd0205c830e1"
             },
             "bin": [
                 "bin/console"
@@ -1308,7 +1308,7 @@
                     "YvesUnit": "tests/"
                 }
             },
-            "time": "2015-04-28 14:01:54"
+            "time": "2015-04-30 09:56:02"
         },
         {
             "name": "spryker/country",
@@ -1484,7 +1484,7 @@
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/generator.git",
-                "reference": "cfb934e2ca431cc31a75693906973177a930582a"
+                "reference": "0948c65ef79ab4fbaef93ba770721d6451be4b78"
             },
             "require": {
                 "twig/twig": "~1.0"
@@ -1501,7 +1501,7 @@
                     "YvesUnit": "tests/"
                 }
             },
-            "time": "2015-04-30 06:32:36"
+            "time": "2015-04-30 10:07:39"
         },
         {
             "name": "spryker/git",
@@ -1572,7 +1572,7 @@
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/installer.git",
-                "reference": "c0bd108b3978f6f021f5b43b710648fa718b2b86"
+                "reference": "0321616f5936ace82f303ba1782b63dd84fcd6f1"
             },
             "type": "library",
             "autoload": {
@@ -1585,7 +1585,7 @@
                     "YvesUnit": "tests/"
                 }
             },
-            "time": "2015-04-30 06:58:00"
+            "time": "2015-04-30 10:06:56"
         },
         {
             "name": "spryker/invoice",
@@ -1656,7 +1656,7 @@
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/library.git",
-                "reference": "f1f98063c8487a6def7ebbc512bcc9f4574b141e"
+                "reference": "949a6c829e0fab2a4e2f66faa1297820edc0832a"
             },
             "type": "library",
             "autoload": {
@@ -1669,7 +1669,7 @@
                     "YvesUnit": "tests/"
                 }
             },
-            "time": "2015-04-30 06:10:02"
+            "time": "2015-04-30 08:38:34"
         },
         {
             "name": "spryker/locale",
@@ -2433,7 +2433,7 @@
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/zed-request.git",
-                "reference": "ce155d0648718a1712d04e56709caace46e30489"
+                "reference": "7399541e4fd2d63893afc4c86ffdf5b0b6c1a59b"
             },
             "type": "library",
             "autoload": {
@@ -2446,7 +2446,7 @@
                     "YvesUnit": "tests/"
                 }
             },
-            "time": "2015-04-28 07:11:59"
+            "time": "2015-04-30 08:38:12"
         },
         {
             "name": "symfony-cmf/routing",
