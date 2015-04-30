@@ -955,7 +955,7 @@
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/application.git",
-                "reference": "3b3e8e6fb9dd23aa5baee75c65094f700eed3262"
+                "reference": "eff420062a6e3d14178de2f4a6fe8745dffcbc62"
             },
             "type": "library",
             "autoload": {
@@ -969,7 +969,7 @@
                     "YvesUnit": "tests/"
                 }
             },
-            "time": "2015-04-28 14:01:52"
+            "time": "2015-04-30 09:19:30"
         },
         {
             "name": "spryker/assets",
@@ -2135,7 +2135,7 @@
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/search-page.git",
-                "reference": "4aeb048311762e2317128d957c0f92fad8369983"
+                "reference": "9f4030746664d39f3af4d9619dbae9c61819c41c"
             },
             "type": "library",
             "autoload": {
@@ -2148,7 +2148,7 @@
                     "YvesUnit": "tests/"
                 }
             },
-            "time": "2015-04-29 16:17:19"
+            "time": "2015-04-30 09:31:17"
         },
         {
             "name": "spryker/setup",
@@ -2282,7 +2282,7 @@
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/ui.git",
-                "reference": "7d9c0125047ff04c855c78c616e8366a0bd94e5f"
+                "reference": "d76eca4da859ad01f1c63313a59ee6b3b3e18549"
             },
             "type": "library",
             "autoload": {
@@ -2295,7 +2295,7 @@
                     "YvesUnit": "tests/"
                 }
             },
-            "time": "2015-04-29 14:57:22"
+            "time": "2015-04-30 09:21:13"
         },
         {
             "name": "spryker/ui-example",
@@ -2303,7 +2303,7 @@
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/ui-example.git",
-                "reference": "cc6a78a5d816ad7b75d491cec0cf2a2706c57cb7"
+                "reference": "888d4d6026c5fc4661a725fc4d06b10855aa206f"
             },
             "type": "library",
             "autoload": {
@@ -2316,7 +2316,7 @@
                     "YvesUnit": "tests/"
                 }
             },
-            "time": "2015-04-29 12:51:34"
+            "time": "2015-04-30 09:24:14"
         },
         {
             "name": "spryker/url",
