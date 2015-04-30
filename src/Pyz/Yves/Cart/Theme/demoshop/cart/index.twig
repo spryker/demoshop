@@ -22,8 +22,12 @@
                 </thead>
                 <tbody>
                 {% for cartItem in cartItems %}
-                    {% set product = products[cartItem.sku] %}
                     <tr>
+                        <td><h3>{{ cartItem.id }} </h3>{# @todo image and name instead of sku #}</td>
+                        <td>{{ cartItem.grossPrice }}</td>
+                        <td>{{ cartItem.quantity }}</td>
+                        <td>{{ cartItem.priceToPay }}</td>
+
                         <td>
                             {#<img src="{{ getFirstProductImagesBySize(product.product_images, 'm') }}" alt="" width="20%" />#}
                             <h3>{{ product.name }}</h3>
@@ -42,21 +46,6 @@
                                 <span class="glyphicon glyphicon-trash"></span>
                                 {{ 'cart.remove'|trans }}
                             </a>
-                        </td>
-                        <td>
-                            {{ cartItem.unitGrossPrice|price }}
-                            {#    expenses->?
-                                options->? #}
-                        </td>
-                        <td>
-                            <form action="{{ url('cart/change/quantity', {sku:product.sku, uid:cartItem.uniqueIdentifier, absolute:true} ) }}">
-                                <input type="number" name="quantity" value="{{ cartItem.quantity }}" min="1" />
-                                {#max="{{ product.stock > 30 ? 30 : product.stock }}" step="1" />#}
-                            </form>
-                        </td>
-                        <td>
-                            {#<span class="oldPrice">{{ product.recommended_retail_price }}</span>#}
-                            <span class="price">{{ cartItem.priceToPay|price }}</span>
                         </td>
                     </tr>
                 {% else %}
@@ -78,7 +67,7 @@
                 </tr>
                 <tr class="shipping">
                     <td class="label">{{ 'cart.price.shipping'|trans }}</td>
-                    <td>{{ 0|price }}{# totals.orderExpensesTotal|price? #}</td>
+                    <td>{{ 0|price }}</td>
                 </tr>
                 {% for taxRate in totals.tax.taxRates %}
                     <tr class="tax">

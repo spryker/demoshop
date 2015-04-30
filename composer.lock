@@ -4,7 +4,7 @@
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "32c115f560cbf8994831fcc6e14c08a6",
+    "hash": "96a46fc527ee56a6f9acca6181f26c1f",
     "packages": [
         {
             "name": "digital-canvas/zend-framework",
@@ -930,11 +930,11 @@
         },
         {
             "name": "spryker/acl",
-            "version": "dev-refactoring/transfer",
+            "version": "dev-master",
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/acl.git",
-                "reference": "8e71c9cead34368a13f24cbef50eaa88b993fd4b"
+                "reference": "a4e51b0f64c5034bc535e5a5fa57995123661713"
             },
             "type": "library",
             "autoload": {
@@ -947,15 +947,15 @@
                     "YvesUnit": "tests/"
                 }
             },
-            "time": "2015-04-30 06:19:05"
+            "time": "2015-04-30 15:44:36"
         },
         {
             "name": "spryker/application",
-            "version": "dev-refactoring/transfer",
+            "version": "dev-master",
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/application.git",
-                "reference": "3b3e8e6fb9dd23aa5baee75c65094f700eed3262"
+                "reference": "eff420062a6e3d14178de2f4a6fe8745dffcbc62"
             },
             "type": "library",
             "autoload": {
@@ -969,11 +969,11 @@
                     "YvesUnit": "tests/"
                 }
             },
-            "time": "2015-04-28 14:01:52"
+            "time": "2015-04-30 09:19:30"
         },
         {
             "name": "spryker/assets",
-            "version": "dev-refactoring/transfer",
+            "version": "dev-master",
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/assets.git",
@@ -994,11 +994,11 @@
         },
         {
             "name": "spryker/auth",
-            "version": "dev-refactoring/transfer",
+            "version": "dev-master",
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/auth.git",
-                "reference": "4ee2afa2708f6ee55e827076d1f8ae5587ecee7b"
+                "reference": "353d9eb6d538693577571e0527c53e8b4167a8ff"
             },
             "type": "library",
             "autoload": {
@@ -1011,11 +1011,11 @@
                     "YvesUnit": "tests/"
                 }
             },
-            "time": "2015-04-30 06:10:01"
+            "time": "2015-04-30 13:17:37"
         },
         {
             "name": "spryker/availability",
-            "version": "dev-refactoring/transfer",
+            "version": "dev-master",
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/availability.git",
@@ -1036,7 +1036,7 @@
         },
         {
             "name": "spryker/availability-cart-connector",
-            "version": "dev-refactoring/transfer",
+            "version": "dev-master",
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/availability-cart-connector.git",
@@ -1057,7 +1057,7 @@
         },
         {
             "name": "spryker/availability-checkout-connector",
-            "version": "dev-refactoring/transfer",
+            "version": "dev-master",
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/availability-checkout-connector.git",
@@ -1078,11 +1078,11 @@
         },
         {
             "name": "spryker/calculation",
-            "version": "dev-refactoring/transfer",
+            "version": "dev-master",
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/calculation.git",
-                "reference": "acd1d283d1d531037dd5524d5f5aba89d2922d67"
+                "reference": "a02d0ae415991fcd0ad51d09ff53328278cbeee1"
             },
             "type": "library",
             "autoload": {
@@ -1095,15 +1095,15 @@
                     "YvesUnit": "tests/"
                 }
             },
-            "time": "2015-04-30 06:10:01"
+            "time": "2015-04-30 13:59:22"
         },
         {
             "name": "spryker/cart",
-            "version": "dev-refactoring/transfer",
+            "version": "dev-master",
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/cart.git",
-                "reference": "2a6c575db31530c565ea47151c7e4072b51580de"
+                "reference": "2082019f930037e6993b85a96c94b2e7c9f7638a"
             },
             "type": "library",
             "autoload": {
@@ -1116,32 +1116,11 @@
                     "YvesUnit": "tests/"
                 }
             },
-            "time": "2015-04-30 06:10:01"
-        },
-        {
-            "name": "spryker/cart2",
-            "version": "dev-refactoring/transfer",
-            "source": {
-                "type": "git",
-                "url": "git@github.com:spryker/cart2.git",
-                "reference": "eec99a4439bd0bd7a7d540873cb5041476dee121"
-            },
-            "type": "library",
-            "autoload": {
-                "psr-0": {
-                    "SprykerFeature": "src/",
-                    "Acceptance": "tests/",
-                    "Functional": "tests/",
-                    "Integration": "tests/",
-                    "Unit": "tests/",
-                    "YvesUnit": "tests/"
-                }
-            },
-            "time": "2015-04-30 06:10:01"
+            "time": "2015-04-30 14:09:35"
         },
         {
             "name": "spryker/catalog",
-            "version": "dev-refactoring/transfer",
+            "version": "dev-master",
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/catalog.git",
@@ -1162,11 +1141,11 @@
         },
         {
             "name": "spryker/category",
-            "version": "dev-refactoring/transfer",
+            "version": "dev-master",
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/category.git",
-                "reference": "d1ea2518242adb8a01a87f653216b20c7865f9b4"
+                "reference": "fc9730a87bc7779336b93ff595c37a02b4b5adaf"
             },
             "type": "library",
             "autoload": {
@@ -1179,11 +1158,11 @@
                     "YvesUnit": "tests/"
                 }
             },
-            "time": "2015-04-30 06:10:01"
+            "time": "2015-04-30 13:17:38"
         },
         {
             "name": "spryker/category-exporter",
-            "version": "dev-refactoring/transfer",
+            "version": "dev-master",
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/category-exporter.git",
@@ -1204,11 +1183,11 @@
         },
         {
             "name": "spryker/checkout",
-            "version": "dev-refactoring/transfer",
+            "version": "dev-master",
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/checkout.git",
-                "reference": "874b29ada7d10fe8e01df496db5503c7afca17e6"
+                "reference": "3e540ec6eba3d9f2041e6c6c3b0587ed7e6bb278"
             },
             "type": "library",
             "autoload": {
@@ -1221,15 +1200,15 @@
                     "YvesUnit": "tests/"
                 }
             },
-            "time": "2015-04-28 14:01:54"
+            "time": "2015-04-30 13:59:23"
         },
         {
             "name": "spryker/cms",
-            "version": "dev-refactoring/transfer",
+            "version": "dev-master",
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/cms.git",
-                "reference": "32fd649516623e905408a3035ffeed9a04993f9e"
+                "reference": "3eb25d2db59eaf94613c9f9bed0e4a1ca48232e8"
             },
             "type": "library",
             "autoload": {
@@ -1242,11 +1221,11 @@
                     "YvesUnit": "tests/"
                 }
             },
-            "time": "2015-04-30 06:10:01"
+            "time": "2015-04-30 13:17:38"
         },
         {
             "name": "spryker/cms-exporter",
-            "version": "dev-refactoring/transfer",
+            "version": "dev-master",
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/cms-exporter.git",
@@ -1267,7 +1246,7 @@
         },
         {
             "name": "spryker/config",
-            "version": "dev-refactoring/transfer",
+            "version": "dev-master",
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/config.git",
@@ -1288,7 +1267,7 @@
         },
         {
             "name": "spryker/console",
-            "version": "dev-refactoring/transfer",
+            "version": "dev-master",
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/console.git",
@@ -1312,7 +1291,7 @@
         },
         {
             "name": "spryker/country",
-            "version": "dev-refactoring/transfer",
+            "version": "dev-master",
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/country.git",
@@ -1333,11 +1312,11 @@
         },
         {
             "name": "spryker/customer",
-            "version": "dev-refactoring/transfer",
+            "version": "dev-master",
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/customer.git",
-                "reference": "ec34f2cc9db0234310bfc39c47154945265169f5"
+                "reference": "fa331c1055b5385154a29d4f80e3b01b531f2f51"
             },
             "type": "library",
             "autoload": {
@@ -1350,15 +1329,15 @@
                     "YvesUnit": "tests/"
                 }
             },
-            "time": "2015-04-30 06:10:01"
+            "time": "2015-04-30 13:59:24"
         },
         {
             "name": "spryker/customer-mail-connector",
-            "version": "dev-refactoring/transfer",
+            "version": "dev-master",
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/customer-mail-connector.git",
-                "reference": "3a5503a4465db42f776a06f34e115f629c4da7ff"
+                "reference": "ef0ca9e8118a1b68dcaad099de0ea1cf459a0431"
             },
             "type": "library",
             "autoload": {
@@ -1371,11 +1350,11 @@
                     "YvesUnit": "tests/"
                 }
             },
-            "time": "2015-04-28 07:11:54"
+            "time": "2015-04-30 13:17:38"
         },
         {
             "name": "spryker/db-dump",
-            "version": "dev-refactoring/transfer",
+            "version": "dev-master",
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/db-dump.git",
@@ -1396,11 +1375,11 @@
         },
         {
             "name": "spryker/discount",
-            "version": "dev-refactoring/transfer",
+            "version": "dev-master",
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/discount.git",
-                "reference": "072d1af9e62af78538d9d23e65c242b1abe981ed"
+                "reference": "ffa162da7ac9b1a6130c5b85192c0f2ffa4004bf"
             },
             "type": "library",
             "autoload": {
@@ -1413,15 +1392,15 @@
                     "YvesUnit": "tests/"
                 }
             },
-            "time": "2015-04-30 06:10:01"
+            "time": "2015-04-30 13:59:24"
         },
         {
             "name": "spryker/discount-calculation-connector",
-            "version": "dev-refactoring/transfer",
+            "version": "dev-master",
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/discount-calculation-connector.git",
-                "reference": "408f93b40e060e9da95a37a0d67a0f74cb35753e"
+                "reference": "47588bfe01a1ccacb4ddfe7186ad3dd57976d345"
             },
             "type": "library",
             "autoload": {
@@ -1434,11 +1413,11 @@
                     "YvesUnit": "tests/"
                 }
             },
-            "time": "2015-04-28 14:51:55"
+            "time": "2015-04-30 13:59:24"
         },
         {
             "name": "spryker/document",
-            "version": "dev-refactoring/transfer",
+            "version": "dev-master",
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/document.git",
@@ -1459,7 +1438,7 @@
         },
         {
             "name": "spryker/frontend-exporter",
-            "version": "dev-refactoring/transfer",
+            "version": "dev-master",
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/frontend-exporter.git",
@@ -1484,7 +1463,7 @@
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/generator.git",
-                "reference": "0948c65ef79ab4fbaef93ba770721d6451be4b78"
+                "reference": "a64c3bea6c92e838c5395570456007320471234e"
             },
             "require": {
                 "twig/twig": "~1.0"
@@ -1501,15 +1480,15 @@
                     "YvesUnit": "tests/"
                 }
             },
-            "time": "2015-04-30 10:07:39"
+            "time": "2015-04-30 12:34:18"
         },
         {
             "name": "spryker/git",
-            "version": "dev-refactoring/transfer",
+            "version": "dev-master",
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/git.git",
-                "reference": "be37e0df50b6178a57d368fe2160459f2d515949"
+                "reference": "fb14dbf8f0825d06956c29e855012b02f3d314f8"
             },
             "type": "library",
             "autoload": {
@@ -1522,15 +1501,15 @@
                     "YvesUnit": "tests/"
                 }
             },
-            "time": "2015-04-30 06:24:10"
+            "time": "2015-04-30 13:59:24"
         },
         {
             "name": "spryker/glossary",
-            "version": "dev-refactoring/transfer",
+            "version": "dev-master",
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/glossary.git",
-                "reference": "c7ab009e4b6ea7bdfe184fdff5612eaa7ecc5a0b"
+                "reference": "8743da04fe94375cca1548174ba150be29319101"
             },
             "type": "library",
             "autoload": {
@@ -1543,15 +1522,15 @@
                     "YvesUnit": "tests/"
                 }
             },
-            "time": "2015-04-30 06:10:02"
+            "time": "2015-04-30 13:23:53"
         },
         {
             "name": "spryker/glossary-exporter",
-            "version": "dev-refactoring/transfer",
+            "version": "dev-master",
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/glossary-exporter.git",
-                "reference": "85256037eb21a7e377ba863a9b726517b29a9eb1"
+                "reference": "62ba5ff872104ff03add103b47c8caa83f070536"
             },
             "type": "library",
             "autoload": {
@@ -1564,11 +1543,11 @@
                     "YvesUnit": "tests/"
                 }
             },
-            "time": "2015-04-28 16:40:08"
+            "time": "2015-04-30 13:59:25"
         },
         {
             "name": "spryker/installer",
-            "version": "dev-refactoring/transfer",
+            "version": "dev-master",
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/installer.git",
@@ -1589,7 +1568,7 @@
         },
         {
             "name": "spryker/invoice",
-            "version": "dev-refactoring/transfer",
+            "version": "dev-master",
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/invoice.git",
@@ -1610,7 +1589,7 @@
         },
         {
             "name": "spryker/kernel",
-            "version": "dev-refactoring/transfer",
+            "version": "dev-master",
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/kernel.git",
@@ -1631,7 +1610,7 @@
         },
         {
             "name": "spryker/kv-storage",
-            "version": "dev-refactoring/transfer",
+            "version": "dev-master",
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/kv-storage.git",
@@ -1652,11 +1631,11 @@
         },
         {
             "name": "spryker/library",
-            "version": "dev-refactoring/transfer",
+            "version": "dev-master",
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/library.git",
-                "reference": "949a6c829e0fab2a4e2f66faa1297820edc0832a"
+                "reference": "d1e435a85d0e1c66635ce2380caec434960c232d"
             },
             "type": "library",
             "autoload": {
@@ -1669,11 +1648,11 @@
                     "YvesUnit": "tests/"
                 }
             },
-            "time": "2015-04-30 08:38:34"
+            "time": "2015-04-30 13:17:40"
         },
         {
             "name": "spryker/locale",
-            "version": "dev-refactoring/transfer",
+            "version": "dev-master",
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/locale.git",
@@ -1694,7 +1673,7 @@
         },
         {
             "name": "spryker/lumberjack",
-            "version": "dev-refactoring/transfer",
+            "version": "dev-master",
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/lumberjack.git",
@@ -1715,7 +1694,7 @@
         },
         {
             "name": "spryker/mail",
-            "version": "dev-refactoring/transfer",
+            "version": "dev-master",
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/mail.git",
@@ -1736,11 +1715,11 @@
         },
         {
             "name": "spryker/oms",
-            "version": "dev-refactoring/transfer",
+            "version": "dev-master",
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/oms.git",
-                "reference": "76fd899c87311f6ba793355630daafbd4176a19b"
+                "reference": "dc2d630eda6c7f7b82fa82d4dde8dc5efca8bab7"
             },
             "type": "library",
             "autoload": {
@@ -1753,15 +1732,15 @@
                     "YvesUnit": "tests/"
                 }
             },
-            "time": "2015-04-29 12:45:26"
+            "time": "2015-04-30 14:51:21"
         },
         {
             "name": "spryker/price",
-            "version": "dev-refactoring/transfer",
+            "version": "dev-master",
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/price.git",
-                "reference": "6be48972014b6bd24c2bdabb9c87f8076270ba39"
+                "reference": "63d469c91d520a5a3bcb1835a78948da07ebf870"
             },
             "type": "library",
             "autoload": {
@@ -1774,15 +1753,15 @@
                     "YvesUnit": "tests/"
                 }
             },
-            "time": "2015-04-30 06:10:02"
+            "time": "2015-04-30 13:17:40"
         },
         {
             "name": "spryker/price-cart-connector",
-            "version": "dev-refactoring/transfer",
+            "version": "dev-master",
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/price-cart-connector.git",
-                "reference": "a0c95baf2915246af9514142720e3a1325594be0"
+                "reference": "1a813b18d96f4219f902ad7dd856c7955339763d"
             },
             "type": "library",
             "autoload": {
@@ -1795,11 +1774,11 @@
                     "YvesUnit": "tests/"
                 }
             },
-            "time": "2015-04-28 07:11:56"
+            "time": "2015-04-30 12:05:49"
         },
         {
             "name": "spryker/product",
-            "version": "dev-refactoring/transfer",
+            "version": "dev-master",
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/product.git",
@@ -1820,11 +1799,11 @@
         },
         {
             "name": "spryker/product-category",
-            "version": "dev-refactoring/transfer",
+            "version": "dev-master",
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/product-category.git",
-                "reference": "9f645e82064e1c360af24ffe7aa3fafdfa276e3b"
+                "reference": "e7cde0d1c5030f92e45c8b47e11c0f468c75e14f"
             },
             "type": "library",
             "autoload": {
@@ -1837,11 +1816,11 @@
                     "YvesUnit": "tests/"
                 }
             },
-            "time": "2015-04-28 12:44:19"
+            "time": "2015-04-30 13:17:41"
         },
         {
             "name": "spryker/product-category-frontend-exporter-connector",
-            "version": "dev-refactoring/transfer",
+            "version": "dev-master",
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/product-category-frontend-exporter-connector.git",
@@ -1862,7 +1841,7 @@
         },
         {
             "name": "spryker/product-category-search",
-            "version": "dev-refactoring/transfer",
+            "version": "dev-master",
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/product-category-search.git",
@@ -1883,7 +1862,7 @@
         },
         {
             "name": "spryker/product-exporter",
-            "version": "dev-refactoring/transfer",
+            "version": "dev-master",
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/product-exporter.git",
@@ -1904,7 +1883,7 @@
         },
         {
             "name": "spryker/product-frontend-exporter-availability-connector",
-            "version": "dev-refactoring/transfer",
+            "version": "dev-master",
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/product-frontend-exporter-availability-connector.git",
@@ -1925,11 +1904,11 @@
         },
         {
             "name": "spryker/product-frontend-exporter-connector",
-            "version": "dev-refactoring/transfer",
+            "version": "dev-master",
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/product-frontend-exporter-connector.git",
-                "reference": "1cd552960e31aff666292482e739b1c4cbe837fe"
+                "reference": "999c871a61355a119aa04404897059c358a1e002"
             },
             "type": "library",
             "autoload": {
@@ -1942,11 +1921,11 @@
                     "YvesUnit": "tests/"
                 }
             },
-            "time": "2015-04-28 16:39:48"
+            "time": "2015-04-30 13:17:41"
         },
         {
             "name": "spryker/product-frontend-exporter-price-connector",
-            "version": "dev-refactoring/transfer",
+            "version": "dev-master",
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/product-frontend-exporter-price-connector.git",
@@ -1967,7 +1946,7 @@
         },
         {
             "name": "spryker/product-image",
-            "version": "dev-refactoring/transfer",
+            "version": "dev-master",
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/product-image.git",
@@ -1988,7 +1967,7 @@
         },
         {
             "name": "spryker/product-search",
-            "version": "dev-refactoring/transfer",
+            "version": "dev-master",
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/product-search.git",
@@ -2009,7 +1988,7 @@
         },
         {
             "name": "spryker/product-search-availability-connector",
-            "version": "dev-refactoring/transfer",
+            "version": "dev-master",
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/product-search-availability-connector.git",
@@ -2030,7 +2009,7 @@
         },
         {
             "name": "spryker/redirect",
-            "version": "dev-refactoring/transfer",
+            "version": "dev-master",
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/redirect.git",
@@ -2051,7 +2030,7 @@
         },
         {
             "name": "spryker/redirect-exporter",
-            "version": "dev-refactoring/transfer",
+            "version": "dev-master",
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/redirect-exporter.git",
@@ -2072,11 +2051,11 @@
         },
         {
             "name": "spryker/sales",
-            "version": "dev-refactoring/transfer",
+            "version": "dev-master",
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/sales.git",
-                "reference": "cba08bd0b6a9eef7e1af1c1ec0a8842c704bd137"
+                "reference": "3a67339f3b22a062a92a687fd2a6724ad08b99b0"
             },
             "type": "library",
             "autoload": {
@@ -2089,15 +2068,15 @@
                     "YvesUnit": "tests/"
                 }
             },
-            "time": "2015-04-30 06:10:03"
+            "time": "2015-04-30 13:59:27"
         },
         {
             "name": "spryker/salesrule",
-            "version": "dev-refactoring/transfer",
+            "version": "dev-master",
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/salesrule.git",
-                "reference": "699ce30fefd701e5e219b6e45f05386d28ee98fc"
+                "reference": "c317481dc6da08fbbfc70fec82798d7ccbcea470"
             },
             "type": "library",
             "autoload": {
@@ -2110,11 +2089,11 @@
                     "YvesUnit": "tests/"
                 }
             },
-            "time": "2015-04-30 06:10:03"
+            "time": "2015-04-30 13:59:27"
         },
         {
             "name": "spryker/sdk",
-            "version": "dev-refactoring/transfer",
+            "version": "dev-master",
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/sdk.git",
@@ -2135,7 +2114,7 @@
         },
         {
             "name": "spryker/search",
-            "version": "dev-refactoring/transfer",
+            "version": "dev-master",
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/search.git",
@@ -2156,11 +2135,11 @@
         },
         {
             "name": "spryker/search-page",
-            "version": "dev-refactoring/transfer",
+            "version": "dev-master",
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/search-page.git",
-                "reference": "4aeb048311762e2317128d957c0f92fad8369983"
+                "reference": "f4d4fadc2b06d13015b53ba8e6389ebd3c220b32"
             },
             "type": "library",
             "autoload": {
@@ -2173,15 +2152,15 @@
                     "YvesUnit": "tests/"
                 }
             },
-            "time": "2015-04-29 16:17:19"
+            "time": "2015-04-30 15:35:36"
         },
         {
             "name": "spryker/setup",
-            "version": "dev-refactoring/transfer",
+            "version": "dev-master",
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/setup.git",
-                "reference": "35f1239c3ed9c0fe535e9c0ee2b7e138c9ec0873"
+                "reference": "f31c74fb8d10598f8708d82aa1572c43a0cc8c68"
             },
             "type": "library",
             "autoload": {
@@ -2194,15 +2173,15 @@
                     "YvesUnit": "tests/"
                 }
             },
-            "time": "2015-04-28 14:01:58"
+            "time": "2015-04-30 14:54:39"
         },
         {
             "name": "spryker/stock",
-            "version": "dev-refactoring/transfer",
+            "version": "dev-master",
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/stock.git",
-                "reference": "8ac1c2a8b22d768f7f1b38c4dafdf746c1708ecb"
+                "reference": "ecadd461045b1187124714b6c8bb964edcaf7a46"
             },
             "type": "library",
             "autoload": {
@@ -2215,11 +2194,11 @@
                     "YvesUnit": "tests/"
                 }
             },
-            "time": "2015-04-30 06:10:03"
+            "time": "2015-04-30 13:17:42"
         },
         {
             "name": "spryker/stock-sales-connector",
-            "version": "dev-refactoring/transfer",
+            "version": "dev-master",
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/stock-sales-connector.git",
@@ -2240,7 +2219,7 @@
         },
         {
             "name": "spryker/system",
-            "version": "dev-refactoring/transfer",
+            "version": "dev-master",
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/system.git",
@@ -2261,7 +2240,7 @@
         },
         {
             "name": "spryker/touch",
-            "version": "dev-refactoring/transfer",
+            "version": "dev-master",
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/touch.git",
@@ -2282,7 +2261,7 @@
         },
         {
             "name": "spryker/twig",
-            "version": "dev-refactoring/transfer",
+            "version": "dev-master",
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/twig.git",
@@ -2303,11 +2282,11 @@
         },
         {
             "name": "spryker/ui",
-            "version": "dev-refactoring/transfer",
+            "version": "dev-master",
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/ui.git",
-                "reference": "7d9c0125047ff04c855c78c616e8366a0bd94e5f"
+                "reference": "d76eca4da859ad01f1c63313a59ee6b3b3e18549"
             },
             "type": "library",
             "autoload": {
@@ -2320,15 +2299,15 @@
                     "YvesUnit": "tests/"
                 }
             },
-            "time": "2015-04-29 14:57:22"
+            "time": "2015-04-30 09:21:13"
         },
         {
             "name": "spryker/ui-example",
-            "version": "dev-refactoring/transfer",
+            "version": "dev-master",
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/ui-example.git",
-                "reference": "cc6a78a5d816ad7b75d491cec0cf2a2706c57cb7"
+                "reference": "888d4d6026c5fc4661a725fc4d06b10855aa206f"
             },
             "type": "library",
             "autoload": {
@@ -2341,15 +2320,15 @@
                     "YvesUnit": "tests/"
                 }
             },
-            "time": "2015-04-29 12:51:34"
+            "time": "2015-04-30 09:24:14"
         },
         {
             "name": "spryker/url",
-            "version": "dev-refactoring/transfer",
+            "version": "dev-master",
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/url.git",
-                "reference": "80979f66087d348c0e8709b39837564cacf0c086"
+                "reference": "1a9ed1e1ed33e82394a685a5e6851423f52b83cf"
             },
             "type": "library",
             "autoload": {
@@ -2362,11 +2341,11 @@
                     "YvesUnit": "tests/"
                 }
             },
-            "time": "2015-04-30 06:10:03"
+            "time": "2015-04-30 13:17:43"
         },
         {
             "name": "spryker/url-exporter",
-            "version": "dev-refactoring/transfer",
+            "version": "dev-master",
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/url-exporter.git",
@@ -2387,11 +2366,11 @@
         },
         {
             "name": "spryker/user",
-            "version": "dev-refactoring/transfer",
+            "version": "dev-master",
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/user.git",
-                "reference": "087413dffc746dc6c7245d518cc24919b57f016d"
+                "reference": "5db1d63a2df5b66658560614925dec0fb8472be8"
             },
             "type": "library",
             "autoload": {
@@ -2404,11 +2383,11 @@
                     "YvesUnit": "tests/"
                 }
             },
-            "time": "2015-04-30 06:10:03"
+            "time": "2015-04-30 13:59:28"
         },
         {
             "name": "spryker/yves",
-            "version": "dev-refactoring/transfer",
+            "version": "dev-master",
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/yves.git",
@@ -2429,11 +2408,11 @@
         },
         {
             "name": "spryker/zed-request",
-            "version": "dev-refactoring/transfer",
+            "version": "dev-master",
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/zed-request.git",
-                "reference": "7399541e4fd2d63893afc4c86ffdf5b0b6c1a59b"
+                "reference": "4ed1826cdbb0d2c83e91ad0cd874529a61e834c1"
             },
             "type": "library",
             "autoload": {
@@ -2446,7 +2425,7 @@
                     "YvesUnit": "tests/"
                 }
             },
-            "time": "2015-04-30 08:38:12"
+            "time": "2015-04-30 13:17:44"
         },
         {
             "name": "symfony-cmf/routing",
@@ -4157,12 +4136,12 @@
             "version": "v1.5.0",
             "source": {
                 "type": "git",
-                "url": "https://github.com/Behat/Mink.git",
+                "url": "https://github.com/minkphp/Mink.git",
                 "reference": "0769e6d9726c140a54dbf827a438c0f9912749fe"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Behat/Mink/zipball/0769e6d9726c140a54dbf827a438c0f9912749fe",
+                "url": "https://api.github.com/repos/minkphp/Mink/zipball/0769e6d9726c140a54dbf827a438c0f9912749fe",
                 "reference": "0769e6d9726c140a54dbf827a438c0f9912749fe",
                 "shasum": ""
             },
@@ -4212,12 +4191,12 @@
             "version": "v1.1.0",
             "source": {
                 "type": "git",
-                "url": "https://github.com/Behat/MinkBrowserKitDriver.git",
+                "url": "https://github.com/minkphp/MinkBrowserKitDriver.git",
                 "reference": "63960c8fcad4529faad1ff33e950217980baa64c"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Behat/MinkBrowserKitDriver/zipball/63960c8fcad4529faad1ff33e950217980baa64c",
+                "url": "https://api.github.com/repos/minkphp/MinkBrowserKitDriver/zipball/63960c8fcad4529faad1ff33e950217980baa64c",
                 "reference": "63960c8fcad4529faad1ff33e950217980baa64c",
                 "shasum": ""
             },
@@ -4267,12 +4246,12 @@
             "version": "v1.0.9",
             "source": {
                 "type": "git",
-                "url": "https://github.com/Behat/MinkGoutteDriver.git",
+                "url": "https://github.com/minkphp/MinkGoutteDriver.git",
                 "reference": "fa1b073b48761464feb0b05e6825da44b20118d8"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Behat/MinkGoutteDriver/zipball/fa1b073b48761464feb0b05e6825da44b20118d8",
+                "url": "https://api.github.com/repos/minkphp/MinkGoutteDriver/zipball/fa1b073b48761464feb0b05e6825da44b20118d8",
                 "reference": "fa1b073b48761464feb0b05e6825da44b20118d8",
                 "shasum": ""
             },
@@ -4318,12 +4297,12 @@
             "version": "v1.1.1",
             "source": {
                 "type": "git",
-                "url": "https://github.com/Behat/MinkSelenium2Driver.git",
+                "url": "https://github.com/minkphp/MinkSelenium2Driver.git",
                 "reference": "bcf1b537de37db6db0822d9e7bd97e600fd7a476"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Behat/MinkSelenium2Driver/zipball/bcf1b537de37db6db0822d9e7bd97e600fd7a476",
+                "url": "https://api.github.com/repos/minkphp/MinkSelenium2Driver/zipball/bcf1b537de37db6db0822d9e7bd97e600fd7a476",
                 "reference": "bcf1b537de37db6db0822d9e7bd97e600fd7a476",
                 "shasum": ""
             },
@@ -5524,434 +5503,7 @@
             "time": "2015-03-23 08:31:13"
         }
     ],
-    "aliases": [
-        {
-            "alias": "master",
-            "alias_normalized": "9999999-dev",
-            "version": "dev-refactoring/transfer",
-            "package": "spryker/acl"
-        },
-        {
-            "alias": "master",
-            "alias_normalized": "9999999-dev",
-            "version": "dev-refactoring/transfer",
-            "package": "spryker/application"
-        },
-        {
-            "alias": "master",
-            "alias_normalized": "9999999-dev",
-            "version": "dev-refactoring/transfer",
-            "package": "spryker/assets"
-        },
-        {
-            "alias": "master",
-            "alias_normalized": "9999999-dev",
-            "version": "dev-refactoring/transfer",
-            "package": "spryker/auth"
-        },
-        {
-            "alias": "master",
-            "alias_normalized": "9999999-dev",
-            "version": "dev-refactoring/transfer",
-            "package": "spryker/availability"
-        },
-        {
-            "alias": "master",
-            "alias_normalized": "9999999-dev",
-            "version": "dev-refactoring/transfer",
-            "package": "spryker/availability-cart-connector"
-        },
-        {
-            "alias": "master",
-            "alias_normalized": "9999999-dev",
-            "version": "dev-refactoring/transfer",
-            "package": "spryker/availability-checkout-connector"
-        },
-        {
-            "alias": "master",
-            "alias_normalized": "9999999-dev",
-            "version": "dev-refactoring/transfer",
-            "package": "spryker/calculation"
-        },
-        {
-            "alias": "master",
-            "alias_normalized": "9999999-dev",
-            "version": "dev-refactoring/transfer",
-            "package": "spryker/cart"
-        },
-        {
-            "alias": "master",
-            "alias_normalized": "9999999-dev",
-            "version": "dev-refactoring/transfer",
-            "package": "spryker/cart2"
-        },
-        {
-            "alias": "master",
-            "alias_normalized": "9999999-dev",
-            "version": "dev-refactoring/transfer",
-            "package": "spryker/catalog"
-        },
-        {
-            "alias": "master",
-            "alias_normalized": "9999999-dev",
-            "version": "dev-refactoring/transfer",
-            "package": "spryker/category"
-        },
-        {
-            "alias": "master",
-            "alias_normalized": "9999999-dev",
-            "version": "dev-refactoring/transfer",
-            "package": "spryker/category-exporter"
-        },
-        {
-            "alias": "master",
-            "alias_normalized": "9999999-dev",
-            "version": "dev-refactoring/transfer",
-            "package": "spryker/checkout"
-        },
-        {
-            "alias": "master",
-            "alias_normalized": "9999999-dev",
-            "version": "dev-refactoring/transfer",
-            "package": "spryker/cms"
-        },
-        {
-            "alias": "master",
-            "alias_normalized": "9999999-dev",
-            "version": "dev-refactoring/transfer",
-            "package": "spryker/cms-exporter"
-        },
-        {
-            "alias": "master",
-            "alias_normalized": "9999999-dev",
-            "version": "dev-refactoring/transfer",
-            "package": "spryker/config"
-        },
-        {
-            "alias": "master",
-            "alias_normalized": "9999999-dev",
-            "version": "dev-refactoring/transfer",
-            "package": "spryker/console"
-        },
-        {
-            "alias": "master",
-            "alias_normalized": "9999999-dev",
-            "version": "dev-refactoring/transfer",
-            "package": "spryker/country"
-        },
-        {
-            "alias": "master",
-            "alias_normalized": "9999999-dev",
-            "version": "dev-refactoring/transfer",
-            "package": "spryker/customer"
-        },
-        {
-            "alias": "master",
-            "alias_normalized": "9999999-dev",
-            "version": "dev-refactoring/transfer",
-            "package": "spryker/customer-mail-connector"
-        },
-        {
-            "alias": "master",
-            "alias_normalized": "9999999-dev",
-            "version": "dev-refactoring/transfer",
-            "package": "spryker/db-dump"
-        },
-        {
-            "alias": "master",
-            "alias_normalized": "9999999-dev",
-            "version": "dev-refactoring/transfer",
-            "package": "spryker/discount"
-        },
-        {
-            "alias": "master",
-            "alias_normalized": "9999999-dev",
-            "version": "dev-refactoring/transfer",
-            "package": "spryker/discount-calculation-connector"
-        },
-        {
-            "alias": "master",
-            "alias_normalized": "9999999-dev",
-            "version": "dev-refactoring/transfer",
-            "package": "spryker/document"
-        },
-        {
-            "alias": "master",
-            "alias_normalized": "9999999-dev",
-            "version": "dev-refactoring/transfer",
-            "package": "spryker/frontend-exporter"
-        },
-        {
-            "alias": "master",
-            "alias_normalized": "9999999-dev",
-            "version": "dev-refactoring/transfer",
-            "package": "spryker/git"
-        },
-        {
-            "alias": "master",
-            "alias_normalized": "9999999-dev",
-            "version": "dev-refactoring/transfer",
-            "package": "spryker/glossary"
-        },
-        {
-            "alias": "master",
-            "alias_normalized": "9999999-dev",
-            "version": "dev-refactoring/transfer",
-            "package": "spryker/glossary-exporter"
-        },
-        {
-            "alias": "master",
-            "alias_normalized": "9999999-dev",
-            "version": "dev-refactoring/transfer",
-            "package": "spryker/installer"
-        },
-        {
-            "alias": "master",
-            "alias_normalized": "9999999-dev",
-            "version": "dev-refactoring/transfer",
-            "package": "spryker/invoice"
-        },
-        {
-            "alias": "master",
-            "alias_normalized": "9999999-dev",
-            "version": "dev-refactoring/transfer",
-            "package": "spryker/kernel"
-        },
-        {
-            "alias": "master",
-            "alias_normalized": "9999999-dev",
-            "version": "dev-refactoring/transfer",
-            "package": "spryker/kv-storage"
-        },
-        {
-            "alias": "master",
-            "alias_normalized": "9999999-dev",
-            "version": "dev-refactoring/transfer",
-            "package": "spryker/library"
-        },
-        {
-            "alias": "master",
-            "alias_normalized": "9999999-dev",
-            "version": "dev-refactoring/transfer",
-            "package": "spryker/locale"
-        },
-        {
-            "alias": "master",
-            "alias_normalized": "9999999-dev",
-            "version": "dev-refactoring/transfer",
-            "package": "spryker/lumberjack"
-        },
-        {
-            "alias": "master",
-            "alias_normalized": "9999999-dev",
-            "version": "dev-refactoring/transfer",
-            "package": "spryker/mail"
-        },
-        {
-            "alias": "master",
-            "alias_normalized": "9999999-dev",
-            "version": "dev-refactoring/transfer",
-            "package": "spryker/oms"
-        },
-        {
-            "alias": "master",
-            "alias_normalized": "9999999-dev",
-            "version": "dev-refactoring/transfer",
-            "package": "spryker/price"
-        },
-        {
-            "alias": "master",
-            "alias_normalized": "9999999-dev",
-            "version": "dev-refactoring/transfer",
-            "package": "spryker/price-cart-connector"
-        },
-        {
-            "alias": "master",
-            "alias_normalized": "9999999-dev",
-            "version": "dev-refactoring/transfer",
-            "package": "spryker/product"
-        },
-        {
-            "alias": "master",
-            "alias_normalized": "9999999-dev",
-            "version": "dev-refactoring/transfer",
-            "package": "spryker/product-category"
-        },
-        {
-            "alias": "master",
-            "alias_normalized": "9999999-dev",
-            "version": "dev-refactoring/transfer",
-            "package": "spryker/product-category-frontend-exporter-connector"
-        },
-        {
-            "alias": "master",
-            "alias_normalized": "9999999-dev",
-            "version": "dev-refactoring/transfer",
-            "package": "spryker/product-category-search"
-        },
-        {
-            "alias": "master",
-            "alias_normalized": "9999999-dev",
-            "version": "dev-refactoring/transfer",
-            "package": "spryker/product-exporter"
-        },
-        {
-            "alias": "master",
-            "alias_normalized": "9999999-dev",
-            "version": "dev-refactoring/transfer",
-            "package": "spryker/product-frontend-exporter-availability-connector"
-        },
-        {
-            "alias": "master",
-            "alias_normalized": "9999999-dev",
-            "version": "dev-refactoring/transfer",
-            "package": "spryker/product-frontend-exporter-connector"
-        },
-        {
-            "alias": "master",
-            "alias_normalized": "9999999-dev",
-            "version": "dev-refactoring/transfer",
-            "package": "spryker/product-frontend-exporter-price-connector"
-        },
-        {
-            "alias": "master",
-            "alias_normalized": "9999999-dev",
-            "version": "dev-refactoring/transfer",
-            "package": "spryker/product-image"
-        },
-        {
-            "alias": "master",
-            "alias_normalized": "9999999-dev",
-            "version": "dev-refactoring/transfer",
-            "package": "spryker/product-search"
-        },
-        {
-            "alias": "master",
-            "alias_normalized": "9999999-dev",
-            "version": "dev-refactoring/transfer",
-            "package": "spryker/product-search-availability-connector"
-        },
-        {
-            "alias": "master",
-            "alias_normalized": "9999999-dev",
-            "version": "dev-refactoring/transfer",
-            "package": "spryker/redirect"
-        },
-        {
-            "alias": "master",
-            "alias_normalized": "9999999-dev",
-            "version": "dev-refactoring/transfer",
-            "package": "spryker/redirect-exporter"
-        },
-        {
-            "alias": "master",
-            "alias_normalized": "9999999-dev",
-            "version": "dev-refactoring/transfer",
-            "package": "spryker/sales"
-        },
-        {
-            "alias": "master",
-            "alias_normalized": "9999999-dev",
-            "version": "dev-refactoring/transfer",
-            "package": "spryker/salesrule"
-        },
-        {
-            "alias": "master",
-            "alias_normalized": "9999999-dev",
-            "version": "dev-refactoring/transfer",
-            "package": "spryker/sdk"
-        },
-        {
-            "alias": "master",
-            "alias_normalized": "9999999-dev",
-            "version": "dev-refactoring/transfer",
-            "package": "spryker/search"
-        },
-        {
-            "alias": "master",
-            "alias_normalized": "9999999-dev",
-            "version": "dev-refactoring/transfer",
-            "package": "spryker/search-page"
-        },
-        {
-            "alias": "master",
-            "alias_normalized": "9999999-dev",
-            "version": "dev-refactoring/transfer",
-            "package": "spryker/setup"
-        },
-        {
-            "alias": "master",
-            "alias_normalized": "9999999-dev",
-            "version": "dev-refactoring/transfer",
-            "package": "spryker/stock"
-        },
-        {
-            "alias": "master",
-            "alias_normalized": "9999999-dev",
-            "version": "dev-refactoring/transfer",
-            "package": "spryker/stock-sales-connector"
-        },
-        {
-            "alias": "master",
-            "alias_normalized": "9999999-dev",
-            "version": "dev-refactoring/transfer",
-            "package": "spryker/system"
-        },
-        {
-            "alias": "master",
-            "alias_normalized": "9999999-dev",
-            "version": "dev-refactoring/transfer",
-            "package": "spryker/touch"
-        },
-        {
-            "alias": "master",
-            "alias_normalized": "9999999-dev",
-            "version": "dev-refactoring/transfer",
-            "package": "spryker/twig"
-        },
-        {
-            "alias": "master",
-            "alias_normalized": "9999999-dev",
-            "version": "dev-refactoring/transfer",
-            "package": "spryker/ui"
-        },
-        {
-            "alias": "master",
-            "alias_normalized": "9999999-dev",
-            "version": "dev-refactoring/transfer",
-            "package": "spryker/ui-example"
-        },
-        {
-            "alias": "master",
-            "alias_normalized": "9999999-dev",
-            "version": "dev-refactoring/transfer",
-            "package": "spryker/url"
-        },
-        {
-            "alias": "master",
-            "alias_normalized": "9999999-dev",
-            "version": "dev-refactoring/transfer",
-            "package": "spryker/url-exporter"
-        },
-        {
-            "alias": "master",
-            "alias_normalized": "9999999-dev",
-            "version": "dev-refactoring/transfer",
-            "package": "spryker/user"
-        },
-        {
-            "alias": "master",
-            "alias_normalized": "9999999-dev",
-            "version": "dev-refactoring/transfer",
-            "package": "spryker/yves"
-        },
-        {
-            "alias": "master",
-            "alias_normalized": "9999999-dev",
-            "version": "dev-refactoring/transfer",
-            "package": "spryker/zed-request"
-        }
-    ],
+    "aliases": [],
     "minimum-stability": "stable",
     "stability-flags": {
         "spryker/acl": 20,
@@ -5963,7 +5515,6 @@
         "spryker/availability-checkout-connector": 20,
         "spryker/calculation": 20,
         "spryker/cart": 20,
-        "spryker/cart2": 20,
         "spryker/catalog": 20,
         "spryker/category": 20,
         "spryker/category-exporter": 20,

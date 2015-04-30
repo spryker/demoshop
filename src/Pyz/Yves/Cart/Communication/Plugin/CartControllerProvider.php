@@ -11,7 +11,7 @@ use Symfony\Component\HttpFoundation\Request;
  * Class CartControllerProvider
  * @package Pyz\Yves\Cart\Communication\Plugin
  */
-class CartControllerProvider extends \SprykerEngine\Yves\Application\Communication\Plugin\YvesControllerProvider
+class CartControllerProvider extends YvesControllerProvider
 {
     const ROUTE_CART = 'cart';
     const ROUTE_CART_ADD = 'cart/add';
@@ -28,8 +28,10 @@ class CartControllerProvider extends \SprykerEngine\Yves\Application\Communicati
         $this->createGetController('/cart', self::ROUTE_CART, 'Cart', 'Cart');
 
         $this->createGetController('/cart/add/{sku}', self::ROUTE_CART_ADD, 'Cart', 'Cart', 'add')
-            ->assert('sku', '[a-zA-Z0-9-_]+') // sku
-            ->convert('cartItem', [$this, 'convertCartItem']);
+            ->assert('sku', '[a-zA-Z0-9-_]+')
+            //->convert('sku', [$this, 'getSkuFromRequest'])
+            ->convert('quantity', [$this, 'getQuantityFromRequest']);
+
 
         $this->createPostController('/cart/add/{sku}', self::ROUTE_CART_ADD_POST, 'Cart', 'Ajax', 'add', true)
             ->assert('sku', '[a-zA-Z0-9-_]+') // sku
@@ -71,26 +73,13 @@ class CartControllerProvider extends \SprykerEngine\Yves\Application\Communicati
     }
 
     /**
-     * @param mixed   $unused
+     * @param mixed $unusedParameter
      * @param Request $request
-     * @return \SprykerFeature\Shared\Cart\Transfer\CartItem
+     *
+     * @return int
      */
-    public function convertCartItem($unused, Request $request)
+    public function getQuantityFromRequest($unusedParameter, Request $request)
     {
-        $quantity = $request->query->get('quantity', $request->request->get('quantity', 1));
-        $sku = $request->attributes->get('sku');
-        $locator = Locator::getInstance();
-        if (false == $request->attributes->get('absolute')) {
-            $cart = $locator->cart()->pluginCartSession()->createCartSession($this->getTransferSession());
-            $quantityInCart = $cart->getQuantityBySku($sku);
-            $quantity += $quantityInCart;
-        }
-
-        return $locator->cart()->sdk()->createCartItem(
-            $sku,
-            $quantity,
-            $request->attributes->get('uid'),
-            $request->query->get('options', $request->request->get('options', []))
-        );
+        return (int) $request->query->get('quantity', 1);
     }
 }

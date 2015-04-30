@@ -9,7 +9,6 @@
     "spryker/availability-checkout-connector": "dev-master",
     "spryker/calculation": "dev-master",
     "spryker/cart": "dev-master",
-    "spryker/cart2": "dev-master",
     "spryker/catalog": "dev-master",
     "spryker/category": "dev-master",
     "spryker/category-exporter": "dev-master",
