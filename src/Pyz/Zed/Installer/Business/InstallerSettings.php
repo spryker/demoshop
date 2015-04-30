@@ -21,7 +21,8 @@ class InstallerSettings extends SprykerInstallerSettings
             $this->locator->locale()->pluginInstaller(),
             $this->locator->country()->pluginInstaller(),
             $this->locator->user()->pluginInstaller(),
-            $this->locator->acl()->pluginInstaller()
+            $this->locator->acl()->pluginInstaller(),
+
         ];
     }
 
@@ -37,7 +38,7 @@ class InstallerSettings extends SprykerInstallerSettings
             $this->locator->productCategory()->pluginDemoDataInstaller(),
             $this->locator->price()->pluginDemoDataInstaller(),
             $this->locator->productSearch()->pluginDemoDataInstaller(),
-            $this->locator->stock()->pluginDemoDataInstaller()
+            $this->locator->stock()->pluginDemoDataInstaller(),
         ];
     }
 }

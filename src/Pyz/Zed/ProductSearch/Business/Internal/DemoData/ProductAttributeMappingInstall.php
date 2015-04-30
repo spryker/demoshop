@@ -139,7 +139,7 @@ class ProductAttributeMappingInstall extends AbstractInstaller
 
     protected function makeProductsSearchable()
     {
-        $idLocale = $this->localeFacade->getCurrentIdLocale();
+        $idLocale = $this->localeFacade->getCurrentLocale()->getIdLocale();
         $products = SpyProductQuery::create()->find();
 
         /** @var SpyProduct $product */

@@ -2,6 +2,7 @@
 
 namespace Pyz\Zed\Product\Business\Internal\DemoData;
 
+use SprykerEngine\Shared\Dto\LocaleDto;
 use SprykerFeature\Zed\Installer\Business\Model\AbstractInstaller;
 use SprykerFeature\Zed\Product\Business\Attribute\AttributeManagerInterface;
 use SprykerFeature\Zed\Product\Business\Importer\Reader\File\IteratorReaderInterface;
@@ -72,7 +73,7 @@ class ProductDataInstall extends AbstractInstaller
 
     protected function createProducts()
     {
-        $fkCurrentLocale = $this->localeFacade->getCurrentIdLocale();
+        $currentLocale = $this->localeFacade->getCurrentLocale();
         foreach ($this->getProductsFromFile() as $currentAbstractProduct) {
             $sku = $currentAbstractProduct['sku'];
 
@@ -81,22 +82,22 @@ class ProductDataInstall extends AbstractInstaller
             }
 
             $idAbstractProduct = $this->productManager->createAbstractProduct($sku);
-            $this->productManager->createAbstractProductAttributes($idAbstractProduct, $fkCurrentLocale, $currentAbstractProduct['name'], $currentAbstractProduct['attributes']);
-            $this->createConcreteProducts($currentAbstractProduct['products'], $idAbstractProduct, $fkCurrentLocale);
+            $this->productManager->createAbstractProductAttributes($idAbstractProduct, $currentLocale, $currentAbstractProduct['name'], $currentAbstractProduct['attributes']);
+            $this->createConcreteProducts($currentAbstractProduct['products'], $idAbstractProduct, $currentLocale);
         }
     }
 
     /**
      * @param array $products
      * @param int $idAbstractProduct
-     * @param int $fkCurrentLocale
+     * @param LocaleDto $currentLocale
      */
-    protected function createConcreteProducts(array $products, $idAbstractProduct, $fkCurrentLocale)
+    protected function createConcreteProducts(array $products, $idAbstractProduct, LocaleDto $currentLocale)
     {
         foreach ($products as $concreteProduct) {
             $idConcreteProduct = $this->productManager->createConcreteProduct($concreteProduct['sku'], $idAbstractProduct, true);
-            $this->productManager->createConcreteProductAttributes($idConcreteProduct, $fkCurrentLocale, $concreteProduct['name'], $concreteProduct['attributes']);
-            $this->productManager->createAndTouchProductUrlByIds($idConcreteProduct, '/' . str_replace(' ', '-', trim($concreteProduct['name'])), $fkCurrentLocale);
+            $this->productManager->createConcreteProductAttributes($idConcreteProduct, $currentLocale, $concreteProduct['name'], $concreteProduct['attributes']);
+            $this->productManager->createAndTouchProductUrlByIdProduct($idConcreteProduct, '/' . str_replace(' ', '-', trim($concreteProduct['name'])), $currentLocale);
             $this->productManager->touchProductActive($idConcreteProduct);
         }
     }

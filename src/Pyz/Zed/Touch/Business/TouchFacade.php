@@ -10,6 +10,7 @@ use SprykerFeature\Zed\Category\Dependency\Facade\CategoryToTouchInterface;
 use SprykerFeature\Zed\Price\Dependency\Facade\PriceToTouchInterface;
 use SprykerFeature\Zed\Product\Dependency\Facade\ProductToTouchInterface;
 use SprykerFeature\Zed\ProductSearch\Dependency\Facade\ProductSearchToTouchInterface;
+use SprykerFeature\Zed\SearchPage\Dependency\Facade\SearchPageToTouchInterface;
 use SprykerFeature\Zed\Stock\Dependency\Facade\StockToTouchInterface;
 use SprykerEngine\Zed\Touch\Business\TouchFacade as SprykerTouchFacade;
 use SprykerFeature\Zed\Cms\Dependency\Facade\CmsToTouchInterface;
@@ -24,7 +25,8 @@ class TouchFacade extends SprykerTouchFacade implements
     PriceToTouchInterface,
     ProductToTouchInterface,
     UrlToTouchInterface,
-    StockToTouchInterface
+    StockToTouchInterface,
+    SearchPageToTouchInterface
 {
 
 }

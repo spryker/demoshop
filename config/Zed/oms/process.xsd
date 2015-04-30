@@ -4,7 +4,7 @@
     <xs:complexType name="processType" mixed="true">
         <xs:sequence>
             <xs:element type="subprocessesType" name="subprocesses" minOccurs="0"/>
-            <xs:element type="statusesType" name="statuses" minOccurs="0">
+            <xs:element type="statesType" name="states" minOccurs="0">
                 <xs:annotation>
                     <xs:documentation>TODO exclude from invoice</xs:documentation>
                 </xs:annotation>
@@ -20,9 +20,9 @@
         <xs:attribute type="xs:string" name="main" use="optional"/>
         <xs:attribute type="xs:string" name="file" use="optional"/>
     </xs:complexType>
-    <xs:complexType name="statusesType">
+    <xs:complexType name="statesType">
         <xs:sequence>
-            <xs:element type="statusType" name="status" maxOccurs="unbounded" minOccurs="0"/>
+            <xs:element type="stateType" name="state" maxOccurs="unbounded" minOccurs="0"/>
         </xs:sequence>
     </xs:complexType>
     <xs:complexType name="transitionsType">
@@ -30,7 +30,7 @@
             <xs:element type="transitionType" name="transition" maxOccurs="unbounded" minOccurs="0"/>
         </xs:sequence>
     </xs:complexType>
-    <xs:complexType name="statusType" mixed="true">
+    <xs:complexType name="stateType" mixed="true">
         <xs:sequence>
             <xs:element name="flag" maxOccurs="unbounded" minOccurs="0">
                 <xs:simpleType>

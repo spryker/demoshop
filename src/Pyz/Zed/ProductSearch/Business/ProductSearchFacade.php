@@ -13,8 +13,9 @@ class ProductSearchFacade extends SprykerProductSearchFacade implements ProductC
 {
 
     /**
-     * @param $data
-     * @param $locale
+     * @param mixed $data
+     * @param string $locale
+     *
      * @return string
      */
     public function buildProductKey($data, $locale)

@@ -1,10 +1,10 @@
 <?php
 
+namespace Pyz\Zed\ProductCategory;
 
-namespace Pyz\Zed\ProductCategory\Business;
+use SprykerEngine\Zed\Kernel\AbstractBundleConfig;
 
-
-class ProductCategorySettings
+class ProductCategoryConfig extends AbstractBundleConfig
 {
     /**
      * @return string

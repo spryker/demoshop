@@ -11,7 +11,7 @@
   "scripts": {
     "spy-run-shop-zed"  : "gulp --gulpfile config/Zed/gulpfile.js --cwd .",
     "spy-run-shop-yves" : "gulp --gulpfile config/Yves/gulpfile.js --cwd .",
-    "spy-install-core"  : "cd ./vendor/spryker/zed-package && npm run spy-install",
+    "spy-install-core"  : "cd ./vendor/spryker/ui && npm run spy-build",
     "spy-install-shop"  : "npm install && npm run spy-run-shop-zed dist && npm run spy-run-shop-yves dist",
     "spy-install"       : "npm run spy-install-core && npm run spy-install-shop"
   },

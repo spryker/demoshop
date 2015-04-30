@@ -7,9 +7,11 @@ use SprykerFeature\Zed\Product\Business\Builder\SimpleAttributeMergeBuilder;
 use SprykerFeature\Zed\Product\Business\ProductDependencyContainer as SprykerDependencyContainer;
 use Psr\Log\LoggerInterface;
 use Pyz\Zed\Product\Business\Internal\DemoData\ProductDataInstall;
+use Pyz\Zed\Product\ProductConfig;
 
 /**
  * @method ProductBusiness getFactory()
+ * @method ProductConfig getConfig()
  */
 class ProductDependencyContainer extends SprykerDependencyContainer
 {
@@ -33,18 +35,11 @@ class ProductDependencyContainer extends SprykerDependencyContainer
             $this->createProductManager(),
             $this->createLocaleFacade(),
             $this->createCSVReader(),
-            $this->createSettings()->getDemoDataPath()
+            $this->getConfig()->getDemoDataPath()
         );
         $installer->setMessenger($messenger);
 
         return $installer;
     }
 
-    /**
-     * @return ProductSettings
-     */
-    public function createSettings()
-    {
-        return $this->getFactory()->createProductSettings();
-    }
 }
