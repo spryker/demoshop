@@ -3,6 +3,7 @@
 namespace Pyz\Yves\Application\Communication;
 
 use Generated\Yves\Ide\AutoCompletion;
+use Pyz\Yves\Cart\Communication\Plugin\CartControllerProvider;
 use SprykerFeature\Shared\Application\Business\Application;
 use SprykerFeature\Shared\Application\Communication\Plugin\ServiceProvider\RoutingServiceProvider;
 use SprykerFeature\Shared\Application\Communication\Plugin\ServiceProvider\UrlGeneratorServiceProvider;
@@ -14,7 +15,6 @@ use SprykerEngine\Yves\Application\Business\YvesBootstrap as SprykerYvesBootstra
 use SprykerEngine\Yves\Application\Communication\Plugin\ControllerProviderInterface;
 use Pyz\Yves\Checkout\Communication\Plugin\CheckoutControllerProvider;
 use Pyz\Yves\Customer\Communication\Plugin\CustomerControllerProvider;
-use Pyz\Yves\Cart\Communication\Plugin\CartControllerProvider;
 use Pyz\Yves\Application\Communication\Plugin\ApplicationControllerProvider;
 use SprykerEngine\Yves\Application\Communication\Plugin\ServiceProvider\CookieServiceProvider;
 use SprykerEngine\Yves\Application\Communication\Plugin\ServiceProvider\MonologServiceProvider;
@@ -25,7 +25,6 @@ use SprykerFeature\Yves\Customer\Provider\SecurityServiceProvider;
 
 use SprykerFeature\Shared\Application\Business\Routing\SilexRouter;
 
-use SprykerFeature\Yves\Library\Tracking\Tracking;
 use Silex\Provider\FormServiceProvider;
 use Silex\Provider\ServiceControllerServiceProvider;
 use Silex\Provider\RememberMeServiceProvider;
@@ -116,6 +115,7 @@ class YvesBootstrap extends SprykerYvesBootstrap
             new ApplicationControllerProvider(false),
             new CheckoutControllerProvider($ssl),
             new CustomerControllerProvider($ssl),
+            new CartControllerProvider($ssl)
         ];
     }
 

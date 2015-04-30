@@ -10,7 +10,6 @@ include:
  - vendor/spryker/availability-checkout-connector/
  - vendor/spryker/calculation/
  - vendor/spryker/cart/
- - vendor/spryker/cart2/
  - vendor/spryker/catalog/
  - vendor/spryker/category/
  - vendor/spryker/category-exporter/
