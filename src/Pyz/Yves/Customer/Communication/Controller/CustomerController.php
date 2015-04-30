@@ -21,7 +21,7 @@ class CustomerController extends AbstractController
         $form = $this->createForm($this->getDependencyContainer()->createFormForgot());
 
         if ($form->isValid()) {
-            $customerTransfer = $this->getLocator()->customer()->transferCustomer();
+            $customerTransfer = new \Generated\Shared\Transfer\CustomerCustomerTransfer();
             $customerTransfer->fromArray($form->getData());
             $this->getLocator()->customer()->sdk()->forgotPassword($customerTransfer);
             $this->addMessageSuccess(Messages::CUSTOMER_PASSWORD_RECOVERY_MAIL_SENT);
@@ -42,7 +42,7 @@ class CustomerController extends AbstractController
         $form = $this->createForm($this->getDependencyContainer()->createFormRestore());
 
         if ($form->isValid()) {
-            $customerTransfer = $this->getLocator()->customer()->transferCustomer();
+            $customerTransfer = new \Generated\Shared\Transfer\CustomerCustomerTransfer();
             $customerTransfer->setRestorePasswordKey($request->query->get('token'));
             $this->getLocator()->customer()->sdk()->restorePassword($customerTransfer);
             $this->getLocator()->customer()
@@ -66,7 +66,7 @@ class CustomerController extends AbstractController
         $form = $this->createForm($this->getDependencyContainer()->createFormDelete());
 
         if ($form->isValid()) {
-            $customerTransfer = $this->getLocator()->customer()->transferCustomer();
+            $customerTransfer = new \Generated\Shared\Transfer\CustomerCustomerTransfer();
             $customerTransfer->setEmail($this->getUsername());
             if ($this->getLocator()->customer()->sdk()->deleteCustomer($customerTransfer)) {
                 $this->getLocator()->customer()
@@ -88,7 +88,7 @@ class CustomerController extends AbstractController
      */
     public function profileAction()
     {
-        $customerTransfer = $this->getLocator()->customer()->transferCustomer();
+        $customerTransfer = new \Generated\Shared\Transfer\CustomerCustomerTransfer();
 
         $form = $this->createForm($this->getDependencyContainer()->createFormProfile());
 

@@ -28,7 +28,7 @@ abstract class AbstractAddressType extends AbstractType
      */
     public function setDefaultOptions(OptionsResolverInterface $resolver)
     {
-        $resolver->setDefaults(['data_class' => get_class($this->locator->sales()->transferAddress())]);
+        $resolver->setDefaults(['data_class' => get_class(new \Generated\Shared\Transfer\SalesAddressTransfer())]);
     }
 
     /**

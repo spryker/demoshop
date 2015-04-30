@@ -32,7 +32,7 @@ class AddressController extends AbstractController
         $form = $this->createForm($this->getDependencyContainer()->createFormAddress());
 
         if ($form->isValid()) {
-            $addressTransfer = $this->getLocator()->customer()->transferAddress();
+            $addressTransfer = new \Generated\Shared\Transfer\CustomerAddressTransfer();
             $addressTransfer->fromArray($form->getData());
             $addressTransfer->setEmail($this->getUsername());
             $addressTransfer->setIdCustomerAddress($addressId);
@@ -47,7 +47,7 @@ class AddressController extends AbstractController
             return $this->redirectResponseInternal(CustomerControllerProvider::ROUTE_CUSTOMER_ADDRESS);
         }
 
-        $addressTransfer = $this->getLocator()->customer()->transferAddress();
+        $addressTransfer = new \Generated\Shared\Transfer\CustomerAddressTransfer();
         $addressTransfer->setEmail($this->getUsername());
         $addressTransfer->setIdCustomerAddress($addressId);
         $addressTransfer = $this->getLocator()->customer()->sdk()->getAddress($addressTransfer);
@@ -68,7 +68,7 @@ class AddressController extends AbstractController
         $form = $this->createForm($this->getDependencyContainer()->createFormAddress());
 
         if ($form->isValid()) {
-            $addressTransfer = $this->getLocator()->customer()->transferAddress();
+            $addressTransfer = new \Generated\Shared\Transfer\CustomerAddressTransfer();
             $addressTransfer->fromArray($form->getData());
             $addressTransfer->setEmail($this->getUsername());
             $addressTransfer = $this->getLocator()->customer()->sdk()->newAddress($addressTransfer);
@@ -82,7 +82,7 @@ class AddressController extends AbstractController
             return $this->redirectResponseInternal(CustomerControllerProvider::ROUTE_CUSTOMER_NEW_ADDRESS);
         }
 
-        $customerTransfer = $this->getLocator()->customer()->transferCustomer();
+        $customerTransfer = new \Generated\Shared\Transfer\CustomerCustomerTransfer();
         $customerTransfer->setEmail($this->getUsername());
         $customerTransfer = $this->getLocator()->customer()->sdk()->getCustomer($customerTransfer);
         $form->setData($customerTransfer->toArray());
@@ -98,7 +98,7 @@ class AddressController extends AbstractController
     public function deleteAction(Request $request)
     {
         if ($request->isMethod('POST')) {
-            $addressTransfer = $this->getLocator()->customer()->transferAddress();
+            $addressTransfer = new \Generated\Shared\Transfer\CustomerAddressTransfer();
             $addressTransfer->setIdCustomerAddress($request->query->get('id'));
             $addressTransfer->setEmail($this->getUsername());
             $deletion = $this->getLocator()->customer()->sdk()->deleteAddress($addressTransfer);
@@ -107,7 +107,7 @@ class AddressController extends AbstractController
             } else {
                 $this->addMessageError(Messages::CUSTOMER_ADDRESS_DELETE_FAILED);
             }
-            $addressTransfer = $this->getLocator()->customer()->transferAddress();
+            $addressTransfer = new \Generated\Shared\Transfer\CustomerAddressTransfer();
             $addressTransfer->setIdCustomerAddress($request->query->get('id'));
             $addressTransfer->setEmail($this->getUsername());
             $deletion = $this->getLocator()->customer()->sdk()->deleteAddress($addressTransfer);

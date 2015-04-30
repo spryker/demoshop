@@ -117,7 +117,7 @@ class StockInstall extends AbstractInstaller
      */
     protected function createStockTypeTransfer(array $row)
     {
-        $stockType = $this->locator->stock()->transferStockType();
+        $stockType = new \Generated\Shared\Transfer\StockStockTypeTransfer();
         $stockType->setName($row[self::STOCK_TYPE]);
 
         return $stockType;
@@ -131,7 +131,7 @@ class StockInstall extends AbstractInstaller
      */
     protected function createStockProductTransfer(array $row, StockType $stockType)
     {
-        $transferStockProduct = $this->locator->stock()->transferStockProduct();
+        $transferStockProduct = new \Generated\Shared\Transfer\StockStockProductTransfer();
         $transferStockProduct->setSku($row[self::SKU])
             ->setIsNeverOutOfStock($row[self::NEVER_OUT_OF_STOCK])
             ->setQuantity($row[self::QUANTITY])

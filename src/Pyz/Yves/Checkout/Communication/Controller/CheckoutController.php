@@ -100,7 +100,7 @@ class CheckoutController extends AbstractController
                 \SprykerFeature_Shared_Checkout_Code_Messages::ERROR_ORDER_IS_ALREADY_SAVED
             )
             ) {
-                $cart->setOrder($this->getLocator()->sales()->transferSalesOrder());
+                $cart->setOrder(new \Generated\Shared\Transfer\SalesSalesOrderTransfer());
                 return $this->redirectResponseInternal(CartControllerProvider::ROUTE_CART);
             }
         }
@@ -127,12 +127,12 @@ class CheckoutController extends AbstractController
         // This is really ugly, but i need this to have valid data for the payment control
         // This needs to be refactored after discussion...
         $all = $request->request->all();
-        $billingAddress = $this->getLocator()->sales()->transferAddress();
+        $billingAddress = new \Generated\Shared\Transfer\SalesAddressTransfer();
         if (isset($all['salesOrder']) && isset($all['salesOrder']['billingAddress'])) {
             $billingAddress->fromArray($all['salesOrder']['billingAddress'], true);
         }
 
-        $shippingAddress = $this->getLocator()->sales()->transferAddress();
+        $shippingAddress = new \Generated\Shared\Transfer\SalesAddressTransfer();
         if (isset($all['salesOrder']) && isset($all['salesOrder']['shippingAddress'])) {
             $shippingAddress->fromArray($all['salesOrder']['shippingAddress'], true);
         }
