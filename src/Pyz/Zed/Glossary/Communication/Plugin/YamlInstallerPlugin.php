@@ -6,7 +6,7 @@
 
 namespace Pyz\Zed\Glossary\Communication\Plugin;
 
-use SprykerEngine\Shared\Dto\LocaleDto;
+use SprykerEngine\Shared\Locale\Dto\LocaleDto;
 use SprykerEngine\Zed\Kernel\Communication\AbstractPlugin;
 use SprykerFeature\Zed\Glossary\Communication\GlossaryDependencyContainer;
 use SprykerFeature\Zed\Glossary\Dependency\Plugin\GlossaryInstallerPluginInterface;
