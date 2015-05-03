@@ -32,6 +32,7 @@ return [
         'Glossary' => $schema,
         'Lumberjack' => $navigation,
         'Oms' => $schema,
+        'Payone' => $schema,
         'Price' => $schemaAndNavigation,
         'Product' => $schemaAndNavigation,
         'ProductCategory' => $schema,
