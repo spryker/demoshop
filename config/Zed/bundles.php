@@ -22,7 +22,7 @@ return [
         'Auth' => $schema,
         'Acl' => $schema,
         'User' => $schema,
-        'Cart' => $schema,
+//        'Cart' => $schema,
         'Cms' => $schema,
         'Category' => $schemaAndNavigation,
         'Country' => $schema,
