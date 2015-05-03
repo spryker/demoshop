@@ -63,7 +63,7 @@ class TransferToXml extends AbstractRefactorer
             $filter = new CamelCaseToDash();
             $filteredBundleName = strtolower($filter->filter($bundle));
 
-            $fileName = __DIR__ . '/../vendor/spryker/' . $filteredBundleName . '/src/SprykerFeature/Shared/' . $bundle . '/Transfer/transferDefinition.xml';
+            $fileName = __DIR__ . '/../vendor/spryker/spryker/Bundles/' . $bundle . '/src/SprykerFeature/Shared/' . $bundle . '/Transfer/transferDefinition.xml';
             $dir = dirname($fileName);
             if (!is_dir($dir)) {
                 mkdir($dir, 0777, true);
@@ -81,8 +81,8 @@ class TransferToXml extends AbstractRefactorer
     {
         $finder = new Finder();
         $finder->files()
-            ->in(__DIR__ . '/../vendor/spryker/*/src/*/Shared/*/Transfer/')
-            ->exclude(__DIR__ . '/../vendor/spryker/system/src/')
+            ->in(__DIR__ . '/../vendor/spryker/spryker/Bundles/*/src/*/Shared/*/Transfer/')
+            ->exclude(__DIR__ . '/../vendor/spryker/spryker/Bundles/System/src/')
             ->name('*.php')
             ->notName('*Collection.php')
             ->notName('*Interface.php')

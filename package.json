@@ -11,7 +11,7 @@
   "scripts": {
     "spy-task-zed"      : "npm install && gulp --gulpfile config/Zed/gulpfile.js --cwd .",
     "spy-task-yves"     : "npm install && gulp --gulpfile config/Yves/gulpfile.js --cwd .",
-    "spy-install-core"  : "cd ./vendor/spryker/ui && npm run spy-build",
+    "spy-install-core"  : "cd ./vendor/spryker/spryker/Bundles/Ui && npm run spy-build",
     "spy-install-proj"  : "npm install && npm run spy-task-zed dist && npm run spy-task-yves dist",
     "spy-install"       : "npm run spy-install-core && npm run spy-install-proj"
   },

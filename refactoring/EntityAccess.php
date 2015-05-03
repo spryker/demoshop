@@ -41,8 +41,8 @@ class EntityAccess extends AbstractRefactorer
         $finder->files()
             ->in(__DIR__ . '/../src/Pyz/')
             ->in(__DIR__ . '/../tests/')
-            ->in(__DIR__ . '/../vendor/spryker/*/src/')
-            ->in(__DIR__ . '/../vendor/spryker/*/tests/')
+            ->in(__DIR__ . '/../vendor/spryker/spryker/Bundles/*/src/')
+            ->in(__DIR__ . '/../vendor/spryker/spryker/Bundles/*/tests/')
             ->name('*.php')
         ;
 
