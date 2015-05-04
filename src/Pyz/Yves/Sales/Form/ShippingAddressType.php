@@ -8,10 +8,6 @@ use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\Form\FormEvent;
 use Symfony\Component\Form\FormEvents;
 
-/**
- * Class ShippingAddressType
- * @package Pyz\Yves\Sales\Form
- */
 class ShippingAddressType extends AbstractAddressType
 {
     /**
@@ -32,6 +28,7 @@ class ShippingAddressType extends AbstractAddressType
         $builder
             ->add('phone', 'text', ['required' => false])
             ->add('company', 'text', ['required' => false]);
+
         $builder->addEventListener(FormEvents::PRE_SET_DATA, [$this, 'setAddressFromCustomer']);
     }
 
@@ -40,10 +37,10 @@ class ShippingAddressType extends AbstractAddressType
      */
     public function setAddressFromCustomer(FormEvent $event)
     {
-        /* @var Address $salesAddressTransfer */
+        /* @var SalesAddressTransfer $salesAddressTransfer */
         $salesAddressTransfer = $event->getData();
 
-        /* @var Order $transferOrder */
+        /* @var SalesOrderTransfer $transferOrder */
         $transferOrder = $event->getForm()->getParent()->getData();
         $customerAddressArray = $transferOrder->getCustomer()->getShippingAddress()->toArray(false);
 

@@ -13,11 +13,11 @@ class AjaxController extends AbstractController
     use CartControllerTrait;
 
     /**
-     * @param CartItem $cartItem
+     * @param CartCartItemTransfer $cartItem
      * @param Request $request
      * @return \Symfony\Component\HttpFoundation\JsonResponse
      */
-    public function addAction(CartItem $cartItem, Request $request)
+    public function addAction(CartCartItemTransfer $cartItem, Request $request)
     {
         $transferResponse = $this->getCart($request)->addItem($cartItem);
         $parser = new MessageParser($this->getTranslator());

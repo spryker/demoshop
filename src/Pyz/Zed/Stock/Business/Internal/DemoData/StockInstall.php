@@ -113,11 +113,11 @@ class StockInstall extends AbstractInstaller
     /**
      * @param array $row
      *
-     * @return StockType
+     * @return StockStockTypeTransfer
      */
     protected function createStockTypeTransfer(array $row)
     {
-        $stockType = new \Generated\Shared\Transfer\StockStockTypeTransfer();
+        $stockType = new StockStockTypeTransfer();
         $stockType->setName($row[self::STOCK_TYPE]);
 
         return $stockType;
@@ -125,13 +125,12 @@ class StockInstall extends AbstractInstaller
 
     /**
      * @param array $row
-     * @param StockType $stockType
-     *
-     * @return StockProduct
+     * @param StockStockTypeTransfer $stockType
+     * @return StockStockProductTransfer
      */
-    protected function createStockProductTransfer(array $row, StockType $stockType)
+    protected function createStockProductTransfer(array $row, StockStockTypeTransfer $stockType)
     {
-        $transferStockProduct = new \Generated\Shared\Transfer\StockStockProductTransfer();
+        $transferStockProduct = new StockStockProductTransfer();
         $transferStockProduct->setSku($row[self::SKU])
             ->setIsNeverOutOfStock($row[self::NEVER_OUT_OF_STOCK])
             ->setQuantity($row[self::QUANTITY])
@@ -142,10 +141,11 @@ class StockInstall extends AbstractInstaller
     }
 
     /**
-     * @param StockType $stockType
-     * @return SpyStock
+     * @param StockStockTypeTransfer $stockType
+     *
+     * @return bool
      */
-    protected function doesStockExist(StockType $stockType)
+    protected function doesStockExist(StockStockTypeTransfer $stockType)
     {
         $stockCount = $this->queryContainer
             ->queryStockByName($stockType->getName())
