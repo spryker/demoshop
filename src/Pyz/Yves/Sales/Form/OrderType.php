@@ -6,7 +6,7 @@ use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\Form\FormTypeInterface;
 use Symfony\Component\OptionsResolver\OptionsResolverInterface;
-use SprykerFeature\Shared\Sales\Transfer\Order;
+use Generated\Shared\Transfer\SalesOrderTransfer;
 use Symfony\Component\Form\FormEvent;
 use Symfony\Component\Form\FormEvents;
 use Symfony\Component\Validator\Constraints\NotBlank;
@@ -54,7 +54,7 @@ class OrderType extends AbstractType
     {
         $resolver->setDefaults(
             [
-                'data_class' => get_class($this->locator->sales()->transferOrder()),
+                'data_class' => get_class(new SalesOrderTransfer()),
                 'cascade_validation' => true,
                 'csrf_message' => 'form.csrf.failed',
             ]
@@ -110,7 +110,7 @@ class OrderType extends AbstractType
      */
     public function setNameFromBillingAddress(FormEvent $event)
     {
-        /* @var Order $transferOrder */
+        /* @var SalesOrderTransfer $transferOrder */
         $transferOrder = $event->getData();
         $billingAddress = $transferOrder->getBillingAddress();
         if (!$billingAddress->isEmpty()) {

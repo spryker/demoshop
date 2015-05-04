@@ -23,8 +23,8 @@ class InstallerConfig extends SprykerInstallerConfig
             $locator->country()->pluginInstaller(),
             $locator->user()->pluginInstaller(),
             $locator->acl()->pluginInstaller(),
-            $locator->searchPage()->pluginTemplateInstaller(),
-            $locator->searchPage()->pluginDocumentAttributeInstaller(),
+//            $locator->searchPage()->pluginTemplateInstaller(),
+//            $locator->searchPage()->pluginDocumentAttributeInstaller(),
         ];
     }
 

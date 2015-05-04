@@ -3,13 +3,13 @@
 namespace Pyz\Zed\Category\Business\Internal\DemoData;
 
 use Generated\Zed\Ide\AutoCompletion;
-use SprykerEngine\Shared\Dto\LocaleDto;
 use SprykerEngine\Shared\Kernel\LocatorLocatorInterface;
+use SprykerEngine\Shared\Locale\Dto\LocaleDto;
+use SprykerEngine\Zed\Locale\Business\LocaleFacade;
 use SprykerFeature\Zed\Category\Business\CategoryFacade;
 use SprykerFeature\Zed\Category\Persistence\CategoryQueryContainer;
 use SprykerFeature\Zed\Installer\Business\Model\AbstractInstaller;
 use SprykerFeature\Zed\Library\Import\Reader\CsvFileReader;
-use SprykerEngine\Zed\Locale\Business\LocaleFacade;
 
 class CategoryTreeInstall extends AbstractInstaller
 {
@@ -102,7 +102,7 @@ class CategoryTreeInstall extends AbstractInstaller
     {
         $idCategory = $this->createCategory($rawNode);
 
-        $categoryNodeTransfer = $this->locator->category()->transferCategoryNode();
+        $categoryNodeTransfer = new \Generated\Shared\Transfer\CategoryCategoryNodeTransfer();
         $categoryNodeTransfer->setIsRoot(true);
         $categoryNodeTransfer->setFkCategory($idCategory);
 
@@ -116,7 +116,7 @@ class CategoryTreeInstall extends AbstractInstaller
     {
         $idCategory = $this->createCategory($rawNode);
 
-        $categoryNodeTransfer = $this->locator->category()->transferCategoryNode();
+        $categoryNodeTransfer = new \Generated\Shared\Transfer\CategoryCategoryNodeTransfer();
         $categoryNodeTransfer->setIsRoot(false);
         $categoryNodeTransfer->setFkCategory($idCategory);
         $categoryNodeTransfer->setFkParentCategoryNode($this->getParentId($rawNode));
@@ -148,7 +148,7 @@ class CategoryTreeInstall extends AbstractInstaller
      */
     protected function createCategory(array $rawNode)
     {
-        $categoryTransfer = $this->locator->category()->transferCategory();
+        $categoryTransfer = new \Generated\Shared\Transfer\CategoryCategoryTransfer();
         $categoryTransfer->setName($rawNode[self::CATEGORY_NAME]);
         $idCategory = $this->categoryFacade->createCategory($categoryTransfer, $this->locale);
 

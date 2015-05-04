@@ -2,7 +2,7 @@
 
 namespace Pyz\Zed\Product\Business\Internal\DemoData;
 
-use SprykerEngine\Shared\Dto\LocaleDto;
+use SprykerEngine\Shared\Locale\Dto\LocaleDto;
 use SprykerFeature\Zed\Installer\Business\Model\AbstractInstaller;
 use SprykerFeature\Zed\Product\Business\Attribute\AttributeManagerInterface;
 use SprykerFeature\Zed\Product\Business\Importer\Reader\File\IteratorReaderInterface;

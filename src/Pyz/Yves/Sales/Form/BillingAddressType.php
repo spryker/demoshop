@@ -1,17 +1,14 @@
 <?php
+
 namespace Pyz\Yves\Sales\Form;
 
-use SprykerFeature\Shared\Sales\Transfer\Address;
-use SprykerFeature\Shared\Sales\Transfer\Order;
+use Generated\Shared\Transfer\SalesAddressTransfer;
+use Generated\Shared\Transfer\SalesOrderTransfer;
 use Pyz\Yves\Sales\Form\AbstractAddressType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\Form\FormEvent;
 use Symfony\Component\Form\FormEvents;
 
-/**
- * Class BillingAddressType
- * @package Pyz\Yves\Sales\Form
- */
 class BillingAddressType extends AbstractAddressType
 {
     /**
@@ -39,10 +36,10 @@ class BillingAddressType extends AbstractAddressType
      */
     public function setAddressFromCustomer(FormEvent $event)
     {
-        /* @var Address $salesAddressTransfer */
+        /* @var SalesAddressTransfer $salesAddressTransfer */
         $salesAddressTransfer = $event->getData();
 
-        /* @var Order $transferOrder */
+        /* @var SalesOrderTransfer $transferOrder */
         $transferOrder = $event->getForm()->getParent()->getData();
         $customerAddressArray = $transferOrder->getCustomer()->getBillingAddress()->toArray(false);
         $salesAddressTransfer->fromArray($customerAddressArray, true);

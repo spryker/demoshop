@@ -3,6 +3,7 @@
 namespace Pyz\Yves\Application\Communication;
 
 use Generated\Yves\Ide\AutoCompletion;
+use Pyz\Yves\Cart\Communication\Plugin\CartControllerProvider;
 use SprykerFeature\Shared\Application\Business\Application;
 use SprykerFeature\Shared\Application\Communication\Plugin\ServiceProvider\RoutingServiceProvider;
 use SprykerFeature\Shared\Application\Communication\Plugin\ServiceProvider\UrlGeneratorServiceProvider;
@@ -13,8 +14,7 @@ use Silex\ServiceProviderInterface;
 use SprykerEngine\Yves\Application\Business\YvesBootstrap as SprykerYvesBootstrap;
 use SprykerEngine\Yves\Application\Communication\Plugin\ControllerProviderInterface;
 use Pyz\Yves\Checkout\Communication\Plugin\CheckoutControllerProvider;
-use Pyz\Yves\Customer\Plugin\CustomerControllerProvider;
-use Pyz\Yves\Cart\Communication\Plugin\CartControllerProvider;
+use Pyz\Yves\Customer\Communication\Plugin\CustomerControllerProvider;
 use Pyz\Yves\Application\Communication\Plugin\ApplicationControllerProvider;
 use SprykerEngine\Yves\Application\Communication\Plugin\ServiceProvider\CookieServiceProvider;
 use SprykerEngine\Yves\Application\Communication\Plugin\ServiceProvider\MonologServiceProvider;
@@ -113,9 +113,9 @@ class YvesBootstrap extends SprykerYvesBootstrap
 
         return [
             new ApplicationControllerProvider(false),
-            new CartControllerProvider(false),
             new CheckoutControllerProvider($ssl),
             new CustomerControllerProvider($ssl),
+            new CartControllerProvider($ssl)
         ];
     }
 
@@ -131,7 +131,6 @@ class YvesBootstrap extends SprykerYvesBootstrap
             $locator->setup()->pluginMonitoringRouter()->createMonitoringRouter($app, false),
             $locator->frontendExporter()->pluginStorageRouter()->createStorageRouter($app, false),
             $locator->catalog()->pluginSearchRouter()->createSearchRouter($app, false),
-            $locator->cart()->pluginCartRouter()->createCartRouter($app, false),
             /*
              * SilexRouter should come last, as it is not the fastest one if it can
              * not find a matching route (lots of magic)
@@ -162,10 +161,6 @@ class YvesBootstrap extends SprykerYvesBootstrap
 
         $additionalGlobalVars = [
             'categories' => $locator->categoryExporter()->sdk()->getNavigationCategories($app['locale']),
-            'cartItemCount' => $locator->cart()
-                ->pluginCartSessionCount()
-                ->createCartSessionCount($app->getSession())
-                ->getCount(),
             'environment' => \SprykerFeature_Shared_Library_Environment::getEnvironment(),
             'registerForm'  => $app['form.factory']->create($locator->customer()->pluginRegisterForm()->createFormRegister())->createView()
         ];

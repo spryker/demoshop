@@ -1,12 +1,12 @@
 var _gulp   = require('gulp');
 var _rename = require('gulp-rename');
-var _core   = require('../../vendor/spryker/ui/gulpfile');
+var _core   = require('../../vendor/spryker/spryker/Bundles/Ui/gulpfile');
 
 var _path   = require('path');
 var _del    = require('del');
 
 
-var _dirFeature = 'vendor/spryker/*/src/SprykerFeature/Zed/*/Static/Public';
+var _dirFeature = 'vendor/spryker/spryker/bundles/*/src/SprykerFeature/Zed/*/Static/Public';
 var _dirPub     = 'static/public/Zed/bundles';
 
 var _match = /[^\/]+\/src\/SprykerFeature\/Zed\/([^\/]+)\/Static\/Public/;
@@ -83,15 +83,15 @@ _gulp.task('copy-fonts', ['clean-fonts'], function() {
 
 
 _gulp.task('core-dev', function(done) {
-	_core.createCoreResources('./vendor/spryker/ui', 'dev', done);
+	_core.createCoreResources('./vendor/spryker/spryker/Bundles/Ui', 'dev', done);
 });
 
 _gulp.task('core-dist', function(done) {
-	_core.createCoreResources('./vendor/spryker/ui', 'dist', done);
+	_core.createCoreResources('./vendor/spryker/spryker/Bundles/Ui', 'dist', done);
 });
 
 _gulp.task('watcher', function() {
-	_core.watchCoreResources('./vendor/spryker/ui', function(task) {
+	_core.watchCoreResources('./vendor/spryker/spryker/Bundles/Ui', function(task) {
 		var map = {
 			'dev-css'    : 'copy-css',
 			'dev-js'     : 'copy-js',

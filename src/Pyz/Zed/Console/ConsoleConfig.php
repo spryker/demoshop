@@ -28,7 +28,7 @@ class ConsoleConfig extends SprykerConsoleConfig
             $this->getLocator()->setup()->consoleGenerateZedIdeAutoCompletionConsole(),
             $this->getLocator()->setup()->consoleGenerateYvesIdeAutoCompletionConsole(),
             $this->getLocator()->setup()->consoleGenerateSdkIdeAutoCompletionConsole(),
-            $this->getLocator()->setup()->consoleGulpRunnerConsole(),
+            $this->getLocator()->setup()->consoleNpmRunnerConsole(),
             $this->getLocator()->installer()->consoleInitializeDatabaseConsole(),
             $this->getLocator()->installer()->consoleDemoDataInstallConsole(),
             $this->getLocator()->application()->consoleApplicationIntegrationCheckConsole(),
@@ -37,6 +37,7 @@ class ConsoleConfig extends SprykerConsoleConfig
             $this->getLocator()->frontendExporter()->consoleUpdateSearchConsole(),
             $this->getLocator()->oms()->consoleCheckConditionConsole(),
             $this->getLocator()->oms()->consoleCheckTimeoutConsole(),
+            $this->getLocator()->transfer()->consoleGeneratorConsole(),
         ];
 
         $gitCommands = $this->getLocator()->git()->facade()->getConsoleCommands();

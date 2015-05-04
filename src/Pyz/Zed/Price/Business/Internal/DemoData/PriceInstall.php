@@ -6,7 +6,7 @@ use SprykerFeature\Zed\Installer\Business\Model\AbstractInstaller;
 use SprykerEngine\Zed\Kernel\Locator;
 use SprykerFeature\Zed\Library\Import\Reader\CsvFileReader;
 use SprykerFeature\Zed\Price\Business\PriceFacade;
-use SprykerFeature\Shared\Price\Transfer\Product;
+use Generated\Shared\Transfer\PriceProductTransfer;
 
 class PriceInstall extends AbstractInstaller
 {
@@ -69,13 +69,12 @@ class PriceInstall extends AbstractInstaller
     {
         $stockType = $this->priceFacade->createPriceType($row[self::PRICE_TYPE]);
 
-        $transferPriceProduct = $this->locator->price()->transferProduct();
+        $transferPriceProduct = new PriceProductTransfer();
 
-        /** @var Product $transferPriceProduct */
         $transferPriceProduct->setPrice($row[self::PRICE])
             ->setPriceTypeName($stockType->getName())
             ->setSkuProduct($row[self::SKU])
-            ;
+        ;
 
         $sku = $transferPriceProduct->getSkuProduct();
         $priceType = $transferPriceProduct->getPriceTypeName();

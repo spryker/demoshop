@@ -2,7 +2,7 @@
 namespace Pyz\Yves\Checkout\Communication\Controller;
 
 use SprykerEngine\Shared\Kernel\LocatorLocatorInterface;
-use SprykerFeature\Shared\Sales\Transfer\Order;
+use Generated\Shared\Transfer\SalesOrderTransfer;
 use Pyz\Yves\Checkout\Communication\Plugin\CheckoutControllerProvider;
 use Pyz\Yves\Cart\Communication\Helper\CartControllerTrait;
 use Pyz\Yves\Cart\Communication\Plugin\CartControllerProvider;
@@ -14,10 +14,6 @@ use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 
-/**
- * Class CheckoutController
- * @package Pyz\Yves\Checkout\Communication\Controller
- */
 class CheckoutController extends AbstractController
 {
 
@@ -39,6 +35,7 @@ class CheckoutController extends AbstractController
 
     /**
      * @param Request $request
+     *
      * @return array|RedirectResponse
      */
     public function successAction(Request $request)
@@ -100,7 +97,7 @@ class CheckoutController extends AbstractController
                 \SprykerFeature_Shared_Checkout_Code_Messages::ERROR_ORDER_IS_ALREADY_SAVED
             )
             ) {
-                $cart->setOrder($this->getLocator()->sales()->transferSalesOrder());
+                $cart->setOrder(new \Generated\Shared\Transfer\SalesSalesOrderTransfer());
                 return $this->redirectResponseInternal(CartControllerProvider::ROUTE_CART);
             }
         }
@@ -127,12 +124,12 @@ class CheckoutController extends AbstractController
         // This is really ugly, but i need this to have valid data for the payment control
         // This needs to be refactored after discussion...
         $all = $request->request->all();
-        $billingAddress = $this->getLocator()->sales()->transferAddress();
+        $billingAddress = new \Generated\Shared\Transfer\SalesAddressTransfer();
         if (isset($all['salesOrder']) && isset($all['salesOrder']['billingAddress'])) {
             $billingAddress->fromArray($all['salesOrder']['billingAddress'], true);
         }
 
-        $shippingAddress = $this->getLocator()->sales()->transferAddress();
+        $shippingAddress = new \Generated\Shared\Transfer\SalesAddressTransfer();
         if (isset($all['salesOrder']) && isset($all['salesOrder']['shippingAddress'])) {
             $shippingAddress->fromArray($all['salesOrder']['shippingAddress'], true);
         }

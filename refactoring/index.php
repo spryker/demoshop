@@ -3,6 +3,9 @@
 require_once(__DIR__ . '/../vendor/autoload.php');
 
 spl_autoload_register(function ($class) {
+    if (!preg_match('/ReneFactor/', $class)) {
+        return false;
+    }
     $class = str_replace(['ReneFactor', '\\'], ['', DIRECTORY_SEPARATOR], $class);
     $classPath = __DIR__ . DIRECTORY_SEPARATOR . $class . '.php';
 
@@ -18,5 +21,15 @@ $consoleLogger = new ConsoleLogger(
 );
 $consoleLogger->info('starting refactoring');
 
-$refactor = new \ReneFactor\TransferAccess($consoleLogger);
+
+$refactor = new \ReneFactor\TransferToXml($consoleLogger);
 $refactor->refactor();
+
+$refactor = new \ReneFactor\TransferAccess($consoleLogger);
+//$refactor->refactor();
+
+$refactor = new \ReneFactor\EntityAccess($consoleLogger);
+//$refactor->refactor();
+
+$refactor = new \ReneFactor\RemoveTransferObjects($consoleLogger);
+//$refactor->refactor();
