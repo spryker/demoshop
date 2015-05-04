@@ -23,8 +23,7 @@ if is_default_store; then
   rm -rf src/Generated
   rm -f config/Shared/config_local.php; ln -sf $shared_dir/config_local.php config/Shared/config_local.php
 
-  # Create symlink for database dumps
-  ln -sf $shared_dir/data/static static/public/Zed/static
+  #ln -sf $shared_dir/data/static static/public/Zed/static
 fi
 
 rm -f config/config_local_${APPLICATION_STORE}.php; ln -sf $shared_dir/config_local_${APPLICATION_STORE}.php config/Shared/config_local_${APPLICATION_STORE}.php
@@ -126,12 +125,13 @@ if is_default_store; then
 
   echo " - gulp dist: Zed"
   [ -z `which gulp` ] && npm install -g gulp
-  pushd ./vendor/spryker/zed-package
+  # ??? pushd ./vendor/spryker/zed-package
   npm install --silent
   gulp
-  popd
+  # ??? popd
   APPLICATION_STORE=${APPLICATION_STORE} APPLICATION_ENV=${environment} gulp dist -gulpfile config/Yves/Gulpfile.js >> $outfile
   APPLICATION_STORE=${APPLICATION_STORE} APPLICATION_ENV=${environment} gulp dist -gulpfile config/Zed/Gulpfile.js >> $outfile
+  APPLICATION_STORE=${APPLICATION_STORE} APPLICATION_ENV=${environment} gulp dist -gulpfile vendor/spryker/spryker/Bundles/Ui >> $outfile
 fi
 
 ### Allright, no error, deployment continues.
