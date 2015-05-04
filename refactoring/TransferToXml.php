@@ -22,7 +22,7 @@ class TransferToXml extends AbstractRefactorer
 
         foreach ($finder as $file) {
             $bundle = $this->getBundleNameFromFile($file);
-
+$this->info($bundle);
             $className = $this->getClassNameFromFile($file);
             $name = $this->getNameFromFile($file);
 
@@ -81,7 +81,7 @@ class TransferToXml extends AbstractRefactorer
     {
         $finder = new Finder();
         $finder->files()
-            ->in(__DIR__ . '/../vendor/spryker/spryker/Bundles/*/src/*/Shared/*/Transfer/')
+            ->in(__DIR__ . '/../vendor/spryker/spryker/Bundles/*/src/*/Shared/SearchPage/Transfer/')
             ->exclude(__DIR__ . '/../vendor/spryker/spryker/Bundles/System/src/')
             ->name('*.php')
             ->notName('*Collection.php')
@@ -99,7 +99,7 @@ class TransferToXml extends AbstractRefactorer
     {
         $className = str_replace([__DIR__ . '/../vendor/spryker/', '.php'], '', $file->getPathname());
         $classNameParts = explode(DIRECTORY_SEPARATOR, $className);
-        $classNameParts = array_slice($classNameParts, 2);
+        $classNameParts = array_slice($classNameParts, 4);
         $className = implode('\\', $classNameParts);
 
         return $className;
@@ -113,7 +113,7 @@ class TransferToXml extends AbstractRefactorer
     {
         $className = str_replace([__DIR__ . '/../vendor/spryker/', '.php'], '', $file->getPathname());
         $classNameParts = explode(DIRECTORY_SEPARATOR, $className);
-        $classNameParts = array_slice($classNameParts, 4, 1);
+        $classNameParts = array_slice($classNameParts, 6, 1);
 
         return $classNameParts[0];
     }
@@ -128,7 +128,7 @@ class TransferToXml extends AbstractRefactorer
         $classNameParts = explode(DIRECTORY_SEPARATOR, $className);
 
         $name = array_pop($classNameParts);
-        $bundle = array_slice($classNameParts, 4, 1);
+        $bundle = array_slice($classNameParts, 6, 1);
 
         $name = $bundle[0] . $name;
 
