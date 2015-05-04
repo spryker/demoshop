@@ -2,16 +2,11 @@
 
 namespace Pyz\Yves\Sales;
 
-use Generated\Shared\Transfer\PaymentPaymentMethodCollectionTransfer;
 use Pyz\Yves\Sales\Form\BillingAddressType;
 use Pyz\Yves\Sales\Form\OrderType;
 use Pyz\Yves\Sales\Form\ShippingAddressType;
 use SprykerEngine\Yves\Kernel\AbstractDependencyContainer;
 
-/**
- * Class SalesDependencyContainer
- * @package Pyz\Yves\Sales
- */
 class SalesDependencyContainer extends AbstractDependencyContainer
 {
     /**

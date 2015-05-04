@@ -14,10 +14,6 @@ use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 
-/**
- * Class CheckoutController
- * @package Pyz\Yves\Checkout\Communication\Controller
- */
 class CheckoutController extends AbstractController
 {
 
@@ -39,6 +35,7 @@ class CheckoutController extends AbstractController
 
     /**
      * @param Request $request
+     *
      * @return array|RedirectResponse
      */
     public function successAction(Request $request)

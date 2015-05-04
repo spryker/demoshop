@@ -6,16 +6,11 @@ use SprykerEngine\Yves\Application\Business\Application;
 use SprykerEngine\Yves\Application\Communication\Controller\AbstractController;
 use SprykerEngine\Yves\Kernel\Factory;
 use SprykerFeature\Sdk\Cart\Model\CartInterface;
-use Generated\Shared\Transfer\CartItemCollectionInterfaceTransfer;
-use SprykerFeature\Yves\Cart\Exception\MissingCartException;
+use SprykerFeature\Shared\Cart2\Transfer\ItemCollectionInterface;
 use Symfony\Component\HttpFoundation\Request;
 use Pyz\Yves\Cart\Communication\Plugin\CartControllerProvider;
 use Symfony\Component\HttpFoundation\RedirectResponse;
 
-/**
- * Class CartController
- * @package Pyz\Yves\Cart\Communication\Controller
- */
 class CartController extends AbstractController
 {
     /**
@@ -55,6 +50,9 @@ class CartController extends AbstractController
         return $this->cart;
     }
 
+    /**
+     * @return array
+     */
     public function indexAction()
     {
         $cart = $this->getCartModel();
@@ -67,6 +65,13 @@ class CartController extends AbstractController
         ]);
     }
 
+    /**
+     * @param Request $request
+     * @param $sku
+     * @param $quantity
+     *
+     * @return RedirectResponse
+     */
     public function addAction(Request $request, $sku, $quantity)
     {
         $this->getCartModel()->addToCart($sku, $quantity);
@@ -76,6 +81,8 @@ class CartController extends AbstractController
 
     /**
      * @param ItemCollectionInterface $cartItems
+     *
+     * @return array
      */
     protected function getProductsForCartItems(ItemCollectionInterface $cartItems)
     {

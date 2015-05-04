@@ -54,7 +54,7 @@ class OrderType extends AbstractType
     {
         $resolver->setDefaults(
             [
-                'data_class' => get_class(new \Generated\Shared\Transfer\SalesOrderTransfer()),
+                'data_class' => get_class(new SalesOrderTransfer()),
                 'cascade_validation' => true,
                 'csrf_message' => 'form.csrf.failed',
             ]
@@ -110,7 +110,7 @@ class OrderType extends AbstractType
      */
     public function setNameFromBillingAddress(FormEvent $event)
     {
-        /* @var Order $transferOrder */
+        /* @var SalesOrderTransfer $transferOrder */
         $transferOrder = $event->getData();
         $billingAddress = $transferOrder->getBillingAddress();
         if (!$billingAddress->isEmpty()) {
