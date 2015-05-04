@@ -1,11 +1,11 @@
 <input type="radio"
-    id="filter-{{ filterName }}-{{ name }}"
+    id="filter-{{ filterName }}-{{ value }}"
     name="filter-{{ filterName }}"
-    value="{{ name }}"
+    value="{{ value }}"
     {% if default is defined %}
         checked=true
         class="js-filter-default-value"
     {% endif %}>
-<label for="filter-{{ filterName }}-{{ name }}">{{ name }}
+<label for="filter-{{ filterName }}-{{ value }}">{{ displayValue }}
     <span class="filter__quantity">{{ quantity }}</span>
 </label>

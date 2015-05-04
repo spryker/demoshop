@@ -3,16 +3,19 @@
   @include clearfix();
 
   // make space for the header
-  padding: $step*3 $step;
+  margin-top: $step*2;
+
+  padding: $step $step $step*3;
   background-color: $pale-color;
   color: $mid-color;
 
   @include media-query('medium') {
-    padding: $step*4 $step;
+    margin-top: $step*2.5;
+    padding: $step*1.5 $step $step*4;
   }
 
   @include media-query('huge') {
-    padding: $step*5 $step;
+    padding: $step*2.5 $step $step*5;
   }
 
   h1 {
@@ -47,9 +50,6 @@
   margin: 0;
 
   @include media-query('medium') {
-    margin-left: 50%;
-  }
-  @include media-query('large') {
     margin-left: 25%;
   }
   padding: 0 0 $step;
@@ -60,44 +60,64 @@
 .catalog__summary {
   margin: $step 0;
   text-transform: uppercase;
+
+  @include media-query('medium') {
+    margin-left: 25%;
+  }
 }
 
 .summary__total-count {
+  margin-bottom: 0;
   margin-bottom: $step*.5;
-  @include media-query('medium') {
-    float: left;
-    width: 30%;
-    margin-bottom: 0;
+
+  @include media-query('small') {
+    display: inline-block;
+    width: 40%;
   }
+
+  @include media-query('medium') {
+    width: 30%;
+  }
+
 }
 
 .summary__sorting {
   font-size: 0;
+  text-align: right;
+
+  @include media-query('small') {
+    display: inline-block;
+    width: 59%;
+  }
 
   @include media-query('medium') {
+    width: 69%;
     font-size: $base-font-size;
-    text-align: right;
   }
 }
 
 .sorting__button--inc, .sorting__button--dec {
-  padding: $step*.25 $step*.5;
+  height: $step;
+  margin-top: - floor($step*.25);
+  padding: $step*.2 $step*.5;
   border-color: $muted-color;
+  background-color: $pale-color;
   font-size: $step*.5;
+
+  &:hover {
+    background-color: $muted-color;
+    color: $light-color;
+  }
 }
 
 .sorting__button--inc {
   border-radius: $step 0 0 $step;
+  margin-left: $step*.5;
 }
 
 .sorting__button--dec {
-  margin-left: -1px;
-  margin-right: $step;
+  margin-left: -6px;
   border-radius: 0 $step $step 0;
-
-  &:last-of-type {
-    margin-right: 0;
-  }
 }
 
 .sorting__label--small {
@@ -198,7 +218,7 @@
 
 
   @include media-query('small') {
-    width: calc(33% - #{ceil($step*.55)});
+    width: calc(33% - #{ceil($step*.55)} - 1px);
     margin: 0 $step $step 0;
     padding-bottom: 30%;
 
@@ -209,45 +229,44 @@
 
 }
 
-.product__image, .product__name, .product__price {
-  position: absolute;
-}
+.catalog {
+  .product__image, .product__name, .product__price {
+    position: absolute;
+  }
 
-.product__image {
-  top: $step*.5;;
-  left: 10%;
-  width: 80%;
-}
+  .product__image {
+    top: $step*.5;;
+    left: 10%;
+    width: 80%;
+  }
 
-.product__name, .product__price {
-  left: 0;
-  width: 100%;
-  margin: 0;
-  background-color: rgba(255,255,255,0.8);
-  text-align: center;
-}
+  .product__name, .product__price {
+    left: 0;
+    width: 100%;
+    margin: 0;
+    background-color: rgba(255,255,255,0.8);
+    text-align: center;
+  }
 
-h1.product__name {
-  bottom: $step*1.5;
-  color: $dark-color;
-  font-size: $base-font-size;
-  line-height: $step;
-  text-transform: uppercase;
-}
+  h1.product__name {
+    bottom: $step*1.5;
+    color: $dark-color;
+    font-size: $base-font-size;
+    line-height: $step;
+    text-transform: uppercase;
+  }
 
-.product__price {
-  bottom: $step*.5;
-  color: $brand-color;
-  font-size: $step;
+  .product__price {
+    bottom: $step*.5;
+    color: $brand-color;
+    font-size: $step;
+  }
 }
 
 .catalog__pagination {
   margin: 0;
 
   @include media-query('medium') {
-    margin-left: 50%;
-  }
-  @include media-query('large') {
     margin-left: 25%;
   }
   padding: 0 0 $step;

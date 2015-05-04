@@ -11,6 +11,7 @@
   .overlay--login & {
     display: block;
     position: absolute;
+    width: calc(100% - #{$step*2});
 
     @include media-query('medium') {
       width: 350px;
@@ -23,12 +24,6 @@
 
   .login__email, .login__password, .login__submit {
     width: 100%;
-    padding: $step*.75 $step*.5;
-  }
-
-  .login__email, .login__password {
-    border-radius: 5px;
-    border: 1px solid $paler-color;
   }
 
   .login__forgot-password {

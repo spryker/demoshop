@@ -44,6 +44,7 @@
   },
     "dependencies": {
         "jquery-ui": "^1.10.5",
-        "slick-carousel": "^1.5.2"
+        "slick-carousel": "^1.5.2",
+        "underscore": "^1.8.3"
   }
 }

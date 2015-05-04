@@ -1,10 +1,10 @@
 @font-face {
 	font-family: 'icomoon';
-	src:url('/fonts/icomoon.eot?-6aprms');
-	src:url('/fonts/icomoon.eot?#iefix-6aprms') format('embedded-opentype'),
-		url('/fonts/icomoon.woff?-6aprms') format('woff'),
-		url('/fonts/icomoon.ttf?-6aprms') format('truetype'),
-		url('/fonts/icomoon.svg?-6aprms#icomoon') format('svg');
+	src:url('/fonts/icomoon.eot?kojhm6');
+	src:url('/fonts/icomoon.eot?#iefixkojhm6') format('embedded-opentype'),
+		url('/fonts/icomoon.woff?kojhm6') format('woff'),
+		url('/fonts/icomoon.ttf?kojhm6') format('truetype'),
+		url('/fonts/icomoon.svg?kojhm6#icomoon') format('svg');
 	font-weight: normal;
 	font-style: normal;
 }
@@ -23,8 +23,16 @@
 	-moz-osx-font-smoothing: grayscale;
 }
 
+.icon-refresh:before {
+	content: "\e600";
+}
+
 .icon-close:before {
 	content: "\e602";
+}
+
+.icon-user:before {
+	content: "\e601";
 }
 
 .icon-shopping-cart:before {

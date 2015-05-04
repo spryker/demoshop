@@ -13,7 +13,7 @@ use Silex\ServiceProviderInterface;
 use SprykerEngine\Yves\Application\Business\YvesBootstrap as SprykerYvesBootstrap;
 use SprykerEngine\Yves\Application\Communication\Plugin\ControllerProviderInterface;
 use Pyz\Yves\Checkout\Communication\Plugin\CheckoutControllerProvider;
-use Pyz\Yves\Customer\Communication\Plugin\CustomerControllerProvider;
+use Pyz\Yves\Customer\Plugin\CustomerControllerProvider;
 use Pyz\Yves\Cart\Communication\Plugin\CartControllerProvider;
 use Pyz\Yves\Application\Communication\Plugin\ApplicationControllerProvider;
 use SprykerEngine\Yves\Application\Communication\Plugin\ServiceProvider\CookieServiceProvider;
@@ -167,6 +167,7 @@ class YvesBootstrap extends SprykerYvesBootstrap
                 ->createCartSessionCount($app->getSession())
                 ->getCount(),
             'environment' => \SprykerFeature_Shared_Library_Environment::getEnvironment(),
+            'registerForm'  => $app['form.factory']->create($locator->customer()->pluginRegisterForm()->createFormRegister())->createView()
         ];
 
         return array_merge($existingGlobalVars, $additionalGlobalVars);

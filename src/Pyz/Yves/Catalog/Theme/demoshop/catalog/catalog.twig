@@ -4,26 +4,26 @@
     <div class="catalog">
         <h1 class="catalog__section-title">Wild life</h1>
 
-        {#<aside class="catalog__filter js-filters">#}
-            {#{% include "@catalog/catalog/partials/filter-default.twig" with {filterName:'category'} %}#}
-            {#{% include "@catalog/catalog/partials/filter-color.twig" with {filterName:'color' } %}#}
-            {#{% include "@catalog/catalog/partials/filter-range.twig" with {filterName:'price', min:'0', max:'200'} %}#}
-            {#{% include "@catalog/catalog/partials/filter-multivalue.twig" with {filterName:'extras'} %}#}
-        {#</aside>#}
-        {#<button class="catalog__toggle-filters js-toggle-filters">#}
-            {#<span class="js-show-filters">Show filters</span>#}
-            {#<span class="js-hide-filters">Hide filters</span>#}
-        {#</button>#}
+        <aside class="catalog__filter js-filters">
+            {{> catalog/filter-default filterName='category' }}
+            {{> catalog/filter-color filterName='color' }}
+            {{> catalog/filter-range filterName='price' min='0' max='200' }}
+            {{> catalog/filter-multivalue filterName='extras' }}
+        </aside>
+        <button class="catalog__toggle-filters js-toggle-filters">
+            <span class="js-show-filters">Show filters</span>
+            <span class="js-hide-filters">Hide filters</span>
+        </button>
 
-        {#<section class="catalog__active-filters">#}
-            {#<h1>Aktive filter</h1>#}
-            {#<ul class="active-filter__list">#}
-                {#{% include "@catalog/catalog/partials/active-filter.twig" with {name:'category', value:'' } %}#}
-                {#{% include "@catalog/catalog/partials/active-filter.twig" with {name:'color', value:'' } %}#}
-                {#{% include "@catalog/catalog/partials/active-filter.twig" with {name:'price', value:'' } %}#}
-                {#{% include "@catalog/catalog/partials/active-filter.twig" with {name:'extras', value:'' } %}#}
-            {#</ul>#}
-        {#</section>#}
+        <section class="catalog__active-filters">
+            <h1>Aktive filter</h1>
+            <ul class="active-filter__list">
+                {{> catalog/active-filter name='category' value='' }}
+                {{> catalog/active-filter name='color' value='' }}
+                {{> catalog/active-filter name='price' value='' }}
+                {{> catalog/active-filter name='extras' value='' }}
+            </ul>
+        </section>
 
         <header class="catalog__summary">
             <div class="summary__total-count">67 figuren gefunden</div>
@@ -52,23 +52,11 @@
                 {% endfor %}
             </section>
             <div class="catalog__loading-text">Loading...</div>
-
-            {#<section class="catalog__products js-productsNext">#}
-                {#{% include "@catalog/catalog/partials/product detailsUrl='/product-detail.html?id=123' imageUrl='/images/products/horse-begging.jpg' name='Pferd' price='€9,99' }}#}
-                {#{% include "@catalog/catalog/partials/product detailsUrl='/product-detail.html?id=123' imageUrl='/images/products/horse-black-white.jpg' name='Pferd 2' price='€9,99' }}#}
-                {#{% include "@catalog/catalog/partials/product detailsUrl='/product-detail.html?id=123' imageUrl='/images/products/lion.jpg' name='Löwe' price='€9,99' }}#}
-                {#{% include "@catalog/catalog/partials/product detailsUrl='/product-detail.html?id=123' imageUrl='/images/products/ostrich.jpg' name='Strauß' price='€9,99' }}#}
-                {#{% include "@catalog/catalog/partials/product detailsUrl='/product-detail.html?id=123' imageUrl='/images/products/rhinoceros.jpg' name='Nashorn' price='€9,99' }}#}
-                {#{% include "@catalog/catalog/partials/product detailsUrl='/product-detail.html?id=123' imageUrl='/images/products/baby-panda.jpg' name='Pandababy' price='€9,99' }}#}
-                {#{% include "@catalog/catalog/partials/product detailsUrl='/product-detail.html?id=123' imageUrl='/images/products/baby-white-tiger.jpg' name='Weißtigerbaby' price='€9,99' }}#}
-                {#{% include "@catalog/catalog/partials/product detailsUrl='/product-detail.html?id=123' imageUrl='/images/products/baby-tiger.jpg' name='Tigerbaby' price='€9,99' }}#}
-                {#{% include "@catalog/catalog/partials/product detailsUrl='/product-detail.html?id=123' imageUrl='/images/products/crocodile.jpg' name='Krokodil' price='€9,99' }}#}
-            {#</section>#}
         </div>
 
         <div class="catalog__pagination">
             <button class="pagination__button js-pagination-prev">Prev</button>
-            <button class="pagination__button js-paginationNext">Next</button>
+            <button class="pagination__button js-pagination-next">Next</button>
         </div>
     </div>
 {% endblock %}

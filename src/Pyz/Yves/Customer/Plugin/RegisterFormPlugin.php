@@ -1,6 +1,6 @@
 <?php
 
-namespace Pyz\Yves\Sales\Plugin;
+namespace Pyz\Yves\Customer\Plugin;
 
 use SprykerEngine\Yves\Kernel\AbstractPlugin;
 
@@ -9,8 +9,8 @@ class RegisterFormPlugin extends AbstractPlugin
     /**
      * @return mixed
      */
-    public function createRegisterForm()
+    public function createFormRegister()
     {
-        return $this->getDependencyContainer()->createRegisterForm();
+        return $this->getDependencyContainer()->createFormRegister();
     }
 }

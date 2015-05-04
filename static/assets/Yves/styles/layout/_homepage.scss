@@ -5,9 +5,9 @@
   color: $mid-color;
 
   // make space for the header
-  padding-top: $step*2;
+  margin-top: $step*2;
   @include media-query('medium') {
-    padding-top: $step*2.5;
+    margin-top: $step*2.5;
   }
 }
 

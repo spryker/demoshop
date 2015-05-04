@@ -27,7 +27,7 @@ var initActiveFilterList = function() {
 
     var $filtered = $(catalog.template);
     $filtered.addClass('js-products-current').replaceAll('.js-products-current');
-    catalog.loadProducts('/catalog-mock.html', $filtered);
+    catalog.loadProducts(URLManager.paramsToString(getUpdatedParams()), $filtered);
   });
 
   $('.js-filter-remove').on('click', function(e) {
@@ -69,6 +69,11 @@ var getFilter = function(filterName) {
 };
 
 var updateURL = function() {
+  var params = getUpdatedParams();
+  URLManager.setParams(params);
+};
+
+var getUpdatedParams = function() {
   var paramName;
   var paramString = '';
   var params = URLManager.getParams();
@@ -80,9 +85,8 @@ var updateURL = function() {
   for (paramName in filterParams) {
     params[paramName] = filterParams[paramName];
   }
-
-  URLManager.setParams(params);
-}
+  return params;
+};
 
 var initMobileFilterHiding = function() {
   var $filtersEl;

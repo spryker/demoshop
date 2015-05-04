@@ -29,6 +29,11 @@ button, input[type="submit"] {
     color: $light-color;
     border-color: $light-color;
   }
+
+  &:hover:not(:disabled) {
+    background-color: $text-color;
+    color: $light-color;
+  }
 }
 
 input, textarea, select {
@@ -41,6 +46,54 @@ input, textarea, select {
   color: $text-color;
   background-color: $light-color;
   line-height: $step;
+}
+
+input.padded, textarea.padded {
+  border-radius: 5px;
+  border: 1px solid $paler-color;
+  padding: $step*.75 $step*.5;
+
+  &:focus {
+    outline: 0;
+    border-color: $brand-color;
+  }
+}
+
+input[type="checkbox"].padded, input[type="radio"].padded {
+  width: $step;
+
+  & + label {
+    position: relative;
+    float: left;
+    margin-bottom: $step;
+    margin-top: -3px;
+    margin-left: $step*.5;
+    max-width: calc(100% - #{$step*1.5});
+  }
+
+  & + label::before {
+    $box-shadow-width: 4px;
+    pointer-events: none;
+    content: '';
+    position: absolute;
+    left: -$step*1.5 + $box-shadow-width;
+    padding-right: $step*.5;
+    vertical-align: sub;
+    width: $step - 8px;
+    height: $step - 8px;
+    border-radius: 3px;
+    box-shadow: 0 0 0 #{$box-shadow-width - 1px} $light-color, 0 0 0 $box-shadow-width $paler-color;
+    background-color: $light-color;
+  }
+
+  &:checked + label::before {
+    pointer-events: none;
+    background-color: $muted-color;
+  }
+}
+
+input[type="radio"].padded + label::before {
+  border-radius: $step;
 }
 
 select {
@@ -72,19 +125,20 @@ a.cta-light, input.cta-light {
   }
 }
 
-a.cta, input.cta {
+a.cta, input.cta, button.cta {
   @extend .cta-light;
   display: block;
   padding: $step*.6 $step*2 $step*.4;
   background-color: $brand-color;
   color: white;
   border: 0;
+  border-radius: 6px;
   box-shadow: 0 2px 0 darken($brand-color, 30%);
   font-weight: 500;
   -webkit-font-smoothing: antialiased;
   @include bounce-transition();
 
-  &:hover {
+  &:hover:not(:disabled) {
     background-color: saturate($brand-color, 5%);
     transform: translateY(-3px);
     box-shadow: 0 5px 0 darken($brand-color, 30%);
@@ -93,6 +147,11 @@ a.cta, input.cta {
   &:active {
     transform: translateY(0);
     box-shadow: 0 2px 0 darken($brand-color, 30%);
+  }
+
+  &:disabled {
+    background-color: $paler-color;
+    box-shadow: 0 2px 0 darken($paler-color, 30%);
   }
 
   @include media-query(small) {

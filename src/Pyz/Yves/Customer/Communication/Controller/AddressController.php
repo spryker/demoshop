@@ -8,7 +8,7 @@ use SprykerEngine\Yves\Application\Communication\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
-use Pyz\Yves\Customer\Communication\Plugin\CustomerControllerProvider;
+use Pyz\Yves\Customer\Plugin\CustomerControllerProvider;
 
 /**
  * @method CustomerDependencyContainer getDependencyContainer()

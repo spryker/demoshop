@@ -2,8 +2,8 @@
        id="filter-{{filterName}}-{{id}}"
        name="filter-{{filterName}}"
        data-color="{{hex}}"
-       value="{{id}}"
+       value="{{value}}"
         {% if checked is defined and checked == true %} checked=true{% endif %}>
-<label for="filter-{{filterName}}-{{id}}" class="js-color-name">{{hex}}
+<label for="filter-{{filterName}}-{{value}}" class="js-color-name">{{hex}}
     <span class="filter__quantity">{{quantity}}</span>
 </label>

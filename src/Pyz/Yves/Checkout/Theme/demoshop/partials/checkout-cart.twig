@@ -1,5 +1,0 @@
-<div id="cartSummary" class="cart primary col col34">
-    <h3>{{ 'checkout.headline.cart'|trans }}</h3>
-    {% include "@checkout/partials/cart-table.twig" %}
-    {{ form_widget(form.save, {attr : {class : 'continue', 'data-label-step1' : 'checkout.to.summary'|trans, 'data-label-step2' : 'checkout.order'|trans}, label : 'checkout.to.summary'}) }}
-</div>

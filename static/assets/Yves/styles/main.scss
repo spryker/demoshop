@@ -8,19 +8,22 @@
 @import 'base/typography';
 @import 'base/base';
 
+@import 'components/cart';
 @import 'components/spinner';
 @import 'components/slider';
 @import 'components/overlay';
 @import 'components/login-form';
-@import 'components/shopping-cart';
+@import 'components/header-cart';
 @import 'components/search';
 @import 'components/catalog-filters';
+@import 'components/main-nav';
 
 @import 'layout/header';
 @import 'layout/footer';
 @import 'layout/homepage';
 @import 'layout/product';
 @import 'layout/catalog';
+@import 'layout/checkout';
 @import 'layout/layout';
 
 @import 'vendor/jquery-ui';

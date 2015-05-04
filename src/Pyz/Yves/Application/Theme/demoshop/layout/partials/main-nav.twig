@@ -1,0 +1,17 @@
+<nav class="main-nav js-main-nav">
+    <section class="main-nav__categories">
+        <h1 class="main-nav__heading">Kategorien</h1>
+        <ul class="main-nav__category-list">
+            {% include "@application/layout/partials/main-nav-button.twig" with {name:"Wildlife", url:"catalog.html", imageUrl:"/images/nav/wildlife.jpg"} %}
+            {% include "@application/layout/partials/main-nav-button.twig" with {name:"Meere", url:"catalog.html", imageUrl:"/images/nav/sealife.jpg"} %}
+            {% include "@application/layout/partials/main-nav-button.twig" with {name:"Lorem", url:"catalog.html", imageUrl:"/images/nav/lorem.jpg"} %}
+        </ul>
+    </section>
+    <section class="main-nav__specials">
+        <h1 class="main-nav__heading">Ein Blick lohnt sich</h1>
+        <ul class="main-nav__special-list">
+            {% include "@application/layout/partials/main-nav-button.twig" with {name:"Neuheiten", url:"catalog.html?extras=neu", imageUrl:"/images/nav/new.jpg"} %}
+            {% include "@application/layout/partials/main-nav-button.twig" with {name:"Sale", url:"catalog.html?extras=sale", imageUrl:"/images/nav/sale.jpg"} %}
+        </ul>
+    </section>
+</nav>

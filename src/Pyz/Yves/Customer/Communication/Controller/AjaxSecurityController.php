@@ -8,7 +8,12 @@ use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\RedirectResponse;
 use SprykerFeature\Shared\Customer\Code\Messages;
-use Pyz\Yves\Customer\Communication\Plugin\CustomerControllerProvider;
+use Pyz\Yves\Customer\Plugin\CustomerControllerProvider;
+use Symfony\Component\Validator\Constraints\Collection;
+use Symfony\Component\Validator\Constraints\CollectionValidator;
+use Symfony\Component\Validator\Constraints\Email;
+use Symfony\Component\Validator\Constraints\Length;
+use Symfony\Component\Validator\Constraints\NotBlank;
 
 /**
  * @method CustomerDependencyContainer getDependencyContainer()
@@ -29,5 +34,19 @@ class AjaxSecurityController extends AbstractController
      */
     public function registerAction(Request $request)
     {
+        $form = $this->createForm($this->getDependencyContainer()->createFormRegister());
+
+        if ($form->isValid()) {
+            $customerTransfer = $this->getLocator()->customer()->transferCustomer();
+            $customerTransfer->fromArray($form->getData());
+            $customerTransfer = $this->getLocator()->customer()->sdk()->registerCustomer($customerTransfer);
+            if ($customerTransfer->getRegistrationKey()) {
+                $this->addMessageWarning(Messages::CUSTOMER_REGISTRATION_SUCCESS);
+
+                return $this->redirectResponseInternal(CustomerControllerProvider::ROUTE_LOGIN);
+            }
+        }
+
+        return $this->jsonResponse();
     }
 }

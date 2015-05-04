@@ -1,11 +1,5 @@
 <div class="overlay">
-  <a href="#" class="overlay__close js-overlay-close">Close</a>
-  <form action="#" name="login" class="login-form js-login-form">
-    <input type="text" class="login__email" placeholder="E-mail-Adresse">
-    <input type="password" class="login__password" placeholder="Passwort">
-    <button class="login__forgot-password">Vergessen?</button>
-    <label for="agb" class="login__agb"><input type="checkbox" name="agb"> Ich akzeptiere die AGB</label>
-    <input type="submit" class="login__submit js-login-submit cta" value="Anmelden">
-    <button class="login__switch js-login-form-switch">Ich bin Neukunde</button>
-  </form>
+    <a href="#" class="overlay__close js-overlay-close">Close</a>
+    {% include "@application/layout/partials/login-register-form.twig" %}
 </div>
+

@@ -20,16 +20,22 @@ module.exports = {
   },
 
   setParams: function(params) {
-    var URL, param;
+    var URL;
+    var paramString = this.paramsToString(params);
+    paramString = paramString.substr(0, paramString.length-1);
+    URL = URLUtils.init().origin+URLUtils.pathname+'?'+paramString;
+    window.history.pushState(null, window.document.title, URL);
+  },
+
+  paramsToString: function(params) {
+    var param;
     var paramString = '';
     for (param in params) {
       if (params[param].length > 0) {
         paramString += param+'='+params[param]+'&';
       }
     }
-    paramString = paramString.substr(0, paramString.length-1);
-    URL = URLUtils.init().origin+URLUtils.pathname+'?'+paramString;
-    window.history.pushState(null, window.document.title, URL);
+    return paramString;
   }
 
 };

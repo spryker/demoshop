@@ -1,0 +1,49 @@
+{% block content %}
+    <div class="checkout">
+        <div class="checkout__wrapper">
+            <div class="checkout__cart js-checkout-cart">
+                {% include "@application/layout/partials/cart/cart-list.twig" %}
+            </div>
+            <div class="checkout__form">
+                <section class="checkout__form-block checkout__form-block--login js-checkout-login">
+                    <h1 class="form-block__heading">Ich bin bereits Kunde</h1>
+                    {% include "@application/layout/partials/login-register-form.twig" %}
+                    <button class="login__skip cta">Ich bin Neukunde</button>
+                </section>
+                <section class="checkout__form-block js-form-block js-checkout-address js-checkout-collapsed">
+                    <h1 class="form-block__heading">1. Addressangaben</h1>
+                    <input type="text" name="email" class="padded js-checkout-email" placeholder="E-mail-Adresse">
+                    <input type="text" name="name" class="padded js-checkout-name" placeholder="Name">
+                    <textarea name="invoice-address" class="padded js-invoice-address" placeholder="Rechnungs- und Lieferadresse"></textarea>
+                    <input type="checkbox" name="different-delivery-address" id="different-delivery-address" class="padded js-delivery-address-checkbox">
+                    <label for="different-delivery-address">Abweichende Lieferadresse</label>
+                    <textarea name="delivery-address" class="padded js-delivery-address" placeholder="Lieferadresse"></textarea>
+                    <button class="cta js-address-button" disabled>Weiter - Zahlungsart wählen</button>
+                    <button class="js-edit-formblock form-block__edit">Adresse bearbeiten</button>
+                </section>
+                <section class="checkout__form-block js-form-block js-checkout-payment js-checkout-collapsed">
+                    <h1 class="form-block__heading">2. Zahlungsart wählen</h1>
+                    <input type="radio" name="checkout-payment-method" id="checkout-payment-advance" class="padded" checked="checked">
+                    <label for="checkout-payment-advance">Vorkasse</label>
+                    <input type="radio" name="checkout-payment-method" id="checkout-payment-paypal" class="padded">
+                    <label for="checkout-payment-paypal">Paypal</label>
+                    <input type="radio" name="checkout-payment-method" id="checkout-payment-creditcard" class="padded">
+                    <label for="checkout-payment-creditcard">Kreditkarte</label>
+                    <button class="cta js-payment-button">Weiter - Prüfen und Kauf abschließen</button>
+                    <button class="js-edit-formblock form-block__edit">Zahlungsart bearbeiten</button>
+                </section>
+                <section class="checkout__form-block checkout__form-block--confirm js-form-block js-checkout-confirm js-checkout-collapsed">
+                    <h1 class="form-block__heading">3. Prüfen und Kauf abschließen</h1>
+                    {% include "@application/layout/partials/cart/cart-list.twig" %}
+                    <input type="text" name="checkout-voucher-code" class="padded confirm__voucher-code js-voucher-code" placeholder="Gutscheincode eingeben">
+                    <button class="confirm__voucher-submit js-voucher-submit">Gutscheincode einlösen</button>
+                    <div class="confirm__agb-submit">
+                        <input type="checkbox" id="confirm-agb" class="padded confirm__agb js-confirm-agb">
+                        <label for="confirm-agb" class="confirm__agb-label">Mit dem Klick auf di Schaltfläche “Jetzt kaufen” bestätige ich die <a href="/agb.html" target="_blank">AGB</a> von Sprylando</label>
+                        <input type="submit" class="cta confirm__submit js-checkout-submit" value="Jetzt kaufen" disabled>
+                    </div>
+                </section>
+            </div>
+        </div>
+    </div>
+{% endblock %}

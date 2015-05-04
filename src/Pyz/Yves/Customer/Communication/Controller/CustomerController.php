@@ -1,7 +1,7 @@
 <?php
 namespace Pyz\Yves\Customer\Communication\Controller;
 
-use Pyz\Yves\Customer\Communication\Plugin\CustomerControllerProvider;
+use Pyz\Yves\Customer\Plugin\CustomerControllerProvider;
 use Pyz\Yves\Customer\CustomerDependencyContainer;
 use SprykerEngine\Yves\Application\Communication\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;

@@ -69,7 +69,7 @@
 
   .filter__price {
     .filter__price-slider {
-      margin-bottom: $step;
+      margin: 0 $step*.5 $step;
       background-image: none;
     }
 

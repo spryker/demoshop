@@ -1,14 +1,3 @@
-.header__search {
-  // position: absolute;
-  // top: 0;
-  // right: $step*6;
-  // width: $step*1.5;
-  height: $step*1.5;
-
-  border: 1px solid $dark-color;
-  border-radius: $step;
-}
-
 .search__box {
   position: relative;
   left: -5px;
@@ -19,21 +8,33 @@
   @include bounce-transition;
 
   .active & {
-    width: 300px;
+    width: 100px;
+
+    @include media-query('medium') {
+      width: 200px;
+    }
   }
 }
 
 .search__button {
-  width: 35px;
+  width: $step - 2px;
   padding: 0 10px 1px;
   background-color: transparent;
-  color: transparent;
+  color: transparent !important;
   border: 0;
 
   font-family: 'icomoon';
   &::before {
     content: '\f002';
+    position: relative;
+    top: -2px;
+    left: -2px;
     color: $dark-color;
+
+  }
+
+  &:hover::before {
+    color: $light-color;
   }
 
 }
