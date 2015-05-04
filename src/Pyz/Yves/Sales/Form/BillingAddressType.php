@@ -1,8 +1,8 @@
 <?php
 namespace Pyz\Yves\Sales\Form;
 
-use SprykerFeature\Shared\Sales\Transfer\Address;
-use SprykerFeature\Shared\Sales\Transfer\Order;
+use Generated\Shared\Transfer\SalesAddressTransfer;
+use Generated\Shared\Transfer\SalesOrderTransfer;
 use Pyz\Yves\Sales\Form\AbstractAddressType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\Form\FormEvent;

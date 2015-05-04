@@ -3,7 +3,7 @@
 namespace Pyz\Zed\Oms;
 
 use Pyz\Zed\Oms\Communication\Plugin\Oms\FakeAuthPayment;
-use SprykerFeature\Shared\Sales\Transfer\Order as OrderTransfer;
+use Generated\Shared\Transfer\SalesOrder as OrderTransferTransfer;
 use SprykerFeature\Zed\Oms\OmsConfig as SprykerOmsConfig;
 use SprykerFeature\Zed\Oms\Communication\Plugin\Oms\Command\CommandInterface;
 use SprykerFeature\Zed\Oms\Communication\Plugin\Oms\Condition\ConditionInterface;

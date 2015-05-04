@@ -2,7 +2,7 @@
 
 namespace Pyz\Yves\Sales;
 
-use SprykerFeature\Shared\Payment\Transfer\PaymentMethodCollection;
+use Generated\Shared\Transfer\PaymentPaymentMethodCollectionTransfer;
 use Pyz\Yves\Sales\Form\BillingAddressType;
 use Pyz\Yves\Sales\Form\OrderType;
 use Pyz\Yves\Sales\Form\ShippingAddressType;

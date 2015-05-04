@@ -2,7 +2,7 @@
 namespace Pyz\Yves\Checkout\Communication\Controller;
 
 use SprykerEngine\Shared\Kernel\LocatorLocatorInterface;
-use SprykerFeature\Shared\Sales\Transfer\Order;
+use Generated\Shared\Transfer\SalesOrderTransfer;
 use Pyz\Yves\Checkout\Communication\Plugin\CheckoutControllerProvider;
 use Pyz\Yves\Cart\Communication\Helper\CartControllerTrait;
 use Pyz\Yves\Cart\Communication\Plugin\CartControllerProvider;

@@ -4,8 +4,8 @@ namespace Pyz\Zed\Stock\Business\Internal\DemoData;
 
 use Generated\Zed\Ide\AutoCompletion;
 use SprykerEngine\Shared\Kernel\LocatorLocatorInterface;
-use SprykerFeature\Shared\Stock\Transfer\StockProduct;
-use SprykerFeature\Shared\Stock\Transfer\StockType;
+use Generated\Shared\Transfer\StockStockProductTransfer;
+use Generated\Shared\Transfer\StockStockTypeTransfer;
 use SprykerFeature\Zed\Installer\Business\Model\AbstractInstaller;
 use SprykerFeature\Zed\Library\Import\Reader\CsvFileReader;
 use SprykerFeature\Zed\Stock\Business\StockFacade;

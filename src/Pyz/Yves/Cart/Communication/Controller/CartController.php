@@ -6,7 +6,7 @@ use SprykerEngine\Yves\Application\Business\Application;
 use SprykerEngine\Yves\Application\Communication\Controller\AbstractController;
 use SprykerEngine\Yves\Kernel\Factory;
 use SprykerFeature\Sdk\Cart\Model\CartInterface;
-use SprykerFeature\Shared\Cart\Transfer\ItemCollectionInterface;
+use Generated\Shared\Transfer\CartItemCollectionInterfaceTransfer;
 use SprykerFeature\Yves\Cart\Exception\MissingCartException;
 use Symfony\Component\HttpFoundation\Request;
 use Pyz\Yves\Cart\Communication\Plugin\CartControllerProvider;

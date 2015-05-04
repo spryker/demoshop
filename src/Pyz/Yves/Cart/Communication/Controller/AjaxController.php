@@ -1,7 +1,7 @@
 <?php
 namespace Pyz\Yves\Cart\Communication\Controller;
 
-use SprykerFeature\Shared\Cart\Transfer\CartItem;
+use Generated\Shared\Transfer\CartCartItemTransfer;
 use SprykerEngine\Shared\Kernel\LocatorLocatorInterface;
 use Pyz\Yves\Cart\Communication\Helper\CartControllerTrait;
 use SprykerFeature\Yves\Library\Communication\MessageParser;
