@@ -44,11 +44,6 @@ var postForm = function (e) {
     var actionUrl = $form.attr('action');
     var formData = $form.serialize();
 
-    console.log('Action');
-    console.log(actionUrl);
-    console.log('FormData');
-    console.log(formData);
-
     $.ajax({
         type: "POST",
         url: actionUrl,

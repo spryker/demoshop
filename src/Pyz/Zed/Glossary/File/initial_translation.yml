@@ -7,13 +7,13 @@ keys:
       de_DE: '2'
   page.home.featured.top-left.left.name:
     translations:
-      de_DE: 'Batman'
+      de_DE: 'Gorilla Männchen'
   page.home.featured.top-left.left.category:
     translations:
-      de_DE: 'Justice League'
+      de_DE: 'Wilde Tiere'
   page.home.featured.top-left.left.img:
     translations:
-      de_DE: '/images/homepage/batman.jpg'
+      de_DE: '/images/homepage/gorilla.jpg'
   page.home.featured.top-left.left.url:
     translations:
       de_DE: ''
@@ -29,7 +29,7 @@ keys:
       de_DE: 'Brillenpinguin'
   page.home.featured.top-left.right.category:
     translations:
-      de_DE: 'Wild Life'
+      de_DE: 'Meere'
   page.home.featured.top-left.right.img:
     translations:
       de_DE: '/images/homepage/penguin.jpg'
@@ -71,13 +71,13 @@ keys:
       de_DE: '1'
   page.home.featured.bottom-left.top.name:
     translations:
-      de_DE: 'Asien & Australien'
+      de_DE: 'Wald und Wiese'
   page.home.featured.bottom-left.top.category:
     translations:
-      de_DE: 'Wild Life'
+      de_DE: ''
   page.home.featured.bottom-left.top.img:
     translations:
-      de_DE: '/images/homepage/asien-australien.jpg'
+      de_DE: '/images/homepage/teaser-waldwiese.jpg'
   page.home.featured.bottom-left.top.url:
     translations:
       de_DE: ''
@@ -93,7 +93,7 @@ keys:
       de_DE: 'Meere'
   page.home.featured.bottom-left.bottom.category:
     translations:
-      de_DE: 'Wild Life'
+      de_DE: ''
   page.home.featured.bottom-left.bottom.img:
     translations:
       de_DE: '/images/homepage/sea.jpg'
@@ -109,13 +109,13 @@ keys:
       de_DE: '2'
   page.home.featured.bottom-right.left.name:
     translations:
-      de_DE: 'Gibbon Junges'
+      de_DE: 'Ferkel'
   page.home.featured.bottom-right.left.category:
     translations:
-      de_DE: 'Wild Life'
+      de_DE: 'Wald und Wiese'
   page.home.featured.bottom-right.left.img:
     translations:
-      de_DE: '/images/homepage/gibbon.jpg'
+      de_DE: '/images/homepage/ferkel.jpg'
   page.home.featured.bottom-right.left.url:
     translations:
       de_DE: ''
@@ -128,13 +128,13 @@ keys:
       de_DE: '2'
   page.home.featured.bottom-right.right.name:
     translations:
-      de_DE: 'Berserker'
+      de_DE: 'Flusspferd'
   page.home.featured.bottom-right.right.category:
     translations:
-      de_DE: 'World of History'
+      de_DE: 'Wilde Tiere'
   page.home.featured.bottom-right.right.img:
     translations:
-      de_DE: '/images/homepage/berserker.jpg'
+      de_DE: '/images/homepage/flusspferd.jpg'
   page.home.featured.bottom-right.right.url:
     translations:
       de_DE: ''
