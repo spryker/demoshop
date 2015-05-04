@@ -31,6 +31,7 @@ class FrontendExporterConfig extends SprykerFrontendExporterConfig
             $this->getLocator()->urlExporter()->pluginRedirectProcessorPlugin(),
 
             $this->getLocator()->urlExporter()->pluginUrlProcessorPlugin(),
+//            $this->getLocator()->searchPage()->pluginSearchPageConfigProcessorPlugin(),
         ];
     }
 
@@ -51,6 +52,7 @@ class FrontendExporterConfig extends SprykerFrontendExporterConfig
     {
         return [
             //product query expander
+//            $this->getLocator()->searchPage()->pluginSearchPageConfigQueryExpanderPlugin(),
             $this->getLocator()->productFrontendExporterConnector()->pluginProductQueryExpanderPlugin(),
             $this->getLocator()->productFrontendExporterAvailabilityConnector()
                 ->pluginProductAvailabilityQueryExpanderPlugin(),
