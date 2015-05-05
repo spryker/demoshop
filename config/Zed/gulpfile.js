@@ -6,7 +6,7 @@ var _path   = require('path');
 var _del    = require('del');
 
 
-var _dirFeature = 'vendor/spryker/spryker/bundles/*/src/SprykerFeature/Zed/*/Static/Public';
+var _dirFeature = 'vendor/spryker/spryker/Bundles/*/src/SprykerFeature/Zed/*/Static/Public';
 var _dirPub     = 'static/public/Zed/bundles';
 
 var _match = /[^\/]+\/src\/SprykerFeature\/Zed\/([^\/]+)\/Static\/Public/;
