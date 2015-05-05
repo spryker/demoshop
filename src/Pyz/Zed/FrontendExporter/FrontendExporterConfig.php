@@ -79,7 +79,7 @@ class FrontendExporterConfig extends SprykerFrontendExporterConfig
         return [
             $this->getLocator()->productSearch()->pluginProductSearchProcessorPlugin(),
             $this->getLocator()->productSearch()->pluginProductAttributesProcessorPlugin(),
-            $this->getLocator()->productSearchAvailabilityConnector()->pluginProductAvailabilityProcessorPlugin(),
+//            $this->getLocator()->productSearchAvailabilityConnector()->pluginProductAvailabilityProcessorPlugin(),
             $this->getLocator()->productCategorySearch()->pluginProductCategorySearchProcessorPlugin(),
         ];
     }
@@ -91,7 +91,7 @@ class FrontendExporterConfig extends SprykerFrontendExporterConfig
     {
         return [
             $this->getLocator()->productSearch()->pluginProductQueryExpanderPlugin(),
-            $this->getLocator()->productSearchAvailabilityConnector()->pluginProductAvailabilityQueryExpanderPlugin(),
+//            $this->getLocator()->productSearchAvailabilityConnector()->pluginProductAvailabilityQueryExpanderPlugin(),
             $this->getLocator()->productCategory()->pluginProductCategoryPathQueryExpanderPlugin(),
         ];
     }
