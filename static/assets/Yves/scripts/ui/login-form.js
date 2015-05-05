@@ -30,12 +30,16 @@ var toggleMode = function (e) {
 var setLoginUrl = function() {
     var $loginForm = $('.js-login-form');
     $loginForm.attr('action', $loginForm.attr('data-login-url'));
-}
+};
 
 var setRegisterUrl = function() {
     var $loginForm = $('.js-login-form');
     $loginForm.attr('action', $loginForm.attr('data-register-url'));
-}
+};
+
+var handleResponse = function() {
+    alert('Implement me yo')
+};
 
 var postForm = function (e) {
     e.preventDefault();
@@ -49,11 +53,11 @@ var postForm = function (e) {
         url: actionUrl,
         data: formData
     }).done(function(){
-        console.log('ho');
+        handleResponse();
     }).error(function(error){
         console.log(error);
     });
-}
+};
 
 module.exports = {
 
