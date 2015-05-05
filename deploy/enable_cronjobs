@@ -21,8 +21,8 @@ else
 fi
 
 if [ "$roles" != "empty" ]; then
-  APPLICATION_ENV=${environment} vendor/bin/console setup:jobs:generate $roles
-  APPLICATION_ENV=${environment} vendor/bin/console setup:jobs:enable
+  APPLICATION_ENV=${environment} vendor/bin/console setup:jenkins:generate $roles
+  APPLICATION_ENV=${environment} vendor/bin/console setup:jenkins:enable
 fi
 
 

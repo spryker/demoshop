@@ -28,5 +28,4 @@ $config[SystemConfig::HOST_SSL_ZED_GUI]
 $config[SystemConfig::CLOUD_CDN_STATIC_MEDIA_HTTP] = 'http://static.com.spryker.dev';
 $config[SystemConfig::CLOUD_CDN_STATIC_MEDIA_HTTPS] = 'https://static.com.spryker.dev';
 
-$config[SetupConfig::JENKINS_BASE_URL] = 'http://' . $config[SystemConfig::HOST_ZED_GUI] . ':10007/jenkins';
 $config[MailConfig::MAILCATCHER_GUI] = 'http://' . $config[SystemConfig::HOST_ZED_GUI] . ':1080';

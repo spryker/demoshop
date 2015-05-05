@@ -63,11 +63,3 @@ $jobs[] = [
     'stores'   => $allStores,
 ];
 
-$jobs[] = [
-    'name'     => 'reporting-job',
-    'command'  => 'echo "Not implemented"',
-    'schedule' => '*/10 * * * *',
-    'enable'   => true,
-    'stores'   => $allStores,
-    'role'     => 'reporting'
-];
