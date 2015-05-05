@@ -2,7 +2,7 @@
 
 namespace ReneFactor;
 
-use ProjectA\Shared\Library\Config;
+use SprykerFeature\Shared\Library\Config;
 use Symfony\Component\Filesystem\Filesystem;
 use Symfony\Component\Finder\Finder;
 use Symfony\Component\Finder\SplFileInfo;

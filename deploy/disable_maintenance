@@ -15,7 +15,7 @@ if [ -d $destination_release_dir/static/public/Yves ]; then
   cd $destination_release_dir/static/public/Yves
   rm -f maintenance.html
 else
-  echo "ERROR - static/public/Yves not found in current release. That's fine if host is fresh."
+  echo "WARNING - static/public/Yves not found in current release. That's fine if host is fresh."
 fi
 
 rm -f $outfile
