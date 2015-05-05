@@ -12,6 +12,7 @@ class RemoveTransferObjects extends AbstractRefactorer
     {
         $finder = $this->getFinder();
         foreach ($finder as $file) {
+            $this->info($file->getPathname());
             unlink($file->getPathname());
         }
     }

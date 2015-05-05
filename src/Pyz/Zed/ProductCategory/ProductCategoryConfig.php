@@ -11,6 +11,6 @@ class ProductCategoryConfig extends AbstractBundleConfig
      */
     public function getDemoDataCSVPath()
     {
-        return __DIR__ . '/Internal/DemoData/demo-product-category-data.csv';
+        return __DIR__ . '/Business/Internal/DemoData/demo-product-category-data.csv';
     }
 }
