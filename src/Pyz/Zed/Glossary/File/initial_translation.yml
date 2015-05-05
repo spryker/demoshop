@@ -16,7 +16,7 @@ keys:
       de_DE: '/images/homepage/gorilla.jpg'
   page.home.featured.top-left.left.url:
     translations:
-      de_DE: ''
+      de_DE: '/gorilla-männchen'
 
   page.home.featured.top-left.right.width:
     translations:
@@ -35,7 +35,7 @@ keys:
       de_DE: '/images/homepage/penguin.jpg'
   page.home.featured.top-left.right.url:
     translations:
-      de_DE: ''
+      de_DE: '/brillenpinguin'
 
   page.home.featured.top-right.first.width:
     translations:
@@ -48,7 +48,7 @@ keys:
       de_DE: '/images/homepage/wildlife.jpg'
   page.home.featured.top-right.first.url:
     translations:
-      de_DE: ''
+      de_DE: '/wilde-tiere'
 
   page.home.featured.top-right.second.width:
     translations:
@@ -80,7 +80,7 @@ keys:
       de_DE: '/images/homepage/teaser-waldwiese.jpg'
   page.home.featured.bottom-left.top.url:
     translations:
-      de_DE: ''
+      de_DE: '/wald-und-wiese'
 
   page.home.featured.bottom-left.bottom.width:
     translations:
@@ -99,7 +99,7 @@ keys:
       de_DE: '/images/homepage/sea.jpg'
   page.home.featured.bottom-left.bottom.url:
     translations:
-      de_DE: ''
+      de_DE: '/meere'
 
   page.home.featured.bottom-right.left.width:
     translations:
@@ -118,7 +118,7 @@ keys:
       de_DE: '/images/homepage/ferkel.jpg'
   page.home.featured.bottom-right.left.url:
     translations:
-      de_DE: ''
+      de_DE: '/ferkel'
 
   page.home.featured.bottom-right.right.width:
     translations:
@@ -137,7 +137,7 @@ keys:
       de_DE: '/images/homepage/flusspferd.jpg'
   page.home.featured.bottom-right.right.url:
     translations:
-      de_DE: ''
+      de_DE: '/flusspferd'
 
   cart.your-order:
     translations:
