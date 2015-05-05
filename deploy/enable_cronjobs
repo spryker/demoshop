@@ -12,7 +12,7 @@ outfile=`mktemp /tmp/deploy-XXXXXX`
 
 # Prepare Jenkins - get roles for current hosts and call JenkinsController/Generate if there are any roles for current host.
 cd $destination_release_dir
-roles=`get_cronjob_roles`
+roles=`get_cronjob_roles | sed 's/\([^ ]*\)/--role \1/g'`
 if [ -z $roles ]; then
   echo "No cronjobs on this host"
   roles="empty"
@@ -21,8 +21,8 @@ else
 fi
 
 if [ "$roles" != "empty" ]; then
-  APPLICATION_ENV=${environment} php -d "newrelic.appname='Deploy($environment)'" cli/index.php --module=setup --controller=jenkins --action=generate --role=$roles
-  APPLICATION_ENV=${environment} php -d "newrelic.appname='Deploy($environment)'" cli/index.php --module=setup --controller=jenkins --action=enable
+  APPLICATION_ENV=${environment} vendor/bin/console setup:jobs:generate $roles
+  APPLICATION_ENV=${environment} vendor/bin/console setup:jobs:enable
 fi
 
 
