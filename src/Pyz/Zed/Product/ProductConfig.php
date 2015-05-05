@@ -11,6 +11,6 @@ class ProductConfig extends SprykerProductConfig
      */
     public function getDemoDataPath()
     {
-        return __DIR__ . '/Internal/DemoData/demo-product-data.csv';
+        return __DIR__ . '/Business/Internal/DemoData/demo-product-data.csv';
     }
 }
