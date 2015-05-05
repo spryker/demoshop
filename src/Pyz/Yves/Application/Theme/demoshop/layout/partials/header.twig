@@ -1,14 +1,17 @@
 <header class="header">
-  <a href="/" class="shop-logo">Spryker Shop</a>
-  <a href="#" class="nav-toggle js-nav-toggle"><span></span></a>
-  <nav class="main-nav"></nav>
-  <div class="header__search js-search">
-    <button class="search__button js-search-button">Search</button>
-    <input type="text" class="search__box js-search-box">
-  </div>
-  <div class="header__user">
-    <button class="user__login js-show-login-button">Anmelden</button>
-  </div>
-  {% include "@application/layout/partials/shopping-cart.twig" %}
+    <a href="/" class="shop-logo">Spryker Shop</a>
+    <a href="#" class="nav-toggle js-nav-toggle"><span></span></a>
+    <nav class="main-nav"></nav>
+    <div class="header__search js-search">
+        {# @TODO create Url dynamic #}
+        <form action="/search">
+            <button class="search__button js-search-button">Search</button>
+            <input name="q" type="text" class="search__box js-search-box">
+        </form>
+    </div>
+    <div class="header__user">
+        <button class="user__login js-show-login-button">Anmelden</button>
+    </div>
+    {% include "@application/layout/partials/shopping-cart.twig" %}
 </header>
 {% include "@application/layout/partials/main-nav.twig" %}
