@@ -5,10 +5,10 @@
         <h1 class="catalog__section-title">Wild life</h1>
 
         <aside class="catalog__filter js-filters">
-            {{> catalog/filter-default filterName='category' }}
-            {{> catalog/filter-color filterName='color' }}
-            {{> catalog/filter-range filterName='price' min='0' max='200' }}
-            {{> catalog/filter-multivalue filterName='extras' }}
+            {% include "@catalog/catalog/partials/filter-default.twig" with {filterName:'category'} %}
+            {% include "@catalog/catalog/partials/filter-color.twig" with {filterName:'color', id: 42} %}
+            {% include "@catalog/catalog/partials/filter-range.twig" with {filterName:'price', min:'0', max:'200'} %}
+            {% include "@catalog/catalog/partials/filter-multivalue.twig" with {filterName:'extras'} %}
         </aside>
         <button class="catalog__toggle-filters js-toggle-filters">
             <span class="js-show-filters">Show filters</span>
@@ -18,10 +18,10 @@
         <section class="catalog__active-filters">
             <h1>Aktive filter</h1>
             <ul class="active-filter__list">
-                {{> catalog/active-filter name='category' value='' }}
-                {{> catalog/active-filter name='color' value='' }}
-                {{> catalog/active-filter name='price' value='' }}
-                {{> catalog/active-filter name='extras' value='' }}
+                {% include "@catalog/catalog/partials/active-filter.twig" with {name:'category', value:'', id: 42} %}
+                {% include "@catalog/catalog/partials/active-filter.twig" with {name:'color', value:'', id: 42} %}
+                {% include "@catalog/catalog/partials/active-filter.twig" with {name:'price', value:'', id: 42} %}
+                {% include "@catalog/catalog/partials/active-filter.twig" with {name:'extras', value:'', id: 42} %}
             </ul>
         </section>
 

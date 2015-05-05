@@ -1,10 +1,10 @@
 <section class="filter js-filter filter__{{filterName}}" data-filter-id="{{filterName}}" data-filter-name="{{filterName}}" data-filter-type="color">
     <h1 class="filter__title">Farbe</h1>
     <ul class="filter__{{filterName}}-list">
-        <li>{% include "@catalog/catalog/filter-color-value" with {value:"white", hex:'#ffffff', quantity:'40'} %}</li>
-        <li>{% include "@catalog/catalog/filter-color-value" with {value:"black", hex:'#000000', quantity:'12'} %}</li>
-        <li>{% include "@catalog/catalog/filter-color-value" with {value:"blue", hex:'#4c90dd', quantity:'8'} %}</li>
-        <li>{% include "@catalog/catalog/filter-color-value" with {value:"brown", hex:'#89562b', quantity:'5'} %}</li>
-        <li>{% include "@catalog/catalog/filter-color-value" with {value:"gray", hex:'#9b9b9b', quantity:'7'} %}</li>
+        <li>{% include "@catalog/catalog/partials/filter-color-value.twig" with {value:"white", hex:'#ffffff', quantity:'40'} %}</li>
+        <li>{% include "@catalog/catalog/partials/filter-color-value.twig" with {value:"black", hex:'#000000', quantity:'12'} %}</li>
+        <li>{% include "@catalog/catalog/partials/filter-color-value.twig" with {value:"blue", hex:'#4c90dd', quantity:'8'} %}</li>
+        <li>{% include "@catalog/catalog/partials/filter-color-value.twig" with {value:"brown", hex:'#89562b', quantity:'5'} %}</li>
+        <li>{% include "@catalog/catalog/partials/filter-color-value.twig" with {value:"gray", hex:'#9b9b9b', quantity:'7'} %}</li>
     </ul>
 </section>
