@@ -14,7 +14,7 @@ outfile=`mktemp /tmp/deploy-perfmig-XXXXXX`
 ### Execute migrate
 cd $destination_release_dir
 
-vendor/bin/console deploy:execute_migrations &> $outfile
+vendor/bin/console setup:propel:migrate &> $outfile
 return=$?
 
 echo "Migrate output saved in $outfile"

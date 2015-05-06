@@ -20,7 +20,7 @@ rm -fr src/Generated/Propel/$APPLICATION_STORE/Migration
 modified_text="Structure of database was modified in datasource"
 same_text="Same XML and database structures"
 echo "`pwd` $APPLICATION_ENV $APPLICATION_STORE"
-vendor/bin/console deploy:check_migrations >> $outfile
+vendor/bin/console setup:propel:diff >> $outfile
 cat $outfile | grep "$modified_text"
 return=$?
 
