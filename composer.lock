@@ -296,7 +296,7 @@
                     "email": "stof@notk.org"
                 },
                 {
-                    "name": "Knplabs",
+                    "name": "KnpLabs",
                     "homepage": "http://knplabs.com"
                 },
                 {
@@ -314,16 +314,16 @@
         },
         {
             "name": "league/csv",
-            "version": "7.0.1",
+            "version": "7.1.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/thephpleague/csv.git",
-                "reference": "90a92cc55eeff660599840665890eda28a689920"
+                "reference": "3a2a199d686bc8b52689b74d5a66cb2e9b9370c9"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/thephpleague/csv/zipball/90a92cc55eeff660599840665890eda28a689920",
-                "reference": "90a92cc55eeff660599840665890eda28a689920",
+                "url": "https://api.github.com/repos/thephpleague/csv/zipball/3a2a199d686bc8b52689b74d5a66cb2e9b9370c9",
+                "reference": "3a2a199d686bc8b52689b74d5a66cb2e9b9370c9",
                 "shasum": ""
             },
             "require": {
@@ -336,7 +336,7 @@
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "7.0-dev"
+                    "dev-master": "7.1-dev"
                 }
             },
             "autoload": {
@@ -366,7 +366,7 @@
                 "read",
                 "write"
             ],
-            "time": "2015-03-23 11:54:26"
+            "time": "2015-05-06 12:03:42"
         },
         {
             "name": "mandrill/mandrill",
@@ -934,7 +934,7 @@
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/spryker.git",
-                "reference": "9f516d87a6348330b4fbcf73f713b7e85de5e95a"
+                "reference": "0a0da230546bbebbe84087b7d19ead35fbca5236"
             },
             "require": {
                 "digital-canvas/zend-framework": ">=1.12.2",
@@ -1072,7 +1072,7 @@
                     "SprykerFeature\\Shared\\Library": "Bundles/Library/src/"
                 }
             },
-            "time": "2015-05-06 08:32:15"
+            "time": "2015-05-06 16:08:43"
         },
         {
             "name": "symfony-cmf/routing",
