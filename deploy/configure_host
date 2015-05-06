@@ -14,7 +14,15 @@ outfile=`mktemp /tmp/deploy-XXXXXX`
 
 ### Generate propel files
 cd $destination_release_dir
-vendor/bin/console setup:deploy:prepare_propel
+
+vendor/bin/console setup:deploy:prepare_propel &> $outfile
+return=$?
+
+if [ $return -ne 0 ]; then
+  echo "FATAL ERROR occurred while configuring host:"
+  cat $outfile
+  exit $return
+fi
 
 ### Link public assets to shared static static (for relative URLs in minified stylesheets)
 if is_default_store; then
