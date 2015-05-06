@@ -17,7 +17,7 @@ if [ ! -d $destination_current_dir ]; then
   echo "Host is fresh!"
   exit
 fi
-APPLICATION_ENV=${environment} php cli/index.php --module=setup --controller=jenkins --action=disable
+APPLICATION_ENV=${environment} vendor/bin/console setup:jenkins:disable
 
 rm -f $outfile
 exit 0
