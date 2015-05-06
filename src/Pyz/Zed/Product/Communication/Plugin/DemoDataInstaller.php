@@ -11,7 +11,7 @@ use Pyz\Zed\Product\Communication\ProductDependencyContainer;
 class DemoDataInstaller extends AbstractInstallerPlugin
 {
 
-            public function install()
+    public function install()
     {
         $this->getDependencyContainer()->getInstallerFacade()->installDemoData($this->messenger);
     }
