@@ -7,7 +7,11 @@ jobs[]['role'] default value is 'admin'
 @author Marek Obuchowicz
 @author Michael Kugele
  */
-$allStores = array('US'); // Todo: use value from config/stores.php
+
+/**
+ * @todo use values from config/stores.php
+ */
+$allStores = array('DE');
 
 /* -- MAIL QUEUE -- */
 $jobs[] = [
