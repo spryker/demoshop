@@ -12,6 +12,9 @@
 FILEPATH=`pwd`/$0; BASEDIR=`dirname $FILEPATH`; source $BASEDIR/vars; source $BASEDIR/functions
 outfile=`mktemp /tmp/deploy-XXXXXX`
 
+### Generate propel files
+cd $destination_release_dir
+vendor/bin/console deploy:prepare_propel
 
 ### Link public assets to shared static static (for relative URLs in minified stylesheets)
 if is_default_store; then
