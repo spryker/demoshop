@@ -72,31 +72,31 @@ fi
 chown -R www-data. .
 
 ### Generate Code
-if is_default_store; then
-  echo " - generating propel config code"
-  APPLICATION_ENV=$environment sudo -E -u www-data php -d "newrelic.appname='Deploy($environment)'" vendor/bin/console setup:propel:config:convert &> $outfile
-  if [ $? -ne 0 ]; then
-    echo "!!! FATAL: There was an error in console setup:generate"
-    cat $outfile
-    exit 2
-  fi
-
-  echo " - copy propel schemata"
-  APPLICATION_ENV=$environment sudo -E -u www-data php -d "newrelic.appname='Deploy($environment)'" vendor/bin/console setup:propel:schema:copy &> $outfile
-  if [ $? -ne 0 ]; then
-    echo "!!! FATAL: There was an error in console setup:generate"
-    cat $outfile
-    exit 2
-  fi
-
-  echo " - building propel entities and queries"
-  APPLICATION_ENV=$environment sudo -E -u www-data php -d "newrelic.appname='Deploy($environment)'" vendor/bin/console setup:propel:model:build &> $outfile
-  if [ $? -ne 0 ]; then
-    echo "!!! FATAL: There was an error in console setup:generate"
-    cat $outfile
-    exit 2
-  fi
-fi
+#if is_default_store; then
+#  echo " - generating propel config code"
+#  APPLICATION_ENV=$environment sudo -E -u www-data php -d "newrelic.appname='Deploy($environment)'" vendor/bin/console setup:propel:config:convert &> $outfile
+#  if [ $? -ne 0 ]; then
+#    echo "!!! FATAL: There was an error in console setup:generate"
+#    cat $outfile
+#    exit 2
+#  fi
+#
+#  echo " - copy propel schemata"
+#  APPLICATION_ENV=$environment sudo -E -u www-data php -d "newrelic.appname='Deploy($environment)'" vendor/bin/console setup:propel:schema:copy &> $outfile
+#  if [ $? -ne 0 ]; then
+#    echo "!!! FATAL: There was an error in console setup:generate"
+#    cat $outfile
+#    exit 2
+#  fi
+#
+#  echo " - building propel entities and queries"
+#  APPLICATION_ENV=$environment sudo -E -u www-data php -d "newrelic.appname='Deploy($environment)'" vendor/bin/console setup:propel:model:build &> $outfile
+#  if [ $? -ne 0 ]; then
+#    echo "!!! FATAL: There was an error in console setup:generate"
+#    cat $outfile
+#    exit 2
+#  fi
+#fi
 
 ### Save the "Generated" dir back in cache
 rsync -ra --delete src/Generated/ $generated_cache_dir
