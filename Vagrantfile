@@ -1,11 +1,27 @@
-VAGRANTFILE_API_VERSION = "2"
+# Settings for the Virtualbox VM
+VM_IP='10.10.0.33'
+VM_MEMORY='4096'
+VM_CPUS='4'
+
+# Locations of SaltStack code
 SALT_DIRECTORY="./vendor/spryker/saltstack"
 SALT_REPOSITORY="git@github.com:spryker/saltstack.git"
 SALT_BRANCH="master"
 PILLAR_DIRECTORY="./vendor/spryker/pillar"
 PILLAR_REPOSITORY="git@github.com:spryker/pillar.git"
 PILLAR_BRANCH="master"
+
+# Hostnames to be managed
 HOSTS=["spryker.dev", "zed.de.spryker.dev","zed.com.spryker.dev", "www.com.spryker.dev", "com.spryker.dev", "static.com.spryker.dev", "www.de.spryker.dev", "de.spryker.dev", "static.de.spryker.dev", "kibana.spryker.dev"]
+
+# Check whether we are running UNIX or Windows-based machine
+if Vagrant::Util::Platform.windows?
+  HOSTS_PATH = 'c:\WINDOWS\system32\drivers\etc\hosts'
+  SYNCED_FOLDER_TYPE = 'smb'
+else
+  HOSTS_PATH = '/etc/hosts'
+  SYNCED_FOLDER_TYPE = 'nfs'
+end
 
 # Verify if salt/pillar directories are present
 require 'mkmf'
@@ -28,7 +44,7 @@ if !Dir.exists?(PILLAR_DIRECTORY)
   end
 end
 
-Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
+Vagrant.configure(2) do |config|
   # Base box for initial setup. Latest Debian (stable) is recommended.
   # The list of available community boxes is available on: http://www.vagrantbox.es/
   # Not that the box file should have virtualbox guest additions installed, otherwise shared folders will not work
@@ -41,19 +57,20 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   config.ssh.forward_agent = true
 
   # The VirtualBox IP-address for the browser
-  config.vm.network :private_network, ip: "10.10.0.33"
+  config.vm.network :private_network, ip: VM_IP
 
   # Port forwarding for services running on VM:
-  config.vm.network "forwarded_port", guest: 1080, host: 1080, auto_correct: true   # Mailcatcher
-  config.vm.network "forwarded_port", guest: 3306, host: 3306, auto_correct: true   # MySQL
-  config.vm.network "forwarded_port", guest: 5432, host: 5432, auto_correct: true   # PostgreSQL
-  config.vm.network "forwarded_port", guest: 9200, host: 9200, auto_correct: true   # ELK-Elasticsearch
-  config.vm.network "forwarded_port", guest: 9292, host: 9292, auto_correct: true   # ELK-Kibana
+  config.vm.network "forwarded_port", guest: 1080,  host: 1080,  auto_correct: true   # Mailcatcher
+  config.vm.network "forwarded_port", guest: 3306,  host: 3306,  auto_correct: true   # MySQL
+  config.vm.network "forwarded_port", guest: 5432,  host: 5432,  auto_correct: true   # PostgreSQL
+  config.vm.network "forwarded_port", guest: 9200,  host: 9200,  auto_correct: true   # ELK-Elasticsearch
+  config.vm.network "forwarded_port", guest: 10007, host: 10007, auto_correct: true   # Jenkins (development)
+  config.vm.network "forwarded_port", guest: 11007, host: 11007, auto_correct: true   # Jenkins (testing)
 
   # SaltStack masterless setup
   if Dir.exists?(PILLAR_DIRECTORY) && Dir.exists?(SALT_DIRECTORY)
-    config.vm.synced_folder SALT_DIRECTORY,   "/srv/salt/"
-    config.vm.synced_folder PILLAR_DIRECTORY, "/srv/pillar/"
+    config.vm.synced_folder SALT_DIRECTORY,   "/srv/salt/",   type: SYNCED_FOLDER_TYPE
+    config.vm.synced_folder PILLAR_DIRECTORY, "/srv/pillar/", type: SYNCED_FOLDER_TYPE
     config.vm.provision :salt do |salt|
       salt.minion_config = "salt/minion"
       salt.run_highstate = true
@@ -71,22 +88,27 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
     config.hostmanager.include_offline = true
     config.hostmanager.aliases = HOSTS
   else
-    puts "WARNING: Please add the following entries to your /etc/hosts \n\n\033[0m"
-    puts "10.10.0.33 #{HOSTS.join(' ')}\n"
+    hosts_line = VM_IP + " " + HOSTS.join(' ')
+    if not File.open(HOSTS_PATH).each_line.any? { |line| line.chomp == hosts_line }
+      puts "WARNING: Please add the following entries to your ${HOSTS_PATH} file: \n\033[0m"
+      puts hosts_line
+    end
   end
 
   # Share the application code with VM
-  config.vm.synced_folder "./", "/data/shop/development/current", type: "nfs"
-  config.nfs.map_uid = Process.uid
-  config.nfs.map_gid = Process.gid
+  config.vm.synced_folder "./", "/data/shop/development/current", type: SYNCED_FOLDER_TYPE
+  if SYNCED_FOLDER_TYPE == "nfs"
+    config.nfs.map_uid = Process.uid
+    config.nfs.map_gid = Process.gid
+  end
 
   # Configure VirtualBox VM resources (CPU and memory)
   config.vm.provider :virtualbox do |vb|
     vb.name = "Spryker Vagrant"
     vb.customize([
       "modifyvm", :id,
-      "--memory", 4096,
-      "--cpus", 4
+      "--memory", VM_MEMORY,
+      "--cpus", VM_CPUS,
     ])
   end
 end
