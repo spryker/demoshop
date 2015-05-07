@@ -84,6 +84,8 @@ class ProductDataInstall extends AbstractInstaller
             $idAbstractProduct = $this->productManager->createAbstractProduct($sku);
             $this->productManager->createAbstractProductAttributes($idAbstractProduct, $currentLocale, $currentAbstractProduct['name'], $currentAbstractProduct['attributes']);
             $this->createConcreteProducts($currentAbstractProduct['products'], $idAbstractProduct, $currentLocale);
+            $this->productManager->touchProductActive($idAbstractProduct);
+            $this->productManager->createAndTouchProductUrlByIdProduct($idAbstractProduct, '/' . str_replace(' ', '-', trim($currentAbstractProduct['name'])), $currentLocale);
         }
     }
 
@@ -97,8 +99,6 @@ class ProductDataInstall extends AbstractInstaller
         foreach ($products as $concreteProduct) {
             $idConcreteProduct = $this->productManager->createConcreteProduct($concreteProduct['sku'], $idAbstractProduct, true);
             $this->productManager->createConcreteProductAttributes($idConcreteProduct, $currentLocale, $concreteProduct['name'], $concreteProduct['attributes']);
-            $this->productManager->createAndTouchProductUrlByIdProduct($idConcreteProduct, '/' . str_replace(' ', '-', trim($concreteProduct['name'])), $currentLocale);
-            $this->productManager->touchProductActive($idConcreteProduct);
         }
     }
 
