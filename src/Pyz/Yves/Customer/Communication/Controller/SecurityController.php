@@ -8,6 +8,7 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\RedirectResponse;
 use SprykerFeature\Shared\Customer\Code\Messages;
 use Pyz\Yves\Customer\Plugin\CustomerControllerProvider;
+use Generated\Shared\Transfer\CustomerCustomerTransfer;
 
 /**
  * @method CustomerDependencyContainer getDependencyContainer()
@@ -53,7 +54,7 @@ class SecurityController extends AbstractController
         $form = $this->createForm($this->getDependencyContainer()->createFormRegister());
 
         if ($form->isValid()) {
-            $customerTransfer = new \Generated\Shared\Transfer\CustomerCustomerTransfer();
+            $customerTransfer = new CustomerCustomerTransfer();
             $customerTransfer->fromArray($form->getData());
             $customerTransfer = $this->getLocator()->customer()->sdk()->registerCustomer($customerTransfer);
             if ($customerTransfer->getRegistrationKey()) {
@@ -73,7 +74,7 @@ class SecurityController extends AbstractController
      */
     public function confirmRegistrationAction(Request $request)
     {
-        $customerTransfer = new \Generated\Shared\Transfer\CustomerCustomerTransfer();
+        $customerTransfer = new CustomerCustomerTransfer();
         $customerTransfer->setRegistrationKey($request->query->get("token"));
         $customerTransfer = $this->getLocator()->customer()->sdk()->confirmRegistration($customerTransfer);
         if ($customerTransfer->getRegistered()) {
