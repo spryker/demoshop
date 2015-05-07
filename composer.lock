@@ -296,7 +296,7 @@
                     "email": "stof@notk.org"
                 },
                 {
-                    "name": "KnpLabs",
+                    "name": "Knplabs",
                     "homepage": "http://knplabs.com"
                 },
                 {
@@ -934,7 +934,7 @@
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/spryker.git",
-                "reference": "4337602cd54a3c0ec2c0dc3eac3f4d3a97410e67"
+                "reference": "89966e4a41f6b3f00994f06f4fd1ba40c90fe915"
             },
             "require": {
                 "digital-canvas/zend-framework": ">=1.12.2",
@@ -1071,7 +1071,7 @@
                     "SprykerFeature\\Shared\\Library": "Bundles/Library/src/"
                 }
             },
-            "time": "2015-05-07 10:19:28"
+            "time": "2015-05-07 10:38:27"
         },
         {
             "name": "symfony-cmf/routing",
