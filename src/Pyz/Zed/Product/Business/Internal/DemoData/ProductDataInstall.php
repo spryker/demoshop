@@ -2,7 +2,7 @@
 
 namespace Pyz\Zed\Product\Business\Internal\DemoData;
 
-use SprykerEngine\Shared\Locale\Dto\LocaleDto;
+use Generated\Shared\Transfer\LocaleTransfer;
 use SprykerFeature\Zed\Installer\Business\Model\AbstractInstaller;
 use SprykerFeature\Zed\Product\Business\Attribute\AttributeManagerInterface;
 use SprykerFeature\Zed\Product\Business\Importer\Reader\File\IteratorReaderInterface;
@@ -92,9 +92,9 @@ class ProductDataInstall extends AbstractInstaller
     /**
      * @param array $products
      * @param int $idAbstractProduct
-     * @param LocaleDto $currentLocale
+     * @param LocaleTransfer $currentLocale
      */
-    protected function createConcreteProducts(array $products, $idAbstractProduct, LocaleDto $currentLocale)
+    protected function createConcreteProducts(array $products, $idAbstractProduct, LocaleTransfer $currentLocale)
     {
         foreach ($products as $concreteProduct) {
             $idConcreteProduct = $this->productManager->createConcreteProduct($concreteProduct['sku'], $idAbstractProduct, true);

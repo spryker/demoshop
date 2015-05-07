@@ -2,8 +2,8 @@
 
 namespace Pyz\Zed\ProductCategory\Business\Internal\DemoData;
 
+use Generated\Shared\Transfer\LocaleTransfer;
 use Propel\Runtime\Exception\PropelException;
-use SprykerEngine\Shared\Locale\Dto\LocaleDto;
 use SprykerFeature\Zed\Installer\Business\Model\AbstractInstaller;
 use SprykerFeature\Zed\Library\Import\ReaderInterface;
 use SprykerFeature\Zed\ProductCategory\Business\ProductCategoryManagerInterface;
@@ -75,11 +75,11 @@ class ProductCategoryMappingInstall extends AbstractInstaller
     }
 
     /**
-     * @param LocaleDto $locale
+     * @param LocaleTransfer $locale
      *
      * @throws PropelException
      */
-    protected function installProductCategories(LocaleDto $locale)
+    protected function installProductCategories(LocaleTransfer $locale)
     {
         foreach ($this->getDemoProductCategories() as $demoProductCategory) {
             $sku = $demoProductCategory['sku'];

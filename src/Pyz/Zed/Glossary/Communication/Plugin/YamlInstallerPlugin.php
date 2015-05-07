@@ -6,7 +6,7 @@
 
 namespace Pyz\Zed\Glossary\Communication\Plugin;
 
-use SprykerEngine\Shared\Locale\Dto\LocaleDto;
+use Generated\Shared\Transfer\LocaleTransfer;
 use SprykerEngine\Zed\Kernel\Communication\AbstractPlugin;
 use SprykerFeature\Zed\Glossary\Communication\GlossaryDependencyContainer;
 use SprykerFeature\Zed\Glossary\Dependency\Plugin\GlossaryInstallerPluginInterface;
@@ -49,7 +49,7 @@ class YamlInstallerPlugin extends AbstractPlugin implements GlossaryInstallerPlu
             }
 
             foreach ($data['translations'] as $localeName => $text) {
-                $localeDto = new LocaleDto();
+                $localeDto = new LocaleTransfer();
                 $localeDto->setLocaleName($localeName);
                 if (!$glossaryFacade->hasTranslation($keyName, $localeDto)) {
                     $glossaryFacade->createAndTouchTranslation($keyName, $localeDto, $text, true);

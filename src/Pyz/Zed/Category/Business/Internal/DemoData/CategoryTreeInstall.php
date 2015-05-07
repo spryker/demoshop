@@ -2,9 +2,9 @@
 
 namespace Pyz\Zed\Category\Business\Internal\DemoData;
 
+use Generated\Shared\Transfer\LocaleTransfer;
 use Generated\Zed\Ide\AutoCompletion;
 use SprykerEngine\Shared\Kernel\LocatorLocatorInterface;
-use SprykerEngine\Shared\Locale\Dto\LocaleDto;
 use SprykerEngine\Zed\Locale\Business\LocaleFacade;
 use SprykerFeature\Zed\Category\Business\CategoryFacade;
 use SprykerFeature\Zed\Category\Persistence\CategoryQueryContainer;
@@ -24,7 +24,7 @@ class CategoryTreeInstall extends AbstractInstaller
     protected $queryContainer;
 
     /**
-     * @var LocaleDto
+     * @var LocaleTransfer
      */
     protected $locale;
 
