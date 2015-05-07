@@ -14,14 +14,11 @@ class PurgeCodeUsage extends AbstractCommand implements CommandByOrderInterface
      * @param array $orderItems
      * @param SpySalesOrder $orderEntity
      * @param ReadOnlyArrayObject $data
+     *
+     * @return bool
      */
     public function run(array $orderItems, SpySalesOrder $orderEntity, ReadOnlyArrayObject $data)
     {
-        $purgedCodes = $this->facadeSalesrule->purgeSalesruleCodeUsage($orderEntity->getPrimaryKey());
-
-        foreach ($purgedCodes as $purgedCode) {
-            $this->addNote('Purged code: "' . $purgedCode . '"', $orderEntity);
-        }
-
+        return false;
     }
 }

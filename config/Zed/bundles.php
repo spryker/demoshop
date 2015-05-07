@@ -38,7 +38,6 @@ return [
         'ProductCategory' => $schema,
         'ProductSearch' => $schema,
         'Sales' => $schemaAndNavigation,
-        'Salesrule' => $schemaAndNavigation,
         'SearchPage' => $schemaAndNavigation,
         'Setup' => $navigation,
         'Stock' => $schemaAndNavigation,
