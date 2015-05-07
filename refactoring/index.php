@@ -32,4 +32,7 @@ $refactor = new \ReneFactor\EntityAccess($consoleLogger);
 //$refactor->refactor();
 
 $refactor = new \ReneFactor\RemoveTransferObjects($consoleLogger);
+//$refactor->refactor();
+
+$refactor = new \ReneFactor\RenameTransferDefinitionFile($consoleLogger);
 $refactor->refactor();
