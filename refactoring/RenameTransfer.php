@@ -39,6 +39,10 @@ class RenameTransfer extends AbstractRefactorer
                     if ('Transfer' === $new) {
                         $new = $new1;
                     }
+                    
+                    if ('Transfer' === $new) {
+                        $new = $old;
+                    }
 
                     if (array_key_exists($new, $transfers)) {
                         $transfer = $transfers[$new];
