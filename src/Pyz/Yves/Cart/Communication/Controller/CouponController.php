@@ -1,20 +1,23 @@
 <?php
+
 namespace Pyz\Yves\Cart\Communication\Controller;
 
 use SprykerEngine\Shared\Kernel\LocatorLocatorInterface;
 use Pyz\Yves\Cart\Communication\Plugin\CartControllerProvider;
 use Pyz\Yves\Cart\Communication\Helper\CartControllerTrait;
 use SprykerEngine\Yves\Application\Communication\Controller\AbstractController;
+use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\HttpFoundation\Request;
 
-class CouponController extends \SprykerEngine\Yves\Application\Communication\Controller\AbstractController
+class CouponController extends AbstractController
 {
     use CartControllerTrait;
 
     /**
      * @param Request $request
-     * @param $couponCode
-     * @return \Symfony\Component\HttpFoundation\RedirectResponse
+     * @param string $couponCode
+     *
+     * @return RedirectResponse
      */
     public function addAction(Request $request, $couponCode)
     {
@@ -26,8 +29,9 @@ class CouponController extends \SprykerEngine\Yves\Application\Communication\Con
 
     /**
      * @param Request $request
-     * @param $couponCode
-     * @return \Symfony\Component\HttpFoundation\RedirectResponse
+     * @param string $couponCode
+     *
+     * @return RedirectResponse
      */
     public function removeAction(Request $request, $couponCode)
     {
@@ -39,7 +43,8 @@ class CouponController extends \SprykerEngine\Yves\Application\Communication\Con
 
     /**
      * @param Request $request
-     * @return \Symfony\Component\HttpFoundation\RedirectResponse
+     *
+     * @return RedirectResponse
      */
     public function clearAction(Request $request)
     {

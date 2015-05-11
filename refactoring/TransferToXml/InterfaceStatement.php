@@ -16,7 +16,7 @@ class InterfaceStatement
     private $short;
 
     /**
-     * @param $name
+     * @param string $name
      */
     public function __construct($name)
     {

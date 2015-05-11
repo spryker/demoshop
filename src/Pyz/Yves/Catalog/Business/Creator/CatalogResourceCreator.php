@@ -36,11 +36,11 @@ class CategoryResourceCreator implements ResourceCreatorInterface
 
     /**
      * @param Application $app
-     * @param $data
+     * @param array $data
      *
      * @return array
      */
-    public function createResource(Application $app, $data)
+    public function createResource(Application $app, array $data)
     {
         $bundleControllerAction = new BundleControllerAction('Catalog', 'Catalog', 'index');
         $controllerResolver = new ControllerLocator($bundleControllerAction);
