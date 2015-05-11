@@ -21,18 +21,5 @@ $consoleLogger = new ConsoleLogger(
 );
 $consoleLogger->info('starting refactoring');
 
-
-$refactor = new \ReneFactor\TransferToXml($consoleLogger);
-//$refactor->refactor();
-
-$refactor = new \ReneFactor\TransferAccess($consoleLogger);
-//$refactor->refactor();
-
-$refactor = new \ReneFactor\EntityAccess($consoleLogger);
-//$refactor->refactor();
-
-$refactor = new \ReneFactor\RemoveTransferObjects($consoleLogger);
-//$refactor->refactor();
-
-$refactor = new \ReneFactor\RenameTransferDefinitionFile($consoleLogger);
+$refactor = new \ReneFactor\RenameTransfer($consoleLogger);
 $refactor->refactor();
