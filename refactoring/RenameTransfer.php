@@ -27,7 +27,6 @@ class RenameTransfer extends AbstractRefactorer
             $pathParts = explode(DIRECTORY_SEPARATOR, $file->getPathname());
             $bundle = array_slice($pathParts, 11, 1);
             $bundle = $bundle[0];
-            $this->error($bundle);
 
             $content = $file->getContents();
 
@@ -92,7 +91,7 @@ class RenameTransfer extends AbstractRefactorer
                 }
             }
 
-//            file_put_contents($file->getPathname(), $content);
+            file_put_contents($file->getPathname(), $content);
         }
 
     }
