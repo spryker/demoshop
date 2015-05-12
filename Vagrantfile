@@ -67,6 +67,9 @@ Vagrant.configure(2) do |config|
   config.vm.network "forwarded_port", guest: 10007, host: 10007, auto_correct: true   # Jenkins (development)
   config.vm.network "forwarded_port", guest: 11007, host: 11007, auto_correct: true   # Jenkins (testing)
 
+  # install required, but missing dependencies into the base box
+  config.vm.provision "shell", inline: "sudo apt-get install -y pkg-config python2.7-dev"
+
   # SaltStack masterless setup
   if Dir.exists?(PILLAR_DIRECTORY) && Dir.exists?(SALT_DIRECTORY)
     config.vm.synced_folder SALT_DIRECTORY,   "/srv/salt/",   type: SYNCED_FOLDER_TYPE
