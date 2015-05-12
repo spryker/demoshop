@@ -6,19 +6,31 @@ use Zend\Filter\Word\UnderscoreToCamelCase;
 
 class Property
 {
-
+    /**
+     * @var string
+     */
     private $name;
+
+    /**
+     * @var string
+     */
     private $type;
+
+    /**
+     * @var string
+     */
     private $default;
 
     /**
-     * @param $name
-     * @param $type
-     * @param $default
+     * @param string $name
+     * @param string $type
+     * @param string $default
+     * @throws \Exception
      */
     public function __construct($name, $type, $default)
     {
-        if (is_array($name) ||is_array($type) || is_array($default)) {
+        if (is_array($name) || is_array($type) || is_array($default)) {
+            //TODO rethink this message please ;)
             throw new \Exception('Fuck it');
         }
         $filter = new UnderscoreToCamelCase();

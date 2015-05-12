@@ -3,7 +3,8 @@
 namespace Pyz\Yves\Catalog\Business\Creator;
 
 use SprykerFeature\Shared\Application\Communication\ControllerServiceBuilder;
-use SprykerFeature\Yves\FrontendExporter\Business\Creator\ResourceCreatorInterface;
+use SprykerFeature\Shared\Category\CategoryResourceSettings;
+use SprykerFeature\Yves\FrontendExporter\Creator\ResourceCreatorInterface;
 use Pyz\Sdk\Catalog\Model\FacetConfig;
 use Silex\Application;
 use SprykerEngine\Yves\Kernel\Communication\BundleControllerAction;
@@ -31,16 +32,16 @@ class CategoryResourceCreator implements ResourceCreatorInterface
      */
     public function getType()
     {
-        return 'category';
+        return CategoryResourceSettings::RESOURCE_TYPE_CATEGORY_NODE;
     }
 
     /**
      * @param Application $app
-     * @param $data
+     * @param array $data
      *
      * @return array
      */
-    public function createResource(Application $app, $data)
+    public function createResource(Application $app, array $data)
     {
         $bundleControllerAction = new BundleControllerAction('Catalog', 'Catalog', 'index');
         $controllerResolver = new ControllerLocator($bundleControllerAction);

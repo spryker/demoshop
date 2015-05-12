@@ -136,8 +136,10 @@ $this->info($bundle);
     }
 
     /**
-     * @param $reflection
-     * @param $instance
+     * @param \ReflectionClass $reflection
+     * @param object $instance
+     *
+     * @return array
      */
     private function getProperties(\ReflectionClass $reflection, $instance)
     {

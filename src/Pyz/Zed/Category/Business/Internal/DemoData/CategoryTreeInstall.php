@@ -2,6 +2,7 @@
 
 namespace Pyz\Zed\Category\Business\Internal\DemoData;
 
+use Generated\Shared\Transfer\CategoryCategoryTransfer;
 use Generated\Shared\Transfer\LocaleTransfer;
 use Generated\Zed\Ide\AutoCompletion;
 use SprykerEngine\Shared\Kernel\LocatorLocatorInterface;
@@ -142,13 +143,13 @@ class CategoryTreeInstall extends AbstractInstaller
     }
 
     /**
-     * @param $rawNode
+     * @param array $rawNode
      *
      * @return int
      */
     protected function createCategory(array $rawNode)
     {
-        $categoryTransfer = new \Generated\Shared\Transfer\CategoryCategoryTransfer();
+        $categoryTransfer = new CategoryCategoryTransfer();
         $categoryTransfer->setName($rawNode[self::CATEGORY_NAME]);
         $idCategory = $this->categoryFacade->createCategory($categoryTransfer, $this->locale);
 
