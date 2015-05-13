@@ -6,7 +6,7 @@
 # Match argument agains localhost, my hostname or my ip address (any)
 function match_hostname_or_ip() (
   local my_names
-  my_names="localhost `hostname --short` `hostname --ip`"
+  my_names="127.0.0.1 localhost `hostname --short` `hostname --ip`"
   for match in $1 ${1/.*/}; do
     for name in $my_names; do
       [ "$match" == "$name" ] && exit 0

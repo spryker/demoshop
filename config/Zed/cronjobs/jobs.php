@@ -19,6 +19,7 @@ $jobs[] = [
     'command'  => '$PHP_BIN vendor/bin/console mail:send-mail',
     'schedule' => '* * * * *',
     'enable'   => true,
+    'run_on_non_production' => true,
     'stores'   => $allStores,
 ];
 
@@ -28,6 +29,7 @@ $jobs[] = [
     'command'  => '$PHP_BIN vendor/bin/console oms:check-condition',
     'schedule' => '*/10 * * * *',
     'enable'   => true,
+    'run_on_non_production' => true,
     'stores'   => $allStores,
 ];
 
@@ -36,6 +38,7 @@ $jobs[] = [
     'command'  => '$PHP_BIN vendor/bin/console oms:check-timeout',
     'schedule' => '*/10 * * * *',
     'enable'   => true,
+    'run_on_non_production' => true,
     'stores'   => $allStores,
 ];
 
@@ -43,7 +46,8 @@ $jobs[] = [
     'name'     => 'export-kv',
     'command'  => '$PHP_BIN vendor/bin/console frontend-exporter:export-key-value',
     'schedule' => '*/10 * * * *',
-    'enable'   => false,
+    'enable'   => true,
+    'run_on_non_production' => true,
     'stores'   => $allStores,
 ];
 
@@ -59,7 +63,8 @@ $jobs[] = [
     'name'     => 'update-search',
     'command'  => '$PHP_BIN vendor/bin/console frontend-exporter:update-search',
     'schedule' => '*/10 * * * *',
-    'enable'   => false,
+    'enable'   => true,
+    'run_on_non_production' => true,
     'stores'   => $allStores,
 ];
 

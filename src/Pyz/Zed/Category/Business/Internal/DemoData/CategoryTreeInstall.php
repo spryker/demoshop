@@ -18,6 +18,7 @@ class CategoryTreeInstall extends AbstractInstaller
     const IS_ROOT = 'is_root';
     const CATEGORY_NAME = 'name';
     const PARENT_NAME = 'parent_name';
+    const IMAGE_NAME = 'image_name';
 
     /**
      * @var CategoryQueryContainer
@@ -151,6 +152,7 @@ class CategoryTreeInstall extends AbstractInstaller
     {
         $categoryTransfer = new CategoryCategoryTransfer();
         $categoryTransfer->setName($rawNode[self::CATEGORY_NAME]);
+        $categoryTransfer->setImageName($rawNode[self::IMAGE_NAME]);
         $idCategory = $this->categoryFacade->createCategory($categoryTransfer, $this->locale);
 
         return $idCategory;
