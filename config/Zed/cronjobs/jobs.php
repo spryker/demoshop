@@ -41,7 +41,7 @@ $jobs[] = [
 
 $jobs[] = [
     'name'     => 'export-kv',
-    'command'  => '$PHP_BIN vendor/bin/console frontend:exporter:export-key-value',
+    'command'  => '$PHP_BIN vendor/bin/console frontend-exporter:export-key-value',
     'schedule' => '*/10 * * * *',
     'enable'   => false,
     'stores'   => $allStores,
@@ -49,7 +49,7 @@ $jobs[] = [
 
 $jobs[] = [
     'name'     => 'export-search',
-    'command'  => '$PHP_BIN vendor/bin/console frontend:exporter:export-search',
+    'command'  => '$PHP_BIN vendor/bin/console frontend-exporter:export-search',
     'schedule' => '*/10 * * * *',
     'enable'   => false,
     'stores'   => $allStores,
@@ -57,7 +57,7 @@ $jobs[] = [
 
 $jobs[] = [
     'name'     => 'update-search',
-    'command'  => '$PHP_BIN vendor/bin/console frontend:exporter:update-search',
+    'command'  => '$PHP_BIN vendor/bin/console frontend-exporter:update-search',
     'schedule' => '*/10 * * * *',
     'enable'   => false,
     'stores'   => $allStores,
