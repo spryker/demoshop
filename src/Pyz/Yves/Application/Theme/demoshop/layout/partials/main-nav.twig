@@ -2,9 +2,13 @@
     <section class="main-nav__categories">
         <h1 class="main-nav__heading">Kategorien</h1>
         <ul class="main-nav__category-list">
-            {% include "@application/layout/partials/main-nav-button.twig" with {name:"Wildlife", url:"catalog.html", imageUrl:"/images/nav/wildlife.jpg"} %}
-            {% include "@application/layout/partials/main-nav-button.twig" with {name:"Meere", url:"catalog.html", imageUrl:"/images/nav/sealife.jpg"} %}
-            {% include "@application/layout/partials/main-nav-button.twig" with {name:"Lorem", url:"catalog.html", imageUrl:"/images/nav/lorem.jpg"} %}
+            {% for category in categories %}
+                {% include "@application/layout/partials/main-nav-button.twig" with {
+                    name: category.name,
+                    url: category.url,
+                    imageUrl: '/images/nav/' ~ category.image
+                } %}
+            {% endfor %}
         </ul>
     </section>
     <section class="main-nav__specials">
