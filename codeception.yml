@@ -61,6 +61,7 @@ include:
  - vendor/spryker/spryker/Bundles/Stock/
  - vendor/spryker/spryker/Bundles/StockSalesConnector/
  - vendor/spryker/spryker/Bundles/System/
+ - vendor/spryker/spryker/Bundles/Tax/
  - vendor/spryker/spryker/Bundles/Touch/
  - vendor/spryker/spryker/Bundles/Twig/
  - vendor/spryker/spryker/Bundles/Ui/

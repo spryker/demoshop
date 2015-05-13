@@ -45,6 +45,7 @@ return [
         'UiExample' => $schemaAndNavigation,
         'Locale' => $schema,
         'Touch' => $schema,
+        'Tax' => $schema,
         'Url' => $schema,
     ],
 ];
