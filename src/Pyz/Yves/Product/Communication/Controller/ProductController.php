@@ -3,17 +3,17 @@
 namespace Pyz\Yves\Product\Communication\Controller;
 
 use SprykerEngine\Yves\Application\Communication\Controller\AbstractController;
-use SprykerFeature\Shared\Product\Model\ProductInterface;
+use SprykerFeature\Shared\Product\Model\AbstractProductInterface;
 
 class ProductController extends AbstractController
 {
 
     /**
-     * @param ProductInterface $product
+     * @param AbstractProductInterface $product
      *
      * @return array
      */
-    public function detailAction(ProductInterface $product)
+    public function detailAction(AbstractProductInterface $product)
     {
         return ['product' => $product];
     }
