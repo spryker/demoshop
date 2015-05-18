@@ -18,7 +18,7 @@ use SprykerFeature\Zed\Application\Communication\Plugin\ServiceProvider\NewRelic
 use SprykerFeature\Zed\Application\Communication\Plugin\ServiceProvider\PropelServiceProvider;
 use SprykerFeature\Zed\Application\Communication\Plugin\ServiceProvider\RequestServiceProvider;
 use SprykerFeature\Zed\Application\Communication\Plugin\ServiceProvider\SslServiceProvider;
-use SprykerFeature\Zed\Application\Communication\Plugin\ServiceProvider\TranslationServiceProvider;
+use SprykerEngine\Zed\Translation\Communication\Plugin\TranslationServiceProvider;
 use SprykerFeature\Zed\Application\Communication\Plugin\ServiceProvider\TwigServiceProvider;
 use SprykerEngine\Zed\Kernel\Locator;
 use SprykerFeature\Zed\Sdk\Communication\Plugin\SdkServiceProviderPlugin;
@@ -26,6 +26,7 @@ use Silex\Provider\FormServiceProvider;
 use Silex\Provider\ServiceControllerServiceProvider;
 use Silex\Provider\ValidatorServiceProvider;
 use Silex\Provider\WebProfilerServiceProvider;
+use Symfony\Bridge\Twig\Extension\TranslationExtension;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Routing\RouterInterface;
 use Silex\ServiceProviderInterface;
@@ -54,7 +55,8 @@ class ZedBootstrap extends Bootstrap
     protected function getTwigExtensions(Application $app)
     {
         return [
-            new ZedExtension()
+            new ZedExtension(),
+            new TranslationExtension($app['translator']),
         ];
     }
 
