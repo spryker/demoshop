@@ -83,7 +83,7 @@ class ProductCategoryMappingInstall extends AbstractInstaller
     {
         foreach ($this->getDemoProductCategories() as $demoProductCategory) {
             $sku = $demoProductCategory['sku'];
-            if (!$this->productFacade->hasConcreteProduct($sku)) {
+            if (!$this->productFacade->hasAbstractProduct($sku)) {
                 continue;
             }
 
