@@ -82,7 +82,7 @@ class AddressController extends AbstractController
             return $this->redirectResponseInternal(CustomerControllerProvider::ROUTE_CUSTOMER_NEW_ADDRESS);
         }
 
-        $customerTransfer = new \Generated\Shared\Transfer\CustomerCustomerTransfer();
+        $customerTransfer = new \Generated\Shared\Transfer\CustomerTransfer();
         $customerTransfer->setEmail($this->getUsername());
         $customerTransfer = $this->getLocator()->customer()->sdk()->getCustomer($customerTransfer);
         $form->setData($customerTransfer->toArray());

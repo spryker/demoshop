@@ -3,7 +3,7 @@
 namespace Pyz\Zed\Oms;
 
 use Pyz\Zed\Oms\Communication\Plugin\Oms\FakeAuthPayment;
-use Generated\Shared\Transfer\SalesOrderTransfer;
+use Generated\Shared\Transfer\OrderTransfer;
 use SprykerFeature\Zed\Oms\OmsConfig as SprykerOmsConfig;
 use SprykerFeature\Zed\Oms\Communication\Plugin\Oms\Command\CommandInterface;
 use SprykerFeature\Zed\Oms\Communication\Plugin\Oms\Condition\ConditionInterface;
@@ -32,12 +32,12 @@ class OmsConfig extends SprykerOmsConfig
     }
 
     /**
-     * @param SalesOrderTransfer $orderTransfer
+     * @param OrderTransfer $orderTransfer
      *
      * @return string|null
      * @throws \RuntimeException
      */
-    public function selectProcess(SalesOrderTransfer $orderTransfer)
+    public function selectProcess(OrderTransfer $orderTransfer)
     {
         $selectedProcessName = null;
         $method = 'prepayment';

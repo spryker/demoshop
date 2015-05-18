@@ -1,7 +1,7 @@
 <?php
 namespace Pyz\Yves\Cart\Communication\Controller;
 
-use Generated\Shared\Transfer\CartCartItemTransfer;
+use Generated\Shared\Transfer\CartItemTransfer;
 use SprykerEngine\Shared\Kernel\LocatorLocatorInterface;
 use Pyz\Yves\Cart\Communication\Helper\CartControllerTrait;
 use SprykerFeature\Yves\Library\Communication\MessageParser;
@@ -13,11 +13,11 @@ class AjaxController extends AbstractController
     use CartControllerTrait;
 
     /**
-     * @param CartCartItemTransfer $cartItem
+     * @param CartItemTransfer $cartItem
      * @param Request $request
      * @return \Symfony\Component\HttpFoundation\JsonResponse
      */
-    public function addAction(CartCartItemTransfer $cartItem, Request $request)
+    public function addAction(CartItemTransfer $cartItem, Request $request)
     {
         $transferResponse = $this->getCart($request)->addItem($cartItem);
         $parser = new MessageParser($this->getTranslator());

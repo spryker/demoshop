@@ -4,8 +4,8 @@ namespace Pyz\Zed\Stock\Business\Internal\DemoData;
 
 use Generated\Zed\Ide\AutoCompletion;
 use SprykerEngine\Shared\Kernel\LocatorLocatorInterface;
-use Generated\Shared\Transfer\StockStockProductTransfer;
-use Generated\Shared\Transfer\StockStockTypeTransfer;
+use Generated\Shared\Transfer\StockProductTransfer;
+use Generated\Shared\Transfer\TypeTransfer;
 use SprykerFeature\Zed\Installer\Business\Model\AbstractInstaller;
 use SprykerFeature\Zed\Library\Import\Reader\CsvFileReader;
 use SprykerFeature\Zed\Stock\Business\StockFacade;
@@ -113,11 +113,11 @@ class StockInstall extends AbstractInstaller
     /**
      * @param array $row
      *
-     * @return StockStockTypeTransfer
+     * @return TypeTransfer
      */
     protected function createStockTypeTransfer(array $row)
     {
-        $stockType = new StockStockTypeTransfer();
+        $stockType = new TypeTransfer();
         $stockType->setName($row[self::STOCK_TYPE]);
 
         return $stockType;
@@ -125,12 +125,12 @@ class StockInstall extends AbstractInstaller
 
     /**
      * @param array $row
-     * @param StockStockTypeTransfer $stockType
-     * @return StockStockProductTransfer
+     * @param TypeTransfer $stockType
+     * @return StockProductTransfer
      */
-    protected function createStockProductTransfer(array $row, StockStockTypeTransfer $stockType)
+    protected function createStockProductTransfer(array $row, TypeTransfer $stockType)
     {
-        $transferStockProduct = new StockStockProductTransfer();
+        $transferStockProduct = new StockProductTransfer();
         $transferStockProduct->setSku($row[self::SKU])
             ->setIsNeverOutOfStock($row[self::NEVER_OUT_OF_STOCK])
             ->setQuantity($row[self::QUANTITY])
@@ -141,11 +141,11 @@ class StockInstall extends AbstractInstaller
     }
 
     /**
-     * @param StockStockTypeTransfer $stockType
+     * @param TypeTransfer $stockType
      *
      * @return bool
      */
-    protected function doesStockExist(StockStockTypeTransfer $stockType)
+    protected function doesStockExist(TypeTransfer $stockType)
     {
         $stockCount = $this->queryContainer
             ->queryStockByName($stockType->getName())

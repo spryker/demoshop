@@ -2,7 +2,7 @@
 
 namespace Pyz\Zed\Category\Business\Internal\DemoData;
 
-use Generated\Shared\Transfer\CategoryCategoryTransfer;
+use Generated\Shared\Transfer\CategoryTransfer;
 use Generated\Shared\Transfer\LocaleTransfer;
 use Generated\Zed\Ide\AutoCompletion;
 use SprykerEngine\Shared\Kernel\LocatorLocatorInterface;
@@ -104,7 +104,7 @@ class CategoryTreeInstall extends AbstractInstaller
     {
         $idCategory = $this->createCategory($rawNode);
 
-        $categoryNodeTransfer = new \Generated\Shared\Transfer\CategoryCategoryNodeTransfer();
+        $categoryNodeTransfer = new \Generated\Shared\Transfer\NodeTransfer();
         $categoryNodeTransfer->setIsRoot(true);
         $categoryNodeTransfer->setFkCategory($idCategory);
 
@@ -118,7 +118,7 @@ class CategoryTreeInstall extends AbstractInstaller
     {
         $idCategory = $this->createCategory($rawNode);
 
-        $categoryNodeTransfer = new \Generated\Shared\Transfer\CategoryCategoryNodeTransfer();
+        $categoryNodeTransfer = new \Generated\Shared\Transfer\NodeTransfer();
         $categoryNodeTransfer->setIsRoot(false);
         $categoryNodeTransfer->setFkCategory($idCategory);
         $categoryNodeTransfer->setFkParentCategoryNode($this->getParentId($rawNode));
@@ -150,7 +150,7 @@ class CategoryTreeInstall extends AbstractInstaller
      */
     protected function createCategory(array $rawNode)
     {
-        $categoryTransfer = new CategoryCategoryTransfer();
+        $categoryTransfer = new CategoryTransfer();
         $categoryTransfer->setName($rawNode[self::CATEGORY_NAME]);
         $categoryTransfer->setImageName($rawNode[self::IMAGE_NAME]);
         $idCategory = $this->categoryFacade->createCategory($categoryTransfer, $this->locale);

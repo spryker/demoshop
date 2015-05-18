@@ -11,15 +11,14 @@ class RenameTransfer extends AbstractRefactorer
 
     public function refactor()
     {
-        $finder = $this->getXmlFinder();
+//        $this->buildList();
 
-        $example = [
-            'Transfer' => [
-                'bundle' => 'Foo',
-                'old' => 'FooFooTransfer',
-                'new' => 'Transfer',
-            ]
-        ];
+        $this->rename();
+    }
+
+    public function buildList()
+    {
+        $finder = $this->getXmlFinder();
 
         $transfers = [];
 
@@ -39,7 +38,7 @@ class RenameTransfer extends AbstractRefactorer
                     if ('Transfer' === $new) {
                         $new = $new1;
                     }
-                    
+
                     if ('Transfer' === $new) {
                         $new = $old;
                     }
@@ -65,7 +64,7 @@ class RenameTransfer extends AbstractRefactorer
             }
         }
 
-        $this->rename($transfers);
+        file_put_contents(__DIR__ . '/renaming.json', json_encode($transfers, JSON_PRETTY_PRINT));
     }
 
     /**
@@ -82,16 +81,19 @@ class RenameTransfer extends AbstractRefactorer
         return $finder;
     }
 
-    /**
-     * @param $transfers
-     */
-    private function rename($transfers)
+    private function rename()
     {
+        $transfers = json_decode(file_get_contents(__DIR__ . '/renaming.json'), true);
         foreach ($this->getFinder() as $file) {
             $content = $file->getContents();
             foreach ($transfers as $transfer) {
                 if ($transfer['old'] !== $transfer['new']) {
                     $content = str_replace($transfer['old'], $transfer['new'], $content);
+                    // xml files doesnt contain Transfer
+                    $old = 'name="' . substr($transfer['old'], 0, -8) . '"';
+                    $new = 'name="' . substr($transfer['new'], 0, -8) . '"';
+
+                    $content = str_replace($old, $new, $content);
                 }
             }
 

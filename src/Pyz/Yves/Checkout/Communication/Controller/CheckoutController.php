@@ -2,7 +2,7 @@
 namespace Pyz\Yves\Checkout\Communication\Controller;
 
 use SprykerEngine\Shared\Kernel\LocatorLocatorInterface;
-use Generated\Shared\Transfer\SalesOrderTransfer;
+use Generated\Shared\Transfer\OrderTransfer;
 use Pyz\Yves\Checkout\Communication\Plugin\CheckoutControllerProvider;
 use Pyz\Yves\Cart\Communication\Helper\CartControllerTrait;
 use Pyz\Yves\Cart\Communication\Plugin\CartControllerProvider;
@@ -97,7 +97,7 @@ class CheckoutController extends AbstractController
                 \SprykerFeature_Shared_Checkout_Code_Messages::ERROR_ORDER_IS_ALREADY_SAVED
             )
             ) {
-                $cart->setOrder(new \Generated\Shared\Transfer\SalesSalesOrderTransfer());
+                $cart->setOrder(new \Generated\Shared\Transfer\SalesOrderTransfer());
                 return $this->redirectResponseInternal(CartControllerProvider::ROUTE_CART);
             }
         }
