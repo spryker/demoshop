@@ -8,4 +8,6 @@
 
 class_name: TestGuy
 modules:
-    enabled: [Filesystem]
+    enabled:
+      - Filesystem
+      - TestHelper

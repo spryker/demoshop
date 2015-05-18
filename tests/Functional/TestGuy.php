@@ -6,6 +6,7 @@
 namespace Pyz;
 use \Codeception\Maybe;
 use Codeception\Module\Filesystem;
+use Pyz\Codeception\Module\TestHelper;
 
 /**
  * Inherited methods
