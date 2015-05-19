@@ -14,6 +14,6 @@ class Environment
     private static function setApplicationRootDir()
     {
         defined('APPLICATION_ROOT_DIR')
-            || define('APPLICATION_ROOT_DIR', realpath(__DIR__ . '/../'));
+            || define('APPLICATION_ROOT_DIR', realpath(__DIR__ . '/..'));
     }
 }
