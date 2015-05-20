@@ -4,11 +4,10 @@ namespace Pyz\Zed\Sales\Communication\Plugin\Oms\Command\Mail;
 
 use SprykerFeature\Zed\Oms\Business\Util\ReadOnlyArrayObject;
 use SprykerFeature\Zed\Oms\Communication\Plugin\Oms\Command\CommandByOrderInterface;
-use SprykerFeature\Zed\Sales\Communication\Plugin\Oms\Command\AbstractMail;
 use SprykerFeature\Shared\Library\Currency\CurrencyManager;
 use SprykerFeature\Zed\Sales\Persistence\Propel\SpySalesOrder;
 
-class UnderpaidReminderMail extends AbstractMail implements CommandByOrderInterface
+class UnderpaidReminderMail implements CommandByOrderInterface
 {
 
     /**
