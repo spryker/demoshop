@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<statemachine
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="process.xsd">>
+
+    <process name="Nopayment01" main="true">
+        <states>
+            <state name="new" reserved="true" />
+            <state name="nopayment" display="customer.order.status.nopayment" />
+            <state name="ship" display="customer.order.status.ship" />
+            <state name="cancel" display="custom.order.status.cancel" />
+        </states>
+
+        <transitions>
+            <transition happy="true">
+                <source>new</source>
+                <target>nopayment</target>
+                <event>nopayment</event>
+            </transition>
+            <transition happy="true" condition="Nopayment/IsPaid">
+                <source>nopayment</source>
+                <target>ship</target>
+            </transition>
+            <transition>
+                <source>nopayment</source>
+                <target>cancel</target>
+                <event>cancel</event>
+            </transition>
+        </transitions>
+
+        <events>
+            <event name="nopayment" onEnter="true" command="Nopayment/SetAsPaid"/>
+            <event name="cancel" timeout="1min" />
+        </events>
+    </process>
+
+</statemachine>
