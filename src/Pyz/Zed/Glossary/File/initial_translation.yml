@@ -16,7 +16,7 @@ keys:
       de_DE: '/images/homepage/gorilla.jpg'
   page.home.featured.top-left.left.url:
     translations:
-      de_DE: '/gorilla-männchen'
+      de_DE: '/gorilla-maennchen'
 
   page.home.featured.top-left.right.width:
     translations:

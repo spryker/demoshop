@@ -42,6 +42,14 @@ class ProductDataInstall extends AbstractInstaller
      */
     protected $filePath;
 
+    protected $urlReplacements = [
+        ' ' => '-',
+        'ä' => 'ae',
+        'ö' => 'oe',
+        'ü' => 'ue',
+        'ß' => 'ss',
+    ];
+
     /**
      * @param AttributeManagerInterface $attributeManager
      * @param ProductManagerInterface $productManager
@@ -85,7 +93,17 @@ class ProductDataInstall extends AbstractInstaller
             $this->productManager->createAbstractProductAttributes($idAbstractProduct, $currentLocale, $currentAbstractProduct['name'], $currentAbstractProduct['attributes']);
             $this->createConcreteProducts($currentAbstractProduct['products'], $idAbstractProduct, $currentLocale);
             $this->productManager->touchProductActive($idAbstractProduct);
-            $this->productManager->createAndTouchProductUrlByIdProduct($idAbstractProduct, '/' . str_replace(' ', '-', trim($currentAbstractProduct['name'])), $currentLocale);
+            $this->productManager->createAndTouchProductUrlByIdProduct(
+                $idAbstractProduct,
+                '/' . str_replace(
+                    array_keys($this->urlReplacements),
+                    array_values($this->urlReplacements),
+                    trim(
+                        strtolower($currentAbstractProduct['name'])
+                    )
+                ),
+                $currentLocale
+            );
         }
     }
 
