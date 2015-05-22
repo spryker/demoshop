@@ -62,7 +62,7 @@ class OmsConfig extends SprykerOmsConfig
     public function getCommands()
     {
         return [
-            'FakeProvider/AuthPay' => new FakeAuthPayment()
+            'Nopayment/SetAsPaid' => $this->getLocator()->nopayment()->pluginCommandNopaymentCommandPlugin(),
         ];
     }
 
