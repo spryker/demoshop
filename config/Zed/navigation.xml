@@ -3,7 +3,7 @@
     <sales>
         <label>Sales</label>
         <title>Sales</title>
-        <uri>/sales/order</uri>
+        <uri>/sales</uri>
     </sales>
     <customer>
         <label>Customers</label>
@@ -14,41 +14,58 @@
         <label>Catalog</label>
         <title>Catalog</title>
         <uri>/catalog/product</uri>
+        <visible>0</visible>
     </catalog>
     <product>
         <label>Product</label>
         <title>Product</title>
         <uri>/product/import</uri>
+        <visible>0</visible>
     </product>
     <content>
-        <label>Content</label>
-        <title>Content</title>
-        <uri>/glossary/key</uri>
+        <label>CMS</label>
+        <title>CMS</title>
+        <uri>/glossary</uri>
     </content>
     <marketing>
         <label>Marketing</label>
         <title>Marketing</title>
         <uri>/salesrule</uri>
+        <visible>0</visible>
     </marketing>
     <!--<dwh/>-->
     <acl>
         <label>Users &amp; Roles</label>
         <title>Users &amp; Roles</title>
         <uri>/acl/user</uri>
+        <visible>0</visible>
     </acl>
     <lumberjack>
         <label>Lumberjack</label>
         <title>Lumberjack</title>
         <uri>/lumberjack</uri>
+        <visible>0</visible>
     </lumberjack>
     <system>
         <label>System</label>
         <title>Setup</title>
         <uri>/setup</uri>
+        <visible>0</visible>
     </system>
     <development>
         <label>Development</label>
         <title>Development</title>
-        <uri>#</uri>
+        <uri>/uiExample</uri>
     </development>
+    <discount>
+        <label>Discount</label>
+        <title>Discount</title>
+        <uri>#</uri>
+        <visible>0</visible>
+    </discount>
+    <category>
+        <label>Category</label>
+        <title>Category</title>
+        <visible>0</visible>
+    </category>
 </config>
