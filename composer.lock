@@ -314,16 +314,16 @@
         },
         {
             "name": "league/csv",
-            "version": "7.1.0",
+            "version": "7.1.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/thephpleague/csv.git",
-                "reference": "3a2a199d686bc8b52689b74d5a66cb2e9b9370c9"
+                "reference": "ca5242603b75a9557c675e34fd70a8cb32d42465"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/thephpleague/csv/zipball/3a2a199d686bc8b52689b74d5a66cb2e9b9370c9",
-                "reference": "3a2a199d686bc8b52689b74d5a66cb2e9b9370c9",
+                "url": "https://api.github.com/repos/thephpleague/csv/zipball/ca5242603b75a9557c675e34fd70a8cb32d42465",
+                "reference": "ca5242603b75a9557c675e34fd70a8cb32d42465",
                 "shasum": ""
             },
             "require": {
@@ -366,7 +366,7 @@
                 "read",
                 "write"
             ],
-            "time": "2015-05-06 12:03:42"
+            "time": "2015-05-20 12:55:53"
         },
         {
             "name": "mandrill/mandrill",
@@ -934,7 +934,7 @@
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/spryker.git",
-                "reference": "8574e597dae1d491c11fa3842c828f373f86b775"
+                "reference": "5a74c432c58ffe2b9170a5e274cbe80b689fd17f"
             },
             "require": {
                 "digital-canvas/zend-framework": ">=1.12.2",
@@ -1071,7 +1071,7 @@
                     "SprykerFeature\\Shared\\Library": "Bundles/Library/src/"
                 }
             },
-            "time": "2015-05-18 12:20:16"
+            "time": "2015-05-22 10:38:40"
         },
         {
             "name": "symfony-cmf/routing",
@@ -3368,16 +3368,16 @@
         },
         {
             "name": "pdepend/pdepend",
-            "version": "2.0.6",
+            "version": "2.1.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/pdepend/pdepend.git",
-                "reference": "a15ffcbfbcc4570d4a733ca7b76e9cac0a56c3f4"
+                "reference": "f58902a774449f73f1a1d9cd1a07aeac8fbee367"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/pdepend/pdepend/zipball/a15ffcbfbcc4570d4a733ca7b76e9cac0a56c3f4",
-                "reference": "a15ffcbfbcc4570d4a733ca7b76e9cac0a56c3f4",
+                "url": "https://api.github.com/repos/pdepend/pdepend/zipball/f58902a774449f73f1a1d9cd1a07aeac8fbee367",
+                "reference": "f58902a774449f73f1a1d9cd1a07aeac8fbee367",
                 "shasum": ""
             },
             "require": {
@@ -3403,7 +3403,7 @@
                 "BSD-3-Clause"
             ],
             "description": "Official version of pdepend to be handled with Composer",
-            "time": "2015-03-02 08:06:43"
+            "time": "2015-05-21 18:09:06"
         },
         {
             "name": "phpunit/php-code-coverage",
