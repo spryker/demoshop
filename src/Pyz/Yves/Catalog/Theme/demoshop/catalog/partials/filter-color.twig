@@ -1,5 +1,5 @@
 <section class="filter js-filter filter__{{filterName}}" data-filter-id="{{filterName}}" data-filter-name="{{filterName}}" data-filter-type="color">
-    <h1 class="filter__title">{{ 'catalog.filter.' ~ filterName|trans }}</h1>
+    <h1 class="filter__title">{{ ('catalog.filter.' ~ filterName)|trans }}</h1>
     <ul class="filter__{{filterName}}-list">
         <li>{% include "@catalog/catalog/partials/filter-color-value.twig" with {value:"white", hex:'#ffffff', quantity:'40'} %}</li>
         <li>{% include "@catalog/catalog/partials/filter-color-value.twig" with {value:"black", hex:'#000000', quantity:'12'} %}</li>

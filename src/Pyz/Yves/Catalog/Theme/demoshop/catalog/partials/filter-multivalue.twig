@@ -1,5 +1,5 @@
 <section class="filter js-filter filter__{{filterName}}" data-filter-name="{{filterName}}" data-filter-type="multivalue">
-    <h1 class="filter__title">{{ 'catalog.filter.' ~ filterName|trans }}</h1>
+    <h1 class="filter__title">{{ ('catalog.filter.' ~ filterName)|trans }}</h1>
     <ul class="filter__{{filterName}}-list">
         <li>{% include "@catalog/catalog/partials/filter-multivalue-value.twig" with {filterName:filterName, displayValue:'Neu', value:'neu', quantity:'40'} %}</li>
         <li>{% include "@catalog/catalog/partials/filter-multivalue-value.twig" with {filterName:filterName, displayValue:'Sale', value:'sale', quantity:'12'} %}</li>
