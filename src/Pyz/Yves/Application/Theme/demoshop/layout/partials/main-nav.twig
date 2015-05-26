@@ -3,7 +3,7 @@
         <h1 class="main-nav__heading">Kategorien</h1>
         <ul class="main-nav__category-list">
             {% for category in categories %}
-                {% if category.image is defined %}
+                {% if category.image is defined and (category.image != '' or category.image != '#') %}
                     {% set categoryImage = '/images/nav/' ~ category.image %}
                 {% else %}
                     {% set categoryImage = '#' %}
