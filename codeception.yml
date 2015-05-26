@@ -10,7 +10,6 @@ include:
  - vendor/spryker/spryker/Bundles/AvailabilityCheckoutConnector/
  - vendor/spryker/spryker/Bundles/Calculation/
  - vendor/spryker/spryker/Bundles/Cart/
- - vendor/spryker/spryker/Bundles/Cart2/
  - vendor/spryker/spryker/Bundles/Catalog/
  - vendor/spryker/spryker/Bundles/Category/
  - vendor/spryker/spryker/Bundles/CategoryExporter/
