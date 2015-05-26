@@ -3,10 +3,15 @@
         <h1 class="main-nav__heading">Kategorien</h1>
         <ul class="main-nav__category-list">
             {% for category in categories %}
+                {% if category.image is defined %}
+                    {% set categoryImage = '/images/nav/' ~ category.image %}
+                {% else %}
+                    {% set categoryImage = '#' %}
+                {% endif %}
                 {% include "@application/layout/partials/main-nav-button.twig" with {
                     name: category.name,
                     url: category.url,
-                    imageUrl: '/images/nav/' ~ category.image
+                    imageUrl: categoryImage,
                 } %}
             {% endfor %}
         </ul>
@@ -14,7 +19,6 @@
     <section class="main-nav__specials">
         <h1 class="main-nav__heading">Ein Blick lohnt sich</h1>
         <ul class="main-nav__special-list">
-            {% include "@application/layout/partials/main-nav-button.twig" with {name:"Neuheiten", url:"catalog.html?extras=neu", imageUrl:"/images/nav/new.jpg"} %}
             {% include "@application/layout/partials/main-nav-button.twig" with {name:"Sale", url:"catalog.html?extras=sale", imageUrl:"/images/nav/sale.jpg"} %}
         </ul>
     </section>
