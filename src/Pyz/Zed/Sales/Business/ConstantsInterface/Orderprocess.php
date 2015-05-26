@@ -57,15 +57,15 @@ interface Orderprocess
     const STATE_PAYONE_PAYMENT_AUTHORIZED = 'payment authorized (payone)';
     const STATE_PAYONE_PAYMENT_PREAUTHORIZED = 'payment preauthorized (payone)';
     const STATE_PAYONE_PAYMENT_NOT_REDIRECTED = 'payment not redirected (payone)';
-    const STATE_PAYONE_PAYMENT_REDIRECTED  = 'payment redirected (payone)';
+    const STATE_PAYONE_PAYMENT_REDIRECTED = 'payment redirected (payone)';
     const STATE_PAYONE_CLARIFY_PAYMENT_REMINDED = 'clarify payment reminded (payone)';
 
-    const STATE_PAYONE_PAID                = 'paid (payone)';
+    const STATE_PAYONE_PAID = 'paid (payone)';
     const STATE_PAYONE_UNDERPAID = 'underpaid (payone)';
     const STATE_PAYONE_CLARIFY_UNDERPAID = 'clarify underpaid (payone)';
     const STATE_PAYONE_CLARIFY_WAITING_FOR_CAPTURE_APPOINTMENT = 'clarify waiting for capture appointment (payone)';
 
-    const STATE_PAYONE_PAYMENT_REMINDED    = 'payment reminded (payone)';
+    const STATE_PAYONE_PAYMENT_REMINDED = 'payment reminded (payone)';
 
 
     const EVENT_PAYONE_CANCEL_REMINDED = 'cancel reminded (payone)';

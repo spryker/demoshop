@@ -41,16 +41,17 @@ abstract class AbstractAddressType extends AbstractType
                 'choices' => ['Mr' => 'checkout.salutation.mr', 'Mrs' => 'checkout.salutation.mrs']
             ])
             ->add('idCustomerAddress', 'hidden')
-            ->add('firstName', 'text', ['constraints'=> [new NotBlank()]])
+            ->add('firstName', 'text', ['constraints' => [new NotBlank()]])
             ->add('middleName', 'text', ['required' => false])
-            ->add('lastName', 'text', ['constraints'=> [new NotBlank()]])
-            ->add('address1', 'text', ['constraints'=> [new NotBlank()]])
-            ->add('address2', 'text', ['constraints'=> [new NotBlank()]])
+            ->add('lastName', 'text', ['constraints' => [new NotBlank()]])
+            ->add('address1', 'text', ['constraints' => [new NotBlank()]])
+            ->add('address2', 'text', ['constraints' => [new NotBlank()]])
             ->add('address3', 'text', ['required' => false])
-            ->add('city', 'text', ['constraints'=> [new NotBlank()]])
-            ->add('zipCode', 'text', ['constraints'=> [new NotBlank()]])
+            ->add('city', 'text', ['constraints' => [new NotBlank()]])
+            ->add('zipCode', 'text', ['constraints' => [new NotBlank()]])
             ->add('iso2Country', 'country', [
                 'translation_domain' => 'none'
-            ]);
+            ])
+        ;
     }
 }

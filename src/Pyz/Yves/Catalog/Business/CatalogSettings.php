@@ -1,6 +1,7 @@
 <?php
 
 namespace Pyz\Yves\Catalog\Business;
+
 use SprykerFeature\Shared\Price\Code\PriceTypeConstants;
 
 /**

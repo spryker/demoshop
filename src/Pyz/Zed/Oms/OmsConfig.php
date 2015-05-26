@@ -43,14 +43,14 @@ class OmsConfig extends SprykerOmsConfig
         $method = 'prepayment';
         switch ($method) {
             case 'prepayment':
-                $selectedProcessName =  self::ORDER_PROCESS_NO_PAYMENT_01;
+                $selectedProcessName = self::ORDER_PROCESS_NO_PAYMENT_01;
                 break;
             default:
-                throw new \RuntimeException("Could not find any statemachine process for new order in ".get_class($this));
+                throw new \RuntimeException("Could not find any statemachine process for new order in " . get_class($this));
         }
 
         if (!in_array($selectedProcessName, $this->getActiveProcesses())) {
-            throw new \RuntimeException("Process $selectedProcessName is not actived in ".get_class($this));
+            throw new \RuntimeException("Process $selectedProcessName is not actived in " . get_class($this));
         }
 
         return $selectedProcessName;

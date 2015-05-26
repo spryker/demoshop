@@ -136,7 +136,7 @@ class FacetConfig extends CoreFacetConfig
     /**
      * @var array
      */
-    protected static $sortNamesMapping = [ 'name' ];
+    protected static $sortNamesMapping = ['name'];
 
     /**
      *

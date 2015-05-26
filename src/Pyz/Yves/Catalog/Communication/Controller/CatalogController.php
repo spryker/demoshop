@@ -28,7 +28,7 @@ class CatalogController extends AbstractController
         //@Todo Remove mocks
         $r['products'] = $this->getDummyProductData();
 
-        if($request->isXmlHttpRequest()) {
+        if ($request->isXmlHttpRequest()) {
             return $this->jsonResponse($r);
         }
 
@@ -63,7 +63,8 @@ class CatalogController extends AbstractController
      * @TODO Delete this once the product / category export works fine again
      * @return array
      */
-    protected function getDummyProductData() {
+    protected function getDummyProductData()
+    {
         $products = [
             '{"sku":"137288","attributes":{"image_url":"\/images\/product\/2015_72_RGB_13728.jpg","thumbnail_url":"\/images\/product\/default.png","price":599,"width":5,"height":12,"depth":1,"main_color":"rot","other_colors":"blau, schwarz","description":"Das Bild der Pfauen pr\u00e4gen die H\u00e4hne mit ihrem pr\u00e4chtigen Federkleid. In der Balz versuchen sie damit, die eher unscheinbaren Hennen f\u00fcr sich zu gewinnen.","description_long":"Das auff\u00e4lligste Merkmal im Prachtkleid ausgewachsener H\u00e4hne ist das aus ca. 150 Federn bestehende Schwanzgefieder, das in der Balz zu einem beeindruckenden Rad geschlagen wird. Jede Schmuckfeder tr\u00e4gt an ihrem Ende einen Augenfleck. Auch die Hennen tragen eine kleine Federkrone auf dem Scheitel, sind ansonsten aber eher unscheinbar.","fun_fact":"Das Prachtkleid der Pfauen besteht aus ca. 150 Federn.","scientific_name":"Pavo cristatus"},"name":"Pfau","url":"\/Pfau","available":true,"valid_price":5.99,"prices":"{\"DEFAULT\":{\"price\":\"599\"}}","category":{"16":{"node_id":"16","name":"Wilde Tiere","url":"\/wilde-tiere"}}}',
             '{"sku":"137455","attributes":{"image_url":"\/images\/product\/2015_72_RGB_13745.jpg","thumbnail_url":"\/images\/product\/default.png","price":359,"width":5,"height":3,"depth":2,"main_color":"rot","other_colors":"blau, schwarz","description":"Mit ihrem dicken, flauschigen Fell sind Schafe an jedem Ort vor K\u00e4lte gesch\u00fctzt.","description_long":"Schafe werden seit Jahrhunderten als landwirtschaftliche Nutztiere gehalten und liefern Fleisch, Haut und Wolle. Als Pflanzenfresser und Wiederk\u00e4uer sind Schafe abwechselnd mit Grasen und Wiederk\u00e4uen besch\u00e4ftigt. Da es Hunderte von Schafrassen gibt, k\u00f6nnen sich diese S\u00e4ugetiere erheblich im Hinblick auf Fell und Gr\u00f6\u00dfe unterscheiden. Schafe wiegen zwischen 45 und 180 Kilo und k\u00f6nnen zehn bis zwanzig Jahre alt werden. Ihr eingeschr\u00e4nktes r\u00e4umliches Sehverm\u00f6gen gleichen Schafe durch ein ausgezeichnetes Geh\u00f6r und einen sehr empfindlichen Geruchssinn aus. In der Herde folgen Schafe meist den Anweisungen eines Sch\u00e4fers, sie haben aber auch ihre eigene Rangordnung.","fun_fact":"Schafe k\u00f6nnen hinter sich sehen, ohne den Kopf zu bewegen.","scientific_name":"Ovis orientalis aries"},"name":"Sch\u00e4fchen, liegend","url":"\/Sch\u00e4fchen,-liegend","available":true,"valid_price":3.59,"prices":"{\"DEFAULT\":{\"price\":\"359\"}}","category":{"15":{"node_id":"15","name":"Wald und Wiese","url":"\/wald-und-wiese"}}}',

@@ -54,4 +54,4 @@ class CouponController extends AbstractController
         return $this->redirectResponseInternal(CartControllerProvider::ROUTE_CART);
     }
 
-    }
+}

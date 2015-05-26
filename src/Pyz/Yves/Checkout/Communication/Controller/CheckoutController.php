@@ -54,7 +54,8 @@ class CheckoutController extends AbstractController
         $cartModel->clear();
         $cartItemCount = $this->getLocator()->cart()
             ->pluginCartSessionCount()
-            ->createCartSessionCount($request->getSession())->getCount();
+            ->createCartSessionCount($request->getSession())->getCount()
+        ;
 
         return [
             'order' => $order,
@@ -82,7 +83,7 @@ class CheckoutController extends AbstractController
     {
         if ($form->isValid()) {
             $checkoutSdk = $this->getCheckoutSdk($request);
-        /** @var Order $orderTransfer */
+            /** @var Order $orderTransfer */
             $orderTransfer = $form->getData();
 
             $transferResponse = $checkoutSdk->saveOrder($orderTransfer);
@@ -194,4 +195,4 @@ class CheckoutController extends AbstractController
         return $this->getLocator()->cart()->sdk();
     }
 
-    }
+}

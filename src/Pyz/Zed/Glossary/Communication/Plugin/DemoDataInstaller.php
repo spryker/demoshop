@@ -10,7 +10,7 @@ use Pyz\Zed\Glossary\Communication\GlossaryDependencyContainer;
  */
 class DemoDataInstaller extends AbstractInstallerPlugin
 {
-            public function install()
+    public function install()
     {
         $this->getDependencyContainer()->getInstallerFacade()->installDemoData($this->messenger);
     }
