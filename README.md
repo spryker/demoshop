@@ -53,7 +53,6 @@ If you need to login into Zed, use the following credentials:
 **Username:** admin@spryker.com
 **Password:** change123
 
-
 ### Configure the VM to your needs
 
 If you want to commit from within the VM just set the right git preferences:
@@ -84,3 +83,4 @@ salt-call --local state.highstate
 ```
 
 Afterwards your VM has the newest configuration and dependencies
+
