@@ -14,6 +14,7 @@ class ConsoleConfig extends SprykerConsoleConfig
     public function getConsoleCommands()
     {
         $commands = [
+            $this->getLocator()->setup()->consoleRemoveGeneratedDirectoryConsole(),
             $this->getLocator()->setup()->consoleInstallConsole(),
             $this->getLocator()->setup()->consolePropelConsole(),
             $this->getLocator()->setup()->consolePropelBuildModelConsole(),
