@@ -30,7 +30,6 @@ cd /data/shop/development/current
 php composer.phar install
 npm install -d
 vendor/bin/console setup:install
-vendor/bin/console code:npm
 ```
 
 This demoshop comes with some default data to play around with which are installable via:
