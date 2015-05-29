@@ -31,5 +31,4 @@ class SetupConfigTest extends \PHPUnit_Framework_TestCase
         $this->assertCount(1, $pathPatterns);
     }
 
-
 }
