@@ -154,7 +154,7 @@ class ProductDataInstall extends AbstractInstaller
     protected function getProductsFromFile()
     {
         $splFileInfo = new \SplFileInfo($this->filePath);
-        $productData = $this->fileReader->getIteratorFromFile($splFileInfo);
+        $productData = $this->fileReader->getArrayFromFile($splFileInfo);
 
         $formattedProduct = [];
         foreach ($productData as $product) {
