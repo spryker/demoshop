@@ -1,11 +1,11 @@
 <?php
 
-namespace Pyz\Yves\Customer\Form;
+namespace Pyz\Yves\Customer\Communication\Form;
 
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 
-class ForgotPassword extends AbstractType
+class RestorePassword extends AbstractType
 {
 
     /**
@@ -13,7 +13,7 @@ class ForgotPassword extends AbstractType
      */
     public function getName()
     {
-        return 'forgotForm';
+        return 'restoreForm';
     }
 
     /**
@@ -23,11 +23,12 @@ class ForgotPassword extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('email', 'email', [
-                'label' => 'customer.forgot.email',
+            ->add('restore_key', 'hidden')
+            ->add('password', 'password', [
+                'label' => 'customer.restore.password',
             ])
             ->add('submit', 'submit', [
-                'label' => 'customer.forgot.submit',
+                'label' => 'customer.restore.submit',
             ])
         ;
     }

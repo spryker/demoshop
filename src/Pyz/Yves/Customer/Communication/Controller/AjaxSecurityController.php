@@ -8,13 +8,13 @@ use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
 use SprykerFeature\Shared\Customer\Code\Messages;
 use Pyz\Yves\Customer\Plugin\CustomerControllerProvider;
+use Symfony\Component\Validator\Constraints\Collection;
 
 /**
  * @method CustomerDependencyContainer getDependencyContainer()
  */
 class AjaxSecurityController extends AbstractController
 {
-
     /**
      * @param Request $request
      *
@@ -44,5 +44,4 @@ class AjaxSecurityController extends AbstractController
 
         return $this->jsonResponse();
     }
-
 }
