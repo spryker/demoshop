@@ -35,7 +35,7 @@
     "symfony/security": "~2.6.9",
     "symfony/serializer": "~2.6.9",
     "symfony/translation": "~2.6.9",
-    "symfony/twig-bridge": "~2.3,<3.0",
+    "symfony/twig-bridge": "~2.6.9",
     "symfony/validator": "2.5.*",
     "symfony/var-dumper": "~2.6.9",
     "symfony/yaml": ">=2.3,<2.7",
