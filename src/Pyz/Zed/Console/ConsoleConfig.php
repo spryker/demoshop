@@ -14,6 +14,15 @@ class ConsoleConfig extends SprykerConsoleConfig
     public function getConsoleCommands()
     {
         $commands = [
+            $this->getLocator()->application()->consoleApplicationIntegrationCheckConsole(),
+            $this->getLocator()->frontendExporter()->consoleExportKeyValueConsole(),
+            $this->getLocator()->frontendExporter()->consoleExportSearchConsole(),
+            $this->getLocator()->frontendExporter()->consoleUpdateSearchConsole(),
+            $this->getLocator()->installer()->consoleInitializeDatabaseConsole(),
+            $this->getLocator()->installer()->consoleDemoDataInstallConsole(),
+            $this->getLocator()->oms()->consoleCheckConditionConsole(),
+            $this->getLocator()->oms()->consoleCheckTimeoutConsole(),
+            $this->getLocator()->maintenance()->consoleFossMarkDownGeneratorConsole(),
             $this->getLocator()->setup()->consoleRemoveGeneratedDirectoryConsole(),
             $this->getLocator()->setup()->consoleInstallConsole(),
             $this->getLocator()->setup()->consolePropelConsole(),
@@ -34,14 +43,6 @@ class ConsoleConfig extends SprykerConsoleConfig
             $this->getLocator()->setup()->consoleJenkinsDisableConsole(),
             $this->getLocator()->setup()->consoleJenkinsGenerateConsole(),
             $this->getLocator()->setup()->consoleDeployPreparePropelConsole(),
-            $this->getLocator()->installer()->consoleInitializeDatabaseConsole(),
-            $this->getLocator()->installer()->consoleDemoDataInstallConsole(),
-            $this->getLocator()->application()->consoleApplicationIntegrationCheckConsole(),
-            $this->getLocator()->frontendExporter()->consoleExportKeyValueConsole(),
-            $this->getLocator()->frontendExporter()->consoleExportSearchConsole(),
-            $this->getLocator()->frontendExporter()->consoleUpdateSearchConsole(),
-            $this->getLocator()->oms()->consoleCheckConditionConsole(),
-            $this->getLocator()->oms()->consoleCheckTimeoutConsole(),
             $this->getLocator()->transfer()->consoleGeneratorConsole(),
         ];
 
