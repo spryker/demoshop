@@ -56,21 +56,4 @@ class OmsConfig extends SprykerOmsConfig
         return $selectedProcessName;
     }
 
-    /**
-     * @return CommandInterface[]
-     */
-    public function getCommands()
-    {
-        return [
-            'Nopayment/SetAsPaid' => $this->getLocator()->nopayment()->pluginCommandNopaymentCommandPlugin(),
-        ];
-    }
-
-    /**
-     * @return ConditionInterface[]
-     */
-    public function getConditions()
-    {
-        return [];
-    }
 }

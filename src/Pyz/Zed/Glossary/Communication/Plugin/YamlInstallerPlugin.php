@@ -7,12 +7,16 @@
 namespace Pyz\Zed\Glossary\Communication\Plugin;
 
 use Generated\Shared\Transfer\LocaleTransfer;
+use Pyz\Zed\Glossary\Business\GlossaryFacade;
 use SprykerEngine\Zed\Kernel\Communication\AbstractPlugin;
 use SprykerFeature\Zed\Glossary\Communication\GlossaryDependencyContainer;
 use SprykerFeature\Zed\Glossary\Dependency\Plugin\GlossaryInstallerPluginInterface;
+use SprykerFeature\Zed\Glossary\Persistence\GlossaryQueryContainer;
 use Symfony\Component\Yaml\Yaml;
 
 /**
+ * @method GlossaryFacade getFacade()
+ * @method GlossaryQueryContainer getQueryContainer()
  * @method GlossaryDependencyContainer getDependencyContainer()
  */
 class YamlInstallerPlugin extends AbstractPlugin implements GlossaryInstallerPluginInterface

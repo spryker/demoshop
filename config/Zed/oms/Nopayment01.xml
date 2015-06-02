@@ -6,9 +6,11 @@
     <process name="Nopayment01" main="true">
         <states>
             <state name="new" reserved="true" />
-            <state name="nopayment" display="customer.order.status.nopayment" />
-            <state name="ship" display="customer.order.status.ship" />
-            <state name="cancel" display="custom.order.status.cancel" />
+            <state name="nopayment" />
+            <state name="ship" />
+            <state name="cancel" />
+
+            <state name="xxx" />
         </states>
 
         <transitions>
@@ -26,11 +28,18 @@
                 <target>cancel</target>
                 <event>cancel</event>
             </transition>
+
+            <transition>
+                <source>cancel</source>
+                <target>xxx</target>
+                <event>dodo</event>
+            </transition>
         </transitions>
 
         <events>
             <event name="nopayment" onEnter="true" command="Nopayment/SetAsPaid"/>
             <event name="cancel" timeout="1min" />
+            <event name="dodo" />
         </events>
     </process>
 
