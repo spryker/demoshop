@@ -1,8 +1,8 @@
 <?php
 
-namespace Unit\Pyz\Setup\Business;
+namespace Unit\Pyz\Setup;
 
-use Pyz\Zed\Setup\Business\SetupConfig;
+use Pyz\Zed\Setup\SetupConfig;
 use SprykerEngine\Shared\Config;
 use SprykerEngine\Zed\Kernel\Locator;
 
@@ -10,7 +10,6 @@ use SprykerEngine\Zed\Kernel\Locator;
  * @group Pyz
  * @group Zed
  * @group Setup
- * @group Business
  * @group SetupConfig
  */
 class SetupConfigTest extends \PHPUnit_Framework_TestCase
