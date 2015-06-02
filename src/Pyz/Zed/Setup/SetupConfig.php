@@ -1,6 +1,6 @@
 <?php
 
-namespace Pyz\Zed\Setup\Business;
+namespace Pyz\Zed\Setup;
 
 use SprykerFeature\Zed\Setup\SetupConfig as SprykerSetupConfig;
 
