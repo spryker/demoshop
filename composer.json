@@ -1,21 +1,16 @@
 {
   "require": {
-    "spryker/spryker": "dev-master",
+    "spryker/spryker": "dev-refactor/CD-93-remove_phing",
 
     "psr/log": "~1.0",
-    "phing/phing": "~2.6.0",
     "propel/propel": "~2.0@dev",
     "silex/silex": "1.2.*@dev",
     "pimple/pimple": "1.1.*@dev",
-    "zendesk/zendesk_api_client_php": "dev-master",
     "mandrill/mandrill": "1.0.*",
     "predis/predis": "v1.0.0",
-    "knplabs/knp-menu": "2.0.1",
     "digital-canvas/zend-framework": ">=1.12.2",
-    "doctrine/inflector": "~1.0.0",
 
     "guzzle/http": "~3.7, <= 3.8",
-    "ircmaxell/password-compat": "~1.0.0",
     "league/csv": "*",
 
     "monolog/monolog": "~1.7",
