@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "5eedb0cec86b4ae9f2f4b450c38c90f3",
+    "hash": "93949af8dd446b9950c0dfcdda22da67",
     "packages": [
         {
             "name": "digital-canvas/zend-framework",
@@ -46,73 +46,6 @@
                 "zf"
             ],
             "time": "2015-02-12 17:40:15"
-        },
-        {
-            "name": "doctrine/inflector",
-            "version": "v1.0.1",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/doctrine/inflector.git",
-                "reference": "0bcb2e79d8571787f18b7eb036ed3d004908e604"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/doctrine/inflector/zipball/0bcb2e79d8571787f18b7eb036ed3d004908e604",
-                "reference": "0bcb2e79d8571787f18b7eb036ed3d004908e604",
-                "shasum": ""
-            },
-            "require": {
-                "php": ">=5.3.2"
-            },
-            "require-dev": {
-                "phpunit/phpunit": "4.*"
-            },
-            "type": "library",
-            "extra": {
-                "branch-alias": {
-                    "dev-master": "1.0.x-dev"
-                }
-            },
-            "autoload": {
-                "psr-0": {
-                    "Doctrine\\Common\\Inflector\\": "lib/"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Roman Borschel",
-                    "email": "roman@code-factory.org"
-                },
-                {
-                    "name": "Benjamin Eberlei",
-                    "email": "kontakt@beberlei.de"
-                },
-                {
-                    "name": "Guilherme Blanco",
-                    "email": "guilhermeblanco@gmail.com"
-                },
-                {
-                    "name": "Jonathan Wage",
-                    "email": "jonwage@gmail.com"
-                },
-                {
-                    "name": "Johannes Schmitt",
-                    "email": "schmittjoh@gmail.com"
-                }
-            ],
-            "description": "Common String Manipulations with regard to casing and singular/plural rules.",
-            "homepage": "http://www.doctrine-project.org",
-            "keywords": [
-                "inflection",
-                "pluralize",
-                "singularize",
-                "string"
-            ],
-            "time": "2014-12-20 21:24:13"
         },
         {
             "name": "guzzle/guzzle",
@@ -205,112 +138,6 @@
                 "web service"
             ],
             "time": "2013-12-05 23:39:20"
-        },
-        {
-            "name": "ircmaxell/password-compat",
-            "version": "v1.0.4",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/ircmaxell/password_compat.git",
-                "reference": "5c5cde8822a69545767f7c7f3058cb15ff84614c"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/ircmaxell/password_compat/zipball/5c5cde8822a69545767f7c7f3058cb15ff84614c",
-                "reference": "5c5cde8822a69545767f7c7f3058cb15ff84614c",
-                "shasum": ""
-            },
-            "require-dev": {
-                "phpunit/phpunit": "4.*"
-            },
-            "type": "library",
-            "autoload": {
-                "files": [
-                    "lib/password.php"
-                ]
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Anthony Ferrara",
-                    "email": "ircmaxell@php.net",
-                    "homepage": "http://blog.ircmaxell.com"
-                }
-            ],
-            "description": "A compatibility library for the proposed simplified password hashing algorithm: https://wiki.php.net/rfc/password_hash",
-            "homepage": "https://github.com/ircmaxell/password_compat",
-            "keywords": [
-                "hashing",
-                "password"
-            ],
-            "time": "2014-11-20 16:49:30"
-        },
-        {
-            "name": "knplabs/knp-menu",
-            "version": "v2.0.1",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/KnpLabs/KnpMenu.git",
-                "reference": "5758d0026d7ed00c8dd4727e413918cf2dc74c1a"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/KnpLabs/KnpMenu/zipball/5758d0026d7ed00c8dd4727e413918cf2dc74c1a",
-                "reference": "5758d0026d7ed00c8dd4727e413918cf2dc74c1a",
-                "shasum": ""
-            },
-            "require": {
-                "php": ">=5.3.0"
-            },
-            "require-dev": {
-                "pimple/pimple": "1.0.*",
-                "silex/silex": "1.0.*",
-                "twig/twig": ">=1.2,<2.0-dev"
-            },
-            "suggest": {
-                "pimple/pimple": "for the built-in implementations of the menu provider and renderer provider",
-                "silex/silex": "for the integration with your silex application",
-                "twig/twig": "for the TwigRenderer and the integration with your templates"
-            },
-            "type": "library",
-            "extra": {
-                "branch-alias": {
-                    "dev-master": "2.0.x-dev"
-                }
-            },
-            "autoload": {
-                "psr-0": {
-                    "Knp\\Menu\\": "src/"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Christophe Coevoet",
-                    "email": "stof@notk.org"
-                },
-                {
-                    "name": "Knplabs",
-                    "homepage": "http://knplabs.com"
-                },
-                {
-                    "name": "Symfony Community",
-                    "homepage": "https://github.com/KnpLabs/KnpMenu/contributors"
-                }
-            ],
-            "description": "An object oriented menu library",
-            "homepage": "http://knplabs.com",
-            "keywords": [
-                "menu",
-                "tree"
-            ],
-            "time": "2014-08-01 09:50:16"
         },
         {
             "name": "league/csv",
@@ -529,59 +356,6 @@
                 "time"
             ],
             "time": "2014-09-26 02:52:02"
-        },
-        {
-            "name": "phing/phing",
-            "version": "2.6.1",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/phingofficial/phing.git",
-                "reference": "3f7d71bf561bafea39087250f777b349438cc32e"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/phingofficial/phing/zipball/3f7d71bf561bafea39087250f777b349438cc32e",
-                "reference": "3f7d71bf561bafea39087250f777b349438cc32e",
-                "shasum": ""
-            },
-            "require": {
-                "php": ">=5.2.0"
-            },
-            "bin": [
-                "bin/phing"
-            ],
-            "type": "library",
-            "autoload": {
-                "classmap": [
-                    "classes/phing/"
-                ]
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "include-path": [
-                "classes"
-            ],
-            "license": [
-                "LGPL3"
-            ],
-            "authors": [
-                {
-                    "name": "Michiel Rook",
-                    "email": "mrook@php.net",
-                    "role": "Lead"
-                },
-                {
-                    "name": "Phing Community",
-                    "homepage": "http://www.phing.info/trac/wiki/Development/Contributors"
-                }
-            ],
-            "description": "PHing Is Not GNU make; it's a PHP project build system or build tool based on Apache Ant.",
-            "homepage": "http://www.phing.info/",
-            "keywords": [
-                "build",
-                "task",
-                "tool"
-            ],
-            "time": "2013-08-26 21:13:03"
         },
         {
             "name": "pimple/pimple",
@@ -930,23 +704,19 @@
         },
         {
             "name": "spryker/spryker",
-            "version": "dev-master",
+            "version": "dev-refactor/CD-93-remove_phing",
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/spryker.git",
-                "reference": "d13e6f3589a89145f17f114dd64fcf1cbfa25a29"
+                "reference": "b165c3fdb50faeb165f025a27768fe84225a7ccc"
             },
             "require": {
                 "digital-canvas/zend-framework": ">=1.12.2",
-                "doctrine/inflector": "~1.0.0",
                 "guzzle/http": "~3.7, <= 3.8",
-                "ircmaxell/password-compat": "~1.0.0",
-                "knplabs/knp-menu": "2.0.1",
                 "league/csv": "*",
                 "mandrill/mandrill": "1.0.*",
                 "monolog/monolog": "~1.7",
                 "nesbot/carbon": "1.13.0",
-                "phing/phing": "~2.6.0",
                 "php": ">=5.4.0",
                 "pimple/pimple": "1.1.*@dev",
                 "predis/predis": "v1.0.0",
@@ -974,7 +744,6 @@
                 "symfony/var-dumper": "~2.6.9",
                 "symfony/yaml": ">=2.3",
                 "twig/twig": "~1.15.0",
-                "zendesk/zendesk_api_client_php": "dev-master",
                 "zendframework/zend-code": "2.3.1",
                 "zendframework/zend-config": "~2.3.0",
                 "zendframework/zend-filter": "~2.3.0",
@@ -1073,7 +842,7 @@
                     "SprykerFeature\\Shared\\Library": "Bundles/Library/src/"
                 }
             },
-            "time": "2015-06-02 14:39:34"
+            "time": "2015-06-02 12:16:45"
         },
         {
             "name": "symfony-cmf/routing",
@@ -2468,43 +2237,6 @@
                 "templating"
             ],
             "time": "2014-02-13 10:19:29"
-        },
-        {
-            "name": "zendesk/zendesk_api_client_php",
-            "version": "dev-master",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/zendesk/zendesk_api_client_php.git",
-                "reference": "491d87172b15edab5b1d18efc41815f226f416b6"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/zendesk/zendesk_api_client_php/zipball/491d87172b15edab5b1d18efc41815f226f416b6",
-                "reference": "491d87172b15edab5b1d18efc41815f226f416b6",
-                "shasum": ""
-            },
-            "require": {
-                "php": ">=5.3.1"
-            },
-            "require-dev": {
-                "internations/http-mock": "dev-master",
-                "phpmd/phpmd": "@stable",
-                "phpunit/phpunit": "4.5.*",
-                "squizlabs/php_codesniffer": "2.*"
-            },
-            "type": "library",
-            "autoload": {
-                "psr-0": {
-                    "Zendesk\\API\\": "src/"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "Apache License Version 2.0"
-            ],
-            "description": "PHP Client for Zendesk REST API. See http://developer.zendesk.com/api-docs",
-            "homepage": "https://github.com/zendesk/zendesk_api_client_php",
-            "time": "2015-06-02 08:44:42"
         },
         {
             "name": "zendframework/zend-code",
@@ -4179,13 +3911,12 @@
         "spryker/spryker": 20,
         "propel/propel": 20,
         "silex/silex": 20,
-        "pimple/pimple": 20,
-        "zendesk/zendesk_api_client_php": 20
+        "pimple/pimple": 20
     },
     "prefer-stable": true,
     "prefer-lowest": false,
     "platform": {
-        "php": ">=5.4.0"
+        "php": ">=5.6.0"
     },
     "platform-dev": []
 }
