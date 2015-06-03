@@ -1,6 +1,6 @@
 {
   "require": {
-    "spryker/spryker": "dev-refactor/CD-93-remove_phing",
+    "spryker/spryker": "dev-master",
 
     "psr/log": "~1.0",
     "propel/propel": "~2.0@dev",
@@ -15,7 +15,7 @@
 
     "monolog/monolog": "~1.7",
 
-    "php": ">=5.4.0",
+    "php": ">=5.6.0",
     "ruflin/elastica": "1.3.4.0",
 
     "symfony/console": "~2.0",
