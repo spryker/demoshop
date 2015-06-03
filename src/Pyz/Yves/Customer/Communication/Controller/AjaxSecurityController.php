@@ -2,12 +2,12 @@
 
 namespace Pyz\Yves\Customer\Communication\Controller;
 
+use Generated\Shared\Transfer\CustomerTransfer;
 use Pyz\Yves\Customer\CustomerDependencyContainer;
+use Pyz\Yves\Customer\Plugin\CustomerControllerProvider;
 use SprykerEngine\Yves\Application\Communication\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
-use SprykerFeature\Shared\Customer\Code\Messages;
-use Pyz\Yves\Customer\Plugin\CustomerControllerProvider;
 use Symfony\Component\Validator\Constraints\Collection;
 
 /**
@@ -30,9 +30,8 @@ class AjaxSecurityController extends AbstractController
     public function registerAction(Request $request)
     {
         $form = $this->createForm($this->getDependencyContainer()->createFormRegister());
-
+        $customerTransfer = $this->getLocator()->customer()->transferCustomer();
         if ($form->isValid()) {
-            $customerTransfer = $this->getLocator()->customer()->transferCustomer();
             $customerTransfer->fromArray($form->getData());
             $customerTransfer = $this->getLocator()->customer()->client()->registerCustomer($customerTransfer);
             if ($customerTransfer->getRegistrationKey()) {
@@ -42,6 +41,6 @@ class AjaxSecurityController extends AbstractController
             }
         }
 
-        return $this->jsonResponse();
+        return $this->jsonResponse($customerTransfer);
     }
 }

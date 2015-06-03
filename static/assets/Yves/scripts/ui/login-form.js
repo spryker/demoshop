@@ -38,7 +38,7 @@ var setRegisterUrl = function() {
 };
 
 var handleResponse = function() {
-    alert('Implement me yo')
+    console.log($(this));
 };
 
 var postForm = function (e) {
