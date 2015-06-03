@@ -27,7 +27,7 @@ class SetupConfigTest extends \PHPUnit_Framework_TestCase
     {
         $pathPatterns = $this->getConfig()->getPropelSchemaPathPattern();
         $this->assertTrue(is_array($pathPatterns));
-        $this->assertCount(1, $pathPatterns);
+        $this->assertCount(2, $pathPatterns);
     }
 
 }
