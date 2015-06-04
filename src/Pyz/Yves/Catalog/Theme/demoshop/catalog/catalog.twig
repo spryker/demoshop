@@ -1,6 +1,12 @@
 {% block content %}
     <div class="catalog">
-        <h1 class="catalog__section-title">{{ category.name }}</h1>
+        <h1 class="catalog__section-title">
+            {% if category is defined %}
+                {{ category.name }}
+            {% elseif searchString is defined %}
+                {{ 'search'|trans }}
+            {% endif %}
+        </h1>
 
         <aside class="catalog__filter js-filters">
             {% include "@catalog/catalog/partials/filter-default.twig" with {filterName:'category'} %}
@@ -12,6 +18,10 @@
             <span class="js-show-filters">{{ "catalog.filter.show"|trans }}</span>
             <span class="js-hide-filters">{{ "catalog.filter.hide"|trans }}</span>
         </button>
+
+        {% if searchString is defined %}
+            <h2 class="catalog__search-term">{{ 'search.resultsFor'|trans }}: {{ searchString }}</h2>
+        {% endif %}
 
         <section class="catalog__active-filters">
             <h1>{{ "catalog.filter.active"|trans }}</h1>
