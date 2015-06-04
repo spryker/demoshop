@@ -239,3 +239,46 @@ keys:
   page.detail.small-parts-warning:
     translations:
       de_DE: 'Achtung! Verschluckbare Kleinteile. Erstickungsgefahr. Für Kinder unter 3 Jahre nicht geeignet.'
+
+  catalog.currency:
+    translations:
+      de_DE: '€'
+  catalog.filter.active:
+    translations:
+      de_DE: 'Aktive Filter'
+  catalog.filter.color:
+    translations:
+      de_DE: 'Farbe'
+  catalog.filter.extras:
+    translations:
+      de_DE: 'Sonstige Merkmale'
+  catalog.filter.price:
+    translations:
+      de_DE: 'Preisspanne'
+  catalog.filter.pricerangeFrom:
+    translations:
+      de_DE: 'Preisspanne von'
+  catalog.filter.pricerangeTo:
+    translations:
+      de_DE: 'bis'
+  catalog.filter.show:
+    translations:
+      de_DE: 'Filter einblenden'
+  catalog.filter.hide:
+    translations:
+      de_DE: 'Filter ausblenden'
+  catalog.itemsFound:
+    translations:
+      de_DE: 'Figuren gefunden'
+  catalog.loading:
+    translations:
+      de_DE: 'Loading'
+  catalog.next:
+    translations:
+      de_DE: 'weiter'
+  catalog.prev:
+    translations:
+      de_DE: 'zurück'
+  catalog.sort:
+    translations:
+      de_DE: 'Sortierung'

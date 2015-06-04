@@ -1,6 +1,6 @@
 {% block content %}
     <div class="catalog">
-        <h1 class="catalog__section-title">Wild life</h1>
+        <h1 class="catalog__section-title">{{ category.name }}</h1>
 
         <aside class="catalog__filter js-filters">
             {% include "@catalog/catalog/partials/filter-default.twig" with {filterName:'category'} %}
@@ -9,12 +9,12 @@
             {% include "@catalog/catalog/partials/filter-multivalue.twig" with {filterName:'extras'} %}
         </aside>
         <button class="catalog__toggle-filters js-toggle-filters">
-            <span class="js-show-filters">Show filters</span>
-            <span class="js-hide-filters">Hide filters</span>
+            <span class="js-show-filters">{{ "catalog.filter.show"|trans }}</span>
+            <span class="js-hide-filters">{{ "catalog.filter.hide"|trans }}</span>
         </button>
 
         <section class="catalog__active-filters">
-            <h1>Aktive filter</h1>
+            <h1>{{ "catalog.filter.active"|trans }}</h1>
             <ul class="active-filter__list">
                 {% include "@catalog/catalog/partials/active-filter.twig" with {name:'category', value:'', id: 42} %}
                 {% include "@catalog/catalog/partials/active-filter.twig" with {name:'color', value:'', id: 42} %}
@@ -24,20 +24,20 @@
         </section>
 
         <header class="catalog__summary">
-            <div class="summary__total-count">67 figuren gefunden</div>
+            <div class="summary__total-count">{{ numFound }} {{ "catalog.itemsFound"|trans }}</div>
             <div class="summary__sorting">
-                Sortieren
+                {{ "catalog.sort"|trans }}
                 <button class="sorting__button--inc">A-Z</button>
                 <button class="sorting__button--dec">Z-A</button>
                 <button class="sorting__button--inc">
-                    <span class="sorting__label--small">€</span>
-                    <span class="sorting__label--medium">€</span>
-                    <span class="sorting__label--large">€</span>
+                    <span class="sorting__label--small">{{ "catalog.currency"|trans }}</span>
+                    <span class="sorting__label--medium">{{ "catalog.currency"|trans }}</span>
+                    <span class="sorting__label--large">{{ "catalog.currency"|trans }}</span>
                 </button>
                 <button class="sorting__button--dec">
-                    <span class="sorting__label--large">€</span>
-                    <span class="sorting__label--medium">€</span>
-                    <span class="sorting__label--small">€</span>
+                    <span class="sorting__label--large">{{ "catalog.currency"|trans }}</span>
+                    <span class="sorting__label--medium">{{ "catalog.currency"|trans }}</span>
+                    <span class="sorting__label--small">{{ "catalog.currency"|trans }}</span>
                 </button>
             </div>
         </header>
@@ -49,12 +49,12 @@
                     {% include "@catalog/catalog/partials/product.twig" with {detailsUrl: product.url, imageUrl: product.attributes.image_url, name: product.name, price: product.valid_price} %}
                 {% endfor %}
             </section>
-            <div class="catalog__loading-text">Loading...</div>
+            <div class="catalog__loading-text">{{ "catalog.loading"|trans }}</div>
         </div>
 
         <div class="catalog__pagination">
-            <button class="pagination__button js-pagination-prev">Prev</button>
-            <button class="pagination__button js-pagination-next">Next</button>
+            <button class="pagination__button js-pagination-prev">{{ "catalog.prev"|trans }}</button>
+            <button class="pagination__button js-pagination-next">{{ "catalog.next"|trans }}</button>
         </div>
     </div>
 {% endblock %}
