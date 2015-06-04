@@ -3,36 +3,50 @@
 var $ = require('jquery'),
     catalog = require('./index'),
     URLManager = require('./URLManager'),
-    animationTime = 500;
+    animationTime = 100;
 
-var currentPage = URLManager.getParam('page') || 1;
+var currentPage = URLManager.getParam('page') || 1,
+    maxPage = $('.pagination-max-page').html();
 
 var paginate = function(forward) {
-  if (!forward && currentPage === 1) {
+  if (!forward && currentPage == 1) {
     return;
   }
-  var $current = $('.js-products-current');
-  var $prev = $('.js-products-prev');
-  var $next = $('.js-products-next');
+
+  if (forward && currentPage == maxPage) {
+    return;
+  }
+
+  var $current = $('.js-products-current'),
+      $prev = $('.js-products-prev'),
+      $next = $('.js-products-next');
 
   if (forward) {
-    $prev.remove();
     $current.removeClass('js-products-current').addClass('js-products-prev');
-    $next.removeClass('js-products-next')
-    window.setTimeout(function() {
-      $next.addClass('js-products-current');
-    }, animationTime);
-    insertNext();
+
     currentPage++;
+
+    if ($next.length > 0) {
+      $($next[0]).removeClass('js-products-next');
+      window.setTimeout(function() {
+        $($next[0]).addClass('js-products-current');
+      }, animationTime);
+    } else {
+      insertNext();
+    }
   } else {
-    $next.remove();
     $current.removeClass('js-products-current').addClass('js-products-next');
-    $prev.removeClass('js-products-prev');
-    window.setTimeout(function() {
-      $prev.addClass('js-products-current');
-    }, animationTime);
-    insertPrev();
+
     currentPage--;
+
+    if ($prev.length > 0) {
+      $($prev[$prev.length - 1]).removeClass('js-products-prev');
+      window.setTimeout(function() {
+          $($prev[$prev.length - 1]).addClass('js-products-current');
+      }, animationTime);
+    } else {
+      insertPrev();
+    }
   }
 
   $('html, body').delay(500).animate({
@@ -43,32 +57,19 @@ var paginate = function(forward) {
 };
 
 var insertNext = function() {
-  var $next = $(catalog.template);
-  $next.addClass('js-products-next').appendTo('.js-products-holder');
-  catalog.loadProducts(URLManager.paramsToString(getParams()), $next);
+  var $next = $(catalog.template),
+      params = getParams();
+
+  $next.addClass('js-products-current').appendTo('.js-products-holder');
+  catalog.loadProducts(URLManager.getPath(), URLManager.paramsToString(params), $next);
 };
 
 var insertPrev = function() {
-  var $prev = $(catalog.template);
-  $prev.addClass('js-products-prev').prependTo('.js-products-holder');
-  catalog.loadProducts(URLManager.paramsToString(getParams()), $prev);
+  var $prev = $(catalog.template),
+      params = getParams();
+  $prev.addClass('js-products-prev').prependTo('.js-products-holder')
+  catalog.loadProducts(URLManager.getPath(), URLManager.paramsToString(getParams()), $prev);
 };
-
-// var loadProducts = function(url, $products) {
-//   $products.addClass('js-products-loading js-products-spinning');
-//   window.setTimeout(function() {
-//     $.ajax({
-//       url: url
-//     }).done(function(data) {
-//       $products.children().remove();
-//       $(data).appendTo($products);
-//       $products.removeClass('js-products-spinning');
-//       window.setTimeout(function() {
-//         $products.removeClass('js-products-loading');
-//       }, 200);
-//     });
-//   }, 5000);
-// };
 
 var updateURL = function() {
   URLManager.setParams(getParams());
