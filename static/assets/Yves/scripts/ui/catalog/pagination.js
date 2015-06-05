@@ -67,7 +67,7 @@ var insertNext = function() {
 var insertPrev = function() {
   var $prev = $(catalog.template),
       params = getParams();
-  $prev.addClass('js-products-prev').prependTo('.js-products-holder')
+  $prev.addClass('js-products-current').prependTo('.js-products-holder')
   catalog.loadProducts(URLManager.getPath(), URLManager.paramsToString(getParams()), $prev);
 };
 

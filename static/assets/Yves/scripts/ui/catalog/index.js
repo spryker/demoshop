@@ -34,6 +34,6 @@ module.exports = {
     });
   },
 
-  template: '<section class="catalog__products">'+'</section>'
+  template: '<section class="catalog__products"></section>'
 
 };
