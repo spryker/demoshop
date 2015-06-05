@@ -56,6 +56,23 @@ var paginate = function(forward) {
   updateURL();
 };
 
+var sort = function(field, order) {
+    var $current = $('.js-products-current'),
+        $prev = $('.js-products-prev'),
+        $next = $('.js-products-next'),
+        params = getParams();
+
+    $prev.remove();
+    $next.remove();
+
+    params.sort = field;
+    params.sort_order = order;
+
+    catalog.loadProducts(URLManager.getPath(), URLManager.paramsToString(params), $current);
+
+    URLManager.setParams(params);
+};
+
 var insertNext = function() {
   var $next = $(catalog.template),
       params = getParams();
@@ -93,6 +110,22 @@ module.exports = {
       $(e.target).attr('disabled', true);
       paginate(true);
       window.setTimeout(function() { $(e.target).attr('disabled', false); }, animationTime)
+    });
+
+    $('.sorting__button--inc.price').click(function(e) {
+        sort('price', 'asc')
+    });
+
+    $('.sorting__button--dec.price').click(function(e) {
+        sort('price', 'desc')
+    });
+
+    $('.sorting__button--inc.name').click(function(e) {
+        sort('name', 'asc')
+    });
+
+    $('.sorting__button--dec.name').click(function(e) {
+        sort('name', 'desc')
     });
   }
 

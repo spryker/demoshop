@@ -40,6 +40,8 @@ class CatalogController extends AbstractController
     {
         $search = $this->getLocator()->catalog()->sdk()->createFulltextSearch($request);
 
+        $search->setItemsPerPage(6);
+
         return array_merge($search->getResult(), ['searchString' => $request->get('q')]);
     }
 
