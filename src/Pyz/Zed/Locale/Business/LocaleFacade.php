@@ -14,11 +14,13 @@ use SprykerFeature\Zed\ProductSearch\Dependency\Facade\ProductSearchToLocaleInte
 use SprykerEngine\Zed\Locale\Business\LocaleFacade as SprykerLocaleFacade;
 use SprykerFeature\Zed\Glossary\Dependency\Facade\GlossaryToLocaleInterface;
 use SprykerFeature\Zed\Url\Dependency\UrlToLocaleInterface;
+use Pyz\Zed\Cms\Dependency\Facade\CmsToLocaleInterface;
 
 class LocaleFacade extends SprykerLocaleFacade implements
     CategoryToLocaleInterface,
     CustomerToLocaleInterface,
     GlossaryToLocaleInterface,
+    CmsToLocaleInterface,
     ProductCategoryToLocaleInterface,
     ProductSearchToLocaleInterface,
     ProductToLocaleInterface,

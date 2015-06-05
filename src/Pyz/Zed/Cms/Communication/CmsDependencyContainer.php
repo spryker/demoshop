@@ -19,17 +19,4 @@ class CmsDependencyContainer extends SprykerCmsDependencyContainer
         return $this->getLocator()->Cms()->facade();
     }
 
-    /**
-     * @return \Pyz\Zed\Glossary\Business\GlossaryFacade
-     */
-    public function getGlossaryFacade() {
-        return $this->getLocator()->glossary()->facade();
-    }
-
-    /**
-     * @return \Pyz\Zed\Url\Business\UrlFacade
-     */
-    public function getUrlFacade() {
-        return $this->getLocator()->url()->facade();
-    }
 }
