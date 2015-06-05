@@ -30,6 +30,7 @@ config/accumulated-config.json
 
 /src/Generated
 /vendor/
+FOSS.md
 
 /data
 

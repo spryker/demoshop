@@ -622,16 +622,16 @@
         },
         {
             "name": "silex/silex",
-            "version": "v1.2.4",
+            "version": "v1.2.5",
             "source": {
                 "type": "git",
                 "url": "https://github.com/silexphp/Silex.git",
-                "reference": "417deb440eecf776df868d8760d0b7d8e2c4e6d1"
+                "reference": "ce75b98d82d4c509802e63005c618392db17afef"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/silexphp/Silex/zipball/417deb440eecf776df868d8760d0b7d8e2c4e6d1",
-                "reference": "417deb440eecf776df868d8760d0b7d8e2c4e6d1",
+                "url": "https://api.github.com/repos/silexphp/Silex/zipball/ce75b98d82d4c509802e63005c618392db17afef",
+                "reference": "ce75b98d82d4c509802e63005c618392db17afef",
                 "shasum": ""
             },
             "require": {
@@ -700,7 +700,7 @@
             "keywords": [
                 "microframework"
             ],
-            "time": "2015-04-11 12:43:27"
+            "time": "2015-06-04 21:24:58"
         },
         {
             "name": "spryker/spryker",
@@ -708,7 +708,7 @@
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/spryker.git",
-                "reference": "43ad0d98ade9f3ff0c78c95548c02164880363fd"
+                "reference": "bad6ae3322f76e9ece9fa9f753d79a1453642b20"
             },
             "require": {
                 "digital-canvas/zend-framework": ">=1.12.2",
@@ -842,7 +842,7 @@
                     "SprykerFeature\\Shared\\Library": "Bundles/Library/src/"
                 }
             },
-            "time": "2015-06-04 13:10:16"
+            "time": "2015-06-05 12:48:34"
         },
         {
             "name": "symfony-cmf/routing",
@@ -3534,17 +3534,17 @@
         },
         {
             "name": "silex/web-profiler",
-            "version": "v1.0.6",
+            "version": "v1.0.7",
             "target-dir": "Silex/Provider",
             "source": {
                 "type": "git",
                 "url": "https://github.com/silexphp/Silex-WebProfiler.git",
-                "reference": "49ae2ae6fc1fa4e3eec26f0fb5b05b9fe1582a1f"
+                "reference": "2afc6ba14f345d0a2ef70fe656e8a59ff52beb49"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/silexphp/Silex-WebProfiler/zipball/49ae2ae6fc1fa4e3eec26f0fb5b05b9fe1582a1f",
-                "reference": "49ae2ae6fc1fa4e3eec26f0fb5b05b9fe1582a1f",
+                "url": "https://api.github.com/repos/silexphp/Silex-WebProfiler/zipball/2afc6ba14f345d0a2ef70fe656e8a59ff52beb49",
+                "reference": "2afc6ba14f345d0a2ef70fe656e8a59ff52beb49",
                 "shasum": ""
             },
             "require": {
@@ -3575,7 +3575,7 @@
             ],
             "description": "A WebProfiler for Silex",
             "homepage": "http://silex.sensiolabs.org/",
-            "time": "2015-04-19 10:15:17"
+            "time": "2015-06-04 14:27:33"
         },
         {
             "name": "symfony/browser-kit",
