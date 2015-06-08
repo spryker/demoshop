@@ -1,36 +1,71 @@
 <?xml version="1.0"?>
 <options>
     <option key="SIZE">
+        <localized-attributes>
+            <locale name="en_GB">
+                <name>Size</name>
+            </locale>
+        </localized-attributes>
         <taxset />
         <values>
             <value key="SMALL">
-                <price />
                 <localized-attributes>
-                    <locale code="en_GB">
+                    <locale name="en_GB">
                         <name>Small</name>
                     </locale>
                 </localized-attributes>
+                <price />
             </value>
             <value key="LARGE">
+                <localized-attributes>
+                    <locale name="en_GB">
+                        <name>Large</name>
+                    </locale>
+                </localized-attributes>
                 <price />
             </value>
         </values>
     </option>
     <option key="COLOR">
+        <localized-attributes>
+            <locale name="en_GB">
+                <name>Color</name>
+            </locale>
+        </localized-attributes>
         <taxset>SGST</taxset>
         <values>
             <value key="RED">
+                <localized-attributes>
+                    <locale name="en_GB">
+                        <name>Red</name>
+                    </locale>
+                </localized-attributes>
                 <price />
             </value>
             <value key="BLUE">
+                <localized-attributes>
+                    <locale name="en_GB">
+                        <name>Blue</name>
+                    </locale>
+                </localized-attributes>
                 <price />
             </value>
         </values>
     </option>
     <option key="FINISH">
+        <localized-attributes>
+            <locale name="en_GB">
+                <name>Finish</name>
+            </locale>
+        </localized-attributes>
         <taxset>SGST</taxset>
         <values>
             <value key="LAMINATED">
+                <localized-attributes>
+                    <locale name="en_GB">
+                        <name>Laminated</name>
+                    </locale>
+                </localized-attributes>
                 <price>1.99</price>
             </value>
         </values>
@@ -39,15 +74,35 @@
         <taxset>SGST</taxset>
         <values>
             <value key="SMALL_MATTE">
+                <localized-attributes>
+                    <locale name="en_GB">
+                        <name>Small Matte</name>
+                    </locale>
+                </localized-attributes>
                 <price>3.50</price>
             </value>
             <value key="LARGE_MATTE">
+                <localized-attributes>
+                    <locale name="en_GB">
+                        <name>Large Matte</name>
+                    </locale>
+                </localized-attributes>
                 <price>5</price>
             </value>
             <value key="SMALL_GLOSS">
+                <localized-attributes>
+                    <locale name="en_GB">
+                        <name>Small Gloss</name>
+                    </locale>
+                </localized-attributes>
                 <price>6.50</price>
             </value>
             <value key="LARGE_GLOSS">
+                <localized-attributes>
+                    <locale name="en_GB">
+                        <name>Large Gloss</name>
+                    </locale>
+                </localized-attributes>
                 <price>8</price>
             </value>
         </values>
