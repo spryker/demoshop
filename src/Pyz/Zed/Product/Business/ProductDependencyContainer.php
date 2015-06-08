@@ -35,7 +35,7 @@ class ProductDependencyContainer extends SprykerDependencyContainer
             $this->createProductManager(),
             $this->createLocaleFacade(),
             $this->createCSVReader(),
-            $this->getConfig()->getDemoDataPath(),
+            $this->getConfig()->getDemoDataPath()
         );
         $installer->setMessenger($messenger);
 
