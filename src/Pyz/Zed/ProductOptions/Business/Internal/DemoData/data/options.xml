@@ -1,0 +1,55 @@
+<?xml version="1.0"?>
+<options>
+    <option key="SIZE">
+        <taxset />
+        <values>
+            <value key="SMALL">
+                <price />
+                <localized-attributes>
+                    <locale code="en_GB">
+                        <name>Small</name>
+                    </locale>
+                </localized-attributes>
+            </value>
+            <value key="LARGE">
+                <price />
+            </value>
+        </values>
+    </option>
+    <option key="COLOR">
+        <taxset>SGST</taxset>
+        <values>
+            <value key="RED">
+                <price />
+            </value>
+            <value key="BLUE">
+                <price />
+            </value>
+        </values>
+    </option>
+    <option key="FINISH">
+        <taxset>SGST</taxset>
+        <values>
+            <value key="LAMINATED">
+                <price>1.99</price>
+            </value>
+        </values>
+    </option>
+    <option key="FRAME">
+        <taxset>SGST</taxset>
+        <values>
+            <value key="SMALL_MATTE">
+                <price>3.50</price>
+            </value>
+            <value key="LARGE_MATTE">
+                <price>5</price>
+            </value>
+            <value key="SMALL_GLOSS">
+                <price>6.50</price>
+            </value>
+            <value key="LARGE_GLOSS">
+                <price>8</price>
+            </value>
+        </values>
+    </option>
+</options>
