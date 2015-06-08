@@ -19,6 +19,11 @@ class OptionType implements VisitableOptionInterface
     private $optionValues = [];
 
     /**
+     * @var array
+     */
+    private $localizedNames = [];
+
+    /**
      * @var string|null
      */
     private $taxSetKey;
@@ -41,7 +46,7 @@ class OptionType implements VisitableOptionInterface
      * @param OptionValue[] $optionValues
      * @param string $taxSetKey
      */
-    public function __construct($key, array $optionValues, $taxSetKey = null)
+    public function __construct($key, array $optionValues, array $localizedNames = [], $taxSetKey = null)
     {
         $this->key = $key;
 
@@ -49,6 +54,7 @@ class OptionType implements VisitableOptionInterface
             $this->addOptionValue($optionValue);
         }
 
+        $this->localizedNames = $localizedNames;
         $this->taxSetKey = $taxSetKey;
     }
 
@@ -74,6 +80,14 @@ class OptionType implements VisitableOptionInterface
     public function getOptionValues()
     {
         return $this->optionValues;
+    }
+
+    /**
+     * @return array
+     */
+    public function getLocalizedNames()
+    {
+        return $this->localizedNames;
     }
 
     /**

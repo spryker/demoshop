@@ -14,6 +14,11 @@ class OptionValue implements VisitableOptionInterface
     private $key;
 
     /**
+     * @var array
+     */
+    private $localizedNames = [];
+
+    /**
      * @var float|null
      */
     private $price;
@@ -36,9 +41,10 @@ class OptionValue implements VisitableOptionInterface
      * @param float $price
      * @param string $taxSetKey
      */
-    public function __construct($key, $price = null, $taxSetKey = null)
+    public function __construct($key, $localizedNames = [], $price = null, $taxSetKey = null)
     {
         $this->key = $key;
+        $this->localizedNames = $localizedNames;
         $this->price = $price;
         $this->taxSetKey = $taxSetKey;
     }
@@ -49,6 +55,14 @@ class OptionValue implements VisitableOptionInterface
     public function getKey()
     {
         return $this->key;
+    }
+
+    /**
+     * @return array
+     */
+    public function getLocalizedNames()
+    {
+        return $this->localizedNames;
     }
 
     /**

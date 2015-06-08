@@ -47,6 +47,7 @@ class DbOptionsVisitor implements OptionsVisitorInterface
     {
         $this->productOptionsFacade->importOptionType(
             $visitee->getKey(),
+            $visitee->getLocalizedNames(),
             $visitee->getTaxSetKey()
         );
     }
@@ -59,6 +60,7 @@ class DbOptionsVisitor implements OptionsVisitorInterface
         $this->productOptionsFacade->importOptionValue(
             $visitee->getKey(),
             $this->context->getKey(),
+            $visitee->getLocalizedNames(),
             $visitee->getPrice()
         );
     }
