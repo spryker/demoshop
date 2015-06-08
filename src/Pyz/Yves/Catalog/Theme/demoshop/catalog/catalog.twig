@@ -27,6 +27,7 @@
             <h1>{{ "catalog.filter.active"|trans }}</h1>
             <ul class="active-filter__list">
                 {% include "@catalog/catalog/partials/active-filter.twig" with {name:'category', value:'', id: 42} %}
+                42
                 {% include "@catalog/catalog/partials/active-filter.twig" with {name:'color', value:'', id: 42} %}
                 {% include "@catalog/catalog/partials/active-filter.twig" with {name:'price', value:'', id: 42} %}
                 {% include "@catalog/catalog/partials/active-filter.twig" with {name:'extras', value:'', id: 42} %}
@@ -34,7 +35,7 @@
         </section>
 
         <header class="catalog__summary">
-            <div class="summary__total-count">{{ numFound }} {{ "catalog.itemsFound"|trans }}</div>
+            <div class="summary__total-count"><span class="amount">{{ numFound }}</span> {{ "catalog.itemsFound"|trans }}</div>
             <div class="ui-helper-hidden pagination-max-page">{{ maxPage }}</div>
             <div class="summary__sorting">
                 {{ "catalog.sort"|trans }}

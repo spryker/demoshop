@@ -9,6 +9,9 @@ var currentPage = URLManager.getParam('page') || 1,
     maxPage = $('.pagination-max-page').html();
 
 var paginate = function(forward) {
+  currentPage = URLManager.getParam('page') || 1;
+  maxPage = $('.pagination-max-page').html();
+
   if (!forward && currentPage == 1) {
     return;
   }

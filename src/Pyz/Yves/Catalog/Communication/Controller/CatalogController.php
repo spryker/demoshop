@@ -42,7 +42,13 @@ class CatalogController extends AbstractController
 
         $search->setItemsPerPage(6);
 
-        return array_merge($search->getResult(), ['searchString' => $request->get('q')]);
+        $r = array_merge($search->getResult(), ['searchString' => $request->get('q')]);
+
+        if ($request->isXmlHttpRequest()) {
+            return $this->jsonResponse($r);
+        }
+
+        return $r;
     }
 
     /**
