@@ -27,7 +27,9 @@ class CmsDependencyContainer extends SprykerCmsDependencyContainer
             $this->getPageManager(),
             $this->getGlossaryKeyMappingManager(),
             $this->getConfig()->getDemoDataPath(),
-            $this->getConfig()->getDemoDataContentKey()
+            $this->getConfig()->getDemoDataContentKey(),
+            $this->getConfig()->getDemoDataTemplate(),
+            $this->getConfig()->getDemoDataTemplateName()
         );
         $installer->setMessenger($messenger);
 

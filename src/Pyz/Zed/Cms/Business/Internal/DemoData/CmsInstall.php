@@ -26,10 +26,12 @@ class CmsInstall extends AbstractInstaller
      * @var CmsToGlossaryInterface
      */
     protected $glossaryFacade;
+
     /**
      * @var CmsToUrlInterface
      */
     protected $urlFacade;
+
     /**
      * @var CmsToLocaleInterface
      */
@@ -41,13 +43,41 @@ class CmsInstall extends AbstractInstaller
     protected $filePath;
 
 
+    /**
+     * @var array
+     */
     protected $staticPages = [
         'imprint' => ['de_DE' => '/impressum'],
         'privacy' => ['de_DE' => '/datenschutz'],
         'terms' => ['de_DE' => '/agb'],
     ];
 
+    /**
+     * @var string
+     */
+    protected $contentKey;
 
+    /**
+     * @var string
+     */
+    protected $template;
+    /**
+     * @var string
+     */
+    protected $templateName;
+
+    /**
+     * @param CmsToGlossaryInterface $glossaryFacade
+     * @param CmsToUrlInterface $urlFacade
+     * @param CmsToLocaleInterface $localeFacade
+     * @param TemplateManagerInterface $templateManager
+     * @param PageManagerInterface $pageManager
+     * @param GlossaryKeyMappingManagerInterface $glossaryKeyMappingManager
+     * @param $filePath
+     * @param $contentKey
+     * @param $template
+     * @param $templateName
+     */
     public function __construct(
         CmsToGlossaryInterface $glossaryFacade,
         CmsToUrlInterface $urlFacade,
@@ -56,7 +86,9 @@ class CmsInstall extends AbstractInstaller
         PageManagerInterface $pageManager,
         GlossaryKeyMappingManagerInterface $glossaryKeyMappingManager,
         $filePath,
-        $contentKey
+        $contentKey,
+        $template,
+        $templateName
     ) {
         $this->glossaryFacade = $glossaryFacade;
         $this->urlFacade = $urlFacade;
@@ -64,8 +96,13 @@ class CmsInstall extends AbstractInstaller
         $this->templateManager = $templateManager;
         $this->pageManager = $pageManager;
         $this->glossaryKeyMappingManager = $glossaryKeyMappingManager;
+
         $this->filePath = $filePath;
+
         $this->contentKey = $contentKey;
+
+        $this->template = $template;
+        $this->templateName = $templateName;
     }
 
     /**
@@ -107,12 +144,12 @@ class CmsInstall extends AbstractInstaller
      */
     private function createTemplate()
     {
-        if ($this->templateManager->hasTemplatePath('static_fullpage.twig') === true) {
-            $templateTransfer = $this->templateManager->getTemplateByPath('static_fullpage.twig');
+        if ($this->templateManager->hasTemplatePath($this->template) === true) {
+            $templateTransfer = $this->templateManager->getTemplateByPath($this->template);
         } else {
             $templateTransfer = $this->templateManager->createTemplate(
-                'static full page',
-                'static_fullpage.twig'
+                $this->templateName,
+                $this->template
             );
         }
         return $templateTransfer;
@@ -128,14 +165,23 @@ class CmsInstall extends AbstractInstaller
     }
 
 
+    /**
+     * @param $content
+     * @param $url
+     */
     private function createPageForContent($content, $url)
     {
-        $templateTransfer = $this->createTemplate();
-        $pageTransfer = $this->createPage($templateTransfer);
-        $this->pageManager->touchPageActive($pageTransfer);
-        $this->glossaryKeyMappingManager->addPlaceholderText($pageTransfer, $this->contentKey, $content);
-        $urlTransfer = $this->pageManager->createPageUrl($pageTransfer, $url);
-        $this->urlFacade->touchUrlActive($urlTransfer->getIdUrl());
+        if ($this->urlFacade->hasUrl($url) === false) {
+            $templateTransfer = $this->createTemplate();
+            $pageTransfer = $this->createPage($templateTransfer);
+            $this->pageManager->touchPageActive($pageTransfer);
+            $this->glossaryKeyMappingManager->addPlaceholderText($pageTransfer, $this->contentKey, $content);
+            $urlTransfer = $this->pageManager->createPageUrl($pageTransfer, $url);
+            $this->urlFacade->touchUrlActive($urlTransfer->getIdUrl());
+        }
+        else {
+            $this->warning(sprintf('Page with URL %s already exists. Skipping.', $url));
+        }
     }
 
     /**

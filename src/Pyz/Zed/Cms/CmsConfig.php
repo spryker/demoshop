@@ -4,6 +4,10 @@ namespace Pyz\Zed\Cms;
 
 use SprykerFeature\Zed\Cms\CmsConfig as SprykerCmsConfig;
 
+/**
+ * Class CmsConfig
+ * @package Pyz\Zed\Cms
+ */
 class CmsConfig extends SprykerCmsConfig
 {
     /**
@@ -14,7 +18,24 @@ class CmsConfig extends SprykerCmsConfig
         return __DIR__ . '/File';
     }
 
+    /**
+     * @return string
+     */
     public function getDemoDataContentKey() {
         return 'content';
+    }
+
+    /**
+     * @return string
+     */
+    public function getDemoDataTemplate() {
+        return 'static full page';
+    }
+
+    /**
+     * @return string
+     */
+    public function getDemoDataTemplateName() {
+        return 'static_full_page.twig';
     }
 }
