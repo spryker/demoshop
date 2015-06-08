@@ -175,11 +175,11 @@ class CmsInstall extends AbstractInstaller
             $templateTransfer = $this->createTemplate();
             $pageTransfer = $this->createPage($templateTransfer);
             $this->pageManager->touchPageActive($pageTransfer);
+
             $this->glossaryKeyMappingManager->addPlaceholderText($pageTransfer, $this->contentKey, $content);
             $urlTransfer = $this->pageManager->createPageUrl($pageTransfer, $url);
             $this->urlFacade->touchUrlActive($urlTransfer->getIdUrl());
-        }
-        else {
+        } else {
             $this->warning(sprintf('Page with URL %s already exists. Skipping.', $url));
         }
     }
