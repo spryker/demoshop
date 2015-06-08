@@ -622,16 +622,16 @@
         },
         {
             "name": "silex/silex",
-            "version": "v1.2.4",
+            "version": "v1.2.5",
             "source": {
                 "type": "git",
                 "url": "https://github.com/silexphp/Silex.git",
-                "reference": "417deb440eecf776df868d8760d0b7d8e2c4e6d1"
+                "reference": "ce75b98d82d4c509802e63005c618392db17afef"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/silexphp/Silex/zipball/417deb440eecf776df868d8760d0b7d8e2c4e6d1",
-                "reference": "417deb440eecf776df868d8760d0b7d8e2c4e6d1",
+                "url": "https://api.github.com/repos/silexphp/Silex/zipball/ce75b98d82d4c509802e63005c618392db17afef",
+                "reference": "ce75b98d82d4c509802e63005c618392db17afef",
                 "shasum": ""
             },
             "require": {
@@ -700,7 +700,7 @@
             "keywords": [
                 "microframework"
             ],
-            "time": "2015-04-11 12:43:27"
+            "time": "2015-06-04 21:24:58"
         },
         {
             "name": "spryker/spryker",
@@ -708,7 +708,7 @@
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/spryker.git",
-                "reference": "81db9e6947bccb70ef58cce90dee2303d7cce92e"
+                "reference": "d842ad589cd7be272ace766c94d50ddac2706537"
             },
             "require": {
                 "digital-canvas/zend-framework": ">=1.12.2",
@@ -842,7 +842,7 @@
                     "SprykerFeature\\Shared\\Library": "Bundles/Library/src/"
                 }
             },
-            "time": "2015-06-04 18:39:32"
+            "time": "2015-06-05 14:33:16"
         },
         {
             "name": "symfony-cmf/routing",
