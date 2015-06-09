@@ -21,15 +21,15 @@ class XMLOptionsTransformer implements XMLTransformerInterface
     }
 
     /**
-     * @param \SimpleXMLElement $data
+     * @param \SimpleXMLElement $valueElements
      *
      * @return OptionValue[]
      */
-    private function transformValues($data)
+    private function transformValues(\SimpleXMLElement $valueElements)
     {
         $valueModels = [];
 
-        foreach($data as $value) {
+        foreach($valueElements as $value) {
             $valueModel = new OptionValue(
                 (string) $value['key'],
                 $this->transformLocalizedNames($value->{'localized-attributes'}),
@@ -92,7 +92,7 @@ class XMLOptionsTransformer implements XMLTransformerInterface
      *
      * @return array
      */
-    private function transformLocalizedNames(\SimpleXMLElement  $typeElement)
+    private function transformLocalizedNames(\SimpleXMLElement $typeElement)
     {
         $localizedNames = [];
         foreach ($typeElement->{'localized-attributes'} as $localeData) {
