@@ -6,7 +6,6 @@ use Generated\Zed\Ide\FactoryAutoCompletion\ProductOptionsBusiness;
 use SprykerFeature\Zed\ProductOptions\Business\ProductOptionsDependencyContainer as SprykerDependencyContainer;
 use Psr\Log\LoggerInterface;
 use Pyz\Zed\ProductOptions\ProductOptionsConfig;
-use Pyz\Zed\ProductOptions\Business\ProductOptionsFacade;
 use Pyz\Zed\ProductOptions\Business\Internal\DemoData\ProductOptionsDataInstall;
 use Pyz\Zed\ProductOptions\Business\Internal\DemoData\Importer\Visitor\OptionsVisitorInterface;
 use Pyz\Zed\ProductOptions\Business\Internal\DemoData\Importer\Reader\OptionReaderInterface;
@@ -82,7 +81,7 @@ class ProductOptionsDependencyContainer extends SprykerDependencyContainer
      */
     public function createOptionsVisitor()
     {
-        return $this->getFactory()->createInternalDemoDataImporterVisitorDbOptionsVisitor(
+        return $this->getFactory()->createInternalDemoDataImporterVisitorOptionsImporterVisitor(
             $this->getLocator()->productOptions()->facade()
         );
     }
@@ -92,7 +91,7 @@ class ProductOptionsDependencyContainer extends SprykerDependencyContainer
      */
     public function createProductVisitor()
     {
-        return $this->getFactory()->createInternalDemoDataImporterVisitorDbProductVisitor(
+        return $this->getFactory()->createInternalDemoDataImporterVisitorProductOptionsImporterVisitor(
             $this->getLocator()->productOptions()->facade()
         );
     }

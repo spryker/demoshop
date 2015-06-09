@@ -12,7 +12,7 @@ use Pyz\Zed\ProductOptions\Business\Internal\DemoData\Importer\Node\ProductOptio
 use Pyz\Zed\ProductOptions\Business\Internal\DemoData\Importer\Node\ProductConfiguration;
 use Pyz\Zed\ProductOptions\Business\ProductOptionsFacade;
 
-class DbProductVisitor implements ProductVisitorInterface
+class ProductOptionsImporterVisitor implements ProductVisitorInterface
 {
 
     /**
