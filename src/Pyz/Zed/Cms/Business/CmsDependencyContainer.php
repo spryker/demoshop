@@ -8,10 +8,12 @@ use SprykerFeature\Zed\Cms\Business\CmsDependencyContainer as SprykerCmsDependen
 
 /**
  * Class CmsDependencyContainer
+ *
  * @package Pyz\Zed\Cms\Business
  */
 class CmsDependencyContainer extends SprykerCmsDependencyContainer
 {
+
     /**
      * @param LoggerInterface $messenger
      *
@@ -40,21 +42,24 @@ class CmsDependencyContainer extends SprykerCmsDependencyContainer
     /**
      * @return \Pyz\Zed\Glossary\Business\GlossaryFacade
      */
-    public function createGlossaryFacade() {
+    public function createGlossaryFacade()
+    {
         return $this->getLocator()->glossary()->facade();
     }
 
     /**
      * @return \Pyz\Zed\Url\Business\UrlFacade
      */
-    public function createUrlFacade() {
+    public function createUrlFacade()
+    {
         return $this->getLocator()->url()->facade();
     }
 
     /**
      * @return \Pyz\Zed\Locale\Business\LocaleFacade
      */
-    public function createLocaleFacade() {
+    public function createLocaleFacade()
+    {
         return $this->getLocator()->locale()->facade();
     }
 

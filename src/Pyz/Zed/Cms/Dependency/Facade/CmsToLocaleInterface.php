@@ -5,7 +5,9 @@
  */
 namespace Pyz\Zed\Cms\Dependency\Facade;
 
-interface CmsToLocaleInterface {
+interface CmsToLocaleInterface
+{
+
     /**
      * @return array
      */

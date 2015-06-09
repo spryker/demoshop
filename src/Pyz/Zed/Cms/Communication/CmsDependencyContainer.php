@@ -7,10 +7,12 @@ use SprykerFeature\Zed\Cms\Communication\CmsDependencyContainer as SprykerCmsDep
 
 /**
  * Class CmsDependencyContainer
+ *
  * @package Pyz\Zed\Cms\Communication
  */
 class CmsDependencyContainer extends SprykerCmsDependencyContainer
 {
+
     /**
      * @return CmsFacade
      */

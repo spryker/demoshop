@@ -1,11 +1,11 @@
 <?php
-
 /*
  * (c) Copyright Spryker Systems GmbH 2015
  */
 
 namespace Pyz\Zed\Cms\Business\Internal\DemoData;
 
+use Generated\Shared\Transfer\PageTransfer;
 use Pyz\Zed\Cms\Dependency\Facade\CmsToLocaleInterface;
 use SprykerFeature\Zed\Cms\Business\Mapping\GlossaryKeyMappingManagerInterface;
 use SprykerFeature\Zed\Cms\Business\Page\PageManagerInterface;
@@ -13,10 +13,10 @@ use SprykerFeature\Zed\Cms\Business\Template\TemplateManagerInterface;
 use SprykerFeature\Zed\Cms\Dependency\Facade\CmsToGlossaryInterface;
 use SprykerFeature\Zed\Cms\Dependency\Facade\CmsToUrlInterface;
 use SprykerFeature\Zed\Installer\Business\Model\AbstractInstaller;
-use Generated\Shared\Transfer\PageTransfer;
 
 /**
  * Class CmsInstall
+ *
  * @package Pyz\Zed\Cms\Business\Internal\DemoData
  */
 class CmsInstall extends AbstractInstaller
@@ -42,6 +42,10 @@ class CmsInstall extends AbstractInstaller
      */
     protected $filePath;
 
+    /**
+     * @var GlossaryKeyMappingManagerInterface
+     */
+    protected $glossaryKeyMapping;
 
     /**
      * @var array
@@ -49,7 +53,7 @@ class CmsInstall extends AbstractInstaller
     protected $staticPages = [
         'imprint' => ['de_DE' => '/impressum'],
         'privacy' => ['de_DE' => '/datenschutz'],
-        'terms' => ['de_DE' => '/agb'],
+        'terms'   => ['de_DE' => '/agb'],
     ];
 
     /**
@@ -61,22 +65,23 @@ class CmsInstall extends AbstractInstaller
      * @var string
      */
     protected $template;
+
     /**
      * @var string
      */
     protected $templateName;
 
     /**
-     * @param CmsToGlossaryInterface $glossaryFacade
-     * @param CmsToUrlInterface $urlFacade
-     * @param CmsToLocaleInterface $localeFacade
-     * @param TemplateManagerInterface $templateManager
-     * @param PageManagerInterface $pageManager
+     * @param CmsToGlossaryInterface             $glossaryFacade
+     * @param CmsToUrlInterface                  $urlFacade
+     * @param CmsToLocaleInterface               $localeFacade
+     * @param TemplateManagerInterface           $templateManager
+     * @param PageManagerInterface               $pageManager
      * @param GlossaryKeyMappingManagerInterface $glossaryKeyMappingManager
-     * @param $filePath
-     * @param $contentKey
-     * @param $template
-     * @param $templateName
+     * @param string                             $filePath
+     * @param string                             $contentKey
+     * @param string                             $template
+     * @param string                             $templateName
      */
     public function __construct(
         CmsToGlossaryInterface $glossaryFacade,
@@ -95,7 +100,7 @@ class CmsInstall extends AbstractInstaller
         $this->localeFacade = $localeFacade;
         $this->templateManager = $templateManager;
         $this->pageManager = $pageManager;
-        $this->glossaryKeyMappingManager = $glossaryKeyMappingManager;
+        $this->glossaryKeyMapping = $glossaryKeyMappingManager;
 
         $this->filePath = $filePath;
 
@@ -112,7 +117,6 @@ class CmsInstall extends AbstractInstaller
     {
         $this->info("This will install a standard set of cms pages in the demo shop ");
         $this->installCmsData();
-
     }
 
     /**
@@ -131,11 +135,13 @@ class CmsInstall extends AbstractInstaller
     /**
      * @param $localePath
      * @param $pageKey
+     *
      * @return string
      */
     public function getFileName($localePath, $pageKey)
     {
         $file = $localePath . '/initial_' . $pageKey . '.html';
+
         return $file;
     }
 
@@ -146,17 +152,20 @@ class CmsInstall extends AbstractInstaller
     {
         if ($this->templateManager->hasTemplatePath($this->template) === true) {
             $templateTransfer = $this->templateManager->getTemplateByPath($this->template);
-        } else {
+        }
+        else {
             $templateTransfer = $this->templateManager->createTemplate(
                 $this->templateName,
                 $this->template
             );
         }
+
         return $templateTransfer;
     }
 
     /**
      * @param $localePath
+     *
      * @return bool
      */
     private function checkPathExists($localePath)
@@ -174,19 +183,21 @@ class CmsInstall extends AbstractInstaller
         if ($this->urlFacade->hasUrl($url) === false) {
             $templateTransfer = $this->createTemplate();
             $pageTransfer = $this->createPage($templateTransfer);
-            $this->glossaryKeyMappingManager->addPlaceholderText($pageTransfer, $this->contentKey, $content);
+            $this->glossaryKeyMapping->addPlaceholderText($pageTransfer, $this->contentKey, $content);
             $urlTransfer = $this->pageManager->createPageUrl($pageTransfer, $url);
 
             $this->pageManager->touchPageActive($pageTransfer);
             $this->urlFacade->touchUrlActive($urlTransfer->getIdUrl());
-        } else {
+        }
+        else {
             $this->warning(sprintf('Page with URL %s already exists. Skipping.', $url));
         }
     }
 
     /**
      * @param $templateTransfer
-     * @return \Generated\Shared\Transfer\PageTransfer|PageTransfer
+     *
+     * @return PageTransfer
      */
     private function createPage($templateTransfer)
     {
@@ -194,6 +205,7 @@ class CmsInstall extends AbstractInstaller
         $pageTransfer->setFkTemplate($templateTransfer->getIdCmsTemplate());
         $pageTransfer->setIsActive(true);
         $pageTransfer = $this->pageManager->savePage($pageTransfer);
+
         return $pageTransfer;
     }
 
