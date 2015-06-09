@@ -9,15 +9,15 @@ class XMLOptionsTransformer implements XMLTransformerInterface
 {
 
     /**
-     * @param \SimpleXMLElement $typeData
+     * @param \SimpleXMLElement $typeElement
      *
      * @return OptionType
      */
-    public function transform(\SimpleXMLElement $typeData)
+    public function transform(\SimpleXMLElement $typeElement)
     {
-        $valueModels = $this->transformValues($typeData->values->value);
+        $valueModels = $this->transformValues($typeElement->values->value);
 
-        return $this->transformType($typeData, $valueModels);
+        return $this->transformType($typeElement, $valueModels);
     }
 
     /**
@@ -28,12 +28,12 @@ class XMLOptionsTransformer implements XMLTransformerInterface
     private function transformValues($data)
     {
         $valueModels = [];
+
         foreach($data as $value) {
-            (!empty($value->price)) ? $price = (float) $value->price : $price = null;
             $valueModel = new OptionValue(
                 (string) $value['key'],
                 $this->transformLocalizedNames($value->{'localized-attributes'}),
-                $price
+                $this->transformPrice($value)
             );
             $valueModels[] = $valueModel;
         }
@@ -42,34 +42,60 @@ class XMLOptionsTransformer implements XMLTransformerInterface
     }
 
     /**
-     * @param \SimpleXMLElement $typeData
+     * @param \SimpleXMLElement $valueElement
+     *
+     * @return null|float
+     */
+    private function transformPrice(\SimpleXMLElement $valueElement)
+    {
+        if (true === empty($valueElement->price)) {
+            return null;
+        }
+
+        return (float) $valueElement->price;
+    }
+
+    /**
+     * @param \SimpleXMLElement $typeElement
      * @param OptionValue[] $valueModels
      *
      * @return OptionType
      */
-    private function transformType($typeData, $valueModels)
+    private function transformType(\SimpleXMLElement $typeElement, array $valueModels)
     {
-        (!empty($typeData->taxset)) ? $taxSet = (string) $typeData->taxset : $taxSet = null;
-
         $typeModel = new OptionType(
-            (string) $typeData['key'],
+            (string) $typeElement['key'],
             $valueModels,
-            $this->transformLocalizedNames($typeData->{'localized-attributes'}),
-            $taxSet
+            $this->transformLocalizedNames($typeElement),
+            $this->transformTaxSet($typeElement)
         );
 
         return $typeModel;
     }
 
     /**
-     * @param \SimpleXMLElement $localizedAttributes
+     * @param \SimpleXMLElement $typeElement
+     *
+     * @return null|string
+     */
+    private function transformTaxSet(\SimpleXMLElement $typeElement)
+    {
+        if (true === empty($typeElement->taxset)) {
+            return null;
+        }
+
+        return (string) $typeElement->taxset;
+    }
+
+    /**
+     * @param \SimpleXMLElement $typeElement
      *
      * @return array
      */
-    private function transformLocalizedNames($localizedAttributes)
+    private function transformLocalizedNames(\SimpleXMLElement  $typeElement)
     {
         $localizedNames = [];
-        foreach ($localizedAttributes as $localeData) {
+        foreach ($typeElement->{'localized-attributes'} as $localeData) {
             $localizedNames[(string)$localeData['name']] = (string) $localeData->name;
         }
 
