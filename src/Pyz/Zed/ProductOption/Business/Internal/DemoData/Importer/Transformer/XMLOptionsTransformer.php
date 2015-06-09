@@ -66,7 +66,7 @@ class XMLOptionsTransformer implements XMLTransformerInterface
         $typeModel = new OptionType(
             (string) $typeElement['key'],
             $valueModels,
-            $this->transformLocalizedNames($typeElement),
+            $this->transformLocalizedNames($typeElement->{'localized-attributes'}),
             $this->transformTaxSet($typeElement)
         );
 
@@ -88,14 +88,18 @@ class XMLOptionsTransformer implements XMLTransformerInterface
     }
 
     /**
-     * @param \SimpleXMLElement $typeElement
+     * @param \SimpleXMLElement $localizedAttributes
      *
      * @return array
      */
-    private function transformLocalizedNames(\SimpleXMLElement $typeElement)
+    private function transformLocalizedNames(\SimpleXMLElement $localizedAttributes)
     {
+        if (empty($localizedAttributes->locale)) {
+            return [];
+        }
+
         $localizedNames = [];
-        foreach ($typeElement->{'localized-attributes'} as $localeData) {
+        foreach ($localizedAttributes->locale as $localeData) {
             $localizedNames[(string)$localeData['name']] = (string) $localeData->name;
         }
 
