@@ -48,7 +48,7 @@ class XMLOptionsTransformer implements XMLTransformerInterface
      */
     private function transformPrice(\SimpleXMLElement $valueElement)
     {
-        if (true === empty($valueElement->price)) {
+        if (empty($valueElement->price)) {
             return null;
         }
 
@@ -80,7 +80,7 @@ class XMLOptionsTransformer implements XMLTransformerInterface
      */
     private function transformTaxSet(\SimpleXMLElement $typeElement)
     {
-        if (true === empty($typeElement->taxset)) {
+        if (empty($typeElement->taxset)) {
             return null;
         }
 
