@@ -1,8 +1,8 @@
 <?php
 
-namespace Functional\Pyz\ProductOptions\Business\Internal\DemoData\Importer;
+namespace Functional\Pyz\ProductOption\Business\Internal\DemoData\Importer;
 
-use Pyz\Zed\ProductOptions\Business\ProductOptionsFacade;
+use Pyz\Zed\ProductOption\Business\ProductOptionFacade;
 use Codeception\TestCase\Test;
 use SprykerEngine\Zed\Kernel\Business\Factory;
 use SprykerEngine\Zed\Kernel\Locator;
@@ -11,13 +11,13 @@ use Generated\Zed\Ide\AutoCompletion;
 /**
  * @group Pyz
  * @group Zed
- * @group ProductOptions
- * @group ProductOptionsInstallerTest
+ * @group ProductOption
+ * @group ProductOptionInstallerTest
  */
-class ProductOptionsInstallerTest extends Test
+class ProductOptionInstallerTest extends Test
 {
     /**
-     * @var ProductOptionsFacade
+     * @var ProductOptionFacade
      */
     private $facade;
 
@@ -31,7 +31,7 @@ class ProductOptionsInstallerTest extends Test
         parent::setUp();
 
         $this->locator = Locator::getInstance();
-        $this->facade = new ProductOptionsFacade(new Factory('ProductOptions'), $this->locator);
+        $this->facade = new ProductOptionFacade(new Factory('ProductOption'), $this->locator);
     }
 
     public function testImportXmlOptions()

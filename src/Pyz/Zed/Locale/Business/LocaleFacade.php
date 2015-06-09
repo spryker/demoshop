@@ -10,7 +10,7 @@ use SprykerFeature\Zed\Category\Dependency\Facade\CategoryToLocaleInterface;
 use SprykerFeature\Zed\Customer\Dependency\Facade\CustomerToLocaleInterface;
 use SprykerFeature\Zed\Product\Dependency\Facade\ProductToLocaleInterface;
 use SprykerFeature\Zed\ProductCategory\Dependency\Facade\ProductCategoryToLocaleInterface;
-use SprykerFeature\Zed\ProductOptions\Dependency\Facade\ProductOptionsToLocaleInterface;
+use SprykerFeature\Zed\ProductOption\Dependency\Facade\ProductOptionToLocaleInterface;
 use SprykerFeature\Zed\ProductSearch\Dependency\Facade\ProductSearchToLocaleInterface;
 use SprykerEngine\Zed\Locale\Business\LocaleFacade as SprykerLocaleFacade;
 use SprykerFeature\Zed\Glossary\Dependency\Facade\GlossaryToLocaleInterface;
@@ -21,7 +21,7 @@ class LocaleFacade extends SprykerLocaleFacade implements
     CustomerToLocaleInterface,
     GlossaryToLocaleInterface,
     ProductCategoryToLocaleInterface,
-    ProductOptionsToLocaleInterface,
+    ProductOptionToLocaleInterface,
     ProductSearchToLocaleInterface,
     ProductToLocaleInterface,
     UrlToLocaleInterface
