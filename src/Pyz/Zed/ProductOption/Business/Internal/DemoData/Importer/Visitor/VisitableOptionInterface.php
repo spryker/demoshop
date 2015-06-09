@@ -6,7 +6,7 @@ interface VisitableOptionInterface
 {
 
     /**
-     * @param OptionsVisitorInterface $visitor
+     * @param OptionVisitorInterface $visitor
      */
-    public function accept(OptionsVisitorInterface $visitor);
+    public function accept(OptionVisitorInterface $visitor);
 }

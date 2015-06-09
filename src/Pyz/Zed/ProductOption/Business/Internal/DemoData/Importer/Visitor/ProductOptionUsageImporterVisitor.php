@@ -12,7 +12,7 @@ use Pyz\Zed\ProductOption\Business\Internal\DemoData\Importer\Node\ProductOption
 use Pyz\Zed\ProductOption\Business\Internal\DemoData\Importer\Node\ProductConfiguration;
 use Pyz\Zed\ProductOption\Business\ProductOptionFacade;
 
-class ProductOptionImporterVisitor implements ProductVisitorInterface
+class ProductOptionUsageImporterVisitor implements ProductVisitorInterface
 {
 
     /**
@@ -82,7 +82,7 @@ class ProductOptionImporterVisitor implements ProductVisitorInterface
      */
     public function visitProductOptionType(ProductOptionType $visitee)
     {
-        $idProductOptionType = $this->productOptionsFacade->importProductOptionType(
+        $idProductOptionType = $this->productOptionsFacade->importProductOptionTypeUsage(
             $this->context[0]->getSku(),
             $visitee->getKey(),
             $visitee->isOptional(),
@@ -97,7 +97,7 @@ class ProductOptionImporterVisitor implements ProductVisitorInterface
      */
     public function visitProductOptionValue(ProductOptionValue $visitee)
     {
-        $idProductOptionValue = $this->productOptionsFacade->importProductOptionValue(
+        $idProductOptionValue = $this->productOptionsFacade->importProductOptionValueUsage(
             $this->context[0]->getId(),
             $visitee->getKey(),
             $visitee->getSequence()
@@ -115,7 +115,7 @@ class ProductOptionImporterVisitor implements ProductVisitorInterface
         $id = $this->context[0]->getId();
         $visitee = clone $visitee;
         $deferedCommand = new QueueableCommand(function() use($visitee, $sku, $id) {
-            $this->productOptionsFacade->importProductOptionValueConstraint(
+            $this->productOptionsFacade->importProductOptionValueUsageConstraint(
                 $sku,
                 $id,
                 $visitee->getTarget(),
@@ -131,7 +131,7 @@ class ProductOptionImporterVisitor implements ProductVisitorInterface
      */
     public function visitProductOptionTypeExclusion(ProductOptionTypeExclusion $visitee)
     {
-       $this->productOptionsFacade->importProductOptionTypeExclusion(
+       $this->productOptionsFacade->importProductOptionTypeUsageExclusion(
            $this->context[0]->getSku(),
            $visitee->getKeyValueA(),
            $visitee->getKeyValueB()

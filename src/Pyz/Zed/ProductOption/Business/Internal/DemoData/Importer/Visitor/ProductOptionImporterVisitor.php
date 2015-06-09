@@ -6,7 +6,7 @@ use Pyz\Zed\ProductOption\Business\Internal\DemoData\Importer\Node\OptionType;
 use Pyz\Zed\ProductOption\Business\Internal\DemoData\Importer\Node\OptionValue;
 use Pyz\Zed\ProductOption\Business\ProductOptionFacade;
 
-class OptionsImporterVisitor implements OptionsVisitorInterface
+class ProductOptionImporterVisitor implements OptionVisitorInterface
 {
 
     /**
@@ -45,7 +45,7 @@ class OptionsImporterVisitor implements OptionsVisitorInterface
      */
     public function visitOptionType(OptionType $visitee)
     {
-        $this->productOptionsFacade->importOptionType(
+        $this->productOptionsFacade->importProductOptionType(
             $visitee->getKey(),
             $visitee->getLocalizedNames(),
             $visitee->getTaxSetKey()
@@ -57,7 +57,7 @@ class OptionsImporterVisitor implements OptionsVisitorInterface
      */
     public function visitOptionValue(OptionValue $visitee)
     {
-        $this->productOptionsFacade->importOptionValue(
+        $this->productOptionsFacade->importProductOptionValue(
             $visitee->getKey(),
             $this->context->getKey(),
             $visitee->getLocalizedNames(),

@@ -3,7 +3,7 @@
 namespace Pyz\Zed\ProductOption\Business\Internal\DemoData\Importer\Node;
 
 use Pyz\Zed\ProductOption\Business\Internal\DemoData\Importer\Visitor\VisitableOptionInterface;
-use Pyz\Zed\ProductOption\Business\Internal\DemoData\Importer\Visitor\OptionsVisitorInterface;
+use Pyz\Zed\ProductOption\Business\Internal\DemoData\Importer\Visitor\OptionVisitorInterface;
 
 class OptionValue implements VisitableOptionInterface
 {
@@ -29,9 +29,9 @@ class OptionValue implements VisitableOptionInterface
     private $taxSetKey;
 
     /**
-     * @param OptionsVisitorInterface $visitor
+     * @param OptionVisitorInterface $visitor
      */
-    public function accept(OptionsVisitorInterface $visitor)
+    public function accept(OptionVisitorInterface $visitor)
     {
         $visitor->visitOptionValue($this);
     }
