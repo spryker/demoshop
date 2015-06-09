@@ -14,29 +14,29 @@ class XmlProductTransformer implements XmlTransformerInterface
 {
 
     /**
-     * @param \SimpleXMLElement $data
+     * @param \SimpleXMLElement $abstractProductElement
      *
      * @return AbstractProduct
      */
-    public function transform(\SimpleXMLElement $data)
+    public function transform(\SimpleXMLElement $abstractProductElement)
     {
-        return new AbstractProduct((string) $data['sku'], $this->parseVariants($data->variants));
+        return new AbstractProduct((string) $abstractProductElement['sku'], $this->parseVariants($abstractProductElement->variants));
     }
 
     /**
-     * @param \SimpleXMLElement $variants
+     * @param \SimpleXMLElement $variantsElement
      *
      * @return ConcreteProduct[]
      */
-    private function parseVariants($variants)
+    private function parseVariants(\SimpleXMLElement $variantsElement)
     {
         $variantNodes = [];
-        foreach ($variants->variant as $variant) {
+        foreach ($variantsElement->variant as $variant) {
             $variantNode = new ConcreteProduct(
                 (string) $variant['sku'],
                 $this->parseOptionTypes($variant->options),
-                $this->parseOptionTypeExclusions($variant->{'option-type-exclusions'}),
-                $this->parseConfigurationPresets($variant->{'option-config-presets'})
+                $this->parseOptionTypeExclusions($variant),
+                $this->parseConfigurationPresets($variant)
             );
             $variantNodes[] = $variantNode;
         }
@@ -45,18 +45,18 @@ class XmlProductTransformer implements XmlTransformerInterface
     }
 
     /**
-     * @param \SimpleXMLElement $optionTypes
+     * @param \SimpleXMLElement $optionsElement
      *
      * @return ProductOptionType[]
      */
-    private function parseOptionTypes($optionTypes)
+    private function parseOptionTypes(\SimpleXMLElement $optionsElement)
     {
-        if (empty($optionTypes)) {
+        if (empty($optionsElement)) {
             return [];
         }
 
         $optionTypeNodes = [];
-        foreach ($optionTypes->option as $option) {
+        foreach ($optionsElement->option as $option) {
             $optionTypeNode = new ProductOptionType(
                 (string) $option->key,
                 $this->parseOptionValues($option->values),
@@ -73,7 +73,7 @@ class XmlProductTransformer implements XmlTransformerInterface
      *
      * @return ProductOptionValue[]
      */
-    private function parseOptionValues($optionValues)
+    private function parseOptionValues(\SimpleXMLElement $optionValues)
     {
         $optionValueNodes = [];
         foreach ($optionValues->value as $value) {
@@ -89,18 +89,18 @@ class XmlProductTransformer implements XmlTransformerInterface
     }
 
     /**
-     * @param \SimpleXMLElement $optionValueConstraints
+     * @param \SimpleXMLElement $variant
      *
      * @return ProductOptionValueConstraint[]
      */
-    private function parseOptionValueConstraints($optionValueConstraints)
+    private function parseOptionValueConstraints(\SimpleXMLElement $constraints)
     {
-        if (empty($optionValueConstraints)) {
+        if (empty($constraints)) {
             return [];
         }
 
         $constraintNodes = [];
-        foreach ($optionValueConstraints->constraint as $constraint) {
+        foreach ($constraints->constraint as $constraint) {
             $constraintNode = new ProductOptionValueConstraint(
                 (string) $constraint->target,
                 (string) $constraint->operator
@@ -112,18 +112,18 @@ class XmlProductTransformer implements XmlTransformerInterface
     }
 
     /**
-     * @param \SimpleXMLElement $configs
+     * @param \SimpleXMLElement $variant
      *
      * @return ProductConfiguration[]
      */
-    private function parseConfigurationPresets($configs)
+    private function parseConfigurationPresets(\SimpleXMLElement $variant)
     {
-        if (empty($configs)) {
+        if (empty($variant->{'option-config-presets'})) {
             return [];
         }
 
         $configNodes = [];
-        foreach ($configs->configuration as $config) {
+        foreach ($variant->{'option-config-presets'}->configuration as $config) {
             $values = [];
             foreach ($config->selection->value as $value) {
                 $values[] = (string) $value;
@@ -131,7 +131,7 @@ class XmlProductTransformer implements XmlTransformerInterface
 
             $configNode = new ProductConfiguration(
                 $values,
-                (string) $config['isDefault'],
+                (bool) $config['isDefault'],
                 (int) $config->sequence
             );
             $configNodes[] = $configNode;
@@ -141,18 +141,18 @@ class XmlProductTransformer implements XmlTransformerInterface
     }
 
     /**
-     * @param \SimpleXMLElement $exclusions
+     * @param \SimpleXMLElement $variant
      *
      * @return ProductOptionTypeExclusion[]
      */
-    private function parseOptionTypeExclusions($exclusions)
+    private function parseOptionTypeExclusions(\SimpleXMLElement $variant)
     {
-        if (empty($exclusions)) {
+        if (empty($variant->{'option-type-exclusions'})) {
             return [];
         }
 
         $exclusionNodes = [];
-        foreach ($exclusions->exclusion as $exclusion) {
+        foreach ($variant->{'option-type-exclusions'}->exclusion as $exclusion) {
             $exclusionNode = new ProductOptionTypeExclusion(
                 (string) $exclusion->{'type-a'},
                 (string) $exclusion->{'type-b'}
