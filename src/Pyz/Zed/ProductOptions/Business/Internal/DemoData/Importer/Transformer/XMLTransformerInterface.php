@@ -6,9 +6,9 @@ interface XMLTransformerInterface
 {
 
     /**
-     * @param \SimpleXMLElement $node
+     * @param \SimpleXMLElement $element
      *
      * @return mixed
      */
-    public function transform(\SimpleXMLElement $node);
+    public function transform(\SimpleXMLElement $element);
 }
