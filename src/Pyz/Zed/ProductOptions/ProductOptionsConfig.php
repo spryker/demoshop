@@ -12,7 +12,7 @@ class ProductOptionsConfig extends SprykerProductOptionsConfig
      */
     public function getOptionsDemoDataPath()
     {
-        return __DIR__ . '/Business/Internal/DemoData/data/options.xml';
+        return __DIR__ . '/Business/Internal/DemoData/data/product-options.xml';
     }
 
     /**
@@ -20,6 +20,6 @@ class ProductOptionsConfig extends SprykerProductOptionsConfig
      */
     public function getProductOptionsDemoDataPath()
     {
-        return __DIR__ . '/Business/Internal/DemoData/data/products.xml';
+        return __DIR__ . '/Business/Internal/DemoData/data/product-option-assignments.xml';
     }
 }
