@@ -71,6 +71,11 @@
         </values>
     </option>
     <option key="FRAME">
+        <localized-attributes>
+            <locale name="en_GB">
+                <name>Frame</name>
+            </locale>
+        </localized-attributes>
         <taxset>SGST</taxset>
         <values>
             <value key="SMALL_MATTE">
