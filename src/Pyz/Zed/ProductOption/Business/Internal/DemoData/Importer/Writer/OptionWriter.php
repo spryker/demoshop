@@ -3,7 +3,7 @@
 namespace Pyz\Zed\ProductOption\Business\Internal\DemoData\Importer\Writer;
 
 use Pyz\Zed\ProductOption\Business\Internal\DemoData\Importer\Reader\OptionReaderInterface;
-use Pyz\Zed\ProductOption\Business\Internal\DemoData\Importer\Visitor\OptionsVisitorInterface;
+use Pyz\Zed\ProductOption\Business\Internal\DemoData\Importer\Visitor\OptionVisitorInterface;
 use Pyz\Zed\ProductOption\Business\Internal\DemoData\Importer\Visitor\VisitableOptionInterface;
 
 class OptionWriter implements WriterInterface
@@ -15,13 +15,13 @@ class OptionWriter implements WriterInterface
     private $reader;
 
     /**
-     * @var OptionsVisitorInterface[]
+     * @var OptionVisitorInterface[]
      */
     private $visitors = [];
 
     /**
      * @param OptionReaderInterface $reader
-     * @param OptionsVisitorInterface[] $visitors
+     * @param OptionVisitorInterface[] $visitors
      */
     public function __construct(
         OptionReaderInterface $reader,
@@ -34,9 +34,9 @@ class OptionWriter implements WriterInterface
     }
 
     /**
-     * @param OptionsVisitorInterface $visitor
+     * @param OptionVisitorInterface $visitor
      */
-    private function addVisitor(OptionsVisitorInterface $visitor)
+    private function addVisitor(OptionVisitorInterface $visitor)
     {
         $this->visitors[] = $visitor;
     }

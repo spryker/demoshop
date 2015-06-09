@@ -7,7 +7,7 @@ use SprykerFeature\Zed\ProductOption\Business\ProductOptionDependencyContainer a
 use Psr\Log\LoggerInterface;
 use Pyz\Zed\ProductOption\ProductOptionConfig;
 use Pyz\Zed\ProductOption\Business\Internal\DemoData\ProductOptionDataInstall;
-use Pyz\Zed\ProductOption\Business\Internal\DemoData\Importer\Visitor\OptionsVisitorInterface;
+use Pyz\Zed\ProductOption\Business\Internal\DemoData\Importer\Visitor\OptionVisitorInterface;
 use Pyz\Zed\ProductOption\Business\Internal\DemoData\Importer\Reader\OptionReaderInterface;
 use Pyz\Zed\ProductOption\Business\Internal\DemoData\Importer\Visitor\ProductVisitorInterface;
 use Pyz\Zed\ProductOption\Business\Internal\DemoData\Importer\Reader\ProductReaderInterface;
@@ -77,12 +77,12 @@ class ProductOptionDependencyContainer extends SprykerDependencyContainer
     }
 
     /**
-     * @return OptionsVisitorInterface
+     * @return OptionVisitorInterface
      */
     public function createOptionsVisitor()
     {
-        return $this->getFactory()->createInternalDemoDataImporterVisitorOptionsImporterVisitor(
-            $this->getLocator()->productOptions()->facade()
+        return $this->getFactory()->createInternalDemoDataImporterVisitorProductOptionImporterVisitor(
+            $this->getLocator()->productOption()->facade()
         );
     }
 
@@ -91,8 +91,8 @@ class ProductOptionDependencyContainer extends SprykerDependencyContainer
      */
     public function createProductVisitor()
     {
-        return $this->getFactory()->createInternalDemoDataImporterVisitorProductOptionImporterVisitor(
-            $this->getLocator()->productOptions()->facade()
+        return $this->getFactory()->createInternalDemoDataImporterVisitorProductOptionUsageImporterVisitor(
+            $this->getLocator()->productOption()->facade()
         );
     }
 
