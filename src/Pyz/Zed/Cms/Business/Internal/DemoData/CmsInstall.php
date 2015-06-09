@@ -45,7 +45,7 @@ class CmsInstall extends AbstractInstaller
     /**
      * @var GlossaryKeyMappingManagerInterface
      */
-    protected $glossaryKeyMapping;
+    protected $keyMappingManager;
 
     /**
      * @var array
@@ -77,7 +77,7 @@ class CmsInstall extends AbstractInstaller
      * @param CmsToLocaleInterface               $localeFacade
      * @param TemplateManagerInterface           $templateManager
      * @param PageManagerInterface               $pageManager
-     * @param GlossaryKeyMappingManagerInterface $glossaryKeyMappingManager
+     * @param GlossaryKeyMappingManagerInterface $keyMappingManager
      * @param string                             $filePath
      * @param string                             $contentKey
      * @param string                             $template
@@ -89,7 +89,7 @@ class CmsInstall extends AbstractInstaller
         CmsToLocaleInterface $localeFacade,
         TemplateManagerInterface $templateManager,
         PageManagerInterface $pageManager,
-        GlossaryKeyMappingManagerInterface $glossaryKeyMappingManager,
+        GlossaryKeyMappingManagerInterface $keyMappingManager,
         $filePath,
         $contentKey,
         $template,
@@ -100,7 +100,7 @@ class CmsInstall extends AbstractInstaller
         $this->localeFacade = $localeFacade;
         $this->templateManager = $templateManager;
         $this->pageManager = $pageManager;
-        $this->glossaryKeyMapping = $glossaryKeyMappingManager;
+        $this->keyMappingManager = $keyMappingManager;
 
         $this->filePath = $filePath;
 
@@ -140,9 +140,7 @@ class CmsInstall extends AbstractInstaller
      */
     public function getFileName($localePath, $pageKey)
     {
-        $file = $localePath . '/initial_' . $pageKey . '.html';
-
-        return $file;
+        return $localePath . '/initial_' . $pageKey . '.html';
     }
 
     /**
@@ -151,16 +149,13 @@ class CmsInstall extends AbstractInstaller
     private function createTemplate()
     {
         if ($this->templateManager->hasTemplatePath($this->template) === true) {
-            $templateTransfer = $this->templateManager->getTemplateByPath($this->template);
-        }
-        else {
-            $templateTransfer = $this->templateManager->createTemplate(
-                $this->templateName,
-                $this->template
-            );
+            return $this->templateManager->getTemplateByPath($this->template);
         }
 
-        return $templateTransfer;
+        return $this->templateManager->createTemplate(
+            $this->templateName,
+            $this->template
+        );
     }
 
     /**
@@ -173,25 +168,25 @@ class CmsInstall extends AbstractInstaller
         return is_dir($localePath);
     }
 
-
     /**
      * @param $content
      * @param $url
      */
     private function createPageForContent($content, $url)
     {
-        if ($this->urlFacade->hasUrl($url) === false) {
-            $templateTransfer = $this->createTemplate();
-            $pageTransfer = $this->createPage($templateTransfer);
-            $this->glossaryKeyMapping->addPlaceholderText($pageTransfer, $this->contentKey, $content);
-            $urlTransfer = $this->pageManager->createPageUrl($pageTransfer, $url);
-
-            $this->pageManager->touchPageActive($pageTransfer);
-            $this->urlFacade->touchUrlActive($urlTransfer->getIdUrl());
-        }
-        else {
+        if ($this->urlFacade->hasUrl($url) === true) {
             $this->warning(sprintf('Page with URL %s already exists. Skipping.', $url));
+
+            return;
         }
+
+        $templateTransfer = $this->createTemplate();
+        $pageTransfer = $this->createPage($templateTransfer);
+        $this->keyMappingManager->addPlaceholderText($pageTransfer, $this->contentKey, $content);
+        $urlTransfer = $this->pageManager->createPageUrl($pageTransfer, $url);
+
+        $this->pageManager->touchPageActive($pageTransfer);
+        $this->urlFacade->touchUrlActive($urlTransfer->getIdUrl());
     }
 
     /**
@@ -204,9 +199,8 @@ class CmsInstall extends AbstractInstaller
         $pageTransfer = new PageTransfer();
         $pageTransfer->setFkTemplate($templateTransfer->getIdCmsTemplate());
         $pageTransfer->setIsActive(true);
-        $pageTransfer = $this->pageManager->savePage($pageTransfer);
 
-        return $pageTransfer;
+        return $this->pageManager->savePage($pageTransfer);
     }
 
     /**
