@@ -15,6 +15,9 @@ class ProductController extends AbstractController
      */
     public function detailAction(AbstractProductInterface $product)
     {
-        return ['product' => $product];
+        return [
+            'product' => $product,
+            'category' => count($product->getCategory()) ? current($product->getCategory()) : null,
+        ];
     }
 }

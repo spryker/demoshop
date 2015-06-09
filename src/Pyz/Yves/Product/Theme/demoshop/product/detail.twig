@@ -6,17 +6,19 @@
 
     <article class="product product--justice-league">
         <section class="product__overview">
-            <h2 class="product__category">@TODO export product different so can do product.category.name</h2>
+            {% if category is not null %}
+            <h2 class="product__category">{{ category.name }}</h2>
+            {% endif %}
 
-            <h1 class="product__name">{{ product.name }}</h1>
+            <h1 class="product__name">{{ product.abstractName }}</h1>
 
             <p>{{ product.description }}</p>
 
             <p class="product__price">{{ product.price|price }}</p>
 
             <form class="product__add-to-cart">
-                {% include "@application/layout/partials/spinner.twig" with {class:"product__quantity", style:"caplet", name:"product__quantity", value:"10"} %}
-                <input type="submit" class="product__add-button cta" value="In den Warenkorb"></input>
+                {% include "@application/layout/partials/spinner.twig" with {class:"product__quantity", style:"caplet", name:"product__quantity", value:"1"} %}
+                <input type="submit" class="product__add-button cta" value="{{ "detail.addToCart"|trans }}"></input>
             </form>
         </section>
         <section class="product__main-image">
@@ -26,20 +28,22 @@
             <p>{{ product.fun_fact }}</p>
 
             <p>{{ product.description_long }}</p>
-            {#{{ dump(product) }}#}
             <dl class="product__specifications">
-                <dt>Maße</dt>
-                <dd>16x12x8,5 cm</dd>
-                <dt>Material</dt>
-                <dd>Kunstoff</dd>
+                <dt>{{ "detail.dimensions"|trans }}</dt>
+                <dd>{{ product.width }}x{{ product.height }}x{{ product.depth }} cm</dd>
+                {% if product.material is not null %}
+                <dt>{{ "detail.material"|trans }}</dt>
+                <dd>{{ product.material }}</dd>
+                {% endif %}
             </dl>
         </section>
         <section class="product__gallery">
-            <h2 class="product__category">@TODO add little detail pics</h2>
+            {% for image in product.images_detail %}
+                <img src="{{ image }}" alt="">
+            {% endfor %}
         </section>
         <section class="product__warnings">
-            <p class="warning__under-3">Achtung! Verschluckbare Kleinteile. Erstickungsgefahr. Für Kinder unter 3 Jahre
-                nicht geeignet.</p>
+            <p class="warning__under-3">{{ "detail.warning.riskOfSuffocation"|trans }}</p>
         </section>
     </article>
 {% endblock %}
