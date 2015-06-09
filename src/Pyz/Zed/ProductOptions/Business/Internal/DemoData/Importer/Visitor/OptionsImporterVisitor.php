@@ -6,7 +6,7 @@ use Pyz\Zed\ProductOptions\Business\Internal\DemoData\Importer\Node\OptionType;
 use Pyz\Zed\ProductOptions\Business\Internal\DemoData\Importer\Node\OptionValue;
 use Pyz\Zed\ProductOptions\Business\ProductOptionsFacade;
 
-class DbOptionsVisitor implements OptionsVisitorInterface
+class OptionsImporterVisitor implements OptionsVisitorInterface
 {
 
     /**
