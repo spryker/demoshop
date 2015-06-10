@@ -17,7 +17,7 @@ If all requirements are satisfied you can bring up a new development VM by just 
 vagrant up
 ```
 
-Should you run into this error "mount -o 'vers=3,udp' 10.10.0.1:'/Users/.../vendor/spryker/saltstack' /srv/salt", try switching Sections "SaltStack masterless setup" and "add hosts to /etc/hosts" in your Vagrantfile.
+Should you run into an error when executing "mount -o 'vers=3,udp' 10.10.0.1:'/Users/.../vendor/spryker/saltstack' /srv/salt", try switching Sections "SaltStack masterless setup" and "add hosts to /etc/hosts" in your Vagrantfile.
 
 
 After about 20 minutes you can access the VM via:
