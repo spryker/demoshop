@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <statemachine
         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-        xsi:noNamespaceSchemaLocation="process.xsd">>
+        xsi:noNamespaceSchemaLocation="process.xsd">
 
     <process name="Nopayment01" main="true">
         <states>
@@ -37,7 +37,7 @@
         </transitions>
 
         <events>
-            <event name="nopayment" onEnter="true" command="Nopayment/SetAsPaid"/>
+            <event name="nopayment" onEnter="true" command="Nopayment/SetAsPaid" />
             <event name="cancel" timeout="1min" />
             <event name="dodo" />
         </events>
