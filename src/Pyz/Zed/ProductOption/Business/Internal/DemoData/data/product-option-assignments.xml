@@ -1,8 +1,8 @@
 <?xml version="1.0"?>
 <options>
-    <product sku="8-1425-44">>
+    <product sku="136823">>
         <variants>
-            <variant sku="8-1425-44">
+            <variant sku="136823">
                 <option-config-presets>
                     <configuration isDefault="true">
                         <sequence>1</sequence>
@@ -94,7 +94,7 @@
                     </option>
                 </options>
             </variant>
-            <variant sku="8-1425-45">
+            <variant sku="137288">
                 <option-config-presets>
                     <configuration isDefault="true">
                         <sequence>1</sequence>
@@ -180,9 +180,9 @@
             </variant>
         </variants>
     </product>
-    <product sku="8-1425-46">>
+    <product sku="137455">>
         <variants>
-            <variant sku="8-1425-46">
+            <variant sku="137455">
                 <option-config-presets>
                     <configuration isDefault="true">
                         <sequence>1</sequence>
