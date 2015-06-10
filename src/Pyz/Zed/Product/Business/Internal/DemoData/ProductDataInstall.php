@@ -42,6 +42,9 @@ class ProductDataInstall extends AbstractInstaller
      */
     protected $filePath;
 
+    /**
+     * @var array
+     */
     protected $urlReplacements = [
         ' ' => '-',
         'ä' => 'ae',
@@ -82,6 +85,7 @@ class ProductDataInstall extends AbstractInstaller
     protected function createProducts()
     {
         $currentLocale = $this->localeFacade->getCurrentLocale();
+
         foreach ($this->getProductsFromFile() as $currentAbstractProduct) {
             $sku = $currentAbstractProduct['sku'];
 
@@ -189,7 +193,7 @@ class ProductDataInstall extends AbstractInstaller
         return [
             'sku' => $product['sku'],
             'name' => $product['name'],
-            'attributes' => '{"image_url": "/images/product/default.png", "thumbnail_url": "/images/product/default.png"}',
+            'attributes' => '{}',
             'products' => [
                 [
                     'sku' => $product['sku'],

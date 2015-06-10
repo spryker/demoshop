@@ -33,6 +33,7 @@ class FrontendExporterConfig extends SprykerFrontendExporterConfig
 
             $this->getLocator()->urlExporter()->pluginUrlProcessorPlugin(),
 //            $this->getLocator()->searchPage()->pluginSearchPageConfigProcessorPlugin(),
+            $this->getLocator()->productSearch()->pluginProductSearchProcessorPlugin(),
         ];
     }
 
