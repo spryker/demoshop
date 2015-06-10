@@ -22,12 +22,5 @@ class ApplicationControllerProvider extends YvesControllerProvider
     protected function defineControllers(Application $app)
     {
         $this->createGetController('/', self::ROUTE_HOME, 'Application', 'Index');
-        /*$this->createGetController('/agb', self::ROUTE_TOS, 'Application', 'Static');
-        $this->createGetController('/impressum', self::ROUTE_IMPRINT, 'Application', 'Static');
-        $this->createGetController('/datenschutz', self::ROUTE_PRIVACY, 'Application', 'Static');
-        $this->createGetController('/widerrufsrecht', self::ROUTE_WITHDRAWAL, 'Application', 'Static');
-        $this->createGetController('/ruecksendungen', self::ROUTE_RETURNS, 'Application', 'Static');
-        $this->createGetController('/kontakt', self::ROUTE_CONTACT, 'Application', 'Static');
-        $this->createGetController('/faq', self::ROUTE_FAQ, 'Application', 'Static');*/
     }
 }

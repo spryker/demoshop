@@ -5,11 +5,6 @@ namespace Pyz\Zed\Cms\Communication;
 use Pyz\Zed\Cms\Business\CmsFacade;
 use SprykerFeature\Zed\Cms\Communication\CmsDependencyContainer as SprykerCmsDependencyContainer;
 
-/**
- * Class CmsDependencyContainer
- *
- * @package Pyz\Zed\Cms\Communication
- */
 class CmsDependencyContainer extends SprykerCmsDependencyContainer
 {
 
@@ -18,7 +13,7 @@ class CmsDependencyContainer extends SprykerCmsDependencyContainer
      */
     public function getInstallerFacade()
     {
-        return $this->getLocator()->Cms()->facade();
+        //return ->facade();
     }
 
 }

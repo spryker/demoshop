@@ -4,11 +4,6 @@ namespace Pyz\Zed\Cms;
 
 use SprykerFeature\Zed\Cms\CmsConfig as SprykerCmsConfig;
 
-/**
- * Class CmsConfig
- *
- * @package Pyz\Zed\Cms
- */
 class CmsConfig extends SprykerCmsConfig
 {
 

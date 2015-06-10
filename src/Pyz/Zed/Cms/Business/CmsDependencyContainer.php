@@ -2,24 +2,19 @@
 
 namespace Pyz\Zed\Cms\Business;
 
-use Psr\Log\LoggerInterface;
 use Pyz\Zed\Cms\Business\Internal\DemoData\CmsInstall;
+use SprykerEngine\Shared\Kernel\Messenger\MessengerInterface;
 use SprykerFeature\Zed\Cms\Business\CmsDependencyContainer as SprykerCmsDependencyContainer;
 
-/**
- * Class CmsDependencyContainer
- *
- * @package Pyz\Zed\Cms\Business
- */
 class CmsDependencyContainer extends SprykerCmsDependencyContainer
 {
 
     /**
-     * @param LoggerInterface $messenger
+     * @param MessengerInterface $messenger
      *
      * @return CmsInstall
      */
-    public function createDemoDataInstaller(LoggerInterface $messenger)
+    public function createDemoDataInstaller(MessengerInterface $messenger)
     {
         $installer = $this->getFactory()->createInternalDemoDataCmsInstall(
             $this->createGlossaryFacade(),
@@ -40,27 +35,27 @@ class CmsDependencyContainer extends SprykerCmsDependencyContainer
 
 
     /**
-     * @return \Pyz\Zed\Glossary\Business\GlossaryFacade
+     * @return GlossaryFacade
      */
     public function createGlossaryFacade()
     {
-        return $this->getLocator()->glossary()->facade();
+        return $this->getExternalDependency()->glossary()->facade();
     }
 
     /**
-     * @return \Pyz\Zed\Url\Business\UrlFacade
+     * @return UrlFacade
      */
     public function createUrlFacade()
     {
-        return $this->getLocator()->url()->facade();
+        return $this->getExternalDependency()->url()->facade();
     }
 
     /**
-     * @return \Pyz\Zed\Locale\Business\LocaleFacade
+     * @return LocaleFacade
      */
     public function createLocaleFacade()
     {
-        return $this->getLocator()->locale()->facade();
+        return $this->getExternalDependency()->locale()->facade();
     }
 
 }

@@ -2,7 +2,8 @@
 
 namespace Pyz\Zed\Cms\Business;
 
-use Psr\Log\LoggerInterface;
+
+use SprykerEngine\Shared\Messenger\Business\Model\MessengerInterface;
 use SprykerFeature\Zed\Cms\Business\CmsFacade as SprykerCmsFacade;
 use SprykerFeature\Zed\Cms\Dependency\Facade\CmsToCmsInterface;
 
@@ -13,9 +14,9 @@ class CmsFacade extends SprykerCmsFacade
 {
 
     /**
-     * @param LoggerInterface $messenger
+     * @param MessengerInterface $messenger
      */
-    public function installDemoData(LoggerInterface $messenger)
+    public function installDemoData(MessengerInterface $messenger)
     {
         $this->getDependencyContainer()->createDemoDataInstaller($messenger)->install();
     }

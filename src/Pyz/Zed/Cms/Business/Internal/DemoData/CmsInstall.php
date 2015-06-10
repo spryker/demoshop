@@ -1,11 +1,9 @@
 <?php
-/*
- * (c) Copyright Spryker Systems GmbH 2015
- */
 
 namespace Pyz\Zed\Cms\Business\Internal\DemoData;
 
 use Generated\Shared\Transfer\PageTransfer;
+use Generated\Shared\Transfer\TemplateTransfer;
 use Pyz\Zed\Cms\Dependency\Facade\CmsToLocaleInterface;
 use SprykerFeature\Zed\Cms\Business\Mapping\GlossaryKeyMappingManagerInterface;
 use SprykerFeature\Zed\Cms\Business\Page\PageManagerInterface;
@@ -14,11 +12,6 @@ use SprykerFeature\Zed\Cms\Dependency\Facade\CmsToGlossaryInterface;
 use SprykerFeature\Zed\Cms\Dependency\Facade\CmsToUrlInterface;
 use SprykerFeature\Zed\Installer\Business\Model\AbstractInstaller;
 
-/**
- * Class CmsInstall
- *
- * @package Pyz\Zed\Cms\Business\Internal\DemoData
- */
 class CmsInstall extends AbstractInstaller
 {
 
@@ -72,16 +65,16 @@ class CmsInstall extends AbstractInstaller
     protected $templateName;
 
     /**
-     * @param CmsToGlossaryInterface             $glossaryFacade
-     * @param CmsToUrlInterface                  $urlFacade
-     * @param CmsToLocaleInterface               $localeFacade
-     * @param TemplateManagerInterface           $templateManager
-     * @param PageManagerInterface               $pageManager
+     * @param CmsToGlossaryInterface $glossaryFacade
+     * @param CmsToUrlInterface $urlFacade
+     * @param CmsToLocaleInterface $localeFacade
+     * @param TemplateManagerInterface $templateManager
+     * @param PageManagerInterface $pageManager
      * @param GlossaryKeyMappingManagerInterface $keyMappingManager
-     * @param string                             $filePath
-     * @param string                             $contentKey
-     * @param string                             $template
-     * @param string                             $templateName
+     * @param string $filePath
+     * @param string $contentKey
+     * @param $template
+     * @param $templateName
      */
     public function __construct(
         CmsToGlossaryInterface $glossaryFacade,
@@ -90,10 +83,7 @@ class CmsInstall extends AbstractInstaller
         TemplateManagerInterface $templateManager,
         PageManagerInterface $pageManager,
         GlossaryKeyMappingManagerInterface $keyMappingManager,
-        $filePath,
-        $contentKey,
-        $template,
-        $templateName
+        CmsConfig $config
     ) {
         $this->glossaryFacade = $glossaryFacade;
         $this->urlFacade = $urlFacade;
@@ -110,18 +100,12 @@ class CmsInstall extends AbstractInstaller
         $this->templateName = $templateName;
     }
 
-    /**
-     *
-     */
     public function install()
     {
-        $this->info("This will install a standard set of cms pages in the demo shop ");
+        $this->info('This will install a standard set of cms pages in the demo shop');
         $this->installCmsData();
     }
 
-    /**
-     *
-     */
     public function installCmsData()
     {
         foreach ($this->localeFacade->getAvailableLocales() as $locale) {
@@ -144,11 +128,11 @@ class CmsInstall extends AbstractInstaller
     }
 
     /**
-     * @return mixed
+     * @return CmsTemplateTransfer
      */
     private function createTemplate()
     {
-        if ($this->templateManager->hasTemplatePath($this->template) === true) {
+        if ($this->templateManager->hasTemplatePath($this->template)) {
             return $this->templateManager->getTemplateByPath($this->template);
         }
 
@@ -174,7 +158,7 @@ class CmsInstall extends AbstractInstaller
      */
     private function createPageForContent($content, $url)
     {
-        if ($this->urlFacade->hasUrl($url) === true) {
+        if ($this->urlFacade->hasUrl($url)) {
             $this->warning(sprintf('Page with URL %s already exists. Skipping.', $url));
 
             return;
@@ -190,11 +174,11 @@ class CmsInstall extends AbstractInstaller
     }
 
     /**
-     * @param $templateTransfer
+     * @param TemplateTransfer $templateTransfer
      *
      * @return PageTransfer
      */
-    private function createPage($templateTransfer)
+    private function createPage(TemplateTransfer $templateTransfer)
     {
         $pageTransfer = new PageTransfer();
         $pageTransfer->setFkTemplate($templateTransfer->getIdCmsTemplate());
