@@ -37,7 +37,7 @@
         </transitions>
 
         <events>
-            <event name="nopayment" onEnter="true" command="Nopayment/SetAsPaid"/>
+            <event name="nopayment" onEnter="true" command="Nopayment/SetAsPaid" />
             <event name="cancel" timeout="1min" />
             <event name="dodo" />
         </events>
