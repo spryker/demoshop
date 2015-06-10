@@ -39,3 +39,10 @@ $config[SystemConfig::CLOUD_CDN_STATIC_MEDIA_HTTPS] = 'https://static.de.spryker
 
 $config[SystemConfig::JENKINS_BASE_URL] = 'http://localhost:10007/';
 $config[MailConfig::MAILCATCHER_GUI] = 'http://' . $config[SystemConfig::HOST_ZED_GUI] . ':1080';
+
+/** RabbitMQ */
+$config[SystemConfig::ZED_RABBITMQ_HOST] =                 'localhost';
+$config[SystemConfig::ZED_RABBITMQ_PORT] =                 '5672';
+$config[SystemConfig::ZED_RABBITMQ_USERNAME] =             'DE_development';
+$config[SystemConfig::ZED_RABBITMQ_PASSWORD] =             'mate20mg';
+$config[SystemConfig::ZED_RABBITMQ_VHOST] =                '/DE_development_zed';
