@@ -12,20 +12,21 @@ use SprykerFeature\Zed\Glossary\GlossaryDependencyProvider as SprykerGlossaryDep
 class GlossaryDependencyProvider extends SprykerGlossaryDependencyProvider
 {
 
-    const TOUCH_FACADE = 'TOUCH_FACADE';
-
+    const PLUGIN_YML_INSTALLER = 'yml installer';
 
     /**
      * @param Container $container
+     *
      * @return Container
      */
-    public function provideCommunicationLayerDependencies(Container $container)
+    public function provideBusinessLayerDependencies(Container $container)
     {
-//        $container[GlossaryDependencyProvider::LOCALE_FACADE] = function (Container $container) {
-//            return $container->getLocator()->install()->queryContainer();
-//        };
+        parent::provideBusinessLayerDependencies($container);
 
-        $container = parent::provideCommunicationLayerDependencies($container);
+        // @todo this is not a external dependency
+        $container[GlossaryDependencyProvider::PLUGIN_YML_INSTALLER] = function (Container $container) {
+            return $container->getLocator()->glossary()->pluginYamlInstallerPlugin();
+        };
 
         return $container;
     }
