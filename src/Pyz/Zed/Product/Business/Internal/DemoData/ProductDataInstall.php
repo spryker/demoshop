@@ -193,7 +193,7 @@ class ProductDataInstall extends AbstractInstaller
         return [
             'sku' => $product['sku'],
             'name' => $product['name'],
-            'attributes' => json_encode($productAttributes),
+            'attributes' => '{}',
             'products' => [
                 [
                     'sku' => $product['sku'],
