@@ -19,18 +19,16 @@ class GlossaryInstall extends AbstractInstaller
     protected $installers;
 
     /**
-     * @param Locator|AutoCompletion $locator
+     * @param array $installers
      */
-    public function __construct(Locator $locator)
+    public function __construct(array $installers)
     {
-        $this->installers = [
-            $locator->glossary()->pluginYamlInstallerPlugin()
-        ];
+        $this->installers = $installers;
     }
 
     public function install()
     {
-        $this->info("This will install a standard set of translations in the demo shop ");
+        $this->info('This will install a standard set of translations in the demo shop');
 
         foreach ($this->installers as $installer) {
             $installer->installGlossaryData();
