@@ -19,6 +19,5 @@ foreach ($directories as $directory) {
     if (!file_exists($pathToFile)) {
         $bundleDependencyProvider = str_replace(['{{namespace}}', '{{bundle}}'], [$namespace, $bundle], $dependencyProviderTemplate);
         file_put_contents($pathToFile, $bundleDependencyProvider);
-        echo '<pre>' . PHP_EOL . \Symfony\Component\VarDumper\VarDumper::dump($bundleDependencyProvider) . PHP_EOL . 'Line: ' . __LINE__ . PHP_EOL . 'File: ' . __FILE__ . die();
     }
 }
