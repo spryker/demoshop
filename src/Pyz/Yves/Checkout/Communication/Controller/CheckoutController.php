@@ -1,6 +1,8 @@
 <?php
 namespace Pyz\Yves\Checkout\Communication\Controller;
 
+use Generated\Shared\Transfer\CartItemsTransfer;
+use Generated\Shared\Transfer\CartItemTransfer;
 use SprykerEngine\Shared\Kernel\LocatorLocatorInterface;
 use Generated\Shared\Transfer\OrderTransfer;
 use Pyz\Yves\Checkout\Communication\Plugin\CheckoutControllerProvider;
@@ -9,15 +11,17 @@ use Pyz\Yves\Cart\Communication\Plugin\CartControllerProvider;
 use SprykerEngine\Yves\Application\Communication\Controller\AbstractController;
 use SprykerFeature\Sdk\Cart\CartSdk;
 use SprykerFeature\Sdk\Checkout\CheckoutSdk;
+use Pyz\Yves\Checkout\CheckoutDependencyContainer;
 use Symfony\Component\Form\FormInterface;
 use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 
+/**
+ * @method CheckoutDependencyContainer getDependencyContainer()
+ */
 class CheckoutController extends AbstractController
 {
-
-    use CartControllerTrait;
 
     /**
      * @param Request $request
@@ -40,38 +44,7 @@ class CheckoutController extends AbstractController
      */
     public function successAction(Request $request)
     {
-        $cart = $this->getCart($request);
-        $cartItems = $cart->getItems();
-        $order = $cart->getOrder();
 
-        if (!$order->getIdSalesOrder()) {
-            return $this->redirectResponseInternal('home');
-        }
-
-        $cart->clear();
-        $productData = $this->getCartSdk()->getProductDataForCartItems($cartItems);
-        $cartModel = $this->getLocator()->cart()->pluginCartSession()->createCartSession($this->getTransferSession());
-        $cartModel->clear();
-        $cartItemCount = $this->getLocator()->cart()
-            ->pluginCartSessionCount()
-            ->createCartSessionCount($request->getSession())->getCount()
-        ;
-
-        return [
-            'order' => $order,
-            'cartItems' => $cartItems,
-            'totals' => $order->getTotals(),
-            'products' => $productData,
-            'cartItemCount' => $cartItemCount
-        ];
-    }
-
-    /**
-     * @return mixed
-     */
-    protected function createOrderForm()
-    {
-        return $this->getLocator()->sales()->pluginOrderTypeForm()->createOrderTypeForm();
     }
 
     /**
@@ -85,25 +58,28 @@ class CheckoutController extends AbstractController
             $checkoutSdk = $this->getCheckoutSdk($request);
             /** @var Order $orderTransfer */
             $orderTransfer = $form->getData();
-
-            $transferResponse = $checkoutSdk->saveOrder($orderTransfer);
-            $order = $transferResponse->getTransfer();
-            $cart = $this->getCart($request);
-            $cart->setOrder($order);
-            $this->addMessagesFromZedResponse($transferResponse);
-
-            if ($transferResponse->isSuccess()) {
-                return $this->redirectResponseInternal(CheckoutControllerProvider::ROUTE_CHECKOUT_SUCCESS);
-            } elseif ($transferResponse->hasErrorMessage(
-                \SprykerFeature_Shared_Checkout_Code_Messages::ERROR_ORDER_IS_ALREADY_SAVED
-            )
-            ) {
-                $cart->setOrder(new \Generated\Shared\Transfer\SalesOrderTransfer());
-                return $this->redirectResponseInternal(CartControllerProvider::ROUTE_CART);
-            }
         }
 
         return null;
+    }
+
+    /**
+     * @return CartItemsTransfer
+     */
+    private function demoCart()
+    {
+        $cart = new CartItemsTransfer();
+
+        $item = new CartItemTransfer();
+        $item->setId(1);
+        $item->setGrossPrice(200);
+        $item->setQuantity(1);
+        $item->setSku(13424234235);
+        $item->setPriceToPay(190);
+        $item->setUniqueIdentifier(123);
+        $cart->addCartItem($item);
+
+        return $cart;
     }
 
     /**
@@ -112,71 +88,27 @@ class CheckoutController extends AbstractController
      */
     protected function handleRequest(Request $request)
     {
-        $cart = $this->getCart($request);
-        if ($cart->getItems()->count() < 1) {
-            return $this->redirectResponseInternal('home');
+        $container = $this->getDependencyContainer();
+        $orderForm = $container->createFormOrder();
+        $form = $this->createForm($orderForm);
+
+        if ($form->isValid()) {
+            $addressTransfer = new \Generated\Shared\Transfer\CustomerAddressTransfer();
+            $addressTransfer->fromArray($form->getData());
+            $addressTransfer->setEmail($this->getUsername());
+            $addressTransfer = $this->getLocator()->customer()->sdk()->newAddress($addressTransfer);
+            if ($addressTransfer) {
+                $this->addMessageSuccess(Messages::CUSTOMER_ADDRESS_ADDED);
+
+                return $this->redirectResponseInternal(CustomerControllerProvider::ROUTE_CUSTOMER_PROFILE);
+            }
+            $this->addMessageError(Messages::CUSTOMER_ADDRESS_NOT_ADDED);
+
+            return $this->redirectResponseInternal(CustomerControllerProvider::ROUTE_CUSTOMER_NEW_ADDRESS);
         }
 
-        $order = $cart->getOrder();
-        $checkoutSdk = $this->getCheckoutSdk($request);
-        $checkoutSdk->clearReferences($order);
-        $cart->setOrder($order);
 
-        // This is really ugly, but i need this to have valid data for the payment control
-        // This needs to be refactored after discussion...
-        $all = $request->request->all();
-        $billingAddress = new \Generated\Shared\Transfer\SalesAddressTransfer();
-        if (isset($all['salesOrder']) && isset($all['salesOrder']['billingAddress'])) {
-            $billingAddress->fromArray($all['salesOrder']['billingAddress'], true);
-        }
-
-        $shippingAddress = new \Generated\Shared\Transfer\SalesAddressTransfer();
-        if (isset($all['salesOrder']) && isset($all['salesOrder']['shippingAddress'])) {
-            $shippingAddress->fromArray($all['salesOrder']['shippingAddress'], true);
-        }
-
-        $orderBillingAddressArray = $order->getBillingAddress()->toArray();
-        unset($orderBillingAddressArray['id_sales_order_address'], $orderBillingAddressArray['id_customer_address']);
-        $billingAddressArray = $billingAddress->toArray();
-        unset($billingAddressArray['id_sales_order_address'], $billingAddressArray['id_customer_address']);
-        if ($order->getBillingAddress()->isEmpty() || $orderBillingAddressArray !== $billingAddressArray) {
-            $order->setBillingAddress($billingAddress);
-        }
-
-        $orderShippingAddressArray = $order->getShippingAddress()->toArray();
-        unset($orderShippingAddressArray['id_sales_order_address'], $orderShippingAddressArray['id_customer_address']);
-        $shippingAddressArray = $shippingAddress->toArray();
-        unset($shippingAddressArray['id_sales_order_address'], $shippingAddressArray['id_customer_address']);
-        if ($order->getShippingAddress()->isEmpty() || $orderShippingAddressArray !== $shippingAddressArray) {
-            $order->setShippingAddress($shippingAddress);
-        }
-
-        if ($order->getShippingAddress()->isEmpty()) {
-            $order->setShippingAddress($order->getBillingAddress());
-        }
-
-        if (is_null($order->getFirstName()) || $order->getBillingAddress()->getFirstName() !== $order->getFirstName()) {
-            $order->setFirstName($order->getBillingAddress()->getFirstName());
-        }
-        if (is_null($order->getLastName()) || $order->getBillingAddress()->getLastName() !== $order->getLastName()) {
-            $order->setLastName($order->getBillingAddress()->getLastName());
-        }
-
-        $form = $this->createForm($this->createOrderForm(), $order);
-
-        if (($parameters = $this->validateForm($request, $form)) !== null) {
-            return $parameters;
-        }
-        $productData = $this->getCartSdk()->getProductDataForCartItems($cart->getItems());
-
-        return [
-            'form' => $form->createView(),
-            'cartItems' => $cart->getItems(),
-            'totals' => $order->getTotals(),
-            'products' => $productData,
-            'userAddresses' => [],//$userAddresses,
-            'userAddressesJson' => [],//$userAddressesJson,
-        ];
+        return ['form' => $form->createView()];
     }
 
     /**
