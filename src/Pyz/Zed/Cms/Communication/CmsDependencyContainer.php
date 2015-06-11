@@ -13,7 +13,7 @@ class CmsDependencyContainer extends SprykerCmsDependencyContainer
      */
     public function getInstallerFacade()
     {
-        //return ->facade();
+        return $this->getInstallerFacade()->cms()->facade();
     }
 
 }

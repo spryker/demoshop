@@ -7,12 +7,13 @@ use SprykerFeature\Zed\Installer\Communication\Plugin\AbstractInstallerPlugin;
 
 /**
  * @method CmsDependencyContainer getDependencyContainer()
+ * @method CmsFacade getFacade()
  */
 class DemoDataInstaller extends AbstractInstallerPlugin
 {
 
     public function install()
     {
-        $this->getDependencyContainer()->getInstallerFacade()->installDemoData($this->messenger);
+        $this->getFacade()->installDemoData($this->messenger);
     }
 }
