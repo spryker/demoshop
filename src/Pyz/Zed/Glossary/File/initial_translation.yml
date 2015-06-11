@@ -240,6 +240,28 @@ keys:
     translations:
       de_DE: 'Achtung! Verschluckbare Kleinteile. Erstickungsgefahr. Für Kinder unter 3 Jahre nicht geeignet.'
 
+  page.imprint.url:
+    translations:
+      de_DE: '/impressum'
+
+  page.imprint.title:
+    translations:
+      de_DE: 'Impressum'
+
+  page.terms.url:
+    translations:
+      de_DE: '/agb'
+  page.terms.title:
+    translations:
+      de_DE: 'AGB'
+
+  page.privacy.url:
+    translations:
+      de_DE: '/datenschutz'
+  page.privacy.title:
+    translations:
+      de_DE: 'Datenschutz'
+
   catalog.currency:
     translations:
       de_DE: '€'
