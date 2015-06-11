@@ -3,6 +3,7 @@
 namespace Pyz\Zed\Cms\Business;
 
 use Pyz\Zed\Cms\Business\Internal\DemoData\CmsInstall;
+use Pyz\Zed\Cms\CmsDependencyProvider;
 use SprykerEngine\Shared\Kernel\Messenger\MessengerInterface;
 use SprykerFeature\Zed\Cms\Business\CmsDependencyContainer as SprykerCmsDependencyContainer;
 
@@ -23,10 +24,7 @@ class CmsDependencyContainer extends SprykerCmsDependencyContainer
             $this->getTemplateManager(),
             $this->getPageManager(),
             $this->getGlossaryKeyMappingManager(),
-            $this->getConfig()->getDemoDataPath(),
-            $this->getConfig()->getDemoDataContentKey(),
-            $this->getConfig()->getDemoDataTemplate(),
-            $this->getConfig()->getDemoDataTemplateName()
+            $this->getConfig()
         );
         $installer->setMessenger($messenger);
 
@@ -39,7 +37,7 @@ class CmsDependencyContainer extends SprykerCmsDependencyContainer
      */
     public function createGlossaryFacade()
     {
-        return $this->getExternalDependency()->glossary()->facade();
+        return $this->getProvidedDependency(CmsDependencyProvider::FACADE_GLOSSARY);
     }
 
     /**
@@ -47,7 +45,7 @@ class CmsDependencyContainer extends SprykerCmsDependencyContainer
      */
     public function createUrlFacade()
     {
-        return $this->getExternalDependency()->url()->facade();
+        return $this->getProvidedDependency(CmsDependencyProvider::FACADE_URL);
     }
 
     /**
@@ -55,7 +53,7 @@ class CmsDependencyContainer extends SprykerCmsDependencyContainer
      */
     public function createLocaleFacade()
     {
-        return $this->getExternalDependency()->locale()->facade();
+        return $this->getProvidedDependency(CmsDependencyProvider::FACADE_LOCALE);
     }
 
 }

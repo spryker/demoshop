@@ -7,13 +7,4 @@ use SprykerFeature\Zed\Cms\Communication\CmsDependencyContainer as SprykerCmsDep
 
 class CmsDependencyContainer extends SprykerCmsDependencyContainer
 {
-
-    /**
-     * @return CmsFacade
-     */
-    public function getInstallerFacade()
-    {
-        return $this->getInstallerFacade()->cms()->facade();
-    }
-
 }

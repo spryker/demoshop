@@ -3,10 +3,10 @@
 namespace Pyz\Zed\Cms\Business;
 
 
-use SprykerEngine\Shared\Messenger\Business\Model\MessengerInterface;
+use SprykerEngine\Shared\Kernel\Messenger\MessengerInterface;
 use SprykerFeature\Zed\Cms\Business\CmsFacade as SprykerCmsFacade;
 use SprykerFeature\Zed\Cms\Dependency\Facade\CmsToCmsInterface;
-
+use Pyz\Zed\Cms\Business\CmsDependencyContainer;
 /**
  * @method CmsDependencyContainer getDependencyContainer()
  */

@@ -3,7 +3,8 @@
 namespace Pyz\Zed\Cms\Business\Internal\DemoData;
 
 use Generated\Shared\Transfer\PageTransfer;
-use Generated\Shared\Transfer\TemplateTransfer;
+use Generated\Shared\Transfer\CmsTemplateTransfer;
+use Pyz\Zed\Cms\CmsConfig;
 use Pyz\Zed\Cms\Dependency\Facade\CmsToLocaleInterface;
 use SprykerFeature\Zed\Cms\Business\Mapping\GlossaryKeyMappingManagerInterface;
 use SprykerFeature\Zed\Cms\Business\Page\PageManagerInterface;
@@ -71,10 +72,7 @@ class CmsInstall extends AbstractInstaller
      * @param TemplateManagerInterface $templateManager
      * @param PageManagerInterface $pageManager
      * @param GlossaryKeyMappingManagerInterface $keyMappingManager
-     * @param string $filePath
-     * @param string $contentKey
-     * @param $template
-     * @param $templateName
+     * @param CmsConfig $config
      */
     public function __construct(
         CmsToGlossaryInterface $glossaryFacade,
@@ -92,12 +90,10 @@ class CmsInstall extends AbstractInstaller
         $this->pageManager = $pageManager;
         $this->keyMappingManager = $keyMappingManager;
 
-        $this->filePath = $filePath;
-
-        $this->contentKey = $contentKey;
-
-        $this->template = $template;
-        $this->templateName = $templateName;
+        $this->filePath = $config->getDemoDataPath();
+        $this->contentKey = $config->getDemoDataContentKey();
+        $this->template = $config->getDemoDataTemplate();
+        $this->templateName = $config->getDemoDataTemplateName();
     }
 
     public function install()
@@ -155,8 +151,9 @@ class CmsInstall extends AbstractInstaller
     /**
      * @param $content
      * @param $url
+     * @param $pageKey
      */
-    private function createPageForContent($content, $url)
+    private function installPage($content, $url, $pageKey)
     {
         if ($this->urlFacade->hasUrl($url)) {
             $this->warning(sprintf('Page with URL %s already exists. Skipping.', $url));
@@ -174,11 +171,11 @@ class CmsInstall extends AbstractInstaller
     }
 
     /**
-     * @param TemplateTransfer $templateTransfer
+     * @param CmsTemplateTransfer $templateTransfer
      *
      * @return PageTransfer
      */
-    private function createPage(TemplateTransfer $templateTransfer)
+    private function createPage(CmsTemplateTransfer $templateTransfer)
     {
         $pageTransfer = new PageTransfer();
         $pageTransfer->setFkTemplate($templateTransfer->getIdCmsTemplate());
@@ -196,7 +193,7 @@ class CmsInstall extends AbstractInstaller
         foreach ($this->staticPages as $pageKey => $localeConfig) {
             $file = $this->getFileName($localePath, $pageKey);
             if ($fileContent = file_get_contents($file)) {
-                $this->createPageForContent($fileContent, $localeConfig[$locale]);
+                $this->installPage($fileContent, $localeConfig[$locale], $pageKey);
             }
         }
     }
