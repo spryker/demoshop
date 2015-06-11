@@ -63,12 +63,6 @@ class CheckoutController extends AbstractController
         ];
     }
 
-    /**
-     * @return mixed
-     */
-    protected function createOrderForm()
-    {
-        return $this->getLocator()->sales()->pluginOrderTypeForm()->createOrderTypeForm();
     }
 
     /**
@@ -102,6 +96,25 @@ class CheckoutController extends AbstractController
         }
 
         return null;
+    }
+
+    /**
+     * @return CartItemsTransfer
+     */
+    private function demoCart()
+    {
+        $cart = new CartItemsTransfer();
+
+        $item = new CartItemTransfer();
+        $item->setId(1);
+        $item->setGrossPrice(200);
+        $item->setQuantity(1);
+        $item->setSku(13424234235);
+        $item->setPriceToPay(190);
+        $item->setUniqueIdentifier(123);
+        $cart->addCartItem($item);
+
+        return $cart;
     }
 
     /**
@@ -141,26 +154,21 @@ class CheckoutController extends AbstractController
             $order->setBillingAddress($billingAddress);
         }
 
-        $orderShippingAddressArray = $order->getShippingAddress()->toArray();
-        unset($orderShippingAddressArray['id_sales_order_address'], $orderShippingAddressArray['id_customer_address']);
-        $shippingAddressArray = $shippingAddress->toArray();
-        unset($shippingAddressArray['id_sales_order_address'], $shippingAddressArray['id_customer_address']);
-        if ($order->getShippingAddress()->isEmpty() || $orderShippingAddressArray !== $shippingAddressArray) {
-            $order->setShippingAddress($shippingAddress);
+        if ($form->isValid()) {
+            $addressTransfer = new \Generated\Shared\Transfer\CustomerAddressTransfer();
+            $addressTransfer->fromArray($form->getData());
+            $addressTransfer->setEmail($this->getUsername());
+            $addressTransfer = $this->getLocator()->customer()->sdk()->newAddress($addressTransfer);
+            if ($addressTransfer) {
+                $this->addMessageSuccess(Messages::CUSTOMER_ADDRESS_ADDED);
+
+                return $this->redirectResponseInternal(CustomerControllerProvider::ROUTE_CUSTOMER_PROFILE);
+            }
+            $this->addMessageError(Messages::CUSTOMER_ADDRESS_NOT_ADDED);
+
+            return $this->redirectResponseInternal(CustomerControllerProvider::ROUTE_CUSTOMER_NEW_ADDRESS);
         }
 
-        if ($order->getShippingAddress()->isEmpty()) {
-            $order->setShippingAddress($order->getBillingAddress());
-        }
-
-        if (is_null($order->getFirstName()) || $order->getBillingAddress()->getFirstName() !== $order->getFirstName()) {
-            $order->setFirstName($order->getBillingAddress()->getFirstName());
-        }
-        if (is_null($order->getLastName()) || $order->getBillingAddress()->getLastName() !== $order->getLastName()) {
-            $order->setLastName($order->getBillingAddress()->getLastName());
-        }
-
-        $form = $this->createForm($this->createOrderForm(), $order);
 
         if (($parameters = $this->validateForm($request, $form)) !== null) {
             return $parameters;
