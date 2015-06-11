@@ -14,7 +14,7 @@ use SprykerFeature\Shared\Yves\YvesConfig;
 use Silex\ServiceProviderInterface;
 use SprykerEngine\Yves\Application\Business\YvesBootstrap as SprykerYvesBootstrap;
 use SprykerEngine\Yves\Application\Communication\Plugin\ControllerProviderInterface;
-use Pyz\Yves\Checkout\Communication\Plugin\CheckoutControllerProvider;
+use Pyz\Yves\Checkout\Plugin\CheckoutControllerProvider;
 use Pyz\Yves\Application\Communication\Plugin\ApplicationControllerProvider;
 use SprykerEngine\Yves\Application\Communication\Plugin\ServiceProvider\CookieServiceProvider;
 use SprykerEngine\Yves\Application\Communication\Plugin\ServiceProvider\MonologServiceProvider;
