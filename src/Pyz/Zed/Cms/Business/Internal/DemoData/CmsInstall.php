@@ -105,28 +105,28 @@ class CmsInstall extends AbstractInstaller
     public function installCmsData()
     {
         foreach ($this->localeFacade->getAvailableLocales() as $locale) {
-            $localePath = $this->filePath . '/' . $locale;
-            if ($this->checkPathExists($localePath)) {
-                $this->installStaticPagesFromPath($localePath, $locale);
+            $localeStaticFilePath = $this->filePath . '/' . $locale;
+            if ($this->checkPathExists($localeStaticFilePath)) {
+                $this->installStaticPagesFromPath($localeStaticFilePath, $locale);
             }
         }
     }
 
     /**
-     * @param $localePath
+     * @param $localeStaticFilePath
      * @param $pageKey
      *
      * @return string
      */
-    public function getFileName($localePath, $pageKey)
+    public function getFileName($localeStaticFilePath, $pageKey)
     {
-        return $localePath . '/initial_' . $pageKey . '.html';
+        return $localeStaticFilePath . '/initial_' . $pageKey . '.html';
     }
 
     /**
      * @return CmsTemplateTransfer
      */
-    private function createTemplate()
+    private function getOrCreateTemplate()
     {
         if ($this->templateManager->hasTemplatePath($this->template)) {
             return $this->templateManager->getTemplateByPath($this->template);
@@ -139,13 +139,13 @@ class CmsInstall extends AbstractInstaller
     }
 
     /**
-     * @param $localePath
+     * @param $localeStaticFilePath
      *
      * @return bool
      */
-    private function checkPathExists($localePath)
+    private function checkPathExists($localeStaticFilePath)
     {
-        return is_dir($localePath);
+        return is_dir($localeStaticFilePath);
     }
 
     /**
@@ -161,7 +161,7 @@ class CmsInstall extends AbstractInstaller
             return;
         }
 
-        $templateTransfer = $this->createTemplate();
+        $templateTransfer = $this->getOrCreateTemplate();
         $pageTransfer = $this->createPage($templateTransfer);
         $this->keyMappingManager->addPlaceholderText($pageTransfer, $this->contentKey, $content);
         $urlTransfer = $this->pageManager->createPageUrl($pageTransfer, $url);
@@ -185,13 +185,13 @@ class CmsInstall extends AbstractInstaller
     }
 
     /**
-     * @param $localePath
+     * @param $localeStaticFilePath
      * @param $locale
      */
-    private function installStaticPagesFromPath($localePath, $locale)
+    private function installStaticPagesFromPath($localeStaticFilePath, $locale)
     {
         foreach ($this->staticPages as $pageKey => $localeConfig) {
-            $file = $this->getFileName($localePath, $pageKey);
+            $file = $this->getFileName($localeStaticFilePath, $pageKey);
             if ($fileContent = file_get_contents($file)) {
                 $this->installPage($fileContent, $localeConfig[$locale], $pageKey);
             }
