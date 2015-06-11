@@ -8,6 +8,7 @@ use Generated\Zed\Ide\AutoCompletion;
 use SprykerEngine\Shared\Kernel\LocatorLocatorInterface;
 use SprykerEngine\Zed\Locale\Business\LocaleFacade;
 use SprykerFeature\Zed\Category\Business\CategoryFacade;
+use SprykerFeature\Zed\Category\Business\Model\CategoryWriter;
 use SprykerFeature\Zed\Category\Persistence\CategoryQueryContainer;
 use SprykerFeature\Zed\Installer\Business\Model\AbstractInstaller;
 use SprykerFeature\Zed\Library\Import\Reader\CsvFileReader;
@@ -41,10 +42,9 @@ class CategoryTreeInstall extends AbstractInstaller
     protected $locator;
 
     /**
-     * @param CategoryFacade $categoryFacade
+     * @param CategoryWriter $categoryWriter
      * @param CategoryQueryContainer $categoryQueryContainer
      * @param LocaleFacade $localeFacade
-     * @param LocatorLocatorInterface $locator
      */
     public function __construct(
         CategoryFacade $categoryFacade,
@@ -55,7 +55,6 @@ class CategoryTreeInstall extends AbstractInstaller
         $this->categoryFacade = $categoryFacade;
         $this->queryContainer = $categoryQueryContainer;
         $this->locale = $localeFacade->getCurrentLocale();
-        $this->locator = $locator;
     }
 
     public function install()
