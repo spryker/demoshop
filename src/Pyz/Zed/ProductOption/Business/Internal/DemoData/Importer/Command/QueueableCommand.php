@@ -1,4 +1,5 @@
 <?php
+
 namespace Pyz\Zed\ProductOption\Business\Internal\DemoData\Importer\Command;
 
 class QueueableCommand

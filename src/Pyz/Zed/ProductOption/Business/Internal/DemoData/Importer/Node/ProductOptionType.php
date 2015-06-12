@@ -42,7 +42,7 @@ class ProductOptionType implements VisitableProductInterface
 
         $visitor->setContext($this);
 
-        foreach($this->productOptionValues as $option) {
+        foreach ($this->productOptionValues as $option) {
             $option->accept($visitor);
         }
 

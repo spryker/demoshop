@@ -38,6 +38,7 @@ class OptionValue implements VisitableOptionInterface
 
     /**
      * @param string $key
+     * @param array $localizedNames
      * @param float $price
      * @param string $taxSetKey
      */
