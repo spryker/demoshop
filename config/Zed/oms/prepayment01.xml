@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<statemachine
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="process.xsd">
+
+    <process name="Prepayment01" main="true">
+        <states>
+            <state name="new" reserved="true"/>
+            <state name="invoice sent" />
+            <state name="payment received"/>
+            <state name="clarify reminder"/>
+            <state name="invalid" reserved="false"/>
+            <state name="clarify under- or overpaid" />
+            <state name="paid" />
+        </states>
+        <transitions>
+
+            <transition>
+                <source>new</source>
+                <target>invoice sent</target>
+                <event>send invoice</event>
+            </transition>
+
+            <transition>
+                <source>invoice sent</source>
+                <target>clarify reminder</target>
+                <event>remind customer</event>
+            </transition>
+
+            <transition>
+                <source>clarify reminder</source>
+                <target>payment received</target>
+                <event>receive payment</event>
+            </transition>
+
+            <transition>
+                <source>invoice sent</source>
+                <target>payment received</target>
+                <event>receive payment</event>
+            </transition>
+
+            <transition>
+                <source>clarify under- or overpaid</source>
+                <target>payment received</target>
+                <event>receive payment</event>
+            </transition>
+
+            <transition>
+                <source>clarify reminder</source>
+                <target>invalid</target>
+                <event>mark invalid</event>
+            </transition>
+            <transition condition="Prepayment/AmountMatches">
+                <source>payment received</source>
+                <target>paid</target>
+                <event>check amount</event>
+            </transition>
+            <transition>
+                <source>payment received</source>
+                <target>clarify under- or overpaid</target>
+                <event>check amount</event>
+            </transition>
+            
+            <transition>
+                <source>clarify under- or overpaid</source>
+                <target>paid</target>
+                <event>manually set paid</event>
+            </transition>
+        </transitions>
+
+        <events>
+            <event name="send invoice" onEnter="true" />
+            <event name="remind customer" timeout="14days" onEnter="true" />
+            <event name="mark invalid" timeout="14days" />
+            <event name="receive payment" />
+            <event name="check amount" />
+            <event name="amount matched" />
+            <event name="resolve amount mismatch"/>
+            <event name="manually set paid" manual="true" />
+        </events>
+    </process>
+
+</statemachine>
