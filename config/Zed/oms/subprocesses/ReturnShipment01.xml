@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<statemachine
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="../process.xsd">
+    <process name="return shipment">
+        <states>
+            <state name="return shipment initiated"/>
+            <state name="return arrived"/>
+        </states>
+        
+        <transitions>
+            <transition>
+                <source>return shipment initiated</source>
+                <target>return arrived</target>
+            </transition>
+        </transitions>
+    </process>
+</statemachine>
