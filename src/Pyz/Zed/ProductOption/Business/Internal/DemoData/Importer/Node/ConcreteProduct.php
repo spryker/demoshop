@@ -37,15 +37,15 @@ class ConcreteProduct implements VisitableProductInterface
 
         $visitor->setContext($this);
 
-        foreach($this->options as $option) {
+        foreach ($this->options as $option) {
             $option->accept($visitor);
         }
 
-        foreach($this->typeExclusions as $exclusion) {
+        foreach ($this->typeExclusions as $exclusion) {
             $exclusion->accept($visitor);
         }
 
-        foreach($this->configurations as $config) {
+        foreach ($this->configurations as $config) {
             $config->accept($visitor);
         }
 
@@ -66,15 +66,15 @@ class ConcreteProduct implements VisitableProductInterface
     ) {
         $this->sku = $sku;
 
-        foreach($options as $option) {
+        foreach ($options as $option) {
             $this->addOption($option);
         }
 
-        foreach($typeExclusions as $exclusion) {
+        foreach ($typeExclusions as $exclusion) {
             $this->addExclusion($exclusion);
         }
 
-        foreach($configurations as $configuration) {
+        foreach ($configurations as $configuration) {
             $this->addConfiguration($configuration);
         }
     }

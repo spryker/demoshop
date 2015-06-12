@@ -37,7 +37,7 @@ class ProductOptionValue implements VisitableProductInterface
 
         $visitor->setContext($this);
 
-        foreach($this->constraints as $constraint) {
+        foreach ($this->constraints as $constraint) {
             $constraint->accept($visitor);
         }
 
