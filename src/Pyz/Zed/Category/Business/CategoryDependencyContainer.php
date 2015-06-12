@@ -2,10 +2,10 @@
 
 namespace Pyz\Zed\Category\Business;
 
-use Pyz\Zed\Category\CategoryDependencyProvider;
 use SprykerFeature\Zed\Category\Business\CategoryDependencyContainer as SprykerCategoryDependencyContainer;
 use Pyz\Zed\Category\Business\Internal\DemoData\CategoryTreeInstall;
 use Psr\Log\LoggerInterface;
+use SprykerFeature\Zed\Category\CategoryDependencyProvider;
 use SprykerFeature\Zed\Category\Persistence\CategoryQueryContainer;
 
 /**
