@@ -3,8 +3,9 @@
 namespace Pyz\Zed\Price\Business\Internal\DemoData;
 
 use SprykerFeature\Zed\Installer\Business\Model\AbstractInstaller;
-use SprykerEngine\Zed\Kernel\Locator;
 use SprykerFeature\Zed\Library\Import\Reader\CsvFileReader;
+use SprykerFeature\Zed\Price\Business\Model\ReaderInterface;
+use SprykerFeature\Zed\Price\Business\Model\WriterInterface;
 use SprykerFeature\Zed\Price\Business\PriceFacade;
 use Generated\Shared\Transfer\PriceProductTransfer;
 
@@ -17,19 +18,23 @@ class PriceInstall extends AbstractInstaller
     const IS_ACTIVE = 'is_active';
 
     /**
-     * @var PriceFacade
+     * @var WriterInterface
      */
-    protected $priceFacade;
-
-    protected $locator;
+    protected $priceWriter;
 
     /**
-     * @param PriceFacade $priceFacade
+     * @var ReaderInterface
      */
-    public function __construct(PriceFacade $priceFacade)
+    protected $priceReader;
+
+    /**
+     * @param WriterInterface $priceWriter
+     * @param ReaderInterface $priceReader
+     */
+    public function __construct(WriterInterface $priceWriter, ReaderInterface $priceReader)
     {
-        $this->locator = Locator::getInstance();
-        $this->priceFacade = $priceFacade;
+        $this->priceWriter = $priceWriter;
+        $this->priceReader = $priceReader;
     }
 
     public function install()
@@ -67,7 +72,7 @@ class PriceInstall extends AbstractInstaller
      */
     protected function addEntry(array $row)
     {
-        $stockType = $this->priceFacade->createPriceType($row[self::PRICE_TYPE]);
+        $stockType = $this->priceWriter->createPriceType($row[self::PRICE_TYPE]);
 
         $transferPriceProduct = new PriceProductTransfer();
 
@@ -78,12 +83,12 @@ class PriceInstall extends AbstractInstaller
 
         $sku = $transferPriceProduct->getSkuProduct();
         $priceType = $transferPriceProduct->getPriceTypeName();
-        if ($this->priceFacade->hasValidPrice($sku, $priceType)) {
-            $idPriceProduct = $this->priceFacade->getIdPriceProduct($sku, $priceType);
+        if ($this->priceReader->hasValidPrice($sku, $priceType)) {
+            $idPriceProduct = $this->priceReader->getProductPriceIdBySku($sku, $priceType);
             $transferPriceProduct->setIdPriceProduct($idPriceProduct);
-            $this->priceFacade->setPriceForProduct($transferPriceProduct);
+            $this->priceWriter->setPriceForProduct($transferPriceProduct);
         } else {
-            $this->priceFacade->createPriceForProduct($transferPriceProduct);
+            $this->priceWriter->createPriceForProduct($transferPriceProduct);
         }
     }
 
