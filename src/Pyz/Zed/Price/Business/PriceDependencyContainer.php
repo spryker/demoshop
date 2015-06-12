@@ -21,7 +21,8 @@ class PriceDependencyContainer extends SprykerPriceDependencyContainer
     public function getDemoDataInstaller(LoggerInterface $messenger)
     {
         $installer = $this->getFactory()->createInternalDemoDataPriceInstall(
-            $this->getLocator()->price()->facade()
+            $this->getWriterModel(),
+            $this->getReaderModel()
         );
         $installer->setMessenger($messenger);
 
