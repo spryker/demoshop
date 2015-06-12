@@ -2,8 +2,13 @@
 <statemachine
         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
         xsi:noNamespaceSchemaLocation="process.xsd">
-
     <process name="Prepayment01" main="true">
+        <subprocesses>
+            <process>fulfillment</process>
+            <process>completion</process>
+            <process>return shipment</process>
+            <process>cancellation</process>
+        </subprocesses>
         <states>
             <state name="new" reserved="true"/>
             <state name="request to pay sent" />
@@ -80,6 +85,40 @@
                 <target>invoice sent</target>
                 <event>send invoice</event>
             </transition>
+
+            <!-- Interprocess Transistions -->
+            <!-- - - - - - - - - - - - - - -->
+            <transition>
+                <source>invoice sent</source>
+                <target>fulfillment initiated</target>
+            </transition>
+            
+            <transition>
+                <source>fulfilled</source>
+                <target>completed but returnable</target>
+            </transition>
+            
+            <transition>
+                <source>completed but returnable</source>
+                <target>return shipment initiated</target>
+            </transition>
+            
+            <transition>
+                <source>return arrived</source>
+                <target>cancellation initiated</target>
+            </transition>
+            
+            <transition>
+                <source>return arrived</source>
+                <target>fulfillment initiated</target>
+            </transition>
+
+            <transition>
+                <source>return shipment initiated</source>
+                <target>completed but returnable</target>
+            </transition>
+            
+            
         </transitions>
 
         <events>
@@ -94,6 +133,12 @@
             <event name="create invoice" />
             <event name="send invoice" />
         </events>
-    </process>
 
+
+
+    </process>
+    <process name="fulfillment" file="subprocesses/Fulfillment01.xml"/>
+    <process name="completion" file="subprocesses/Completion01.xml"/>
+    <process name="return shipment" file="subprocesses/ReturnShipment01.xml"/>
+    <process name="cancellation" file="subprocesses/Cancellation01.xml" />
 </statemachine>

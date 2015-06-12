@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<statemachine
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="../process.xsd">
+    <process name="fulfillment">
+        <states>
+            <state name="fulfillment initiated"/>
+            <state name="ready for export"/>
+            <state name="exported"/>
+            <state name="shipped"/>
+            <state name="fulfilled"/>
+            <state name="clarify delivery failed"/>
+        </states>
+        <transitions>
+            <transition>
+                <source>fulfillment initiated</source>
+                <target>ready for export</target>
+            </transition>
+            <transition>
+                <source>ready for export</source>
+                <target>exported</target>
+            </transition>
+            <transition>
+                <source>exported</source>
+                <target>shipped</target>
+            </transition>
+            <transition>
+                <source>shipped</source>
+                <target>fulfilled</target>
+            </transition>
+            <transition>
+                <source>shipped</source>
+                <target>clarify delivery failed</target>
+            </transition>
+            <transition>
+                <source>clarify delivery failed</source>
+                <target>shipped</target>
+            </transition>
+            <transition>
+                <source>fulfilled</source>
+                <target>clarify delivery failed</target>
+            </transition>
+            <transition>
+                <source>clarify delivery failed</source>
+                <target>fulfilled</target>
+            </transition>
+            <transition>
+                <source>clarify delivery failed</source>
+                <target>fulfillment initiated</target>
+            </transition>
+        </transitions>
+    </process>
+</statemachine>
