@@ -10,3 +10,4 @@ interface CmsToLocaleInterface
      */
     public function getAvailableLocales();
 }
+
