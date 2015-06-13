@@ -6,4 +6,5 @@ interface WriterInterface
 {
 
     public function write();
+
 }
