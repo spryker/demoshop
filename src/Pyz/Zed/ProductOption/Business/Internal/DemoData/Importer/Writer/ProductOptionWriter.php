@@ -5,7 +5,6 @@ namespace Pyz\Zed\ProductOption\Business\Internal\DemoData\Importer\Writer;
 use Pyz\Zed\ProductOption\Business\Internal\DemoData\Importer\Reader\ProductReaderInterface;
 use Pyz\Zed\ProductOption\Business\Internal\DemoData\Importer\Visitor\ProductVisitorInterface;
 use Pyz\Zed\ProductOption\Business\Internal\DemoData\Importer\Visitor\VisitableProductInterface;
-use Pyz\Zed\ProductOption\Business\Internal\DemoData\Importer\Command\QueueableCommand;
 
 class ProductOptionWriter implements WriterInterface
 {
@@ -22,12 +21,12 @@ class ProductOptionWriter implements WriterInterface
 
     /**
      * @param ProductReaderInterface $reader
-     * @param ProductVisitorInterface $visitors
+     * @param ProductVisitorInterface[] $visitors
      */
     public function __construct(
         ProductReaderInterface $reader,
-        array $visitors)
-    {
+        array $visitors
+    ) {
         $this->reader = $reader;
         foreach ($visitors as $visitor) {
             $this->addVisitor($visitor);
