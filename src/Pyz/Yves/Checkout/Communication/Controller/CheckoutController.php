@@ -112,6 +112,18 @@ class CheckoutController extends AbstractController
         return new RedirectResponse($checkoutResponseTransfer->getRedirectUrl());
     }
 
+    private function demoCheckoutTransfer()
+    {
+        $checkoutData = new CheckoutTransfer();
+        $checkoutData->setCart($this->demoCart());
+        $checkoutData->setBillingAddress('Julie-Wolfthorn-Straße 1, 10115 Berlin');
+        $checkoutData->setEmail('konstantin.scheumann@spryker.com');
+        $checkoutData->setPaymentMethod('paypal');
+        $checkoutData->setUserId(null);
+
+        return $checkoutData;
+    }
+
     /**
      * @return CartTransfer
      */
