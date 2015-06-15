@@ -23,12 +23,27 @@ class CheckoutController extends AbstractController
      */
     public function indexAction(Request $request)
     {
-        $response = $this->handleRequest($request);
-        if ($response instanceof Response) {
-            return $response;
+        $container = $this->getDependencyContainer();
+        $orderForm = $container->createFormOrder();
+        $form = $this->createForm($orderForm);
+
+        if ($form->isValid()) {
+            $addressTransfer = new \Generated\Shared\Transfer\CustomerAddressTransfer();
+            $addressTransfer->fromArray($form->getData());
+            $addressTransfer->setEmail($this->getUsername());
+            $addressTransfer = $this->getLocator()->customer()->sdk()->newAddress($addressTransfer);
+            if ($addressTransfer) {
+                $this->addMessageSuccess(Messages::CUSTOMER_ADDRESS_ADDED);
+
+                return $this->redirectResponseInternal(CustomerControllerProvider::ROUTE_CUSTOMER_PROFILE);
+            }
+            $this->addMessageError(Messages::CUSTOMER_ADDRESS_NOT_ADDED);
+
+            return $this->redirectResponseInternal(CustomerControllerProvider::ROUTE_CUSTOMER_NEW_ADDRESS);
         }
 
-        return $response;
+
+        return ['form' => $form->createView()];
     }
 
     /**
@@ -96,6 +111,18 @@ class CheckoutController extends AbstractController
         }
 
         return null;
+    }
+
+    private function demoCheckoutTransfer()
+    {
+        $checkoutData = new CheckoutTransfer();
+        $checkoutData->setCart($this->demoCart());
+        $checkoutData->setBillingAddress('Julie-Wolfthorn-Straße 1, 10115 Berlin');
+        $checkoutData->setEmail('konstantin.scheumann@spryker.com');
+        $checkoutData->setPaymentMethod('paypal');
+        $checkoutData->setUserId(null);
+
+        return $checkoutData;
     }
 
     /**
