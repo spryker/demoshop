@@ -12,7 +12,12 @@
             <transition>
                 <source>completed but returnable</source>
                 <target>completed success</target>
+                <event>not returned</event>
             </transition>
         </transitions>
+
+        <events>
+            <event name="not returned" timeout="100days"/>
+        </events>
     </process>
 </statemachine>

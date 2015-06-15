@@ -12,7 +12,12 @@
             <transition>
                 <source>return shipment initiated</source>
                 <target>return arrived</target>
+                <event>return has arrived</event>
             </transition>
         </transitions>
+
+        <events>
+            <event name="return has arrived"/>
+        </events>
     </process>
 </statemachine>

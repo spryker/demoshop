@@ -14,6 +14,7 @@
             <transition>
                 <source>cancellation initiated</source>
                 <target>clarify refundable voucher code</target>
+                <event>refund money</event>
             </transition>
             <transition>
                 <source>clarify refundable voucher code</source>
@@ -24,5 +25,9 @@
                 <target>refunded</target>
             </transition>
         </transitions>
+
+        <events>
+            <event name="refund money"/>
+        </events>
     </process>
 </statemachine>
