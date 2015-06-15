@@ -8,26 +8,29 @@ use Generated\Shared\Transfer\StockProductTransfer;
 use Generated\Shared\Transfer\TypeTransfer;
 use SprykerFeature\Zed\Installer\Business\Model\AbstractInstaller;
 use SprykerFeature\Zed\Library\Import\Reader\CsvFileReader;
+use SprykerFeature\Zed\Stock\Business\Model\ReaderInterface;
+use SprykerFeature\Zed\Stock\Business\Model\WriterInterface;
 use SprykerFeature\Zed\Stock\Business\StockFacade;
 use SprykerFeature\Zed\Stock\Persistence\Propel\SpyStock;
 use SprykerFeature\Zed\Stock\Persistence\StockQueryContainer;
 
 class StockInstall extends AbstractInstaller
 {
+
     const SKU = 'sku';
     const QUANTITY = 'quantity';
     const NEVER_OUT_OF_STOCK = 'is_never_out_of_stock';
     const STOCK_TYPE = 'stock_type';
 
     /**
-     * @var AutoCompletion
+     * @var ReaderInterface
      */
-    protected $locator;
+    protected $reader;
 
     /**
-     * @var StockFacade
+     * @var WriterInterface
      */
-    protected $stockFacade;
+    protected $writer;
 
     /**
      * @var StockQueryContainer
@@ -35,18 +38,18 @@ class StockInstall extends AbstractInstaller
     protected $queryContainer;
 
     /**
-     * @param LocatorLocatorInterface $locator
+     * @param ReaderInterface $reader
+     * @param WriterInterface $writer
      * @param StockQueryContainer $queryContainer
-     * @param StockFacade $stockFacade
      */
     public function __construct(
-        LocatorLocatorInterface $locator,
-        StockQueryContainer $queryContainer,
-        StockFacade $stockFacade
+        ReaderInterface $reader,
+        WriterInterface $writer,
+        StockQueryContainer $queryContainer
     ) {
-        $this->locator = $locator;
+        $this->reader = $reader;
+        $this->writer = $writer;
         $this->queryContainer = $queryContainer;
-        $this->stockFacade = $stockFacade;
     }
 
     public function install()
@@ -90,23 +93,23 @@ class StockInstall extends AbstractInstaller
     {
         $stockType = $this->createStockTypeTransfer($row);
         if (!$this->doesStockExist($stockType)) {
-            $this->stockFacade->createStockType($stockType);
+            $this->writer->createStockType($stockType);
         }
         $stockProductTransfer = $this->createStockProductTransfer($row, $stockType);
-        $hasProduct = $this->stockFacade->hasStockProduct(
+        $hasProduct = $this->reader->hasStockProduct(
             $stockProductTransfer->getSku(),
             $stockProductTransfer->getStockType()
         );
 
         if ($hasProduct) {
-            $idStockProduct = $this->stockFacade->getIdStockProduct(
+            $idStockProduct = $this->reader->getIdStockProduct(
                 $stockProductTransfer->getSku(),
                 $stockProductTransfer->getStockType()
             );
             $stockProductTransfer->setIdStockProduct($idStockProduct);
-            $this->stockFacade->updateStockProduct($stockProductTransfer);
+            $this->writer->updateStockProduct($stockProductTransfer);
         } else {
-            $this->stockFacade->createStockProduct($stockProductTransfer);
+            $this->writer->createStockProduct($stockProductTransfer);
         }
     }
 
@@ -154,4 +157,5 @@ class StockInstall extends AbstractInstaller
 
         return $stockCount > 0;
     }
+
 }

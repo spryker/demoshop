@@ -10,6 +10,7 @@ use Pyz\Zed\Stock\Business\Internal\DemoData\StockInstall;
 
 /**
  * @method StockBusiness getFactory()
+ * @method StockQueryContainer getQueryContainer()
  */
 class StockDependencyContainer extends SprykerStockDependencyContainer
 {
@@ -22,28 +23,12 @@ class StockDependencyContainer extends SprykerStockDependencyContainer
     public function getDemoDataInstaller(LoggerInterface $messenger)
     {
         $installer = $this->getFactory()->createInternalDemoDataStockInstall(
-            $this->getLocator(),
-            $this->getQueryContainer(),
-            $this->getStockFacade()
+            $this->getReaderModel(),
+            $this->getWriterModel(),
+            $this->getQueryContainer()
         );
         $installer->setMessenger($messenger);
 
         return $installer;
-    }
-
-    /**
-     * @return StockQueryContainer
-     */
-    protected function getQueryContainer()
-    {
-        return $this->getLocator()->stock()->queryContainer();
-    }
-
-    /**
-     * @return StockFacade
-     */
-    protected function getStockFacade()
-    {
-        return $this->getLocator()->stock()->facade();
     }
 }

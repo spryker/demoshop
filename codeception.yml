@@ -50,6 +50,8 @@ include:
  - vendor/spryker/spryker/Bundles/ProductFrontendExporterConnector/
  - vendor/spryker/spryker/Bundles/ProductFrontendExporterPriceConnector/
  - vendor/spryker/spryker/Bundles/ProductImage/
+ - vendor/spryker/spryker/Bundles/ProductOption/
+ - vendor/spryker/spryker/Bundles/ProductSearch/
  - vendor/spryker/spryker/Bundles/ProductSearch/
  - vendor/spryker/spryker/Bundles/ProductSearchAvailabilityConnector/
  - vendor/spryker/spryker/Bundles/Propel/

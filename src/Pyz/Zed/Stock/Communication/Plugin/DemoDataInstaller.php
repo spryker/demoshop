@@ -2,17 +2,17 @@
 
 namespace Pyz\Zed\Stock\Communication\Plugin;
 
+use Pyz\Zed\Stock\Business\StockFacade;
 use SprykerFeature\Zed\Installer\Communication\Plugin\AbstractInstallerPlugin;
-use Pyz\Zed\Stock\Communication\StockDependencyContainer;
 
 /**
- * @method StockDependencyContainer getDependencyContainer()
+ * @method StockFacade getFacade()
  */
 class DemoDataInstaller extends AbstractInstallerPlugin
 {
 
     public function install()
     {
-        $this->getDependencyContainer()->getInstallerFacade()->installDemoData($this->messenger);
+        $this->getFacade()->installDemoData($this->messenger);
     }
 }
