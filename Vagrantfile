@@ -5,10 +5,10 @@ VM_CPUS='4'
 
 # Locations of SaltStack code
 SALT_DIRECTORY="./vendor/spryker/saltstack"
-SALT_REPOSITORY="git@github.com:spryker/saltstack.git"
+SALT_REPOSITORY="git@github.com:spryker/saltstack-core.git"
 SALT_BRANCH="master"
 PILLAR_DIRECTORY="./vendor/spryker/pillar"
-PILLAR_REPOSITORY="git@github.com:spryker/pillar.git"
+PILLAR_REPOSITORY="git@github.com:spryker/pillar-core.git"
 PILLAR_BRANCH="master"
 
 # Hostnames to be managed
