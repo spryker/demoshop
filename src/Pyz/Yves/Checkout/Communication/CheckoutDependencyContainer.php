@@ -5,7 +5,6 @@ namespace Pyz\Yves\Checkout\Communication;
 use SprykerEngine\Yves\Kernel\Communication\AbstractDependencyContainer;
 use Pyz\Yves\Checkout\Communication\Form\Order;
 
-
 class CheckoutDependencyContainer extends AbstractDependencyContainer
 {
     /**
