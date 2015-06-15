@@ -4,10 +4,14 @@ namespace Pyz\Zed\Category\Business\Internal\DemoData;
 
 use Generated\Shared\Transfer\CategoryTransfer;
 use Generated\Shared\Transfer\LocaleTransfer;
+use Generated\Shared\Transfer\NodeTransfer;
 use Generated\Zed\Ide\AutoCompletion;
 use SprykerEngine\Shared\Kernel\LocatorLocatorInterface;
 use SprykerEngine\Zed\Locale\Business\LocaleFacade;
 use SprykerFeature\Zed\Category\Business\CategoryFacade;
+use SprykerFeature\Zed\Category\Business\Model\CategoryWriter;
+use SprykerFeature\Zed\Category\Business\Model\CategoryWriterInterface;
+use SprykerFeature\Zed\Category\Business\Tree\CategoryTreeWriter;
 use SprykerFeature\Zed\Category\Persistence\CategoryQueryContainer;
 use SprykerFeature\Zed\Installer\Business\Model\AbstractInstaller;
 use SprykerFeature\Zed\Library\Import\Reader\CsvFileReader;
@@ -21,6 +25,16 @@ class CategoryTreeInstall extends AbstractInstaller
     const IMAGE_NAME = 'image_name';
 
     /**
+     * @var CategoryWriter
+     */
+    protected $categoryWriter;
+
+    /**
+     * @var CategoryTreeWriter
+     */
+    protected $categoryTreeWriter;
+
+    /**
      * @var CategoryQueryContainer
      */
     protected $queryContainer;
@@ -31,31 +45,21 @@ class CategoryTreeInstall extends AbstractInstaller
     protected $locale;
 
     /**
-     * @var CategoryFacade
-     */
-    protected $categoryFacade;
-
-    /**
-     * @var LocatorLocatorInterface|AutoCompletion
-     */
-    protected $locator;
-
-    /**
-     * @param CategoryFacade $categoryFacade
+     * @param CategoryWriterInterface $categoryWriter
+     * @param CategoryTreeWriter $categoryTreeWriter
      * @param CategoryQueryContainer $categoryQueryContainer
      * @param LocaleFacade $localeFacade
-     * @param LocatorLocatorInterface $locator
      */
     public function __construct(
-        CategoryFacade $categoryFacade,
+        CategoryWriterInterface $categoryWriter,
+        CategoryTreeWriter $categoryTreeWriter,
         CategoryQueryContainer $categoryQueryContainer,
-        LocaleFacade $localeFacade,
-        LocatorLocatorInterface $locator
+        LocaleFacade $localeFacade
     ) {
-        $this->categoryFacade = $categoryFacade;
+        $this->categoryWriter = $categoryWriter;
+        $this->categoryTreeWriter = $categoryTreeWriter;
         $this->queryContainer = $categoryQueryContainer;
         $this->locale = $localeFacade->getCurrentLocale();
-        $this->locator = $locator;
     }
 
     public function install()
@@ -104,11 +108,11 @@ class CategoryTreeInstall extends AbstractInstaller
     {
         $idCategory = $this->createCategory($rawNode);
 
-        $categoryNodeTransfer = new \Generated\Shared\Transfer\NodeTransfer();
+        $categoryNodeTransfer = new NodeTransfer();
         $categoryNodeTransfer->setIsRoot(true);
         $categoryNodeTransfer->setFkCategory($idCategory);
 
-        $this->categoryFacade->createCategoryNode($categoryNodeTransfer, $this->locale);
+        $this->categoryTreeWriter->createCategoryNode($categoryNodeTransfer, $this->locale);
     }
 
     /**
@@ -118,12 +122,12 @@ class CategoryTreeInstall extends AbstractInstaller
     {
         $idCategory = $this->createCategory($rawNode);
 
-        $categoryNodeTransfer = new \Generated\Shared\Transfer\NodeTransfer();
+        $categoryNodeTransfer = new NodeTransfer();
         $categoryNodeTransfer->setIsRoot(false);
         $categoryNodeTransfer->setFkCategory($idCategory);
         $categoryNodeTransfer->setFkParentCategoryNode($this->getParentId($rawNode));
 
-        $this->categoryFacade->createCategoryNode($categoryNodeTransfer, $this->locale);
+        $this->categoryTreeWriter->createCategoryNode($categoryNodeTransfer, $this->locale);
     }
 
     /**
@@ -153,8 +157,9 @@ class CategoryTreeInstall extends AbstractInstaller
         $categoryTransfer = new CategoryTransfer();
         $categoryTransfer->setName($rawNode[self::CATEGORY_NAME]);
         $categoryTransfer->setImageName($rawNode[self::IMAGE_NAME]);
-        $idCategory = $this->categoryFacade->createCategory($categoryTransfer, $this->locale);
+        $idCategory = $this->categoryWriter->create($categoryTransfer, $this->locale);
 
         return $idCategory;
     }
+
 }
