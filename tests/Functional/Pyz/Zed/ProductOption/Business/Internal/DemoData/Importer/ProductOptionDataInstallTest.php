@@ -26,37 +26,33 @@ class ProductOptionInstallerTest extends AbstractFunctionalTest
             ->disableOriginalConstructor()
             ->getMock();
 
-        $this->ensureProductFixturesExistInDb();
+        $this->loadProductsIfNotInDb(['136823', '137288', '137455']);
 
         $this->getFacade()->installDemoData($stub);
     }
 
-    private function ensureProductFixturesExistInDb()
-    {
-        $this->loadAbstractProductsIfNotInDb(['136823', '137455']);
-        $this->loadConcreteProductsIfNotInDb(['136823', '137288', '137455']);
-    }
-
-    private function loadAbstractProductsIfNotInDb(array $skus)
+    /**
+     * @param array $skus
+     */
+    private function loadProductsIfNotInDb(array $skus)
     {
         foreach ($skus as $sku) {
-            $result = SpyAbstractProductQuery::create()->filterBySku($sku)->findOne();
-            if (null === $result) {
-                $abstractProduct = (new SpyAbstractProduct())
-                    ->setSku($sku);
-                $abstractProduct->save();
+
+            $abstractProductEntity = SpyAbstractProductQuery::create()
+                ->filterBySku($sku)
+                ->findOneOrCreate();
+
+            if ($abstractProductEntity->isNew()) {
+                $abstractProductEntity->save();
             }
-        }
-    }
 
-    private function loadConcreteProductsIfNotInDb(array $skus)
-    {
-        foreach ($skus as $sku) {
-            $result = SpyProductQuery::create()->filterBySku($sku)->findOne();
-            if (null === $result) {
-                $concreteProduct = (new SpyProduct())
-                    ->setSku($sku);
-                $concreteProduct->save();
+            $concreteProductEntity = SpyProductQuery::create()
+                ->filterBySku($sku)
+                ->filterByFkAbstractProduct($abstractProductEntity->getIdAbstractProduct())
+                ->findOneOrCreate();
+
+            if ($concreteProductEntity->isNew()) {
+                $concreteProductEntity->save();
             }
         }
     }

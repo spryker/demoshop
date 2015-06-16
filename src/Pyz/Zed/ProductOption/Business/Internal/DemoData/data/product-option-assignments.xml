@@ -94,6 +94,10 @@
                     </option>
                 </options>
             </variant>
+        </variants>
+    </product>
+    <product sku="137288">
+        <variants>
             <variant sku="137288">
                 <option-config-presets>
                     <configuration isDefault="true">
