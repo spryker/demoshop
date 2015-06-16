@@ -4,6 +4,8 @@ namespace Functional\Pyz\Zed\ProductOption\Business\Internal\DemoData\Importer;
 
 use Pyz\Zed\ProductOption\Business\ProductOptionFacade;
 use SprykerEngine\Zed\Kernel\AbstractFunctionalTest;
+use SprykerFeature\Zed\Product\Persistence\Propel\SpyProductQuery;
+use SprykerFeature\Zed\Product\Persistence\Propel\SpyAbstractProductQuery;
 
 /**
  * @group Pyz
@@ -22,7 +24,34 @@ class ProductOptionInstallerTest extends AbstractFunctionalTest
             ->disableOriginalConstructor()
             ->getMock();
 
+        $this->loadProductsIfNotInDb(['136823', '137288', '137455']);
+
         $this->getFacade()->installDemoData($stub);
     }
 
+    /**
+     * @param array $skus
+     */
+    private function loadProductsIfNotInDb(array $skus)
+    {
+        foreach ($skus as $sku) {
+
+            $abstractProductEntity = SpyAbstractProductQuery::create()
+                ->filterBySku($sku)
+                ->findOneOrCreate();
+
+            if ($abstractProductEntity->isNew()) {
+                $abstractProductEntity->save();
+            }
+
+            $concreteProductEntity = SpyProductQuery::create()
+                ->filterBySku($sku)
+                ->filterByFkAbstractProduct($abstractProductEntity->getIdAbstractProduct())
+                ->findOneOrCreate();
+
+            if ($concreteProductEntity->isNew()) {
+                $concreteProductEntity->save();
+            }
+        }
+    }
 }
