@@ -49,7 +49,7 @@ class CheckoutController extends AbstractController
         }
 
         $cart->clear();
-        $productData = $this->getCartSdk()->getProductDataForCartItems($cartItems);
+        $productData = $this->getCartClient()->getProductDataForCartItems($cartItems);
         $cartModel = $this->getLocator()->cart()->pluginCartSession()->createCartSession($this->getTransferSession());
         $cartModel->clear();
         $cartItemCount = $this->getLocator()->cart()
@@ -82,11 +82,11 @@ class CheckoutController extends AbstractController
     protected function validateForm(Request $request, FormInterface $form)
     {
         if ($form->isValid()) {
-            $checkoutSdk = $this->getCheckoutSdk($request);
+            $checkoutClient = $this->getCheckoutClient($request);
             /** @var Order $orderTransfer */
             $orderTransfer = $form->getData();
 
-            $transferResponse = $checkoutSdk->saveOrder($orderTransfer);
+            $transferResponse = $checkoutClient->saveOrder($orderTransfer);
             $order = $transferResponse->getTransfer();
             $cart = $this->getCart($request);
             $cart->setOrder($order);
@@ -118,8 +118,8 @@ class CheckoutController extends AbstractController
         }
 
         $order = $cart->getOrder();
-        $checkoutSdk = $this->getCheckoutSdk($request);
-        $checkoutSdk->clearReferences($order);
+        $checkoutClient = $this->getCheckoutClient($request);
+        $checkoutClient->clearReferences($order);
         $cart->setOrder($order);
 
         // This is really ugly, but i need this to have valid data for the payment control
@@ -167,7 +167,7 @@ class CheckoutController extends AbstractController
         if (($parameters = $this->validateForm($request, $form)) !== null) {
             return $parameters;
         }
-        $productData = $this->getCartSdk()->getProductDataForCartItems($cart->getItems());
+        $productData = $this->getCartClient()->getProductDataForCartItems($cart->getItems());
 
         return [
             'form' => $form->createView(),
@@ -182,17 +182,17 @@ class CheckoutController extends AbstractController
     /**
      * @return CheckoutClient
      */
-    protected function getCheckoutSdk()
+    protected function getCheckoutClient()
     {
-        return $this->getLocator()->checkout()->sdk();
+        return $this->getLocator()->checkout()->Client();
     }
 
     /**
      * @return CartClient
      */
-    protected function getCartSdk()
+    protected function getCartClient()
     {
-        return $this->getLocator()->cart()->sdk();
+        return $this->getLocator()->cart()->Client();
     }
 
 }

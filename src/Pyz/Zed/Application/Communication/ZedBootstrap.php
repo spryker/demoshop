@@ -108,7 +108,7 @@ class ZedBootstrap extends Bootstrap
             new TwigServiceProvider(),
             new EnvironmentInformationServiceProvider(),
             new TranslationServiceProvider(),
-            $this->getSdkServiceProvider(),
+            $this->getClientServiceProvider(),
             new UrlGeneratorServiceProvider(),
             new NewRelicServiceProvider(),
         ];
@@ -164,14 +164,14 @@ class ZedBootstrap extends Bootstrap
     /**
      * @return ClientServiceProviderPlugin
      */
-    protected function getSdkServiceProvider()
+    protected function getClientServiceProvider()
     {
         $locator = $this->getLocator();
-        $controllerListener = $locator->client()->pluginSdkControllerListenerPlugin();
-        $sdkServiceProvider = $locator->client()->pluginSdkServiceProviderPlugin();
-        $sdkServiceProvider->setControllerListener($controllerListener);
+        $controllerListener = $locator->client()->pluginClientControllerListenerPlugin();
+        $serviceProvider = $locator->client()->pluginClientServiceProviderPlugin();
+        $serviceProvider->setControllerListener($controllerListener);
 
-        return $sdkServiceProvider;
+        return $serviceProvider;
     }
 
     /**

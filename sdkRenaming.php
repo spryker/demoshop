@@ -13,7 +13,7 @@ $pathsToFiles = [
 ];
 
 $pathsToSdkFiles = [
-    __DIR__ . '/src/Pyz/Sdk',
+//    __DIR__ . '/src/Pyz/Sdk',
     __DIR__ . '/tests/',
     __DIR__ . '/vendor/spryker/spryker/Bundles/*/src/*/Sdk',
     __DIR__ . '/vendor/spryker/spryker/Bundles/*/tests/*/*/Sdk',
