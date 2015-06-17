@@ -3,16 +3,16 @@
 namespace Pyz\Yves\Checkout\Communication;
 
 use SprykerEngine\Yves\Kernel\Communication\AbstractDependencyContainer;
-use Pyz\Yves\Checkout\Communication\Form\Order;
+use Pyz\Yves\Checkout\Communication\Form\Checkout;
 
 class CheckoutDependencyContainer extends AbstractDependencyContainer
 {
     /**
-     * @return Order
+     * @return Checkout
      */
-    public function createFormOrder()
+    public function createCheckoutForm()
     {
-        return $this->getFactory()->createFormOrder();
+        return $this->getFactory()->createFormCheckout();
     }
 
 }

@@ -3,9 +3,9 @@
   <div class="cart__label--price">Preis</div>
 </div>
 <div class="cart__items js-cart-items">
-    {% include "@application/layout/partials/cart/cart-item.twig" with {name:'Batman', quantity:'1', price:'€ 12,99'} %}
-    {% include "@application/layout/partials/cart/cart-item.twig" with {name:'Brillenpinguin', quantity:'1', price:'€ 8,99'} %}
-    {% include "@application/layout/partials/cart/cart-item.twig" with {name:'Drachenritter Berserker', quantity:'1', price:'€ 28,99'} %}
+    {% for cartItem in cart.items %}
+        {% include "@application/layout/partials/cart/cart-item.twig" with {name:cartItem.sku, quantity:cartItem.quantity, price:cartItem.priceToPay} %}
+    {% endfor %}
 </div>
 <div class="cart__shipping"><!--
   --><div class="cart__shipping-label" colspan="2">Versand</div><!--
