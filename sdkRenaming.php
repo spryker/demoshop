@@ -7,9 +7,9 @@ use Symfony\Component\Finder\Finder;
 use Symfony\Component\Filesystem\Filesystem;
 
 $pathsToFiles = [
-    __DIR__ . '/src/',
+    __DIR__ . '/src/Pyz',
     __DIR__ . '/tests/',
-    __DIR__ . '/vendor/spryker/spryker/',
+    __DIR__ . '/vendor/spryker/spryker/Bundles',
 ];
 
 $pathsToSdkFiles = [
@@ -38,18 +38,30 @@ $files = function (array $pathsToFiles, $fileNamePattern = null) {
 /**
  * @param Finder $files
  */
-$renameSdkToClient = function (Finder $files) {
+$moveSdkToClient = function (Finder $files) {
     $filesystem = new Filesystem();
     /** @var SplFileInfo $file */
     foreach ($files as $file) {
         $target = str_replace('/Sdk/', '/Client/', $file->getPathname());
         $filesystem->copy($file->getPathname(), $target, true);
         $filesystem->remove($file->getPathname());
-        echo '<pre>' . PHP_EOL . var_dump($target) . PHP_EOL . 'Line: ' . __LINE__ . PHP_EOL . 'File: ' . __FILE__ . die();
     }
 };
 
-$renameSdkToClient($files($pathsToSdkFiles));
+/**
+ * @param Finder $files
+ */
+$renameSdkToClient = function (Finder $files) {
+    $filesystem = new Filesystem();
+    /** @var SplFileInfo $file */
+    foreach ($files as $file) {
+        $content = str_replace('\\Sdk\\', '\\Client\\', $file->getContents());
+        file_put_contents($file->getPathname(), $content);
+    }
+};
+
+$moveSdkToClient($files($pathsToSdkFiles));
+$renameSdkToClient($files($pathsToFiles));
 
 
 
