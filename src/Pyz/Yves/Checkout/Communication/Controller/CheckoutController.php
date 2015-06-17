@@ -24,26 +24,22 @@ class CheckoutController extends AbstractController
     public function indexAction(Request $request)
     {
         $container = $this->getDependencyContainer();
-        $orderForm = $container->createFormOrder();
-        $form = $this->createForm($orderForm);
+        $checkoutForm = $container->createCheckoutForm();
+
+        $checkoutTransfer = new CheckoutTransfer();
+        $checkoutTransfer->setGuest(true); // @TODO: only for Development
+
+        $form = $this->createForm($checkoutForm, $checkoutTransfer);
 
         if ($form->isValid()) {
-            $addressTransfer = new \Generated\Shared\Transfer\CustomerAddressTransfer();
-            $addressTransfer->fromArray($form->getData());
-            $addressTransfer->setEmail($this->getUsername());
-            $addressTransfer = $this->getLocator()->customer()->sdk()->newAddress($addressTransfer);
-            if ($addressTransfer) {
-                $this->addMessageSuccess(Messages::CUSTOMER_ADDRESS_ADDED);
-
-                return $this->redirectResponseInternal(CustomerControllerProvider::ROUTE_CUSTOMER_PROFILE);
-            }
-            $this->addMessageError(Messages::CUSTOMER_ADDRESS_NOT_ADDED);
-
-            return $this->redirectResponseInternal(CustomerControllerProvider::ROUTE_CUSTOMER_NEW_ADDRESS);
+            var_dump($form->getData());
+            return true;
         }
 
-
-        return ['form' => $form->createView()];
+        return [
+            'form' => $form->createView(),
+            'cart' => $this->demoCart()
+        ];
     }
 
     /**
@@ -120,7 +116,7 @@ class CheckoutController extends AbstractController
         $checkoutData->setBillingAddress('Julie-Wolfthorn-Straße 1, 10115 Berlin');
         $checkoutData->setEmail('konstantin.scheumann@spryker.com');
         $checkoutData->setPaymentMethod('paypal');
-        $checkoutData->setUserId(null);
+        $checkoutData->setIdUser(null);
 
         return $checkoutData;
     }
@@ -130,16 +126,34 @@ class CheckoutController extends AbstractController
      */
     private function demoCart()
     {
-        $cart = new CartItemsTransfer();
+        $cart = new CartTransfer();
 
         $item = new CartItemTransfer();
         $item->setId(1);
         $item->setGrossPrice(200);
-        $item->setQuantity(1);
-        $item->setSku(13424234235);
-        $item->setPriceToPay(190);
+        $item->setQuantity(3);
+        $item->setSku('Batman');
+        $item->setPriceToPay(1900);
         $item->setUniqueIdentifier(123);
-        $cart->addCartItem($item);
+        $cart->addItems($item);
+
+        $item2 = new CartItemTransfer();
+        $item2->setId(2);
+        $item2->setGrossPrice(200);
+        $item2->setQuantity(5);
+        $item2->setSku('Brillenpinguin');
+        $item2->setPriceToPay(2450);
+        $item2->setUniqueIdentifier(123);
+        $cart->addItems($item2);
+
+        $item3 = new CartItemTransfer();
+        $item3->setId(2);
+        $item3->setGrossPrice(200);
+        $item3->setQuantity(2);
+        $item3->setSku('DRACHENRITTER BERSERKER');
+        $item3->setPriceToPay(3250);
+        $item3->setUniqueIdentifier(123);
+        $cart->addItems($item3);
 
         return $cart;
     }
