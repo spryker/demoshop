@@ -119,7 +119,7 @@ class CheckoutController extends AbstractController
         $checkoutData->setBillingAddress('Julie-Wolfthorn-Straße 1, 10115 Berlin');
         $checkoutData->setEmail('konstantin.scheumann@spryker.com');
         $checkoutData->setPaymentMethod('paypal');
-        $checkoutData->setUserId(null);
+        $checkoutData->setIdUser(null);
 
         return $checkoutData;
     }
