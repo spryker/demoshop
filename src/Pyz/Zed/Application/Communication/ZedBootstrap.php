@@ -21,7 +21,7 @@ use SprykerFeature\Zed\Application\Communication\Plugin\ServiceProvider\SslServi
 use SprykerEngine\Zed\Translation\Communication\Plugin\TranslationServiceProvider;
 use SprykerFeature\Zed\Application\Communication\Plugin\ServiceProvider\TwigServiceProvider;
 use SprykerEngine\Zed\Kernel\Locator;
-use SprykerFeature\Zed\Sdk\Communication\Plugin\SdkServiceProviderPlugin;
+use SprykerFeature\Zed\Client\Communication\Plugin\ClientServiceProviderPlugin;
 use Silex\Provider\FormServiceProvider;
 use Silex\Provider\ServiceControllerServiceProvider;
 use Silex\Provider\ValidatorServiceProvider;
@@ -162,13 +162,13 @@ class ZedBootstrap extends Bootstrap
     }
 
     /**
-     * @return SdkServiceProviderPlugin
+     * @return ClientServiceProviderPlugin
      */
     protected function getSdkServiceProvider()
     {
         $locator = $this->getLocator();
-        $controllerListener = $locator->sdk()->pluginSdkControllerListenerPlugin();
-        $sdkServiceProvider = $locator->sdk()->pluginSdkServiceProviderPlugin();
+        $controllerListener = $locator->client()->pluginSdkControllerListenerPlugin();
+        $sdkServiceProvider = $locator->client()->pluginSdkServiceProviderPlugin();
         $sdkServiceProvider->setControllerListener($controllerListener);
 
         return $sdkServiceProvider;

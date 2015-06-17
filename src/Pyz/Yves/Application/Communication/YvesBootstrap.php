@@ -160,7 +160,7 @@ class YvesBootstrap extends SprykerYvesBootstrap
         $locator = $this->getLocator($app);
 
         $additionalGlobalVars = [
-            'categories' => $locator->categoryExporter()->sdk()->getNavigationCategories($app['locale']),
+            'categories' => $locator->categoryExporter()->client()->getNavigationCategories($app['locale']),
             'environment' => \SprykerFeature_Shared_Library_Environment::getEnvironment(),
             'registerForm' => $app['form.factory']->create($locator->customer()->pluginRegisterForm()->createFormRegister())->createView()
         ];

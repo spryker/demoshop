@@ -7,8 +7,8 @@ use Pyz\Yves\Checkout\Communication\Plugin\CheckoutControllerProvider;
 use Pyz\Yves\Cart\Communication\Helper\CartControllerTrait;
 use Pyz\Yves\Cart\Communication\Plugin\CartControllerProvider;
 use SprykerEngine\Yves\Application\Communication\Controller\AbstractController;
-use SprykerFeature\Sdk\Cart\CartSdk;
-use SprykerFeature\Sdk\Checkout\CheckoutSdk;
+use SprykerFeature\Client\Cart\CartClient;
+use SprykerFeature\Client\Checkout\CheckoutClient;
 use Symfony\Component\Form\FormInterface;
 use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\HttpFoundation\Request;
@@ -180,7 +180,7 @@ class CheckoutController extends AbstractController
     }
 
     /**
-     * @return CheckoutSdk
+     * @return CheckoutClient
      */
     protected function getCheckoutSdk()
     {
@@ -188,7 +188,7 @@ class CheckoutController extends AbstractController
     }
 
     /**
-     * @return CartSdk
+     * @return CartClient
      */
     protected function getCartSdk()
     {

@@ -5,7 +5,7 @@ use SprykerEngine\Shared\Kernel\LocatorLocatorInterface;
 use SprykerEngine\Yves\Application\Business\Application;
 use SprykerEngine\Yves\Application\Communication\Controller\AbstractController;
 use SprykerEngine\Yves\Kernel\Factory;
-use SprykerFeature\Sdk\Cart\Model\CartInterface;
+use SprykerFeature\Client\Cart\Model\CartInterface;
 use SprykerFeature\Shared\Cart2\Transfer\ItemCollectionInterface;
 use Symfony\Component\HttpFoundation\Request;
 use Pyz\Yves\Cart\Communication\Plugin\CartControllerProvider;

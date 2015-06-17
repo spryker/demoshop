@@ -23,7 +23,7 @@ class CustomerController extends AbstractController
         if ($form->isValid()) {
             $customerTransfer = new \Generated\Shared\Transfer\CustomerTransfer();
             $customerTransfer->fromArray($form->getData());
-            $this->getLocator()->customer()->sdk()->forgotPassword($customerTransfer);
+            $this->getLocator()->customer()->client()->forgotPassword($customerTransfer);
             $this->addMessageSuccess(Messages::CUSTOMER_PASSWORD_RECOVERY_MAIL_SENT);
 
             return $this->redirectResponseInternal('home');
@@ -44,7 +44,7 @@ class CustomerController extends AbstractController
         if ($form->isValid()) {
             $customerTransfer = new \Generated\Shared\Transfer\CustomerTransfer();
             $customerTransfer->setRestorePasswordKey($request->query->get('token'));
-            $this->getLocator()->customer()->sdk()->restorePassword($customerTransfer);
+            $this->getLocator()->customer()->client()->restorePassword($customerTransfer);
             $this->getLocator()->customer()
                 ->pluginSecurityService()
                 ->createUserProvider($request->getSession())
@@ -68,7 +68,7 @@ class CustomerController extends AbstractController
         if ($form->isValid()) {
             $customerTransfer = new \Generated\Shared\Transfer\CustomerTransfer();
             $customerTransfer->setEmail($this->getUsername());
-            if ($this->getLocator()->customer()->sdk()->deleteCustomer($customerTransfer)) {
+            if ($this->getLocator()->customer()->client()->deleteCustomer($customerTransfer)) {
                 $this->getLocator()->customer()
                     ->pluginSecurityService()
                     ->createUserProvider($request->getSession())
@@ -95,13 +95,13 @@ class CustomerController extends AbstractController
         if ($form->isValid()) {
             $customerTransfer->fromArray($form->getData());
             $customerTransfer->setEmail($this->getUsername());
-            $this->getLocator()->customer()->sdk()->updateCustomer($customerTransfer);
+            $this->getLocator()->customer()->client()->updateCustomer($customerTransfer);
 
             return $this->redirectResponseInternal(CustomerControllerProvider::ROUTE_CUSTOMER_PROFILE);
         }
 
         $customerTransfer->setEmail($this->getUsername());
-        $customerTransfer = $this->getLocator()->customer()->sdk()->getCustomer($customerTransfer);
+        $customerTransfer = $this->getLocator()->customer()->client()->getCustomer($customerTransfer);
         $form->setData($customerTransfer->toArray());
 
         return [
