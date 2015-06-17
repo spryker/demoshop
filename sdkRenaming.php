@@ -55,7 +55,7 @@ $renameSdkToClient = function (Finder $files) {
     $filesystem = new Filesystem();
     /** @var SplFileInfo $file */
     foreach ($files as $file) {
-        $content = str_replace(['\\Sdk\\', '/Sdk/', '/sdk/', '->sdk()->'], ['\\Client\\', '/Client/', '/client/', '->client()->'], $file->getContents());
+        $content = str_replace(['\\Sdk\\', '/Sdk/', '/sdk/', '->sdk()->', 'SdkControllerListenerInterface'], ['\\Client\\', '/Client/', '/client/', '->client()->', 'ClientControllerListenerInterface'], $file->getContents());
         file_put_contents($file->getPathname(), $content);
     }
 };
