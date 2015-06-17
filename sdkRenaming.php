@@ -35,13 +35,21 @@ $files = function (array $pathsToFiles, $fileNamePattern = null) {
     return $finder;
 };
 
-$filesystem = new Filesystem();
-/** @var SplFileInfo $file */
-foreach ($files($pathsToSdkFiles) as $file) {
-    $target = str_replace('/Sdk/', '/Client/', $file->getPathname());
-    $filesystem->rename($file->getPathname(), $target, true);
-echo '<pre>' . PHP_EOL . var_dump($file) . PHP_EOL . 'Line: ' . __LINE__ . PHP_EOL . 'File: ' . __FILE__ . die();
-}
+/**
+ * @param Finder $files
+ */
+$renameSdkToClient = function (Finder $files) {
+    $filesystem = new Filesystem();
+    /** @var SplFileInfo $file */
+    foreach ($files as $file) {
+        $target = str_replace('/Sdk/', '/Client/', $file->getPathname());
+        $filesystem->copy($file->getPathname(), $target, true);
+        $filesystem->remove($file->getPathname());
+        echo '<pre>' . PHP_EOL . var_dump($target) . PHP_EOL . 'Line: ' . __LINE__ . PHP_EOL . 'File: ' . __FILE__ . die();
+    }
+};
+
+$renameSdkToClient($files($pathsToSdkFiles));
 
 
 
@@ -53,5 +61,3 @@ echo '<pre>' . PHP_EOL . var_dump($file) . PHP_EOL . 'Line: ' . __LINE__ . PHP_E
 
 //Classes in Zed which communicate with the Client (in Yves) are called Gateway
 //SprykerFeature\Zed\Cart\Communication\Controller\GatewayController
-
-// Find all Sdk files and move them to Api directory
