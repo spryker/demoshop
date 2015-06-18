@@ -1,18 +1,19 @@
 <?php
 namespace Pyz\Yves\Cart\Communication\Controller;
 
+use Generated\Shared\Cart\CartItemInterface;
+use Pyz\Yves\Cart\Communication\Plugin\CartControllerProvider;
 use SprykerEngine\Shared\Kernel\LocatorLocatorInterface;
 use SprykerEngine\Yves\Application\Business\Application;
 use SprykerEngine\Yves\Application\Communication\Controller\AbstractController;
 use SprykerEngine\Yves\Kernel\Factory;
 use SprykerFeature\Client\Cart\Model\CartInterface;
-use SprykerFeature\Shared\Cart2\Transfer\ItemCollectionInterface;
-use Symfony\Component\HttpFoundation\Request;
-use Pyz\Yves\Cart\Communication\Plugin\CartControllerProvider;
 use Symfony\Component\HttpFoundation\RedirectResponse;
+use Symfony\Component\HttpFoundation\Request;
 
 class CartController extends AbstractController
 {
+
     /**
      * @var CartInterface
      */
@@ -30,9 +31,7 @@ class CartController extends AbstractController
     }
 
     /**
-     * @param Request  $request
-     * @param CartItem $cartItem
-     * @return RedirectResponse
+     * @param Application $app
      */
     private function initCart(Application $app)
     {
@@ -41,7 +40,8 @@ class CartController extends AbstractController
             ->getLocator()
             ->cart()
             ->pluginCartService()
-            ->createCartServiceProvider($app['session']);
+            ->createCartServiceProvider($app['session'])
+        ;
     }
 
     /**
@@ -53,9 +53,7 @@ class CartController extends AbstractController
     }
 
     /**
-     * @param Request  $request
-     * @param CartItem $cartItem
-     * @return RedirectResponse
+     * @return array
      */
     public function indexAction()
     {
@@ -65,13 +63,15 @@ class CartController extends AbstractController
         return $this->viewResponse([
             'products' => $this->getProductsForCartItems($cartItems),
             'cartItems' => $cartItems,
-            'totals' => $cart->getCart()->getTotals()
+            'totals' => $cart->getCart()->getTotals(),
         ]);
     }
 
     /**
-     * @param Request  $request
-     * @param CartItem $cartItem
+     * @param Request $request
+     * @param $sku
+     * @param $quantity
+     *
      * @return RedirectResponse
      */
     public function addAction(Request $request, $sku, $quantity)
@@ -81,4 +81,4 @@ class CartController extends AbstractController
         return $this->redirectResponseInternal(CartControllerProvider::ROUTE_CART);
     }
 
-    }
+}
