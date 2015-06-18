@@ -9,6 +9,7 @@
     "mandrill/mandrill": "1.0.*",
     "predis/predis": "v1.0.0",
     "digital-canvas/zend-framework": ">=1.12.2",
+    "videlalvaro/php-amqplib": "2.2.*",
 
     "guzzle/http": "~3.7, <= 3.8",
     "league/csv": "*",

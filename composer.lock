@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "b7a288c7353da212a5139b4035a1c134",
+    "hash": "aa2b60f72ca669e511f7a5ad0d3c2c52",
     "packages": [
         {
             "name": "digital-canvas/zend-framework",
@@ -141,16 +141,16 @@
         },
         {
             "name": "league/csv",
-            "version": "7.1.1",
+            "version": "7.1.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/thephpleague/csv.git",
-                "reference": "ca5242603b75a9557c675e34fd70a8cb32d42465"
+                "reference": "2ee1760c262c41986f6371775907fc9e8603fd26"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/thephpleague/csv/zipball/ca5242603b75a9557c675e34fd70a8cb32d42465",
-                "reference": "ca5242603b75a9557c675e34fd70a8cb32d42465",
+                "url": "https://api.github.com/repos/thephpleague/csv/zipball/2ee1760c262c41986f6371775907fc9e8603fd26",
+                "reference": "2ee1760c262c41986f6371775907fc9e8603fd26",
                 "shasum": ""
             },
             "require": {
@@ -158,7 +158,8 @@
                 "php": ">=5.4.0"
             },
             "require-dev": {
-                "phpunit/phpunit": "~4.0"
+                "phpunit/phpunit": "~4.0",
+                "scrutinizer/ocular": "~1.1"
             },
             "type": "library",
             "extra": {
@@ -193,7 +194,7 @@
                 "read",
                 "write"
             ],
-            "time": "2015-05-20 12:55:53"
+            "time": "2015-06-10 11:12:37"
         },
         {
             "name": "mandrill/mandrill",
@@ -708,7 +709,7 @@
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/spryker.git",
-                "reference": "5805ce3f71cf9fc7ae482279b7ec5fe15caa9ae3"
+                "reference": "0cd1bce8df2ee10ef7149a57790643ec1791cdb9"
             },
             "require": {
                 "digital-canvas/zend-framework": ">=1.12.2",
@@ -842,7 +843,7 @@
                     "SprykerFeature\\Shared\\Library": "Bundles/Library/src/"
                 }
             },
-            "time": "2015-06-10 07:58:50"
+            "time": "2015-06-11 16:13:21"
         },
         {
             "name": "symfony-cmf/routing",
@@ -903,16 +904,16 @@
         },
         {
             "name": "symfony/config",
-            "version": "v2.7.0",
+            "version": "v2.7.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/Config.git",
-                "reference": "537e9912063e66aa70cbcddd7d6e6e8db61d98e4"
+                "reference": "58ded81f1f582a87c528ef3dae9a859f78b5f374"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/Config/zipball/537e9912063e66aa70cbcddd7d6e6e8db61d98e4",
-                "reference": "537e9912063e66aa70cbcddd7d6e6e8db61d98e4",
+                "url": "https://api.github.com/repos/symfony/Config/zipball/58ded81f1f582a87c528ef3dae9a859f78b5f374",
+                "reference": "58ded81f1f582a87c528ef3dae9a859f78b5f374",
                 "shasum": ""
             },
             "require": {
@@ -949,7 +950,7 @@
             ],
             "description": "Symfony Config Component",
             "homepage": "https://symfony.com",
-            "time": "2015-05-15 13:33:16"
+            "time": "2015-06-11 14:06:56"
         },
         {
             "name": "symfony/console",
@@ -1429,16 +1430,16 @@
         },
         {
             "name": "symfony/intl",
-            "version": "v2.7.0",
+            "version": "v2.7.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/Intl.git",
-                "reference": "b41de2d387cc71569ee4b8b2f906d3b6cc64984d"
+                "reference": "2c85b4746cb6e9231fd2d5eafc1b985221cf609c"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/Intl/zipball/b41de2d387cc71569ee4b8b2f906d3b6cc64984d",
-                "reference": "b41de2d387cc71569ee4b8b2f906d3b6cc64984d",
+                "url": "https://api.github.com/repos/symfony/Intl/zipball/2c85b4746cb6e9231fd2d5eafc1b985221cf609c",
+                "reference": "2c85b4746cb6e9231fd2d5eafc1b985221cf609c",
                 "shasum": ""
             },
             "require": {
@@ -1500,7 +1501,7 @@
                 "l10n",
                 "localization"
             ],
-            "time": "2015-05-22 14:54:25"
+            "time": "2015-06-04 20:11:48"
         },
         {
             "name": "symfony/options-resolver",
@@ -2237,6 +2238,51 @@
                 "templating"
             ],
             "time": "2014-02-13 10:19:29"
+        },
+        {
+            "name": "videlalvaro/php-amqplib",
+            "version": "v2.2.6",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/videlalvaro/php-amqplib.git",
+                "reference": "6ef2ca9a45bb9fb20872f824f4c7c1518315bd3f"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/videlalvaro/php-amqplib/zipball/6ef2ca9a45bb9fb20872f824f4c7c1518315bd3f",
+                "reference": "6ef2ca9a45bb9fb20872f824f4c7c1518315bd3f",
+                "shasum": ""
+            },
+            "require": {
+                "ext-bcmath": "*",
+                "php": ">=5.3.0"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "3.7.*"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-0": {
+                    "PhpAmqpLib": ""
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "LGPL-2.1"
+            ],
+            "authors": [
+                {
+                    "name": "Alvaro Videla"
+                }
+            ],
+            "description": "This library is a pure PHP implementation of the AMQP protocol. It's been tested against RabbitMQ.",
+            "homepage": "https://github.com/videlalvaro/php-amqplib/",
+            "keywords": [
+                "message",
+                "queue",
+                "rabbitmq"
+            ],
+            "time": "2013-12-22 12:49:53"
         },
         {
             "name": "zendframework/zend-code",
@@ -3579,16 +3625,16 @@
         },
         {
             "name": "symfony/browser-kit",
-            "version": "v2.7.0",
+            "version": "v2.7.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/BrowserKit.git",
-                "reference": "70cdc18dd601a486a8cc69ee26367cbaedd60400"
+                "reference": "d0a144a1a96d5dc90bed2814b2096a1322761672"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/BrowserKit/zipball/70cdc18dd601a486a8cc69ee26367cbaedd60400",
-                "reference": "70cdc18dd601a486a8cc69ee26367cbaedd60400",
+                "url": "https://api.github.com/repos/symfony/BrowserKit/zipball/d0a144a1a96d5dc90bed2814b2096a1322761672",
+                "reference": "d0a144a1a96d5dc90bed2814b2096a1322761672",
                 "shasum": ""
             },
             "require": {
@@ -3630,11 +3676,11 @@
             ],
             "description": "Symfony BrowserKit Component",
             "homepage": "https://symfony.com",
-            "time": "2015-05-02 15:21:08"
+            "time": "2015-06-04 20:11:48"
         },
         {
             "name": "symfony/css-selector",
-            "version": "v2.7.0",
+            "version": "v2.7.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/CssSelector.git",
@@ -3687,16 +3733,16 @@
         },
         {
             "name": "symfony/dependency-injection",
-            "version": "v2.7.0",
+            "version": "v2.7.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/DependencyInjection.git",
-                "reference": "137bf489c5151c7eb1e4b7dd34a123f9a74b966d"
+                "reference": "1a409e52a38ec891de0a7a61a191d1c62080b69d"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/DependencyInjection/zipball/137bf489c5151c7eb1e4b7dd34a123f9a74b966d",
-                "reference": "137bf489c5151c7eb1e4b7dd34a123f9a74b966d",
+                "url": "https://api.github.com/repos/symfony/DependencyInjection/zipball/1a409e52a38ec891de0a7a61a191d1c62080b69d",
+                "reference": "1a409e52a38ec891de0a7a61a191d1c62080b69d",
                 "shasum": ""
             },
             "require": {
@@ -3743,11 +3789,11 @@
             ],
             "description": "Symfony DependencyInjection Component",
             "homepage": "https://symfony.com",
-            "time": "2015-05-29 14:44:44"
+            "time": "2015-06-11 19:13:11"
         },
         {
             "name": "symfony/dom-crawler",
-            "version": "v2.7.0",
+            "version": "v2.7.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/DomCrawler.git",
@@ -3800,16 +3846,16 @@
         },
         {
             "name": "symfony/stopwatch",
-            "version": "v2.7.0",
+            "version": "v2.7.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/Stopwatch.git",
-                "reference": "7702945bceddc0e1f744519abb8a2baeb94bd5ce"
+                "reference": "c653f1985f6c2b7dbffd04d48b9c0a96aaef814b"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/Stopwatch/zipball/7702945bceddc0e1f744519abb8a2baeb94bd5ce",
-                "reference": "7702945bceddc0e1f744519abb8a2baeb94bd5ce",
+                "url": "https://api.github.com/repos/symfony/Stopwatch/zipball/c653f1985f6c2b7dbffd04d48b9c0a96aaef814b",
+                "reference": "c653f1985f6c2b7dbffd04d48b9c0a96aaef814b",
                 "shasum": ""
             },
             "require": {
@@ -3845,7 +3891,7 @@
             ],
             "description": "Symfony Stopwatch Component",
             "homepage": "https://symfony.com",
-            "time": "2015-05-02 15:21:08"
+            "time": "2015-06-04 20:11:48"
         },
         {
             "name": "symfony/web-profiler-bundle",
