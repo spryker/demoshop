@@ -27,7 +27,7 @@
         </transitions>
 
         <events>
-            <event name="refund money"/>
+            <event name="refund money" manual="true"/>
         </events>
     </process>
 </statemachine>
