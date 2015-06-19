@@ -13,7 +13,7 @@ class ProductOptionDependencyContainer extends SprykerProductOptionDependencyCon
      */
     public function getInstallerFacade()
     {
-        return $this->getLocator()->productOptions()->facade();
+        return $this->getLocator()->productOption()->facade();
     }
 
 }
