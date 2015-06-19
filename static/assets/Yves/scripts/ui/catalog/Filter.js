@@ -18,14 +18,14 @@ var Filter = function ($el) {
       range: true,
       max: this.max,
       values: [this.min, this.max],
-      animate: 'fast',
+      animate: 'fast'
       // slide: updatePriceValueDisplay,
       // change: triggerPriceChange
     });
 
     $slider.on('slidechange', function(event) {
       // programmatic changes don't include mouse coordinate information
-      // so this ensures that we only repond to user-initiated events
+      // so this ensures that we only respond to user-initiated events
       if (event.clientX) {
         that.$el.trigger('change');
       }
@@ -36,9 +36,19 @@ var Filter = function ($el) {
       that.updateSliderValueDisplay(min, max);
     });
   } else if (this.type == 'color') {
+      var that = this;
     this.$el.find('.js-color-name').each(function(i, el) {
-      var color = $(el).siblings(':radio').data('color');
+      var color = $(el).siblings(':radio').data('color'),
+          radio = $(el).siblings(':radio');
       $(el).css('background-color', color);
+        $(el).on('click', function(e) {
+            if (color == that.getSelectedValue()) {
+                that.setSelectedValue(null);
+            } else {
+                that.setSelectedValue(color);
+            }
+            that.$el.trigger('change');
+        });
     });
   }
 };
