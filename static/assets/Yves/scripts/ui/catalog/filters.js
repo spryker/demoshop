@@ -23,7 +23,6 @@ var triggerPriceChange = function(event, ui) {
 var initActiveFilterList = function() {
   $('.js-filter').on('change', function(e) {
     var changedFilterName = $(e.currentTarget).data('filter-name');
-      console.log(changedFilterName);
     updateActiveFilterList(getFilter(changedFilterName));
 
     $('.js-products-prev').remove();
@@ -48,7 +47,6 @@ var initActiveFilterList = function() {
 var selectRequiredFilters = function() {
   var paramName, filter;
   var params = URLManager.getParams();
-    console.log(params);
   for (paramName in params) {
     if (filter = getFilter(paramName)) {
       filter.setSelectedValue(params[paramName]);

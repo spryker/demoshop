@@ -94,7 +94,11 @@ Filter.prototype.getSelectedValue = function(display) {
 Filter.prototype.setSelectedValue = function(value) {
   var values;
   if (this.type == 'default' || this.type == 'color') {
-    this.$el.find("[value='"+value+"']").prop('checked', true);
+    if (value === null) {
+      this.$el.find("input:checked").prop('checked', false);
+    } else {
+      this.$el.find("[value='"+value+"']").prop('checked', true);
+    }
   } else if (this.type == 'range') {
     values = value.split('-');
     this.$el.find('.js-slider').slider('values', values);
