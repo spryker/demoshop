@@ -3,13 +3,22 @@
 namespace Pyz\Zed\Application\Communication;
 
 use Generated\Zed\Ide\AutoCompletion;
+use Silex\Provider\FormServiceProvider;
+use Silex\Provider\ServiceControllerServiceProvider;
+use Silex\Provider\SessionServiceProvider;
+use Silex\Provider\ValidatorServiceProvider;
+use Silex\Provider\WebProfilerServiceProvider;
+use Silex\ServiceProviderInterface;
+use SprykerEngine\Shared\Kernel\Store;
+use SprykerEngine\Zed\Kernel\Locator;
+use SprykerEngine\Zed\Translation\Communication\Plugin\TranslationServiceProvider;
 use SprykerFeature\Shared\Application\Business\Application;
 use SprykerFeature\Shared\Application\Business\Bootstrap;
+use SprykerFeature\Shared\Application\Business\Routing\SilexRouter;
 use SprykerFeature\Shared\Application\Communication\Plugin\ServiceProvider\RoutingServiceProvider;
 use SprykerFeature\Shared\Application\Communication\Plugin\ServiceProvider\UrlGeneratorServiceProvider;
 use SprykerFeature\Shared\Library\Config;
 use SprykerFeature\Shared\System\SystemConfig;
-use SprykerFeature\Shared\Application\Business\Routing\SilexRouter;
 use SprykerFeature\Zed\Application\Business\Model\Router\MvcRouter;
 use SprykerFeature\Zed\Application\Business\Model\Twig\ZedExtension;
 use SprykerFeature\Zed\Application\Communication\Plugin\Pimple;
@@ -18,23 +27,15 @@ use SprykerFeature\Zed\Application\Communication\Plugin\ServiceProvider\NewRelic
 use SprykerFeature\Zed\Application\Communication\Plugin\ServiceProvider\PropelServiceProvider;
 use SprykerFeature\Zed\Application\Communication\Plugin\ServiceProvider\RequestServiceProvider;
 use SprykerFeature\Zed\Application\Communication\Plugin\ServiceProvider\SslServiceProvider;
-use SprykerEngine\Zed\Translation\Communication\Plugin\TranslationServiceProvider;
 use SprykerFeature\Zed\Application\Communication\Plugin\ServiceProvider\TwigServiceProvider;
-use SprykerEngine\Zed\Kernel\Locator;
-use SprykerFeature\Zed\Client\Communication\Plugin\ClientServiceProviderPlugin;
-use Silex\Provider\FormServiceProvider;
-use Silex\Provider\ServiceControllerServiceProvider;
-use Silex\Provider\ValidatorServiceProvider;
-use Silex\Provider\WebProfilerServiceProvider;
+use SprykerFeature\Zed\Kernel\Communication\Plugin\GatewayServiceProviderPlugin;
 use Symfony\Bridge\Twig\Extension\TranslationExtension;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Routing\RouterInterface;
-use Silex\ServiceProviderInterface;
-use Silex\Provider\SessionServiceProvider;
-use SprykerEngine\Shared\Kernel\Store;
 
 class ZedBootstrap extends Bootstrap
 {
+
     /**
      * @return Application
      */
@@ -108,7 +109,7 @@ class ZedBootstrap extends Bootstrap
             new TwigServiceProvider(),
             new EnvironmentInformationServiceProvider(),
             new TranslationServiceProvider(),
-            $this->getClientServiceProvider(),
+            $this->getGatewayServiceProvider(),
             new UrlGeneratorServiceProvider(),
             new NewRelicServiceProvider(),
         ];
@@ -129,7 +130,7 @@ class ZedBootstrap extends Bootstrap
     {
         return [
             new MvcRouter($app),
-            new SilexRouter($app)
+            new SilexRouter($app),
         ];
     }
 
@@ -141,7 +142,7 @@ class ZedBootstrap extends Bootstrap
     protected function globalTemplateVariables(Application $app)
     {
         $navigation = $this->getNavigation();
-        $breadcrumbs =  $navigation['path'];
+        $breadcrumbs = $navigation['path'];
 
         return [
             'environment' => APPLICATION_ENV,
@@ -162,13 +163,13 @@ class ZedBootstrap extends Bootstrap
     }
 
     /**
-     * @return ClientServiceProviderPlugin
+     * @return GatewayServiceProviderPlugin
      */
-    protected function getClientServiceProvider()
+    protected function getGatewayServiceProvider()
     {
         $locator = $this->getLocator();
-        $controllerListener = $locator->client()->pluginClientControllerListenerPlugin();
-        $serviceProvider = $locator->client()->pluginClientServiceProviderPlugin();
+        $controllerListener = $locator->kernel()->pluginGatewayControllerListenerPlugin();
+        $serviceProvider = $locator->kernel()->pluginGatewayServiceProviderPlugin();
         $serviceProvider->setControllerListener($controllerListener);
 
         return $serviceProvider;

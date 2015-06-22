@@ -1,6 +1,7 @@
 <?php
 namespace Pyz\Yves\Customer\Communication\Controller;
 
+use Generated\Shared\Transfer\CustomerTransfer;
 use Pyz\Yves\Customer\Plugin\CustomerControllerProvider;
 use Pyz\Yves\Customer\CustomerDependencyContainer;
 use SprykerEngine\Yves\Application\Communication\Controller\AbstractController;
@@ -21,7 +22,7 @@ class CustomerController extends AbstractController
         $form = $this->createForm($this->getDependencyContainer()->createFormForgot());
 
         if ($form->isValid()) {
-            $customerTransfer = new \Generated\Shared\Transfer\CustomerTransfer();
+            $customerTransfer = new CustomerTransfer();
             $customerTransfer->fromArray($form->getData());
             $this->getLocator()->customer()->client()->forgotPassword($customerTransfer);
             $this->addMessageSuccess(Messages::CUSTOMER_PASSWORD_RECOVERY_MAIL_SENT);
