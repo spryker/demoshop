@@ -16,10 +16,8 @@
 
             <p class="product__price">{{ product.price|price }}</p>
 
-            <form class="product__add-to-cart">
-                {% include "@application/layout/partials/spinner.twig" with {class:"product__quantity", style:"caplet", name:"product__quantity", value:"1"} %}
-                <input type="submit" class="product__add-button cta" value="{{ "detail.addToCart"|trans }}"></input>
-            </form>
+            {% include "@application/layout/partials/spinner.twig" with {class:"product__quantity", style:"caplet", name:"quantity", value:"1"} %}
+            <button class="product__add-button cta" onclick="$.post('/cart/add/{{ product.concreteProducts[0].sku }}', { quantity: $('[name=quantity]').val() }, function (data){ console.log(data); }); return false;">{{ "detail.addToCart"|trans }}</button>
         </section>
         <section class="product__main-image">
             <img src="{{ product.image_url }}" alt="" style="width: 100%;"/>
