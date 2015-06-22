@@ -11,7 +11,7 @@
         <aside class="catalog__filter js-filters">
             {% include "@catalog/catalog/partials/filter-default.twig" with {filterName:'category'} %}
             {% include "@catalog/catalog/partials/filter-color.twig" with {filterName:'color', id: 42} %}
-            {% include "@catalog/catalog/partials/filter-range.twig" with {filterName:'price', min:'0', max:'200'} %}
+            {% include "@catalog/catalog/partials/filter-range.twig" with {filterName:'price', min:facets.price.rangeValues.min|priceRaw|floor, max:(facets.price.rangeValues.max)|priceRaw|ceil} %}
             {% include "@catalog/catalog/partials/filter-multivalue.twig" with {filterName:'extras'} %}
         </aside>
         <button class="catalog__toggle-filters js-toggle-filters">
