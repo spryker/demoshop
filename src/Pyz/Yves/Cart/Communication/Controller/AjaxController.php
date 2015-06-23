@@ -9,6 +9,7 @@ use SprykerEngine\Yves\Kernel\Communication\Factory;
 use SprykerEngine\Yves\Application\Communication\Controller\AbstractController;
 use SprykerFeature\Sdk\Cart\Model\CartInterface;
 use Symfony\Component\HttpFoundation\RedirectResponse;
+use Generated\Shared\Transfer\CartTransfer;
 
 class AjaxController extends AbstractController
 {
@@ -42,7 +43,8 @@ class AjaxController extends AbstractController
     public function indexAction()
     {
         /** @var GeneratedCartInterface $cart */
-        $cart = $this->getCart()->getCart();
+        //$cart = $this->getCart()->getCart();
+        $cart = $this->getMockCart();
 
         return $this->viewResponse([
             'cart' => $cart,
@@ -95,13 +97,20 @@ class AjaxController extends AbstractController
         return $this->redirectResponseInternal(CartControllerProvider::ROUTE_CART_OVERLAY);
     }
 
+    public function testAction($sku)
+    {
+        $this->getCart()->addToCart($sku, 1);
+
+        return $this->redirectResponseInternal(CartControllerProvider::ROUTE_CART_OVERLAY);
+    }
+
     /**
      * @param \ArrayObject $cartItems
      * @return array
      */
     public function getProductsForCartItems(\ArrayObject $cartItems)
     {
-        if (count($cartItems === 0)) {
+        if (count($cartItems) === 0) {
             return [];
         }
 
@@ -114,31 +123,60 @@ class AjaxController extends AbstractController
                 'quantity' => $item->getQuantity(),
             ];
 
-            $abstractProduct = $this->getLocator()->catalog()->sdk()->createCatalogModel()->getProductDataById($item->getId());
-            if (isset($abstractProduct['abstract_Attributes']) && isset($abstractProduct['abstract_attributes']['thumbnail_url'])) {
-                $product['thumbnail'] = $abstractProduct['abstract_attributes']['thumbnail_url'];
+            $abstract = $this->getLocator()->catalog()->sdk()->createCatalogModel()->getProductDataById($item->getId());
+            if (isset($abstract['abstract_Attributes']) && isset($abstract['abstract_attributes']['thumbnail_url'])) {
+                $product['thumbnail'] = $abstract['abstract_attributes']['thumbnail_url'];
             }
 
-            if (isset($abstractProduct['concrete_products'])) {
-                foreach ($abstractProduct['concrete_products'] as $concreteProduct) {
-                    if (isset($concreteProduct['sku']) && $concreteProduct['sku'] == $item->getSku()) {
-                        if (isset($concreteProduct['name'])) {
+            if (isset($abstract['concrete_products'])) {
+                foreach ($abstract['concrete_products'] as $concrete) {
+                    if (isset($concrete['sku']) && $concrete['sku'] == $item->getSku()) {
+                        if (isset($concrete['name'])) {
                             //@todo fall back to abstract name?
-                            $product['name'] = $concreteProduct['name'];
+                            $product['name'] = $concrete['name'];
                         }
                     }
                 }
             }
 
             //@todo price from item?
-            if (isset($abstractProduct['valid_price'])) {
-                $product['price'] =  $abstractProduct['valid_price'];
+            if (isset($abstract['valid_price'])) {
+                $product['price'] =  $abstract['valid_price'];
             }
 
             $products[] = $product;
         }
 
         return $products;
+    }
+
+    private function getMockCart()
+    {
+        $cart = new CartTransfer();
+
+        $items = new \ArrayObject();
+
+        $item1 = new CartItemTransfer();
+        $item1->setId(13);
+        $item1->setQuantity(1);
+        $item1->setSku('146624');
+        $items[] = $item1;
+
+        $item2 = new CartItemTransfer();
+        $item2->setId(26);
+        $item2->setQuantity(2);
+        $item2->setSku('147096');
+        $items[] = $item2;
+
+        $item3 = new CartItemTransfer();
+        $item3->setId(33);
+        $item3->setQuantity(3);
+        $item3->setSku('147355');
+        $items[] = $item3;
+
+        $cart->setItems($items);
+
+        return $cart;
     }
 
 }

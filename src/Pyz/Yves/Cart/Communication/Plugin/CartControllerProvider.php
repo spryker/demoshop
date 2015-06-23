@@ -96,6 +96,10 @@ class CartControllerProvider extends YvesControllerProvider
         $this->createPostController('/cart/increase/{sku}', self::ROUTE_CART_DECREASE_POST, 'Cart', 'Ajax', 'decrease')
             ->assert('sku', '[a-zA-Z0-9-_]+')
         ;
+
+        $this->createGetController('/cart/test/{sku}', 'cart/test', 'Cart', 'Ajax', 'test')
+            ->assert('sku', '[a-zA-Z0-9-_]+')
+        ;
     }
 
     /**

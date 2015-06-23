@@ -23,47 +23,49 @@ var hideCart = function() {
 };
 
 var renderCart = function() {
-  var html = '';
-  var $el = $('.js-cart-items');
-  var $shipping = $('.js-cart-shipping');
-  var $total = $('.js-cart-total');
-  _.each(model.cart.items, function(item) {
-    html += template(item);
-  });
-  $el.children().remove();
-  $el.html(html);
-  $shipping.html('€ '+model.cart.shipping);
-  $total.html('€ '+model.cart.total);
-
-  setItemCount();
-  spinner.init();
+  //@todo add waiting gfx
+  $.get('/cart/overlay')
+      .done(function (data) {
+        $('#cart-overlay').html(data);
+      })
+      .always(function () {
+        setItemCount();
+        //@todo remove waiting gfx
+      })
+  ;
 }
 
 var setItemCount = function() {
-  var count = _.reduce(model.cart.items, function(total, item) {
-    return total + parseInt(item.quantity);
-  }, 0);
-  $('.js-shopping-cart').addClass('js-cart-has-items').attr('data-item-count', count);
+  var itemsCount = $('.cart__item-name').length;
+  if (itemsCount > 0) {
+    $('.js-shopping-cart').addClass('js-cart-has-items').attr('data-item-count', itemsCount);
+  } else {
+    $('.js-shopping-cart').removeClass('js-cart-has-items');
+  }
 };
 
 module.exports = {
-
   init: function() {
     $cart = $('.js-shopping-cart');
-    template = _.template(templateSrc);
 
-    model.loadCart()
-      .done(function(data) {
-        renderCart();
-      });
+    renderCart();
 
     $('.js-cart-toggle').on('click', function() {
-      if (isExpanded) {
-        hideCart();
-      } else {
-        showCart();
-      }
+        if (isExpanded) {
+            hideCart();
+        } else {
+            showCart();
+        }
     });
+
     $('.js-cart-close').on('click', hideCart);
+
+    $('.product__add-button').click(function () {
+        $.post('/cart/add/' + $('[value=sku]').val(), {
+            quantity: $('[name=quantity]').val()
+        }, function (data) {
+            console.log(data);
+        }); return false;
+    });
   }
 };

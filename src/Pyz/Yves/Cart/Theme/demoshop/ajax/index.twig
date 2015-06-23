@@ -7,7 +7,7 @@
         <div class="cart__items js-cart-items">
             {#@todo relate the item to the product#}
             {% for product in products %}
-                {% if product.thumbnail %}
+                {% if product.thumbnail is defined and product.thumbnail is not empty %}
                     <img class="cart__item-image" src="{{ product.thumbnail }}">
                 {% endif %}
                 <div class="cart__item-quantity">{{ product.quantity }}</div>
