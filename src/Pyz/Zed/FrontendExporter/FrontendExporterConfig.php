@@ -21,7 +21,9 @@ class FrontendExporterConfig extends SprykerFrontendExporterConfig
             $this->getLocator()->productFrontendExporterAvailabilityConnector()->pluginProductAvailabilityProcessorPlugin(),
             $this->getLocator()->productFrontendExporterPriceConnector()->pluginProductPriceProcessorPlugin(),
             $this->getLocator()->taxFrontendExporterConnector()->pluginTaxProcessorPlugin(),
-            $this->getLocator()->productCategoryFrontendExporterConnector()->pluginProductCategoryBreadcrumbProcessorPlugin(),
+            //$this->getLocator()->productCategoryFrontendExporterConnector()->pluginProductCategoryBreadcrumbProcessorPlugin(),
+
+            $this->getLocator()->productOptionExporter()->pluginProductOptionProcessorPlugin(),
 
             $this->getLocator()->categoryExporter()->pluginNavigationProcessorPlugin(),
             $this->getLocator()->categoryExporter()->pluginCategoryNodeProcessorPlugin(),
@@ -61,8 +63,10 @@ class FrontendExporterConfig extends SprykerFrontendExporterConfig
             $this->getLocator()->productFrontendExporterPriceConnector()->pluginProductPriceQueryExpanderPlugin(),
             $this->getLocator()->taxFrontendExporterConnector()->pluginTaxQueryExpanderPlugin(),
 
-            $this->getLocator()->productCategoryFrontendExporterConnector()
-                ->pluginProductCategoryBreadcrumbQueryExpanderPlugin(),
+            $this->getLocator()->productOptionExporter()->pluginProductOptionExpanderPlugin(),
+
+            //$this->getLocator()->productCategoryFrontendExporterConnector()
+            //    ->pluginProductCategoryBreadcrumbQueryExpanderPlugin(),
 
             $this->getLocator()->glossaryExporter()->pluginTranslationQueryExpanderPlugin(),
             $this->getLocator()->categoryExporter()->pluginNavigationQueryExpanderPlugin(),
