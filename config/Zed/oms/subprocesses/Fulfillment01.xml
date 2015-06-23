@@ -59,13 +59,13 @@
         </transitions>
 
         <events>
-            <event name="start order export"/>
-            <event name="has been shipped"/>
-            <event name="delivery failed"/>
-            <event name="retry delivery"/>
-            <event name="was fulfilled"/>
-            <event name="delivered successfully" timeout="1day"/>
-            <event name="item was lost"/>
+            <event name="start order export" manual="true"/>
+            <event name="has been shipped" manual="true"/>
+            <event name="delivery failed" manual="true"/>
+            <event name="retry delivery" manual="true"/>
+            <event name="was fulfilled" manual="true"/>
+            <event name="delivered successfully" timeout="1day" manual="true"/>
+            <event name="item was lost" manual="true"/>
         </events>
     </process>
 </statemachine>

@@ -7,7 +7,7 @@
             <state name="return shipment initiated"/>
             <state name="return arrived"/>
         </states>
-        
+
         <transitions>
             <transition>
                 <source>return shipment initiated</source>
@@ -17,7 +17,7 @@
         </transitions>
 
         <events>
-            <event name="return has arrived"/>
+            <event name="return has arrived" manual="true"/>
         </events>
     </process>
 </statemachine>

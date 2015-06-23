@@ -132,21 +132,21 @@
         </transitions>
 
         <events>
-            <event name="send payment request" onEnter="true"/>
-            <event name="remind customer" timeout="14days" onEnter="true"/>
+            <event name="send payment request" onEnter="true" manual="true" command="Oms/SendPaymentRequest"/>
+            <event name="remind customer" timeout="14days"/>
             <event name="mark invalid" timeout="14days"/>
-            <event name="receive payment"/>
+            <event name="receive payment" manual="true"/>
             <event name="check amount"/>
-            <event name="payment amount matches"/>
-            <event name="resolve amount mismatch"/>
+            <event name="payment amount matches" manual="true"/>
+            <event name="resolve amount mismatch" manual="true"/>
             <event name="manually set paid" manual="true"/>
-            <event name="create invoice" command="oms/CreateInvoice"/>
-            <event name="send invoice" command="oms/SendInvoice"/>
-            <event name="cancel delivery"/>
-            <event name="initialize return"/>
+            <event name="create invoice" command="Oms/CreateInvoice" onEnter="true"/>
+            <event name="send invoice" command="Oms/SendInvoice" onEnter="true"/>
+            <event name="cancel delivery" manual="true"/>
+            <event name="initialize return" manual="true"/>
             <event name="item not returned" timeout="14days"/>
-            <event name="refund desired"/>
-            <event name="new item requested"/>
+            <event name="refund desired" manual="true"/>
+            <event name="new item requested" manual="true"/>
         </events>
 
 

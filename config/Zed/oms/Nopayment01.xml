@@ -5,12 +5,12 @@
 
     <process name="Nopayment01" main="true">
         <states>
-            <state name="new" reserved="true" />
-            <state name="nopayment" />
-            <state name="ship" />
-            <state name="cancel" />
+            <state name="new" reserved="true"/>
+            <state name="nopayment"/>
+            <state name="ship"/>
+            <state name="cancel"/>
 
-            <state name="xxx" />
+            <state name="xxx"/>
         </states>
 
         <transitions>
@@ -37,9 +37,9 @@
         </transitions>
 
         <events>
-            <event name="nopayment" onEnter="true" command="Nopayment/SetAsPaid" manual="true" />
-            <event name="cancel" timeout="1min" manual="true" />
-            <event name="dodo" />
+            <event name="nopayment" onEnter="true" command="Nopayment/SetAsPaid" manual="true"/>
+            <event name="cancel" timeout="1min" manual="true"/>
+            <event name="dodo"/>
         </events>
     </process>
 
