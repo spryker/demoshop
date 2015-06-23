@@ -3,7 +3,6 @@
 namespace Pyz\Yves\Application\Communication;
 
 use Generated\Yves\Ide\AutoCompletion;
-use Pyz\Yves\Cart\Communication\Plugin\CartControllerProvider;
 use Pyz\Yves\Customer\Plugin\CustomerControllerProvider;
 use SprykerFeature\Shared\Application\Business\Application;
 use SprykerFeature\Shared\Application\Communication\Plugin\ServiceProvider\RoutingServiceProvider;
@@ -21,6 +20,7 @@ use SprykerEngine\Yves\Application\Communication\Plugin\ServiceProvider\MonologS
 use SprykerEngine\Yves\Application\Communication\Plugin\ServiceProvider\SessionServiceProvider;
 use SprykerEngine\Yves\Application\Communication\Plugin\ServiceProvider\ExceptionServiceProvider;
 use SprykerEngine\Yves\Application\Communication\Plugin\ServiceProvider\YvesLoggingServiceProvider;
+use SprykerFeature\Yves\Cart\Communication\Plugin\CartControllerProvider;
 use SprykerFeature\Yves\Customer\Provider\SecurityServiceProvider;
 
 use SprykerFeature\Shared\Application\Business\Routing\SilexRouter;

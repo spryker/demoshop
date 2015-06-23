@@ -1,23 +1,21 @@
 <?php
 namespace Pyz\Yves\Checkout\Communication\Controller;
 
-use SprykerEngine\Shared\Kernel\LocatorLocatorInterface;
-use Generated\Shared\Transfer\OrderTransfer;
+use Pyz\Yves\Checkout\Communication\CheckoutDependencyContainer;
 use Pyz\Yves\Checkout\Communication\Plugin\CheckoutControllerProvider;
-use Pyz\Yves\Cart\Communication\Helper\CartControllerTrait;
-use Pyz\Yves\Cart\Communication\Plugin\CartControllerProvider;
 use SprykerEngine\Yves\Application\Communication\Controller\AbstractController;
-use SprykerFeature\Client\Cart\CartClient;
+use SprykerFeature\Client\Cart\Service\CartClientInterface;
 use SprykerFeature\Client\Checkout\CheckoutClient;
 use Symfony\Component\Form\FormInterface;
 use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 
+/**
+ * @method CheckoutDependencyContainer getDependencyContainer()
+ */
 class CheckoutController extends AbstractController
 {
-
-    use CartControllerTrait;
 
     /**
      * @param Request $request
@@ -40,7 +38,7 @@ class CheckoutController extends AbstractController
      */
     public function successAction(Request $request)
     {
-        $cart = $this->getCart($request);
+        $cart = $this->getDependencyContainer()->createCartClient()->getCart();
         $cartItems = $cart->getItems();
         $order = $cart->getOrder();
 
@@ -54,15 +52,14 @@ class CheckoutController extends AbstractController
         $cartModel->clear();
         $cartItemCount = $this->getLocator()->cart()
             ->pluginCartSessionCount()
-            ->createCartSessionCount($request->getSession())->getCount()
-        ;
+            ->createCartSessionCount($request->getSession())->getCount();
 
         return [
             'order' => $order,
             'cartItems' => $cartItems,
             'totals' => $order->getTotals(),
             'products' => $productData,
-            'cartItemCount' => $cartItemCount
+            'cartItemCount' => $cartItemCount,
         ];
     }
 
@@ -99,6 +96,7 @@ class CheckoutController extends AbstractController
             )
             ) {
                 $cart->setOrder(new \Generated\Shared\Transfer\SalesOrderTransfer());
+
                 return $this->redirectResponseInternal(CartControllerProvider::ROUTE_CART);
             }
         }
@@ -182,17 +180,17 @@ class CheckoutController extends AbstractController
     /**
      * @return CheckoutClient
      */
-    protected function getCheckoutClient()
+    private function getCheckoutClient()
     {
-        return $this->getLocator()->checkout()->Client();
+        return $this->getDependencyContainer()->createCheckoutClient();
     }
 
     /**
-     * @return CartClient
+     * @return CartClientInterface
      */
-    protected function getCartClient()
+    private function getCartClient()
     {
-        return $this->getLocator()->cart()->Client();
+        return $this->getDependencyContainer()->createCartClient();
     }
 
 }
