@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<statemachine
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="process.xsd">
+
+    <process name="CheckoutTest01" main="true">
+        <states>
+            <state name="new" reserved="true"/>
+            <state name="nopayment"/>
+            <state name="ship"/>
+            <state name="cronjob1"/>
+        </states>
+
+        <transitions>
+            <transition happy="true">
+                <source>new</source>
+                <target>nopayment</target>
+                <event>nopayment</event>
+            </transition>
+            <transition happy="true">
+                <source>nopayment</source>
+                <target>ship</target>
+                <event>ship</event>
+            </transition>
+            <transition happy="true">
+                <source>ship</source>
+                <target>cronjob1</target>
+            </transition>
+        </transitions>
+
+        <events>
+            <event name="nopayment" onEnter="true" />
+            <event name="ship" onEnter="true" />
+        </events>
+    </process>
+
+</statemachine>
