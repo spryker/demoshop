@@ -21,12 +21,12 @@ class CatalogController extends AbstractController
         $search = $this->getLocator()->catalog()->sdk()->createFacetSearch($request, $categoryNode);
         $search->setItemsPerPage(6);
         $categoryTree = $this->getLocator()->categoryExporter()->sdk()->getTreeFromCategoryNode($categoryNode, $this->getLocale());
-        $r = array_merge($search->getResult(), ['category' => $categoryNode, 'categoryTree' => $categoryTree,]);
+        $searchResults = array_merge($search->getResult(), ['category' => $categoryNode, 'categoryTree' => $categoryTree,]);
 
         if ($request->isXmlHttpRequest()) {
-            return $this->jsonResponse($r);
+            return $this->jsonResponse($searchResults);
         }
-        return $r;
+        return $searchResults;
     }
 
     /**
