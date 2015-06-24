@@ -2,7 +2,7 @@
 
 namespace Pyz\Client\Catalog\Model;
 
-use SprykerFeature\Client\Catalog\Model\FacetConfig as CoreFacetConfig;
+use SprykerFeature\Client\Catalog\Service\Model\FacetConfig as CoreFacetConfig;
 
 /**
  * @package Pyz\Yves\Catalog\Business\Model
