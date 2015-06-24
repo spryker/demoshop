@@ -36,6 +36,12 @@ class CheckoutController extends AbstractController
         if ($request->isMethod('POST')) {
             if ($form->isValid()) {
                 $checkoutSdk = $this->getLocator()->checkout()->sdk();
+
+                /** @var CheckoutRequestTransfer $checkoutRequest */
+                $checkoutRequest = $form->getData();
+
+                $checkoutRequest->setCart($this->demoCart());
+
                 $response = $checkoutSdk->requestCheckout($form->getData());
 
                 /** @var CheckoutResponseTransfer $checkoutResponseTransfer */
@@ -93,7 +99,7 @@ class CheckoutController extends AbstractController
     }
 
     /**
-     * @return CartItemsTransfer
+     * @return CartTransfer
      */
     private function demoCart()
     {
