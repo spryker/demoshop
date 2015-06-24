@@ -61,7 +61,7 @@ keys:
       de_DE: '/images/homepage/dragon.jpg'
   page.home.featured.top-right.second.url:
     translations:
-      de_DE: ''
+      de_DE: '/wilde-tiere'
 
   page.home.featured.bottom-left.top.width:
     translations:
@@ -74,7 +74,7 @@ keys:
       de_DE: 'Wald und Wiese'
   page.home.featured.bottom-left.top.category:
     translations:
-      de_DE: ''
+      de_DE: '/wald-und-wiese'
   page.home.featured.bottom-left.top.img:
     translations:
       de_DE: '/images/homepage/teaser-waldwiese.jpg'
@@ -93,7 +93,7 @@ keys:
       de_DE: 'Meere'
   page.home.featured.bottom-left.bottom.category:
     translations:
-      de_DE: ''
+      de_DE: '/meere'
   page.home.featured.bottom-left.bottom.img:
     translations:
       de_DE: '/images/homepage/sea.jpg'
@@ -118,7 +118,7 @@ keys:
       de_DE: '/images/homepage/ferkel.jpg'
   page.home.featured.bottom-right.left.url:
     translations:
-      de_DE: '/ferkel'
+      de_DE: '/ferkel,-stehend'
 
   page.home.featured.bottom-right.right.width:
     translations:

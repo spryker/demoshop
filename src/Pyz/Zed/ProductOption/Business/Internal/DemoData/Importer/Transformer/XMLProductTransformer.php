@@ -10,7 +10,7 @@ use Pyz\Zed\ProductOption\Business\Internal\DemoData\Importer\Node\ProductOption
 use Pyz\Zed\ProductOption\Business\Internal\DemoData\Importer\Node\ProductOptionValue;
 use Pyz\Zed\ProductOption\Business\Internal\DemoData\Importer\Node\ProductOptionValueConstraint;
 
-class XmlProductTransformer implements XmlTransformerInterface
+class XMLProductTransformer implements XMLTransformerInterface
 {
 
     /**
