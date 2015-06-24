@@ -9,7 +9,6 @@ use SprykerFeature\Client\Checkout\CheckoutClient;
 use Symfony\Component\Form\FormInterface;
 use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\HttpFoundation\Request;
-use Symfony\Component\HttpFoundation\Response;
 
 /**
  * @method CheckoutDependencyContainer getDependencyContainer()
@@ -31,9 +30,20 @@ class CheckoutController extends AbstractController
 
         $form = $this->createForm($checkoutForm, $checkoutTransfer);
 
-        if ($form->isValid()) {
-            var_dump($form->getData());
-            return true;
+        if ($request->isMethod('POST')) {
+            if ($form->isValid()) {
+                $checkoutSdk = $this->getLocator()->checkout()->sdk();
+                $response = $checkoutSdk->requestCheckout($form->getData());
+
+                /** @var CheckoutResponseTransfer $checkoutResponseTransfer */
+                $checkoutResponseTransfer = $response->getTransfer();
+
+                if ($checkoutResponseTransfer->getIsSuccess()) {
+                    return $this->redirect($checkoutResponseTransfer);
+                } else {
+                    return $this->errors($checkoutResponseTransfer->getErrors());
+                }
+            }
         }
 
         return [
@@ -43,11 +53,11 @@ class CheckoutController extends AbstractController
     }
 
     /**
-     * @param Request $request
+     * @param CheckoutErrorTransfer[] $errors
      *
-     * @return array|RedirectResponse
+     * @return JsonResponse
      */
-    public function successAction(Request $request)
+    protected function errors($errors)
     {
         $cart = $this->getDependencyContainer()->createCartClient()->getCart();
         $cartItems = $cart->getItems();
@@ -57,31 +67,19 @@ class CheckoutController extends AbstractController
             return $this->redirectResponseInternal('home');
         }
 
-        $cart->clear();
-        $productData = $this->getCartClient()->getProductDataForCartItems($cartItems);
-        $cartModel = $this->getLocator()->cart()->pluginCartSession()->createCartSession($this->getTransferSession());
-        $cartModel->clear();
-        $cartItemCount = $this->getLocator()->cart()
-            ->pluginCartSessionCount()
-            ->createCartSessionCount($request->getSession())->getCount();
 
-        return [
-            'order' => $order,
-            'cartItems' => $cartItems,
-            'totals' => $order->getTotals(),
-            'products' => $productData,
-            'cartItemCount' => $cartItemCount,
-        ];
-    }
-
+        return new JsonResponse([
+            'success' => false,
+            'errors' => $returnErrors
+        ]);
     }
 
     /**
-     * @param Request $request
-     * @param FormInterface $form
-     * @return null|RedirectResponse
+     * @param CheckoutResponseTransfer $checkoutResponseTransfer
+     *
+     * @return RedirectResponse
      */
-    protected function validateForm(Request $request, FormInterface $form)
+    public function redirect(CheckoutResponseTransfer $checkoutResponseTransfer)
     {
         if ($form->isValid()) {
             $checkoutClient = $this->getCheckoutClient($request);
@@ -105,20 +103,7 @@ class CheckoutController extends AbstractController
                 return $this->redirectResponseInternal(CartControllerProvider::ROUTE_CART);
             }
         }
-
-        return null;
-    }
-
-    private function demoCheckoutTransfer()
-    {
-        $checkoutData = new CheckoutTransfer();
-        $checkoutData->setCart($this->demoCart());
-        $checkoutData->setBillingAddress('Julie-Wolfthorn-Straße 1, 10115 Berlin');
-        $checkoutData->setEmail('konstantin.scheumann@spryker.com');
-        $checkoutData->setPaymentMethod('paypal');
-        $checkoutData->setIdUser(null);
-
-        return $checkoutData;
+        return new RedirectResponse($checkoutResponseTransfer->getRedirectUrl());
     }
 
     /**
@@ -229,9 +214,9 @@ class CheckoutController extends AbstractController
     /**
      * @return CheckoutClient
      */
-    private function getCheckoutClient()
+    private function demoSuccessResponse()
     {
-        return $this->getDependencyContainer()->createCheckoutClient();
+        $response = new CheckoutResponseTransfer();
     }
 
     /**
@@ -241,5 +226,6 @@ class CheckoutController extends AbstractController
     {
         return $this->getDependencyContainer()->createCartClient();
     }
+
 
 }
