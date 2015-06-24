@@ -4,6 +4,7 @@ namespace Pyz\Yves\Checkout\Communication\Controller;
 use Generated\Shared\Transfer\CartItemsTransfer;
 use Generated\Shared\Transfer\CartItemTransfer;
 use Generated\Shared\Transfer\CartTransfer;
+use Generated\Shared\Transfer\CheckoutRequestTransfer;
 use Generated\Shared\Transfer\CheckoutTransfer;
 use Generated\Shared\Transfer\OrderItemsTransfer;
 use Generated\Shared\Transfer\OrderItemTransfer;
@@ -35,7 +36,7 @@ class CheckoutController extends AbstractController
         $container = $this->getDependencyContainer();
         $checkoutForm = $container->createCheckoutForm();
 
-        $checkoutTransfer = new CheckoutTransfer();
+        $checkoutTransfer = new CheckoutRequestTransfer();
         $checkoutTransfer->setGuest(true); // @TODO: only for Development
 
         $form = $this->createForm($checkoutForm, $checkoutTransfer);
