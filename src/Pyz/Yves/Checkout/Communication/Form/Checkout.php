@@ -54,7 +54,7 @@ class Checkout extends AbstractType
                 ]
             ])
             ->add('payment_method', 'choice', [
-                'choices' => ['Vorkasse', 'PayPal', 'Kreditkarte'],
+                'choices' => ['prepay' => 'Vorkasse', 'paypal' => 'PayPal', 'creditcard' => 'Kreditkarte'],
                 'expanded' => true,
                 'multiple' => false,
                 'required' => false,
