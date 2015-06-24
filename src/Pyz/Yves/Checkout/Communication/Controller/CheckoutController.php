@@ -230,7 +230,7 @@ class CheckoutController extends AbstractController
     }
 
     /**
-     * @return CheckoutClient
+     * @return CheckoutResponseTransfer
      */
     private function demoSuccessResponse()
     {
