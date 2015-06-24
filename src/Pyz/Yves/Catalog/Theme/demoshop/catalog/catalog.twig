@@ -12,7 +12,6 @@
             {% include "@catalog/catalog/partials/filter-default.twig" with {filterName:'category'} %}
             {% include "@catalog/catalog/partials/filter-range.twig" with {filterName:'price', min:(facets.price.rangeValues.min|default(0))|priceRaw|floor, max:(facets.price.rangeValues.max|default(0))|priceRaw|ceil} %}
             {% include "@catalog/catalog/partials/filter-color.twig" with {filterName:'main_color', id: 42} %}
-            {% include "@catalog/catalog/partials/filter-multivalue.twig" with {filterName:'extras'} %}
         </aside>
         <button class="catalog__toggle-filters js-toggle-filters">
             <span class="js-show-filters">{{ "catalog.filter.show"|trans }}</span>
@@ -29,7 +28,6 @@
                 {% include "@catalog/catalog/partials/active-filter.twig" with {name:'category', value:'', id: 42} %}
                 {% include "@catalog/catalog/partials/active-filter.twig" with {name:'color', value:'', id: 42} %}
                 {% include "@catalog/catalog/partials/active-filter.twig" with {name:'price', value:'', id: 42} %}
-                {% include "@catalog/catalog/partials/active-filter.twig" with {name:'extras', value:'', id: 42} %}
             </ul>
         </section>
 
