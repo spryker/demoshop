@@ -10,6 +10,10 @@
             </div>
 
                 <div class="checkout__form">
+                    <section  id="backend-errors-section" class="checkout__form-block" style="display:none;">
+                        <h1 class="form-block__heading">Bitte überprüfen Sie Ihre Eingabe.</h1>
+                        <div id="backend-errors"></div>
+                    </section>
                     <section class="checkout__form-block checkout__form-block--login js-checkout-login">
                         <h1 class="form-block__heading">Ich bin bereits Kunde</h1>
                         {% include "@application/layout/partials/login-register-form.twig" %}

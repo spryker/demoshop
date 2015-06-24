@@ -4,22 +4,14 @@ namespace Pyz\Yves\Checkout\Communication\Controller;
 use Generated\Shared\Transfer\CartItemsTransfer;
 use Generated\Shared\Transfer\CartItemTransfer;
 use Generated\Shared\Transfer\CartTransfer;
+use Generated\Shared\Transfer\CheckoutErrorTransfer;
 use Generated\Shared\Transfer\CheckoutRequestTransfer;
-use Generated\Shared\Transfer\CheckoutTransfer;
-use Generated\Shared\Transfer\OrderItemsTransfer;
-use Generated\Shared\Transfer\OrderItemTransfer;
-use Generated\Shared\Transfer\TaxItemTransfer;
-use SprykerEngine\Shared\Kernel\LocatorLocatorInterface;
-use Generated\Shared\Transfer\OrderTransfer;
-use Pyz\Yves\Cart\Communication\Plugin\CartControllerProvider;
+use Generated\Shared\Transfer\CheckoutResponseTransfer;
 use SprykerEngine\Yves\Application\Communication\Controller\AbstractController;
-use SprykerFeature\Sdk\Cart\CartSdk;
-use SprykerFeature\Sdk\Checkout\CheckoutSdk;
 use Pyz\Yves\Checkout\Communication\CheckoutDependencyContainer;
-use Symfony\Component\Form\FormInterface;
+use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\HttpFoundation\Request;
-use Symfony\Component\HttpFoundation\Response;
 
 /**
  * @method CheckoutDependencyContainer getDependencyContainer()
@@ -41,9 +33,20 @@ class CheckoutController extends AbstractController
 
         $form = $this->createForm($checkoutForm, $checkoutTransfer);
 
-        if ($form->isValid()) {
-            var_dump($form->getData());
-            return true;
+        if ($request->isMethod('POST')) {
+            if ($form->isValid()) {
+                $checkoutSdk = $this->getLocator()->checkout()->sdk();
+                $response = $checkoutSdk->requestCheckout($form->getData());
+
+                /** @var CheckoutResponseTransfer $checkoutResponseTransfer */
+                $checkoutResponseTransfer = $response->getTransfer();
+
+                if ($checkoutResponseTransfer->getIsSuccess()) {
+                    return $this->redirect($checkoutResponseTransfer);
+                } else {
+                    return $this->errors($checkoutResponseTransfer->getErrors());
+                }
+            }
         }
 
         return [
@@ -53,41 +56,40 @@ class CheckoutController extends AbstractController
     }
 
     /**
-     * @param Request $request
+     * @param CheckoutErrorTransfer[] $errors
      *
-     * @return array|RedirectResponse
+     * @return JsonResponse
      */
-    public function successAction(Request $request)
+    protected function errors($errors)
     {
+        $returnErrors = array();
+        foreach ($errors as $error) {
+            $returnErrors[] = [
+                'errorCode' => $error->getErrorCode(),
+                'message' => $error->getMessage(),
+                'step' => $error->getStep()
+            ];
+        }
 
+
+
+        return new JsonResponse([
+            'success' => false,
+            'errors' => $returnErrors
+        ]);
     }
 
     /**
-     * @param Request $request
-     * @param FormInterface $form
-     * @return null|RedirectResponse
+     * @param CheckoutResponseTransfer $checkoutResponseTransfer
+     *
+     * @return RedirectResponse
      */
-    protected function validateForm(Request $request, FormInterface $form)
+    public function redirect(CheckoutResponseTransfer $checkoutResponseTransfer)
     {
-        if ($form->isValid()) {
-            $checkoutSdk = $this->getCheckoutSdk($request);
-            /** @var Order $orderTransfer */
-            $orderTransfer = $form->getData();
+        if ($checkoutResponseTransfer->getIsExternalRedirect()) {
+            return new RedirectResponse($checkoutResponseTransfer->getRedirectUrl());
         }
-
-        return null;
-    }
-
-    private function demoCheckoutTransfer()
-    {
-        $checkoutData = new CheckoutTransfer();
-        $checkoutData->setCart($this->demoCart());
-        $checkoutData->setBillingAddress('Julie-Wolfthorn-Straße 1, 10115 Berlin');
-        $checkoutData->setEmail('konstantin.scheumann@spryker.com');
-        $checkoutData->setPaymentMethod('paypal');
-        $checkoutData->setIdUser(null);
-
-        return $checkoutData;
+        return new RedirectResponse($checkoutResponseTransfer->getRedirectUrl());
     }
 
     /**
@@ -128,19 +130,32 @@ class CheckoutController extends AbstractController
     }
 
     /**
-     * @return CheckoutSdk
+     * @return CheckoutResponseTransfer
      */
-    protected function getCheckoutSdk()
+    private function demoPaypalResponse()
     {
-        return $this->getLocator()->checkout()->sdk();
+        $response = new CheckoutResponseTransfer();
+
+        $response->setIsSuccess(true);
+        $response->setIsExternalRedirect(true);
+        $response->setRedirectUrl('http://www.paypal.de/fqwcra4wr4tvecttc4t');
+
+        return $response;
     }
 
     /**
-     * @return CartSdk
+     * @return CheckoutResponseTransfer
      */
-    protected function getCartSdk()
+    private function demoSuccessResponse()
     {
-        return $this->getLocator()->cart()->sdk();
+        $response = new CheckoutResponseTransfer();
+
+        $response->setIsSuccess(true);
+        $response->setIsExternalRedirect(false);
+
+        return $response;
     }
+
+
 
 }
