@@ -26,7 +26,7 @@ class CheckoutController extends AbstractController
         $container = $this->getDependencyContainer();
         $checkoutForm = $container->createCheckoutForm();
 
-        $checkoutTransfer = new CheckoutTransfer();
+        $checkoutTransfer = new CheckoutRequestTransfer();
         $checkoutTransfer->setGuest(true); // @TODO: only for Development
 
         $form = $this->createForm($checkoutForm, $checkoutTransfer);
