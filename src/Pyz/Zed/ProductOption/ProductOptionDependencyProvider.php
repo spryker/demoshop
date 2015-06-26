@@ -30,20 +30,12 @@ class ProductOptionDependencyProvider extends SprykerProductOptionDependencyProv
      *
      * @return Container
      */
-    public function providePersistenceLayerDependencies(Container $container)
-    {
-        parent::providePersistenceLayerDependencies($container);
-
-        return $container;
-    }
-
-    /**
-     * @param Container $container
-     *
-     * @return Container
-     */
     public function provideCommunicationLayerDependencies(Container $container)
     {
+        $container[ProductOptionDependencyProvider::FACADE_PRODUCT_OPTION] = function (Container $container) {
+            return $container->getLocator()->productOption()->facade();
+        };
+
         parent::provideCommunicationLayerDependencies($container);
 
         return $container;
