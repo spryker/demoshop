@@ -15,7 +15,6 @@ use Generated\Shared\Transfer\CustomerTransfer;
  */
 class SecurityController extends AbstractController
 {
-
     /**
      * @param Request $request
      *
@@ -26,7 +25,7 @@ class SecurityController extends AbstractController
         if ($this->isGranted('ROLE_USER')) {
             $this->addMessageWarning(Messages::CUSTOMER_ALREADY_AUTHENTICATED);
 
-            return $this->redirectResponseInternal('home');
+            return $this->redirectResponseInternal(CustomerControllerProvider::ROUTE_HOME);
         }
 
         return ['error' => $this->getSecurityError($request)];
@@ -44,7 +43,7 @@ class SecurityController extends AbstractController
             ->createUserProvider($request->getSession())
             ->logout($this->getUsername());
 
-        return $this->redirectResponseInternal('home');
+        return $this->redirectResponseInternal(CustomerControllerProvider::ROUTE_HOME);
     }
 
     /**
@@ -81,11 +80,10 @@ class SecurityController extends AbstractController
         if ($customerTransfer->getRegistered()) {
             $this->addMessageSuccess(Messages::CUSTOMER_REGISTRATION_CONFIRMED);
 
-            return $this->redirectResponseInternal(CustomerControllerProvider::ROUTE_LOGIN);
+            return $this->redirectResponseInternal(CustomerControllerProvider::ROUTE_HOME);
         }
         $this->addMessageError(Messages::CUSTOMER_REGISTRATION_TIMEOUT);
 
-        return $this->redirectResponseInternal('home');
+        return $this->redirectResponseInternal(CustomerControllerProvider::ROUTE_HOME);
     }
-
 }
