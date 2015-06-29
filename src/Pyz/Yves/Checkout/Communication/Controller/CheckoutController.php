@@ -5,7 +5,7 @@ use Pyz\Yves\Checkout\Communication\CheckoutDependencyContainer;
 use Pyz\Yves\Checkout\Communication\Plugin\CheckoutControllerProvider;
 use SprykerEngine\Yves\Application\Communication\Controller\AbstractController;
 use SprykerFeature\Client\Cart\Service\CartClientInterface;
-use SprykerFeature\Client\Checkout\CheckoutClient;
+use SprykerFeature\Client\Checkout\Service\CheckoutClient;
 use Symfony\Component\Form\FormInterface;
 use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\HttpFoundation\Request;
