@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<statemachine
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="process.xsd">
+
+    <process name="PayoneCreditCardAuthorize" main="true">
+        <states>
+            <state name="ready for authorize" reserved="true"/>
+            <state name="waiting for 3d-secure response"/>
+            <state name="apointed"/>
+            <state name="error"/>
+            <state name="invalid"/>
+            <state name="approved"/>
+        </states>
+
+        <transitions>
+            <transition happy="true">
+                <source>ready for authorize</source>
+                <target>nopayment</target>
+                <event>nopayment</event>
+            </transition>
+            <transition happy="true" condition="Nopayment/IsPaid">
+                <source>nopayment</source>
+                <target>ship</target>
+            </transition>
+            <transition>
+                <source>nopayment</source>
+                <target>cancel</target>
+                <event>cancel</event>
+            </transition>
+
+            <transition>
+                <source>cancel</source>
+                <target>xxx</target>
+                <event>dodo</event>
+            </transition>
+        </transitions>
+
+        <events>
+            <event name="nopayment" onEnter="true" command="Nopayment/SetAsPaid" manual="true"/>
+            <event name="cancel" timeout="1min" manual="true"/>
+            <event name="dodo"/>
+        </events>
+    </process>
+
+</statemachine>
