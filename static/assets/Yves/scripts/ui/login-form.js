@@ -9,6 +9,11 @@ var showLoginForm = function () {
     overlay.show();
 };
 
+var closeLoginForm = function () {
+    $('.overlay').removeClass('overlay--login');
+    overlay.hide();
+};
+
 var toggleMode = function (e) {
     e.preventDefault();
 
@@ -37,8 +42,9 @@ var setRegisterUrl = function() {
     $loginForm.attr('action', $loginForm.attr('data-register-url'));
 };
 
-var handleResponse = function() {
-    console.log($(this));
+var handleResponse = function (response) {
+    console.log(response);
+    closeLoginForm();
 };
 
 var postForm = function (e) {

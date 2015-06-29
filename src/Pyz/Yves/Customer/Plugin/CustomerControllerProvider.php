@@ -9,6 +9,7 @@ class CustomerControllerProvider extends YvesControllerProvider
 {
 
     const ROUTE_LOGIN = 'login';
+    const ROUTE_HOME = 'home';
     const ROUTE_LOGIN_CHECK = 'login_check';
     const ROUTE_LOGOUT = 'logout';
     const ROUTE_REGISTER = 'register';
