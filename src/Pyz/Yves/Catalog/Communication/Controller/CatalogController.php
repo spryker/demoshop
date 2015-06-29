@@ -3,7 +3,6 @@
 namespace Pyz\Yves\Catalog\Communication\Controller;
 
 use SprykerEngine\Yves\Application\Communication\Controller\AbstractController;
-use Pyz\Yves\Library\Tracking\DataProvider\ProductDetailProvider;
 use SprykerFeature\Yves\Library\Tracking\PageTypeInterface;
 use SprykerFeature\Yves\Library\Tracking\Tracking;
 use Symfony\Component\HttpFoundation\Request;

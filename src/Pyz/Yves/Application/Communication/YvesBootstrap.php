@@ -20,6 +20,7 @@ use SprykerEngine\Yves\Application\Communication\Plugin\ServiceProvider\MonologS
 use SprykerEngine\Yves\Application\Communication\Plugin\ServiceProvider\SessionServiceProvider;
 use SprykerEngine\Yves\Application\Communication\Plugin\ServiceProvider\ExceptionServiceProvider;
 use SprykerEngine\Yves\Application\Communication\Plugin\ServiceProvider\YvesLoggingServiceProvider;
+use SprykerFeature\Yves\Application\Communication\Plugin\SessionPlugin;
 use SprykerFeature\Yves\Cart\Communication\Plugin\CartControllerProvider;
 use SprykerFeature\Yves\Customer\Provider\SecurityServiceProvider;
 
@@ -80,12 +81,15 @@ class YvesBootstrap extends SprykerYvesBootstrap
             ->createSecurityServiceProvider()
         ;
 
+        $session = $locator->application()->pluginSession();
+
         $providers = [
             new ExceptionServiceProvider('\\SprykerEngine\\Yves\\Application\\Communication\\Controller\\ExceptionController'),
             new YvesLoggingServiceProvider(),
             new MonologServiceProvider(),
             new CookieServiceProvider(),
             new SessionServiceProvider(),
+            $session,
             new UrlGeneratorServiceProvider(),
             new ServiceControllerServiceProvider(),
             $securityServiceProvider,
