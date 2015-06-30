@@ -3,14 +3,12 @@
         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
         xsi:noNamespaceSchemaLocation="process.xsd">
 
-    <process name="Nopayment01" main="true">
+    <process name="CheckoutTest01" main="true">
         <states>
             <state name="new" reserved="true"/>
             <state name="nopayment"/>
             <state name="ship"/>
-            <state name="cancel"/>
-
-            <state name="xxx"/>
+            <state name="cronjob1"/>
         </states>
 
         <transitions>
@@ -19,27 +17,20 @@
                 <target>nopayment</target>
                 <event>nopayment</event>
             </transition>
-            <transition happy="true" condition="Nopayment/IsPaid">
+            <transition happy="true">
                 <source>nopayment</source>
                 <target>ship</target>
+                <event>ship</event>
             </transition>
-            <transition>
-                <source>nopayment</source>
-                <target>cancel</target>
-                <event>cancel</event>
-            </transition>
-
-            <transition>
-                <source>cancel</source>
-                <target>xxx</target>
-                <event>dodo</event>
+            <transition happy="true">
+                <source>ship</source>
+                <target>cronjob1</target>
             </transition>
         </transitions>
 
         <events>
-            <event name="nopayment" onEnter="true" command="Nopayment/SetAsPaid" manual="true"/>
-            <event name="cancel" timeout="1min" manual="true"/>
-            <event name="dodo"/>
+            <event name="nopayment" onEnter="true" />
+            <event name="ship" onEnter="true" />
         </events>
     </process>
 

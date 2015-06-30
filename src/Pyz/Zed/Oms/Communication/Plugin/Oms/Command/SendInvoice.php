@@ -1,21 +1,21 @@
 <?php
 
-namespace Pyz\Zed\Oms\Communication\Plugin\Oms;
+namespace Pyz\Zed\Oms\Communication\Plugin\Oms\Command;
 
 use SprykerFeature\Zed\Oms\Business\Util\ReadOnlyArrayObject;
 use SprykerFeature\Zed\Oms\Communication\Plugin\Oms\Command\AbstractCommand;
 use SprykerFeature\Zed\Oms\Communication\Plugin\Oms\Command\CommandByOrderInterface;
 use SprykerFeature\Zed\Sales\Persistence\Propel\SpySalesOrder;
 
-class FakeAuthPayment extends AbstractCommand implements CommandByOrderInterface
+class SendInvoice extends AbstractCommand implements CommandByOrderInterface
 {
 
     /**
-     * @param SpySalesOrderItem[] $orderItems
+     * @param array $orderItems
      * @param SpySalesOrder $orderEntity
      * @param ReadOnlyArrayObject $data
      *
-     * @return array $returnArray
+     * @return array
      */
     public function run(array $orderItems, SpySalesOrder $orderEntity, ReadOnlyArrayObject $data)
     {

@@ -1,17 +1,27 @@
 {% block content %}
     <div class="catalog">
-        <h1 class="catalog__section-title">{{ category.name }}</h1>
+        <h1 class="catalog__section-title">
+            {% if category is defined %}
+                {{ category.name }}
+            {% elseif searchString is defined %}
+                {{ 'search'|trans }}
+            {% endif %}
+        </h1>
 
         <aside class="catalog__filter js-filters">
             {% include "@catalog/catalog/partials/filter-default.twig" with {filterName:'category'} %}
             {% include "@catalog/catalog/partials/filter-color.twig" with {filterName:'color', id: 42} %}
-            {% include "@catalog/catalog/partials/filter-range.twig" with {filterName:'price', min:'0', max:'200'} %}
+            {% include "@catalog/catalog/partials/filter-range.twig" with {filterName:'price', min:(facets.price.rangeValues.min|default(0))|priceRaw|floor, max:(facets.price.rangeValues.max|default(0))|priceRaw|ceil} %}
             {% include "@catalog/catalog/partials/filter-multivalue.twig" with {filterName:'extras'} %}
         </aside>
         <button class="catalog__toggle-filters js-toggle-filters">
             <span class="js-show-filters">{{ "catalog.filter.show"|trans }}</span>
             <span class="js-hide-filters">{{ "catalog.filter.hide"|trans }}</span>
         </button>
+
+        {% if searchString is defined %}
+            <h2 class="catalog__search-term">{{ 'search.resultsFor'|trans }}: {{ searchString }}</h2>
+        {% endif %}
 
         <section class="catalog__active-filters">
             <h1>{{ "catalog.filter.active"|trans }}</h1>
@@ -24,18 +34,18 @@
         </section>
 
         <header class="catalog__summary">
-            <div class="summary__total-count">{{ numFound }} {{ "catalog.itemsFound"|trans }}</div>
+            <div class="summary__total-count"><span class="amount">{{ numFound }}</span> {{ "catalog.itemsFound"|trans }}</div>
             <div class="ui-helper-hidden pagination-max-page">{{ maxPage }}</div>
             <div class="summary__sorting">
                 {{ "catalog.sort"|trans }}
-                <button class="sorting__button--inc">A-Z</button>
-                <button class="sorting__button--dec">Z-A</button>
-                <button class="sorting__button--inc">
+                <button class="sorting__button--inc name">A-Z</button>
+                <button class="sorting__button--dec name">Z-A</button>
+                <button class="sorting__button--inc price">
                     <span class="sorting__label--small">{{ "catalog.currency"|trans }}</span>
                     <span class="sorting__label--medium">{{ "catalog.currency"|trans }}</span>
                     <span class="sorting__label--large">{{ "catalog.currency"|trans }}</span>
                 </button>
-                <button class="sorting__button--dec">
+                <button class="sorting__button--dec price">
                     <span class="sorting__label--large">{{ "catalog.currency"|trans }}</span>
                     <span class="sorting__label--medium">{{ "catalog.currency"|trans }}</span>
                     <span class="sorting__label--small">{{ "catalog.currency"|trans }}</span>

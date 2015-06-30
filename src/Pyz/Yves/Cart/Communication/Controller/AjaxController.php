@@ -3,14 +3,12 @@ namespace Pyz\Yves\Cart\Communication\Controller;
 
 use Generated\Shared\Transfer\CartItemTransfer;
 use SprykerEngine\Shared\Kernel\LocatorLocatorInterface;
-use Pyz\Yves\Cart\Communication\Helper\CartControllerTrait;
 use SprykerFeature\Yves\Library\Communication\MessageParser;
 use SprykerEngine\Yves\Application\Communication\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 
 class AjaxController extends AbstractController
 {
-    use CartControllerTrait;
 
     /**
      * @param CartItemTransfer $cartItem

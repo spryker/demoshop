@@ -4,14 +4,12 @@ namespace Pyz\Yves\Cart\Communication\Controller;
 
 use SprykerEngine\Shared\Kernel\LocatorLocatorInterface;
 use Pyz\Yves\Cart\Communication\Plugin\CartControllerProvider;
-use Pyz\Yves\Cart\Communication\Helper\CartControllerTrait;
 use SprykerEngine\Yves\Application\Communication\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\HttpFoundation\Request;
 
 class CouponController extends AbstractController
 {
-    use CartControllerTrait;
 
     /**
      * @param Request $request

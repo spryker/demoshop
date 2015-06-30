@@ -40,7 +40,15 @@ class CatalogController extends AbstractController
     {
         $search = $this->getLocator()->catalog()->sdk()->createFulltextSearch($request);
 
-        return array_merge($search->getResult(), ['searchString' => $request->get('q')]);
+        $search->setItemsPerPage(6);
+
+        $r = array_merge($search->getResult(), ['searchString' => $request->get('q')]);
+
+        if ($request->isXmlHttpRequest()) {
+            return $this->jsonResponse($r);
+        }
+
+        return $r;
     }
 
     /**
