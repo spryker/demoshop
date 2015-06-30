@@ -25,16 +25,16 @@ class FacetConfig extends CoreFacetConfig
 //            self::KEY_VALUE_CALLBACK_BEFORE => [__CLASS__, 'priceValueCallbackBefore'],
 //            self::KEY_VALUE_CALLBACK_AFTER => [__CLASS__, 'priceValueCallbackAfter']
 //        ],
-        'category' => [
-            self::KEY_FACET_FIELD_NAME => 'category',
-            self::KEY_TYPE => self::TYPE_CATEGORY,
-            self::KEY_PARAM => 'category',
-            self::KEY_FACET_ACTIVE => true,
-            self::KEY_SORT_ACTIVE => true,
-            self::KEY_IN_URL => false,
-            self::KEY_SHORT_PARAM => 'c',
-            self::KEY_URL_POSITION => 0,
-        ],
+//        'category' => [
+//            self::KEY_FACET_FIELD_NAME => 'category',
+//            self::KEY_TYPE => self::TYPE_CATEGORY,
+//            self::KEY_PARAM => 'category',
+//            self::KEY_FACET_ACTIVE => true,
+//            self::KEY_SORT_ACTIVE => true,
+//            self::KEY_IN_URL => false,
+//            self::KEY_SHORT_PARAM => 'c',
+//            self::KEY_URL_POSITION => 0,
+//        ],
 //        'manufacturer' => [
 //            self::KEY_FACET_FIELD_NAME => self::FIELD_STRING_FACET,
 //            self::KEY_TYPE => self::TYPE_ENUMERATION,

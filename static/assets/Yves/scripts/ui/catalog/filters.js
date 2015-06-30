@@ -2,6 +2,7 @@
 
 require ('jquery-ui/slider');
 var $ = require('jquery'),
+    _ = require('underscore'),
     catalog = require('./index'),
     URLUtils = require('../../utils/URLUtils'),
     URLManager = require('./URLManager'),
@@ -9,11 +10,11 @@ var $ = require('jquery'),
 
 var filters = [];
 
-var updatePriceValueDisplay = function(event, ui) {
-  var min = ui.values[0];
-  var max = ui.values[1];
-  $('.js-filter-price-min').html(min);
-  $('.js-filter-price-max').html(max);
+var updatePriceValueDisplay = function(filter) {
+  $('.filter__price').data('min', filter.min).data('max', filter.max);
+
+  $('.filter__price-min').html(filter.min);
+  $('.filter__price-max').html(filter.max);
 };
 
 var triggerPriceChange = function(event, ui) {
@@ -33,7 +34,8 @@ var initActiveFilterList = function() {
     catalog.loadProducts(
         URLManager.getPath(),
         URLManager.paramsToString(getUpdatedParams()),
-        $($filtered)
+        $($filtered),
+        updateFilters
     );
   });
 
@@ -42,6 +44,44 @@ var initActiveFilterList = function() {
     getFilter(filterName).clear();
   });
 };
+
+var updateFilters = function(data) {
+    var params = URLManager.getParams();
+
+    _.each(filters, function(filter) {
+        switch (filter.name) {
+            case "price":
+                filter.max = Math.ceil(data.price.rangeValues.max / 100);
+                filter.min = Math.floor(data.price.rangeValues.min / 100);
+                if (typeof data.price.activeValue !== "undefined") {
+                    filter.setSelectedValue(filter.min + '-' + filter.max);
+                }
+                updatePriceValueDisplay(filter);
+                break;
+            case "main_color":
+                var colorList = [];
+
+                _.each(data.main_color.values, function (amount, color) {
+                    var elem = '<li>'
+                        + '<input type="radio" class="filter-main_color-42" name="filter-main_color" data-color="' + color + '" value="' + color + '" ' + (params.main_color == color ? 'checked="checked"' : "") + '>'
+                        + '<label for="filter-main_color-' + color + '" class="js-color-name" style="background-color: ' + color + ';">' + color + ''
+                        + '<span class="filter__quantity">' + amount + '</span></label'
+                        + '</li>';
+
+                    colorList.push(elem);
+                });
+
+                $('ul.filter__main_color-list').html(colorList.join());
+
+                break;
+        }
+    });
+
+    $('.js-filter').each(function() {
+        filters.push(new Filter($(this)));
+    });
+};
+
 
 // select filters based on URL params
 var selectRequiredFilters = function() {

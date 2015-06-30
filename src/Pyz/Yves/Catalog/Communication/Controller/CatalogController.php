@@ -20,7 +20,7 @@ class CatalogController extends AbstractController
     {
         $search = $this->getLocator()->catalog()->sdk()->createFacetSearch($request, $categoryNode);
         $search->setItemsPerPage(6);
-        $categoryTree = $this->getLocator()->categoryExporter()->sdk()->getTreeFromCategoryNode($categoryNode, $this->getLocale());
+        $categoryTree = $this->getLocator()->categoryExporter()->sdk()->getNavigationCategories($this->getLocale());
         $searchResults = array_merge($search->getResult(), ['category' => $categoryNode, 'categoryTree' => $categoryTree,]);
 
         if ($request->isXmlHttpRequest()) {
@@ -39,8 +39,14 @@ class CatalogController extends AbstractController
         $search = $this->getLocator()->catalog()->sdk()->createFulltextSearch($request);
 
         $search->setItemsPerPage(6);
-
-        $searchResults = array_merge($search->getResult(), ['searchString' => $request->get('q')]);
+        $categoryTree = $this->getLocator()->categoryExporter()->sdk()->getNavigationCategories($this->getLocale());
+        $searchResults = array_merge(
+            $search->getResult(),
+            [
+                'searchString' => $request->get('q'),
+                'categoryTree' => $categoryTree,
+            ]
+        );
 
         if ($request->isXmlHttpRequest()) {
             return $this->jsonResponse($searchResults);
