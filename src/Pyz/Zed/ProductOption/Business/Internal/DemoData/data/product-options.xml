@@ -2,6 +2,9 @@
 <options>
     <option key="SIZE">
         <localized-attributes>
+            <locale name="de_DE">
+                <name>Größe</name>
+            </locale>
             <locale name="en_GB">
                 <name>Size</name>
             </locale>
@@ -10,6 +13,9 @@
         <values>
             <value key="SMALL">
                 <localized-attributes>
+                    <locale name="de_DE">
+                        <name>Klein</name>
+                    </locale>
                     <locale name="en_GB">
                         <name>Small</name>
                     </locale>
@@ -18,6 +24,9 @@
             </value>
             <value key="LARGE">
                 <localized-attributes>
+                    <locale name="de_DE">
+                        <name>Groß</name>
+                    </locale>
                     <locale name="en_GB">
                         <name>Large</name>
                     </locale>
@@ -28,6 +37,9 @@
     </option>
     <option key="COLOR">
         <localized-attributes>
+            <locale name="de_DE">
+                <name>Farbe</name>
+            </locale>
             <locale name="en_GB">
                 <name>Color</name>
             </locale>
@@ -36,6 +48,9 @@
         <values>
             <value key="RED">
                 <localized-attributes>
+                    <locale name="de_DE">
+                        <name>Rote</name>
+                    </locale>
                     <locale name="en_GB">
                         <name>Red</name>
                     </locale>
@@ -44,6 +59,9 @@
             </value>
             <value key="BLUE">
                 <localized-attributes>
+                    <locale name="de_DE">
+                        <name>Blau</name>
+                    </locale>
                     <locale name="en_GB">
                         <name>Blue</name>
                     </locale>
@@ -54,6 +72,9 @@
     </option>
     <option key="FINISH">
         <localized-attributes>
+            <locale name="de_DE">
+                <name>Fertig</name>
+            </locale>
             <locale name="en_GB">
                 <name>Finish</name>
             </locale>
@@ -62,6 +83,9 @@
         <values>
             <value key="LAMINATED">
                 <localized-attributes>
+                    <locale name="de_DE">
+                        <name>Laminiert</name>
+                    </locale>
                     <locale name="en_GB">
                         <name>Laminated</name>
                     </locale>
@@ -72,6 +96,9 @@
     </option>
     <option key="FRAME">
         <localized-attributes>
+            <locale name="de_DE">
+                <name>Rahmen</name>
+            </locale>
             <locale name="en_GB">
                 <name>Frame</name>
             </locale>
@@ -80,6 +107,9 @@
         <values>
             <value key="SMALL_MATTE">
                 <localized-attributes>
+                    <locale name="de_DE">
+                        <name>Klein Matte</name>
+                    </locale>
                     <locale name="en_GB">
                         <name>Small Matte</name>
                     </locale>
@@ -88,6 +118,9 @@
             </value>
             <value key="LARGE_MATTE">
                 <localized-attributes>
+                    <locale name="de_DE">
+                        <name>Groß Matte</name>
+                    </locale>
                     <locale name="en_GB">
                         <name>Large Matte</name>
                     </locale>
@@ -96,6 +129,9 @@
             </value>
             <value key="SMALL_GLOSS">
                 <localized-attributes>
+                    <locale name="de_DE">
+                        <name>Klein Gloss</name>
+                    </locale>
                     <locale name="en_GB">
                         <name>Small Gloss</name>
                     </locale>
@@ -104,6 +140,9 @@
             </value>
             <value key="LARGE_GLOSS">
                 <localized-attributes>
+                    <locale name="de_DE">
+                        <name>Groß Gloss</name>
+                    </locale>
                     <locale name="en_GB">
                         <name>Large Gloss</name>
                     </locale>

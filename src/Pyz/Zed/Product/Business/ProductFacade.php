@@ -10,6 +10,7 @@ use SprykerFeature\Zed\ProductSearch\Dependency\Facade\ProductSearchToProductInt
 use SprykerFeature\Zed\Stock\Dependency\Facade\StockToProductInterface;
 use SprykerFeature\Zed\TaxProductConnector\Dependency\Facade\TaxProductConnectorToProductInterface;
 use SprykerFeature\Zed\ProductOption\Dependency\Facade\ProductOptionToProductInterface;
+use SprykerFeature\Zed\ProductOptionExporter\Dependency\Facade\ProductOptionExporterToProductInterface;
 use Psr\Log\LoggerInterface;
 
 /**
@@ -21,7 +22,8 @@ class ProductFacade extends SprykerProductFacade implements
     StockToProductInterface,
     ProductCategoryToProductInterface,
     TaxProductConnectorToProductInterface,
-    ProductOptionToProductInterface
+    ProductOptionToProductInterface,
+    ProductOptionExporterToProductInterface
 {
     /**
      * @param array $productsData

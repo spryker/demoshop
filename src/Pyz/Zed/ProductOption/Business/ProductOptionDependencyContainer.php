@@ -13,6 +13,8 @@ use Pyz\Zed\ProductOption\Business\Internal\DemoData\Importer\Visitor\ProductVis
 use Pyz\Zed\ProductOption\Business\Internal\DemoData\Importer\Reader\ProductReaderInterface;
 use Pyz\Zed\ProductOption\Business\Internal\DemoData\Importer\Transformer\XMLTransformerInterface;
 use Pyz\Zed\ProductOption\Business\Internal\DemoData\Importer\Writer\WriterInterface;
+use Pyz\Zed\ProductOption\ProductOptionDependencyProvider;
+use Pyz\Zed\ProductOption\Business\ProductOptionFacade;
 
 /**
  * @method ProductOptionBusiness getFactory()
@@ -82,7 +84,7 @@ class ProductOptionDependencyContainer extends SprykerDependencyContainer
     public function createOptionsVisitor()
     {
         return $this->getFactory()->createInternalDemoDataImporterVisitorProductOptionImporterVisitor(
-            $this->getLocator()->productOption()->facade()
+            $this->getProductOptionFacade()
         );
     }
 
@@ -92,7 +94,7 @@ class ProductOptionDependencyContainer extends SprykerDependencyContainer
     public function createProductVisitor()
     {
         return $this->getFactory()->createInternalDemoDataImporterVisitorProductOptionUsageImporterVisitor(
-            $this->getLocator()->productOption()->facade()
+            $this->getProductOptionFacade()
         );
     }
 
@@ -117,5 +119,12 @@ class ProductOptionDependencyContainer extends SprykerDependencyContainer
             [$this->createProductVisitor()]
         );
     }
-}
 
+    /**
+     * @return ProductOptionFacade
+     */
+    public function getProductOptionFacade()
+    {
+        return $this->getProvidedDependency(ProductOptionDependencyProvider::FACADE_PRODUCT_OPTION);
+    }
+}
