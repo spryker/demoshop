@@ -2,11 +2,12 @@
 
 namespace Pyz\Zed\Sales\Business;
 
-use SprykerFeature\Zed\Sales\Business\SalesFacade as CoreSalesFacade;
+use SprykerFeature\Zed\Sales\Business\SalesFacade as SprykerSalesFacade;
 use SprykerFeature\Zed\Sales\Persistence\Propel\SpySalesOrder;
 use Pyz\Zed\Sales\Business\Model\Orderprocess\Finder;
+use SprykerFeature\Zed\SalesCheckoutConnector\Dependency\Facade\SalesCheckoutConnectorToSalesInterface;
 
-class SalesFacade extends CoreSalesFacade
+class SalesFacade extends SprykerSalesFacade implements SalesCheckoutConnectorToSalesInterface
 {
 
     /**
