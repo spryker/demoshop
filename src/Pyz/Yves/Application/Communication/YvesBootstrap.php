@@ -81,7 +81,7 @@ class YvesBootstrap extends SprykerYvesBootstrap
             ->createSecurityServiceProvider()
         ;
 
-        $session = $locator->application()->pluginSession();
+        $session = $locator->session()->client();
 
         $providers = [
             new ExceptionServiceProvider('\\SprykerEngine\\Yves\\Application\\Communication\\Controller\\ExceptionController'),
