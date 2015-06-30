@@ -6,7 +6,7 @@ use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\Validator\Constraints\Email;
-use Symfony\Component\Validator\Constraints\NotBlank;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * Class Address
@@ -31,7 +31,9 @@ class Address extends AbstractType
     {
         $builder
             ->add('first_name', 'text', [
-                //'constraints' => new NotBlank(),
+//                'constraints' => [
+//                    new Assert\NotBlank(),
+//                ],
                 'label' => false,
                 'required' => false,
                 'attr' => [
@@ -41,7 +43,9 @@ class Address extends AbstractType
                 ],
             ])
             ->add('last_name', 'text', [
-                //'constraints' => new NotBlank(),
+//                'constraints' => [
+//                    new Assert\NotBlank(),
+//                ],
                 'label' => false,
                 'required' => false,
                 'attr' => [
@@ -51,7 +55,9 @@ class Address extends AbstractType
                 ],
             ])
             ->add('street_nr', 'text', [
-                //'constraints' => new NotBlank(),
+//                'constraints' => [
+//                    new Assert\NotBlank()
+//                ],
                 'label' => false,
                 'required' => false,
                 'property_path' => 'address2',
@@ -62,7 +68,9 @@ class Address extends AbstractType
                 ],
             ])
             ->add('street', 'text', [
-                //'constraints' => new NotBlank(),
+//                'constraints' => [
+//                    new Assert\NotBlank()
+//                ],
                 'label' => false,
                 'required' => false,
                 'property_path' => 'address1',
@@ -73,7 +81,9 @@ class Address extends AbstractType
                 ],
             ])
             ->add('city', 'text', [
-                //'constraints' => new NotBlank(),
+//                'constraints' => [
+//                    new Assert\NotBlank()
+//                ],
                 'label' => false,
                 'required' => false,
                 'attr' => [
@@ -83,14 +93,20 @@ class Address extends AbstractType
                 ],
             ])
             ->add('zip_code', 'text', [
-                //'constraints' => new NotBlank(),
+//                'constraints' => [
+//                    new Assert\NotBlank()
+//                ],
                 'label' => false,
                 'required' => false,
                 'attr' => [
+
                     'class' => 'padded js-checkout-name',
                     'placeholder' => 'PLZ',
                     'style' => 'width: 10%;'
                 ],
+            ])
+            ->add('iso2code', 'hidden', [
+                'data' => 'DE',
             ])
         ;
     }
