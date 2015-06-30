@@ -104,7 +104,7 @@ class CheckoutController extends AbstractController
     {
         return new JsonResponse([
             'success' => true,
-            'errors' => $checkoutResponseTransfer->getRedirectUrl()
+            'url' => $checkoutResponseTransfer->getRedirectUrl()
         ]);
     }
 
