@@ -268,7 +268,7 @@ keys:
   catalog.filter.active:
     translations:
       de_DE: 'Aktive Filter'
-  catalog.filter.color:
+  catalog.filter.main_color:
     translations:
       de_DE: 'Farbe'
   catalog.filter.extras:

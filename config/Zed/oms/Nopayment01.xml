@@ -5,41 +5,84 @@
 
     <process name="Nopayment01" main="true">
         <states>
-            <state name="new" reserved="true" />
-            <state name="nopayment" />
-            <state name="ship" />
-            <state name="cancel" />
-
-            <state name="xxx" />
+            <state name="new" reserved="true"/>
+            <state name="waiting for payment"/>
+            <state name="payment done"/>
+            <state name="underpaid"/>
+            <state name="start shippment"/>
+            <state name="end shippment"/>
+            <state name="closed"/>
+            <state name="returned"/>
+            <state name="canceled"/>
+            <state name="invalid"/>
         </states>
 
         <transitions>
             <transition happy="true">
                 <source>new</source>
-                <target>nopayment</target>
-                <event>nopayment</event>
-            </transition>
-            <transition happy="true" condition="Nopayment/IsPaid">
-                <source>nopayment</source>
-                <target>ship</target>
+                <target>waiting for payment</target>
+                <event>authorize</event>
             </transition>
             <transition>
-                <source>nopayment</source>
-                <target>cancel</target>
-                <event>cancel</event>
+                <source>new</source>
+                <target>invalid</target>
+                <event>authorize</event>
+            </transition>
+            <transition happy="true">
+                <source>waiting for payment</source>
+                <target>payment done</target>
+                <event>paid</event>
+            </transition>
+
+            <transition happy="true">
+                <source>waiting for payment</source>
+                <target>underpaid</target>
+                <event>paid</event>
             </transition>
 
             <transition>
-                <source>cancel</source>
-                <target>xxx</target>
-                <event>dodo</event>
+                <source>underpaid</source>
+                <target>waiting for payment</target>
+                <event>forward</event>
             </transition>
+
+            <transition>
+                <source>waiting for payment</source>
+                <target>canceled</target>
+            </transition>
+            <transition happy="true">
+                <source>payment done</source>
+                <target>start shippment</target>
+                <event>pick</event>
+            </transition>
+            <transition happy="true">
+                <source>start shippment</source>
+                <target>end shippment</target>
+                <event>ship</event>
+            </transition>
+            <transition happy="true">
+                <source>end shippment</source>
+                <target>closed</target>
+                <event>close</event>
+            </transition>
+            <transition happy="true">
+                <source>end shippment</source>
+                <target>returned</target>
+                <event>return</event>
+            </transition>
+
         </transitions>
 
         <events>
-            <event name="nopayment" onEnter="true" command="Nopayment/SetAsPaid" />
-            <event name="cancel" timeout="1min" />
-            <event name="dodo" />
+
+            <event name="authorize" onEnter="true" manual="true"/>
+            <event name="paid" manual="true" />
+            <event name="pick" manual="true" />
+            <event name="ship" manual="true" />
+            <event name="forward" onEnter="true" />
+            <event name="close" manual="true" />
+            <event name="return" manual="true" />
+
         </events>
     </process>
 

@@ -2,16 +2,15 @@
 
 namespace Pyz\Zed\Oms;
 
-use Pyz\Zed\Oms\Communication\Plugin\Oms\FakeAuthPayment;
 use Generated\Shared\Transfer\OrderTransfer;
 use SprykerFeature\Zed\Oms\OmsConfig as SprykerOmsConfig;
-use SprykerFeature\Zed\Oms\Communication\Plugin\Oms\Command\CommandInterface;
-use SprykerFeature\Zed\Oms\Communication\Plugin\Oms\Condition\ConditionInterface;
 
 class OmsConfig extends SprykerOmsConfig
 {
 
     const ORDER_PROCESS_NO_PAYMENT_01 = 'Nopayment01';
+
+    const ORDER_PROCESS_PREPAYMENT_01 = 'Prepayment01';
 
     /**
      * @return string
@@ -19,16 +18,6 @@ class OmsConfig extends SprykerOmsConfig
     public function getProcessDefinitionLocation()
     {
         return APPLICATION_ROOT_DIR . '/config/Zed/oms/';
-    }
-
-    /**
-     * @return array
-     */
-    public function getActiveProcesses()
-    {
-        return [
-            self::ORDER_PROCESS_NO_PAYMENT_01,
-        ];
     }
 
     /**
@@ -43,7 +32,7 @@ class OmsConfig extends SprykerOmsConfig
         $method = 'prepayment';
         switch ($method) {
             case 'prepayment':
-                $selectedProcessName = self::ORDER_PROCESS_NO_PAYMENT_01;
+                $selectedProcessName = self::ORDER_PROCESS_PREPAYMENT_01;
                 break;
             default:
                 throw new \RuntimeException("Could not find any statemachine process for new order in " . get_class($this));
@@ -54,6 +43,17 @@ class OmsConfig extends SprykerOmsConfig
         }
 
         return $selectedProcessName;
+    }
+
+    /**
+     * @return array
+     */
+    public function getActiveProcesses()
+    {
+        return [
+            self::ORDER_PROCESS_NO_PAYMENT_01,
+            self::ORDER_PROCESS_PREPAYMENT_01,
+        ];
     }
 
 }

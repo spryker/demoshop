@@ -23,6 +23,8 @@ class FrontendExporterConfig extends SprykerFrontendExporterConfig
             $this->getLocator()->taxFrontendExporterConnector()->pluginTaxProcessorPlugin(),
             $this->getLocator()->productCategoryFrontendExporterConnector()->pluginProductCategoryBreadcrumbProcessorPlugin(),
 
+            $this->getLocator()->productOptionExporter()->pluginProductOptionProcessorPlugin(),
+
             $this->getLocator()->categoryExporter()->pluginNavigationProcessorPlugin(),
             $this->getLocator()->categoryExporter()->pluginCategoryNodeProcessorPlugin(),
 
@@ -60,6 +62,8 @@ class FrontendExporterConfig extends SprykerFrontendExporterConfig
 
             $this->getLocator()->productFrontendExporterPriceConnector()->pluginProductPriceQueryExpanderPlugin(),
             $this->getLocator()->taxFrontendExporterConnector()->pluginTaxQueryExpanderPlugin(),
+
+            $this->getLocator()->productOptionExporter()->pluginProductOptionExpanderPlugin(),
 
             $this->getLocator()->productCategoryFrontendExporterConnector()
                 ->pluginProductCategoryBreadcrumbQueryExpanderPlugin(),

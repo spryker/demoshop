@@ -54,9 +54,12 @@ class ZedBootstrap extends Bootstrap
      */
     protected function getTwigExtensions(Application $app)
     {
+        $twigMessengerPlugin = $this->getLocator()->messenger()->pluginTwigMessengerPlugin();
+
         return [
             new ZedExtension(),
             new TranslationExtension($app['translator']),
+            $twigMessengerPlugin->getTwigMessengerExtension(),
         ];
     }
 

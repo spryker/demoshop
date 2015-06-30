@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<statemachine
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="../process.xsd">
+    <process name="fulfillment">
+        <states>
+            <state name="fulfillment initiated"/>
+            <state name="ready for export"/>
+            <state name="exported"/>
+            <state name="shipped"/>
+            <state name="fulfilled"/>
+            <state name="clarify delivery failed"/>
+        </states>
+        <transitions>
+            <transition>
+                <source>fulfillment initiated</source>
+                <target>ready for export</target>
+            </transition>
+            <transition>
+                <source>ready for export</source>
+                <target>exported</target>
+                <event>start order export</event>
+            </transition>
+            <transition>
+                <source>exported</source>
+                <target>shipped</target>
+                <event>has been shipped</event>
+            </transition>
+            <transition>
+                <source>shipped</source>
+                <target>fulfilled</target>
+                <event>delivered successfully</event>
+            </transition>
+            <transition>
+                <source>shipped</source>
+                <target>clarify delivery failed</target>
+                <event>delivery failed</event>
+            </transition>
+            <transition>
+                <source>clarify delivery failed</source>
+                <target>shipped</target>
+                <event>retry delivery</event>
+            </transition>
+            <transition>
+                <source>fulfilled</source>
+                <target>clarify delivery failed</target>
+                <event>delivery failed</event>
+            </transition>
+            <transition>
+                <source>clarify delivery failed</source>
+                <target>fulfilled</target>
+                <event>was fulfilled</event>
+            </transition>
+            <transition>
+                <source>clarify delivery failed</source>
+                <target>fulfillment initiated</target>
+                <event>item was lost</event>
+            </transition>
+        </transitions>
+
+        <events>
+            <event name="start order export" manual="true"/>
+            <event name="has been shipped" manual="true"/>
+            <event name="delivery failed" manual="true"/>
+            <event name="retry delivery" manual="true"/>
+            <event name="was fulfilled" manual="true"/>
+            <event name="delivered successfully" timeout="1day" manual="true"/>
+            <event name="item was lost" manual="true"/>
+        </events>
+    </process>
+</statemachine>

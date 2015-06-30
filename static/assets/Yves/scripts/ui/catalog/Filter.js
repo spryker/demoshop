@@ -18,14 +18,14 @@ var Filter = function ($el) {
       range: true,
       max: this.max,
       values: [this.min, this.max],
-      animate: 'fast',
+      animate: 'fast'
       // slide: updatePriceValueDisplay,
       // change: triggerPriceChange
     });
 
     $slider.on('slidechange', function(event) {
       // programmatic changes don't include mouse coordinate information
-      // so this ensures that we only repond to user-initiated events
+      // so this ensures that we only respond to user-initiated events
       if (event.clientX) {
         that.$el.trigger('change');
       }
@@ -36,9 +36,19 @@ var Filter = function ($el) {
       that.updateSliderValueDisplay(min, max);
     });
   } else if (this.type == 'color') {
+      var that = this;
     this.$el.find('.js-color-name').each(function(i, el) {
-      var color = $(el).siblings(':radio').data('color');
+      var color = $(el).siblings(':radio').data('color'),
+          radio = $(el).siblings(':radio');
       $(el).css('background-color', color);
+        $(el).on('click', function(e) {
+            if (color == that.getSelectedValue()) {
+                that.setSelectedValue(null);
+            } else {
+                that.setSelectedValue(color);
+            }
+            that.$el.trigger('change');
+        });
     });
   }
 };
@@ -84,7 +94,11 @@ Filter.prototype.getSelectedValue = function(display) {
 Filter.prototype.setSelectedValue = function(value) {
   var values;
   if (this.type == 'default' || this.type == 'color') {
-    this.$el.find("[value='"+value+"']").prop('checked', true);
+    if (value === null) {
+      this.$el.find("input:checked").prop('checked', false);
+    } else {
+      this.$el.find("[value='"+value+"']").prop('checked', true);
+    }
   } else if (this.type == 'range') {
     values = value.split('-');
     this.$el.find('.js-slider').slider('values', values);

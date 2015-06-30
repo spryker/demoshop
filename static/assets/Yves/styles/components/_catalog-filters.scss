@@ -44,7 +44,10 @@
     color: $paler-color;
   }
 
-  .filter__color {
+  .filter__main_color {
+    ul {
+      padding-left: $step*0.2;
+    }
     li {
       display: inline-block;
       margin-right: $step*.5;
