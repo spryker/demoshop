@@ -1,7 +1,7 @@
 {
     "_readme": [
         "This file locks the dependencies of your project to a known state",
-        "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
+        "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
     "hash": "99e6d48ef53bae2028c8ca95244d572b",
@@ -464,16 +464,16 @@
         },
         {
             "name": "propel/propel",
-            "version": "2.0.0-alpha4",
+            "version": "2.0.0-alpha5",
             "source": {
                 "type": "git",
                 "url": "https://github.com/propelorm/Propel2.git",
-                "reference": "8666ef48087fa51aebde2c88be18e819eac43aaf"
+                "reference": "75f775cf6de41595d1240885eea5fa5d475d228d"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/propelorm/Propel2/zipball/8666ef48087fa51aebde2c88be18e819eac43aaf",
-                "reference": "8666ef48087fa51aebde2c88be18e819eac43aaf",
+                "url": "https://api.github.com/repos/propelorm/Propel2/zipball/75f775cf6de41595d1240885eea5fa5d475d228d",
+                "reference": "75f775cf6de41595d1240885eea5fa5d475d228d",
                 "shasum": ""
             },
             "require": {
@@ -525,7 +525,7 @@
                 "orm",
                 "persistence"
             ],
-            "time": "2014-11-20 10:30:31"
+            "time": "2015-06-27 11:58:48"
         },
         {
             "name": "psr/log",
@@ -712,7 +712,7 @@
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/spryker.git",
-                "reference": "bbbd94e9dbbe369b2d3f396daec154710e679252"
+                "reference": "46f93c1f5e6e3e56a3419a8edb72cfcafa9911c6"
             },
             "require": {
                 "digital-canvas/zend-framework": ">=1.12.2",
@@ -846,7 +846,7 @@
                     "SprykerFeature\\Shared\\Library": "Bundles/Library/src/"
                 }
             },
-            "time": "2015-06-24 08:44:56"
+            "time": "2015-06-30 11:03:26"
         },
         {
             "name": "symfony-cmf/routing",
@@ -2355,25 +2355,21 @@
         {
             "name": "zendframework/zend-eventmanager",
             "version": "2.3.1",
+            "target-dir": "Zend/EventManager",
             "source": {
                 "type": "git",
                 "url": "https://github.com/zendframework/zend-eventmanager.git",
-                "reference": "ec158e89d0290f988a29ccd6bf179b561efbb702"
+                "reference": "957faa0580c40ef6bf6cf3e87a36d594042fe133"
             },
             "dist": {
                 "type": "zip",
                 "url": "https://api.github.com/repos/zendframework/zend-eventmanager/zipball/ec158e89d0290f988a29ccd6bf179b561efbb702",
-                "reference": "ec158e89d0290f988a29ccd6bf179b561efbb702",
+                "reference": "957faa0580c40ef6bf6cf3e87a36d594042fe133",
                 "shasum": ""
             },
             "require": {
                 "php": ">=5.3.23",
                 "zendframework/zend-stdlib": "self.version"
-            },
-            "require-dev": {
-                "fabpot/php-cs-fixer": "1.7.*",
-                "phpunit/phpunit": "~4.0",
-                "satooshi/php-coveralls": "dev-master"
             },
             "type": "library",
             "extra": {
@@ -2383,20 +2379,19 @@
                 }
             },
             "autoload": {
-                "psr-4": {
-                    "Zend\\EventManager\\": "src/"
+                "psr-0": {
+                    "Zend\\EventManager\\": ""
                 }
             },
             "notification-url": "https://packagist.org/downloads/",
             "license": [
                 "BSD-3-Clause"
             ],
-            "homepage": "https://github.com/zendframework/zend-event-manager",
             "keywords": [
                 "eventmanager",
                 "zf2"
             ],
-            "time": "2014-04-15 13:59:53"
+            "time": "2014-04-15 14:47:18"
         },
         {
             "name": "zendframework/zend-filter",
