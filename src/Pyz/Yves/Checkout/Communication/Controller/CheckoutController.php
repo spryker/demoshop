@@ -1,6 +1,8 @@
 <?php
+
 namespace Pyz\Yves\Checkout\Communication\Controller;
 
+use Generated\Shared\Transfer\SalesAddressTransfer;
 use Pyz\Yves\Checkout\Communication\CheckoutDependencyContainer;
 use Pyz\Yves\Checkout\Communication\Plugin\CheckoutControllerProvider;
 use SprykerEngine\Yves\Application\Communication\Controller\AbstractController;
@@ -167,7 +169,8 @@ class CheckoutController extends AbstractController
      */
     protected function handleRequest(Request $request)
     {
-        $cart = $this->getCart($request);
+        $cart = $this->getDependencyContainer()->createCartClient()->getCart();
+
         if ($cart->getItems()->count() < 1) {
             return $this->redirectResponseInternal('home');
         }
@@ -180,12 +183,12 @@ class CheckoutController extends AbstractController
         // This is really ugly, but i need this to have valid data for the payment control
         // This needs to be refactored after discussion...
         $all = $request->request->all();
-        $billingAddress = new \Generated\Shared\Transfer\SalesAddressTransfer();
+        $billingAddress = new SalesAddressTransfer();
         if (isset($all['salesOrder']) && isset($all['salesOrder']['billingAddress'])) {
             $billingAddress->fromArray($all['salesOrder']['billingAddress'], true);
         }
 
-        $shippingAddress = new \Generated\Shared\Transfer\SalesAddressTransfer();
+        $shippingAddress = new SalesAddressTransfer();
         if (isset($all['salesOrder']) && isset($all['salesOrder']['shippingAddress'])) {
             $shippingAddress->fromArray($all['salesOrder']['shippingAddress'], true);
         }
