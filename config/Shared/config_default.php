@@ -178,7 +178,7 @@ $config[AuthConfig::AUTH_DEFAULT_CREDENTIALS] = [
         'rules' => [
             [
                 "bundle" => "*",
-                "controller" => "stub",
+                "controller" => "gateway",
                 "action" => "*"
             ]
         ],
@@ -212,7 +212,7 @@ $config[AclConfig::ACL_DEFAULT_CREDENTIALS] = [
         'rules' => [
             [
                 "bundle" => "*",
-                "controller" => "stub",
+                "controller" => "gateway",
                 "action" => "*",
                 "type" => "allow"
             ]
