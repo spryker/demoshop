@@ -8,22 +8,4 @@ use SprykerFeature\Zed\Distributor\DistributorConfig as CoreDistributorConfig;
 
 class DistributorConfig extends CoreDistributorConfig
 {
-
-    /**
-     * @return ItemProcessorPluginInterface[]
-     */
-    public function getItemProcessors()
-    {
-        return [];
-    }
-
-    /**
-     * @return QueryExpanderPluginInterface[]
-     */
-    public function getQueryExpander()
-    {
-        return [
-            $this->getLocator()->glossaryDistributor()->pluginGlossaryQueryExpanderPlugin(),
-        ];
-    }
 }
