@@ -20,9 +20,13 @@ module.exports = {
   },
 
   setParams: function(params) {
-    var URL;
-    var paramString = this.paramsToString(params);
-    URL = URLUtils.init().origin+URLUtils.pathname+'?'+paramString;
+    var URL = URLUtils.init().origin+URLUtils.pathname,
+        paramString = this.paramsToString(params);
+
+    if (paramString.length > 0) {
+      URL = URL + '?' + paramString;
+    }
+
     window.history.pushState(null, window.document.title, URL);
   },
 

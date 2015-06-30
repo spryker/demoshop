@@ -27,6 +27,9 @@ module.exports = {
       $products.html(html);
       $products.removeClass('js-products-spinning');
 
+      $('.summary__total-count .amount').html(data.numFound);
+      $('.pagination-max-page').html(data.maxPage);
+
       // but this timeout is necessary, to allow animations to finish
       window.setTimeout(function() {
         $products.removeClass('js-products-loading');

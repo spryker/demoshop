@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<statemachine
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="../process.xsd">
+    <process name="cancellation">
+        <states>
+            <state name="cancellation initiated"/>
+            <state name="clarify refundable voucher code"/>
+            <state name="clarify refund money"/>
+            <state name="refunded"/>
+        </states>
+
+        <transitions>
+            <transition>
+                <source>cancellation initiated</source>
+                <target>clarify refundable voucher code</target>
+                <event>refund money</event>
+            </transition>
+            <transition>
+                <source>clarify refundable voucher code</source>
+                <target>clarify refund money</target>
+            </transition>
+            <transition>
+                <source>clarify refund money</source>
+                <target>refunded</target>
+            </transition>
+        </transitions>
+
+        <events>
+            <event name="refund money" manual="true"/>
+        </events>
+    </process>
+</statemachine>

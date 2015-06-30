@@ -42,6 +42,11 @@
   margin-bottom: $step*1.5;
 }
 
+.catalog__search-term {
+  color: $mid-color;
+  margin-bottom: $step;
+}
+
 .catalog__filter {
   // specifics are in components/_catalog-filters.scss
 }
