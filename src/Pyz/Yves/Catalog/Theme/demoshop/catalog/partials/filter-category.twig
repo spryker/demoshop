@@ -1,0 +1,9 @@
+<section class="filter js-filter js-filter-default filter__{{ filterName }}" data-filter-name="{{filterName}}" data-filter-type="category">
+    <ul class="filter__{{ filterName }}-list">
+        {% for categoryNode in categoryTree %}
+        <li>
+            {% include "@catalog/catalog/partials/filter-category-value.twig" with {displayValue:categoryNode.name, value:categoryNode.url|replace({"/":""}), default: category is defined ? category.node_id == categoryNode.node_id : false} %}
+        </li>
+        {% endfor %}
+    </ul>
+</section>
