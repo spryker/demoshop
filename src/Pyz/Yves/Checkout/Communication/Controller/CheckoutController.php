@@ -1,14 +1,15 @@
 <?php
 namespace Pyz\Yves\Checkout\Communication\Controller;
 
-use Generated\Shared\Transfer\CartItemsTransfer;
 use Generated\Shared\Transfer\CartItemTransfer;
 use Generated\Shared\Transfer\CartTransfer;
 use Generated\Shared\Transfer\CheckoutErrorTransfer;
 use Generated\Shared\Transfer\CheckoutRequestTransfer;
 use Generated\Shared\Transfer\CheckoutResponseTransfer;
+use Generated\Shared\Transfer\TotalsTransfer;
 use SprykerEngine\Yves\Application\Communication\Controller\AbstractController;
 use Pyz\Yves\Checkout\Communication\CheckoutDependencyContainer;
+use Symfony\Component\BrowserKit\Response;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\HttpFoundation\Request;
@@ -61,6 +62,15 @@ class CheckoutController extends AbstractController
         ];
     }
 
+
+    /**
+     *
+     */
+    protected function successAction()
+    {
+        return new Response('asfd');
+    }
+
     /**
      * @param CheckoutErrorTransfer[] $errors
      *
@@ -88,14 +98,14 @@ class CheckoutController extends AbstractController
     /**
      * @param CheckoutResponseTransfer $checkoutResponseTransfer
      *
-     * @return RedirectResponse
+     * @return JsonResponse
      */
     public function redirect(CheckoutResponseTransfer $checkoutResponseTransfer)
     {
-        if ($checkoutResponseTransfer->getIsExternalRedirect()) {
-            return new RedirectResponse($checkoutResponseTransfer->getRedirectUrl());
-        }
-        return new RedirectResponse($checkoutResponseTransfer->getRedirectUrl());
+        return new JsonResponse([
+            'success' => true,
+            'errors' => $checkoutResponseTransfer->getRedirectUrl()
+        ]);
     }
 
     /**
@@ -105,11 +115,16 @@ class CheckoutController extends AbstractController
     {
         $cart = new CartTransfer();
 
+        $totals = new TotalsTransfer();
+        $totals->setGrandTotal(2000);
+        $cart->setTotals($totals);
+
+
         $item = new CartItemTransfer();
         $item->setId(1);
         $item->setGrossPrice(200);
-        $item->setQuantity(3);
-        $item->setSku('Batman');
+        $item->setQuantity(1);
+        $item->setSku('146815');
         $item->setPriceToPay(1900);
         $item->setUniqueIdentifier(123);
         $cart->addItems($item);
@@ -118,19 +133,19 @@ class CheckoutController extends AbstractController
         $item2->setId(2);
         $item2->setGrossPrice(200);
         $item2->setQuantity(5);
-        $item2->setSku('Brillenpinguin');
+        $item2->setSku(146846);
         $item2->setPriceToPay(2450);
         $item2->setUniqueIdentifier(123);
-        $cart->addItems($item2);
+        //$cart->addItems($item2);
 
         $item3 = new CartItemTransfer();
         $item3->setId(2);
         $item3->setGrossPrice(200);
         $item3->setQuantity(2);
-        $item3->setSku('DRACHENRITTER BERSERKER');
+        $item3->setSku(137288);
         $item3->setPriceToPay(3250);
         $item3->setUniqueIdentifier(123);
-        $cart->addItems($item3);
+        //$cart->addItems($item3);
 
         return $cart;
     }
