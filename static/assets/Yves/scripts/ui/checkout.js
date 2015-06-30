@@ -113,6 +113,20 @@ module.exports = {
 
         postForm($(this), function(response){
           console.log(response);
+
+          if(response.succes){
+            window.location = response.url;
+          } else {
+            //alert('Ihre Bestellung konnte nicht gespeichert werden. Bitte beachten Sie die Hinweise am Seitenanfang.');
+            $('#backend-errors').empty();
+
+            $.each( response.errors, function( index, value ){
+              $('#backend-errors').append( '<div>Fehler '+ value.errorCode + ': ' + value.message + '</div>' );
+            });
+
+            $('#backend-errors-section').show();
+            $("html, body").animate({ scrollTop: 0 }, "slow");
+          }
         });
 
         return false;
