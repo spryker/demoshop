@@ -47,7 +47,6 @@ $config[SystemConfig::ZED_RABBITMQ_PASSWORD] =             'mate20mg';
 $config[SystemConfig::ZED_RABBITMQ_VHOST] =                '/DE_development_zed';
 
 $config[PayoneConfigConstants::PAYONE] = [
-    PayoneConfigConstants::PAYONE_CREDENTIALS_ENCODING => 'ISO 8859-1',
     PayoneConfigConstants::PAYONE_CREDENTIALS_ENCODING => 'UTF-8',
     PayoneConfigConstants::PAYONE_CREDENTIALS_KEY => 'oZZfMY6L224Q51jq',
     PayoneConfigConstants::PAYONE_CREDENTIALS_MID => '29250',
