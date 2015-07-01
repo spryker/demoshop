@@ -42,7 +42,7 @@ class CheckoutController extends AbstractController
                 /** @var CheckoutRequestTransfer $checkoutRequest */
                 $checkoutRequest = $form->getData();
 
-                $checkoutRequest->setCart($this->demoCart());
+                $checkoutRequest->setCart($this->getCart());
                 $checkoutRequest->setShippingAddress($checkoutRequest->getBillingAddress());
 
                 /** @var CheckoutResponseTransfer $checkoutResponseTransfer */
