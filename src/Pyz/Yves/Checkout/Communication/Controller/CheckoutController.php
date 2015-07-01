@@ -126,49 +126,4 @@ class CheckoutController extends AbstractController
         ]);
     }
 
-    /**
-     * @return CartTransfer
-     */
-    private function demoCart()
-    {
-        $cart = new CartTransfer();
-
-        $item = new CartItemTransfer();
-        $item->setId(1);
-        $item->setGrossPrice(200);
-        $item->setQuantity(3);
-        $item->setSku('146341');
-        $item->setName('Batman');
-        $item->setPriceToPay(1900);
-        $item->setUniqueIdentifier(123);
-        $cart->addItem($item);
-
-        $item2 = new CartItemTransfer();
-        $item2->setId(2);
-        $item2->setGrossPrice(200);
-        $item2->setQuantity(5);
-        $item2->setSku('147065');
-        $item2->setName('Brillenpinguin');
-        $item2->setPriceToPay(2450);
-        $item2->setUniqueIdentifier(123);
-        $cart->addItem($item2);
-
-        $item3 = new CartItemTransfer();
-        $item3->setId(2);
-        $item3->setGrossPrice(200);
-        $item3->setQuantity(2);
-        $item3->setSku('147027');
-        $item3->setName('DRACHENRITTER BERSERKER');
-        $item3->setPriceToPay(3250);
-        $item3->setUniqueIdentifier(123);
-        $cart->addItem($item3);
-
-        $totals = new TotalsTransfer();
-        $totals->setGrandTotalWithDiscounts(12345);
-        $totals->setSubtotal(12345);
-        $cart->setTotals($totals);
-
-        return $cart;
-    }
-
 }
