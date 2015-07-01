@@ -10,6 +10,7 @@ var $nameInput,
     $addressButton,
     $paymentButton,
     $addressElements,
+    $shoppingCart,
     $addressValidationResult;
 
 var initValidation = function () {
@@ -20,6 +21,7 @@ var initValidation = function () {
     $deliveryAddressInput = $('.js-delivery-address');
     $addressButton = $('.js-address-button');
     $paymentButton = $('.js-payment-button');
+    $shoppingCart = $('.js-shopping-cart');
     $('.js-checkout-address input, .js-checkout-address textarea').keyup(validateAddressBlock);
     $addressCheckbox.click(validateAddressBlock);
 };
@@ -134,6 +136,10 @@ module.exports = {
 
             return false;
         });
+
+        if(window.location.pathname.match(/^\/checkout/)) {
+            $shoppingCart.hide();
+        }
 
         initValidation();
     }
