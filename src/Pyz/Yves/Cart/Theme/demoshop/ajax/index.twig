@@ -40,5 +40,7 @@
         <a href="{{ url('checkout') }}" class="cart__to-checkout cta">{{ 'cart.checkout'|trans }}</a>
     {% endspaceless %}
 {% else %}
-    <div>{{ 'cart.empty'|trans }}</div>
+    <div style="text-align: center; font-weight: bold; font-size: 1.2em">
+        {{ 'cart.empty'|trans }}
+    </div>
 {% endif %}

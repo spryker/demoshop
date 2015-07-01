@@ -157,6 +157,9 @@ keys:
   cart.checkout:
     translations:
       de_DE: 'Zur Kasse'
+  cart.empty:
+    translations:
+      de_DE: 'Der Warenkorb is zur Zeit leer!'
 
   auth.login:
     translations:
