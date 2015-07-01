@@ -25,7 +25,7 @@ class CalculationConfig extends SprykerCalculationConfig
             $this->getLocator()->calculation()->pluginItemPriceToPayCalculatorPlugin(),
             $this->getLocator()->calculation()->pluginOptionPriceToPayCalculatorPlugin(),
             $this->getLocator()->discountCalculationConnector()->pluginDiscountTotalsCalculatorPlugin(),
-            $this->getLocator()->calculation()->pluginGrandTotalTotalsCalculatorPlugin(),
+            $this->getLocator()->discountCalculationConnector()->pluginGrandTotalWithDiscountsTotalsCalculatorPlugin(),
             $this->getLocator()->calculation()->pluginTaxTotalsCalculatorPlugin(),
         ];
     }
