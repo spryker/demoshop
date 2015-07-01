@@ -5,39 +5,39 @@
             <div class="cart__label--price">{{ 'cart.price'|trans }}</div>
         </div>
         <div class="cart__items js-cart-items">
-            {#@todo relate the item to the product#}
-            {% for product in products %}
-                {% if product.thumbnail is defined and product.thumbnail is not empty %}
-                    <img class="cart__item-image" src="{{ product.thumbnail }}">
-                {% endif %}
-                <div class="cart__item-quantity">{{ product.quantity }}</div>
-                <div class="cart__item-name">{{ product.name }}</div>
-                <div class="cart__item-quantity--spinner">
-                  <div class="spinner light">
-                    {% if product.quantity == 1 %}
-                        {#@todo display remove-button#}
-                    {% else %}
-                        <input type="button" value="-"class="spinner__decrement js-spinner__decrement">
+            {% for item in cart.items %}
+                <div class="cart-item" data-sku="{{ item.sku }}">
+                    {% if item.thumbnail is defined and item.thumbnail is not empty %}
+                        <img class="cart__item-image" src="{{ item.thumbnail }}">
                     {% endif %}
-                    <input type="number" value="{{ product.quantity }}" min="1" class="spinner__number js-spinner__number">
-                    <input type="button" value="+" class="spinner__increment js-spinner__increment">
-                  </div>
+                    <div class="cart__item-quantity">{{ item.quantity }}</div>
+                    <div class="cart__item-name">{{ item.name }}</div>
+                    <div class="cart__item-quantity--spinner">
+                      <div class="spinner light">
+                        {% if item.quantity == 1 %}
+                            <input type="button" value="x" class="spinner__decrement cart-remove">
+                        {% else %}
+                            <input type="button" value="-"class="spinner__decrement cart-decrement">
+                        {% endif %}
+                        <input type="number" value="{{ item.quantity }}" min="1" class="spinner__number cart-quantity">
+                        <input type="button" value="+" class="spinner__increment cart-increment">
+                      </div>
+                    </div>
+                    <div class="cart__item-price">{{ item.priceToPay|price }}</div>
                 </div>
-                <div class="cart__item-price">{{ product.price }}</div>
             {% endfor %}
         </div>
         {% if cart.totals %}
-            <div class="cart__shipping">
-              <div class="cart__shipping-label" colspan="2">{{ 'cart.price.shipping'|trans }}</div>
-              {#@todo get this rom totals#}
-              <div class="cart__shipping-price js-cart-shipping">{{ 2.5|price }}</div>
-            </div>
+            {#<div class="cart__shipping">
+              <div class="cart__shipping-label" colspan="2">{{ 'cart.shipping'|trans }}</div>
+              <div class="cart__shipping-price js-cart-shipping">{{ 250|price }}</div>
+            </div>#}
             <div class="cart__total">
-              <div class="cart__total-label" colspan="2">{{ 'cart.price.grand.total'|trans }}</div>
+              <div class="cart__total-label" colspan="2">{{ 'cart.total'|trans }}</div>
               <div class="cart__total-price js-cart-total">{{ cart.totals.grandTotal|price }}</div>
             </div>
         {% endif %}
-        <a href="{{ url('checkout') }}" class="cart__to-checkout cta">{{ 'cart.to.checkout'|trans }}</a>
+        <a href="{{ url('checkout') }}" class="cart__to-checkout cta">{{ 'cart.checkout'|trans }}</a>
     {% endspaceless %}
 {% else %}
     <div>{{ 'cart.empty'|trans }}</div>
