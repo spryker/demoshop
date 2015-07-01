@@ -1,0 +1,24 @@
+{% spaceless %}
+    <div class="cart__labels">
+        <div class="cart__label--name">{{ 'cart.your-order'|trans }}</div>
+        <div class="cart__label--price">{{ 'cart.price'|trans }}</div>
+    </div>
+    <div class="cart__items js-cart-items">
+        {% for item in cart.items %}
+            {% if imageUrl is defined and imageUrl is not null %}
+                <img class="cart__item-image" src="{{imageUrl}}">
+            {% endif %}
+            <div class="cart__item-quantity">{{ item.quantity }}</div>
+            <div class="cart__item-name">{{ item.name }}</div>
+            <div class="cart__item-price">{{ (item.priceToPay * item.quantity)|price }}</div>
+        {% endfor %}
+    </div>
+    {#<div class="cart__shipping">
+      <div class="cart__shipping-label" colspan="2">{{ 'cart.shipping'|trans }}</div>
+      <div class="cart__shipping-price js-cart-shipping">{{ cart.totals.shipping|price }}</div>
+    </div>#}
+    <div class="cart__total">
+      <div class="cart__total-label" colspan="2">{{ 'cart.total'|trans }}</div>
+      <div class="cart__total-price js-cart-total">{{ cart.totals.grandTotalWithDiscounts|price }}</div>
+    </div>
+{% endspaceless %}
