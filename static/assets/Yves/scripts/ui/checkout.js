@@ -8,7 +8,9 @@ var $nameInput,
     $addressCheckbox,
     $deliveryAddressInput,
     $addressButton,
+    $paymentButton,
     $addressElements,
+    $shoppingCart,
     $addressValidationResult;
 
 var initValidation = function() {
@@ -129,10 +131,10 @@ module.exports = {
           }
         });
 
-        return false;
-      });
-    });
+        if(window.location.pathname.match(/^\/checkout/)) {
+            $shoppingCart.hide();
+        }
 
-    initValidation();
-  }
+        initValidation();
+    }
 };
