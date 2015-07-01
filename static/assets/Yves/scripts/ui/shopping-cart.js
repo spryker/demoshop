@@ -72,11 +72,21 @@ var removeSku = function (e) {
 };
 
 var increaseQty = function (e) {
-    changeQty(e, 1);
+    var sku = $(e.target).parents('.cart-item').data('sku');
+
+    $.post('/cart/increase/' + sku)
+        .done(function (data) {
+            renderCart(data);
+        });
 };
 
 var decreaseQty = function (e) {
-    changeQty(e, -1);
+    var sku = $(e.target).parents('.cart-item').data('sku');
+
+    $.post('/cart/decrease/' + sku)
+        .done(function (data) {
+            renderCart(data);
+        });
 };
 
 var changeQty = function (e, changeQty) {
