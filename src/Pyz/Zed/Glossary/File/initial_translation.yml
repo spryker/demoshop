@@ -242,6 +242,9 @@ keys:
   page.detail.small-parts-warning:
     translations:
       de_DE: 'Achtung! Verschluckbare Kleinteile. Erstickungsgefahr. Für Kinder unter 3 Jahre nicht geeignet.'
+  page.detail.dimensions:
+    translations:
+      de_DE: 'Abmessungen'
 
   page.imprint.url:
     translations:
