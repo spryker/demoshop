@@ -68,10 +68,14 @@ function postForm($form, callback){
 
 module.exports = {
 
-  init: function() {
-    $('.login__skip').click(function() {
-      $('.js-checkout-address').removeClass('js-checkout-collapsed');
-      $('.js-checkout-login').addClass('js-checkout-collapsed');
+    init: function () {
+        $('input[name="checkout[payment_method]"]').on('change', function () {
+            $paymentButton.attr('disabled', $('input[name="checkout[payment_method]"]:checked').length != 1);
+        });
+
+        $('.login__skip').click(function () {
+            $('.js-checkout-address').removeClass('js-checkout-collapsed');
+            $('.js-checkout-login').addClass('js-checkout-collapsed');
 
       // if logged in, prefill email and name
       //   if has address, prefill too
@@ -131,8 +135,8 @@ module.exports = {
           }
         });
 
-        if(window.location.pathname.match(/^\/checkout/)) {
-            $shoppingCart.hide();
+        if (window.location.pathname.match(/^\/checkout/)) {
+            $('.js-shopping-cart').hide();
         }
 
         initValidation();
