@@ -17,7 +17,7 @@
             <p class="product__price">{{ product.price|price }}</p>
 
             {% include "@application/layout/partials/spinner.twig" with {class:"product__quantity", style:"caplet", name:"quantity", value:"1"} %}
-            <button class="product__add-button cta" data-sku="{{ product.abstractSku }}">{{ "detail.add-to-cart"|trans }}</button>
+            <button class="product__add-button cta" data-sku="{{ product.abstractSku }}">{{ "page.detail.add-to-cart"|trans }}</button>
         </section>
         <section class="product__main-image">
             <img src="{{ product.image_url }}" alt="" style="width: 100%;"/>
@@ -27,10 +27,10 @@
 
             <p>{{ product.description_long }}</p>
             <dl class="product__specifications">
-                <dt>{{ "detail.dimensions"|trans }}</dt>
+                <dt>{{ "page.detail.dimensions"|trans }}</dt>
                 <dd>{{ product.width }}x{{ product.height }}x{{ product.depth }} cm</dd>
                 {% if product.material is not null %}
-                <dt>{{ "detail.material"|trans }}</dt>
+                <dt>{{ "page.detail.material"|trans }}</dt>
                 <dd>{{ product.material }}</dd>
                 {% endif %}
             </dl>
@@ -41,7 +41,7 @@
             {% endfor %}
         </section>
         <section class="product__warnings">
-            <p class="warning__under-3">{{ "detail.warning.riskOfSuffocation"|trans }}</p>
+            <p class="warning__under-3">{{ "page.detail.small-parts-warning"|trans }}</p>
         </section>
     </article>
 {% endblock %}
