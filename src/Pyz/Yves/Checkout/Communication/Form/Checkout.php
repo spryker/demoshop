@@ -72,6 +72,7 @@ class Checkout extends AbstractType
             ])
             ->add('submit', 'submit', [
                 'label' => 'checkout.review.submit',
+                'disabled' => true,
                 'attr' => [
                     'class' => 'cta confirm__submit js-checkout-submit'
                 ]
