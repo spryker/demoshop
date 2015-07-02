@@ -4,11 +4,6 @@ use SprykerFeature\Shared\Mail\MailConfig;
 use SprykerFeature\Shared\Setup\SetupConfig;
 use SprykerFeature\Shared\System\SystemConfig;
 
-$config[SystemConfig::ZED_MYSQL_USERNAME] = 'development';
-$config[SystemConfig::ZED_MYSQL_PASSWORD] = 'mate20mg';
-$config[SystemConfig::ZED_MYSQL_DATABASE] = 'US_development_zed';
-$config[SystemConfig::ZED_MYSQL_HOST] = 'localhost';
-$config[SystemConfig::ZED_MYSQL_PORT] = 3306;
 
 $yvesHost = 'www.com.spryker.dev';
 $config[SystemConfig::HOST_YVES] = 'http://' . $yvesHost;

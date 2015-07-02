@@ -87,15 +87,15 @@ $config[SystemConfig::PROPEL] = [
     'database' => [
         'connections' => [
             'default' => [
-                'adapter' => 'mysql',
-                'dsn' => '',
-                'user' => '',
+                'adapter' => 'pgsql',
+                'dsn' => 'pgsql:host=127.0.0.1;dbname=DE_development_zed',
+                'user' => 'development',
                 'password' => '',
                 'settings' => [
                     'charset' => 'utf8',
-                    'queries' => [
-                        'utf8' => 'SET NAMES utf8 COLLATE utf8_unicode_ci, COLLATION_CONNECTION = utf8_unicode_ci, COLLATION_DATABASE = utf8_unicode_ci, COLLATION_SERVER = utf8_unicode_ci'
-                    ]
+                    #'queries' => [
+                    #    'utf8' => 'SET NAMES utf8 COLLATE utf8_unicode_ci, COLLATION_CONNECTION = utf8_unicode_ci, COLLATION_DATABASE = utf8_unicode_ci, COLLATION_SERVER = utf8_unicode_ci'
+                    #]
                 ]
             ]
         ]
