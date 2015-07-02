@@ -56,7 +56,7 @@ class SecurityController extends AbstractController
         if ($form->isValid()) {
             $customerTransfer = new CustomerTransfer();
             $customerTransfer->fromArray($form->getData());
-            $customerTransfer = $this->getLocator()->customer()->sdk()->registerCustomer($customerTransfer);
+            $customerTransfer = $this->getLocator()->customer()->client()->registerCustomer($customerTransfer);
             if ($customerTransfer->getRegistrationKey()) {
                 $this->addMessageWarning(Messages::CUSTOMER_REGISTRATION_SUCCESS);
 
@@ -76,7 +76,7 @@ class SecurityController extends AbstractController
     {
         $customerTransfer = new CustomerTransfer();
         $customerTransfer->setRegistrationKey($request->query->get("token"));
-        $customerTransfer = $this->getLocator()->customer()->sdk()->confirmRegistration($customerTransfer);
+        $customerTransfer = $this->getLocator()->customer()->client()->confirmRegistration($customerTransfer);
         if ($customerTransfer->getRegistered()) {
             $this->addMessageSuccess(Messages::CUSTOMER_REGISTRATION_CONFIRMED);
 

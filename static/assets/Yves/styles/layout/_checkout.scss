@@ -313,9 +313,9 @@
 .confirm__agb-submit {
   @include clearfix;
   position: relative;
-  top: -$step*2;
+  //top: -$step*2;
   margin-left: 50%;
-  margin-bottom: -$step;
+  //margin-bottom: -$step;
 
   .confirm__submit {
     width: 100%;

@@ -58,9 +58,9 @@ include:
  - vendor/spryker/spryker/Bundles/Redirect/
  - vendor/spryker/spryker/Bundles/RedirectExporter/
  - vendor/spryker/spryker/Bundles/Sales/
- - vendor/spryker/spryker/Bundles/Sdk/
  - vendor/spryker/spryker/Bundles/Search/
  - vendor/spryker/spryker/Bundles/Setup/
+ - vendor/spryker/spryker/Bundles/Session/
  - vendor/spryker/spryker/Bundles/Stock/
  - vendor/spryker/spryker/Bundles/StockSalesConnector/
  - vendor/spryker/spryker/Bundles/System/

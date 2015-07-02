@@ -3,7 +3,6 @@
 namespace Pyz\Yves\Catalog\Communication\Controller;
 
 use SprykerEngine\Yves\Application\Communication\Controller\AbstractController;
-use Pyz\Yves\Library\Tracking\DataProvider\ProductDetailProvider;
 use SprykerFeature\Yves\Library\Tracking\PageTypeInterface;
 use SprykerFeature\Yves\Library\Tracking\Tracking;
 use Symfony\Component\HttpFoundation\Request;
@@ -18,7 +17,7 @@ class CatalogController extends AbstractController
      */
     public function indexAction(array $categoryNode, Request $request)
     {
-        $search = $this->getLocator()->catalog()->sdk()->createFacetSearch($request, $categoryNode);
+        $search = $this->getLocator()->catalog()->client()->createFacetSearch($request, $categoryNode);
         $search->setItemsPerPage(6);
         $categoryTree = $this->getLocator()->categoryExporter()->sdk()->getTreeFromCategoryNode($categoryNode, $this->getLocale());
         $searchResults = array_merge($search->getResult(), ['category' => $categoryNode, 'categoryTree' => $categoryTree,]);
@@ -36,7 +35,7 @@ class CatalogController extends AbstractController
      */
     public function fulltextSearchAction(Request $request)
     {
-        $search = $this->getLocator()->catalog()->sdk()->createFulltextSearch($request);
+        $search = $this->getLocator()->catalog()->client()->createFulltextSearch($request);
 
         $search->setItemsPerPage(6);
 

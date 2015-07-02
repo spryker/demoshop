@@ -5,7 +5,7 @@
     <script src="{{ asset('/scripts/app/cart.js') }}"></script>
 
     <section class="consumeHeight" id="cart">
-            {% include "@application/partials/flash_bag.twig" %}
+            {#{% include "@application/partials/flash_bag.twig" %}#}
             {% if cartItems|length %}
             <a class="continue" href="{{ url('checkout') }}">{{ 'cart.to.checkout'|trans }}</a>
             {% endif %}
@@ -29,18 +29,18 @@
 
                         <td>
                             {#<img src="{{ getFirstProductImagesBySize(product.product_images, 'm') }}" alt="" width="20%" />#}
-                            <h3>{{ product.name }}</h3>
-                            {% if array.brand is defined %}
-                                <h4>by {{ product.brand }}</h4>
-                            {% endif %}
-                            <ul class="specs">
-                                {% if array.material is defined %}
-                                    <li>{{ product.material }}</li>
-                                {% endif %}
-                                {% if array.dimension_in_cm is defined %}
-                                    <li>{{ product.dimension_in_cm }}</li>
-                                {% endif %}
-                            </ul>
+                            {#<h3>{{ product.name }}</h3>#}
+                            {#{% if array.brand is defined %}#}
+                                {#<h4>by {{ product.brand }}</h4>#}
+                            {#{% endif %}#}
+                            {#<ul class="specs">#}
+                                {#{% if array.material is defined %}#}
+                                    {#<li>{{ product.material }}</li>#}
+                                {#{% endif %}#}
+                                {#{% if array.dimension_in_cm is defined %}#}
+                                    {#<li>{{ product.dimension_in_cm }}</li>#}
+                                {#{% endif %}#}
+                            {#</ul>#}
                             <a href="{{ url('cart/remove', {'sku':cartItem.sku, 'uid':cartItem.uniqueIdentifier}) }}" class="remove">
                                 <span class="glyphicon glyphicon-trash"></span>
                                 {{ 'cart.remove'|trans }}

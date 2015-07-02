@@ -37,7 +37,7 @@ class ConsoleConfig extends SprykerConsoleConfig
             $this->getLocator()->setup()->consoleGenerateIdeAutoCompletionConsole(),
             $this->getLocator()->setup()->consoleGenerateZedIdeAutoCompletionConsole(),
             $this->getLocator()->setup()->consoleGenerateYvesIdeAutoCompletionConsole(),
-            $this->getLocator()->setup()->consoleGenerateSdkIdeAutoCompletionConsole(),
+            $this->getLocator()->setup()->consoleGenerateClientIdeAutoCompletionConsole(),
             $this->getLocator()->setup()->consoleNpmRunnerConsole(),
             $this->getLocator()->setup()->consoleJenkinsEnableConsole(),
             $this->getLocator()->setup()->consoleJenkinsDisableConsole(),

@@ -157,6 +157,9 @@ keys:
   cart.checkout:
     translations:
       de_DE: 'Zur Kasse'
+  cart.empty:
+    translations:
+      de_DE: 'Der Warenkorb ist zur Zeit leer!'
 
   auth.login:
     translations:
@@ -239,6 +242,9 @@ keys:
   page.detail.small-parts-warning:
     translations:
       de_DE: 'Achtung! Verschluckbare Kleinteile. Erstickungsgefahr. Für Kinder unter 3 Jahre nicht geeignet.'
+  page.detail.dimensions:
+    translations:
+      de_DE: 'Abmessungen'
 
   page.imprint.url:
     translations:
