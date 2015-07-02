@@ -111,21 +111,4 @@ class CheckoutController extends AbstractController
         ]);
     }
 
-    /**
-     * @param CheckoutResponseTransfer $checkoutResponseTransfer
-     *
-     * @return JsonResponse
-     */
-    public function redirect(CheckoutResponseTransfer $checkoutResponseTransfer)
-    {
-        $redirectUrl = $checkoutResponseTransfer->getIsExternalRedirect()
-            ? $checkoutResponseTransfer->getRedirectUrl()
-            : CheckoutControllerProvider::ROUTE_CHECKOUT_SUCCESS;
-
-        return new JsonResponse([
-            'success' => true,
-            'url' => $redirectUrl,
-        ]);
-    }
-
 }
