@@ -49,6 +49,8 @@ class CheckoutController extends AbstractController
                 $checkoutResponseTransfer = $checkoutClient->requestCheckout($checkoutRequest);
 
                 if ($checkoutResponseTransfer->getIsSuccess()) {
+                    $this->getLocator()->cart()->client()->clearCart();
+
                     return $this->redirect($checkoutResponseTransfer);
                 } else {
                     return $this->errors($checkoutResponseTransfer->getErrors());
