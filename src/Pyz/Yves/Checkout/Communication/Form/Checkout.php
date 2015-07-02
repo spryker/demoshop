@@ -70,13 +70,6 @@ class Checkout extends AbstractType
                     'class' => 'padded confirm__agb js-confirm-agb'
                 ]
             ])
-            ->add('submit', 'submit', [
-                'label' => 'checkout.review.submit',
-                'disabled' => true,
-                'attr' => [
-                    'class' => 'cta confirm__submit js-checkout-submit'
-                ]
-            ])
         ;
     }
 
