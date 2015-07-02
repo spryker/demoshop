@@ -19,8 +19,9 @@ class CatalogController extends AbstractController
     {
         $search = $this->getLocator()->catalog()->client()->createFacetSearch($request, $categoryNode);
         $search->setItemsPerPage(6);
-        $categoryTree = $this->getLocator()->categoryExporter()->sdk()->getTreeFromCategoryNode($categoryNode, $this->getLocale());
-        $searchResults = array_merge($search->getResult(), ['category' => $categoryNode, 'categoryTree' => $categoryTree,]);
+
+        $categoryTree = $this->getLocator()->categoryExporter()->client()->getTreeFromCategoryNode($categoryNode, $this->getLocale());
+        $searchResults = array_merge($search->getResult(), ['category' => $categoryNode, 'categoryTree' => $categoryTree]);
 
         if ($request->isXmlHttpRequest()) {
             return $this->jsonResponse($searchResults);
