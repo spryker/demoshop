@@ -69,8 +69,18 @@ function postForm($form, callback){
 module.exports = {
 
     init: function () {
+        initValidation();
+
         $('input[name="checkout[payment_method]"]').on('change', function () {
             $paymentButton.attr('disabled', $('input[name="checkout[payment_method]"]:checked').length != 1);
+        });
+
+        $addressCheckbox.on('change', function (e) {
+            if ($addressCheckbox.is(':checked')) {
+                $('.js-delivery-address').show();
+            } else {
+                $('.js-delivery-address').hide();
+            }
         });
 
         $('.login__skip').click(function () {
@@ -138,7 +148,5 @@ module.exports = {
         if (window.location.pathname.match(/^\/checkout/)) {
             $('.js-shopping-cart').hide();
         }
-
-        initValidation();
     }
 };
