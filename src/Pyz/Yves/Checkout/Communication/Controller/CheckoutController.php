@@ -7,9 +7,9 @@ use Generated\Shared\Transfer\CheckoutErrorTransfer;
 use Generated\Shared\Transfer\CheckoutRequestTransfer;
 use Generated\Shared\Transfer\CheckoutResponseTransfer;
 use Generated\Shared\Transfer\TotalsTransfer;
+use Pyz\Yves\Checkout\Plugin\CheckoutControllerProvider;
 use SprykerEngine\Yves\Application\Communication\Controller\AbstractController;
 use Pyz\Yves\Checkout\Communication\CheckoutDependencyContainer;
-use Symfony\Component\BrowserKit\Response;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\HttpFoundation\Request;
@@ -20,6 +20,14 @@ use Symfony\Component\HttpFoundation\Request;
 class CheckoutController extends AbstractController
 {
 
+
+    /**
+     * @return CartTransfer
+     */
+    public function getCart()
+    {
+        return $this->getLocator()->cart()->client()->getCart();
+    }
 
     /**
      * @param Request $request
@@ -60,15 +68,15 @@ class CheckoutController extends AbstractController
 
         return [
             'form' => $form->createView(),
-            'cart' => $this->demoCart()
+            'cart' => $this->getCart(),
         ];
     }
 
-
     /**
-     *
+     * @param Request $request
+     * @return array
      */
-    protected function successAction()
+    public function successAction(Request $request)
     {
         //@todo copy look and feel from invision!
         //@todo add finish form?
@@ -83,14 +91,14 @@ class CheckoutController extends AbstractController
      */
     protected function errors($errors)
     {
-        $cart = $this->getDependencyContainer()->createCartClient()->getCart();
-        $cartItems = $cart->getItems();
-        $order = $cart->getOrder();
-
-        if (!$order->getIdSalesOrder()) {
-            return $this->redirectResponseInternal('home');
+        $returnErrors = array();
+        foreach ($errors as $error) {
+            $returnErrors[] = [
+                'errorCode' => $error->getErrorCode(),
+                'message' => $error->getMessage(),
+                'step' => $error->getStep()
+            ];
         }
-
 
         return new JsonResponse([
             'success' => false,
@@ -105,9 +113,13 @@ class CheckoutController extends AbstractController
      */
     public function redirect(CheckoutResponseTransfer $checkoutResponseTransfer)
     {
+        $redirectUrl = $checkoutResponseTransfer->getIsExternalRedirect()
+            ? $checkoutResponseTransfer->getRedirectUrl()
+            : CheckoutControllerProvider::ROUTE_CHECKOUT_SUCCESS;
+
         return new JsonResponse([
             'success' => true,
-            'url' => $checkoutResponseTransfer->getRedirectUrl()
+            'url' => $redirectUrl,
         ]);
     }
 

@@ -3,14 +3,14 @@
 {% form_theme form '@checkout/checkout/theme.twig' %}
 
 {% block content %}
-    <div class="checkout">
-        <div class="checkout__wrapper">
-            <div class="checkout__cart js-checkout-cart">
-                {% include "@application/layout/partials/cart/cart-list.twig" with {cart: cart} %}
-            </div>
-
+    {% if cart.items|length > 0 %}
+        <div class="checkout">
+            <div class="checkout__wrapper">
+                <div class="checkout__cart js-checkout-cart">
+                    {% include "@checkout/checkout/cart.twig" %}
+                </div>
                 <div class="checkout__form">
-                    <section  id="backend-errors-section" class="checkout__form-block" style="display:none;">
+                    <section id="backend-errors-section" class="checkout__form-block" style="display:none;">
                         <h1 class="form-block__heading">Bitte überprüfen Sie Ihre Eingabe.</h1>
                         <div id="backend-errors"></div>
                     </section>
@@ -33,25 +33,31 @@
                     <section class="checkout__form-block js-form-block js-checkout-payment js-checkout-collapsed">
                         <h1 class="form-block__heading">2. Zahlungsart wählen</h1>
                         {{ form_widget(form.payment_method) }}
-                        <button class="cta js-payment-button">Weiter - Prüfen und Kauf abschließen</button>
+                        <button class="cta js-payment-button" disabled>Weiter - Prüfen und Kauf abschließen</button>
                         <button class="js-edit-formblock form-block__edit">Zahlungsart bearbeiten</button>
                     </section>
                     <section class="checkout__form-block checkout__form-block--confirm js-form-block js-checkout-confirm js-checkout-collapsed">
                         <h1 class="form-block__heading">3. Prüfen und Kauf abschließen</h1>
-                        {% include "@application/layout/partials/cart/cart-list.twig" %}
-                        <input type="text" name="checkout-voucher-code" class="padded confirm__voucher-code js-voucher-code" placeholder="Gutscheincode eingeben">
-                        <button class="confirm__voucher-submit js-voucher-submit">Gutscheincode einlösen</button>
+                        <div>
+                            {% include "@checkout/checkout/cart.twig" %}
+                        </div>
+                        {#<input type="text" name="checkout-voucher-code" class="padded confirm__voucher-code js-voucher-code" placeholder="Gutscheincode eingeben">
+                        <button class="confirm__voucher-submit js-voucher-submit">Gutscheincode einlösen</button>#}
                         <div class="confirm__agb-submit">
                             {{ form_widget(form.terms) }}
-                            <label for="{{ form.terms.vars.id }}" class="confirm__agb-label">Mit dem Klick auf di Schaltfläche “Jetzt kaufen” bestätige ich die <a href="/agb.html" target="_blank">AGB</a> von Sprylando</label>
-                            {# <input type="submit" class="cta confirm__submit js-checkout-submit" value="Jetzt kaufen" disabled> #}
-                            {{ form_widget(form.submit) }}
+                            <label for="{{ form.terms.vars.id }}" class="confirm__agb-label">Mit dem Klick auf die Schaltfläche “Jetzt kaufen” bestätige ich die <a href="/agb" target="_blank">AGB</a> des Spryker Shops</label>
+                            <button type="submit" id="checkout_submit" disabled="disabled" class="cta confirm__submit js-checkout-submit">{{ 'page.checkout.finalize.buy-now'|trans }}</button>
                         </div>
                     </section>
                     {{ form_end(form) }}
                 </div>
-
+            </div>
         </div>
-    </div>
-
+    {% else %}
+        <article class="product product--justice-league">
+            <section class="product__overview">
+                <h2 class="product__name">{{ 'cart.empty'|trans }}</h2>
+            </section>
+        </article>
+    {% endif %}
 {% endblock %}
