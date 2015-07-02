@@ -8,7 +8,10 @@ var $ = require('jquery'),
     isExpanded = false;
 
 var setItemCount = function() {
-    var itemsCount = $('.cart__item-name').length;
+    var itemsCount = 0;
+    $('#cart-overlay .cart__item-name').each(function () {
+        itemsCount += parseInt($(this).parent().find('.cart-quantity').val());
+    });
     if (itemsCount > 0 && !isExpanded) {
         $cart.addClass('js-cart-has-items').attr('data-item-count', itemsCount);
     } else {
@@ -127,5 +130,7 @@ module.exports = {
             .on('click', '.cart-decrement', decreaseQty)
             .on('change', '.cart-quantity', changeQty)
         ;
+
+        $('.overlay').on('click', hideCart);
     }
 };
