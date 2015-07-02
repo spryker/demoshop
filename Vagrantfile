@@ -99,7 +99,7 @@ Vagrant.configure(2) do |config|
   end
 
   # Share the application code with VM
-  config.vm.synced_folder "./", "/data/shop/development/current", type: SYNCED_FOLDER_TYPE
+  config.vm.synced_folder "./", "/data/shop/development/current", type: SYNCED_FOLDER_TYPE, nfs_version: "4"
   if SYNCED_FOLDER_TYPE == "nfs"
     config.nfs.map_uid = Process.uid
     config.nfs.map_gid = Process.gid
