@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "91ba1e6646e1ee717cb96e72bdeae2fe",
+    "hash": "880b079e8e0e32c8812749a760bfe924",
     "packages": [
         {
             "name": "digital-canvas/zend-framework",
@@ -708,11 +708,11 @@
         },
         {
             "name": "spryker/spryker",
-            "version": "v0.1.0",
+            "version": "v0.2.0",
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/spryker.git",
-                "reference": "daacd4556b27edcc0fe9bc743cf3b17c1b6868e9"
+                "reference": "1d757c024bb127bf8e60d46a87c05a58b586ba8f"
             },
             "require": {
                 "digital-canvas/zend-framework": ">=1.12.2",
@@ -748,7 +748,7 @@
                 "symfony/var-dumper": "~2.6.9",
                 "symfony/yaml": ">=2.3",
                 "twig/twig": "~1.15.0",
-                "zendframework/zend-code": "2.3.1",
+                "zendframework/zend-code": "~2.3.6",
                 "zendframework/zend-config": "~2.3.0",
                 "zendframework/zend-filter": "~2.3.0",
                 "zendframework/zend-servicemanager": "~2.3.0"
@@ -846,7 +846,7 @@
                     "SprykerFeature\\Shared\\Library": "Bundles/Library/src/"
                 }
             },
-            "time": "2015-06-30 18:05:21"
+            "time": "2015-07-03 09:38:27"
         },
         {
             "name": "symfony-cmf/routing",
@@ -2289,16 +2289,16 @@
         },
         {
             "name": "zendframework/zend-code",
-            "version": "2.3.1",
+            "version": "2.3.9",
             "source": {
                 "type": "git",
                 "url": "https://github.com/zendframework/zend-code.git",
-                "reference": "a64e90c9ee8c939335ee7e21e39e3342c0e54526"
+                "reference": "6747e75d76ee18b41fef3ec355d03d0afd3954bc"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/zendframework/zend-code/zipball/a64e90c9ee8c939335ee7e21e39e3342c0e54526",
-                "reference": "a64e90c9ee8c939335ee7e21e39e3342c0e54526",
+                "url": "https://api.github.com/repos/zendframework/zend-code/zipball/6747e75d76ee18b41fef3ec355d03d0afd3954bc",
+                "reference": "6747e75d76ee18b41fef3ec355d03d0afd3954bc",
                 "shasum": ""
             },
             "require": {
@@ -2338,20 +2338,20 @@
                 "code",
                 "zf2"
             ],
-            "time": "2014-04-15 14:47:18"
+            "time": "2015-03-12 16:55:53"
         },
         {
             "name": "zendframework/zend-config",
-            "version": "2.3.1",
+            "version": "2.3.9",
             "source": {
                 "type": "git",
                 "url": "https://github.com/zendframework/zend-config.git",
-                "reference": "698c139707380b29fd09791ec1c21b837e9a3f15"
+                "reference": "84d15141e88a37b00354160b802c33bb402c44ae"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/zendframework/zend-config/zipball/698c139707380b29fd09791ec1c21b837e9a3f15",
-                "reference": "698c139707380b29fd09791ec1c21b837e9a3f15",
+                "url": "https://api.github.com/repos/zendframework/zend-config/zipball/84d15141e88a37b00354160b802c33bb402c44ae",
+                "reference": "84d15141e88a37b00354160b802c33bb402c44ae",
                 "shasum": ""
             },
             "require": {
@@ -2395,20 +2395,20 @@
                 "config",
                 "zf2"
             ],
-            "time": "2014-04-15 13:59:53"
+            "time": "2015-02-10 14:55:30"
         },
         {
             "name": "zendframework/zend-eventmanager",
-            "version": "2.3.1",
+            "version": "2.3.9",
             "source": {
                 "type": "git",
                 "url": "https://github.com/zendframework/zend-eventmanager.git",
-                "reference": "ec158e89d0290f988a29ccd6bf179b561efbb702"
+                "reference": "40ef4dc17a9a8f88b3339630c7293cf3214054a9"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/zendframework/zend-eventmanager/zipball/ec158e89d0290f988a29ccd6bf179b561efbb702",
-                "reference": "ec158e89d0290f988a29ccd6bf179b561efbb702",
+                "url": "https://api.github.com/repos/zendframework/zend-eventmanager/zipball/40ef4dc17a9a8f88b3339630c7293cf3214054a9",
+                "reference": "40ef4dc17a9a8f88b3339630c7293cf3214054a9",
                 "shasum": ""
             },
             "require": {
@@ -2441,20 +2441,20 @@
                 "eventmanager",
                 "zf2"
             ],
-            "time": "2014-04-15 13:59:53"
+            "time": "2015-01-13 22:22:54"
         },
         {
             "name": "zendframework/zend-filter",
-            "version": "2.3.1",
+            "version": "2.3.9",
             "source": {
                 "type": "git",
                 "url": "https://github.com/zendframework/zend-filter.git",
-                "reference": "307fe694659e08ffd710c70e4db8bc60187bcc84"
+                "reference": "5ab3e669491293b9dd150e588ce790424574c342"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/zendframework/zend-filter/zipball/307fe694659e08ffd710c70e4db8bc60187bcc84",
-                "reference": "307fe694659e08ffd710c70e4db8bc60187bcc84",
+                "url": "https://api.github.com/repos/zendframework/zend-filter/zipball/5ab3e669491293b9dd150e588ce790424574c342",
+                "reference": "5ab3e669491293b9dd150e588ce790424574c342",
                 "shasum": ""
             },
             "require": {
@@ -2497,7 +2497,7 @@
                 "filter",
                 "zf2"
             ],
-            "time": "2014-04-14 19:50:30"
+            "time": "2015-02-10 14:55:30"
         },
         {
             "name": "zendframework/zend-servicemanager",
@@ -2551,16 +2551,16 @@
         },
         {
             "name": "zendframework/zend-stdlib",
-            "version": "2.3.1",
+            "version": "2.3.9",
             "source": {
                 "type": "git",
                 "url": "https://github.com/zendframework/zend-stdlib.git",
-                "reference": "6079302963d57f36a9ba92ed3f38b992997aa78d"
+                "reference": "2acb22aaf926f5a1934c6622d596f0b14872c3cd"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/zendframework/zend-stdlib/zipball/6079302963d57f36a9ba92ed3f38b992997aa78d",
-                "reference": "6079302963d57f36a9ba92ed3f38b992997aa78d",
+                "url": "https://api.github.com/repos/zendframework/zend-stdlib/zipball/2acb22aaf926f5a1934c6622d596f0b14872c3cd",
+                "reference": "2acb22aaf926f5a1934c6622d596f0b14872c3cd",
                 "shasum": ""
             },
             "require": {
@@ -2602,7 +2602,7 @@
                 "stdlib",
                 "zf2"
             ],
-            "time": "2014-04-15 13:59:53"
+            "time": "2015-02-10 14:55:30"
         }
     ],
     "packages-dev": [
