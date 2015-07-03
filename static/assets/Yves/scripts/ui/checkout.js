@@ -7,79 +7,148 @@ var $nameInput,
     $addressInput,
     $addressCheckbox,
     $deliveryAddressInput,
-    $addressButton;
+    $addressButton,
+    $paymentButton,
+    $addressElements,
+    $addressValidationResult;
 
-var initValidation = function() {
-  $nameInput = $('.js-checkout-name');
-  $emailInput = $('.js-checkout-email');
-  $addressInput = $('.js-invoice-address');
-  $addressCheckbox = $('.js-delivery-address-checkbox');
-  $deliveryAddressInput = $('.js-delivery-address');
-  $addressButton = $('.js-address-button');
-  $('.js-checkout-address input, .js-checkout-address textarea').keyup(validateAddressBlock);
-  $addressCheckbox.click(validateAddressBlock);
+var initValidation = function () {
+    $nameInput = $('.js-checkout-name');
+    $emailInput = $('.js-checkout-email');
+    $addressInput = $('.js-invoice-address');
+    $addressCheckbox = $('.js-delivery-address-checkbox');
+    $deliveryAddressInput = $('.js-delivery-address');
+    $addressButton = $('.js-address-button');
+    $paymentButton = $('.js-payment-button');
+    $('.js-checkout-address input, .js-checkout-address textarea').keyup(validateAddressBlock);
+    $addressCheckbox.click(validateAddressBlock);
 };
 
-var validateAddressBlock = function() {
-  if ($nameInput.val().length
-    && $emailInput.val().length
-    && $addressInput.val().length
-    && (!$addressCheckbox.prop('checked') || $deliveryAddressInput.val().length)) {
-    $addressButton.attr('disabled', false);
-  } else {
-    $addressButton.attr('disabled', true);
-  }
+var validateAddressBlock = function () {
+    $addressElements = $('#checkout_billing_address').children();
+
+    if ($($addressCheckbox).is(':checked')) {
+        $.merge($addressElements, $('#checkout_shipping_address').children());
+    }
+
+    $addressValidationResult = 1;
+    $addressElements.each(function ($id, $element) {
+            $addressValidationResult = $addressValidationResult && $($element).val().length;
+        }
+    );
+
+    if ($addressValidationResult) {
+        $addressButton.attr('disabled', false);
+    } else {
+        $addressButton.attr('disabled', true);
+    }
+};
+
+var generalError = function () {
+    $('#backend-errors').empty();
+
+    $('#backend-errors').append('<div>Es ist ein Fehler aufgetreten! Leider konnte Ihre Bestelung nicht aufgebeben werden!</div>');
+
+    $('#backend-errors-section').show();
+    $("html, body").animate({scrollTop: 0}, "slow");
+};
+
+function postForm($form, callback) {
+    var values = {};
+    $.each($form.serializeArray(), function (i, field) {
+        values[field.name] = field.value;
+    });
+
+    $.post($form.attr('action'), values)
+        .done(function (data) {
+            callback(data);
+        })
+        .fail(function () {
+            generalError;
+        });
 }
 
 module.exports = {
 
-  init: function() {
-    $('.login__skip').click(function() {
-      $('.js-checkout-address').removeClass('js-checkout-collapsed');
-      $('.js-checkout-login').addClass('js-checkout-collapsed');
+    init: function () {
+        initValidation();
 
-      // if logged in, prefill email and name
-      //   if has address, prefill too
-      //   else focus address
-      // else focus email
-      $('.js-checkout-email').focus();
-    });
+        $('input[name="checkout[payment_method]"]').on('change', function () {
+            $paymentButton.attr('disabled', $('input[name="checkout[payment_method]"]:checked').length != 1);
+        });
 
-    $('.js-delivery-address-checkbox').click(function() {
-      if ($('.js-delivery-address-checkbox:checked').length) {
-        $('.js-delivery-address').show(300);
-        $('.js-invoice-address').attr('placeholder', 'Rechnungsadresse');
-      } else {
-        $('.js-delivery-address').hide(300);
-        $('.js-invoice-address').attr('placeholder', 'Rechnungs- und Lieferadresse');
-      }
-    });
+        $addressCheckbox.on('change', function (e) {
+            if ($addressCheckbox.is(':checked')) {
+                $('.js-delivery-address').show();
+            } else {
+                $('.js-delivery-address').hide();
+            }
+        });
 
-    $('.js-address-button').click(function() {
-      $('.js-checkout-address').addClass('js-checkout-collapsed js-checkout-completed');
-      $('.js-checkout-payment').removeClass('js-checkout-collapsed');
-    });
+        $('.login__skip').click(function () {
+            $('.js-checkout-address').removeClass('js-checkout-collapsed');
+            $('.js-checkout-login').addClass('js-checkout-collapsed');
 
-    $('.js-payment-button').click(function() {
-      $('.js-checkout-payment').addClass('js-checkout-collapsed js-checkout-completed');
-      $('.js-checkout-confirm').removeClass('js-checkout-collapsed');
-      $('.js-checkout-cart').hide();
-    });
+            // if logged in, prefill email and name
+            //   if has address, prefill too
+            //   else focus address
+            // else focus email
+            $('.js-checkout-email').focus();
+        });
 
-    $('.js-edit-formblock').click(function(e) {
-      $('.js-form-block').addClass('js-checkout-collapsed');
-      $(e.currentTarget).parents('.js-form-block').removeClass('js-checkout-collapsed');
-      $('.js-checkout-cart').show();
-    });
+        $('.js-address-button').click(function (event) {
+            event.preventDefault();
+            $('.js-checkout-address').addClass('js-checkout-collapsed js-checkout-completed');
+            $('.js-checkout-payment').removeClass('js-checkout-collapsed');
+        });
 
-    $('.js-confirm-agb').click(function(e) {
-      if ($(e.currentTarget).prop('checked')) {
-        $('.js-checkout-submit').attr('disabled', false)
-      } else {
-        $('.js-checkout-submit').attr('disabled', true)
-      }
-    });
+        $('.js-payment-button').click(function (event) {
+            event.preventDefault();
+            $('.js-checkout-payment').addClass('js-checkout-collapsed js-checkout-completed');
+            $('.js-checkout-confirm').removeClass('js-checkout-collapsed');
+            $('.js-checkout-cart').hide();
+        });
 
-    initValidation();
-  }
+        $('.js-edit-formblock').click(function (event) {
+            event.preventDefault();
+            $('.js-form-block').addClass('js-checkout-collapsed');
+            $(event.currentTarget).parents('.js-form-block').removeClass('js-checkout-collapsed');
+            $('.js-checkout-cart').show();
+        });
+
+        $('.js-confirm-agb').click(function (event) {
+            if ($(event.currentTarget).is(':checked')) {
+                $('.js-checkout-submit').attr('disabled', false)
+            } else {
+                $('.js-checkout-submit').attr('disabled', true)
+            }
+        });
+
+        $('[name="checkout"]').submit(function (e) {
+            e.preventDefault();
+
+            postForm($(this), function (response) {
+                if (response.success) {
+                    window.location = response.url;
+                } else if (response.errors) {
+                    $('#backend-errors').empty();
+
+                    $.each(response.errors, function (index, value) {
+                        $('#backend-errors').append('<div>Fehler ' + value.errorCode + ': ' + value.message + '</div>');
+                    });
+
+                    $('#backend-errors-section').show();
+                    $("html, body").animate({scrollTop: 0}, "slow");
+                } else {
+                    generalError;
+                }
+            });
+
+            return false;
+        });
+
+        if (window.location.pathname.match(/^\/checkout/)) {
+            $('.js-shopping-cart').hide();
+        }
+    }
 };

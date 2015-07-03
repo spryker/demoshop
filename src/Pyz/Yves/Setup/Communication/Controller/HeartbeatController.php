@@ -14,6 +14,6 @@ class HeartbeatController extends AbstractController
     {
         $this->disableLoggingToNewRelic();
 
-        return $this->getLocator()->setup()->sdk()->getHeartbeatResponse();
+        return $this->getLocator()->setup()->client()->getHeartbeatResponse();
     }
 }
