@@ -1,0 +1,46 @@
+{% if cart.items|length > 0 %}
+    {% spaceless %}
+        <div class="cart__labels">
+            <div class="cart__label--name">{{ 'cart.your-order'|trans }}</div>
+            <div class="cart__label--price">{{ 'cart.price'|trans }}</div>
+        </div>
+        <div class="cart__items js-cart-items">
+            {% for item in cart.items %}
+                <div class="cart-item" data-sku="{{ item.sku }}">
+                    {% if item.thumbnail is defined and item.thumbnail is not empty %}
+                        <img class="cart__item-image" src="{{ item.thumbnail }}">
+                    {% endif %}
+                    <div class="cart__item-quantity">{{ item.quantity }}</div>
+                    <div class="cart__item-name">{{ item.name }}</div>
+                    <div class="cart__item-quantity--spinner">
+                      <div class="spinner light">
+                        {% if item.quantity == 1 %}
+                            <input type="button" value="x" class="spinner__decrement cart-remove">
+                        {% else %}
+                            <input type="button" value="-"class="spinner__decrement cart-decrement">
+                        {% endif %}
+                        <input type="number" value="{{ item.quantity }}" min="1" class="spinner__number cart-quantity">
+                        <input type="button" value="+" class="spinner__increment cart-increment">
+                      </div>
+                    </div>
+                    <div class="cart__item-price">{{ (item.priceToPay * item.quantity)|price }}</div>
+                </div>
+            {% endfor %}
+        </div>
+        {% if cart.totals %}
+            {#<div class="cart__shipping">
+              <div class="cart__shipping-label" colspan="2">{{ 'cart.shipping'|trans }}</div>
+              <div class="cart__shipping-price js-cart-shipping">{{ 250|price }}</div>
+            </div>#}
+            <div class="cart__total">
+              <div class="cart__total-label" colspan="2">{{ 'cart.total'|trans }}</div>
+              <div class="cart__total-price js-cart-total">{{ cart.totals.grandTotal|price }}</div>
+            </div>
+        {% endif %}
+        <a href="{{ url('checkout') }}" class="cart__to-checkout cta">{{ 'cart.checkout'|trans }}</a>
+    {% endspaceless %}
+{% else %}
+    <div style="text-align: center; font-weight: bold; font-size: 1.2em">
+        {{ 'cart.empty'|trans }}
+    </div>
+{% endif %}

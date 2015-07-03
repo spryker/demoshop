@@ -3,7 +3,6 @@
 namespace Pyz\Yves\Application\Communication;
 
 use Generated\Yves\Ide\AutoCompletion;
-use Pyz\Yves\Cart\Communication\Plugin\CartControllerProvider;
 use Pyz\Yves\Customer\Plugin\CustomerControllerProvider;
 use SprykerFeature\Shared\Application\Business\Application;
 use SprykerFeature\Shared\Application\Communication\Plugin\ServiceProvider\RoutingServiceProvider;
@@ -14,13 +13,15 @@ use SprykerFeature\Shared\Yves\YvesConfig;
 use Silex\ServiceProviderInterface;
 use SprykerEngine\Yves\Application\Business\YvesBootstrap as SprykerYvesBootstrap;
 use SprykerEngine\Yves\Application\Communication\Plugin\ControllerProviderInterface;
-use Pyz\Yves\Checkout\Communication\Plugin\CheckoutControllerProvider;
+use Pyz\Yves\Checkout\Plugin\CheckoutControllerProvider;
 use Pyz\Yves\Application\Communication\Plugin\ApplicationControllerProvider;
 use SprykerEngine\Yves\Application\Communication\Plugin\ServiceProvider\CookieServiceProvider;
 use SprykerEngine\Yves\Application\Communication\Plugin\ServiceProvider\MonologServiceProvider;
 use SprykerEngine\Yves\Application\Communication\Plugin\ServiceProvider\SessionServiceProvider;
 use SprykerEngine\Yves\Application\Communication\Plugin\ServiceProvider\ExceptionServiceProvider;
 use SprykerEngine\Yves\Application\Communication\Plugin\ServiceProvider\YvesLoggingServiceProvider;
+use SprykerFeature\Yves\Application\Communication\Plugin\SessionPlugin;
+use SprykerFeature\Yves\Cart\Communication\Plugin\CartControllerProvider;
 use SprykerFeature\Yves\Customer\Provider\SecurityServiceProvider;
 
 use SprykerFeature\Shared\Application\Business\Routing\SilexRouter;
@@ -80,12 +81,15 @@ class YvesBootstrap extends SprykerYvesBootstrap
             ->createSecurityServiceProvider()
         ;
 
+        $session = $locator->session()->client();
+
         $providers = [
             new ExceptionServiceProvider('\\SprykerEngine\\Yves\\Application\\Communication\\Controller\\ExceptionController'),
             new YvesLoggingServiceProvider(),
             new MonologServiceProvider(),
             new CookieServiceProvider(),
             new SessionServiceProvider(),
+            $session,
             new UrlGeneratorServiceProvider(),
             new ServiceControllerServiceProvider(),
             $securityServiceProvider,
@@ -142,7 +146,7 @@ class YvesBootstrap extends SprykerYvesBootstrap
     /**
      * @param Application $app
      *
-     * @return AutoCompletion
+     * @return AutoCompletion|\Generated\Client\Ide\AutoCompletion
      */
     protected function getLocator(Application $app)
     {
@@ -160,7 +164,7 @@ class YvesBootstrap extends SprykerYvesBootstrap
         $locator = $this->getLocator($app);
 
         $additionalGlobalVars = [
-            'categories' => $locator->categoryExporter()->sdk()->getNavigationCategories($app['locale']),
+            'categories' => $locator->categoryExporter()->client()->getNavigationCategories($app['locale']),
             'environment' => \SprykerFeature_Shared_Library_Environment::getEnvironment(),
             'registerForm' => $app['form.factory']->create($locator->customer()->pluginRegisterForm()->createFormRegister())->createView()
         ];

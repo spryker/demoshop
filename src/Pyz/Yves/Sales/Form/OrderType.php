@@ -113,7 +113,7 @@ class OrderType extends AbstractType
         /* @var OrderTransfer $transferOrder */
         $transferOrder = $event->getData();
         $billingAddress = $transferOrder->getBillingAddress();
-        if (!$billingAddress->isEmpty()) {
+        if (empty($billingAddress) === false) {
             $transferOrder->setFirstName($billingAddress->getFirstName());
             $transferOrder->setLastName($billingAddress->getLastName());
             $transferOrder->setSalutation($billingAddress->getSalutation());

@@ -1,6 +1,6 @@
 {
   "require": {
-    "spryker/spryker": "dev-develop",
+    "spryker/spryker": "0.1.0",
 
     "psr/log": "~1.0",
     "propel/propel": "~2.0@dev",
@@ -39,7 +39,6 @@
 
     "twig/twig": "~1.15.0",
 
-    "zendframework/zend-code": "2.3.1",
     "zendframework/zend-config": "~2.3.0",
     "zendframework/zend-filter": "~2.3.0",
     "zendframework/zend-servicemanager": "~2.3.0",

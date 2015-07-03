@@ -1,25 +1,14 @@
 <?php
 
-namespace Pyz\Sdk\ZedRequest;
+namespace Pyz\Client\ZedRequest\Service;
 
-use SprykerEngine\Shared\Kernel\LocatorLocatorInterface;
-use SprykerFeature\Sdk\Auth\Client\StaticToken;
-use SprykerFeature\Shared\Library\Config;
-use Generated\Yves\Ide\AutoCompletion;
 use SprykerFeature\Shared\Auth\AuthConfig;
+use SprykerFeature\Shared\Auth\Client\StaticToken;
+use SprykerFeature\Shared\Library\Config;
+use SprykerFeature\Client\ZedRequest\Service\ZedRequestSettings as SprykerZedRequestSettings;
 
-class ZedRequestSettings
+class ZedRequestSettings extends SprykerZedRequestSettings
 {
-    /** @var AutoCompletion */
-    protected $locator;
-
-    /**
-     * @param LocatorLocatorInterface $locator
-     */
-    public function __construct(LocatorLocatorInterface $locator)
-    {
-        $this->locator = $locator;
-    }
 
     /**
      * @return array
@@ -45,4 +34,5 @@ class ZedRequestSettings
     {
         return $this->locator->auth()->pluginStaticToken();
     }
+
 }
