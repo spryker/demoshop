@@ -24,10 +24,10 @@
                         <h1 class="form-block__heading">1. Addressangaben</h1>
                         {{ form_widget(form.email) }}
                         {{ form_widget(form.billing_address) }}
-                        <input type="checkbox" name="different-delivery-address" id="different-delivery-address" class="padded js-delivery-address-checkbox">
+                        <input type="checkbox" name="different-delivery-address" id="different-delivery-address" class="padded js-delivery-address-checkbox" tabindex="270">
                         <label for="different-delivery-address">Abweichende Lieferadresse</label>
                         {{ form_widget(form.shipping_address) }}
-                        <button class="cta js-address-button" disabled>Weiter - Zahlungsart wählen</button>
+                        <button class="cta js-address-button" disabled tabindex="370">Weiter - Zahlungsart wählen</button>
                         <button class="js-edit-formblock form-block__edit">Adresse bearbeiten</button>
                     </section>
                     <section class="checkout__form-block js-form-block js-checkout-payment js-checkout-collapsed">

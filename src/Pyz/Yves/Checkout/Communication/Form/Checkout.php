@@ -29,11 +29,12 @@ class Checkout extends AbstractType
                 //'constraints' => new Email(),
                 'required' => false,
                 'attr' => [
+                    'tabindex' => 100,
                     'class' => 'padded js-checkout-email',
                     'placeholder' => 'Email-Adresse',
                 ],
             ])
-            ->add('billing_address', new Address(), [
+            ->add('billing_address', new Address(200), [
                 'data_class' => 'Generated\Shared\Transfer\CustomerAddressTransfer',
                 'error_bubbling' => true,
                 'attr' => [
@@ -41,7 +42,7 @@ class Checkout extends AbstractType
                     'style' => 'display: block;',
                 ],
             ])
-            ->add('shipping_address', new Address(), [
+            ->add('shipping_address', new Address(300), [
                 'data_class' => 'Generated\Shared\Transfer\CustomerAddressTransfer',
                 'required' => false,
                 'attr' => [
@@ -62,6 +63,7 @@ class Checkout extends AbstractType
                 'required' => false,
                 'mapped' => false,
                 'attr' => [
+                    'tabindex' => 400,
                     'class' => 'padded confirm__agb js-confirm-agb',
                 ],
             ])
