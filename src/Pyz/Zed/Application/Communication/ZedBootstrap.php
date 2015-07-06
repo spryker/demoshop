@@ -29,6 +29,7 @@ use SprykerFeature\Zed\Application\Communication\Plugin\ServiceProvider\RequestS
 use SprykerFeature\Zed\Application\Communication\Plugin\ServiceProvider\SslServiceProvider;
 use SprykerFeature\Zed\Application\Communication\Plugin\ServiceProvider\TwigServiceProvider;
 use SprykerFeature\Zed\Kernel\Communication\Plugin\GatewayServiceProviderPlugin;
+use SprykerFeature\Zed\Price\Communication\Plugin\Twig\PriceTwigExtensions;
 use Symfony\Bridge\Twig\Extension\TranslationExtension;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Routing\RouterInterface;
@@ -58,6 +59,7 @@ class ZedBootstrap extends Bootstrap
         return [
             new ZedExtension(),
             new TranslationExtension($app['translator']),
+            new PriceTwigExtensions(),
         ];
     }
 
