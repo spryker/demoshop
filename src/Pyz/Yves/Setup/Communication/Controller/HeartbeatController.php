@@ -12,8 +12,6 @@ class HeartbeatController extends AbstractController
      */
     public function indexAction()
     {
-        $this->disableLoggingToNewRelic();
-
         return $this->getLocator()->setup()->client()->getHeartbeatResponse();
     }
 }
