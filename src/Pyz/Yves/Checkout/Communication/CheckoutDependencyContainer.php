@@ -2,12 +2,12 @@
 
 namespace Pyz\Yves\Checkout\Communication;
 
-use SprykerEngine\Yves\Kernel\Communication\AbstractDependencyContainer;
+use SprykerEngine\Yves\Kernel\Communication\AbstractCommunicationDependencyContainer;
 use SprykerFeature\Client\Cart\Service\CartClientInterface;
 use SprykerFeature\Client\Checkout\Service\CheckoutClient;
 use Pyz\Yves\Checkout\Communication\Form\Checkout;
 
-class CheckoutDependencyContainer extends AbstractDependencyContainer
+class CheckoutDependencyContainer extends AbstractCommunicationDependencyContainer
 {
     /**
      * @return CheckoutClient
