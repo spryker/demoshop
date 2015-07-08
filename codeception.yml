@@ -32,7 +32,6 @@ include:
  - vendor/spryker/spryker/Bundles/Installer/
  - vendor/spryker/spryker/Bundles/Invoice/
  - vendor/spryker/spryker/Bundles/Kernel/
- - vendor/spryker/spryker/Bundles/KvStorage/
  - vendor/spryker/spryker/Bundles/Library/
  - vendor/spryker/spryker/Bundles/Locale/
  - vendor/spryker/spryker/Bundles/Lumberjack/
@@ -63,6 +62,7 @@ include:
  - vendor/spryker/spryker/Bundles/Session/
  - vendor/spryker/spryker/Bundles/Stock/
  - vendor/spryker/spryker/Bundles/StockSalesConnector/
+ - vendor/spryker/spryker/Bundles/Storage/
  - vendor/spryker/spryker/Bundles/System/
  - vendor/spryker/spryker/Bundles/Tax/
  - vendor/spryker/spryker/Bundles/TaxProductConnector/
