@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "7ffcd8f9ec008fb8894bd24791145cad",
+    "hash": "4d1eea8ff4c6ee28f8f709420e731b56",
     "packages": [
         {
             "name": "digital-canvas/zend-framework",
@@ -708,11 +708,11 @@
         },
         {
             "name": "spryker/spryker",
-            "version": "dev-develop",
+            "version": "dev-refactor/CD-218_rename_kv_storage_to_storage",
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/spryker.git",
-                "reference": "5f428a51f1a42b28ff27b953783634fda6e1d910"
+                "reference": "c3682de4bcf88aa48c04bc746fb052b0d1c8f0b6"
             },
             "require": {
                 "digital-canvas/zend-framework": ">=1.12.2",
@@ -763,7 +763,6 @@
                 "spryker/availability-checkout-connector": "self.version",
                 "spryker/calculation": "self.version",
                 "spryker/cart": "self.version",
-                "spryker/cart2": "self.version",
                 "spryker/catalog": "self.version",
                 "spryker/category": "self.version",
                 "spryker/category-exporter": "self.version",
@@ -786,7 +785,6 @@
                 "spryker/installer": "self.version",
                 "spryker/invoice": "self.version",
                 "spryker/kernel": "self.version",
-                "spryker/kv-storage": "self.version",
                 "spryker/library": "self.version",
                 "spryker/locale": "self.version",
                 "spryker/lumberjack": "self.version",
@@ -814,6 +812,7 @@
                 "spryker/setup": "self.version",
                 "spryker/stock": "self.version",
                 "spryker/stock-sales-connector": "self.version",
+                "spryker/storage": "self.version",
                 "spryker/system": "self.version",
                 "spryker/touch": "self.version",
                 "spryker/twig": "self.version",
@@ -846,7 +845,7 @@
                     "SprykerFeature\\Shared\\Library": "Bundles/Library/src/"
                 }
             },
-            "time": "2015-07-03 09:51:19"
+            "time": "2015-07-08 07:31:26"
         },
         {
             "name": "symfony-cmf/routing",
