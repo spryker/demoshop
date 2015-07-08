@@ -6,6 +6,7 @@ use SprykerFeature\Yves\Twig\TwigSettings as SprykerTwigSettings;
 
 class TwigSettings extends SprykerTwigSettings
 {
+
     /**
      * @return {@inheritdoc}
      */
@@ -30,4 +31,5 @@ class TwigSettings extends SprykerTwigSettings
 
         return $twigFunctions;
     }
+
 }

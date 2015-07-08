@@ -14,6 +14,7 @@ class InstallerConfig extends SprykerInstallerConfig
     public function getInstallerStack()
     {
         $locator = $this->getLocator();
+
         return [
             $locator->frontendExporter()->pluginInstaller(),
             $locator->product()->pluginInstaller(),
@@ -34,6 +35,7 @@ class InstallerConfig extends SprykerInstallerConfig
     public function getDemoDataInstallerStack()
     {
         $locator = $this->getLocator();
+
         return [
             $locator->category()->pluginDemoDataInstaller(),
             $locator->glossary()->pluginDemoDataInstaller(),
@@ -43,7 +45,8 @@ class InstallerConfig extends SprykerInstallerConfig
             $locator->price()->pluginDemoDataInstaller(),
             $locator->productSearch()->pluginDemoDataInstaller(),
             $locator->stock()->pluginDemoDataInstaller(),
-            $locator->productOption()->pluginDemoDataInstaller()
+            $locator->productOption()->pluginDemoDataInstaller(),
         ];
     }
+
 }

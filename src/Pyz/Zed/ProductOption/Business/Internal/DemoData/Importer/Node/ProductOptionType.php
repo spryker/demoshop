@@ -24,7 +24,7 @@ class ProductOptionType implements VisitableProductInterface
     private $productOptionValues = [];
 
     /**
-     * @var boolean
+     * @var bool
      */
     private $isOptional;
 
@@ -108,7 +108,7 @@ class ProductOptionType implements VisitableProductInterface
     }
 
     /**
-     * @return boolean
+     * @return bool
      */
     public function isOptional()
     {
@@ -122,4 +122,5 @@ class ProductOptionType implements VisitableProductInterface
     {
         return $this->sequence;
     }
+
 }

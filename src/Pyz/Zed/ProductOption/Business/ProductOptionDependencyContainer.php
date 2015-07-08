@@ -14,7 +14,6 @@ use Pyz\Zed\ProductOption\Business\Internal\DemoData\Importer\Reader\ProductRead
 use Pyz\Zed\ProductOption\Business\Internal\DemoData\Importer\Transformer\XMLTransformerInterface;
 use Pyz\Zed\ProductOption\Business\Internal\DemoData\Importer\Writer\WriterInterface;
 use Pyz\Zed\ProductOption\ProductOptionDependencyProvider;
-use Pyz\Zed\ProductOption\Business\ProductOptionFacade;
 
 /**
  * @method ProductOptionBusiness getFactory()
@@ -127,4 +126,5 @@ class ProductOptionDependencyContainer extends SprykerDependencyContainer
     {
         return $this->getProvidedDependency(ProductOptionDependencyProvider::FACADE_PRODUCT_OPTION);
     }
+
 }

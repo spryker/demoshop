@@ -107,4 +107,5 @@ class ProductCategoryMappingInstall extends AbstractInstaller
     {
         return $this->reader->read($this->csvPath)->getData();
     }
+
 }

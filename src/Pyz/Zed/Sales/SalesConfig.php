@@ -10,6 +10,7 @@ use SprykerFeature\Zed\Payone\Business\Model\Api\ApiConstants as PayoneApiConsta
 
 class SalesConfig extends SprykerFeatureSalesConfig
 {
+
     /**
      * @return mixed
      */
@@ -29,6 +30,7 @@ class SalesConfig extends SprykerFeatureSalesConfig
     /**
      * @param OrderItemTransfer $transferOrderItem
      * @param OrderTransfer $transferOrder
+     *
      * @return string
      */
     public function getProcessNameForNewOrderItem(OrderItemTransfer $transferOrderItem, OrderTransfer $transferOrder)
@@ -58,4 +60,5 @@ class SalesConfig extends SprykerFeatureSalesConfig
                 throw new \RuntimeException('Could not find any statemachine process for new order');
         }
     }
+
 }

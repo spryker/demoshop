@@ -38,4 +38,5 @@ class CmsConfig extends SprykerCmsConfig
     {
         return 'static full page';
     }
+
 }

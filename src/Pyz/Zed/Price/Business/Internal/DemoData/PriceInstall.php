@@ -6,7 +6,6 @@ use SprykerFeature\Zed\Installer\Business\Model\AbstractInstaller;
 use SprykerFeature\Zed\Library\Import\Reader\CsvFileReader;
 use SprykerFeature\Zed\Price\Business\Model\ReaderInterface;
 use SprykerFeature\Zed\Price\Business\Model\WriterInterface;
-use SprykerFeature\Zed\Price\Business\PriceFacade;
 use Generated\Shared\Transfer\PriceProductTransfer;
 
 class PriceInstall extends AbstractInstaller

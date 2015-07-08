@@ -1,4 +1,5 @@
 <?php
+
 namespace Pyz\Yves\Sales\Form;
 
 use SprykerEngine\Shared\Kernel\LocatorLocatorInterface;
@@ -11,12 +12,9 @@ use Symfony\Component\Form\FormEvent;
 use Symfony\Component\Form\FormEvents;
 use Symfony\Component\Validator\Constraints\NotBlank;
 
-/**
- * Class OrderType
- * @package Pyz\Yves\Sales\Form
- */
 class OrderType extends AbstractType
 {
+
     /**
      * @var LocatorLocatorInterface
      */
@@ -79,7 +77,6 @@ class OrderType extends AbstractType
         $builder->addEventListener(FormEvents::SUBMIT, [$this, 'setNameFromBillingAddress']);
     }
 
-
     /**
      * {@inheritdoc}
      */
@@ -119,4 +116,5 @@ class OrderType extends AbstractType
             $transferOrder->setSalutation($billingAddress->getSalutation());
         }
     }
+
 }

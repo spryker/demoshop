@@ -5,13 +5,8 @@ namespace Pyz\Yves\Checkout\Communication\Form;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
-use Symfony\Component\Validator\Constraints\Email;
 use Symfony\Component\Validator\Constraints as Assert;
 
-/**
- * Class Address
- * @package Pyz\Yves\Checkout\Communication\Form
- */
 class Address extends AbstractType
 {
 
@@ -39,7 +34,7 @@ class Address extends AbstractType
                 'attr' => [
                     'class' => 'padded js-checkout-name',
                     'placeholder' => 'Vorname',
-                    'style' => 'width: 24%; float: right; margin-right: 50%;'
+                    'style' => 'width: 24%; float: right; margin-right: 50%;',
                 ],
             ])
             ->add('last_name', 'text', [
@@ -51,7 +46,7 @@ class Address extends AbstractType
                 'attr' => [
                     'class' => 'padded js-checkout-name',
                     'placeholder' => 'Name',
-                    'style' => 'width: 24%; float: left;'
+                    'style' => 'width: 24%; float: left;',
                 ],
             ])
             ->add('street_nr', 'text', [
@@ -64,7 +59,7 @@ class Address extends AbstractType
                 'attr' => [
                     'class' => 'padded js-checkout-name',
                     'placeholder' => 'Nummer',
-                    'style' => 'float: right; margin-right: 50%; width: 13%;'
+                    'style' => 'float: right; margin-right: 50%; width: 13%;',
                 ],
             ])
             ->add('street', 'text', [
@@ -77,7 +72,7 @@ class Address extends AbstractType
                 'attr' => [
                     'class' => 'padded js-checkout-name',
                     'placeholder' => 'Straße',
-                    'style' => 'width: 35%; float: left;'
+                    'style' => 'width: 35%; float: left;',
                 ],
             ])
             ->add('city', 'text', [
@@ -89,7 +84,7 @@ class Address extends AbstractType
                 'attr' => [
                     'class' => 'padded js-checkout-name',
                     'placeholder' => 'Stadt',
-                    'style' => 'width: 38%; float: right; margin-right: 50%;'
+                    'style' => 'width: 38%; float: right; margin-right: 50%;',
                 ],
             ])
             ->add('zip_code', 'text', [
@@ -102,7 +97,7 @@ class Address extends AbstractType
 
                     'class' => 'padded js-checkout-name',
                     'placeholder' => 'PLZ',
-                    'style' => 'width: 10%;'
+                    'style' => 'width: 10%;',
                 ],
             ])
             ->add('iso2code', 'hidden', [
@@ -116,8 +111,9 @@ class Address extends AbstractType
      */
     public function configureOptions(OptionsResolver $resolver)
     {
-        $resolver->setDefaults(array(
+        $resolver->setDefaults([
             'data_class' => 'Generated\Shared\Transfer\CustomerAddressTransfer',
-        ));
+        ]);
     }
+
 }

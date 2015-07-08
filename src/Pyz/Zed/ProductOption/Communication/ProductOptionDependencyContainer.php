@@ -16,4 +16,5 @@ class ProductOptionDependencyContainer extends SprykerProductOptionDependencyCon
     {
         return $this->getProvidedDependency(ProductOptionDependencyProvider::FACADE_PRODUCT_OPTION);
     }
+
 }

@@ -7,6 +7,7 @@ use SprykerFeature\Zed\Cart\Dependency\ItemExpanderPluginInterface;
 
 class CartConfig extends SprykerCartConfig
 {
+
     /**
      * @return array|ItemExpanderPluginInterface[]
      */
@@ -17,4 +18,5 @@ class CartConfig extends SprykerCartConfig
 
         return $plugins;
     }
+
 }

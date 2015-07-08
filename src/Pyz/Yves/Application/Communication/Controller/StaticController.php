@@ -1,9 +1,8 @@
 <?php
+
 namespace Pyz\Yves\Application\Communication\Controller;
 
 use SprykerEngine\Yves\Application\Communication\Controller\AbstractController;
-use SprykerFeature\Yves\Library\Tracking\PageTypeInterface;
-use SprykerFeature\Yves\Library\Tracking\Tracking;
 use Symfony\Component\HttpFoundation\Request;
 
 class StaticController extends AbstractController
@@ -11,6 +10,7 @@ class StaticController extends AbstractController
 
     /**
      * @param Request $request
+     *
      * @return array
      */
     public function indexAction(Request $request)
@@ -20,4 +20,5 @@ class StaticController extends AbstractController
 
         return $this->viewResponse(['data' => $content]);
     }
+
 }

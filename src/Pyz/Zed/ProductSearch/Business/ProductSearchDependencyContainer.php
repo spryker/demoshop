@@ -8,6 +8,7 @@ use Pyz\Zed\ProductSearch\Business\Internal\DemoData\ProductAttributeMappingInst
 
 class ProductSearchDependencyContainer extends SprykerProductSearchDependencyContainer
 {
+
     /**
      * @param LoggerInterface $messenger
      *

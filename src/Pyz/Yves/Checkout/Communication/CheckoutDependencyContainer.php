@@ -9,6 +9,7 @@ use Pyz\Yves\Checkout\Communication\Form\Checkout;
 
 class CheckoutDependencyContainer extends AbstractCommunicationDependencyContainer
 {
+
     /**
      * @return CheckoutClient
      */

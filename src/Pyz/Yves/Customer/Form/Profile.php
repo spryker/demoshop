@@ -7,6 +7,7 @@ use Symfony\Component\Form\FormBuilderInterface;
 
 class Profile extends AbstractType
 {
+
     /**
      * @return string
      */
@@ -47,8 +48,9 @@ class Profile extends AbstractType
                 'required' => false,
             ])
             ->add('submit', 'submit', [
-                'label' => 'customer.profile.submit'
+                'label' => 'customer.profile.submit',
             ])
         ;
     }
+
 }

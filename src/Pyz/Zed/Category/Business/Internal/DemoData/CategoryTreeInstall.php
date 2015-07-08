@@ -5,10 +5,7 @@ namespace Pyz\Zed\Category\Business\Internal\DemoData;
 use Generated\Shared\Transfer\CategoryTransfer;
 use Generated\Shared\Transfer\LocaleTransfer;
 use Generated\Shared\Transfer\NodeTransfer;
-use Generated\Zed\Ide\AutoCompletion;
-use SprykerEngine\Shared\Kernel\LocatorLocatorInterface;
 use SprykerEngine\Zed\Locale\Business\LocaleFacade;
-use SprykerFeature\Zed\Category\Business\CategoryFacade;
 use SprykerFeature\Zed\Category\Business\Model\CategoryWriter;
 use SprykerFeature\Zed\Category\Business\Model\CategoryWriterInterface;
 use SprykerFeature\Zed\Category\Business\Tree\CategoryTreeWriter;
@@ -93,7 +90,7 @@ class CategoryTreeInstall extends AbstractInstaller
     protected function write(array $demoTree)
     {
         foreach ($demoTree as $row) {
-            if (1 == $row[self::IS_ROOT]) {
+            if (1 === $row[self::IS_ROOT]) {
                 $this->addRootNode($row);
             } else {
                 $this->addChild($row);

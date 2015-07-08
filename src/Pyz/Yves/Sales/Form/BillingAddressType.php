@@ -4,13 +4,13 @@ namespace Pyz\Yves\Sales\Form;
 
 use Generated\Shared\Transfer\SalesAddressTransfer;
 use Generated\Shared\Transfer\OrderTransfer;
-use Pyz\Yves\Sales\Form\AbstractAddressType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\Form\FormEvent;
 use Symfony\Component\Form\FormEvents;
 
 class BillingAddressType extends AbstractAddressType
 {
+
     /**
      * {@inheritdoc}
      */
@@ -44,4 +44,5 @@ class BillingAddressType extends AbstractAddressType
         $customerAddressArray = $transferOrder->getCustomer()->getBillingAddress()->toArray(false);
         $salesAddressTransfer->fromArray($customerAddressArray, true);
     }
+
 }

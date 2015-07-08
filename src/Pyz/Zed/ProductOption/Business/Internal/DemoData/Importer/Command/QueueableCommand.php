@@ -11,7 +11,7 @@ class QueueableCommand
      * @var array
      */
     private $allowableTypes = [
-        self::TYPE_ADD_VALUE_CONSTRAINT
+        self::TYPE_ADD_VALUE_CONSTRAINT,
     ];
 
     /**
@@ -51,4 +51,5 @@ class QueueableCommand
     {
         return $this->type;
     }
+
 }

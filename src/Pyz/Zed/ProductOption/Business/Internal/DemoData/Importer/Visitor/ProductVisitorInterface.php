@@ -60,4 +60,5 @@ interface ProductVisitorInterface
      * @param ProductConfiguration $visitee
      */
     public function visitProductConfiguration(ProductConfiguration $visitee);
+
 }

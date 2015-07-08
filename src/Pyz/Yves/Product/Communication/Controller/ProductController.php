@@ -20,4 +20,5 @@ class ProductController extends AbstractController
             'category' => count($product->getCategory()) ? current($product->getCategory()) : null,
         ];
     }
+
 }

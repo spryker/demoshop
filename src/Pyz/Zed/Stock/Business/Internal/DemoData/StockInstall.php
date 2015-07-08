@@ -2,16 +2,12 @@
 
 namespace Pyz\Zed\Stock\Business\Internal\DemoData;
 
-use Generated\Zed\Ide\AutoCompletion;
-use SprykerEngine\Shared\Kernel\LocatorLocatorInterface;
 use Generated\Shared\Transfer\StockProductTransfer;
 use Generated\Shared\Transfer\TypeTransfer;
 use SprykerFeature\Zed\Installer\Business\Model\AbstractInstaller;
 use SprykerFeature\Zed\Library\Import\Reader\CsvFileReader;
 use SprykerFeature\Zed\Stock\Business\Model\ReaderInterface;
 use SprykerFeature\Zed\Stock\Business\Model\WriterInterface;
-use SprykerFeature\Zed\Stock\Business\StockFacade;
-use SprykerFeature\Zed\Stock\Persistence\Propel\SpyStock;
 use SprykerFeature\Zed\Stock\Persistence\StockQueryContainer;
 
 class StockInstall extends AbstractInstaller
@@ -129,6 +125,7 @@ class StockInstall extends AbstractInstaller
     /**
      * @param array $row
      * @param TypeTransfer $stockType
+     *
      * @return StockProductTransfer
      */
     protected function createStockProductTransfer(array $row, TypeTransfer $stockType)

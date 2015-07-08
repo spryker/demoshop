@@ -57,4 +57,5 @@ class OptionWriter implements WriterInterface
             $visitee->accept($visitor);
         }
     }
+
 }

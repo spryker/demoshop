@@ -31,8 +31,9 @@ class XMLOptionsReader extends XMLReader implements OptionReaderInterface
      */
     public function getOptions()
     {
-        foreach($this->getNextNode(self::OPTION_ELEMENT_NAME) as $node) {
+        foreach ($this->getNextNode(self::OPTION_ELEMENT_NAME) as $node) {
             yield $this->transformer->transform($node);
         }
     }
+
 }

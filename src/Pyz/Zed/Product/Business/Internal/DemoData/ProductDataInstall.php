@@ -12,6 +12,7 @@ use SprykerFeature\Zed\Product\Dependency\Facade\ProductToTouchInterface;
 
 class ProductDataInstall extends AbstractInstaller
 {
+
     /**
      * @var AttributeManagerInterface
      */
@@ -170,6 +171,7 @@ class ProductDataInstall extends AbstractInstaller
 
     /**
      * @param array $product
+     *
      * @return array
      */
     protected function formatProduct(array $product)
@@ -200,8 +202,9 @@ class ProductDataInstall extends AbstractInstaller
                     'name' => $product['name'],
                     'url' => $productImageUrl,
                     'attributes' => json_encode($productAttributes),
-                ]
-            ]
+                ],
+            ],
         ];
     }
+
 }

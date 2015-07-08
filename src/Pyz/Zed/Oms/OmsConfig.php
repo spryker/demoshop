@@ -23,8 +23,9 @@ class OmsConfig extends SprykerOmsConfig
     /**
      * @param OrderTransfer $orderTransfer
      *
-     * @return string|null
      * @throws \RuntimeException
+     *
+     * @return string|null
      */
     public function selectProcess(OrderTransfer $orderTransfer)
     {
@@ -35,7 +36,7 @@ class OmsConfig extends SprykerOmsConfig
                 $selectedProcessName = self::ORDER_PROCESS_PREPAYMENT_01;
                 break;
             default:
-                throw new \RuntimeException("Could not find any statemachine process for new order in " . get_class($this));
+                throw new \RuntimeException('Could not find any statemachine process for new order in ' . get_class($this));
         }
 
         if (!in_array($selectedProcessName, $this->getActiveProcesses())) {

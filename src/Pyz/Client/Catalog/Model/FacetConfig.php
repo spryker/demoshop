@@ -6,6 +6,7 @@ use SprykerFeature\Client\Catalog\Service\Model\FacetConfig as CoreFacetConfig;
 
 class FacetConfig extends CoreFacetConfig
 {
+
     /**
      * @var array
      */
@@ -41,7 +42,7 @@ class FacetConfig extends CoreFacetConfig
             self::KEY_PARAM => 'price',
             self::KEY_RANGE_DIVIDER => '-',
             self::KEY_VALUE_CALLBACK_BEFORE => [__CLASS__, 'priceValueCallbackBefore'],
-            self::KEY_VALUE_CALLBACK_AFTER => [__CLASS__, 'priceValueCallbackAfter']
+            self::KEY_VALUE_CALLBACK_AFTER => [__CLASS__, 'priceValueCallbackAfter'],
         ],
         'age' => [
             self::KEY_FACET_ACTIVE => true,
@@ -73,8 +74,8 @@ class FacetConfig extends CoreFacetConfig
     protected static $sortNamesMapping = ['name'];
 
     /**
-     *
      * @param int $value
+     *
      * @return mixed
      */
     public static function priceValueCallbackBefore($value)
@@ -84,10 +85,12 @@ class FacetConfig extends CoreFacetConfig
 
     /**
      * @param int $value
+     *
      * @return mixed
      */
     public static function priceValueCallbackAfter($value)
     {
         return $value / 100;
     }
+
 }

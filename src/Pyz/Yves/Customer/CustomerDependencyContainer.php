@@ -12,6 +12,7 @@ use Pyz\Yves\Customer\Form\RestorePassword;
 
 class CustomerDependencyContainer extends SprykerFeatureCustomerDependencyContainer
 {
+
     /**
      * @return Address
      */
@@ -59,4 +60,5 @@ class CustomerDependencyContainer extends SprykerFeatureCustomerDependencyContai
     {
         return $this->getFactory()->createFormRestorePassword();
     }
+
 }

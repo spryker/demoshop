@@ -15,17 +15,20 @@ use Pyz\Yves\Customer\Plugin\CustomerControllerProvider;
  */
 class AddressController extends AbstractController
 {
+
     /**
      * @param Request $request
      *
-     * @return array|RedirectResponse
      * @throws NotFoundHttpException
+     *
+     * @return array|RedirectResponse
      */
     public function updateAction(Request $request)
     {
         $addressId = $request->query->get('id');
         if (!$addressId) {
             $this->addMessageError(Messages::CUSTOMER_ADDRESS_UNKNOWN);
+
             return $this->redirectResponseInternal(CustomerControllerProvider::ROUTE_CUSTOMER_PROFILE);
         }
 
@@ -53,6 +56,7 @@ class AddressController extends AbstractController
         $addressTransfer = $this->getLocator()->customer()->client()->getAddress($addressTransfer);
         if (!$addressTransfer) {
             $this->addMessageError(Messages::CUSTOMER_ADDRESS_UNKNOWN);
+
             return $this->redirectResponseInternal(CustomerControllerProvider::ROUTE_CUSTOMER_PROFILE);
         }
         $form->setData($addressTransfer->toArray());
@@ -120,4 +124,5 @@ class AddressController extends AbstractController
 
         return $this->redirectResponseInternal(CustomerControllerProvider::ROUTE_CUSTOMER_PROFILE);
     }
+
 }

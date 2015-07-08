@@ -1,4 +1,5 @@
 <?php
+
 namespace Pyz\Yves\Sales\Form;
 
 use SprykerEngine\Shared\Kernel\LocatorLocatorInterface;
@@ -38,7 +39,7 @@ abstract class AbstractAddressType extends AbstractType
     {
         $builder
             ->add('salutation', 'choice', [
-                'choices' => ['Mr' => 'checkout.salutation.mr', 'Mrs' => 'checkout.salutation.mrs']
+                'choices' => ['Mr' => 'checkout.salutation.mr', 'Mrs' => 'checkout.salutation.mrs'],
             ])
             ->add('idCustomerAddress', 'hidden')
             ->add('firstName', 'text', ['constraints' => [new NotBlank()]])
@@ -50,8 +51,9 @@ abstract class AbstractAddressType extends AbstractType
             ->add('city', 'text', ['constraints' => [new NotBlank()]])
             ->add('zipCode', 'text', ['constraints' => [new NotBlank()]])
             ->add('iso2Country', 'country', [
-                'translation_domain' => 'none'
+                'translation_domain' => 'none',
             ])
         ;
     }
+
 }

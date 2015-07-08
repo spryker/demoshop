@@ -7,6 +7,7 @@ use Symfony\Component\Form\FormBuilderInterface;
 
 class Address extends AbstractType
 {
+
     /**
      * @return string
      */
@@ -71,8 +72,9 @@ class Address extends AbstractType
                 'required' => false,
             ])
             ->add('submit', 'submit', [
-                'label' => 'customer.address.submit'
+                'label' => 'customer.address.submit',
             ])
         ;
     }
+
 }
