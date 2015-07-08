@@ -16,11 +16,14 @@ module.exports = {
         params[param[0]] = param[1];
       }
     });
+    if (!this.isSearch()) {
+        params["category"] = this.getPath().replace(/^\//, '');
+    }
     return params;
   },
 
   setParams: function(params) {
-    var URL = URLUtils.init().origin+URLUtils.pathname,
+    var URL = URLUtils.init().origin + (this.isSearch() ? URLUtils.pathname : '/' + params["category"]),
         paramString = this.paramsToString(params);
 
     if (paramString.length > 0) {
@@ -35,6 +38,9 @@ module.exports = {
         queryParts = [];
 
     for (param in params) {
+      if (param == 'category' && !this.isSearch())   {
+        continue;
+      }
       if (params[param].length > 0) {
         queryParts.push(param+'='+params[param]);
       }
@@ -45,6 +51,9 @@ module.exports = {
 
   getPath: function() {
       return URLUtils.init().pathname;
-  }
+  },
 
+  isSearch: function() {
+      return this.getPath() == '/search';
+  }
 };

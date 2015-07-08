@@ -67,7 +67,7 @@ Filter.prototype.getSelectedValue = function(display) {
     }
   } else if (this.type == 'multivalue') {
     $selected = this.$el.find('[type="checkbox"]:checked');
-  } else if (this.type == 'default' || this.type == 'color') {
+  } else if (this.type == 'default' || this.type == 'color' || this.type == 'category') {
     $selected = this.$el.find('[type="radio"]:checked');
   }
 
@@ -93,12 +93,12 @@ Filter.prototype.getSelectedValue = function(display) {
 
 Filter.prototype.setSelectedValue = function(value) {
   var values;
-  if (this.type == 'default' || this.type == 'color') {
-    if (value === null) {
-      this.$el.find("input:checked").prop('checked', false);
-    } else {
-      this.$el.find("[value='"+value+"']").prop('checked', true);
-    }
+  if (this.type == 'default' || this.type == 'color' || this.type == 'category') {
+      if (value === null) {
+          this.$el.find("input:checked").prop('checked', false);
+      } else {
+          this.$el.find("[value='" + value + "']").prop('checked', true);
+      }
   } else if (this.type == 'range') {
     values = value.split('-');
     this.$el.find('.js-slider').slider('values', values);
@@ -154,7 +154,7 @@ Filter.prototype.clear = function() {
 
   if (this.type == 'multivalue') {
     this.$el.find('[type="checkbox"]:checked').attr('checked', false);
-  } else if (this.type == 'default' || this.type == 'color') {
+  } else if (this.type == 'default' || this.type == 'color' || this.type == "category") {
     this.$el.find('[type="radio"]:checked').prop('checked', false);
     if (this.hasDefaultValue()) {
       this.$el.find('.js-filter-default-value').prop('checked', true);
