@@ -82,6 +82,44 @@ var updateFilters = function(data) {
     });
 };
 
+var updateFilters = function(data) {
+    var params = URLManager.getParams();
+
+    _.each(filters, function(filter) {
+        switch (filter.name) {
+            case "price":
+                filter.max = Math.ceil(data.price.rangeValues.max / 100);
+                filter.min = Math.floor(data.price.rangeValues.min / 100);
+                if (typeof data.price.activeValue !== "undefined") {
+                    filter.setSelectedValue(filter.min + '-' + filter.max);
+                }
+                updatePriceValueDisplay(filter);
+                break;
+            case "main_color":
+                var colorList = [];
+
+                _.each(data.main_color.values, function (amount, color) {
+                    var elem = '<li>'
+                        + '<input type="radio" class="filter-main_color-42" name="filter-main_color" data-color="' + color + '" value="' + color + '" ' + (params.main_color == color ? 'checked="checked"' : "") + '>'
+                        + '<label for="filter-main_color-' + color + '" class="js-color-name" style="background-color: ' + color + ';">' + color + ''
+                        + '<span class="filter__quantity">' + amount + '</span></label'
+                        + '</li>';
+
+                    colorList.push(elem);
+                });
+
+                $('ul.filter__main_color-list').html(colorList.join());
+
+                break;
+        }
+    });
+
+    $('.js-filter').each(function() {
+        filters.push(new Filter($(this)));
+    });
+};
+
+
 // select filters based on URL params
 var selectRequiredFilters = function() {
   var paramName, filter;
