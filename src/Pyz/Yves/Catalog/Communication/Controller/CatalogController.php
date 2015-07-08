@@ -8,6 +8,7 @@ use Symfony\Component\HttpFoundation\Request;
 
 class CatalogController extends AbstractController
 {
+
     /**
      * @param array $categoryNode
      * @param Request $request
@@ -65,7 +66,7 @@ class CatalogController extends AbstractController
     public function detailAction(array $product)
     {
         return [
-            'product' => $product
+            'product' => $product,
         ];
     }
 
