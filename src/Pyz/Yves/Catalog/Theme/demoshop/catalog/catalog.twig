@@ -4,16 +4,14 @@
             {% if category is defined %}
                 {{ category.name }}
             {% elseif searchString is defined %}
-                {{ 'search.title'|trans }}
+                {{ 'search'|trans }}
             {% endif %}
         </h1>
 
         <aside class="catalog__filter js-filters">
             {% include "@catalog/catalog/partials/filter-category.twig" with {filterName:'category'} %}
-            {% if facets.main_color %}
-                {% include "@catalog/catalog/partials/filter-color.twig" with {filterName:'main_color', id: 42} %}
-            {% endif %}
             {% include "@catalog/catalog/partials/filter-range.twig" with {filterName:'price', min:(facets.price.rangeValues.min|default(0))|priceRaw|floor, max:(facets.price.rangeValues.max|default(0))|priceRaw|ceil} %}
+            {% include "@catalog/catalog/partials/filter-color.twig" with {filterName:'main_color', id: 42} %}
         </aside>
         <button class="catalog__toggle-filters js-toggle-filters">
             <span class="js-show-filters">{{ "catalog.filter.show"|trans }}</span>
@@ -28,7 +26,7 @@
             <h1>{{ "catalog.filter.active"|trans }}</h1>
             <ul class="active-filter__list">
                 {% include "@catalog/catalog/partials/active-filter.twig" with {name:'category', value:'', id: 42} %}
-                {% include "@catalog/catalog/partials/active-filter.twig" with {name:'main_color', value:'', id: 42} %}
+                {% include "@catalog/catalog/partials/active-filter.twig" with {name:'color', value:'', id: 42} %}
                 {% include "@catalog/catalog/partials/active-filter.twig" with {name:'price', value:'', id: 42} %}
             </ul>
         </section>
@@ -56,7 +54,7 @@
         <div class="catalog__products-holder js-products-holder">
             <section class="catalog__products js-products-current">
                 {% for product in products %}
-                    {% include "@catalog/catalog/partials/product.twig" with {detailsUrl: product.url, imageUrl: product.abstract_attributes.image_url, name: product.abstract_name, price: product.valid_price } %}
+                    {% include "@catalog/catalog/partials/product.twig" with {detailsUrl: product.url, imageUrl: product.abstract_attributes.image_url, name: product.abstract_name, price: product.valid_price} %}
                 {% endfor %}
             </section>
             <div class="catalog__loading-text">{{ "catalog.loading"|trans }}</div>
