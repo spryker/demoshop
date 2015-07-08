@@ -1,163 +1,97 @@
-var _gulp   = require('gulp');
-var _rename = require('gulp-rename');
-var _core   = require('../../vendor/spryker/spryker/Bundles/Ui/gulpfile');
+var gulp        = require('gulp');
+var uglify      = require('gulp-uglify');
+var minifycss   = require('gulp-minify-css');
+var rename      = require('gulp-rename');
+var less        = require('gulp-less');
+var concat      = require('gulp-concat');
+var path        = require('path');
+var del         = require('del');
 
-var _path   = require('path');
-var _del    = require('del');
-
-
-var _dirFeature = 'vendor/spryker/spryker/Bundles/*/src/SprykerFeature/Zed/*/Static/Public';
-var _dirPub     = 'static/public/Zed/bundles';
+var dirFeature = '../../vendor/spryker/spryker/Bundles/**/src/SprykerFeature/Zed/**/Static/Assets';
+var dirPub = '../../static/public/Zed/bundles/';
 
 var _match = /[^\/]+\/src\/SprykerFeature\/Zed\/([^\/]+)\/Static\/Public/;
 
+function buildSource(type) {
+    var source = {
+        'css'    : 'styles/**/*.css',
+        'js'     : 'scripts/**/*.js',
+        'images' : 'images/**/*.{svg,png,jpeg,gif}',
+        'fonts'  : 'fonts/**/*.{svg,woff,otf,ttf,eot}'
+    };
 
-
-function _buildSource(type) {
-	var source = {
-		'css'    : 'styles/**/*.css',
-		'js'     : 'scripts/**/*.js',
-		'images' : 'images/**/*.{svg,png,jpeg,gif}',
-		'fonts'  : 'fonts/**/*.{svg,woff,otf,ttf,eot}'
-	};
-
-	return [
-		_path.join(_dirFeature, source[type])
-	];
+    return [
+        path.join(dirFeature, source[type])
+    ];
 }
 
-function _changeDest(path) {
-	path.dirname = path.dirname.replace(_match, function(match, p1) {
-		return p1;
-	});
-}
+function copy(directory) {
+    var source = dirFeature + '/' + directory;
+    var search = dirFeature.match(/Bundles\/(.*)\/src/);
+    var bundle = search[1];
+    var target = dirPub + bundle + '/' + directory;
 
-function _copy(type) {
-	return _gulp.src(_buildSource(type))
-		.pipe(_rename(_changeDest))
-		.pipe(_gulp.dest(_dirPub));
+    return gulp.src(source + '/**/*.*', {base: source})
+        .pipe(gulp.dest(target));
 }
 
 
-
-_gulp.task('clean-css', function(done) {
-	_del(_dirPub + '/*/styles', done);
+gulp.task('compile-less', function(){
+    return gulp.src(dirFeature + '/LESS/style.less')
+        .pipe(less({
+            paths: [ path.join(__dirname, 'less', 'includes') ]
+        }))
+        .pipe(concat('style-gulp-new.css'))
+        //.pipe(minifycss())
+        .pipe(gulp.dest(dirFeature + '/styles'))
 });
 
-_gulp.task('clean-js', function(done) {
-	_del(_dirPub + '/*/scripts', done);
+gulp.task('compile-js', function(){
+    //var a = gulp.src(['../../vendor/spryker/spryker/Bundles/**/src/SprykerFeature/Zed/**/Static/Assets']);
+
+    //console.log(a);
+
+    var a = _buildSource('fonts');
+
+    console.log(a);
+
 });
 
-_gulp.task('clean-images', function(done) {
-	_del(_dirPub + '/*/images', done);
+gulp.task('copy-fonts', function(){
+    return copy('fonts');
 });
 
-_gulp.task('clean-fonts', function(done) {
-	_del(_dirPub + '/*/fonts', done);
+gulp.task('copy-img', function(){
+    return copy('img');
 });
 
-
-_gulp.task('copy-pub', function() {
-	return _gulp.src('static/assets/Zed/*', {
-		dot : true
-	})
-		.pipe(_gulp.dest('static/public/Zed'));
+gulp.task('copy-sprites', function(){
+    return copy('sprite');
 });
 
-
-_gulp.task('copy-css', ['clean-css'], function() {
-	return _copy('css');
+gulp.task('copy-font-awesome', function(){
+    return copy('font-awesome');
 });
 
-_gulp.task('copy-js', ['clean-js'], function() {
-	return _copy('js');
+gulp.task('copy-css', function(){
+    return copy('styles');
 });
 
-_gulp.task('copy-images', ['clean-images'], function() {
-	return _copy('images');
+gulp.task('copy-js', function(){
+    return copy('scripts');
 });
 
-_gulp.task('copy-fonts', ['clean-fonts'], function() {
-	return _copy('fonts');
-});
-
-
-_gulp.task('core-dev', function(done) {
-	_core.createCoreResources('./vendor/spryker/spryker/Bundles/Ui', 'dev', done);
-});
-
-_gulp.task('core-dist', function(done) {
-	_core.createCoreResources('./vendor/spryker/spryker/Bundles/Ui', 'dist', done);
-});
-
-_gulp.task('watcher', function() {
-	_core.watchCoreResources('./vendor/spryker/spryker/Bundles/Ui', function(task) {
-		var map = {
-			'dev-css'    : 'copy-css',
-			'dev-js'     : 'copy-js',
-			'dev-images' : 'copy-images',
-			'dev-fonts'  : 'copy-fonts'
-		};
-
-		if (task in map) _gulp.start(map[task]);
-	});
-});
-
-
-_gulp.task('dev', [
-	'clean-css',
-	'clean-js',
-	'clean-images',
-	'clean-fonts',
-	'copy-pub',
-	'copy-css',
-	'copy-js',
-	'copy-images',
-	'copy-fonts'
+gulp.task('dist', [
+    'compile-less'
 ]);
 
-_gulp.task('dist', [
-	'clean-css',
-	'clean-js',
-	'clean-images',
-	'clean-fonts',
-	'copy-pub',
-	'copy-css',
-	'copy-js',
-	'copy-images',
-	'copy-fonts'
-]);
-
-
-_gulp.task('dev-all', ['core-dev'], function(done) {
-	_gulp.start([
-		'clean-css',
-		'clean-js',
-		'clean-images',
-		'clean-fonts',
-		'copy-pub',
-		'copy-css',
-		'copy-js',
-		'copy-images',
-		'copy-fonts'
-	], done);
-});
-
-_gulp.task('dist-all', ['core-dist'], function(done) {
-	_gulp.start([
-		'clean-css',
-		'clean-js',
-		'clean-images',
-		'clean-fonts',
-		'copy-pub',
-		'copy-css',
-		'copy-js',
-		'copy-images',
-		'copy-fonts'
-	], done);
-});
-
-
-_gulp.task('default', [
-	'dist'
+gulp.task('default', [
+    //'compile-less'
+    'compile-js'
+    //'copy-fonts'
+    //,'copy-font-awesome'
+    //,'copy-img'
+    ,'copy-sprites'
+    //,'copy-css'
+    //,'copy-js'
 ]);
