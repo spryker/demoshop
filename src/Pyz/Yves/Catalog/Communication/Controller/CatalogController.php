@@ -20,6 +20,7 @@ class CatalogController extends AbstractController
 
         $search->setItemsPerPage(6);
         $categoryTree = $this->getLocator()->categoryExporter()->client()->getNavigationCategories($this->getLocale());
+
         $searchResults = array_merge($search->getResult(), [
             'category' => $categoryNode,
             'categoryTree' => $categoryTree,
