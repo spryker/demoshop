@@ -7,7 +7,7 @@ var concat      = require('gulp-concat');
 var path        = require('path');
 var del         = require('del');
 
-var dirFeature = '../../vendor/spryker/spryker/Bundles/**/src/SprykerFeature/Zed/**/Static/Assets';
+var dirFeature = '../../vendor/spryker/spryker/Bundles/Gui/src/SprykerFeature/Zed/Gui/Static/Assets';
 var dirPub = '../../static/public/Zed/bundles/';
 
 var _match = /[^\/]+\/src\/SprykerFeature\/Zed\/([^\/]+)\/Static\/Public/;
@@ -27,9 +27,7 @@ function buildSource(type) {
 
 function copy(directory) {
     var source = dirFeature + '/' + directory;
-    var search = dirFeature.match(/Bundles\/(.*)\/src/);
-    var bundle = search[1];
-    var target = dirPub + bundle + '/' + directory;
+    var target = dirPub + '/Gui/' + directory;
 
     return gulp.src(source + '/**/*.*', {base: source})
         .pipe(gulp.dest(target));
@@ -47,14 +45,17 @@ gulp.task('compile-less', function(){
 });
 
 gulp.task('compile-js', function(){
-    //var a = gulp.src(['../../vendor/spryker/spryker/Bundles/**/src/SprykerFeature/Zed/**/Static/Assets']);
-
-    //console.log(a);
-
-    var a = _buildSource('fonts');
-
-    console.log(a);
-
+    var jsFiles = [
+        dirFeature + '/scripts/jquery-2.1.1.js',
+        dirFeature + '/scripts/jquery-ui.custom.min.js',
+        dirFeature + '/scripts/bootstrap.min.js',
+        dirFeature + '/scripts/inspinia.js'
+    ];
+    return gulp.src(jsFiles)
+        //.pipe(uglify())
+        .pipe(concat('resources.min.js'))
+        .pipe(gulp.dest(dirPub + '/Gui/scripts/'))
+    ;
 });
 
 gulp.task('copy-fonts', function(){
@@ -77,21 +78,12 @@ gulp.task('copy-css', function(){
     return copy('styles');
 });
 
-gulp.task('copy-js', function(){
-    return copy('scripts');
-});
-
-gulp.task('dist', [
-    'compile-less'
-]);
-
 gulp.task('default', [
-    //'compile-less'
-    'compile-js'
-    //'copy-fonts'
-    //,'copy-font-awesome'
-    //,'copy-img'
+    'compile-less'
+    ,'compile-js'
+    ,'copy-fonts'
+    ,'copy-font-awesome'
+    ,'copy-img'
     ,'copy-sprites'
-    //,'copy-css'
-    //,'copy-js'
+    ,'copy-css'
 ]);
