@@ -82,7 +82,6 @@ var updateFilters = function(data) {
     });
 };
 
-
 // select filters based on URL params
 var selectRequiredFilters = function() {
   var paramName, filter;

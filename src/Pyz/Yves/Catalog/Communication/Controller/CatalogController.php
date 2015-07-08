@@ -3,6 +3,8 @@
 namespace Pyz\Yves\Catalog\Communication\Controller;
 
 use SprykerEngine\Yves\Application\Communication\Controller\AbstractController;
+
+use SprykerFeature\Shared\Library\Currency\CurrencyManager;
 use Symfony\Component\HttpFoundation\Request;
 
 class CatalogController extends AbstractController
@@ -66,6 +68,17 @@ class CatalogController extends AbstractController
         return [
             'product' => $product
         ];
+    }
+
+    public function jsonResponse($searchResults = null, $status = 200, $headers = [])
+    {
+        $currencyManager = CurrencyManager::getInstance();
+
+        foreach ($searchResults['products'] as &$value) {
+            $value['valid_price'] = $currencyManager->format($currencyManager->convertCentToDecimal($value['valid_price']), true);
+        }
+
+        return parent::jsonResponse($searchResults, $status, $headers);
     }
 
 }
