@@ -5,7 +5,7 @@ namespace Pyz\Zed\Application\Communication;
 use Generated\Zed\Ide\AutoCompletion;
 use Silex\Provider\FormServiceProvider;
 use Silex\Provider\ServiceControllerServiceProvider;
-use Silex\Provider\SessionServiceProvider;
+use Silex\Provider\SessionServiceProvider as SilexSessionServiceProvider;
 use Silex\Provider\ValidatorServiceProvider;
 use Silex\Provider\WebProfilerServiceProvider;
 use Silex\ServiceProviderInterface;
@@ -90,19 +90,20 @@ class ZedBootstrap extends Bootstrap
      */
     protected function getServiceProviders(Application $app)
     {
-        /** @var AutoCompletion $locator */
-        $locator = Locator::getInstance();
+        $locator = $this->getLocator();
+        $sessionServiceProvider = $locator->session()->pluginServiceProviderSessionServiceProvider();
+        $sessionServiceProvider->setClient(
+            $locator->session()->client()
+        );
 
         $providers = [
-            new SessionServiceProvider(),
+            new SilexSessionServiceProvider(),
+            $sessionServiceProvider,
             new PropelServiceProvider(),
-            $locator->application()->pluginSession(),
-            //$locator->auth()->pluginBootstrapAuthBootstrapProvider(),
             new RequestServiceProvider(),
             new SslServiceProvider(),
             new ServiceControllerServiceProvider(),
             new RoutingServiceProvider(),
-            //$locator->acl()->pluginBootstrapAclBootstrapProvider(),
             new ValidatorServiceProvider(),
             new FormServiceProvider(),
             new TwigServiceProvider(),
