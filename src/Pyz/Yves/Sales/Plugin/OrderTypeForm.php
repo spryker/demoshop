@@ -8,7 +8,7 @@ use SprykerEngine\Yves\Kernel\Communication\AbstractPlugin;
 /**
  * @method SalesDependencyContainer getDependencyContainer()
  */
-class OrderTypeFormPlugin extends AbstractPlugin
+class OrderTypeForm extends AbstractPlugin
 {
 
     /**
