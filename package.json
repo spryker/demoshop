@@ -9,13 +9,15 @@
     "url": "http://spryker.com/"
   },
   "scripts": {
-    "spy-task-zed"      : "npm install && gulp --gulpfile config/Zed/gulpfile.js --cwd .",
-    "spy-task-yves"     : "npm install && gulp --gulpfile config/Yves/gulpfile.js --cwd .",
-    "spy-install-core"  : "cd ./vendor/spryker/spryker/Bundles/Ui && npm run spy-build",
-    "spy-install-proj"  : "npm install && npm run spy-task-zed dist && npm run spy-task-yves dist",
-    "spy-install"       : "npm run spy-install-core && npm run spy-install-proj"
+    "spy-task-zed": "npm install && gulp --gulpfile config/Zed/gulpfile.js --cwd .",
+    "spy-task-yves": "npm install && gulp --gulpfile config/Yves/gulpfile.js --cwd .",
+    "spy-install-core": "cd ./vendor/spryker/spryker/Bundles/Ui && npm run spy-build",
+    "spy-install-proj": "npm install && npm run spy-task-zed dist && npm run spy-task-yves dist",
+    "spy-install": "npm run spy-install-core && npm run spy-install-proj"
   },
   "dependencies": {
+    "gulp-less": "^3.0.3",
+    "gulp-minify-css": "^1.2.0",
     "jquery-ui": "^1.10.5",
     "slick-carousel": "^1.5.2",
     "underscore": "^1.8.3"
