@@ -2,9 +2,7 @@
 
 var $ = require('jquery'),
     _ = require('underscore'),
-    templateSrc = require('../../templates/catalog-product'),
-    xhr = require('../../utils/xhr.js'),
-    URLManager = require('./URLManager');
+    templateSrc = require('../../templates/catalog-product');
 
 var template;
 
@@ -36,7 +34,11 @@ var setTitle = function(title) {
 var loadProducts = function(path, queryString, $products, callback) {
     $products.addClass('js-products-loading js-products-spinning');
 
-    xhr.getProducts(path, queryString).done(function(data) {
+    $.ajax({
+        url: path + '?' + queryString,
+        dataType: 'json',
+        cache: false
+    }).done(function(data) {
         if (typeof data.category !== 'undefined') {
             setTitle(data.category.name);
         }
