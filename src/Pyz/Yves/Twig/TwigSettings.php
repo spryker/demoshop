@@ -2,7 +2,7 @@
 
 namespace Pyz\Yves\Twig;
 
-use SprykerFeature\Yves\Twig\TwigSettings as SprykerTwigSettings;
+use SprykerFeature\Yves\Twig\Communication\TwigSettings as SprykerTwigSettings;
 
 class TwigSettings extends SprykerTwigSettings
 {
