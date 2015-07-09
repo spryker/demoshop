@@ -1,58 +1,6 @@
 {
   "require": {
-    "spryker/spryker": "dev-develop",
-
-    "psr/log": "~1.0",
-    "propel/propel": "~2.0@dev",
-    "silex/silex": "1.2.*@dev",
-    "pimple/pimple": "1.1.*@dev",
-    "mandrill/mandrill": "1.0.*",
-    "predis/predis": "v1.0.0",
-    "digital-canvas/zend-framework": ">=1.12.2",
-    "videlalvaro/php-amqplib": "2.2.*",
-
-    "guzzle/http": "~3.7, <= 3.8",
-    "league/csv": "*",
-
-    "monolog/monolog": "~1.7",
-
-    "php": ">=5.6.0",
-    "ruflin/elastica": "1.3.4.0",
-
-    "symfony/console": "~2.0",
-    "symfony/debug": "~2.6.9",
-    "symfony/filesystem": "~2.6.9",
-    "symfony/finder": "~2.6.9",
-    "symfony/form": "~2.6.9",
-    "symfony/http-foundation": "~2.6.9",
-    "symfony/http-kernel": "~2.6.9",
-    "symfony/process": "~2.6.9",
-    "symfony/routing": "~2.6.9",
-    "symfony/security": "~2.6.9",
-    "symfony/serializer": "~2.6.9",
-    "symfony/translation": "~2.6.9",
-    "symfony/twig-bridge": "~2.6.9",
-    "symfony/validator": "2.5.*",
-    "symfony/var-dumper": "~2.6.9",
-    "symfony/yaml": ">=2.3,<2.7",
-    "symfony-cmf/routing": "~1.0",
-
-    "twig/twig": "~1.15.0",
-
-    "zendframework/zend-config": "~2.3.0",
-    "zendframework/zend-filter": "~2.3.0",
-    "zendframework/zend-servicemanager": "~2.3.0",
-
-    "nesbot/carbon": "1.13.0"
-  },
-  "require-dev": {
-    "knplabs/github-api": "1.4.7",
-    "silex/web-profiler": "~1.0.2",
-    "pdepend/pdepend": "*",
-    "phpunit/phpunit": "~3.7.0",
-    "codeception/codeception": "*",
-    "fzaninotto/faker": "1.4.*",
-    "codeception/remote-debug": "*"
+    "spryker/spryker": "dev-develop"
   },
   "autoload": {
     "psr-0": {
@@ -60,7 +8,7 @@
       "PhpUnit": "tests"
     }
   },
-  "minimum-stability": "stable",
+  "minimum-stability": "dev",
   "prefer-stable": true,
   "config": {
     "use-include-path": true
