@@ -1,3 +1,14 @@
+/**
+ * run this script by running the following command in root folder
+ *
+ * npm run spy-task-zed
+ *
+ * or manual
+ *
+ * npm install && gulp --gulpfile config/Zed/gulpfile.js --cwd .
+ *
+ */
+
 var gulp        = require('gulp');
 var uglify      = require('gulp-uglify');
 var minifycss   = require('gulp-minify-css');
@@ -7,8 +18,8 @@ var concat      = require('gulp-concat');
 var path        = require('path');
 var del         = require('del');
 
-var dirFeature = '../../vendor/spryker/spryker/Bundles/Gui/src/SprykerFeature/Zed/Gui/Static/Assets';
-var dirPub = '../../static/public/Zed/bundles/';
+var dirFeature = 'vendor/spryker/spryker/Bundles/Gui/src/SprykerFeature/Zed/Gui/Static/Assets';
+var dirPub = 'static/public/Zed/bundles/';
 
 function copy(directory) {
     var source = dirFeature + '/' + directory;
@@ -44,6 +55,9 @@ gulp.task('compile-js', ['copy-js'], function(){
     ;
 });
 
+/**
+ * copy tasks
+ */
 gulp.task('copy-fonts', function(){
     return copy('fonts');
 });
@@ -68,12 +82,44 @@ gulp.task('copy-less', function(){
     return copy('LESS');
 });
 
-//gulp.task('clean-css', function(done){
-//    del(dirPub + '/Gui/styles/*', function(err, paths){
-//        console.log('Deleted: ', path.join('\n'));
-//    },{ force: true });
-//});
+/**
+ * clean libraries
+ */
+gulp.task('clean-css', function(done){
+    del(dirPub + 'Gui/styles', done);
+});
 
+gulp.task('clean-less', function(done){
+    del(dirPub + 'Gui/LESS', done);
+});
+
+gulp.task('clean-fonts', function(done){
+    del(dirPub + 'Gui/fonts', done);
+});
+
+gulp.task('clean-font-awesome', function(done){
+    del(dirPub + 'Gui/font-awesome', done);
+});
+
+gulp.task('clean-sprite', function(done){
+    del(dirPub + 'Gui/sprite', done);
+});
+
+gulp.task('clean-js', function(done){
+    del(dirPub + 'Gui/scripts', done);
+});
+
+gulp.task('clean-gui', function(done){
+    del(dirPub + 'Gui', done);
+});
+
+gulp.task('clean-bundles', function(done){
+    del(dirPub, done);
+});
+
+/**
+ * Tasks groups
+ */
 gulp.task('copy-files', [
     'copy-css'
     ,'copy-less'
@@ -85,13 +131,17 @@ gulp.task('copy-files', [
 
 gulp.task('clean-files', [
     'clean-css'
+    ,'clean-less'
+    ,'clean-fonts'
+    ,'clean-font-awesome'
+    ,'clean-sprite'
+    ,'clean-js'
+    ,'clean-gui'
+    ,'clean-bundles'
 ]);
 
-gulp.task('do-nothing');
-
 gulp.task('default', [
-    'do-nothing'
-    //,'clean-files'
+    'clean-files'
     ,'copy-files'
     ,'compile-less'
     ,'compile-js'
