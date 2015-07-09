@@ -82,10 +82,10 @@ var updateFilters = function(data) {
     });
 };
 
-var updateFilters = function(data) {
+var updateFilters = function (data) {
     var params = URLManager.getParams();
 
-    _.each(filters, function(filter) {
+    _.each(filters, function (filter) {
         switch (filter.name) {
             case "price":
                 filter.max = Math.ceil(data.price.rangeValues.max / 100);
@@ -114,7 +114,7 @@ var updateFilters = function(data) {
         }
     });
 
-    $('.js-filter').each(function() {
+    $('.js-filter').each(function () {
         filters.push(new Filter($(this)));
     });
 };
