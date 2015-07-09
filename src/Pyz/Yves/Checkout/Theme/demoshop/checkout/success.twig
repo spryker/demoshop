@@ -1,16 +1,31 @@
 {% extends "@application/layout/layout.twig" %}
 
 {% block content %}
-    <article class="product product--justice-league">
-        <section class="product__overview">
-            <h1 class="product__name">Danke</h1>
-            <h2 class="product__category">Dies ist ein DemoShop</h2>
+<article class="product product--justice-league">
+    <section class="product__overview">
+        <h1>{{'page.order-success.heading'|trans }}</h1>
+        <h2>{{'page.order-success.order-number-label'|trans }}&nbsp;{#{ order.number }#}</h2>
+        <p>{{ 'page.order-success.feedback-info-label'|trans }}&nbsp;{#{ customer.email }#}</p>
+        <h2>{{'page.order-success.overview'|trans }}</h2>
+        <div class="order-success__overview">
+            {#% for item in order.items %}
+                <div>
 
-            <p>Daher wird natürlich nichts verschickt!</p>
-        </section>
-        <section class="product__main-image">
-            <img src="/images/yay.png" alt="" style="width: 100%;"/>
-        </section>
-    </article>
-    {#<a href="https://projects.invisionapp.com/d/main#/console/2544044/70211543/preview">Have a look on invisionapp.com</a>#}
+                    <div class="cart__item-quantity">{{ item.quantity }}</div>
+                    <div class="cart__item-name">{{ item.name }}</div>
+                    <div class="cart__item-price">{{ (item.priceToPay * item.quantity)|price }}</div>
+                </div>
+            {% endfor %#}
+        </div>
+    </section>
+    {#% if customer.authenticated is defined and customer.authenticated is true %#}
+        <h2>{{ 'page.order-success.register-label'|trans }}</h2>
+        {#{ form_start(quickRegForm) }}
+        {{ form_widget(quickRegForm) }}
+        {{ form_end(quickRegForm) }}
+    {% endif %#}
+    <section class="product__main-image">
+        <img src="/images/yay.png" alt="" style="width: 100%;"/>
+    </section>
+</article>
 {% endblock %}

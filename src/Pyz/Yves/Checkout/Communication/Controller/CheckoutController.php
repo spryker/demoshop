@@ -56,8 +56,8 @@ class CheckoutController extends AbstractController
                 $checkoutResponseTransfer = $checkoutClient->requestCheckout($checkoutRequest);
 
                 if ($checkoutResponseTransfer->getIsSuccess()) {
+                    $this->saveSuccessData($checkoutRequest, $checkoutResponseTransfer);
                     $this->getLocator()->cart()->client()->clearCart();
-
                     return $this->redirect($checkoutResponseTransfer);
                 } else {
                     return $this->errors($checkoutResponseTransfer->getErrors());
@@ -71,6 +71,19 @@ class CheckoutController extends AbstractController
         ];
     }
 
+    /**
+     * @param CheckoutRequestTransfer $checkoutRequest
+     * @param CheckoutResponseTransfer $checkoutResponseTransfer
+     */
+    private function saveSuccessData(
+        CheckoutRequestTransfer $checkoutRequest,
+        CheckoutResponseTransfer $checkoutResponseTransfer
+    )
+    {
+        $session = $this->getApplication()->getSession();
+        $session->save('email', $checkoutRequest->getEmail());
+        //$session->save('orderNr', $checkoutResponseTransfer->getOrderNr());
+    }
     /**
      * @param Request $request
      *
@@ -116,7 +129,6 @@ class CheckoutController extends AbstractController
         $redirectUrl = $checkoutResponseTransfer->getIsExternalRedirect()
             ? $checkoutResponseTransfer->getRedirectUrl()
             : CheckoutControllerProvider::ROUTE_CHECKOUT_SUCCESS;
-
         return new JsonResponse([
             'success' => true,
             'url' => $redirectUrl,

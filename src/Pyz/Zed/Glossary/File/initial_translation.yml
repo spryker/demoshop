@@ -251,6 +251,21 @@ keys:
   page.checkout.finalize.buy-now:
     translations:
       de_DE: 'Jetzt kaufen'
+  page.order-success.heading:
+    translations:
+      de_DE: 'Danke'
+  page.order-success.order-number-label:
+    translations:
+      de_DE: 'Ihre Bestellungsnummer ist'
+  page.order-success.feedback-info-label:
+    translations:
+      de_DE: 'Wir schicken die Bestätigung der Bestellung an fogende Email Adresse'
+  page.order-success.overview:
+    translations:
+      de_DE: 'Sie haben folgendes bestellt'
+  page.order-success.register-label:
+    translations:
+      de_DE: 'Speichern sie Ihre daten für später'
 
   page.detail.add-to-cart:
     translations:
