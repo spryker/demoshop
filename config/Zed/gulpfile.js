@@ -29,6 +29,12 @@ function copy(directory) {
         .pipe(gulp.dest(target));
 }
 
+function copyPublic(source) {
+    var target = source.replace('assets', 'public');
+    return gulp.src(source + '/**/*.*', {base: source})
+        .pipe(gulp.dest(target));
+}
+
 gulp.task('compile-less', ['copy-less'], function(){
     return gulp.src(dirPub + 'Gui/LESS/style.less')
         .pipe(less({
@@ -58,64 +64,75 @@ gulp.task('compile-js', ['copy-js'], function(){
 /**
  * copy tasks
  */
-gulp.task('copy-fonts', function(){
+gulp.task('copy-fonts', ['build-public'], function(){
     return copy('fonts');
 });
 
-gulp.task('copy-sprites', function(){
+gulp.task('copy-sprites', ['build-public'], function(){
     return copy('sprite');
 });
 
-gulp.task('copy-js', function(){
+gulp.task('copy-js', ['build-public'], function(){
     return copy('scripts');
 });
 
-gulp.task('copy-font-awesome', function(){
+gulp.task('copy-font-awesome', ['build-public'], function(){
     return copy('font-awesome');
 });
 
-gulp.task('copy-css', function(){
+gulp.task('copy-css', ['build-public'], function(){
     return copy('styles');
 });
 
-gulp.task('copy-less', function(){
+gulp.task('copy-less', ['build-public'], function(){
     return copy('LESS');
 });
 
 /**
  * clean libraries
  */
-gulp.task('clean-css', function(done){
+gulp.task('clean-css', ['build-public'], function(done){
     del(dirPub + 'Gui/styles', done);
 });
 
-gulp.task('clean-less', function(done){
+gulp.task('clean-less', ['build-public'], function(done){
     del(dirPub + 'Gui/LESS', done);
 });
 
-gulp.task('clean-fonts', function(done){
+gulp.task('clean-fonts', ['build-public'], function(done){
     del(dirPub + 'Gui/fonts', done);
 });
 
-gulp.task('clean-font-awesome', function(done){
+gulp.task('clean-font-awesome', ['build-public'], function(done){
     del(dirPub + 'Gui/font-awesome', done);
 });
 
-gulp.task('clean-sprite', function(done){
+gulp.task('clean-sprite', ['build-public'], function(done){
     del(dirPub + 'Gui/sprite', done);
 });
 
-gulp.task('clean-js', function(done){
+gulp.task('clean-js', ['build-public'], function(done){
     del(dirPub + 'Gui/scripts', done);
 });
 
-gulp.task('clean-gui', function(done){
+gulp.task('clean-gui', ['build-public'], function(done){
     del(dirPub + 'Gui', done);
 });
 
-gulp.task('clean-bundles', function(done){
+gulp.task('clean-bundles', ['build-public'], function(done){
     del(dirPub, done);
 });
+
+/**
+ * Build tasks
+ */
+gulp.task('build-zed', function(){
+    copyPublic('static/assets/Zed');
+});
+
+gulp.task('build-yves', ['build-zed'], function(){
+    copyPublic('static/assets/Yves');
+})
 
 /**
  * Tasks groups
@@ -140,8 +157,14 @@ gulp.task('clean-files', [
     ,'clean-bundles'
 ]);
 
+gulp.task('build-public', [
+    'build-zed'
+    ,'build-yves'
+]);
+
 gulp.task('default', [
-    'clean-files'
+    'build-public'
+    ,'clean-files'
     ,'copy-files'
     ,'compile-less'
     ,'compile-js'
