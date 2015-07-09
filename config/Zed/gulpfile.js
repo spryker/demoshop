@@ -10,21 +10,6 @@ var del         = require('del');
 var dirFeature = '../../vendor/spryker/spryker/Bundles/Gui/src/SprykerFeature/Zed/Gui/Static/Assets';
 var dirPub = '../../static/public/Zed/bundles/';
 
-var _match = /[^\/]+\/src\/SprykerFeature\/Zed\/([^\/]+)\/Static\/Public/;
-
-function buildSource(type) {
-    var source = {
-        'css'    : 'styles/**/*.css',
-        'js'     : 'scripts/**/*.js',
-        'images' : 'images/**/*.{svg,png,jpeg,gif}',
-        'fonts'  : 'fonts/**/*.{svg,woff,otf,ttf,eot}'
-    };
-
-    return [
-        path.join(dirFeature, source[type])
-    ];
-}
-
 function copy(directory) {
     var source = dirFeature + '/' + directory;
     var target = dirPub + '/Gui/' + directory;
@@ -33,26 +18,27 @@ function copy(directory) {
         .pipe(gulp.dest(target));
 }
 
-
-gulp.task('compile-less', function(){
-    return gulp.src(dirFeature + '/LESS/style.less')
+gulp.task('compile-less', ['copy-less'], function(){
+    return gulp.src(dirPub + 'Gui/LESS/style.less')
         .pipe(less({
             paths: [ path.join(__dirname, 'less', 'includes') ]
         }))
-        .pipe(concat('style-gulp-new.css'))
+        .pipe(concat('style.min.css'))
         //.pipe(minifycss())
-        .pipe(gulp.dest(dirFeature + '/styles'))
+        .pipe(gulp.dest(dirPub + 'Gui/styles'))
 });
 
-gulp.task('compile-js', function(){
+gulp.task('compile-js', ['copy-js'], function(){
     var jsFiles = [
-        dirFeature + '/scripts/jquery-2.1.1.js',
-        dirFeature + '/scripts/jquery-ui.custom.min.js',
-        dirFeature + '/scripts/bootstrap.min.js',
-        dirFeature + '/scripts/inspinia.js'
+        dirPub + 'Gui/scripts/jquery-2.1.1.js',
+        dirPub + 'Gui/scripts/bootstrap.min.js',
+        dirPub + 'Gui/scripts/plugins/metisMenu/jquery.metisMenu.js',
+        dirPub + 'Gui/scripts/plugins/footable/footable.all.min.js',
+        dirPub + 'Gui/scripts/plugins/slimscroll/jquery.slimscroll.min.js',
+        dirPub + 'Gui/scripts/inspinia.js'
     ];
     return gulp.src(jsFiles)
-        //.pipe(uglify())
+        .pipe(uglify())
         .pipe(concat('resources.min.js'))
         .pipe(gulp.dest(dirPub + '/Gui/scripts/'))
     ;
@@ -62,12 +48,12 @@ gulp.task('copy-fonts', function(){
     return copy('fonts');
 });
 
-gulp.task('copy-img', function(){
-    return copy('img');
-});
-
 gulp.task('copy-sprites', function(){
     return copy('sprite');
+});
+
+gulp.task('copy-js', function(){
+    return copy('scripts');
 });
 
 gulp.task('copy-font-awesome', function(){
@@ -78,12 +64,35 @@ gulp.task('copy-css', function(){
     return copy('styles');
 });
 
-gulp.task('default', [
-    'compile-less'
-    ,'compile-js'
+gulp.task('copy-less', function(){
+    return copy('LESS');
+});
+
+//gulp.task('clean-css', function(done){
+//    del(dirPub + '/Gui/styles/*', function(err, paths){
+//        console.log('Deleted: ', path.join('\n'));
+//    },{ force: true });
+//});
+
+gulp.task('copy-files', [
+    'copy-css'
+    ,'copy-less'
     ,'copy-fonts'
     ,'copy-font-awesome'
-    ,'copy-img'
     ,'copy-sprites'
-    ,'copy-css'
+    ,'copy-js'
+]);
+
+gulp.task('clean-files', [
+    'clean-css'
+]);
+
+gulp.task('do-nothing');
+
+gulp.task('default', [
+    'do-nothing'
+    //,'clean-files'
+    ,'copy-files'
+    ,'compile-less'
+    ,'compile-js'
 ]);
