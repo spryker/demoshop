@@ -2,6 +2,10 @@
 
 namespace Pyz\Zed\Product\Business\Internal\DemoData;
 
+use Generated\Shared\Product\AbstractProductInterface;
+use Generated\Shared\Product\ConcreteProductInterface;
+use Generated\Shared\Transfer\AbstractProductTransfer;
+use Generated\Shared\Transfer\ConcreteProductTransfer;
 use Generated\Shared\Transfer\LocaleTransfer;
 use SprykerFeature\Zed\Installer\Business\Model\AbstractInstaller;
 use SprykerFeature\Zed\Product\Business\Attribute\AttributeManagerInterface;
@@ -13,6 +17,9 @@ use SprykerFeature\Zed\Product\Dependency\Facade\ProductToTouchInterface;
 class ProductDataInstall extends AbstractInstaller
 {
 
+    const ABSTRACT_PRODUCT = 'abstract_product';
+    const CONCRETE_PRODUCTS = 'concrete_products';
+    
     /**
      * @var AttributeManagerInterface
      */
@@ -87,41 +94,44 @@ class ProductDataInstall extends AbstractInstaller
     {
         $currentLocale = $this->localeFacade->getCurrentLocale();
 
-        foreach ($this->getProductsFromFile() as $currentAbstractProduct) {
-            $sku = $currentAbstractProduct['sku'];
+        foreach ($this->getProductsFromFile() as $currentProduct) {
+            /* @var AbstractProductInterface $abstractProduct */
+            $abstractProduct = $currentProduct[self::ABSTRACT_PRODUCT];
+            $concreteProducts = $currentProduct[self::CONCRETE_PRODUCTS];
+
+            $sku = $abstractProduct->getSku();
 
             if ($this->productManager->hasAbstractProduct($sku)) {
                 continue;
             }
 
-            $idAbstractProduct = $this->productManager->createAbstractProduct($sku);
-            $this->productManager->createAbstractProductAttributes($idAbstractProduct, $currentLocale, $currentAbstractProduct['name'], $currentAbstractProduct['attributes']);
-            $this->createConcreteProducts($currentAbstractProduct['products'], $idAbstractProduct, $currentLocale);
+            $idAbstractProduct = $this->productManager->createAbstractProduct($abstractProduct);
+            $abstractProduct->setIdAbstractProduct($idAbstractProduct);
+            $this->productManager->createAbstractProductAttributes($abstractProduct, $currentLocale);
+            $this->createConcreteProducts($concreteProducts, $idAbstractProduct, $currentLocale);
             $this->productManager->touchProductActive($idAbstractProduct);
             $this->productManager->createAndTouchProductUrlByIdProduct(
                 $idAbstractProduct,
-                '/' . str_replace(
-                    array_keys($this->urlReplacements),
-                    array_values($this->urlReplacements),
-                    trim(
-                        strtolower($currentAbstractProduct['name'])
-                    )
-                ),
+                $this->buildProductUrl($abstractProduct),
                 $currentLocale
             );
         }
     }
 
     /**
-     * @param array $products
+     * @param ConcreteProductInterface[] $concreteProducts
      * @param int $idAbstractProduct
      * @param LocaleTransfer $currentLocale
      */
-    protected function createConcreteProducts(array $products, $idAbstractProduct, LocaleTransfer $currentLocale)
-    {
-        foreach ($products as $concreteProduct) {
-            $idConcreteProduct = $this->productManager->createConcreteProduct($concreteProduct['sku'], $idAbstractProduct, true);
-            $this->productManager->createConcreteProductAttributes($idConcreteProduct, $currentLocale, $concreteProduct['name'], $concreteProduct['attributes']);
+    protected function createConcreteProducts(
+        array $concreteProducts,
+        $idAbstractProduct,
+        LocaleTransfer $currentLocale
+    ) {
+        foreach ($concreteProducts as $concreteProduct) {
+            $idConcreteProduct = $this->productManager->createConcreteProduct($concreteProduct, $idAbstractProduct);
+            $concreteProduct->setIdConcreteProduct($idConcreteProduct);
+            $this->productManager->createConcreteProductAttributes($concreteProduct, $currentLocale);
         }
     }
 
@@ -162,8 +172,8 @@ class ProductDataInstall extends AbstractInstaller
         $productData = $this->fileReader->getArrayFromFile($splFileInfo);
 
         $formattedProduct = [];
-        foreach ($productData as $product) {
-            $formattedProduct[] = $this->formatProduct($product);
+        foreach ($productData as $rawProduct) {
+            $formattedProduct[] = $this->formatProduct($rawProduct);
         }
 
         return $formattedProduct;
@@ -176,14 +186,18 @@ class ProductDataInstall extends AbstractInstaller
      */
     protected function formatProduct(array $product)
     {
-        $productImageUrl = '/' . strtolower(str_replace(',', '', str_replace(' ', '-', trim($product['name']))));
-        $productAttributes = [
-            'image_url' => '/images/product/' . $product['image'],
-            'thumbnail_url' => '/images/product/default.png',
+        $productImageUrl = $this->buildProductImageUrl($product);
+
+        $attributes = [
             'price' => (float) $product['price'],
             'width' => (float) $product['width'],
             'height' => (float) $product['height'],
             'depth' => (float) $product['depth'],
+        ];
+
+        $localizedAttributes = [
+            'image_url' => '/images/product/' . $product['image'],
+            'thumbnail_url' => '/images/product/default.png',
             'main_color' => $product['main_color'],
             'other_colors' => $product['other_colors'],
             'description' => $product['description'],
@@ -192,19 +206,58 @@ class ProductDataInstall extends AbstractInstaller
             'scientific_name' => $product['scientific_name'],
         ];
 
+        $abstractProduct = new AbstractProductTransfer();
+        $abstractProduct->setSku($product['sku']);
+        $abstractProduct->setName($product['name']);
+        $abstractProduct->setAttributes($attributes);
+        $abstractProduct->setLocalizedAttributes($localizedAttributes);
+
+        $concreteProduct = new ConcreteProductTransfer();
+        $concreteProduct->setSku($product['sku']);
+        $concreteProduct->setName($product['name']);
+        $concreteProduct->setAttributes($attributes);
+        $concreteProduct->setLocalizedAttributes($localizedAttributes);
+        $concreteProduct->setProductImageUrl($productImageUrl);
+        $concreteProduct->setIsActive(true);
+
         return [
-            'sku' => $product['sku'],
-            'name' => $product['name'],
-            'attributes' => json_encode($productAttributes),
-            'products' => [
-                [
-                    'sku' => $product['sku'],
-                    'name' => $product['name'],
-                    'url' => $productImageUrl,
-                    'attributes' => json_encode($productAttributes),
-                ],
+            self::ABSTRACT_PRODUCT => $abstractProduct,
+            self::CONCRETE_PRODUCTS => [
+                $concreteProduct,
             ],
         ];
+    }
+
+    /**
+     * @param AbstractProductInterface $abstractProduct
+     *
+     * @return string
+     */
+    protected function buildProductUrl(AbstractProductInterface $abstractProduct)
+    {
+        $searchStrings = array_keys($this->urlReplacements);
+        $replaceStrings = array_values($this->urlReplacements);
+
+        $productUrl = strtolower($abstractProduct->getName());
+        $productUrl = trim($productUrl);
+        $productUrl = str_replace($searchStrings, $replaceStrings, $productUrl);
+
+        return '/' . $productUrl;
+    }
+
+    /**
+     * @param array $product
+     *
+     * @return string
+     */
+    protected function buildProductImageUrl(array $product)
+    {
+        $productImageUrl = trim($product['name']);
+        $productImageUrl = str_replace(' ', '-', $productImageUrl);
+        $productImageUrl = str_replace(',', '', $productImageUrl);
+        $productImageUrl = strtolower($productImageUrl);
+
+        return '/' . $productImageUrl;
     }
 
 }

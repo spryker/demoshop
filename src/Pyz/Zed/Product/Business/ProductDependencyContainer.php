@@ -34,7 +34,7 @@ class ProductDependencyContainer extends SprykerDependencyContainer
         $installer = $this->getFactory()->createInternalDemoDataProductDataInstall(
             $this->createAttributeManager(),
             $this->createProductManager(),
-            $this->createLocaleFacade(),
+            $this->getLocaleFacade(),
             $this->createCSVReader(),
             $this->getConfig()->getDemoDataPath()
         );

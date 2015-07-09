@@ -4,6 +4,8 @@ namespace Functional\Pyz\Zed\ProductOption\Business\Internal\DemoData\Importer;
 
 use Pyz\Zed\ProductOption\Business\ProductOptionFacade;
 use SprykerEngine\Zed\Kernel\AbstractFunctionalTest;
+use SprykerFeature\Zed\Product\Persistence\Propel\SpyAbstractProduct;
+use SprykerFeature\Zed\Product\Persistence\Propel\SpyProduct;
 use SprykerFeature\Zed\Product\Persistence\Propel\SpyProductQuery;
 use SprykerFeature\Zed\Product\Persistence\Propel\SpyAbstractProductQuery;
 
@@ -35,10 +37,18 @@ class ProductOptionInstallerTest extends AbstractFunctionalTest
     private function loadProductsIfNotInDb(array $skus)
     {
         foreach ($skus as $sku) {
-
             $abstractProductEntity = SpyAbstractProductQuery::create()
                 ->filterBySku($sku)
-                ->findOneOrCreate();
+                ->findOne()
+            ;
+
+            if (!$abstractProductEntity) {
+                $abstractProductEntity = new SpyAbstractProduct();
+            }
+            $abstractProductEntity
+                ->setSku($sku)
+                ->setAttributes('{}')
+            ;
 
             if ($abstractProductEntity->isNew()) {
                 $abstractProductEntity->save();
@@ -47,7 +57,17 @@ class ProductOptionInstallerTest extends AbstractFunctionalTest
             $concreteProductEntity = SpyProductQuery::create()
                 ->filterBySku($sku)
                 ->filterByFkAbstractProduct($abstractProductEntity->getIdAbstractProduct())
-                ->findOneOrCreate();
+                ->findOne()
+            ;
+
+            if (!$concreteProductEntity) {
+                $concreteProductEntity = new SpyProduct();
+            }
+            $concreteProductEntity
+                ->setSku($sku)
+                ->setAttributes('{}')
+                ->setSpyAbstractProduct($abstractProductEntity)
+            ;
 
             if ($concreteProductEntity->isNew()) {
                 $concreteProductEntity->save();
