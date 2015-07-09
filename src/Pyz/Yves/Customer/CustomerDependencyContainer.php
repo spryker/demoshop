@@ -3,12 +3,20 @@
 namespace Pyz\Yves\Customer;
 
 use SprykerFeature\Yves\Customer\CustomerDependencyContainer as SprykerFeatureCustomerDependencyContainer;
+<<<<<<< HEAD
 use Pyz\Yves\Customer\Communication\Form\Address;
 use Pyz\Yves\Customer\Communication\Form\RegisterCustomer;
 use Pyz\Yves\Customer\Communication\Form\DeleteCustomer;
 use Pyz\Yves\Customer\Communication\Form\ForgotPassword;
 use Pyz\Yves\Customer\Communication\Form\Profile;
 use Pyz\Yves\Customer\Communication\Form\RestorePassword;
+=======
+use Pyz\Yves\Customer\Form\Address;
+use Pyz\Yves\Customer\Form\DeleteCustomer;
+use Pyz\Yves\Customer\Form\ForgotPassword;
+use Pyz\Yves\Customer\Form\Profile;
+use Pyz\Yves\Customer\Form\RestorePassword;
+>>>>>>> CD-126: fix deps for new plugin structure
 
 class CustomerDependencyContainer extends SprykerFeatureCustomerDependencyContainer
 {
@@ -18,7 +26,7 @@ class CustomerDependencyContainer extends SprykerFeatureCustomerDependencyContai
      */
     public function createFormAddress()
     {
-        return $this->getFactory()->createCommunicationFormAddress();
+        return $this->getFactory()->createFormAddress();
     }
 
     /**
@@ -26,7 +34,7 @@ class CustomerDependencyContainer extends SprykerFeatureCustomerDependencyContai
      */
     public function createFormRegister()
     {
-        return $this->getFactory()->createCommunicationFormRegisterCustomer();
+        return $this->getFactory()->createFormRegisterCustomer();
     }
 
     /**
@@ -34,7 +42,7 @@ class CustomerDependencyContainer extends SprykerFeatureCustomerDependencyContai
      */
     public function createFormDelete()
     {
-        return $this->getFactory()->createCommunicationFormDeleteCustomer();
+        return $this->getFactory()->createFormDeleteCustomer();
     }
 
     /**
@@ -42,7 +50,7 @@ class CustomerDependencyContainer extends SprykerFeatureCustomerDependencyContai
      */
     public function createFormForgot()
     {
-        return $this->getFactory()->createCommunicationFormForgotPassword();
+        return $this->getFactory()->createFormForgotPassword();
     }
 
     /**
@@ -50,7 +58,7 @@ class CustomerDependencyContainer extends SprykerFeatureCustomerDependencyContai
      */
     public function createFormProfile()
     {
-        return $this->getFactory()->createCommunicationFormProfile();
+        return $this->getFactory()->createFormProfile();
     }
 
     /**
@@ -58,7 +66,7 @@ class CustomerDependencyContainer extends SprykerFeatureCustomerDependencyContai
      */
     public function createFormRestore()
     {
-        return $this->getFactory()->createCommunicationFormRestorePassword();
+        return $this->getFactory()->createFormRestorePassword();
     }
 
 }

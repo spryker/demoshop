@@ -2,22 +2,27 @@
 
 namespace Pyz\Yves\Customer\Communication;
 
-use Pyz\Yves\Customer\Communication\Form\Address;
-use Pyz\Yves\Customer\Communication\Form\RegisterCustomer;
+use Generated\Zed\Ide\FactoryAutoCompletion\CustomerCommunication;
 use Pyz\Yves\Customer\Communication\Form\DeleteCustomer;
 use Pyz\Yves\Customer\Communication\Form\ForgotPassword;
 use Pyz\Yves\Customer\Communication\Form\Profile;
+use Pyz\Yves\Customer\Communication\Form\RegisterCustomer;
 use Pyz\Yves\Customer\Communication\Form\RestorePassword;
-use SprykerEngine\Yves\Kernel\AbstractDependencyContainer;
+use SprykerEngine\Yves\Kernel\Communication\AbstractCommunicationDependencyContainer;
 
-class CustomerDependencyContainer extends AbstractDependencyContainer
+use Pyz\Yves\Customer\Communication\Form\Address;
+
+/**
+ * @method CustomerCommunication getFactory()
+ */
+class CustomerDependencyContainer extends AbstractCommunicationDependencyContainer
 {
     /**
      * @return Address
      */
     public function createFormAddress()
     {
-        return $this->getFactory()->createCommunicationFormAddress();
+        return $this->getFactory()->createFormAddressForm();
     }
 
     /**
@@ -25,7 +30,7 @@ class CustomerDependencyContainer extends AbstractDependencyContainer
      */
     public function createFormRegister()
     {
-        return $this->getFactory()->createCommunicationFormRegisterCustomer();
+        return $this->getFactory()->createFormRegisterCustomer();
     }
 
     /**
@@ -33,7 +38,7 @@ class CustomerDependencyContainer extends AbstractDependencyContainer
      */
     public function createFormDelete()
     {
-        return $this->getFactory()->createCommunicationFormDeleteCustomer();
+        return $this->getFactory()->createFormDeleteCustomer();
     }
 
     /**
@@ -41,7 +46,7 @@ class CustomerDependencyContainer extends AbstractDependencyContainer
      */
     public function createFormForgot()
     {
-        return $this->getFactory()->createCommunicationFormForgotPassword();
+        return $this->getFactory()->createFormForgotPassword();
     }
 
     /**
@@ -49,7 +54,7 @@ class CustomerDependencyContainer extends AbstractDependencyContainer
      */
     public function createFormProfile()
     {
-        return $this->getFactory()->createCommunicationFormProfile();
+        return $this->getFactory()->createFormProfile();
     }
 
     /**
@@ -57,6 +62,6 @@ class CustomerDependencyContainer extends AbstractDependencyContainer
      */
     public function createFormRestore()
     {
-        return $this->getFactory()->createCommunicationFormRestorePassword();
+        return $this->getFactory()->createFormRestorePassword();
     }
 }

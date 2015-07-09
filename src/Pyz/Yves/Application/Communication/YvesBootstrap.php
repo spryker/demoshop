@@ -4,13 +4,12 @@ namespace Pyz\Yves\Application\Communication;
 
 use Pyz\Yves\Application\Communication\Plugin\ApplicationControllerProvider;
 use Pyz\Yves\Checkout\Plugin\CheckoutControllerProvider;
-use Pyz\Yves\Customer\Plugin\CustomerControllerProvider;
+use Pyz\Yves\Customer\Communication\Plugin\CustomerControllerProvider;
 use Silex\Provider\FormServiceProvider;
 use Silex\Provider\HttpFragmentServiceProvider;
 use Silex\Provider\RememberMeServiceProvider;
 use Silex\Provider\ServiceControllerServiceProvider;
 use Silex\Provider\SessionServiceProvider as SilexSessionServiceProvider;
-use Silex\Provider\TwigServiceProvider;
 use Silex\Provider\ValidatorServiceProvider;
 use Silex\Provider\WebProfilerServiceProvider;
 use Silex\ServiceProviderInterface;
@@ -29,6 +28,8 @@ use SprykerFeature\Shared\Application\Communication\Plugin\ServiceProvider\UrlGe
 use SprykerFeature\Shared\Library\Config;
 use SprykerFeature\Shared\System\SystemConfig;
 use SprykerFeature\Shared\Yves\YvesConfig;
+use SprykerFeature\Yves\Cart\Communication\Plugin\CartControllerProvider;
+use SprykerFeature\Yves\Twig\Communication\Plugin\TwigServiceProvider;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Routing\RouterInterface;
 
@@ -88,11 +89,11 @@ class YvesBootstrap extends SprykerYvesBootstrap
         );
 
         $providers = [
+            new SilexSessionServiceProvider(),
             new ExceptionServiceProvider('\\SprykerEngine\\Yves\\Application\\Communication\\Controller\\ExceptionController'),
             new YvesLoggingServiceProvider(),
             new MonologServiceProvider(),
             new CookieServiceProvider(),
-            new SilexSessionServiceProvider(),
             $sessionServiceProvider,
             new UrlGeneratorServiceProvider(),
             new ServiceControllerServiceProvider(),
@@ -124,7 +125,7 @@ class YvesBootstrap extends SprykerYvesBootstrap
             new ApplicationControllerProvider(false),
             new CheckoutControllerProvider($ssl),
             new CustomerControllerProvider($ssl),
-            new CartControllerProvider($ssl),
+            new CartControllerProvider($ssl)
         ];
     }
 
@@ -163,7 +164,7 @@ class YvesBootstrap extends SprykerYvesBootstrap
         $additionalGlobalVars = [
             'categories' => $locator->categoryExporter()->client()->getNavigationCategories($app['locale']),
             'environment' => \SprykerFeature_Shared_Library_Environment::getEnvironment(),
-            'registerForm' => $app['form.factory']->create($locator->customer()->pluginRegisterForm()->createFormRegister())->createView(),
+            'registerForm' => $app['form.factory']->create($locator->customer()->pluginRegisterForm()->createFormRegister())->createView()
         ];
 
         return array_merge($existingGlobalVars, $additionalGlobalVars);

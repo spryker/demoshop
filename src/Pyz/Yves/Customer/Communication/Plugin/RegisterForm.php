@@ -1,6 +1,6 @@
 <?php
 
-namespace Pyz\Yves\Customer\Plugin;
+namespace Pyz\Yves\Customer\Communication\Plugin;
 
 use SprykerEngine\Yves\Kernel\Communication\AbstractPlugin;
 
