@@ -130,10 +130,6 @@ gulp.task('build-zed', function(){
     return copyPublic('static/assets/Zed');
 });
 
-gulp.task('build-yves', ['build-zed'], function(){
-    return copyPublic('static/assets/Yves');
-})
-
 /**
  * Tasks groups
  */
@@ -159,7 +155,6 @@ gulp.task('clean-files', [
 
 gulp.task('build-public', [
     'build-zed'
-    ,'build-yves'
 ]);
 
 gulp.task('default', [
