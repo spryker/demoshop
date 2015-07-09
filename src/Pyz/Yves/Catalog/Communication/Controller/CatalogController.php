@@ -35,6 +35,8 @@ class CatalogController extends AbstractController
      */
     public function fulltextSearchAction(Request $request)
     {
+        $request->query->set('q', $request->get('q', ''));
+
         $search = $this->getLocator()->catalog()->client()->createFulltextSearch($request);
 
         $search->setItemsPerPage(6);
