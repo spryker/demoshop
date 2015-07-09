@@ -19,7 +19,7 @@ var path        = require('path');
 var del         = require('del');
 
 var dirFeature = 'vendor/spryker/spryker/Bundles/Gui/src/SprykerFeature/Zed/Gui/Static/Assets';
-var dirPub = 'static/public/Zed/bundles/';
+var dirPub = 'static/public/Zed/bundles';
 
 function copy(directory) {
     var source = dirFeature + '/' + directory;
@@ -36,29 +36,28 @@ function copyPublic(source) {
 }
 
 gulp.task('compile-less', ['copy-less'], function(){
-    return gulp.src(dirPub + 'Gui/LESS/style.less')
+    return gulp.src(dirPub + '/Gui/LESS/style.less')
         .pipe(less({
             paths: [ path.join(__dirname, 'less', 'includes') ]
         }))
         .pipe(concat('style.min.css'))
-        //.pipe(minifycss())
-        .pipe(gulp.dest(dirPub + 'Gui/styles'))
+        .pipe(minifycss())
+        .pipe(gulp.dest(dirPub + '/Gui/styles'));
 });
 
 gulp.task('compile-js', ['copy-js'], function(){
     var jsFiles = [
-        dirPub + 'Gui/scripts/jquery-2.1.1.js',
-        dirPub + 'Gui/scripts/bootstrap.min.js',
-        dirPub + 'Gui/scripts/plugins/metisMenu/jquery.metisMenu.js',
-        dirPub + 'Gui/scripts/plugins/footable/footable.all.min.js',
-        dirPub + 'Gui/scripts/plugins/slimscroll/jquery.slimscroll.min.js',
-        dirPub + 'Gui/scripts/inspinia.js'
+        dirPub + '/Gui/scripts/jquery-2.1.1.js',
+        dirPub + '/Gui/scripts/bootstrap.min.js',
+        dirPub + '/Gui/scripts/plugins/metisMenu/jquery.metisMenu.js',
+        dirPub + '/Gui/scripts/plugins/footable/footable.all.min.js',
+        dirPub + '/Gui/scripts/plugins/slimscroll/jquery.slimscroll.min.js',
+        dirPub + '/Gui/scripts/inspinia.js'
     ];
     return gulp.src(jsFiles)
         .pipe(uglify())
         .pipe(concat('resources.min.js'))
-        .pipe(gulp.dest(dirPub + '/Gui/scripts/'))
-        ;
+        .pipe(gulp.dest(dirPub + '/Gui/scripts/'));
 });
 
 /**
@@ -92,31 +91,31 @@ gulp.task('copy-less', ['build-public'], function(done){
  * clean libraries
  */
 gulp.task('clean-css', ['build-public'], function(done){
-    del(dirPub + 'Gui/styles', done);
+    del(dirPub + '/Gui/styles', done);
 });
 
 gulp.task('clean-less', ['build-public'], function(done){
-    del(dirPub + 'Gui/LESS', done);
+    del(dirPub + '/Gui/LESS', done);
 });
 
 gulp.task('clean-fonts', ['build-public'], function(done){
-    del(dirPub + 'Gui/fonts', done);
+    del(dirPub + '/Gui/fonts', done);
 });
 
 gulp.task('clean-font-awesome', ['build-public'], function(done){
-    del(dirPub + 'Gui/font-awesome', done);
+    del(dirPub + '/Gui/font-awesome', done);
 });
 
 gulp.task('clean-sprite', ['build-public'], function(done){
-    del(dirPub + 'Gui/sprite', done);
+    del(dirPub + '/Gui/sprite', done);
 });
 
 gulp.task('clean-js', ['build-public'], function(done){
-    del(dirPub + 'Gui/scripts', done);
+    del(dirPub + '/Gui/scripts', done);
 });
 
 gulp.task('clean-gui', ['build-public'], function(done){
-    del(dirPub + 'Gui', done);
+    del(dirPub + '/Gui', done);
 });
 
 gulp.task('clean-bundles', ['build-public'], function(done){
@@ -134,23 +133,23 @@ gulp.task('build-zed', function(){
  * Tasks groups
  */
 gulp.task('copy-files', [
-    'copy-css'
-    ,'copy-less'
-    ,'copy-fonts'
-    ,'copy-font-awesome'
-    ,'copy-sprites'
-    ,'copy-js'
+    'copy-css',
+    'copy-less',
+    'copy-fonts',
+    'copy-font-awesome',
+    'copy-sprites',
+    'copy-js'
 ]);
 
 gulp.task('clean-files', [
-    'clean-css'
-    ,'clean-less'
-    ,'clean-fonts'
-    ,'clean-font-awesome'
-    ,'clean-sprite'
-    ,'clean-js'
-    ,'clean-gui'
-    ,'clean-bundles'
+    'clean-css',
+    'clean-less',
+    'clean-fonts',
+    'clean-font-awesome',
+    'clean-sprite',
+    'clean-js',
+    'clean-gui',
+    'clean-bundles'
 ]);
 
 gulp.task('build-public', [
@@ -158,9 +157,9 @@ gulp.task('build-public', [
 ]);
 
 gulp.task('default', [
-    'build-public'
-    ,'clean-files'
-    ,'copy-files'
-    ,'compile-less'
-    ,'compile-js'
+    'build-public',
+    'clean-files',
+    'copy-files',
+    'compile-less',
+    'compile-js'
 ]);
