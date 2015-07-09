@@ -58,34 +58,34 @@ gulp.task('compile-js', ['copy-js'], function(){
         .pipe(uglify())
         .pipe(concat('resources.min.js'))
         .pipe(gulp.dest(dirPub + '/Gui/scripts/'))
-    ;
+        ;
 });
 
 /**
  * copy tasks
  */
-gulp.task('copy-fonts', ['build-public'], function(){
-    return copy('fonts');
+gulp.task('copy-fonts', ['build-public'], function(done){
+    return copy('fonts', done);
 });
 
-gulp.task('copy-sprites', ['build-public'], function(){
-    return copy('sprite');
+gulp.task('copy-sprites', ['build-public'], function(done){
+    return copy('sprite', done);
 });
 
-gulp.task('copy-js', ['build-public'], function(){
-    return copy('scripts');
+gulp.task('copy-js', ['build-public'], function(done){
+    return copy('scripts', done);
 });
 
-gulp.task('copy-font-awesome', ['build-public'], function(){
-    return copy('font-awesome');
+gulp.task('copy-font-awesome', ['build-public'], function(done){
+    return copy('font-awesome', done);
 });
 
-gulp.task('copy-css', ['build-public'], function(){
-    return copy('styles');
+gulp.task('copy-css', ['build-public'], function(done){
+    return copy('styles', done);
 });
 
-gulp.task('copy-less', ['build-public'], function(){
-    return copy('LESS');
+gulp.task('copy-less', ['build-public'], function(done){
+    return copy('LESS', done);
 });
 
 /**
@@ -127,11 +127,11 @@ gulp.task('clean-bundles', ['build-public'], function(done){
  * Build tasks
  */
 gulp.task('build-zed', function(){
-    copyPublic('static/assets/Zed');
+    return copyPublic('static/assets/Zed');
 });
 
 gulp.task('build-yves', ['build-zed'], function(){
-    copyPublic('static/assets/Yves');
+    return copyPublic('static/assets/Yves');
 })
 
 /**
