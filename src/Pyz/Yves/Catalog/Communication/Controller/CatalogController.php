@@ -17,7 +17,6 @@ class CatalogController extends AbstractController
     public function indexAction(array $categoryNode, Request $request)
     {
         $search = $this->getLocator()->catalog()->client()->createFacetSearch($request, $categoryNode);
-        $search->setItemsPerPage(6);
 
         $categoryTree = $this->getLocator()->categoryExporter()->client()->getTreeFromCategoryNode($categoryNode, $this->getLocale());
         $searchResults = array_merge($search->getResult(), ['category' => $categoryNode, 'categoryTree' => $categoryTree]);
