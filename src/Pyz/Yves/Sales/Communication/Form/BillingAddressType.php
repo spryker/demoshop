@@ -1,6 +1,6 @@
 <?php
 
-namespace Pyz\Yves\Sales\Form;
+namespace Pyz\Yves\Sales\Communication\Form;
 
 use Generated\Shared\Transfer\SalesAddressTransfer;
 use Generated\Shared\Transfer\OrderTransfer;

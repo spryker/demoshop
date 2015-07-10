@@ -9,7 +9,7 @@ use Pyz\Yves\Customer\Communication\Form\Profile;
 use Pyz\Yves\Customer\Communication\Form\RegisterCustomer;
 use Pyz\Yves\Customer\Communication\Form\RestorePassword;
 use SprykerEngine\Yves\Kernel\Communication\AbstractCommunicationDependencyContainer;
-
+use SprykerFeature\Yves\Customer\Communication\CustomerDependencyContainer as SprykerFeatureCustomerDependencyContainer ;
 use Pyz\Yves\Customer\Communication\Form\Address;
 
 /**
@@ -34,7 +34,7 @@ class CustomerDependencyContainer extends AbstractCommunicationDependencyContain
     }
 
     /**
-     * @return DeleteCustomer
+     * @return Form\DeleteCustomer
      */
     public function createFormDelete()
     {
@@ -42,7 +42,7 @@ class CustomerDependencyContainer extends AbstractCommunicationDependencyContain
     }
 
     /**
-     * @return ForgotPassword
+     * @return Form\ForgotPassword
      */
     public function createFormForgot()
     {
@@ -50,7 +50,7 @@ class CustomerDependencyContainer extends AbstractCommunicationDependencyContain
     }
 
     /**
-     * @return Profile
+     * @return Form\Profile
      */
     public function createFormProfile()
     {
@@ -58,10 +58,11 @@ class CustomerDependencyContainer extends AbstractCommunicationDependencyContain
     }
 
     /**
-     * @return RestorePassword
+     * @return Form\RestorePassword
      */
     public function createFormRestore()
     {
         return $this->getFactory()->createFormRestorePassword();
     }
+
 }

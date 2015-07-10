@@ -1,6 +1,6 @@
 <?php
 
-namespace Pyz\Yves\Sales\Plugin;
+namespace Pyz\Yves\Sales\Communication\Plugin;
 
 use Pyz\Yves\Sales\SalesDependencyContainer;
 use SprykerEngine\Yves\Kernel\Communication\AbstractPlugin;

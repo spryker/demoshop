@@ -8,7 +8,6 @@ use Symfony\Component\Validator\Constraints\NotBlank;
 
 class RegisterCustomer extends AbstractType
 {
-
     /**
      * @return string
      */
@@ -26,16 +25,15 @@ class RegisterCustomer extends AbstractType
         $builder
             ->add('email', 'text', [
                 'label' => 'customer.register.email',
-                'constraints' => new NotBlank(),
+                'constraints' => new NotBlank()
             ])
             ->add('password', 'password', [
                 'label' => 'customer.register.password',
-                'constraints' => new NotBlank(),
+                'constraints' => new NotBlank()
             ])
             ->add('submit', 'submit', [
-                'label' => 'customer.register.submit',
+                'label' => 'customer.register.submit'
             ])
         ;
     }
-
 }
