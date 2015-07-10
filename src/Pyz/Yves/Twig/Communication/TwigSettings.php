@@ -1,6 +1,6 @@
 <?php
 
-namespace Pyz\Yves\Twig;
+namespace Pyz\Yves\Twig\Communication;
 
 use SprykerFeature\Yves\Twig\Communication\TwigSettings as SprykerTwigSettings;
 

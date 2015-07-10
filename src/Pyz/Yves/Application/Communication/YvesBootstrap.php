@@ -3,7 +3,7 @@
 namespace Pyz\Yves\Application\Communication;
 
 use Pyz\Yves\Application\Communication\Plugin\ApplicationControllerProvider;
-use Pyz\Yves\Checkout\Plugin\CheckoutControllerProvider;
+use Pyz\Yves\Checkout\Communication\Plugin\ServiceProvider\CheckoutControllerProvider;
 use Pyz\Yves\Customer\Communication\Plugin\CustomerControllerProvider;
 use Silex\Provider\FormServiceProvider;
 use Silex\Provider\HttpFragmentServiceProvider;
