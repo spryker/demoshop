@@ -8,7 +8,7 @@ use Pyz\Yves\Customer\Communication\Form\DeleteCustomer;
 use Pyz\Yves\Customer\Communication\Form\ForgotPassword;
 use Pyz\Yves\Customer\Communication\Form\Profile;
 use Pyz\Yves\Customer\Communication\Form\RestorePassword;
-use SprykerEngine\Yves\Kernel\Communication\AbstractDependencyContainer;
+use SprykerEngine\Yves\Kernel\AbstractDependencyContainer;
 
 class CustomerDependencyContainer extends AbstractDependencyContainer
 {
