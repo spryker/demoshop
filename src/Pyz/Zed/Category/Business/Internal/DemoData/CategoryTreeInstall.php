@@ -90,7 +90,7 @@ class CategoryTreeInstall extends AbstractInstaller
     protected function write(array $demoTree)
     {
         foreach ($demoTree as $row) {
-            if (1 === $row[self::IS_ROOT]) {
+            if (1 === (int) $row[self::IS_ROOT]) {
                 $this->addRootNode($row);
             } else {
                 $this->addChild($row);
