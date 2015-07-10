@@ -14,6 +14,9 @@ use Pyz\Zed\ProductOption\Business\Internal\DemoData\Importer\Reader\ProductRead
 use Pyz\Zed\ProductOption\Business\Internal\DemoData\Importer\Transformer\XMLTransformerInterface;
 use Pyz\Zed\ProductOption\Business\Internal\DemoData\Importer\Writer\WriterInterface;
 use Pyz\Zed\ProductOption\ProductOptionDependencyProvider;
+use Pyz\Zed\ProductOption\Business\ProductOptionFacade;
+use SprykerFeature\Zed\ProductOption\Business\Model\DataImportWriterInterface;
+use Pyz\Zed\ProductOption\Business\Internal\DemoData\Importer\Decorator\InMemoryProductOptionQueryContainer;
 
 /**
  * @method ProductOptionBusiness getFactory()
@@ -127,4 +130,15 @@ class ProductOptionDependencyContainer extends SprykerDependencyContainer
         return $this->getProvidedDependency(ProductOptionDependencyProvider::FACADE_PRODUCT_OPTION);
     }
 
+    /**
+     * @return DataImportWriterInterface
+     */
+    public function getDataImportWriterModel()
+    {
+        return $this->getFactory()->createModelDataImportWriter(
+            new InMemoryProductOptionQueryContainer($this->getQueryContainer()),
+            $this->getProvidedDependency(ProductOptionDependencyProvider::FACADE_PRODUCT),
+            $this->getProvidedDependency(ProductOptionDependencyProvider::FACADE_LOCALE)
+        );
+    }
 }
