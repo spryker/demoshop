@@ -4,7 +4,7 @@ namespace Pyz\Yves\Customer\Communication\Controller;
 
 use Generated\Shared\Transfer\CustomerTransfer;
 use Pyz\Yves\Customer\Plugin\CustomerControllerProvider;
-use Pyz\Yves\Customer\CustomerDependencyContainer;
+use Pyz\Yves\Customer\Communication\CustomerDependencyContainer;
 use SprykerEngine\Yves\Application\Communication\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\RedirectResponse;

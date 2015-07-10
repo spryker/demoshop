@@ -2,13 +2,15 @@
 
 namespace Pyz\Yves\Customer\Communication\Controller;
 
-use Pyz\Yves\Customer\CustomerDependencyContainer;
+use Generated\Shared\Transfer\CustomerAddressTransfer;
+use Generated\Shared\Transfer\CustomerTransfer;
+use Pyz\Yves\Customer\Communication\CustomerDependencyContainer;
+use Pyz\Yves\Customer\Communication\Plugin\CustomerControllerProvider;
 use SprykerFeature\Shared\Customer\Code\Messages;
 use SprykerEngine\Yves\Application\Communication\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
-use Pyz\Yves\Customer\Plugin\CustomerControllerProvider;
 
 /**
  * @method CustomerDependencyContainer getDependencyContainer()
@@ -35,7 +37,7 @@ class AddressController extends AbstractController
         $form = $this->createForm($this->getDependencyContainer()->createFormAddress());
 
         if ($form->isValid()) {
-            $addressTransfer = new \Generated\Shared\Transfer\CustomerAddressTransfer();
+            $addressTransfer = new CustomerAddressTransfer();
             $addressTransfer->fromArray($form->getData());
             $addressTransfer->setEmail($this->getUsername());
             $addressTransfer->setIdCustomerAddress($addressId);
@@ -50,7 +52,7 @@ class AddressController extends AbstractController
             return $this->redirectResponseInternal(CustomerControllerProvider::ROUTE_CUSTOMER_ADDRESS);
         }
 
-        $addressTransfer = new \Generated\Shared\Transfer\CustomerAddressTransfer();
+        $addressTransfer = new CustomerAddressTransfer();
         $addressTransfer->setEmail($this->getUsername());
         $addressTransfer->setIdCustomerAddress($addressId);
         $addressTransfer = $this->getLocator()->customer()->client()->getAddress($addressTransfer);
@@ -72,7 +74,7 @@ class AddressController extends AbstractController
         $form = $this->createForm($this->getDependencyContainer()->createFormAddress());
 
         if ($form->isValid()) {
-            $addressTransfer = new \Generated\Shared\Transfer\CustomerAddressTransfer();
+            $addressTransfer = new CustomerAddressTransfer();
             $addressTransfer->fromArray($form->getData());
             $addressTransfer->setEmail($this->getUsername());
             $addressTransfer = $this->getLocator()->customer()->client()->newAddress($addressTransfer);
@@ -86,7 +88,7 @@ class AddressController extends AbstractController
             return $this->redirectResponseInternal(CustomerControllerProvider::ROUTE_CUSTOMER_NEW_ADDRESS);
         }
 
-        $customerTransfer = new \Generated\Shared\Transfer\CustomerTransfer();
+        $customerTransfer = new CustomerTransfer();
         $customerTransfer->setEmail($this->getUsername());
         $customerTransfer = $this->getLocator()->customer()->client()->getCustomer($customerTransfer);
         $form->setData($customerTransfer->toArray());
@@ -102,7 +104,7 @@ class AddressController extends AbstractController
     public function deleteAction(Request $request)
     {
         if ($request->isMethod('POST')) {
-            $addressTransfer = new \Generated\Shared\Transfer\CustomerAddressTransfer();
+            $addressTransfer = new CustomerAddressTransfer();
             $addressTransfer->setIdCustomerAddress($request->query->get('id'));
             $addressTransfer->setEmail($this->getUsername());
             $deletion = $this->getLocator()->customer()->client()->deleteAddress($addressTransfer);
@@ -111,7 +113,7 @@ class AddressController extends AbstractController
             } else {
                 $this->addMessageError(Messages::CUSTOMER_ADDRESS_DELETE_FAILED);
             }
-            $addressTransfer = new \Generated\Shared\Transfer\CustomerAddressTransfer();
+            $addressTransfer = new CustomerAddressTransfer();
             $addressTransfer->setIdCustomerAddress($request->query->get('id'));
             $addressTransfer->setEmail($this->getUsername());
             $deletion = $this->getLocator()->customer()->client()->deleteAddress($addressTransfer);

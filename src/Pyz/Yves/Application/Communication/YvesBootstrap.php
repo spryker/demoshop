@@ -8,6 +8,7 @@ use Pyz\Yves\Customer\Communication\Plugin\CustomerControllerProvider;
 use Silex\Provider\FormServiceProvider;
 use Silex\Provider\HttpFragmentServiceProvider;
 use Silex\Provider\RememberMeServiceProvider;
+use Silex\Provider\SecurityServiceProvider as SilexSecurityServiceProvider;
 use Silex\Provider\ServiceControllerServiceProvider;
 use Silex\Provider\SessionServiceProvider as SilexSessionServiceProvider;
 use Silex\Provider\ValidatorServiceProvider;
@@ -97,6 +98,7 @@ class YvesBootstrap extends SprykerYvesBootstrap
             $sessionServiceProvider,
             new UrlGeneratorServiceProvider(),
             new ServiceControllerServiceProvider(),
+            new SilexSecurityServiceProvider(),
             $securityServiceProvider,
             new RememberMeServiceProvider(),
             new RoutingServiceProvider(),
