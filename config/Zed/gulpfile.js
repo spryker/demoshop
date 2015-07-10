@@ -1,163 +1,163 @@
-var _gulp   = require('gulp');
-var _rename = require('gulp-rename');
-var _core   = require('../../vendor/spryker/spryker/Bundles/Ui/gulpfile');
+/**
+ * run this script with the following command in root folder
+ *
+ * npm run spy-task-zed
+ *
+ * or manual
+ *
+ * npm install && gulp --gulpfile config/Zed/gulpfile.js --cwd .
+ *
+ */
 
-var _path   = require('path');
-var _del    = require('del');
+var gulp        = require('gulp');
+var uglify      = require('gulp-uglify');
+var minifycss   = require('gulp-minify-css');
+var rename      = require('gulp-rename');
+var less        = require('gulp-less');
+var concat      = require('gulp-concat');
+var path        = require('path');
+var del         = require('del');
 
+var dirFeature = 'vendor/spryker/spryker/Bundles/Gui/Static/Assets';
+var dirPub = 'static/public/Zed/bundles';
 
-var _dirFeature = 'vendor/spryker/spryker/Bundles/*/src/SprykerFeature/Zed/*/Static/Public';
-var _dirPub     = 'static/public/Zed/bundles';
+function copy(directory) {
+    var source = dirFeature + '/' + directory;
+    var target = dirPub + '/Gui/' + directory;
 
-var _match = /[^\/]+\/src\/SprykerFeature\/Zed\/([^\/]+)\/Static\/Public/;
-
-
-
-function _buildSource(type) {
-	var source = {
-		'css'    : 'styles/**/*.css',
-		'js'     : 'scripts/**/*.js',
-		'images' : 'images/**/*.{svg,png,jpeg,gif}',
-		'fonts'  : 'fonts/**/*.{svg,woff,otf,ttf,eot}'
-	};
-
-	return [
-		_path.join(_dirFeature, source[type])
-	];
+    return gulp.src(source + '/**/*.*', {base: source})
+        .pipe(gulp.dest(target));
 }
 
-function _changeDest(path) {
-	path.dirname = path.dirname.replace(_match, function(match, p1) {
-		return p1;
-	});
+function copyPublic(source) {
+    var target = source.replace('assets', 'public');
+    return gulp.src(source + '/**/*.*', {base: source})
+        .pipe(gulp.dest(target));
 }
 
-function _copy(type) {
-	return _gulp.src(_buildSource(type))
-		.pipe(_rename(_changeDest))
-		.pipe(_gulp.dest(_dirPub));
-}
-
-
-
-_gulp.task('clean-css', function(done) {
-	_del(_dirPub + '/*/styles', done);
+gulp.task('compile-less', ['copy-less'], function(){
+    return gulp.src(dirPub + '/Gui/LESS/style.less')
+        .pipe(less({
+            paths: [ path.join(__dirname, 'less', 'includes') ]
+        }))
+        .pipe(concat('style.min.css'))
+        .pipe(minifycss())
+        .pipe(gulp.dest(dirPub + '/Gui/styles'));
 });
 
-_gulp.task('clean-js', function(done) {
-	_del(_dirPub + '/*/scripts', done);
+gulp.task('compile-js', ['copy-js'], function(){
+    var jsFiles = [
+        dirPub + '/Gui/scripts/jquery-2.1.1.js',
+        dirPub + '/Gui/scripts/bootstrap.min.js',
+        dirPub + '/Gui/scripts/plugins/metisMenu/jquery.metisMenu.js',
+        dirPub + '/Gui/scripts/plugins/footable/footable.all.min.js',
+        dirPub + '/Gui/scripts/plugins/slimscroll/jquery.slimscroll.min.js',
+        dirPub + '/Gui/scripts/inspinia.js'
+    ];
+    return gulp.src(jsFiles)
+        .pipe(uglify())
+        .pipe(concat('resources.min.js'))
+        .pipe(gulp.dest(dirPub + '/Gui/scripts/'));
 });
 
-_gulp.task('clean-images', function(done) {
-	_del(_dirPub + '/*/images', done);
+/**
+ * copy tasks
+ */
+gulp.task('copy-fonts', ['clean-fonts'], function(done){
+    return copy('fonts', done);
 });
 
-_gulp.task('clean-fonts', function(done) {
-	_del(_dirPub + '/*/fonts', done);
+gulp.task('copy-sprites', ['clean-sprite'], function(done){
+    return copy('sprite', done);
 });
 
-
-_gulp.task('copy-pub', function() {
-	return _gulp.src('static/assets/Zed/*', {
-		dot : true
-	})
-		.pipe(_gulp.dest('static/public/Zed'));
+gulp.task('copy-js', ['clean-js'], function(done){
+    return copy('scripts', done);
 });
 
-
-_gulp.task('copy-css', ['clean-css'], function() {
-	return _copy('css');
+gulp.task('copy-font-awesome', ['clean-font-awesome'], function(done){
+    return copy('font-awesome', done);
 });
 
-_gulp.task('copy-js', ['clean-js'], function() {
-	return _copy('js');
+gulp.task('copy-css', ['clean-css'], function(done){
+    return copy('styles', done);
 });
 
-_gulp.task('copy-images', ['clean-images'], function() {
-	return _copy('images');
+gulp.task('copy-less', ['clean-less'], function(done){
+    return copy('LESS', done);
 });
 
-_gulp.task('copy-fonts', ['clean-fonts'], function() {
-	return _copy('fonts');
+/**
+ * clean libraries
+ */
+gulp.task('clean-css', ['build-public'], function(done){
+    del(dirPub + '/Gui/styles', done);
 });
 
-
-_gulp.task('core-dev', function(done) {
-	_core.createCoreResources('./vendor/spryker/spryker/Bundles/Ui', 'dev', done);
+gulp.task('clean-less', ['build-public'], function(done){
+    del(dirPub + '/Gui/LESS', done);
 });
 
-_gulp.task('core-dist', function(done) {
-	_core.createCoreResources('./vendor/spryker/spryker/Bundles/Ui', 'dist', done);
+gulp.task('clean-fonts', ['build-public'], function(done){
+    del(dirPub + '/Gui/fonts', done);
 });
 
-_gulp.task('watcher', function() {
-	_core.watchCoreResources('./vendor/spryker/spryker/Bundles/Ui', function(task) {
-		var map = {
-			'dev-css'    : 'copy-css',
-			'dev-js'     : 'copy-js',
-			'dev-images' : 'copy-images',
-			'dev-fonts'  : 'copy-fonts'
-		};
-
-		if (task in map) _gulp.start(map[task]);
-	});
+gulp.task('clean-font-awesome', ['build-public'], function(done){
+    del(dirPub + '/Gui/font-awesome', done);
 });
 
+gulp.task('clean-sprite', ['build-public'], function(done){
+    del(dirPub + '/Gui/sprite', done);
+});
 
-_gulp.task('dev', [
-	'clean-css',
-	'clean-js',
-	'clean-images',
-	'clean-fonts',
-	'copy-pub',
-	'copy-css',
-	'copy-js',
-	'copy-images',
-	'copy-fonts'
+gulp.task('clean-js', ['build-public'], function(done){
+    del(dirPub + '/Gui/scripts', done);
+});
+
+gulp.task('clean-gui', ['build-public'], function(done){
+    del(dirPub + '/Gui', done);
+});
+
+gulp.task('clean-bundles', ['build-public'], function(done){
+    del(dirPub, done);
+});
+
+/**
+ * Build tasks
+ */
+gulp.task('build-zed', function(){
+    return copyPublic('static/assets/Zed');
+});
+
+/**
+ * Tasks groups
+ */
+gulp.task('build-public', [
+    'build-zed'
+]);
+gulp.task('copy-files', [
+    'copy-css',
+    'copy-less',
+    'copy-fonts',
+    'copy-font-awesome',
+    'copy-sprites',
+    'copy-js'
 ]);
 
-_gulp.task('dist', [
-	'clean-css',
-	'clean-js',
-	'clean-images',
-	'clean-fonts',
-	'copy-pub',
-	'copy-css',
-	'copy-js',
-	'copy-images',
-	'copy-fonts'
+gulp.task('clean-files', [
+    'clean-css',
+    'clean-js',
+    'clean-less',
+    'clean-fonts',
+    'clean-font-awesome',
+    'clean-sprite'
 ]);
 
 
-_gulp.task('dev-all', ['core-dev'], function(done) {
-	_gulp.start([
-		'clean-css',
-		'clean-js',
-		'clean-images',
-		'clean-fonts',
-		'copy-pub',
-		'copy-css',
-		'copy-js',
-		'copy-images',
-		'copy-fonts'
-	], done);
-});
-
-_gulp.task('dist-all', ['core-dist'], function(done) {
-	_gulp.start([
-		'clean-css',
-		'clean-js',
-		'clean-images',
-		'clean-fonts',
-		'copy-pub',
-		'copy-css',
-		'copy-js',
-		'copy-images',
-		'copy-fonts'
-	], done);
-});
-
-
-_gulp.task('default', [
-	'dist'
+gulp.task('default', [
+    'build-public',
+    'clean-files',
+    'copy-files',
+    'compile-less',
+    'compile-js'
 ]);
