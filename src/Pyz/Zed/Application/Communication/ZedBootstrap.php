@@ -8,6 +8,7 @@ use Silex\Provider\ServiceControllerServiceProvider;
 use Silex\Provider\SessionServiceProvider as SilexSessionServiceProvider;
 use Silex\Provider\ValidatorServiceProvider;
 use Silex\Provider\WebProfilerServiceProvider;
+use Silex\Provider\HttpFragmentServiceProvider;
 use Silex\ServiceProviderInterface;
 use SprykerEngine\Shared\Kernel\Store;
 use SprykerEngine\Zed\Kernel\Locator;
@@ -33,6 +34,7 @@ use SprykerFeature\Zed\Price\Communication\Plugin\Twig\PriceTwigExtensions;
 use Symfony\Bridge\Twig\Extension\TranslationExtension;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Routing\RouterInterface;
+
 
 class ZedBootstrap extends Bootstrap
 {
@@ -112,6 +114,7 @@ class ZedBootstrap extends Bootstrap
             $this->getGatewayServiceProvider(),
             new UrlGeneratorServiceProvider(),
             new NewRelicServiceProvider(),
+            new HttpFragmentServiceProvider()
         ];
 
         if (\SprykerFeature_Shared_Library_Environment::isDevelopment()) {
