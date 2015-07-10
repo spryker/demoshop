@@ -1,5 +1,5 @@
 /**
- * run this script by running the following command in root folder
+ * run this script with the following command in root folder
  *
  * npm run spy-task-zed
  *
@@ -18,7 +18,7 @@ var concat      = require('gulp-concat');
 var path        = require('path');
 var del         = require('del');
 
-var dirFeature = 'vendor/spryker/spryker/Bundles/Gui/src/SprykerFeature/Zed/Gui/Static/Assets';
+var dirFeature = 'vendor/spryker/spryker/Bundles/Gui/Static/Assets';
 var dirPub = 'static/public/Zed/bundles';
 
 function copy(directory) {
