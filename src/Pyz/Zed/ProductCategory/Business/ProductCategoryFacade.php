@@ -18,4 +18,5 @@ class ProductCategoryFacade extends SprykerProductCategoryFacade
     {
         $this->getDependencyContainer()->createDemoDataInstaller($messenger)->install();
     }
+
 }

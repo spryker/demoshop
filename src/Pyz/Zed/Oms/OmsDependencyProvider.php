@@ -11,17 +11,10 @@ use SprykerFeature\Zed\Oms\Communication\Plugin\Oms\Command\CommandInterface;
 use SprykerFeature\Zed\Oms\Communication\Plugin\Oms\Condition\ConditionInterface;
 use SprykerFeature\Zed\Oms\OmsDependencyProvider as SprykerOmsDependencyProvider;
 
-/**
- * Class OmsDependencyProvider
- *
- * @package SprykerFeature\Zed\Oms
- */
 class OmsDependencyProvider extends SprykerOmsDependencyProvider
 {
 
     /**
-     * Overwrite in project
-     *
      * @param Container $container
      *
      * @return ConditionInterface[]
@@ -32,8 +25,6 @@ class OmsDependencyProvider extends SprykerOmsDependencyProvider
     }
 
     /**
-     * Overwrite in project
-     *
      * @param Container $container
      *
      * @return CommandInterface[]
@@ -41,10 +32,11 @@ class OmsDependencyProvider extends SprykerOmsDependencyProvider
     protected function getCommandPlugins(Container $container)
     {
         return [
-            'Nopayment/SetAsPaid'    => $container->getLocator()->nopayment()->pluginCommandNopaymentCommandPlugin(),
+            'Nopayment/SetAsPaid' => $container->getLocator()->nopayment()->pluginCommandNopaymentCommandPlugin(),
             'Oms/SendPaymentRequest' => $container->getLocator()->oms()->pluginOmsCommandSendPaymentRequest(),
-            'Oms/CreateInvoice'      => $container->getLocator()->oms()->pluginOmsCommandCreateInvoice(),
-            'Oms/SendInvoice'        => $container->getLocator()->oms()->pluginOmsCommandSendInvoice(),
+            'Oms/CreateInvoice' => $container->getLocator()->oms()->pluginOmsCommandCreateInvoice(),
+            'Oms/SendInvoice' => $container->getLocator()->oms()->pluginOmsCommandSendInvoice(),
         ];
     }
+
 }

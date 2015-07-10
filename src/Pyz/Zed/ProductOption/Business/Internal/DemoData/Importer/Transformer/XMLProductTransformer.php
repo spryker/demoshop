@@ -163,4 +163,5 @@ class XMLProductTransformer implements XMLTransformerInterface
 
         return $exclusionNodes;
     }
+
 }

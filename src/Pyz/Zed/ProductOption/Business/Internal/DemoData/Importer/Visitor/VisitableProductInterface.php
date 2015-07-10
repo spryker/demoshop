@@ -9,4 +9,5 @@ interface VisitableProductInterface
      * @param ProductVisitorInterface $visitor
      */
     public function accept(ProductVisitorInterface $visitor);
+
 }

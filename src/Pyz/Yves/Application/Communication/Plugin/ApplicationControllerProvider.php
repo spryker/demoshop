@@ -23,4 +23,5 @@ class ApplicationControllerProvider extends YvesControllerProvider
     {
         $this->createGetController('/', self::ROUTE_HOME, 'Application', 'Index');
     }
+
 }

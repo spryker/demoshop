@@ -15,6 +15,7 @@ use Pyz\Zed\Product\ProductConfig;
  */
 class ProductDependencyContainer extends SprykerDependencyContainer
 {
+
     /**
      * @return SimpleAttributeMergeBuilder
      */

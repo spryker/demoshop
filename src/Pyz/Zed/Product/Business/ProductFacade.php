@@ -1,6 +1,5 @@
 <?php
 
-
 namespace Pyz\Zed\Product\Business;
 
 use SprykerFeature\Zed\Product\Business\ProductFacade as SprykerProductFacade;
@@ -25,6 +24,7 @@ class ProductFacade extends SprykerProductFacade implements
     ProductOptionToProductInterface,
     ProductOptionExporterToProductInterface
 {
+
     /**
      * @param array $productsData
      *
@@ -52,4 +52,5 @@ class ProductFacade extends SprykerProductFacade implements
     {
         $this->getDependencyContainer()->createDemoDataInstaller($messenger)->install();
     }
+
 }

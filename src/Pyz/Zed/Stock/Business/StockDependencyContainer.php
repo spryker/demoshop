@@ -31,4 +31,5 @@ class StockDependencyContainer extends SprykerStockDependencyContainer
 
         return $installer;
     }
+
 }

@@ -7,6 +7,7 @@ use SprykerFeature\Zed\ProductSearch\Business\Processor\ProductSearchProcessor a
 
 class ProductSearchProcessor extends CoreProductSearchProcessor
 {
+
     /**
      * @param array $productData
      * @param LocaleTransfer $locale
@@ -36,6 +37,7 @@ class ProductSearchProcessor extends CoreProductSearchProcessor
      * @param string $data
      *
      * @throws \InvalidArgumentException
+     *
      * @return array
      */
     private function getEncodedData($data)
@@ -50,4 +52,5 @@ class ProductSearchProcessor extends CoreProductSearchProcessor
 
         return $encoded;
     }
+
 }

@@ -24,4 +24,5 @@ interface OptionVisitorInterface
      * @param OptionValue $optionValueeVisitee
      */
     public function visitOptionValue(OptionValue $visitee);
+
 }

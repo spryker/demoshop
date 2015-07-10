@@ -35,7 +35,7 @@ abstract class XMLReader
         $this->reader->open($this->filePath, 'UTF-8');
 
         while ($this->reader->read()) {
-            if ($this->reader->nodeType == \XMLREADER::ELEMENT && $this->reader->localName == $target) {
+            if ($this->reader->nodeType === \XMLREADER::ELEMENT && $this->reader->localName === $target) {
                 $doc = new \DOMDocument('1.0', 'UTF-8');
                 $xml = simplexml_import_dom($doc->importNode($this->reader->expand(), true));
                 $this->reader->next();
@@ -45,4 +45,5 @@ abstract class XMLReader
 
         $this->reader->close();
     }
+
 }

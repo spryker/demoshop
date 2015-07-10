@@ -7,6 +7,7 @@ use Symfony\Component\Form\FormBuilderInterface;
 
 class DeleteCustomer extends AbstractType
 {
+
     /**
      * @return string
      */
@@ -23,8 +24,9 @@ class DeleteCustomer extends AbstractType
     {
         $builder
             ->add('submit', 'submit', [
-                'label' => 'customer.delete.submit'
+                'label' => 'customer.delete.submit',
             ])
         ;
     }
+
 }

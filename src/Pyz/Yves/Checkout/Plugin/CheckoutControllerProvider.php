@@ -7,6 +7,7 @@ use Silex\Application;
 
 class CheckoutControllerProvider extends YvesControllerProvider
 {
+
     const ROUTE_CHECKOUT = 'checkout';
     const ROUTE_CHECKOUT_SUCCESS = 'checkout/success';
     const ROUTE_CHECKOUT_REGULAR_REDIRECT_PAYMENT_CANCELLATION = 'checkout/regular-redirect-payment-cancellation';
@@ -29,4 +30,5 @@ class CheckoutControllerProvider extends YvesControllerProvider
             'regularRedirectPaymentCancellation'
         )->method('GET|POST');
     }
+
 }

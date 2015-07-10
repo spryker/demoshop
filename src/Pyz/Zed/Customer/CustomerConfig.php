@@ -9,6 +9,7 @@ use SprykerFeature\Zed\Customer\Dependency\Plugin\RegistrationTokenSenderPluginI
 
 class CustomerConfig extends SprykerCustomerConfig
 {
+
     /**
      * @return PasswordRestoredConfirmationSenderPluginInterface[]
      */
@@ -38,4 +39,5 @@ class CustomerConfig extends SprykerCustomerConfig
         //    $this->locator->customerMailConnector()->pluginRegistrationTokenSender(),
         ];
     }
+
 }

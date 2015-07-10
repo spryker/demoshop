@@ -21,4 +21,5 @@ class FakeAuthPayment extends AbstractCommand implements CommandByOrderInterface
     {
         return [];
     }
+
 }

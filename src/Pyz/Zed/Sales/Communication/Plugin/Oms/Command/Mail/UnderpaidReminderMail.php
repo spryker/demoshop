@@ -32,10 +32,11 @@ class UnderpaidReminderMail implements CommandByOrderInterface
         $missingAmount = $currencyManager->format($missingAmount);
 
         $additionalMailData = ['underpaid_amount' => $underpaidAmount,
-                               'missing_amount' => $missingAmount];
+                               'missing_amount' => $missingAmount, ];
 
         $mailTransfer = $this->facadeMail->buildUnderpaidPaymentTransfer(MailTypesConstantInterface::UNDERPAID_CONFIRMATION, $orderEntity, $additionalMailData, false);
         $result = $this->facadeMail->sendMail($mailTransfer);
         $this->handleResponse($result, $mailTransfer, $orderEntity);
     }
+
 }

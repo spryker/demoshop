@@ -14,4 +14,5 @@ class HeartbeatController extends AbstractController
     {
         return $this->getLocator()->setup()->client()->getHeartbeatResponse();
     }
+
 }

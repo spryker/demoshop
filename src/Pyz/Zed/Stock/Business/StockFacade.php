@@ -2,7 +2,6 @@
 
 namespace Pyz\Zed\Stock\Business;
 
-use SprykerEngine\Zed\Kernel\Business\AbstractFacade;
 use SprykerFeature\Zed\Stock\Business\StockFacade as SprykerStockFacade;
 use Psr\Log\LoggerInterface;
 
@@ -19,4 +18,5 @@ class StockFacade extends SprykerStockFacade
     {
         $this->getDependencyContainer()->getDemoDataInstaller($messenger)->install();
     }
+
 }

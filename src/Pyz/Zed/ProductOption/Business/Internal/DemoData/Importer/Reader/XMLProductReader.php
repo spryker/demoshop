@@ -31,8 +31,9 @@ class XMLProductReader extends XMLReader implements ProductReaderInterface
      */
     public function getProducts()
     {
-        foreach($this->getNextNode(self::PRODUCT_ELEMENT_NAME) as $node) {
+        foreach ($this->getNextNode(self::PRODUCT_ELEMENT_NAME) as $node) {
             yield $this->transformer->transform($node);
         }
     }
+
 }

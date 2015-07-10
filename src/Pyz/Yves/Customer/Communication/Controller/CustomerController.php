@@ -1,4 +1,5 @@
 <?php
+
 namespace Pyz\Yves\Customer\Communication\Controller;
 
 use Generated\Shared\Transfer\CustomerTransfer;
@@ -14,6 +15,7 @@ use SprykerFeature\Shared\Customer\Code\Messages;
  */
 class CustomerController extends AbstractController
 {
+
     /**
      * @return array|RedirectResponse
      */
@@ -110,4 +112,5 @@ class CustomerController extends AbstractController
             'addresses' => $customerTransfer->getAddresses(),
         ];
     }
+
 }

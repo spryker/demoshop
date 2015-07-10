@@ -10,6 +10,7 @@ use Symfony\Component\Form\FormEvents;
 
 class ShippingAddressType extends AbstractAddressType
 {
+
     /**
      * {@inheritdoc}
      */
@@ -46,4 +47,5 @@ class ShippingAddressType extends AbstractAddressType
 
         $salesAddressTransfer->fromArray($customerAddressArray, true);
     }
+
 }

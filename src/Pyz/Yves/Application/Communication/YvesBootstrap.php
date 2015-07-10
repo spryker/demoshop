@@ -6,30 +6,30 @@ use Generated\Yves\Ide\AutoCompletion;
 use Pyz\Yves\Application\Communication\Plugin\ApplicationControllerProvider;
 use Pyz\Yves\Checkout\Plugin\CheckoutControllerProvider;
 use Pyz\Yves\Customer\Plugin\CustomerControllerProvider;
-use Silex\Provider\FormServiceProvider;
-use Silex\Provider\SessionServiceProvider as SilexSessionServiceProvider;
-use Silex\Provider\RememberMeServiceProvider;
-use Silex\Provider\ServiceControllerServiceProvider;
-use Silex\Provider\ValidatorServiceProvider;
-use Silex\Provider\WebProfilerServiceProvider;
-use Silex\ServiceProviderInterface;
 use SprykerEngine\Shared\Kernel\Store;
+use SprykerFeature\Shared\Application\Business\Application;
+use SprykerFeature\Shared\Application\Communication\Plugin\ServiceProvider\RoutingServiceProvider;
+use SprykerFeature\Shared\Application\Communication\Plugin\ServiceProvider\UrlGeneratorServiceProvider;
+use SprykerFeature\Shared\Library\Config;
+use SprykerFeature\Shared\System\SystemConfig;
+use SprykerFeature\Shared\Yves\YvesConfig;
+use Silex\Provider\SessionServiceProvider as SilexSessionServiceProvider;
+use Silex\ServiceProviderInterface;
 use SprykerEngine\Yves\Application\Business\YvesBootstrap as SprykerYvesBootstrap;
 use SprykerEngine\Yves\Application\Communication\Plugin\ControllerProviderInterface;
 use SprykerEngine\Yves\Application\Communication\Plugin\ServiceProvider\CookieServiceProvider;
 use SprykerEngine\Yves\Application\Communication\Plugin\ServiceProvider\ExceptionServiceProvider;
 use SprykerEngine\Yves\Application\Communication\Plugin\ServiceProvider\MonologServiceProvider;
 use SprykerEngine\Yves\Application\Communication\Plugin\ServiceProvider\YvesLoggingServiceProvider;
-use SprykerEngine\Yves\Kernel\Locator;
-use SprykerFeature\Shared\Application\Business\Application;
-use SprykerFeature\Shared\Application\Business\Routing\SilexRouter;
-use SprykerFeature\Shared\Application\Communication\Plugin\ServiceProvider\RoutingServiceProvider;
-use SprykerFeature\Shared\Application\Communication\Plugin\ServiceProvider\UrlGeneratorServiceProvider;
-use SprykerFeature\Shared\Library\Config;
-use SprykerFeature\Shared\System\SystemConfig;
-use SprykerFeature\Shared\Yves\YvesConfig;
 use SprykerFeature\Yves\Cart\Communication\Plugin\CartControllerProvider;
 use SprykerFeature\Yves\Customer\Provider\SecurityServiceProvider;
+use SprykerFeature\Shared\Application\Business\Routing\SilexRouter;
+use Silex\Provider\FormServiceProvider;
+use Silex\Provider\ServiceControllerServiceProvider;
+use Silex\Provider\RememberMeServiceProvider;
+use Silex\Provider\ValidatorServiceProvider;
+use Silex\Provider\WebProfilerServiceProvider;
+use SprykerEngine\Yves\Kernel\Locator;
 use SprykerFeature\Yves\Twig\Plugin\TwigServiceProvider;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Routing\RouterInterface;
@@ -63,6 +63,7 @@ class YvesBootstrap extends SprykerYvesBootstrap
 
     /**
      * @param Application $app
+     *
      * @return ServiceProviderInterface[]
      */
     protected function getServiceProviders(Application $app)
@@ -127,6 +128,7 @@ class YvesBootstrap extends SprykerYvesBootstrap
 
     /**
      * @param Application $app
+     *
      * @return RouterInterface[]
      */
     protected function getRouters(Application $app)
@@ -157,6 +159,7 @@ class YvesBootstrap extends SprykerYvesBootstrap
 
     /**
      * @param Application $app
+     *
      * @return array
      */
     protected function globalTemplateVariables(Application $app)
@@ -173,4 +176,5 @@ class YvesBootstrap extends SprykerYvesBootstrap
 
         return array_merge($existingGlobalVars, $additionalGlobalVars);
     }
+
 }

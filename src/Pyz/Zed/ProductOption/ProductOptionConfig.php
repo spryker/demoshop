@@ -22,4 +22,5 @@ class ProductOptionConfig extends SprykerProductOptionConfig
     {
         return __DIR__ . '/Business/Internal/DemoData/data/product-option-assignments.xml';
     }
+
 }

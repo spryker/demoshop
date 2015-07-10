@@ -64,4 +64,5 @@ class ProductOptionImporterVisitor implements OptionVisitorInterface
             $visitee->getPrice()
         );
     }
+
 }

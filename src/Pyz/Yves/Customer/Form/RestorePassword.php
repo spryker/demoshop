@@ -7,6 +7,7 @@ use Symfony\Component\Form\FormBuilderInterface;
 
 class RestorePassword extends AbstractType
 {
+
     /**
      * @return string
      */
@@ -24,11 +25,12 @@ class RestorePassword extends AbstractType
         $builder
             ->add('restore_key', 'hidden')
             ->add('password', 'password', [
-                'label' => 'customer.restore.password'
+                'label' => 'customer.restore.password',
             ])
             ->add('submit', 'submit', [
-                'label' => 'customer.restore.submit'
+                'label' => 'customer.restore.submit',
             ])
         ;
     }
+
 }

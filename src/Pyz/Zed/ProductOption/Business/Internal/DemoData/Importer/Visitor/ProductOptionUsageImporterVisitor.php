@@ -70,12 +70,16 @@ class ProductOptionUsageImporterVisitor implements ProductVisitorInterface
     /**
      * @param AbstractProduct $visitee
      */
-    public function visitAbstractProduct(AbstractProduct $visitee) {}
+    public function visitAbstractProduct(AbstractProduct $visitee)
+    {
+    }
 
     /**
      * @param ConcreteProduct $visitee
      */
-    public function visitConcreteProduct(ConcreteProduct $visitee) {}
+    public function visitConcreteProduct(ConcreteProduct $visitee)
+    {
+    }
 
     /**
      * @param ProductOptionType $visitee
@@ -114,7 +118,7 @@ class ProductOptionUsageImporterVisitor implements ProductVisitorInterface
         $sku = $this->context[2]->getSku();
         $id = $this->context[0]->getId();
         $visitee = clone $visitee;
-        $deferedCommand = new QueueableCommand(function() use($visitee, $sku, $id) {
+        $deferedCommand = new QueueableCommand(function () use ($visitee, $sku, $id) {
             $this->productOptionsFacade->importProductOptionValueUsageConstraint(
                 $sku,
                 $id,
@@ -131,7 +135,7 @@ class ProductOptionUsageImporterVisitor implements ProductVisitorInterface
      */
     public function visitProductOptionTypeExclusion(ProductOptionTypeExclusion $visitee)
     {
-       $this->productOptionsFacade->importProductOptionTypeUsageExclusion(
+        $this->productOptionsFacade->importProductOptionTypeUsageExclusion(
            $this->context[0]->getSku(),
            $visitee->getKeyValueA(),
            $visitee->getKeyValueB()
@@ -150,4 +154,5 @@ class ProductOptionUsageImporterVisitor implements ProductVisitorInterface
             $visitee->getSequence()
         );
     }
+
 }

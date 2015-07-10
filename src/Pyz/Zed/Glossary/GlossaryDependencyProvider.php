@@ -24,12 +24,11 @@ class GlossaryDependencyProvider extends SprykerGlossaryDependencyProvider
         parent::provideBusinessLayerDependencies($container);
 
         // @todo this is not a external dependency
-        $container[GlossaryDependencyProvider::PLUGIN_YML_INSTALLER] = function (Container $container) {
+        $container[self::PLUGIN_YML_INSTALLER] = function (Container $container) {
             return $container->getLocator()->glossary()->pluginYamlInstallerPlugin();
         };
 
         return $container;
     }
-
 
 }

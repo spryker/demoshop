@@ -15,6 +15,7 @@ use Generated\Shared\Transfer\CustomerTransfer;
  */
 class SecurityController extends AbstractController
 {
+
     /**
      * @param Request $request
      *
@@ -22,13 +23,13 @@ class SecurityController extends AbstractController
      */
     public function loginAction(Request $request)
     {
-        if ($this->isGranted("ROLE_USER")) {
+        if ($this->isGranted('ROLE_USER')) {
             $this->addMessageWarning(Messages::CUSTOMER_ALREADY_AUTHENTICATED);
 
-            return $this->redirectResponseInternal("home");
+            return $this->redirectResponseInternal('home');
         }
 
-        return ["error" => $this->getSecurityError($request)];
+        return ['error' => $this->getSecurityError($request)];
     }
 
     /**
@@ -43,7 +44,7 @@ class SecurityController extends AbstractController
             ->createUserProvider($request->getSession())
             ->logout($this->getUsername());
 
-        return $this->redirectResponseInternal("home");
+        return $this->redirectResponseInternal('home');
     }
 
     /**
@@ -64,7 +65,7 @@ class SecurityController extends AbstractController
             }
         }
 
-        return ["registerForm" => $form->createView()];
+        return ['registerForm' => $form->createView()];
     }
 
     /**
@@ -75,7 +76,7 @@ class SecurityController extends AbstractController
     public function confirmRegistrationAction(Request $request)
     {
         $customerTransfer = new CustomerTransfer();
-        $customerTransfer->setRegistrationKey($request->query->get("token"));
+        $customerTransfer->setRegistrationKey($request->query->get('token'));
         $customerTransfer = $this->getLocator()->customer()->client()->confirmRegistration($customerTransfer);
         if ($customerTransfer->getRegistered()) {
             $this->addMessageSuccess(Messages::CUSTOMER_REGISTRATION_CONFIRMED);
@@ -84,6 +85,7 @@ class SecurityController extends AbstractController
         }
         $this->addMessageError(Messages::CUSTOMER_REGISTRATION_TIMEOUT);
 
-        return $this->redirectResponseInternal("home");
+        return $this->redirectResponseInternal('home');
     }
+
 }

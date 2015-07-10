@@ -7,6 +7,7 @@ use Symfony\Component\Form\FormBuilderInterface;
 
 class ForgotPassword extends AbstractType
 {
+
     /**
      * @return string
      */
@@ -23,11 +24,12 @@ class ForgotPassword extends AbstractType
     {
         $builder
             ->add('email', 'email', [
-                'label' => 'customer.forgot.email'
+                'label' => 'customer.forgot.email',
             ])
             ->add('submit', 'submit', [
-                'label' => 'customer.forgot.submit'
+                'label' => 'customer.forgot.submit',
             ])
         ;
     }
+
 }

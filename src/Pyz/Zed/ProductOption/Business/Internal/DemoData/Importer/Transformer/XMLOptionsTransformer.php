@@ -29,7 +29,7 @@ class XMLOptionsTransformer implements XMLTransformerInterface
     {
         $valueModels = [];
 
-        foreach($valueElements as $value) {
+        foreach ($valueElements as $value) {
             $valueModel = new OptionValue(
                 (string) $value['key'],
                 $this->transformLocalizedNames($value->{'localized-attributes'}),
@@ -49,7 +49,7 @@ class XMLOptionsTransformer implements XMLTransformerInterface
     private function transformPrice(\SimpleXMLElement $valueElement)
     {
         if (empty($valueElement->price)) {
-            return null;
+            return;
         }
 
         return (float) $valueElement->price;
@@ -81,7 +81,7 @@ class XMLOptionsTransformer implements XMLTransformerInterface
     private function transformTaxSet(\SimpleXMLElement $typeElement)
     {
         if (empty($typeElement->taxset)) {
-            return null;
+            return;
         }
 
         return (string) $typeElement->taxset;
@@ -100,9 +100,10 @@ class XMLOptionsTransformer implements XMLTransformerInterface
 
         $localizedNames = [];
         foreach ($localizedAttributes->locale as $localeData) {
-            $localizedNames[(string)$localeData['name']] = (string) $localeData->name;
+            $localizedNames[(string) $localeData['name']] = (string) $localeData->name;
         }
 
         return $localizedNames;
     }
+
 }

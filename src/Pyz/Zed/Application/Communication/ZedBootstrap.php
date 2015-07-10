@@ -187,4 +187,5 @@ class ZedBootstrap extends Bootstrap
             ->pluginNavigation()
             ->buildNavigation($request->getPathInfo());
     }
+
 }

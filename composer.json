@@ -52,7 +52,8 @@
     "phpunit/phpunit": "~3.7.0",
     "codeception/codeception": "*",
     "fzaninotto/faker": "1.4.*",
-    "codeception/remote-debug": "*"
+    "codeception/remote-debug": "*",
+    "fabpot/php-cs-fixer": "^1.9"
   },
   "autoload": {
     "psr-0": {
