@@ -2,6 +2,7 @@
 VM_IP='10.10.0.33'
 VM_MEMORY='4096'
 VM_CPUS='4'
+VM_VRAM='20'
 
 # Locations of SaltStack code
 SALT_DIRECTORY="./vendor/spryker/saltstack"
@@ -112,6 +113,7 @@ Vagrant.configure(2) do |config|
       "modifyvm", :id,
       "--memory", VM_MEMORY,
       "--cpus", VM_CPUS,
+      "--vram", VM_VRAM,
     ])
   end
 end
