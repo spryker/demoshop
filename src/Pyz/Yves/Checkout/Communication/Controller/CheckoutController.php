@@ -2,10 +2,15 @@
 
 namespace Pyz\Yves\Checkout\Communication\Controller;
 
+use Generated\Shared\Transfer\CartItemTransfer;
 use Generated\Shared\Transfer\CartTransfer;
 use Generated\Shared\Transfer\CheckoutErrorTransfer;
 use Generated\Shared\Transfer\CheckoutRequestTransfer;
 use Generated\Shared\Transfer\CheckoutResponseTransfer;
+use Generated\Shared\Transfer\OrderItemsTransfer;
+use Generated\Shared\Transfer\OrderItemTransfer;
+use Generated\Shared\Transfer\OrderTransfer;
+use Generated\Shared\Transfer\TotalsTransfer;
 use Pyz\Yves\Checkout\Communication\Plugin\CheckoutControllerProvider;
 use SprykerEngine\Yves\Application\Communication\Controller\AbstractController;
 use Pyz\Yves\Checkout\Communication\CheckoutDependencyContainer;
@@ -56,7 +61,7 @@ class CheckoutController extends AbstractController
                 $checkoutResponseTransfer = $checkoutClient->requestCheckout($checkoutRequest);
 
                 if ($checkoutResponseTransfer->getIsSuccess()) {
-                    $this->saveSuccessData($checkoutRequest, $checkoutResponseTransfer);
+                    $this->saveSuccessData($checkoutResponseTransfer->getOrder());
                     $this->getLocator()->cart()->client()->clearCart();
                     return $this->redirect($checkoutResponseTransfer);
                 } else {
@@ -72,18 +77,44 @@ class CheckoutController extends AbstractController
     }
 
     /**
-     * @param CheckoutRequestTransfer $checkoutRequest
-     * @param CheckoutResponseTransfer $checkoutResponseTransfer
+     * @param OrderTransfer $orderTransfer
      */
-    private function saveSuccessData(
-        CheckoutRequestTransfer $checkoutRequest,
-        CheckoutResponseTransfer $checkoutResponseTransfer
-    )
+    private function saveSuccessData(OrderTransfer $orderTransfer)
     {
-        $session = $this->getApplication()->getSession();
-        $session->save('email', $checkoutRequest->getEmail());
-        //$session->save('orderNr', $checkoutResponseTransfer->getOrderNr());
+        $session = $this->getLocator()->session()->client();
+        $customer = $orderTransfer->getCustomer();
+        $invoice = $orderTransfer->getInvoice();
+        $isStarted = $session->isStarted();
+        $session->set('email', $customer->getEmail());
+        $session->set('orderId', $orderTransfer->getIdSalesOrder());
+        //$session->set('orderNr', $orderTransfer->getIdSalesOrder());
+        $sessionTest = $session->get('email');
+        $session->set('orderItemsData', json_encode($this->getOrderItemsData($orderTransfer->getItems())));
+       // $session->save();
+
     }
+
+    /**
+     * @param OrderItem[]
+     *
+     * @return array
+     */
+    private function getOrderItemsData($orderItemsTransfer)
+    {
+        $orderItemsData = [];
+
+        /** @var OrderItemTransfer $orderItem */
+        foreach ($orderItemsTransfer as $orderItem) {
+            $orderItemsData[] = [
+                'name'      => $orderItem->getName(),
+                'quantity'  => $orderItem->getQuantity(),
+                'unitPrice' => $orderItem->getPriceToPay(),
+            ];
+        }
+
+        return $orderItemsData;
+    }
+
     /**
      * @param Request $request
      *
@@ -93,8 +124,15 @@ class CheckoutController extends AbstractController
     {
         //@todo copy look and feel from invision!
         //@todo add finish form?
-
-        return [];
+        $session =  $this->getLocator()->session()->client();
+        $orderItemData = json_decode($session->get('orderItemsData'));
+        $customer = $this->getLocator()->customer();
+        //$customer->pluginTwigCustomer()->getFunctions($this->getApplication())->
+        return [
+            'email' => $session->get('email'),
+            'orderItemsData' => json_decode($session->get('orderItemsData')),
+            'customer' => $customer,
+        ];
     }
 
     /**
@@ -129,6 +167,7 @@ class CheckoutController extends AbstractController
         $redirectUrl = $checkoutResponseTransfer->getIsExternalRedirect()
             ? $checkoutResponseTransfer->getRedirectUrl()
             : CheckoutControllerProvider::ROUTE_CHECKOUT_SUCCESS;
+
         return new JsonResponse([
             'success' => true,
             'url' => $redirectUrl,

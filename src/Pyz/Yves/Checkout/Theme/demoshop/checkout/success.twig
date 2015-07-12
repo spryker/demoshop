@@ -7,6 +7,7 @@
         <h2>{{'page.order-success.order-number-label'|trans }}&nbsp;{#{ order.number }#}</h2>
         <p>{{ 'page.order-success.feedback-info-label'|trans }}&nbsp;{#{ customer.email }#}</p>
         <h2>{{'page.order-success.overview'|trans }}</h2>
+        <h2>{{ orderItemsData| json_encode }}</h2>
         <div class="order-success__overview">
             {#% for item in order.items %}
                 <div>
@@ -18,12 +19,13 @@
             {% endfor %#}
         </div>
     </section>
-    {#% if customer.authenticated is defined and customer.authenticated is true %#}
+
+    {% if customer.isLoggedIn is defined and customer.isLoggedIn is true %}
         <h2>{{ 'page.order-success.register-label'|trans }}</h2>
         {#{ form_start(quickRegForm) }}
         {{ form_widget(quickRegForm) }}
-        {{ form_end(quickRegForm) }}
-    {% endif %#}
+        {{ form_end(quickRegForm) }#}
+    {% endif %}
     <section class="product__main-image">
         <img src="/images/yay.png" alt="" style="width: 100%;"/>
     </section>
