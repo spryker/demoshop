@@ -22,7 +22,7 @@ class SalesDependencyContainer extends AbstractCommunicationDependencyContainer
     }
 
     /**
-     * @return Form\BillingAddressType
+     * @return Form\BillingAddress
      */
     protected function createBillingAddressTypeForm()
     {

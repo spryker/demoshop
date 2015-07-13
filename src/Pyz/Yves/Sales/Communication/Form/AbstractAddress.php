@@ -9,7 +9,7 @@ use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolverInterface;
 use Symfony\Component\Validator\Constraints\NotBlank;
 
-abstract class AbstractAddressType extends AbstractType
+abstract class AbstractAddress extends AbstractType
 {
 
     /**

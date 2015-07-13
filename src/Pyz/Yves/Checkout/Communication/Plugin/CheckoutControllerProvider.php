@@ -1,6 +1,6 @@
 <?php
 
-namespace Pyz\Yves\Checkout\Communication\Plugin\ServiceProvider;
+namespace Pyz\Yves\Checkout\Communication\Plugin;
 
 use SprykerEngine\Yves\Application\Communication\Plugin\YvesControllerProvider;
 use Silex\Application;
