@@ -130,8 +130,10 @@ class CheckoutController extends AbstractController
         //$customer->pluginTwigCustomer()->getFunctions($this->getApplication())->
         return [
             'email' => $session->get('email'),
+            'orderNr' => $session->get('orderNr'),
             'orderItemsData' => json_decode($session->get('orderItemsData')),
             'customer' => $customer,
+            'isLoggedInCustomer' => true,
         ];
     }
 

@@ -1,0 +1,9 @@
+<div class="order-success__overview">
+    {% for item in items %}
+        <div>
+            <div class="cart__item-quantity">{{ item.quantity }}</div>
+            <div class="cart__item-name">{{ item.name }}</div>
+            <div class="cart__item-price">{{ (item.priceToPay * item.quantity)|price }}</div>
+        </div>
+    {% endfor %}
+</div>

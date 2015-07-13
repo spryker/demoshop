@@ -8,6 +8,7 @@
         <p>{{ 'page.order-success.feedback-info-label'|trans }}&nbsp;{#{ customer.email }#}</p>
         <h2>{{'page.order-success.overview'|trans }}</h2>
         <h2>{{ orderItemsData| json_encode }}</h2>
+        {% include 'partials/order_items.twig' with { 'items': 'orderItemsData'} only %}
         <div class="order-success__overview">
             {#% for item in order.items %}
                 <div>
