@@ -3,7 +3,6 @@
 var $ = require('jquery'),
     _ = require('underscore'),
     templateSrc = require('../../templates/catalog-product'),
-    xhr = require('../../utils/xhr.js'),
     URLManager = require('./URLManager');
 
 var template;
