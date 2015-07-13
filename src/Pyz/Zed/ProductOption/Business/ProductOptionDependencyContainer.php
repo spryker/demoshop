@@ -16,7 +16,6 @@ use Pyz\Zed\ProductOption\Business\Internal\DemoData\Importer\Writer\WriterInter
 use Pyz\Zed\ProductOption\ProductOptionDependencyProvider;
 use Pyz\Zed\ProductOption\Business\ProductOptionFacade;
 use SprykerFeature\Zed\ProductOption\Business\Model\DataImportWriterInterface;
-use Pyz\Zed\ProductOption\Business\Internal\DemoData\Importer\Decorator\InMemoryProductOptionQueryContainer;
 
 /**
  * @method ProductOptionBusiness getFactory()
