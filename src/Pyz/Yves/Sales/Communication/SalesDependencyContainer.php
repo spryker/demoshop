@@ -2,7 +2,6 @@
 
 namespace Pyz\Yves\Sales;
 
-use SprykerEngine\Yves\Kernel\AbstractDependencyContainer;
 use Pyz\Yves\Sales\Communication\Form;
 use SprykerEngine\Yves\Kernel\Communication\AbstractCommunicationDependencyContainer;
 

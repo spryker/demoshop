@@ -127,7 +127,7 @@ class YvesBootstrap extends SprykerYvesBootstrap
             new ApplicationControllerProvider(false),
             new CheckoutControllerProvider($ssl),
             new CustomerControllerProvider($ssl),
-            new CartControllerProvider($ssl)
+            new CartControllerProvider($ssl),
         ];
     }
 
@@ -166,7 +166,7 @@ class YvesBootstrap extends SprykerYvesBootstrap
         $additionalGlobalVars = [
             'categories' => $locator->categoryExporter()->client()->getNavigationCategories($app['locale']),
             'environment' => \SprykerFeature_Shared_Library_Environment::getEnvironment(),
-            'registerForm' => $app['form.factory']->create($locator->customer()->pluginRegisterForm()->createFormRegister())->createView()
+            'registerForm' => $app['form.factory']->create($locator->customer()->pluginRegisterForm()->createFormRegister())->createView(),
         ];
 
         return array_merge($existingGlobalVars, $additionalGlobalVars);

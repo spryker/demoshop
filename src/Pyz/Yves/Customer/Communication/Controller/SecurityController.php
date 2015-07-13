@@ -15,6 +15,7 @@ use Generated\Shared\Transfer\CustomerTransfer;
  */
 class SecurityController extends AbstractController
 {
+
     /**
      * @param Request $request
      *
@@ -86,4 +87,5 @@ class SecurityController extends AbstractController
 
         return $this->redirectResponseInternal(CustomerControllerProvider::ROUTE_HOME);
     }
+
 }

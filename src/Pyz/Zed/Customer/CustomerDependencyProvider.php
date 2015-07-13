@@ -1,4 +1,5 @@
 <?php
+
 /**
  * (c) Spryker Systems GmbH copyright protected
  */
@@ -10,10 +11,10 @@ use SprykerFeature\Zed\Customer\CustomerDependencyProvider as SprykerCustomerDep
 
 /**
  * Class CustomerDependencyProvider
- * @package Pyz\Zed\Customer
  */
 class CustomerDependencyProvider extends SprykerCustomerDependencyProvider
 {
+
     /**
      * @param Container $container
      *

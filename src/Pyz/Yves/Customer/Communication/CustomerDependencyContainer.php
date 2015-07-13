@@ -3,14 +3,9 @@
 namespace Pyz\Yves\Customer\Communication;
 
 use Generated\Zed\Ide\FactoryAutoCompletion\CustomerCommunication;
-use Pyz\Yves\Customer\Communication\Form\DeleteCustomer;
-use Pyz\Yves\Customer\Communication\Form\ForgotPassword;
-use Pyz\Yves\Customer\Communication\Form\Profile;
 use Pyz\Yves\Customer\Communication\Form\RegisterCustomer;
-use Pyz\Yves\Customer\Communication\Form\RestorePassword;
 use SprykerEngine\Yves\Kernel\Communication\AbstractCommunicationDependencyContainer;
 use SprykerFeature\Client\Customer\Service\CustomerClient;
-use SprykerFeature\Yves\Customer\Communication\CustomerDependencyContainer as SprykerFeatureCustomerDependencyContainer ;
 use Pyz\Yves\Customer\Communication\Form\Address;
 
 /**
@@ -18,6 +13,7 @@ use Pyz\Yves\Customer\Communication\Form\Address;
  */
 class CustomerDependencyContainer extends AbstractCommunicationDependencyContainer
 {
+
     /**
      * @return Address
      */

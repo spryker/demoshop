@@ -9,7 +9,6 @@ use SprykerEngine\Yves\Application\Communication\Controller\AbstractController;
 use SprykerFeature\Shared\Customer\Code\Messages;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
-use Symfony\Component\Validator\Constraints\Collection;
 
 /**
  * @method CustomerDependencyContainer getDependencyContainer()
