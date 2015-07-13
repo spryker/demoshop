@@ -3,7 +3,9 @@
 namespace Pyz\Yves\Catalog\Communication\Controller;
 
 use SprykerEngine\Yves\Application\Communication\Controller\AbstractController;
+use SprykerFeature\Shared\Library\Currency\CurrencyManager;
 use Symfony\Component\HttpFoundation\Request;
+use \Symfony\Component\HttpFoundation\JsonResponse;
 
 class CatalogController extends AbstractController
 {
@@ -17,10 +19,13 @@ class CatalogController extends AbstractController
     public function indexAction(array $categoryNode, Request $request)
     {
         $search = $this->getLocator()->catalog()->client()->createFacetSearch($request, $categoryNode);
-        $search->setItemsPerPage(6);
 
-        $categoryTree = $this->getLocator()->categoryExporter()->client()->getTreeFromCategoryNode($categoryNode, $this->getLocale());
-        $searchResults = array_merge($search->getResult(), ['category' => $categoryNode, 'categoryTree' => $categoryTree]);
+        $search->setItemsPerPage(6);
+        $categoryTree = $this->getLocator()->categoryExporter()->client()->getNavigationCategories($this->getLocale());
+        $searchResults = array_merge($search->getResult(), [
+            'category' => $categoryNode,
+            'categoryTree' => $categoryTree,
+        ]);
 
         if ($request->isXmlHttpRequest()) {
             return $this->jsonResponse($searchResults);
@@ -36,11 +41,16 @@ class CatalogController extends AbstractController
      */
     public function fulltextSearchAction(Request $request)
     {
+        $request->query->set('q', $request->get('q', ''));
+
         $search = $this->getLocator()->catalog()->client()->createFulltextSearch($request);
 
         $search->setItemsPerPage(6);
-
-        $searchResults = array_merge($search->getResult(), ['searchString' => $request->get('q')]);
+        $categoryTree = $this->getLocator()->categoryExporter()->client()->getNavigationCategories($this->getLocale());
+        $searchResults = array_merge($search->getResult(), [
+            'searchString' => $request->get('q'),
+            'categoryTree' => $categoryTree,
+        ]);
 
         if ($request->isXmlHttpRequest()) {
             return $this->jsonResponse($searchResults);
@@ -59,6 +69,23 @@ class CatalogController extends AbstractController
         return [
             'product' => $product,
         ];
+    }
+
+    /**
+     * @param null $searchResults
+     * @param int $status
+     * @param array $headers
+     * @return JsonResponse
+     */
+    public function jsonResponse($searchResults = null, $status = 200, $headers = [])
+    {
+        $currencyManager = CurrencyManager::getInstance();
+
+        foreach ($searchResults['products'] as &$product) {
+            $product['valid_price'] = $currencyManager->format($currencyManager->convertCentToDecimal($product['valid_price']), true);
+        }
+
+        return parent::jsonResponse($searchResults, $status, $headers);
     }
 
 }

@@ -4,12 +4,12 @@
             {% if category is defined %}
                 {{ category.name }}
             {% elseif searchString is defined %}
-                {{ 'search'|trans }}
+                {{ 'search.title'|trans }}
             {% endif %}
         </h1>
 
         <aside class="catalog__filter js-filters">
-            {% include "@catalog/catalog/partials/filter-default.twig" with {filterName:'category'} %}
+            {% include "@catalog/catalog/partials/filter-category.twig" with {filterName:'category'} %}
             {% include "@catalog/catalog/partials/filter-range.twig" with {filterName:'price', min:(facets.price.rangeValues.min|default(0))|priceRaw|floor, max:(facets.price.rangeValues.max|default(0))|priceRaw|ceil} %}
             {% include "@catalog/catalog/partials/filter-color.twig" with {filterName:'main_color', id: 42} %}
         </aside>
@@ -54,7 +54,7 @@
         <div class="catalog__products-holder js-products-holder">
             <section class="catalog__products js-products-current">
                 {% for product in products %}
-                    {% include "@catalog/catalog/partials/product.twig" with {detailsUrl: product.url, imageUrl: product.abstract_attributes.image_url, name: product.abstract_name, price: product.valid_price} %}
+                    {% include "@catalog/catalog/partials/product.twig" with {detailsUrl: product.url, imageUrl: product.abstract_attributes.image_url, name: product.abstract_name, price: product.valid_price * 100} %}
                 {% endfor %}
             </section>
             <div class="catalog__loading-text">{{ "catalog.loading"|trans }}</div>

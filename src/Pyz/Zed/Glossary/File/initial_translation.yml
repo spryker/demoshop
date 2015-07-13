@@ -310,3 +310,10 @@ keys:
   catalog.sort:
     translations:
       de_DE: 'Sortierung'
+
+  search.title:
+    translations:
+      de_DE: 'Suche'
+  search.resultsFor:
+    translations:
+      de_DE: 'Suchtreffer für'
