@@ -1,6 +1,6 @@
 {
   "require": {
-    "spryker/spryker": "dev-feature/cd-204-create-new-zed-gui-bundle",
+    "spryker/spryker": "dev-feature/cd-204-rebuild",
 
     "psr/log": "~1.0",
     "propel/propel": "~2.0@dev",
