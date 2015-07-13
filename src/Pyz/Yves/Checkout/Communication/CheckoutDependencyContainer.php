@@ -7,6 +7,9 @@ use SprykerFeature\Client\Cart\Service\CartClientInterface;
 use SprykerFeature\Client\Checkout\Service\CheckoutClient;
 use Pyz\Yves\Checkout\Communication\Form\Checkout;
 
+/**
+ * @method \Generated\Yves\Ide\FactoryAutoCompletion\Checkout getFactory()
+ */
 class CheckoutDependencyContainer extends AbstractCommunicationDependencyContainer
 {
 
