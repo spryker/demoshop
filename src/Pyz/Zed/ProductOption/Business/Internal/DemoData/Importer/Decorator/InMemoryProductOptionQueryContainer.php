@@ -376,27 +376,6 @@ class InMemoryProductOptionQueryContainer implements ProductOptionQueryContainer
     }
 
     /**
-     * @param int $idProductOptionValueUsage
-     * @param int $idLocale
-     *
-     * @return SpyProductOptionValueUsageQuery
-     */
-    public function queryProductOptionValueUsageWithAssociatedAttributes($idProductOptionValueUsage, $idLocale)
-    {
-        return $this->queryContainer->queryProductOptionValueUsageWithAssociatedAttributes($idProductOptionValueUsage, $idLocale);
-    }
-
-    /**
-     * @param int $idProductOptionValueUsage
-     *
-     * @return SpyTaxSetQuery
-     */
-    public function queryTaxSetForProductOptionValueUsage($idProductOptionValueUsage)
-    {
-        return $this->queryContainer->queryTaxSetForProductOptionValueUsage($idProductOptionValueUsage);
-    }
-
-    /**
      * @param int $idProduct
      * @param int $idLocale
      *
