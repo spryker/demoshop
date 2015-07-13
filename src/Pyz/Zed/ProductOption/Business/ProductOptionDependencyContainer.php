@@ -136,7 +136,9 @@ class ProductOptionDependencyContainer extends SprykerDependencyContainer
     public function getDataImportWriterModel()
     {
         return $this->getFactory()->createModelDataImportWriter(
-            new InMemoryProductOptionQueryContainer($this->getQueryContainer()),
+            $this->getFactory()->createInternalDemoDataImporterDecoratorInMemoryProductOptionQueryContainer(
+                $this->getQueryContainer()
+            ),
             $this->getProvidedDependency(ProductOptionDependencyProvider::FACADE_PRODUCT),
             $this->getProvidedDependency(ProductOptionDependencyProvider::FACADE_LOCALE)
         );
