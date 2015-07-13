@@ -3,7 +3,7 @@
 namespace Pyz\Yves\Application\Communication;
 
 use Pyz\Yves\Application\Communication\Plugin\ApplicationControllerProvider;
-use Pyz\Yves\Checkout\Communication\Plugin\ServiceProvider\CheckoutControllerProvider;
+use Pyz\Yves\Checkout\Communication\Plugin\CheckoutControllerProvider;
 use Pyz\Yves\Customer\Communication\Plugin\CustomerControllerProvider;
 use Silex\Provider\FormServiceProvider;
 use Silex\Provider\HttpFragmentServiceProvider;
@@ -98,8 +98,8 @@ class YvesBootstrap extends SprykerYvesBootstrap
             $sessionServiceProvider,
             new UrlGeneratorServiceProvider(),
             new ServiceControllerServiceProvider(),
-            new SilexSecurityServiceProvider(),
             $securityServiceProvider,
+            new SilexSecurityServiceProvider(),
             new RememberMeServiceProvider(),
             new RoutingServiceProvider(),
             $translationServiceProvider,
