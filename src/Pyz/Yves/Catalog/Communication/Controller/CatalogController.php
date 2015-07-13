@@ -5,6 +5,7 @@ namespace Pyz\Yves\Catalog\Communication\Controller;
 use SprykerEngine\Yves\Application\Communication\Controller\AbstractController;
 use SprykerFeature\Shared\Library\Currency\CurrencyManager;
 use Symfony\Component\HttpFoundation\Request;
+use \Symfony\Component\HttpFoundation\JsonResponse;
 
 class CatalogController extends AbstractController
 {
@@ -70,12 +71,18 @@ class CatalogController extends AbstractController
         ];
     }
 
+    /**
+     * @param null $searchResults
+     * @param int $status
+     * @param array $headers
+     * @return JsonResponse
+     */
     public function jsonResponse($searchResults = null, $status = 200, $headers = [])
     {
         $currencyManager = CurrencyManager::getInstance();
 
-        foreach ($searchResults['products'] as &$value) {
-            $value['valid_price'] = $currencyManager->format($currencyManager->convertCentToDecimal($value['valid_price']), true);
+        foreach ($searchResults['products'] as &$product) {
+            $product['valid_price'] = $currencyManager->format($currencyManager->convertCentToDecimal($product['valid_price']), true);
         }
 
         return parent::jsonResponse($searchResults, $status, $headers);
