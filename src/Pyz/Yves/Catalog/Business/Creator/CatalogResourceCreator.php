@@ -4,7 +4,7 @@ namespace Pyz\Yves\Catalog\Business\Creator;
 
 use SprykerFeature\Shared\Application\Communication\ControllerServiceBuilder;
 use SprykerFeature\Shared\Category\CategoryResourceSettings;
-use SprykerFeature\Yves\FrontendExporter\Creator\ResourceCreatorInterface;
+use SprykerFeature\Yves\FrontendExporter\Communication\Creator\ResourceCreatorInterface;
 use Pyz\Client\Catalog\Model\FacetConfig;
 use Silex\Application;
 use SprykerEngine\Yves\Kernel\Communication\BundleControllerAction;
