@@ -70,6 +70,9 @@ class YvesBootstrap extends SprykerYvesBootstrap
     {
         $locator = $this->getLocator($app);
 
+        $pimplePlugin = $locator->application()->pluginPimple();
+        $pimplePlugin->setApplication($app);
+
         $translationServiceProvider = $locator->glossary()
             ->pluginServiceProviderTranslationServiceProvider()
             ->setGlossaryClient($locator->glossary()->client())
