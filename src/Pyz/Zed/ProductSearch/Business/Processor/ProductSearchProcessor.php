@@ -19,8 +19,8 @@ class ProductSearchProcessor extends CoreProductSearchProcessor
         $baseProduct = parent::buildBaseProduct($productData, $locale);
 
         // @todo this is only a hack unless we have bundles to export product images and prices
-        $productAttributes = $this->getEncodedData($productData['concrete_attributes']);
-        $abstractAttributes = $this->getEncodedData($productData['abstract_attributes']);
+        $productAttributes = $this->getEncodedData($productData['concrete_localized_attributes']);
+        $abstractAttributes = $this->getEncodedData($productData['abstract_localized_attributes']);
 
         $attributes = array_merge($abstractAttributes, $productAttributes);
 
