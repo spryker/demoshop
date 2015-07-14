@@ -72,25 +72,23 @@ class YvesBootstrap extends SprykerYvesBootstrap
 
         $translationServiceProvider = $locator->glossary()
             ->pluginServiceProviderTranslationServiceProvider()
-        ;
-        $translationServiceProvider->setClient(
-            $locator->glossary()->client()
-        );
-
-        $securityServiceProvider = $locator->customer()
-            ->pluginSecurityService()
-            ->createSecurityServiceProvider()
+            ->setGlossaryClient($locator->glossary()->client())
         ;
 
-        $sessionServiceProvider = $locator->session()
-            ->pluginServiceProviderSessionServiceProvider()
+        $userProvider = $locator->customer()->pluginUserProvider()
+            ->setSessionClient($locator->session()->client())
+            ->setCustomerClient($locator->customer()->client())
         ;
-        $sessionServiceProvider->setClient(
-            $locator->session()->client()
-        );
+
+        $securityServiceProvider = $locator->customer()->pluginServiceProviderSecurityServiceProvider();
+        $securityServiceProvider->setUserProvider($userProvider);
+
+        $sessionServiceProvider = $locator->session()->pluginServiceProviderSessionServiceProvider();
+        $sessionServiceProvider->setClient($locator->session()->client());
 
         $providers = [
             new SilexSessionServiceProvider(),
+            new SilexSecurityServiceProvider(),
             new ExceptionServiceProvider('\\SprykerEngine\\Yves\\Application\\Communication\\Controller\\ExceptionController'),
             new YvesLoggingServiceProvider(),
             new MonologServiceProvider(),
@@ -141,9 +139,9 @@ class YvesBootstrap extends SprykerYvesBootstrap
         $locator = $this->getLocator($app);
 
         return [
-            $locator->setup()->pluginMonitoringRouter()->createMonitoringRouter($app, false),
-            $locator->frontendExporter()->pluginStorageRouter()->createStorageRouter($app, false),
-            $locator->catalog()->pluginSearchRouter()->createSearchRouter($app, false),
+            $locator->setup()->pluginRouterMonitoringRouter()->setSsl(false),
+            $locator->frontendExporter()->pluginRouterStorageRouter()->setSsl(false),
+            $locator->catalog()->pluginRouterSearchRouter()->setSsl(false),
             /*
              * SilexRouter should come last, as it is not the fastest one if it can
              * not find a matching route (lots of magic)

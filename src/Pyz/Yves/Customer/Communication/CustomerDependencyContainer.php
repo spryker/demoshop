@@ -4,14 +4,14 @@ namespace Pyz\Yves\Customer\Communication;
 
 use Generated\Zed\Ide\FactoryAutoCompletion\CustomerCommunication;
 use Pyz\Yves\Customer\Communication\Form\RegisterCustomer;
-use SprykerEngine\Yves\Kernel\Communication\AbstractCommunicationDependencyContainer;
+use SprykerFeature\Yves\Customer\Communication\CustomerDependencyContainer as SprykerCustomerDependencyContainer;
 use SprykerFeature\Client\Customer\Service\CustomerClient;
 use Pyz\Yves\Customer\Communication\Form\Address;
 
 /**
  * @method CustomerCommunication getFactory()
  */
-class CustomerDependencyContainer extends AbstractCommunicationDependencyContainer
+class CustomerDependencyContainer extends SprykerCustomerDependencyContainer
 {
 
     /**
