@@ -15,6 +15,7 @@ class ConsoleConfig extends SprykerConsoleConfig
     {
         $commands = [
             $this->getLocator()->application()->consoleApplicationIntegrationCheckConsole(),
+            $this->getLocator()->application()->consoleBuildNavigationConsole(),
             $this->getLocator()->frontendExporter()->consoleExportKeyValueConsole(),
             $this->getLocator()->frontendExporter()->consoleExportSearchConsole(),
             $this->getLocator()->frontendExporter()->consoleUpdateSearchConsole(),
