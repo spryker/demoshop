@@ -53,6 +53,10 @@ gulp.task('compile-js', ['copy-js'], function(){
         dirPub + '/Gui/scripts/plugins/footable/footable.all.min.js',
         dirPub + '/Gui/scripts/plugins/slimscroll/jquery.slimscroll.min.js',
         dirPub + '/Gui/scripts/inspinia.js',
+        dirPub + '/Gui/scripts/plugins/dataTables/jquery.dataTables.js',
+        dirPub + '/Gui/scripts/plugins/dataTables/dataTables.bootstrap.js',
+        dirPub + '/Gui/scripts/plugins/dataTables/dataTables.responsive.js',
+        dirPub + '/Gui/scripts/plugins/dataTables/dataTables.tableTools.min.js',
         dirPub + '/Gui/scripts/sprykerPlugins/**/*.js',
         dirPub + '/Gui/scripts/spryker.js'
     ];
