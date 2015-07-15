@@ -1,10 +1,11 @@
 <?php
 
-use SprykerFeature\Shared\Acl\AclConfig;
-use SprykerFeature\Shared\Auth\AuthConfig;
-use SprykerFeature\Shared\DbDump\DbDumpConfig;
-use SprykerFeature\Shared\Customer\CustomerConfig;
 use Pyz\Shared\Mail\MailConfig;
+use SprykerFeature\Shared\Acl\AclConfig;
+use SprykerFeature\Shared\Application\ApplicationConfig;
+use SprykerFeature\Shared\Auth\AuthConfig;
+use SprykerFeature\Shared\Customer\CustomerConfig;
+use SprykerFeature\Shared\DbDump\DbDumpConfig;
 use SprykerFeature\Shared\System\SystemConfig;
 use SprykerFeature\Shared\User\UserConfig;
 use SprykerFeature\Shared\Yves\YvesConfig;
@@ -219,3 +220,5 @@ $config[AclConfig::ACL_DEFAULT_CREDENTIALS] = [
         ]
     ]
 ];
+
+$config[ApplicationConfig::NAVIGATION_CACHE_ENABLED] = true;
