@@ -11,8 +11,7 @@ $finder = Symfony\CS\Finder\DefaultFinder::create()
 
 return Symfony\CS\Config\Config::create()
     ->finder($finder)
-    ->setUsingCache(false)
-    ->level(\Symfony\CS\FixerInterface::SYMFONY_LEVEL)
+    ->level(\Symfony\CS\FixerInterface::PSR2_LEVEL)
     ->fixers(
         array(
             'elseif',
@@ -44,4 +43,4 @@ return Symfony\CS\Config\Config::create()
         )
     )
     ->addCustomFixer(new \SprykerFeature\Zed\Maintenance\Business\CodeStyleFixer\EmptyEnclosingLinesFixer())
-    ;
+;
