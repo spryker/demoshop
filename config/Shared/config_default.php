@@ -24,6 +24,8 @@ $config[SystemConfig::CURRENT_APPLICATION_ENV] = APPLICATION_ENV;
 $config[SystemConfig::PROJECT_TIMEZONE] = 'UTC';
 $config[SystemConfig::PROJECT_NAMESPACE] = 'Pyz';
 
+$config[SystemConfig::ZED_DB_ENGINE] = 'pgsql';
+
 $config[DbDumpConfig::DB_DUMP_USERNAME] = '';
 $config[DbDumpConfig::DB_DUMP_PASSWORD] = '';
 $config[DbDumpConfig::DB_DUMP_DATABASE] = '';

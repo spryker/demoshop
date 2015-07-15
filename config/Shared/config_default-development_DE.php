@@ -6,10 +6,12 @@ use SprykerFeature\Shared\Setup\SetupConfig;
 use SprykerFeature\Shared\System\SystemConfig;
 use SprykerFeature\Shared\Yves\YvesConfig;
 
-$config[SystemConfig::ZED_PGSQL_USERNAME] = 'development';
-$config[SystemConfig::ZED_PGSQL_PASSWORD] = '';
-$config[SystemConfig::ZED_PGSQL_DATABASE] = 'DE_development_zed';
-$config[SystemConfig::ZED_PGSQL_HOST] = '127.0.0.1';
+$config[SystemConfig::ZED_DB_USERNAME] = 'development';
+$config[SystemConfig::ZED_DB_PASSWORD] = '';
+$config[SystemConfig::ZED_DB_DATABASE] = 'DE_development_zed';
+$config[SystemConfig::ZED_DB_HOST] = '127.0.0.1';
+$config[SystemConfig::ZED_DB_PORT] = '5432';
+
 
 
 
