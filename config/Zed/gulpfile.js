@@ -17,54 +17,58 @@ var less        = require('gulp-less');
 var concat      = require('gulp-concat');
 var path        = require('path');
 var del         = require('del');
-var globby        = require('globby');
+var globby      = require('globby');
 
-var dirBundles = 'vendor/spryker/spryker/Bundles/*/static/Assets';
-var dirFeature = 'vendor/spryker/spryker/Bundles/Gui/static/Assets';
-var dirPub = 'static/public/Zed/bundles';
+function Spryker() {
+    this.bundlePrefix = 'vendor/spryker/spryker/Bundles/';
+    this.bundleSufix = '/static/Assets';
+    this.dirBundles = this.bundlePrefix + '*' + this.bundleSufix;
+    this.dirFeature = this.bundlePrefix + 'Gui' + this.bundleSufix;
+    this.dirPub = 'static/public/Zed/bundles';
+    this.copy = function(directory){
+        var source = this.dirFeature + '/' + directory;
+        var target = this.dirPub + '/Gui/' + directory;
 
-function copy(directory) {
-    var source = dirFeature + '/' + directory;
-    var target = dirPub + '/Gui/' + directory;
+        return gulp.src(source + '/**/*.*', {base: source})
+            .pipe(gulp.dest(target));
+    };
+    this.getBundleName = function(path) {
+        path = path
+            .replace(this.bundlePrefix, '')
+            .replace(this.bundleSufix, '')
+        ;
 
-    return gulp.src(source + '/**/*.*', {base: source})
-        .pipe(gulp.dest(target));
-}
-
-function getBundleName(path) {
-    path = path
-        .replace('vendor/spryker/spryker/Bundles/', '')
-        .replace('/static/Assets', '')
-    ;
-
-    return path;
-}
-
-function copyBundles(done) {
-    globby(dirBundles, function(er, paths){
-        paths.forEach(function(element){
-            gulp.src(element + '/**/*.*', {base: element})
-                .pipe(gulp.dest(dirPub + '/' + getBundleName(element) + '/'));
+        return path;
+    };
+    this.copyBundles = function(done) {
+        var that = this;
+        globby(this.dirBundles, function(er, paths){
+            paths.forEach(function(element){
+                var target = that.dirPub + '/' + that.getBundleName(element) + '/';
+                gulp.src(element + '/**/*.*', {base: element})
+                    .pipe(gulp.dest(target));
+            });
         });
-    });
 
-    return done;
-}
+        return done;
+    };
+    this.copyPublic = function(source) {
+        var target = source.replace('assets', 'public');
+        return gulp.src(source + '/**/*.*', {base: source})
+            .pipe(gulp.dest(target));
+    };
+};
 
-function copyPublic(source) {
-    var target = source.replace('assets', 'public');
-    return gulp.src(source + '/**/*.*', {base: source})
-        .pipe(gulp.dest(target));
-}
+var spryker = new Spryker();
 
 gulp.task('compile-less', ['copy-bundles'], function(){
-    return gulp.src(dirPub + '/Gui/LESS/style.less')
+    return gulp.src(spryker.dirPub + '/Gui/LESS/style.less')
         .pipe(less({
             paths: [ path.join(__dirname, 'less', 'includes') ]
         }))
         .pipe(concat('style.min.css'))
         .pipe(minifycss())
-        .pipe(gulp.dest(dirPub + '/Gui/styles'));
+        .pipe(gulp.dest(spryker.dirPub + '/Gui/styles'));
 });
 
 gulp.task('compile-js', ['copy-bundles'], function(){
@@ -85,28 +89,28 @@ gulp.task('compile-js', ['copy-bundles'], function(){
     return gulp.src(jsFiles)
         .pipe(uglify())
         .pipe(concat('resources.min.js'))
-        .pipe(gulp.dest(dirPub + '/Gui/scripts/'));
+        .pipe(gulp.dest(spryker.dirPub + '/Gui/scripts/'));
 });
 
 /**
- * copy tasks
+ * copy public files from bundles
  */
 gulp.task('copy-bundles', ['clean-bundles'], function(done){
-    return copyBundles(done);
+    return spryker.copyBundles(done);
 });
 
 /**
- * clean libraries
+ * remove old code from static files
  */
 gulp.task('clean-bundles', ['build-zed'], function(done){
-    del(dirPub, done);
+    del(spryker.dirPub, done);
 });
 
 /**
- * Build tasks
+ * Copy public directory
  */
 gulp.task('build-zed', function(){
-    return copyPublic('static/assets/Zed');
+    return spryker.copyPublic('static/assets/Zed');
 });
 
 gulp.task('default', [
