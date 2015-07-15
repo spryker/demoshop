@@ -24,6 +24,7 @@ class ConsoleConfig extends SprykerConsoleConfig
             $this->getLocator()->oms()->consoleCheckConditionConsole(),
             $this->getLocator()->oms()->consoleCheckTimeoutConsole(),
             $this->getLocator()->maintenance()->consoleFossMarkDownGeneratorConsole(),
+            $this->getLocator()->maintenance()->consoleCodeStyleFixerConsole(),
             $this->getLocator()->setup()->consoleRemoveGeneratedDirectoryConsole(),
             $this->getLocator()->setup()->consoleInstallConsole(),
             $this->getLocator()->propel()->consolePropelConsole(),
