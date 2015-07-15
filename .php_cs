@@ -3,8 +3,15 @@
 $finder = Symfony\CS\Finder\DefaultFinder::create()
     ->in(__DIR__ . '/src')
     ->exclude('Generated')
+    ->exclude('Propel/Base')
+    ->exclude('Propel/Map')
+    ->exclude('tests/_helpers')
+    ->exclude('Presentation')
 ;
+
 return Symfony\CS\Config\Config::create()
+    ->finder($finder)
+    ->setUsingCache(false)
     ->level(\Symfony\CS\FixerInterface::SYMFONY_LEVEL)
     ->fixers(
         array(
@@ -37,5 +44,4 @@ return Symfony\CS\Config\Config::create()
         )
     )
     ->addCustomFixer(new \SprykerFeature\Zed\Maintenance\Business\CodeStyleFixer\EmptyEnclosingLinesFixer())
-    ->finder($finder)
-;
+    ;
