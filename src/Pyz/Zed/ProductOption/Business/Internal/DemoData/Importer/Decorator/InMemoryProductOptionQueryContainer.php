@@ -1,7 +1,4 @@
 <?php
-/**
- * (c) Spryker Systems GmbH copyright protected
- */
 
 namespace Pyz\Zed\ProductOption\Business\Internal\DemoData\Importer\Decorator;
 
@@ -372,7 +369,21 @@ class InMemoryProductOptionQueryContainer implements ProductOptionQueryContainer
      */
     public function queryAbstractProductIdForProductOptionTypeUsage($idProductOptionTypeUsage)
     {
-        return $this->queryContainer->queryAbstractProductIdForProductOptionTypeUsage($idProductOptionTypeUsage);
+        if (true === static::$disableCache) {
+            return $this->queryContainer->queryAbstractProductIdForProductOptionTypeUsage($idProductOptionTypeUsage);
+        }
+
+        static $cache;
+
+        if (false === isset($cache['id.' . $idProductOptionTypeUsage])) {
+            $cache['id.' . $idProductOptionTypeUsage]  = $this->queryContainer
+                ->queryAbstractProductIdForProductOptionTypeUsage($idProductOptionTypeUsage)
+                ->findOne();
+        }
+
+        $this->lastResult = $cache['id.' . $idProductOptionTypeUsage];
+
+        return $this;
     }
 
     /**
