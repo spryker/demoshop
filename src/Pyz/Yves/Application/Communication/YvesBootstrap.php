@@ -150,16 +150,6 @@ class YvesBootstrap extends SprykerYvesBootstrap
     /**
      * @param Application $app
      *
-     * @return AutoCompletion|\Generated\Client\Ide\AutoCompletion
-     */
-    protected function getLocator(Application $app)
-    {
-        return $app['locator'];
-    }
-
-    /**
-     * @param Application $app
-     *
      * @return array
      */
     protected function globalTemplateVariables(Application $app)
