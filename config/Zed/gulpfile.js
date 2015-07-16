@@ -73,61 +73,33 @@ gulp.task('compile-js', ['copy-js'], function(){
 /**
  * copy tasks
  */
-gulp.task('copy-fonts', ['clean-fonts'], function(done){
+gulp.task('copy-fonts', ['clean-bundles'], function(done){
     return copy('fonts', done);
 });
 
-gulp.task('copy-sprites', ['clean-sprite'], function(done){
+gulp.task('copy-sprites', ['clean-bundles'], function(done){
     return copy('sprite', done);
 });
 
-gulp.task('copy-js', ['clean-js'], function(done){
+gulp.task('copy-js', ['clean-bundles'], function(done){
     return copy('scripts', done);
 });
 
-gulp.task('copy-font-awesome', ['clean-font-awesome'], function(done){
+gulp.task('copy-font-awesome', ['clean-bundles'], function(done){
     return copy('font-awesome', done);
 });
 
-gulp.task('copy-css', ['clean-css'], function(done){
+gulp.task('copy-css', ['clean-bundles'], function(done){
     return copy('styles', done);
 });
 
-gulp.task('copy-less', ['clean-less'], function(done){
+gulp.task('copy-less', ['clean-bundles'], function(done){
     return copy('LESS', done);
 });
 
 /**
  * clean libraries
  */
-gulp.task('clean-css', ['build-public'], function(done){
-    del(dirPub + '/Gui/styles', done);
-});
-
-gulp.task('clean-less', ['build-public'], function(done){
-    del(dirPub + '/Gui/LESS', done);
-});
-
-gulp.task('clean-fonts', ['build-public'], function(done){
-    del(dirPub + '/Gui/fonts', done);
-});
-
-gulp.task('clean-font-awesome', ['build-public'], function(done){
-    del(dirPub + '/Gui/font-awesome', done);
-});
-
-gulp.task('clean-sprite', ['build-public'], function(done){
-    del(dirPub + '/Gui/sprite', done);
-});
-
-gulp.task('clean-js', ['build-public'], function(done){
-    del(dirPub + '/Gui/scripts', done);
-});
-
-gulp.task('clean-gui', ['build-public'], function(done){
-    del(dirPub + '/Gui', done);
-});
-
 gulp.task('clean-bundles', ['build-public'], function(done){
     del(dirPub, done);
 });
@@ -155,12 +127,7 @@ gulp.task('copy-files', [
 ]);
 
 gulp.task('clean-files', [
-    'clean-css',
-    'clean-js',
-    'clean-less',
-    'clean-fonts',
-    'clean-font-awesome',
-    'clean-sprite'
+    'clean-bundles'
 ]);
 
 
