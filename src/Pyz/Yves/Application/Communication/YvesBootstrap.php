@@ -2,7 +2,6 @@
 
 namespace Pyz\Yves\Application\Communication;
 
-use Generated\Yves\Ide\AutoCompletion;
 use Pyz\Yves\Application\Communication\Plugin\ApplicationControllerProvider;
 use Pyz\Yves\Checkout\Plugin\CheckoutControllerProvider;
 use Pyz\Yves\Customer\Plugin\CustomerControllerProvider;
