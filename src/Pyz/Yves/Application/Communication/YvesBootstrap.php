@@ -5,6 +5,7 @@ namespace Pyz\Yves\Application\Communication;
 use Pyz\Yves\Application\Communication\Plugin\ApplicationControllerProvider;
 use Pyz\Yves\Checkout\Plugin\CheckoutControllerProvider;
 use Pyz\Yves\Customer\Plugin\CustomerControllerProvider;
+use Silex\Provider\HttpFragmentServiceProvider;
 use SprykerEngine\Shared\Kernel\Store;
 use SprykerFeature\Shared\Application\Business\Application;
 use SprykerFeature\Shared\Application\Communication\Plugin\ServiceProvider\RoutingServiceProvider;
@@ -101,6 +102,7 @@ class YvesBootstrap extends SprykerYvesBootstrap
             new ValidatorServiceProvider(),
             new FormServiceProvider(),
             new TwigServiceProvider(),
+            new HttpFragmentServiceProvider(),
         ];
 
         if (\SprykerFeature_Shared_Library_Environment::isDevelopment()) {
