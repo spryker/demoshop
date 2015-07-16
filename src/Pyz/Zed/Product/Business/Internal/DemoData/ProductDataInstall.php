@@ -7,6 +7,7 @@ use Generated\Shared\Product\ConcreteProductInterface;
 use Generated\Shared\Transfer\AbstractProductTransfer;
 use Generated\Shared\Transfer\ConcreteProductTransfer;
 use Generated\Shared\Transfer\LocaleTransfer;
+use Generated\Shared\Transfer\LocalizedAttributesTransfer;
 use SprykerFeature\Zed\Installer\Business\Model\AbstractInstaller;
 use SprykerFeature\Zed\Product\Business\Attribute\AttributeManagerInterface;
 use SprykerFeature\Zed\Product\Business\Importer\Reader\File\IteratorReaderInterface;
@@ -93,8 +94,7 @@ class ProductDataInstall extends AbstractInstaller
     protected function createProducts()
     {
         $currentLocale = $this->localeFacade->getCurrentLocale();
-
-        foreach ($this->getProductsFromFile() as $currentProduct) {
+        foreach ($this->getProductsFromFile($currentLocale) as $currentProduct) {
             /* @var AbstractProductInterface $abstractProduct */
             $abstractProduct = $currentProduct[self::ABSTRACT_PRODUCT];
             $concreteProducts = $currentProduct[self::CONCRETE_PRODUCTS];
@@ -107,8 +107,7 @@ class ProductDataInstall extends AbstractInstaller
 
             $idAbstractProduct = $this->productManager->createAbstractProduct($abstractProduct);
             $abstractProduct->setIdAbstractProduct($idAbstractProduct);
-            $this->productManager->createAbstractProductAttributes($abstractProduct, $currentLocale);
-            $this->createConcreteProducts($concreteProducts, $idAbstractProduct, $currentLocale);
+            $this->createConcreteProducts($concreteProducts, $idAbstractProduct);
             $this->productManager->touchProductActive($idAbstractProduct);
             $this->productManager->createAndTouchProductUrlByIdProduct(
                 $idAbstractProduct,
@@ -119,19 +118,13 @@ class ProductDataInstall extends AbstractInstaller
     }
 
     /**
-     * @param ConcreteProductInterface[] $concreteProducts
-     * @param int $idAbstractProduct
-     * @param LocaleTransfer $currentLocale
+     * @param array $concreteProducts
+     * @param $idAbstractProduct
      */
-    protected function createConcreteProducts(
-        array $concreteProducts,
-        $idAbstractProduct,
-        LocaleTransfer $currentLocale
-    ) {
+    protected function createConcreteProducts(array $concreteProducts, $idAbstractProduct)
+    {
         foreach ($concreteProducts as $concreteProduct) {
-            $idConcreteProduct = $this->productManager->createConcreteProduct($concreteProduct, $idAbstractProduct);
-            $concreteProduct->setIdConcreteProduct($idConcreteProduct);
-            $this->productManager->createConcreteProductAttributes($concreteProduct, $currentLocale);
+            $this->productManager->createConcreteProduct($concreteProduct, $idAbstractProduct);
         }
     }
 
@@ -164,16 +157,17 @@ class ProductDataInstall extends AbstractInstaller
     }
 
     /**
+     * @param LocaleTransfer $currentLocale
+     *
      * @return array
      */
-    protected function getProductsFromFile()
+    protected function getProductsFromFile(LocaleTransfer $currentLocale)
     {
         $splFileInfo = new \SplFileInfo($this->filePath);
         $productData = $this->fileReader->getArrayFromFile($splFileInfo);
-
         $formattedProduct = [];
         foreach ($productData as $rawProduct) {
-            $formattedProduct[] = $this->formatProduct($rawProduct);
+            $formattedProduct[] = $this->formatProduct($rawProduct, $currentLocale);
         }
 
         return $formattedProduct;
@@ -181,10 +175,11 @@ class ProductDataInstall extends AbstractInstaller
 
     /**
      * @param array $product
+     * @param LocaleTransfer $currentLocale
      *
      * @return array
      */
-    protected function formatProduct(array $product)
+    protected function formatProduct(array $product, LocaleTransfer $currentLocale)
     {
         $productImageUrl = $this->buildProductImageUrl($product);
 
@@ -195,28 +190,32 @@ class ProductDataInstall extends AbstractInstaller
             'depth' => (float) $product['depth'],
         ];
 
-        $localizedAttributes = [
-            'image_url' => '/images/product/' . $product['image'],
-            'thumbnail_url' => '/images/product/default.png',
-            'main_color' => $product['main_color'],
-            'other_colors' => $product['other_colors'],
-            'description' => $product['description'],
-            'description_long' => $product['description_long'],
-            'fun_fact' => $product['fun_fact'],
-            'scientific_name' => $product['scientific_name'],
-        ];
+        $localizedAttributes = new LocalizedAttributesTransfer();
+        $localizedAttributes->setAttributes(
+            [
+                'image_url' => '/images/product/' . $product['image'],
+                'thumbnail_url' => '/images/product/default.png',
+                'main_color' => $product['main_color'],
+                'other_colors' => $product['other_colors'],
+                'description' => $product['description'],
+                'description_long' => $product['description_long'],
+                'fun_fact' => $product['fun_fact'],
+                'scientific_name' => $product['scientific_name'],
+            ]
+        );
+        $localizedAttributes->setLocale($currentLocale);
 
         $abstractProduct = new AbstractProductTransfer();
         $abstractProduct->setSku($product['sku']);
         $abstractProduct->setName($product['name']);
         $abstractProduct->setAttributes($attributes);
-        $abstractProduct->setLocalizedAttributes($localizedAttributes);
+        $abstractProduct->addLocalizedAttributes($localizedAttributes);
 
         $concreteProduct = new ConcreteProductTransfer();
         $concreteProduct->setSku($product['sku']);
         $concreteProduct->setName($product['name']);
         $concreteProduct->setAttributes($attributes);
-        $concreteProduct->setLocalizedAttributes($localizedAttributes);
+        $concreteProduct->addLocalizedAttributes($localizedAttributes);
         $concreteProduct->setProductImageUrl($productImageUrl);
         $concreteProduct->setIsActive(true);
 
