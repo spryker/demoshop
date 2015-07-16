@@ -9,9 +9,6 @@ namespace Pyz\Zed\Customer;
 use SprykerEngine\Zed\Kernel\Container;
 use SprykerFeature\Zed\Customer\CustomerDependencyProvider as SprykerCustomerDependencyProvider;
 
-/**
- * Class CustomerDependencyProvider
- */
 class CustomerDependencyProvider extends SprykerCustomerDependencyProvider
 {
 
