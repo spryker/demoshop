@@ -18,7 +18,7 @@ var concat      = require('gulp-concat');
 var path        = require('path');
 var del         = require('del');
 
-var dirFeature = 'vendor/spryker/spryker/Bundles/Gui/Static/Assets';
+var dirFeature = 'vendor/spryker/spryker/Bundles/Gui/static/Assets';
 var dirPub = 'static/public/Zed/bundles';
 
 function copy(directory) {
