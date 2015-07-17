@@ -3,3 +3,9 @@ machine:
     Europe/Berlin
   php:
     version: 5.6.5
+  environment:
+    APPLICATION_ENV: development
+    APPLICATION_STORE: DE
+test:
+  override:
+    vendor/bin/codecept run
