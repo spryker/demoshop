@@ -80,32 +80,6 @@ class InMemoryProductOptionQueryContainer implements ProductOptionQueryContainer
     }
 
     /**
-     * @param string $importKeyProductOptionType
-     *
-     * @return SpyProductOptionTypeQuery
-     */
-    public function queryProductOptionTypeIdByImportKey($importKeyProductOptionType)
-    {
-        if (true === static::$disableCache) {
-            return $this->queryContainer
-                ->queryProductOptionTypeIdByImportKey($importKeyProductOptionType);
-        }
-
-        static $cache = [];
-
-        if (false === isset($cache[$importKeyProductOptionType])) {
-            $cache[$importKeyProductOptionType] = $this->queryContainer
-                ->queryProductOptionTypeIdByImportKey($importKeyProductOptionType)
-                ->setQueryKey('queryProductOptionTypeIdByImportKey')
-                ->findOne();
-        }
-
-        $this->lastResult = $cache[$importKeyProductOptionType];
-
-        return $this;
-    }
-
-    /**
      * @param int $fkProductOptionType
      * @param int $fkLocale
      *
@@ -166,31 +140,6 @@ class InMemoryProductOptionQueryContainer implements ProductOptionQueryContainer
     }
 
     /**
-     * @param string $importKeyProductOptionValue
-     *
-     * @return SpyProductOptionValueQuery
-     */
-    public function queryProductOptionValueIdByImportKey($importKeyProductOptionValue)
-    {
-        if (true === static::$disableCache) {
-            return $this->queryContainer->queryProductOptionValueIdByImportKey($importKeyProductOptionValue);
-        }
-
-        static $cache;
-
-        if (false === isset($cache[$importKeyProductOptionValue])) {
-            $cache[$importKeyProductOptionValue]  = $this->queryContainer
-                ->queryProductOptionValueIdByImportKey($importKeyProductOptionValue)
-                ->setQueryKey('queryProductOptionValueIdByImportKey')
-                ->findOne();
-        }
-
-        $this->lastResult = $cache[$importKeyProductOptionValue];
-
-        return $this;
-    }
-
-    /**
      * @param int $fkProductOptionValue
      * @param int $fkLocale
      *
@@ -212,12 +161,12 @@ class InMemoryProductOptionQueryContainer implements ProductOptionQueryContainer
      *
      * @return SpyProductOptionTypeUsageQuery
      */
-    public function queryProductOptonTypeUsageById($idProductOptionTypeUsage)
+    public function queryProductOptionTypeUsageById($idProductOptionTypeUsage)
     {
-        $query = $this->queryContainer->queryProductOptonTypeUsageById($idProductOptionTypeUsage);
+        $query = $this->queryContainer->queryProductOptionTypeUsageById($idProductOptionTypeUsage);
 
         if (false === static::$disableCache) {
-            $query->setQueryKey('queryProductOptonTypeUsageById');
+            $query->setQueryKey('queryProductOptionTypeUsageById');
         }
 
         return $query;
@@ -241,34 +190,16 @@ class InMemoryProductOptionQueryContainer implements ProductOptionQueryContainer
     }
 
     /**
-     * @param int $fkProduct
-     * @param int $fkProductOptionType
-     *
-     * @return SpyProductOptionTypeUsageQuery
-     */
-    public function queryProductOptionTypeUsageIdByFKs($fkProduct, $fkProductOptionType)
-    {
-        $query = $this->queryContainer->queryProductOptionTypeUsageIdByFKs($fkProduct, $fkProductOptionType);
-
-        if (false === static::$disableCache) {
-            $query->setQueryKey('queryProductOptionTypeUsageIdByFKs');
-        }
-
-        return $query;
-
-    }
-
-    /**
      * @param int $idProductOptionValueUsage
      *
      * @return SpyProductOptionValueUsageQuery
      */
-    public function queryProductOptonValueUsageById($idProductOptionValueUsage)
+    public function queryProductOptionValueUsageById($idProductOptionValueUsage)
     {
-        $query = $this->queryContainer->queryProductOptonValueUsageById($idProductOptionValueUsage);
+        $query = $this->queryContainer->queryProductOptionValueUsageById($idProductOptionValueUsage);
 
         if (false === static::$disableCache) {
-            $query->setQueryKey('queryProductOptonValueUsageById');
+            $query->setQueryKey('queryProductOptionValueUsageById');
         }
 
         return $query;
@@ -468,4 +399,15 @@ class InMemoryProductOptionQueryContainer implements ProductOptionQueryContainer
     {
         return $this->queryContainer->queryEffectiveTaxRateForTypeUsage($idTypeUsage);
     }
+
+    /**
+     * @param int $idProductOptionValue
+     *
+     * @return SpyProductOptionValueQuery
+     */
+    public function queryOptionValueById($idProductOptionValue)
+    {
+        return $this->queryContainer->queryOptionValueById($idProductOptionValue);
+    }
+
 }
