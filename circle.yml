@@ -9,6 +9,7 @@ machine:
 database:
   override:
     - mv config/Zed/propel.ci.yml config/Zed/propel.yml
+    - mv config/Shared/config_default-development_DE.ci.php config/Shared/config_default-development_DE.php
 test:
   override:
     - vendor/bin/codecept run
