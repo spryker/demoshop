@@ -19,9 +19,7 @@ dependencies:
     - echo "memory_limit = 512M" > ~/.phpenv/versions/$(phpenv global)/etc/conf.d/memory.ini
     - mysql -u ubuntu circle_test --execute="SET GLOBAL group_concat_max_len=1048576"
     - wget https://phar.phpunit.de/phpcpd.phar
-    - chmod +x phpcpd.phar
-    - mv phpcpd.phar /usr/local/bin/phpcpd
 test:
   override:
-    - phpcpd
+    - php phpcpd.phar
     - vendor/bin/console application:integration-check
