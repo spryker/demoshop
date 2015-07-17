@@ -3,7 +3,7 @@
 namespace Pyz\Zed\Product\Business\Internal\DemoData;
 
 use Generated\Shared\Product\AbstractProductInterface;
-use Generated\Shared\Product\ConcreteProductInterface;
+use Generated\Shared\Product\LocalizedAttributesInterface;
 use Generated\Shared\Transfer\AbstractProductTransfer;
 use Generated\Shared\Transfer\ConcreteProductTransfer;
 use Generated\Shared\Transfer\LocaleTransfer;
@@ -109,11 +109,7 @@ class ProductDataInstall extends AbstractInstaller
             $abstractProduct->setIdAbstractProduct($idAbstractProduct);
             $this->createConcreteProducts($concreteProducts, $idAbstractProduct);
             $this->productManager->touchProductActive($idAbstractProduct);
-            $this->productManager->createAndTouchProductUrlByIdProduct(
-                $idAbstractProduct,
-                $this->buildProductUrl($abstractProduct),
-                $currentLocale
-            );
+            $this->createAndTouchProductUrls($abstractProduct, $idAbstractProduct, $currentLocale);
         }
     }
 
@@ -204,16 +200,15 @@ class ProductDataInstall extends AbstractInstaller
             ]
         );
         $localizedAttributes->setLocale($currentLocale);
+        $localizedAttributes->setName($product['name']);
 
         $abstractProduct = new AbstractProductTransfer();
         $abstractProduct->setSku($product['sku']);
-        $abstractProduct->setName($product['name']);
         $abstractProduct->setAttributes($attributes);
         $abstractProduct->addLocalizedAttributes($localizedAttributes);
 
         $concreteProduct = new ConcreteProductTransfer();
         $concreteProduct->setSku($product['sku']);
-        $concreteProduct->setName($product['name']);
         $concreteProduct->setAttributes($attributes);
         $concreteProduct->addLocalizedAttributes($localizedAttributes);
         $concreteProduct->setProductImageUrl($productImageUrl);
@@ -228,16 +223,16 @@ class ProductDataInstall extends AbstractInstaller
     }
 
     /**
-     * @param AbstractProductInterface $abstractProduct
+     * @param LocalizedAttributesInterface $localizedAttributes
      *
      * @return string
      */
-    protected function buildProductUrl(AbstractProductInterface $abstractProduct)
+    protected function buildProductUrl(LocalizedAttributesInterface $localizedAttributes)
     {
         $searchStrings = array_keys($this->urlReplacements);
         $replaceStrings = array_values($this->urlReplacements);
 
-        $productUrl = strtolower($abstractProduct->getName());
+        $productUrl = strtolower($localizedAttributes->getName());
         $productUrl = trim($productUrl);
         $productUrl = str_replace($searchStrings, $replaceStrings, $productUrl);
 
@@ -257,6 +252,26 @@ class ProductDataInstall extends AbstractInstaller
         $productImageUrl = strtolower($productImageUrl);
 
         return '/' . $productImageUrl;
+    }
+
+    /**
+     * @param AbstractProductInterface $abstractProduct
+     * @param int $idAbstractProduct
+     * @param LocaleTransfer $currentLocale
+     */
+    protected function createAndTouchProductUrls(
+        AbstractProductInterface $abstractProduct,
+        $idAbstractProduct,
+        LocaleTransfer $currentLocale
+    ) {
+        foreach ($abstractProduct->getLocalizedAttributes() as $localizedAttributes) {
+            $abstractProductUrl = $this->buildProductUrl($localizedAttributes);
+            $this->productManager->createAndTouchProductUrlByIdProduct(
+                $idAbstractProduct,
+                $abstractProductUrl,
+                $currentLocale
+            );
+        }
     }
 
 }
