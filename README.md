@@ -1,5 +1,3 @@
-[![Circle CI](https://circleci.com/gh/spryker/demoshop.svg?style=svg)](https://circleci.com/gh/spryker/demoshop)
-
 spryker
 =======
 
