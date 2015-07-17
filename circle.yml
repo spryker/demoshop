@@ -18,10 +18,5 @@ dependencies:
     - mkdir -p shared/data/common/jenkins/jobs
     - echo "memory_limit = 512M" > ~/.phpenv/versions/$(phpenv global)/etc/conf.d/memory.ini
 test:
-  pre:
-    - vendor/bin/console setup:install
-    - vendor/bin/console setup:install-demo-data
   override:
-    - vendor/bin/codecept build
-    - vendor/bin/codecept run
     - vendor/bin/console application:integration-check
