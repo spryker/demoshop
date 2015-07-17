@@ -8,6 +8,7 @@ machine:
     APPLICATION_STORE: DE
   services:
     - elasticsearch
+    - jenkins
 database:
   override:
     - mv config/Zed/propel.ci.yml config/Zed/propel.yml
