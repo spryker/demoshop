@@ -46,3 +46,5 @@ $config[SystemConfig::ZED_RABBITMQ_PORT] =                 '5672';
 $config[SystemConfig::ZED_RABBITMQ_USERNAME] =             'DE_development';
 $config[SystemConfig::ZED_RABBITMQ_PASSWORD] =             'mate20mg';
 $config[SystemConfig::ZED_RABBITMQ_VHOST] =                '/DE_development_zed';
+
+$config[SystemConfig::JENKINS_DIRECTORY] = APPLICATION_ROOT_DIR . '/shared/data/common/jenkins';
