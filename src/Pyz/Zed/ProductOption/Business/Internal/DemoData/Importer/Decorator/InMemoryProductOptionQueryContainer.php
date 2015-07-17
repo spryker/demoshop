@@ -67,16 +67,17 @@ class InMemoryProductOptionQueryContainer implements ProductOptionQueryContainer
 
         static $cache = [];
 
+        $query = $this->queryContainer
+            ->queryProductOptionTypeByImportKey($importKeyProductOptionType)
+            ->setQueryKey('queryProductOptionTypeByImportKey');
+
         if (false === isset($cache[$importKeyProductOptionType])) {
-            $cache[$importKeyProductOptionType] = $this->queryContainer
-                ->queryProductOptionTypeByImportKey($importKeyProductOptionType)
-                ->setQueryKey('queryProductOptionTypeByImportKey')
-                ->findOne();
+            $cache[$importKeyProductOptionType] = $query->findOne();
         }
 
         $this->lastResult = $cache[$importKeyProductOptionType];
 
-        return $this;
+        return $query;
     }
 
     /**
@@ -127,16 +128,17 @@ class InMemoryProductOptionQueryContainer implements ProductOptionQueryContainer
 
         static $cache;
 
+        $query = $this->queryContainer
+            ->queryProductOptionValueByImportKey($importKeyProductOptionValue)
+            ->setQueryKey('queryProductOptionValueByImportKey');
+
         if (false === isset($cache[$importKeyProductOptionValue])) {
-            $cache[$importKeyProductOptionValue] = $this->queryContainer
-                ->queryProductOptionValueByImportKey($importKeyProductOptionValue)
-                ->setQueryKey('queryProductOptionValueByImportKey')
-                ->findOne();
+            $cache[$importKeyProductOptionValue] = $query->findOne();
         }
 
         $this->lastResult = $cache[$importKeyProductOptionValue];
 
-        return $this;
+        return $query;
     }
 
     /**
@@ -306,15 +308,16 @@ class InMemoryProductOptionQueryContainer implements ProductOptionQueryContainer
 
         static $cache;
 
+        $query = $this->queryContainer
+            ->queryAbstractProductIdForProductOptionTypeUsage($idProductOptionTypeUsage);
+
         if (false === isset($cache['id.' . $idProductOptionTypeUsage])) {
-            $cache['id.' . $idProductOptionTypeUsage]  = $this->queryContainer
-                ->queryAbstractProductIdForProductOptionTypeUsage($idProductOptionTypeUsage)
-                ->findOne();
+            $cache['id.' . $idProductOptionTypeUsage] = $query->findOne();
         }
 
         $this->lastResult = $cache['id.' . $idProductOptionTypeUsage];
 
-        return $this;
+        return $query;
     }
 
     /**
