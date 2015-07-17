@@ -79,7 +79,6 @@ class YvesBootstrap extends SprykerYvesBootstrap
         ;
 
         $userProvider = $locator->customer()->pluginUserProvider()
-            ->setSessionClient($locator->session()->client())
             ->setCustomerClient($locator->customer()->client())
         ;
 
