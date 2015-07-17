@@ -8,7 +8,6 @@ machine:
     APPLICATION_STORE: DE
   services:
     - elasticsearch
-    - jenkins
 database:
   override:
     - mv config/Zed/propel.ci.yml config/Zed/propel.yml
@@ -17,6 +16,8 @@ database:
     - vendor/bin/console setup:install-demo-data
 dependencies:
   pre:
+    - mkdir /data/shop/development/shared/data/common/jenkins
+    - mkdir /data/shop/development/shared/data/common/jenkins/jobs
     - echo "memory_limit = 512M" > ~/.phpenv/versions/$(phpenv global)/etc/conf.d/memory.ini
 test:
   override:
