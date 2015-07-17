@@ -21,5 +21,6 @@ dependencies:
     - wget https://phar.phpunit.de/phpcpd.phar
 test:
   override:
-    - php phpcpd.phar . --no-interaction
+    - phpcpd . --exclude="vendor" --exclude="config" --exclude="src/Generated" -n
+    - phpcpd vendor/spryker/spryker/Bundles
     - vendor/bin/console application:integration-check
