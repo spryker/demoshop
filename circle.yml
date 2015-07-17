@@ -8,4 +8,4 @@ machine:
     APPLICATION_STORE: DE
 test:
   override:
-    vendor/bin/codecept run
+    'vendor/bin/codecept run'
