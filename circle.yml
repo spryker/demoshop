@@ -6,6 +6,9 @@ machine:
   environment:
     APPLICATION_ENV: development
     APPLICATION_STORE: DE
+database:
+  override:
+    - mv config/Zed/propel.ci.yml config/Zed/propel.yml
 test:
   override:
     - vendor/bin/codecept run
