@@ -26,7 +26,7 @@ class AjaxSecurityController extends AbstractController
         $customerTransfer = new CustomerTransfer();
         $customerTransfer->setEmail($request->request->get('email'));
         $customerTransfer->setPassword($request->request->get('password'));
-        $customerTransfer = $this->getLocator()->customer()->client()->getCustomer($customerTransfer);
+        $customerTransfer = $this->getLocator()->customer()->client()->login($customerTransfer);
 
         return $this->jsonResponse($customerTransfer);
     }

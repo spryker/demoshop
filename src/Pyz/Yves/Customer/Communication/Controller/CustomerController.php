@@ -68,7 +68,6 @@ class CustomerController extends AbstractController
 
         if ($form->isValid()) {
             $customerTransfer = new CustomerTransfer();
-            $customerTransfer->setUsername($this->getUsername());
             $customerTransfer->setEmail($this->getUsername());
             if ($this->getLocator()->customer()->client()->deleteCustomer($customerTransfer)) {
                 $this->getLocator()->customer()->client()->logout($customerTransfer);
@@ -87,20 +86,18 @@ class CustomerController extends AbstractController
      */
     public function profileAction()
     {
-        $customerTransfer = new \Generated\Shared\Transfer\CustomerTransfer();
+        $customerTransfer = new CustomerTransfer();
 
         $form = $this->createForm($this->getDependencyContainer()->createFormProfile());
 
         if ($form->isValid()) {
             $customerTransfer->fromArray($form->getData());
             $customerTransfer->setEmail($this->getUsername());
-            $this->getLocator()->customer()->client()->updateCustomer($customerTransfer);
+            $customerTransfer = $this->getLocator()->customer()->client()->updateCustomer($customerTransfer);
 
             return $this->redirectResponseInternal(CustomerControllerProvider::ROUTE_CUSTOMER_PROFILE);
         }
 
-        $customerTransfer->setEmail($this->getUsername());
-        $customerTransfer = $this->getLocator()->customer()->client()->getCustomer($customerTransfer);
         $form->setData($customerTransfer->toArray());
 
         return [

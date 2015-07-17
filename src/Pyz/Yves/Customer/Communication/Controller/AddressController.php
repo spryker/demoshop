@@ -88,9 +88,7 @@ class AddressController extends AbstractController
             return $this->redirectResponseInternal(CustomerControllerProvider::ROUTE_CUSTOMER_NEW_ADDRESS);
         }
 
-        $customerTransfer = new CustomerTransfer();
-        $customerTransfer->setEmail($this->getUsername());
-        $customerTransfer = $this->getLocator()->customer()->client()->getCustomer($customerTransfer);
+        $customerTransfer = $this->getLocator()->customer()->client()->getCustomer();
         $form->setData($customerTransfer->toArray());
 
         return ['form' => $form->createView()];
