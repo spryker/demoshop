@@ -6,6 +6,8 @@ machine:
   environment:
     APPLICATION_ENV: development
     APPLICATION_STORE: DE
+  services:
+    - elasticsearch
 database:
   override:
     - mv config/Zed/propel.ci.yml config/Zed/propel.yml
