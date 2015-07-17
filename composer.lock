@@ -845,7 +845,7 @@
                     "SprykerFeature\\Shared\\Library": "Bundles/Library/src/"
                 }
             },
-            "time": "2015-07-17 09:15:07"
+            "time": "2015-07-17 11:59:33"
         },
         {
             "name": "symfony-cmf/routing",
