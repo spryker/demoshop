@@ -12,14 +12,16 @@ database:
   override:
     - mv config/Zed/propel.ci.yml config/Zed/propel.yml
     - mv config/Shared/config_default-development_DE.ci.php config/Shared/config_default-development_DE.php
-    - vendor/bin/console setup:install
-    - vendor/bin/console setup:install-demo-data
 dependencies:
   pre:
     - mkdir -p shared/data/common/jenkins
     - mkdir -p shared/data/common/jenkins/jobs
     - echo "memory_limit = 512M" > ~/.phpenv/versions/$(phpenv global)/etc/conf.d/memory.ini
 test:
+  pre:
+    - vendor/bin/console setup:install
+    - vendor/bin/console setup:install-demo-data
   override:
     - vendor/bin/codecept build
     - vendor/bin/codecept run
+    - vendor/bin/console application:integration-check
