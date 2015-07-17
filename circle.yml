@@ -2,4 +2,4 @@ machine:
   timezone:
     Europe/Berlin
   php:
-    version: 5.6.10
+    version: 5.6.5
