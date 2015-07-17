@@ -3,8 +3,8 @@
 namespace Pyz\Yves\Customer\Communication\Controller;
 
 use Generated\Shared\Transfer\CustomerTransfer;
-use Pyz\Yves\Customer\Plugin\CustomerControllerProvider;
 use Pyz\Yves\Customer\Communication\CustomerDependencyContainer;
+use Pyz\Yves\Customer\Communication\Plugin\CustomerControllerProvider;
 use SprykerEngine\Yves\Application\Communication\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\RedirectResponse;
@@ -45,13 +45,11 @@ class CustomerController extends AbstractController
         $form = $this->createForm($this->getDependencyContainer()->createFormRestore());
 
         if ($form->isValid()) {
-            $customerTransfer = new \Generated\Shared\Transfer\CustomerTransfer();
+            $customerTransfer = new CustomerTransfer();
+            $customerTransfer->setUsername($this->getUsername());
             $customerTransfer->setRestorePasswordKey($request->query->get('token'));
             $this->getLocator()->customer()->client()->restorePassword($customerTransfer);
-            $this->getLocator()->customer()
-                ->pluginSecurityService()
-                ->createUserProvider($request->getSession())
-                ->logout($this->getUsername());
+            $this->getLocator()->customer()->client()->logout($customerTransfer);
 
             return $this->redirectResponseInternal(CustomerControllerProvider::ROUTE_LOGIN);
         }
@@ -69,13 +67,11 @@ class CustomerController extends AbstractController
         $form = $this->createForm($this->getDependencyContainer()->createFormDelete());
 
         if ($form->isValid()) {
-            $customerTransfer = new \Generated\Shared\Transfer\CustomerTransfer();
+            $customerTransfer = new CustomerTransfer();
+            $customerTransfer->setUsername($this->getUsername());
             $customerTransfer->setEmail($this->getUsername());
             if ($this->getLocator()->customer()->client()->deleteCustomer($customerTransfer)) {
-                $this->getLocator()->customer()
-                    ->pluginSecurityService()
-                    ->createUserProvider($request->getSession())
-                    ->logout($this->getUsername());
+                $this->getLocator()->customer()->client()->logout($customerTransfer);
 
                 return $this->redirectResponseInternal('home');
             } else {
