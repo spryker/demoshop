@@ -46,6 +46,10 @@ class OptionWriter implements WriterInterface
         foreach ($this->reader->getOptions() as $option) {
             $this->visit($option);
         }
+
+        foreach ($this->visitors as $visitor) {
+            $this->executeQueuedCommands($visitor);
+        }
     }
 
     /**
@@ -55,6 +59,16 @@ class OptionWriter implements WriterInterface
     {
         foreach ($this->visitors as $visitor) {
             $visitee->accept($visitor);
+        }
+    }
+
+    /**
+     * @param OptionVisitorInterface $visitor
+     */
+    public function executeQueuedCommands($visitor)
+    {
+        foreach ($visitor->getCommandQueue() as $command) {
+            $command->execute();
         }
     }
 
