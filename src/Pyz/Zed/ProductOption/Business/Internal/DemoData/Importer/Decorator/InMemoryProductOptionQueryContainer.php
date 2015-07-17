@@ -468,4 +468,15 @@ class InMemoryProductOptionQueryContainer implements ProductOptionQueryContainer
     {
         return $this->queryContainer->queryEffectiveTaxRateForTypeUsage($idTypeUsage);
     }
+
+    /**
+     * @param int $idProductOptionValue
+     *
+     * @return SpyProductOptionValueQuery
+     */
+    public function queryOptionValueById($idProductOptionValue)
+    {
+        return $this->queryContainer->queryOptionValueById($idProductOptionValue);
+    }
+
 }
