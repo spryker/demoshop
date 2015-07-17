@@ -2,6 +2,7 @@
 
 namespace Pyz\Zed\Product\Business\Internal\DemoData;
 
+use Generated\Shared\Locale\LocaleInterface;
 use Generated\Shared\Product\AbstractProductInterface;
 use Generated\Shared\Product\LocalizedAttributesInterface;
 use Generated\Shared\Transfer\AbstractProductTransfer;
@@ -171,11 +172,11 @@ class ProductDataInstall extends AbstractInstaller
 
     /**
      * @param array $product
-     * @param LocaleTransfer $currentLocale
+     * @param LocaleInterface $currentLocale
      *
      * @return array
      */
-    protected function formatProduct(array $product, LocaleTransfer $currentLocale)
+    protected function formatProduct(array $product, LocaleInterface $currentLocale)
     {
         $productImageUrl = $this->buildProductImageUrl($product);
 
@@ -256,13 +257,13 @@ class ProductDataInstall extends AbstractInstaller
 
     /**
      * @param AbstractProductInterface $abstractProduct
-     * @param int $idAbstractProduct
-     * @param LocaleTransfer $currentLocale
+     * @param $idAbstractProduct
+     * @param LocaleInterface $currentLocale
      */
     protected function createAndTouchProductUrls(
         AbstractProductInterface $abstractProduct,
         $idAbstractProduct,
-        LocaleTransfer $currentLocale
+        LocaleInterface $currentLocale
     ) {
         foreach ($abstractProduct->getLocalizedAttributes() as $localizedAttributes) {
             $abstractProductUrl = $this->buildProductUrl($localizedAttributes);
