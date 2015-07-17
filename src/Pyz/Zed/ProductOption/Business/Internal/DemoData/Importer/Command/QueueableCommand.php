@@ -5,13 +5,16 @@ namespace Pyz\Zed\ProductOption\Business\Internal\DemoData\Importer\Command;
 class QueueableCommand
 {
 
+    const TYPE_FLUSH_BUFFER = 'flush_buffer';
+
     const TYPE_ADD_VALUE_CONSTRAINT = 'add_value_constraint';
 
     /**
      * @var array
      */
     private $allowableTypes = [
-        self::TYPE_ADD_VALUE_CONSTRAINT
+        self::TYPE_FLUSH_BUFFER,
+        self::TYPE_ADD_VALUE_CONSTRAINT,
     ];
 
     /**
@@ -51,4 +54,5 @@ class QueueableCommand
     {
         return $this->type;
     }
+
 }

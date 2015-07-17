@@ -1,12 +1,11 @@
 <?php
+
 namespace Pyz\Yves\Checkout\Communication\Controller;
 
-use Generated\Shared\Transfer\CartItemTransfer;
 use Generated\Shared\Transfer\CartTransfer;
 use Generated\Shared\Transfer\CheckoutErrorTransfer;
 use Generated\Shared\Transfer\CheckoutRequestTransfer;
 use Generated\Shared\Transfer\CheckoutResponseTransfer;
-use Generated\Shared\Transfer\TotalsTransfer;
 use Pyz\Yves\Checkout\Plugin\CheckoutControllerProvider;
 use SprykerEngine\Yves\Application\Communication\Controller\AbstractController;
 use Pyz\Yves\Checkout\Communication\CheckoutDependencyContainer;
@@ -20,7 +19,6 @@ use Symfony\Component\HttpFoundation\Request;
 class CheckoutController extends AbstractController
 {
 
-
     /**
      * @return CartTransfer
      */
@@ -31,6 +29,7 @@ class CheckoutController extends AbstractController
 
     /**
      * @param Request $request
+     *
      * @return array|RedirectResponse
      */
     public function indexAction(Request $request)
@@ -74,6 +73,7 @@ class CheckoutController extends AbstractController
 
     /**
      * @param Request $request
+     *
      * @return array
      */
     public function successAction(Request $request)
@@ -91,18 +91,18 @@ class CheckoutController extends AbstractController
      */
     protected function errors($errors)
     {
-        $returnErrors = array();
+        $returnErrors = [];
         foreach ($errors as $error) {
             $returnErrors[] = [
                 'errorCode' => $error->getErrorCode(),
                 'message' => $error->getMessage(),
-                'step' => $error->getStep()
+                'step' => $error->getStep(),
             ];
         }
 
         return new JsonResponse([
             'success' => false,
-            'errors' => $returnErrors
+            'errors' => $returnErrors,
         ]);
     }
 

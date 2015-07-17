@@ -14,7 +14,7 @@ class ProductConfiguration implements VisitableProductInterface
     private $values = [];
 
     /**
-     * @var boolean
+     * @var bool
      */
     private $isDefault;
 
@@ -52,7 +52,7 @@ class ProductConfiguration implements VisitableProductInterface
     }
 
     /**
-     * @return boolean
+     * @return bool
      */
     public function getIsDefault()
     {
@@ -66,4 +66,5 @@ class ProductConfiguration implements VisitableProductInterface
     {
         return $this->sequence;
     }
+
 }

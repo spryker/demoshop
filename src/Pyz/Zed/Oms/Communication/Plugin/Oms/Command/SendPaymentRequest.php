@@ -21,4 +21,5 @@ class SendPaymentRequest extends AbstractCommand implements CommandByOrderInterf
     {
         return [];
     }
+
 }

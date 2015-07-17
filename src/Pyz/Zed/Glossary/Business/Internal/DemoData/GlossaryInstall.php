@@ -6,13 +6,12 @@
 
 namespace Pyz\Zed\Glossary\Business\Internal\DemoData;
 
-use Generated\Zed\Ide\AutoCompletion;
 use SprykerFeature\Zed\Installer\Business\Model\AbstractInstaller;
-use SprykerEngine\Zed\Kernel\Locator;
 use SprykerFeature\Zed\Glossary\Dependency\Plugin\GlossaryInstallerPluginInterface;
 
 class GlossaryInstall extends AbstractInstaller
 {
+
     /**
      * @var GlossaryInstallerPluginInterface[]
      */
@@ -34,4 +33,5 @@ class GlossaryInstall extends AbstractInstaller
             $installer->installGlossaryData();
         }
     }
+
 }

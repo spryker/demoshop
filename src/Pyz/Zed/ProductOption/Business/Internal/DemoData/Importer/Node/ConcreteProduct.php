@@ -134,4 +134,5 @@ class ConcreteProduct implements VisitableProductInterface
     {
         return $this->configurations;
     }
+
 }

@@ -14,6 +14,7 @@ use SprykerFeature\Zed\ProductCategory\Business\ProductCategoryDependencyContain
  */
 class ProductCategoryDependencyContainer extends SprykerDependencyContainer
 {
+
     /**
      * @param LoggerInterface $messenger
      *
@@ -41,4 +42,5 @@ class ProductCategoryDependencyContainer extends SprykerDependencyContainer
     {
         return new CsvFileReader();
     }
+
 }

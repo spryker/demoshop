@@ -8,6 +8,7 @@ use SprykerFeature\Zed\Calculation\Dependency\Plugin\TotalsCalculatorPluginInter
 
 class CalculationConfig extends SprykerCalculationConfig
 {
+
     /**
      * @return CalculatorPluginInterface[]|TotalsCalculatorPluginInterface[]
      */
@@ -29,4 +30,5 @@ class CalculationConfig extends SprykerCalculationConfig
             $this->getLocator()->calculation()->pluginTaxTotalsCalculatorPlugin(),
         ];
     }
+
 }

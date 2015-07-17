@@ -44,7 +44,7 @@ class FrontendExporterConfig extends SprykerFrontendExporterConfig
     public function getKeyValueExportFailedDeciders()
     {
         return [
-            $this->getLocator()->productFrontendExporterConnector()->pluginProductExportIsFailedDeciderPlugin()
+            $this->getLocator()->productFrontendExporterConnector()->pluginProductExportIsFailedDeciderPlugin(),
         ];
     }
 
@@ -108,7 +108,7 @@ class FrontendExporterConfig extends SprykerFrontendExporterConfig
     public function getSearchExportFailedDeciders()
     {
         return [
-            $this->getLocator()->productSearch()->pluginProductSearchFailedDeciderPlugin()
+            $this->getLocator()->productSearch()->pluginProductSearchFailedDeciderPlugin(),
         ];
     }
 
@@ -119,4 +119,5 @@ class FrontendExporterConfig extends SprykerFrontendExporterConfig
     {
         return [];
     }
+
 }

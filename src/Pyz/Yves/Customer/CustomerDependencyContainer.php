@@ -3,21 +3,22 @@
 namespace Pyz\Yves\Customer;
 
 use SprykerFeature\Yves\Customer\CustomerDependencyContainer as SprykerFeatureCustomerDependencyContainer;
-use Pyz\Yves\Customer\Form\Address;
-use Pyz\Yves\Customer\Form\RegisterCustomer;
-use Pyz\Yves\Customer\Form\DeleteCustomer;
-use Pyz\Yves\Customer\Form\ForgotPassword;
-use Pyz\Yves\Customer\Form\Profile;
-use Pyz\Yves\Customer\Form\RestorePassword;
+use Pyz\Yves\Customer\Communication\Form\Address;
+use Pyz\Yves\Customer\Communication\Form\RegisterCustomer;
+use Pyz\Yves\Customer\Communication\Form\DeleteCustomer;
+use Pyz\Yves\Customer\Communication\Form\ForgotPassword;
+use Pyz\Yves\Customer\Communication\Form\Profile;
+use Pyz\Yves\Customer\Communication\Form\RestorePassword;
 
 class CustomerDependencyContainer extends SprykerFeatureCustomerDependencyContainer
 {
+
     /**
      * @return Address
      */
     public function createFormAddress()
     {
-        return $this->getFactory()->createFormAddress();
+        return $this->getFactory()->createCommunicationFormAddress();
     }
 
     /**
@@ -25,7 +26,7 @@ class CustomerDependencyContainer extends SprykerFeatureCustomerDependencyContai
      */
     public function createFormRegister()
     {
-        return $this->getFactory()->createFormRegisterCustomer();
+        return $this->getFactory()->createCommunicationFormRegisterCustomer();
     }
 
     /**
@@ -33,7 +34,7 @@ class CustomerDependencyContainer extends SprykerFeatureCustomerDependencyContai
      */
     public function createFormDelete()
     {
-        return $this->getFactory()->createFormDeleteCustomer();
+        return $this->getFactory()->createCommunicationFormDeleteCustomer();
     }
 
     /**
@@ -41,7 +42,7 @@ class CustomerDependencyContainer extends SprykerFeatureCustomerDependencyContai
      */
     public function createFormForgot()
     {
-        return $this->getFactory()->createFormForgotPassword();
+        return $this->getFactory()->createCommunicationFormForgotPassword();
     }
 
     /**
@@ -49,7 +50,7 @@ class CustomerDependencyContainer extends SprykerFeatureCustomerDependencyContai
      */
     public function createFormProfile()
     {
-        return $this->getFactory()->createFormProfile();
+        return $this->getFactory()->createCommunicationFormProfile();
     }
 
     /**
@@ -57,6 +58,7 @@ class CustomerDependencyContainer extends SprykerFeatureCustomerDependencyContai
      */
     public function createFormRestore()
     {
-        return $this->getFactory()->createFormRestorePassword();
+        return $this->getFactory()->createCommunicationFormRestorePassword();
     }
+
 }

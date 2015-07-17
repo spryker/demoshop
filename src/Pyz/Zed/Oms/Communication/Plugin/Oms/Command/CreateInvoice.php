@@ -21,4 +21,5 @@ class CreateInvoice extends AbstractCommand implements CommandByOrderInterface
     {
         return [];
     }
+
 }

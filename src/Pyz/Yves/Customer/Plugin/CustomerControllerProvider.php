@@ -7,7 +7,9 @@ use Silex\Application;
 
 class CustomerControllerProvider extends YvesControllerProvider
 {
+
     const ROUTE_LOGIN = 'login';
+    const ROUTE_HOME = 'home';
     const ROUTE_LOGIN_CHECK = 'login_check';
     const ROUTE_LOGOUT = 'logout';
     const ROUTE_REGISTER = 'register';
@@ -40,4 +42,5 @@ class CustomerControllerProvider extends YvesControllerProvider
         $this->createController('/customer/address/new', self::ROUTE_CUSTOMER_NEW_ADDRESS, 'Customer', 'Address', 'create');
         $this->createController('/customer/address/delete', self::ROUTE_CUSTOMER_DELETE_ADDRESS, 'Customer', 'Address', 'delete');
     }
+
 }

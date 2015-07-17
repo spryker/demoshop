@@ -1,18 +1,19 @@
 <?php
 
-namespace Pyz\Yves\Customer\Form;
+namespace Pyz\Yves\Customer\Communication\Form;
 
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 
-class DeleteCustomer extends AbstractType
+class RestorePassword extends AbstractType
 {
+
     /**
      * @return string
      */
     public function getName()
     {
-        return 'deleteForm';
+        return 'restoreForm';
     }
 
     /**
@@ -22,9 +23,14 @@ class DeleteCustomer extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
+            ->add('restore_key', 'hidden')
+            ->add('password', 'password', [
+                'label' => 'customer.restore.password',
+            ])
             ->add('submit', 'submit', [
-                'label' => 'customer.delete.submit'
+                'label' => 'customer.restore.submit',
             ])
         ;
     }
+
 }

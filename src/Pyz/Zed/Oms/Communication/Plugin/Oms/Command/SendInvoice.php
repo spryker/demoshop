@@ -21,4 +21,5 @@ class SendInvoice extends AbstractCommand implements CommandByOrderInterface
     {
         return [];
     }
+
 }

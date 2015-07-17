@@ -5,13 +5,13 @@ $finder = Symfony\CS\Finder\DefaultFinder::create()
     ->exclude('Generated')
 ;
 return Symfony\CS\Config\Config::create()
+    ->level(\Symfony\CS\FixerInterface::SYMFONY_LEVEL)
     ->fixers(
         array(
-            'controls-spaces',
-            'braces',
             'elseif',
             'eof_ending',
             'extra_empty_lines',
+            'concat_with_spaces',
             'function_declaration',
             'include',
             'indentation',
@@ -21,8 +21,21 @@ return Symfony\CS\Config\Config::create()
             'short_tag',
             'trailing_spaces',
             'unused_use',
-            'visibility'
+            'visibility',
+            'empty_enclosing_lines',
+            'phpdoc_order',
+            'unalign_double_arrow',
+            'unalign_equals',
+            'short_array_syntax',
+            'strict',
+            '-phpdoc_params',
+            '-concat_without_spaces',
+            '-pre_increment',
+            '-phpdoc_indent',
+            '-phpdoc_short_description',
+            '-braces',
         )
     )
+    ->addCustomFixer(new \SprykerFeature\Zed\Maintenance\Business\CodeStyleFixer\EmptyEnclosingLinesFixer())
     ->finder($finder)
 ;

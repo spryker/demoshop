@@ -1,0 +1,27 @@
+machine:
+  timezone:
+    Europe/Berlin
+  php:
+    version: 5.6.5
+  environment:
+    APPLICATION_ENV: development
+    APPLICATION_STORE: DE
+  services:
+    - elasticsearch
+database:
+  override:
+    - mv config/Zed/propel.ci.yml config/Zed/propel.yml
+    - mv config/Shared/config_default-development_DE.ci.php config/Shared/config_default-development_DE.php
+dependencies:
+  pre:
+    - mkdir -p shared/data/common/jenkins
+    - mkdir -p shared/data/common/jenkins/jobs
+    - echo "memory_limit = 512M" > ~/.phpenv/versions/$(phpenv global)/etc/conf.d/memory.ini
+    - mysql -u ubuntu circle_test --execute="SET GLOBAL group_concat_max_len=1048576"
+    - wget https://phar.phpunit.de/phpcpd.phar
+test:
+  override:
+    - phpcpd . --exclude="vendor" --exclude="config" --exclude="src/Generated" -n
+# Bundles have tons of duplicates so build will always fail
+#   - phpcpd vendor/spryker/spryker/Bundles -n
+    - vendor/bin/console application:integration-check

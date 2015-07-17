@@ -28,26 +28,27 @@ class CmsDependencyProvider extends SprykerCmsDependencyProvider
         //parent::provideBusinessLayerDependencies($container);
 
         // @todo this is not a external dependency
-        $container[CmsDependencyProvider::PLUGIN_DEMO_DATA_INSTALLER] = function (Container $container) {
+        $container[self::PLUGIN_DEMO_DATA_INSTALLER] = function (Container $container) {
             return $container->getLocator()->cms()->pluginDemoDataInstaller();
         };
 
-        $container[CmsDependencyProvider::FACADE_GLOSSARY] = function (Container $container) {
+        $container[self::FACADE_GLOSSARY] = function (Container $container) {
             return $container->getLocator()->glossary()->facade();
         };
 
-        $container[CmsDependencyProvider::FACADE_LOCALE] = function (Container $container) {
+        $container[self::FACADE_LOCALE] = function (Container $container) {
             return $container->getLocator()->locale()->facade();
         };
 
-        $container[CmsDependencyProvider::FACADE_URL] = function (Container $container) {
+        $container[self::FACADE_URL] = function (Container $container) {
             return $container->getLocator()->url()->facade();
         };
 
-        $container[CmsDependencyProvider::FACADE_TOUCH] = function (Container $container) {
+        $container[self::FACADE_TOUCH] = function (Container $container) {
             return $container->getLocator()->touch()->facade();
         };
 
         return $container;
     }
+
 }

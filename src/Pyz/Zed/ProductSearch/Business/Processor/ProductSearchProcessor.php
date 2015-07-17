@@ -7,6 +7,7 @@ use SprykerFeature\Zed\ProductSearch\Business\Processor\ProductSearchProcessor a
 
 class ProductSearchProcessor extends CoreProductSearchProcessor
 {
+
     /**
      * @param array $productData
      * @param LocaleTransfer $locale
@@ -18,8 +19,8 @@ class ProductSearchProcessor extends CoreProductSearchProcessor
         $baseProduct = parent::buildBaseProduct($productData, $locale);
 
         // @todo this is only a hack unless we have bundles to export product images and prices
-        $productAttributes = $this->getEncodedData($productData['concrete_attributes']);
-        $abstractAttributes = $this->getEncodedData($productData['abstract_attributes']);
+        $productAttributes = $this->getEncodedData($productData['concrete_localized_attributes']);
+        $abstractAttributes = $this->getEncodedData($productData['abstract_localized_attributes']);
 
         $attributes = array_merge($abstractAttributes, $productAttributes);
 
@@ -36,6 +37,7 @@ class ProductSearchProcessor extends CoreProductSearchProcessor
      * @param string $data
      *
      * @throws \InvalidArgumentException
+     *
      * @return array
      */
     private function getEncodedData($data)
@@ -50,4 +52,5 @@ class ProductSearchProcessor extends CoreProductSearchProcessor
 
         return $encoded;
     }
+
 }

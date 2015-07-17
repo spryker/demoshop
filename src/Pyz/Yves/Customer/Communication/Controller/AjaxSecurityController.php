@@ -2,18 +2,13 @@
 
 namespace Pyz\Yves\Customer\Communication\Controller;
 
+use Generated\Shared\Transfer\CustomerTransfer;
 use Pyz\Yves\Customer\CustomerDependencyContainer;
+use Pyz\Yves\Customer\Plugin\CustomerControllerProvider;
 use SprykerEngine\Yves\Application\Communication\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
-use Symfony\Component\HttpFoundation\RedirectResponse;
-use SprykerFeature\Shared\Customer\Code\Messages;
-use Pyz\Yves\Customer\Plugin\CustomerControllerProvider;
 use Symfony\Component\Validator\Constraints\Collection;
-use Symfony\Component\Validator\Constraints\CollectionValidator;
-use Symfony\Component\Validator\Constraints\Email;
-use Symfony\Component\Validator\Constraints\Length;
-use Symfony\Component\Validator\Constraints\NotBlank;
 
 /**
  * @method CustomerDependencyContainer getDependencyContainer()
@@ -27,17 +22,23 @@ class AjaxSecurityController extends AbstractController
      */
     public function loginAction(Request $request)
     {
+        $customerTransfer = new CustomerTransfer();
+        $customerTransfer->setEmail($request->request->get('email'));
+        $customerTransfer->setPassword($request->request->get('password'));//@TODO just basic test
+        $customerTransfer = $this->getLocator()->customer()->sdk()->getCustomer($customerTransfer);
+        return $this->jsonResponse($customerTransfer);
     }
 
     /**
+     * @param Request $request
+     *
      * @return JsonResponse
      */
     public function registerAction(Request $request)
     {
         $form = $this->createForm($this->getDependencyContainer()->createFormRegister());
-
+        $customerTransfer = $this->getLocator()->customer()->transferCustomer();
         if ($form->isValid()) {
-            $customerTransfer = $this->getLocator()->customer()->transferCustomer();
             $customerTransfer->fromArray($form->getData());
             $customerTransfer = $this->getLocator()->customer()->client()->registerCustomer($customerTransfer);
             if ($customerTransfer->getRegistrationKey()) {
@@ -47,6 +48,6 @@ class AjaxSecurityController extends AbstractController
             }
         }
 
-        return $this->jsonResponse();
+        return $this->jsonResponse($customerTransfer);
     }
 }

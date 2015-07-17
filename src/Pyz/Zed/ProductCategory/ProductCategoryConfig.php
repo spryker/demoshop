@@ -6,6 +6,7 @@ use SprykerEngine\Zed\Kernel\AbstractBundleConfig;
 
 class ProductCategoryConfig extends AbstractBundleConfig
 {
+
     /**
      * @return string
      */
@@ -13,4 +14,5 @@ class ProductCategoryConfig extends AbstractBundleConfig
     {
         return __DIR__ . '/Business/Internal/DemoData/demo-product-category-data.csv';
     }
+
 }

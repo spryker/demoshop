@@ -14,6 +14,7 @@ use Propel\Runtime\Exception\PropelException;
 
 class ProductAttributeMappingInstall extends AbstractInstaller
 {
+
     /**
      * @var OperationManagerInterface
      */
@@ -66,7 +67,6 @@ class ProductAttributeMappingInstall extends AbstractInstaller
                         $weight++;
                         $idAttribute = $attribute->getIdAttributesMetadata();
                         $this->addOperation($idAttribute, $targetField, $operation, $weight);
-
                     }
                 }
             }
@@ -81,31 +81,31 @@ class ProductAttributeMappingInstall extends AbstractInstaller
                     'full-text-boosted',
                     'full-text',
                     'suggestion-term',
-                    'completion-terms'
-                ]
+                    'completion-terms',
+                ],
             ],
             'price' => [
                 'CopyToFacet' => [
                     'integer-facet',
                 ],
                 'CopyToMultiField' => [
-                    'integer-sort'
-                ]
+                    'integer-sort',
+                ],
             ],
             'depth' => [
                 'CopyToFacet' => [
-                    'float-facet'
-                ]
+                    'float-facet',
+                ],
             ],
             'width' => [
                 'CopyToFacet' => [
-                    'float-facet'
-                ]
+                    'float-facet',
+                ],
             ],
             'height' => [
                 'CopyToFacet' => [
-                    'float-facet'
-                ]
+                    'float-facet',
+                ],
             ],
             'main_color' => [
                 'CopyToField' => [
@@ -116,8 +116,8 @@ class ProductAttributeMappingInstall extends AbstractInstaller
                 ],
                 'CopyToFacet' => [
                     'string-facet',
-                ]
-            ]
+                ],
+            ],
         ];
     }
 
@@ -155,4 +155,5 @@ class ProductAttributeMappingInstall extends AbstractInstaller
             $this->touchFacade->touchActive('searchableProduct', $product->getIdProduct());
         }
     }
+
 }

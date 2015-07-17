@@ -97,4 +97,5 @@ class OptionType implements VisitableOptionInterface
     {
         return $this->taxSetKey;
     }
+
 }

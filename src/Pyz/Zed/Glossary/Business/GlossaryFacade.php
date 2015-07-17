@@ -12,6 +12,7 @@ use SprykerFeature\Zed\Glossary\Business\GlossaryFacade as SprykerGlossaryFacade
 class GlossaryFacade extends SprykerGlossaryFacade implements
     CmsToGlossaryInterface
 {
+
     /**
      * @param LoggerInterface $messenger
      */
@@ -19,4 +20,5 @@ class GlossaryFacade extends SprykerGlossaryFacade implements
     {
         $this->getDependencyContainer()->createDemoDataInstaller($messenger)->install();
     }
+
 }

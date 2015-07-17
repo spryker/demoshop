@@ -10,8 +10,6 @@ interface Orderprocess
      *     GENERAL
      ************************************************************************************************/
 
-
-
     // --- GENERAL States
 
     const STATE_INVALID = 'invalid';
@@ -26,12 +24,6 @@ interface Orderprocess
     const FLAG_ITEM_READY_FOR_EXPORT = 'item ready for export';
     const FLAG_ITEM_EXPORTED = 'item exported';
     const FLAG_RESERVED = 'reserved';
-
-
-
-
-
-
 
     /************************************************************************************************
      *     PAYONE
@@ -67,7 +59,6 @@ interface Orderprocess
 
     const STATE_PAYONE_PAYMENT_REMINDED = 'payment reminded (payone)';
 
-
     const EVENT_PAYONE_CANCEL_REMINDED = 'cancel reminded (payone)';
     const EVENT_PAYONE_CANCEL_UNDERPAID = 'cancel underpaid (payone)';
     const EVENT_PAYONE_MANUALLY_SET_PAID = 'manually set paid (payone)';
@@ -98,8 +89,6 @@ interface Orderprocess
 
     const STATE_PAYONE_WAITING_FOR_RECEIPT_OF_PAYMENT = 'waiting for receipt of payment (payone)';
 
-
-
     /************************************************************************************************
      *     INVOICE CREATION
      ************************************************************************************************/
@@ -110,8 +99,6 @@ interface Orderprocess
 
     const RULE_INVOICE_CREATION_POSSIBLE = 'invoice creation possible';
 
-
-
     /************************************************************************************************
      *     FULFILLMENT
      ************************************************************************************************/
@@ -121,15 +108,11 @@ interface Orderprocess
 
     const EVENT_START_FULFILLMENT_EXPORT = 'start fulfillment export';
 
-
-
     /************************************************************************************************
      *     FULFILLMENT
      ************************************************************************************************/
 
     const STATE_INIT_DUNNING = 'init dunning';
-
-
 
     /************************************************************************************************
      *     DEMO
@@ -161,6 +144,5 @@ interface Orderprocess
 
     //flags
     const FLAG_DEMO_TEST_FLAG = 'DEMO TEST FLAG';
-
 
 }

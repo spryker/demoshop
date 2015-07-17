@@ -11,4 +11,5 @@ interface XMLTransformerInterface
      * @return mixed
      */
     public function transform(\SimpleXMLElement $element);
+
 }

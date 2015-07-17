@@ -1,12 +1,13 @@
 <?php
 
-namespace Pyz\Yves\Customer\Form;
+namespace Pyz\Yves\Customer\Communication\Form;
 
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 
 class Address extends AbstractType
 {
+
     /**
      * @return string
      */
@@ -71,8 +72,9 @@ class Address extends AbstractType
                 'required' => false,
             ])
             ->add('submit', 'submit', [
-                'label' => 'customer.address.submit'
+                'label' => 'customer.address.submit',
             ])
         ;
     }
+
 }

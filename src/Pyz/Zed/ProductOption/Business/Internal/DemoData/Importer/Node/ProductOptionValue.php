@@ -106,4 +106,5 @@ class ProductOptionValue implements VisitableProductInterface
     {
         return $this->constraints;
     }
+
 }

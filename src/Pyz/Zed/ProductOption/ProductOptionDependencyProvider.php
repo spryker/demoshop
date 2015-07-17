@@ -7,6 +7,7 @@ use SprykerFeature\Zed\ProductOption\ProductOptionDependencyProvider as SprykerP
 
 class ProductOptionDependencyProvider extends SprykerProductOptionDependencyProvider
 {
+
     const FACADE_PRODUCT_OPTION = 'FACADE_PRODUCT_OPTION';
 
     /**
@@ -16,7 +17,7 @@ class ProductOptionDependencyProvider extends SprykerProductOptionDependencyProv
      */
     public function provideBusinessLayerDependencies(Container $container)
     {
-        $container[ProductOptionDependencyProvider::FACADE_PRODUCT_OPTION] = function (Container $container) {
+        $container[self::FACADE_PRODUCT_OPTION] = function (Container $container) {
             return $container->getLocator()->productOption()->facade();
         };
 
@@ -32,7 +33,7 @@ class ProductOptionDependencyProvider extends SprykerProductOptionDependencyProv
      */
     public function provideCommunicationLayerDependencies(Container $container)
     {
-        $container[ProductOptionDependencyProvider::FACADE_PRODUCT_OPTION] = function (Container $container) {
+        $container[self::FACADE_PRODUCT_OPTION] = function (Container $container) {
             return $container->getLocator()->productOption()->facade();
         };
 
@@ -40,4 +41,5 @@ class ProductOptionDependencyProvider extends SprykerProductOptionDependencyProv
 
         return $container;
     }
+
 }

@@ -12,8 +12,10 @@ use Pyz\Zed\Glossary\Communication\GlossaryDependencyContainer;
  */
 class DemoDataInstaller extends AbstractInstallerPlugin
 {
+
     public function install()
     {
         $this->getFacade()->installDemoData($this->messenger);
     }
+
 }

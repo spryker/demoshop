@@ -9,4 +9,5 @@ interface OptionReaderInterface
      * @yreturn OptionType[]
      */
     public function getOptions();
+
 }

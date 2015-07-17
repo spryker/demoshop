@@ -6,6 +6,7 @@ use SprykerEngine\Yves\Kernel\AbstractPlugin;
 
 class RegisterFormPlugin extends AbstractPlugin
 {
+
     /**
      * @return mixed
      */
@@ -13,4 +14,5 @@ class RegisterFormPlugin extends AbstractPlugin
     {
         return $this->getDependencyContainer()->createFormRegister();
     }
+
 }

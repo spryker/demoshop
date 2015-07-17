@@ -58,3 +58,6 @@ mkmf.log
 # propel classes
 /src/*/Zed/*/Persistence/Propel/Base/*
 /src/*/Zed/*/Persistence/Propel/Map/*
+
+#tools
+composer.phar

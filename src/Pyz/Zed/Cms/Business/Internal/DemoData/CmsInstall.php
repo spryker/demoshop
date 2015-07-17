@@ -47,7 +47,7 @@ class CmsInstall extends AbstractInstaller
     protected $staticPages = [
         'imprint' => ['de_DE' => '/impressum'],
         'privacy' => ['de_DE' => '/datenschutz'],
-        'terms'   => ['de_DE' => '/agb'],
+        'terms' => ['de_DE' => '/agb'],
     ];
 
     /**
@@ -197,4 +197,5 @@ class CmsInstall extends AbstractInstaller
             }
         }
     }
+
 }

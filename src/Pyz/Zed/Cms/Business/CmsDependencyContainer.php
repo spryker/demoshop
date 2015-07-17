@@ -31,7 +31,6 @@ class CmsDependencyContainer extends SprykerCmsDependencyContainer
         return $installer;
     }
 
-
     /**
      * @return GlossaryFacade
      */

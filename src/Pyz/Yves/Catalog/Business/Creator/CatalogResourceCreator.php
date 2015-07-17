@@ -12,8 +12,9 @@ use SprykerEngine\Yves\Kernel\Communication\Controller\BundleControllerActionRou
 use SprykerEngine\Yves\Kernel\Communication\ControllerLocator;
 use SprykerEngine\Yves\Kernel\Locator;
 
-class CategoryResourceCreator implements ResourceCreatorInterface
+class CatalogResourceCreator implements ResourceCreatorInterface
 {
+
     /**
      * @var FacetConfig
      */
@@ -62,4 +63,5 @@ class CategoryResourceCreator implements ResourceCreatorInterface
             'facetConfig' => $this->facetConfig,
         ];
     }
+
 }

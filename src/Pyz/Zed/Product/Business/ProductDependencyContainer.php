@@ -15,6 +15,7 @@ use Pyz\Zed\Product\ProductConfig;
  */
 class ProductDependencyContainer extends SprykerDependencyContainer
 {
+
     /**
      * @return SimpleAttributeMergeBuilder
      */
@@ -33,7 +34,7 @@ class ProductDependencyContainer extends SprykerDependencyContainer
         $installer = $this->getFactory()->createInternalDemoDataProductDataInstall(
             $this->createAttributeManager(),
             $this->createProductManager(),
-            $this->createLocaleFacade(),
+            $this->getLocaleFacade(),
             $this->createCSVReader(),
             $this->getConfig()->getDemoDataPath()
         );

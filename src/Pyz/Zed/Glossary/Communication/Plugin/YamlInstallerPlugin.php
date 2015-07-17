@@ -61,4 +61,5 @@ class YamlInstallerPlugin extends AbstractPlugin implements GlossaryInstallerPlu
             }
         }
     }
+
 }

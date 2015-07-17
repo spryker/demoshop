@@ -11,4 +11,5 @@ interface ProductReaderInterface
      * @return AbstractProduct[]
      */
     public function getProducts();
+
 }

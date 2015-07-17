@@ -6,6 +6,7 @@ use SprykerFeature\Zed\Product\ProductConfig as SprykerProductConfig;
 
 class ProductConfig extends SprykerProductConfig
 {
+
     /**
      * @return string
      */
@@ -13,4 +14,5 @@ class ProductConfig extends SprykerProductConfig
     {
         return __DIR__ . '/Business/Internal/DemoData/demo-product-data.csv';
     }
+
 }

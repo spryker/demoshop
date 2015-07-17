@@ -10,6 +10,7 @@ use SprykerEngine\Yves\Kernel\AbstractPlugin;
  */
 class OrderTypeFormPlugin extends AbstractPlugin
 {
+
     /**
      * @return mixed
      */
@@ -17,4 +18,5 @@ class OrderTypeFormPlugin extends AbstractPlugin
     {
         return $this->getDependencyContainer()->createOrderTypeForm();
     }
+
 }

@@ -51,4 +51,5 @@ class ProductOptionTypeExclusion implements VisitableProductInterface
     {
         return $this->keyValueB;
     }
+
 }
