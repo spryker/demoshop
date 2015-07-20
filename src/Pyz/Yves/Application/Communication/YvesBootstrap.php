@@ -6,12 +6,17 @@ use Pyz\Yves\Application\Communication\Plugin\ApplicationControllerProvider;
 use Pyz\Yves\Checkout\Communication\Plugin\CheckoutControllerProvider;
 use Pyz\Yves\Customer\Communication\Plugin\CustomerControllerProvider;
 use Silex\Provider\FormServiceProvider;
+use Silex\Provider\FormServiceProvider;
 use Silex\Provider\HttpFragmentServiceProvider;
+use Silex\Provider\RememberMeServiceProvider;
 use Silex\Provider\RememberMeServiceProvider;
 use Silex\Provider\SecurityServiceProvider as SilexSecurityServiceProvider;
 use Silex\Provider\ServiceControllerServiceProvider;
+use Silex\Provider\ServiceControllerServiceProvider;
 use Silex\Provider\SessionServiceProvider as SilexSessionServiceProvider;
 use Silex\Provider\ValidatorServiceProvider;
+use Silex\Provider\ValidatorServiceProvider;
+use Silex\Provider\WebProfilerServiceProvider;
 use Silex\Provider\WebProfilerServiceProvider;
 use Silex\ServiceProviderInterface;
 use SprykerEngine\Shared\Kernel\Store;
@@ -23,13 +28,13 @@ use SprykerEngine\Yves\Application\Communication\Plugin\ServiceProvider\MonologS
 use SprykerEngine\Yves\Application\Communication\Plugin\ServiceProvider\YvesLoggingServiceProvider;
 use SprykerEngine\Yves\Kernel\Locator;
 use SprykerFeature\Shared\Application\Business\Application;
-use SprykerFeature\Shared\Application\Business\Routing\SilexRouter;
 use SprykerFeature\Shared\Application\Communication\Plugin\ServiceProvider\RoutingServiceProvider;
 use SprykerFeature\Shared\Application\Communication\Plugin\ServiceProvider\UrlGeneratorServiceProvider;
 use SprykerFeature\Shared\Library\Config;
 use SprykerFeature\Shared\System\SystemConfig;
 use SprykerFeature\Shared\Yves\YvesConfig;
 use SprykerFeature\Yves\Cart\Communication\Plugin\CartControllerProvider;
+use SprykerFeature\Yves\Customer\Provider\SecurityServiceProvider;
 use SprykerFeature\Yves\Twig\Communication\Plugin\TwigServiceProvider;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Routing\RouterInterface;
@@ -75,12 +80,10 @@ class YvesBootstrap extends SprykerYvesBootstrap
 
         $translationServiceProvider = $locator->glossary()
             ->pluginServiceProviderTranslationServiceProvider()
-            ->setGlossaryClient($locator->glossary()->client())
-        ;
+            ->setGlossaryClient($locator->glossary()->client());
 
         $userProvider = $locator->customer()->pluginUserProvider()
-            ->setCustomerClient($locator->customer()->client())
-        ;
+            ->setCustomerClient($locator->customer()->client());
 
         $securityServiceProvider = $locator->customer()->pluginServiceProviderSecurityServiceProvider();
         $securityServiceProvider->setUserProvider($userProvider);
