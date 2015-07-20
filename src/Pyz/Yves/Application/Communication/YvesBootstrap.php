@@ -21,7 +21,7 @@ use SprykerEngine\Yves\Application\Communication\Plugin\ServiceProvider\CookieSe
 use SprykerEngine\Yves\Application\Communication\Plugin\ServiceProvider\ExceptionServiceProvider;
 use SprykerEngine\Yves\Application\Communication\Plugin\ServiceProvider\MonologServiceProvider;
 use SprykerEngine\Yves\Application\Communication\Plugin\ServiceProvider\YvesLoggingServiceProvider;
-use SprykerFeature\Yves\Cart\Communication\Plugin\CartControllerProvider;
+use Pyz\Yves\Cart\Communication\Plugin\CartControllerProvider;
 use SprykerFeature\Yves\Customer\Provider\SecurityServiceProvider;
 use SprykerFeature\Shared\Application\Business\Routing\SilexRouter;
 use Silex\Provider\FormServiceProvider;
