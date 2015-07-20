@@ -5,9 +5,13 @@ namespace Pyz\Yves\Cart\Communication\Controller;
 use Pyz\Yves\Cart\Communication\Plugin\CartControllerProvider;
 use SprykerEngine\Yves\Application\Communication\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\RedirectResponse;
+use Generated\Shared\Transfer\CartItemTransfer;
+use Generated\Shared\Transfer\ProductOptionTransfer;
 
 class AjaxController extends AbstractController
 {
+
+    use CreateCartItemTrait;
 
     /**
      * @return array
@@ -30,13 +34,16 @@ class AjaxController extends AbstractController
     /**
      * @param string $sku
      * @param int $quantity
+     * @param array $optionValueUsageIds
      *
      * @return RedirectResponse
      */
-    public function addAction($sku, $quantity)
+    public function addAction($sku, $quantity, $optionValueUsageIds = [])
     {
         $cartClient = $this->getLocator()->cart()->client();
-        $cartClient->addItem($sku, $quantity);
+
+        $cartItemTransfer = $this->createCartItemTransfer($sku, $quantity, $optionValueUsageIds, $this->getLocale());
+        $cartClient->addItem($cartItemTransfer);
 
         return $this->redirectResponseInternal(CartControllerProvider::ROUTE_CART_OVERLAY);
     }
