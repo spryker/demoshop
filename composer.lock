@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "ed3cd16260d448e6941cd049ff503fce",
+    "hash": "e7c6da976715aea5912dff9a24a1ff7b",
     "packages": [
         {
             "name": "digital-canvas/zend-framework",
@@ -708,7 +708,7 @@
         },
         {
             "name": "spryker/spryker",
-            "version": "dev-develop",
+            "version": "dev-refactor/CD-287-Use-TransferObject-instead-of-parameter",
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/spryker.git",
