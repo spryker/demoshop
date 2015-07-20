@@ -2,6 +2,7 @@
 
 namespace Pyz\Yves\Cart\Communication\Controller;
 
+use Generated\Shared\Transfer\CartItemTransfer;
 use SprykerEngine\Yves\Application\Communication\Controller\AbstractController;
 use Pyz\Yves\Cart\Communication\Plugin\CartControllerProvider;
 use Symfony\Component\HttpFoundation\RedirectResponse;
@@ -32,7 +33,11 @@ class CartController extends AbstractController
     public function addAction($sku, $quantity)
     {
         $cartClient = $this->getLocator()->cart()->client();
-        $cartClient->addItem($sku, $quantity);
+        $cartItemTransfer = new CartItemTransfer();
+        $cartItemTransfer->setId($sku)
+            ->setQuantity($quantity)
+        ;
+        $cartClient->addItem($cartItemTransfer);
 
         return $this->redirectResponseInternal(CartControllerProvider::ROUTE_CART);
     }
@@ -45,7 +50,10 @@ class CartController extends AbstractController
     public function removeAction($sku)
     {
         $cartClient = $this->getLocator()->cart()->client();
-        $cartClient->removeItem($sku);
+        $cartItemTransfer = new CartItemTransfer();
+        $cartItemTransfer->setId($sku);
+
+        $cartClient->removeItem($cartItemTransfer);
 
         return $this->redirectResponseInternal(CartControllerProvider::ROUTE_CART);
     }
@@ -59,7 +67,9 @@ class CartController extends AbstractController
     public function changeAction($sku, $quantity)
     {
         $cartClient = $this->getLocator()->cart()->client();
-        $cartClient->changeItemQuantity($sku, $quantity);
+        $cartItemTransfer = new CartItemTransfer();
+        $cartItemTransfer->setId($sku);
+        $cartClient->changeItemQuantity($cartItemTransfer, $quantity);
 
         return $this->redirectResponseInternal(CartControllerProvider::ROUTE_CART);
     }
