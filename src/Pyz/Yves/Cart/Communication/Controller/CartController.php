@@ -3,7 +3,7 @@
 namespace Pyz\Yves\Cart\Communication\Controller;
 
 use SprykerEngine\Yves\Application\Communication\Controller\AbstractController;
-use SprykerFeature\Yves\Cart\Communication\Plugin\CartControllerProvider;
+use Pyz\Yves\Cart\Communication\Plugin\CartControllerProvider;
 use Symfony\Component\HttpFoundation\RedirectResponse;
 
 class CartController extends AbstractController

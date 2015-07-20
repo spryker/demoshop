@@ -2,7 +2,7 @@
 
 namespace Pyz\Yves\Cart\Communication\Controller;
 
-use SprykerFeature\Yves\Cart\Communication\Plugin\CartControllerProvider;
+use Pyz\Yves\Cart\Communication\Plugin\CartControllerProvider;
 use SprykerEngine\Yves\Application\Communication\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\RedirectResponse;
 
