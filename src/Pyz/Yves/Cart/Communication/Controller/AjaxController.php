@@ -2,6 +2,7 @@
 
 namespace Pyz\Yves\Cart\Communication\Controller;
 
+use Generated\Shared\Transfer\CartItemTransfer;
 use Pyz\Yves\Cart\Communication\Plugin\CartControllerProvider;
 use SprykerEngine\Yves\Application\Communication\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\RedirectResponse;
@@ -36,7 +37,11 @@ class AjaxController extends AbstractController
     public function addAction($sku, $quantity)
     {
         $cartClient = $this->getLocator()->cart()->client();
-        $cartClient->addItem($sku, $quantity);
+        $cartItemTransfer = new CartItemTransfer();
+        $cartItemTransfer->setId($sku)
+            ->setQuantity($quantity)
+        ;
+        $cartClient->addItem($cartItemTransfer);
 
         return $this->redirectResponseInternal(CartControllerProvider::ROUTE_CART_OVERLAY);
     }
@@ -49,7 +54,10 @@ class AjaxController extends AbstractController
     public function removeAction($sku)
     {
         $cartClient = $this->getLocator()->cart()->client();
-        $cartClient->removeItem($sku);
+        $cartItemTransfer = new CartItemTransfer();
+        $cartItemTransfer->setId($sku);
+
+        $cartClient->removeItem($cartItemTransfer);
 
         return $this->redirectResponseInternal(CartControllerProvider::ROUTE_CART_OVERLAY);
     }
@@ -62,7 +70,10 @@ class AjaxController extends AbstractController
     public function increaseAction($sku)
     {
         $cartClient = $this->getLocator()->cart()->client();
-        $cartClient->increaseItemQuantity($sku);
+        $cartItemTransfer = new CartItemTransfer();
+        $cartItemTransfer->setId($sku);
+
+        $cartClient->increaseItemQuantity($cartItemTransfer);
 
         return $this->redirectResponseInternal(CartControllerProvider::ROUTE_CART_OVERLAY);
     }
@@ -75,7 +86,10 @@ class AjaxController extends AbstractController
     public function decreaseAction($sku)
     {
         $cartClient = $this->getLocator()->cart()->client();
-        $cartClient->decreaseItemQuantity($sku);
+        $cartItemTransfer = new CartItemTransfer();
+        $cartItemTransfer->setId($sku);
+
+        $cartClient->decreaseItemQuantity($cartItemTransfer);
 
         return $this->redirectResponseInternal(CartControllerProvider::ROUTE_CART_OVERLAY);
     }
