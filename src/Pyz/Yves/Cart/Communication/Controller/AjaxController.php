@@ -46,8 +46,8 @@ class AjaxController extends AbstractController
         $cartItemTransfer->setQuantity($quantity);
 
         foreach ($optionValueUsageIds as $idOptionValueUsage) {
-            $productOptionTransfer = (new ProductOptionTransfer)
-                ->setIdOptionValueUsage($idOptionValueUsage)
+            $productOptionTransfer = new ProductOptionTransfer();
+            $productOptionTransfer->setIdOptionValueUsage($idOptionValueUsage)
                 ->setLocalCode($this->getLocale());
             $cartItemTransfer->addProductOption($productOptionTransfer);
         }
