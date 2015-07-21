@@ -97,7 +97,6 @@ class YvesBootstrap extends SprykerYvesBootstrap
             new UrlGeneratorServiceProvider(),
             new ServiceControllerServiceProvider(),
             $securityServiceProvider,
-            new SilexSecurityServiceProvider(),
             new RememberMeServiceProvider(),
             new RoutingServiceProvider(),
             $translationServiceProvider,
