@@ -2,15 +2,15 @@
 
 namespace Pyz\Yves\Catalog\Business\Creator;
 
-use SprykerFeature\Shared\Application\Communication\ControllerServiceBuilder;
-use SprykerFeature\Shared\Category\CategoryResourceSettings;
-use SprykerFeature\Yves\FrontendExporter\Creator\ResourceCreatorInterface;
 use Pyz\Client\Catalog\Model\FacetConfig;
 use Silex\Application;
 use SprykerEngine\Yves\Kernel\Communication\BundleControllerAction;
 use SprykerEngine\Yves\Kernel\Communication\Controller\BundleControllerActionRouteNameResolver;
 use SprykerEngine\Yves\Kernel\Communication\ControllerLocator;
 use SprykerEngine\Yves\Kernel\Locator;
+use SprykerFeature\Shared\Application\Communication\ControllerServiceBuilder;
+use SprykerFeature\Shared\Category\CategoryConfig;
+use SprykerFeature\Yves\FrontendExporter\Communication\Creator\ResourceCreatorInterface;
 
 class CatalogResourceCreator implements ResourceCreatorInterface
 {
@@ -33,7 +33,7 @@ class CatalogResourceCreator implements ResourceCreatorInterface
      */
     public function getType()
     {
-        return CategoryResourceSettings::RESOURCE_TYPE_CATEGORY_NODE;
+        return CategoryConfig::RESOURCE_TYPE_CATEGORY_NODE;
     }
 
     /**

@@ -1,14 +1,14 @@
 <?php
 
-namespace Pyz\Yves\Sales\Plugin;
+namespace Pyz\Yves\Sales\Communication\Plugin;
 
 use Pyz\Yves\Sales\SalesDependencyContainer;
-use SprykerEngine\Yves\Kernel\AbstractPlugin;
+use SprykerEngine\Yves\Kernel\Communication\AbstractPlugin;
 
 /**
  * @method SalesDependencyContainer getDependencyContainer()
  */
-class OrderTypeFormPlugin extends AbstractPlugin
+class OrderTypeForm extends AbstractPlugin
 {
 
     /**

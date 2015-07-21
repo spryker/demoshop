@@ -2,22 +2,24 @@
 
 namespace Pyz\Yves\Customer\Communication;
 
+use Generated\Zed\Ide\FactoryAutoCompletion\CustomerCommunication;
 use Pyz\Yves\Customer\Communication\Form\Address;
 use Pyz\Yves\Customer\Communication\Form\RegisterCustomer;
-use Pyz\Yves\Customer\Communication\Form\DeleteCustomer;
-use Pyz\Yves\Customer\Communication\Form\ForgotPassword;
-use Pyz\Yves\Customer\Communication\Form\Profile;
-use Pyz\Yves\Customer\Communication\Form\RestorePassword;
-use SprykerEngine\Yves\Kernel\AbstractDependencyContainer;
+use SprykerEngine\Yves\Kernel\Communication\AbstractCommunicationDependencyContainer;
+use SprykerFeature\Client\Customer\Service\CustomerClient;
 
-class CustomerDependencyContainer extends AbstractDependencyContainer
+/**
+ * @method CustomerCommunication getFactory()
+ */
+class CustomerDependencyContainer extends AbstractCommunicationDependencyContainer
 {
+
     /**
      * @return Address
      */
     public function createFormAddress()
     {
-        return $this->getFactory()->createCommunicationFormAddress();
+        return $this->getFactory()->createFormAddressForm();
     }
 
     /**
@@ -25,38 +27,47 @@ class CustomerDependencyContainer extends AbstractDependencyContainer
      */
     public function createFormRegister()
     {
-        return $this->getFactory()->createCommunicationFormRegisterCustomer();
+        return $this->getFactory()->createFormRegisterCustomer();
     }
 
     /**
-     * @return DeleteCustomer
+     * @return Form\DeleteCustomer
      */
     public function createFormDelete()
     {
-        return $this->getFactory()->createCommunicationFormDeleteCustomer();
+        return $this->getFactory()->createFormDeleteCustomer();
     }
 
     /**
-     * @return ForgotPassword
+     * @return Form\ForgotPassword
      */
     public function createFormForgot()
     {
-        return $this->getFactory()->createCommunicationFormForgotPassword();
+        return $this->getFactory()->createFormForgotPassword();
     }
 
     /**
-     * @return Profile
+     * @return Form\Profile
      */
     public function createFormProfile()
     {
-        return $this->getFactory()->createCommunicationFormProfile();
+        return $this->getFactory()->createFormProfile();
     }
 
     /**
-     * @return RestorePassword
+     * @return Form\RestorePassword
      */
     public function createFormRestore()
     {
-        return $this->getFactory()->createCommunicationFormRestorePassword();
+        return $this->getFactory()->createFormRestorePassword();
     }
+
+    /**
+     * @return CustomerClient
+     */
+    public function createCustomerClient()
+    {
+        return $this->getLocator()->customer()->client();
+    }
+
 }
