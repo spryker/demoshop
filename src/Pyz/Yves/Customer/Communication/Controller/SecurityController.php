@@ -2,12 +2,12 @@
 
 namespace Pyz\Yves\Customer\Communication\Controller;
 
-use Pyz\Yves\Customer\CustomerDependencyContainer;
+use Pyz\Yves\Customer\Communication\CustomerDependencyContainer;
+use Pyz\Yves\Customer\Communication\Plugin\CustomerControllerProvider;
 use SprykerEngine\Yves\Application\Communication\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\RedirectResponse;
 use SprykerFeature\Shared\Customer\Code\Messages;
-use Pyz\Yves\Customer\Plugin\CustomerControllerProvider;
 use Generated\Shared\Transfer\CustomerTransfer;
 
 /**
@@ -15,6 +15,7 @@ use Generated\Shared\Transfer\CustomerTransfer;
  */
 class SecurityController extends AbstractController
 {
+
     /**
      * @param Request $request
      *
@@ -38,10 +39,9 @@ class SecurityController extends AbstractController
      */
     public function logoutAction(Request $request)
     {
-        $this->getLocator()->customer()
-            ->pluginSecurityService()
-            ->createUserProvider($request->getSession())
-            ->logout($this->getUsername());
+        $customerTransfer = new CustomerTransfer();
+        $customerTransfer->setEmail($this->getUsername());
+        $this->getLocator()->customer()->client()->logout($customerTransfer);
 
         return $this->redirectResponseInternal(CustomerControllerProvider::ROUTE_HOME);
     }
@@ -86,4 +86,5 @@ class SecurityController extends AbstractController
 
         return $this->redirectResponseInternal(CustomerControllerProvider::ROUTE_HOME);
     }
+
 }

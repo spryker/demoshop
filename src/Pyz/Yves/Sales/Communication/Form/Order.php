@@ -1,6 +1,6 @@
 <?php
 
-namespace Pyz\Yves\Sales\Form;
+namespace Pyz\Yves\Sales\Communication\Form;
 
 use SprykerEngine\Shared\Kernel\LocatorLocatorInterface;
 use Symfony\Component\Form\AbstractType;
@@ -12,7 +12,7 @@ use Symfony\Component\Form\FormEvent;
 use Symfony\Component\Form\FormEvents;
 use Symfony\Component\Validator\Constraints\NotBlank;
 
-class OrderType extends AbstractType
+class Order extends AbstractType
 {
 
     /**

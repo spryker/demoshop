@@ -1,6 +1,6 @@
 <?php
 
-namespace Pyz\Yves\Sales\Form;
+namespace Pyz\Yves\Sales\Communication\Form;
 
 use Generated\Shared\Transfer\SalesAddressTransfer;
 use Generated\Shared\Transfer\OrderTransfer;
@@ -8,7 +8,7 @@ use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\Form\FormEvent;
 use Symfony\Component\Form\FormEvents;
 
-class BillingAddressType extends AbstractAddressType
+class BillingAddress extends AbstractAddress
 {
 
     /**

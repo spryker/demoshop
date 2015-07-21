@@ -1,8 +1,8 @@
 <?php
 
-namespace Pyz\Yves\Twig;
+namespace Pyz\Yves\Twig\Communication;
 
-use SprykerFeature\Yves\Twig\TwigSettings as SprykerTwigSettings;
+use SprykerFeature\Yves\Twig\Communication\TwigSettings as SprykerTwigSettings;
 
 class TwigSettings extends SprykerTwigSettings
 {
@@ -26,8 +26,11 @@ class TwigSettings extends SprykerTwigSettings
     {
         $twigFunctions = parent::getTwigFunctions();
 
+        $twigCustomer = $this->getLocator()->customer()->pluginTwigCustomer()
+            ->setCustomerClient($this->getLocator()->customer()->client())
+        ;
+        $twigFunctions[] = $twigCustomer;
         $twigFunctions[] = $this->getLocator()->assets()->pluginTwigAsset();
-        $twigFunctions[] = $this->getLocator()->customer()->pluginTwigCustomer();
 
         return $twigFunctions;
     }
