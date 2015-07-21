@@ -13,7 +13,7 @@ class SalesDependencyContainer extends AbstractCommunicationDependencyContainer
      */
     public function createOrderTypeForm()
     {
-        return $this->getFactory()->createFormOrderType(
+        return $this->getFactory()->createFormOrder(
             $this->getLocator(),
             $this->createBillingAddressTypeForm(),
             $this->createShippingAddressTypeForm()
@@ -25,15 +25,15 @@ class SalesDependencyContainer extends AbstractCommunicationDependencyContainer
      */
     protected function createBillingAddressTypeForm()
     {
-        return $this->getFactory()->createFormBillingAddressType($this->getLocator());
+        return $this->getFactory()->createFormBillingAddress($this->getLocator());
     }
 
     /**
-     * @return Form\ShippingAddressType
+     * @return Form\ShippingAddress
      */
     protected function createShippingAddressTypeForm()
     {
-        return $this->getFactory()->createFormShippingAddressType($this->getLocator());
+        return $this->getFactory()->createFormShippingAddress($this->getLocator());
     }
 
 }
