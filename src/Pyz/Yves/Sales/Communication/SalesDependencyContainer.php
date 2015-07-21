@@ -3,6 +3,8 @@
 namespace Pyz\Yves\Sales;
 
 use Pyz\Yves\Sales\Communication\Form;
+use Pyz\Yves\Sales\Communication\Form\BillingAddress;
+use Pyz\Yves\Sales\Communication\Form\ShippingAddress;
 use SprykerEngine\Yves\Kernel\Communication\AbstractCommunicationDependencyContainer;
 
 class SalesDependencyContainer extends AbstractCommunicationDependencyContainer
@@ -21,7 +23,7 @@ class SalesDependencyContainer extends AbstractCommunicationDependencyContainer
     }
 
     /**
-     * @return Form\BillingAddress
+     * @return BillingAddress
      */
     protected function createBillingAddressTypeForm()
     {
@@ -29,7 +31,7 @@ class SalesDependencyContainer extends AbstractCommunicationDependencyContainer
     }
 
     /**
-     * @return Form\ShippingAddress
+     * @return ShippingAddress
      */
     protected function createShippingAddressTypeForm()
     {
