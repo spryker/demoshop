@@ -42,7 +42,7 @@ class AjaxController extends AbstractController
 
         $cartItemTransfer = new CartItemTransfer();
 
-        $cartItemTransfer->setId($sku);
+        $cartItemTransfer->setSku($sku);
         $cartItemTransfer->setQuantity($quantity);
 
         foreach ($optionValueUsageIds as $idOptionValueUsage) {
@@ -66,7 +66,7 @@ class AjaxController extends AbstractController
     {
         $cartClient = $this->getLocator()->cart()->client();
         $cartItemTransfer = new CartItemTransfer();
-        $cartItemTransfer->setId($sku);
+        $cartItemTransfer->setSku($sku);
 
         $cartClient->removeItem($cartItemTransfer);
 
@@ -82,7 +82,7 @@ class AjaxController extends AbstractController
     {
         $cartClient = $this->getLocator()->cart()->client();
         $cartItemTransfer = new CartItemTransfer();
-        $cartItemTransfer->setId($sku);
+        $cartItemTransfer->setSku($sku);
 
         $cartClient->increaseItemQuantity($cartItemTransfer);
 
@@ -98,7 +98,7 @@ class AjaxController extends AbstractController
     {
         $cartClient = $this->getLocator()->cart()->client();
         $cartItemTransfer = new CartItemTransfer();
-        $cartItemTransfer->setId($sku);
+        $cartItemTransfer->setSku($sku);
 
         $cartClient->decreaseItemQuantity($cartItemTransfer);
 

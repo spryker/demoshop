@@ -6,7 +6,7 @@ use Generated\Shared\Transfer\CartTransfer;
 use Generated\Shared\Transfer\CheckoutErrorTransfer;
 use Generated\Shared\Transfer\CheckoutRequestTransfer;
 use Generated\Shared\Transfer\CheckoutResponseTransfer;
-use Pyz\Yves\Checkout\Plugin\CheckoutControllerProvider;
+use Pyz\Yves\Checkout\Communication\Plugin\CheckoutControllerProvider;
 use SprykerEngine\Yves\Application\Communication\Controller\AbstractController;
 use Pyz\Yves\Checkout\Communication\CheckoutDependencyContainer;
 use Symfony\Component\HttpFoundation\JsonResponse;
