@@ -55,7 +55,7 @@
                 </tbody>
                 <tfoot>
                 <tr>
-                    <td rowspan="{{ totals.tax.taxRates|length + 4 }}" colspan="2">
+                    <td rowspan="{{ totals.taxTotal.taxSets|length + 4 }}" colspan="2">
                         <ul class="usps">
                             <li><span class="glyphicon glyphicon-gift"></span>{{ 'cart.usp.shipping'|trans }}</li>
                             <li><span class="glyphicon glyphicon-refresh"></span>{{ 'cart.usp.return'|trans }}</li>
@@ -68,10 +68,10 @@
                     <td class="label">{{ 'cart.price.shipping'|trans }}</td>
                     <td>{{ 0|price }}</td>
                 </tr>
-                {% for taxRate in totals.tax.taxRates %}
+                {% for taxSet in totals.taxTotal.taxSets %}
                     <tr class="tax">
-                        <td>{{ taxRate.percentage }}{{ 'cart.percentage.vat'|trans }}</td>
-                        <td>{{ taxRate.amount|price }}</td>
+                        <td>{{ taxSet.taxRates[0].rate }}{{ 'cart.percentage.vat'|trans }}</td>
+                        <td>{{ taxSet.amount|price }}</td>
                     </tr>
                 {% endfor %}
                 <hr />
