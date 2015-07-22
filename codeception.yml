@@ -41,6 +41,9 @@ include:
  - vendor/spryker/spryker/Bundles/Mail/
  - vendor/spryker/spryker/Bundles/Maintenance/
  - vendor/spryker/spryker/Bundles/Oms/
+ - vendor/spryker/spryker/Bundles/Payone/
+ - vendor/spryker/spryker/Bundles/PayoneCheckoutConnector/
+ - vendor/spryker/spryker/Bundles/PayoneOmsConnector/
  - vendor/spryker/spryker/Bundles/Price/
  - vendor/spryker/spryker/Bundles/PriceCartConnector/
  - vendor/spryker/spryker/Bundles/Product/
