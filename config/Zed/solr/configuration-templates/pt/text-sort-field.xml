@@ -1,5 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<analyzer>
-    <tokenizer class="solr.KeywordTokenizerFactory"/>
-    <filter class="solr.CollationKeyFilterFactory" language="pt" country="BR" strength="primary"/>
-</analyzer>
