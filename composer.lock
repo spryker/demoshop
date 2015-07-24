@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "ed3cd16260d448e6941cd049ff503fce",
+    "hash": "cd8e8c8519f755d5e89eea26ffcfddca",
     "packages": [
         {
             "name": "digital-canvas/zend-framework",
@@ -708,11 +708,11 @@
         },
         {
             "name": "spryker/spryker",
-            "version": "dev-develop",
+            "version": "dev-refactor/DEM-62-remove-cruft",
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/spryker.git",
-                "reference": "74cc6ad038e9c33153acf0b2a55b7e3c316222e3"
+                "reference": "6c1de7356fe9d53331274a516e0295eb9e7f9b62"
             },
             "require": {
                 "digital-canvas/zend-framework": ">=1.12.2",
@@ -845,7 +845,7 @@
                     "SprykerFeature\\Shared\\Library": "Bundles/Library/src/"
                 }
             },
-            "time": "2015-07-23 11:26:12"
+            "time": "2015-07-23 13:17:40"
         },
         {
             "name": "symfony-cmf/routing",
@@ -892,7 +892,7 @@
             ],
             "authors": [
                 {
-                    "name": "Symfony CMF Community",
+                    "name": "Symfony CMF community",
                     "homepage": "https://github.com/symfony-cmf/Routing/contributors"
                 }
             ],
