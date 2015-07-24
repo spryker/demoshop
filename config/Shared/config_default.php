@@ -162,7 +162,7 @@ $config[SystemConfig::CLOUD_CDN_DELETE_LOCAL_PROCESSED_IMAGES] = false;
 $config[SystemConfig::CLOUD_CDN_DELETE_LOCAL_ORIGINAL_IMAGES] = false;
 
 $config[MailConfig::MAIL_PROVIDER_MANDRILL] = [
-    'api-key' => '1zPena6fBFPIxctt6VgCSQ',
+    'api-key' => '5hGEFy0SpJXIft1GSULiVw',
     'host' => 'smtp.mandrillapp.com',
     'port' => '587',
     'username' => 'fabian.wesner@spryker.com',
