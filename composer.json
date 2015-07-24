@@ -1,6 +1,6 @@
 {
   "require": {
-    "spryker/spryker": "dev-develop",
+    "spryker/spryker": "dev-feature/CD-240_Cleanup_Collectors",
 
     "psr/log": "~1.0",
     "propel/propel": "~2.0@dev",
