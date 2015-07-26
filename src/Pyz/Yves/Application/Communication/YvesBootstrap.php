@@ -139,7 +139,7 @@ class YvesBootstrap extends SprykerYvesBootstrap
 
         return [
             $locator->setup()->pluginRouterMonitoringRouter()->setSsl(false),
-            $locator->frontendExporter()->pluginRouterStorageRouter()->setSsl(false),
+            $locator->collector()->pluginRouterStorageRouter()->setSsl(false),
             $locator->catalog()->pluginRouterSearchRouter()->setSsl(false),
             /*
              * SilexRouter should come last, as it is not the fastest one if it can
