@@ -15,6 +15,7 @@ include:
  - vendor/spryker/spryker/Bundles/Checkout/
  - vendor/spryker/spryker/Bundles/Cms/
  - vendor/spryker/spryker/Bundles/CmsExporter/
+ - vendor/spryker/spryker/Bundles/Collector/
  - vendor/spryker/spryker/Bundles/Config/
  - vendor/spryker/spryker/Bundles/Console/
  - vendor/spryker/spryker/Bundles/Country/
@@ -25,7 +26,6 @@ include:
  - vendor/spryker/spryker/Bundles/DiscountCalculationConnector/
  - vendor/spryker/spryker/Bundles/Distributor/
  - vendor/spryker/spryker/Bundles/Document/
- - vendor/spryker/spryker/Bundles/FrontendExporter/
  - vendor/spryker/spryker/Bundles/Git/
  - vendor/spryker/spryker/Bundles/Glossary/
  - vendor/spryker/spryker/Bundles/GlossaryDistributor/

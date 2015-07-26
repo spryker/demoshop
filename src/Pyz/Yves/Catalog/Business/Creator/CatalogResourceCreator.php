@@ -10,7 +10,10 @@ use SprykerEngine\Yves\Kernel\Communication\ControllerLocator;
 use SprykerEngine\Yves\Kernel\Locator;
 use SprykerFeature\Shared\Application\Communication\ControllerServiceBuilder;
 use SprykerFeature\Shared\Category\CategoryConfig;
+use SprykerFeature\Yves\Collector\Communication\Creator\ResourceCreatorInterface;
+/*
 use Pyz\Yves\FrontendExporter\Communication\Creator\ResourceCreatorInterface;
+*/
 
 class CatalogResourceCreator implements ResourceCreatorInterface
 {
