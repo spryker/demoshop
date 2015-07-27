@@ -9,6 +9,19 @@ use SprykerFeature\Zed\Collector\CollectorConfig as SprykerCollectorConfig;
 
 class CollectorConfig extends SprykerCollectorConfig
 {
+    public function getSearchCollectors()
+    {
+        return [
+            $this->getLocator()->collector()->pluginProductCollectorSearchPlugin(),
+        ];
+    }
+
+    public function getStorageCollectors()
+    {
+        return [
+            'abstract_product' => $this->getLocator()->collector()->pluginProductCollectorStoragePlugin(),
+        ];
+    }
 
     /**
      * @return DataProcessorPluginInterface[]
