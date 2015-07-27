@@ -9,6 +9,7 @@ use SprykerEngine\Yves\Application\Communication\Controller\AbstractController;
 use SprykerFeature\Shared\Customer\Code\Messages;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 
 /**
  * @method CustomerDependencyContainer getDependencyContainer()
@@ -42,19 +43,20 @@ class AjaxSecurityController extends AbstractController
      */
     public function registerAction(Request $request)
     {
-        $form = $this->createForm($this->getDependencyContainer()->createFormRegister());
+        if (!$request->isXmlHttpRequest()) {
+            throw new NotFoundHttpException();
+        }
+
         $customerTransfer = new CustomerTransfer();
-        if ($form->isValid()) {
-            $customerTransfer->fromArray($form->getData());
-            $customerTransfer = $this->getLocator()->customer()->client()->registerCustomer($customerTransfer);
-            if ($customerTransfer->getRegistrationKey()) {
-                $this->addMessageWarning(Messages::CUSTOMER_REGISTRATION_SUCCESS);
+        $customerTransfer->setEmail($request->request->get('_username'));
+        $customerTransfer->setPassword($request->request->get('_password'));
+
+        $customerTransfer = $this->getLocator()->customer()->client()->registerCustomer($customerTransfer);
+        if ($customerTransfer->getRegistrationKey()) {
+            $this->addMessageWarning(Messages::CUSTOMER_REGISTRATION_SUCCESS);
 
                 return $this->redirectResponseInternal(CustomerControllerProvider::ROUTE_LOGIN);
             }
-        }
-
-        return $this->jsonResponse($customerTransfer);
     }
 
 }
