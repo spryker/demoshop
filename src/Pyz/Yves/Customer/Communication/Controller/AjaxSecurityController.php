@@ -16,6 +16,9 @@ use Symfony\Component\HttpFoundation\Request;
 class AjaxSecurityController extends AbstractController
 {
 
+    const CUSTOMER_EMAIL = 'email';
+    const CUSTOMER_PASSWORD = 'password';
+
     /**
      * @param Request $request
      *
@@ -24,8 +27,8 @@ class AjaxSecurityController extends AbstractController
     public function loginAction(Request $request)
     {
         $customerTransfer = new CustomerTransfer();
-        $customerTransfer->setEmail($request->request->get('email'))
-            ->setPassword($request->request->get('password'))
+        $customerTransfer->setEmail($request->request->get(self::CUSTOMER_EMAIL))
+            ->setPassword($request->request->get(self::CUSTOMER_PASSWORD))
         ;
         $customerTransfer = $this->getLocator()->customer()->client()->login($customerTransfer);
 
