@@ -193,6 +193,16 @@ keys:
     translations:
       de_DE: 'Ein Blick lohnt sich'
 
+  page.checkout.errors:
+    translations:
+      de_DE: 'Bitte überprüfen Sie Ihre Eingabe.'
+
+  page.checkout.client.existing:
+    translations:
+      de_DE: 'Ich bin bereits Kunde'
+  page.checkout.client.new:
+    translations:
+      de_DE: 'Ich bin Neukunde'
 
   page.checkout.address.heading:
     translations:
@@ -215,10 +225,16 @@ keys:
   page.checkout.address.next-step:
     translations:
       de_DE: 'Weiter - Zahlungsart wählen'
+  page.checkout.address.edit:
+    translations:
+      de_DE: 'Adresse bearbeiten'
 
   page.checkout.payment.heading:
     translations:
       de_DE: '2. Zahlungsart wählen'
+  page.checkout.payment.edit:
+    translations:
+      de_DE: 'Zahlungsart bearbeiten'
   page.checkout.payment.next-step:
     translations:
       de_DE: 'Weiter - Prüfen und Kauf abschließen'

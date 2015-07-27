@@ -11,33 +11,33 @@
                 </div>
                 <div class="checkout__form">
                     <section id="backend-errors-section" class="checkout__form-block" style="display:none;">
-                        <h1 class="form-block__heading">Bitte überprüfen Sie Ihre Eingabe.</h1>
+                        <h1 class="form-block__heading">{{ "page.checkout.errors" | trans }}</h1>
                         <div id="backend-errors"></div>
                     </section>
                     <section class="checkout__form-block checkout__form-block--login js-checkout-login">
-                        <h1 class="form-block__heading">Ich bin bereits Kunde</h1>
+                        <h1 class="form-block__heading">{{ "page.checkout.client.existing" | trans }}</h1>
                         {% include "@application/layout/partials/login-register-form.twig" %}
-                        <button class="login__skip cta">Ich bin Neukunde</button>
+                        <button class="login__skip cta">{{ "page.checkout.client.new" | trans }}</button>
                     </section>
                     {{ form_start(form) }}
                     <section class="checkout__form-block js-form-block js-checkout-address js-checkout-collapsed">
-                        <h1 class="form-block__heading">1. Addressangaben</h1>
+                        <h1 class="form-block__heading">{{ "page.checkout.address.heading" | trans }}</h1>
                         {{ form_widget(form.email) }}
                         {{ form_widget(form.billing_address) }}
                         <input type="checkbox" name="different-delivery-address" id="different-delivery-address" class="padded js-delivery-address-checkbox" tabindex="270">
-                        <label for="different-delivery-address">Abweichende Lieferadresse</label>
+                        <label for="different-delivery-address">{{ "page.checkout.address.billing-isnt-shipping-address" | trans }}</label>
                         {{ form_widget(form.shipping_address) }}
-                        <button class="cta js-address-button" disabled tabindex="370">Weiter - Zahlungsart wählen</button>
-                        <button class="js-edit-formblock form-block__edit">Adresse bearbeiten</button>
+                        <button class="cta js-address-button" disabled tabindex="370">{{ "page.checkout.address.next-step" | trans }}</button>
+                        <button class="js-edit-formblock form-block__edit">{{ "page.checkout.address.edit" | trans }}</button>
                     </section>
                     <section class="checkout__form-block js-form-block js-checkout-payment js-checkout-collapsed">
-                        <h1 class="form-block__heading">2. Zahlungsart wählen</h1>
+                        <h1 class="form-block__heading">{{ "page.checkout.payment.heading" | trans }}</h1>
                         {{ form_widget(form.payment_method) }}
-                        <button class="cta js-payment-button" disabled>Weiter - Prüfen und Kauf abschließen</button>
-                        <button class="js-edit-formblock form-block__edit">Zahlungsart bearbeiten</button>
+                        <button class="cta js-payment-button" disabled>{{ "page.checkout.payment.next-step" | trans }}</button>
+                        <button class="js-edit-formblock form-block__edit">{{ "page.checkout.payment.edit" | trans }}</button>
                     </section>
                     <section class="checkout__form-block checkout__form-block--confirm js-form-block js-checkout-confirm js-checkout-collapsed">
-                        <h1 class="form-block__heading">3. Prüfen und Kauf abschließen</h1>
+                        <h1 class="form-block__heading">{{ "page.checkout.finalize.heading" | trans }}</h1>
                         <div>
                             {% include "@checkout/checkout/cart.twig" %}
                         </div>
@@ -45,7 +45,7 @@
                         <button class="confirm__voucher-submit js-voucher-submit">Gutscheincode einlösen</button>#}
                         <div class="confirm__agb-submit">
                             {{ form_widget(form.terms) }}
-                            <label for="{{ form.terms.vars.id }}" class="confirm__agb-label">Mit dem Klick auf die Schaltfläche “Jetzt kaufen” bestätige ich die <a href="/agb" target="_blank">AGB</a> des Spryker Shops</label>
+                            <label for="{{ form.terms.vars.id }}" class="confirm__agb-label"><a href="/agb" target="_blank"></a></label>
                             <button type="submit" id="checkout_submit" disabled="disabled" class="cta confirm__submit js-checkout-submit">{{ 'page.checkout.finalize.buy-now'|trans }}</button>
                         </div>
                     </section>
