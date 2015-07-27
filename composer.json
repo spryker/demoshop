@@ -1,6 +1,6 @@
 {
   "require": {
-    "spryker/spryker": "dev-feature/CD-259-add_code_style_fixer_command",
+    "spryker/spryker": "dev-develop",
 
     "psr/log": "~1.0",
     "propel/propel": "~2.0@dev",
