@@ -45,7 +45,6 @@ include:
  - vendor/spryker/spryker/Bundles/PriceCartConnector/
  - vendor/spryker/spryker/Bundles/Product/
  - vendor/spryker/spryker/Bundles/ProductCategory/
- - vendor/spryker/spryker/Bundles/ProductCategoryFrontendExporterConnector/
  - vendor/spryker/spryker/Bundles/ProductCategorySearch/
  - vendor/spryker/spryker/Bundles/ProductExporter/
  - vendor/spryker/spryker/Bundles/ProductImage/

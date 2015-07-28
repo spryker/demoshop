@@ -5,11 +5,15 @@ namespace Pyz\Zed\Collector\Business\Storage;
 use Generated\Shared\Transfer\LocaleTransfer;
 use Propel\Runtime\ActiveQuery\Criteria;
 use Propel\Runtime\ActiveQuery\Join;
+use Pyz\Zed\CategoryExporter\Business\CategoryExporterFacade;
 use Pyz\Zed\Price\Business\PriceFacade;
 use SprykerEngine\Zed\Locale\Persistence\Propel\Map\SpyLocaleTableMap;
 use SprykerEngine\Zed\Touch\Persistence\Propel\Map\SpyTouchTableMap;
 use SprykerEngine\Zed\Touch\Persistence\Propel\SpyTouchQuery;
 use SprykerFeature\Shared\Collector\Code\KeyBuilder\KeyBuilderTrait;
+use SprykerFeature\Zed\Category\Persistence\CategoryQueryContainer;
+use SprykerFeature\Zed\Category\Persistence\Propel\Map\SpyCategoryAttributeTableMap;
+use SprykerFeature\Zed\Category\Persistence\Propel\Map\SpyCategoryNodeTableMap;
 use SprykerFeature\Zed\Collector\Business\Model\BatchResultInterface;
 use SprykerFeature\Zed\Price\Persistence\PriceQueryContainer;
 use SprykerFeature\Zed\Price\Persistence\Propel\Map\SpyPriceProductTableMap;
@@ -18,6 +22,7 @@ use SprykerFeature\Zed\Product\Persistence\Propel\Map\SpyAbstractProductTableMap
 use SprykerFeature\Zed\Product\Persistence\Propel\Map\SpyLocalizedAbstractProductAttributesTableMap;
 use SprykerFeature\Zed\Product\Persistence\Propel\Map\SpyLocalizedProductAttributesTableMap;
 use SprykerFeature\Zed\Product\Persistence\Propel\Map\SpyProductTableMap;
+use SprykerFeature\Zed\ProductCategory\Persistence\Propel\Map\SpyProductCategoryTableMap;
 use SprykerFeature\Zed\Stock\Persistence\Propel\Map\SpyStockProductTableMap;
 use SprykerFeature\Zed\Tax\Persistence\Propel\Map\SpyTaxRateTableMap;
 use SprykerFeature\Zed\Tax\Persistence\Propel\Map\SpyTaxSetTableMap;
@@ -49,13 +54,25 @@ class ProductCollector
     private $priceFacade;
 
     /**
+     * @var PriceQueryContainer
+     */
+    private $priceQueryContainer;
+
+    /**
+     * @var CategoryExporterFacade
+     */
+    private $categoryExporterFacade;
+
+    /**
      * @param PriceFacade $priceFacade
      * @param PriceQueryContainer $priceQueryContainer
      */
-    public function __construct(PriceFacade $priceFacade, PriceQueryContainer $priceQueryContainer)
+    public function __construct(PriceFacade $priceFacade, PriceQueryContainer $priceQueryContainer, CategoryExporterFacade $categoryExporterFacade, CategoryQueryContainer $categoryQueryContainer)
     {
         $this->priceFacade = $priceFacade;
         $this->priceQueryContainer = $priceQueryContainer;
+        $this->categoryExporterFacade = $categoryExporterFacade;
+        $this->categoryQueryContainer = $categoryQueryContainer;
     }
 
 
@@ -311,6 +328,50 @@ class ProductCollector
             )
         ;
 
+
+        // Category
+        $baseQuery->addJoin(
+            SpyTouchTableMap::COL_ITEM_ID,
+            SpyProductCategoryTableMap::COL_FK_ABSTRACT_PRODUCT,
+            Criteria::LEFT_JOIN
+        );
+        $baseQuery->addJoin(
+            SpyProductCategoryTableMap::COL_FK_CATEGORY_NODE,
+            SpyCategoryNodeTableMap::COL_ID_CATEGORY_NODE,
+            Criteria::INNER_JOIN
+        );
+        $baseQuery->addJoin(
+            SpyCategoryNodeTableMap::COL_FK_CATEGORY,
+            SpyCategoryAttributeTableMap::COL_FK_CATEGORY,
+            Criteria::INNER_JOIN
+        );
+
+        $excludeDirectParent = false;
+        $excludeRoot = true;
+
+        $baseQuery = $this->categoryQueryContainer->joinCategoryQueryWithUrls($baseQuery);
+        $baseQuery = $this->categoryQueryContainer->selectCategoryAttributeColumns($baseQuery);
+
+        $baseQuery = $this->categoryQueryContainer->joinCategoryQueryWithChildrenCategories($baseQuery);
+        $baseQuery = $this->categoryQueryContainer->joinLocalizedRelatedCategoryQueryWithAttributes($baseQuery, 'categoryChildren', 'child');
+        $baseQuery = $this->categoryQueryContainer->joinRelatedCategoryQueryWithUrls($baseQuery, 'categoryChildren', 'child');
+
+        $baseQuery = $this->categoryQueryContainer->joinCategoryQueryWithParentCategories($baseQuery, $excludeDirectParent, $excludeRoot);
+        $baseQuery = $this->categoryQueryContainer->joinLocalizedRelatedCategoryQueryWithAttributes($baseQuery, 'categoryParents', 'parent');
+        $baseQuery = $this->categoryQueryContainer->joinRelatedCategoryQueryWithUrls($baseQuery, 'categoryParents', 'parent');
+
+        $baseQuery->withColumn(
+            'GROUP_CONCAT(DISTINCT spy_category_node.id_category_node)',
+            'node_id'
+        );
+        $baseQuery->withColumn(
+            SpyCategoryNodeTableMap::COL_FK_CATEGORY,
+            'category_id'
+        );
+        $baseQuery->orderBy('depth', Criteria::DESC);
+        $baseQuery->orderBy('descendant_id', Criteria::DESC);
+        $baseQuery->groupBy('abstract_sku');
+
         return $baseQuery;
     }
 
@@ -387,6 +448,14 @@ class ProductCollector
                     // @TODO Uncomment as soon as there is a Tax GUI/Importer in Zed
                     //unset($processedResultSet[$index]);
                 }
+
+                // Category breadcrumb
+                $processedResultSet[$index]['category'] = $this->categoryExporterFacade->explodeGroupedNodes(
+                    $productRawData,
+                    'category_parent_ids',
+                    'category_parent_names',
+                    'category_parent_urls'
+                );
             }
         }
 
