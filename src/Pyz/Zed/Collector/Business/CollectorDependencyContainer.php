@@ -2,9 +2,12 @@
 
 namespace Pyz\Zed\Collector\Business;
 
+use Pyz\Zed\Collector\Business\Storage\CategoryNodeCollector;
+use Pyz\Zed\Collector\Business\Storage\NavigationCollector;
 use Pyz\Zed\Collector\Business\Storage\PageCollector;
 use Pyz\Zed\Collector\Business\Storage\ProductCollector;
 use Pyz\Zed\Collector\Business\Storage\RedirectCollector;
+use Pyz\Zed\Collector\Business\Storage\TranslationCollector;
 use Pyz\Zed\Collector\Business\Storage\UrlCollector;
 use Pyz\Zed\Collector\CollectorDependencyProvider;
 use SprykerFeature\Zed\Collector\Business\CollectorDependencyContainer as SprykerCollectorDependencyContainer;
@@ -17,7 +20,10 @@ class CollectorDependencyContainer extends SprykerCollectorDependencyContainer
      */
     public function createStorageCategoryNodeCollector()
     {
-        return $this->getFactory()->createStorageCategoryNodeCollector();
+        return $this->getFactory()->createStorageCategoryNodeCollector(
+            $this->getProvidedDependency(CollectorDependencyProvider::FACADE_CATEGORY_EXPORTER),
+            $this->getProvidedDependency(CollectorDependencyProvider::QUERY_CONTAINER_CATEGORY)
+        );
     }
 
     /**
@@ -25,7 +31,10 @@ class CollectorDependencyContainer extends SprykerCollectorDependencyContainer
      */
     public function createStorageNavigationCollector()
     {
-        return $this->getFactory()->createStorageNavigationCollector();
+        return $this->getFactory()->createStorageNavigationCollector(
+            $this->getProvidedDependency(CollectorDependencyProvider::FACADE_CATEGORY_EXPORTER),
+            $this->getProvidedDependency(CollectorDependencyProvider::QUERY_CONTAINER_CATEGORY)
+        );
     }
 
     /**
