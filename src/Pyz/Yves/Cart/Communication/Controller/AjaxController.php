@@ -83,6 +83,11 @@ class AjaxController extends AbstractController
         $cartClient = $this->getLocator()->cart()->client();
         $cartItemTransfer = new CartItemTransfer();
         $cartItemTransfer->setSku($sku);
+        foreach ($cartClient->getCart()->getItems() as $cartItem) {
+            if ($cartItem->getSku() === $sku) {
+                $cartItemTransfer->setQuantity($cartItem->getQuantity());
+            }
+        }
 
         $cartClient->increaseItemQuantity($cartItemTransfer);
 
@@ -97,8 +102,14 @@ class AjaxController extends AbstractController
     public function decreaseAction($sku)
     {
         $cartClient = $this->getLocator()->cart()->client();
+
         $cartItemTransfer = new CartItemTransfer();
         $cartItemTransfer->setSku($sku);
+        foreach ($cartClient->getCart()->getItems() as $cartItem) {
+            if ($cartItem->getSku() === $sku) {
+                $cartItemTransfer->setQuantity($cartItem->getQuantity());
+            }
+        }
 
         $cartClient->decreaseItemQuantity($cartItemTransfer);
 
