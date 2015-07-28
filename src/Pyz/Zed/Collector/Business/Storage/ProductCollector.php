@@ -19,6 +19,9 @@ use SprykerFeature\Zed\Product\Persistence\Propel\Map\SpyLocalizedAbstractProduc
 use SprykerFeature\Zed\Product\Persistence\Propel\Map\SpyLocalizedProductAttributesTableMap;
 use SprykerFeature\Zed\Product\Persistence\Propel\Map\SpyProductTableMap;
 use SprykerFeature\Zed\Stock\Persistence\Propel\Map\SpyStockProductTableMap;
+use SprykerFeature\Zed\Tax\Persistence\Propel\Map\SpyTaxRateTableMap;
+use SprykerFeature\Zed\Tax\Persistence\Propel\Map\SpyTaxSetTableMap;
+use SprykerFeature\Zed\Tax\Persistence\Propel\Map\SpyTaxSetTaxTableMap;
 use SprykerFeature\Zed\Url\Persistence\Propel\Map\SpyUrlTableMap;
 
 // @TODO Interface for StorageCollectors
@@ -248,14 +251,13 @@ class ProductCollector
             Criteria::EQUAL
         );
 
-        $baseQuery
-            ->addJoinObject(
-                (new Join(
-                    'concrete_price_table.fk_price_type',
-                    SpyPriceTypeTableMap::COL_ID_PRICE_TYPE,
-                    Criteria::LEFT_JOIN
-                ))->setRightTableAlias('spy_price_type')
-            );
+        $baseQuery->addJoinObject(
+            (new Join(
+                'concrete_price_table.fk_price_type',
+                SpyPriceTypeTableMap::COL_ID_PRICE_TYPE,
+                Criteria::LEFT_JOIN
+            ))->setRightTableAlias('spy_price_type')
+        );
 
         $baseQuery->withColumn(
             'abstract_price_table.price',
@@ -273,6 +275,41 @@ class ProductCollector
         );
 
         $baseQuery->groupBy('abstract_sku');
+
+        // Tax set
+        $baseQuery->addJoin(
+            SpyAbstractProductTableMap::COL_FK_TAX_SET,
+            SpyTaxSetTableMap::COL_ID_TAX_SET,
+            Criteria::LEFT_JOIN // @TODO Change to Criteria::INNER_JOIN as soon as there is a Tax GUI/Importer in Zed
+        );
+
+        $baseQuery->withColumn(
+            SpyTaxSetTableMap::COL_NAME,
+            'tax_set_name'
+        );
+
+        // Tax rates
+        $baseQuery->addJoin(
+            SpyTaxSetTableMap::COL_ID_TAX_SET,
+            SpyTaxSetTaxTableMap::COL_FK_TAX_SET,
+            Criteria::LEFT_JOIN // @TODO Change to Criteria::INNER_JOIN as soon as there is a Tax GUI/Importer in Zed
+        );
+        $baseQuery->addJoin(
+            SpyTaxSetTaxTableMap::COL_FK_TAX_RATE,
+            SpyTaxRateTableMap::COL_ID_TAX_RATE,
+            Criteria::LEFT_JOIN // @TODO Change to Criteria::INNER_JOIN as soon as there is a Tax GUI/Importer in Zed
+        );
+
+        $baseQuery
+            ->withColumn(
+                'GROUP_CONCAT(DISTINCT ' . SpyTaxRateTableMap::COL_NAME . ')',
+                'tax_rate_names'
+            )
+            ->withColumn(
+                'GROUP_CONCAT(DISTINCT ' . SpyTaxRateTableMap::COL_RATE . ')',
+                'tax_rate_rates'
+            )
+        ;
 
         return $baseQuery;
     }
@@ -310,7 +347,6 @@ class ProductCollector
                 $priceTypes = explode(',', $productRawData['price_types']);
                 $priceTypeIndex = array_search($defaultPriceType, $priceTypes);
 
-
                 if ($productRawData['concrete_prices'] !== null && $priceTypeIndex !== false) {
                     $prices = explode(',', $productRawData['concrete_prices']);
                     $processedResultSet[$index]['valid_price'] = $prices[$priceTypeIndex];
@@ -324,6 +360,32 @@ class ProductCollector
                 } else {
                     unset($processedResultSet[$index]);
                     continue;
+                }
+
+                // Tax
+                if (isset($productRawData['tax_set_name'], $productRawData['tax_rate_names'], $productRawData['tax_rate_rates'])) {
+                    $taxRates = [];
+                    $taxRateNames = explode(',', $productRawData['tax_rate_names']);
+                    $taxRateRates = explode(',', $productRawData['tax_rate_rates']);
+
+                    $effectiveRate = 0;
+
+                    foreach ($taxRateRates as $key => $taxRateRate) {
+                        $effectiveRate += $taxRateRate;
+                        $taxRates[] = [
+                            'name' => $taxRateNames[$key],
+                            'rate' => (float) $taxRateRate,
+                        ];
+                    }
+
+                    $processedResultSet[$index]['tax'] = [
+                        'name' => $productRawData['tax_set_name'],
+                        'effectiv_rate' => $effectiveRate,
+                        'rates' => $taxRates,
+                    ];
+                } else {
+                    // @TODO Uncomment as soon as there is a Tax GUI/Importer in Zed
+                    //unset($processedResultSet[$index]);
                 }
             }
         }
