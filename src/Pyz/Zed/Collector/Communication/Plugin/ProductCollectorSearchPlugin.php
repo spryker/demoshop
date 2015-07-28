@@ -2,17 +2,33 @@
 
 namespace Pyz\Zed\Collector\Communication\Plugin;
 
+use Generated\Shared\Transfer\LocaleTransfer;
+use Pyz\Zed\Collector\Communication\CollectorDependencyContainer;
 use SprykerEngine\Zed\Kernel\Communication\AbstractPlugin;
+use SprykerEngine\Zed\Touch\Persistence\Propel\SpyTouchQuery;
+use SprykerFeature\Zed\Collector\Business\Exporter\Writer\WriterInterface;
+use SprykerFeature\Zed\Collector\Business\Model\BatchResultInterface;
 
+/**
+ * @method CollectorDependencyContainer getDependencyContainer()
+ */
 class ProductCollectorSearchPlugin extends AbstractPlugin
 {
 
     /**
-     * @return string
+     * @param SpyTouchQuery $baseQuery
+     * @param LocaleTransfer $locale
+     * @param BatchResultInterface $result
+     * @param WriterInterface $dataWriter
+     *
+     * @return array
      */
-    public function getTouchItemType()
+    public function run(SpyTouchQuery $baseQuery, LocaleTransfer $locale, BatchResultInterface $result, WriterInterface $dataWriter)
     {
-        return 'abstract_product';
+        return $this->getDependencyContainer()
+            ->getCollectorFacade()
+            ->runSearchProductCollector($baseQuery, $locale, $result, $dataWriter)
+        ;
     }
 
 }

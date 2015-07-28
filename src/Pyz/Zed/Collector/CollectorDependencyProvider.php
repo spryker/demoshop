@@ -20,6 +20,8 @@ class CollectorDependencyProvider extends SprykerCollectorDependencyProvider
 
     const QUERY_CONTAINER_CATEGORY = 'category_query_container';
 
+    const FACADE_PRODUCT_SEARCH = 'product_search_facade';
+
     /**
      * @var Container
      *
@@ -43,6 +45,10 @@ class CollectorDependencyProvider extends SprykerCollectorDependencyProvider
 
         $container[self::QUERY_CONTAINER_CATEGORY] = function (Container $container) {
             return $container->getLocator()->category()->queryContainer();
+        };
+
+        $container[self::FACADE_PRODUCT_SEARCH] = function (Container $container) {
+            return $container->getLocator()->productSearch()->facade();
         };
 
         return $container;
