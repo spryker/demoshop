@@ -2,9 +2,6 @@
 
 namespace Pyz\Zed\Collector;
 
-use SprykerFeature\Zed\Collector\Dependency\Plugin\DataProcessorPluginInterface;
-use SprykerFeature\Zed\Collector\Dependency\Plugin\ExportFailedDeciderPluginInterface;
-use SprykerFeature\Zed\Collector\Dependency\Plugin\QueryExpanderPluginInterface;
 use SprykerFeature\Zed\Collector\CollectorConfig as SprykerCollectorConfig;
 
 class CollectorConfig extends SprykerCollectorConfig
@@ -27,80 +24,6 @@ class CollectorConfig extends SprykerCollectorConfig
             'redirect' => $this->getLocator()->collector()->pluginRedirectCollectorStoragePlugin(),
             'url' => $this->getLocator()->collector()->pluginUrlCollectorStoragePlugin(),
         ];
-    }
-
-    /**
-     * @return DataProcessorPluginInterface[]
-     */
-    public function getKeyValueProcessors()
-    {
-        return [
-            $this->getLocator()->productOptionExporter()->pluginProductOptionProcessorPlugin(),
-            //$this->getLocator()->searchPage()->pluginSearchPageConfigProcessorPlugin(),
-        ];
-    }
-
-    /**
-     * @return ExportFailedDeciderPluginInterface[]
-     */
-    public function getKeyValueExportFailedDeciders()
-    {
-        return [
-        ];
-    }
-
-    /**
-     * @return QueryExpanderPluginInterface[]
-     */
-    public function getKeyValueQueryExpander()
-    {
-        return [
-            $this->getLocator()->productOptionExporter()->pluginProductOptionExpanderPlugin(),
-            //$this->getLocator()->searchPage()->pluginSearchPageConfigQueryExpanderPlugin(),
-        ];
-    }
-
-    /**
-     * @return DataProcessorPluginInterface[]
-     */
-    public function getSearchProcessors()
-    {
-        return [
-            $this->getLocator()->productSearch()->pluginProductSearchProcessorPlugin(),
-            $this->getLocator()->productSearch()->pluginProductAttributesProcessorPlugin(),
-            //$this->getLocator()->productSearchAvailabilityConnector()->pluginProductAvailabilityProcessorPlugin(),
-            $this->getLocator()->productCategorySearch()->pluginProductCategorySearchProcessorPlugin(),
-        ];
-    }
-
-    /**
-     * @return QueryExpanderPluginInterface[]
-     */
-    public function getSearchQueryExpander()
-    {
-        return [
-            $this->getLocator()->productSearch()->pluginProductQueryExpanderPlugin(),
-            //$this->getLocator()->productSearchAvailabilityConnector()->pluginProductAvailabilityQueryExpanderPlugin(),
-            $this->getLocator()->productCategory()->pluginProductCategoryPathQueryExpanderPlugin(),
-        ];
-    }
-
-    /**
-     * @return ExportFailedDeciderPluginInterface[]
-     */
-    public function getSearchExportFailedDeciders()
-    {
-        return [
-            $this->getLocator()->productSearch()->pluginProductSearchFailedDeciderPlugin(),
-        ];
-    }
-
-    /**
-     * @return array
-     */
-    public function getSearchUpdateProcessors()
-    {
-        return [];
     }
 
 }

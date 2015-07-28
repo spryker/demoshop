@@ -2,6 +2,7 @@
 
 namespace Pyz\Zed\Collector\Business;
 
+use Pyz\Zed\Collector\Business\Search\ProductCollector as SearchProductCollector;
 use Pyz\Zed\Collector\Business\Storage\CategoryNodeCollector;
 use Pyz\Zed\Collector\Business\Storage\NavigationCollector;
 use Pyz\Zed\Collector\Business\Storage\PageCollector;
@@ -14,6 +15,20 @@ use SprykerFeature\Zed\Collector\Business\CollectorDependencyContainer as Spryke
 
 class CollectorDependencyContainer extends SprykerCollectorDependencyContainer
 {
+
+    /**
+     * @return SearchProductCollector
+     */
+    public function createSearchProductCollector()
+    {
+        return $this->getFactory()->createSearchProductCollector(
+            $this->getProvidedDependency(CollectorDependencyProvider::FACADE_PRICE),
+            $this->getProvidedDependency(CollectorDependencyProvider::QUERY_CONTAINER_PRICE),
+            $this->getProvidedDependency(CollectorDependencyProvider::FACADE_CATEGORY_EXPORTER),
+            $this->getProvidedDependency(CollectorDependencyProvider::QUERY_CONTAINER_CATEGORY),
+            $this->getProvidedDependency(CollectorDependencyProvider::FACADE_PRODUCT_SEARCH)
+        );
+    }
 
     /**
      * @return CategoryNodeCollector

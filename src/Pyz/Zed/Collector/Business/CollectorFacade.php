@@ -20,6 +20,17 @@ class CollectorFacade extends SprykerCollectorFacade
      * @param BatchResultInterface $result
      * @param WriterInterface $dataWriter
      */
+    public function runSearchProductCollector(SpyTouchQuery $baseQuery, LocaleTransfer $locale, BatchResultInterface $result, $dataWriter)
+    {
+        $this->getDependencyContainer()->createSearchProductCollector()->run($baseQuery, $locale, $result, $dataWriter);
+    }
+
+    /**
+     * @param SpyTouchQuery $baseQuery
+     * @param LocaleTransfer $locale
+     * @param BatchResultInterface $result
+     * @param WriterInterface $dataWriter
+     */
     public function runStorageCategoryNodeCollector(SpyTouchQuery $baseQuery, LocaleTransfer $locale, BatchResultInterface $result, $dataWriter)
     {
         $this->getDependencyContainer()->createStorageCategoryNodeCollector()->run($baseQuery, $locale, $result, $dataWriter);
