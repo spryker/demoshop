@@ -9,16 +9,15 @@ use SprykerEngine\Zed\Touch\Persistence\Propel\Map\SpyTouchTableMap;
 use SprykerEngine\Zed\Touch\Persistence\Propel\SpyTouchQuery;
 use SprykerFeature\Shared\Collector\Code\KeyBuilder\KeyBuilderTrait;
 use SprykerFeature\Zed\Collector\Business\Model\BatchResultInterface;
+use SprykerFeature\Zed\Url\Persistence\Propel\Map\SpyRedirectTableMap;
 use SprykerFeature\Zed\Url\Persistence\Propel\Map\SpyUrlTableMap;
 use SprykerFeature\Zed\Url\Persistence\Propel\ResourceAwareSpyUrlTableMap;
 
 // @TODO Interface for StorageCollectors
-class UrlCollector
+class RedirectCollector
 {
 
     use KeyBuilderTrait;
-
-
 
     /**
      * @param SpyTouchQuery $baseQuery
@@ -51,16 +50,21 @@ class UrlCollector
     {
         $baseQuery->addJoin(
             SpyTouchTableMap::COL_ITEM_ID,
-            SpyUrlTableMap::COL_ID_URL,
+            SpyRedirectTableMap::COL_ID_REDIRECT,
             Criteria::INNER_JOIN
         );
 
-        foreach (ResourceAwareSpyUrlTableMap::getResourceColumnNames() as $constantName => $value) {
-            $alias = strstr($value, 'fk_resource');
-            $baseQuery->withColumn(ResourceAwareSpyUrlTableMap::getConstantValue($constantName), $alias);
-        }
+        $baseQuery->addJoin(
+            SpyRedirectTableMap::COL_ID_REDIRECT,
+            SpyUrlTableMap::COL_FK_RESOURCE_REDIRECT,
+            Criteria::INNER_JOIN
+        );
 
-        $baseQuery->withColumn(SpyUrlTableMap::COL_URL, 'url');
+        $baseQuery->clearSelectColumns();
+        $baseQuery->withColumn(SpyRedirectTableMap::COL_ID_REDIRECT, 'redirect_id');
+        $baseQuery->withColumn(SpyUrlTableMap::COL_URL, 'from_url');
+        $baseQuery->withColumn(SpyRedirectTableMap::COL_STATUS, 'status');
+        $baseQuery->withColumn(SpyRedirectTableMap::COL_TO_URL, 'to_url');
 
         return $baseQuery;
     }
@@ -74,23 +78,36 @@ class UrlCollector
     protected function processData($resultSet, LocaleTransfer $locale)
     {
         $processedResultSet = [];
-        foreach ($resultSet as $index => $url) {
-            $resourceArguments = $this->findResourceArguments($url);
-
-            if (!$resourceArguments) {
-                continue;
-                // @TODO log a warning about a faulty url
-            }
-
-            $indexKey = $this->generateKey($url['url'], $locale->getLocaleName());
-            $referenceKey = $this->generateResourceKey($resourceArguments, $locale->getLocaleName());
-            $processedResultSet[$indexKey] = [
-                'reference_key' => $referenceKey,
-                'type' => $resourceArguments['resourceType'],
+        foreach ($resultSet as $index => $redirect) {
+            $redirectKey = $this->generateResourceKey($redirect['redirect_id'], $locale->getLocaleName());
+            $returnedResultSet[$redirectKey] = [
+                'from_url' => $redirect['from_url'],
+                'to_url' => $redirect['to_url'],
+                'status' => $redirect['status'],
+                'id' => $redirect['redirect_id'],
             ];
         }
 
         return $processedResultSet;
+    }
+
+
+    /**
+     * @param string $data
+     * @param string $localeName
+     *
+     * @return string
+     */
+    public function generateResourceKey($data, $localeName)
+    {
+        $keyParts = [
+            Store::getInstance()->getStoreName(),
+            $localeName,
+            'resource',
+            'redirect.' . $data,
+        ];
+
+        return $this->escapeKey(implode($this->keySeparator, $keyParts));
     }
 
 
@@ -104,25 +121,7 @@ class UrlCollector
      */
     public function getBundleName()
     {
-        return 'url';
-    }
-
-    /**
-     * @param array $data
-     * @param string $localeName
-     *
-     * @return string
-     */
-    public function generateResourceKey($data, $localeName)
-    {
-        $keyParts = [
-            Store::getInstance()->getStoreName(),
-            $localeName,
-           'resource',
-            $data['resourceType'] . '.' . $data['value'],
-        ];
-
-        return $this->escapeKey(implode($this->keySeparator, $keyParts));
+        return 'resource';
     }
 
     /**
