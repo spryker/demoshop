@@ -9,6 +9,7 @@ use SprykerEngine\Yves\Application\Communication\Controller\AbstractController;
 use SprykerFeature\Shared\Customer\Code\Messages;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 
 /**
  * @method CustomerDependencyContainer getDependencyContainer()
@@ -16,8 +17,11 @@ use Symfony\Component\HttpFoundation\Request;
 class AjaxSecurityController extends AbstractController
 {
 
-    const CUSTOMER_EMAIL = 'email';
-    const CUSTOMER_PASSWORD = 'password';
+    const LOGIN_EMAIL = 'email';
+    const LOGIN_PASSWORD = 'password';
+
+    const REGISTRATION_EMAIL = '_username';
+    const REGISTRATION_PASSWORD = '_password';
 
     /**
      * @param Request $request
@@ -27,10 +31,15 @@ class AjaxSecurityController extends AbstractController
     public function loginAction(Request $request)
     {
         $customerTransfer = new CustomerTransfer();
-        $customerTransfer->setEmail($request->request->get(self::CUSTOMER_EMAIL))
-            ->setPassword($request->request->get(self::CUSTOMER_PASSWORD))
+        $customerTransfer->setEmail($request->request->get(self::LOGIN_EMAIL))
+            ->setPassword($request->request->get(self::LOGIN_PASSWORD))
         ;
-        $customerTransfer = $this->getLocator()->customer()->client()->login($customerTransfer);
+
+        $customerTransfer = $this->getLocator()
+            ->customer()
+            ->client()
+            ->login($customerTransfer)
+        ;
 
         return $this->jsonResponse($customerTransfer);
     }
@@ -42,19 +51,25 @@ class AjaxSecurityController extends AbstractController
      */
     public function registerAction(Request $request)
     {
-        $form = $this->createForm($this->getDependencyContainer()->createFormRegister());
-        $customerTransfer = new CustomerTransfer();
-        if ($form->isValid()) {
-            $customerTransfer->fromArray($form->getData());
-            $customerTransfer = $this->getLocator()->customer()->client()->registerCustomer($customerTransfer);
-            if ($customerTransfer->getRegistrationKey()) {
-                $this->addMessageWarning(Messages::CUSTOMER_REGISTRATION_SUCCESS);
-
-                return $this->redirectResponseInternal(CustomerControllerProvider::ROUTE_LOGIN);
-            }
+        if (!$request->isXmlHttpRequest()) {
+            throw new NotFoundHttpException();
         }
 
-        return $this->jsonResponse($customerTransfer);
+        $customerTransfer = new CustomerTransfer();
+        $customerTransfer->setEmail($request->request->get(self::REGISTRATION_EMAIL));
+        $customerTransfer->setPassword($request->request->get(self::REGISTRATION_PASSWORD));
+
+        $customerTransfer = $this->getLocator()
+            ->customer()
+            ->client()
+            ->registerCustomer($customerTransfer)
+        ;
+
+        if ($customerTransfer->getRegistrationKey()) {
+            $this->addMessageWarning(Messages::CUSTOMER_REGISTRATION_SUCCESS);
+
+            return $this->redirectResponseInternal(CustomerControllerProvider::ROUTE_LOGIN);
+        }
     }
 
 }
