@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "b59b9fbd5f3898ff0810240786e7f826",
+    "hash": "20caec24eaf38069fd4254a9f93185e4",
     "packages": [
         {
             "name": "digital-canvas/zend-framework",
@@ -708,11 +708,11 @@
         },
         {
             "name": "spryker/spryker",
-            "version": "dev-release/v0.5.0",
+            "version": "v0.5.0",
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/spryker.git",
-                "reference": "0edc6c8dbc85c0e8722d4f673c9233173f07f8e5"
+                "reference": "3ccdf6776c5bc9a623fadc18b18dc055c60a0d19"
             },
             "require": {
                 "digital-canvas/zend-framework": ">=1.12.2",
@@ -845,7 +845,7 @@
                     "SprykerFeature\\Shared\\Library": "Bundles/Library/src/"
                 }
             },
-            "time": "2015-07-28 21:36:10"
+            "time": "2015-07-28 21:40:39"
         },
         {
             "name": "symfony-cmf/routing",
@@ -4075,7 +4075,6 @@
     "aliases": [],
     "minimum-stability": "stable",
     "stability-flags": {
-        "spryker/spryker": 20,
         "propel/propel": 20,
         "silex/silex": 20,
         "pimple/pimple": 20
