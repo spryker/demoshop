@@ -66,6 +66,8 @@ class ProductCollector
     /**
      * @param PriceFacade $priceFacade
      * @param PriceQueryContainer $priceQueryContainer
+     * @param CategoryExporterFacade $categoryExporterFacade
+     * @param CategoryQueryContainer $categoryQueryContainer
      */
     public function __construct(PriceFacade $priceFacade, PriceQueryContainer $priceQueryContainer, CategoryExporterFacade $categoryExporterFacade, CategoryQueryContainer $categoryQueryContainer)
     {
@@ -80,8 +82,6 @@ class ProductCollector
      * @param SpyTouchQuery $baseQuery
      * @param LocaleTransfer $locale
      * @param $result
-     *
-     * @return array
      */
     public function run(SpyTouchQuery $baseQuery, LocaleTransfer $locale, BatchResultInterface $result, $dataWriter)
     {
@@ -97,8 +97,6 @@ class ProductCollector
             $dataWriter->write($collectedData, 'abstract_product');
             $result->increaseProcessedCount(count($collectedData));
         }
-
-        return $baseQuery;
     }
 
     /**
