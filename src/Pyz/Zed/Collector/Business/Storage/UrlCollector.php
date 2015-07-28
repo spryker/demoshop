@@ -12,13 +12,10 @@ use SprykerFeature\Zed\Collector\Business\Model\BatchResultInterface;
 use SprykerFeature\Zed\Url\Persistence\Propel\Map\SpyUrlTableMap;
 use SprykerFeature\Zed\Url\Persistence\Propel\ResourceAwareSpyUrlTableMap;
 
-// @TODO Interface for StorageCollectors
 class UrlCollector
 {
 
     use KeyBuilderTrait;
-
-
 
     /**
      * @param SpyTouchQuery $baseQuery

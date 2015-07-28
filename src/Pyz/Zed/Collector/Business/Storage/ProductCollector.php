@@ -29,7 +29,6 @@ use SprykerFeature\Zed\Tax\Persistence\Propel\Map\SpyTaxSetTableMap;
 use SprykerFeature\Zed\Tax\Persistence\Propel\Map\SpyTaxSetTaxTableMap;
 use SprykerFeature\Zed\Url\Persistence\Propel\Map\SpyUrlTableMap;
 
-// @TODO Interface for StorageCollectors
 class ProductCollector
 {
 
@@ -62,6 +61,11 @@ class ProductCollector
      * @var CategoryExporterFacade
      */
     private $categoryExporterFacade;
+
+    /**
+     * @var CategoryQueryContainer
+     */
+    private $categoryQueryContainer;
 
     /**
      * @param PriceFacade $priceFacade

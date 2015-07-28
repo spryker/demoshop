@@ -20,9 +20,9 @@ class CollectorConfig extends SprykerCollectorConfig
     {
         return [
             'abstract_product' => $this->getLocator()->collector()->pluginProductCollectorStoragePlugin(),
-//            'categorynode' => $this->getLocator()->collector()->pluginCategoryNodeCollectorStoragePlugin(),
-//            'navigation' => $this->getLocator()->collector()->pluginNavigationCollectorStoragePlugin(),
-//            'translation' => $this->getLocator()->collector()->pluginTranslationCollectorStoragePlugin(),
+            'categorynode' => $this->getLocator()->collector()->pluginCategoryNodeCollectorStoragePlugin(),
+            'navigation' => $this->getLocator()->collector()->pluginNavigationCollectorStoragePlugin(),
+            'translation' => $this->getLocator()->collector()->pluginTranslationCollectorStoragePlugin(),
             'page' => $this->getLocator()->collector()->pluginPageCollectorStoragePlugin(),
             'redirect' => $this->getLocator()->collector()->pluginRedirectCollectorStoragePlugin(),
             'url' => $this->getLocator()->collector()->pluginUrlCollectorStoragePlugin(),
@@ -36,12 +36,6 @@ class CollectorConfig extends SprykerCollectorConfig
     {
         return [
             $this->getLocator()->productOptionExporter()->pluginProductOptionProcessorPlugin(),
-
-            $this->getLocator()->categoryExporter()->pluginNavigationProcessorPlugin(),
-            $this->getLocator()->categoryExporter()->pluginCategoryNodeProcessorPlugin(),
-
-            $this->getLocator()->glossaryExporter()->pluginTranslationProcessorPlugin(),
-
             //$this->getLocator()->searchPage()->pluginSearchPageConfigProcessorPlugin(),
         ];
     }
@@ -62,10 +56,6 @@ class CollectorConfig extends SprykerCollectorConfig
     {
         return [
             $this->getLocator()->productOptionExporter()->pluginProductOptionExpanderPlugin(),
-
-            $this->getLocator()->glossaryExporter()->pluginTranslationQueryExpanderPlugin(),
-            $this->getLocator()->categoryExporter()->pluginNavigationQueryExpanderPlugin(),
-            $this->getLocator()->categoryExporter()->pluginCategoryNodeQueryExpanderPlugin(),
             //$this->getLocator()->searchPage()->pluginSearchPageConfigQueryExpanderPlugin(),
         ];
     }

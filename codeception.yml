@@ -29,7 +29,6 @@ include:
  - vendor/spryker/spryker/Bundles/Git/
  - vendor/spryker/spryker/Bundles/Glossary/
  - vendor/spryker/spryker/Bundles/GlossaryDistributor/
- - vendor/spryker/spryker/Bundles/GlossaryExporter/
  - vendor/spryker/spryker/Bundles/GlossaryQueue/
  - vendor/spryker/spryker/Bundles/Installer/
  - vendor/spryker/spryker/Bundles/Invoice/
