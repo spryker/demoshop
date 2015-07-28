@@ -23,7 +23,7 @@ class CollectorConfig extends SprykerCollectorConfig
 //            'categorynode' => $this->getLocator()->collector()->pluginCategoryNodeCollectorStoragePlugin(),
 //            'navigation' => $this->getLocator()->collector()->pluginNavigationCollectorStoragePlugin(),
 //            'translation' => $this->getLocator()->collector()->pluginTranslationCollectorStoragePlugin(),
-//            'page' => $this->getLocator()->collector()->pluginPageCollectorStoragePlugin(),
+            'page' => $this->getLocator()->collector()->pluginPageCollectorStoragePlugin(),
             'redirect' => $this->getLocator()->collector()->pluginRedirectCollectorStoragePlugin(),
             'url' => $this->getLocator()->collector()->pluginUrlCollectorStoragePlugin(),
         ];
@@ -42,7 +42,6 @@ class CollectorConfig extends SprykerCollectorConfig
 
             $this->getLocator()->glossaryExporter()->pluginTranslationProcessorPlugin(),
 
-            $this->getLocator()->cmsExporter()->pluginCmsPageProcessorPlugin(),
             //$this->getLocator()->searchPage()->pluginSearchPageConfigProcessorPlugin(),
         ];
     }
@@ -67,7 +66,6 @@ class CollectorConfig extends SprykerCollectorConfig
             $this->getLocator()->glossaryExporter()->pluginTranslationQueryExpanderPlugin(),
             $this->getLocator()->categoryExporter()->pluginNavigationQueryExpanderPlugin(),
             $this->getLocator()->categoryExporter()->pluginCategoryNodeQueryExpanderPlugin(),
-            $this->getLocator()->cmsExporter()->pluginCmsQueryExpanderPlugin(),
             //$this->getLocator()->searchPage()->pluginSearchPageConfigQueryExpanderPlugin(),
         ];
     }

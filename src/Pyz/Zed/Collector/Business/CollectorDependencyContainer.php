@@ -2,7 +2,10 @@
 
 namespace Pyz\Zed\Collector\Business;
 
+use Pyz\Zed\Collector\Business\Storage\PageCollector;
 use Pyz\Zed\Collector\Business\Storage\ProductCollector;
+use Pyz\Zed\Collector\Business\Storage\RedirectCollector;
+use Pyz\Zed\Collector\Business\Storage\UrlCollector;
 use Pyz\Zed\Collector\CollectorDependencyProvider;
 use SprykerFeature\Zed\Collector\Business\CollectorDependencyContainer as SprykerCollectorDependencyContainer;
 
