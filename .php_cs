@@ -3,39 +3,67 @@
 $finder = Symfony\CS\Finder\DefaultFinder::create()
     ->in(__DIR__ . '/src')
     ->exclude('Generated')
+    ->exclude('Propel/Base')
+    ->exclude('Propel/Map')
+    ->exclude('tests/_helpers')
+    ->exclude('Presentation')
+    ->notName('*.twig')
 ;
+
 return Symfony\CS\Config\Config::create()
-    ->level(\Symfony\CS\FixerInterface::SYMFONY_LEVEL)
+    ->finder($finder)
+    ->level(\Symfony\CS\FixerInterface::PSR2_LEVEL)
     ->fixers(
         array(
-            'elseif',
-            'eof_ending',
-            'extra_empty_lines',
+            'blankline_after_open_tag',
+            '-braces',
             'concat_with_spaces',
-            'function_declaration',
-            'include',
-            'indentation',
-            'linefeed',
-            'php_closing_tag',
-            'psr0',
-            'short_tag',
-            'trailing_spaces',
-            'unused_use',
-            'visibility',
+            'double_arrow_multiline_whitespaces',
+            'duplicate_semicolon',
             'empty_enclosing_lines',
+            'empty_return',
+            'encoding',
+            'extra_empty_lines',
+            'include',
+            'join_function',
+            'list_commas',
+            'multiline_array_trailing_comma',
+            'namespace_no_leading_whitespace',
+            'new_with_braces',
+            'object_operator',
+            'operator_spaces',
+            'phpdoc_no_access',
+            'phpdoc_no_empty_return',
+            'phpdoc_no_package',
             'phpdoc_order',
+            'phpdoc_scalar',
+            'phpdoc_separation',
+            'phpdoc_to_comment',
+            'phpdoc_trim',
+            'phpdoc_type_to_var',
+            'phpdoc_var_without_name',
+            'psr0',
+            'remove_leading_slash_use',
+            'remove_lines_between_uses',
+            'return_fixer',
+            'self_accessor',
+            'single_array_no_trailing_comma',
+            'single_line_before_namespace',
+            'single_quote',
+            'short_array_syntax',
+            'short_tag',
+            'spaces_before_semicolon',
+            'spaces_cast',
+            'standardize_not_equal',
+            'strict',
+            'ternary_spaces',
+            'trim_array_spaces',
             'unalign_double_arrow',
             'unalign_equals',
-            'short_array_syntax',
-            'strict',
-            '-phpdoc_params',
-            '-concat_without_spaces',
-            '-pre_increment',
-            '-phpdoc_indent',
-            '-phpdoc_short_description',
-            '-braces',
+            'unary_operators_spaces',
+            'unused_use',
+            'whitespacy_lines'
         )
     )
     ->addCustomFixer(new \SprykerFeature\Zed\Maintenance\Business\CodeStyleFixer\EmptyEnclosingLinesFixer())
-    ->finder($finder)
 ;

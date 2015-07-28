@@ -1,4 +1,0 @@
-name,sku,color,"short Description","long Description","meta Keywords","meta Description","page Title",width,height,refSku,refBundleSkus
-"Product 1",01-abstract-01,,"Awesome product","lorem ipsum awesome, producto 1",product|awesome,"Super awesome meta description","mega product","10 cm","20 cm",,
-"Concrete 1",01-concrete-01,green,"Awesome real product","this awesome real existing product is green as hulk",green,"meta: this awesome real existing product is green as hulk","real green mega product",,,01-abstract-01,
-"Concrete 2",01-concrete-02,red,"Awesome real product","this awesome real existing product is red as spiderman",red,"meta: this awesome real existing product is red as spiderman","real red mega product",,,01-abstract-01,

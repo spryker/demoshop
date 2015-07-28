@@ -23,7 +23,7 @@
                         <input type="button" value="+" class="spinner__increment cart-increment">
                       </div>
                     </div>
-                    <div class="cart__item-price">{{ (item.priceToPay * item.quantity)|price }}</div>
+                    <div class="cart__item-price">{{ (item.totalPrice)|price }}</div>
                 </div>
             {% endfor %}
         </div>

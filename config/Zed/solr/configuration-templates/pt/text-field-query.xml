@@ -1,9 +1,0 @@
-<?xml version="1.0" encoding="UTF-8" ?>
-<analyzer type="query">
-    <tokenizer class="solr.WhitespaceTokenizerFactory"/>
-    <filter class="solr.ASCIIFoldingFilterFactory"/>
-    <filter class="solr.WordDelimiterFilterFactory" catenateAll="1" preserveOriginal="1" splitOnCaseChange="0" />
-    <filter class="solr.LowerCaseFilterFactory"/>
-    <filter class="solr.BrazilianStemFilterFactory" />
-    <filter class="solr.RemoveDuplicatesTokenFilterFactory"/>
-</analyzer>
