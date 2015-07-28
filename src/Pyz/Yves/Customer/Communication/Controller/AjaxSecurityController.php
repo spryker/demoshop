@@ -34,7 +34,12 @@ class AjaxSecurityController extends AbstractController
         $customerTransfer->setEmail($request->request->get(self::LOGIN_EMAIL))
             ->setPassword($request->request->get(self::LOGIN_PASSWORD))
         ;
-        $customerTransfer = $this->getLocator()->customer()->client()->login($customerTransfer);
+
+        $customerTransfer = $this->getLocator()
+            ->customer()
+            ->client()
+            ->login($customerTransfer)
+        ;
 
         return $this->jsonResponse($customerTransfer);
     }
@@ -54,12 +59,17 @@ class AjaxSecurityController extends AbstractController
         $customerTransfer->setEmail($request->request->get(self::REGISTRATION_EMAIL));
         $customerTransfer->setPassword($request->request->get(self::REGISTRATION_PASSWORD));
 
-        $customerTransfer = $this->getLocator()->customer()->client()->registerCustomer($customerTransfer);
+        $customerTransfer = $this->getLocator()
+            ->customer()
+            ->client()
+            ->registerCustomer($customerTransfer)
+        ;
+
         if ($customerTransfer->getRegistrationKey()) {
             $this->addMessageWarning(Messages::CUSTOMER_REGISTRATION_SUCCESS);
 
-                return $this->redirectResponseInternal(CustomerControllerProvider::ROUTE_LOGIN);
-            }
+            return $this->redirectResponseInternal(CustomerControllerProvider::ROUTE_LOGIN);
+        }
     }
 
 }
