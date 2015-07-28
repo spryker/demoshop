@@ -20,6 +20,12 @@ class CollectorConfig extends SprykerCollectorConfig
     {
         return [
             'abstract_product' => $this->getLocator()->collector()->pluginProductCollectorStoragePlugin(),
+//            'categorynode' => $this->getLocator()->collector()->pluginCategoryNodeCollectorStoragePlugin(),
+//            'navigation' => $this->getLocator()->collector()->pluginNavigationCollectorStoragePlugin(),
+//            'translation' => $this->getLocator()->collector()->pluginTranslationCollectorStoragePlugin(),
+//            'page' => $this->getLocator()->collector()->pluginPageCollectorStoragePlugin(),
+//            'redirect' => $this->getLocator()->collector()->pluginRedirectCollectorStoragePlugin(),
+            'url' => $this->getLocator()->collector()->pluginUrlCollectorStoragePlugin(),
         ];
     }
 
