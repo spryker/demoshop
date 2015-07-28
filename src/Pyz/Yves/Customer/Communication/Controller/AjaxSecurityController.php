@@ -17,8 +17,11 @@ use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 class AjaxSecurityController extends AbstractController
 {
 
-    const CUSTOMER_EMAIL = 'email';
-    const CUSTOMER_PASSWORD = 'password';
+    const LOGIN_EMAIL = 'email';
+    const LOGIN_PASSWORD = 'password';
+
+    const REGISTRATION_EMAIL = '_username';
+    const REGISTRATION_PASSWORD = '_password';
 
     /**
      * @param Request $request
@@ -28,8 +31,8 @@ class AjaxSecurityController extends AbstractController
     public function loginAction(Request $request)
     {
         $customerTransfer = new CustomerTransfer();
-        $customerTransfer->setEmail($request->request->get(self::CUSTOMER_EMAIL))
-            ->setPassword($request->request->get(self::CUSTOMER_PASSWORD))
+        $customerTransfer->setEmail($request->request->get(self::LOGIN_EMAIL))
+            ->setPassword($request->request->get(self::LOGIN_PASSWORD))
         ;
         $customerTransfer = $this->getLocator()->customer()->client()->login($customerTransfer);
 
@@ -48,8 +51,8 @@ class AjaxSecurityController extends AbstractController
         }
 
         $customerTransfer = new CustomerTransfer();
-        $customerTransfer->setEmail($request->request->get('_username'));
-        $customerTransfer->setPassword($request->request->get('_password'));
+        $customerTransfer->setEmail($request->request->get(self::REGISTRATION_EMAIL));
+        $customerTransfer->setPassword($request->request->get(self::REGISTRATION_PASSWORD));
 
         $customerTransfer = $this->getLocator()->customer()->client()->registerCustomer($customerTransfer);
         if ($customerTransfer->getRegistrationKey()) {
