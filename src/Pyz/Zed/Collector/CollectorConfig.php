@@ -29,7 +29,6 @@ class CollectorConfig extends SprykerCollectorConfig
     public function getKeyValueProcessors()
     {
         return [
-            $this->getLocator()->productFrontendExporterConnector()->pluginProductProcessorPlugin(),
             $this->getLocator()->productFrontendExporterAvailabilityConnector()->pluginProductAvailabilityProcessorPlugin(),
             $this->getLocator()->taxFrontendExporterConnector()->pluginTaxProcessorPlugin(),
             $this->getLocator()->productCategoryFrontendExporterConnector()->pluginProductCategoryBreadcrumbProcessorPlugin(),
@@ -55,7 +54,6 @@ class CollectorConfig extends SprykerCollectorConfig
     public function getKeyValueExportFailedDeciders()
     {
         return [
-            $this->getLocator()->productFrontendExporterConnector()->pluginProductExportIsFailedDeciderPlugin(),
         ];
     }
 
@@ -65,7 +63,6 @@ class CollectorConfig extends SprykerCollectorConfig
     public function getKeyValueQueryExpander()
     {
         return [
-            $this->getLocator()->productFrontendExporterConnector()->pluginProductQueryExpanderPlugin(),
             $this->getLocator()->productFrontendExporterAvailabilityConnector()->pluginProductAvailabilityQueryExpanderPlugin(),
 
             $this->getLocator()->taxFrontendExporterConnector()->pluginTaxQueryExpanderPlugin(),
