@@ -12,7 +12,7 @@ class CollectorConfig extends SprykerCollectorConfig
     public function getSearchCollectors()
     {
         return [
-            $this->getLocator()->collector()->pluginProductCollectorSearchPlugin(),
+            'abstract_product' => $this->getLocator()->collector()->pluginProductCollectorSearchPlugin(),
         ];
     }
 
