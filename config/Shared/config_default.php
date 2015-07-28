@@ -25,6 +25,11 @@ $config[SystemConfig::PROJECT_TIMEZONE] = 'UTC';
 $config[SystemConfig::PROJECT_NAMESPACE] = 'Pyz';
 
 $config[SystemConfig::ZED_DB_ENGINE] = 'pgsql';
+$config[SystemConfig::ZED_DB_USERNAME] = 'development';
+$config[SystemConfig::ZED_DB_PASSWORD] = 'mate20mg';
+$config[SystemConfig::ZED_DB_DATABASE] = 'DE_development_zed';
+$config[SystemConfig::ZED_DB_HOST] = '127.0.0.1';
+$config[SystemConfig::ZED_DB_PORT] = '5432';
 
 $config[DbDumpConfig::DB_DUMP_USERNAME] = '';
 $config[DbDumpConfig::DB_DUMP_PASSWORD] = '';
