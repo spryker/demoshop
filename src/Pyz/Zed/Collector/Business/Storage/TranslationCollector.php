@@ -33,7 +33,7 @@ class TranslationCollector
         foreach ($resultSets as $resultSet) {
             $collectedData = $this->processData($resultSet, $locale);
 
-            $dataWriter->write($collectedData, '');
+            $dataWriter->write($collectedData, 'translation');
             $result->increaseProcessedCount(count($collectedData));
         }
     }

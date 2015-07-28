@@ -56,7 +56,7 @@ class CategoryNodeCollector
         foreach ($resultSets as $resultSet) {
             $collectedData = $this->processData($resultSet, $locale);
 
-            $dataWriter->write($collectedData, '');
+            $dataWriter->write($collectedData, 'categorynode');
             $result->increaseProcessedCount(count($collectedData));
         }
     }

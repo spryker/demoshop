@@ -34,7 +34,7 @@ class RedirectCollector
         foreach ($resultSets as $resultSet) {
             $collectedData = $this->processData($resultSet, $locale);
 
-            $dataWriter->write($collectedData, '');
+            $dataWriter->write($collectedData, 'redirect');
             $result->increaseProcessedCount(count($collectedData));
         }
     }
