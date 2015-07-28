@@ -23,6 +23,7 @@ use SprykerFeature\Zed\Product\Persistence\Propel\Map\SpyLocalizedAbstractProduc
 use SprykerFeature\Zed\Product\Persistence\Propel\Map\SpyLocalizedProductAttributesTableMap;
 use SprykerFeature\Zed\Product\Persistence\Propel\Map\SpyProductTableMap;
 use SprykerFeature\Zed\ProductCategory\Persistence\Propel\Map\SpyProductCategoryTableMap;
+use SprykerFeature\Zed\ProductOptionExporter\Business\ProductOptionExporterFacade;
 use SprykerFeature\Zed\Stock\Persistence\Propel\Map\SpyStockProductTableMap;
 use SprykerFeature\Zed\Tax\Persistence\Propel\Map\SpyTaxRateTableMap;
 use SprykerFeature\Zed\Tax\Persistence\Propel\Map\SpyTaxSetTableMap;
@@ -72,13 +73,20 @@ class ProductCollector
      * @param PriceQueryContainer $priceQueryContainer
      * @param CategoryExporterFacade $categoryExporterFacade
      * @param CategoryQueryContainer $categoryQueryContainer
+     * @param ProductOptionExporterFacade $productOptionExporterFacade
      */
-    public function __construct(PriceFacade $priceFacade, PriceQueryContainer $priceQueryContainer, CategoryExporterFacade $categoryExporterFacade, CategoryQueryContainer $categoryQueryContainer)
-    {
+    public function __construct(
+        PriceFacade $priceFacade,
+        PriceQueryContainer $priceQueryContainer,
+        CategoryExporterFacade $categoryExporterFacade,
+        CategoryQueryContainer $categoryQueryContainer,
+        ProductOptionExporterFacade $productOptionExporterFacade
+    ) {
         $this->priceFacade = $priceFacade;
         $this->priceQueryContainer = $priceQueryContainer;
         $this->categoryExporterFacade = $categoryExporterFacade;
         $this->categoryQueryContainer = $categoryQueryContainer;
+        $this->productOptionExporterFacade = $productOptionExporterFacade;
     }
 
 
@@ -460,6 +468,8 @@ class ProductCollector
                 );
             }
         }
+
+        $processedResultSet = $this->productOptionExporterFacade->processDataForExport($resultSet, $processedResultSet, $locale);
 
         return $processedResultSet;
     }
