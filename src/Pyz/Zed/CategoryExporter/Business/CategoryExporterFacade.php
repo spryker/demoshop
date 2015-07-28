@@ -3,14 +3,12 @@
 namespace Pyz\Zed\CategoryExporter\Business;
 
 use SprykerFeature\Zed\CategoryExporter\Business\CategoryExporterFacade as CoreCategoryExporterFacade;
-use SprykerFeature\Zed\ProductCategoryFrontendExporterConnector\Dependency\Facade\ProductCategoryFrontendExporterToCategoryExporterInterface;
 
-class CategoryExporterFacade extends CoreCategoryExporterFacade implements
-    ProductCategoryFrontendExporterToCategoryExporterInterface
+class CategoryExporterFacade extends CoreCategoryExporterFacade
 {
 
     /**
-     * @param array  $data
+     * @param array $data
      * @param string $idsField
      * @param string $namesField
      * @param string $urlsField
