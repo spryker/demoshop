@@ -36,7 +36,7 @@ class PageCollector
         foreach ($resultSets as $resultSet) {
             $collectedData = $this->processData($resultSet, $locale);
 
-            $dataWriter->write($collectedData, '');
+            $dataWriter->write($collectedData, 'page');
             $result->increaseProcessedCount(count($collectedData));
         }
     }

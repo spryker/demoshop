@@ -57,7 +57,7 @@ class NavigationCollector
         foreach ($resultSets as $resultSet) {
             $collectedData = $this->processData($resultSet, $locale);
 
-            $dataWriter->write($collectedData, '');
+            $dataWriter->write($collectedData, 'navigation');
             $result->increaseProcessedCount(count(current($collectedData)));
         }
     }
