@@ -22,3 +22,4 @@ $config[YvesConfig::YVES_SESSION_COOKIE_DOMAIN] = $config[SystemConfig::HOST_YVE
 
 $config[SystemConfig::JENKINS_BASE_URL] = 'http://' . $config[SystemConfig::HOST_ZED_GUI] . ':10007/jenkins';
 $config[SystemConfig::JENKINS_DIRECTORY] = '/data/shop/development/shared/data/common/jenkins';
+$config[YvesConfig::TRANSFER_DEBUG_SESSION_FORWARD_ENABLED] = true;
