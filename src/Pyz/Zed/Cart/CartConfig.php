@@ -15,6 +15,10 @@ class CartConfig extends SprykerCartConfig
     {
         $plugins = parent::getCartItemPlugins();
         $plugins[] = $this->getLocator()->priceCartConnector()->pluginCartItemPricePlugin();
+        $plugins[] = $this->getLocator()->productOptionCartConnector()->pluginCartItemProductOptionPlugin();
+
+        $plugins[] = $this->getLocator()->cart()->pluginSkuGroupKeyPlugin();
+        $plugins[] = $this->getLocator()->productOptionCartConnector()->pluginCartItemGroupKeyOptionPlugin();
 
         return $plugins;
     }
