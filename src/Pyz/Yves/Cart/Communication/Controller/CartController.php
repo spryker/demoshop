@@ -44,7 +44,7 @@ class CartController extends AbstractController
         foreach ($optionValueUsageIds as $idOptionValueUsage) {
             $productOptionTransfer = new ProductOptionTransfer();
             $productOptionTransfer->setIdOptionValueUsage($idOptionValueUsage)
-                ->setLocalCode($this->getLocale());
+                ->setLocaleCode($this->getLocale());
             $cartItemTransfer->addProductOption($productOptionTransfer);
         }
 
