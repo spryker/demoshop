@@ -5,19 +5,57 @@ namespace Pyz\Zed\Collector\Business\Storage;
 use Generated\Shared\Transfer\LocaleTransfer;
 use Propel\Runtime\ActiveQuery\Criteria;
 use Propel\Runtime\ActiveQuery\Join;
+use Pyz\Zed\Price\Business\PriceFacade;
 use SprykerEngine\Zed\Locale\Persistence\Propel\Map\SpyLocaleTableMap;
 use SprykerEngine\Zed\Touch\Persistence\Propel\Map\SpyTouchTableMap;
 use SprykerEngine\Zed\Touch\Persistence\Propel\SpyTouchQuery;
+use SprykerFeature\Shared\Collector\Code\KeyBuilder\KeyBuilderTrait;
 use SprykerFeature\Zed\Collector\Business\Model\BatchResultInterface;
+use SprykerFeature\Zed\Price\Persistence\PriceQueryContainer;
+use SprykerFeature\Zed\Price\Persistence\Propel\Map\SpyPriceProductTableMap;
+use SprykerFeature\Zed\Price\Persistence\Propel\Map\SpyPriceTypeTableMap;
 use SprykerFeature\Zed\Product\Persistence\Propel\Map\SpyAbstractProductTableMap;
 use SprykerFeature\Zed\Product\Persistence\Propel\Map\SpyLocalizedAbstractProductAttributesTableMap;
 use SprykerFeature\Zed\Product\Persistence\Propel\Map\SpyLocalizedProductAttributesTableMap;
 use SprykerFeature\Zed\Product\Persistence\Propel\Map\SpyProductTableMap;
+use SprykerFeature\Zed\Stock\Persistence\Propel\Map\SpyStockProductTableMap;
 use SprykerFeature\Zed\Url\Persistence\Propel\Map\SpyUrlTableMap;
 
 // @TODO Interface for StorageCollectors
 class ProductCollector
 {
+
+    use KeyBuilderTrait;
+
+    const PRODUCT_URLS = 'product_urls';
+    const URL = 'url';
+    const ABSTRACT_ATTRIBUTES = 'abstract_attributes';
+    const CONCRETE_ATTRIBUTES = 'concrete_attributes';
+    const CONCRETE_LOCALIZED_ATTRIBUTES = 'concrete_localized_attributes';
+    const CONCRETE_SKUS = 'concrete_skus';
+    const CONCRETE_NAMES = 'concrete_names';
+    const CONCRETE_PRODUCTS = 'concrete_products';
+    const NAME = 'name';
+    const SKU = 'sku';
+    const ATTRIBUTES = 'attributes';
+    const ABSTRACT_LOCALIZED_ATTRIBUTES = 'abstract_localized_attributes';
+
+    /**
+     * @var PriceFacade
+     */
+    private $priceFacade;
+
+    /**
+     * @param PriceFacade $priceFacade
+     * @param PriceQueryContainer $priceQueryContainer
+     */
+    public function __construct(PriceFacade $priceFacade, PriceQueryContainer $priceQueryContainer)
+    {
+        $this->priceFacade = $priceFacade;
+        $this->priceQueryContainer = $priceQueryContainer;
+    }
+
+
     /**
      * @param SpyTouchQuery $baseQuery
      * @param LocaleTransfer $locale
@@ -34,10 +72,10 @@ class ProductCollector
         $result->setTotalCount($resultSets->count());
 
         foreach ($resultSets as $resultSet) {
-            $exportableData = $this->processData($resultSet);
+            $collectedData = $this->processData($resultSet, $locale);
 
-            $dataWriter->write($exportableData, 'abstract_product');
-            $result->increaseProcessedCount(count($exportableData));
+            $dataWriter->write($collectedData, 'abstract_product');
+            $result->increaseProcessedCount(count($collectedData));
         }
 
         return $baseQuery;
@@ -53,6 +91,7 @@ class ProductCollector
     {
         $baseQuery->clearSelectColumns();
 
+        // Abstract & concrete product - including localized attributes & url
         $baseQuery->addJoin(
             SpyTouchTableMap::COL_ITEM_ID,
             SpyAbstractProductTableMap::COL_ID_ABSTRACT_PRODUCT,
@@ -169,21 +208,189 @@ class ProductCollector
         $baseQuery->withColumn(SpyAbstractProductTableMap::COL_ID_ABSTRACT_PRODUCT, 'id_abstract_product');
         $baseQuery->groupBy('abstract_sku');
 
+
+        // Product availability
+        $baseQuery->addAsColumn(
+            'quantity',
+            sprintf(
+                '(SELECT SUM(%s) FROM %s WHERE %s = %s)',
+                SpyStockProductTableMap::COL_QUANTITY,
+                SpyStockProductTableMap::TABLE_NAME,
+                SpyStockProductTableMap::COL_FK_PRODUCT,
+                SpyProductTableMap::COL_ID_PRODUCT
+            )
+        );
+
+        // Product price
+        $baseQuery->addJoinObject(
+            (new Join(
+                SpyAbstractProductTableMap::COL_ID_ABSTRACT_PRODUCT,
+                SpyPriceProductTableMap::COL_FK_ABSTRACT_PRODUCT,
+                Criteria::LEFT_JOIN
+            ))->setRightTableAlias('abstract_price_table')
+        );
+
+        $baseQuery->addJoinObject(
+            (new Join(
+                SpyProductTableMap::COL_ID_PRODUCT,
+                SpyPriceProductTableMap::COL_FK_PRODUCT,
+                Criteria::LEFT_JOIN
+            ))->setRightTableAlias('concrete_price_table'),
+            'concretePriceJoin'
+        );
+
+        $idPriceType = $this->getIdPriceType();
+
+        $baseQuery->addJoinCondition(
+            'concretePriceJoin',
+            'concrete_price_table.fk_price_type',
+            $idPriceType,
+            Criteria::EQUAL
+        );
+
+        $baseQuery
+            ->addJoinObject(
+                (new Join(
+                    'concrete_price_table.fk_price_type',
+                    SpyPriceTypeTableMap::COL_ID_PRICE_TYPE,
+                    Criteria::LEFT_JOIN
+                ))->setRightTableAlias('spy_price_type')
+            );
+
+        $baseQuery->withColumn(
+            'abstract_price_table.price',
+            'abstract_price'
+        );
+
+        $baseQuery->withColumn(
+            'GROUP_CONCAT(concrete_price_table.price)',
+            'concrete_prices'
+        );
+
+        $baseQuery->withColumn(
+            'GROUP_CONCAT(spy_price_type.name)',
+            'price_types'
+        );
+
+        $baseQuery->groupBy('abstract_sku');
+
         return $baseQuery;
     }
 
     /**
      * @param array $resultSet
+     * @param LocaleTransfer $locale
      *
      * @return array
      */
-    protected function processData($resultSet)
+    protected function processData($resultSet, LocaleTransfer $locale)
     {
-        $processedResultSet = [];
+        $products = $this->buildProducts($resultSet);
 
-        $processedResultSet[] = $resultSet;
+        $processedResultSet = [];
+        foreach ($products as $index => $productData) {
+            $productKey = $this->generateKey(
+                $productData['id_abstract_product'],
+                $locale->getLocaleName()
+            );
+            $processedResultSet[$productKey] = $this->filterProductData($productData);
+        }
+
+        $keys = array_keys($processedResultSet);
+        $resultSet = array_combine($keys, $resultSet);
+
+        $defaultPriceType = $this->getDefaultPriceType();
+
+        foreach ($resultSet as $index => $productRawData) {
+            if (isset($processedResultSet[$index])) {
+                // Product availability
+                $processedResultSet[$index]['available'] = ($productRawData['quantity'] > 0);
+
+                // Product price
+                $priceTypes = explode(',', $productRawData['price_types']);
+                $priceTypeIndex = array_search($defaultPriceType, $priceTypes);
+
+
+                if ($productRawData['concrete_prices'] !== null && $priceTypeIndex !== false) {
+                    $prices = explode(',', $productRawData['concrete_prices']);
+                    $processedResultSet[$index]['valid_price'] = $prices[$priceTypeIndex];
+
+                    $organizedPrices = [];
+                    foreach ($prices as $i => $price) {
+                        $organizedPrices[$priceTypes[$i]]['price'] = $price;
+                    }
+
+                    $processedResultSet[$index]['prices'] = $organizedPrices;
+                } else {
+                    unset($processedResultSet[$index]);
+                    continue;
+                }
+            }
+        }
 
         return $processedResultSet;
+    }
+
+
+    protected function buildKey($identifier)
+    {
+        return 'abstract_product.' . $identifier;
+    }
+
+    /**
+     * @return string
+     */
+    public function getBundleName()
+    {
+        return 'resource';
+    }
+
+    /**
+     * @param string $attributes
+     * @param string $localizedAttributes
+     *
+     * @return array
+     */
+    protected function mergeAttributes($attributes, $localizedAttributes)
+    {
+        $decodedAttributes = json_decode($attributes, true);
+        $decodedLocalizedAttributes = json_decode($localizedAttributes, true);
+        $mergedAttributes = array_merge($decodedAttributes, $decodedLocalizedAttributes);
+
+        return $this->normalizeAttributes($mergedAttributes);
+    }
+
+    /**
+     * @param array $attributes
+     *
+     * @return array
+     */
+    protected function normalizeAttributes(array $attributes)
+    {
+        $newKeys = array_map(function ($name) {
+            return str_replace(' ', '', lcfirst(ucwords($name)));
+        }, array_keys($attributes));
+
+        return array_combine($newKeys, $attributes);
+    }
+
+
+    /**
+     * @param array $productData
+     *
+     * @return array
+     */
+    protected function filterProductData(array $productData)
+    {
+        $allowedFields = [
+            'abstract_sku',
+            'abstract_attributes',
+            'abstract_name',
+            'url',
+            'concrete_products',
+        ];
+
+        return array_intersect_key($productData, array_flip($allowedFields));
     }
 
     /**
@@ -195,6 +402,62 @@ class ProductCollector
     public function getBatchIterator($baseQuery, $chunkSize = 1000)
     {
         return new \SprykerFeature\Zed\Collector\Business\Exporter\BatchIterator($baseQuery, $chunkSize);
+    }
+
+    private function getIdPriceType()
+    {
+        $defaultPriceType = $this->getDefaultPriceType();
+
+        $priceTypeEntity = $this->priceQueryContainer->queryPriceType($defaultPriceType)->findOne();
+
+        return $priceTypeEntity->getIdPriceType();
+    }
+
+    /**
+     * @return string
+     */
+    private function getDefaultPriceType()
+    {
+        return $this->priceFacade->getDefaultPriceTypeName();
+    }
+
+    /**
+     * @param array $productsData
+     *
+     * @return array
+     */
+    protected function buildProducts(array $productsData)
+    {
+        foreach ($productsData as &$productData) {
+            $productUrls = explode(',', $productData[self::PRODUCT_URLS]);
+            $productData[self::URL] = $productUrls[0];
+
+            $productData[self::ABSTRACT_ATTRIBUTES] = $this->mergeAttributes($productData[self::ABSTRACT_ATTRIBUTES], $productData[self::ABSTRACT_LOCALIZED_ATTRIBUTES]);
+
+            $concreteAttributes = explode('$%', $productData[self::CONCRETE_ATTRIBUTES]);
+            $concreteLocalizedAttributes = explode('$%', $productData[self::CONCRETE_LOCALIZED_ATTRIBUTES]);
+
+            $concreteSkus = explode(',', $productData[self::CONCRETE_SKUS]);
+            $concreteNames = explode(',', $productData[self::CONCRETE_NAMES]);
+            $productData[self::CONCRETE_PRODUCTS] = [];
+
+            $processedConcreteSkus = [];
+            for ($i = 0, $l = count($concreteSkus); $i < $l; $i++) {
+                if (isset($processedConcreteSkus[$concreteSkus[$i]])) {
+                    continue;
+                }
+
+                $mergedAttributes = $this->mergeAttributes($concreteAttributes[$i], $concreteLocalizedAttributes[$i]);
+
+                $processedConcreteSkus[$concreteSkus[$i]] = true;
+                $productData[self::CONCRETE_PRODUCTS][] = [
+                    self::NAME => $concreteNames[$i],
+                    self::SKU => $concreteSkus[$i],
+                    self::ATTRIBUTES => $mergedAttributes,
+                ];
+            }
+        }
+        return $productsData;
     }
 
 }

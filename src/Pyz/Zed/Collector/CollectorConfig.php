@@ -31,7 +31,6 @@ class CollectorConfig extends SprykerCollectorConfig
         return [
             $this->getLocator()->productFrontendExporterConnector()->pluginProductProcessorPlugin(),
             $this->getLocator()->productFrontendExporterAvailabilityConnector()->pluginProductAvailabilityProcessorPlugin(),
-            $this->getLocator()->productFrontendExporterPriceConnector()->pluginProductPriceProcessorPlugin(),
             $this->getLocator()->taxFrontendExporterConnector()->pluginTaxProcessorPlugin(),
             $this->getLocator()->productCategoryFrontendExporterConnector()->pluginProductCategoryBreadcrumbProcessorPlugin(),
 
@@ -69,7 +68,6 @@ class CollectorConfig extends SprykerCollectorConfig
             $this->getLocator()->productFrontendExporterConnector()->pluginProductQueryExpanderPlugin(),
             $this->getLocator()->productFrontendExporterAvailabilityConnector()->pluginProductAvailabilityQueryExpanderPlugin(),
 
-            $this->getLocator()->productFrontendExporterPriceConnector()->pluginProductPriceQueryExpanderPlugin(),
             $this->getLocator()->taxFrontendExporterConnector()->pluginTaxQueryExpanderPlugin(),
 
             $this->getLocator()->productOptionExporter()->pluginProductOptionExpanderPlugin(),
