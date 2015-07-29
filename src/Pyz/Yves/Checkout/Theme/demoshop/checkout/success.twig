@@ -1,34 +1,45 @@
 {% extends "@application/layout/layout.twig" %}
 
 {% block content %}
-<article class="product product--justice-league">
-    <section class="product__overview">
-        <h1>{{'page.order-success.heading'|trans }}</h1>
-        <h2>{{'page.order-success.order-number-label'|trans }}&nbsp;{#{ order.number }#}</h2>
-        <p>{{ 'page.order-success.feedback-info-label'|trans }}&nbsp;{#{ customer.email }#}</p>
-        <h2>{{'page.order-success.overview'|trans }}</h2>
-        <h2>{{ orderItemsData| json_encode }}</h2>
-        {% include 'partials/order_items.twig' with { 'items': 'orderItemsData'} only %}
-        <div class="order-success__overview">
-            {#% for item in order.items %}
-                <div>
 
-                    <div class="cart__item-quantity">{{ item.quantity }}</div>
-                    <div class="cart__item-name">{{ item.name }}</div>
-                    <div class="cart__item-price">{{ (item.priceToPay * item.quantity)|price }}</div>
-                </div>
-            {% endfor %#}
-        </div>
-    </section>
+    <article class="product product--justice-league">
+        <section class="product__overview">
+            <h1>{{ 'page.order-success.heading'|trans }}</h1>
 
-    {% if customer.isLoggedIn is defined and customer.isLoggedIn is true %}
-        <h2>{{ 'page.order-success.register-label'|trans }}</h2>
-        {#{ form_start(quickRegForm) }}
-        {{ form_widget(quickRegForm) }}
-        {{ form_end(quickRegForm) }#}
-    {% endif %}
-    <section class="product__main-image">
-        <img src="/images/yay.png" alt="" style="width: 100%;"/>
-    </section>
-</article>
+            <h2>{{ 'page.order-success.order-number-label'|trans }}&nbsp;{#{ order.number }#}</h2>
+
+            <p>{{ 'page.order-success.feedback-info-label'|trans }}&nbsp;{#{ customer.email }#}</p>
+
+            <h2>{{ 'page.order-success.overview'|trans }}</h2>
+
+            <h2>{{ orderItemsData| json_encode }}</h2>
+            {% include '@checkout/checkout/partials/order_items.twig' with { 'items': 'orderItemsData'} only %}
+            <div class="order-success__overview">
+                {#% for item in order.items %}
+                    <div>
+
+                        <div class="cart__item-quantity">{{ item.quantity }}</div>
+                        <div class="cart__item-name">{{ item.name }}</div>
+                        <div class="cart__item-price">{{ (item.priceToPay * item.quantity)|price }}</div>
+                    </div>
+                {% endfor %#}
+            </div>
+            <h1>app user is logged in </h1>
+            {% if isLoggedIn() %}
+                <h1>app user is logged in {{ getUsername() }}</h1>
+            {% endif %}
+
+            {% if isLoggedInCustomer is defined and isLoggedInCustomer %}
+
+                <h2>LOGGED IN {{ 'page.order-success.register-label' | trans }}</h2>
+                {#{ form_start(quickRegForm) }}
+                {{ form_widget(quickRegForm) }}
+                {{ form_end(quickRegForm) }#}
+            {% endif %}
+        </section>
+
+        <section class="product__main-image">
+            <img src="/images/yay.png" alt="" style="width: 100%;"/>
+        </section>
+    </article>
 {% endblock %}

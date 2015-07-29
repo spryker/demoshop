@@ -259,7 +259,7 @@ keys:
       de_DE: 'Ihre Bestellungsnummer ist'
   page.order-success.feedback-info-label:
     translations:
-      de_DE: 'Wir schicken die Bestätigung der Bestellung an fogende Email Adresse'
+      de_DE: 'Wir schicken die Bestätigung der Bestellung an folgende Email Adresse'
   page.order-success.overview:
     translations:
       de_DE: 'Sie haben folgendes bestellt'

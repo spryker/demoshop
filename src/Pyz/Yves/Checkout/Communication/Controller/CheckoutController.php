@@ -133,7 +133,7 @@ class CheckoutController extends AbstractController
             'orderNr' => $session->get('orderNr'),
             'orderItemsData' => json_decode($session->get('orderItemsData')),
             'customer' => $customer,
-            'isLoggedInCustomer' => true,
+            'isLoggedInCustomer' => $customer->pluginTwigCustomer()->getFunctions($this->getApplication()),
         ];
     }
 
