@@ -107,7 +107,7 @@ Vagrant.configure(2) do |config|
 
   # Configure VirtualBox VM resources (CPU and memory)
   config.vm.provider :virtualbox do |vb|
-    vb.name = "Spryker Vagrant"
+    vb.name = "Spryker Vagrant Demoshop"
     vb.customize([
       "modifyvm", :id,
       "--memory", VM_MEMORY,
