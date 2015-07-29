@@ -117,6 +117,7 @@ $config[SystemConfig::PROPEL] = [
         'objectModel' => [
             'defaultKeyType' => 'fieldName',
             'builders' => [
+                'object' => '\SprykerFeature\Zed\Library\Propel\Builder\ObjectBuilder',
                 'tablemap' => '\SprykerFeature\Zed\Library\Propel\Builder\TableMapBuilder',
                 'query' => '\SprykerFeature\Zed\Library\Propel\Builder\QueryBuilder'
             ]
