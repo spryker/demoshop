@@ -21,7 +21,7 @@ class CheckoutControllerProvider extends YvesControllerProvider
             'Checkout',
             'Checkout',
             'success'
-        );
+        )->method('GET|POST');
         $this->createGetController(
             '/checkout/regular-redirect-payment-cancellation',
             self::ROUTE_CHECKOUT_REGULAR_REDIRECT_PAYMENT_CANCELLATION,

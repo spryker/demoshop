@@ -2,16 +2,16 @@
 
 namespace Pyz\Yves\Checkout\Communication\Controller;
 
-use Generated\Shared\Transfer\CartItemTransfer;
 use Generated\Shared\Transfer\CartTransfer;
 use Generated\Shared\Transfer\CheckoutErrorTransfer;
 use Generated\Shared\Transfer\CheckoutRequestTransfer;
 use Generated\Shared\Transfer\CheckoutResponseTransfer;
-use Generated\Shared\Transfer\OrderItemsTransfer;
+use Generated\Shared\Transfer\CustomerTransfer;
 use Generated\Shared\Transfer\OrderItemTransfer;
 use Generated\Shared\Transfer\OrderTransfer;
-use Generated\Shared\Transfer\TotalsTransfer;
+use SprykerFeature\Shared\Customer\Code\Messages;
 use Pyz\Yves\Checkout\Communication\Plugin\CheckoutControllerProvider;
+use Pyz\Yves\Customer\Communication\Plugin\CustomerControllerProvider;
 use SprykerEngine\Yves\Application\Communication\Controller\AbstractController;
 use Pyz\Yves\Checkout\Communication\CheckoutDependencyContainer;
 use Symfony\Component\HttpFoundation\JsonResponse;
@@ -23,6 +23,7 @@ use Symfony\Component\HttpFoundation\Request;
  */
 class CheckoutController extends AbstractController
 {
+    const REGISTRATION_PASSWORD = 'password';
 
     /**
      * @return CartTransfer
@@ -84,13 +85,9 @@ class CheckoutController extends AbstractController
         $session = $this->getLocator()->session()->client();
         $customer = $orderTransfer->getCustomer();
         $invoice = $orderTransfer->getInvoice();
-        $isStarted = $session->isStarted();
         $session->set('email', $customer->getEmail());
         $session->set('orderId', $orderTransfer->getIdSalesOrder());
-        //$session->set('orderNr', $orderTransfer->getIdSalesOrder());
-        $sessionTest = $session->get('email');
         $session->set('orderItemsData', json_encode($this->getOrderItemsData($orderTransfer->getItems())));
-       // $session->save();
 
     }
 
@@ -123,17 +120,34 @@ class CheckoutController extends AbstractController
     public function successAction(Request $request)
     {
         //@todo copy look and feel from invision!
-        //@todo add finish form?
+        $form = $this->createForm($this->getDependencyContainer()->createQuickRegistrationForm());
+        $formData = $form->getData();
         $session =  $this->getLocator()->session()->client();
-        $orderItemData = json_decode($session->get('orderItemsData'));
         $customer = $this->getLocator()->customer();
-        //$customer->pluginTwigCustomer()->getFunctions($this->getApplication())->
+
+        if ($form->isValid()) {
+            $customerTransfer = new CustomerTransfer();
+            $customerTransfer->setEmail($session->get('email'));
+            $customerTransfer->setPassword($formData[self::REGISTRATION_PASSWORD]);
+
+            $customerTransfer = $customer
+                ->client()
+                ->registerCustomer($customerTransfer)
+            ;
+
+            if ($customerTransfer->getRegistrationKey()) {
+                $this->addMessageWarning(Messages::CUSTOMER_REGISTRATION_SUCCESS);
+
+                return $this->redirectResponseInternal(CustomerControllerProvider::ROUTE_CUSTOMER_PROFILE);
+            }
+        }
+
         return [
             'email' => $session->get('email'),
-            'orderNr' => $session->get('orderNr'),
+            'orderNr' => $session->get('orderId'),
             'orderItemsData' => json_decode($session->get('orderItemsData')),
-            'customer' => $customer,
             'isLoggedInCustomer' => $customer->pluginTwigCustomer()->getFunctions($this->getApplication()),
+            'quickRegForm' => $form->createView(),
         ];
     }
 

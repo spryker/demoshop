@@ -37,4 +37,12 @@ class CheckoutDependencyContainer extends AbstractCommunicationDependencyContain
         return $this->getFactory()->createFormCheckout();
     }
 
+    /**
+     * @return FormTypeInterface
+     */
+    public function createQuickRegistrationForm()
+    {
+        return $this->getFactory()->createFormQuickregistration();
+    }
+
 }

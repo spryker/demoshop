@@ -266,6 +266,24 @@ keys:
   page.order-success.register-label:
     translations:
       de_DE: 'Speichern sie Ihre daten für später'
+  page.order-successs.item.name:
+    translations:
+      de_DE: 'Produkt'
+  page.order-successs.item.quantity:
+    translations:
+      de_DE: 'Anzahl'
+  page.order-successs.item.unitprice:
+    translations:
+      de_DE: 'Preis'
+  customer.register.submit:
+    translations:
+      de_DE: 'Registrieren'
+  customer.restore.password:
+    translations:
+      de_DE: 'Passwort'
+  customer.restore.password.verify:
+    translations:
+      de_DE: 'Passwort wiederholen'
 
   page.detail.add-to-cart:
     translations:

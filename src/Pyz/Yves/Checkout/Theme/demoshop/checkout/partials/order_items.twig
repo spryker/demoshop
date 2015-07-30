@@ -1,9 +1,20 @@
-<div class="order-success__overview">
-    {% for item in items %}
-        <div>
-            <div class="cart__item-quantity">{{ item.quantity }}</div>
-            <div class="cart__item-name">{{ item.name }}</div>
-            <div class="cart__item-price">{{ (item.priceToPay * item.quantity)|price }}</div>
-        </div>
-    {% endfor %}
+<div class="order-success__overview table-responsive">
+    <table class="table table-bordered">
+        <thead>
+            <tr>
+                <th>{{ 'page.order-successs.item.name' | trans }}</th>
+                <th>{{ 'page.order-success.item.quantity' | trans }}</th>
+                <th>{{ 'page.order-success.item.unitprice' | trans }}</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for item in items %}
+            <tr>
+                <td class="cart__item-name">{{ item.name }}</td>
+                <td class="cart__item-quantity">{{ item.quantity }}</td>
+                <td class="cart__item-price">{{ item.unitPrice | price }}</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
 </div>
