@@ -36,6 +36,12 @@
                         <button class="cta js-payment-button" disabled>{{ "page.checkout.payment.next-step" | trans }}</button>
                         <button class="js-edit-formblock form-block__edit">{{ "page.checkout.payment.edit" | trans }}</button>
                     </section>
+                    <section class="checkout__form-block js-form-block js-checkout-payment js-checkout-collapsed">
+                        <h1 class="form-block__heading">{{ "page.checkout.payment.heading" | trans }}</h1>
+                        {{ form_widget(form.shipment_method) }}
+                        <button class="cta js-payment-button" disabled>{{ "page.checkout.payment.next-step" | trans }}</button>
+                        <button class="js-edit-formblock form-block__edit">{{ "page.checkout.payment.edit" | trans }}</button>
+                    </section>
                     <section class="checkout__form-block checkout__form-block--confirm js-form-block js-checkout-confirm js-checkout-collapsed">
                         <h1 class="form-block__heading">{{ "page.checkout.finalize.heading" | trans }}</h1>
                         <div>

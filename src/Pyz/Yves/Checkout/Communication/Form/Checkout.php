@@ -2,14 +2,28 @@
 
 namespace Pyz\Yves\Checkout\Communication\Form;
 
+use Generated\Shared\Shipment\ShipmentInterface;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
-use Symfony\Component\Validator\Constraints\Email;
 
 class Checkout extends AbstractType
 {
 
+    /**
+     * @var ShipmentInterface
+     */
+    protected $shipmentTransfer;
+
+    /**
+     * @param ShipmentInterface $shipmentTransfer
+     *
+     * @internal param int $offset
+     */
+    public function __construct(ShipmentInterface $shipmentTransfer)
+    {
+        $this->shipmentTransfer = $shipmentTransfer;
+    }
     /**
      * @return string
      */
@@ -59,6 +73,16 @@ class Checkout extends AbstractType
                     'style' => 'display: block;',
                 ],
             ])
+            ->add('shipment_method', 'choice', [
+                'choices' => $this->prepareShipmentMethods(),
+                'expanded' => true,
+                'multiple' => false,
+                'required' => false,
+                'empty_value' => false,
+                'attr' => [
+                    'style' => 'display: block;',
+                ],
+            ])
             ->add('terms', 'checkbox', [
                 'required' => false,
                 'mapped' => false,
@@ -80,4 +104,17 @@ class Checkout extends AbstractType
         ]);
     }
 
+    /**
+     * @return array
+     */
+    private function prepareShipmentMethods()
+    {
+        $results = [];
+
+        foreach ($this->shipmentTransfer->getMethods() as $method) {
+            $results[$method->getIdShipmentMethod()] = $method->getName() . ' Price ' . $method->getPrice();
+        }
+
+        return $results;
+    }
 }
