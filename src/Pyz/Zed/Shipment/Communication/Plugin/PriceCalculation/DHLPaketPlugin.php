@@ -8,7 +8,6 @@ namespace Pyz\Zed\Shipment\Communication\Plugin\PriceCalculation;
 
 use Generated\Shared\Transfer\OrderTransfer;
 use SprykerEngine\Zed\Kernel\Communication\AbstractPlugin;
-
 use SprykerFeature\Zed\Shipment\Communication\Plugin\ShipmentMethodPriceCalculationPluginInterface;
 
 class DHLPaketPlugin extends AbstractPlugin implements ShipmentMethodPriceCalculationPluginInterface
