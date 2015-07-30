@@ -19,7 +19,7 @@ class CategoryDependencyContainer extends SprykerCategoryDependencyContainer
      *
      * @return CategoryTreeInstall
      */
-    public function getDemoDataInstaller(LoggerInterface $messenger)
+    public function createDemoDataInstaller(LoggerInterface $messenger)
     {
         $installer = $this->getFactory()->createInternalDemoDataCategoryTreeInstall(
             $this->createCategoryWriter(),
