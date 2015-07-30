@@ -42,6 +42,28 @@ class ShipmentDependencyProvider extends SprykerShipmentDependencyProvider
     /**
      * @param Container $container
      *
+     * @return Container
+     */
+    public function provideBusinessLayerDependencies(Container $container)
+    {
+
+        $container[self::PLUGINS] = function (Container $container) {
+
+            return [
+                self::AVAILABILITY_PLUGINS => $this->getAvailabilityPlugins($container),
+                self::PRICE_CALCULATION_PLUGINS => $this->getPriceCalculationPlugins($container),
+                self::DELIVERY_TIME_PLUGINS => $this->getDeliveryTimePlugins($container)
+            ];
+        };
+
+        parent::provideBusinessLayerDependencies($container);
+
+        return $container;
+    }
+
+    /**
+     * @param Container $container
+     *
      * @return array
      */
     public function getAvailabilityPlugins(Container $container)
