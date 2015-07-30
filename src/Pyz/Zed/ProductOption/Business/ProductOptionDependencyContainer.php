@@ -134,6 +134,12 @@ class ProductOptionDependencyContainer extends SprykerDependencyContainer
      */
     public function getDataImportWriterModel()
     {
+        $dbAdapter = $this->getConfig()->getDatabaseAdapter();
+
+        if ($dbAdapter !== ProductOptionConfig::ADAPTER_MYSQL) {
+            return parent::getDataImportWriterModel();
+        }
+
         return $this->getFactory()->createInternalDemoDataImporterModelBatchedDataImportWriter(
             $this->getFactory()->createInternalDemoDataImporterDecoratorInMemoryProductOptionQueryContainer(
                 $this->getQueryContainer()
@@ -145,4 +151,5 @@ class ProductOptionDependencyContainer extends SprykerDependencyContainer
             )
         );
     }
+
 }
