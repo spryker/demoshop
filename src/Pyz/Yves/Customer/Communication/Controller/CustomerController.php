@@ -46,7 +46,7 @@ class CustomerController extends AbstractController
 
         if ($form->isValid()) {
             $customerTransfer = new CustomerTransfer();
-            $customerTransfer->setUsername($this->getUsername());
+            $customerTransfer->setEmail($this->getUsername());
             $customerTransfer->setRestorePasswordKey($request->query->get('token'));
             $this->getLocator()->customer()->client()->restorePassword($customerTransfer);
             $this->getLocator()->customer()->client()->logout($customerTransfer);

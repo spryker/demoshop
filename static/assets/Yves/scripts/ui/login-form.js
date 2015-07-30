@@ -59,10 +59,23 @@ var showUserError = function (errorMessage) {
     $('.errorDisplay').html(errorMessage);
 };
 
-var handleResponse = function (response) {
-    console.log(response);
+var handleOverlayResponse = function (response) {
     if (response && response.success) {
         closeLoginForm();
+    }
+    handleLoginResponse(response);
+};
+
+var handleCheckoutResponse = function (response) {
+    if (response && response.success) {
+        $('.js-checkout-address').removeClass('js-checkout-collapsed');
+        $('.js-checkout-login').addClass('js-checkout-collapsed');
+    }
+    handleLoginResponse(response);
+};
+var handleLoginResponse = function (response) {
+    console.log(response);
+    if (response && response.success) {
         toggleLoggedInState();
     } else {
         showUserError(response.message);
@@ -81,7 +94,11 @@ var postForm = function (e) {
         url: actionUrl,
         data: formData
     }).done(function(response){
-        handleResponse(response);
+        if ('overlay' == e.currentTarget.parentElement.className){
+            handleOverlayResponse(response);
+        } else {
+            handleCheckoutResponse(response);
+        }
     }).error(function(error){
         console.log(error);
     });

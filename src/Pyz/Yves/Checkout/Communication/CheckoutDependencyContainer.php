@@ -6,9 +6,11 @@ use SprykerEngine\Yves\Kernel\Communication\AbstractCommunicationDependencyConta
 use SprykerFeature\Client\Cart\Service\CartClientInterface;
 use SprykerFeature\Client\Checkout\Service\CheckoutClient;
 use Pyz\Yves\Checkout\Communication\Form\Checkout;
+use SprykerEngine\Yves\Kernel\Factory;
+use Pyz\Yves\Checkout\Communication\Form\QuickRegistration;
 
 /**
- * @method \Generated\Yves\Ide\FactoryAutoCompletion\Checkout getFactory()
+ * @method Factory getFactory()
  */
 class CheckoutDependencyContainer extends AbstractCommunicationDependencyContainer
 {
@@ -38,7 +40,7 @@ class CheckoutDependencyContainer extends AbstractCommunicationDependencyContain
     }
 
     /**
-     * @return FormTypeInterface
+     * @return QuickRegistration
      */
     public function createQuickRegistrationForm()
     {

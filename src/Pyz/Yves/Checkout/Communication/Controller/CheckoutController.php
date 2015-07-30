@@ -120,16 +120,16 @@ class CheckoutController extends AbstractController
     public function successAction(Request $request)
     {
         //@todo copy look and feel from invision!
-        $form = $this->createForm($this->getDependencyContainer()->createQuickRegistrationForm());
-        $formData = $form->getData();
+        $quickRegForm = $this->createForm($this->getDependencyContainer()->createQuickRegistrationForm());
+        $formData = $quickRegForm->getData();
         $session =  $this->getLocator()->session()->client();
         $customer = $this->getLocator()->customer();
 
-        if ($form->isValid()) {
+        if ($quickRegForm->isValid()) {
             $customerTransfer = new CustomerTransfer();
             $customerTransfer->setEmail($session->get('email'));
             $customerTransfer->setPassword($formData[self::REGISTRATION_PASSWORD]);
-
+            //@TODO: save the address used for the order too
             $customerTransfer = $customer
                 ->client()
                 ->registerCustomer($customerTransfer)
@@ -146,8 +146,7 @@ class CheckoutController extends AbstractController
             'email' => $session->get('email'),
             'orderNr' => $session->get('orderId'),
             'orderItemsData' => json_decode($session->get('orderItemsData')),
-            'isLoggedInCustomer' => $customer->pluginTwigCustomer()->getFunctions($this->getApplication()),
-            'quickRegForm' => $form->createView(),
+            'quickRegForm' => $quickRegForm->createView(),
         ];
     }
 

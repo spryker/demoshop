@@ -13,9 +13,8 @@
 
             {% include '@checkout/checkout/partials/order_items.twig' with { 'items': orderItemsData} only %}
 
-            {% if true or isLoggedIn() %}
+            {% if not isLoggedIn() %}
                 <h2>{{ 'page.order-success.register-label' | trans }}</h2>
-
                 {{ form_start(quickRegForm) }}
                 {{ form_widget(quickRegForm) }}
                 {{ form_end(quickRegForm) }}
