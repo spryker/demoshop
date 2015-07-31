@@ -9,6 +9,7 @@ var $nameInput,
     $deliveryAddressInput,
     $addressButton,
     $paymentButton,
+    $shipmentButton,
     $addressElements,
     $addressValidationResult;
 
@@ -20,6 +21,7 @@ var initValidation = function () {
     $deliveryAddressInput = $('.js-delivery-address');
     $addressButton = $('.js-address-button');
     $paymentButton = $('.js-payment-button');
+    $shipmentButton = $('.js-shipment-button');
     $('.js-checkout-address input, .js-checkout-address textarea').keyup(validateAddressBlock);
     $addressCheckbox.click(validateAddressBlock);
 };
@@ -77,6 +79,10 @@ module.exports = {
             $paymentButton.attr('disabled', $('input[name="checkout[payment_method]"]:checked').length != 1);
         });
 
+        $('input[name="checkout[shipment_method_id]"]').on('change', function () {
+            $shipmentButton.attr('disabled', $('input[name="checkout[shipment_method_id]"]:checked').length != 1);
+        });
+
         $addressCheckbox.on('change', function (e) {
             if ($addressCheckbox.is(':checked')) {
                 $('.js-delivery-address').show();
@@ -105,6 +111,12 @@ module.exports = {
         $('.js-payment-button').click(function (event) {
             event.preventDefault();
             $('.js-checkout-payment').addClass('js-checkout-collapsed js-checkout-completed');
+            $('.js-checkout-shipment').removeClass('js-checkout-collapsed');
+        });
+
+        $('.js-shipment-button').click(function (event) {
+            event.preventDefault();
+            $('.js-checkout-shipment').addClass('js-checkout-collapsed js-checkout-completed');
             $('.js-checkout-confirm').removeClass('js-checkout-collapsed');
             $('.js-checkout-cart').hide();
         });
