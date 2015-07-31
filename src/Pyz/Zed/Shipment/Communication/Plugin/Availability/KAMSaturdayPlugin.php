@@ -22,9 +22,9 @@ class KAMSaturdayPlugin extends AbstractPlugin implements ShipmentMethodAvailabi
      */
     public function isAvailable(CartInterface $cartTransfer)
     {
-        $start = \DateTime::createFromFormat(self::FORMAT, self::START);
-        $stop = \DateTime::createFromFormat(self::FORMAT, self::STOP);
-        $now = new \DateTime();
+        $start = \DateTime::createFromFormat(self::FORMAT, self::START, new \DateTimeZone('UTC'));
+        $stop = \DateTime::createFromFormat(self::FORMAT, self::STOP, new \DateTimeZone('UTC'));
+        $now = new \DateTime('now', new \DateTimeZone('UTC'));
 
         return ($start > $now && $now < $stop);
     }
