@@ -35,7 +35,10 @@ class CheckoutController extends AbstractController
     public function indexAction(Request $request)
     {
         $container = $this->getDependencyContainer();
-        $checkoutForm = $container->createCheckoutForm();
+        $shipmentTransfer = $container->createShipmentClient()
+            ->getAvailableMethods($this->getCart())
+        ;
+        $checkoutForm = $container->createCheckoutForm($shipmentTransfer);
         $checkoutTransfer = new CheckoutRequestTransfer();
         $checkoutTransfer->setGuest(true); // @TODO: only for Development
 
@@ -44,9 +47,14 @@ class CheckoutController extends AbstractController
         if ($request->isMethod('POST')) {
             if ($form->isValid()) {
                 $checkoutClient = $this->getLocator()->checkout()->client();
-
                 /** @var CheckoutRequestTransfer $checkoutRequest */
                 $checkoutRequest = $form->getData();
+
+                foreach($shipmentTransfer->getMethods() as $shipmentMethod) {
+                    if ($shipmentMethod->getIdShipmentMethod() === $checkoutRequest->getShipmentMethodId()) {
+                        $checkoutRequest->setShipmentMethod($shipmentMethod);
+                    }
+                }
 
                 $checkoutRequest->setCart($this->getCart());
                 $checkoutRequest->setShippingAddress($checkoutRequest->getBillingAddress());
