@@ -17,13 +17,12 @@ class Checkout extends AbstractType
 
     /**
      * @param ShipmentInterface $shipmentTransfer
-     *
-     * @internal param int $offset
      */
     public function __construct(ShipmentInterface $shipmentTransfer)
     {
         $this->shipmentTransfer = $shipmentTransfer;
     }
+
     /**
      * @return string
      */
@@ -73,7 +72,7 @@ class Checkout extends AbstractType
                     'style' => 'display: block;',
                 ],
             ])
-            ->add('shipment_method', 'choice', [
+            ->add('shipment_method_id', 'choice', [
                 'choices' => $this->prepareShipmentMethods(),
                 'expanded' => true,
                 'multiple' => false,
@@ -112,7 +111,12 @@ class Checkout extends AbstractType
         $results = [];
 
         foreach ($this->shipmentTransfer->getMethods() as $method) {
-            $results[$method->getIdShipmentMethod()] = $method->getName() . ' Price ' . $method->getPrice();
+            $results[$method->getIdShipmentMethod()] = $method->getGlossaryKeyName()
+                . ' ' . $method->getGlossaryKeyDescription();
+            $results[$method->getIdShipmentMethod()] .= ' | Price: ' . $method->getPrice();
+            $results[$method->getIdShipmentMethod()] .= (!is_null($method->getTime())) ? ' | Delivery time: '
+                . ($method->getTime()/3600) . ' hours' : '';
+
         }
 
         return $results;
