@@ -19,6 +19,6 @@ class DHLPaketPlugin extends AbstractPlugin implements ShipmentMethodAvailabilit
      */
     public function isAvailable(CartInterface $cartTransfer)
     {
-        return false;
+        return true;
     }
 }

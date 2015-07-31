@@ -6,19 +6,21 @@
 
 namespace Pyz\Zed\Shipment\Communication\Plugin\PriceCalculation;
 
-use Generated\Shared\Transfer\OrderTransfer;
+use Generated\Shared\Cart\CartInterface;
 use SprykerEngine\Zed\Kernel\Communication\AbstractPlugin;
 use SprykerFeature\Zed\Shipment\Communication\Plugin\ShipmentMethodPriceCalculationPluginInterface;
 
 class DHLPaketPlugin extends AbstractPlugin implements ShipmentMethodPriceCalculationPluginInterface
 {
+
+    const DHL_PAKET_FIX_PRICE = 99;
     /**
-     * @param OrderTransfer $orderTransfer
+     * @param CartInterface $cartTransfer
      *
      * @return int
      */
-    public function getPrice(OrderTransfer $orderTransfer)
+    public function getPrice(CartInterface $cartTransfer)
     {
-        return 5;
+        return self::DHL_PAKET_FIX_PRICE;
     }
 }
