@@ -712,7 +712,7 @@
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/spryker.git",
-                "reference": "113ac31d5ec836f60f6488951204b620b8ee6911"
+                "reference": "11c9b0db5051a5170ee2b7b1c7e76e948e39c846"
             },
             "require": {
                 "digital-canvas/zend-framework": ">=1.12.2",
@@ -845,7 +845,7 @@
                     "SprykerFeature\\Shared\\Library": "Bundles/Library/src/"
                 }
             },
-            "time": "2015-07-31 13:19:44"
+            "time": "2015-07-31 14:39:34"
         },
         {
             "name": "symfony-cmf/routing",
@@ -3967,7 +3967,7 @@
         },
         {
             "name": "symfony/stopwatch",
-            "version": "v2.7.2",
+            "version": "v2.7.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/Stopwatch.git",

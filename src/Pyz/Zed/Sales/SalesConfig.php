@@ -5,7 +5,7 @@ namespace Pyz\Zed\Sales;
 use Generated\Shared\Transfer\OrderTransfer;
 use SprykerFeature\Zed\Sales\SalesConfig as SprykerFeatureSalesConfig;
 use Pyz\Zed\Sales\Business\ConstantsInterface\Orderprocess;
-use Generated\Shared\Transfer\OrderItemTransfer;
+use Generated\Shared\Transfer\ItemTransfer;
 use SprykerFeature\Zed\Payone\Business\Model\Api\ApiConstants as PayoneApiConstants;
 
 class SalesConfig extends SprykerFeatureSalesConfig
@@ -28,12 +28,12 @@ class SalesConfig extends SprykerFeatureSalesConfig
     }
 
     /**
-     * @param OrderItemTransfer $transferOrderItem
+     * @param ItemTransfer $transferItem
      * @param OrderTransfer $transferOrder
      *
      * @return string
      */
-    public function getProcessNameForNewOrderItem(OrderItemTransfer $transferOrderItem, OrderTransfer $transferOrder)
+    public function getProcessNameForNewOrderItem(ItemTransfer $transferItem, OrderTransfer $transferOrder)
     {
         $method = $transferOrder->getPayment()->getMethod();
         switch ($method) {
