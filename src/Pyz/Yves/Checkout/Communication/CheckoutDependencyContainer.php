@@ -2,6 +2,7 @@
 
 namespace Pyz\Yves\Checkout\Communication;
 
+use Generated\Shared\Shipment\ShipmentInterface;
 use Generated\Yves\Ide\FactoryAutoCompletion\CheckoutCommunication;
 use SprykerEngine\Yves\Kernel\Communication\AbstractCommunicationDependencyContainer;
 use SprykerFeature\Client\Cart\Service\CartClientInterface;
@@ -38,15 +39,12 @@ class CheckoutDependencyContainer extends AbstractCommunicationDependencyContain
     }
 
     /**
+     * @param ShipmentInterface $shipmentTransfer
+     *
      * @return Checkout
      */
-    public function createCheckoutForm()
+    public function createCheckoutForm(ShipmentInterface $shipmentTransfer)
     {
-        $shipmentTransfer = $this->createShipmentClient()
-            ->getAvailableMethods($this->createCartClient()
-                ->getCart())
-        ;
-
         return $this->getFactory()
             ->createFormCheckout($shipmentTransfer)
             ;
