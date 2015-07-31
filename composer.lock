@@ -713,6 +713,7 @@
                 "type": "git",
                 "url": "git@github.com:spryker/spryker.git",
 <<<<<<< HEAD
+<<<<<<< HEAD
                 "reference": "113ac31d5ec836f60f6488951204b620b8ee6911"
 =======
 <<<<<<< HEAD
@@ -721,6 +722,9 @@
                 "reference": "19d01825cbe70229983774b84af797d7b8ecd72b"
 >>>>>>> CD-337 refactored all *Item's to be just Item
 >>>>>>> CD-337 refactored all *Item's to be just Item
+=======
+                "reference": "967549cd60abe6515b356816c240b4cd0fca0ec8"
+>>>>>>> CD-337 moved refactor script, update composer
             },
             "require": {
                 "digital-canvas/zend-framework": ">=1.12.2",
@@ -854,6 +858,7 @@
                 }
             },
 <<<<<<< HEAD
+<<<<<<< HEAD
             "time": "2015-07-31 13:19:44"
 =======
 <<<<<<< HEAD
@@ -862,6 +867,9 @@
             "time": "2015-07-31 12:25:28"
 >>>>>>> CD-337 refactored all *Item's to be just Item
 >>>>>>> CD-337 refactored all *Item's to be just Item
+=======
+            "time": "2015-07-31 13:40:44"
+>>>>>>> CD-337 moved refactor script, update composer
         },
         {
             "name": "symfony-cmf/routing",
@@ -3983,7 +3991,7 @@
         },
         {
             "name": "symfony/stopwatch",
-            "version": "v2.7.2",
+            "version": "v2.7.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/Stopwatch.git",
