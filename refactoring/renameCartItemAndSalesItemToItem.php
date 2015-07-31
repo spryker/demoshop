@@ -1,6 +1,6 @@
 <?php
 
-include_once(__DIR__ . '/vendor/autoload.php');
+include_once(__DIR__ . '/../vendor/autoload.php');
 
 $names = [
     'OrderItem',
@@ -10,8 +10,8 @@ $names = [
 // rename in xml
 
 $directories = [
-    __DIR__ . '/src/',
-    __DIR__ . '/vendor/spryker/spryker/'
+    __DIR__ . '/../src/',
+    __DIR__ . '/../vendor/spryker/spryker/'
 ];
 
 /**
