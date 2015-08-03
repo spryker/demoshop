@@ -6,70 +6,84 @@ use Symfony\Component\Finder\Finder;
 use Symfony\Component\Finder\SplFileInfo;
 use Symfony\Component\Filesystem\Filesystem;
 
-$currentBundle = 'Assets';
-$directories = [
-    __DIR__ . '/../vendor/spryker/spryker/Bundles/' . $currentBundle . '/src/SprykerFeature/Yves/',
-    __DIR__ . '/../vendor/spryker/spryker/Bundles/' . $currentBundle . '/tests/*/SprykerFeature/Yves/'
+$bundles = [
+    'Assets',
+    'Catalog',
+    'CategoryExporter',
+    'Checkout',
+    'Cms',
+    'CmsExporter',
+    'Customer',
+    'FrontendExporter',
+    'Glossary',
+    'ProductExporter',
+    'ProductImage',
+    'RedirectExporter',
+    'Twig',
 ];
-
-/**
- * @param array $directories
- *
- * @return SplFileInfo[]|Finder
- */
-function getFiles(array $directories)
-{
-    $finder = new Finder();
-    $finder->files()->in($directories);
-
-    return $finder;
-}
-
-$finder = getFiles($directories);
-
 $searchAndReplace = [];
 $moveFromTo = [];
-foreach ($finder as $file) {
-    $baseName = str_replace(['.php', '/'], ['', '\\'], $file->getRelativePathname());
-    $oldName = 'SprykerFeature\\Yves\\' . $baseName;
-    $newName = 'Pyz\\Yves\\' . $baseName;
+$filesystem = new Filesystem();
 
-    $searchAndReplace[$oldName] = $newName;
+foreach ($bundles as $currentBundle) {
+    $directories = [
+        __DIR__ . '/../vendor/spryker/spryker/Bundles/' . $currentBundle . '/src/SprykerFeature/Yves/',
+        __DIR__ . '/../vendor/spryker/spryker/Bundles/' . $currentBundle . '/tests/*/SprykerFeature/Yves/'
+    ];
 
-    $oldPath = $file->getPathname();
+    /**
+     * @param array $directories
+     *
+     * @return SplFileInfo[]|Finder
+     */
+    function getFiles(array $directories)
+    {
+        $finder = new Finder();
+        $finder->files()->in($directories);
 
-    $vendorSrcPath = __DIR__ . '/../vendor/spryker/spryker/Bundles/' . $currentBundle . '/src/';
-    $projectSrcPath = __DIR__ . '/../src/';
+        return $finder;
+    }
 
-    $vendorTestPath = __DIR__ . '/../vendor/spryker/spryker/Bundles/' . $currentBundle . '/tests/';
-    $projectTestPath = __DIR__ . '/../tests/';
+    $finder = getFiles($directories);
 
-    $newPath = str_replace('SprykerFeature', 'Pyz', $oldPath);
-    $newPath = str_replace([$vendorSrcPath, $vendorTestPath], [$projectSrcPath, $projectTestPath], $newPath);
+    foreach ($finder as $file) {
+        $baseName = str_replace(['.php', '/'], ['', '\\'], $file->getRelativePathname());
+        $oldName = 'SprykerFeature\\Yves\\' . $baseName;
+        $newName = 'Pyz\\Yves\\' . $baseName;
 
+        $searchAndReplace[$oldName] = $newName;
 
-    $moveFromTo[$oldPath] = $newPath;
+        $oldPath = $file->getPathname();
+
+        $vendorSrcPath = __DIR__ . '/../vendor/spryker/spryker/Bundles/' . $currentBundle . '/src/';
+        $projectSrcPath = __DIR__ . '/../src/';
+
+        $vendorTestPath = __DIR__ . '/../vendor/spryker/spryker/Bundles/' . $currentBundle . '/tests/';
+        $projectTestPath = __DIR__ . '/../tests/';
+
+        $newPath = str_replace('SprykerFeature', 'Pyz', $oldPath);
+        $newPath = str_replace([$vendorSrcPath, $vendorTestPath], [$projectSrcPath, $projectTestPath], $newPath);
+
+        $moveFromTo[$oldPath] = $newPath;
+    }
 }
 
 foreach ($moveFromTo as $origin => $target) {
     if (!file_exists($target)) {
-        file_put_contents($target, file_get_contents($origin));
-        unlink($origin);
+        $filesystem->copy($origin, $target);
+        $filesystem->remove($origin);
     }
 }
 
 $directories = [
-        __DIR__ . '/../src/',
-        __DIR__ . '/../vendor/spryker/spryker/Bundles/',
+    __DIR__ . '/../src/',
+    __DIR__ . '/../vendor/spryker/spryker/Bundles/',
 ];
 $allFiles = getFiles($directories);
-
-$filesystem = new Filesystem();
 
 foreach ($allFiles as $file) {
     $content = $file->getContents();
     $content = str_replace(array_keys($searchAndReplace), array_values($searchAndReplace), $content);
     $filesystem->dumpFile($file->getPathname(), $content);
-//    file_put_contents($file->getPathname(), $content);
 }
 
