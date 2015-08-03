@@ -2,13 +2,16 @@
 
 namespace Pyz\Yves\Checkout\Communication;
 
+use Generated\Shared\Shipment\ShipmentInterface;
+use Generated\Yves\Ide\FactoryAutoCompletion\CheckoutCommunication;
 use SprykerEngine\Yves\Kernel\Communication\AbstractCommunicationDependencyContainer;
 use SprykerFeature\Client\Cart\Service\CartClientInterface;
 use SprykerFeature\Client\Checkout\Service\CheckoutClient;
 use Pyz\Yves\Checkout\Communication\Form\Checkout;
+use SprykerFeature\Client\Shipment\Service\ShipmentClientInterface;
 
 /**
- * @method \Generated\Yves\Ide\FactoryAutoCompletion\Checkout getFactory()
+ * @method CheckoutCommunication getFactory()
  */
 class CheckoutDependencyContainer extends AbstractCommunicationDependencyContainer
 {
@@ -18,7 +21,10 @@ class CheckoutDependencyContainer extends AbstractCommunicationDependencyContain
      */
     public function createCheckoutClient()
     {
-        return $this->getLocator()->checkout()->client();
+        return $this->getLocator()
+            ->checkout()
+            ->client()
+            ;
     }
 
     /**
@@ -26,15 +32,32 @@ class CheckoutDependencyContainer extends AbstractCommunicationDependencyContain
      */
     public function createCartClient()
     {
-        return $this->getLocator()->cart()->client();
+        return $this->getLocator()
+            ->cart()
+            ->client()
+            ;
     }
 
     /**
+     * @param ShipmentInterface $shipmentTransfer
+     *
      * @return Checkout
      */
-    public function createCheckoutForm()
+    public function createCheckoutForm(ShipmentInterface $shipmentTransfer)
     {
-        return $this->getFactory()->createFormCheckout();
+        return $this->getFactory()
+            ->createFormCheckout($shipmentTransfer)
+            ;
     }
 
+    /**
+     * @return ShipmentClientInterface
+     */
+    public function createShipmentClient()
+    {
+        return $this->getLocator()
+            ->shipment()
+            ->client()
+            ;
+    }
 }

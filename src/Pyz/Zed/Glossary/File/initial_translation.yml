@@ -326,3 +326,26 @@ keys:
   catalog.sort:
     translations:
       de_DE: 'Sortierung'
+
+  shipment.dhl:
+    translations:
+      de_DE: 'DHL'
+  shipment.dhl.paket.name:
+    translations:
+      de_DE: 'Paket'
+  shipment.dhl.paket.description:
+    translations:
+      de_DE: 'DHL Paket is the easy, affordable, fast and reliable shipping service to over 220 countries around the world.'
+  shipment.dhl.express.name:
+    translations:
+      de_DE: 'Express'
+  shipment.dhl.express.description:
+    translations:
+      de_DE: 'Our force of 100,000 engaged employees is working worldwide. Local know-how and our unique network make us your International Specialists.'
+  shipment.dpd:
+    translations:
+      de_DE: 'DPD'
+  shipment.hermes:
+    translations:
+      de_DE: 'Hermes'
+

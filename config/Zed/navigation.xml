@@ -67,4 +67,9 @@
         <label>Category</label>
         <title>Category</title>
     </category>
+    <shipment>
+        <label>Shipment</label>
+        <title>Shipment</title>
+        <uri>/shipment</uri>
+    </shipment>
 </config>

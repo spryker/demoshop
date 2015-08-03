@@ -5,7 +5,7 @@ namespace Pyz\Yves\Cart\Communication\Controller;
 use SprykerEngine\Yves\Application\Communication\Controller\AbstractController;
 use Pyz\Yves\Cart\Communication\Plugin\CartControllerProvider;
 use Symfony\Component\HttpFoundation\RedirectResponse;
-use Generated\Shared\Transfer\CartItemTransfer;
+use Generated\Shared\Transfer\ItemTransfer;
 use Generated\Shared\Transfer\ProductOptionTransfer;
 
 class CartController extends AbstractController
@@ -36,19 +36,19 @@ class CartController extends AbstractController
     {
         $cartClient = $this->getLocator()->cart()->client();
 
-        $cartItemTransfer = new CartItemTransfer();
+        $itemTransfer = new ItemTransfer();
 
-        $cartItemTransfer->setId($sku);
-        $cartItemTransfer->setQuantity($quantity);
+        $itemTransfer->setId($sku);
+        $itemTransfer->setQuantity($quantity);
 
         foreach ($optionValueUsageIds as $idOptionValueUsage) {
             $productOptionTransfer = new ProductOptionTransfer();
             $productOptionTransfer->setIdOptionValueUsage($idOptionValueUsage)
-                ->setLocalCode($this->getLocale());
-            $cartItemTransfer->addProductOption($productOptionTransfer);
+                ->setLocaleCode($this->getLocale());
+            $itemTransfer->addProductOption($productOptionTransfer);
         }
 
-        $cartClient->addItem($cartItemTransfer);
+        $cartClient->addItem($itemTransfer);
 
         return $this->redirectResponseInternal(CartControllerProvider::ROUTE_CART);
     }
@@ -61,10 +61,10 @@ class CartController extends AbstractController
     public function removeAction($sku)
     {
         $cartClient = $this->getLocator()->cart()->client();
-        $cartItemTransfer = new CartItemTransfer();
-        $cartItemTransfer->setId($sku);
+        $itemTransfer = new ItemTransfer();
+        $itemTransfer->setId($sku);
 
-        $cartClient->removeItem($cartItemTransfer);
+        $cartClient->removeItem($itemTransfer);
 
         return $this->redirectResponseInternal(CartControllerProvider::ROUTE_CART);
     }
@@ -78,9 +78,9 @@ class CartController extends AbstractController
     public function changeAction($sku, $quantity)
     {
         $cartClient = $this->getLocator()->cart()->client();
-        $cartItemTransfer = new CartItemTransfer();
-        $cartItemTransfer->setId($sku);
-        $cartClient->changeItemQuantity($cartItemTransfer, $quantity);
+        $itemTransfer = new ItemTransfer();
+        $itemTransfer->setId($sku);
+        $cartClient->changeItemQuantity($itemTransfer, $quantity);
 
         return $this->redirectResponseInternal(CartControllerProvider::ROUTE_CART);
     }
