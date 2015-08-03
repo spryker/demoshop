@@ -19,6 +19,8 @@ $bundles = [
     'Glossary',
     'ProductExporter',
     'ProductImage',
+    'Price',
+    'Session',
     'RedirectExporter',
     'Twig',
 ];
