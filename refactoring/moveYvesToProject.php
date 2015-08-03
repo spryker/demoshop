@@ -4,6 +4,7 @@ include_once(__DIR__ . '/../vendor/autoload.php');
 
 use Symfony\Component\Finder\Finder;
 use Symfony\Component\Finder\SplFileInfo;
+use Symfony\Component\Filesystem\Filesystem;
 
 $currentBundle = 'Assets';
 $directories = [
@@ -63,9 +64,12 @@ $directories = [
 ];
 $allFiles = getFiles($directories);
 
+$filesystem = new Filesystem();
+
 foreach ($allFiles as $file) {
     $content = $file->getContents();
     $content = str_replace(array_keys($searchAndReplace), array_values($searchAndReplace), $content);
-    file_put_contents($file->getPathname(), $content);
+    $filesystem->dumpFile($file->getPathname(), $content);
+//    file_put_contents($file->getPathname(), $content);
 }
 
