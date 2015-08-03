@@ -60,4 +60,3 @@ foreach ($allFiles as $file) {
     file_put_contents($file->getPathname(), $content);
 }
 
-echo '<pre>' . PHP_EOL . \Symfony\Component\VarDumper\VarDumper::dump($moveFromTo) . PHP_EOL . 'Line: ' . __LINE__ . PHP_EOL . 'File: ' . __FILE__ . die();
