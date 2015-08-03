@@ -61,7 +61,6 @@
         <label>Discount</label>
         <title>Discount</title>
         <uri>#</uri>
-        <visible>0</visible>
     </discount>
     <category>
         <label>Category</label>
