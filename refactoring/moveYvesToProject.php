@@ -25,24 +25,24 @@ $searchAndReplace = [];
 $moveFromTo = [];
 $filesystem = new Filesystem();
 
+/**
+ * @param array $directories
+ *
+ * @return SplFileInfo[]|Finder
+ */
+function getFiles(array $directories)
+{
+    $finder = new Finder();
+    $finder->files()->in($directories);
+
+    return $finder;
+}
+
 foreach ($bundles as $currentBundle) {
     $directories = [
         __DIR__ . '/../vendor/spryker/spryker/Bundles/' . $currentBundle . '/src/SprykerFeature/Yves/',
         __DIR__ . '/../vendor/spryker/spryker/Bundles/' . $currentBundle . '/tests/*/SprykerFeature/Yves/'
     ];
-
-    /**
-     * @param array $directories
-     *
-     * @return SplFileInfo[]|Finder
-     */
-    function getFiles(array $directories)
-    {
-        $finder = new Finder();
-        $finder->files()->in($directories);
-
-        return $finder;
-    }
 
     $finder = getFiles($directories);
 
