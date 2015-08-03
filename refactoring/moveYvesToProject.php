@@ -39,10 +39,14 @@ function getFiles(array $directories)
 }
 
 foreach ($bundles as $currentBundle) {
+
     $directories = [
-        __DIR__ . '/../vendor/spryker/spryker/Bundles/' . $currentBundle . '/src/SprykerFeature/Yves/',
-        __DIR__ . '/../vendor/spryker/spryker/Bundles/' . $currentBundle . '/tests/*/SprykerFeature/Yves/'
+        __DIR__ . '/../vendor/spryker/spryker/Bundles/' . $currentBundle . '/src/SprykerFeature/Yves/'
     ];
+
+    if (glob(__DIR__ . '/../vendor/spryker/spryker/Bundles/' . $currentBundle . '/tests/*/SprykerFeature/Yves/')) {
+        $directories[] = __DIR__ . '/../vendor/spryker/spryker/Bundles/' . $currentBundle . '/tests/*/SprykerFeature/Yves/';
+    }
 
     $finder = getFiles($directories);
 
