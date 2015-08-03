@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "20caec24eaf38069fd4254a9f93185e4",
+    "hash": "fea9ad7c80ea442ade978d7ca4ddd898",
     "packages": [
         {
             "name": "digital-canvas/zend-framework",
@@ -708,11 +708,11 @@
         },
         {
             "name": "spryker/spryker",
-            "version": "v0.5.0",
+            "version": "dev-release/v0.6.0",
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/spryker.git",
-                "reference": "3ccdf6776c5bc9a623fadc18b18dc055c60a0d19"
+                "reference": "8937e06c91ddaa38eb6b2f6ad1ff19feb9713781"
             },
             "require": {
                 "digital-canvas/zend-framework": ">=1.12.2",
@@ -845,7 +845,7 @@
                     "SprykerFeature\\Shared\\Library": "Bundles/Library/src/"
                 }
             },
-            "time": "2015-07-28 21:40:39"
+            "time": "2015-08-03 11:39:26"
         },
         {
             "name": "symfony-cmf/routing",
@@ -892,7 +892,7 @@
             ],
             "authors": [
                 {
-                    "name": "Symfony CMF community",
+                    "name": "Symfony CMF Community",
                     "homepage": "https://github.com/symfony-cmf/Routing/contributors"
                 }
             ],
@@ -906,7 +906,7 @@
         },
         {
             "name": "symfony/config",
-            "version": "v2.7.2",
+            "version": "v2.7.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/Config.git",
@@ -1075,7 +1075,7 @@
         },
         {
             "name": "symfony/event-dispatcher",
-            "version": "v2.7.2",
+            "version": "v2.7.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/EventDispatcher.git",
@@ -1431,16 +1431,16 @@
         },
         {
             "name": "symfony/intl",
-            "version": "v2.7.2",
+            "version": "v2.7.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/Intl.git",
-                "reference": "35c44cc91b767b4d63897643067bd78b6851ac51"
+                "reference": "ea83ee897023537fcd9b15fe29ef5622ea8f1c4b"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/Intl/zipball/35c44cc91b767b4d63897643067bd78b6851ac51",
-                "reference": "35c44cc91b767b4d63897643067bd78b6851ac51",
+                "url": "https://api.github.com/repos/symfony/Intl/zipball/ea83ee897023537fcd9b15fe29ef5622ea8f1c4b",
+                "reference": "ea83ee897023537fcd9b15fe29ef5622ea8f1c4b",
                 "shasum": ""
             },
             "require": {
@@ -1502,7 +1502,7 @@
                 "l10n",
                 "localization"
             ],
-            "time": "2015-06-28 17:13:14"
+            "time": "2015-07-31 13:24:29"
         },
         {
             "name": "symfony/options-resolver",
@@ -3746,7 +3746,7 @@
         },
         {
             "name": "symfony/browser-kit",
-            "version": "v2.7.2",
+            "version": "v2.7.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/BrowserKit.git",
@@ -3801,7 +3801,7 @@
         },
         {
             "name": "symfony/css-selector",
-            "version": "v2.7.2",
+            "version": "v2.7.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/CssSelector.git",
@@ -3854,16 +3854,16 @@
         },
         {
             "name": "symfony/dependency-injection",
-            "version": "v2.7.2",
+            "version": "v2.7.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/DependencyInjection.git",
-                "reference": "d56b1b89a0c8b34a6eca6211ec76c43256ec4030"
+                "reference": "851e3ffe8a366b1590bdaf3df2c1395f2d27d8a6"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/DependencyInjection/zipball/d56b1b89a0c8b34a6eca6211ec76c43256ec4030",
-                "reference": "d56b1b89a0c8b34a6eca6211ec76c43256ec4030",
+                "url": "https://api.github.com/repos/symfony/DependencyInjection/zipball/851e3ffe8a366b1590bdaf3df2c1395f2d27d8a6",
+                "reference": "851e3ffe8a366b1590bdaf3df2c1395f2d27d8a6",
                 "shasum": ""
             },
             "require": {
@@ -3910,11 +3910,11 @@
             ],
             "description": "Symfony DependencyInjection Component",
             "homepage": "https://symfony.com",
-            "time": "2015-07-09 16:07:40"
+            "time": "2015-07-28 14:07:07"
         },
         {
             "name": "symfony/dom-crawler",
-            "version": "v2.7.2",
+            "version": "v2.7.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/DomCrawler.git",
@@ -3967,7 +3967,7 @@
         },
         {
             "name": "symfony/stopwatch",
-            "version": "v2.7.2",
+            "version": "v2.7.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/Stopwatch.git",
@@ -4075,6 +4075,7 @@
     "aliases": [],
     "minimum-stability": "stable",
     "stability-flags": {
+        "spryker/spryker": 20,
         "propel/propel": 20,
         "silex/silex": 20,
         "pimple/pimple": 20
