@@ -30,7 +30,7 @@ use SprykerFeature\Shared\Application\Communication\Plugin\ServiceProvider\UrlGe
 use SprykerFeature\Shared\Library\Config;
 use SprykerFeature\Shared\System\SystemConfig;
 use SprykerFeature\Shared\Yves\YvesConfig;
-use SprykerFeature\Yves\Twig\Communication\Plugin\TwigServiceProvider;
+use Pyz\Yves\Twig\Communication\Plugin\TwigServiceProvider;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Routing\RouterInterface;
 
@@ -138,7 +138,6 @@ class YvesBootstrap extends SprykerYvesBootstrap
         $locator = $this->getLocator($app);
 
         return [
-            $locator->setup()->pluginRouterMonitoringRouter()->setSsl(false),
             $locator->frontendExporter()->pluginRouterStorageRouter()->setSsl(false),
             $locator->catalog()->pluginRouterSearchRouter()->setSsl(false),
             /*
