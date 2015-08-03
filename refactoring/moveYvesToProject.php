@@ -7,6 +7,7 @@ use Symfony\Component\Finder\SplFileInfo;
 use Symfony\Component\Filesystem\Filesystem;
 
 $bundles = [
+    'Application',
     'Assets',
     'Catalog',
     'CategoryExporter',
@@ -21,6 +22,7 @@ $bundles = [
     'RedirectExporter',
     'Twig',
 ];
+
 $searchAndReplace = [];
 $moveFromTo = [];
 $filesystem = new Filesystem();
@@ -74,8 +76,12 @@ foreach ($bundles as $currentBundle) {
 
 foreach ($moveFromTo as $origin => $target) {
     if (!file_exists($target)) {
+        $content = file_get_contents($origin);
+        $filesystem->dumpFile($origin, str_replace('namespace SprykerFeature\\', 'namespace Pyz\\', $content));
         $filesystem->copy($origin, $target);
         $filesystem->remove($origin);
+    } else {
+        echo $target . ' already exists' . PHP_EOL;
     }
 }
 
