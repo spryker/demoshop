@@ -36,7 +36,16 @@ foreach ($finder as $file) {
     $searchAndReplace[$oldName] = $newName;
 
     $oldPath = $file->getPathname();
+
+    $vendorSrcPath = __DIR__ . '/../vendor/spryker/spryker/Bundles/' . $currentBundle . '/src/';
+    $projectSrcPath = __DIR__ . '/../src/';
+
+    $vendorTestPath = __DIR__ . '/../vendor/spryker/spryker/Bundles/' . $currentBundle . '/tests/';
+    $projectTestPath = __DIR__ . '/../tests/';
+
     $newPath = str_replace('SprykerFeature', 'Pyz', $oldPath);
+    $newPath = str_replace([$vendorSrcPath, $vendorTestPath], [$projectSrcPath, $projectTestPath], $newPath);
+
 
     $moveFromTo[$oldPath] = $newPath;
 }
