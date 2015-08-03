@@ -13,10 +13,10 @@
             <div class="cart__item-price">{{ (item.priceToPay * item.quantity)|price }}</div>
         {% endfor %}
     </div>
-    {#<div class="cart__shipping">
+    <div class="cart__shipping">
       <div class="cart__shipping-label" colspan="2">{{ 'cart.shipping'|trans }}</div>
-      <div class="cart__shipping-price js-cart-shipping">{{ cart.totals.shipping|price }}</div>
-    </div>#}
+      <div class="cart__shipping-price js-cart-shipping"></div>
+    </div>
     {% if cart.totals is defined and cart.totals is not null %}
         <div class="cart__total">
           <div class="cart__total-label" colspan="2">{{ 'cart.total'|trans }}</div>
