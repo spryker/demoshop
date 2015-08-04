@@ -1,0 +1,15 @@
+{% extends "@application/layout/layout.twig" %}
+{% block content %}
+    <div class="catalog">
+        <h2>Wishlist</h2>
+        <ul>
+        {% for wishlistItem in customerWishlist.getItems() %}
+            <li>{{ wishlistItem.getConcreteProduct().getName() }} X ({{ wishlistItem.getQuantity() }})
+                <a href="/wishlist/remove/{{ wishlistItem.getSku() }}" />Remove</a>
+                <a href="/wishlist/reduce/{{ wishlistItem.getSku() }}" />Reduce</a>
+                <a href="/wishlist/increase/{{ wishlistItem.getSku() }}" />Increase</a>
+            </li>
+        {% endfor %}
+        </ul>
+    </div>
+{% endblock %}

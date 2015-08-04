@@ -17,7 +17,8 @@
             <p class="product__price">{{ product.price|price }}</p>
 
             {% include "@application/layout/partials/spinner.twig" with {class:"product__quantity", style:"caplet", name:"quantity", value:"1"} %}
-            <button class="product__add-button cta" data-sku="{{ product.abstractSku }}">{{ "page.detail.add-to-cart"|trans }}</button>
+            <button class="product__add-button cta" data-sku="{{ product.abstractSku }}">{{ "page.detail.add-to-cart"|trans }}</button> <br />
+            <a href="/wishlist/add/{{ product.abstractSku }}" />Add to Wishlist</a>
         </section>
         <section class="product__main-image">
             <img src="{{ product.image_url }}" alt="" style="width: 100%;"/>
