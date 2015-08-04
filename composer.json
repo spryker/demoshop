@@ -1,6 +1,6 @@
 {
   "require": {
-    "spryker/spryker": "dev-develop",
+    "spryker/spryker": "dev-feature/CD-356-product-option-sales-integration",
 
     "psr/log": "~1.0",
     "propel/propel": "~2.0@dev",
