@@ -135,3 +135,5 @@ gulp.task('default', [
     'compile-less',
     'compile-js'
 ]);
+
+gulp.task('dist', ['default']);
