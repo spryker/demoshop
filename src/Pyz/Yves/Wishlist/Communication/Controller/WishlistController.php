@@ -8,18 +8,15 @@ namespace Pyz\Yves\Wishlist\Communication\Controller;
 use Generated\Shared\Transfer\ItemTransfer;
 use Pyz\Yves\Wishlist\Communication\Plugin\WishlistControllerProvider;
 use SprykerEngine\Yves\Application\Communication\Controller\AbstractController;
-use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\RedirectResponse;
 
 
 class WishlistController extends AbstractController
 {
     /**
-     * @param Request $request
-     *
      * @return array
      */
-    public function indexAction(Request $request)
+    public function indexAction()
     {
         $wishlistClient = $this->getLocator()->wishlist()->client();
 
@@ -56,7 +53,7 @@ class WishlistController extends AbstractController
         $wishlistClient = $this->getLocator()->wishlist()->client();
 
         $itemTransfer = new ItemTransfer();
-        $itemTransfer->setSku($sku)->setQuantity(-1);
+        $itemTransfer->setSku($sku)->setQuantity(0);
 
         $wishlistClient->removeItem($itemTransfer);
 
@@ -64,17 +61,16 @@ class WishlistController extends AbstractController
     }
 
     /**
-     * @param     $sku
-     * @param int $quantity
+     * @param string $sku
      *
      * @return RedirectResponse
      */
-    public function increaseAction($sku, $quantity = 1)
+    public function increaseAction($sku)
     {
         $wishlistClient = $this->getLocator()->wishlist()->client();
 
         $itemTransfer = new ItemTransfer();
-        $itemTransfer->setSku($sku)->setQuantity($quantity);
+        $itemTransfer->setSku($sku)->setQuantity(1);
 
         $wishlistClient->increaseItemQuantity($itemTransfer);
 
@@ -82,20 +78,21 @@ class WishlistController extends AbstractController
     }
 
     /**
-     * @param     $sku
-     * @param int $quantity
+     * @param string $sku
      *
      * @return RedirectResponse
      */
-    public function reduceAction($sku, $quantity = 1)
+    public function reduceAction($sku)
     {
         $wishlistClient = $this->getLocator()->wishlist()->client();
 
         $itemTransfer = new ItemTransfer();
-        $itemTransfer->setSku($sku)->setQuantity($quantity);
+        $itemTransfer->setSku($sku)->setQuantity(1);
 
         $wishlistClient->decreaseItemQuantity($itemTransfer);
 
         return $this->redirectResponseInternal(WishlistControllerProvider::ROUTE_WISHLIST);
     }
+
 }
+
