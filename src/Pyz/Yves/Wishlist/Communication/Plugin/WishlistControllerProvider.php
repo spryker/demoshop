@@ -8,6 +8,7 @@ namespace Pyz\Yves\Wishlist\Communication\Plugin;
 
 use Silex\Application;
 use SprykerEngine\Yves\Application\Communication\Plugin\YvesControllerProvider;
+use Symfony\Component\HttpFoundation\Request;
 
 class WishlistControllerProvider extends YvesControllerProvider
 {
@@ -25,7 +26,8 @@ class WishlistControllerProvider extends YvesControllerProvider
         $this->createGetController('/wishlist', static::ROUTE_WISHLIST, 'Wishlist', 'Wishlist');
 
         $this->createGetController('/wishlist/add/{sku}', static::ROUTE_ADD, 'Wishlist', 'Wishlist', 'add')
-            ->assert('sku', '[a-zA-Z0-9-_]+');
+            ->assert('sku', '[a-zA-Z0-9-_]+')
+            ->convert('quantity', [$this, 'getQuantityFromRequest']);
 
         $this->createGetController('/wishlist/remove/{sku}', static::ROUTE_REMOVE, 'Wishlist', 'Wishlist', 'remove')
             ->assert('sku', '[a-zA-Z0-9-_]+');
@@ -36,4 +38,20 @@ class WishlistControllerProvider extends YvesControllerProvider
         $this->createGetController('/wishlist/increase/{sku}', static::ROUTE_INCREASE, 'Wishlist', 'Wishlist', 'increase')
             ->assert('sku', '[a-zA-Z0-9-_]+');
     }
+
+    /**
+     * @param mixed $unusedParameter
+     * @param Request $request
+     *
+     * @return int
+     */
+    public function getQuantityFromRequest($unusedParameter, Request $request)
+    {
+        if ($request->isMethod('POST')) {
+            return (int) $request->request->get('quantity', 1);
+        }
+
+        return (int) $request->query->get('quantity', 1);
+    }
+
 }
