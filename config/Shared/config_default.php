@@ -24,12 +24,7 @@ $config[SystemConfig::CURRENT_APPLICATION_ENV] = APPLICATION_ENV;
 $config[SystemConfig::PROJECT_TIMEZONE] = 'UTC';
 $config[SystemConfig::PROJECT_NAMESPACE] = 'Pyz';
 
-$config[SystemConfig::ZED_DB_ENGINE] = 'pgsql';
-$config[SystemConfig::ZED_DB_USERNAME] = 'development';
-$config[SystemConfig::ZED_DB_PASSWORD] = 'mate20mg';
-$config[SystemConfig::ZED_DB_DATABASE] = 'DE_development_zed';
-$config[SystemConfig::ZED_DB_HOST] = '127.0.0.1';
-$config[SystemConfig::ZED_DB_PORT] = '5432';
+$config[SystemConfig::ZED_DB_ENGINE] = 'mysql';
 
 $config[DbDumpConfig::DB_DUMP_USERNAME] = '';
 $config[DbDumpConfig::DB_DUMP_PASSWORD] = '';
@@ -94,15 +89,15 @@ $config[SystemConfig::PROPEL] = [
     'database' => [
         'connections' => [
             'default' => [
-                'adapter' => 'pgsql',
-                'dsn' => 'pgsql:host=127.0.0.1;dbname=DE_development_zed',
+                'adapter' => 'mysql',
+                'dsn' => 'mysql:host=127.0.0.1;dbname=DE_development_zed',
                 'user' => 'development',
                 'password' => '',
                 'settings' => [
                     'charset' => 'utf8',
-                    #'queries' => [
-                    #    'utf8' => 'SET NAMES utf8 COLLATE utf8_unicode_ci, COLLATION_CONNECTION = utf8_unicode_ci, COLLATION_DATABASE = utf8_unicode_ci, COLLATION_SERVER = utf8_unicode_ci'
-                    #]
+                    'queries' => [
+                        'utf8' => 'SET NAMES utf8 COLLATE utf8_unicode_ci, COLLATION_CONNECTION = utf8_unicode_ci, COLLATION_DATABASE = utf8_unicode_ci, COLLATION_SERVER = utf8_unicode_ci'
+                    ]
                 ]
             ]
         ]

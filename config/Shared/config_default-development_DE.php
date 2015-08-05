@@ -7,10 +7,12 @@ use SprykerFeature\Shared\System\SystemConfig;
 use SprykerFeature\Shared\Yves\YvesConfig;
 
 $config[SystemConfig::ZED_DB_USERNAME] = 'development';
-$config[SystemConfig::ZED_DB_PASSWORD] = '';
+$config[SystemConfig::ZED_DB_PASSWORD] = 'mate20mg';
 $config[SystemConfig::ZED_DB_DATABASE] = 'DE_development_zed';
 $config[SystemConfig::ZED_DB_HOST] = '127.0.0.1';
-$config[SystemConfig::ZED_DB_PORT] = '5432';
+$config[SystemConfig::ZED_DB_PORT] = '3306';
+
+
 
 
 
