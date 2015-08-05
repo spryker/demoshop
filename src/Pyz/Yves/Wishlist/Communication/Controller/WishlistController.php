@@ -109,7 +109,7 @@ class WishlistController extends AbstractController
         $wishlistItems = $wishlistClient->getCustomerWishlist();
         $wishlistItem = null;
         foreach ($wishlistItems->getItems() as $item) {
-            if ($groupKey = $item->getGroupKey()) {
+            if ($groupKey === $item->getGroupKey()) {
                 $wishlistItem = clone $item;
             }
         }
