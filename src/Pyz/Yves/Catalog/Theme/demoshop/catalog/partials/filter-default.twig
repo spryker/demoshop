@@ -1,7 +1,7 @@
 <section class="filter js-filter js-filter-default filter__{{ filterName }}" data-filter-name="{{filterName}}" data-filter-type="default">
     <ul class="filter__{{ filterName }}-list">
         {% for facet in facets %}
-        <li>{% include "@catalog/catalog/partials/filter-default-value.twig" with {displayValue:facet.name, value:'/hellome', quantity: '12', default:true} %}</li>
+        {#<li>{% include "@catalog/catalog/partials/filter-default-value.twig" with {displayValue:facet.name, value:facet.url, quantity: facet.amount, default:true} %}</li>#}
         {% endfor %}
         <li>{% include "@catalog/catalog/partials/filter-default-value.twig" with {displayValue:'Alle', value:'alle', quantity:'40', default:true} %}</li>
         <li>{% include "@catalog/catalog/partials/filter-default-value.twig" with {displayValue:'Afrika', value:'afrika', quantity:'12'} %}</li>
