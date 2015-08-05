@@ -27,7 +27,7 @@ class WishlistController extends AbstractController
 
     /**
      * @param string $sku
-     * @param int    $quantity
+     * @param int  $quantity
      *
      * @return RedirectResponse
      */
@@ -45,15 +45,16 @@ class WishlistController extends AbstractController
 
     /**
      * @param string $sku
+     * @param string $groupKey
      *
      * @return RedirectResponse
      */
-    public function removeAction($sku)
+    public function removeAction($sku, $groupKey)
     {
         $wishlistClient = $this->getLocator()->wishlist()->client();
 
         $itemTransfer = new ItemTransfer();
-        $itemTransfer->setSku($sku)->setQuantity(0);
+        $itemTransfer->setSku($sku)->setGroupKey($groupKey)->setQuantity(0);
 
         $wishlistClient->removeItem($itemTransfer);
 
@@ -62,15 +63,16 @@ class WishlistController extends AbstractController
 
     /**
      * @param string $sku
+     * @param string $groupKey
      *
      * @return RedirectResponse
      */
-    public function increaseAction($sku)
+    public function increaseAction($sku, $groupKey)
     {
         $wishlistClient = $this->getLocator()->wishlist()->client();
 
         $itemTransfer = new ItemTransfer();
-        $itemTransfer->setSku($sku)->setQuantity(1);
+        $itemTransfer->setSku($sku)->setGroupKey($groupKey)->setQuantity(1);
 
         $wishlistClient->increaseItemQuantity($itemTransfer);
 
@@ -79,17 +81,44 @@ class WishlistController extends AbstractController
 
     /**
      * @param string $sku
+     * @param string $groupKey
      *
      * @return RedirectResponse
      */
-    public function reduceAction($sku)
+    public function reduceAction($sku, $groupKey)
     {
         $wishlistClient = $this->getLocator()->wishlist()->client();
 
         $itemTransfer = new ItemTransfer();
-        $itemTransfer->setSku($sku)->setQuantity(1);
+        $itemTransfer->setSku($sku)->setGroupKey($groupKey)->setQuantity(1);
 
         $wishlistClient->decreaseItemQuantity($itemTransfer);
+
+        return $this->redirectResponseInternal(WishlistControllerProvider::ROUTE_WISHLIST);
+    }
+
+    /**
+     * @param string $groupKey
+     *
+     * @return RedirectResponse
+     */
+    public function addToCartAction($groupKey)
+    {
+        $wishlistClient = $this->getLocator()->wishlist()->client();
+
+        $wishlistItems = $wishlistClient->getCustomerWishlist();
+        $wishlistItem = null;
+        foreach ($wishlistItems->getItems() as $item) {
+            if ($groupKey = $item->getGroupKey()) {
+                $wishlistItem = clone $item;
+            }
+        }
+
+        if (null !== $wishlistItem) {
+            $cartClient = $this->getLocator()->cart()->client();
+            $wishlistItem->setGroupKey(null);
+            $cartClient->addItem($wishlistItem);
+        }
 
         return $this->redirectResponseInternal(WishlistControllerProvider::ROUTE_WISHLIST);
     }
