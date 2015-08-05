@@ -78,6 +78,7 @@ class PriceInstall extends AbstractInstaller
         $transferPriceProduct->setPrice($row[self::PRICE])
             ->setPriceTypeName($stockType->getName())
             ->setSkuProduct($row[self::SKU])
+            ->setSkuAbstractProduct($row[self::SKU])
         ;
 
         $sku = $transferPriceProduct->getSkuProduct();
