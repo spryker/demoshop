@@ -41,12 +41,14 @@ class CartControllerProvider extends YvesControllerProvider
             ->convert('quantity', [$this, 'getQuantityFromRequest'])
         ;
 
-        $this->createGetController('/cart/remove/{sku}', self::ROUTE_CART_REMOVE, 'Cart', 'Cart', 'remove')
+        $this->createGetController('/cart/remove/{sku}/{groupKey}', self::ROUTE_CART_REMOVE, 'Cart', 'Cart', 'remove')
             ->assert('sku', '[a-zA-Z0-9-_]+')
+            ->value('groupKey', '')
         ;
 
         $this->createGetController('/cart/quantity/{sku}/{absolute}', self::ROUTE_CART_CHANGE_QUANTITY, 'Cart', 'Cart', 'change')
             ->assert('sku', '[a-zA-Z0-9-_]+')
+            ->value('groupKey', '')
             ->assert('absolute', '[0-1-_]+')
         ;
 
@@ -57,16 +59,19 @@ class CartControllerProvider extends YvesControllerProvider
             ->convert('quantity', [$this, 'getQuantityFromRequest'])
         ;
 
-        $this->createPostController('/cart/remove/{sku}', self::ROUTE_CART_REMOVE_AJAX, 'Cart', 'Ajax', 'remove', true)
+        $this->createPostController('/cart/remove/{sku}/{groupKey}', self::ROUTE_CART_REMOVE_AJAX, 'Cart', 'Ajax', 'remove', true)
             ->assert('sku', '[a-zA-Z0-9-_]+')
+            ->value('groupKey', '')
         ;
 
-        $this->createPostController('/cart/increase/{sku}', self::ROUTE_CART_INCREASE_AJAX, 'Cart', 'Ajax', 'increase')
+        $this->createPostController('/cart/increase/{sku}/{groupKey}', self::ROUTE_CART_INCREASE_AJAX, 'Cart', 'Ajax', 'increase')
             ->assert('sku', '[a-zA-Z0-9-_]+')
+            ->value('groupKey', '')
         ;
 
-        $this->createPostController('/cart/decrease/{sku}', self::ROUTE_CART_DECREASE_AJAX, 'Cart', 'Ajax', 'decrease')
+        $this->createPostController('/cart/decrease/{sku}/{groupKey}', self::ROUTE_CART_DECREASE_AJAX, 'Cart', 'Ajax', 'decrease')
             ->assert('sku', '[a-zA-Z0-9-_]+')
+            ->value('groupKey', '')
         ;
 
         $this->createGetController('/cart/coupon/add', self::ROUTE_CART_COUPON_ADD, 'Cart', 'Coupon', 'add')
