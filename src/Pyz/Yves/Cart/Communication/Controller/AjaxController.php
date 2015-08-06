@@ -59,14 +59,15 @@ class AjaxController extends AbstractController
 
     /**
      * @param string $sku
+     * @param string $groupKey
      *
      * @return RedirectResponse
      */
-    public function removeAction($sku)
+    public function removeAction($sku, $groupKey = null)
     {
         $cartClient = $this->getLocator()->cart()->client();
         $itemTransfer = new ItemTransfer();
-        $itemTransfer->setSku($sku);
+        $itemTransfer->setSku($sku)->setGroupKey($groupKey);
 
         $cartClient->removeItem($itemTransfer);
 
@@ -75,19 +76,17 @@ class AjaxController extends AbstractController
 
     /**
      * @param string $sku
+     * @param string $groupKey
      *
      * @return RedirectResponse
      */
-    public function increaseAction($sku)
+    public function increaseAction($sku, $groupKey = null)
     {
         $cartClient = $this->getLocator()->cart()->client();
+
         $itemTransfer = new ItemTransfer();
         $itemTransfer->setSku($sku);
-        foreach ($cartClient->getCart()->getItems() as $cartItem) {
-            if ($cartItem->getSku() === $sku) {
-                $itemTransfer->setQuantity($cartItem->getQuantity());
-            }
-        }
+        $itemTransfer->setGroupKey($groupKey);
 
         $cartClient->increaseItemQuantity($itemTransfer);
 
@@ -96,20 +95,17 @@ class AjaxController extends AbstractController
 
     /**
      * @param string $sku
+     * @param string $groupKey
      *
      * @return RedirectResponse
      */
-    public function decreaseAction($sku)
+    public function decreaseAction($sku, $groupKey = null)
     {
         $cartClient = $this->getLocator()->cart()->client();
 
         $itemTransfer = new ItemTransfer();
         $itemTransfer->setSku($sku);
-        foreach ($cartClient->getCart()->getItems() as $cartItem) {
-            if ($cartItem->getSku() === $sku) {
-                $itemTransfer->setQuantity($cartItem->getQuantity());
-            }
-        }
+        $itemTransfer->setGroupKey($groupKey);
 
         $cartClient->decreaseItemQuantity($itemTransfer);
 

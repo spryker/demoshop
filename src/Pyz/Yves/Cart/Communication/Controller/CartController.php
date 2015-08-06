@@ -56,13 +56,16 @@ class CartController extends AbstractController
     /**
      * @param string $sku
      *
+     * @param string $groupKey
+     *
      * @return RedirectResponse
      */
-    public function removeAction($sku)
+    public function removeAction($sku, $groupKey = null)
     {
         $cartClient = $this->getLocator()->cart()->client();
         $itemTransfer = new ItemTransfer();
         $itemTransfer->setId($sku);
+        $itemTransfer->setGroupKey($groupKey);
 
         $cartClient->removeItem($itemTransfer);
 
@@ -71,15 +74,17 @@ class CartController extends AbstractController
 
     /**
      * @param string $sku
-     * @param int $quantity
+     * @param int    $quantity
+     * @param string $groupKey
      *
      * @return RedirectResponse
      */
-    public function changeAction($sku, $quantity)
+    public function changeAction($sku, $quantity, $groupKey = null)
     {
         $cartClient = $this->getLocator()->cart()->client();
         $itemTransfer = new ItemTransfer();
         $itemTransfer->setId($sku);
+        $itemTransfer->setGroupKey($groupKey);
         $cartClient->changeItemQuantity($itemTransfer, $quantity);
 
         return $this->redirectResponseInternal(CartControllerProvider::ROUTE_CART);
