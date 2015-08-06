@@ -21,7 +21,7 @@ class WishlistController extends AbstractController
         $wishlistClient = $this->getLocator()->wishlist()->client();
 
         return [
-          'customerWishlist' => $wishlistClient->getCustomerWishlist()
+          'customerWishlist' => $wishlistClient->getWishlist()
         ];
     }
 
@@ -106,11 +106,12 @@ class WishlistController extends AbstractController
     {
         $wishlistClient = $this->getLocator()->wishlist()->client();
 
-        $wishlistItems = $wishlistClient->getCustomerWishlist();
+        $wishlistItems = $wishlistClient->getWishlist();
         $wishlistItem = null;
         foreach ($wishlistItems->getItems() as $item) {
             if ($groupKey === $item->getGroupKey()) {
                 $wishlistItem = clone $item;
+                break;
             }
         }
 
