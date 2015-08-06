@@ -25,7 +25,7 @@ class CatalogController extends AbstractController
 
         if ($request->isXmlHttpRequest()) {
             $currencyManager = CurrencyManager::getInstance();
-            $searchResults['products'] = $this->formatValidProductPrices($searchResults['products'], $currencyManager);
+            $searchResults['products'] = $this->formatValidProductPrices($currencyManager, $searchResults['products']);
 
             return $this->jsonResponse($searchResults);
         }
