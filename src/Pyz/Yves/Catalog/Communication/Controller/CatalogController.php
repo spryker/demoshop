@@ -24,7 +24,8 @@ class CatalogController extends AbstractController
         $searchResults = array_merge($search->getResult(), ['category' => $categoryNode, 'categoryTree' => $categoryTree]);
 
         if ($request->isXmlHttpRequest()) {
-            $searchResults['products'] = $this->formatValidProductPrices($searchResults['products']);
+            $currencyManager = CurrencyManager::getInstance();
+            $searchResults['products'] = $this->formatValidProductPrices($searchResults['products'], $currencyManager);
 
             return $this->jsonResponse($searchResults);
         }
@@ -65,14 +66,13 @@ class CatalogController extends AbstractController
     }
 
     /**
+     * @param CurrencyManager $currencyManager
      * @param array $products
      *
      * @return array
      */
-    private function formatValidProductPrices(array $products)
+    private function formatValidProductPrices(CurrencyManager $currencyManager, array $products)
     {
-        $currencyManager = CurrencyManager::getInstance();
-
         foreach ($products as &$product) {
             $product['formatted_valid_price'] = $currencyManager->format(
                 $currencyManager->convertCentToDecimal($product['valid_price'])
