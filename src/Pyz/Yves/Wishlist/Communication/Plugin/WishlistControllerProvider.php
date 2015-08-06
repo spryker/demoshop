@@ -17,7 +17,7 @@ class WishlistControllerProvider extends YvesControllerProvider
     const ROUTE_REMOVE = 'wishlist/remove';
     const ROUTE_REDUCE = 'wishlist/reduce';
     const ROUTE_INCREASE = 'wishlist/increase';
-    const ROUTE_ADD_TO_GROUP = 'wishlist/add-to-group';
+    const ROUTE_ADD_TO_GROUP = 'wishlist/add-to-cart';
 
     /**
      * @param Application $app
@@ -48,12 +48,12 @@ class WishlistControllerProvider extends YvesControllerProvider
     }
 
     /**
-     * @param mixed $unusedParameter
+     * @param mixed $parameter
      * @param Request $request
      *
      * @return int
      */
-    public function getQuantityFromRequest($unusedParameter, Request $request)
+    public function getQuantityFromRequest($parameter, Request $request)
     {
         if ($request->isMethod('POST')) {
             return (int) $request->request->get('quantity', 1);

@@ -19,7 +19,7 @@ class WishlistDependencyProvider extends BaseWishlistDependencyProvider
      *
      * @return array
      */
-    public function preSavePlugins(Container $container)
+    protected function preSavePlugins(Container $container)
     {
         $groupingPlugin = $container->getLocator()->itemGrouperWishlistConnector()->pluginPreSaveItemGroupingPlugin();
         return [

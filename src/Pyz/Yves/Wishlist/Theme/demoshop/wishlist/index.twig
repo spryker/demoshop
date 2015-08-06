@@ -5,10 +5,10 @@
         <ul>
         {% for wishlistItem in customerWishlist.getItems() %}
             <li>{{ wishlistItem.getConcreteProduct().getName() }} X ({{ wishlistItem.getQuantity() }})
-                <a href="/wishlist/remove/{{ wishlistItem.getSku() }}/{{ wishlistItem.getGroupKey() }}">Remove</a>
-                <a href="/wishlist/reduce/{{ wishlistItem.getSku() }}/{{ wishlistItem.getGroupKey() }}">Reduce</a>
-                <a href="/wishlist/increase/{{ wishlistItem.getSku() }}/{{ wishlistItem.getGroupKey() }}">Increase</a>
-                <a href="/wishlist/add-to-cart/{{ wishlistItem.getGroupKey() }}">Add to cart</a>
+                <a href="{{ path('wishlist/add', { sku: wishlistItem.sku, groupKey:  wishlistItem.getGroupKey()  }) }}">Remove</a>
+                <a href="{{ path('wishlist/reduce', { sku: wishlistItem.sku, groupKey:  wishlistItem.getGroupKey()  }) }}">Reduce</a>
+                <a href="{{ path('wishlist/increase', { sku: wishlistItem.sku, groupKey:  wishlistItem.getGroupKey()  }) }}">Increase</a>
+                <a href="{{ path('wishlist/add-to-cart', {groupKey:  wishlistItem.getGroupKey()  }) }}">Move to cart</a>
             </li>
         {% endfor %}
         </ul>
