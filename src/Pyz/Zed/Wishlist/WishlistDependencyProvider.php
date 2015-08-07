@@ -25,6 +25,7 @@ class WishlistDependencyProvider extends BaseWishlistDependencyProvider
         return [
             Add::OPERATION_NAME => [
                 $container->getLocator()->wishlist()->pluginPreSaveSkuGroupKeyPlugin(),
+                $container->getLocator()->productOptionWishlistConnector()->pluginPreSaveGroupKeyProductOptionPlugin(),
                 $groupingPlugin
             ],
             Decrease::OPERATION_NAME => [
