@@ -22,8 +22,8 @@ class DataProvider
             'tax_rate' => '19%',
             'category' => 'Clothes/Shoes/Men',
             'attributes' => ['brand' => 'Nike', 'article_nr' => 'Q12'],
-            'attributes_de' => ['material' => 'Textil', 'sole' => 'Kunststoff'],
-            'attributes_en' => ['material' => 'textile', 'sole' => 'synthetics'],
+            'attributes_de' => ['material' => 'Textil', 'sole' => 'Kunststoff', 'lang' => 'de'],
+            'attributes_en' => ['material' => 'textile', 'sole' => 'synthetics', 'lang' => 'en'],
         ];
     }
 
@@ -38,7 +38,8 @@ class DataProvider
             'name' => 'FLEX 2015 RUN Size 44',
             'stock' => '100',
             'attributes' => ['size' => '44'],
-            'attributes_de' => ['material' => 'Test 44 Textil', 'sole' => 'Test 44 Kunststoff'], //to test localisedAttributes saving for conrete products
+            'attributes_de' => ['material' => 'DE Variant 1 Test 44 Textil', 'sole' => 'DE Variant 1 Test 44 Kunststoff'], //to test localisedAttributes saving for conrete products
+            'attributes_en' => ['material' => 'EN Variant 1 Test 44 Textil', 'sole' => 'EN Variant 1 Test 44 Kunststoff'], //to test localisedAttributes saving for conrete products
         ];
     }
 
@@ -53,7 +54,8 @@ class DataProvider
             'name' => 'FLEX 2015 RUN Size 46',
             'stock' => '50',
             'attributes' => ['size' => '46'],
-            'attributes_de' => ['material' => 'Test 44 Textil', 'sole' => 'Test 44 Kunststoff'],
+            'attributes_de' => ['material' => 'DE Variant 2 Test 44 Textil', 'sole' => 'DE Variant 2  Test 44 Kunststoff'],
+            'attributes_en' => ['material' => 'EN Variant 2 Test 44 Textil', 'sole' => 'EN Variant 2  Test 44 Kunststoff'],
         ];
     }
 
