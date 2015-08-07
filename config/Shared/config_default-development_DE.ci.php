@@ -7,7 +7,7 @@ use SprykerFeature\Shared\System\SystemConfig;
 use SprykerFeature\Shared\Yves\YvesConfig;
 
 $config[SystemConfig::ZED_DB_USERNAME] = 'ubuntu';
-$config[SystemConfig::ZED_DB_PASSWORDDB] = '';
+$config[SystemConfig::ZED_DB_PASSWORD] = '';
 $config[SystemConfig::ZED_DB_DATABASE] = 'circle_test';
 $config[SystemConfig::ZED_DB_HOST] = '127.0.0.1';
 $config[SystemConfig::ZED_DB_PORT] = 3306;
