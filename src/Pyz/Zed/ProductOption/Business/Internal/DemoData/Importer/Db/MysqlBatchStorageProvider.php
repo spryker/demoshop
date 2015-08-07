@@ -43,13 +43,23 @@ class MysqlBatchStorageProvider implements BatchStorageProviderInterface
         }
 
         $placeholderSql = rtrim($placeholderSql, ',');
+//echo '<pre>' . PHP_EOL . \Symfony\Component\VarDumper\VarDumper::dump($tableName) . PHP_EOL . 'Line: ' . __LINE__ . PHP_EOL . 'File: ' . __FILE__ . die();
+//        $sql = '
+//        IF EXISTS ( SELECT * FROM phonebook WHERE name = 'john doe' ) THEN
+//            UPDATE phonebook
+//            SET extension = '1234' WHERE name = 'john doe';
+//        ELSE
+//            INSERT INTO phonebook VALUES( 'john doe', '1234' );
+//        END IF;';
 
+
+        // @todo postgres-sql
         $sql = sprintf(
             "REPLACE INTO $tableName (%s) VALUES %s",
             implode(', ', $columns),
             $placeholderSql
         );
-
+//echo '<pre>' . PHP_EOL . \Symfony\Component\VarDumper\VarDumper::dump($sql) . PHP_EOL . 'Line: ' . __LINE__ . PHP_EOL . 'File: ' . __FILE__ . die();
         return $sql;
     }
 

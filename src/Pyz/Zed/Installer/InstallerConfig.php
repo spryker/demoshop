@@ -45,7 +45,8 @@ class InstallerConfig extends SprykerInstallerConfig
             $locator->price()->pluginDemoDataInstaller(),
             $locator->productSearch()->pluginDemoDataInstaller(),
             $locator->stock()->pluginDemoDataInstaller(),
-            $locator->productOption()->pluginDemoDataInstaller(),
+
+//            $locator->productOption()->pluginDemoDataInstaller(),
         ];
     }
 

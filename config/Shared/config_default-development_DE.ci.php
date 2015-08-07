@@ -6,11 +6,11 @@ use SprykerFeature\Shared\Setup\SetupConfig;
 use SprykerFeature\Shared\System\SystemConfig;
 use SprykerFeature\Shared\Yves\YvesConfig;
 
-$config[SystemConfig::ZED_MYSQL_USERNAME] = 'ubuntu';
-$config[SystemConfig::ZED_MYSQL_PASSWORD] = '';
-$config[SystemConfig::ZED_MYSQL_DATABASE] = 'circle_test';
-$config[SystemConfig::ZED_MYSQL_HOST] = '127.0.0.1';
-$config[SystemConfig::ZED_MYSQL_PORT] = 3306;
+$config[SystemConfig::ZED_DB_USERNAME] = 'ubuntu';
+$config[SystemConfig::ZED_DB_PASSWORDDB] = '';
+$config[SystemConfig::ZED_DB_DATABASE] = 'circle_test';
+$config[SystemConfig::ZED_DB_HOST] = '127.0.0.1';
+$config[SystemConfig::ZED_DB_PORT] = 3306;
 
 
 $config[SystemConfig::ELASTICA_PARAMETER__INDEX_NAME] = 'de_development_catalog';

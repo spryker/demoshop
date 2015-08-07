@@ -17,7 +17,7 @@ class CategoryFacade extends SprykerCategoryFacade implements ProductCategoryToC
      */
     public function installDemoData(LoggerInterface $messenger)
     {
-        $this->getDependencyContainer()->getDemoDataInstaller($messenger)->install();
+        $this->getDependencyContainer()->createDemoDataInstaller($messenger)->install();
     }
 
 }
