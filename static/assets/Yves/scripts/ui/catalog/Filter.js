@@ -8,10 +8,10 @@ var Filter = function ($el) {
   this.$el = $el;
   this.type = $el.data('filter-type');
   this.name = $el.data('filter-name');
+  var that = this;
 
   if (this.type == 'range') {
     var $slider = this.$el.find('.js-slider');
-    var that = this;
     this.min = this.$el.data('min');
     this.max = this.$el.data('max');
     $slider.slider({
@@ -36,7 +36,6 @@ var Filter = function ($el) {
       that.updateSliderValueDisplay(min, max);
     });
   } else if (this.type == 'color') {
-      var that = this;
     this.$el.find('.js-color-name').each(function(i, el) {
       var color = $(el).siblings(':radio').data('color'),
           radio = $(el).siblings(':radio');
@@ -67,7 +66,7 @@ Filter.prototype.getSelectedValue = function(display) {
     }
   } else if (this.type == 'multivalue') {
     $selected = this.$el.find('[type="checkbox"]:checked');
-  } else if (this.type == 'default' || this.type == 'color') {
+  } else if (this.type == 'default' || this.type == 'color' || this.type == 'category') {
     $selected = this.$el.find('[type="radio"]:checked');
   }
 
@@ -93,7 +92,7 @@ Filter.prototype.getSelectedValue = function(display) {
 
 Filter.prototype.setSelectedValue = function(value) {
   var values;
-  if (this.type == 'default' || this.type == 'color') {
+  if (this.type == 'default' || this.type == 'color' || this.type == 'category') {
     if (value === null) {
       this.$el.find("input:checked").prop('checked', false);
     } else {

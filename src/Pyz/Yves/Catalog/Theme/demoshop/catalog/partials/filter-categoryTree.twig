@@ -1,0 +1,5 @@
+{% if categories is not empty %}
+    <section class="filter js-filter js-filter-category filter__{{ filterName }}" data-filter-name="{{filterName}}" data-filter-type="category">
+        {% include "@catalog/catalog/partials/filter-categoryTree-level.twig" %}
+    </section>
+{% endif %}

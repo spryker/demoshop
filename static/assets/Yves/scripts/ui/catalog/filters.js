@@ -23,7 +23,13 @@ var triggerPriceChange = function(event, ui) {
 var initActiveFilterList = function() {
   $('.js-filter').on('change', function(e) {
     var changedFilterName = $(e.currentTarget).data('filter-name');
-    updateActiveFilterList(getFilter(changedFilterName));
+
+    if ($(this).hasClass('js-filter-category')) {
+      categoryRedirect($(this).find(':checked').val());
+      return;
+    } else {
+      updateActiveFilterList(getFilter(changedFilterName));
+    }
 
     $('.js-products-prev').remove();
     $('.js-products-next').remove();
@@ -98,12 +104,25 @@ var getUpdatedParams = function() {
   return params;
 };
 
+var categoryRedirect = function (categoryUrl) {
+  var location = categoryUrl,
+      params = URLManager.filterParams(['page']);
+
+  params = URLManager.paramsToString(params);
+
+  if (params.length) {
+    location += '?' + params;
+  }
+
+  document.location = location;
+};
+
 var initMobileFilterHiding = function() {
   var $filtersEl;
   var filtersHidden = false;
 
   $filtersEl = $('.js-filters');
-  $filtersEl.css('height', $filtersEl.innerHeight())
+  $filtersEl.css('height', $filtersEl.innerHeight());
   $filtersEl.addClass('js-filters-hidden');
   filtersHidden = true;
 
@@ -123,4 +142,4 @@ module.exports = {
 
     initMobileFilterHiding();
   }
-}
+};
