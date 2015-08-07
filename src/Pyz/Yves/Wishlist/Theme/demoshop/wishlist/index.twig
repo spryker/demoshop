@@ -5,7 +5,7 @@
         <ul>
         {% for wishlistItem in customerWishlist.getItems() %}
             <li>{{ wishlistItem.getConcreteProduct().getName() }} X ({{ wishlistItem.getQuantity() }})
-                <a href="{{ path('wishlist/add', { sku: wishlistItem.sku, groupKey:  wishlistItem.getGroupKey()  }) }}">Remove</a>
+                <a href="{{ path('wishlist/remove', { sku: wishlistItem.sku, groupKey:  wishlistItem.getGroupKey()  }) }}">Remove</a>
                 <a href="{{ path('wishlist/decrease', { sku: wishlistItem.sku, groupKey:  wishlistItem.getGroupKey()  }) }}">Reduce</a>
                 <a href="{{ path('wishlist/increase', { sku: wishlistItem.sku, groupKey:  wishlistItem.getGroupKey()  }) }}">Increase</a>
                 <a href="{{ path('wishlist/add-to-cart', {groupKey:  wishlistItem.getGroupKey()  }) }}">Move to cart</a>
