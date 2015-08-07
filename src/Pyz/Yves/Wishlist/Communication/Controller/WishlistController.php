@@ -85,7 +85,7 @@ class WishlistController extends AbstractController
      *
      * @return RedirectResponse
      */
-    public function reduceAction($sku, $groupKey)
+    public function decreaseAction($sku, $groupKey)
     {
         $wishlistClient = $this->getLocator()->wishlist()->client();
 

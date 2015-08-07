@@ -15,7 +15,7 @@ class WishlistControllerProvider extends YvesControllerProvider
     const ROUTE_WISHLIST = 'wishlist';
     const ROUTE_ADD = 'wishlist/add';
     const ROUTE_REMOVE = 'wishlist/remove';
-    const ROUTE_REDUCE = 'wishlist/reduce';
+    const ROUTE_DECREASE = 'wishlist/decrease';
     const ROUTE_INCREASE = 'wishlist/increase';
     const ROUTE_ADD_TO_GROUP = 'wishlist/add-to-cart';
 
@@ -35,7 +35,7 @@ class WishlistControllerProvider extends YvesControllerProvider
             ->assert('groupKey', '[a-zA-Z0-9-_]+');
 
 
-        $this->createGetController('/wishlist/reduce/{sku}/{groupKey}', static::ROUTE_REDUCE, 'Wishlist', 'Wishlist', 'reduce')
+        $this->createGetController('/wishlist/decrease/{sku}/{groupKey}', static::ROUTE_DECREASE, 'Wishlist', 'Wishlist', 'decrease')
             ->assert('sku', '[a-zA-Z0-9-_]+')
             ->assert('groupKey', '[a-zA-Z0-9-_]+');
 
