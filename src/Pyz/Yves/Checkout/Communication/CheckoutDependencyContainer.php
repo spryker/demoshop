@@ -21,10 +21,7 @@ class CheckoutDependencyContainer extends AbstractCommunicationDependencyContain
      */
     public function createCheckoutClient()
     {
-        return $this->getLocator()
-            ->checkout()
-            ->client()
-            ;
+        return $this->getLocator()->checkout()->client();
     }
 
     /**
@@ -32,10 +29,15 @@ class CheckoutDependencyContainer extends AbstractCommunicationDependencyContain
      */
     public function createCartClient()
     {
-        return $this->getLocator()
-            ->cart()
-            ->client()
-            ;
+        return $this->getLocator()->cart()->client();
+    }
+
+    /**
+     * @return ShipmentClientInterface
+     */
+    public function createShipmentClient()
+    {
+        return $this->getLocator()->shipment()->client();
     }
 
     /**
@@ -50,14 +52,4 @@ class CheckoutDependencyContainer extends AbstractCommunicationDependencyContain
             ;
     }
 
-    /**
-     * @return ShipmentClientInterface
-     */
-    public function createShipmentClient()
-    {
-        return $this->getLocator()
-            ->shipment()
-            ->client()
-            ;
-    }
 }
