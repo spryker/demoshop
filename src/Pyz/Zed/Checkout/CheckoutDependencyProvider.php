@@ -37,6 +37,7 @@ class CheckoutDependencyProvider extends SprykerCheckoutDependencyProvider
             $container->getLocator()->cartCheckoutConnector()->pluginOrderCartHydrationPlugin(),
             $container->getLocator()->productOptionCheckoutConnector()->pluginOrderProductOptionHydrationPlugin(),
             $container->getLocator()->cartCheckoutConnector()->pluginProductSkuGroupKeyHydrationPlugin(),
+            $container->getLocator()->productOptionCheckoutConnector()->pluginGroupKeyProductOptionHydrationPlugin(),
             $container->getLocator()->itemGrouperCheckoutConnector()->pluginOrderItemGroupingHydrationPlugin(),
             $container->getLocator()->omsCheckoutConnector()->pluginOrderOmsHydrationPlugin(),
         ];
