@@ -6,6 +6,7 @@ use Pyz\Yves\Application\Communication\Plugin\ApplicationControllerProvider;
 use Pyz\Yves\Cart\Communication\Plugin\CartControllerProvider;
 use Pyz\Yves\Checkout\Communication\Plugin\CheckoutControllerProvider;
 use Pyz\Yves\Customer\Communication\Plugin\CustomerControllerProvider;
+use Pyz\Yves\Wishlist\Communication\Plugin\WishlistControllerProvider;
 use Silex\Provider\FormServiceProvider;
 use Silex\Provider\HttpFragmentServiceProvider;
 use Silex\Provider\RememberMeServiceProvider;
@@ -125,6 +126,7 @@ class YvesBootstrap extends SprykerYvesBootstrap
             new CheckoutControllerProvider($ssl),
             new CustomerControllerProvider($ssl),
             new CartControllerProvider($ssl),
+            new WishlistControllerProvider($ssl),
         ];
     }
 
