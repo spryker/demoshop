@@ -4,11 +4,13 @@
         <label>Sales</label>
         <title>Sales</title>
         <uri>/sales</uri>
+        <icon>fa fa-users</icon>
     </sales>
     <customer>
         <label>Customers</label>
         <title>Customers</title>
         <uri>/customer</uri>
+        <icon>fa fa-users</icon>
     </customer>
     <catalog>
         <label>Catalog</label>
@@ -65,6 +67,7 @@
     <category>
         <label>Category</label>
         <title>Category</title>
+        <icon>fa fa-sitemap</icon>
     </category>
     <shipment>
         <label>Shipment</label>
