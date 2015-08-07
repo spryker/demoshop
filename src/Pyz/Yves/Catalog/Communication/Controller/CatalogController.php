@@ -3,6 +3,7 @@
 namespace Pyz\Yves\Catalog\Communication\Controller;
 
 use SprykerEngine\Yves\Application\Communication\Controller\AbstractController;
+use SprykerFeature\Shared\Library\Currency\CurrencyManager;
 use Symfony\Component\HttpFoundation\Request;
 
 class CatalogController extends AbstractController
@@ -23,6 +24,9 @@ class CatalogController extends AbstractController
         $searchResults = array_merge($search->getResult(), ['category' => $categoryNode, 'categoryTree' => $categoryTree]);
 
         if ($request->isXmlHttpRequest()) {
+            $currencyManager = CurrencyManager::getInstance();
+            $searchResults['products'] = $this->formatValidProductPrices($currencyManager, $searchResults['products']);
+
             return $this->jsonResponse($searchResults);
         }
 
@@ -61,4 +65,20 @@ class CatalogController extends AbstractController
         ];
     }
 
+    /**
+     * @param CurrencyManager $currencyManager
+     * @param array $products
+     *
+     * @return array
+     */
+    private function formatValidProductPrices(CurrencyManager $currencyManager, array $products)
+    {
+        foreach ($products as &$product) {
+            $product['formatted_valid_price'] = $currencyManager->format(
+                $currencyManager->convertCentToDecimal($product['valid_price'])
+            );
+        }
+
+        return $products;
+    }
 }

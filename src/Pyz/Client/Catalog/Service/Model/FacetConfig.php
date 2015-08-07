@@ -1,6 +1,6 @@
 <?php
 
-namespace Pyz\Client\Catalog\Model;
+namespace Pyz\Client\Catalog\Service\Model;
 
 use SprykerFeature\Client\Catalog\Service\Model\FacetConfig as CoreFacetConfig;
 
