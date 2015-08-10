@@ -22,8 +22,8 @@ class ShipmentDependencyContainer extends SprykerShipmentDependencyContainer
     {
         $installer = $this->getFactory()->createInternalDemoDataShipmentInstall(
             $this->getQueryContainer(),
-            $this->createCarrierModel(),
-            $this->createMethodModel()
+            $this->createCarrier(),
+            $this->createMethod()
         );
         $installer->setMessenger($messenger);
 
