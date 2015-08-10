@@ -9,7 +9,6 @@ use SprykerFeature\Zed\Shipment\Business\Model\Carrier;
 use SprykerFeature\Zed\Shipment\Business\Model\Method;
 use SprykerFeature\Zed\Shipment\Persistence\ShipmentQueryContainerInterface;
 
-
 class ShipmentInstall extends AbstractInstaller
 {
 
@@ -28,26 +27,26 @@ class ShipmentInstall extends AbstractInstaller
     /**
      * @var Method
      */
-    protected $methodModel;
+    protected $method;
 
     /**
      * @var Carrier
      */
-    protected $carrierModel;
+    protected $carrier;
 
     /**
      * @param ShipmentQueryContainerInterface $queryContainer
-     * @param Carrier $carrierModel
-     * @param Method $methodModel
+     * @param Carrier $carrier
+     * @param Method $method
      */
     public function __construct(
         ShipmentQueryContainerInterface $queryContainer,
-        Carrier $carrierModel,
-        Method $methodModel
+        Carrier $carrier,
+        Method $method
     ) {
         $this->queryContainer = $queryContainer;
-        $this->carrierModel = $carrierModel;
-        $this->methodModel = $methodModel;
+        $this->carrier = $carrier;
+        $this->method = $method;
     }
 
     public function install()
@@ -60,7 +59,7 @@ class ShipmentInstall extends AbstractInstaller
         }
 
         $idCarrier = $this->createCarrier();
-        $this->createMethod($idCarrier);
+        $this->addShipmentMethodToCarrie($idCarrier);
     }
 
     /**
@@ -68,27 +67,27 @@ class ShipmentInstall extends AbstractInstaller
      */
     protected function createCarrier()
     {
-        $carrierTransfer = new ShipmentCarrierTransfer();
-        $carrierTransfer->setName(self::NAME_CARRIER);
-        $carrierTransfer->setGlossaryKeyName(self::NAME_GLOSSARY_KEY_CARRIER);
-        $carrierTransfer->setIsActive(true);
+        $shipmentCarrierTransfer = new ShipmentCarrierTransfer();
+        $shipmentCarrierTransfer->setName(self::NAME_CARRIER);
+        $shipmentCarrierTransfer->setGlossaryKeyName(self::NAME_GLOSSARY_KEY_CARRIER);
+        $shipmentCarrierTransfer->setIsActive(true);
 
-        return $this->carrierModel->create($carrierTransfer);
+        return $this->carrier->create($shipmentCarrierTransfer);
     }
 
     /**
      * @param $idCarrier
      */
-    protected function createMethod($idCarrier)
+    protected function addShipmentMethodToCarrie($idCarrier)
     {
-        $methodTransfer = new ShipmentMethodTransfer();
-        $methodTransfer->setFkShipmentCarrier($idCarrier);
-        $methodTransfer->setName(self::NAME_SHIPMENT_METHOD);
-        $methodTransfer->setGlossaryKeyName(self::NAME_GLOSSARY_KEY_SHIPMENT_METHOD);
-        $methodTransfer->setGlossaryKeyDescription(self::DESCRIPTION_GLOSSARY_KEY_SHIPMENT_METHOD);
-        $methodTransfer->setPrice(self::PRICE_SHIPMENT_METHOD);
-        $methodTransfer->setIsActive(true);
+        $shipmentMethodTransfer = new ShipmentMethodTransfer();
+        $shipmentMethodTransfer->setFkShipmentCarrier($idCarrier);
+        $shipmentMethodTransfer->setName(self::NAME_SHIPMENT_METHOD);
+        $shipmentMethodTransfer->setGlossaryKeyName(self::NAME_GLOSSARY_KEY_SHIPMENT_METHOD);
+        $shipmentMethodTransfer->setGlossaryKeyDescription(self::DESCRIPTION_GLOSSARY_KEY_SHIPMENT_METHOD);
+        $shipmentMethodTransfer->setPrice(self::PRICE_SHIPMENT_METHOD);
+        $shipmentMethodTransfer->setIsActive(true);
 
-        $this->methodModel->create($methodTransfer);
+        $this->method->create($shipmentMethodTransfer);
     }
 }
