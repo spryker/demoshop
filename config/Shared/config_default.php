@@ -24,6 +24,8 @@ $config[SystemConfig::CURRENT_APPLICATION_ENV] = APPLICATION_ENV;
 $config[SystemConfig::PROJECT_TIMEZONE] = 'UTC';
 $config[SystemConfig::PROJECT_NAMESPACE] = 'Pyz';
 
+$config[SystemConfig::ZED_DB_ENGINE] = 'mysql';
+
 $config[DbDumpConfig::DB_DUMP_USERNAME] = '';
 $config[DbDumpConfig::DB_DUMP_PASSWORD] = '';
 $config[DbDumpConfig::DB_DUMP_DATABASE] = '';
@@ -88,8 +90,8 @@ $config[SystemConfig::PROPEL] = [
         'connections' => [
             'default' => [
                 'adapter' => 'mysql',
-                'dsn' => '',
-                'user' => '',
+                'dsn' => 'mysql:host=127.0.0.1;dbname=DE_development_zed',
+                'user' => 'development',
                 'password' => '',
                 'settings' => [
                     'charset' => 'utf8',
@@ -110,6 +112,7 @@ $config[SystemConfig::PROPEL] = [
         'objectModel' => [
             'defaultKeyType' => 'fieldName',
             'builders' => [
+                'object' => '\SprykerFeature\Zed\Library\Propel\Builder\ObjectBuilder',
                 'tablemap' => '\SprykerFeature\Zed\Library\Propel\Builder\TableMapBuilder',
                 'query' => '\SprykerFeature\Zed\Library\Propel\Builder\QueryBuilder'
             ]

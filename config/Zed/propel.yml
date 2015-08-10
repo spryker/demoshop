@@ -4,14 +4,14 @@ propel:
           default:
               settings:
                   charset: utf8
-                  queries:
-                      utf8: "SET NAMES utf8 COLLATE utf8_unicode_ci, COLLATION_CONNECTION = utf8_unicode_ci, COLLATION_DATABASE = utf8_unicode_ci, COLLATION_SERVER = utf8_unicode_ci"
+                  #queries:
+                  #    utf8: "SET NAMES utf8 COLLATE utf8_unicode_ci, COLLATION_CONNECTION = utf8_unicode_ci, COLLATION_DATABASE = utf8_unicode_ci, COLLATION_SERVER = utf8_unicode_ci"
           zed:
-              adapter: mysql
+              adapter: pgsql
               classname: Propel\Runtime\Connection\ConnectionWrapper
-              dsn: "mysql:host=localhost;dbname=DE_development_zed"
+              dsn: "pgsql:host=localhost;dbname=DE_development_zed"
               user: development
-              password: mate20mg
+              #password: mate20mg
               attributes:
   runtime:
       defaultConnection: zed
@@ -21,10 +21,12 @@ propel:
       defaultConnection: zed
       connections:
           - zed
+      platformClass: pgsql
+      platform: pgsql
 
   paths:
       phpDir: /data/shop/development/current
       sqlDir: %phpDir%/src/Generated/Propel/Sql
       migrationDir: %phpDir%/src/Generated/Propel/Migration
       phpConfDir: %phpDir%/src/Generated/Propel/Config
-#      schemaDir: %phpDir%/src/Generated/Propel/Schema
+      schemaDir: %phpDir%/src/Generated/Propel/Schema

@@ -6,6 +6,7 @@ use Pyz\Yves\Application\Communication\Plugin\ApplicationControllerProvider;
 use Pyz\Yves\Cart\Communication\Plugin\CartControllerProvider;
 use Pyz\Yves\Checkout\Communication\Plugin\CheckoutControllerProvider;
 use Pyz\Yves\Customer\Communication\Plugin\CustomerControllerProvider;
+use Pyz\Yves\Wishlist\Communication\Plugin\WishlistControllerProvider;
 use Silex\Provider\FormServiceProvider;
 use Silex\Provider\HttpFragmentServiceProvider;
 use Silex\Provider\RememberMeServiceProvider;
@@ -30,7 +31,7 @@ use SprykerFeature\Shared\Application\Communication\Plugin\ServiceProvider\UrlGe
 use SprykerFeature\Shared\Library\Config;
 use SprykerFeature\Shared\System\SystemConfig;
 use SprykerFeature\Shared\Yves\YvesConfig;
-use SprykerFeature\Yves\Twig\Communication\Plugin\TwigServiceProvider;
+use Pyz\Yves\Twig\Communication\Plugin\TwigServiceProvider;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Routing\RouterInterface;
 
@@ -125,6 +126,7 @@ class YvesBootstrap extends SprykerYvesBootstrap
             new CheckoutControllerProvider($ssl),
             new CustomerControllerProvider($ssl),
             new CartControllerProvider($ssl),
+            new WishlistControllerProvider($ssl),
         ];
     }
 
@@ -138,7 +140,6 @@ class YvesBootstrap extends SprykerYvesBootstrap
         $locator = $this->getLocator($app);
 
         return [
-            $locator->setup()->pluginRouterMonitoringRouter()->setSsl(false),
             $locator->frontendExporter()->pluginRouterStorageRouter()->setSsl(false),
             $locator->catalog()->pluginRouterSearchRouter()->setSsl(false),
             /*

@@ -11,6 +11,8 @@ __Requirements:__
 * [Vagrant](https://www.vagrantup.com/downloads.html)
 * [Vagrant-Hostmanager Plugin](https://github.com/smdahlen/vagrant-hostmanager)
 
+It is recommended to use [VirutalBox 4.3.26](http://download.virtualbox.org/virtualbox/4.3.26/VirtualBox-4.3.26-98988-OSX.dmg) and [Vagrant 1.7.2](https://dl.bintray.com/mitchellh/vagrant/vagrant_1.7.2.dmg)
+
 If all requirements are satisfied you can bring up a new development VM by just calling:
 
 ```bash

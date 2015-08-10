@@ -6,7 +6,7 @@
         </div>
         <div class="cart__items js-cart-items">
             {% for item in cart.items %}
-                <div class="cart-item" data-sku="{{ item.sku }}">
+                <div class="cart-item" data-sku="{{ item.sku }}" data-group-key="{{ item.groupKey }}">
                     {% if item.thumbnail is defined and item.thumbnail is not empty %}
                         <img class="cart__item-image" src="{{ item.thumbnail }}">
                     {% endif %}
@@ -19,8 +19,9 @@
                         {% else %}
                             <input type="button" value="-"class="spinner__decrement cart-decrement">
                         {% endif %}
-                        <input type="number" value="{{ item.quantity }}" min="1" class="spinner__number cart-quantity">
-                        <input type="button" value="+" class="spinner__increment cart-increment">
+                            <input type="number" value="{{ item.quantity }}" min="1" class="spinner__number cart-quantity">
+                            <input type="hidden" name="groupKey" value="{{ item.groupKey }}"  />
+                           <input type="button" value="+" class="spinner__increment cart-increment">
                       </div>
                     </div>
                     <div class="cart__item-price">{{ (item.totalPrice)|price }}</div>
