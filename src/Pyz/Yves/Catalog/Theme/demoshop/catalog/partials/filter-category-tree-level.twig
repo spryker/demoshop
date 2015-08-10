@@ -1,11 +1,11 @@
 <ul class="filter__{{ filterName }}-list">
     {% for category in categories %}
         <li>
-            {% include "@catalog/catalog/partials/filter-categoryTree-value.twig" with {displayValue:category.name, value:category.url, default:(category.node_id == selectedCategory.node_id) } %}
+            {% include "@catalog/catalog/partials/filter-category-tree-value.twig" with {displayValue:category.name, value:category.url, default:(category.node_id == selectedCategory.node_id) } %}
 
             {% if category.children is defined and category.children is not empty %}
                 {% set children = (category.node_id == categoryTree.node_id ? categoryTree.children : category.children) %}
-                {% include "@catalog/catalog/partials/filter-categoryTree-level.twig" with {categories:children} %}
+                {% include "@catalog/catalog/partials/filter-category-tree-level.twig" with {categories:children} %}
             {% endif %}
         </li>
     {% endfor %}
