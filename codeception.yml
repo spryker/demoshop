@@ -75,7 +75,6 @@ include:
  - vendor/spryker/spryker/Bundles/Touch/
  - vendor/spryker/spryker/Bundles/Twig/
  - vendor/spryker/spryker/Bundles/Ui/
- - vendor/spryker/spryker/Bundles/UiExample/
  - vendor/spryker/spryker/Bundles/Url/
  - vendor/spryker/spryker/Bundles/UrlExporter/
  - vendor/spryker/spryker/Bundles/User/
