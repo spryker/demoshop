@@ -19,6 +19,7 @@ use SprykerFeature\Shared\Application\Business\Routing\SilexRouter;
 use SprykerFeature\Shared\Application\Communication\Plugin\ServiceProvider\RoutingServiceProvider;
 use SprykerFeature\Shared\Application\Communication\Plugin\ServiceProvider\UrlGeneratorServiceProvider;
 use SprykerFeature\Shared\Library\Config;
+use SprykerFeature\Shared\Library\Context;
 use SprykerFeature\Shared\Library\DateFormatter;
 use SprykerFeature\Shared\System\SystemConfig;
 use SprykerFeature\Zed\Application\Business\Model\Router\MvcRouter;
@@ -64,7 +65,7 @@ class ZedBootstrap extends Bootstrap
             new ZedExtension(),
             new TranslationExtension($app['translator']),
             new PriceTwigExtensions(),
-            new DateFormatterTwigExtension(new DateFormatter()),
+            new DateFormatterTwigExtension(new DateFormatter(Context::getInstance())),
         ];
     }
 
