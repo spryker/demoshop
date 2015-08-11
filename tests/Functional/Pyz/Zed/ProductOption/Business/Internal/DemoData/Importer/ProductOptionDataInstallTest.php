@@ -22,7 +22,6 @@ class ProductOptionInstallerTest extends AbstractFunctionalTest
 
     public function testImportXmlOptions()
     {
-//        $this->markTestSkipped();
         $stub = $this->getMockBuilder('SprykerFeature\Zed\Console\Business\Model\ConsoleMessenger')
             ->disableOriginalConstructor()
             ->getMock();
