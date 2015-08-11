@@ -19,6 +19,7 @@ $config[SystemConfig::ZED_DB_HOST] = '127.0.0.1';
 $config[SystemConfig::ZED_DB_PORT] = '3306';
 
 // @todo clean up propel config
+$currentStore = \SprykerEngine\Shared\Kernel\Store::getInstance()->getStoreName();
 $config[SystemConfig::PROPEL] = [
     'database' => [
         'connections' => [
