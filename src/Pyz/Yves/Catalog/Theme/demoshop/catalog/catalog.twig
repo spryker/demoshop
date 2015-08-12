@@ -9,7 +9,7 @@
         </h1>
 
         <aside class="catalog__filter js-filters">
-            {% include "@catalog/catalog/partials/filter-default.twig" with {filterName:'category'} %}
+            {% include "@catalog/catalog/partials/filter-category-tree.twig" with {filterName:'category', selectedCategory:category} %}
             {% include "@catalog/catalog/partials/filter-range.twig" with {filterName:'price', min:(facets.price.rangeValues.min|default(0))|priceRaw|floor, max:(facets.price.rangeValues.max|default(0))|priceRaw|ceil} %}
             {% include "@catalog/catalog/partials/filter-color.twig" with {filterName:'main_color', id: 42} %}
         </aside>

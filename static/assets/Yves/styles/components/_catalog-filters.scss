@@ -23,6 +23,10 @@
         input[type=radio]:checked + label, input[type=checkbox]:checked + label {
           font-weight: 600;
         }
+
+        ul {
+          margin-left: $step*.5;
+        }
       }
     }
     label {

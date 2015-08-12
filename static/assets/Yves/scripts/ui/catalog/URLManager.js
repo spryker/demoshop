@@ -45,6 +45,18 @@ module.exports = {
 
   getPath: function() {
       return URLUtils.init().pathname;
+  },
+
+  filterParams: function(filters) {
+    var params = this.getParams();
+
+    for (var i = 0; i < filters.length; i++) {
+      if (params[filters[i]] !== undefined) {
+        delete params[filters[i]];
+      }
+    }
+
+    return params;
   }
 
 };

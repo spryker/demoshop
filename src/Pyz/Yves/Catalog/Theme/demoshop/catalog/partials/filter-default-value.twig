@@ -2,8 +2,8 @@
     id="filter-{{ filterName }}-{{ value }}"
     name="filter-{{ filterName }}"
     value="{{ value }}"
-    {% if default is defined %}
-        checked=true
+    {% if default is defined and default == true %}
+        checked=checked
         class="js-filter-default-value"
     {% endif %}>
 <label for="filter-{{ filterName }}-{{ value }}">{{ displayValue }}
