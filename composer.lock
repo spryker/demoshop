@@ -4,7 +4,11 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
+<<<<<<< HEAD
     "hash": "4bb0344d46a9ad5fcd5714822e06e99d",
+=======
+    "hash": "126314a23bdd7a28fd258e3c4c84d3e7",
+>>>>>>> CD-367 update path to propel builder, update composer
     "packages": [
         {
             "name": "digital-canvas/zend-framework",
@@ -708,11 +712,19 @@
         },
         {
             "name": "spryker/spryker",
-            "version": "dev-develop",
+            "version": "dev-feature/CD-367-Move-Propel-from-Library-to-Propel-bundle",
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/spryker.git",
+<<<<<<< HEAD
                 "reference": "a07d3a5579e149e94da2cb04d5222a2392b92999"
+=======
+<<<<<<< HEAD
+                "reference": "09fc09c4683aad3bd9025e6130393556710f8b35"
+=======
+                "reference": "b868efb9d505db9215e265c016268b9e3f426ac8"
+>>>>>>> CD-367 update path to propel builder, update composer
+>>>>>>> CD-367 update path to propel builder, update composer
             },
             "require": {
                 "digital-canvas/zend-framework": ">=1.12.2",
@@ -836,7 +848,15 @@
                     "SprykerFeature\\Shared\\Library": "Bundles/Library/src/"
                 }
             },
+<<<<<<< HEAD
             "time": "2015-08-21 09:08:02"
+=======
+<<<<<<< HEAD
+            "time": "2015-08-19 10:12:49"
+=======
+            "time": "2015-08-13 07:18:31"
+>>>>>>> CD-367 update path to propel builder, update composer
+>>>>>>> CD-367 update path to propel builder, update composer
         },
         {
             "name": "symfony-cmf/routing",
