@@ -68,11 +68,11 @@ class ProductCollector
         $this->productSearchFacade = $productSearchFacade;
     }
 
-
     /**
      * @param SpyTouchQuery $baseQuery
      * @param LocaleTransfer $locale
-     * @param $result
+     * @param BatchResultInterface $result
+     * @param $dataWriter
      */
     public function run(SpyTouchQuery $baseQuery, LocaleTransfer $locale, BatchResultInterface $result, $dataWriter)
     {

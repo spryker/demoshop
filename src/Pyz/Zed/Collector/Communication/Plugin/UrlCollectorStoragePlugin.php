@@ -8,11 +8,12 @@ use SprykerEngine\Zed\Kernel\Communication\AbstractPlugin;
 use SprykerEngine\Zed\Touch\Persistence\Propel\SpyTouchQuery;
 use SprykerFeature\Zed\Collector\Business\Exporter\Writer\WriterInterface;
 use SprykerFeature\Zed\Collector\Business\Model\BatchResultInterface;
+use SprykerFeature\Zed\Collector\Dependency\Plugin\CollectorPluginInterface;
 
 /**
  * @method CollectorDependencyContainer getDependencyContainer()
  */
-class UrlCollectorStoragePlugin extends AbstractPlugin
+class UrlCollectorStoragePlugin extends AbstractPlugin implements CollectorPluginInterface
 {
 
     /**
