@@ -49,7 +49,6 @@ include:
  - vendor/spryker/spryker/Bundles/ProductOptionCartConnector/
  - vendor/spryker/spryker/Bundles/ProductSearch/
  - vendor/spryker/spryker/Bundles/ProductSearch/
- - vendor/spryker/spryker/Bundles/ProductSearchAvailabilityConnector/
  - vendor/spryker/spryker/Bundles/Propel/
  - vendor/spryker/spryker/Bundles/Queue/
  - vendor/spryker/spryker/Bundles/RedirectExporter/

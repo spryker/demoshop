@@ -23,22 +23,15 @@ class NavigationCollector
     use KeyBuilderTrait;
 
     /**
-     * @var CategoryExporterFacade
-     */
-    private $categoryExporterFacade;
-
-    /**
      * @var CategoryQueryContainer
      */
     private $categoryQueryContainer;
 
     /**
-     * @param CategoryExporterFacade $categoryExporterFacade
      * @param CategoryQueryContainer $categoryQueryContainer
      */
-    public function __construct(CategoryExporterFacade $categoryExporterFacade, CategoryQueryContainer $categoryQueryContainer)
+    public function __construct(CategoryQueryContainer $categoryQueryContainer)
     {
-        $this->categoryExporterFacade = $categoryExporterFacade;
         $this->categoryQueryContainer = $categoryQueryContainer;
     }
 
