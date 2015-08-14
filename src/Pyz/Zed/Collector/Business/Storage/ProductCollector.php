@@ -213,11 +213,11 @@ class ProductCollector
             'abstract_localized_attributes'
         );
         $baseQuery->withColumn(
-            "GROUP_CONCAT(spy_product.attributes SEPARATOR '$%')",
+            'GROUP_CONCAT(spy_product.attributes)',
             'concrete_attributes'
         );
         $baseQuery->withColumn(
-            "GROUP_CONCAT(spy_product_localized_attributes.attributes SEPARATOR '$%')",
+            'GROUP_CONCAT(spy_product_localized_attributes.attributes)',
             'concrete_localized_attributes'
         );
         $baseQuery->withColumn(
@@ -489,21 +489,6 @@ class ProductCollector
     }
 
     /**
-     * @param string $attributes
-     * @param string $localizedAttributes
-     *
-     * @return array
-     */
-    protected function mergeAttributes($attributes, $localizedAttributes)
-    {
-        $decodedAttributes = json_decode($attributes, true);
-        $decodedLocalizedAttributes = json_decode($localizedAttributes, true);
-        $mergedAttributes = array_merge($decodedAttributes, $decodedLocalizedAttributes);
-
-        return $this->normalizeAttributes($mergedAttributes);
-    }
-
-    /**
      * @param array $attributes
      *
      * @return array
@@ -575,10 +560,14 @@ class ProductCollector
             $productUrls = explode(',', $productData[self::PRODUCT_URLS]);
             $productData[self::URL] = $productUrls[0];
 
-            $productData[self::ABSTRACT_ATTRIBUTES] = $this->mergeAttributes($productData[self::ABSTRACT_ATTRIBUTES], $productData[self::ABSTRACT_LOCALIZED_ATTRIBUTES]);
+            $decodedAttributes = json_decode($productData[self::ABSTRACT_ATTRIBUTES], true);
+            $decodedLocalizedAttributes = json_decode($productData[self::ABSTRACT_LOCALIZED_ATTRIBUTES], true);
+            $mergedAttributes = array_merge($decodedAttributes, $decodedLocalizedAttributes);
 
-            $concreteAttributes = explode('$%', $productData[self::CONCRETE_ATTRIBUTES]);
-            $concreteLocalizedAttributes = explode('$%', $productData[self::CONCRETE_LOCALIZED_ATTRIBUTES]);
+            $productData[self::ABSTRACT_ATTRIBUTES] = $this->normalizeAttributes($mergedAttributes);
+
+            $concreteAttributes = json_decode('[' . $productData[self::CONCRETE_ATTRIBUTES] . ']', true);
+            $concreteLocalizedAttributes = json_decode('[' . $productData[self::CONCRETE_LOCALIZED_ATTRIBUTES] . ']', true);
 
             $concreteSkus = explode(',', $productData[self::CONCRETE_SKUS]);
             $concreteNames = explode(',', $productData[self::CONCRETE_NAMES]);
@@ -590,7 +579,8 @@ class ProductCollector
                     continue;
                 }
 
-                $mergedAttributes = $this->mergeAttributes($concreteAttributes[$i], $concreteLocalizedAttributes[$i]);
+                $mergedAttributes = array_merge($concreteAttributes[$i], $concreteLocalizedAttributes[$i]);
+                $mergedAttributes = $this->normalizeAttributes($mergedAttributes);
 
                 $processedConcreteSkus[$concreteSkus[$i]] = true;
                 $productData[self::CONCRETE_PRODUCTS][] = [
