@@ -92,6 +92,11 @@ class UrlCollector
     }
 
 
+    /**
+     * @param string $data
+     *
+     * @return string
+     */
     protected function buildKey($data)
     {
         return $data;
