@@ -36,7 +36,6 @@ class CollectorDependencyContainer extends SprykerCollectorDependencyContainer
     public function createStorageCategoryNodeCollector()
     {
         return $this->getFactory()->createStorageCategoryNodeCollector(
-            $this->getProvidedDependency(CollectorDependencyProvider::FACADE_CATEGORY_EXPORTER),
             $this->getProvidedDependency(CollectorDependencyProvider::QUERY_CONTAINER_CATEGORY)
         );
     }
@@ -68,7 +67,6 @@ class CollectorDependencyContainer extends SprykerCollectorDependencyContainer
         return $this->getFactory()->createStorageProductCollector(
             $this->getProvidedDependency(CollectorDependencyProvider::FACADE_PRICE),
             $this->getProvidedDependency(CollectorDependencyProvider::QUERY_CONTAINER_PRICE),
-            $this->getProvidedDependency(CollectorDependencyProvider::FACADE_CATEGORY_EXPORTER),
             $this->getProvidedDependency(CollectorDependencyProvider::QUERY_CONTAINER_CATEGORY),
             $this->getProvidedDependency(CollectorDependencyProvider::FACADE_PRODUCT_OPTION_EXPORTER)
         );

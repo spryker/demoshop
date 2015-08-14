@@ -712,7 +712,7 @@
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/spryker.git",
-                "reference": "8dd30abf0a080a338c208dbd5c11f80c50232027"
+                "reference": "802b0e9b14016534225ce594d27d5f4186a7eebe"
             },
             "require": {
                 "digital-canvas/zend-framework": ">=1.12.2",
@@ -793,7 +793,6 @@
                 "spryker/price-cart-connector": "self.version",
                 "spryker/product": "self.version",
                 "spryker/product-category": "self.version",
-                "spryker/product-category-search": "self.version",
                 "spryker/product-exporter": "self.version",
                 "spryker/product-image": "self.version",
                 "spryker/product-search": "self.version",
@@ -839,7 +838,7 @@
                     "SprykerFeature\\Shared\\Library": "Bundles/Library/src/"
                 }
             },
-            "time": "2015-08-14 12:17:21"
+            "time": "2015-08-14 12:57:33"
         },
         {
             "name": "symfony-cmf/routing",

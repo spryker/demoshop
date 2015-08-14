@@ -8,6 +8,7 @@ use SprykerEngine\Shared\Kernel\Store;
 use SprykerEngine\Zed\Touch\Persistence\Propel\Map\SpyTouchTableMap;
 use SprykerEngine\Zed\Touch\Persistence\Propel\SpyTouchQuery;
 use SprykerFeature\Shared\Collector\Code\KeyBuilder\KeyBuilderTrait;
+use SprykerFeature\Zed\Collector\Business\Exporter\BatchIterator;
 use SprykerFeature\Zed\Collector\Business\Model\BatchResultInterface;
 use SprykerFeature\Zed\Url\Persistence\Propel\Map\SpyRedirectTableMap;
 use SprykerFeature\Zed\Url\Persistence\Propel\Map\SpyUrlTableMap;
@@ -152,11 +153,11 @@ class RedirectCollector
      * @param $baseQuery
      * @param int $chunkSize
      *
-     * @return \SprykerFeature\Zed\Collector\Business\Exporter\BatchIterator
+     * @return BatchIterator
      */
     public function getBatchIterator($baseQuery, $chunkSize = 1000)
     {
-        return new \SprykerFeature\Zed\Collector\Business\Exporter\BatchIterator($baseQuery, $chunkSize);
+        return new BatchIterator($baseQuery, $chunkSize);
     }
 
 

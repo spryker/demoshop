@@ -4,7 +4,6 @@ namespace Pyz\Zed\Collector\Business\Storage;
 
 use Generated\Shared\Transfer\LocaleTransfer;
 use Propel\Runtime\ActiveQuery\Criteria;
-use Pyz\Zed\CategoryExporter\Business\CategoryExporterFacade;
 use SprykerEngine\Zed\Locale\Persistence\Propel\Map\SpyLocaleTableMap;
 use SprykerEngine\Zed\Touch\Persistence\Propel\Map\SpyTouchTableMap;
 use SprykerEngine\Zed\Touch\Persistence\Propel\SpyTouchQuery;
@@ -13,6 +12,7 @@ use SprykerFeature\Shared\Collector\Code\KeyBuilder\KeyBuilderTrait;
 use SprykerFeature\Zed\Category\Persistence\CategoryQueryContainer;
 use SprykerFeature\Zed\Category\Persistence\Propel\Map\SpyCategoryAttributeTableMap;
 use SprykerFeature\Zed\Category\Persistence\Propel\Map\SpyCategoryNodeTableMap;
+use SprykerFeature\Zed\Collector\Business\Exporter\BatchIterator;
 use SprykerFeature\Zed\Collector\Business\Model\BatchResultInterface;
 
 class CategoryNodeCollector
@@ -21,22 +21,15 @@ class CategoryNodeCollector
     use KeyBuilderTrait;
 
     /**
-     * @var CategoryExporterFacade
-     */
-    private $categoryExporterFacade;
-
-    /**
      * @var CategoryQueryContainer
      */
     private $categoryQueryContainer;
 
     /**
-     * @param CategoryExporterFacade $categoryExporterFacade
      * @param CategoryQueryContainer $categoryQueryContainer
      */
-    public function __construct(CategoryExporterFacade $categoryExporterFacade, CategoryQueryContainer $categoryQueryContainer)
+    public function __construct(CategoryQueryContainer $categoryQueryContainer)
     {
-        $this->categoryExporterFacade = $categoryExporterFacade;
         $this->categoryQueryContainer = $categoryQueryContainer;
     }
 
@@ -152,13 +145,13 @@ class CategoryNodeCollector
             'name' => $categoryNode['category_name'],
             'url' => $categoryUrls[0],
             'image' => $categoryNode['category_image_name'],
-            'children' => $this->categoryExporterFacade->explodeGroupedNodes(
+            'children' => $this->explodeGroupedNodes(
                 $categoryNode,
                 'category_child_ids',
                 'category_child_names',
                 'category_child_urls'
             ),
-            'parents' => $this->categoryExporterFacade->explodeGroupedNodes(
+            'parents' => $this->explodeGroupedNodes(
                 $categoryNode,
                 'category_parent_ids',
                 'category_parent_names',
@@ -199,12 +192,38 @@ class CategoryNodeCollector
      * @param $baseQuery
      * @param int $chunkSize
      *
-     * @return \SprykerFeature\Zed\Collector\Business\Exporter\BatchIterator
+     * @return BatchIterator
      */
     public function getBatchIterator($baseQuery, $chunkSize = 1000)
     {
-        return new \SprykerFeature\Zed\Collector\Business\Exporter\BatchIterator($baseQuery, $chunkSize);
+        return new BatchIterator($baseQuery, $chunkSize);
     }
 
+    /**
+     * @param array $data
+     * @param string $idsField
+     * @param string $namesField
+     * @param string $urlsField
+     *
+     * @return array
+     */
+    public function explodeGroupedNodes(array $data, $idsField, $namesField, $urlsField)
+    {
+        if (!$data[$idsField]) {
+            return [];
+        }
+
+        $ids = explode(',', $data[$idsField]);
+        $names = explode(',', $data[$namesField]);
+        $urls = explode(',', $data[$urlsField]);
+        $nodes = [];
+        foreach ($ids as $key => $id) {
+            $nodes[$id]['node_id'] = $id;
+            $nodes[$id]['name'] = $names[$key];
+            $nodes[$id]['url'] = $urls[$key];
+        }
+
+        return $nodes;
+    }
 
 }

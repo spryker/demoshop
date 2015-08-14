@@ -5,7 +5,6 @@ namespace Pyz\Zed\Collector\Business\Search;
 use Generated\Shared\Transfer\LocaleTransfer;
 use Propel\Runtime\ActiveQuery\Criteria;
 use Propel\Runtime\ActiveQuery\Join;
-use Pyz\Zed\CategoryExporter\Business\CategoryExporterFacade;
 use Pyz\Zed\Price\Business\PriceFacade;
 use Pyz\Zed\ProductSearch\Business\ProductSearchFacade;
 use SprykerEngine\Zed\Locale\Persistence\Propel\Map\SpyLocaleTableMap;
@@ -14,6 +13,7 @@ use SprykerEngine\Zed\Touch\Persistence\Propel\SpyTouchQuery;
 use SprykerFeature\Zed\Category\Persistence\CategoryQueryContainer;
 use SprykerFeature\Zed\Category\Persistence\Propel\Map\SpyCategoryAttributeTableMap;
 use SprykerFeature\Zed\Category\Persistence\Propel\Map\SpyCategoryNodeTableMap;
+use SprykerFeature\Zed\Collector\Business\Exporter\BatchIterator;
 use SprykerFeature\Zed\Collector\Business\Model\BatchResultInterface;
 use SprykerFeature\Zed\Price\Persistence\PriceQueryContainer;
 use SprykerFeature\Zed\Product\Persistence\Propel\Map\SpyAbstractProductTableMap;
@@ -39,11 +39,6 @@ class ProductCollector
     private $priceQueryContainer;
 
     /**
-     * @var CategoryExporterFacade
-     */
-    private $categoryExporterFacade;
-
-    /**
      * @var CategoryQueryContainer
      */
     private $categoryQueryContainer;
@@ -56,14 +51,13 @@ class ProductCollector
     /**
      * @param PriceFacade $priceFacade
      * @param PriceQueryContainer $priceQueryContainer
-     * @param CategoryExporterFacade $categoryExporterFacade
      * @param CategoryQueryContainer $categoryQueryContainer
+     * @param ProductSearchFacade $productSearchFacade
      */
-    public function __construct(PriceFacade $priceFacade, PriceQueryContainer $priceQueryContainer, CategoryExporterFacade $categoryExporterFacade, CategoryQueryContainer $categoryQueryContainer, ProductSearchFacade $productSearchFacade)
+    public function __construct(PriceFacade $priceFacade, PriceQueryContainer $priceQueryContainer, CategoryQueryContainer $categoryQueryContainer, ProductSearchFacade $productSearchFacade)
     {
         $this->priceFacade = $priceFacade;
         $this->priceQueryContainer = $priceQueryContainer;
-        $this->categoryExporterFacade = $categoryExporterFacade;
         $this->categoryQueryContainer = $categoryQueryContainer;
         $this->productSearchFacade = $productSearchFacade;
     }
@@ -333,11 +327,11 @@ class ProductCollector
      * @param $baseQuery
      * @param int $chunkSize
      *
-     * @return \SprykerFeature\Zed\Collector\Business\Exporter\BatchIterator
+     * @return BatchIterator
      */
     public function getBatchIterator($baseQuery, $chunkSize = 1000)
     {
-        return new \SprykerFeature\Zed\Collector\Business\Exporter\BatchIterator($baseQuery, $chunkSize);
+        return new BatchIterator($baseQuery, $chunkSize);
     }
 
     /**

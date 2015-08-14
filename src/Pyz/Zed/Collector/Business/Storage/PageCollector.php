@@ -11,6 +11,7 @@ use SprykerFeature\Shared\Collector\Code\KeyBuilder\KeyBuilderTrait;
 use SprykerFeature\Zed\Cms\Persistence\Propel\Map\SpyCmsGlossaryKeyMappingTableMap;
 use SprykerFeature\Zed\Cms\Persistence\Propel\Map\SpyCmsPageTableMap;
 use SprykerFeature\Zed\Cms\Persistence\Propel\Map\SpyCmsTemplateTableMap;
+use SprykerFeature\Zed\Collector\Business\Exporter\BatchIterator;
 use SprykerFeature\Zed\Collector\Business\Model\BatchResultInterface;
 use SprykerFeature\Zed\Glossary\Persistence\Propel\Map\SpyGlossaryKeyTableMap;
 use SprykerFeature\Zed\Url\Persistence\Propel\Map\SpyUrlTableMap;
@@ -145,11 +146,11 @@ class PageCollector
      * @param $baseQuery
      * @param int $chunkSize
      *
-     * @return \SprykerFeature\Zed\Collector\Business\Exporter\BatchIterator
+     * @return BatchIterator
      */
     public function getBatchIterator($baseQuery, $chunkSize = 1000)
     {
-        return new \SprykerFeature\Zed\Collector\Business\Exporter\BatchIterator($baseQuery, $chunkSize);
+        return new BatchIterator($baseQuery, $chunkSize);
     }
 
 

@@ -8,6 +8,7 @@ use SprykerEngine\Zed\Locale\Persistence\Propel\Map\SpyLocaleTableMap;
 use SprykerEngine\Zed\Touch\Persistence\Propel\Map\SpyTouchTableMap;
 use SprykerEngine\Zed\Touch\Persistence\Propel\SpyTouchQuery;
 use SprykerFeature\Shared\Glossary\Code\KeyBuilder\GlossaryKeyBuilder;
+use SprykerFeature\Zed\Collector\Business\Exporter\BatchIterator;
 use SprykerFeature\Zed\Collector\Business\Model\BatchResultInterface;
 use SprykerFeature\Zed\Glossary\Persistence\Propel\Map\SpyGlossaryKeyTableMap;
 use SprykerFeature\Zed\Glossary\Persistence\Propel\Map\SpyGlossaryTranslationTableMap;
@@ -97,11 +98,11 @@ class TranslationCollector
      * @param $baseQuery
      * @param int $chunkSize
      *
-     * @return \SprykerFeature\Zed\Collector\Business\Exporter\BatchIterator
+     * @return BatchIterator
      */
     public function getBatchIterator($baseQuery, $chunkSize = 1000)
     {
-        return new \SprykerFeature\Zed\Collector\Business\Exporter\BatchIterator($baseQuery, $chunkSize);
+        return new BatchIterator($baseQuery, $chunkSize);
     }
 
 }

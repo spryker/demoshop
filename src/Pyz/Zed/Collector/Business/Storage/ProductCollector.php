@@ -5,7 +5,6 @@ namespace Pyz\Zed\Collector\Business\Storage;
 use Generated\Shared\Transfer\LocaleTransfer;
 use Propel\Runtime\ActiveQuery\Criteria;
 use Propel\Runtime\ActiveQuery\Join;
-use Pyz\Zed\CategoryExporter\Business\CategoryExporterFacade;
 use Pyz\Zed\Price\Business\PriceFacade;
 use SprykerEngine\Zed\Locale\Persistence\Propel\Map\SpyLocaleTableMap;
 use SprykerEngine\Zed\Touch\Persistence\Propel\Map\SpyTouchTableMap;
@@ -14,6 +13,7 @@ use SprykerFeature\Shared\Collector\Code\KeyBuilder\KeyBuilderTrait;
 use SprykerFeature\Zed\Category\Persistence\CategoryQueryContainer;
 use SprykerFeature\Zed\Category\Persistence\Propel\Map\SpyCategoryAttributeTableMap;
 use SprykerFeature\Zed\Category\Persistence\Propel\Map\SpyCategoryNodeTableMap;
+use SprykerFeature\Zed\Collector\Business\Exporter\BatchIterator;
 use SprykerFeature\Zed\Collector\Business\Model\BatchResultInterface;
 use SprykerFeature\Zed\Price\Persistence\PriceQueryContainer;
 use SprykerFeature\Zed\Price\Persistence\Propel\Map\SpyPriceProductTableMap;
@@ -59,11 +59,6 @@ class ProductCollector
     private $priceQueryContainer;
 
     /**
-     * @var CategoryExporterFacade
-     */
-    private $categoryExporterFacade;
-
-    /**
      * @var CategoryQueryContainer
      */
     private $categoryQueryContainer;
@@ -71,20 +66,17 @@ class ProductCollector
     /**
      * @param PriceFacade $priceFacade
      * @param PriceQueryContainer $priceQueryContainer
-     * @param CategoryExporterFacade $categoryExporterFacade
      * @param CategoryQueryContainer $categoryQueryContainer
      * @param ProductOptionExporterFacade $productOptionExporterFacade
      */
     public function __construct(
         PriceFacade $priceFacade,
         PriceQueryContainer $priceQueryContainer,
-        CategoryExporterFacade $categoryExporterFacade,
         CategoryQueryContainer $categoryQueryContainer,
         ProductOptionExporterFacade $productOptionExporterFacade
     ) {
         $this->priceFacade = $priceFacade;
         $this->priceQueryContainer = $priceQueryContainer;
-        $this->categoryExporterFacade = $categoryExporterFacade;
         $this->categoryQueryContainer = $categoryQueryContainer;
         $this->productOptionExporterFacade = $productOptionExporterFacade;
     }
@@ -460,7 +452,7 @@ class ProductCollector
                 }
 
                 // Category breadcrumb
-                $processedResultSet[$index]['category'] = $this->categoryExporterFacade->explodeGroupedNodes(
+                $processedResultSet[$index]['category'] = $this->explodeGroupedNodes(
                     $productRawData,
                     'category_parent_ids',
                     'category_parent_names',
@@ -525,11 +517,11 @@ class ProductCollector
      * @param $baseQuery
      * @param int $chunkSize
      *
-     * @return \SprykerFeature\Zed\Collector\Business\Exporter\BatchIterator
+     * @return BatchIterator
      */
     public function getBatchIterator($baseQuery, $chunkSize = 1000)
     {
-        return new \SprykerFeature\Zed\Collector\Business\Exporter\BatchIterator($baseQuery, $chunkSize);
+        return new BatchIterator($baseQuery, $chunkSize);
     }
 
     private function getIdPriceType()
@@ -547,6 +539,33 @@ class ProductCollector
     private function getDefaultPriceType()
     {
         return $this->priceFacade->getDefaultPriceTypeName();
+    }
+
+    /**
+     * @param array $data
+     * @param string $idsField
+     * @param string $namesField
+     * @param string $urlsField
+     *
+     * @return array
+     */
+    public function explodeGroupedNodes(array $data, $idsField, $namesField, $urlsField)
+    {
+        if (!$data[$idsField]) {
+            return [];
+        }
+
+        $ids = explode(',', $data[$idsField]);
+        $names = explode(',', $data[$namesField]);
+        $urls = explode(',', $data[$urlsField]);
+        $nodes = [];
+        foreach ($ids as $key => $id) {
+            $nodes[$id]['node_id'] = $id;
+            $nodes[$id]['name'] = $names[$key];
+            $nodes[$id]['url'] = $urls[$key];
+        }
+
+        return $nodes;
     }
 
     /**
