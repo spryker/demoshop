@@ -2,7 +2,7 @@
 
 namespace Pyz\Yves\Catalog\Business\Creator;
 
-use Pyz\Client\Catalog\Model\FacetConfig;
+use Pyz\Client\Catalog\Service\Model\FacetConfig;
 use Silex\Application;
 use SprykerEngine\Yves\Kernel\Communication\BundleControllerAction;
 use SprykerEngine\Yves\Kernel\Communication\Controller\BundleControllerActionRouteNameResolver;
