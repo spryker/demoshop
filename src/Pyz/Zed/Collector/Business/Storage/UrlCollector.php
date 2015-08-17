@@ -8,35 +8,18 @@ use SprykerEngine\Shared\Kernel\Store;
 use SprykerEngine\Zed\Touch\Persistence\Propel\Map\SpyTouchTableMap;
 use SprykerEngine\Zed\Touch\Persistence\Propel\SpyTouchQuery;
 use SprykerFeature\Shared\Collector\Code\KeyBuilder\KeyBuilderTrait;
-use SprykerFeature\Zed\Collector\Business\Exporter\BatchIterator;
-use SprykerFeature\Zed\Collector\Business\Model\BatchResultInterface;
+use SprykerFeature\Zed\Collector\Business\Exporter\AbstractPropelCollectorPlugin;
 use SprykerFeature\Zed\Url\Persistence\Propel\Map\SpyUrlTableMap;
 use SprykerFeature\Zed\Url\Persistence\Propel\ResourceAwareSpyUrlTableMap;
 
-class UrlCollector
+class UrlCollector extends AbstractPropelCollectorPlugin
 {
 
     use KeyBuilderTrait;
 
-    /**
-     * @param SpyTouchQuery $baseQuery
-     * @param LocaleTransfer $locale
-     * @param $result
-     */
-    public function run(SpyTouchQuery $baseQuery, LocaleTransfer $locale, BatchResultInterface $result, $dataWriter)
+    protected function getTouchItemType()
     {
-        $query = $this->createQuery($baseQuery, $locale);
-
-        $resultSets = $this->getBatchIterator($query);
-
-        $result->setTotalCount($resultSets->count());
-
-        foreach ($resultSets as $resultSet) {
-            $collectedData = $this->processData($resultSet, $locale);
-
-            $dataWriter->write($collectedData, 'url');
-            $result->increaseProcessedCount(count($collectedData));
-        }
+        return 'url';
     }
 
     /**
@@ -45,7 +28,7 @@ class UrlCollector
      *
      * @return SpyTouchQuery
      */
-    private function createQuery(SpyTouchQuery $baseQuery, LocaleTransfer $locale)
+    protected function createQuery(SpyTouchQuery $baseQuery, LocaleTransfer $locale)
     {
         $baseQuery->addJoin(
             SpyTouchTableMap::COL_ITEM_ID,
@@ -152,17 +135,5 @@ class UrlCollector
 
         return false;
     }
-
-    /**
-     * @param $baseQuery
-     * @param int $chunkSize
-     *
-     * @return BatchIterator
-     */
-    public function getBatchIterator($baseQuery, $chunkSize = 1000)
-    {
-        return new BatchIterator($baseQuery, $chunkSize);
-    }
-
 
 }

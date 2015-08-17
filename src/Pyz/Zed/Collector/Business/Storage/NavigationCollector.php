@@ -6,7 +6,6 @@ use Generated\Shared\Transfer\LocaleTransfer;
 use Propel\Runtime\ActiveQuery\Criteria;
 use Propel\Runtime\ActiveQuery\Criterion\BasicCriterion;
 use Propel\Runtime\ActiveQuery\Join;
-use Pyz\Zed\CategoryExporter\Business\CategoryExporterFacade;
 use SprykerEngine\Zed\Locale\Persistence\Propel\Map\SpyLocaleTableMap;
 use SprykerEngine\Zed\Touch\Persistence\Propel\Map\SpyTouchTableMap;
 use SprykerEngine\Zed\Touch\Persistence\Propel\SpyTouchQuery;
@@ -14,10 +13,9 @@ use SprykerFeature\Shared\Collector\Code\KeyBuilder\KeyBuilderTrait;
 use SprykerFeature\Zed\Category\Persistence\CategoryQueryContainer;
 use SprykerFeature\Zed\Category\Persistence\Propel\Map\SpyCategoryAttributeTableMap;
 use SprykerFeature\Zed\Category\Persistence\Propel\Map\SpyCategoryNodeTableMap;
-use SprykerFeature\Zed\Collector\Business\Exporter\BatchIterator;
-use SprykerFeature\Zed\Collector\Business\Model\BatchResultInterface;
+use SprykerFeature\Zed\Collector\Business\Exporter\AbstractPropelCollectorPlugin;
 
-class NavigationCollector
+class NavigationCollector extends AbstractPropelCollectorPlugin
 {
 
     use KeyBuilderTrait;
@@ -35,25 +33,9 @@ class NavigationCollector
         $this->categoryQueryContainer = $categoryQueryContainer;
     }
 
-    /**
-     * @param SpyTouchQuery $baseQuery
-     * @param LocaleTransfer $locale
-     * @param $result
-     */
-    public function run(SpyTouchQuery $baseQuery, LocaleTransfer $locale, BatchResultInterface $result, $dataWriter)
+    protected function getTouchItemType()
     {
-        $query = $this->createQuery($baseQuery, $locale);
-
-        $resultSets = $this->getBatchIterator($query);
-
-        $result->setTotalCount($resultSets->count());
-
-        foreach ($resultSets as $resultSet) {
-            $collectedData = $this->processData($resultSet, $locale);
-
-            $dataWriter->write($collectedData, 'navigation');
-            $result->increaseProcessedCount(count(current($collectedData)));
-        }
+        return 'navigation';
     }
 
     /**
@@ -62,7 +44,7 @@ class NavigationCollector
      *
      * @return SpyTouchQuery
      */
-    private function createQuery(SpyTouchQuery $baseQuery, LocaleTransfer $locale)
+    protected function createQuery(SpyTouchQuery $baseQuery, LocaleTransfer $locale)
     {
         $baseQuery->clearSelectColumns();
 
@@ -182,18 +164,6 @@ class NavigationCollector
     public function getBundleName()
     {
         return 'category';
-    }
-
-
-    /**
-     * @param $baseQuery
-     * @param int $chunkSize
-     *
-     * @return BatchIterator
-     */
-    public function getBatchIterator($baseQuery, $chunkSize = 1000)
-    {
-        return new BatchIterator($baseQuery, $chunkSize);
     }
 
     /**

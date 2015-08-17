@@ -12,10 +12,9 @@ use SprykerFeature\Shared\Collector\Code\KeyBuilder\KeyBuilderTrait;
 use SprykerFeature\Zed\Category\Persistence\CategoryQueryContainer;
 use SprykerFeature\Zed\Category\Persistence\Propel\Map\SpyCategoryAttributeTableMap;
 use SprykerFeature\Zed\Category\Persistence\Propel\Map\SpyCategoryNodeTableMap;
-use SprykerFeature\Zed\Collector\Business\Exporter\BatchIterator;
-use SprykerFeature\Zed\Collector\Business\Model\BatchResultInterface;
+use SprykerFeature\Zed\Collector\Business\Exporter\AbstractPropelCollectorPlugin;
 
-class CategoryNodeCollector
+class CategoryNodeCollector extends AbstractPropelCollectorPlugin
 {
 
     use KeyBuilderTrait;
@@ -33,25 +32,9 @@ class CategoryNodeCollector
         $this->categoryQueryContainer = $categoryQueryContainer;
     }
 
-    /**
-     * @param SpyTouchQuery $baseQuery
-     * @param LocaleTransfer $locale
-     * @param $result
-     */
-    public function run(SpyTouchQuery $baseQuery, LocaleTransfer $locale, BatchResultInterface $result, $dataWriter)
+    protected function getTouchItemType()
     {
-        $query = $this->createQuery($baseQuery, $locale);
-
-        $resultSets = $this->getBatchIterator($query);
-
-        $result->setTotalCount($resultSets->count());
-
-        foreach ($resultSets as $resultSet) {
-            $collectedData = $this->processData($resultSet, $locale);
-
-            $dataWriter->write($collectedData, 'categorynode');
-            $result->increaseProcessedCount(count($collectedData));
-        }
+        return 'categorynode';
     }
 
     /**
@@ -60,7 +43,7 @@ class CategoryNodeCollector
      *
      * @return SpyTouchQuery
      */
-    private function createQuery(SpyTouchQuery $baseQuery, LocaleTransfer $locale)
+    protected function createQuery(SpyTouchQuery $baseQuery, LocaleTransfer $locale)
     {
         $baseQuery->addJoin(
             SpyTouchTableMap::COL_ITEM_ID,
@@ -185,18 +168,6 @@ class CategoryNodeCollector
     protected function getResourceType()
     {
         return CategoryConfig::RESOURCE_TYPE_CATEGORY_NODE;
-    }
-
-
-    /**
-     * @param $baseQuery
-     * @param int $chunkSize
-     *
-     * @return BatchIterator
-     */
-    public function getBatchIterator($baseQuery, $chunkSize = 1000)
-    {
-        return new BatchIterator($baseQuery, $chunkSize);
     }
 
     /**

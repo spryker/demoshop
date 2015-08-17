@@ -13,8 +13,7 @@ use SprykerFeature\Shared\Collector\Code\KeyBuilder\KeyBuilderTrait;
 use SprykerFeature\Zed\Category\Persistence\CategoryQueryContainer;
 use SprykerFeature\Zed\Category\Persistence\Propel\Map\SpyCategoryAttributeTableMap;
 use SprykerFeature\Zed\Category\Persistence\Propel\Map\SpyCategoryNodeTableMap;
-use SprykerFeature\Zed\Collector\Business\Exporter\BatchIterator;
-use SprykerFeature\Zed\Collector\Business\Model\BatchResultInterface;
+use SprykerFeature\Zed\Collector\Business\Exporter\AbstractPropelCollectorPlugin;
 use SprykerFeature\Zed\Price\Persistence\PriceQueryContainer;
 use SprykerFeature\Zed\Price\Persistence\Propel\Map\SpyPriceProductTableMap;
 use SprykerFeature\Zed\Price\Persistence\Propel\Map\SpyPriceTypeTableMap;
@@ -30,7 +29,7 @@ use SprykerFeature\Zed\Tax\Persistence\Propel\Map\SpyTaxSetTableMap;
 use SprykerFeature\Zed\Tax\Persistence\Propel\Map\SpyTaxSetTaxTableMap;
 use SprykerFeature\Zed\Url\Persistence\Propel\Map\SpyUrlTableMap;
 
-class ProductCollector
+class ProductCollector extends AbstractPropelCollectorPlugin
 {
 
     use KeyBuilderTrait;
@@ -81,26 +80,9 @@ class ProductCollector
         $this->productOptionExporterFacade = $productOptionExporterFacade;
     }
 
-
-    /**
-     * @param SpyTouchQuery $baseQuery
-     * @param LocaleTransfer $locale
-     * @param $result
-     */
-    public function run(SpyTouchQuery $baseQuery, LocaleTransfer $locale, BatchResultInterface $result, $dataWriter)
+    protected function getTouchItemType()
     {
-        $query = $this->createQuery($baseQuery, $locale);
-
-        $resultSets = $this->getBatchIterator($query);
-
-        $result->setTotalCount($resultSets->count());
-
-        foreach ($resultSets as $resultSet) {
-            $collectedData = $this->processData($resultSet, $locale);
-
-            $dataWriter->write($collectedData, 'abstract_product');
-            $result->increaseProcessedCount(count($collectedData));
-        }
+        return 'abstract_product';
     }
 
     /**
@@ -109,7 +91,7 @@ class ProductCollector
      *
      * @return SpyTouchQuery
      */
-    private function createQuery(SpyTouchQuery $baseQuery, LocaleTransfer $locale)
+    protected function createQuery(SpyTouchQuery $baseQuery, LocaleTransfer $locale)
     {
         $baseQuery->clearSelectColumns();
 
@@ -511,17 +493,6 @@ class ProductCollector
         ];
 
         return array_intersect_key($productData, array_flip($allowedFields));
-    }
-
-    /**
-     * @param $baseQuery
-     * @param int $chunkSize
-     *
-     * @return BatchIterator
-     */
-    public function getBatchIterator($baseQuery, $chunkSize = 1000)
-    {
-        return new BatchIterator($baseQuery, $chunkSize);
     }
 
     private function getIdPriceType()

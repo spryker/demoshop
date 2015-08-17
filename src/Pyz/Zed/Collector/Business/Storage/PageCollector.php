@@ -11,35 +11,18 @@ use SprykerFeature\Shared\Collector\Code\KeyBuilder\KeyBuilderTrait;
 use SprykerFeature\Zed\Cms\Persistence\Propel\Map\SpyCmsGlossaryKeyMappingTableMap;
 use SprykerFeature\Zed\Cms\Persistence\Propel\Map\SpyCmsPageTableMap;
 use SprykerFeature\Zed\Cms\Persistence\Propel\Map\SpyCmsTemplateTableMap;
-use SprykerFeature\Zed\Collector\Business\Exporter\BatchIterator;
-use SprykerFeature\Zed\Collector\Business\Model\BatchResultInterface;
+use SprykerFeature\Zed\Collector\Business\Exporter\AbstractPropelCollectorPlugin;
 use SprykerFeature\Zed\Glossary\Persistence\Propel\Map\SpyGlossaryKeyTableMap;
 use SprykerFeature\Zed\Url\Persistence\Propel\Map\SpyUrlTableMap;
 
-class PageCollector
+class PageCollector extends AbstractPropelCollectorPlugin
 {
 
     use KeyBuilderTrait;
 
-    /**
-     * @param SpyTouchQuery $baseQuery
-     * @param LocaleTransfer $locale
-     * @param $result
-     */
-    public function run(SpyTouchQuery $baseQuery, LocaleTransfer $locale, BatchResultInterface $result, $dataWriter)
+    protected function getTouchItemType()
     {
-        $query = $this->createQuery($baseQuery, $locale);
-
-        $resultSets = $this->getBatchIterator($query);
-
-        $result->setTotalCount($resultSets->count());
-
-        foreach ($resultSets as $resultSet) {
-            $collectedData = $this->processData($resultSet, $locale);
-
-            $dataWriter->write($collectedData, 'page');
-            $result->increaseProcessedCount(count($collectedData));
-        }
+        return 'page';
     }
 
     /**
@@ -48,7 +31,7 @@ class PageCollector
      *
      * @return SpyTouchQuery
      */
-    private function createQuery(SpyTouchQuery $baseQuery, LocaleTransfer $locale)
+    protected function createQuery(SpyTouchQuery $baseQuery, LocaleTransfer $locale)
     {
         $baseQuery->addJoin(
             SpyTouchTableMap::COL_ITEM_ID,
@@ -114,7 +97,6 @@ class PageCollector
         return $processedResultSet;
     }
 
-
     /**
      * @param string $identifier
      *
@@ -140,18 +122,5 @@ class PageCollector
     {
         return CmsConfig::RESOURCE_TYPE_PAGE;
     }
-
-
-    /**
-     * @param $baseQuery
-     * @param int $chunkSize
-     *
-     * @return BatchIterator
-     */
-    public function getBatchIterator($baseQuery, $chunkSize = 1000)
-    {
-        return new BatchIterator($baseQuery, $chunkSize);
-    }
-
 
 }
