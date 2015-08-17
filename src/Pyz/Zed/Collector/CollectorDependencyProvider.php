@@ -47,8 +47,25 @@ class CollectorDependencyProvider extends SprykerCollectorDependencyProvider
             return $container->getLocator()->productOptionExporter()->facade();
         };
 
+        $container[self::SEARCH_PLUGINS] = function (Container $container) {
+            return [
+                'abstract_product' => $container->getLocator()->collector()->pluginProductCollectorSearchPlugin(),
+            ];
+        };
+
+        $container[self::STORAGE_PLUGINS] = function (Container $container) {
+            return [
+                'abstract_product' => $container->getLocator()->collector()->pluginProductCollectorStoragePlugin(),
+                'categorynode' => $container->getLocator()->collector()->pluginCategoryNodeCollectorStoragePlugin(),
+                'navigation' => $container->getLocator()->collector()->pluginNavigationCollectorStoragePlugin(),
+                'translation' => $container->getLocator()->collector()->pluginTranslationCollectorStoragePlugin(),
+                'page' => $container->getLocator()->collector()->pluginPageCollectorStoragePlugin(),
+                'redirect' => $container->getLocator()->collector()->pluginRedirectCollectorStoragePlugin(),
+                'url' => $container->getLocator()->collector()->pluginUrlCollectorStoragePlugin(),
+            ];
+        };
+
         return $container;
     }
-
 
 }
