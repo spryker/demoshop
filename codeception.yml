@@ -3,7 +3,6 @@ namespace: Pyz
 include:
  - vendor/spryker/spryker/Bundles/Acl/
  - vendor/spryker/spryker/Bundles/Application/
- - vendor/spryker/spryker/Bundles/Assets/
  - vendor/spryker/spryker/Bundles/Auth/
  - vendor/spryker/spryker/Bundles/Availability/
  - vendor/spryker/spryker/Bundles/AvailabilityCartConnector/
