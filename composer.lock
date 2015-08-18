@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "ed3cd16260d448e6941cd049ff503fce",
+    "hash": "fbe3fd37ec1e71170fa53101a8751a50",
     "packages": [
         {
             "name": "digital-canvas/zend-framework",
@@ -708,11 +708,11 @@
         },
         {
             "name": "spryker/spryker",
-            "version": "dev-develop",
+            "version": "dev-feature/CD-240_Cleanup_Collectors_PR",
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/spryker.git",
-                "reference": "438877b2b1fbd8dc4d9cf8b98acda62f02ede796"
+                "reference": "c1500909c03c275a07703952688f09868f1b6934"
             },
             "require": {
                 "digital-canvas/zend-framework": ">=1.12.2",
@@ -747,7 +747,7 @@
                 "symfony/validator": "~2.6.9",
                 "symfony/var-dumper": "~2.6.9",
                 "symfony/yaml": ">=2.3",
-                "twig/twig": "~1.15.0",
+                "twig/twig": "~1.20",
                 "zendframework/zend-code": "~2.3.6",
                 "zendframework/zend-config": "~2.3.0",
                 "zendframework/zend-filter": "~2.3.0",
@@ -769,6 +769,7 @@
                 "spryker/checkout": "self.version",
                 "spryker/cms": "self.version",
                 "spryker/cms-exporter": "self.version",
+                "spryker/collector": "self.version",
                 "spryker/config": "self.version",
                 "spryker/console": "self.version",
                 "spryker/country": "self.version",
@@ -778,10 +779,8 @@
                 "spryker/discount": "self.version",
                 "spryker/discount-calculation-connector": "self.version",
                 "spryker/document": "self.version",
-                "spryker/frontend-exporter": "self.version",
                 "spryker/git": "self.version",
                 "spryker/glossary": "self.version",
-                "spryker/glossary-exporter": "self.version",
                 "spryker/installer": "self.version",
                 "spryker/invoice": "self.version",
                 "spryker/kernel": "self.version",
@@ -794,15 +793,9 @@
                 "spryker/price-cart-connector": "self.version",
                 "spryker/product": "self.version",
                 "spryker/product-category": "self.version",
-                "spryker/product-category-frontend-exporter-connector": "self.version",
-                "spryker/product-category-search": "self.version",
                 "spryker/product-exporter": "self.version",
-                "spryker/product-frontend-exporter-availability-connector": "self.version",
-                "spryker/product-frontend-exporter-connector": "self.version",
-                "spryker/product-frontend-exporter-price-connector": "self.version",
                 "spryker/product-image": "self.version",
                 "spryker/product-search": "self.version",
-                "spryker/product-search-availability-connector": "self.version",
                 "spryker/redirect": "self.version",
                 "spryker/redirect-exporter": "self.version",
                 "spryker/sales": "self.version",
@@ -819,7 +812,6 @@
                 "spryker/ui": "self.version",
                 "spryker/ui-example": "self.version",
                 "spryker/url": "self.version",
-                "spryker/url-exporter": "self.version",
                 "spryker/user": "self.version",
                 "spryker/yves": "self.version",
                 "spryker/zed-request": "self.version"
@@ -845,7 +837,7 @@
                     "SprykerFeature\\Shared\\Library": "Bundles/Library/src/"
                 }
             },
-            "time": "2015-08-12 13:33:00"
+            "time": "2015-08-17 14:51:11"
         },
         {
             "name": "symfony-cmf/routing",
@@ -2186,25 +2178,25 @@
         },
         {
             "name": "twig/twig",
-            "version": "v1.15.1",
+            "version": "v1.20.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/twigphp/Twig.git",
-                "reference": "1fb5784662f438d7d96a541e305e28b812e2eeed"
+                "reference": "1ea4e5f81c6d005fe84d0b38e1c4f1955eb86844"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/twigphp/Twig/zipball/1fb5784662f438d7d96a541e305e28b812e2eeed",
-                "reference": "1fb5784662f438d7d96a541e305e28b812e2eeed",
+                "url": "https://api.github.com/repos/twigphp/Twig/zipball/1ea4e5f81c6d005fe84d0b38e1c4f1955eb86844",
+                "reference": "1ea4e5f81c6d005fe84d0b38e1c4f1955eb86844",
                 "shasum": ""
             },
             "require": {
-                "php": ">=5.2.4"
+                "php": ">=5.2.7"
             },
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "1.15-dev"
+                    "dev-master": "1.20-dev"
                 }
             },
             "autoload": {
@@ -2230,7 +2222,7 @@
                 },
                 {
                     "name": "Twig Team",
-                    "homepage": "https://github.com/fabpot/Twig/graphs/contributors",
+                    "homepage": "http://twig.sensiolabs.org/contributors",
                     "role": "Contributors"
                 }
             ],
@@ -2239,7 +2231,7 @@
             "keywords": [
                 "templating"
             ],
-            "time": "2014-02-13 10:19:29"
+            "time": "2015-08-12 15:56:39"
         },
         {
             "name": "videlalvaro/php-amqplib",

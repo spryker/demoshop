@@ -16,7 +16,7 @@ class InstallerConfig extends SprykerInstallerConfig
         $locator = $this->getLocator();
 
         return [
-            $locator->frontendExporter()->pluginInstaller(),
+            $locator->collector()->pluginInstaller(),
             $locator->product()->pluginInstaller(),
             $locator->productSearch()->pluginInstaller(),
             $locator->price()->pluginInstaller(),

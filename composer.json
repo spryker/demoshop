@@ -1,6 +1,6 @@
 {
   "require": {
-    "spryker/spryker": "dev-develop",
+    "spryker/spryker": "dev-feature/CD-240_Cleanup_Collectors_PR",
 
     "psr/log": "~1.0",
     "propel/propel": "~2.0@dev",
@@ -39,7 +39,7 @@
     "symfony/yaml": "~2.6.9",
     "symfony-cmf/routing": "~1.0",
 
-    "twig/twig": "~1.15.0",
+    "twig/twig": "~1.20",
 
     "zendframework/zend-config": "~2.3.0",
     "zendframework/zend-code": "2.3.9",
