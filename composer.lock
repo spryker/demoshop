@@ -4,20 +4,20 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "fbe3fd37ec1e71170fa53101a8751a50",
+    "hash": "4bb0344d46a9ad5fcd5714822e06e99d",
     "packages": [
         {
             "name": "digital-canvas/zend-framework",
-            "version": "1.12.13",
+            "version": "1.12.15",
             "source": {
                 "type": "git",
                 "url": "https://github.com/digital-canvas/zend-framework.git",
-                "reference": "f604565177e3b8e2193c8eb4647e2291349d21ee"
+                "reference": "89d94f4f96758bfbf20080fe374fe295c1c70a17"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/digital-canvas/zend-framework/zipball/f604565177e3b8e2193c8eb4647e2291349d21ee",
-                "reference": "f604565177e3b8e2193c8eb4647e2291349d21ee",
+                "url": "https://api.github.com/repos/digital-canvas/zend-framework/zipball/89d94f4f96758bfbf20080fe374fe295c1c70a17",
+                "reference": "89d94f4f96758bfbf20080fe374fe295c1c70a17",
                 "shasum": ""
             },
             "require": {
@@ -45,7 +45,7 @@
                 "zend",
                 "zf"
             ],
-            "time": "2015-07-26 03:13:41"
+            "time": "2015-08-12 17:14:10"
         },
         {
             "name": "guzzle/guzzle",
@@ -708,11 +708,11 @@
         },
         {
             "name": "spryker/spryker",
-            "version": "dev-feature/CD-240_Cleanup_Collectors_PR",
+            "version": "dev-develop",
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/spryker.git",
-                "reference": "c1500909c03c275a07703952688f09868f1b6934"
+                "reference": "09fc09c4683aad3bd9025e6130393556710f8b35"
             },
             "require": {
                 "digital-canvas/zend-framework": ">=1.12.2",
@@ -756,7 +756,6 @@
             "replace": {
                 "spryker/acl": "self.version",
                 "spryker/application": "self.version",
-                "spryker/assets": "self.version",
                 "spryker/auth": "self.version",
                 "spryker/availability": "self.version",
                 "spryker/availability-cart-connector": "self.version",
@@ -837,7 +836,7 @@
                     "SprykerFeature\\Shared\\Library": "Bundles/Library/src/"
                 }
             },
-            "time": "2015-08-17 14:51:11"
+            "time": "2015-08-19 10:12:49"
         },
         {
             "name": "symfony-cmf/routing",
