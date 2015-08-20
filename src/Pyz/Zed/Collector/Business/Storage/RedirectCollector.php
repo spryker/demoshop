@@ -14,10 +14,16 @@ use SprykerFeature\Zed\Url\Persistence\Propel\Map\SpyUrlTableMap;
 
 class RedirectCollector extends AbstractPropelCollectorPlugin
 {
-
     use KeyBuilderTrait;
 
+    const KEY_FROM_URL = 'from_url';
+    const KEY_TO_URL = 'to_url';
+    const KEY_STATUS = 'status';
+    const KEY_ID = 'id';
 
+    /**
+     * @return string
+     */
     protected function getTouchItemType()
     {
         return 'redirect';
@@ -44,10 +50,10 @@ class RedirectCollector extends AbstractPropelCollectorPlugin
         );
 
         $baseQuery->clearSelectColumns();
-        $baseQuery->withColumn(SpyRedirectTableMap::COL_ID_REDIRECT, 'redirect_id');
-        $baseQuery->withColumn(SpyUrlTableMap::COL_URL, 'from_url');
-        $baseQuery->withColumn(SpyRedirectTableMap::COL_STATUS, 'status');
-        $baseQuery->withColumn(SpyRedirectTableMap::COL_TO_URL, 'to_url');
+        $baseQuery->withColumn(SpyRedirectTableMap::COL_ID_REDIRECT, self::KEY_ID);
+        $baseQuery->withColumn(SpyUrlTableMap::COL_URL, self::KEY_FROM_URL);
+        $baseQuery->withColumn(SpyRedirectTableMap::COL_STATUS, self::KEY_STATUS);
+        $baseQuery->withColumn(SpyRedirectTableMap::COL_TO_URL, self::KEY_TO_URL);
 
         return $baseQuery;
     }
@@ -61,13 +67,13 @@ class RedirectCollector extends AbstractPropelCollectorPlugin
     protected function processData($resultSet, LocaleTransfer $locale)
     {
         $processedResultSet = [];
-        foreach ($resultSet as $index => $redirect) {
-            $redirectKey = $this->generateResourceKey($redirect['redirect_id'], $locale->getLocaleName());
+        foreach ($resultSet as $redirect) {
+            $redirectKey = $this->generateResourceKey($redirect[self::KEY_ID], $locale->getLocaleName());
             $processedResultSet[$redirectKey] = [
-                'from_url' => $redirect['from_url'],
-                'to_url' => $redirect['to_url'],
-                'status' => $redirect['status'],
-                'id' => $redirect['redirect_id'],
+                self::KEY_FROM_URL => $redirect[self::KEY_FROM_URL],
+                self::KEY_TO_URL => $redirect[self::KEY_TO_URL],
+                self::KEY_STATUS => $redirect[self::KEY_STATUS],
+                self::KEY_ID => $redirect[self::KEY_ID],
             ];
         }
 
