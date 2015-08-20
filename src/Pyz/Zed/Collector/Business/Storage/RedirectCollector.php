@@ -63,7 +63,7 @@ class RedirectCollector extends AbstractPropelCollectorPlugin
         $processedResultSet = [];
         foreach ($resultSet as $index => $redirect) {
             $redirectKey = $this->generateResourceKey($redirect['redirect_id'], $locale->getLocaleName());
-            $returnedResultSet[$redirectKey] = [
+            $processedResultSet[$redirectKey] = [
                 'from_url' => $redirect['from_url'],
                 'to_url' => $redirect['to_url'],
                 'status' => $redirect['status'],
@@ -73,7 +73,6 @@ class RedirectCollector extends AbstractPropelCollectorPlugin
 
         return $processedResultSet;
     }
-
 
     /**
      * @param string $data
