@@ -1,6 +1,6 @@
 {
   "require": {
-    "spryker/spryker": "dev-feature/CD-367-Move-Propel-from-Library-to-Propel-bundle",
+    "spryker/spryker": "dev-develop",
 
     "psr/log": "~1.0",
     "propel/propel": "~2.0@dev",
