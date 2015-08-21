@@ -715,6 +715,7 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
                 "reference": "a07d3a5579e149e94da2cb04d5222a2392b92999"
 =======
 =======
@@ -733,6 +734,9 @@
 >>>>>>> CD-367 update composer
 =======
                 "reference": "002cc9cd2120139e077d13b8b886322a9e6f160f"
+>>>>>>> update composer
+=======
+                "reference": "fa7cbe0bd5122dfd7b18ae77ec8624e7cfe136df"
 >>>>>>> update composer
             },
             "require": {
@@ -860,6 +864,7 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
             "time": "2015-08-21 09:08:02"
 =======
 =======
@@ -878,6 +883,9 @@
 >>>>>>> CD-367 update composer
 =======
             "time": "2015-08-21 07:59:40"
+>>>>>>> update composer
+=======
+            "time": "2015-08-21 08:36:46"
 >>>>>>> update composer
         },
         {
