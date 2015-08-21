@@ -4,20 +4,20 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "e39b0a0e3f81eafae8c7b6e94a1969fd",
+    "hash": "4bb0344d46a9ad5fcd5714822e06e99d",
     "packages": [
         {
             "name": "digital-canvas/zend-framework",
-            "version": "1.12.13",
+            "version": "1.12.15",
             "source": {
                 "type": "git",
                 "url": "https://github.com/digital-canvas/zend-framework.git",
-                "reference": "f604565177e3b8e2193c8eb4647e2291349d21ee"
+                "reference": "89d94f4f96758bfbf20080fe374fe295c1c70a17"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/digital-canvas/zend-framework/zipball/f604565177e3b8e2193c8eb4647e2291349d21ee",
-                "reference": "f604565177e3b8e2193c8eb4647e2291349d21ee",
+                "url": "https://api.github.com/repos/digital-canvas/zend-framework/zipball/89d94f4f96758bfbf20080fe374fe295c1c70a17",
+                "reference": "89d94f4f96758bfbf20080fe374fe295c1c70a17",
                 "shasum": ""
             },
             "require": {
@@ -45,7 +45,7 @@
                 "zend",
                 "zf"
             ],
-            "time": "2015-07-26 03:13:41"
+            "time": "2015-08-12 17:14:10"
         },
         {
             "name": "guzzle/guzzle",
@@ -708,11 +708,11 @@
         },
         {
             "name": "spryker/spryker",
-            "version": "v0.9.0",
+            "version": "dev-develop",
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/spryker.git",
-                "reference": "f3f81a4bd426b30ba27bd983e490e8460acffaf1"
+                "reference": "dc7a43eafd0160b8c87d6d3609c41fff4b12658e"
             },
             "require": {
                 "digital-canvas/zend-framework": ">=1.12.2",
@@ -747,7 +747,7 @@
                 "symfony/validator": "~2.6.9",
                 "symfony/var-dumper": "~2.6.9",
                 "symfony/yaml": ">=2.3",
-                "twig/twig": "~1.15.0",
+                "twig/twig": "~1.20",
                 "zendframework/zend-code": "~2.3.6",
                 "zendframework/zend-config": "~2.3.0",
                 "zendframework/zend-filter": "~2.3.0",
@@ -756,7 +756,6 @@
             "replace": {
                 "spryker/acl": "self.version",
                 "spryker/application": "self.version",
-                "spryker/assets": "self.version",
                 "spryker/auth": "self.version",
                 "spryker/availability": "self.version",
                 "spryker/availability-cart-connector": "self.version",
@@ -769,6 +768,7 @@
                 "spryker/checkout": "self.version",
                 "spryker/cms": "self.version",
                 "spryker/cms-exporter": "self.version",
+                "spryker/collector": "self.version",
                 "spryker/config": "self.version",
                 "spryker/console": "self.version",
                 "spryker/country": "self.version",
@@ -778,10 +778,8 @@
                 "spryker/discount": "self.version",
                 "spryker/discount-calculation-connector": "self.version",
                 "spryker/document": "self.version",
-                "spryker/frontend-exporter": "self.version",
                 "spryker/git": "self.version",
                 "spryker/glossary": "self.version",
-                "spryker/glossary-exporter": "self.version",
                 "spryker/installer": "self.version",
                 "spryker/invoice": "self.version",
                 "spryker/kernel": "self.version",
@@ -794,15 +792,9 @@
                 "spryker/price-cart-connector": "self.version",
                 "spryker/product": "self.version",
                 "spryker/product-category": "self.version",
-                "spryker/product-category-frontend-exporter-connector": "self.version",
-                "spryker/product-category-search": "self.version",
                 "spryker/product-exporter": "self.version",
-                "spryker/product-frontend-exporter-availability-connector": "self.version",
-                "spryker/product-frontend-exporter-connector": "self.version",
-                "spryker/product-frontend-exporter-price-connector": "self.version",
                 "spryker/product-image": "self.version",
                 "spryker/product-search": "self.version",
-                "spryker/product-search-availability-connector": "self.version",
                 "spryker/redirect": "self.version",
                 "spryker/redirect-exporter": "self.version",
                 "spryker/sales": "self.version",
@@ -819,7 +811,6 @@
                 "spryker/ui": "self.version",
                 "spryker/ui-example": "self.version",
                 "spryker/url": "self.version",
-                "spryker/url-exporter": "self.version",
                 "spryker/user": "self.version",
                 "spryker/yves": "self.version",
                 "spryker/zed-request": "self.version"
@@ -845,7 +836,7 @@
                     "SprykerFeature\\Shared\\Library": "Bundles/Library/src/"
                 }
             },
-            "time": "2015-08-11 14:50:01"
+            "time": "2015-08-21 09:52:49"
         },
         {
             "name": "symfony-cmf/routing",
@@ -2186,25 +2177,25 @@
         },
         {
             "name": "twig/twig",
-            "version": "v1.15.1",
+            "version": "v1.20.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/twigphp/Twig.git",
-                "reference": "1fb5784662f438d7d96a541e305e28b812e2eeed"
+                "reference": "1ea4e5f81c6d005fe84d0b38e1c4f1955eb86844"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/twigphp/Twig/zipball/1fb5784662f438d7d96a541e305e28b812e2eeed",
-                "reference": "1fb5784662f438d7d96a541e305e28b812e2eeed",
+                "url": "https://api.github.com/repos/twigphp/Twig/zipball/1ea4e5f81c6d005fe84d0b38e1c4f1955eb86844",
+                "reference": "1ea4e5f81c6d005fe84d0b38e1c4f1955eb86844",
                 "shasum": ""
             },
             "require": {
-                "php": ">=5.2.4"
+                "php": ">=5.2.7"
             },
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "1.15-dev"
+                    "dev-master": "1.20-dev"
                 }
             },
             "autoload": {
@@ -2230,7 +2221,7 @@
                 },
                 {
                     "name": "Twig Team",
-                    "homepage": "https://github.com/fabpot/Twig/graphs/contributors",
+                    "homepage": "http://twig.sensiolabs.org/contributors",
                     "role": "Contributors"
                 }
             ],
@@ -2239,7 +2230,7 @@
             "keywords": [
                 "templating"
             ],
-            "time": "2014-02-13 10:19:29"
+            "time": "2015-08-12 15:56:39"
         },
         {
             "name": "videlalvaro/php-amqplib",
@@ -4075,6 +4066,7 @@
     "aliases": [],
     "minimum-stability": "stable",
     "stability-flags": {
+        "spryker/spryker": 20,
         "propel/propel": 20,
         "silex/silex": 20,
         "pimple/pimple": 20
