@@ -25,7 +25,7 @@ $config[SystemConfig::PROPEL]['database']['connections']['default']['password'] 
 $config[SystemConfig::ELASTICA_PARAMETER__INDEX_NAME] = 'de_development_catalog';
 $config[SystemConfig::ELASTICA_PARAMETER__DOCUMENT_TYPE] = 'page';
 
-$config[SystemConfig::ELASTICA_PARAMETER__PORT] = '9200';
+$config[SystemConfig::ELASTICA_PARAMETER__PORT] = '10005';
 
 $yvesHost = 'www.de.spryker.dev';
 $config[YvesConfig::YVES_SESSION_COOKIE_DOMAIN] = $yvesHost;
