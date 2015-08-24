@@ -27,6 +27,8 @@ class CustomerControllerProvider extends YvesControllerProvider
      */
     protected function defineControllers(Application $app)
     {
+        $this->createController('/user_state', 'user_state', 'Customer', 'AjaxSecurity', 'userState');
+
         $this->createController('/login', self::ROUTE_LOGIN, 'Customer', 'AjaxSecurity', 'login');
         $this->createController('/login_check', self::ROUTE_LOGIN_CHECK, 'Customer', 'Security', 'loginCheck');
         $this->createController('/register', self::ROUTE_REGISTER, 'Customer', 'AjaxSecurity', 'register');

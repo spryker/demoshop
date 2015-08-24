@@ -23,6 +23,13 @@ class AjaxSecurityController extends AbstractController
     const REGISTRATION_EMAIL = '_username';
     const REGISTRATION_PASSWORD = '_password';
 
+    public function userStateAction(Request $request)
+    {
+        $isLoggedIn = true;
+
+        return $this->jsonResponse($isLoggedIn);
+    }
+
     /**
      * @param Request $request
      *

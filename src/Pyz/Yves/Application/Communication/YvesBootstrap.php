@@ -6,11 +6,11 @@ use Pyz\Yves\Application\Communication\Plugin\ApplicationControllerProvider;
 use Pyz\Yves\Cart\Communication\Plugin\CartControllerProvider;
 use Pyz\Yves\Checkout\Communication\Plugin\CheckoutControllerProvider;
 use Pyz\Yves\Customer\Communication\Plugin\CustomerControllerProvider;
+use Pyz\Yves\Twig\Communication\Plugin\TwigServiceProvider;
 use Pyz\Yves\Wishlist\Communication\Plugin\WishlistControllerProvider;
 use Silex\Provider\FormServiceProvider;
 use Silex\Provider\HttpFragmentServiceProvider;
 use Silex\Provider\RememberMeServiceProvider;
-use Silex\Provider\SecurityServiceProvider as SilexSecurityServiceProvider;
 use Silex\Provider\ServiceControllerServiceProvider;
 use Silex\Provider\SessionServiceProvider as SilexSessionServiceProvider;
 use Silex\Provider\ValidatorServiceProvider;
@@ -23,6 +23,7 @@ use SprykerEngine\Yves\Application\Communication\Plugin\ServiceProvider\CookieSe
 use SprykerEngine\Yves\Application\Communication\Plugin\ServiceProvider\ExceptionServiceProvider;
 use SprykerEngine\Yves\Application\Communication\Plugin\ServiceProvider\MonologServiceProvider;
 use SprykerEngine\Yves\Application\Communication\Plugin\ServiceProvider\YvesLoggingServiceProvider;
+use SprykerEngine\Yves\Application\Communication\Plugin\ServiceProvider\YvesSecurityServiceProvider;
 use SprykerEngine\Yves\Kernel\Locator;
 use SprykerFeature\Shared\Application\Business\Application;
 use SprykerFeature\Shared\Application\Business\Routing\SilexRouter;
@@ -31,7 +32,6 @@ use SprykerFeature\Shared\Application\Communication\Plugin\ServiceProvider\UrlGe
 use SprykerFeature\Shared\Library\Config;
 use SprykerFeature\Shared\System\SystemConfig;
 use SprykerFeature\Shared\Yves\YvesConfig;
-use Pyz\Yves\Twig\Communication\Plugin\TwigServiceProvider;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Routing\RouterInterface;
 
@@ -89,7 +89,7 @@ class YvesBootstrap extends SprykerYvesBootstrap
 
         $providers = [
             new SilexSessionServiceProvider(),
-            new SilexSecurityServiceProvider(),
+            new YvesSecurityServiceProvider($app),
             new ExceptionServiceProvider('\\SprykerEngine\\Yves\\Application\\Communication\\Controller\\ExceptionController'),
             new YvesLoggingServiceProvider(),
             new MonologServiceProvider(),
