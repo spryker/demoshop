@@ -102,10 +102,6 @@ module.exports = {
             $('.js-checkout-email').focus();
         });
 
-        $('.login__guest').click(function () {
-            console.log('asd');
-        });
-
         $('.js-address-button').click(function (event) {
             event.preventDefault();
             $('.js-checkout-address').addClass('js-checkout-collapsed js-checkout-completed');

@@ -34,13 +34,6 @@ var toggleMode = function (e) {
 };
 
 var toggleLoggedInState = function () {
-    $.ajax({
-        type: 'POST',
-        url: '/user_state'
-    }).done(function(data) {
-        console.log(data);
-    });
-
     if (loggedIn) {
         $('.js-show-login-button').off('click', showLoginForm);
         $('.user__login').html('Benutzerkonto').removeClass('js-show-login-button');
