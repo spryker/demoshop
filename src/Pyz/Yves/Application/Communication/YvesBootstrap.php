@@ -3,6 +3,8 @@
 namespace Pyz\Yves\Application\Communication;
 
 use Pyz\Yves\Application\Communication\Plugin\ApplicationControllerProvider;
+use Pyz\Yves\Application\Communication\Plugin\ServiceProvider\YvesLoggingServiceProvider;
+use Pyz\Yves\Application\Communication\Plugin\ServiceProvider\YvesSecurityServiceProvider;
 use Pyz\Yves\Cart\Communication\Plugin\CartControllerProvider;
 use Pyz\Yves\Checkout\Communication\Plugin\CheckoutControllerProvider;
 use Pyz\Yves\Customer\Communication\Plugin\CustomerControllerProvider;
@@ -22,8 +24,6 @@ use SprykerEngine\Yves\Application\Communication\Plugin\ControllerProviderInterf
 use SprykerEngine\Yves\Application\Communication\Plugin\ServiceProvider\CookieServiceProvider;
 use SprykerEngine\Yves\Application\Communication\Plugin\ServiceProvider\ExceptionServiceProvider;
 use SprykerEngine\Yves\Application\Communication\Plugin\ServiceProvider\MonologServiceProvider;
-use SprykerEngine\Yves\Application\Communication\Plugin\ServiceProvider\YvesLoggingServiceProvider;
-use SprykerEngine\Yves\Application\Communication\Plugin\ServiceProvider\YvesSecurityServiceProvider;
 use SprykerEngine\Yves\Kernel\Locator;
 use SprykerFeature\Shared\Application\Business\Application;
 use SprykerFeature\Shared\Application\Business\Routing\SilexRouter;
