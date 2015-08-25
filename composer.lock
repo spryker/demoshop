@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "4bb0344d46a9ad5fcd5714822e06e99d",
+    "hash": "63e12e68cb5ce80f579290c06337901e",
     "packages": [
         {
             "name": "digital-canvas/zend-framework",
@@ -626,16 +626,16 @@
         },
         {
             "name": "silex/silex",
-            "version": "v1.3.1",
+            "version": "v1.3.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/silexphp/Silex.git",
-                "reference": "0507b772519ab0d9dd258bb39748921229ad5c46"
+                "reference": "833d399eeaa449786d3fa2e533ada293b4e533c9"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/silexphp/Silex/zipball/0507b772519ab0d9dd258bb39748921229ad5c46",
-                "reference": "0507b772519ab0d9dd258bb39748921229ad5c46",
+                "url": "https://api.github.com/repos/silexphp/Silex/zipball/833d399eeaa449786d3fa2e533ada293b4e533c9",
+                "reference": "833d399eeaa449786d3fa2e533ada293b4e533c9",
                 "shasum": ""
             },
             "require": {
@@ -699,20 +699,20 @@
                     "email": "igor@wiedler.ch"
                 }
             ],
-            "description": "The PHP micro-framework based on the Symfony2 Components",
+            "description": "The PHP micro-framework based on the Symfony Components",
             "homepage": "http://silex.sensiolabs.org",
             "keywords": [
                 "microframework"
             ],
-            "time": "2015-08-04 10:41:12"
+            "time": "2015-08-24 10:04:48"
         },
         {
             "name": "spryker/spryker",
-            "version": "dev-develop",
+            "version": "dev-bugfix/CD-378-Generate-transfers-that-has-elements-referring-to-themseves",
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/spryker.git",
-                "reference": "dc7a43eafd0160b8c87d6d3609c41fff4b12658e"
+                "reference": "779acaf59a48e778121ecc7db1e77acef6556b75"
             },
             "require": {
                 "digital-canvas/zend-framework": ">=1.12.2",
@@ -836,7 +836,7 @@
                     "SprykerFeature\\Shared\\Library": "Bundles/Library/src/"
                 }
             },
-            "time": "2015-08-21 09:52:49"
+            "time": "2015-08-25 06:26:46"
         },
         {
             "name": "symfony-cmf/routing",
@@ -2177,25 +2177,29 @@
         },
         {
             "name": "twig/twig",
-            "version": "v1.20.0",
+            "version": "v1.21.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/twigphp/Twig.git",
-                "reference": "1ea4e5f81c6d005fe84d0b38e1c4f1955eb86844"
+                "reference": "913d282caca9ee0e8d05940c6caa486d58810dd4"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/twigphp/Twig/zipball/1ea4e5f81c6d005fe84d0b38e1c4f1955eb86844",
-                "reference": "1ea4e5f81c6d005fe84d0b38e1c4f1955eb86844",
+                "url": "https://api.github.com/repos/twigphp/Twig/zipball/913d282caca9ee0e8d05940c6caa486d58810dd4",
+                "reference": "913d282caca9ee0e8d05940c6caa486d58810dd4",
                 "shasum": ""
             },
             "require": {
                 "php": ">=5.2.7"
             },
+            "require-dev": {
+                "symfony/debug": "~2.7",
+                "symfony/phpunit-bridge": "~2.7"
+            },
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "1.20-dev"
+                    "dev-master": "1.21-dev"
                 }
             },
             "autoload": {
@@ -2230,7 +2234,7 @@
             "keywords": [
                 "templating"
             ],
-            "time": "2015-08-12 15:56:39"
+            "time": "2015-08-24 09:51:18"
         },
         {
             "name": "videlalvaro/php-amqplib",
