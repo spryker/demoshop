@@ -1,6 +1,6 @@
 {
   "require": {
-    "spryker/spryker": "dev-bugfix/CD-378-Generate-transfers-that-has-elements-referring-to-themseves",
+    "spryker/spryker": "dev-develop",
 
     "psr/log": "~1.0",
     "propel/propel": "~2.0@dev",
