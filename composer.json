@@ -39,7 +39,7 @@
     "symfony/yaml": "~2.6.9",
     "symfony-cmf/routing": "~1.0",
 
-    "twig/twig": "~1.20",
+    "twig/twig": "1.20",
 
     "zendframework/zend-config": "~2.3.0",
     "zendframework/zend-code": "2.3.9",
