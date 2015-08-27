@@ -1,6 +1,8 @@
 <?php
 
-require_once __DIR__ . '/../vendor/autoload.php';
-require_once __DIR__ . '/Environment.php';
+use SprykerFeature\Shared\Library\SystemUnderTest\SystemUnderTestBootstrap;
 
-\Test\Environment::initialize('Zed');
+require_once __DIR__ . '/../vendor/autoload.php';
+
+$bootstrap = SystemUnderTestBootstrap::getInstance();
+$bootstrap->bootstrap(SystemUnderTestBootstrap::APPLICATION_ZED);

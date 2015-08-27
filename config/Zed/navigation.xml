@@ -71,4 +71,9 @@
         <title>Shipment</title>
         <uri>/shipment</uri>
     </shipment>
+    <user>
+        <label>Users</label>
+        <title>Users</title>
+        <uri>/user</uri>
+    </user>
 </config>
