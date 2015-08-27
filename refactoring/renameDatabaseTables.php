@@ -1,10 +1,9 @@
 <?php
 
-include_once __DIR__.'/../vendor/autoload.php';
+include_once __DIR__ . '/../vendor/autoload.php';
 
 use Symfony\Component\Finder\Finder;
 use Symfony\Component\Finder\SplFileInfo;
-
 use Symfony\Component\Filesystem\Filesystem;
 
 $filesystem = new Filesystem();
@@ -29,8 +28,8 @@ function getFiles(array $directories)
 
 // remove all base and map files
 $directories = [
-    __DIR__.'/../vendor/spryker/spryker/Bundles/*/src/*/Zed/*/Persistence/Propel/Map',
-    __DIR__.'/../vendor/spryker/spryker/Bundles/*/src/*/Zed/*/Persistence/Propel/Base'
+    __DIR__ . '/../vendor/spryker/spryker/Bundles/*/src/*/Zed/*/Persistence/Propel/Map',
+    __DIR__ . '/../vendor/spryker/spryker/Bundles/*/src/*/Zed/*/Persistence/Propel/Base',
 ];
 
 $oldFiles = getFiles($directories);
@@ -40,16 +39,16 @@ foreach ($oldFiles as $file) {
 
 // remove old files
 $files = [
-    __DIR__.'/../vendor/spryker/spryker/Bundles/Product/src/SprykerFeature/Zed/Product/Persistence/Propel/SpyAbstractProduct.php',
-    __DIR__.'/../vendor/spryker/spryker/Bundles/Product/src/SprykerFeature/Zed/Product/Persistence/Propel/SpyAbstractProductQuery.php',
-    __DIR__.'/../vendor/spryker/spryker/Bundles/Product/src/SprykerFeature/Zed/Product/Persistence/Propel/SpyLocalizedAbstractProductAttributes.php',
-    __DIR__.'/../vendor/spryker/spryker/Bundles/Product/src/SprykerFeature/Zed/Product/Persistence/Propel/SpyLocalizedAbstractProductAttributesQuery.php',
-    __DIR__.'/../vendor/spryker/spryker/Bundles/Product/src/SprykerFeature/Zed/Product/Persistence/Propel/SpyProductLocalizedAttributes.php',
-    __DIR__.'/../vendor/spryker/spryker/Bundles/Product/src/SprykerFeature/Zed/Product/Persistence/Propel/SpyProductLocalizedAttributesQuery.php',
-    __DIR__.'/../vendor/spryker/spryker/Bundles/Product/src/SprykerFeature/Zed/Product/Persistence/Propel/SpyTypeValue.php',
-    __DIR__.'/../vendor/spryker/spryker/Bundles/Product/src/SprykerFeature/Zed/Product/Persistence/Propel/SpyTypeValueQuery.php',
-    __DIR__.'/../vendor/spryker/spryker/Bundles/ProductSearch/src/SprykerFeature/Zed/ProductSearch/Persistence/Propel/SpySearchableProducts.php',
-    __DIR__.'/../vendor/spryker/spryker/Bundles/ProductSearch/src/SprykerFeature/Zed/ProductSearch/Persistence/Propel/SpySearchableProductsQuery.php',
+    __DIR__ . '/../vendor/spryker/spryker/Bundles/Product/src/SprykerFeature/Zed/Product/Persistence/Propel/SpyAbstractProduct.php',
+    __DIR__ . '/../vendor/spryker/spryker/Bundles/Product/src/SprykerFeature/Zed/Product/Persistence/Propel/SpyAbstractProductQuery.php',
+    __DIR__ . '/../vendor/spryker/spryker/Bundles/Product/src/SprykerFeature/Zed/Product/Persistence/Propel/SpyLocalizedAbstractProductAttributes.php',
+    __DIR__ . '/../vendor/spryker/spryker/Bundles/Product/src/SprykerFeature/Zed/Product/Persistence/Propel/SpyLocalizedAbstractProductAttributesQuery.php',
+    __DIR__ . '/../vendor/spryker/spryker/Bundles/Product/src/SprykerFeature/Zed/Product/Persistence/Propel/SpyProductLocalizedAttributes.php',
+    __DIR__ . '/../vendor/spryker/spryker/Bundles/Product/src/SprykerFeature/Zed/Product/Persistence/Propel/SpyProductLocalizedAttributesQuery.php',
+    __DIR__ . '/../vendor/spryker/spryker/Bundles/Product/src/SprykerFeature/Zed/Product/Persistence/Propel/SpyTypeValue.php',
+    __DIR__ . '/../vendor/spryker/spryker/Bundles/Product/src/SprykerFeature/Zed/Product/Persistence/Propel/SpyTypeValueQuery.php',
+    __DIR__ . '/../vendor/spryker/spryker/Bundles/ProductSearch/src/SprykerFeature/Zed/ProductSearch/Persistence/Propel/SpySearchableProducts.php',
+    __DIR__ . '/../vendor/spryker/spryker/Bundles/ProductSearch/src/SprykerFeature/Zed/ProductSearch/Persistence/Propel/SpySearchableProductsQuery.php',
 ];
 
 foreach ($files as $file) {
@@ -90,7 +89,7 @@ $searchReplaceDefinition = [
             'SpyTypeValue' => 'SpyProductAttributeTypeValue',
             'SpyRedirect' => 'SpyUrlRedirect',
         ],
-    ]
+    ],
 ];
 
 $xmlSearchAndReplace = function (array $searchReplaceDefinition) {
@@ -122,12 +121,12 @@ $classSearchAndReplace = function (array $searchReplaceDefinition) {
     foreach ($searchReplaceDefinition as $definition) {
         foreach ($definition['table'] as $from => $to) {
             $searchAndReplace[$filter->filter($from)] = $filter->filter($to);
-            $searchAndReplace['$'.lcfirst($filter->filter($from))] = '$'.lcfirst($filter->filter($to));
+            $searchAndReplace['$' . lcfirst($filter->filter($from))] = '$' . lcfirst($filter->filter($to));
         }
         foreach ($definition['field'] as $from => $to) {
             $searchAndReplace['COL_' . strtoupper($from)] = 'COL_' . strtoupper($to);
             $searchAndReplace[$filter->filter($from)] = $filter->filter($to);
-            $searchAndReplace['$'.lcfirst($filter->filter($from))] = '$'.lcfirst($filter->filter($to));
+            $searchAndReplace['$' . lcfirst($filter->filter($from))] = '$' . lcfirst($filter->filter($to));
         }
         foreach ($definition['class'] as $from => $to) {
             $searchAndReplace[$from] = $to;
@@ -140,10 +139,10 @@ $classSearchAndReplace = function (array $searchReplaceDefinition) {
 };
 
 $schemaDirectories = [
-    __DIR__.'/../src/Pyz/Zed/*/Persistence/Propel/Schema',
-    __DIR__.'/../src/Pyz/Shared/*/Transfer',
-    __DIR__.'/../vendor/spryker/spryker/Bundles/*/src/*/Shared/*/Transfer',
-    __DIR__.'/../vendor/spryker/spryker/Bundles/*/src/*/Zed/*/Persistence/Propel/Schema',
+    __DIR__ . '/../src/Pyz/Zed/*/Persistence/Propel/Schema',
+    __DIR__ . '/../src/Pyz/Shared/*/Transfer',
+    __DIR__ . '/../vendor/spryker/spryker/Bundles/*/src/*/Shared/*/Transfer',
+    __DIR__ . '/../vendor/spryker/spryker/Bundles/*/src/*/Zed/*/Persistence/Propel/Schema',
 ];
 $schemaFiles = getFiles($schemaDirectories);
 $searchAndReplace = $xmlSearchAndReplace($searchReplaceDefinition);
@@ -155,10 +154,10 @@ foreach ($schemaFiles as $file) {
 }
 
 $classDirectories = [
-    __DIR__.'/../src/Pyz/Zed/',
-    __DIR__.'/../tests/*/Pyz/Zed/',
-    __DIR__.'/../vendor/spryker/spryker/Bundles/*/src/*/Zed',
-    __DIR__.'/../vendor/spryker/spryker/Bundles/*/tests/*/*/Zed',
+    __DIR__ . '/../src/Pyz/Zed/',
+    __DIR__ . '/../tests/*/Pyz/Zed/',
+    __DIR__ . '/../vendor/spryker/spryker/Bundles/*/src/*/Zed',
+    __DIR__ . '/../vendor/spryker/spryker/Bundles/*/tests/*/*/Zed',
 ];
 $classFiles = getFiles($classDirectories);
 $searchAndReplace = $classSearchAndReplace($searchReplaceDefinition);
