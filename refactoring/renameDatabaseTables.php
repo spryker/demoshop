@@ -21,7 +21,6 @@ function getFiles(array $directories)
             unset($directories[$key]);
         }
     }
-echo '<pre>' . PHP_EOL . \Symfony\Component\VarDumper\VarDumper::dump($directories) . PHP_EOL . 'Line: ' . __LINE__ . PHP_EOL . 'File: ' . __FILE__ . die();
     $finder = new Finder();
     $finder->files()->in($directories);
 
@@ -41,6 +40,14 @@ foreach ($oldFiles as $file) {
 
 // remove old files
 $files = [
+    __DIR__.'/../vendor/spryker/spryker/Bundles/Product/src/SprykerFeature/Zed/Product/Persistence/Propel/SpyAbstractProduct.php',
+    __DIR__.'/../vendor/spryker/spryker/Bundles/Product/src/SprykerFeature/Zed/Product/Persistence/Propel/SpyAbstractProductQuery.php',
+    __DIR__.'/../vendor/spryker/spryker/Bundles/Product/src/SprykerFeature/Zed/Product/Persistence/Propel/SpyLocalizedAbstractProductAttributes.php',
+    __DIR__.'/../vendor/spryker/spryker/Bundles/Product/src/SprykerFeature/Zed/Product/Persistence/Propel/SpyLocalizedAbstractProductAttributesQuery.php',
+    __DIR__.'/../vendor/spryker/spryker/Bundles/Product/src/SprykerFeature/Zed/Product/Persistence/Propel/SpyProductLocalizedAttributes.php',
+    __DIR__.'/../vendor/spryker/spryker/Bundles/Product/src/SprykerFeature/Zed/Product/Persistence/Propel/SpyProductLocalizedAttributesQuery.php',
+    __DIR__.'/../vendor/spryker/spryker/Bundles/Product/src/SprykerFeature/Zed/Product/Persistence/Propel/SpyTypeValue.php',
+    __DIR__.'/../vendor/spryker/spryker/Bundles/Product/src/SprykerFeature/Zed/Product/Persistence/Propel/SpyTypeValueQuery.php',
     __DIR__.'/../vendor/spryker/spryker/Bundles/ProductSearch/src/SprykerFeature/Zed/ProductSearch/Persistence/Propel/SpySearchableProducts.php',
     __DIR__.'/../vendor/spryker/spryker/Bundles/ProductSearch/src/SprykerFeature/Zed/ProductSearch/Persistence/Propel/SpySearchableProductsQuery.php',
 ];
@@ -97,6 +104,7 @@ $xmlSearchAndReplace = function (array $searchReplaceDefinition) {
         }
         foreach ($definition['field'] as $from => $to) {
             $searchAndReplace[$filter->filter($from)] = $filter->filter($to);
+            $searchAndReplace[lcfirst($filter->filter($from))] = lcfirst($filter->filter($to));
             $searchAndReplace[$from] = $to;
         }
         foreach ($definition['class'] as $from => $to) {
@@ -117,12 +125,15 @@ $classSearchAndReplace = function (array $searchReplaceDefinition) {
             $searchAndReplace['$'.lcfirst($filter->filter($from))] = '$'.lcfirst($filter->filter($to));
         }
         foreach ($definition['field'] as $from => $to) {
+            $searchAndReplace['COL_' . strtoupper($from)] = 'COL_' . strtoupper($to);
             $searchAndReplace[$filter->filter($from)] = $filter->filter($to);
             $searchAndReplace['$'.lcfirst($filter->filter($from))] = '$'.lcfirst($filter->filter($to));
         }
         foreach ($definition['class'] as $from => $to) {
             $searchAndReplace[$from] = $to;
         }
+
+        $searchAndReplace['abstract_product'] = 'product_abstract';
     }
 
     return $searchAndReplace;
@@ -151,7 +162,6 @@ $classDirectories = [
 ];
 $classFiles = getFiles($classDirectories);
 $searchAndReplace = $classSearchAndReplace($searchReplaceDefinition);
-
 foreach ($classFiles as $file) {
     $content = $file->getContents();
     $content = str_replace(array_keys($searchAndReplace), array_values($searchAndReplace), $content);
