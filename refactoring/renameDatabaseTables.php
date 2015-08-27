@@ -16,10 +16,37 @@ $filesystem = new Filesystem();
  */
 function getFiles(array $directories)
 {
+    foreach ($directories as $key => $directory) {
+        if (!glob($directory)) {
+            unset($directories[$key]);
+        }
+    }
+echo '<pre>' . PHP_EOL . \Symfony\Component\VarDumper\VarDumper::dump($directories) . PHP_EOL . 'Line: ' . __LINE__ . PHP_EOL . 'File: ' . __FILE__ . die();
     $finder = new Finder();
     $finder->files()->in($directories);
 
     return $finder;
+}
+
+// remove all base and map files
+$directories = [
+    __DIR__.'/../vendor/spryker/spryker/Bundles/*/src/*/Zed/*/Persistence/Propel/Map',
+    __DIR__.'/../vendor/spryker/spryker/Bundles/*/src/*/Zed/*/Persistence/Propel/Base'
+];
+
+$oldFiles = getFiles($directories);
+foreach ($oldFiles as $file) {
+    $filesystem->remove($file);
+}
+
+// remove old files
+$files = [
+    __DIR__.'/../vendor/spryker/spryker/Bundles/ProductSearch/src/SprykerFeature/Zed/ProductSearch/Persistence/Propel/SpySearchableProducts.php',
+    __DIR__.'/../vendor/spryker/spryker/Bundles/ProductSearch/src/SprykerFeature/Zed/ProductSearch/Persistence/Propel/SpySearchableProductsQuery.php',
+];
+
+foreach ($files as $file) {
+    $filesystem->remove($file);
 }
 
 $searchReplaceDefinition = [
@@ -69,6 +96,7 @@ $xmlSearchAndReplace = function (array $searchReplaceDefinition) {
             $searchAndReplace[$from] = $to;
         }
         foreach ($definition['field'] as $from => $to) {
+            $searchAndReplace[$filter->filter($from)] = $filter->filter($to);
             $searchAndReplace[$from] = $to;
         }
         foreach ($definition['class'] as $from => $to) {
@@ -101,7 +129,9 @@ $classSearchAndReplace = function (array $searchReplaceDefinition) {
 };
 
 $schemaDirectories = [
-//    __DIR__.'/../src/Pyz/Zed/*/Persistence/Propel/Schema',
+    __DIR__.'/../src/Pyz/Zed/*/Persistence/Propel/Schema',
+    __DIR__.'/../src/Pyz/Shared/*/Transfer',
+    __DIR__.'/../vendor/spryker/spryker/Bundles/*/src/*/Shared/*/Transfer',
     __DIR__.'/../vendor/spryker/spryker/Bundles/*/src/*/Zed/*/Persistence/Propel/Schema',
 ];
 $schemaFiles = getFiles($schemaDirectories);
