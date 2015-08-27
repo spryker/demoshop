@@ -88,7 +88,7 @@ $classSearchAndReplace = function (array $searchReplaceDefinition) {
             $searchAndReplace[$filter->filter($from)] = $filter->filter($to);
             $searchAndReplace['$'.lcfirst($filter->filter($from))] = '$'.lcfirst($filter->filter($to));
         }
-        foreach ($definition['fields'] as $from => $to) {
+        foreach ($definition['field'] as $from => $to) {
             $searchAndReplace[$filter->filter($from)] = $filter->filter($to);
             $searchAndReplace['$'.lcfirst($filter->filter($from))] = '$'.lcfirst($filter->filter($to));
         }
