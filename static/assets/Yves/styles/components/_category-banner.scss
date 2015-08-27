@@ -1,0 +1,18 @@
+.categoty-banner {
+  overflow: hidden;
+  margin: 0 0 18px;
+  img {
+    display: block;
+    position: relative;
+    width: 100%;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .categoty-banner {
+    img {
+      left: -17%;
+      width: 134%;
+    }
+  }
+}

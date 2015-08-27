@@ -1,0 +1,193 @@
+.products-set {
+  padding: 10px 0 16px;
+  h4 {
+    font-size: 14px;
+    color: $cGrey4;
+    margin: 0 10px 10px;
+  }
+  .external-product {
+    background: $cWhite;
+    padding: 14px 15px;
+    position: relative;
+    width: 100%;
+    box-sizing: border-box;
+    display: table;
+    table-layout: fixed;
+    border-top: 1px solid $cGrey1;
+    &:first-child {
+      border: none;
+    }
+    .img {
+      width: 23%;
+      vertical-align: middle;
+      display: table-cell;
+      img {
+        display: block;
+        max-width: 100%;
+        height: auto;
+      }
+    }
+    .description {
+      display: table-cell;
+      vertical-align: middle;
+      width: 77%;
+      box-sizing: border-box;
+      padding: 0 23% 0 30px;
+      &>.title {
+        font-size: 14px;
+        display: block;
+        color: $cGrey5;
+        margin: 0 0 8px;
+      }
+      h2 {
+        font-size: 24px;
+        color: $cGrey5;
+        margin: 0 0 11px;
+      }
+      p {
+        font-size: 11px;
+        color: $cGrey4;
+      }
+      .btn-holder {
+        position: absolute;
+        top: 14px;
+        right: 15px;
+        .btn-white {
+          display: block;
+          border: 1px solid $cMagenta2;
+          border-radius: 2px;
+          color: $cMagenta2;
+          font-size: 14px;
+          text-decoration: none;
+          text-transform: uppercase;
+          padding: 12px;
+        }
+      }
+      .btn-delete {
+        display: none;
+        width: 17px;
+        height: 20px;
+        overflow: hidden;
+        text-indent: -9999px;
+        position: absolute;
+        right: 15px;
+        bottom: 14px;
+        background: url(/images/icons/icon-delete.png) no-repeat;
+      }
+      .product-added {
+        display: none;
+        color: $cGreen3;
+        font-size: 14px;
+        position: absolute;
+        right: 15px;
+        top: 14px;
+        text-transform: uppercase;
+        &:before {
+          margin: 0 12px 0 0;
+          content: "";
+          display: inline-block;
+          vertical-align: top;
+          width: 21px;
+          height: 15px;
+          background: url(/images/icons/icon-added-product.png) no-repeat;
+        }
+      }
+    }
+    &.added {
+      .description {
+        .btn-holder {
+          display: none;
+        }
+        .btn-delete,
+        .product-added {
+          display: block;
+        }
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .products-set {
+    padding: 0;
+    margin: 10px 0;
+    border-bottom: 1px solid $cGrey2;
+    h4 {
+      font-size: 12px;
+      margin: 0 7px 7px;
+    }
+    .external-product {
+      padding: 14px 10px;
+      border-top: 1px solid $cGrey2;
+      &:first-child {
+        border-top: 1px solid $cGrey2;
+      }
+      .img {
+        width: 32%;
+      }
+      .description {
+        padding: 0 45px 0 10px;
+        width: 68%;
+        &>.title {
+          font-size: 12px;
+          margin: 0 0 5px;
+          overflow-wrap: normal;
+          word-wrap: break-word;
+          word-break: keep-all;
+          line-break: auto;
+          hyphens: auto;
+        }
+        h2 {
+          font-size: 15px;
+          margin: 0;
+          word-wrap: break-word;
+          word-break: keep-all;
+          line-break: auto;
+          hyphens: auto;
+        }
+        .btn-holder {
+          top: 50%;
+          margin: -15px 0 0;
+          right: 10px;
+          .btn-white {
+            width: 14px;
+            height: 14px;
+            overflow: hidden;
+            text-indent: -9999px;
+            &:before,
+            &:after {
+              position: absolute;
+              top: 50%;
+              left: 50%;
+              content: "";
+              background: $cMagenta2;
+            }
+            &:before {
+              width: 11px;
+              height: 1px;
+              margin: 0 0 0 -5px;
+            }
+            &:after {
+              margin: -5px 0 0;
+              width: 1px;
+              height: 11px;
+            }
+          }
+        }
+        .product-added {
+          overflow: hidden;
+          text-indent: -9999px;
+          right: 10px;
+          width: 21px;
+          height: 15px;
+          background: url(/images/icons/icon-added-product.png) no-repeat;
+          &:before {
+            display: none;
+            width: 0;
+            height: 0;
+          }
+        }
+      }
+    }
+  }
+}
