@@ -11,11 +11,11 @@ use SprykerFeature\Shared\User\UserConfig;
 use SprykerFeature\Shared\Yves\YvesConfig;
 
 $config[SystemConfig::PROJECT_NAMESPACES] = [
-    'Pyz'
+    'Pyz',
 ];
 $config[SystemConfig::CORE_NAMESPACES] = [
     'SprykerFeature',
-    'SprykerEngine'
+    'SprykerEngine',
 ];
 
 $config[SystemConfig::CURRENT_APPLICATION_STORE] = APPLICATION_STORE;
@@ -79,10 +79,10 @@ $config[YvesConfig::YVES_SSL_EXCLUDED] = ['/monitoring/heartbeat'];
 $config[YvesConfig::YVES_SESSION_SAVE_HANDLER] = null;
 $config[YvesConfig::YVES_SESSION_NAME] = 'yves_session';
 $config[YvesConfig::YVES_SESSION_COOKIE_DOMAIN] = $config[SystemConfig::HOST_YVES];
-$config[YvesConfig::YVES_ERROR_PAGE] = APPLICATION_ROOT_DIR . '/static/public/Yves/errorpage/error.html';
+$config[YvesConfig::YVES_ERROR_PAGE] = APPLICATION_ROOT_DIR.'/static/public/Yves/errorpage/error.html';
 
-$config[CustomerConfig::CUSTOMER_SECURED_PATTERN] = "(^/login_check$|^/customer)";
-$config[CustomerConfig::CUSTOMER_ANONYMOUS_PATTERN] = "^/.*";
+$config[CustomerConfig::CUSTOMER_SECURED_PATTERN] = '(^/login_check$|^/customer)';
+$config[CustomerConfig::CUSTOMER_ANONYMOUS_PATTERN] = '^/.*';
 
 $currentStore = \SprykerEngine\Shared\Kernel\Store::getInstance()->getStoreName();
 $config[SystemConfig::PROPEL] = [
@@ -96,15 +96,15 @@ $config[SystemConfig::PROPEL] = [
                 'settings' => [
                     'charset' => 'utf8',
                     'queries' => [
-                        'utf8' => 'SET NAMES utf8 COLLATE utf8_unicode_ci, COLLATION_CONNECTION = utf8_unicode_ci, COLLATION_DATABASE = utf8_unicode_ci, COLLATION_SERVER = utf8_unicode_ci'
-                    ]
-                ]
-            ]
-        ]
+                        'utf8' => 'SET NAMES utf8 COLLATE utf8_unicode_ci, COLLATION_CONNECTION = utf8_unicode_ci, COLLATION_DATABASE = utf8_unicode_ci, COLLATION_SERVER = utf8_unicode_ci',
+                    ],
+                ],
+            ],
+        ],
     ],
     'runtime' => [
         'defaultConnection' => 'default',
-        'connections' => ['default', 'zed']
+        'connections' => ['default', 'zed'],
     ],
     'generator' => [
         'defaultConnection' => 'default',
@@ -114,17 +114,17 @@ $config[SystemConfig::PROPEL] = [
             'builders' => [
                 'object' => '\SprykerEngine\Zed\Propel\Business\Builder\ObjectBuilder',
                 'tablemap' => '\SprykerEngine\Zed\Propel\Business\Builder\TableMapBuilder',
-                'query' => '\SprykerEngine\Zed\Propel\Business\Builder\QueryBuilder'
-            ]
-        ]
+                'query' => '\SprykerEngine\Zed\Propel\Business\Builder\QueryBuilder',
+            ],
+        ],
     ],
     'paths' => [
         'phpDir' => APPLICATION_ROOT_DIR,
-        'sqlDir' => APPLICATION_ROOT_DIR . '/src/Generated/Propel/' . $currentStore . '/Sql',
-        'migrationDir' => APPLICATION_ROOT_DIR . '/src/Generated/Propel/' . $currentStore . '/Migration',
-        'schemaDir' => APPLICATION_ROOT_DIR . '/src/Generated/Propel/' . $currentStore . '/Schema',
-        'phpConfDir' => APPLICATION_ROOT_DIR . '/src/Generated/Propel/' . $currentStore . '/Config'
-    ]
+        'sqlDir' => APPLICATION_ROOT_DIR.'/src/Generated/Propel/'.$currentStore.'/Sql',
+        'migrationDir' => APPLICATION_ROOT_DIR.'/src/Generated/Propel/'.$currentStore.'/Migration',
+        'schemaDir' => APPLICATION_ROOT_DIR.'/src/Generated/Propel/'.$currentStore.'/Schema',
+        'phpConfDir' => APPLICATION_ROOT_DIR.'/src/Generated/Propel/'.$currentStore.'/Config',
+    ],
 ];
 
 $config[SystemConfig::CLOUD_ENABLED] = false;
@@ -142,7 +142,7 @@ $config[SystemConfig::CLOUD_OBJECT_STORAGE_RACKSPACE] = [
     'apiKey' => 'e73a9eb8d9324e98bbf6552e8150ec9c',
     'apiEndpoint' => 'https://lon.identity.api.rackspacecloud.com/v2.0/',
     'storageService' => 'cloudFiles',
-    'location' => 'LON'
+    'location' => 'LON',
 ];
 $config[SystemConfig::CLOUD_OBJECT_STORAGE_PRODUCT_IMAGES] = [
     'prefix' => 'productImages',
@@ -170,58 +170,58 @@ $config[MailConfig::MAIL_PROVIDER_MANDRILL] = [
     'port' => '587',
     'username' => 'fabian.wesner@spryker.com',
     'from_mail' => 'service@demoshop.de',
-    'from_name' => 'Demoshop'
+    'from_name' => 'Demoshop',
 ];
 
 $config[UserConfig::USER_SYSTEM_USERS] = [
-    'yves_system'
+    'yves_system',
 ];
 
 $config[AuthConfig::AUTH_DEFAULT_CREDENTIALS] = [
     'yves_system' => [
         'rules' => [
             [
-                "bundle" => "*",
-                "controller" => "gateway",
-                "action" => "*"
-            ]
+                'bundle' => '*',
+                'controller' => 'gateway',
+                'action' => '*',
+            ],
         ],
-        'token' => 'JDJ5JDEwJFE0cXBwYnVVTTV6YVZXSnVmM2l1UWVhRE94WkQ4UjBUeHBEWTNHZlFRTEd4U2F6QVBqejQ2'
-    ]
+        'token' => 'JDJ5JDEwJFE0cXBwYnVVTTV6YVZXSnVmM2l1UWVhRE94WkQ4UjBUeHBEWTNHZlFRTEd4U2F6QVBqejQ2',
+    ],
 ];
 
 $config[AclConfig::ACL_DEFAULT_RULES] = [
     [
-        "bundle" => "auth",
-        "controller" => "login",
-        "action" => "index",
-        "type" => "allow"
+        'bundle' => 'auth',
+        'controller' => 'login',
+        'action' => 'index',
+        'type' => 'allow',
     ],
     [
-        "bundle" => "auth",
-        "controller" => "login",
-        "action" => "check",
-        "type" => "allow"
+        'bundle' => 'auth',
+        'controller' => 'login',
+        'action' => 'check',
+        'type' => 'allow',
     ],
     [
-        "bundle" => "auth",
-        "controller" => "password",
-        "action" => "reset",
-        "type" => "allow"
-    ]
+        'bundle' => 'auth',
+        'controller' => 'password',
+        'action' => 'reset',
+        'type' => 'allow',
+    ],
 ];
 
 $config[AclConfig::ACL_DEFAULT_CREDENTIALS] = [
     'yves_system' => [
         'rules' => [
             [
-                "bundle" => "*",
-                "controller" => "gateway",
-                "action" => "*",
-                "type" => "allow"
-            ]
-        ]
-    ]
+                'bundle' => '*',
+                'controller' => 'gateway',
+                'action' => '*',
+                'type' => 'allow',
+            ],
+        ],
+    ],
 ];
 
 $config[ApplicationConfig::NAVIGATION_CACHE_ENABLED] = true;
