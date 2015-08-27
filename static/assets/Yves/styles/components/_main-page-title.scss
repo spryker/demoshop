@@ -1,0 +1,43 @@
+.main-title {
+  background: $cWhite;
+  text-align: center;
+  position: relative;
+  border-bottom: 1px solid $cGrey1;
+  padding: 27px 0;
+  min-height: 28px;
+  .back-button {
+    float: left;
+    position: absolute;
+    top: 50%;
+    left: 22px;
+    margin: -8px 0 0;
+    font-size: 14px;
+    color: $cBlue2;
+    text-decoration: none;
+    background: url(/images/icons/icon-arrow-back.png) no-repeat 0 50%;
+    padding: 0 0 0 15px;
+  }
+  strong {
+    font: italic 24px $fGeorgia;
+    color: $cGrey3;
+  }
+  .btn-order {
+    @include btn;
+    position: absolute;
+    top: 18px;
+    line-height: 40px;
+    right: 20px;
+    padding: 0 45px;
+    font-size: 14px;
+    &:after {
+      width: 4px;
+      height: 7px;
+      position: absolute;
+      top: 50%;
+      margin-top: -3px;
+      right: 20px;
+      content: "";
+      background: url(/images/bg-images/bg-arrow4.png) no-repeat;
+    }
+  }
+}

@@ -1,0 +1,108 @@
+.category-item {
+	background: $cWhite;
+	box-sizing: border-box;
+	position: relative;
+	& > a {
+		& > img {
+			display: block;
+			margin: 0 auto;
+			max-width: 100%;
+		}
+	}
+	.item-title {
+		padding: 20px 20px 10px;
+		& > .category-group {
+			color: $cGrey4;
+			display: block;
+			font-size: 12px;
+			line-height: 14px;
+		}
+		& > h2 {
+			font-size: 16px;
+			line-height: 19px;
+			position: relative;
+			z-index: 2;
+			a {
+				color: $cGrey5;
+				text-decoration: none;
+			}
+		}
+	}
+	.options {
+		display: none;
+		position: absolute;
+		background: $cWhite;
+		box-shadow: 0 0 20px 0 rgba($cBlack, 0.15);
+		width: 100%;
+		padding: 0 20px 10px 16px;
+		box-sizing: border-box;
+		&:before {
+			width: 100%;
+			height: 20px;
+			background: $cWhite;
+			position: absolute;
+			top: -20px;
+			left: 0;
+			content: "";
+		}
+		& > .filter-drop-parent {
+			display: block;
+			&:after {
+				display: none;
+			}
+			& > a {
+				margin-bottom: 6px;
+				&:after {
+					background: none;
+				}
+			}
+			& > a.more {
+				width: 20px;
+				height: 20px;
+				position: absolute;
+				top: 5px;
+				right: -5px;
+				border-color: transparent;
+				&:after {
+					display: none;
+				}
+			}
+		}
+		& > .filter-format {
+			& > a {
+				display: inline-block;
+				margin: 0 10px 0 0;
+				&:hover,
+				&.selected {
+					border-color: $cBlue2;
+				}
+				border-width: 0 0 1px;
+				img {
+					margin: 0;
+				}
+			}
+		}
+	}
+	.favorite {
+		width: 24px;
+		height: 21px;
+		text-indent: -9999px;
+		position: absolute;
+		top: 20px;
+		right: 18px;
+		display: none;
+		background: url(/images/icons/ico-favorite.png) no-repeat;
+	}
+	&:hover {
+		box-shadow: 0 0 20px 0 rgba($cBlack, 0.15);
+		position: relative;
+		z-index: 2;
+		& > .options,
+		& > .favorite {
+			display: block;
+		}
+	}
+	& > .product-image {
+		display: block;
+	}
+}

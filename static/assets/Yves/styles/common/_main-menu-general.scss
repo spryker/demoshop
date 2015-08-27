@@ -1,0 +1,199 @@
+#nav {
+  font-size: 16px;
+  line-height: 1.2;
+  background: $cWhite;
+  .wrapper {
+    .extra-menu {
+      display: none;
+      .title {
+        font-size: 10px;
+        padding: 5px 10px;
+        text-transform: uppercase;
+        background: $cGrey1;
+      }
+    }
+    &>ul {
+      width: 100%;
+      display: table;
+      text-align: center;
+      position: relative;
+      &:hover {
+        z-index: 5;
+      }
+      &>li {
+        display: table-cell;
+        border-top: 1px solid $cGrey1;
+        &>a {
+          color: $cGrey5;
+          text-decoration: none;
+          display: block;
+          &:hover {
+            color: $cBlue2;
+            span {
+              border-color: $cBlue2;
+            }
+          }
+          span {
+            border-top: 1px solid $cGrey1;
+            margin: -1px 0 0;
+            padding: 11px 0 10px;
+            display: inline-block;
+            vertical-align: top;
+          }
+        }
+        &:hover {
+          .dropdown,
+          .sub-menu:after,
+          .sub-menu:before {
+            display: block;
+          }
+          &>a {
+            color: $cBlue2;
+            >span {
+              border-color: $cBlue2;
+            }
+          }
+        }
+        &>.sub-menu {
+          position: relative;
+          z-index: 3;
+          &:after,
+          &:before {
+            display: none;
+            background: $cWhite;
+            content: "";
+            width: 10px;
+            height: 10px;
+            box-shadow: 0 0 10px rgba($cBlack, 0.3);
+            position: absolute;
+            bottom: -5px;
+            left: 50%;
+            margin: 0 0 0 -5px;
+            transform: rotate(45deg);
+          }
+          &:after {
+            box-shadow: none;
+            transform: rotate(0);
+            width: 30px;
+            height: 13px;
+            bottom: -13px;
+            margin: 0 0 0 -15px;
+            background: $cWhite;
+          }
+          &>span {
+            position: relative;
+            &:after {
+              content: "";
+              position: absolute;
+              bottom: 15px;
+              right: -12px;
+              width: 7px;
+              height: 6px;
+              background: url(/images/icons/icon-arrow-down.png) no-repeat;
+              line-height: 0;
+            }
+          }
+        }
+      }
+    }
+  }
+  .dropdown {
+    display: none;
+    text-align: left;
+    z-index: 2;
+    font-size: 14px;
+    background: $cWhite;
+    position: absolute;
+    top: 41px;
+    left: 0;
+    right: 0;
+    box-shadow: 0 0 10px rgba($cBlack, 0.3);
+    padding: 2px 0 20px;
+    a {
+      color: $cGrey5;
+      text-decoration: none;
+      &:hover {
+        color: $cBlue2;
+      }
+    }
+    &>ul {
+      float: left;
+      width: 76%;
+      &>li {
+        width: 33.3%;
+        box-sizing: border-box;
+        float: left;
+        position: relative;
+        &:after {
+          content: "";
+          display: block;
+          height: 1px;
+          background: $cGrey1;
+          margin: 0 11.3% 0 7.1%;
+        }
+        &>a {
+          overflow: hidden;
+          text-overflow: ellipsis;
+          white-space: nowrap;
+          display: block;
+          padding: 12px 10px 11px 0;
+          position: relative;
+          margin: 0 11.3% 0 7.1%;
+          &:after {
+            content: "";
+            position: absolute;
+            top: 50%;
+            right: 0;
+            margin: -3px 0 0;
+            width: 5px;
+            height: 7px;
+            background: url(/images/icons/icon-arrow-right.png) no-repeat;
+          }
+        }
+        ul {
+          margin: -7px 11.3% 10px 7.1%;
+          font-size: 12px;
+          a {
+            display: block;
+            padding: 5px 0;
+            position: relative;
+            &:before {
+              content: "";
+              position: absolute;
+              left: -5px;
+              top: 3px;
+              bottom: 3px;
+              width: 1px;
+              background: $cBlue2;
+              display: none;
+            }
+            &:hover {
+              &:before {
+                display: block;
+              }
+            }
+          }
+        }
+      }
+    }
+    .favorite-block {
+      cursor: pointer;
+      float: right;
+      width: 24%;
+      padding: 12px 10px;
+      box-sizing: border-box;
+      .title {
+        display: block;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        margin: 0 0 6px;
+      }
+      img {
+        display: block;
+        width: 100%;
+        height: auto;
+      }
+    }
+  }
+}

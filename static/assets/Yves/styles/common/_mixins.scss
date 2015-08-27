@@ -1,0 +1,36 @@
+/* input:text */
+
+@mixin inputText {
+  float: left;
+  padding: 12px 10px 11px;
+  color: $cGrey4;
+  margin: 0;
+  height: 40px;
+  border-radius: 2px;
+  width: 100%;
+  box-sizing: border-box;
+  border: 1px solid $cGrey5;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+@mixin btn {
+  text-transform: uppercase;
+  text-align: center;
+  display: block;
+  text-decoration: none;
+  height: 40px;
+  background: $cMagenta2;
+  border: none;
+  border-bottom: 1px solid $cGrey5;
+  margin: 0;
+  border-radius: 2px;
+  color: $cWhite;
+  padding: 2px 0 0;
+  overflow: visible;
+  cursor: pointer;
+  font: 16px / 19px $fRobotoBold;
+  &:hover {
+    background: $cMagenta3;
+  }
+}
