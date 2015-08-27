@@ -5,6 +5,10 @@ include_once __DIR__.'/../vendor/autoload.php';
 use Symfony\Component\Finder\Finder;
 use Symfony\Component\Finder\SplFileInfo;
 
+use Symfony\Component\Filesystem\Filesystem;
+
+$filesystem = new Filesystem();
+
 /**
  * @param array $directories
  *
