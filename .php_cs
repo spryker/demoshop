@@ -16,12 +16,12 @@ return Symfony\CS\Config\Config::create()
     ->fixers(
         array(
             'blankline_after_open_tag',
-            '-braces',
+            'braces',
             'concat_with_spaces',
             'double_arrow_multiline_whitespaces',
             'duplicate_semicolon',
             'empty_enclosing_lines',
-            'empty_return',
+            '-empty_return',
             'encoding',
             'extra_empty_lines',
             'include',
@@ -45,7 +45,7 @@ return Symfony\CS\Config\Config::create()
             'psr0',
             'remove_leading_slash_use',
             'remove_lines_between_uses',
-            'return_fixer',
+            'return',
             'self_accessor',
             'single_array_no_trailing_comma',
             'single_line_before_namespace',
