@@ -19,7 +19,6 @@ class AjaxSecurityController extends AbstractController
 
     const LOGIN_EMAIL = 'email';
     const LOGIN_PASSWORD = 'password';
-
     const REGISTRATION_EMAIL = '_username';
     const REGISTRATION_PASSWORD = '_password';
 

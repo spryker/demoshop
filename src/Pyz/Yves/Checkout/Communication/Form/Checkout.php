@@ -48,7 +48,7 @@ class Checkout extends AbstractType
                 ],
             ])
             ->add('billing_address', new Address(200), [
-                'data_class' => 'Generated\Shared\Transfer\CustomerAddressTransfer',
+                'data_class' => 'Generated\Shared\Transfer\SalesAddressTransfer',
                 'error_bubbling' => true,
                 'attr' => [
                     'class' => 'js-invoice-address',
@@ -56,7 +56,7 @@ class Checkout extends AbstractType
                 ],
             ])
             ->add('shipping_address', new Address(300), [
-                'data_class' => 'Generated\Shared\Transfer\CustomerAddressTransfer',
+                'data_class' => 'Generated\Shared\Transfer\SalesAddressTransfer',
                 'required' => false,
                 'attr' => [
                     'class' => 'js-delivery-address',
