@@ -209,6 +209,33 @@ $config[AclConfig::ACL_DEFAULT_RULES] = [
         'action' => 'reset',
         'type' => 'allow',
     ],
+    [
+        'bundle' => 'auth',
+        'controller' => 'password',
+        'action' => 'reset-request',
+        'type' => 'allow',
+    ],
+    [
+        'bundle' => 'acl',
+        'controller' => 'index',
+        'action' => 'denied',
+        'type' => 'allow',
+    ],
+];
+
+$config[AclConfig::ACL_USER_RULE_WHITELIST] = [
+    [
+        'bundle'     => 'application',
+        'controller' => '*',
+        'action'     => '*',
+        'type'       => 'allow',
+    ],
+    [
+        'bundle'     => 'auth',
+        'controller' => '*',
+        'action'     => '*',
+        'type'       => 'allow',
+    ],
 ];
 
 $config[AclConfig::ACL_DEFAULT_CREDENTIALS] = [
