@@ -35,10 +35,10 @@
     </marketing>
     <!--<dwh/>-->
     <acl>
-        <label>Users &amp; Roles</label>
-        <title>Users &amp; Roles</title>
-        <uri>/acl/user</uri>
-        <visible>0</visible>
+        <label>Acl</label>
+        <title>Acl</title>
+        <uri>/acl</uri>
+        <visible>1</visible>
     </acl>
     <lumberjack>
         <label>Lumberjack</label>
