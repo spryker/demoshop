@@ -35,7 +35,6 @@ var toggleMode = function (e) {
 
 var toggleLoggedInState = function () {
     loggedIn = !loggedIn;
-    //TODO: load the html for the user menu with another ajax call
     if (loggedIn) {
         $('.js-show-login-button').off('click', showLoginForm);
         $('.user__login').html('Benutzerkonto').removeClass('js-show-login-button');
@@ -60,7 +59,6 @@ var showUserError = function (errorMessage) {
 };
 
 var handleResponse = function (response) {
-    console.log(response);
     if (response && response.success) {
         closeLoginForm();
         toggleLoggedInState();
