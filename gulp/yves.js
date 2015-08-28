@@ -5,9 +5,7 @@
 'use strict';
 
 var p = require('path');
-var R = require('ramda');
 var is = require('is_js');
-var argv = require('yargs').argv;
 var colors = require('colors');
 var rjs = require('requirejs');
 var stringFormat = require('string-format');

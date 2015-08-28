@@ -12,7 +12,7 @@ var development = {
         mangle: false,
         compress: {
             global_defs: {
-                DEBUG: true,
+                DEBUG: true
             }
         },
         output: {
