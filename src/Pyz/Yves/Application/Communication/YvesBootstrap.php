@@ -3,6 +3,7 @@
 namespace Pyz\Yves\Application\Communication;
 
 use Pyz\Yves\Application\Communication\Plugin\ApplicationControllerProvider;
+use Pyz\Yves\Application\Communication\Plugin\ServiceProvider\YvesSecurityServiceProvider;
 use Pyz\Yves\Cart\Communication\Plugin\CartControllerProvider;
 use Pyz\Yves\Checkout\Communication\Plugin\CheckoutControllerProvider;
 use Pyz\Yves\Customer\Communication\Plugin\CustomerControllerProvider;
@@ -37,7 +38,6 @@ use Symfony\Component\Routing\RouterInterface;
 
 class YvesBootstrap extends SprykerYvesBootstrap
 {
-
     /**
      * @param Application $app
      */
@@ -90,6 +90,7 @@ class YvesBootstrap extends SprykerYvesBootstrap
         $providers = [
             new SilexSessionServiceProvider(),
             new SilexSecurityServiceProvider(),
+            new YvesSecurityServiceProvider(),
             new ExceptionServiceProvider('\\SprykerEngine\\Yves\\Application\\Communication\\Controller\\ExceptionController'),
             new YvesLoggingServiceProvider(),
             new MonologServiceProvider(),
@@ -169,5 +170,4 @@ class YvesBootstrap extends SprykerYvesBootstrap
 
         return array_merge($existingGlobalVars, $additionalGlobalVars);
     }
-
 }
