@@ -231,12 +231,6 @@ $config[AclConfig::ACL_USER_RULE_WHITELIST] = [
         'type'       => 'allow',
     ],
     [
-        'bundle'     => 'wdt',
-        'controller' => '*',
-        'action'     => '*',
-        'type'       => 'allow',
-    ],
-    [
         'bundle'     => 'auth',
         'controller' => '*',
         'action'     => '*',
