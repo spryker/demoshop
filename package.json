@@ -13,10 +13,7 @@
     "spy-setup": "./gulp/bash/setup.sh",
     "spy-zed": "./gulp/bash/zed.sh",
     "spy-yves": "./gulp/bash/yves.sh",
-    "spy-assets": "./gulp/bash/assets.sh",
-    "spy-task-zed": "npm install && gulp --gulpfile config/Zed/gulpfile.js --cwd .",
-    "spy-task-yves": "npm install && gulp --gulpfile config/Yves/gulpfile.js --cwd .",
-    "spy-install": "npm run spy-task-zed && npm run spy-task-yves"
+    "spy-assets": "./gulp/bash/assets.sh"
   },
   "dependencies": {
     "colors": "^1.1.2",
