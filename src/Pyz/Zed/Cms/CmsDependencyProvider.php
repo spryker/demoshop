@@ -25,7 +25,7 @@ class CmsDependencyProvider extends SprykerCmsDependencyProvider
      */
     public function provideBusinessLayerDependencies(Container $container)
     {
-        //parent::provideBusinessLayerDependencies($container);
+        parent::provideBusinessLayerDependencies($container);
 
         // @todo this is not a external dependency
         $container[self::PLUGIN_DEMO_DATA_INSTALLER] = function (Container $container) {

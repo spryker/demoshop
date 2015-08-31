@@ -15,9 +15,11 @@
                         <div id="backend-errors"></div>
                     </section>
                     <section class="checkout__form-block checkout__form-block--login js-checkout-login">
+                        <input type="hidden" name="mode" value="guest" />
                         <h1 class="form-block__heading">{{ "page.checkout.client.existing" | trans }}</h1>
                         {% include "@application/layout/partials/login-register-form.twig" %}
                         <button class="login__skip cta">{{ "page.checkout.client.new" | trans }}</button>
+                        <button class="login__guest cta">{{ "page.checkout.guest.checkout" | trans }}</button>
                     </section>
                     {{ form_start(form) }}
                     <section class="checkout__form-block js-form-block js-checkout-address js-checkout-collapsed">
