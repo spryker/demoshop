@@ -8,6 +8,7 @@ use SprykerFeature\Shared\System\SystemConfig;
 use SprykerFeature\Shared\Yves\YvesConfig;
 use SprykerFeature\Shared\Application\ApplicationConfig;
 use SprykerFeature\Shared\Acl\AclConfig;
+use SprykerEngine\Shared\Kernel\KernelConfig;
 
 $config[SystemConfig::ZED_SESSION_SAVE_HANDLER]
     = $config[YvesConfig::YVES_SESSION_SAVE_HANDLER]
@@ -35,3 +36,5 @@ $config[AclConfig::ACL_USER_RULE_WHITELIST][] = [
     'action' => '*',
     'type' => 'allow',
 ];
+
+$config[KernelConfig::CLASS_RESOLVER_CACHE_ENABLED] = false;
