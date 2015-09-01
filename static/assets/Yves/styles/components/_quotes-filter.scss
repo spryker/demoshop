@@ -1,0 +1,65 @@
+.quote-filter {
+	padding: 12px 0 0;
+
+	.ttl {
+		float: left;
+		padding: 13px 10px 12px;
+		background: $cWhite;
+		color: $cGrey4;
+		font-size: 14px;
+		line-height: 1.2;
+		border-bottom: 2px solid $cGrey2;
+	}
+
+	.quote-select {
+		@extend .ttl;
+		border-left: 1px solid $cGrey2;
+		position: relative;
+		cursor: pointer;
+		color: $cGrey5;
+		min-width: 148px;
+		padding-right: 47px;
+
+		&:first-of-type {
+			border-left:0;
+		}
+
+		&:after {
+			width: 9px;
+			height: 6px;
+			content: "";
+			position: absolute;
+			top: 50%;
+			margin-top: -3px;
+			right: 19px;
+			background: url(/images/icons/icon-arrow-closed-custom-select.png) no-repeat;
+		}
+
+		.drop {
+			position: absolute;
+			top: 41px;
+			left: 0;
+			background: $cWhite;
+			cursor: default;
+			width:100%;
+			display: none;
+			border-bottom: 2px solid $cGrey2;
+
+			ul {
+				li {
+					padding: 5px 10px;
+				}
+			}
+
+		}
+
+		.selected {
+			display: block;
+			white-space: nowrap;
+			text-overflow: ellipsis;
+			overflow: hidden;
+		}
+
+	}
+
+}

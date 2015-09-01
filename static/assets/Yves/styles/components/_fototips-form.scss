@@ -1,0 +1,118 @@
+.form {
+	padding: 50px 35px 0;
+
+	h2 {
+		font:30px/35px $fRobotoLight;
+		text-align: center;
+		margin: 0 0 50px;
+		color: $cGreen2;
+
+		img {
+			display: inline-block;
+			vertical-align: top;
+			margin: 7px 5px 0 10px;
+		}
+
+	}
+
+	.col {
+		float: left;
+		width:50%;
+
+		.row {
+			padding: 0 0 20px;
+			overflow: hidden;
+			width:100%;
+			position: relative;
+		}
+
+		label {
+			font-size: 15px;
+			width:120px;
+			margin: 9px 12px 0 0;
+			text-align: right;
+			float: left;
+		}
+
+		input[type=text] {
+			@include inputText;
+			width:calc(100% - 132px);
+			float: right;
+			outline: none;
+		}
+		textarea {
+			@include inputText;
+			width:calc(100% - 132px);
+			float: right;
+			height: 100px;
+			resize: none;
+		}
+
+		input[type=submit] {
+			@include btn;
+			float: right;
+			padding-right: 15px;
+			padding-left: 15px;
+		}
+
+	}
+
+}
+
+
+@media screen and (max-width: 767px) {
+
+	.form {
+		padding: 10px 15px;
+
+		h2 {
+			font-size: 17px;
+			line-height: 18px;
+			margin: 0 0 30px;
+
+			img {
+				width:20px;
+				margin: 1px 8px 0 10px;
+			}
+
+		}
+
+		.col {
+			float: none;
+			width:auto;
+
+			label {
+				position: absolute;
+				top:5px;
+				left: 10px;
+				float: none;
+				width:auto;
+				font-size: 12px;
+				margin: 0;
+
+				&.checkbox,
+				&.radio {
+					position: relative;
+					top:auto;
+					left:auto;
+				}
+
+			}
+
+			input[type=text],
+			input[type=password],
+			textarea {
+				padding: 19px 10px 4px;
+				width:100%;
+
+				&:focus + label {
+					color:$cBlue2;
+				}
+
+			}
+
+		}
+
+	}
+
+}

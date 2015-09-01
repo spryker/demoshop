@@ -1,0 +1,16 @@
+@import "../common/common";
+@import "../common/header";
+@import "../common/footer";
+@import "../components/wishlist-notification";
+@import "../common/main-menu";
+@import "../common/breadcrumbs";
+@import "../common/testimonials-block";
+@import "../components/main-page-title";
+@import "../components/fototips-subtitle";
+@import "../components/fototips-row";
+@import "../components/fototips-form";
+
+.tips-content {
+	background: $cWhite;
+	margin: 0 0 10px;
+}

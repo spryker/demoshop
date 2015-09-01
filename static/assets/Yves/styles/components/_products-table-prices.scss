@@ -1,0 +1,71 @@
+@import "custom-select";
+
+.prices {
+  padding: 27px 0 0;
+  color: $cGrey5;
+  font-size: 14px;
+  .custom-select {
+    position: relative;
+    border: solid $cGrey2;
+    border-width: 1px;
+    padding: 12px 19px 12px 7px;
+    display: block;
+    margin: 0 40% 0 auto;
+    width: 32%;
+    max-width: 100%;
+    height: auto;
+    left: 0;
+    top: 0;
+  }
+  &:after {
+    background: url(/images/icons/icon-arrow-opened-custom-select.png) no-repeat;
+    right: 8px;
+  }
+  .btn-order {
+    @include btn;
+    line-height: 40px;
+    margin-top: 10px;
+  }
+  .price-item {
+    float: left;
+    margin: 12px 0 0;
+  }
+  .total-price {
+    float: right;
+    font-size: 24px;
+    color: $cMagenta2;
+    margin: 8px 0 0;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .prices {
+    padding: 20px 0;
+    .price-item {
+      display: none;
+    }
+    .custom-select {
+      float: left;
+      margin: 0;
+      width: 30%;
+      padding: 7px 19px 7px 7px;
+      height: 32px;
+    }
+    .btn-order {
+      float: right;
+      margin: 0 0 0 5%;
+      width: 35%;
+      height: 30px;
+      font-size: 14px;
+      line-height: 30px;
+      &>span {
+        display: none;
+      }
+    }
+    .total-price {
+      float: right;
+      font-size: 16px;
+      margin: 8px 0 0;
+    }
+  }
+}
