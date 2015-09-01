@@ -55,6 +55,11 @@ foreach ($files as $file) {
     $filesystem->remove($file);
 }
 
+// rename files
+if (file_exists(__DIR__ . '/../tests/DataGenerator/SpyAbstractProductDataGenerator.php')) {
+    $filesystem->rename(__DIR__ . '/../tests/DataGenerator/SpyAbstractProductDataGenerator.php', __DIR__ . '/../tests/DataGenerator/SpyProductAbstractDataGenerator.php');
+}
+
 $searchReplaceDefinition = [
     [
         'table' => [
@@ -154,10 +159,11 @@ foreach ($schemaFiles as $file) {
 }
 
 $classDirectories = [
-    __DIR__ . '/../src/Pyz/Zed/',
-    __DIR__ . '/../tests/*/Pyz/Zed/',
-    __DIR__ . '/../vendor/spryker/spryker/Bundles/*/src/*/Zed',
-    __DIR__ . '/../vendor/spryker/spryker/Bundles/*/tests/*/*/Zed',
+    __DIR__ . '/../src/Pyz/',
+    __DIR__ . '/../tests/*/Pyz/',
+    __DIR__ . '/../tests/DataGenerator/',
+    __DIR__ . '/../vendor/spryker/spryker/Bundles/*/src/*/',
+    __DIR__ . '/../vendor/spryker/spryker/Bundles/*/tests/*/*/',
 ];
 $classFiles = getFiles($classDirectories);
 $searchAndReplace = $classSearchAndReplace($searchReplaceDefinition);
