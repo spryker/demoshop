@@ -25,8 +25,6 @@ $config[SystemConfig::CURRENT_APPLICATION_ENV] = APPLICATION_ENV;
 $config[SystemConfig::PROJECT_TIMEZONE] = 'UTC';
 $config[SystemConfig::PROJECT_NAMESPACE] = 'Pyz';
 
-$config[KernelConfig::CLASS_RESOLVER_CACHE_ENABLED] = true;
-
 $config[ApplicationConfig::ZED_TWIG_OPTIONS] = [
     'cache' => \SprykerFeature_Shared_Library_Data::getLocalStoreSpecificPath('cache/Zed/twig')
 ];

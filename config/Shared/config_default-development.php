@@ -36,5 +36,3 @@ $config[AclConfig::ACL_USER_RULE_WHITELIST][] = [
     'action' => '*',
     'type' => 'allow',
 ];
-
-$config[KernelConfig::CLASS_RESOLVER_CACHE_ENABLED] = false;
