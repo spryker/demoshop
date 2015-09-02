@@ -2,7 +2,6 @@
 
 use Pyz\Shared\Mail\MailConfig;
 use SprykerFeature\Shared\Acl\AclConfig;
-use SprykerEngine\Shared\Kernel\KernelConfig;
 use SprykerFeature\Shared\Application\ApplicationConfig;
 use SprykerFeature\Shared\Auth\AuthConfig;
 use SprykerFeature\Shared\Customer\CustomerConfig;
@@ -26,13 +25,12 @@ $config[SystemConfig::PROJECT_TIMEZONE] = 'UTC';
 $config[SystemConfig::PROJECT_NAMESPACE] = 'Pyz';
 
 $config[ApplicationConfig::ZED_TWIG_OPTIONS] = [
-    'cache' => \SprykerFeature_Shared_Library_Data::getLocalStoreSpecificPath('cache/Zed/twig')
+    'cache' => \SprykerFeature_Shared_Library_Data::getLocalStoreSpecificPath('cache/Zed/twig'),
 ];
 
 $config[ApplicationConfig::YVES_TWIG_OPTIONS] = [
-    'cache' => \SprykerFeature_Shared_Library_Data::getLocalStoreSpecificPath('cache/Yves/twig')
+    'cache' => \SprykerFeature_Shared_Library_Data::getLocalStoreSpecificPath('cache/Yves/twig'),
 ];
-
 
 $config[SystemConfig::ZED_DB_ENGINE] = 'mysql';
 
