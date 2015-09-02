@@ -75,9 +75,6 @@ class ShipmentDependencyProvider extends SprykerShipmentDependencyProvider
             ShipmentConfig::DHL_PAKET => $container->getLocator()
                 ->shipment()
                 ->pluginAvailabilityDHLPaketPlugin(),
-            ShipmentConfig::KAM_SATURDAY => $container->getLocator()
-                ->shipment()
-                ->pluginAvailabilityKAMSaturdayPlugin()
         ];
 
         return $plugins;
