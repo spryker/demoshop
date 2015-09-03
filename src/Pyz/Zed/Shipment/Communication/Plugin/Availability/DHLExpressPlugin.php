@@ -6,20 +6,21 @@
 
 namespace Pyz\Zed\Shipment\Communication\Plugin\Availability;
 
-use Generated\Shared\Cart\CartInterface;
-
+use Generated\Shared\Shipment\ShipmentMethodAvailabilityInterface;
 use SprykerEngine\Zed\Kernel\Communication\AbstractPlugin;
 use SprykerFeature\Zed\Shipment\Communication\Plugin\ShipmentMethodAvailabilityPluginInterface;
 
 class DHLExpressPlugin extends AbstractPlugin implements ShipmentMethodAvailabilityPluginInterface
 {
+
     /**
-     * @param CartInterface $cartTransfer
+     * @param ShipmentMethodAvailabilityInterface $shipmentMethodAvailability
      *
      * @return bool
      */
-    public function isAvailable(CartInterface $cartTransfer)
+    public function isAvailable(ShipmentMethodAvailabilityInterface $shipmentMethodAvailability)
     {
         return true;
     }
+
 }

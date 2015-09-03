@@ -15,7 +15,6 @@ class ShipmentDependencyProvider extends SprykerShipmentDependencyProvider
     const AVAILABILITY_PLUGINS = 'availability plugins';
     const PRICE_CALCULATION_PLUGINS = 'price calculation plugins';
     const DELIVERY_TIME_PLUGINS = 'delivery time plugins';
-    const PLUGINS = 'plugins';
 
     /**
      * @param Container $container
@@ -24,13 +23,11 @@ class ShipmentDependencyProvider extends SprykerShipmentDependencyProvider
      */
     public function provideCommunicationLayerDependencies(Container $container)
     {
-
         $container[self::PLUGINS] = function (Container $container) {
-
             return [
                 self::AVAILABILITY_PLUGINS => $this->getAvailabilityPlugins($container),
                 self::PRICE_CALCULATION_PLUGINS => $this->getPriceCalculationPlugins($container),
-                self::DELIVERY_TIME_PLUGINS => $this->getDeliveryTimePlugins($container)
+                self::DELIVERY_TIME_PLUGINS => $this->getDeliveryTimePlugins($container),
             ];
         };
 
@@ -46,13 +43,12 @@ class ShipmentDependencyProvider extends SprykerShipmentDependencyProvider
      */
     public function provideBusinessLayerDependencies(Container $container)
     {
-
         $container[self::PLUGINS] = function (Container $container) {
 
             return [
                 self::AVAILABILITY_PLUGINS => $this->getAvailabilityPlugins($container),
                 self::PRICE_CALCULATION_PLUGINS => $this->getPriceCalculationPlugins($container),
-                self::DELIVERY_TIME_PLUGINS => $this->getDeliveryTimePlugins($container)
+                self::DELIVERY_TIME_PLUGINS => $this->getDeliveryTimePlugins($container),
             ];
         };
 
@@ -75,9 +71,6 @@ class ShipmentDependencyProvider extends SprykerShipmentDependencyProvider
             ShipmentConfig::DHL_PAKET => $container->getLocator()
                 ->shipment()
                 ->pluginAvailabilityDHLPaketPlugin(),
-            ShipmentConfig::KAM_SATURDAY => $container->getLocator()
-                ->shipment()
-                ->pluginAvailabilityKAMSaturdayPlugin()
         ];
 
         return $plugins;
@@ -96,7 +89,7 @@ class ShipmentDependencyProvider extends SprykerShipmentDependencyProvider
                 ->pluginPriceCalculationDHLExpressPlugin(),
             ShipmentConfig::DHL_PAKET => $container->getLocator()
                 ->shipment()
-                ->pluginPriceCalculationDHLPaketPlugin()
+                ->pluginPriceCalculationDHLPaketPlugin(),
         ];
 
         return $plugins;
@@ -115,9 +108,10 @@ class ShipmentDependencyProvider extends SprykerShipmentDependencyProvider
                 ->pluginDeliveryTimeDHLExpressPlugin(),
             ShipmentConfig::DHL_PAKET => $container->getLocator()
                 ->shipment()
-                ->pluginDeliveryTimeDHLPaketPlugin()
+                ->pluginDeliveryTimeDHLPaketPlugin(),
         ];
 
         return $plugins;
     }
+
 }

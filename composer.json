@@ -1,6 +1,6 @@
 {
   "require": {
-    "spryker/spryker": "dev-develop",
+    "spryker/spryker": "dev-feature/CD-225-Optimize-Class-Resolver-2",
 
     "psr/log": "~1.0",
     "propel/propel": "~2.0@dev",
@@ -62,7 +62,9 @@
   "autoload": {
     "psr-0": {
       "": "src",
-      "PhpUnit": "tests"
+      "Unit": "tests",
+      "YvesUnit": "tests",
+      "Functional": "tests"
     }
   },
   "minimum-stability": "stable",

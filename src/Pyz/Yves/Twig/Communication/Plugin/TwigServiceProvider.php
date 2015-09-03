@@ -6,6 +6,7 @@
 
 namespace Pyz\Yves\Twig\Communication\Plugin;
 
+use SprykerFeature\Shared\Application\ApplicationConfig;
 use SprykerFeature\Shared\Library\Config;
 use SprykerFeature\Shared\System\SystemConfig;
 use SprykerFeature\Shared\Yves\YvesConfig;
@@ -143,9 +144,7 @@ class TwigServiceProvider extends SilexTwigServiceProvider
      */
     protected function registerTwigCache(Application $app)
     {
-        $app['twig.options'] = [
-            'cache' => \SprykerFeature_Shared_Library_Data::getLocalStoreSpecificPath('cache/twig'),
-        ];
+        $app['twig.options'] = Config::get(ApplicationConfig::YVES_TWIG_OPTIONS);
     }
 
     /**
