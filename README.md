@@ -11,7 +11,7 @@ __Requirements:__
 * [Vagrant](https://www.vagrantup.com/downloads.html)
 * [Vagrant-Hostmanager Plugin](https://github.com/smdahlen/vagrant-hostmanager)
 
-It is recommended to use [VirtualBox 4.3.26](http://download.virtualbox.org/virtualbox/4.3.26/VirtualBox-4.3.26-98988-OSX.dmg) and [Vagrant 1.7.2](https://dl.bintray.com/mitchellh/vagrant/vagrant_1.7.2.dmg)
+It is recommended to use [VirtualBox 4.3.30](http://download.virtualbox.org/virtualbox/4.3.30/) and [Vagrant 1.7.2](https://www.vagrantup.com/download-archive/v1.7.2.html)
 
 If all requirements are satisfied you can bring up a new development VM by just calling:
 
@@ -19,7 +19,6 @@ If all requirements are satisfied you can bring up a new development VM by just 
 vagrant up
 ```
 __Troubleshooting:__
-* Should you experience system freezes on ubuntu when booting the vm, please try [VirtualBox 4.3.30 (64bit)] (http://download.virtualbox.org/virtualbox/4.3.30/virtualbox-4.3_4.3.30-101610~Ubuntu~raring_amd64.deb)
 * Should you run into an error when executing "mount -o 'vers=3,udp' 10.10.0.1:'/Users/.../vendor/spryker/saltstack' /srv/salt", try switching Sections "SaltStack masterless setup" and "add hosts to /etc/hosts" in your Vagrantfile.
 
 After about 20 minutes you can access the VM via:
