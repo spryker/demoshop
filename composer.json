@@ -1,6 +1,6 @@
 {
   "require": {
-    "spryker/spryker": "v0.11.0",
+    "spryker/spryker": "v0.12.0",
 
     "psr/log": "~1.0",
     "propel/propel": "~2.0@dev",
@@ -62,7 +62,9 @@
   "autoload": {
     "psr-0": {
       "": "src",
-      "PhpUnit": "tests"
+      "Unit": "tests",
+      "YvesUnit": "tests",
+      "Functional": "tests"
     }
   },
   "minimum-stability": "stable",

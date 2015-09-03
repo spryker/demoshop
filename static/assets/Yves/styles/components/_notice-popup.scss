@@ -1,0 +1,181 @@
+.notice-popup {
+  position: absolute;
+  display: none;
+  top: 30px;
+  left: 0;
+  z-index: 10;
+  right: -100%;
+  border-radius: 2px;
+  background: $cGrey1;
+  border: 1px solid $cGrey2;
+  padding: 13px 10px 10px;
+  box-sizing: border-box;
+  &.open {
+    display: block;
+  }
+  &:after,
+  &:before {
+    bottom: 100%;
+    left: 20px;
+    border: solid transparent;
+    content: " ";
+    height: 0;
+    width: 0;
+    position: absolute;
+    pointer-events: none;
+  }
+  &:after {
+    border-color: transparent;
+    border-bottom-color: $cGrey1;
+    border-width: 7px;
+    margin-left: -7px;
+  }
+  &:before {
+    border-color: transparent;
+    border-bottom-color: $cGrey2;
+    border-width: 9px;
+    margin-left: -9px;
+  }
+  .textarea-holder {
+    border: 1px solid $cGrey2;
+    background: $cWhite;
+    border-radius: 2px;
+    margin: 0 0 10px;
+    position: relative;
+    padding: 0 5px 0 42px;
+    &:before {
+      content: "";
+      top: 50%;
+      margin: -10px 0 0;
+      left: 10px;
+      position: absolute;
+      width: 22px;
+      height: 20px;
+      background: url(/images/icons/icon-notice.png) no-repeat;
+    }
+  }
+  textarea {
+    width: 100%;
+    height: 38px;
+    margin: 0;
+    padding: 0;
+    background: none;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    border: none;
+    resize: none;
+    color: $cGrey5;
+    font: 12px / 38px $fRobotoRegular;
+  }
+  .btn-cancel {
+    line-height: 40px;
+    color: $cBlue2;
+    text-decoration: none;
+  }
+  .btn-send {
+    @include btn;
+    width: 40%;
+    float: right;
+    text-transform: uppercase;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .notice-popup {
+    border: none;
+    position: fixed;
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    background: $cWhite;
+    z-index: 2;
+    padding: 0;
+    border-radius: 0;
+    &:before,
+    &:after {
+      display: none;
+      width: 0;
+      height: 0;
+      border: none;
+      background: none;
+    }
+    .cfx {
+      height: 21px;
+      padding: 13px 15px;
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      margin: 0;
+      background: $cWhite;
+      border-bottom: 1px solid $cGrey2;
+      .btn-cancel {
+        float: left;
+        overflow: hidden;
+        text-indent: -9999px;
+        width: 20px;
+        height: 17px;
+        background: url(/images/bg-images/bg-back.gif) no-repeat;
+      }
+      .btn-send {
+        padding: 0;
+        margin: 0;
+        display: inline;
+        background: none;
+        border: none;
+        color: $cBlue2;
+        font-size: 11px;
+        font-weight: normal;
+        height: auto;
+        width: auto;
+        float: right;
+      }
+      .title {
+        position: absolute;
+        top: 50%;
+        margin: -7px 0 0;
+        right: 40px;
+        left: 40px;
+        font-size: 12px;
+        color: $cGrey5;
+        text-align: center;
+      }
+    }
+    .textarea-holder {
+      margin: 0;
+      padding: 0;
+      background: none;
+      position: absolute;
+      right: 0;
+      top: 48px;
+      left: 0;
+      bottom: 0;
+      background: $cGrey1;
+      border: none;
+      border-radius: 0;
+      &:before {
+        display: none;
+        width: 0;
+        height: 0;
+      }
+    }
+    textarea {
+      position: absolute;
+      right: 0;
+      top: 0;
+      bottom: 0;
+      left: 0;
+      padding: 15px;
+      box-sizing: border-box;
+      font-size: 12px;
+      line-height: 1.2;
+      color: $cGrey4;
+      height: 100%;
+      width: 100%;
+      white-space: normal;
+      overflow: auto;
+    }
+  }
+}

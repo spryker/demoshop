@@ -6,7 +6,7 @@
 
 namespace Pyz\Zed\Shipment\Communication\Plugin\DeliveryTime;
 
-use Generated\Shared\Cart\CartInterface;
+use Generated\Shared\Shipment\ShipmentMethodAvailabilityInterface;
 use SprykerEngine\Zed\Kernel\Communication\AbstractPlugin;
 use SprykerFeature\Zed\Shipment\Communication\Plugin\ShipmentMethodDeliveryTimePluginInterface;
 
@@ -16,14 +16,15 @@ class DHLPaketPlugin extends AbstractPlugin implements ShipmentMethodDeliveryTim
     const DAY_IN_SECONDS = 86400;
 
     /**
-     * @param CartInterface $cartTransfer
+     * @param ShipmentMethodAvailabilityInterface $shipmentMethodAvailability
      *
      * @return int
      */
-    public function getTime(CartInterface $cartTransfer)
+    public function getTime(ShipmentMethodAvailabilityInterface $shipmentMethodAvailability)
     {
         $time = self::DAY_IN_SECONDS * ((date('H') < 11) ? 2 : 3);
 
         return $time;
     }
+
 }

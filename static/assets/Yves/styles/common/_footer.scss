@@ -1,0 +1,265 @@
+#footer {
+  border-bottom: 27px solid $cGreen2;
+  background: $cWhite;
+  padding: 45px 20px;
+  .footer-top {
+    display: table;
+    width: 100%;
+    table-layout: fixed;
+    text-align: center;
+    color: $cGrey4;
+    padding-bottom: 30px;
+    margin-bottom: 30px;
+    border-bottom: 1px solid $cGrey1;
+    .col {
+      display: table-cell;
+      vertical-align: middle;
+      .title {
+        display: block;
+        margin: 0 0 30px;
+      }
+      p {
+        font-size: 24px;
+        line-height: 28px;
+        margin: 0 0 40px;
+      }
+      .subscribe-form {
+        .row {
+          .input-wrap {
+            padding-right: 61px;
+            margin-right: -53px;
+            width: 100%;
+            float: left;
+            box-sizing: border-box;
+            input[type=text] {
+              @include inputText;
+            }
+          }
+          input[type=submit] {
+            @include btn;
+            width: 53px;
+            float: left;
+          }
+        }
+      }
+      .payment-methods {
+        li {
+          width: 57px;
+          height: 37px;
+          background: $cGrey1;
+          display: inline-block;
+          vertical-align: middle;
+          border-radius: 2px;
+          margin: 0 3px 6px;
+          span {
+            display: block;
+            text-indent: -9999px;
+            overflow: hidden;
+            margin: 0 auto;
+          }
+          span.maestro {
+            background: url(/images/icons/icon-maestro.gif) no-repeat;
+            width: 40px;
+            height: 24px;
+            margin-top: 7px;
+          }
+          span.mastercard {
+            background: url(/images/icons/icon-mastercard.gif) no-repeat;
+            width: 39px;
+            height: 24px;
+            margin-top: 7px;
+          }
+          span.visa {
+            background: url(/images/icons/icon-visa.gif) no-repeat;
+            width: 49px;
+            height: 15px;
+            margin-top: 11px;
+          }
+          span.ec {
+            background: url(/images/icons/icon-ec.gif) no-repeat;
+            width: 20px;
+            height: 22px;
+            margin-top: 8px;
+          }
+          span.paypal {
+            background: url(/images/icons/icon-paypal.gif) no-repeat;
+            width: 44px;
+            height: 12px;
+            margin-top: 13px;
+          }
+        }
+      }
+    }
+    .delivery {
+      li {
+        display: inline-block;
+        vertical-align: middle;
+        margin: 0 6px 6px;
+        span {
+          display: block;
+          margin: 0 auto;
+          text-indent: -9999px;
+          overflow: hidden;
+        }
+        span.gls {
+          width: 91px;
+          height: 25px;
+          background: url(/images/icons/icon-gls.gif) no-repeat;
+        }
+        span.wirecard {
+          width: 38px;
+          height: 36px;
+          background: url(/images/icons/icon-wericard.gif) no-repeat;
+        }
+        span.ssl {
+          width: 36px;
+          height: 36px;
+          background: url(/images/icons/icon-ssl.gif) no-repeat;
+        }
+      }
+    }
+  }
+  .footer-links {
+    display: table;
+    width: 100%;
+    table-layout: fixed;
+    color: $cGrey5;
+    .col {
+      display: table-cell;
+      padding: 0 10px 0 0;
+      h3 {
+        font-size: 16px;
+        margin: 0 0 10px;
+        line-height: 19px;
+      }
+      ul {
+        margin: 0 0 20px;
+        li {
+          padding: 0 0 5px;
+          a {
+            color: $cGrey5;
+            text-decoration: none;
+            &:hover {
+              text-decoration: underline;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+/* responsive styles */
+
+@media screen and (max-width: 1279px) {
+  #footer {
+    .footer-top {
+      box-sizing: border-box;
+      padding: 0 0 30px;
+    }
+    .footer-links {
+      box-sizing: border-box;
+    }
+  }
+}
+
+@media screen and (max-width: 959px) {
+  #footer {
+    .footer-top {
+      .col {
+        vertical-align: top;
+        .social-networks {
+          li {
+            margin: 0 3px;
+          }
+        }
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 767px) {
+  #footer {
+    padding: 10px 0;
+    .footer-top {
+      display: block;
+      border: 0;
+      padding: 0 0 20px;
+      margin: 0;
+      .col {
+        display: block;
+        border-bottom: 1px solid $cGrey1;
+        padding-bottom: 10px;
+        margin-bottom: 20px;
+        &:last-child {
+          border: 0;
+          padding-bottom: 0;
+          margin: 0;
+        }
+        .title {
+          margin: 0 0 10px;
+          font-size: 8px;
+          line-height: 10px;
+        }
+        p {
+          margin: 0 6px 10px;
+          font-size: 12px;
+          line-height: 14px;
+        }
+        .payment-methods {
+          li {
+            margin: 0;
+          }
+        }
+      }
+    }
+    .footer-links {
+      .col {
+        display: block;
+        padding: 0;
+        h3 {
+          font-size: 12px;
+          line-height: 14px;
+          padding: 12px 30px 12px 15px;
+          margin: 0;
+          color: $cGrey4;
+          cursor: pointer;
+          border-top: 1px solid $cGrey4;
+          position: relative;
+          &:after {
+            clear: both;
+            content: "";
+            width: 4px;
+            height: 8px;
+            background: url(/images/bg-images/bg-arrow.png) no-repeat;
+            background-size: 100% 100%;
+            position: absolute;
+            top: 50%;
+            margin-top: -4px;
+            right: 20px;
+          }
+          &.opened:after {
+            width: 8px;
+            height: 4px;
+            background: url(/images/bg-images/bg-arrow2.png) no-repeat;
+            background-size: 100% 100%;
+            margin-top: -2px;
+            right: 17px;
+          }
+        }
+        ul {
+          display: none;
+          font-size: 10px;
+          line-height: 12px;
+          padding-left: 15px;
+          li {
+            margin-bottom: 5px;
+            a {
+              color: $cGrey4;
+            }
+          }
+        }
+      }
+    }
+  }
+}
