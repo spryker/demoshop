@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "dd57a8e217112fc7e5ff7c90cb57c2c4",
+    "hash": "beb7947e5ba54b42d0f4c6be1dc01e51",
     "packages": [
         {
             "name": "digital-canvas/zend-framework",
@@ -708,11 +708,11 @@
         },
         {
             "name": "spryker/spryker",
-            "version": "dev-bugfix/CD-391-routing-uses-undefined-server-variable",
+            "version": "dev-develop",
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/spryker.git",
-                "reference": "c88cc15a72026f3e1b433398a101c880bdc8774f"
+                "reference": "36391cf61f94967f355ff1db5b2e5e80f46be0c5"
             },
             "require": {
                 "digital-canvas/zend-framework": ">=1.12.2",
@@ -837,7 +837,7 @@
                     "SprykerFeature\\Shared\\Library": "Bundles/Library/src/"
                 }
             },
-            "time": "2015-09-03 10:30:06"
+            "time": "2015-09-03 11:52:45"
         },
         {
             "name": "symfony-cmf/routing",
