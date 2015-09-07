@@ -1,0 +1,52 @@
+.subtitle {
+	padding: 20px 35px;
+
+	h2 {
+		font:30px/46px $fRobotoLight;
+		margin: 0;
+		color: $cGrey4;
+
+		span {
+			color: $cGreen3;
+		}
+
+	}
+
+	&>a {
+		font-size: 16px;
+		float: right;
+		color: $cBlue2;
+		margin: -25px 0 0;
+
+		&:after {
+			content: "";
+			width: 9px;
+			height: 6px;
+			background: url(/images/icons/icon-arrow-closed-custom-select.png) no-repeat;
+			margin: 0 0 2px 15px;
+			display: inline-block;
+			vertical-align: middle;
+		}
+
+	}
+}
+
+@media screen and (max-width: 767px) {
+
+	.subtitle {
+		border:solid $cGrey2;
+		border-width: 1px 0;
+		padding: 25px 15px;
+
+		h2 {
+			font-size: 15px;
+			line-height: 20px;
+		}
+
+		&>a {
+			display: none;
+		}
+
+	}
+
+}

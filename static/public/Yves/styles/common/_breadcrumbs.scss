@@ -1,0 +1,41 @@
+#main{
+  &>.misc-container{
+    padding: 0 20px;
+  }
+}
+.breadcrumbs {
+  float: left;
+  font-size: 10px;
+  color: $cGrey5;
+  padding: 4px 0 6px;
+  li {
+    float: left;
+    padding: 0 0 0 13px;
+    position: relative;
+    &:first-child {
+      padding: 0;
+      &:before {
+        content: "";
+      }
+    }
+    &:before {
+      content: "/";
+      position: absolute;
+      left: 3px;
+      top: 0;
+      color: $cGrey4;
+    }
+  }
+  a {
+    color: $cGrey4;
+    &:hover {
+      text-decoration: none;
+    }
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .breadcrumbs {
+    display: none;
+  }
+}

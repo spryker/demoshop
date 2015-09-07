@@ -1,0 +1,113 @@
+.header {
+
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 10;
+  padding: $step*.25 $step*2;
+  background-color: $light-color;
+  color: $dark-color;
+
+  @include fixed-nav-shadow();
+
+  @include bounce-transition(.3s, padding);
+
+  .overlay-visible & {
+    position: static;
+  }
+
+  .scrolled & {
+    padding: 0 $step*.5;
+  }
+
+  .wrapper {
+    position: relative;
+  }
+
+  // the dynamic elements (login button, search) are aligned right
+  text-align: right;
+
+  @include media-query('medium') {
+    height: $step*2.5;
+    padding: $step*.5;
+
+    padding-right: $step*3;
+  }
+
+  button {
+    padding: 2px $step*.25 0;
+  }
+
+  & > button, & > div:not(.shopping-cart) {
+    margin-right: $step*.5;
+
+    &:last-of-type {
+      margin-right: 0;
+    }
+  }
+
+  .shop-logo {
+    display: none;
+
+    @include media-query('small') {
+      display: block;
+      position: absolute;
+      left: $step;
+      top: 20px;
+      height: $step*.75;
+      width: 200px;
+      padding: 0;
+      color: transparent !important;
+
+      background: url('/images/logo.png') no-repeat;
+      background-size: contain;
+    }
+
+    @include media-query('medium') {
+      height: $step;
+    }
+  }
+
+  .main-nav {
+    display: none;
+  }
+
+  .header__search, .header__user {
+    display: inline-block;
+    height: $step*1.5 ;
+    // padding: $step*.25;
+    text-align: right;
+  }
+
+  .header__search {
+    padding: floor($step*.25);
+    border: 1px solid $dark-color;
+    border-radius: $step;
+  }
+
+  .header__user {
+  }
+
+  .user__login {
+    height: 100%;
+    font-size: 0;
+
+    &::before {
+      font-family: 'icomoon';
+      font-size: $base-font-size;
+      content: '\e601';
+      display: block;
+      width: $step;
+    }
+
+    @include media-query('small') {
+      font-size: $base-font-size;
+
+      &::before {
+        content: '';
+      }
+    }
+
+  }
+}

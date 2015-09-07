@@ -1,0 +1,148 @@
+// taken from http://www.elijahmanor.com/css-animated-hamburger-icon/
+.nav-toggle {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: $step*2;
+  height: $step;
+  padding: $step $step / 2;
+  @include bounce-transition(.2s, transform);
+
+  @include media-query('small') {
+    left: 50%;
+    transform: translateX(-50%);
+  }
+
+  // &:hover {
+  //   transform: translateX(-50%) scale(1.1);
+  // }
+
+  span, span:before, span:after {
+    cursor: pointer;
+    border-radius: 1px;
+    height: 3px;
+    width: $step;
+    background: $dark-color;
+    position: absolute;
+    display: block;
+    content: '';
+  }
+  span:before {
+    top: -8px;
+  }
+  span:after {
+    bottom: -8px;
+  }
+
+  // now the animation nav-toggle...
+  span, span:before, span:after {
+    @include bounce-transition(.4s, transform);
+  }
+  html:not(.js-main-nav-hidden) & span {
+    background-color: transparent;
+  }
+  html:not(.js-main-nav-hidden) & span:before, html:not(.js-main-nav-hidden) & span:after {
+    top: 0;
+    // background: $brand-color;
+  }
+  html:not(.js-main-nav-hidden) & span:before {
+    transform: rotate(45deg);
+  }
+  html:not(.js-main-nav-hidden) & span:after {
+    transform: rotate(-45deg);
+  }
+}
+
+.main-nav {
+  overflow: hidden;
+  text-align: center;
+
+  &.js-main-nav-animated {
+    @include bounce-transition(.3s, height);
+  }
+
+  .js-main-nav-hidden & {
+    padding: 0;
+    height: 0 !important;
+  }
+}
+
+.main-nav__categories, .main-nav__specials {
+  display: inline-block;
+  vertical-align: top;
+  padding: $step*5 0 0;
+  text-align: left;
+}
+
+.main-nav__categories {
+
+  @include media-query('small') {
+    margin-right: $step*3;
+  }
+
+  @include media-query('large') {
+    margin-right: $step*4;
+  }
+  @include media-query('huge') {
+    margin-right: $step*6;
+  }
+}
+
+.main-nav__heading {
+  font-size: $base-font-size;
+  line-height: 1;
+  color: $muted-color;
+}
+
+.main-nav__category-list, .main-nav__special-list {
+  list-style: none;
+  padding: 0;
+}
+
+// this ensures that the two lists remain stacked until the 'small' breakpoint
+.main-nav__heading, .main-nav__category-list, .main-nav__special-list {
+  margin: $step*.5 $step;
+
+  @include media-query('small') {
+    margin: $step*.5 0;
+  }
+}
+
+.main-nav__category {
+
+  @include media-query('medium') {
+    display: inline-block;
+    margin-right: $step;
+
+    &:last-of-type {
+      margin-right: 0;
+    }
+  }
+}
+
+.main-nav__category-link {
+  display: block;
+  width: 210px;
+  height: 130px;
+  margin-bottom: $step*.5;
+  color: transparent;
+}
+
+.main-nav__specials {
+
+  padding-top: $step*2;;
+
+  @include media-query('small') {
+    padding-top: $step*5;
+  }
+
+  .main-nav__category {
+    display: block;
+    margin: 0;
+  }
+
+  .main-nav__category-link {
+      height: 80px;
+      margin-bottom: $step*.5;
+  }
+}

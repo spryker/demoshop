@@ -1,0 +1,78 @@
+@import "vars";
+@import "/common/main-menu-general";
+
+.block-wrapper {
+  overflow: hidden;
+  width: 100%;
+  padding-bottom: 200px;
+  margin-bottom: -200px;
+}
+
+.categories-list {
+  overflow: hidden;
+  width: 110%;
+  padding-bottom: 200px;
+  margin-bottom: -200px;
+  .category-item {
+    width: 414px;
+    margin-right: 13px;
+    border: solid transparent;
+    border-width: 1px 1px 0;
+    .options {
+      border: solid transparent;
+      border-width: 0 1px 1px;
+      width: 414px;
+      left: -1px;
+    }
+    &:hover {
+      border-color: $cGrey4;
+      .options {
+        border-color: $cGrey4;
+      }
+    }
+    &.add-info-block {
+      &:hover {
+        border-color: transparent;
+      }
+    }
+  }
+}
+
+.filter-drop-parent {
+  &:after {
+    background: url(/images/bg-images/bg-arrow2-ie.png) no-repeat;
+  }
+}
+
+#nav {
+  .wrapper {
+    &>ul {
+      &>li {
+        .sub-menu {
+          &:after,
+          &:before {
+            bottom: -1px;
+            left: 50%;
+            border-bottom: 8px solid $cGrey4;
+            border-left: 8px solid transparent;
+            border-right: 8px solid transparent;
+            border-top: 0;
+            width: 0;
+            height: 0;
+            background: none;
+          }
+          &:after {
+            border-bottom: 6px solid $cWhite;
+            border-left: 6px solid transparent;
+            border-right: 6px solid transparent;
+            left: 50%;
+            margin: 0 0 0 -3px;
+          }
+        }
+      }
+    }
+  }
+  .dropdown {
+    border: 1px solid $cGrey4;
+  }
+}

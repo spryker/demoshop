@@ -1,0 +1,8 @@
+// the cart is displayed differently in different places, but here are some general styles
+
+.cart__item-quantity {
+  &::after {
+    // multiplication sign, &nbsp
+    content: '\00d7\00A0';
+  }
+}

@@ -1,0 +1,21 @@
+@import "../common/common";
+@import "../common/header";
+@import "../components/wishlist-notification";
+@import "../common/main-menu";
+@import "../common/breadcrumbs";
+@import "../common/testimonials-block";
+@import "../components/custom-select";
+@import "../components/main-page-title";
+@import "../components/ordered-product";
+@import "../components/external-product";
+@import "../components/additional-options";
+@import "../components/notice-popup";
+@import "../components/our-services-block";
+@import "../common/footer";
+
+.services {
+  margin: -10px 0 0;
+  .our-services {
+    border: none;
+  }
+}

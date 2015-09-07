@@ -1,0 +1,249 @@
+.header__cart {
+
+  position: absolute;
+  right: 0;
+  top: 0;
+
+  z-index: 20;
+
+  // 100% of header height
+  height: 100%;
+  width: $step*2;
+
+  background-color: $darker-color;
+
+  @include bounce-transition(all, .4s);
+
+  @include media-query('medium') {
+    width: $step*2.5;
+  }
+
+  // I have no explanation for why this is necessary, and no time to figure it out right now
+  // something about setting the header to static blows the height: 100%
+  .overlay-visible &:not(.cart--expanded) {
+    display: none;
+  }
+
+  .cart__toggle, .cart__close {
+    display: block;
+    height: 100%;
+    color: transparent !important;
+
+    &::before {
+      font-family: 'icomoon';
+      position: relative;
+      top: $step*.4;
+      left: $step*.5;
+      color: $light-color;
+      font-size: $step;
+    }
+
+    @include media-query('medium') {
+      width: $step*2.5;
+
+      &::before {
+        top: $step*.6;
+        left: $step*.75;
+      }
+    }
+  }
+
+  .cart__toggle {
+    &::before {
+      content: '\f07a';
+    }
+  }
+
+  .cart__close {
+    display: none;
+    &::before {
+      content: '\e602';
+    }
+  }
+
+  .cart__contents {
+    @include bounce-transition(opacity, .2s);
+    transition-delay: .2s;
+    transform: translateX(100px);
+    opacity: 0;
+  }
+
+  &.cart--expanded {
+    @include clearfix();
+    width: 100%;
+    overflow: hidden;
+    @include media-query('small') {
+      width: 500px;
+      margin: 0;
+    }
+    height: auto;
+
+    padding: $step*3 $step*.5 $step*2;
+
+    @include media-query('small') {
+      padding: $step*3 $step $step*2;
+    }
+
+    background-color: $mid-color;
+
+    .cart__toggle, .cart__close {
+      position: absolute;
+      top: 0;
+      height: $step*2;
+      width: $step*2;
+    }
+
+    .cart__toggle {
+      left: 0;
+      @include media-query('small') {
+        left: $step*.5;
+      }
+    }
+
+    .cart__close {
+      display: block;
+      right: 0;
+      @include media-query('small') {
+        right: $step*.5;
+      }
+    }
+
+    .cart__contents {
+      transition-delay: 0s;
+      transform: translateX(0);
+      opacity: 1;
+    }
+
+    .cart__labels, .cart__items, .cart__total {
+      width: 100%;
+    }
+
+    .cart__total {
+      margin-bottom: $step;
+    }
+
+    .cart__labels {
+      color: $dark-color;
+      font-size: $step*.5;
+      font-weight: 400;
+      text-align: left;
+      text-transform: uppercase;
+    }
+
+    .cart__label--name, .cart__label--price {
+      display: inline-block;
+      width: 49%;
+    }
+
+    .cart__label--name {
+
+    }
+
+    .cart__label--price {
+      text-align: right;
+    }
+
+    .cart__items, .cart__shipping {
+      padding: $step*.25 0;
+      color: $light-color;
+      font-weight: 500;
+      text-transform: uppercase;
+      text-align: left;
+    }
+
+    .cart__item-quantity, .cart__item-image {
+      display: none;
+    }
+
+    .cart__item-name, .cart__item-quantity--spinner, .cart__item-price, .cart__shipping-label, .cart__shipping-price {
+      display: inline-block;
+      margin-bottom: $step*.5;
+    }
+
+    .cart__item-name {
+      width: 50%;
+    }
+    .cart__item-quantity--spinner {
+      width: 30%;
+    }
+    .cart__item-price {
+      width: 20%;
+    }
+
+    @include media-query('small') {
+      .cart__item-name {
+        width: 60%;
+      }
+      .cart__item-quantity--spinner, .cart__item-price {
+        width: 20%;
+      }
+    }
+
+    .cart__shipping-label {
+      width: 70%;
+    }
+
+    .cart__shipping-price {
+      width: 30%;
+    }
+
+    .cart__item-quantity {
+      text-align: center;
+    }
+
+    .cart__item-price, .cart__shipping-label, .cart__shipping-price {
+      text-align: right;
+    }
+
+    .cart__total {
+      border-top: 1px solid $light-color;
+
+      width: 100%;
+
+      .cart__total-label, .cart__total-price {
+        font-size: $step;
+        text-align: right;
+        display: inline-block;
+        padding: $step 0;
+      }
+
+      .cart__total-label {
+        color: $dark-color;
+        text-align: right;
+        text-transform: uppercase;
+        width: 60%;
+      }
+
+      .cart__total-price {
+        width: 40%;
+        color: $light-color;
+        font-weight: 500;
+      }
+    }
+
+    .cart__to-checkout {
+      display: block;
+
+      @include media-query('small') {
+        display: inline;
+        float: right;
+      }
+    }
+
+  }
+
+  &.js-cart-has-items::after {
+    content: attr(data-item-count);
+    position: absolute;
+    display: block;
+    top: 3px;
+    right: 3px;
+    height: 20px;
+    padding: 0px 7px 22px;
+    background-color: #e2694a;
+    border-radius: 13px;
+    color: white;
+  }
+
+
+}
