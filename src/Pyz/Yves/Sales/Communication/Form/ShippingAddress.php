@@ -2,7 +2,7 @@
 
 namespace Pyz\Yves\Sales\Communication\Form;
 
-use Generated\Shared\Transfer\SalesAddressTransfer;
+use Generated\Shared\Transfer\AddressTransfer;
 use Generated\Shared\Transfer\OrderTransfer;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\Form\FormEvent;
@@ -38,14 +38,14 @@ class ShippingAddress extends AbstractAddress
      */
     public function setAddressFromCustomer(FormEvent $event)
     {
-        /* @var SalesAddressTransfer $salesAddressTransfer */
-        $salesAddressTransfer = $event->getData();
+        /* @var AddressTransfer $addressTransfer */
+        $addressTransfer = $event->getData();
 
         /* @var OrderTransfer $transferOrder */
         $transferOrder = $event->getForm()->getParent()->getData();
         $customerAddressArray = $transferOrder->getCustomer()->getShippingAddress()->toArray(false);
 
-        $salesAddressTransfer->fromArray($customerAddressArray, true);
+        $addressTransfer->fromArray($customerAddressArray, true);
     }
 
 }

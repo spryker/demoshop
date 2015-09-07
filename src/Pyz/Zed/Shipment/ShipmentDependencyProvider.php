@@ -12,10 +12,6 @@ use SprykerEngine\Zed\Kernel\Container;
 class ShipmentDependencyProvider extends SprykerShipmentDependencyProvider
 {
 
-    const AVAILABILITY_PLUGINS = 'availability plugins';
-    const PRICE_CALCULATION_PLUGINS = 'price calculation plugins';
-    const DELIVERY_TIME_PLUGINS = 'delivery time plugins';
-
     /**
      * @param Container $container
      *
@@ -23,15 +19,16 @@ class ShipmentDependencyProvider extends SprykerShipmentDependencyProvider
      */
     public function provideCommunicationLayerDependencies(Container $container)
     {
+        parent::provideCommunicationLayerDependencies($container);
+
         $container[self::PLUGINS] = function (Container $container) {
             return [
                 self::AVAILABILITY_PLUGINS => $this->getAvailabilityPlugins($container),
                 self::PRICE_CALCULATION_PLUGINS => $this->getPriceCalculationPlugins($container),
                 self::DELIVERY_TIME_PLUGINS => $this->getDeliveryTimePlugins($container),
+                self::TAX_CALCULATION_PLUGINS => $this->getTaxCalculationPlugins($container),
             ];
         };
-
-        parent::provideCommunicationLayerDependencies($container);
 
         return $container;
     }
@@ -43,16 +40,16 @@ class ShipmentDependencyProvider extends SprykerShipmentDependencyProvider
      */
     public function provideBusinessLayerDependencies(Container $container)
     {
-        $container[self::PLUGINS] = function (Container $container) {
+        parent::provideBusinessLayerDependencies($container);
 
+        $container[self::PLUGINS] = function (Container $container) {
             return [
                 self::AVAILABILITY_PLUGINS => $this->getAvailabilityPlugins($container),
                 self::PRICE_CALCULATION_PLUGINS => $this->getPriceCalculationPlugins($container),
                 self::DELIVERY_TIME_PLUGINS => $this->getDeliveryTimePlugins($container),
+                self::TAX_CALCULATION_PLUGINS => $this->getTaxCalculationPlugins($container),
             ];
         };
-
-        parent::provideBusinessLayerDependencies($container);
 
         return $container;
     }
