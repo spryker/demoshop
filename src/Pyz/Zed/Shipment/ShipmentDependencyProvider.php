@@ -59,7 +59,7 @@ class ShipmentDependencyProvider extends SprykerShipmentDependencyProvider
      *
      * @return array
      */
-    public function getAvailabilityPlugins(Container $container)
+    private function getAvailabilityPlugins(Container $container)
     {
         $plugins = [
             ShipmentConfig::DHL_EXPRESS => $container->getLocator()
@@ -78,7 +78,7 @@ class ShipmentDependencyProvider extends SprykerShipmentDependencyProvider
      *
      * @return array
      */
-    public function getPriceCalculationPlugins(Container $container)
+    private function getPriceCalculationPlugins(Container $container)
     {
         $plugins = [
             ShipmentConfig::DHL_EXPRESS => $container->getLocator()
@@ -97,7 +97,7 @@ class ShipmentDependencyProvider extends SprykerShipmentDependencyProvider
      *
      * @return array
      */
-    public function getDeliveryTimePlugins(Container $container)
+    private function getDeliveryTimePlugins(Container $container)
     {
         $plugins = [
             ShipmentConfig::DHL_EXPRESS => $container->getLocator()
@@ -109,6 +109,16 @@ class ShipmentDependencyProvider extends SprykerShipmentDependencyProvider
         ];
 
         return $plugins;
+    }
+
+    /**
+     * @param $container
+     *
+     * @return array
+     */
+    private function getTaxCalculationPlugins($container)
+    {
+        return [];
     }
 
 }
