@@ -707,7 +707,11 @@
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/spryker.git",
+<<<<<<< HEAD
                 "reference": "d431a85ea8c9a875c2dcd0f0646a566d2bcb63bd"
+=======
+                "reference": "b81c1ed75d0e879b7d197d7fd84d67d5000eec2c"
+>>>>>>> update composer, fixed Declaration incompatible bug
             },
             "require": {
                 "digital-canvas/zend-framework": ">=1.12.2",
@@ -832,7 +836,11 @@
                     "SprykerFeature\\Shared\\Library": "Bundles/Library/src/"
                 }
             },
+<<<<<<< HEAD
             "time": "2015-09-08 12:32:34"
+=======
+            "time": "2015-09-08 13:18:15"
+>>>>>>> update composer, fixed Declaration incompatible bug
         },
         {
             "name": "symfony-cmf/routing",
