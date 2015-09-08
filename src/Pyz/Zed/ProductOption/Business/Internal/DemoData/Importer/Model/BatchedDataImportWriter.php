@@ -50,8 +50,11 @@ class BatchedDataImportWriter extends DataImportWriter
      */
     protected function createOrUpdateOptionTypeTranslations(SpyProductOptionType $productOptionTypeEntity, array $localizedNames)
     {
-        foreach ($localizedNames as $localeName => $localizedOptionTypeName) {
+        if (null === $productOptionTypeEntity->getIdProductOptionType()) {
+            $productOptionTypeEntity->save();
+        }
 
+        foreach ($localizedNames as $localeName => $localizedOptionTypeName) {
             if (false === $this->localeFacade->hasLocale($localeName)) {
                 continue;
             }
@@ -61,7 +64,7 @@ class BatchedDataImportWriter extends DataImportWriter
             $this->batchProcessor->addValues(AbstractBatchProcessor::CACHE_KEY_OPTION_TYPE_TRANSLATION, [
                 $localizedOptionTypeName,
                 $localeTransfer->getIdLocale(),
-                $productOptionTypeEntity->getIdProductOptionType()
+                $productOptionTypeEntity->getIdProductOptionType(),
             ]);
         }
     }
@@ -72,8 +75,11 @@ class BatchedDataImportWriter extends DataImportWriter
      */
     protected function createOrUpdateOptionValueTranslations(SpyProductOptionValue $productOptionValueEntity, array $localizedNames)
     {
-        foreach ($localizedNames as $localeName => $localizedOptionValueName) {
+        if (null === $productOptionValueEntity->getIdProductOptionValue()) {
+            $productOptionValueEntity->save();
+        }
 
+        foreach ($localizedNames as $localeName => $localizedOptionValueName) {
             if (false === $this->localeFacade->hasLocale($localeName)) {
                 continue;
             }
@@ -83,7 +89,7 @@ class BatchedDataImportWriter extends DataImportWriter
             $this->batchProcessor->addValues(AbstractBatchProcessor::CACHE_KEY_OPTION_VALUE_TRANSLATION, [
                 $localizedOptionValueName,
                 $localeTransfer->getIdLocale(),
-                $productOptionValueEntity->getIdProductOptionValue()
+                $productOptionValueEntity->getIdProductOptionValue(),
             ]);
         }
     }
@@ -103,7 +109,7 @@ class BatchedDataImportWriter extends DataImportWriter
              '0',
             'abstract_product',
             $idAbstractProduct,
-            (new \DateTime)->format('Y-m-d H:i:s')
+            (new \DateTime())->format('Y-m-d H:i:s'),
         ]);
 
         $touchedIds[] = $idAbstractProduct;
@@ -117,4 +123,5 @@ class BatchedDataImportWriter extends DataImportWriter
         $idAbstractProduct = $this->productFacade->getAbstractProductIdByConcreteSku($concreteSku);
         $this->touchAbstractProductById($idAbstractProduct);
     }
+
 }
