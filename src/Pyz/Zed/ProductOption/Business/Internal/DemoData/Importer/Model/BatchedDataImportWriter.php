@@ -55,7 +55,6 @@ class BatchedDataImportWriter extends DataImportWriter
         }
 
         foreach ($localizedNames as $localeName => $localizedOptionTypeName) {
-
             if (false === $this->localeFacade->hasLocale($localeName)) {
                 continue;
             }
@@ -65,7 +64,7 @@ class BatchedDataImportWriter extends DataImportWriter
             $this->batchProcessor->addValues(AbstractBatchProcessor::CACHE_KEY_OPTION_TYPE_TRANSLATION, [
                 $localizedOptionTypeName,
                 $localeTransfer->getIdLocale(),
-                $productOptionTypeEntity->getIdProductOptionType()
+                $productOptionTypeEntity->getIdProductOptionType(),
             ]);
         }
     }
@@ -81,18 +80,16 @@ class BatchedDataImportWriter extends DataImportWriter
         }
 
         foreach ($localizedNames as $localeName => $localizedOptionValueName) {
-
             if (false === $this->localeFacade->hasLocale($localeName)) {
                 continue;
             }
 
             $localeTransfer = $this->localeFacade->getLocale($localeName);
 
-
             $this->batchProcessor->addValues(AbstractBatchProcessor::CACHE_KEY_OPTION_VALUE_TRANSLATION, [
                 $localizedOptionValueName,
                 $localeTransfer->getIdLocale(),
-                $productOptionValueEntity->getIdProductOptionValue()
+                $productOptionValueEntity->getIdProductOptionValue(),
             ]);
         }
     }
@@ -112,7 +109,7 @@ class BatchedDataImportWriter extends DataImportWriter
              '0',
             'abstract_product',
             $idAbstractProduct,
-            (new \DateTime)->format('Y-m-d H:i:s')
+            (new \DateTime())->format('Y-m-d H:i:s'),
         ]);
 
         $touchedIds[] = $idAbstractProduct;
@@ -126,4 +123,5 @@ class BatchedDataImportWriter extends DataImportWriter
         $idAbstractProduct = $this->productFacade->getAbstractProductIdByConcreteSku($concreteSku);
         $this->touchAbstractProductById($idAbstractProduct);
     }
+
 }
