@@ -2,7 +2,7 @@
 
 namespace Pyz\Yves\Sales\Communication\Form;
 
-use Generated\Shared\Transfer\SalesAddressTransfer;
+use Generated\Shared\Transfer\AddressTransfer;
 use SprykerEngine\Shared\Kernel\LocatorLocatorInterface;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
@@ -30,7 +30,7 @@ abstract class AbstractAddress extends AbstractType
      */
     public function setDefaultOptions(OptionsResolverInterface $resolver)
     {
-        $resolver->setDefaults(['data_class' => get_class(new SalesAddressTransfer())]);
+        $resolver->setDefaults(['data_class' => get_class(new AddressTransfer())]);
     }
 
     /**

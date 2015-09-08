@@ -62,7 +62,9 @@
   "autoload": {
     "psr-0": {
       "": "src",
-      "PhpUnit": "tests"
+      "Unit": "tests",
+      "YvesUnit": "tests",
+      "Functional": "tests"
     }
   },
   "minimum-stability": "stable",

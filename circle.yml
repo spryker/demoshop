@@ -20,8 +20,14 @@ dependencies:
     - mysql -u ubuntu circle_test --execute="SET GLOBAL group_concat_max_len=1048576"
     - wget https://phar.phpunit.de/phpcpd.phar
 test:
+  pre:
+    - >
+      if [ -n "${RUN_NIGHTLY_BUILD}" ]; then
+        cd vendor/spryker/spryker && git checkout origin/${SPRYKER_BRANCH}
+      fi
   override:
 #    - phpcpd . --exclude="vendor" --exclude="config" --exclude="src/Generated" -n
 # Bundles have tons of duplicates so build will always fail
 #   - phpcpd vendor/spryker/spryker/Bundles -n
+    - vendor/bin/build-class-map
     - vendor/bin/console application:integration-check

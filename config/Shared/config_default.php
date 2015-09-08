@@ -24,6 +24,14 @@ $config[SystemConfig::CURRENT_APPLICATION_ENV] = APPLICATION_ENV;
 $config[SystemConfig::PROJECT_TIMEZONE] = 'UTC';
 $config[SystemConfig::PROJECT_NAMESPACE] = 'Pyz';
 
+$config[ApplicationConfig::ZED_TWIG_OPTIONS] = [
+    'cache' => \SprykerFeature_Shared_Library_Data::getLocalStoreSpecificPath('cache/Zed/twig'),
+];
+
+$config[ApplicationConfig::YVES_TWIG_OPTIONS] = [
+    'cache' => \SprykerFeature_Shared_Library_Data::getLocalStoreSpecificPath('cache/Yves/twig'),
+];
+
 $config[SystemConfig::ZED_DB_ENGINE] = 'mysql';
 
 $config[DbDumpConfig::DB_DUMP_USERNAME] = '';
@@ -79,7 +87,7 @@ $config[YvesConfig::YVES_SSL_EXCLUDED] = ['/monitoring/heartbeat'];
 $config[YvesConfig::YVES_SESSION_SAVE_HANDLER] = null;
 $config[YvesConfig::YVES_SESSION_NAME] = 'yves_session';
 $config[YvesConfig::YVES_SESSION_COOKIE_DOMAIN] = $config[SystemConfig::HOST_YVES];
-$config[YvesConfig::YVES_ERROR_PAGE] = APPLICATION_ROOT_DIR.'/static/public/Yves/errorpage/error.html';
+$config[YvesConfig::YVES_ERROR_PAGE] = APPLICATION_ROOT_DIR . '/static/public/Yves/errorpage/error.html';
 
 $config[CustomerConfig::CUSTOMER_SECURED_PATTERN] = '(^/login_check$|^/customer)';
 $config[CustomerConfig::CUSTOMER_ANONYMOUS_PATTERN] = '^/.*';
@@ -120,10 +128,10 @@ $config[SystemConfig::PROPEL] = [
     ],
     'paths' => [
         'phpDir' => APPLICATION_ROOT_DIR,
-        'sqlDir' => APPLICATION_ROOT_DIR.'/src/Generated/Propel/'.$currentStore.'/Sql',
-        'migrationDir' => APPLICATION_ROOT_DIR.'/src/Generated/Propel/'.$currentStore.'/Migration',
-        'schemaDir' => APPLICATION_ROOT_DIR.'/src/Generated/Propel/'.$currentStore.'/Schema',
-        'phpConfDir' => APPLICATION_ROOT_DIR.'/src/Generated/Propel/'.$currentStore.'/Config',
+        'sqlDir' => APPLICATION_ROOT_DIR . '/src/Generated/Propel/' . $currentStore . '/Sql',
+        'migrationDir' => APPLICATION_ROOT_DIR . '/src/Generated/Propel/' . $currentStore . '/Migration',
+        'schemaDir' => APPLICATION_ROOT_DIR . '/src/Generated/Propel/' . $currentStore . '/Schema',
+        'phpConfDir' => APPLICATION_ROOT_DIR . '/src/Generated/Propel/' . $currentStore . '/Config',
     ],
 ];
 
@@ -225,16 +233,16 @@ $config[AclConfig::ACL_DEFAULT_RULES] = [
 
 $config[AclConfig::ACL_USER_RULE_WHITELIST] = [
     [
-        'bundle'     => 'application',
+        'bundle' => 'application',
         'controller' => '*',
-        'action'     => '*',
-        'type'       => 'allow',
+        'action' => '*',
+        'type' => 'allow',
     ],
     [
-        'bundle'     => 'auth',
+        'bundle' => 'auth',
         'controller' => '*',
-        'action'     => '*',
-        'type'       => 'allow',
+        'action' => '*',
+        'type' => 'allow',
     ],
 ];
 

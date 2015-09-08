@@ -79,8 +79,8 @@ module.exports = {
             $paymentButton.attr('disabled', $('input[name="checkout[payment_method]"]:checked').length != 1);
         });
 
-        $('input[name="checkout[shipment_method_id]"]').on('change', function () {
-            $shipmentButton.attr('disabled', $('input[name="checkout[shipment_method_id]"]:checked').length != 1);
+        $('input[name="checkout[id_shipment_method]"]').on('change', function () {
+            $shipmentButton.attr('disabled', $('input[name="checkout[id_shipment_method]"]:checked').length != 1);
         });
 
         $addressCheckbox.on('change', function (e) {
