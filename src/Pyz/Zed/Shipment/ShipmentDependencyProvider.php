@@ -112,11 +112,11 @@ class ShipmentDependencyProvider extends SprykerShipmentDependencyProvider
     }
 
     /**
-     * @param $container
+     * @param Container $container
      *
      * @return array
      */
-    protected function getTaxCalculationPlugins($container)
+    protected function getTaxCalculationPlugins(Container $container)
     {
         return [];
     }
