@@ -21,6 +21,7 @@ use SprykerFeature\Shared\Application\Communication\Plugin\ServiceProvider\UrlGe
 use SprykerFeature\Shared\Library\Config;
 use SprykerFeature\Shared\Library\Context;
 use SprykerFeature\Shared\Library\DateFormatter;
+use SprykerFeature\Shared\Library\Twig\DateFormatterTwigExtension;
 use SprykerFeature\Shared\System\SystemConfig;
 use SprykerFeature\Zed\Application\Business\Model\Router\MvcRouter;
 use SprykerFeature\Zed\Application\Business\Model\Twig\ZedExtension;
@@ -32,7 +33,6 @@ use SprykerFeature\Zed\Application\Communication\Plugin\ServiceProvider\RequestS
 use SprykerFeature\Zed\Application\Communication\Plugin\ServiceProvider\SslServiceProvider;
 use SprykerFeature\Zed\Application\Communication\Plugin\ServiceProvider\TwigServiceProvider;
 use SprykerFeature\Zed\Kernel\Communication\Plugin\GatewayServiceProviderPlugin;
-use SprykerFeature\Zed\Library\Twig\DateFormatterTwigExtension;
 use SprykerFeature\Zed\Price\Communication\Plugin\Twig\PriceTwigExtensions;
 use Symfony\Bridge\Twig\Extension\TranslationExtension;
 use Symfony\Component\HttpFoundation\Request;
