@@ -18,7 +18,7 @@ class CouponController extends AbstractController
     {
         $cartClient = $this->getLocator()->cart()->client();
         $cart = $cartClient->addCoupon($couponCode);
-echo '<pre>' . PHP_EOL . \Symfony\Component\VarDumper\VarDumper::dump() . PHP_EOL . 'Line: ' . __LINE__ . PHP_EOL . 'File: ' . __FILE__ . die();
+
         return $this->redirectResponseInternal(CartControllerProvider::ROUTE_CART);
     }
 

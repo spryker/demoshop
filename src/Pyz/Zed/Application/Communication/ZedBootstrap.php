@@ -38,7 +38,6 @@ use Symfony\Bridge\Twig\Extension\TranslationExtension;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Routing\RouterInterface;
 
-
 class ZedBootstrap extends Bootstrap
 {
 
@@ -120,7 +119,7 @@ class ZedBootstrap extends Bootstrap
             $this->getGatewayServiceProvider(),
             new UrlGeneratorServiceProvider(),
             new NewRelicServiceProvider(),
-            new HttpFragmentServiceProvider()
+            new HttpFragmentServiceProvider(),
         ];
 
         if (\SprykerFeature_Shared_Library_Environment::isDevelopment()) {
