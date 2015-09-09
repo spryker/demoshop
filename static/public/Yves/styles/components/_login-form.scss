@@ -1,0 +1,68 @@
+.login-form {
+  display: none;
+
+  .login__agb {
+    display: block;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height .5s ease-in-out;
+  }
+
+  .overlay--login & {
+    display: block;
+    position: absolute;
+    width: calc(100% - #{$step*2});
+
+    @include media-query('medium') {
+      width: 350px;
+      left: calc(50% - 175px);
+      bottom: $step;
+    }
+  }
+
+  margin-bottom: $step;
+
+  .login__email, .login__password, .login__submit {
+    width: 100%;
+  }
+
+  .login__forgot-password {
+    position: absolute;
+    // add 3px for the borders...
+    top: $step*4.5 + 3px;
+    left: 100%;
+    transform: translateX(calc(-100% - #{$step*.5}));
+
+    padding: 0;
+    border: none;
+    color: $paler-color;
+    text-transform: none;
+    border-radius: 0;
+    font-size: $step*.5;
+
+    // just for the fade-out
+    transition: opacity .5s ease-in-out;
+  }
+
+  .login__submit {
+    margin-bottom: $step*2;
+  }
+
+  .login__switch {
+    position: relative;
+    left: 50%;
+    transform: translateX(-50%);
+    width: auto;
+    @include bounce-transition;
+  }
+
+  &.login-form--register {
+    .login__agb {
+      max-height: $step*2;
+    }
+
+    .login__forgot-password {
+      opacity: 0;
+    }
+  }
+}

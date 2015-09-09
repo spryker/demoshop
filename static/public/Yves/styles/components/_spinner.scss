@@ -1,0 +1,77 @@
+.spinner {
+
+  margin: 0;
+
+  .spinner__number, .spinner__increment, .spinner__decrement {
+    padding: 0;
+    margin: 0;
+    background-color: transparent;
+    text-align: center;
+    outline: none;
+
+    color: $dark-color;
+  }
+
+  .spinner__number {
+    height: $step;
+    width: $step;
+
+    // get rid of the default spinners...
+    -webkit-appearance: none;
+    &::-webkit-inner-spin-button,
+    &::-webkit-outer-spin-button {
+      -webkit-appearance: none;
+      margin: 0;
+    }
+    -moz-appearance:textfield;
+  }
+
+  .spinner__decrement, .spinner__increment {
+    height: $base-font-size;
+    line-height: $base-font-size;
+    width: $base-font-size;
+    border: 1px solid;
+    border-radius: $step*.5;
+    border: 1px solid $dark-color;
+  }
+
+  &.caplet {
+
+    .spinner__number {
+      height: $step*2;
+      width: $step*2;
+      border-radius: 0;
+      border-top: 1px solid $dark-color;
+      border-bottom: 1px solid $dark-color;
+      background-color: $light-color;
+    }
+
+    .spinner__decrement, .spinner__increment {
+      position: relative;
+      height: $step*2;
+      width: $step*1.5;
+      outline: none;
+      background-color: $dark-color;
+      color: $light-color;
+      font-weight: $bold-font-weight;
+    }
+
+    .spinner__decrement {
+      right: -5px;
+      border-radius: $step 0 0 $step;
+    }
+
+    .spinner__increment {
+      left: -5px;
+      border-radius: 0 $step $step 0;
+    }
+  }
+
+  &.light .spinner__number, &.light .spinner__increment, &.light .spinner__decrement {
+    color: $light-color;
+    border-color: $light-color;
+  }
+
+
+}
+

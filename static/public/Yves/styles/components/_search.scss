@@ -1,0 +1,40 @@
+.search__box {
+  position: relative;
+  left: -5px;
+  width: 0;
+  padding: 0;
+  margin: 0;
+  outline: none;
+  @include bounce-transition;
+
+  .active & {
+    width: 100px;
+
+    @include media-query('medium') {
+      width: 200px;
+    }
+  }
+}
+
+.search__button {
+  width: $step - 2px;
+  padding: 0 10px 1px;
+  background-color: transparent;
+  color: transparent !important;
+  border: 0;
+
+  font-family: 'icomoon';
+  &::before {
+    content: '\f002';
+    position: relative;
+    top: -2px;
+    left: -2px;
+    color: $dark-color;
+
+  }
+
+  &:hover::before {
+    color: $light-color;
+  }
+
+}

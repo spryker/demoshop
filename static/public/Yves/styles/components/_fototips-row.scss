@@ -1,0 +1,245 @@
+.tip-row {
+	margin-bottom: -1px;
+
+	.opener {
+		border: solid $cGrey1;
+		border-width: 1px 0;
+		padding: 19px 35px;
+		font-size: 24px;
+		line-height: 29px;
+
+		a {
+			color: $cGrey5;
+			display: block;
+			position: relative;
+
+			span {
+				color: $cGrey4;
+			}
+
+			&:after {
+				width: 25px;
+				height: 14px;
+				position: absolute;
+				top: 50%;
+				margin-top: -7px;
+				right:0;
+				background: url(/images/bg-images/bg-arrow6.gif) no-repeat;
+				content: "";
+			}
+
+		}
+
+		&.active {
+			a {
+				&:after {
+					transform: rotate(180deg);
+				}
+			}
+		}
+
+	}
+
+	.tip-content-wrap {
+		display: none;
+	}
+
+	.tip-content {
+		padding: 35px 290px 35px 35px;
+		position: relative;
+
+		.images {
+			float: left;
+			width: 26%;
+			position: relative;
+			margin: 0 55px 0 0;
+			padding: 0 40px;
+
+			img {
+				display: block;
+				max-width: 100%;
+			}
+
+			.right {
+				width:40px;
+				height: 40px;
+				position: absolute;
+				top:0;
+				left:0;
+				text-indent: -9999px;
+				overflow: hidden;
+				background: url(/images/icons/icon-right.png) no-repeat;
+			}
+
+			.wrong {
+				@extend .right;
+				left:auto;
+				top:auto;
+				right:0;
+				bottom: 0;
+				background: url(/images/icons/icon-wrong.png) no-repeat;
+			}
+
+		}
+
+		.our-tip {
+			background: $cGreen2;
+			position: absolute;
+			top:0;
+			bottom: 0;
+			right:0;
+			width: 21%;
+			box-sizing: border-box;
+			padding: 0 15px;
+			font: italic 18px/21px $fGeorgia;
+			color:$cWhite;
+			text-align: center;
+
+			.wrap {
+				height: 100%;
+				display: table;
+				width:100%;
+
+				.inside {
+					display: table-cell;
+					vertical-align: middle;
+
+					&>strong {
+						display: block;
+						margin: 0 0 25px;
+
+						&:before {
+							width: 40px;
+							height: 40px;
+							content:"";
+							margin: 0 auto 40px;
+							display: block;
+							background: url(/images/icons/icon-info2.png) no-repeat;
+						}
+
+					}
+
+				}
+
+			}
+
+
+		}
+
+		.text {
+			overflow: hidden;
+			font-size: 14px;
+			line-height: 17px;
+			color:$cGrey5;
+
+			h2 {
+				color:$cGreen2;
+				font-size: 18px;
+				line-height: 21px;
+				margin: 0 0 10px;
+			}
+
+			p,
+			ul {
+				margin: 0 0 10px;
+			}
+
+		}
+
+	}
+
+}
+
+@media screen and (max-width: 767px) {
+
+	.tip-row {
+		display: none;
+
+		.opener {
+			display: none;
+		}
+
+		.tip-content {
+			padding: 0 15px 25px;
+			overflow: hidden;
+			display: block;
+
+			.images {
+				float: none;
+				width:auto;
+				max-width: 247px;
+				margin: 0 auto;
+
+				img {
+					margin: 0 auto;
+				}
+			}
+
+			.our-tip {
+				position: static;
+				width:auto;
+				padding: 20px 10px;
+				margin: 0 -15px;
+			}
+
+			.text {
+				border-top:1px solid $cGrey2;
+				margin: 25px 0 20px;
+				padding: 25px 0 0;
+			}
+		}
+
+		.tip-title {
+			font:20px/25px $fRobotoLight;
+			text-align: center;
+			max-width: 235px;
+			margin: 0 auto 25px;
+			color:$cGrey5;
+		}
+
+		&#tip1,
+		.tip-content-wrap {
+			display: block;
+		}
+
+	}
+
+	.tip-steps {
+		border: 0;
+		font-size: 10px;
+		margin: 0 0 15px;
+		background: $cGrey1;
+		text-align: center;
+
+		li {
+			float: left;
+			width:20%;
+			box-sizing: border-box;
+			position: static;
+			top:auto;
+			border:0;
+			padding: 0 15px;
+
+			a {
+				color:$cGrey3;
+				display: block;
+				padding: 10px 0 8px;
+				border-bottom:2px solid transparent;
+				white-space: nowrap;
+				overflow: hidden;
+				text-overflow: ellipsis;
+			}
+
+			&.current {
+				a {
+					color:$cBlue2;
+					border-bottom-color: $cBlue2;
+				}
+
+			}
+
+		}
+
+	}
+
+}

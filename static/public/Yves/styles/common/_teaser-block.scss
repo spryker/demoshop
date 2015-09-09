@@ -1,0 +1,37 @@
+.teaser-block {
+  background: $cGreen1;
+  font-size: 12px;
+  line-height: 1.2;
+  color: $cGrey5;
+  padding: 51px 0 47px;
+  margin: -45px 0 45px;
+  .holder {
+    margin: 0 -6px;
+  }
+  h3 {
+    color: $cGreen2;
+    font-size: 24px;
+    text-align: center;
+    margin: 0 0 25px;
+    &+p {
+      text-align: center;
+      margin: 0 100px 26px;
+    }
+  }
+  .column {
+    float: left;
+    width: calc(33.3% - 12px);
+    margin: 0 6px;
+  }
+  h4 {
+    font: 16px $fGeorgia;
+    color: $cGreen2;
+    margin: 0 0 10px;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .teaser-block {
+    display: none;
+  }
+}

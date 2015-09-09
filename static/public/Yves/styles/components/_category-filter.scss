@@ -1,0 +1,559 @@
+.filter {
+	color: $cGrey5;
+	font-size: 16px;
+	line-height: 19px;
+	border-bottom: 1px solid $cGrey2;
+	padding: 0 0 10px;
+	margin: 0 0 14px;
+	.user-menu {
+		display: none;
+	}
+	.label {
+		display: block;
+		margin: 0;
+		color: $cGrey4;
+		font-size: 12px;
+	}
+	.filter-drop-parent {
+		font-size: 12px;
+		&:hover {
+			> .filter-drop {
+				display: block;
+				border-color: $cGrey2;
+				& > a {
+					position: relative;
+				}
+			}
+			> span.selected {
+				z-index: 7;
+				a {
+					color: $cBlue2;
+				}
+			}
+		}
+	}
+	.advanced-filters {
+		font-size: 12px;
+		float: right;
+		color: $cGrey4;
+		&:before {
+			display: inline-block;
+			content: "x";
+			margin: 0 5px 0 0;
+			vertical-align: top;
+			font-family: Monospace;
+		}
+		&:hover {
+			text-decoration: none;
+		}
+	}
+	.filter-opener {
+		display: none;
+		font-size: 12px;
+		line-height: 14px;
+		padding: 12px 30px 12px 15px;
+		margin: 0;
+		color: $cBlue2;
+		text-decoration: none;
+		position: relative;
+		&:after {
+			clear: both;
+			content: "";
+			width: 4px;
+			height: 8px;
+			background: url(/images/bg-images/bg-arrow.png) no-repeat;
+			background-size: 100% 100%;
+			position: absolute;
+			top: 50%;
+			margin-top: -4px;
+			right: 20px;
+		}
+		&.opened:after {
+			width: 8px;
+			height: 4px;
+			background: url(/images/bg-images/bg-arrow2.png) no-repeat;
+			background-size: 100% 100%;
+			margin-top: -2px;
+			right: 17px;
+		}
+	}
+	.filter-col-wrap {
+		float: left;
+		margin: 0;
+		width: 16.6666666666666667%
+	}
+}
+
+.filter-drop-parent {
+	padding: 5px 25px 5px 5px;
+	margin: 5px 5px -5px -5px;
+	position: relative;
+	border: 1px solid transparent;
+	border-bottom: 0;
+	display: inline-block;
+	&:after {
+		content: "";
+		width: 9px;
+		height: 6px;
+		position: absolute;
+		right: 9px;
+		top: 50%;
+		margin-top: -3px;
+		background: url(/images/icons/icon-arrow-closed-custom-select.png) no-repeat;
+	}
+	& span.selected {
+		position: relative;
+		z-index: 4;
+		display: block;
+		white-space: nowrap;
+		a {
+			color: $cGrey5;
+			display: block;
+			white-space: nowrap;
+			overflow: hidden;
+			text-overflow: ellipsis;
+			&:hover {
+				&:after {
+					display: none;
+				}
+			}
+		}
+	}
+}
+
+.filter-drop {
+	position: absolute;
+	background: $cWhite;
+	top: -5px;
+	padding-top: 34px;
+	left: -1px;
+	display: none;
+	border: 1px solid transparent;
+	z-index: 6;
+	min-width: 100%;
+	background: url(/images/icons/icon-arrow-opened-custom-select.png) 94% 16px no-repeat $cWhite;
+	white-space: nowrap;
+
+	a {
+		border-top: 1px solid $cGrey2 !important;
+		&:hover {
+			background: $cGrey1;
+		}
+	}
+
+}
+
+.filter-colors {
+	a {
+		color: $cGrey5;
+		position: relative;
+		display: none;
+
+		&:before {
+			content: "";
+			display: inline-block;
+			vertical-align: top;
+			width: 20px;
+			height: 20px;
+			margin: 0 7px 0 0;
+			border-radius: 50%;
+		}
+
+		&:after {
+			content: "";
+			width: 24px;
+			height: 24px;
+			position: absolute;
+			left: -3px;
+			top: -3px;
+			border-radius: 50%;
+			border: 1px solid transparent;
+		}
+		&:hover,
+		&.active {
+			&:after {
+				border-color: $cBlue2;
+			}
+		}
+		&.c01 {
+			&:before {
+				background: $cWhite;
+				width: 18px;
+				height: 18px;
+				border: 1px solid $cGrey4;
+			}
+			&.selected {
+				&:after {
+					background: url(/images/bg-images/bg-selected-color-white.png) 50% 50% no-repeat;
+				}
+			}
+			&:after {
+				width: 22px;
+				height: 22px;
+				left: -2px;
+				top: -2px;
+			}
+		}
+		&.c02 {
+			&:before {
+				background: #fff6dc;
+			}
+		}
+		&.c03 {
+			&:before {
+				background: #facbd6;
+			}
+		}
+		&.c04 {
+			&:before {
+				background: #b8d2e0;
+			}
+		}
+		&.c05 {
+			&:before {
+				background: #8dc63f;
+			}
+		}
+		&.c06 {
+			&:before {
+				background: #d5afd2;
+			}
+		}
+		&.c07 {
+			&:before {
+				background: #ffc425;
+			}
+		}
+		&.c08 {
+			&:before {
+				background: #ee2b74;
+			}
+		}
+		&.c09 {
+			&:before {
+				background: #54301a;
+			}
+		}
+		&.c10 {
+			&:before {
+				background: #f7901e;
+			}
+		}
+		&.c11 {
+			&:before {
+				background: #3293c8;
+			}
+		}
+		&.c12 {
+			&:before {
+				background: #61116a;
+			}
+		}
+		&.c13 {
+			&:before {
+				background: #e31937;
+			}
+		}
+		&.c14 {
+			&:before {
+				background: #50c8e8;
+			}
+		}
+		&.c15 {
+			&:before {
+				background: #fff453;
+			}
+		}
+		&.c16 {
+			&:before {
+				background: #00447c;
+			}
+		}
+		&.c17 {
+			&:before {
+				background: #008a5e;
+			}
+		}
+		&.c18 {
+			&:before {
+				background: #818154;
+			}
+		}
+		&.c19 {
+			&:before {
+				background: #e0c18f;
+			}
+		}
+		&.c20 {
+			&:before {
+				background: #d07d17;
+			}
+		}
+		&.c21 {
+			&:before {
+				background: #b7311b;
+			}
+		}
+		&.c22 {
+			&:before {
+				background: #82001d;
+			}
+		}
+		&.c23 {
+			&:before {
+				background: #af0060;
+			}
+		}
+		&.c24 {
+			&:before {
+				background: #965095;
+			}
+		}
+		&.c25 {
+			&:before {
+				background: #00543d;
+			}
+		}
+		&.c26 {
+			&:before {
+				background: #999a9b;
+			}
+		}
+		&.c27 {
+			&:before {
+				background: #daeddd;
+			}
+		}
+		&.c28 {
+			&:before {
+				background: #c0ae00;
+			}
+		}
+		&.c29 {
+			&:before {
+				background: #f26c50;
+			}
+		}
+		&.c30 {
+			&:before {
+				background: #fddccb;
+			}
+		}
+		&.c31 {
+			&:before {
+				background: #889eaf;
+			}
+		}
+		&.c32 {
+			&:before {
+				background: #cec3c1;
+			}
+		}
+		&.c80 {
+			&:before {
+				background: white;
+			}
+		}
+		&.c81 {
+			&:before {
+				background: #00011e;
+			}
+		}
+		&.c82 {
+			&:before {
+				background: #999a9b;
+			}
+		}
+		&.c83 {
+			&:before {
+				background: #766545;
+			}
+		}
+		&.c84 {
+			&:before {
+				background: #54301a;
+			}
+		}
+		&.c85 {
+			&:before {
+				background: #e0c18f;
+			}
+		}
+		&.c86 {
+			&:before {
+				background: #82001d;
+			}
+		}
+		&.c87 {
+			&:before {
+				background: #56283d;
+			}
+		}
+		&.c88 {
+			&:before {
+				background: #00447c;
+			}
+		}
+		&.c89 {
+			&:before {
+				background: #00543d;
+			}
+		}
+		&.all-colors {
+			float: none !important;
+			border: solid $cGrey2 !important;
+			border-width: 1px 0 !important;
+			display: block;
+			font-size: 12px !important;
+			clear: both;
+			padding: 7px 2px 7px 5px;
+			margin: 0 !important;
+			&:before {
+				background: url(/images/icons/icon-all-colors.gif) 50% 50% no-repeat;
+			}
+			&:after {
+				display: none !important;
+			}
+		}
+		&.selected {
+			display: block;
+			&:after {
+				background: url(/images/bg-images/bg-selected-color.png) 50% 50% no-repeat;
+				border-color: $cBlue2;
+				display: none;
+			}
+		}
+	}
+	.colors-drop {
+		& > a {
+			float: left;
+			display: block;
+			font-size: 0;
+			margin: 7px 2px 7px 5px;
+		}
+		& > a.color-item {
+			border: 0 !important;
+			&:hover {
+				background: none;
+			}
+		}
+	}
+}
+
+.filter-format {
+	margin-top: 2px;
+	& > a {
+		margin-top: -3px;
+	}
+	a {
+		display: block;
+		border: 1px solid transparent;
+		padding: 2px;
+		margin-right: 3px;
+		&:hover,
+		&.selected {
+			border-color: transparent;
+		}
+		img {
+			display: inline-block;
+			vertical-align: top;
+			margin: 0 7px 0 0;
+			height: 18px;
+			width: auto;
+		}
+	}
+	.format-drop {
+		& > a {
+			color: $cGrey5;
+			margin: 0;
+			padding: 7px 2px 7px 5px;
+		}
+	}
+	.filter-drop {
+		top: -2px;
+	}
+}
+
+.filter-style {
+	a {
+		display: inline-block;
+		color: $cGrey5;
+		&:hover {
+			text-decoration: none;
+		}
+	}
+	.style-drop {
+		& > a {
+			margin: 0;
+			padding: 7px 5px;
+			display: block;
+		}
+	}
+}
+
+.sticky-filter {
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	z-index: 10;
+	background: $cWhite;
+	box-shadow: 0 0 20px 0 rgba($cBlack, 0.15);
+	border: 0;
+	padding: 10px 20px 8px;
+	box-sizing: border-box;
+	.user-menu {
+		margin: 0 0 -13px -100px !important;
+		display: block;
+	}
+	.advanced-filters {
+		display: none;
+	}
+}
+
+.card-type {
+	padding: 11px 0 0;
+	a {
+		display: inline-block;
+		vertical-align: top;
+		margin: 0 0 0 7px;
+		width: 21px;
+		height: 16px;
+		background: url(/images/icons/icon-card-type.gif) no-repeat;
+		overflow: hidden;
+		text-indent: -9999px;
+		&:first-child {
+			margin-left: 0;
+		}
+		&.with-photo.active {
+			background-position: 0 -20px;
+		}
+		&.without-photo {
+			background-position: -28px 0;
+			&.active {
+				background-position: -28px -20px;
+			}
+		}
+	}
+}
+
+@media screen and (max-width: 959px) {
+	.user-menu {
+		a {
+			.title {
+				display: block;
+			}
+		}
+	}
+}
+
+@media screen and (max-width: 767px) {
+	.filter {
+		.mobile-hidden {
+			display: none;
+		}
+		.filter-opener {
+			display: block;
+		}
+	}
+}

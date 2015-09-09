@@ -1,0 +1,121 @@
+.products-table {
+  margin: 0 0 20px;
+  .columns-wrapper {
+    float: left;
+    width: 75%;
+  }
+  .column {
+    box-sizing: border-box;
+    &.col1 {
+      width: 25%;
+      padding: 10px 12px 10px 20px;
+      float: left;
+      z-index: 2;
+    }
+    &.col2 {
+      width: 50%;
+      float: left;
+    }
+    &.col3 {
+      width: 36%;
+      float: right;
+      padding-right: 20px;
+    }
+  }
+  .header {
+    color: $cGrey3;
+    font-size: 12px;
+    border-bottom: 1px solid $cGrey1;
+    .column {
+      padding-top: 13px;
+      padding-bottom: 12px;
+      &.col3 {
+        span {
+          float: left;
+        }
+        strong {
+          float: right;
+        }
+      }
+    }
+  }
+  .item-block {
+    border-bottom: 1px solid $cGrey1;
+    .col1 {
+      .img {
+        display: block;
+        position: relative;
+        &:before {
+          width: 18px;
+          height: 18px;
+          content: "";
+          position: absolute;
+          left: 0;
+          bottom: 0;
+          background: url(/images/bg-images/bg-enlarge.gif) no-repeat;
+          cursor: pointer;
+        }
+        img {
+          display: block;
+          height: auto;
+          width: 70%;
+          margin: 0 auto;
+        }
+      }
+    }
+    &:hover {
+      .additional-wrap {
+        visibility: visible;
+        opacity: 1;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .products-table {
+    border-top: 1px solid $cGrey1;
+    padding: 10px 0 0;
+    .columns-wrapper {
+      float: none;
+      width: auto;
+    }
+    .item-block {
+      padding: 0 15px;
+      .column {
+        float: none;
+        width: 100%;
+        padding: 0;
+        &.col1 {
+          position: relative;
+          width: 35%;
+          float: left;
+          margin-right: 3.5%;
+          .img {
+            cursor: default;
+            img{
+              width: 100%;
+              margin: 0;
+            }
+            &:before {
+              width: 0;
+              height: 0;
+              background: none;
+            }
+          }
+          .edit-button {
+            text-indent: -9999px;
+            overflow: hidden;
+            width: 16px;
+            height: 16px;
+            background: url(/images/icons/icon-edit-button.png) no-repeat;
+            background-size: 100%;
+            position: absolute;
+            top: 0;
+            right: 0;
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,22 @@
+@import "../common/common";
+@import "../common/header";
+@import "../components/wishlist-notification";
+@import "../common/main-menu";
+@import "../common/breadcrumbs";
+@import "../common/testimonials-block";
+@import "../components/custom-select";
+
+.wishlist-content {
+  background: $cWhite;
+}
+
+@import "../components/product-details";
+@import "../components/main-page-title";
+@import "../components/products-table";
+@import "../components/products-table-options";
+@import "../components/products-table-prices";
+@import "../components/products-table-additional-options";
+@import "../components/products-table-extra-products";
+@import "../components/notice-popup";
+
+@import "../common/footer";
