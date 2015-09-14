@@ -7,6 +7,7 @@ use SprykerFeature\Zed\Checkout\CheckoutDependencyProvider as SprykerCheckoutDep
 use SprykerFeature\Zed\Checkout\Dependency\Plugin\CheckoutOrderHydrationInterface;
 use SprykerFeature\Zed\Checkout\Dependency\Plugin\CheckoutPostSaveHookInterface;
 use SprykerFeature\Zed\Checkout\Dependency\Plugin\CheckoutPreconditionInterface;
+use SprykerFeature\Zed\Checkout\Dependency\Plugin\CheckoutPreHydrationInterface;
 use SprykerFeature\Zed\Checkout\Dependency\Plugin\CheckoutSaveOrderInterface;
 
 class CheckoutDependencyProvider extends SprykerCheckoutDependencyProvider
@@ -28,6 +29,19 @@ class CheckoutDependencyProvider extends SprykerCheckoutDependencyProvider
     /**
      * @param Container $container
      *
+     * @return CheckoutPreHydrationInterface[]
+     */
+    protected function getCheckoutPreHydrator(Container $container)
+    {
+        $preHydrator = parent::getCheckoutPreHydrator($container);
+        $preHydrator[] = $container->getLocator()->calculationCheckoutConnector()->pluginRecalculate();
+
+        return $preHydrator;
+    }
+
+    /**
+     * @param Container $container
+     *
      * @return CheckoutOrderHydrationInterface[]
      */
     protected function getCheckoutOrderHydrators(Container $container)
@@ -40,6 +54,7 @@ class CheckoutDependencyProvider extends SprykerCheckoutDependencyProvider
             $container->getLocator()->productOptionCheckoutConnector()->pluginGroupKeyProductOptionHydrationPlugin(),
             $container->getLocator()->itemGrouperCheckoutConnector()->pluginOrderItemGroupingHydrationPlugin(),
             $container->getLocator()->omsCheckoutConnector()->pluginOrderOmsHydrationPlugin(),
+            $container->getLocator()->discountCheckoutConnector()->pluginDiscountOrderHydrationPlugin(),
         ];
     }
 
@@ -53,6 +68,7 @@ class CheckoutDependencyProvider extends SprykerCheckoutDependencyProvider
         return [
             $container->getLocator()->salesCheckoutConnector()->pluginSalesOrderSaverPlugin(),
             $container->getLocator()->customerCheckoutConnector()->pluginOrderCustomerSavePlugin(),
+            $container->getLocator()->discountCheckoutConnector()->pluginDiscountOrderSavePlugin(),
         ];
     }
 
