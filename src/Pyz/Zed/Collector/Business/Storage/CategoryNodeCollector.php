@@ -13,6 +13,7 @@ use SprykerFeature\Zed\Category\Persistence\CategoryQueryContainer;
 use SprykerFeature\Zed\Category\Persistence\Propel\Map\SpyCategoryAttributeTableMap;
 use SprykerFeature\Zed\Category\Persistence\Propel\Map\SpyCategoryNodeTableMap;
 use SprykerFeature\Zed\Collector\Business\Exporter\AbstractPropelCollectorPlugin;
+use SprykerFeature\Zed\Collector\Business\Exporter\Writer\KeyValue\TouchUpdaterSet;
 
 class CategoryNodeCollector extends AbstractPropelCollectorPlugin
 {
@@ -99,10 +100,11 @@ class CategoryNodeCollector extends AbstractPropelCollectorPlugin
     /**
      * @param array $resultSet
      * @param LocaleTransfer $locale
+     * @param TouchUpdaterSet $touchUpdaterSet
      *
      * @return array
      */
-    protected function processData($resultSet, LocaleTransfer $locale)
+    protected function processData($resultSet, LocaleTransfer $locale, TouchUpdaterSet $touchUpdaterSet)
     {
         $processedResultSet = [];
 
