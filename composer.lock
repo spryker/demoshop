@@ -4,11 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-<<<<<<< HEAD
-    "hash": "beb7947e5ba54b42d0f4c6be1dc01e51",
-=======
     "hash": "f98d9f49323880f502251ca89e01ef25",
->>>>>>> CD-420 update composer
     "packages": [
         {
             "name": "digital-canvas/zend-framework",
@@ -707,19 +703,11 @@
         },
         {
             "name": "spryker/spryker",
-<<<<<<< HEAD
-            "version": "dev-develop",
-            "source": {
-                "type": "git",
-                "url": "git@github.com:spryker/spryker.git",
-                "reference": "635f17b85d743922a3dc7c98b26dd6a4bfa5adf3"
-=======
             "version": "dev-bugfix/CD-420-remove-project-namespace-from-core",
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/spryker.git",
-                "reference": "347792999cf0d2c4124df427fb1bdb2f818ba23b"
->>>>>>> CD-420 update composer
+                "reference": "e327fa8b9054f1d683821ec3590825ae5939b9f8"
             },
             "require": {
                 "digital-canvas/zend-framework": ">=1.12.2"
@@ -808,11 +796,7 @@
                     "SprykerFeature\\Shared\\Library": "Bundles/Library/src/"
                 }
             },
-<<<<<<< HEAD
-            "time": "2015-09-15 10:46:40"
-=======
-            "time": "2015-09-15 10:47:10"
->>>>>>> CD-420 update composer
+            "time": "2015-09-15 12:52:07"
         },
         {
             "name": "symfony-cmf/routing",
