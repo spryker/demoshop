@@ -36,7 +36,7 @@ class OmsDependencyProvider extends SprykerOmsDependencyProvider
             'Oms/SendPaymentRequest' => $container->getLocator()->oms()->pluginOmsCommandSendPaymentRequest(),
             'Oms/CreateInvoice' => $container->getLocator()->oms()->pluginOmsCommandCreateInvoice(),
             'Oms/SendInvoice' => $container->getLocator()->oms()->pluginOmsCommandSendInvoice(),
-            'PayolutionOmsConnector' => $container->getLocator()->payolutionOmsConnector()->pluginCommandPreAuthorizePlugin(),
+            'PayolutionOmsConnector/PreAuthorize' => $container->getLocator()->payolutionOmsConnector()->pluginCommandPreAuthorizePlugin(),
         ];
     }
 

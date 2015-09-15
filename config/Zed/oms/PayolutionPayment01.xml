@@ -7,19 +7,19 @@
     <process name="PayolutionPayment01" main="true">
         <states>
             <state name="new" reserved="true"/>
-            <state name="waiting for payment"/>
+            <state name="waiting for payolution payment"/>
         </states>
 
         <transitions>
             <transition happy="true">
                 <source>new</source>
-                <target>waiting for payment</target>
+                <target>waiting for payolution payment</target>
                 <event>checkout</event>
             </transition>
         </transitions>
 
         <events>
-            <event name="checkout" onEnter="true" command="PayolutionOmsConnector\PreAuthorize" />
+            <event name="checkout" onEnter="true" command="PayolutionOmsConnector/PreAuthorize" />
         </events>
     </process>
 
