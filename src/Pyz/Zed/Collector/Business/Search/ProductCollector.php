@@ -229,7 +229,7 @@ class ProductCollector extends AbstractPropelCollectorPlugin
             Criteria::LEFT_JOIN
         );
         $baseQuery->addJoin(
-            SpyProductCategoryTableMap::COL_FK_CATEGORY_NODE,
+            SpyProductCategoryTableMap::COL_FK_CATEGORY,
             SpyCategoryNodeTableMap::COL_ID_CATEGORY_NODE,
             Criteria::INNER_JOIN
         );
