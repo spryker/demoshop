@@ -721,11 +721,15 @@
                 "type": "git",
                 "url": "git@github.com:spryker/spryker.git",
 <<<<<<< HEAD
+<<<<<<< HEAD
                 "reference": "347792999cf0d2c4124df427fb1bdb2f818ba23b"
 >>>>>>> CD-420 update composer
 >>>>>>> CD-420 update composer
 =======
                 "reference": "e327fa8b9054f1d683821ec3590825ae5939b9f8"
+>>>>>>> CD-420 update composer
+=======
+                "reference": "d7a49dd831e401e17d64aafd06cc5debb24d81c2"
 >>>>>>> CD-420 update composer
             },
             "require": {
@@ -817,6 +821,7 @@
             },
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
             "time": "2015-09-15 14:15:51"
 =======
 <<<<<<< HEAD
@@ -827,6 +832,9 @@
 >>>>>>> CD-420 update composer
 =======
             "time": "2015-09-15 12:52:07"
+>>>>>>> CD-420 update composer
+=======
+            "time": "2015-09-15 13:11:39"
 >>>>>>> CD-420 update composer
         },
         {
