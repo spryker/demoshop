@@ -21,7 +21,16 @@ class OmsDependencyProvider extends SprykerOmsDependencyProvider
      */
     protected function getConditionPlugins(Container $container)
     {
-        return [];
+        return [
+            'PayolutionOmsConnector/PreAuthorizationIsApproved' => $container
+                ->getLocator()
+                ->payolutionOmsConnector()
+                ->pluginConditionPreAuthorizationIsApprovedPlugin(),
+            'PayolutionOmsConnector/CaptureIsApproved' => $container
+                ->getLocator()
+                ->payolutionOmsConnector()
+                ->pluginConditionCaptureIsApprovedPlugin(),
+        ];
     }
 
     /**
@@ -36,7 +45,14 @@ class OmsDependencyProvider extends SprykerOmsDependencyProvider
             'Oms/SendPaymentRequest' => $container->getLocator()->oms()->pluginOmsCommandSendPaymentRequest(),
             'Oms/CreateInvoice' => $container->getLocator()->oms()->pluginOmsCommandCreateInvoice(),
             'Oms/SendInvoice' => $container->getLocator()->oms()->pluginOmsCommandSendInvoice(),
-            'PayolutionOmsConnector/PreAuthorize' => $container->getLocator()->payolutionOmsConnector()->pluginCommandPreAuthorizePlugin(),
+            'PayolutionOmsConnector/PreAuthorize' => $container
+                ->getLocator()
+                ->payolutionOmsConnector()
+                ->pluginCommandPreAuthorizePlugin(),
+            'PayolutionOmsConnector/Capture' => $container
+                ->getLocator()
+                ->payolutionOmsConnector()
+                ->pluginCommandCapturePlugin(),
         ];
     }
 

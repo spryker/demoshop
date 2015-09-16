@@ -8,18 +8,25 @@
         <states>
             <state name="new" reserved="true"/>
             <state name="waiting for payolution payment"/>
+            <state name="paid"/>
         </states>
 
         <transitions>
-            <transition happy="true">
+            <transition happy="true" condition="PayolutionOmsConnector/PreAuthorizationIsApproved">
                 <source>new</source>
                 <target>waiting for payolution payment</target>
                 <event>checkout</event>
             </transition>
+            <transition happy="true" condition="PayolutionOmsConnector/CaptureIsApproved">
+                <source>waiting for payolution payment</source>
+                <target>paid</target>
+                <event>capture</event>
+            </transition>
         </transitions>
 
         <events>
-            <event name="checkout" onEnter="true" command="PayolutionOmsConnector/PreAuthorize" />
+            <event name="checkout" onEnter="true" command="PayolutionOmsConnector/PreAuthorize"/>
+            <event name="capture" manual="true" command="PayolutionOmsConnector/Capture"/>
         </events>
     </process>
 
