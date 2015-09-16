@@ -35,6 +35,8 @@ use SprykerFeature\Shared\Yves\YvesConfig;
 use Pyz\Yves\Twig\Communication\Plugin\TwigServiceProvider;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Routing\RouterInterface;
+use SprykerFeature\Client\Lumberjack\Service\EventJournalClient;
+use SprykerFeature\Shared\Library\NewRelic\Api;
 
 class YvesBootstrap extends SprykerYvesBootstrap
 {
@@ -92,7 +94,7 @@ class YvesBootstrap extends SprykerYvesBootstrap
             new SilexSecurityServiceProvider(),
             new YvesSecurityServiceProvider(),
             new ExceptionServiceProvider('\\SprykerEngine\\Yves\\Application\\Communication\\Controller\\ExceptionController'),
-            new YvesLoggingServiceProvider(),
+            new YvesLoggingServiceProvider(new EventJournalClient(), Api::getInstance()),
             new MonologServiceProvider(),
             new CookieServiceProvider(),
             $sessionServiceProvider,
