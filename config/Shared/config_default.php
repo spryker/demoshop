@@ -287,3 +287,5 @@ $config[LumberjackConfig::COLLECTOR_OPTIONS] = [
         'filtered_content' => '***FILTERED***',
     ],
 ];
+
+$config[YvesConfig::YVES_SHOW_EXCEPTION_STACK_TRACE] = true;
