@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "277c480a927197877e657ad797cf84d3",
+    "hash": "beb7947e5ba54b42d0f4c6be1dc01e51",
     "packages": [
         {
             "name": "digital-canvas/zend-framework",
@@ -703,23 +703,11 @@
         },
         {
             "name": "spryker/spryker",
-            "version": "dev-bugfix/CD-425-Wrong-timestamp-Search-collector",
+            "version": "dev-develop",
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/spryker.git",
-<<<<<<< HEAD
-<<<<<<< HEAD
-                "reference": "e596478f7d5315d0b3e9a00285fcd0d075770b09"
-=======
-<<<<<<< HEAD
-                "reference": "3e04877749d3f01d07072df5cb6e171556f06656"
-=======
-                "reference": "b57f551a8ac359ec0fa2d3107e21dbb46a7d6f91"
->>>>>>> CD-425 update composer
->>>>>>> CD-425 update composer
-=======
-                "reference": "4d6572f6d3ba90d82a803afff32fce5983b08170"
->>>>>>> CD-425 update composer
+                "reference": "163fe3505bc77bdfe2a16ba0f9f5140e04572da7"
             },
             "require": {
                 "digital-canvas/zend-framework": ">=1.12.2"
@@ -808,19 +796,7 @@
                     "SprykerFeature\\Shared\\Library": "Bundles/Library/src/"
                 }
             },
-<<<<<<< HEAD
-<<<<<<< HEAD
-            "time": "2015-09-18 11:57:18"
-=======
-<<<<<<< HEAD
-            "time": "2015-09-17 06:38:01"
-=======
-            "time": "2015-09-16 12:15:54"
->>>>>>> CD-425 update composer
->>>>>>> CD-425 update composer
-=======
-            "time": "2015-09-16 12:39:51"
->>>>>>> CD-425 update composer
+            "time": "2015-09-18 14:07:38"
         },
         {
             "name": "symfony-cmf/routing",
