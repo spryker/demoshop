@@ -9,6 +9,7 @@ use SprykerFeature\Shared\DbDump\DbDumpConfig;
 use SprykerFeature\Shared\System\SystemConfig;
 use SprykerFeature\Shared\User\UserConfig;
 use SprykerFeature\Shared\Yves\YvesConfig;
+use SprykerEngine\Shared\Lumberjack\LumberjackConfig;
 
 $config[SystemConfig::PROJECT_NAMESPACES] = [
     'Pyz',
@@ -260,3 +261,31 @@ $config[AclConfig::ACL_DEFAULT_CREDENTIALS] = [
 ];
 
 $config[ApplicationConfig::NAVIGATION_CACHE_ENABLED] = true;
+
+$config[LumberjackConfig::COLLECTORS]['YVES'] = [
+    '\SprykerEngine\Shared\Lumberjack\Model\Collector\ServerDataCollector',
+    '\SprykerEngine\Shared\Lumberjack\Model\Collector\RequestDataCollector',
+    '\SprykerEngine\Shared\Lumberjack\Model\Collector\EnvironmentDataCollector',
+    '\SprykerFeature\Client\Lumberjack\Service\YvesDataCollector',
+];
+$config[LumberjackConfig::WRITERS]['YVES'] = [
+    '\SprykerEngine\Shared\Lumberjack\Model\Writer\File',
+];
+
+$config[LumberjackConfig::COLLECTORS]['ZED'] = [
+    '\SprykerEngine\Shared\Lumberjack\Model\Collector\ServerDataCollector',
+    '\SprykerEngine\Shared\Lumberjack\Model\Collector\RequestDataCollector',
+    '\SprykerEngine\Shared\Lumberjack\Model\Collector\EnvironmentDataCollector',
+];
+$config[LumberjackConfig::WRITERS]['ZED'] = [
+    '\SprykerEngine\Shared\Lumberjack\Model\Writer\File',
+];
+
+$config[LumberjackConfig::COLLECTOR_OPTIONS] = [
+    '\SprykerEngine\Shared\Lumberjack\Model\Collector\RequestDataCollector' => [
+        'param_blacklist' => ['cc', 'password'],
+        'filtered_content' => '***FILTERED***',
+    ],
+];
+
+$config[YvesConfig::YVES_SHOW_EXCEPTION_STACK_TRACE] = true;

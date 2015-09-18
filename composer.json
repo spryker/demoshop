@@ -1,6 +1,6 @@
 {
   "require": {
-    "spryker/spryker": "v0.12.0",
+    "spryker/spryker": "v0.13.0",
 
     "psr/log": "~1.0",
     "propel/propel": "~2.0@dev",

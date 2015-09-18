@@ -9,6 +9,7 @@ use SprykerEngine\Zed\Touch\Persistence\Propel\Map\SpyTouchTableMap;
 use SprykerEngine\Zed\Touch\Persistence\Propel\SpyTouchQuery;
 use SprykerFeature\Shared\Collector\Code\KeyBuilder\KeyBuilderTrait;
 use SprykerFeature\Zed\Collector\Business\Exporter\AbstractPropelCollectorPlugin;
+use SprykerFeature\Zed\Collector\Business\Exporter\Writer\KeyValue\TouchUpdaterSet;
 use SprykerFeature\Zed\Url\Persistence\Propel\Map\SpyRedirectTableMap;
 use SprykerFeature\Zed\Url\Persistence\Propel\Map\SpyUrlTableMap;
 
@@ -61,10 +62,11 @@ class RedirectCollector extends AbstractPropelCollectorPlugin
     /**
      * @param array $resultSet
      * @param LocaleTransfer $locale
+     * @param TouchUpdaterSet $touchUpdaterSet
      *
      * @return array
      */
-    protected function processData($resultSet, LocaleTransfer $locale)
+    protected function processData($resultSet, LocaleTransfer $locale, TouchUpdaterSet $touchUpdaterSet)
     {
         $processedResultSet = [];
         foreach ($resultSet as $redirect) {

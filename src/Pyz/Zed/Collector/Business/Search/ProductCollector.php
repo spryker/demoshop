@@ -14,6 +14,7 @@ use SprykerFeature\Zed\Category\Persistence\CategoryQueryContainer;
 use SprykerFeature\Zed\Category\Persistence\Propel\Map\SpyCategoryAttributeTableMap;
 use SprykerFeature\Zed\Category\Persistence\Propel\Map\SpyCategoryNodeTableMap;
 use SprykerFeature\Zed\Collector\Business\Exporter\AbstractPropelCollectorPlugin;
+use SprykerFeature\Zed\Collector\Business\Exporter\Writer\KeyValue\TouchUpdaterSet;
 use SprykerFeature\Zed\Price\Persistence\PriceQueryContainer;
 use SprykerFeature\Zed\Product\Persistence\Propel\Map\SpyAbstractProductTableMap;
 use SprykerFeature\Zed\Product\Persistence\Propel\Map\SpyLocalizedAbstractProductAttributesTableMap;
@@ -228,7 +229,7 @@ class ProductCollector extends AbstractPropelCollectorPlugin
             Criteria::LEFT_JOIN
         );
         $baseQuery->addJoin(
-            SpyProductCategoryTableMap::COL_FK_CATEGORY_NODE,
+            SpyProductCategoryTableMap::COL_FK_CATEGORY,
             SpyCategoryNodeTableMap::COL_ID_CATEGORY_NODE,
             Criteria::INNER_JOIN
         );
@@ -270,10 +271,11 @@ class ProductCollector extends AbstractPropelCollectorPlugin
     /**
      * @param array $resultSet
      * @param LocaleTransfer $locale
+     * @param TouchUpdaterSet $touchUpdaterSet
      *
      * @return array
      */
-    protected function processData($resultSet, LocaleTransfer $locale)
+    protected function processData($resultSet, LocaleTransfer $locale, TouchUpdaterSet $touchUpdaterSet)
     {
         $processedResultSet = $this->buildProducts($resultSet, $locale);
 

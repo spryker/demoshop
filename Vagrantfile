@@ -1,6 +1,6 @@
 # Settings for the Virtualbox VM
 VM_IP='10.10.0.33'
-VM_MEMORY='4096'
+VM_MEMORY='6144'
 VM_CPUS='4'
 
 # Locations of SaltStack code

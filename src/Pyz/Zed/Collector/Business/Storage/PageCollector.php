@@ -12,6 +12,7 @@ use SprykerFeature\Zed\Cms\Persistence\Propel\Map\SpyCmsGlossaryKeyMappingTableM
 use SprykerFeature\Zed\Cms\Persistence\Propel\Map\SpyCmsPageTableMap;
 use SprykerFeature\Zed\Cms\Persistence\Propel\Map\SpyCmsTemplateTableMap;
 use SprykerFeature\Zed\Collector\Business\Exporter\AbstractPropelCollectorPlugin;
+use SprykerFeature\Zed\Collector\Business\Exporter\Writer\KeyValue\TouchUpdaterSet;
 use SprykerFeature\Zed\Glossary\Persistence\Propel\Map\SpyGlossaryKeyTableMap;
 use SprykerFeature\Zed\Url\Persistence\Propel\Map\SpyUrlTableMap;
 
@@ -76,10 +77,11 @@ class PageCollector extends AbstractPropelCollectorPlugin
     /**
      * @param array $resultSet
      * @param LocaleTransfer $locale
+     * @param TouchUpdaterSet $touchUpdaterSet
      *
      * @return array
      */
-    protected function processData($resultSet, LocaleTransfer $locale)
+    protected function processData($resultSet, LocaleTransfer $locale, TouchUpdaterSet $touchUpdaterSet)
     {
         $processedResultSet = [];
 
