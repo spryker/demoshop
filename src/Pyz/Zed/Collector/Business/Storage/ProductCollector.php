@@ -322,12 +322,12 @@ class ProductCollector extends AbstractPropelCollectorPlugin
         );
         $baseQuery->addJoin(
             SpyProductCategoryTableMap::COL_FK_CATEGORY,
-            SpyCategoryNodeTableMap::COL_ID_CATEGORY_NODE,
+            SpyCategoryAttributeTableMap::COL_FK_CATEGORY,
             Criteria::INNER_JOIN
         );
         $baseQuery->addJoin(
+            SpyProductCategoryTableMap::COL_FK_CATEGORY,
             SpyCategoryNodeTableMap::COL_FK_CATEGORY,
-            SpyCategoryAttributeTableMap::COL_FK_CATEGORY,
             Criteria::INNER_JOIN
         );
 
