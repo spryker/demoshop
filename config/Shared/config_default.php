@@ -78,6 +78,7 @@ $config[SystemConfig::ZED_LIBRARY_PASSWORD_OPTIONS] = [];
 $config[SystemConfig::ZED_SESSION_SAVE_HANDLER] = null;
 
 $config[SystemConfig::ZED_SSL_ENABLED] = false;
+$config[SystemConfig::ZED_API_SSL_ENABLED] = false;
 $config[SystemConfig::ZED_SSL_EXCLUDED] = ['system/heartbeat'];
 
 $config[YvesConfig::YVES_THEME] = 'demoshop';
