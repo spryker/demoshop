@@ -5,9 +5,10 @@
  */
 namespace Functional\Pyz\Zed\Payolution;
 
+use Functional\SprykerFeature\Zed\Payolution\Business\Api\Adapter\Http\AbstractAdapterMock;
+use Functional\SprykerFeature\Zed\Payolution\Business\Api\Adapter\Http\CaptureAdapterMock;
 use Functional\SprykerFeature\Zed\Payolution\Business\Api\Adapter\Http\PreAuthorizationAdapterMock;
 use Functional\SprykerFeature\Zed\Payolution\Business\PayolutionFacadeMockBuilder;
-use Functional\SprykerFeature\Zed\PayolutionOmsConnector\Communication\Plugin\Command\Mock\OmsOrderHydrator;
 use Generated\Shared\Transfer\AddressTransfer;
 use Generated\Shared\Transfer\CartTransfer;
 use Generated\Shared\Transfer\CheckoutRequestTransfer;
@@ -15,80 +16,310 @@ use Generated\Shared\Transfer\ItemTransfer;
 use Generated\Shared\Transfer\PayolutionPaymentTransfer;
 use Generated\Shared\Transfer\TaxSetTransfer;
 use Generated\Shared\Transfer\TotalsTransfer;
+use Generated\Zed\Ide\FactoryAutoCompletion\OmsBusiness;
+use Pyz\Zed\Oms\Business\OmsFacade;
+use Pyz\Zed\Oms\OmsConfig;
+use Pyz\Zed\Oms\OmsDependencyProvider;
+use SprykerEngine\Shared\Config;
 use SprykerEngine\Zed\Kernel\AbstractFunctionalTest;
 use SprykerEngine\Zed\Kernel\Container;
-use SprykerEngine\Zed\Kernel\Factory;
+use SprykerEngine\Zed\Kernel\Business\Factory as BusinessFactory;
+use SprykerEngine\Zed\Kernel\Communication\Factory as CommunicationFactory;
 use SprykerEngine\Zed\Kernel\Locator;
 use SprykerFeature\Shared\Payolution\PayolutionApiConstants;
 use SprykerFeature\Zed\Checkout\Business\CheckoutFacade;
 use SprykerFeature\Zed\Checkout\CheckoutDependencyProvider;
-use SprykerFeature\Zed\Payolution\Business\Api\Adapter\AdapterInterface;
-use SprykerFeature\Zed\Payolution\Business\PayolutionFacade;
+use SprykerFeature\Zed\Oms\Business\OmsDependencyContainer;
+use SprykerFeature\Zed\Oms\Persistence\OmsQueryContainer;
 use SprykerFeature\Zed\Payolution\Persistence\Propel\Map\SpyPaymentPayolutionTableMap;
-use SprykerFeature\Zed\PayolutionCheckoutConnector\Communication\Plugin\CheckoutSaveOrderPlugin;
-use SprykerFeature\Zed\PayolutionCheckoutConnector\PayolutionCheckoutConnectorDependencyProvider;
+use SprykerFeature\Zed\PayolutionOmsConnector\Communication\Plugin\Command\CapturePlugin;
+use SprykerFeature\Zed\PayolutionOmsConnector\Communication\Plugin\Command\PreAuthorizePlugin;
+use SprykerFeature\Zed\PayolutionOmsConnector\PayolutionOmsConnectorDependencyProvider;
 use SprykerFeature\Zed\Product\Persistence\Propel\SpyAbstractProduct;
 use SprykerFeature\Zed\Product\Persistence\Propel\SpyProduct;
 use SprykerFeature\Zed\Sales\Persistence\Propel\SpySalesOrderItemQuery;
+use SprykerFeature\Zed\Sales\SalesDependencyProvider;
+use SprykerFeature\Zed\SalesCheckoutConnector\Communication\Plugin\SalesOrderSaverPlugin;
 use SprykerFeature\Zed\Stock\Persistence\Propel\SpyStock;
 use SprykerFeature\Zed\Stock\Persistence\Propel\SpyStockProduct;
+use SprykerEngine\Zed\Kernel\Persistence\Factory as PersistenceFactory;
 
 /**
- * @method
+ * A couple of things to know about the mocked objects
+ *
+ * 1.) OMS facade
+ * The facade got mocked to return our very own state-machine process called PayolutionPayment01 without
+ * having to modify the demo-shop. The config needed to get mocked to return the correct process names.
+ * In addition, the dependency-container needed to get mocked to have the state-machine-builder use a custom
+ * path to the XML definition file.
+ * Dependency provider required a list of all condition and command plugins used by the process
+ *
+ * 2.) SalesOrderSaverPlugin
+ * This plugin uses the Sales bundle facade which has an external dependency to OMS facade for setting
+ * selected process names on order items. This dependency had to be replaced with the OMS facade mock
+ * from #1
+ *
+ * 3.) Checkout facade
+ * Checkout bundle facade need to know about or hydrator and saver plugins
+ *
+ * 4.) Payolution facade
+ * Payolution facade gets mocked to return pre-defined responses and not use Payolution's sandbox
+ * gateway. The replacement is done through the command plugins that are provided to the OMS facade in #1.
+ * PayolutionOmsConnector bundle's dependency-provider will return the mocked Payolution facade.
  */
 class StateMachineTest extends AbstractFunctionalTest
 {
 
     public function testCheckoutEventTransition()
     {
-
-        /*
-         * @todo CD-442 This is the wrong approach to mock things.
-         * We would probably need to mock Oms facade and let it talk to the payolution facade mock
-         * to avoid calling Payolution's gateway directly.
-         */
-        $adapterMock = new PreAuthorizationAdapterMock();
-        
-        $payolutionFacadeMock = $this->getPayolutionFacadeMock($adapterMock);
-        $pluginMock = $this->getPayolutionCheckoutConnectorSaveOrderPlugin($payolutionFacadeMock);
-
-        $checkoutFacade = $this->getCheckoutFacade($pluginMock);
+        $omsFacadeMock = $this->getOmsFacadeMock();
+        $salesOrderSaverPlugin = $this->getSalesOrderSaverPlugin($omsFacadeMock);
+        $checkoutFacade = $this->getCheckoutFacade($omsFacadeMock, $salesOrderSaverPlugin);
         $checkoutRequestTransfer = $this->getCheckoutRequestTransfer();
         $checkoutFacade->requestCheckout($checkoutRequestTransfer);
 
         $orderItem = SpySalesOrderItemQuery::create()->findOne();
-
         $this->assertEquals('waiting for payolution payment', $orderItem->getState()->getName());
-return;
-        $omsFacade = $this->getFacade('Pyz', 'Oms');
-        $omsFacade->triggerEventForOneItem('capture', $orderItem, $logContext = []);
 
+        $omsFacadeMock->triggerEventForOneItem('capture', $orderItem, $logContext = []);
         $this->assertEquals('paid', $orderItem->getState()->getName());
     }
 
     /**
-     * @param AdapterInterface $adapter
-     *
-     * @return PayolutionFacade
+     * @return OmsFacade|\PHPUnit_Framework_MockObject_MockObject
      */
-    private function getPayolutionFacadeMock(AdapterInterface $adapter)
+    private function getOmsFacadeMock()
     {
-        return PayolutionFacadeMockBuilder::build($adapter, $this);
+        $factory = new BusinessFactory('Oms');
+        $locator = Locator::getInstance();
+
+        /** @var \PHPUnit_Framework_MockObject_MockObject|OmsFacade $mock */
+        $mock = $this->getMock(
+            'Pyz\Zed\Oms\Business\OmsFacade',
+            $methods = [
+                'getDependencyContainer',
+            ],
+            $arguments = [
+                $factory,
+                $locator,
+            ]
+        );
+
+        // Dependency container got a mocked configuration
+        $dependencyProviderContainer = $this->getOmsDependencyProviderContainer();
+        $dependencyContainer = $this->getOmsDependencyContainer($dependencyProviderContainer);
+        $mock
+            ->expects($this->any())
+            ->method('getDependencyContainer')
+            ->will($this->returnValue($dependencyContainer));
+
+        // Dependency provider uses custom path for state-machine XML files
+        $mock->setExternalDependencies($dependencyProviderContainer);
+
+        // Facade mock requires query-container to be set explicitly
+        $queryContainer = $this->getOmsQueryContainer();
+        $queryContainer->setContainer($dependencyProviderContainer);
+        $queryContainer->setExternalDependencies($dependencyProviderContainer);
+        $mock->setOwnQueryContainer($queryContainer);
+
+        return $mock;
     }
 
-    private function getPayolutionCheckoutConnectorSaveOrderPlugin(PayolutionFacade $payolutionFacade)
+    /**
+     * @param Container $dependencyProviderContainer
+     *
+     * @return \PHPUnit_Framework_MockObject_MockObject|OmsDependencyContainer
+     */
+    private function getOmsDependencyContainer(Container $dependencyProviderContainer)
+    {
+        /** @var OmsBusiness $factory */
+        $factory = new BusinessFactory('Oms');
+        $locator = Locator::getInstance();
+        $config = $this->getOmsConfigMock();
+        $dependencyContainerMock = $this->getMock(
+            'SprykerFeature\Zed\Oms\Business\OmsDependencyContainer',
+            $methods = [
+                'createOrderStateMachineBuilder',
+            ],
+            $arguments = [
+                $factory,
+                $locator,
+                $config,
+            ]
+        );
+
+        // Have the state machine builder use a custom path to the XML file
+        $stateMachineBuilder = $factory->createOrderStateMachineBuilder(
+            $factory->createProcessEvent(),
+            $factory->createProcessState(),
+            $factory->createProcessTransition(),
+            $factory->createProcessProcess($factory->createUtilDrawer(
+                $dependencyProviderContainer[OmsDependencyProvider::COMMAND_PLUGINS],
+                $dependencyProviderContainer[OmsDependencyProvider::CONDITION_PLUGINS]
+            )),
+            $xmlFolder = APPLICATION_ROOT_DIR . '/tests/Functional/Pyz/Zed/Payolution/'
+        );
+        $dependencyContainerMock
+            ->expects($this->any())
+            ->method('createOrderStateMachineBuilder')
+            ->will($this->returnValue($stateMachineBuilder));
+
+        return $dependencyContainerMock;
+    }
+
+    /**
+     * @return OmsConfig|\PHPUnit_Framework_MockObject_MockObject
+     */
+    private function getOmsConfigMock()
+    {
+        $baseConfig = Config::getInstance();
+        $locator = Locator::getInstance();
+        $mock = $this->getMock(
+            'Pyz\Zed\Oms\OmsConfig',
+            $methods = [
+                'selectProcess',
+                'getActiveProcesses',
+            ],
+            $arguments = [
+                $baseConfig,
+                $locator,
+            ]
+        );
+
+        // Let the config return our very own process
+        $mock
+            ->expects($this->any())
+            ->method('selectProcess')
+            ->will($this->returnValue('PayolutionPayment01'));
+        $mock
+            ->expects($this->any())
+            ->method('getActiveProcesses')
+            ->will($this->returnValue(['PayolutionPayment01']));
+
+        return $mock;
+    }
+
+    /**
+     * @return Container
+     */
+    private function getOmsDependencyProviderContainer()
     {
         $container = new Container();
-        $dependencyKey = PayolutionCheckoutConnectorDependencyProvider::FACADE_PAYOLUTION;
-        $container[$dependencyKey] = function(Container $container) use ($payolutionFacade) {
-            return $payolutionFacade;
+        $dependencyProvider = new OmsDependencyProvider();
+        $dependencyProvider->provideBusinessLayerDependencies($container);
+        $dependencyProvider->provideCommunicationLayerDependencies($container);
+        $dependencyProvider->providePersistenceLayerDependencies($container);
+
+        // Command plugins are using the Payolution facade mock to not make any real calls to the gateway
+        $commandPreAuthorizePlugin = $this->getPayolutionCommandPreAuthorizePlugin();
+        $commandCapturePlugin = $this->getPayolutionCommandCapturePlugin();
+        $container[OmsDependencyProvider::COMMAND_PLUGINS] = function (Container $container) use($commandPreAuthorizePlugin, $commandCapturePlugin) {
+            return [
+                'PayolutionOmsConnector/PreAuthorize' => $commandPreAuthorizePlugin,
+                'PayolutionOmsConnector/Capture' => $commandCapturePlugin,
+            ];
         };
 
-        /** @var Locator $locator */
+        $container[OmsDependencyProvider::CONDITION_PLUGINS] = function (Container $container) {
+            return [
+                'PayolutionOmsConnector/PreAuthorizationIsApproved' => $container
+                    ->getLocator()
+                    ->payolutionOmsConnector()
+                    ->pluginConditionPreAuthorizationIsApprovedPlugin(),
+                'PayolutionOmsConnector/CaptureIsApproved' => $container
+                    ->getLocator()
+                    ->payolutionOmsConnector()
+                    ->pluginConditionCaptureIsApprovedPlugin(),
+            ];
+        };
+
+        return $container;
+    }
+
+    /**
+     * @return PreAuthorizePlugin
+     */
+    private function getPayolutionCommandPreAuthorizePlugin()
+    {
+        $adapterMock = new PreAuthorizationAdapterMock();
         $locator = Locator::getInstance();
-        /** @var CheckoutSaveOrderPlugin $plugin */
-        $plugin = $locator->payolutionCheckoutConnector()->pluginCheckoutSaveOrderPlugin();
-        $plugin->setExternalDependencies($container);
+        $dependencyProviderContainer = $this->getPayolutionPluginDependencyProviderContainer($adapterMock);
+        $plugin = $locator->payolutionOmsConnector()->pluginCommandPreAuthorizePlugin();
+        $plugin->setExternalDependencies($dependencyProviderContainer);
+
+        return $plugin;
+    }
+
+    /**
+     * @return CapturePlugin
+     */
+    private function getPayolutionCommandCapturePlugin()
+    {
+        $adapterMock = new CaptureAdapterMock();
+        $locator = Locator::getInstance();
+        $dependencyProviderContainer = $this->getPayolutionPluginDependencyProviderContainer($adapterMock);
+        $plugin = $locator->payolutionOmsConnector()->pluginCommandCapturePlugin();
+        $plugin->setExternalDependencies($dependencyProviderContainer);
+
+        return $plugin;
+    }
+
+    /**
+     * @param AbstractAdapterMock $adapterMock
+     *
+     * @return Container
+     */
+    private function getPayolutionPluginDependencyProviderContainer(AbstractAdapterMock $adapterMock)
+    {
+        $payolutionFacadeMock = PayolutionFacadeMockBuilder::build($adapterMock, $this);
+
+        $container = new Container();
+        $dependencyProvider = new PayolutionOmsConnectorDependencyProvider();
+        $dependencyProvider->provideCommunicationLayerDependencies($container);
+        $dependencyProvider->provideBusinessLayerDependencies($container);
+        $dependencyProvider->providePersistenceLayerDependencies($container);
+        $container[PayolutionOmsConnectorDependencyProvider::FACADE_PAYOLUTION] = function(Container $container) use ($payolutionFacadeMock) {
+            return $payolutionFacadeMock;
+        };
+
+        return $container;
+    }
+
+    /**
+     * @return OmsQueryContainer
+     */
+    private function getOmsQueryContainer()
+    {
+        $factory = new PersistenceFactory('Oms');
+        $locator = Locator::getInstance();
+        $queryContainer = new OmsQueryContainer($factory, $locator);
+
+        return $queryContainer;
+    }
+
+    /**
+     * @param OmsFacade|\PHPUnit_Framework_MockObject_MockObject $omsFacadeMock
+     *
+     * @return SalesOrderSaverPlugin
+     */
+    private function getSalesOrderSaverPlugin(OmsFacade $omsFacadeMock)
+    {
+        // Replace external OMS-facade dependency in Sales bundle with our mock object
+        $salesFacade = $this->getFacade('SprykerFeature', 'Sales');
+        $container = new Container();
+        $dependencyProvider = new SalesDependencyProvider();
+        $dependencyProvider->provideBusinessLayerDependencies($container);
+        $dependencyProvider->provideCommunicationLayerDependencies($container);
+        $dependencyProvider->providePersistenceLayerDependencies($container);
+        $container[SalesDependencyProvider::FACADE_OMS] = function (Container $container) use ($omsFacadeMock) {
+            return $omsFacadeMock;
+        };
+        $salesFacade->setExternalDependencies($container);
+
+        $factory = new CommunicationFactory('SalesCheckoutConnector');
+        $locator = Locator::getInstance();
+        $plugin = new SalesOrderSaverPlugin($factory, $locator);
+        $plugin->setOwnFacade($salesFacade);
 
         return $plugin;
     }
@@ -96,47 +327,39 @@ return;
     /**
      * @return CheckoutFacade
      */
-    private function getCheckoutFacade(CheckoutSaveOrderPlugin $saveOrderPlugin)
+    private function getCheckoutFacade(OmsFacade $omsFacade, SalesOrderSaverPlugin $orderSaverPlugin)
     {
         $container = new Container();
-
-        $container[CheckoutDependencyProvider::CHECKOUT_PRECONDITIONS] = function(Container $container) {
+        $container[CheckoutDependencyProvider::CHECKOUT_PRECONDITIONS] = function (Container $container) {
             return [
                 $container->getLocator()->customerCheckoutConnector()->pluginCustomerPreconditionCheckerPlugin(),
                 $container->getLocator()->availabilityCheckoutConnector()->pluginProductsAvailablePreconditionPlugin(),
             ];
         };
-
-        $container[CheckoutDependencyProvider::CHECKOUT_ORDERHYDRATORS] = function(Container $container) {
+        $container[CheckoutDependencyProvider::CHECKOUT_ORDERHYDRATORS] = function (Container $container) {
             return [
                 $container->getLocator()->customerCheckoutConnector()->pluginOrderCustomerHydrationPlugin(),
                 $container->getLocator()->cartCheckoutConnector()->pluginOrderCartHydrationPlugin(),
                 $container->getLocator()->payolutionCheckoutConnector()->pluginCheckoutOrderHydrationPlugin(),
-                new OmsOrderHydrator(),
             ];
         };
-
-        $container[CheckoutDependencyProvider::CHECKOUT_ORDERSAVERS] = function(Container $container) use ($saveOrderPlugin) {
+        $container[CheckoutDependencyProvider::CHECKOUT_ORDERSAVERS] = function (Container $container) use ($orderSaverPlugin) {
             return [
-                $container->getLocator()->salesCheckoutConnector()->pluginSalesOrderSaverPlugin(),
+                $orderSaverPlugin,
                 $container->getLocator()->customerCheckoutConnector()->pluginOrderCustomerSavePlugin(),
                 $container->getLocator()->payolutionCheckoutConnector()->pluginCheckoutSaveOrderPlugin(),
             ];
         };
-
-        $container[CheckoutDependencyProvider::CHECKOUT_PRE_HYDRATOR] = function(Container $container) {
+        $container[CheckoutDependencyProvider::CHECKOUT_PRE_HYDRATOR] = function (Container $container) {
             return [];
         };
-
-        $container[CheckoutDependencyProvider::CHECKOUT_POSTHOOKS] = function(Container $container) {
+        $container[CheckoutDependencyProvider::CHECKOUT_POSTHOOKS] = function (Container $container) {
             return [];
         };
-
-        $container[CheckoutDependencyProvider::FACADE_OMS] = function(Container $container) {
-            return $container->getLocator()->oms()->facade();
+        $container[CheckoutDependencyProvider::FACADE_OMS] = function (Container $container) use ($omsFacade) {
+            return $omsFacade;
         };
-
-        $container[CheckoutDependencyProvider::FACADE_CALCULATION] = function(Container $container) {
+        $container[CheckoutDependencyProvider::FACADE_CALCULATION] = function (Container $container) {
             return $container->getLocator()->calculation()->facade();
         };
 
