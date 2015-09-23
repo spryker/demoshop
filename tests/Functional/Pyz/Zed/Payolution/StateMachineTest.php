@@ -10,6 +10,7 @@ use Generated\Shared\Transfer\AddressTransfer;
 use Generated\Shared\Transfer\CartTransfer;
 use Generated\Shared\Transfer\CheckoutRequestTransfer;
 use Generated\Shared\Transfer\ItemTransfer;
+use Generated\Shared\Transfer\OrderItemsTransfer;
 use Generated\Shared\Transfer\PayolutionPaymentTransfer;
 use Generated\Shared\Transfer\TaxSetTransfer;
 use Generated\Shared\Transfer\TotalsTransfer;
@@ -24,6 +25,7 @@ use SprykerFeature\Zed\Checkout\CheckoutDependencyProvider;
 use SprykerFeature\Zed\Payolution\Persistence\Propel\Map\SpyPaymentPayolutionTableMap;
 use SprykerFeature\Zed\Product\Persistence\Propel\SpyAbstractProduct;
 use SprykerFeature\Zed\Product\Persistence\Propel\SpyProduct;
+use SprykerFeature\Zed\Sales\Persistence\Propel\SpySalesOrderItem;
 use SprykerFeature\Zed\Sales\Persistence\Propel\SpySalesOrderItemQuery;
 use SprykerFeature\Zed\Sales\SalesDependencyProvider;
 use SprykerFeature\Zed\SalesCheckoutConnector\Communication\Plugin\SalesOrderSaverPlugin;
@@ -55,31 +57,168 @@ use SprykerFeature\Zed\Stock\Persistence\Propel\SpyStockProduct;
  */
 class StateMachineTest extends AbstractFunctionalTest
 {
+    /**
+     * @var bool[]
+     */
+    private $expectSuccess = [];
 
-    public function testCheckoutEventTransition()
+    /**
+     * @var OmsFacade|\PHPUnit_Framework_MockObject_MockObject
+     */
+    private $omsFacadeMock;
+
+    /**
+     * @var CheckoutFacade
+     */
+    private $checkoutFacade;
+
+    protected function _before()
     {
-        $omsFacadeMock = $this->getOmsFacadeMock();
-        $salesOrderSaverPlugin = $this->getSalesOrderSaverPlugin($omsFacadeMock);
-        $checkoutFacade = $this->getCheckoutFacade($omsFacadeMock, $salesOrderSaverPlugin);
+        parent::_before();
+
+        $this->expectSuccess = [
+            'preAuthorization' => true,
+            'reAuthorization' => true,
+            'reversal' => true,
+            'capture' => true,
+            'refund' => true,
+        ];
+
+        $this->omsFacadeMock = null;
+        $this->checkoutFacade = null;
+    }
+
+    public function testItemStatesForDefaultScenario()
+    {
+        $this->setUpFacades();
+
         $checkoutRequestTransfer = $this->getCheckoutRequestTransfer();
-        $checkoutFacade->requestCheckout($checkoutRequestTransfer);
+        $this->checkoutFacade->requestCheckout($checkoutRequestTransfer);
 
         $orderItem = SpySalesOrderItemQuery::create()->findOne();
+        $this->assertEquals('ready for pre-authorization', $orderItem->getState()->getName());
+
+        $this->omsFacadeMock->triggerEventForOneItem('pre-authorize', $orderItem, $logContext = []);
         $this->assertEquals('ready to be shipped', $orderItem->getState()->getName());
 
-        $omsFacadeMock->triggerEventForOneItem('ship', $orderItem, $logContext = []);
+        $this->omsFacadeMock->triggerEventForOneItem('ship', $orderItem, $logContext = []);
+        $this->assertEquals('shipped', $orderItem->getState()->getName());
+
+        $this->omsFacadeMock->triggerEventForOneItem('capture payment', $orderItem, $logContext = []);
         $this->assertEquals('payment captured', $orderItem->getState()->getName());
 
-        $omsFacadeMock->triggerEventForOneItem('receive payment', $orderItem, $logContext = []);
+        $this->omsFacadeMock->triggerEventForOneItem('payment received', $orderItem, $logContext = []);
         $this->assertEquals('paid', $orderItem->getState()->getName());
     }
 
-    /**
-     * @return OmsFacade|\PHPUnit_Framework_MockObject_MockObject
-     */
-    private function getOmsFacadeMock()
+    public function testItemStatesForDefaultScenarioWithFailedPreAuthorization()
     {
-        return OmsFacadeMockBuilder::create($this);
+        $this->expectPreAuthorizationFailure();
+        $this->setUpFacades();
+
+        $checkoutRequestTransfer = $this->getCheckoutRequestTransfer();
+        $this->checkoutFacade->requestCheckout($checkoutRequestTransfer);
+
+        $orderItem = SpySalesOrderItemQuery::create()->findOne();
+        $this->assertEquals('ready for pre-authorization', $orderItem->getState()->getName());
+
+        $this->omsFacadeMock->triggerEventForOneItem('pre-authorize', $orderItem, $logContext = []);
+        $this->assertEquals('payment validation failed', $orderItem->getState()->getName());
+    }
+
+    public function testItemStatesForDefaultScenarioWithFailedCapture()
+    {
+        $this->expectCaptureFailure();
+        $this->setUpFacades();
+
+        $checkoutRequestTransfer = $this->getCheckoutRequestTransfer();
+        $this->checkoutFacade->requestCheckout($checkoutRequestTransfer);
+
+        $orderItem = SpySalesOrderItemQuery::create()->findOne();
+        $this->omsFacadeMock->triggerEventForOneItem('pre-authorize', $orderItem, $logContext = []);
+        $this->omsFacadeMock->triggerEventForOneItem('ship', $orderItem, $logContext = []);
+
+        $this->omsFacadeMock->triggerEventForOneItem('capture payment', $orderItem, $logContext = []);
+        $this->assertEquals('payment capture failed', $orderItem->getState()->getName());
+    }
+
+    public function testItemStatesForFullRefundBeforePaymentScenario()
+    {
+        $this->setUpFacades();
+
+        $checkoutRequestTransfer = $this->getCheckoutRequestTransfer();
+        $this->checkoutFacade->requestCheckout($checkoutRequestTransfer);
+
+        $orderItem = SpySalesOrderItemQuery::create()->findOne();
+        $this->omsFacadeMock->triggerEventForOneItem('pre-authorize', $orderItem, $logContext = []);
+        $this->omsFacadeMock->triggerEventForOneItem('ship', $orderItem, $logContext = []);
+        $this->omsFacadeMock->triggerEventForOneItem('capture payment', $orderItem, $logContext = []);
+
+        $this->omsFacadeMock->triggerEventForOneItem('receive returns', $orderItem, $logContext = []);
+        $this->assertEquals('returns received', $orderItem->getState()->getName());
+
+        $this->omsFacadeMock->triggerEventForOneItem('fully refund', $orderItem, $logContext = []);
+        $this->assertEquals('payment fully refunded', $orderItem->getState()->getName());
+    }
+
+    public function testItemStatesForFullRefundBeforePaymentScenarioWithFailedRefund()
+    {
+        $this->expectRefundFailure();
+        $this->setUpFacades();
+
+        $checkoutRequestTransfer = $this->getCheckoutRequestTransfer();
+        $this->checkoutFacade->requestCheckout($checkoutRequestTransfer);
+
+        $orderItem = SpySalesOrderItemQuery::create()->findOne();
+        $this->omsFacadeMock->triggerEventForOneItem('pre-authorize', $orderItem, $logContext = []);
+        $this->omsFacadeMock->triggerEventForOneItem('ship', $orderItem, $logContext = []);
+        $this->omsFacadeMock->triggerEventForOneItem('capture payment', $orderItem, $logContext = []);
+        $this->omsFacadeMock->triggerEventForOneItem('receive returns', $orderItem, $logContext = []);
+
+        $this->omsFacadeMock->triggerEventForOneItem('fully refund', $orderItem, $logContext = []);
+        $this->assertEquals('payment refund failed', $orderItem->getState()->getName());
+    }
+
+    public function testItemStatesForFullRefundAfterPaymentScenario()
+    {
+        $this->setUpFacades();
+
+        $checkoutRequestTransfer = $this->getCheckoutRequestTransfer();
+        $this->checkoutFacade->requestCheckout($checkoutRequestTransfer);
+
+        $orderItem = SpySalesOrderItemQuery::create()->findOne();
+        $this->omsFacadeMock->triggerEventForOneItem('pre-authorize', $orderItem, $logContext = []);
+        $this->omsFacadeMock->triggerEventForOneItem('ship', $orderItem, $logContext = []);
+        $this->omsFacadeMock->triggerEventForOneItem('capture payment', $orderItem, $logContext = []);
+
+        $this->omsFacadeMock->triggerEventForOneItem('payment received', $orderItem, $logContext = []);
+        $this->assertEquals('paid', $orderItem->getState()->getName());
+
+        $this->omsFacadeMock->triggerEventForOneItem('receive returns', $orderItem, $logContext = []);
+        $this->assertEquals('returns received', $orderItem->getState()->getName());
+
+        $this->omsFacadeMock->triggerEventForOneItem('fully refund', $orderItem, $logContext = []);
+        $this->assertEquals('payment fully refunded', $orderItem->getState()->getName());
+    }
+
+    /**
+     * @return CheckoutFacade
+     */
+    private function setUpFacades()
+    {
+        $omsFacadeMockBuilder = $this->getOmsFacadeMockBuilder();
+        $omsFacadeMockBuilder->setExpectSuccess($this->expectSuccess);
+        $this->omsFacadeMock = $omsFacadeMockBuilder->build();
+        $salesOrderSaverPlugin = $this->getSalesOrderSaverPlugin($this->omsFacadeMock);
+        $this->checkoutFacade = $this->getCheckoutFacade($this->omsFacadeMock, $salesOrderSaverPlugin);
+    }
+
+    /**s
+     * @return OmsFacadeMockBuilder
+     */
+    private function getOmsFacadeMockBuilder()
+    {
+        return new OmsFacadeMockBuilder($this);
     }
 
     /**
@@ -242,6 +381,51 @@ class StateMachineTest extends AbstractFunctionalTest
         $checkoutRequestTransfer->setPayolutionPayment($payment);
 
         return $checkoutRequestTransfer;
+    }
+
+    /**
+     * @return self
+     */
+    private function expectPreAuthorizationFailure()
+    {
+        $this->expectSuccess['preAuthorization'] = false;
+        return $this;
+    }
+
+    /**
+     * @return self
+     */
+    private function expectReAuthorizationFailure()
+    {
+        $this->expectSuccess['reAuthorization'] = false;
+        return $this;
+    }
+
+    /**
+     * @return self
+     */
+    private function expectReversalFailure()
+    {
+        $this->expectSuccess['reversal'] = false;
+        return $this;
+    }
+
+    /**
+     * @return self
+     */
+    private function expectCaptureFailure()
+    {
+        $this->expectSuccess['capture'] = false;
+        return $this;
+    }
+
+    /**
+     * @return self
+     */
+    private function expectRefundFailure()
+    {
+        $this->expectSuccess['refund'] = false;
+        return $this;
     }
 
 }

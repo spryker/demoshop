@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<statemachine
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:noNamespaceSchemaLocation="../../../../../../../config/Zed/oms/process.xsd"
+>
+    <process name="refund">
+        <states>
+            <state name="returns received"/>
+            <state name="payment fully refunded"/>
+            <!-- Failure state(s) -->
+            <state name="payment refund failed"/>
+        </states>
+        <transitions>
+            <!-- Before payment is received -->
+            <transition>
+                <source>payment captured</source>
+                <target>returns received</target>
+                <event>receive returns</event>
+            </transition>
+            <!-- After payment has been received -->
+            <transition>
+                <source>paid</source>
+                <target>returns received</target>
+                <event>receive returns</event>
+            </transition>
+            <!-- Partial refund -->
+            <transition happy="true" condition="PayolutionOmsConnector/RefundIsApproved">
+                <source>returns received</source>
+                <target>payment captured</target>
+                <event>partially refund</event>
+            </transition>
+            <transition>
+                <source>returns received</source>
+                <target>payment refund failed</target>
+                <event>partially refund</event>
+            </transition>
+            <!-- Full refund before payment -->
+            <transition happy="true" condition="PayolutionOmsConnector/RefundIsApproved">
+                <source>returns received</source>
+                <target>payment fully refunded</target>
+                <event>fully refund</event>
+            </transition>
+            <transition>
+                <source>returns received</source>
+                <target>payment refund failed</target>
+                <event>fully refund</event>
+            </transition>
+        </transitions>
+        <events>
+            <event name="receive returns" manual="true"/>
+            <event name="partially refund" manual="true" command="PayolutionOmsConnector/Refund"/>
+            <event name="fully refund" manual="true" command="PayolutionOmsConnector/Refund"/>
+        </events>
+    </process>
+</statemachine>
