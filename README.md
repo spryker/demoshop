@@ -87,3 +87,27 @@ salt-call --local state.highstate
 
 Afterwards your VM has the newest configuration and dependencies
 
+
+### Mac OSX Users with iterm2 (locale error)
+If you encounter error messages like: 
+
+```
+perl: warning: Setting locale failed.
+perl: warning: Please check that your locale settings:
+    LANGUAGE = (unset),
+    LC_ALL = (unset),
+    LC_CTYPE = "de_DE.UTF-8",
+    LANG = "C"
+   are supported and installed on your system.
+perl: warning: Falling back to the standard locale ("C").
+perl: warning: Setting locale failed.
+perl: warning: Please check that your locale settings:
+    LANGUAGE = (unset),
+    LC_ALL = (unset),
+    LC_CTYPE = "de_DE.UTF-8",
+    LANG = "C"
+   are supported and installed on your system.
+perl: warning: Falling back to the standard locale ("C").
+```
+
+Go to iterm2's `Preferences -> Profiles -> Terminal` and disable `Set locale variables automatically`.
