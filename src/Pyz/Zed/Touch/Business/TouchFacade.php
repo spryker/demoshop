@@ -9,6 +9,7 @@ namespace Pyz\Zed\Touch\Business;
 use SprykerFeature\Zed\Category\Dependency\Facade\CategoryToTouchInterface;
 use SprykerFeature\Zed\Price\Dependency\Facade\PriceToTouchInterface;
 use SprykerFeature\Zed\Product\Dependency\Facade\ProductToTouchInterface;
+use SprykerFeature\Zed\ProductCategory\Dependency\Facade\ProductCategoryToTouchInterface;
 use SprykerFeature\Zed\ProductSearch\Dependency\Facade\ProductSearchToTouchInterface;
 use SprykerFeature\Zed\SearchPage\Dependency\Facade\SearchPageToTouchInterface;
 use SprykerFeature\Zed\Stock\Dependency\Facade\StockToTouchInterface;
@@ -24,9 +25,10 @@ class TouchFacade extends SprykerTouchFacade implements
     ProductSearchToTouchInterface,
     PriceToTouchInterface,
     ProductToTouchInterface,
-    UrlToTouchInterface,
+    ProductCategoryToTouchInterface,
     StockToTouchInterface,
-    SearchPageToTouchInterface
+    SearchPageToTouchInterface,
+    UrlToTouchInterface
 {
 
 }
