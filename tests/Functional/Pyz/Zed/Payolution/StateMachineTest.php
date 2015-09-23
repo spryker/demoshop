@@ -65,9 +65,12 @@ class StateMachineTest extends AbstractFunctionalTest
         $checkoutFacade->requestCheckout($checkoutRequestTransfer);
 
         $orderItem = SpySalesOrderItemQuery::create()->findOne();
-        $this->assertEquals('waiting for payolution payment', $orderItem->getState()->getName());
+        $this->assertEquals('ready to be shipped', $orderItem->getState()->getName());
 
-        $omsFacadeMock->triggerEventForOneItem('capture', $orderItem, $logContext = []);
+        $omsFacadeMock->triggerEventForOneItem('ship', $orderItem, $logContext = []);
+        $this->assertEquals('payment captured', $orderItem->getState()->getName());
+
+        $omsFacadeMock->triggerEventForOneItem('receive payment', $orderItem, $logContext = []);
         $this->assertEquals('paid', $orderItem->getState()->getName());
     }
 

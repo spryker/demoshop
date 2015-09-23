@@ -7,26 +7,47 @@
     <process name="PayolutionPayment01" main="true">
         <states>
             <state name="new" reserved="true"/>
-            <state name="waiting for payolution payment"/>
+            <state name="ready to be shipped"/>
+            <state name="payment captured"/>
             <state name="paid"/>
+            <state name="payment validation failed"/>
+            <state name="payment capture failed"/>
         </states>
 
         <transitions>
             <transition happy="true" condition="PayolutionOmsConnector/PreAuthorizationIsApproved">
                 <source>new</source>
-                <target>waiting for payolution payment</target>
-                <event>checkout</event>
+                <target>ready to be shipped</target>
+                <event>pre-authorize</event>
             </transition>
+            <transition>
+                <source>new</source>
+                <target>payment validation failed</target>
+                <event>pre-authorize</event>
+            </transition>
+
             <transition happy="true" condition="PayolutionOmsConnector/CaptureIsApproved">
-                <source>waiting for payolution payment</source>
+                <source>ready to be shipped</source>
+                <target>payment captured</target>
+                <event>ship</event>
+            </transition>
+            <transition>
+                <source>ready to be shipped</source>
+                <target>payment capture failed</target>
+                <event>ship</event>
+            </transition>
+
+            <transition>
+                <source>payment captured</source>
                 <target>paid</target>
-                <event>capture</event>
+                <event>receive payment</event>
             </transition>
         </transitions>
 
         <events>
-            <event name="checkout" onEnter="true" command="PayolutionOmsConnector/PreAuthorize"/>
-            <event name="capture" manual="true" command="PayolutionOmsConnector/Capture"/>
+            <event name="pre-authorize" onEnter="true" command="PayolutionOmsConnector/PreAuthorize"/>
+            <event name="ship" manual="true" command="PayolutionOmsConnector/Capture"/>
+            <event name="receive payment" manual="true"/>
         </events>
     </process>
 
