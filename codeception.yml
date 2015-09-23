@@ -37,6 +37,7 @@ include:
 - vendor/spryker/spryker/Bundles/Maintenance
 - vendor/spryker/spryker/Bundles/Oms
 - vendor/spryker/spryker/Bundles/OmsCheckoutConnector
+- vendor/spryker/spryker/Bundles/Payolution
 - vendor/spryker/spryker/Bundles/Payone
 - vendor/spryker/spryker/Bundles/Price
 - vendor/spryker/spryker/Bundles/PriceCartConnector
