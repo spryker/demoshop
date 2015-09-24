@@ -20,8 +20,8 @@ dependencies:
 test:
   pre:
     - >
-      if [ -n "${RUN_NIGHTLY_BUILD}" ]; then
-        cd vendor/spryker/spryker && git checkout origin/${SPRYKER_BRANCH}
+      if [ -n "${RUN_SPRYKER_BUILD}" ]; then
+        cd vendor/spryker/spryker && git checkout origin/${BRANCH_PARENT}
       fi
   override:
 #    - phpcpd . --exclude="vendor" --exclude="config" --exclude="src/Generated" -n
