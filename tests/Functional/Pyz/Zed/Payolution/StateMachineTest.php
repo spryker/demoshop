@@ -95,7 +95,7 @@ class StateMachineTest extends AbstractFunctionalTest
         $checkoutRequestTransfer = $this->getCheckoutRequestTransfer();
         $this->checkoutFacade->requestCheckout($checkoutRequestTransfer);
 
-        $orderItem = SpySalesOrderItemQuery::create()->findOne();
+        $orderItem = SpySalesOrderItemQuery::create()->find()->getLast();
         $this->assertEquals('ready for pre-authorization', $orderItem->getState()->getName());
 
         $this->omsFacadeMock->triggerEventForOneItem('pre-authorize', $orderItem, $logContext = []);
@@ -119,7 +119,7 @@ class StateMachineTest extends AbstractFunctionalTest
         $checkoutRequestTransfer = $this->getCheckoutRequestTransfer();
         $this->checkoutFacade->requestCheckout($checkoutRequestTransfer);
 
-        $orderItem = SpySalesOrderItemQuery::create()->findOne();
+        $orderItem = SpySalesOrderItemQuery::create()->find()->getLast();
         $this->assertEquals('ready for pre-authorization', $orderItem->getState()->getName());
 
         $this->omsFacadeMock->triggerEventForOneItem('pre-authorize', $orderItem, $logContext = []);
@@ -134,7 +134,7 @@ class StateMachineTest extends AbstractFunctionalTest
         $checkoutRequestTransfer = $this->getCheckoutRequestTransfer();
         $this->checkoutFacade->requestCheckout($checkoutRequestTransfer);
 
-        $orderItem = SpySalesOrderItemQuery::create()->findOne();
+        $orderItem = SpySalesOrderItemQuery::create()->find()->getLast();
         $this->omsFacadeMock->triggerEventForOneItem('pre-authorize', $orderItem, $logContext = []);
         $this->omsFacadeMock->triggerEventForOneItem('ship', $orderItem, $logContext = []);
 
@@ -149,7 +149,7 @@ class StateMachineTest extends AbstractFunctionalTest
         $checkoutRequestTransfer = $this->getCheckoutRequestTransfer();
         $this->checkoutFacade->requestCheckout($checkoutRequestTransfer);
 
-        $orderItem = SpySalesOrderItemQuery::create()->findOne();
+        $orderItem = SpySalesOrderItemQuery::create()->find()->getLast();
         $this->omsFacadeMock->triggerEventForOneItem('pre-authorize', $orderItem, $logContext = []);
         $this->omsFacadeMock->triggerEventForOneItem('ship', $orderItem, $logContext = []);
         $this->omsFacadeMock->triggerEventForOneItem('capture payment', $orderItem, $logContext = []);
@@ -169,7 +169,7 @@ class StateMachineTest extends AbstractFunctionalTest
         $checkoutRequestTransfer = $this->getCheckoutRequestTransfer();
         $this->checkoutFacade->requestCheckout($checkoutRequestTransfer);
 
-        $orderItem = SpySalesOrderItemQuery::create()->findOne();
+        $orderItem = SpySalesOrderItemQuery::create()->find()->getLast();
         $this->omsFacadeMock->triggerEventForOneItem('pre-authorize', $orderItem, $logContext = []);
         $this->omsFacadeMock->triggerEventForOneItem('ship', $orderItem, $logContext = []);
         $this->omsFacadeMock->triggerEventForOneItem('capture payment', $orderItem, $logContext = []);
@@ -186,7 +186,7 @@ class StateMachineTest extends AbstractFunctionalTest
         $checkoutRequestTransfer = $this->getCheckoutRequestTransfer();
         $this->checkoutFacade->requestCheckout($checkoutRequestTransfer);
 
-        $orderItem = SpySalesOrderItemQuery::create()->findOne();
+        $orderItem = SpySalesOrderItemQuery::create()->find()->getLast();
         $this->omsFacadeMock->triggerEventForOneItem('pre-authorize', $orderItem, $logContext = []);
         $this->omsFacadeMock->triggerEventForOneItem('ship', $orderItem, $logContext = []);
         $this->omsFacadeMock->triggerEventForOneItem('capture payment', $orderItem, $logContext = []);
@@ -267,20 +267,22 @@ class StateMachineTest extends AbstractFunctionalTest
                 $container->getLocator()->payolutionCheckoutConnector()->pluginCheckoutOrderHydrationPlugin(),
             ];
         };
-        $container[CheckoutDependencyProvider::CHECKOUT_ORDERSAVERS] = function (Container $container) use ($orderSaverPlugin) {
+        $container[CheckoutDependencyProvider::CHECKOUT_ORDERSAVERS] = function (
+            Container $container
+        ) use ($orderSaverPlugin) {
             return [
                 $orderSaverPlugin,
                 $container->getLocator()->customerCheckoutConnector()->pluginOrderCustomerSavePlugin(),
                 $container->getLocator()->payolutionCheckoutConnector()->pluginCheckoutSaveOrderPlugin(),
             ];
         };
-        $container[CheckoutDependencyProvider::CHECKOUT_PRE_HYDRATOR] = function (Container $container) {
+        $container[CheckoutDependencyProvider::CHECKOUT_PRE_HYDRATOR] = function () {
             return [];
         };
-        $container[CheckoutDependencyProvider::CHECKOUT_POSTHOOKS] = function (Container $container) {
+        $container[CheckoutDependencyProvider::CHECKOUT_POSTHOOKS] = function () {
             return [];
         };
-        $container[CheckoutDependencyProvider::FACADE_OMS] = function (Container $container) use ($omsFacade) {
+        $container[CheckoutDependencyProvider::FACADE_OMS] = function () use ($omsFacade) {
             return $omsFacade;
         };
         $container[CheckoutDependencyProvider::FACADE_CALCULATION] = function (Container $container) {
@@ -316,7 +318,8 @@ class StateMachineTest extends AbstractFunctionalTest
             ->setSpyProduct($concreteProduct)
             ->save();
 
-        $itemTransfer = (new ItemTransfer())
+        $itemTransfer = new ItemTransfer();
+        $itemTransfer
             ->setSku('1234567890')
             ->setQuantity(1)
             ->setPriceToPay(10000)
@@ -324,16 +327,19 @@ class StateMachineTest extends AbstractFunctionalTest
             ->setName('Socken')
             ->setTaxSet(new TaxSetTransfer());
 
-        $totalsTransfer = (new TotalsTransfer())
+        $totalsTransfer = new TotalsTransfer();
+        $totalsTransfer
             ->setGrandTotal(10000)
             ->setGrandTotalWithDiscounts(10000)
             ->setSubtotal(10000);
 
-        $cartTransfer = (new CartTransfer())
+        $cartTransfer = new CartTransfer();
+        $cartTransfer
             ->addItem($itemTransfer)
             ->setTotals($totalsTransfer);
 
-        $billingAddressTransfer = (new AddressTransfer())
+        $billingAddressTransfer = new AddressTransfer();
+        $billingAddressTransfer
             ->setIso2Code('de')
             ->setEmail('john@doe.com')
             ->setFirstName('John')
@@ -343,7 +349,8 @@ class StateMachineTest extends AbstractFunctionalTest
             ->setZipCode('10623')
             ->setCity('Berlin');
 
-        $shippingAddressTransfer = (new AddressTransfer())
+        $shippingAddressTransfer = new AddressTransfer();
+        $shippingAddressTransfer
             ->setIso2Code('de')
             ->setEmail('john@doe.com')
             ->setFirstName('John')
@@ -353,7 +360,8 @@ class StateMachineTest extends AbstractFunctionalTest
             ->setZipCode('80469')
             ->setCity('München');
 
-        $checkoutRequestTransfer = (new CheckoutRequestTransfer())
+        $checkoutRequestTransfer = new CheckoutRequestTransfer();
+        $checkoutRequestTransfer
             ->setGuest(false)
             ->setIdUser(null)
             ->setShippingAddress($shippingAddressTransfer)
@@ -361,24 +369,29 @@ class StateMachineTest extends AbstractFunctionalTest
             ->setPaymentMethod('invoice')
             ->setCart($cartTransfer);
 
-        $payment = new PayolutionPaymentTransfer();
-        $payment
+        $paymentAddressTransfer = new AddressTransfer();
+        $paymentAddressTransfer
+            ->setIso2Code('de')
+            ->setEmail('testst@tewst.com')
             ->setFirstName('John')
             ->setLastName('Doe')
-            ->setSalutation(SpyPaymentPayolutionTableMap::COL_SALUTATION_MR)
-            ->setGender(SpyPaymentPayolutionTableMap::COL_GENDER_MALE)
-            ->setEmail('testst@tewst.com')
-            ->setDateOfBirth('1970-01-02')
-            ->setCountryIso2Code('de')
-            ->setCity('Berlin')
-            ->setStreet('Straße des 17. Juni 135')
+            ->setAddress1('Straße des 17. Juni')
+            ->setAddress2('135')
             ->setZipCode('10623')
+            ->setSalutation(SpyPaymentPayolutionTableMap::COL_SALUTATION_MR)
+            ->setCity('Berlin');
+
+        $paymentTransfer = new PayolutionPaymentTransfer();
+        $paymentTransfer
+            ->setGender(SpyPaymentPayolutionTableMap::COL_GENDER_MALE)
+            ->setDateOfBirth('1970-01-02')
             ->setClientIp('127.0.0.1')
             ->setAccountBrand(PayolutionApiConstants::BRAND_INVOICE)
             ->setLanguageIso2Code('de')
-            ->setCurrencyIso3Code('EUR');
+            ->setCurrencyIso3Code('EUR')
+            ->setAddress($paymentAddressTransfer);
 
-        $checkoutRequestTransfer->setPayolutionPayment($payment);
+        $checkoutRequestTransfer->setPayolutionPayment($paymentTransfer);
 
         return $checkoutRequestTransfer;
     }
