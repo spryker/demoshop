@@ -37,6 +37,8 @@ class ConsoleConfig extends SprykerConsoleConfig
             $this->getLocator()->propel()->consoleInsertSqlConsole(),
             $this->getLocator()->propel()->consoleMigrateConsole(),
             $this->getLocator()->propel()->consoleSchemaCopyConsole(),
+            $this->getLocator()->productSearch()->consoleProductSearchConsole(),
+            $this->getLocator()->search()->consoleSearchConsole(),
             $this->getLocator()->setup()->consoleGenerateIdeAutoCompletionConsole(),
             $this->getLocator()->setup()->consoleGenerateZedIdeAutoCompletionConsole(),
             $this->getLocator()->setup()->consoleGenerateYvesIdeAutoCompletionConsole(),
