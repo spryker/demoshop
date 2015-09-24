@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "4ab72f8ef9f6e71a50fe0027599e3bd9",
+    "hash": "beb7947e5ba54b42d0f4c6be1dc01e51",
     "packages": [
         {
             "name": "digital-canvas/zend-framework",
@@ -703,19 +703,11 @@
         },
         {
             "name": "spryker/spryker",
-            "version": "dev-bugfix/CD-463-Move-InstallProductSearch-to-own-command",
+            "version": "dev-develop",
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/spryker.git",
-<<<<<<< HEAD
-<<<<<<< HEAD
-                "reference": "3e99b869fc8e96dbb7360bceeaafa789a329dda4"
-=======
-                "reference": "0ce236a953a51cdcbf0df4273d8ad6156b5ae2df"
->>>>>>> CD-463 update composer
-=======
-                "reference": "25154e02503c315a6206f38b1a3e611a7a0900a3"
->>>>>>> Removed @method, update composer
+                "reference": "611c1700516e935c9e471b651850f4a577e63fa7"
             },
             "require": {
                 "digital-canvas/zend-framework": ">=1.12.2"
@@ -804,15 +796,7 @@
                     "SprykerFeature\\Shared\\Library": "Bundles/Library/src/"
                 }
             },
-<<<<<<< HEAD
-<<<<<<< HEAD
-            "time": "2015-09-24 10:38:59"
-=======
-            "time": "2015-09-24 09:36:17"
->>>>>>> CD-463 update composer
-=======
-            "time": "2015-09-24 10:58:36"
->>>>>>> Removed @method, update composer
+            "time": "2015-09-24 12:09:23"
         },
         {
             "name": "symfony-cmf/routing",
