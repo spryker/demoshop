@@ -2,12 +2,10 @@
 
 namespace Pyz\Zed\Product\Communication\Plugin;
 
-use Pyz\Zed\Product\Business\ProductDependencyContainer;
 use Pyz\Zed\Product\Business\ProductFacade;
 use SprykerFeature\Zed\Installer\Communication\Plugin\AbstractInstallerPlugin;
 
 /**
- * @method ProductDependencyContainer getDependencyContainer()
  * @method ProductFacade getFacade()
  */
 class DemoDataInstaller extends AbstractInstallerPlugin

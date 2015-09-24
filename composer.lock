@@ -708,10 +708,14 @@
                 "type": "git",
                 "url": "git@github.com:spryker/spryker.git",
 <<<<<<< HEAD
+<<<<<<< HEAD
                 "reference": "3e99b869fc8e96dbb7360bceeaafa789a329dda4"
 =======
                 "reference": "0ce236a953a51cdcbf0df4273d8ad6156b5ae2df"
 >>>>>>> CD-463 update composer
+=======
+                "reference": "25154e02503c315a6206f38b1a3e611a7a0900a3"
+>>>>>>> Removed @method, update composer
             },
             "require": {
                 "digital-canvas/zend-framework": ">=1.12.2"
@@ -801,10 +805,14 @@
                 }
             },
 <<<<<<< HEAD
+<<<<<<< HEAD
             "time": "2015-09-24 10:38:59"
 =======
             "time": "2015-09-24 09:36:17"
 >>>>>>> CD-463 update composer
+=======
+            "time": "2015-09-24 10:58:36"
+>>>>>>> Removed @method, update composer
         },
         {
             "name": "symfony-cmf/routing",
