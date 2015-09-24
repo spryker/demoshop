@@ -81,7 +81,7 @@ module.exports = {
             $paymentButton.attr('disabled', $('input[name="checkout[payment_method]"]:checked').length != 1);
 
             var $payolutionForm = $('.js-payolution-payment');
-            if ('payolution-invoice' === event.target.value && event.target.checked) {
+            if ('invoice' === event.target.value && event.target.checked) {
                 $payolutionForm.show();
             } else {
                 $payolutionForm.hide();

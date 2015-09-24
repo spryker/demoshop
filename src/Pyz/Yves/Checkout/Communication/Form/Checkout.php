@@ -67,7 +67,7 @@ class Checkout extends AbstractType
                     'prepay' => 'Vorkasse',
                     'paypal' => 'PayPal',
                     'creditcard' => 'Kreditkarte',
-                    'payolution-invoice' => 'Rechnung',
+                    'invoice' => 'Rechnung',
                 ],
                 'expanded' => true,
                 'multiple' => false,
@@ -98,7 +98,7 @@ class Checkout extends AbstractType
                 'required' => false,
                 'mapped' => false,
                 'attr' => [
-                    'tabindex' => 500,
+                    'tabindex' => 600,
                     'class' => 'padded confirm__agb js-confirm-agb',
                 ],
             ])

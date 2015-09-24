@@ -63,6 +63,9 @@ class CheckoutController extends AbstractController
                 $checkoutRequest->setCart($this->getCart());
                 $checkoutRequest->setShippingAddress($checkoutRequest->getBillingAddress());
 
+                // @todo CD-408 find a way to obtain the "real" gender
+                $checkoutRequest->getPayolutionPayment()->setGender('Male');
+
                 /** @var CheckoutResponseTransfer $checkoutResponseTransfer */
                 $checkoutResponseTransfer = $checkoutClient->requestCheckout($checkoutRequest);
 
