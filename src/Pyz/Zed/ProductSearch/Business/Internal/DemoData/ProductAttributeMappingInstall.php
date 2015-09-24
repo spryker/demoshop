@@ -149,6 +149,7 @@ class ProductAttributeMappingInstall extends AbstractInstaller
                 ->filterByFkProduct($product->getIdProduct())
                 ->filterByFkLocale($idLocale)
                 ->findOneOrCreate();
+
             $searchableProduct->setIsSearchable(true);
             $searchableProduct->save();
 
