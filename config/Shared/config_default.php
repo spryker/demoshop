@@ -64,7 +64,6 @@ $config[SystemConfig::HOST_ZED_GUI]
     = 'zed.spryker.dev';
 
 $config[SystemConfig::LOG_LEVEL] = Monolog\Logger::INFO;
-$config[SystemConfig::LOG_PROPEL_SQL] = true;
 
 $config[YvesConfig::TRANSFER_USERNAME] = 'yves';
 $config[YvesConfig::TRANSFER_PASSWORD] = 'o7&bg=Fz;nSslHBC';
@@ -290,3 +289,5 @@ $config[LumberjackConfig::COLLECTOR_OPTIONS] = [
 ];
 
 $config[YvesConfig::YVES_SHOW_EXCEPTION_STACK_TRACE] = true;
+
+$config[SystemConfig::PROPEL_DEBUG] = false;

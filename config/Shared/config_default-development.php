@@ -35,3 +35,6 @@ $config[AclConfig::ACL_USER_RULE_WHITELIST][] = [
     'action' => '*',
     'type' => 'allow',
 ];
+
+$config[SystemConfig::PROPEL_DEBUG] = true;
+$config[ApplicationConfig::SHOW_SYMFONY_TOOLBAR] = true;

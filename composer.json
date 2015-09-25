@@ -1,6 +1,6 @@
 {
   "require": {
-    "spryker/spryker": "dev-develop",
+    "spryker/spryker": "dev-bugfix/CD-476-Make-Propel-Logger-configurable",
 
     "psr/log": "~1.0",
     "propel/propel": "~2.0@dev",
