@@ -8,18 +8,25 @@ use SprykerFeature\Shared\System\SystemConfig;
 use SprykerFeature\Shared\Yves\YvesConfig;
 use SprykerFeature\Shared\Application\ApplicationConfig;
 use SprykerFeature\Shared\Acl\AclConfig;
+use SprykerFeature\Shared\Session\SessionConfig;
 
-$config[SystemConfig::ZED_SESSION_SAVE_HANDLER]
-    = $config[YvesConfig::YVES_SESSION_SAVE_HANDLER]
-    = 'redis';
+const SESSION_LIFETIME_30_DAYS = '2592000';
+const SESSION_LIFETIME_1_HOUR = '3600';
 
+$config[YvesConfig::YVES_SESSION_SAVE_HANDLER] = SessionConfig::SESSION_HANDLER_REDIS;
+
+$config[SystemConfig::ZED_SESSION_SAVE_HANDLER] = SessionConfig::SESSION_HANDLER_FILE;
+
+$config[SystemConfig::YVES_STORAGE_SESSION_TTL] = SESSION_LIFETIME_1_HOUR;
 $config[SystemConfig::YVES_STORAGE_SESSION_REDIS_PROTOCOL] = 'tcp';
 $config[SystemConfig::YVES_STORAGE_SESSION_REDIS_HOST] = '127.0.0.1';
 $config[SystemConfig::YVES_STORAGE_SESSION_REDIS_PORT] = '10009';
 
+$config[SystemConfig::ZED_STORAGE_SESSION_TTL] = SESSION_LIFETIME_30_DAYS;
 $config[SystemConfig::ZED_STORAGE_SESSION_REDIS_PROTOCOL] = $config[SystemConfig::YVES_STORAGE_SESSION_REDIS_PROTOCOL];
 $config[SystemConfig::ZED_STORAGE_SESSION_REDIS_HOST] = $config[SystemConfig::YVES_STORAGE_SESSION_REDIS_HOST];
 $config[SystemConfig::ZED_STORAGE_SESSION_REDIS_PORT] = $config[SystemConfig::YVES_STORAGE_SESSION_REDIS_PORT];
+$config[SystemConfig::ZED_STORAGE_SESSION_FILE_PATH] = $config[SystemConfig::YVES_STORAGE_SESSION_REDIS_PORT];
 
 $config[YvesConfig::YVES_SESSION_COOKIE_DOMAIN] = $config[SystemConfig::HOST_YVES];
 

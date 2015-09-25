@@ -6,12 +6,13 @@
 
 namespace Pyz\Yves\Session\Communication\Plugin\ServiceProvider;
 
+use Pyz\Yves\Session\Business\Model\Session;
+use Pyz\Yves\Session\Business\Model\SessionHelper;
 use Silex\Application;
 use Silex\ServiceProviderInterface;
 use SprykerEngine\Yves\Kernel\Communication\AbstractPlugin;
 use SprykerFeature\Client\Session\Service\SessionClientInterface;
 use SprykerFeature\Shared\Library\Config;
-use SprykerFeature\Shared\Library\Session as SessionHelper;
 use SprykerFeature\Shared\Session\SessionConfig;
 use SprykerFeature\Shared\System\SystemConfig;
 use SprykerFeature\Shared\Yves\YvesConfig;
@@ -63,26 +64,27 @@ class SessionServiceProvider extends AbstractPlugin implements ServiceProviderIn
         }
         $app['session.storage.options'] = $options;
 
+        $sessionHelper = new SessionHelper();
         /*
          * We manually register our own couchbase session handler, for all other handlers we use the generic one
          */
         switch ($saveHandler) {
             case SessionConfig::SESSION_HANDLER_COUCHBASE:
-                $couchbaseSessionHandler = SessionHelper::registerCouchbaseSessionHandler($this->getSavePath($saveHandler));
+                $couchbaseSessionHandler = $sessionHelper->registerCouchbaseSessionHandler($this->getSavePath($saveHandler));
                 $app['session.storage.handler'] = $app->share(function () use ($couchbaseSessionHandler) {
                     return $couchbaseSessionHandler;
                 });
                 break;
 
             case SessionConfig::SESSION_HANDLER_MYSQL:
-                $mysqlSessionHandler = SessionHelper::registerMysqlSessionHandler($this->getSavePath($saveHandler));
+                $mysqlSessionHandler = $sessionHelper->registerMysqlSessionHandler($this->getSavePath($saveHandler));
                 $app['session.storage.handler'] = $app->share(function () use ($mysqlSessionHandler) {
                     return $mysqlSessionHandler;
                 });
                 break;
 
             case SessionConfig::SESSION_HANDLER_REDIS:
-                $redisSessionHandler = SessionHelper::registerRedisSessionHandler($this->getSavePath($saveHandler));
+                $redisSessionHandler = $sessionHelper->registerRedisSessionHandler($this->getSavePath($saveHandler));
                 $app['session.storage.handler'] = $app->share(function () use ($redisSessionHandler) {
                     return $redisSessionHandler;
                 });
