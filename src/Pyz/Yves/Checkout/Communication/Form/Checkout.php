@@ -63,7 +63,12 @@ class Checkout extends AbstractType
                 ],
             ])
             ->add('payment_method', 'choice', [
-                'choices' => ['prepay' => 'Vorkasse', 'paypal' => 'PayPal', 'creditcard' => 'Kreditkarte'],
+                'choices' => [
+                    'prepay' => 'Vorkasse',
+                    'paypal' => 'PayPal',
+                    'creditcard' => 'Kreditkarte',
+                    'payolution-invoice' => 'Rechnung',
+                ],
                 'expanded' => true,
                 'multiple' => false,
                 'required' => false,
@@ -71,6 +76,13 @@ class Checkout extends AbstractType
                 'attr' => [
                     'style' => 'display: block;',
                 ],
+            ])
+            ->add('payolution_payment', new Payolution(400), [
+                'data_class' => 'Generated\Shared\Transfer\PayolutionPaymentTransfer',
+                'error_bubbling' => true,
+                'attr' => [
+                    'class' => 'js-payolution-payment'
+                ]
             ])
             ->add('id_shipment_method', 'choice', [
                 'choices' => $this->prepareShipmentMethods(),
@@ -86,7 +98,7 @@ class Checkout extends AbstractType
                 'required' => false,
                 'mapped' => false,
                 'attr' => [
-                    'tabindex' => 400,
+                    'tabindex' => 500,
                     'class' => 'padded confirm__agb js-confirm-agb',
                 ],
             ])

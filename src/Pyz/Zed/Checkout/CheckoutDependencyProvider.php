@@ -55,6 +55,7 @@ class CheckoutDependencyProvider extends SprykerCheckoutDependencyProvider
             $container->getLocator()->itemGrouperCheckoutConnector()->pluginOrderItemGroupingHydrationPlugin(),
             $container->getLocator()->omsCheckoutConnector()->pluginOrderOmsHydrationPlugin(),
             $container->getLocator()->discountCheckoutConnector()->pluginDiscountOrderHydrationPlugin(),
+            $container->getLocator()->payolutionCheckoutConnector()->pluginCheckoutOrderHydrationPlugin(),
         ];
     }
 
@@ -69,6 +70,7 @@ class CheckoutDependencyProvider extends SprykerCheckoutDependencyProvider
             $container->getLocator()->salesCheckoutConnector()->pluginSalesOrderSaverPlugin(),
             $container->getLocator()->customerCheckoutConnector()->pluginOrderCustomerSavePlugin(),
             $container->getLocator()->discountCheckoutConnector()->pluginDiscountOrderSavePlugin(),
+            $container->getLocator()->payolutionCheckoutConnector()->pluginCheckoutSaveOrderPlugin(),
         ];
     }
 

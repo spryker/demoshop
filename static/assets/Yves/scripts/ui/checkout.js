@@ -9,6 +9,7 @@ var $nameInput,
     $deliveryAddressInput,
     $addressButton,
     $paymentButton,
+    $paymentPayolutionOption,
     $shipmentButton,
     $addressElements,
     $addressValidationResult;
@@ -21,6 +22,7 @@ var initValidation = function () {
     $deliveryAddressInput = $('.js-delivery-address');
     $addressButton = $('.js-address-button');
     $paymentButton = $('.js-payment-button');
+    $paymentPayolutionOption = $('[name="checkout[payment_method]"][value="payolution-invoice"]');
     $shipmentButton = $('.js-shipment-button');
     $('.js-checkout-address input, .js-checkout-address textarea').keyup(validateAddressBlock);
     $addressCheckbox.click(validateAddressBlock);
@@ -75,8 +77,15 @@ module.exports = {
     init: function () {
         initValidation();
 
-        $('input[name="checkout[payment_method]"]').on('change', function () {
+        $('input[name="checkout[payment_method]"]').on('change', function (event) {
             $paymentButton.attr('disabled', $('input[name="checkout[payment_method]"]:checked').length != 1);
+
+            var $payolutionForm = $('.js-payolution-payment');
+            if ('payolution-invoice' === event.target.value && event.target.checked) {
+                $payolutionForm.show();
+            } else {
+                $payolutionForm.hide();
+            }
         });
 
         $('input[name="checkout[id_shipment_method]"]').on('change', function () {
