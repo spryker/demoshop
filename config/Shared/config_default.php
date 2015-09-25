@@ -10,8 +10,6 @@ use SprykerFeature\Shared\System\SystemConfig;
 use SprykerFeature\Shared\User\UserConfig;
 use SprykerFeature\Shared\Yves\YvesConfig;
 use SprykerEngine\Shared\Lumberjack\LumberjackConfig;
-use Monolog\Logger;
-use Monolog\Handler\StreamHandler;
 
 $config[SystemConfig::PROJECT_NAMESPACES] = [
     'Pyz',
