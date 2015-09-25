@@ -4,7 +4,7 @@ namespace Pyz\Codeception\Module;
 
 use Codeception\Module;
 use Codeception\TestCase;
-use SprykerFeature\Zed\Application\Communication\Plugin\ServiceProvider\PropelServiceProvider;
+use SprykerEngine\Zed\Propel\Communication\Plugin\ServiceProvider\PropelServiceProvider;
 use Propel\Runtime\Propel;
 use Silex\Application;
 

@@ -13,6 +13,7 @@ use Silex\ServiceProviderInterface;
 use SprykerEngine\Shared\Kernel\Store;
 use SprykerEngine\Zed\Kernel\Locator;
 use SprykerEngine\Zed\Translation\Communication\Plugin\TranslationServiceProvider;
+use SprykerFeature\Shared\Application\ApplicationConfig;
 use SprykerFeature\Shared\Application\Business\Application;
 use SprykerFeature\Shared\Application\Business\Bootstrap;
 use SprykerFeature\Shared\Application\Business\Routing\SilexRouter;
@@ -28,7 +29,7 @@ use SprykerFeature\Zed\Application\Business\Model\Twig\ZedExtension;
 use SprykerFeature\Zed\Application\Communication\Plugin\Pimple;
 use SprykerFeature\Zed\Application\Communication\Plugin\ServiceProvider\EnvironmentInformationServiceProvider;
 use SprykerFeature\Zed\Application\Communication\Plugin\ServiceProvider\NewRelicServiceProvider;
-use SprykerFeature\Zed\Application\Communication\Plugin\ServiceProvider\PropelServiceProvider;
+use SprykerEngine\Zed\Propel\Communication\Plugin\ServiceProvider\PropelServiceProvider;
 use SprykerFeature\Zed\Application\Communication\Plugin\ServiceProvider\RequestServiceProvider;
 use SprykerFeature\Zed\Application\Communication\Plugin\ServiceProvider\SslServiceProvider;
 use SprykerFeature\Zed\Application\Communication\Plugin\ServiceProvider\TwigServiceProvider;
@@ -122,7 +123,7 @@ class ZedBootstrap extends Bootstrap
             new HttpFragmentServiceProvider(),
         ];
 
-        if (\SprykerFeature_Shared_Library_Environment::isDevelopment()) {
+        if (Config::get(ApplicationConfig::SHOW_SYMFONY_TOOLBAR)) {
             $providers[] = new WebProfilerServiceProvider();
         }
 
