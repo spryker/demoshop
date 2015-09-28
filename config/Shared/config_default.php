@@ -10,6 +10,7 @@ use SprykerFeature\Shared\System\SystemConfig;
 use SprykerFeature\Shared\User\UserConfig;
 use SprykerFeature\Shared\Yves\YvesConfig;
 use SprykerEngine\Shared\Lumberjack\LumberjackConfig;
+use SprykerFeature\Shared\Session\SessionConfig;
 
 $config[SystemConfig::PROJECT_NAMESPACES] = [
     'Pyz',
@@ -74,6 +75,11 @@ $config[YvesConfig::TRANSFER_DEBUG_SESSION_NAME] = 'XDEBUG_SESSION';
 $config[SystemConfig::ZED_LIBRARY_PASSWORD_ALGORITHM] = PASSWORD_BCRYPT;
 $config[SystemConfig::ZED_LIBRARY_PASSWORD_OPTIONS] = [];
 
+$config[SystemConfig::YVES_STORAGE_SESSION_TIME_TO_LIVE] = SessionConfig::SESSION_LIFETIME_1_HOUR;
+$config[SystemConfig::YVES_STORAGE_SESSION_FILE_PATH] = session_save_path();
+
+$config[SystemConfig::ZED_STORAGE_SESSION_TIME_TO_LIVE] = SessionConfig::SESSION_LIFETIME_30_DAYS;
+$config[SystemConfig::ZED_STORAGE_SESSION_FILE_PATH] = session_save_path();
 $config[SystemConfig::ZED_SESSION_SAVE_HANDLER] = null;
 
 $config[SystemConfig::ZED_SSL_ENABLED] = false;
@@ -85,7 +91,8 @@ $config[YvesConfig::YVES_TRUSTED_PROXIES] = [];
 $config[YvesConfig::YVES_SSL_ENABLED] = false;
 $config[YvesConfig::YVES_COMPLETE_SSL_ENABLED] = false;
 $config[YvesConfig::YVES_SSL_EXCLUDED] = ['/monitoring/heartbeat'];
-$config[YvesConfig::YVES_SESSION_SAVE_HANDLER] = null;
+
+$config[YvesConfig::YVES_SESSION_SAVE_HANDLER] = SessionConfig::SESSION_HANDLER_REDIS;
 $config[YvesConfig::YVES_SESSION_NAME] = 'yves_session';
 $config[YvesConfig::YVES_SESSION_COOKIE_DOMAIN] = $config[SystemConfig::HOST_YVES];
 $config[YvesConfig::YVES_ERROR_PAGE] = APPLICATION_ROOT_DIR . '/static/public/Yves/errorpage/error.html';
