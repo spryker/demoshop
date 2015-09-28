@@ -8,10 +8,10 @@ use SprykerFeature\Shared\System\SystemConfig;
 use SprykerFeature\Shared\Yves\YvesConfig;
 use SprykerFeature\Shared\Application\ApplicationConfig;
 use SprykerFeature\Shared\Acl\AclConfig;
+use SprykerFeature\Shared\Session\SessionConfig;
 
-$config[SystemConfig::ZED_SESSION_SAVE_HANDLER]
-    = $config[YvesConfig::YVES_SESSION_SAVE_HANDLER]
-    = 'redis';
+$config[YvesConfig::YVES_SESSION_SAVE_HANDLER] = SessionConfig::SESSION_HANDLER_REDIS;
+$config[SystemConfig::ZED_SESSION_SAVE_HANDLER] = SessionConfig::SESSION_HANDLER_FILE;
 
 $config[SystemConfig::YVES_STORAGE_SESSION_REDIS_PROTOCOL] = 'tcp';
 $config[SystemConfig::YVES_STORAGE_SESSION_REDIS_HOST] = '127.0.0.1';
