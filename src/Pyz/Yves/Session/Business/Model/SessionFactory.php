@@ -7,10 +7,10 @@
 namespace Pyz\Yves\Session\Business\Model;
 
 use SprykerEngine\Shared\Config;
-use SprykerFeature\Shared\Session\Business\Model\SessionHelper as SharedSessionHelper;
+use SprykerFeature\Shared\Session\Business\Model\SessionFactory as SharedSessionFactory;
 use SprykerFeature\Shared\System\SystemConfig;
 
-class SessionHelper extends SharedSessionHelper
+class SessionFactory extends SharedSessionFactory
 {
 
     /**
@@ -18,7 +18,7 @@ class SessionHelper extends SharedSessionHelper
      */
     protected function getSessionLifetime()
     {
-        $lifetime = (int) ini_get('session.gc_maxlifetime');
+        $lifetime = (int) Config::get(SystemConfig::YVES_STORAGE_SESSION_TIME_TO_LIVE);
 
         return $lifetime;
     }

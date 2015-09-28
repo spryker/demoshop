@@ -7,7 +7,7 @@
 namespace Pyz\Yves\Session\Communication\Plugin\ServiceProvider;
 
 use Pyz\Yves\Session\Business\Model\Session;
-use Pyz\Yves\Session\Business\Model\SessionHelper;
+use Pyz\Yves\Session\Business\Model\SessionFactory;
 use Silex\Application;
 use Silex\ServiceProviderInterface;
 use SprykerEngine\Yves\Kernel\Communication\AbstractPlugin;
@@ -43,28 +43,28 @@ class SessionServiceProvider extends AbstractPlugin implements ServiceProviderIn
         if ($saveHandler !== SessionConfig::SESSION_HANDLER_COUCHBASE
             && $saveHandler !== SessionConfig::SESSION_HANDLER_MYSQL
             && $saveHandler !== SessionConfig::SESSION_HANDLER_REDIS
+            && $saveHandler !== SessionConfig::SESSION_HANDLER_FILE
         ) {
-
             if (Config::get(YvesConfig::YVES_SESSION_SAVE_HANDLER) && $this->getSavePath($saveHandler)) {
                 ini_set('session.save_handler', Config::get(YvesConfig::YVES_SESSION_SAVE_HANDLER));
                 session_save_path($this->getSavePath($saveHandler));
             }
         }
 
-        $app['session.storage.options'] = [
+        $sessionStorageOptions = [
             'cookie_httponly' => true,
+            'cookie_lifetime' => Config::get(SystemConfig::YVES_STORAGE_SESSION_TIME_TO_LIVE),
         ];
 
-        $options = [];
         if (($name = Config::get(YvesConfig::YVES_SESSION_NAME))) {
-            $options['name'] = $name;
+            $sessionStorageOptions['name'] = $name;
         }
         if (($cookie_domain = Config::get(YvesConfig::YVES_SESSION_COOKIE_DOMAIN))) {
-            $options['cookie_domain'] = $cookie_domain;
+            $sessionStorageOptions['cookie_domain'] = $cookie_domain;
         }
-        $app['session.storage.options'] = $options;
+        $app['session.storage.options'] = $sessionStorageOptions;
 
-        $sessionHelper = new SessionHelper();
+        $sessionHelper = new SessionFactory();
         /*
          * We manually register our own couchbase session handler, for all other handlers we use the generic one
          */
@@ -85,6 +85,13 @@ class SessionServiceProvider extends AbstractPlugin implements ServiceProviderIn
 
             case SessionConfig::SESSION_HANDLER_REDIS:
                 $redisSessionHandler = $sessionHelper->registerRedisSessionHandler($this->getSavePath($saveHandler));
+                $app['session.storage.handler'] = $app->share(function () use ($redisSessionHandler) {
+                    return $redisSessionHandler;
+                });
+                break;
+
+            case SessionConfig::SESSION_HANDLER_FILE:
+                $redisSessionHandler = $sessionHelper->registerFileSessionHandler($this->getSavePath($saveHandler));
                 $app['session.storage.handler'] = $app->share(function () use ($redisSessionHandler) {
                     return $redisSessionHandler;
                 });
@@ -122,6 +129,11 @@ class SessionServiceProvider extends AbstractPlugin implements ServiceProviderIn
                     . '://' . Config::get(SystemConfig::YVES_STORAGE_SESSION_REDIS_HOST)
                     . ':' . Config::get(SystemConfig::YVES_STORAGE_SESSION_REDIS_PORT);
                 break;
+
+            case SessionConfig::SESSION_HANDLER_FILE:
+                $path = Config::get(SystemConfig::YVES_STORAGE_SESSION_FILE_PATH);
+                break;
+
             default:
                 throw new \Exception('Needs implementation for mysql and couchbase!');
         }
