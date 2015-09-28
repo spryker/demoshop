@@ -10,10 +10,10 @@ use Generated\Shared\Transfer\AddressTransfer;
 use Generated\Shared\Transfer\CartTransfer;
 use Generated\Shared\Transfer\CheckoutRequestTransfer;
 use Generated\Shared\Transfer\ItemTransfer;
-use Generated\Shared\Transfer\OrderItemsTransfer;
 use Generated\Shared\Transfer\PayolutionPaymentTransfer;
 use Generated\Shared\Transfer\TaxSetTransfer;
 use Generated\Shared\Transfer\TotalsTransfer;
+use Pyz\Codeception\Module\EnvironmentalTestCaseInterface;
 use Pyz\Zed\Oms\Business\OmsFacade;
 use SprykerEngine\Zed\Kernel\AbstractFunctionalTest;
 use SprykerEngine\Zed\Kernel\Container;
@@ -25,7 +25,6 @@ use SprykerFeature\Zed\Checkout\CheckoutDependencyProvider;
 use SprykerFeature\Zed\Payolution\Persistence\Propel\Map\SpyPaymentPayolutionTableMap;
 use SprykerFeature\Zed\Product\Persistence\Propel\SpyAbstractProduct;
 use SprykerFeature\Zed\Product\Persistence\Propel\SpyProduct;
-use SprykerFeature\Zed\Sales\Persistence\Propel\SpySalesOrderItem;
 use SprykerFeature\Zed\Sales\Persistence\Propel\SpySalesOrderItemQuery;
 use SprykerFeature\Zed\Sales\SalesDependencyProvider;
 use SprykerFeature\Zed\SalesCheckoutConnector\Communication\Plugin\SalesOrderSaverPlugin;
@@ -33,6 +32,13 @@ use SprykerFeature\Zed\Stock\Persistence\Propel\SpyStock;
 use SprykerFeature\Zed\Stock\Persistence\Propel\SpyStockProduct;
 
 /**
+ * Modes of this test:
+ *
+ * You can run this test against a set of pre-defined mock-responses (default) and against
+ * Payolution's sandbox interface. To use the sandbox interface use environment environment
+ * 'payolutionLiveMode' (--env payolutionLiveMode).
+ *
+ *
  * A couple of things to know about the mocked objects:
  *
  * 1.) OMS facade
@@ -55,8 +61,9 @@ use SprykerFeature\Zed\Stock\Persistence\Propel\SpyStockProduct;
  * gateway. The replacement is done through the command plugins that are provided to the OMS facade in #1.
  * PayolutionOmsConnector‚'s dependency-provider will return the mocked Payolution facade.
  */
-class StateMachineTest extends AbstractFunctionalTest
+class StateMachineTest extends AbstractFunctionalTest implements EnvironmentalTestCaseInterface
 {
+
     /**
      * @var bool[]
      */
@@ -72,6 +79,11 @@ class StateMachineTest extends AbstractFunctionalTest
      */
     private $checkoutFacade;
 
+    /**
+     * @var array
+     */
+    private $environmentConfig = [];
+
     protected function _before()
     {
         parent::_before();
@@ -86,6 +98,14 @@ class StateMachineTest extends AbstractFunctionalTest
 
         $this->omsFacadeMock = null;
         $this->checkoutFacade = null;
+    }
+
+    /**
+     * @param array $config
+     */
+    public function setEnvironmentConfig(array $config = [])
+    {
+        $this->environmentConfig = $config;
     }
 
     public function testItemStatesForDefaultScenario()
@@ -113,6 +133,11 @@ class StateMachineTest extends AbstractFunctionalTest
 
     public function testItemStatesForDefaultScenarioWithFailedPreAuthorization()
     {
+        if ($this->isLiveMode()) {
+            $this->markTestSkipped('Skipping test due to live mode');
+            return;
+        }
+
         $this->expectPreAuthorizationFailure();
         $this->setUpFacades();
 
@@ -128,6 +153,11 @@ class StateMachineTest extends AbstractFunctionalTest
 
     public function testItemStatesForDefaultScenarioWithFailedCapture()
     {
+        if ($this->isLiveMode()) {
+            $this->markTestSkipped('Skipping test due to live mode');
+            return;
+        }
+
         $this->expectCaptureFailure();
         $this->setUpFacades();
 
@@ -163,6 +193,11 @@ class StateMachineTest extends AbstractFunctionalTest
 
     public function testItemStatesForFullRefundBeforePaymentScenarioWithFailedRefund()
     {
+        if ($this->isLiveMode()) {
+            $this->markTestSkipped('Skipping test due to live mode');
+            return;
+        }
+
         $this->expectRefundFailure();
         $this->setUpFacades();
 
@@ -218,7 +253,21 @@ class StateMachineTest extends AbstractFunctionalTest
      */
     private function getOmsFacadeMockBuilder()
     {
-        return new OmsFacadeMockBuilder($this);
+        return new OmsFacadeMockBuilder($this, $this->isLiveMode());
+    }
+
+    /**
+     * @return bool
+     */
+    private function isLiveMode()
+    {
+        if (true === array_key_exists('mode', $this->environmentConfig)
+            && 'live' === $this->environmentConfig['mode']
+        ) {
+            return true;
+        }
+
+        return false;
     }
 
     /**
@@ -362,7 +411,6 @@ class StateMachineTest extends AbstractFunctionalTest
 
         $checkoutRequestTransfer = new CheckoutRequestTransfer();
         $checkoutRequestTransfer
-            ->setGuest(false)
             ->setIdUser(null)
             ->setShippingAddress($shippingAddressTransfer)
             ->setBillingAddress($billingAddressTransfer)
@@ -402,6 +450,7 @@ class StateMachineTest extends AbstractFunctionalTest
     private function expectPreAuthorizationFailure()
     {
         $this->expectSuccess['preAuthorization'] = false;
+
         return $this;
     }
 
@@ -411,6 +460,7 @@ class StateMachineTest extends AbstractFunctionalTest
     private function expectReAuthorizationFailure()
     {
         $this->expectSuccess['reAuthorization'] = false;
+
         return $this;
     }
 
@@ -420,6 +470,7 @@ class StateMachineTest extends AbstractFunctionalTest
     private function expectReversalFailure()
     {
         $this->expectSuccess['reversal'] = false;
+
         return $this;
     }
 
@@ -429,6 +480,7 @@ class StateMachineTest extends AbstractFunctionalTest
     private function expectCaptureFailure()
     {
         $this->expectSuccess['capture'] = false;
+
         return $this;
     }
 
@@ -438,6 +490,7 @@ class StateMachineTest extends AbstractFunctionalTest
     private function expectRefundFailure()
     {
         $this->expectSuccess['refund'] = false;
+
         return $this;
     }
 

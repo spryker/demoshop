@@ -23,6 +23,9 @@ use SprykerEngine\Zed\Kernel\Persistence\Factory as PersistenceFactory;
 use SprykerFeature\Zed\Oms\Business\OmsDependencyContainer;
 use SprykerFeature\Zed\Oms\OmsDependencyProvider;
 use SprykerFeature\Zed\Oms\Persistence\OmsQueryContainer;
+use SprykerFeature\Zed\Payolution\Business\Api\Adapter\AdapterInterface;
+use SprykerFeature\Zed\Payolution\Business\Api\Adapter\Http\Guzzle;
+use SprykerFeature\Zed\Payolution\PayolutionConfig;
 use SprykerFeature\Zed\PayolutionOmsConnector\Communication\Plugin\Command\CapturePlugin;
 use SprykerFeature\Zed\PayolutionOmsConnector\Communication\Plugin\Command\ReAuthorizePlugin;
 use SprykerFeature\Zed\PayolutionOmsConnector\Communication\Plugin\Command\RefundPlugin;
@@ -39,6 +42,11 @@ class OmsFacadeMockBuilder
     private $testCase;
 
     /**
+     * @var bool
+     */
+    private $isLiveMode = false;
+
+    /**
      * @var bool[]
      */
     private $expectSuccess = [
@@ -51,81 +59,43 @@ class OmsFacadeMockBuilder
 
     /**
      * @param \PHPUnit_Framework_TestCase $testCase
+     * @param bool $isLiveMode
      */
-    public function __construct(\PHPUnit_Framework_TestCase $testCase)
+    public function __construct(\PHPUnit_Framework_TestCase $testCase, $isLiveMode = false)
     {
         $this->testCase = $testCase;
+        $this->isLiveMode = (bool) $isLiveMode;
     }
 
     /**
      * @param array $expectSuccess
-     *
-     * @return self
+     * @return OmsFacadeMockBuilder
+     * @throws \Exception
      */
     public function setExpectSuccess(array $expectSuccess)
     {
+        if (true === $this->isLiveMode) {
+            foreach ($expectSuccess as $methodName => $successFlag) {
+                if (false === $successFlag) {
+                    throw new \Exception('Live mode doesn\'t support expected failures');
+                }
+            }
+        }
+
         $this->expectSuccess = $expectSuccess;
-        return $this;
-    }
-
-    /**
-     * @return self
-     */
-    public function expectPreAuthorizationFailure()
-    {
-        $this->expectSuccess['preAuthorization'] = false;
-
-        return $this;
-    }
-
-    /**
-     * @return self
-     */
-    public function expectReAuthorizationFailure()
-    {
-        $this->expectSuccess['reAuthorization'] = false;
-
-        return $this;
-    }
-
-    /**
-     * @return self
-     */
-    public function expectRevertFailure()
-    {
-        $this->expectSuccess['revert'] = false;
-
-        return $this;
-    }
-
-    /**
-     * @return self
-     */
-    public function expectCaptureFailure()
-    {
-        $this->expectSuccess['capture'] = false;
-
-        return $this;
-    }
-
-    /**
-     * @return self
-     */
-    public function expectRefundFailure()
-    {
-        $this->expectSuccess['refund'] = false;
 
         return $this;
     }
 
     /**
      * @param \PHPUnit_Framework_TestCase $testCase
+     * @param bool $isLiveMode
      *
      * @return \PHPUnit_Framework_MockObject_MockObject|OmsFacade
      */
-    public static function create(\PHPUnit_Framework_TestCase $testCase)
+    public static function create(\PHPUnit_Framework_TestCase $testCase, $isLiveMode = false)
     {
-        $builder = new self($testCase);
+        $builder = new self($testCase, $isLiveMode);
 
         return $builder->build();
     }
@@ -236,15 +206,12 @@ class OmsFacadeMockBuilder
      */
     private function getPayolutionCommandPreAuthorizePlugin()
     {
-        $adapterMock = new PreAuthorizationAdapterMock();
-
-        if (false === $this->expectSuccess['preAuthorization']) {
-            $adapterMock->expectFailure();
-        }
-
         $locator = Locator::getInstance();
-        $dependencyProviderContainer = $this->getPayolutionPluginDependencyProviderContainer($adapterMock);
         $plugin = $locator->payolutionOmsConnector()->pluginCommandPreAuthorizePlugin();
+
+        $adapterMock = new PreAuthorizationAdapterMock();
+        $httpAdapter = $this->getHttpAdapter($adapterMock);
+        $dependencyProviderContainer = $this->getPayolutionPluginDependencyProviderContainer($httpAdapter);
         $plugin->setExternalDependencies($dependencyProviderContainer);
 
         return $plugin;
@@ -255,15 +222,12 @@ class OmsFacadeMockBuilder
      */
     private function getPayolutionCommandReAuthorizePlugin()
     {
-        $adapterMock = new ReAuthorizationAdapterMock();
-
-        if (false === $this->expectSuccess['reAuthorization']) {
-            $adapterMock->expectFailure();
-        }
-
         $locator = Locator::getInstance();
-        $dependencyProviderContainer = $this->getPayolutionPluginDependencyProviderContainer($adapterMock);
         $plugin = $locator->payolutionOmsConnector()->pluginCommandReAuthorizePlugin();
+
+        $adapterMock = new ReAuthorizationAdapterMock();
+        $httpAdapter = $this->getHttpAdapter($adapterMock);
+        $dependencyProviderContainer = $this->getPayolutionPluginDependencyProviderContainer($httpAdapter);
         $plugin->setExternalDependencies($dependencyProviderContainer);
 
         return $plugin;
@@ -274,15 +238,12 @@ class OmsFacadeMockBuilder
      */
     private function getPayolutionCommandRevertPlugin()
     {
-        $adapterMock = new ReversalAdapterMock();
-
-        if (false === $this->expectSuccess['reversal']) {
-            $adapterMock->expectFailure();
-        }
-
         $locator = Locator::getInstance();
-        $dependencyProviderContainer = $this->getPayolutionPluginDependencyProviderContainer($adapterMock);
         $plugin = $locator->payolutionOmsConnector()->pluginCommandRevertPlugin();
+
+        $adapterMock = new ReversalAdapterMock();
+        $httpAdapter = $this->getHttpAdapter($adapterMock);
+        $dependencyProviderContainer = $this->getPayolutionPluginDependencyProviderContainer($httpAdapter);
         $plugin->setExternalDependencies($dependencyProviderContainer);
 
         return $plugin;
@@ -293,15 +254,12 @@ class OmsFacadeMockBuilder
      */
     private function getPayolutionCommandCapturePlugin()
     {
-        $adapterMock = new CaptureAdapterMock();
-
-        if (false === $this->expectSuccess['capture']) {
-            $adapterMock->expectFailure();
-        }
-
         $locator = Locator::getInstance();
-        $dependencyProviderContainer = $this->getPayolutionPluginDependencyProviderContainer($adapterMock);
         $plugin = $locator->payolutionOmsConnector()->pluginCommandCapturePlugin();
+
+        $adapterMock = new CaptureAdapterMock();
+        $httpAdapter = $this->getHttpAdapter($adapterMock);
+        $dependencyProviderContainer = $this->getPayolutionPluginDependencyProviderContainer($httpAdapter);
         $plugin->setExternalDependencies($dependencyProviderContainer);
 
         return $plugin;
@@ -312,15 +270,12 @@ class OmsFacadeMockBuilder
      */
     private function getPayolutionCommandRefundPlugin()
     {
-        $adapterMock = new RefundAdapterMock();
-
-        if (false === $this->expectSuccess['refund']) {
-            $adapterMock->expectFailure();
-        }
-
         $locator = Locator::getInstance();
-        $dependencyProviderContainer = $this->getPayolutionPluginDependencyProviderContainer($adapterMock);
         $plugin = $locator->payolutionOmsConnector()->pluginCommandRefundPlugin();
+
+        $adapterMock = new RefundAdapterMock();
+        $httpAdapter = $this->getHttpAdapter($adapterMock);
+        $dependencyProviderContainer = $this->getPayolutionPluginDependencyProviderContainer($httpAdapter);
         $plugin->setExternalDependencies($dependencyProviderContainer);
 
         return $plugin;
@@ -329,18 +284,47 @@ class OmsFacadeMockBuilder
     /**
      * @param AbstractAdapterMock $adapterMock
      *
+     * @return AdapterInterface
+     */
+    private function getHttpAdapter(AbstractAdapterMock $adapterMock)
+    {
+        if (false === $this->isLiveMode) {
+            $adapterClassReflection = new \ReflectionClass($adapterMock);
+            $successFlagKeyName = lcfirst(str_replace('AdapterMock', '', $adapterClassReflection->getShortName()));
+
+            if (true === array_key_exists($successFlagKeyName, $this->expectSuccess)
+                && false === $this->expectSuccess[$successFlagKeyName]
+            ) {
+                $adapterMock->expectFailure();
+            }
+
+            return $adapterMock;
+        }
+
+        $baseConfig = Config::getInstance();
+        $locator = Locator::getInstance();
+        $config = new PayolutionConfig($baseConfig, $locator);
+
+        return new Guzzle($config->getGatewayUrl());
+    }
+
+    /**
+     * @param AdapterInterface $adapter
+     *
      * @return Container
      */
-    private function getPayolutionPluginDependencyProviderContainer(AbstractAdapterMock $adapterMock)
+    private function getPayolutionPluginDependencyProviderContainer(AdapterInterface $adapter)
     {
-        $payolutionFacadeMock = PayolutionFacadeMockBuilder::build($adapterMock, $this->testCase);
+        $payolutionFacadeMock = PayolutionFacadeMockBuilder::build($adapter, $this->testCase);
 
         $container = new Container();
         $dependencyProvider = new PayolutionOmsConnectorDependencyProvider();
         $dependencyProvider->provideCommunicationLayerDependencies($container);
         $dependencyProvider->provideBusinessLayerDependencies($container);
         $dependencyProvider->providePersistenceLayerDependencies($container);
-        $container[PayolutionOmsConnectorDependencyProvider::FACADE_PAYOLUTION] = function () use ($payolutionFacadeMock) {
+        $container[PayolutionOmsConnectorDependencyProvider::FACADE_PAYOLUTION] = function () use (
+            $payolutionFacadeMock
+        ) {
             return $payolutionFacadeMock;
         };
 
