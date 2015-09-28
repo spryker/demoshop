@@ -704,7 +704,7 @@
         },
         {
             "name": "spryker/spryker",
-            "version": "dev-develop",
+            "version": "dev-feature/CD-408-implement-payolution",
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/spryker.git",
