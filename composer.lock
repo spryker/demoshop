@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "31eb0c1da9b0ee222899f1a9515ad633",
+    "hash": "beb7947e5ba54b42d0f4c6be1dc01e51",
     "packages": [
         {
             "name": "digital-canvas/zend-framework",
@@ -703,11 +703,11 @@
         },
         {
             "name": "spryker/spryker",
-            "version": "dev-bugfix/CD-468-Make-Zed-Session-TTL-configurable",
+            "version": "dev-develop",
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/spryker.git",
-                "reference": "6abb20c399e7f5b7b2be2ec17a922a4ceedac362"
+                "reference": "3e70ca198f1d28b036dd14f99172eb0771ea1717"
             },
             "require": {
                 "digital-canvas/zend-framework": ">=1.12.2"
@@ -796,7 +796,7 @@
                     "SprykerFeature\\Shared\\Library": "Bundles/Library/src/"
                 }
             },
-            "time": "2015-09-28 13:24:05"
+            "time": "2015-09-28 13:43:07"
         },
         {
             "name": "symfony-cmf/routing",
