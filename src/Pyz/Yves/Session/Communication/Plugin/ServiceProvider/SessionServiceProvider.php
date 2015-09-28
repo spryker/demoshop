@@ -40,11 +40,7 @@ class SessionServiceProvider extends AbstractPlugin implements ServiceProviderIn
     {
         $saveHandler = Config::get(YvesConfig::YVES_SESSION_SAVE_HANDLER);
 
-        if ($saveHandler !== SessionConfig::SESSION_HANDLER_COUCHBASE
-            && $saveHandler !== SessionConfig::SESSION_HANDLER_MYSQL
-            && $saveHandler !== SessionConfig::SESSION_HANDLER_REDIS
-            && $saveHandler !== SessionConfig::SESSION_HANDLER_FILE
-        ) {
+        if (!in_array($saveHandler, $this->getSaveHandler())) {
             if (Config::get(YvesConfig::YVES_SESSION_SAVE_HANDLER) && $this->getSavePath($saveHandler)) {
                 ini_set('session.save_handler', Config::get(YvesConfig::YVES_SESSION_SAVE_HANDLER));
                 session_save_path($this->getSavePath($saveHandler));
@@ -104,6 +100,19 @@ class SessionServiceProvider extends AbstractPlugin implements ServiceProviderIn
         }
 
         $this->client->setContainer($app['session']);
+    }
+
+    /**
+     * @return array
+     */
+    protected function getSaveHandler()
+    {
+        return [
+            SessionConfig::SESSION_HANDLER_COUCHBASE,
+            SessionConfig::SESSION_HANDLER_MYSQL,
+            SessionConfig::SESSION_HANDLER_REDIS,
+            SessionConfig::SESSION_HANDLER_FILE,
+        ];
     }
 
     /**
