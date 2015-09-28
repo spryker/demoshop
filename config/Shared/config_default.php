@@ -291,3 +291,4 @@ $config[LumberjackConfig::COLLECTOR_OPTIONS] = [
 $config[YvesConfig::YVES_SHOW_EXCEPTION_STACK_TRACE] = true;
 
 $config[SystemConfig::PROPEL_DEBUG] = false;
+$config[ApplicationConfig::SHOW_SYMFONY_TOOLBAR] = false;
