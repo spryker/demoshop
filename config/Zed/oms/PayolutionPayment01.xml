@@ -66,7 +66,7 @@
 
         <events>
             <event name="start payment" onEnter="true"/>
-            <event name="pre-authorize" manual="true" command="PayolutionOmsConnector/PreAuthorize"/>
+            <event name="pre-authorize" onEnter="true" command="PayolutionOmsConnector/PreAuthorize"/>
             <event name="ship" manual="true"/>
             <event name="capture payment" manual="true" command="PayolutionOmsConnector/Capture"/>
             <event name="payment received" manual="true"/>
