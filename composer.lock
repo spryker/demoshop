@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "beb7947e5ba54b42d0f4c6be1dc01e51",
+    "hash": "284219703c31379ca7f04e3fb8915002",
     "packages": [
         {
             "name": "digital-canvas/zend-framework",
@@ -703,7 +703,7 @@
         },
         {
             "name": "spryker/spryker",
-            "version": "dev-develop",
+            "version": "dev-master",
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/spryker.git",
