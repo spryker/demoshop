@@ -1,6 +1,3 @@
-/**
- * (c) Spryker Systems GmbH copyright protected
- */
 
 'use strict';
 
@@ -56,9 +53,10 @@ var distribution = {
 var always = {
     plumber: {
         errorHandler: function(err) {
-            var subject = !!err.plugin ? 'Plugin ' + err.plugin : 'Main task';
+            var subject = err.plugin ? err.plugin : 'gulp';
             var filename = (err.fileName || 'file').replace(basePath, '');
-            console.error('[  ERR!  ] {0}: {1}\n{2}'.format(subject, filename, err.message).red);
+            var lineNumber = err.lineNumber || 'unknown';
+            console.error('[  ERR!  ] {0}: {1} at line {2}\n{3}'.format(subject, filename, lineNumber, err.message).red);
 
             notifier.notify({
                 title: 'ZED error (gulp)',

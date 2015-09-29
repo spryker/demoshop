@@ -1,36 +1,54 @@
 [{
     "priority": 0,
     "assets": {
+        "templates": [],
         "js": [
             "/js/jquery-2.1.1.js",
+            "/js/ramda.js",
+            "/js/handlebars.js",
             "/js/bootstrap.js",
-            "/js/inspinia.js",
             "/js/plugins/dataTables/jquery.dataTables.js",
             "/js/plugins/dataTables/dataTables.bootstrap.js",
             "/js/plugins/dataTables/dataTables.tableTools.min.js",
             "/js/plugins/jquery-ui/jquery-ui.js",
+            "/js/plugins/validate/jquery.validate.min.js",
             "/js/plugins/metisMenu/jquery.metisMenu.js",
             "/js/plugins/slimscroll/jquery.slimscroll.js",
-            "/js/plugins/jsTree/jstree.min.js",
-            "/js/plugins/footable/footable.all.min.js"
+            "/js/plugins/footable/footable.all.min.js",
+            "/js/plugins/pace/pace.min.js",
+            "/js/plugins/slick/slick.min.js",
+            "/js/plugins/steps/jquery.steps.min.js",
+            "/js/plugins/iCheck/icheck.min.js",
+            "/js/plugins/select2/select2.min.js",
+            "/js/plugins/sweetalert/sweetalert.min.js",
+            "/js/plugins/nestable/jquery.nestable.js",
+            "/js/inspinia.js"
         ],
         "css": [
-        	"/css/bootstrap.css",
-        	"/css/animate.css",
-        	"/css/jquery.autocomplete.css",
-        	"/css/jquery.select2.min.css",
-        	"/css/plugins/**/*.{css,scss}",
-        	"/js/plugins/jquery-ui/jquery-ui.css",
-        	"/font-awesome/css/font-awesome.css",
-        	"/scss/style.scss"
+            "/css/bootstrap.css",
+            "/css/animate.css",
+            "/css/jquery.autocomplete.css",
+            "/css/jquery.select2.min.css",
+            "/css/plugins/**/*.{css,scss}",
+            "/js/plugins/jquery-ui/jquery-ui.css",
+            "/font-awesome/css/font-awesome.css",
+            "/css/plugins/slick/slick.css",
+            "/css/plugins/slick/slick-theme.css",
+            "/css/plugins/sweetalert/sweetalert.css",
+            "/scss/style.scss"
         ],
         "images": [
-        	"!/**/fontawesome-webfont.svg",
-        	"/**/*.{png,jpg,gif,svg}"
+            "!/**/fontawesome-webfont.svg",
+            "/**/*.{png,jpg,gif,svg}",
+            "/css/plugins/slick/ajax-loader.gif"
         ],
         "fonts": [
-        	"/**/*.{eot,ttf,woff,woff2,otf}",
-        	"/**/fontawesome-webfont.svg"
+            "/**/*.{eot,ttf,woff,woff2,otf}",
+            "/**/fontawesome-webfont.svg",
+            "/css/plugins/slick/fonts/slick.eot",
+            "/css/plugins/slick/fonts/slick.svg",
+            "/css/plugins/slick/fonts/slick.ttf",
+            "/css/plugins/slick/fonts/slick.woff"
         ]
     }
 }]

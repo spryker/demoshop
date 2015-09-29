@@ -1,6 +1,3 @@
-/**
- * (c) Spryker Systems GmbH copyright protected
- */
 
 'use strict';
 
@@ -24,6 +21,7 @@ var sass = require('gulp-sass');
 var uglify = require('gulp-uglify');
 var concat = require('gulp-concat');
 var autoprefixer = require('gulp-autoprefixer');
+var rename = require('gulp-rename');
 var imagemin = require('gulp-imagemin');
 
 global.basePath = process.cwd();
@@ -107,7 +105,12 @@ var tasks = {
 				{name: 'schemes/category'},
 				{name: 'schemes/pdp'},
 				{name: 'schemes/tips'},
-				{name: 'schemes/checkout'}
+				{name: 'schemes/checkout'},
+				{name: 'schemes/customer'},
+				{name: 'schemes/cart'},
+				{name: 'schemes/wishlist'},
+                {name: 'schemes/home'},
+                {name: 'schemes/cross-selling'}
 			]
         });
     }
