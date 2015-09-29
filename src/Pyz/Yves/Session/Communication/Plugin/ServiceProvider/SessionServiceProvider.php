@@ -6,7 +6,6 @@
 
 namespace Pyz\Yves\Session\Communication\Plugin\ServiceProvider;
 
-use Pyz\Yves\Session\Business\Model\Session;
 use Pyz\Yves\Session\Business\Model\SessionFactory;
 use Silex\Application;
 use Silex\ServiceProviderInterface;
