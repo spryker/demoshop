@@ -1,6 +1,3 @@
-/**
- * (c) Spryker Systems GmbH copyright protected
- */
 
 'use strict';
 
@@ -19,6 +16,9 @@ var rename = require('gulp-rename');
 var sass = require('gulp-sass');
 var uglify = require('gulp-uglify');
 var concat = require('gulp-concat');
+var handlebars = require('gulp-handlebars');
+var wrap = require('gulp-wrap');
+var declare = require('gulp-declare');
 
 global.basePath = process.cwd();
 var assetsPath = basePath + '/static/assets/Zed';
@@ -32,7 +32,9 @@ var tasks = {
     extra: function() {
         return gulp
             .src([
-                '!' + assetsPath + '/bundles',
+                '!' + assetsPath + '/bundles/*.*',
+                '!' + assetsPath + '/bundles/**/*.*',
+                '!' + assetsPath + '/*.json',
                 assetsPath + '/*.*',
                 assetsPath + '/**/*.*'
             ])
@@ -61,6 +63,19 @@ var tasks = {
             .pipe(concat('style.{0}.min.css'.format(target)))
             .pipe(gulp.dest(publicPath + '/bundles/css/'));
     },
+    templates: function(src, mode, target) {
+        return gulp
+            .src(src)
+            .pipe(plumber(options.always.plumber))
+            .pipe(handlebars())
+            .pipe(wrap('Handlebars.template(<%= contents %>)'))
+            .pipe(declare({
+                noRedeclare: true,
+            }))
+            .pipe(uglify(options[mode].uglify))
+            .pipe(concat('templates.{0}.min.js'.format(target)))
+            .pipe(gulp.dest(publicPath + '/bundles/js/'));
+    },
     js: function(src, mode, target) {
         return gulp
             .src(src)
@@ -72,26 +87,28 @@ var tasks = {
 };
 
 function build(mode, target) {
-    console.log('\n[ BUILD  ] building'.green, '{0}'.format(target).cyan.bold, 'assets for {0}...'.format(mode).green);
     var map = assets.map(target);
 
-    if (map.empty) {
-        console.log('[ BUILD  ] there are no assets for this target'.yellow);
-        tasks.css(__dirname + '/dummy/style.css', mode, target);
-        tasks.js(__dirname + '/dummy/scripts.js', mode, target);
-    } else {
-        console.log('[ BUILD  ] copying fonts...'.green);
-        tasks.fonts(map.fonts, mode);
+    console.log('\n[ BUILD  ] building'.green, '{0}'.format(target).cyan.bold, 'assets for {0}...'.format(mode).green);
+    console.log('[ BUILD  ] copying fonts...'.green);
+    tasks.fonts(map.fonts, mode);
 
-        console.log('[ BUILD  ] copying images...'.green);
-        tasks.images(map.images, mode);
+    console.log('[ BUILD  ] creating dummies assets...'.green);
+    tasks.css(__dirname + '/dummy/style.css', mode, target);
+    tasks.templates(__dirname + '/dummy/template.hbs', mode, target);
+    tasks.js(__dirname + '/dummy/scripts.js', mode, target);
 
-        console.log('[ BUILD  ] building scss and copying css...'.green);
-        tasks.css(map.css, mode, target);
+    console.log('[ BUILD  ] copying images...'.green);
+    tasks.images(map.images, mode);
 
-        console.log('[ BUILD  ] uglifying js...'.green);
-        tasks.js(map.js, mode, target);
-    }
+    console.log('[ BUILD  ] building scss and copying css...'.green);
+    tasks.css(map.css, mode, target);
+
+    console.log('[ BUILD  ] compiling hbs templates...'.green);
+    tasks.templates(map.templates, mode, target);
+
+    console.log('[ BUILD  ] uglifying js...'.green);
+    tasks.js(map.js, mode, target);
 }
 
 gulp.task('dist', function() {
@@ -125,16 +142,22 @@ gulp.task('dev', function() {
             console.log("[ WATCH  ] this assets file doesn't exist: nothing to watch".red);
             console.log("[  INFO  ] run 'npm run spy-assets' to see the list of available assets files".red);
         } else {
-            console.log('[ WATCH  ] watching'.yellow, '{0}'.format(target).cyan.bold, '(s)css...'.yellow);
-            gulp.watch(map.js, {}, function(event) {
-                tasks.js(map.js, 'development', target);
-                log.change('[   JS   ]', 'file', event);
+            console.log('[ WATCH  ] watching'.yellow, '{0}'.format(target).cyan.bold, 'hbs...'.yellow);
+            gulp.watch(map.templates, {}, function(event) {
+                tasks.templates(map.templates, 'development', target);
+                log.change('[  HBS   ]', 'template', event);
             });
 
             console.log('[ WATCH  ] watching'.yellow, '{0}'.format(target).cyan.bold, 'js...'.yellow);
             gulp.watch(map.css, {}, function(event) {
                 tasks.css(map.css, 'development', target);
-                log.change('[  sCSS  ]', 'style file', event);
+                log.change('[  sCSS  ]', 'stylesheet', event);
+            });
+
+            console.log('[ WATCH  ] watching'.yellow, '{0}'.format(target).cyan.bold, '(s)css...'.yellow);
+            gulp.watch(map.js, {}, function(event) {
+                tasks.js(map.js, 'development', target);
+                log.change('[   JS   ]', 'sctipt', event);
             });
         }
     }

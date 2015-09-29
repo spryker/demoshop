@@ -524,6 +524,10 @@ code {
   margin-bottom: 0;
   padding: 14px 15px 7px;
   min-height: 48px;
+
+  form {
+    display: inline-block;
+  }
 }
 
 .ibox-content {

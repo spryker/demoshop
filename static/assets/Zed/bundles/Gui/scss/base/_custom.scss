@@ -1,6 +1,20 @@
-/* Only demo */
-@media (max-width: 1000px) {
-  .welcome-message {
-    display: none;
+.product-title {
+  position: relative;
+  padding: 10px 20px 0;
+}
+.product-view {
+  .product-desc {
+    padding-top: 0;
+    .product-image {
+      width: 150px;
+      height: 150px;
+      background: #ccc;
+      text-align: center;
+      vertical-align: middle;
+      line-height: 145px; /* @todo remove when real image is added */
+    }
   }
+}
+.element-inline {
+  display: inline;
 }

@@ -1,6 +1,3 @@
-/**
- * (c) Spryker Systems GmbH copyright protected
- */
 
 'use strict';
 
@@ -14,6 +11,7 @@ function map(target, type) {
     var type = type || '*';
     var bundles = [];
     var map = {
+        templates: [],
         js: [],
         css: [],
         images: [],
@@ -58,5 +56,5 @@ function map(target, type) {
 }
 
 module.exports = {
-	map: map
+    map: map
 };

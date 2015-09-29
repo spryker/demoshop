@@ -29,6 +29,7 @@ use SprykerFeature\Shared\Application\Business\Application;
 use SprykerFeature\Shared\Application\Business\Routing\SilexRouter;
 use SprykerFeature\Shared\Application\Communication\Plugin\ServiceProvider\RoutingServiceProvider;
 use SprykerFeature\Shared\Application\Communication\Plugin\ServiceProvider\UrlGeneratorServiceProvider;
+use SprykerFeature\Shared\Cache\CacheConfig;
 use SprykerFeature\Shared\Library\Config;
 use SprykerFeature\Shared\System\SystemConfig;
 use SprykerFeature\Shared\Yves\YvesConfig;
@@ -46,9 +47,7 @@ class YvesBootstrap extends SprykerYvesBootstrap
     protected function beforeBoot(Application $app)
     {
         $app['locale'] = Store::getInstance()->getCurrentLocale();
-        if (\SprykerFeature_Shared_Library_Environment::isDevelopment()) {
-            $app['profiler.cache_dir'] = \SprykerFeature_Shared_Library_Data::getLocalStoreSpecificPath('cache/profiler');
-        }
+        $app['profiler.cache_dir'] = Config::get(CacheConfig::DIRECTORY) . DIRECTORY_SEPARATOR . 'profiler';
         $app['locator'] = Locator::getInstance();
 
         $proxies = Config::get(YvesConfig::YVES_TRUSTED_PROXIES);
