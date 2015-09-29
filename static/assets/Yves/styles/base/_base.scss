@@ -82,7 +82,7 @@ input[type="checkbox"].padded, input[type="radio"].padded {
     width: $step - 8px;
     height: $step - 8px;
     border-radius: 3px;
-    box-shadow: 0 0 0 #{$box-shadow-width - 1px} $light-color, 0 0 0 $box-shadow-width $paler-color;
+    box-shadow: 0 0 0 (#{$box-shadow-width - 1px}) $light-color, 0 0 0 $box-shadow-width $paler-color;
     background-color: $light-color;
   }
 
