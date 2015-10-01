@@ -5,74 +5,73 @@
 >
     <process name="PayolutionPayment01" main="true">
         <subprocesses>
-            <process>reversal</process>
-            <process>re-authorization</process>
-            <process>refund</process>
+            <process>PayolutionInitiation</process>
+            <process>PayolutionCapture</process>
+            <process>PayolutionRefund</process>
         </subprocesses>
-
         <states>
             <state name="new" reserved="true"/>
-            <state name="ready for pre-authorization"/>
+            <state name="payolution initiation finished"/>
             <state name="ready to be shipped"/>
             <state name="shipped"/>
-            <state name="payment captured"/>
+            <state name="payolution capture finished"/>
             <state name="paid"/>
-            <!-- Failure states -->
-            <state name="payment validation failed"/>
-            <state name="payment capture failed"/>
+            <state name="returns received"/>
+            <state name="payolution refund finished"/>
         </states>
-
         <transitions>
             <transition>
                 <source>new</source>
-                <target>ready for pre-authorization</target>
-                <event>start payment</event>
-            </transition>
-            <!-- Pre-Authorization step -->
-            <transition happy="true" condition="PayolutionOmsConnector/PreAuthorizationIsApproved">
-                <source>ready for pre-authorization</source>
-                <target>ready to be shipped</target>
-                <event>pre-authorize</event>
+                <target>ready for payolution initiation</target>
+                <event>start payolution initiation</event>
             </transition>
             <transition>
-                <source>ready for pre-authorization</source>
-                <target>payment validation failed</target>
-                <event>pre-authorize</event>
+                <source>payolution initiation finished</source>
+                <target>ready to be shipped</target>
+                <event>start shipment</event>
             </transition>
-            <!-- Shipment step -->
             <transition>
                 <source>ready to be shipped</source>
                 <target>shipped</target>
                 <event>ship</event>
             </transition>
-            <!-- Capture step -->
-            <transition happy="true" condition="PayolutionOmsConnector/CaptureIsApproved">
-                <source>shipped</source>
-                <target>payment captured</target>
-                <event>capture payment</event>
-            </transition>
             <transition>
                 <source>shipped</source>
-                <target>payment capture failed</target>
-                <event>capture payment</event>
+                <target>ready for payolution capture</target>
+                <event>start payolution capture</event>
             </transition>
-            <!-- Final step -->
             <transition>
-                <source>payment captured</source>
+                <source>payolution capture finished</source>
                 <target>paid</target>
-                <event>payment received</event>
+                <event>receive payment</event>
+            </transition>
+            <transition>
+                <source>payolution capture finished</source>
+                <target>returns received</target>
+                <event>receive returns</event>
+            </transition>
+            <transition>
+                <source>paid</source>
+                <target>returns received</target>
+                <event>receive returns</event>
+            </transition>
+            <transition>
+                <source>returns received</source>
+                <target>ready for payolution refund</target>
+                <event>start payolution refund</event>
             </transition>
         </transitions>
-
         <events>
-            <event name="start payment" onEnter="true"/>
-            <event name="pre-authorize" onEnter="true" command="PayolutionOmsConnector/PreAuthorize"/>
+            <event name="start payolution initiation" onEnter="true"/>
+            <event name="start shipment" onEnter="true"/>
             <event name="ship" manual="true"/>
-            <event name="capture payment" manual="true" command="PayolutionOmsConnector/Capture"/>
-            <event name="payment received" manual="true"/>
+            <event name="start payolution capture" onEnter="true"/>
+            <event name="receive payment" manual="true"/>
+            <event name="receive returns" manual="true"/>
+            <event name="start payolution refund" onEnter="true" manual="true"/>
         </events>
     </process>
-    <process name="reversal" file="payolution-sub-processes/Reversal01.xml"/>
-    <process name="re-authorization" file="payolution-sub-processes/ReAuthorization01.xml"/>
-    <process name="refund" file="payolution-sub-processes/Refund01.xml"/>
+    <process name="PayolutionInitiation" file="subprocesses/PayolutionInitiation.xml"/>
+    <process name="PayolutionCapture" file="subprocesses/PayolutionCapture.xml"/>
+    <process name="PayolutionRefund" file="subprocesses/PayolutionRefund.xml"/>
 </statemachine>

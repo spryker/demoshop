@@ -1,9 +1,10 @@
 <?php
-
 /**
  * (c) Spryker Systems GmbH copyright protected
  */
+
 namespace Functional\Pyz\Zed\Payolution;
+
 
 use Functional\Pyz\Zed\Payolution\Mock\OmsFacadeMockBuilder;
 use Generated\Shared\Transfer\AddressTransfer;
@@ -14,23 +15,23 @@ use Generated\Shared\Transfer\PayolutionPaymentTransfer;
 use Generated\Shared\Transfer\TaxSetTransfer;
 use Generated\Shared\Transfer\TotalsTransfer;
 use Pyz\Codeception\Module\EnvironmentalTestCaseInterface;
-use Pyz\Zed\Oms\Business\OmsFacade;
 use SprykerEngine\Zed\Kernel\AbstractFunctionalTest;
-use SprykerEngine\Zed\Kernel\Container;
 use SprykerEngine\Zed\Kernel\Communication\Factory as CommunicationFactory;
+use SprykerEngine\Zed\Kernel\Container;
 use SprykerEngine\Zed\Kernel\Locator;
 use SprykerFeature\Shared\Payolution\PayolutionApiConstants;
 use SprykerFeature\Zed\Checkout\Business\CheckoutFacade;
 use SprykerFeature\Zed\Checkout\CheckoutDependencyProvider;
+use SprykerFeature\Zed\Oms\Business\OmsFacade;
 use SprykerFeature\Zed\Payolution\Persistence\Propel\Map\SpyPaymentPayolutionTableMap;
 use SprykerFeature\Zed\Product\Persistence\Propel\SpyAbstractProduct;
 use SprykerFeature\Zed\Product\Persistence\Propel\SpyProduct;
+use SprykerFeature\Zed\Sales\Persistence\Propel\SpySalesOrderItem;
 use SprykerFeature\Zed\Sales\Persistence\Propel\SpySalesOrderItemQuery;
 use SprykerFeature\Zed\Sales\SalesDependencyProvider;
 use SprykerFeature\Zed\SalesCheckoutConnector\Communication\Plugin\SalesOrderSaverPlugin;
 use SprykerFeature\Zed\Stock\Persistence\Propel\SpyStock;
 use SprykerFeature\Zed\Stock\Persistence\Propel\SpyStockProduct;
-
 /**
  * Modes of this test:
  *
@@ -61,9 +62,8 @@ use SprykerFeature\Zed\Stock\Persistence\Propel\SpyStockProduct;
  * gateway. The replacement is done through the command plugins that are provided to the OMS facade in #1.
  * PayolutionOmsConnector‚'s dependency-provider will return the mocked Payolution facade.
  */
-class StateMachineTest extends AbstractFunctionalTest implements EnvironmentalTestCaseInterface
+abstract class AbstractStateMachineTest extends AbstractFunctionalTest implements EnvironmentalTestCaseInterface
 {
-
     /**
      * @var bool[]
      */
@@ -72,17 +72,22 @@ class StateMachineTest extends AbstractFunctionalTest implements EnvironmentalTe
     /**
      * @var OmsFacade|\PHPUnit_Framework_MockObject_MockObject
      */
-    private $omsFacadeMock;
+    protected $omsFacadeMock;
 
     /**
      * @var CheckoutFacade
      */
-    private $checkoutFacade;
+    protected $checkoutFacade;
 
     /**
      * @var array
      */
     private $environmentConfig = [];
+
+    /**
+     * @var SpySalesOrderItem
+     */
+    protected $orderItem;
 
     protected function _before()
     {
@@ -98,6 +103,34 @@ class StateMachineTest extends AbstractFunctionalTest implements EnvironmentalTe
 
         $this->omsFacadeMock = null;
         $this->checkoutFacade = null;
+
+        // Skip over failure tests in live mode because we cannot force failures with the
+        // Payolution sandbox interface.
+        $isFailureTest = (false !== mb_strpos($this->getName(), 'Declined'));
+        if (true === $this->isLiveMode() && true === $isFailureTest) {
+            $this->markTestSkipped('Skipping test due to live mode');
+        }
+    }
+
+    /**
+     * @return bool
+     */
+    protected function isLiveMode()
+    {
+        if (true === array_key_exists('mode', $this->environmentConfig)
+            && 'live' === $this->environmentConfig['mode']
+        ) {
+            return true;
+        }
+
+        return false;
+    }
+
+    protected function _after()
+    {
+        unset($this->omsFacadeMock, $this->checkoutFacade, $this->orderItem);
+
+        parent::_after();
     }
 
     /**
@@ -108,138 +141,7 @@ class StateMachineTest extends AbstractFunctionalTest implements EnvironmentalTe
         $this->environmentConfig = $config;
     }
 
-    public function testItemStatesForDefaultScenario()
-    {
-        $this->setUpFacades();
-
-        $checkoutRequestTransfer = $this->getCheckoutRequestTransfer();
-        $this->checkoutFacade->requestCheckout($checkoutRequestTransfer);
-
-        $orderItem = SpySalesOrderItemQuery::create()->find()->getLast();
-        $this->assertEquals('ready for pre-authorization', $orderItem->getState()->getName());
-
-        $this->omsFacadeMock->triggerEventForOneItem('pre-authorize', $orderItem, $logContext = []);
-        $this->assertEquals('ready to be shipped', $orderItem->getState()->getName());
-
-        $this->omsFacadeMock->triggerEventForOneItem('ship', $orderItem, $logContext = []);
-        $this->assertEquals('shipped', $orderItem->getState()->getName());
-
-        $this->omsFacadeMock->triggerEventForOneItem('capture payment', $orderItem, $logContext = []);
-        $this->assertEquals('payment captured', $orderItem->getState()->getName());
-
-        $this->omsFacadeMock->triggerEventForOneItem('payment received', $orderItem, $logContext = []);
-        $this->assertEquals('paid', $orderItem->getState()->getName());
-    }
-
-    public function testItemStatesForDefaultScenarioWithFailedPreAuthorization()
-    {
-        if ($this->isLiveMode()) {
-            $this->markTestSkipped('Skipping test due to live mode');
-            return;
-        }
-
-        $this->expectPreAuthorizationFailure();
-        $this->setUpFacades();
-
-        $checkoutRequestTransfer = $this->getCheckoutRequestTransfer();
-        $this->checkoutFacade->requestCheckout($checkoutRequestTransfer);
-
-        $orderItem = SpySalesOrderItemQuery::create()->find()->getLast();
-        $this->assertEquals('ready for pre-authorization', $orderItem->getState()->getName());
-
-        $this->omsFacadeMock->triggerEventForOneItem('pre-authorize', $orderItem, $logContext = []);
-        $this->assertEquals('payment validation failed', $orderItem->getState()->getName());
-    }
-
-    public function testItemStatesForDefaultScenarioWithFailedCapture()
-    {
-        if ($this->isLiveMode()) {
-            $this->markTestSkipped('Skipping test due to live mode');
-            return;
-        }
-
-        $this->expectCaptureFailure();
-        $this->setUpFacades();
-
-        $checkoutRequestTransfer = $this->getCheckoutRequestTransfer();
-        $this->checkoutFacade->requestCheckout($checkoutRequestTransfer);
-
-        $orderItem = SpySalesOrderItemQuery::create()->find()->getLast();
-        $this->omsFacadeMock->triggerEventForOneItem('pre-authorize', $orderItem, $logContext = []);
-        $this->omsFacadeMock->triggerEventForOneItem('ship', $orderItem, $logContext = []);
-
-        $this->omsFacadeMock->triggerEventForOneItem('capture payment', $orderItem, $logContext = []);
-        $this->assertEquals('payment capture failed', $orderItem->getState()->getName());
-    }
-
-    public function testItemStatesForFullRefundBeforePaymentScenario()
-    {
-        $this->setUpFacades();
-
-        $checkoutRequestTransfer = $this->getCheckoutRequestTransfer();
-        $this->checkoutFacade->requestCheckout($checkoutRequestTransfer);
-
-        $orderItem = SpySalesOrderItemQuery::create()->find()->getLast();
-        $this->omsFacadeMock->triggerEventForOneItem('pre-authorize', $orderItem, $logContext = []);
-        $this->omsFacadeMock->triggerEventForOneItem('ship', $orderItem, $logContext = []);
-        $this->omsFacadeMock->triggerEventForOneItem('capture payment', $orderItem, $logContext = []);
-
-        $this->omsFacadeMock->triggerEventForOneItem('receive returns', $orderItem, $logContext = []);
-        $this->assertEquals('returns received', $orderItem->getState()->getName());
-
-        $this->omsFacadeMock->triggerEventForOneItem('fully refund', $orderItem, $logContext = []);
-        $this->assertEquals('payment fully refunded', $orderItem->getState()->getName());
-    }
-
-    public function testItemStatesForFullRefundBeforePaymentScenarioWithFailedRefund()
-    {
-        if ($this->isLiveMode()) {
-            $this->markTestSkipped('Skipping test due to live mode');
-            return;
-        }
-
-        $this->expectRefundFailure();
-        $this->setUpFacades();
-
-        $checkoutRequestTransfer = $this->getCheckoutRequestTransfer();
-        $this->checkoutFacade->requestCheckout($checkoutRequestTransfer);
-
-        $orderItem = SpySalesOrderItemQuery::create()->find()->getLast();
-        $this->omsFacadeMock->triggerEventForOneItem('pre-authorize', $orderItem, $logContext = []);
-        $this->omsFacadeMock->triggerEventForOneItem('ship', $orderItem, $logContext = []);
-        $this->omsFacadeMock->triggerEventForOneItem('capture payment', $orderItem, $logContext = []);
-        $this->omsFacadeMock->triggerEventForOneItem('receive returns', $orderItem, $logContext = []);
-
-        $this->omsFacadeMock->triggerEventForOneItem('fully refund', $orderItem, $logContext = []);
-        $this->assertEquals('payment refund failed', $orderItem->getState()->getName());
-    }
-
-    public function testItemStatesForFullRefundAfterPaymentScenario()
-    {
-        $this->setUpFacades();
-
-        $checkoutRequestTransfer = $this->getCheckoutRequestTransfer();
-        $this->checkoutFacade->requestCheckout($checkoutRequestTransfer);
-
-        $orderItem = SpySalesOrderItemQuery::create()->find()->getLast();
-        $this->omsFacadeMock->triggerEventForOneItem('pre-authorize', $orderItem, $logContext = []);
-        $this->omsFacadeMock->triggerEventForOneItem('ship', $orderItem, $logContext = []);
-        $this->omsFacadeMock->triggerEventForOneItem('capture payment', $orderItem, $logContext = []);
-
-        $this->omsFacadeMock->triggerEventForOneItem('payment received', $orderItem, $logContext = []);
-        $this->assertEquals('paid', $orderItem->getState()->getName());
-
-        $this->omsFacadeMock->triggerEventForOneItem('receive returns', $orderItem, $logContext = []);
-        $this->assertEquals('returns received', $orderItem->getState()->getName());
-
-        $this->omsFacadeMock->triggerEventForOneItem('fully refund', $orderItem, $logContext = []);
-        $this->assertEquals('payment fully refunded', $orderItem->getState()->getName());
-    }
-
-    /**
-     * @return CheckoutFacade
-     */
-    private function setUpFacades()
+    protected function setUpFacades()
     {
         $omsFacadeMockBuilder = $this->getOmsFacadeMockBuilder();
         $omsFacadeMockBuilder->setExpectSuccess($this->expectSuccess);
@@ -254,20 +156,6 @@ class StateMachineTest extends AbstractFunctionalTest implements EnvironmentalTe
     private function getOmsFacadeMockBuilder()
     {
         return new OmsFacadeMockBuilder($this, $this->isLiveMode());
-    }
-
-    /**
-     * @return bool
-     */
-    private function isLiveMode()
-    {
-        if (true === array_key_exists('mode', $this->environmentConfig)
-            && 'live' === $this->environmentConfig['mode']
-        ) {
-            return true;
-        }
-
-        return false;
     }
 
     /**
@@ -298,9 +186,12 @@ class StateMachineTest extends AbstractFunctionalTest implements EnvironmentalTe
     }
 
     /**
+     * @param OmsFacade $omsFacade
+     * @param SalesOrderSaverPlugin $salesOrderSaverPlugin
+     *
      * @return CheckoutFacade
      */
-    private function getCheckoutFacade(OmsFacade $omsFacade, SalesOrderSaverPlugin $orderSaverPlugin)
+    private function getCheckoutFacade(OmsFacade $omsFacade, SalesOrderSaverPlugin $salesOrderSaverPlugin)
     {
         $container = new Container();
         $container[CheckoutDependencyProvider::CHECKOUT_PRECONDITIONS] = function (Container $container) {
@@ -318,9 +209,9 @@ class StateMachineTest extends AbstractFunctionalTest implements EnvironmentalTe
         };
         $container[CheckoutDependencyProvider::CHECKOUT_ORDERSAVERS] = function (
             Container $container
-        ) use ($orderSaverPlugin) {
+        ) use ($salesOrderSaverPlugin) {
             return [
-                $orderSaverPlugin,
+                $salesOrderSaverPlugin,
                 $container->getLocator()->customerCheckoutConnector()->pluginOrderCustomerSavePlugin(),
                 $container->getLocator()->payolutionCheckoutConnector()->pluginCheckoutSaveOrderPlugin(),
             ];
@@ -347,7 +238,7 @@ class StateMachineTest extends AbstractFunctionalTest implements EnvironmentalTe
     /**
      * @return CheckoutRequestTransfer
      */
-    private function getCheckoutRequestTransfer()
+    protected function getCheckoutRequestTransfer()
     {
         $abstractProduct = (new SpyAbstractProduct())
             ->setSku('0987654321')
@@ -445,53 +336,79 @@ class StateMachineTest extends AbstractFunctionalTest implements EnvironmentalTe
     }
 
     /**
-     * @return self
+     * @return SpySalesOrderItem
      */
-    private function expectPreAuthorizationFailure()
+    protected function getLastOrderItem()
+    {
+        return SpySalesOrderItemQuery::create()->find()->getLast();
+    }
+
+    protected function expectPreAuthorizationFailure()
     {
         $this->expectSuccess['preAuthorization'] = false;
-
-        return $this;
+        $this->setUpFacades();
     }
 
-    /**
-     * @return self
-     */
-    private function expectReAuthorizationFailure()
+    protected function expectPreAuthorizationSuccess()
+    {
+        $this->expectSuccess['preAuthorization'] = true;
+        $this->setUpFacades();
+    }
+
+    protected function expectReAuthorizationFailure()
     {
         $this->expectSuccess['reAuthorization'] = false;
-
-        return $this;
+        $this->setUpFacades();
     }
 
-    /**
-     * @return self
-     */
-    private function expectReversalFailure()
+    protected function expectReAuthorizationSuccess()
+    {
+        $this->expectSuccess['reAuthorization'] = true;
+        $this->setUpFacades();
+    }
+
+    protected function expectReversalFailure()
     {
         $this->expectSuccess['reversal'] = false;
-
-        return $this;
+        $this->setUpFacades();
     }
 
-    /**
-     * @return self
-     */
-    private function expectCaptureFailure()
+    protected function expectReversalSuccess()
+    {
+        $this->expectSuccess['reversal'] = true;
+        $this->setUpFacades();
+    }
+
+    protected function expectCaptureFailure()
     {
         $this->expectSuccess['capture'] = false;
-
-        return $this;
+        $this->setUpFacades();
     }
 
-    /**
-     * @return self
-     */
-    private function expectRefundFailure()
+    protected function expectCaptureSuccess()
+    {
+        $this->expectSuccess['capture'] = true;
+        $this->setUpFacades();
+    }
+
+    protected function expectRefundFailure()
     {
         $this->expectSuccess['refund'] = false;
+        $this->setUpFacades();
+    }
 
-        return $this;
+    protected function expectRefundSuccess()
+    {
+        $this->expectSuccess['refund'] = true;
+        $this->setUpFacades();
+    }
+
+    protected function doCheckout()
+    {
+        $this->setUpFacades();
+        $checkoutRequestTransfer = $this->getCheckoutRequestTransfer();
+        $this->checkoutFacade->requestCheckout($checkoutRequestTransfer);
+        $this->orderItem = $this->getLastOrderItem();
     }
 
 }

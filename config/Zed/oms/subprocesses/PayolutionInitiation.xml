@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="utf-8"?>
+<statemachine
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:noNamespaceSchemaLocation="../process.xsd"
+>
+    <process name="PayolutionInitiation">
+        <states>
+            <state name="ready for payolution initiation"/>
+            <state name="payolution pre-authorization accepted"/>
+            <state name="payolution pre-authorization declined"/>
+            <state name="payolution re-authorization accepted"/>
+            <state name="payolution re-authorization declined"/>
+            <state name="payolution reversal accepted"/>
+            <state name="payolution reversal declined"/>
+        </states>
+        <transitions>
+            <!-- Pre-authorization -->
+            <transition happy="true" condition="PayolutionOmsConnector/PreAuthorizationIsApproved">
+                <source>ready for payolution initiation</source>
+                <target>payolution pre-authorization accepted</target>
+                <event>payolution pre-authorize</event>
+            </transition>
+            <transition>
+                <source>ready for payolution initiation</source>
+                <target>payolution pre-authorization declined</target>
+                <event>payolution pre-authorize</event>
+            </transition>
+            <transition happy="true" condition="PayolutionOmsConnector/PreAuthorizationIsApproved">
+                <source>payolution pre-authorization declined</source>
+                <target>payolution pre-authorization accepted</target>
+                <event>payolution retry pre-authorize</event>
+            </transition>
+            <transition>
+                <source>payolution pre-authorization declined</source>
+                <target>payolution pre-authorization declined</target>
+                <event>payolution retry pre-authorize</event>
+            </transition>
+            <transition>
+                <source>payolution reversal accepted</source>
+                <target>ready for payolution initiation</target>
+                <event>payolution retry pre-authorize</event>
+            </transition>
+            <!-- Re-authorization -->
+            <transition happy="true" condition="PayolutionOmsConnector/PreAuthorizationIsApproved">
+                <source>payolution pre-authorization accepted</source>
+                <target>payolution re-authorization accepted</target>
+                <event>payolution re-authorize</event>
+            </transition>
+            <transition>
+                <source>payolution pre-authorization accepted</source>
+                <target>payolution re-authorization declined</target>
+                <event>payolution re-authorize</event>
+            </transition>
+            <transition happy="true" condition="PayolutionOmsConnector/PreAuthorizationIsApproved">
+                <source>payolution re-authorization declined</source>
+                <target>payolution re-authorization accepted</target>
+                <event>payolution retry re-authorize</event>
+            </transition>
+            <transition>
+                <source>payolution re-authorization declined</source>
+                <target>payolution re-authorization declined</target>
+                <event>payolution retry re-authorize</event>
+            </transition>
+            <!-- Reversal -->
+            <transition happy="true" condition="PayolutionOmsConnector/ReversalIsApproved">
+                <source>payolution pre-authorization accepted</source>
+                <target>payolution reversal accepted</target>
+                <event>payolution revert</event>
+            </transition>
+            <transition>
+                <source>payolution pre-authorization accepted</source>
+                <target>payolution reversal declined</target>
+                <event>payolution revert</event>
+            </transition>
+            <transition happy="true" condition="PayolutionOmsConnector/ReversalIsApproved">
+                <source>payolution reversal declined</source>
+                <target>payolution reversal accepted</target>
+                <event>payolution retry revert</event>
+            </transition>
+            <transition>
+                <source>payolution reversal declined</source>
+                <target>payolution reversal declined</target>
+                <event>payolution retry revert</event>
+            </transition>
+            <transition happy="true" condition="PayolutionOmsConnector/ReversalIsApproved">
+                <source>payolution re-authorization accepted</source>
+                <target>payolution reversal accepted</target>
+                <event>payolution revert</event>
+            </transition>
+            <transition>
+                <source>payolution re-authorization accepted</source>
+                <target>payolution reversal declined</target>
+                <event>payolution revert</event>
+            </transition>
+            <!-- Exit -->
+            <transition happy="true">
+                <source>payolution pre-authorization accepted</source>
+                <target>payolution initiation finished</target>
+                <event>payolution finish initiation</event>
+            </transition>
+            <transition happy="true">
+                <source>payolution re-authorization accepted</source>
+                <target>payolution initiation finished</target>
+                <event>payolution finish initiation</event>
+            </transition>
+        </transitions>
+        <events>
+            <event name="payolution pre-authorize" onEnter="true" manual="true" command="PayolutionOmsConnector/PreAuthorize"/>
+            <event name="payolution retry pre-authorize" manual="true" command="PayolutionOmsConnector/PreAuthorize"/>
+            <event name="payolution re-authorize" manual="true" command="PayolutionOmsConnector/ReAuthorize"/>
+            <event name="payolution retry re-authorize" manual="true" command="PayolutionOmsConnector/ReAuthorize"/>
+            <event name="payolution revert" manual="true" command="PayolutionOmsConnector/Revert"/>
+            <event name="payolution retry revert" manual="true" command="PayolutionOmsConnector/Revert"/>
+            <event name="payolution finish initiation" manual="true"/>
+        </events>
+    </process>
+</statemachine>

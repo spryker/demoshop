@@ -15,13 +15,13 @@ use Functional\SprykerFeature\Zed\Payolution\Business\PayolutionFacadeMockBuilde
 use Generated\Zed\Ide\FactoryAutoCompletion\OmsBusiness;
 use Pyz\Zed\Oms\Business\OmsFacade;
 use Pyz\Zed\Oms\OmsConfig;
+use Pyz\Zed\Oms\OmsDependencyProvider;
 use SprykerEngine\Shared\Config;
 use SprykerEngine\Zed\Kernel\Business\Factory as BusinessFactory;
 use SprykerEngine\Zed\Kernel\Container;
 use SprykerEngine\Zed\Kernel\Locator;
 use SprykerEngine\Zed\Kernel\Persistence\Factory as PersistenceFactory;
 use SprykerFeature\Zed\Oms\Business\OmsDependencyContainer;
-use SprykerFeature\Zed\Oms\OmsDependencyProvider;
 use SprykerFeature\Zed\Oms\Persistence\OmsQueryContainer;
 use SprykerFeature\Zed\Payolution\Business\Api\Adapter\AdapterInterface;
 use SprykerFeature\Zed\Payolution\Business\Api\Adapter\Http\Guzzle;
@@ -85,19 +85,6 @@ class OmsFacadeMockBuilder
         $this->expectSuccess = $expectSuccess;
 
         return $this;
-    }
-
-    /**
-     * @param \PHPUnit_Framework_TestCase $testCase
-     * @param bool $isLiveMode
-     *
-     * @return \PHPUnit_Framework_MockObject_MockObject|OmsFacade
-     */
-    public static function create(\PHPUnit_Framework_TestCase $testCase, $isLiveMode = false)
-    {
-        $builder = new self($testCase, $isLiveMode);
-
-        return $builder->build();
     }
 
     /**
@@ -207,6 +194,7 @@ class OmsFacadeMockBuilder
     private function getPayolutionCommandPreAuthorizePlugin()
     {
         $locator = Locator::getInstance();
+        /** @var PreAuthorizePlugin $plugin */
         $plugin = $locator->payolutionOmsConnector()->pluginCommandPreAuthorizePlugin();
 
         $adapterMock = new PreAuthorizationAdapterMock();
@@ -223,6 +211,7 @@ class OmsFacadeMockBuilder
     private function getPayolutionCommandReAuthorizePlugin()
     {
         $locator = Locator::getInstance();
+        /** @var ReAuthorizePlugin $plugin */
         $plugin = $locator->payolutionOmsConnector()->pluginCommandReAuthorizePlugin();
 
         $adapterMock = new ReAuthorizationAdapterMock();
@@ -239,6 +228,7 @@ class OmsFacadeMockBuilder
     private function getPayolutionCommandRevertPlugin()
     {
         $locator = Locator::getInstance();
+        /** @var RevertPlugin $plugin */
         $plugin = $locator->payolutionOmsConnector()->pluginCommandRevertPlugin();
 
         $adapterMock = new ReversalAdapterMock();
@@ -255,6 +245,7 @@ class OmsFacadeMockBuilder
     private function getPayolutionCommandCapturePlugin()
     {
         $locator = Locator::getInstance();
+        /** @var CapturePlugin $plugin */
         $plugin = $locator->payolutionOmsConnector()->pluginCommandCapturePlugin();
 
         $adapterMock = new CaptureAdapterMock();
@@ -271,6 +262,7 @@ class OmsFacadeMockBuilder
     private function getPayolutionCommandRefundPlugin()
     {
         $locator = Locator::getInstance();
+        /** @var RefundPlugin $plugin */
         $plugin = $locator->payolutionOmsConnector()->pluginCommandRefundPlugin();
 
         $adapterMock = new RefundAdapterMock();
@@ -342,35 +334,39 @@ class OmsFacadeMockBuilder
         $factory = new BusinessFactory('Oms');
         $locator = Locator::getInstance();
         $config = $this->getOmsConfigMock();
-        $dependencyContainerMock = $this->testCase->getMock(
-            'SprykerFeature\Zed\Oms\Business\OmsDependencyContainer',
-            $methods = [
-                'createOrderStateMachineBuilder',
-            ],
-            $arguments = [
-                $factory,
-                $locator,
-                $config,
-            ]
-        );
+        $dependencyContainer = new OmsDependencyContainer($factory, $locator, $config);
 
-        // Have the state machine builder use a custom path to the XML file
-        $stateMachineBuilder = $factory->createOrderStateMachineBuilder(
-            $factory->createProcessEvent(),
-            $factory->createProcessState(),
-            $factory->createProcessTransition(),
-            $factory->createProcessProcess($factory->createUtilDrawer(
-                $dependencyProviderContainer[OmsDependencyProvider::COMMAND_PLUGINS],
-                $dependencyProviderContainer[OmsDependencyProvider::CONDITION_PLUGINS]
-            )),
-            $xmlFolder = APPLICATION_ROOT_DIR . '/tests/Functional/Pyz/Zed/Payolution/Process/'
-        );
-        $dependencyContainerMock
-            ->expects($this->testCase->any())
-            ->method('createOrderStateMachineBuilder')
-            ->will($this->testCase->returnValue($stateMachineBuilder));
+        return $dependencyContainer;
 
-        return $dependencyContainerMock;
+//        $dependencyContainerMock = $this->testCase->getMock(
+//            'SprykerFeature\Zed\Oms\Business\OmsDependencyContainer',
+//            $methods = [
+//                'createOrderStateMachineBuilder',
+//            ],
+//            $arguments = [
+//                $factory,
+//                $locator,
+//                $config,
+//            ]
+//        );
+//
+//        // Have the state machine builder use a custom path to the XML file
+//        $stateMachineBuilder = $factory->createOrderStateMachineBuilder(
+//            $factory->createProcessEvent(),
+//            $factory->createProcessState(),
+//            $factory->createProcessTransition(),
+//            $factory->createProcessProcess($factory->createUtilDrawer(
+//                $dependencyProviderContainer[OmsDependencyProvider::COMMAND_PLUGINS],
+//                $dependencyProviderContainer[OmsDependencyProvider::CONDITION_PLUGINS]
+//            )),
+//            $xmlFolder = APPLICATION_ROOT_DIR . '/tests/Functional/Pyz/Zed/Payolution/Process/'
+//        );
+//        $dependencyContainerMock
+//            ->expects($this->testCase->any())
+//            ->method('createOrderStateMachineBuilder')
+//            ->will($this->testCase->returnValue($stateMachineBuilder));
+//
+//        return $dependencyContainerMock;
     }
 
     /**
