@@ -252,6 +252,12 @@ $config[AclConfig::ACL_USER_RULE_WHITELIST] = [
         'action' => '*',
         'type' => 'allow',
     ],
+    [
+        'bundle' => 'system',
+        'controller' => 'heartbeat',
+        'action' => 'index',
+        'type' => 'allow',
+    ],
 ];
 
 $config[AclConfig::ACL_DEFAULT_CREDENTIALS] = [
