@@ -20,7 +20,7 @@ class Ambulance extends AbstractPlugin
     }
 
     /**
-     * @return bool
+     * @return HealthReportInterface
      */
     public function getReport()
     {
