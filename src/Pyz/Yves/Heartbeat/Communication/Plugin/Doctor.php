@@ -47,7 +47,8 @@ class Doctor extends AbstractPlugin
      */
     private function check(HealthIndicatorInterface $healthIndicator)
     {
-        $healthIndicator->doHealthCheck($this->healthReport);
+        $healthIndicator->doHealthCheck();
+        $healthIndicator->writeHealthReport($this->healthReport);
     }
 
     /**

@@ -237,6 +237,12 @@ $config[AclConfig::ACL_DEFAULT_RULES] = [
         'action' => 'denied',
         'type' => 'allow',
     ],
+    [
+        'bundle' => 'system',
+        'controller' => 'heartbeat',
+        'action' => 'index',
+        'type' => 'allow',
+    ],
 ];
 
 $config[AclConfig::ACL_USER_RULE_WHITELIST] = [
