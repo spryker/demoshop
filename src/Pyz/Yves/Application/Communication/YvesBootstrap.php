@@ -7,6 +7,7 @@ use Pyz\Yves\Application\Communication\Plugin\ServiceProvider\YvesSecurityServic
 use Pyz\Yves\Cart\Communication\Plugin\CartControllerProvider;
 use Pyz\Yves\Checkout\Communication\Plugin\CheckoutControllerProvider;
 use Pyz\Yves\Customer\Communication\Plugin\CustomerControllerProvider;
+use Pyz\Yves\System\Communication\Plugin\SystemControllerProvider;
 use Pyz\Yves\Wishlist\Communication\Plugin\WishlistControllerProvider;
 use Silex\Provider\FormServiceProvider;
 use Silex\Provider\HttpFragmentServiceProvider;
@@ -29,7 +30,6 @@ use SprykerFeature\Shared\Application\Business\Application;
 use SprykerFeature\Shared\Application\Business\Routing\SilexRouter;
 use SprykerFeature\Shared\Application\Communication\Plugin\ServiceProvider\RoutingServiceProvider;
 use SprykerFeature\Shared\Application\Communication\Plugin\ServiceProvider\UrlGeneratorServiceProvider;
-use SprykerFeature\Shared\Cache\CacheConfig;
 use SprykerFeature\Shared\Library\Config;
 use SprykerFeature\Shared\System\SystemConfig;
 use SprykerFeature\Shared\Yves\YvesConfig;
@@ -41,6 +41,7 @@ use SprykerFeature\Shared\Library\NewRelic\Api;
 
 class YvesBootstrap extends SprykerYvesBootstrap
 {
+
     /**
      * @param Application $app
      */
@@ -131,6 +132,7 @@ class YvesBootstrap extends SprykerYvesBootstrap
             new CustomerControllerProvider($ssl),
             new CartControllerProvider($ssl),
             new WishlistControllerProvider($ssl),
+            new SystemControllerProvider($ssl),
         ];
     }
 
@@ -173,4 +175,5 @@ class YvesBootstrap extends SprykerYvesBootstrap
 
         return array_merge($existingGlobalVars, $additionalGlobalVars);
     }
+
 }
