@@ -120,7 +120,7 @@ Vagrant.configure(2) do |config|
     hosts_line = VM_IP + " " + HOSTS.join(' ')
     if not File.open(HOSTS_PATH).each_line.any? { |line| line.chomp == hosts_line }
       puts "WARNING: Please add the following entries to your ${HOSTS_PATH} file: \n\033[0m"
-      puts vag
+      puts hosts_line
     end
   end
 
