@@ -1,6 +1,7 @@
 <?php
 
 use SprykerFeature\Shared\Mail\MailConfig;
+use SprykerFeature\Shared\Payolution\PayolutionConfigConstants;
 use SprykerFeature\Shared\System\SystemConfig;
 use SprykerFeature\Shared\Yves\YvesConfig;
 use SprykerEngine\Shared\Lumberjack\LumberjackConfig;
