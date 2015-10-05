@@ -32,13 +32,13 @@ class OmsConfig extends SprykerOmsConfig
     public function selectProcess(OrderTransfer $orderTransfer)
     {
         $selectedProcessName = null;
-        $method = 'payolution';
+        $method = $orderTransfer->getProcess();
 
         switch ($method) {
-            case 'prepayment':
+            case self::ORDER_PROCESS_PREPAYMENT_01:
                 $selectedProcessName = self::ORDER_PROCESS_PREPAYMENT_01;
                 break;
-            case 'payolution':
+            case self::ORDER_PROCESS_PAYOLUTION_PAYMENT_01:
                 $selectedProcessName = self::ORDER_PROCESS_PAYOLUTION_PAYMENT_01;
                 break;
             default:
