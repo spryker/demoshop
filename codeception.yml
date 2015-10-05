@@ -48,7 +48,6 @@ include:
  - vendor/spryker/spryker/Bundles/ProductOption/
  - vendor/spryker/spryker/Bundles/ProductOptionCartConnector/
  - vendor/spryker/spryker/Bundles/ProductSearch/
- - vendor/spryker/spryker/Bundles/ProductSearch/
  - vendor/spryker/spryker/Bundles/Propel/
  - vendor/spryker/spryker/Bundles/Queue/
  - vendor/spryker/spryker/Bundles/RedirectExporter/
@@ -82,13 +81,6 @@ settings:
     colors: true
     memory_limit: 1024M
     log: true
-
-extensions:
-  enabled:
-    - Codeception\Extension\RemoteDebug
-  config:
-    Codeception\Extension\RemoteDebug:
-      sessionName: phpstorm
 
 modules:
     config:
