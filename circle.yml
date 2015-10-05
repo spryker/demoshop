@@ -21,7 +21,7 @@ test:
   pre:
     - >
       if [ -n "${RUN_SPRYKER_BUILD}" ]; then
-        cd vendor/spryker/spryker && git checkout origin/${BRANCH_PARENT}
+        cd vendor/spryker/spryker && git checkout origin/${BRANCH}
       fi
   override:
 #    - phpcpd . --exclude="vendor" --exclude="config" --exclude="src/Generated" -n
