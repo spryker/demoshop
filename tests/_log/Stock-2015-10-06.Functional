@@ -1,0 +1,8 @@
+[2015-10-06 13:36:42] Functional\SprykerFeature\Zed\Stock\CalculatorTest::testCalculateStock.INFO: PASSED [] []
+[2015-10-06 13:36:42] Functional\SprykerFeature\Zed\Stock\ReaderTest::testIsNeverOutOfStock.INFO: PASSED [] []
+[2015-10-06 13:36:42] Functional\SprykerFeature\Zed\Stock\WriterTest::testDecrementStock.INFO: PASSED [] []
+[2015-10-06 13:36:42] Functional\SprykerFeature\Zed\Stock\WriterTest::testIncrementStock.INFO: PASSED [] []
+[2015-10-06 13:41:01] Functional\SprykerFeature\Zed\Stock\CalculatorTest::testCalculateStock.INFO: PASSED [] []
+[2015-10-06 13:41:02] Functional\SprykerFeature\Zed\Stock\ReaderTest::testIsNeverOutOfStock.INFO: PASSED [] []
+[2015-10-06 13:41:02] Functional\SprykerFeature\Zed\Stock\WriterTest::testDecrementStock.INFO: PASSED [] []
+[2015-10-06 13:41:02] Functional\SprykerFeature\Zed\Stock\WriterTest::testIncrementStock.INFO: PASSED [] []

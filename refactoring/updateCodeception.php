@@ -21,6 +21,19 @@ function getFiles(array $directories)
     return $finder;
 }
 
+/**
+ * @param array $directories
+ *
+ * @return SplFileInfo[]|Finder
+ */
+function getDirectories(array $directories)
+{
+    $finder = new Finder();
+    $finder->directories()->in($directories);
+
+    return $finder;
+}
+
 
 
 $removeGuys = function () use ($filesystem) {
@@ -47,26 +60,29 @@ $replaceCodeceptionContent = function() use ($filesystem) {
         $content = $file->getContents();
         $content = str_replace([
             'helpers: tests/_helpers',
-            'log: tests/_log'
+            'log: tests/_log',
+            'support: tests/_support,'
         ], [
-            'support: tests/_support,' . "\n" . '    envs: tests/_envs',
-            'log: tests/_output'
+            'support: tests/_support' . "\n" . '    envs: tests/_envs',
+            'log: tests/_output',
+            'support: tests/_support'
         ],
             $content
         );
-        $content = preg_replace('/namespace (.*)/', 'actor: Tester', $content);
+//        $content = preg_replace('/namespace: (.*)/', 'actor: Tester', $content);
 
         $filesystem->dumpFile($file, $content);
     }
 };
-$replaceCodeceptionContent = function() use ($filesystem) {
+
+$replaceGitIgnoreContent = function() use ($filesystem) {
     $directories = [
         __DIR__ . '/../',
         __DIR__ . '/../vendor/spryker/spryker/Bundles/*/'
     ];
 
     /** @var $files SplFileInfo[] */
-    $files = getFiles($directories)->name('.gitignore');
+    $files = getFiles($directories)->name('.gitignore')->ignoreDotFiles(false);
     foreach ($files as $file) {
         $content = $file->getContents();
         $content = str_replace([
@@ -81,7 +97,6 @@ $replaceCodeceptionContent = function() use ($filesystem) {
     }
 };
 
-
 $replaceSuiteConfigContent = function () use ($filesystem) {
     $directories = [
         __DIR__ . '/../tests/',
@@ -90,7 +105,6 @@ $replaceSuiteConfigContent = function () use ($filesystem) {
     /** @var $files SplFileInfo[] */
     $files = getFiles($directories)->name('*.suite.yml');
     foreach ($files as $file) {
-
         $content = $file->getContents();
         $content = str_replace([
             'class_name: TestGuy' . "\n",
@@ -98,7 +112,20 @@ $replaceSuiteConfigContent = function () use ($filesystem) {
             'class_name: YvesGuy' . "\n",
         ], '', $content
         );
-//        $filesystem->dumpFile($file, $content);
+        $filesystem->dumpFile($file, $content);
+    }
+};
+
+$copyTestHelper = function () use ($filesystem) {
+    $directories = [
+        __DIR__ . '/../tests/_helpers',
+        __DIR__ . '/../vendor/spryker/spryker/Bundles/*/tests/_helpers'
+    ];
+    /** @var $files SplFileInfo[] */
+    $files = getFiles($directories)->name('TestHelper.php');
+    foreach ($files as $file) {
+
+    }
 };
 
 $toggleTestHelperSuiteConfigContent = function ($turnOn) use ($filesystem) {
@@ -121,7 +148,40 @@ $toggleTestHelperSuiteConfigContent = function ($turnOn) use ($filesystem) {
     }
 };
 
+$renameLogDirectory = function () use ($filesystem) {
+    $directories = [
+        __DIR__ . '/../tests/',
+        __DIR__ . '/../vendor/spryker/spryker/Bundles/*/tests/'
+    ];
+    /** @var $directories SplFileInfo[] */
+    $directories = getDirectories($directories)->ignoreUnreadableDirs(true);
+
+    foreach ($directories as $directory) {
+        if ($directory->getRelativePathname() === '_log') {
+            $from = $directory->getPathname();
+            $to = str_replace('_log', '_output', $directory->getPathname());
+            $filesystem->rename($from, $to);
+        }
+    }
+};
+
+$removeHelperDirectory = function () use ($filesystem) {
+    $directories = [
+        __DIR__ . '/../tests/_helpers',
+        __DIR__ . '/../vendor/spryker/spryker/Bundles/*/tests/_helpers'
+    ];
+    /** @var $directories SplFileInfo[] */
+    $directories = getDirectories($directories);
+    foreach ($directories as $directory) {
+        echo $directory->getRelativePathname() . PHP_EOL;
+//        $filesystem->remove($directory);
+    }
+};
+
 //$removeGuys();
-$replaceCodeceptionContent();
+//$replaceCodeceptionContent();
+//$replaceGitIgnoreContent();
 //$replaceSuiteConfigContent();
 //$toggleTestHelperSuiteConfigContent(true);
+//$renameLogDirectory();
+$removeHelperDirectory();

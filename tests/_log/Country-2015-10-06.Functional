@@ -1,0 +1,6 @@
+[2015-10-06 13:36:16] Functional\SprykerFeature\Zed\Country\CountryFacadeTest::testInitdbInstallation.INFO: # Skipped # [] []
+[2015-10-06 13:36:16] Functional\SprykerFeature\Zed\Country\CountryFacadeTest::testInitdbInstallation.INFO: PASSED [] []
+[2015-10-06 13:36:16] Functional\SprykerFeature\Zed\Country\CountryFacadeTest::testGetIdByIso2CodeReturnsRightValue.INFO: PASSED [] []
+[2015-10-06 13:40:33] Functional\SprykerFeature\Zed\Country\CountryFacadeTest::testInitdbInstallation.INFO: # Skipped # [] []
+[2015-10-06 13:40:33] Functional\SprykerFeature\Zed\Country\CountryFacadeTest::testInitdbInstallation.INFO: PASSED [] []
+[2015-10-06 13:40:33] Functional\SprykerFeature\Zed\Country\CountryFacadeTest::testGetIdByIso2CodeReturnsRightValue.INFO: PASSED [] []
