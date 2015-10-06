@@ -1,6 +1,6 @@
 {
   "require": {
-    "spryker/spryker": "dev-refactor/change-wrong-method-name",
+    "spryker/spryker": "dev-develop",
 
     "psr/log": "~1.0",
     "propel/propel": "~2.0@dev",
