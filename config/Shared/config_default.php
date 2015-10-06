@@ -112,6 +112,9 @@ $config[SystemConfig::PROPEL] = [
                 'password' => '',
                 'settings' => [
                     'charset' => 'utf8',
+                    'queries' => [
+                          'utf8' => "SET NAMES 'UTF8'",
+                        ],
                 ],
             ],
         ],
