@@ -50,9 +50,13 @@
     "nesbot/carbon": "1.13.0"
   },
   "require-dev": {
+    "knplabs/github-api": "1.4.7",
     "silex/web-profiler": "~1.0.2",
     "pdepend/pdepend": "*",
-    "codeception/codeception": "2.1",
+    "phpunit/phpunit": "~3.7.0",
+    "codeception/codeception": "*",
+    "fzaninotto/faker": "1.4.*",
+    "codeception/remote-debug": "*",
     "fabpot/php-cs-fixer": "^1.9"
   },
   "autoload": {
