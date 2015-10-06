@@ -1,79 +1,11 @@
-namespace: Pyz
-
-include:
- - vendor/spryker/spryker/Bundles/Acl/
- - vendor/spryker/spryker/Bundles/Application/
- - vendor/spryker/spryker/Bundles/Auth/
- - vendor/spryker/spryker/Bundles/Availability/
- - vendor/spryker/spryker/Bundles/AvailabilityCartConnector/
- - vendor/spryker/spryker/Bundles/AvailabilityCheckoutConnector/
- - vendor/spryker/spryker/Bundles/Calculation/
- - vendor/spryker/spryker/Bundles/Cart/
- - vendor/spryker/spryker/Bundles/Catalog/
- - vendor/spryker/spryker/Bundles/Category/
- - vendor/spryker/spryker/Bundles/CategoryExporter/
- - vendor/spryker/spryker/Bundles/Checkout/
- - vendor/spryker/spryker/Bundles/Cms/
- - vendor/spryker/spryker/Bundles/CmsExporter/
- - vendor/spryker/spryker/Bundles/Collector/
- - vendor/spryker/spryker/Bundles/Config/
- - vendor/spryker/spryker/Bundles/Console/
- - vendor/spryker/spryker/Bundles/Country/
- - vendor/spryker/spryker/Bundles/Customer/
- - vendor/spryker/spryker/Bundles/CustomerMailConnector/
- - vendor/spryker/spryker/Bundles/DbDump/
- - vendor/spryker/spryker/Bundles/Discount/
- - vendor/spryker/spryker/Bundles/DiscountCalculationConnector/
- - vendor/spryker/spryker/Bundles/Distributor/
- - vendor/spryker/spryker/Bundles/Document/
- - vendor/spryker/spryker/Bundles/Git/
- - vendor/spryker/spryker/Bundles/Glossary/
- - vendor/spryker/spryker/Bundles/GlossaryDistributor/
- - vendor/spryker/spryker/Bundles/GlossaryQueue/
- - vendor/spryker/spryker/Bundles/Installer/
- - vendor/spryker/spryker/Bundles/Invoice/
- - vendor/spryker/spryker/Bundles/Kernel/
- - vendor/spryker/spryker/Bundles/Library/
- - vendor/spryker/spryker/Bundles/Locale/
- - vendor/spryker/spryker/Bundles/Lumberjack/
- - vendor/spryker/spryker/Bundles/Mail/
- - vendor/spryker/spryker/Bundles/Maintenance/
- - vendor/spryker/spryker/Bundles/Oms/
- - vendor/spryker/spryker/Bundles/Price/
- - vendor/spryker/spryker/Bundles/PriceCartConnector/
- - vendor/spryker/spryker/Bundles/Product/
- - vendor/spryker/spryker/Bundles/ProductCategory/
- - vendor/spryker/spryker/Bundles/ProductExporter/
- - vendor/spryker/spryker/Bundles/ProductImage/
- - vendor/spryker/spryker/Bundles/ProductOption/
- - vendor/spryker/spryker/Bundles/ProductOptionCartConnector/
- - vendor/spryker/spryker/Bundles/ProductSearch/
- - vendor/spryker/spryker/Bundles/Propel/
- - vendor/spryker/spryker/Bundles/Queue/
- - vendor/spryker/spryker/Bundles/RedirectExporter/
- - vendor/spryker/spryker/Bundles/Sales/
- - vendor/spryker/spryker/Bundles/Search/
- - vendor/spryker/spryker/Bundles/Setup/
- - vendor/spryker/spryker/Bundles/Session/
- - vendor/spryker/spryker/Bundles/Stock/
- - vendor/spryker/spryker/Bundles/StockSalesConnector/
- - vendor/spryker/spryker/Bundles/Storage/
- - vendor/spryker/spryker/Bundles/System/
- - vendor/spryker/spryker/Bundles/Tax/
- - vendor/spryker/spryker/Bundles/TaxProductConnector/
- - vendor/spryker/spryker/Bundles/Transfer/
- - vendor/spryker/spryker/Bundles/Touch/
- - vendor/spryker/spryker/Bundles/Twig/
- - vendor/spryker/spryker/Bundles/Url/
- - vendor/spryker/spryker/Bundles/User/
- - vendor/spryker/spryker/Bundles/Yves/
- - vendor/spryker/spryker/Bundles/ZedRequest/
+actor: Tester
 
 paths:
     tests: tests
-    log: tests/_log
+    log: tests/_output
     data: tests/_data
-    helpers: tests/_helpers
+    support: tests/_support
+    envs: tests/_envs
 
 settings:
     bootstrap: _bootstrap.php
@@ -89,3 +21,7 @@ modules:
             user: ''
             password: ''
             dump: tests/_data/dump.sql
+
+extensions:
+    enabled:
+        - Codeception\Extension\RunFailed

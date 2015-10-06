@@ -709,10 +709,13 @@
                 "url": "git@github.com:spryker/spryker.git",
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
                 "reference": "b1db8aee504224cd89df1f005d1d1fd7c79179f4"
 =======
 =======
 >>>>>>> update configs
+=======
+>>>>>>> WIP update codeception
 <<<<<<< HEAD
                 "reference": "bb4916882c120c93c624e7be68085a242e8c3104"
 =======
@@ -728,7 +731,13 @@
 =======
                 "reference": "861fca53805e057c54eb9b098f2c293f12ba00f3"
 >>>>>>> update configs
+<<<<<<< HEAD
 >>>>>>> update configs
+=======
+=======
+                "reference": "eaea95ef41a3df439ecc94dc2497a10ebeaf2128"
+>>>>>>> WIP update codeception
+>>>>>>> WIP update codeception
             },
             "require": {
                 "digital-canvas/zend-framework": ">=1.12.2"
@@ -819,10 +828,13 @@
             },
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
             "time": "2015-10-09 09:19:37"
 =======
 =======
 >>>>>>> update configs
+=======
+>>>>>>> WIP update codeception
 <<<<<<< HEAD
             "time": "2015-10-08 12:57:20"
 =======
@@ -838,7 +850,13 @@
 =======
             "time": "2015-10-05 13:41:16"
 >>>>>>> update configs
+<<<<<<< HEAD
 >>>>>>> update configs
+=======
+=======
+            "time": "2015-10-06 08:34:08"
+>>>>>>> WIP update codeception
+>>>>>>> WIP update codeception
         },
         {
             "name": "symfony-cmf/routing",
