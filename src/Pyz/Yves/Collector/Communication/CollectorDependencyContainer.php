@@ -6,7 +6,6 @@
 
 namespace Pyz\Yves\Collector\Communication;
 
-use Generated\Yves\Ide\FactoryAutoCompletion\Collector;
 use Generated\Yves\Ide\FactoryAutoCompletion\CollectorCommunication;
 use Pyz\Yves\Collector\Communication\Creator\ResourceCreatorInterface;
 use Pyz\Yves\Collector\Communication\Mapper\UrlMapper;

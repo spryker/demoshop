@@ -8,16 +8,16 @@
     "packages": [
         {
             "name": "digital-canvas/zend-framework",
-            "version": "1.12.15",
+            "version": "1.12.16",
             "source": {
                 "type": "git",
                 "url": "https://github.com/digital-canvas/zend-framework.git",
-                "reference": "89d94f4f96758bfbf20080fe374fe295c1c70a17"
+                "reference": "6b4fb74ed444054f04bd0130aaf80bd767768057"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/digital-canvas/zend-framework/zipball/89d94f4f96758bfbf20080fe374fe295c1c70a17",
-                "reference": "89d94f4f96758bfbf20080fe374fe295c1c70a17",
+                "url": "https://api.github.com/repos/digital-canvas/zend-framework/zipball/6b4fb74ed444054f04bd0130aaf80bd767768057",
+                "reference": "6b4fb74ed444054f04bd0130aaf80bd767768057",
                 "shasum": ""
             },
             "require": {
@@ -45,7 +45,7 @@
                 "zend",
                 "zf"
             ],
-            "time": "2015-08-12 17:14:10"
+            "time": "2015-09-30 17:33:23"
         },
         {
             "name": "guzzle/guzzle",
@@ -707,7 +707,7 @@
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/spryker.git",
-                "reference": "fc0efe0bf71c4a4737e0e620e4af2c65190e99c4"
+                "reference": "3eaf35a234e95529ebd7cfa58d273bf4f130ab70"
             },
             "require": {
                 "digital-canvas/zend-framework": ">=1.12.2"
@@ -796,7 +796,7 @@
                     "SprykerFeature\\Shared\\Library": "Bundles/Library/src/"
                 }
             },
-            "time": "2015-09-29 14:19:17"
+            "time": "2015-10-06 11:53:54"
         },
         {
             "name": "symfony-cmf/routing",
