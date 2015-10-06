@@ -46,12 +46,37 @@ $replaceCodeceptionContent = function() use ($filesystem) {
     foreach ($files as $file) {
         $content = $file->getContents();
         $content = str_replace([
-            'helpers: tests/_helpers'
+            'helpers: tests/_helpers',
+            'log: tests/_log'
         ], [
-            'support: tests/_support'
+            'support: tests/_support,' . "\n" . '    envs: tests/_envs',
+            'log: tests/_output'
         ],
             $content
         );
+        $content = preg_replace('/namespace (.*)/', 'actor: Tester', $content);
+
+        $filesystem->dumpFile($file, $content);
+    }
+};
+$replaceCodeceptionContent = function() use ($filesystem) {
+    $directories = [
+        __DIR__ . '/../',
+        __DIR__ . '/../vendor/spryker/spryker/Bundles/*/'
+    ];
+
+    /** @var $files SplFileInfo[] */
+    $files = getFiles($directories)->name('.gitignore');
+    foreach ($files as $file) {
+        $content = $file->getContents();
+        $content = str_replace([
+            'tests/_log'
+        ], [
+            'tests/_output'
+        ],
+            $content
+        );
+
         $filesystem->dumpFile($file, $content);
     }
 };
@@ -73,10 +98,30 @@ $replaceSuiteConfigContent = function () use ($filesystem) {
             'class_name: YvesGuy' . "\n",
         ], '', $content
         );
+//        $filesystem->dumpFile($file, $content);
+};
+
+$toggleTestHelperSuiteConfigContent = function ($turnOn) use ($filesystem) {
+    $directories = [
+        __DIR__ . '/../tests/',
+        __DIR__ . '/../vendor/spryker/spryker/Bundles/*/tests/'
+    ];
+    /** @var $files SplFileInfo[] */
+    $files = getFiles($directories)->name('*.suite.yml');
+    foreach ($files as $file) {
+        $content = $file->getContents();
+        if ($turnOn) {
+            $content = str_replace('#- TestHelper', '- TestHelper', $content);
+            $content = str_replace('#- CodeHelper' .  "\n" . '- Filesystem', '- CodeHelper', $content);
+        } else {
+            $content = str_replace('- TestHelper', '#- TestHelper', $content);
+            $content = str_replace('- CodeHelper', '#- CodeHelper' .  "\n" . '- Filesystem', $content);
+        }
         $filesystem->dumpFile($file, $content);
     }
 };
 
 //$removeGuys();
-//$replaceCodeceptionContent();
+$replaceCodeceptionContent();
 //$replaceSuiteConfigContent();
+//$toggleTestHelperSuiteConfigContent(true);
