@@ -5,6 +5,7 @@
         "This file is @generated automatically"
     ],
     "hash": "beb7947e5ba54b42d0f4c6be1dc01e51",
+    "content-hash": "585a41d66a90ac5ee5bbf70ab6257687",
     "packages": [
         {
             "name": "digital-canvas/zend-framework",
@@ -707,7 +708,11 @@
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/spryker.git",
+<<<<<<< HEAD
                 "reference": "5dccd56163da06edda3949299b4865196f80d084"
+=======
+                "reference": "ade396474f4a9abbfb3dc3644d39b5596a9f451e"
+>>>>>>> CD-506 update composer
             },
             "require": {
                 "digital-canvas/zend-framework": ">=1.12.2"
@@ -796,7 +801,11 @@
                     "SprykerFeature\\Shared\\Library": "Bundles/Library/src/"
                 }
             },
+<<<<<<< HEAD
             "time": "2015-10-07 13:18:37"
+=======
+            "time": "2015-10-07 09:47:40"
+>>>>>>> CD-506 update composer
         },
         {
             "name": "symfony-cmf/routing",
