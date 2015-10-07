@@ -11,6 +11,7 @@ use SprykerFeature\Shared\User\UserConfig;
 use SprykerFeature\Shared\Yves\YvesConfig;
 use SprykerEngine\Shared\Lumberjack\LumberjackConfig;
 use SprykerFeature\Shared\Session\SessionConfig;
+use SprykerFeature\Shared\SequenceNumber\SequenceNumberConstants as SequenceNumberConfig;
 
 $config[SystemConfig::PROJECT_NAMESPACES] = [
     'Pyz',
@@ -323,3 +324,5 @@ $config[YvesConfig::YVES_SHOW_EXCEPTION_STACK_TRACE] = true;
 
 $config[SystemConfig::PROPEL_DEBUG] = false;
 $config[ApplicationConfig::SHOW_SYMFONY_TOOLBAR] = false;
+
+$config[SequenceNumberConfig::ENVIRONMENT_PREFIX] = '';
