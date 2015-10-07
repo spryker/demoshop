@@ -168,14 +168,16 @@ class ProductCollector extends AbstractPropelCollectorPlugin
             SpyLocalizedAbstractProductAttributesTableMap::COL_ATTRIBUTES,
             'abstract_localized_attributes'
         );
+        // PostgreSQL specific code, if database is MySQL use GROUP_CONCAT
         $baseQuery->withColumn(
-            "GROUP_CONCAT(spy_product.attributes SEPARATOR '$%')",
+            "STRING_AGG(spy_product.attributes, '$%')",
             'concrete_attributes'
         );
         $baseQuery->withColumn(
-            "GROUP_CONCAT(spy_product_localized_attributes.attributes SEPARATOR '$%')",
+            "STRING_AGG(spy_product_localized_attributes.attributes, '$%')",
             'concrete_localized_attributes'
         );
+        // End of PostgreSQL specific code
         $baseQuery->withColumn(
             'GROUP_CONCAT(product_urls.url)',
             'product_urls'
