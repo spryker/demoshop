@@ -63,7 +63,7 @@ class PriceInstall extends AbstractInstaller
     {
         $reader = new CsvFileReader();
 
-        return $reader->read(__DIR__ . '/demo-price.csv')->getData();
+        return $reader->read(__DIR__ . '/pets-deli-product-price.csv')->getData();
     }
 
     /**

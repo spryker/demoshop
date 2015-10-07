@@ -79,7 +79,7 @@ class StockInstall extends AbstractInstaller
     {
         $reader = new CsvFileReader();
 
-        return $reader->read(__DIR__ . '/demo-stock.csv')->getData();
+        return $reader->read(__DIR__ . '/pets-deli-product-stock.csv')->getData();
     }
 
     /**
