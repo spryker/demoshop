@@ -1,0 +1,113 @@
+#!/bin/bash
+#
+# Utility functions for deployment
+# No project-specific logic should be implemented here!
+#
+
+# Match argument agains localhost, my hostname or my ip address (any)
+function match_hostname_or_ip() {
+  local my_names
+  my_names="localhost `hostname --short` `hostname --ip`"
+  for match in $1 ${1/.*/}; do
+    for name in $my_names; do
+      [ "$match" == "$name" ] && exit 0
+    done
+  done
+  exit 1
+}
+
+# Return true if this is admin host, false otherwise
+function is_admin_host() {
+  match_hostname_or_ip ${admin_host} && exit 0
+  exit 1
+}
+
+# Return true if this is DWH host, false otherwise
+function is_dwh_host() {
+  match_hostname_or_ip ${dwh_host} && exit 0
+  exit 1
+}
+
+# Return true if this host runs solr, false otherwise
+function is_solr_host() {
+  for host in $solr_hosts; do
+    match_hostname_or_ip $host && exit 0
+  done
+  exit 1
+}
+
+# Return true if this host runs jobs, false otherwise
+function is_jobs_host() {
+  for host in $jobs_hosts; do
+    match_hostname_or_ip $host && exit 0
+  done
+  exit 1
+}
+
+# Return true if this is default (first) store, false otherwise
+# LEGACY from yzed - not used anymore!?
+function is_default_store() {
+  exit 0
+}
+
+# Return true if environment is production, false otherwise
+function is_production() {
+  if [ "$environment" == "prod" ]; then
+    exit 0
+  else
+    exit 1
+  fi
+}
+
+# install composer (with cache directory)
+function composer_install() {
+  local component="$1"
+  local composer_cache_dir="$2"
+
+  [ -z "$component" ] && echo "No component name provided!" && exit 1
+  [ -z "$composer_cache_dir" ] && echo "No composer_cache_dir provided!" && exit 1
+
+  echo "Installing Composer in \"`pwd`\" [cache: $composer_cache_dir] .."
+
+  ## fetch vendor from cache
+  [ ! -d $composer_cache_dir ] && mkdir -p $composer_cache_dir
+  cp -r --reflink=auto $composer_cache_dir ./
+
+  newrelic_app_name="${component^}(${app_cluster}-${app_instance})"
+  newrelic_app_name="${newrelic_app_name/Api/Backend}"
+
+  echo "## NewRelic deployment notification for ${newrelic_app_name}"
+  if [ "${symfony_env}" == "prod" ]; then
+    php -d "newrelic.appname='${newrelic_app_name}'" composer.phar install -o --no-dev|| exit 1
+  else
+    php -d "newrelic.appname='${newrelic_app_name}'" composer.phar install -o || exit 1
+  fi
+
+  # rsync current vendor back to the cache
+  rsync -ra --delete vendor/ $composer_cache_dir/
+
+  # remove .git dirs from vendor folder to make it smaller
+  find vendor/ -type d -name .git | xargs rm -rf
+
+}
+
+# send a string message to slack "it-bot-log" channel
+function send_slack_notification() {
+  if [ "${environment}" == "prod" ]; then
+    slack_channel_url="https://hooks.slack.com/services/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" # channel: "wohlheit-deploy"
+  else
+    slack_channel_url="https://hooks.slack.com/services/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" # channel: "wohlheit-deploy"
+  fi
+
+  # trigger incomig slack hook
+  curl --data "{\"text\": \"${1}\", \"username\": \"deploy bot\", \"icon_emoji\": \":rotating_light:\"}" "${slack_channel_url}" 2> /dev/null
+
+}
+
+
+# check if a host has a spcific salt-stack role (returns 0 if role is present)
+function host_has_role() {
+  local role_name="${1}"
+  salt-call --local grains.get roles | grep -q ${role_name}
+  echo $?
+}
