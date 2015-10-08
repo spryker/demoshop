@@ -707,7 +707,7 @@
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/spryker.git",
-                "reference": "5dccd56163da06edda3949299b4865196f80d084"
+                "reference": "ff8a54a73446a34d44756ec3247a7127a2bb566d"
             },
             "require": {
                 "digital-canvas/zend-framework": ">=1.12.2"
@@ -796,7 +796,7 @@
                     "SprykerFeature\\Shared\\Library": "Bundles/Library/src/"
                 }
             },
-            "time": "2015-10-07 13:18:37"
+            "time": "2015-10-08 10:24:19"
         },
         {
             "name": "symfony-cmf/routing",

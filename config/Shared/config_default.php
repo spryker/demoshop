@@ -154,17 +154,6 @@ $config[SystemConfig::CLOUD_OBJECT_STORAGE_DATA_CONTAINERS] = [
     'defaultImagesContainerName' => 'pyz-private',
 ];
 
-$config[SystemConfig::CLOUD_OBJECT_STORAGE_RACKSPACE] = [
-    'username' => 'cloudfiles.contorion',
-    'apiKey' => 'e73a9eb8d9324e98bbf6552e8150ec9c',
-    'apiEndpoint' => 'https://lon.identity.api.rackspacecloud.com/v2.0/',
-    'storageService' => 'cloudFiles',
-    'location' => 'LON',
-];
-$config[SystemConfig::CLOUD_OBJECT_STORAGE_PRODUCT_IMAGES] = [
-    'prefix' => 'productImages',
-    'deleteRemoteObjects' => true,
-];
 
 $config[SystemConfig::CLOUD_CDN_ENABLED] = false;
 
