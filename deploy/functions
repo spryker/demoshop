@@ -93,6 +93,9 @@ function composer_install() {
 
 # send a string message to slack "it-bot-log" channel
 function send_slack_notification() {
+  exit 0
+
+
   if [ "${environment}" == "prod" ]; then
     slack_channel_url="https://hooks.slack.com/services/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" # channel: "wohlheit-deploy"
   else

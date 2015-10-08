@@ -1,0 +1,17 @@
+#!/bin/bash
+#
+# check_configuration
+# This script is executed on all hosts after unpacking release tarball.
+# It should return 0 if configuration is OK, 1 if there are any problems found.
+#
+#
+
+FILEPATH=`pwd`/$0; BASEDIR=`dirname $FILEPATH`; source $BASEDIR/vars; source $BASEDIR/functions
+outfile=`mktemp /tmp/deploy-XXXXXX`
+
+
+# noop
+
+
+rm -f $outfile
+exit $return
