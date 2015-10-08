@@ -13,6 +13,19 @@ use SprykerFeature\Shared\Session\SessionConfig;
 $config[YvesConfig::YVES_SESSION_SAVE_HANDLER] = SessionConfig::SESSION_HANDLER_REDIS;
 $config[SystemConfig::ZED_SESSION_SAVE_HANDLER] = SessionConfig::SESSION_HANDLER_FILE;
 
+$config[SystemConfig::ZED_DB_USERNAME] = 'development';
+$config[SystemConfig::ZED_DB_PASSWORD] = 'mate20mg';
+$config[SystemConfig::ZED_DB_HOST]     = '127.0.0.1';
+$config[SystemConfig::ZED_DB_PORT]     = 5432;
+$config[SystemConfig::ZED_DB_DATABASE] = null;
+
+$config[ApplicationConfig::ZED_TWIG_OPTIONS] = [
+    'cache' => false,
+];
+$config[ApplicationConfig::YVES_TWIG_OPTIONS] = [
+    'cache' => false,
+];
+
 $config[SystemConfig::YVES_STORAGE_SESSION_REDIS_PROTOCOL] = 'tcp';
 $config[SystemConfig::YVES_STORAGE_SESSION_REDIS_HOST] = '127.0.0.1';
 $config[SystemConfig::YVES_STORAGE_SESSION_REDIS_PORT] = '10009';

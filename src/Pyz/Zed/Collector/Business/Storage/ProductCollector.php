@@ -211,7 +211,6 @@ class ProductCollector extends AbstractPropelCollectorPlugin
         $baseQuery->withColumn(SpyAbstractProductTableMap::COL_SKU, 'abstract_sku');
         $baseQuery->withColumn(SpyAbstractProductTableMap::COL_ATTRIBUTES, 'abstract_attributes');
         $baseQuery->withColumn(SpyAbstractProductTableMap::COL_ID_ABSTRACT_PRODUCT, 'id_abstract_product');
-        $baseQuery->groupBy('abstract_sku');
 
 
         // Product availability
@@ -225,6 +224,8 @@ class ProductCollector extends AbstractPropelCollectorPlugin
                 SpyProductTableMap::COL_ID_PRODUCT
             )
         );
+
+        $baseQuery->addGroupByColumn(SpyProductTableMap::COL_ID_PRODUCT);
 
         // Product price
         $baseQuery->addJoinObject(
@@ -248,9 +249,8 @@ class ProductCollector extends AbstractPropelCollectorPlugin
 
         $baseQuery->addJoinCondition(
             'concretePriceJoin',
-            'concrete_price_table.fk_price_type',
-            $idPriceType,
-            Criteria::EQUAL
+            'concrete_price_table.fk_price_type = '.
+            (int) $idPriceType
         );
 
         $baseQuery->addJoinObject(
@@ -276,7 +276,6 @@ class ProductCollector extends AbstractPropelCollectorPlugin
             'price_types'
         );
 
-        $baseQuery->groupBy('abstract_sku');
 
         // Tax set
         $baseQuery->addJoin(

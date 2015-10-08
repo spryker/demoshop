@@ -21,21 +21,14 @@ $config[SystemConfig::CORE_NAMESPACES] = [
     'SprykerEngine',
 ];
 
+$config[ApplicationConfig::ZED_TWIG_OPTIONS] = [];
 $config[SystemConfig::CURRENT_APPLICATION_STORE] = APPLICATION_STORE;
 $config[SystemConfig::CURRENT_APPLICATION_ENV] = APPLICATION_ENV;
 
 $config[SystemConfig::PROJECT_TIMEZONE] = 'UTC';
 $config[SystemConfig::PROJECT_NAMESPACE] = 'Pyz';
 
-$config[ApplicationConfig::ZED_TWIG_OPTIONS] = [
-    'cache' => \SprykerFeature_Shared_Library_Data::getLocalStoreSpecificPath('cache/Zed/twig'),
-];
-
-$config[ApplicationConfig::YVES_TWIG_OPTIONS] = [
-    'cache' => \SprykerFeature_Shared_Library_Data::getLocalStoreSpecificPath('cache/Yves/twig'),
-];
-
-$config[SystemConfig::ZED_DB_ENGINE] = 'mysql';
+$config[SystemConfig::ZED_DB_ENGINE] = 'pgsql';
 
 $config[DbDumpConfig::DB_DUMP_USERNAME] = '';
 $config[DbDumpConfig::DB_DUMP_PASSWORD] = '';
@@ -45,6 +38,13 @@ $config[DbDumpConfig::DB_DUMP_MYSQLDUMP_BIN] = '/usr/bin/mysqldump';
 $config[DbDumpConfig::DB_DUMP_MYSQL_BIN] = '/usr/bin/mysql';
 
 $config[SystemConfig::STORAGE_KV_SOURCE] = 'redis';
+
+$config[ApplicationConfig::ZED_TWIG_OPTIONS] = [
+    'cache' => \SprykerFeature_Shared_Library_Data::getLocalStoreSpecificPath('cache/Zed/twig'),
+];
+$config[ApplicationConfig::YVES_TWIG_OPTIONS] = [
+    'cache' => \SprykerFeature_Shared_Library_Data::getLocalStoreSpecificPath('cache/Yves/twig'),
+];
 
 $config[SystemConfig::ELASTICA_PARAMETER__HOST] = 'localhost';
 $config[SystemConfig::ELASTICA_PARAMETER__TRANSPORT] = 'http';
@@ -102,19 +102,20 @@ $config[CustomerConfig::CUSTOMER_SECURED_PATTERN] = '(^/login_check$|^/customer)
 $config[CustomerConfig::CUSTOMER_ANONYMOUS_PATTERN] = '^/.*';
 
 $currentStore = \SprykerEngine\Shared\Kernel\Store::getInstance()->getStoreName();
+
 $config[SystemConfig::PROPEL] = [
     'database' => [
         'connections' => [
             'default' => [
-                'adapter' => 'mysql',
-                'dsn' => 'mysql:host=127.0.0.1;dbname=DE_development_zed',
-                'user' => 'development',
+                'adapter'  => 'pgsql',
+                'dsn' => 'pgsql:host=127.0.0.1;dbname=DE_development_zed',
+                'user'     => 'development',
                 'password' => '',
                 'settings' => [
                     'charset' => 'utf8',
                     'queries' => [
-                        'utf8' => 'SET NAMES utf8 COLLATE utf8_unicode_ci, COLLATION_CONNECTION = utf8_unicode_ci, COLLATION_DATABASE = utf8_unicode_ci, COLLATION_SERVER = utf8_unicode_ci',
-                    ],
+                          'utf8' => "SET NAMES 'UTF8'",
+                        ],
                 ],
             ],
         ],
