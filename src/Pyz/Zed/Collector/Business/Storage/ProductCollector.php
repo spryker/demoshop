@@ -250,7 +250,7 @@ class ProductCollector extends AbstractPropelCollectorPlugin
         $baseQuery->addJoinCondition(
             'concretePriceJoin',
             'concrete_price_table.fk_price_type = '.
-            intval($idPriceType)
+            (int) $idPriceType
         );
 
         $baseQuery->addJoinObject(
