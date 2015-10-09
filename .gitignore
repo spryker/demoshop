@@ -52,7 +52,10 @@ config/Yves/cache_bust.php
 
 # logs
 npm-debug.log
-tests/_output/
+/tests/_log/*
+!/tests/_log/.gitkeep
+/tests/_output/*
+!/tests/_output/.gitkeep
 mkmf.log
 
 # propel classes

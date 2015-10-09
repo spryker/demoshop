@@ -1,6 +1,0 @@
-[2015-10-06 13:36:47] Functional\SprykerEngine\Zed\Touch\TouchTest::testTouchActiveInsertsSomething.INFO: PASSED [] []
-[2015-10-06 13:36:47] Functional\SprykerEngine\Zed\Touch\TouchTest::testTouchInactiveInsertsSomething.INFO: PASSED [] []
-[2015-10-06 13:36:47] Functional\SprykerEngine\Zed\Touch\TouchTest::testTouchDeletedInsertsSomething.INFO: PASSED [] []
-[2015-10-06 13:41:07] Functional\SprykerEngine\Zed\Touch\TouchTest::testTouchActiveInsertsSomething.INFO: PASSED [] []
-[2015-10-06 13:41:07] Functional\SprykerEngine\Zed\Touch\TouchTest::testTouchInactiveInsertsSomething.INFO: PASSED [] []
-[2015-10-06 13:41:07] Functional\SprykerEngine\Zed\Touch\TouchTest::testTouchDeletedInsertsSomething.INFO: PASSED [] []
