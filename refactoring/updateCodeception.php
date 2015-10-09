@@ -54,7 +54,7 @@ $createBundleList = function () use ($filesystem) {
     $bundleList = [];
     /** @var $directory SplFileInfo */
     foreach ($directories as $directory) {
-        if (file_exists($directory->getPathname() . '/codeception.yml')) {
+        if (file_exists($directory->getPathname() . '/codeception.yml') && is_dir($directory->getPathname() . '/tests')) {
             $bundle = '- vendor/spryker/spryker/Bundles/' . $directory->getRelativePathname();
             $bundleList[] = $bundle;
         }
@@ -85,6 +85,35 @@ $updateSuiteYml = function ($suite) use ($filesystem) {
     }
 };
 
-$createBundleList();
-//$updateSuiteYml('Functional');
-//$updateSuiteYml('Unit');
+$copyModule = function ($suite) use ($filesystem) {
+    $directories = [
+        __DIR__ . '/../vendor/spryker/spryker/Bundles/'
+    ];
+    $directories = getDirectories($directories)->depth(0);
+
+    $bundleList = [];
+    /** @var $directory SplFileInfo */
+    foreach ($directories as $directory) {
+        $file = $directory->getPathname() . '/tests/' . $suite . '.suite.yml';
+        if (file_exists($file)) {
+            $bundle = $directory->getRelativePathname();
+            $template = __DIR__ . '/UpdateCodeception/Module/' . $suite . '.php';
+            $content = file_get_contents($template);
+            $search = '{{BUNDLE}}';
+            $replace = $bundle;
+            $content = str_replace($search, $replace, $content);
+            $dir = $directory->getPathname() . '/tests/_support/Module';
+            if (!is_dir($dir)) {
+                echo $dir . PHP_EOL;
+                mkdir($dir);
+            }
+            $filesystem->dumpFile($dir . '/' . $suite . '.php', $content);
+        }
+    }
+};
+
+//$createBundleList();
+$updateSuiteYml('Functional');
+$updateSuiteYml('Unit');
+//$copyModule('Functional');
+//$copyModule('Unit');

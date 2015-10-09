@@ -62,6 +62,7 @@ $config[PayoneConfigConstants::PAYONE] = [
     PayoneConfigConstants::PAYONE_REDIRECT_SUCCESS_URL => $config[SystemConfig::HOST_YVES] . '/checkout/success/',
     PayoneConfigConstants::PAYONE_REDIRECT_ERROR_URL => $config[SystemConfig::HOST_YVES] . '/checkout/index/',
     PayoneConfigConstants::PAYONE_REDIRECT_BACK_URL => $config[SystemConfig::HOST_YVES] . '/checkout/regular-redirect-payment-cancellation/',
+    PayoneConfigConstants::PAYONE_MODE => '',
 ];
 
 $config[LumberjackConfig::WRITER_OPTIONS] = [
