@@ -1,6 +1,0 @@
-[2015-10-06 13:36:03] Functional\Pyz\Zed\ProductOption\Business\Internal\DemoData\Importer\ProductOptionInstallerTest::testImportXmlOptions.INFO: PASSED [] []
-[2015-10-06 13:36:03] Functional\Pyz\Zed\Touch\TouchTest::testDatabaseAccessWorks.INFO: PASSED [] []
-[2015-10-06 13:36:03] Functional\YourNamespace\YourApplication\YourBundle\YourTest::testYourTestCode.INFO: PASSED [] []
-[2015-10-06 13:40:21] Functional\Pyz\Zed\ProductOption\Business\Internal\DemoData\Importer\ProductOptionInstallerTest::testImportXmlOptions.INFO: PASSED [] []
-[2015-10-06 13:40:21] Functional\Pyz\Zed\Touch\TouchTest::testDatabaseAccessWorks.INFO: PASSED [] []
-[2015-10-06 13:40:21] Functional\YourNamespace\YourApplication\YourBundle\YourTest::testYourTestCode.INFO: PASSED [] []
