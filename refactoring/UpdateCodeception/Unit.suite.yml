@@ -1,5 +1,0 @@
-class_name: UnitTester
-modules:
-    enabled:
-        - Asserts
-        - \{{BUNDLE}}\Module\Unit
