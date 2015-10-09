@@ -13,6 +13,9 @@ echo "Source code revision: ${revision}, size: ${size}B - starting build process
 ## Composer
 php composer.phar install --optimize-autoloader
 
++## NPM
++npm install --loglevel warn
+
 find vendor/ -type d -name .git | xargs rm -rf
 
 rm -rf $outfile
