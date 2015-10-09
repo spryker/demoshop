@@ -5,8 +5,8 @@
 #
 
 FILEPATH=`pwd`/$0; BASEDIR=`dirname $FILEPATH`; source $BASEDIR/vars; source $BASEDIR/functions
-outfile=`mktemp /tmp/deploy-send-notifications-after-XXXXXX`
-
+outfile="/tmp/deploy-${deploy_outfile_prefix}-send-notifications"
+`touch $outfile`
 
 slack_msg="Finished deployment of *${scm_path}* to *${environment}*"
 slack_msg="${slack_msg}\nDeployed by: $deploy_user from host `/bin/hostname`"

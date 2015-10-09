@@ -4,8 +4,8 @@
 #
 
 FILEPATH=`pwd`/$0; BASEDIR=`dirname $FILEPATH`; . $BASEDIR/vars; source $BASEDIR/functions
-outfile=`mktemp /tmp/deploy-enable-cronjobs-XXXXXX`
-
+outfile="/tmp/deploy-${deploy_outfile_prefix}-enable-cronjobs"
+`touch $outfile`
 
 # noop
 

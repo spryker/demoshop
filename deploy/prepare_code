@@ -1,7 +1,8 @@
 #!/bin/bash
 
 FILEPATH=`pwd`/$0; BASEDIR=`dirname $FILEPATH`; source $BASEDIR/vars; source $BASEDIR/functions
-outfile=`mktemp /tmp/deploy-prepare-code-XXXXXX`
+outfile="/tmp/deploy-${deploy_outfile_prefix}-prepare-code"
+`touch $outfile`
 
 
 cd $deploy_source_dir

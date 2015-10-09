@@ -6,7 +6,8 @@
 #
 
 FILEPATH=`pwd`/$0; BASEDIR=`dirname $FILEPATH`; . $BASEDIR/vars; source $BASEDIR/functions
-outfile=`mktemp /tmp/deploy-disable-maintenance-XXXXXX`
+outfile="/tmp/deploy-${deploy_outfile_prefix}-disable-maintenance"
+`touch $outfile`
 
 ## Deactivate maintenance in new release dir
 if [ -d $destination_release_dir ]; then

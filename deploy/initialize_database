@@ -4,8 +4,8 @@
 #
 
 FILEPATH=`pwd`/$0; BASEDIR=`dirname $FILEPATH`; . $BASEDIR/vars; source $BASEDIR/functions
-outfile=`mktemp /tmp/deploy-initialize-database-XXXXXX`
-
+outfile="/tmp/deploy-${deploy_outfile_prefix}-initialize-database"
+`touch $outfile`
 
 # noop
 

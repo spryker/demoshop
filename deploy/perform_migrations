@@ -7,8 +7,8 @@
 #
 
 FILEPATH=`pwd`/$0; BASEDIR=`dirname $FILEPATH`; . $BASEDIR/vars; source $BASEDIR/functions
-outfile=`mktemp /tmp/deploy-perform-migrations-XXXXXX`
-
+outfile="/tmp/deploy-${deploy_outfile_prefix}-perform-migrations"
+`touch $outfile`
 
 # flush the CACHE instance of redis (it's the default one on port 6379)
 if [ "${environment}" == "prod" ]; then
