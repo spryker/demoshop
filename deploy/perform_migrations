@@ -22,5 +22,13 @@ else
 fi
 
 
+cd $destination_current_dir
+
+APPLICATION_ENV=$environment vendor/bin/console setup:propel:database:create
+APPLICATION_ENV=$environment vendor/bin/console setup:propel:database:diff
+APPLICATION_ENV=$environment vendor/bin/console setup:propel:database:migrate
+
+
+
 rm -rf $outfile
 exit 0

@@ -6,7 +6,9 @@ FILEPATH=`pwd`/$0; BASEDIR=`dirname $FILEPATH`; . $BASEDIR/vars; source $BASEDIR
 outfile="/tmp/deploy-${deploy_outfile_prefix}-update-cdn"
 `touch $outfile`
 
-# noop
+cd $destination_current_dir
+npm run spy-setup
+
 
 rm -rf $outfile
 exit 0

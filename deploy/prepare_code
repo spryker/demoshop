@@ -18,5 +18,8 @@ npm install --loglevel warn
 
 find vendor/ -type d -name .git | xargs rm -rf
 
+
+APPLICATION_ENV=$enviroment vendor/bin/console setup:deploy:prepare_propel
+
 rm -rf $outfile
 exit 0
