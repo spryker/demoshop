@@ -96,7 +96,6 @@ function send_slack_notification() {
 echo "Sending Slack notification: ${1}\n\n"
   exit 0
 
-
   if [ "${environment}" == "prod" ]; then
     slack_channel_url="https://hooks.slack.com/services/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" # channel: "pets-deliy-deployment"
   else
