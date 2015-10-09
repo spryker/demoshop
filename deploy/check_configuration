@@ -7,7 +7,7 @@
 #
 
 FILEPATH=`pwd`/$0; BASEDIR=`dirname $FILEPATH`; source $BASEDIR/vars; source $BASEDIR/functions
-outfile=`mktemp /tmp/deploy-XXXXXX`
+outfile=`mktemp /tmp/deploy-check-configuration-XXXXXX`
 
 
 # noop

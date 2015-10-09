@@ -1,0 +1,11 @@
+#!/bin/bash
+#
+# update_cdn
+
+FILEPATH=`pwd`/$0; BASEDIR=`dirname $FILEPATH`; . $BASEDIR/vars; source $BASEDIR/functions
+outfile=`mktemp /tmp/deploy-update-cdn-XXXXXX`
+
+# noop
+
+rm -rf $outfile
+exit 0

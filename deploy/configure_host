@@ -1,0 +1,18 @@
+#!/bin/bash
+#
+# configure_host
+# This script is executed on all hosts, after unpacking release tarball.
+#
+# If application needs any commands to be executed before activating release, it should be put here
+# Examples: generate orm files, compile sass, setup java applications inside Tomcat
+#
+
+FILEPATH=`pwd`/$0; BASEDIR=`dirname $FILEPATH`; source $BASEDIR/vars; source $BASEDIR/functions
+outfile=`mktemp /tmp/deploy-configure-host-XXXXXX`
+
+
+# noop
+
+
+rm -f $outfile
+exit 0

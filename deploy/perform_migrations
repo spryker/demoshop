@@ -1,0 +1,26 @@
+#!/bin/bash
+#
+# perform_migrations
+# This script is executed on tools host after unpacking release tarball.
+# It is executed only if check_for_migrations script returned true
+# It should execute database migrations. The site is in maintenance mode during execution of this script
+#
+
+FILEPATH=`pwd`/$0; BASEDIR=`dirname $FILEPATH`; . $BASEDIR/vars; source $BASEDIR/functions
+outfile=`mktemp /tmp/deploy-perform-migrations-XXXXXX`
+
+
+# flush the CACHE instance of redis (it's the default one on port 6379)
+if [ "${environment}" == "prod" ]; then
+    echo "NOT DEFINED FOR PRODUCTION YET"
+    exit 1
+    //echo "FLUSHDB" | redis-cli -h wh-cache-prod.0k516h.ng.0001.apse1.cache.amazonaws.com
+else if [ "${environment}" == "staging" ]; then
+    echo "FLUSHDB" | redis-cli -p 13009
+else
+    echo "FLUSHDB" | redis-cli
+fi
+
+
+rm -rf $outfile
+exit 0

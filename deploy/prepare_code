@@ -1,6 +1,8 @@
 #!/bin/bash
 
 FILEPATH=`pwd`/$0; BASEDIR=`dirname $FILEPATH`; source $BASEDIR/vars; source $BASEDIR/functions
+outfile=`mktemp /tmp/deploy-prepare-code-XXXXXX`
+
 
 cd $deploy_source_dir
 echo "${deploy_source_dir}\n\n"
@@ -12,4 +14,5 @@ php composer.phar install --optimize-autoloader
 
 find vendor/ -type d -name .git | xargs rm -rf
 
-exit 1
+rm -rf $outfile
+exit 0

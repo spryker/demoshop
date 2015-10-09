@@ -97,9 +97,9 @@ function send_slack_notification() {
 
 
   if [ "${environment}" == "prod" ]; then
-    slack_channel_url="https://hooks.slack.com/services/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" # channel: "wohlheit-deploy"
+    slack_channel_url="https://hooks.slack.com/services/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" # channel: "pets-deliy-deployment"
   else
-    slack_channel_url="https://hooks.slack.com/services/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" # channel: "wohlheit-deploy"
+    slack_channel_url="https://hooks.slack.com/services/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" # channel: "pets-deliy-deployment"
   fi
 
   # trigger incomig slack hook
