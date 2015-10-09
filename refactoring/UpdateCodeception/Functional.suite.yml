@@ -2,4 +2,4 @@ class_name: FunctionalTester
 modules:
     enabled:
         - Filesystem
-#        - \{{BUNDLE}}\Module\Functional
+        - \{{BUNDLE}}\Module\Functional

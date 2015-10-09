@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "5c26ddc662de80bb8e4f4cd8016e3d44",
+    "hash": "c0a13922b67063bfe9041047495f4cf8",
     "packages": [
         {
             "name": "digital-canvas/zend-framework",
@@ -703,10 +703,11 @@
         },
         {
             "name": "spryker/spryker",
-            "version": "dev-develop",
+            "version": "dev-feature/update-codeception",
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/spryker.git",
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
@@ -742,6 +743,9 @@
 =======
                 "reference": "bb4916882c120c93c624e7be68085a242e8c3104"
 >>>>>>> update prject codeception
+=======
+                "reference": "51b611db1e18166a2282ad073324746fddc178f5"
+>>>>>>> update codeception
             },
             "require": {
                 "digital-canvas/zend-framework": ">=1.12.2"
@@ -834,6 +838,7 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
             "time": "2015-10-09 09:19:37"
 =======
 =======
@@ -865,6 +870,9 @@
 =======
             "time": "2015-10-08 12:57:20"
 >>>>>>> update prject codeception
+=======
+            "time": "2015-10-09 08:47:58"
+>>>>>>> update codeception
         },
         {
             "name": "symfony-cmf/routing",
@@ -3826,16 +3834,16 @@
         },
         {
             "name": "sebastian/global-state",
-            "version": "1.0.0",
+            "version": "1.1.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/sebastianbergmann/global-state.git",
-                "reference": "c7428acdb62ece0a45e6306f1ae85e1c05b09c01"
+                "reference": "23af31f402993cfd94e99cbc4b782e9a78eb0e97"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sebastianbergmann/global-state/zipball/c7428acdb62ece0a45e6306f1ae85e1c05b09c01",
-                "reference": "c7428acdb62ece0a45e6306f1ae85e1c05b09c01",
+                "url": "https://api.github.com/repos/sebastianbergmann/global-state/zipball/23af31f402993cfd94e99cbc4b782e9a78eb0e97",
+                "reference": "23af31f402993cfd94e99cbc4b782e9a78eb0e97",
                 "shasum": ""
             },
             "require": {
@@ -3873,7 +3881,7 @@
             "keywords": [
                 "global state"
             ],
-            "time": "2014-10-06 09:23:50"
+            "time": "2015-06-21 15:11:22"
         },
         {
             "name": "sebastian/recursion-context",
