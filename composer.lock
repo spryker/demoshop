@@ -707,23 +707,7 @@
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/spryker.git",
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
                 "reference": "bb4916882c120c93c624e7be68085a242e8c3104"
-=======
-<<<<<<< HEAD
-                "reference": "861fca53805e057c54eb9b098f2c293f12ba00f3"
-=======
-                "reference": "92d544cae96338f7d8c2823b3ef754a2ec1475c5"
->>>>>>> removed some old files, update codeception
->>>>>>> removed some old files, update codeception
-=======
-                "reference": "861fca53805e057c54eb9b098f2c293f12ba00f3"
->>>>>>> update configs
-=======
-                "reference": "eaea95ef41a3df439ecc94dc2497a10ebeaf2128"
->>>>>>> WIP update codeception
             },
             "require": {
                 "digital-canvas/zend-framework": ">=1.12.2"
@@ -812,23 +796,7 @@
                     "SprykerFeature\\Shared\\Library": "Bundles/Library/src/"
                 }
             },
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
             "time": "2015-10-08 12:57:20"
-=======
-<<<<<<< HEAD
-            "time": "2015-10-05 13:41:16"
-=======
-            "time": "2015-10-02 12:27:25"
->>>>>>> removed some old files, update codeception
->>>>>>> removed some old files, update codeception
-=======
-            "time": "2015-10-05 13:41:16"
->>>>>>> update configs
-=======
-            "time": "2015-10-06 08:34:08"
->>>>>>> WIP update codeception
         },
         {
             "name": "symfony-cmf/routing",
@@ -3141,16 +3109,16 @@
         },
         {
             "name": "phpunit/php-code-coverage",
-            "version": "2.2.3",
+            "version": "2.2.4",
             "source": {
                 "type": "git",
                 "url": "https://github.com/sebastianbergmann/php-code-coverage.git",
-                "reference": "ef1ca6835468857944d5c3b48fa503d5554cff2f"
+                "reference": "eabf68b476ac7d0f73793aada060f1c1a9bf8979"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sebastianbergmann/php-code-coverage/zipball/ef1ca6835468857944d5c3b48fa503d5554cff2f",
-                "reference": "ef1ca6835468857944d5c3b48fa503d5554cff2f",
+                "url": "https://api.github.com/repos/sebastianbergmann/php-code-coverage/zipball/eabf68b476ac7d0f73793aada060f1c1a9bf8979",
+                "reference": "eabf68b476ac7d0f73793aada060f1c1a9bf8979",
                 "shasum": ""
             },
             "require": {
@@ -3199,7 +3167,7 @@
                 "testing",
                 "xunit"
             ],
-            "time": "2015-09-14 06:51:16"
+            "time": "2015-10-06 15:47:00"
         },
         {
             "name": "phpunit/php-file-iterator",
