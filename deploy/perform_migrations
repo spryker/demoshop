@@ -10,6 +10,8 @@ FILEPATH=`pwd`/$0; BASEDIR=`dirname $FILEPATH`; . $BASEDIR/vars; source $BASEDIR
 outfile="/tmp/deploy-${deploy_outfile_prefix}-perform-migrations"
 `touch $outfile`
 
+export APPLICATION_ENV=$environment
+
 # flush the CACHE instance of redis (it's the default one on port 6379)
 if [ "${environment}" == "prod" ]; then
     echo "NOT DEFINED FOR PRODUCTION YET"
@@ -22,11 +24,11 @@ else
 fi
 
 
-cd $destination_current_dir
+cd $BASEDIR
 
-APPLICATION_ENV=$environment vendor/bin/console setup:propel:database:create
-APPLICATION_ENV=$environment vendor/bin/console setup:propel:database:diff
-APPLICATION_ENV=$environment vendor/bin/console setup:propel:database:migrate
+vendor/bin/console setup:propel:database:create
+vendor/bin/console setup:propel:database:diff
+vendor/bin/console setup:propel:database:migrate
 
 
 
