@@ -80,6 +80,7 @@ $config[SystemConfig::YVES_STORAGE_SESSION_TIME_TO_LIVE] = SessionConfig::SESSIO
 $config[SystemConfig::YVES_STORAGE_SESSION_FILE_PATH] = session_save_path();
 
 $config[SystemConfig::ZED_STORAGE_SESSION_TIME_TO_LIVE] = SessionConfig::SESSION_LIFETIME_30_DAYS;
+$config[SystemConfig::ZED_STORAGE_SESSION_COOKIE_NAME] = 'zed_session';
 $config[SystemConfig::ZED_STORAGE_SESSION_FILE_PATH] = session_save_path();
 $config[SystemConfig::ZED_SESSION_SAVE_HANDLER] = null;
 
