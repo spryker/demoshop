@@ -93,8 +93,6 @@ function composer_install() {
 
 # send a string message to slack "it-bot-log" channel
 function send_slack_notification() {
-echo "Sending Slack notification: ${1}\n\n"
-  exit 0
 
   if [ "${environment}" == "prod" ]; then
     slack_channel_url="https://hooks.slack.com/services/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" # channel: "pets-deliy-deployment"
@@ -103,7 +101,7 @@ echo "Sending Slack notification: ${1}\n\n"
   fi
 
   # trigger incomig slack hook
-  curl --data "{\"text\": \"${1}\", \"username\": \"deploy bot\", \"icon_emoji\": \":rotating_light:\"}" "${slack_channel_url}" 2> /dev/null
+  curl --data "{\"text\": \"${1}\"}" "${slack_channel_url}" 2> /dev/null
 
 }
 
