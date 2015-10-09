@@ -17,6 +17,7 @@ class CollectorDependencyProvider extends SprykerCollectorDependencyProvider
     const FACADE_PRODUCT_SEARCH = 'product_search_facade';
 
     const FACADE_PRODUCT_OPTION_EXPORTER = 'product_option_exporter_facade';
+    const FACADE_PROPEL = 'facade propel';
 
     /**
      * @var Container
@@ -45,6 +46,10 @@ class CollectorDependencyProvider extends SprykerCollectorDependencyProvider
 
         $container[self::FACADE_PRODUCT_OPTION_EXPORTER] = function (Container $container) {
             return $container->getLocator()->productOptionExporter()->facade();
+        };
+
+        $container[self::FACADE_PROPEL] = function (Container $container) {
+            return $container->getLocator()->propel()->facade();
         };
 
         $container[self::SEARCH_PLUGINS] = function (Container $container) {
