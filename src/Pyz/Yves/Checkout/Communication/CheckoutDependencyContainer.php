@@ -49,7 +49,7 @@ class CheckoutDependencyContainer extends AbstractCommunicationDependencyContain
     {
         return $this->getFactory()
             ->createFormCheckout($shipmentTransfer)
-            ;
+        ;
     }
 
 }
