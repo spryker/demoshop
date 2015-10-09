@@ -1,56 +1,67 @@
 <?php
 
-namespace Pyz\Codeception\Module;
+namespace Module;
 
-use Codeception\Module;
 use Codeception\TestCase;
-use SprykerEngine\Zed\Propel\Communication\Plugin\ServiceProvider\PropelServiceProvider;
+use Codeception\Module;
 use Propel\Runtime\Propel;
 use Silex\Application;
+use SprykerEngine\Zed\Propel\Communication\Plugin\ServiceProvider\PropelServiceProvider;
 
-class TestHelper extends Module
+/**
+ * All public methods declared in helper class will be available in $I
+ */
+class Functional extends Module
 {
+
     /**
      * @param array $config
      */
     public function __construct($config = null)
     {
         parent::__construct($config);
+
         $propelServiceProvider = new PropelServiceProvider();
         $propelServiceProvider->boot(new Application());
     }
 
     /**
-     * @param TestCase $e
+     * @param TestCase $test
      */
-    public function _before(TestCase $e)
+    public function _before(TestCase $test)
     {
-        parent::_before($e);
+        parent::_before($test);
+
         Propel::getWriteConnection('zed')->beginTransaction();
     }
 
     /**
-     * @param TestCase $e
+     * @param TestCase $test
      */
-    public function _after(TestCase $e)
+    public function _after(TestCase $test)
     {
-        parent::_after($e);
+        parent::_after($test);
+
         Propel::getWriteConnection('zed')->rollBack();
+
         if (session_status() === PHP_SESSION_ACTIVE) {
             session_destroy();
         }
     }
 
     /**
-     * @param TestCase $e
+     * @param TestCase $test
      * @apram $fail
      */
-    public function _failed(TestCase $e, $fail)
+    public function _failed(TestCase $test, $fail)
     {
-        parent::_failed($e, $fail);
+        parent::_failed($test, $fail);
+
         Propel::getWriteConnection('zed')->rollBack();
+
         if (session_status() === PHP_SESSION_ACTIVE) {
             session_destroy();
         }
     }
+
 }

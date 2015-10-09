@@ -1,6 +1,6 @@
 {
   "require": {
-    "spryker/spryker": "dev-develop",
+    "spryker/spryker": "dev-feature/update-codeception",
 
     "psr/log": "~1.0",
     "propel/propel": "~2.0@dev",
@@ -50,13 +50,9 @@
     "nesbot/carbon": "1.13.0"
   },
   "require-dev": {
-    "knplabs/github-api": "1.4.7",
     "silex/web-profiler": "~1.0.2",
     "pdepend/pdepend": "*",
-    "phpunit/phpunit": "~3.7.0",
-    "codeception/codeception": "*",
-    "fzaninotto/faker": "1.4.*",
-    "codeception/remote-debug": "*",
+    "codeception/codeception": "2.1",
     "fabpot/php-cs-fixer": "^1.9"
   },
   "autoload": {
