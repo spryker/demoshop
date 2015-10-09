@@ -55,7 +55,7 @@ $createBundleList = function () use ($filesystem) {
     /** @var $directory SplFileInfo */
     foreach ($directories as $directory) {
         if (file_exists($directory->getPathname() . '/codeception.yml') && is_dir($directory->getPathname() . '/tests')) {
-            $bundle = '- vendor/spryker/spryker/Bundles/' . $directory->getRelativePathname();
+            $bundle = '- Bundles/' . $directory->getRelativePathname();
             $bundleList[] = $bundle;
         }
     }
@@ -112,8 +112,8 @@ $copyModule = function ($suite) use ($filesystem) {
     }
 };
 
-//$createBundleList();
-$updateSuiteYml('Functional');
-$updateSuiteYml('Unit');
+$createBundleList();
+//$updateSuiteYml('Functional');
+//$updateSuiteYml('Unit');
 //$copyModule('Functional');
 //$copyModule('Unit');
