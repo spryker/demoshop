@@ -15,6 +15,11 @@ $config[SystemConfig::ZED_DB_DATABASE] = 'DE_staging_zed';
 $config[SystemConfig::ZED_DB_HOST] = '127.0.0.1';
 $config[SystemConfig::ZED_DB_PORT] = 5432;
 
+$config[SystemConfig::PROPEL]['database']['connections']['default']['dsn'] = 'pgsql:'
+    . 'host=' . $config[SystemConfig::ZED_DB_HOST] . ';'
+    . 'dbname=' . $config[SystemConfig::ZED_DB_DATABASE];
+
+
 $config[SystemConfig::ELASTICA_PARAMETER__INDEX_NAME] = 'de_staging_catalog';
 $config[SystemConfig::ELASTICA_PARAMETER__DOCUMENT_TYPE] = 'page';
 

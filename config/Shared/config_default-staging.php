@@ -37,7 +37,7 @@ $config[SystemConfig::ZED_STORAGE_SESSION_REDIS_PORT] = $config[SystemConfig::YV
 $config[YvesConfig::YVES_SESSION_COOKIE_DOMAIN] = $config[SystemConfig::HOST_YVES];
 
 $config[SystemConfig::JENKINS_BASE_URL] = 'http://' . $config[SystemConfig::HOST_ZED_GUI] . ':13007/jenkins';
-$config[SystemConfig::JENKINS_DIRECTORY] = '/data/shop/development/shared/data/common/jenkins';
+$config[SystemConfig::JENKINS_DIRECTORY] = '/data/shop/staging/shared/data/common/jenkins';
 $config[YvesConfig::TRANSFER_DEBUG_SESSION_FORWARD_ENABLED] = false;
 
 $config[ApplicationConfig::NAVIGATION_CACHE_ENABLED] = true;
