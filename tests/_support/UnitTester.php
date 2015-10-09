@@ -1,5 +1,4 @@
 <?php
-namespace Pyz;
 
 /**
  * Inherited Methods
@@ -16,9 +15,9 @@ namespace Pyz;
  *
  * @SuppressWarnings(PHPMD)
 */
-class NoGuy extends \Codeception\Actor
+class UnitTester extends \Codeception\Actor
 {
-    use _generated\NoGuyActions;
+    use _generated\UnitTesterActions;
 
    /**
     * Define custom actions here

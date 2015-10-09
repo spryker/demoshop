@@ -9,4 +9,4 @@
 modules:
     enabled:
       - Filesystem
-      - TestHelper
+      - \Module\Functional
