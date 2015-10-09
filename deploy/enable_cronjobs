@@ -1,0 +1,13 @@
+#!/bin/bash
+#
+# 
+#
+
+FILEPATH=`pwd`/$0; BASEDIR=`dirname $FILEPATH`; . $BASEDIR/vars; source $BASEDIR/functions
+outfile=`mktemp /tmp/deploy-enable-cronjobs-XXXXXX`
+
+
+# noop
+
+rm -rf $outfile
+exit 0

@@ -1,0 +1,17 @@
+#!/bin/bash
+#
+# send_notifications
+# This script is executed on tools host after deployment.
+#
+
+FILEPATH=`pwd`/$0; BASEDIR=`dirname $FILEPATH`; source $BASEDIR/vars; source $BASEDIR/functions
+outfile=`mktemp /tmp/deploy-send-notifications-after-XXXXXX`
+
+
+slack_msg="Finished deployment of *${scm_path}* to *${environment}*"
+slack_msg="${slack_msg}\nDeployed by: $deploy_user from host `/bin/hostname`"
+
+send_slack_notification "${slack_msg}"
+
+rm -f $outfile
+exit 0

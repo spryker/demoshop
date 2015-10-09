@@ -15,7 +15,7 @@ if [ "${environment}" == "prod" ]; then
     echo "NOT DEFINED FOR PRODUCTION YET"
     exit 1
     //echo "FLUSHDB" | redis-cli -h wh-cache-prod.0k516h.ng.0001.apse1.cache.amazonaws.com
-else if [ "${environment}" == "staging" ]; then
+elif [ "${environment}" == "staging" ]; then
     echo "FLUSHDB" | redis-cli -p 13009
 else
     echo "FLUSHDB" | redis-cli

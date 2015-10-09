@@ -1,0 +1,20 @@
+#!/bin/bash
+#
+# disable_maintenance
+# This script is executed on all frontend hosts in order to deactivate maintenance mode.
+#
+#
+
+FILEPATH=`pwd`/$0; BASEDIR=`dirname $FILEPATH`; . $BASEDIR/vars; source $BASEDIR/functions
+outfile=`mktemp /tmp/deploy-disable-maintenance-XXXXXX`
+
+## Deactivate maintenance in new release dir
+if [ -d $destination_release_dir ]; then
+  cd $destination_release_dir
+  rm -f maintenance.html
+else
+  echo "ERROR - release directory not found in current release. That's fine if host is fresh."
+fi
+
+rm -f $outfile
+exit 0

@@ -93,6 +93,7 @@ function composer_install() {
 
 # send a string message to slack "it-bot-log" channel
 function send_slack_notification() {
+echo "Sending Slack notification: ${1}\n\n"
   exit 0
 
 
