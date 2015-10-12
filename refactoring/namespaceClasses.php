@@ -50,7 +50,7 @@ foreach ($filesToRename as $oldName => $newName) {
     $searchAndReplace[$oldName] = $newName;
 }
 $search = array_keys($searchAndReplace);
-$replace = array_keys($searchAndReplace);
+$replace = array_values($searchAndReplace);
 
 $files = getFiles($directories);
 
