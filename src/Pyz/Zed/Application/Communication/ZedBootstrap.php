@@ -153,6 +153,14 @@ class ZedBootstrap extends Bootstrap
         $navigation = $this->getNavigation();
         $breadcrumbs = $navigation['path'];
 
+        $username = '';
+
+        $userFacade = $this->getLocator()->user()->facade();
+        if ($userFacade->hasCurrentUser()) {
+            $user = $userFacade->getCurrentUser();
+            $username = sprintf('%s %s', $user->getFirstName(), $user->getLastName());
+        }
+
         return [
             'environment' => APPLICATION_ENV,
             'store' => Store::getInstance()->getStoreName(),
@@ -160,6 +168,7 @@ class ZedBootstrap extends Bootstrap
             'currentController' => get_class($this),
             'navigation' => $this->getNavigation(),
             'breadcrumbs' => $breadcrumbs,
+            'username' => $username,
         ];
     }
 

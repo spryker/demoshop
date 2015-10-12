@@ -4,6 +4,7 @@ use SprykerFeature\Shared\Mail\MailConfig;
 use SprykerFeature\Shared\System\SystemConfig;
 use SprykerFeature\Shared\Yves\YvesConfig;
 use SprykerEngine\Shared\Lumberjack\LumberjackConfig;
+use SprykerFeature\Shared\Payone\PayoneConfigConstants;
 
 $config[SystemConfig::ZED_MYSQL_USERNAME] = 'ubuntu';
 $config[SystemConfig::ZED_MYSQL_PASSWORD] = '';
@@ -58,6 +59,19 @@ $config[SystemConfig::ZED_RABBITMQ_VHOST] = '/DE_development_zed';
 $config[SystemConfig::JENKINS_DIRECTORY] = APPLICATION_ROOT_DIR . '/shared/data/common/jenkins';
 $config[SystemConfig::YVES_STORAGE_SESSION_REDIS_PORT] = '6379';
 $config[SystemConfig::ZED_STORAGE_SESSION_REDIS_PORT] = $config[SystemConfig::YVES_STORAGE_SESSION_REDIS_PORT];
+
+$config[PayoneConfigConstants::PAYONE] = [
+    PayoneConfigConstants::PAYONE_CREDENTIALS_ENCODING => 'UTF-8',
+    PayoneConfigConstants::PAYONE_CREDENTIALS_KEY => '',
+    PayoneConfigConstants::PAYONE_CREDENTIALS_MID => '',
+    PayoneConfigConstants::PAYONE_CREDENTIALS_AID => '',
+    PayoneConfigConstants::PAYONE_CREDENTIALS_PORTAL_ID => '',
+    PayoneConfigConstants::PAYONE_PAYMENT_GATEWAY_URL => 'https://api.pay1.de/post-gateway/',
+    PayoneConfigConstants::PAYONE_REDIRECT_SUCCESS_URL => $config[SystemConfig::HOST_YVES] . '/checkout/success/',
+    PayoneConfigConstants::PAYONE_REDIRECT_ERROR_URL => $config[SystemConfig::HOST_YVES] . '/checkout/index/',
+    PayoneConfigConstants::PAYONE_REDIRECT_BACK_URL => $config[SystemConfig::HOST_YVES] . '/checkout/regular-redirect-payment-cancellation/',
+    PayoneConfigConstants::PAYONE_MODE => '',
+];
 
 $config[LumberjackConfig::WRITER_OPTIONS] = [
     '\SprykerEngine\Shared\Lumberjack\Model\Writer\File' => ['log_path' => '/data/logs/development/DE/'],

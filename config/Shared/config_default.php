@@ -11,6 +11,7 @@ use SprykerFeature\Shared\User\UserConfig;
 use SprykerFeature\Shared\Yves\YvesConfig;
 use SprykerEngine\Shared\Lumberjack\LumberjackConfig;
 use SprykerFeature\Shared\Session\SessionConfig;
+use SprykerFeature\Shared\SequenceNumber\SequenceNumberConstants as SequenceNumberConfig;
 
 $config[SystemConfig::PROJECT_NAMESPACES] = [
     'Pyz',
@@ -79,6 +80,7 @@ $config[SystemConfig::YVES_STORAGE_SESSION_TIME_TO_LIVE] = SessionConfig::SESSIO
 $config[SystemConfig::YVES_STORAGE_SESSION_FILE_PATH] = session_save_path();
 
 $config[SystemConfig::ZED_STORAGE_SESSION_TIME_TO_LIVE] = SessionConfig::SESSION_LIFETIME_30_DAYS;
+$config[SystemConfig::ZED_STORAGE_SESSION_COOKIE_NAME] = 'zed_session';
 $config[SystemConfig::ZED_STORAGE_SESSION_FILE_PATH] = session_save_path();
 $config[SystemConfig::ZED_SESSION_SAVE_HANDLER] = null;
 
@@ -154,17 +156,6 @@ $config[SystemConfig::CLOUD_OBJECT_STORAGE_DATA_CONTAINERS] = [
     'defaultImagesContainerName' => 'pyz-private',
 ];
 
-$config[SystemConfig::CLOUD_OBJECT_STORAGE_RACKSPACE] = [
-    'username' => 'cloudfiles.contorion',
-    'apiKey' => 'e73a9eb8d9324e98bbf6552e8150ec9c',
-    'apiEndpoint' => 'https://lon.identity.api.rackspacecloud.com/v2.0/',
-    'storageService' => 'cloudFiles',
-    'location' => 'LON',
-];
-$config[SystemConfig::CLOUD_OBJECT_STORAGE_PRODUCT_IMAGES] = [
-    'prefix' => 'productImages',
-    'deleteRemoteObjects' => true,
-];
 
 $config[SystemConfig::CLOUD_CDN_ENABLED] = false;
 
@@ -324,3 +315,5 @@ $config[YvesConfig::YVES_SHOW_EXCEPTION_STACK_TRACE] = true;
 
 $config[SystemConfig::PROPEL_DEBUG] = false;
 $config[ApplicationConfig::SHOW_SYMFONY_TOOLBAR] = false;
+
+$config[SequenceNumberConfig::ENVIRONMENT_PREFIX] = '';

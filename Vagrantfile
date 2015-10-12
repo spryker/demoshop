@@ -16,6 +16,7 @@ PILLAR_BRANCH="master"
 
 # Hostnames to be managed
 HOSTS=[
+  "pets-deli-vagrant", 
   "pets-deli.dev",
   "zed.de.pets-deli.dev",
   "zed.com.pets-deli.dev",
