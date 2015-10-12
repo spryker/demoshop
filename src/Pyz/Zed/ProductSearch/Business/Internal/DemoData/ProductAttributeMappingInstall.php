@@ -73,10 +73,13 @@ class ProductAttributeMappingInstall extends AbstractInstaller
         }
     }
 
+    /**
+     * @return array
+     */
     protected function getMappings()
     {
         return [
-            'description' => [
+            'short_description' => [
                 'CopyToField' => [
                     'full-text-boosted',
                     'full-text',
@@ -92,22 +95,18 @@ class ProductAttributeMappingInstall extends AbstractInstaller
                     'integer-sort',
                 ],
             ],
-            'depth' => [
+            'weight' => [
+                'CopyToField' => [
+                    'full-text',
+                    'full-text-boosted',
+                    'completion-terms',
+                    'suggestion-term',
+                ],
                 'CopyToFacet' => [
-                    'float-facet',
+                    'string-facet',
                 ],
             ],
-            'width' => [
-                'CopyToFacet' => [
-                    'float-facet',
-                ],
-            ],
-            'height' => [
-                'CopyToFacet' => [
-                    'float-facet',
-                ],
-            ],
-            'main_color' => [
+            'delivery_time' => [
                 'CopyToField' => [
                     'full-text',
                     'full-text-boosted',
