@@ -1,9 +1,7 @@
 <?php
 
 use SprykerFeature\Shared\Mail\MailConfig;
-use SprykerFeature\Shared\Setup\SetupConfig;
 use SprykerFeature\Shared\System\SystemConfig;
-
 
 $yvesHost = 'www.com.spryker.dev';
 $config[SystemConfig::HOST_YVES] = 'http://' . $yvesHost;
@@ -25,9 +23,9 @@ $config[SystemConfig::CLOUD_CDN_STATIC_MEDIA_HTTPS] = 'https://static.com.spryke
 
 $config[MailConfig::MAILCATCHER_GUI] = 'http://' . $config[SystemConfig::HOST_ZED_GUI] . ':1080';
 
-/** RabbitMQ */
-$config[SystemConfig::ZED_RABBITMQ_HOST] =                 'localhost';
-$config[SystemConfig::ZED_RABBITMQ_PORT] =                 '5672';
-$config[SystemConfig::ZED_RABBITMQ_USERNAME] =             'DE_development';
-$config[SystemConfig::ZED_RABBITMQ_PASSWORD] =             'mate20mg';
-$config[SystemConfig::ZED_RABBITMQ_VHOST] =                '/DE_development_zed';
+/* RabbitMQ */
+$config[SystemConfig::ZED_RABBITMQ_HOST] = 'localhost';
+$config[SystemConfig::ZED_RABBITMQ_PORT] = '5672';
+$config[SystemConfig::ZED_RABBITMQ_USERNAME] = 'DE_development';
+$config[SystemConfig::ZED_RABBITMQ_PASSWORD] = 'mate20mg';
+$config[SystemConfig::ZED_RABBITMQ_VHOST] = '/DE_development_zed';
