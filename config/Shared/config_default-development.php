@@ -38,3 +38,4 @@ $config[AclConfig::ACL_USER_RULE_WHITELIST][] = [
 
 $config[SystemConfig::PROPEL_DEBUG] = true;
 $config[ApplicationConfig::SHOW_SYMFONY_TOOLBAR] = true;
+$config[SessionConfig::SESSION_IS_TEST] = true;
