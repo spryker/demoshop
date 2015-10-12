@@ -10,6 +10,7 @@ class PostgresGroupByQueryBuilder implements PostgresGroupByQueryBuilderInterfac
     /**
      * @info It is not possible to have a select-column in a group-query without
      * either grouping by that column or aggregating it.
+     * http://stackoverflow.com/questions/18061285/postgresql-must-appear-in-the-group-by-clause-or-be-used-in-an-aggregate-functi
      *
      * @param ModelCriteria $baseQuery
      *
