@@ -49,12 +49,15 @@ foreach ($filesToRename as $oldName => $newName) {
     $searchAndReplace['\\' . $oldName] = $oldName;
     $searchAndReplace[$oldName] = $newName;
 }
+$search = array_keys($searchAndReplace);
+$replace = array_keys($searchAndReplace);
 
-echo '<pre>' . PHP_EOL . \Symfony\Component\VarDumper\VarDumper::dump($searchAndReplace) . PHP_EOL . 'Line: ' . __LINE__ . PHP_EOL . 'File: ' . __FILE__ . die();
 $files = getFiles($directories);
 
 foreach ($files as $file) {
+    $content = $file->getContents();
+    $content = str_replace($search, $replace, $content);
 
+    $filesystem->dumpFile($file->getPathname(), $content);
 }
-echo '<pre>' . PHP_EOL . \Symfony\Component\VarDumper\VarDumper::dump($files->count()) . PHP_EOL . 'Line: ' . __LINE__ . PHP_EOL . 'File: ' . __FILE__ . die();
 
