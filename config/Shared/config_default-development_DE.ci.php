@@ -62,10 +62,10 @@ $config[SystemConfig::ZED_STORAGE_SESSION_REDIS_PORT] = $config[SystemConfig::YV
 
 $config[PayoneConfigConstants::PAYONE] = [
     PayoneConfigConstants::PAYONE_CREDENTIALS_ENCODING => 'UTF-8',
-    PayoneConfigConstants::PAYONE_CREDENTIALS_KEY => 'oZZfMY6L224Q51jq',
-    PayoneConfigConstants::PAYONE_CREDENTIALS_MID => '29250',
-    PayoneConfigConstants::PAYONE_CREDENTIALS_AID => '29499',
-    PayoneConfigConstants::PAYONE_CREDENTIALS_PORTAL_ID => '2020679',
+    PayoneConfigConstants::PAYONE_CREDENTIALS_KEY => '',
+    PayoneConfigConstants::PAYONE_CREDENTIALS_MID => '',
+    PayoneConfigConstants::PAYONE_CREDENTIALS_AID => '',
+    PayoneConfigConstants::PAYONE_CREDENTIALS_PORTAL_ID => '',
     PayoneConfigConstants::PAYONE_PAYMENT_GATEWAY_URL => 'https://api.pay1.de/post-gateway/',
     PayoneConfigConstants::PAYONE_REDIRECT_SUCCESS_URL => $config[SystemConfig::HOST_YVES] . '/checkout/success/',
     PayoneConfigConstants::PAYONE_REDIRECT_ERROR_URL => $config[SystemConfig::HOST_YVES] . '/checkout/index/',
