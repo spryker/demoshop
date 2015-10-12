@@ -19,13 +19,6 @@ $config[SystemConfig::ZED_DB_HOST]     = '127.0.0.1';
 $config[SystemConfig::ZED_DB_PORT]     = 5432;
 $config[SystemConfig::ZED_DB_DATABASE] = null;
 
-$config[ApplicationConfig::ZED_TWIG_OPTIONS] = [
-    'cache' => true,
-];
-$config[ApplicationConfig::YVES_TWIG_OPTIONS] = [
-    'cache' => true,
-];
-
 $config[SystemConfig::YVES_STORAGE_SESSION_REDIS_PROTOCOL] = 'tcp';
 $config[SystemConfig::YVES_STORAGE_SESSION_REDIS_HOST] = '127.0.0.1';
 $config[SystemConfig::YVES_STORAGE_SESSION_REDIS_PORT] = '13009';

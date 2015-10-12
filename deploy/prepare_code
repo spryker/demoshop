@@ -18,6 +18,7 @@ npm install --loglevel warn
 
 find vendor/ -type d -name .git | xargs rm -rf
 
+vendor/bin/console transfer:generate
 vendor/bin/console setup:deploy:prepare_propel
 
 rm -rf $outfile
