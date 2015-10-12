@@ -48,8 +48,8 @@ class YvesBootstrap extends SprykerYvesBootstrap
     protected function beforeBoot(Application $app)
     {
         $app['locale'] = Store::getInstance()->getCurrentLocale();
-        if (\SprykerFeature_Shared_Library_Environment::isDevelopment()) {
-            $app['profiler.cache_dir'] = \SprykerFeature_Shared_Library_Data::getLocalStoreSpecificPath('cache/profiler');
+        if (\SprykerFeature\Shared\Library\Environment::isDevelopment()) {
+            $app['profiler.cache_dir'] = \SprykerFeature\Shared\Library\DataDirectory::getLocalStoreSpecificPath('cache/profiler');
         }
         $app['locator'] = Locator::getInstance();
 
@@ -112,7 +112,7 @@ class YvesBootstrap extends SprykerYvesBootstrap
             new HttpFragmentServiceProvider(),
         ];
 
-        if (\SprykerFeature_Shared_Library_Environment::isDevelopment()) {
+        if (\SprykerFeature\Shared\Library\Environment::isDevelopment()) {
             $providers[] = new WebProfilerServiceProvider();
         }
 
@@ -169,7 +169,7 @@ class YvesBootstrap extends SprykerYvesBootstrap
 
         $additionalGlobalVars = [
             'categories' => $locator->categoryExporter()->client()->getNavigationCategories($app['locale']),
-            'environment' => \SprykerFeature_Shared_Library_Environment::getEnvironment(),
+            'environment' => \SprykerFeature\Shared\Library\Environment::getEnvironment(),
             'registerForm' => $app['form.factory']->create($locator->customer()->pluginRegisterForm()->createFormRegister())->createView(),
         ];
 

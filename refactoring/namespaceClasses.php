@@ -25,7 +25,7 @@ $directories = [
     __DIR__ . '/../config/',
     __DIR__ . '/../src/',
     __DIR__ . '/../tests/',
-    __DIR__ . '/../vendor/spryker/spryker/Bundles/',
+//    __DIR__ . '/../vendor/spryker/spryker/Bundles/',
 ];
 
 $filesToRename = [
