@@ -9,7 +9,7 @@ outfile="/tmp/deploy-${deploy_outfile_prefix}-update-cdn"
 export APPLICATION_ENV=$environment
 
 cd $BASEDIR
-npm run spy-setup
+npm run spy-setup all
 
 
 rm -rf $outfile

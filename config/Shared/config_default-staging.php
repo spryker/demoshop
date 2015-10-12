@@ -1,8 +1,8 @@
 <?php
+
 /**
  * This is the global runtime configuration for Yves and Generated_Yves_Zed in a staging environment.
  */
-
 
 use SprykerFeature\Shared\System\SystemConfig;
 use SprykerFeature\Shared\Yves\YvesConfig;
@@ -44,3 +44,7 @@ $config[AclConfig::ACL_USER_RULE_WHITELIST][] = [
 
 $config[SystemConfig::PROPEL_DEBUG] = false;
 $config[ApplicationConfig::SHOW_SYMFONY_TOOLBAR] = false;
+
+$config[SystemConfig::CLOUD_ENABLED] = true;
+$config[SystemConfig::CLOUD_OBJECT_STORAGE_ENABLED] = true;
+$config[SystemConfig::CLOUD_CDN_ENABLED] = true;

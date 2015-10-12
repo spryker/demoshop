@@ -6,8 +6,7 @@
 
 # RUN `build` COMMAND AFTER ADDING/REMOVING MODULES.
 
-class_name: TestGuy
 modules:
     enabled:
       - Filesystem
-      - TestHelper
+      - \Module\Functional

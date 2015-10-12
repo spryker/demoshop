@@ -1,1 +1,3 @@
-<?php return 'DE';
+<?php
+
+return 'DE';
