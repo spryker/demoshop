@@ -15,6 +15,7 @@ php composer.phar install --optimize-autoloader
 
 ## NPM
 npm install --loglevel warn
+npm run spy-setup all
 
 find vendor/ -type d -name .git | xargs rm -rf
 
