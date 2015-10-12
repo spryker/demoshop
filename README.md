@@ -13,6 +13,12 @@ __Requirements:__
 
 It is recommended to use [VirtualBox 4.3.30](http://download.virtualbox.org/virtualbox/4.3.30/) and [Vagrant 1.7.2](https://www.vagrantup.com/download-archive/v1.7.2.html)
 
+Additionally the `vagrant-hostmanager` is required, which can be installed with:
+
+```
+vagrant plugin install vagrant-hostmanager
+```
+
 If all requirements are satisfied you can bring up a new development VM by just calling:
 
 ```bash
@@ -29,6 +35,10 @@ vagrant ssh
 
 Inside the VM you have to install the application and prepare everything for your development:
 
+Make shure, that the elasticsearch development server is running by checking:
+
+`sudo /etc/init.d/elasticsearch-development status` and `sudo /etc/init.d/elasticsearch-development start` if necessary.
+
 ```bash
 cd /data/shop/development/current
 php composer.phar install
@@ -44,11 +54,11 @@ vendor/bin/console setup:install-demo-data
 Afterwards you should call the following two commands to export all demo products and needed translations to the frontend:
 
 ```bash
-vendor/bin/console frontend-exporter:export-search
+vendor/bin/console collector:search:export
 ```
 
 ```bash
-vendor/bin/console frontend-exporter:export-key-value
+vendor/bin/console collector:storage:export
 ```
 
 If you need to login into Zed, use the following credentials:
