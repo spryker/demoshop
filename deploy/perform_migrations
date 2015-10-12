@@ -25,6 +25,7 @@ fi
 
 
 cd $BASEDIR
+cd ..
 
 vendor/bin/console setup:propel:database:create
 vendor/bin/console setup:propel:database:diff
