@@ -16,6 +16,7 @@
     "spy-assets": "./gulp/bash/assets.sh"
   },
   "dependencies": {
+"del": "^1.2.1",
     "colors": "^1.1.2",
     "glob": "^5.0.14",
     "gulp": "^3.9.0",
@@ -34,6 +35,7 @@
     "node-notifier": "^4.2.3",
     "ramda": "^0.17.1",
     "requirejs": "^2.1.20",
+    "require-dir": "^0.3.0",
     "string-format": "^0.5.0",
     "yargs": "^3.19.0"
   },
