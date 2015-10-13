@@ -1,0 +1,26 @@
+#!/bin/bash
+
+FILEPATH=`pwd`/$0; BASEDIR=`dirname $FILEPATH`; source $BASEDIR/vars; source $BASEDIR/functions
+outfile="/tmp/deploy-${deploy_outfile_prefix}-prepare-code"
+`touch $outfile`
+export APPLICATION_ENV=$environment
+
+cd $deploy_source_dir
+echo "${deploy_source_dir}\n\n"
+size=`du -sh . | awk '{print $1}'`
+echo "Source code revision: ${revision}, size: ${size}B - starting build process:"
+
+## Composer
+php composer.phar install --optimize-autoloader
+
+## NPM
+npm install --loglevel warn
+npm run spy-setup all
+
+find vendor/ -type d -name .git | xargs rm -rf
+
+vendor/bin/console transfer:generate
+vendor/bin/console setup:deploy:prepare_propel
+
+rm -rf $outfile
+exit 0
