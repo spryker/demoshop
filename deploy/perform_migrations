@@ -28,8 +28,8 @@ cd $BASEDIR
 cd ..
 
 vendor/bin/console setup:propel:database:create
-vendor/bin/console setup:propel:database:diff
-vendor/bin/console setup:propel:database:migrate
+vendor/bin/console setup:propel:diff
+vendor/bin/console setup:propel:migrate
 
 
 
