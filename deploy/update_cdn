@@ -1,0 +1,19 @@
+#!/bin/bash
+#
+# update_cdn
+
+FILEPATH=`pwd`/$0; BASEDIR=`dirname $FILEPATH`; . $BASEDIR/vars; source $BASEDIR/functions
+outfile="/tmp/deploy-${deploy_outfile_prefix}-update-cdn"
+`touch $outfile`
+
+export APPLICATION_ENV=$environment
+
+cd $BASEDIR
+cd ../
+vendor/bin/console collector:search:export
+vendor/bin/console collector:storage:export
+
+
+
+rm -rf $outfile
+exit 0

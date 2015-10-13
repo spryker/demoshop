@@ -109,7 +109,8 @@ $config[SystemConfig::PROPEL] = [
         'connections' => [
             'default' => [
                 'adapter'  => 'pgsql',
-                'dsn' => 'pgsql:host=127.0.0.1;dbname=DE_development_zed',
+                // please define this in the corresponding config_default_[environment]_[language].php file
+                'dsn' => 'undefined',
                 'user'     => 'development',
                 'password' => '',
                 'settings' => [
