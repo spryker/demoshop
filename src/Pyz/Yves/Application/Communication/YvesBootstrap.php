@@ -3,7 +3,6 @@
 namespace Pyz\Yves\Application\Communication;
 
 use Pyz\Yves\Application\Communication\Plugin\ApplicationControllerProvider;
-use Pyz\Yves\Application\Communication\Plugin\ServiceProvider\YvesSecurityServiceProvider;
 use Pyz\Yves\Cart\Communication\Plugin\CartControllerProvider;
 use Pyz\Yves\Checkout\Communication\Plugin\CheckoutControllerProvider;
 use Pyz\Yves\Customer\Communication\Plugin\CustomerControllerProvider;
@@ -12,29 +11,28 @@ use Pyz\Yves\Wishlist\Communication\Plugin\WishlistControllerProvider;
 use Silex\Provider\FormServiceProvider;
 use Silex\Provider\HttpFragmentServiceProvider;
 use Silex\Provider\RememberMeServiceProvider;
-use Silex\Provider\SecurityServiceProvider as SilexSecurityServiceProvider;
+use Silex\Provider\SecurityServiceProvider;
 use Silex\Provider\ServiceControllerServiceProvider;
-use Silex\Provider\SessionServiceProvider as SilexSessionServiceProvider;
+use Silex\Provider\SessionServiceProvider;
 use Silex\Provider\ValidatorServiceProvider;
 use Silex\Provider\WebProfilerServiceProvider;
 use Silex\ServiceProviderInterface;
-use SprykerEngine\Shared\Kernel\Store;
-use SprykerEngine\Yves\Application\Business\YvesBootstrap as SprykerYvesBootstrap;
+use SprykerEngine\Yves\Application\Communication\YvesBootstrap as SprykerYvesBootstrap;
 use SprykerEngine\Yves\Application\Communication\Plugin\ControllerProviderInterface;
 use SprykerEngine\Yves\Application\Communication\Plugin\ServiceProvider\CookieServiceProvider;
 use SprykerEngine\Yves\Application\Communication\Plugin\ServiceProvider\ExceptionServiceProvider;
 use SprykerEngine\Yves\Application\Communication\Plugin\ServiceProvider\MonologServiceProvider;
 use SprykerEngine\Yves\Application\Communication\Plugin\ServiceProvider\YvesLoggingServiceProvider;
-use SprykerEngine\Yves\Kernel\Locator;
-use SprykerFeature\Shared\Application\Business\Application;
+use SprykerEngine\Shared\Application\Communication\Application;
 use SprykerFeature\Shared\Application\Business\Routing\SilexRouter;
 use SprykerFeature\Shared\Application\Communication\Plugin\ServiceProvider\RoutingServiceProvider;
 use SprykerFeature\Shared\Application\Communication\Plugin\ServiceProvider\UrlGeneratorServiceProvider;
 use SprykerFeature\Shared\Library\Config;
+use SprykerFeature\Shared\Library\DataDirectory;
+use SprykerFeature\Shared\Library\Environment;
 use SprykerFeature\Shared\System\SystemConfig;
 use SprykerFeature\Shared\Yves\YvesConfig;
 use Pyz\Yves\Twig\Communication\Plugin\TwigServiceProvider;
-use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Routing\RouterInterface;
 use SprykerFeature\Client\Lumberjack\Service\EventJournalClient;
 use SprykerFeature\Shared\Library\NewRelic\Api;
@@ -48,8 +46,8 @@ class YvesBootstrap extends SprykerYvesBootstrap
     protected function beforeBoot(Application $app)
     {
         $app['locale'] = Store::getInstance()->getCurrentLocale();
-        if (\SprykerFeature\Shared\Library\Environment::isDevelopment()) {
-            $app['profiler.cache_dir'] = \SprykerFeature\Shared\Library\DataDirectory::getLocalStoreSpecificPath('cache/profiler');
+        if (Environment::isDevelopment()) {
+            $app['profiler.cache_dir'] = DataDirectory::getLocalStoreSpecificPath('cache/profiler');
         }
         $app['locator'] = Locator::getInstance();
 
@@ -73,28 +71,26 @@ class YvesBootstrap extends SprykerYvesBootstrap
      */
     protected function getServiceProviders(Application $app)
     {
-        $locator = $this->getLocator($app);
-
-        $pimplePlugin = $locator->application()->pluginPimple();
+        $pimplePlugin = $this->getLocator()->application()->pluginPimple();
         $pimplePlugin->setApplication($app);
 
-        $translationServiceProvider = $locator->glossary()
+        $translationServiceProvider = $this->getLocator()->glossary()
             ->pluginServiceProviderTranslationServiceProvider()
-            ->setGlossaryClient($locator->glossary()->client());
+            ->setGlossaryClient($this->getLocator()->glossary()->client());
 
-        $userProvider = $locator->customer()->pluginUserProvider()
-            ->setCustomerClient($locator->customer()->client());
+        $userProvider = $this->getLocator()->customer()->pluginUserProvider()
+            ->setCustomerClient($this->getLocator()->customer()->client());
 
-        $securityServiceProvider = $locator->customer()->pluginServiceProviderSecurityServiceProvider();
+        $securityServiceProvider = $this->getLocator()->customer()->pluginServiceProviderSecurityServiceProvider();
         $securityServiceProvider->setUserProvider($userProvider);
 
-        $sessionServiceProvider = $locator->session()->pluginServiceProviderSessionServiceProvider();
-        $sessionServiceProvider->setClient($locator->session()->client());
+        $sessionServiceProvider = $this->getLocator()->session()->pluginServiceProviderSessionServiceProvider();
+        $sessionServiceProvider->setClient($this->getLocator()->session()->client());
 
         $providers = [
-            new SilexSessionServiceProvider(),
-            new SilexSecurityServiceProvider(),
-            new YvesSecurityServiceProvider(),
+            new SessionServiceProvider(),
+            new SecurityServiceProvider(),
+            $this->getLocator()->application()->pluginServiceProviderYvesSecurityServiceProvider(),
             new ExceptionServiceProvider('\\SprykerEngine\\Yves\\Application\\Communication\\Controller\\ExceptionController'),
             new YvesLoggingServiceProvider(new EventJournalClient(), Api::getInstance()),
             new MonologServiceProvider(),
@@ -112,7 +108,7 @@ class YvesBootstrap extends SprykerYvesBootstrap
             new HttpFragmentServiceProvider(),
         ];
 
-        if (\SprykerFeature\Shared\Library\Environment::isDevelopment()) {
+        if (Environment::isDevelopment()) {
             $providers[] = new WebProfilerServiceProvider();
 
         }
@@ -144,11 +140,9 @@ class YvesBootstrap extends SprykerYvesBootstrap
      */
     protected function getRouters(Application $app)
     {
-        $locator = $this->getLocator($app);
-
         return [
-            $locator->collector()->pluginRouterStorageRouter()->setSsl(false),
-            $locator->catalog()->pluginRouterSearchRouter()->setSsl(false),
+            $this->getLocator()->collector()->pluginRouterStorageRouter()->setSsl(false),
+            $this->getLocator()->catalog()->pluginRouterSearchRouter()->setSsl(false),
             /*
              * SilexRouter should come last, as it is not the fastest one if it can
              * not find a matching route (lots of magic)
@@ -166,12 +160,10 @@ class YvesBootstrap extends SprykerYvesBootstrap
     {
         $existingGlobalVars = parent::globalTemplateVariables($app);
 
-        $locator = $this->getLocator($app);
-
         $additionalGlobalVars = [
-            'categories' => $locator->categoryExporter()->client()->getNavigationCategories($app['locale']),
-            'environment' => \SprykerFeature\Shared\Library\Environment::getEnvironment(),
-            'registerForm' => $app['form.factory']->create($locator->customer()->pluginRegisterForm()->createFormRegister())->createView(),
+            'categories' => $this->getLocator()->categoryExporter()->client()->getNavigationCategories($app['locale']),
+            'environment' => Environment::getEnvironment(),
+            'registerForm' => $app['form.factory']->create($this->getLocator()->customer()->pluginRegisterForm()->createFormRegister())->createView(),
         ];
 
         return array_merge($existingGlobalVars, $additionalGlobalVars);

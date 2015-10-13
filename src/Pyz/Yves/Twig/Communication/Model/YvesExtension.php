@@ -6,7 +6,7 @@
 
 namespace Pyz\Yves\Twig\Communication\Model;
 
-use SprykerEngine\Yves\Application\Business\Application;
+use SprykerEngine\Yves\Application\Communication\Application;
 use Pyz\Yves\Twig\Communication\TwigSettings;
 
 class YvesExtension extends \Twig_Extension
