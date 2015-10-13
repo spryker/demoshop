@@ -54,7 +54,6 @@ class ProductAttributeMappingInstall extends AbstractInstaller
         $this->installAttributeOperations();
         $this->makeProductsSearchable();
     }
-
     protected function installAttributeOperations()
     {
         foreach ($this->getMappings() as $sourceField => $operations) {
