@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "e727745e69a6ecb94044eaf2728aa24b",
+    "hash": "5c26ddc662de80bb8e4f4cd8016e3d44",
     "packages": [
         {
             "name": "digital-canvas/zend-framework",
@@ -703,11 +703,11 @@
         },
         {
             "name": "spryker/spryker",
-            "version": "dev-refactor/CD-522-Rename-classes-with-underscores",
+            "version": "dev-develop",
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/spryker.git",
-                "reference": "d0da00289a5511863d53a5b841a51f96579f9374"
+                "reference": "4243394b32807991a55bba9f685138601462eaee"
             },
             "require": {
                 "digital-canvas/zend-framework": ">=1.12.2"
@@ -796,7 +796,7 @@
                     "SprykerFeature\\Shared\\Library": "Bundles/Library/src/"
                 }
             },
-            "time": "2015-10-13 11:55:27"
+            "time": "2015-10-13 11:59:08"
         },
         {
             "name": "symfony-cmf/routing",
