@@ -17,6 +17,7 @@ use Silex\Provider\SessionServiceProvider;
 use Silex\Provider\ValidatorServiceProvider;
 use Silex\Provider\WebProfilerServiceProvider;
 use Silex\ServiceProviderInterface;
+use SprykerEngine\Shared\Kernel\Store;
 use SprykerEngine\Yves\Application\Communication\YvesBootstrap as SprykerYvesBootstrap;
 use SprykerEngine\Yves\Application\Communication\Plugin\ControllerProviderInterface;
 use SprykerEngine\Yves\Application\Communication\Plugin\ServiceProvider\CookieServiceProvider;
@@ -33,6 +34,7 @@ use SprykerFeature\Shared\Library\Environment;
 use SprykerFeature\Shared\System\SystemConfig;
 use SprykerFeature\Shared\Yves\YvesConfig;
 use Pyz\Yves\Twig\Communication\Plugin\TwigServiceProvider;
+use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Routing\RouterInterface;
 use SprykerFeature\Client\Lumberjack\Service\EventJournalClient;
 use SprykerFeature\Shared\Library\NewRelic\Api;
@@ -49,7 +51,6 @@ class YvesBootstrap extends SprykerYvesBootstrap
         if (Environment::isDevelopment()) {
             $app['profiler.cache_dir'] = DataDirectory::getLocalStoreSpecificPath('cache/profiler');
         }
-        $app['locator'] = Locator::getInstance();
 
         $proxies = Config::get(YvesConfig::YVES_TRUSTED_PROXIES);
 
