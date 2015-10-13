@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "bd2db16bb8cdb9969ac21a06344c0134",
+    "hash": "21e7a44609e8ed1545cfd001cca5be21",
     "packages": [
         {
             "name": "digital-canvas/zend-framework",
@@ -468,13 +468,13 @@
             "source": {
                 "type": "git",
                 "url": "git@github.com:project-a/spryker.git",
-                "reference": "e15e3f8270571b44a83f7f5e0dc93f3fa0056d0f"
+                "reference": "227d4395ebae1aa75b83406a44dabf0da57bedb3"
             },
             "bin": [
                 "Bundles/Kernel/bin/build-multiple-core-class-map"
             ],
             "type": "library",
-            "time": "2015-10-13 08:24:19"
+            "time": "2015-10-13 08:45:48"
         },
         {
             "name": "propel/propel",
@@ -717,11 +717,11 @@
         },
         {
             "name": "spryker/spryker",
-            "version": "dev-develop",
+            "version": "dev-feature/KSP-1060-Newsletter_registration",
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/spryker.git",
-                "reference": "726e8a4c6a509fc9d76f74dd06b07bf829290803"
+                "reference": "70ba68ff2b4b586e4c2050ce99b9b96c5d77d465"
             },
             "require": {
                 "digital-canvas/zend-framework": ">=1.12.2"
@@ -810,7 +810,7 @@
                     "SprykerFeature\\Shared\\Library": "Bundles/Library/src/"
                 }
             },
-            "time": "2015-10-12 16:04:27"
+            "time": "2015-10-13 09:08:17"
         },
         {
             "name": "symfony-cmf/routing",

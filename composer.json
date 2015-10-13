@@ -1,6 +1,6 @@
 {
   "require": {
-    "spryker/spryker": "dev-develop",
+    "spryker/spryker": "dev-feature/KSP-1060-Newsletter_registration",
     "project-a/spryker": "dev-master",
 
     "psr/log": "~1.0",
