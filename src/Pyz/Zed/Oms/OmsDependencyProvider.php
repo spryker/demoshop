@@ -8,6 +8,7 @@ namespace Pyz\Zed\Oms;
 
 use SprykerEngine\Zed\Kernel\Container;
 use SprykerFeature\Zed\Oms\Communication\Plugin\Oms\Command\CommandInterface;
+use SprykerFeature\Zed\Oms\Communication\Plugin\Oms\Condition\ConditionInterface;
 use SprykerFeature\Zed\Oms\OmsDependencyProvider as SprykerOmsDependencyProvider;
 
 class OmsDependencyProvider extends SprykerOmsDependencyProvider
@@ -25,24 +26,24 @@ class OmsDependencyProvider extends SprykerOmsDependencyProvider
         return [
             'PayolutionOmsConnector/PreAuthorizationIsApproved' => $container
                 ->getLocator()
-                ->payolutionOmsConnector()
-                ->pluginConditionPreAuthorizationIsApprovedPlugin(),
+                ->payolution()
+                ->pluginOmsConditionPreAuthorizationIsApprovedPlugin(),
             'PayolutionOmsConnector/ReAuthorizationIsApproved' => $container
                 ->getLocator()
-                ->payolutionOmsConnector()
-                ->pluginConditionReAuthorizationIsApprovedPlugin(),
+                ->payolution()
+                ->pluginOmsConditionReAuthorizationIsApprovedPlugin(),
             'PayolutionOmsConnector/ReversalIsApproved' => $container
                 ->getLocator()
-                ->payolutionOmsConnector()
-                ->pluginConditionReversalIsApprovedPlugin(),
+                ->payolution()
+                ->pluginOmsConditionReversalIsApprovedPlugin(),
             'PayolutionOmsConnector/CaptureIsApproved' => $container
                 ->getLocator()
-                ->payolutionOmsConnector()
-                ->pluginConditionCaptureIsApprovedPlugin(),
+                ->payolution()
+                ->pluginOmsConditionCaptureIsApprovedPlugin(),
             'PayolutionOmsConnector/RefundIsApproved' => $container
                 ->getLocator()
-                ->payolutionOmsConnector()
-                ->pluginConditionRefundIsApprovedPlugin(),
+                ->payolution()
+                ->pluginOmsConditionRefundIsApprovedPlugin(),
         ];
     }
 
@@ -60,24 +61,24 @@ class OmsDependencyProvider extends SprykerOmsDependencyProvider
             'Oms/SendInvoice' => $container->getLocator()->oms()->pluginOmsCommandSendInvoice(),
             'PayolutionOmsConnector/PreAuthorize' => $container
                 ->getLocator()
-                ->payolutionOmsConnector()
-                ->pluginCommandPreAuthorizePlugin(),
+                ->payolution()
+                ->pluginOmsCommandPreAuthorizePlugin(),
             'PayolutionOmsConnector/ReAuthorize' => $container
                 ->getLocator()
-                ->payolutionOmsConnector()
-                ->pluginCommandReAuthorizePlugin(),
+                ->payolution()
+                ->pluginOmsCommandReAuthorizePlugin(),
             'PayolutionOmsConnector/Revert' => $container
                 ->getLocator()
-                ->payolutionOmsConnector()
-                ->pluginCommandRevertPlugin(),
+                ->payolution()
+                ->pluginOmsCommandRevertPlugin(),
             'PayolutionOmsConnector/Capture' => $container
                 ->getLocator()
-                ->payolutionOmsConnector()
-                ->pluginCommandCapturePlugin(),
+                ->payolution()
+                ->pluginOmsCommandCapturePlugin(),
             'PayolutionOmsConnector/Refund' => $container
                 ->getLocator()
-                ->payolutionOmsConnector()
-                ->pluginCommandRefundPlugin(),
+                ->payolution()
+                ->pluginOmsCommandRefundPlugin(),
         ];
     }
 
