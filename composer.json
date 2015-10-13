@@ -1,6 +1,7 @@
 {
   "require": {
     "spryker/spryker": "dev-develop",
+    "project-a/spryker": "dev-master",
 
     "psr/log": "~1.0",
     "propel/propel": "~2.0@dev",
@@ -72,6 +73,10 @@
     {
       "type": "git",
       "url": "git@github.com:spryker/spryker.git"
+    },
+    {
+      "type": "git",
+      "url": "git@github.com:project-a/spryker.git"
     }
   ]
 }

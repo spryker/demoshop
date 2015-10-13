@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "5c26ddc662de80bb8e4f4cd8016e3d44",
+    "hash": "bd2db16bb8cdb9969ac21a06344c0134",
     "packages": [
         {
             "name": "digital-canvas/zend-framework",
@@ -463,6 +463,20 @@
             "time": "2014-08-01 09:59:50"
         },
         {
+            "name": "project-a/spryker",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "git@github.com:project-a/spryker.git",
+                "reference": "e15e3f8270571b44a83f7f5e0dc93f3fa0056d0f"
+            },
+            "bin": [
+                "Bundles/Kernel/bin/build-multiple-core-class-map"
+            ],
+            "type": "library",
+            "time": "2015-10-13 08:24:19"
+        },
+        {
             "name": "propel/propel",
             "version": "2.0.0-alpha5",
             "source": {
@@ -707,7 +721,7 @@
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/spryker.git",
-                "reference": "60f03ed3022e346edd2527d91c35749ea123efe2"
+                "reference": "726e8a4c6a509fc9d76f74dd06b07bf829290803"
             },
             "require": {
                 "digital-canvas/zend-framework": ">=1.12.2"
@@ -796,7 +810,7 @@
                     "SprykerFeature\\Shared\\Library": "Bundles/Library/src/"
                 }
             },
-            "time": "2015-10-12 15:05:37"
+            "time": "2015-10-12 16:04:27"
         },
         {
             "name": "symfony-cmf/routing",
@@ -2694,16 +2708,16 @@
         },
         {
             "name": "fabpot/php-cs-fixer",
-            "version": "v1.10",
+            "version": "v1.10.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/FriendsOfPHP/PHP-CS-Fixer.git",
-                "reference": "8e21b4fb32c4618a425817d9f0daf3d57a9808d1"
+                "reference": "12dbcd1462f1e3a5a96c6c7398af26b28e092a8a"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/FriendsOfPHP/PHP-CS-Fixer/zipball/8e21b4fb32c4618a425817d9f0daf3d57a9808d1",
-                "reference": "8e21b4fb32c4618a425817d9f0daf3d57a9808d1",
+                "url": "https://api.github.com/repos/FriendsOfPHP/PHP-CS-Fixer/zipball/12dbcd1462f1e3a5a96c6c7398af26b28e092a8a",
+                "reference": "12dbcd1462f1e3a5a96c6c7398af26b28e092a8a",
                 "shasum": ""
             },
             "require": {
@@ -2744,7 +2758,7 @@
                 }
             ],
             "description": "A tool to automatically fix PHP code style",
-            "time": "2015-07-27 20:56:10"
+            "time": "2015-10-12 20:13:46"
         },
         {
             "name": "facebook/webdriver",
@@ -4272,6 +4286,7 @@
     "minimum-stability": "stable",
     "stability-flags": {
         "spryker/spryker": 20,
+        "project-a/spryker": 20,
         "propel/propel": 20,
         "silex/silex": 20,
         "pimple/pimple": 20

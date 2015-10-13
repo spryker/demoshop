@@ -19,6 +19,7 @@ $config[SystemConfig::PROJECT_NAMESPACES] = [
 $config[SystemConfig::CORE_NAMESPACES] = [
     'SprykerFeature',
     'SprykerEngine',
+    'PavFeature'
 ];
 
 $config[ApplicationConfig::ZED_TWIG_OPTIONS] = [];
