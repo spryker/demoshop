@@ -54,7 +54,7 @@
         <div class="catalog__products-holder js-products-holder">
             <section class="catalog__products js-products-current">
                 {% for product in products %}
-                    {% include "@catalog/catalog/partials/product.twig" with {detailsUrl: product.url, imageUrl: product.abstract_attributes.image_url, name: product.abstract_name, priceValue: product.valid_price} %}
+                    {% include "@catalog/catalog/partials/product.twig" with {detailsUrl: product.url, imageUrl: product.abstract_attributes.small_image, name: product.abstract_name, priceValue: product.valid_price} %}
                 {% endfor %}
             </section>
             <div class="catalog__loading-text">{{ "catalog.loading"|trans }}</div>

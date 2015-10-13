@@ -106,6 +106,7 @@ class ZedBootstrap extends Bootstrap
             new SilexSessionServiceProvider(),
             $sessionServiceProvider,
             new PropelServiceProvider(),
+            $locator->auth()->pluginServiceProviderRedirectAfterLoginProvider(),
             $locator->auth()->pluginBootstrapAuthBootstrapProvider(),
             new RequestServiceProvider(),
             new SslServiceProvider(),

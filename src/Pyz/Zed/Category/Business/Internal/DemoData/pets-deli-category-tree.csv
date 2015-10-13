@@ -1,0 +1,25 @@
+"is_root";"name";"parent_name";"image_name"
+1;"Root";NULL;NULL
+0;"Hunde";"Root";"alles-fuer-den-hund-und-die-katz.png"
+0;"Basisnahrung";"Hunde";"Header_Basisnahrung_neu_2015.jpg"
+0;"Snacks";"Hunde";"HeaderSnacksneuohnebio.jpg"
+0;"Trockenfleisch";"Hunde";"HeaderTrockenfleischneu2015.jpg"
+0;"Supplements";"Hunde";"Header_Supplements_neu_2015.jpg"
+0;"Katzen";"Root";"alles-fuer-den-hund-und-die-katz_1.png"
+0;"Basisnahrung";"Katzen";"Header_Basisnahrung_neu_2015_1.jpg"
+0;"Snacks";"Katzen";"HeaderSnacksneuohnebio_1.jpg"
+0;"Trockenfleisch";"Katzen";"HeaderTrockenfleischneu2015_1.jpg"
+0;"Supplements";"Katzen";"Header_Supplements_neu_2015_1.jpg"
+0;"Fisch & Fleisch";"Basisnahrung";NULL
+0;"Obst & Gemüse";"Basisnahrung";NULL
+0;"Kohlenhydrate";"Basisnahrung";NULL
+0;"Supplements";"Basisnahrung";NULL
+0;"Angebote";"Root";NULL
+0;"So funktioniert's";"Beratung";NULL
+0;"Kontakt";"Root";NULL
+0;"Promotionen";"Beratung";NULL
+0;"Futtermixer";"Hunde";"Header_Futtermixer_neu_2015.jpg"
+0;"Futtermixer";"Katzen";"Header_Futtermixer_neu_2015_1.jpg"
+0;"Über uns";"Beratung";NULL
+0;"Beratung";"Root";NULL
+0;"FAQ";"Beratung";NULL

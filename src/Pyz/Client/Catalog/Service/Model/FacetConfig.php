@@ -19,19 +19,13 @@ class FacetConfig extends CoreFacetConfig
             self::KEY_SORT_ACTIVE => false,
             self::KEY_MULTI_VALUED => false,
         ],
-        'material' => [
+        'weight' => [
             self::KEY_FACET_FIELD_NAME => self::FIELD_STRING_FACET,
             self::KEY_TYPE => self::TYPE_ENUMERATION,
-            self::KEY_PARAM => 'material',
+            self::KEY_PARAM => 'weight',
             self::KEY_FACET_ACTIVE => true,
             self::KEY_SORT_ACTIVE => false,
             self::KEY_MULTI_VALUED => false,
-        ],
-        'name' => [
-            self::KEY_SORT_ACTIVE => false,
-            self::KEY_SORT_FIELD_NAME => self::FIELD_STRING_SORT,
-            self::KEY_FACET_ACTIVE => false,
-            self::KEY_PARAM => 'name',
         ],
         'price' => [
             self::KEY_FACET_ACTIVE => true,
@@ -43,13 +37,6 @@ class FacetConfig extends CoreFacetConfig
             self::KEY_RANGE_DIVIDER => '-',
             self::KEY_VALUE_CALLBACK_BEFORE => [__CLASS__, 'priceValueCallbackBefore'],
             self::KEY_VALUE_CALLBACK_AFTER => [__CLASS__, 'priceValueCallbackAfter'],
-        ],
-        'age' => [
-            self::KEY_FACET_ACTIVE => true,
-            self::KEY_SORT_ACTIVE => false,
-            self::KEY_FACET_FIELD_NAME => self::FIELD_INTEGER_FACET,
-            self::KEY_TYPE => self::TYPE_ENUMERATION,
-            self::KEY_PARAM => 'age',
         ],
     ];
 

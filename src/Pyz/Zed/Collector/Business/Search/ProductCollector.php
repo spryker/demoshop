@@ -5,8 +5,10 @@ namespace Pyz\Zed\Collector\Business\Search;
 use Generated\Shared\Transfer\LocaleTransfer;
 use Propel\Runtime\ActiveQuery\Criteria;
 use Propel\Runtime\ActiveQuery\Join;
+use Propel\Runtime\ActiveQuery\ModelCriteria;
 use Pyz\Zed\Price\Business\PriceFacade;
 use Pyz\Zed\ProductSearch\Business\ProductSearchFacade;
+use Pyz\Zed\Propel\Business\PropelFacade;
 use SprykerEngine\Zed\Locale\Persistence\Propel\Map\SpyLocaleTableMap;
 use SprykerEngine\Zed\Touch\Persistence\Propel\Map\SpyTouchTableMap;
 use SprykerEngine\Zed\Touch\Persistence\Propel\SpyTouchQuery;
@@ -27,7 +29,6 @@ use SprykerFeature\Zed\Url\Persistence\Propel\Map\SpyUrlTableMap;
 
 class ProductCollector extends AbstractPropelCollectorPlugin
 {
-
     /**
      * @var PriceFacade
      */
@@ -49,19 +50,34 @@ class ProductCollector extends AbstractPropelCollectorPlugin
     private $productSearchFacade;
 
     /**
+     * @var PropelFacade
+     */
+    private $propelFacade;
+
+    /**
      * @param PriceFacade $priceFacade
      * @param PriceQueryContainer $priceQueryContainer
      * @param CategoryQueryContainer $categoryQueryContainer
      * @param ProductSearchFacade $productSearchFacade
+     * @param PropelFacade $propelFacade
      */
-    public function __construct(PriceFacade $priceFacade, PriceQueryContainer $priceQueryContainer, CategoryQueryContainer $categoryQueryContainer, ProductSearchFacade $productSearchFacade)
-    {
+    public function __construct(
+        PriceFacade $priceFacade,
+        PriceQueryContainer $priceQueryContainer,
+        CategoryQueryContainer $categoryQueryContainer,
+        ProductSearchFacade $productSearchFacade,
+        PropelFacade $propelFacade
+    ) {
         $this->priceFacade = $priceFacade;
         $this->priceQueryContainer = $priceQueryContainer;
         $this->categoryQueryContainer = $categoryQueryContainer;
         $this->productSearchFacade = $productSearchFacade;
+        $this->propelFacade = $propelFacade;
     }
 
+    /**
+     * @return string
+     */
     protected function getTouchItemType()
     {
         return 'abstract_product';
@@ -101,7 +117,7 @@ class ProductCollector extends AbstractPropelCollectorPlugin
         );
 
         $baseQuery->withColumn(
-            'GROUP_CONCAT(spy_product.sku)',
+            'JSON_AGG(spy_product.sku)',
             'concrete_skus'
         );
 
@@ -170,16 +186,16 @@ class ProductCollector extends AbstractPropelCollectorPlugin
         );
         // PostgreSQL specific code, if database is MySQL use GROUP_CONCAT
         $baseQuery->withColumn(
-            "STRING_AGG(spy_product.attributes, '$%')",
+            'JSON_AGG(spy_product.attributes)',
             'concrete_attributes'
         );
         $baseQuery->withColumn(
-            "STRING_AGG(spy_product_localized_attributes.attributes, '$%')",
+            'JSON_AGG(spy_product_localized_attributes.attributes)',
             'concrete_localized_attributes'
         );
         // End of PostgreSQL specific code
         $baseQuery->withColumn(
-            'GROUP_CONCAT(product_urls.url)',
+            'JSON_AGG(product_urls.url)',
             'product_urls'
         );
         $baseQuery->withColumn(
@@ -187,7 +203,7 @@ class ProductCollector extends AbstractPropelCollectorPlugin
             'abstract_name'
         );
         $baseQuery->withColumn(
-            'GROUP_CONCAT(spy_product_localized_attributes.name)',
+            'JSON_AGG(spy_product_localized_attributes.name)',
             'concrete_names'
         );
 
@@ -220,9 +236,6 @@ class ProductCollector extends AbstractPropelCollectorPlugin
             SpyStockProductTableMap::COL_FK_PRODUCT,
             Criteria::INNER_JOIN
         );
-        $baseQuery->withColumn(SpyStockProductTableMap::COL_QUANTITY, 'quantity');
-        $baseQuery->withColumn(SpyStockProductTableMap::COL_IS_NEVER_OUT_OF_STOCK, 'is_never_out_of_stock');
-
 
         // Category
         $baseQuery->addJoin(
@@ -256,7 +269,7 @@ class ProductCollector extends AbstractPropelCollectorPlugin
         $baseQuery = $this->categoryQueryContainer->joinRelatedCategoryQueryWithUrls($baseQuery, 'categoryParents', 'parent');
 
         $baseQuery->withColumn(
-            'GROUP_CONCAT(DISTINCT spy_category_node.id_category_node)',
+            'JSON_AGG(DISTINCT spy_category_node.id_category_node)',
             'node_id'
         );
         $baseQuery->withColumn(
@@ -266,6 +279,11 @@ class ProductCollector extends AbstractPropelCollectorPlugin
         $baseQuery->orderBy('depth', Criteria::DESC);
         $baseQuery->orderBy('descendant_id', Criteria::DESC);
         $baseQuery->groupBy('abstract_sku');
+
+        $baseQuery->addAsColumn('quantity', SpyStockProductTableMap::COL_QUANTITY);
+        $baseQuery->addAsColumn('is_never_out_of_stock', 'BOOL_OR(' . SpyStockProductTableMap::COL_IS_NEVER_OUT_OF_STOCK .')');
+
+        $baseQuery = $this->propelFacade->addAggregateToNotGroupedColumns($baseQuery);
 
         return $baseQuery;
     }
@@ -280,7 +298,6 @@ class ProductCollector extends AbstractPropelCollectorPlugin
     protected function processData($resultSet, LocaleTransfer $locale, TouchUpdaterSet $touchUpdaterSet)
     {
         $processedResultSet = $this->buildProducts($resultSet, $locale);
-
         $processedResultSet = $this->productSearchFacade->enrichProductsWithSearchAttributes(
             $resultSet,
             $processedResultSet
@@ -299,8 +316,8 @@ class ProductCollector extends AbstractPropelCollectorPlugin
 
                 // Category
                 $processedResultSet[$index]['category'] = [
-                    'direct-parents' => explode(',', $productRawData['node_id']),
-                    'all-parents' => explode(',', $productRawData['category_parent_ids']),
+                    'direct-parents' => json_decode($productRawData['node_id'], true),
+                    'all-parents' => json_decode($productRawData['category_parent_ids'], true),
                 ];
             }
         }
@@ -325,5 +342,4 @@ class ProductCollector extends AbstractPropelCollectorPlugin
 
         return $processedResultSet;
     }
-
 }
