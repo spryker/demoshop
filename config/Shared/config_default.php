@@ -28,11 +28,11 @@ $config[SystemConfig::PROJECT_TIMEZONE] = 'UTC';
 $config[SystemConfig::PROJECT_NAMESPACE] = 'Pyz';
 
 $config[ApplicationConfig::ZED_TWIG_OPTIONS] = [
-    'cache' => \SprykerFeature_Shared_Library_Data::getLocalStoreSpecificPath('cache/Zed/twig'),
+    'cache' => \SprykerFeature\Shared\Library\DataDirectory::getLocalStoreSpecificPath('cache/Zed/twig'),
 ];
 
 $config[ApplicationConfig::YVES_TWIG_OPTIONS] = [
-    'cache' => \SprykerFeature_Shared_Library_Data::getLocalStoreSpecificPath('cache/Yves/twig'),
+    'cache' => \SprykerFeature\Shared\Library\DataDirectory::getLocalStoreSpecificPath('cache/Yves/twig'),
 ];
 
 $config[SystemConfig::ZED_DB_ENGINE] = 'mysql';
