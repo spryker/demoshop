@@ -12,6 +12,7 @@ use SprykerFeature\Shared\Yves\YvesConfig;
 use SprykerEngine\Shared\Lumberjack\LumberjackConfig;
 use SprykerFeature\Shared\Session\SessionConfig;
 use SprykerFeature\Shared\SequenceNumber\SequenceNumberConstants as SequenceNumberConfig;
+use Pyz\Shared\OrderExporter\AfterbuyExportConstantInterface;
 
 $config[SystemConfig::PROJECT_NAMESPACES] = [
     'Pyz',
@@ -322,3 +323,7 @@ $config[SequenceNumberConfig::ENVIRONMENT_PREFIX] = '';
 $config[LumberjackConfig::WRITER_OPTIONS] = [
     '\SprykerEngine\Shared\Lumberjack\Model\Writer\File' => ['log_path' => '/data/logs/development/DE/'],
 ];
+$config[AfterbuyExportConstantInterface::AFTERBUY_PARTNER_ID] = 107450;
+$config[AfterbuyExportConstantInterface::AFTERBUY_PARTNER_PASS] = '6/UMU16Qn/=hCFhKZbqpr)8T0';
+$config[AfterbuyExportConstantInterface::AFTERBUY_USER_ID] = 'petsdelideutschland';
+
