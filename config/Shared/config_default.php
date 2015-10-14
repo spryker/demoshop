@@ -29,6 +29,10 @@ $config[SystemConfig::PROJECT_TIMEZONE] = 'UTC';
 $config[SystemConfig::PROJECT_NAMESPACE] = 'Pyz';
 
 $config[SystemConfig::ZED_DB_ENGINE] = 'pgsql';
+$config[ApplicationConfig::ZED_TWIG_OPTIONS] = [
+    'cache' => \SprykerFeature\Shared\Library\DataDirectory::getLocalStoreSpecificPath('cache/Zed/twig'),
+];
+
 
 $config[DbDumpConfig::DB_DUMP_USERNAME] = '';
 $config[DbDumpConfig::DB_DUMP_PASSWORD] = '';
@@ -39,11 +43,8 @@ $config[DbDumpConfig::DB_DUMP_MYSQL_BIN] = '/usr/bin/mysql';
 
 $config[SystemConfig::STORAGE_KV_SOURCE] = 'redis';
 
-$config[ApplicationConfig::ZED_TWIG_OPTIONS] = [
-    'cache' => \SprykerFeature_Shared_Library_Data::getLocalStoreSpecificPath('cache/Zed/twig'),
-];
 $config[ApplicationConfig::YVES_TWIG_OPTIONS] = [
-    'cache' => \SprykerFeature_Shared_Library_Data::getLocalStoreSpecificPath('cache/Yves/twig'),
+    'cache' => \SprykerFeature\Shared\Library\DataDirectory::getLocalStoreSpecificPath('cache/Yves/twig'),
 ];
 
 $config[SystemConfig::ELASTICA_PARAMETER__HOST] = 'localhost';
