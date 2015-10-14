@@ -9,8 +9,8 @@ machine:
 database:
   override:
     - mv config/Zed/propel.ci.yml config/Zed/propel.yml
-    - mv config/Shared/config_default-development.ci.php config/Shared/config_default-development.php
-    - mv config/Shared/config_default-development.ci.php config/Shared/config_default-test.php
+    - cp config/Shared/config_default-development.ci.php config/Shared/config_default-development.php
+    - cp config/Shared/config_default-development.ci.php config/Shared/config_default-test.php
 dependencies:
   pre:
     - mkdir -p shared/data/common/jenkins
