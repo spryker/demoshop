@@ -5,6 +5,7 @@ use SprykerFeature\Shared\System\SystemConfig;
 use SprykerFeature\Shared\Yves\YvesConfig;
 use SprykerEngine\Shared\Lumberjack\LumberjackConfig;
 use SprykerFeature\Shared\Payone\PayoneConfigConstants;
+use SprykerFeature\Shared\Session\SessionConfig;
 
 $config[SystemConfig::ZED_MYSQL_USERNAME] = 'ubuntu';
 $config[SystemConfig::ZED_MYSQL_PASSWORD] = '';
@@ -76,3 +77,5 @@ $config[PayoneConfigConstants::PAYONE] = [
 $config[LumberjackConfig::WRITER_OPTIONS] = [
     '\SprykerEngine\Shared\Lumberjack\Model\Writer\File' => ['log_path' => '/data/logs/development/DE/'],
 ];
+
+$config[SessionConfig::SESSION_IS_TEST] = true;
