@@ -22,18 +22,18 @@ class TwigProductImagePlugin extends AbstractPlugin implements TwigFunctionPlugi
     {
         return [
             new \Twig_SimpleFunction('getAllProductImagesBySize', function (array $images, $size = null) {
-                $imageFilenames = \SprykerFeature_Shared_Library_Image::getAllProductImagesBySize($images, $size);
+                $imageFilenames = \SprykerFeature\Shared\Library\Image::getAllProductImagesBySize($images, $size);
 
                 $fullImagePaths = [];
                 foreach ($imageFilenames as $filename) {
-                    $fullImagePaths[] = \SprykerFeature_Shared_Library_Image::getAbsoluteProductImageUrl($filename);
+                    $fullImagePaths[] = \SprykerFeature\Shared\Library\Image::getAbsoluteProductImageUrl($filename);
                 }
 
                 return $fullImagePaths;
             }),
             new \Twig_SimpleFunction('getFirstProductImagesBySize', function (array $images, $size = null) {
-                return \SprykerFeature_Shared_Library_Image::getAbsoluteProductImageUrl(
-                    \SprykerFeature_Shared_Library_Image::getFirstProductImageFilenameBySize($images, $size)
+                return \SprykerFeature\Shared\Library\Image::getAbsoluteProductImageUrl(
+                    \SprykerFeature\Shared\Library\Image::getFirstProductImageFilenameBySize($images, $size)
                 );
             }),
         ];

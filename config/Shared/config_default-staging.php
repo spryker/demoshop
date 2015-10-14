@@ -48,3 +48,5 @@ $config[ApplicationConfig::SHOW_SYMFONY_TOOLBAR] = false;
 $config[SystemConfig::CLOUD_ENABLED] = true;
 $config[SystemConfig::CLOUD_OBJECT_STORAGE_ENABLED] = true;
 $config[SystemConfig::CLOUD_CDN_ENABLED] = true;
+
+$config[ApplicationConfig::ENABLE_APPLICATION_DEBUG] = true;

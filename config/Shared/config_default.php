@@ -29,6 +29,10 @@ $config[SystemConfig::PROJECT_TIMEZONE] = 'UTC';
 $config[SystemConfig::PROJECT_NAMESPACE] = 'Pyz';
 
 $config[SystemConfig::ZED_DB_ENGINE] = 'pgsql';
+$config[ApplicationConfig::ZED_TWIG_OPTIONS] = [
+    'cache' => \SprykerFeature\Shared\Library\DataDirectory::getLocalStoreSpecificPath('cache/Zed/twig'),
+];
+
 
 $config[DbDumpConfig::DB_DUMP_USERNAME] = '';
 $config[DbDumpConfig::DB_DUMP_PASSWORD] = '';
