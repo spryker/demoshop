@@ -1,7 +1,7 @@
 {
   "require": {
     "spryker/spryker": "dev-develop",
-    "project-a/spryker": "dev-master",
+    "project-a/spryker": "dev-develop",
 
     "psr/log": "~1.0",
     "propel/propel": "~2.0@dev",
