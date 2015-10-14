@@ -1,7 +1,6 @@
 <?php
 
-use SprykerFeature\Shared\Library\Application\Environment;
-use SprykerFeature\Shared\Library\Application\TestEnvironment;
+use PavFeature\Shared\Library\Application\Environment;
 use Pyz\Zed\Application\Communication\ZedBootstrap;
 
 define('ZED_START', microtime(true));
@@ -9,7 +8,10 @@ define('IS_CLI', false);
 
 define('APPLICATION', 'ZED');
 defined('APPLICATION_ROOT_DIR') or define('APPLICATION_ROOT_DIR', realpath(__DIR__ . '/../../..'));
-require_once(APPLICATION_ROOT_DIR . '/vendor/spryker/spryker/Bundles/Library/src/SprykerFeature/Shared/Library/Application/Environment.php');
+
+//Multiple cores
+require_once(APPLICATION_ROOT_DIR . '/vendor/project-a/spryker/Bundles/Library/src/PavFeature/Shared/Library/Application/Environment.php');
+//End of multiple cores
 
 Environment::initialize('Zed');
 
