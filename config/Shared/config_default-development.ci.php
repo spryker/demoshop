@@ -58,19 +58,15 @@ $config[SystemConfig::ZED_RABBITMQ_PASSWORD] = 'mate20mg';
 $config[SystemConfig::ZED_RABBITMQ_VHOST] = '/DE_development_zed';
 
 $config[SystemConfig::JENKINS_DIRECTORY] = APPLICATION_ROOT_DIR . '/shared/data/common/jenkins';
+
+$config[SystemConfig::YVES_STORAGE_SESSION_REDIS_PROTOCOL] = 'tcp';
+$config[SystemConfig::YVES_STORAGE_SESSION_REDIS_HOST] = '127.0.0.1';
 $config[SystemConfig::YVES_STORAGE_SESSION_REDIS_PORT] = '6379';
+
+$config[SystemConfig::ZED_STORAGE_SESSION_REDIS_PROTOCOL] = $config[SystemConfig::YVES_STORAGE_SESSION_REDIS_PROTOCOL];
 $config[SystemConfig::ZED_STORAGE_SESSION_REDIS_PORT] = $config[SystemConfig::YVES_STORAGE_SESSION_REDIS_PORT];
 
 $config[PayoneConfigConstants::PAYONE] = [
-    PayoneConfigConstants::PAYONE_CREDENTIALS_ENCODING => 'UTF-8',
-    PayoneConfigConstants::PAYONE_CREDENTIALS_KEY => 'oZZfMY6L224Q51jq',
-    PayoneConfigConstants::PAYONE_CREDENTIALS_MID => '29250',
-    PayoneConfigConstants::PAYONE_CREDENTIALS_AID => '29499',
-    PayoneConfigConstants::PAYONE_CREDENTIALS_PORTAL_ID => '2020679',
-    PayoneConfigConstants::PAYONE_PAYMENT_GATEWAY_URL => 'https://api.pay1.de/post-gateway/',
-    PayoneConfigConstants::PAYONE_REDIRECT_SUCCESS_URL => $config[SystemConfig::HOST_YVES] . '/checkout/success/',
-    PayoneConfigConstants::PAYONE_REDIRECT_ERROR_URL => $config[SystemConfig::HOST_YVES] . '/checkout/index/',
-    PayoneConfigConstants::PAYONE_REDIRECT_BACK_URL => $config[SystemConfig::HOST_YVES] . '/checkout/regular-redirect-payment-cancellation/',
     PayoneConfigConstants::PAYONE_MODE => '',
 ];
 
