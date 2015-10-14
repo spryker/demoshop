@@ -2,8 +2,10 @@
 
 namespace Pyz\Zed\Sales\Business\ConstantsInterface;
 
+use SprykerFeature\Zed\Sales\Business\OrderProcess\OrderprocessConstant;
+
 interface Orderprocess
-    extends \SprykerFeature_Zed_Sales_Business_Interface_OrderprocessConstant
+    extends OrderprocessConstant
 {
 
     /************************************************************************************************

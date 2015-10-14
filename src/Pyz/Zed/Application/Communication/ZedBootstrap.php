@@ -75,9 +75,9 @@ class ZedBootstrap extends Bootstrap
     protected function beforeBoot(Application $app)
     {
         $app['locale'] = Store::getInstance()->getCurrentLocale();
-        if (\SprykerFeature_Shared_Library_Environment::isDevelopment()) {
+        if (\SprykerFeature\Shared\Library\Environment::isDevelopment()) {
             $app['profiler.cache_dir'] =
-                \SprykerFeature_Shared_Library_Data::getLocalStoreSpecificPath('cache/profiler');
+                \SprykerFeature\Shared\Library\DataDirectory::getLocalStoreSpecificPath('cache/profiler');
         }
     }
 
