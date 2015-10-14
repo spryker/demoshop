@@ -11,6 +11,7 @@ use Pyz\Yves\Application\Communication\Bootstrap\Extension\TwigExtension;
 use SprykerEngine\Yves\Application\Communication\YvesBootstrap as SprykerYvesBootstrap;
 use SprykerEngine\Shared\Application\Communication\Application;
 use Pyz\Yves\Application\Communication\Bootstrap\Extension\AfterBootExtension;
+use SprykerEngine\Yves\Application\Communication\Application as YvesApplication;
 
 class YvesBootstrap
 {
@@ -22,7 +23,7 @@ class YvesBootstrap
 
     public function __construct()
     {
-        $sprykerBootstrap = new SprykerYvesBootstrap();
+        $sprykerBootstrap = new SprykerYvesBootstrap(new YvesApplication());
 
         $sprykerBootstrap->addBeforeBootExtension(new BeforeBootExtension());
         $sprykerBootstrap->addAfterBootExtension(new AfterBootExtension());
