@@ -710,12 +710,16 @@
                 "url": "git@github.com:spryker/spryker.git",
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
                 "reference": "9b7f0731ea7ed3cca480ce983223d95a6bcbdd6a"
 =======
                 "reference": "c253c06d05d72f27de1a49dbc0508ace0257a7fe"
 >>>>>>> CD-519 update composer
 =======
                 "reference": "04e042c43045a0463dba0a2b387571324efa8d98"
+>>>>>>> CD-519 update composer
+=======
+                "reference": "ee9325fb1b93f719908a400be405da3a4538faf4"
 >>>>>>> CD-519 update composer
             },
             "require": {
@@ -807,12 +811,16 @@
             },
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
             "time": "2015-10-15 08:25:09"
 =======
             "time": "2015-10-14 09:42:34"
 >>>>>>> CD-519 update composer
 =======
             "time": "2015-10-14 10:59:14"
+>>>>>>> CD-519 update composer
+=======
+            "time": "2015-10-15 06:19:59"
 >>>>>>> CD-519 update composer
         },
         {
