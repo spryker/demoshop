@@ -16,11 +16,13 @@ use Silex\Provider\ValidatorServiceProvider;
 use Silex\Provider\WebProfilerServiceProvider;
 use Silex\ServiceProviderInterface;
 use SprykerEngine\Shared\Application\Communication\Bootstrap\Extension\ServiceProviderExtensionInterface;
+use SprykerEngine\Shared\Config;
 use SprykerEngine\Yves\Application\Communication\Plugin\ServiceProvider\CookieServiceProvider;
 use SprykerEngine\Yves\Application\Communication\Plugin\ServiceProvider\ExceptionServiceProvider;
 use SprykerEngine\Yves\Application\Communication\Plugin\ServiceProvider\MonologServiceProvider;
 use SprykerEngine\Yves\Application\Communication\Plugin\ServiceProvider\YvesLoggingServiceProvider;
 use SprykerEngine\Shared\Application\Communication\Application;
+use SprykerFeature\Shared\Application\ApplicationConfig;
 use SprykerFeature\Shared\Application\Communication\Plugin\ServiceProvider\RoutingServiceProvider;
 use SprykerFeature\Shared\Application\Communication\Plugin\ServiceProvider\UrlGeneratorServiceProvider;
 use SprykerFeature\Shared\Library\Environment;
@@ -75,7 +77,7 @@ class ServiceProviderExtension extends LocatorAwareExtension implements ServiceP
             new HttpFragmentServiceProvider(),
         ];
 
-        if (Environment::isDevelopment()) {
+        if (Config::get(ApplicationConfig::ENABLE_WEB_PROFILER, false)) {
             $providers[] = new WebProfilerServiceProvider();
         }
 
