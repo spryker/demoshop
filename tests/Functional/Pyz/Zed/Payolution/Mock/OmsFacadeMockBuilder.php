@@ -26,12 +26,12 @@ use SprykerFeature\Zed\Oms\Persistence\OmsQueryContainer;
 use SprykerFeature\Zed\Payolution\Business\Api\Adapter\AdapterInterface;
 use SprykerFeature\Zed\Payolution\Business\Api\Adapter\Http\Guzzle;
 use SprykerFeature\Zed\Payolution\PayolutionConfig;
-use SprykerFeature\Zed\PayolutionOmsConnector\Communication\Plugin\Command\CapturePlugin;
-use SprykerFeature\Zed\PayolutionOmsConnector\Communication\Plugin\Command\ReAuthorizePlugin;
-use SprykerFeature\Zed\PayolutionOmsConnector\Communication\Plugin\Command\RefundPlugin;
-use SprykerFeature\Zed\PayolutionOmsConnector\Communication\Plugin\Command\RevertPlugin;
-use SprykerFeature\Zed\PayolutionOmsConnector\PayolutionOmsConnectorDependencyProvider;
-use SprykerFeature\Zed\PayoneOmsConnector\Communication\Plugin\Command\PreAuthorizePlugin;
+use SprykerFeature\Zed\Payolution\Communication\Plugin\Oms\Command\CapturePlugin;
+use SprykerFeature\Zed\Payolution\Communication\Plugin\Oms\Command\ReAuthorizePlugin;
+use SprykerFeature\Zed\Payolution\Communication\Plugin\Oms\Command\RefundPlugin;
+use SprykerFeature\Zed\Payolution\Communication\Plugin\Oms\Command\RevertPlugin;
+use SprykerFeature\Zed\Payolution\PayolutionDependencyProvider;
+use SprykerFeature\Zed\Payone\Communication\Plugin\Command\PreAuthorizePlugin;
 
 class OmsFacadeMockBuilder
 {
@@ -164,24 +164,24 @@ class OmsFacadeMockBuilder
             return [
                 'PayolutionOmsConnector/PreAuthorizationIsApproved' => $container
                     ->getLocator()
-                    ->payolutionOmsConnector()
-                    ->pluginConditionPreAuthorizationIsApprovedPlugin(),
+                    ->payolution()
+                    ->pluginOmsConditionPreAuthorizationIsApprovedPlugin(),
                 'PayolutionOmsConnector/ReAuthorizationIsApproved' => $container
                     ->getLocator()
-                    ->payolutionOmsConnector()
-                    ->pluginConditionReAuthorizationIsApprovedPlugin(),
+                    ->payolution()
+                    ->pluginOmsConditionReAuthorizationIsApprovedPlugin(),
                 'PayolutionOmsConnector/ReversalIsApproved' => $container
                     ->getLocator()
-                    ->payolutionOmsConnector()
-                    ->pluginConditionReversalIsApprovedPlugin(),
+                    ->payolution()
+                    ->pluginOmsConditionReversalIsApprovedPlugin(),
                 'PayolutionOmsConnector/CaptureIsApproved' => $container
                     ->getLocator()
-                    ->payolutionOmsConnector()
-                    ->pluginConditionCaptureIsApprovedPlugin(),
+                    ->payolution()
+                    ->pluginOmsConditionCaptureIsApprovedPlugin(),
                 'PayolutionOmsConnector/RefundIsApproved' => $container
                     ->getLocator()
-                    ->payolutionOmsConnector()
-                    ->pluginConditionRefundIsApprovedPlugin(),
+                    ->payolution()
+                    ->pluginOmsConditionRefundIsApprovedPlugin(),
             ];
         };
 
@@ -195,7 +195,7 @@ class OmsFacadeMockBuilder
     {
         $locator = Locator::getInstance();
         /** @var PreAuthorizePlugin $plugin */
-        $plugin = $locator->payolutionOmsConnector()->pluginCommandPreAuthorizePlugin();
+        $plugin = $locator->getPayolutionCommandPreAuthorizePlugin();
 
         $adapterMock = new PreAuthorizationAdapterMock();
         $httpAdapter = $this->getHttpAdapter($adapterMock);
@@ -212,7 +212,7 @@ class OmsFacadeMockBuilder
     {
         $locator = Locator::getInstance();
         /** @var ReAuthorizePlugin $plugin */
-        $plugin = $locator->payolutionOmsConnector()->pluginCommandReAuthorizePlugin();
+        $plugin = $locator->getPayolutionCommandReAuthorizePlugin();
 
         $adapterMock = new ReAuthorizationAdapterMock();
         $httpAdapter = $this->getHttpAdapter($adapterMock);
@@ -229,7 +229,7 @@ class OmsFacadeMockBuilder
     {
         $locator = Locator::getInstance();
         /** @var RevertPlugin $plugin */
-        $plugin = $locator->payolutionOmsConnector()->pluginCommandRevertPlugin();
+        $plugin = $locator->getPayolutionCommandRevertPlugin();
 
         $adapterMock = new ReversalAdapterMock();
         $httpAdapter = $this->getHttpAdapter($adapterMock);
@@ -246,7 +246,7 @@ class OmsFacadeMockBuilder
     {
         $locator = Locator::getInstance();
         /** @var CapturePlugin $plugin */
-        $plugin = $locator->payolutionOmsConnector()->pluginCommandCapturePlugin();
+        $plugin = $locator->getPayolutionCommandCapturePlugin();
 
         $adapterMock = new CaptureAdapterMock();
         $httpAdapter = $this->getHttpAdapter($adapterMock);
@@ -263,7 +263,7 @@ class OmsFacadeMockBuilder
     {
         $locator = Locator::getInstance();
         /** @var RefundPlugin $plugin */
-        $plugin = $locator->payolutionOmsConnector()->pluginCommandRefundPlugin();
+        $plugin = $locator->getPayolutionCommandRefundPlugin();
 
         $adapterMock = new RefundAdapterMock();
         $httpAdapter = $this->getHttpAdapter($adapterMock);
@@ -310,15 +310,15 @@ class OmsFacadeMockBuilder
         $payolutionFacadeMock = PayolutionFacadeMockBuilder::build($adapter, $this->testCase);
 
         $container = new Container();
-        $dependencyProvider = new PayolutionOmsConnectorDependencyProvider();
+        $dependencyProvider = new PayolutionDependencyProvider();
         $dependencyProvider->provideCommunicationLayerDependencies($container);
         $dependencyProvider->provideBusinessLayerDependencies($container);
         $dependencyProvider->providePersistenceLayerDependencies($container);
-        $container[PayolutionOmsConnectorDependencyProvider::FACADE_PAYOLUTION] = function () use (
-            $payolutionFacadeMock
-        ) {
-            return $payolutionFacadeMock;
-        };
+//        $container[PayolutionDependencyProvider::FACADE_PAYOLUTION] = function () use (
+//            $payolutionFacadeMock
+//        ) {
+//            return $payolutionFacadeMock;
+//        };
 
         return $container;
     }

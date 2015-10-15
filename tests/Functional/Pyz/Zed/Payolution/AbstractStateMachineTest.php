@@ -204,7 +204,7 @@ abstract class AbstractStateMachineTest extends AbstractFunctionalTest implement
             return [
                 $container->getLocator()->customerCheckoutConnector()->pluginOrderCustomerHydrationPlugin(),
                 $container->getLocator()->cartCheckoutConnector()->pluginOrderCartHydrationPlugin(),
-                $container->getLocator()->payolutionCheckoutConnector()->pluginCheckoutOrderHydrationPlugin(),
+                $container->getLocator()->payolution()->pluginCheckoutCheckoutOrderHydrationPlugin(),
             ];
         };
         $container[CheckoutDependencyProvider::CHECKOUT_ORDERSAVERS] = function (
@@ -213,7 +213,7 @@ abstract class AbstractStateMachineTest extends AbstractFunctionalTest implement
             return [
                 $salesOrderSaverPlugin,
                 $container->getLocator()->customerCheckoutConnector()->pluginOrderCustomerSavePlugin(),
-                $container->getLocator()->payolutionCheckoutConnector()->pluginCheckoutSaveOrderPlugin(),
+                $container->getLocator()->payolution()->pluginCheckoutCheckoutSaveOrderPlugin(),
             ];
         };
         $container[CheckoutDependencyProvider::CHECKOUT_PRE_HYDRATOR] = function () {
