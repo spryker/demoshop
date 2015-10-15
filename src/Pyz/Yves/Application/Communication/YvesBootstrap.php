@@ -114,6 +114,7 @@ class YvesBootstrap extends SprykerYvesBootstrap
 
         if (\SprykerFeature\Shared\Library\Environment::isDevelopment()) {
             $providers[] = new WebProfilerServiceProvider();
+
         }
 
         return $providers;
