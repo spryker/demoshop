@@ -9,13 +9,9 @@
     "url": "http://spryker.com/"
   },
   "scripts": {
-    "prespy-setup": "chmod -R u+x ./gulp/bash",
-    "spy-setup": "npm run spy-task-yves && npm run spy-task-zed",
-    "spy-zed": "./gulp/bash/zed.sh",
-    "spy-yves": "./gulp/bash/yves.sh",
-    "spy-task-yves": "npm install && gulp --gulpfile config/Yves/gulpfile.js --cwd .",
-    "spy-task-zed": "gulp --gulpfile gulp/zed.js --cwd .",
-    "spy-assets": "./gulp/bash/assets.sh"
+    "spy-setup": "npm run spy-yves && npm run spy-zed",
+    "spy-yves": "npm install && gulp --gulpfile config/Yves/gulpfile.js --cwd .",
+    "spy-zed": "gulp --gulpfile gulp/zed.js --cwd ."
   },
   "dependencies": {
     "browserify": "^11.2.0",
