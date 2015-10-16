@@ -55,16 +55,21 @@ $addBaseClassToTables = function () {
     /** @var SplFileInfo $schema */
     foreach ($schemas as $schema) {
 
+
         $content = $schema->getContents();
+        $filter = new \Zend\Filter\Word\UnderscoreToCamelCase();
+        $bundleNameFromSchema = str_replace(['spy_', '.schema.xml'], '', $schema->getRelativePathname());
+        $bundleNameFromSchema = $filter->filter($bundleNameFromSchema);
         $nameParts = explode('/', $schema->getPathname());
         array_pop($nameParts);
+        $nameParts = array_slice($nameParts, -6);
+        $nameParts[2] = $bundleNameFromSchema;
         $currentNamespace = implode('\\', array_slice($nameParts, -6));
 
-        $callback = function ($match) use ($currentNamespace) {
+        $callback = function ($match) use ($currentNamespace, $filter) {
             if (!preg_match('/phpName="(.*?)"/', $match[0], $phpNameMatches)) {
                 preg_match('/name="(.*?)"/', $match[0], $tableNameMatches);
                 $baseClassName = $tableNameMatches[1];
-                $filter = new \Zend\Filter\Word\UnderscoreToCamelCase();
                 $baseClassName = $filter->filter($baseClassName);
             } else {
                 preg_match('/phpName="(.*?)"/', $match[0], $phpNameMatches);
