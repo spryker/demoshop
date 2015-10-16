@@ -9,8 +9,9 @@
     "url": "http://spryker.com/"
   },
   "scripts": {
-    "spy-setup": "npm run spy-yves && npm run spy-zed",
-    "spy-yves": "npm install && gulp --gulpfile config/Yves/gulpfile.js --cwd .",
+    "spy-setup": "npm run spy-assets && npm run spy-yves && npm run spy-zed",
+    "spy-assets": "gulp --gulpfile gulp/zed.js --cwd . assets",
+    "spy-yves": "gulp --gulpfile config/Yves/gulpfile.js --cwd .",
     "spy-zed": "gulp --gulpfile gulp/zed.js --cwd ."
   },
   "dependencies": {
