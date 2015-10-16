@@ -13,6 +13,8 @@ class PayolutionTest extends Test
 
     public function testCheckout()
     {
+        $this->markTestSkipped('Skipped this test as it requires PhantomJS to be installed. This could be un-skipped when PhantomJS is added to the VM so everyone can run the integration check.');
+
         $i = new WebGuy($this->getScenario());
         $i->wantTo('View product details');
         $i->amOnPage('/');
