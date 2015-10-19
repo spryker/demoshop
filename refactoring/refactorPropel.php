@@ -111,7 +111,7 @@ $updateVendorClasses = function () {
     /** @var SplFileInfo $file */
     foreach ($files as $file) {
         $content = $file->getContents();
-        $content = preg_replace('/class (.*) extends/', 'abstract class $1 extends', $content);
+//        $content = preg_replace('/class (.*) extends/', 'abstract class $1 extends', $content);
         $content = preg_replace('/use (.*)\\\\Propel\\\\Base/', 'use Propel\\\\Base', $content);
 
         $filesystem->dumpFile($file->getPathname(), $content);
@@ -119,6 +119,6 @@ $updateVendorClasses = function () {
 };
 
 $renameNamespaceAndPackage();
-$addBaseClassToTables();
+//$addBaseClassToTables();
 $removeMapAndBaseClasses();
 $updateVendorClasses();

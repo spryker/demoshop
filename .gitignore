@@ -59,6 +59,9 @@ npm-debug.log
 mkmf.log
 
 # propel classes
+/src/Propel/Base/*
+/src/Propel/Map/*
+
 /src/*/Zed/*/Persistence/Propel/Base/*
 /src/*/Zed/*/Persistence/Propel/Map/*
 
