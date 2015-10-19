@@ -8,7 +8,7 @@ use SprykerEngine\Zed\Kernel\AbstractBundleConfig;
 class OrderExporterConfig extends AbstractBundleConfig
 {
     /**
-     * @return string
+     * @return int
      */
     public function getAfterbuyPartnerId()
     {
@@ -29,5 +29,13 @@ class OrderExporterConfig extends AbstractBundleConfig
     public function getAfterbuyUserId()
     {
         return $this->get(AfterbuyExportConstantInterface::AFTERBUY_USER_ID);
+    }
+
+    /**
+     * @return string
+     */
+    public function getAfterbuyUrl()
+    {
+        return $this->get(AfterbuyExportConstantInterface::AFTERBUY_URL);
     }
 }
