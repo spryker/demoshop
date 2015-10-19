@@ -326,4 +326,5 @@ $config[LumberjackConfig::WRITER_OPTIONS] = [
 $config[AfterbuyExportConstantInterface::AFTERBUY_PARTNER_ID] = 107450;
 $config[AfterbuyExportConstantInterface::AFTERBUY_PARTNER_PASS] = '6/UMU16Qn/=hCFhKZbqpr)8T0';
 $config[AfterbuyExportConstantInterface::AFTERBUY_USER_ID] = 'petsdelideutschland';
+$config[AfterbuyExportConstantInterface::AFTERBUY_URL] = 'https://api.afterbuy.de/afterbuy/ShopInterface.aspx?';
 
