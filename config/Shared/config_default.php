@@ -136,9 +136,12 @@ $config[SystemConfig::PROPEL] = [
             'defaultKeyType' => 'fieldName',
             'builders' => [
                 'object' => '\SprykerEngine\Zed\Propel\Business\Builder\ObjectBuilder',
+<<<<<<< HEAD
 //                'objectstub' => '\SprykerEngine\Zed\Propel\Business\Builder\ExtensionObjectBuilder',
 //                'tablemap' => '\SprykerEngine\Zed\Propel\Business\Builder\TableMapBuilder',
 //                'query' => '\SprykerEngine\Zed\Propel\Business\Builder\QueryBuilder',
+=======
+>>>>>>> CD-544 wip
             ],
          ],
     ],

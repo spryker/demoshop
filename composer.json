@@ -1,6 +1,6 @@
 {
   "require": {
-    "spryker/spryker": "dev-develop",
+    "spryker/spryker": "dev-refactor/CD-544-Move-entities-to-Generated",
 
     "psr/log": "~1.0",
     "propel/propel": "~2.0@dev",
