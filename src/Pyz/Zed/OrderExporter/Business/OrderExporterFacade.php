@@ -7,6 +7,7 @@ use SprykerEngine\Zed\Kernel\Business\AbstractFacade;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
 use Generated\Shared\Sales\OrderListInterface;
+use SprykerFeature\Zed\Sales\Persistence\Propel\Base\SpySalesOrder;
 
 /**
  * @method OrderExporterDependencyContainer getDependencyContainer()
@@ -15,19 +16,19 @@ class OrderExporterFacade extends AbstractFacade
 {
 
     /**
-     * @param int $saleOrderId
+     * @param SpySalesOrder $order
      */
-    public function exportOrder($saleOrderId)
+    public function exportOrder(SpySalesOrder $order)
     {
         $this->getDependencyContainer()
             ->createOrderExporterManager()
-            ->exportOrder($this->getOrderBySalesOrderId($saleOrderId));
+            ->exportOrder($order);
 
     }
 
     /**
      * @param int $saleOrderId
-     * @return \Generated\Shared\Transfer\OrderTransfer
+     * @return SpySalesOrder
      */
     public function getOrderBySalesOrderId($saleOrderId)
     {
