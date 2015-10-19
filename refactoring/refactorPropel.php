@@ -62,9 +62,10 @@ $addBaseClassToTables = function () {
         $bundleNameFromSchema = $filter->filter($bundleNameFromSchema);
         $nameParts = explode('/', $schema->getPathname());
         array_pop($nameParts);
-        $nameParts = array_slice($nameParts, -6);
+        array_pop($nameParts);
+        $nameParts = array_slice($nameParts, -5);
         $nameParts[2] = $bundleNameFromSchema;
-        $currentNamespace = implode('\\', array_slice($nameParts, -6));
+        $currentNamespace = implode('\\', array_slice($nameParts, -5));
 
         $callback = function ($match) use ($currentNamespace, $filter) {
             if (!preg_match('/phpName="(.*?)"/', $match[0], $phpNameMatches)) {
