@@ -37,8 +37,16 @@ $renameNamespaceAndPackage = function () {
     /** @var SplFileInfo $schema */
     foreach ($schemas as $schema) {
         $content = $schema->getContents();
+
+        $filter = new \Zend\Filter\Word\UnderscoreToCamelCase();
+        $bundleNameFromSchema = str_replace(['spy_', '.schema.xml'], '', $schema->getRelativePathname());
+        $bundleNameFromSchema = $filter->filter($bundleNameFromSchema);
+
         $content = preg_replace('/namespace="(.*?)"/', 'namespace="Propel"', $content);
-        $content = preg_replace('/\spackage="(.*?)"/', ' package="src.Propel"', $content);
+        $content = preg_replace('/\spackage="(.*?)"/', ' package="src.Propel" bundle="' . $bundleNameFromSchema . '"', $content);
+
+//        $content = preg_replace('/namespace="(.*?)"/', 'namespace="Propel\\' . $bundleNameFromSchema . '"', $content);
+//        $content = preg_replace('/\spackage="(.*?)"/', ' package="src.Propel.' . $bundleNameFromSchema . '" bundle="' . $bundleNameFromSchema . '"', $content);
 
         $filesystem->dumpFile($schema->getPathname(), $content);
     }
