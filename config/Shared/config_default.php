@@ -130,11 +130,11 @@ $config[SystemConfig::PROPEL] = [
         'connections' => ['default', 'zed'],
         'objectModel' => [
             'defaultKeyType' => 'fieldName',
-            'builders' => [
-                'object' => '\SprykerEngine\Zed\Propel\Business\Builder\ObjectBuilder',
-                'tablemap' => '\SprykerEngine\Zed\Propel\Business\Builder\TableMapBuilder',
-                'query' => '\SprykerEngine\Zed\Propel\Business\Builder\QueryBuilder',
-            ],
+//            'builders' => [
+//                'object' => '\SprykerEngine\Zed\Propel\Business\Builder\ObjectBuilder',
+//                'tablemap' => '\SprykerEngine\Zed\Propel\Business\Builder\TableMapBuilder',
+//                'query' => '\SprykerEngine\Zed\Propel\Business\Builder\QueryBuilder',
+//            ],
         ],
     ],
     'paths' => [
