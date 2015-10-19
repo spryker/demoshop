@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "5c26ddc662de80bb8e4f4cd8016e3d44",
+    "hash": "7bf26bcefbf4f631c01e8fddbd787120",
     "packages": [
         {
             "name": "digital-canvas/zend-framework",
@@ -704,11 +704,15 @@
         },
         {
             "name": "spryker/spryker",
-            "version": "dev-develop",
+            "version": "dev-bugfix/CD-547-Remove-hardcoded-environments-in-class-Environment",
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/spryker.git",
+<<<<<<< HEAD
                 "reference": "35743cdf46649e9fa4b24caea7592a615ebd3e50"
+=======
+                "reference": "6b3fe893c0007408b4e101585e6ed8a31f32f0e4"
+>>>>>>> CD-547 enable integration checks in development
             },
             "require": {
                 "digital-canvas/zend-framework": ">=1.12.2"
@@ -797,7 +801,11 @@
                     "SprykerFeature\\Shared\\Library": "Bundles/Library/src/"
                 }
             },
+<<<<<<< HEAD
             "time": "2015-10-19 13:29:24"
+=======
+            "time": "2015-10-19 12:41:43"
+>>>>>>> CD-547 enable integration checks in development
         },
         {
             "name": "symfony-cmf/routing",
