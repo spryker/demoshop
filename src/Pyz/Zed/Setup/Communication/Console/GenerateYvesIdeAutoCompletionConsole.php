@@ -20,44 +20,7 @@ use Symfony\Component\Console\Output\OutputInterface;
 class GenerateYvesIdeAutoCompletionConsole extends SprykerGenerateYvesIdeAutoCompletionConsole
 {
 
-    const COMMAND_NAME = 'setup:generate-yves-ide-auto-completion';
-
-    protected function configure()
-    {
-        $this->setName(self::COMMAND_NAME);
-        $this->setDescription('This Command will generate the bundle ide auto completion interface for Yves.');
-    }
-
-    /**
-     * @param InputInterface $input
-     * @param OutputInterface $output
-     *
-     * @return int|null|void
-     */
-    protected function execute(InputInterface $input, OutputInterface $output)
-    {
-        $this->generateYvesInterface();
-        $this->generateYvesBundleInterface();
-        $this->generateYvesFactoryInterface();
-    }
-
-    protected function generateYvesInterface()
-    {
-        $options = $this->getYvesDefaultOptions();
-
-        $generator = new IdeAutoCompletionGenerator($options, $this);
-        $generator
-            ->addMethodTagBuilder(new GeneratedInterfaceMethodTagBuilder(
-                [
-                    GeneratedInterfaceMethodTagBuilder::OPTION_METHOD_STRING_PATTERN => ' * @method \\Generated\Yves\Ide\{{bundle}} {{methodName}}()',
-                ]
-            ))
-        ;
-
-        $generator->create();
-
-        $this->info('Generated Yves IdeAutoCompletion file');
-    }
+    const MULTI_CORE_VENDOR_PATH_PATTERN = APPLICATION_VENDOR_DIR . '/*/spryker/Bundles/*/src';
 
     /**
      * @return array
@@ -72,6 +35,7 @@ class GenerateYvesIdeAutoCompletionConsole extends SprykerGenerateYvesIdeAutoCom
                 [
                     IdeAutoCompletionGenerator::OPTION_KEY_APPLICATION => '*',
                     BundleNameFinder::OPTION_KEY_BUNDLE_PROJECT_PATH_PATTERN => $this->getProjectNamespace() . '/',
+                    BundleNameFinder::OPTION_KEY_VENDOR_PATH_PATTERN => self::MULTI_CORE_VENDOR_PATH_PATTERN,
                 ]
             ),
         ];
@@ -86,10 +50,13 @@ class GenerateYvesIdeAutoCompletionConsole extends SprykerGenerateYvesIdeAutoCom
 
         $generator = new IdeBundleAutoCompletionGenerator($options);
         $generator
-            ->addMethodTagBuilder(new YvesPluginMethodTagBuilder())
-            ->addMethodTagBuilder(new ClientMethodTagBuilder())
+            ->addMethodTagBuilder(new YvesPluginMethodTagBuilder([
+                YvesPluginMethodTagBuilder::OPTION_KEY_VENDOR_PATH_PATTERN => self::MULTI_CORE_VENDOR_PATH_PATTERN
+            ]))
+            ->addMethodTagBuilder(new ClientMethodTagBuilder([
+                ClientMethodTagBuilder::OPTION_KEY_VENDOR_PATH_PATTERN => self::MULTI_CORE_VENDOR_PATH_PATTERN
+            ]))
         ;
-
         $generator->create();
 
         $this->info('Generated Yves IdeBundleAutoCompletion file');
@@ -100,7 +67,8 @@ class GenerateYvesIdeAutoCompletionConsole extends SprykerGenerateYvesIdeAutoCom
         $methodTagGenerator = new ConstructableMethodTagBuilder([
             ConstructableMethodTagBuilder::OPTION_KEY_PATH_PATTERN => 'Communication/',
             ConstructableMethodTagBuilder::OPTION_KEY_APPLICATION => 'Yves',
-            ConstructableMethodTagBuilder::OPTION_KEY_CLASS_NAME_PART_LEVEL => 4
+            ConstructableMethodTagBuilder::OPTION_KEY_CLASS_NAME_PART_LEVEL => 4,
+            ConstructableMethodTagBuilder::OPTION_KEY_VENDOR_PATH_PATTERN => self::MULTI_CORE_VENDOR_PATH_PATTERN
         ]);
 
         $options = [
@@ -112,6 +80,7 @@ class GenerateYvesIdeAutoCompletionConsole extends SprykerGenerateYvesIdeAutoCom
                 [
                     BundleNameFinder::OPTION_KEY_APPLICATION => '*',
                     BundleNameFinder::OPTION_KEY_BUNDLE_PROJECT_PATH_PATTERN => $this->getProjectNamespace() . '/',
+                    BundleNameFinder::OPTION_KEY_VENDOR_PATH_PATTERN => self::MULTI_CORE_VENDOR_PATH_PATTERN,
                 ]
             ),
         ];

@@ -21,44 +21,7 @@ use Symfony\Component\Console\Output\OutputInterface;
 
 class GenerateZedIdeAutoCompletionConsole extends SprykerGenerateZedIdeAutoCompletionConsole
 {
-
-    const COMMAND_NAME = 'setup:generate-zed-ide-auto-completion';
-
     const MULTI_CORE_VENDOR_PATH_PATTERN = APPLICATION_VENDOR_DIR . '/*/spryker/Bundles/*/src';
-
-    protected function configure()
-    {
-        $this->setName(self::COMMAND_NAME);
-        $this->setDescription('This Command will generate the bundle ide auto completion interface for Yves.');
-        $this->setDescription('Generate zed ide auto completion files');
-    }
-
-    /**
-     * @param InputInterface $input
-     * @param OutputInterface $output
-     *
-     * @return int|null|void
-     */
-    protected function execute(InputInterface $input, OutputInterface $output)
-    {
-        $this->generateZedInterface();
-        $this->generateZedBundleInterface();
-        $this->generateZedFactoryInterface();
-    }
-
-    protected function generateZedInterface()
-    {
-        $options = $this->getZedDefaultOptions();
-
-        $generator = new IdeAutoCompletionGenerator($options, $this);
-        $generator
-            ->addMethodTagBuilder(new GeneratedInterfaceMethodTagBuilder())
-        ;
-
-        $generator->create('');
-
-        $this->info('Generate Zed IdeAutoCompletion file');
-    }
 
     /**
      * @return array

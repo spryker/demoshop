@@ -19,43 +19,7 @@ use Symfony\Component\Console\Output\OutputInterface;
 class GenerateClientIdeAutoCompletionConsole extends SprykerGenerateClientIdeAutoCompletionConsole
 {
 
-    const COMMAND_NAME = 'setup:generate-client-ide-auto-completion';
-
-    protected function configure()
-    {
-        $this->setName(self::COMMAND_NAME);
-        $this->setDescription('Generate the bundle ide auto completion interface for the Client.');
-    }
-
-    /**
-     * @param InputInterface $input
-     * @param OutputInterface $output
-     *
-     * @return int|null|void
-     */
-    protected function execute(InputInterface $input, OutputInterface $output)
-    {
-        $this->generateClientInterface();
-        $this->generateClientBundleInterface();
-        $this->generateClientFactoryInterface();
-    }
-
-    protected function generateClientInterface()
-    {
-        $options = $this->getClientDefaultOptions();
-
-        $generator = new IdeAutoCompletionGenerator($options, $this);
-        $generator
-            ->addMethodTagBuilder(new GeneratedInterfaceMethodTagBuilder(
-                [
-                    GeneratedInterfaceMethodTagBuilder::OPTION_METHOD_STRING_PATTERN => ' * @method \\Generated\Client\Ide\{{bundle}} {{methodName}}()',
-                ]
-            ))
-        ;
-        $generator->create();
-
-        $this->info('Generated Client IdeAutoCompletion file');
-    }
+    const MULTI_CORE_VENDOR_PATH_PATTERN = APPLICATION_VENDOR_DIR . '/*/spryker/Bundles/*/src';
 
     /**
      * @return array
@@ -70,6 +34,7 @@ class GenerateClientIdeAutoCompletionConsole extends SprykerGenerateClientIdeAut
                 [
                     BundleNameFinder::OPTION_KEY_APPLICATION => 'Client',
                     BundleNameFinder::OPTION_KEY_BUNDLE_PROJECT_PATH_PATTERN => $this->getProjectNamespace() . '/',
+                    BundleNameFinder::OPTION_KEY_VENDOR_PATH_PATTERN => self::MULTI_CORE_VENDOR_PATH_PATTERN,
                 ]
             ),
         ];
@@ -84,7 +49,9 @@ class GenerateClientIdeAutoCompletionConsole extends SprykerGenerateClientIdeAut
 
         $generator = new IdeBundleAutoCompletionGenerator($options);
         $generator
-            ->addMethodTagBuilder(new ClientMethodTagBuilder())
+            ->addMethodTagBuilder(new ClientMethodTagBuilder([
+                ClientMethodTagBuilder::OPTION_KEY_VENDOR_PATH_PATTERN => self::MULTI_CORE_VENDOR_PATH_PATTERN,
+            ]))
         ;
 
         $generator->create();
@@ -98,6 +65,7 @@ class GenerateClientIdeAutoCompletionConsole extends SprykerGenerateClientIdeAut
             ConstructableMethodTagBuilder::OPTION_KEY_PATH_PATTERN => 'Service/',
             ConstructableMethodTagBuilder::OPTION_KEY_APPLICATION => 'Client',
             ConstructableMethodTagBuilder::OPTION_KEY_CLASS_NAME_PART_LEVEL => 4,
+            ConstructableMethodTagBuilder::OPTION_KEY_VENDOR_PATH_PATTERN => self::MULTI_CORE_VENDOR_PATH_PATTERN,
         ]);
 
         $options = [
@@ -109,6 +77,7 @@ class GenerateClientIdeAutoCompletionConsole extends SprykerGenerateClientIdeAut
                 [
                     IdeFactoryAutoCompletionGenerator::OPTION_KEY_APPLICATION => 'Client',
                     BundleNameFinder::OPTION_KEY_BUNDLE_PROJECT_PATH_PATTERN => $this->getProjectNamespace() . '/',
+                    BundleNameFinder::OPTION_KEY_VENDOR_PATH_PATTERN => self::MULTI_CORE_VENDOR_PATH_PATTERN,
                 ]
             ),
         ];
