@@ -6,9 +6,10 @@
         <foreign-key foreignTable="spy_sales_order" phpName="SpySalesOrder" refPhpName="PyzAfterbuyResponse">
             <reference local="fk_order" foreign="id_sales_order"/>
         </foreign-key>
+        <column name="fk_order" type="INTEGER"/>
         <column name="success" type="BOOLEAN" />
-        <column name="full_response" type="STRING" />
-        <column name="errors_list" type="STRING" />
+        <column name="full_response" type="LONGVARCHAR" />
+        <column name="errors_list" type="LONGVARCHAR" />
     <id-method-parameter value="spy_afterbuy_response_pk_seq"/></table>
 
 </database>
