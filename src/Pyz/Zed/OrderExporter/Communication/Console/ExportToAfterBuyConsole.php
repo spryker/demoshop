@@ -2,8 +2,10 @@
 
 namespace Pyz\Zed\OrderExporter\Communication\Console;
 
+use Propel\Runtime\Exception\EntityNotFoundException;
 use Pyz\Zed\OrderExporter\Business\OrderExporterFacade;
 use SprykerFeature\Zed\Console\Business\Model\Console;
+use Symfony\Component\Config\Definition\Exception\Exception;
 use Symfony\Component\Console\Input\InputArgument;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
@@ -36,8 +38,27 @@ class ExportToAfterBuyConsole extends Console
     {
         $output->writeln('Export Order');
         $orderId = $input->getArgument('orderId');
+        $orderEntity = $this->getOrderById($orderId);
 
-        $this->getFacade()->exportOrder($orderId);
+
+        $this->getFacade()->exportOrder($orderEntity);
+    }
+
+    /**
+     * @param int $orderId
+     * @return \Generated\Shared\Transfer\OrderTransfer
+     */
+    protected function getOrderById($orderId)
+    {
+        //@TODO Fix entity not found exception
+        try{
+            $order = $this->getFacade()->getOrderBySalesOrderId($orderId);
+        } catch (Exception $e)
+        {
+            throw new EntityNotFoundException("Order with id " . $orderId . 'not found');
+        }
+
+        return $order;
     }
 
 }
