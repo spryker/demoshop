@@ -5,24 +5,22 @@ use SprykerFeature\Shared\System\SystemConfig;
 use SprykerFeature\Shared\Yves\YvesConfig;
 use SprykerEngine\Shared\Lumberjack\LumberjackConfig;
 
-$config[SystemConfig::ZED_MYSQL_USERNAME] = 'development';
-$config[SystemConfig::ZED_MYSQL_PASSWORD] = 'mate20mg';
-$config[SystemConfig::ZED_MYSQL_DATABASE] = 'DE_development_zed';
-$config[SystemConfig::ZED_MYSQL_HOST] = '127.0.0.1';
-$config[SystemConfig::ZED_MYSQL_PORT] = '3306';
-
 $config[SystemConfig::ZED_DB_USERNAME] = 'development';
 $config[SystemConfig::ZED_DB_PASSWORD] = 'mate20mg';
 $config[SystemConfig::ZED_DB_DATABASE] = 'DE_development_zed';
 $config[SystemConfig::ZED_DB_HOST] = '127.0.0.1';
-$config[SystemConfig::ZED_DB_PORT] = 3306;
+$config[SystemConfig::ZED_DB_PORT] = 5432;
+
+$config[SystemConfig::PROPEL]['database']['connections']['default']['dsn'] = 'pgsql:'
+    . 'host=' . $config[SystemConfig::ZED_DB_HOST] . ';'
+    . 'dbname=' . $config[SystemConfig::ZED_DB_DATABASE];
 
 $config[SystemConfig::ELASTICA_PARAMETER__INDEX_NAME] = 'de_development_catalog';
 $config[SystemConfig::ELASTICA_PARAMETER__DOCUMENT_TYPE] = 'page';
 
 $config[SystemConfig::ELASTICA_PARAMETER__PORT] = '10005';
 
-$yvesHost = 'www.de.spryker.dev';
+$yvesHost = 'www.de.pets-deli.dev';
 $config[YvesConfig::YVES_SESSION_COOKIE_DOMAIN] = $yvesHost;
 $config[SystemConfig::HOST_YVES] = 'http://' . $yvesHost;
 $config[SystemConfig::HOST_STATIC_ASSETS] = $config[SystemConfig::HOST_STATIC_MEDIA] = $yvesHost;
@@ -30,7 +28,7 @@ $config[SystemConfig::HOST_STATIC_ASSETS] = $config[SystemConfig::HOST_STATIC_ME
 $config[SystemConfig::HOST_SSL_YVES] = 'https://' . $yvesHost;
 $config[SystemConfig::HOST_SSL_STATIC_ASSETS] = $config[SystemConfig::HOST_SSL_STATIC_MEDIA] = $yvesHost;
 
-$zedHost = 'zed.de.spryker.dev';
+$zedHost = 'zed.de.pets-deli.dev';
 $config[SystemConfig::HOST_ZED_GUI]
     = 'http://' . $zedHost;
 $config[SystemConfig::HOST_ZED_API] = $zedHost;

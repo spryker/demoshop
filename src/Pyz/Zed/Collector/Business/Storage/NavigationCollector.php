@@ -6,6 +6,8 @@ use Generated\Shared\Transfer\LocaleTransfer;
 use Propel\Runtime\ActiveQuery\Criteria;
 use Propel\Runtime\ActiveQuery\Criterion\BasicCriterion;
 use Propel\Runtime\ActiveQuery\Join;
+use Pyz\Zed\Collector\Business\Exception\WrongJsonStringException;
+use Pyz\Zed\Propel\Business\PropelFacade;
 use SprykerEngine\Zed\Locale\Persistence\Propel\Map\SpyLocaleTableMap;
 use SprykerEngine\Zed\Touch\Persistence\Propel\Map\SpyTouchTableMap;
 use SprykerEngine\Zed\Touch\Persistence\Propel\SpyTouchQuery;
@@ -27,11 +29,18 @@ class NavigationCollector extends AbstractPropelCollectorPlugin
     private $categoryQueryContainer;
 
     /**
-     * @param CategoryQueryContainer $categoryQueryContainer
+     * @var PropelFacade
      */
-    public function __construct(CategoryQueryContainer $categoryQueryContainer)
+    private $propelFacade;
+
+    /**
+     * @param CategoryQueryContainer $categoryQueryContainer
+     * @param PropelFacade $propelFacade
+     */
+    public function __construct(CategoryQueryContainer $categoryQueryContainer, PropelFacade $propelFacade)
     {
         $this->categoryQueryContainer = $categoryQueryContainer;
+        $this->propelFacade = $propelFacade;
     }
 
     protected function getTouchItemType()
@@ -56,7 +65,6 @@ class NavigationCollector extends AbstractPropelCollectorPlugin
             ->setJoinCondition(new BasicCriterion(new Criteria(), 'is_root', '1'))
         ;
         $baseQuery->addJoinObject($join);
-
 
         $baseQuery->addJoin(
             SpyCategoryNodeTableMap::COL_FK_CATEGORY,
@@ -97,6 +105,8 @@ class NavigationCollector extends AbstractPropelCollectorPlugin
         $baseQuery->orderBy('descendant_id', Criteria::DESC);
         $baseQuery->groupBy('node_id');
 
+        $baseQuery = $this->propelFacade->addAggregateToNotGroupedColumns($baseQuery);
+
         return $baseQuery;
     }
 
@@ -127,7 +137,7 @@ class NavigationCollector extends AbstractPropelCollectorPlugin
      */
     private function formatCategoryNode(array $categoryNode)
     {
-        $categoryUrls = explode(',', $categoryNode['category_urls']);
+        $categoryUrls = $this->decodeData($categoryNode['category_urls']);
 
         return [
             'node_id' => $categoryNode['node_id'],
@@ -182,9 +192,9 @@ class NavigationCollector extends AbstractPropelCollectorPlugin
             return [];
         }
 
-        $ids = explode(',', $data[$idsField]);
-        $names = explode(',', $data[$namesField]);
-        $urls = explode(',', $data[$urlsField]);
+        $ids = $this->decodeData($data[$idsField]);
+        $names = $this->decodeData($data[$namesField]);
+        $urls = $this->decodeData($data[$urlsField]);
         $nodes = [];
         foreach ($ids as $key => $id) {
             $nodes[$id]['node_id'] = $id;
@@ -193,6 +203,25 @@ class NavigationCollector extends AbstractPropelCollectorPlugin
         }
 
         return $nodes;
+    }
+
+    /**
+     * @param $data
+     *
+     * @throws WrongJsonStringException
+     * @return array
+     */
+    protected function decodeData($data)
+    {
+        $encodedData = json_decode($data, true);
+
+        if (json_last_error()) {
+            $message = json_last_error_msg() . ': ' . $data;
+
+            throw new WrongJsonStringException($message);
+        }
+
+        return $encodedData;
     }
 
 }

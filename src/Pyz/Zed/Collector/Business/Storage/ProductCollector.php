@@ -5,7 +5,9 @@ namespace Pyz\Zed\Collector\Business\Storage;
 use Generated\Shared\Transfer\LocaleTransfer;
 use Propel\Runtime\ActiveQuery\Criteria;
 use Propel\Runtime\ActiveQuery\Join;
+use Pyz\Zed\Collector\Business\Exception\WrongJsonStringException;
 use Pyz\Zed\Price\Business\PriceFacade;
+use Pyz\Zed\Propel\Business\PropelFacade;
 use SprykerEngine\Zed\Locale\Persistence\Propel\Map\SpyLocaleTableMap;
 use SprykerEngine\Zed\Touch\Persistence\Propel\Map\SpyTouchTableMap;
 use SprykerEngine\Zed\Touch\Persistence\Propel\SpyTouchQuery;
@@ -64,23 +66,34 @@ class ProductCollector extends AbstractPropelCollectorPlugin
     private $categoryQueryContainer;
 
     /**
+     * @var PropelFacade
+     */
+    private $propelFacade;
+
+    /**
      * @param PriceFacade $priceFacade
      * @param PriceQueryContainer $priceQueryContainer
      * @param CategoryQueryContainer $categoryQueryContainer
      * @param ProductOptionExporterFacade $productOptionExporterFacade
+     * @param PropelFacade $propelFacade
      */
     public function __construct(
         PriceFacade $priceFacade,
         PriceQueryContainer $priceQueryContainer,
         CategoryQueryContainer $categoryQueryContainer,
-        ProductOptionExporterFacade $productOptionExporterFacade
+        ProductOptionExporterFacade $productOptionExporterFacade,
+        PropelFacade $propelFacade
     ) {
         $this->priceFacade = $priceFacade;
         $this->priceQueryContainer = $priceQueryContainer;
         $this->categoryQueryContainer = $categoryQueryContainer;
         $this->productOptionExporterFacade = $productOptionExporterFacade;
+        $this->propelFacade = $propelFacade;
     }
 
+    /**
+     * @return string
+     */
     protected function getTouchItemType()
     {
         return 'abstract_product';
@@ -120,7 +133,7 @@ class ProductCollector extends AbstractPropelCollectorPlugin
         );
 
         $baseQuery->withColumn(
-            'GROUP_CONCAT(spy_product.sku)',
+            'JSON_AGG(spy_product.sku)',
             'concrete_skus'
         );
 
@@ -188,15 +201,15 @@ class ProductCollector extends AbstractPropelCollectorPlugin
             'abstract_localized_attributes'
         );
         $baseQuery->withColumn(
-            'GROUP_CONCAT(spy_product.attributes)',
+            'JSON_AGG(spy_product.attributes)',
             'concrete_attributes'
         );
         $baseQuery->withColumn(
-            'GROUP_CONCAT(spy_product_localized_attributes.attributes)',
+            'JSON_AGG(spy_product_localized_attributes.attributes)',
             'concrete_localized_attributes'
         );
         $baseQuery->withColumn(
-            'GROUP_CONCAT(product_urls.url)',
+            'JSON_AGG(product_urls.url)',
             'product_urls'
         );
         $baseQuery->withColumn(
@@ -204,7 +217,7 @@ class ProductCollector extends AbstractPropelCollectorPlugin
             'abstract_name'
         );
         $baseQuery->withColumn(
-            'GROUP_CONCAT(spy_product_localized_attributes.name)',
+            'JSON_AGG(spy_product_localized_attributes.name)',
             'concrete_names'
         );
 
@@ -212,7 +225,6 @@ class ProductCollector extends AbstractPropelCollectorPlugin
         $baseQuery->withColumn(SpyAbstractProductTableMap::COL_ATTRIBUTES, 'abstract_attributes');
         $baseQuery->withColumn(SpyAbstractProductTableMap::COL_ID_ABSTRACT_PRODUCT, 'id_abstract_product');
         $baseQuery->groupBy('abstract_sku');
-
 
         // Product availability
         $baseQuery->addAsColumn(
@@ -225,6 +237,8 @@ class ProductCollector extends AbstractPropelCollectorPlugin
                 SpyProductTableMap::COL_ID_PRODUCT
             )
         );
+
+        $baseQuery->addGroupByColumn(SpyProductTableMap::COL_ID_PRODUCT);
 
         // Product price
         $baseQuery->addJoinObject(
@@ -248,9 +262,8 @@ class ProductCollector extends AbstractPropelCollectorPlugin
 
         $baseQuery->addJoinCondition(
             'concretePriceJoin',
-            'concrete_price_table.fk_price_type',
-            $idPriceType,
-            Criteria::EQUAL
+            'concrete_price_table.fk_price_type = '.
+            (int) $idPriceType
         );
 
         $baseQuery->addJoinObject(
@@ -267,16 +280,15 @@ class ProductCollector extends AbstractPropelCollectorPlugin
         );
 
         $baseQuery->withColumn(
-            'GROUP_CONCAT(concrete_price_table.price)',
+            'JSON_AGG(concrete_price_table.price)',
             'concrete_prices'
         );
 
         $baseQuery->withColumn(
-            'GROUP_CONCAT(spy_price_type.name)',
+            'JSON_AGG(spy_price_type.name)',
             'price_types'
         );
 
-        $baseQuery->groupBy('abstract_sku');
 
         // Tax set
         $baseQuery->addJoin(
@@ -304,11 +316,11 @@ class ProductCollector extends AbstractPropelCollectorPlugin
 
         $baseQuery
             ->withColumn(
-                'GROUP_CONCAT(DISTINCT ' . SpyTaxRateTableMap::COL_NAME . ')',
+                'JSON_AGG(DISTINCT ' . SpyTaxRateTableMap::COL_NAME . ')',
                 'tax_rate_names'
             )
             ->withColumn(
-                'GROUP_CONCAT(DISTINCT ' . SpyTaxRateTableMap::COL_RATE . ')',
+                'JSON_AGG(DISTINCT ' . SpyTaxRateTableMap::COL_RATE . ')',
                 'tax_rate_rates'
             )
         ;
@@ -316,7 +328,7 @@ class ProductCollector extends AbstractPropelCollectorPlugin
 
         // Category
         $baseQuery->addJoin(
-            SpyTouchTableMap::COL_ITEM_ID,
+            SpyAbstractProductTableMap::COL_ID_ABSTRACT_PRODUCT,
             SpyProductCategoryTableMap::COL_FK_ABSTRACT_PRODUCT,
             Criteria::LEFT_JOIN
         );
@@ -346,7 +358,7 @@ class ProductCollector extends AbstractPropelCollectorPlugin
         $baseQuery = $this->categoryQueryContainer->joinRelatedCategoryQueryWithUrls($baseQuery, 'categoryParents', 'parent');
 
         $baseQuery->withColumn(
-            'GROUP_CONCAT(DISTINCT spy_category_node.id_category_node)',
+            'JSON_AGG(DISTINCT spy_category_node.id_category_node)',
             'node_id'
         );
         $baseQuery->withColumn(
@@ -356,6 +368,8 @@ class ProductCollector extends AbstractPropelCollectorPlugin
         $baseQuery->orderBy('depth', Criteria::DESC);
         $baseQuery->orderBy('descendant_id', Criteria::DESC);
         $baseQuery->groupBy('abstract_sku');
+
+        $baseQuery = $this->propelFacade->addAggregateToNotGroupedColumns($baseQuery);
 
         return $baseQuery;
     }
@@ -391,11 +405,11 @@ class ProductCollector extends AbstractPropelCollectorPlugin
                 $processedResultSet[$index]['available'] = ($productRawData['quantity'] > 0);
 
                 // Product price
-                $priceTypes = explode(',', $productRawData['price_types']);
+                $priceTypes = $this->decodeData($productRawData['price_types']);
                 $priceTypeIndex = array_search($defaultPriceType, $priceTypes);
 
                 if ($productRawData['concrete_prices'] !== null && $priceTypeIndex !== false) {
-                    $prices = explode(',', $productRawData['concrete_prices']);
+                    $prices = $this->decodeData($productRawData['concrete_prices']);
                     $processedResultSet[$index]['valid_price'] = $prices[$priceTypeIndex];
 
                     $organizedPrices = [];
@@ -412,8 +426,8 @@ class ProductCollector extends AbstractPropelCollectorPlugin
                 // Tax
                 if (isset($productRawData['tax_set_name'], $productRawData['tax_rate_names'], $productRawData['tax_rate_rates'])) {
                     $taxRates = [];
-                    $taxRateNames = explode(',', $productRawData['tax_rate_names']);
-                    $taxRateRates = explode(',', $productRawData['tax_rate_rates']);
+                    $taxRateNames = $this->decodeData(['tax_rate_names']);
+                    $taxRateRates = $this->decodeData(['tax_rate_rates']);
 
                     $effectiveRate = 0;
 
@@ -528,9 +542,10 @@ class ProductCollector extends AbstractPropelCollectorPlugin
             return [];
         }
 
-        $ids = explode(',', $data[$idsField]);
-        $names = explode(',', $data[$namesField]);
-        $urls = explode(',', $data[$urlsField]);
+        $ids = $this->decodeData($data[$idsField]);
+        $names = $this->decodeData($data[$namesField]);
+        $urls = $this->decodeData($data[$urlsField]);
+
         $nodes = [];
         foreach ($ids as $key => $id) {
             $nodes[$id]['node_id'] = $id;
@@ -549,20 +564,20 @@ class ProductCollector extends AbstractPropelCollectorPlugin
     protected function buildProducts(array $productsData)
     {
         foreach ($productsData as &$productData) {
-            $productUrls = explode(',', $productData[self::PRODUCT_URLS]);
+            $productUrls = $this->decodeData($productData[self::PRODUCT_URLS]);
             $productData[self::URL] = $productUrls[0];
 
-            $decodedAttributes = json_decode($productData[self::ABSTRACT_ATTRIBUTES], true);
-            $decodedLocalizedAttributes = json_decode($productData[self::ABSTRACT_LOCALIZED_ATTRIBUTES], true);
+            $decodedAttributes = $this->decodeData($productData[self::ABSTRACT_ATTRIBUTES]);
+            $decodedLocalizedAttributes = $this->decodeData($productData[self::ABSTRACT_LOCALIZED_ATTRIBUTES]);
             $mergedAttributes = array_merge($decodedAttributes, $decodedLocalizedAttributes);
 
             $productData[self::ABSTRACT_ATTRIBUTES] = $this->normalizeAttributes($mergedAttributes);
 
-            $concreteAttributes = json_decode('[' . $productData[self::CONCRETE_ATTRIBUTES] . ']', true);
-            $concreteLocalizedAttributes = json_decode('[' . $productData[self::CONCRETE_LOCALIZED_ATTRIBUTES] . ']', true);
+            $concreteAttributes = $this->decodeData($productData[self::CONCRETE_ATTRIBUTES]);
+            $concreteLocalizedAttributes = $this->decodeData($productData[self::CONCRETE_LOCALIZED_ATTRIBUTES]);
 
-            $concreteSkus = explode(',', $productData[self::CONCRETE_SKUS]);
-            $concreteNames = explode(',', $productData[self::CONCRETE_NAMES]);
+            $concreteSkus = $this->decodeData($productData[self::CONCRETE_SKUS]);
+            $concreteNames = $this->decodeData($productData[self::CONCRETE_NAMES]);
             $productData[self::CONCRETE_PRODUCTS] = [];
 
             $processedConcreteSkus = [];
@@ -571,7 +586,10 @@ class ProductCollector extends AbstractPropelCollectorPlugin
                     continue;
                 }
 
-                $mergedAttributes = array_merge($concreteAttributes[$i], $concreteLocalizedAttributes[$i]);
+                $mergedAttributes = array_merge(
+                    $this->decodeData($concreteAttributes[$i]),
+                    $this->decodeData($concreteLocalizedAttributes[$i])
+                );
                 $mergedAttributes = $this->normalizeAttributes($mergedAttributes);
 
                 $processedConcreteSkus[$concreteSkus[$i]] = true;
@@ -583,6 +601,25 @@ class ProductCollector extends AbstractPropelCollectorPlugin
             }
         }
         return $productsData;
+}
+
+    /**
+     * @param $data
+     *
+     * @throws WrongJsonStringException
+     * @return array
+     */
+    protected function decodeData($data)
+    {
+        $encodedData = json_decode($data, true);
+
+        if (json_last_error()) {
+            $message = json_last_error_msg() . ': ' . $data;
+
+            throw new WrongJsonStringException($message);
+        }
+
+        return $encodedData;
     }
 
 }

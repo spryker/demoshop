@@ -9,9 +9,15 @@
         </h1>
 
         <aside class="catalog__filter js-filters">
-            {% include "@catalog/catalog/partials/filter-category-tree.twig" with {filterName:'category', selectedCategory:category} %}
-            {% include "@catalog/catalog/partials/filter-range.twig" with {filterName:'price', min:(facets.price.rangeValues.min|default(0))|priceRaw|floor, max:(facets.price.rangeValues.max|default(0))|priceRaw|ceil} %}
-            {% include "@catalog/catalog/partials/filter-color.twig" with {filterName:'main_color', id: 42} %}
+            {% if facets.price is defined %}
+                {% include "@catalog/catalog/partials/filter-range.twig" with {filterName:'price', min:(facets.price.rangeValues.min|default(0)), max:(facets.price.rangeValues.max|default(0))} %}
+            {% endif %}
+            {% if facets.delivery_time is defined %}
+                    {% include "@catalog/catalog/partials/filter-multivalue.twig" with {filterName:'delivery_time', facetValues:facets.delivery_time.values, facetName:facets.delivery_time.name} %}
+                {% endif %}
+            {% if facets.weight is defined %}
+                {% include "@catalog/catalog/partials/filter-multivalue.twig" with {filterName:'weight', facetValues:facets.weight.values, facetName:facets.weight.name} %}
+            {% endif %}
         </aside>
         <button class="catalog__toggle-filters js-toggle-filters">
             <span class="js-show-filters">{{ "catalog.filter.show"|trans }}</span>
@@ -54,7 +60,7 @@
         <div class="catalog__products-holder js-products-holder">
             <section class="catalog__products js-products-current">
                 {% for product in products %}
-                    {% include "@catalog/catalog/partials/product.twig" with {detailsUrl: product.url, imageUrl: product.abstract_attributes.image_url, name: product.abstract_name, priceValue: product.valid_price} %}
+                    {% include "@catalog/catalog/partials/product.twig" with {detailsUrl: product.url, imageUrl: product.abstract_attributes.small_image, name: product.abstract_name, priceValue: product.valid_price} %}
                 {% endfor %}
             </section>
             <div class="catalog__loading-text">{{ "catalog.loading"|trans }}</div>

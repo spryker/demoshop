@@ -128,18 +128,32 @@ class ProductDataInstall extends AbstractInstaller
     protected function createAttributes()
     {
         $attributes = [
-            'width' => 'float',
-            'height' => 'float',
-            'depth' => 'float',
-            'image_url' => 'string',
-            'thumbnail_url' => 'string',
-            'price' => 'integer',
-            'main_color' => 'string',
-            'other_colors' => 'string',
-            'description' => 'string',
-            'description_long' => 'string',
-            'fun_fact' => 'string',
-            'scientific_name' => 'string',
+            'magento_id' => 'integer',
+            'product_type' => 'string',
+            'has_options' => 'bool',
+            'name' => 'string',
+            'price' => 'float',
+            'price_type' => 'integer',
+            'required_options' => 'bool',
+            'short_description' => 'string',
+            'sku' => 'string',
+            'sku_type' => 'integer',
+            'small_image' => 'string',
+            'special_from_date' => 'date',
+            'special_to_date' => 'date',
+            'tax_class_id' => 'integer',
+            'thumbnail' => 'string',
+            'url_key' => 'string',
+            'url_path' => 'string',
+            'visibility' => 'bool',
+            'weight' => 'string',
+            'weight_type' => 'integer',
+            'base_price_amount' => 'string',
+            'base_price_base_unit' => 'string',
+            'base_price_unit' => 'string',
+            'delivery_time' => 'string',
+            'pphundert' => 'float',
+            'salesprogramm' => 'integer',
         ];
 
         foreach ($attributes as $attributeName => $attributeType) {
@@ -181,23 +195,36 @@ class ProductDataInstall extends AbstractInstaller
         $productImageUrl = $this->buildProductImageUrl($product);
 
         $attributes = [
+            'magento_id' => (int)$product['magento_id'],
             'price' => (float) $product['price'],
-            'width' => (float) $product['width'],
-            'height' => (float) $product['height'],
-            'depth' => (float) $product['depth'],
+            'price_type' => $product['product_type'],
+            'sku' => $product['sku'],
+            'sku_type' => $product['sku_type'],
+            'special_from_date' => $product['special_from_date'],
+            'special_to_date' => $product['special_to_date'],
+            'tax_class_id' => (int)$product['tax_class_id'],
+            'visibility' => $product['visibility'],
+            'base_price_base_unit' => $product['base_price_base_unit'],
+            'base_price_unit' => $product['base_price_unit'],
+            'pphundert' => $product['pphundert'],
+            'salesprogramm' => $product['salesprogramm'],
         ];
 
         $localizedAttributes = new LocalizedAttributesTransfer();
         $localizedAttributes->setAttributes(
             [
-                'image_url' => '/images/product/' . $product['image'],
-                'thumbnail_url' => '/images/product/default.png',
-                'main_color' => $product['main_color'],
-                'other_colors' => $product['other_colors'],
-                'description' => $product['description'],
-                'description_long' => $product['description_long'],
-                'fun_fact' => $product['fun_fact'],
-                'scientific_name' => $product['scientific_name'],
+                'product_type' => $product['product_type'],
+                'name' => $product['name'],
+                'short_description' => $product['short_description'],
+                'small_image' => $product['small_image'],
+                'thumbnail' => $product['thumbnail'],
+                'url' => $product['url'],
+                'url_path' => $product['url_path'],
+                'weight' => $product['weight'],
+                'weight_type' => $product['weight_type'],
+                'base_price_amount' => $product['base_price_amount'],
+                'delivery_time' => $product['delivery_time'],
+
             ]
         );
         $localizedAttributes->setLocale($currentLocale);

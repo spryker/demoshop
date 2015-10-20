@@ -1,7 +1,7 @@
 master: localhost
 file_client: local
 state_events: false
-id: spryker-vm
+id: pets-deli-vm
 environment: dev
 grains:
   roles:

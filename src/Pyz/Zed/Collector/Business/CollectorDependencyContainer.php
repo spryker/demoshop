@@ -25,7 +25,8 @@ class CollectorDependencyContainer extends SprykerCollectorDependencyContainer
             $this->getProvidedDependency(CollectorDependencyProvider::FACADE_PRICE),
             $this->getProvidedDependency(CollectorDependencyProvider::QUERY_CONTAINER_PRICE),
             $this->getProvidedDependency(CollectorDependencyProvider::QUERY_CONTAINER_CATEGORY),
-            $this->getProvidedDependency(CollectorDependencyProvider::FACADE_PRODUCT_SEARCH)
+            $this->getProvidedDependency(CollectorDependencyProvider::FACADE_PRODUCT_SEARCH),
+            $this->getProvidedDependency(CollectorDependencyProvider::FACADE_PROPEL)
         );
         $searchProductCollector->setTouchQueryContainer(
             $this->getProvidedDependency(CollectorDependencyProvider::QUERY_CONTAINER_TOUCH)
@@ -55,7 +56,8 @@ class CollectorDependencyContainer extends SprykerCollectorDependencyContainer
     public function createStorageNavigationCollector()
     {
         $storageNavigationCollector = $this->getFactory()->createStorageNavigationCollector(
-            $this->getProvidedDependency(CollectorDependencyProvider::QUERY_CONTAINER_CATEGORY)
+            $this->getProvidedDependency(CollectorDependencyProvider::QUERY_CONTAINER_CATEGORY),
+            $this->getProvidedDependency(CollectorDependencyProvider::FACADE_PROPEL)
         );
         $storageNavigationCollector->setTouchQueryContainer(
             $this->getProvidedDependency(CollectorDependencyProvider::QUERY_CONTAINER_TOUCH)
@@ -87,7 +89,8 @@ class CollectorDependencyContainer extends SprykerCollectorDependencyContainer
             $this->getProvidedDependency(CollectorDependencyProvider::FACADE_PRICE),
             $this->getProvidedDependency(CollectorDependencyProvider::QUERY_CONTAINER_PRICE),
             $this->getProvidedDependency(CollectorDependencyProvider::QUERY_CONTAINER_CATEGORY),
-            $this->getProvidedDependency(CollectorDependencyProvider::FACADE_PRODUCT_OPTION_EXPORTER)
+            $this->getProvidedDependency(CollectorDependencyProvider::FACADE_PRODUCT_OPTION_EXPORTER),
+            $this->getProvidedDependency(CollectorDependencyProvider::FACADE_PROPEL)
         );
         $storageProductCollector->setTouchQueryContainer(
             $this->getProvidedDependency(CollectorDependencyProvider::QUERY_CONTAINER_TOUCH)

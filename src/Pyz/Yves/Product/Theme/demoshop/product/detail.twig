@@ -12,16 +12,18 @@
 
             <h1 class="product__name">{{ product.abstract_name }}</h1>
 
-            <p>{{ product.description }}</p>
+            <p>{{ product.short_description }}</p>
 
-            <p class="product__price">{{ product.price|price }}</p>
+            {% for price in product.prices %}
+                <p class="product__price">{{ price.price|price }}</p>
+            {% endfor %}
 
             {% include "@application/layout/partials/spinner.twig" with {class:"product__quantity", style:"caplet", name:"quantity", value:"1"} %}
             <button class="product__add-button cta" data-sku="{{ product.abstractSku }}">{{ "page.detail.add-to-cart"|trans }}</button> <br />
             <a href="{{ path('wishlist/add', { sku: product.abstractSku }) }}">Add to Wishlist</a>
         </section>
         <section class="product__main-image">
-            <img src="{{ product.image_url }}" alt="" style="width: 100%;"/>
+            <img src="{{ product.small_image}}" alt="" style="width: 100%;"/>
         </section>
         <section class="product__details">
             <p>{{ product.fun_fact }}</p>

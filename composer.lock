@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "5c26ddc662de80bb8e4f4cd8016e3d44",
+    "hash": "250745761b155c44c0277de7ab681c58",
     "packages": [
         {
             "name": "digital-canvas/zend-framework",
@@ -462,6 +462,32 @@
                 "redis"
             ],
             "time": "2014-08-01 09:59:50"
+        },
+        {
+            "name": "project-a/spryker",
+            "version": "dev-develop",
+            "source": {
+                "type": "git",
+                "url": "git@github.com:project-a/spryker.git",
+                "reference": "e1d9b6e45fec2bf51212d0f13f420426a52d536b"
+            },
+            "replace": {
+                "spryker/pav-console": "self.version"
+            },
+            "bin": [
+                "Bundles/Kernel/bin/build-multiple-core-class-map",
+                "Bundles/Console/bin/pav-console"
+            ],
+            "type": "library",
+            "autoload": {
+                "files": [
+                    "Autoload/autoload.php"
+                ],
+                "psr-0": {
+                    "PavFeature\\Shared\\Library": "Bundles/Library/src/"
+                }
+            },
+            "time": "2015-10-20 08:08:28"
         },
         {
             "name": "propel/propel",
@@ -4273,6 +4299,7 @@
     "minimum-stability": "stable",
     "stability-flags": {
         "spryker/spryker": 20,
+        "project-a/spryker": 20,
         "propel/propel": 20,
         "silex/silex": 20,
         "pimple/pimple": 20

@@ -81,7 +81,7 @@ class CategoryTreeInstall extends AbstractInstaller
     {
         $reader = new CsvFileReader();
 
-        return $reader->read(__DIR__ . '/demo-category-tree.csv')->getData();
+        return $reader->read(__DIR__ . '/pets-deli-category-tree.csv')->getData();
     }
 
     /**

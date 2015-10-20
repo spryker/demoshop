@@ -12,7 +12,7 @@ class ProductCategoryConfig extends AbstractBundleConfig
      */
     public function getDemoDataCSVPath()
     {
-        return __DIR__ . '/Business/Internal/DemoData/demo-product-category-data.csv';
+        return __DIR__ . '/Business/Internal/DemoData/pets-deli-product-category-data.csv';
     }
 
 }
