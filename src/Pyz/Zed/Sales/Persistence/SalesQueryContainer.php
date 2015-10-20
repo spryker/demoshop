@@ -16,12 +16,12 @@ class SalesQueryContainer extends SprykerSalesQueryContainer implements SalesQue
         $query = SpySalesOrderQuery::create('order');
         $query->filterByIdSalesOrder($idSalesOrder);
         $query
-            ->innerJoinShipmentMethod()
-            ->innerJoinWith('order.BillingAddress billingAddress')
-            ->innerJoinWith('billingAddress.Country billingCountry')
-            ->innerJoinWith('order.ShippingAddress shippingAddress')
-            ->innerJoinWith('shippingAddress.Country shippingCountry')
-            ->innerJoinWith('order.ShipmentMethod shipmentMethod')
+            ->leftJoinShipmentMethod()
+            ->letfJoinWith('order.BillingAddress billingAddress')
+            ->leftJoinWith('billingAddress.Country billingCountry')
+            ->leftJoinWith('order.ShippingAddress shippingAddress')
+            ->leftJoinWith('shippingAddress.Country shippingCountry')
+            ->leftJoinWith('order.ShipmentMethod shipmentMethod')
         ;
 
         return $query;
