@@ -317,5 +317,8 @@ $config[YvesConfig::YVES_SHOW_EXCEPTION_STACK_TRACE] = true;
 
 $config[SystemConfig::PROPEL_DEBUG] = false;
 $config[ApplicationConfig::SHOW_SYMFONY_TOOLBAR] = false;
-
 $config[SequenceNumberConfig::ENVIRONMENT_PREFIX] = '';
+
+$config[LumberjackConfig::WRITER_OPTIONS] = [
+    '\SprykerEngine\Shared\Lumberjack\Model\Writer\File' => ['log_path' => '/data/logs/development/DE/'],
+];

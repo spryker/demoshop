@@ -469,13 +469,25 @@
             "source": {
                 "type": "git",
                 "url": "git@github.com:project-a/spryker.git",
-                "reference": "33e603ff7bd321460e43143efd9c984b66bae93d"
+                "reference": "e1d9b6e45fec2bf51212d0f13f420426a52d536b"
+            },
+            "replace": {
+                "spryker/pav-console": "self.version"
             },
             "bin": [
-                "Bundles/Kernel/bin/build-multiple-core-class-map"
+                "Bundles/Kernel/bin/build-multiple-core-class-map",
+                "Bundles/Console/bin/pav-console"
             ],
             "type": "library",
-            "time": "2015-10-14 15:29:13"
+            "autoload": {
+                "files": [
+                    "Autoload/autoload.php"
+                ],
+                "psr-0": {
+                    "PavFeature\\Shared\\Library": "Bundles/Library/src/"
+                }
+            },
+            "time": "2015-10-20 08:08:28"
         },
         {
             "name": "propel/propel",
@@ -722,7 +734,7 @@
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/spryker.git",
-                "reference": "b4c5ba75cab7718ddc3c3f656b9d250f72833e71"
+                "reference": "35743cdf46649e9fa4b24caea7592a615ebd3e50"
             },
             "require": {
                 "digital-canvas/zend-framework": ">=1.12.2"
@@ -811,7 +823,7 @@
                     "SprykerFeature\\Shared\\Library": "Bundles/Library/src/"
                 }
             },
-            "time": "2015-10-14 14:25:37"
+            "time": "2015-10-19 13:29:24"
         },
         {
             "name": "symfony-cmf/routing",
@@ -2866,16 +2878,16 @@
         },
         {
             "name": "guzzlehttp/promises",
-            "version": "1.0.2",
+            "version": "1.0.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/guzzle/promises.git",
-                "reference": "97fe7210def29451ec74923b27e552238defd75a"
+                "reference": "b1e1c0d55f8083c71eda2c28c12a228d708294ea"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/guzzle/promises/zipball/97fe7210def29451ec74923b27e552238defd75a",
-                "reference": "97fe7210def29451ec74923b27e552238defd75a",
+                "url": "https://api.github.com/repos/guzzle/promises/zipball/b1e1c0d55f8083c71eda2c28c12a228d708294ea",
+                "reference": "b1e1c0d55f8083c71eda2c28c12a228d708294ea",
                 "shasum": ""
             },
             "require": {
@@ -2913,7 +2925,7 @@
             "keywords": [
                 "promise"
             ],
-            "time": "2015-08-15 19:37:21"
+            "time": "2015-10-15 22:28:00"
         },
         {
             "name": "guzzlehttp/psr7",
@@ -2975,16 +2987,16 @@
         },
         {
             "name": "pdepend/pdepend",
-            "version": "2.2.1",
+            "version": "2.2.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/pdepend/pdepend.git",
-                "reference": "a77b6bede0afdd232155eb6f1de0b2826bcf2803"
+                "reference": "d3ae0d084d526cdc6c3f1b858fb7148de77b41c5"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/pdepend/pdepend/zipball/a77b6bede0afdd232155eb6f1de0b2826bcf2803",
-                "reference": "a77b6bede0afdd232155eb6f1de0b2826bcf2803",
+                "url": "https://api.github.com/repos/pdepend/pdepend/zipball/d3ae0d084d526cdc6c3f1b858fb7148de77b41c5",
+                "reference": "d3ae0d084d526cdc6c3f1b858fb7148de77b41c5",
                 "shasum": ""
             },
             "require": {
@@ -2994,7 +3006,7 @@
                 "symfony/filesystem": "^2.3.0"
             },
             "require-dev": {
-                "phpunit/phpunit": "^4.0.0",
+                "phpunit/phpunit": "^4.0.0,<4.8",
                 "squizlabs/php_codesniffer": "^2.0.0"
             },
             "bin": [
@@ -3011,7 +3023,7 @@
                 "BSD-3-Clause"
             ],
             "description": "Official version of pdepend to be handled with Composer",
-            "time": "2015-09-24 14:17:05"
+            "time": "2015-10-16 08:49:58"
         },
         {
             "name": "phpdocumentor/reflection-docblock",

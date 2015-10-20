@@ -4,6 +4,8 @@ use SprykerFeature\Shared\Mail\MailConfig;
 use SprykerFeature\Shared\System\SystemConfig;
 use SprykerFeature\Shared\Yves\YvesConfig;
 use SprykerEngine\Shared\Lumberjack\LumberjackConfig;
+use SprykerFeature\Shared\Payone\PayoneConfigConstants;
+use SprykerFeature\Shared\Session\SessionConfig;
 
 $config[SystemConfig::ZED_MYSQL_USERNAME] = 'ubuntu';
 $config[SystemConfig::ZED_MYSQL_PASSWORD] = '';
@@ -56,9 +58,20 @@ $config[SystemConfig::ZED_RABBITMQ_PASSWORD] = 'mate20mg';
 $config[SystemConfig::ZED_RABBITMQ_VHOST] = '/DE_development_zed';
 
 $config[SystemConfig::JENKINS_DIRECTORY] = APPLICATION_ROOT_DIR . '/shared/data/common/jenkins';
+
+$config[SystemConfig::YVES_STORAGE_SESSION_REDIS_PROTOCOL] = 'tcp';
+$config[SystemConfig::YVES_STORAGE_SESSION_REDIS_HOST] = '127.0.0.1';
 $config[SystemConfig::YVES_STORAGE_SESSION_REDIS_PORT] = '6379';
+
+$config[SystemConfig::ZED_STORAGE_SESSION_REDIS_PROTOCOL] = $config[SystemConfig::YVES_STORAGE_SESSION_REDIS_PROTOCOL];
 $config[SystemConfig::ZED_STORAGE_SESSION_REDIS_PORT] = $config[SystemConfig::YVES_STORAGE_SESSION_REDIS_PORT];
+
+$config[PayoneConfigConstants::PAYONE] = [
+    PayoneConfigConstants::PAYONE_MODE => '',
+];
 
 $config[LumberjackConfig::WRITER_OPTIONS] = [
     '\SprykerEngine\Shared\Lumberjack\Model\Writer\File' => ['log_path' => '/data/logs/development/DE/'],
 ];
+
+$config[SessionConfig::SESSION_IS_TEST] = true;

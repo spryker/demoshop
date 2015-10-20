@@ -10,7 +10,7 @@ use SprykerFeature\Shared\Application\ApplicationConfig;
 use SprykerFeature\Shared\Library\Config;
 use SprykerFeature\Shared\System\SystemConfig;
 use SprykerFeature\Shared\Yves\YvesConfig;
-use SprykerEngine\Yves\Application\Business\Application as SprykerApplication;
+use SprykerEngine\Yves\Application\Communication\Application as SprykerApplication;
 use SprykerEngine\Yves\Application\Business\Routing\Helper;
 use Silex\Application;
 use Silex\Provider\TwigServiceProvider as SilexTwigServiceProvider;
