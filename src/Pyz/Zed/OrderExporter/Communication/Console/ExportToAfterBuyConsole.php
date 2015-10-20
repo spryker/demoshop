@@ -50,12 +50,9 @@ class ExportToAfterBuyConsole extends Console
      */
     protected function getOrderById($orderId)
     {
-        //@TODO Fix entity not found exception
-        try{
-            $order = $this->getFacade()->getOrderBySalesOrderId($orderId);
-        } catch (Exception $e)
-        {
-            throw new EntityNotFoundException("Order with id " . $orderId . 'not found');
+        $order = $this->getFacade()->getOrderBySalesOrderId($orderId);
+        if ($order == null) {
+            throw new EntityNotFoundException("Order with id " . $orderId . ' not found');
         }
 
         return $order;
