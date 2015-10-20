@@ -33,9 +33,18 @@ class AfterbuyConnector implements AfterbuyConnectorInterface
         curl_setopt($connexion, CURLOPT_RETURNTRANSFER, 1);
         curl_setopt($connexion, CURLOPT_POSTFIELDS, $postVariables);
 
-        $resultConnexion = curl_exec($connexion);
+        $sendingResponse = curl_exec($connexion);
         curl_close($connexion);
 
         return $resultConnexion;
+    }
+
+
+    public function xmlParser($sendingResponse)
+    {
+        $sendingResponse = simplexml_load_string($sendingResponse);
+        $sendingResponse = (array) $sendingResponse;
+
+
     }
 }
