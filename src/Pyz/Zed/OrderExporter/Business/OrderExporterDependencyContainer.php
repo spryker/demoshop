@@ -29,7 +29,17 @@ class OrderExporterDependencyContainer extends AbstractBusinessDependencyContain
      */
     public function createOrderExporterManager()
     {
-        return $this->getFactory()->createModelOrderExporterManager($this->getConfig());
+        return $this->getFactory()->createModelOrderExporterManager(
+            $this->getConfig(),
+            $this->createAfterBuyConnector()
+        );
     }
 
+    /**
+     * @return Model\AfterbuyConnectorInterface
+     */
+    public function createAfterBuyConnector()
+    {
+        return $this->getFactory()->createModelAfterbuyConnector($this->getConfig());
+    }
 }
