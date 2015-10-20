@@ -1,0 +1,13 @@
+<?xml version="1.0"?>
+<database xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" name="zed" xsi:noNamespaceSchemaLocation="http://xsd.propelorm.org/1.6/database.xsd" namespace="SprykerFeature\Zed\Product\Persistence\Propel" identifierQuoting="true" package="vendor.spryker.spryker.Bundles.Product.src.SprykerFeature.Zed.Product.Persistence.Propel">
+
+    <table name="spy_abstract_product" idMethod="native" allowPkInsert="true" phpName="SpyAbstractProduct">
+        <column name="type" required="false" type="VARCHAR" size="255"/>
+    </table>
+
+    <table name="spy_product" idMethod="native" allowPkInsert="true" phpName="SpyProduct" identifierQuoting="true">
+        <column name="format" required="false" type="VARCHAR" size="255"/>
+        <column name="weight" required="false" type="VARCHAR" size="255"/>
+    </table>
+
+</database>
