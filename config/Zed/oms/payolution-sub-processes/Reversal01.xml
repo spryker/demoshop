@@ -17,7 +17,7 @@
             </transition>
         </transitions>
         <events>
-            <event name="revert" manual="true" command="PayolutionOmsConnector/Revert"/>
+            <event name="revert" manual="true" command="Payolution/Revert"/>
         </events>
     </process>
 </statemachine>

@@ -17,7 +17,7 @@
             </transition>
         </transitions>
         <events>
-            <event name="re-authorize" manual="true" command="PayolutionOmsConnector/ReAuthorize"/>
+            <event name="re-authorize" manual="true" command="Payolution/ReAuthorize"/>
         </events>
     </process>
 </statemachine>

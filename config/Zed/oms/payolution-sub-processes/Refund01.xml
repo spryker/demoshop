@@ -48,8 +48,8 @@
         </transitions>
         <events>
             <event name="receive returns" manual="true"/>
-            <event name="partially refund" manual="true" command="PayolutionOmsConnector/Refund"/>
-            <event name="fully refund" manual="true" command="PayolutionOmsConnector/Refund"/>
+            <event name="partially refund" manual="true" command="Payolution/Refund"/>
+            <event name="fully refund" manual="true" command="Payolution/Refund"/>
         </events>
     </process>
 </statemachine>

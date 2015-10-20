@@ -24,23 +24,23 @@ class OmsDependencyProvider extends SprykerOmsDependencyProvider
     protected function getConditionPlugins(Container $container)
     {
         return [
-            'PayolutionOmsConnector/PreAuthorizationIsApproved' => $container
+            'Payolution/PreAuthorizationIsApproved' => $container
                 ->getLocator()
                 ->payolution()
                 ->pluginOmsConditionPreAuthorizationIsApprovedPlugin(),
-            'PayolutionOmsConnector/ReAuthorizationIsApproved' => $container
+            'Payolution/ReAuthorizationIsApproved' => $container
                 ->getLocator()
                 ->payolution()
                 ->pluginOmsConditionReAuthorizationIsApprovedPlugin(),
-            'PayolutionOmsConnector/ReversalIsApproved' => $container
+            'Payolution/ReversalIsApproved' => $container
                 ->getLocator()
                 ->payolution()
                 ->pluginOmsConditionReversalIsApprovedPlugin(),
-            'PayolutionOmsConnector/CaptureIsApproved' => $container
+            'Payolution/CaptureIsApproved' => $container
                 ->getLocator()
                 ->payolution()
                 ->pluginOmsConditionCaptureIsApprovedPlugin(),
-            'PayolutionOmsConnector/RefundIsApproved' => $container
+            'Payolution/RefundIsApproved' => $container
                 ->getLocator()
                 ->payolution()
                 ->pluginOmsConditionRefundIsApprovedPlugin(),
@@ -59,23 +59,23 @@ class OmsDependencyProvider extends SprykerOmsDependencyProvider
             'Oms/SendPaymentRequest' => $container->getLocator()->oms()->pluginOmsCommandSendPaymentRequest(),
             'Oms/CreateInvoice' => $container->getLocator()->oms()->pluginOmsCommandCreateInvoice(),
             'Oms/SendInvoice' => $container->getLocator()->oms()->pluginOmsCommandSendInvoice(),
-            'PayolutionOmsConnector/PreAuthorize' => $container
+            'Payolution/PreAuthorize' => $container
                 ->getLocator()
                 ->payolution()
                 ->pluginOmsCommandPreAuthorizePlugin(),
-            'PayolutionOmsConnector/ReAuthorize' => $container
+            'Payolution/ReAuthorize' => $container
                 ->getLocator()
                 ->payolution()
                 ->pluginOmsCommandReAuthorizePlugin(),
-            'PayolutionOmsConnector/Revert' => $container
+            'Payolution/Revert' => $container
                 ->getLocator()
                 ->payolution()
                 ->pluginOmsCommandRevertPlugin(),
-            'PayolutionOmsConnector/Capture' => $container
+            'Payolution/Capture' => $container
                 ->getLocator()
                 ->payolution()
                 ->pluginOmsCommandCapturePlugin(),
-            'PayolutionOmsConnector/Refund' => $container
+            'Payolution/Refund' => $container
                 ->getLocator()
                 ->payolution()
                 ->pluginOmsCommandRefundPlugin(),
