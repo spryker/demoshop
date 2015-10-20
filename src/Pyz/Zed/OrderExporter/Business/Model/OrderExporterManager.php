@@ -20,7 +20,6 @@ class OrderExporterManager
 
     const IS_SHIPPING_BILLING_DIFFERENT = 'Lieferanschrift';
 
-    const SHIPPING_ADDRESS = '';
     const SHIPPING_COMPANY_NAME = 'KLFirma';
     const SHIPPING_SALUTATION = 'KLAnrede';
     const SHIPPING_FIRST_NAME = 'KLVorname';
@@ -32,7 +31,6 @@ class OrderExporterManager
     const SHIPPING_PHONE = 'KLTelefon';
     const SHIPPING_COUNTRY_ID = 'KLLand';
 
-    const BILLING_ADDRESS = '';
     const BILLING_COMPANY_NAME = 'KFirma';
     const BILLING_SALUTATION = 'KAnrede';
     const BILLING_FIRST_NAME = 'KVorname';
@@ -83,7 +81,7 @@ class OrderExporterManager
     /**
      * @param OrderExporterConfig $orderExporterConfig
      */
-    public function __construct(OrderExporterConfig $orderExporterConfig)
+    public function __construct(OrderExporterConfig $orderExporterConfig, AfterbuyConnectorInterface $connector)
     {
         //@TODO add email error => ds@petsdeli.de
         $this->orderExporterConfig = $orderExporterConfig;
@@ -111,7 +109,7 @@ class OrderExporterManager
         $afterBuyInfo = $this->configureAfterbuy();
         $afterBuyInfo = $this->getOrderInfo($order, $afterBuyInfo);
         $postString = $this->buildPostString($afterBuyInfo);
-//        $this->sendOrderInfoToAfterBuy($postString);
+        $this->sendOrderInfoToAfterBuy($postString);
     }
 
     /**
