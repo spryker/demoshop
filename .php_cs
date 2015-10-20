@@ -12,6 +12,7 @@ $finder = Symfony\CS\Finder\DefaultFinder::create()
 
 return Symfony\CS\Config\Config::create()
     ->finder($finder)
+    ->setUsingCache(true)
     ->level(\Symfony\CS\FixerInterface::PSR2_LEVEL)
     ->fixers(
         array(
@@ -21,7 +22,6 @@ return Symfony\CS\Config\Config::create()
             'double_arrow_multiline_whitespaces',
             'duplicate_semicolon',
             'empty_enclosing_lines',
-            '-empty_return',
             'encoding',
             'extra_empty_lines',
             'include',
@@ -33,7 +33,6 @@ return Symfony\CS\Config\Config::create()
             'object_operator',
             'operator_spaces',
             'phpdoc_no_access',
-            'phpdoc_no_empty_return',
             'phpdoc_no_package',
             'phpdoc_order',
             'phpdoc_scalar',

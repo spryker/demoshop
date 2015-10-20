@@ -65,5 +65,8 @@ mkmf.log
 # Factory Class Map
 .class_map
 
+# PHP CS Fixer
+.php_cs.cache
+
 #tools
 composer.phar
