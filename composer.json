@@ -1,6 +1,6 @@
 {
   "require": {
-    "spryker/spryker": "dev-bugfix/CD-547-Remove-hardcoded-environments-in-class-Environment",
+    "spryker/spryker": "dev-develop",
 
     "psr/log": "~1.0",
     "propel/propel": "~2.0@dev",
