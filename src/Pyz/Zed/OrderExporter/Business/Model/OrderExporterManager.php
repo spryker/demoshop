@@ -7,6 +7,9 @@ use SprykerFeature\Zed\Sales\Persistence\Propel\SpySalesOrderAddress;
 use SprykerFeature\Zed\Sales\Persistence\Propel\SpySalesOrderItem;
 use SprykerFeature\Zed\Sales\Persistence\Propel\SpySalesOrder;
 
+/**
+ * @link https://confluence.project-a.com/display/PD/Afterbuy+Orders+export
+ */
 class OrderExporterManager
 {
     const AFTERBUY_ACTION = 'Action';
@@ -14,11 +17,17 @@ class OrderExporterManager
     const AFTERBUY_PARTNER_PASS = 'PartnerPass';
     const AFTERBUY_USER_ID = 'UserID';
 
-    const CUSTOMER_NAME = 'Kbenutzername';
+    const SALES_ORDER_ID = 'Kbenutzername';
     const CUSTOMER_EMAIL = 'Kemail';
-    const ORDER_ID = 'VID';
 
+    const ORDER_ID = 'VID';
+    const ORDER_COMMENT = 'Kommentar';
+    const IS_DOUBLE_ORDER = 'CheckVID';
+
+    const SEND_FEEDBACK = 'NoFeeback';
     const IS_SHIPPING_BILLING_DIFFERENT = 'Lieferanschrift';
+
+    const STOCK_TYPE = 'Bestandart';
 
     const SHIPPING_COMPANY_NAME = 'KLFirma';
     const SHIPPING_SALUTATION = 'KLAnrede';
@@ -30,6 +39,8 @@ class OrderExporterManager
     const SHIPPING_METHOD = '';
     const SHIPPING_PHONE = 'KLTelefon';
     const SHIPPING_COUNTRY_ID = 'KLLand';
+    const SHIPPING_COST = 'Versandkosten';
+    const SHIPPING_SERVICE = 'Versandart';
 
     const BILLING_COMPANY_NAME = 'KFirma';
     const BILLING_SALUTATION = 'KAnrede';
@@ -59,12 +70,7 @@ class OrderExporterManager
     const PAYMENT_BANK_CODE = 'BLZ';
     const PAYMENT_METHOD = 'Zahlart';
     const PAYMENT_ID = 'ZFunktionsID';
-
-
-
-
-    /** @param OrderExporterConfig $orderExporterConfig */
-    protected $orderExporterConfig;
+    const PAYMENT_STATUS = 'SetPay';
 
     /** @var string */
     protected $userId;
@@ -77,18 +83,33 @@ class OrderExporterManager
 
     /** @var string */
     protected $afterbuyUrl;
+    /**
+     * @var AfterbuyConnectorInterface
+     */
+    protected $afterbuyConnector;
 
     /**
      * @param OrderExporterConfig $orderExporterConfig
+     * @param AfterbuyConnectorInterface $connector
      */
     public function __construct(OrderExporterConfig $orderExporterConfig, AfterbuyConnectorInterface $connector)
     {
         //@TODO add email error => ds@petsdeli.de
-        $this->orderExporterConfig = $orderExporterConfig;
-        $this->userId = $this->orderExporterConfig->getAfterbuyUserId();
-        $this->partnerId = $this->orderExporterConfig->getAfterbuyPartnerId();
-        $this->partnerPass = $this->orderExporterConfig->getAfterbuyPartnerPass();
-        $this->afterbuyUrl = $this->orderExporterConfig->getAfterbuyUrl();
+        $this->userId = $orderExporterConfig->getAfterbuyUserId();
+        $this->partnerId = $orderExporterConfig->getAfterbuyPartnerId();
+        $this->partnerPass = $orderExporterConfig->getAfterbuyPartnerPass();
+        $this->afterbuyConnector = $connector;
+    }
+
+    /**
+     * @param SpySalesOrder $order
+     */
+    public function exportOrder(SpySalesOrder $order)
+    {
+        $afterBuyInfo = $this->configureAfterbuy();
+        $afterBuyInfo = $this->getOrderInfo($order, $afterBuyInfo);
+        $postString = $this->buildPostString($afterBuyInfo);
+        $sendingResult = $this->sendOrderInfoToAfterBuy($postString);
     }
 
     /**
@@ -104,14 +125,6 @@ class OrderExporterManager
         return $postData;
     }
 
-    public function exportOrder(SpySalesOrder $order)
-    {
-        $afterBuyInfo = $this->configureAfterbuy();
-        $afterBuyInfo = $this->getOrderInfo($order, $afterBuyInfo);
-        $postString = $this->buildPostString($afterBuyInfo);
-        $this->sendOrderInfoToAfterBuy($postString);
-    }
-
     /**
      * @param SpySalesOrder $order
      * @param array $postData
@@ -120,19 +133,14 @@ class OrderExporterManager
      */
     protected function getOrderInfo(SpySalesOrder $order, array $postData)
     {
-//        $carrierModel;
-
         $items = $order->getItems()->getData();
-        // @TODO add Adyen info about $payment
-        // @TODO  $paymentTransactionId = $payment->getTransactionId();
-        //$payerId;
-        //historyItem
-        // @TODO  $paymentMethod = $payment->getPaymentMethod();
-        $customer = $order->getCustomer();
-        $postData[self::CUSTOMER_EMAIL] = $order->getEmail(); // @TODO email from shipping/ billing for non Customer?
-        $postData[self::CUSTOMER_NAME] = $order->getIdSalesOrder(); //@TODO in old code id but should be name...
+        $postData[self::CUSTOMER_EMAIL] = $order->getEmail();
+        $postData[self::SALES_ORDER_ID] = $order->getIdSalesOrder();
 
-        $postData[self::SHIPPING_METHOD] = $order->getShipmentMethod()->getName();
+        if (!null == $order->getShipmentMethod()) {
+            $postData[self::SHIPPING_METHOD] = $order->getShipmentMethod()->getName();
+        }
+
         $shippingAddress = $order->getShippingAddress();
         $billingAddress = $order->getBillingAddress();
         $postData = $this->addShippingAddressInfo($shippingAddress, $postData);
@@ -144,8 +152,19 @@ class OrderExporterManager
             $postData = $this->addBillingAddressInfo($billingAddress, $postData);
         }
 
+        $postData = $this->addPaymentInfo($postData);
         $postData = $this->addItemsInfo($items, $postData);
-        $postData[self::ITEMS_NUMBER] = count($items);
+
+        return $postData;
+    }
+
+    /**
+     * @param array $postData
+     * @return array
+     */
+    protected function addPaymentInfo(array $postData)
+    {
+        // @TODO Add Payment information!
 
         return $postData;
     }
@@ -161,21 +180,45 @@ class OrderExporterManager
         /** @var SpySalesOrderItem $item */
         foreach ($items as $item) {
             $numberOfItems ++;
-            $itemId = $item->getIdSalesOrderItem();
             $postData[self::ITEM_SKU . $numberOfItems] = $item->getSku();
-            $postData[self::ITEM_NUMBER . $numberOfItems] = $item->getSku(); //@TODO id or sku???
-//            $itemUrl
-//            $itemWeight
+            $postData[self::ITEM_NUMBER . $numberOfItems] = $item->getSku();
             $postData[self::ITEM_QUANTITY_ORDERED . $numberOfItems] = $item->getQuantity();
             $postData[self::ITEM_NAME . $numberOfItems] = $item->getName();
-            $itemGrossPrice = $item->getGrossPrice();
-            $postData[self::ITEM_TAX_PERCENTAGE . $numberOfItems] = $item->getTaxPercentage(); //@TODO is always defined?
-            $discounts = $item->getDiscounts()->getData();
+            $postData[self::ITEM_TAX_PERCENTAGE . $numberOfItems] = $item->getTaxPercentage();
+            $postData = $this->addItemDiscountInfo($item, $numberOfItems, $postData);
+            $postData = $this->addProductAttributesInfo($item, $numberOfItems, $postData);
+        }
+        $postData[self::ITEMS_NUMBER] = count($items);
 
-            //@TODO ArtikelGewicht: product weight
-//            $attributes = $searchProductBySKU -> {attributes} //@TODO Product characteristics ? leave empty
+        return $postData;
+    }
 
-            $postData[self::ITEM_PRICE . $numberOfItems] = 0; // @TODO get Total discount
+    /**
+     * @param SpySalesOrderItem $item
+     * @param $numberOfItems
+     * @param array $postData
+     * @return array
+     */
+    protected function addProductAttributesInfo(SpySalesOrderItem $item, $numberOfItems, array $postData)
+    {
+        // @TODO add product attributes (e.g: "Kartoffel, Size...") (const ITEM_ATTRIBUTE) as String "label:value|label2:value2|label3:value3"
+        // @TODO add product URL (const ITEM_LINK)
+        // @TODO add product weight (const ITEM_WEIGHT)
+        return $postData;
+    }
+
+    /**
+     * @param SpySalesOrderItem $item
+     * @param $numberOfItems
+     * @param array $postData
+     * @return array
+     */
+    protected function addItemDiscountInfo(SpySalesOrderItem $item, $numberOfItems, array $postData)
+    {
+        if (!null == $item->getDiscounts()->getData()) {
+            // @TODO calculate Discounts information (const PAYMENT_CHARGE or ITEM_PRICE)
+        } else {
+            $postData[self::ITEM_PRICE . $numberOfItems] = 0;
         }
 
         return $postData;
@@ -223,7 +266,6 @@ class OrderExporterManager
         return $postData;
     }
 
-
     /**
      * @param array $afterBuyInfo
      * @return string
@@ -245,19 +287,9 @@ class OrderExporterManager
      */
     protected function sendOrderInfoToAfterBuy($postVariables)
     {
-        die('do not send for test');
-        $connexion = curl_init();
-        curl_setopt($connexion, CURLOPT_URL, "$this->afterbuyUrl");
-        curl_setopt($connexion, CURLOPT_SSL_VERIFYPEER, 0);
-        curl_setopt($connexion, CURLOPT_SSL_VERIFYHOST, 0);
-        curl_setopt($connexion, CURLOPT_POST, 1);
-        curl_setopt($connexion, CURLOPT_RETURNTRANSFER, 1);
-        curl_setopt($connexion, CURLOPT_POSTFIELDS, $postVariables);
+        $sendingResult = $this->afterbuyConnector->sendToAfterBuy($postVariables);
 
-        $resultConnexion = curl_exec($connexion);
-        curl_close($connexion);
-
-        return $resultConnexion;
+        return $sendingResult;
     }
 
     /** @TODO: do we still need to send the email???? */
