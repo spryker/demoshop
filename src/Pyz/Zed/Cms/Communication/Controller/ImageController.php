@@ -30,7 +30,7 @@ class ImageController extends AbstractController
             throw new BadRequestHttpException('Only POST is allowed for file uploads');
         }
 
-        $file = $request->request->get(self::FILE_REQUEST);
+        $file = $request->files->get(self::FILE_REQUEST);
         if ($file === null || ($file->isValid() === false)) {
             throw new BadRequestHttpException('No file sent');
         }
@@ -38,7 +38,7 @@ class ImageController extends AbstractController
         $fileUploaded = $this->getFileUploadFacade()->saveFile(self::FILE_TYPE, $file);
 
         if ($fileUploaded === false) {
-            throw new HttpException('Could not upload file');
+            throw new HttpException(500, 'Could not upload file');
         }
 
         return $this->redirectResponse('/cms/image');
