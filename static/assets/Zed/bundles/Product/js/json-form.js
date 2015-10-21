@@ -21,18 +21,18 @@
 
 
     // append button to remove item
-    $container.find('.json-form__container--array').children('.entry, .json-form__container').prepend('<div class="button button--remove js-remove-item btn btn-sm btn-outline btn-danger">Remove</div>');
+    $container.find('.json-form__container--array').children('.json-form__entry, .json-form__container').prepend('<div class="json-form__button js-remove-item btn btn-sm btn-outline btn-danger">Remove</div>');
 
     // create array item template from first elements
     $container.find('.json-form__container--array').each(function () {
-      var $template = $(this).children('.json-form__container, .entry').eq(0).clone();
+      var $template = $(this).children('.json-form__container, .json-form__entry').eq(0).clone();
 
       if ($template.size()) {
         prepareTemplate($template);
         $(this).attr('data-template', $template.prop('outerHTML'));
 
         // append button to add more items
-        $(this).append('<div class="button button--add js-add-item btn btn-sm btn-outline btn-info">Add</div>');
+        $(this).append('<div class="json-form__button js-add-item btn btn-sm btn-outline btn-info">Add</div>');
       }
     });
 
@@ -95,7 +95,7 @@
           }
 
           if (isNaN(parseInt(key, 10))){
-            $subparent.prepend($('<p class="key">' + key + '</p>'));
+            $subparent.prepend($('<p class="json-form__key">' + key + '</p>'));
           }
 
           $parent.append($subparent);
@@ -109,7 +109,7 @@
 
   // add text element to given parent dom element
   function addTextfield($parent, key, value) {
-    var $el = $('<div class="entry"><textarea data-key="' + key + '">' + value + '</textarea></div>');
+    var $el = $('<div class="json-form__entry"><textarea data-key="' + key + '">' + value + '</textarea></div>');
 
     // no label for array indices
     if (isNaN(parseInt(key, 10))){
@@ -124,7 +124,7 @@
   function getDataFromUi ($element, type) {
     var $entries, data;
 
-    $entries = $element.find('> .entry textarea');
+    $entries = $element.find('> .json-form__entry textarea');
     data = type === 'array' ? [] : {};
 
     $entries.each(function () {

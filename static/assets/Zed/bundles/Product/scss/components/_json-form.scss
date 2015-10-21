@@ -83,7 +83,7 @@
 
 
 
-.entry{
+.json-form__entry{
   position: relative;
   margin-top: 10px;
   width: 50%;
@@ -103,24 +103,26 @@
 }
 
 
-.key{
+.json-form__key{
   text-align: center;
   text-transform: uppercase;
   font-weight: bold;
 }
 
 
-.button--add{
-  float: left;
-  clear: both;
-  margin: 10px 0 0 !important;
-}
 
-.button--remove{
-  float: right;
-  margin-bottom: -25px !important;
-}
 
 .json-form__button{
   margin-top: 15px;
+
+  &.js-add-item{
+    float: left;
+    clear: both;
+    margin: 10px 0 0 !important;
+  }
+
+  &.js-remove-item{
+    float: right;
+    margin: 0 0 -25px !important;
+  }
 }
