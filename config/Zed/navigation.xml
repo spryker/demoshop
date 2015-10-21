@@ -4,42 +4,81 @@
         <label>Sales</label>
         <title>Sales</title>
         <uri>/sales</uri>
+        <icon>fa-shopping-cart</icon>
     </sales>
     <customer>
         <label>Customers</label>
         <title>Customers</title>
         <uri>/customer</uri>
+        <icon>fa-users</icon>
     </customer>
+    <category>
+        <label>Category</label>
+        <title>Category</title>
+        <icon>fa-sitemap</icon>
+    </category>
+    <content>
+        <label>CMS</label>
+        <title>CMS</title>
+        <uri>/glossary</uri>
+        <icon>fa-files-o</icon>
+    </content>
+    <glossary>
+        <label>Glossary</label>
+        <title>Glossary</title>
+        <uri>/glossary</uri>
+        <icon>fa-globe</icon>
+    </glossary>
+    <product>
+        <label>Products</label>
+        <title>Products</title>
+        <uri>/product/import</uri>
+        <icon>fa-database</icon>
+    </product>
+    <discount>
+        <label>Discount</label>
+        <title>Discount</title>
+        <uri>#</uri>
+        <icon>fa-credit-card</icon>
+    </discount>
+    <payment>
+        <label>Payment</label>
+        <title>Payment</title>
+        <uri>/payment</uri>
+        <visible>0</visible>
+        <icon>fa-eur</icon>
+    </payment>
+    <shipment>
+        <label>Shipment</label>
+        <title>Shipment</title>
+        <uri>/shipment</uri>
+        <icon>fa-truck</icon>
+    </shipment>
+    <logistic>
+        <label>Logistic</label>
+        <title>Logistic</title>
+        <uri>/logistic</uri>
+        <visible>0</visible>
+        <icon>fa-calculator</icon>
+    </logistic>
+    <acl>
+        <label>Users Control</label>
+        <title>Users Control</title>
+        <uri>/acl</uri>
+        <icon>fa-users</icon>
+    </acl>
     <catalog>
         <label>Catalog</label>
         <title>Catalog</title>
         <uri>/catalog/product</uri>
         <visible>0</visible>
     </catalog>
-    <product>
-        <label>Product</label>
-        <title>Product</title>
-        <uri>/product/import</uri>
-        <visible>0</visible>
-    </product>
-    <content>
-        <label>CMS</label>
-        <title>CMS</title>
-        <uri>/glossary</uri>
-    </content>
     <marketing>
         <label>Marketing</label>
         <title>Marketing</title>
         <uri>/salesrule</uri>
         <visible>0</visible>
     </marketing>
-    <!--<dwh/>-->
-    <acl>
-        <label>Acl</label>
-        <title>Acl</title>
-        <uri>/acl</uri>
-        <visible>1</visible>
-    </acl>
     <lumberjack>
         <label>Lumberjack</label>
         <title>Lumberjack</title>
@@ -55,25 +94,7 @@
     <development>
         <label>Development</label>
         <title>Development</title>
-        <uri>/uiExample</uri>
-    </development>
-    <discount>
-        <label>Discount</label>
-        <title>Discount</title>
         <uri>#</uri>
-    </discount>
-    <category>
-        <label>Category</label>
-        <title>Category</title>
-    </category>
-    <shipment>
-        <label>Shipment</label>
-        <title>Shipment</title>
-        <uri>/shipment</uri>
-    </shipment>
-    <user>
-        <label>Users</label>
-        <title>Users</title>
-        <uri>/user</uri>
-    </user>
+        <icon>fa-code</icon>
+    </development>
 </config>
