@@ -1,0 +1,126 @@
+
+.json-form__data{
+  width: 100%;
+  border-color: #CCC;
+
+  & + .json-form__container{
+    width: 100%;
+    padding: 0;
+
+    .json-form__container{
+      width: 100%;
+    }
+  }
+
+  &.js-processed{
+      position: absolute;
+      top: -10000em;
+  }
+}
+
+
+.json-form__container{
+  clear: both;
+  position: relative;
+
+  &:after{
+    content: '';
+    display: table;
+    clear: both;
+    visibility: hidden;
+  }
+
+  *{
+    box-sizing: border-box;
+  }
+
+  .json-form__container:last-child{
+    margin-bottom: 0;
+  }
+
+  .json-form__container {
+    padding: 10px 10px 10px 15px;
+    background: rgba(0, 0, 0, 0.06);
+  }
+
+  .json-form__container, .entry {
+    margin-bottom: 30px;
+  }
+
+  .json-form__container{
+    .json-form__container, .entry{
+      margin-bottom: 0;
+    }
+  }
+
+  textarea {
+    margin-bottom: 10px;
+    padding: 5px;
+    font-size: 12px;
+    display: block;
+    width: 100%;
+    border-color: #CCC;
+  }
+}
+
+
+
+
+.json-form__container--array {
+  & > .json-form__container:nth-child(2n+1) {
+    background: rgba(0, 0, 0, 0);
+    border: 1px solid rgba(0, 0, 0, 0.1);
+  }
+
+  & > .entry{
+    padding-top: 25px;
+  }
+
+  & > .entry .button--remove{
+    top: 0;
+  }
+}
+
+
+
+.entry{
+  position: relative;
+  margin-top: 10px;
+  width: 50%;
+  float: left;
+  clear: right;
+
+  &:nth-child(2n+1){
+    padding-left: 10px;
+  }
+
+  label{
+    margin-bottom: 5px;
+    display: block;
+    font-weight: bold;
+    text-transform: capitalize;
+  }
+}
+
+
+.key{
+  text-align: center;
+  text-transform: uppercase;
+  font-weight: bold;
+}
+
+
+.button--add{
+  float: left;
+  clear: both;
+  margin: 10px 0 0 !important;
+}
+
+.button--remove{
+  float: right;
+  margin-bottom: -25px !important;
+}
+
+.json-form__button{
+  margin-top: 15px;
+}

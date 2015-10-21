@@ -17,10 +17,28 @@
         <visible>0</visible>
     </catalog>
     <product>
-        <label>Product</label>
-        <title>Product</title>
-        <uri>/product/import</uri>
-        <visible>0</visible>
+      <label>Products</label>
+      <title>Products</title>
+      <uri>/Product</uri>
+      <pages>
+          <productlist>
+              <label>Product List</label>
+              <title>Product List</title>
+              <bundle>product</bundle>
+              <controller>index</controller>
+              <action>index</action>
+              <order>0</order>
+              <visible>1</visible>
+          </productlist>
+          <productimport>
+              <label>Import/Update</label>
+              <title>Import/Update</title>
+              <bundle>product</bundle>
+              <controller>import</controller>
+              <action>index</action>
+              <visible>1</visible>
+          </productimport>
+      </pages>
     </product>
     <content>
         <label>CMS</label>
