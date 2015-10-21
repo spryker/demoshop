@@ -42,8 +42,8 @@ $renameNamespaceAndPackage = function () {
         $bundleNameFromSchema = str_replace(['spy_', '.schema.xml'], '', $schema->getRelativePathname());
         $bundleNameFromSchema = $filter->filter($bundleNameFromSchema);
 
-        $content = preg_replace('/namespace="(.*?)"/', 'namespace="Propel"', $content);
-        $content = preg_replace('/\spackage="(.*?)"/', ' package="src.Propel" bundle="' . $bundleNameFromSchema . '"', $content);
+        $content = preg_replace('/namespace="(.*?)"/', 'namespace="Propel\\Zed"', $content);
+        $content = preg_replace('/\spackage="(.*?)"/', ' package="src.Propel.Zed" bundle="' . $bundleNameFromSchema . '"', $content);
 
 //        $content = preg_replace('/namespace="(.*?)"/', 'namespace="Propel\\' . $bundleNameFromSchema . '"', $content);
 //        $content = preg_replace('/\spackage="(.*?)"/', ' package="src.Propel.' . $bundleNameFromSchema . '" bundle="' . $bundleNameFromSchema . '"', $content);
@@ -127,6 +127,5 @@ $updateVendorClasses = function () {
 };
 
 $renameNamespaceAndPackage();
-//$addBaseClassToTables();
 $removeMapAndBaseClasses();
-$updateVendorClasses();
+
