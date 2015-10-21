@@ -20,23 +20,23 @@ class CheckoutType extends AbstractType
     const FIELD_TERMS = 'terms';
 
     /**
-     * @var ShipmentInterface
-     */
-    protected $shipmentTransfer;
-
-    /**
      * @var Request
      */
     protected $request;
 
     /**
-     * @param ShipmentInterface $shipmentTransfer
-     * @param Request $request
+     * @var ShipmentInterface
      */
-    public function __construct(ShipmentInterface $shipmentTransfer, Request $request)
+    protected $shipmentTransfer;
+
+    /**
+     * @param Request $request
+     * @param ShipmentInterface $shipmentTransfer
+     */
+    public function __construct(Request $request, ShipmentInterface $shipmentTransfer)
     {
-        $this->shipmentTransfer = $shipmentTransfer;
         $this->request = $request;
+        $this->shipmentTransfer = $shipmentTransfer;
     }
 
     /**
@@ -93,7 +93,7 @@ class CheckoutType extends AbstractType
                     'style' => 'display: block;',
                 ],
             ])
-            ->add(self::FIELD_PAYOLUTION_PAYMENT, new PayolutionType(400, $this->request), [
+            ->add(self::FIELD_PAYOLUTION_PAYMENT, new PayolutionType($this->request, 400), [
                 'data_class' => 'Generated\Shared\Transfer\PayolutionPaymentTransfer',
                 'error_bubbling' => true,
                 'attr' => [

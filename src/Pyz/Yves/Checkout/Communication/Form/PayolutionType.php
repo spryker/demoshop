@@ -26,23 +26,23 @@ class PayolutionType extends AbstractType
     const FIELD_CLIENT_IP = 'client_ip';
 
     /**
-     * @var int
-     */
-    private $tabIndexOffset = 0;
-
-    /**
      * @var Request
      */
     private $request;
 
     /**
-     * @param int $tabIndexOffset
-     * @param Request $request
+     * @var int
      */
-    public function __construct($tabIndexOffset = 0, Request $request)
+    private $tabIndexOffset = 0;
+
+    /**
+     * @param Request $request
+     * @param int $tabIndexOffset
+     */
+    public function __construct(Request $request, $tabIndexOffset = 0)
     {
-        $this->tabIndexOffset = $tabIndexOffset;
         $this->request = $request;
+        $this->tabIndexOffset = $tabIndexOffset;
     }
 
     /**

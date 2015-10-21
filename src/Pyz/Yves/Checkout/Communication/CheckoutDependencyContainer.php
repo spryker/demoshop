@@ -42,15 +42,15 @@ class CheckoutDependencyContainer extends AbstractCommunicationDependencyContain
     }
 
     /**
-     * @param ShipmentInterface $shipmentTransfer
      * @param Request $request
+     * @param ShipmentInterface $shipmentTransfer
      *
      * @return CheckoutType
      */
-    public function createCheckoutForm(ShipmentInterface $shipmentTransfer, Request $request)
+    public function createCheckoutForm(Request $request, ShipmentInterface $shipmentTransfer)
     {
         return $this->getFactory()
-            ->createFormCheckoutType($shipmentTransfer, $request)
+            ->createFormCheckoutType($request, $shipmentTransfer)
         ;
     }
 
