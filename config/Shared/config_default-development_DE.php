@@ -4,6 +4,7 @@ use SprykerFeature\Shared\Mail\MailConfig;
 use SprykerFeature\Shared\System\SystemConfig;
 use SprykerFeature\Shared\Yves\YvesConfig;
 use SprykerEngine\Shared\Lumberjack\LumberjackConfig;
+use PavFeature\Shared\FileUpload\FileUploadConfig;
 
 $config[SystemConfig::ZED_DB_USERNAME] = 'development';
 $config[SystemConfig::ZED_DB_PASSWORD] = 'mate20mg';
@@ -51,4 +52,11 @@ $config[SystemConfig::ZED_RABBITMQ_VHOST] = '/DE_development_zed';
 
 $config[LumberjackConfig::WRITER_OPTIONS] = [
     '\SprykerEngine\Shared\Lumberjack\Model\Writer\File' => ['log_path' => '/data/logs/development/DE/'],
+];
+
+$config[FileUploadConfig::STORAGE] = [
+    'cms' => [
+            FileUploadConfig::CONFIG_TYPE => FileUploadConfig::ADAPTER_LOCAL,
+            FileUploadConfig::CONFIG_CONFIG => ['path' => '/data/shop/development/shared/uploads']
+    ],
 ];

@@ -18,6 +18,8 @@ class CmsDependencyProvider extends SprykerCmsDependencyProvider
 
     const FACADE_TOUCH = 'touch facade';
 
+    const FACADE_FILE_UPLOAD = 'file upload facade';
+
     /**
      * @param Container $container
      *
@@ -51,4 +53,14 @@ class CmsDependencyProvider extends SprykerCmsDependencyProvider
         return $container;
     }
 
+    public function provideCommunicationLayerDependencies(Container $container)
+    {
+        parent::provideCommunicationLayerDependencies($container);
+
+        $container[self::FACADE_FILE_UPLOAD] = function (Container $container) {
+            return $container->getLocator()->fileUpload()->facade();
+        };
+
+        return $container;
+    }
 }

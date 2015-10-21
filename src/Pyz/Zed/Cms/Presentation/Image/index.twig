@@ -1,0 +1,41 @@
+{% extends '@Gui/Layout/layout.twig' %}
+
+{% block content %}
+
+    {% embed '@Gui/Partials/widget.twig' with { widget_title: 'CMS files' } %}
+        {% block widget_content %}
+
+            <table class="footable table table-striped toggle-arrow-tiny">
+                <thead>
+                <tr class="text-left">
+                    <th>{{ 'Name' | trans }}</th>
+                    <th>{{ 'Accessable at' | trans }}</th>
+                    <th>{{ 'Uploaded' | trans }}</th>
+                </tr>
+                </thead>
+                <tbody>
+                {% for file in files %}
+                    <tr>
+                        <td>{{ file.basename }}</td>
+                        <td>???</td>
+                        <td>{{ file.timestamp | date('Y.m.d H:i:s') }}</td>
+                    </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+
+            {% endblock %}
+        {% endembed %}
+
+        {% embed '@Gui/Partials/widget.twig' with { widget_title: 'Upload CMS file' } %}
+            {% block widget_content %}
+
+                <form action="/cms/image/upload" method="post" enctype="multipart/form-data">
+                    <input type="file" name="{{ file_request }}">
+                    <input type="submit">
+                </form>
+
+            {% endblock %}
+        {% endembed %}
+
+{% endblock %}
