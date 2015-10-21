@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
-<database xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" name="zed" xsi:noNamespaceSchemaLocation="http://xsd.propelorm.org/1.6/database.xsd" namespace="Pyz\Zed\OrderExporter\Persistence\Propel" >
+<database xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" name="zed" xsi:noNamespaceSchemaLocation="http://xsd.propelorm.org/1.6/database.xsd" namespace="Pyz\Zed\OrderExporter\Persistence\Propel" package="src.Pyz.Zed.OrderExporter.Persistence.Propel">
 
-    <table name="pyz_afterbuy_response" phpName="PyzAfterbuyResponse">
+    <table name="pd_afterbuy_response" phpName="PdAfterbuyResponse">
         <column name="id_afterbuy_response" type="INTEGER" primaryKey="true" autoIncrement="true"/>
         <foreign-key foreignTable="spy_sales_order" phpName="SpySalesOrder" refPhpName="PyzAfterbuyResponse">
             <reference local="fk_order" foreign="id_sales_order"/>
@@ -10,6 +10,9 @@
         <column name="success" type="BOOLEAN" />
         <column name="full_response" type="LONGVARCHAR" />
         <column name="errors_list" type="LONGVARCHAR" />
+
+        <behavior name="timestampable"/>
+
     <id-method-parameter value="spy_afterbuy_response_pk_seq"/></table>
 
 </database>
