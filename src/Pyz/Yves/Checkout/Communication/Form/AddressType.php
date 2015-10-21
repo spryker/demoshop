@@ -7,8 +7,16 @@ use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\Validator\Constraints as Assert;
 
-class Address extends AbstractType
+class AddressType extends AbstractType
 {
+
+    const FIELD_FIRST_NAME = 'first_name';
+    const FIELD_LAST_NAME = 'last_name';
+    const FIELD_STREET = 'street';
+    const FIELD_STREET_NR = 'street_nr';
+    const FIELD_CITY = 'city';
+    const FIELD_ZIP_CODE = 'zip_code';
+    const FIELD_ISO_2_CODE = 'iso2code';
 
     /**
      * @var int
@@ -38,7 +46,7 @@ class Address extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('first_name', 'text', [
+            ->add(self::FIELD_FIRST_NAME, 'text', [
 //                'constraints' => [
 //                    new Assert\NotBlank(),
 //                ],
@@ -47,11 +55,11 @@ class Address extends AbstractType
                 'attr' => [
                     'tabindex' => 10 + $this->offset,
                     'class' => 'padded js-checkout-name',
-                    'placeholder' => 'Vorname',
+                    'placeholder' => 'customer.first_name',
                     'style' => 'width: 24%; float: left;',
                 ],
             ])
-            ->add('last_name', 'text', [
+            ->add(self::FIELD_LAST_NAME, 'text', [
 //                'constraints' => [
 //                    new Assert\NotBlank(),
 //                ],
@@ -60,25 +68,11 @@ class Address extends AbstractType
                 'attr' => [
                     'tabindex' => 20 + $this->offset,
                     'class' => 'padded js-checkout-name',
-                    'placeholder' => 'Name',
+                    'placeholder' => 'customer.last_name',
                     'style' => 'width: 24%; float: right; margin-right: 50%; clear: none',
                 ],
             ])
-            ->add('street_nr', 'text', [
-//                'constraints' => [
-//                    new Assert\NotBlank()
-//                ],
-                'label' => false,
-                'required' => false,
-                'property_path' => 'address2',
-                'attr' => [
-                    'tabindex' => 40 + $this->offset,
-                    'class' => 'padded js-checkout-name',
-                    'placeholder' => 'Nummer',
-                    'style' => 'float: right; margin-right: 50%; width: 13%;',
-                ],
-            ])
-            ->add('street', 'text', [
+            ->add(self::FIELD_STREET, 'text', [
 //                'constraints' => [
 //                    new Assert\NotBlank()
 //                ],
@@ -88,11 +82,25 @@ class Address extends AbstractType
                 'attr' => [
                     'tabindex' => 30 + $this->offset,
                     'class' => 'padded js-checkout-name',
-                    'placeholder' => 'Straße',
+                    'placeholder' => 'address.street',
                     'style' => 'width: 35%; float: left;',
                 ],
             ])
-            ->add('city', 'text', [
+            ->add(self::FIELD_STREET_NR, 'text', [
+//                'constraints' => [
+//                    new Assert\NotBlank()
+//                ],
+                'label' => false,
+                'required' => false,
+                'property_path' => 'address2',
+                'attr' => [
+                    'tabindex' => 40 + $this->offset,
+                    'class' => 'padded js-checkout-name',
+                    'placeholder' => 'address.street_nr',
+                    'style' => 'float: right; margin-right: 50%; width: 13%;',
+                ],
+            ])
+            ->add(self::FIELD_CITY, 'text', [
 //                'constraints' => [
 //                    new Assert\NotBlank()
 //                ],
@@ -101,11 +109,11 @@ class Address extends AbstractType
                 'attr' => [
                     'tabindex' => 60 + $this->offset,
                     'class' => 'padded js-checkout-name',
-                    'placeholder' => 'Stadt',
+                    'placeholder' => 'address.city',
                     'style' => 'width: 38%; float: right; margin-right: 50%;',
                 ],
             ])
-            ->add('zip_code', 'text', [
+            ->add(self::FIELD_ZIP_CODE, 'text', [
 //                'constraints' => [
 //                    new Assert\NotBlank()
 //                ],
@@ -114,11 +122,11 @@ class Address extends AbstractType
                 'attr' => [
                     'tabindex' => 50 + $this->offset,
                     'class' => 'padded js-checkout-name',
-                    'placeholder' => 'PLZ',
+                    'placeholder' => 'address.zip_code',
                     'style' => 'width: 10%;',
                 ],
             ])
-            ->add('iso2code', 'hidden', [
+            ->add(self::FIELD_ISO_2_CODE, 'hidden', [
                 'data' => 'DE',
             ])
         ;

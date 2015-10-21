@@ -42,7 +42,7 @@ class CheckoutController extends AbstractController
         $shipmentTransfer = $container->createShipmentClient()
             ->getAvailableMethods($shipmentMethodAvailabilityTransfer)
         ;
-        $checkoutForm = $container->createCheckoutForm($shipmentTransfer);
+        $checkoutForm = $container->createCheckoutForm($shipmentTransfer, $request);
         $checkoutTransfer = new CheckoutRequestTransfer();
         $checkoutTransfer->setIsGuest(true); // @TODO: only for Development
 

@@ -1,9 +1,5 @@
 keys:
 
-  general.customer.salutation.mr:
-    translations:
-      de_DE: 'Herr'
-
   page.home.featured.top-left.left.width:
     translations:
       de_DE: '1'
@@ -354,3 +350,50 @@ keys:
     translations:
       de_DE: 'Hermes'
 
+  customer.first_name:
+    translations:
+      de_DE: 'Vorname'
+  customer.last_name:
+    translations:
+      de_DE: 'Name'
+  customer.salutation.mr:
+    translations:
+      de_DE: 'Herr'
+  customer.salutation.mrs:
+    translations:
+      de_DE: 'Frau'
+  customer.birth_date:
+    translations:
+      de_DE: 'Geburtsdatum (TT.MM.YYYY)'
+  customer.email:
+    translations:
+      de_DE: 'E-Mail Adresse'
+  customer.phone:
+    translations:
+      de_DE: 'Telefonnummer'
+
+  payment.prepay:
+    translations:
+      de_DE: 'Vorkasse'
+  payment.paypal:
+    translations:
+      de_DE: 'PayPal'
+  payment.creditcard:
+    translations:
+      de_DE: 'Kreditkarte'
+  payment.invoice:
+    translations:
+      de_DE: 'Rechnung'
+
+  address.street:
+    translations:
+      de_DE: 'Straße'
+  address.street_nr:
+    translations:
+      de_DE: 'Nummer'
+  address.city:
+    translations:
+      de_DE: 'Stadt'
+  address.zip_code:
+    translations:
+      de_DE: 'PLZ'

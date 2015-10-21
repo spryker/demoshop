@@ -10,8 +10,9 @@ use SprykerFeature\Shared\Payolution\PayolutionApiConstants;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
+use Symfony\Component\HttpFoundation\Request;
 
-class Payolution extends AbstractType
+class PayolutionType extends AbstractType
 {
 
     const FIELD_ADDRESS = 'address';
@@ -30,11 +31,18 @@ class Payolution extends AbstractType
     private $tabIndexOffset = 0;
 
     /**
-     * @param int $tabIndexOffset
+     * @var Request
      */
-    public function __construct($tabIndexOffset = 0)
+    private $request;
+
+    /**
+     * @param int $tabIndexOffset
+     * @param Request $request
+     */
+    public function __construct($tabIndexOffset = 0, Request $request)
     {
         $this->tabIndexOffset = $tabIndexOffset;
+        $this->request = $request;
     }
 
     /**
@@ -52,14 +60,14 @@ class Payolution extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add(self::FIELD_ADDRESS, new Address($this->tabIndexOffset + 100), [
+            ->add(self::FIELD_ADDRESS, new AddressType($this->tabIndexOffset + 100), [
                 'data_class' => 'Generated\Shared\Transfer\AddressTransfer',
                 'error_bubbling' => true,
             ])
             ->add(self::FIELD_GENDER, 'choice', [
                 'choices' => [
-                    'Mr' => 'general.customer.salutation.mr',
-                    'Mrs' => 'Frau',
+                    'Mr' => 'customer.salutation.mr',
+                    'Mrs' => 'customer.salutation.mrs',
                 ],
                 'property_path' => 'address.salutation',
                 'label' => false,
@@ -78,7 +86,7 @@ class Payolution extends AbstractType
                 'format' => 'dd.MM.yyyy',
                 'input' => 'string',
                 'attr' => [
-                    'placeholder' => 'Geburtsdatum (TT.MM.YYYY)',
+                    'placeholder' => 'customer.birth_date',
                     'class' => 'padded js-checkout-payolution-payment-date-of-birth',
                     'tabindex' => 160 + $this->tabIndexOffset,
                 ],
@@ -88,7 +96,7 @@ class Payolution extends AbstractType
                 'required' => true,
                 'property_path' => 'address.email',
                 'attr' => [
-                    'placeholder' => 'E-Mail Adresse',
+                    'placeholder' => 'customer.email',
                     'class' => 'padded js-checkout-payolution-payment-email',
                     'tabindex' => 170 + $this->tabIndexOffset,
                 ],
@@ -98,7 +106,7 @@ class Payolution extends AbstractType
                 'required' => true,
                 'property_path' => 'address.phone',
                 'attr' => [
-                    'placeholder' => 'Telefonnummer',
+                    'placeholder' => 'customer.phone',
                     'class' => 'padded js-checkout-payolution-payment-phone',
                     'tabindex' => 180 + $this->tabIndexOffset,
                 ],
@@ -113,7 +121,7 @@ class Payolution extends AbstractType
                 'data' => PayolutionApiConstants::BRAND_INVOICE
             ])
             ->add(self::FIELD_CLIENT_IP, 'hidden', [
-                'data' => '127.0.0.1'
+                'data' => $this->request->getClientIp()
             ]);
     }
 
