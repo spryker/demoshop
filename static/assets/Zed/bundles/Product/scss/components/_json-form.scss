@@ -43,12 +43,12 @@
     background: rgba(0, 0, 0, 0.06);
   }
 
-  .json-form__container, .entry {
+  .json-form__container, .json-form__entry {
     margin-bottom: 30px;
   }
 
   .json-form__container{
-    .json-form__container, .entry{
+    .json-form__container, .json-form__entry{
       margin-bottom: 0;
     }
   }
@@ -72,11 +72,11 @@
     border: 1px solid rgba(0, 0, 0, 0.1);
   }
 
-  & > .entry{
+  & > .json-form__entry{
     padding-top: 25px;
   }
 
-  & > .entry .button--remove{
+  & > .json-form__entry .button--remove{
     top: 0;
   }
 }
