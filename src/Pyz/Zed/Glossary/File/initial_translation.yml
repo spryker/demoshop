@@ -1,4 +1,9 @@
 keys:
+
+  general.customer.salutation.mr:
+    translations:
+      de_DE: 'Herr'
+
   page.home.featured.top-left.left.width:
     translations:
       de_DE: '1'
