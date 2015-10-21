@@ -8,12 +8,16 @@ use PavFeature\Zed\FileUpload\Business\FileUploadFacade;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpKernel\Exception\BadRequestHttpException;
 use Symfony\Component\HttpKernel\Exception\HttpException;
+use Symfony\Component\HttpFoundation\RedirectResponse;
 
 class ImageController extends AbstractController
 {
     const FILE_TYPE = 'cms';
     const FILE_REQUEST = 'uploadedFile';
 
+    /**
+     * @return array
+     */
     public function indexAction()
     {
         $files = $this->getFileUploadFacade()->listFilesByType(self::FILE_TYPE);
@@ -24,6 +28,10 @@ class ImageController extends AbstractController
         ];
     }
 
+    /**
+     * @param Request $request
+     * @return RedirectResponse
+     */
     public function uploadAction(Request $request)
     {
         if($request->isMethod('POST') === false) {
