@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<statemachine
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:noNamespaceSchemaLocation="../process.xsd"
+>
+    <process name="PayolutionRefund">
+        <states>
+            <state name="ready for payolution refund"/>
+            <state name="payolution ful refund accepted"/>
+            <state name="payolution ful refund declined"/>
+            <state name="payolution partial refund accepted"/>
+            <state name="payolution partial refund declined"/>
+        </states>
+        <transitions>
+            <!-- Ful refund -->
+            <transition happy="true" condition="PayolutionOmsConnector/RefundIsApproved">
+                <source>ready for payolution refund</source>
+                <target>payolution ful refund accepted</target>
+                <event>payolution fully refund</event>
+            </transition>
+            <transition>
+                <source>ready for payolution refund</source>
+                <target>payolution ful refund declined</target>
+                <event>payolution fully refund</event>
+            </transition>
+            <transition happy="true" condition="PayolutionOmsConnector/RefundIsApproved">
+                <source>payolution ful refund declined</source>
+                <target>payolution ful refund accepted</target>
+                <event>payolution retry fully refund</event>
+            </transition>
+            <transition>
+                <source>payolution ful refund declined</source>
+                <target>payolution ful refund declined</target>
+                <event>payolution retry fully refund</event>
+            </transition>
+            <!-- Partial refund -->
+            <transition happy="true" condition="PayolutionOmsConnector/RefundIsApproved">
+                <source>ready for payolution refund</source>
+                <target>payolution partial refund accepted</target>
+                <event>payolution partially refund</event>
+            </transition>
+            <transition>
+                <source>ready for payolution refund</source>
+                <target>payolution partial refund declined</target>
+                <event>payolution partially refund</event>
+            </transition>
+            <transition happy="true" condition="PayolutionOmsConnector/RefundIsApproved">
+                <source>payolution partial refund declined</source>
+                <target>payolution partial refund accepted</target>
+                <event>payolution retry partially refund</event>
+            </transition>
+            <transition>
+                <source>payolution partial refund declined</source>
+                <target>payolution partial refund declined</target>
+                <event>payolution retry partially refund</event>
+            </transition>
+            <!-- Exit -->
+            <transition>
+                <source>payolution ful refund accepted</source>
+                <target>payolution refund finished</target>
+                <event>payolution finish refund</event>
+            </transition>
+            <transition>
+                <source>payolution partial refund accepted</source>
+                <target>payolution refund finished</target>
+                <event>payolution finish refund</event>
+            </transition>
+        </transitions>
+        <events>
+            <event name="payolution fully refund" manual="true" command="PayolutionOmsConnector/Refund"/>
+            <event name="payolution retry fully refund" manual="true" command="PayolutionOmsConnector/Refund"/>
+            <event name="payolution partially refund" manual="true" command="PayolutionOmsConnector/Refund"/>
+            <event name="payolution retry partially refund" manual="true" command="PayolutionOmsConnector/Refund"/>
+            <event name="payolution finish refund" onEnter="true"/>
+        </events>
+    </process>
+</statemachine>

@@ -6,9 +6,23 @@ use Generated\Shared\Shipment\ShipmentInterface;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
+use Symfony\Component\HttpFoundation\Request;
 
-class Checkout extends AbstractType
+class CheckoutType extends AbstractType
 {
+
+    const FIELD_EMAIL = 'email';
+    const FIELD_BILLING_ADDRESS = 'billing_address';
+    const FIELD_SHIPPING_ADDRESS = 'shipping_address';
+    const FIELD_PAYMENT_METHOD = 'payment_method';
+    const FIELD_PAYOLUTION_PAYMENT = 'payolution_payment';
+    const FIELD_ID_SHIPMENT_METHOD = 'id_shipment_method';
+    const FIELD_TERMS = 'terms';
+
+    /**
+     * @var Request
+     */
+    protected $request;
 
     /**
      * @var ShipmentInterface
@@ -16,10 +30,12 @@ class Checkout extends AbstractType
     protected $shipmentTransfer;
 
     /**
+     * @param Request $request
      * @param ShipmentInterface $shipmentTransfer
      */
-    public function __construct(ShipmentInterface $shipmentTransfer)
+    public function __construct(Request $request, ShipmentInterface $shipmentTransfer)
     {
+        $this->request = $request;
         $this->shipmentTransfer = $shipmentTransfer;
     }
 
@@ -38,16 +54,16 @@ class Checkout extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('email', 'text', [
+            ->add(self::FIELD_EMAIL, 'text', [
                 //'constraints' => new Email(),
                 'required' => false,
                 'attr' => [
                     'tabindex' => 100,
                     'class' => 'padded js-checkout-email',
-                    'placeholder' => 'Email-Adresse',
+                    'placeholder' => 'customer.email',
                 ],
             ])
-            ->add('billing_address', new Address(200), [
+            ->add(self::FIELD_BILLING_ADDRESS, new AddressType(200), [
                 'data_class' => 'Generated\Shared\Transfer\AddressTransfer',
                 'error_bubbling' => true,
                 'attr' => [
@@ -55,15 +71,20 @@ class Checkout extends AbstractType
                     'style' => 'display: block;',
                 ],
             ])
-            ->add('shipping_address', new Address(300), [
+            ->add(self::FIELD_SHIPPING_ADDRESS, new AddressType(300), [
                 'data_class' => 'Generated\Shared\Transfer\AddressTransfer',
                 'required' => false,
                 'attr' => [
                     'class' => 'js-delivery-address',
                 ],
             ])
-            ->add('payment_method', 'choice', [
-                'choices' => ['prepay' => 'Vorkasse', 'paypal' => 'PayPal', 'creditcard' => 'Kreditkarte'],
+            ->add(self::FIELD_PAYMENT_METHOD, 'choice', [
+                'choices' => [
+                    'prepay' => 'payment.prepay',
+                    'paypal' => 'payment.paypal',
+                    'creditcard' => 'payment.creditcard',
+                    'invoice' => 'payment.invoice',
+                ],
                 'expanded' => true,
                 'multiple' => false,
                 'required' => false,
@@ -72,7 +93,14 @@ class Checkout extends AbstractType
                     'style' => 'display: block;',
                 ],
             ])
-            ->add('id_shipment_method', 'choice', [
+            ->add(self::FIELD_PAYOLUTION_PAYMENT, new PayolutionType($this->request, 400), [
+                'data_class' => 'Generated\Shared\Transfer\PayolutionPaymentTransfer',
+                'error_bubbling' => true,
+                'attr' => [
+                    'class' => 'js-payolution-payment'
+                ]
+            ])
+            ->add(self::FIELD_ID_SHIPMENT_METHOD, 'choice', [
                 'choices' => $this->prepareShipmentMethods(),
                 'expanded' => true,
                 'multiple' => false,
@@ -82,11 +110,11 @@ class Checkout extends AbstractType
                     'style' => 'display: block;',
                 ],
             ])
-            ->add('terms', 'checkbox', [
+            ->add(self::FIELD_TERMS, 'checkbox', [
                 'required' => false,
                 'mapped' => false,
                 'attr' => [
-                    'tabindex' => 400,
+                    'tabindex' => 600,
                     'class' => 'padded confirm__agb js-confirm-agb',
                 ],
             ])

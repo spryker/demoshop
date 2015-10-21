@@ -1,0 +1,10 @@
+# Codeception Test Suite Configuration
+
+# suite for acceptance (web) tests.
+
+# RUN `build` COMMAND AFTER ADDING/REMOVING MODULES.
+
+# @todo WebDriver doesn't work with RemoteDebug extension due to cookie handling.
+modules:
+  enabled:
+    - Asserts

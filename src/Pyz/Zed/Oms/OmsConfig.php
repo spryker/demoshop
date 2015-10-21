@@ -12,6 +12,8 @@ class OmsConfig extends SprykerOmsConfig
 
     const ORDER_PROCESS_PREPAYMENT_01 = 'Prepayment01';
 
+    const ORDER_PROCESS_PAYOLUTION_PAYMENT_01 = 'PayolutionPayment01';
+
     /**
      * @return string
      */
@@ -29,17 +31,9 @@ class OmsConfig extends SprykerOmsConfig
      */
     public function selectProcess(OrderTransfer $orderTransfer)
     {
-        $selectedProcessName = null;
-        $method = 'prepayment';
-        switch ($method) {
-            case 'prepayment':
-                $selectedProcessName = self::ORDER_PROCESS_PREPAYMENT_01;
-                break;
-            default:
-                throw new \RuntimeException('Could not find any statemachine process for new order in ' . get_class($this));
-        }
+        $selectedProcessName = $orderTransfer->getProcess();
 
-        if (!in_array($selectedProcessName, $this->getActiveProcesses())) {
+        if (in_array($selectedProcessName, $this->getActiveProcesses()) === false) {
             throw new \RuntimeException("Process $selectedProcessName is not actived in " . get_class($this));
         }
 
@@ -54,6 +48,7 @@ class OmsConfig extends SprykerOmsConfig
         return [
             self::ORDER_PROCESS_NO_PAYMENT_01,
             self::ORDER_PROCESS_PREPAYMENT_01,
+            self::ORDER_PROCESS_PAYOLUTION_PAYMENT_01,
         ];
     }
 

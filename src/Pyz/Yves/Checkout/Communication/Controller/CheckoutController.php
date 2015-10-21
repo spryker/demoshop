@@ -42,7 +42,7 @@ class CheckoutController extends AbstractController
         $shipmentTransfer = $container->createShipmentClient()
             ->getAvailableMethods($shipmentMethodAvailabilityTransfer)
         ;
-        $checkoutForm = $container->createCheckoutForm($shipmentTransfer);
+        $checkoutForm = $container->createCheckoutForm($request, $shipmentTransfer);
         $checkoutTransfer = new CheckoutRequestTransfer();
         $checkoutTransfer->setIsGuest(true); // @TODO: only for Development
 
@@ -62,6 +62,9 @@ class CheckoutController extends AbstractController
 
                 $checkoutRequest->setCart($this->getCart());
                 $checkoutRequest->setShippingAddress($checkoutRequest->getBillingAddress());
+
+                // @todo CD-408 find a way to obtain the "real" gender
+                $checkoutRequest->getPayolutionPayment()->setGender('Male');
 
                 /** @var CheckoutResponseTransfer $checkoutResponseTransfer */
                 $checkoutResponseTransfer = $checkoutClient->requestCheckout($checkoutRequest);

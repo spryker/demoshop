@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<statemachine
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:noNamespaceSchemaLocation="../process.xsd"
+>
+    <process name="PayolutionCapture">
+        <states>
+            <state name="ready for payolution capture"/>
+            <state name="payolution capture accepted"/>
+            <state name="payolution capture declined"/>
+        </states>
+        <transitions>
+            <transition happy="true" condition="PayolutionOmsConnector/CaptureIsApproved">
+                <source>ready for payolution capture</source>
+                <target>payolution capture accepted</target>
+                <event>payolution capture</event>
+            </transition>
+            <transition>
+                <source>ready for payolution capture</source>
+                <target>payolution capture declined</target>
+                <event>payolution capture</event>
+            </transition>
+            <transition happy="true" condition="PayolutionOmsConnector/CaptureIsApproved">
+                <source>payolution capture declined</source>
+                <target>payolution capture accepted</target>
+                <event>payolution retry capture</event>
+            </transition>
+            <transition>
+                <source>payolution capture declined</source>
+                <target>payolution capture declined</target>
+                <event>payolution retry capture</event>
+            </transition>
+            <!-- Exit -->
+            <transition>
+                <source>payolution capture accepted</source>
+                <target>payolution capture finished</target>
+                <event>payolution finish capture</event>
+            </transition>
+        </transitions>
+        <events>
+            <event name="payolution capture" manual="true" command="PayolutionOmsConnector/Capture"/>
+            <event name="payolution retry capture" manual="true" command="PayolutionOmsConnector/Capture"/>
+            <event name="payolution finish capture" onEnter="true"/>
+        </events>
+    </process>
+</statemachine>

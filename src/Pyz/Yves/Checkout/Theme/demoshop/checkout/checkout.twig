@@ -35,6 +35,7 @@
                     <section class="checkout__form-block js-form-block js-checkout-payment js-checkout-collapsed">
                         <h1 class="form-block__heading">{{ "page.checkout.payment.heading" | trans }}</h1>
                         {{ form_widget(form.payment_method) }}
+                        {{ form_widget(form.payolution_payment) }}
                         <button class="cta js-payment-button" disabled>{{ "page.checkout.payment.next-step" | trans }}</button>
                         <button class="js-edit-formblock form-block__edit">{{ "page.checkout.payment.edit" | trans }}</button>
                     </section>
