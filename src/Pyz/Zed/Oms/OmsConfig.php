@@ -31,21 +31,9 @@ class OmsConfig extends SprykerOmsConfig
      */
     public function selectProcess(OrderTransfer $orderTransfer)
     {
-        $selectedProcessName = null;
-        $method = $orderTransfer->getProcess();
+        $selectedProcessName = $orderTransfer->getProcess();
 
-        switch ($method) {
-            case self::ORDER_PROCESS_PREPAYMENT_01:
-                $selectedProcessName = self::ORDER_PROCESS_PREPAYMENT_01;
-                break;
-            case self::ORDER_PROCESS_PAYOLUTION_PAYMENT_01:
-                $selectedProcessName = self::ORDER_PROCESS_PAYOLUTION_PAYMENT_01;
-                break;
-            default:
-                throw new \RuntimeException('Could not find any statemachine process for new order in ' . get_class($this));
-        }
-
-        if (!in_array($selectedProcessName, $this->getActiveProcesses())) {
+        if (in_array($selectedProcessName, $this->getActiveProcesses()) === false) {
             throw new \RuntimeException("Process $selectedProcessName is not actived in " . get_class($this));
         }
 
