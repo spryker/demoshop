@@ -1,6 +1,6 @@
 {% extends '@Gui/Layout/layout.twig' %}
 
-{% set section_title = 'Products List (Mock Data)' %}
+{% set section_title = ('Products List (Mock Data)' | trans) %}
 
 {% block action %}
     {{ backActionButton('/product', 'List Products' | trans) }}
@@ -8,7 +8,7 @@
 
 {% block content %}
 
-    {% embed '@Gui/Partials/widget.twig' with { widget_title: 'Product data' } %}
+    {% embed '@Gui/Partials/widget.twig' with { widget_title: ('Product data' | trans) } %}
 
         {% block widget_content %}
 
@@ -46,7 +46,7 @@
     {% endembed %}
 
 
-    {% embed '@Gui/Partials/widget.twig' with { widget_title: 'Concrete Products' } %}
+    {% embed '@Gui/Partials/widget.twig' with { widget_title: ('Concrete Products' | trans) } %}
 
         {% block widget_content %}
 
@@ -73,19 +73,19 @@
                                         <table class="table small m-t-sm">
                                             <caption>{{ 'Product details' | trans }}</caption>
                                             <tr>
-                                                <td>Status</td>
+                                                <td>{{ 'Status' | trans }}</td>
                                                 <td>{{ product.isActive }}</td>
                                             </tr>
                                             <tr>
-                                                <td>Type</td>
+                                                <td>{{ 'Type' | trans }}</td>
                                                 <td>{{ product.type }}</td>
                                             </tr>
                                             <tr>
-                                                <td>Format</td>
+                                                <td>{{ 'Format' | trans }}</td>
                                                 <td>{{ product.format }}</td>
                                             </tr>
                                             <tr>
-                                                <td>Wight</td>
+                                                <td>{{ 'Weight' | trans }}</td>
                                                 <td>{{ product.weight }}</td>
                                             </tr>
                                         </table>
@@ -127,7 +127,7 @@
 
 
 
-    {% embed '@Gui/Partials/widget.twig' with { widget_title: 'Product form' } %}
+    {% embed '@Gui/Partials/widget.twig' with { widget_title: ('Product form' | trans) } %}
 
         {% block widget_content %}
 

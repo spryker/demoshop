@@ -21,10 +21,10 @@
 
 
     // append button to remove item
-    $('.json-form__container--array > .entry, .json-form__container--array > .json-form__container').prepend('<div class="button button--remove js-remove-item btn btn-sm btn-outline btn-danger">Remove</div>');
+    $container.find('.json-form__container--array').children('.entry, .json-form__container').prepend('<div class="button button--remove js-remove-item btn btn-sm btn-outline btn-danger">Remove</div>');
 
     // create array item template from first elements
-    $('.json-form__container--array').each(function () {
+    $container.find('.json-form__container--array').each(function () {
       var $template = $(this).children('.json-form__container, .entry').eq(0).clone();
 
       if ($template.size()) {
@@ -75,6 +75,8 @@
 
       // use keys to preserve order
       key = Object.keys(object)[i];
+
+      // fallback for value null
       content = object[key] || '';
 
       switch (typeof content) {
@@ -135,6 +137,7 @@
         data.push(value);
 
       } else {
+        // parse emtpy string back to null
         data[key] = (value === '') ? null : value;
       }
     });
