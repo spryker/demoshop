@@ -1,0 +1,149 @@
+{% extends '@Gui/Layout/layout.twig' %}
+
+{% set section_title = ('Products List (Mock Data)' | trans) %}
+
+{% block action %}
+    {{ backActionButton('/product', 'List Products' | trans) }}
+{% endblock %}
+
+{% block content %}
+
+    {% embed '@Gui/Partials/widget.twig' with { widget_title: ('Product data' | trans) } %}
+
+        {% block widget_content %}
+
+            <div class="ibox product-detail">
+                <div class="ibox-content">
+
+                    <div class="row">
+                        <div class="col-md-12">
+
+                            <h2 class="font-bold m-b-xs">{{ attributes.name }}</h2>
+
+                            <table class="table small m-t-sm">
+                            {% for name, productAttribute in attributes.attributes %}
+                                {% if productAttribute is not iterable %}
+                                <tr>
+                                    <td>{{ name }}</td>
+                                    <td>{{ productAttribute }}</td>
+                                </tr>
+                                {% endif %}
+                            {% endfor %}
+                            </table>
+
+                            {{ 'Categories' | trans }}: {% for category in categories %}
+                            <button class="btn btn-sm btn-primary">{{ category.category_name }}</button>
+                            {% endfor %}
+
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+        {% endblock %}
+
+    {% endembed %}
+
+
+    {% embed '@Gui/Partials/widget.twig' with { widget_title: ('Concrete Products' | trans) } %}
+
+        {% block widget_content %}
+
+            <div class="row">
+                {% for product in concreteProducts %}
+                <div class="col-md-6">
+                    <div class="ibox product-view">
+                        <div class="ibox-content product-box">
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="product-title">
+                                        <a class="product-name" href="#">{{ product.sku }}</a>
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="product-desc">
+                                        <div class="product-image">
+                                            [ 150x150 ]
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="product-desc">
+                                        <table class="table small m-t-sm">
+                                            <caption>{{ 'Product details' | trans }}</caption>
+                                            <tr>
+                                                <td>{{ 'Status' | trans }}</td>
+                                                <td>{{ product.isActive }}</td>
+                                            </tr>
+                                            <tr>
+                                                <td>{{ 'Type' | trans }}</td>
+                                                <td>{{ product.type }}</td>
+                                            </tr>
+                                            <tr>
+                                                <td>{{ 'Format' | trans }}</td>
+                                                <td>{{ product.format }}</td>
+                                            </tr>
+                                            <tr>
+                                                <td>{{ 'Weight' | trans }}</td>
+                                                <td>{{ product.weight }}</td>
+                                            </tr>
+                                        </table>
+                                        <table class="table small m-t-sm">
+                                            <caption>{{ 'Product Options' | trans }}</caption>
+                                            {% for option in product.productOptions %}
+                                            <tr>
+                                                <td>{{ option.type }}</td>
+                                                <td>{{ option.value }}</td>
+                                            </tr>
+                                            {% endfor %}
+                                        </table>
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="product-desc">
+                                        <table class="table small m-t-sm">
+                                            <caption>{{ 'Price List' | trans }}</caption>
+                                            {% for price in product.priceList %}
+                                            <tr>
+                                                <td>{{ price.name }}</td>
+                                                <td>{{ price.value | currency }}</td>
+                                            </tr>
+                                            {% endfor %}
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+
+        {% endblock %}
+
+    {% endembed %}
+
+
+
+    {% embed '@Gui/Partials/widget.twig' with { widget_title: ('Product form' | trans) } %}
+
+        {% block widget_content %}
+
+        <form class="json-form" method="post">
+            <textarea class="json-form__data" name="json">
+                {{ json | json_encode }}
+            </textarea>
+
+            <button class="json-form__button btn btn-sm btn-primary" type="submit">
+                {{ 'Submit' | trans }}
+            </button>
+        </form>
+
+        {% endblock %}
+
+    {% endembed %}
+
+
+{% endblock %}

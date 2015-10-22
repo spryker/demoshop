@@ -1,0 +1,14 @@
+[{
+  "priority": 0,
+  "assets": {
+    "templates": [],
+    "js": [
+      "/js/json-form.js"
+    ],
+    "css": [
+      "/scss/styles.scss"
+    ],
+    "images": [],
+    "fonts": []
+  }
+}]
