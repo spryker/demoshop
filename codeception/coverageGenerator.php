@@ -10,6 +10,9 @@ use Symfony\Component\Yaml\Yaml;
 class Codeception
 {
 
+    /**
+     * @var array
+     */
     private $configurationTemplate = [
         'namespace' => '',
         'actor' => 'Tester',
