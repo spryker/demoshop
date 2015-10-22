@@ -36,6 +36,7 @@ abstract class AbstractFacadeTest extends AbstractFunctionalTest
     const STREET = 'Julie-Wolfthorn-Straße 1';
     const ZIP_CODE = '10115';
     const CITY = 'Berlin';
+    const SALUTATION = 'Mr';
     const COUNTRY_CODE = 'de';
     const CURRENCY_CODE = 'EUR';
     const REFERENCE = 'payolution-test';
@@ -171,6 +172,7 @@ abstract class AbstractFacadeTest extends AbstractFunctionalTest
             ->setCountryIso2Code(self::COUNTRY_CODE)
             ->setLanguageIso2Code(self::COUNTRY_CODE)
             ->setCurrencyIso3Code(self::CURRENCY_CODE);
+
         $this->paymentEntity->save();
     }
 
@@ -241,6 +243,9 @@ abstract class AbstractFacadeTest extends AbstractFunctionalTest
             ->setFirstName(self::FIRST_NAME)
             ->setLastName(self::LAST_NAME)
             ->setAddress1(self::STREET)
+            ->setSalutation(self::SALUTATION)
+            ->setEmail(self::EMAIL)
+            ->setIso2Code(self::COUNTRY_CODE)
             ->setZipCode(self::ZIP_CODE)
             ->setCity(self::CITY)
             ->setFkCountry($country->getIdCountry());
@@ -262,7 +267,8 @@ abstract class AbstractFacadeTest extends AbstractFunctionalTest
             ->setLanguageIso2Code(self::COUNTRY_CODE)
             ->setCurrencyIso3Code(self::CURRENCY_CODE)
             ->setAddress($this->addressTransfer)
-            ->setGender(SpyPaymentPayolutionTableMap::COL_GENDER_FEMALE);
+            ->setGender(SpyPaymentPayolutionTableMap::COL_GENDER_FEMALE)
+        ;
     }
 
     protected function setItemTransferTestData()
