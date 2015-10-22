@@ -1,7 +1,7 @@
 /**
  * run this script with the following command in root folder
  *
- * npm run spy-task-zed
+ * npm run spy-zed
  *
  * or manual
  *
