@@ -108,12 +108,15 @@ class Codeception
             ];
 
             if ($this->hasBundleLayer($bundle, 'Persistence')) {
-                if (count(glob('src/*/Zed/' . $bundle . '/Persistence/Propel/Map/*')) > 0) {
+                if (count(glob(__DIR__ . '/../vendor/spryker/spryker/Bundles/' . $bundle . '/src/*/Zed/' . $bundle . '/Persistence/Propel/Map/*')) > 0) {
                     $bundleConfig['coverage']['whitelist']['exclude'][] = 'src/*/Zed/' . $bundle . '/Persistence/Propel/Map/*';
                 }
-                if (count(glob('src/*/Zed/' . $bundle . '/Persistence/Propel/Base/*')) > 0) {
+                if (count(glob(__DIR__ . '/../vendor/spryker/spryker/Bundles/' . $bundle . '/src/*/Zed/' . $bundle . '/Persistence/Propel/Base/*')) > 0) {
                     $bundleConfig['coverage']['whitelist']['exclude'][] = 'src/*/Zed/' . $bundle . '/Persistence/Propel/Base/*';
                 }
+            }
+            if ($this->hasBundleLayer($bundle, 'Presentation')) {
+                $bundleConfig['coverage']['whitelist']['exclude'][] = 'src/*/Zed/' . $bundle . '/Presentation/*';
             }
 
             $bundleConfig['coverage']['blacklist'] = [
