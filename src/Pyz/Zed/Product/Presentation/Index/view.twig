@@ -132,9 +132,7 @@
         {% block widget_content %}
 
         <form class="json-form" method="post">
-            <textarea class="json-form__data" name="json">
-                {{ json | json_encode }}
-            </textarea>
+            <textarea class="json-form__data" name="json">{{ json | json_encode }}</textarea>
 
             <button class="json-form__button btn btn-sm btn-primary" type="submit">
                 {{ 'Submit' | trans }}
