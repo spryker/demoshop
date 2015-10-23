@@ -12,6 +12,7 @@ echo "Source code revision: ${revision}, size: ${size}B - starting build process
 
 ## Composer
 php composer.phar install --optimize-autoloader
+php composer.phar update "project-a/spryker" --optimize-autoloader
 
 vendor/bin/build-multiple-core-class-map
 
