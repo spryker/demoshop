@@ -12,15 +12,18 @@ echo "Source code revision: ${revision}, size: ${size}B - starting build process
 
 ## Composer
 php composer.phar install --optimize-autoloader
+php composer.phar update "project-a/spryker" --optimize-autoloader
+
+vendor/bin/build-multiple-core-class-map
 
 ## NPM
 npm install --loglevel warn
-npm run spy-setup all
+npm run spy-setup
 
 find vendor/ -type d -name .git | xargs rm -rf
 
-vendor/bin/console transfer:generate
-vendor/bin/console setup:deploy:prepare_propel
+vendor/bin/pav-console transfer:generate
+vendor/bin/pav-console setup:deploy:prepare_propel
 
 rm -rf $outfile
 exit 0

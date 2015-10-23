@@ -27,9 +27,9 @@ fi
 cd $BASEDIR
 cd ..
 
-vendor/bin/console setup:propel:database:create
-vendor/bin/console setup:propel:diff
-vendor/bin/console setup:propel:migrate
+vendor/bin/pav-console setup:propel:database:create
+vendor/bin/pav-console setup:propel:diff
+vendor/bin/pav-console setup:propel:migrate
 
 
 
