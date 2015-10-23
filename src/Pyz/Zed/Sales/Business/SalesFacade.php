@@ -13,14 +13,25 @@ use SprykerFeature\Zed\Sales\Persistence\Propel\Base\SpySalesOrder;
 class SalesFacade extends SprykerSalesFacade implements SalesCheckoutConnectorToSalesInterface, OrderExporterToSalesInterface
 {
     /**
-     * @param int $orderId
-     * @return SpySalesOrder
+     * @param int $orderItemId
+     * @return \SprykerFeature\Zed\Sales\Persistence\Propel\SpySalesOrderItem
      */
-    public function getOrderBySalesOrderId($orderId)
+    public function getOrderItemById($orderItemId)
     {
         return $this->getDependencyContainer()
             ->createSalesManager()
-            ->getOrderDetailsBySalesId($orderId);
+            ->getOrderItemById($orderItemId);
+    }
+
+    /**
+     * @param $salesOrderId
+     * @return \SprykerFeature\Zed\Sales\Persistence\Propel\SpySalesOrder
+     */
+    public function getSalesOrderById($salesOrderId)
+    {
+        return $this->getDependencyContainer()
+            ->createSalesManager()
+            ->getOrderDetailsBySalesId($salesOrderId);
     }
 
 }
