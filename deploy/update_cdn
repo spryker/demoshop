@@ -10,8 +10,8 @@ export APPLICATION_ENV=$environment
 
 cd $BASEDIR
 cd ../
-vendor/bin/console collector:search:export
-vendor/bin/console collector:storage:export
+vendor/bin/pav-console collector:search:export
+vendor/bin/pav-console collector:storage:export
 
 
 

@@ -19,8 +19,8 @@ npm run spy-setup all
 
 find vendor/ -type d -name .git | xargs rm -rf
 
-vendor/bin/console transfer:generate
-vendor/bin/console setup:deploy:prepare_propel
+vendor/bin/pav-console transfer:generate
+vendor/bin/pav-console setup:deploy:prepare_propel
 
 rm -rf $outfile
 exit 0
