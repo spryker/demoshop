@@ -8,6 +8,8 @@
         <property name="success" type="bool" />
         <property name="errors_list" type="string" />
         <property name="full_response" type="string" />
+        <property name="request" type="string" />
+        <property name="http_status_code" type="string" />
     </transfer>
 
 </transfers>
