@@ -3,6 +3,7 @@
 namespace Pyz\Zed\Sales\Persistence;
 
 use SprykerFeature\Zed\Sales\Persistence\Propel\Base\SpySalesOrderQuery;
+use SprykerFeature\Zed\Sales\Persistence\Propel\SpySalesOrderItemQuery;
 use SprykerFeature\Zed\Sales\Persistence\SalesQueryContainer as SprykerSalesQueryContainer;
 
 class SalesQueryContainer extends SprykerSalesQueryContainer implements SalesQueryContainerInterface
@@ -25,6 +26,17 @@ class SalesQueryContainer extends SprykerSalesQueryContainer implements SalesQue
         ;
 
         return $query;
+    }
 
+    /**
+     * @param $orderItemId
+     * @return $this|SpySalesOrderItemQuery
+     */
+    public function querySalesOrderItemById($orderItemId)
+    {
+        $query = SpySalesOrderItemQuery::create('orderItem')
+            ->filterByIdSalesOrderItem($orderItemId);
+
+        return $query;
     }
 }
