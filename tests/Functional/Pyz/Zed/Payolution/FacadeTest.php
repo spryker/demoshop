@@ -31,7 +31,7 @@ class FacadeTest extends AbstractFacadeTest
         $PayolutionFacade->saveOrderPayment($orderTransfer);
 
         $checkoutRequestTransfer = $this->getCheckoutRequestTransfer();
-        $responsePreCheck = $PayolutionFacade->preCheckPayment($checkoutRequestTransfer);
+        $PayolutionFacade->preCheckPayment($checkoutRequestTransfer);
     }
 
     public function testPreAuthorizePayment()
@@ -42,10 +42,10 @@ class FacadeTest extends AbstractFacadeTest
         $PayolutionFacade->saveOrderPayment($orderTransfer);
 
         $checkoutRequestTransfer = $this->getCheckoutRequestTransfer();
-        $responsePreCheck = $PayolutionFacade->preCheckPayment($checkoutRequestTransfer);
+        $PayolutionFacade->preCheckPayment($checkoutRequestTransfer);
 
         $idPayment = $this->getPaymentEntity()->getIdPaymentPayolution();
-        $responsePreAuthorize = $PayolutionFacade->preAuthorizePayment($idPayment);
+        $PayolutionFacade->preAuthorizePayment($idPayment);
     }
 
     public function testReAuthorizePayment()
@@ -56,12 +56,12 @@ class FacadeTest extends AbstractFacadeTest
         $PayolutionFacade->saveOrderPayment($orderTransfer);
 
         $checkoutRequestTransfer = $this->getCheckoutRequestTransfer();
-        $responsePreCheck = $PayolutionFacade->preCheckPayment($checkoutRequestTransfer);
+        $PayolutionFacade->preCheckPayment($checkoutRequestTransfer);
 
         $idPayment = $this->getPaymentEntity()->getIdPaymentPayolution();
-        $responsePreAuthorize = $PayolutionFacade->preAuthorizePayment($idPayment);
+        $PayolutionFacade->preAuthorizePayment($idPayment);
 
-        $responseReAuthorize = $PayolutionFacade->reAuthorizePayment($idPayment);
+        $PayolutionFacade->reAuthorizePayment($idPayment);
     }
 
     public function testRevertPayment()
@@ -72,12 +72,12 @@ class FacadeTest extends AbstractFacadeTest
         $PayolutionFacade->saveOrderPayment($orderTransfer);
 
         $checkoutRequestTransfer = $this->getCheckoutRequestTransfer();
-        $responsePreCheck = $PayolutionFacade->preCheckPayment($checkoutRequestTransfer);
+        $PayolutionFacade->preCheckPayment($checkoutRequestTransfer);
 
         $idPayment = $this->getPaymentEntity()->getIdPaymentPayolution();
-        $responsePreAuthorize = $PayolutionFacade->preAuthorizePayment($idPayment);
+        $PayolutionFacade->preAuthorizePayment($idPayment);
 
-        $responseRevert = $PayolutionFacade->revertPayment($idPayment);
+        $PayolutionFacade->revertPayment($idPayment);
     }
 
     public function testCapturePayment()
@@ -88,12 +88,12 @@ class FacadeTest extends AbstractFacadeTest
         $PayolutionFacade->saveOrderPayment($orderTransfer);
 
         $checkoutRequestTransfer = $this->getCheckoutRequestTransfer();
-        $responsePreCheck = $PayolutionFacade->preCheckPayment($checkoutRequestTransfer);
+        $PayolutionFacade->preCheckPayment($checkoutRequestTransfer);
 
         $idPayment = $this->getPaymentEntity()->getIdPaymentPayolution();
-        $responsePreAuthorize = $PayolutionFacade->preAuthorizePayment($idPayment);
+        $PayolutionFacade->preAuthorizePayment($idPayment);
 
-        $responseCapture = $PayolutionFacade->capturePayment($idPayment);
+        $PayolutionFacade->capturePayment($idPayment);
     }
 
     public function testRefundPayment()
@@ -104,13 +104,13 @@ class FacadeTest extends AbstractFacadeTest
         $PayolutionFacade->saveOrderPayment($orderTransfer);
 
         $checkoutRequestTransfer = $this->getCheckoutRequestTransfer();
-        $responsePreCheck = $PayolutionFacade->preCheckPayment($checkoutRequestTransfer);
+        $PayolutionFacade->preCheckPayment($checkoutRequestTransfer);
 
         $idPayment = $this->getPaymentEntity()->getIdPaymentPayolution();
-        $responsePreAuthorize = $PayolutionFacade->preAuthorizePayment($idPayment);
+        $PayolutionFacade->preAuthorizePayment($idPayment);
 
-        $responseCapture = $PayolutionFacade->capturePayment($idPayment);
-        $responseRefund = $PayolutionFacade->refundPayment($idPayment);
+        $PayolutionFacade->capturePayment($idPayment);
+        $PayolutionFacade->refundPayment($idPayment);
     }
 
     public function testIsPreAuthorizationApproved()
@@ -120,7 +120,7 @@ class FacadeTest extends AbstractFacadeTest
         $orderTransfer = $this->getOrderTransfer();
         $PayolutionFacade->saveOrderPayment($orderTransfer);
 
-        $isPreAuthorizationApproved = $PayolutionFacade->isPreAuthorizationApproved($orderTransfer);
+        $PayolutionFacade->isPreAuthorizationApproved($orderTransfer);
     }
 
     public function testIsReAuthorizationApproved()
@@ -130,7 +130,7 @@ class FacadeTest extends AbstractFacadeTest
         $orderTransfer = $this->getOrderTransfer();
         $PayolutionFacade->saveOrderPayment($orderTransfer);
 
-        $isReAuthorizationApproved = $PayolutionFacade->isReAuthorizationApproved($orderTransfer);
+        $PayolutionFacade->isReAuthorizationApproved($orderTransfer);
     }
 
     public function testIsReversalApproved()
@@ -140,7 +140,7 @@ class FacadeTest extends AbstractFacadeTest
         $orderTransfer = $this->getOrderTransfer();
         $PayolutionFacade->saveOrderPayment($orderTransfer);
 
-        $isReversalApproved = $PayolutionFacade->isReversalApproved($orderTransfer);
+        $PayolutionFacade->isReversalApproved($orderTransfer);
     }
 
     public function testIsCaptureApproved()
@@ -150,7 +150,7 @@ class FacadeTest extends AbstractFacadeTest
         $orderTransfer = $this->getOrderTransfer();
         $PayolutionFacade->saveOrderPayment($orderTransfer);
 
-        $isCaptureApproved = $PayolutionFacade->isCaptureApproved($orderTransfer);
+        $PayolutionFacade->isCaptureApproved($orderTransfer);
     }
 
     public function testIsRefundApproved()
@@ -160,7 +160,7 @@ class FacadeTest extends AbstractFacadeTest
         $orderTransfer = $this->getOrderTransfer();
         $PayolutionFacade->saveOrderPayment($orderTransfer);
 
-        $isRefundApproved = $PayolutionFacade->isRefundApproved($orderTransfer);
+        $PayolutionFacade->isRefundApproved($orderTransfer);
     }
 
 }
