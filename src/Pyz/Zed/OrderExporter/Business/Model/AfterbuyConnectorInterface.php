@@ -5,8 +5,8 @@ namespace Pyz\Zed\OrderExporter\Business\Model;
 interface AfterbuyConnectorInterface
 {
     /**
-     * @param array $postVariables
-     * @return mixed
+     * @param $postVariables
+     * @param $orderId
      */
-    public function sendToAfterBuy(array $postVariables);
+    public function sendToAfterBuy($postVariables, $orderId);
 }

@@ -2,14 +2,14 @@
 
 namespace Pyz\Zed\OrderExporter\Business\Model;
 
-use Pyz\Zed\OrderExporter\Persistence\Propel\PdAfterbuyResponse;
+use Generated\Shared\Transfer\AfterbuyResponseTransfer;
 
 interface AfterbuyResponseWriterInterface
 {
     /**
+     * @param AfterbuyResponseTransfer $afterbuyTransfer
      * @param $afterbuyResponse
-     * @return PdAfterbuyResponse
-     * @throws \Propel\Runtime\Exception\PropelException
+     * @param $orderId
      */
-    public function createAfterbuyResponse($afterbuyResponse, $orderId);
+    public function createAfterbuyResponse(AfterbuyResponseTransfer $afterbuyTransfer, $afterbuyResponse, $orderId);
 }
