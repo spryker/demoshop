@@ -23,7 +23,11 @@ class ExportToAfterBuyConsole extends Console
         $this->setName(self::COMMAND_NAME);
         $this->setDescription(self::COMMAND_DESCRIPTION);
         $this->addArgument(
-            'orderId',
+            'orderItemId1',
+            InputArgument::REQUIRED
+        );
+        $this->addArgument(
+            'orderItemId2',
             InputArgument::REQUIRED
         );
     }
@@ -37,25 +41,28 @@ class ExportToAfterBuyConsole extends Console
     protected function execute(InputInterface $input, OutputInterface $output)
     {
         $output->writeln('Export Order');
-        $orderId = $input->getArgument('orderId');
-        $orderEntity = $this->getOrderById($orderId);
+        $orderItemId1 = $input->getArgument('orderItemId1');
+        $orderItemId2 = $input->getArgument('orderItemId2');
 
+        $orderItems = array();
+        $orderItems[] = $this->getOrderItemById($orderItemId1);
+        $orderItems[] = $this->getOrderItemById($orderItemId2);
 
-        $this->getFacade()->exportOrder($orderEntity);
+        $this->getFacade()->exportOrderItems($orderItems);
     }
 
     /**
-     * @param int $orderId
-     * @return \Generated\Shared\Transfer\OrderTransfer
+     * @param $orderItemId
+     * @return \SprykerFeature\Zed\Sales\Persistence\Propel\Base\SpySalesOrder
      */
-    protected function getOrderById($orderId)
+    protected function getOrderItemById($orderItemId)
     {
-        $order = $this->getFacade()->getOrderBySalesOrderId($orderId);
-        if ($order == null) {
-            throw new EntityNotFoundException("Order with id " . $orderId . ' not found');
+        $orderItem = $this->getFacade()->getOrderItemById($orderItemId);
+        if ($orderItem == null) {
+            throw new EntityNotFoundException("Order Item with id " . $orderItem . ' not found');
         }
 
-        return $order;
+        return $orderItem;
     }
 
 }
