@@ -3,6 +3,7 @@
 namespace Pyz\Zed\Sales\Persistence;
 
 use SprykerFeature\Zed\Sales\Persistence\Propel\Base\SpySalesOrderQuery;
+use SprykerFeature\Zed\Sales\Persistence\Propel\SpySalesOrderItemQuery;
 
 interface SalesQueryContainerInterface
 {
@@ -11,4 +12,10 @@ interface SalesQueryContainerInterface
      * @return SpySalesOrderQuery
      */
     public function querySalesOrderDetailsById($idSalesOrder);
+
+    /**
+     * @param $orderItemId
+     * @return SpySalesOrderItemQuery
+     */
+    public function querySalesOrderItemById($orderItemId);
 }
