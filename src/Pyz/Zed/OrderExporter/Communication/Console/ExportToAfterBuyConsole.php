@@ -28,7 +28,7 @@ class ExportToAfterBuyConsole extends Console
         );
         $this->addArgument(
             'orderItemId2',
-            InputArgument::REQUIRED
+            InputArgument::OPTIONAL
         );
     }
 
@@ -41,12 +41,14 @@ class ExportToAfterBuyConsole extends Console
     protected function execute(InputInterface $input, OutputInterface $output)
     {
         $output->writeln('Export Order');
-        $orderItemId1 = $input->getArgument('orderItemId1');
-        $orderItemId2 = $input->getArgument('orderItemId2');
-
         $orderItems = array();
+        $orderItemId1 = $input->getArgument('orderItemId1');
         $orderItems[] = $this->getOrderItemById($orderItemId1);
-        $orderItems[] = $this->getOrderItemById($orderItemId2);
+
+        if ($input->getArgument('orderItemId2')) {
+            $orderItemId2 = $input->getArgument('orderItemId2');
+            $orderItems[] = $this->getOrderItemById($orderItemId2);
+        }
 
         $this->getFacade()->exportOrderItems($orderItems);
     }
