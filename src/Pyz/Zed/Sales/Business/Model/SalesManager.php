@@ -8,6 +8,7 @@ use SprykerFeature\Zed\Sales\Business\Model\OrderReferenceGeneratorInterface;
 use SprykerFeature\Zed\Sales\Dependency\Facade\SalesToCountryInterface;
 use SprykerFeature\Zed\Sales\Dependency\Facade\SalesToOmsInterface;
 use SprykerFeature\Zed\Sales\Persistence\Propel\SpySalesOrder;
+use SprykerFeature\Zed\Sales\Persistence\Propel\SpySalesOrderItem;
 
 class SalesManager extends SprykerOrderManager
 {
@@ -57,6 +58,16 @@ class SalesManager extends SprykerOrderManager
     public function getOrderDetailsBySalesId($orderSalesId)
     {
         return $this->queryContainer->querySalesOrderDetailsById($orderSalesId)
+            ->findOne();
+    }
+
+    /**
+     * @param $orderItemId
+     * @return SpySalesOrderItem
+     */
+    public function getOrderItemById($orderItemId)
+    {
+        return $this->queryContainer->querySalesOrderItemById($orderItemId)
             ->findOne();
     }
 }
