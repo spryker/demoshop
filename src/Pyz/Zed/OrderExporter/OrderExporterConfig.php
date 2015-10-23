@@ -4,6 +4,7 @@ namespace Pyz\Zed\OrderExporter;
 
 use Pyz\Shared\OrderExporter\AfterbuyExportConstantInterface;
 use SprykerEngine\Zed\Kernel\AbstractBundleConfig;
+use SprykerFeature\Shared\System\SystemConfig;
 
 class OrderExporterConfig extends AbstractBundleConfig
 {
@@ -37,5 +38,13 @@ class OrderExporterConfig extends AbstractBundleConfig
     public function getAfterbuyUrl()
     {
         return $this->get(AfterbuyExportConstantInterface::AFTERBUY_URL);
+    }
+
+    /**
+     * @return string
+     */
+    public function getCurrentSystemEnvironment()
+    {
+        return $this->get(SystemConfig::CURRENT_APPLICATION_ENV);
     }
 }
