@@ -47,4 +47,12 @@ class OrderExporterConfig extends AbstractBundleConfig
     {
         return $this->get(SystemConfig::CURRENT_APPLICATION_ENV);
     }
+
+    /**
+     * @return array
+     */
+    public function getAfterbuyEmailsForAfterbuyFeedback()
+    {
+        return $this->get(AfterbuyExportConstantInterface::AFTERBUY_EMAILS);
+    }
 }
