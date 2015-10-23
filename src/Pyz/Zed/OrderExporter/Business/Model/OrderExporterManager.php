@@ -2,6 +2,7 @@
 
 namespace Pyz\Zed\OrderExporter\Business\Model;
 
+use PavFeature\Shared\Library\Application\Environment;
 use Pyz\Zed\OrderExporter\AfterbuyConstants;
 use Pyz\Zed\OrderExporter\OrderExporterConfig;
 use SprykerFeature\Zed\Sales\Persistence\Propel\SpySalesOrderAddress;
@@ -28,6 +29,10 @@ class OrderExporterManager
      * @var AfterbuyConnectorInterface
      */
     protected $afterbuyConnector;
+    /**
+     * @var OrderExporterConfig
+     */
+    protected $orderExporterConfig;
 
     /**
      * @param OrderExporterConfig $orderExporterConfig
@@ -39,17 +44,45 @@ class OrderExporterManager
         $this->partnerId = $orderExporterConfig->getAfterbuyPartnerId();
         $this->partnerPass = $orderExporterConfig->getAfterbuyPartnerPass();
         $this->afterbuyConnector = $connector;
+        $this->orderExporterConfig = $orderExporterConfig;
     }
 
     /**
+     * @param array $orderItems
+     * @return int|null
+     * @throws \Exception
+     */
+    public function getOrderIdFromOrderItems(array $orderItems)
+    {
+        $orderId = null;
+        /** @var SpySalesOrderItem $orderItem */
+        foreach ($orderItems as $orderItem) {
+            if (!$orderId) {
+                $orderId = $orderItem->getFkSalesOrder();
+            } else {
+                if ($orderId != $orderItem->getFkSalesOrder()) {
+                    throw new \Exception ('Items should come from the same order');
+                }
+            }
+        }
+
+        return $orderId;
+    }
+
+    /**
+     * @param array $orderItems
      * @param SpySalesOrder $order
      */
-    public function exportOrder(SpySalesOrder $order)
+    public function exportOrderItems(array $orderItems, SpySalesOrder $order)
     {
         $afterBuyInfo = $this->configureAfterbuy();
         $afterBuyInfo = $this->getOrderInfo($order, $afterBuyInfo);
+        $afterBuyInfo = $this->addItemsInfo($orderItems, $afterBuyInfo);
         $postString = $this->buildPostString($afterBuyInfo);
-        $this->sendOrderInfoToAfterBuy($postString);
+
+//        if ($this->orderExporterConfig->getCurrentSystemEnvironment() == Environment::ENV_PRODUCTION) {
+            $this->sendOrderInfoToAfterBuy($postString, $afterBuyInfo[AfterbuyConstants::SALES_ORDER_ID]);
+//        }
     }
 
     /**
@@ -73,16 +106,22 @@ class OrderExporterManager
      */
     protected function getOrderInfo(SpySalesOrder $order, array $postData)
     {
-        $items = $order->getItems()->getData();
-        $postData[AfterbuyConstants::CUSTOMER_EMAIL] = $order->getEmail();
+        $shippingAddress = $order->getShippingAddress();
+        $billingAddress = $order->getBillingAddress();
+
+        if (null == $order->getEmail()) {
+            $email = $billingAddress->getEmail();
+        } else {
+            $email = $order->getEmail();
+        }
+
+        $postData[AfterbuyConstants::CUSTOMER_EMAIL] = $email;
         $postData[AfterbuyConstants::SALES_ORDER_ID] = $order->getIdSalesOrder();
 
         if (!null == $order->getShipmentMethod()) {
             $postData[AfterbuyConstants::SHIPPING_METHOD] = $order->getShipmentMethod()->getName();
         }
 
-        $shippingAddress = $order->getShippingAddress();
-        $billingAddress = $order->getBillingAddress();
         $postData = $this->addShippingAddressInfo($shippingAddress, $postData);
 
         if ($billingAddress == $shippingAddress) {
@@ -93,7 +132,6 @@ class OrderExporterManager
         }
 
         $postData = $this->addPaymentInfo($postData);
-        $postData = $this->addItemsInfo($items, $postData);
 
         return $postData;
     }
@@ -222,12 +260,13 @@ class OrderExporterManager
     }
 
     /**
-     * @param string $postVariables
+     * @param $postVariables
+     * @param $orderId
      * @return mixed
      */
-    protected function sendOrderInfoToAfterBuy($postVariables)
+    protected function sendOrderInfoToAfterBuy($postVariables, $orderId)
     {
-        $sendingResult = $this->afterbuyConnector->sendToAfterBuy($postVariables);
+        $sendingResult = $this->afterbuyConnector->sendToAfterBuy($postVariables, $orderId);
 
         return $sendingResult;
     }

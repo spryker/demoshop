@@ -3,12 +3,19 @@
 namespace Pyz\Zed\OrderExporter\Dependency\Facade;
 
 use SprykerFeature\Zed\Sales\Persistence\Propel\Base\SpySalesOrder;
+use SprykerFeature\Zed\Sales\Persistence\Propel\SpySalesOrderItem;
 
 interface OrderExporterToSalesInterface
 {
     /**
-     * @param int $orderId
+     * @param $orderItemId
+     * @return SpySalesOrderItem
+     */
+    public function getOrderItemById($orderItemId);
+
+    /**
+     * @param $salesOrderId
      * @return SpySalesOrder
      */
-    public function getOrderBySalesOrderId($orderId);
+    public function getSalesOrderById($salesOrderId);
 }
