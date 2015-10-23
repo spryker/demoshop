@@ -7,9 +7,11 @@
             <reference local="fk_order" foreign="id_sales_order"/>
         </foreign-key>
         <column name="fk_order" type="INTEGER"/>
+        <column name="request" type="LONGVARCHAR"/>
         <column name="success" type="BOOLEAN" />
         <column name="full_response" type="LONGVARCHAR" />
         <column name="errors_list" type="LONGVARCHAR" />
+        <column name="http_status_code" type="VARCHAR"/>
 
         <behavior name="timestampable"/>
 
