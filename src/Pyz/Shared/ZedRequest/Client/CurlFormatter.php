@@ -6,10 +6,8 @@ use Guzzle\Http\Message\Header;
 use Guzzle\Http\Message\RequestInterface;
 use Guzzle\Http\Url;
 
-
 /**
  * Class CurlFormatter it formats a Guzzle request to a cURL shell command
- * @package Namshi\Cuzzle\Formatter
  */
 class CurlFormatter
 {
