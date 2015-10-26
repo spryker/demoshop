@@ -2,6 +2,7 @@
 
 namespace Pyz\Shared\ZedRequest\Client;
 
+use Guzzle\Http\Message\EntityEnclosingRequest;
 use SprykerEngine\Shared\Kernel\Factory\FactoryInterface;
 use SprykerEngine\Shared\Transfer\TransferInterface;
 use SprykerFeature\Client\Auth\Service\AuthClientInterface;
@@ -62,10 +63,10 @@ abstract class AbstractHttpClient extends SprykerAbstractHttpClient
         $request = $this->createGuzzleRequest($pathInfo, $requestTransfer, $timeoutInSeconds);
         $this->logRequest($pathInfo, $requestTransfer, (string) $request->getBody());
 
-        // TODO: THIS IS FOR DEVELOPMENT ONLY => REMOVE IN PRODUCTION
+        $this->forwardDebugSession($request);
+
         $this->logRequestAsCurl($request);
 
-        $this->forwardDebugSession($request);
         $response = $this->sendRequest($request);
         $responseTransfer = $this->getTransferFromResponse($response);
         $this->logResponse($pathInfo, $responseTransfer, $response->getBody(true));
@@ -73,8 +74,10 @@ abstract class AbstractHttpClient extends SprykerAbstractHttpClient
         return $responseTransfer;
     }
 
-    // TODO: THIS IS FOR DEVELOPMENT ONLY => REMOVE IN PRODUCTION
-    private function logRequestAsCurl($request)
+    /**
+     * @param EntityEnclosingRequest $request
+     */
+    private function logRequestAsCurl(EntityEnclosingRequest $request)
     {
         if (!$this->curlLogEnabled) {
             return;
