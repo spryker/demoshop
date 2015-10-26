@@ -90,12 +90,12 @@
 
       // use keys to preserve order
       key = Object.keys(object)[i];
-
       // fallback for value null
       content = object[key] || '';
 
       switch (typeof content) {
         case 'string':
+        case 'number':
           addTextfield($parent, key, content)
           break;
 
