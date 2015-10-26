@@ -80,9 +80,9 @@ class OrderExporterManager
         $afterBuyInfo = $this->addItemsInfo($orderItems, $afterBuyInfo);
         $postString = $this->buildPostString($afterBuyInfo);
 
-//        if ($this->orderExporterConfig->getCurrentSystemEnvironment() == Environment::ENV_PRODUCTION) {
+        if ($this->orderExporterConfig->getCurrentSystemEnvironment() == Environment::ENV_PRODUCTION) {
             $this->sendOrderInfoToAfterBuy($postString, $afterBuyInfo[AfterbuyConstants::SALES_ORDER_ID]);
-//        }
+        }
     }
 
     /**
@@ -162,7 +162,7 @@ class OrderExporterManager
             $postData[AfterbuyConstants::ITEM_NUMBER . $numberOfItems] = $item->getSku();
             $postData[AfterbuyConstants::ITEM_QUANTITY_ORDERED . $numberOfItems] = $item->getQuantity();
             $postData[AfterbuyConstants::ITEM_NAME . $numberOfItems] = $item->getName();
-            $postData[AfterbuyConstants::ITEM_TAX_PERCENTAGE . $numberOfItems] = $item->getTaxPercentage();
+            $postData[AfterbuyConstants::ITEM_TAX_PERCENTAGE . $numberOfItems] = (!null == $item->getTaxPercentage()) ? $item->getTaxPercentage() : 0;
             $postData = $this->addItemDiscountInfo($item, $numberOfItems, $postData);
             $postData = $this->addProductAttributesInfo($item, $numberOfItems, $postData);
         }
