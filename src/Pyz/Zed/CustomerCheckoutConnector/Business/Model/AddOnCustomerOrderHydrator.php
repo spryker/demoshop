@@ -3,18 +3,25 @@
 namespace Pyz\Zed\CustomerCheckoutConnector\Business\Model;
 
 use Generated\Shared\CustomerCheckoutConnector\CheckoutRequestInterface;
-use Generated\Shared\CustomerCheckoutConnector\OrderInterface;
-use Generated\Shared\Transfer\AddressTransfer;
-use Generated\Shared\Transfer\CustomerTransfer;
-use SprykerFeature\Zed\CustomerCheckoutConnector\Dependency\Facade\CustomerCheckoutConnectorToCustomerInterface;
+use Generated\Shared\Transfer\OrderTransfer;
 
 class AddOnCustomerOrderHydrator implements AddOnCustomerOrderHydratorInterface
 {
     /**
-     * @param OrderInterface $orderTransfer
+     * [bugfix] save email in billing address entity
+     *
+     * @param OrderTransfer $orderTransfer
      * @param CheckoutRequestInterface $request
      */
-    public function hydrateOrderTransfer(OrderInterface $orderTransfer, CheckoutRequestInterface $request)
+    public function hydrateOrderTransfer(OrderTransfer $orderTransfer, CheckoutRequestInterface $request)
     {
+        $billingAddress = $request->getBillingAddress();
+        $billingAddress->setEmail($request->getEmail());
+        $request->setBillingAddress($billingAddress);
+
+        $orderTransfer->setEmail($request->getEmail());
+        $orderTransfer->setFirstName($request->getBillingAddress()->getFirstName());
+        $orderTransfer->setLastName($request->getBillingAddress()->getLastName());
+        $orderTransfer->setSalutation($request->getBillingAddress()->getSalutation());
     }
 }

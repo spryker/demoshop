@@ -1,0 +1,10 @@
+<?php
+
+namespace Pyz\Zed\CustomerCheckoutConnector;
+
+use SprykerFeature\Zed\CustomerCheckoutConnector\CustomerCheckoutConnectorDependencyProvider as SpyCustomerCheckoutConnectorDependencyProvider;
+
+class CustomerCheckoutConnectorDependencyProvider extends SpyCustomerCheckoutConnectorDependencyProvider
+{
+
+}
