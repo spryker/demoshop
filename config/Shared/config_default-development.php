@@ -57,3 +57,5 @@ $config[ApplicationConfig::STORE_PREFIX] = 'DEV';
 $config[ApplicationConfig::SET_REPEAT_DATA] = true;
 $config[SessionConfig::SESSION_IS_TEST] = false;
 
+$config['yves_to_zed_curl_log_enabled'] = false;
+$config['yves_to_zed_curl_log_path'] = '/tmp/yves_to_zed_curl.log';
