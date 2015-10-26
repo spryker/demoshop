@@ -9,6 +9,7 @@ use SprykerFeature\Shared\Yves\YvesConfig;
 use SprykerFeature\Shared\Application\ApplicationConfig;
 use SprykerFeature\Shared\Acl\AclConfig;
 use SprykerFeature\Shared\Session\SessionConfig;
+use Pyz\Client\ZedRequest\Service\ZedRequestConfig as PyzZedRequestConfig;
 
 $config[YvesConfig::YVES_SESSION_SAVE_HANDLER] = SessionConfig::SESSION_HANDLER_REDIS;
 $config[SystemConfig::ZED_SESSION_SAVE_HANDLER] = SessionConfig::SESSION_HANDLER_FILE;
@@ -57,5 +58,5 @@ $config[ApplicationConfig::STORE_PREFIX] = 'DEV';
 $config[ApplicationConfig::SET_REPEAT_DATA] = true;
 $config[SessionConfig::SESSION_IS_TEST] = false;
 
-$config['yves_to_zed_curl_log_enabled'] = true;
-$config['yves_to_zed_curl_log_path'] = '/tmp/yves_to_zed_curl.log';
+$config[PyzZedRequestConfig::YVES_TO_ZED_CURL_LOG_ENABLED] = true;
+$config[PyzZedRequestConfig::YVES_TO_ZED_CURL_LOG_FILE_PATH] = '/tmp/yves_to_zed_curl.log';

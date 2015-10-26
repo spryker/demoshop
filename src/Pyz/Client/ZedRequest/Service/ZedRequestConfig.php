@@ -4,6 +4,9 @@ namespace Pyz\Client\ZedRequest\Service;
 class ZedRequestConfig extends \SprykerFeature\Client\ZedRequest\Service\ZedRequestConfig
 {
 
+    const YVES_TO_ZED_CURL_LOG_ENABLED = 'yves_to_zed_curl_log_enabled';
+    const YVES_TO_ZED_CURL_LOG_FILE_PATH = 'yves_to_zed_curl_log_path';
+
     /**
      * @return bool
      */
@@ -12,8 +15,8 @@ class ZedRequestConfig extends \SprykerFeature\Client\ZedRequest\Service\ZedRequ
         $curlLogEnabled = false;
 
 
-        if ($this->config->hasValue('yves_to_zed_curl_log_enabled')) {
-            $curlLogEnabled = (bool) $this->config->get('yves_to_zed_curl_log_enabled');
+        if ($this->config->hasValue(self::YVES_TO_ZED_CURL_LOG_ENABLED)) {
+            $curlLogEnabled = (bool) $this->config->get(self::YVES_TO_ZED_CURL_LOG_ENABLED);
         }
         return $curlLogEnabled;
     }
@@ -24,8 +27,8 @@ class ZedRequestConfig extends \SprykerFeature\Client\ZedRequest\Service\ZedRequ
     public function getCurlLogPath()
     {
         $curlLogPath = null;
-        if ($this->config->hasValue('yves_to_zed_curl_log_path')) {
-            $curlLogPath = $this->config->get('yves_to_zed_curl_log_path');
+        if ($this->config->hasValue(self::YVES_TO_ZED_CURL_LOG_FILE_PATH)) {
+            $curlLogPath = $this->config->get(self::YVES_TO_ZED_CURL_LOG_FILE_PATH);
         }
         return $curlLogPath;
     }
