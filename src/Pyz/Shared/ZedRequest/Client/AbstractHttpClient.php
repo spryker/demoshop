@@ -5,8 +5,9 @@ namespace Pyz\Shared\ZedRequest\Client;
 use SprykerEngine\Shared\Kernel\Factory\FactoryInterface;
 use SprykerEngine\Shared\Transfer\TransferInterface;
 use SprykerFeature\Client\Auth\Service\AuthClientInterface;
+use SprykerFeature\Shared\ZedRequest\Client\AbstractHttpClient as SprykerAbstractHttpClient;
 
-abstract class AbstractHttpClient extends \SprykerFeature\Shared\ZedRequest\Client\AbstractHttpClient
+abstract class AbstractHttpClient extends SprykerAbstractHttpClient
 {
 
     protected $curlLogEnabled = false;
