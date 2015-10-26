@@ -13,7 +13,7 @@
         </states>
         <transitions>
             <!-- Ful refund -->
-            <transition happy="true" condition="PayolutionOmsConnector/RefundIsApproved">
+            <transition happy="true" condition="Payolution/RefundIsApproved">
                 <source>ready for payolution refund</source>
                 <target>payolution ful refund accepted</target>
                 <event>payolution fully refund</event>
@@ -23,7 +23,7 @@
                 <target>payolution ful refund declined</target>
                 <event>payolution fully refund</event>
             </transition>
-            <transition happy="true" condition="PayolutionOmsConnector/RefundIsApproved">
+            <transition happy="true" condition="Payolution/RefundIsApproved">
                 <source>payolution ful refund declined</source>
                 <target>payolution ful refund accepted</target>
                 <event>payolution retry fully refund</event>
@@ -34,7 +34,7 @@
                 <event>payolution retry fully refund</event>
             </transition>
             <!-- Partial refund -->
-            <transition happy="true" condition="PayolutionOmsConnector/RefundIsApproved">
+            <transition happy="true" condition="Payolution/RefundIsApproved">
                 <source>ready for payolution refund</source>
                 <target>payolution partial refund accepted</target>
                 <event>payolution partially refund</event>
@@ -44,7 +44,7 @@
                 <target>payolution partial refund declined</target>
                 <event>payolution partially refund</event>
             </transition>
-            <transition happy="true" condition="PayolutionOmsConnector/RefundIsApproved">
+            <transition happy="true" condition="Payolution/RefundIsApproved">
                 <source>payolution partial refund declined</source>
                 <target>payolution partial refund accepted</target>
                 <event>payolution retry partially refund</event>
@@ -67,10 +67,10 @@
             </transition>
         </transitions>
         <events>
-            <event name="payolution fully refund" manual="true" command="PayolutionOmsConnector/Refund"/>
-            <event name="payolution retry fully refund" manual="true" command="PayolutionOmsConnector/Refund"/>
-            <event name="payolution partially refund" manual="true" command="PayolutionOmsConnector/Refund"/>
-            <event name="payolution retry partially refund" manual="true" command="PayolutionOmsConnector/Refund"/>
+            <event name="payolution fully refund" manual="true" command="Payolution/Refund"/>
+            <event name="payolution retry fully refund" manual="true" command="Payolution/Refund"/>
+            <event name="payolution partially refund" manual="true" command="Payolution/Refund"/>
+            <event name="payolution retry partially refund" manual="true" command="Payolution/Refund"/>
             <event name="payolution finish refund" onEnter="true"/>
         </events>
     </process>

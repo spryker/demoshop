@@ -323,15 +323,19 @@ $config[LumberjackConfig::WRITER_OPTIONS] = [
 ];
 
 $config[PayolutionConfigConstants::GATEWAY_URL] = 'https://test.ctpe.net/frontend/payment.prc';
-$config[PayolutionConfigConstants::SECURITY_SENDER] = '8a82941850cd6ba60150cdba275b0201';
-$config[PayolutionConfigConstants::USER_LOGIN] = '8a82941850cd6ba60150cdba275c0205';
-$config[PayolutionConfigConstants::USER_PASSWORD] = 'EANPb8wg';
 $config[PayolutionConfigConstants::TRANSACTION_MODE] = 'CONNECTOR_TEST';
-$config[PayolutionConfigConstants::TRANSACTION_CHANNEL_INVOICE] = '8a82941850cd6ba60150cdbf9af40280';
-$config[PayolutionConfigConstants::TRANSACTION_CHANNEL_INSTALLMENT] = '8a82941850cd6ba60150cdbf9af40280';
-$config[PayolutionConfigConstants::TRANSACTION_CHANNEL_SYNC] = '8a82941850cd6ba60150cdbf9af40280';
-$config[PayolutionConfigConstants::TRANSACTION_CHANNEL_PRE_CHECK] = '8a82941850cd6ba60150cdc25e54028f';
+$config[PayolutionConfigConstants::SECURITY_SENDER] = '8a8294182f965dd4012f9b5c54f50169';
+$config[PayolutionConfigConstants::USER_LOGIN] = '8a8294182f965dd4012f9b5c54f7016d';
+$config[PayolutionConfigConstants::USER_PASSWORD] = 'Eg89ttKk';
+$config[PayolutionConfigConstants::TRANSACTION_CHANNEL_INVOICE] = '8a82941832d84c500132e875fc0c0648';
+$config[PayolutionConfigConstants::TRANSACTION_CHANNEL_INSTALLMENT] = '8a82941832d84c500132e875fc0c0648';
+$config[PayolutionConfigConstants::TRANSACTION_CHANNEL_SYNC] = 'ff80808138e15f1f0138faec90910a22';
+$config[PayolutionConfigConstants::TRANSACTION_CHANNEL_PRE_CHECK] = 'ff8080813b227bf4013b3d661a7c0f86';
 $config[PayolutionConfigConstants::DEFAULT_TIMEOUT] = 45;
+$config[PayolutionConfigConstants::MIN_ORDER_GRAND_TOTAL_INVOICE] = '2';
+$config[PayolutionConfigConstants::MAX_ORDER_GRAND_TOTAL_INVOICE] = '5000';
+$config[PayolutionConfigConstants::MIN_ORDER_GRAND_TOTAL_INSTALLMENT] = '2';
+$config[PayolutionConfigConstants::MAX_ORDER_GRAND_TOTAL_INSTALLMENT] = '5000';
 
 $config[NewRelicConfig::NEWRELIC_API_KEY] = null;
 
