@@ -57,6 +57,9 @@ $config[LumberjackConfig::WRITER_OPTIONS] = [
 $config[FileUploadConfig::STORAGE] = [
     'cms' => [
             FileUploadConfig::CONFIG_TYPE => FileUploadConfig::ADAPTER_LOCAL,
-            FileUploadConfig::CONFIG_CONFIG => ['path' => '/data/shop/development/shared/uploads']
+            FileUploadConfig::CONFIG_CONFIG => [
+                'path' => '/data/storage/development/static',
+                'mapping' => 'http://static.com.pets-deli.dev/cms/',
+            ],
     ],
 ];

@@ -17,7 +17,7 @@
                 {% for file in files %}
                     <tr>
                         <td>{{ file.basename }}</td>
-                        <td>???</td>
+                        <td>{{ file.mapped_path }}</td>
                         <td>{{ file.timestamp | date('Y.m.d H:i:s') }}</td>
                     </tr>
                 {% endfor %}
