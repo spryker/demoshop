@@ -2,9 +2,13 @@
 
 namespace Pyz\Shared\ZedRequest\Client;
 
+use Guzzle\Http\Message\EntityEnclosingRequest;
 use Guzzle\Http\Message\Header;
 use Guzzle\Http\Message\RequestInterface;
 use Guzzle\Http\Url;
+use Guzzle\Plugin\Cookie\Cookie;
+use Guzzle\Plugin\Cookie\CookiePlugin;
+use GuzzleHttp\Cookie\CookieJar;
 
 /**
  * Class CurlFormatter it formats a Guzzle request to a cURL shell command
@@ -134,14 +138,24 @@ class CurlFormatter
     protected function extractCookiesArgument(RequestInterface $request)
     {
 
-        $values = array();
-
-        foreach ($request->getCookies() as $name => $cookie) {
-            $values[] = $name . '=' . $cookie;
-        }
-
-        if ($values) {
-            $this->addOption('b', escapeshellarg(implode('; ', $values)));
+        $listeners = $request->getEventDispatcher()->getListeners('request.before_send');
+        foreach ($listeners as $listener) {
+            if ($listener[0] instanceof CookiePlugin) {
+                $values = [];
+                $scheme = $request->getScheme();
+                $host   = $request->getHost();
+                $path   = $request->getPath();
+                /** @var SetCookie $cookie */
+                foreach ($listener[0]->getCookieJar() as $cookie) {
+                    if ($cookie->matchesPath($path) && $cookie->matchesDomain($host) &&
+                        ! $cookie->isExpired() && ( ! $cookie->getSecure() || $scheme == 'https')) {
+                        $values[] = $cookie->getName() . '=' . CookieJar::getCookieValue($cookie->getValue());
+                    }
+                }
+                if ($values) {
+                    $this->addOption('b', escapeshellarg(implode('; ', $values)));
+                }
+            }
         }
     }
 
