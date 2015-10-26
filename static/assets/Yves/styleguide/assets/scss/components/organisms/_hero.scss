@@ -1,0 +1,52 @@
+// Hero
+//
+// Markup:
+// <div class="hero" style="background-image: url(/images/hero/background.jpg);">
+//     <div class="hero__center">
+//         <div class="hero__content">
+//             <h1 class="page-title page-title__white">Headline</h1>
+//             <p class="subtitle subtitle--white">
+//                 Wisi eruditi id nam. Te pri oblique ullamcorper, magna persequeris has
+//                 eu. Mei prompta dolores ex, eam ad debet suavitate. Pri te vocibus
+//                 electram. Eu eleifend rationibus vis, at pro odio.
+//             </p>
+//             <div class="button button--white">Dogs products</div>
+//             <div class="button button--white">Cats products</div>
+//         </div>
+//     </div>
+// </div>
+//
+// Styleguide: organisms.hero
+
+
+.hero{
+    position: relative;
+    height: 670px;
+    background-position: center !important;
+    background-size: cover !important;
+}
+
+.hero__center{
+    position: absolute;
+    top: 50%;
+    left: 0;
+    width: 100%;
+    transform: translate(0, -50%);
+
+    text-align: center;
+    color: #FFF;
+}
+
+.hero__content{
+    margin: 0 auto;
+
+    // TODO: replace with grid
+    max-width: 758px;
+
+    .button{
+        margin-left: 11px;
+        margin-right: 11px;
+
+        font-family: $_ffBrandonGrotesque-Bold;
+    }
+}

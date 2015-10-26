@@ -46,7 +46,7 @@
         {{else}}
           {{#eachSection rootName}}
             {{#if markup}}
-              <div class="styleguide-example section-{{split reference}}">
+              <div class="styleguide-example section-{{splitFirst reference}} section-{{splitLast reference}}">
                 <header class="styleguide-example-header styleguide-reset">
                   <h3>{{header}} <em>{{reference}}</em></h3>
                 </header>
@@ -67,27 +67,47 @@
 
                 <div class="styleguide-elements">
                     <div class="styleguide-element">
-                      {{{markup}}}
+                        <div class="styleguide-iframe">
+                            <iframe width="100%" srcdoc='
+                                <html>
+                                    <head>
+                                        <link href="../css/styleguide.css" rel="stylesheet" type="text/css"/>
+                                    </head>
+                                    <body>
+                                        {{{markup}}}
+                                    </body>
+                                </html>'>
+                            </iframe>
+                        </div>
                     </div>
 
                     {{#eachModifier}}
                       <div class="styleguide-element styleguide-modifier">
                         <span class="styleguide-modifier-name">{{name}}</span>
-                        {{{markup}}}
+                        <iframe width="100%" style="margin-top: 40px;" srcdoc='
+                            <html>
+                                <head>
+                                    <link href="../css/styleguide.css" rel="stylesheet" type="text/css"/>
+                                </head>
+                                <body>
+                                    {{{markup}}}
+                                </body>
+                            </html>'>
+                        </iframe>
                       </div>
                     {{/eachModifier}}
                 </div>
 
-                <div class="styleguide-html styleguide-reset">
+                <!-- <div class="styleguide-html styleguide-reset">
                   <div class="styleguide-html-highlight">
                     <pre><code class="xml">{{markup}}</code></pre>
                   </div>
-                </div>
+                </div> -->
               </div>
               {{else}}
-              <header class="example-header styleguide-reset">
+              <!-- <header class="example-header styleguide-reset">
                 <h1>{{header}}</h1>
-              </header>
+              </header> -->
               {{#if description}}
                 <div class="markdown-body styleguide-reset">
                   {{{description}}}

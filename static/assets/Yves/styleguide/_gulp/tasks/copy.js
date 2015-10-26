@@ -25,5 +25,5 @@ gulp.task('copy:dev', function (cb) {
 });
 
 gulp.task('copy:watch', function (cb) {
-    return gulp.watch([paths.source.copy.files]);
+    return gulp.watch([paths.source.copy.files], ['copy']);
 });

@@ -7,8 +7,17 @@ $(function(){
 	if (!$('.styleguide-menu .selected').size()) {
 		window.location = $('.styleguide-menu').find('a').eq(0).attr('href');
 	}
-});
 
-function resizeIframe(obj) {
-	obj.style.height = obj.contentWindow.document.body.scrollHeight + 'px';
-}
+	$('iframe').each(function () {
+		$(this).load(function () {
+			var $this = $(this);
+			console.info($this.contents().find("body").height());
+			$($this.contents()[0]).ready(function () {
+				setTimeout(function () {
+					$this.css('height', $this.contents().find("body").height() );
+				}, 0);
+			});
+		});
+	});
+
+});

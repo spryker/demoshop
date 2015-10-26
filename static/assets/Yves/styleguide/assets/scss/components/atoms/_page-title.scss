@@ -1,0 +1,36 @@
+// Page title
+//
+// Markup:
+// <h1 class="page-title {{modifier_class}}">Page title</h1>
+//
+// .page-title--green - Lorem
+// .page-title--orange - Lorem
+// .page-title--white - Lorem
+//
+// Styleguide: typography.page-title
+//
+// Weight: 0
+
+.page-title{
+    margin-bottom: 15px;
+    font-size: $_fsLarge;
+    line-height: $_lhLarge;
+    font-family: $_ffBrandonGrotesque-Bold;
+    text-transform: uppercase;
+}
+
+.page-title--green{
+    color: $_rgbMantis;
+}
+
+.page-title--orange{
+    color: $_rgbWhiskey2;
+}
+
+.page-title--white{
+    color: $_rgbWhite;
+}
+
+.page-title--quincy{
+    color: $_rgbQuincy;
+}

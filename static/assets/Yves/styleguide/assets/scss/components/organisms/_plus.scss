@@ -1,0 +1,45 @@
+// Plus
+//
+// Markup:
+//<div class="plus">
+//    <div class="plus__item">
+//        <div class="plus__figure">100%</div>
+//        <div class="plus__label">Frische</div>
+//    </div>
+//    <div class="plus__item">
+//        <div class="plus__figure">100%</div>
+//        <div class="plus__label">Lebensmittelqualität</div>
+//    </div>
+//    <div class="plus__item">
+//        <div class="plus__figure">100%</div>
+//        <div class="plus__label">Natur</div>
+//    </div>
+//</div>
+//
+// Styleguide: organisms.plus
+
+.plus{
+    padding: 70px 0;
+    @include clearfix;
+}
+
+.plus__item{
+    width: 33.333%;
+    float: left;
+
+    text-align: center;
+}
+
+.plus__figure{
+    font-family: $_ffBrandonGrotesque-Bold;
+    font-size: $_fsLarger;
+    line-height: $_lhLarger;
+    color: $_rgbMantis;
+}
+
+.plus__label{
+    font-family: $_ffBrandonGrotesque-Bold;
+    font-size: $_fsMedium;
+    line-height: $_lhMedium;
+    letter-spacing: 1.58px;
+}

@@ -1,0 +1,21 @@
+// Body text
+//
+// Markup:
+// <p class="body-text">
+//    Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+//    Quaerat necessitatibus quisquam vel, eveniet facere cumque
+//    quas veritatis sapiente odio quod quae in asperiores neque
+//    iste laboriosam fugit vero magni corporis. <br>
+//    Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+//    Quaerat necessitatibus quisquam vel, eveniet facere cumque
+//    quas veritatis sapiente odio quod quae in asperiores neque
+//    iste laboriosam fugit vero magni corporis.
+//</p>
+//
+//Styleguide: typography.body-text
+//
+// Weight: 2
+
+.body-text{
+    color: $_rgbDoveGray;
+}

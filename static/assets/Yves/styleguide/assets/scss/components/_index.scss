@@ -1,5 +1,8 @@
-@import 'buttons';
+
 @import 'input';
-@import 'navbar';
 @import 'product-card';
 @import 'forms';
+
+@import 'atoms/index';
+@import 'molecules/index';
+@import 'organisms/index';

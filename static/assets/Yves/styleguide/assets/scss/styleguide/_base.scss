@@ -379,6 +379,7 @@
   }
 }
 .styleguide-html {
+    max-height: 400px;
   clear: both;
   padding: 15px;
   background: #edf6f8;
@@ -422,6 +423,8 @@ ul.styleguide-modifier {
   text-align: left;
 }
 
-.styleguide-iframe{
-    margin: 0 -20px;
+.section-organisms, .section-templates{
+    .styleguide-iframe{
+        margin: 0 -20px;
+    }
 }

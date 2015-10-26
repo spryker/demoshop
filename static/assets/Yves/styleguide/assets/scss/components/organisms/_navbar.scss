@@ -1,0 +1,137 @@
+// TODO: divide into molecules
+
+// Navbar
+//
+// Markup:
+// <nav class="navbar">
+//     <div class="navbar__top">
+//         <div class="navbar__item">
+//             <span class="navbar__label">Call us:</span>
+//             <a class="navbar__phone" href="tel:+4930208984899">030 - 208 98 48 99</a>
+//         </div>
+//         <div class="navbar__item">
+//             <span>Money back guarantee - Free shipping</span>
+//         </div>
+//     </div>
+//     <div class="navbar__bottom">
+//         <a class="navbar__logo" href="#">
+//             <img src="../images/logo/logo_header.png" alt="Pets Deli Logo" />
+//         </a>
+//         <ul class="navbar__links">
+//             <li class="navbar__link"><a href="#">Home</a></li>
+//             <li class="navbar__link navbar__link--active"><a href="#">Dogs</a></li>
+//             <li class="navbar__link"><a href="#">Cats</a></li>
+//             <li class="navbar__link"><a href="#">Support</a></li>
+//             <li class="navbar__link"><a href="#">Contact</a></li>
+//             <li class="navbar__link navbar__link--login"><a href="#">Login</a></li>
+//             <li class="navbar__link navbar__link--cart"><a href="#">Cart</a></li>
+//         </ul>
+//     </div>
+// </nav>
+// <div class="dummy"></div>
+//
+// Styleguide: organisms.navbar
+//
+// Weight: 0
+
+
+.navbar{
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    width: 100%;
+    box-shadow: 0 0 30px 0 rgba(0,0,0,0.2);
+    background: $_rgbWhite;
+
+    & + * {
+        padding-top: 120px;
+    }
+}
+
+.navbar__top{
+    padding: 6px 0;
+    background: $_rgbApple;
+
+    font-family: $_ffBrandonGrotesque-Bold;
+    font-size: $_fsTiny;
+    line-height: $_lhTiny;
+    text-transform: uppercase;
+    text-align: center;
+    color: $_rgbWhite;
+}
+
+.navbar__item{
+    display: inline-block;
+    padding: 0 9px;
+}
+
+.navbar__phone{
+    color: inherit;
+    text-decoration: none;
+}
+
+.navbar__label{
+
+}
+
+.navbar__bottom{
+    @include clearfix;
+}
+
+.navbar__logo{
+    float: left;
+    width: 120px;
+    margin: -15px 0;
+
+    img{
+        @include responsiveImage;
+    }
+}
+
+.navbar__links{
+    display: table;
+    width: calc(100% - 120px);
+    float: left;
+    padding-left: 33px;
+}
+
+.navbar__link{
+    display: table-cell;
+    width: 1%;
+
+    a{
+        position: relative;
+        display: inline-block;
+        margin-bottom: -8px;
+        padding: 0 10px;
+        overflow: hidden;
+
+        font-family: $_ffBrandonGrotesque-Bold;
+        font-size: $_fsSmall;
+        line-height: 90px;
+        text-decoration: none;
+        text-transform: uppercase;
+        color: $_rgbQuincy;
+
+        &:after{
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: -5px;
+            height: 10px;
+            width: 100%;
+            background: $_rgbApple;
+            opacity: 0;
+
+            transition: bottom $_tShort ease-in-out, opacity $_tShort ease-in-out;
+        }
+    }
+}
+
+.navbar__link--active{
+    a:after{
+        bottom: 0;
+        opacity: 1;
+    }
+}
