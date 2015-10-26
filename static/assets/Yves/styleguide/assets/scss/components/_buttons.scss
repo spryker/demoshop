@@ -1,0 +1,41 @@
+// Buttons
+//
+// Markup: _buttons.hbs
+//
+// .button--cta   - Use this class to indicate that the button is the primary
+//              feature of this form.
+// :hover     - Highlight the button when hovered.
+//
+// Styleguide: atoms.buttons
+
+.button {
+    display: inline-block;
+    padding: 14px 35px 12px;
+    border: 2px solid $_rgbOsloGray;
+    border-radius: $_defaultBorderRadius;
+
+    color: $_rgbOsloGray;
+    text-transform: uppercase;
+    letter-spacing: 0.34px;
+    font-size: $_fsSmall;
+    line-height: $_lhSmall;
+
+    cursor: pointer;
+    transition: background $_tShort ease-in-out, border-color $_tShort ease-in-out;
+
+    &:hover {
+        background: $_rgbOsloGray;
+        color: $_rgbWhite;
+    }
+}
+
+.button--cta{
+    background: $_rgbChileanFire;
+    border-color: $_rgbChileanFire;
+    color: $_rgbWhite;
+
+    &:hover{
+        background: lighten($_rgbChileanFire, 10);
+        border-color: lighten($_rgbChileanFire, 10);
+    }
+}

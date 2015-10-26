@@ -1,0 +1,92 @@
+// ================
+//  COLORS
+// ================
+
+$_rgbWhite:         rgb(255, 255, 255); // #FFFFFF
+$_rgbAlabaster:     rgb(249, 249, 249); // #F9F9F9
+$_rgbSilverChalice: rgb(166, 166, 166); // #A6A6A6
+$_rgbOsloGray:      rgb(131, 140, 142); // #838C8E
+$_rgbTundora:       rgb( 64,  64,  64); // #404040
+$_rgbShark:         rgb( 46,  46,  48); // #2E2E30
+
+$_rgbBarberry:      rgb(237, 221,  19); // #EDDD13
+$_rgbFuelYellow:    rgb(230, 178,  34); // #E6B222
+$_rgbZest:          rgb(225, 134,  39); // #E18627
+$_rgbHotCinnamon:   rgb(220, 102,  30); // #DC661E
+
+$_rgbApple:         rgb( 98, 188,  70); // #62BC46
+$_rgbDarkApple:     rgb( 96, 159,  59); // #609F3B
+$_rgbGreenHaze:     rgb(  0, 142,  73); // #008E49
+
+$_rgbAkaroa:        rgb(217, 187, 169); // #D9BBA9
+$_rgbTumbleweed:    rgb(220, 180, 131); // #DCB483
+$_rgbWhiskey:       rgb(216, 155, 107); // #D89B6B
+$_rgbJaponica:      rgb(213, 123,  97); // #D57B61
+$_rgbMediumCarmine: rgb(179,  66,  56); // #B34238
+$_rgbTotemPole:     rgb(140,  20,   4); // #8C1404
+
+$_rgbTaupeGray:     rgb(178, 168, 147); // #B2A893
+$_rgbPaleOyster:    rgb(148, 140, 121); // #948C79
+$_rgbRomanCoffee:   rgb(122,  91,  68); // #7A5B44
+$_rgbIrishCoffee:   rgb(102,  58,  42); // #663A2A
+
+$_rgbDoveGray:      rgb(106, 106, 106); // #6A6A6A
+
+
+// ???
+$_rgbCarnation:     rgb(246,  78,  96); // #F64E60
+$_rgbWhiskey2:      rgb(215, 155, 111); // #D79B6F
+$_rgbChileanFire:   rgb(238, 114,   3); // #EE7203
+$_rgbMantis:        rgb(101, 186,  77); // #65BA4D
+$_rgbQuincy:        rgb( 91,  53,  42); // #5B352A
+$_rgbShipGray:      rgb( 67,  67,  69); // #434345
+
+
+// ================
+//  TYPOGRAPHY
+// ================
+
+$_ffBrandonGrotesque-Bold: 'BrandonGrotesque-Bold';
+$_ffBrandonGrotesque-Black: 'BrandonGrotesque-Black';
+$_ffBrandonGrotesque-Regular: 'BrandonGrotesque-Regular';
+$_ffBeloved: 'Beloved';
+
+$_fsTiny: 12px;
+$_lhTiny: 18px;
+
+$_fsSmall: 14px;
+$_lhSmall: 20px;
+
+$_fsSmaller: 18px;
+$_lhSmaller: 26px;
+
+$_fsDefault: 20px;
+$_lhDefault: 28px;
+
+$_fsLarge: 50px;
+$_lhLarge: 72px;
+
+$_defaultBorderRadius: 3px;
+
+
+// ================
+//  LAYOUT
+// ================
+
+$_xGutter  : 36px;
+$_yGutter  : 0;
+$_xSpacing : 24px;
+$_ySpacing : 18px;
+
+
+$_wSmall     : 0;
+$_wMedium    : 481px;
+$_wLarge     : 768px;
+$_wXLarge    : 1000px;
+
+
+// ================
+//  Animation
+// ================
+
+$_tShort: 0.3s;

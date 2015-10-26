@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta content="text/html;charset=UTF-8" http-equiv="content-type"/>
+
+    <title>Pets Deli - Styleguide</title>
+
+    <link href="../css/styleguide.css" rel="stylesheet" type="text/css"/>
+    <!--[if lt IE 9]> <script src="public/html5shiv.js"></script> <![endif]-->
+
+    <!-- TODO: browserify -->
+    <script src="public/kss.js"></script>
+    <script src="public/highlight.pack.js"></script>
+    <script src="public/jquery-1.10.2.min.js"></script>
+    <script src="public/styleguide.js"></script>
+
+  </head>
+
+  <body id="styleguide">
+
+    <nav class="styleguide-menu styleguide-reset">
+      <ul class="styleguide-menu-list" data-kss-ref="{{rootName}}">
+        {{#eachRoot}}
+          <li>
+            <ul>
+                <a class="section-{{reference}}" href="section-{{reference}}.html">{{header}}</a>
+                <!-- {{#eachSection reference}}
+                <li>
+                </li>
+                {{/eachSection}} -->
+            </ul>
+          </li>
+        {{/eachRoot}}
+      </ul>
+    </nav>
+
+    <div class="styleguide-container">
+
+
+      <div class="styleguide-content">
+
+        {{#if overview}}
+          <div class="styleguide-markdown-body styleguide-reset">
+            {{{overview}}}
+          </div>
+        {{else}}
+          {{#eachSection rootName}}
+            {{#if markup}}
+              <div class="styleguide-example section-{{split reference}}">
+                <header class="styleguide-example-header styleguide-reset">
+                  <h3>{{header}} <em>{{reference}}</em></h3>
+                </header>
+                {{#if description}}
+                  <div class="styleguide-description styleguide-markdown-body styleguide-reset">
+                    {{{description}}}
+
+                    <ul class="styleguide-modifier">
+                      {{#eachModifier}}
+                        <li>
+                          <strong>{{name}}</strong>
+                          -
+                          {{{description}}}</li>
+                      {{/eachModifier}}
+                    </ul>
+                  </div>
+                {{/if}}
+
+                <div class="styleguide-elements">
+                    <div class="styleguide-element">
+                      {{{markup}}}
+                    </div>
+
+                    {{#eachModifier}}
+                      <div class="styleguide-element styleguide-modifier">
+                        <span class="styleguide-modifier-name">{{name}}</span>
+                        {{{markup}}}
+                      </div>
+                    {{/eachModifier}}
+                </div>
+
+                <div class="styleguide-html styleguide-reset">
+                  <div class="styleguide-html-highlight">
+                    <pre><code class="xml">{{markup}}</code></pre>
+                  </div>
+                </div>
+              </div>
+              {{else}}
+              <header class="example-header styleguide-reset">
+                <h1>{{header}}</h1>
+              </header>
+              {{#if description}}
+                <div class="markdown-body styleguide-reset">
+                  {{{description}}}
+                </div>
+              {{/if}}
+            {{/if}}
+          {{/eachSection}}
+        {{/if}}
+      </div>
+    </div>
+
+  </body>
+</html>

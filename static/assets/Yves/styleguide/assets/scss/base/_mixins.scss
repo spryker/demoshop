@@ -1,0 +1,60 @@
+// .colors($bg, $color)
+//
+// Applies foreground and background colors.
+//
+// Compatibility untested.
+//
+// $bg - Background color; defaults to `#f5f5f5`.
+// $color - Foreground color; defaults to `#900`.
+//
+// #Styleguide: colors.example
+
+
+@mixin font-face($fontName) {
+  @font-face {
+    font-family: $fontName;
+    src: url('../fonts/' + $fontName + '/' + $fontName + '.eot');
+    src: url('../fonts/' + $fontName + '/' + $fontName + '.eot?iefix') format('eot'), url('../fonts/' + $fontName + '/' + $fontName + '.woff') format('woff'), url('../fonts/' + $fontName + '/' + $fontName + '.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+  }
+}
+
+@mixin placeholderColor($color) {
+  &::-webkit-input-placeholder {
+     color: $color;
+  }
+
+  &:-moz-placeholder { /* Firefox 18- */
+     color: $color;
+  }
+
+  &::-moz-placeholder {  /* Firefox 19+ */
+     color: $color;
+  }
+
+  &:-ms-input-placeholder {
+     color: $color;
+  }
+}
+
+@mixin clearfix {
+  &:after{
+    content: '';
+    display: table;
+    clear: both;
+  }
+}
+
+@mixin responsiveImage{
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+@mixin pageWidth{
+  max-width: $_maxPageWidth;
+  margin: 0 auto;
+  padding-left: ($_xGutter / 2);
+  padding-right: ($_xGutter / 2);
+}

@@ -1,0 +1,66 @@
+// Input
+//
+// Markup: _input.hbs
+//
+// .input--valid    - Use this class to indicate that the button is the primary.
+// .input--invalid   - Use this class to indicate that the button is the primary.
+//
+// Styleguide: atoms.input
+
+.input{
+    position: relative;
+}
+
+.input__text{
+    width: 100%;
+    padding: 11px 32px 9px;
+    border-radius: $_defaultBorderRadius;
+    border: 2px solid $_rgbOsloGray;
+    outline:0;
+
+    appearance: none;
+    font-size: $_fsSmaller;
+    line-height: $_lhSmaller;
+    text-transform: uppercase;
+
+    @include placeholderColor($_rgbOsloGray);
+}
+
+.input--invalid, .input--valid{
+    &:after{
+        position: absolute;
+        top: 50%;
+        right: 15px;
+        margin-top: -12px;
+        content: '';
+        width: 24px;
+        height: 24px;
+        border-radius: 50%;
+    }
+}
+
+
+.input--invalid{
+    .input__text{
+        border-color: $_rgbCarnation;
+    }
+
+    &:after{
+        background: $_rgbCarnation;
+    }
+}
+
+.input--valid{
+    &:after{
+        background: $_rgbApple;
+    }
+}
+
+
+
+
+.section-input{
+    .styleguide-modifier-name + .input{
+        margin-top: 34px;
+    }
+}

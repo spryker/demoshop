@@ -1,0 +1,93 @@
+body{
+    font-family: $_ffBrandonGrotesque-Regular;
+    font-size: $_fsDefault;
+    line-height: $_lhDefault;
+    height: 100%;
+    -webkit-tap-highlight-color: transparent;
+    margin: 0;
+
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+*{
+    box-sizing: border-box;
+
+    font-family: inherit;
+    font-size: inherit;
+    line-height: inherit;
+}
+
+
+// Page title
+//
+// Markup:
+// <h1 class="page-title {{modifier_class}}">PAGE TITLE</h1>
+//
+// .page-title--green - Lorem
+// .page-title--orange - Lorem
+//
+// Styleguide: typography.page-title
+//
+// Weight: 0
+
+.page-title{
+    font-size: $_fsLarge;
+    line-height: $_lhLarge;
+    font-family: $_ffBrandonGrotesque-Bold;
+}
+
+.page-title--green{
+    color: $_rgbMantis;
+}
+
+.page-title--orange{
+    color: $_rgbWhiskey2;
+}
+
+
+
+
+// Subtitle
+//
+// Markup:
+// <p class="subtitle">
+//    Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+//    Quaerat necessitatibus quisquam vel, eveniet facere cumque
+//    quas veritatis sapiente odio quod quae in asperiores neque
+//    iste laboriosam fugit vero magni corporis.
+//</p>
+//
+//Styleguide: typography.subtitle
+//
+// Weight: 1
+
+.subtitle{
+    color: $_rgbSilverChalice;
+}
+
+
+
+
+
+// Body text
+//
+// Markup:
+// <p class="body-text">
+//    Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+//    Quaerat necessitatibus quisquam vel, eveniet facere cumque
+//    quas veritatis sapiente odio quod quae in asperiores neque
+//    iste laboriosam fugit vero magni corporis. <br>
+//    Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+//    Quaerat necessitatibus quisquam vel, eveniet facere cumque
+//    quas veritatis sapiente odio quod quae in asperiores neque
+//    iste laboriosam fugit vero magni corporis.
+//</p>
+//
+//Styleguide: typography.body-text
+//
+// Weight: 2
+
+.body-text{
+    color: $_rgbDoveGray;
+}
