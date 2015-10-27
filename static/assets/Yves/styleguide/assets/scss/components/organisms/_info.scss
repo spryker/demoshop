@@ -2,8 +2,10 @@
 //
 // Markup:
 //<div class="info">
-//    {{> "typography.page-title" }}
-//    {{> "typography.subtitle"}}
+//    <div class="info__content">
+//        {{> "typography.page-title" modifier_class="page-title--quincy" title="Our philosophy"}}
+//        {{> "typography.subtitle"}}
+//    </div>
 //    <div class="info__column">
 //        {{> "typography.body-text"}}
 //    </div>
@@ -16,9 +18,14 @@
 // Styleguide: organisms.info
 
 .info{
+    @include pageWidth;
     @include clearfix;
 
     text-align: center;
+}
+
+.info__content{
+    @include limitWidth(830px);
 }
 
 .info__column{
@@ -30,8 +37,9 @@
 }
 
 .info__image{
-    margin-top: 10px;
+    margin: 10px auto 0;
     display: block;
     width: 100%;
     height: auto;
+    width: 90%;
 }

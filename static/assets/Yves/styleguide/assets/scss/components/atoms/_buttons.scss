@@ -1,12 +1,19 @@
 // Buttons
 //
-// Markup: _buttons.hbs
+// Markup:
+// <div class="button {{modifier_class}}">
+//    {{#if title}}
+//        {{title}}
+//    {{else}}
+//        Button
+//    {{/if}}
+//</div>
 //
 // .button--cta   - Use this class to indicate that the button is the primary
 //              feature of this form.
 // :hover     - Highlight the button when hovered.
 //
-// Styleguide: atoms.buttons
+// Styleguide: atoms.button
 
 .button {
     display: inline-block;
@@ -19,6 +26,7 @@
     letter-spacing: 0.34px;
     font-size: $_fsSmall;
     line-height: $_lhSmall;
+    font-family: $_ffBrandonGrotesque-Bold;
 
     cursor: pointer;
     transition: background $_tShort ease-in-out, border-color $_tShort ease-in-out;

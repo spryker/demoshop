@@ -5,27 +5,31 @@
 // Markup:
 // <nav class="navbar">
 //     <div class="navbar__top">
-//         <div class="navbar__item">
-//             <span class="navbar__label">Call us:</span>
-//             <a class="navbar__phone" href="tel:+4930208984899">030 - 208 98 48 99</a>
-//         </div>
-//         <div class="navbar__item">
-//             <span>Money back guarantee - Free shipping</span>
+//        <div class="navbar__center">
+//             <div class="navbar__item">
+//                 <span class="navbar__label">Call us:</span>
+//                 <a class="navbar__phone" href="tel:+4930208984899">030 - 208 98 48 99</a>
+//             </div>
+//             <div class="navbar__item">
+//                     <span>Money back guarantee - Free shipping</span>
+//             </div>
 //         </div>
 //     </div>
 //     <div class="navbar__bottom">
-//         <a class="navbar__logo" href="#">
-//             <img src="../images/logo/logo_header.png" alt="Pets Deli Logo" />
-//         </a>
-//         <ul class="navbar__links">
-//             <li class="navbar__link"><a href="#">Home</a></li>
-//             <li class="navbar__link navbar__link--active"><a href="#">Dogs</a></li>
-//             <li class="navbar__link"><a href="#">Cats</a></li>
-//             <li class="navbar__link"><a href="#">Support</a></li>
-//             <li class="navbar__link"><a href="#">Contact</a></li>
-//             <li class="navbar__link navbar__link--login"><a href="#">Login</a></li>
-//             <li class="navbar__link navbar__link--cart"><a href="#">Cart</a></li>
-//         </ul>
+//         <div class="navbar__center">
+//             <a class="navbar__logo" href="#">
+//                 <img src="../images/logo/logo_header.png" alt="Pets Deli Logo" />
+//             </a>
+//             <ul class="navbar__links">
+//                 <li class="navbar__link"><a href="#">Home</a></li>
+//                 <li class="navbar__link navbar__link--active"><a href="#">Dogs</a></li>
+//                 <li class="navbar__link"><a href="#">Cats</a></li>
+//                 <li class="navbar__link"><a href="#">Support</a></li>
+//                 <li class="navbar__link"><a href="#">Contact</a></li>
+//                 <li class="navbar__link navbar__link--login"><a href="#">Login</a></li>
+//                 <li class="navbar__link navbar__link--cart"><a href="#">Cart</a></li>
+//             </ul>
+//         </div>
 //     </div>
 // </nav>
 // <div class="dummy"></div>
@@ -47,6 +51,10 @@
     & + * {
         padding-top: 120px;
     }
+}
+
+.navbar__center{
+    @include pageWidth;
 }
 
 .navbar__top{
@@ -133,5 +141,17 @@
     a:after{
         bottom: 0;
         opacity: 1;
+    }
+}
+
+.navbar__link--login{
+    a{
+        @include pdif('user', 20px, 30px);
+    }
+}
+
+.navbar__link--cart{
+    a{
+        @include pdif('cart', 20px, 30px);
     }
 }

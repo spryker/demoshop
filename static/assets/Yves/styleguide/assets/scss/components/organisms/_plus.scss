@@ -21,6 +21,7 @@
 .plus{
     padding: 70px 0;
     @include clearfix;
+    @include pageWidth;
 }
 
 .plus__item{

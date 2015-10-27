@@ -40,7 +40,8 @@ $_rgbChileanFire:   rgb(238, 114,   3); // #EE7203
 $_rgbMantis:        rgb(101, 186,  77); // #65BA4D
 $_rgbQuincy:        rgb( 91,  53,  42); // #5B352A
 $_rgbShipGray:      rgb( 67,  67,  69); // #434345
-
+$_rgbSilverChalice: rgb(177, 177, 177); // #B1B1B1
+$_rgbAlto:          rgb(220, 220, 200); // #DCDCDC
 
 // ================
 //  TYPOGRAPHY
@@ -50,6 +51,8 @@ $_ffBrandonGrotesque-Bold: 'BrandonGrotesque-Bold';
 $_ffBrandonGrotesque-Black: 'BrandonGrotesque-Black';
 $_ffBrandonGrotesque-Regular: 'BrandonGrotesque-Regular';
 $_ffBeloved: 'Beloved';
+$_ffHelveticaNeue: 'Helvetica Neue', 'Helvetica', sans-serif;
+
 
 $_fsTiny: 12px;
 $_lhTiny: 18px;
@@ -90,6 +93,7 @@ $_wMedium    : 481px;
 $_wLarge     : 768px;
 $_wXLarge    : 1000px;
 
+$_maxPageWidth: 1300px;
 
 // ================
 //  Animation

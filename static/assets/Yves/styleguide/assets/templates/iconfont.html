@@ -1,0 +1,106 @@
+<html>
+
+<head>
+  <title>
+    <%= fontName %>
+  </title>
+  <style>
+    @font-face {
+      font-family: '<%= fontName %>';
+      src: url('../<%= fontName %>/<%= fontName %>.eot');
+      src: url('../<%= fontName %>/<%= fontName %>.eot?#iefix') format('eot'), url('../<%= fontName %>/<%= fontName %>.woff') format('woff'), url('../<%= fontName %>/<%= fontName %>.ttf') format('truetype'), url('../<%= fontName %>/<%= fontName %>.svg#Carlsen-Icons') format('svg');
+      font-weight: normal;
+      font-style: normal;
+    }
+
+    body {
+      font-family: Arial;
+      text-align: center;
+      background: #f7f7f7
+    }
+
+    body > h1 {
+      color: #666;
+      margin: 1em 0
+    }
+
+    .glyph {
+      display: -webkit-flex;
+      display: -ms-flexbox;
+      display: flex;
+      -webkit-flex-wrap: wrap;
+      -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+      overflow: hidden;
+      padding: 0
+    }
+
+    .glyph > li {
+      float: left;
+      margin: 10px;
+      padding: 10px;
+      width: 6em;
+      background: #fff;
+      border-radius: .5em;
+      position: relative
+    }
+
+    .glyph > li i {
+      margin-bottom: 10px;
+    }
+
+    .glyph-name {
+      font-size: .8em;
+      color: #666;
+      display: block
+    }
+
+    .glyph-codepoint {
+      color: #999;
+      font-family: monospace
+    }
+
+    /* font overview */
+    .<%= className %>{
+      display: inline-block;
+    }
+
+    .<%= className %>:before{
+      display: inline-block;
+      font-family: '<%= fontName %>';
+      font-style: normal;
+      font-weight: normal;
+      line-height: 1;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+      margin:0;
+      vertical-align:top;
+    }
+
+    <% _.each(glyphs, function(glyph) { %>.<%= className %>.is-<%= glyph.name %>:before{
+      content: '\<%= glyph.codepoint.toString(16).toUpperCase() %>';
+    }
+    <% }); %>
+  </style>
+</head>
+
+<body>
+  <h1>&Uuml;bersicht:
+    <%= fontName %>
+  </h1>
+  <ul class="glyph">
+    <% _.each(glyphs, function(glyph) { %>
+      <li>
+        <i class="<%= className %> is-<%= glyph.name %>"></i>
+        <span class="glyph-name">
+          <%= glyph.name %>
+        </span>
+        <span class="glyph-codepoint">
+          <%= glyph.codepoint.toString(16).toUpperCase() %>
+        </span>
+      </li>
+      <% }); %>
+  </ul>
+</body>
+
+</html>

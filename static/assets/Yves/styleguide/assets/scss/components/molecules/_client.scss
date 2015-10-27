@@ -1,0 +1,58 @@
+// Client
+//
+// Markup:
+//<div class="client column small-4">
+//    <div class="client__portrait" style="background-image: url(../images/client/portrait_1.jpg);"></div>
+//    <div class="client__quote">Nam dapibus nisl vitae elit fringilla rutrum. Aenean sollicitudin, erat a elementum rutrum, neque sem pretium metus, quis mollis nisl nunc et massa. Vestibulum sed metu.</div>
+//    <div class="client__name">
+//        Maria Ivanova
+//    </div>
+//</div>
+//
+// Styleguide: molecules.client
+
+.client{
+    text-align: center;
+}
+
+.client__portrait{
+    position: relative;
+    margin-bottom: 30px;
+    display: inline-block;
+    width: 52px;
+    height: 52px;
+    border-radius: 50%;
+
+    background-position: center !important;
+    background-size: cover !important;
+
+    &:after{
+        content: '';
+        position: absolute;
+        top: 74px;
+        left: 50%;
+        margin-left: -9px;
+        width: 18px;
+        height: 2px;
+        background: $_rgbAlto;
+    }
+}
+
+.client__quote{
+    margin-bottom: 15px;
+
+    color: $_rgbDoveGray;
+    font-size: 16px;
+    line-height: 28px;
+}
+
+.client__name{
+    font-family: $_ffBrandonGrotesque-Bold;
+    font-size: 13px;
+    line-height: 19px;
+    text-transform: uppercase;
+
+    &:before{
+        content: '–';
+    }
+}

@@ -1,0 +1,38 @@
+// Clients
+//
+// Markup:
+//<div class="clients">
+//    <div class="clients__inner">
+//        <div class="clients__content">
+//            {{> "typography.page-title" modifier_class="page-title--quincy" title="Our clients"}}
+//            {{> "typography.subtitle"}}
+//        </div>
+//        <div class="clients__items row">
+//            {{> "molecules.client"}}
+//            {{> "molecules.client"}}
+//            {{> "molecules.client"}}
+//        </div>
+//    </div>
+//</div>
+//
+// Styleguide: organisms.clients
+
+.clients{
+    padding: 85px 0 80px;
+
+    box-shadow: 0 0 30px 0 rgba(0,0,0,.2);
+}
+
+.clients__inner{
+    @include pageWidth;
+}
+
+.clients__content{
+    @include limitWidth(800px);
+    text-align: center;
+    padding-bottom: 20px;
+}
+
+.clients__items{
+    @include clearfix;
+}

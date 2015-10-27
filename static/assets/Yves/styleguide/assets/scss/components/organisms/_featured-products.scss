@@ -1,0 +1,121 @@
+// Product Card
+//
+// Markup:
+//<div class="featured-products">
+//    <div class="featured-products__content">
+//        {{> "typography.page-title" modifier_class="page-title--quincy" title="Featured products"}}
+//        {{> "typography.subtitle"}}
+//    </div>
+//    <div class="featured-products__slider">
+//        <div class="featured-products__slider-inner">
+//            {{> "molecules.product-card"}}
+//            {{> "molecules.product-card"}}
+//            {{> "molecules.product-card"}}
+//            {{> "molecules.product-card"}}
+//            {{> "molecules.product-card"}}
+//        </div>
+//        <div class="featured-products__control featured-products__control--prev"></div>
+//        <div class="featured-products__control featured-products__control--next"></div>
+//        <div class="featured-products__bullets">
+//            <div class="featured-products__bullet featured-products__bullet--active"></div>
+//            <div class="featured-products__bullet"></div>
+//            <div class="featured-products__bullet"></div>
+//        </div>
+//    </div>
+//</div>
+//
+// Styleguide: organisms.featured-products
+
+$_xOverlapping: 50%;
+
+.featured-products{
+    padding: 90px 0 80px;
+
+    background: $_rgbAlabaster;
+}
+
+.featured-products__content{
+    @include limitWidth;
+    text-align: center;
+    padding-bottom: 20px;
+}
+
+.featured-products__slider{
+    position: relative;
+}
+
+.featured-products__slider-inner{
+    @include clearfix;
+    width: 100% + $_xOverlapping;
+    margin: 0 ($_xOverlapping / -2);
+}
+
+
+
+
+.featured-products__control{
+    top: 50%;
+    margin-top: -100px;
+    width: 4.15%;
+    height: 200px;
+    background: rgba($_rgbApple, 0.75);
+    opacity: 0;
+
+    color: $_rgbWhite;
+    text-align: center;
+
+    cursor: pointer;
+    transition: opacity $_tShort ease-in-out, background $_tShort ease-in-out;
+
+    &:before{
+        width: 100%;
+    }
+
+    &:hover{
+        background: $_rgbApple;
+    }
+}
+
+.featured-products__control--prev{
+    @include pdif('arrow-left', 26px, 17px);
+    position: absolute;
+    left: 0;
+}
+
+.featured-products__control--next{
+    @include pdif('arrow-right', 26px, 17px);
+    position: absolute;
+    right: 0;
+}
+
+
+
+.featured-products__bullets{
+    position: absolute;
+    bottom: -50px;
+    left: 0;
+    width: 100%;
+    text-align: center;
+}
+
+.featured-products__bullet{
+    display: inline-block;
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    border: 3px solid $_rgbApple;
+
+    cursor: pointer;
+}
+
+.featured-products__bullet--active{
+    background: $_rgbApple;
+}
+
+
+.featured-products__slider:hover{
+    .featured-products__control{
+        opacity: 1;
+    }
+}
+

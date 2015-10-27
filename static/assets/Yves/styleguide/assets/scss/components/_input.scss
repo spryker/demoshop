@@ -1,9 +1,13 @@
 // Input
 //
-// Markup: _input.hbs
+// Markup:
+// <div class="input {{modifier_class}}">
+//     <input class="input__text" type="text" placeholder="Your email...">
+// </div>
 //
-// .input--valid    - Use this class to indicate that the button is the primary.
-// .input--invalid   - Use this class to indicate that the button is the primary.
+// .input--valid    - Lorem
+// .input--invalid   - Lorem
+// .input--ghost   - Lorem
 //
 // Styleguide: atoms.input
 
@@ -13,17 +17,27 @@
 
 .input__text{
     width: 100%;
-    padding: 11px 32px 9px;
+    padding: 11px 24px 9px;
     border-radius: $_defaultBorderRadius;
+    font-family: $_ffHelveticaNeue;
     border: 2px solid $_rgbOsloGray;
     outline:0;
 
     appearance: none;
     font-size: $_fsSmaller;
     line-height: $_lhSmaller;
-    text-transform: uppercase;
 
     @include placeholderColor($_rgbOsloGray);
+}
+
+.input--ghost{
+    .input__text{
+        background: transparent;
+        border-color: $_rgbWhite;
+
+        color: $_rgbWhite;
+        @include placeholderColor($_rgbWhite);
+    }
 }
 
 .input--invalid, .input--valid{

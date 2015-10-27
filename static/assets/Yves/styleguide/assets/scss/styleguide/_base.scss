@@ -1,3 +1,7 @@
+body{
+    @include clearfix;
+}
+
 .styleguide-reset {
   font-family: 'Helvetica', sans-serif;
   * {
@@ -424,7 +428,14 @@ ul.styleguide-modifier {
 }
 
 .section-organisms, .section-templates{
-    .styleguide-iframe{
-        margin: 0 -20px;
+    .styleguide-example{
+        margin: 15px -17px;
     }
+    .styleguide-iframe{
+        margin: -10px -20px -20px;
+    }
+}
+
+iframe{
+    border: none;
 }

@@ -1,7 +1,13 @@
 // Page title
 //
 // Markup:
-// <h1 class="page-title {{modifier_class}}">Page title</h1>
+// <h1 class="page-title {{modifier_class}}">
+//    {{#if title}}
+//        {{title}}
+//    {{else}}
+//        Page title
+//    {{/if}}
+//</h1>
 //
 // .page-title--green - Lorem
 // .page-title--orange - Lorem
@@ -13,10 +19,12 @@
 
 .page-title{
     margin-bottom: 15px;
+    
     font-size: $_fsLarge;
     line-height: $_lhLarge;
     font-family: $_ffBrandonGrotesque-Bold;
     text-transform: uppercase;
+    text-align: center;
 }
 
 .page-title--green{

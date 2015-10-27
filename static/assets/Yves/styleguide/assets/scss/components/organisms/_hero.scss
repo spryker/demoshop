@@ -4,14 +4,14 @@
 // <div class="hero" style="background-image: url(/images/hero/background.jpg);">
 //     <div class="hero__center">
 //         <div class="hero__content">
-//             <h1 class="page-title page-title__white">Headline</h1>
+//             {{> "typography.page-title" modifier_class="page-title--white" title="Headline"}}
 //             <p class="subtitle subtitle--white">
 //                 Wisi eruditi id nam. Te pri oblique ullamcorper, magna persequeris has
 //                 eu. Mei prompta dolores ex, eam ad debet suavitate. Pri te vocibus
 //                 electram. Eu eleifend rationibus vis, at pro odio.
 //             </p>
-//             <div class="button button--white">Dogs products</div>
-//             <div class="button button--white">Cats products</div>
+//             {{> "atoms.button" modifier_class="button--white" title="Dogs products"}}
+//             {{> "atoms.button" modifier_class="button--white" title="Cats products"}}
 //         </div>
 //     </div>
 // </div>
@@ -38,15 +38,10 @@
 }
 
 .hero__content{
-    margin: 0 auto;
-
-    // TODO: replace with grid
-    max-width: 758px;
+    @include limitWidth();
 
     .button{
         margin-left: 11px;
         margin-right: 11px;
-
-        font-family: $_ffBrandonGrotesque-Bold;
     }
 }

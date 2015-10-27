@@ -20,15 +20,23 @@ var config = {
         },
         copy: {
             folder: ASSETS_DIR + 'copy',
-            files: ASSETS_DIR + 'copy/**/*.{jpg,png}'
+            files: ASSETS_DIR + 'copy/**/*.{jpg,png,ttf,woff,woff2,eot}'
         },
-        images: ASSETS_DIR + 'images'
+        images: ASSETS_DIR + 'images',
+        iconfont: {
+            icons: ASSETS_DIR + 'icons/**/*.svg',
+            templates: {
+                style: ASSETS_DIR + 'templates/iconfont.scss',
+                preview: ASSETS_DIR + 'templates/iconfont.html'
+            }
+        }
     },
     dest: {
         folder: PUBLIC_DIR,
         styleguide: PUBLIC_DIR + 'styleguide',
         styles: PUBLIC_DIR + 'css',
-        images: PUBLIC_DIR + 'images'
+        images: PUBLIC_DIR + 'images',
+        fonts: PUBLIC_DIR + 'fonts'
     }
   }
 };

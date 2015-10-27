@@ -1,0 +1,67 @@
+// Newsletter
+//
+// Markup:
+// <div class="newsletter" style="background-image: url(../images/newsletter/background.jpg);">
+//     <div class="newsletter__inner">
+//         <div class="newsletter__content">
+//             <h2 class="page-title page-title--whote">Newsletter</h2>
+//             <p class="newsletter__text">
+//                Donec facilisis tortor ut augue lacinia, at viverra est semper. Sed sapien metus, scelerisque nec pharetra id, tempor a tortor.
+//             </p>
+//             <form class="newsletter__form">
+//                {{> "atoms.input" modifier_class="input--ghost"}}
+//                {{> "atoms.button" modifier_class="button--cta" title="Send"}}
+//             </form>
+//         </div>
+//    </div>
+// </div>
+//
+// Styleguide: organisms.newsletter
+
+.newsletter{
+    background-position: center !important;
+    background-size: cover !important;
+}
+
+.newsletter__inner{
+    position: relative;
+    height: 430px;
+    @include pageWidth;
+}
+
+.newsletter__content{
+    width: 37%;
+    position: absolute;
+    right: 13%;
+    top: 50%;
+    transform: translate(0, -50%);
+
+    color: $_rgbWhite;
+    text-align: center;
+}
+
+.newsletter__headline{
+    margin-bottom: 25px;
+}
+
+.newsletter__text{
+    margin-bottom: 65px;
+}
+
+.newsletter__form{
+    position: relative;
+
+    .input{
+        float: left;
+        width: 100%;
+        padding-right: 155px;
+    }
+
+    .button{
+        width: 140px;
+        position: absolute;
+        top: 0;
+        right: 0;
+    }
+
+}
