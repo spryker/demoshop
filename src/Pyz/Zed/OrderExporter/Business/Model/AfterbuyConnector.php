@@ -18,6 +18,11 @@ class AfterbuyConnector implements AfterbuyConnectorInterface
     protected $afterbuyResponseWriter;
 
     /**
+     * @var string
+     */
+    protected $afterbuyConnectionTimeout;
+
+    /**
      * @param OrderExporterConfig $orderExporterConfig
      * @param AfterbuyResponseWriterInterface $afterbuyResponseWriter
      */
@@ -27,6 +32,7 @@ class AfterbuyConnector implements AfterbuyConnectorInterface
     ){
         $this->afterbuyUrl = $orderExporterConfig->getAfterbuyUrl();
         $this->afterbuyResponseWriter = $afterbuyResponseWriter;
+        $this->afterbuyConnectionTimeout = $orderExporterConfig->getAfterbuyConnectionTimeout();
     }
 
     /**
@@ -36,35 +42,23 @@ class AfterbuyConnector implements AfterbuyConnectorInterface
     public function sendToAfterBuy($postVariables, $orderId)
     {
         $afterbuyTransfer = new AfterbuyResponseTransfer();
-        $connexion = curl_init();
+        $connection = curl_init();
 
-        curl_setopt($connexion, CURLOPT_TIMEOUT, 120);
-        curl_setopt($connexion, CURLOPT_URL, "$this->afterbuyUrl");
-        curl_setopt($connexion, CURLOPT_SSL_VERIFYPEER, 0);
-        curl_setopt($connexion, CURLOPT_SSL_VERIFYHOST, 0);
-        curl_setopt($connexion, CURLOPT_POST, 1);
-        curl_setopt($connexion, CURLOPT_RETURNTRANSFER, 1);
-        curl_setopt($connexion, CURLOPT_POSTFIELDS, $postVariables);
+        curl_setopt($connection, CURLOPT_TIMEOUT, $this->afterbuyConnectionTimeout);
+        curl_setopt($connection, CURLOPT_URL, "$this->afterbuyUrl");
+        curl_setopt($connection, CURLOPT_SSL_VERIFYPEER, 0);
+        curl_setopt($connection, CURLOPT_SSL_VERIFYHOST, 0);
+        curl_setopt($connection, CURLOPT_POST, 1);
+        curl_setopt($connection, CURLOPT_RETURNTRANSFER, 1);
+        curl_setopt($connection, CURLOPT_POSTFIELDS, $postVariables);
 
-        $sendingResponse = curl_exec($connexion);
-        $afterbuyTransfer->setHttpStatusCode(curl_getinfo($connexion, CURLINFO_HTTP_CODE));
-        curl_close($connexion);
+        $sendingResponse = curl_exec($connection);
+        $afterbuyTransfer->setHttpStatusCode(curl_getinfo($connection, CURLINFO_HTTP_CODE));
+        curl_close($connection);
 
         $afterbuyTransfer->setRequest($postVariables);
 
-        $sendingResponse = $this->xmlParser($sendingResponse);
         $this->afterbuyResponseWriter->createAfterbuyResponse($afterbuyTransfer, $sendingResponse, $orderId);
-    }
-
-    /**
-     * @param $sendingResponse
-     * @return array
-     */
-    public function xmlParser($sendingResponse)
-    {
-        $sendingResponse = simplexml_load_string($sendingResponse);
-
-        return (array) $sendingResponse;
     }
 
 }
