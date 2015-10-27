@@ -10,6 +10,7 @@ use Generated\Shared\Transfer\SequenceNumberSettingsTransfer;
 use SprykerEngine\Shared\Kernel\Store;
 use SprykerFeature\Shared\SequenceNumber\SequenceNumberConstants;
 use SprykerFeature\Zed\Customer\CustomerConfig as SprykerCustomerConfig;
+use Generated\Shared\SequenceNumber\SequenceNumberSettingsInterface;
 
 class CustomerConfig extends SprykerCustomerConfig
 {

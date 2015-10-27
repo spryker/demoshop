@@ -10,6 +10,7 @@ use SprykerFeature\Zed\Sales\SalesConfig as SprykerFeatureSalesConfig;
 use Pyz\Zed\Sales\Business\ConstantsInterface\Orderprocess;
 use Generated\Shared\Transfer\ItemTransfer;
 use SprykerFeature\Zed\Payone\Business\Model\Api\ApiConstants as PayoneApiConstants;
+use Generated\Shared\SequenceNumber\SequenceNumberSettingsInterface;
 
 class SalesConfig extends SprykerFeatureSalesConfig
 {

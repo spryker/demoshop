@@ -1,0 +1,16 @@
+<?xml version="1.0"?>
+<transfers xmlns="http://xsd.spryker.com"
+           xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+           xsi:schemaLocation="http://xsd.spryker.com ../../src/Spryker/TransferObjectDefinitionSchema.xsd">
+
+    <transfer name="AfterbuyResponse">
+        <property name="order" type="Order" />
+        <property name="success" type="bool" />
+        <property name="errors_list" type="string" />
+        <property name="full_response" type="string" />
+        <property name="request" type="string" />
+        <property name="http_status_code" type="string" />
+    </transfer>
+
+</transfers>
+
