@@ -30,23 +30,52 @@ class AfterbuyResponseWriter implements AfterbuyResponseWriterInterface
     public function createAfterbuyResponse(AfterbuyResponseTransfer $afterbuyTransfer, $afterbuyResponse, $orderId)
     {
         $afterbuyResponseEntity = new PdAfterbuyResponse();
+
+        if ($this->isValidXmlResponse($afterbuyResponse)) {
+            $afterbuyResponse = $this->parseXml($afterbuyResponse);
+            if (array_key_exists('success', $afterbuyResponse)) {
+                $afterbuyResponseEntity->setSuccess($afterbuyResponse['success']);
+            }
+
+            if (array_key_exists('errorlist', $afterbuyResponse)) {
+                $afterbuyResponseEntity->setErrorsList(json_encode($afterbuyResponse['errorlist']));
+            }
+        }
         $afterbuyResponseEntity
             ->setFullResponse(json_encode($afterbuyResponse))
             ->setFkOrder($orderId)
             ->setRequest($afterbuyTransfer->getRequest())
             ->setHttpStatusCode($afterbuyTransfer->getHttpStatusCode());
 
-        if (array_key_exists('success', $afterbuyResponse)) {
-            $afterbuyResponseEntity->setSuccess($afterbuyResponse['success']);
-        }
-
-        if (array_key_exists('errorlist', $afterbuyResponse)) {
-            $afterbuyResponseEntity->setErrorsList(json_encode($afterbuyResponse['errorlist']));
-        }
         $afterbuyResponseEntity->save();
 
         $this->mailSender->sendAfterbuyResultMail($afterbuyResponseEntity);
 
         return $afterbuyResponseEntity;
     }
+
+    /**
+     * @param $afterbuyResponse
+     * @return array
+     */
+    protected function parseXml($afterbuyResponse)
+    {
+        return (array) simplexml_load_string($afterbuyResponse);
+    }
+
+    /**
+     * @param $afterbuyResponse
+     * @return bool
+     */
+    protected function isValidXmlResponse($afterbuyResponse)
+    {
+        try {
+            simplexml_load_string($afterbuyResponse);
+        } catch (\Exception $e) {
+
+            return false;
+        }
+        return true;
+    }
+
 }
