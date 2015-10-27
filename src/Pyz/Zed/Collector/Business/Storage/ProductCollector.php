@@ -3,6 +3,8 @@
 namespace Pyz\Zed\Collector\Business\Storage;
 
 use Generated\Shared\Transfer\LocaleTransfer;
+use PavFeature\Zed\ProductDynamic\Business\ProductDynamicFacade;
+use PavFeature\Zed\ProductDynamic\Persistence\ProductDynamicQueryContainer;
 use Propel\Runtime\ActiveQuery\Criteria;
 use Propel\Runtime\ActiveQuery\Join;
 use Pyz\Zed\Collector\Business\Exception\WrongJsonStringException;
@@ -71,24 +73,41 @@ class ProductCollector extends AbstractPropelCollectorPlugin
     private $propelFacade;
 
     /**
+     * @var ProductDynamicFacade
+     */
+    private $productDynamicFacade;
+
+
+    /**
+     * @var ProductDynamicQueryContainer
+     */
+    private $productDynamicQueryContainer;
+
+    /**
      * @param PriceFacade $priceFacade
      * @param PriceQueryContainer $priceQueryContainer
      * @param CategoryQueryContainer $categoryQueryContainer
      * @param ProductOptionExporterFacade $productOptionExporterFacade
      * @param PropelFacade $propelFacade
+     * @param ProductDynamicFacade $productDynamicFacade
+     * @param ProductDynamicQueryContainer $productDynamicQueryContainer
      */
     public function __construct(
         PriceFacade $priceFacade,
         PriceQueryContainer $priceQueryContainer,
         CategoryQueryContainer $categoryQueryContainer,
         ProductOptionExporterFacade $productOptionExporterFacade,
-        PropelFacade $propelFacade
+        PropelFacade $propelFacade,
+        ProductDynamicFacade $productDynamicFacade,
+        ProductDynamicQueryContainer $productDynamicQueryContainer
     ) {
         $this->priceFacade = $priceFacade;
         $this->priceQueryContainer = $priceQueryContainer;
         $this->categoryQueryContainer = $categoryQueryContainer;
         $this->productOptionExporterFacade = $productOptionExporterFacade;
         $this->propelFacade = $propelFacade;
+        $this->productDynamicFacade = $productDynamicFacade;
+        $this->productDynamicQueryContainer = $productDynamicQueryContainer;
     }
 
     /**
@@ -357,6 +376,10 @@ class ProductCollector extends AbstractPropelCollectorPlugin
         $baseQuery = $this->categoryQueryContainer->joinLocalizedRelatedCategoryQueryWithAttributes($baseQuery, 'categoryParents', 'parent');
         $baseQuery = $this->categoryQueryContainer->joinRelatedCategoryQueryWithUrls($baseQuery, 'categoryParents', 'parent');
 
+        $baseQuery = $this->productDynamicQueryContainer->joinGroupKeys($baseQuery);
+        $baseQuery = $this->productDynamicQueryContainer->joinConfigurableProducts($baseQuery);
+        $baseQuery = $this->productDynamicQueryContainer->addDynamicColumns($baseQuery);
+
         $baseQuery->withColumn(
             'JSON_AGG(DISTINCT spy_category_node.id_category_node)',
             'node_id'
@@ -402,7 +425,11 @@ class ProductCollector extends AbstractPropelCollectorPlugin
         foreach ($resultSet as $index => $productRawData) {
             if (isset($processedResultSet[$index])) {
                 // Product availability
+                $processedResultSet[$index]['type'] = $productRawData[ProductDynamicQueryContainer::PRODUCT_TYPE];
+                $processedResultSet[$index]['groups'] = $this->decodeData($productRawData['group_keys']);
                 $processedResultSet[$index]['available'] = ($productRawData['quantity'] > 0);
+                $processedResultSet[$index]['configurable_products'] =  $this->productDynamicFacade->extractConfigurableProductData($productRawData);
+
 
                 // Product price
                 $priceTypes = $this->decodeData($productRawData['price_types']);
@@ -459,6 +486,8 @@ class ProductCollector extends AbstractPropelCollectorPlugin
             }
         }
 
+        dump($processedResultSet);
+        die;
         $processedResultSet = $this->productOptionExporterFacade->processDataForExport($resultSet, $processedResultSet, $locale);
 
         return $processedResultSet;
@@ -604,7 +633,7 @@ class ProductCollector extends AbstractPropelCollectorPlugin
 }
 
     /**
-     * @param $data
+     * @param string $data
      *
      * @throws WrongJsonStringException
      * @return array
