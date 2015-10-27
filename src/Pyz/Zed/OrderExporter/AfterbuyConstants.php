@@ -2,6 +2,9 @@
 
 namespace Pyz\Zed\OrderExporter;
 
+/**
+ * List of Afterbuy parameter names (e.g : KLFirma = PetsDeli ..) The constant values cannot be changed as they are given by Afterbuy.
+ */
 interface AfterbuyConstants
 {
     // Afterbuy Config
@@ -35,7 +38,6 @@ interface AfterbuyConstants
     const SHIPPING_COUNTRY_ID = 'KLLand';
     const SHIPPING_COST = 'Versandkosten';
     const SHIPPING_SERVICE = 'Versandart';
-
 
     // Billing
     const BILLING_COMPANY_NAME = 'KFirma';
