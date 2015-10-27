@@ -64,7 +64,7 @@ $config[FileUploadConfig::STORAGE] = [
             FileUploadConfig::CONFIG_TYPE => FileUploadConfig::ADAPTER_LOCAL,
             FileUploadConfig::CONFIG_CONFIG => [
                 'path' => '/data/storage/staging/static',
-                'mapping' => 'http://static.de.staging.pd-pa.de',
+                'mapping' => 'http://static.com.staging.pd-pa.de',
             ],
     ],
 ];
