@@ -6,6 +6,7 @@ use SprykerEngine\Zed\Kernel\Business\AbstractFacade;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
 use SprykerFeature\Zed\Sales\Persistence\Propel\SpySalesOrder;
+use SprykerFeature\Zed\Sales\Persistence\Propel\SpySalesOrderItem;
 
 /**
  * @method OrderExporterDependencyContainer getDependencyContainer()
@@ -39,7 +40,7 @@ class OrderExporterFacade extends AbstractFacade
 
     /**
      * @param $orderItemId
-     * @return SpySalesOrder
+     * @return SpySalesOrderItem
      */
     public function getOrderItemById($orderItemId)
     {
