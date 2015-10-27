@@ -29,5 +29,4 @@ class CustomerCheckoutConnectorFacade extends \SprykerFeature\Zed\CustomerChecko
         $this->getDependencyContainer()->createPreconditionChecker()->checkPreconditions($checkoutRequest, $checkoutResponse);
     }
 
-
 }

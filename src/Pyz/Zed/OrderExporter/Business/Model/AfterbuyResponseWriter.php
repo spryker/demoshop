@@ -20,7 +20,6 @@ class AfterbuyResponseWriter implements AfterbuyResponseWriterInterface
         $this->mailSender = $mailSender;
     }
 
-
     /**
      * @param AfterbuyResponseTransfer $afterbuyTransfer
      * @param $afterbuyResponse
@@ -50,5 +49,4 @@ class AfterbuyResponseWriter implements AfterbuyResponseWriterInterface
 
         return $afterbuyResponseEntity;
     }
-
 }
