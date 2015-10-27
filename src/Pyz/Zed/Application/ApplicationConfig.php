@@ -13,6 +13,7 @@ class ApplicationConfig extends SprykerApplicationConfig
     {
         $directories = parent::getNavigationSchemaPathPattern();
         $directories[] = APPLICATION_VENDOR_DIR . '/project-a/spryker/Bundles/*/src/*/Zed/*/Communication';
+        $directories[] = APPLICATION_ROOT_DIR . '/src/Pyz/Zed/*/Communication';
 
         return $directories;
     }

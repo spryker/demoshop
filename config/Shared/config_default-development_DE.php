@@ -59,7 +59,7 @@ $config[FileUploadConfig::STORAGE] = [
             FileUploadConfig::CONFIG_TYPE => FileUploadConfig::ADAPTER_LOCAL,
             FileUploadConfig::CONFIG_CONFIG => [
                 'path' => '/data/storage/development/static',
-                'mapping' => 'http://static.com.pets-deli.dev/cms/',
+                'mapping' => 'http://static.com.pets-deli.dev',
             ],
     ],
 ];
