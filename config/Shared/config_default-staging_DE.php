@@ -4,10 +4,10 @@
  */
 
 use SprykerFeature\Shared\Mail\MailConfig;
-use SprykerFeature\Shared\Payone\PayoneConfigConstants;
 use SprykerFeature\Shared\System\SystemConfig;
 use SprykerFeature\Shared\Yves\YvesConfig;
 use SprykerEngine\Shared\Lumberjack\LumberjackConfig;
+use PavFeature\Shared\FileUpload\FileUploadConfig;
 
 $config[SystemConfig::ZED_DB_USERNAME] = 'staging';
 $config[SystemConfig::ZED_DB_PASSWORD] = 'mate20mg';
@@ -57,4 +57,14 @@ $config[SystemConfig::ZED_RABBITMQ_VHOST] =                '/DE_staging_zed';
 
 $config[LumberjackConfig::WRITER_OPTIONS] = [
     '\SprykerEngine\Shared\Lumberjack\Model\Writer\File' => ['log_path' => '/data/logs/staging/DE/'],
+];
+
+$config[FileUploadConfig::STORAGE] = [
+    'cms' => [
+            FileUploadConfig::CONFIG_TYPE => FileUploadConfig::ADAPTER_LOCAL,
+            FileUploadConfig::CONFIG_CONFIG => [
+                'path' => '/data/storage/staging/static',
+                'mapping' => 'http://static.de.staging.pd-pa.de',
+            ],
+    ],
 ];
