@@ -331,5 +331,5 @@ $config[AfterbuyExportConstantInterface::AFTERBUY_EMAILS] = [
     'ds@petsdeli.de',
     'raed.marji@project-a.com'
 ];
-
+$config[AfterbuyExportConstantInterface::AFTERBUY_CONNECTION_TIMEOUT] = 120;
 

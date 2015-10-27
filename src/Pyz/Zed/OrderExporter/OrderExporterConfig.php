@@ -55,4 +55,12 @@ class OrderExporterConfig extends AbstractBundleConfig
     {
         return $this->get(AfterbuyExportConstantInterface::AFTERBUY_EMAILS);
     }
+
+    /**
+     * @return int
+     */
+    public function getAfterbuyConnectionTimeout()
+    {
+        return $this->get(AfterbuyExportConstantInterface::AFTERBUY_CONNECTION_TIMEOUT);
+    }
 }
