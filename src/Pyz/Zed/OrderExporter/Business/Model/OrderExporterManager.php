@@ -14,6 +14,8 @@ use SprykerFeature\Zed\Sales\Persistence\Propel\SpySalesOrder;
  */
 class OrderExporterManager
 {
+    const AFTERBUY_NEW_ACTION = 'new';
+
     /** @var string */
     protected $userId;
 
@@ -48,14 +50,13 @@ class OrderExporterManager
     }
 
     /**
-     * @param array $orderItems
+     * @param SpySalesOrderItem[] $orderItems
      * @return int|null
      * @throws \Exception
      */
     public function getOrderIdFromOrderItems(array $orderItems)
     {
         $orderId = null;
-        /** @var SpySalesOrderItem $orderItem */
         foreach ($orderItems as $orderItem) {
             if (!$orderId) {
                 $orderId = $orderItem->getFkSalesOrder();
@@ -91,6 +92,7 @@ class OrderExporterManager
     protected function configureAfterbuy()
     {
         $postData = array();
+        $postData[AfterbuyConstants::AFTERBUY_ACTION] = self::AFTERBUY_NEW_ACTION;
         $postData[AfterbuyConstants::AFTERBUY_PARTNER_ID] = $this->partnerId;
         $postData[AfterbuyConstants::AFTERBUY_PARTNER_PASS] = $this->partnerPass;
         $postData[AfterbuyConstants::AFTERBUY_USER_ID] = $this->userId;
@@ -196,7 +198,7 @@ class OrderExporterManager
         if (!null == $item->getDiscounts()->getData()) {
             // @TODO calculate Discounts information (const PAYMENT_CHARGE or ITEM_PRICE)
         } else {
-            $postData[AfterbuyConstants::ITEM_PRICE . $numberOfItems] = 0;
+            $postData[AfterbuyConstants::ITEM_PRICE . $numberOfItems] = 0; // @TODO mandatory field for Afterbuy, update when prices are implemented
         }
 
         return $postData;
@@ -250,13 +252,7 @@ class OrderExporterManager
      */
     protected function buildPostString(array $afterBuyInfo)
     {
-        $postString = AfterbuyConstants::AFTERBUY_ACTION .'=new';
-
-        foreach ($afterBuyInfo as $afterbuyField => $value) {
-            $postString .= '&' . $afterbuyField . '=' . $value;
-        }
-
-        return $postString;
+        return http_build_query($afterBuyInfo);
     }
 
     /**
