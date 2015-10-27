@@ -11,7 +11,7 @@ class Refactor
 {
 
     const ORM_PREFIX = 'Orm';
-    const PROJECT_PREFIX = 'Kam';
+    const PROJECT_PREFIX = 'Spy';
 
     /**
      * @var Filesystem
@@ -38,6 +38,7 @@ class Refactor
         $this->removeMapAndBaseClasses();
         $this->vendorMustExtendGenerated();
         $this->replaceUseAndClassNames();
+
         $this->updatePropel();
 
         $this->copyContentFromProjectToGeneratedFiles();
@@ -189,6 +190,8 @@ class Refactor
                 $projectClassBody = $this->getProjectClassBody($contentProjectFile);
 
                 if (!$projectClassBody) {
+                    $this->filesystem->remove($baseFile->getPathname());
+
                     continue;
                 }
 
@@ -223,14 +226,10 @@ class Refactor
         }
         $fileToFind = $fileToFind . '.php';
 
-        if (count(glob(__DIR__ . '/../src/Pyz/Zed/*/Persistence/Propel/')) > 0) {
-            $files = $this->getFiles([__DIR__ . '/../src/Pyz/Zed/*/Persistence/Propel/'], $fileToFind);
-            $baseFile = $files->getIterator()->current();
+        $files = $this->getFiles([__DIR__ . '/../src/Pyz/Zed/*/Persistence/Propel/'], $fileToFind);
+        $baseFile = $files->getIterator()->current();
 
-            return $baseFile;
-        }
-
-        return null;
+        return $baseFile;
     }
 
     /**
