@@ -13,20 +13,10 @@ jobs[]['role'] default value is 'admin'
  */
 $allStores = array('DE');
 
-/* -- MAIL QUEUE -- */
-$jobs[] = [
-    'name'     => 'send-mails',
-    'command'  => '$PHP_BIN vendor/bin/console mail:send-mail',
-    'schedule' => '* * * * *',
-    'enable'   => true,
-    'run_on_non_production' => true,
-    'stores'   => $allStores,
-];
-
 /* STATE MACHINE */
 $jobs[] = [
     'name'     => 'check-statemachine-conditions',
-    'command'  => '$PHP_BIN vendor/bin/console oms:check-condition',
+    'command'  => '$PHP_BIN vendor/bin/pav-console oms:check-condition',
     'schedule' => '*/10 * * * *',
     'enable'   => true,
     'run_on_non_production' => true,
@@ -35,16 +25,17 @@ $jobs[] = [
 
 $jobs[] = [
     'name'     => 'check-statemachine-timeouts',
-    'command'  => '$PHP_BIN vendor/bin/console oms:check-timeout',
+    'command'  => '$PHP_BIN vendor/bin/pav-console oms:check-timeout',
     'schedule' => '*/10 * * * *',
     'enable'   => true,
     'run_on_non_production' => true,
     'stores'   => $allStores,
 ];
 
+/* EXPORTER */
 $jobs[] = [
     'name'     => 'export-kv',
-    'command'  => '$PHP_BIN vendor/bin/console frontend-exporter:export-key-value',
+    'command'  => '$PHP_BIN vendor/bin/pav-console collector:storage:export',
     'schedule' => '*/10 * * * *',
     'enable'   => true,
     'run_on_non_production' => true,
@@ -53,15 +44,15 @@ $jobs[] = [
 
 $jobs[] = [
     'name'     => 'export-search',
-    'command'  => '$PHP_BIN vendor/bin/console frontend-exporter:export-search',
+    'command'  => '$PHP_BIN vendor/bin/pav-console collector:search:export',
     'schedule' => '*/10 * * * *',
-    'enable'   => false,
+    'enable'   => true,
     'stores'   => $allStores,
 ];
 
 $jobs[] = [
     'name'     => 'update-search',
-    'command'  => '$PHP_BIN vendor/bin/console frontend-exporter:update-search',
+    'command'  => '$PHP_BIN vendor/bin/pav-console collector:search:update',
     'schedule' => '*/10 * * * *',
     'enable'   => true,
     'run_on_non_production' => true,

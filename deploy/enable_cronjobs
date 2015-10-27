@@ -7,7 +7,9 @@ FILEPATH=`pwd`/$0; BASEDIR=`dirname $FILEPATH`; . $BASEDIR/vars; source $BASEDIR
 outfile="/tmp/deploy-${deploy_outfile_prefix}-enable-cronjobs"
 `touch $outfile`
 
-# noop
+export APPLICATION_ENV=$environment
+
+vendor/bin/pav-console setup:jenkins:generate
 
 rm -rf $outfile
 exit 0
