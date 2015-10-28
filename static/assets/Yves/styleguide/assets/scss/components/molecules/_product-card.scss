@@ -4,6 +4,7 @@
 //<div class="product-card">
 //    <div class="product-card__inner">
 //        <div class="product-card__image">
+//            <div class="product-card__label">Most popular</div>
 //            <img src="../images/product/small_1.jpg" />
 //        </div>
 //        <div class="product-card__content">
@@ -43,24 +44,45 @@
 
 .product-card{
     padding: 11px;
-    width: 20%;
-    float: left;
 
     text-align: center;
 }
 
 .product-card__inner{
     box-shadow: 0 2px 4px 0 rgba(0,0,0,0.2);
+
+    transition: box-shadow $_tShort ease-in-out;
+
+    &:hover{
+        box-shadow: 0 2px 10px 0 rgba(0,0,0,0.3);
+    }
 }
 
 .product-card__image{
+    position: relative;
+
     img{
         @include responsiveImage;
     }
 }
 
+.product-card__label{
+    position: absolute;
+    top: 0;
+    left: 0;
+    padding: 9px 12px;
+    background: $_rgbApple;
+
+    font-family: $_ffBrandonGrotesque-Bold;
+    color: $_rgbWhite;
+    font-size: $_fsTiny;
+    line-height: $_lhTiny;
+    text-transform: uppercase;
+    letter-spacing: 0.54px;
+}
+
 .product-card__content{
-    padding: 25px 37px 37px;
+    padding: 25px 37px 30px;
 }
 
 .product-card__breadcrumbs{
@@ -99,9 +121,15 @@
 }
 
 
-.product-card__pricing, .product-card__detail{
-    width: 50%;
+.product-card__pricing{
+    display: inline-block;
     float: left;
+}
+
+.product-card__detail{
+    width: 50%;
+    float: right;
+    text-align: right;
 }
 
 .product-card__pricing{

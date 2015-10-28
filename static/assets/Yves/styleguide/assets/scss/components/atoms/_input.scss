@@ -40,6 +40,29 @@
     }
 }
 
+
+.input--invalid{
+    @include pdif('exclamation', 12px);
+    display: block;
+
+    .input__text{
+        border-color: $_rgbCarnation;
+    }
+
+    &:after{
+        background: $_rgbCarnation;
+    }
+}
+
+.input--valid{
+    @include pdif('check', 8px);
+    display: block;
+
+    &:after{
+        background: $_rgbApple;
+    }
+}
+
 .input--invalid, .input--valid{
     &:after{
         position: absolute;
@@ -51,22 +74,15 @@
         height: 24px;
         border-radius: 50%;
     }
-}
 
-
-.input--invalid{
-    .input__text{
-        border-color: $_rgbCarnation;
-    }
-
-    &:after{
-        background: $_rgbCarnation;
-    }
-}
-
-.input--valid{
-    &:after{
-        background: $_rgbApple;
+    &:before{
+        position: absolute;
+        z-index: 1;
+        left: auto;
+        right: 15px;
+        width: 24px;
+        text-align: center;
+        color: $_rgbWhite;
     }
 }
 

@@ -3,6 +3,11 @@
 // Markup:
 //<div class="info">
 //    <div class="info__content">
+//        {{#if breadcrumbs}}
+//            <div class="info__breadcrumbs">
+//                <div class="info__breadcrumb">Dogs</div>
+//            </div>
+//        {{/if}}
 //        {{> "typography.page-title" modifier_class="page-title--quincy" title="Our philosophy"}}
 //        {{> "typography.subtitle"}}
 //    </div>
@@ -12,7 +17,9 @@
 //    <div class="info__column">
 //        {{> "typography.body-text"}}
 //    </div>
-//    <img class="info__image" src="../images/info/dog_cat.jpg" />
+//    {{#if image}}
+//        <img class="info__image" src="../images/info/dog_cat.jpg" />
+//    {{/if}}
 //</div>
 //
 // Styleguide: organisms.info
@@ -20,6 +27,8 @@
 .info{
     @include pageWidth;
     @include clearfix;
+    padding-top: 70px;
+    padding-bottom: 120px;
 
     text-align: center;
 }
@@ -28,18 +37,46 @@
     @include limitWidth(830px);
 }
 
-.info__column{
-    width: 50%;
-    float: left;
-    padding: 0 20px;
+.info__breadcrumbs{
+    font-family: $_ffBrandonGrotesque-Black;
+    text-transform: uppercase;
+    color: $_rgbApple;
+    letter-spacing: 0.87px;
+}
 
+.info__breadcrumb{
+    display: inline-block;
+
+    & + .info__breadcrumb:before{
+        position: relative;
+        top: -2px;
+        content: '|';
+        margin: 0 5px 0 3px;
+    }
+}
+
+.info__column{
+    padding: 0 20px;
     text-align: left;
 }
 
 .info__image{
-    margin: 10px auto 0;
+    margin: 10px auto -120px;
     display: block;
     width: 100%;
     height: auto;
     width: 90%;
+}
+
+.plus + .info{
+    padding-top: 0;
+}
+
+
+
+@media (min-width: $_wMedium) {
+    .info__column{
+        width: 50%;
+        float: left;
+    }
 }

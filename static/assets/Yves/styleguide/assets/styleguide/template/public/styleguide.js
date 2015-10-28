@@ -11,7 +11,6 @@ $(function(){
 	$('iframe').each(function () {
 		$(this).load(function () {
 			var $this = $(this);
-			console.info($this.contents().find("body").height());
 			$($this.contents()[0]).ready(function () {
 				setTimeout(function () {
 					$this.css('height', $this.contents().find("body").height() );

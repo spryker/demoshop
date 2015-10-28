@@ -313,8 +313,7 @@ body{
 .styleguide-example {
   margin: 15px auto;
   background: rgba(255,255,255,0.5);
-  border: 1px solid #ddd;
-  box-shadow: 0 0 5px rgba(0,0,0,0.1);
+  box-shadow: 0 0 5px rgba(0,0,0,0.3);
   &:first-child {
     margin-top: 0;
   }
@@ -427,13 +426,20 @@ ul.styleguide-modifier {
   text-align: left;
 }
 
-.section-organisms, .section-templates{
+.section-organisms, .section-frontpage, .section-category{
+
     .styleguide-example{
         margin: 15px -17px;
     }
     .styleguide-iframe{
         margin: -10px -20px -20px;
     }
+}
+
+
+.styleguide-content--frontpage,
+.styleguide-content--category {
+    margin: 15px 0;
 }
 
 iframe{

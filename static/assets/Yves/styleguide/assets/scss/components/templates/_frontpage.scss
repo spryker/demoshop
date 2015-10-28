@@ -1,7 +1,16 @@
 // Frontpage
 //
-// Markup: _frontpage.hbs
+// Markup:
+// {{> "organisms.navbar"}}
+// {{> "organisms.hero"}}
+// {{> "organisms.plus"}}
+// {{> "organisms.info" image=true}}
+// {{> "molecules.break"}}
+// {{> "organisms.featured-products"}}
+// {{> "organisms.clients"}}
+// {{> "organisms.newsletter"}}
+// {{> "organisms.footer"}}
 //
-// Styleguide: templates.frontpage
+// Styleguide: frontpage
 //
-// Weight: 999
+// Weight: 901

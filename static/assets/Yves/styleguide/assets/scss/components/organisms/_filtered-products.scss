@@ -1,0 +1,84 @@
+// Product Grid
+//
+// Markup:
+// <div class="filtered-products">
+//     <div class="filtered-products__filters">
+//         <div class="filtered-products__filter filtered-products__filter--active">All packages</div>
+//         <div class="filtered-products__filter">Subcategories</div>
+//         <div class="filtered-products__filter">Subcategories</div>
+//     </div>
+//     <div class="filtered-products__cards">
+//         {{> "molecules.product-card"}}
+//         {{> "molecules.product-card"}}
+//         {{> "molecules.product-card"}}
+//         {{> "molecules.product-card"}}
+//     </div>
+// </div>
+//
+// Styleguide: organisms.filtered-products
+
+.filtered-products{
+    padding: 30px 0 55px 0;
+    background: $_rgbAlabaster;
+    @include sectionShadow;
+}
+
+.filtered-products__cards{
+    @include pageWidth;
+    @include clearfix;
+
+    padding-left: 7px;
+    padding-right: 7px;
+
+    .product-card{
+        float: left;
+    }
+}
+
+.filtered-products__filters{
+    @include pageWidth;
+    @include clearfix;
+    padding-bottom: 20px;
+
+    text-align: center;
+}
+
+.filtered-products__filter{
+    @extend .button;
+    @extend .button--green;
+    padding-left: 80px;
+    padding-right: 80px;
+
+    & + .filtered-products__filter{
+        margin-left: 10px;
+    }
+}
+
+.filtered-products__filter--active{
+    @extend .button--green-active;
+}
+
+
+@media (min-width: $_wMedium) and (max-width: $_wLarge - 1px){
+    .filtered-products__cards{
+        .product-card{
+            width: 50%;
+
+            &:nth-child(2n+1){
+                clear: left;
+            }
+        }
+    }
+}
+
+@media (min-width: $_wLarge){
+    .filtered-products__cards{
+        .product-card{
+            width: 33.333%;
+
+            &:nth-child(3n+1){
+                clear: left;
+            }
+        }
+    }
+}

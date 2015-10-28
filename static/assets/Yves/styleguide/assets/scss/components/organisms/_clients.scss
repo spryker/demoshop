@@ -19,8 +19,7 @@
 
 .clients{
     padding: 85px 0 80px;
-
-    box-shadow: 0 0 30px 0 rgba(0,0,0,.2);
+    @include sectionShadow;
 }
 
 .clients__inner{

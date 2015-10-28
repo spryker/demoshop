@@ -25,9 +25,6 @@
 }
 
 .plus__item{
-    width: 33.333%;
-    float: left;
-
     text-align: center;
 }
 
@@ -43,4 +40,12 @@
     font-size: $_fsMedium;
     line-height: $_lhMedium;
     letter-spacing: 1.58px;
+}
+
+
+@media (min-width: $_wMedium) {
+    .plus__item{
+        width: 33.333%;
+        float: left;
+    }
 }

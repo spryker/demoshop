@@ -1,0 +1,51 @@
+// Header
+//
+// Markup:
+// <div class="header" style="background-image: url(../images/header/background.jpg)">
+//    <div class="header__inner">
+//        <div class="header__breadcrumbs">
+//            <div class="header__breadcrumb">Dogs</div>
+//        </div>
+//        {{> "typography.page-title" modifier_class="page-title--white" title="Packages"}}
+//        {{> "typography.subtitle" modifier_class="subtitle--white"}}
+//    </div>
+// </div>
+//
+// Styleguide: molecules.header
+
+.header{
+    position: relative;
+    height: 310px;
+
+    background-position: center !important;
+    background-size: cover !important;
+}
+
+.header__inner{
+    position: absolute;
+    top: 50%;
+    left: 0;
+    width: 100%;
+    transform: translate(0, -50%);
+
+    text-align: center;
+    color: #FFF;
+}
+
+.header__breadcrumbs{
+    font-family: $_ffBrandonGrotesque-Black;
+    text-transform: uppercase;
+    color: $_rgbWhite;
+    letter-spacing: 0.87px;
+}
+
+.header__breadcrumb{
+    display: inline-block;
+
+    & + .info__breadcrumb:before{
+        position: relative;
+        top: -2px;
+        content: '|';
+        margin: 0 5px 0 3px;
+    }
+}

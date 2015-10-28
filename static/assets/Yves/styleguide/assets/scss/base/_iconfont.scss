@@ -20,6 +20,14 @@
     -moz-osx-font-smoothing: grayscale;
 
     
+    @if $name == 'check' {
+      content: '\E00F';
+    }
+    
+    @if $name == 'exclamation' {
+      content: '\E010';
+    }
+    
     @if $name == 'arrow-left' {
       content: '\E001';
     }
@@ -70,6 +78,10 @@
     
     @if $name == 'visa' {
       content: '\E00D';
+    }
+    
+    @if $name == 'close' {
+      content: '\E00E';
     }
     
   }
@@ -96,6 +108,14 @@
     -moz-osx-font-smoothing: grayscale;
 
     
+    @if $name == 'check' {
+      content: '\E00F';
+    }
+    
+    @if $name == 'exclamation' {
+      content: '\E010';
+    }
+    
     @if $name == 'arrow-left' {
       content: '\E001';
     }
@@ -146,6 +166,10 @@
     
     @if $name == 'visa' {
       content: '\E00D';
+    }
+    
+    @if $name == 'close' {
+      content: '\E00E';
     }
     
   }

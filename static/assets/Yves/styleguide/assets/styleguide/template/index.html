@@ -2,6 +2,7 @@
 <html>
   <head>
     <meta content="text/html;charset=UTF-8" http-equiv="content-type"/>
+    <meta name="viewport" content="width=device-width,initial-scale=1.0, user-scalable=no">
 
     <title>Pets Deli - Styleguide</title>
 
@@ -16,7 +17,7 @@
 
   </head>
 
-  <body id="styleguide">
+  <body id="styleguide" class="touch">
 
     <nav class="styleguide-menu styleguide-reset">
       <ul class="styleguide-menu-list" data-kss-ref="{{rootName}}">
@@ -37,7 +38,7 @@
     <div class="styleguide-container">
 
 
-      <div class="styleguide-content">
+      <div class="styleguide-content styleguide-content--{{splitFirst rootName}}">
 
         {{#if overview}}
           <div class="styleguide-markdown-body styleguide-reset">
