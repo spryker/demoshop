@@ -6,7 +6,11 @@ use Psr\Log\LoggerInterface;
 use Pyz\Zed\Glossary\Business\Internal\DemoData\GlossaryInstall;
 use Pyz\Zed\Glossary\GlossaryDependencyProvider;
 use SprykerFeature\Zed\Glossary\Business\GlossaryDependencyContainer as SprykerGlossaryDependencyContainer;
+use Pyz\Zed\Glossary\GlossaryConfig;
 
+/**
+ * @method GlossaryConfig getConfig()
+ */
 class GlossaryDependencyContainer extends SprykerGlossaryDependencyContainer
 {
 
@@ -26,4 +30,16 @@ class GlossaryDependencyContainer extends SprykerGlossaryDependencyContainer
         return $installer;
     }
 
+    /**
+     * @return RemoteCSV
+     */
+    public function createRemoteCSV()
+    {
+        return $this->getFactory()->createRemoteCSV(
+            $this->getConfig()->getRemoteCSVUrl(),
+            $this->createKeyManager(),
+            $this->createTranslationManager(),
+            $this->getProvidedDependency(GlossaryDependencyProvider::FACADE_LOCALE)
+        );
+    }
 }

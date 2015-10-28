@@ -21,4 +21,9 @@ class GlossaryFacade extends SprykerGlossaryFacade implements
         $this->getDependencyContainer()->createDemoDataInstaller($messenger)->install();
     }
 
+    public function importTranslationFromRemoteCSV()
+    {
+        return $this->getDependencyContainer()->createRemoteCSV()->import();
+    }
+
 }

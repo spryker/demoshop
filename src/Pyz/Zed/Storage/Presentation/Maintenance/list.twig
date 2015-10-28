@@ -1,0 +1,23 @@
+{% extends '@Gui/Layout/layout.twig' %}
+
+{% set widget_title = 'Storage keys' %}
+
+{% block head_title widget_title | trans %}
+
+{% block action %}
+    {{ editActionButton('/storage/maintenance/update', 'Update translation' | trans) }}
+{% endblock %}
+
+{% block content %}
+
+    {% embed '@Gui/Partials/widget.twig' %}
+
+        {% block widget_content %}
+
+            {{ table | raw }}
+
+        {% endblock %}
+
+    {% endembed %}
+
+{% endblock %}
