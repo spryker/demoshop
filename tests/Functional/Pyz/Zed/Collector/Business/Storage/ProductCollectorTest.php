@@ -38,13 +38,21 @@ use SprykerFeature\Zed\Price\Persistence\Propel\SpyPriceProductQuery;
 use SprykerFeature\Zed\Price\Persistence\Propel\SpyPriceType;
 use SprykerFeature\Zed\Product\Persistence\Propel\Map\SpyAbstractProductTableMap;
 use SprykerFeature\Zed\Product\Persistence\Propel\SpyAbstractProduct;
+use SprykerFeature\Zed\Product\Persistence\Propel\SpyLocalizedAbstractProductAttributes;
+use SprykerFeature\Zed\Product\Persistence\Propel\SpyLocalizedAbstractProductAttributesQuery;
+use SprykerFeature\Zed\Product\Persistence\Propel\SpyLocalizedProductAttributes;
+use SprykerFeature\Zed\Product\Persistence\Propel\SpyLocalizedProductAttributesQuery;
 use SprykerFeature\Zed\Product\Persistence\Propel\SpyProduct;
 use SprykerFeature\Zed\Product\Persistence\Propel\SpyProductQuery;
 use SprykerFeature\Zed\Product\Persistence\Propel\SpyAbstractProductQuery;
+use SprykerFeature\Zed\ProductCategory\Persistence\Propel\Base\SpyProductCategoryQuery;
+use SprykerFeature\Zed\ProductCategory\Persistence\Propel\SpyProductCategory;
 use SprykerFeature\Zed\Stock\Persistence\Propel\Base\SpyStockQuery;
 use SprykerFeature\Zed\Stock\Persistence\Propel\SpyStock;
 use SprykerFeature\Zed\Stock\Persistence\Propel\SpyStockProduct;
 use SprykerFeature\Zed\Stock\Persistence\Propel\SpyStockProductQuery;
+use SprykerFeature\Zed\Url\Persistence\Propel\SpyUrl;
+use SprykerFeature\Zed\Url\Persistence\Propel\SpyUrlQuery;
 
 /**
  * @group Pyz
@@ -63,8 +71,8 @@ class ProductCollectorTest extends AbstractFunctionalTest
     const CONFIGURABLE_PRODUCTS = 'configurable_products';
     const SEQUENCE = 'sequence';
     const QUANTITY = 'quantity';
-    const DEFAULT_PRICE_TYPE = 'DEFAULT_PRICE_TYPE';
-    const DEFAULT_STOCK_NAME = 'DEFAULT_STOCK_NAME';
+    const DEFAULT_PRICE_TYPE = 'DEFAULT';
+    const DEFAULT_STOCK_NAME = 'DEFAULT';
     const STOCK = 'stock';
     const PRICE = 'price';
     const GROUP_VALUE_SET_1 = 'GROUP_VALUE_SET_1';
@@ -76,11 +84,14 @@ class ProductCollectorTest extends AbstractFunctionalTest
     const GROUP_KEY_2 = 'GROUP_KEY_2';
     const GROUP_VALUE_1 = 'GROUP_VALUE_1';
     const GROUP_VALUE_2 = 'GROUP_VALUE_2';
-    const SKU_1 = '136823';
-    const SKU_2 = '137288';
-    const SKU_3 = '137455';
-    const SKU_4 = '123566';
-    const SKU_5 = '123444';
+    const SKU_1 = '111111';
+    const SKU_2 = '222222';
+    const SKU_3 = '333333';
+    const SKU_4 = '444444';
+    const SKU_5 = '555555';
+    const ROOT = 'root_category';
+    const CHILD_CATEGORY_1 = 'child_category_1';
+    const CHILD_CATEGORY_2 = 'child_category_2';
 
     /**
      * @var LocaleTransfer
@@ -121,16 +132,16 @@ class ProductCollectorTest extends AbstractFunctionalTest
      */
     private $categories = [
         [
-            self::CATEGORY_NAME => 'root' ,
+            self::CATEGORY_NAME => self::ROOT,
             self::PARENT_CATEGORY_NAME => null
         ],
         [
-            self::CATEGORY_NAME => 'child_1' ,
-            self::PARENT_CATEGORY_NAME => 'root'
+            self::CATEGORY_NAME => self::CHILD_CATEGORY_1,
+            self::PARENT_CATEGORY_NAME => self::ROOT
         ],
         [
-            self::CATEGORY_NAME => 'child_2' ,
-            self::PARENT_CATEGORY_NAME => 'root'
+            self::CATEGORY_NAME => self::CHILD_CATEGORY_2,
+            self::PARENT_CATEGORY_NAME => self::ROOT
         ],
     ];
 
@@ -201,6 +212,8 @@ class ProductCollectorTest extends AbstractFunctionalTest
         $this->loadProductsIfNotInDb($this->products);
         $this->loadConfigurableProductsIfNotInDb($this->dynamicProducts);
 
+        $lastTouchedAt = new \DateTime();
+
         $this->touchProducts();
 
         $mockWriter = new MockWriter();
@@ -208,21 +221,173 @@ class ProductCollectorTest extends AbstractFunctionalTest
         $touchQuery = SpyTouchQuery::create()
             ->filterByItemType('abstract_product')
             ->filterByItemEvent(SpyTouchTableMap::COL_ITEM_EVENT_ACTIVE)
+            ->filterByTouched(['min' => $lastTouchedAt])
             ->withColumn(SpyTouchTableMap::COL_ID_TOUCH, TouchQueryContainer::TOUCH_EXPORTER_ID)
             ->setFormatter(new PropelArraySetFormatter())
         ;
 
         $this->getFacade()->runStorageProductCollector(
             $touchQuery,
-            new LocaleTransfer(),
+            $this->currentLocale,
             new BatchResult(),
             $mockWriter,
             $touchUpdaterMock
         );
 
-        $collectedData = $mockWriter->getCollectedData();
-        dump($collectedData);
-        die;
+        $collectedData = $mockWriter->getCollectedData()[0];
+
+        $product1 = array_shift($collectedData);
+        $product2 = array_shift($collectedData);
+        $product3 = array_shift($collectedData);
+        $product4 = array_shift($collectedData);
+        $product5 = array_shift($collectedData);
+
+
+        $this->assertEquals([], $product1['abstract_attributes']);
+        $this->assertEquals('de_DE_444444', $product1['abstract_name']);
+        $this->assertEquals(self::SKU_4, $product1['abstract_sku']);
+        $this->assertEquals('/' . self::SKU_4, $product1['url']);
+        $this->assertEquals(
+            [
+                [
+                    'name' => 'de_DE_444444',
+                    'sku' => self::SKU_4,
+                    'attributes' => [],
+                    'configs' => [],
+                    'options' => [],
+                ]
+            ],
+            $product1['concrete_products']
+        );
+        $this->assertEquals(1, $product1['type']);
+        $this->assertEquals([ self::GROUP_KEY_1 ], $product1['groups']);
+        $this->assertEquals(true, $product1['available']);
+        $this->assertCount(1, $product1['configurable_products']);
+        $this->assertEquals(100, $product1['valid_price']);
+        $this->assertEquals(
+            [
+                self::DEFAULT_PRICE_TYPE => ['price' => 100]
+            ],
+            $product1['prices']
+        );
+        $this->assertCount(1, $product1['category']);
+
+        $this->assertEquals([], $product2['abstract_attributes']);
+        $this->assertEquals('de_DE_555555', $product2['abstract_name']);
+        $this->assertEquals(self::SKU_5, $product2['abstract_sku']);
+        $this->assertEquals('/' . self::SKU_5, $product2['url']);
+        $this->assertEquals(
+            [
+                [
+                    'name' => 'de_DE_555555',
+                    'sku' => self::SKU_5,
+                    'attributes' => [],
+                    'configs' => [],
+                    'options' => [],
+                ]
+            ],
+            $product2['concrete_products']
+        );
+        $this->assertEquals(1, $product2['type']);
+        $this->assertEquals([ self::GROUP_KEY_1, self::GROUP_KEY_2 ], $product2['groups']);
+        $this->assertEquals(true, $product2['available']);
+        $this->assertCount(1, $product2['configurable_products']);
+        $this->assertEquals(100, $product2['valid_price']);
+        $this->assertEquals(
+            [
+                self::DEFAULT_PRICE_TYPE => ['price' => 100]
+            ],
+            $product2['prices']
+        );
+        $this->assertCount(1, $product2['category']);
+
+        $this->assertEquals([], $product3['abstract_attributes']);
+        $this->assertEquals('de_DE_111111', $product3['abstract_name']);
+        $this->assertEquals(self::SKU_1, $product3['abstract_sku']);
+        $this->assertEquals('/' . self::SKU_1, $product3['url']);
+        $this->assertEquals(
+            [
+                [
+                    'name' => 'de_DE_111111',
+                    'sku' => self::SKU_1,
+                    'attributes' => [],
+                    'configs' => [],
+                    'options' => [],
+                ]
+            ],
+            $product3['concrete_products']
+        );
+        $this->assertEquals(0, $product3['type']);
+        $this->assertEquals([ self::GROUP_KEY_1 ], $product3['groups']);
+        $this->assertEquals(true, $product3['available']);
+        $this->assertCount(0, $product3['configurable_products']);
+        $this->assertEquals(100, $product3['valid_price']);
+        $this->assertEquals(
+            [
+                self::DEFAULT_PRICE_TYPE => ['price' => 100]
+            ],
+            $product3['prices']
+        );
+        $this->assertCount(1, $product3['category']);
+
+        $this->assertEquals([], $product4['abstract_attributes']);
+        $this->assertEquals('de_DE_222222', $product4['abstract_name']);
+        $this->assertEquals(self::SKU_2, $product4['abstract_sku']);
+        $this->assertEquals('/' . self::SKU_2, $product4['url']);
+        $this->assertEquals(
+            [
+                [
+                    'name' => 'de_DE_222222',
+                    'sku' => self::SKU_2,
+                    'attributes' => [],
+                    'configs' => [],
+                    'options' => [],
+                ]
+            ],
+            $product4['concrete_products']
+        );
+        $this->assertEquals(0, $product4['type']);
+        $this->assertEquals([ self::GROUP_KEY_1 ], $product4['groups']);
+        $this->assertEquals(true, $product4['available']);
+        $this->assertCount(0, $product4['configurable_products']);
+        $this->assertEquals(100, $product4['valid_price']);
+        $this->assertEquals(
+            [
+                self::DEFAULT_PRICE_TYPE => ['price' => 100]
+            ],
+            $product4['prices']
+        );
+        $this->assertCount(1, $product4['category']);
+
+        $this->assertEquals([], $product5['abstract_attributes']);
+        $this->assertEquals('de_DE_333333', $product5['abstract_name']);
+        $this->assertEquals(self::SKU_3, $product5['abstract_sku']);
+        $this->assertEquals('/' . self::SKU_3, $product5['url']);
+        $this->assertEquals(
+            [
+                [
+                    'name' => 'de_DE_333333',
+                    'sku' => self::SKU_3,
+                    'attributes' => [],
+                    'configs' => [],
+                    'options' => [],
+                ]
+            ],
+            $product5['concrete_products']
+        );
+        $this->assertEquals(0, $product5['type']);
+        $this->assertEquals([ self::GROUP_KEY_1 ], $product5['groups']);
+        $this->assertEquals(true, $product5['available']);
+        $this->assertCount(0, $product5['configurable_products']);
+        $this->assertEquals(100, $product5['valid_price']);
+        $this->assertEquals(
+            [
+                self::DEFAULT_PRICE_TYPE => ['price' => 100]
+            ],
+            $product5['prices']
+        );
+        $this->assertCount(1, $product5['category']);
+
     }
 
     /**
@@ -312,7 +477,6 @@ class ProductCollectorTest extends AbstractFunctionalTest
                 }
             }
         }
-
     }
 
     /**
@@ -368,7 +532,8 @@ class ProductCollectorTest extends AbstractFunctionalTest
             $abstractProductEntity = $this->findOrCreateAbstractProduct(
                 $dynamicProduct[self::SKU],
                 SpyAbstractProductTableMap::COL_TYPE_DYNAMIC,
-                $dynamicProduct[self::GROUP_SET]
+                $dynamicProduct[self::GROUP_SET],
+                self::CHILD_CATEGORY_2
             );
             $this->findOrCreateConcreteProduct(
                 $dynamicProduct[self::SKU],
@@ -419,7 +584,8 @@ class ProductCollectorTest extends AbstractFunctionalTest
             $abstractProductEntity = $this->findOrCreateAbstractProduct(
                 $sku,
                 SpyAbstractProductTableMap::COL_TYPE_SIMPLE,
-                self::GROUP_SET_1
+                self::GROUP_SET_1,
+                self::CHILD_CATEGORY_1
             );
             $this->findOrCreateConcreteProduct(
                 $sku,
@@ -460,7 +626,7 @@ class ProductCollectorTest extends AbstractFunctionalTest
      * @throws PropelException
      * @return SpyAbstractProduct
      */
-    private function findOrCreateAbstractProduct($sku, $type, $groupSetName)
+    private function findOrCreateAbstractProduct($sku, $type, $groupSetName, $categoryName)
     {
         $abstractProductEntity = SpyAbstractProductQuery::create()
             ->filterBySku($sku)
@@ -475,6 +641,7 @@ class ProductCollectorTest extends AbstractFunctionalTest
         if (!$abstractProductEntity) {
             $abstractProductEntity = new SpyAbstractProduct();
         }
+
         $abstractProductEntity
             ->setSku($sku)
             ->setType($type)
@@ -483,8 +650,57 @@ class ProductCollectorTest extends AbstractFunctionalTest
 
         if ($abstractProductEntity->isNew()) {
             $abstractProductEntity->save();
-            return $abstractProductEntity;
         }
+
+        $abstractLocalizedAttributes = SpyLocalizedAbstractProductAttributesQuery::create()
+            ->filterBySpyAbstractProduct($abstractProductEntity)
+            ->filterByFkLocale($this->currentLocale->getIdLocale())
+            ->findOne()
+        ;
+
+        if (!$abstractLocalizedAttributes) {
+            $abstractLocalizedAttributes = new SpyLocalizedAbstractProductAttributes();
+            $abstractLocalizedAttributes->setName($this->currentLocale->getLocaleName(). '_' . $sku);
+            $abstractLocalizedAttributes->setAttributes('{}');
+            $abstractLocalizedAttributes->setFkLocale($this->currentLocale->getIdLocale());
+            $abstractLocalizedAttributes->setSpyAbstractProduct($abstractProductEntity);
+            $abstractLocalizedAttributes->save();
+        }
+
+        $categoryAttribute = SpyCategoryAttributeQuery::create()
+            ->filterByName($categoryName)
+            ->findOne()
+        ;
+
+        $productCategory = SpyProductCategoryQuery::create()
+            ->filterBySpyAbstractProduct($abstractProductEntity)
+            ->filterByFkCategory($categoryAttribute->getFkCategory())
+            ->findOne()
+        ;
+
+        if (!$productCategory) {
+            $productCategory = new SpyProductCategory();
+            $productCategory->setSpyAbstractProduct($abstractProductEntity);
+            $productCategory->setFkCategory($categoryAttribute->getFkCategory());
+            $productCategory->save();
+        }
+
+        $urlString = '/' . $sku;
+        $productUrlEntity = SpyUrlQuery::create()
+            ->filterByFkResourceAbstractProduct($abstractProductEntity->getIdAbstractProduct())
+            ->filterByFkLocale($this->currentLocale->getIdLocale())
+            ->filterByUrl($urlString)
+            ->findOne()
+        ;
+
+        if (!$productUrlEntity) {
+            $productUrlEntity = new SpyUrl();
+            $productUrlEntity->setFkResourceAbstractProduct($abstractProductEntity->getIdAbstractProduct());
+            $productUrlEntity->setFkLocale($this->currentLocale->getIdLocale());
+            $productUrlEntity->setUrl($urlString);
+            $productUrlEntity->save();
+        }
+
         return $abstractProductEntity;
     }
 
@@ -517,9 +733,11 @@ class ProductCollectorTest extends AbstractFunctionalTest
         if (!$concreteProductEntity) {
             $concreteProductEntity = new SpyProduct();
         }
+
         $concreteProductEntity
             ->setSku($sku)
             ->setAttributes('{}')
+            ->setIsActive(true)
             ->setPavProductGroupValueSet($groupValueSet)
             ->setSpyAbstractProduct($abstractProductEntity)
         ;
@@ -528,6 +746,20 @@ class ProductCollectorTest extends AbstractFunctionalTest
             $concreteProductEntity->save();
         }
 
+        $concreteLocalizedAttributes = SpyLocalizedProductAttributesQuery::create()
+            ->filterBySpyProduct($concreteProductEntity)
+            ->filterByFkLocale($this->currentLocale->getIdLocale())
+            ->findOne()
+        ;
+
+        if (!$concreteLocalizedAttributes) {
+            $concreteLocalizedAttributes = new SpyLocalizedProductAttributes();
+            $concreteLocalizedAttributes->setName($this->currentLocale->getLocaleName(). '_' . $sku);
+            $concreteLocalizedAttributes->setAttributes('{}');
+            $concreteLocalizedAttributes->setFkLocale($this->currentLocale->getIdLocale());
+            $concreteLocalizedAttributes->setSpyProduct($concreteProductEntity);
+            $concreteLocalizedAttributes->save();
+        }
         $priceType = SpyPriceTypeQuery::create()
             ->filterByName(self::DEFAULT_PRICE_TYPE)
             ->findOne()

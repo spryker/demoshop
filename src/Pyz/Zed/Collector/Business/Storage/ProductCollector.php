@@ -155,13 +155,11 @@ class ProductCollector extends AbstractPropelCollectorPlugin
             'JSON_AGG(spy_product.sku)',
             'concrete_skus'
         );
-
         $baseQuery->addJoin(
             SpyAbstractProductTableMap::COL_ID_ABSTRACT_PRODUCT,
             SpyLocalizedAbstractProductAttributesTableMap::COL_FK_ABSTRACT_PRODUCT,
             Criteria::INNER_JOIN
         );
-
         $baseQuery->addJoin(
             SpyLocalizedAbstractProductAttributesTableMap::COL_FK_LOCALE,
             SpyLocaleTableMap::COL_ID_LOCALE,
@@ -173,6 +171,7 @@ class ProductCollector extends AbstractPropelCollectorPlugin
             $locale->getIdLocale(),
             Criteria::EQUAL
         );
+
         $baseQuery->addAnd(
             SpyLocaleTableMap::COL_IS_ACTIVE,
             true,
@@ -257,7 +256,7 @@ class ProductCollector extends AbstractPropelCollectorPlugin
             )
         );
 
-        $baseQuery->addGroupByColumn(SpyProductTableMap::COL_ID_PRODUCT);
+       $baseQuery->addGroupByColumn(SpyProductTableMap::COL_ID_PRODUCT);
 
         // Product price
         $baseQuery->addJoinObject(
@@ -307,8 +306,6 @@ class ProductCollector extends AbstractPropelCollectorPlugin
             'JSON_AGG(spy_price_type.name)',
             'price_types'
         );
-
-
         // Tax set
         $baseQuery->addJoin(
             SpyAbstractProductTableMap::COL_FK_TAX_SET,
@@ -361,7 +358,6 @@ class ProductCollector extends AbstractPropelCollectorPlugin
             SpyCategoryNodeTableMap::COL_FK_CATEGORY,
             Criteria::INNER_JOIN
         );
-
         $excludeDirectParent = false;
         $excludeRoot = true;
 
@@ -430,7 +426,6 @@ class ProductCollector extends AbstractPropelCollectorPlugin
                 $processedResultSet[$index]['available'] = ($productRawData['quantity'] > 0);
                 $processedResultSet[$index]['configurable_products'] =  $this->productDynamicFacade->extractConfigurableProductData($productRawData);
 
-
                 // Product price
                 $priceTypes = $this->decodeData($productRawData['price_types']);
                 $priceTypeIndex = array_search($defaultPriceType, $priceTypes);
@@ -486,8 +481,6 @@ class ProductCollector extends AbstractPropelCollectorPlugin
             }
         }
 
-        dump($processedResultSet);
-        die;
         $processedResultSet = $this->productOptionExporterFacade->processDataForExport($resultSet, $processedResultSet, $locale);
 
         return $processedResultSet;
