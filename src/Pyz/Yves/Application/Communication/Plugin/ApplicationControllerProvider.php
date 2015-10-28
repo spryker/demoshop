@@ -19,9 +19,14 @@ class ApplicationControllerProvider extends YvesControllerProvider
     const ROUTE_CONTACT = 'contact';
     const ROUTE_FAQ = 'faq';
 
+    const ROUTE_ERROR_404 = 'error/404';
+    const ROUTE_ERROR_404_PATH = '/error/404';
+
     protected function defineControllers(Application $app)
     {
         $this->createGetController('/', self::ROUTE_HOME, 'Application', 'Index');
+
+        $this->createGetController(self::ROUTE_ERROR_404_PATH, self::ROUTE_ERROR_404, 'Application', 'Error404');
     }
 
 }

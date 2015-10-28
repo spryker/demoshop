@@ -98,7 +98,11 @@ $config[YvesConfig::YVES_SSL_EXCLUDED] = ['/monitoring/heartbeat'];
 $config[YvesConfig::YVES_SESSION_SAVE_HANDLER] = SessionConfig::SESSION_HANDLER_REDIS;
 $config[YvesConfig::YVES_SESSION_NAME] = 'yves_session';
 $config[YvesConfig::YVES_SESSION_COOKIE_DOMAIN] = $config[SystemConfig::HOST_YVES];
-$config[YvesConfig::YVES_ERROR_PAGE] = APPLICATION_ROOT_DIR . '/static/public/Yves/errorpage/error.html';
+
+$config[YvesConfig::YVES_ERROR_PAGE]                  = APPLICATION_ROOT_DIR.'/static/public/Yves/errorpage/error.html';
+$config[YvesConfig::YVES_SHOW_EXCEPTION_STACK_TRACE]  = true;
+$config[SystemConfig::ZED_ERROR_PAGE]                 = APPLICATION_ROOT_DIR.'/static/public/Yves/errorpage/error.html';
+$config[SystemConfig::ZED_SHOW_EXCEPTION_STACK_TRACE] = true;
 
 $config[CustomerConfig::CUSTOMER_SECURED_PATTERN] = '(^/login_check$|^/customer)';
 $config[CustomerConfig::CUSTOMER_ANONYMOUS_PATTERN] = '^/.*';
@@ -311,8 +315,6 @@ $config[LumberjackConfig::COLLECTOR_OPTIONS] = [
         'filtered_content' => '***FILTERED***',
     ],
 ];
-
-$config[YvesConfig::YVES_SHOW_EXCEPTION_STACK_TRACE] = true;
 
 $config[SystemConfig::PROPEL_DEBUG] = false;
 $config[ApplicationConfig::SHOW_SYMFONY_TOOLBAR] = false;
