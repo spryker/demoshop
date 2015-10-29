@@ -11,6 +11,7 @@ use Pyz\Zed\Locale\Business\LocaleFacade;
 
 class RemoteCSV
 {
+    const WARNING_NOCHANGES = 'No translations updated. If you DID changed something in the spreadsheet, wait a few moments for them to be published and try again.';
     /**
      * @var string
      */
@@ -54,6 +55,8 @@ class RemoteCSV
     {
         $messages = ['error' => [], 'info'=> []];
 
+        $updatedKeys = false;
+
         $guzzleClient = new GuzzleClient();
         $response = $guzzleClient->get($this->url)->send();
 
@@ -93,13 +96,20 @@ class RemoteCSV
                     continue;
                 }
 
-
                 if ($this->translationManager->hasTranslation($key, $localeTransfer)) {
-                    $this->translationManager->updateAndTouchTranslation($key, $localeTransfer, $column);
+                    if ($this->translationManager->getTranslationByKeyName($key, $localeTransfer) !== $column) {
+                        $this->translationManager->updateAndTouchTranslation($key, $localeTransfer, $column);
+                        $updatedKeys = true;
+                    }
                 } else {
                     $this->translationManager->createAndTouchTranslation($key, $localeTransfer, $column);
+                    $updatedKeys = true;
                 }
             }
+        }
+
+        if ($updatedKeys === false) {
+            $messages['info'][] = self::WARNING_NOCHANGES;
         }
 
         return $messages;

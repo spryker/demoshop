@@ -13,6 +13,7 @@ use SprykerEngine\Shared\Lumberjack\LumberjackConfig;
 use SprykerFeature\Shared\Session\SessionConfig;
 use SprykerFeature\Shared\SequenceNumber\SequenceNumberConstants as SequenceNumberConfig;
 use Pyz\Shared\OrderExporter\AfterbuyExportConstantInterface;
+use Pyz\Zed\Glossary\GlossaryConfig;
 
 $config[SystemConfig::PROJECT_NAMESPACES] = [
     'Pyz',
@@ -332,4 +333,6 @@ $config[AfterbuyExportConstantInterface::AFTERBUY_EMAILS] = [
     'raed.marji@project-a.com'
 ];
 $config[AfterbuyExportConstantInterface::AFTERBUY_CONNECTION_TIMEOUT] = 120;
+
+$config[GlossaryConfig::REMOTE_CSV_URL] = 'https://docs.google.com/spreadsheets/d/13InPAj1BWLFrvQX8h6uVIVJi-wNmTmUPd3cJXTfGp5U/pub?gid=0&single=true&output=csv';
 
