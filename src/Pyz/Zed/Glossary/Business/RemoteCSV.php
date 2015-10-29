@@ -4,133 +4,48 @@ namespace Pyz\Zed\Glossary\Business;
 
 use Guzzle\Http\Client as GuzzleClient;
 use League\Csv\Reader;
-use SprykerFeature\Zed\Glossary\Business\Key\KeyManagerInterface;
-use SprykerFeature\Zed\Glossary\Business\Translation\TranslationManagerInterface;
-use Generated\Shared\Transfer\LocaleTransfer;
-use Pyz\Zed\Locale\Business\LocaleFacade;
+use Pyz\Zed\Glossary\Business\Exception\RemoteUrlException;
 
-class RemoteCSV
+class RemoteCSV implements ResourceReaderInterface
 {
-    const WARNING_NOCHANGES = 'No translations updated. If you DID changed something in the spreadsheet, wait a few moments for them to be published and try again.';
-
     /**
      * @var string
      */
     protected $url;
 
     /**
-     * @var KeyManagerInterface
-     */
-    protected $keyManager;
-
-    /**
-     * @var TranslationManagerInterface
-     */
-    protected $translationManager;
-
-    /**
-     * @var LocaleFacade
-     */
-    protected $localeFacade;
-
-    /**
-     * @var LocaleTransfer[]
-     */
-    protected $localeTransfers = [];
-
-    /**
      * @param string $url
      */
-    public function __construct($url, $keyManager, $translationManager, $localeFacade)
+    public function __construct($url)
     {
         $this->url = $url;
-        $this->keyManager = $keyManager;
-        $this->translationManager = $translationManager;
-        $this->localeFacade = $localeFacade;
     }
 
     /**
      * @return array
+     * @throws RemoteUrlException
      */
-    public function import()
+    public function getContent()
     {
-        $messages = ['error' => [], 'info'=> []];
-
-        $updatedKeys = false;
-
         $guzzleClient = new GuzzleClient();
         $response = $guzzleClient->get($this->url)->send();
 
         if ($response->isError() === true) {
-            return ['error' => sprintf('Could not reach "%s"', $this->url)];
+            throw new RemoteUrlException($response->getReasonPhrase());
         }
 
         $csvData = $response->getBody(true);
         $csv = Reader::createFromString($csvData)->fetchAll();
 
-        $header = $csv[0];
+        return $csv;
 
-        foreach ($csv as $rowNumber => $row) {
-            if ($rowNumber === 0) {
-                continue;
-            }
-            $key = $row[0];
-            if (empty($key) === true) {
-                $messages['info'][] = sprintf('Row #%s has no valid key.', $rowNumber+1);
-                continue;
-            }
-
-            if ($this->keyManager->hasKey($key) === false) {
-                $this->keyManager->createKey($key);
-            }
-
-            foreach($row as $columnNumber => $column) {
-                if ($columnNumber === 0) {
-                    continue;
-                }
-
-                $localeTransfer = $this->getLocaleTransfer($header[$columnNumber]);
-
-                if (empty($column) === true) {
-                    $error = sprintf('Key %s has no valid value for locale %s .', $key, $localeTransfer->getLocaleName());
-                    $messages['error'][] = $error;
-                    continue;
-                }
-
-                if ($this->translationManager->hasTranslation($key, $localeTransfer)) {
-                    if ($this->translationManager->getTranslationByKeyName($key, $localeTransfer) !== $column) {
-                        $this->translationManager->updateAndTouchTranslation($key, $localeTransfer, $column);
-                        $updatedKeys = true;
-                    }
-                } else {
-                    $this->translationManager->createAndTouchTranslation($key, $localeTransfer, $column);
-                    $updatedKeys = true;
-                }
-            }
-        }
-
-        if ($updatedKeys === false) {
-            $messages['info'][] = self::WARNING_NOCHANGES;
-        }
-
-        $messages['success'][] = sprintf('Imported translations from "%s"', $this->url);
-
-        return $messages;
     }
 
     /**
-     * @param string $localeName
-     * @return LocaleTransfer
+     * @return string
      */
-    protected function getLocaleTransfer($localeName)
+    public function getSource()
     {
-        if (isset($this->localeTransfers[$localeName])) {
-            return $this->localeTransfers[$localeName];
-        }
-
-        $localeTransfer = $this->localeFacade->getLocale($localeName);
-        $this->localeTransfers[$localeName] = $localeTransfer;
-
-        return $localeTransfer;
+        return $this->url;
     }
 }

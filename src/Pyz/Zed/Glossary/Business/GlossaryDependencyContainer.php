@@ -7,9 +7,11 @@ use Pyz\Zed\Glossary\Business\Internal\DemoData\GlossaryInstall;
 use Pyz\Zed\Glossary\GlossaryDependencyProvider;
 use SprykerFeature\Zed\Glossary\Business\GlossaryDependencyContainer as SprykerGlossaryDependencyContainer;
 use Pyz\Zed\Glossary\GlossaryConfig;
+use Pyz\Zed\Glossary\Persistence\GlossaryQueryContainer;
 
 /**
  * @method GlossaryConfig getConfig()
+ * @method GlossaryQueryContainer getQueryContainer()
  */
 class GlossaryDependencyContainer extends SprykerGlossaryDependencyContainer
 {
@@ -36,16 +38,30 @@ class GlossaryDependencyContainer extends SprykerGlossaryDependencyContainer
     public function createRemoteCSV()
     {
         return $this->getFactory()->createRemoteCSV(
-            $this->getConfig()->getRemoteCSVUrl(),
+            $this->getConfig()->getRemoteCSVUrl()
+        );
+    }
+
+    /**
+     * @return Importer
+     * @throws \ErrorException
+     */
+    public function createImporter()
+    {
+        return $this->getFactory()->createImporter(
+            $this->createRemoteCSV(),
             $this->createKeyManager(),
             $this->createTranslationManager(),
             $this->getProvidedDependency(GlossaryDependencyProvider::FACADE_LOCALE)
         );
     }
 
-    public function createThingManager()
+    /**
+     * @return TranslationReader
+     */
+    public function createTranslationReader()
     {
-        return $this->getFactory()->createThingManager(
+        return $this->getFactory()->createTranslationReader(
             $this->getQueryContainer()
         );
     }

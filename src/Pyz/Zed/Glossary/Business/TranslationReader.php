@@ -4,7 +4,7 @@ namespace Pyz\Zed\Glossary\Business;
 
 use Pyz\Zed\Glossary\Persistence\GlossaryQueryContainer;
 
-class ThingManager
+class TranslationReader
 {
     const KEY = 'spy_glossary_keykey';
     const LOCALE_NAME = 'spy_localelocale_name';
