@@ -26,7 +26,7 @@ class GlossaryFacade extends SprykerGlossaryFacade implements
      */
     public function importTranslationFromRemoteCSV()
     {
-        return $this->getDependencyContainer()->createRemoteCSV()->import();
+        return $this->getDependencyContainer()->createImporter()->import();
     }
 
     /**
@@ -34,7 +34,7 @@ class GlossaryFacade extends SprykerGlossaryFacade implements
      */
     public function getAllKeysWithTranslations()
     {
-        return $this->getDependencyContainer()->createThingManager()->getAllKeysWithTranslations();
+        return $this->getDependencyContainer()->createTranslationReader()->getAllKeysWithTranslations();
     }
 
 }
