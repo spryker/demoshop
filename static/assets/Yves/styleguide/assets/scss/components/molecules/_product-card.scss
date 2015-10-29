@@ -49,13 +49,7 @@
 }
 
 .product-card__inner{
-    box-shadow: 0 2px 4px 0 rgba(0,0,0,0.2);
-
-    transition: box-shadow $_tShort ease-in-out;
-
-    &:hover{
-        box-shadow: 0 2px 10px 0 rgba(0,0,0,0.3);
-    }
+    @include cardShadow;
 }
 
 .product-card__image{

@@ -3,8 +3,8 @@
 // Markup:
 //<div class="featured-products">
 //    <div class="featured-products__content">
-//        {{> "typography.page-title" modifier_class="page-title--quincy" title="Featured products"}}
-//        {{> "typography.subtitle"}}
+//        {{> "atoms.page-title" modifier_class="page-title--quincy" title="Featured products"}}
+//        {{> "atoms.subtitle"}}
 //    </div>
 //    <div class="featured-products__slider">
 //        <div class="featured-products__slider-inner">
@@ -17,9 +17,6 @@
 //        <div class="featured-products__control featured-products__control--prev"></div>
 //        <div class="featured-products__control featured-products__control--next"></div>
 //        <div class="featured-products__bullets">
-//            <div class="featured-products__bullet featured-products__bullet--active"></div>
-//            <div class="featured-products__bullet"></div>
-//            <div class="featured-products__bullet"></div>
 //        </div>
 //    </div>
 //</div>
@@ -40,10 +37,26 @@
 
 .featured-products__slider{
     position: relative;
+
+    &.js-first{
+        .featured-products__control--prev{
+            opacity: 0 !important;
+            cursor: default !important;
+        }
+    }
+
+    &.js-last{
+        .featured-products__control--next{
+            opacity: 0 !important;
+            cursor: default !important;
+        }
+    }
 }
 
 .featured-products__slider-inner{
     @include clearfix;
+
+    transition: transform $_tMedium ease-in-out;
 
     .product-card{
         float: left;
@@ -91,6 +104,7 @@
 
 
 .featured-products__bullets{
+    display: none;
     position: absolute;
     bottom: -50px;
     left: 0;
@@ -102,6 +116,7 @@
     display: inline-block;
     width: 12px;
     height: 12px;
+    margin: 0 3px;
     border-radius: 50%;
     border: 3px solid $_rgbApple;
 
@@ -127,6 +142,10 @@
 
 $_xOverlapping: 50%;
 @media (min-width: $_wMedium) {
+    .featured-products__bullets{
+        display: block;
+    }
+
     .featured-products__slider-inner{
         width: 200%;
         margin: 0 -30%;

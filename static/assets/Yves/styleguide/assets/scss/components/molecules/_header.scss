@@ -3,11 +3,9 @@
 // Markup:
 // <div class="header" style="background-image: url(../images/header/background.jpg)">
 //    <div class="header__inner">
-//        <div class="header__breadcrumbs">
-//            <div class="header__breadcrumb">Dogs</div>
-//        </div>
-//        {{> "typography.page-title" modifier_class="page-title--white" title="Packages"}}
-//        {{> "typography.subtitle" modifier_class="subtitle--white"}}
+//        {{> "atoms.breadcrumbs" modifier_class="breadcrumbs--white"}}
+//        {{> "atoms.page-title" modifier_class="page-title--white" title="Packages"}}
+//        {{> "atoms.subtitle" modifier_class="subtitle--white"}}
 //    </div>
 // </div>
 //
@@ -32,20 +30,3 @@
     color: #FFF;
 }
 
-.header__breadcrumbs{
-    font-family: $_ffBrandonGrotesque-Black;
-    text-transform: uppercase;
-    color: $_rgbWhite;
-    letter-spacing: 0.87px;
-}
-
-.header__breadcrumb{
-    display: inline-block;
-
-    & + .info__breadcrumb:before{
-        position: relative;
-        top: -2px;
-        content: '|';
-        margin: 0 5px 0 3px;
-    }
-}

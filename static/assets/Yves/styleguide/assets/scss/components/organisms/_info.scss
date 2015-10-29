@@ -8,14 +8,14 @@
 //                <div class="info__breadcrumb">Dogs</div>
 //            </div>
 //        {{/if}}
-//        {{> "typography.page-title" modifier_class="page-title--quincy" title="Our philosophy"}}
-//        {{> "typography.subtitle"}}
+//        {{> "atoms.page-title" modifier_class="page-title--quincy" title="Our philosophy"}}
+//        {{> "atoms.subtitle"}}
 //    </div>
 //    <div class="info__column">
-//        {{> "typography.body-text"}}
+//        {{> "atoms.body-text"}}
 //    </div>
 //    <div class="info__column">
-//        {{> "typography.body-text"}}
+//        {{> "atoms.body-text"}}
 //    </div>
 //    {{#if image}}
 //        <img class="info__image" src="../images/info/dog_cat.jpg" />

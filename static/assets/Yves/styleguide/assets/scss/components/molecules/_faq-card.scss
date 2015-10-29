@@ -1,0 +1,108 @@
+// FAQ Card
+//
+// Markup:
+// <div class="faq-card">
+//     <div class="faq-card__toggle">
+//         <div class="faq-card__plus">+</div>
+//         <div class="faq-card__minus">–</div>
+//     </div>
+//     <div class="faq-card__question">
+//         Darf ich Welpen mit rohem Fleisch ernähren?
+//     </div>
+//     <div class="faq-card__container">
+//        <div class="faq-card__answer">
+//             <strong>Selbstverständlich</strong>. Werden Welpen von Anfang an roh gefüttert, wachsen sie artgerecht und gesund auf und zeichnen sich durch eine natürliche Agilität aus, die wir alle an Jungtieren so lieben. Das liegt daran, dass mit rohem Fleisch, Obst, Gemüse, Kohlenhydraten und Knochen gefütterte Welpen <strong>alles erhalten, was sie für Wachstum und Entwicklung benötigen</strong>. Übrigens, wie all die Generationen von Welpen, die in der freien Wildbahn aufgezogen wurden und immer noch werden. Sie sollten deshalb den Welpen mit kleineren Portionen langsam heranführen.
+//        </div>
+//     </div>
+// </div>
+//
+// Styleguide: molecules.faq-card
+
+.faq-card{
+    position: relative;
+    margin: 11px;
+    padding: 26px 41px;
+    background: $_rgbWhite;
+
+    @include cardShadow;
+}
+
+.faq-card--active{
+    .faq-card__plus {
+        opacity: 0;
+        transform: rotate(90deg);
+    }
+
+    .faq-card__minus {
+        opacity: 1;
+        transform: rotate(0deg);
+    }
+
+    .faq-card__container{
+        opacity: 1;
+    }
+}
+
+.faq-card__toggle {
+    position: absolute;
+    top: 30px;
+    right: 40px;
+    width: 24px;
+    height: 24px;
+    background: $_rgbApple;
+    font-size: 20px;
+    font-weight: bold;
+    color: $_rgbWhite;
+    border-radius: 50%;
+
+    cursor: pointer;
+}
+
+.faq-card__plus, .faq-card__minus {
+    font-family: Helvetica Neue;
+    width: 24px;
+    height: 24px;
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    line-height: 19px;
+    text-align: center;
+    transition: 0.2s opacity ease-out, 0.3s transform ease-in-out;
+}
+
+.faq-card__plus {
+    opacity: 1;
+    transform: rotate(0deg);
+}
+
+.faq-card__minus {
+    opacity: 0;
+    transform: rotate(-90deg);
+}
+
+.faq-card__question{
+    font-family: $_ffBrandonGrotesque-Bold;
+    color: $_rgbApple;
+    font-size: 24px;
+    line-height: 34px;
+    text-decoration: underline;
+
+    cursor: pointer;
+}
+
+.faq-card__container{
+    color: #898989;
+    opacity: 0;
+
+    transition: opacity $_tShort ease-in-out;
+}
+
+.faq-card__answer{
+    display: none;
+    padding-top: 18px;
+
+    strong{
+        font-weight: bold;
+    }
+}

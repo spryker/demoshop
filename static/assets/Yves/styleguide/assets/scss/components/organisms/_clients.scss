@@ -4,8 +4,8 @@
 //<div class="clients">
 //    <div class="clients__inner">
 //        <div class="clients__content">
-//            {{> "typography.page-title" modifier_class="page-title--quincy" title="Our clients"}}
-//            {{> "typography.subtitle"}}
+//            {{> "atoms.page-title" modifier_class="page-title--quincy" title="Our clients"}}
+//            {{> "atoms.subtitle"}}
 //        </div>
 //        <div class="clients__items row">
 //            {{> "molecules.client"}}

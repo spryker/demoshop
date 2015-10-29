@@ -20,14 +20,6 @@
     -moz-osx-font-smoothing: grayscale;
 
     
-    @if $name == 'check' {
-      content: '\E00F';
-    }
-    
-    @if $name == 'exclamation' {
-      content: '\E010';
-    }
-    
     @if $name == 'arrow-left' {
       content: '\E001';
     }
@@ -82,6 +74,14 @@
     
     @if $name == 'close' {
       content: '\E00E';
+    }
+    
+    @if $name == 'check' {
+      content: '\E00F';
+    }
+    
+    @if $name == 'exclamation' {
+      content: '\E010';
     }
     
   }
@@ -108,14 +108,6 @@
     -moz-osx-font-smoothing: grayscale;
 
     
-    @if $name == 'check' {
-      content: '\E00F';
-    }
-    
-    @if $name == 'exclamation' {
-      content: '\E010';
-    }
-    
     @if $name == 'arrow-left' {
       content: '\E001';
     }
@@ -170,6 +162,14 @@
     
     @if $name == 'close' {
       content: '\E00E';
+    }
+    
+    @if $name == 'check' {
+      content: '\E00F';
+    }
+    
+    @if $name == 'exclamation' {
+      content: '\E010';
     }
     
   }

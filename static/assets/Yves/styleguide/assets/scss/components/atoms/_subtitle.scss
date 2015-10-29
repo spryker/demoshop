@@ -8,7 +8,7 @@
 //    iste laboriosam fugit vero magni corporis.
 //</p>
 //
-//Styleguide: typography.subtitle
+//Styleguide: atoms.subtitle
 //
 // Weight: 1
 
@@ -20,4 +20,8 @@
 
 .subtitle--white{
     color: $_rgbWhite;
+}
+
+.subtitle--quincy{
+    color: $_rgbQuincy;
 }
