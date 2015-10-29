@@ -18,22 +18,22 @@ class AddOnCustomerOrderHydrator implements AddOnCustomerOrderHydratorInterface
         $billingAddress = $request->getBillingAddress();
         $shippingAddress = $request->getShippingAddress();
 
-        if (null == $billingAddress->getEmail()) {
+        if ($billingAddress->getEmail() === null) {
             $billingAddress->setEmail($request->getEmail());
         }
-        if (null == $shippingAddress->getEmail()) {
+        if ($shippingAddress->getEmail() === null) {
             $shippingAddress->setEmail($request->getEmail());
         }
-        if (null == $orderTransfer->getEmail()) {
+        if ($orderTransfer->getEmail() === null) {
             $orderTransfer->setEmail($request->getEmail());
         }
-        if (null == $orderTransfer->getFirstName()) {
+        if ($orderTransfer->getFirstName() === null) {
             $orderTransfer->setFirstName($request->getBillingAddress()->getFirstName());
         }
-        if (null == $orderTransfer->getLastName()) {
+        if ($orderTransfer->getLastName() === null) {
             $orderTransfer->setLastName($request->getBillingAddress()->getLastName());
         }
-        if (null == $orderTransfer->getSalutation()) {
+        if ($orderTransfer->getSalutation() === null) {
             $orderTransfer->setSalutation($request->getBillingAddress()->getSalutation());
         }
     }

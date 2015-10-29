@@ -6,7 +6,7 @@ use Generated\Shared\Transfer\CheckoutResponseTransfer;
 use Generated\Shared\Transfer\OrderTransfer;
 use Pyz\Zed\SalesCheckoutConnector\Dependency\Facade\SalesCheckoutConnectorToSalesInterface;
 
-class AddOnLinkCustomerToOrder implements AddOnLinkCustomerToOrderInterface
+class LinkCustomerToOrder implements LinkCustomerToOrderInterface
 {
     /**
      * @var SalesCheckoutConnectorToSalesInterface
@@ -27,9 +27,9 @@ class AddOnLinkCustomerToOrder implements AddOnLinkCustomerToOrderInterface
      */
     public function saveOrderCustomerLink(OrderTransfer $orderTransfer, CheckoutResponseTransfer $checkoutResponse)
     {
-        if (!null == $orderTransfer->getIdSalesOrder()) {
+        if ($orderTransfer->getIdSalesOrder() !== null) {
             $orderEntity = $this->salesFacade->getSalesOrderById($orderTransfer->getIdSalesOrder());
-            if (!null == $orderEntity) {
+            if ($orderEntity !== null) {
                 $orderEntity->setFkCustomer($orderTransfer->getCustomer()->getIdCustomer());
             }
         }
