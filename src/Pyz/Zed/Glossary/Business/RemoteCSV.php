@@ -12,6 +12,7 @@ use Pyz\Zed\Locale\Business\LocaleFacade;
 class RemoteCSV
 {
     const WARNING_NOCHANGES = 'No translations updated. If you DID changed something in the spreadsheet, wait a few moments for them to be published and try again.';
+
     /**
      * @var string
      */
