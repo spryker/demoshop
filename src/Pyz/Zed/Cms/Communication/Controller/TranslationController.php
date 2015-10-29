@@ -9,6 +9,9 @@ use Symfony\Component\HttpFoundation\RedirectResponse;
 
 class TranslationController extends AbstractController
 {
+    /**
+     * @return array
+     */
     public function indexAction()
     {
         return $this->getGlossaryFacade()->getAllKeysWithTranslations();

@@ -133,9 +133,7 @@ class Importer
         }
 
         if ($this->translationManager->hasTranslation($key, $localeTransfer)) {
-            if ($this->translationManager->getTranslationByKeyName($key, $localeTransfer) !== $column) {
-                $this->translationManager->updateAndTouchTranslation($key, $localeTransfer, $column);
-            }
+            $this->translationManager->updateAndTouchTranslation($key, $localeTransfer, $column);
         } else {
             $this->translationManager->createAndTouchTranslation($key, $localeTransfer, $column);
         }
