@@ -3,7 +3,7 @@
 namespace Pyz\Zed\Collector\Business;
 
 use Generated\Shared\Transfer\LocaleTransfer;
-use SprykerEngine\Zed\Touch\Persistence\Propel\SpyTouchQuery;
+use Orm\Zed\Touch\Persistence\SpyTouchQuery;
 use SprykerFeature\Zed\Collector\Business\CollectorFacade as SprykerCollectorFacade;
 use SprykerFeature\Zed\Collector\Business\Exporter\Writer\TouchUpdaterInterface;
 use SprykerFeature\Zed\Collector\Business\Exporter\Writer\WriterInterface;

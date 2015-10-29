@@ -5,12 +5,12 @@ namespace Pyz\Zed\Collector\Business\Storage;
 use Generated\Shared\Transfer\LocaleTransfer;
 use Propel\Runtime\ActiveQuery\Criteria;
 use SprykerEngine\Shared\Kernel\Store;
-use SprykerEngine\Zed\Touch\Persistence\Propel\Map\SpyTouchTableMap;
-use SprykerEngine\Zed\Touch\Persistence\Propel\SpyTouchQuery;
+use Orm\Zed\Touch\Persistence\Map\SpyTouchTableMap;
+use Orm\Zed\Touch\Persistence\SpyTouchQuery;
 use SprykerFeature\Shared\Collector\Code\KeyBuilder\KeyBuilderTrait;
 use SprykerFeature\Zed\Collector\Business\Exporter\AbstractPropelCollectorPlugin;
 use SprykerFeature\Zed\Collector\Business\Exporter\Writer\KeyValue\TouchUpdaterSet;
-use SprykerFeature\Zed\Url\Persistence\Propel\Map\SpyUrlTableMap;
+use Orm\Zed\Url\Persistence\Map\SpyUrlTableMap;
 
 class UrlCollector extends AbstractPropelCollectorPlugin
 {
@@ -51,7 +51,7 @@ class UrlCollector extends AbstractPropelCollectorPlugin
      */
     public function getResourceColumnNames()
     {
-        $reflection = new \ReflectionClass('SprykerFeature\Zed\Url\Persistence\Propel\Map\SpyUrlTableMap');
+        $reflection = new \ReflectionClass('Orm\Zed\Url\Persistence\Map\SpyUrlTableMap');
         $constants = $reflection->getConstants();
 
         return array_filter($constants, function ($constant) {
@@ -66,7 +66,7 @@ class UrlCollector extends AbstractPropelCollectorPlugin
      */
     public function getConstantValue($constantName)
     {
-        $reflection = new \ReflectionClass('SprykerFeature\Zed\Url\Persistence\Propel\Map\SpyUrlTableMap');
+        $reflection = new \ReflectionClass('Orm\Zed\Url\Persistence\Map\SpyUrlTableMap');
 
         return $reflection->getConstant($constantName);
     }
