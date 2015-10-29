@@ -36,7 +36,6 @@ use SprykerFeature\Zed\Price\Persistence\Propel\Base\SpyPriceTypeQuery;
 use SprykerFeature\Zed\Price\Persistence\Propel\SpyPriceProduct;
 use SprykerFeature\Zed\Price\Persistence\Propel\SpyPriceProductQuery;
 use SprykerFeature\Zed\Price\Persistence\Propel\SpyPriceType;
-use SprykerFeature\Zed\Product\Persistence\Propel\Map\SpyAbstractProductTableMap;
 use SprykerFeature\Zed\Product\Persistence\Propel\SpyAbstractProduct;
 use SprykerFeature\Zed\Product\Persistence\Propel\SpyLocalizedAbstractProductAttributes;
 use SprykerFeature\Zed\Product\Persistence\Propel\SpyLocalizedAbstractProductAttributesQuery;
@@ -92,6 +91,8 @@ class ProductCollectorTest extends AbstractFunctionalTest
     const ROOT = 'root_category';
     const CHILD_CATEGORY_1 = 'child_category_1';
     const CHILD_CATEGORY_2 = 'child_category_2';
+    const SIMPLE = 'simple';
+    const DYNAMIC = 'dynamic';
 
     /**
      * @var LocaleTransfer
@@ -259,7 +260,7 @@ class ProductCollectorTest extends AbstractFunctionalTest
             ],
             $product1['concrete_products']
         );
-        $this->assertEquals(1, $product1['type']);
+        $this->assertEquals(self::DYNAMIC, $product1['type']);
         $this->assertEquals([ self::GROUP_KEY_1 ], $product1['groups']);
         $this->assertEquals(true, $product1['available']);
         $this->assertCount(1, $product1['configurable_products']);
@@ -288,7 +289,7 @@ class ProductCollectorTest extends AbstractFunctionalTest
             ],
             $product2['concrete_products']
         );
-        $this->assertEquals(1, $product2['type']);
+        $this->assertEquals(self::DYNAMIC, $product2['type']);
         $this->assertEquals([ self::GROUP_KEY_1, self::GROUP_KEY_2 ], $product2['groups']);
         $this->assertEquals(true, $product2['available']);
         $this->assertCount(1, $product2['configurable_products']);
@@ -317,7 +318,7 @@ class ProductCollectorTest extends AbstractFunctionalTest
             ],
             $product3['concrete_products']
         );
-        $this->assertEquals(0, $product3['type']);
+        $this->assertEquals(self::SIMPLE, $product3['type']);
         $this->assertEquals([ self::GROUP_KEY_1 ], $product3['groups']);
         $this->assertEquals(true, $product3['available']);
         $this->assertCount(0, $product3['configurable_products']);
@@ -346,7 +347,7 @@ class ProductCollectorTest extends AbstractFunctionalTest
             ],
             $product4['concrete_products']
         );
-        $this->assertEquals(0, $product4['type']);
+        $this->assertEquals(self::SIMPLE, $product4['type']);
         $this->assertEquals([ self::GROUP_KEY_1 ], $product4['groups']);
         $this->assertEquals(true, $product4['available']);
         $this->assertCount(0, $product4['configurable_products']);
@@ -375,7 +376,7 @@ class ProductCollectorTest extends AbstractFunctionalTest
             ],
             $product5['concrete_products']
         );
-        $this->assertEquals(0, $product5['type']);
+        $this->assertEquals(self::SIMPLE, $product5['type']);
         $this->assertEquals([ self::GROUP_KEY_1 ], $product5['groups']);
         $this->assertEquals(true, $product5['available']);
         $this->assertCount(0, $product5['configurable_products']);
@@ -531,7 +532,7 @@ class ProductCollectorTest extends AbstractFunctionalTest
         foreach ($dynamicProducts as $dynamicProduct) {
             $abstractProductEntity = $this->findOrCreateAbstractProduct(
                 $dynamicProduct[self::SKU],
-                SpyAbstractProductTableMap::COL_TYPE_DYNAMIC,
+                self::DYNAMIC,
                 $dynamicProduct[self::GROUP_SET],
                 self::CHILD_CATEGORY_2
             );
@@ -583,7 +584,7 @@ class ProductCollectorTest extends AbstractFunctionalTest
         foreach ($skus as $sku) {
             $abstractProductEntity = $this->findOrCreateAbstractProduct(
                 $sku,
-                SpyAbstractProductTableMap::COL_TYPE_SIMPLE,
+                self::SIMPLE,
                 self::GROUP_SET_1,
                 self::CHILD_CATEGORY_1
             );
