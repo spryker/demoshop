@@ -17,7 +17,7 @@ class SalesCheckoutConnectorFacade extends SpySalesCheckoutConnectorFacade
      */
     public function saveOrderCustomerLink(OrderTransfer $order, CheckoutResponseTransfer $request)
     {
-        $this->getDependencyContainer()->createAddOnLinkCustomerToOrder()->saveOrderCustomerLink($order, $request);
+        $this->getDependencyContainer()->createLinkCustomerToOrder()->saveOrderCustomerLink($order, $request);
     }
 
 }

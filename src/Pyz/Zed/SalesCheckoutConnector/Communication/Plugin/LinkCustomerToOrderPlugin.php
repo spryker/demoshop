@@ -11,7 +11,7 @@ use SprykerFeature\Zed\Checkout\Dependency\Plugin\CheckoutSaveOrderInterface;
 /**
  * @method SalesCheckoutConnectorFacade getFacade()
  */
-class AddOnLinkCustomerToOrderPlugin extends AbstractPlugin implements CheckoutSaveOrderInterface
+class LinkCustomerToOrderPlugin extends AbstractPlugin implements CheckoutSaveOrderInterface
 {
     /**
      * @param OrderTransfer $orderTransfer

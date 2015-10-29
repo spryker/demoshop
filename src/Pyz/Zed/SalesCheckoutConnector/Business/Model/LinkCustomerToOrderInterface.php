@@ -5,7 +5,7 @@ namespace Pyz\Zed\SalesCheckoutConnector\Business\Model;
 use Generated\Shared\Transfer\CheckoutResponseTransfer;
 use Generated\Shared\Transfer\OrderTransfer;
 
-interface AddOnLinkCustomerToOrderInterface
+interface LinkCustomerToOrderInterface
 {
     /**
      * @param OrderTransfer $orderTransfer
