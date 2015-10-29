@@ -19,6 +19,6 @@ class AddOnLinkCustomerToOrderPlugin extends AbstractPlugin implements CheckoutS
      */
     public function saveOrder(OrderTransfer $orderTransfer, CheckoutResponseTransfer $checkoutResponse)
     {
-        $this->getFacade()->hydrateOrderTransferAddOnLink($orderTransfer, $checkoutResponse);
+        $this->getFacade()->saveOrderCustomerLink($orderTransfer, $checkoutResponse);
     }
 }
