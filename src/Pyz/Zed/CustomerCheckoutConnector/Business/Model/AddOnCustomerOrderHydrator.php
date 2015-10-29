@@ -16,12 +16,25 @@ class AddOnCustomerOrderHydrator implements AddOnCustomerOrderHydratorInterface
     public function hydrateOrderTransfer(OrderTransfer $orderTransfer, CheckoutRequestInterface $request)
     {
         $billingAddress = $request->getBillingAddress();
-        $billingAddress->setEmail($request->getEmail());
-        $request->setBillingAddress($billingAddress);
+        $shippingAddress = $request->getShippingAddress();
 
-        $orderTransfer->setEmail($request->getEmail());
-        $orderTransfer->setFirstName($request->getBillingAddress()->getFirstName());
-        $orderTransfer->setLastName($request->getBillingAddress()->getLastName());
-        $orderTransfer->setSalutation($request->getBillingAddress()->getSalutation());
+        if (null == $billingAddress->getEmail()) {
+            $billingAddress->setEmail($request->getEmail());
+        }
+        if (null == $shippingAddress->getEmail()) {
+            $shippingAddress->setEmail($request->getEmail());
+        }
+        if (null == $orderTransfer->getEmail()) {
+            $orderTransfer->setEmail($request->getEmail());
+        }
+        if (null == $orderTransfer->getFirstName()) {
+            $orderTransfer->setFirstName($request->getBillingAddress()->getFirstName());
+        }
+        if (null == $orderTransfer->getLastName()) {
+            $orderTransfer->setLastName($request->getBillingAddress()->getLastName());
+        }
+        if (null == $orderTransfer->getSalutation()) {
+            $orderTransfer->setSalutation($request->getBillingAddress()->getSalutation());
+        }
     }
 }
