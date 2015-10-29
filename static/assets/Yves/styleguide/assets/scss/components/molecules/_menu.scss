@@ -1,0 +1,87 @@
+// Menu
+//
+// Markup:
+// <div class="menu">
+//     <div class="menu__top">
+//         <div class="menu__top-inner" style="background-image: url(../images/menu/dog.png);">
+//             <h2 class="page-title page-title--green">Dogs Products</h2>
+//             <p class="subtitle">
+//                 Wisi eruditi id nam. Te pri oblique ullamcorper, magna persequeris has eu.
+//             </p>
+//             <div class="menu__top-close"></div>
+//         </div>
+//     </div>
+//     <div class="menu__bottom">
+//         <a class="menu__bottom-box" href="#" style="background-image: url(../images/menu/product.jpg);">Menu Boxes</a>
+//         <a class="menu__bottom-box" href="#" style="background-image: url(../images/menu/product_2.jpg);">Packages</a>
+//         <a class="menu__bottom-box" href="#" style="background-image: url(../images/menu/product_3.jpg);">Supplements</a>
+//         <a class="menu__bottom-box" href="#" style="background-image: url(../images/menu/product_4.jpg);">Snacks</a>
+//         <a class="menu__bottom-box" href="#" style="background-image: url(../images/menu/product_5.jpg);">Drymeat</a>
+//     </div>
+// </div>
+//
+// Styleguide: molecules.menu
+
+
+.menu{
+}
+
+
+
+.menu__top{
+}
+
+.menu__top-inner{
+    position: relative;
+    @include pageWidth;
+    padding: 60px 0 60px;
+
+    background-position: 90% center !important;
+    background-size: contain !important;
+    background-repeat: no-repeat !important;
+
+    .page-title{
+        text-align: left;
+    }
+
+    .subtitle{
+        max-width: 320px;
+    }
+}
+
+.menu__top-close{
+    @include pdif('close', 20px, 20px);
+    position: absolute;
+    top: 20px;
+    right: 20px;
+
+    color: $_rgbSilverChalice;
+    cursor: pointer;
+}
+
+
+
+.menu__bottom{
+    @include clearfix;
+}
+
+.menu__bottom-box{
+    float: left;
+    width: 33.333%;
+    padding: 65px 0 75px;
+
+    text-transform: uppercase;
+    font-size: $_fsMedium;
+    line-height: $_lhMedium;
+    font-family: $_ffBrandonGrotesque-Black;
+    color: $_rgbWhite;
+    text-align: center;
+    text-decoration: none;
+
+    background-position: center !important;
+    background-size: cover !important;
+
+    &:nth-child(1), &:nth-child(2){
+        width: 50%;
+    }
+}

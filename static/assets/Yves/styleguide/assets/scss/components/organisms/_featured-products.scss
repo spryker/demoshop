@@ -1,0 +1,174 @@
+// Product Card
+//
+// Markup:
+//<div class="featured-products">
+//    <div class="featured-products__content">
+//        {{> "atoms.page-title" modifier_class="page-title--quincy" title="Featured products"}}
+//        {{> "atoms.subtitle"}}
+//    </div>
+//    <div class="featured-products__slider">
+//        <div class="featured-products__slider-inner">
+//            {{> "molecules.product-card"}}
+//            {{> "molecules.product-card"}}
+//            {{> "molecules.product-card"}}
+//            {{> "molecules.product-card"}}
+//            {{> "molecules.product-card"}}
+//        </div>
+//        <div class="featured-products__control featured-products__control--prev"></div>
+//        <div class="featured-products__control featured-products__control--next"></div>
+//        <div class="featured-products__bullets">
+//        </div>
+//    </div>
+//</div>
+//
+// Styleguide: organisms.featured-products
+
+.featured-products{
+    padding: 90px 0 80px;
+
+    background: $_rgbAlabaster;
+}
+
+.featured-products__content{
+    @include limitWidth;
+    text-align: center;
+    padding-bottom: 20px;
+}
+
+.featured-products__slider{
+    position: relative;
+
+    &.js-first{
+        .featured-products__control--prev{
+            opacity: 0 !important;
+            cursor: default !important;
+        }
+    }
+
+    &.js-last{
+        .featured-products__control--next{
+            opacity: 0 !important;
+            cursor: default !important;
+        }
+    }
+}
+
+.featured-products__slider-inner{
+    @include clearfix;
+
+    transition: transform $_tMedium ease-in-out;
+
+    .product-card{
+        float: left;
+    }
+}
+
+
+
+.featured-products__control{
+    top: 50%;
+    margin-top: -100px;
+    height: 200px;
+    background: rgba($_rgbApple, 0.75);
+    opacity: 0;
+
+    color: $_rgbWhite;
+    text-align: center;
+
+    cursor: pointer;
+    transition: opacity $_tShort ease-in-out, background $_tShort ease-in-out;
+
+    &:before{
+        width: 100%;
+    }
+
+    &:hover{
+        background: $_rgbApple;
+    }
+}
+
+.featured-products__control--prev{
+    @include pdif('arrow-left', 26px, 17px);
+    display: none;
+    position: absolute;
+    left: 0;
+}
+
+.featured-products__control--next{
+    @include pdif('arrow-right', 26px, 17px);
+    position: absolute;
+    display: none;
+    right: 0;
+}
+
+
+
+.featured-products__bullets{
+    display: none;
+    position: absolute;
+    bottom: -50px;
+    left: 0;
+    width: 100%;
+    text-align: center;
+}
+
+.featured-products__bullet{
+    display: inline-block;
+    width: 12px;
+    height: 12px;
+    margin: 0 3px;
+    border-radius: 50%;
+    border: 3px solid $_rgbApple;
+
+    cursor: pointer;
+}
+
+.featured-products__bullet--active{
+    background: $_rgbApple;
+}
+
+
+.featured-products__slider:hover{
+    .featured-products__control{
+        opacity: 1;
+    }
+}
+
+
+
+// ================
+//  MEDIA QUERIES
+// ================
+
+$_xOverlapping: 50%;
+@media (min-width: $_wMedium) {
+    .featured-products__bullets{
+        display: block;
+    }
+
+    .featured-products__slider-inner{
+        width: 200%;
+        margin: 0 -30%;
+
+        .product-card{
+            width: 20%;
+        }
+    }
+
+    .featured-products__control{
+        display: block !important;
+        width: calc(10% - 11px);
+
+    }
+}
+
+@media (min-width: $_wLarge) {
+    .featured-products__slider-inner{
+        width: 150%;
+        margin: 0 -25%;
+    }
+
+    .featured-products__control{
+        width: calc(5% - 11px);
+    }
+}

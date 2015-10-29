@@ -1,0 +1,97 @@
+@mixin font-face($fontName) {
+  @font-face {
+    font-family: $fontName;
+    src: url('../fonts/' + $fontName + '/' + $fontName + '.eot');
+    src: url('../fonts/' + $fontName + '/' + $fontName + '.eot?iefix') format('eot'), url('../fonts/' + $fontName + '/' + $fontName + '.woff') format('woff'), url('../fonts/' + $fontName + '/' + $fontName + '.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+  }
+}
+
+@mixin placeholderColor($color) {
+  &::-webkit-input-placeholder {
+     color: $color;
+  }
+
+  &:-moz-placeholder { /* Firefox 18- */
+     color: $color;
+  }
+
+  &::-moz-placeholder {  /* Firefox 19+ */
+     color: $color;
+  }
+
+  &:-ms-input-placeholder {
+     color: $color;
+  }
+}
+
+@mixin clearfix {
+  &:after{
+    content: '';
+    display: table;
+    clear: both;
+  }
+}
+
+@mixin responsiveImage{
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+@mixin limitWidth ($_width: 758px) {
+    max-width: $_width;
+    margin: 0 auto;
+}
+
+@mixin pageWidth{
+  max-width: $_maxPageWidth;
+  margin: 0 auto;
+  padding-left: ($_xGutter / 2);
+  padding-right: ($_xGutter / 2);
+}
+
+@mixin ripple{
+    overflow: hidden;
+
+    @media (max-width: $_wMedium){
+        &:after{
+            content: '';
+            background: rgba(0,0,0,0.3);
+            display: block;
+            position: absolute;
+            border-radius: 50%;
+            padding-top: 240%;
+            padding-left: 240%;
+            top: 50%;
+            left: 50%;
+            opacity: 0;
+            transition: all $_tMedium;
+            transform: translate(-50%, -50%);
+            backface-visibility: hidden;
+        }
+
+        &:active:after {
+            padding-top: 0;
+            padding-left: 0;
+            margin-top: 0;
+            margin-left: 0;
+            opacity: 1;
+            transition: 0s;
+        }
+    }
+}
+
+@mixin sectionShadow{
+    box-shadow: 0 0 30px 0 rgba(0,0,0,.2);
+}
+
+@mixin cardShadow{
+    box-shadow: 0 2px 4px 0 rgba(0,0,0,0.2);
+    transition: box-shadow $_tShort ease-in-out;
+
+    &:hover{
+        box-shadow: 0 2px 10px 0 rgba(0,0,0,0.3);
+    }
+}

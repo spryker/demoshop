@@ -1,0 +1,51 @@
+$_gridRaster : 12;
+$_gridLayouts : (
+  small : $_wSmall,
+  medium : $_wMedium,
+  large : $_wLarge,
+  xlarge : $_wXLarge
+);
+
+.row {
+  margin:($_ySpacing / (-2)) ($_xSpacing / (-2));
+
+  &:after {
+    display:block;
+    content:'';
+    clear:left;
+  }
+
+  &-collapse {
+    margin:0;
+
+    .column {
+      padding:0;
+    }
+  }
+}
+
+.column {
+  display:block;
+  float:left;
+  padding:($_ySpacing / 2) ($_xSpacing / 2);
+  box-sizing:border-box;
+}
+
+@each $_gridLayout, $gridLayoutMinWidth in $_gridLayouts {
+  @media only screen and (min-width: #{$gridLayoutMinWidth}) {
+    @for $i from 1 through $_gridRaster {
+      .#{$_gridLayout}-#{$i} {
+        width:percentage((1 / $_gridRaster) * $i);
+      }
+
+      @if $i != $_gridRaster and $_gridRaster % $i == 0 {
+        .row-autoclear .#{$_gridLayout}-#{$i}:nth-child(n) {
+          clear: none;
+        }
+        .row-autoclear .#{$_gridLayout}-#{$i}:nth-child(#{$_gridRaster / $i}n+1) {
+          clear:left;
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,32 @@
+// Header
+//
+// Markup:
+// <div class="header" style="background-image: url(../images/header/background.jpg)">
+//    <div class="header__inner">
+//        {{> "atoms.breadcrumbs" modifier_class="breadcrumbs--white"}}
+//        {{> "atoms.page-title" modifier_class="page-title--white" title="Packages"}}
+//        {{> "atoms.subtitle" modifier_class="subtitle--white"}}
+//    </div>
+// </div>
+//
+// Styleguide: molecules.header
+
+.header{
+    position: relative;
+    height: 310px;
+
+    background-position: center !important;
+    background-size: cover !important;
+}
+
+.header__inner{
+    position: absolute;
+    top: 50%;
+    left: 0;
+    width: 100%;
+    transform: translate(0, -50%);
+
+    text-align: center;
+    color: #FFF;
+}
+

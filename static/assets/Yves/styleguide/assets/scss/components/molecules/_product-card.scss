@@ -1,0 +1,148 @@
+// Product Card
+//
+// Markup:
+//<div class="product-card">
+//    <div class="product-card__inner">
+//        <div class="product-card__image">
+//            <div class="product-card__label">Most popular</div>
+//            <img src="../images/product/small_1.jpg" />
+//        </div>
+//        <div class="product-card__content">
+//            <div class="product-card__breadcrumbs">
+//                <span class="product-card__breadcrumb">Dog</span>
+//                <span class="product-card__breadcrumb">Packages</span>
+//            </div>
+//            <div class="product-card__infos">
+//                <div class="product-card__info">
+//                    Chicken
+//                </div>
+//                <div class="product-card__info">
+//                    10 Menuboxen
+//                </div>
+//                <div class="product-card__info">
+//                    250g
+//                </div>
+//            </div>
+//            <div class="product-card__footer">
+//                <div class="product-card__pricing">
+//                    <div class="product-card__price-total">
+//                        €20.00
+//                    </div>
+//                    <div class="product-card__price-relative">
+//                        250g (€1,4 / 100g)
+//                    </div>
+//                </div>
+//                <div class="product-card__detail">
+//                    {{> "atoms.button" title="Info"}}
+//                </div>
+//            </div>
+//        </div>
+//    </div>
+//</div>
+//
+// Styleguide: molecules.product-card
+
+.product-card{
+    padding: 11px;
+
+    text-align: center;
+}
+
+.product-card__inner{
+    @include cardShadow;
+}
+
+.product-card__image{
+    position: relative;
+
+    img{
+        @include responsiveImage;
+    }
+}
+
+.product-card__label{
+    position: absolute;
+    top: 0;
+    left: 0;
+    padding: 9px 12px;
+    background: $_rgbApple;
+
+    font-family: $_ffBrandonGrotesque-Bold;
+    color: $_rgbWhite;
+    font-size: $_fsTiny;
+    line-height: $_lhTiny;
+    text-transform: uppercase;
+    letter-spacing: 0.54px;
+}
+
+.product-card__content{
+    padding: 25px 37px 30px;
+}
+
+.product-card__breadcrumbs{
+    margin-bottom: 20px;
+
+    font-family: $_ffBrandonGrotesque-Bold;
+    font-size: $_fsTiny;
+    line-height: $_lhTiny;
+    color: $_rgbApple;
+    text-transform: uppercase;
+}
+
+.product-card__breadcrumb{
+    & + .product-card__breadcrumb{
+        &:before{
+            content: '|';
+            position: relative;
+            top: -2px;
+            margin: 0 6px 0 3px;
+        }
+    }
+}
+
+.product-card__infos{
+    margin-bottom: 38px;
+
+    font-family: $_ffBrandonGrotesque-Black;
+    color: $_rgbQuincy;
+    font-size: 16px;
+    line-height: 23px;
+    text-transform: uppercase;
+}
+
+.product-card__footer{
+    @include clearfix;
+}
+
+
+.product-card__pricing{
+    display: inline-block;
+    float: left;
+}
+
+.product-card__detail{
+    width: 50%;
+    float: right;
+    text-align: right;
+}
+
+.product-card__pricing{
+
+}
+
+.product-card__price-total{
+    font-family: $_ffHelveticaNeue;
+    color: $_rgbOsloGray;
+    font-size: $_fsDefault;
+    line-height: $_lhDefault;
+}
+
+.product-card__price-relative{
+    color: $_rgbSilverChalice;
+    font-size: $_fsSmall;
+    line-height: $_lhSmall;
+}
+
+.product-card__detail{
+}
+

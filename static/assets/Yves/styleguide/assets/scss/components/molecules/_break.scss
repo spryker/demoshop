@@ -1,0 +1,13 @@
+// Break
+//
+// Markup:
+// <h1 class="break" style="background-image: url(../images/hero/background.jpg);"></h1>
+//
+// Styleguide: molecules.break
+
+.break{
+    height: 357px;
+
+    background-position: center !important;
+    background-size: cover !important;
+}

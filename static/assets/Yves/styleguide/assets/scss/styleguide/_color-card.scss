@@ -1,0 +1,118 @@
+// TODO: generation
+
+// Colors
+//
+// Markup: _color-card.hbs
+//
+// .color-card--White  - Use
+// .color-card--Alabaster    - Use
+// .color-card--SilverChalice  - Use
+// .color-card--OsloGray  - Use
+// .color-card--Tundora  - Use
+// .color-card--Shark  - Use
+// .color-card--Barberry  - Use
+// .color-card--FuelYellow  - Use
+// .color-card--Zest  - Use
+// .color-card--HotCinnamon  - Use
+// .color-card--Apple  - Use
+// .color-card--DarkApple  - Use
+// .color-card--GreenHaze  - Use
+// .color-card--Akaroa  - Use
+// .color-card--Tumbleweed  - Use
+// .color-card--Whiskey  - Use
+// .color-card--Japonica  - Use
+// .color-card--MediumCarmine  - Use
+// .color-card--TotemPole  - Use
+// .color-card--TaupeGray  - Use
+// .color-card--PaleOyster  - Use
+// .color-card--RomanCoffee  - Use
+// .color-card--IrishCoffee  - Use
+//
+// Styleguide: colors.color-card
+
+$_rgbColors: (
+
+    White: $_rgbWhite,
+    Alabaster: $_rgbAlabaster,
+    SilverChalice: $_rgbSilverChalice,
+    OsloGray: $_rgbOsloGray,
+    Tundora: $_rgbTundora,
+    Shark: $_rgbShark,
+
+    Barberry: $_rgbBarberry,
+    FuelYellow: $_rgbFuelYellow,
+    Zest: $_rgbZest,
+    HotCinnamon: $_rgbHotCinnamon,
+
+    Apple: $_rgbApple,
+    DarkApple: $_rgbDarkApple,
+    GreenHaze: $_rgbGreenHaze,
+
+    Akaroa: $_rgbAkaroa,
+    Tumbleweed: $_rgbTumbleweed,
+    Whiskey: $_rgbWhiskey,
+    Japonica: $_rgbJaponica,
+    MediumCarmine: $_rgbMediumCarmine,
+    TotemPole: $_rgbTotemPole,
+
+    TaupeGray: $_rgbTaupeGray,
+    PaleOyster: $_rgbPaleOyster,
+    RomanCoffee: $_rgbRomanCoffee,
+    IrishCoffee: $_rgbIrishCoffee
+);
+
+.color-card{
+    padding: 20px 20px;
+    float: left;
+}
+
+.color-card__wrapper{
+    box-shadow: 0 2px 4px 0 rgba(0,0,0,0.3);
+}
+
+.color-card__preview{
+    width: 100%;
+    height: 80px;
+    background: #CCC;
+}
+
+.color-card__code{
+    padding: 25px 15px 23px;
+    font-family: $_ffBrandonGrotesque-Bold;
+}
+
+@each $_rgbColorName, $_rgbColorValue in $_rgbColors {
+    .color-card--#{$_rgbColorName}{
+        display: block;
+
+        .color-card__preview{
+            background: $_rgbColorValue;
+        }
+
+        .color-card__code:before{
+            content: '#{ie-hex-str($_rgbColorValue)}';
+        }
+    }
+}
+
+
+.section-color-card{
+    @include clearfix;
+
+    .styleguide-element{
+        display: none;
+        padding: 0;
+
+        &.styleguide-modifier{
+            display: inline-block;
+        }
+    }
+
+    .styleguide-modifier-name{
+        display: none;
+    }
+
+    .styleguide-html{
+        display: none;
+    }
+}

@@ -1,0 +1,21 @@
+body{
+    font-family: $_ffBrandonGrotesque-Regular;
+    font-size: $_fsDefault;
+    line-height: $_lhDefault;
+    height: 100%;
+    -webkit-tap-highlight-color: transparent;
+    margin: 0;
+
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+
+    overflow-x: hidden;
+}
+
+*{
+    box-sizing: border-box;
+
+    font-family: inherit;
+    font-size: inherit;
+    line-height: inherit;
+}

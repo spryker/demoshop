@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta content="text/html;charset=UTF-8" http-equiv="content-type"/>
+
+    <title>Pets Deli Styleguide</title>
+
+    <link href="../css/styleguide.css" rel="stylesheet" type="text/css"/>
+    <!--[if lt IE 9]> <script src="public/html5shiv.js"></script> <![endif]-->
+
+    <!-- TODO: browserify -->
+    <script src="public/kss.js"></script>
+    <script src="public/highlight.pack.js"></script>
+    <script src="public/jquery-1.10.2.min.js"></script>
+    <script src="public/styleguide.js"></script>
+    
+  </head>
+
+  <body id="styleguide">
+
+    <nav class="styleguide-menu styleguide-reset">
+      <ul class="styleguide-menu-list" data-kss-ref="organisms">
+          <li>
+            <a class="section-typography" href="section-typography.html">Typography</a>
+          </li>
+          <li>
+            <a class="section-colors" href="section-colors.html">Colors</a>
+          </li>
+          <li>
+            <a class="section-grid" href="section-grid.html">Grid</a>
+          </li>
+          <li>
+            <a class="section-atoms" href="section-atoms.html">Atoms</a>
+          </li>
+          <li>
+            <a class="section-molecules" href="section-molecules.html">Molecules</a>
+          </li>
+          <li>
+            <a class="section-organisms" href="section-organisms.html">Organisms</a>
+          </li>
+          <li>
+            <a class="section-templates" href="section-templates.html">Templates</a>
+          </li>
+      </ul>
+    </nav>
+
+    <div class="styleguide-container">
+
+
+      <div class="styleguide-content">
+
+              <header class="example-header styleguide-reset">
+                <h1>Organisms</h1>
+              </header>
+              <div class="styleguide-example section-navbar">
+                <header class="styleguide-example-header styleguide-reset">
+                  <h3>Navbar <em>organisms.navbar</em></h3>
+                </header>
+
+                <div class="styleguide-elements">
+                    <div class="styleguide-element">
+                      <div class="styleguide-iframe">
+    <iframe width="100%" onload="javascript:resizeIframe(this);" srcdoc='
+        <!DOCTYPE html>
+        <html>
+            <head>
+                <link href="../css/styleguide.css" rel="stylesheet" type="text/css"/>
+            </head>
+            <body>
+
+                <nav class="navbar">
+                    <div class="navbar__top">
+                        <div class="navbar__item">
+                            <span class="navbar__label">Call us:</span>
+                            <a class="navbar__phone" href="tel:+4930208984899">030 - 208 98 48 99</a>
+                        </div>
+
+                        <div class="navbar__item">
+                            <span>Money back guarantee - Free shipping</span>
+                        </div>
+                    </div>
+
+                    <div class="navbar__bottom">
+                        <a class="navbar__logo" href="#">
+                            <img src="../images/logo/logo_header.png" alt="Pets Deli Logo" />
+                        </a>
+
+                        <ul class="navbar__links">
+                            <li class="navbar__link"><a href="#">Home</a></li>
+                            <li class="navbar__link navbar__link--active"><a href="#">Dogs</a></li>
+                            <li class="navbar__link"><a href="#">Cats</a></li>
+                            <li class="navbar__link"><a href="#">Support</a></li>
+                            <li class="navbar__link"><a href="#">Contact</a></li>
+                            <li class="navbar__link navbar__link--login"><a href="#">Login</a></li>
+                            <li class="navbar__link navbar__link--cart"><a href="#">Cart</a></li>
+                        </ul>
+
+                    </div>
+                </nav>
+            </body>
+        </html>'>
+    </iframe>
+</div>
+                    </div>
+
+                </div>
+
+                <div class="styleguide-html styleguide-reset">
+                  <div class="styleguide-html-highlight">
+                    <pre><code class="xml">&lt;div class=&quot;styleguide-iframe&quot;&gt;
+    &lt;iframe width=&quot;100%&quot; onload=&quot;javascript:resizeIframe(this);&quot; srcdoc=&#x27;
+        &lt;!DOCTYPE html&gt;
+        &lt;html&gt;
+            &lt;head&gt;
+                &lt;link href=&quot;../css/styleguide.css&quot; rel=&quot;stylesheet&quot; type=&quot;text/css&quot;/&gt;
+            &lt;/head&gt;
+            &lt;body&gt;
+
+                &lt;nav class=&quot;navbar&quot;&gt;
+                    &lt;div class=&quot;navbar__top&quot;&gt;
+                        &lt;div class=&quot;navbar__item&quot;&gt;
+                            &lt;span class=&quot;navbar__label&quot;&gt;Call us:&lt;/span&gt;
+                            &lt;a class=&quot;navbar__phone&quot; href=&quot;tel:+4930208984899&quot;&gt;030 - 208 98 48 99&lt;/a&gt;
+                        &lt;/div&gt;
+
+                        &lt;div class=&quot;navbar__item&quot;&gt;
+                            &lt;span&gt;Money back guarantee - Free shipping&lt;/span&gt;
+                        &lt;/div&gt;
+                    &lt;/div&gt;
+
+                    &lt;div class=&quot;navbar__bottom&quot;&gt;
+                        &lt;a class=&quot;navbar__logo&quot; href=&quot;#&quot;&gt;
+                            &lt;img src=&quot;../images/logo/logo_header.png&quot; alt=&quot;Pets Deli Logo&quot; /&gt;
+                        &lt;/a&gt;
+
+                        &lt;ul class=&quot;navbar__links&quot;&gt;
+                            &lt;li class=&quot;navbar__link&quot;&gt;&lt;a href=&quot;#&quot;&gt;Home&lt;/a&gt;&lt;/li&gt;
+                            &lt;li class=&quot;navbar__link navbar__link--active&quot;&gt;&lt;a href=&quot;#&quot;&gt;Dogs&lt;/a&gt;&lt;/li&gt;
+                            &lt;li class=&quot;navbar__link&quot;&gt;&lt;a href=&quot;#&quot;&gt;Cats&lt;/a&gt;&lt;/li&gt;
+                            &lt;li class=&quot;navbar__link&quot;&gt;&lt;a href=&quot;#&quot;&gt;Support&lt;/a&gt;&lt;/li&gt;
+                            &lt;li class=&quot;navbar__link&quot;&gt;&lt;a href=&quot;#&quot;&gt;Contact&lt;/a&gt;&lt;/li&gt;
+                            &lt;li class=&quot;navbar__link navbar__link--login&quot;&gt;&lt;a href=&quot;#&quot;&gt;Login&lt;/a&gt;&lt;/li&gt;
+                            &lt;li class=&quot;navbar__link navbar__link--cart&quot;&gt;&lt;a href=&quot;#&quot;&gt;Cart&lt;/a&gt;&lt;/li&gt;
+                        &lt;/ul&gt;
+
+                    &lt;/div&gt;
+                &lt;/nav&gt;
+            &lt;/body&gt;
+        &lt;/html&gt;&#x27;&gt;
+    &lt;/iframe&gt;
+&lt;/div&gt;</code></pre>
+                  </div>
+                </div>
+              </div>
+      </div>
+    </div>
+
+  </body>
+</html>

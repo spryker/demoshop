@@ -1,0 +1,124 @@
+// FAQ
+//
+// Markup:
+// <div class="faq">
+//     <div class="faq__intro">
+//        {{> "atoms.breadcrumbs" modifier_class="breadcrumbs--apple" title="Support"}}
+//         <div class="page-title page-title--quincy">FAQ</div>
+//         {{> "atoms.subtitle" modifier_class="subtitle--quincy"}}
+//     </div>
+//     <div class="faq__switches">
+//         <div class="faq__switch faq__switch--initial" style="background-image: url(../images/faq/switch/dog.jpg);">
+//            Dog
+//         </div>
+//         <div class="faq__switch faq__switch--initial" style="background-image: url(../images/faq/switch/cat.jpg);">
+//            Cat
+//         </div>
+//     </div>
+//     <div class="faq__filters">
+//        <div class="faq__filter">
+//            <div class="faq__filter-button faq__filter-button--active">Informationen und Tipps zur Fütterung</div>
+//        </div>
+//        <div class="faq__filter">
+//            <div class="faq__filter-button">Zusatzinformationen für Hundebesizter</div>
+//        </div>
+//        <div class="faq__filter">
+//            <div class="faq__filter-button">Informationen zum Versand</div>
+//        </div>
+//        <div class="faq__filter">
+//            <div class="faq__filter-button">Informationen zu den Zahlarten</div>
+//        </div>
+//    </div>
+//    <div class="faq__cards">
+//        {{> "molecules.faq-card"}}
+//        {{> "molecules.faq-card"}}
+//        {{> "molecules.faq-card"}}
+//        {{> "molecules.faq-card"}}
+//    </div>
+//</div>
+//
+// Styleguide: organisms.faq
+
+.faq{
+    background: $_rgbAlabaster;
+}
+
+
+.faq__intro{
+    padding: 50px 0 60px;
+
+    text-align: center;
+    background: $_rgbWhite;
+
+    .subtitle{
+        @include limitWidth(830px);
+    }
+}
+
+
+
+.faq__switches{
+    @include clearfix;
+    width: 100%;
+    display: table;
+}
+
+.faq__switch{
+    display: table-cell;
+    padding: 75px 0 80px 0;
+
+    background-position: center !important;
+    background-size: cover !important;
+
+    text-align: center;
+    font-family: $_ffBrandonGrotesque-Black;
+    font-size: 40px;
+    color: $_rgbWhite;
+    letter-spacing: 2.11px;
+    text-transform: uppercase;
+    width: 20%;
+
+    transition: width 0.5s ease-in-out, padding 0.4s ease-in-out;
+    cursor: pointer;
+}
+
+.faq__switch--initial{
+    padding: 190px 0;
+    width: 50%;
+}
+
+.faq__switch--active{
+    width: 80%;
+}
+
+
+
+.faq__filters{
+    @include clearfix;
+    padding: 40px 5px;
+}
+
+.faq__filter{
+    float: left;
+    width: 50%;
+    padding: 6px;
+}
+
+.faq__filter-button{
+    width: 100%;
+    @extend .button;
+    @extend .button--green;
+    display: block;
+    text-align: center;
+    background: $_rgbWhite;
+}
+
+.faq__filter-button--active{
+    @extend .button--green-active;
+    background: $_rgbApple;
+}
+
+
+
+.faq__cards{
+}

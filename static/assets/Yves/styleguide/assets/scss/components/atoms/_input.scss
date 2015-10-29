@@ -1,0 +1,96 @@
+// Input
+//
+// Markup:
+// <div class="input {{modifier_class}}">
+//     <input class="input__text" type="text" placeholder="Your email...">
+// </div>
+//
+// .input--valid    - Lorem
+// .input--invalid   - Lorem
+// .input--ghost   - Lorem
+//
+// Styleguide: atoms.input
+
+.input{
+    position: relative;
+}
+
+.input__text{
+    width: 100%;
+    padding: 11px 24px 9px;
+    border-radius: $_defaultBorderRadius;
+    font-family: $_ffHelveticaNeue;
+    border: 2px solid $_rgbOsloGray;
+    outline:0;
+
+    appearance: none;
+    font-size: $_fsSmaller;
+    line-height: $_lhSmaller;
+
+    @include placeholderColor($_rgbOsloGray);
+}
+
+.input--ghost{
+    .input__text{
+        background: transparent;
+        border-color: $_rgbWhite;
+
+        color: $_rgbWhite;
+        @include placeholderColor($_rgbWhite);
+    }
+}
+
+
+.input--invalid{
+    @include pdif('exclamation', 12px);
+    display: block;
+
+    .input__text{
+        border-color: $_rgbCarnation;
+    }
+
+    &:after{
+        background: $_rgbCarnation;
+    }
+}
+
+.input--valid{
+    @include pdif('check', 8px);
+    display: block;
+
+    &:after{
+        background: $_rgbApple;
+    }
+}
+
+.input--invalid, .input--valid{
+    &:after{
+        position: absolute;
+        top: 50%;
+        right: 15px;
+        margin-top: -12px;
+        content: '';
+        width: 24px;
+        height: 24px;
+        border-radius: 50%;
+    }
+
+    &:before{
+        position: absolute;
+        z-index: 1;
+        left: auto;
+        right: 15px;
+        width: 24px;
+        text-align: center;
+        color: $_rgbWhite;
+    }
+}
+
+
+
+
+.section-input{
+    .styleguide-modifier-name + .input{
+        margin-top: 34px;
+    }
+}

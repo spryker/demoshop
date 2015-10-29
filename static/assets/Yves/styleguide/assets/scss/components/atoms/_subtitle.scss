@@ -1,0 +1,27 @@
+// Subtitle
+//
+// Markup:
+// <p class="subtitle {{modifier_class}}">
+//    Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+//    Quaerat necessitatibus quisquam vel, eveniet facere cumque
+//    quas veritatis sapiente odio quod quae in asperiores neque
+//    iste laboriosam fugit vero magni corporis.
+//</p>
+//
+//Styleguide: atoms.subtitle
+//
+// Weight: 1
+
+.subtitle{
+    margin-bottom: 30px;
+
+    color: $_rgbSilverChalice;
+}
+
+.subtitle--white{
+    color: $_rgbWhite;
+}
+
+.subtitle--quincy{
+    color: $_rgbQuincy;
+}

@@ -1,0 +1,78 @@
+// Buttons
+//
+// Markup:
+// <a class="button {{modifier_class}}">
+//    {{#if title}}
+//        {{title}}
+//    {{else}}
+//        Button
+//    {{/if}}
+//</a>
+//
+// .button--cta   - Use this class to indicate that the button is the primary
+//              feature of this form.
+// :hover     - Highlight the button when hovered.
+//
+// Styleguide: atoms.button
+
+.button {
+    position: relative;
+    overflow: hidden;
+    display: inline-block;
+    padding: 14px 35px 12px;
+    border: 2px solid $_rgbOsloGray;
+    border-radius: $_defaultBorderRadius;
+
+    color: $_rgbOsloGray;
+    text-transform: uppercase;
+    letter-spacing: 0.34px;
+    font-size: $_fsSmall;
+    line-height: $_lhSmall;
+    font-family: $_ffBrandonGrotesque-Bold;
+
+    cursor: pointer;
+    transition: background $_tShort ease-in-out, border-color $_tShort ease-in-out, color $_tShort ease-in-out;
+
+    @include ripple;
+
+    &:hover {
+        background: $_rgbOsloGray;
+        color: $_rgbWhite;
+    }
+}
+
+
+.button--cta{
+    background: $_rgbChileanFire;
+    border-color: $_rgbChileanFire;
+    color: $_rgbWhite;
+
+    &:hover{
+        background: lighten($_rgbChileanFire, 10);
+        border-color: lighten($_rgbChileanFire, 10);
+    }
+}
+
+.button--white{
+    border-color: $_rgbWhite;
+    color: $_rgbWhite;
+
+    &:hover {
+        background: rgba($_rgbWhite, 0.3);
+        color: $_rgbWhite;
+    }
+}
+
+.button--green{
+    &:hover {
+        border-color: $_rgbApple;
+        background: $_rgbApple;
+        color: $_rgbWhite;
+    }
+}
+
+.button--green-active{
+    border-color: $_rgbApple;
+    background: $_rgbApple;
+    color: $_rgbWhite;
+}

@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg width="51px" height="52px" viewBox="0 0 51 52" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <defs></defs>
+    <g id="Homepage" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Large-Device-HOMEPAGE-B" transform="translate(-301.000000, -4467.000000)">
+            <g id="Section-Footer-Copy" transform="translate(0.000000, 4382.000000)">
+                <g id="Social" transform="translate(301.000000, 85.689024)">
+                    <g id="Facebook-Icon">
+                        <ellipse id="Background" fill="#FFFFFF" cx="25.3333333" cy="25.3271484" rx="25.3333333" ry="25.3271484"></ellipse>
+                        <path d="M29.5642077,19.1890197 C29.045082,19.037461 28.4480874,18.9364218 27.9030055,18.9364218 C27.2281421,18.9364218 25.7745902,19.3658382 25.7745902,20.1994113 L25.7745902,22.1949346 L29.226776,22.1949346 L29.226776,25.5544865 L25.7745902,25.5544865 L25.7745902,34.8248291 L22.2964481,34.8248291 L22.2964481,25.5544865 L20.5833333,25.5544865 L20.5833333,22.1949346 L22.2964481,22.1949346 L22.2964481,20.5025287 C22.2964481,17.95129 23.4904372,15.8294678 26.3715847,15.8294678 C27.3579235,15.8294678 29.1229508,15.8799874 30.0833333,16.2083646 L29.5642077,19.1890197 Z" fill="#62BC46"></path>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>
