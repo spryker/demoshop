@@ -4,6 +4,7 @@ namespace Pyz\Zed\SalesCheckoutConnector\Business;
 
 use Generated\Zed\Ide\FactoryAutoCompletion\SalesCheckoutConnectorBusiness;
 use Pyz\Zed\SalesCheckoutConnector\SalesCheckoutConnectorDependencyProvider;
+use Pyz\Zed\SalesCheckoutConnector\Business\Model\LinkCustomerToOrderInterface;
 use SprykerFeature\Zed\SalesCheckoutConnector\Business\SalesCheckoutConnectorDependencyContainer as SprykerSalesCheckoutConnectorDependencyContainer;
 
 /**
@@ -12,11 +13,11 @@ use SprykerFeature\Zed\SalesCheckoutConnector\Business\SalesCheckoutConnectorDep
 class SalesCheckoutConnectorDependencyContainer extends SprykerSalesCheckoutConnectorDependencyContainer
 {
     /**
-     * @return Model\AddOnLinkCustomerToOrderInterface
+     * @return LinkCustomerToOrderInterface
      */
-    public function createAddOnLinkCustomerToOrder()
+    public function createLinkCustomerToOrder()
     {
-        return $this->getFactory()->createModelAddOnLinkCustomerToOrder(
+        return $this->getFactory()->createModelLinkCustomerToOrder(
             $this->getProvidedDependency(SalesCheckoutConnectorDependencyProvider::FACADE_SALES)
         );
     }
