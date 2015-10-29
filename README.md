@@ -46,23 +46,24 @@ Make shure, that the elasticsearch development server is running by checking:
 ```bash
 cd /data/shop/development/current
 php composer.phar install
+vendor/bin/build-multiple-core-class-map
 npm install -d
-vendor/bin/console setup:install
+vendor/bin/pav-console setup:install
 ```
 
 This demoshop comes with some default data to play around with which are installable via:
 
 ```bash
-vendor/bin/console setup:install-demo-data
+vendor/bin/pav-console setup:install-demo-data
 ```
 Afterwards you should call the following two commands to export all demo products and needed translations to the frontend:
 
 ```bash
-vendor/bin/console collector:search:export
+vendor/bin/pav-console collector:search:export
 ```
 
 ```bash
-vendor/bin/console collector:storage:export
+vendor/bin/pav-console collector:storage:export
 ```
 
 If you need to login into Zed, use the following credentials:
