@@ -44,7 +44,7 @@ class CheckoutController extends AbstractController
         ;
         $checkoutForm = $container->createCheckoutForm($shipmentTransfer);
         $checkoutTransfer = new CheckoutRequestTransfer();
-        $checkoutTransfer->setIsGuest(false); // @TODO: only for Development
+        $checkoutTransfer->setIsGuest(false); // for now there is no guest checkout. When an order is performed the customer is saved
 
         $form = $this->createForm($checkoutForm, $checkoutTransfer);
 
