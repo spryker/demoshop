@@ -113,6 +113,8 @@ class RemoteCSV
             $messages['info'][] = self::WARNING_NOCHANGES;
         }
 
+        $messages['success'][] = sprintf('Imported translations from "%s"', $this->url);
+
         return $messages;
     }
 

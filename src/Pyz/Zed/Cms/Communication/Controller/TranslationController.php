@@ -1,14 +1,19 @@
 <?php
 
-namespace Pyz\Zed\Storage\Communication\Controller;
+namespace Pyz\Zed\Cms\Communication\Controller;
 
-use SprykerFeature\Zed\Storage\Communication\Controller\MaintenanceController as SprykerMaintenanceController;
-use Pyz\Zed\Storage\StorageDependencyProvider;
-use Symfony\Component\HttpFoundation\RedirectResponse;
+use Pyz\Zed\Cms\CmsDependencyProvider;
 use Pyz\Zed\Glossary\Business\GlossaryFacade;
+use SprykerFeature\Zed\Application\Communication\Controller\AbstractController;
+use Symfony\Component\HttpFoundation\RedirectResponse;
 
-class MaintenanceController extends SprykerMaintenanceController
+class TranslationController extends AbstractController
 {
+    public function indexAction()
+    {
+        return $this->getGlossaryFacade()->getAllKeysWithTranslations();
+    }
+
     /**
      * @return RedirectResponse
      */
@@ -28,15 +33,15 @@ class MaintenanceController extends SprykerMaintenanceController
             }
         }
 
-        return $this->redirectResponse('/storage/maintenance/list');
+        return $this->redirectResponse('/cms/translation');
     }
 
     /**
      * @return GlossaryFacade
      * @throws \ErrorException
      */
-    protected function getGlossaryFacade()
+    public function getGlossaryFacade()
     {
-        return $this->getDependencyContainer()->getProvidedDependency(StorageDependencyProvider::FACADE_GLOSSARY);
+        return $this->getDependencyContainer()->getProvidedDependency(CmsDependencyProvider::FACADE_GLOSSARY);
     }
 }

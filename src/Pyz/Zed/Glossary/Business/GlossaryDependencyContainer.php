@@ -42,4 +42,11 @@ class GlossaryDependencyContainer extends SprykerGlossaryDependencyContainer
             $this->getProvidedDependency(GlossaryDependencyProvider::FACADE_LOCALE)
         );
     }
+
+    public function createThingManager()
+    {
+        return $this->getFactory()->createThingManager(
+            $this->getQueryContainer()
+        );
+    }
 }

@@ -61,6 +61,10 @@ class CmsDependencyProvider extends SprykerCmsDependencyProvider
             return $container->getLocator()->fileUpload()->facade();
         };
 
+        $container[self::FACADE_GLOSSARY] = function (Container $container) {
+            return $container->getLocator()->glossary()->facade();
+        };
+
         return $container;
     }
 }

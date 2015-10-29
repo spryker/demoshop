@@ -1,0 +1,36 @@
+{% extends '@Gui/Layout/layout.twig' %}
+
+{% block action %}
+    {{ editActionButton('/cms/translation/update', 'Update translation' | trans) }}
+{% endblock %}
+
+{% block content %}
+
+    {% embed '@Gui/Partials/widget.twig' with { widget_title: 'Translations' } %}
+        {% block widget_content %}
+
+            <table class="footable table table-striped toggle-arrow-tiny">
+                <thead>
+                <tr class="text-left">
+                    <th>{{ 'Key' | trans }}</th>
+                    {% for locale in locales %}
+                    <th>{{ locale }}</th>
+                    {% endfor %}
+                </tr>
+                </thead>
+                <tbody>
+                {% for key in keys %}
+                    <tr>
+                        <td>{{ key.key }}</td>
+                        {% for locale in locales %}
+                        <td>{{ key[locale] }}</td>
+                        {% endfor %}
+                    </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+
+        {% endblock %}
+    {% endembed %}
+
+{% endblock %}

@@ -29,4 +29,12 @@ class GlossaryFacade extends SprykerGlossaryFacade implements
         return $this->getDependencyContainer()->createRemoteCSV()->import();
     }
 
+    /**
+     * @return array
+     */
+    public function getAllKeysWithTranslations()
+    {
+        return $this->getDependencyContainer()->createThingManager()->getAllKeysWithTranslations();
+    }
+
 }

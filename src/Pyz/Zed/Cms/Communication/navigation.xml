@@ -34,10 +34,18 @@
                 <label>Images</label>
                 <title>Images</title>
                 <bundle>cms</bundle>
-                <controller>Image</controller>
+                <controller>image</controller>
                 <action>index</action>
                 <icon>fa-file-picture-o</icon>
             </images>
+            <translations>
+                <label>Translations</label>
+                <title>Translations</title>
+                <bundle>cms</bundle>
+                <controller>translation</controller>
+                <action>index</action>
+                <icon>fa-file-o</icon>
+            </translations>
         </pages>
     </cms>
 </config>
