@@ -3,6 +3,8 @@
 namespace Pyz\Zed\Collector\Business\Storage;
 
 use Generated\Shared\Transfer\LocaleTransfer;
+use PavFeature\Zed\ProductDynamic\Business\ProductDynamicFacade;
+use PavFeature\Zed\ProductDynamic\Persistence\ProductDynamicQueryContainer;
 use Propel\Runtime\ActiveQuery\Criteria;
 use Propel\Runtime\ActiveQuery\Join;
 use Pyz\Zed\Collector\Business\Exception\WrongJsonStringException;
@@ -71,24 +73,41 @@ class ProductCollector extends AbstractPropelCollectorPlugin
     private $propelFacade;
 
     /**
+     * @var ProductDynamicFacade
+     */
+    private $productDynamicFacade;
+
+
+    /**
+     * @var ProductDynamicQueryContainer
+     */
+    private $productDynamicQueryContainer;
+
+    /**
      * @param PriceFacade $priceFacade
      * @param PriceQueryContainer $priceQueryContainer
      * @param CategoryQueryContainer $categoryQueryContainer
      * @param ProductOptionExporterFacade $productOptionExporterFacade
      * @param PropelFacade $propelFacade
+     * @param ProductDynamicFacade $productDynamicFacade
+     * @param ProductDynamicQueryContainer $productDynamicQueryContainer
      */
     public function __construct(
         PriceFacade $priceFacade,
         PriceQueryContainer $priceQueryContainer,
         CategoryQueryContainer $categoryQueryContainer,
         ProductOptionExporterFacade $productOptionExporterFacade,
-        PropelFacade $propelFacade
+        PropelFacade $propelFacade,
+        ProductDynamicFacade $productDynamicFacade,
+        ProductDynamicQueryContainer $productDynamicQueryContainer
     ) {
         $this->priceFacade = $priceFacade;
         $this->priceQueryContainer = $priceQueryContainer;
         $this->categoryQueryContainer = $categoryQueryContainer;
         $this->productOptionExporterFacade = $productOptionExporterFacade;
         $this->propelFacade = $propelFacade;
+        $this->productDynamicFacade = $productDynamicFacade;
+        $this->productDynamicQueryContainer = $productDynamicQueryContainer;
     }
 
     /**
@@ -136,13 +155,11 @@ class ProductCollector extends AbstractPropelCollectorPlugin
             'JSON_AGG(spy_product.sku)',
             'concrete_skus'
         );
-
         $baseQuery->addJoin(
             SpyAbstractProductTableMap::COL_ID_ABSTRACT_PRODUCT,
             SpyLocalizedAbstractProductAttributesTableMap::COL_FK_ABSTRACT_PRODUCT,
             Criteria::INNER_JOIN
         );
-
         $baseQuery->addJoin(
             SpyLocalizedAbstractProductAttributesTableMap::COL_FK_LOCALE,
             SpyLocaleTableMap::COL_ID_LOCALE,
@@ -154,6 +171,7 @@ class ProductCollector extends AbstractPropelCollectorPlugin
             $locale->getIdLocale(),
             Criteria::EQUAL
         );
+
         $baseQuery->addAnd(
             SpyLocaleTableMap::COL_IS_ACTIVE,
             true,
@@ -238,7 +256,7 @@ class ProductCollector extends AbstractPropelCollectorPlugin
             )
         );
 
-        $baseQuery->addGroupByColumn(SpyProductTableMap::COL_ID_PRODUCT);
+       $baseQuery->addGroupByColumn(SpyProductTableMap::COL_ID_PRODUCT);
 
         // Product price
         $baseQuery->addJoinObject(
@@ -288,8 +306,6 @@ class ProductCollector extends AbstractPropelCollectorPlugin
             'JSON_AGG(spy_price_type.name)',
             'price_types'
         );
-
-
         // Tax set
         $baseQuery->addJoin(
             SpyAbstractProductTableMap::COL_FK_TAX_SET,
@@ -342,7 +358,6 @@ class ProductCollector extends AbstractPropelCollectorPlugin
             SpyCategoryNodeTableMap::COL_FK_CATEGORY,
             Criteria::INNER_JOIN
         );
-
         $excludeDirectParent = false;
         $excludeRoot = true;
 
@@ -356,6 +371,10 @@ class ProductCollector extends AbstractPropelCollectorPlugin
         $baseQuery = $this->categoryQueryContainer->joinCategoryQueryWithParentCategories($baseQuery, $excludeDirectParent, $excludeRoot);
         $baseQuery = $this->categoryQueryContainer->joinLocalizedRelatedCategoryQueryWithAttributes($baseQuery, 'categoryParents', 'parent');
         $baseQuery = $this->categoryQueryContainer->joinRelatedCategoryQueryWithUrls($baseQuery, 'categoryParents', 'parent');
+
+        $baseQuery = $this->productDynamicQueryContainer->joinGroupKeys($baseQuery);
+        $baseQuery = $this->productDynamicQueryContainer->joinConfigurableProducts($baseQuery);
+        $baseQuery = $this->productDynamicQueryContainer->addDynamicColumns($baseQuery);
 
         $baseQuery->withColumn(
             'JSON_AGG(DISTINCT spy_category_node.id_category_node)',
@@ -402,7 +421,10 @@ class ProductCollector extends AbstractPropelCollectorPlugin
         foreach ($resultSet as $index => $productRawData) {
             if (isset($processedResultSet[$index])) {
                 // Product availability
+                $processedResultSet[$index]['type'] = $productRawData[ProductDynamicQueryContainer::PRODUCT_TYPE];
+                $processedResultSet[$index]['groups'] = $this->decodeData($productRawData['group_keys']);
                 $processedResultSet[$index]['available'] = ($productRawData['quantity'] > 0);
+                $processedResultSet[$index]['configurable_products'] =  $this->productDynamicFacade->extractConfigurableProductData($productRawData);
 
                 // Product price
                 $priceTypes = $this->decodeData($productRawData['price_types']);
@@ -604,7 +626,7 @@ class ProductCollector extends AbstractPropelCollectorPlugin
 }
 
     /**
-     * @param $data
+     * @param string $data
      *
      * @throws WrongJsonStringException
      * @return array

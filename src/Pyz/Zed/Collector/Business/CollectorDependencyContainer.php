@@ -90,7 +90,9 @@ class CollectorDependencyContainer extends SprykerCollectorDependencyContainer
             $this->getProvidedDependency(CollectorDependencyProvider::QUERY_CONTAINER_PRICE),
             $this->getProvidedDependency(CollectorDependencyProvider::QUERY_CONTAINER_CATEGORY),
             $this->getProvidedDependency(CollectorDependencyProvider::FACADE_PRODUCT_OPTION_EXPORTER),
-            $this->getProvidedDependency(CollectorDependencyProvider::FACADE_PROPEL)
+            $this->getProvidedDependency(CollectorDependencyProvider::FACADE_PROPEL),
+            $this->getProvidedDependency(CollectorDependencyProvider::FACADE_PRODUCT_DYNAMIC),
+            $this->getProvidedDependency(CollectorDependencyProvider::QUERY_CONTAINER_PRODUCT_DYNAMIC)
         );
         $storageProductCollector->setTouchQueryContainer(
             $this->getProvidedDependency(CollectorDependencyProvider::QUERY_CONTAINER_TOUCH)

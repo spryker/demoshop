@@ -18,6 +18,8 @@ class CollectorDependencyProvider extends SprykerCollectorDependencyProvider
 
     const FACADE_PRODUCT_OPTION_EXPORTER = 'product_option_exporter_facade';
     const FACADE_PROPEL = 'facade propel';
+    const FACADE_PRODUCT_DYNAMIC = 'facade_product_dynamic';
+    const QUERY_CONTAINER_PRODUCT_DYNAMIC = 'query_container_product_dynamic';
 
     /**
      * @var Container
@@ -50,6 +52,14 @@ class CollectorDependencyProvider extends SprykerCollectorDependencyProvider
 
         $container[self::FACADE_PROPEL] = function (Container $container) {
             return $container->getLocator()->propel()->facade();
+        };
+
+        $container[self::FACADE_PRODUCT_DYNAMIC] = function (Container $container) {
+            return $container->getLocator()->productDynamic()->facade();
+        };
+
+        $container[self::QUERY_CONTAINER_PRODUCT_DYNAMIC] = function (Container $container) {
+            return $container->getLocator()->productDynamic()->queryContainer();
         };
 
         $container[self::SEARCH_PLUGINS] = function (Container $container) {
