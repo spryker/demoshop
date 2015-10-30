@@ -37,7 +37,13 @@ $(document).ready(function () {
                 var data = JSON.parse(raw);
 
                 for (let itemKey in data) {
-                    $form.find('[name="' + itemKey + '"]').val(data[itemKey]);
+                    $form.find('[name="' + itemKey + '"]').each(function () {
+                        var $item = $(this);
+
+                        if (!$item.val()) {
+                            $item.val(data[itemKey]);
+                        }
+                    });
                 }
             }
         }

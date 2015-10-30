@@ -80,7 +80,7 @@ $(document).ready(function () {
 
             $bullets = $slider.find('.featured-products__bullets');
 
-            for (var i = 0; i <= count - visible; i++) {
+            for (let i = 0; i <= count - visible; i++) {
                 $bullets.append('<span class="featured-products__bullet">');
             }
 
