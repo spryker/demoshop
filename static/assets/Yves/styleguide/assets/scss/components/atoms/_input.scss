@@ -2,7 +2,7 @@
 //
 // Markup:
 // <div class="input {{modifier_class}}">
-//     <input class="input__text" type="text" placeholder="Your email...">
+//     <input class="input__text" type="text" placeholder="{{placeholder}}" name="{{name}}">
 // </div>
 //
 // .input--valid    - Lorem
@@ -13,6 +13,10 @@
 
 .input{
     position: relative;
+
+    & + .input{
+        margin-top: 10px;
+    }
 }
 
 .input__text{
