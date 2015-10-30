@@ -22,7 +22,6 @@ var sass = require('gulp-sass');
 var uglify = require('gulp-uglify');
 var concat = require('gulp-concat');
 var autoprefixer = require('gulp-autoprefixer');
-var rename = require('gulp-rename');
 var imagemin = require('gulp-imagemin');
 
 global.basePath = process.cwd();
