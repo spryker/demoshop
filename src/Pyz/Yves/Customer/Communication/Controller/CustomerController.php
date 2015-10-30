@@ -27,7 +27,7 @@ class CustomerController extends AbstractController
             $customerTransfer = new CustomerTransfer();
             $customerTransfer->fromArray($form->getData());
             $this->getLocator()->customer()->client()->forgotPassword($customerTransfer);
-            $this->addMessageSuccess(Messages::CUSTOMER_PASSWORD_RECOVERY_MAIL_SENT);
+            $this->addSuccessMessage(Messages::CUSTOMER_PASSWORD_RECOVERY_MAIL_SENT);
 
             return $this->redirectResponseInternal('home');
         }
@@ -74,7 +74,7 @@ class CustomerController extends AbstractController
 
                 return $this->redirectResponseInternal('home');
             } else {
-                $this->addMessageError(Messages::CUSTOMER_DELETE_FAILED);
+                $this->addErrorMessage(Messages::CUSTOMER_DELETE_FAILED);
             }
         }
 
