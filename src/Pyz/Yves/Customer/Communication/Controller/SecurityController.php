@@ -24,8 +24,7 @@ class SecurityController extends AbstractController
     public function loginAction(Request $request)
     {
         if ($this->isGranted('ROLE_USER')) {
-            $this->addMessageWarning(Messages::CUSTOMER_ALREADY_AUTHENTICATED);
-
+            $this->addInfoMessage(Messages::CUSTOMER_ALREADY_AUTHENTICATED);
             return $this->redirectResponseInternal(CustomerControllerProvider::ROUTE_HOME);
         }
 
@@ -33,15 +32,13 @@ class SecurityController extends AbstractController
     }
 
     /**
-     * @param Request $request
-     *
      * @return RedirectResponse
      */
-    public function logoutAction(Request $request)
+    public function logoutAction()
     {
         $customerTransfer = new CustomerTransfer();
         $customerTransfer->setEmail($this->getUsername());
-        $this->getLocator()->customer()->client()->logout($customerTransfer);
+        $this->getLocator()->customer()->client()->logout();
 
         return $this->redirectResponseInternal(CustomerControllerProvider::ROUTE_HOME);
     }
@@ -56,11 +53,15 @@ class SecurityController extends AbstractController
         if ($form->isValid()) {
             $customerTransfer = new CustomerTransfer();
             $customerTransfer->fromArray($form->getData());
-            $customerTransfer = $this->getLocator()->customer()->client()->registerCustomer($customerTransfer);
-            if ($customerTransfer->getRegistrationKey()) {
-                $this->addMessageWarning(Messages::CUSTOMER_REGISTRATION_SUCCESS);
+            $customerResponseTransfer = $this->getLocator()->customer()->client()->registerCustomer($customerTransfer);
+            if ($customerResponseTransfer->getIsSuccess()) {
+                $this->addInfoMessage(Messages::CUSTOMER_REGISTRATION_SUCCESS);
 
                 return $this->redirectResponseInternal(CustomerControllerProvider::ROUTE_LOGIN);
+            } else {
+                foreach ($customerResponseTransfer->getErrors() as $error) {
+                    $this->addErrorMessage($error->getMessage());
+                }
             }
         }
 
@@ -78,11 +79,11 @@ class SecurityController extends AbstractController
         $customerTransfer->setRegistrationKey($request->query->get('token'));
         $customerTransfer = $this->getLocator()->customer()->client()->confirmRegistration($customerTransfer);
         if ($customerTransfer->getRegistered()) {
-            $this->addMessageSuccess(Messages::CUSTOMER_REGISTRATION_CONFIRMED);
+            $this->addSuccessMessage(Messages::CUSTOMER_REGISTRATION_CONFIRMED);
 
             return $this->redirectResponseInternal(CustomerControllerProvider::ROUTE_HOME);
         }
-        $this->addMessageError(Messages::CUSTOMER_REGISTRATION_TIMEOUT);
+        $this->addErrorMessage(Messages::CUSTOMER_REGISTRATION_TIMEOUT);
 
         return $this->redirectResponseInternal(CustomerControllerProvider::ROUTE_HOME);
     }
