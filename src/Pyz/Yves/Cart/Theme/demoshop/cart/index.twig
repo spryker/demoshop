@@ -55,6 +55,14 @@
                 </tbody>
                 <tfoot>
                 <tr>
+                    <td colspan="2">
+                        Discount
+                    </td>
+                    <td>
+                        <input type="text" name="coupon" placeholder="coupon code" />
+                    </td>
+                </tr>
+                <tr>
                     <td rowspan="{{ totals.taxTotal.taxSets|length + 4 }}" colspan="2">
                         <ul class="usps">
                             <li><span class="glyphicon glyphicon-gift"></span>{{ 'cart.usp.shipping'|trans }}</li>
