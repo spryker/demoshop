@@ -174,6 +174,10 @@ gulp.task('assets', function() {
     console.log('{0} files found\n'.format(assets.length).yellow);
 });
 
+gulp.task('all', function() {
+    gulp.start('dist');
+});
+
 gulp.task('default', function() {
     gulp.start('dist');
 });
