@@ -11,6 +11,7 @@ class CheckoutControllerProvider extends YvesControllerProvider
     const ROUTE_CHECKOUT = 'checkout';
     const ROUTE_CHECKOUT_SUCCESS = 'checkout/success';
     const ROUTE_CHECKOUT_REGULAR_REDIRECT_PAYMENT_CANCELLATION = 'checkout/regular-redirect-payment-cancellation';
+    const ROUTE_CHECKOUT_AJAX_CART = 'checkout-ajax-cart';
 
     protected function defineControllers(Application $app)
     {
@@ -29,6 +30,9 @@ class CheckoutControllerProvider extends YvesControllerProvider
             'Checkout',
             'regularRedirectPaymentCancellation'
         )->method('GET|POST');
+
+        $this->createController('/checkout-ajax-cart', self::ROUTE_CHECKOUT_AJAX_CART, 'Checkout', 'Ajax', 'cart')
+             ->method('GET|POST');
     }
 
 }
