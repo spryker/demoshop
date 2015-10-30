@@ -13,7 +13,7 @@ use SprykerEngine\Shared\Lumberjack\LumberjackConfig;
 use SprykerFeature\Shared\Session\SessionConfig;
 use SprykerFeature\Shared\SequenceNumber\SequenceNumberConstants as SequenceNumberConfig;
 use Pyz\Shared\OrderExporter\AfterbuyExportConstantInterface;
-use Pyz\Zed\Glossary\GlossaryConfig;
+use Pyz\Shared\Glossary\GlossaryConfig;
 
 $config[SystemConfig::PROJECT_NAMESPACES] = [
     'Pyz',
