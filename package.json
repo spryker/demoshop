@@ -44,5 +44,9 @@
     "underscore": "^1.8.3",
     "vinyl-source-stream": "^1.1.0",
     "yargs": "^3.27.0"
+  },
+  "devDependencies": {
+    "gulp-imagemin": "^2.4.0",
+    "requirejs": "^2.1.20"
   }
 }

@@ -3,6 +3,6 @@
 clear
 echo
 echo '==> YVES'
-echo 
+echo
 gulp --gulpfile gulp/yves.js --cwd . $1
-# gulp --gulpfile static/assets/Yves/styleguide/gulpfile.js
+gulp --gulpfile static/assets/Yves/styleguide/gulpfile.js --cwd . $1

@@ -10,9 +10,10 @@ var rjs = require('requirejs');
 var stringFormat = require('string-format');
 stringFormat.extend(String.prototype);
 
-// var source = require('vinyl-source-stream');
-// var browserify  = require('browserify');
-// var maps = require('gulp-sourcemaps');
+var source = require('vinyl-source-stream');
+var browserify  = require('browserify');
+var maps = require('gulp-sourcemaps');
+var mergeStreams = require('merge-stream');
 
 var gulp = require('gulp');
 var plumber = require('gulp-plumber');
@@ -82,19 +83,21 @@ var tasks = {
             .pipe(gulp.dest(publicPath + '/css/'));
     },
     js: function(mode) {
-        // var browserified = browserify(assetsPath + '/scripts/main.js')
-        //     .bundle()
-        //     .pipe(source('main.js'))
-        //     .pipe(gulp.dest(publicPath + '/js/'));
+        // TODO: browserify or requriejs
 
-        // var vendor = gulp.src(assetsPath + '/scripts/vendor/*.js')
-        //     .pipe(maps.init())
-        //     .pipe(concat('vendor.js'))
-        //     .pipe(uglify())
-        //     .pipe(maps.write('./'))
-        //     .pipe(gulp.dest(publicPath + '/js/'));
+        var browserified = browserify(assetsPath + '/scripts/main.js')
+            .bundle()
+            .pipe(source('main.js'))
+            .pipe(gulp.dest(publicPath + '/js/'));
 
-        // return mergeStreams(browserified, vendor);
+        var vendor = gulp.src(assetsPath + '/scripts/vendor/*.js')
+            .pipe(maps.init())
+            .pipe(concat('vendor.js'))
+            .pipe(uglify())
+            .pipe(maps.write('./'))
+            .pipe(gulp.dest(publicPath + '/js/'));
+
+        return mergeStreams(browserified, vendor);
 
         rjs.optimize({
             optimize: mode === 'development' ? 'none' : 'uglify2',
@@ -104,13 +107,13 @@ var tasks = {
 			modules: [
 				{name: 'schemes/category'},
 				{name: 'schemes/pdp'},
-				{name: 'schemes/tips'},
+				//{name: 'schemes/tips'},
 				{name: 'schemes/checkout'},
-				{name: 'schemes/customer'},
-				{name: 'schemes/cart'},
-				{name: 'schemes/wishlist'},
-                {name: 'schemes/home'},
-                {name: 'schemes/cross-selling'}
+				//{name: 'schemes/customer'},
+				//{name: 'schemes/cart'},
+				//{name: 'schemes/wishlist'},
+                //{name: 'schemes/home'},
+                //{name: 'schemes/cross-selling'}
 			]
         });
     }

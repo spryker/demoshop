@@ -96,6 +96,7 @@
 .faq__filters{
     @include clearfix;
     padding: 40px 5px;
+    @include pageWidth;
 }
 
 .faq__filter{
@@ -121,4 +122,5 @@
 
 
 .faq__cards{
+    @include pageWidth;
 }
