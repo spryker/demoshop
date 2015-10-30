@@ -29,7 +29,7 @@ class CustomerController extends AbstractController
             $this->getLocator()->customer()->client()->forgotPassword($customerTransfer);
             $this->addSuccessMessage(Messages::CUSTOMER_PASSWORD_RECOVERY_MAIL_SENT);
 
-            return $this->redirectResponseInternal('home');
+            return $this->redirectResponseInternal(CustomerControllerProvider::ROUTE_HOME);
         }
 
         return ['form' => $form->createView()];
@@ -49,7 +49,7 @@ class CustomerController extends AbstractController
             $customerTransfer->setUsername($this->getUsername());
             $customerTransfer->setRestorePasswordKey($request->query->get('token'));
             $this->getLocator()->customer()->client()->restorePassword($customerTransfer);
-            $this->getLocator()->customer()->client()->logout($customerTransfer);
+            $this->getLocator()->customer()->client()->logout();
 
             return $this->redirectResponseInternal(CustomerControllerProvider::ROUTE_LOGIN);
         }
@@ -70,9 +70,9 @@ class CustomerController extends AbstractController
             $customerTransfer = new CustomerTransfer();
             $customerTransfer->setEmail($this->getUsername());
             if ($this->getLocator()->customer()->client()->deleteCustomer($customerTransfer)) {
-                $this->getLocator()->customer()->client()->logout($customerTransfer);
+                $this->getLocator()->customer()->client()->logout();
 
-                return $this->redirectResponseInternal('home');
+                return $this->redirectResponseInternal(CustomerControllerProvider::ROUTE_HOME);
             } else {
                 $this->addErrorMessage(Messages::CUSTOMER_DELETE_FAILED);
             }
