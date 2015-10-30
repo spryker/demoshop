@@ -11,6 +11,11 @@ var config = {
             main: ASSETS_DIR + 'scss/styles.scss',
             styleguide: ASSETS_DIR + 'scss/styleguide.scss'
         },
+        scripts: {
+            folder: ASSETS_DIR + 'js',
+            files: ASSETS_DIR + 'js/**/*.js',
+            entry: ASSETS_DIR + 'js/main.js'
+        },
         styleguide: {
             styles: ASSETS_DIR + 'scss/**/*.{hbs,scss,less}',
             template: {
@@ -35,6 +40,7 @@ var config = {
         folder: PUBLIC_DIR,
         styleguide: PUBLIC_DIR + 'styleguide',
         styles: PUBLIC_DIR + 'css',
+        scripts: PUBLIC_DIR + 'js',
         images: PUBLIC_DIR + 'images',
         fonts: PUBLIC_DIR + 'fonts'
     }

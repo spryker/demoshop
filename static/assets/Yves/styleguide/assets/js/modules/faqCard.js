@@ -15,7 +15,7 @@ $(document).ready(function () {
                 $answer.slideUp();
 
             } else {
-                $card.addClassClass('faq-card--active');
+                $card.addClass('faq-card--active');
                 $answer.slideDown();
             }
         });

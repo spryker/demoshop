@@ -4,7 +4,7 @@ import $ from 'jquery';
 
 
 $(document).ready(function () {
-    $('.faq-switches').each(function () {
+    $('.faq__switches').each(function () {
         var $switches = $(this).find('.faq__switch');
 
         $switches.click(function () {

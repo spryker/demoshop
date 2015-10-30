@@ -1,7 +1,8 @@
 // Hero
 //
 // Markup:
-// <div class="hero" style="background-image: url(/images/hero/background.jpg);">
+// <div class="hero">
+//     <div class="hero__background" style="background-image: url(/images/hero/background.jpg);"></div>
 //     <div class="hero__center">
 //         <div class="hero__content">
 //             {{> "atoms.page-title" modifier_class="page-title--white" title="Headline"}}
@@ -22,6 +23,14 @@
 .hero{
     position: relative;
     height: 670px;
+}
+
+.hero__background{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
     background-position: center !important;
     background-size: cover !important;
 }
@@ -31,7 +40,7 @@
     top: 50%;
     left: 0;
     width: 100%;
-    transform: translate(0, -50%);
+    transform: translate3d(0, -50%, 0);
 
     text-align: center;
     color: #FFF;

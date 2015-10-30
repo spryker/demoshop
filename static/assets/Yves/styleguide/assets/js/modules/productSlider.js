@@ -1,4 +1,5 @@
 import $ from 'jquery';
+import { debounce, getViewport } from './helpers';
 
 'use strict';
 
@@ -6,7 +7,7 @@ import $ from 'jquery';
 $(document).ready(function () {
 
     $('.featured-products__slider').each(function () {
-        var $slider, $container, $prev, $next, $cards, $bullets;
+        var $slider, $container, $prev, $next, $cards, $bullets, $productCard;
 
         $slider = $(this);
         $container = $slider.find('.featured-products__slider-inner');
@@ -35,12 +36,11 @@ $(document).ready(function () {
 
 
 
-        // TODO: helper.debounce
-        $(window).resize(function () {
+        $(window).resize(debounce(250, function () {
             updateVisible();
             createBullets();
             slide();
-        });
+        }));
 
 
 
@@ -90,8 +90,7 @@ $(document).ready(function () {
 
 
         function updateVisible () {
-            // TODO: helper.getViewport
-            visible = Math.round($(document).width() / $productCard.outerWidth(true));
+            visible = Math.round(getViewport()[0] / $productCard.outerWidth(true));
         }
 
         function updateContainerOffset () {

@@ -426,7 +426,7 @@ ul.styleguide-modifier {
   text-align: left;
 }
 
-.section-organisms, .section-frontpage, .section-category, .section-faq{
+.section-organisms, .section-frontpage, .section-category, .section-faq, .section-product, .section-imprint{
 
     .styleguide-example{
         margin: 15px -17px;
@@ -439,6 +439,8 @@ ul.styleguide-modifier {
 
 .styleguide-content--frontpage,
 .styleguide-content--faq,
+.styleguide-content--product,
+.styleguide-content--imprint,
 .styleguide-content--category {
     margin: 15px 0;
 }

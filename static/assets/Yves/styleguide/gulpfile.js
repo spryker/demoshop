@@ -12,8 +12,8 @@ require('require-dir')('./_gulp/tasks', {
 });
 
 
-gulp.task('dev', sequence(['styles:dev', 'styleguide:dev', 'copy:dev']));
+gulp.task('dev', sequence(['styles:dev', 'scripts:dev', 'styleguide:dev', 'copy:dev', 'iconfont']));
 
-gulp.task('dist', sequence(['styles', 'styleguide', 'copy']));
+gulp.task('dist', sequence(['styles', 'scripts', 'styleguide', 'copy', 'iconfont']));
 
 gulp.task('default', ['dist']);
