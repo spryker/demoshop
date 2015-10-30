@@ -130,7 +130,8 @@ function build(mode) {
     tasks.fonts(mode);
 
     console.log('[ BUILD  ] copying images...'.green);
-    tasks.images(mode);
+    //tasks.images(mode);
+    //avoid gulp watch error   
 
     console.log('[ BUILD  ] building scss and copying css...'.green);
     tasks.css(mode);
