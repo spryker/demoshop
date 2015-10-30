@@ -42,7 +42,8 @@ var assets = {
         assetsPath + '/fonts/**/*.{eot,ttf,woff,woff2,otf}'
     ],
     css: [
-        assetsPath + '/styles/schemes/*.{scss,sass}'
+        assetsPath + '/styles/schemes/*.{scss,sass}',
+        assetsPath + '/styles/main.scss'
     ],
     js: [
         assetsPath + '/js/*.js',

@@ -75,7 +75,7 @@ var always = {
     },
     renameYves: {
         dirname: '/',
-        suffix: '.min'
+        suffix: ''
     },
     imagemin: {
         progressive: true,

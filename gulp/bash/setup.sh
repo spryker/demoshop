@@ -5,6 +5,8 @@ echo '==> NPM setup'
 echo
 npm install -d
 echo
+
+# TODO: move styleguide into root package.json/gulpfile.js
 cd static/assets/Yves/styleguide
 npm install -d
 cd -
@@ -16,7 +18,8 @@ if [ -z "$1" -o "$1" = "yves" -o "$1" = "all" ]
     echo
     echo '==> YVES'
     echo
-    gulp --gulpfile gulp/yves.js --cwd . dist
+    npm run spy-yves dist
+
 fi
 # if no param or param = zed or param = all
 if [ -z "$1" -o "$1" = "zed" -o "$1" = "all" ]
@@ -24,5 +27,5 @@ if [ -z "$1" -o "$1" = "zed" -o "$1" = "all" ]
     echo
     echo '==> ZED'
     echo
-    gulp --gulpfile gulp/zed.js --cwd . dist
+    npm run spy-zed dist
 fi
