@@ -29,7 +29,7 @@ class AddressController extends AbstractController
     {
         $addressId = $request->query->get('id');
         if (!$addressId) {
-            $this->addMessageError(Messages::CUSTOMER_ADDRESS_UNKNOWN);
+            $this->addErrorMessage(Messages::CUSTOMER_ADDRESS_UNKNOWN);
 
             return $this->redirectResponseInternal(CustomerControllerProvider::ROUTE_CUSTOMER_PROFILE);
         }
