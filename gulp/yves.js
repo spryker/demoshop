@@ -86,20 +86,6 @@ var tasks = {
     js: function(mode) {
         // TODO: browserify or requriejs
 
-        var browserified = browserify(assetsPath + '/scripts/main.js')
-            .bundle()
-            .pipe(source('main.js'))
-            .pipe(gulp.dest(publicPath + '/js/'));
-
-        var vendor = gulp.src(assetsPath + '/scripts/vendor/*.js')
-            .pipe(maps.init())
-            .pipe(concat('vendor.js'))
-            .pipe(uglify())
-            .pipe(maps.write('./'))
-            .pipe(gulp.dest(publicPath + '/js/'));
-
-        return mergeStreams(browserified, vendor);
-
         rjs.optimize({
             optimize: mode === 'development' ? 'none' : 'uglify2',
             appDir: assetsPath + '/js',
@@ -117,6 +103,20 @@ var tasks = {
                 //{name: 'schemes/cross-selling'}
 			]
         });
+
+        var browserified = browserify(assetsPath + '/scripts/main.js')
+            .bundle()
+            .pipe(source('main.js'))
+            .pipe(gulp.dest(publicPath + '/js/'));
+
+        var vendor = gulp.src(assetsPath + '/scripts/vendor/*.js')
+            .pipe(maps.init())
+            .pipe(concat('vendor.js'))
+            .pipe(uglify())
+            .pipe(maps.write('./'))
+            .pipe(gulp.dest(publicPath + '/js/'));
+
+        return mergeStreams(browserified, vendor);
     }
 };
 

@@ -17,6 +17,7 @@
 //         <a class="menu__bottom-box" href="#" style="background-image: url(../images/menu/product_3.jpg);">Supplements</a>
 //         <a class="menu__bottom-box" href="#" style="background-image: url(../images/menu/product_4.jpg);">Snacks</a>
 //         <a class="menu__bottom-box" href="#" style="background-image: url(../images/menu/product_5.jpg);">Drymeat</a>
+//         <a class="menu__bottom-box" href="#" style="background-image: url(../images/menu/product_2.jpg);">Packages</a>
 //     </div>
 // </div>
 //
@@ -24,6 +25,12 @@
 
 
 .menu{
+    position: relative;
+    @include sectionShadow;
+
+    &.js-processed{
+        transition: margin-top $_tMedium ease-in-out;
+    }
 }
 
 
@@ -51,11 +58,12 @@
 
 .menu__top-close{
     @include pdif('close', 20px, 20px);
+    height: 20px;
     position: absolute;
     top: 20px;
     right: 20px;
 
-    color: $_rgbSilverChalice;
+    color: $_rgbQuincy;
     cursor: pointer;
 }
 
@@ -67,21 +75,33 @@
 
 .menu__bottom-box{
     float: left;
-    width: 33.333%;
+    width: 50%;
     padding: 65px 0 75px;
 
     text-transform: uppercase;
-    font-size: $_fsMedium;
-    line-height: $_lhMedium;
-    font-family: $_ffBrandonGrotesque-Black;
     color: $_rgbWhite;
     text-align: center;
     text-decoration: none;
+    font-size: 24px;
+    letter-spacing: 1.27px;
+    line-height: 28px;
+    font-family: $_ffBrandonGrotesque-Black;
 
     background-position: center !important;
     background-size: cover !important;
+}
 
-    &:nth-child(1), &:nth-child(2){
-        width: 50%;
+
+
+@media (min-width: $_wMedium) {
+    .menu__bottom-box{
+        width: 25%;
+
+        font-size: $_fsMedium;
+        line-height: $_lhMedium;
+
+        &:nth-child(1), &:nth-child(2){
+            width: 50%;
+        }
     }
 }
