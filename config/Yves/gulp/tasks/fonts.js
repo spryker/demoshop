@@ -3,7 +3,7 @@ var gulp = require('gulp');
 var del = require('del');
 
 gulp.task('clean-fonts', function(done) {
-    del([config.paths.dest.fonts + config.globs.fonts], done);
+    return del([config.paths.dest.fonts + config.globs.fonts], done);
 })
 
 gulp.task('fonts', ['clean-fonts'], function(done) {
