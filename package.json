@@ -9,10 +9,11 @@
     "url": "http://spryker.com/"
   },
   "scripts": {
-    "spy-assets": "gulp --gulpfile gulp/zed.js --cwd . assets",
-    "spy-yves": "gulp --gulpfile config/Yves/gulpfile.js --cwd . && gulp --gulpfile static/assets/Yves/styleguide/gulpfile.js",
-    "spy-zed": "gulp --gulpfile gulp/zed.js --cwd .",
-    "spy-setup": "npm run spy-yves && npm run spy-zed"
+    "prespy-setup": "chmod -R u+x ./gulp/bash",
+    "spy-setup": "./gulp/bash/setup.sh",
+    "spy-zed": "./gulp/bash/zed.sh",
+    "spy-yves": "./gulp/bash/yves.sh",
+    "spy-assets": "./gulp/bash/assets.sh"
   },
   "dependencies": {
     "browserify": "^11.2.0",
