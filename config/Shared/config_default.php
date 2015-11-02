@@ -10,6 +10,7 @@ use SprykerFeature\Shared\System\SystemConfig;
 use SprykerFeature\Shared\User\UserConfig;
 use SprykerFeature\Shared\Yves\YvesConfig;
 use SprykerEngine\Shared\Lumberjack\LumberjackConfig;
+use SprykerFeature\Shared\NewRelic\NewRelicConfig;
 use SprykerFeature\Shared\Session\SessionConfig;
 use SprykerFeature\Shared\SequenceNumber\SequenceNumberConstants as SequenceNumberConfig;
 use SprykerFeature\Shared\Payolution\PayolutionConfigConstants;
@@ -332,4 +333,4 @@ $config[PayolutionConfigConstants::TRANSACTION_CHANNEL_SYNC] = 'ff80808138e15f1f
 $config[PayolutionConfigConstants::TRANSACTION_CHANNEL_PRE_CHECK] = 'ff8080813b227bf4013b3d661a7c0f86';
 $config[PayolutionConfigConstants::DEFAULT_TIMEOUT] = 45;
 
-$config[\SprykerFeature\Shared\NewRelic\NewRelicConfig::NEWRELIC_API_KEY] = null;
+$config[NewRelicConfig::NEWRELIC_API_KEY] = null;
