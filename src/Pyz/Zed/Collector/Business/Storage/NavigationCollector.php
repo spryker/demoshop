@@ -6,6 +6,7 @@ use Generated\Shared\Transfer\LocaleTransfer;
 use Propel\Runtime\ActiveQuery\Criteria;
 use Propel\Runtime\ActiveQuery\Criterion\BasicCriterion;
 use Propel\Runtime\ActiveQuery\Join;
+use Pyz\Zed\CategoryCmsConnector\Persistence\CategoryCmsConnectorQueryContainer;
 use Pyz\Zed\Collector\Business\Exception\WrongJsonStringException;
 use Pyz\Zed\Propel\Business\PropelFacade;
 use Orm\Zed\Locale\Persistence\Map\SpyLocaleTableMap;
@@ -34,15 +35,28 @@ class NavigationCollector extends AbstractPropelCollectorPlugin
     private $propelFacade;
 
     /**
+     * @var CategoryCmsConnectorQueryContainer
+     */
+    private $categoryCmsQueryContainer;
+
+    /**
      * @param CategoryQueryContainer $categoryQueryContainer
+     * @param CategoryCmsConnectorQueryContainer $categoryCmsQueryContainer
      * @param PropelFacade $propelFacade
      */
-    public function __construct(CategoryQueryContainer $categoryQueryContainer, PropelFacade $propelFacade)
-    {
+    public function __construct(
+        CategoryQueryContainer $categoryQueryContainer,
+        CategoryCmsConnectorQueryContainer $categoryCmsQueryContainer,
+        PropelFacade $propelFacade
+    ) {
         $this->categoryQueryContainer = $categoryQueryContainer;
+        $this->categoryCmsQueryContainer = $categoryCmsQueryContainer;
         $this->propelFacade = $propelFacade;
     }
 
+    /**
+     * @return string
+     */
     protected function getTouchItemType()
     {
         return 'navigation';
@@ -91,9 +105,9 @@ class NavigationCollector extends AbstractPropelCollectorPlugin
         $baseQuery = $this->categoryQueryContainer->joinLocalizedRelatedCategoryQueryWithAttributes($baseQuery, 'categoryChildren', 'child');
         $baseQuery = $this->categoryQueryContainer->joinCategoryQueryWithParentCategories($baseQuery, true, false, 'rootChildren');
         $baseQuery = $this->categoryQueryContainer->joinLocalizedRelatedCategoryQueryWithAttributes($baseQuery, 'categoryParents', 'parent');
-        $baseQuery = $this->categoryQueryContainer->joinRelatedCategoryQueryWithUrls($baseQuery, 'categoryChildren', 'child');
-        $baseQuery = $this->categoryQueryContainer->joinRelatedCategoryQueryWithUrls($baseQuery, 'categoryParents', 'parent');
-        $baseQuery = $this->categoryQueryContainer->joinCategoryQueryWithUrls($baseQuery, 'rootChildren');
+        $baseQuery = $this->categoryCmsQueryContainer->joinRelatedCategoryQueryWithPageUrls($baseQuery, 'categoryChildren', 'child');
+        $baseQuery = $this->categoryCmsQueryContainer->joinRelatedCategoryQueryWithPageUrls($baseQuery, 'categoryParents', 'parent');
+        $baseQuery = $this->categoryCmsQueryContainer->joinCategoryQueryWithPageUrls($baseQuery, 'rootChildren');
         $baseQuery = $this->categoryQueryContainer->selectCategoryAttributeColumns($baseQuery, 'rootChildrenAttributes');
 
         $baseQuery->withColumn(

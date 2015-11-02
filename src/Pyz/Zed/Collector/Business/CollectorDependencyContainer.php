@@ -57,6 +57,7 @@ class CollectorDependencyContainer extends SprykerCollectorDependencyContainer
     {
         $storageNavigationCollector = $this->getFactory()->createStorageNavigationCollector(
             $this->getProvidedDependency(CollectorDependencyProvider::QUERY_CONTAINER_CATEGORY),
+            $this->getProvidedDependency(CollectorDependencyProvider::QUERY_CONTAINER_CA),
             $this->getProvidedDependency(CollectorDependencyProvider::FACADE_PROPEL)
         );
         $storageNavigationCollector->setTouchQueryContainer(
