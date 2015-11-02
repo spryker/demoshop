@@ -10,6 +10,11 @@ var $nameInput,
     $addressButton,
     $paymentButton,
     $shipmentButton,
+    $useCouponButton,
+    $couponElement,
+    $cartSection,
+    $checkoutAddCouponUrlInput,
+    $cartCouponCodeInput,
     $addressElements,
     $addressValidationResult;
 
@@ -22,8 +27,36 @@ var initValidation = function () {
     $addressButton = $('.js-address-button');
     $paymentButton = $('.js-payment-button');
     $shipmentButton = $('.js-shipment-button');
+    $useCouponButton = $('.js-cart-use-coupon-button');
+    $cartSection = $('.cart__discount').parent();
+    $checkoutAddCouponUrlInput = $('#checkoutAddCouponUrl');
+    $cartCouponCodeInput = $('#cart__coupon-code');
     $('.js-checkout-address input, .js-checkout-address textarea').keyup(validateAddressBlock);
     $addressCheckbox.click(validateAddressBlock);
+    $useCouponButton.click(addCoupon);
+};
+
+var addCoupon = function (event) {
+    event.preventDefault();
+    $couponElement = $('#cart__coupon-code');
+    $useCouponButton.prop('disabled', true);
+    $.ajax(
+        {
+            url : $checkoutAddCouponUrlInput.val(),
+            method: "POST",
+            data: { "couponCode" : $cartCouponCodeInput.val() },
+            dataType: "html"
+        }
+    ).done(function(data) {
+            $cartSection.html(data);
+            $useCouponButton.prop('disabled', false);
+            $useCouponButton.click(addCoupon);
+            console.log(addCoupon);
+    }).fail(function(data) {
+            console.log('[ERROR] ');
+            console.log(data);
+        }
+    );
 };
 
 var validateAddressBlock = function () {

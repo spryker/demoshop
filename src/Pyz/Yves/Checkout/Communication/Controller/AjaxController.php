@@ -4,6 +4,7 @@ namespace Pyz\Yves\Checkout\Communication\Controller;
 
 use SprykerEngine\Yves\Application\Communication\Controller\AbstractController;
 use Pyz\Yves\Checkout\Communication\Plugin\CheckoutControllerProvider;
+use Symfony\Component\HttpFoundation\Request;
 
 class AjaxController extends AbstractController
 {
@@ -28,11 +29,12 @@ class AjaxController extends AbstractController
     }
 
     /**
-     * @param string $couponCode
+     * @param Request $request
      * @return \Symfony\Component\HttpFoundation\RedirectResponse
      */
-    public function addCouponAction($couponCode)
+    public function addCouponAction(Request $request)
     {
+        $couponCode = $request->get('couponCode');
         $cartClient = $this->getLocator()->cart()->client();
         $cartClient->addCoupon($couponCode);
 
@@ -40,11 +42,12 @@ class AjaxController extends AbstractController
     }
 
     /**
-     * @param string $couponCode
+     * @param Request $request
      * @return \Symfony\Component\HttpFoundation\RedirectResponse
      */
-    public function removeCouponAction($couponCode)
+    public function removeCouponAction(Request $request)
     {
+        $couponCode = $request->get('couponCode');
         $cartClient = $this->getLocator()->cart()->client();
         $cartClient->removeCoupon($couponCode);
 

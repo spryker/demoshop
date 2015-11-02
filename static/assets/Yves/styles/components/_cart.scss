@@ -1,8 +1,48 @@
 // the cart is displayed differently in different places, but here are some general styles
 
 .cart__item-quantity {
-  &::after {
-    // multiplication sign, &nbsp
-    content: '\00d7\00A0';
-  }
+	&::after {
+		// multiplication sign, &nbsp
+		content: '\00d7\00A0';
+	}
+}
+
+.checkout__cart {
+	.cart__discount {
+		display: none;
+	}
+}
+
+.cart__discount {
+	border-top: 1px solid $muted-color;
+	margin-top:26px;
+	padding-top:26px;
+
+	.cart__coupon-label {
+		width: 50%;
+		float: left;
+	}
+
+	.cart__coupon {
+		width: 50%;
+		float: left;
+
+		.cart__coupon-input-div {
+			width: 50%;
+			float: left;
+			input {
+				width:94%;
+			}
+		}
+
+		.cart__coupon-button-div {
+			width: 50%;
+			float: left;
+
+			button {
+				width: 94%;
+			}
+		}
+
+	}
 }
