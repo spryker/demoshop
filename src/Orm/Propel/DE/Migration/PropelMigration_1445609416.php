@@ -43,7 +43,7 @@ class PropelMigration_1445609416
 # It "suspends judgement" for fkey relationships until are tables are set.
 SET FOREIGN_KEY_CHECKS = 0;
 
-CREATE TABLE `spy_acl_role`
+CREATE TABLE IF NOT EXISTS `spy_acl_role`
 (
     `id_acl_role` INTEGER NOT NULL AUTO_INCREMENT,
     `name` VARCHAR(255) NOT NULL,
@@ -53,7 +53,7 @@ CREATE TABLE `spy_acl_role`
     UNIQUE INDEX `spy_acl_role_u_d94269` (`name`)
 ) ENGINE=InnoDB;
 
-CREATE TABLE `spy_acl_rule`
+CREATE TABLE IF NOT EXISTS `spy_acl_rule`
 (
     `id_acl_rule` INTEGER NOT NULL AUTO_INCREMENT,
     `fk_acl_role` INTEGER NOT NULL,
@@ -71,7 +71,7 @@ CREATE TABLE `spy_acl_rule`
         ON DELETE CASCADE
 ) ENGINE=InnoDB;
 
-CREATE TABLE `spy_acl_group`
+CREATE TABLE IF NOT EXISTS `spy_acl_group`
 (
     `id_acl_group` INTEGER NOT NULL AUTO_INCREMENT,
     `name` VARCHAR(255) NOT NULL,
@@ -81,7 +81,7 @@ CREATE TABLE `spy_acl_group`
     UNIQUE INDEX `spy_acl_group_u_d94269` (`name`)
 ) ENGINE=InnoDB;
 
-CREATE TABLE `spy_acl_user_has_group`
+CREATE TABLE IF NOT EXISTS `spy_acl_user_has_group`
 (
     `fk_user` INTEGER NOT NULL,
     `fk_acl_group` INTEGER NOT NULL,
@@ -97,7 +97,7 @@ CREATE TABLE `spy_acl_user_has_group`
         ON DELETE CASCADE
 ) ENGINE=InnoDB;
 
-CREATE TABLE `spy_acl_groups_has_roles`
+CREATE TABLE IF NOT EXISTS `spy_acl_groups_has_roles`
 (
     `fk_acl_role` INTEGER NOT NULL,
     `fk_acl_group` INTEGER NOT NULL,
@@ -113,7 +113,7 @@ CREATE TABLE `spy_acl_groups_has_roles`
         ON DELETE CASCADE
 ) ENGINE=InnoDB;
 
-CREATE TABLE `spy_auth_reset_password`
+CREATE TABLE IF NOT EXISTS `spy_auth_reset_password`
 (
     `id_auth_reset_password` INTEGER NOT NULL AUTO_INCREMENT,
     `fk_user` INTEGER NOT NULL,
@@ -130,7 +130,7 @@ CREATE TABLE `spy_auth_reset_password`
         ON DELETE CASCADE
 ) ENGINE=InnoDB;
 
-CREATE TABLE `spy_category`
+CREATE TABLE IF NOT EXISTS `spy_category`
 (
     `id_category` INTEGER NOT NULL AUTO_INCREMENT,
     `is_active` TINYINT(1) DEFAULT 1,
@@ -139,7 +139,7 @@ CREATE TABLE `spy_category`
     PRIMARY KEY (`id_category`)
 ) ENGINE=InnoDB;
 
-CREATE TABLE `spy_category_attribute`
+CREATE TABLE IF NOT EXISTS `spy_category_attribute`
 (
     `id_category_attribute` INTEGER NOT NULL AUTO_INCREMENT,
     `fk_category` INTEGER NOT NULL,
@@ -162,7 +162,7 @@ CREATE TABLE `spy_category_attribute`
         REFERENCES `spy_category` (`id_category`)
 ) ENGINE=InnoDB;
 
-CREATE TABLE `spy_category_node`
+CREATE TABLE IF NOT EXISTS `spy_category_node`
 (
     `id_category_node` INTEGER NOT NULL AUTO_INCREMENT,
     `fk_category` INTEGER NOT NULL,
@@ -182,7 +182,7 @@ CREATE TABLE `spy_category_node`
         REFERENCES `spy_category` (`id_category`)
 ) ENGINE=InnoDB;
 
-CREATE TABLE `spy_category_closure_table`
+CREATE TABLE IF NOT EXISTS `spy_category_closure_table`
 (
     `id_category_closure_table` INTEGER NOT NULL AUTO_INCREMENT,
     `fk_category_node` INTEGER NOT NULL,
@@ -199,7 +199,7 @@ CREATE TABLE `spy_category_closure_table`
         REFERENCES `spy_category_node` (`id_category_node`)
 ) ENGINE=InnoDB;
 
-CREATE TABLE `spy_cms_template`
+CREATE TABLE IF NOT EXISTS `spy_cms_template`
 (
     `id_cms_template` INTEGER NOT NULL AUTO_INCREMENT,
     `template_name` VARCHAR(255) NOT NULL,
@@ -209,7 +209,7 @@ CREATE TABLE `spy_cms_template`
     INDEX `spy_cms_template_i_3631d2` (`template_path`)
 ) ENGINE=InnoDB;
 
-CREATE TABLE `spy_cms_page`
+CREATE TABLE IF NOT EXISTS `spy_cms_page`
 (
     `id_cms_page` INTEGER NOT NULL AUTO_INCREMENT,
     `fk_template` INTEGER NOT NULL,
@@ -224,7 +224,7 @@ CREATE TABLE `spy_cms_page`
         ON DELETE CASCADE
 ) ENGINE=InnoDB;
 
-CREATE TABLE `spy_cms_glossary_key_mapping`
+CREATE TABLE IF NOT EXISTS `spy_cms_glossary_key_mapping`
 (
     `id_cms_glossary_key_mapping` INTEGER NOT NULL AUTO_INCREMENT,
     `fk_page` INTEGER NOT NULL,
@@ -244,7 +244,7 @@ CREATE TABLE `spy_cms_glossary_key_mapping`
         ON DELETE CASCADE
 ) ENGINE=InnoDB;
 
-CREATE TABLE `spy_cms_block`
+CREATE TABLE IF NOT EXISTS `spy_cms_block`
 (
     `id_cms_block` INTEGER NOT NULL AUTO_INCREMENT,
     `fk_page` INTEGER NOT NULL,
@@ -261,7 +261,7 @@ CREATE TABLE `spy_cms_block`
         ON DELETE CASCADE
 ) ENGINE=InnoDB;
 
-CREATE TABLE `spy_country`
+CREATE TABLE IF NOT EXISTS `spy_country`
 (
     `id_country` INTEGER NOT NULL AUTO_INCREMENT,
     `iso2_code` VARCHAR(2) NOT NULL,
@@ -274,7 +274,7 @@ CREATE TABLE `spy_country`
     UNIQUE INDEX `spy_country_u_a38cfe` (`iso3_code`)
 ) ENGINE=InnoDB;
 
-CREATE TABLE `spy_region`
+CREATE TABLE IF NOT EXISTS `spy_region`
 (
     `id_region` INTEGER NOT NULL AUTO_INCREMENT,
     `fk_country` INTEGER,
@@ -288,7 +288,7 @@ CREATE TABLE `spy_region`
         REFERENCES `spy_country` (`id_country`)
 ) ENGINE=InnoDB;
 
-CREATE TABLE `spy_customer`
+CREATE TABLE IF NOT EXISTS `spy_customer`
 (
     `id_customer` INTEGER NOT NULL AUTO_INCREMENT,
     `customer_reference` VARCHAR(255) NOT NULL,
@@ -320,7 +320,7 @@ CREATE TABLE `spy_customer`
         REFERENCES `spy_customer_address` (`id_customer_address`)
 ) ENGINE=InnoDB;
 
-CREATE TABLE `spy_customer_address`
+CREATE TABLE IF NOT EXISTS `spy_customer_address`
 (
     `id_customer_address` INTEGER NOT NULL AUTO_INCREMENT,
     `fk_customer` INTEGER NOT NULL,
@@ -355,7 +355,7 @@ CREATE TABLE `spy_customer_address`
         REFERENCES `spy_country` (`id_country`)
 ) ENGINE=InnoDB;
 
-CREATE TABLE `spy_discount`
+CREATE TABLE IF NOT EXISTS `spy_discount`
 (
     `id_discount` INTEGER NOT NULL AUTO_INCREMENT,
     `fk_discount_voucher_pool` INTEGER,
@@ -376,7 +376,7 @@ CREATE TABLE `spy_discount`
         REFERENCES `spy_discount_voucher_pool` (`id_discount_voucher_pool`)
 ) ENGINE=InnoDB;
 
-CREATE TABLE `spy_discount_decision_rule`
+CREATE TABLE IF NOT EXISTS `spy_discount_decision_rule`
 (
     `id_discount_decision_rule` INTEGER NOT NULL AUTO_INCREMENT,
     `fk_discount` INTEGER,
@@ -392,7 +392,7 @@ CREATE TABLE `spy_discount_decision_rule`
         REFERENCES `spy_discount` (`id_discount`)
 ) ENGINE=InnoDB;
 
-CREATE TABLE `spy_discount_collector`
+CREATE TABLE IF NOT EXISTS `spy_discount_collector`
 (
     `id_discount_collector` INTEGER NOT NULL AUTO_INCREMENT,
     `fk_discount` INTEGER NOT NULL,
@@ -407,7 +407,7 @@ CREATE TABLE `spy_discount_collector`
         REFERENCES `spy_discount` (`id_discount`)
 ) ENGINE=InnoDB;
 
-CREATE TABLE `spy_discount_voucher_pool`
+CREATE TABLE IF NOT EXISTS `spy_discount_voucher_pool`
 (
     `id_discount_voucher_pool` INTEGER NOT NULL AUTO_INCREMENT,
     `fk_discount_voucher_pool_category` INTEGER,
@@ -423,7 +423,7 @@ CREATE TABLE `spy_discount_voucher_pool`
         REFERENCES `spy_discount_voucher_pool_category` (`id_discount_voucher_pool_category`)
 ) ENGINE=InnoDB;
 
-CREATE TABLE `spy_discount_voucher`
+CREATE TABLE IF NOT EXISTS `spy_discount_voucher`
 (
     `id_discount_voucher` INTEGER NOT NULL AUTO_INCREMENT,
     `fk_discount_voucher_pool` INTEGER,
@@ -442,7 +442,7 @@ CREATE TABLE `spy_discount_voucher`
         REFERENCES `spy_discount_voucher_pool` (`id_discount_voucher_pool`)
 ) ENGINE=InnoDB;
 
-CREATE TABLE `spy_discount_voucher_pool_category`
+CREATE TABLE IF NOT EXISTS `spy_discount_voucher_pool_category`
 (
     `id_discount_voucher_pool_category` INTEGER NOT NULL AUTO_INCREMENT,
     `name` VARCHAR(255) NOT NULL,
@@ -451,7 +451,7 @@ CREATE TABLE `spy_discount_voucher_pool_category`
     PRIMARY KEY (`id_discount_voucher_pool_category`)
 ) ENGINE=InnoDB;
 
-CREATE TABLE `spy_distributor_item`
+CREATE TABLE IF NOT EXISTS `spy_distributor_item`
 (
     `id_distributor_item` INTEGER NOT NULL AUTO_INCREMENT,
     `touched` DATETIME NOT NULL,
@@ -469,7 +469,7 @@ CREATE TABLE `spy_distributor_item`
         REFERENCES `spy_glossary_translation` (`id_glossary_translation`)
 ) ENGINE=InnoDB;
 
-CREATE TABLE `spy_distributor_receiver`
+CREATE TABLE IF NOT EXISTS `spy_distributor_receiver`
 (
     `id_distributor_receiver` INTEGER NOT NULL AUTO_INCREMENT,
     `receiver_key` VARCHAR(255) NOT NULL,
@@ -477,7 +477,7 @@ CREATE TABLE `spy_distributor_receiver`
     UNIQUE INDEX `spy_distributor_receiver_u_904f77` (`receiver_key`)
 ) ENGINE=InnoDB;
 
-CREATE TABLE `spy_distributor_item_type`
+CREATE TABLE IF NOT EXISTS `spy_distributor_item_type`
 (
     `id_distributor_item_type` INTEGER NOT NULL AUTO_INCREMENT,
     `type_key` VARCHAR(255) NOT NULL,
@@ -487,7 +487,7 @@ CREATE TABLE `spy_distributor_item_type`
     INDEX `spy_distributor_item_type_i_fa6585` (`last_distribution`)
 ) ENGINE=InnoDB;
 
-CREATE TABLE `spy_glossary_key`
+CREATE TABLE IF NOT EXISTS `spy_glossary_key`
 (
     `id_glossary_key` INTEGER NOT NULL AUTO_INCREMENT,
     `key` VARCHAR(255) NOT NULL,
@@ -498,7 +498,7 @@ CREATE TABLE `spy_glossary_key`
     INDEX `spy_glossary_key_i_530ee5` (`is_active`)
 ) ENGINE=InnoDB;
 
-CREATE TABLE `spy_glossary_translation`
+CREATE TABLE IF NOT EXISTS `spy_glossary_translation`
 (
     `id_glossary_translation` INTEGER NOT NULL AUTO_INCREMENT,
     `fk_glossary_key` INTEGER NOT NULL,
@@ -519,7 +519,7 @@ CREATE TABLE `spy_glossary_translation`
         ON DELETE CASCADE
 ) ENGINE=InnoDB;
 
-CREATE TABLE `spy_locale`
+CREATE TABLE IF NOT EXISTS `spy_locale`
 (
     `id_locale` INTEGER NOT NULL AUTO_INCREMENT,
     `locale_name` VARCHAR(5) NOT NULL,
@@ -529,7 +529,7 @@ CREATE TABLE `spy_locale`
     INDEX `spy_locale_i_1a6f04` (`locale_name`)
 ) ENGINE=InnoDB;
 
-CREATE TABLE `spy_newsletter_subscriber`
+CREATE TABLE IF NOT EXISTS `spy_newsletter_subscriber`
 (
     `id_newsletter_subscriber` INTEGER NOT NULL AUTO_INCREMENT,
     `fk_customer` INTEGER,
@@ -549,7 +549,7 @@ CREATE TABLE `spy_newsletter_subscriber`
         REFERENCES `spy_customer` (`id_customer`)
 ) ENGINE=InnoDB;
 
-CREATE TABLE `spy_newsletter_type`
+CREATE TABLE IF NOT EXISTS `spy_newsletter_type`
 (
     `id_newsletter_type` INTEGER NOT NULL AUTO_INCREMENT,
     `name` VARCHAR(255) NOT NULL,
@@ -560,7 +560,7 @@ CREATE TABLE `spy_newsletter_type`
     INDEX `spy_newsletter_type_i_d94269` (`name`)
 ) ENGINE=InnoDB;
 
-CREATE TABLE `spy_newsletter_subscription`
+CREATE TABLE IF NOT EXISTS `spy_newsletter_subscription`
 (
     `fk_newsletter_subscriber` INTEGER NOT NULL,
     `fk_newsletter_type` INTEGER NOT NULL,
@@ -576,7 +576,7 @@ CREATE TABLE `spy_newsletter_subscription`
         REFERENCES `spy_newsletter_type` (`id_newsletter_type`)
 ) ENGINE=InnoDB;
 
-CREATE TABLE `spy_nopayment_paid`
+CREATE TABLE IF NOT EXISTS `spy_nopayment_paid`
 (
     `id_nopayment_paid` INTEGER NOT NULL AUTO_INCREMENT,
     `fk_sales_order_item` INTEGER NOT NULL,
@@ -589,7 +589,7 @@ CREATE TABLE `spy_nopayment_paid`
         REFERENCES `spy_sales_order_item` (`id_sales_order_item`)
 ) ENGINE=InnoDB;
 
-CREATE TABLE `spy_oms_transition_log`
+CREATE TABLE IF NOT EXISTS `spy_oms_transition_log`
 (
     `id_oms_transition_log` INTEGER NOT NULL AUTO_INCREMENT,
     `fk_sales_order_item` INTEGER NOT NULL,
@@ -625,7 +625,7 @@ CREATE TABLE `spy_oms_transition_log`
         REFERENCES `spy_oms_order_process` (`id_oms_order_process`)
 ) ENGINE=InnoDB;
 
-CREATE TABLE `spy_oms_order_process`
+CREATE TABLE IF NOT EXISTS `spy_oms_order_process`
 (
     `id_oms_order_process` INTEGER NOT NULL AUTO_INCREMENT,
     `name` VARCHAR(255) NOT NULL,
@@ -635,7 +635,7 @@ CREATE TABLE `spy_oms_order_process`
     UNIQUE INDEX `spy_oms_order_process_u_d94269` (`name`)
 ) ENGINE=InnoDB;
 
-CREATE TABLE `spy_oms_order_item_state`
+CREATE TABLE IF NOT EXISTS `spy_oms_order_item_state`
 (
     `id_oms_order_item_state` INTEGER NOT NULL AUTO_INCREMENT,
     `name` VARCHAR(255) NOT NULL,
@@ -644,7 +644,7 @@ CREATE TABLE `spy_oms_order_item_state`
     UNIQUE INDEX `spy_oms_order_item_state_u_d94269` (`name`)
 ) ENGINE=InnoDB;
 
-CREATE TABLE `spy_oms_order_item_state_history`
+CREATE TABLE IF NOT EXISTS `spy_oms_order_item_state_history`
 (
     `id_oms_order_item_state_history` INTEGER NOT NULL AUTO_INCREMENT,
     `fk_sales_order_item` INTEGER NOT NULL,
@@ -662,7 +662,7 @@ CREATE TABLE `spy_oms_order_item_state_history`
         REFERENCES `spy_oms_order_item_state` (`id_oms_order_item_state`)
 ) ENGINE=InnoDB;
 
-CREATE TABLE `spy_oms_event_timeout`
+CREATE TABLE IF NOT EXISTS `spy_oms_event_timeout`
 (
     `id_oms_event_timeout` INTEGER NOT NULL AUTO_INCREMENT,
     `fk_sales_order_item` INTEGER NOT NULL,
@@ -683,7 +683,7 @@ CREATE TABLE `spy_oms_event_timeout`
         REFERENCES `spy_oms_order_item_state` (`id_oms_order_item_state`)
 ) ENGINE=InnoDB;
 
-CREATE TABLE `spy_payment_payolution`
+CREATE TABLE IF NOT EXISTS `spy_payment_payolution`
 (
     `id_payment_payolution` INTEGER NOT NULL AUTO_INCREMENT,
     `fk_sales_order` INTEGER NOT NULL,
@@ -712,7 +712,7 @@ CREATE TABLE `spy_payment_payolution`
         REFERENCES `spy_sales_order` (`id_sales_order`)
 ) ENGINE=InnoDB;
 
-CREATE TABLE `spy_payment_payolution_transaction_request_log`
+CREATE TABLE IF NOT EXISTS `spy_payment_payolution_transaction_request_log`
 (
     `id_payment_payolution_transaction_request_log` INTEGER NOT NULL AUTO_INCREMENT,
     `fk_payment_payolution` INTEGER NOT NULL,
@@ -732,7 +732,7 @@ CREATE TABLE `spy_payment_payolution_transaction_request_log`
         REFERENCES `spy_payment_payolution` (`id_payment_payolution`)
 ) ENGINE=InnoDB;
 
-CREATE TABLE `spy_payment_payolution_transaction_status_log`
+CREATE TABLE IF NOT EXISTS `spy_payment_payolution_transaction_status_log`
 (
     `id_payment_payolution_transaction_status_log` INTEGER NOT NULL AUTO_INCREMENT,
     `fk_payment_payolution` INTEGER NOT NULL,
@@ -764,7 +764,7 @@ CREATE TABLE `spy_payment_payolution_transaction_status_log`
         REFERENCES `spy_payment_payolution_transaction_request_log` (`transaction_id`)
 ) ENGINE=InnoDB;
 
-CREATE TABLE `spy_payment_payolution_order_item`
+CREATE TABLE IF NOT EXISTS `spy_payment_payolution_order_item`
 (
     `fk_payment_payolution` INTEGER NOT NULL,
     `fk_sales_order_item` INTEGER NOT NULL,
@@ -779,7 +779,7 @@ CREATE TABLE `spy_payment_payolution_order_item`
         REFERENCES `spy_sales_order_item` (`id_sales_order_item`)
 ) ENGINE=InnoDB;
 
-CREATE TABLE `spy_payment_payone`
+CREATE TABLE IF NOT EXISTS `spy_payment_payone`
 (
     `id_payment_payone` INTEGER NOT NULL AUTO_INCREMENT,
     `fk_sales_order` INTEGER NOT NULL,
@@ -795,7 +795,7 @@ CREATE TABLE `spy_payment_payone`
         REFERENCES `spy_sales_order` (`id_sales_order`)
 ) ENGINE=InnoDB;
 
-CREATE TABLE `spy_payment_payone_detail`
+CREATE TABLE IF NOT EXISTS `spy_payment_payone_detail`
 (
     `id_payment_payone` INTEGER NOT NULL,
     `amount` INTEGER NOT NULL,
@@ -818,7 +818,7 @@ CREATE TABLE `spy_payment_payone_detail`
         REFERENCES `spy_payment_payone` (`id_payment_payone`)
 ) ENGINE=InnoDB;
 
-CREATE TABLE `spy_payment_payone_api_log`
+CREATE TABLE IF NOT EXISTS `spy_payment_payone_api_log`
 (
     `id_payment_payone_api_log` INTEGER NOT NULL AUTO_INCREMENT,
     `fk_payment_payone` INTEGER NOT NULL,
@@ -843,7 +843,7 @@ CREATE TABLE `spy_payment_payone_api_log`
         REFERENCES `spy_payment_payone` (`id_payment_payone`)
 ) ENGINE=InnoDB;
 
-CREATE TABLE `spy_payment_payone_transaction_status_log`
+CREATE TABLE IF NOT EXISTS `spy_payment_payone_transaction_status_log`
 (
     `id_payment_payone_transaction_status_log` INTEGER NOT NULL AUTO_INCREMENT,
     `fk_payment_payone` INTEGER NOT NULL,
@@ -869,7 +869,7 @@ CREATE TABLE `spy_payment_payone_transaction_status_log`
         REFERENCES `spy_payment_payone` (`id_payment_payone`)
 ) ENGINE=InnoDB;
 
-CREATE TABLE `spy_payment_payone_transaction_status_log_order_item`
+CREATE TABLE IF NOT EXISTS `spy_payment_payone_transaction_status_log_order_item`
 (
     `id_payment_payone_transaction_status_log` INTEGER NOT NULL,
     `id_sales_order_item` INTEGER NOT NULL,
@@ -884,7 +884,7 @@ CREATE TABLE `spy_payment_payone_transaction_status_log_order_item`
         REFERENCES `spy_sales_order_item` (`id_sales_order_item`)
 ) ENGINE=InnoDB;
 
-CREATE TABLE `spy_price_product`
+CREATE TABLE IF NOT EXISTS `spy_price_product`
 (
     `id_price_product` INTEGER NOT NULL AUTO_INCREMENT,
     `price` INTEGER DEFAULT 0,
@@ -906,7 +906,7 @@ CREATE TABLE `spy_price_product`
         REFERENCES `spy_abstract_product` (`id_abstract_product`)
 ) ENGINE=InnoDB;
 
-CREATE TABLE `spy_price_type`
+CREATE TABLE IF NOT EXISTS `spy_price_type`
 (
     `id_price_type` INTEGER NOT NULL AUTO_INCREMENT,
     `name` VARCHAR(255) NOT NULL,
@@ -914,7 +914,7 @@ CREATE TABLE `spy_price_type`
     UNIQUE INDEX `spy_price_type_u_d94269` (`name`)
 ) ENGINE=InnoDB;
 
-CREATE TABLE `spy_abstract_product`
+CREATE TABLE IF NOT EXISTS `spy_abstract_product`
 (
     `id_abstract_product` INTEGER NOT NULL AUTO_INCREMENT,
     `sku` VARCHAR(255) NOT NULL,
@@ -930,7 +930,7 @@ CREATE TABLE `spy_abstract_product`
         REFERENCES `spy_tax_set` (`id_tax_set`)
 ) ENGINE=InnoDB;
 
-CREATE TABLE `spy_abstract_product_localized_attributes`
+CREATE TABLE IF NOT EXISTS `spy_abstract_product_localized_attributes`
 (
     `id_abstract_attributes` INTEGER NOT NULL AUTO_INCREMENT,
     `fk_abstract_product` INTEGER NOT NULL,
@@ -952,7 +952,7 @@ CREATE TABLE `spy_abstract_product_localized_attributes`
         REFERENCES `spy_locale` (`id_locale`)
 ) ENGINE=InnoDB;
 
-CREATE TABLE `spy_product`
+CREATE TABLE IF NOT EXISTS `spy_product`
 (
     `id_product` INTEGER NOT NULL AUTO_INCREMENT,
     `sku` VARCHAR(255) NOT NULL,
@@ -969,7 +969,7 @@ CREATE TABLE `spy_product`
         REFERENCES `spy_abstract_product` (`id_abstract_product`)
 ) ENGINE=InnoDB;
 
-CREATE TABLE `spy_product_localized_attributes`
+CREATE TABLE IF NOT EXISTS `spy_product_localized_attributes`
 (
     `id_attributes` INTEGER NOT NULL AUTO_INCREMENT,
     `fk_product` INTEGER NOT NULL,
@@ -992,7 +992,7 @@ CREATE TABLE `spy_product_localized_attributes`
         REFERENCES `spy_locale` (`id_locale`)
 ) ENGINE=InnoDB;
 
-CREATE TABLE `spy_product_to_bundle`
+CREATE TABLE IF NOT EXISTS `spy_product_to_bundle`
 (
     `fk_product` INTEGER NOT NULL,
     `fk_related_product` INTEGER NOT NULL,
@@ -1006,7 +1006,7 @@ CREATE TABLE `spy_product_to_bundle`
         REFERENCES `spy_product` (`id_product`)
 ) ENGINE=InnoDB;
 
-CREATE TABLE `spy_attributes_metadata`
+CREATE TABLE IF NOT EXISTS `spy_attributes_metadata`
 (
     `id_attributes_metadata` INTEGER NOT NULL AUTO_INCREMENT,
     `key` VARCHAR(255) NOT NULL,
@@ -1019,7 +1019,7 @@ CREATE TABLE `spy_attributes_metadata`
         REFERENCES `spy_attribute_type` (`id_type`)
 ) ENGINE=InnoDB;
 
-CREATE TABLE `spy_attribute_type`
+CREATE TABLE IF NOT EXISTS `spy_attribute_type`
 (
     `id_type` INTEGER NOT NULL AUTO_INCREMENT,
     `name` VARCHAR(255) NOT NULL,
@@ -1032,7 +1032,7 @@ CREATE TABLE `spy_attribute_type`
         REFERENCES `spy_attribute_type` (`id_type`)
 ) ENGINE=InnoDB;
 
-CREATE TABLE `spy_attribute_type_value`
+CREATE TABLE IF NOT EXISTS `spy_attribute_type_value`
 (
     `id` INTEGER NOT NULL AUTO_INCREMENT,
     `fk_type` INTEGER NOT NULL,
@@ -1046,7 +1046,7 @@ CREATE TABLE `spy_attribute_type_value`
         REFERENCES `spy_locale` (`id_locale`)
 ) ENGINE=InnoDB;
 
-CREATE TABLE `spy_product_category`
+CREATE TABLE IF NOT EXISTS `spy_product_category`
 (
     `id_product_category` INTEGER NOT NULL AUTO_INCREMENT,
     `fk_abstract_product` INTEGER NOT NULL,
@@ -1062,7 +1062,7 @@ CREATE TABLE `spy_product_category`
         REFERENCES `spy_abstract_product` (`id_abstract_product`)
 ) ENGINE=InnoDB;
 
-CREATE TABLE `spy_product_option_type`
+CREATE TABLE IF NOT EXISTS `spy_product_option_type`
 (
     `id_product_option_type` INTEGER NOT NULL AUTO_INCREMENT,
     `import_key` VARCHAR(255),
@@ -1076,7 +1076,7 @@ CREATE TABLE `spy_product_option_type`
         ON DELETE SET NULL
 ) ENGINE=InnoDB;
 
-CREATE TABLE `spy_product_option_value`
+CREATE TABLE IF NOT EXISTS `spy_product_option_value`
 (
     `id_product_option_value` INTEGER NOT NULL AUTO_INCREMENT,
     `import_key` VARCHAR(255),
@@ -1096,14 +1096,14 @@ CREATE TABLE `spy_product_option_value`
         ON DELETE SET NULL
 ) ENGINE=InnoDB;
 
-CREATE TABLE `spy_product_option_value_price`
+CREATE TABLE IF NOT EXISTS `spy_product_option_value_price`
 (
     `id_product_option_value_price` INTEGER NOT NULL AUTO_INCREMENT,
     `price` INTEGER NOT NULL,
     PRIMARY KEY (`id_product_option_value_price`)
 ) ENGINE=InnoDB;
 
-CREATE TABLE `spy_product_option_value_translation`
+CREATE TABLE IF NOT EXISTS `spy_product_option_value_translation`
 (
     `name` VARCHAR(255) NOT NULL,
     `fk_product_option_value` INTEGER NOT NULL,
@@ -1120,7 +1120,7 @@ CREATE TABLE `spy_product_option_value_translation`
         ON DELETE CASCADE
 ) ENGINE=InnoDB;
 
-CREATE TABLE `spy_product_option_type_translation`
+CREATE TABLE IF NOT EXISTS `spy_product_option_type_translation`
 (
     `name` VARCHAR(255) NOT NULL,
     `fk_product_option_type` INTEGER NOT NULL,
@@ -1137,7 +1137,7 @@ CREATE TABLE `spy_product_option_type_translation`
         ON DELETE CASCADE
 ) ENGINE=InnoDB;
 
-CREATE TABLE `spy_product_option_type_usage`
+CREATE TABLE IF NOT EXISTS `spy_product_option_type_usage`
 (
     `id_product_option_type_usage` INTEGER NOT NULL AUTO_INCREMENT,
     `is_optional` INTEGER NOT NULL,
@@ -1156,7 +1156,7 @@ CREATE TABLE `spy_product_option_type_usage`
         REFERENCES `spy_product_option_type` (`id_product_option_type`)
 ) ENGINE=InnoDB;
 
-CREATE TABLE `spy_product_option_value_usage`
+CREATE TABLE IF NOT EXISTS `spy_product_option_value_usage`
 (
     `id_product_option_value_usage` INTEGER NOT NULL AUTO_INCREMENT,
     `sequence` INTEGER,
@@ -1174,7 +1174,7 @@ CREATE TABLE `spy_product_option_value_usage`
         REFERENCES `spy_product_option_value` (`id_product_option_value`)
 ) ENGINE=InnoDB;
 
-CREATE TABLE `spy_product_option_type_usage_exclusion`
+CREATE TABLE IF NOT EXISTS `spy_product_option_type_usage_exclusion`
 (
     `fk_product_option_type_usage_a` INTEGER NOT NULL,
     `fk_product_option_type_usage_b` INTEGER NOT NULL,
@@ -1190,7 +1190,7 @@ CREATE TABLE `spy_product_option_type_usage_exclusion`
         ON DELETE CASCADE
 ) ENGINE=InnoDB;
 
-CREATE TABLE `spy_product_option_value_usage_constraint`
+CREATE TABLE IF NOT EXISTS `spy_product_option_value_usage_constraint`
 (
     `fk_product_option_value_usage_a` INTEGER NOT NULL,
     `fk_product_option_value_usage_b` INTEGER NOT NULL,
@@ -1207,7 +1207,7 @@ CREATE TABLE `spy_product_option_value_usage_constraint`
         ON DELETE CASCADE
 ) ENGINE=InnoDB;
 
-CREATE TABLE `spy_product_option_configuration_preset`
+CREATE TABLE IF NOT EXISTS `spy_product_option_configuration_preset`
 (
     `id_product_option_configuration_preset` INTEGER NOT NULL AUTO_INCREMENT,
     `is_default` TINYINT(1) NOT NULL,
@@ -1221,7 +1221,7 @@ CREATE TABLE `spy_product_option_configuration_preset`
         ON DELETE CASCADE
 ) ENGINE=InnoDB;
 
-CREATE TABLE `spy_product_option_configuration_preset_value`
+CREATE TABLE IF NOT EXISTS `spy_product_option_configuration_preset_value`
 (
     `fk_product_option_configuration_preset` INTEGER NOT NULL,
     `fk_product_option_value_usage` INTEGER NOT NULL,
@@ -1237,7 +1237,7 @@ CREATE TABLE `spy_product_option_configuration_preset_value`
         ON DELETE CASCADE
 ) ENGINE=InnoDB;
 
-CREATE TABLE `spy_product_search_attributes_operation`
+CREATE TABLE IF NOT EXISTS `spy_product_search_attributes_operation`
 (
     `source_attribute_id` INTEGER NOT NULL,
     `operation` VARCHAR(255) NOT NULL,
@@ -1251,7 +1251,7 @@ CREATE TABLE `spy_product_search_attributes_operation`
         ON DELETE CASCADE
 ) ENGINE=InnoDB;
 
-CREATE TABLE `spy_searchable_products`
+CREATE TABLE IF NOT EXISTS `spy_searchable_products`
 (
     `searchable_id` INTEGER NOT NULL AUTO_INCREMENT,
     `fk_product` INTEGER,
@@ -1268,13 +1268,13 @@ CREATE TABLE `spy_searchable_products`
         REFERENCES `spy_locale` (`id_locale`)
 ) ENGINE=InnoDB;
 
-CREATE TABLE `spy_propel_heartbeat`
+CREATE TABLE IF NOT EXISTS `spy_propel_heartbeat`
 (
     `heartbeat_check` VARCHAR(255) NOT NULL,
     PRIMARY KEY (`heartbeat_check`)
 ) ENGINE=InnoDB;
 
-CREATE TABLE `spy_refund`
+CREATE TABLE IF NOT EXISTS `spy_refund`
 (
     `id_refund` INTEGER NOT NULL AUTO_INCREMENT,
     `fk_sales_order` INTEGER NOT NULL,
@@ -1289,7 +1289,7 @@ CREATE TABLE `spy_refund`
         REFERENCES `spy_sales_order` (`id_sales_order`)
 ) ENGINE=InnoDB;
 
-CREATE TABLE `spy_sales_order`
+CREATE TABLE IF NOT EXISTS `spy_sales_order`
 (
     `fk_customer` INTEGER,
     `id_sales_order` INTEGER NOT NULL AUTO_INCREMENT,
@@ -1327,7 +1327,7 @@ CREATE TABLE `spy_sales_order`
         REFERENCES `spy_shipment_method` (`id_shipment_method`)
 ) ENGINE=InnoDB;
 
-CREATE TABLE `spy_sales_order_item`
+CREATE TABLE IF NOT EXISTS `spy_sales_order_item`
 (
     `fk_refund` INTEGER,
     `id_sales_order_item` INTEGER NOT NULL AUTO_INCREMENT,
@@ -1369,7 +1369,7 @@ CREATE TABLE `spy_sales_order_item`
         REFERENCES `spy_sales_order_item_bundle` (`id_sales_order_item_bundle`)
 ) ENGINE=InnoDB;
 
-CREATE TABLE `spy_sales_expense`
+CREATE TABLE IF NOT EXISTS `spy_sales_expense`
 (
     `fk_refund` INTEGER,
     `id_sales_expense` INTEGER NOT NULL AUTO_INCREMENT,
@@ -1392,7 +1392,7 @@ CREATE TABLE `spy_sales_expense`
         REFERENCES `spy_sales_order` (`id_sales_order`)
 ) ENGINE=InnoDB;
 
-CREATE TABLE `spy_sales_order_address`
+CREATE TABLE IF NOT EXISTS `spy_sales_order_address`
 (
     `id_sales_order_address` INTEGER NOT NULL AUTO_INCREMENT,
     `fk_country` INTEGER NOT NULL,
@@ -1426,7 +1426,7 @@ CREATE TABLE `spy_sales_order_address`
         REFERENCES `spy_region` (`id_region`)
 ) ENGINE=InnoDB;
 
-CREATE TABLE `spy_sales_order_address_history`
+CREATE TABLE IF NOT EXISTS `spy_sales_order_address_history`
 (
     `id_sales_order_address_history` INTEGER NOT NULL AUTO_INCREMENT,
     `fk_country` INTEGER NOT NULL,
@@ -1466,7 +1466,7 @@ CREATE TABLE `spy_sales_order_address_history`
         REFERENCES `spy_region` (`id_region`)
 ) ENGINE=InnoDB;
 
-CREATE TABLE `spy_sales_order_item_option`
+CREATE TABLE IF NOT EXISTS `spy_sales_order_item_option`
 (
     `id_sales_order_item_option` INTEGER NOT NULL AUTO_INCREMENT,
     `fk_sales_order_item` INTEGER NOT NULL,
@@ -1484,7 +1484,7 @@ CREATE TABLE `spy_sales_order_item_option`
         REFERENCES `spy_sales_order_item` (`id_sales_order_item`)
 ) ENGINE=InnoDB;
 
-CREATE TABLE `spy_sales_order_note`
+CREATE TABLE IF NOT EXISTS `spy_sales_order_note`
 (
     `id_sales_order_note` INTEGER NOT NULL AUTO_INCREMENT,
     `fk_sales_order` INTEGER NOT NULL,
@@ -1500,7 +1500,7 @@ CREATE TABLE `spy_sales_order_note`
         REFERENCES `spy_sales_order` (`id_sales_order`)
 ) ENGINE=InnoDB;
 
-CREATE TABLE `spy_sales_order_comment`
+CREATE TABLE IF NOT EXISTS `spy_sales_order_comment`
 (
     `id_sales_order_comment` INTEGER NOT NULL AUTO_INCREMENT,
     `fk_sales_order` INTEGER NOT NULL,
@@ -1515,7 +1515,7 @@ CREATE TABLE `spy_sales_order_comment`
         REFERENCES `spy_sales_order` (`id_sales_order`)
 ) ENGINE=InnoDB;
 
-CREATE TABLE `spy_sales_discount`
+CREATE TABLE IF NOT EXISTS `spy_sales_discount`
 (
     `id_sales_discount` INTEGER NOT NULL AUTO_INCREMENT,
     `fk_sales_order` INTEGER,
@@ -1550,7 +1550,7 @@ CREATE TABLE `spy_sales_discount`
         REFERENCES `spy_sales_order_item_option` (`id_sales_order_item_option`)
 ) ENGINE=InnoDB;
 
-CREATE TABLE `spy_sales_discount_code`
+CREATE TABLE IF NOT EXISTS `spy_sales_discount_code`
 (
     `id_sales_discount_code` INTEGER NOT NULL AUTO_INCREMENT,
     `fk_sales_discount` INTEGER NOT NULL,
@@ -1568,7 +1568,7 @@ CREATE TABLE `spy_sales_discount_code`
         REFERENCES `spy_sales_discount` (`id_sales_discount`)
 ) ENGINE=InnoDB;
 
-CREATE TABLE `spy_sales_order_item_bundle`
+CREATE TABLE IF NOT EXISTS `spy_sales_order_item_bundle`
 (
     `id_sales_order_item_bundle` INTEGER NOT NULL AUTO_INCREMENT,
     `name` VARCHAR(255) NOT NULL,
@@ -1582,7 +1582,7 @@ CREATE TABLE `spy_sales_order_item_bundle`
     PRIMARY KEY (`id_sales_order_item_bundle`)
 ) ENGINE=InnoDB;
 
-CREATE TABLE `spy_sales_order_item_bundle_item`
+CREATE TABLE IF NOT EXISTS `spy_sales_order_item_bundle_item`
 (
     `id_sales_order_item_bundle_item` INTEGER NOT NULL AUTO_INCREMENT,
     `fk_sales_order_item_bundle` INTEGER NOT NULL,
@@ -1600,7 +1600,7 @@ CREATE TABLE `spy_sales_order_item_bundle_item`
         REFERENCES `spy_sales_order_item_bundle` (`id_sales_order_item_bundle`)
 ) ENGINE=InnoDB;
 
-CREATE TABLE `spy_search_page_element`
+CREATE TABLE IF NOT EXISTS `spy_search_page_element`
 (
     `id_search_page_element` INTEGER NOT NULL AUTO_INCREMENT,
     `element_key` VARCHAR(255) NOT NULL,
@@ -1619,7 +1619,7 @@ CREATE TABLE `spy_search_page_element`
         REFERENCES `spy_search_page_element_template` (`id_search_page_element_template`)
 ) ENGINE=InnoDB;
 
-CREATE TABLE `spy_search_document_attribute`
+CREATE TABLE IF NOT EXISTS `spy_search_document_attribute`
 (
     `id_search_document_attribute` INTEGER NOT NULL AUTO_INCREMENT,
     `attribute_name` VARCHAR(255) NOT NULL,
@@ -1628,7 +1628,7 @@ CREATE TABLE `spy_search_document_attribute`
     UNIQUE INDEX `spy_search_document_attribute_u_b8d4bd` (`attribute_name`)
 ) ENGINE=InnoDB;
 
-CREATE TABLE `spy_search_page_element_template`
+CREATE TABLE IF NOT EXISTS `spy_search_page_element_template`
 (
     `id_search_page_element_template` INTEGER NOT NULL AUTO_INCREMENT,
     `template_name` VARCHAR(255) NOT NULL,
@@ -1636,7 +1636,7 @@ CREATE TABLE `spy_search_page_element_template`
     UNIQUE INDEX `spy_search_page_element_template_u_832ec3` (`template_name`)
 ) ENGINE=InnoDB;
 
-CREATE TABLE `spy_sequence_number`
+CREATE TABLE IF NOT EXISTS `spy_sequence_number`
 (
     `id_sequence_number` INTEGER NOT NULL AUTO_INCREMENT,
     `name` VARCHAR(255) NOT NULL,
@@ -1645,7 +1645,7 @@ CREATE TABLE `spy_sequence_number`
     UNIQUE INDEX `spy_sequence_number_u_d94269` (`name`)
 ) ENGINE=InnoDB;
 
-CREATE TABLE `spy_shipment_carrier`
+CREATE TABLE IF NOT EXISTS `spy_shipment_carrier`
 (
     `id_shipment_carrier` INTEGER NOT NULL AUTO_INCREMENT,
     `glossary_key_name` VARCHAR(255),
@@ -1655,7 +1655,7 @@ CREATE TABLE `spy_shipment_carrier`
     INDEX `spy_shipment_carrier_i_530ee5` (`is_active`)
 ) ENGINE=InnoDB;
 
-CREATE TABLE `spy_shipment_method`
+CREATE TABLE IF NOT EXISTS `spy_shipment_method`
 (
     `id_shipment_method` INTEGER NOT NULL AUTO_INCREMENT,
     `fk_shipment_carrier` INTEGER NOT NULL,
@@ -1681,7 +1681,7 @@ CREATE TABLE `spy_shipment_method`
         REFERENCES `spy_tax_set` (`id_tax_set`)
 ) ENGINE=InnoDB;
 
-CREATE TABLE `spy_stock`
+CREATE TABLE IF NOT EXISTS `spy_stock`
 (
     `id_stock` INTEGER NOT NULL AUTO_INCREMENT,
     `name` VARCHAR(255) NOT NULL,
@@ -1689,7 +1689,7 @@ CREATE TABLE `spy_stock`
     UNIQUE INDEX `spy_stock_u_d94269` (`name`)
 ) ENGINE=InnoDB;
 
-CREATE TABLE `spy_stock_product`
+CREATE TABLE IF NOT EXISTS `spy_stock_product`
 (
     `id_stock_product` INTEGER NOT NULL AUTO_INCREMENT,
     `fk_product` INTEGER NOT NULL,
@@ -1707,14 +1707,14 @@ CREATE TABLE `spy_stock_product`
         REFERENCES `spy_stock` (`id_stock`)
 ) ENGINE=InnoDB;
 
-CREATE TABLE `spy_tax_set`
+CREATE TABLE IF NOT EXISTS `spy_tax_set`
 (
     `id_tax_set` INTEGER NOT NULL AUTO_INCREMENT,
     `name` VARCHAR(255) NOT NULL,
     PRIMARY KEY (`id_tax_set`)
 ) ENGINE=InnoDB;
 
-CREATE TABLE `spy_tax_rate`
+CREATE TABLE IF NOT EXISTS `spy_tax_rate`
 (
     `id_tax_rate` INTEGER NOT NULL AUTO_INCREMENT,
     `name` VARCHAR(255) NOT NULL,
@@ -1722,7 +1722,7 @@ CREATE TABLE `spy_tax_rate`
     PRIMARY KEY (`id_tax_rate`)
 ) ENGINE=InnoDB;
 
-CREATE TABLE `spy_tax_set_tax`
+CREATE TABLE IF NOT EXISTS `spy_tax_set_tax`
 (
     `fk_tax_set` INTEGER NOT NULL,
     `fk_tax_rate` INTEGER NOT NULL,
@@ -1737,7 +1737,7 @@ CREATE TABLE `spy_tax_set_tax`
         REFERENCES `spy_tax_rate` (`id_tax_rate`)
 ) ENGINE=InnoDB;
 
-CREATE TABLE `spy_touch`
+CREATE TABLE IF NOT EXISTS `spy_touch`
 (
     `id_touch` INTEGER NOT NULL AUTO_INCREMENT,
     `item_type` VARCHAR(255) NOT NULL,
@@ -1752,7 +1752,7 @@ CREATE TABLE `spy_touch`
     INDEX `spy_touch_i_b02e54` (`item_event`)
 ) ENGINE=InnoDB;
 
-CREATE TABLE `spy_touch_storage`
+CREATE TABLE IF NOT EXISTS `spy_touch_storage`
 (
     `id_touch_storage` INTEGER NOT NULL AUTO_INCREMENT,
     `fk_locale` INTEGER NOT NULL,
@@ -1770,7 +1770,7 @@ CREATE TABLE `spy_touch_storage`
         REFERENCES `spy_locale` (`id_locale`)
 ) ENGINE=InnoDB;
 
-CREATE TABLE `spy_touch_search`
+CREATE TABLE IF NOT EXISTS `spy_touch_search`
 (
     `id_touch_search` INTEGER NOT NULL AUTO_INCREMENT,
     `fk_locale` INTEGER NOT NULL,
@@ -1788,7 +1788,7 @@ CREATE TABLE `spy_touch_search`
         REFERENCES `spy_locale` (`id_locale`)
 ) ENGINE=InnoDB;
 
-CREATE TABLE `spy_url`
+CREATE TABLE IF NOT EXISTS `spy_url`
 (
     `fk_resource_categorynode` INTEGER,
     `fk_resource_page` INTEGER,
@@ -1826,7 +1826,7 @@ CREATE TABLE `spy_url`
         ON DELETE CASCADE
 ) ENGINE=InnoDB;
 
-CREATE TABLE `spy_redirect`
+CREATE TABLE IF NOT EXISTS `spy_redirect`
 (
     `id_redirect` INTEGER NOT NULL AUTO_INCREMENT,
     `to_url` VARCHAR(255) NOT NULL,
@@ -1835,7 +1835,7 @@ CREATE TABLE `spy_redirect`
     INDEX `spy_redirect_i_44a5e4` (`to_url`, `status`)
 ) ENGINE=InnoDB;
 
-CREATE TABLE `spy_user`
+CREATE TABLE IF NOT EXISTS `spy_user`
 (
     `id_user` INTEGER NOT NULL AUTO_INCREMENT,
     `first_name` VARCHAR(45) NOT NULL,
@@ -1850,7 +1850,7 @@ CREATE TABLE `spy_user`
     UNIQUE INDEX `spy_user_u_f86ef3` (`username`)
 ) ENGINE=InnoDB;
 
-CREATE TABLE `spy_wishlist`
+CREATE TABLE IF NOT EXISTS `spy_wishlist`
 (
     `id_wishlist` INTEGER NOT NULL AUTO_INCREMENT,
     `fk_customer` INTEGER NOT NULL,
@@ -1861,7 +1861,7 @@ CREATE TABLE `spy_wishlist`
         REFERENCES `spy_customer` (`id_customer`)
 ) ENGINE=InnoDB;
 
-CREATE TABLE `spy_wishlist_item`
+CREATE TABLE IF NOT EXISTS `spy_wishlist_item`
 (
     `id_wishlist_item` INTEGER NOT NULL AUTO_INCREMENT,
     `fk_product` INTEGER,
@@ -1885,7 +1885,7 @@ CREATE TABLE `spy_wishlist_item`
         REFERENCES `spy_abstract_product` (`id_abstract_product`)
 ) ENGINE=InnoDB;
 
-CREATE TABLE `spy_acl_role_archive`
+CREATE TABLE IF NOT EXISTS `spy_acl_role_archive`
 (
     `id_acl_role` INTEGER NOT NULL,
     `name` VARCHAR(255) NOT NULL,
@@ -1896,7 +1896,7 @@ CREATE TABLE `spy_acl_role_archive`
     INDEX `spy_acl_role_archive_i_d94269` (`name`)
 ) ENGINE=InnoDB;
 
-CREATE TABLE `spy_acl_rule_archive`
+CREATE TABLE IF NOT EXISTS `spy_acl_rule_archive`
 (
     `id_acl_rule` INTEGER NOT NULL,
     `fk_acl_role` INTEGER NOT NULL,
@@ -1911,7 +1911,7 @@ CREATE TABLE `spy_acl_rule_archive`
     INDEX `spy_acl_rule_fi_4e4ee0` (`fk_acl_role`)
 ) ENGINE=InnoDB;
 
-CREATE TABLE `spy_acl_group_archive`
+CREATE TABLE IF NOT EXISTS `spy_acl_group_archive`
 (
     `id_acl_group` INTEGER NOT NULL,
     `name` VARCHAR(255) NOT NULL,
@@ -1922,7 +1922,7 @@ CREATE TABLE `spy_acl_group_archive`
     INDEX `spy_acl_group_archive_i_d94269` (`name`)
 ) ENGINE=InnoDB;
 
-CREATE TABLE `spy_auth_reset_password_archive`
+CREATE TABLE IF NOT EXISTS `spy_auth_reset_password_archive`
 (
     `id_auth_reset_password` INTEGER NOT NULL,
     `fk_user` INTEGER NOT NULL,
@@ -1936,7 +1936,7 @@ CREATE TABLE `spy_auth_reset_password_archive`
     INDEX `spy_auth_reset_password_archive_i_4db226` (`code`)
 ) ENGINE=InnoDB;
 
-CREATE TABLE `spy_user_archive`
+CREATE TABLE IF NOT EXISTS `spy_user_archive`
 (
     `id_user` INTEGER NOT NULL,
     `first_name` VARCHAR(45) NOT NULL,
