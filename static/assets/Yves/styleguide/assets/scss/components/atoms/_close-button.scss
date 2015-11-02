@@ -1,0 +1,26 @@
+// Close button
+//
+// Markup:
+// <div class="close-button"></div>
+//
+// Styleguide: atoms.close-button
+
+.close-button{
+    @include pdif('close', 20px, 20px);
+    position: absolute;
+    z-index: 2;
+    top: 0;
+    right: 0;
+    width: 80px;
+    height: 80px;
+    line-height: 80px;
+    background: $_rgbApple;
+    color: $_rgbWhite;
+
+    cursor: pointer;
+
+    &:before{
+        width: 100%;
+        text-align: center;
+    }
+}

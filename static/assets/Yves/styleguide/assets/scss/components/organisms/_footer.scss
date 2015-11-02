@@ -9,7 +9,7 @@
 //                 <div class="footer__icon footer__icon--twitter"></div>
 //                 <div class="footer__icon footer__icon--gplus"></div>
 //             </div>
-//             <div class="footer__logo column small-2">
+//             <div class="footer__logo column small-12 large-2">
 //                 <img src="../images/logo/logo_header.png" alt="Pets Deli Logo" />
 //             </div>
 //             <div class="footer__payment column small-5">
@@ -128,6 +128,7 @@
 .footer__row--top{
     border-top: none;
     padding-top: 20px;
+    white-space: nowrap;
 }
 
 .footer__social{
@@ -154,7 +155,7 @@
 }
 
 .footer__icon{
-    margin: 0 11px -4px;
+    margin: 0 5px -4px;
 }
 
 .footer__icon--headline{
@@ -225,4 +226,10 @@
 
 .footer__copyright--upper{
     text-transform: uppercase;
+}
+
+@media (max-width: $_wLarge - 1px) {
+    .footer__social, .footer__payment{
+        display: none;
+    }
 }

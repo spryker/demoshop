@@ -33,9 +33,11 @@
 // .color-card--Mantis  - Use
 // .color-card--Quincy  - Use
 // .color-card--ShipGray  - Use
-// .color-card--SilverChalice2  - Use
+// .color-card--SilverChalicesTwo  - Use
 // .color-card--Alto  - Use
-//
+// .color-card--Silver  - Use
+// .color-card--Clementine  - Use
+//r
 // Styleguide: colors.color-card
 
 $_rgbColors: (
@@ -74,8 +76,10 @@ $_rgbColors: (
     Mantis: $_rgbMantis,
     Quincy: $_rgbQuincy,
     ShipGray: $_rgbShipGray,
-    SilverChalices2: $_rgbSilverChalices2,
-    Alto: $_rgbAlto
+    SilverChalicesTwo: $_rgbSilverChalices2,
+    Alto: $_rgbAlto,
+    Silver: $_rgbSilver,
+    Clementine: $_rgbClementine
 );
 
 .color-card{
@@ -95,7 +99,7 @@ $_rgbColors: (
 
 .color-card__code{
     padding: 25px 15px 23px;
-    font-family: $_ffBrandonGrotesque-Bold;
+    font-family: monospace;
 }
 
 @each $_rgbColorName, $_rgbColorValue in $_rgbColors {

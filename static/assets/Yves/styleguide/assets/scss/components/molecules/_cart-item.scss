@@ -1,0 +1,134 @@
+// Cart item
+//
+// Markup:
+// <div class="cart-item">
+//     <div class="cart-item__image">
+//         <img src="../images/cart/thumbnail.png">
+//     </div>
+//     <div class="cart-item__info">
+//         <div class="cart-item__breadcrumbs">
+//             <div class="cart-item__breadcrumb">Dogs</div>
+//             <div class="cart-item__breadcrumb">Packages</div>
+//         </div>
+//         <div class="cart-item__title">Starter Pack 10 Menu Boxes</div>
+//         <div class="cart-item__content">
+//             <div class="cart-item__weight">250g</div>
+//             <div class="cart-item__flag">Customized</div>
+//         </div>
+//     </div>
+//     <div class="cart-item__options">
+//         {{> atoms.button title="Edit"}}
+//         <div class="cart-item__delete"></div>
+//     </div>
+//     <div class="cart-item__quantity">
+//         <div class="cart-item__edit">1</div>
+//     </div>
+//     <div class="cart-item__price">€20.00</div>
+// </div>
+//
+// Styleguide: molecules.cart-item
+
+.cart-item{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: $_rgbAlabaster;
+    border-top: 1px solid $_rgbSilver;
+    flex-direction: vertical;
+
+    &:last-child{
+        border-bottom: 1px solid $_rgbSilver;
+    }
+}
+
+.cart-item__image{
+    padding: 26px 27px 26px 50px;
+    img{
+        @include responsiveImage;
+        max-width: 95px;
+    }
+}
+
+.cart-item__info{
+    padding: 26px 0;
+    flex-grow: 1;
+}
+
+.cart-item__breadcrumbs{
+    margin-bottom: 10px;
+
+    font-family: $_ffBrandonGrotesque-Black;
+    font-size: 12px;
+    line-height: 18px;
+    letter-spacing: 1.14px;
+    color: $_rgbOsloGray;
+    text-transform: uppercase;
+}
+
+.cart-item__breadcrumb{
+    display: inline-block;
+
+    & + .cart-item__breadcrumb:before{
+        position: relative;
+        top: -2px;
+        content: '|';
+        margin: 0 5px 0 3px;
+    }
+}
+
+.cart-item__title{
+    margin-bottom: 7px;
+
+    font-family: $_ffBrandonGrotesque-Black;
+    font-size: 26px;
+    line-height: 28px;
+    color: $_rgbApple;
+}
+
+.cart-item__content{
+    font-family: $_ffBrandonGrotesque-Black;
+}
+
+.cart-item__weight{
+    display: inline-block;
+
+    font-size: 16px;
+    line-height: 28px;
+    color: $_rgbOsloGray;
+}
+
+.cart-item__flag{
+    display: inline-block;
+    margin-left: 15px;
+
+    font-size: 12px;
+    letter-spacing: 1.14px;
+    line-height: 18px;
+    text-transform: uppercase;
+    color: $_rgbChileanFire;
+}
+
+.cart-item__options{
+    padding: 26px 0;
+    border-right: 1px solid $_rgbSilver;
+}
+
+.cart-item__edit{
+    display: inline-block;
+}
+
+.cart-item__delete{
+    @include pdif('trash', 35px, 24px);
+    color: $_rgbOsloGray;
+}
+
+.cart-item__quantity{
+    padding: 26px 0;
+}
+
+.cart-item__edit{
+}
+
+.cart-item__price{
+    padding: 26px 0;
+}

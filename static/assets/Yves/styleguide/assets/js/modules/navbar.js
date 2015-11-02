@@ -6,11 +6,14 @@ import { debounce } from './helpers';
 $(document).ready(function () {
 
     $('.navbar').each(function () {
-        var $navbar, $menu, $marker, $trigger;
+        var $navbar, $navbarTop, $menu, $marker, $trigger, $offcanvas;
 
         $navbar = $(this);
+        $navbarTop = $navbar.find('.navbar__top');
         $marker = $navbar.find('.navbar__marker');
         $trigger = $('.navbar__link');
+        $offcanvas = $('.offcanvas');
+        $navbarTop = $('.navbar__top');
 
         updateMarker();
 
@@ -20,8 +23,11 @@ $(document).ready(function () {
         $(document).on('NAVSTATE_CHANGE', updateMarker);
 
         $('.navbar__link--more').click(function () {
-            $('body').toggleClass('offcanvas-open');
+            // TODO: messages into module const
+            $(document).trigger('OFFCANVAS_SHOW');
         });
+
+        $(window).scroll(checkTopBar);
 
 
         function updateMarker () {
@@ -37,6 +43,17 @@ $(document).ready(function () {
                 width: width + 'px',
                 opacity: 1
             });
+        }
+
+        function checkTopBar () {
+            var top = $(window).scrollTop();
+
+            if (top > 50) {
+                $navbarTop.addClass('navbar__top--hidden');
+
+            } else {
+                $navbarTop.removeClass('navbar__top--hidden');
+            }
         }
     });
 
