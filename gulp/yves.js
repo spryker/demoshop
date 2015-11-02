@@ -152,10 +152,8 @@ gulp.task('dev', function() {
 
     console.log('[ WATCH  ] watching (s)css...'.yellow);
     gulp.watch([
-        assetsPath + '/js/components/*.js',
-        assetsPath + '/js/components/**/*.js',
-        assetsPath + '/js/schemes/*.js',
-        assetsPath + '/js/schemes/**/*.js'
+        assetsPath + '/js/**/*.js',
+        assetsPath + '/scripts/**/*.js'
     ], {}, function(event) {
         tasks.js('development');
         log.change('[   JS   ]', 'file', event);
