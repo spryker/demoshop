@@ -1,0 +1,100 @@
+// Product Card (wide)
+//
+// Markup:
+// <div class="product-card-wide">
+//    <div class="product-card-wide__inner">
+//        <div class="product-card-wide__image">
+//            <img src="../images/product/cookies.jpg" />
+//        </div>
+//        <div class="product-card-wide__info">
+//            <div class="product-card-wide__breadcrumbs">
+//                <div class="product-card-wide__breadcrumb">Dogs</div>
+//                <div class="product-card-wide__breadcrumb">Snacks</div>
+//                <div class="product-card-wide__breadcrumb">Cookies</div>
+//            </div>
+//            <div class="product-card-wide__title">Bio Cookie</div>
+//            <div class="product-card-wide__price-relative">4.00</div>
+//            <div class="product-card-wide__price-total">250ml (2.80 / 100g)</div>
+//            <div class="product-card-wide__add">Add to cart</div>
+//        </div>
+//    </div>
+// </div>
+//
+// Styleguide: molecules.product-card-wide
+
+
+.product-card-wide{
+    margin: 8px 4px;
+}
+
+.product-card-wide__inner{
+    @include cardShadow;
+    @include clearfix;
+}
+
+.product-card-wide__image{
+    float: left;
+    width: 50%;
+
+    img{
+        @include responsiveImage;
+    }
+}
+
+.product-card-wide__label{
+    position: absolute;
+    top: 30px;
+    left: 0;
+    padding: 9px 12px;
+    background: $_rgbApple;
+    color: $_rgbWhite;
+    letter-spacing: .54px;
+}
+
+.product-card-wide__info{
+    float: left;
+    width: 50%;
+}
+
+.product-card-wide__breadcrumbs{
+    margin-bottom: 10px;
+
+    font-family: $_ffBrandonGrotesque-Black;
+    font-size: 12px;
+    line-height: 18px;
+    letter-spacing: 1.14px;
+    color: $_rgbOsloGray;
+    text-transform: uppercase;
+}
+
+.product-card-wide__breadcrumb{
+    display: inline-block;
+
+    & + .product-card-wide__breadcrumb:before{
+        position: relative;
+        top: -2px;
+        content: '|';
+        margin: 0 5px 0 3px;
+    }
+}
+
+.product-card-wide__title{
+    margin-bottom: 7px;
+
+    font-family: $_ffBrandonGrotesque-Black;
+    font-size: 26px;
+    line-height: 28px;
+    color: $_rgbApple;
+}
+
+.product-card-wide__price-relative{
+
+}
+
+.product-card-wide__price-total{
+
+}
+
+.product-card-wide__add{
+
+}

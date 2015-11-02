@@ -3,6 +3,7 @@
 // Navbar
 //
 // Markup:
+// {{> "molecules.offcanvas"}}
 // <nav class="navbar">
 //     <div class="navbar__top">
 //        <div class="navbar__center">
@@ -28,7 +29,7 @@
 //                 <li data-menu="main" class="navbar__link navbar__link--support"><a href="#">Support</a></li>
 //                 <li data-menu="main" class="navbar__link navbar__link--contact"><a href="#">Contact</a></li>
 //                 <li class="navbar__link navbar__link--login"><a href="#"><span>Login</span></a></li>
-//                 <li class="navbar__link navbar__link--cart"><a href="#"><span>Cart</span></a></li>
+//                 <li data-menu="cart" class="navbar__link navbar__link--cart"><a href="#" data-cartcount="2"><span>Cart</span></a></li>
 //                 <li class="navbar__link navbar__link--more"><div>&nbsp;</div></li>
 //             </ul>
 //             <div class="navbar__marker"></div>
@@ -37,6 +38,7 @@
 // </nav>
 // <div class="navbar__pusher"></div>
 // {{> "molecules.menu"}}
+// {{> "molecules.cart-layer"}}
 //
 // Styleguide: organisms.navbar
 //
@@ -45,7 +47,7 @@
 
 .navbar{
     position: fixed;
-    z-index: 1;
+    z-index: 3;
     top: 0;
     left: 0;
     width: 100%;
@@ -67,6 +69,16 @@
     text-transform: uppercase;
     text-align: center;
     color: $_rgbWhite;
+
+    transition: margin-top $_tShort ease-in-out;
+}
+
+.navbar__top--hidden{
+    margin-top: -45px;
+}
+
+.navbar__top--hidden{
+
 }
 
 .navbar__item{
@@ -95,6 +107,8 @@
 }
 
 .navbar__logo{
+    position: relative;
+    z-index: 1;
     display: none;
     float: left;
     width: 120px;
@@ -165,6 +179,23 @@
 .navbar__link--cart{
     a{
         @include pdif('cart', 20px, 30px);
+
+        &:after{
+            position: absolute;
+            top: 22px;
+            left: 10px;
+            content: attr(data-cartcount);
+            background: $_rgbClementine;
+            height: 21px;
+            width: 21px;
+            line-height: 21px;
+            text-align: center;
+            border-radius: 50%;
+
+            font-size: 14px;
+            color: $_rgbWhite;
+            font-family: $_ffBrandonGrotesque-Bold;
+        }
     }
 }
 
@@ -179,6 +210,10 @@
 @media (min-width: $_wLarge) {
     .navbar__pusher{
         padding-top: 120px;
+    }
+
+    .navbar__top--hidden{
+        margin-top: -30px;
     }
 
     .navbar__center{

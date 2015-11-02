@@ -11,13 +11,6 @@ body{
     -moz-osx-font-smoothing: grayscale;
 
     overflow-x: hidden;
-
-    transition: all $_tMedium ease-in-out;
-
-    &.offcanvas-open{
-        position: relative;
-        right: 200px;
-    }
 }
 
 *{
@@ -26,4 +19,8 @@ body{
     font-family: inherit;
     font-size: inherit;
     line-height: inherit;
+}
+
+h1, h2, h3, h4, h5, h6{
+    font-weight: normal;
 }

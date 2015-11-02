@@ -20,6 +20,10 @@
     -moz-osx-font-smoothing: grayscale;
 
     
+    @if $name == 'trash' {
+      content: '\E012';
+    }
+    
     @if $name == 'arrow-left' {
       content: '\E001';
     }
@@ -111,6 +115,10 @@
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
 
+    
+    @if $name == 'trash' {
+      content: '\E012';
+    }
     
     @if $name == 'arrow-left' {
       content: '\E001';

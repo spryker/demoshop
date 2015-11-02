@@ -1,0 +1,19 @@
+.toast {
+    position: fixed;
+    z-index: 4;
+    top: 20px;
+    right: 20px;
+
+}
+
+.toast__message{
+    margin-bottom: 10px;
+    padding: 10px 20px;
+    @include cardShadow;
+    border-radius: $_defaultBorderRadius;
+    background: $_rgbWhite;
+
+    text-transform: uppercase;
+
+    cursor: pointer;
+}

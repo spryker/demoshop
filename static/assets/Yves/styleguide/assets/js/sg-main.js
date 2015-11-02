@@ -3,6 +3,8 @@ import './modules/faqCard';
 import './modules/faqSwitch';
 import './modules/formBackup';
 import './modules/headerMenu';
+import './modules/cartLayer';
 import './modules/navBar';
+import './modules/offcanvas';
 import './modules/productFilter';
 import './modules/productSlider';

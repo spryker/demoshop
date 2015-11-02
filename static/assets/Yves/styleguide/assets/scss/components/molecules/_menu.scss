@@ -8,7 +8,7 @@
 //             <p class="subtitle">
 //                 Wisi eruditi id nam. Te pri oblique ullamcorper, magna persequeris has eu.
 //             </p>
-//             <div class="menu__top-close"></div>
+//             <div class="close-button"></div>
 //         </div>
 //     </div>
 //     <div class="menu__bottom">
@@ -35,9 +35,6 @@
 
 
 
-.menu__top{
-}
-
 .menu__top-inner{
     position: relative;
     @include pageWidth;
@@ -56,16 +53,7 @@
     }
 }
 
-.menu__top-close{
-    @include pdif('close', 20px, 20px);
-    height: 20px;
-    position: absolute;
-    top: 20px;
-    right: 20px;
 
-    color: $_rgbQuincy;
-    cursor: pointer;
-}
 
 
 

@@ -1,23 +1,29 @@
 import $ from 'jquery';
 import { debounce } from './helpers';
-import { ToastService } from './toast';
 
 'use strict';
 
 
+// TODO: abstract menu & cart layer
 $(document).ready(function () {
 
-    $('.menu').each(function () {
+    $('.cart-layer').each(function () {
         var $menu, $close, $trigger, height, closed;
 
         $menu = $(this);
         $close = $menu.find('.close-button');
-        $trigger = $('.navbar__link[data-menu="main"]');
+        $trigger = $('.navbar__link[data-menu="cart"]');
 
         updateHeight();
-
         hideMenu();
 
+        $menu.find('img').one('load', function() {
+            updateHeight();
+            hideMenu(true);
+
+        }).each(function() {
+          if(this.complete) $(this).load();
+        });
 
         $close.click(hideMenu);
 
@@ -31,26 +37,13 @@ $(document).ready(function () {
             $(document).trigger('NAVSTATE_CHANGE');
         });
 
-        $('.navbar__link--login').click(function (e) {
-            e.preventDefault();
+        $menu.click(function (e) {
+            var $target = $(e.target);
 
-            var toast = new ToastService();
-            toast.show({
-                message: 'Login layer'
-            });
-        });
-
-        $(window).resize(debounce(250, function () {
-            updateHeight();
-
-            if (closed) {
-                hideMenu(true);
-
-            } else {
-                showMenu(true);
+            if (!$target.parents('.cart-layer__inner').size() && !$target.hasClass('cart-layer__inner')) {
+                hideMenu();
             }
-        }));
-
+        });
 
         function hideMenu (disableTransition) {
             if (typeof disableTransition === 'boolean' && disableTransition) {
@@ -59,8 +52,9 @@ $(document).ready(function () {
 
             closed = true;
             $menu.css({
-                'margin-top': -height
+                'margin-top': - (height + 30)
             });
+            $menu.removeClass('cart-layer--open');
 
             setTimeout(function () {
                 $menu.addClass('js-processed');
@@ -79,6 +73,7 @@ $(document).ready(function () {
             $menu.css({
                 'margin-top': 0
             });
+            $menu.addClass('cart-layer--open');
 
             setTimeout(function () {
                 $menu.addClass('js-processed');
