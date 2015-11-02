@@ -1,0 +1,29 @@
+#!/bin/bash
+#
+# *** spryker deployment
+#
+# initialize_search
+# This script is executed on tools host after performing migrations.
+# It should perform search mapping transformations.
+#
+#
+
+#Exit if a command exits with a non-zero status
+set -e
+
+#Exit if an uninitialised variable is used
+set -o nounset
+
+FILEPATH=`pwd`/$0
+BASEDIR=`dirname $FILEPATH`
+source "$BASEDIR/vars"
+source "$BASEDIR/functions"
+
+cd "$destination_release_dir"
+
+# Initialize search (create search mapping)
+echo "Initialize search mapping for $APPLICATION_STORE"
+vendor/bin/console setup:search
+return=$?
+
+exit $return

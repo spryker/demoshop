@@ -1,0 +1,154 @@
+#!/bin/bash
+#
+# *** spryker deployment
+#
+# configure_shared_links
+# This script is executed only on a deployment host (as user root), after checking out code from scm repository.
+# It should create links to shared directories, as well as any other links (configuration, data).
+# If any type of code building is needed (like fetching external libraries or compling), it should be done here.
+#
+# This script should write only to $deploy_source_dir
+# Contents of $deploy_source_dir will be afterwards put into tarball and distributed among all application hosts.
+#
+
+#Exit if a command exits with a non-zero status
+set -e
+
+#Exit if an uninitialised variable is used
+set -o nounset
+
+FILEPATH=`pwd`/$0; BASEDIR=`dirname $FILEPATH`; source $BASEDIR/vars; source $BASEDIR/functions
+outfile=`mktemp /tmp/deploy-XXXXXX`
+
+cd $deploy_source_dir
+size=`du -sh . | awk '{print $1}'`
+echo "Source code revision: ${revision}, size: ${size}B - starting build process:"
+
+if is_default_store; then
+  rm -rf data
+  ln -sf "$shared_dir/data" data
+  rm -rf "src/Generated"
+  rm -f "config/Shared/config_local.php"
+  ln -sf "$shared_dir/config_local.php" "config/Shared/config_local.php"
+
+  #ln -sf $shared_dir/data/static static/public/Zed/static
+fi
+
+rm -f "config/config_local_${APPLICATION_STORE}.php"
+ln -sf "$shared_dir/config_local_${APPLICATION_STORE}.php" "config/Shared/config_local_${APPLICATION_STORE}.php"
+rm -f "config/Shared/console_env_local.php"
+ln -sf "$shared_dir/console_env_local.php" "config/Shared/console_env_local.php"
+
+### Composer
+if is_default_store; then
+  echo " - composer install"
+  # Prepare and get cache contents
+  composer_cache_dir="$deploy_dir/${environment}/vendor"
+  [ ! -d $composer_cache_dir ] && mkdir -p "$composer_cache_dir"
+  cp -r --reflink=auto "$composer_cache_dir" ./
+
+  php -d "newrelic.appname='Deploy($environment)'" composer.phar self-update &> /dev/null
+  if [ "${environment}" == "production" ]; then
+    php -d "newrelic.appname='Deploy($environment)'" composer.phar install -o --no-dev || exit 1
+  else
+    php -d "newrelic.appname='Deploy($environment)'" composer.phar install -o || exit 1
+  fi
+
+  # rsync current vendor back to the cache
+  rsync -ra --delete "vendor/" "$composer_cache_dir/"
+
+  # remove .git dirs from vendor folder to make it smaller
+  find "vendor/" -type d -name .git | xargs rm -rf
+fi
+
+## Get "Generated" dir from cache
+if is_default_store; then
+  generated_cache_dir="$deploy_dir/${environment}/Generated"
+  [ ! -d $generated_cache_dir ] && mkdir -p "$generated_cache_dir"
+  cp -r --reflink=auto "$generated_cache_dir" "src/"
+  rm -rf "src/Generated/Propel"
+fi
+
+chown -R ${deploy_user}. .
+
+
+
+echo "Generate transfers .."
+APPLICATION_ENV=${environment} vendor/bin/build-class-map
+APPLICATION_ENV=${environment} vendor/bin/console transfer:generate
+
+
+## Generate Code
+if is_default_store; then
+  echo " - generating propel config code"
+  APPLICATION_ENV=$environment php -d "newrelic.appname='Deploy($environment)'" vendor/bin/console setup:propel:config:convert &> $outfile
+  if [ $? -ne 0 ]; then
+    echo "!!! FATAL: There was an error in console setup:generate"
+    cat $outfile
+    exit 2
+  fi
+  APPLICATION_ENV=${environment} vendor/bin/console setup:propel:pg-sql-compat
+
+  echo " - copy propel schemata"
+  APPLICATION_ENV=$environment php -d "newrelic.appname='Deploy($environment)'" vendor/bin/console setup:propel:schema:copy &> $outfile
+  if [ $? -ne 0 ]; then
+    echo "!!! FATAL: There was an error in console setup:generate"
+    cat $outfile
+    exit 2
+  fi
+
+  echo " - building propel entities and queries"
+  APPLICATION_ENV=$environment php -d "newrelic.appname='Deploy($environment)'" vendor/bin/console setup:propel:model:build &> $outfile
+  if [ $? -ne 0 ]; then
+    echo "!!! FATAL: There was an error in console setup:generate"
+    cat $outfile
+    exit 2
+  fi
+fi
+
+### Save the "Generated" dir back in cache
+if is_default_store; then
+  rsync -ra --delete src/Generated/ $generated_cache_dir
+fi
+
+### node.js, Grunt
+if is_default_store; then
+  echo " - node.js package manager"
+  if [ -z `which npm` ]; then
+    echo "Warning: npm not available. Node.js and npm is required for grunt."
+    exit 1
+  fi
+
+  # Prepare and get cache contents
+  npm_cache_dir=$deploy_dir/${environment}/node_modules
+  [ ! -d $npm_cache_dir ] && mkdir -p $npm_cache_dir
+  cp -r --reflink=auto $npm_cache_dir ./
+
+  # Install node dependencies
+  export PATH=${PATH}:/var/lib/gems/1.8/bin
+  npm install -d --silent # >> /dev/null || exit 1
+#  [ -z `which grunt` ] && npm install -g grunt-cli
+#
+  # rsync node_modules back to cache
+  rsync -ra --delete node_modules/ $npm_cache_dir
+
+  echo "NPM install .."
+  APPLICATION_ENV=${environment} vendor/bin/console code:npm --build-all
+#
+#  echo " - gulp dist: Zed"
+#  [ -z `which gulp` ] && npm install -g gulp
+#  # ??? pushd ./vendor/spryker/zed-package
+#  npm install --silent
+#  gulp
+#  # ??? popd
+#  APPLICATION_STORE=${APPLICATION_STORE} APPLICATION_ENV=${environment} gulp dist -gulpfile config/Yves/Gulpfile.js >> $outfile
+#  APPLICATION_STORE=${APPLICATION_STORE} APPLICATION_ENV=${environment} gulp dist -gulpfile config/Zed/Gulpfile.js >> $outfile
+#  APPLICATION_STORE=${APPLICATION_STORE} APPLICATION_ENV=${environment} gulp dist -gulpfile vendor/spryker/spryker/Bundles/Ui >> $outfile
+fi
+
+
+
+
+### Allright, no error, deployment continues.
+rm -f $outfile
+exit 0

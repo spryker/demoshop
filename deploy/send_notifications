@@ -1,0 +1,37 @@
+#!/bin/bash
+#
+# *** spryker deployment
+#
+# send_notifications
+# This script is executed on tools host after deployment.
+#
+
+#Exit if a command exits with a non-zero status
+set -e
+
+#Exit if an uninitialised variable is used
+set -o nounset
+
+FILEPATH=`pwd`/$0; BASEDIR=`dirname $FILEPATH`; source $BASEDIR/vars; source $BASEDIR/functions
+outfile=`mktemp /tmp/deploy-XXXXXX`
+
+### Newrelic notifications
+for APP in Yves Zed; do
+  app_name="$APP(${environment})"
+
+  echo "Send deployment notification to New Relic for $app_name"
+  vendor/bin/console newrelic:deployment "$app_name" "$deploy_user" "$revision" "$scm_path" "$changelog" | grep '<error>' | sed 's/^/Newrelic API:/'
+done
+
+
+
+### Slack notification
+#if [ "$environemt" == "production" ] && [ -n $slack_domain ] && [ -n $slack_token ]; then
+#    echo "Debug: https://slack.com/api/chat.postMessage?token=$slack_token&channel=$slack_channel&text=Finished deployment of $scm_path to $environment ($revision: $deploy_user, `hostname`)"
+#    curl -X GET "https://slack.com/api/chat.postMessage?token=$slack_token&channel=$slack_channel&text=Finished deployment of $scm_path to $environment ($revision: $deploy_user, `hostname`)"
+#else
+#    echo "Slack Notification disabled"
+#fi
+
+rm -f "$outfile"
+exit 0

@@ -1,0 +1,32 @@
+#!/bin/bash
+#
+# *** spryker deployment
+#
+# initialize_database
+# This script is executed on tools host after performing migrations.
+# It should perform database content transformations if they are needed (for example, initialize empty database).
+# This script MUST NOT destroy the existing database contents, it's executed on each deployment!
+#
+#
+
+#Exit if a command exits with a non-zero status
+set -e
+
+#Exit if an uninitialised variable is used
+set -o nounset
+
+FILEPATH=`pwd`/$0
+BASEDIR=`dirname $FILEPATH`
+source "$BASEDIR/vars"
+source "$BASEDIR/functions"
+outfile=`mktemp /tmp/deploy-diff-XXXXXX`
+
+cd "$destination_release_dir"
+
+# Initialize database (fill in default values)
+echo "Initialize database with default values (incl. state machine states) for $APPLICATION_STORE"
+vendor/bin/console setup:init-db
+return=$?
+
+rm -f $outfile
+exit $return

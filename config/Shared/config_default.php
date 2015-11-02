@@ -332,3 +332,4 @@ $config[PayolutionConfigConstants::TRANSACTION_CHANNEL_SYNC] = 'ff80808138e15f1f
 $config[PayolutionConfigConstants::TRANSACTION_CHANNEL_PRE_CHECK] = 'ff8080813b227bf4013b3d661a7c0f86';
 $config[PayolutionConfigConstants::DEFAULT_TIMEOUT] = 45;
 
+$config[\SprykerFeature\Shared\NewRelic\NewRelicConfig::NEWRELIC_API_KEY] = null;
