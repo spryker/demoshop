@@ -49,8 +49,8 @@ var addCoupon = function (event) {
         }
     ).done(function(data) {
             $cartSection.html(data);
+            initValidation();
             $useCouponButton.prop('disabled', false);
-            $useCouponButton.click(addCoupon);
             console.log(addCoupon);
     }).fail(function(data) {
             console.log('[ERROR] ');
