@@ -2,8 +2,10 @@
 
 namespace Pyz\Zed\OrderExporter\Business\Model;
 
-use Generated\Shared\Transfer\AfterbuyResponseTransfer;
+use Generated\Shared\Transfer\AfterbuyExportTransfer;
 use Pyz\Zed\OrderExporter\Persistence\Propel\PdAfterbuyResponse;
+use Pyz\Zed\OrderExporter\Persistence\Propel\PdSalesOrderItemAfterbuyExport;
+use Generated\Shared\Transfer\SalesOrderItemTransfer;
 
 class AfterbuyResponseWriter implements AfterbuyResponseWriterInterface
 {
@@ -21,20 +23,20 @@ class AfterbuyResponseWriter implements AfterbuyResponseWriterInterface
     }
 
     /**
-     * @param AfterbuyResponseTransfer $afterbuyTransfer
+     * @param AfterbuyExportTransfer $afterbuyTransfer
      * @param $afterbuyResponse
-     * @param $orderId
-     * @return PdAfterbuyResponse
      * @throws \Propel\Runtime\Exception\PropelException
      */
-    public function createAfterbuyResponse(AfterbuyResponseTransfer $afterbuyTransfer, $afterbuyResponse, $orderId)
+    public function createAfterbuyResponse(AfterbuyExportTransfer $afterbuyTransfer, $afterbuyResponse)
     {
         $afterbuyResponseEntity = new PdAfterbuyResponse();
+        $success = false;
 
         if ($this->isValidXmlResponse($afterbuyResponse)) {
             $afterbuyResponse = $this->parseXml($afterbuyResponse);
             if (array_key_exists('success', $afterbuyResponse)) {
                 $afterbuyResponseEntity->setSuccess($afterbuyResponse['success']);
+                $success = true;
             }
 
             if (array_key_exists('errorlist', $afterbuyResponse)) {
@@ -43,15 +45,61 @@ class AfterbuyResponseWriter implements AfterbuyResponseWriterInterface
         }
         $afterbuyResponseEntity
             ->setFullResponse(json_encode($afterbuyResponse))
-            ->setFkOrder($orderId)
             ->setRequest($afterbuyTransfer->getRequest())
             ->setHttpStatusCode($afterbuyTransfer->getHttpStatusCode());
 
         $afterbuyResponseEntity->save();
 
-        $this->mailSender->sendAfterbuyResultMail($afterbuyResponseEntity);
+        $afterbuyTransfer->setAfterbuyResponseId($afterbuyResponseEntity->getIdAfterbuyResponse());
 
-        return $afterbuyResponseEntity;
+        $orderItemAfterbuyResponseEntities = $this->saveOrderItemExport($afterbuyTransfer, $success);
+
+        $this->mailSender->sendAfterbuyResultMail($afterbuyResponseEntity, $orderItemAfterbuyResponseEntities);
+    }
+
+    /**
+     * @param AfterbuyExportTransfer $afterbuyExportTransfer
+     * @param $postVariables
+     * @throws \Propel\Runtime\Exception\PropelException
+     */
+    public function saveAfterbuyResponseMocked(AfterbuyExportTransfer $afterbuyExportTransfer, $postVariables)
+    {
+
+        $afterbuyResponseEntity = new PdAfterbuyResponse();
+        $afterbuyResponseEntity
+            ->setRequest($postVariables)
+            ->setSuccess(true)
+            ->setIsTest(true);
+
+        $afterbuyResponseEntity->save();
+        $afterbuyExportTransfer->setAfterbuyResponseId($afterbuyResponseEntity->getIdAfterbuyResponse());
+        $this->saveOrderItemExport($afterbuyExportTransfer);
+    }
+
+    /**
+     * @param AfterbuyExportTransfer $afterbuyExportTransfer
+     * @param bool $success
+     * @return array
+     * @throws \Propel\Runtime\Exception\PropelException
+     */
+    protected function saveOrderItemExport(AfterbuyExportTransfer $afterbuyExportTransfer, $success = true)
+    {
+        $orderItemAfterbuyResponseEntities = array();
+
+        /** @var SalesOrderItemTransfer $orderItem */
+        foreach ($afterbuyExportTransfer->getOrderItems() as $orderItem) {
+            $orderItemAfterbuyResponseEntity = new PdSalesOrderItemAfterbuyExport();
+            $orderItemAfterbuyResponseEntity
+                ->setFkOrder($afterbuyExportTransfer->getOrderId())
+                ->setFkOrderItem($orderItem->getOrderItemId())
+                ->setFkAfterbuyResponse($afterbuyExportTransfer->getAfterbuyResponseId())
+                ->setSuccess($success);
+            $orderItemAfterbuyResponseEntity->save();
+
+            $orderItemAfterbuyResponseEntities[] = $orderItemAfterbuyResponseEntity;
+        }
+
+        return $orderItemAfterbuyResponseEntities;
     }
 
     /**

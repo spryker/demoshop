@@ -12,7 +12,7 @@ use Orm\Zed\Sales\Persistence\SpySalesOrder;
 /**
  * @link https://confluence.project-a.com/display/PD/Afterbuy+Orders+export
  */
-class OrderExporterManager
+class AfterbuyExportManager
 {
     const AFTERBUY_NEW_ACTION = 'new';
 
@@ -81,8 +81,10 @@ class OrderExporterManager
         $afterBuyInfo = $this->addItemsInfo($orderItems, $afterBuyInfo);
         $postString = $this->buildPostString($afterBuyInfo);
 
-        if ($this->orderExporterConfig->getCurrentSystemEnvironment() == Environment::ENV_PRODUCTION) {
-            $this->sendOrderInfoToAfterBuy($postString, $afterBuyInfo[AfterbuyConstants::SALES_ORDER_ID]);
+        if ($this->orderExporterConfig->getCurrentSystemEnvironment() === Environment::ENV_PRODUCTION) {
+            $this->sendOrderInfoToAfterBuy($postString, $orderItems, $afterBuyInfo[AfterbuyConstants::SALES_ORDER_ID]);
+        } else {
+            $this->afterbuyConnector->mockSendingToAfterbuy($postString, $orderItems, $afterBuyInfo[AfterbuyConstants::SALES_ORDER_ID]);
         }
     }
 
@@ -257,14 +259,12 @@ class OrderExporterManager
 
     /**
      * @param $postVariables
-     * @param $orderId
-     * @return mixed
+     * @param array $orderItems
+     * @param $orderid
      */
-    protected function sendOrderInfoToAfterBuy($postVariables, $orderId)
+    protected function sendOrderInfoToAfterBuy($postVariables, array $orderItems, $orderid)
     {
-        $sendingResult = $this->afterbuyConnector->sendToAfterBuy($postVariables, $orderId);
-
-        return $sendingResult;
+        $this->afterbuyConnector->sendToAfterBuy($postVariables, $orderItems, $orderid);
     }
 
 }

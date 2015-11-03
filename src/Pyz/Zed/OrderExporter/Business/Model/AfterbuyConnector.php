@@ -2,8 +2,10 @@
 
 namespace Pyz\Zed\OrderExporter\Business\Model;
 
-use Generated\Shared\Transfer\AfterbuyResponseTransfer;
+use Generated\Shared\Transfer\AfterbuyExportTransfer;
+use Generated\Shared\Transfer\SalesOrderItemTransfer;
 use Pyz\Zed\OrderExporter\OrderExporterConfig;
+use SprykerFeature\Zed\Sales\Persistence\Propel\SpySalesOrderItem;
 
 class AfterbuyConnector implements AfterbuyConnectorInterface
 {
@@ -37,11 +39,12 @@ class AfterbuyConnector implements AfterbuyConnectorInterface
 
     /**
      * @param $postVariables
-     * @param $orderId
+     * @param array $orderItems
+     * @param int$orderId
      */
-    public function sendToAfterBuy($postVariables, $orderId)
+    public function sendToAfterBuy($postVariables, array $orderItems, $orderId)
     {
-        $afterbuyTransfer = new AfterbuyResponseTransfer();
+        $afterbuyTransfer = new AfterbuyExportTransfer();
         $connection = curl_init();
 
         curl_setopt($connection, CURLOPT_TIMEOUT, $this->afterbuyConnectionTimeout);
@@ -57,8 +60,42 @@ class AfterbuyConnector implements AfterbuyConnectorInterface
         curl_close($connection);
 
         $afterbuyTransfer->setRequest($postVariables);
+        $orderItemTransfers = $this->createOrderItemsTransfer($orderItems);
+        $afterbuyTransfer->setOrderItems($orderItemTransfers);
+        $afterbuyTransfer->setOrderId($orderId);
 
-        $this->afterbuyResponseWriter->createAfterbuyResponse($afterbuyTransfer, $sendingResponse, $orderId);
+        $this->afterbuyResponseWriter->createAfterbuyResponse($afterbuyTransfer, $sendingResponse);
+    }
+
+    /**
+     * @param $postVariables
+     * @param array $orderItems
+     * @param $orderId
+     */
+    public function mockSendingToAfterbuy($postVariables, array $orderItems, $orderId)
+    {
+        $afterbuyTransfer = new AfterbuyExportTransfer();
+        $orderItemTransfers = $this->createOrderItemsTransfer($orderItems);
+        $afterbuyTransfer->setOrderItems($orderItemTransfers);
+        $afterbuyTransfer->setOrderId($orderId);
+        $this->afterbuyResponseWriter->saveAfterbuyResponseMocked($afterbuyTransfer, $postVariables);
+    }
+
+    /**
+     * @param SpySalesOrderItem [] $orderItems
+     * @return array
+     */
+    protected function createOrderItemsTransfer(array $orderItems)
+    {
+        $orderItemTransfers = new \ArrayObject();
+
+        foreach ($orderItems as $orderItem) {
+            $orderItemTransfer = new SalesOrderItemTransfer();
+            $orderItemTransfer->setOrderItemId($orderItem->getIdSalesOrderItem());
+            $orderItemTransfers[] = $orderItemTransfer;
+        }
+
+        return $orderItemTransfers;
     }
 
 }

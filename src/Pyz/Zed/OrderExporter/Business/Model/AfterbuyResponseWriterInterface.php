@@ -2,14 +2,19 @@
 
 namespace Pyz\Zed\OrderExporter\Business\Model;
 
-use Generated\Shared\Transfer\AfterbuyResponseTransfer;
+use Generated\Shared\Transfer\AfterbuyExportTransfer;
 
 interface AfterbuyResponseWriterInterface
 {
     /**
-     * @param AfterbuyResponseTransfer $afterbuyTransfer
+     * @param AfterbuyExportTransfer $afterbuyTransfer
      * @param $afterbuyResponse
-     * @param $orderId
      */
-    public function createAfterbuyResponse(AfterbuyResponseTransfer $afterbuyTransfer, $afterbuyResponse, $orderId);
+    public function createAfterbuyResponse(AfterbuyExportTransfer $afterbuyTransfer, $afterbuyResponse);
+
+    /**
+     * @param AfterbuyExportTransfer $afterbuyTransfer
+     * @param $postVariables
+     */
+    public function saveAfterbuyResponseMocked(AfterbuyExportTransfer $afterbuyTransfer, $postVariables);
 }
