@@ -44,7 +44,7 @@ class Refactor
         $this->copyContentFromProjectToGeneratedFiles();
         $this->updateExtendsInGeneratedFiles();
 
-        $process = new Process('vendor/bin/build-class-map', __DIR__ . '/../');
+        $process = new Process('vendor/bin/build-multiple-core-class-map', __DIR__ . '/../');
         $process->run();
     }
 
@@ -53,7 +53,7 @@ class Refactor
      */
     final private function updatePropel()
     {
-        $process = new Process('vendor/bin/console setup:propel', __DIR__ . '/../');
+        $process = new Process('vendor/bin/pav-console setup:propel', __DIR__ . '/../');
         $process->run();
     }
 
@@ -93,6 +93,7 @@ class Refactor
     {
         $directories = [
             __DIR__ . '/../src/Pyz/Zed/*/Persistence/Propel/Schema/',
+            __DIR__ . '/../vendor/project-a/spryker/Bundles/*/src/*/Zed/*/Persistence/Propel/Schema/',
             __DIR__ . '/../vendor/spryker/spryker/Bundles/*/src/*/Zed/*/Persistence/Propel/Schema/',
         ];
 
@@ -117,6 +118,8 @@ class Refactor
             __DIR__ . '/../src/Pyz/Zed/*/Persistence/Propel/Map/',
             __DIR__ . '/../vendor/spryker/spryker/Bundles/*/src/*/Zed/*/Persistence/Propel/Base/',
             __DIR__ . '/../vendor/spryker/spryker/Bundles/*/src/*/Zed/*/Persistence/Propel/Map/',
+            __DIR__ . '/../vendor/project-a/spryker/Bundles/*/src/*/Zed/*/Persistence/Propel/Base/',
+            __DIR__ . '/../vendor/project-a/spryker/Bundles/*/src/*/Zed/*/Persistence/Propel/Map/',
         ];
         $this->filesystem->remove($this->getFiles($directories));
     }
@@ -156,6 +159,8 @@ class Refactor
             __DIR__ . '/../tests/DataGenerator/',
             __DIR__ . '/../vendor/spryker/spryker/Bundles/*/src/*/Zed/*/',
             __DIR__ . '/../vendor/spryker/spryker/Bundles/*/tests/*/*/Zed/*/',
+            __DIR__ . '/../vendor/project-a/spryker/Bundles/*/src/*/Zed/*/',
+            __DIR__ . '/../vendor/project-a/spryker/Bundles/*/tests/*/*/Zed/*/',
         ];
 
         $files = $this->getFiles($directories, '*.php');
