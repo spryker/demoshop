@@ -8,5 +8,4 @@ use SprykerFeature\Zed\Distributor\Dependency\Facade\DistributorToQueueInterface
 class QueueFacade extends CoreQueueFacade implements
     DistributorToQueueInterface
 {
-
 }
