@@ -12,5 +12,4 @@ interface MailSenderInterface
      * @param PdSalesOrderItemAfterbuyExport [] $orderItemAfterbuyResponseEntity
      */
     public function sendAfterbuyResultMail(PdAfterbuyResponse $afterbuyResponseEntity, array $orderItemAfterbuyResponseEntity);
-
 }
