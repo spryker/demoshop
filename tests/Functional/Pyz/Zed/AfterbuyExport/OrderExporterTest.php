@@ -139,15 +139,6 @@ class OrderExporterTest extends Test
         $this->orderItems[] = $orderItemEntity_2;
     }
 
-    public function testCreateRequest()
-    {
-        $this->orderExporterFacade->exportOrderItems($this->orderItems);
-        foreach ($this->orderItems as $orderItem) {
-            $entity = $this->orderExporterFacade->findOrderItemAfterbuyExportByItemId($orderItem->getIdSalesOrderItem());
-            $this->assertTrue($entity !== null);
-        }
-    }
-
     public function testExportFailed()
     {
         $afterbuyResponse = '<?xml version="1.0" encoding="iso-8859-1" ?> <result><br />
@@ -161,7 +152,7 @@ class OrderExporterTest extends Test
         $afterbuyTransfer
             ->setHttpStatusCode('200')
             ->setRequest('test')
-            ->setOrderItems($this->createOrderItemsTransfer($this->orderItems)) // @TODO think about it
+            ->setOrderItems($this->createOrderItemsTransfer($this->orderItems))
             ->setOrderId($this->orderId);
 
         $mockEmailSender = $this->getMockBuilder('\Pyz\Zed\OrderExporter\Business\Model\MailSender')
@@ -172,7 +163,7 @@ class OrderExporterTest extends Test
 
         $afterbuyResponseWriter = new AfterbuyResponseWriter($mockEmailSender);
 
-        $afterbuyResponseWriter->createAfterbuyResponse($afterbuyTransfer, $afterbuyResponse);
+        $afterbuyResponseWriter->saveAfterbuyResponse($afterbuyTransfer, $afterbuyResponse);
 
         foreach ($this->orderItems as $orderItem) {
             $afterbuyResponseEntity = $this->orderExporterFacade->findOrderItemAfterbuyExportByItemId($orderItem->getIdSalesOrderItem());
@@ -201,7 +192,7 @@ class OrderExporterTest extends Test
         $afterbuyTransfer
             ->setHttpStatusCode('200')
             ->setRequest('test')
-            ->setOrderItems($this->createOrderItemsTransfer($this->orderItems)) // @TODO think about it
+            ->setOrderItems($this->createOrderItemsTransfer($this->orderItems))
             ->setOrderId($this->orderId);
 
         $mockEmailSender = $this->getMockBuilder('\Pyz\Zed\OrderExporter\Business\Model\MailSender')
@@ -212,7 +203,7 @@ class OrderExporterTest extends Test
 
         $afterbuyResponseWriter = new AfterbuyResponseWriter($mockEmailSender);
 
-        $afterbuyResponseWriter->createAfterbuyResponse($afterbuyTransfer, $afterbuyResponse);
+        $afterbuyResponseWriter->saveAfterbuyResponse($afterbuyTransfer, $afterbuyResponse);
 
         foreach ($this->orderItems as $orderItem) {
             $afterbuyResponseEntity = $this->orderExporterFacade->findOrderItemAfterbuyExportByItemId($orderItem->getIdSalesOrderItem());
@@ -229,7 +220,7 @@ class OrderExporterTest extends Test
         $afterbuyTransfer
             ->setHttpStatusCode('200')
             ->setRequest('test')
-            ->setOrderItems($this->createOrderItemsTransfer($this->orderItems)) // @TODO think about it
+            ->setOrderItems($this->createOrderItemsTransfer($this->orderItems))
             ->setOrderId($this->orderId);
 
         $mockEmailSender = $this->getMockBuilder('\Pyz\Zed\OrderExporter\Business\Model\MailSender')
@@ -240,7 +231,7 @@ class OrderExporterTest extends Test
 
         $afterbuyResponseWriter = new AfterbuyResponseWriter($mockEmailSender);
 
-        $afterbuyResponseWriter->createAfterbuyResponse($afterbuyTransfer, $afterbuyResponse);
+        $afterbuyResponseWriter->saveAfterbuyResponse($afterbuyTransfer, $afterbuyResponse);
 
         foreach ($this->orderItems as $orderItem) {
             $afterbuyResponseEntity = $this->orderExporterFacade->findOrderItemAfterbuyExportByItemId($orderItem->getIdSalesOrderItem());
