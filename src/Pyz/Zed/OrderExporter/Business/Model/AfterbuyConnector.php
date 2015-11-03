@@ -64,7 +64,7 @@ class AfterbuyConnector implements AfterbuyConnectorInterface
         $afterbuyTransfer->setOrderItems($orderItemTransfers);
         $afterbuyTransfer->setOrderId($orderId);
 
-        $this->afterbuyResponseWriter->createAfterbuyResponse($afterbuyTransfer, $sendingResponse);
+        $this->afterbuyResponseWriter->saveAfterbuyResponse($afterbuyTransfer, $sendingResponse);
     }
 
     /**

@@ -10,7 +10,7 @@ interface AfterbuyResponseWriterInterface
      * @param AfterbuyExportTransfer $afterbuyTransfer
      * @param $afterbuyResponse
      */
-    public function createAfterbuyResponse(AfterbuyExportTransfer $afterbuyTransfer, $afterbuyResponse);
+    public function saveAfterbuyResponse(AfterbuyExportTransfer $afterbuyTransfer, $afterbuyResponse);
 
     /**
      * @param AfterbuyExportTransfer $afterbuyTransfer

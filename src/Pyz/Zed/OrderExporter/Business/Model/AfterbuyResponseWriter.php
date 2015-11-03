@@ -27,7 +27,7 @@ class AfterbuyResponseWriter implements AfterbuyResponseWriterInterface
      * @param $afterbuyResponse
      * @throws \Propel\Runtime\Exception\PropelException
      */
-    public function createAfterbuyResponse(AfterbuyExportTransfer $afterbuyTransfer, $afterbuyResponse)
+    public function saveAfterbuyResponse(AfterbuyExportTransfer $afterbuyTransfer, $afterbuyResponse)
     {
         $afterbuyResponseEntity = new PdAfterbuyResponse();
         $afterbuyResponseEntity
