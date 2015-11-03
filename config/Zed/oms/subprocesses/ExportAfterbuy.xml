@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<statemachine
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="../process.xsd">
+    <process name="exportAfterbuy">
+        <states>
+            <state name="init export"/>
+            <state name="exported to afterbuy"/>
+            <state name="clarify afterbuy export failed"/>
+        </states>
+
+        <transitions>
+            <transition happy="true" condition="AfterbuyExporter/IsAfterbuyExportSuccessful">
+                <source>init export</source>
+                <target>exported to afterbuy</target>
+                <event>export to afterbuy</event>
+            </transition>
+
+            <transition>
+                <source>init export</source>
+                <target>clarify afterbuy export failed</target>
+                <event>export to afterbuy</event>
+            </transition>
+        </transitions>
+
+        <events>
+            <event name="export to afterbuy" manual="true" command="OrderExporter/ExportOrderItems"/>
+        </events>
+    </process>
+</statemachine>
