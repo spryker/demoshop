@@ -24,7 +24,7 @@
                            <input type="button" value="+" class="spinner__increment cart-increment">
                       </div>
                     </div>
-                    <div class="cart__item-price">{{ (item.totalPrice)|price }}</div>
+                    <div class="cart__item-price">{{ (item.grossPrice * item.quantity)|price }}</div>
                 </div>
             {% endfor %}
         </div>
@@ -35,7 +35,7 @@
             </div>#}
             <div class="cart__total">
               <div class="cart__total-label" colspan="2">{{ 'cart.total'|trans }}</div>
-              <div class="cart__total-price js-cart-total">{{ cart.totals.grandTotal|price }}</div>
+              <div class="cart__total-price js-cart-total">{{ cart.totals.grandTotalWithDiscounts|price }}</div>
             </div>
         {% endif %}
         <a href="{{ url('checkout') }}" class="cart__to-checkout cta">{{ 'cart.checkout'|trans }}</a>
