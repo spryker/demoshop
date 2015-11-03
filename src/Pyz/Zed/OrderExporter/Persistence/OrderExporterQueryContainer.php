@@ -24,7 +24,7 @@ class OrderExporterQueryContainer extends SprykerSalesQueryContainer implements 
         $join = new Join();
 
         $join->addCondition(
-            PdSalesOrderItemAfterbuyExportTableMap::COL_ID_SALES_AFTERBUY_EXPORT,
+            PdSalesOrderItemAfterbuyExportTableMap::COL_FK_AFTERBUY_RESPONSE,
             PdAfterbuyResponseTableMap::COL_ID_AFTERBUY_RESPONSE
         );
 
