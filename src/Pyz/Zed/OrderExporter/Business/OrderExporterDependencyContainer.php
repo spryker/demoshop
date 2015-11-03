@@ -35,6 +35,7 @@ class OrderExporterDependencyContainer extends AbstractBusinessDependencyContain
             $this->getQueryContainer()
         );
     }
+
     /**
      * @return Model\AfterbuyExportManager
      */
