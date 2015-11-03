@@ -60,7 +60,7 @@ class ServiceProviderExtension extends LocatorAwareExtension implements ServiceP
             new SessionServiceProvider(),
             new SecurityServiceProvider(),
             $this->getLocator()->application()->pluginServiceProviderYvesSecurityServiceProvider(),
-            new ExceptionServiceProvider('\\SprykerEngine\\Yves\\Application\\Communication\\Controller\\ExceptionController'),
+            $this->getLocator()->application()->pluginServiceProviderExceptionServiceProvider(),
             new YvesLoggingServiceProvider(new EventJournalClient(), Api::getInstance()),
             new MonologServiceProvider(),
             new CookieServiceProvider(),
