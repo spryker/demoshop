@@ -21,7 +21,9 @@ class OmsDependencyProvider extends SprykerOmsDependencyProvider
      */
     protected function getConditionPlugins(Container $container)
     {
-        return [];
+        return [
+            'AfterbuyExporter/IsAfterbuyExportSuccessful' => $container->getLocator()->omsOrderExporterConnector()->pluginConditionIsAfterbuyExportSuccessful()
+        ];
     }
 
     /**
