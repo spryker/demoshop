@@ -2,10 +2,9 @@
 
 namespace Pyz\Zed\OrderExporter\Persistence;
 
-use Propel\Runtime\ActiveQuery\Join;
+use Propel\Runtime\ActiveQuery\Criteria;
 use Pyz\Zed\OrderExporter\Persistence\Propel\Base\PdSalesOrderItemAfterbuyExportQuery;
 use Pyz\Zed\OrderExporter\Persistence\Propel\Map\PdAfterbuyResponseTableMap;
-use Pyz\Zed\OrderExporter\Persistence\Propel\Map\PdSalesOrderItemAfterbuyExportTableMap;
 use SprykerFeature\Zed\Sales\Persistence\SalesQueryContainer as SprykerSalesQueryContainer;
 
 class OrderExporterQueryContainer extends SprykerSalesQueryContainer implements OrderExporterQueryContainerInterface
@@ -18,19 +17,14 @@ class OrderExporterQueryContainer extends SprykerSalesQueryContainer implements 
      */
     public function queryOrderItemAfterbuyExportByItemId($salesOrderItemId)
     {
-        $query = PdSalesOrderItemAfterbuyExportQuery::create('orderItemAfterbuyExport')
-            ->filterByFkOrderItem($salesOrderItemId);
-
-        $join = new Join();
-
-        $join->addCondition(
-            PdSalesOrderItemAfterbuyExportTableMap::COL_FK_AFTERBUY_RESPONSE,
-            PdAfterbuyResponseTableMap::COL_ID_AFTERBUY_RESPONSE
-        );
-
-        $query->addJoinObject($join,self::GROUP_JOIN);
-
-        return $query;
+        return PdSalesOrderItemAfterbuyExportQuery::create('orderItemAfterbuyExport')
+            ->joinPdAfterbuyResponse()
+            ->withColumn(PdAfterbuyResponseTableMap::COL_IS_TEST, 'isTest')
+            ->withColumn(PdAfterbuyResponseTableMap::COL_REQUEST, 'request')
+            ->withColumn(PdAfterbuyResponseTableMap::COL_FULL_RESPONSE, 'fullResponse')
+            ->withColumn(PdAfterbuyResponseTableMap::COL_ERRORS_LIST, 'errorsList')
+            ->filterByFkOrderItem($salesOrderItemId)
+            ->orderByUpdatedAt(Criteria::DESC);
     }
 
 }
