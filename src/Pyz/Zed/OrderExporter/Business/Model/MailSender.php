@@ -4,6 +4,7 @@ namespace Pyz\Zed\OrderExporter\Business\Model;
 
 use Pyz\Zed\OrderExporter\OrderExporterConfig;
 use Pyz\Zed\OrderExporter\Persistence\Propel\PdAfterbuyResponse;
+use Pyz\Zed\OrderExporter\Persistence\Propel\PdSalesOrderItemAfterbuyExport;
 
 class MailSender implements MailSenderInterface
 {
@@ -16,25 +17,42 @@ class MailSender implements MailSenderInterface
     {
         $this->orderExporterConfig = $orderExporterConfig;
     }
+
     /**
      * @param PdAfterbuyResponse $afterbuyResponseEntity
+     * @param PdSalesOrderItemAfterbuyExport [] $orderItemAfterbuyResponseEntity
      */
-    public function sendAfterbuyResultMail(PdAfterbuyResponse $afterbuyResponseEntity)
+    public function sendAfterbuyResultMail(PdAfterbuyResponse $afterbuyResponseEntity, array $orderItemAfterbuyResponseEntity)
     {
         $success = ($afterbuyResponseEntity->getSuccess() ? 'success' : 'fail');
-
+        $ids = $this->getOrderItemIdFromTransfer($orderItemAfterbuyResponseEntity);
         $to      = $this->getFormattedEmailAddresses();
-        $subject = 'Afterbuy Export Order ID ' . $afterbuyResponseEntity->getFkOrder() . ' - ' . $success;
-        mail($to, $subject, $this->createMailMessage($afterbuyResponseEntity));
+        $subject = 'Afterbuy Export Order Item ID ' . $this->getOrderItemIdFromTransfer($orderItemAfterbuyResponseEntity) . ' - ' . $success;
+        mail($to, $subject, $this->createMailMessage($afterbuyResponseEntity, $ids));
+    }
+
+    /**
+     * @param PdSalesOrderItemAfterbuyExport [] $orderItemAfterbuyResponseEntities
+     * @return string
+     */
+    protected function getOrderItemIdFromTransfer(array $orderItemAfterbuyResponseEntities)
+    {
+        $ids = '';
+        foreach ($orderItemAfterbuyResponseEntities as $orderItemAfterbuyResponseEntity) {
+            $ids .= $orderItemAfterbuyResponseEntity->getFkOrderItem() . ' ';
+        }
+
+        return $ids;
     }
 
     /**
      * @param PdAfterbuyResponse $afterbuyResponse
+     * @param $ids
      * @return string
      */
-    protected function createMailMessage(PdAfterbuyResponse $afterbuyResponse)
+    protected function createMailMessage(PdAfterbuyResponse $afterbuyResponse, $ids)
     {
-        $message  = '<html>Order with Id : <b>' . $afterbuyResponse->getFkOrder() . '</b>';
+        $message  = '<html>Order Items with Id : <b>' . $ids . '</b>';
 
         if ( $afterbuyResponse->getSuccess()) {
             $message .= '<p>Export status : <b>Success</b></p>';
