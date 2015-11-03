@@ -3,18 +3,37 @@
 
     <table name="pd_afterbuy_response" phpName="PdAfterbuyResponse">
         <column name="id_afterbuy_response" type="INTEGER" primaryKey="true" autoIncrement="true"/>
-        <foreign-key foreignTable="spy_sales_order" phpName="SpySalesOrder" refPhpName="PyzAfterbuyResponse">
-            <reference local="fk_order" foreign="id_sales_order"/>
-        </foreign-key>
-        <column name="fk_order" type="INTEGER"/>
         <column name="request" type="LONGVARCHAR"/>
         <column name="success" type="BOOLEAN" />
         <column name="full_response" type="LONGVARCHAR" />
         <column name="errors_list" type="LONGVARCHAR" />
         <column name="http_status_code" type="VARCHAR"/>
+        <column name="is_test" type="BOOLEAN"/>
 
         <behavior name="timestampable"/>
 
-    <id-method-parameter value="spy_afterbuy_response_pk_seq"/></table>
+        <id-method-parameter value="spy_afterbuy_response_pk_seq"/>
+    </table>
+
+    <table name="pd_sales_order_item_afterbuy_export" phpName="PdSalesOrderItemAfterbuyExport">
+        <column name="id_sales_afterbuy_export" type="INTEGER" primaryKey="true" autoIncrement="true"/>
+        <foreign-key foreignTable="spy_sales_order_item" phpName="SpySalesOrderItem" refPhpName="PdSalesOrderItemAfterbuyExport">
+            <reference local="fk_order_item" foreign="id_sales_order_item"/>
+        </foreign-key>
+        <column name="fk_order_item" type="INTEGER"/>
+        <foreign-key foreignTable="spy_sales_order" phpName="SpySalesOrder" refPhpName="PdSalesOrderItemAfterbuyExport">
+            <reference local="fk_order" foreign="id_sales_order"/>
+        </foreign-key>
+        <foreign-key foreignTable="pd_afterbuy_response" phpName="PdAfterbuyResponse" refPhpName="PdSalesOrderItemAfterbuyExport">
+        <reference local="fk_afterbuy_response" foreign="id_afterbuy_response"/>
+        </foreign-key>
+        <column name="fk_afterbuy_response" type="INTEGER"/>
+        <column name="fk_order" type="INTEGER"/>
+        <column name="success" type="BOOLEAN" />
+
+        <behavior name="timestampable"/>
+
+        <id-method-parameter value="spy_sales_order_item_afterbuy_export_pk_seq"/>
+    </table>
 
 </database>
