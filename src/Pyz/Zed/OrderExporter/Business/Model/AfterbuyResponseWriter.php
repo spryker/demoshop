@@ -29,16 +29,13 @@ class AfterbuyResponseWriter implements AfterbuyResponseWriterInterface
      */
     public function createAfterbuyResponse(AfterbuyExportTransfer $afterbuyTransfer, $afterbuyResponse)
     {
-        if ($this->isValidXmlResponse($afterbuyResponse)) {
-            $afterbuyResponse = $this->parseXml($afterbuyResponse);
-        }
-
         $afterbuyResponseEntity = new PdAfterbuyResponse();
         $afterbuyResponseEntity
             ->setFullResponse(json_encode($afterbuyResponse))
             ->setRequest($afterbuyTransfer->getRequest())
             ->setHttpStatusCode($afterbuyTransfer->getHttpStatusCode())
             ->setSuccess($this->getAfterbuyExportStatus($afterbuyResponse))
+            ->setIsTest(false)
             ->setErrorsList($this->getAfterbuyExportErrors($afterbuyResponse));
 
         $afterbuyResponseEntity->save();
