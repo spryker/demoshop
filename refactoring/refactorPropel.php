@@ -53,7 +53,7 @@ class Refactor
      */
     final private function updatePropel()
     {
-        $process = new Process('vendor/bin/console setup:propel', __DIR__ . '/../');
+        $process = new Process('vendor/bin/console propel:install', __DIR__ . '/../');
         $process->run();
     }
 
