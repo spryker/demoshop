@@ -43,14 +43,14 @@ class OrderExporterDependencyContainer extends AbstractBusinessDependencyContain
     {
         return $this->getFactory()->createModelAfterbuyExportManager(
             $this->getConfig(),
-            $this->createAfterBuyConnector()
+            $this->createAfterbuyConnector()
         );
     }
 
     /**
      * @return Model\AfterbuyConnectorInterface
      */
-    public function createAfterBuyConnector()
+    public function createAfterbuyConnector()
     {
         return $this->getFactory()->createModelAfterbuyConnector(
             $this->getConfig(),
