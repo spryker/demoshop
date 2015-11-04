@@ -1,0 +1,32 @@
+#!/bin/bash
+#
+# *** spryker deployment
+#
+# disable_cronjobs
+# This script is executed on tools host (as $www_user user) in order to deactivate cronjobs for deployment time.
+#
+#
+
+#Exit if a command exits with a non-zero status
+set -e
+
+#Exit if an uninitialised variable is used
+set -o nounset
+
+FILEPATH=`pwd`/$0
+BASEDIR=`dirname $FILEPATH`
+source "$BASEDIR/vars"
+source "$BASEDIR/functions"
+outfile=`mktemp /tmp/deploy-XXXXXX`
+
+cd "$destination_release_dir"
+
+### Activate maintenance
+if [ ! -d $destination_current_dir ]; then
+  echo "Host is fresh!"
+  exit
+fi
+APPLICATION_ENV="${environment}" vendor/bin/console setup:jenkins:disable
+
+rm -f "$outfile"
+exit 0
