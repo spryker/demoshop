@@ -4,7 +4,9 @@ namespace Pyz\Zed\MailQueue\Business\Model;
 
 use Generated\Shared\Queue\QueueMessageInterface;
 use Generated\Shared\Transfer\MailTransfer;
+use Generated\Shared\Transfer\QueueMessageTransfer;
 use Pyz\Zed\MailQueue\Business\MailQueueFacade;
+use Pyz\Zed\MailQueue\MailQueueConfig;
 
 class MailQueueManager implements MailQueueManagerInterface
 {
@@ -27,9 +29,10 @@ class MailQueueManager implements MailQueueManagerInterface
      *
      * @return void
      */
-    public function processMailMessage(QueueMessageInterface $queueMessage)
+    public function processMailMessageFromQueue(QueueMessageInterface $queueMessage)
     {
         $mailTransfer = $queueMessage->getPayload();
+
         die(dump('processMailMessage', $mailTransfer));
         $this->mailQueueFacade->sendMail($mailTransfer);
     }
@@ -39,9 +42,12 @@ class MailQueueManager implements MailQueueManagerInterface
      *
      * @return void
      */
-    public function sendQueuedMail(MailTransfer $mailTransfer)
+    public function sendEmailToQueue(MailTransfer $mailTransfer)
     {
-        die(dump('sendQueuedMail', $mailTransfer));
+        $queueMessage = new QueueMessageTransfer();
+        $queueMessage->setPayload($mailTransfer->toArray());
+
+        $this->mailQueueFacade->publishMessage(MailQueueConfig::QUEUE_NAME, $queueMessage);
     }
 
 }

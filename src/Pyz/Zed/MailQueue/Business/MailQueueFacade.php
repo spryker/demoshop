@@ -4,6 +4,7 @@ namespace Pyz\Zed\MailQueue\Business;
 
 use Generated\Shared\Queue\QueueMessageInterface;
 use Generated\Shared\Transfer\MailTransfer;
+use Generated\Shared\Transfer\QueueMessageTransfer;
 use SprykerEngine\Zed\Kernel\Business\AbstractFacade;
 
 /**
@@ -21,7 +22,7 @@ class MailQueueFacade extends AbstractFacade
     {
         $this->getDependencyContainer()
             ->createMailQueueManager()
-            ->processMailMessage($queueMessage)
+            ->processMailMessageFromQueue($queueMessage)
         ;
     }
 
@@ -30,24 +31,38 @@ class MailQueueFacade extends AbstractFacade
      *
      * @return void
      */
-    public function sendMail(MailTransfer $mailTransfer)
+    public function sendEmailToQueue(MailTransfer $mailTransfer)
     {
         $this->getDependencyContainer()
+            ->createMailQueueManager()
+            ->sendEmailToQueue($mailTransfer)
+        ;
+    }
+
+    /**
+     * @param MailTransfer $mailTransfer
+     *
+     * @return array
+     */
+    public function sendMail(MailTransfer $mailTransfer)
+    {
+        return $this->getDependencyContainer()
             ->createMailFacade()
             ->sendMail($mailTransfer)
         ;
     }
 
     /**
-     * @param MailTransfer $mailTransfer
+     * @param string $queueName
+     * @param QueueMessageTransfer $queueMessage
      *
      * @return void
      */
-    public function sendQueuedMail(MailTransfer $mailTransfer)
+    public function publishMessage($queueName, QueueMessageTransfer $queueMessage)
     {
         $this->getDependencyContainer()
-            ->createMailQueueManager()
-            ->sendQueuedMail($mailTransfer)
+            ->createQueueFacade()
+            ->publishMessage($queueName, $queueMessage)
         ;
     }
 

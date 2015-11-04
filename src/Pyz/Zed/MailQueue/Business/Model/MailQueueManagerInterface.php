@@ -11,13 +11,13 @@ interface MailQueueManagerInterface
     /**
      * @param QueueMessageInterface $queueMessage
      */
-    public function processMailMessage(QueueMessageInterface $queueMessage);
+    public function processMailMessageFromQueue(QueueMessageInterface $queueMessage);
 
     /**
      * @param MailTransfer $mailTransfer
      *
      * @return void
      */
-    public function sendQueuedMail(MailTransfer $mailTransfer);
+    public function sendEmailToQueue(MailTransfer $mailTransfer);
 
 }

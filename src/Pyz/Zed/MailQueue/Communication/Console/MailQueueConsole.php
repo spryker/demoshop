@@ -6,6 +6,7 @@ use Generated\Shared\Transfer\MailRecipientTransfer;
 use Generated\Shared\Transfer\MailTransfer;
 use Pyz\Zed\MailQueue\Business\MailQueueFacade;
 use Pyz\Zed\MailQueue\Communication\MailQueueDependencyContainer;
+use Pyz\Zed\MailQueue\MailQueueConfig;
 use SprykerFeature\Zed\Console\Business\Model\Console;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
@@ -17,9 +18,8 @@ use Symfony\Component\Console\Output\OutputInterface;
 class MailQueueConsole extends Console
 {
 
-    const QUEUE_NAME = 'sample_queue_email';
-    const COMMAND_NAME = 'mailqueue:sample';
-    const COMMAND_DESCRIPTION = 'send sample queued email';
+    const COMMAND_NAME = 'mailqueue:registration:send';
+    const COMMAND_DESCRIPTION = 'Send sample registration email using Queue';
 
     protected function configure()
     {
@@ -39,14 +39,15 @@ class MailQueueConsole extends Console
     {
         $mailTransfer = new MailTransfer();
         $mailRecipientTransfer = new MailRecipientTransfer();
-        $mailRecipientTransfer->setEmail('test@demoshop');
+        //$mailRecipientTransfer->setEmail('test@demoshop');
+        $mailRecipientTransfer->setEmail('oliwier.ptak@spryker.com');
 
         $mailTransfer->addRecipient($mailRecipientTransfer);
         $mailTransfer->setFromEmail('registration@demoshop');
         $mailTransfer->setSubject('Sample Registration E-mail');
         $mailTransfer->setTemplateName('MailQueue.email.registration');
 
-        $this->getFacade()->sendQueuedMail($mailTransfer);
+        $this->getFacade()->sendEmailToQueue($mailTransfer);
     }
 
     /**
@@ -54,21 +55,7 @@ class MailQueueConsole extends Console
      */
     protected function getQueueName()
     {
-        return sprintf(
-            '%s.%s',
-            $this->getStoreId(),
-            self::QUEUE_NAME
-        );
-    }
-
-    /**
-     * @return string
-     */
-    protected function getStoreId()
-    {
-        return $this->getDependencyContainer()
-            ->getCurrentStore()
-            ->getCurrentCountry();
+        return MailQueueConfig::QUEUE_NAME;
     }
 
 }
