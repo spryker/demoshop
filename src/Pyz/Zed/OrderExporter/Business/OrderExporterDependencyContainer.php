@@ -43,7 +43,7 @@ class OrderExporterDependencyContainer extends AbstractBusinessDependencyContain
     {
         return $this->getFactory()->createModelAfterbuyExportManager(
             $this->getConfig(),
-            $this->createAfterbuyConnector()
+            $this->getAfterbuyConnector()
         );
     }
 
@@ -55,6 +55,17 @@ class OrderExporterDependencyContainer extends AbstractBusinessDependencyContain
         return $this->getFactory()->createModelAfterbuyConnector(
             $this->getConfig(),
             $this->createAfterbuyResponseWriter()
+        );
+    }
+
+    /**
+     * @return Model\AfterbuyConnectorInterface
+     */
+    public function createAfterbuyConnectorProduction()
+    {
+        return $this->getFactory()->createModelAfterbuyConnectorProduction(
+            $this->getConfig(),
+            $this->createAfterbuyResponseWriterProduction()
         );
     }
 
@@ -73,8 +84,28 @@ class OrderExporterDependencyContainer extends AbstractBusinessDependencyContain
      */
     public function createAfterbuyResponseWriter()
     {
-        return $this->getFactory()->createModelAfterbuyResponseWriter(
+        return $this->getFactory()->createModelAfterbuyResponseWriter();
+    }
+
+    /**
+     * @return AfterbuyResponseWriterInterface
+     */
+    public function createAfterbuyResponseWriterProduction()
+    {
+        return $this->getFactory()->createModelAfterbuyResponseWriterProduction(
             $this->createMailSender()
         );
+    }
+
+    /**
+     * @return Model\AfterbuyConnectorInterface
+     */
+    protected function getAfterbuyConnector()
+    {
+        if ($this->getConfig()->getIsExportEnabled()) {
+            return $this->createAfterbuyConnectorProduction();
+        }
+
+        return $this->createAfterbuyConnector();
     }
 }
