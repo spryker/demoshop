@@ -27,19 +27,19 @@ class MailSender implements MailSenderInterface
         $success = ($afterbuyResponseEntity->getSuccess() ? 'success' : 'fail');
         $ids = $this->getOrderItemIdFromTransfer($orderItemAfterbuyResponseEntity);
         $to      = $this->getFormattedEmailAddresses();
-        $subject = 'Afterbuy Export Order Item ID ' . $this->getOrderItemIdFromTransfer($orderItemAfterbuyResponseEntity) . ' - ' . $success;
+        $subject = 'Afterbuy Export ' . $success . ' order Item ID ' . implode('-', $ids);
         mail($to, $subject, $this->createMailMessage($afterbuyResponseEntity, $ids));
     }
 
     /**
      * @param PdSalesOrderItemAfterbuyExport [] $orderItemAfterbuyResponseEntities
-     * @return string
+     * @return array
      */
     protected function getOrderItemIdFromTransfer(array $orderItemAfterbuyResponseEntities)
     {
-        $ids = '';
+        $ids = array();
         foreach ($orderItemAfterbuyResponseEntities as $orderItemAfterbuyResponseEntity) {
-            $ids .= $orderItemAfterbuyResponseEntity->getFkOrderItem() . ' ';
+            $ids[] = $orderItemAfterbuyResponseEntity->getFkOrderItem();
         }
 
         return $ids;
@@ -52,7 +52,8 @@ class MailSender implements MailSenderInterface
      */
     protected function createMailMessage(PdAfterbuyResponse $afterbuyResponse, $ids)
     {
-        $message  = '<html>Order Items with Id : <b>' . $ids . '</b>';
+        $message = '<html>';
+        $message .= '<body>';
 
         if ( $afterbuyResponse->getSuccess()) {
             $message .= '<p>Export status : <b>Success</b></p>';
@@ -60,7 +61,25 @@ class MailSender implements MailSenderInterface
             $message .= '<p>Export status : <b>Fail</b></p>';
             $message .= '<p>Errors : ' . $afterbuyResponse->getErrorsList() . '</p>';
         }
-        $message .= '<p>Request sent : ' . $afterbuyResponse->getRequest() . '</p></html>';
+        $message  .= $this->addItemsListToMessage($ids);
+        $message .= '<p>Request sent : ' . $afterbuyResponse->getRequest() . '</p>';
+        $message .= '</body>';
+        $message .= '</html>';
+
+        return $message;
+    }
+
+    /**
+     * @param array $ids
+     * @return string
+     */
+    protected function addItemsListToMessage(array $ids)
+    {
+        $message = '<ul>';
+        foreach ($ids as $id) {
+            $message .= '<li>' . $id . '</li>';
+        }
+        $message .= '</ul>';
 
         return $message;
     }
