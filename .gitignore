@@ -62,6 +62,9 @@ mkmf.log
 /src/*/Zed/*/Persistence/Propel/Base/*
 /src/*/Zed/*/Persistence/Propel/Map/*
 
+/src/Orm/Zed/*/Persistence/Base
+/src/Orm/Zed/*/Persistence/Map
+
 # Factory Class Map
 .class_map
 
