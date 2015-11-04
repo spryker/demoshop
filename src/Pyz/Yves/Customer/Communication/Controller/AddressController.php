@@ -29,7 +29,7 @@ class AddressController extends AbstractController
     {
         $addressId = $request->query->get('id');
         if (!$addressId) {
-            $this->addMessageError(Messages::CUSTOMER_ADDRESS_UNKNOWN);
+            $this->addErrorMessage(Messages::CUSTOMER_ADDRESS_UNKNOWN);
 
             return $this->redirectResponseInternal(CustomerControllerProvider::ROUTE_CUSTOMER_PROFILE);
         }
@@ -43,11 +43,11 @@ class AddressController extends AbstractController
             $addressTransfer->setIdCustomerAddress($addressId);
             $addressTransfer = $this->getLocator()->customer()->client()->updateAddress($addressTransfer);
             if ($addressTransfer) {
-                $this->addMessageSuccess(Messages::CUSTOMER_ADDRESS_UPDATED);
+                $this->addSuccessMessage(Messages::CUSTOMER_ADDRESS_UPDATED);
 
                 return $this->redirectResponseInternal(CustomerControllerProvider::ROUTE_CUSTOMER_PROFILE);
             }
-            $this->addMessageError(Messages::CUSTOMER_ADDRESS_NOT_ADDED);
+            $this->addErrorMessage(Messages::CUSTOMER_ADDRESS_NOT_ADDED);
 
             return $this->redirectResponseInternal(CustomerControllerProvider::ROUTE_CUSTOMER_ADDRESS);
         }
@@ -57,7 +57,7 @@ class AddressController extends AbstractController
         $addressTransfer->setIdCustomerAddress($addressId);
         $addressTransfer = $this->getLocator()->customer()->client()->getAddress($addressTransfer);
         if (!$addressTransfer) {
-            $this->addMessageError(Messages::CUSTOMER_ADDRESS_UNKNOWN);
+            $this->addErrorMessage(Messages::CUSTOMER_ADDRESS_UNKNOWN);
 
             return $this->redirectResponseInternal(CustomerControllerProvider::ROUTE_CUSTOMER_PROFILE);
         }
@@ -79,11 +79,11 @@ class AddressController extends AbstractController
             $addressTransfer->setEmail($this->getUsername());
             $addressTransfer = $this->getLocator()->customer()->client()->newAddress($addressTransfer);
             if ($addressTransfer) {
-                $this->addMessageSuccess(Messages::CUSTOMER_ADDRESS_ADDED);
+                $this->addSuccessMessage(Messages::CUSTOMER_ADDRESS_ADDED);
 
                 return $this->redirectResponseInternal(CustomerControllerProvider::ROUTE_CUSTOMER_PROFILE);
             }
-            $this->addMessageError(Messages::CUSTOMER_ADDRESS_NOT_ADDED);
+            $this->addErrorMessage(Messages::CUSTOMER_ADDRESS_NOT_ADDED);
 
             return $this->redirectResponseInternal(CustomerControllerProvider::ROUTE_CUSTOMER_NEW_ADDRESS);
         }
@@ -107,18 +107,18 @@ class AddressController extends AbstractController
             $addressTransfer->setEmail($this->getUsername());
             $deletion = $this->getLocator()->customer()->client()->deleteAddress($addressTransfer);
             if ($deletion->isSuccess()) {
-                $this->addMessageSuccess(Messages::CUSTOMER_ADDRESS_DELETE_SUCCESS);
+                $this->addSuccessMessage(Messages::CUSTOMER_ADDRESS_DELETE_SUCCESS);
             } else {
-                $this->addMessageError(Messages::CUSTOMER_ADDRESS_DELETE_FAILED);
+                $this->addErrorMessage(Messages::CUSTOMER_ADDRESS_DELETE_FAILED);
             }
             $addressTransfer = new CustomerAddressTransfer();
             $addressTransfer->setIdCustomerAddress($request->query->get('id'));
             $addressTransfer->setEmail($this->getUsername());
             $deletion = $this->getLocator()->customer()->client()->deleteAddress($addressTransfer);
             if ($deletion->isSuccess()) {
-                $this->addMessageSuccess(Messages::CUSTOMER_ADDRESS_DELETE_SUCCESS);
+                $this->addSuccessMessage(Messages::CUSTOMER_ADDRESS_DELETE_SUCCESS);
             } else {
-                $this->addMessageError(Messages::CUSTOMER_ADDRESS_DELETE_FAILED);
+                $this->addErrorMessage(Messages::CUSTOMER_ADDRESS_DELETE_FAILED);
             }
         }
 
