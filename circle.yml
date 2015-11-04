@@ -29,4 +29,5 @@ test:
 # Bundles have tons of duplicates so build will always fail
 #   - phpcpd vendor/spryker/spryker/Bundles -n
     - vendor/bin/build-class-map
+    - vendor/bin/codecept build
     - vendor/bin/console application:integration-check
