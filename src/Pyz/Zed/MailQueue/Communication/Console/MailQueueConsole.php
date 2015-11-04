@@ -6,7 +6,6 @@ use Generated\Shared\Transfer\MailRecipientTransfer;
 use Generated\Shared\Transfer\MailTransfer;
 use Pyz\Zed\MailQueue\Business\MailQueueFacade;
 use Pyz\Zed\MailQueue\Communication\MailQueueDependencyContainer;
-use Pyz\Zed\MailQueue\MailQueueConfig;
 use SprykerFeature\Zed\Console\Business\Model\Console;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
@@ -39,23 +38,15 @@ class MailQueueConsole extends Console
     {
         $mailTransfer = new MailTransfer();
         $mailRecipientTransfer = new MailRecipientTransfer();
-        //$mailRecipientTransfer->setEmail('test@demoshop');
-        $mailRecipientTransfer->setEmail('oliwier.ptak@spryker.com');
+        $mailRecipientTransfer->setEmail('info@spryker.com');
+
 
         $mailTransfer->addRecipient($mailRecipientTransfer);
-        $mailTransfer->setFromEmail('registration@demoshop');
+        $mailTransfer->setFromEmail('info@spryker.com');
         $mailTransfer->setSubject('Sample Registration E-mail');
-        $mailTransfer->setTemplateName('MailQueue.email.registration');
+        $mailTransfer->setTemplateName('test');
 
         $this->getFacade()->sendEmailToQueue($mailTransfer);
-    }
-
-    /**
-     * @return string
-     */
-    protected function getQueueName()
-    {
-        return MailQueueConfig::QUEUE_NAME;
     }
 
 }

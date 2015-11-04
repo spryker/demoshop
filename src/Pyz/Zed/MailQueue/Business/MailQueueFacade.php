@@ -66,4 +66,16 @@ class MailQueueFacade extends AbstractFacade
         ;
     }
 
+    /**
+     * @return string
+     */
+    public function getQueueName()
+    {
+        return sprintf(
+            '%s.%s',
+            $this->getDependencyContainer()->getCurrentStore()->getCurrentCountry(),
+            'mail.queue'
+        );
+    }
+
 }

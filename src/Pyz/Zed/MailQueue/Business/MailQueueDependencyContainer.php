@@ -6,6 +6,7 @@ use Generated\Zed\Ide\FactoryAutoCompletion\MailQueueBusiness;
 use Pyz\Zed\MailQueue\Business\Model\MailQueueManagerInterface;
 use Pyz\Zed\MailQueue\MailQueueDependencyProvider;
 use Pyz\Zed\Queue\Business\QueueFacade;
+use SprykerEngine\Shared\Kernel\Store;
 use SprykerEngine\Zed\Kernel\Business\AbstractBusinessDependencyContainer;
 use SprykerFeature\Zed\Mail\Business\MailFacade;
 
@@ -53,6 +54,14 @@ class MailQueueDependencyContainer extends AbstractBusinessDependencyContainer
     public function createMailQueueFacade()
     {
         return $this->getProvidedDependency(MailQueueDependencyProvider::MAIL_QUEUE_FACADE);
+    }
+
+    /**
+     * @return Store
+     */
+    public function getCurrentStore()
+    {
+        return Store::getInstance();
     }
 
 }

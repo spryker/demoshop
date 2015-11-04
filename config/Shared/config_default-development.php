@@ -59,12 +59,3 @@ $config[ApplicationConfig::SET_REPEAT_DATA] = true;
 $config[ApplicationConfig::SHOW_SYMFONY_TOOLBAR] = true;
 $config[ApplicationConfig::STORE_PREFIX] = 'DEV';
 $config[ApplicationConfig::SHOW_SYMFONY_TOOLBAR] = true;
-
-/*
- * RabbitMQ
- */
-$config[SystemConfig::ZED_RABBITMQ_USERNAME] = 'test';
-$config[SystemConfig::ZED_RABBITMQ_PASSWORD] = 'test';
-$config[SystemConfig::ZED_RABBITMQ_HOST] = 'localhost';
-$config[SystemConfig::ZED_RABBITMQ_PORT] = 5672;
-$config[SystemConfig::ZED_RABBITMQ_VHOST] = '/DE_development_zed';

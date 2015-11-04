@@ -16,8 +16,6 @@ class MailQueueTaskWorkerPlugin extends AbstractPlugin implements
     TaskPluginInterface
 {
 
-    const REGISTRATION_EMAIL = 'registration_email';
-
     /**
      * @return string
      */
@@ -31,11 +29,7 @@ class MailQueueTaskWorkerPlugin extends AbstractPlugin implements
      */
     public function getQueueName()
     {
-        return sprintf(
-            '%s.%s',
-            $this->getStoreId(),
-            self::REGISTRATION_EMAIL
-        );
+        return $this->getFacade()->getQueueName();
     }
 
     /**
@@ -44,17 +38,6 @@ class MailQueueTaskWorkerPlugin extends AbstractPlugin implements
     public function run(QueueMessageInterface $queueMessage)
     {
         $this->getFacade()->processEmailMessage($queueMessage);
-    }
-
-    /**
-     * @return string
-     */
-    protected function getStoreId()
-    {
-        return $this->getDependencyContainer()
-            ->getCurrentStore()
-            ->getCurrentCountry()
-        ;
     }
 
 }
