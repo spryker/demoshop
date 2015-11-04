@@ -27,7 +27,7 @@ use SprykerFeature\Zed\SequenceNumber\Business\SequenceNumberFacade;
 /**
  * @group AfterbuyTest
  */
-class OrderExporterMockedTest extends Test
+class AfterbuyExportTest extends Test
 {
     /**
      * @var SpySalesOrderItem []
@@ -155,7 +155,7 @@ class OrderExporterMockedTest extends Test
 
         $afterbuyResponseWriter = new AfterbuyResponseWriter($mockEmailSender);
 
-        $afterbuyResponseWriter->saveAfterbuyResponseMocked($afterbuyTransfer, $afterbuyResponse);
+        $afterbuyResponseWriter->saveAfterbuyResponse($afterbuyTransfer, $afterbuyResponse);
 
         foreach ($this->orderItems as $orderItem) {
             $afterbuyResponseEntity = $this->orderExporterFacade->findOrderItemAfterbuyExportByItemId($orderItem->getIdSalesOrderItem());

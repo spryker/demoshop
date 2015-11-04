@@ -8,6 +8,7 @@ use Functional\SprykerFeature\Zed\Sales\Business\Dependency\OmsFacade;
 use Generated\Shared\Transfer\AfterbuyExportTransfer;
 use Generated\Shared\Transfer\SalesOrderItemTransfer;
 use Pyz\Zed\OrderExporter\Business\Model\AfterbuyResponseWriter;
+use Pyz\Zed\OrderExporter\Business\Model\AfterbuyResponseWriterProduction;
 use Pyz\Zed\OrderExporter\Business\OrderExporterFacade;
 use Pyz\Zed\OrderExporter\OrderExporterDependencyProvider;
 use Pyz\Zed\OrderExporter\Persistence\OrderExporterQueryContainer;
@@ -27,7 +28,7 @@ use SprykerFeature\Zed\SequenceNumber\Business\SequenceNumberFacade;
 /**
  * @group AfterbuyTest
  */
-class OrderExporterTest extends Test
+class AfterbuyExportProductionTest extends Test
 {
     /**
      * @var SpySalesOrderItem []
@@ -37,6 +38,10 @@ class OrderExporterTest extends Test
      * @var OrderExporterFacade
      */
     private $orderExporterFacade;
+    /**
+     * @var AfterbuyResponseWriter
+     */
+    private $afterbuyResponseWriter;
     /**
      * @var int
      */
@@ -70,6 +75,14 @@ class OrderExporterTest extends Test
         $this->orderExporterFacade = new OrderExporterFacade(new Factory('OrderExporter'), $locator);
         $this->orderExporterFacade->setOwnQueryContainer(new OrderExporterQueryContainer(new \SprykerEngine\Zed\Kernel\Persistence\Factory('OrderExporter'), $locator));
         $this->orderExporterFacade->setExternalDependencies($container);
+
+        $mockEmailSender = $this->getMockBuilder('\Pyz\Zed\OrderExporter\Business\Model\MailSender')
+            ->disableOriginalConstructor()
+            ->getMock();
+
+        $mockEmailSender->method('sendAfterbuyResultMail')->willReturn(true);
+
+        $this->afterbuyResponseWriter = new AfterbuyResponseWriterProduction($mockEmailSender);
 
         $this->setTestData();
     }
@@ -148,22 +161,9 @@ class OrderExporterTest extends Test
   </errorlist>
 </result>
 ';
-        $afterbuyTransfer = new AfterbuyExportTransfer();
-        $afterbuyTransfer
-            ->setHttpStatusCode('200')
-            ->setRequest('test')
-            ->setOrderItems($this->createOrderItemsTransfer($this->orderItems))
-            ->setOrderId($this->orderId);
+        $afterbuyTransfer = $this->createAfterbuyTransfer();
 
-        $mockEmailSender = $this->getMockBuilder('\Pyz\Zed\OrderExporter\Business\Model\MailSender')
-            ->disableOriginalConstructor()
-            ->getMock();
-
-        $mockEmailSender->method('sendAfterbuyResultMail')->willReturn(true);
-
-        $afterbuyResponseWriter = new AfterbuyResponseWriter($mockEmailSender);
-
-        $afterbuyResponseWriter->saveAfterbuyResponse($afterbuyTransfer, $afterbuyResponse);
+        $this->afterbuyResponseWriter->saveAfterbuyResponse($afterbuyTransfer, $afterbuyResponse);
 
         foreach ($this->orderItems as $orderItem) {
             $afterbuyResponseEntity = $this->orderExporterFacade->findOrderItemAfterbuyExportByItemId($orderItem->getIdSalesOrderItem());
@@ -188,22 +188,9 @@ class OrderExporterTest extends Test
     </data>
 </result>
 ';
-        $afterbuyTransfer = new AfterbuyExportTransfer();
-        $afterbuyTransfer
-            ->setHttpStatusCode('200')
-            ->setRequest('test')
-            ->setOrderItems($this->createOrderItemsTransfer($this->orderItems))
-            ->setOrderId($this->orderId);
+        $afterbuyTransfer = $this->createAfterbuyTransfer();
 
-        $mockEmailSender = $this->getMockBuilder('\Pyz\Zed\OrderExporter\Business\Model\MailSender')
-            ->disableOriginalConstructor()
-            ->getMock();
-
-        $mockEmailSender->method('sendAfterbuyResultMail')->willReturn(true);
-
-        $afterbuyResponseWriter = new AfterbuyResponseWriter($mockEmailSender);
-
-        $afterbuyResponseWriter->saveAfterbuyResponse($afterbuyTransfer, $afterbuyResponse);
+        $this->afterbuyResponseWriter->saveAfterbuyResponse($afterbuyTransfer, $afterbuyResponse);
 
         foreach ($this->orderItems as $orderItem) {
             $afterbuyResponseEntity = $this->orderExporterFacade->findOrderItemAfterbuyExportByItemId($orderItem->getIdSalesOrderItem());
@@ -216,22 +203,9 @@ class OrderExporterTest extends Test
     public function testExportNotValidXml()
     {
         $afterbuyResponse = 'TEST';
-        $afterbuyTransfer = new AfterbuyExportTransfer();
-        $afterbuyTransfer
-            ->setHttpStatusCode('200')
-            ->setRequest('test')
-            ->setOrderItems($this->createOrderItemsTransfer($this->orderItems))
-            ->setOrderId($this->orderId);
+        $afterbuyTransfer = $this->createAfterbuyTransfer();
 
-        $mockEmailSender = $this->getMockBuilder('\Pyz\Zed\OrderExporter\Business\Model\MailSender')
-            ->disableOriginalConstructor()
-            ->getMock();
-
-        $mockEmailSender->method('sendAfterbuyResultMail')->willReturn(true);
-
-        $afterbuyResponseWriter = new AfterbuyResponseWriter($mockEmailSender);
-
-        $afterbuyResponseWriter->saveAfterbuyResponse($afterbuyTransfer, $afterbuyResponse);
+        $this->afterbuyResponseWriter->saveAfterbuyResponse($afterbuyTransfer, $afterbuyResponse);
 
         foreach ($this->orderItems as $orderItem) {
             $afterbuyResponseEntity = $this->orderExporterFacade->findOrderItemAfterbuyExportByItemId($orderItem->getIdSalesOrderItem());
@@ -239,6 +213,21 @@ class OrderExporterTest extends Test
             $this->assertNull($afterbuyResponseEntity->getVirtualColumn('errorsList'));
             $this->assertFalse($afterbuyResponseEntity->getVirtualColumn('isTest'));
         }
+    }
+
+    /**
+     * @return AfterbuyExportTransfer
+     */
+    protected function createAfterbuyTransfer()
+    {
+        $afterbuyTransfer = new AfterbuyExportTransfer();
+        $afterbuyTransfer
+            ->setHttpStatusCode('200')
+            ->setRequest('test')
+            ->setOrderItems($this->createOrderItemsTransfer($this->orderItems))
+            ->setOrderId($this->orderId);
+
+        return $afterbuyTransfer;
     }
 
     /**
