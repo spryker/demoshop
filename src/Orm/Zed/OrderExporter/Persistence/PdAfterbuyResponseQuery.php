@@ -1,8 +1,8 @@
 <?php
 
-namespace Pyz\Zed\OrderExporter\Persistence\Propel;
+namespace Orm\Zed\OrderExporter\Persistence;
 
-use Pyz\Zed\OrderExporter\Persistence\Propel\Base\PdAfterbuyResponseQuery as BasePdAfterbuyResponseQuery;
+use Orm\Zed\OrderExporter\Persistence\Base\PdAfterbuyResponseQuery as BasePdAfterbuyResponseQuery;
 
 /**
  * Skeleton subclass for performing query and update operations on the 'pd_afterbuy_response' table.

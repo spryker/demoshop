@@ -2,7 +2,7 @@
 
 namespace Pyz\Zed\SalesCheckoutConnector\Dependency\Facade;
 
-use SprykerFeature\Zed\Sales\Persistence\Propel\SpySalesOrder;
+use Orm\Zed\Sales\Persistence\SpySalesOrder;
 
 interface SalesCheckoutConnectorToSalesInterface
 {

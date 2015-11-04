@@ -2,8 +2,8 @@
 
 namespace Pyz\Zed\Sales\Persistence;
 
-use SprykerFeature\Zed\Sales\Persistence\Propel\Base\SpySalesOrderQuery;
-use SprykerFeature\Zed\Sales\Persistence\Propel\SpySalesOrderItemQuery;
+use Orm\Zed\Sales\Persistence\Base\SpySalesOrderQuery;
+use Orm\Zed\Sales\Persistence\SpySalesOrderItemQuery;
 
 interface SalesQueryContainerInterface
 {

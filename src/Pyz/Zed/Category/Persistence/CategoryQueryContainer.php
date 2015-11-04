@@ -3,15 +3,15 @@
 namespace Pyz\Zed\Category\Persistence;
 
 use SprykerFeature\Zed\Category\Persistence\CategoryQueryContainer as SprykerCategoryQueryContainer;
-use SprykerFeature\Zed\Category\Persistence\Propel\Map\SpyCategoryAttributeTableMap;
-use SprykerFeature\Zed\Category\Persistence\Propel\Map\SpyCategoryClosureTableTableMap;
-use SprykerFeature\Zed\Category\Persistence\Propel\Map\SpyCategoryNodeTableMap;
+use Orm\Zed\Category\Persistence\Map\SpyCategoryAttributeTableMap;
+use Orm\Zed\Category\Persistence\Map\SpyCategoryClosureTableTableMap;
+use Orm\Zed\Category\Persistence\Map\SpyCategoryNodeTableMap;
 use Propel\Runtime\ActiveQuery\Criteria;
 use Propel\Runtime\Exception\PropelException;
 use Propel\Runtime\ActiveQuery\Join;
 use Propel\Runtime\ActiveQuery\ModelCriteria;
-use SprykerEngine\Zed\Locale\Persistence\Propel\Map\SpyLocaleTableMap;
-use SprykerFeature\Zed\Url\Persistence\Propel\Map\SpyUrlTableMap;
+use Orm\Zed\Locale\Persistence\Map\SpyLocaleTableMap;
+use Orm\Zed\Url\Persistence\Map\SpyUrlTableMap;
 
 class CategoryQueryContainer extends SprykerCategoryQueryContainer
 {

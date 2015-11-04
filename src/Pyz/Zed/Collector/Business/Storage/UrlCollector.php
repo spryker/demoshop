@@ -5,12 +5,12 @@ namespace Pyz\Zed\Collector\Business\Storage;
 use Generated\Shared\Transfer\LocaleTransfer;
 use Propel\Runtime\ActiveQuery\Criteria;
 use SprykerEngine\Shared\Kernel\Store;
-use SprykerEngine\Zed\Touch\Persistence\Propel\Map\SpyTouchTableMap;
-use SprykerEngine\Zed\Touch\Persistence\Propel\SpyTouchQuery;
+use Orm\Zed\Touch\Persistence\Map\SpyTouchTableMap;
+use Orm\Zed\Touch\Persistence\SpyTouchQuery;
 use SprykerFeature\Shared\Collector\Code\KeyBuilder\KeyBuilderTrait;
 use SprykerFeature\Zed\Collector\Business\Exporter\AbstractPropelCollectorPlugin;
 use SprykerFeature\Zed\Collector\Business\Exporter\Writer\KeyValue\TouchUpdaterSet;
-use SprykerFeature\Zed\Url\Persistence\Propel\Map\SpyUrlTableMap;
+use Orm\Zed\Url\Persistence\Map\SpyUrlTableMap;
 use SprykerFeature\Zed\Url\Persistence\Propel\ResourceAwareSpyUrlTableMap;
 
 class UrlCollector extends AbstractPropelCollectorPlugin

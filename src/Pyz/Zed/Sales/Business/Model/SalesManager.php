@@ -7,8 +7,8 @@ use SprykerFeature\Zed\Sales\Business\Model\OrderManager as SprykerOrderManager;
 use SprykerFeature\Zed\Sales\Business\Model\OrderReferenceGeneratorInterface;
 use SprykerFeature\Zed\Sales\Dependency\Facade\SalesToCountryInterface;
 use SprykerFeature\Zed\Sales\Dependency\Facade\SalesToOmsInterface;
-use SprykerFeature\Zed\Sales\Persistence\Propel\SpySalesOrder;
-use SprykerFeature\Zed\Sales\Persistence\Propel\SpySalesOrderItem;
+use Orm\Zed\Sales\Persistence\SpySalesOrder;
+use Orm\Zed\Sales\Persistence\SpySalesOrderItem;
 
 class SalesManager extends SprykerOrderManager
 {

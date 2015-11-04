@@ -2,8 +2,8 @@
 
 namespace Pyz\Zed\OrderExporter\Dependency\Facade;
 
-use SprykerFeature\Zed\Sales\Persistence\Propel\Base\SpySalesOrder;
-use SprykerFeature\Zed\Sales\Persistence\Propel\SpySalesOrderItem;
+use Orm\Zed\Sales\Persistence\Base\SpySalesOrder;
+use Orm\Zed\Sales\Persistence\SpySalesOrderItem;
 
 interface OrderExporterToSalesInterface
 {

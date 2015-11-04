@@ -1,8 +1,8 @@
 <?php
 
-namespace Pyz\Zed\OrderExporter\Persistence\Propel;
+namespace Orm\Zed\OrderExporter\Persistence;
 
-use Pyz\Zed\OrderExporter\Persistence\Propel\Base\PdAfterbuyResponse as BasePdAfterbuyResponse;
+use Orm\Zed\OrderExporter\Persistence\Base\PdAfterbuyResponse as BasePdAfterbuyResponse;
 
 /**
  * Skeleton subclass for representing a row from the 'pd_afterbuy_response' table.

@@ -5,9 +5,9 @@ namespace Pyz\Zed\OrderExporter\Business\Model;
 use PavFeature\Shared\Library\Application\Environment;
 use Pyz\Zed\OrderExporter\AfterbuyConstants;
 use Pyz\Zed\OrderExporter\OrderExporterConfig;
-use SprykerFeature\Zed\Sales\Persistence\Propel\SpySalesOrderAddress;
-use SprykerFeature\Zed\Sales\Persistence\Propel\SpySalesOrderItem;
-use SprykerFeature\Zed\Sales\Persistence\Propel\SpySalesOrder;
+use Orm\Zed\Sales\Persistence\SpySalesOrderAddress;
+use Orm\Zed\Sales\Persistence\SpySalesOrderItem;
+use Orm\Zed\Sales\Persistence\SpySalesOrder;
 
 /**
  * @link https://confluence.project-a.com/display/PD/Afterbuy+Orders+export
