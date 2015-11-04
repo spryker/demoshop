@@ -5,7 +5,7 @@ namespace Pyz\Zed\OrderExporter\Business\Model;
 use Generated\Shared\Transfer\AfterbuyExportTransfer;
 use Generated\Shared\Transfer\SalesOrderItemTransfer;
 use Pyz\Zed\OrderExporter\OrderExporterConfig;
-use SprykerFeature\Zed\Sales\Persistence\Propel\SpySalesOrderItem;
+use Orm\Zed\Sales\Persistence\SpySalesOrderItem;
 
 class AfterbuyConnector implements AfterbuyConnectorInterface
 {

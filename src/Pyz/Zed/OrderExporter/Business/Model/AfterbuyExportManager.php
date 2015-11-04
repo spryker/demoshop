@@ -2,7 +2,6 @@
 
 namespace Pyz\Zed\OrderExporter\Business\Model;
 
-use PavFeature\Shared\Library\Application\Environment;
 use Pyz\Zed\OrderExporter\AfterbuyConstants;
 use Pyz\Zed\OrderExporter\OrderExporterConfig;
 use Orm\Zed\Sales\Persistence\SpySalesOrderAddress;

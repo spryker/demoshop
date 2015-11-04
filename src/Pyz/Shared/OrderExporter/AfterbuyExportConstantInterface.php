@@ -10,4 +10,5 @@ interface AfterbuyExportConstantInterface
     const AFTERBUY_URL = 'afterbuyUrl';
     const AFTERBUY_EMAILS = 'emails';
     const AFTERBUY_CONNECTION_TIMEOUT = 'afterbuy_timeout';
+    const AFTERBUY_IS_EXPORT_ENABLE = 'afterbuy_do_export';
 }

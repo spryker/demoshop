@@ -19,9 +19,9 @@ use SprykerEngine\Zed\Kernel\Container;
 use SprykerEngine\Zed\Kernel\Locator;
 use SprykerFeature\Zed\Country\Persistence\CountryQueryContainer;
 use SprykerFeature\Zed\Oms\Persistence\OmsQueryContainer;
-use SprykerFeature\Zed\Sales\Persistence\Propel\SpySalesOrder;
-use SprykerFeature\Zed\Sales\Persistence\Propel\SpySalesOrderAddress;
-use SprykerFeature\Zed\Sales\Persistence\Propel\SpySalesOrderItem;
+use Orm\Zed\Sales\Persistence\SpySalesOrder;
+use Orm\Zed\Sales\Persistence\SpySalesOrderAddress;
+use Orm\Zed\Sales\Persistence\SpySalesOrderItem;
 use SprykerFeature\Zed\Sales\SalesDependencyProvider;
 use SprykerFeature\Zed\SequenceNumber\Business\SequenceNumberFacade;
 
