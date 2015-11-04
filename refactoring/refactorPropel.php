@@ -306,7 +306,7 @@ class Refactor
 
             $files = $this->getFiles([__DIR__ . '/../vendor/spryker/spryker/Bundles/*/src/*/Zed/*/Persistence/Propel/'], $fileToFind);
             $baseFile = $files->getIterator()->current();
-            $position = 13;
+            $position = 10;
 
             if ($baseFile) {
                 $pathParts = explode(DIRECTORY_SEPARATOR, $baseFile->getPathname());
