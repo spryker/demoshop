@@ -3,8 +3,8 @@
 namespace Pyz\Zed\OrderExporter\Business\Model;
 
 use Pyz\Zed\OrderExporter\OrderExporterConfig;
-use Pyz\Zed\OrderExporter\Persistence\Propel\PdAfterbuyResponse;
-use Pyz\Zed\OrderExporter\Persistence\Propel\PdSalesOrderItemAfterbuyExport;
+use Orm\Zed\OrderExporter\Persistence\PdAfterbuyResponse;
+use Orm\Zed\OrderExporter\Persistence\PdSalesOrderItemAfterbuyExport;
 
 class MailSender implements MailSenderInterface
 {

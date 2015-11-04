@@ -2,7 +2,7 @@
 
 namespace Pyz\Zed\OmsOrderExporterConnector\Communication\Plugin\Condition;
 
-use SprykerFeature\Zed\Sales\Persistence\Propel\SpySalesOrderItem;
+use Orm\Zed\Sales\Persistence\SpySalesOrderItem;
 use SprykerFeature\Zed\Oms\Communication\Plugin\Oms\Condition\AbstractCondition;
 use Pyz\Zed\OmsOrderExporterConnector\Communication\OmsOrderExporterConnectorDependencyContainer;
 
