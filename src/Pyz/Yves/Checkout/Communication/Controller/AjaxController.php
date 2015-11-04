@@ -23,6 +23,17 @@ class AjaxController extends AbstractController
     {
         $cart = $this->getCart();
 
+        echo "<pre>";
+        echo "\n######## coupon codes ########\n";
+        print_r($cart->getCouponCodes());
+        echo "\n######## coupon discounts ########\n";
+        print_r($cart->getDiscounts());
+        echo "\n######## coupon items ########\n";
+        print_r($cart->getItems());
+        echo "\n######## coupon totals ########\n";
+        print_r($cart->getTotals());
+        echo "</pre>";
+
         return $this->viewResponse([
             'cart' => $cart,
         ]);

@@ -14,7 +14,10 @@
         {% endfor %}
     </div>
 
-    {% block discounts %}{% endblock %}
+    <div class="cart__discount">
+        <!-- @TODO: Display applied discounts -->
+        {% block discounts %}{% endblock %}
+    </div>
 
     <div class="cart__shipping">
       <div class="cart__shipping-label" colspan="2">{{ 'cart.shipping'|trans }}</div>

@@ -1,8 +1,6 @@
 {% extends "@checkout/checkout/cart.twig" %}
 
 {% block discounts %}
-<div class="cart__discount">
-    <!-- @TODO: Display applied discounts -->
     <input type="hidden" id="checkoutAddCouponUrl" value="{{ url('checkout/add-coupon') }}">
     <div class="cart__coupon-label">{{ 'cart.coupon'|trans }}</div>
 
@@ -18,5 +16,4 @@
     </div>
 
     <div style="clear:both"></div>
-</div>
 {% endblock %}
