@@ -2,9 +2,9 @@
 
 namespace Pyz\Zed\ProductOption\Business\Internal\DemoData\Importer\BatchProcessor;
 
-use SprykerFeature\Zed\ProductOption\Persistence\Propel\Map\SpyProductOptionTypeTranslationTableMap;
-use SprykerFeature\Zed\ProductOption\Persistence\Propel\Map\SpyProductOptionValueTranslationTableMap;
-use SprykerEngine\Zed\Touch\Persistence\Propel\Map\SpyTouchTableMap;
+use Orm\Zed\ProductOption\Persistence\Map\SpyProductOptionTypeTranslationTableMap;
+use Orm\Zed\ProductOption\Persistence\Map\SpyProductOptionValueTranslationTableMap;
+use Orm\Zed\Touch\Persistence\Map\SpyTouchTableMap;
 use Pyz\Zed\ProductOption\Business\Internal\DemoData\Importer\Db\BatchStorageProviderInterface;
 
 class InMemoryBatchProcessor extends AbstractBatchProcessor

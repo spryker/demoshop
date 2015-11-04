@@ -5,8 +5,8 @@ namespace Pyz\Zed\OrderExporter\Business;
 use SprykerEngine\Zed\Kernel\Business\AbstractFacade;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
-use SprykerFeature\Zed\Sales\Persistence\Propel\SpySalesOrder;
-use SprykerFeature\Zed\Sales\Persistence\Propel\SpySalesOrderItem;
+use Orm\Zed\Sales\Persistence\SpySalesOrder;
+use Orm\Zed\Sales\Persistence\SpySalesOrderItem;
 
 /**
  * @method OrderExporterDependencyContainer getDependencyContainer()

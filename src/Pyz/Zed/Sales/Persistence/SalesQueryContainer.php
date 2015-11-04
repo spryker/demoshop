@@ -2,15 +2,15 @@
 
 namespace Pyz\Zed\Sales\Persistence;
 
-use SprykerFeature\Zed\Sales\Persistence\Propel\Base\SpySalesOrderQuery;
-use SprykerFeature\Zed\Sales\Persistence\Propel\SpySalesOrderItemQuery;
+use Orm\Zed\Sales\Persistence\Base\SpySalesOrderQuery;
+use Orm\Zed\Sales\Persistence\SpySalesOrderItemQuery;
 use SprykerFeature\Zed\Sales\Persistence\SalesQueryContainer as SprykerSalesQueryContainer;
 
 class SalesQueryContainer extends SprykerSalesQueryContainer implements SalesQueryContainerInterface
 {
     /**
      * @param $idSalesOrder
-     * @return \SprykerFeature\Zed\Sales\Persistence\Propel\SpySalesOrderQuery
+     * @return \Orm\Zed\Sales\Persistence\SpySalesOrderQuery
      */
     public function querySalesOrderDetailsById($idSalesOrder)
     {

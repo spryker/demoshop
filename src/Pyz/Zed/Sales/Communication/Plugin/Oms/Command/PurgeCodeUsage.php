@@ -5,7 +5,7 @@ namespace Pyz\Zed\Sales\Communication\Plugin\Oms\Command;
 use SprykerFeature\Zed\Oms\Business\Util\ReadOnlyArrayObject;
 use SprykerFeature\Zed\Oms\Communication\Plugin\Oms\Command\AbstractCommand;
 use SprykerFeature\Zed\Oms\Communication\Plugin\Oms\Command\CommandByOrderInterface;
-use SprykerFeature\Zed\Sales\Persistence\Propel\SpySalesOrder;
+use Orm\Zed\Sales\Persistence\SpySalesOrder;
 
 class PurgeCodeUsage extends AbstractCommand implements CommandByOrderInterface
 {

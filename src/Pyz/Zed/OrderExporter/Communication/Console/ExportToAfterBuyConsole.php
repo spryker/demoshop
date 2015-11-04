@@ -8,7 +8,7 @@ use SprykerFeature\Zed\Console\Business\Model\Console;
 use Symfony\Component\Console\Input\InputArgument;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
-use SprykerFeature\Zed\Sales\Persistence\Propel\SpySalesOrderItem;
+use Orm\Zed\Sales\Persistence\SpySalesOrderItem;
 
 /**
  * @method OrderExporterFacade getFacade()

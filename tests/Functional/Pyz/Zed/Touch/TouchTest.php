@@ -3,7 +3,7 @@
 namespace Functional\Pyz\Zed\Touch;
 
 use Codeception\TestCase\Test;
-use SprykerEngine\Zed\Touch\Persistence\Propel\SpyTouchQuery;
+use Orm\Zed\Touch\Persistence\SpyTouchQuery;
 
 /**
  * @group Pyz
