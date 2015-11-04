@@ -9,12 +9,5 @@ interface AfterbuyConnectorInterface
      * @param array $orderItems
      * @param int $orderId
      */
-    public function sendToAfterBuy($postVariables, array $orderItems, $orderId);
-
-    /**
-     * @param $postVariables
-     * @param array $orderItems
-     * @param int $orderId
-     */
-    public function mockSendingToAfterbuy($postVariables, array $orderItems, $orderId);
+    public function sendToAfterbuy($postVariables, array $orderItems, $orderId);
 }

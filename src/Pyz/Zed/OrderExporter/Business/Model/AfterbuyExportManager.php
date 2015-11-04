@@ -76,16 +76,12 @@ class AfterbuyExportManager
      */
     public function exportOrderItems(array $orderItems, SpySalesOrder $order)
     {
-        $afterBuyInfo = $this->configureAfterbuy();
-        $afterBuyInfo = $this->getOrderInfo($order, $afterBuyInfo);
-        $afterBuyInfo = $this->addItemsInfo($orderItems, $afterBuyInfo);
-        $postString = $this->buildPostString($afterBuyInfo);
+        $afterbuyInfo = $this->configureAfterbuy();
+        $afterbuyInfo = $this->getOrderInfo($order, $afterbuyInfo);
+        $afterbuyInfo = $this->addItemsInfo($orderItems, $afterbuyInfo);
+        $postString = $this->buildPostString($afterbuyInfo);
 
-        if ($this->orderExporterConfig->getCurrentSystemEnvironment() === Environment::ENV_PRODUCTION) {
-            $this->sendOrderInfoToAfterBuy($postString, $orderItems, $afterBuyInfo[AfterbuyConstants::SALES_ORDER_ID]);
-        } else {
-            $this->afterbuyConnector->mockSendingToAfterbuy($postString, $orderItems, $afterBuyInfo[AfterbuyConstants::SALES_ORDER_ID]);
-        }
+        $this->sendOrderInfoToAfterbuy($postString, $orderItems, $afterbuyInfo[AfterbuyConstants::SALES_ORDER_ID]);
     }
 
     /**
@@ -249,12 +245,12 @@ class AfterbuyExportManager
     }
 
     /**
-     * @param array $afterBuyInfo
+     * @param array $afterbuyInfo
      * @return string
      */
-    protected function buildPostString(array $afterBuyInfo)
+    protected function buildPostString(array $afterbuyInfo)
     {
-        return http_build_query($afterBuyInfo);
+        return http_build_query($afterbuyInfo);
     }
 
     /**
@@ -262,9 +258,9 @@ class AfterbuyExportManager
      * @param array $orderItems
      * @param $orderid
      */
-    protected function sendOrderInfoToAfterBuy($postVariables, array $orderItems, $orderid)
+    protected function sendOrderInfoToAfterbuy($postVariables, array $orderItems, $orderid)
     {
-        $this->afterbuyConnector->sendToAfterBuy($postVariables, $orderItems, $orderid);
+        $this->afterbuyConnector->sendToAfterbuy($postVariables, $orderItems, $orderid);
     }
 
 }

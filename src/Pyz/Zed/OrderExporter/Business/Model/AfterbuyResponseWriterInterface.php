@@ -11,10 +11,4 @@ interface AfterbuyResponseWriterInterface
      * @param $afterbuyResponse
      */
     public function saveAfterbuyResponse(AfterbuyExportTransfer $afterbuyTransfer, $afterbuyResponse);
-
-    /**
-     * @param AfterbuyExportTransfer $afterbuyTransfer
-     * @param $postVariables
-     */
-    public function saveAfterbuyResponseMocked(AfterbuyExportTransfer $afterbuyTransfer, $postVariables);
 }
