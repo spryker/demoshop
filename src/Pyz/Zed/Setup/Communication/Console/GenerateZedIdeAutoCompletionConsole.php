@@ -50,9 +50,6 @@ class GenerateZedIdeAutoCompletionConsole extends SprykerGenerateZedIdeAutoCompl
             ->addMethodTagBuilder(new QueryContainerMethodTagBuilder([
                 QueryContainerMethodTagBuilder::OPTION_KEY_VENDOR_PATH_PATTERN => self::MULTI_CORE_VENDOR_PATH_PATTERN
             ]))
-            ->addMethodTagBuilder(new EntityMethodTagBuilder([
-                EntityMethodTagBuilder::OPTION_KEY_VENDOR_PATH_PATTERN => self::MULTI_CORE_VENDOR_PATH_PATTERN
-            ]))
             ->addMethodTagBuilder(new ConsoleMethodTagBuilder([
                 ClientMethodTagBuilder::OPTION_KEY_VENDOR_PATH_PATTERN => self::MULTI_CORE_VENDOR_PATH_PATTERN
             ]))
@@ -82,11 +79,6 @@ class GenerateZedIdeAutoCompletionConsole extends SprykerGenerateZedIdeAutoCompl
             ConstructableMethodTagBuilder::OPTION_KEY_APPLICATION => 'Zed',
             ConstructableMethodTagBuilder::OPTION_KEY_VENDOR_PATH_PATTERN => self::MULTI_CORE_VENDOR_PATH_PATTERN,
         ]);
-        $persistenceMethodTagGenerator = new PropelMethodTagBuilder([
-            ConstructableMethodTagBuilder::OPTION_KEY_PATH_PATTERN => 'Persistence/',
-            ConstructableMethodTagBuilder::OPTION_KEY_APPLICATION => 'Zed',
-            ConstructableMethodTagBuilder::OPTION_KEY_VENDOR_PATH_PATTERN => self::MULTI_CORE_VENDOR_PATH_PATTERN,
-        ]);
         $options = [
             IdeFactoryAutoCompletionGenerator::OPTION_KEY_BUNDLE_NAME_FINDER => $this->getMultiCoreBundleFinder(),
             IdeFactoryAutoCompletionGenerator::OPTION_KEY_NAMESPACE => 'Generated\Zed\Ide\FactoryAutoCompletion',
@@ -97,7 +89,6 @@ class GenerateZedIdeAutoCompletionConsole extends SprykerGenerateZedIdeAutoCompl
         $generator
             ->addMethodTagBuilder($businessMethodTagGenerator)
             ->addMethodTagBuilder($communicationMethodTagGenerator)
-            ->addMethodTagBuilder($persistenceMethodTagGenerator)
         ;
         $generator->create('');
 
