@@ -40,11 +40,11 @@ class MailQueueConsole extends Console
         $mailRecipientTransfer = new MailRecipientTransfer();
         $mailRecipientTransfer->setEmail('info@spryker.com');
 
-
         $mailTransfer->addRecipient($mailRecipientTransfer);
-        $mailTransfer->setFromEmail('info@spryker.com');
+        $mailTransfer->setFromEmail('service@demoshop.de');
         $mailTransfer->setSubject('Sample Registration E-mail');
-        $mailTransfer->setTemplateName('test');
+        $mailTransfer->setTemplateName('template_test');
+        $mailTransfer->setTemplateContent(['CONTENT1' => 'test1', 'CONTENT' => 'test2']);
 
         $this->getFacade()->sendEmailToQueue($mailTransfer);
     }
