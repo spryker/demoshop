@@ -3,8 +3,8 @@
 namespace Pyz\Zed\OrderExporter\Persistence;
 
 use Propel\Runtime\ActiveQuery\Criteria;
-use Pyz\Zed\OrderExporter\Persistence\Propel\Base\PdSalesOrderItemAfterbuyExportQuery;
-use Pyz\Zed\OrderExporter\Persistence\Propel\Map\PdAfterbuyResponseTableMap;
+use Orm\Zed\OrderExporter\Persistence\Base\PdSalesOrderItemAfterbuyExportQuery;
+use Orm\Zed\OrderExporter\Persistence\Map\PdAfterbuyResponseTableMap;
 use SprykerFeature\Zed\Sales\Persistence\SalesQueryContainer as SprykerSalesQueryContainer;
 
 class OrderExporterQueryContainer extends SprykerSalesQueryContainer implements OrderExporterQueryContainerInterface

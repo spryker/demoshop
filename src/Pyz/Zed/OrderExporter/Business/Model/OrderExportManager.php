@@ -3,8 +3,8 @@
 namespace Pyz\Zed\OrderExporter\Business\Model;
 
 use Pyz\Zed\OrderExporter\Persistence\OrderExporterQueryContainerInterface;
-use Pyz\Zed\OrderExporter\Persistence\Propel\PdSalesOrderItemAfterbuyExport;
-use SprykerFeature\Zed\Sales\Persistence\Propel\SpySalesOrderItem;
+use Orm\Zed\OrderExporter\Persistence\PdSalesOrderItemAfterbuyExport;
+use Orm\Zed\Sales\Persistence\SpySalesOrderItem;
 
 class OrderExportManager
 {

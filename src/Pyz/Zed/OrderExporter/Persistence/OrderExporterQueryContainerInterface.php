@@ -2,11 +2,13 @@
 
 namespace Pyz\Zed\OrderExporter\Persistence;
 
+use Orm\Zed\OrderExporter\Persistence\PdSalesOrderItemAfterbuyExportQuery;
+
 interface OrderExporterQueryContainerInterface
 {
     /**
      * @param int $salesOrderItemId
-     * @return $this|Propel\PdSalesOrderItemAfterbuyExportQuery
+     * @return PdSalesOrderItemAfterbuyExportQuery
      */
     public function queryOrderItemAfterbuyExportByItemId($salesOrderItemId);
 }

@@ -1,8 +1,8 @@
 <?php
 
-namespace Pyz\Zed\OrderExporter\Persistence\Propel;
+namespace Orm\Zed\OrderExporter\Persistence;
 
-use Pyz\Zed\OrderExporter\Persistence\Propel\Base\PdSalesOrderItemAfterbuyExport as BasePdSalesOrderItemAfterbuyExport;
+use Orm\Zed\OrderExporter\Persistence\Base\PdSalesOrderItemAfterbuyExport as BasePdSalesOrderItemAfterbuyExport;
 
 /**
  * Skeleton subclass for representing a row from the 'pd_sales_order_item_afterbuy_export' table.

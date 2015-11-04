@@ -7,7 +7,7 @@ use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
 use Orm\Zed\Sales\Persistence\SpySalesOrder;
 use Orm\Zed\Sales\Persistence\SpySalesOrderItem;
-use Pyz\Zed\OrderExporter\Persistence\Propel\PdSalesOrderItemAfterbuyExport;
+use Orm\Zed\OrderExporter\Persistence\PdSalesOrderItemAfterbuyExport;
 
 /**
  * @method OrderExporterDependencyContainer getDependencyContainer()
