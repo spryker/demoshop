@@ -13,7 +13,7 @@ use Orm\Zed\Sales\Persistence\SpySalesOrderItem;
 /**
  * @method OrderExporterFacade getFacade()
  */
-class ExportToAfterbuyConsole extends Console
+class AfterbuyOrderItemExportConsole extends Console
 {
     const COMMAND_NAME = 'afterbuy:order-items:export';
     const COMMAND_DESCRIPTION = 'Export Orders to Afterbuy';
@@ -69,5 +69,4 @@ class ExportToAfterbuyConsole extends Console
 
         return $orderItem;
     }
-
 }
