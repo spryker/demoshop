@@ -167,6 +167,10 @@ gulp.task('dev', function() {
     });
 });
 
+gulp.task('all', function() {
+    gulp.start('dist');
+});
+
 gulp.task('default', function() {
     gulp.start('dist');
 });
