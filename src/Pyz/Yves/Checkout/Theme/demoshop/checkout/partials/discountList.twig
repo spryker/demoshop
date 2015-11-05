@@ -1,0 +1,9 @@
+{% for discount in cart.totals.discount.discountItems %}
+    <div class="cart__coupon-name">
+        {{ discount.name }}
+    </div>
+    <div>
+        - {{ discount.amount | price }}
+    </div>
+    <div style="clear:both"></div>
+{% endfor %}

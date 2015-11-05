@@ -6,7 +6,7 @@
     <div class="cart__items js-cart-items">
         {% for item in cart.items %}
             {% if imageUrl is defined and imageUrl is not null %}
-                <img class="cart__item-image" src="{{imageUrl}}">
+                <img class="cart__item-image" src="{{ imageUrl }}">
             {% endif %}
             <div class="cart__item-quantity">{{ item.quantity }}</div>
             <div class="cart__item-name">{{ item.name }}</div>
@@ -16,30 +16,23 @@
 
 
     {% block discounts %}
-        {% if cart.totals.discount.discountItems is defined %}
-        <div class="cart__discount">
-            {% for discount in cart.totals.discount.discountItems %}
-                <div class="">
-                    {{ discount.name }}
-                </div>
-                <div class="">
-                - {{ discount.amount | price }}
-                </div>
-                <div style="clear:both"></div>
-            {% endfor %}
-        </div>
+        {% if cart.totals.discount.discountItems is not empty %}
+            <div class="cart__discount">
+                <div class="cart__discount-header">{{ 'cart.discounts'|trans }}</div>
+                {% include "@checkout/checkout/partials/discountList.twig" %}
+            </div>
         {% endif %}
     {% endblock %}
 
 
     <div class="cart__shipping">
-      <div class="cart__shipping-label" colspan="2">{{ 'cart.shipping'|trans }}</div>
-      <div class="cart__shipping-price js-cart-shipping"></div>
+        <div class="cart__shipping-label" colspan="2">{{ 'cart.shipping'|trans }}</div>
+        <div class="cart__shipping-price js-cart-shipping"></div>
     </div>
     {% if cart.totals is defined and cart.totals is not null %}
         <div class="cart__total">
-          <div class="cart__total-label" colspan="2">{{ 'cart.total'|trans }}</div>
-          <div class="cart__total-price js-cart-total">{{ cart.totals.grandTotalWithDiscounts|price }}</div>
+            <div class="cart__total-label" colspan="2">{{ 'cart.total'|trans }}</div>
+            <div class="cart__total-price js-cart-total">{{ cart.totals.grandTotalWithDiscounts|price }}</div>
         </div>
     {% endif %}
 {% endspaceless %}

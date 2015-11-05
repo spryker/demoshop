@@ -12,9 +12,19 @@
 	margin-top:26px;
 	padding-top:26px;
 
+	.cart__discount-header {
+		font-weight: 500;
+		color: $muted-color;
+	}
+
+	.cart__coupon-name {
+		font-weight: 500;
+	}
+
 	.cart__coupon-label {
 		width: 50%;
 		float: left;
+		font-weight: 500;
 	}
 
 	.cart__coupon {
