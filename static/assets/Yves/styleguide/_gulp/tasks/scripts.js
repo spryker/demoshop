@@ -48,7 +48,7 @@ gulp.task('scripts:build', function () {
         .bundle()
         .on('error', notify.onError("Error: <%= error.message %>"))
         .pipe(plumber({errorHandler: notify.onError("Error: <%= error.message %>")}))
-        .pipe(source('main.js'))
+        .pipe(source('sg-main.js'))
         .pipe(buffer())
         // .pipe(sourcemaps.init())
         // .pipe(uglify())
