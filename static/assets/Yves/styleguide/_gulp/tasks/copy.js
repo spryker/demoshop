@@ -4,20 +4,23 @@
 * Copies from /assets/copy to /public
 */
 var gulp = require('gulp'),
-  paths = require('../config').paths;
+  paths = require('../config').paths,
 
-var sequence = require('gulp-sequence'),
-    notify = require('gulp-notify');
+  sequence = require('gulp-sequence'),
+  _if = require('gulp-if'),
+  gutil = require('gulp-util'),
+  notify = require('gulp-notify');
 
+var development = gutil.env.development;
 
 
 gulp.task('copy', function (cb) {
   return gulp.src(paths.source.copy.files)
     .pipe(gulp.dest(paths.dest.folder))
-    .pipe(notify({
+    .pipe(_if(development, notify({
       message: 'Task "copy" completed',
       onLast: true
-  }));
+  })));
 });
 
 gulp.task('copy:dev', function (cb) {

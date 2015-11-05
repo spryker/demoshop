@@ -4,17 +4,20 @@
  * Generation of stylesheets
  */
 var gulp = require('gulp'),
-    config = require('../config'),
-    paths = config.paths;
+    paths = require('../config').paths,
 
-var sass = require('gulp-sass'),
+    sass = require('gulp-sass'),
     minifyCSS = require('gulp-minify-css'),
     prefix = require('gulp-autoprefixer'),
     path = require('path'),
     sourcemaps = require('gulp-sourcemaps'),
     plumber = require('gulp-plumber'),
+    _if = require('gulp-if'),
+    gutil = require('gulp-util'),
     notify = require('gulp-notify'),
     sequence = require('gulp-sequence');
+
+var development = gutil.env.development;
 
 
 
@@ -55,8 +58,8 @@ function generateStyles (entry, title) {
       .pipe(prefix('last 2 versions'))
       .pipe(sourcemaps.write('./'))
       .pipe(gulp.dest(paths.dest.styles))
-      .pipe(notify({
+      .pipe(_if(development, notify({
         message: 'Task "styles:' + title + '" completed',
         onLast: true
-      }));
+      })));
 }

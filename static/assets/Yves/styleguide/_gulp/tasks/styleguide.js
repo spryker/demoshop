@@ -10,9 +10,6 @@ var gulp = require('gulp'),
     paths = require('../config').paths;
 
 
-var notify = require('gulp-notify');
-
-
 // parses all .less files and then generates styleguide using the template
 gulp.task('styleguide', shell.task(
         ['./node_modules/.bin/kss-node <%= source %> <%= destination %> --template <%= template %> --helpers <%= helpers %>'],

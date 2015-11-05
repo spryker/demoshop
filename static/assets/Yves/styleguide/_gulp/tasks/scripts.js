@@ -15,10 +15,12 @@ var gulp = require('gulp'),
   sourcemaps = require('gulp-sourcemaps'),
   path       = require('path'),
   plumber    = require('gulp-plumber'),
+  _if = require('gulp-if'),
+  gutil = require('gulp-util'),
   notify     = require('gulp-notify'),
   sequence   = require('gulp-sequence');
 
-var debug = require('gulp-debug');
+var development = gutil.env.development;
 
 
 gulp.task('scripts', function (cb) {
@@ -52,5 +54,5 @@ gulp.task('scripts:build', function () {
         // .pipe(uglify())
         // .pipe(sourcemaps.write('./'))
         .pipe(gulp.dest(paths.dest.scripts))
-        .pipe(notify('Task "scripts" completed'));
+        .pipe(_if(development, notify('Task "scripts" completed')));
 });
