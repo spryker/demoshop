@@ -15,7 +15,7 @@ use Orm\Zed\Sales\Persistence\SpySalesOrderItem;
  */
 class ExportToAfterbuyConsole extends Console
 {
-    const COMMAND_NAME = 'order-exporter:export';
+    const COMMAND_NAME = 'afterbuy:order-items:export';
     const COMMAND_DESCRIPTION = 'Export Orders to Afterbuy';
 
     protected function configure()
