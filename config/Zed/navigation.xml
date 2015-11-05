@@ -34,6 +34,7 @@
         <title>Products</title>
         <uri>/product/import</uri>
         <icon>fa-database</icon>
+        <visible>0</visible>
     </product>
     <discount>
         <label>Discount</label>
@@ -96,5 +97,6 @@
         <title>Development</title>
         <uri>#</uri>
         <icon>fa-code</icon>
+        <visible>0</visible>
     </development>
 </config>
