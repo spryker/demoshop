@@ -818,7 +818,7 @@
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/spryker.git",
-                "reference": "c64f1a9926c96dc3e006cd7ea2ba1573f6925d2a"
+                "reference": "af325d422361de69aad5ce9f5452404658a56b29"
             },
             "require": {
                 "digital-canvas/zend-framework": ">=1.12.2"
