@@ -10,7 +10,7 @@
 //            {{> molecules.cart-item}}
 //        </div>
 //        <div class="cart-layer__upsell">
-//            {{> molecules.product-card-2}}
+//            {{> molecules.product-card-wide}}
 //        </div>
 //    </div>
 //</div>
@@ -20,14 +20,14 @@
 // Weight: -2
 
 .cart-layer{
-    position: absolute;
-    z-index: 2;
-    width: 100%;
+    position: relative;
+    width: 20%;
+    float: left;
     @include sectionShadow;
-
-    // TODO: abstract header height to variable
-    top: 135px;
-    left: 0;
+    //
+    // // TODO: abstract header height to variable
+    // top: 135px;
+    // left: 0;
 
     &.js-processed{
         transition: margin-top $_tMedium ease-in-out;
@@ -74,12 +74,4 @@
     color: $_rgbQuincy;
     text-transform: uppercase;
     text-align: center;
-}
-
-
-
-@media (min-width: $_wLarge) {
-    .cart-layer{
-        top: 120px;
-    }
 }

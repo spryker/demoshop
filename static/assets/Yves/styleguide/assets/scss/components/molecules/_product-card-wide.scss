@@ -3,6 +3,7 @@
 // Markup:
 // <div class="product-card-wide">
 //    <div class="product-card-wide__inner">
+//        <div class="product-card-wide__label">Snacks</div>
 //        <div class="product-card-wide__image">
 //            <img src="../images/product/cookies.jpg" />
 //        </div>
@@ -13,9 +14,9 @@
 //                <div class="product-card-wide__breadcrumb">Cookies</div>
 //            </div>
 //            <div class="product-card-wide__title">Bio Cookie</div>
-//            <div class="product-card-wide__price-relative">4.00</div>
-//            <div class="product-card-wide__price-total">250ml (2.80 / 100g)</div>
-//            <div class="product-card-wide__add">Add to cart</div>
+//            <div class="product-card-wide__price-total">€4.00</div>
+//            <div class="product-card-wide__price-relative">250ml (€2.80 / 100g)</div>
+//            <div class="product-card-wide__add button button--cta">Add to cart</div>
 //        </div>
 //    </div>
 // </div>
@@ -28,8 +29,26 @@
 }
 
 .product-card-wide__inner{
+    position: relative;
+    padding: 40px 70px 40px 0;
     @include cardShadow;
     @include clearfix;
+}
+
+.product-card-wide__label{
+    min-width: 160px;
+    padding: 7px 15px;
+    position: absolute;
+    top: 39px;
+    left: 0;
+    background: $_rgbApple;
+
+    color: $_rgbWhite;
+    text-transform: uppercase;
+    text-decoration: none;
+    font-size: 16px;
+    line-height: 23px;
+    font-family: $_ffBrandonGrotesque-Bold;
 }
 
 .product-card-wide__image{
@@ -38,6 +57,7 @@
 
     img{
         @include responsiveImage;
+        max-width: 300px;
     }
 }
 
@@ -79,7 +99,7 @@
 }
 
 .product-card-wide__title{
-    margin-bottom: 7px;
+    margin-bottom: 35px;
 
     font-family: $_ffBrandonGrotesque-Black;
     font-size: 26px;
@@ -87,14 +107,26 @@
     color: $_rgbApple;
 }
 
-.product-card-wide__price-relative{
-
-}
 
 .product-card-wide__price-total{
+    text-align: right;
+    font-size: 28px;
+    line-height: 33px;
+    font-family: $_ffHelveticaNeue;
+    color: $_rgbOsloGray;
+}
 
+.product-card-wide__price-relative{
+    margin-bottom: 25px;
+
+    font-size: $_fsSmall;
+    line-height: $_lhSmall;
+    letter-spacing: 0.25px;
+    text-align: right;
+    font-family: $_ffHelveticaNeue;
+    color: $_rgbSilverChalices2
 }
 
 .product-card-wide__add{
-
+    float: right;
 }

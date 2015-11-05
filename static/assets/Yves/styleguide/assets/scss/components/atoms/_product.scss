@@ -1,0 +1,89 @@
+// Product
+//
+// Markup:
+// <div class="product row">
+//     <div class="column medium-3">
+//         {{> "atoms.product-gallery"}}
+//     </div>
+//     <div class="column medium-5">
+//         <h1>Starter Pack 10 Boxes</h1>
+//         <div>250gr</div>
+//         <div>Customized: No turkey, No carbs</div>
+//         <div>It contains the best mix as recommended by our experts!</div>
+//         <div>Fütterungsempfehlung: 2-3% des Körpergewichts pro Tag.</div>
+//         <h1>Content</h1>
+//         <div>Depending on availability you will find some of these ingredients:</div>
+//         <div>Meat: Beef, Kanguru, Chicken, Turkey, Red Fish</div>
+//         <div>Vegetables: Broccoli, Carrots, Veggie</div>
+//         <div>Fruits: Mango, Banana</div>
+//         <div>In case your dog is allergic you can customize the ingredients.</div>
+//         <div class="product__customize button">Customize package</div>
+//     </div>
+//     <div class="column medium-4">
+//        <form>
+//            <label>Größe</label>
+//            <select>
+//                <option>250g</option>
+//                <option>500g</option>
+//                <option>750g</option>
+//            </select>
+//            <label>Anzahl</label>
+//            <select>
+//                <option>1</option>
+//                <option>2</option>
+//                <option>3</option>
+//            </select>
+//            <div>€20.00</div>
+//            <div>250g (€1.40 / 100g)</div>
+//            <button class="button button--cta">Add to cart</button>
+//        </form>
+//        <div>Sofort verfügbar</div>
+//        <div>Versand erfolgt für Bestellungen bis 12.00 Uhr Mo-Do normalerweise am selben Tag.</div>
+//     </div>
+//     <div class="column medium-3">
+//         &nbsp;
+//     </div>
+//     <div class="column medium-8">
+//         <div class="row">
+//             <div class="column medium-4">
+//                <h2>This is what you get</h2>
+//                <ul>
+//                    <li>Our menu box is perfect</li>
+//                    <li>The menu is mixed by experts</li>
+//                    <li>it contains 10 boxes</li>
+//                </ul>
+//             </div>
+//             <div class="column medium-4">
+//                <h2>This is what you get</h2>
+//                <ul>
+//                    <li>Our menu box is perfect</li>
+//                    <li>The menu is mixed by experts</li>
+//                    <li>it contains 10 boxes</li>
+//                </ul>
+//             </div>
+//             <div class="column medium-4">
+//                <h2>This is what you get</h2>
+//                <ul>
+//                    <li>Our menu box is perfect</li>
+//                    <li>The menu is mixed by experts</li>
+//                    <li>it contains 10 boxes</li>
+//                </ul>
+//             </div>
+//         </div>
+//     </div>
+// </div>
+// <div class="row">
+//     <div class="column medium-6">
+//         {{> "molecules.product-card-wide"}}
+//     </div>
+//     <div class="column medium-6">
+//         {{> "molecules.product-card-wide"}}
+//     </div>
+// </div>
+//
+// Styleguide: atoms.product
+
+.product{
+    overflow: hidden;
+    background: $_rgbWhite;
+}

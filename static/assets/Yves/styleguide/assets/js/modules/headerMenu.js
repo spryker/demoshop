@@ -8,22 +8,26 @@ import { ToastService } from './toast';
 $(document).ready(function () {
 
     $('.menu').each(function () {
-        var $menu, $close, $trigger, height, closed;
+        var $menu, $close, $trigger, height, closed, $slider, index;
 
         $menu = $(this);
+        $slider = $menu.find('.menu__slider');
         $close = $menu.find('.close-button');
-        $trigger = $('.navbar__link[data-menu="main"]');
+        $trigger = $('.navbar__link[data-menu]');
 
         updateHeight();
-
         hideMenu();
 
 
         $close.click(hideMenu);
 
         $trigger.click(function (e) {
+            var $target, index;
+
+            $target = $(e.target).closest('.navbar__link');
+
             e.preventDefault();
-            showMenu();
+            showMenu($trigger.index($target));
 
             $trigger.removeClass('navbar__link--open');
             $(this).addClass('navbar__link--open');
@@ -47,9 +51,17 @@ $(document).ready(function () {
                 hideMenu(true);
 
             } else {
-                showMenu(true);
+                showMenu(index, true);
             }
         }));
+
+        $menu.click(function (e) {
+            var $target = $(e.target);
+
+            if (!$target.parents('.menu__inner').size() && !$target.hasClass('menu__inner')) {
+                hideMenu();
+            }
+        });
 
 
         function hideMenu (disableTransition) {
@@ -61,6 +73,7 @@ $(document).ready(function () {
             $menu.css({
                 'margin-top': -height
             });
+            $menu.removeClass('menu--open');
 
             setTimeout(function () {
                 $menu.addClass('js-processed');
@@ -70,17 +83,38 @@ $(document).ready(function () {
             $(document).trigger('NAVSTATE_CHANGE');
         }
 
-        function showMenu (disableTransition) {
+        function showMenu (newIndex, disableTransition) {
             if (typeof disableTransition === 'boolean' && disableTransition) {
                 $menu.removeClass('js-processed');
+            }
+
+            if (newIndex !== index) {
+
+                if (!$menu.hasClass('menu--open')) {
+                    $menu.removeClass('js-hor-trans');
+                }
+
+                index = newIndex;
+
+                // TODO: dynamic count
+                var offset = 100 / -5 * index ;
+
+                $slider.css({
+                    'transform': 'translate(' + offset + '%,0)',
+                    '-moz-transform': 'translate(' + offset + '%,0)',
+                    '-webkit-transform': 'translate(' + offset + '%,0)',
+                    '-ms-transform': 'translate(' + offset + '%,0)'
+                });
             }
 
             closed = false;
             $menu.css({
                 'margin-top': 0
             });
+            $menu.addClass('menu--open');
 
             setTimeout(function () {
+                $menu.addClass('js-hor-trans');
                 $menu.addClass('js-processed');
             });
 
