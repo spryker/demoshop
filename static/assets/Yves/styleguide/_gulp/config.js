@@ -14,7 +14,7 @@ var config = {
         scripts: {
             folder: ASSETS_DIR + 'js',
             files: ASSETS_DIR + 'js/**/*.js',
-            entry: ASSETS_DIR + 'js/main.js'
+            entry: ASSETS_DIR + 'js/sg-main.js'
         },
         styleguide: {
             styles: ASSETS_DIR + 'scss/**/*.{hbs,scss,less}',
