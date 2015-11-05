@@ -11,7 +11,6 @@ use SprykerFeature\Shared\Collector\Code\KeyBuilder\KeyBuilderTrait;
 use SprykerFeature\Zed\Collector\Business\Exporter\AbstractPropelCollectorPlugin;
 use SprykerFeature\Zed\Collector\Business\Exporter\Writer\KeyValue\TouchUpdaterSet;
 use Orm\Zed\Url\Persistence\Map\SpyUrlTableMap;
-//use SprykerFeature\Zed\Url\Persistence\Propel\ResourceAwareSpyUrlTableMap;
 
 class UrlCollector extends AbstractPropelCollectorPlugin
 {
