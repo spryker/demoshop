@@ -323,7 +323,7 @@ $config[LumberjackConfig::WRITER_OPTIONS] = [
     '\SprykerEngine\Shared\Lumberjack\Model\Writer\File' => ['log_path' => '/data/logs/development/DE/'],
 ];
 
-$config[AfterbuyExportConstantInterface::AFTERBUY_IS_EXPORT_ENABLE] = false;
+$config[AfterbuyExportConstantInterface::AFTERBUY_IS_EXPORT_ENABLED] = false;
 $config[AfterbuyExportConstantInterface::AFTERBUY_PARTNER_ID] = 107450;
 $config[AfterbuyExportConstantInterface::AFTERBUY_PARTNER_PASS] = '6/UMU16Qn/=hCFhKZbqpr)8T0';
 $config[AfterbuyExportConstantInterface::AFTERBUY_USER_ID] = 'petsdelideutschland';

@@ -44,7 +44,7 @@ class OrderExporterConfig extends AbstractBundleConfig
      */
     public function getIsExportEnabled()
     {
-        return $this->get(AfterbuyExportConstantInterface::AFTERBUY_IS_EXPORT_ENABLE);
+        return $this->get(AfterbuyExportConstantInterface::AFTERBUY_IS_EXPORT_ENABLED);
     }
 
     /**
