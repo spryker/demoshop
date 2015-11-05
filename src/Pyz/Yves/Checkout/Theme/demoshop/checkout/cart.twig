@@ -14,10 +14,23 @@
         {% endfor %}
     </div>
 
-    <div class="cart__discount">
-        <!-- @TODO: Display applied discounts -->
-        {% block discounts %}{% endblock %}
-    </div>
+
+    {% block discounts %}
+        {% if cart.totals.discount.discountItems is defined %}
+        <div class="cart__discount">
+            {% for discount in cart.totals.discount.discountItems %}
+                <div class="">
+                    {{ discount.name }}
+                </div>
+                <div class="">
+                - {{ discount.amount | price }}
+                </div>
+                <div style="clear:both"></div>
+            {% endfor %}
+        </div>
+        {% endif %}
+    {% endblock %}
+
 
     <div class="cart__shipping">
       <div class="cart__shipping-label" colspan="2">{{ 'cart.shipping'|trans }}</div>
