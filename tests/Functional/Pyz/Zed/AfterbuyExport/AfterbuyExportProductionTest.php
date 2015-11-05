@@ -154,9 +154,9 @@ class AfterbuyExportProductionTest extends Test
 
     public function testExportFailed()
     {
-        $afterbuyResponse = '<?xml version="1.0" encoding="iso-8859-1" ?> <result><br />
-  <success>0</success><br />
-  <errorlist><br />
+        $afterbuyResponse = '<?xml version="1.0" encoding="iso-8859-1" ?> <result>
+  <success>0</success>
+  <errorlist>
 <error>Bitte geben Sie einen Wert im Feld Land an.</error> <error>Bitte geben Sie einen Wert im Feld KLLand an.</error>
   </errorlist>
 </result>
