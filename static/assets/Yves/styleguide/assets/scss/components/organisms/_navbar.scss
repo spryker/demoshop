@@ -5,6 +5,7 @@
 // Markup:
 // {{> "molecules.offcanvas"}}
 // <nav class="navbar">
+// <div class="navbar__inner">
 //     <div class="navbar__top">
 //        <div class="navbar__center">
 //             <div class="navbar__wordmark">Pets Deli</div>
@@ -35,10 +36,10 @@
 //             <div class="navbar__marker"></div>
 //         </div>
 //     </div>
+// </div>
+// {{> "molecules.menu"}}
 // </nav>
 // <div class="navbar__pusher"></div>
-// {{> "molecules.menu"}}
-// {{> "molecules.cart-layer"}}
 //
 // Styleguide: organisms.navbar
 //
@@ -51,8 +52,12 @@
     top: 0;
     left: 0;
     width: 100%;
+}
+
+.navbar__inner{
+    position: relative;
+    z-index: 3;
     box-shadow: 0 0 30px 0 rgba(0,0,0,0.2);
-    background: $_rgbWhite;
 }
 
 .navbar__pusher{
@@ -97,6 +102,7 @@
 
 .navbar__bottom{
     @include clearfix;
+    background: $_rgbWhite;
 }
 
 .navbar__wordmark{
