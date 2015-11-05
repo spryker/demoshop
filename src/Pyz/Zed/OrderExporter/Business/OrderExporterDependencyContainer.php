@@ -8,7 +8,7 @@ use Generated\Zed\Ide\FactoryAutoCompletion\OrderExporterBusiness;
 use Pyz\Zed\OrderExporter\Dependency\Facade\OrderExporterToSalesInterface;
 use Pyz\Zed\OrderExporter\OrderExporterConfig;
 use Pyz\Zed\OrderExporter\Business\Model\MailSenderInterface;
-use Pyz\Zed\OrderExporter\Business\Model\AfterbuyResponseWriterInterface;
+use Pyz\Zed\OrderExporter\Business\Model\AbstractAfterbuyResponseWriter;
 
 /**
  * @method OrderExporterConfig getConfig()
@@ -27,24 +27,45 @@ class OrderExporterDependencyContainer extends AbstractBusinessDependencyContain
     }
 
     /**
-     * @return Model\OrderExporterManager
+     * @return Model\OrderExportManager
      */
-    public function createOrderExporterManager()
+    public function createOrderExportManager()
     {
-        return $this->getFactory()->createModelOrderExporterManager(
-            $this->getConfig(),
-            $this->createAfterBuyConnector()
+        return $this->getFactory()->createModelOrderExportManager(
+            $this->getQueryContainer()
         );
     }
 
     /**
-     * @return Model\AfterbuyConnectorInterface
+     * @return Model\AfterbuyExportManager
      */
-    public function createAfterBuyConnector()
+    public function createAfterbuyExportManager()
+    {
+        return $this->getFactory()->createModelAfterbuyExportManager(
+            $this->getConfig(),
+            $this->getAfterbuyConnector()
+        );
+    }
+
+    /**
+     * @return Model\AbstractAfterbuyConnector
+     */
+    public function createAfterbuyConnector()
     {
         return $this->getFactory()->createModelAfterbuyConnector(
             $this->getConfig(),
             $this->createAfterbuyResponseWriter()
+        );
+    }
+
+    /**
+     * @return Model\AbstractAfterbuyConnector
+     */
+    public function createAfterbuyConnectorProduction()
+    {
+        return $this->getFactory()->createModelAfterbuyConnectorProduction(
+            $this->getConfig(),
+            $this->createAfterbuyResponseWriterProduction()
         );
     }
 
@@ -59,12 +80,32 @@ class OrderExporterDependencyContainer extends AbstractBusinessDependencyContain
     }
 
     /**
-     * @return AfterbuyResponseWriterInterface
+     * @return AbstractAfterbuyResponseWriter
      */
     public function createAfterbuyResponseWriter()
     {
-        return $this->getFactory()->createModelAfterbuyResponseWriter(
+        return $this->getFactory()->createModelAfterbuyResponseWriter();
+    }
+
+    /**
+     * @return AbstractAfterbuyResponseWriter
+     */
+    public function createAfterbuyResponseWriterProduction()
+    {
+        return $this->getFactory()->createModelAfterbuyResponseWriterProduction(
             $this->createMailSender()
         );
+    }
+
+    /**
+     * @return Model\AbstractAfterbuyConnector
+     */
+    protected function getAfterbuyConnector()
+    {
+        if ($this->getConfig()->getIsExportEnabled()) {
+            return $this->createAfterbuyConnectorProduction();
+        }
+
+        return $this->createAfterbuyConnector();
     }
 }

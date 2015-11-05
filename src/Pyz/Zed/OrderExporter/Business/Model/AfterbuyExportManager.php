@@ -2,7 +2,6 @@
 
 namespace Pyz\Zed\OrderExporter\Business\Model;
 
-use PavFeature\Shared\Library\Application\Environment;
 use Pyz\Zed\OrderExporter\AfterbuyConstants;
 use Pyz\Zed\OrderExporter\OrderExporterConfig;
 use Orm\Zed\Sales\Persistence\SpySalesOrderAddress;
@@ -12,7 +11,7 @@ use Orm\Zed\Sales\Persistence\SpySalesOrder;
 /**
  * @link https://confluence.project-a.com/display/PD/Afterbuy+Orders+export
  */
-class OrderExporterManager
+class AfterbuyExportManager
 {
     const AFTERBUY_NEW_ACTION = 'new';
 
@@ -28,7 +27,7 @@ class OrderExporterManager
     /** @var string */
     protected $afterbuyUrl;
     /**
-     * @var AfterbuyConnectorInterface
+     * @var AbstractAfterbuyConnector
      */
     protected $afterbuyConnector;
     /**
@@ -38,9 +37,9 @@ class OrderExporterManager
 
     /**
      * @param OrderExporterConfig $orderExporterConfig
-     * @param AfterbuyConnectorInterface $connector
+     * @param AbstractAfterbuyConnector $connector
      */
-    public function __construct(OrderExporterConfig $orderExporterConfig, AfterbuyConnectorInterface $connector)
+    public function __construct(OrderExporterConfig $orderExporterConfig, AbstractAfterbuyConnector $connector)
     {
         $this->userId = $orderExporterConfig->getAfterbuyUserId();
         $this->partnerId = $orderExporterConfig->getAfterbuyPartnerId();
@@ -76,14 +75,12 @@ class OrderExporterManager
      */
     public function exportOrderItems(array $orderItems, SpySalesOrder $order)
     {
-        $afterBuyInfo = $this->configureAfterbuy();
-        $afterBuyInfo = $this->getOrderInfo($order, $afterBuyInfo);
-        $afterBuyInfo = $this->addItemsInfo($orderItems, $afterBuyInfo);
-        $postString = $this->buildPostString($afterBuyInfo);
+        $afterbuyInfo = $this->configureAfterbuy();
+        $afterbuyInfo = $this->getOrderInfo($order, $afterbuyInfo);
+        $afterbuyInfo = $this->addItemsInfo($orderItems, $afterbuyInfo);
+        $postString = $this->buildPostString($afterbuyInfo);
 
-        if ($this->orderExporterConfig->getCurrentSystemEnvironment() == Environment::ENV_PRODUCTION) {
-            $this->sendOrderInfoToAfterBuy($postString, $afterBuyInfo[AfterbuyConstants::SALES_ORDER_ID]);
-        }
+        $this->sendOrderInfoToAfterbuy($postString, $orderItems, $afterbuyInfo[AfterbuyConstants::SALES_ORDER_ID]);
     }
 
     /**
@@ -247,24 +244,22 @@ class OrderExporterManager
     }
 
     /**
-     * @param array $afterBuyInfo
+     * @param array $afterbuyInfo
      * @return string
      */
-    protected function buildPostString(array $afterBuyInfo)
+    protected function buildPostString(array $afterbuyInfo)
     {
-        return http_build_query($afterBuyInfo);
+        return http_build_query($afterbuyInfo);
     }
 
     /**
      * @param $postVariables
-     * @param $orderId
-     * @return mixed
+     * @param array $orderItems
+     * @param $orderid
      */
-    protected function sendOrderInfoToAfterBuy($postVariables, $orderId)
+    protected function sendOrderInfoToAfterbuy($postVariables, array $orderItems, $orderid)
     {
-        $sendingResult = $this->afterbuyConnector->sendToAfterBuy($postVariables, $orderId);
-
-        return $sendingResult;
+        $this->afterbuyConnector->sendToAfterbuy($postVariables, $orderItems, $orderid);
     }
 
 }

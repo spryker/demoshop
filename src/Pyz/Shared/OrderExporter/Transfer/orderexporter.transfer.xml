@@ -3,8 +3,10 @@
            xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
            xsi:schemaLocation="http://xsd.spryker.com ../../src/Spryker/TransferObjectDefinitionSchema.xsd">
 
-    <transfer name="AfterbuyResponse">
-        <property name="order" type="Order" />
+    <transfer name="AfterbuyExport">
+        <property name="orderItems" type="SalesOrderItemTransfer[]" />
+        <property name="orderId" type="int" />
+        <property name="afterbuyResponseId" type="int" />
         <property name="success" type="bool" />
         <property name="errors_list" type="string" />
         <property name="full_response" type="string" />
