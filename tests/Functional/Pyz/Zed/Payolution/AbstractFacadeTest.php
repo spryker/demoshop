@@ -30,7 +30,7 @@ abstract class AbstractFacadeTest extends AbstractFunctionalTest
 {
 
     const FIRST_NAME = 'Alice';
-    const LAST_NAME = 'Spryker';
+    const LAST_NAME = 'Bob';
     const BIRTH_DATE = '1980-01-01';
     const EMAIL = 'alice@mailprovider.com';
     const STREET = 'Julie-Wolfthorn-Straße 1';
@@ -211,7 +211,7 @@ abstract class AbstractFacadeTest extends AbstractFunctionalTest
             ->setIdUser(null)
             ->setShippingAddress($this->addressTransfer)
             ->setBillingAddress($this->addressTransfer)
-            ->setPaymentMethod(self::PAYMENT_METHOD)
+            ->setPaymentMethod('installment')
             ->setCart($this->cartTransfer)
             ->setPayolutionPayment($this->payolutionPaymentTransfer);
     }
@@ -262,13 +262,19 @@ abstract class AbstractFacadeTest extends AbstractFunctionalTest
     protected function setPayolutionPaymentTransferTestData()
     {
         $this->payolutionPaymentTransfer = (new PayolutionPaymentTransfer())
-            ->setAccountBrand(PayolutionApiConstants::BRAND_INVOICE)
+            ->setAccountBrand(PayolutionApiConstants::BRAND_INSTALLMENT)
             ->setClientIp(self::CLIENT_IP)
             ->setLanguageIso2Code(self::COUNTRY_CODE)
             ->setCurrencyIso3Code(self::CURRENCY_CODE)
             ->setAddress($this->addressTransfer)
-            ->setGender(SpyPaymentPayolutionTableMap::COL_GENDER_FEMALE)
-        ;
+            ->setGender(SpyPaymentPayolutionTableMap::COL_GENDER_FEMALE);
+    }
+
+    protected function setCartTransferTestData()
+    {
+        $this->cartTransfer = (new CartTransfer())
+            ->addItem($this->itemTransfer)
+            ->setTotals($this->totalsTransfer);
     }
 
     protected function setItemTransferTestData()
@@ -280,13 +286,6 @@ abstract class AbstractFacadeTest extends AbstractFunctionalTest
             ->setGrossPrice(self::TOTAL)
             ->setName(self::ITEM_NAME)
             ->setTaxSet(new TaxSetTransfer());
-    }
-
-    protected function setCartTransferTestData()
-    {
-        $this->cartTransfer = (new CartTransfer())
-            ->addItem($this->itemTransfer)
-            ->setTotals($this->totalsTransfer);
     }
 
 }
