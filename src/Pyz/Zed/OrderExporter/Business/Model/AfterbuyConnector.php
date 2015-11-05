@@ -3,11 +3,9 @@
 namespace Pyz\Zed\OrderExporter\Business\Model;
 
 use Generated\Shared\Transfer\AfterbuyExportTransfer;
-use Generated\Shared\Transfer\SalesOrderItemTransfer;
 use Pyz\Zed\OrderExporter\OrderExporterConfig;
-use Orm\Zed\Sales\Persistence\SpySalesOrderItem;
 
-class AfterbuyConnector implements AfterbuyConnectorInterface
+class AfterbuyConnector extends AbstractAfterbuyConnector
 {
     /**
      * @var string
@@ -15,7 +13,7 @@ class AfterbuyConnector implements AfterbuyConnectorInterface
     protected $afterbuyUrl;
 
     /**
-     * @var AfterbuyResponseWriterInterface
+     * @var AbstractAfterbuyResponseWriter
      */
     protected $afterbuyResponseWriter;
 
@@ -26,11 +24,11 @@ class AfterbuyConnector implements AfterbuyConnectorInterface
 
     /**
      * @param OrderExporterConfig $orderExporterConfig
-     * @param AfterbuyResponseWriterInterface $afterbuyResponseWriter
+     * @param AbstractAfterbuyResponseWriter $afterbuyResponseWriter
      */
     public function __construct(
         OrderExporterConfig $orderExporterConfig,
-        AfterbuyResponseWriterInterface $afterbuyResponseWriter
+        AbstractAfterbuyResponseWriter $afterbuyResponseWriter
     ){
         $this->afterbuyUrl = $orderExporterConfig->getAfterbuyUrl();
         $this->afterbuyResponseWriter = $afterbuyResponseWriter;
@@ -49,23 +47,6 @@ class AfterbuyConnector implements AfterbuyConnectorInterface
         $afterbuyTransfer->setOrderItems($orderItemTransfers);
         $afterbuyTransfer->setOrderId($orderId);
         $this->afterbuyResponseWriter->saveAfterbuyResponse($afterbuyTransfer, $postVariables);
-    }
-
-    /**
-     * @param SpySalesOrderItem [] $orderItems
-     * @return array
-     */
-    protected function createOrderItemsTransfer(array $orderItems)
-    {
-        $orderItemTransfers = new \ArrayObject();
-
-        foreach ($orderItems as $orderItem) {
-            $orderItemTransfer = new SalesOrderItemTransfer();
-            $orderItemTransfer->setOrderItemId($orderItem->getIdSalesOrderItem());
-            $orderItemTransfers[] = $orderItemTransfer;
-        }
-
-        return $orderItemTransfers;
     }
 
 }

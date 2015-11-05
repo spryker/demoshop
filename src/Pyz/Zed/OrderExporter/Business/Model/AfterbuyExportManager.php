@@ -27,7 +27,7 @@ class AfterbuyExportManager
     /** @var string */
     protected $afterbuyUrl;
     /**
-     * @var AfterbuyConnectorInterface
+     * @var AbstractAfterbuyConnector
      */
     protected $afterbuyConnector;
     /**
@@ -37,9 +37,9 @@ class AfterbuyExportManager
 
     /**
      * @param OrderExporterConfig $orderExporterConfig
-     * @param AfterbuyConnectorInterface $connector
+     * @param AbstractAfterbuyConnector $connector
      */
-    public function __construct(OrderExporterConfig $orderExporterConfig, AfterbuyConnectorInterface $connector)
+    public function __construct(OrderExporterConfig $orderExporterConfig, AbstractAfterbuyConnector $connector)
     {
         $this->userId = $orderExporterConfig->getAfterbuyUserId();
         $this->partnerId = $orderExporterConfig->getAfterbuyPartnerId();

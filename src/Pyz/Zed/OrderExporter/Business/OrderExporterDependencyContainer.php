@@ -8,7 +8,7 @@ use Generated\Zed\Ide\FactoryAutoCompletion\OrderExporterBusiness;
 use Pyz\Zed\OrderExporter\Dependency\Facade\OrderExporterToSalesInterface;
 use Pyz\Zed\OrderExporter\OrderExporterConfig;
 use Pyz\Zed\OrderExporter\Business\Model\MailSenderInterface;
-use Pyz\Zed\OrderExporter\Business\Model\AfterbuyResponseWriterInterface;
+use Pyz\Zed\OrderExporter\Business\Model\AbstractAfterbuyResponseWriter;
 
 /**
  * @method OrderExporterConfig getConfig()
@@ -48,7 +48,7 @@ class OrderExporterDependencyContainer extends AbstractBusinessDependencyContain
     }
 
     /**
-     * @return Model\AfterbuyConnectorInterface
+     * @return Model\AbstractAfterbuyConnector
      */
     public function createAfterbuyConnector()
     {
@@ -59,7 +59,7 @@ class OrderExporterDependencyContainer extends AbstractBusinessDependencyContain
     }
 
     /**
-     * @return Model\AfterbuyConnectorInterface
+     * @return Model\AbstractAfterbuyConnector
      */
     public function createAfterbuyConnectorProduction()
     {
@@ -80,7 +80,7 @@ class OrderExporterDependencyContainer extends AbstractBusinessDependencyContain
     }
 
     /**
-     * @return AfterbuyResponseWriterInterface
+     * @return AbstractAfterbuyResponseWriter
      */
     public function createAfterbuyResponseWriter()
     {
@@ -88,7 +88,7 @@ class OrderExporterDependencyContainer extends AbstractBusinessDependencyContain
     }
 
     /**
-     * @return AfterbuyResponseWriterInterface
+     * @return AbstractAfterbuyResponseWriter
      */
     public function createAfterbuyResponseWriterProduction()
     {
@@ -98,7 +98,7 @@ class OrderExporterDependencyContainer extends AbstractBusinessDependencyContain
     }
 
     /**
-     * @return Model\AfterbuyConnectorInterface
+     * @return Model\AbstractAfterbuyConnector
      */
     protected function getAfterbuyConnector()
     {
