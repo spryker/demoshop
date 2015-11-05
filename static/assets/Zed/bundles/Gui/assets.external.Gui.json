@@ -16,12 +16,14 @@
             "/js/plugins/slimscroll/jquery.slimscroll.js",
             "/js/plugins/footable/footable.all.min.js",
             "/js/plugins/pace/pace.min.js",
+            "/js/plugins/summernote/summernote.min.js",
             "/js/plugins/slick/slick.min.js",
             "/js/plugins/steps/jquery.steps.min.js",
             "/js/plugins/iCheck/icheck.min.js",
             "/js/plugins/select2/select2.min.js",
             "/js/plugins/sweetalert/sweetalert.min.js",
             "/js/plugins/nestable/jquery.nestable.js",
+            "/js/inspinia-helpers.js",
             "/js/inspinia.js"
         ],
         "css": [
@@ -35,6 +37,8 @@
             "/css/plugins/slick/slick.css",
             "/css/plugins/slick/slick-theme.css",
             "/css/plugins/sweetalert/sweetalert.css",
+            "/css/plugins/summernote/summernote.css",
+            "/css/plugins/summernote/summernote-bs3.css",
             "/scss/style.scss"
         ],
         "images": [
