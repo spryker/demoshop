@@ -16,9 +16,6 @@ use Pyz\Shared\OrderExporter\AfterbuyExportConstantInterface;
 use Pyz\Shared\Glossary\GlossaryConfig;
 use PavFeature\Shared\Adyen\AdyenConfigConstants;
 
-$config[SystemConfig::ZED_SHOW_EXCEPTION_STACK_TRACE] = true;
-
-
 $config[SystemConfig::PROJECT_NAMESPACES] = [
     'Pyz',
 ];

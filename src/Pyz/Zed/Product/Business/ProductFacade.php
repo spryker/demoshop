@@ -5,6 +5,7 @@ namespace Pyz\Zed\Product\Business;
 use Generated\Shared\Product\AbstractProductInterface;
 use Generated\Shared\Transfer\AbstractProductTransfer;
 use Pyz\SprykerBugfixInterface;
+use Pyz\Zed\Product\Business\Attribute\MediaAttributes;
 use SprykerFeature\Zed\Product\Business\ProductFacade as SprykerProductFacade;
 use SprykerFeature\Zed\ProductCategory\Dependency\Facade\ProductCategoryToProductInterface;
 use SprykerFeature\Zed\ProductSearch\Dependency\Facade\ProductSearchToProductInterface;
@@ -53,6 +54,26 @@ class ProductFacade extends SprykerProductFacade implements
     public function installDemoData(LoggerInterface $messenger)
     {
         $this->getDependencyContainer()->createDemoDataInstaller($messenger)->install();
+    }
+
+    /**
+     * @param string|array $attributes
+     *
+     * @return array
+     */
+    public function getAttributes($attributes)
+    {
+        return $this->getDependencyContainer()->createAttributeConverter()->getAttributes($attributes);
+    }
+
+    /**
+     * @param string|array $attributes
+     *
+     * @return MediaAttributes
+     */
+    public function splitMediaAttributes($attributes)
+    {
+        return $this->getDependencyContainer()->createMediaAttributeSplitter()->split($attributes);
     }
 
     /**
