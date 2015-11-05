@@ -51,7 +51,7 @@ class TwigTranslator implements TranslatorInterface
             $locale = $this->localeName;
         }
 
-        return $this->client->translate($id, $parameters, $locale);
+        return $this->client->translate($id, $locale, $parameters);
     }
 
     /**
