@@ -18,17 +18,15 @@ use Silex\ServiceProviderInterface;
 use SprykerEngine\Shared\Application\Communication\Bootstrap\Extension\ServiceProviderExtensionInterface;
 use SprykerEngine\Shared\Config;
 use SprykerEngine\Yves\Application\Communication\Plugin\ServiceProvider\CookieServiceProvider;
-use SprykerEngine\Yves\Application\Communication\Plugin\ServiceProvider\ExceptionServiceProvider;
 use SprykerEngine\Yves\Application\Communication\Plugin\ServiceProvider\MonologServiceProvider;
 use SprykerEngine\Yves\Application\Communication\Plugin\ServiceProvider\YvesLoggingServiceProvider;
 use SprykerEngine\Shared\Application\Communication\Application;
 use SprykerFeature\Shared\Application\ApplicationConfig;
 use SprykerFeature\Shared\Application\Communication\Plugin\ServiceProvider\RoutingServiceProvider;
 use SprykerFeature\Shared\Application\Communication\Plugin\ServiceProvider\UrlGeneratorServiceProvider;
-use SprykerFeature\Shared\Library\Environment;
 use Pyz\Yves\Twig\Communication\Plugin\TwigServiceProvider;
 use SprykerFeature\Client\Lumberjack\Service\EventJournalClient;
-use SprykerFeature\Shared\Library\NewRelic\Api;
+use SprykerFeature\Shared\NewRelic\Api;
 
 class ServiceProviderExtension extends LocatorAwareExtension implements ServiceProviderExtensionInterface
 {
@@ -61,7 +59,7 @@ class ServiceProviderExtension extends LocatorAwareExtension implements ServiceP
             new SecurityServiceProvider(),
             $this->getLocator()->application()->pluginServiceProviderYvesSecurityServiceProvider(),
             $this->getLocator()->application()->pluginServiceProviderExceptionServiceProvider(),
-            new YvesLoggingServiceProvider(new EventJournalClient(), Api::getInstance()),
+            new YvesLoggingServiceProvider(new EventJournalClient(), new Api()),
             new MonologServiceProvider(),
             new CookieServiceProvider(),
             $sessionServiceProvider,
