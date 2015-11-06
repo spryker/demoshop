@@ -1,6 +1,12 @@
+<pre>
+    {{  dump(cart.totals.discount.discountItems[1].codes) }}
+</pre>
 {% for discount in cart.totals.discount.discountItems %}
     <div class="cart__coupon-name">
         {{ discount.name }}
+    </div>
+    <div class="cart__remove-coupon">
+
     </div>
     <div>
         - {{ discount.amount | price }}
