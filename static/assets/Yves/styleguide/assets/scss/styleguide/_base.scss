@@ -360,7 +360,6 @@ body{
 }
 .styleguide-element {
   position: relative;
-  padding: 10px 20px;
   @include clearfix;
   & + .styleguide-element {
     padding-top: 15px;
@@ -426,26 +425,30 @@ ul.styleguide-modifier {
   text-align: left;
 }
 
-.section-organisms, .section-frontpage, .section-category, .section-faq, .section-product, .section-imprint{
-
-    .styleguide-example{
-        margin: 15px -17px;
-    }
-    .styleguide-iframe{
-        margin: -10px -20px -20px;
-    }
-}
-
 
 .styleguide-content--frontpage,
 .styleguide-content--faq,
 .styleguide-content--product,
 .styleguide-content--imprint,
 .styleguide-content--category {
-    margin: 15px 0;
+    margin: 0;
+
+    .styleguide-example-header{
+        display: none;
+    }
+
+    .styleguide-example{
+        margin: 0;
+    }
+
+    .styleguide-element{
+        padding: 0;
+    }
 }
 
 iframe{
     border: none;
-    max-height: 100vh !important;
+    max-height: calc(100vh - 35px) !important;
+
+    margin-bottom: -8px !important;
 }

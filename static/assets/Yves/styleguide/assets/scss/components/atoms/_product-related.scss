@@ -1,0 +1,20 @@
+// Product related
+//
+// Markup:
+// <div class="product-related">
+//     {{> "molecules.product-card-wide"}}
+//     {{> "molecules.product-card-wide"}}
+// </div>
+//
+// Styleguide: atoms.product-related
+
+.product-related{
+    padding: 0 4px;
+    @include clearfix;
+    background: $_rgbAlabaster;
+
+    .product-card-wide{
+        float: left;
+        width: 50%;
+    }
+}

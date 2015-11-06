@@ -5,7 +5,7 @@ import $ from 'jquery';
 
 $(document).ready(function () {
 
-    var $trigger = $('.product__customize');
+    var $trigger = $('.js-product-customize');
 
     $trigger.click(function () {
         alert('show configurator');

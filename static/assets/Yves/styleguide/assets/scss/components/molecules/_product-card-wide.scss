@@ -25,7 +25,7 @@
 
 
 .product-card-wide{
-    margin: 8px 4px;
+    padding: 8px 4px;
 }
 
 .product-card-wide__inner{
@@ -33,6 +33,7 @@
     padding: 40px 70px 40px 0;
     @include cardShadow;
     @include clearfix;
+    background: $_rgbWhite;
 }
 
 .product-card-wide__label{
