@@ -51,6 +51,8 @@ class ConsoleConfig extends SprykerConsoleConfig
             $this->getLocator()->transfer()->consoleGeneratorConsole(),
             $this->getLocator()->cache()->consoleDeleteAllCachesConsole(),
             $this->getLocator()->newRelic()->consoleRecordDeploymentConsole(),
+            $this->getLocator()->queue()->consoleQueueWorkerConsole(),
+            $this->getLocator()->mailQueue()->consoleMailQueueConsole(),
         ];
 
         $gitCommands = $this->getLocator()->git()->facade()->getConsoleCommands();
