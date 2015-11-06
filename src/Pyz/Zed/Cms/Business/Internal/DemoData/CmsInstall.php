@@ -192,7 +192,8 @@ class CmsInstall extends AbstractInstaller
     {
         foreach ($this->staticPages as $pageKey => $localeConfig) {
             $file = $this->getFileName($localeStaticFilePath, $pageKey);
-            if ($fileContent = file_get_contents($file)) {
+            $fileContent = file_get_contents($file);
+            if ($fileContent) {
                 $this->installPage($fileContent, $localeConfig[$locale], $pageKey);
             }
         }

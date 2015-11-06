@@ -97,8 +97,8 @@ class CheckoutType extends AbstractType
                 'data_class' => 'Generated\Shared\Transfer\PayolutionPaymentTransfer',
                 'error_bubbling' => true,
                 'attr' => [
-                    'class' => 'js-payolution-payment'
-                ]
+                    'class' => 'js-payolution-payment',
+                ],
             ])
             ->add(self::FIELD_ID_SHIPMENT_METHOD, 'choice', [
                 'choices' => $this->prepareShipmentMethods(),
@@ -144,9 +144,9 @@ class CheckoutType extends AbstractType
             $results[$method->getIdShipmentMethod()] .= ' | Price: ' . $method->getPrice();
             $results[$method->getIdShipmentMethod()] .= (!is_null($method->getTime())) ? ' | Delivery time: '
                 . ($method->getTime()/3600) . ' hours' : '';
-
         }
 
         return $results;
     }
+
 }

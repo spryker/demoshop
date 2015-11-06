@@ -30,5 +30,4 @@ class TouchFacade extends SprykerTouchFacade implements
     SearchPageToTouchInterface,
     UrlToTouchInterface
 {
-
 }

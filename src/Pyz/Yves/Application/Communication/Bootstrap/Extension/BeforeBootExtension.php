@@ -12,7 +12,6 @@ use SprykerEngine\Shared\Config;
 use SprykerEngine\Shared\Kernel\Store;
 use SprykerFeature\Shared\Application\ApplicationConfig;
 use SprykerFeature\Shared\Library\DataDirectory;
-use SprykerFeature\Shared\Library\Environment;
 use SprykerFeature\Shared\Yves\YvesConfig;
 use Symfony\Component\HttpFoundation\Request;
 

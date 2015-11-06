@@ -9,7 +9,6 @@ namespace Pyz\Yves\Catalog\Communication\Plugin\Router;
 use Silex\Application;
 use SprykerEngine\Yves\Kernel\Locator;
 use SprykerFeature\Shared\Application\Communication\ControllerServiceBuilder;
-use SprykerEngine\Shared\Kernel\LocatorLocatorInterface;
 use SprykerEngine\Yves\Application\Business\Routing\AbstractRouter;
 use SprykerEngine\Yves\Kernel\Communication\BundleControllerAction;
 use SprykerEngine\Yves\Kernel\Communication\Controller\RouteNameResolver;
@@ -31,7 +30,7 @@ class SearchRouter extends AbstractRouter
      */
     public function generate($name, $parameters = [], $referenceType = self::ABSOLUTE_PATH)
     {
-        if ('/search' === $name) {
+        if ($name === '/search') {
             $request = $this->getRequest();
             $requestParameters = $request->query->all();
             //if no page is provided we generate a url to change the filter and therefore want to reset the page
@@ -55,7 +54,7 @@ class SearchRouter extends AbstractRouter
      */
     public function match($pathinfo)
     {
-        if ('/search' === $pathinfo) {
+        if ($pathinfo === '/search') {
             $request = $this->getRequest();
             $this->getUrlMapper()->injectParametersFromUrlIntoRequest($pathinfo, $request);
 

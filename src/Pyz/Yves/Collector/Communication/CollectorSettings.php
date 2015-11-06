@@ -8,5 +8,4 @@ namespace Pyz\Yves\Collector\Communication;
 
 class CollectorSettings
 {
-
 }

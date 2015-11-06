@@ -6,7 +6,6 @@
 
 namespace Pyz\Yves\RedirectExporter\Communication;
 
-use Generated\Yves\Ide\FactoryAutoCompletion\RedirectExporterCommunication;
 use SprykerEngine\Yves\Kernel\Communication\AbstractCommunicationDependencyContainer;
 use Pyz\Yves\RedirectExporter\Communication\ResourceCreator\RedirectResourceCreator;
 

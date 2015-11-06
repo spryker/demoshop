@@ -15,6 +15,7 @@ use Orm\Zed\Url\Persistence\Map\SpyUrlTableMap;
 
 class RedirectCollector extends AbstractPropelCollectorPlugin
 {
+
     use KeyBuilderTrait;
 
     const KEY_FROM_URL = 'from_url';
@@ -99,7 +100,6 @@ class RedirectCollector extends AbstractPropelCollectorPlugin
 
         return $this->escapeKey(implode($this->keySeparator, $keyParts));
     }
-
 
     protected function buildKey($data)
     {

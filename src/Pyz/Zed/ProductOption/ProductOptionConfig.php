@@ -7,6 +7,7 @@ use SprykerFeature\Shared\System\SystemConfig;
 
 class ProductOptionConfig extends SprykerProductOptionConfig
 {
+
     const ADAPTER_MYSQL = 'mysql';
 
     /**

@@ -6,5 +6,4 @@ use SprykerFeature\Zed\Glossary\Communication\GlossaryDependencyContainer as Spr
 
 class GlossaryDependencyContainer extends SprykerGlossaryDependencyContainer
 {
-
 }

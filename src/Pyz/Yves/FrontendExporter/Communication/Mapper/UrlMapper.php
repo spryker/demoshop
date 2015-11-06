@@ -53,12 +53,12 @@ class UrlMapper implements UrlMapperInterface
                 $paramValue = $mergedParameters[$paramName];
                 if (is_array($paramValue)) {
                     foreach ($paramValue as $currentValue) {
-                            $segmentsOffsetHash .= $activeInUrlFacet[FacetConfig::KEY_SHORT_PARAM] . count($segments);
-                            $segments[] = $currentValue;
+                        $segmentsOffsetHash .= $activeInUrlFacet[FacetConfig::KEY_SHORT_PARAM] . count($segments);
+                        $segments[] = $currentValue;
                     }
                 } else {
-                        $segmentsOffsetHash .= $activeInUrlFacet[FacetConfig::KEY_SHORT_PARAM] . count($segments);
-                        $segments[] = $paramValue;
+                    $segmentsOffsetHash .= $activeInUrlFacet[FacetConfig::KEY_SHORT_PARAM] . count($segments);
+                    $segments[] = $paramValue;
                 }
                 unset($mergedParameters[$paramName]);
             }
@@ -187,7 +187,7 @@ class UrlMapper implements UrlMapperInterface
                     $mergedParameters[$generationParameterName][] = $currentValue;
                 } elseif (in_array($currentValue, $mergedParameters[$generationParameterName]) && $currentActive === false) {
                     $key = array_search($currentValue, $mergedParameters[$generationParameterName]);
-                    if($key !== false) {
+                    if ($key !== false) {
                         unset($mergedParameters[$generationParameterName][$key]);
                         if (empty($mergedParameters[$generationParameterName])) {
                             unset($mergedParameters[$generationParameterName]);

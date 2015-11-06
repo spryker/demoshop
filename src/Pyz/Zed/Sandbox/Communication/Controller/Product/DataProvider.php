@@ -66,7 +66,8 @@ class DataProvider
     {
         return [
             'locale_name' => 'de_DE',
-            'is_active' => true
+            'is_active' => true,
         ];
     }
+
 }

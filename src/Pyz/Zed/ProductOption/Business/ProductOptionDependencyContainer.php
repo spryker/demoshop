@@ -14,7 +14,6 @@ use Pyz\Zed\ProductOption\Business\Internal\DemoData\Importer\Reader\ProductRead
 use Pyz\Zed\ProductOption\Business\Internal\DemoData\Importer\Transformer\XMLTransformerInterface;
 use Pyz\Zed\ProductOption\Business\Internal\DemoData\Importer\Writer\WriterInterface;
 use Pyz\Zed\ProductOption\ProductOptionDependencyProvider;
-use Pyz\Zed\ProductOption\Business\ProductOptionFacade;
 use SprykerFeature\Zed\ProductOption\Business\Model\DataImportWriterInterface;
 
 /**

@@ -10,5 +10,4 @@ use SprykerFeature\Zed\Customer\CustomerConfig as SprykerCustomerConfig;
 
 class CustomerConfig extends SprykerCustomerConfig
 {
-
 }

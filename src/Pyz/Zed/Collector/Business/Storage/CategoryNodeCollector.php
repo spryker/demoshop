@@ -145,7 +145,6 @@ class CategoryNodeCollector extends AbstractPropelCollectorPlugin
         ];
     }
 
-
     /**
      * @param string $identifier
      *

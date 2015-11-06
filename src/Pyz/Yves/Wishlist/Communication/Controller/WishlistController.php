@@ -11,9 +11,9 @@ use Pyz\Yves\Wishlist\Communication\Plugin\WishlistControllerProvider;
 use SprykerEngine\Yves\Application\Communication\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\RedirectResponse;
 
-
 class WishlistController extends AbstractController
 {
+
     /**
      * @return array
      */
@@ -22,14 +22,14 @@ class WishlistController extends AbstractController
         $wishlistClient = $this->getLocator()->wishlist()->client();
 
         return [
-          'customerWishlist' => $wishlistClient->getWishlist()
+          'customerWishlist' => $wishlistClient->getWishlist(),
         ];
     }
 
     /**
      * @param string $sku
-     * @param int    $quantity
-     * @param array  $optionValueUsageIds
+     * @param int $quantity
+     * @param array $optionValueUsageIds
      *
      * @return RedirectResponse
      */
@@ -124,7 +124,7 @@ class WishlistController extends AbstractController
             }
         }
 
-        if (null !== $wishlistItem) {
+        if ($wishlistItem !== null) {
             $cartClient = $this->getLocator()->cart()->client();
             $wishlistItem->setGroupKey(null);
             $cartClient->addItem($wishlistItem);
@@ -134,4 +134,3 @@ class WishlistController extends AbstractController
     }
 
 }
-

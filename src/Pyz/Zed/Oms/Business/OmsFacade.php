@@ -10,5 +10,4 @@ class OmsFacade extends SprykerOmsFacade implements
     CheckoutToOmsInterface,
     SalesToOmsInterface
 {
-
 }

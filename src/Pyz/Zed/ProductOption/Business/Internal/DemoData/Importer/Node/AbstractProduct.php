@@ -71,4 +71,5 @@ class AbstractProduct implements VisitableProductInterface
     {
         return $this->variants;
     }
+
 }

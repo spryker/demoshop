@@ -4,7 +4,6 @@ namespace Pyz\Zed\ProductOption\Business\Internal\DemoData;
 
 use SprykerFeature\Zed\Installer\Business\Model\AbstractInstaller;
 use Pyz\Zed\ProductOption\Business\Internal\DemoData\Importer\Writer\WriterInterface;
-use Propel\Runtime\Propel;
 
 class ProductOptionDataInstall extends AbstractInstaller
 {

@@ -34,7 +34,7 @@ class TwigSettings
     {
         return [
             $this->getLocator()->twig()->pluginTwigNative(),
-            $this->getLocator()->price()->pluginTwigPrice()
+            $this->getLocator()->price()->pluginTwigPrice(),
         ];
     }
 
@@ -51,7 +51,7 @@ class TwigSettings
             $this->getLocator()->price()->pluginTwigPrice(),
             $this->getLocator()->cms()->pluginTwigCms(),
             $twigCustomer,
-            $this->getLocator()->assets()->pluginTwigAsset()
+            $this->getLocator()->assets()->pluginTwigAsset(),
         ];
     }
 

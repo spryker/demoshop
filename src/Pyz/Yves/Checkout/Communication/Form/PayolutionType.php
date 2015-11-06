@@ -118,10 +118,10 @@ class PayolutionType extends AbstractType
                 'data' => 'EUR',
             ])
             ->add(self::FIELD_ACCOUNT_BRAND, 'hidden', [
-                'data' => PayolutionApiConstants::BRAND_INVOICE
+                'data' => PayolutionApiConstants::BRAND_INVOICE,
             ])
             ->add(self::FIELD_CLIENT_IP, 'hidden', [
-                'data' => $this->request->getClientIp()
+                'data' => $this->request->getClientIp(),
             ]);
     }
 

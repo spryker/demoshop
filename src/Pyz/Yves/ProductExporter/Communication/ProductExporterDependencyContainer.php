@@ -6,7 +6,6 @@
 
 namespace Pyz\Yves\ProductExporter\Communication;
 
-use Generated\Yves\Ide\FactoryAutoCompletion\ProductExporterCommunication;
 use SprykerEngine\Yves\Kernel\Communication\AbstractCommunicationDependencyContainer;
 
 /**

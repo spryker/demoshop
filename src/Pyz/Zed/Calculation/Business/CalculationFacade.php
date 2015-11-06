@@ -7,5 +7,4 @@ use SprykerFeature\Zed\DiscountCalculationConnector\Dependency\Facade\DiscountCa
 
 class CalculationFacade extends SprykerCalculationFacade implements DiscountCalculationToCalculationInterface
 {
-
 }

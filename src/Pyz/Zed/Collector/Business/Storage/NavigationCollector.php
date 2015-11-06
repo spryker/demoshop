@@ -57,7 +57,6 @@ class NavigationCollector extends AbstractPropelCollectorPlugin
         ;
         $baseQuery->addJoinObject($join);
 
-
         $baseQuery->addJoin(
             SpyCategoryNodeTableMap::COL_FK_CATEGORY,
             SpyCategoryAttributeTableMap::COL_FK_CATEGORY,
@@ -148,7 +147,6 @@ class NavigationCollector extends AbstractPropelCollectorPlugin
             ),
         ];
     }
-
 
     /**
      * @param string $data
