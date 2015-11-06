@@ -13,11 +13,18 @@ class ShipmentInstall extends AbstractInstaller
 {
 
     const NAME_CARRIER = 'Default Carrier';
+    const NAME_AUSTRIA_CARRIER = 'Default Austria Carrier';
     const NAME_GLOSSARY_KEY_CARRIER = 'shipment.defaultCarrier';
+    const NAME_AUSTRIA_GLOSSARY_KEY_CARRIER = 'shipment.austriaDefaultCarrier';
     const NAME_SHIPMENT_METHOD = 'Default Shipment Method';
+    const NAME_AUSTRIA_SHIPMENT_METHOD = 'Default Austria Shipment Method';
     const NAME_GLOSSARY_KEY_SHIPMENT_METHOD  = 'shipment.defaultCarrier.defaultMethod.name';
     const DESCRIPTION_GLOSSARY_KEY_SHIPMENT_METHOD = 'shipment.defaultCarrier.defaultMethod.description';
     const PRICE_SHIPMENT_METHOD = 10;
+    const NAME_AUSTRIA_GLOSSARY_KEY_SHIPMENT_METHOD  = 'shipment.austriaDefaultCarrier.defaultMethod.name';
+    const DESCRIPTION_AUSTRIA_GLOSSARY_KEY_SHIPMENT_METHOD = 'shipment.austriaDefaultCarrier.defaultMethod.description';
+    const PRICE_AUSTRIA_SHIPMENT_METHOD = 9.90;
+
 
     /**
      * @var ShipmentQueryContainerInterface
@@ -59,7 +66,9 @@ class ShipmentInstall extends AbstractInstaller
         }
 
         $idCarrier = $this->createCarrier();
-        $this->addShipmentMethodToCarrie($idCarrier);
+        $idAustriaCarrier = $this->createAustriaCarrier();
+        $this->addShipmentMethodToCarrier($idCarrier);
+        $this->addAustriaShipmentMethodToCarrier($idAustriaCarrier);
     }
 
     /**
@@ -76,9 +85,22 @@ class ShipmentInstall extends AbstractInstaller
     }
 
     /**
+     * @return int
+     */
+    protected function createAustriaCarrier()
+    {
+        $shipmentCarrierTransfer = new ShipmentCarrierTransfer();
+        $shipmentCarrierTransfer->setName(self::NAME_AUSTRIA_CARRIER);
+        $shipmentCarrierTransfer->setGlossaryKeyName(self::NAME_AUSTRIA_GLOSSARY_KEY_CARRIER);
+        $shipmentCarrierTransfer->setIsActive(true);
+
+        return $this->carrier->create($shipmentCarrierTransfer);
+    }
+
+    /**
      * @param $idCarrier
      */
-    protected function addShipmentMethodToCarrie($idCarrier)
+    protected function addShipmentMethodToCarrier($idCarrier)
     {
         $shipmentMethodTransfer = new ShipmentMethodTransfer();
         $shipmentMethodTransfer->setFkShipmentCarrier($idCarrier);
@@ -86,6 +108,22 @@ class ShipmentInstall extends AbstractInstaller
         $shipmentMethodTransfer->setGlossaryKeyName(self::NAME_GLOSSARY_KEY_SHIPMENT_METHOD);
         $shipmentMethodTransfer->setGlossaryKeyDescription(self::DESCRIPTION_GLOSSARY_KEY_SHIPMENT_METHOD);
         $shipmentMethodTransfer->setPrice(self::PRICE_SHIPMENT_METHOD);
+        $shipmentMethodTransfer->setIsActive(true);
+
+        $this->method->create($shipmentMethodTransfer);
+    }
+
+    /**
+     * @param $idCarrier
+     */
+    protected function addAustriaShipmentMethodToCarrier($idCarrier)
+    {
+        $shipmentMethodTransfer = new ShipmentMethodTransfer();
+        $shipmentMethodTransfer->setFkShipmentCarrier($idCarrier);
+        $shipmentMethodTransfer->setName(self::NAME_AUSTRIA_SHIPMENT_METHOD);
+        $shipmentMethodTransfer->setGlossaryKeyName(self::NAME_AUSTRIA_GLOSSARY_KEY_SHIPMENT_METHOD);
+        $shipmentMethodTransfer->setGlossaryKeyDescription(self::DESCRIPTION_AUSTRIA_GLOSSARY_KEY_SHIPMENT_METHOD);
+        $shipmentMethodTransfer->setPrice(self::PRICE_AUSTRIA_SHIPMENT_METHOD);
         $shipmentMethodTransfer->setIsActive(true);
 
         $this->method->create($shipmentMethodTransfer);
