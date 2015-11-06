@@ -26,7 +26,7 @@ class CmsBlockSettings
     public function getBlockDataProviderPlugins()
     {
         return [
-            $this->locator->catalog()->pluginBlockDataProviderCatalogBlockDataProvider(),
+            $this->locator->catalog()->pluginBlockControllerCatalogBlockController(),
         ];
     }
 }

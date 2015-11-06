@@ -10,10 +10,10 @@ class BlockHandler implements BlockHandlerInterface
 {
     const BLOCKS = 'blocks';
     const ID_CATEGORY_NODE = 'id_category_node';
+    const TEMPLATE_TYPE = 'template_type';
     const TEMPLATE = 'template';
     const VALUES = 'values';
     const NAME = 'name';
-    const TEMPLATE_NAME = 'templateName';
     const DYNAMIC_DATA = 'dynamicData';
     const CMS_VALUES = 'cmsValues';
 
@@ -49,15 +49,20 @@ class BlockHandler implements BlockHandlerInterface
         }
 
         foreach ($pageData[self::BLOCKS] as $block) {
-            $blockName = $block[self::NAME];
+            $templateType = $block[self::TEMPLATE_TYPE];
 
-            if (!array_key_exists($blockName, $this->blockControllers)) {
-                throw new BlockDataProviderMissingException();
+            if (!array_key_exists($templateType, $this->blockControllers)) {
+                throw new BlockDataProviderMissingException(
+                    sprintf(
+                        'For template-type "%s" is no BlockController registered in CmsBlockSettings.',
+                        $templateType
+                    )
+                );
             }
 
-            $blockController = $this->blockControllers[$blockName];
+            $blockController = $this->blockControllers[$templateType];
             $blockData[] = [
-                self::TEMPLATE => $block[self::TEMPLATE_NAME],
+                self::TEMPLATE => $templateType,
                 self::CMS_VALUES => $block[self::VALUES],
                 self::DYNAMIC_DATA => $blockController->blockAction($pageAttributes, $request)
             ];
@@ -83,7 +88,7 @@ class BlockHandler implements BlockHandlerInterface
      */
     protected function addBlockController(BlockControllerInterface $blockController)
     {
-        $this->blockControllers[$blockController->getBlockName()] = $blockController;
+        $this->blockControllers[$blockController->getTemplateType()] = $blockController;
     }
 }
 

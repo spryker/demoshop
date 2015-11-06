@@ -1,0 +1,17 @@
+{
+  "type" : "object",
+  "properties" : {
+    "test-string" : {
+      "type" : "string",
+      "required" : true
+    },
+    "test-integer" : {
+      "type" : "integer",
+      "required" : true
+    },
+    "test-bool" : {
+      "type" : "boolean",
+      "required" : true
+    }
+  }
+}

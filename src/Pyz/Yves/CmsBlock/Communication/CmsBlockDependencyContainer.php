@@ -27,7 +27,7 @@ class CmsBlockDependencyContainer extends AbstractCommunicationDependencyContain
      */
     public function createBlockHandler()
     {
-       return $this->getFactory()->createManagerBlockManager(
+       return $this->getFactory()->createHandlerBlockHandler(
            $this->createSettings()->getBlockDataProviderPlugins()
        );
     }

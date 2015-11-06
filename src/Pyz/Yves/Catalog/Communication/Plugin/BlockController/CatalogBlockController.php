@@ -1,6 +1,6 @@
 <?php
 
-namespace Pyz\Client\Catalog\Service\Plugin\BlockDataProvider;
+namespace Pyz\Yves\Catalog\Communication\Plugin\BlockController;
 
 use Pyz\Yves\Catalog\Communication\CatalogDependencyContainer;
 use Pyz\Yves\CmsBlock\Communication\Handler\BlockHandler;
@@ -14,14 +14,14 @@ use Symfony\Component\HttpFoundation\Request;
 class CatalogBlockController extends AbstractPlugin implements BlockControllerInterface
 {
 
-    const CATALOG_BLOCK = 'catalog-block';
+    const CATALOG = 'catalog';
 
     /**
      * @return string
      */
-    public function getBlockName()
+    public function getTemplateType()
     {
-        return self::CATALOG_BLOCK;
+        return self::CATALOG;
     }
 
     /**

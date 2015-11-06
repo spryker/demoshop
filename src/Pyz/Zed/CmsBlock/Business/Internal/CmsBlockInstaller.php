@@ -75,15 +75,17 @@ class CmsBlockInstaller extends AbstractInstaller
         return [
             [
                 self::PAGE_URLS => [
-                    '/impressum',
+                    '/hunde',
                 ],
-                self::NAME => 'test_block',
-                self::TEMPLATE_TYPE => 'test',
+                self::NAME => 'catalog',
+                self::TEMPLATE_TYPE => 'catalog',
                 self::LOCALIZED_VALUES => [
                     [
                         self::LOCALE_NAME => 'de_DE',
                         self::VALUES => [
-                            'test' => 'test'
+                            'test-string' => 'test',
+                            'test-bool' => false,
+                            'test-integer' => 12,
                         ],
                     ]
                 ]
@@ -128,7 +130,7 @@ class CmsBlockInstaller extends AbstractInstaller
 
             $locale = $this->localeFacade->getLocale($localizedBlock[self::LOCALE_NAME]);
             $localizedBlockTransfer->setLocale($locale);
-            $localizedBlockTransfer->setValues($localizedBlock[self::VALUES]);
+            $localizedBlockTransfer->setValues(json_encode($localizedBlock[self::VALUES]));
 
             $blockTransfer->addLocalizedBlocks($localizedBlockTransfer);
         }
@@ -142,7 +144,6 @@ class CmsBlockInstaller extends AbstractInstaller
     {
         foreach ($pageUrls as $pageUrl) {
             $urlTransfer = $this->urlFacade->getUrlByPath($pageUrl);
-            // check if exists
             $this->blockWriter->linkPageWithBlock(
                 $urlTransfer->getFkPage(),
                 $blockTransfer->getIdCmsBlock()

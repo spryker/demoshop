@@ -1,11 +1,11 @@
 <?php
 
-namespace Pyz\Zed\Cms;
+namespace Pyz\Zed\CmsBlock;
 
 use SprykerEngine\Zed\Kernel\Container;
-use SprykerFeature\Zed\Cms\CmsDependencyProvider as SprykerCmsDependencyProvider;
+use PavFeature\Zed\CmsBlock\CmsBlockDependencyProvider as PavFeatureCmsDependencyProvider;
 
-class CmsBlockDependencyProvider extends SprykerCmsDependencyProvider
+class CmsBlockDependencyProvider extends PavFeatureCmsDependencyProvider
 {
 
     const FACADE_LOCALE = 'locale facade';

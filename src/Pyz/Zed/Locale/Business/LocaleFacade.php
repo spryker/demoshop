@@ -6,6 +6,7 @@
 
 namespace Pyz\Zed\Locale\Business;
 
+use Pyz\Zed\CmsBlock\Dependency\Facade\CmsBlockToLocaleInterface;
 use SprykerFeature\Zed\Category\Dependency\Facade\CategoryToLocaleInterface;
 use SprykerFeature\Zed\Customer\Dependency\Facade\CustomerToLocaleInterface;
 use SprykerFeature\Zed\Product\Dependency\Facade\ProductToLocaleInterface;
@@ -22,6 +23,7 @@ class LocaleFacade extends SprykerLocaleFacade implements
     CustomerToLocaleInterface,
     GlossaryToLocaleInterface,
     CmsToLocaleInterface,
+    CmsBlockToLocaleInterface,
     ProductCategoryToLocaleInterface,
     ProductOptionToLocaleInterface,
     ProductSearchToLocaleInterface,

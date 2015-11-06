@@ -10,7 +10,7 @@ interface BlockControllerInterface
     /**
      * @return string
      */
-    public function getBlockName();
+    public function getTemplateType();
 
     /**
      * @param array $pageAttributes
