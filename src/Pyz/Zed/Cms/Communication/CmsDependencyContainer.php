@@ -6,5 +6,4 @@ use SprykerFeature\Zed\Cms\Communication\CmsDependencyContainer as SprykerCmsDep
 
 class CmsDependencyContainer extends SprykerCmsDependencyContainer
 {
-
 }

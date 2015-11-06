@@ -12,6 +12,7 @@ use Symfony\Component\HttpFoundation\Request;
 
 class WishlistControllerProvider extends YvesControllerProvider
 {
+
     const ROUTE_WISHLIST = 'wishlist';
     const ROUTE_ADD = 'wishlist/add';
     const ROUTE_REMOVE = 'wishlist/remove';
@@ -33,7 +34,6 @@ class WishlistControllerProvider extends YvesControllerProvider
         $this->createGetController('/wishlist/remove/{sku}/{groupKey}', static::ROUTE_REMOVE, 'Wishlist', 'Wishlist', 'remove')
             ->assert('sku', '[a-zA-Z0-9-_]+')
             ->assert('groupKey', '[a-zA-Z0-9-_]+');
-
 
         $this->createGetController('/wishlist/decrease/{sku}/{groupKey}', static::ROUTE_DECREASE, 'Wishlist', 'Wishlist', 'decrease')
             ->assert('sku', '[a-zA-Z0-9-_]+')

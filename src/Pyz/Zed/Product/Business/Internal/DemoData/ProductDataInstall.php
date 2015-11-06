@@ -21,7 +21,7 @@ class ProductDataInstall extends AbstractInstaller
 
     const ABSTRACT_PRODUCT = 'abstract_product';
     const CONCRETE_PRODUCTS = 'concrete_products';
-    
+
     /**
      * @var AttributeManagerInterface
      */

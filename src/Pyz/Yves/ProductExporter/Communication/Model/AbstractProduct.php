@@ -58,8 +58,10 @@ class AbstractProduct implements AbstractProductInterface
     }
 
     /**
-     * @param string    $name
-     * @param mixed     $value
+     * @param string $name
+     * @param mixed $value
+     *
+     * @return void
      */
     public function addAttribute($name, $value)
     {
@@ -76,6 +78,8 @@ class AbstractProduct implements AbstractProductInterface
 
     /**
      * @param bool $isActive
+     *
+     * @return void
      */
     public function setIsActive($isActive = true)
     {
@@ -92,6 +96,8 @@ class AbstractProduct implements AbstractProductInterface
 
     /**
      * @param string $sku
+     *
+     * @return void
      */
     public function setAbstractSku($sku)
     {
@@ -117,7 +123,7 @@ class AbstractProduct implements AbstractProductInterface
     /**
      * @param string $name
      *
-     * @return null|mixed
+     * @return mixed|null
      */
     public function __get($name)
     {
@@ -125,14 +131,14 @@ class AbstractProduct implements AbstractProductInterface
             return $this->abstractAttributes[$name];
         }
 
-        return;
+        return null;
     }
 
     /**
-     * @param string    $name
-     * @param mixed     $arguments
+     * @param string $name
+     * @param mixed $arguments
      *
-     * @return null|mixed
+     * @return mixed|null
      */
     public function __call($name, $arguments)
     {

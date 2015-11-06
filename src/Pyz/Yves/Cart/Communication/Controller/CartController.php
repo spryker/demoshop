@@ -55,7 +55,6 @@ class CartController extends AbstractController
 
     /**
      * @param string $sku
-     *
      * @param string $groupKey
      *
      * @return RedirectResponse
@@ -74,7 +73,7 @@ class CartController extends AbstractController
 
     /**
      * @param string $sku
-     * @param int    $quantity
+     * @param int $quantity
      * @param string $groupKey
      *
      * @return RedirectResponse

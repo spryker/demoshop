@@ -10,5 +10,4 @@ class CountryFacade extends SprykerCountryFacade implements
     CustomerToCountryInterface,
     SalesToCountryInterface
 {
-
 }

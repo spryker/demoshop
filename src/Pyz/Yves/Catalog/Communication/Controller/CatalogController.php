@@ -81,4 +81,5 @@ class CatalogController extends AbstractController
 
         return $products;
     }
+
 }

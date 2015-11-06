@@ -11,4 +11,5 @@ interface BatchStorageProviderInterface
      * @param array $values
      */
     public function save($tableName, array $columns, array $values);
+
 }

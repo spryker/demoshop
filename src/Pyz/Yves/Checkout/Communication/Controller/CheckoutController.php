@@ -54,7 +54,7 @@ class CheckoutController extends AbstractController
                 /** @var CheckoutRequestTransfer $checkoutRequest */
                 $checkoutRequest = $form->getData();
 
-                foreach($shipmentTransfer->getMethods() as $shipmentMethod) {
+                foreach ($shipmentTransfer->getMethods() as $shipmentMethod) {
                     if ($shipmentMethod->getIdShipmentMethod() === $checkoutRequest->getIdShipmentMethod()) {
                         $checkoutRequest->setShipmentMethod($shipmentMethod);
                     }

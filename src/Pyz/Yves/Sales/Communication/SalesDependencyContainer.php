@@ -2,7 +2,6 @@
 
 namespace Pyz\Yves\Sales;
 
-use Pyz\Yves\Sales\Communication\Form;
 use Pyz\Yves\Sales\Communication\Form\BillingAddress;
 use Pyz\Yves\Sales\Communication\Form\ShippingAddress;
 use SprykerEngine\Yves\Kernel\Communication\AbstractCommunicationDependencyContainer;

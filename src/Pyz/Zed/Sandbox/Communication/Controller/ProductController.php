@@ -60,7 +60,7 @@ class ProductController extends AbstractController
 
         $abstractProductTransfer = new AbstractProductTransfer();
         $abstractProductTransfer->setIsActive(true);
-        $abstractProductTransfer->setSku($productData['sku'].time());
+        $abstractProductTransfer->setSku($productData['sku'] . time());
         $abstractProductTransfer->setAttributes($productData['attributes']);
 
         //this will only work when the signature for setLocalizedAttributes() accept array as input
@@ -102,7 +102,7 @@ class ProductController extends AbstractController
 
             $concreteProductTransfer = new ConcreteProductTransfer();
             $concreteProductTransfer->setIsActive(true);
-            $concreteProductTransfer->setSku($variantItemData['sku'].time());
+            $concreteProductTransfer->setSku($variantItemData['sku'] . time());
             $concreteProductTransfer->setAttributes($variantItemData['attributes']);
             $concreteProductTransfer->setLocalizedAttributes(
                 new \ArrayObject([$localizedAttributesTransferDE, $localizedAttributesTransferEN])
@@ -115,7 +115,7 @@ class ProductController extends AbstractController
 
         //$idAbstractProduct = $this->createAbstractProduct($productData);
 
-        echo '<pre>' . PHP_EOL . \Symfony\Component\VarDumper\VarDumper::dump($idAbstractProduct    ) . PHP_EOL . 'Line: ' . __LINE__ . PHP_EOL . 'File: ' . __FILE__ . die();
+        echo '<pre>' . PHP_EOL . \Symfony\Component\VarDumper\VarDumper::dump($idAbstractProduct) . PHP_EOL . 'Line: ' . __LINE__ . PHP_EOL . 'File: ' . __FILE__ . exit();
 
         //        $localeTransfer = new LocaleTransfer();
         //        $localeTransfer->setIsActive(true);
@@ -167,11 +167,8 @@ class ProductController extends AbstractController
 
         //$connection->commitTransaction();
 
-        die('<pre><b>' . print_r($idAbstractProduct, true) . '</b>' . PHP_EOL . __CLASS__ . ' ' . __LINE__);
-
+        exit('<pre><b>' . print_r($idAbstractProduct, true) . '</b>' . PHP_EOL . __CLASS__ . ' ' . __LINE__);
     }
-
-
 
     /**
      * @return AutoCompletion

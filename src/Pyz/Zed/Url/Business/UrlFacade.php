@@ -12,5 +12,4 @@ class UrlFacade extends SprykerUrlFacade implements
     CmsToUrlInterface,
     ProductToUrlInterface
 {
-
 }

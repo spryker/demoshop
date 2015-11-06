@@ -5,11 +5,7 @@
 
 namespace Pyz\Yves\Glossary\Communication\Plugin\ServiceProvider;
 
-use Generated\Yves\Ide\AutoCompletion;
-use Generated\Yves\Ide\FactoryAutoCompletion\GlossaryCommunication;
 use Pyz\Yves\Glossary\Communication\GlossaryDependencyContainer;
-use SprykerEngine\Shared\Kernel\Factory\FactoryInterface;
-use SprykerEngine\Shared\Kernel\LocatorLocatorInterface;
 use Silex\Application;
 use Silex\ServiceProviderInterface;
 use SprykerEngine\Yves\Kernel\Communication\AbstractPlugin;

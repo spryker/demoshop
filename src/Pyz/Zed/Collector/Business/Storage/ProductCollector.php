@@ -213,7 +213,6 @@ class ProductCollector extends AbstractPropelCollectorPlugin
         $baseQuery->withColumn(SpyAbstractProductTableMap::COL_ID_ABSTRACT_PRODUCT, 'id_abstract_product');
         $baseQuery->groupBy('abstract_sku');
 
-
         // Product availability
         $baseQuery->addAsColumn(
             'quantity',
@@ -312,7 +311,6 @@ class ProductCollector extends AbstractPropelCollectorPlugin
                 'tax_rate_rates'
             )
         ;
-
 
         // Category
         $baseQuery->addJoin(
@@ -450,7 +448,6 @@ class ProductCollector extends AbstractPropelCollectorPlugin
         return $processedResultSet;
     }
 
-
     protected function buildKey($identifier)
     {
         return 'abstract_product.' . $identifier;
@@ -477,7 +474,6 @@ class ProductCollector extends AbstractPropelCollectorPlugin
 
         return array_combine($newKeys, $attributes);
     }
-
 
     /**
      * @param array $productData
@@ -582,6 +578,7 @@ class ProductCollector extends AbstractPropelCollectorPlugin
                 ];
             }
         }
+
         return $productsData;
     }
 

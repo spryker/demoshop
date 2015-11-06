@@ -34,7 +34,7 @@ class MysqlBatchStorageProvider implements BatchStorageProviderInterface
     private function generateSql($tableName, array $columns, $rowCount)
     {
         $columnCount = count($columns);
-        $placeholders = rtrim(str_repeat('?,', $columnCount), ',') ;
+        $placeholders = rtrim(str_repeat('?,', $columnCount), ',');
 
         $placeholderSql = '';
 
@@ -70,7 +70,7 @@ class MysqlBatchStorageProvider implements BatchStorageProviderInterface
     private function bindValues(&$stmt, array $values)
     {
         $i = 1;
-        foreach($values as $rowValues) {
+        foreach ($values as $rowValues) {
             foreach ($rowValues as $value) {
                 $stmt->bindValue($i++, $value);
             }
@@ -84,4 +84,5 @@ class MysqlBatchStorageProvider implements BatchStorageProviderInterface
     {
         return Propel::getConnection();
     }
+
 }

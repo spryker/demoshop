@@ -6,5 +6,4 @@ use SprykerEngine\Zed\Kernel\AbstractBundleConfig;
 
 class ProductCategorySearchConfig extends AbstractBundleConfig
 {
-
 }

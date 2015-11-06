@@ -29,4 +29,5 @@ class ShipmentDependencyContainer extends SprykerShipmentDependencyContainer
 
         return $installer;
     }
+
 }

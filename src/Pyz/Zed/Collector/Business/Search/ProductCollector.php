@@ -211,7 +211,6 @@ class ProductCollector extends AbstractPropelCollectorPlugin
             Criteria::EQUAL
         );
 
-
         // Product availability
         $baseQuery->addJoin(
             SpyProductTableMap::COL_ID_PRODUCT,
@@ -220,7 +219,6 @@ class ProductCollector extends AbstractPropelCollectorPlugin
         );
         $baseQuery->withColumn(SpyStockProductTableMap::COL_QUANTITY, 'quantity');
         $baseQuery->withColumn(SpyStockProductTableMap::COL_IS_NEVER_OUT_OF_STOCK, 'is_never_out_of_stock');
-
 
         // Category
         $baseQuery->addJoin(

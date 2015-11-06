@@ -7,5 +7,4 @@ use SprykerFeature\Zed\CustomerCheckoutConnector\Dependency\Facade\CustomerCheck
 
 class CustomerFacade extends SprykerCustomerFacade implements CustomerCheckoutConnectorToCustomerInterface
 {
-
 }

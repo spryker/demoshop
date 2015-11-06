@@ -15,7 +15,7 @@ class ShipmentInstall extends AbstractInstaller
     const NAME_CARRIER = 'Default Carrier';
     const NAME_GLOSSARY_KEY_CARRIER = 'shipment.defaultCarrier';
     const NAME_SHIPMENT_METHOD = 'Default Shipment Method';
-    const NAME_GLOSSARY_KEY_SHIPMENT_METHOD  = 'shipment.defaultCarrier.defaultMethod.name';
+    const NAME_GLOSSARY_KEY_SHIPMENT_METHOD = 'shipment.defaultCarrier.defaultMethod.name';
     const DESCRIPTION_GLOSSARY_KEY_SHIPMENT_METHOD = 'shipment.defaultCarrier.defaultMethod.description';
     const PRICE_SHIPMENT_METHOD = 10;
 
@@ -55,6 +55,7 @@ class ShipmentInstall extends AbstractInstaller
 
         if ($this->queryContainer->queryMethods()->count() > 0) {
             $this->warning('Dummy Shipment data is already installed. Skipping.');
+
             return;
         }
 
@@ -90,4 +91,5 @@ class ShipmentInstall extends AbstractInstaller
 
         $this->method->create($shipmentMethodTransfer);
     }
+
 }
