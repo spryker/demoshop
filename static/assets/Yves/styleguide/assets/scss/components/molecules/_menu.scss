@@ -118,6 +118,7 @@
 }
 
 .menu--open{
+    // TODO: layer mixin
     &:after{
         content: '';
         z-index: 0;

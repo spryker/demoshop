@@ -2,7 +2,7 @@
 //
 // Markup:
 // <div class="input {{modifier_class}}">
-//     <input class="input__text" type="text" placeholder="{{placeholder}}" name="{{name}}">
+//     <input class="input__text" type="text" placeholder="{{placeholder}}" name="{{name}}" autocorrect="off" autocapitalize="off">
 // </div>
 //
 // .input--valid    - Lorem
