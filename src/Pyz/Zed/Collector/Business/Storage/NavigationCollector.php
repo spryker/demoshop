@@ -6,7 +6,7 @@ use Generated\Shared\Transfer\LocaleTransfer;
 use Propel\Runtime\ActiveQuery\Criteria;
 use Propel\Runtime\ActiveQuery\Criterion\BasicCriterion;
 use Propel\Runtime\ActiveQuery\Join;
-use Pyz\Zed\CategoryCmsConnector\Persistence\CategoryCmsConnectorQueryContainer;
+use PavFeature\Zed\CategoryCmsConnector\Persistence\CategoryCmsConnectorQueryContainer;
 use Pyz\Zed\Collector\Business\Exception\WrongJsonStringException;
 use Pyz\Zed\Propel\Business\PropelFacade;
 use Orm\Zed\Locale\Persistence\Map\SpyLocaleTableMap;

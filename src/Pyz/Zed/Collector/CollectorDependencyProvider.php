@@ -18,6 +18,8 @@ class CollectorDependencyProvider extends SprykerCollectorDependencyProvider
     const QUERY_CONTAINER_PRICE = 'price_query_container';
     const QUERY_CONTAINER_PRODUCT_DYNAMIC = 'query_container_product_dynamic';
     const QUERY_CONTAINER_CATEGORY_CMS = 'category_cms_query_container';
+    const CMS_BLOCK_FACADE = 'cms_block_facade';
+    const CMS_BLOCK_QUERY_CONTAINER = 'cms_block_query_container';
 
     /**
      * @var Container
@@ -58,6 +60,18 @@ class CollectorDependencyProvider extends SprykerCollectorDependencyProvider
 
         $container[self::FACADE_PRODUCT_DYNAMIC] = function (Container $container) {
             return $container->getLocator()->productDynamic()->facade();
+        };
+
+        $container[self::QUERY_CONTAINER_PRODUCT_DYNAMIC] = function (Container $container) {
+            return $container->getLocator()->productDynamic()->queryContainer();
+        };
+
+        $container[self::CMS_BLOCK_QUERY_CONTAINER] = function (Container $container) {
+            return $container->getLocator()->cmsBlock()->queryContainer();
+        };
+
+        $container[self::CMS_BLOCK_FACADE] = function (Container $container) {
+            return $container->getLocator()->cmsBlock()->facade();
         };
 
         $container[self::QUERY_CONTAINER_PRODUCT_DYNAMIC] = function (Container $container) {

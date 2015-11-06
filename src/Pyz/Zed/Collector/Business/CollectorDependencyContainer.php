@@ -57,7 +57,7 @@ class CollectorDependencyContainer extends SprykerCollectorDependencyContainer
     {
         $storageNavigationCollector = $this->getFactory()->createStorageNavigationCollector(
             $this->getProvidedDependency(CollectorDependencyProvider::QUERY_CONTAINER_CATEGORY),
-            $this->getProvidedDependency(CollectorDependencyProvider::QUERY_CONTAINER_CA),
+            $this->getProvidedDependency(CollectorDependencyProvider::QUERY_CONTAINER_CATEGORY_CMS),
             $this->getProvidedDependency(CollectorDependencyProvider::FACADE_PROPEL)
         );
         $storageNavigationCollector->setTouchQueryContainer(
@@ -72,7 +72,10 @@ class CollectorDependencyContainer extends SprykerCollectorDependencyContainer
      */
     public function createStoragePageCollector()
     {
-        $storagePageCollector = $this->getFactory()->createStoragePageCollector();
+        $storagePageCollector = $this->getFactory()->createStoragePageCollector(
+            $this->getProvidedDependency(CollectorDependencyProvider::CMS_BLOCK_QUERY_CONTAINER),
+            $this->getProvidedDependency(CollectorDependencyProvider::CMS_BLOCK_FACADE)
+        );
 
         $storagePageCollector->setTouchQueryContainer(
             $this->getProvidedDependency(CollectorDependencyProvider::QUERY_CONTAINER_TOUCH)

@@ -1,0 +1,9 @@
+{% extends '@Cms/layout/full.twig' %}
+
+{% block content %}
+    <!-- CMS_PLACEHOLDER : "content" -->
+    {{ spyCms('content') | raw }}
+
+    {% include "@cms-block/partial/blocks.twig" with { blocks: blocks } %}
+
+{% endblock %}

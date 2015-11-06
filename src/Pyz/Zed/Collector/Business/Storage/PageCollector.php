@@ -4,10 +4,12 @@ namespace Pyz\Zed\Collector\Business\Storage;
 
 use Pyz\Zed\Cms\Business\CmsFacade;
 use Pyz\Zed\CmsBlock\Persistence\CmsBlockQueryContainer;
-use
 use Generated\Shared\Transfer\LocaleTransfer;
 use PavFeature\Zed\CmsBlock\Business\CmsBlockFacade;
+use PavFeature\Zed\CmsBlock\Persistence\CmsBlockQueryContainer;
 use Propel\Runtime\ActiveQuery\Criteria;
+use SprykerEngine\Zed\Touch\Persistence\Propel\Map\SpyTouchTableMap;
+use SprykerEngine\Zed\Touch\Persistence\Propel\SpyTouchQuery;
 use Orm\Zed\Touch\Persistence\Map\SpyTouchTableMap;
 use Orm\Zed\Touch\Persistence\SpyTouchQuery;
 use SprykerFeature\Shared\Cms\CmsConfig;
@@ -26,11 +28,6 @@ class PageCollector extends AbstractPropelCollectorPlugin
     use KeyBuilderTrait;
 
     /**
-     * @var CmsFacade
-     */
-    protected $cmsFacade;
-
-    /**
      * @var CmsBlockQueryContainer
      */
     protected $cmsBlockQueryContainer;
@@ -39,6 +36,17 @@ class PageCollector extends AbstractPropelCollectorPlugin
      * @var CmsBlockFacade
      */
     protected $cmsBlockFacade;
+
+    /**
+     * PageCollector constructor.
+     * @param CmsBlockQueryContainer $cmsBlockQueryContainer
+     * @param CmsBlockFacade $cmsBlockFacade
+     */
+    public function __construct(CmsBlockQueryContainer $cmsBlockQueryContainer, CmsBlockFacade $cmsBlockFacade)
+    {
+        $this->cmsBlockQueryContainer = $cmsBlockQueryContainer;
+        $this->cmsBlockFacade = $cmsBlockFacade;
+    }
 
     /**
      * @return string
@@ -90,7 +98,6 @@ class PageCollector extends AbstractPropelCollectorPlugin
 
         $this->cmsBlockQueryContainer->joinPageBlocks($baseQuery, $locale);
 
-        $baseQuery->withColumn(SpyCmsPageTableMap::COL_ID_CMS_PAGE, 'page_id');
         $baseQuery->withColumn(SpyCmsPageTableMap::COL_FK_CATEGORY_NODE, 'id_category_node');
         $baseQuery->withColumn(SpyUrlTableMap::COL_URL, 'page_url');
         $baseQuery->withColumn(SpyCmsGlossaryKeyMappingTableMap::COL_PLACEHOLDER, 'placeholder');

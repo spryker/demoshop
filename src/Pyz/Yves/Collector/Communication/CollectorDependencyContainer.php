@@ -29,7 +29,7 @@ class CollectorDependencyContainer extends AbstractCommunicationDependencyContai
             $this->getLocator()->productExporter()->pluginProductResourceCreator()->createProductResourceCreator(),
             $this->getLocator()->categoryExporter()->pluginCategoryResourceCreator()->createCategoryResourceCreator(),
             $this->getLocator()->redirectExporter()->pluginRedirectResourceCreator()->createRedirectResourceCreator(),
-            $this->getLocator()->cmsExporter()->pluginPageResourceCreator()->createPageResourceCreator(),
+            $this->getLocator()->cmsBlock()->pluginBlockPageResourceCreator(),
         ];
     }
 
