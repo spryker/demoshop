@@ -1,0 +1,57 @@
+// Product info
+//
+// Markup:
+// <div class="product-intro">
+//     <h1 class="product-info__title">Starter Pack 10 Boxes</h1>
+//     <div class="product-info__subtitle">250gr</div>
+//     <div class="product-info__status">Customized: No turkey, No carbs</div>
+//     <div class="product-info__description">It contains the best mix as recommended by our experts!</div>
+//     <div class="product-info__additional">Fütterungsempfehlung: 2-3% des Körpergewichts pro Tag.</div>
+// </div>
+//
+// Styleguide: atoms.product-intro
+
+.product-intro{
+    padding: 0 0 30px;
+    border-bottom: 1px solid $_rgbSilver;
+}
+
+.product-info__title{
+    font-family: $_ffBrandonGrotesque-Black;
+    font-size: $_fsMedium;
+    line-height: $_lhMedium;
+    color: $_rgbApple;
+    letter-spacing: 0.46px;
+}
+
+.product-info__subtitle{
+    display: inline-block;
+    font-family: $_ffBrandonGrotesque-Black;
+    color: $_rgbOsloGray2;
+    letter-spacing: 0.3px;
+}
+
+.product-info__status{
+    margin-left: 5px;
+    display: inline-block;
+    font-family: $_ffBrandonGrotesque-Black;
+    font-size: 12px;
+    line-height: 18px;
+    color: $_rgbClementine;
+    letter-spacing: 1.14px;
+    text-transform: uppercase;
+}
+
+.product-info__description{
+    margin-top: 20px;
+    font-size: 20px;
+    line-height: 25px;
+    color: $_rgbSilverChalice;
+}
+
+.product-info__additional{
+    font-family: $_ffBrandonGrotesque-Bold;
+    font-size: 15px;
+    line-height: 25px;
+    color: $_rgbSilverChalice;
+}

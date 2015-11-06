@@ -1,0 +1,68 @@
+// Product features
+//
+// Markup:
+// <div class="product-features">
+//    <h2 class="product-features__title">Features</h2>
+//    <div class="row">
+//        <div class="column medium-4">
+//           <h3 class="product-features__category">This is what you get</h3>
+//           <ul class="product-features__list">
+//               <li class="product-features__item">Our menu box is perfect</li>
+//               <li class="product-features__item">The menu is mixed by experts</li>
+//               <li class="product-features__item">it contains 10 boxes</li>
+//           </ul>
+//        </div>
+//        <div class="column medium-4">
+//           <h3 class="product-features__category">This is what you get</h3>
+//           <ul class="product-features__list">
+//               <li class="product-features__item">Our menu box is perfect</li>
+//               <li class="product-features__item">The menu is mixed by experts</li>
+//               <li class="product-features__item">it contains 10 boxes</li>
+//           </ul>
+//        </div>
+//        <div class="column medium-4">
+//           <h3 class="product-features__category">This is what you get</h3>
+//           <ul class="product-features__list">
+//               <li class="product-features__item">Our menu box is perfect</li>
+//               <li class="product-features__item">The menu is mixed by experts</li>
+//               <li class="product-features__item">it contains 10 boxes</li>
+//           </ul>
+//        </div>
+//    </div>
+// </div>
+//
+// Styleguide: atoms.product-features
+
+.product-features{
+    margin-left: (100%  / 12 * 3);
+    padding: 20px ($_xSpacing / 2);
+
+    clear: both;
+    width: (100%  / 12 * 7);
+}
+
+.product-features__title{
+    margin-bottom: 10px;
+
+    font-family: $_ffBrandonGrotesque-Black;
+    font-size: 22px;
+    line-height: 31px;
+    letter-spacing: 0.33px;
+    color: $_rgbApple;
+}
+
+
+.product-features__category{
+    font-family: $_ffBrandonGrotesque-Bold;
+    font-size: 20px;
+    color: $_rgbDoveGray;
+    letter-spacing: 0.3px;
+}
+
+.product-features__item{
+    margin-left: 30px;
+
+    font-size: 16px;
+    line-height: 25px;
+    color: $_rgbDoveGray;
+}

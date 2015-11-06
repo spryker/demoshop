@@ -1,0 +1,69 @@
+// Product content
+//
+// Markup:
+// <div class="product-content">
+//     <h1 class="product-content__title">Content</h1>
+//     <div class="product-content__description">Depending on availability you will find some of these ingredients:</div>
+//     <ul class="product-content__ingredients">
+//         <li class="product-content__ingredient">
+//             <span class="product-content__label">Meat:</span> Beef, Kanguru, Chicken, Turkey, Red Fish
+//         </li>
+//         <li class="product-content__ingredient">
+//             <span class="product-content__label">Vegetables:</span> Broccoli, Carrots, Veggie
+//         </li>
+//         <li class="product-content__ingredient">
+//             <span class="product-content__label">Fruits:</span> Mango, Banana
+//         </li>
+//     </ul>
+//     <div class="product-content__customize button js-product-customize">Customize package</div>
+//     <div class="product-content__description">In case your dog is allergic you can customize the ingredients.</div>
+// </div>
+//
+// Styleguide: atoms.product-content
+
+.product-content{
+    padding: 20px 0 0;
+    border-bottom: 1px solid $_rgbSilver;
+}
+
+.product-content__title{
+    margin-bottom: 10px;
+
+    font-family: $_ffBrandonGrotesque-Black;
+    font-size: 22px;
+    line-height: 31px;
+    letter-spacing: 0.33px;
+    color: $_rgbApple;
+}
+
+.product-content__description{
+    margin-bottom: 30px;
+    font-size: 20px;
+    line-height: 25px;
+    color: $_rgbSilverChalice;
+}
+
+.product-content__ingredients{
+    margin-bottom: 60px;
+    list-style: none;
+}
+
+.product-content__ingredient{
+    font-size: 20px;
+    line-height: 25px;
+    color: $_rgbDoveGray;
+
+    & + .product-content__ingredient{
+        margin-top: 5px;
+    }
+}
+
+.product-content__label{
+    font-family: $_ffBrandonGrotesque-Bold;
+}
+
+.product-content__customize{
+    float: right;
+    padding-left: 20px;
+    padding-right: 20px;
+}
