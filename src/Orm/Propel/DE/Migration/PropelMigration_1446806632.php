@@ -7,6 +7,7 @@
  */
 class PropelMigration_1446806632
 {
+    
     public $comment = '';
 
     public function preUp($manager)
