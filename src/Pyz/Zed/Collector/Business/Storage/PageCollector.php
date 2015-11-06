@@ -2,14 +2,10 @@
 
 namespace Pyz\Zed\Collector\Business\Storage;
 
-use Pyz\Zed\Cms\Business\CmsFacade;
-use Pyz\Zed\CmsBlock\Persistence\CmsBlockQueryContainer;
 use Generated\Shared\Transfer\LocaleTransfer;
 use PavFeature\Zed\CmsBlock\Business\CmsBlockFacade;
 use PavFeature\Zed\CmsBlock\Persistence\CmsBlockQueryContainer;
 use Propel\Runtime\ActiveQuery\Criteria;
-use SprykerEngine\Zed\Touch\Persistence\Propel\Map\SpyTouchTableMap;
-use SprykerEngine\Zed\Touch\Persistence\Propel\SpyTouchQuery;
 use Orm\Zed\Touch\Persistence\Map\SpyTouchTableMap;
 use Orm\Zed\Touch\Persistence\SpyTouchQuery;
 use SprykerFeature\Shared\Cms\CmsConfig;
