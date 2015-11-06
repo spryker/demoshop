@@ -6,6 +6,7 @@ $finder = Symfony\CS\Finder\DefaultFinder::create()
     ->exclude('Propel/Base')
     ->exclude('Propel/Map')
     ->exclude('tests/_helpers')
+    ->exclude('tests/_support')
     ->exclude('Presentation')
     ->notName('*.twig')
 ;
@@ -15,7 +16,7 @@ return Symfony\CS\Config\Config::create()
     ->setUsingCache(true)
     ->level(\Symfony\CS\FixerInterface::PSR2_LEVEL)
     ->fixers(
-        array(
+        [
             'blankline_after_open_tag',
             'braces',
             'concat_with_spaces',
@@ -25,7 +26,6 @@ return Symfony\CS\Config\Config::create()
             'encoding',
             'extra_empty_lines',
             'include',
-            'join_function',
             'list_commas',
             'multiline_array_trailing_comma',
             'namespace_no_leading_whitespace',
@@ -61,8 +61,15 @@ return Symfony\CS\Config\Config::create()
             'unalign_equals',
             'unary_operators_spaces',
             'unused_use',
-            'whitespacy_lines'
-        )
+            'whitespacy_lines',
+        ]
     )
     ->addCustomFixer(new \SprykerFeature\Zed\Maintenance\Business\CodeStyleFixer\EmptyEnclosingLinesFixer())
+    ->addCustomFixer(new \SprykerFeature\Zed\Maintenance\Business\CodeStyleFixer\MethodArgumentDefaultValueFixer())
+    ->addCustomFixer(new \SprykerFeature\Zed\Maintenance\Business\CodeStyleFixer\RemoveFunctionAliasFixer())
+    ->addCustomFixer(new \SprykerFeature\Zed\Maintenance\Business\CodeStyleFixer\ShortCastFixer())
+    ->addCustomFixer(new \SprykerFeature\Zed\Maintenance\Business\CodeStyleFixer\NoInlineAssignmentFixer())
+    ->addCustomFixer(new \SprykerFeature\Zed\Maintenance\Business\CodeStyleFixer\ConditionalExpressionOrderFixer())
+    ->addCustomFixer(new \SprykerFeature\Zed\Maintenance\Business\CodeStyleFixer\NoIsNullFixer())
+    ->addCustomFixer(new \SprykerFeature\Zed\Maintenance\Business\CodeStyleFixer\PhpdocParamsFixer())
 ;
