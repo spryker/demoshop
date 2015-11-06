@@ -3,7 +3,7 @@
 /**
  * Data object containing the SQL and PHP code to migrate the database
  * up to version 1446806632.
- * Generated on 2015-11-06 10:43:52 by vagrant
+ * Generated on 2015-11-06 10:43:52
  */
 class PropelMigration_1446806632
 {
