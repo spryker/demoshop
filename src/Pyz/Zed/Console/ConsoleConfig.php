@@ -27,7 +27,7 @@ class ConsoleConfig extends SprykerConsoleConfig
             $this->getLocator()->maintenance()->consoleCodeStyleFixerConsole(),
             $this->getLocator()->setup()->consoleRemoveGeneratedDirectoryConsole(),
             $this->getLocator()->setup()->consoleInstallConsole(),
-            $this->getLocator()->propel()->consolePropelConsole(),
+            $this->getLocator()->propel()->consolePropelInstallConsole(),
             $this->getLocator()->propel()->consolePostgresqlCompatibilityConsole(),
             $this->getLocator()->propel()->consoleBuildModelConsole(),
             $this->getLocator()->propel()->consoleBuildSqlConsole(),
