@@ -50,8 +50,23 @@
 
 	}
 
-	.cart__remove-coupon {
+	.cart__remove-coupon-link:before {
 		content: '\e602';
 		font-family: 'icomoon';
+	}
+
+	.cart__remove-coupon-link {
+		color:$darker-color;
+		float:right;
+	}
+
+	.cart__remove-coupon-link:hover {
+		text-decoration:none;
+	}
+}
+
+.checkout__wrapper > .checkout__cart{
+	.cart__remove-coupon-link {
+		display:none;
 	}
 }

@@ -1,12 +1,9 @@
-<pre>
-    {{  dump(cart.totals.discount.discountItems[1].codes) }}
-</pre>
 {% for discount in cart.totals.discount.discountItems %}
     <div class="cart__coupon-name">
         {{ discount.name }}
-    </div>
-    <div class="cart__remove-coupon">
-
+        {% if discount.codes is not empty %}
+            <a href="#" class="cart__remove-coupon-link js-cart__remove-coupon-link" data-coupon-code="{{ discount.codes | first }}"></a>
+        {% endif %}
     </div>
     <div>
         - {{ discount.amount | price }}
