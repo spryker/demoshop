@@ -15,17 +15,6 @@ class InMemoryProvider extends SprykerInMemoryProvider
      *
      * @return CartInterface
      */
-    public function addCouponCode(CartInterface $cart, ChangeInterface $change)
-    {
-        return $cart->addCouponCode($change->getCouponCode());
-    }
-
-    /**
-     * @param CartInterface $cart
-     * @param ChangeInterface $change
-     *
-     * @return CartInterface
-     */
     public function removeCouponCode(CartInterface $cart, ChangeInterface $change)
     {
         $couponCodes = [];

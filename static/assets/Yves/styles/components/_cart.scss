@@ -70,3 +70,35 @@
 		display:none;
 	}
 }
+
+.cart--expanded {
+
+	.cart__discount {
+
+		.cart__discount-header {
+			color: $heading-color;
+			font-size: 13px;
+			font-weight: 400;
+			text-align: left;
+			text-transform: uppercase;
+		}
+
+		.cart__coupon-name {
+			color: $light-color;
+			font-weight: 500;
+			text-transform: uppercase;
+			text-align: left;
+			float:left;
+			width: 60%;
+		}
+
+		.cart__coupon-value {
+			color: $light-color;
+			font-weight: 500;
+			text-transform: uppercase;
+			text-align: right;
+			float:right;
+
+		}
+	}
+}
