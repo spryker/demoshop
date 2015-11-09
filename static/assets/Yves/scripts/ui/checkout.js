@@ -137,10 +137,6 @@ module.exports = {
             $paymentButton.attr('disabled', $('input[name="checkout[payment_method]"]:checked').length != 1);
         });
 
-        $('input[name="checkout[id_shipment_method]"]').on('change', function () {
-            $shipmentButton.attr('disabled', $('input[name="checkout[id_shipment_method]"]:checked').length != 1);
-        });
-
         $addressCheckbox.on('change', function (e) {
             if ($addressCheckbox.is(':checked')) {
                 $('.js-delivery-address').show();
@@ -169,12 +165,6 @@ module.exports = {
         $('.js-payment-button').click(function (event) {
             event.preventDefault();
             $('.js-checkout-payment').addClass('js-checkout-collapsed js-checkout-completed');
-            $('.js-checkout-shipment').removeClass('js-checkout-collapsed');
-        });
-
-        $('.js-shipment-button').click(function (event) {
-            event.preventDefault();
-            $('.js-checkout-shipment').addClass('js-checkout-collapsed js-checkout-completed');
             $('.js-checkout-confirm').removeClass('js-checkout-collapsed');
             $('.js-checkout-cart').hide();
         });
