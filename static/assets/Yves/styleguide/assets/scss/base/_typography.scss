@@ -11,6 +11,11 @@ body{
     -moz-osx-font-smoothing: grayscale;
 
     overflow-x: hidden;
+
+    // TODO: refactor
+    &.no-scrolling{
+        overflow: hidden;
+    }
 }
 
 *{

@@ -1,0 +1,72 @@
+// Press
+//
+// Markup:
+// <div class="press">
+//     <div class="press__inner">
+//         <div class="press__item press__item--zdf"></div>
+//         <div class="press__item press__item--spiegel"></div>
+//         <div class="press__item press__item--bild"></div>
+//         <div class="press__item press__item--newyorktimes"></div>
+//         <div class="press__item press__item--bunte"></div>
+//         <div class="press__item press__item--ard"></div>
+//     </div>
+// </div>
+//
+// Styleguide: atoms.press
+
+.press{
+    width: 100%;
+    padding-bottom: 100px;
+    text-align: center;
+}
+
+.press__inner{
+    @include pageWidth;
+}
+
+.press__item{
+    height: 42px;
+    color: $_rgbSilverChalice;
+    margin: 0 10px;
+
+    &:before{
+        width: 100%;
+        text-align: center;
+    }
+}
+
+.press__item--zdf{
+    @include pdif('zdf', 42px, 71px);
+}
+
+.press__item--spiegel{
+    @include pdif('spiegel', 16px, 117px);
+}
+
+.press__item--bild{
+    @include pdif('bild', 42px, 39px);
+}
+
+.press__item--newyorktimes{
+    @include pdif('newyorktimes', 28px, 202px);
+}
+
+.press__item--bunte{
+    @include pdif('bunte', 28px, 65px);
+}
+
+.press__item--ard{
+    @include pdif('ard', 41px, 41px);
+}
+
+
+@media (min-width: $_wLarge) {
+    .press__inner{
+        display: flex!important;
+        justify-content: space-around;
+    }
+
+    .press__item{
+        flex-grow: 1;
+    }
+}

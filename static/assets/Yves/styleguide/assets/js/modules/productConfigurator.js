@@ -33,6 +33,8 @@ $(document).ready(function () {
     });
 
     function open () {
+        $(document).trigger('DISABLE_SCROLLING');
+
         $configurator.addClass('product-configurator--background');
         setTimeout(function () {
           $configurator.addClass('product-configurator--show')
@@ -40,9 +42,11 @@ $(document).ready(function () {
     }
 
     function close () {
-      $configurator.removeClass('product-configurator--show')
-      setTimeout(function () {
-        $configurator.removeClass('product-configurator--background');
-      }, 500);
+        $(document).trigger('ENABLE_SCROLLING');
+
+        $configurator.removeClass('product-configurator--show')
+        setTimeout(function () {
+            $configurator.removeClass('product-configurator--background');
+        }, 500);
     }
 });

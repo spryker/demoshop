@@ -1,0 +1,91 @@
+// Communication channels
+//
+// Markup:
+// <div class="communication">
+//     <div class="communication__channels">
+//         <div class="communication__channel communication__channel--call">
+//             <h2 class="communication__label">Call</h2>
+//             <h2 class="communication__info">+44 191 231 3983</h2>
+//         </div>
+//         <div class="communication__channel communication__channel--mail">
+//             <h2 class="communication__label">Mail</h2>
+//             <h2 class="communication__info">hello@petsdeli.de</h2>
+//         </div>
+//         <div class="communication__channel communication__channel--chat">
+//             <h2 class="communication__label">Live Chat</h2>
+//             <h2 class="communication__info">Chat with us</h2>
+//         </div>
+//         <div class="communication__channel communication__channel--store">
+//             <h2 class="communication__label">Stores</h2>
+//             <h2 class="communication__info">Our retail stores</h2>
+//         </div>
+//     </div>
+// </div>
+//
+// Styleguide: organisms.communication
+
+.communication{
+    padding: 38px 0;
+    @include sectionShadow;
+
+    background: $_rgbFruitSalad;
+    color: $_rgbWhite;
+}
+
+.communication__channels{
+    @include limitWidth;
+    overflow: hidden;
+}
+
+.communication__channel{
+    width: 50%;
+    margin: 10px 0;
+    padding-top: 53px;
+    float: left;
+    text-align: center;
+
+    &:before{
+        top: 0 !important;
+        margin-top: 0 !important;
+        width: 100%;
+        text-align: center;
+    }
+}
+
+.communication__channel--call{
+    @include pdif('phone', 44px, 0);
+}
+
+.communication__channel--mail{
+    @include pdif('mail', 44px, 0);
+}
+
+.communication__channel--chat{
+    @include pdif('chat', 44px, 0);
+}
+
+.communication__channel--store{
+    @include pdif('poi', 44px, 0);
+}
+
+.communication__label{
+    font-family: $_ffBrandonGrotesque-Bold;
+    font-size: 16px;
+    line-height: 23px;
+    letter-spacing: 2.27px;
+    text-transform: uppercase;
+}
+
+.communication__info{
+    font-family: $_ffBrandonGrotesque-Bold;
+    font-size: 16px;
+    line-height: 23px;
+    letter-spacing: 0.19px;
+}
+
+
+@media (min-width: $_wMedium) {
+    .communication__channel{
+        width: 25%;
+    }
+}

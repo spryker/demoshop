@@ -6,13 +6,13 @@ import { debounce, getViewport } from './helpers';
 
 $(document).ready(function () {
 
-    $('.featured-products__slider').each(function () {
+    $('.product-slider__slider').each(function () {
         var $slider, $container, $prev, $next, $cards, $bullets, $productCard;
 
         $slider = $(this);
-        $container = $slider.find('.featured-products__slider-inner');
-        $prev = $slider.find('.featured-products__control--prev');
-        $next = $slider.find('.featured-products__control--next');
+        $container = $slider.find('.product-slider__slider-inner');
+        $prev = $slider.find('.product-slider__control--prev');
+        $next = $slider.find('.product-slider__control--next');
         $productCard = $slider.find('.product-card');
 
         var index, count, visible;
@@ -29,7 +29,7 @@ $(document).ready(function () {
         $prev.click(previous);
         $next.click(next);
 
-        $slider.on('click', '.featured-products__bullet', function () {
+        $slider.on('click', '.product-slider__bullet', function () {
             index = $bullets.index($(this));
             slide();
         });
@@ -78,10 +78,10 @@ $(document).ready(function () {
                 $bullets.remove();
             }
 
-            $bullets = $slider.find('.featured-products__bullets');
+            $bullets = $slider.find('.product-slider__bullets');
 
             for (let i = 0; i <= count - visible; i++) {
-                $bullets.append('<span class="featured-products__bullet">');
+                $bullets.append('<span class="product-slider__bullet">');
             }
 
             $bullets = $bullets.children();
@@ -105,8 +105,8 @@ $(document).ready(function () {
         }
 
         function updateBullets () {
-            $bullets.removeClass('featured-products__bullet--active');
-            $bullets.eq(index).addClass('featured-products__bullet--active');
+            $bullets.removeClass('product-slider__bullet--active');
+            $bullets.eq(index).addClass('product-slider__bullet--active');
         }
 
         function updateControls () {

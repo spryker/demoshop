@@ -8,10 +8,6 @@
 //            <img src="../images/product/small_1.jpg" />
 //        </div>
 //        <div class="product-card__content">
-//            <div class="product-card__breadcrumbs">
-//                <span class="product-card__breadcrumb">Dog</span>
-//                <span class="product-card__breadcrumb">Packages</span>
-//            </div>
 //            <div class="product-card__infos">
 //                <div class="product-card__info">
 //                    Chicken
@@ -33,7 +29,7 @@
 //                    </div>
 //                </div>
 //                <div class="product-card__detail">
-//                    {{> "atoms.button" title="Info"}}
+//                    {{> "atoms.button" title="Zum Produkt"}}
 //                </div>
 //            </div>
 //        </div>
@@ -50,6 +46,7 @@
 
 .product-card__inner{
     @include cardShadow;
+    background: $_rgbWhite;
 }
 
 .product-card__image{
@@ -76,7 +73,7 @@
 }
 
 .product-card__content{
-    padding: 25px 37px 30px;
+    padding: 47px 30px 30px;
 }
 
 .product-card__breadcrumbs{
@@ -101,7 +98,7 @@
 }
 
 .product-card__infos{
-    margin-bottom: 38px;
+    margin-bottom: 50px;
 
     font-family: $_ffBrandonGrotesque-Black;
     color: $_rgbQuincy;
@@ -144,5 +141,8 @@
 }
 
 .product-card__detail{
+    .button{
+        padding: 14px 10px 12px;
+    }
 }
 

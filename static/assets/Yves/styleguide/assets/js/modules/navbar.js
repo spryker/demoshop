@@ -35,8 +35,8 @@ $(document).ready(function () {
 
             $active = $('.navbar__link--open').size() ? $('.navbar__link--open').children().eq(0) : $('.navbar__link--active').children().eq(0);
 
-            width = $active.outerWidth();
-            left = $active.offset().left;
+            width = $active.size() ? $active.outerWidth() : 50;
+            left = $active.size() ? $active.offset().left : -50;
 
             $marker.css({
                 left: left + 'px',

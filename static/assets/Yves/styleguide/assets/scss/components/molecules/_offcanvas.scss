@@ -64,9 +64,10 @@
     z-index: 4;
     top: 0;
     right: -400px;
-    width: 400px;
     height: 100%;
 
+    width: calc(100% - 10px);
+    max-width: 400px;
 
     transition: right $_tShort ease-in-out;
 }

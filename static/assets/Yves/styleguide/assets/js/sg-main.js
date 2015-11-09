@@ -1,3 +1,4 @@
+import './modules/bodyScrolling';
 import './modules/faqCard';
 //import './modules/faqSearch';
 import './modules/faqSwitch';

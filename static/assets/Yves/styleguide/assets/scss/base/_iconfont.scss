@@ -36,7 +36,7 @@
       content: '\E004';
     }
     
-    @if $name == 'gplus' {
+    @if $name == 'instagram' {
       content: '\E005';
     }
     
@@ -94,6 +94,54 @@
     
     @if $name == 'dot' {
       content: '\E013';
+    }
+    
+    @if $name == 'paw' {
+      content: '\E014';
+    }
+    
+    @if $name == 'zdf' {
+      content: '\E015';
+    }
+    
+    @if $name == 'spiegel' {
+      content: '\E016';
+    }
+    
+    @if $name == 'bild' {
+      content: '\E017';
+    }
+    
+    @if $name == 'newyorktimes' {
+      content: '\E018';
+    }
+    
+    @if $name == 'ard' {
+      content: '\E019';
+    }
+    
+    @if $name == 'bunte' {
+      content: '\E01A';
+    }
+    
+    @if $name == 'chat' {
+      content: '\E01B';
+    }
+    
+    @if $name == 'youtube' {
+      content: '\E01C';
+    }
+    
+    @if $name == 'klarna' {
+      content: '\E01D';
+    }
+    
+    @if $name == 'sofort' {
+      content: '\E01E';
+    }
+    
+    @if $name == 'sepa' {
+      content: '\E01F';
     }
     
   }
@@ -136,7 +184,7 @@
       content: '\E004';
     }
     
-    @if $name == 'gplus' {
+    @if $name == 'instagram' {
       content: '\E005';
     }
     
@@ -194,6 +242,54 @@
     
     @if $name == 'dot' {
       content: '\E013';
+    }
+    
+    @if $name == 'paw' {
+      content: '\E014';
+    }
+    
+    @if $name == 'zdf' {
+      content: '\E015';
+    }
+    
+    @if $name == 'spiegel' {
+      content: '\E016';
+    }
+    
+    @if $name == 'bild' {
+      content: '\E017';
+    }
+    
+    @if $name == 'newyorktimes' {
+      content: '\E018';
+    }
+    
+    @if $name == 'ard' {
+      content: '\E019';
+    }
+    
+    @if $name == 'bunte' {
+      content: '\E01A';
+    }
+    
+    @if $name == 'chat' {
+      content: '\E01B';
+    }
+    
+    @if $name == 'youtube' {
+      content: '\E01C';
+    }
+    
+    @if $name == 'klarna' {
+      content: '\E01D';
+    }
+    
+    @if $name == 'sofort' {
+      content: '\E01E';
+    }
+    
+    @if $name == 'sepa' {
+      content: '\E01F';
     }
     
   }
