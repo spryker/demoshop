@@ -33,7 +33,7 @@ class AbstractProductWriter implements ProductWriterInterface
     public function __construct(
         ProductFacade $productFacade,
         ProductDynamicFacade $productDynamicFacade,
-        LocaleFacade $localeFacade,
+        LocaleFacade $localeFacade
         //TaxFacade $taxFacade
     ) {
         $this->productFacade = $productFacade;
