@@ -1,5 +1,6 @@
 'use strict';
 
+require ('jquery-ui/slider');
 var $ = require('jquery'),
     catalog = require('./index'),
     URLUtils = require('../../utils/URLUtils'),
