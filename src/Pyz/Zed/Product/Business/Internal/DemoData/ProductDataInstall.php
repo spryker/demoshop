@@ -57,6 +57,7 @@ class ProductDataInstall extends AbstractInstaller
      */
     protected $urlReplacements = [
         ' ' => '-',
+        ',' => '',
         'ä' => 'ae',
         'ö' => 'oe',
         'ü' => 'ue',
