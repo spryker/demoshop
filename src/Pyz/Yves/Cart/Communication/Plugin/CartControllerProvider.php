@@ -6,8 +6,8 @@
 
 namespace Pyz\Yves\Cart\Communication\Plugin;
 
+use Pyz\Yves\Application\Communication\Plugin\YvesControllerProvider;
 use Silex\Application;
-use SprykerEngine\Yves\Application\Communication\Plugin\YvesControllerProvider;
 use Symfony\Component\HttpFoundation\Request;
 
 class CartControllerProvider extends YvesControllerProvider
@@ -34,9 +34,13 @@ class CartControllerProvider extends YvesControllerProvider
      */
     protected function defineControllers(Application $app)
     {
-        $this->createGetController('/cart', self::ROUTE_CART, 'Cart', 'Cart');
+        $allowedLocalesPattern = $this->getAllowedLocalesPattern();
 
-        $this->createGetController('/cart/add/{sku}', self::ROUTE_CART_ADD, 'Cart', 'Cart', 'add')
+        $this->createGetController('/{cart}', self::ROUTE_CART, 'Cart', 'Cart')
+            ->assert('cart', $allowedLocalesPattern . 'cart|cart');
+
+        $this->createGetController('/{cart}/add/{sku}', self::ROUTE_CART_ADD, 'Cart', 'Cart', 'add')
+            ->assert('cart', $allowedLocalesPattern . 'cart|cart')
             ->assert('sku', '[a-zA-Z0-9-_]+')
             ->convert('quantity', [$this, 'getQuantityFromRequest'])
         ;

@@ -23,6 +23,11 @@ class UrlCollector extends AbstractPropelCollectorPlugin
     }
 
     /**
+     * @var LocaleTransfer
+     */
+    protected $locale;
+
+    /**
      * @param SpyTouchQuery $baseQuery
      * @param LocaleTransfer $locale
      *
@@ -80,6 +85,7 @@ class UrlCollector extends AbstractPropelCollectorPlugin
      */
     protected function processData($resultSet, LocaleTransfer $locale, TouchUpdaterSet $touchUpdaterSet)
     {
+        $this->locale = $locale;
         $processedResultSet = [];
         foreach ($resultSet as $index => $url) {
             $resourceArguments = $this->findResourceArguments($url);
@@ -107,7 +113,7 @@ class UrlCollector extends AbstractPropelCollectorPlugin
      */
     protected function buildKey($data)
     {
-        return $data;
+        return '/'.substr($this->locale->getLocaleName(),0,2).$data;
     }
 
     /**

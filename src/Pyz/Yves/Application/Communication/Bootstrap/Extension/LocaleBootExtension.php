@@ -18,27 +18,27 @@ class LocaleBootExtension implements AfterBootExtensionInterface
      */
     public function afterBoot(Application $app)
     {
-        // TODO: Session way
-//        $app['session']->set('locale', 'de');
-//        dump($app['session']->get('locale'));die;
-
-        // TODO: Segment, Sub-domain and query-string way
-        $requestUrI = $_SERVER['REQUEST_URI'];
-        $identifier = substr($requestUrI,1,2);
-
-        if($identifier !== false && array_key_exists($identifier,Store::getInstance()->getLocales())) {
-            // TODO: set locale to store
-            Store::getInstance()->setCurrentLocale(Store::getInstance()->getLocales()[$identifier]);
-            $app['locale'] = Store::getInstance()->getCurrentLocale();
-
-            return;
-        }
-
         // TODO default one
         Store::getInstance()->setCurrentLocale(current(Store::getInstance()->getLocales()));
         $app['locale'] = Store::getInstance()->getCurrentLocale();
 
-        Environment::initializeLocale(Store::getInstance()->getCurrentLocale());
+        // TODO: Session way
+//       $locale = $app['session']->get('locale');
 
+
+        // TODO: Segment, Sub-domain and query-string way
+        if(!array_key_exists('REQUEST_URI', $_SERVER)) {
+            return;
+        }
+
+        $requestUrI = $_SERVER['REQUEST_URI'];
+        $identifier = substr($requestUrI,1,2);
+
+        if($identifier !== false && array_key_exists($identifier,Store::getInstance()->getLocales())) {
+            Store::getInstance()->setCurrentLocale(Store::getInstance()->getLocales()[$identifier]);
+            $app['locale'] = Store::getInstance()->getCurrentLocale();
+
+            Environment::initializeLocale(Store::getInstance()->getCurrentLocale());
+        }
     }
 }
