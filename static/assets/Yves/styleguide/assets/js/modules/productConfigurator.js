@@ -1,4 +1,5 @@
 import $ from 'jquery';
+import { getFormData } from './helpers';
 
 'use strict';
 
@@ -18,6 +19,8 @@ $(document).ready(function () {
     $close.click(close);
     $form.submit(function (e) {
         e.preventDefault();
+        console.info(getFormData($form));
+        // TODO: update customization info
         close();
     });
 
@@ -30,10 +33,16 @@ $(document).ready(function () {
     });
 
     function open () {
-        $configurator.addClass('product-configurator--show')
+        $configurator.addClass('product-configurator--background');
+        setTimeout(function () {
+          $configurator.addClass('product-configurator--show')
+        }, 100);
     }
 
     function close () {
-        $configurator.removeClass('product-configurator--show')
+      $configurator.removeClass('product-configurator--show')
+      setTimeout(function () {
+        $configurator.removeClass('product-configurator--background');
+      }, 500);
     }
 });
