@@ -10,6 +10,7 @@ use PavFeature\Zed\ProductDynamic\Business\ProductDynamicFacade;
 use PavFeature\Zed\ProductDynamicImporter\Business\Writer\ProductWriterInterface;
 use Pyz\Zed\Locale\Business\LocaleFacade;
 use Pyz\Zed\Product\Business\ProductFacade;
+use SprykerFeature\Zed\Tax\Business\TaxFacade;
 
 class AbstractProductWriter implements ProductWriterInterface
 {
@@ -20,21 +21,25 @@ class AbstractProductWriter implements ProductWriterInterface
     protected $productFacade;
     protected $productDynamicFacade;
     protected $localeFacade;
+    protected $taxFacade;
 
     /**
      * AbstractProductWriter constructor.
      * @param ProductFacade $productFacade
      * @param ProductDynamicFacade $productDynamicFacade
      * @param LocaleFacade $localeFacade
+     * @param TaxFacade $taxFacade
      */
     public function __construct(
         ProductFacade $productFacade,
         ProductDynamicFacade $productDynamicFacade,
-        LocaleFacade $localeFacade
+        LocaleFacade $localeFacade,
+        //TaxFacade $taxFacade
     ) {
         $this->productFacade = $productFacade;
         $this->productDynamicFacade = $productDynamicFacade;
         $this->localeFacade = $localeFacade;
+        //$this->taxFacade = $taxFacade;
 
     }
 
@@ -50,12 +55,13 @@ class AbstractProductWriter implements ProductWriterInterface
             $abstractProduct->setSku($abstractSku);
         }
 
+        $abstractProduct->setType($product->getType());
+
         $abstractProduct->setAttributes($product->getAttributes());
-
         $abstractProduct->setLocalizedAttributes($this->extractLocalizedAttributes($product->getLocales()));
-
         $idAbstractProduct = $this->productFacade->saveAbstractProduct($abstractProduct);
 
+        return $idAbstractProduct;
 
 
     }
