@@ -31,31 +31,29 @@ abstract class AbstractFacadeTest extends AbstractFunctionalTest
 
     const FIRST_NAME = 'Alice';
     const LAST_NAME = 'Bob';
+    const SALUTATION = 'Mrs';
     const BIRTH_DATE = '1980-01-01';
+
     const EMAIL = 'alice@mailprovider.com';
+    const CLIENT_IP = '127.0.0.1';
+
     const STREET = 'Julie-Wolfthorn-Straße 1';
     const ZIP_CODE = '10115';
     const CITY = 'Berlin';
-    const SALUTATION = 'Mr';
     const COUNTRY_CODE = 'de';
-    const CURRENCY_CODE = 'EUR';
-    const REFERENCE = 'payolution-test';
-    const CLIENT_IP = '127.0.0.1';
-    const TOTAL = 599;
-    const PAYMENT_METHOD = 'invoice';
-    const SKU = '1234567890';
+
+    const BIC = 'DABAIE2';
+    const IBAN = 'DE89370400440532013000';
+
     const ITEM_QUANTITY = 1;
     const ITEM_NAME = 'socks';
+    const REFERENCE = 'payolution-test';
+    const SKU = '1234567890';
 
-    /**
-     * @var SpySalesOrder
-     */
-    private $orderEntity;
-
-    /**
-     * @var SpyPaymentPayolution
-     */
-    private $paymentEntity;
+    const CURRENCY_CODE = 'EUR';
+    const TOTAL = 599;
+    const INSTALLMENT_AMOUNT = 204.10;
+    const INSTALLMENT_DURATION = 3;
 
     /**
      * @var OrderTransfer
@@ -63,9 +61,24 @@ abstract class AbstractFacadeTest extends AbstractFunctionalTest
     private $orderTransfer;
 
     /**
+     * @var SpyPaymentPayolution
+     */
+    private $paymentEntity;
+
+    /**
      * @var CheckoutRequestTransfer
      */
     private $checkoutRequestTransfer;
+
+    /**
+     * @var SpySalesOrder
+     */
+    private $orderEntity;
+
+    /**
+     * @var PayolutionPaymentTransfer
+     */
+    private $payolutionPaymentTransfer;
 
     /**
      * @var CustomerTransfer
@@ -76,11 +89,6 @@ abstract class AbstractFacadeTest extends AbstractFunctionalTest
      * @var AddressTransfer
      */
     private $addressTransfer;
-
-    /**
-     * @var PayolutionPaymentTransfer
-     */
-    private $payolutionPaymentTransfer;
 
     /**
      * @var TotalsTransfer
@@ -97,9 +105,28 @@ abstract class AbstractFacadeTest extends AbstractFunctionalTest
      */
     private $cartTransfer;
 
+    /**
+     * @var string
+     */
+    private $accountBrand;
+
+    /**
+     * @var string
+     */
+    private $paymentMethod;
+
     protected function _before()
     {
         parent::_before();
+    }
+
+    /*
+     * @return void
+     */
+    protected function setPaymentInvoice()
+    {
+        $this->accountBrand = PayolutionApiConstants::BRAND_INVOICE;
+        $this->paymentMethod = 'invoice';
 
         $this->setCustomerTransferTestData();
         $this->setAddressTransferTestData();
@@ -108,14 +135,118 @@ abstract class AbstractFacadeTest extends AbstractFunctionalTest
         $this->setItemTransferTestData();
         $this->setCartTransferTestData();
         $this->setOrderEntityTestData();
+        $this->setCheckoutRequestTransfer();
         $this->setPaymentTestData();
         $this->setOrderTransferTestData();
-        $this->setCheckoutRequestTransfer();
     }
 
+    /*
+     * @return void
+     */
+    protected function setPaymentInstallment()
+    {
+        $this->accountBrand = PayolutionApiConstants::BRAND_INSTALLMENT;
+        $this->paymentMethod = 'instalment';
+
+        $this->setCustomerTransferTestData();
+        $this->setAddressTransferTestData();
+        $this->setTotalsTransferTestData();
+        $this->setPayolutionPaymentTransferTestData();
+        $this->setItemTransferTestData();
+        $this->setCartTransferTestData();
+        $this->setOrderEntityTestData();
+        $this->setCheckoutRequestTransfer();
+        $this->setPaymentTestData();
+        $this->setOrderTransferTestData();
+    }
+
+    /**
+     * @return OrderTransfer
+     */
+    protected function getOrderTransfer()
+    {
+        return $this->orderTransfer;
+    }
+
+    /**
+     * @return SpyPaymentPayolution
+     */
+    protected function getPaymentEntity()
+    {
+        return $this->paymentEntity;
+    }
+
+    /**
+     * @return CheckoutRequestTransfer
+     */
+    protected function getCheckoutRequestTransfer()
+    {
+        return $this->checkoutRequestTransfer;
+    }
+
+    /**
+     * @return void
+     */
+    protected function setOrderTransferTestData()
+    {
+        $this->orderTransfer = (new OrderTransfer())
+            ->setIsTest(true)
+            ->setCustomer($this->customerTransfer)
+            ->setPayolutionPayment($this->payolutionPaymentTransfer)
+            ->setIdSalesOrder($this->orderEntity->getIdSalesOrder())
+            ->setTotals($this->totalsTransfer)
+            ->setShippingAddress($this->addressTransfer)
+            ->setBillingAddress($this->addressTransfer)
+            ->setOrderReference(self::REFERENCE);
+    }
+
+    /**
+     * @return void
+     */
+    protected function setPaymentTestData()
+    {
+        $this->paymentEntity = (new SpyPaymentPayolution())
+            ->setFkSalesOrder($this->orderEntity->getIdSalesOrder())
+            ->setAccountBrand($this->accountBrand)
+            ->setFirstName(self::FIRST_NAME)
+            ->setLastName(self::LAST_NAME)
+            ->setSalutation(SpyPaymentPayolutionTableMap::COL_SALUTATION_MRS)
+            ->setDateOfBirth(self::BIRTH_DATE)
+            ->setGender(SpyPaymentPayolutionTableMap::COL_GENDER_FEMALE)
+            ->setStreet(self::STREET)
+            ->setZipCode(self::ZIP_CODE)
+            ->setCity(self::CITY)
+            ->setCountryIso2Code(self::COUNTRY_CODE)
+            ->setLanguageIso2Code(self::COUNTRY_CODE)
+            ->setCurrencyIso3Code(self::CURRENCY_CODE)
+            ->setEmail(self::EMAIL)
+            ->setClientIp(self::CLIENT_IP)
+            ->setInstallmentAmount(170.50)
+            ->setInstallmentDuration(3)
+            ->setBankAccountHolder(self::FIRST_NAME.' '.self::LAST_NAME)
+            ->setBankAccountBic(self::BIC)
+            ->setBankAccountIban(self::IBAN);
+
+        $this->paymentEntity->save();
+    }
+
+    protected function setCheckoutRequestTransfer()
+    {
+        $this->checkoutRequestTransfer = (new CheckoutRequestTransfer())
+            ->setIdUser(null)
+            ->setShippingAddress($this->addressTransfer)
+            ->setBillingAddress($this->addressTransfer)
+            ->setPaymentMethod($this->paymentMethod)
+            ->setCart($this->cartTransfer)
+            ->setPayolutionPayment($this->payolutionPaymentTransfer);
+    }
+
+    /**
+     * @return void
+     */
     protected function setOrderEntityTestData()
     {
-        $country = SpyCountryQuery::create()->findOneByIso2Code('de');
+        $country = SpyCountryQuery::create()->findOneByIso2Code(self::COUNTRY_CODE);
 
         $billingAddress = (new SpySalesOrderAddress())
             ->setFirstName(self::FIRST_NAME)
@@ -142,88 +273,33 @@ abstract class AbstractFacadeTest extends AbstractFunctionalTest
             ->setSubtotal(self::TOTAL)
             ->setFkSalesOrderAddressShipping($billingAddress->getIdSalesOrderAddress())
             ->setFkSalesOrderAddressBilling($billingAddress->getIdSalesOrderAddress())
-            ->setOrderReference('foo-bar');
+            ->setOrderReference(self::REFERENCE);
         $this->orderEntity->save();
     }
 
     /**
-     * @return SpySalesOrder
+     * @return void
      */
-    protected function getOrderEntity()
+    protected function setPayolutionPaymentTransferTestData()
     {
-        return $this->orderEntity;
-    }
-
-    protected function setPaymentTestData()
-    {
-        $this->paymentEntity = (new SpyPaymentPayolution())
-            ->setFkSalesOrder($this->getOrderEntity()->getIdSalesOrder())
-            ->setAccountBrand(PayolutionApiConstants::BRAND_INVOICE)
+        $this->payolutionPaymentTransfer = (new PayolutionPaymentTransfer())
+            ->setAccountBrand($this->accountBrand)
             ->setClientIp(self::CLIENT_IP)
-            ->setFirstName(self::FIRST_NAME)
-            ->setLastName(self::LAST_NAME)
-            ->setDateOfBirth(self::BIRTH_DATE)
-            ->setGender(SpyPaymentPayolutionTableMap::COL_GENDER_FEMALE)
-            ->setSalutation(SpyPaymentPayolutionTableMap::COL_SALUTATION_MRS)
-            ->setEmail(self::EMAIL)
-            ->setStreet(self::STREET)
-            ->setZipCode(self::ZIP_CODE)
-            ->setCity(self::CITY)
-            ->setCountryIso2Code(self::COUNTRY_CODE)
             ->setLanguageIso2Code(self::COUNTRY_CODE)
-            ->setCurrencyIso3Code(self::CURRENCY_CODE);
-
-        $this->paymentEntity->save();
+            ->setCurrencyIso3Code(self::CURRENCY_CODE)
+            ->setAddress($this->addressTransfer)
+            ->setGender(SpyPaymentPayolutionTableMap::COL_GENDER_FEMALE)
+            ->setDateOfBirth(self::BIRTH_DATE)
+            ->setInstallmentAmount(self::INSTALLMENT_AMOUNT)
+            ->setInstallmentDuration(self::INSTALLMENT_DURATION)
+            ->setBankAccountHolder(self::FIRST_NAME.' '.self::LAST_NAME)
+            ->setBankAccountBic(self::BIC)
+            ->setBankAccountIban(self::IBAN);
     }
 
     /**
-     * @return SpyPaymentPayolution
+     * @return void
      */
-    protected function getPaymentEntity()
-    {
-        return $this->paymentEntity;
-    }
-
-    protected function setOrderTransferTestData()
-    {
-        $this->orderTransfer = (new OrderTransfer())
-            ->setIsTest(true)
-            ->setCustomer($this->customerTransfer)
-            ->setPayolutionPayment($this->payolutionPaymentTransfer)
-            ->setIdSalesOrder($this->getOrderEntity()->getIdSalesOrder())
-            ->setTotals($this->totalsTransfer)
-            ->setShippingAddress($this->addressTransfer)
-            ->setBillingAddress($this->addressTransfer)
-            ->setOrderReference(self::REFERENCE);
-    }
-
-    /**
-     * @return OrderTransfer
-     */
-    protected function getOrderTransfer()
-    {
-        return $this->orderTransfer;
-    }
-
-    protected function setCheckoutRequestTransfer()
-    {
-        $this->checkoutRequestTransfer = (new CheckoutRequestTransfer())
-            ->setIdUser(null)
-            ->setShippingAddress($this->addressTransfer)
-            ->setBillingAddress($this->addressTransfer)
-            ->setPaymentMethod('installment')
-            ->setCart($this->cartTransfer)
-            ->setPayolutionPayment($this->payolutionPaymentTransfer);
-    }
-
-    /**
-     * @return CheckoutRequestTransfer
-     */
-    protected function getCheckoutRequestTransfer()
-    {
-        return $this->checkoutRequestTransfer;
-    }
-
     protected function setCustomerTransferTestData()
     {
         $this->customerTransfer = (new CustomerTransfer())
@@ -235,6 +311,9 @@ abstract class AbstractFacadeTest extends AbstractFunctionalTest
             ->setCustomerReference(self::REFERENCE);
     }
 
+    /**
+     * @return void
+     */
     protected function setAddressTransferTestData()
     {
         $country = SpyCountryQuery::create()->findOneByIso2Code(self::COUNTRY_CODE);
@@ -251,6 +330,9 @@ abstract class AbstractFacadeTest extends AbstractFunctionalTest
             ->setFkCountry($country->getIdCountry());
     }
 
+    /**
+     * @return void
+     */
     protected function setTotalsTransferTestData()
     {
         $this->totalsTransfer = (new TotalsTransfer())
@@ -259,17 +341,9 @@ abstract class AbstractFacadeTest extends AbstractFunctionalTest
             ->setSubtotal(self::TOTAL);
     }
 
-    protected function setPayolutionPaymentTransferTestData()
-    {
-        $this->payolutionPaymentTransfer = (new PayolutionPaymentTransfer())
-            ->setAccountBrand(PayolutionApiConstants::BRAND_INSTALLMENT)
-            ->setClientIp(self::CLIENT_IP)
-            ->setLanguageIso2Code(self::COUNTRY_CODE)
-            ->setCurrencyIso3Code(self::CURRENCY_CODE)
-            ->setAddress($this->addressTransfer)
-            ->setGender(SpyPaymentPayolutionTableMap::COL_GENDER_FEMALE);
-    }
-
+    /**
+     * @return void
+     */
     protected function setCartTransferTestData()
     {
         $this->cartTransfer = (new CartTransfer())
@@ -277,6 +351,9 @@ abstract class AbstractFacadeTest extends AbstractFunctionalTest
             ->setTotals($this->totalsTransfer);
     }
 
+    /**
+     * @return void
+     */
     protected function setItemTransferTestData()
     {
         $this->itemTransfer = (new ItemTransfer())
