@@ -7,11 +7,13 @@ use Pyz\Zed\Locale\Business\LocaleFacade;
 use Pyz\Zed\Product\Business\Product\ProductManagerInterface;
 use Pyz\Zed\Product\Business\Attribute\AttributeConverterInterface;
 use Pyz\Zed\Product\Business\Attribute\MediaAttributeSplitter;
+use Pyz\Zed\Product\ProductDependencyProvider;
 use SprykerFeature\Zed\Product\Business\Builder\SimpleAttributeMergeBuilder;
 use SprykerFeature\Zed\Product\Business\ProductDependencyContainer as SprykerDependencyContainer;
 use Psr\Log\LoggerInterface;
 use Pyz\Zed\Product\Business\Internal\DemoData\ProductDataInstall;
 use Pyz\Zed\Product\ProductConfig;
+use SprykerFeature\Zed\Product\Dependency\Facade\ProductToUrlInterface;
 use SprykerFeature\Zed\Product\ProductDependencyProvider as SprykerProductDependencyProvider;
 
 /**

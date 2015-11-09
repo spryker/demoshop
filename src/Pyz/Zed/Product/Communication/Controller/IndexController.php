@@ -2,6 +2,11 @@
 
 namespace Pyz\Zed\Product\Communication\Controller;
 
+use Orm\Zed\Product\Persistence\SpyAbstractProduct;
+use PavFeature\Zed\ProductDynamicImporter\Business\ProductDynamicImporterFacade;
+use Pyz\Zed\Product\Communication\ProductDependencyContainer;
+use Pyz\Zed\Product\Business\ProductFacade;
+use Pyz\Zed\Product\ProductDependencyProvider;
 use Generated\Shared\ProductDynamicImporter\PavProductDynamicImporterAbstractProductInterface;
 use Generated\Shared\Transfer\CategoryTransfer;
 use Generated\Shared\Transfer\PavProductDynamicImporterAbstractProductTransfer;
@@ -10,20 +15,14 @@ use Generated\Shared\Transfer\PavProductDynamicImporterConcreteProductTransfer;
 use Generated\Shared\Transfer\PavProductDynamicImporterDynamicProductSettingProductTransfer;
 use Generated\Shared\Transfer\PavProductDynamicImporterDynamicProductSettingsTransfer;
 use Generated\Shared\Transfer\PavProductDynamicImporterLocaleTransfer;
-use Generated\Shared\Transfer\PavProductDynamicImporterMediaTransfer;
 use Orm\Zed\Price\Persistence\SpyPriceProduct;
-use Orm\Zed\Product\Persistence\SpyAbstractProduct;
 use Orm\Zed\Product\Persistence\SpyProduct;
 use Orm\Zed\Tax\Persistence\SpyTaxRate;
 use PavFeature\Shared\Library\Currency\CurrencyManager;
 use PavFeature\Zed\ProductDynamic\ProductDynamicConfig;
-use Pyz\Zed\Product\Business\ProductFacade;
-use Pyz\Zed\Product\Communication\ProductDependencyContainer;
 use SprykerFeature\Zed\Product\Communication\Controller\IndexController as SprykerIndexController;
 use SprykerFeature\Zed\Product\Persistence\ProductQueryContainer;
 use Symfony\Component\HttpFoundation\Request;
-use PavFeature\Zed\ProductDynamicImporter\Business\ProductDynamicImporterFacade;
-use Pyz\Zed\Product\ProductDependencyProvider;
 
 
 /**
@@ -45,6 +44,7 @@ class IndexController extends SprykerIndexController
         $abstractProductTransfer = $this->getAbstractProduct($idAbstractProduct);
 
         $viewData = $abstractProductTransfer->toArray(true);
+        $viewData['idAbstractProduct'] = $idAbstractProduct;
         $viewData['json'] = json_encode($abstractProductTransfer->toArray(true), JSON_PRETTY_PRINT);
 
         return $this->viewResponse($viewData);
@@ -364,9 +364,6 @@ class IndexController extends SprykerIndexController
     protected function getTaxString(SpyAbstractProduct $abstractProductEntity)
     {
         $taxSetEntity = $abstractProductEntity->getSpyTaxSet();
-        if (!$taxSetEntity) {
-            return '';
-        }
         $taxRateCollection = $taxSetEntity->getSpyTaxRates();
 
         /** @var SpyTaxRate $taxRateEntity */
@@ -506,6 +503,7 @@ class IndexController extends SprykerIndexController
             ->find();
 
         $categories = [];
+        /** @var SpyProductCategory $categoryEntity */
         foreach ($categoryEntityList as $categoryEntity) {
             $categories[] = [
                 self::COL_ID_PRODUCT_CATEGORY => $categoryEntity->getIdProductCategory(),

@@ -13,9 +13,9 @@ class MediaAttributeSplitter
     protected $attributeConverter;
 
     /**
-     * @param AttributeConverter $attributeConverter
+     * @param AttributeConverterInterface $attributeConverter
      */
-    public function __construct(AttributeConverter $attributeConverter)
+    public function __construct(AttributeConverterInterface $attributeConverter)
     {
         $this->attributeConverter = $attributeConverter;
     }
