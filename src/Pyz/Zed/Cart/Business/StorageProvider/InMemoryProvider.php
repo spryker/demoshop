@@ -9,6 +9,18 @@ use Pyz\SprykerBugfixInterface;
 
 class InMemoryProvider extends SprykerInMemoryProvider implements SprykerBugfixInterface
 {
+
+    /**
+     * @param CartInterface $cart
+     * @param ChangeInterface $change
+     *
+     * @return CartInterface
+     */
+    public function addCouponCode(CartInterface $cart, ChangeInterface $change)
+    {
+        return $cart->addCouponCode($change->getCouponCode());
+    }
+
     /**
      * @param CartInterface $cart
      * @param ChangeInterface $change
@@ -27,4 +39,13 @@ class InMemoryProvider extends SprykerInMemoryProvider implements SprykerBugfixI
         return $cart->setCouponCodes($couponCodes);
     }
 
+    /**
+     * @param CartInterface $cart
+     *
+     * @return CartInterface
+     */
+    public function clearCouponCodes(CartInterface $cart)
+    {
+        return $cart->setCouponCodes([]);
+    }
 }

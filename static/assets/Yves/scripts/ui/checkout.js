@@ -31,10 +31,10 @@ var initValidation = function () {
     $shipmentButton = $('.js-shipment-button');
     $useCouponButton = $('.js-cart-use-coupon-button');
     $removeCouponLink = $('.js-cart__remove-coupon-link');
-    $cartSection = $('.cart__discount').parent();
-    $checkoutAddCouponUrlInput = $('#checkoutAddCouponUrl');
-    $checkoutRemoveCouponUrlInput = $('#checkoutRemoveCouponUrl');
-    $cartCouponCodeInput = $('#cart__coupon-code');
+    $cartSection = $('.cart__final .cart__discount').parent();
+    $checkoutAddCouponUrlInput = $('.cart__final #checkoutAddCouponUrl');
+    $checkoutRemoveCouponUrlInput = $('.cart__final #checkoutRemoveCouponUrl');
+    $cartCouponCodeInput = $('.cart__final #cart__coupon-code');
     $('.js-checkout-address input, .js-checkout-address textarea').keyup(validateAddressBlock);
     $addressCheckbox.click(validateAddressBlock);
     $useCouponButton.click(addCoupon);
@@ -43,7 +43,7 @@ var initValidation = function () {
 
 var addCoupon = function (event) {
     event.preventDefault();
-    $couponElement = $('#cart__coupon-code');
+    $couponElement = $('.cart__final #cart__coupon-code');
     $useCouponButton.prop('disabled', true);
     $.ajax(
         {
