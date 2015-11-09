@@ -50,9 +50,9 @@ class ProductAttributeMappingInstall extends AbstractInstaller
         $this->info(
             'Map installed product attributes to search attributes and will make products exportable for the search'
         );
-
         $this->installAttributeOperations();
         $this->makeProductsSearchable();
+
     }
     protected function installAttributeOperations()
     {

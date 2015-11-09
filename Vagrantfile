@@ -79,6 +79,7 @@ Vagrant.configure(2) do |config|
   config.vm.network "forwarded_port", guest: 3306,  host: 3306,  auto_correct: true   # MySQL
   config.vm.network "forwarded_port", guest: 5432,  host: 5432,  auto_correct: true   # PostgreSQL
   config.vm.network "forwarded_port", guest: 9200,  host: 9200,  auto_correct: true   # ELK-Elasticsearch
+  config.vm.network "forwarded_port", guest: 10005,  host: 10005,  auto_correct: true   # Elasticsearch
   config.vm.network "forwarded_port", guest: 10007, host: 10007, auto_correct: true   # Jenkins (development)
   config.vm.network "forwarded_port", guest: 11007, host: 11007, auto_correct: true   # Jenkins (testing)
 

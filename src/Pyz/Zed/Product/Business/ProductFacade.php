@@ -2,6 +2,9 @@
 
 namespace Pyz\Zed\Product\Business;
 
+use Generated\Shared\Product\AbstractProductInterface;
+use Generated\Shared\Transfer\AbstractProductTransfer;
+use Pyz\SprykerBugfixInterface;
 use SprykerFeature\Zed\Product\Business\ProductFacade as SprykerProductFacade;
 use SprykerFeature\Zed\ProductCategory\Dependency\Facade\ProductCategoryToProductInterface;
 use SprykerFeature\Zed\ProductSearch\Dependency\Facade\ProductSearchToProductInterface;
@@ -20,7 +23,8 @@ class ProductFacade extends SprykerProductFacade implements
     ProductCategoryToProductInterface,
     TaxProductConnectorToProductInterface,
     ProductOptionToProductInterface,
-    ProductOptionExporterToProductInterface
+    ProductOptionExporterToProductInterface,
+    SprykerBugfixInterface
 {
 
     /**
@@ -49,6 +53,24 @@ class ProductFacade extends SprykerProductFacade implements
     public function installDemoData(LoggerInterface $messenger)
     {
         $this->getDependencyContainer()->createDemoDataInstaller($messenger)->install();
+    }
+
+    /**
+     * @param string $abstractSku
+     *
+     * @return AbstractProductInterface
+     */
+    public function getAbstractProduct($abstractSku)
+    {
+        return $this->getDependencyContainer()->createProductManager()->getAbstractProduct($abstractSku);
+    }
+
+    /**
+     * @param AbstractProductTransfer $abstractProductTransfer
+     * @return int
+     */
+    public function saveAbstractProduct(AbstractProductTransfer $abstractProductTransfer) {
+        return $this->getDependencyContainer()->createProductManager()->saveAbstractProduct($abstractProductTransfer);
     }
 
 }
