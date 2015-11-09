@@ -5,9 +5,9 @@ namespace Pyz\Zed\Cart\Business\StorageProvider;
 use SprykerFeature\Zed\Cart\Business\StorageProvider\InMemoryProvider as SprykerInMemoryProvider;
 use Generated\Shared\Cart\ChangeInterface;
 use Generated\Shared\Cart\CartInterface;
+use Pyz\SprykerBugfixInterface;
 
-class InMemoryProvider extends SprykerInMemoryProvider
-//@TODO: implement spryker debug interface
+class InMemoryProvider extends SprykerInMemoryProvider implements SprykerBugfixInterface
 {
     /**
      * @param CartInterface $cart
