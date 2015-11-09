@@ -336,3 +336,4 @@ $config[AfterbuyExportConstantInterface::AFTERBUY_CONNECTION_TIMEOUT] = 120;
 
 $config[GlossaryConfig::REMOTE_CSV_URL] = 'https://docs.google.com/spreadsheets/d/13InPAj1BWLFrvQX8h6uVIVJi-wNmTmUPd3cJXTfGp5U/pub?gid=0&single=true&output=csv';
 
+$config[SystemConfig::ZED_SHOW_EXCEPTION_STACK_TRACE] = false;
