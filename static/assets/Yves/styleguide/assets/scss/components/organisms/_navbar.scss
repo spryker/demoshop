@@ -9,12 +9,16 @@
 //     <div class="navbar__top">
 //        <div class="navbar__center">
 //             <div class="navbar__wordmark">Pets Deli</div>
+//             <div class="navbar__item">Geld - zurück - Garantie</div>
+//             <div class="navbar__item">Kostenloser Tiefkühl-Versand</div>
 //             <div class="navbar__item">
-//                 <span class="navbar__label">Call us:</span>
+//                 <span class="navbar__label">Hotline:</span>
 //                 <a class="navbar__phone" href="tel:+4930208984899">030 - 208 98 48 99</a>
 //             </div>
-//             <div class="navbar__item">
-//                     <span>Money back guarantee - Free shipping</span>
+//             <div class="navbar__item">Bekannt aus
+//                <span class="navbar__press navbar__press--bild"></span>
+//                <span class="navbar__press navbar__press--spiegel"></span>
+//                <span class="navbar__press navbar__press--ard"></span>
 //             </div>
 //         </div>
 //     </div>
@@ -24,13 +28,12 @@
 //                 <img src="../images/logo/logo_header.png" alt="Pets Deli Logo" />
 //             </a>
 //             <ul class="navbar__links">
-//                 <li class="navbar__link navbar__link--active"><a href="#">Home</a></li>
-//                 <li data-menu="main" class="navbar__link"><a href="#">Dogs</a></li>
-//                 <li data-menu="main" class="navbar__link"><a href="#">Cats</a></li>
-//                 <li data-menu="main" class="navbar__link navbar__link--support"><a href="#">Support</a></li>
-//                 <li data-menu="main" class="navbar__link navbar__link--contact"><a href="#">Contact</a></li>
-//                 <li class="navbar__link navbar__link--login"><a href="#"><span>Login</span></a></li>
-//                 <li data-menu="cart" class="navbar__link navbar__link--cart"><a href="#" data-cartcount="2"><span>Cart</span></a></li>
+//                 <li data-menu="main" class="navbar__link"><a href="#">Hunde</a></li>
+//                 <li data-menu="main" class="navbar__link"><a href="#">Katzen</a></li>
+//                 <li data-menu="main" class="navbar__link navbar__link--support"><a href="#">Warum?</a></li>
+//                 <li data-menu="main" class="navbar__link navbar__link--contact"><a href="#">Fragen?</a></li>
+//                 <li class="navbar__link navbar__link--login"><a href="#"><span>Anmelden</span></a></li>
+//                 <li data-menu="cart" class="navbar__link navbar__link--cart"><a href="#" data-cartcount="2"><span>Warenkorb</span></a></li>
 //                 <li class="navbar__link navbar__link--more"><div>&nbsp;</div></li>
 //             </ul>
 //             <div class="navbar__marker"></div>
@@ -65,7 +68,7 @@
 }
 
 .navbar__top{
-    padding: 6px 0;
+    padding: 7px 0 5px 0;
     background: $_rgbApple;
 
     font-family: $_ffBrandonGrotesque-Bold;
@@ -96,9 +99,23 @@
     text-decoration: none;
 }
 
-.navbar__label{
-
+.navbar__press {
+    margin-left: 12px;
+    height: 9px;
 }
+
+.navbar__press--bild{
+    @include pdif('bild', 18px, 18px);
+}
+
+.navbar__press--spiegel{
+    @include pdif('spiegel', 18px, 131px);
+}
+
+.navbar__press--ard{
+    @include pdif('ard', 18px, 18px);
+}
+
 
 .navbar__bottom{
     @include clearfix;
@@ -117,8 +134,8 @@
     z-index: 1;
     display: none;
     float: left;
-    width: 120px;
-    margin: -15px 0;
+    width: 100px;
+    margin: 8px 0 -19px 0;
 
     img{
         @include responsiveImage;
@@ -224,10 +241,19 @@
 
     .navbar__center{
         @include pageWidth;
+        display: flex;
+        width: 100%;
+        justify-content: space-around;
     }
 
     .navbar__item{
-        display: inline-block;
+        flex-grow: 1;
+        white-space: nowrap;
+        display: block;
+
+        &:nth-child(2), &:last-child{
+            flex-shrink: 1;
+        }
     }
 
     .navbar__wordmark{

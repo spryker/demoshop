@@ -49,6 +49,8 @@
     position: relative;
     z-index: 1;
     background: $_rgbWhite;
+    max-height: calc(100vh - 120px);
+    overflow: auto;
 }
 
 .cart-layer--open{

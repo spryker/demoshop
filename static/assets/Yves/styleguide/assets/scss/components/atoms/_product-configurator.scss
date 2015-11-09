@@ -2,8 +2,8 @@
 //
 // Markup:
 // <div class="product-configurator" data-trigger="js-product-customize">
+// {{> "atoms.close-button"}}
 // <form class="product-configurator__inner">
-//     {{> "atoms.close-button"}}
 //     <h2 class="product-configurator__headline">Customize Ingredients</h2>
 //     <div class="product-configurator__description">
 //         You can select the kind of meat your dog can eat. <br>
@@ -53,9 +53,8 @@
 .product-configurator{
     width: 100%;
     max-width: 735px;
-    max-height: 100%;
-    overflow: auto;
-
+    max-height: 100vh;
+    overflow: hidden;
     transition: right $_tLong ease-in-out;
 }
 
@@ -95,6 +94,8 @@
     z-index: 1;
     background: $_rgbWhite;
     padding: 30px 28px 60px;
+    max-height: 100vh;
+    overflow: auto;
 }
 
 .product-configurator__composition{

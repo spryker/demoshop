@@ -81,9 +81,14 @@ $(document).ready(function () {
 
             $trigger.removeClass('navbar__link--open');
             $(document).trigger('NAVSTATE_CHANGE');
+
+            $(document).trigger('ENABLE_SCROLLING');
+
         }
 
         function showMenu (newIndex, disableTransition) {
+            $(document).trigger('DISABLE_SCROLLING');
+
             if (typeof disableTransition === 'boolean' && disableTransition) {
                 $menu.removeClass('js-processed');
             }
