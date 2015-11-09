@@ -13,68 +13,34 @@
 //     <div class="product-configurator__description">
 //         My dog can eat the following selected ingredients.
 //     </div>
-//     <div class="">
-//         <label for="meat_beef">
-//             <input type="checkbox" id="meat_beef" name="meat.igredients[]" value="beef">
-//             Beef
-//         </label>
-//         <label for="meat_kanguru">
-//             <input type="checkbox" id="meat_kanguru" name="meat.igredients[]" value="kanguru">
-//             Kanguru
-//         </label>
-//         <label for="meat_chicken">
-//             <input type="checkbox" id="meat_chicken" name="meat.igredients[]" value="chicken">
-//             Chicken
-//         </label>
-//         <label for="meat_deer">
-//             <input type="checkbox" id="meat_deer" name="meat.igredients[]" value="deer">
-//             Deer
-//         </label>
-//         <label for="meat_turkey">
-//             <input type="checkbox" id="meat_turkey" name="meat.igredients[]" value="turkey">
-//             Turkey
-//         </label>
-//         <label for="meat_redfish">
-//             <input type="checkbox" id="meat_redfish" name="meat.igredients[]" value="redfish">
-//             Redfish
-//         </label>
+//     <div class="product-configurator__composition">
+//         <div class="product-configurator__composition-label">
+//             Select or deselect ingredients:
+//         </div>
+//         {{> "atoms.image-checkbox" id="meat_beef" image="../images/product/meat_beef.jpg" label="Beef" name="meat.igredients[]" value="beef"}}
+//         {{> "atoms.image-checkbox" id="meat_kanguru" image="../images/product/meat_kanguru.jpg" label="Kanguru" name="meat.igredients[]" value="kanguru"}}
+//         {{> "atoms.image-checkbox" id="meat_chicken" image="../images/product/meat_chicken.jpg" label="Chicken" name="meat.igredients[]" value="chicken"}}
+//         {{> "atoms.image-checkbox" id="meat_deer" image="../images/product/meat_deer.jpg" label="Deer" name="meat.igredients[]" value="deer"}}
+//         {{> "atoms.image-checkbox" id="meat_turkey" image="../images/product/meat_turkey.jpg" label="Turkey" name="meat.igredients[]" value="turkey"}}
+//         {{> "atoms.image-checkbox" id="meat_redfish" image="../images/product/meat_redfish.jpg" label="Redfish" name="meat.igredients[]" value="redfish"}}
 //     </div>
 //     <h3 class="product-configurator__subheadline">Carb Ingredients</h3>
 //     <div class="product-configurator__description">
 //         Would you like carbs in all boxes, half of the boxes or no
 // carbs at all?
 //     </div>
-//     <div class="product-configurator__carbs-amount">
-//         <label for="carbs_full">
-//             <input type="radio" id="carbs_full" name="carbs" value="full">
-//             Full Carbs
-//         </label>
-//         <label for="carbs_half">
-//             <input type="radio" id="carbs_half" name="carbs" value="half">
-//             Full Carbs
-//         </label>
-//         <label for="carbs_none">
-//             <input type="radio" id="carbs_none" name="carbs" value="none">
-//             Full Carbs
-//         </label>
+//     <div class="product-configurator__selection">
+//        {{> "atoms.radio-buttons"}}
 //     </div>
-//     <div class="product-configurator__carbs-ingredients">
-//         <div class="">
+//     <div class="product-configurator__composition">
+//         <div class="product-configurator__composition-label">
 //             Select or deselect ingredients:
 //         </div>
-//         <label for="meat_rice">
-//             <input type="checkbox" name="carbs.igredients[]" value="rice">
-//             Rice
-//         </label>
-//         <label for="meat_potatoes">
-//             <input type="checkbox" name="carbs.igredients[]" value="potatoes">
-//             Potatoes
-//         </label>
+//         {{> "atoms.image-checkbox" id="carbs_rice" image="../images/product/carbs_rice.jpg" label="Rice" name="carbs.igredients[]" value="rice"}}
+//         {{> "atoms.image-checkbox" id="carbs_potatoes" image="../images/product/carbs_potatoes.jpg" label="Potatoes" name="carbs.igredients[]" value="potatoes"}}
 //     </div>
-//     <div class="">
-//         <div class="">
-//             Depending on availability you will find some of the above ingredients.
-//         </div>
+//     <div class="product-configurator__save">
+//         <div class="product-configurator__availability">Depending on availability you will find some of the above ingredients.</div>
 //         <button class="button" type="submit">
 //             Save my selection
 //         </button>
@@ -85,19 +51,30 @@
 // Styleguide: atoms.product-configurator
 
 .product-configurator{
-    position: fixed;
-    z-index: 5;
-    top: 0;
-    right: -100%;
     width: 100%;
     max-width: 735px;
+    max-height: 100%;
+    overflow: auto;
 
     transition: right $_tLong ease-in-out;
 }
 
-.product-configurator--show{
-    right: 0;
+.product-related + .product-configurator{
+    position: fixed;
+    z-index: 5;
+    top: 0;
+    right: -100%;
+}
 
+.product-configurator--show{
+    right: 0 !important;
+
+    &:after{
+        background: $_rgbBlack30 !important;
+    }
+}
+
+.product-configurator--background{
     &:after{
         content: '';
         z-index: 0;
@@ -106,7 +83,9 @@
         right: 0;
         width: 100%;
         height: 100%;
-        background: $_rgbBlack30;
+        background: transparent;
+
+        transition: background $_tShort ease-in-out;
     }
 }
 
@@ -115,6 +94,57 @@
     position: relative;
     z-index: 1;
     background: $_rgbWhite;
-    padding: 30px 28px;
+    padding: 30px 28px 60px;
+}
 
+.product-configurator__composition{
+  overflow: hidden;
+  margin: 0 -5px 45px -5px;
+}
+
+.product-configurator__composition-label{
+  margin: 0 5px 5px;
+
+  font-family: $_ffBrandonGrotesque-Bold;
+  color: $_rgbSilverChalice;
+  letter-spacing: 0.3px;
+}
+
+.product-configurator__selection{
+  margin-bottom: 40px;
+}
+
+.product-configurator__headline{
+  font-family: $_ffBrandonGrotesque-Black;
+  font-size: 38px;
+  line-height: 56px;
+  letter-spacing: 0.58px;
+  color: $_rgbApple;
+}
+
+.product-configurator__description{
+  margin-bottom: 24px;
+  max-width: 460px;
+
+  color: $_rgbSilverChalice;
+  line-height: 25px;
+}
+
+.product-configurator__subheadline{
+  font-family: $_ffBrandonGrotesque-Black;
+  font-size: 26px;
+  line-height: 38px;
+  color: $_rgbApple;
+  letter-spacing: 0.4px;
+}
+
+.product-configurator__save{
+  text-align: center;
+}
+
+.product-configurator__availability{
+  margin-bottom: 20px;
+
+  color: $_rgbChileanFire;
+  line-height: 25px;
 }
