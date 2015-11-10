@@ -22,14 +22,10 @@
 //     </div>
 //     <div class="cart-item__quantity">
 //         <div class="cart-item__edit">
-//             <select>
-//                 <option>1</option>
-//                 <option>2</option>
-//                 <option>3</option>
-//             </select>
+//             <input class="js-stepper" type="number" value="1">
 //         </div>
 //     </div>
-//     <div class="cart-item__price">€20.00</div>
+//     <div class="cart-item__price"><span class="cart-item__unit">€</span>20.00</div>
 // </div>
 //
 // Styleguide: molecules.cart-item
@@ -56,7 +52,7 @@
 }
 
 .cart-item__info{
-    padding: 26px 0;
+    padding: 26px 40px 26px 10px;
     flex-grow: 1;
 }
 
@@ -66,7 +62,7 @@
     font-family: $_ffBrandonGrotesque-Black;
     font-size: 12px;
     line-height: 18px;
-    letter-spacing: 1.14px;
+    //letter-spacing: 1.14px;
     color: $_rgbOsloGray;
     text-transform: uppercase;
 }
@@ -108,33 +104,57 @@
     margin-left: 15px;
 
     font-size: 12px;
-    letter-spacing: 1.14px;
+    //letter-spacing: 1.14px;
     line-height: 18px;
     text-transform: uppercase;
     color: $_rgbChileanFire;
 }
 
 .cart-item__options{
+    display: flex;
+    align-self: stretch;
+    align-items: center;
     padding: 26px 0;
     border-right: 1px solid $_rgbSilver;
+
+    .button{
+        vertical-align: middle;
+    }
 }
 
-.cart-item__edit{
-    display: inline-block;
-}
 
 .cart-item__delete{
-    @include pdif('trash', 35px, 24px);
+    display: inline-block;
+    vertical-align: middle;
+    padding: 0 40px 0 30px;
     color: $_rgbOsloGray;
+
+    &:before{
+        position: relative;
+        top: 6px;
+        content: '\0E012';
+        font-family: $_ffPetsDeliIcons;
+        font-size: 35px;
+    }
 }
 
 .cart-item__quantity{
-    padding: 26px 0;
+    padding: 26px 40px;
 }
 
 .cart-item__edit{
 }
 
 .cart-item__price{
-    padding: 26px 0;
+    padding: 26px 40px;
+
+    font-size: 32px;
+    line-height: 38px;
+    font-family: $_ffHelveticaNeue;
+    color: $_rgbQuincy;
+}
+
+.cart-item__unit{
+    font-size: 26px;
+    line-height: 30px;
 }

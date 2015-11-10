@@ -3,42 +3,34 @@
 // Markup:
 // <div class="product-features">
 //    <h2 class="product-features__title">Features</h2>
-//    <div class="row">
-//        <div class="column medium-4">
-//           <h3 class="product-features__category">This is what you get</h3>
-//           <ul class="product-features__list">
-//               <li class="product-features__item">Our menu box is perfect</li>
-//               <li class="product-features__item">The menu is mixed by experts</li>
-//               <li class="product-features__item">it contains 10 boxes</li>
-//           </ul>
-//        </div>
-//        <div class="column medium-4">
-//           <h3 class="product-features__category">This is what you get</h3>
-//           <ul class="product-features__list">
-//               <li class="product-features__item">Our menu box is perfect</li>
-//               <li class="product-features__item">The menu is mixed by experts</li>
-//               <li class="product-features__item">it contains 10 boxes</li>
-//           </ul>
-//        </div>
-//        <div class="column medium-4">
-//           <h3 class="product-features__category">This is what you get</h3>
-//           <ul class="product-features__list">
-//               <li class="product-features__item">Our menu box is perfect</li>
-//               <li class="product-features__item">The menu is mixed by experts</li>
-//               <li class="product-features__item">it contains 10 boxes</li>
-//           </ul>
-//        </div>
-//    </div>
+//    <h3 class="product-features__category">Das bekommen Sie:</h3>
+//    <ul class="product-features__list">
+//           <li class="product-features__item">Unkompliziert - 10 fertig portionierte Menüboxen</li>
+//           <li class="product-features__item">Natur pur - ausschließlich 100% natürliche Zutaten</li>
+//           <li class="product-features__item">Sicherheit - von Experten zusammengestellte und 		überprüfte Menüs</li>
+//    </ul>
+//    <h3 class="product-features__category">Was wir Ihnen bieten:</h3>
+//    <ul class="product-features__list">
+//           <li class="product-features__item">100% Lebensmittelqualität</li>
+//           <li class="product-features__item">Nur hochwertiges Muskelfleisch</li>
+//           <li class="product-features__item">Tiefgefroren und fertig verpackt für maximale Frische</li>
+//    </ul>
+//    <h3 class="product-features__category">Was Sie niemals bei uns  bekommen werden:</h3>
+//    <ul class="product-features__list">
+//           <li class="product-features__item">Tierische Nebenerzeugnisse </li>
+//           <li class="product-features__item">Künstliche Zusatzstoffe</li>
+//           <li class="product-features__item">Minderwertige Qualität</li>
+//    </ul>
 // </div>
 //
 // Styleguide: atoms.product-features
 
 .product-features{
     margin-left: (100%  / 12 * 3);
-    padding: 20px ($_xSpacing / 2);
+    padding: 35px ($_xSpacing / 2) 0;
 
     clear: both;
-    width: (100%  / 12 * 7);
+    width: (100%  / 12 * 5);
 }
 
 .product-features__title{
@@ -46,23 +38,27 @@
 
     font-family: $_ffBrandonGrotesque-Black;
     font-size: 22px;
-    line-height: 31px;
-    letter-spacing: 0.33px;
+    //letter-spacing: 0.33px;
     color: $_rgbApple;
 }
 
 
 .product-features__category{
+    margin-top: 20px;
+
     font-family: $_ffBrandonGrotesque-Bold;
     font-size: 20px;
     color: $_rgbDoveGray;
-    letter-spacing: 0.3px;
+    //letter-spacing: 0.3px;
+}
+
+.product-features__list{
+    margin: 25px 0 50px;
 }
 
 .product-features__item{
     margin-left: 30px;
 
     font-size: 16px;
-    line-height: 25px;
     color: $_rgbDoveGray;
 }

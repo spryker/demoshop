@@ -3,12 +3,12 @@
 // Markup:
 // {{> "organisms.navbar"}}
 // {{> "organisms.hero"}}
+// {{> "organisms.teaser" title="Für Hunde" image="../images/teaser/dog.jpg"}}
+// {{> "organisms.teaser" title="Für Katzen" image="../images/teaser/cat.jpg"}}
 // {{> "organisms.plus"}}
 // {{> "atoms.press"}}
 // {{> "organisms.clients"}}
 // {{> "organisms.featured-products"}}
-// {{> "organisms.communication"}}
-// {{> "organisms.newsletter"}}
 // {{> "organisms.footer"}}
 //
 // Styleguide: frontpage

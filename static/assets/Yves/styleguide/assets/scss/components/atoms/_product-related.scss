@@ -4,6 +4,7 @@
 // <div class="product-related">
 //     {{> "molecules.product-card-wide"}}
 //     {{> "molecules.product-card-wide"}}
+//     {{> "molecules.product-card-wide"}}
 // </div>
 //
 // Styleguide: atoms.product-related
@@ -15,6 +16,29 @@
 
     .product-card-wide{
         float: left;
-        width: 50%;
+        width: 100%;
+
+        display: none;
+
+        &:nth-child(1), &:nth-child(2){
+            display: block;
+        }
+    }
+}
+
+@media (min-width: $_wLarge) {
+    .product-related{
+        .product-card-wide{
+            width: 50%;
+        }
+    }
+}
+
+@media (min-width: $_wXLarge) {
+    .product-related{
+        .product-card-wide{
+            display: block;
+            width: 33.333%;
+        }
     }
 }

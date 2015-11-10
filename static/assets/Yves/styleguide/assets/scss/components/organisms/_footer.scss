@@ -1,78 +1,51 @@
 // Footer
 //
 // Markup:
+// {{> "organisms.communication"}}
+// {{> "atoms.payment"}}
+// {{> "organisms.newsletter"}}
 // <footer class="footer">
 //     <div class="footer__inner">
-//         <div class="footer__row footer__row--top row">
-//             <div class="footer__social column small-5">
-//                 <div class="footer__icon footer__icon--facebook"></div>
-//                 <div class="footer__icon footer__icon--twitter"></div>
-//                 <div class="footer__icon footer__icon--gplus"></div>
+//         <nav class="footer__row row">
+//             <div class="column small-3">
+//                 <h2>Produkte</h2>
+//                 <ul>
+//                     <li><a href="#">Hunde</a></li>
+//                     <li><a href="#">Katzen</a></li>
+//                 </ul>
 //             </div>
+//             <div class="column small-3">
+//                 <h2>Hilfe</h2>
+//                 <ul>
+//                     <li><a href="#">Häufige Fragen</a></li>
+//                     <li><a href="#">Versand</a></li>
+//                     <li><a href="#">Sitemap</a></li>
+//                 </ul>
+//             </div>
+//             <div class="column small-3">
+//                 <h2>Über uns</h2>
+//                 <ul>
+//                     <li><a href="#">Jobs</a></li>
+//                     <li><a href="#">Presse</a></li>
+//                     <li><a href="#">Impressum</a></li>
+//                     <li><a href="#">AGB & Widerruf</a></li>
+//                 </ul>
+//             </div>
+//             <div class="column small-3">
+//                 <h2>Follow Us on</h2>
+//                 <span class="footer__social footer__social--facebook"></span>
+//                 <span class="footer__social footer__social--twitter"></span>
+//                 <span class="footer__social footer__social--instagram"></span>
+//                 <span class="footer__social footer__social--youtube"></span>
+//             </div>
+//         </nav>
+//         <div class="footer__row footer__row--top row">
+//             <div class="footer__social column small-5"></div>
 //             <div class="footer__logo column small-12 large-2">
 //                 <img src="../images/logo/logo_header.png" alt="Pets Deli Logo" />
 //             </div>
-//             <div class="footer__payment column small-5">
-//                 <div class="footer__icon footer__icon--paypal"></div>
-//                 <div class="footer__icon footer__icon--visa"></div>
-//                 <div class="footer__icon footer__icon--mastercard"></div>
-//             </div>
+//             <div class="footer__payment column small-5"></div>
 //         </div>
-//         <nav class="footer__row row">
-//             <div class="column small-4">
-//                 <h2>Dogs</h2>
-//                 <ul>
-//                     <li><a href="#">Menu Box</a></li>
-//                     <li><a href="#">Packages</a></li>
-//                     <li><a href="#">Supplement</a></li>
-//                     <li><a href="#">Snacks</a></li>
-//                     <li><a href="#">Dry Meats</a></li>
-//                 </ul>
-//             </div>
-//             <div class="column small-4">
-//                 <h2>Cats</h2>
-//                 <ul>
-//                     <li><a href="#">Menu Box</a></li>
-//                     <li><a href="#">Packages</a></li>
-//                     <li><a href="#">Supplement</a></li>
-//                     <li><a href="#">Snacks</a></li>
-//                     <li><a href="#">Dry Meats</a></li>
-//                 </ul>
-//             </div>
-//             <div class="column small-4">
-//                 <h2>Support</h2>
-//                 <ul>
-//                     <li><a href="#">Menu Box</a></li>
-//                     <li><a href="#">Packages</a></li>
-//                     <li><a href="#">Supplement</a></li>
-//                     <li><a href="#">Snacks</a></li>
-//                     <li><a href="#">Dry Meats</a></li>
-//                 </ul>
-//             </div>
-//         </nav>
-//         <nav class="footer__row row">
-//             <div class="column small-4">
-//                 <div class="footer__icon footer__icon--mail footer__icon--headline"></div>
-//                 <h2>Mail</h2>
-//                 <ul>
-//                     <li><a href="#">hello@petsdeli.de</a></li>
-//                 </ul>
-//             </div>
-//             <div class="column small-4">
-//                 <div class="footer__icon footer__icon--phone footer__icon--headline"></div>
-//                 <h2>Call</h2>
-//                 <ul>
-//                     <li><a href="#">+49 191 231 3983</a></li>
-//                 </ul>
-//             </div>
-//             <div class="column small-4">
-//                 <div class="footer__icon footer__icon--poi footer__icon--headline"></div>
-//                 <h2>Find us</h2>
-//                 <ul>
-//                     <li><a href="#">Somewhere, Berlin</a></li>
-//                 </ul>
-//             </div>
-//         </nav>
 //         <div class="footer__copyrights">
 //             <span class="footer__copyright footer__copyright--upper">2015 Petsdeli</span>
 //             <span class="footer__copyright">Copyright</span>
@@ -84,12 +57,11 @@
 
 .footer{
     padding: 57px 0 32px;
-    background: $_rgbApple;
-    color: $_rgbWhite;
+    background: $_rgbWhite;
 }
 
 .footer__inner{
-    @include limitWidth(66.666%);
+    @include pageWidth;
     text-align: center;
 }
 
@@ -98,30 +70,25 @@
     margin-bottom: 0;
     @include clearfix;
     clear: both;
-    padding-top: 40px;
-    padding-bottom: 40px;
-    border-top: 1px solid rgba($_rgbWhite, 0.3);
+    padding-bottom: 30px;
 
     h2{
-        font-family: $_ffBrandonGrotesque-Black;
-        font-size: 16px;
-        line-height: 23px;
-        text-transform: uppercase;
-        letter-spacing: 0.98px;
+        color: $_rgbApple;
+        font-family: $_ffBrandonGrotesque-Bold;
+        font-size: 22px;
+        line-height: 31px;
+        //letter-spacing: 0.27px;
     }
 
     a{
-        font-size: 16px;
-        line-height: 23px;
-        color: rgba($_rgbWhite, 0.6);
-        letter-spacing: 0.2px;
+        display: inline-block;
+        margin-top: 10px;
+
+        font-family: $_ffBrandonGrotesque-Bold;
+        color: $_rgbSilverChalice;
         text-decoration: none;
-
-        transition: color $_tShort ease-in-out;
-
-        &:hover{
-            color: $_rgbWhite;
-        }
+        font-size: 18px;
+        line-height: 26px;
     }
 }
 
@@ -129,14 +96,6 @@
     border-top: none;
     padding-top: 20px;
     white-space: nowrap;
-}
-
-.footer__social{
-    text-align: right;
-}
-
-.footer__payment{
-    text-align: left;
 }
 
 .footer__logo{
@@ -154,66 +113,16 @@
     }
 }
 
-.footer__icon{
-    margin: 0 5px -4px;
-}
-
-.footer__icon--headline{
-    margin-bottom: 17px;
-}
-
-.footer__icon--facebook{
-    @include pdif('facebook', 51px, 50px);
-    height: 50px;
-}
-
-.footer__icon--twitter{
-    @include pdif('twitter', 51px, 50px);
-    height: 50px;
-}
-
-.footer__icon--gplus{
-    @include pdif('gplus', 51px, 50px);
-    height: 50px;
-}
-
-.footer__icon--paypal{
-    @include pdif('paypal', 15px, 54px);
-    height: 50px;
-}
-
-.footer__icon--visa{
-    @include pdif('visa', 14px, 43px);
-    height: 50px;
-}
-
-.footer__icon--mastercard{
-    @include pdif('mastercard', 27px, 46px);
-    height: 50px;
-}
-
-.footer__icon--mail{
-    @include pdif('mail', 18px, 30px);
-}
-
-.footer__icon--phone{
-    @include pdif('phone', 24px, 25px);
-}
-
-.footer__icon--poi{
-    @include pdif('poi', 23px, 18px);
-}
-
-
 .footer__copyrights{
     margin-top: 10px;
 }
 
 .footer__copyright{
-    letter-spacing: 1.79px;
+    color: $_rgbSilverChalice;
+    //letter-spacing: 1.79px;
     font-size: $_fsTiny;
     line-height: $_lhTiny;
-    font-family: $_ffHelveticaNeue;
+    font-family: $_ffBrandonGrotesque-Bold;
 
     & + .footer__copyright:before{
         content: '|';
@@ -223,6 +132,32 @@
         margin: 0 5px 0 3px;
     }
 }
+
+.footer__social{
+    height: 44px;
+    margin: 10px 5px 0;
+    color: $_rgbSilverChalice;
+
+    cursor: pointer;
+}
+
+.footer__social--facebook{
+    @include pdif('facebook', 44px, 44px);
+}
+
+.footer__social--twitter{
+    @include pdif('twitter', 44px, 44px);
+}
+
+.footer__social--instagram{
+    @include pdif('instagram', 44px, 44px);
+}
+
+.footer__social--youtube{
+    @include pdif('youtube', 44px, 44px);
+}
+
+
 
 .footer__copyright--upper{
     text-transform: uppercase;

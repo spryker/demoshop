@@ -3,21 +3,19 @@
 // ================
 
 $_rgbWhite:         rgb(255, 255, 255); // #FFFFFF
-$_rgbAlabaster:     rgb(249, 249, 249); // #F9F9F9
-$_rgbSilverChalice: rgb(166, 166, 166); // #A6A6A6
+$_rgbAlabaster:     rgb(247, 247, 247); // #F7F7F7
+$_rgbSilverChalice: rgb(166, 166, 166); // #A6A6A6 bigger texts
 $_rgbOsloGray:      rgb(131, 140, 142); // #838C8E
 $_rgbTundora:       rgb( 64,  64,  64); // #404040
 $_rgbShark:         rgb( 46,  46,  48); // #2E2E30
 $_rgbBlack:         rgb(  0,   0,   0); // #000000
 
-$_rgbBarberry:      rgb(237, 221,  19); // #EDDD13
+//$_rgbBarberry:      rgb(237, 221,  19); // #EDDD13
 $_rgbFuelYellow:    rgb(230, 178,  34); // #E6B222
 $_rgbZest:          rgb(225, 134,  39); // #E18627
 $_rgbHotCinnamon:   rgb(220, 102,  30); // #DC661E
 
-$_rgbApple:         rgb( 98, 188,  70); // #62BC46
-$_rgbDarkApple:     rgb( 96, 159,  59); // #609F3B
-$_rgbGreenHaze:     rgb(  0, 142,  73); // #008E49
+$_rgbApple:         rgb( 95, 182,  75); // #5FB64B
 
 $_rgbAkaroa:        rgb(217, 187, 169); // #D9BBA9
 $_rgbTumbleweed:    rgb(220, 180, 131); // #DCB483
@@ -31,14 +29,13 @@ $_rgbPaleOyster:    rgb(148, 140, 121); // #948C79
 $_rgbRomanCoffee:   rgb(122,  91,  68); // #7A5B44
 $_rgbIrishCoffee:   rgb(102,  58,  42); // #663A2A
 
-$_rgbDoveGray:      rgb(106, 106, 106); // #6A6A6A
+$_rgbDoveGray:      rgb(106, 106, 106); // #6A6A6A text color
 
 
 // ???
 $_rgbCarnation:     rgb(246,  78,  96); // #F64E60
 $_rgbWhiskey2:      rgb(215, 155, 111); // #D79B6F
 $_rgbChileanFire:   rgb(238, 114,   3); // #EE7203
-$_rgbMantis:        rgb(101, 186,  77); // #65BA4D
 $_rgbQuincy:        rgb( 91,  53,  42); // #5B352A
 $_rgbShipGray:      rgb( 67,  67,  69); // #434345
 $_rgbSilverChalices2: rgb(177, 177, 177); // #B1B1B1
@@ -47,8 +44,6 @@ $_rgbSilver:        rgb(201, 201, 201); // #C9C9C9
 $_rgbClementine:    rgb(237, 114,   3); // #ED7203
 $_rgbOsloGray2:     rgb(130, 140, 142); // #828C8E
 $_rgbOsloGray3:     rgb(129, 140, 142); // #818C8E
-
-$_rgbFruitSalad:    rgb( 88, 172,  82); // #58AC52
 
 
 $_rgbBlack30:         rgba(0, 0, 0, 0.3);
@@ -67,25 +62,25 @@ $_ffHelveticaNeue: 'Helvetica Neue', 'Helvetica', sans-serif;
 $_ffPetsDeliIcons: 'Petsdeli-Icons';
 
 $_fsTiny: 12px;
-$_lhTiny: 18px;
+$_lhTiny: 1.5em; //18px;
 
 $_fsSmall: 14px;
-$_lhSmall: 20px;
+$_lhSmall: 1.5em; //20px;
 
 $_fsSmaller: 18px;
-$_lhSmaller: 26px;
+$_lhSmaller: 1.5em; //26px;
 
 $_fsDefault: 20px;
-$_lhDefault: 28px;
+$_lhDefault: 1.5em; //28px;
 
 $_fsMedium: 30px;
-$_lhMedium: 43px;
+$_lhMedium: 1.5em; //43px;
 
 $_fsLarge: 50px;
-$_lhLarge: 72px;
+$_lhLarge: 1.5em; //72px;
 
 $_fsLarger: 60px;
-$_lhLarger: 86px;
+$_lhLarger: 1.5em; //86px;
 
 $_defaultBorderRadius: 3px;
 

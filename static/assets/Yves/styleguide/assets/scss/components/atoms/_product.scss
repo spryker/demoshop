@@ -2,28 +2,39 @@
 //
 // Markup:
 // <div class="product">
-//     <div class="column medium-3">
-//         {{> "atoms.product-gallery"}}
+//     <div class="product__detail">
+//         <div class="product__gallery column medium-3">
+//             {{> "atoms.product-gallery"}}
+//         </div>
+//         <div class="column medium-5">
+//             {{> "atoms.product-intro"}}
+//             {{> "atoms.product-content"}}
+//         </div>
+//         <div class="column medium-4">
+//            {{> "atoms.product-options"}}
+//         </div>
+//         {{> "atoms.product-features"}}
 //     </div>
-//     <div class="column medium-5">
-//         {{> "atoms.product-intro"}}
-//         {{> "atoms.product-content"}}
-//     </div>
-//     <div class="column medium-4">
-//        {{> "atoms.product-options"}}
-//     </div>
-//     {{> "atoms.product-features"}}
-// </div>
 // {{> "atoms.product-related"}}
 // {{> "atoms.product-configurator"}}
+// </div>
 //
 // Styleguide: atoms.product
 
 .product{
     position: relative;
-    margin: 0 -12px;
-    padding: 48px 0 45px;
-    overflow: hidden;
     background: $_rgbWhite;
+    padding: 48px 0 45px;
     @include cardShadow;
+}
+
+.product__gallery{
+    padding: 0;
+    margin-left: -18px;
+    margin-right: 18px;
+}
+
+.product__detail{
+    @include pageWidth;
+    overflow: hidden;
 }

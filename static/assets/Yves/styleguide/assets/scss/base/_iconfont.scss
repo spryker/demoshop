@@ -144,6 +144,22 @@
       content: '\E01F';
     }
     
+    @if $name == 'spiegel-inverted' {
+      content: '\E020';
+    }
+    
+    @if $name == 'arrow-down' {
+      content: '\E021';
+    }
+    
+    @if $name == 'minus' {
+      content: '\E022';
+    }
+    
+    @if $name == 'plus' {
+      content: '\E023';
+    }
+    
   }
 }
 
@@ -290,6 +306,22 @@
     
     @if $name == 'sepa' {
       content: '\E01F';
+    }
+    
+    @if $name == 'spiegel-inverted' {
+      content: '\E020';
+    }
+    
+    @if $name == 'arrow-down' {
+      content: '\E021';
+    }
+    
+    @if $name == 'minus' {
+      content: '\E022';
+    }
+    
+    @if $name == 'plus' {
+      content: '\E023';
     }
     
   }

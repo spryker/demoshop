@@ -5,14 +5,10 @@
 //     <div class="hero__background" style="background-image: url(/images/hero/background.jpg);"></div>
 //     <div class="hero__center">
 //         <div class="hero__content">
-//             {{> "atoms.page-title" modifier_class="page-title--white" title="Headline"}}
-//             <p class="subtitle subtitle--white">
-//                 Wisi eruditi id nam. Te pri oblique ullamcorper, magna persequeris has
-//                 eu. Mei prompta dolores ex, eam ad debet suavitate. Pri te vocibus
-//                 electram. Eu eleifend rationibus vis, at pro odio.
+//             <h1 class="hero__headline">Gesunde Nahrung <br> für Hunde und Katzen</h1>
+//             <p class="hero__description">
+//                 100% Lebensmittelqualitat. 100% Naturnah und artgerecht. 0% Tricks
 //             </p>
-//             {{> "atoms.button" modifier_class="button--white" title="Dogs products"}}
-//             {{> "atoms.button" modifier_class="button--white" title="Cats products"}}
 //         </div>
 //     </div>
 // </div>
@@ -22,7 +18,7 @@
 
 .hero{
     position: relative;
-    height: 670px;
+    height: 390px;
 }
 
 .hero__background{
@@ -47,10 +43,19 @@
 }
 
 .hero__content{
-    @include limitWidth();
+}
 
-    .button{
-        margin-left: 11px;
-        margin-right: 11px;
-    }
+.hero__headline{
+    font-family: $_ffBrandonGrotesque-Black;
+    font-size: 60px;
+    line-height: 60px;
+    color: $_rgbApple;
+}
+
+.hero__description{
+    font-family: $_ffBrandonGrotesque-Black;
+    font-size: 30px;
+    line-height: 43px;
+    color: $_rgbWhite;
+    //letter-spacing: 1.28px;
 }

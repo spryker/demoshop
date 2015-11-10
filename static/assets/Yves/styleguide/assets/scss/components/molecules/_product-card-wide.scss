@@ -3,8 +3,8 @@
 // Markup:
 // <div class="product-card-wide">
 //    <div class="product-card-wide__inner">
-//        <div class="product-card-wide__label">Snacks</div>
 //        <div class="product-card-wide__image">
+//            <div class="product-card-wide__label">Snacks</div>
 //            <img src="../images/product/cookies.jpg" />
 //        </div>
 //        <div class="product-card-wide__info">
@@ -36,23 +36,27 @@
     background: $_rgbWhite;
 }
 
+
 .product-card-wide__label{
-    min-width: 160px;
-    padding: 7px 15px;
     position: absolute;
-    top: 39px;
+    top: -10px;
     left: 0;
+    padding: 9px 12px;
+    width: 100%;
+    max-width: 160px;
     background: $_rgbApple;
 
-    color: $_rgbWhite;
     text-transform: uppercase;
     text-decoration: none;
     font-size: 16px;
     line-height: 23px;
+    //letter-spacing: .54px;
     font-family: $_ffBrandonGrotesque-Bold;
+    color: $_rgbWhite;
 }
 
 .product-card-wide__image{
+    position: relative;
     float: left;
     width: 50%;
 
@@ -62,19 +66,10 @@
     }
 }
 
-.product-card-wide__label{
-    position: absolute;
-    top: 30px;
-    left: 0;
-    padding: 9px 12px;
-    background: $_rgbApple;
-    color: $_rgbWhite;
-    letter-spacing: .54px;
-}
-
 .product-card-wide__info{
     float: left;
     width: 50%;
+    padding-left: ($_xGutter / 2);
 }
 
 .product-card-wide__breadcrumbs{
@@ -83,9 +78,10 @@
     font-family: $_ffBrandonGrotesque-Black;
     font-size: 12px;
     line-height: 18px;
-    letter-spacing: 1.14px;
+    //letter-spacing: 1.14px;
     color: $_rgbOsloGray;
     text-transform: uppercase;
+    white-space: nowrap;
 }
 
 .product-card-wide__breadcrumb{
@@ -122,7 +118,7 @@
 
     font-size: $_fsSmall;
     line-height: $_lhSmall;
-    letter-spacing: 0.25px;
+    //letter-spacing: 0.25px;
     text-align: right;
     font-family: $_ffHelveticaNeue;
     color: $_rgbSilverChalices2

@@ -28,7 +28,7 @@
     padding: 38px 0;
     @include sectionShadow;
 
-    background: $_rgbFruitSalad;
+    background: $_rgbApple;
     color: $_rgbWhite;
 }
 
@@ -72,7 +72,7 @@
     font-family: $_ffBrandonGrotesque-Bold;
     font-size: 16px;
     line-height: 23px;
-    letter-spacing: 2.27px;
+    //letter-spacing: 2.27px;
     text-transform: uppercase;
 }
 
@@ -80,7 +80,7 @@
     font-family: $_ffBrandonGrotesque-Bold;
     font-size: 16px;
     line-height: 23px;
-    letter-spacing: 0.19px;
+    //letter-spacing: 0.19px;
 }
 
 

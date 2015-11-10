@@ -1,0 +1,78 @@
+// Payment
+//
+// Markup:
+// <div class="payment">
+//    <h2 class="payment__headline">Accepted Payments</h2>
+//    <div class="payment__methods">
+//        <div class="payment__method payment__method__paypal"></div>
+//        <div class="payment__method payment__method__visa"></div>
+//        <div class="payment__method payment__method__mastercard"></div>
+//        <div class="payment__method payment__method__klarna"></div>
+//        <div class="payment__method payment__method__sepa"></div>
+//        <div class="payment__method payment__method__sofort"></div>
+//    </div>
+// </div>
+//
+// Styleguide: atoms.payment
+
+.payment{
+    padding: 45px 0 36px;
+    background: $_rgbWhite;
+    position: relative;
+    z-index: 1;
+}
+
+
+.payment__headline{
+    margin-bottom: 23px;
+    font-family: $_ffBrandonGrotesque-Bold;
+    color: $_rgbApple;
+    font-size: 22px;
+    line-height: 31px;
+    //letter-spacing: 0.24px;
+    text-align: center;
+}
+
+.payment__methods{
+    height: 36px;
+    color: $_rgbSilverChalice;
+    @include limitWidth(700px);
+    width: 100%;
+    display: table;
+}
+
+.payment__method{
+    display: table-cell !important;
+    vertical-align: middle;
+    padding: 0 !important;
+    text-align: center;
+
+    &:before{
+        position: static !important;
+        margin: 0 !important;
+    }
+}
+
+.payment__method__paypal{
+    @include pdif('paypal', 18px, 72px);
+}
+
+.payment__method__visa{
+    @include pdif('visa', 17px, 54px);
+}
+
+.payment__method__mastercard{
+    @include pdif('mastercard', 33px, 57px);
+}
+
+.payment__method__klarna{
+    @include pdif('klarna', 24px, 87px);
+}
+
+.payment__method__sepa{
+    @include pdif('sepa', 21px, 78px);
+}
+
+.payment__method__sofort{
+    @include pdif('sofort', 36px, 111px);
+}
