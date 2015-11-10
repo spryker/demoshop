@@ -56,7 +56,7 @@ class AddressType extends AbstractType
                     'tabindex' => 10 + $this->offset,
                     'class' => 'padded js-checkout-name',
                     'placeholder' => 'customer.first_name',
-                    'style' => 'width: 24%; float: left;',
+                    'style' => 'width: 100%; float: left;',
                 ],
             ])
             ->add(self::FIELD_LAST_NAME, 'text', [
@@ -69,7 +69,7 @@ class AddressType extends AbstractType
                     'tabindex' => 20 + $this->offset,
                     'class' => 'padded js-checkout-name',
                     'placeholder' => 'customer.last_name',
-                    'style' => 'width: 24%; float: right; margin-right: 50%; clear: none',
+                    'style' => 'width: 100%; float: right;',
                 ],
             ])
             ->add(self::FIELD_STREET, 'text', [
@@ -83,7 +83,7 @@ class AddressType extends AbstractType
                     'tabindex' => 30 + $this->offset,
                     'class' => 'padded js-checkout-name',
                     'placeholder' => 'address.street',
-                    'style' => 'width: 35%; float: left;',
+                    'style' => 'width: 49%; float: left;',
                 ],
             ])
             ->add(self::FIELD_STREET_NR, 'text', [
@@ -97,7 +97,7 @@ class AddressType extends AbstractType
                     'tabindex' => 40 + $this->offset,
                     'class' => 'padded js-checkout-name',
                     'placeholder' => 'address.street_nr',
-                    'style' => 'float: right; margin-right: 50%; width: 13%;',
+                    'style' => 'float: right; width: 49%; clear: none;',
                 ],
             ])
             ->add(self::FIELD_CITY, 'text', [
@@ -110,7 +110,7 @@ class AddressType extends AbstractType
                     'tabindex' => 60 + $this->offset,
                     'class' => 'padded js-checkout-name',
                     'placeholder' => 'address.city',
-                    'style' => 'width: 38%; float: right; margin-right: 50%;',
+                    'style' => 'width: 49%; float: right;',
                 ],
             ])
             ->add(self::FIELD_ZIP_CODE, 'text', [
@@ -123,7 +123,7 @@ class AddressType extends AbstractType
                     'tabindex' => 50 + $this->offset,
                     'class' => 'padded js-checkout-name',
                     'placeholder' => 'address.zip_code',
-                    'style' => 'width: 10%;',
+                    'style' => 'width: 49%;',
                 ],
             ])
             ->add(self::FIELD_ISO_2_CODE, 'hidden', [

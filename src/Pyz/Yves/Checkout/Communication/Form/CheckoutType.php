@@ -18,6 +18,8 @@ class CheckoutType extends AbstractType
     const FIELD_PAYOLUTION_PAYMENT = 'payolution_payment';
     const FIELD_ID_SHIPMENT_METHOD = 'id_shipment_method';
     const FIELD_TERMS = 'terms';
+    const FIELD_PASSWORD = 'password';
+    const FIELD_CREATE_ACCOUNT = 'create_account';
 
     /**
      * @var Request
@@ -61,6 +63,7 @@ class CheckoutType extends AbstractType
                     'tabindex' => 100,
                     'class' => 'padded js-checkout-email',
                     'placeholder' => 'customer.email',
+                    'style' => 'width:100%'
                 ],
             ])
             ->add(self::FIELD_BILLING_ADDRESS, new AddressType(200), [
@@ -81,8 +84,6 @@ class CheckoutType extends AbstractType
             ->add(self::FIELD_PAYMENT_METHOD, 'choice', [
                 'choices' => [
                     'prepay' => 'payment.prepay',
-                    'paypal' => 'payment.paypal',
-                    'creditcard' => 'payment.creditcard',
                     'invoice' => 'payment.invoice',
                 ],
                 'expanded' => true,
@@ -91,13 +92,6 @@ class CheckoutType extends AbstractType
                 'empty_value' => false,
                 'attr' => [
                     'style' => 'display: block;',
-                ],
-            ])
-            ->add(self::FIELD_PAYOLUTION_PAYMENT, new PayolutionType($this->request, 400), [
-                'data_class' => 'Generated\Shared\Transfer\PayolutionPaymentTransfer',
-                'error_bubbling' => true,
-                'attr' => [
-                    'class' => 'js-payolution-payment',
                 ],
             ])
             ->add(self::FIELD_ID_SHIPMENT_METHOD, 'choice', [
@@ -118,6 +112,30 @@ class CheckoutType extends AbstractType
                     'class' => 'padded confirm__agb js-confirm-agb',
                 ],
             ])
+            ->add(self::FIELD_PASSWORD, 'repeated', [
+                'type' => 'password',
+                'required' => false,
+                'mapped' => false,
+                'options' => [
+                    'label' => false,
+                    'attr'     => [
+                        'tabindex'    => 601,
+                        'class'       => 'padded js-checkout-password',
+                        'placeholder' => 'customer.password',
+                    ],
+                ],
+
+            ])
+            ->add(self::FIELD_CREATE_ACCOUNT, 'checkbox', [
+                'required' => false,
+                'mapped' => false,
+                'label' => 'page.checkout.create_account',
+                'attr' => [
+                    'tabindex' => 602,
+                    'class' => 'padded js-create_account',
+                ],
+            ])
+
         ;
     }
 
