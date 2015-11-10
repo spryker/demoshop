@@ -169,6 +169,8 @@ class CategoryTreeInstall extends AbstractInstaller
 
     /**
      * @param NodeTransfer $rootNodeTransfer
+     *
+     * @return void
      */
     protected function createRootNavigation(NodeTransfer $rootNodeTransfer)
     {
