@@ -5,7 +5,9 @@ namespace Pyz\Zed\Category\Business\Internal\DemoData;
 use Generated\Shared\Transfer\CategoryTransfer;
 use Generated\Shared\Transfer\LocaleTransfer;
 use Generated\Shared\Transfer\NodeTransfer;
+use Pyz\Zed\Touch\Business\TouchFacade;
 use SprykerEngine\Zed\Locale\Business\LocaleFacade;
+use SprykerFeature\Shared\Category\CategoryConfig;
 use SprykerFeature\Zed\Category\Business\Model\CategoryWriter;
 use SprykerFeature\Zed\Category\Business\Model\CategoryWriterInterface;
 use SprykerFeature\Zed\Category\Business\Tree\CategoryTreeWriter;
@@ -46,17 +48,20 @@ class CategoryTreeInstall extends AbstractInstaller
      * @param CategoryTreeWriter $categoryTreeWriter
      * @param CategoryQueryContainer $categoryQueryContainer
      * @param LocaleFacade $localeFacade
+     * @param TouchFacade $touchFacade
      */
     public function __construct(
         CategoryWriterInterface $categoryWriter,
         CategoryTreeWriter $categoryTreeWriter,
         CategoryQueryContainer $categoryQueryContainer,
-        LocaleFacade $localeFacade
+        LocaleFacade $localeFacade,
+        TouchFacade $touchFacade
     ) {
         $this->categoryWriter = $categoryWriter;
         $this->categoryTreeWriter = $categoryTreeWriter;
         $this->queryContainer = $categoryQueryContainer;
         $this->locale = $localeFacade->getCurrentLocale();
+        $this->touchFacade = $touchFacade;
     }
 
     public function install()
@@ -105,11 +110,13 @@ class CategoryTreeInstall extends AbstractInstaller
     {
         $idCategory = $this->createCategory($rawNode);
 
-        $categoryNodeTransfer = new NodeTransfer();
-        $categoryNodeTransfer->setIsRoot(true);
-        $categoryNodeTransfer->setFkCategory($idCategory);
+        $rootNodeTransfer = new NodeTransfer();
+        $rootNodeTransfer->setIsRoot(true);
+        $rootNodeTransfer->setFkCategory($idCategory);
 
-        $this->categoryTreeWriter->createCategoryNode($categoryNodeTransfer, $this->locale);
+        $this->categoryTreeWriter->createCategoryNode($rootNodeTransfer, $this->locale);
+
+        $this->createRootNavigation($rootNodeTransfer);
     }
 
     /**
@@ -119,12 +126,12 @@ class CategoryTreeInstall extends AbstractInstaller
     {
         $idCategory = $this->createCategory($rawNode);
 
-        $categoryNodeTransfer = new NodeTransfer();
-        $categoryNodeTransfer->setIsRoot(false);
-        $categoryNodeTransfer->setFkCategory($idCategory);
-        $categoryNodeTransfer->setFkParentCategoryNode($this->getParentId($rawNode));
+        $childNodeTransfer = new NodeTransfer();
+        $childNodeTransfer->setIsRoot(false);
+        $childNodeTransfer->setFkCategory($idCategory);
+        $childNodeTransfer->setFkParentCategoryNode($this->getParentId($rawNode));
 
-        $this->categoryTreeWriter->createCategoryNode($categoryNodeTransfer, $this->locale);
+        $this->categoryTreeWriter->createCategoryNode($childNodeTransfer, $this->locale);
     }
 
     /**
@@ -153,10 +160,23 @@ class CategoryTreeInstall extends AbstractInstaller
     {
         $categoryTransfer = new CategoryTransfer();
         $categoryTransfer->setName($rawNode[self::CATEGORY_NAME]);
-        $categoryTransfer->setImageName($rawNode[self::IMAGE_NAME]);
+        $categoryTransfer->setCategoryImageName($rawNode[self::IMAGE_NAME]);
+
         $idCategory = $this->categoryWriter->create($categoryTransfer, $this->locale);
 
         return $idCategory;
+    }
+
+    /**
+     * @param NodeTransfer $rootNodeTransfer
+     */
+    protected function createRootNavigation(NodeTransfer $rootNodeTransfer)
+    {
+        if (!$rootNodeTransfer->getIsRoot()) {
+            return;
+        }
+
+        $this->touchFacade->touchActive(CategoryConfig::RESOURCE_TYPE_NAVIGATION, $rootNodeTransfer->getIdCategoryNode());
     }
 
 }
