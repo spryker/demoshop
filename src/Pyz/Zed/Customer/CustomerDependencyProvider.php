@@ -1,9 +1,5 @@
 <?php
 
-/**
- * (c) Spryker Systems GmbH copyright protected
- */
-
 namespace Pyz\Zed\Customer;
 
 use SprykerEngine\Zed\Kernel\Container;
@@ -21,13 +17,13 @@ class CustomerDependencyProvider extends SprykerCustomerDependencyProvider
     {
         return [
             SprykerCustomerDependencyProvider::REGISTRATION_TOKEN_SENDERS => [
-                $container->getLocator()->customerMailConnector()->pluginRegistrationTokenSender(),
+                $container->getLocator()->customerMailQueueConnector()->pluginRegistrationTokenSender(),
             ],
             SprykerCustomerDependencyProvider::PASSWORD_RESTORE_TOKEN_SENDERS => [
-                $container->getLocator()->customerMailConnector()->pluginPasswordRestoreTokenSender(),
+                $container->getLocator()->customerMailQueueConnector()->pluginPasswordRestoreTokenSender(),
             ],
             SprykerCustomerDependencyProvider::PASSWORD_RESTORED_CONFIRMATION_SENDERS => [
-                $container->getLocator()->customerMailConnector()->pluginPasswordRestoredConfirmationSender(),
+                $container->getLocator()->customerMailQueueConnector()->pluginPasswordRestoredConfirmationSender(),
             ],
         ];
     }
