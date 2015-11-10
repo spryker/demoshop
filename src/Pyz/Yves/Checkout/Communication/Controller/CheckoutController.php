@@ -47,7 +47,6 @@ class CheckoutController extends AbstractController
         $checkoutForm = $container->createCheckoutForm($request, $shipmentTransfer);
 
         $checkoutTransfer = new CheckoutRequestTransfer();
-        $checkoutTransfer->setIsGuest(true);
 
         $checkoutForm = $this->createForm($checkoutForm, $checkoutTransfer);
 
@@ -115,19 +114,11 @@ class CheckoutController extends AbstractController
     {
         $returnErrors = [];
         foreach ($errors as $error) {
-            if ($error instanceof CustomerErrorTransfer) {
-                $returnErrors[] = [
-                    'errorCode' => '',
-                    'message' => $error->getMessage(),
-                    'step' => ''
-                ];
-            } else {
-                $returnErrors[] = [
-                    'errorCode' => $error->getErrorCode(),
-                    'message'   => $error->getMessage(),
-                    'step'      => $error->getStep(),
-                ];
-            }
+            $returnErrors[] = [
+                'errorCode' => $error->getErrorCode(),
+                'message'   => $error->getMessage(),
+                'step'      => $error->getStep(),
+            ];
         }
 
         return new JsonResponse([
