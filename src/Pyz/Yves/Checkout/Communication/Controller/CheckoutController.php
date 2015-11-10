@@ -9,6 +9,7 @@ use Generated\Shared\Transfer\CheckoutResponseTransfer;
 use Generated\Shared\Transfer\CustomerErrorTransfer;
 use Generated\Shared\Transfer\CustomerTransfer;
 use Generated\Shared\Transfer\ShipmentMethodAvailabilityTransfer;
+use Pyz\Yves\Checkout\Communication\Form\CheckoutType;
 use Pyz\Yves\Checkout\Communication\Plugin\CheckoutControllerProvider;
 use SprykerEngine\Yves\Application\Communication\Controller\AbstractController;
 use Pyz\Yves\Checkout\Communication\CheckoutDependencyContainer;
@@ -65,13 +66,10 @@ class CheckoutController extends AbstractController
                 $checkoutRequest->setCart($this->getCart());
                 $checkoutRequest->setShippingAddress($checkoutRequest->getBillingAddress());
 
-                $createAccount = $checkoutForm['create_account']->getData();
+                $createAccount = $checkoutForm[CheckoutType::FIELD_CREATE_ACCOUNT]->getData();
                 if ($createAccount) {
-                    $checkoutRequest->setCustomerPassword(  $checkoutForm['password']->getData());
+                    $checkoutRequest->setCustomerPassword($checkoutForm[CheckoutType::FIELD_PASSWORD]->getData());
                 }
-
-                // @todo CD-408 find a way to obtain the "real" gender
-                //$checkoutRequest->getPayolutionPayment()->setGender('Male');
 
                 /** @var CheckoutResponseTransfer $checkoutResponseTransfer */
                 $checkoutResponseTransfer = $checkoutClient->requestCheckout($checkoutRequest);
@@ -116,8 +114,8 @@ class CheckoutController extends AbstractController
         foreach ($errors as $error) {
             $returnErrors[] = [
                 'errorCode' => $error->getErrorCode(),
-                'message'   => $error->getMessage(),
-                'step'      => $error->getStep(),
+                'message' => $error->getMessage(),
+                'step' => $error->getStep(),
             ];
         }
 

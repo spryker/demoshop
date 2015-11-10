@@ -12,6 +12,7 @@ use Symfony\Component\HttpFoundation\Request;
  */
 class CatalogController extends AbstractController
 {
+
     const ITEMS_PER_PAGE = 6;
 
     /**
