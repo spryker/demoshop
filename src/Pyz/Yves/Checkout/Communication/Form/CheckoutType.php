@@ -3,6 +3,7 @@
 namespace Pyz\Yves\Checkout\Communication\Form;
 
 use Generated\Shared\Shipment\ShipmentInterface;
+use SprykerFeature\Shared\Library\Currency\CurrencyManager;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
@@ -157,14 +158,34 @@ class CheckoutType extends AbstractType
         $results = [];
 
         foreach ($this->shipmentTransfer->getMethods() as $method) {
-            $results[$method->getIdShipmentMethod()] = $method->getGlossaryKeyName()
-                . ' ' . $method->getGlossaryKeyDescription();
-            $results[$method->getIdShipmentMethod()] .= ' | Price: ' . $method->getPrice();
-            $results[$method->getIdShipmentMethod()] .= (!is_null($method->getTime())) ? ' | Delivery time: '
-                . ($method->getTime()/3600) . ' hours' : '';
+
+            $deliveryTime = 'N/A';
+            if (!empty($method->getTime())) {
+                $deliveryTime = ($method->getTime()/3600);
+            }
+
+            $price = $this->getCurrencyManager()->format(
+                $this->getCurrencyManager()->convertCentToDecimal($method->getPrice())
+            );
+
+            $shipmentDescription = $method->getGlossaryKeyName()
+                .  ' ' . $method->getGlossaryKeyDescription()
+                .  ' | Price: ' . $price
+                .  ' | Delivery time: ' .  $deliveryTime;
+
+
+            $results[$method->getIdShipmentMethod()] = $shipmentDescription;
         }
 
         return $results;
+    }
+
+    /**
+     * @return CurrencyManager
+     */
+    protected function getCurrencyManager()
+    {
+        return CurrencyManager::getInstance();
     }
 
 }
