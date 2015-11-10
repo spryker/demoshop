@@ -59,6 +59,7 @@ class AbstractProductWriter implements ProductWriterInterface
 
         $abstractProduct->setTaxSet($this->extractTaxSet($product->getTax()));
         $abstractProduct->setAttributes($this->extractAttributes($product));
+
         $abstractProduct->setLocalizedAttributes($this->extractLocalizedAttributes($product->getLocales()));
         $this->productFacade->saveAbstractProduct($abstractProduct);
     }
@@ -124,7 +125,7 @@ class AbstractProductWriter implements ProductWriterInterface
 
         foreach ($toMerge as $key => $data) {
             if (!empty($data)) {
-                if (is_array($data)) {
+                if ($data instanceof \ArrayObject) {
                     $attributes[$key] = [];
                     /** @var TransferInterface $element */
                     foreach ($data as $element) {

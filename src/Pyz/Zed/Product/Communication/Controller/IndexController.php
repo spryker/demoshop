@@ -125,6 +125,8 @@ class IndexController extends SprykerIndexController
         $localeFacade = $this->getDependencyContainer()->createLocaleFacade();
         $urlFacade = $this->getDependencyContainer()->createUrlFacade();
 
+
+
         foreach ($localeFacade->getAvailableLocales() as $idLocale => $localeString) {
             $url = $urlFacade
                 ->getUrlByIdAbstractProductAndIdLocale($abstractProductEntity->getIdAbstractProduct(), $idLocale)
@@ -139,12 +141,17 @@ class IndexController extends SprykerIndexController
                 ->findOne()
             ;
 
+
             if ($abstractAttributesCollection) {
                 $abstractProductLocaleTransfer->setName($abstractAttributesCollection->getName());
 
-                $mediaAttributes = $this->getFacade()->splitMediaAttributes($abstractProductEntity->getAttributes());
-                $abstractProductLocaleTransfer->setAttributes($mediaAttributes->getAttributes());
-                $abstractProductLocaleTransfer->setMedia(new \ArrayObject($mediaAttributes->getMediaTransfers()));
+                $splittedAttributes = $this->getFacade()->splitMediaAttributes($abstractAttributesCollection->getAttributes());
+                $splittedAttributesArray = $splittedAttributes->getAttributes();
+                if (array_key_exists('url', $splittedAttributesArray)) {
+                    unset($splittedAttributesArray['url']);
+                }
+                $abstractProductLocaleTransfer->setAttributes($splittedAttributesArray);
+                $abstractProductLocaleTransfer->setMedia(new \ArrayObject($splittedAttributes->getMediaTransfers()));
             }
 
             $productDynamicImporterAbstractProductTransfer->addLocale($abstractProductLocaleTransfer);
@@ -220,6 +227,7 @@ class IndexController extends SprykerIndexController
                 ->queryConcreteProductAttributeCollection($productEntity->getIdProduct(), $idLocale)
                 ->findOne()
             ;
+
 
             if ($attributesCollection) {
                 $productLocaleTransfer->setName($attributesCollection->getName());
@@ -401,6 +409,17 @@ class IndexController extends SprykerIndexController
       "locale": "de_DE",
       "name": "PETS DELI Menübox für Hunde Känguru hypoallergen",
       "url": "/hunde-nahrung/hochwertige-hundefutter-menues/menubox-kaenguru-hund-getreidefrei.html",
+      "media": [
+        {
+          "url": "full url to media (e.g. http://petsdeli.de/images/image_with_german_text.jpg",
+          "thumbnail_url": "full url to locale thumbnail of the media",
+          "type": "type of the media (e.g. picture, video, pdf, ...)",
+          "sequence": "1...n (the first one should be taken as default product picture",
+          "attributes": {
+            "not yet defined": "any other media specific german localized attributes"
+          }
+        }
+      ],
       "attributes": {
         "default_description": "Die Menübox mit reinem Muskelfleisch vom Känguru ist perfekt für die tägliche Ernährung Ihres geliebten Vierbeiners. Besonders für empfindliche und allergische Hunde ist die Fleischsorte Känguru als Hundefutter zu empfehlen. Känguru zählt zu den hypoallergenen ...",
         "extended_description": "Die PETS DELI Menüboxen sind grundsätzlich Alleinfuttermittel, sollten jedoch mit unseren Supplements sinnvoll und individuell ergänzt werden: Um den Nährstoffhaushalt Ihres Tieres vollständig abzudecken, empfehlen wir als Ergänzung den PETS ...",

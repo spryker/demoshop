@@ -52,6 +52,7 @@ class MediaAttributeSplitter
      */
     protected function splitAttributesAndMedia(array $attributes)
     {
+
         $mediaData = [];
 
         foreach ($this->getAttributeNameToMediaKeyMappings() as $attributeName => $mediaKey) {
@@ -89,6 +90,7 @@ class MediaAttributeSplitter
         foreach ($mediaData as $mediaEntry) {
             $mediaTransfer = new PavProductDynamicImporterMediaTransfer();
             $mediaTransfer->fromArray($mediaEntry, true);
+
             $mediaTransferCollection[] = $mediaTransfer;
         }
         return $mediaTransferCollection;
