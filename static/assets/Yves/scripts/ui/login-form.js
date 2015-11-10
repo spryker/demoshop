@@ -98,13 +98,13 @@ module.exports = {
         $('.js-login-form-switch').on('click', toggleMode);
 
         $('.js-login-submit').on('click', function (event) {
-            event.preventDefault();
-
             var form = $(this).parent('form');
             var actionUrl = form.attr('action');
             var formData = form.serialize();
 
             ajaxSubmit(actionUrl, formData);
+
+            return false;
         });
     }
 };
