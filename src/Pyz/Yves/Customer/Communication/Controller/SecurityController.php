@@ -53,6 +53,7 @@ class SecurityController extends AbstractController
         if ($form->isValid()) {
             $customerTransfer = new CustomerTransfer();
             $customerTransfer->fromArray($form->getData());
+            $customerTransfer->setSendPasswordToken(true);
             $customerResponseTransfer = $this->getLocator()->customer()->client()->registerCustomer($customerTransfer);
             if ($customerResponseTransfer->getIsSuccess()) {
                 $this->addInfoMessage(Messages::CUSTOMER_REGISTRATION_SUCCESS);

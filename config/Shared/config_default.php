@@ -175,16 +175,16 @@ $config[SystemConfig::CLOUD_CDN_DELETE_LOCAL_PROCESSED_IMAGES] = false;
 $config[SystemConfig::CLOUD_CDN_DELETE_LOCAL_ORIGINAL_IMAGES] = false;
 
 $config[MailConfig::MAIL_PROVIDER_MANDRILL] = [
-    'api-key' => '5hGEFy0SpJXIft1GSULiVw',
+    'api-key' => 'W-oNqoH_RPRodHpYgm3trg',
     'host' => 'smtp.mandrillapp.com',
     'port' => '587',
-    'username' => 'fabian.wesner@spryker.com',
-    'from_mail' => 'service@demoshop.de',
-    'from_name' => 'Demoshop',
+    'username' => 'office@petsdeli.de',
+    'from_mail' => 'office@petsdeli.de',
+    'from_name' => 'PETS DELI',
 ];
 
-$config[CustomerConfig::SHOP_MAIL_FROM_EMAIL_NAME]    = '';
-$config[CustomerConfig::SHOP_MAIL_FROM_EMAIL_ADDRESS] = 'service@demoshop.de';
+$config[CustomerConfig::SHOP_MAIL_FROM_EMAIL_NAME]    = 'PETS DELI';
+$config[CustomerConfig::SHOP_MAIL_FROM_EMAIL_ADDRESS] = 'office@petsdeli.de';
 
 $config[CustomerConfig::SHOP_MAIL_REGISTRATION_TOKEN]   = 'registration.token';
 $config[CustomerConfig::SHOP_MAIL_REGISTRATION_SUBJECT] = 'registration.mail.subject';
