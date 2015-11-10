@@ -6,6 +6,8 @@ use Generated\Shared\Transfer\CartTransfer;
 use Generated\Shared\Transfer\CheckoutErrorTransfer;
 use Generated\Shared\Transfer\CheckoutRequestTransfer;
 use Generated\Shared\Transfer\CheckoutResponseTransfer;
+use Generated\Shared\Transfer\CustomerErrorTransfer;
+use Generated\Shared\Transfer\CustomerTransfer;
 use Generated\Shared\Transfer\ShipmentMethodAvailabilityTransfer;
 use Pyz\Yves\Checkout\Communication\Plugin\CheckoutControllerProvider;
 use SprykerEngine\Yves\Application\Communication\Controller\AbstractController;
@@ -40,19 +42,20 @@ class CheckoutController extends AbstractController
         $shipmentMethodAvailabilityTransfer->setCart($this->getCart());
 
         $shipmentTransfer = $container->createShipmentClient()
-            ->getAvailableMethods($shipmentMethodAvailabilityTransfer)
-        ;
-        $checkoutForm = $container->createCheckoutForm($request, $shipmentTransfer);
-        $checkoutTransfer = new CheckoutRequestTransfer();
-        $checkoutTransfer->setIsGuest(true); // @TODO: only for Development
+            ->getAvailableMethods($shipmentMethodAvailabilityTransfer);
 
-        $form = $this->createForm($checkoutForm, $checkoutTransfer);
+        $checkoutForm = $container->createCheckoutForm($request, $shipmentTransfer);
+
+        $checkoutTransfer = new CheckoutRequestTransfer();
+        $checkoutTransfer->setIsGuest(true);
+
+        $checkoutForm = $this->createForm($checkoutForm, $checkoutTransfer);
 
         if ($request->isMethod('POST')) {
-            if ($form->isValid()) {
+            if ($checkoutForm->isValid()) {
                 $checkoutClient = $this->getLocator()->checkout()->client();
                 /** @var CheckoutRequestTransfer $checkoutRequest */
-                $checkoutRequest = $form->getData();
+                $checkoutRequest = $checkoutForm->getData();
 
                 foreach ($shipmentTransfer->getMethods() as $shipmentMethod) {
                     if ($shipmentMethod->getIdShipmentMethod() === $checkoutRequest->getIdShipmentMethod()) {
@@ -63,8 +66,13 @@ class CheckoutController extends AbstractController
                 $checkoutRequest->setCart($this->getCart());
                 $checkoutRequest->setShippingAddress($checkoutRequest->getBillingAddress());
 
+                $createAccount = $checkoutForm['create_account']->getData();
+                if ($createAccount) {
+                    $checkoutRequest->setCustomerPassword(  $checkoutForm['password']->getData());
+                }
+
                 // @todo CD-408 find a way to obtain the "real" gender
-                $checkoutRequest->getPayolutionPayment()->setGender('Male');
+                //$checkoutRequest->getPayolutionPayment()->setGender('Male');
 
                 /** @var CheckoutResponseTransfer $checkoutResponseTransfer */
                 $checkoutResponseTransfer = $checkoutClient->requestCheckout($checkoutRequest);
@@ -80,7 +88,7 @@ class CheckoutController extends AbstractController
         }
 
         return [
-            'form' => $form->createView(),
+            'form' => $checkoutForm->createView(),
             'cart' => $this->getCart(),
         ];
     }
@@ -107,11 +115,19 @@ class CheckoutController extends AbstractController
     {
         $returnErrors = [];
         foreach ($errors as $error) {
-            $returnErrors[] = [
-                'errorCode' => $error->getErrorCode(),
-                'message' => $error->getMessage(),
-                'step' => $error->getStep(),
-            ];
+            if ($error instanceof CustomerErrorTransfer) {
+                $returnErrors[] = [
+                    'errorCode' => '',
+                    'message' => $error->getMessage(),
+                    'step' => ''
+                ];
+            } else {
+                $returnErrors[] = [
+                    'errorCode' => $error->getErrorCode(),
+                    'message'   => $error->getMessage(),
+                    'step'      => $error->getStep(),
+                ];
+            }
         }
 
         return new JsonResponse([

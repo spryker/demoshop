@@ -23,7 +23,7 @@ class CheckoutDependencyProvider extends SprykerCheckoutDependencyProvider
         return [
             $container->getLocator()->customerCheckoutConnector()->pluginCustomerPreconditionCheckerPlugin(),
             $container->getLocator()->availabilityCheckoutConnector()->pluginProductsAvailablePreconditionPlugin(),
-            $container->getLocator()->payolution()->pluginCheckoutPreCheckPlugin(),
+            //$container->getLocator()->payolution()->pluginCheckoutPreCheckPlugin(),
         ];
     }
 
@@ -55,8 +55,9 @@ class CheckoutDependencyProvider extends SprykerCheckoutDependencyProvider
             $container->getLocator()->productOptionCheckoutConnector()->pluginGroupKeyProductOptionHydrationPlugin(),
             $container->getLocator()->itemGrouperCheckoutConnector()->pluginOrderItemGroupingHydrationPlugin(),
             $container->getLocator()->omsCheckoutConnector()->pluginOrderOmsHydrationPlugin(),
+            $container->getLocator()->shipmentCheckoutConnector()->pluginOrderShipmentHydrationPlugin(),
             $container->getLocator()->discountCheckoutConnector()->pluginDiscountOrderHydrationPlugin(),
-            $container->getLocator()->payolution()->pluginCheckoutOrderHydrationPlugin(),
+            //$container->getLocator()->payolution()->pluginCheckoutOrderHydrationPlugin(),
         ];
     }
 
@@ -68,10 +69,11 @@ class CheckoutDependencyProvider extends SprykerCheckoutDependencyProvider
     protected function getCheckoutOrderSavers(Container $container)
     {
         return [
-            $container->getLocator()->salesCheckoutConnector()->pluginSalesOrderSaverPlugin(),
             $container->getLocator()->customerCheckoutConnector()->pluginOrderCustomerSavePlugin(),
+            $container->getLocator()->salesCheckoutConnector()->pluginSalesOrderSaverPlugin(),
             $container->getLocator()->discountCheckoutConnector()->pluginDiscountOrderSavePlugin(),
-            $container->getLocator()->payolution()->pluginCheckoutSaveOrderPlugin(),
+            $container->getLocator()->shipmentCheckoutConnector()->pluginOrderShipmentSavePlugin(),
+            //$container->getLocator()->payolution()->pluginCheckoutSaveOrderPlugin(),
         ];
     }
 
