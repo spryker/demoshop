@@ -3,12 +3,6 @@
 
   background-color: $pale-color;
   color: $mid-color;
-
-  // make space for the header
-  margin-top: $step*2;
-  @include media-query('medium') {
-    margin-top: $step*2.5;
-  }
 }
 
 .featured-products__quarter {
