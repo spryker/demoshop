@@ -295,7 +295,8 @@ $config[LumberjackConfig::COLLECTORS]['YVES'] = [
     '\SprykerFeature\Client\Lumberjack\Service\YvesDataCollector',
 ];
 $config[LumberjackConfig::WRITERS]['YVES'] = [
-    '\SprykerEngine\Shared\Lumberjack\Model\Writer\File',
+    //FIXME: After hackaton we need to fix this for linux systems
+    //'\SprykerEngine\Shared\Lumberjack\Model\Writer\File',
 ];
 
 $config[LumberjackConfig::COLLECTORS]['ZED'] = [
@@ -304,7 +305,8 @@ $config[LumberjackConfig::COLLECTORS]['ZED'] = [
     '\SprykerEngine\Shared\Lumberjack\Model\Collector\EnvironmentDataCollector',
 ];
 $config[LumberjackConfig::WRITERS]['ZED'] = [
-    '\SprykerEngine\Shared\Lumberjack\Model\Writer\File',
+    //FIXME: After hackaton we need to fix this for linux systems
+    //'\SprykerEngine\Shared\Lumberjack\Model\Writer\File',
 ];
 
 $config[LumberjackConfig::COLLECTOR_OPTIONS] = [
