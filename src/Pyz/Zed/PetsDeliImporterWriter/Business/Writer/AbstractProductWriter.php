@@ -5,7 +5,9 @@ namespace Pyz\Zed\PetsDeliImporterWriter\Business\Writer;
 use Generated\Shared\ProductDynamicImporter\PavProductDynamicImporterAbstractProductInterface;
 use Generated\Shared\Transfer\AbstractProductTransfer;
 use Generated\Shared\Transfer\LocalizedAttributesTransfer;
+use Generated\Shared\Transfer\PavProductDynamicImporterAbstractProductTransfer;
 use Generated\Shared\Transfer\PavProductDynamicImporterLocaleTransfer;
+use Generated\Shared\Transfer\TaxSetTransfer;
 use PavFeature\Zed\ProductDynamic\Business\ProductDynamicFacade;
 use PavFeature\Zed\ProductDynamicImporter\Business\Writer\ProductWriterInterface;
 use Pyz\Zed\Locale\Business\LocaleFacade;
@@ -33,13 +35,13 @@ class AbstractProductWriter implements ProductWriterInterface
     public function __construct(
         ProductFacade $productFacade,
         ProductDynamicFacade $productDynamicFacade,
-        LocaleFacade $localeFacade
-        //TaxFacade $taxFacade
+        LocaleFacade $localeFacade,
+        TaxFacade $taxFacade
     ) {
         $this->productFacade = $productFacade;
         $this->productDynamicFacade = $productDynamicFacade;
         $this->localeFacade = $localeFacade;
-        //$this->taxFacade = $taxFacade;
+        $this->taxFacade = $taxFacade;
 
     }
 
@@ -57,20 +59,18 @@ class AbstractProductWriter implements ProductWriterInterface
 
         $abstractProduct->setType($product->getType());
 
+
+        $abstractProduct->setTaxSet($this->extractTaxSet($product->getTax()));
         $abstractProduct->setAttributes($product->getAttributes());
         $abstractProduct->setLocalizedAttributes($this->extractLocalizedAttributes($product->getLocales()));
-        $idAbstractProduct = $this->productFacade->saveAbstractProduct($abstractProduct);
-
-        return $idAbstractProduct;
-
-
+        $this->productFacade->saveAbstractProduct($abstractProduct);
     }
 
     /**
      * @param \ArrayObject|PavProductDynamicImporterLocaleTransfer[] $importerLocales
      * @return \Generated\Shared\Transfer\LocalizedAttributesTransfer[]
      */
-    private function extractLocalizedAttributes(\ArrayObject $importerLocales)
+    protected function extractLocalizedAttributes(\ArrayObject $importerLocales)
     {
         $localeAttributeTransferList = [];
 
@@ -80,13 +80,30 @@ class AbstractProductWriter implements ProductWriterInterface
 
             $localeAttributeTransfer = new LocalizedAttributesTransfer();
             $localeAttributeTransfer->setLocale($localeTransfer);
-            $localeAttributeTransfer->setName('test123');
+            $localeAttributeTransfer->setName($importerLocale->getName());
             $localeAttributeTransfer->setAttributes($importerLocale->getAttributes());
             $localeAttributeTransferList[] = $localeAttributeTransfer;
         }
 
         return new \ArrayObject($localeAttributeTransferList);
 
+    }
+
+    protected function extractTaxSet($tax)
+    {
+        $tax = floatval($tax);
+        $taxSets = $this->taxFacade->getTaxSets();
+
+        /** @var TaxSetTransfer $taxSet */
+        foreach ($taxSets->getTaxSets() as $taxSet) {
+            foreach ($taxSet->getTaxRates() as $taxRate) {
+                $taxSetTaxRate = floatval($taxRate->getRate());
+                if ($taxSetTaxRate === $tax) {
+                    return $taxSet;
+                }
+            }
+        }
+        return null;
     }
 
 

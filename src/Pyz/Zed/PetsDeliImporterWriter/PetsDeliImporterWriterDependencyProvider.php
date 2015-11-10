@@ -11,6 +11,7 @@ class PetsDeliImporterWriterDependencyProvider extends AbstractBundleDependencyP
     const PRODUCT_FACADE = 'PD_PRODUCT_FACADE';
     const PRODUCT_DYNAMIC_FACADE = 'PD_PRODUCT_DYNAMIC_FACADE';
     const LOCALE_FACADE = 'LOCALE_FACADE';
+    const TAX_FACADE = 'TAX FACADE';
 
 
     /**
@@ -29,6 +30,10 @@ class PetsDeliImporterWriterDependencyProvider extends AbstractBundleDependencyP
 
         $container[self::LOCALE_FACADE] = function (container $container) {
             return $container->getLocator()->locale()->facade();
+        };
+
+        $container[self::TAX_FACADE] = function (container $container) {
+            return $container->getLocator()->tax()->facade();
         };
         return $container;
     }

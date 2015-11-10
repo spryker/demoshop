@@ -22,7 +22,8 @@ class PetsDeliImporterWriterDependencyContainer extends AbstractBusinessDependen
             $this->getFactory()->createWriterAbstractProductWriter(
                 $this->getProvidedDependency(PetsDeliImporterWriterDependencyProvider::PRODUCT_FACADE),
                 $this->getProvidedDependency(PetsDeliImporterWriterDependencyProvider::PRODUCT_DYNAMIC_FACADE),
-                $this->getProvidedDependency(PetsDeliImporterWriterDependencyProvider::LOCALE_FACADE)
+                $this->getProvidedDependency(PetsDeliImporterWriterDependencyProvider::LOCALE_FACADE),
+                $this->getProvidedDependency(PetsDeliImporterWriterDependencyProvider::TAX_FACADE)
             )
         );
     }

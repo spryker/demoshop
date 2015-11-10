@@ -5,6 +5,11 @@ INSERT INTO "spy_tax_rate" ("id_tax_rate", "name", "rate") VALUES ('1', 'normal'
 INSERT INTO "spy_tax_set" ("id_tax_set", "name") VALUES ('1', 'default');
 INSERT INTO "spy_tax_set_tax" ("fk_tax_rate", "fk_tax_set") VALUES ('1', '1');
 
+INSERT INTO "spy_tax_rate" ("id_tax_rate", "name", "rate") VALUES ('2', 'reduziert', '7');
+INSERT INTO "spy_tax_set" ("id_tax_set", "name") VALUES ('2', 'reduziert');
+INSERT INTO "spy_tax_set_tax" ("fk_tax_rate", "fk_tax_set") VALUES ('2', '2');
+
+
 UPDATE "spy_abstract_product" SET "fk_tax_set" = 1;
 
 

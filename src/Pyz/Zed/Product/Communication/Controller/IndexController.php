@@ -364,6 +364,9 @@ class IndexController extends SprykerIndexController
     protected function getTaxString(SpyAbstractProduct $abstractProductEntity)
     {
         $taxSetEntity = $abstractProductEntity->getSpyTaxSet();
+        if (!$taxSetEntity) {
+            return '';
+        }
         $taxRateCollection = $taxSetEntity->getSpyTaxRates();
 
         /** @var SpyTaxRate $taxRateEntity */

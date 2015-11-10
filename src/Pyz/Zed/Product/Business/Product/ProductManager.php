@@ -98,6 +98,7 @@ class ProductManager extends SprykerProductManager implements ProductManagerInte
         $entity->setAttributes($this->encodeAttributes($abstractProductTransfer->getAttributes()));
 
         $localizedAttributeCollection = [];
+
         foreach ($abstractProductTransfer->getLocalizedAttributes() as $localizedAttribute) {
 
             $locale = $localizedAttribute->getLocale();
@@ -106,11 +107,20 @@ class ProductManager extends SprykerProductManager implements ProductManagerInte
                 $locale->setIdLocale($dbLocale->getIdLocale());
             }
 
-            $localizedAttributeEntity = new SpyLocalizedAbstractProductAttributes();
+            $localizedAttributeEntity = false;
+            foreach ($entity->getSpyLocalizedAbstractProductAttributess() as $localizedAbstractProductAttributesEntity) {
+                if ($localizedAbstractProductAttributesEntity->getFkLocale() == $locale->getIdLocale()) {
+                    $localizedAttributeEntity = $localizedAbstractProductAttributesEntity;
+                    break;
+                }
+            }
+            if (!$localizedAttributeEntity) {
+                $localizedAttributeEntity = new SpyLocalizedAbstractProductAttributes();
+                $localizedAttributeEntity->setFkLocale($locale->getIdLocale());
+            }
 
             $localizedAttributeEntity
                 ->setAttributes($this->encodeAttributes($localizedAttribute->getAttributes()))
-                ->setFkLocale($locale->getIdLocale())
                 ->setName($localizedAttribute->getName())
                 ;
 
@@ -118,11 +128,11 @@ class ProductManager extends SprykerProductManager implements ProductManagerInte
         }
         $entity->setSpyLocalizedAbstractProductAttributess(new Collection($localizedAttributeCollection));
 
+        $entity->setFkTaxSet($abstractProductTransfer->getTaxSet()->getIdTaxSet());
         $entity->save();
 
         $idAbstractProduct = $entity->getPrimaryKey();
         $abstractProductTransfer->setIdAbstractProduct($idAbstractProduct);
-
         return $idAbstractProduct;
     }
 
