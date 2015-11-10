@@ -134,7 +134,7 @@ module.exports = {
             .on('change', '.cart-quantity', changeQty)
         ;
 
-        $('.overlay').on('click', hideCart).children().click(function(e){
+        $('.overlay').on('click', hideCart).children().click(function (e) {
             return false;
         });
     }

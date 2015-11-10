@@ -67,13 +67,7 @@ var handleResponse = function (response) {
     }
 };
 
-var postForm = function (e) {
-    e.preventDefault();
-
-    var $form = $(e.target);
-    var actionUrl = $form.attr('action');
-    var formData = $form.serialize();
-
+var ajaxSubmit = function(actionUrl, formData){
     $.ajax({
         type: "POST",
         url: actionUrl,
@@ -85,6 +79,16 @@ var postForm = function (e) {
     });
 };
 
+var postForm = function (e) {
+    e.preventDefault();
+
+    var $form = $(e.target);
+    var actionUrl = $form.attr('action');
+    var formData = $form.serialize();
+
+    ajaxSubmit(actionUrl, formData);
+};
+
 module.exports = {
 
     init: function () {
@@ -93,6 +97,14 @@ module.exports = {
         $('.js-show-login-button').on('click', showLoginForm);
         $('.js-login-form-switch').on('click', toggleMode);
 
-        $('.js-login-form').submit(postForm);
+        $('.js-login-submit').on('click', function (event) {
+            event.preventDefault();
+
+            var form = $(this).parent('form');
+            var actionUrl = form.attr('action');
+            var formData = form.serialize();
+
+            ajaxSubmit(actionUrl, formData);
+        });
     }
 };
