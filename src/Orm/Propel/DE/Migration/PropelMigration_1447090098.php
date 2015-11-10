@@ -49,7 +49,7 @@ ALTER TABLE `spy_oms_order_item_state_history`
 
 ALTER TABLE `spy_oms_transition_log`
 
-  CHANGE `params` `params` TEXT;
+  CHANGE `params` `params` TEXT,
 
   CHANGE `error` `is_error` TINYINT(1),
 
@@ -99,7 +99,7 @@ ALTER TABLE `spy_oms_order_item_state_history`
 
 ALTER TABLE `spy_oms_transition_log`
 
-  CHANGE `params` `params` TEXT NOT NULL;
+  CHANGE `params` `params` TEXT NOT NULL,
 
   CHANGE `is_error` `error` TINYINT(1),
 
