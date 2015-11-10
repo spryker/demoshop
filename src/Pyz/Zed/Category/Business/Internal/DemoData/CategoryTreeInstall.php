@@ -5,7 +5,7 @@ namespace Pyz\Zed\Category\Business\Internal\DemoData;
 use Generated\Shared\Transfer\CategoryTransfer;
 use Generated\Shared\Transfer\LocaleTransfer;
 use Generated\Shared\Transfer\NodeTransfer;
-use Pyz\Zed\Touch\Business\TouchFacade;
+use SprykerEngine\Zed\Touch\Business\TouchFacade;
 use SprykerEngine\Zed\Locale\Business\LocaleFacade;
 use SprykerFeature\Shared\Category\CategoryConfig;
 use SprykerFeature\Zed\Category\Business\Model\CategoryWriter;
