@@ -7,8 +7,13 @@ use SprykerFeature\Zed\Customer\Dependency\Plugin\PasswordRestoreTokenSenderPlug
 
 class PasswordRestoreTokenSender extends AbstractPlugin implements PasswordRestoreTokenSenderPluginInterface
 {
+    /**
+     * @param string $email
+     * @param string $token
+     * @return void
+     */
     public function send($email, $token)
     {
-        return $this->getFacade()->sendRestoreToken($email, $token);
+        $this->getFacade()->sendRestoreToken($email, $token);
     }
 }

@@ -7,8 +7,13 @@ use SprykerFeature\Zed\Customer\Dependency\Plugin\RegistrationTokenSenderPluginI
 
 class RegistrationTokenSender extends AbstractPlugin implements RegistrationTokenSenderPluginInterface
 {
+    /**
+     * @param string $email
+     * @param string $token
+     * @return void
+     */
     public function send($email, $token)
     {
-        return $this->getFacade()->sendRegistrationToken($email, $token);
+        $this->getFacade()->sendRegistrationToken($email, $token);
     }
 }

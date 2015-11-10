@@ -35,10 +35,10 @@ class EmailSender
 
     /**
      * @param MailQueueFacade $mailQueueFacade
-     * @param $templateName
-     * @param $subject
-     * @param $fromEmail
-     * @param $fromName
+     * @param string $templateName
+     * @param string $subject
+     * @param string $fromEmail
+     * @param string $fromName
      */
     public function __construct(
         MailQueueFacade $mailQueueFacade,
@@ -55,7 +55,7 @@ class EmailSender
     }
 
     /**
-     * @param $email
+     * @param string $email
      */
     public function send($email)
     {

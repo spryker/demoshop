@@ -6,23 +6,34 @@ use SprykerEngine\Zed\Kernel\Business\AbstractFacade;
 
 class CustomerMailQueueConnectorFacade extends AbstractFacade
 {
+    /**
+     * @param string $email
+     * @param string $token
+     */
     public function sendRegistrationToken($email, $token)
     {
-        return $this->getDependencyContainer()
+        $this->getDependencyContainer()
             ->createRegistrationTokenSender()
             ->send($email, $token);
     }
 
+    /**
+     * @param string $email
+     * @param string $token
+     */
     public function sendRestoreToken($email, $token)
     {
-        return $this->getDependencyContainer()
+        $this->getDependencyContainer()
             ->createRestoreTokenSender()
             ->send($email, $token);
     }
 
+    /**
+     * @param string $email
+     */
     public function sendPasswordRestored($email)
     {
-        return $this->getDependencyContainer()
+        $this->getDependencyContainer()
             ->createRestoreConfirmationSender()
             ->send($email);
     }

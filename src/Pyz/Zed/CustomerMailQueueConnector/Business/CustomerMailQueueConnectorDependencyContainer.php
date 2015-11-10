@@ -12,6 +12,9 @@ use SprykerEngine\Zed\Kernel\Business\AbstractBusinessDependencyContainer;
  */
 class CustomerMailQueueConnectorDependencyContainer extends AbstractBusinessDependencyContainer
 {
+    /**
+     * @return TokenSender
+     */
     public function createRegistrationTokenSender()
     {
         return $this->getFactory()->createTokenSender(
@@ -23,6 +26,9 @@ class CustomerMailQueueConnectorDependencyContainer extends AbstractBusinessDepe
         );
     }
 
+    /**
+     * @return TokenSender
+     */
     public function createRestoreTokenSender()
     {
         return $this->getFactory()->createTokenSender(
@@ -34,6 +40,9 @@ class CustomerMailQueueConnectorDependencyContainer extends AbstractBusinessDepe
         );
     }
 
+    /**
+     * @return EmailSender
+     */
     public function createRestoreConfirmationSender()
     {
         return $this->getFactory()->createEmailSender(
