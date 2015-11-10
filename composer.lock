@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "cc9d40d3dc5cefc058146826c2f4dff1",
+    "hash": "a75abf4ee2fcbbeab085001c09526e01",
     "packages": [
         {
             "name": "digital-canvas/zend-framework",
@@ -548,8 +548,44 @@
             "time": "2014-08-01 09:59:50"
         },
         {
+            "name": "project-a/adyen-payment-gateway",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "git@github.com:project-a/adyen-payment-gateway.git",
+                "reference": "ca605aa17954b3ef5002b20580650165cbfe54f4"
+            },
+            "require": {
+                "guzzle/http": "~3.7, <= 3.8",
+                "psr/log": "~1.0"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-0": {
+                    "ProjectA\\Adyen\\": "src/"
+                }
+            },
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Jörg Stick",
+                    "email": "joerg.stick@project-a.com"
+                }
+            ],
+            "description": "Adyen payment provider",
+            "homepage": "https://github.com/project-a/adyen-payment-gateway",
+            "keywords": [
+                "adyen",
+                "gateway",
+                "payment"
+            ],
+            "time": "2015-11-05 17:51:35"
+        },
+        {
             "name": "project-a/spryker",
-            "version": "dev-develop",
+            "version": "dev-feature/pd-16-adyen-payment-integration-2",
             "source": {
                 "type": "git",
                 "url": "git@github.com:project-a/spryker.git",
@@ -907,7 +943,7 @@
                     "SprykerFeature\\Shared\\Library": "Bundles/Library/src/"
                 }
             },
-            "time": "2015-11-04 10:30:08"
+            "time": "2015-11-05 14:08:53"
         },
         {
             "name": "symfony-cmf/routing",
@@ -4370,6 +4406,7 @@
     "stability-flags": {
         "spryker/spryker": 20,
         "project-a/spryker": 20,
+        "project-a/adyen-payment-gateway": 20,
         "propel/propel": 20,
         "silex/silex": 20,
         "pimple/pimple": 20

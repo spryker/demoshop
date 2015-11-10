@@ -2,12 +2,27 @@
 
 namespace Pyz\Yves\Checkout\Communication\Form;
 
+use Generated\Shared\Adyen\AdyenPaymentMethodsInterface;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
 class Checkout extends AbstractType
 {
+
+    /**
+     * @var AdyenPaymentMethodsInterface
+     */
+    protected $paymentMethodsTransfer;
+
+    /**
+     * @param AdyenPaymentMethodsInterface $paymentMethodsTransfer
+     */
+    public function __construct(
+        AdyenPaymentMethodsInterface $paymentMethodsTransfer
+    ){
+        $this->paymentMethodsTransfer = $paymentMethodsTransfer;
+    }
 
     /**
      * @return string

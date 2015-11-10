@@ -22,7 +22,8 @@ class OmsDependencyProvider extends SprykerOmsDependencyProvider
     protected function getConditionPlugins(Container $container)
     {
         return [
-            'AfterbuyExporter/IsAfterbuyExportSuccessful' => $container->getLocator()->omsOrderExporterConnector()->pluginConditionIsAfterbuyExportSuccessful()
+            'AfterbuyExporter/IsAfterbuyExportSuccessful' => $container->getLocator()->omsOrderExporterConnector()->pluginConditionIsAfterbuyExportSuccessful(),
+            'Adyen/IsAuthoriseApproved' => $container->getLocator()->adyen()->pluginConditionIsAuthoriseApprovedPlugin()
         ];
     }
 
@@ -40,6 +41,7 @@ class OmsDependencyProvider extends SprykerOmsDependencyProvider
             'Oms/SendPaymentRequest' => $container->getLocator()->oms()->pluginOmsCommandSendPaymentRequest(),
             'Oms/CreateInvoice' => $container->getLocator()->oms()->pluginOmsCommandCreateInvoice(),
             'Oms/SendInvoice' => $container->getLocator()->oms()->pluginOmsCommandSendInvoice(),
+            'Adyen/Authorise' => $container->getLocator()->adyen()->pluginCommandAuthorisePlugin()
         ];
     }
 

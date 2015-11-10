@@ -15,6 +15,9 @@ use SprykerFeature\Shared\SequenceNumber\SequenceNumberConstants as SequenceNumb
 use Pyz\Shared\OrderExporter\AfterbuyExportConstantInterface;
 use Pyz\Shared\Glossary\GlossaryConfig;
 
+$config[SystemConfig::ZED_SHOW_EXCEPTION_STACK_TRACE] = true;
+
+
 $config[SystemConfig::PROJECT_NAMESPACES] = [
     'Pyz',
 ];

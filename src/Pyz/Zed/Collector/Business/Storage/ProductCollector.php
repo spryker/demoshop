@@ -441,15 +441,15 @@ class ProductCollector extends AbstractPropelCollectorPlugin
 
                     $processedResultSet[$index]['prices'] = $organizedPrices;
                 } else {
-                    unset($processedResultSet[$index]);
-                    continue;
+                    //unset($processedResultSet[$index]);
+                    //continue;
                 }
 
                 // Tax
                 if (isset($productRawData['tax_set_name'], $productRawData['tax_rate_names'], $productRawData['tax_rate_rates'])) {
                     $taxRates = [];
-                    $taxRateNames = $this->decodeData(['tax_rate_names']);
-                    $taxRateRates = $this->decodeData(['tax_rate_rates']);
+                    $taxRateNames = $this->decodeData($productRawData['tax_rate_names']);
+                    $taxRateRates = $this->decodeData($productRawData['tax_rate_rates']);
 
                     $effectiveRate = 0;
 
