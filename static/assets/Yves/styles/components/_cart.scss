@@ -1,8 +1,104 @@
 // the cart is displayed differently in different places, but here are some general styles
 
 .cart__item-quantity {
-  &::after {
-    // multiplication sign, &nbsp
-    content: '\00d7\00A0';
-  }
+	&::after {
+		// multiplication sign, &nbsp
+		content: '\00d7\00A0';
+	}
+}
+
+.cart__discount {
+	border-top: 1px solid $muted-color;
+	margin-top:26px;
+	padding-top:26px;
+
+	.cart__discount-header {
+		font-weight: 500;
+		color: $muted-color;
+	}
+
+	.cart__coupon-name {
+		font-weight: 500;
+	}
+
+	.cart__coupon-label {
+		width: 50%;
+		float: left;
+		font-weight: 500;
+	}
+
+	.cart__coupon {
+		width: 50%;
+		float: left;
+
+		.cart__coupon-input-div {
+			width: 50%;
+			float: left;
+			input {
+				width:94%;
+			}
+		}
+
+		.cart__coupon-button-div {
+			width: 50%;
+			float: left;
+
+			button {
+				width: 94%;
+			}
+		}
+
+	}
+
+	.cart__remove-coupon-link:before {
+		content: '\e602';
+		font-family: 'icomoon';
+	}
+
+	.cart__remove-coupon-link {
+		color:$darker-color;
+		float:right;
+	}
+
+	.cart__remove-coupon-link:hover {
+		text-decoration:none;
+	}
+}
+
+.checkout__wrapper > .checkout__cart{
+	.cart__remove-coupon-link {
+		display:none;
+	}
+}
+
+.cart--expanded {
+
+	.cart__discount {
+
+		.cart__discount-header {
+			color: $heading-color;
+			font-size: 13px;
+			font-weight: 400;
+			text-align: left;
+			text-transform: uppercase;
+		}
+
+		.cart__coupon-name {
+			color: $light-color;
+			font-weight: 500;
+			text-transform: uppercase;
+			text-align: left;
+			float:left;
+			width: 60%;
+		}
+
+		.cart__coupon-value {
+			color: $light-color;
+			font-weight: 500;
+			text-transform: uppercase;
+			text-align: right;
+			float:right;
+
+		}
+	}
 }

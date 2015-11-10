@@ -46,8 +46,8 @@
                     </section>
                     <section class="checkout__form-block checkout__form-block--confirm js-form-block js-checkout-confirm js-checkout-collapsed">
                         <h1 class="form-block__heading">{{ "page.checkout.finalize.heading" | trans }}</h1>
-                        <div>
-                            {% include "@checkout/checkout/cart.twig" %}
+                        <div class="cart__final">
+                            {% include "@checkout/checkout/cartWithCouponTextfield.twig" %}
                         </div>
                         {#<input type="text" name="checkout-voucher-code" class="padded confirm__voucher-code js-voucher-code" placeholder="Gutscheincode eingeben">
                         <button class="confirm__voucher-submit js-voucher-submit">Gutscheincode einlösen</button>#}

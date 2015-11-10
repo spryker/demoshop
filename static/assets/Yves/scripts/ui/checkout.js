@@ -10,6 +10,13 @@ var $nameInput,
     $addressButton,
     $paymentButton,
     $shipmentButton,
+    $useCouponButton,
+    $removeCouponLink,
+    $couponElement,
+    $cartSection,
+    $checkoutAddCouponUrlInput,
+    $checkoutRemoveCouponUrlInput,
+    $cartCouponCodeInput,
     $addressElements,
     $addressValidationResult;
 
@@ -22,8 +29,59 @@ var initValidation = function () {
     $addressButton = $('.js-address-button');
     $paymentButton = $('.js-payment-button');
     $shipmentButton = $('.js-shipment-button');
+    $useCouponButton = $('.js-cart-use-coupon-button');
+    $removeCouponLink = $('.js-cart__remove-coupon-link');
+    $cartSection = $('.cart__final .cart__discount').parent();
+    $checkoutAddCouponUrlInput = $('.cart__final #checkoutAddCouponUrl');
+    $checkoutRemoveCouponUrlInput = $('.cart__final #checkoutRemoveCouponUrl');
+    $cartCouponCodeInput = $('.cart__final #cart__coupon-code');
     $('.js-checkout-address input, .js-checkout-address textarea').keyup(validateAddressBlock);
     $addressCheckbox.click(validateAddressBlock);
+    $useCouponButton.click(addCoupon);
+    $removeCouponLink.click(removeCoupon);
+};
+
+var addCoupon = function (event) {
+    event.preventDefault();
+    $couponElement = $('.cart__final #cart__coupon-code');
+    $useCouponButton.prop('disabled', true);
+    $.ajax(
+        {
+            url : $checkoutAddCouponUrlInput.val(),
+            method: "POST",
+            data: { "couponCode" : $cartCouponCodeInput.val() },
+            dataType: "html"
+        }
+    ).done(function(data) {
+            $cartSection.html(data);
+            initValidation();
+            $useCouponButton.prop('disabled', false);
+            console.log(addCoupon);
+    }).fail(function(data) {
+            console.log('[ERROR] ');
+            console.log(data);
+        }
+    );
+};
+
+var removeCoupon = function (event) {
+    event.preventDefault();
+    $.ajax(
+        {
+            url : $checkoutRemoveCouponUrlInput.val(),
+            method: "POST",
+            data: { "couponCode" : $(this).data('couponCode') },
+            dataType: "html"
+        }
+    ).done(function(data) {
+            $cartSection.html(data);
+            initValidation();
+            console.log(removeCoupon);
+        }).fail(function(data) {
+            console.log('[ERROR] ');
+            console.log(data);
+        }
+    );
 };
 
 var validateAddressBlock = function () {

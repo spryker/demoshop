@@ -13,29 +13,46 @@
                     <div class="cart__item-quantity">{{ item.quantity }}</div>
                     <div class="cart__item-name">{{ item.name }}</div>
                     <div class="cart__item-quantity--spinner">
-                      <div class="spinner light">
-                        {% if item.quantity == 1 %}
-                            <input type="button" value="x" class="spinner__decrement cart-remove">
-                        {% else %}
-                            <input type="button" value="-"class="spinner__decrement cart-decrement">
-                        {% endif %}
-                            <input type="number" value="{{ item.quantity }}" min="1" class="spinner__number cart-quantity">
-                            <input type="hidden" name="groupKey" value="{{ item.groupKey }}"  />
-                           <input type="button" value="+" class="spinner__increment cart-increment">
-                      </div>
+                        <div class="spinner light">
+                            {% if item.quantity == 1 %}
+                                <input type="button" value="x" class="spinner__decrement cart-remove">
+                            {% else %}
+                                <input type="button" value="-" class="spinner__decrement cart-decrement">
+                            {% endif %}
+                            <input type="number" value="{{ item.quantity }}" min="1"
+                                   class="spinner__number cart-quantity">
+                            <input type="hidden" name="groupKey" value="{{ item.groupKey }}"/>
+                            <input type="button" value="+" class="spinner__increment cart-increment">
+                        </div>
                     </div>
-                    <div class="cart__item-price">{{ (item.totalPrice)|price }}</div>
+                    <div class="cart__item-price">{{ (item.grossPrice * item.quantity)|price }}</div>
                 </div>
             {% endfor %}
         </div>
+
+        {% if cart.totals.discount.discountItems is not empty %}
+            <div class="cart__discount">
+                <div class="cart__discount-header">{{ 'cart.discounts'|trans }}</div>
+                {% for discount in cart.totals.discount.discountItems %}
+                    <div class="cart__coupon-name">
+                        {{ discount.name }}
+                    </div>
+                    <div class="cart__coupon-value">
+                        - {{ discount.amount | price }}
+                    </div>
+                    <div style="clear:both"></div>
+                {% endfor %}
+            </div>
+        {% endif %}
+
         {% if cart.totals %}
             {#<div class="cart__shipping">
               <div class="cart__shipping-label" colspan="2">{{ 'cart.shipping'|trans }}</div>
               <div class="cart__shipping-price js-cart-shipping">{{ 250|price }}</div>
             </div>#}
             <div class="cart__total">
-              <div class="cart__total-label" colspan="2">{{ 'cart.total'|trans }}</div>
-              <div class="cart__total-price js-cart-total">{{ cart.totals.grandTotal|price }}</div>
+                <div class="cart__total-label" colspan="2">{{ 'cart.total'|trans }}</div>
+                <div class="cart__total-price js-cart-total">{{ cart.totals.grandTotalWithDiscounts|price }}</div>
             </div>
         {% endif %}
         <a href="{{ url('checkout') }}" class="cart__to-checkout cta">{{ 'cart.checkout'|trans }}</a>

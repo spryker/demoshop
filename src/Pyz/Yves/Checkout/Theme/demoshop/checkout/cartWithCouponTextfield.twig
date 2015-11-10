@@ -1,0 +1,29 @@
+{% extends "@checkout/checkout/cart.twig" %}
+
+{% block discounts %}
+    <div class="cart__discount">
+        <div class="cart__discount-header">{{ 'cart.discounts'|trans }}</div>
+
+        {% include "@checkout/checkout/partials/discountList.twig" %}
+        <!-- @TODO: Display applied discounts -->
+
+        <input type="hidden" id="checkoutAddCouponUrl" value="{{ url('checkout/add-coupon') }}">
+        <input type="hidden" id="checkoutRemoveCouponUrl" value="{{ url('checkout/remove-coupon') }}">
+
+        <div class="cart__coupon-label">{{ 'cart.coupon'|trans }}</div>
+
+        <div class="cart__coupon">
+            <div class="cart__coupon-input-div">
+                <input type="text" id="cart__coupon-code" class="cart__coupon-value js-cart-coupon padded"
+                       placeholder="{{ 'cart.coupon-placeholder'|trans }}"/>
+            </div>
+            <div class="cart__coupon-button-div">
+                <button class="cta js-cart-use-coupon-button">
+                    {{ 'cart.use-coupon'|trans }}
+                </button>
+            </div>
+        </div>
+
+        <div style="clear:both"></div>
+    </div>
+{% endblock %}
