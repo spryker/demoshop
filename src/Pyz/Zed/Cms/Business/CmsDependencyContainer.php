@@ -3,13 +3,17 @@
 namespace Pyz\Zed\Cms\Business;
 
 use Pyz\Zed\Cms\Business\Internal\DemoData\CmsInstall;
+use Pyz\Zed\Cms\Business\Manager\CategoryManagerInterface;
+use Pyz\Zed\Cms\Business\Manager\KeywordManagerInterface;
 use Pyz\Zed\Cms\CmsDependencyProvider;
+use Pyz\Zed\Glossary\Business\GlossaryFacade;
+use Pyz\Zed\Locale\Business\LocaleFacade;
+use Pyz\Zed\Url\Business\UrlFacade;
 use SprykerEngine\Shared\Kernel\Messenger\MessengerInterface;
 use SprykerFeature\Zed\Cms\Business\CmsDependencyContainer as SprykerCmsDependencyContainer;
 
 class CmsDependencyContainer extends SprykerCmsDependencyContainer
 {
-
     /**
      * @param MessengerInterface $messenger
      *
@@ -24,6 +28,8 @@ class CmsDependencyContainer extends SprykerCmsDependencyContainer
             $this->getTemplateManager(),
             $this->getPageManager(),
             $this->getGlossaryKeyMappingManager(),
+            $this->getBlockManager(),
+            $this->getCmsQueryContainer(),
             $this->getConfig()
         );
         $installer->setMessenger($messenger);
@@ -55,4 +61,27 @@ class CmsDependencyContainer extends SprykerCmsDependencyContainer
         return $this->getProvidedDependency(CmsDependencyProvider::FACADE_LOCALE);
     }
 
+    /**
+     * @return CategoryManagerInterface
+     */
+    public function getCategoryManager()
+    {
+        return $this->getFactory()->createManagerCategoryManager(
+            $this->getCmsQueryContainer(),
+            $this->getTouchFacade(),
+            $this->getConfig(),
+            $this->getFinder()
+        );
+    }
+
+    /**
+     * @return KeywordManagerInterface
+     */
+    public function getKeywordManager()
+    {
+        return $this->getFactory()->createManagerKeywordManager(
+            $this->getCmsQueryContainer(),
+            $this->getTouchFacade()
+        );
+    }
 }

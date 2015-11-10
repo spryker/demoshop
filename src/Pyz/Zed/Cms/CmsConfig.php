@@ -6,13 +6,14 @@ use SprykerFeature\Zed\Cms\CmsConfig as SprykerCmsConfig;
 
 class CmsConfig extends SprykerCmsConfig
 {
+    const CATEGORY_TEMPLATE_FOLDER = 'CATEGORY_TEMPLATE_FOLDER';
 
     /**
      * @return string
      */
     public function getDemoDataPath()
     {
-        return __DIR__ . '/File';
+        return __DIR__.'/File';
     }
 
     /**
@@ -24,19 +25,51 @@ class CmsConfig extends SprykerCmsConfig
     }
 
     /**
-     * @return string
+     * @return array
      */
-    public function getDemoDataTemplate()
+    public function getDemoDataTemplates()
     {
-        return '@Cms/template/static_full_page.twig';
+        return [
+            'static'      => '@Cms/template/static_full_page.twig',
+            'quotes'      => '@Cms/template/static_quotes_page.twig',
+            'quote_block' => '@Cms/template/quotes_block.twig',
+        ];
     }
 
     /**
-     * @return string
+     * @return array
      */
-    public function getDemoDataTemplateName()
+    public function getDemoDataTemplateNames()
     {
-        return 'static full page';
+        return [
+            'static'      => 'static full page',
+            'quotes'      => 'static quotes page',
+            'quote_block' => 'quotes block',
+        ];
     }
 
+    /**
+     * @return array
+     */
+    public function getDemoDataFileNames()
+    {
+        return [
+            'page'     => 'initial_pages_data.csv',
+            'redirect' => 'initial_redirects_data.csv',
+            'block'    => 'initial_blocks_data.csv',
+        ];
+    }
+
+    /**
+     * @param string $templateRelativePath
+     *
+     * @return string
+     */
+    public function getCategoryTemplateRealPath($templateRelativePath)
+    {
+        $templateRelativePath = mb_substr($templateRelativePath, 8);
+        $physicalAddress      = $this->get(self::CATEGORY_TEMPLATE_FOLDER).$templateRelativePath;
+
+        return $physicalAddress;
+    }
 }
