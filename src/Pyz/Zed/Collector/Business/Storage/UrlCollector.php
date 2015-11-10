@@ -3,6 +3,7 @@
 namespace Pyz\Zed\Collector\Business\Storage;
 
 use Generated\Shared\Transfer\LocaleTransfer;
+use Orm\Zed\Locale\Persistence\Map\SpyLocaleTableMap;
 use Propel\Runtime\ActiveQuery\Criteria;
 use SprykerEngine\Shared\Kernel\Store;
 use Orm\Zed\Touch\Persistence\Map\SpyTouchTableMap;
@@ -23,11 +24,6 @@ class UrlCollector extends AbstractPropelCollectorPlugin
     }
 
     /**
-     * @var LocaleTransfer
-     */
-    protected $locale;
-
-    /**
      * @param SpyTouchQuery $baseQuery
      * @param LocaleTransfer $locale
      *
@@ -40,6 +36,14 @@ class UrlCollector extends AbstractPropelCollectorPlugin
             SpyUrlTableMap::COL_ID_URL,
             Criteria::INNER_JOIN
         );
+
+        $baseQuery->addJoin(
+            SpyUrlTableMap::COL_FK_LOCALE,
+            SpyLocaleTableMap::COL_ID_LOCALE,
+            Criteria::INNER_JOIN
+        );
+
+        $baseQuery->addAnd(SpyLocaleTableMap::COL_LOCALE_NAME, $locale->getLocaleName(), Criteria::EQUAL);
 
         foreach ($this->getResourceColumnNames() as $constantName => $value) {
             $alias = strstr($value, 'fk_resource');
@@ -85,7 +89,6 @@ class UrlCollector extends AbstractPropelCollectorPlugin
      */
     protected function processData($resultSet, LocaleTransfer $locale, TouchUpdaterSet $touchUpdaterSet)
     {
-        $this->locale = $locale;
         $processedResultSet = [];
         foreach ($resultSet as $index => $url) {
             $resourceArguments = $this->findResourceArguments($url);
@@ -113,7 +116,7 @@ class UrlCollector extends AbstractPropelCollectorPlugin
      */
     protected function buildKey($data)
     {
-        return '/'.substr($this->locale->getLocaleName(),0,2).$data;
+        return $data;
     }
 
     /**

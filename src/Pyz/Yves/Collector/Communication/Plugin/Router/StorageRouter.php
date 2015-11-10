@@ -68,13 +68,6 @@ class StorageRouter extends AbstractRouter
     {
         if ($pathinfo !== '/') {
             $urlDetails = $this->getUrlMatcher()->matchUrl($pathinfo, $this->getApplication()['locale']);
-
-            if ($urlDetails == false) {
-                // @TODO default locale de_DE hardcoded fixme!!!
-                $pathinfo = '/de'. $pathinfo;
-                $urlDetails = $this->getUrlMatcher()->matchUrl($pathinfo, $this->getApplication()['locale']);
-            }
-
             if ($urlDetails) {
                 foreach ($this->getResourceCreators() as $resourceCreator) {
                     if ($urlDetails['type'] === $resourceCreator->getType()) {

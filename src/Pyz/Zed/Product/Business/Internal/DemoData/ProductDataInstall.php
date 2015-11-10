@@ -188,31 +188,37 @@ class ProductDataInstall extends AbstractInstaller
             'depth' => (float) $product['depth'],
         ];
 
-        $localizedAttributes = new LocalizedAttributesTransfer();
-        $localizedAttributes->setAttributes(
-            [
-                'image_url' => '/images/product/' . $product['image'],
-                'thumbnail_url' => '/images/product/default.png',
-                'main_color' => $product['main_color'],
-                'other_colors' => $product['other_colors'],
-                'description' => $product['description'],
-                'description_long' => $product['description_long'],
-                'fun_fact' => $product['fun_fact'],
-                'scientific_name' => $product['scientific_name'],
-            ]
-        );
-        $localizedAttributes->setLocale($currentLocale);
-        $localizedAttributes->setName($product['name']);
-
         $abstractProduct = new AbstractProductTransfer();
+        $concreteProduct = new ConcreteProductTransfer();
+
+        $locales = $this->localeFacade->getAvailableLocales();
+
+        foreach($locales as $locale){
+            $localizedAttributes = new LocalizedAttributesTransfer();
+            $localizedAttributes->setAttributes(
+                [
+                    'image_url' => '/images/product/' . $product['image'],
+                    'thumbnail_url' => '/images/product/default.png',
+                    'main_color' => $product['main_color'],
+                    'other_colors' => $product['other_colors'],
+                    'description' => $product['description'],
+                    'description_long' => $product['description_long'],
+                    'fun_fact' => $product['fun_fact'],
+                    'scientific_name' => $product['scientific_name'],
+                ]
+            );
+            $localizedAttributes->setLocale($this->localeFacade->getLocale($locale));
+            $localizedAttributes->setName($product['name']);
+
+            $abstractProduct->addLocalizedAttributes($localizedAttributes);
+            $concreteProduct->addLocalizedAttributes($localizedAttributes);
+        }
+
         $abstractProduct->setSku($product['sku']);
         $abstractProduct->setAttributes($attributes);
-        $abstractProduct->addLocalizedAttributes($localizedAttributes);
 
-        $concreteProduct = new ConcreteProductTransfer();
         $concreteProduct->setSku($product['sku']);
         $concreteProduct->setAttributes($attributes);
-        $concreteProduct->addLocalizedAttributes($localizedAttributes);
         $concreteProduct->setProductImageUrl($productImageUrl);
         $concreteProduct->setIsActive(true);
 
@@ -238,7 +244,7 @@ class ProductDataInstall extends AbstractInstaller
         $productUrl = trim($productUrl);
         $productUrl = str_replace($searchStrings, $replaceStrings, $productUrl);
 
-        return '/' . $productUrl;
+        return '/' . substr($localizedAttributes->getLocale()->getLocaleName(), 0, 2) . '/' .$productUrl;
     }
 
     /**
@@ -271,7 +277,7 @@ class ProductDataInstall extends AbstractInstaller
             $this->productManager->createAndTouchProductUrlByIdProduct(
                 $idAbstractProduct,
                 $abstractProductUrl,
-                $currentLocale
+                $localizedAttributes->getLocale()
             );
         }
     }
