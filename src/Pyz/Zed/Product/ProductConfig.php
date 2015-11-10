@@ -6,6 +6,7 @@ use SprykerFeature\Zed\Product\ProductConfig as SprykerProductConfig;
 
 class ProductConfig extends SprykerProductConfig
 {
+    const ABSTRACT_URL_ATTRIBUTES_KEY = 'url';
 
     /**
      * @return string

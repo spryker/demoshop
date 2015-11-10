@@ -2,6 +2,7 @@
 
 namespace Pyz\Zed\Product\Business\Product;
 
+use Generated\Shared\Locale\LocaleInterface;
 use Generated\Shared\Product\AbstractProductInterface;
 use Generated\Shared\Transfer\AbstractProductTransfer;
 use Generated\Shared\Transfer\LocaleTransfer;
@@ -10,10 +11,11 @@ use Orm\Zed\Locale\Persistence\SpyLocale;
 use Orm\Zed\Product\Persistence\SpyAbstractProduct;
 use Orm\Zed\Product\Persistence\SpyLocalizedAbstractProductAttributes;
 use Propel\Runtime\Collection\Collection;
-use Propel\Runtime\Map\TableMap;
 use Pyz\SprykerBugfixInterface;
 use Pyz\Zed\Locale\Business\LocaleFacade;
 use Pyz\Zed\Product\Persistence\ProductQueryContainer;
+use Pyz\Zed\Product\ProductConfig;
+use Pyz\Zed\Url\Business\UrlFacade;
 use SprykerFeature\Zed\Product\Business\Exception\MissingProductException;
 use SprykerFeature\Zed\Product\Business\Product\ProductManager as SprykerProductManager;
 
@@ -24,14 +26,15 @@ class ProductManager extends SprykerProductManager implements ProductManagerInte
     /** @var LocaleFacade $localFacade */
     protected $localeFacade;
 
+    /** @var  UrlFacade $urlFacade */
+    protected $urlFacade;
+
     /**
      * @var ProductQueryContainer
      */
     protected $productQueryContainer;
 
     const COL_ATTRIBUTES_ABSTRACT_PRODUCT = 'SpyAbstractProduct.Attributes';
-
-
 
 
     /**
@@ -61,16 +64,11 @@ class ProductManager extends SprykerProductManager implements ProductManagerInte
 
         $localizedAttributeCollection = [];
         foreach ($result as $entry) {
-
-            echo '<pre>';
-            var_dump($entry->toArray(TableMap::TYPE_CAMELNAME));
-
             $localeAttributeTransfer = new LocalizedAttributesTransfer();
             $localeAttributeTransfer
                 ->setName($entry->getName())
                 ->setLocale($this->convertLocaleToTransfer($entry->getLocale()))
-                ->setAttributes($this->decodeAttributes($entry->getAttributes()))
-                ;
+                ->setAttributes($this->decodeAttributes($entry->getAttributes()));
 
             $localizedAttributeCollection[] = $localeAttributeTransfer;
         }
@@ -87,25 +85,53 @@ class ProductManager extends SprykerProductManager implements ProductManagerInte
     public function saveAbstractProduct(AbstractProductInterface $abstractProductTransfer)
     {
 
+
         $sku = $abstractProductTransfer->getSku();
         if ($this->hasAbstractProduct($sku)) {
             $entity = $this->productQueryContainer->queryAbstractProductBySku($sku)->findOne();
         } else {
             $entity = new SpyAbstractProduct();
-            $entity->setSku($sku);
         }
+        $entity = $this->updateAbstractProductEntity($abstractProductTransfer, $entity);
+        $entity->save();
+
+        $idAbstractProduct = $entity->getPrimaryKey();
+        $abstractProductTransfer->setIdAbstractProduct($idAbstractProduct);
+
+        $this->saveUrlToAbstractProduct($abstractProductTransfer);
+
+        return $idAbstractProduct;
+    }
+
+    protected function convertLocaleToTransfer(SpyLocale $localeEntity)
+    {
+        $localeTransfer = new LocaleTransfer();
+        $localeTransfer->fromArray($localeEntity->toArray());
+        return $localeTransfer;
+    }
+
+    protected function decodeAttributes($attributes)
+    {
+        return json_decode($attributes, true);
+    }
+
+    /**
+     * @param AbstractProductInterface $abstractProductTransfer
+     * @param SpyAbstractProduct $entity
+     * @return SpyAbstractProduct
+     */
+    protected function updateAbstractProductEntity(AbstractProductInterface $abstractProductTransfer, SpyAbstractProduct $entity)
+    {
+        $entity->setType($abstractProductTransfer->getType());
 
         $entity->setAttributes($this->encodeAttributes($abstractProductTransfer->getAttributes()));
 
         $localizedAttributeCollection = [];
 
+
         foreach ($abstractProductTransfer->getLocalizedAttributes() as $localizedAttribute) {
 
-            $locale = $localizedAttribute->getLocale();
-            if (!$locale->getIdLocale()) {
-                $dbLocale = $this->localeFacade->getLocale($locale->getLocaleName());
-                $locale->setIdLocale($dbLocale->getIdLocale());
-            }
+            $locale = $this->fillLocaleId($localizedAttribute->getLocale());
 
             $localizedAttributeEntity = false;
             foreach ($entity->getSpyLocalizedAbstractProductAttributess() as $localizedAbstractProductAttributesEntity) {
@@ -121,30 +147,62 @@ class ProductManager extends SprykerProductManager implements ProductManagerInte
 
             $localizedAttributeEntity
                 ->setAttributes($this->encodeAttributes($localizedAttribute->getAttributes()))
-                ->setName($localizedAttribute->getName())
-                ;
+                ->setName($localizedAttribute->getName());
 
             $localizedAttributeCollection[] = $localizedAttributeEntity;
         }
         $entity->setSpyLocalizedAbstractProductAttributess(new Collection($localizedAttributeCollection));
 
         $entity->setFkTaxSet($abstractProductTransfer->getTaxSet()->getIdTaxSet());
-        $entity->save();
-
-        $idAbstractProduct = $entity->getPrimaryKey();
-        $abstractProductTransfer->setIdAbstractProduct($idAbstractProduct);
-        return $idAbstractProduct;
+        return $entity;
     }
 
-    private function convertLocaleToTransfer(SpyLocale $localeEntity)
+    /**
+     * @param AbstractProductInterface $abstractProductTransfer
+     * @throws MissingProductException
+     */
+    protected function saveUrlToAbstractProduct(AbstractProductInterface $abstractProductTransfer)
     {
-        $localeTransfer = new LocaleTransfer();
-        $localeTransfer->fromArray($localeEntity->toArray());
-        return $localeTransfer;
+
+        if (!$abstractProductTransfer->getIdAbstractProduct()) {
+            throw new MissingProductException();
+        }
+
+        foreach ($abstractProductTransfer->getLocalizedAttributes() as $localizedAttribute) {
+            $attributes = $localizedAttribute->getAttributes();
+
+            $locale = $this->fillLocaleId($localizedAttribute->getLocale());
+
+            $urlTransfer = $this->urlFacade->getUrlByIdAbstractProductAndIdLocale(
+                $abstractProductTransfer->getIdAbstractProduct(),
+                $locale->getIdLocale()
+            );
+
+            if ($urlTransfer->getIdUrl() && !array_key_exists(ProductConfig::ABSTRACT_URL_ATTRIBUTES_KEY, $attributes)) {
+                $this->urlFacade->deleteUrl($urlTransfer);
+            }
+            else {
+                $urlTransfer
+                    // need to set the ResourceId here because the value from ->setFkAbstractProduct() is overwritten
+                    // in the save url function
+                    ->setResourceType(\SprykerFeature\Shared\Product\ProductConfig::RESOURCE_TYPE_ABSTRACT_PRODUCT)
+                    ->setResourceId($abstractProductTransfer->getIdAbstractProduct())
+                    ->setFkLocale($locale->getIdLocale())
+                    ->setUrl($attributes[ProductConfig::ABSTRACT_URL_ATTRIBUTES_KEY])
+                    ;
+
+
+                $this->urlFacade->saveUrl($urlTransfer);
+            }
+        }
     }
 
-    private function decodeAttributes($attributes)
+    protected function fillLocaleId(LocaleInterface $locale)
     {
-        return json_decode($attributes, true);
+        if (!$locale->getIdLocale()) {
+            $dbLocale = $this->localeFacade->getLocale($locale->getLocaleName());
+            $locale->setIdLocale($dbLocale->getIdLocale());
+        }
+        return $locale;
     }
 }

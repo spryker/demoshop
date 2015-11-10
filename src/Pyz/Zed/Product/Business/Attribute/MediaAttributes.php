@@ -8,9 +8,9 @@ class MediaAttributes
 {
 
     /**
-     * @var PavProductDynamicImporterMediaTransfer
+     * @var PavProductDynamicImporterMediaTransfer[]
      */
-    protected $mediaTransfer;
+    protected $mediaTransfers;
 
     /**
      * @var array
@@ -18,21 +18,21 @@ class MediaAttributes
     protected $attributes;
 
     /**
-     * @param PavProductDynamicImporterMediaTransfer $mediaTransfer
+     * @param PavProductDynamicImporterMediaTransfer[] $mediaTransfers
      * @param array $attributes
      */
-    public function __construct(PavProductDynamicImporterMediaTransfer $mediaTransfer, array $attributes)
+    public function __construct(array $mediaTransfers, array $attributes)
     {
-        $this->mediaTransfer = $mediaTransfer;
+        $this->mediaTransfers = $mediaTransfers;
         $this->attributes = $attributes;
     }
 
     /**
-     * @return PavProductDynamicImporterMediaTransfer
+     * @return PavProductDynamicImporterMediaTransfer[]
      */
-    public function getMediaTransfer()
+    public function getMediaTransfers()
     {
-        return $this->mediaTransfer;
+        return $this->mediaTransfers;
     }
 
     /**

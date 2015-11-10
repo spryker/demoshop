@@ -105,8 +105,9 @@ class IndexController extends SprykerIndexController
         );
 
         $mediaAttributes = $this->getFacade()->splitMediaAttributes($abstractProductEntity->getAttributes());
+
         $productDynamicImporterAbstractProductTransfer->setAttributes($mediaAttributes->getAttributes());
-        $productDynamicImporterAbstractProductTransfer->setMedia($mediaAttributes->getMediaTransfer());
+        $productDynamicImporterAbstractProductTransfer->setMedia(new \ArrayObject($mediaAttributes->getMediaTransfers()));
 
         return $productDynamicImporterAbstractProductTransfer;
     }
@@ -143,7 +144,7 @@ class IndexController extends SprykerIndexController
 
                 $mediaAttributes = $this->getFacade()->splitMediaAttributes($abstractProductEntity->getAttributes());
                 $abstractProductLocaleTransfer->setAttributes($mediaAttributes->getAttributes());
-                $abstractProductLocaleTransfer->setMedia($mediaAttributes->getMediaTransfer());
+                $abstractProductLocaleTransfer->setMedia(new \ArrayObject($mediaAttributes->getMediaTransfers()));
             }
 
             $productDynamicImporterAbstractProductTransfer->addLocale($abstractProductLocaleTransfer);
@@ -264,6 +265,7 @@ class IndexController extends SprykerIndexController
     {
         $abstractProductProductGroupEntityCollection = $abstractProductEntity
             ->getPavAbstractProductProductGroupsJoinProductGroup();
+
 
         $productGroupKeys = [];
         foreach ($abstractProductProductGroupEntityCollection as $abstractProductProductGroupEntity) {

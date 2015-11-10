@@ -40,8 +40,7 @@ class MediaAttributeSplitter
     protected function getAttributeNameToMediaKeyMappings()
     {
         return [
-            'small_image' => 'thumbnail_url',
-            'thumbnail' => 'thumbnail_url'
+            'media' => 'media',
         ];
     }
 
@@ -54,9 +53,10 @@ class MediaAttributeSplitter
     protected function splitAttributesAndMedia(array $attributes)
     {
         $mediaData = [];
+
         foreach ($this->getAttributeNameToMediaKeyMappings() as $attributeName => $mediaKey) {
             if (array_key_exists($attributeName, $attributes)) {
-                $mediaData[$mediaKey] = $attributes[$attributeName];
+                $mediaData = $attributes[$attributeName];
                 unset($attributes[$attributeName]);
             }
         }
@@ -72,22 +72,26 @@ class MediaAttributeSplitter
      */
     protected function createMediaAttributes(array $mediaData, array $attributes)
     {
-        $mediaTransfer = $this->createMediaTransfer($mediaData);
+        $mediaTransferCollection = $this->createMediaTransfers($mediaData);
 
-        return new MediaAttributes($mediaTransfer, $attributes);
+        return new MediaAttributes($mediaTransferCollection, $attributes);
     }
 
     /**
      * @param array $mediaData
      *
-     * @return PavProductDynamicImporterMediaTransfer
+     * @return PavProductDynamicImporterMediaTransfer[]
      */
-    protected function createMediaTransfer(array $mediaData)
+    protected function createMediaTransfers(array $mediaData)
     {
-        $mediaTransfer = new PavProductDynamicImporterMediaTransfer();
-        $mediaTransfer->fromArray($mediaData, true);
 
-        return $mediaTransfer;
+        $mediaTransferCollection = [];
+        foreach ($mediaData as $mediaEntry) {
+            $mediaTransfer = new PavProductDynamicImporterMediaTransfer();
+            $mediaTransfer->fromArray($mediaEntry, true);
+            $mediaTransferCollection[] = $mediaTransfer;
+        }
+        return $mediaTransferCollection;
     }
 
 }
