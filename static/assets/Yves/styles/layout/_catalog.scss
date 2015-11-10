@@ -2,15 +2,11 @@
 
   @include clearfix();
 
-  // make space for the header
-  margin-top: $step*2;
-
   padding: $step $step $step*3;
   background-color: $pale-color;
   color: $mid-color;
 
   @include media-query('medium') {
-    margin-top: $step*2.5;
     padding: $step*1.5 $step $step*4;
   }
 

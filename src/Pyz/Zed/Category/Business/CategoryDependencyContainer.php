@@ -25,7 +25,8 @@ class CategoryDependencyContainer extends SprykerCategoryDependencyContainer
             $this->createCategoryWriter(),
             $this->createCategoryTreeWriter(),
             $this->getQueryContainer(),
-            $this->getProvidedDependency(CategoryDependencyProvider::FACADE_LOCALE)
+            $this->getProvidedDependency(CategoryDependencyProvider::FACADE_LOCALE),
+            $this->getProvidedDependency(CategoryDependencyProvider::FACADE_TOUCH)
         );
         $installer->setMessenger($messenger);
 
