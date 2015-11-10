@@ -13,16 +13,13 @@
                     <div class="cart__item-quantity">{{ item.quantity }}</div>
                     <div class="cart__item-name">{{ item.name }}</div>
                     <div class="cart__item-quantity--spinner">
-                      <div class="spinner light">
-                        {% if item.quantity == 1 %}
-                            <input type="button" value="x" class="spinner__decrement cart-remove">
-                        {% else %}
+                        <div class="spinner light">
                             <input type="button" value="-"class="spinner__decrement cart-decrement">
-                        {% endif %}
                             <input type="number" value="{{ item.quantity }}" min="1" class="spinner__number cart-quantity">
                             <input type="hidden" name="groupKey" value="{{ item.groupKey }}"  />
-                           <input type="button" value="+" class="spinner__increment cart-increment">
-                      </div>
+                            <input type="button" value="+" class="spinner__increment cart-increment">
+                            <input type="button" value="x" class="spinner__increment cart-remove">
+                        </div>
                     </div>
                     <div class="cart__item-price">{{ (item.totalPrice)|price }}</div>
                 </div>
