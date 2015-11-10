@@ -55,7 +55,7 @@
 
 .clients__image{
     display: none;
-    width: 33.666%;
+    width: 33.333%;
     background: url(../images/client/background.jpg);
     background-position: center;
     background-size: cover;
@@ -67,7 +67,7 @@
     font-family: $_ffBrandonGrotesque-Black;
     font-size: $_fsLarge;
     line-height: $_lhLarge;
-    color: $_rgbMantis;
+    color: $_rgbApple;
 }
 
 .clients__description{
@@ -83,19 +83,20 @@
     display: inline-block;
     width: 50%;
     margin: 0 -4px 30px 0;
+    min-width: 200px;
 
     img{
         @include responsiveImage;
         max-width: 130px;
-        margin: 0 auto 20px auto;
+        margin: 0 auto 15px auto;
     }
 
     p{
         font-family: $_ffBrandonGrotesque-Bold;
         font-size: $_fsSmaller;
         line-height: $_lhSmaller;
-        letter-spacing: 0.27px;
-        color: $_rgbTundora;
+        //letter-spacing: 0.27px;
+        color: $_rgbSilverChalice;
         text-transform: uppercase;
     }
 }

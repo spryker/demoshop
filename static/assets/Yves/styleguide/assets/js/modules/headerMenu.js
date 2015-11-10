@@ -58,7 +58,8 @@ $(document).ready(function () {
         $menu.click(function (e) {
             var $target = $(e.target);
 
-            if (!$target.parents('.menu__inner').size() && !$target.hasClass('menu__inner')) {
+            // TODO: abstract class
+            if ((!$target.parents('.menu__inner').size() && !$target.hasClass('menu__inner')) && (!$target.parents('.cart-layer__inner').size() && !$target.hasClass('cart-layer__inner'))) {
                 hideMenu();
             }
         });

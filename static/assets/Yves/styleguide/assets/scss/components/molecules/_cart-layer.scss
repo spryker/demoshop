@@ -12,8 +12,12 @@
 //        <div class="cart-layer__upsell">
 //            {{> molecules.product-card-wide}}
 //        </div>
+//        <div class="cart-layer__amount">
+//            <div class="cart-layer__total">Total €20.00</div>
+//            <div>{{> "atoms.button" modifier_class="button--cta" title="Proceed to checkout"}}</div>
+//        </div>
 //    </div>
-//</div>
+// </div>
 //
 // Styleguide: molecules.cart-layer
 //
@@ -72,12 +76,29 @@
     font-family: $_ffBrandonGrotesque-Black;
     font-size: $_fsLarge;
     line-height: $_lhLarge;
-    letter-spacing: 2.18px;
+    //letter-spacing: 2.18px;
     color: $_rgbQuincy;
     text-transform: uppercase;
     text-align: center;
 }
 
 .cart-layer__upsell{
+    float: left;
     width: 50%;
+}
+
+.cart-layer__amount{
+    padding: 50px 40px;
+    float: left;
+    width: 50%;
+    text-align: right;
+}
+
+.cart-layer__total{
+    padding-bottom: 50px;
+    
+    font-family: $_ffHelveticaNeue;
+    font-size: 40px;
+    line-height: 47px;
+    color: $_rgbQuincy;
 }

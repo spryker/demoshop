@@ -23,13 +23,14 @@
     border: 2px solid $_rgbOsloGray;
     border-radius: $_defaultBorderRadius;
     background: none;
-    
+
     color: $_rgbOsloGray;
     text-transform: uppercase;
-    letter-spacing: 0.34px;
+    //letter-spacing: 0.34px;
     font-size: $_fsSmall;
     line-height: $_lhSmall;
     font-family: $_ffBrandonGrotesque-Bold;
+    white-space: nowrap;
 
     cursor: pointer;
     transition: background $_tShort ease-in-out, border-color $_tShort ease-in-out, color $_tShort ease-in-out;

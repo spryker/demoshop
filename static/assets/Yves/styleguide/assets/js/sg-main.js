@@ -11,3 +11,5 @@ import './modules/productConfigurator';
 import './modules/productFilter';
 import './modules/productGallery';
 import './modules/productSlider';
+import './modules/dropdown';
+import './modules/stepper';

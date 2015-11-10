@@ -100,7 +100,7 @@
 }
 
 .navbar__press {
-    margin-left: 12px;
+    margin-left: 10px;
     height: 9px;
 }
 
@@ -109,7 +109,7 @@
 }
 
 .navbar__press--spiegel{
-    @include pdif('spiegel', 18px, 131px);
+    @include pdif('spiegel-inverted', 18px, 96px);
 }
 
 .navbar__press--ard{

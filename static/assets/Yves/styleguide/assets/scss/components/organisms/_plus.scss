@@ -31,6 +31,7 @@
     padding: 100px 0;
     @include clearfix;
     @include pageWidth;
+    clear: both;
 }
 
 .plus__item{
@@ -46,7 +47,7 @@
     padding: 23px 0 5px;
 
     font-family: $_ffBrandonGrotesque-Black;
-    color: $_rgbMantis;
+    color: $_rgbApple;
     font-size: 36px;
     line-height: 52px;
 
@@ -68,7 +69,7 @@
         top: 70px;
         left: 50%;
         margin-left: -30px;
-        background: $_rgbMantis;
+        background: $_rgbApple;
 
     }
 }
@@ -79,8 +80,8 @@
     font-family: $_ffBrandonGrotesque-Bold;
     font-size: $_fsSmaller;
     line-height: $_lhSmaller;
-    color: $_rgbMantis;
-    letter-spacing: 1px;
+    color: $_rgbApple;
+    //letter-spacing: 1px;
 }
 
 .plus__description{

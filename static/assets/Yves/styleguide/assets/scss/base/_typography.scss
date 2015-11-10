@@ -2,7 +2,6 @@ body{
     position: relative;
     font-family: $_ffBrandonGrotesque-Regular;
     font-size: $_fsDefault;
-    line-height: $_lhDefault;
     height: 100%;
     -webkit-tap-highlight-color: transparent;
     margin: 0;
@@ -16,15 +15,16 @@ body{
     &.no-scrolling{
         overflow: hidden;
     }
+
+    *{
+        box-sizing: border-box;
+
+        font-family: inherit;
+        font-size: inherit;
+        line-height: 1.5em;
+    }
 }
 
-*{
-    box-sizing: border-box;
-
-    font-family: inherit;
-    font-size: inherit;
-    line-height: inherit;
-}
 
 h1, h2, h3, h4, h5, h6{
     font-weight: normal;

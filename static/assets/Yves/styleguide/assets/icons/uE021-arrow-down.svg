@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg width="8px" height="5px" viewBox="0 0 8 5" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <defs></defs>
+    <g id="Products-Detail" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Product-Step-One-Copy-3" transform="translate(-932.000000, -214.000000)" fill="#838D8F">
+            <g id="Section-Product-Top" transform="translate(851.000000, 165.000000)">
+                <g id="Rectangle-26-Copy-6-+-ADD-TO-CART">
+                    <g id="Quantity-Copy" transform="translate(0.000000, 26.000000)">
+                        <path d="M88.1422553,24.2870368 L87.1704552,23.2476544 L84.9667958,25.6045636 L82.7631364,23.2476544 L81.7913363,24.2870368 L84.9667958,27.6979674 L88.1422553,24.2870368 L88.1422553,24.2870368 Z" id="Arrow"></path>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

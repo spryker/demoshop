@@ -1,0 +1,74 @@
+.stepper{
+    position: relative;
+    margin-bottom: -5px;
+
+    color: $_rgbOsloGray;
+
+    input{
+        appearance: none;
+        height: 50px;
+        line-height: 50px;
+        width: 135px;
+        border: 2px solid $_rgbOsloGray;
+        border-radius: $_defaultBorderRadius;
+
+        font-size: 18px;
+        font-family: $_ffBrandonGrotesque-Bold;
+        text-align: center;
+        color: $_rgbOsloGray;
+    }
+
+    input[type=number]::-webkit-inner-spin-button,
+    input[type=number]::-webkit-outer-spin-button {
+        -webkit-appearance: none;
+        margin: 0;
+    }
+
+    input[type='number'] {
+        -moz-appearance: textfield;
+    }
+
+    ::selection {
+        background: transparent;
+    }
+    ::-moz-selection {
+        background: transparent;
+    }
+}
+
+.stepper__button{
+    position: absolute !important;
+    top: 0;
+    cursor: pointer;
+
+    width: 45px;
+    text-align: center;
+    height: 50px;
+    line-height: 50px;
+    background: $_rgbWhite;
+
+    border: 2px solid $_rgbOsloGray;
+
+    &:before{
+        width: 100%;
+        text-align: center;
+    }
+}
+
+.stepper__button--add{
+    right: 0;
+    border-left-width: 1px;
+    border-top-right-radius: $_defaultBorderRadius;
+    border-bottom-right-radius: $_defaultBorderRadius;
+
+    @include pdif('plus', 10px, 10px);
+}
+
+.stepper__button--remove{
+    left: 0;
+    border-right-width: 1px;
+    border-top-left-radius: $_defaultBorderRadius;
+    border-bottom-left-radius: $_defaultBorderRadius;
+
+    @include pdif('minus', 2px, 10px);
+}
