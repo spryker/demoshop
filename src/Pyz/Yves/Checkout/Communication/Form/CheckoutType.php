@@ -3,10 +3,13 @@
 namespace Pyz\Yves\Checkout\Communication\Form;
 
 use Generated\Shared\Shipment\ShipmentInterface;
+use SprykerFeature\Client\Glossary\Service\GlossaryClientInterface;
+use SprykerFeature\Shared\Library\Currency\CurrencyManager;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\HttpFoundation\Request;
+use SprykerFeature\Zed\Glossary\Business\GlossaryFacade;
 
 class CheckoutType extends AbstractType
 {
@@ -32,13 +35,23 @@ class CheckoutType extends AbstractType
     protected $shipmentTransfer;
 
     /**
-     * @param Request $request
-     * @param ShipmentInterface $shipmentTransfer
+     * @var GlossaryClientInterface
      */
-    public function __construct(Request $request, ShipmentInterface $shipmentTransfer)
-    {
+    private $glossaryClient;
+
+    /**
+     * @param Request                 $request
+     * @param ShipmentInterface       $shipmentTransfer
+     * @param GlossaryClientInterface $glossaryClient
+     */
+    public function __construct(
+        Request $request,
+        ShipmentInterface $shipmentTransfer,
+        GlossaryClientInterface $glossaryClient
+    ) {
         $this->request = $request;
         $this->shipmentTransfer = $shipmentTransfer;
+        $this->glossaryClient = $glossaryClient;
     }
 
     /**
@@ -157,14 +170,46 @@ class CheckoutType extends AbstractType
         $results = [];
 
         foreach ($this->shipmentTransfer->getMethods() as $method) {
-            $results[$method->getIdShipmentMethod()] = $method->getGlossaryKeyName()
-                . ' ' . $method->getGlossaryKeyDescription();
-            $results[$method->getIdShipmentMethod()] .= ' | Price: ' . $method->getPrice();
-            $results[$method->getIdShipmentMethod()] .= (!is_null($method->getTime())) ? ' | Delivery time: '
-                . ($method->getTime()/3600) . ' hours' : '';
+
+            $deliveryTime = null;
+            if (!empty($method->getTime())) {
+                $deliveryTime = ($method->getTime()/3600);
+            }
+
+            $price = $this->getCurrencyManager()->format(
+                $this->getCurrencyManager()->convertCentToDecimal($method->getPrice())
+            );
+
+            $shipmentDescription = $this->translate($method->getGlossaryKeyName())
+                .  ' ' . $this->translate($method->getGlossaryKeyDescription())
+                .  ' | ' . $this->translate('page.checkout.shipping.price') . ': ' . $price;
+
+            if ($deliveryTime !== null) {
+                $shipmentDescription .= ' | ' . $this->translate('page.checkout.shipping.delivery_time') . ': ' . $deliveryTime;
+            }
+
+            $results[$method->getIdShipmentMethod()] = $shipmentDescription;
         }
 
         return $results;
+    }
+
+    /**
+     * @return CurrencyManager
+     */
+    protected function getCurrencyManager()
+    {
+        return CurrencyManager::getInstance();
+    }
+
+    /**
+     * @param string $key
+     *
+     * @return string
+     */
+    protected function translate($key)
+    {
+        return $this->glossaryClient->translate($key, $this->request->getLocale());
     }
 
 }
