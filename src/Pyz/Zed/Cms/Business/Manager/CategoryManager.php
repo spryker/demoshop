@@ -13,6 +13,7 @@ use Symfony\Component\Finder\Finder;
 
 class CategoryManager implements CategoryManagerInterface
 {
+
     /**
      * @var CmsQueryContainerInterface
      */
@@ -35,16 +36,16 @@ class CategoryManager implements CategoryManagerInterface
 
     /**
      * @param CmsQueryContainerInterface $cmsQueryContainer
-     * @param CmsToTouchInterface        $touchFacade
-     * @param CmsConfig                  $cmsConfig
-     * @param Finder                     $finder
+     * @param CmsToTouchInterface $touchFacade
+     * @param CmsConfig $cmsConfig
+     * @param Finder $finder
      */
     public function __construct(CmsQueryContainerInterface $cmsQueryContainer, CmsToTouchInterface $touchFacade, CmsConfig $cmsConfig, Finder $finder)
     {
         $this->cmsQueryContainer = $cmsQueryContainer;
-        $this->touchFacade       = $touchFacade;
-        $this->config            = $cmsConfig;
-        $this->finder            = $finder;
+        $this->touchFacade = $touchFacade;
+        $this->config = $cmsConfig;
+        $this->finder = $finder;
     }
 
     /**
@@ -140,7 +141,7 @@ class CategoryManager implements CategoryManagerInterface
 
         $result = [];
         foreach ($this->finder->files() as $file) {
-            $result[$categoryTemplatePath.$file->getRelativePathname()] = $file->getRelativePathname();
+            $result[$categoryTemplatePath . $file->getRelativePathname()] = $file->getRelativePathname();
         }
 
         return $result;
@@ -165,7 +166,7 @@ class CategoryManager implements CategoryManagerInterface
      */
     public function deleteCategoryNodeTemplate($idCategoryNodeTemplate)
     {
-        $categoryNodeTemplateEntity   = $this->getCategoryNodeTemplateById($idCategoryNodeTemplate);
+        $categoryNodeTemplateEntity = $this->getCategoryNodeTemplateById($idCategoryNodeTemplate);
         $categoryNodeTemplateTransfer = $this->convertCategoryNodeTemplateEntityToTransfer($categoryNodeTemplateEntity);
 
         $rowDeleted = $categoryNodeTemplateEntity->delete();
@@ -174,4 +175,5 @@ class CategoryManager implements CategoryManagerInterface
 
         return $rowDeleted > 0;
     }
+
 }

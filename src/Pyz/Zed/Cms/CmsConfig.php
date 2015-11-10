@@ -6,6 +6,7 @@ use SprykerFeature\Zed\Cms\CmsConfig as SprykerCmsConfig;
 
 class CmsConfig extends SprykerCmsConfig
 {
+
     const CATEGORY_TEMPLATE_FOLDER = 'CATEGORY_TEMPLATE_FOLDER';
 
     /**
@@ -13,7 +14,7 @@ class CmsConfig extends SprykerCmsConfig
      */
     public function getDemoDataPath()
     {
-        return __DIR__.'/File';
+        return __DIR__ . '/File';
     }
 
     /**
@@ -30,8 +31,8 @@ class CmsConfig extends SprykerCmsConfig
     public function getDemoDataTemplates()
     {
         return [
-            'static'      => '@Cms/template/static_full_page.twig',
-            'quotes'      => '@Cms/template/static_quotes_page.twig',
+            'static' => '@Cms/template/static_full_page.twig',
+            'quotes' => '@Cms/template/static_quotes_page.twig',
             'quote_block' => '@Cms/template/quotes_block.twig',
         ];
     }
@@ -42,8 +43,8 @@ class CmsConfig extends SprykerCmsConfig
     public function getDemoDataTemplateNames()
     {
         return [
-            'static'      => 'static full page',
-            'quotes'      => 'static quotes page',
+            'static' => 'static full page',
+            'quotes' => 'static quotes page',
             'quote_block' => 'quotes block',
         ];
     }
@@ -54,9 +55,9 @@ class CmsConfig extends SprykerCmsConfig
     public function getDemoDataFileNames()
     {
         return [
-            'page'     => 'initial_pages_data.csv',
+            'page' => 'initial_pages_data.csv',
             'redirect' => 'initial_redirects_data.csv',
-            'block'    => 'initial_blocks_data.csv',
+            'block' => 'initial_blocks_data.csv',
         ];
     }
 
@@ -68,8 +69,9 @@ class CmsConfig extends SprykerCmsConfig
     public function getCategoryTemplateRealPath($templateRelativePath)
     {
         $templateRelativePath = mb_substr($templateRelativePath, 8);
-        $physicalAddress      = $this->get(self::CATEGORY_TEMPLATE_FOLDER).$templateRelativePath;
+        $physicalAddress = $this->get(self::CATEGORY_TEMPLATE_FOLDER) . $templateRelativePath;
 
         return $physicalAddress;
     }
+
 }

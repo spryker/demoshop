@@ -13,6 +13,7 @@ use SprykerFeature\Zed\ProductCategory\Dependency\Facade\CmsToCategoryInterface;
  */
 class CmsFacade extends SprykerCmsFacade implements CmsToCategoryInterface
 {
+
     /**
      * @param MessengerInterface $messenger
      */
@@ -150,4 +151,5 @@ class CmsFacade extends SprykerCmsFacade implements CmsToCategoryInterface
 
         return $keywordManager->deleteKeyword($idKeyword);
     }
+
 }

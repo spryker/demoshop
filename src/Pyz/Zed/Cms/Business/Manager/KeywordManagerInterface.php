@@ -8,6 +8,7 @@ use Orm\Zed\Cms\Persistence\KamKeyword;
 
 interface KeywordManagerInterface
 {
+
     /**
      * @param KeywordInterface $keywordTransfer
      *
@@ -61,4 +62,5 @@ interface KeywordManagerInterface
      * @return bool
      */
     public function deleteKeyword($idKeyword);
+
 }

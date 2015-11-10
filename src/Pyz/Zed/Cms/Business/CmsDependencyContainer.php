@@ -14,6 +14,7 @@ use SprykerFeature\Zed\Cms\Business\CmsDependencyContainer as SprykerCmsDependen
 
 class CmsDependencyContainer extends SprykerCmsDependencyContainer
 {
+
     /**
      * @param MessengerInterface $messenger
      *
@@ -84,4 +85,5 @@ class CmsDependencyContainer extends SprykerCmsDependencyContainer
             $this->getTouchFacade()
         );
     }
+
 }

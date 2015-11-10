@@ -8,6 +8,7 @@ use SprykerFeature\Zed\Cms\Persistence\CmsQueryContainer as SprykerCmsQueryConta
 
 class CmsQueryContainer extends SprykerCmsQueryContainer
 {
+
     /**
      * @param string $url
      *
@@ -19,4 +20,5 @@ class CmsQueryContainer extends SprykerCmsQueryContainer
             ->queryUrl($url)
         ;
     }
+
 }

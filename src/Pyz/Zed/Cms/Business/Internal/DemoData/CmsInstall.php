@@ -19,21 +19,22 @@ use SprykerFeature\Zed\Product\Business\Importer\Reader\File\CsvReader;
 
 class CmsInstall extends AbstractInstaller
 {
-    const URL              = 'url';
-    const FROM_URL         = 'fromUrl';
-    const TO_URL           = 'toUrl';
-    const STATUS           = 'status';
-    const BLOCK_NAME       = 'blockName';
-    const PLACEHOLDER      = 'placeholder';
-    const TRANSLATION      = 'translation';
-    const TEMPLATE         = 'template';
-    const TEMPLATE_PATH    = 'template_path';
-    const PAGE             = 'page';
-    const REDIRECT         = 'redirect';
-    const BLOCK            = 'block';
-    const BLOCK_TYPE       = 'type';
+
+    const URL = 'url';
+    const FROM_URL = 'fromUrl';
+    const TO_URL = 'toUrl';
+    const STATUS = 'status';
+    const BLOCK_NAME = 'blockName';
+    const PLACEHOLDER = 'placeholder';
+    const TRANSLATION = 'translation';
+    const TEMPLATE = 'template';
+    const TEMPLATE_PATH = 'template_path';
+    const PAGE = 'page';
+    const REDIRECT = 'redirect';
+    const BLOCK = 'block';
+    const BLOCK_TYPE = 'type';
     const BLOCK_TYPE_VALUE = 'value';
-    const CATEGORY         = 'category';
+    const CATEGORY = 'category';
 
     /**
      * @var CmsToGlossaryInterface
@@ -91,15 +92,15 @@ class CmsInstall extends AbstractInstaller
     protected $blockDemoValue = 0;
 
     /**
-     * @param CmsToGlossaryInterface             $glossaryFacade
-     * @param CmsToUrlInterface                  $urlFacade
-     * @param CmsToLocaleInterface               $localeFacade
-     * @param TemplateManagerInterface           $templateManager
-     * @param PageManagerInterface               $pageManager
+     * @param CmsToGlossaryInterface $glossaryFacade
+     * @param CmsToUrlInterface $urlFacade
+     * @param CmsToLocaleInterface $localeFacade
+     * @param TemplateManagerInterface $templateManager
+     * @param PageManagerInterface $pageManager
      * @param GlossaryKeyMappingManagerInterface $keyMappingManager
-     * @param BlockManagerInterface              $blockManager
-     * @param CmsQueryContainerInterface         $cmsQueryContainer
-     * @param CmsConfig                          $config
+     * @param BlockManagerInterface $blockManager
+     * @param CmsQueryContainerInterface $cmsQueryContainer
+     * @param CmsConfig $config
      */
     public function __construct(
         CmsToGlossaryInterface $glossaryFacade,
@@ -112,17 +113,17 @@ class CmsInstall extends AbstractInstaller
         CmsQueryContainerInterface $cmsQueryContainer,
         CmsConfig $config
     ) {
-        $this->glossaryFacade    = $glossaryFacade;
-        $this->urlFacade         = $urlFacade;
-        $this->localeFacade      = $localeFacade;
-        $this->templateManager   = $templateManager;
-        $this->pageManager       = $pageManager;
+        $this->glossaryFacade = $glossaryFacade;
+        $this->urlFacade = $urlFacade;
+        $this->localeFacade = $localeFacade;
+        $this->templateManager = $templateManager;
+        $this->pageManager = $pageManager;
         $this->keyMappingManager = $keyMappingManager;
-        $this->blockManager      = $blockManager;
+        $this->blockManager = $blockManager;
         $this->cmsQueryContainer = $cmsQueryContainer;
 
-        $this->filePath      = $config->getDemoDataPath();
-        $this->templates     = $config->getDemoDataTemplates();
+        $this->filePath = $config->getDemoDataPath();
+        $this->templates = $config->getDemoDataTemplates();
         $this->templateNames = $config->getDemoDataTemplateNames();
         $this->dataFileNames = $config->getDemoDataFileNames();
     }
@@ -136,11 +137,11 @@ class CmsInstall extends AbstractInstaller
     public function installCmsData()
     {
         foreach ($this->localeFacade->getAvailableLocales() as $locale) {
-            $demoDataFile = $this->filePath.'/'.$locale;
+            $demoDataFile = $this->filePath . '/' . $locale;
             if ($this->checkPathExists($demoDataFile)) {
                 $this->installPageFromDemoDataFile($demoDataFile);
-                $this->installRedirectFromDemoDataFile($demoDataFile);
-                $this->installBlockFromDemoDataFile($demoDataFile);
+//                $this->installRedirectFromDemoDataFile($demoDataFile);
+//                $this->installBlockFromDemoDataFile($demoDataFile);
             }
         }
     }
@@ -153,7 +154,7 @@ class CmsInstall extends AbstractInstaller
      */
     public function getFileName($localeStaticFilePath, $fileName)
     {
-        return $localeStaticFilePath.'/'.$fileName;
+        return $localeStaticFilePath . '/' . $fileName;
     }
 
     /**
@@ -216,7 +217,7 @@ class CmsInstall extends AbstractInstaller
         }
 
         $templateTransfer = $this->getOrCreateTemplate($template);
-        $pageTransfer     = $this->createPage($templateTransfer);
+        $pageTransfer = $this->createPage($templateTransfer);
         $this->keyMappingManager->addPlaceholderText($pageTransfer, $placeholder, $translation);
         $urlTransfer = $this->pageManager->createPageUrl($pageTransfer, $url);
 
@@ -227,7 +228,7 @@ class CmsInstall extends AbstractInstaller
     /**
      * @param string $fromUrl
      * @param string $toUrl
-     * @param int    $status
+     * @param int $status
      */
     private function installRedirect($fromUrl, $toUrl, $status)
     {
@@ -259,10 +260,10 @@ class CmsInstall extends AbstractInstaller
             return;
         }
 
-        $placeholders     = explode('_', $placeholder);
-        $translations     = explode('_', $translation);
+        $placeholders = explode('_', $placeholder);
+        $translations = explode('_', $translation);
         $templateTransfer = $this->getOrCreateTemplate($template);
-        $pageTransfer     = $this->createPage($templateTransfer);
+        $pageTransfer = $this->createPage($templateTransfer);
 
         foreach ($placeholders as $key => $value) {
             $this->keyMappingManager->addPlaceholderText($pageTransfer, $value, $translations[$key]);
@@ -278,7 +279,7 @@ class CmsInstall extends AbstractInstaller
      * @param string $template_path
      * @param string $blockName
      * @param string $blockType
-     * @param int    $blockValue
+     * @param int $blockValue
      * @param string $placeholder
      * @param string $translation
      */
@@ -286,7 +287,7 @@ class CmsInstall extends AbstractInstaller
     {
         if ($blockType === self::CATEGORY) {
             $urlTransfer = $this->cmsQueryContainer->queryUrlByPath($blockValue)->findOne();
-            if (null !== $urlTransfer) {
+            if ($urlTransfer !== null) {
                 $blockValue = $urlTransfer->getFkResourceCategorynode();
             } else {
                 $this->warning(sprintf('%s Category for block %s not found. Skipping.', $blockValue, $blockName));
@@ -303,10 +304,10 @@ class CmsInstall extends AbstractInstaller
             return;
         }
 
-        $placeholders     = explode('$', $placeholder);
-        $translations     = explode('$', $translation);
+        $placeholders = explode('$', $placeholder);
+        $translations = explode('$', $translation);
         $templateTransfer = $this->getOrCreateTemplateByPath($template, $template_path);
-        $pageTransfer     = $this->createPage($templateTransfer);
+        $pageTransfer = $this->createPage($templateTransfer);
         foreach ($placeholders as $key => $value) {
             $this->keyMappingManager->addPlaceholderText($pageTransfer, $value, base64_decode($translations[$key]));
         }
@@ -383,9 +384,9 @@ class CmsInstall extends AbstractInstaller
      */
     private function getDataFromFileAsArray($filePath, $type)
     {
-        $file        = $this->getFileName($filePath, $this->dataFileNames[$type]);
+        $file = $this->getFileName($filePath, $this->dataFileNames[$type]);
         $splFileInfo = new \SplFileInfo($file);
-        $dataArray   = (new CsvReader())->getArrayFromFile($splFileInfo);
+        $dataArray = (new CsvReader())->getArrayFromFile($splFileInfo);
 
         return $dataArray;
     }
@@ -406,4 +407,5 @@ class CmsInstall extends AbstractInstaller
 
         return $cmsBlockTransfer;
     }
+
 }

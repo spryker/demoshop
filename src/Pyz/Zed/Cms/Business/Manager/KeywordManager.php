@@ -12,6 +12,7 @@ use SprykerFeature\Zed\Cms\Persistence\CmsQueryContainerInterface;
 
 class KeywordManager implements KeywordManagerInterface
 {
+
     /**
      * @var CmsQueryContainerInterface
      */
@@ -24,12 +25,12 @@ class KeywordManager implements KeywordManagerInterface
 
     /**
      * @param CmsQueryContainerInterface $cmsQueryContainer
-     * @param CmsToTouchInterface        $touchFacade
+     * @param CmsToTouchInterface $touchFacade
      */
     public function __construct(CmsQueryContainerInterface $cmsQueryContainer, CmsToTouchInterface $touchFacade)
     {
         $this->cmsQueryContainer = $cmsQueryContainer;
-        $this->touchFacade       = $touchFacade;
+        $this->touchFacade = $touchFacade;
     }
 
     /**
@@ -87,7 +88,7 @@ class KeywordManager implements KeywordManagerInterface
         $keywordEntity = $this->getKeywordById($keywordTransfer->getIdKeyword());
         $oldAdsGroupId = null;
 
-        if (null !== $keywordEntity) {
+        if ($keywordEntity !== null) {
             $oldAdsGroupId = $keywordEntity->getAdsGroupId();
         }
 
@@ -109,11 +110,11 @@ class KeywordManager implements KeywordManagerInterface
     {
         $keywordList = explode(PHP_EOL, $data);
         foreach ($keywordList as $keywordRow) {
-            $keywordRow   = trim(preg_replace('/\s+/', ' ', $keywordRow));
+            $keywordRow = trim(preg_replace('/\s+/', ' ', $keywordRow));
             $keywordItems = explode(';', $keywordRow);
 
             if (count($keywordItems) === 2) {
-                $keywordQuery    = $this->cmsQueryContainer->queryKeywordByAdsGroupId($keywordItems[0]);
+                $keywordQuery = $this->cmsQueryContainer->queryKeywordByAdsGroupId($keywordItems[0]);
                 $keywordTransfer = $this->createKeywordTransfer($keywordQuery, $keywordItems);
 
                 $this->saveCmsKeywordAndTouch($keywordTransfer);
@@ -193,15 +194,15 @@ class KeywordManager implements KeywordManagerInterface
 
     /**
      * @param KamKeywordQuery $keywordQuery
-     * @param array           $keywordItems
+     * @param array $keywordItems
      *
      * @return KeywordTransfer
      */
     private function createKeywordTransfer(KamKeywordQuery $keywordQuery, array $keywordItems)
     {
-        $keywordEntity   = $keywordQuery->findOne();
+        $keywordEntity = $keywordQuery->findOne();
         $keywordTransfer = new KeywordTransfer();
-        if (null !== $keywordEntity) {
+        if ($keywordEntity !== null) {
             $keywordTransfer->setIdKeyword($keywordEntity->getIdKeyword());
         }
         $keywordTransfer->setAdsGroupId($keywordItems[0]);
@@ -209,4 +210,5 @@ class KeywordManager implements KeywordManagerInterface
 
         return $keywordTransfer;
     }
+
 }

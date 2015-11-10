@@ -7,6 +7,7 @@ use Orm\Zed\Cms\Persistence\KamCategoryNodeTemplate;
 
 interface CategoryManagerInterface
 {
+
     /**
      * @param CategoryNodeTemplateInterface $categoryNodeTemplateTransfer
      *
@@ -46,4 +47,5 @@ interface CategoryManagerInterface
      * @return bool
      */
     public function deleteCategoryNodeTemplate($idCategoryNodeTemplate);
+
 }
