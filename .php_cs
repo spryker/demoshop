@@ -71,5 +71,6 @@ return Symfony\CS\Config\Config::create()
     ->addCustomFixer(new \SprykerFeature\Zed\Maintenance\Business\CodeStyleFixer\NoInlineAssignmentFixer())
     ->addCustomFixer(new \SprykerFeature\Zed\Maintenance\Business\CodeStyleFixer\ConditionalExpressionOrderFixer())
     ->addCustomFixer(new \SprykerFeature\Zed\Maintenance\Business\CodeStyleFixer\NoIsNullFixer())
+    ->addCustomFixer(new \SprykerFeature\Zed\Maintenance\Business\CodeStyleFixer\PhpSapiConstantFixer())
     ->addCustomFixer(new \SprykerFeature\Zed\Maintenance\Business\CodeStyleFixer\PhpdocParamsFixer())
 ;
