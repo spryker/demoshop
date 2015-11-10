@@ -41,7 +41,7 @@ class CategoryQueryContainer extends SprykerCategoryQueryContainer
             );
 
         $expandableQuery->withColumn(
-            'JSON_AGG(' . $rightTableAlias . '.id_category_node)',
+            'JSON_AGG(DISTINCT ' . $rightTableAlias . '.id_category_node)',
             'category_' . $fieldIdentifier . '_ids'
         );
 
@@ -104,7 +104,7 @@ class CategoryQueryContainer extends SprykerCategoryQueryContainer
         }
 
         $expandableQuery->withColumn(
-            'JSON_AGG(' . $relationTableAlias . '.id_category_node)',
+            'JSON_AGG(DISTINCT ' . $relationTableAlias . '.id_category_node)',
             'category_' . $fieldIdentifier . '_ids'
         );
         $expandableQuery->withColumn(
@@ -147,7 +147,7 @@ class CategoryQueryContainer extends SprykerCategoryQueryContainer
         );
 
         $expandableQuery->withColumn(
-            'JSON_AGG(categoryUrls.url)',
+            'JSON_AGG(DISTINCT categoryUrls.url)',
             'category_urls'
         );
 
@@ -183,7 +183,7 @@ class CategoryQueryContainer extends SprykerCategoryQueryContainer
         );
 
         $expandableQuery->withColumn(
-            'JSON_AGG(' . $relationTableAlias . 'Attributes.name)',
+            'JSON_AGG(DISTINCT ' . $relationTableAlias . 'Attributes.name)',
             'category_' . $fieldIdentifier . '_names'
         );
 
@@ -221,7 +221,7 @@ class CategoryQueryContainer extends SprykerCategoryQueryContainer
         );
 
         $expandableQuery->withColumn(
-            'JSON_AGG(' . $relationTableAlias . 'Urls.url)',
+            'JSON_AGG(DISTINCT ' . $relationTableAlias . 'Urls.url)',
             'category_' . $fieldIdentifier . '_urls'
         );
 
