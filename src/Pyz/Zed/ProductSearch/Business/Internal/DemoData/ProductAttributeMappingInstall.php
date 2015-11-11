@@ -78,7 +78,7 @@ class ProductAttributeMappingInstall extends AbstractInstaller
     protected function getMappings()
     {
         return [
-            'short_description' => [
+            'description' => [
                 'CopyToField' => [
                     'full-text-boosted',
                     'full-text',
@@ -94,18 +94,22 @@ class ProductAttributeMappingInstall extends AbstractInstaller
                     'integer-sort',
                 ],
             ],
-            'weight' => [
-                'CopyToField' => [
-                    'full-text',
-                    'full-text-boosted',
-                    'completion-terms',
-                    'suggestion-term',
-                ],
+            'depth' => [
                 'CopyToFacet' => [
-                    'string-facet',
+                    'float-facet',
                 ],
             ],
-            'delivery_time' => [
+            'width' => [
+                'CopyToFacet' => [
+                    'float-facet',
+                ],
+            ],
+            'height' => [
+                'CopyToFacet' => [
+                    'float-facet',
+                ],
+            ],
+            'main_color' => [
                 'CopyToField' => [
                     'full-text',
                     'full-text-boosted',

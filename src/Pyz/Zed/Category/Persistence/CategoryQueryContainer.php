@@ -2,6 +2,7 @@
 
 namespace Pyz\Zed\Category\Persistence;
 
+use Orm\Zed\Category\Persistence\SpyCategoryClosureTableQuery;
 use SprykerFeature\Zed\Category\Persistence\CategoryQueryContainer as SprykerCategoryQueryContainer;
 use Orm\Zed\Category\Persistence\Map\SpyCategoryAttributeTableMap;
 use Orm\Zed\Category\Persistence\Map\SpyCategoryClosureTableTableMap;
@@ -225,5 +226,35 @@ class CategoryQueryContainer extends SprykerCategoryQueryContainer
         );
 
         return $expandableQuery;
+    }
+
+    /**
+     * @TODO: parent method uses non-existent COL_URL_KEY
+     *
+     * @param int $idChildNode
+     * @param bool $excludeRoot
+     *
+     * @return SpyCategoryClosureTableQuery
+     */
+    public function getParentPath($idChildNode, $excludeRoot = true)
+    {
+        $query = new SpyCategoryClosureTableQuery();
+        $query->filterByFkCategoryNodeDescendant($idChildNode)
+            ->innerJoinNode()
+            ->useNodeQuery()
+            ->innerJoinCategory()
+            ->useCategoryQuery()
+            ->innerJoinAttribute()
+            ->endUse()
+            ->endUse()
+            ->withColumn(SpyCategoryAttributeTableMap::COL_NAME, 'name')
+            //->withColumn(SpyCategoryAttributeTableMap::COL_URL_KEY, 'url_key')
+            ->orderBy(SpyCategoryClosureTableTableMap::COL_DEPTH, 'DESC');
+
+        if ($excludeRoot) {
+            $query->where(SpyCategoryNodeTableMap::COL_IS_ROOT . ' = false');
+        }
+
+        return $query;
     }
 }
