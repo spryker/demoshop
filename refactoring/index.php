@@ -9,8 +9,7 @@ include_once __DIR__ . '/../vendor/autoload.php';
 
 $refactorer = new Refactor();
 
-//$refactorer->addRefactorer(new AddNameToSchemaProperties());
+$refactorer->addRefactorer(new AddNameToSchemaProperties());
 $refactorer->addRefactorer(new FixIndentationOfIdMethodParameter());
 
 $refactorer->run();
-

@@ -1,6 +1,6 @@
 {
   "require": {
-    "spryker/spryker": "dev-develop",
+    "spryker/spryker": "dev-refactor/TD-104-Add-name-attribute-to-ALL-elements-in-schema.xml-where-it-makes-sense",
 
     "psr/log": "~1.0",
     "propel/propel": "~2.0@dev",
