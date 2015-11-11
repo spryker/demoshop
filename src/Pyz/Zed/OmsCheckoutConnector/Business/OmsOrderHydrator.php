@@ -28,7 +28,7 @@ class OmsOrderHydrator extends BaseOmsOrderHydrator
 
         switch ($paymentMethod) {
             case self::PAYMENT_METHOD_INVOICE:
-                $order->setProcess(OmsConfig::ORDER_PROCESS_PAYOLUTION_PAYMENT_01);
+                $order->setProcess(OmsConfig::ORDER_PROCESS_INVOICE);
                 break;
             default:
                 parent::hydrateOrderTransfer($order, $request);
