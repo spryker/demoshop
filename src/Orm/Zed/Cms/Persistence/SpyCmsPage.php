@@ -2,7 +2,7 @@
 
 namespace Orm\Zed\Cms\Persistence;
 
-use SprykerFeature\Zed\Cms\Persistence\Propel\AbstractSpyCmsPage as BaseSpyCmsPage;
+use Orm\Zed\Cms\Persistence\Base\SpyCmsPage as BaseSpyCmsPage;
 
 /**
  * Skeleton subclass for representing a row from the 'spy_cms_page' table.

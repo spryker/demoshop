@@ -2,7 +2,7 @@
 
 namespace Orm\Zed\PropelHeartbeatConnector\Persistence;
 
-use SprykerFeature\Zed\PropelHeartbeatConnector\Persistence\Propel\AbstractSpyPropelHeartbeat as BaseSpyPropelHeartbeat;
+use Orm\Zed\PropelHeartbeatConnector\Persistence\Base\SpyPropelHeartbeat as BaseSpyPropelHeartbeat;
 
 /**
  * Skeleton subclass for representing a row from the 'spy_propel_heartbeat' table.

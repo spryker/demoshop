@@ -2,7 +2,7 @@
 
 namespace Orm\Zed\Nopayment\Persistence;
 
-use SprykerFeature\Zed\Nopayment\Persistence\Propel\AbstractSpyNopaymentPaid as BaseSpyNopaymentPaid;
+use Orm\Zed\Nopayment\Persistence\Base\SpyNopaymentPaid as BaseSpyNopaymentPaid;
 
 /**
  * Skeleton subclass for representing a row from the 'spy_nopayment_paid' table.

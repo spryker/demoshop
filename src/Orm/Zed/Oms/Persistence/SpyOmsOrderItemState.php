@@ -2,7 +2,7 @@
 
 namespace Orm\Zed\Oms\Persistence;
 
-use SprykerFeature\Zed\Oms\Persistence\Propel\AbstractSpyOmsOrderItemState as BaseSpyOmsOrderItemState;
+use Orm\Zed\Oms\Persistence\Base\SpyOmsOrderItemState as BaseSpyOmsOrderItemState;
 
 /**
  * Skeleton subclass for representing a row from the 'spy_oms_order_item_state' table.

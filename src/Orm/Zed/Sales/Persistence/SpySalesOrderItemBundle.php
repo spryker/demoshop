@@ -2,7 +2,7 @@
 
 namespace Orm\Zed\Sales\Persistence;
 
-use SprykerFeature\Zed\Sales\Persistence\Propel\AbstractSpySalesOrderItemBundle as BaseSpySalesOrderItemBundle;
+use Orm\Zed\Sales\Persistence\Base\SpySalesOrderItemBundle as BaseSpySalesOrderItemBundle;
 
 /**
  * Skeleton subclass for representing a row from the 'spy_sales_order_item_bundle' table.

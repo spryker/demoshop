@@ -2,7 +2,7 @@
 
 namespace Orm\Zed\User\Persistence;
 
-use SprykerFeature\Zed\User\Persistence\Propel\AbstractSpyUserArchiveQuery as BaseSpyUserArchiveQuery;
+use Orm\Zed\User\Persistence\Base\SpyUserArchiveQuery as BaseSpyUserArchiveQuery;
 
 /**
  * Skeleton subclass for performing query and update operations on the 'spy_user_archive' table.

@@ -2,7 +2,7 @@
 
 namespace Orm\Zed\SearchPage\Persistence;
 
-use SprykerFeature\Zed\SearchPage\Persistence\Propel\AbstractSpySearchDocumentAttribute as BaseSpySearchDocumentAttribute;
+use Orm\Zed\SearchPage\Persistence\Base\SpySearchDocumentAttribute as BaseSpySearchDocumentAttribute;
 
 /**
  * Skeleton subclass for representing a row from the 'spy_search_document_attribute' table.

@@ -2,7 +2,7 @@
 
 namespace Orm\Zed\ProductSearch\Persistence;
 
-use SprykerFeature\Zed\ProductSearch\Persistence\Propel\AbstractSpySearchableProducts as BaseSpySearchableProducts;
+use Orm\Zed\ProductSearch\Persistence\Base\SpySearchableProducts as BaseSpySearchableProducts;
 
 /**
  * Skeleton subclass for representing a row from the 'spy_searchable_products' table.

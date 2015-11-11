@@ -2,7 +2,7 @@
 
 namespace Orm\Zed\Category\Persistence;
 
-use SprykerFeature\Zed\Category\Persistence\Propel\AbstractSpyCategoryNodeQuery as BaseSpyCategoryNodeQuery;
+use Orm\Zed\Category\Persistence\Base\SpyCategoryNodeQuery as BaseSpyCategoryNodeQuery;
 
 /**
  * Skeleton subclass for performing query and update operations on the 'spy_category_node' table.

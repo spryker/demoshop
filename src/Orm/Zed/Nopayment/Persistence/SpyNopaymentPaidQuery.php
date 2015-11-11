@@ -2,7 +2,7 @@
 
 namespace Orm\Zed\Nopayment\Persistence;
 
-use SprykerFeature\Zed\Nopayment\Persistence\Propel\AbstractSpyNopaymentPaidQuery as BaseSpyNopaymentPaidQuery;
+use Orm\Zed\Nopayment\Persistence\Base\SpyNopaymentPaidQuery as BaseSpyNopaymentPaidQuery;
 
 /**
  * Skeleton subclass for performing query and update operations on the 'spy_nopayment_paid' table.

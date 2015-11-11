@@ -2,7 +2,7 @@
 
 namespace Orm\Zed\Country\Persistence;
 
-use SprykerFeature\Zed\Country\Persistence\Propel\AbstractSpyRegionQuery as BaseSpyRegionQuery;
+use Orm\Zed\Country\Persistence\Base\SpyRegionQuery as BaseSpyRegionQuery;
 
 /**
  * Skeleton subclass for performing query and update operations on the 'spy_region' table.

@@ -2,7 +2,7 @@
 
 namespace Orm\Zed\Newsletter\Persistence;
 
-use SprykerFeature\Zed\Newsletter\Persistence\Propel\AbstractSpyNewsletterSubscription as BaseSpyNewsletterSubscription;
+use Orm\Zed\Newsletter\Persistence\Base\SpyNewsletterSubscription as BaseSpyNewsletterSubscription;
 
 /**
  * Skeleton subclass for representing a row from the 'spy_newsletter_subscription' table.

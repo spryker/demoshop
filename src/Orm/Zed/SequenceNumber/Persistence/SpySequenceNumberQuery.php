@@ -2,7 +2,7 @@
 
 namespace Orm\Zed\SequenceNumber\Persistence;
 
-use SprykerFeature\Zed\SequenceNumber\Persistence\Propel\AbstractSpySequenceNumberQuery as BaseSpySequenceNumberQuery;
+use Orm\Zed\SequenceNumber\Persistence\Base\SpySequenceNumberQuery as BaseSpySequenceNumberQuery;
 
 /**
  * Skeleton subclass for performing query and update operations on the 'spy_sequence_number' table.

@@ -2,7 +2,7 @@
 
 namespace Orm\Zed\Payolution\Persistence;
 
-use SprykerFeature\Zed\Payolution\Persistence\Propel\AbstractSpyPaymentPayolution as BaseSpyPaymentPayolution;
+use Orm\Zed\Payolution\Persistence\Base\SpyPaymentPayolution as BaseSpyPaymentPayolution;
 
 /**
  * Skeleton subclass for representing a row from the 'spy_payment_payolution' table.

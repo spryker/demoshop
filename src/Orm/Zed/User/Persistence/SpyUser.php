@@ -2,7 +2,7 @@
 
 namespace Orm\Zed\User\Persistence;
 
-use SprykerFeature\Zed\User\Persistence\Propel\AbstractSpyUser as BaseSpyUser;
+use Orm\Zed\User\Persistence\Base\SpyUser as BaseSpyUser;
 
 /**
  * Skeleton subclass for representing a row from the 'spy_user' table.

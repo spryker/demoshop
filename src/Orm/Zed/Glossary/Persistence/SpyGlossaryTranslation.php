@@ -2,7 +2,7 @@
 
 namespace Orm\Zed\Glossary\Persistence;
 
-use SprykerFeature\Zed\Glossary\Persistence\Propel\AbstractSpyGlossaryTranslation as BaseSpyGlossaryTranslation;
+use Orm\Zed\Glossary\Persistence\Base\SpyGlossaryTranslation as BaseSpyGlossaryTranslation;
 
 /**
  * Skeleton subclass for representing a row from the 'spy_glossary_translation' table.

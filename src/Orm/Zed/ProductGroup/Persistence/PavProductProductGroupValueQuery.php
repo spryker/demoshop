@@ -1,8 +1,8 @@
 <?php
 
-namespace Orm\Zed\ProductDynamic\Persistence;
+namespace Orm\Zed\ProductGroup\Persistence;
 
-use Orm\Zed\ProductDynamic\Persistence\Base\PavProductProductGroupValueQuery as BasePavProductProductGroupValueQuery;
+use Orm\Zed\ProductGroup\Persistence\Base\PavProductProductGroupValueQuery as BasePavProductProductGroupValueQuery;
 
 /**
  * Skeleton subclass for performing query and update operations on the 'pav_product_product_group_value' table.

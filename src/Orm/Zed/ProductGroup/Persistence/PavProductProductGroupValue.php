@@ -1,8 +1,8 @@
 <?php
 
-namespace Orm\Zed\ProductDynamic\Persistence;
+namespace Orm\Zed\ProductGroup\Persistence;
 
-use Orm\Zed\ProductDynamic\Persistence\Base\PavProductProductGroupValue as BasePavProductProductGroupValue;
+use Orm\Zed\ProductGroup\Persistence\Base\PavProductProductGroupValue as BasePavProductProductGroupValue;
 
 /**
  * Skeleton subclass for representing a row from the 'pav_product_product_group_value' table.

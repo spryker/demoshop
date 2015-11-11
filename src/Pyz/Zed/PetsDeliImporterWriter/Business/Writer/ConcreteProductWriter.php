@@ -2,14 +2,12 @@
 
 namespace Pyz\Zed\PetsDeliImporterWriter\Business\Writer;
 
-use Generated\Shared\Product\ConcreteProductInterface;
-use Generated\Shared\ProductDynamic\AbstractProductInterface;
+use Generated\Shared\Product\AbstractProductInterface;
 use Generated\Shared\ProductDynamicImporter\PavProductDynamicImporterAbstractProductInterface;
 use Generated\Shared\ProductDynamicImporter\PavProductDynamicImporterConcreteProductInterface;
 use Generated\Shared\ProductDynamicImporter\PavProductDynamicImporterLocaleInterface;
 use Generated\Shared\Transfer\ConcreteProductTransfer;
 use Generated\Shared\Transfer\PriceProductTransfer;
-use Orm\Zed\Product\Persistence\SpyProduct;
 use Pyz\Zed\Locale\Business\LocaleFacade;
 use Pyz\Zed\Price\Business\PriceFacade;
 use Pyz\Zed\Product\Business\ProductFacade;
@@ -96,9 +94,7 @@ class ConcreteProductWriter extends DefaultProductWriter
     protected function createProductPrices(
         PavProductDynamicImporterConcreteProductInterface $concreteProductToImport,
         ConcreteProductTransfer $concreteProductTransfer
-    )
-    {
-
+    ) {
 
 
         $priceTransfer = new PriceProductTransfer();
@@ -107,8 +103,7 @@ class ConcreteProductWriter extends DefaultProductWriter
         $priceTransfer
             ->setPrice($concreteProductToImport->getPrice())
             ->setIdAbstractProduct($concreteProductTransfer->getIdAbstractProduct())
-            ->setIdProduct($concreteProductTransfer->getIdConcreteProduct())
-        ;
+            ->setIdProduct($concreteProductTransfer->getIdConcreteProduct());
 
 
         if ($this->priceFacade->hasValidPrice($concreteProductToImport->getSku())) {
@@ -117,14 +112,10 @@ class ConcreteProductWriter extends DefaultProductWriter
 
             $this->priceFacade->setPriceForProduct($priceTransfer);
 
-        }
-        else {
+        } else {
 
             $this->priceFacade->createPriceForProduct($priceTransfer);
         }
-
-
-
 
 
     }

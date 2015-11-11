@@ -2,7 +2,7 @@
 
 namespace Orm\Zed\Shipment\Persistence;
 
-use SprykerFeature\Zed\Shipment\Persistence\Propel\AbstractSpyShipmentMethod as BaseSpyShipmentMethod;
+use Orm\Zed\Shipment\Persistence\Base\SpyShipmentMethod as BaseSpyShipmentMethod;
 
 /**
  * Skeleton subclass for representing a row from the 'spy_shipment_method' table.

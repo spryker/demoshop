@@ -2,7 +2,7 @@
 
 namespace Orm\Zed\Oms\Persistence;
 
-use SprykerFeature\Zed\Oms\Persistence\Propel\AbstractSpyOmsTransitionLogQuery as BaseSpyOmsTransitionLogQuery;
+use Orm\Zed\Oms\Persistence\Base\SpyOmsTransitionLogQuery as BaseSpyOmsTransitionLogQuery;
 
 /**
  * Skeleton subclass for performing query and update operations on the 'spy_oms_transition_log' table.

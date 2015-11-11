@@ -2,7 +2,7 @@
 
 namespace Orm\Zed\Payone\Persistence;
 
-use SprykerFeature\Zed\Payone\Persistence\Propel\AbstractSpyPaymentPayoneQuery as BaseSpyPaymentPayoneQuery;
+use Orm\Zed\Payone\Persistence\Base\SpyPaymentPayoneQuery as BaseSpyPaymentPayoneQuery;
 
 /**
  * Skeleton subclass for performing query and update operations on the 'spy_payment_payone' table.

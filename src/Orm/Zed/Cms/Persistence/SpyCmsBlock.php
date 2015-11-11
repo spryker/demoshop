@@ -2,7 +2,7 @@
 
 namespace Orm\Zed\Cms\Persistence;
 
-use SprykerFeature\Zed\Cms\Persistence\Propel\AbstractSpyCmsBlock as BaseSpyCmsBlock;
+use Orm\Zed\Cms\Persistence\Base\SpyCmsBlock as BaseSpyCmsBlock;
 
 /**
  * Skeleton subclass for representing a row from the 'spy_cms_block' table.

@@ -2,7 +2,7 @@
 
 namespace Orm\Zed\SequenceNumber\Persistence;
 
-use SprykerFeature\Zed\SequenceNumber\Persistence\Propel\AbstractSpySequenceNumber as BaseSpySequenceNumber;
+use Orm\Zed\SequenceNumber\Persistence\Base\SpySequenceNumber as BaseSpySequenceNumber;
 
 /**
  * Skeleton subclass for representing a row from the 'spy_sequence_number' table.

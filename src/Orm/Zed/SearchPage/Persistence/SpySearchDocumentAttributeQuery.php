@@ -2,7 +2,7 @@
 
 namespace Orm\Zed\SearchPage\Persistence;
 
-use SprykerFeature\Zed\SearchPage\Persistence\Propel\AbstractSpySearchDocumentAttributeQuery as BaseSpySearchDocumentAttributeQuery;
+use Orm\Zed\SearchPage\Persistence\Base\SpySearchDocumentAttributeQuery as BaseSpySearchDocumentAttributeQuery;
 
 /**
  * Skeleton subclass for performing query and update operations on the 'spy_search_document_attribute' table.

@@ -2,7 +2,7 @@
 
 namespace Orm\Zed\Discount\Persistence;
 
-use SprykerFeature\Zed\Discount\Persistence\Propel\AbstractSpyDiscountVoucherQuery as BaseSpyDiscountVoucherQuery;
+use Orm\Zed\Discount\Persistence\Base\SpyDiscountVoucherQuery as BaseSpyDiscountVoucherQuery;
 
 /**
  * Skeleton subclass for performing query and update operations on the 'spy_discount_voucher' table.

@@ -2,7 +2,7 @@
 
 namespace Orm\Zed\ProductCategory\Persistence;
 
-use SprykerFeature\Zed\ProductCategory\Persistence\Propel\AbstractSpyProductCategory as BaseSpyProductCategory;
+use Orm\Zed\ProductCategory\Persistence\Base\SpyProductCategory as BaseSpyProductCategory;
 
 /**
  * Skeleton subclass for representing a row from the 'spy_product_category' table.
