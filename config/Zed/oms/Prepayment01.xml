@@ -14,7 +14,7 @@
         <state name="completed" />
         <state name="cancelled" />
         <state name="send payment reminder" />
-        <state name="order exported" />
+        <state name="exported order" />
     </states>
 
     <transitions>
@@ -38,7 +38,7 @@
 
         <transition>
             <source>waiting for payment</source>
-            <target>canceled</target>
+            <target>cancelled</target>
             <event>cancel</event>
         </transition>
 
@@ -68,12 +68,12 @@
 
         <transition>
             <source>payment received</source>
-            <target>order exported</target>
+            <target>exported order</target>
             <event>export order</event>
         </transition>
 
         <transition>
-            <source>order exported</source>
+            <source>exported order</source>
             <target>order shipped</target>
             <event>ship order</event>
         </transition>
