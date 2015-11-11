@@ -5,13 +5,11 @@ namespace Pyz\Zed\PetsDeliImporterWriter\Business\Writer;
 use Generated\Shared\ProductDynamicImporter\PavProductDynamicImporterAbstractProductInterface;
 use Generated\Shared\ProductDynamicImporter\PavProductDynamicImporterLocaleInterface;
 use Generated\Shared\Transfer\AbstractProductTransfer;
-use Generated\Shared\Transfer\LocalizedAttributesTransfer;
-use Generated\Shared\Transfer\PavProductDynamicImporterLocaleTransfer;
 use Generated\Shared\Transfer\TaxSetTransfer;
 use PavFeature\Zed\ProductDynamicImporter\Business\Writer\ProductWriterInterface;
 use Pyz\Zed\Locale\Business\LocaleFacade;
 use Pyz\Zed\Product\Business\ProductFacade;
-use SprykerEngine\Shared\Transfer\TransferInterface;
+use Pyz\Zed\ProductCategory\Business\ProductCategoryFacade;
 use SprykerFeature\Zed\Tax\Business\TaxFacade;
 
 class AbstractProductWriter extends DefaultProductWriter implements ProductWriterInterface
@@ -22,21 +20,25 @@ class AbstractProductWriter extends DefaultProductWriter implements ProductWrite
      */
     protected $productFacade;
     protected $taxFacade;
+    protected $productCategoryFacade;
 
     /**
      * AbstractProductWriter constructor.
      * @param ProductFacade $productFacade
      * @param LocaleFacade $localeFacade
      * @param TaxFacade $taxFacade
+     * @param ProductCategoryFacade $productCategoryFacade
      */
     public function __construct(
         ProductFacade $productFacade,
         LocaleFacade $localeFacade,
-        TaxFacade $taxFacade
+        TaxFacade $taxFacade,
+        ProductCategoryFacade $productCategoryFacade
     ) {
         $this->productFacade = $productFacade;
         $this->localeFacade = $localeFacade;
         $this->taxFacade = $taxFacade;
+        $this->productCategoryFacade = $productCategoryFacade;
 
     }
 
@@ -61,35 +63,32 @@ class AbstractProductWriter extends DefaultProductWriter implements ProductWrite
         $abstractProduct->setAttributes($this->extractAttributes($product));
 
         $abstractProduct->setLocalizedAttributes($this->extractLocalizedAttributes($product->getLocales()));
-        $this->productFacade->saveAbstractProduct($abstractProduct);
-    }
+        $abstractProduct->setIdAbstractProduct($this->productFacade->saveAbstractProduct($abstractProduct));
 
-    /**
-     * @param \ArrayObject|PavProductDynamicImporterLocaleTransfer[] $importerLocales
-     * @return \Generated\Shared\Transfer\LocalizedAttributesTransfer[]
-     */
-    protected function extractLocalizedAttributes(\ArrayObject $importerLocales)
-    {
-        $localeAttributeTransferList = [];
-
-        foreach ($importerLocales as $importerLocale) {
-            $localeTransfer = $this->localeFacade->getLocale($importerLocale->getLocale());
-            $localeAttributeTransfer = new LocalizedAttributesTransfer();
-            $localeAttributeTransfer->setLocale($localeTransfer);
-            $localeAttributeTransfer->setName($importerLocale->getName());
-
-            $mergedAttributes = $this->mergeAttributes(
-                $importerLocale->getAttributes(),
-                [
-                    'url' => $importerLocale->getUrl(),
-                    'media' => $importerLocale->getMedia()
-                ]
-            );
-            $localeAttributeTransfer->setAttributes($mergedAttributes);
-            $localeAttributeTransferList[] = $localeAttributeTransfer;
+        if (!empty($product->getCategories())) {
+            $this->handleProductCategories((array) $product->getCategories(), $abstractProduct);
         }
 
-        return new \ArrayObject($localeAttributeTransferList);
+    }
+
+    protected function handleProductCategories(array $categoryIds, AbstractProductTransfer $product)
+    {
+
+        $categoryIds = array_flip($categoryIds);
+        $currentProductCategories = $this->productCategoryFacade->getCategoriesByAbstractProductId($product->getIdAbstractProduct());
+
+        foreach ($currentProductCategories as $productCategory) {
+            if (!array_key_exists($productCategory->getFkCategory(), $categoryIds)) {
+                $this->productCategoryFacade->removeProductCategoryMappings($productCategory->getFkCategory(), array($product->getIdAbstractProduct()));
+            } else {
+                unset($categoryIds[$productCategory->getFkCategory()]);
+            }
+        }
+
+        foreach ($categoryIds as $categoryId => $tmp) {
+            $this->productCategoryFacade->createProductCategoryMappings($categoryId, array($product->getIdAbstractProduct()));
+        }
+
 
     }
 

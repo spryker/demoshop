@@ -402,6 +402,10 @@ class IndexController extends SprykerIndexController
   "sku": "abstract_menubox_dogs_kangaroo_hypoallergen",
   "type": "simple",
   "tax": "7.00",
+  "categories": [
+    "12",
+    "15"
+  ],
   "locales": [
     {
       "locale": "de_DE",
