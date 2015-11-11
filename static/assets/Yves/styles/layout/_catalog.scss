@@ -138,7 +138,7 @@
 }
 
 .catalog__products {
-  display: flex;
+  display: block;
   flex-wrap: wrap;
   transition: transform .5s;
   width: 100%;
@@ -208,6 +208,7 @@
 }
 
 .catalog__product {
+  float: left;
   position: relative;
   display: block;
   width: 100%;
