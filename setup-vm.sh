@@ -11,8 +11,7 @@ CLREOL=$'\x1B[K'
 function labelText {
     echo $TC_RESET
     echo -n "${TC_SKY}${CLREOL}"
-    echo " "
-    echo ${1}${CLREOL}
+    echo -e "\n${1}${CLREOL}"
     echo ${CLREOL}
     echo $TC_RESET
 }
