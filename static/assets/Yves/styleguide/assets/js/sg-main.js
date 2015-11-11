@@ -10,6 +10,9 @@ import './modules/offcanvas';
 import './modules/productConfigurator';
 import './modules/productFilter';
 import './modules/productGallery';
+import './modules/productAccordion';
 import './modules/productSlider';
+
 import './modules/dropdown';
 import './modules/stepper';
+import './modules/passwordInput';

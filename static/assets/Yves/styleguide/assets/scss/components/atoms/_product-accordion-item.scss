@@ -1,0 +1,141 @@
+// Product accordion item
+//
+// Markup:
+// <div class="product-accordion-item">
+//     <div class="product-accordion-item__header">
+//         <div class="product-accordion-item__limit">
+//             <div class="product-accordion-item__inner">
+//                 <h2 class="product-accordion-item__title">
+//                     {{title}}
+//                     <div class="product-accordion-item__toggle">
+//                         <div class="product-accordion-item__plus">+</div>
+//                         <div class="product-accordion-item__minus">–</div>
+//                     </div>
+//                 </h2>
+//             </div>
+//         </div>
+//     </div>
+//     <div class="product-accordion-item__content">
+//         <div class="product-accordion-item__limit">
+//             <div class="product-accordion-item__inner">
+//                 <p>Unsere <strong>tiefgekühlten PETS DELI</strong> Menüboxen bieten Ihrem Hund die Grundlage für ein gesundes Hundefutter und einer gesunden und artgerechten Ernährung. Wir verwenden ausschließlich frische Zutaten in Lebensmittelqualität von ausgewählten Bezugsquellen und verzichten auf tierische Nebenerzeugnisse oder Zusätze in unserem Frischfutter.</p>
+//                 <p> Unsere gesunden Menüboxen für Hunde bestehen aus 60% reinem Muskelfleisch und 40% aus frischem Obst, Gemüse und Kohlenhydraten. Das gesunde Hundefutter in unseren Menüboxen kann mit unseren Supplements verfeinert werden. In diesem Starterpaket erhalten Sie 10 portionierte Menüboxen mit Frischfutter (zwei Größen wählbar: 250g und 500g).</p>
+//                 <ul>
+//                     <li>Lorem</li>
+//                     <li>Ipsum</li>
+//                 </ul>
+//             </div>
+//         </div>
+//     </div>
+// </div>
+//
+// Styleguide: atoms.product-accordion-item
+
+
+.product-accordion-item__limit{
+    @include pageWidth;
+}
+
+.product-accordion-item__inner{
+    width: (100%  / 12 * 5);
+}
+
+.product-accordion-item--active{
+    .product-accordion-item__title{
+        color: $_rgbApple;
+    }
+
+    .product-accordion-item__plus {
+        opacity: 0;
+        transform: rotate(90deg);
+    }
+
+    .product-accordion-item__minus {
+        opacity: 1;
+        transform: rotate(0deg);
+    }
+
+    .product-accordion-item__container{
+        opacity: 1;
+    }
+}
+
+.product-accordion-item__header{
+    padding: 30px 0 30px (100% / 12 * 3);
+    border-bottom: 1px solid $_rgbSilver;
+
+    cursor: pointer;
+}
+
+.product-accordion-item__title{
+    position: relative;
+    display: inline-block;
+    padding-right: 50px;
+
+    font-family: $_ffBrandonGrotesque-Black;
+    font-size: 24px;
+    color: $_rgbDoveGray;
+
+    transition: color $_tShort ease-in-out;
+}
+
+.product-accordion-item__toggle {
+    display: inline-block;
+    position: absolute;
+    top: 50%;
+    right: 0;
+    width: 24px;
+    height: 24px;
+    margin-top: -12px;
+    background: $_rgbApple;
+    font-size: 20px;
+    font-weight: bold;
+    color: $_rgbWhite;
+    border-radius: 50%;
+
+    cursor: pointer;
+}
+
+.product-accordion-item__plus, .product-accordion-item__minus {
+    font-family: Helvetica Neue;
+    width: 24px;
+    height: 24px;
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    line-height: 19px;
+    text-align: center;
+    transition: 0.2s opacity ease-out, 0.3s transform ease-in-out;
+}
+
+.product-accordion-item__plus {
+    opacity: 1;
+    transform: rotate(0deg);
+}
+
+.product-accordion-item__minus {
+    opacity: 0;
+    transform: rotate(-90deg);
+}
+
+.product-accordion-item__content{
+    display: none;
+    padding: 30px 0 30px (100% / 12 * 3);
+    border-bottom: 1px solid $_rgbSilver;
+
+    font-size: 16px;
+    color: $_rgbDoveGray;
+
+    strong{
+        font-family: $_ffBrandonGrotesque-Bold;
+    }
+
+    ul, ol{
+        margin: 1em 0;
+    }
+
+    li{
+        margin-left: 30px;
+    }
+}

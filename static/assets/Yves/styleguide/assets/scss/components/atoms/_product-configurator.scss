@@ -24,14 +24,6 @@
 //         {{> "atoms.image-checkbox" id="meat_turkey" image="../images/product/meat_turkey.jpg" label="Turkey" name="meat.igredients[]" value="turkey"}}
 //         {{> "atoms.image-checkbox" id="meat_redfish" image="../images/product/meat_redfish.jpg" label="Redfish" name="meat.igredients[]" value="redfish"}}
 //     </div>
-//     <h3 class="product-configurator__subheadline">Carb Ingredients</h3>
-//     <div class="product-configurator__description">
-//         Would you like carbs in all boxes, half of the boxes or no
-// carbs at all?
-//     </div>
-//     <div class="product-configurator__selection">
-//        {{> "atoms.radio-buttons"}}
-//     </div>
 //     <div class="product-configurator__composition">
 //         <div class="product-configurator__composition-label">
 //             Select or deselect ingredients:
@@ -54,7 +46,6 @@
     width: 100%;
     max-width: 735px;
     max-height: 100vh;
-    overflow: hidden;
     transition: right $_tLong ease-in-out;
 }
 

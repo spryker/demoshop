@@ -6,12 +6,14 @@
 
 
 @import 'input';
+@import 'input-password';
 @import 'buttons';
 @import 'dropdown';
 @import 'stepper';
 @import 'image-checkbox';
 @import 'radio-buttons';
 
+@import 'message';
 
 @import 'product';
 @import 'product-gallery';
@@ -21,7 +23,10 @@
 @import 'product-options';
 @import 'product-related';
 @import 'product-configurator';
+@import 'product-accordion-item';
 
 @import 'payment';
 
 @import 'press';
+
+@import 'user-box';

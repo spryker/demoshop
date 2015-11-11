@@ -1,0 +1,75 @@
+// User boxes
+//
+// Markup: molecules.user-boxes.hbs
+//
+// Styleguide: molecules.user-boxes
+
+.user-boxes{
+    @include clearfix;
+    @include pageWidth;
+    padding: 0 0 80px 0;
+}
+
+.user-box{
+    width: 100%;
+    float: left;
+    padding: 10px;
+
+    text-align: center;
+
+    .input, .password-input{
+        margin-top: 30px;
+    }
+
+    .password-input{
+        .input{
+            margin-top: 0;
+        }
+    }
+
+    &:first-child{
+        padding-left: 0;
+    }
+
+    &:last-child{
+        padding-right: 0;
+    }
+}
+
+.user-box__inner{
+    background: $_rgbWhite;
+    @include cardShadow;
+    padding: 30px;
+}
+
+.user-box__form{
+    display: inline-block;
+    max-width: 260px;
+    width: 100%;
+
+    .button{
+        margin-top: 32px;
+    }
+
+    .password-input + .button{
+        margin-top: 80px;
+    }
+}
+
+.user-box__headline{
+    font-family: $_ffBrandonGrotesque-Black;
+    font-size: 40px;
+    color: $_rgbApple;
+}
+
+.user-box__description{
+    font-size: 20px;
+    color: $_rgbSilverChalice;
+}
+
+@media (min-width: $_wMedium) {
+    .user-box{
+        width: 50%;
+        padding: 0 10px 10px 10px;
+    }
+}

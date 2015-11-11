@@ -1,7 +1,15 @@
 import $ from 'jquery';
 import { debounce } from './helpers';
+import { EVENTS as OFFCANVAS_EVENTS } from './offcanvas';
 
 'use strict';
+
+
+
+const EVENTS = {
+    NAVSTATE_CHANGE: 'NAVSTATE_CHANGE'
+};
+
 
 $(document).ready(function () {
 
@@ -20,11 +28,10 @@ $(document).ready(function () {
 
         $(window).resize(debounce(250, updateMarker));
 
-        $(document).on('NAVSTATE_CHANGE', updateMarker);
+        $(document).on(EVENTS.NAVSTATE_CHANGE, updateMarker);
 
         $('.navbar__link--more').click(function () {
-            // TODO: messages into module const
-            $(document).trigger('OFFCANVAS_SHOW');
+            $(document).trigger(OFFCANVAS_EVENTS.OFFCANVAS_SHOW);
         });
 
         $(window).scroll(checkTopBar);
@@ -58,3 +65,6 @@ $(document).ready(function () {
     });
 
 });
+
+
+export { EVENTS };

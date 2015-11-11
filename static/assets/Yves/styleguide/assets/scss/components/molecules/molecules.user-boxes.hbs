@@ -1,0 +1,22 @@
+<div class="user-boxes">
+    {{debug variable}}
+    <div class="user-box">
+        <div class="user-box__inner">
+            <h2 class="user-box__headline">Existing Customer</h2>
+            <p class="user-box__description">Insert your account credentials</p>
+            <form class="user-box__form">
+               {{> "atoms.input" label="Your email" id="email" name="email" additional=""}}
+               {{> "atoms.input-password" label="Your password" id="password" name="password"}}
+               {{> "atoms.button" title="Login" modifier_class="button--cta"}}
+            </form>
+        </div>
+    </div>
+    <div class="user-box">
+        <div class="user-box__inner">
+            <h2 class="user-box__headline">New Customer</h2>
+            <form class="user-box__form">
+               {{> "atoms.button" title="Continue" modifier_class="button--cta"}}
+            </form>
+        </div>
+    </div>
+</div>

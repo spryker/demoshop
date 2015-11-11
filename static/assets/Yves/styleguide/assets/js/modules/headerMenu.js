@@ -2,6 +2,9 @@ import $ from 'jquery';
 import { debounce } from './helpers';
 import { ToastService } from './toast';
 
+import { EVENTS as NAVBAR_EVENTS } from './navbar';
+import { EVENTS as BODY_EVENTS } from './bodyScrolling';
+
 'use strict';
 
 
@@ -32,7 +35,7 @@ $(document).ready(function () {
             $trigger.removeClass('navbar__link--open');
             $(this).addClass('navbar__link--open');
 
-            $(document).trigger('NAVSTATE_CHANGE');
+            $(document).trigger(NAVBAR_EVENTS.NAVSTATE_CHANGE);
         });
 
         $('.navbar__link--login').click(function (e) {
@@ -58,7 +61,7 @@ $(document).ready(function () {
         $menu.click(function (e) {
             var $target = $(e.target);
 
-            // TODO: abstract class
+            // #TODO:0 abstract class
             if ((!$target.parents('.menu__inner').size() && !$target.hasClass('menu__inner')) && (!$target.parents('.cart-layer__inner').size() && !$target.hasClass('cart-layer__inner'))) {
                 hideMenu();
             }
@@ -81,14 +84,14 @@ $(document).ready(function () {
             });
 
             $trigger.removeClass('navbar__link--open');
-            $(document).trigger('NAVSTATE_CHANGE');
+            $(document).trigger(NAVBAR_EVENTS.NAVSTATE_CHANGE);
 
-            $(document).trigger('ENABLE_SCROLLING');
+            $(document).trigger(BODY_EVENTS.ENABLE_SCROLLING);
 
         }
 
         function showMenu (newIndex, disableTransition) {
-            $(document).trigger('DISABLE_SCROLLING');
+            $(document).trigger(BODY_EVENTS.DISABLE_SCROLLING);
 
             if (typeof disableTransition === 'boolean' && disableTransition) {
                 $menu.removeClass('js-processed');
@@ -102,7 +105,7 @@ $(document).ready(function () {
 
                 index = newIndex;
 
-                // TODO: dynamic count
+                // #TODO:450 dynamic offset
                 var offset = 100 / -5 * index ;
 
                 $slider.css({
@@ -133,5 +136,7 @@ $(document).ready(function () {
             height = $menu.height();
         }
     });
+
+    // #TODO:440 dynamic cart count
 
 });
