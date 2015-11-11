@@ -2,12 +2,13 @@
 
 namespace Pyz\Zed\Product\Business\Product;
 
+use SprykerFeature\Zed\Product\Business\Product\ProductManagerInterface as SprykerProductManagerInterface;
 use Generated\Shared\Product\AbstractProductInterface;
 use Generated\Shared\Product\ConcreteProductInterface;
 use Generated\Shared\Transfer\AbstractProductTransfer;
 use SprykerFeature\Zed\Product\Business\Exception\MissingProductException;
 
-interface ProductManagerInterface
+interface ProductManagerInterface extends SprykerProductManagerInterface
 {
     /**
      * @param $abstractSku

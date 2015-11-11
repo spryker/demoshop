@@ -66,14 +66,17 @@ class AbstractProductWriter extends DefaultProductWriter implements ProductWrite
         $abstractProduct->setIdAbstractProduct($this->productFacade->saveAbstractProduct($abstractProduct));
 
         if (!empty($product->getCategories())) {
-            $this->handleProductCategories((array) $product->getCategories(), $abstractProduct);
+            $this->handleProductCategories((array)$product->getCategories(), $abstractProduct);
         }
 
     }
 
+    /**
+     * @param array $categoryIds
+     * @param AbstractProductTransfer $product
+     */
     protected function handleProductCategories(array $categoryIds, AbstractProductTransfer $product)
     {
-
         $categoryIds = array_flip($categoryIds);
         $currentProductCategories = $this->productCategoryFacade->getCategoriesByAbstractProductId($product->getIdAbstractProduct());
 
@@ -88,10 +91,12 @@ class AbstractProductWriter extends DefaultProductWriter implements ProductWrite
         foreach ($categoryIds as $categoryId => $tmp) {
             $this->productCategoryFacade->createProductCategoryMappings($categoryId, array($product->getIdAbstractProduct()));
         }
-
-
     }
 
+    /**
+     * @param $tax
+     * @return TaxSetTransfer|null
+     */
     protected function extractTaxSet($tax)
     {
         $tax = (float)$tax;
@@ -109,6 +114,10 @@ class AbstractProductWriter extends DefaultProductWriter implements ProductWrite
         return null;
     }
 
+    /**
+     * @param PavProductDynamicImporterLocaleInterface $importerLocale
+     * @return array
+     */
     protected function getLocalizedAttributesToBeMerged(PavProductDynamicImporterLocaleInterface $importerLocale)
     {
         return [

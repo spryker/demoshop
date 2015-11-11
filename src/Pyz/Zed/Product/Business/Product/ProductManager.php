@@ -100,6 +100,7 @@ class ProductManager extends SprykerProductManager implements ProductManagerInte
         $abstractProductTransfer->setIdAbstractProduct($idAbstractProduct);
 
         $this->saveUrlToAbstractProduct($abstractProductTransfer);
+        $this->touchProductActive($idAbstractProduct);
 
         return $idAbstractProduct;
     }
@@ -186,13 +187,13 @@ class ProductManager extends SprykerProductManager implements ProductManagerInte
      * @param SpyProduct $entity
      * @return SpyProduct
      */
-    protected function updateConcreteProductEntity(ConcreteProductInterface $concreteProductTransfer, SpyProduct $entity) {
+    protected function updateConcreteProductEntity(ConcreteProductInterface $concreteProductTransfer, SpyProduct $entity)
+    {
         $entity
             ->setIsActive($concreteProductTransfer->getIsActive())
             ->setSku($concreteProductTransfer->getSku())
             ->setFkAbstractProduct($concreteProductTransfer->getIdAbstractProduct())
-            ->setAttributes($this->encodeAttributes($concreteProductTransfer->getAttributes()))
-            ;
+            ->setAttributes($this->encodeAttributes($concreteProductTransfer->getAttributes()));
 
         $localizedAttributeCollection = [];
 
@@ -247,19 +248,16 @@ class ProductManager extends SprykerProductManager implements ProductManagerInte
 
             if ($urlTransfer->getIdUrl() && !array_key_exists(ProductConfig::ABSTRACT_URL_ATTRIBUTES_KEY, $attributes)) {
                 $this->urlFacade->deleteUrl($urlTransfer);
-            }
-            else {
+            } else {
+
                 $urlTransfer
                     // need to set the ResourceId here because the value from ->setFkAbstractProduct() is overwritten
                     // in the save url function
                     ->setResourceType(\SprykerFeature\Shared\Product\ProductConfig::RESOURCE_TYPE_ABSTRACT_PRODUCT)
                     ->setResourceId($abstractProductTransfer->getIdAbstractProduct())
                     ->setFkLocale($locale->getIdLocale())
-                    ->setUrl($attributes[ProductConfig::ABSTRACT_URL_ATTRIBUTES_KEY])
-                    ;
-
-
-                $this->urlFacade->saveUrl($urlTransfer);
+                    ->setUrl($attributes[ProductConfig::ABSTRACT_URL_ATTRIBUTES_KEY]);
+                $this->urlFacade->saveUrlAndTouch($urlTransfer);
             }
         }
     }
