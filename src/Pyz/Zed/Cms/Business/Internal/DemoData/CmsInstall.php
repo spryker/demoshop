@@ -140,8 +140,8 @@ class CmsInstall extends AbstractInstaller
             $demoDataFile = $this->filePath . '/' . $locale;
             if ($this->checkPathExists($demoDataFile)) {
                 $this->installPageFromDemoDataFile($demoDataFile);
-//                $this->installRedirectFromDemoDataFile($demoDataFile);
-//                $this->installBlockFromDemoDataFile($demoDataFile);
+                $this->installRedirectFromDemoDataFile($demoDataFile);
+                $this->installBlockFromDemoDataFile($demoDataFile);
             }
         }
     }

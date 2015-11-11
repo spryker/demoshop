@@ -3,8 +3,6 @@
 namespace Pyz\Zed\Cms\Business;
 
 use Pyz\Zed\Cms\Business\Internal\DemoData\CmsInstall;
-use Pyz\Zed\Cms\Business\Manager\CategoryManagerInterface;
-use Pyz\Zed\Cms\Business\Manager\KeywordManagerInterface;
 use Pyz\Zed\Cms\CmsDependencyProvider;
 use Pyz\Zed\Glossary\Business\GlossaryFacade;
 use Pyz\Zed\Locale\Business\LocaleFacade;
@@ -60,30 +58,6 @@ class CmsDependencyContainer extends SprykerCmsDependencyContainer
     public function createLocaleFacade()
     {
         return $this->getProvidedDependency(CmsDependencyProvider::FACADE_LOCALE);
-    }
-
-    /**
-     * @return CategoryManagerInterface
-     */
-    public function getCategoryManager()
-    {
-        return $this->getFactory()->createManagerCategoryManager(
-            $this->getCmsQueryContainer(),
-            $this->getTouchFacade(),
-            $this->getConfig(),
-            $this->getFinder()
-        );
-    }
-
-    /**
-     * @return KeywordManagerInterface
-     */
-    public function getKeywordManager()
-    {
-        return $this->getFactory()->createManagerKeywordManager(
-            $this->getCmsQueryContainer(),
-            $this->getTouchFacade()
-        );
     }
 
 }
