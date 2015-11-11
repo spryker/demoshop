@@ -3,156 +3,106 @@
         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
         xsi:noNamespaceSchemaLocation="process.xsd">
     <process name="Prepayment01" main="true">
-        <subprocesses>
-            <process>fulfillment</process>
-            <process>completion</process>
-            <process>return shipment</process>
-            <process>cancellation</process>
-        </subprocesses>
-        <states>
-            <state name="new" reserved="true"/>
-            <state name="request to pay sent"/>
-            <state name="payment received"/>
-            <state name="clarify reminder"/>
-            <state name="invalid" reserved="false"/>
-            <state name="clarify under- or overpaid"/>
-            <state name="paid">
-                <flag>ready for invoice</flag>
-            </state>
-            <state name="invoice sent"/>
-            <state name="invoice created"/>
-        </states>
-        <transitions>
+    <states>
+        <state name="new" reserved="true"/>
+        <state name="invoice generated"/>
+        <state name="invoice sent" />
+        <state name="order shipped" />
+        <state name="waiting for payment" />
+        <state name="payment received" />
+        <state name="ready for return" />
+        <state name="completed" />
+        <state name="cancelled" />
+        <state name="send payment reminder" />
+        <state name="order exported" />
+    </states>
 
-            <transition>
-                <source>new</source>
-                <target>request to pay sent</target>
-                <event>send payment request</event>
-            </transition>
+    <transitions>
+        <transition>
+            <source>new</source>
+            <target>invoice generated</target>
+            <event>create invoice</event>
+        </transition>
 
-            <transition>
-                <source>request to pay sent</source>
-                <target>clarify reminder</target>
-                <event>remind customer</event>
-            </transition>
+        <transition>
+            <source>invoice generated</source>
+            <target>invoice sent</target>
+            <event>send invoice</event>
+        </transition>
 
-            <transition>
-                <source>clarify reminder</source>
-                <target>payment received</target>
-                <event>receive payment</event>
-            </transition>
+        <transition>
+            <source>invoice sent</source>
+            <target>waiting for payment</target>
+            <event>waiting for payment</event>
+        </transition>
 
-            <transition>
-                <source>request to pay sent</source>
-                <target>payment received</target>
-                <event>receive payment</event>
-            </transition>
+        <transition>
+            <source>waiting for payment</source>
+            <target>canceled</target>
+            <event>cancel</event>
+        </transition>
 
-            <transition>
-                <source>clarify under- or overpaid</source>
-                <target>payment received</target>
-                <event>receive payment</event>
-            </transition>
+        <transition>
+            <source>waiting for payment</source>
+            <target>send payment reminder</target>
+            <event>payment not received</event>
+        </transition>
 
-            <transition>
-                <source>clarify reminder</source>
-                <target>invalid</target>
-                <event>mark invalid</event>
-            </transition>
-            <transition>
-                <source>payment received</source>
-                <target>paid</target>
-                <event>payment amount matches</event>
-            </transition>
-            <transition>
-                <source>payment received</source>
-                <target>clarify under- or overpaid</target>
-                <event>resolve amount mismatch</event>
-            </transition>
+        <transition>
+            <source>waiting for payment</source>
+            <target>payment received</target>
+            <event>payment received</event>
+        </transition>
 
-            <transition>
-                <source>clarify under- or overpaid</source>
-                <target>paid</target>
-                <event>manually set paid</event>
-            </transition>
+        <transition>
+            <source>send payment reminder</source>
+            <target>cancelled</target>
+            <event>cancel</event>
+        </transition>
 
+        <transition>
+            <source>send payment reminder</source>
+            <target>payment received</target>
+            <event>payment received</event>
+        </transition>
 
-            <transition>
-                <source>paid</source>
-                <target>invoice created</target>
-                <event>create invoice</event>
-            </transition>
-            <transition>
-                <source>invoice created</source>
-                <target>invoice sent</target>
-                <event>send invoice</event>
-            </transition>
+        <transition>
+            <source>payment received</source>
+            <target>order exported</target>
+            <event>export order</event>
+        </transition>
 
-            <!-- Interprocess Transistions -->
-            <!-- - - - - - - - - - - - - - -->
-            <transition>
-                <source>invoice sent</source>
-                <target>fulfillment initiated</target>
-            </transition>
+        <transition>
+            <source>order exported</source>
+            <target>order shipped</target>
+            <event>ship order</event>
+        </transition>
 
-            <transition>
-                <source>fulfilled</source>
-                <target>completed but returnable</target>
-            </transition>
+        <transition>
+            <source>order shipped</source>
+            <target>ready for return</target>
+            <event>ready for return</event>
+        </transition>
 
-            <transition>
-                <source>completed but returnable</source>
-                <target>return shipment initiated</target>
-                <event>initialize return</event>
-            </transition>
+        <transition>
+            <source>ready for return</source>
+            <target>completed</target>
+            <event>item not returned</event>
+        </transition>
 
-            <transition>
-                <source>return shipment initiated</source>
-                <target>completed but returnable</target>
-                <event>item not returned</event>
-            </transition>
-            <transition>
-                <source>return arrived</source>
-                <target>cancellation initiated</target>
-                <event>refund desired</event>
-            </transition>
+    </transitions>
 
-            <transition>
-                <source>return arrived</source>
-                <target>fulfillment initiated</target>
-                <event>new item requested</event>
-            </transition>
-
-            <transition>
-                <source>clarify delivery failed</source>
-                <target>cancellation initiated</target>
-                <event>cancel delivery</event>
-            </transition>
-
-        </transitions>
-
-        <events>
-            <event name="send payment request" onEnter="true" manual="true" command="Oms/SendPaymentRequest"/>
-            <event name="remind customer" timeout="14days"/>
-            <event name="mark invalid" timeout="14days"/>
-            <event name="receive payment" manual="true"/>
-            <event name="check amount"/>
-            <event name="payment amount matches" manual="true"/>
-            <event name="resolve amount mismatch" manual="true"/>
-            <event name="manually set paid" manual="true"/>
-            <event name="create invoice" command="Oms/CreateInvoice" onEnter="true"/>
-            <event name="send invoice" command="Oms/SendInvoice" onEnter="true"/>
-            <event name="cancel delivery" manual="true"/>
-            <event name="initialize return" manual="true"/>
-            <event name="item not returned" timeout="14days"/>
-            <event name="refund desired" manual="true"/>
-            <event name="new item requested" manual="true"/>
-        </events>
-
-
-    </process>
-    <process name="fulfillment" file="subprocesses/Fulfillment01.xml"/>
-    <process name="completion" file="subprocesses/Completion01.xml"/>
-    <process name="return shipment" file="subprocesses/ReturnShipment01.xml"/>
-    <process name="cancellation" file="subprocesses/Cancellation01.xml"/>
+    <events>
+        <event name="create invoice" onEnter="true" />
+        <event name="send invoice" onEnter="true" />
+        <event name="export order" onEnter="true" />
+        <event name="ship order" manual="true" />
+        <event name="waiting for payment" onEnter="true" />
+        <event name="payment not received" timeout="1hour" />
+        <event name="payment received" manual="true" />
+        <event name="ready for return"  onEnter="true" />
+        <event name="item not returned" timeout="14days" />
+        <event name="cancel" manual="true" />
+    </events>
+   </process>
 </statemachine>
