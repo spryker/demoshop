@@ -241,8 +241,11 @@ class CmsInstall extends AbstractInstaller
         $redirectTransfer = $this->urlFacade->createRedirectAndTouch($toUrl, $status);
 
         $this->urlFacade
-            ->saveRedirectUrlAndTouch($fromUrl, $this->localeFacade
-                ->getCurrentLocale(), $redirectTransfer->getIdRedirect())
+            ->saveRedirectUrlAndTouch(
+                $fromUrl,
+                $this->localeFacade->getCurrentLocale(),
+                $redirectTransfer->getIdRedirect()
+            )
         ;
     }
 
@@ -270,49 +273,6 @@ class CmsInstall extends AbstractInstaller
         }
 
         $cmsBlockTransfer = $this->createCmsBlockTransfer($blockName, $this->blockDemoType, $this->blockDemoValue, $pageTransfer);
-        $this->blockManager->saveBlockAndTouch($cmsBlockTransfer);
-        $this->pageManager->touchPageActive($pageTransfer);
-    }
-
-    /**
-     * @param string $template
-     * @param string $template_path
-     * @param string $blockName
-     * @param string $blockType
-     * @param int $blockValue
-     * @param string $placeholder
-     * @param string $translation
-     */
-    private function installKamBlock($template, $template_path, $blockName, $blockType, $blockValue, $placeholder, $translation)
-    {
-        if ($blockType === self::CATEGORY) {
-            $urlTransfer = $this->cmsQueryContainer->queryUrlByPath($blockValue)->findOne();
-            if ($urlTransfer !== null) {
-                $blockValue = $urlTransfer->getFkResourceCategorynode();
-            } else {
-                $this->warning(sprintf('%s Category for block %s not found. Skipping.', $blockValue, $blockName));
-
-                return;
-            }
-        } else {
-            $blockValue = 0;
-        }
-
-        if ($this->cmsQueryContainer->queryBlockByNameAndTypeValue($blockName, $blockType, $blockValue)->count() > 0) {
-            $this->warning(sprintf('Block with Name %s already exists. Skipping.', $blockName));
-
-            return;
-        }
-
-        $placeholders = explode('$', $placeholder);
-        $translations = explode('$', $translation);
-        $templateTransfer = $this->getOrCreateTemplateByPath($template, $template_path);
-        $pageTransfer = $this->createPage($templateTransfer);
-        foreach ($placeholders as $key => $value) {
-            $this->keyMappingManager->addPlaceholderText($pageTransfer, $value, base64_decode($translations[$key]));
-        }
-
-        $cmsBlockTransfer = $this->createCmsBlockTransfer($blockName, $blockType, $blockValue, $pageTransfer);
         $this->blockManager->saveBlockAndTouch($cmsBlockTransfer);
         $this->pageManager->touchPageActive($pageTransfer);
     }
