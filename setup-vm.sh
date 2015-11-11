@@ -12,7 +12,6 @@ function labelText {
     echo $TC_RESET
     echo -n "${TC_SKY}${CLREOL}"
     echo -e "\n${1}${CLREOL}"
-    echo ${CLREOL}
     echo $TC_RESET
 }
 
@@ -26,23 +25,28 @@ $PHP composer.phar selfupdate
 $PHP composer.phar install
 
 if [[ `node -v | grep -E '^v[0-4]'` ]]; then
-    labelText "+ Upgrade node js"
+    labelText "-> Upgrade node js"
     sudo $NPM cache clean -f
     sudo $NPM install -g n
     sudo n stable
 
-    labelText "=== NodeJS updated to version `node -v` ==="
-    labelText "=== NPM updated to version `$NPM -v`    ==="
+    labelText "=> NodeJS updated to version `node -v`"
+    labelText "=> NPM updated to version `$NPM -v`"
 
     labelText "-> Install Gulp Globally"
     sudo $NPM install -g gulp
 
     if [[ -d "node_modules" ]]; then
-        labelText "-> Remove node_modules and reinstall npm packages"
+        labelText "-> Remove node_modules directory"
         rm -rf ./node_modules/
-        $NPM install
     fi
 fi
+
+labelText "-> Install npm modules"
+$NPM install
+
+labelText "-> Restart ElasticSearch"
+sudo /etc/init.d/elasticsearch restart
 
 labelText "-> Build-class-map"
 vendor/bin/build-class-map -vvv

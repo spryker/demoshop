@@ -12,7 +12,7 @@
     "spy-assets": "gulp --gulpfile gulp/zed.js --cwd . assets",
     "spy-yves": "gulp --gulpfile config/Yves/gulpfile.js --cwd .",
     "spy-zed": "gulp --gulpfile gulp/zed.js --cwd .",
-    "spy-setup": "npm run spy-yves && npm run spy-zed"
+    "spy-setup": "npm install && npm run spy-yves && npm run spy-zed"
   },
   "dependencies": {
     "browserify": "^11.2.0",
