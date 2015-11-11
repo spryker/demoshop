@@ -3,7 +3,7 @@
 namespace Pyz\Zed\Product\Business;
 
 use Generated\Shared\Product\AbstractProductInterface;
-use Generated\Shared\Transfer\AbstractProductTransfer;
+use Generated\Shared\Product\ConcreteProductInterface;
 use Pyz\SprykerBugfixInterface;
 use Pyz\Zed\Product\Business\Attribute\MediaAttributes;
 use SprykerFeature\Zed\Product\Business\ProductFacade as SprykerProductFacade;
@@ -57,6 +57,33 @@ class ProductFacade extends SprykerProductFacade implements
     }
 
     /**
+     * @param string $abstractSku
+     *
+     * @return AbstractProductInterface
+     */
+    public function getAbstractProduct($abstractSku)
+    {
+        return $this->getDependencyContainer()->createProductManager()->getAbstractProduct($abstractSku);
+    }
+
+    /**
+     * @param AbstractProductInterface $abstractProductTransfer
+     * @return int
+     */
+    public function saveAbstractProduct(AbstractProductInterface $abstractProductTransfer) {
+        return $this->getDependencyContainer()->createProductManager()->saveAbstractProduct($abstractProductTransfer);
+    }
+
+    /**
+     * @param ConcreteProductInterface $concreteProductTransfer
+     * @return int
+     */
+    public function saveConcreteProduct(ConcreteProductInterface $concreteProductTransfer) {
+        return $this->getDependencyContainer()->createProductManager()->saveConcreteProduct($concreteProductTransfer);
+    }
+
+
+        /**
      * @param string|array $attributes
      *
      * @return array
@@ -75,23 +102,4 @@ class ProductFacade extends SprykerProductFacade implements
     {
         return $this->getDependencyContainer()->createMediaAttributeSplitter()->split($attributes);
     }
-
-    /**
-     * @param string $abstractSku
-     *
-     * @return AbstractProductInterface
-     */
-    public function getAbstractProduct($abstractSku)
-    {
-        return $this->getDependencyContainer()->createProductManager()->getAbstractProduct($abstractSku);
-    }
-
-    /**
-     * @param AbstractProductTransfer $abstractProductTransfer
-     * @return int
-     */
-    public function saveAbstractProduct(AbstractProductTransfer $abstractProductTransfer) {
-        return $this->getDependencyContainer()->createProductManager()->saveAbstractProduct($abstractProductTransfer);
-    }
-
 }

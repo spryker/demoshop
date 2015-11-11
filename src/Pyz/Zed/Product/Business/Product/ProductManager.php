@@ -4,12 +4,15 @@ namespace Pyz\Zed\Product\Business\Product;
 
 use Generated\Shared\Locale\LocaleInterface;
 use Generated\Shared\Product\AbstractProductInterface;
+use Generated\Shared\Product\ConcreteProductInterface;
 use Generated\Shared\Transfer\AbstractProductTransfer;
 use Generated\Shared\Transfer\LocaleTransfer;
 use Generated\Shared\Transfer\LocalizedAttributesTransfer;
 use Orm\Zed\Locale\Persistence\SpyLocale;
 use Orm\Zed\Product\Persistence\SpyAbstractProduct;
 use Orm\Zed\Product\Persistence\SpyLocalizedAbstractProductAttributes;
+use Orm\Zed\Product\Persistence\SpyLocalizedProductAttributes;
+use Orm\Zed\Product\Persistence\SpyProduct;
 use Propel\Runtime\Collection\Collection;
 use Pyz\SprykerBugfixInterface;
 use Pyz\Zed\Locale\Business\LocaleFacade;
@@ -84,8 +87,6 @@ class ProductManager extends SprykerProductManager implements ProductManagerInte
      */
     public function saveAbstractProduct(AbstractProductInterface $abstractProductTransfer)
     {
-
-
         $sku = $abstractProductTransfer->getSku();
         if ($this->hasAbstractProduct($sku)) {
             $entity = $this->productQueryContainer->queryAbstractProductBySku($sku)->findOne();
@@ -101,6 +102,28 @@ class ProductManager extends SprykerProductManager implements ProductManagerInte
         $this->saveUrlToAbstractProduct($abstractProductTransfer);
 
         return $idAbstractProduct;
+    }
+
+    /**
+     * @param ConcreteProductInterface $concreteProductTransfer
+     * @return int|void
+     */
+    public function saveConcreteProduct(ConcreteProductInterface $concreteProductTransfer)
+    {
+        $sku = $concreteProductTransfer->getSku();
+        if ($this->hasConcreteProduct($sku)) {
+            $entity = $this->productQueryContainer->queryConcreteProductBySku($sku)->findOne();
+        } else {
+            $entity = new SpyProduct();
+        }
+        $entity = $this->updateConcreteProductEntity($concreteProductTransfer, $entity);
+        $entity->save();
+
+        $idConcreteProduct = $entity->getPrimaryKey();
+        $concreteProductTransfer->setIdConcreteProduct($idConcreteProduct);
+
+
+        return $idConcreteProduct;
     }
 
     protected function convertLocaleToTransfer(SpyLocale $localeEntity)
@@ -155,6 +178,50 @@ class ProductManager extends SprykerProductManager implements ProductManagerInte
 
         $entity->setFkTaxSet($abstractProductTransfer->getTaxSet()->getIdTaxSet());
         return $entity;
+    }
+
+
+    /**
+     * @param ConcreteProductInterface $concreteProductTransfer
+     * @param SpyProduct $entity
+     * @return SpyProduct
+     */
+    protected function updateConcreteProductEntity(ConcreteProductInterface $concreteProductTransfer, SpyProduct $entity) {
+        $entity
+            ->setIsActive($concreteProductTransfer->getIsActive())
+            ->setSku($concreteProductTransfer->getSku())
+            ->setFkAbstractProduct($concreteProductTransfer->getIdAbstractProduct())
+            ->setAttributes($this->encodeAttributes($concreteProductTransfer->getAttributes()))
+            ;
+
+        $localizedAttributeCollection = [];
+
+
+        foreach ($concreteProductTransfer->getLocalizedAttributes() as $localizedAttribute) {
+
+            $locale = $this->fillLocaleId($localizedAttribute->getLocale());
+
+            $localizedAttributeEntity = false;
+            foreach ($entity->getSpyLocalizedProductAttributess() as $localizedProductAttributesEntity) {
+                if ($localizedProductAttributesEntity->getFkLocale() == $locale->getIdLocale()) {
+                    $localizedAttributeEntity = $localizedProductAttributesEntity;
+                    break;
+                }
+            }
+            if (!$localizedAttributeEntity) {
+                $localizedAttributeEntity = new SpyLocalizedProductAttributes();
+                $localizedAttributeEntity->setFkLocale($locale->getIdLocale());
+            }
+
+            $localizedAttributeEntity
+                ->setAttributes($this->encodeAttributes($localizedAttribute->getAttributes()))
+                ->setName($localizedAttribute->getName());
+
+            $localizedAttributeCollection[] = $localizedAttributeEntity;
+        }
+        $entity->setSpyLocalizedProductAttributess(new Collection($localizedAttributeCollection));
+        return $entity;
+
     }
 
     /**

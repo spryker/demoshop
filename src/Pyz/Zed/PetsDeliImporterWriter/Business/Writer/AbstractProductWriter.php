@@ -3,6 +3,7 @@
 namespace Pyz\Zed\PetsDeliImporterWriter\Business\Writer;
 
 use Generated\Shared\ProductDynamicImporter\PavProductDynamicImporterAbstractProductInterface;
+use Generated\Shared\ProductDynamicImporter\PavProductDynamicImporterLocaleInterface;
 use Generated\Shared\Transfer\AbstractProductTransfer;
 use Generated\Shared\Transfer\LocalizedAttributesTransfer;
 use Generated\Shared\Transfer\PavProductDynamicImporterLocaleTransfer;
@@ -13,14 +14,13 @@ use Pyz\Zed\Product\Business\ProductFacade;
 use SprykerEngine\Shared\Transfer\TransferInterface;
 use SprykerFeature\Zed\Tax\Business\TaxFacade;
 
-class AbstractProductWriter implements ProductWriterInterface
+class AbstractProductWriter extends DefaultProductWriter implements ProductWriterInterface
 {
 
     /**
      * @var ProductFacade
      */
     protected $productFacade;
-    protected $localeFacade;
     protected $taxFacade;
 
     /**
@@ -110,35 +110,12 @@ class AbstractProductWriter implements ProductWriterInterface
         return null;
     }
 
-    protected function extractAttributes(PavProductDynamicImporterAbstractProductInterface $product)
+    protected function getLocalizedAttributesToBeMerged(PavProductDynamicImporterLocaleInterface $importerLocale)
     {
-        return $this->mergeAttributes(
-            $product->getAttributes(),
-            [
-                'media' => $product->getMedia()
-            ]
-        );
-    }
-
-    protected function mergeAttributes(array $attributes, array $toMerge)
-    {
-
-        foreach ($toMerge as $key => $data) {
-            if (!empty($data)) {
-                if ($data instanceof \ArrayObject) {
-                    $attributes[$key] = [];
-                    /** @var TransferInterface $element */
-                    foreach ($data as $element) {
-                        $attributes[$key][] = $element->toArray();
-                    }
-                }
-                elseif (is_string($data)) {
-                    $attributes[$key] = $data;
-                }
-            }
-        }
-        return $attributes;
-
+        return [
+            'url' => $importerLocale->getUrl(),
+            'media' => $importerLocale->getMedia()
+        ];
     }
 
 

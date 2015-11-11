@@ -4,8 +4,8 @@ namespace Pyz\Zed\PetsDeliImporterWriter\Business\WriterProvider;
 
 use PavFeature\Zed\ProductDynamicImporter\Business\Writer\ProductWriterInterface;
 use PavFeature\Zed\ProductDynamicImporter\Business\Writer\ProductWriterProviderInterface;
-use Pyz\Zed\PetsDeliImporterWriter\Business\Writer\AbstractProductMediaWriter;
 use Pyz\Zed\PetsDeliImporterWriter\Business\Writer\AbstractProductWriter;
+use Pyz\Zed\PetsDeliImporterWriter\Business\Writer\ConcreteProductWriter;
 
 class PetsDeliWriterProvider implements ProductWriterProviderInterface
 {
@@ -13,9 +13,11 @@ class PetsDeliWriterProvider implements ProductWriterProviderInterface
 
 
     public function __construct(
-        AbstractProductWriter $abstractProductWriter
+        AbstractProductWriter $abstractProductWriter,
+        ConcreteProductWriter $concreteProductWriter
     ) {
         $this->abstractProductWriter = $abstractProductWriter;
+        $this->concreteProductWriter = $concreteProductWriter;
 
     }
 
@@ -27,10 +29,8 @@ class PetsDeliWriterProvider implements ProductWriterProviderInterface
 
         return [
             $this->abstractProductWriter,
+            $this->concreteProductWriter
         ];
-
-
-
 
 
     }

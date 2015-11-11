@@ -469,7 +469,7 @@ class IndexController extends SprykerIndexController
           ]
         }
       ],
-      "net_price": "2.00"
+      "price": "200"
     },
     {
       "sku": "concrete_menubox_dogs_kangaroo_hypoallergen_500g",
@@ -497,7 +497,7 @@ class IndexController extends SprykerIndexController
           ]
         }
       ],
-      "price": "4.00"
+      "price": "400"
     }
   ]
 }';
