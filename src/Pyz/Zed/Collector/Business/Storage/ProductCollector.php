@@ -481,7 +481,8 @@ class ProductCollector extends AbstractPropelCollectorPlugin
             }
         }
 
-        $processedResultSet = $this->productOptionExporterFacade->processDataForExport($resultSet, $processedResultSet, $locale);
+        // @TODO: Do we really need productOptions? Currently they block from exporting
+        //$processedResultSet = $this->productOptionExporterFacade->processDataForExport($resultSet, $processedResultSet, $locale);
 
         return $processedResultSet;
     }
