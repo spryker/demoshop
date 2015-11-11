@@ -443,6 +443,8 @@ class ProductCollector extends AbstractPropelCollectorPlugin
                     unset($processedResultSet[$index]);
                     continue;
                 }
+                unset($processedResultSet[$index]['concrete_prices']);
+                unset($processedResultSet[$index]['price_types']);
 
                 // Tax
                 if (isset($productRawData['tax_set_name'], $productRawData['tax_rate_names'], $productRawData['tax_rate_rates'])) {
@@ -478,6 +480,14 @@ class ProductCollector extends AbstractPropelCollectorPlugin
                     'category_parent_names',
                     'category_parent_urls'
                 );
+
+                unset($processedResultSet[$index]['category_parent_ids']);
+                unset($processedResultSet[$index]['category_parent_names']);
+                unset($processedResultSet[$index]['category_parent_urls']);
+
+                unset($processedResultSet[$index]['contained_product_group_values']);
+
+                $processedResultSet[$index]['group_keys'] = $this->decodeData($processedResultSet[$index]['group_keys']);
             }
         }
 
