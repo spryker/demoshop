@@ -23,6 +23,7 @@ use PavFeature\Zed\ProductDynamic\ProductDynamicConfig;
 use SprykerFeature\Zed\Product\Communication\Controller\IndexController as SprykerIndexController;
 use SprykerFeature\Zed\Product\Persistence\ProductQueryContainer;
 use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\HttpFoundation\Response;
 
 
 /**
@@ -59,8 +60,7 @@ class IndexController extends SprykerIndexController
     {
         $abstractProductEntity = $this->getQueryContainer()
             ->querySkuFromAbstractProductById($idAbstractProduct)
-            ->findOne()
-        ;
+            ->findOne();
 
         $abstractProductTransfer = $this->getAbstractProductTransfer($abstractProductEntity);
 
@@ -126,7 +126,6 @@ class IndexController extends SprykerIndexController
         $urlFacade = $this->getDependencyContainer()->createUrlFacade();
 
 
-
         foreach ($localeFacade->getAvailableLocales() as $idLocale => $localeString) {
             $url = $urlFacade
                 ->getUrlByIdAbstractProductAndIdLocale($abstractProductEntity->getIdAbstractProduct(), $idLocale)
@@ -138,8 +137,7 @@ class IndexController extends SprykerIndexController
 
             $abstractAttributesCollection = $this->getQueryContainer()
                 ->queryAbstractProductAttributeCollection($abstractProductEntity->getIdAbstractProduct(), $idLocale)
-                ->findOne()
-            ;
+                ->findOne();
 
 
             if ($abstractAttributesCollection) {
@@ -173,8 +171,7 @@ class IndexController extends SprykerIndexController
         /** @var SpyProduct[] $productEntityCollection */
         $productEntityCollection = $this->getQueryContainer()
             ->queryConcreteProductByAbstractProduct($abstractProductEntity)
-            ->find()
-        ;
+            ->find();
 
         foreach ($productEntityCollection as $productEntity) {
             $productArray = $productEntity->toArray();
@@ -185,9 +182,11 @@ class IndexController extends SprykerIndexController
             $productDynamicImporterConcreteProductTransfer->setActive(intval($productEntity->getIsActive()));
             $productDynamicImporterConcreteProductTransfer->setPrice($this->getPriceString($productEntity));
 
-            $productDynamicImporterConcreteProductTransfer->setAttributes(
-                $this->getFacade()->getAttributes($productEntity->getAttributes())
-            );
+
+            $mediaAttributes = $this->getFacade()->splitMediaAttributes($productEntity->getAttributes());
+
+            $productDynamicImporterConcreteProductTransfer->setAttributes($mediaAttributes->getAttributes());
+            $productDynamicImporterConcreteProductTransfer->setMedia(new \ArrayObject($mediaAttributes->getMediaTransfers()));
 
             $productDynamicImporterConcreteProductTransfer = $this->addLocalesToProductTransfer(
                 $productEntity,
@@ -225,8 +224,7 @@ class IndexController extends SprykerIndexController
 
             $attributesCollection = $this->getQueryContainer()
                 ->queryConcreteProductAttributeCollection($productEntity->getIdProduct(), $idLocale)
-                ->findOne()
-            ;
+                ->findOne();
 
 
             if ($attributesCollection) {
@@ -236,7 +234,7 @@ class IndexController extends SprykerIndexController
                     ->splitMediaAttributes($attributesCollection->getAttributes());
 
                 $productLocaleTransfer->setAttributes($mediaAttributes->getAttributes());
-                $productLocaleTransfer->setMedia($mediaAttributes->getMediaTransfer());
+                $productLocaleTransfer->setMedia(new \ArrayObject($mediaAttributes->getMediaTransfers()));
             }
 
             $productDynamicImporterConcreteProductTransfer->addLocale($productLocaleTransfer);
@@ -436,7 +434,10 @@ class IndexController extends SprykerIndexController
       "url": "/media/product/k_nguru_hypo.jpg",
       "thumbnail_url": "/media/product/hund_standard_side_3_1_thumb1.jpg",
       "type": "picture",
-      "sequence": "1"
+      "sequence": "1",
+      "attributes": {
+        "not yet defined": "any other media specific german localized attributes"
+      }
     }
   ],
   "product_group_keys": [
@@ -505,6 +506,8 @@ class IndexController extends SprykerIndexController
         $abstractProduct = $dynamicProductFacade->convertJsonToProductImporterAbstractProduct($productJson);
         $dynamicProductFacade->persistProductImporterAbstractProduct($abstractProduct);
         $idAbstractProduct = $this->getFacade()->getAbstractProduct($abstractProduct->getSku())->getIdAbstractProduct();
+
+        return new Response("Save done");
 
         return $this->redirectResponse('/product/index/view?id-abstract-product=' . $idAbstractProduct);
 
