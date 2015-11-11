@@ -12,7 +12,6 @@ function labelText {
     echo $TC_RESET
     echo -n "${TC_SKY}${CLREOL}"
     echo -e "\n${1}${CLREOL}"
-    echo ${CLREOL}
     echo $TC_RESET
 }
 
@@ -40,9 +39,11 @@ if [[ `node -v | grep -E '^v[0-4]'` ]]; then
     if [[ -d "node_modules" ]]; then
         labelText "-> Remove node_modules and reinstall npm packages"
         rm -rf ./node_modules/
-        $NPM install
     fi
 fi
+
+labelText "-> Install npm modules"
+$NPM install
 
 labelText "-> Build-class-map"
 vendor/bin/build-class-map -vvv
