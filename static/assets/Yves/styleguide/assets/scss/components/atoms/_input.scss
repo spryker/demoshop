@@ -2,15 +2,15 @@
 //
 // Markup:
 // <div class="input {{modifier_class}}">
-//     <label class="input__label" for="{{id}}">Email Address*</label>
 //     <div class="input__field">
-//         <input id="{{id}}" class="input__text" type="text" placeholder="{{placeholder}}" name="{{name}}" autocorrect="off" autocapitalize="off">
+//         <label class="input__label" for="{{id}}">{{default label "Email Address*"}}</label>
+//         <input id="{{id}}" class="input__text" type="{{default type "text"}}" placeholder="{{placeholder}}" name="{{name}}" autocorrect="off" autocapitalize="off">
 //         <div class="input__error">
 //            Not a valid email address!
 //         </div>
 //     </div>
 //     <div class="input__additional">
-//         We will send the order confimation at this email address
+//         {{default additional "We will send the order confimation at this email address"}}
 //     </div>
 // </div>
 //
@@ -29,12 +29,13 @@
 
 .input__label{
     display: block;
-    padding: 0 0 10px 22px;
+    padding: 0 0 10px 14px;
 
     font-family: $_ffBrandonGrotesque-Bold;
     font-size: 13px;
     color: $_rgbOsloGray;
     text-transform: uppercase;
+    text-align: left;
 }
 
 .input__text{

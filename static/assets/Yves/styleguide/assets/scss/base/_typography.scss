@@ -11,7 +11,10 @@ body{
 
     overflow-x: hidden;
 
-    // TODO: refactor
+    // #TODO:660 refactor
+
+    background: $_rgbAlabaster;
+
     &.no-scrolling{
         overflow: hidden;
     }

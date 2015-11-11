@@ -20,6 +20,10 @@
     -moz-osx-font-smoothing: grayscale;
 
     
+    @if $name == 'eye' {
+      content: '\E024';
+    }
+    
     @if $name == 'arrow-left' {
       content: '\E001';
     }
@@ -183,6 +187,10 @@
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
 
+    
+    @if $name == 'eye' {
+      content: '\E024';
+    }
     
     @if $name == 'arrow-left' {
       content: '\E001';

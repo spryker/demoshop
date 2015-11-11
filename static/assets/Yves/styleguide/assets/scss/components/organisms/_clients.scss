@@ -38,6 +38,7 @@
 
 .clients{
     @include sectionShadow;
+    background: $_rgbWhite;
 }
 
 .clients__inner{

@@ -13,4 +13,13 @@ module.exports.register = function(handlebars) {
         var t = title.split('.');
         return t[t.length - 1];
     });
+
+    handlebars.registerHelper('default', function (a, b) {
+        return typeof a !== 'undefined' ? a : b;
+    });
+
+    handlebars.registerHelper('debug', function (a) {
+        console.log(a);
+        return a;
+    });
 };

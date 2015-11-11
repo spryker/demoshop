@@ -2,6 +2,12 @@ import $ from 'jquery';
 
 'use strict';
 
+
+const EVENTS = {
+    OFFCANVAS_SHOW: 'OFFCANVAS_SHOW'
+}
+
+
 $(document).ready(function () {
 
     var $offcanvas, $accordeons;
@@ -9,8 +15,7 @@ $(document).ready(function () {
     $offcanvas = $('.offcanvas');
     $accordeons = $offcanvas.find('.offcanvas__accordeon');
 
-
-    $(document).on('OFFCANVAS_SHOW', show);
+    $(document).on(EVENTS.OFFCANVAS_SHOW, show);
 
     $offcanvas.find('.close-button').click(hide);
 
@@ -40,5 +45,7 @@ $(document).ready(function () {
         $offcanvas.removeClass('offcanvas--open');
     }
 
-
 });
+
+
+export { EVENTS };
