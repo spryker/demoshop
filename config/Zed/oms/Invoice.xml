@@ -8,7 +8,7 @@
             <state name="new" reserved="true"/>
             <state name="invoice generated"/>
             <state name="invoice sent" />
-            <state name="export order" />
+            <state name="order exported" />
             <state name="order shipped" />
             <state name="waiting for payment" />
             <state name="payment received" />
@@ -39,7 +39,7 @@
             </transition>
 
             <transition>
-                <source>export order</source>
+                <source>order exported</source>
                 <target>order shipped</target>
                 <event>ship order</event>
             </transition>

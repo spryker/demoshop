@@ -12,7 +12,7 @@
         <state name="payment received" />
         <state name="ready for return" />
         <state name="completed" />
-        <state name="canceled" />
+        <state name="cancelled" />
         <state name="send payment reminder" />
         <state name="order exported" />
     </states>
@@ -56,7 +56,7 @@
 
         <transition>
             <source>send payment reminder</source>
-            <target>canceled</target>
+            <target>cancelled</target>
             <event>cancel</event>
         </transition>
 
