@@ -481,9 +481,6 @@ class ProductCollector extends AbstractPropelCollectorPlugin
             }
         }
 
-        //@TODO: Do we ned the options!?
-        //$processedResultSet = $this->productOptionExporterFacade->processDataForExport($resultSet, $processedResultSet, $locale);
-
         return $processedResultSet;
     }
 
