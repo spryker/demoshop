@@ -45,6 +45,9 @@ fi
 labelText "-> Install npm modules"
 $NPM install
 
+labelText "-> Restart ElasticSearch"
+sudo /etc/init.d/elasticsearch restart
+
 labelText "-> Build-class-map"
 vendor/bin/build-class-map -vvv
 
