@@ -1,0 +1,35 @@
+Hello {{first_name}} {{last_name}},<br/>
+
+.... .... ....<br/>
+Order reference: {{reference}}<br/>
+<hr/>
+Items:<br/>
+
+{{#each items}}
+
+{{Quantity}}
+x
+{{Name}}
+
+{{#with SpySalesOrder}}
+{{GrandTotal}} €
+{{/with}}
+<br/>
+
+{{/each}}
+
+<hr/>
+{{#if discounts}}
+{{#each discounts}}
+{{DisplayName}} -{{Amount}}€<br/>
+{{/each}}
+<hr/>
+{{/if}}
+
+Total:<br/>
+
+{{total}} €<br/>
+... ... ...<br/>
+
+
+....

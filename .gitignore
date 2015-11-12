@@ -32,7 +32,9 @@ config/accumulated-config.json
 /vendor/
 FOSS.md
 
-/data
+/data/*
+!data/MandrillTemplates
+!data/MandrillTemplates/*
 
 # grunt stuff
 .grunt
