@@ -14,6 +14,9 @@ $(document).ready(function () {
 
         $toggle.click(function () {
             $input.attr('type', $input.attr('type') === 'password' ? 'text' : 'password');
+            $password.toggleClass('password-input--visible');
+
+            $toggle.text($toggle.text() === 'Show password' ? 'Hide password' : 'Show password');
         });
     });
 

@@ -1,0 +1,88 @@
+// Checkbox
+//
+// Markup: atoms.checkbox.hbs
+//
+// Styleguide: atoms.checkbox
+//
+// Weight: -1
+
+
+.checkbox{
+    display: inline-block;
+    padding: 5px;
+
+    & + .checkbox{
+        margin-left: 20px;
+    }
+}
+
+.checkbox--large{
+    .checkbox__label{
+        padding-left: 50px;
+
+        font-family: $_ffBrandonGrotesque-Regular;
+        font-size: 14px;
+        text-transform: none;
+        color: $_rgbPaleSky;
+
+        &:before, &:after{
+            top: 5px;
+            margin-top: 0;
+        }
+    }
+}
+
+.checkbox__input{
+    position: absolute;
+    visibility: hidden;
+
+    &:checked + .checkbox__label{
+        &:after{
+            color: $_rgbBlack;
+        }
+    }
+}
+
+.checkbox__label{
+    display: block;
+    position: relative;
+    padding-left: 40px;
+
+    font-family: $_ffBrandonGrotesque-Bold;
+    font-size: 13px;
+    color: $_rgbOsloGray;
+    text-transform: uppercase;
+    text-align: left;
+    cursor: pointer;
+
+    &:before{
+        content: '';
+        position: absolute;
+        top: 50%;
+        left: 0;
+        margin-top: -16px;
+        content: '';
+        width: 27px;
+        height:27px;
+        display: block;
+        border: 2px solid $_rgbAlto;
+        border-radius: $_defaultBorderRadius;
+        background: $_rgbWildSand;
+    }
+
+    &:after{
+        position: absolute;
+        left: 0;
+        top: 50%;
+        width: 31px;
+        line-height: 31px;
+        margin-top: -16px;
+        content: '\E00F';
+        font-family: $_ffPetsDeliIcons;
+        color: transparent;
+        font-size: 11px;
+        text-align: center;
+
+        transition: color $_tShort ease-in-out;
+    }
+}

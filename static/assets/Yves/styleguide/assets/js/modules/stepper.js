@@ -11,8 +11,8 @@ $(document).ready(function () {
 
         $stepper = $(this);
         $stepper.wrap(`<div class="stepper"></div>`);
-        $addButton = $(`<div class="stepper__button stepper__button--add"></div>`);
-        $removeButton = $(`<div class="stepper__button stepper__button--remove"></div>`);
+        $addButton = $(`<button type="button" class="stepper__button stepper__button--add"></button>`);
+        $removeButton = $(`<button type="button" class="stepper__button stepper__button--remove"></button>`);
 
         $stepper.after($addButton);
         $stepper.after($removeButton);
