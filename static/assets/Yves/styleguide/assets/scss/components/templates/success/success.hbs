@@ -1,0 +1,40 @@
+{{> "organisms.navbar"}}
+
+{{> "atoms.message" modifier_class="message--invalid"}}
+
+<div class="user-boxes">
+    <div class="user-boxes__inner">
+
+        <div class="user-box">
+            <div class="user-box__inner">
+                <h2 class="user-box__headline">Thank You!</h2>
+                <p class="user-box__description">Order confirmation number: <strong>X8UYTR</strong></p>
+
+                <div class="user-box__divider"></div>
+
+                <h2 class="user-box__headline">Create your account</h2>
+                <p class="user-box__description">You can create your account just by</p>
+                <form class="user-box__form">
+                   {{> "atoms.input-password" label="Your password" id="password" name="password"}}
+
+                   <div class="user-box__properties">
+                       {{> "atoms.checkbox" id="owner_dog" name="owner[]" value="dog" label="Dog owner"}}
+                       {{> "atoms.checkbox" id="owner_cat" name="owner[]" value="cat" label="Cat owner"}}
+                   </div>
+
+                   <div class="user-box__properties">
+                       {{> "atoms.checkbox" modifier_class="checkbox--large" id="newsletter" name="newsletter" value="1" label="Abonnieren Sie unseren Newsletter <br> Ja, ich möchte hilfreiche Tipps für mein Haustier erhalten und über Aktionen & Gutscheine per E-Mail informiert werden. Abmeldung jederzeit möglich."}}
+                   </div>
+
+                   {{> "atoms.button" title="Create account" modifier_class="button--cta"}}
+                </form>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+{{> "organisms.footer"}}
+
+
+{{> "organisms.footer"}}

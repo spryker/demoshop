@@ -34,9 +34,11 @@
 }
 
 .product-accordion-item__header{
+    width: 100%;
     padding: 30px 0 30px (100% / 12 * 3);
     border-bottom: 1px solid $_rgbSilver;
 
+    text-align: left;
     cursor: pointer;
 }
 

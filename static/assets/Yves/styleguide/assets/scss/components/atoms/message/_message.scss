@@ -9,10 +9,12 @@
 //
 // Weight: -1
 
-.message{
+.messages{
     @include pageWidth;
+}
+
+.message{
     margin-top: 40px;
-    margin-bottom: 15px;
     padding: 26px 30px 26px 30px;
     background: $_rgbWhite;
     @include cardShadow;

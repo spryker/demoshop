@@ -1,0 +1,24 @@
+{{> "organisms.navbar"}}
+{{> "atoms.message" modifier_class="message--invalid"}}
+
+<!--  TODO: markup to separate template / inject form into box template -->
+<div class="user-boxes">
+    <div class="user-boxes__inner">
+
+        <div class="user-box">
+            <div class="user-box__inner">
+                <h2 class="user-box__headline">Welcome back!</h2>
+                <p class="user-box__description">francesco@provider.com</p>
+                <form class="user-box__form">
+                    {{> "atoms.input-password" label="Your password" id="password" name="password"}}
+
+                    <a href="#" class="user-box__not">You are not Fancesco?</a>
+                    {{> "atoms.button" title="Login" modifier_class="button--cta"}}
+                </form>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+{{> "organisms.footer"}}

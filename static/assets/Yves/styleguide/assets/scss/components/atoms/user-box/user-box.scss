@@ -1,21 +1,26 @@
 // User boxes
-//
-// Markup: molecules.user-boxes.hbs
-//
-// Styleguide: molecules.user-boxes
 
+// TODO: separate boxes into component
 .user-boxes{
     @include clearfix;
     @include pageWidth;
-    padding: 0 0 80px 0;
+    padding-top: 15px;
+    padding-bottom: 80px;
+
+    text-align: center;
+}
+
+.user-boxes__inner{
+    margin: 0 -10px;
 }
 
 .user-box{
     width: 100%;
-    float: left;
     padding: 10px;
+    margin-right: -4px;
 
     text-align: center;
+    vertical-align: top;
 
     .input, .password-input{
         margin-top: 30px;
@@ -26,14 +31,6 @@
             margin-top: 0;
         }
     }
-
-    &:first-child{
-        padding-left: 0;
-    }
-
-    &:last-child{
-        padding-right: 0;
-    }
 }
 
 .user-box__inner{
@@ -43,12 +40,20 @@
 }
 
 .user-box__form{
-    display: inline-block;
-    max-width: 260px;
     width: 100%;
+    max-width: 480px;
+    display: inline-block;
+
+    text-align: center;
 
     .button{
         margin-top: 32px;
+    }
+
+    .password-input{
+        max-width: 260px;
+        margin-left: auto;
+        margin-right: auto;
     }
 
     .password-input + .button{
@@ -65,11 +70,37 @@
 .user-box__description{
     font-size: 20px;
     color: $_rgbSilverChalice;
+
+    strong{
+        font-family: $_ffBrandonGrotesque-Black;
+        color: $_rgbDoveGray;
+        font-weight: normal;
+    }
 }
+
+.user-box__not{
+    display: block;
+    margin: 60px 0 -18px 0;
+
+    font-size: 16px;
+    color: $_rgbSilverChalice;
+}
+
+.user-box__divider{
+    margin: 24px -30px 35px;
+    border-top: 1px solid $_rgbDustyGray;
+}
+
+.user-box__properties{
+    margin-top: 50px;
+}
+
+
 
 @media (min-width: $_wMedium) {
     .user-box{
+        display: inline-block;
         width: 50%;
-        padding: 0 10px 10px 10px;
+        padding: 10px;
     }
 }

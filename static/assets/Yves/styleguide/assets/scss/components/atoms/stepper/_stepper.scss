@@ -34,13 +34,6 @@
     input[type='number'] {
         -moz-appearance: textfield;
     }
-
-    ::selection {
-        background: transparent;
-    }
-    ::-moz-selection {
-        background: transparent;
-    }
 }
 
 .stepper__button{
@@ -53,6 +46,7 @@
     height: 50px;
     line-height: 50px;
     background: $_rgbWhite;
+    color: $_rgbOsloGray;
 
     border: 2px solid $_rgbOsloGray;
 

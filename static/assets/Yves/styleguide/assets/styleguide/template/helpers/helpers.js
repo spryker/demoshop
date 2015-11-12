@@ -22,4 +22,8 @@ module.exports.register = function(handlebars) {
         console.log(a);
         return a;
     });
+
+    handlebars.registerHelper('cachebust', function (a) {
+        return a + '?' + new Date().getTime();
+    });
 };
