@@ -18,9 +18,14 @@ var $nameInput,
     $checkoutRemoveCouponUrlInput,
     $cartCouponCodeInput,
     $addressElements,
-    $addressValidationResult;
+    $shippingCountry,
+    $addressValidationResult,
+    $addressCountry,
+    $shipmentFeeUrl,
+    $shipmentFee;
 
 var initValidation = function () {
+    $shipmentFee = $('.js-cart-shipping');
     $nameInput = $('.js-checkout-name');
     $emailInput = $('.js-checkout-email');
     $addressInput = $('.js-invoice-address');
@@ -29,6 +34,9 @@ var initValidation = function () {
     $addressButton = $('.js-address-button');
     $paymentButton = $('.js-payment-button');
     $shipmentButton = $('.js-shipment-button');
+    $addressCountry = $('.js-country');
+    $shippingCountry = $('#checkout_billing_address_country');
+    $shipmentFeeUrl = $('#addShipmentFee');
     $useCouponButton = $('.js-cart-use-coupon-button');
     $removeCouponLink = $('.js-cart__remove-coupon-link');
     $cartSection = $('.cart__final .cart__discount').parent();
@@ -77,7 +85,24 @@ var removeCoupon = function (event) {
             $cartSection.html(data);
             initValidation();
             console.log(removeCoupon);
-        }).fail(function(data) {
+    }).fail(function(data) {
+            console.log('[ERROR] ');
+            console.log(data);
+        }
+    );
+};
+
+var getShipmentPrice = function (event) {
+    $.ajax(
+        {
+            url : $shipmentFeeUrl.val(),
+            method: "POST",
+            data: { "fkCountry" : $shippingCountry.val() },
+            dataType: "html"
+        }
+    ).done(function(data) {
+            $cartSection.html(data);
+    }).fail(function(data) {
             console.log('[ERROR] ');
             console.log(data);
         }
@@ -158,6 +183,7 @@ module.exports = {
 
         $('.js-address-button').click(function (event) {
             event.preventDefault();
+            getShipmentPrice(event);
             $('.js-checkout-address').addClass('js-checkout-collapsed js-checkout-completed');
             $('.js-checkout-payment').removeClass('js-checkout-collapsed');
         });
