@@ -1,13 +1,13 @@
 
-INSERT INTO "pav_product_group" (id_product_group, "key") VALUES (1, 'weight'), (2, 'carbs');
+INSERT INTO "pav_product_group" (id_product_group, "key") VALUES
+(1, 'weight'),
+(2, 'carbs');
 
-INSERT INTO pav_product_group_value (id_product_group_value, fk_product_group, "value", sequence)
-    VALUES
-      (1,1, '250g', 1),
-      (2,1, '500g', 2),
-      (3,2, 'yes', 1),
-      (4,2, 'no', 2)
-;
+INSERT INTO pav_product_group_value (id_product_group_value, fk_product_group, "value", sequence) VALUES
+(1,1, '250g', 1),
+(2,1, '500g', 2),
+(3,2, 'yes', 1),
+(4,2, 'no', 2);;
 
 
 -- TAXES
@@ -24,24 +24,9 @@ INSERT INTO "spy_tax_set_tax" ("fk_tax_rate", "fk_tax_set") VALUES ('2', '2');
 UPDATE "spy_abstract_product" SET "fk_tax_set" = 1;
 
 
--- PRODUCT GROUPS
-
-INSERT INTO "pav_product_group" ("id_product_group", "key") VALUES 
-('1', 'weight'), 
-('2', 'carbon');
-
 INSERT INTO "pav_abstract_product_product_group" ("id_abstract_product_product_group", "fk_abstract_product", "fk_product_group") VALUES
 ('1', '1', '1'),
 ('2', '1', '2');
-
-
--- PRODUCT GROUP VALUES
-
-INSERT INTO "pav_product_group_value" ("id_product_group_value", "fk_product_group", "sequence", "value") VALUES 
-('1', '1', '1', '250g'),
-('2', '1', '2', '500g'),
-('3', '2', '1', 'yes'),
-('4', '2', '2', 'no');
 
 INSERT INTO "pav_product_product_group_value" ("id_product_product_group_value", "fk_product", "fk_product_group_value") VALUES
 ('1', '1', '1'),
