@@ -41,7 +41,7 @@ $config[PayoneConfigConstants::PAYONE] = [
     PayoneConfigConstants::PAYONE_MODE => '',
 ];
 
-$config[ApplicationConfig::NAVIGATION_CACHE_ENABLED] = false;
+$config[ApplicationConfig::NAVIGATION_CACHE_ENABLED] = true;
 
 $config[AclConfig::ACL_USER_RULE_WHITELIST][] = [
     'bundle' => 'wdt',
