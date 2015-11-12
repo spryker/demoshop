@@ -1,0 +1,119 @@
+// Footer
+//
+// Markup: organisms.footer.hbs
+//
+// Styleguide: organisms.footer
+
+.footer{
+    padding: 57px 0 32px;
+    background: $_rgbWhite;
+}
+
+.footer__inner{
+    @include pageWidth;
+    text-align: center;
+}
+
+.footer__row{
+    margin-top: 0;
+    margin-bottom: 0;
+    @include clearfix;
+    clear: both;
+    padding-bottom: 30px;
+
+    h2{
+        color: $_rgbApple;
+        font-family: $_ffBrandonGrotesque-Bold;
+        font-size: 22px;
+        line-height: 31px;
+        //letter-spacing: 0.27px;
+    }
+
+    a{
+        display: inline-block;
+        margin-top: 10px;
+
+        font-family: $_ffBrandonGrotesque-Bold;
+        color: $_rgbSilverChalice;
+        text-decoration: none;
+        font-size: 18px;
+        line-height: 26px;
+    }
+}
+
+.footer__row--top{
+    border-top: none;
+    padding-top: 20px;
+    white-space: nowrap;
+}
+
+.footer__logo{
+    position: relative;
+    min-height: 1px;
+
+    img{
+        position: absolute;
+        top: -20px;
+        left: 50%;
+        margin-left: -46px;
+        @include responsiveImage;
+        max-width: 93px;
+        display: inline-block;
+    }
+}
+
+.footer__copyrights{
+    margin-top: 10px;
+}
+
+.footer__copyright{
+    color: $_rgbSilverChalice;
+    //letter-spacing: 1.79px;
+    font-size: $_fsTiny;
+    line-height: $_lhTiny;
+    font-family: $_ffBrandonGrotesque-Bold;
+
+    & + .footer__copyright:before{
+        content: '|';
+        position: relative;
+        top: -2px;
+        display: inline-block;
+        margin: 0 5px 0 3px;
+    }
+}
+
+.footer__social{
+    height: 44px;
+    margin: 10px 5px 0;
+    color: $_rgbSilverChalice;
+
+    cursor: pointer;
+}
+
+.footer__social--facebook{
+    @include pdif('facebook', 44px, 44px);
+}
+
+.footer__social--twitter{
+    @include pdif('twitter', 44px, 44px);
+}
+
+.footer__social--instagram{
+    @include pdif('instagram', 44px, 44px);
+}
+
+.footer__social--youtube{
+    @include pdif('youtube', 44px, 44px);
+}
+
+
+
+.footer__copyright--upper{
+    text-transform: uppercase;
+}
+
+@media (max-width: $_wLarge - 1px) {
+    .footer__social, .footer__payment{
+        display: none;
+    }
+}

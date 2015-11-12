@@ -1,0 +1,43 @@
+// Product features
+//
+// Markup: atoms.product-features.hbs
+//
+// Styleguide: atoms.product-features
+
+.product-features{
+    margin-left: (100%  / 12 * 3);
+    padding: 35px ($_xSpacing / 2) 0;
+
+    clear: both;
+    width: (100%  / 12 * 5);
+}
+
+.product-features__title{
+    margin-bottom: 10px;
+
+    font-family: $_ffBrandonGrotesque-Black;
+    font-size: 22px;
+    //letter-spacing: 0.33px;
+    color: $_rgbApple;
+}
+
+
+.product-features__category{
+    margin-top: 20px;
+
+    font-family: $_ffBrandonGrotesque-Bold;
+    font-size: 20px;
+    color: $_rgbDoveGray;
+    //letter-spacing: 0.3px;
+}
+
+.product-features__list{
+    margin: 25px 0 50px;
+}
+
+.product-features__item{
+    margin-left: 30px;
+
+    font-size: 16px;
+    color: $_rgbDoveGray;
+}

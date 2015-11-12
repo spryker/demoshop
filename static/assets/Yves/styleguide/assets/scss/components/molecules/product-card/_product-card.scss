@@ -1,0 +1,114 @@
+// Product Card
+//
+// Markup: molecules.product-card.hbs
+//
+// Styleguide: molecules.product-card
+
+.product-card{
+    padding: 11px;
+
+    text-align: center;
+}
+
+.product-card__inner{
+    @include cardShadow;
+    background: $_rgbWhite;
+}
+
+.product-card__image{
+    position: relative;
+
+    img{
+        @include responsiveImage;
+    }
+}
+
+.product-card__label{
+    position: absolute;
+    top: 0;
+    left: 0;
+    padding: 9px 12px;
+    background: $_rgbApple;
+
+    font-family: $_ffBrandonGrotesque-Bold;
+    color: $_rgbWhite;
+    font-size: $_fsTiny;
+    line-height: $_lhTiny;
+    text-transform: uppercase;
+    //letter-spacing: 0.54px;
+}
+
+.product-card__content{
+    padding: 47px 30px 30px;
+}
+
+.product-card__breadcrumbs{
+    margin-bottom: 20px;
+
+    font-family: $_ffBrandonGrotesque-Bold;
+    font-size: $_fsTiny;
+    line-height: $_lhTiny;
+    color: $_rgbApple;
+    text-transform: uppercase;
+}
+
+.product-card__breadcrumb{
+    & + .product-card__breadcrumb{
+        &:before{
+            content: '|';
+            position: relative;
+            top: -2px;
+            margin: 0 6px 0 3px;
+        }
+    }
+}
+
+.product-card__infos{
+    margin-bottom: 50px;
+
+    font-family: $_ffBrandonGrotesque-Black;
+    color: $_rgbQuincy;
+    font-size: 16px;
+    line-height: 23px;
+    text-transform: uppercase;
+}
+
+.product-card__footer{
+    @include clearfix;
+}
+
+
+.product-card__pricing{
+    display: inline-block;
+    float: left;
+}
+
+.product-card__detail{
+    width: 50%;
+    float: right;
+    text-align: right;
+}
+
+.product-card__pricing{
+
+}
+
+.product-card__price-total{
+    font-family: $_ffHelveticaNeue;
+    color: $_rgbOsloGray;
+    font-size: $_fsDefault;
+    line-height: $_lhDefault;
+}
+
+.product-card__price-relative{
+    color: $_rgbSilverChalice;
+    font-size: $_fsSmall;
+    line-height: $_lhSmall;
+}
+
+.product-card__detail{
+    .button{
+        padding: 14px 10px 12px;
+    }
+}
+

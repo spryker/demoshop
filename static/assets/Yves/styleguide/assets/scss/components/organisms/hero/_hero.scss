@@ -1,0 +1,50 @@
+// Hero
+//
+// Markup: organisms.hero.hbs
+//
+// Styleguide: organisms.hero
+
+
+.hero{
+    position: relative;
+    height: 390px;
+}
+
+.hero__background{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-position: center !important;
+    background-size: cover !important;
+}
+
+.hero__center{
+    position: absolute;
+    top: 50%;
+    left: 0;
+    width: 100%;
+    transform: translate3d(0, -50%, 0);
+
+    text-align: center;
+    color: #FFF;
+}
+
+.hero__content{
+}
+
+.hero__headline{
+    font-family: $_ffBrandonGrotesque-Black;
+    font-size: 60px;
+    line-height: 60px;
+    color: $_rgbApple;
+}
+
+.hero__description{
+    font-family: $_ffBrandonGrotesque-Black;
+    font-size: 30px;
+    line-height: 43px;
+    color: $_rgbWhite;
+    //letter-spacing: 1.28px;
+}

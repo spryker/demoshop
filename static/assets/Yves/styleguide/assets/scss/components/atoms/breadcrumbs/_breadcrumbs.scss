@@ -1,0 +1,35 @@
+// Breadcrumbs
+//
+// Markup: atoms.breadcrumbs.hbs
+//
+// Styleguide: atoms.breadcrumbs
+
+.breadcrumbs{
+    font-family: $_ffBrandonGrotesque-Black;
+    text-transform: uppercase;
+    //letter-spacing: 0.87px;
+    text-align: center;
+}
+
+.breadcrumbs--white{
+    color: $_rgbWhite;
+}
+
+.breadcrumbs--quincy{
+    color: $_rgbQuincy;
+}
+
+.breadcrumbs--apple{
+    color: $_rgbApple;
+}
+
+.breadcrumbs__breadcrumb{
+    display: inline-block;
+
+    & + .breadcrumbs__breadcrumb:before{
+        position: relative;
+        top: -2px;
+        content: '|';
+        margin: 0 5px 0 3px;
+    }
+}

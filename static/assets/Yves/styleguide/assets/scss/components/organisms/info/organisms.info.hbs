@@ -1,0 +1,20 @@
+<div class="info">
+    <div class="info__content">
+        {{#if breadcrumbs}}
+            <div class="info__breadcrumbs">
+                <div class="info__breadcrumb">Dogs</div>
+            </div>
+        {{/if}}
+        {{> "atoms.page-title" modifier_class="page-title--quincy" title="Our philosophy"}}
+        {{> "atoms.subtitle"}}
+    </div>
+    <div class="info__column">
+        Lorem
+    </div>
+    <div class="info__column">
+        Ipsum
+    </div>
+    {{#if image}}
+        <img class="info__image" src="../images/info/dog_cat.jpg" />
+    {{/if}}
+</div>

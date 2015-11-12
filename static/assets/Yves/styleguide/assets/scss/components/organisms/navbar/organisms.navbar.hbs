@@ -1,0 +1,40 @@
+{{> "molecules.offcanvas"}}
+<nav class="navbar">
+<div class="navbar__inner">
+    <div class="navbar__top">
+       <div class="navbar__center">
+            <div class="navbar__wordmark">Pets Deli</div>
+            <div class="navbar__item">Geld - zurück - Garantie</div>
+            <div class="navbar__item">Kostenloser Tiefkühl-Versand</div>
+            <div class="navbar__item">
+                <span class="navbar__label">Hotline:</span>
+                <a class="navbar__phone" href="tel:+4930208984899">030 - 208 98 48 99</a>
+            </div>
+            <div class="navbar__item">Bekannt aus
+               <span class="navbar__press navbar__press--bild"></span>
+               <span class="navbar__press navbar__press--spiegel"></span>
+               <span class="navbar__press navbar__press--ard"></span>
+            </div>
+        </div>
+    </div>
+    <div class="navbar__bottom">
+        <div class="navbar__center">
+            <a class="navbar__logo" href="#">
+                <img src="../images/logo/logo_header.png" alt="Pets Deli Logo" />
+            </a>
+            <ul class="navbar__links">
+                <li data-menu="main" class="navbar__link"><a href="#">Hunde</a></li>
+                <li data-menu="main" class="navbar__link"><a href="#">Katzen</a></li>
+                <li data-menu="main" class="navbar__link navbar__link--support"><a href="#">Warum?</a></li>
+                <li data-menu="main" class="navbar__link navbar__link--contact"><a href="#">Fragen?</a></li>
+                <li class="navbar__link navbar__link--login"><a href="#"><span>Anmelden</span></a></li>
+                <li data-menu="cart" class="navbar__link navbar__link--cart"><a href="#" data-cartcount="2"><span>Warenkorb</span></a></li>
+                <li class="navbar__link navbar__link--more"><div>&nbsp;</div></li>
+            </ul>
+            <div class="navbar__marker"></div>
+        </div>
+    </div>
+</div>
+{{> "molecules.menu"}}
+</nav>
+<div class="navbar__pusher"></div>

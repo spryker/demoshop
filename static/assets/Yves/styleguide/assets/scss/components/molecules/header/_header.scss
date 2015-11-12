@@ -1,0 +1,25 @@
+// Header
+//
+// Markup: molecules.header.hbs
+//
+// Styleguide: molecules.header
+
+.header{
+    position: relative;
+    height: 310px;
+
+    background-position: center !important;
+    background-size: cover !important;
+}
+
+.header__inner{
+    position: absolute;
+    top: 50%;
+    left: 0;
+    width: 100%;
+    transform: translate(0, -50%);
+
+    text-align: center;
+    color: #FFF;
+}
+

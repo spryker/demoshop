@@ -1,0 +1,83 @@
+// Plus
+//
+// Markup: organisms.plus.hbs
+//
+// Styleguide: organisms.plus
+
+.plus{
+    padding: 100px 0;
+    background: $_rgbWhite;
+    clear: both;
+}
+
+.plus__inner{
+    @include clearfix;
+    @include pageWidth;
+}
+
+.plus__item{
+    text-align: center;
+    padding: 0 24px;
+
+    & + .plus__item{
+        margin-top: 50px;
+    }
+}
+
+.plus__figure{
+    padding: 23px 0 5px;
+
+    font-family: $_ffBrandonGrotesque-Black;
+    color: $_rgbApple;
+    font-size: 36px;
+    line-height: 52px;
+
+    @include pdif('paw', 20px, 0);
+
+    &:before{
+        top: 0;
+        transform: none;
+        width: 100%;
+        text-align: center;
+        margin-top: 0;
+    }
+
+    &:after{
+        content: '';
+        position: absolute;
+        width: 60px;
+        height: 2px;
+        top: 70px;
+        left: 50%;
+        margin-left: -30px;
+        background: $_rgbApple;
+
+    }
+}
+
+.plus__label{
+    margin-bottom: 25px;
+
+    font-family: $_ffBrandonGrotesque-Bold;
+    font-size: $_fsSmaller;
+    line-height: $_lhSmaller;
+    color: $_rgbApple;
+    //letter-spacing: 1px;
+}
+
+.plus__description{
+    color: $_rgbSilverChalice;
+}
+
+
+@media (min-width: $_wLarge) {
+    .plus__item{
+        width: 33.333%;
+        float: left;
+        margin-top: 0 !important;
+    }
+
+    .plus__label{
+        margin-bottom: 40px;
+    }
+}

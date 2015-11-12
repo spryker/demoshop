@@ -1,0 +1,19 @@
+<div class="input {{modifier_class}}">
+
+    {{#if label}}
+        <label class="input__label" for="{{id}}">{{label}}</label>
+    {{/if}}
+
+    <div class="input__field">
+        <input id="{{id}}" class="input__text" type="{{default type "text"}}" placeholder="{{placeholder}}" name="{{name}}" autocorrect="off" autocapitalize="off">
+        <div class="input__error">
+           Not a valid email address!
+        </div>
+    </div>
+
+    {{#if additional}}
+        <div class="input__additional">
+            {{additional}}
+        </div>
+    {{/if}}
+</div>

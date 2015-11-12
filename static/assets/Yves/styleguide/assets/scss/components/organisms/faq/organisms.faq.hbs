@@ -1,0 +1,35 @@
+<div class="faq">
+    <div class="faq__intro">
+       {{> "atoms.breadcrumbs" modifier_class="breadcrumbs--apple" title="Support"}}
+        <div class="page-title page-title--quincy">FAQ</div>
+        {{> "atoms.subtitle" modifier_class="subtitle--quincy"}}
+    </div>
+    <div class="faq__switches">
+        <div class="faq__switch faq__switch--initial" style="background-image: url(../images/faq/switch/dog.jpg);">
+           Dog
+        </div>
+        <div class="faq__switch faq__switch--initial" style="background-image: url(../images/faq/switch/cat.jpg);">
+           Cat
+        </div>
+    </div>
+    <div class="faq__filters">
+       <div class="faq__filter">
+           <div class="faq__filter-button faq__filter-button--active">Informationen und Tipps zur Fütterung</div>
+       </div>
+       <div class="faq__filter">
+           <div class="faq__filter-button">Zusatzinformationen für Hundebesizter</div>
+       </div>
+       <div class="faq__filter">
+           <div class="faq__filter-button">Informationen zum Versand</div>
+       </div>
+       <div class="faq__filter">
+           <div class="faq__filter-button">Informationen zu den Zahlarten</div>
+       </div>
+   </div>
+   <div class="faq__cards">
+       {{> "molecules.faq-card"}}
+       {{> "molecules.faq-card"}}
+       {{> "molecules.faq-card"}}
+       {{> "molecules.faq-card"}}
+   </div>
+//</div>

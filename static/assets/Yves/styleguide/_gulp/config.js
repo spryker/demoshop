@@ -17,7 +17,7 @@ var config = {
             entry: ASSETS_DIR + 'js/sg-main.js'
         },
         styleguide: {
-            styles: ASSETS_DIR + 'scss/**/*.{hbs,scss,less}',
+            styles: ASSETS_DIR + 'scss/**/*.{hbs,scss,less,json}',
             template: {
                 folder: ASSETS_DIR + 'styleguide/template',
                 files: ASSETS_DIR + 'styleguide/**/*.{hbs,html,js}',

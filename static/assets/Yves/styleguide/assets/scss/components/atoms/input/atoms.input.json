@@ -1,0 +1,7 @@
+{
+    "id": "some_id",
+    "label": "Email Address*",
+    "placeholder": "Placeholder",
+    "name": "Some name",
+    "additional": "We will send the order confimation at this email address"
+}

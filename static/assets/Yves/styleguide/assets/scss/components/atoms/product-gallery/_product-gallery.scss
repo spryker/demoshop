@@ -1,0 +1,54 @@
+// Product gallery
+//
+// Markup: atoms.product-gallery.hbs
+//
+// Styleguide: atoms.product-gallery
+
+
+.product-gallery{
+}
+
+.product-gallery__breadcrumbs{
+    text-align: center;
+    background: $_rgbApple;
+}
+
+.product-gallery__breadcrumb{
+    display: inline-block;
+    padding: 7px 0;
+
+    color: $_rgbWhite;
+    text-transform: uppercase;
+    text-decoration: none;
+    font-size: 16px;
+    line-height: 23px;
+    font-family: $_ffBrandonGrotesque-Bold;
+
+    & + .product-gallery__breadcrumb:before{
+        position: relative;
+        top: -2px;
+        content: '|';
+        margin: 0 5px 0 3px;
+    }
+}
+
+.product-gallery__image{
+    img{
+        @include responsiveImage;
+    }
+}
+
+.product-gallery__thumbnails{
+    overflow: hidden;
+}
+
+.product-gallery__thumbnail{
+    float: left;
+    width: 33.333%;
+    cursor: pointer;
+
+    img{
+        @include responsiveImage;
+    }
+}
+
