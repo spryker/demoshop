@@ -6,8 +6,9 @@ namespace Pyz\Zed\Discount\Business\Distributor;
 use Generated\Shared\Discount\DiscountInterface;
 use SprykerFeature\Zed\Discount\Business\Model\DiscountableInterface;
 use SprykerFeature\Zed\Discount\Business\Distributor\Distributor as SprykerDistributor;
+use Pyz\SprykerBugfixInterface;
 
-class Distributor extends SprykerDistributor
+class Distributor extends SprykerDistributor implements SprykerBugfixInterface
 {
 
     /**
