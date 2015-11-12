@@ -3,76 +3,26 @@
 namespace Pyz\Zed\DiscountCalculationConnector\Business\Model\Calculator;
 
 use SprykerFeature\Zed\DiscountCalculationConnector\Business\Model\Calculator\DiscountTotalsCalculator as SprykerDiscountTotalsCalculator;
-use Generated\Shared\DiscountCalculationConnector\DiscountInterface;
-use SprykerFeature\Zed\Calculation\Business\Model\CalculableInterface;
+use Generated\Shared\DiscountCalculationConnector\ItemInterface;
 use Pyz\SprykerBugfixInterface;
 
 class DiscountTotalsCalculator extends SprykerDiscountTotalsCalculator implements SprykerBugfixInterface
 {
     /**
-     * @param CalculableInterface $discountableContainer
-     * @param $discountableItems
+     * @param ItemInterface $itemTransfer
      *
-     * @return array
+     * @return int
      */
-    protected function sumDiscountItems(
-        CalculableInterface $discountableContainer,
-        $discountableItems
-    ) {
-        $orderExpenseItems = [];
-        foreach ($discountableContainer->getCalculableObject()->getDiscounts() as $discount) {
-            $this->transformDiscountToDiscountTotalItemInArray($discount, $orderExpenseItems);
-        }
+    protected function calculateItemDiscountAmount(ItemInterface $itemTransfer)
+    {
+        $itemDiscountAmount = 0;
 
-        foreach ($discountableContainer->getCalculableObject()->getExpenses() as $expenses) {
-            foreach ($expenses->getDiscounts() as $discount) {
-                $this->transformDiscountToDiscountTotalItemInArray($discount, $orderExpenseItems);
-            }
-        }
+        $itemDiscountAmount += $this->sumItemDiscounts($itemTransfer->getDiscounts());
+        $itemDiscountAmount += $this->sumItemExpenseDiscounts($itemTransfer->getExpenses());
+        $itemDiscountAmount += $this->sumOptionDiscounts($itemTransfer->getProductOptions());
 
-        foreach ($discountableItems as $container) {
+        //$itemDiscountAmount = $itemDiscountAmount * $itemTransfer->getQuantity();
 
-            foreach ($container->getDiscounts() as $discount) { //here
-                $this->transformDiscountToDiscountTotalItemInArray($discount, $orderExpenseItems, $container->getQuantity());
-            }
-
-            foreach ($container->getProductOptions() as $option) {
-                foreach ($option->getDiscounts() as $discount) {
-                    $this->transformDiscountToDiscountTotalItemInArray($discount, $orderExpenseItems);
-                }
-            }
-
-            foreach ($container->getExpenses() as $expenses) {
-                foreach ($expenses->getDiscounts() as $discount) {
-                    $this->transformDiscountToDiscountTotalItemInArray($discount, $orderExpenseItems);
-                }
-            }
-        }
-
-        return $orderExpenseItems;
-    }
-
-    /**
-     * @param DiscountInterface $discountTransfer
-     * @param array $arrayOfExpenseTotalItems
-     */
-    protected function transformDiscountToDiscountTotalItemInArray(
-        DiscountInterface $discountTransfer,
-        array &$arrayOfExpenseTotalItems,
-        $quantity =  1
-    ) {
-
-        if (!isset($arrayOfExpenseTotalItems[$discountTransfer->getDisplayName()])) {
-            $discountTotalItemTransfer = $this->getDiscountTotalItem();
-            $discountTotalItemTransfer->setName($discountTransfer->getDisplayName());
-        } else {
-            $discountTotalItemTransfer = $arrayOfExpenseTotalItems[$discountTransfer->getDisplayName()];
-        }
-
-        $this->setUsedCodes($discountTotalItemTransfer, $discountTransfer);
-
-        $discountTotalItemTransfer->setAmount($discountTotalItemTransfer->getAmount() +
-            $discountTransfer->getAmount() * $quantity);
-        $arrayOfExpenseTotalItems[$discountTransfer->getDisplayName()] = $discountTotalItemTransfer;
+        return $itemDiscountAmount;
     }
 }
