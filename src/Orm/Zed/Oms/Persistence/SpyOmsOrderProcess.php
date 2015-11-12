@@ -2,7 +2,7 @@
 
 namespace Orm\Zed\Oms\Persistence;
 
-use Orm\Zed\Oms\Persistence\Base\SpyOmsOrderProcess as BaseSpyOmsOrderProcess;
+use SprykerFeature\Zed\Oms\Persistence\Propel\AbstractSpyOmsOrderProcess as BaseSpyOmsOrderProcess;
 
 /**
  * Skeleton subclass for representing a row from the 'spy_oms_order_process' table.

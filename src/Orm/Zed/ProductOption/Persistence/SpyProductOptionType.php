@@ -2,7 +2,7 @@
 
 namespace Orm\Zed\ProductOption\Persistence;
 
-use Orm\Zed\ProductOption\Persistence\Base\SpyProductOptionType as BaseSpyProductOptionType;
+use SprykerFeature\Zed\ProductOption\Persistence\Propel\AbstractSpyProductOptionType as BaseSpyProductOptionType;
 
 /**
  * Skeleton subclass for representing a row from the 'spy_product_option_type' table.

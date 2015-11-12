@@ -2,7 +2,7 @@
 
 namespace Orm\Zed\Refund\Persistence;
 
-use Orm\Zed\Refund\Persistence\Base\SpyRefundQuery as BaseSpyRefundQuery;
+use SprykerFeature\Zed\Refund\Persistence\Propel\AbstractSpyRefundQuery as BaseSpyRefundQuery;
 
 /**
  * Skeleton subclass for performing query and update operations on the 'spy_refund' table.

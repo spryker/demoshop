@@ -2,7 +2,7 @@
 
 namespace Orm\Zed\User\Persistence;
 
-use Orm\Zed\User\Persistence\Base\SpyUserArchive as BaseSpyUserArchive;
+use SprykerFeature\Zed\User\Persistence\Propel\AbstractSpyUserArchive as BaseSpyUserArchive;
 
 /**
  * Skeleton subclass for representing a row from the 'spy_user_archive' table.

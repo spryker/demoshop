@@ -2,7 +2,7 @@
 
 namespace Orm\Zed\Category\Persistence;
 
-use Orm\Zed\Category\Persistence\Base\SpyCategory as BaseSpyCategory;
+use SprykerFeature\Zed\Category\Persistence\Propel\AbstractSpyCategory as BaseSpyCategory;
 
 /**
  * Skeleton subclass for representing a row from the 'spy_category' table.

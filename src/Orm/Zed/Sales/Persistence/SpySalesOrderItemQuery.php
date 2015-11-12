@@ -2,7 +2,7 @@
 
 namespace Orm\Zed\Sales\Persistence;
 
-use Orm\Zed\Sales\Persistence\Base\SpySalesOrderItemQuery as BaseSpySalesOrderItemQuery;
+use SprykerFeature\Zed\Sales\Persistence\Propel\AbstractSpySalesOrderItemQuery as BaseSpySalesOrderItemQuery;
 
 /**
  * Skeleton subclass for performing query and update operations on the 'spy_sales_order_item' table.

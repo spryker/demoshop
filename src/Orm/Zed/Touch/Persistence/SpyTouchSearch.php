@@ -2,7 +2,7 @@
 
 namespace Orm\Zed\Touch\Persistence;
 
-use Orm\Zed\Touch\Persistence\Base\SpyTouchSearch as BaseSpyTouchSearch;
+use SprykerEngine\Zed\Touch\Persistence\Propel\AbstractSpyTouchSearch as BaseSpyTouchSearch;
 
 /**
  * Skeleton subclass for representing a row from the 'spy_touch_search' table.

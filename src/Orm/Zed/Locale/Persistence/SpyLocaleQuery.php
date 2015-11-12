@@ -2,7 +2,7 @@
 
 namespace Orm\Zed\Locale\Persistence;
 
-use Orm\Zed\Locale\Persistence\Base\SpyLocaleQuery as BaseSpyLocaleQuery;
+use SprykerEngine\Zed\Locale\Persistence\Propel\AbstractSpyLocaleQuery as BaseSpyLocaleQuery;
 
 /**
  * Skeleton subclass for performing query and update operations on the 'spy_locale' table.

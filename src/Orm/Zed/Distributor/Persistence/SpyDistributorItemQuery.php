@@ -2,7 +2,7 @@
 
 namespace Orm\Zed\Distributor\Persistence;
 
-use Orm\Zed\Distributor\Persistence\Base\SpyDistributorItemQuery as BaseSpyDistributorItemQuery;
+use SprykerFeature\Zed\Distributor\Persistence\Propel\AbstractSpyDistributorItemQuery as BaseSpyDistributorItemQuery;
 
 /**
  * Skeleton subclass for performing query and update operations on the 'spy_distributor_item' table.

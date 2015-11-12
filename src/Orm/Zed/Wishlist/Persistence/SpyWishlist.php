@@ -2,7 +2,7 @@
 
 namespace Orm\Zed\Wishlist\Persistence;
 
-use Orm\Zed\Wishlist\Persistence\Base\SpyWishlist as BaseSpyWishlist;
+use SprykerFeature\Zed\Wishlist\Persistence\Propel\AbstractSpyWishlist as BaseSpyWishlist;
 
 /**
  * Skeleton subclass for representing a row from the 'spy_wishlist' table.

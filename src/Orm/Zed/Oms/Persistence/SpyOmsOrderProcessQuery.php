@@ -2,7 +2,7 @@
 
 namespace Orm\Zed\Oms\Persistence;
 
-use Orm\Zed\Oms\Persistence\Base\SpyOmsOrderProcessQuery as BaseSpyOmsOrderProcessQuery;
+use SprykerFeature\Zed\Oms\Persistence\Propel\AbstractSpyOmsOrderProcessQuery as BaseSpyOmsOrderProcessQuery;
 
 /**
  * Skeleton subclass for performing query and update operations on the 'spy_oms_order_process' table.

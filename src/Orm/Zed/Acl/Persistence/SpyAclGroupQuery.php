@@ -2,7 +2,7 @@
 
 namespace Orm\Zed\Acl\Persistence;
 
-use Orm\Zed\Acl\Persistence\Base\SpyAclGroupQuery as BaseSpyAclGroupQuery;
+use SprykerFeature\Zed\Acl\Persistence\Propel\AbstractSpyAclGroupQuery as BaseSpyAclGroupQuery;
 
 /**
  * Skeleton subclass for performing query and update operations on the 'spy_acl_group' table.

@@ -2,7 +2,7 @@
 
 namespace Orm\Zed\Product\Persistence;
 
-use Orm\Zed\Product\Persistence\Base\SpyProductAttributeType as BaseSpyProductAttributeType;
+use SprykerFeature\Zed\Product\Persistence\Propel\AbstractSpyProductAttributeType as BaseSpyProductAttributeType;
 
 /**
  * Skeleton subclass for representing a row from the 'spy_attribute_type' table.

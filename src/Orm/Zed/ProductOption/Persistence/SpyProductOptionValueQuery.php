@@ -2,7 +2,7 @@
 
 namespace Orm\Zed\ProductOption\Persistence;
 
-use Orm\Zed\ProductOption\Persistence\Base\SpyProductOptionValueQuery as BaseSpyProductOptionValueQuery;
+use SprykerFeature\Zed\ProductOption\Persistence\Propel\AbstractSpyProductOptionValueQuery as BaseSpyProductOptionValueQuery;
 
 /**
  * Skeleton subclass for performing query and update operations on the 'spy_product_option_value' table.

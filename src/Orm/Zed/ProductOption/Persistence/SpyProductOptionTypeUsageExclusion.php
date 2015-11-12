@@ -2,7 +2,7 @@
 
 namespace Orm\Zed\ProductOption\Persistence;
 
-use Orm\Zed\ProductOption\Persistence\Base\SpyProductOptionTypeUsageExclusion as BaseSpyProductOptionTypeUsageExclusion;
+use SprykerFeature\Zed\ProductOption\Persistence\Propel\AbstractSpyProductOptionTypeUsageExclusion as BaseSpyProductOptionTypeUsageExclusion;
 
 /**
  * Skeleton subclass for representing a row from the 'spy_product_option_type_usage_exclusion' table.

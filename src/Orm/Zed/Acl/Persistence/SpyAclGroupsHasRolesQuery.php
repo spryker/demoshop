@@ -2,7 +2,7 @@
 
 namespace Orm\Zed\Acl\Persistence;
 
-use Orm\Zed\Acl\Persistence\Base\SpyAclGroupsHasRolesQuery as BaseSpyAclGroupsHasRolesQuery;
+use SprykerFeature\Zed\Acl\Persistence\Propel\AbstractSpyAclGroupsHasRolesQuery as BaseSpyAclGroupsHasRolesQuery;
 
 /**
  * Skeleton subclass for performing query and update operations on the 'spy_acl_groups_has_roles' table.

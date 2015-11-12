@@ -2,7 +2,7 @@
 
 namespace Orm\Zed\ProductCategory\Persistence;
 
-use Orm\Zed\ProductCategory\Persistence\Base\SpyProductCategoryQuery as BaseSpyProductCategoryQuery;
+use SprykerFeature\Zed\ProductCategory\Persistence\Propel\AbstractSpyProductCategoryQuery as BaseSpyProductCategoryQuery;
 
 /**
  * Skeleton subclass for performing query and update operations on the 'spy_product_category' table.

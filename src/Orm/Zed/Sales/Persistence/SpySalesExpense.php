@@ -2,7 +2,7 @@
 
 namespace Orm\Zed\Sales\Persistence;
 
-use Orm\Zed\Sales\Persistence\Base\SpySalesExpense as BaseSpySalesExpense;
+use SprykerFeature\Zed\Sales\Persistence\Propel\AbstractSpySalesExpense as BaseSpySalesExpense;
 
 /**
  * Skeleton subclass for representing a row from the 'spy_sales_expense' table.

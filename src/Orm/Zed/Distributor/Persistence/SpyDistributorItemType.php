@@ -2,7 +2,7 @@
 
 namespace Orm\Zed\Distributor\Persistence;
 
-use Orm\Zed\Distributor\Persistence\Base\SpyDistributorItemType as BaseSpyDistributorItemType;
+use SprykerFeature\Zed\Distributor\Persistence\Propel\AbstractSpyDistributorItemType as BaseSpyDistributorItemType;
 
 /**
  * Skeleton subclass for representing a row from the 'spy_distributor_item_type' table.

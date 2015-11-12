@@ -2,7 +2,7 @@
 
 namespace Orm\Zed\Tax\Persistence;
 
-use Orm\Zed\Tax\Persistence\Base\SpyTaxRate as BaseSpyTaxRate;
+use SprykerFeature\Zed\Tax\Persistence\Propel\AbstractSpyTaxRate as BaseSpyTaxRate;
 
 /**
  * Skeleton subclass for representing a row from the 'spy_tax_rate' table.

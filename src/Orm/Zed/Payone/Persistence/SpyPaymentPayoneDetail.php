@@ -2,7 +2,7 @@
 
 namespace Orm\Zed\Payone\Persistence;
 
-use Orm\Zed\Payone\Persistence\Base\SpyPaymentPayoneDetail as BaseSpyPaymentPayoneDetail;
+use SprykerFeature\Zed\Payone\Persistence\Propel\AbstractSpyPaymentPayoneDetail as BaseSpyPaymentPayoneDetail;
 
 /**
  * Skeleton subclass for representing a row from the 'spy_payment_payone_detail' table.

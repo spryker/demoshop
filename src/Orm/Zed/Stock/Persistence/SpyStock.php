@@ -2,7 +2,7 @@
 
 namespace Orm\Zed\Stock\Persistence;
 
-use Orm\Zed\Stock\Persistence\Base\SpyStock as BaseSpyStock;
+use SprykerFeature\Zed\Stock\Persistence\Propel\AbstractSpyStock as BaseSpyStock;
 
 /**
  * Skeleton subclass for representing a row from the 'spy_stock' table.

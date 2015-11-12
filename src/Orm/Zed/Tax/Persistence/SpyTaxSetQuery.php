@@ -2,7 +2,7 @@
 
 namespace Orm\Zed\Tax\Persistence;
 
-use Orm\Zed\Tax\Persistence\Base\SpyTaxSetQuery as BaseSpyTaxSetQuery;
+use SprykerFeature\Zed\Tax\Persistence\Propel\AbstractSpyTaxSetQuery as BaseSpyTaxSetQuery;
 
 /**
  * Skeleton subclass for performing query and update operations on the 'spy_tax_set' table.

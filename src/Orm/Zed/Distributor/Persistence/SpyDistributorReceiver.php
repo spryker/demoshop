@@ -2,7 +2,7 @@
 
 namespace Orm\Zed\Distributor\Persistence;
 
-use Orm\Zed\Distributor\Persistence\Base\SpyDistributorReceiver as BaseSpyDistributorReceiver;
+use SprykerFeature\Zed\Distributor\Persistence\Propel\AbstractSpyDistributorReceiver as BaseSpyDistributorReceiver;
 
 /**
  * Skeleton subclass for representing a row from the 'spy_distributor_receiver' table.

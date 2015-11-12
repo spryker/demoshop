@@ -2,7 +2,7 @@
 
 namespace Orm\Zed\Sales\Persistence;
 
-use Orm\Zed\Sales\Persistence\Base\SpySalesDiscountCode as BaseSpySalesDiscountCode;
+use SprykerFeature\Zed\Sales\Persistence\Propel\AbstractSpySalesDiscountCode as BaseSpySalesDiscountCode;
 
 /**
  * Skeleton subclass for representing a row from the 'spy_sales_discount_code' table.

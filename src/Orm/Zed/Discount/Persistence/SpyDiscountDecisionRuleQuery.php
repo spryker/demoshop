@@ -2,7 +2,7 @@
 
 namespace Orm\Zed\Discount\Persistence;
 
-use Orm\Zed\Discount\Persistence\Base\SpyDiscountDecisionRuleQuery as BaseSpyDiscountDecisionRuleQuery;
+use SprykerFeature\Zed\Discount\Persistence\Propel\AbstractSpyDiscountDecisionRuleQuery as BaseSpyDiscountDecisionRuleQuery;
 
 /**
  * Skeleton subclass for performing query and update operations on the 'spy_discount_decision_rule' table.

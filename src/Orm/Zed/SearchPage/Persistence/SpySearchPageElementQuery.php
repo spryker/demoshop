@@ -2,7 +2,7 @@
 
 namespace Orm\Zed\SearchPage\Persistence;
 
-use Orm\Zed\SearchPage\Persistence\Base\SpySearchPageElementQuery as BaseSpySearchPageElementQuery;
+use SprykerFeature\Zed\SearchPage\Persistence\Propel\AbstractSpySearchPageElementQuery as BaseSpySearchPageElementQuery;
 
 /**
  * Skeleton subclass for performing query and update operations on the 'spy_search_page_element' table.

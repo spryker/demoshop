@@ -2,7 +2,7 @@
 
 namespace Orm\Zed\Oms\Persistence;
 
-use Orm\Zed\Oms\Persistence\Base\SpyOmsOrderItemStateHistoryQuery as BaseSpyOmsOrderItemStateHistoryQuery;
+use SprykerFeature\Zed\Oms\Persistence\Propel\AbstractSpyOmsOrderItemStateHistoryQuery as BaseSpyOmsOrderItemStateHistoryQuery;
 
 /**
  * Skeleton subclass for performing query and update operations on the 'spy_oms_order_item_state_history' table.

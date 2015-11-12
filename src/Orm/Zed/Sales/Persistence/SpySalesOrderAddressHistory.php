@@ -2,7 +2,7 @@
 
 namespace Orm\Zed\Sales\Persistence;
 
-use Orm\Zed\Sales\Persistence\Base\SpySalesOrderAddressHistory as BaseSpySalesOrderAddressHistory;
+use SprykerFeature\Zed\Sales\Persistence\Propel\AbstractSpySalesOrderAddressHistory as BaseSpySalesOrderAddressHistory;
 
 /**
  * Skeleton subclass for representing a row from the 'spy_sales_order_address_history' table.

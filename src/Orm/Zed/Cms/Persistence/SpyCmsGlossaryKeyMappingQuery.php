@@ -2,7 +2,7 @@
 
 namespace Orm\Zed\Cms\Persistence;
 
-use Orm\Zed\Cms\Persistence\Base\SpyCmsGlossaryKeyMappingQuery as BaseSpyCmsGlossaryKeyMappingQuery;
+use SprykerFeature\Zed\Cms\Persistence\Propel\AbstractSpyCmsGlossaryKeyMappingQuery as BaseSpyCmsGlossaryKeyMappingQuery;
 
 /**
  * Skeleton subclass for performing query and update operations on the 'spy_cms_glossary_key_mapping' table.

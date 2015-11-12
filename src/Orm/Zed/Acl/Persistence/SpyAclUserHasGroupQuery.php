@@ -2,7 +2,7 @@
 
 namespace Orm\Zed\Acl\Persistence;
 
-use Orm\Zed\Acl\Persistence\Base\SpyAclUserHasGroupQuery as BaseSpyAclUserHasGroupQuery;
+use SprykerFeature\Zed\Acl\Persistence\Propel\AbstractSpyAclUserHasGroupQuery as BaseSpyAclUserHasGroupQuery;
 
 /**
  * Skeleton subclass for performing query and update operations on the 'spy_acl_user_has_group' table.

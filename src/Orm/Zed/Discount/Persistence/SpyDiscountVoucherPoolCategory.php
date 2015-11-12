@@ -2,7 +2,7 @@
 
 namespace Orm\Zed\Discount\Persistence;
 
-use Orm\Zed\Discount\Persistence\Base\SpyDiscountVoucherPoolCategory as BaseSpyDiscountVoucherPoolCategory;
+use SprykerFeature\Zed\Discount\Persistence\Propel\AbstractSpyDiscountVoucherPoolCategory as BaseSpyDiscountVoucherPoolCategory;
 
 /**
  * Skeleton subclass for representing a row from the 'spy_discount_voucher_pool_category' table.

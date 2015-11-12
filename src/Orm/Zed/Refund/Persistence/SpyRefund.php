@@ -2,7 +2,7 @@
 
 namespace Orm\Zed\Refund\Persistence;
 
-use Orm\Zed\Refund\Persistence\Base\SpyRefund as BaseSpyRefund;
+use SprykerFeature\Zed\Refund\Persistence\Propel\AbstractSpyRefund as BaseSpyRefund;
 
 /**
  * Skeleton subclass for representing a row from the 'spy_refund' table.

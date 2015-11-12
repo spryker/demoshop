@@ -2,7 +2,7 @@
 
 namespace Orm\Zed\Sales\Persistence;
 
-use Orm\Zed\Sales\Persistence\Base\SpySalesOrderComment as BaseSpySalesOrderComment;
+use SprykerFeature\Zed\Sales\Persistence\Propel\AbstractSpySalesOrderComment as BaseSpySalesOrderComment;
 
 /**
  * Skeleton subclass for representing a row from the 'spy_sales_order_comment' table.

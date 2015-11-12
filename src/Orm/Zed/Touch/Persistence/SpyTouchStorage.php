@@ -2,7 +2,7 @@
 
 namespace Orm\Zed\Touch\Persistence;
 
-use Orm\Zed\Touch\Persistence\Base\SpyTouchStorage as BaseSpyTouchStorage;
+use SprykerEngine\Zed\Touch\Persistence\Propel\AbstractSpyTouchStorage as BaseSpyTouchStorage;
 
 /**
  * Skeleton subclass for representing a row from the 'spy_touch_storage' table.

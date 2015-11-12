@@ -2,7 +2,7 @@
 
 namespace Orm\Zed\Discount\Persistence;
 
-use Orm\Zed\Discount\Persistence\Base\SpyDiscount as BaseSpyDiscount;
+use SprykerFeature\Zed\Discount\Persistence\Propel\AbstractSpyDiscount as BaseSpyDiscount;
 
 /**
  * Skeleton subclass for representing a row from the 'spy_discount' table.

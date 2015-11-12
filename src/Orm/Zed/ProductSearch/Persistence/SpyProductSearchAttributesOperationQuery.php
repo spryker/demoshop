@@ -2,7 +2,7 @@
 
 namespace Orm\Zed\ProductSearch\Persistence;
 
-use Orm\Zed\ProductSearch\Persistence\Base\SpyProductSearchAttributesOperationQuery as BaseSpyProductSearchAttributesOperationQuery;
+use SprykerFeature\Zed\ProductSearch\Persistence\Propel\AbstractSpyProductSearchAttributesOperationQuery as BaseSpyProductSearchAttributesOperationQuery;
 
 /**
  * Skeleton subclass for performing query and update operations on the 'spy_product_search_attributes_operation' table.

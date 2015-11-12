@@ -2,7 +2,7 @@
 
 namespace Orm\Zed\Url\Persistence;
 
-use Orm\Zed\Url\Persistence\Base\SpyUrl as BaseSpyUrl;
+use SprykerFeature\Zed\Url\Persistence\Propel\AbstractSpyUrl as BaseSpyUrl;
 
 /**
  * Skeleton subclass for representing a row from the 'spy_url' table.
