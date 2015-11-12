@@ -1,0 +1,7 @@
+{
+    "id": "some_id",
+    "image": "../images/product/meat_kanguru.jpg",
+    "name": "some_name",
+    "value": "some_value",
+    "label": "Kanguru"
+}

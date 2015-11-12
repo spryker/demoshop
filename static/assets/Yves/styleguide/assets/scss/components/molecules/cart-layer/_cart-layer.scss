@@ -1,0 +1,87 @@
+// Cart layer
+//
+// Markup: molecules.cart-layer.hbs
+//
+// Styleguide: molecules.cart-layer
+//
+// Weight: -2
+
+.cart-layer{
+    position: relative;
+    width: 20%;
+    float: left;
+    @include sectionShadow;
+    //
+    // // #TODO:300 abstract header height to variable
+    // top: 135px;
+    // left: 0;
+
+    &.js-processed{
+        transition: margin-top $_tMedium ease-in-out;
+    }
+
+    &:before{
+        content: '';
+        position: absolute;
+        z-index: 1;
+        top: -45px;
+        left: 0;
+        height: 45px;
+        width: 100%;
+        background: $_rgbWhite;
+    }
+}
+
+.cart-layer__inner{
+    position: relative;
+    z-index: 1;
+    background: $_rgbWhite;
+    max-height: calc(100vh - 120px);
+    overflow: auto;
+}
+
+.cart-layer--open{
+    &:after{
+        content: '';
+        z-index: 0;
+        position: fixed;
+        top: 0;
+        right: 0;
+        width: 100%;
+        height: 100%;
+        background: $_rgbBlack30;
+    }
+}
+
+.cart-layer__headline{
+    padding: 11px;
+
+    font-family: $_ffBrandonGrotesque-Black;
+    font-size: $_fsLarge;
+    line-height: $_lhLarge;
+    //letter-spacing: 2.18px;
+    color: $_rgbQuincy;
+    text-transform: uppercase;
+    text-align: center;
+}
+
+.cart-layer__upsell{
+    float: left;
+    width: 50%;
+}
+
+.cart-layer__amount{
+    padding: 50px 40px;
+    float: left;
+    width: 50%;
+    text-align: right;
+}
+
+.cart-layer__total{
+    padding-bottom: 50px;
+
+    font-family: $_ffHelveticaNeue;
+    font-size: 40px;
+    line-height: 47px;
+    color: $_rgbQuincy;
+}

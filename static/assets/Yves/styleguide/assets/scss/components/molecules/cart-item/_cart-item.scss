@@ -1,0 +1,134 @@
+// Cart item
+//
+// Markup:
+//
+// Styleguide: molecules.cart-item
+
+.cart-item{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: $_rgbAlabaster;
+    border-top: 1px solid $_rgbSilver;
+    flex-direction: vertical;
+
+    &:last-child{
+        border-bottom: 1px solid $_rgbSilver;
+    }
+}
+
+.cart-item__image{
+    padding: 26px 27px 26px 50px;
+    img{
+        @include responsiveImage;
+        max-width: 95px;
+    }
+}
+
+.cart-item__info{
+    padding: 26px 40px 26px 10px;
+    flex-grow: 1;
+}
+
+.cart-item__breadcrumbs{
+    margin-bottom: 10px;
+
+    font-family: $_ffBrandonGrotesque-Black;
+    font-size: 12px;
+    line-height: 18px;
+    //letter-spacing: 1.14px;
+    color: $_rgbOsloGray;
+    text-transform: uppercase;
+}
+
+.cart-item__breadcrumb{
+    display: inline-block;
+
+    & + .cart-item__breadcrumb:before{
+        position: relative;
+        top: -2px;
+        content: '|';
+        margin: 0 5px 0 3px;
+    }
+}
+
+.cart-item__title{
+    margin-bottom: 7px;
+
+    font-family: $_ffBrandonGrotesque-Black;
+    font-size: 26px;
+    line-height: 28px;
+    color: $_rgbApple;
+}
+
+.cart-item__content{
+    font-family: $_ffBrandonGrotesque-Black;
+}
+
+.cart-item__weight{
+    display: inline-block;
+
+    font-size: 16px;
+    line-height: 28px;
+    color: $_rgbOsloGray;
+}
+
+.cart-item__flag{
+    display: inline-block;
+    margin-left: 15px;
+
+    font-size: 12px;
+    //letter-spacing: 1.14px;
+    line-height: 18px;
+    text-transform: uppercase;
+    color: $_rgbChileanFire;
+}
+
+.cart-item__options{
+    display: flex;
+    align-self: stretch;
+    align-items: center;
+    padding: 26px 0;
+    border-right: 1px solid $_rgbSilver;
+
+    .button{
+        vertical-align: middle;
+    }
+}
+
+
+.cart-item__delete{
+    display: inline-block;
+    vertical-align: middle;
+    padding: 0 40px 0 30px;
+    color: $_rgbOsloGray;
+
+    &:before{
+        position: relative;
+        top: 6px;
+        content: '\0E012';
+        font-family: $_ffPetsDeliIcons;
+        font-size: 35px;
+    }
+}
+
+.cart-item__quantity{
+    padding: 26px 40px;
+}
+
+.cart-item__edit{
+}
+
+.cart-item__price{
+    padding: 26px 40px;
+
+    font-size: 32px;
+    line-height: 38px;
+    font-family: $_ffHelveticaNeue;
+    color: $_rgbQuincy;
+}
+
+.cart-item__unit{
+    font-size: 26px;
+    line-height: 30px;
+}

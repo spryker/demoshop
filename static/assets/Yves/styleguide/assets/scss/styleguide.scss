@@ -1,3 +1,7 @@
-@import 'base/index';
-@import 'styleguide/index';
-@import 'styles';
+@import "base/index";
+
+@import "styleguide/*";
+
+@import "components/atoms/**/*";
+@import "components/molecules/**/*";
+@import "components/organisms/**/*";

@@ -1,0 +1,71 @@
+// Product options
+//
+// Markup: atoms.product-options.hbs
+//
+// Styleguide: atoms.product-options
+
+.product-options{
+
+}
+
+.product-options__select{
+    float: left;
+    margin-bottom: 20px;
+    padding: 5px;
+
+    label{
+        display: block;
+
+        font-family: $_ffBrandonGrotesque-Bold;
+        font-size: $_fsSmall;
+        line-height: $_lhSmall;
+        color: $_rgbOsloGray3;
+        text-align: center;
+    }
+
+    select{
+    }
+}
+
+.product-options__pricing{
+    float: right;
+    margin-bottom: 20px;
+}
+
+.product-options__total{
+    font-family: $_ffHelveticaNeue;
+    font-size: 28px;
+    line-height: 33px;
+    color: $_rgbOsloGray;
+}
+
+.product-options__relative{
+    font-family: $_ffHelveticaNeue;
+    //letter-spacing: 0.18px;
+    font-size: 10px;
+    line-height: 14px;
+    color: $_rgbSilverChalices2;
+}
+
+.product-options__button{
+    display: block;
+    width: 100%;
+}
+
+.product-options__delivery{
+    padding: 28px 0 0 10px;
+    font-size: 14px;
+    line-height: 17px;
+}
+
+.product-options__delivery-status{
+    margin-bottom: 10px;
+    font-family: $_ffBrandonGrotesque-Bold;
+    color: $_rgbApple;
+
+    @include pdif('dot', 7px, 15px);
+}
+
+.product-options__delivery-info{
+    color: $_rgbDoveGray;
+}

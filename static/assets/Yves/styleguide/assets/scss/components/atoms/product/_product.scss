@@ -1,0 +1,23 @@
+// Product
+//
+// Markup: atoms.product.hbs
+//
+// Styleguide: atoms.product
+
+.product{
+    position: relative;
+    background: $_rgbWhite;
+    padding: 48px 0 45px;
+    @include cardShadow;
+}
+
+.product__gallery{
+    padding: 0;
+    margin-left: -18px;
+    margin-right: 18px;
+}
+
+.product__detail{
+    @include pageWidth;
+    overflow: hidden;
+}

@@ -1,0 +1,104 @@
+// Product configurator
+//
+// Markup: atoms.product-configurator.hbs
+//
+// Styleguide: atoms.product-configurator
+
+.product-configurator{
+    width: 100%;
+    max-width: 735px;
+    max-height: 100vh;
+    transition: right $_tLong ease-in-out;
+}
+
+.product-related + .product-configurator{
+    position: fixed;
+    z-index: 5;
+    top: 0;
+    right: -100%;
+}
+
+.product-configurator--show{
+    right: 0 !important;
+
+    &:after{
+        background: $_rgbBlack30 !important;
+    }
+}
+
+.product-configurator--background{
+    &:after{
+        content: '';
+        z-index: 0;
+        position: fixed;
+        top: 0;
+        right: 0;
+        width: 100%;
+        height: 100%;
+        background: transparent;
+
+        transition: background $_tShort ease-in-out;
+    }
+}
+
+
+.product-configurator__inner{
+    position: relative;
+    z-index: 1;
+    background: $_rgbWhite;
+    padding: 30px 28px 60px;
+    max-height: 100vh;
+    overflow: auto;
+}
+
+.product-configurator__composition{
+  overflow: hidden;
+  margin: 0 -5px 45px -5px;
+}
+
+.product-configurator__composition-label{
+  margin: 0 5px 5px;
+
+  font-family: $_ffBrandonGrotesque-Bold;
+  color: $_rgbSilverChalice;
+  //letter-spacing: 0.3px;
+}
+
+.product-configurator__selection{
+  margin-bottom: 40px;
+}
+
+.product-configurator__headline{
+  font-family: $_ffBrandonGrotesque-Black;
+  font-size: 38px;
+  line-height: 56px;
+  //letter-spacing: 0.58px;
+  color: $_rgbApple;
+}
+
+.product-configurator__description{
+  margin-bottom: 24px;
+  max-width: 460px;
+
+  color: $_rgbSilverChalice;
+  line-height: 25px;
+}
+
+.product-configurator__subheadline{
+  font-family: $_ffBrandonGrotesque-Black;
+  font-size: 26px;
+  line-height: 38px;
+  color: $_rgbApple;
+  //letter-spacing: 0.4px;
+}
+
+.product-configurator__save{
+  text-align: center;
+}
+
+.product-configurator__availability{
+  margin-bottom: 20px;
+
+  color: $_rgbChileanFire;
+  line-height: 25px;
+}

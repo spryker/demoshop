@@ -1,0 +1,57 @@
+// Newsletter
+//
+// Markup: organisms.newsletter.hbs
+//
+// Styleguide: organisms.newsletter
+
+.newsletter{
+    padding: 40px 0;
+    background: $_rgbAlabaster;
+}
+
+.newsletter__inner{
+    @include pageWidth;
+}
+
+.newsletter__headline{
+    font-family: $_ffBrandonGrotesque-Bold;
+    color: $_rgbApple;
+    font-size: 22px;
+    line-height: 31px;
+    //letter-spacing: 0.24px;
+    text-align: center;
+}
+
+.newsletter__description{
+    @include limitWidth(600px);
+    margin-bottom: 40px;
+
+    color: $_rgbOsloGray;
+    text-align: center;
+    font-size: 16px;
+}
+
+.newsletter__form{
+    display: flex;
+    width: 100%;
+    max-width: 360px;
+    margin: 0 auto;
+
+    .input{
+        flex-grow: 1;
+        margin-right: 10px;
+    }
+
+    .button{
+
+    }
+}
+
+@media (min-width: $_wLarge) {
+    .newsletter__content{
+        position: absolute;
+        right: 13%;
+        width: 37%;
+        padding: 0;
+    }
+}

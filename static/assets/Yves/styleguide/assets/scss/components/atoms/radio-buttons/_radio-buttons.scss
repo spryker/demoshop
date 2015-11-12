@@ -1,0 +1,44 @@
+// Radio buttons
+//
+// Markup: atoms.radio-buttons.hbs
+//
+// Styleguide: atoms.radio-buttons
+
+.radio-buttons{
+
+}
+
+.radio-buttons__button{
+    display: inline-block;
+
+    input{
+        position: absolute;
+        opacity: 0;
+    }
+
+    input:checked + .radio-buttons__button-inner{
+        color: $_rgbWhite;
+        border-color: $_rgbApple;
+        background: $_rgbApple;
+    }
+}
+
+.radio-buttons__button-inner{
+    overflow: hidden;
+    position: relative;
+    display: block;
+    padding: 13px 18px;
+    border: 2px solid $_rgbOsloGray;
+    border-radius: $_defaultBorderRadius;
+    cursor: pointer;
+
+    color: $_rgbOsloGray;
+    font-family: $_ffBrandonGrotesque-Bold;
+    font-size: 14px;
+    line-height: 21px;
+    //letter-spacing: 0.34px;
+    text-transform: uppercase;
+
+    transition: all $_tShort ease-in-out;
+    @include ripple;
+}

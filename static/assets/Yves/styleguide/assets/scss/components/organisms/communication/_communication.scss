@@ -1,0 +1,71 @@
+// Communication channels
+//
+// Markup: organisms.communication.hbs
+//
+// Styleguide: organisms.communication
+
+.communication{
+    padding: 38px 0;
+    @include sectionShadow;
+
+    background: $_rgbApple;
+    color: $_rgbWhite;
+}
+
+.communication__channels{
+    @include limitWidth;
+    overflow: hidden;
+}
+
+.communication__channel{
+    width: 50%;
+    margin: 10px 0;
+    padding-top: 53px;
+    float: left;
+    text-align: center;
+
+    &:before{
+        top: 0 !important;
+        margin-top: 0 !important;
+        width: 100%;
+        text-align: center;
+    }
+}
+
+.communication__channel--call{
+    @include pdif('phone', 44px, 0);
+}
+
+.communication__channel--mail{
+    @include pdif('mail', 44px, 0);
+}
+
+.communication__channel--chat{
+    @include pdif('chat', 44px, 0);
+}
+
+.communication__channel--store{
+    @include pdif('poi', 44px, 0);
+}
+
+.communication__label{
+    font-family: $_ffBrandonGrotesque-Bold;
+    font-size: 16px;
+    line-height: 23px;
+    //letter-spacing: 2.27px;
+    text-transform: uppercase;
+}
+
+.communication__info{
+    font-family: $_ffBrandonGrotesque-Bold;
+    font-size: 16px;
+    line-height: 23px;
+    //letter-spacing: 0.19px;
+}
+
+
+@media (min-width: $_wMedium) {
+    .communication__channel{
+        width: 25%;
+    }
+}

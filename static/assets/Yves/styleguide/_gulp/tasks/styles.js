@@ -15,7 +15,8 @@ var gulp = require('gulp'),
     _if = require('gulp-if'),
     gutil = require('gulp-util'),
     notify = require('gulp-notify'),
-    sequence = require('gulp-sequence');
+    sequence = require('gulp-sequence'),
+    bulkSass = require('gulp-sass-glob-import');
 
 var development = gutil.env.development;
 
@@ -50,13 +51,15 @@ function generateStyles (entry, title) {
       .pipe(plumber({
         errorHandler: notify.onError("Error: <%= error.message %>")
       }))
-      .pipe(sourcemaps.init())
+      //.pipe(sourcemaps.init())
+      .pipe(bulkSass())
       .pipe(sass({
-        includePaths: ['./' + paths.source.root + ' css']
+          includePaths: ['./' + paths.source.root + ' css'],
       }))
-      .pipe(minifyCSS())
-      .pipe(prefix('last 2 versions'))
-      .pipe(sourcemaps.write('./'))
+      //.pipe(minifyCSS())
+      //.pipe(prefix('last 2 versions'))
+      .pipe(prefix('last 1 versions'))
+      //.pipe(sourcemaps.write('./'))
       .pipe(gulp.dest(paths.dest.styles))
       .pipe(_if(development, notify({
         message: 'Task "styles:' + title + '" completed',
