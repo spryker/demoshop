@@ -141,6 +141,7 @@ class ConcreteProductWriter extends DefaultProductWriter
             $assignedProductGroupValues[$productGroupTranfer->getKey()] = $productGroupValue;
         }
 
+        /*
         foreach($productGroupKeyValuesToBeAssigned as $key => $value) {
             if (isset($assignedProductGroupValues[$productGroupValue->getKey]))
 
@@ -173,7 +174,7 @@ class ConcreteProductWriter extends DefaultProductWriter
         foreach ($assignedProductGroupKeys as $productGroupToDelete) {
             $this->productGroupFacade->removeAbstractProductFromGroup($productTransfer->getIdAbstractProduct(), $productGroupToDelete);
         }
-
+*/
 
     }
 
