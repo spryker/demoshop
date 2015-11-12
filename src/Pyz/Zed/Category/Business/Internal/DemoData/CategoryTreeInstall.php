@@ -5,8 +5,8 @@ namespace Pyz\Zed\Category\Business\Internal\DemoData;
 use Generated\Shared\Transfer\CategoryTransfer;
 use Generated\Shared\Transfer\LocaleTransfer;
 use Generated\Shared\Transfer\NodeTransfer;
+use Pyz\Zed\Locale\Business\LocaleFacade;
 use SprykerEngine\Zed\Touch\Business\TouchFacade;
-use SprykerEngine\Zed\Locale\Business\LocaleFacade;
 use SprykerFeature\Shared\Category\CategoryConfig;
 use SprykerFeature\Zed\Category\Business\Model\CategoryWriter;
 use SprykerFeature\Zed\Category\Business\Model\CategoryWriterInterface;
@@ -20,7 +20,8 @@ class CategoryTreeInstall extends AbstractInstaller
 
     const IS_ROOT = 'is_root';
     const CATEGORY_NAME = 'name';
-    const PARENT_NAME = 'parent_name';
+    const CATEGORY_KEY = 'key';
+    const PARENT_KEY = 'parent_key';
     const IMAGE_NAME = 'image_name';
 
     /**
@@ -39,9 +40,14 @@ class CategoryTreeInstall extends AbstractInstaller
     protected $queryContainer;
 
     /**
-     * @var LocaleTransfer
+     * @var Local
      */
     protected $locale;
+
+    /**
+     * @var LocaleFacade
+     */
+    protected $localeFacade;
 
     /**
      * @param CategoryWriterInterface $categoryWriter
@@ -60,6 +66,7 @@ class CategoryTreeInstall extends AbstractInstaller
         $this->categoryWriter = $categoryWriter;
         $this->categoryTreeWriter = $categoryTreeWriter;
         $this->queryContainer = $categoryQueryContainer;
+        $this->localeFacade = $localeFacade;
         $this->locale = $localeFacade->getCurrentLocale();
         $this->touchFacade = $touchFacade;
     }
@@ -80,22 +87,23 @@ class CategoryTreeInstall extends AbstractInstaller
     }
 
     /**
-     * @return array
+     * @return \SimpleXMLElement
      */
     protected function getDemoTree()
     {
-        $reader = new CsvFileReader();
+        $xmlContent = file_get_contents(__DIR__ . '/demo-category-tree.xml');
+        $xml = new \SimpleXMLElement($xmlContent);
 
-        return $reader->read(__DIR__ . '/demo-category-tree.csv')->getData();
+        return $xml;
     }
 
     /**
-     * @param array $demoTree
+     * @param \SimpleXMLElement $demoTree
      */
-    protected function write(array $demoTree)
+    protected function write(\SimpleXMLElement $demoTree)
     {
         foreach ($demoTree as $row) {
-            if ((int) $row[self::IS_ROOT] === 1) {
+            if (1 === (int) $row[self::IS_ROOT]) {
                 $this->addRootNode($row);
             } else {
                 $this->addChild($row);
@@ -104,9 +112,9 @@ class CategoryTreeInstall extends AbstractInstaller
     }
 
     /**
-     * @param array $rawNode
+     * @param \SimpleXMLElement $rawNode
      */
-    protected function addRootNode(array $rawNode)
+    protected function addRootNode(\SimpleXMLElement $rawNode)
     {
         $idCategory = $this->createCategory($rawNode);
 
@@ -120,9 +128,9 @@ class CategoryTreeInstall extends AbstractInstaller
     }
 
     /**
-     * @param array $rawNode
+     * @param \SimpleXMLElement $rawNode
      */
-    protected function addChild(array $rawNode)
+    protected function addChild(\SimpleXMLElement $rawNode)
     {
         $idCategory = $this->createCategory($rawNode);
 
@@ -135,13 +143,13 @@ class CategoryTreeInstall extends AbstractInstaller
     }
 
     /**
-     * @param array $rawNode
+     * @param \SimpleXMLElement $rawNode
      *
      * @return bool
      */
-    protected function getParentId(array $rawNode)
+    protected function getParentId(\SimpleXMLElement $rawNode)
     {
-        $nodeQuery = $this->queryContainer->queryNodeByCategoryName($rawNode[self::PARENT_NAME], $this->locale->getIdLocale());
+        $nodeQuery = $this->queryContainer->queryNodeByCategoryKey((string) $rawNode->{self::PARENT_KEY});
         $nodeEntity = $nodeQuery->findOne();
 
         if ($nodeEntity) {
@@ -152,17 +160,36 @@ class CategoryTreeInstall extends AbstractInstaller
     }
 
     /**
-     * @param array $rawNode
+     * @param \SimpleXMLElement $rawNode
      *
-     * @return int
+     * @return int|null
      */
-    protected function createCategory(array $rawNode)
+    protected function createCategory(\SimpleXMLElement $rawNode)
     {
         $categoryTransfer = new CategoryTransfer();
-        $categoryTransfer->setName($rawNode[self::CATEGORY_NAME]);
-        $categoryTransfer->setCategoryImageName($rawNode[self::IMAGE_NAME]);
+        $categoryTransfer->setCategoryKey((string) $rawNode->{self::CATEGORY_KEY});
 
-        $idCategory = $this->categoryWriter->create($categoryTransfer, $this->locale);
+        $locales = $this->localeFacade->getAvailableLocales();
+        $idCategory = null;
+
+        foreach($locales as $locale) {
+            $localeAttributes = $rawNode->xpath('locales/locale[@id="' . $locale . '"]');
+            $localeAttributes = current($localeAttributes);
+
+            if($localeAttributes === false) {
+                continue;
+            }
+
+            $categoryTransfer->setName((string) $localeAttributes->{self::CATEGORY_NAME});
+            $categoryTransfer->setCategoryImageName((string) $localeAttributes->{self::IMAGE_NAME});
+
+            if ($idCategory === null) {
+                $idCategory = $this->categoryWriter->create($categoryTransfer, $this->localeFacade->getLocale($locale));
+            } else {
+                $categoryTransfer->setIdCategory($idCategory);
+                $this->categoryWriter->addCategoryAttribute($categoryTransfer, $this->localeFacade->getLocale($locale));
+            }
+        }
 
         return $idCategory;
     }

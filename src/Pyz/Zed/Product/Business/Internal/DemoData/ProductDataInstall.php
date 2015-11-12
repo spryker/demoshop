@@ -253,7 +253,7 @@ class ProductDataInstall extends AbstractInstaller
         $productUrl = trim($productUrl);
         $productUrl = str_replace($searchStrings, $replaceStrings, $productUrl);
 
-        return '/' . substr($localizedAttributes->getLocale()->getLocaleName(), 0, 2) . '/' .$productUrl;
+        return '/' . mb_substr($localizedAttributes->getLocale()->getLocaleName(), 0, 2) . '/' .$productUrl;
     }
 
     /**

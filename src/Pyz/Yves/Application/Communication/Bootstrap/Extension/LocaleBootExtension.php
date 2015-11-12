@@ -27,14 +27,14 @@ class LocaleBootExtension implements AfterBootExtensionInterface
 
 
         // TODO: Segment, Sub-domain and query-string way
-        if(!array_key_exists('REQUEST_URI', $_SERVER)) {
+        if (!array_key_exists('REQUEST_URI', $_SERVER)) {
             return;
         }
 
         $requestUrI = $_SERVER['REQUEST_URI'];
-        $identifier = substr($requestUrI,1,2);
+        $identifier = mb_substr($requestUrI,1,2);
 
-        if($identifier !== false && array_key_exists($identifier,Store::getInstance()->getLocales())) {
+        if ($identifier !== false && array_key_exists($identifier,Store::getInstance()->getLocales())) {
             Store::getInstance()->setCurrentLocale(Store::getInstance()->getLocales()[$identifier]);
             $app['locale'] = Store::getInstance()->getCurrentLocale();
 

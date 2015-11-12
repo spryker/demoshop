@@ -1,0 +1,63 @@
+<?xml version="1.0"?>
+<categories>
+    <category>
+        <root>1</root>
+        <key>100101</key>
+        <parent_key/>
+        <locales>
+            <locale id="de_DE">
+                <name>Alle</name>
+                <image_name/>
+            </locale>
+            <locale id="en_US">
+                <name>All</name>
+                <image_name/>
+            </locale>
+        </locales>
+    </category>
+    <category>
+        <root>0</root>
+        <key>100102</key>
+        <parent_key>100101</parent_key>
+        <locales>
+            <locale id="de_DE">
+                <name>Wald und Wiese</name>
+                <image_name>waldnwiese.jpg</image_name>
+            </locale>
+            <locale id="en_US">
+                <name>Forest and Wise</name>
+                <image_name>waldnwiese.jpg</image_name>
+            </locale>
+        </locales>
+    </category>
+    <category>
+        <root>0</root>
+        <key>100103</key>
+        <parent_key>100101</parent_key>
+        <locales>
+            <locale id="de_DE">
+                <name>Wilde Tiere</name>
+                <image_name>wildlife.jpg</image_name>
+            </locale>
+            <locale id="en_US">
+                <name>Wild Animal</name>
+                <image_name>wildlife.jpg</image_name>
+            </locale>
+        </locales>
+    </category>
+    <category>
+        <root>0</root>
+        <key>100104</key>
+        <parent_key>100101</parent_key>
+        <locales>
+            <locale id="de_DE">
+                <name>Meere</name>
+                <image_name>sealife.jpg</image_name>
+            </locale>
+            <locale id="en_US">
+                <name>Seas</name>
+                <image_name>wildlife.jpg</image_name>
+            </locale>
+        </locales>
+    </category>
+</categories>
