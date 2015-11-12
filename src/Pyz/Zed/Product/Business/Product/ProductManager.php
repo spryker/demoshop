@@ -146,8 +146,8 @@ class ProductManager extends SprykerProductManager implements ProductManagerInte
      */
     protected function updateAbstractProductEntity(AbstractProductInterface $abstractProductTransfer, SpyAbstractProduct $entity)
     {
+        $entity->setSku($abstractProductTransfer->getSku());
         $entity->setType($abstractProductTransfer->getType());
-
         $entity->setAttributes($this->encodeAttributes($abstractProductTransfer->getAttributes()));
 
         $localizedAttributeCollection = [];

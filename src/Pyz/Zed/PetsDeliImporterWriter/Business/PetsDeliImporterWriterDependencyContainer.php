@@ -16,7 +16,8 @@ class PetsDeliImporterWriterDependencyContainer extends AbstractBusinessDependen
     /**
      * @return ProductWriterProviderInterface
      */
-    public function getProductWriterProvider() {
+    public function getProductWriterProvider()
+    {
 
         return $this->getFactory()->createWriterProviderPetsDeliWriterProvider(
             $this->getAbstractProductWriter(),
@@ -30,31 +31,37 @@ class PetsDeliImporterWriterDependencyContainer extends AbstractBusinessDependen
      * @return Writer\AbstractProductWriter
      * @throws \ErrorException
      */
-    protected function getAbstractProductWriter() {
+    protected function getAbstractProductWriter()
+    {
         return $this->getFactory()->createWriterAbstractProductWriter(
-                $this->getProvidedDependency(PetsDeliImporterWriterDependencyProvider::PRODUCT_FACADE),
-                $this->getProvidedDependency(PetsDeliImporterWriterDependencyProvider::LOCALE_FACADE),
-                $this->getProvidedDependency(PetsDeliImporterWriterDependencyProvider::TAX_FACADE),
-                $this->getProvidedDependency(PetsDeliImporterWriterDependencyProvider::PRODUCT_CATEGORY_FACADE)
-            );
+            $this->getProvidedDependency(PetsDeliImporterWriterDependencyProvider::PRODUCT_FACADE),
+            $this->getProvidedDependency(PetsDeliImporterWriterDependencyProvider::LOCALE_FACADE),
+            $this->getProvidedDependency(PetsDeliImporterWriterDependencyProvider::TAX_FACADE),
+            $this->getProvidedDependency(PetsDeliImporterWriterDependencyProvider::PRODUCT_CATEGORY_FACADE),
+            $this->getProvidedDependency(PetsDeliImporterWriterDependencyProvider::PRODUCT_GROUP_FACADE)
+        );
     }
 
     /**
-     * @return Writer\AbstractProductWriter
+     * @return Writer\ConcreteProductWriter
      * @throws \ErrorException
      */
-    protected function getConcreteProductWriter() {
+    protected function getConcreteProductWriter()
+    {
         return $this->getFactory()->createWriterConcreteProductWriter(
-                $this->getProvidedDependency(PetsDeliImporterWriterDependencyProvider::PRODUCT_FACADE),
-                $this->getProvidedDependency(PetsDeliImporterWriterDependencyProvider::LOCALE_FACADE),
-                $this->getProvidedDependency(PetsDeliImporterWriterDependencyProvider::PRICE_FACADE)
+            $this->getProvidedDependency(PetsDeliImporterWriterDependencyProvider::PRODUCT_FACADE),
+            $this->getProvidedDependency(PetsDeliImporterWriterDependencyProvider::LOCALE_FACADE),
+            $this->getProvidedDependency(PetsDeliImporterWriterDependencyProvider::PRICE_FACADE),
+            $this->getProvidedDependency(PetsDeliImporterWriterDependencyProvider::PRODUCT_GROUP_FACADE)
 
-            );
+        );
     }
 
-    protected function getAbstractProductDynamicWriter() {
+    protected function getAbstractProductDynamicWriter()
+    {
         return $this->getFactory()->createWriterAbstractProductDynamicWriter(
-
+            $this->getProvidedDependency(PetsDeliImporterWriterDependencyProvider::PRODUCT_FACADE),
+            $this->getProvidedDependency(PetsDeliImporterWriterDependencyProvider::PRODUCT_DYNAMIC_FACADE)
         );
     }
 }

@@ -1,4 +1,15 @@
 
+INSERT INTO "pav_product_group" (id_product_group, "key") VALUES (1, 'weight'), (2, 'carbs');
+
+INSERT INTO pav_product_group_value (id_product_group_value, fk_product_group, "value", sequence)
+    VALUES
+      (1,1, '250g', 1),
+      (2,1, '500g', 2),
+      (3,2, 'yes', 1),
+      (4,2, 'no', 2)
+;
+
+
 -- TAXES
 
 INSERT INTO "spy_tax_rate" ("id_tax_rate", "name", "rate") VALUES ('1', 'normal', '19');

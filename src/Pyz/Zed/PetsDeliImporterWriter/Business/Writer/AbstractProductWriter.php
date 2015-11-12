@@ -2,11 +2,14 @@
 
 namespace Pyz\Zed\PetsDeliImporterWriter\Business\Writer;
 
+use Generated\Shared\Product\AbstractProductInterface;
 use Generated\Shared\ProductDynamicImporter\PavProductDynamicImporterAbstractProductInterface;
 use Generated\Shared\ProductDynamicImporter\PavProductDynamicImporterLocaleInterface;
 use Generated\Shared\Transfer\AbstractProductTransfer;
+use Generated\Shared\Transfer\ProductGroupTransfer;
 use Generated\Shared\Transfer\TaxSetTransfer;
 use PavFeature\Zed\ProductDynamicImporter\Business\Writer\ProductWriterInterface;
+use PavFeature\Zed\ProductGroup\Business\ProductGroupFacade;
 use Pyz\Zed\Locale\Business\LocaleFacade;
 use Pyz\Zed\Product\Business\ProductFacade;
 use Pyz\Zed\ProductCategory\Business\ProductCategoryFacade;
@@ -21,6 +24,7 @@ class AbstractProductWriter extends DefaultProductWriter implements ProductWrite
     protected $productFacade;
     protected $taxFacade;
     protected $productCategoryFacade;
+    protected $productGroupFacade;
 
     /**
      * AbstractProductWriter constructor.
@@ -28,17 +32,21 @@ class AbstractProductWriter extends DefaultProductWriter implements ProductWrite
      * @param LocaleFacade $localeFacade
      * @param TaxFacade $taxFacade
      * @param ProductCategoryFacade $productCategoryFacade
+     * @param ProductGroupFacade $productGroupFacade
      */
     public function __construct(
         ProductFacade $productFacade,
         LocaleFacade $localeFacade,
         TaxFacade $taxFacade,
-        ProductCategoryFacade $productCategoryFacade
+        ProductCategoryFacade $productCategoryFacade,
+        ProductGroupFacade $productGroupFacade
+
     ) {
         $this->productFacade = $productFacade;
         $this->localeFacade = $localeFacade;
         $this->taxFacade = $taxFacade;
         $this->productCategoryFacade = $productCategoryFacade;
+        $this->productGroupFacade = $productGroupFacade;
 
     }
 
@@ -65,10 +73,12 @@ class AbstractProductWriter extends DefaultProductWriter implements ProductWrite
         $abstractProduct->setLocalizedAttributes($this->extractLocalizedAttributes($product->getLocales()));
         $abstractProduct->setIdAbstractProduct($this->productFacade->saveAbstractProduct($abstractProduct));
 
+        $this->assignProductGroups($abstractProduct, $product);
+
+
         if (!empty($product->getCategories())) {
             $this->handleProductCategories((array)$product->getCategories(), $abstractProduct);
         }
-
     }
 
     /**
@@ -124,6 +134,32 @@ class AbstractProductWriter extends DefaultProductWriter implements ProductWrite
             'url' => $importerLocale->getUrl(),
             'media' => $importerLocale->getMedia()
         ];
+    }
+
+    protected function assignProductGroups(AbstractProductInterface $productTransfer, PavProductDynamicImporterAbstractProductInterface $product)
+    {
+        $productGroupKeysToBeAssigned = $product->getProductGroupKeys();
+
+        $assignedGroups = $this->productGroupFacade->getAbstractProductGroups($productTransfer);
+        $assignedProductGroupKeys = [];
+        foreach ($assignedGroups as $group) {
+            $assignedProductGroupKeys[$group->getKey()] = $group;
+        }
+
+        foreach ($productGroupKeysToBeAssigned as $key) {
+            if (array_key_exists($key, $assignedProductGroupKeys)) {
+                unset($assignedProductGroupKeys[$key]);
+            } else {
+                $productGroupTransfer = new ProductGroupTransfer();
+                $productGroupTransfer->setKey($key);
+
+                $this->productGroupFacade->assignAbstractProductToGroup($productTransfer->getIdAbstractProduct(), $productGroupTransfer);
+            }
+        }
+
+        foreach ($assignedProductGroupKeys as $productGroupToDelete) {
+            $this->productGroupFacade->removeAbstractProductFromGroup($productTransfer->getIdAbstractProduct(), $productGroupToDelete);
+        }
     }
 
 
