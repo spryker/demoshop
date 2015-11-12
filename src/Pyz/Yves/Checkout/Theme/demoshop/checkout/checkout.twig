@@ -26,6 +26,7 @@
                         <h1 class="form-block__heading">{{ "page.checkout.address.heading" | trans }}</h1>
                         {{ form_widget(form.email) }}
                         {{ form_widget(form.billing_address) }}
+                        <input type="hidden" id="addShipmentFee" value="{{ url('checkout/get-shipment-fee') }}">
                         <input type="checkbox" name="different-delivery-address" id="different-delivery-address" class="padded js-delivery-address-checkbox" tabindex="270">
                         <label for="different-delivery-address">{{ "page.checkout.address.billing-isnt-shipping-address" | trans }}</label>
                         {{ form_widget(form.shipping_address) }}
