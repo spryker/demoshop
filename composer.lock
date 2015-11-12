@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "d295d7537fea3a9a99704044842636d8",
-    "content-hash": "729b3dc7d86673f94e934d716e7e3355",
+    "hash": "d040a5e4c5b6bdc21f2c3c12a48fb833",
+    "content-hash": "21a68650db87fc6bfc0ddc38158cc5df",
     "packages": [
         {
             "name": "digital-canvas/zend-framework",
@@ -815,11 +815,11 @@
         },
         {
             "name": "spryker/spryker",
-            "version": "dev-refactor/TD-104-Add-name-attribute-to-ALL-elements-in-schema.xml-where-it-makes-sense",
+            "version": "dev-develop",
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/spryker.git",
-                "reference": "3c3e1bd2611e1ab9369c754871dc5059914c7c7c"
+                "reference": "dd3141296883a8d8f0d66d27f964109d947873d2"
             },
             "require": {
                 "digital-canvas/zend-framework": ">=1.12.2"
@@ -908,7 +908,7 @@
                     "SprykerFeature\\Shared\\Library": "Bundles/Library/src/"
                 }
             },
-            "time": "2015-11-12 07:00:44"
+            "time": "2015-11-12 07:29:12"
         },
         {
             "name": "symfony-cmf/routing",
