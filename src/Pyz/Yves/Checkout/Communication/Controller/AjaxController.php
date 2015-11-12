@@ -2,6 +2,7 @@
 
 namespace Pyz\Yves\Checkout\Communication\Controller;
 
+use Generated\Shared\Transfer\CountryTransfer;
 use SprykerEngine\Yves\Application\Communication\Controller\AbstractController;
 use Pyz\Yves\Checkout\Communication\Plugin\CheckoutControllerProvider;
 use Symfony\Component\HttpFoundation\Request;
@@ -54,4 +55,18 @@ class AjaxController extends AbstractController
         return $this->redirectResponseInternal(CheckoutControllerProvider::ROUTE_CHECKOUT_AJAX_CART);
     }
 
+    /**
+     * @param Request $request
+     * @return \Symfony\Component\HttpFoundation\RedirectResponse
+     */
+    public function getShipmentFeeAction(Request $request)
+    {
+        $countryTransfer = new CountryTransfer();
+        $countryTransfer->setIdCountry((int)$request->get('fkCountry'));
+
+        $cartClient = $this->getLocator()->cart()->client();
+        $cartClient->addExpenseByCountryId($countryTransfer);
+
+        return $this->redirectResponseInternal(CheckoutControllerProvider::ROUTE_CHECKOUT_AJAX_CART);
+    }
 }
