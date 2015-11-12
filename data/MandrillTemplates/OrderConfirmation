@@ -12,7 +12,7 @@ x
 {{Name}}
 
 {{#with SpySalesOrder}}
-{{GrandTotal}} €
+{{GrandTotal}}
 {{/with}}
 <br/>
 
@@ -21,14 +21,14 @@ x
 <hr/>
 {{#if discounts}}
 {{#each discounts}}
-{{DisplayName}} -{{Amount}}€<br/>
+{{DisplayName}} -{{Amount}}<br/>
 {{/each}}
 <hr/>
 {{/if}}
 
 Total:<br/>
 
-{{total}} €<br/>
+{{total}}<br/>
 ... ... ...<br/>
 
 
