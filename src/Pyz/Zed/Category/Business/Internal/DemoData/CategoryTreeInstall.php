@@ -103,8 +103,8 @@ class CategoryTreeInstall extends AbstractInstaller
      */
     protected function write(\SimpleXMLElement $demoTree)
     {
-        foreach ($demoTree as $row) {
-            if ((int) $row[self::IS_ROOT] === 1) {
+        foreach ($demoTree->children() as $row) {
+            if ((int) $row->{'root'} === 1) {
                 $this->addRootNode($row);
             } else {
                 $this->addChild($row);
