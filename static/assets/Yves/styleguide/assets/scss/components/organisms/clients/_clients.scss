@@ -17,7 +17,7 @@
 }
 
 .clients__testimonials{
-    padding: 75px ($_xGutter / 2) 40px;
+    padding: 80px ($_xGutter / 2) 100px;
 
     text-align: center;
 }
@@ -31,7 +31,7 @@
 }
 
 .clients__headline{
-    margin-bottom: 15px;
+    margin-bottom: 110px;
 
     font-family: $_ffBrandonGrotesque-Black;
     font-size: $_fsLarge;
@@ -49,24 +49,29 @@
 }
 
 .clients__item{
-    display: inline-block;
+    padding: 0 25px;
+    float: left;
     width: 50%;
-    margin: 0 -4px 30px 0;
-    min-width: 200px;
 
-    img{
+    .clients__item-image{
         @include responsiveImage;
         max-width: 130px;
         margin: 0 auto 15px auto;
     }
 
-    p{
+    .clients__item-name{
+        margin: 10px 0;
+
         font-family: $_ffBrandonGrotesque-Bold;
-        font-size: $_fsSmaller;
-        line-height: $_lhSmaller;
-        //letter-spacing: 0.27px;
+        font-size: 18px;
+        color: $_rgbTundora;
+    }
+
+    .clients__item-quote{
+        font-size: 22px;
         color: $_rgbSilverChalice;
-        text-transform: uppercase;
+        max-width: 300px;
+        margin: 0 auto;
     }
 }
 
@@ -81,11 +86,5 @@
 
     .clients__image{
         display: block;
-    }
-}
-
-@media (min-width: $_wMedium) {
-    .clients__item{
-        width: 33.333%;
     }
 }

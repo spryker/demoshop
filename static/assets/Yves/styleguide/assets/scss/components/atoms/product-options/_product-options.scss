@@ -9,7 +9,8 @@
 }
 
 .product-options__select{
-    float: left;
+    display: inline-block;
+    vertical-align: bottom;
     margin-bottom: 20px;
     padding: 5px;
 
@@ -28,8 +29,11 @@
 }
 
 .product-options__pricing{
-    float: right;
-    margin-bottom: 20px;
+    display: inline-block;
+    vertical-align: bottom;
+    margin-bottom: 30px;
+    margin-left: 10px;
+    text-align: left;
 }
 
 .product-options__total{

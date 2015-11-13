@@ -35,6 +35,8 @@
 }
 
 .hero__headline{
+    margin-bottom: 15px;
+
     font-family: $_ffBrandonGrotesque-Black;
     font-size: 60px;
     line-height: 60px;
@@ -46,5 +48,4 @@
     font-size: 30px;
     line-height: 43px;
     color: $_rgbWhite;
-    //letter-spacing: 1.28px;
 }

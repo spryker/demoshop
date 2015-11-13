@@ -26,4 +26,14 @@ module.exports.register = function(handlebars) {
     handlebars.registerHelper('cachebust', function (a) {
         return a + '?' + new Date().getTime();
     });
+
+    handlebars.registerHelper('suffix', function (a, b) {
+        var parts = a.split('.');
+
+        if (parts.length > 1) {
+            parts[parts.length - 2] += b;
+        }
+
+        return parts.join('.');
+    });
 };

@@ -2,22 +2,19 @@
     {{> "atoms.close-button"}}
 
     <form class="product-configurator__inner">
-        <h2 class="product-configurator__headline">Customize Ingredients</h2>
+        <h2 class="product-configurator__headline">Inhalt anpassen</h2>
 
         <div class="product-configurator__description">
-            You can select the kind of meat your dog can eat.
-            <br> The package will contain a random box quantity of the ingredients you select.
+            Wählen Sie die Zutaten ab, die Ihr Tier nicht verträgt. <br> Das Paket wird dennoch immer 10 Menüboxen enthalten.
         </div>
 
-        <h3 class="product-configurator__subheadline">Meat Ingredients</h3>
-        <div class="product-configurator__description">
-            My dog can eat the following selected ingredients.
-        </div>
+        <h3 class="product-configurator__subheadline">Fleishsorten</h3>
 
         <div class="product-configurator__composition">
             <div class="product-configurator__composition-label">
-                Select or deselect ingredients:
+                Wählen Sie Zutaten aus oder ab:
             </div>
+
             {{> "atoms.image-checkbox" id="meat_beef" image="../images/product/meat_beef.jpg" label="Beef" name="meat.igredients[]" value="beef"}} {{> "atoms.image-checkbox" id="meat_kanguru" image="../images/product/meat_kanguru.jpg" label="Kanguru" name="meat.igredients[]"
             value="kanguru"}}
             {{> "atoms.image-checkbox" id="meat_chicken" image="../images/product/meat_chicken.jpg" label="Chicken" name="meat.igredients[]" value="chicken"}} {{> "atoms.image-checkbox" id="meat_deer" image="../images/product/meat_deer.jpg"
@@ -27,21 +24,22 @@
             image="../images/product/meat_redfish.jpg" label="Redfish" name="meat.igredients[]" value="redfish"}}
         </div>
 
+
+        <h3 class="product-configurator__subheadline">Kohlenhydrate</h3>
+
         <div class="product-configurator__composition">
             <div class="product-configurator__composition-label">
-                Select or deselect ingredients:
+                Wählen Sie Zutaten aus oder ab:
             </div>
+
             {{> "atoms.image-checkbox" id="carbs_rice" image="../images/product/carbs_rice.jpg" label="Rice" name="carbs.igredients[]" value="rice"}}
             {{> "atoms.image-checkbox" id="carbs_potatoes" image="../images/product/carbs_potatoes.jpg" label="Potatoes" name="carbs.igredients[]"
             value="potatoes"}}
         </div>
 
         <div class="product-configurator__save">
-            <div class="product-configurator__availability">Depending on availability you will find some of the above ingredients.</div>
-            <button class="button" type="submit">
-                Save my selection
-            </button>
+            <button class="button" type="submit">Meine Auswahl speichern</button>
         </div>
     </form>
-    
+
 </div>

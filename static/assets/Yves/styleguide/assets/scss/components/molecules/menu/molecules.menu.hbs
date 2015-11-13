@@ -1,66 +1,57 @@
 <div class="menu">
+
     {{> "atoms.close-button"}}
+
     <div class="menu__slider">
+
         <div class="menu__inner">
-            <div class="menu__top">
-                <div class="menu__top-inner" style="background-image: url(../images/menu/dog.png);">
-                    <h2 class="page-title page-title--green">Dogs Products</h2>
-                    <p class="subtitle">
-                        Wisi eruditi id nam. Te pri oblique ullamcorper, magna persequeris has eu.
-                    </p>
-                </div>
-            </div>
+            {{> "atoms.menu-teaser-full" title="Hundeprodukte" button="Informationen zu Hundeprodukten" image="../images/menu/dog.png"}}
             <div class="menu__bottom">
-                <a class="menu__bottom-box" href="#" style="background-image: url(../images/menu/product.jpg);">Menu Boxes</a>
-                <a class="menu__bottom-box" href="#" style="background-image: url(../images/menu/product_2.jpg);">Packages</a>
-                <a class="menu__bottom-box" href="#" style="background-image: url(../images/menu/product_3.jpg);">Supplements</a>
-                <a class="menu__bottom-box" href="#" style="background-image: url(../images/menu/product_4.jpg);">Snacks</a>
-                <a class="menu__bottom-box" href="#" style="background-image: url(../images/menu/product_5.jpg);">Drymeat</a>
-                <a class="menu__bottom-box" href="#" style="background-image: url(../images/menu/product_2.jpg);">Packages</a>
+                {{> "atoms.menu-teaser-small" image="../images/menu/teaser_basic.jpg" title="Starter Paket" modifier_class="menu-teaser-small--half"}}
+                {{> "atoms.menu-teaser-product"}}
+                {{> "atoms.menu-teaser-small" image="../images/menu/teaser_menus.jpg" title="Einzelne Menüs" modifier_class="menu-teaser-small--quarter"}}
+                {{> "atoms.menu-teaser-small" image="../images/menu/teaser_supplements.jpg" title="Beilagen" modifier_class="menu-teaser-small--quarter"}}
+                {{> "atoms.menu-teaser-small" image="../images/menu/teaser_snacks.jpg" title="Snacks" modifier_class="menu-teaser-small--quarter"}}
+                {{> "atoms.menu-teaser-small" image="../images/menu/teaser_drymeat.jpg" title="Trockenfleisch" modifier_class="menu-teaser-small--quarter"}}
             </div>
         </div>
+
         <div class="menu__inner">
-            <div class="menu__top">
-                <div class="menu__top-inner" style="background-image: url(../images/menu/dog.png);">
-                    <h2 class="page-title page-title--green">Cats Products</h2>
-                    <p class="subtitle">
-                        Wisi eruditi id nam.
-                    </p>
-                </div>
-            </div>
+            {{> "atoms.menu-teaser-full" title="Katzenprodukte" button="Informationen zu Katzenprodukten" image="../images/menu/cat.jpg"}}
             <div class="menu__bottom">
-                <a class="menu__bottom-box" href="#" style="background-image: url(../images/menu/product.jpg);">Menu Boxes</a>
-                <a class="menu__bottom-box" href="#" style="background-image: url(../images/menu/product_2.jpg);">Packages</a>
-                <a class="menu__bottom-box" href="#" style="background-image: url(../images/menu/product_3.jpg);">Supplements</a>
-                <a class="menu__bottom-box" href="#" style="background-image: url(../images/menu/product_4.jpg);">Snacks</a>
-                <a class="menu__bottom-box" href="#" style="background-image: url(../images/menu/product_5.jpg);">Drymeat</a>
-                <a class="menu__bottom-box" href="#" style="background-image: url(../images/menu/product_2.jpg);">Packages</a>
+                {{> "atoms.menu-teaser-small" image="../images/menu/teaser_basic.jpg" title="Starter Paket" modifier_class="menu-teaser-small--half"}}
+                {{> "atoms.menu-teaser-product"}}
+                {{> "atoms.menu-teaser-small" image="../images/menu/teaser_menus.jpg" title="Einzelne Menüs" modifier_class="menu-teaser-small--quarter"}}
+                {{> "atoms.menu-teaser-small" image="../images/menu/teaser_supplements.jpg" title="Beilagen" modifier_class="menu-teaser-small--quarter"}}
+                {{> "atoms.menu-teaser-small" image="../images/menu/teaser_snacks.jpg" title="Snacks" modifier_class="menu-teaser-small--quarter"}}
+                {{> "atoms.menu-teaser-small" image="../images/menu/teaser_drymeat.jpg" title="Trockenfleisch" modifier_class="menu-teaser-small--quarter"}}
             </div>
         </div>
+
         <div class="menu__inner">
-            <div class="menu__top">
-                <div class="menu__top-inner" style="background-image: url(../images/menu/dog.png);">
-                    <h2 class="page-title page-title--green">Support</h2>
-                    <p class="subtitle">
-                        Wisi eruditi id nam. Te pri oblique ullamcorper, magna persequeris has eu.
-                    </p>
-                </div>
-            </div>
-        </div>
-        <div class="menu__inner">
-            <div class="menu__top">
-                <div class="menu__top-inner" style="background-image: url(../images/menu/dog.png);">
-                    <h2 class="page-title page-title--green">Contact</h2>
-                    <p class="subtitle">
-                        Wisi eruditi id nam. Te pri oblique ullamcorper, magna persequeris has eu.
-                    </p>
-                </div>
-            </div>
+            {{> "atoms.menu-teaser-full" title="Warum?" button="Support Bereich" image="../images/menu/support_girl.jpg"}}
             <div class="menu__bottom">
-                <a class="menu__bottom-box" href="#" style="background-image: url(../images/menu/product.jpg);">Menu Boxes</a>
-                <a class="menu__bottom-box" href="#" style="background-image: url(../images/menu/product_2.jpg);">Packages</a>
+                {{> "atoms.menu-teaser-small" image="../images/menu/teaser_basic.jpg" title="How it works" modifier_class="menu-teaser-small--quarter"}}
+                {{> "atoms.menu-teaser-small" image="../images/menu/teaser_faq.jpg" title="FAQ" modifier_class="menu-teaser-small--quarter"}}
+                {{> "atoms.menu-teaser-small" image="../images/menu/teaser_snacks.jpg" title="How to feed your pet" modifier_class="menu-teaser-small--quarter"}}
+                {{> "atoms.menu-teaser-small" image="../images/menu/teaser_shipping.jpg" title="Shipping" modifier_class="menu-teaser-small--quarter"}}
+                {{> "atoms.menu-teaser-small" image="../images/menu/teaser_menus.jpg" title="Retail Stores" modifier_class="menu-teaser-small--quarter"}}
+                {{> "atoms.menu-teaser-small" image="../images/menu/teaser_moments.jpg" title="Animal Moments" modifier_class="menu-teaser-small--quarter"}}
+                {{> "atoms.menu-teaser-small" image="../images/menu/teaser_supplements.jpg" title="Press and TV" modifier_class="menu-teaser-small--quarter"}}
+                {{> "atoms.menu-teaser-small" image="../images/menu/teaser_drymeat.jpg" title="Jobs" modifier_class="menu-teaser-small--quarter"}}
             </div>
         </div>
+
+        <div class="menu__inner">
+            {{> "atoms.menu-teaser-full" title="Fragen" button="Support Bereich" image="../images/menu/support_dog.jpg"}}
+
+            <div class="menu__bottom">
+                {{> "atoms.menu-teaser-small" image="../images/menu/teaser_care.jpg" title="Customer Service" modifier_class="menu-teaser-small--high menu-teaser-small--half"}}
+                {{> "atoms.menu-teaser-small" image="../images/menu/teaser_store.jpg" title="Retail Store" modifier_class="menu-teaser-small--high menu-teaser-small--half"}}
+            </div>
+        </div>
+
         {{> "molecules.cart-layer"}}
+
     </div>
 </div>

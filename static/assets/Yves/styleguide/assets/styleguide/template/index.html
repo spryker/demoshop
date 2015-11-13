@@ -68,7 +68,7 @@
                 <div class="styleguide-elements">
                     <div class="styleguide-element">
                         <div class="styleguide-iframe">
-                            <iframe width="100%" srcdoc='
+                            <iframe width="100%" name="{{cachebust ''}}" srcdoc='
                                 <html>
                                     <head>
                                         <link href="{{cachebust "../css/styleguide.css"}}" rel="stylesheet" type="text/css"/>
@@ -85,7 +85,7 @@
                     {{#eachModifier}}
                       <div class="styleguide-element styleguide-modifier">
                         <span class="styleguide-modifier-name">{{name}}</span>
-                        <iframe width="100%" style="margin-top: 40px;" srcdoc='
+                        <iframe width="100%" style="margin-top: 40px;" name="{{cachebust ''}}" srcdoc='
                             <html>
                                 <head>
                                     <link href="{{cachebust "../css/styleguide.css"}}" rel="stylesheet" type="text/css"/>
@@ -99,22 +99,16 @@
                       </div>
                     {{/eachModifier}}
                 </div>
-
-                <!-- <div class="styleguide-html styleguide-reset">
-                  <div class="styleguide-html-highlight">
-                    <pre><code class="xml">{{markup}}</code></pre>
-                  </div>
-                </div> -->
               </div>
+
               {{else}}
-              <!-- <header class="example-header styleguide-reset">
-                <h1>{{header}}</h1>
-              </header> -->
+
               {{#if description}}
                 <div class="markdown-body styleguide-reset">
                   {{{description}}}
                 </div>
               {{/if}}
+
             {{/if}}
           {{/eachSection}}
         {{/if}}

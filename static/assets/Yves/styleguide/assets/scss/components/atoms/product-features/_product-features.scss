@@ -5,11 +5,9 @@
 // Styleguide: atoms.product-features
 
 .product-features{
-    margin-left: (100%  / 12 * 3);
     padding: 35px ($_xSpacing / 2) 0;
 
     clear: both;
-    width: (100%  / 12 * 5);
 }
 
 .product-features__title{
@@ -40,4 +38,12 @@
 
     font-size: 16px;
     color: $_rgbDoveGray;
+}
+
+
+@media (min-width: $_wMedium){
+    .product-features{
+        width: (100%  / 12 * 5);
+        margin-left: (100%  / 12 * 3);
+    }
 }

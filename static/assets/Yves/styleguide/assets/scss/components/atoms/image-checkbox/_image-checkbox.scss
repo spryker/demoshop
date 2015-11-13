@@ -21,16 +21,23 @@
   @include ripple;
 
   input:checked + .image-checkbox__label{
-    color: $_rgbWhite;
-
     &:after{
-      color: $_rgbBlack;
+        color: $_rgbBlack;
+    }
+
+    &:before{
+        border-color: $_rgbApple;
+    }
+
+    & + .image-checkbox__disabled{
+        opacity: 0;
     }
   }
 }
 
 .image-checkbox__label{
   position: absolute;
+  z-index: 1;
   top: 50%;
   left: 0;
   transform: translate(0, -50%);
@@ -41,8 +48,7 @@
   font-family: $_ffBrandonGrotesque-Black;
   font-size: 24px;
   line-height: 28px;
-  color: rgba($_rgbWhite, 0.5);
-  //letter-spacing: 1.27px;
+  color: $_rgbWhite;
   text-transform: uppercase;
 
   transition: color $_tShort ease-in-out;
@@ -56,13 +62,15 @@
     width: 23px;
     height: 23px;
     background: $_rgbWhite;
-    border: 4px solid $_rgbApple;
+    border: 4px solid $_rgbSilverChalice;
     border-radius: $_defaultBorderRadius;
+
+    transition: border-color $_tShort ease-in-out;
   }
 
   &:after{
     position: absolute;
-    left: 28px;
+    right: 28px;
     top: 50%;
     width: 31px;
     line-height: 31px;
@@ -75,6 +83,19 @@
 
     transition: color $_tShort ease-in-out;
   }
+}
+
+.image-checkbox__disabled{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+
+    background-position: center !important;
+    background-size: cover !important;
+
+    transition: opacity $_tShort ease-in-out;
 }
 
 .image-checkbox__checkbox{
