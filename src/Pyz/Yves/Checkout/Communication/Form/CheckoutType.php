@@ -9,7 +9,6 @@ use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\HttpFoundation\Request;
-use SprykerFeature\Zed\Glossary\Business\GlossaryFacade;
 
 class CheckoutType extends AbstractType
 {
@@ -40,8 +39,8 @@ class CheckoutType extends AbstractType
     private $glossaryClient;
 
     /**
-     * @param Request                 $request
-     * @param ShipmentInterface       $shipmentTransfer
+     * @param Request $request
+     * @param ShipmentInterface $shipmentTransfer
      * @param GlossaryClientInterface $glossaryClient
      */
     public function __construct(
@@ -76,7 +75,7 @@ class CheckoutType extends AbstractType
                     'tabindex' => 100,
                     'class' => 'padded js-checkout-email',
                     'placeholder' => 'customer.email',
-                    'style' => 'width:100%'
+                    'style' => 'width:100%',
                 ],
             ])
             ->add(self::FIELD_BILLING_ADDRESS, new AddressType(200), [
@@ -131,9 +130,9 @@ class CheckoutType extends AbstractType
                 'mapped' => false,
                 'options' => [
                     'label' => false,
-                    'attr'     => [
-                        'tabindex'    => 601,
-                        'class'       => 'padded js-checkout-password',
+                    'attr' => [
+                        'tabindex' => 601,
+                        'class' => 'padded js-checkout-password',
                         'placeholder' => 'customer.password',
                     ],
                 ],
@@ -170,7 +169,6 @@ class CheckoutType extends AbstractType
         $results = [];
 
         foreach ($this->shipmentTransfer->getMethods() as $method) {
-
             $deliveryTime = null;
             if (!empty($method->getTime())) {
                 $deliveryTime = ($method->getTime()/3600);
