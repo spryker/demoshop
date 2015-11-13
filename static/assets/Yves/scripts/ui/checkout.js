@@ -183,10 +183,9 @@ module.exports = {
 
         $('.js-address-button').click(function (event) {
             event.preventDefault();
-            getShipmentPrice(event);
-            event.preventDefault();
             $('.js-checkout-address').addClass('js-checkout-collapsed js-checkout-completed');
             $('.js-checkout-payment').removeClass('js-checkout-collapsed');
+            getShipmentPrice(event);
         });
 
         $('.js-payment-button').click(function (event) {
