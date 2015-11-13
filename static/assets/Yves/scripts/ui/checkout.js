@@ -65,7 +65,7 @@ var addCoupon = function (event) {
             initValidation();
             $useCouponButton.prop('disabled', false);
             console.log(addCoupon);
-    }).fail(function(data) {
+        }).fail(function(data) {
             console.log('[ERROR] ');
             console.log(data);
         }
@@ -85,7 +85,7 @@ var removeCoupon = function (event) {
             $cartSection.html(data);
             initValidation();
             console.log(removeCoupon);
-    }).fail(function(data) {
+        }).fail(function(data) {
             console.log('[ERROR] ');
             console.log(data);
         }
