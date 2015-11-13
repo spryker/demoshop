@@ -32,7 +32,6 @@ class AjaxController extends AbstractController
             $tracking->getCartDataContainer()
                 ->setCartItems(CartDataFormatter::formatCartItems($cart->getItems()))
                 ->setCoupons(CartDataFormatter::formatCoupons($cart->getCouponCodes()))
-                ->setDiscounts(CartDataFormatter::formatDiscounts($cart->getDiscounts()))
                 ->setExpenses(CartDataFormatter::formatExpenses($cart->getExpenses()))
                 ->setTotals(CartDataFormatter::formatTotals($cart->getTotals()))
             ;

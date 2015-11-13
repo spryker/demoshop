@@ -2,7 +2,6 @@
 
 namespace Pyz\Yves\Tracking\Business\DataFormatter;
 
-use Generated\Shared\Transfer\DiscountTransfer;
 use Generated\Shared\Transfer\ExpenseTransfer;
 use Generated\Shared\Transfer\ItemTransfer;
 use Generated\Shared\Transfer\TotalsTransfer;
@@ -52,28 +51,6 @@ class CartDataFormatter extends AbstractDataFormatter
     {
         // TODO
         return $coupons->getArrayCopy();
-    }
-
-    /**
-     * @param DiscountTransfer[] $discounts
-     *
-     * @return array
-     */
-    public static function formatDiscounts($discounts)
-    {
-        $discountsData = [];
-
-        try {
-            foreach ($discounts as $discount) {
-                // @TODO
-                $discountsData[] = $discount->toArray(true);
-            }
-
-        } catch (\Exception $e) {
-            // ignore any errors, it's just tracking ..
-        }
-
-        return $discountsData;
     }
 
     /**
