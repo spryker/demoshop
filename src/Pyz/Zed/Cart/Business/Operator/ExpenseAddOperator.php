@@ -4,7 +4,7 @@ namespace Pyz\Zed\Cart\Business\Operator;
 
 use Generated\Shared\Cart\CartInterface;
 use Generated\Shared\Cart\ChangeInterface;
-use SprykerFeature\Shared\Cart\Messages\Messages;
+use Pyz\Shared\Cart\Messages\Messages;
 use SprykerFeature\Zed\Cart\Business\Operator\AbstractOperator;
 
 class ExpenseAddOperator extends AbstractOperator
@@ -27,6 +27,6 @@ class ExpenseAddOperator extends AbstractOperator
      */
     protected function createSuccessMessage()
     {
-        return Messages::COUPON_CODE_ADD_SUCCESS;
+        return Messages::EXPENSE_ADD_SUCCESS;
     }
 }
