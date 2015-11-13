@@ -56,6 +56,6 @@ $config[ApplicationConfig::ALLOW_INTEGRATION_CHECKS] = true;
 $config[ApplicationConfig::DISPLAY_ERRORS] = true;
 $config[ApplicationConfig::ENABLE_APPLICATION_DEBUG] = true;
 $config[ApplicationConfig::SET_REPEAT_DATA] = true;
-$config[ApplicationConfig::SHOW_SYMFONY_TOOLBAR] = true;
 $config[ApplicationConfig::STORE_PREFIX] = 'DEV';
-$config[ApplicationConfig::SHOW_SYMFONY_TOOLBAR] = true;
+
+$config[ApplicationConfig::ENABLE_WEB_PROFILER] = true;
