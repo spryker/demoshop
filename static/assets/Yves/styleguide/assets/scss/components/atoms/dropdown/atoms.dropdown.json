@@ -1,0 +1,7 @@
+{
+    "label": "Land*",
+    "options": "[\"Deutschland\",\"Österreich\"]",
+    "placeholder": "Bitte wählen Sie ihr Land",
+    "id": "country",
+    "name": "country"
+}

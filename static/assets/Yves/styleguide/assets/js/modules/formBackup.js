@@ -6,7 +6,7 @@ import { debounce } from './helpers';
 
 $(document).ready(function () {
 
-    $('[data-formbackup]').each(function () {
+    $('.js-formbackup').each(function () {
         var $form, $items, namespace, formKey, storage;
 
         $form = $(this);

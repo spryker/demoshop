@@ -17,11 +17,7 @@ gulp.task('iconfont', function () {
     rename = require('gulp-rename');
 
   return gulp.src([paths.source.iconfont.icons])
-    .pipe(svgmin({
-      plugins: [{
-        transformsWithOnePath: true
-      }]
-    }))
+    .pipe(svgmin())
 
     .pipe(iconfont({
       fontName: fontName,

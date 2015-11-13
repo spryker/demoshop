@@ -6,6 +6,10 @@
 
 .dropdown{
     position: relative;
+    float: left;
+    width: 100%;
+    margin-top: 30px;
+    padding: 0 5px;
 
     color: $_rgbOsloGray;
 
@@ -29,8 +33,10 @@
 
     font-size: 18px;
     font-family: $_ffBrandonGrotesque-Bold;
+    text-align: left;
 
     @include pdif('arrow-down', 5px, 0);
+    display: block;
     padding: 0 60px 0 12px;
 
     &:before{

@@ -10,7 +10,6 @@ $(document).ready(function () {
         var $select, $button;
 
         $select = $(this);
-        $select.wrap(`<div class="dropdown"></div>`);
         $button = $(`<div class="dropdown__button"></div>`);
 
         $select.after($button);

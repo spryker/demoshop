@@ -1,8 +1,6 @@
 <h2>Customer</h2>
-<form data-formbackup="customer" id="customer" action="index.html" method="post">
-    <div class="input {{modifier_class}}">
-        <input class="input__text" type="text" placeholder="firstname" name="firstname" value="backend lorem ipsum">
-    </div>
+<form class="js-formbackup" data-formbackup="customer" id="customer" action="index.html" method="post">
+    {{> "atoms.input" name="firstname" label="firstname" placeholder="firstname" value="Backend value" }}
     {{> "atoms.input" name="firstname" label="firstname" placeholder="firstname" }}
     {{> "atoms.input" name="lastname" label="lastname" placeholder="lastname" }}
     {{> "atoms.input" name="street" label="street" placeholder="street" }}
@@ -12,7 +10,7 @@
     {{> "atoms.input" name="country" label="country" placeholder="country" }}
 </form>
 <h2>Shipping</h2>
-<form data-formbackup="shipping" id="shipping" action="index.html" method="post">
+<form class="js-formbackup" data-formbackup="shipping" id="shipping" action="index.html" method="post">
     {{> "atoms.input" name="firstname" label="firstname" placeholder="firstname" }}
     {{> "atoms.input" name="lastname" label="lastname" placeholder="lastname" }}
     {{> "atoms.input" name="street" label="street" placeholder="street" }}
