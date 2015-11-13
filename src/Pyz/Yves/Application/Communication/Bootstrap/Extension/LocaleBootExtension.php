@@ -18,15 +18,10 @@ class LocaleBootExtension implements AfterBootExtensionInterface
      */
     public function afterBoot(Application $app)
     {
-        // TODO default one
-        Store::getInstance()->setCurrentLocale(current(Store::getInstance()->getLocales()));
-        $app['locale'] = Store::getInstance()->getCurrentLocale();
+        $store = Store::getInstance();
+        $store->setCurrentLocale(current($store->getLocales()));
+        $app['locale'] = $store->getCurrentLocale();
 
-        // TODO: Session way
-//       $locale = $app['session']->get('locale');
-
-
-        // TODO: Segment, Sub-domain and query-string way
         if (!array_key_exists('REQUEST_URI', $_SERVER)) {
             return;
         }
@@ -34,11 +29,11 @@ class LocaleBootExtension implements AfterBootExtensionInterface
         $requestUrI = $_SERVER['REQUEST_URI'];
         $identifier = mb_substr($requestUrI,1,2);
 
-        if ($identifier !== false && array_key_exists($identifier,Store::getInstance()->getLocales())) {
-            Store::getInstance()->setCurrentLocale(Store::getInstance()->getLocales()[$identifier]);
-            $app['locale'] = Store::getInstance()->getCurrentLocale();
+        if ($identifier !== false && array_key_exists($identifier,$store->getLocales())) {
+            $store->setCurrentLocale($store->getLocales()[$identifier]);
+            $app['locale'] = $store->getCurrentLocale();
 
-            Environment::initializeLocale(Store::getInstance()->getCurrentLocale());
+            Environment::initializeLocale($store->getCurrentLocale());
         }
     }
 }

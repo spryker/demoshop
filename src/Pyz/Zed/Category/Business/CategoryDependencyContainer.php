@@ -2,10 +2,10 @@
 
 namespace Pyz\Zed\Category\Business;
 
+use Pyz\Zed\Category\CategoryDependencyProvider;
 use SprykerFeature\Zed\Category\Business\CategoryDependencyContainer as SprykerCategoryDependencyContainer;
 use Pyz\Zed\Category\Business\Internal\DemoData\CategoryTreeInstall;
 use Psr\Log\LoggerInterface;
-use SprykerFeature\Zed\Category\CategoryDependencyProvider;
 use SprykerFeature\Zed\Category\Persistence\CategoryQueryContainer;
 
 /**
@@ -13,7 +13,6 @@ use SprykerFeature\Zed\Category\Persistence\CategoryQueryContainer;
  */
 class CategoryDependencyContainer extends SprykerCategoryDependencyContainer
 {
-
     /**
      * @param LoggerInterface $messenger
      *
@@ -33,4 +32,17 @@ class CategoryDependencyContainer extends SprykerCategoryDependencyContainer
         return $installer;
     }
 
+    /**
+     * @return NodeUrlManager
+     */
+    protected function createNodeUrlManager()
+    {
+        return $this->getFactory()->createManagerNodeUrlManager(
+            $this->createCategoryTreeReader(),
+            $this->createUrlPathGenerator(),
+            $this->createUrlFacade(),
+            $this->getProvidedDependency(CategoryDependencyProvider::QUERY_CONTAINER_CATEGORY),
+            $this->getProvidedDependency(CategoryDependencyProvider::QUERY_CONTAINER_LOCALE)
+        );
+    }
 }

@@ -10,11 +10,38 @@ use Generated\Shared\Transfer\LocaleTransfer;
 use Generated\Shared\Transfer\NodeTransfer;
 use Orm\Zed\Category\Persistence\Base\SpyCategoryAttributeQuery;
 use Orm\Zed\Locale\Persistence\SpyLocaleQuery;
+use SprykerEngine\Zed\Locale\Persistence\LocaleQueryContainer;
 use SprykerFeature\Shared\Category\CategoryConfig;
+use SprykerFeature\Zed\Category\Business\Generator\UrlPathGeneratorInterface;
 use \SprykerFeature\Zed\Category\Business\Manager\NodeUrlManager as SprykerNodeUrlManager;
+use SprykerFeature\Zed\Category\Business\Tree\CategoryTreeReaderInterface;
+use SprykerFeature\Zed\Category\Dependency\Facade\CategoryToUrlInterface;
+use SprykerFeature\Zed\Category\Persistence\CategoryQueryContainer;
 
 class NodeUrlManager extends SprykerNodeUrlManager
 {
+
+    /**
+     * @var CategoryQueryContainer
+     */
+    protected $categoryQueryContainer;
+
+    /**
+     * @var LocaleQueryContainer
+     */
+    protected $localeQueryContainer;
+
+    public function __construct(
+        CategoryTreeReaderInterface $categoryTreeReader,
+        UrlPathGeneratorInterface $urlPathGenerator,
+        CategoryToUrlInterface $urlFacade,
+        CategoryQueryContainer $categoryQueryContainer,
+        LocaleQueryContainer $localeQueryContainer
+    ){
+        parent::__construct($categoryTreeReader, $urlPathGenerator, $urlFacade);
+        $this->categoryQueryContainer = $categoryQueryContainer;
+        $this->localeQueryContainer = $localeQueryContainer;
+    }
 
     /**
      * @param NodeTransfer $categoryNodeTransfer
@@ -24,13 +51,10 @@ class NodeUrlManager extends SprykerNodeUrlManager
      */
     public function createUrl(NodeTransfer $categoryNodeTransfer, LocaleTransfer $localeTransfer)
     {
-        $categoryAttributesQuery = SpyCategoryAttributeQuery::create();
-        $categoryAttributes = $categoryAttributesQuery->filterByFkCategory($categoryNodeTransfer->getFkCategory())->find();
+        $categoryAttributes = $this->categoryQueryContainer->queryAttributeByCategoryId($categoryNodeTransfer->getFkCategory())->find();
 
         foreach($categoryAttributes as $categoryAttribute) {
-            $localeQuery = SpyLocaleQuery::create();
-            $localeEntity = $localeQuery->filterByIdLocale($categoryAttribute->getFkLocale())->findOne();
-
+            $localeEntity = $this->localeQueryContainer->queryLocales()->filterByIdLocale($categoryAttribute->getFkLocale())->findOne();
             $localeTransfer = new LocaleTransfer();
             $localeTransfer->fromArray($localeEntity->toArray());
 
