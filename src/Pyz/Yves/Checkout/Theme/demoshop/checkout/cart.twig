@@ -25,7 +25,7 @@
 
     {% for expense in cart.expenses %}
         <div class="cart__shipping-label">{{ expense.name }}</div>
-        <div class="cart__shipping-price js-cart-shipping">{{ expense.priceToPay }}</div>
+        <div class="cart__shipping-price js-cart-shipping">{{ expense.grossPrice }}</div>
     {% endfor %}
 
     {% if cart.totals is defined and cart.totals is not null %}
