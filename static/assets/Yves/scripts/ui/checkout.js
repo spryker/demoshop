@@ -64,7 +64,6 @@ var addCoupon = function (event) {
             $cartSection.html(data);
             initValidation();
             $useCouponButton.prop('disabled', false);
-            console.log(addCoupon);
         }).fail(function(data) {
             console.log('[ERROR] ');
             console.log(data);
@@ -84,7 +83,6 @@ var removeCoupon = function (event) {
     ).done(function(data) {
             $cartSection.html(data);
             initValidation();
-            console.log(removeCoupon);
         }).fail(function(data) {
             console.log('[ERROR] ');
             console.log(data);
@@ -102,6 +100,7 @@ var getShipmentPrice = function (event) {
         }
     ).done(function(data) {
             $cartSection.html(data);
+            initValidation();
     }).fail(function(data) {
             console.log('[ERROR] ');
             console.log(data);
