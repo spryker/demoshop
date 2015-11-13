@@ -37,48 +37,60 @@ class CartControllerProvider extends YvesControllerProvider
         $allowedLocalesPattern = $this->getAllowedLocalesPattern();
 
         $this->createGetController('/{cart}', self::ROUTE_CART, 'Cart', 'Cart')
-            ->assert('cart', $allowedLocalesPattern . 'cart|cart');
+            ->assert('cart', $allowedLocalesPattern . 'cart|cart')
+        ;
 
         $this->createGetController('/{cart}/add/{sku}', self::ROUTE_CART_ADD, 'Cart', 'Cart', 'add')
             ->assert('cart', $allowedLocalesPattern . 'cart|cart')
+            ->value('cart','cart')
             ->assert('sku', '[a-zA-Z0-9-_]+')
             ->convert('quantity', [$this, 'getQuantityFromRequest'])
         ;
 
-        $this->createGetController('/cart/remove/{sku}/{groupKey}', self::ROUTE_CART_REMOVE, 'Cart', 'Cart', 'remove')
+        $this->createGetController('/{cart}/remove/{sku}/{groupKey}', self::ROUTE_CART_REMOVE, 'Cart', 'Cart', 'remove')
+            ->assert('cart', $allowedLocalesPattern . 'cart|cart')
+            ->value('cart','cart')
             ->assert('sku', '[a-zA-Z0-9-_]+')
             ->value('groupKey', '')
         ;
 
-        $this->createGetController('/cart/quantity/{sku}/{absolute}', self::ROUTE_CART_CHANGE_QUANTITY, 'Cart', 'Cart', 'change')
+        $this->createGetController('/{cart}/quantity/{sku}/{absolute}', self::ROUTE_CART_CHANGE_QUANTITY, 'Cart', 'Cart', 'change')
+            ->assert('cart', $allowedLocalesPattern . 'cart|cart')
             ->assert('sku', '[a-zA-Z0-9-_]+')
             ->value('groupKey', '')
             ->assert('absolute', '[0-1-_]+')
         ;
 
-        $this->createGetController('/cart/overlay', self::ROUTE_CART_OVERLAY, 'Cart', 'Ajax', 'index');
+        $this->createGetController('/{cart}/overlay', self::ROUTE_CART_OVERLAY, 'Cart', 'Ajax', 'index')
+            ->assert('cart', $allowedLocalesPattern . 'cart|cart')
+            ->value('cart','cart');
+        ;
 
-        $this->createPostController('/cart/add/{sku}', self::ROUTE_CART_ADD_AJAX, 'Cart', 'Ajax', 'add', true)
+        $this->createPostController('/{cart}/add/{sku}', self::ROUTE_CART_ADD_AJAX, 'Cart', 'Ajax', 'add', true)
             ->assert('sku', '[a-zA-Z0-9-_]+')
             ->convert('quantity', [$this, 'getQuantityFromRequest'])
         ;
 
-        $this->createPostController('/cart/remove/{sku}/{groupKey}', self::ROUTE_CART_REMOVE_AJAX, 'Cart', 'Ajax', 'remove', true)
+        $this->createPostController('/{cart}/remove/{sku}/{groupKey}', self::ROUTE_CART_REMOVE_AJAX, 'Cart', 'Ajax', 'remove', true)
+            ->assert('cart', $allowedLocalesPattern . 'cart|cart')
             ->assert('sku', '[a-zA-Z0-9-_]+')
             ->value('groupKey', '')
         ;
 
-        $this->createPostController('/cart/increase/{sku}/{groupKey}', self::ROUTE_CART_INCREASE_AJAX, 'Cart', 'Ajax', 'increase')
+        $this->createPostController('/{cart}/increase/{sku}/{groupKey}', self::ROUTE_CART_INCREASE_AJAX, 'Cart', 'Ajax', 'increase')
+            ->assert('cart', $allowedLocalesPattern . 'cart|cart')
             ->assert('sku', '[a-zA-Z0-9-_]+')
             ->value('groupKey', '')
         ;
 
-        $this->createPostController('/cart/decrease/{sku}/{groupKey}', self::ROUTE_CART_DECREASE_AJAX, 'Cart', 'Ajax', 'decrease')
+        $this->createPostController('/{cart}/decrease/{sku}/{groupKey}', self::ROUTE_CART_DECREASE_AJAX, 'Cart', 'Ajax', 'decrease')
+            ->assert('cart', $allowedLocalesPattern . 'cart|cart')
             ->assert('sku', '[a-zA-Z0-9-_]+')
             ->value('groupKey', '')
         ;
 
-        $this->createGetController('/cart/coupon/add', self::ROUTE_CART_COUPON_ADD, 'Cart', 'Coupon', 'add')
+        $this->createGetController('/{cart}/coupon/add', self::ROUTE_CART_COUPON_ADD, 'Cart', 'Coupon', 'add')
+            ->assert('cart', $allowedLocalesPattern . 'cart|cart')
             ->convert(
                 'couponCode',
                 function ($unused, Request $request) {
@@ -87,9 +99,13 @@ class CartControllerProvider extends YvesControllerProvider
             )
         ;
 
-        $this->createGetController('/cart/coupon/remove/{couponCode}', self::ROUTE_CART_COUPON_REMOVE, 'Cart', 'Coupon', 'remove');
+        $this->createGetController('/{cart}/coupon/remove/{couponCode}', self::ROUTE_CART_COUPON_REMOVE, 'Cart', 'Coupon', 'remove')
+            ->assert('cart', $allowedLocalesPattern . 'cart|cart')
+        ;
 
-        $this->createGetController('/cart/coupon/clear', self::ROUTE_CART_COUPON_CLEAR, 'Cart', 'Coupon', 'clear');
+        $this->createGetController('/{cart}/coupon/clear', self::ROUTE_CART_COUPON_CLEAR, 'Cart', 'Coupon', 'clear')
+            ->assert('cart', $allowedLocalesPattern . 'cart|cart')
+        ;
     }
 
     /**

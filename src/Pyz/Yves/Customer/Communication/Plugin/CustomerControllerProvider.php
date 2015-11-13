@@ -2,7 +2,7 @@
 
 namespace Pyz\Yves\Customer\Communication\Plugin;
 
-use SprykerEngine\Yves\Application\Communication\Plugin\YvesControllerProvider;
+use Pyz\Yves\Application\Communication\Plugin\YvesControllerProvider;
 use Silex\Application;
 
 class CustomerControllerProvider extends YvesControllerProvider
@@ -27,20 +27,38 @@ class CustomerControllerProvider extends YvesControllerProvider
      */
     protected function defineControllers(Application $app)
     {
+        $allowedLocalesPattern = $this->getAllowedLocalesPattern();
+
         $this->createController('/login', self::ROUTE_LOGIN, 'Customer', 'AjaxSecurity', 'login');
         $this->createController('/login_check', self::ROUTE_LOGIN_CHECK, 'Customer', 'Security', 'loginCheck');
         $this->createController('/register', self::ROUTE_REGISTER, 'Customer', 'AjaxSecurity', 'register');
-        $this->createController('/register/confirm', self::ROUTE_CONFIRM_REGISTRATION, 'Customer', 'Security', 'confirmRegistration');
+        $this->createController('/{register}/confirm', self::ROUTE_CONFIRM_REGISTRATION, 'Customer', 'Security', 'confirmRegistration')
+            ->assert('register', $allowedLocalesPattern . 'register|register')
+        ;
         $this->createController('/logout', self::ROUTE_LOGOUT, 'Customer', 'Security', 'logout');
 
-        $this->createController('/password/forgot', self::ROUTE_PASSWORD_FORGOT, 'Customer', 'Customer', 'forgotPassword');
-        $this->createController('/password/restore', self::ROUTE_PASSWORD_RESTORE, 'Customer', 'Customer', 'restorePassword');
-        $this->createController('/customer/delete', self::ROUTE_DELETE, 'Customer', 'Customer', 'delete');
-        $this->createController('/customer/profile', self::ROUTE_CUSTOMER_PROFILE, 'Customer', 'Customer', 'profile');
+        $this->createController('/{password}/forgot', self::ROUTE_PASSWORD_FORGOT, 'Customer', 'Customer', 'forgotPassword')
+            ->assert('password', $allowedLocalesPattern . 'password|password')
+        ;
+        $this->createController('/{password}/restore', self::ROUTE_PASSWORD_RESTORE, 'Customer', 'Customer', 'restorePassword')
+            ->assert('password', $allowedLocalesPattern . 'password|password')
+        ;
+        $this->createController('/{customer}/delete', self::ROUTE_DELETE, 'Customer', 'Customer', 'delete')
+            ->assert('customer', $allowedLocalesPattern . 'customer|customer')
+        ;
+        $this->createController('/{customer}/profile', self::ROUTE_CUSTOMER_PROFILE, 'Customer', 'Customer', 'profile')
+            ->assert('customer', $allowedLocalesPattern . 'customer|customer')
+        ;
 
-        $this->createController('/customer/address', self::ROUTE_CUSTOMER_ADDRESS, 'Customer', 'Address', 'update');
-        $this->createController('/customer/address/new', self::ROUTE_CUSTOMER_NEW_ADDRESS, 'Customer', 'Address', 'create');
-        $this->createController('/customer/address/delete', self::ROUTE_CUSTOMER_DELETE_ADDRESS, 'Customer', 'Address', 'delete');
+        $this->createController('/{customer}/address', self::ROUTE_CUSTOMER_ADDRESS, 'Customer', 'Address', 'update')
+            ->assert('customer', $allowedLocalesPattern . 'customer|customer')
+        ;
+        $this->createController('/{customer}/address/new', self::ROUTE_CUSTOMER_NEW_ADDRESS, 'Customer', 'Address', 'create')
+            ->assert('customer', $allowedLocalesPattern . 'customer|customer')
+        ;
+        $this->createController('/{customer}/address/delete', self::ROUTE_CUSTOMER_DELETE_ADDRESS, 'Customer', 'Address', 'delete')
+            ->assert('customer', $allowedLocalesPattern . 'customer|customer')
+        ;
     }
 
 }

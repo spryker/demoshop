@@ -2,7 +2,7 @@
 
 namespace Pyz\Yves\System\Communication\Plugin;
 
-use SprykerEngine\Yves\Application\Communication\Plugin\YvesControllerProvider;
+use Pyz\Yves\Application\Communication\Plugin\YvesControllerProvider;
 use Silex\Application;
 
 class SystemControllerProvider extends YvesControllerProvider
@@ -15,7 +15,11 @@ class SystemControllerProvider extends YvesControllerProvider
      */
     protected function defineControllers(Application $app)
     {
-        $this->createController('/system/heartbeat', self::ROUTE_HEARTBEAT, 'System', 'Heartbeat', 'index');
+        $allowedLocalesPattern = $this->getAllowedLocalesPattern();
+
+        $this->createController('/{system}/heartbeat', self::ROUTE_HEARTBEAT, 'System', 'Heartbeat', 'index')
+            ->assert('system', $allowedLocalesPattern . 'system|system')
+        ;
     }
 
 }
