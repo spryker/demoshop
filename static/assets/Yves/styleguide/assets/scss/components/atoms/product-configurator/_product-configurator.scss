@@ -22,7 +22,7 @@
     right: 0 !important;
 
     &:after{
-        background: $_rgbBlack30 !important;
+        background: $_rgbBlack70 !important;
     }
 }
 
@@ -46,14 +46,14 @@
     position: relative;
     z-index: 1;
     background: $_rgbWhite;
-    padding: 30px 28px 60px;
+    padding: 35px 28px 35px;
     max-height: 100vh;
     overflow: auto;
 }
 
 .product-configurator__composition{
   overflow: hidden;
-  margin: 0 -5px 45px -5px;
+  margin: 0 -5px 50px -5px;
 }
 
 .product-configurator__composition-label{
@@ -61,7 +61,6 @@
 
   font-family: $_ffBrandonGrotesque-Bold;
   color: $_rgbSilverChalice;
-  //letter-spacing: 0.3px;
 }
 
 .product-configurator__selection{
@@ -72,33 +71,26 @@
   font-family: $_ffBrandonGrotesque-Black;
   font-size: 38px;
   line-height: 56px;
-  //letter-spacing: 0.58px;
   color: $_rgbApple;
 }
 
 .product-configurator__description{
-  margin-bottom: 24px;
+  margin-bottom: 40px;
   max-width: 460px;
 
-  color: $_rgbSilverChalice;
-  line-height: 25px;
+    font-size: 16px;
+    color: $_rgbDoveGray;
 }
 
 .product-configurator__subheadline{
+    margin-bottom: 40px;
+
   font-family: $_ffBrandonGrotesque-Black;
   font-size: 26px;
   line-height: 38px;
   color: $_rgbApple;
-  //letter-spacing: 0.4px;
 }
 
 .product-configurator__save{
   text-align: center;
-}
-
-.product-configurator__availability{
-  margin-bottom: 20px;
-
-  color: $_rgbChileanFire;
-  line-height: 25px;
 }

@@ -1,0 +1,32 @@
+// Menu Teaser Full
+//
+// Markup: atoms.menu-teaser-full.hbs
+//
+// Styleguide: atoms.menu-teaser-full
+//
+// Weight: -1
+
+
+.menu-teaser-full{
+    min-height: 220px;
+    background: $_rgbWhite;
+}
+
+.menu-teaser-full__inner{
+    position: relative;
+    @include pageWidth;
+    padding: 60px 38px 40px;
+
+    background-position: 80% center !important;
+    background-size: contain !important;
+    background-repeat: no-repeat !important;
+}
+
+.menu-teaser-full__headline{
+    margin-bottom: 10px;
+
+    font-family: $_ffBrandonGrotesque-Black;
+    font-size: $_fsLarge;
+    line-height: $_lhLarge;
+    color: $_rgbApple;
+}
