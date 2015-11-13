@@ -2,6 +2,10 @@
 
 namespace Pyz\Yves\Catalog\Communication\Controller;
 
+use PavFeature\Yves\Tracking\Business\ContentGroupConstants;
+use PavFeature\Yves\Tracking\Business\PageTypeConstants;
+use Pyz\Yves\Tracking\Business\DataFormatter\SearchResultDataFormatter;
+use Pyz\Yves\Tracking\Business\Tracking;
 use SprykerEngine\Yves\Application\Communication\Controller\AbstractController;
 use SprykerFeature\Shared\Library\Currency\CurrencyManager;
 use Symfony\Component\HttpFoundation\Request;
@@ -30,6 +34,15 @@ class CatalogController extends AbstractController
             return $this->jsonResponse($searchResults);
         }
 
+        Tracking::getInstance()->getPageDataContainer()
+            ->setPageType(PageTypeConstants::PAGE_TYPE_SEARCH_RESULT)
+            ->addContentGroupElement(ContentGroupConstants::CONTENT_GROUP_CATALOG)
+            ->addContentGroupElement($categoryNode['name'])
+            ->setByKey(
+                SearchResultDataFormatter::PRODUCTS,
+                SearchResultDataFormatter::formatSearchResults($searchResults, $categoryNode)
+            );
+
         return $searchResults;
     }
 
@@ -57,6 +70,8 @@ class CatalogController extends AbstractController
      * @param array $product
      *
      * @return array
+     *
+     * @deprecated !? what about ProductController->detailAction() ?
      */
     public function detailAction(array $product)
     {

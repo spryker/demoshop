@@ -1,8 +1,5 @@
 <?php
 
-/**
- * (c) Spryker Systems GmbH copyright protected
- */
 
 namespace Pyz\Yves\Application\Communication\Bootstrap\Extension;
 

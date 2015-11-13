@@ -1,5 +1,16 @@
 <header class="header">
     <a href="/" class="shop-logo">Spryker Shop</a>
+
+    {# this is debug only - replace it as soon as possible #}
+    <div style="position: fixed; left: 250px;">
+        {% if app.user %}
+            Hey {{ app.user.username }} <a href="/logout">[logout]</a>
+        {% else %}
+            <a href="/login">[login]</a>
+        {% endif %}
+    </div>
+    {# end of debug #}
+
     <a href="#" class="nav-toggle js-nav-toggle"><span></span></a>
     <nav class="main-nav"></nav>
     <div class="header__search js-search">

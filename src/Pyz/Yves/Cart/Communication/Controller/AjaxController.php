@@ -2,6 +2,9 @@
 
 namespace Pyz\Yves\Cart\Communication\Controller;
 
+use Pyz\Yves\Tracking\Business\DataFormatter\CartDataFormatter;
+use Pyz\Yves\Tracking\Business\Tracking;
+use Pyz\Yves\Application\Communication\Bootstrap\Extension\GlobalTemplateVariablesExtension;
 use Pyz\Yves\Cart\Communication\Plugin\CartControllerProvider;
 use SprykerEngine\Yves\Application\Communication\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\RedirectResponse;
@@ -24,8 +27,20 @@ class AjaxController extends AbstractController
             }
         }
 
+        $tracking = Tracking::getInstance();
+        if (count($cart->getItems()) > 0) {
+            $tracking->getCartDataContainer()
+                ->setCartItems(CartDataFormatter::formatCartItems($cart->getItems()))
+                ->setCoupons(CartDataFormatter::formatCoupons($cart->getCouponCodes()))
+                ->setDiscounts(CartDataFormatter::formatDiscounts($cart->getDiscounts()))
+                ->setExpenses(CartDataFormatter::formatExpenses($cart->getExpenses()))
+                ->setTotals(CartDataFormatter::formatTotals($cart->getTotals()))
+            ;
+        }
+
         return $this->viewResponse([
             'cart' => $cart,
+            GlobalTemplateVariablesExtension::TWIG_TRACKING_CONTAINER => $tracking,
         ]);
     }
 

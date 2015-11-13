@@ -1,16 +1,13 @@
 <?php
 
-/**
- * (c) Spryker Systems GmbH copyright protected
- */
-
 namespace Pyz\Yves\Customer\Communication\Plugin;
 
+use Generated\Shared\Transfer\CustomerInfoTransfer;
+use Generated\Shared\Transfer\CustomerLoginResultTransfer;
 use Generated\Shared\Transfer\CustomerTransfer;
+use Pyz\Client\Customer\Service\CustomerClientInterface;
 use SprykerEngine\Yves\Kernel\Communication\AbstractPlugin;
-use SprykerFeature\Client\Customer\Service\CustomerClientInterface;
 use Symfony\Component\Security\Core\Exception\UnsupportedUserException;
-use Symfony\Component\Security\Core\Exception\UsernameNotFoundException;
 use Symfony\Component\Security\Core\User\User;
 use Symfony\Component\Security\Core\User\UserInterface;
 use Symfony\Component\Security\Core\User\UserProviderInterface;
@@ -45,8 +42,18 @@ class UserProvider extends AbstractPlugin implements UserProviderInterface
         if (!$this->customerClient->isLoggedIn()) {
             $customerTransfer = new CustomerTransfer();
             $customerTransfer->setEmail($username);
-            $customerTransfer = $this->customerClient->getCustomerByEmail($customerTransfer);
+
+            $customerLoginResult = new CustomerLoginResultTransfer();
+            $customerLoginResult->setCustomerTransfer($customerTransfer);
+            $customerLoginResult->setCustomerInfoTransfer(new CustomerInfoTransfer());
+
+            $customerLoginResult = $this->customerClient->getCustomerLoginResultByEmail($customerLoginResult);
+
+            $customerTransfer = $customerLoginResult->getCustomerTransfer();
+
             $this->customerClient->setCustomer($customerTransfer);
+            $this->customerClient->setCustomerInfo($customerLoginResult->getCustomerInfoTransfer());
+
         } else {
             $customerTransfer = $this->customerClient->getCustomer();
         }

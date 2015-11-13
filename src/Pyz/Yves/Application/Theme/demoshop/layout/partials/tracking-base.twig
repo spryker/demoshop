@@ -1,0 +1,29 @@
+
+{% autoescape false %}
+  <script>
+
+    var dataLayer = {
+      "global": {},
+      "page": {},
+      "cart": {}
+    };
+
+    dataLayerManager = {
+      isNonProduction: function () {
+          return ('{{  environment }}' !== 'production');
+      },
+
+      add: function (data) {
+        Object.keys(data).forEach(function (key) {
+          window.dataLayer[key] = data[key]; //@Todo: merge recursive?
+        });
+
+        if (dataLayerManager.isNonProduction()) {
+          console.log('dataLayer:' , window.dataLayer);
+          console.log('dataLayer:' , JSON.stringify(window.dataLayer, true, 2));
+        }
+      }
+    };
+
+  </script>
+{% endautoescape %}
