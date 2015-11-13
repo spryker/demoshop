@@ -5,6 +5,7 @@ namespace Pyz\Zed\Cart\Business;
 use Generated\Shared\Cart\ChangeInterface;
 use SprykerFeature\Zed\Cart\Business\CartFacade as SpyCartFacade;
 use Generated\Shared\Cart\CartInterface;
+use Generated\Shared\Transfer\ExpenseTransfer;
 
 /**
  * @method CartDependencyContainer getDependencyContainer()
@@ -24,8 +25,8 @@ class CartFacade extends SpyCartFacade
     }
 
     /**
-     * @param $countryId
-     * @return mixed
+     * @param int $countryId
+     * @return ExpenseTransfer
      */
     public function getShipmentMethodByCountryId($countryId)
     {
