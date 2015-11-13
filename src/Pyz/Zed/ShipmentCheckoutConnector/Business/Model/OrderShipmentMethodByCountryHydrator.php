@@ -4,7 +4,6 @@ namespace Pyz\Zed\ShipmentCheckoutConnector\Business\Model;
 
 use Generated\Shared\Transfer\CheckoutRequestTransfer;
 use Generated\Shared\Transfer\OrderTransfer;
-use Generated\Shared\Transfer\ShipmentMethodTransfer;
 use Pyz\Zed\ShipmentCheckoutConnector\Dependency\Facade\ShipmentCheckoutConnectorToShipmentInterface;
 
 class OrderShipmentMethodByCountryHydrator implements OrderShipmentMethodByCountryHydratorInterface
@@ -27,8 +26,6 @@ class OrderShipmentMethodByCountryHydrator implements OrderShipmentMethodByCount
     {
         $countryId = $checkoutRequest->getShippingAddress()->getAddress3();
         $shipmentMethod = $this->shipmentFacade->getShipmentMethodByCountryId($countryId);
-//        $shipmentMethodTransfer = new ShipmentMethodTransfer();
-//        $shipmentMethodTransfer->fromArray($shipmentMethod->toArray());
         $orderTransfer->setFkShipmentMethod($shipmentMethod->getIdShipmentMethod());
     }
 }
