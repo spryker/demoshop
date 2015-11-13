@@ -25,7 +25,7 @@
                 <name>Shropshire sheep</name>
                 <image>2015_72_RGB_13682.jpg</image>
                 <main_color>red</main_color>
-                <other_colors>blue, black</other_colors>
+                <other_colors>Blue, Black</other_colors>
                 <description>Shropshire sheep are an old English house race with light skin and dark head </description>
                 <description_long>Shropshire sheep are an old English house sheep race with light skin and dark head. There are very undemanding animals and therefore with farmers very popular. Gladly one uses it for grazing in fruit and conifer crops since they do not bite the young shoots. </description_long>
                 <fun_fact>Shropshire sheep have become heroes of various children's series because of their funny appearance for a long time. As clay figures they experience fun adventures.</fun_fact>
@@ -55,13 +55,13 @@
                 <scientific_name>Pavo cristatus</scientific_name>
             </locale>
             <locale id="en_US">
-                <name>Peacock</name>
+                <name>Pfau</name>
                 <image>2015_72_RGB_13728.jpg</image>
                 <main_color>red</main_color>
-                <other_colors>blue, black</other_colors>
-                <description>The image of peacocks characterize the taps with their plumage. In the courtship they try to win in the rather inconspicuous hens for themselves.</description>
-                <description_long>The most striking feature in breeding plumage full-grown roosters is composed of about 150 feathers tail feathers, which is beaten in the courtship to an impressive wheel. Each headdress feather wearing an eye patch on its end. The hens wearing a small crown of feathers on the crown, but are otherwise rather inconspicuous.</description_long>
-                <fun_fact>The breeding plumage of the peacock is comprised of 150 springs.fe</fun_fact>
+                <other_colors>blau, schwarz</other_colors>
+                <description>Das Bild der Pfauen prägen die Hähne mit ihrem prächtigen Federkleid. In der Balz versuchen sie damit, die eher unscheinbaren Hennen für sich zu gewinnen.</description>
+                <description_long>Das auffälligste Merkmal im Prachtkleid ausgewachsener Hähne ist das aus ca. 150 Federn bestehende Schwanzgefieder, das in der Balz zu einem beeindruckenden Rad geschlagen wird. Jede Schmuckfeder trägt an ihrem Ende einen Augenfleck. Auch die Hennen tragen eine kleine Federkrone auf dem Scheitel, sind ansonsten aber eher unscheinbar.</description_long>
+                <fun_fact>Das Prachtkleid der Pfauen besteht aus ca. 150 Federn.</fun_fact>
                 <scientific_name>Pavo cristatus</scientific_name>
             </locale>
         </locales>
@@ -88,13 +88,13 @@
                 <scientific_name>Ovis orientalis aries</scientific_name>
             </locale>
             <locale id="en_US">
-                <name>Lamb, lying</name>
+                <name>Schäfchen, liegend</name>
                 <image>2015_72_RGB_13745.jpg</image>
                 <main_color>red</main_color>
-                <other_colors>blue, black</other_colors>
-                <description>With its thick, fluffy fur, sheep are covered wherever their.</description>
-                <description_long>Sheep are kept as farmed animals for centuries and deliver meat, skin and wool. As herbivores and ruminants are sheep pattern of grazing and rumination. Since there are hundreds of breeds of sheep, these mammals can differ considerably in terms of coat and size. Sheep weigh 180 kilos and 45 and between can be ten to twenty years old. Their lack of depth eyesight same sheep by excellent hearing and a very sensitive sense of smell from. In the flock of sheep usually follow the instructions of a shepherd, but they also have their own hierarchy.</description_long>
-                <fun_fact>Sheep can see behind them without moving his head.</fun_fact>
+                <other_colors>blau, schwarz</other_colors>
+                <description>Mit ihrem dicken, flauschigen Fell sind Schafe an jedem Ort vor Kälte geschützt.</description>
+                <description_long>Schafe werden seit Jahrhunderten als landwirtschaftliche Nutztiere gehalten und liefern Fleisch, Haut und Wolle. Als Pflanzenfresser und Wiederkäuer sind Schafe abwechselnd mit Grasen und Wiederkäuen beschäftigt. Da es Hunderte von Schafrassen gibt, können sich diese Säugetiere erheblich im Hinblick auf Fell und Größe unterscheiden. Schafe wiegen zwischen 45 und 180 Kilo und können zehn bis zwanzig Jahre alt werden. Ihr eingeschränktes räumliches Sehvermögen gleichen Schafe durch ein ausgezeichnetes Gehör und einen sehr empfindlichen Geruchssinn aus. In der Herde folgen Schafe meist den Anweisungen eines Schäfers, sie haben aber auch ihre eigene Rangordnung.</description_long>
+                <fun_fact>Schafe können hinter sich sehen, ohne den Kopf zu bewegen.</fun_fact>
                 <scientific_name>Ovis orientalis aries</scientific_name>
             </locale>
         </locales>
@@ -121,13 +121,13 @@
                 <scientific_name>Sus scrofa domnestica</scientific_name>
             </locale>
             <locale id="en_US">
-                <name>Pot-bellied pig</name>
+                <name>Hängebauchschwein</name>
                 <image>2015_72_RGB_13747.jpg</image>
                 <main_color>blue</main_color>
-                <other_colors>blue, black</other_colors>
-                <description>Potbellied pigs have a stocky build and a far out hanging belly, which they owe their name.</description>
-                <description_long>The pot-bellied pig is also known as Vietnamese pot-bellied pig, because it comes from Southeast Asia. Potbellied pigs are aptly named because of its eye-catching, stocky physique with short legs and deep drooping belly. In some places they are an attraction in petting zoos or even kept as pets.</description_long>
-                <fun_fact>In some pot-bellied pigs belly grinds almost to the ground.</fun_fact>
+                <other_colors>blau, schwarz</other_colors>
+                <description>Hängebauchschweine haben einen gedrungenen Körperbau und einen weit herab hängenden Bauch, dem sie ihren Namen verdanken.</description>
+                <description_long>Das Hängebauchschwein wird auch als vietnamesisches Hängebauchschwein bezeichnet, weil es aus Südostasien stammt. Hängebauchschweine tragen ihren Namen wegen ihres auffälligen, gedrungenen Körperbaus mit kurzen Beinen und tief herabhängendem Bauch. Mancherorts sind sie eine Attraktion in Streichelzoos oder werden sogar als Haustiere gehalten.</description_long>
+                <fun_fact>Bei manchen Hängebauchschweinen schleift der Bauch fast am Boden.</fun_fact>
                 <scientific_name>Sus scrofa domnestica</scientific_name>
             </locale>
         </locales>
@@ -154,13 +154,13 @@
                 <scientific_name>Sus scrofa domestica</scientific_name>
             </locale>
             <locale id="en_US">
-                <name>Piglets, standing</name>
+                <name>Ferkel, stehend</name>
                 <image>2015_72_RGB_13783_VAR_v15_TP.jpg</image>
                 <main_color>green</main_color>
-                <other_colors>blue, black</other_colors>
-                <description>Piglets come with numerous siblings to the world. Usually a union comprising 10-14 animals.</description>
-                <description_long>Pigs are very social animals and take care lovingly for her litter. If they are allowed to come into the world outside, dig pregnant sows before a homely hollow and embed these with soft branches, grass and leaves. In there the kids come into the world and look for a few minutes after the birth of the way to the teat to slurp tasty milk. When suckling her mother sings to them even a song. At least it sounds to the ears of the piglets. It consists of grunts at different pitches and intervals. </description_long>
-                <fun_fact>Sows sing her piglets during suckling a song before.</fun_fact>
+                <other_colors>blau, schwarz</other_colors>
+                <description>Ferkel kommen mit zahlreichen Geschwistern auf die Welt. In der Regel umfasst ein Wurf 10-14 Tiere.</description>
+                <description_long>Schweine sind sehr soziale Tiere und kümmern sich liebevoll um ihren Wurf. Wenn sie draußen zur Welt kommen dürfen, graben trächtige Säue vorher eine heimelige Kuhle und betten diese mit weichen Ästen, Gras und Blättern aus. Darin kommen die Kleinen dann zur Welt und suchen schon wenige Minuten nach der Geburt den Weg zur Zitze, um leckere Muttermilch zu schlabbern. Beim Säugen singt ihre Mutter ihnen sogar ein Lied vor. Zumindest klingt das in den Ohren der Ferkel so. Es besteht aus Grunzlauten in verschiedenen Tonlagen und Abständen. </description_long>
+                <fun_fact>Säue singen ihren Ferkeln während des Säugens ein Lied vor.</fun_fact>
                 <scientific_name>Sus scrofa domestica</scientific_name>
             </locale>
         </locales>
@@ -187,13 +187,13 @@
                 <scientific_name>Giraffa camelopardalis</scientific_name>
             </locale>
             <locale id="en_US">
-                <name>Giraffe baby</name>
+                <name>Giraffenbaby</name>
                 <image>2015_72_RGB_14321.jpg</image>
                 <main_color>yellow</main_color>
-                <other_colors>blue, black</other_colors>
-                <description>Giraffes can be high up to 6 meters. The extremely long neck, the long, thin legs and her spotted coat give her their typical appearance.</description>
-                <description_long>Giraffes are up to 6 meters, the highest rising land mammals - their calves may already be 1.80 meters high at birth! Each giraffe has a unique coat pattern - subspecies of giraffe are based distinguished by color and pattern variations as well as the geographical distribution. Some giraffes are recognized by roundish or irregularly shaped patches - other at star-shaped spots on a light brown background, which lead down to the hooves. Despite its unusually long neck, the giraffe cervical vertebrae, the same number as humans, namely seven. Giraffes find food anywhere in the forests and savannahs of southern Africa by graze the young shoots in the treetops. Like camels, giraffes can survive without water two or three days. On their heads they wear more fur covered hornlike bone plugs. Giraffes never sleep more than an hour and can survive a whole day without sleep. For most of the day strolling around giraffe cozy, but can reach speeds of up to 55 kilometers per hour if necessary! Some Giraffes live in herds of up to fifteen animals, but the social structure changes. </description_long>
-                <fun_fact>Giraffes need a huge heart that pumps the blood up to the head. They also have a 50cm long, blue-gray gripping tongue.</fun_fact>
+                <other_colors>blau, schwarz</other_colors>
+                <description>Giraffen können bis 6 Meter hoch werden. Der extrem lange Hals, die langen, dünnen Beine und ihr geflecktes Fell verleihen ihr, ihr typisches Aussehen.</description>
+                <description_long>Giraffen sind mit bis zu 6 Metern die am höchsten aufragenden Landsäugetiere - ihre Kälber können bei der Geburt bereits 1,80 Meter hoch sein! Jede Giraffe hat ein einzigartiges Fellmuster -- die Unterarten der Giraffe werden anhand von Farb- und Mustervariationen sowie nach der geographischen Verbreitung unterschieden. Einige Giraffen sind an rundlichen oder ungleichmäßig geformten Flecken zu erkennen -- andere an sternförmigen Flecken auf hellbraunem Untergrund, die sich bis zu den Hufen hinunterziehen. Trotz ihres ungewöhnlich langen Halses hat die Giraffe die gleiche Anzahl Halswirbel wie der Mensch, nämlich sieben. Giraffen finden ihre Nahrung überall in den Wäldern und Savannen des südlichen Afrika, indem sie die jungen Triebe in den Baumkronen abweiden. Wie Kamele können Giraffen zwei oder drei Tage ohne Wasser auskommen. Auf dem Kopf tragen sie mehrere fellüberzogene hornartige Knochenzapfen. Giraffen schlafen nie länger als eine Stunde und können einen ganzen Tag ohne Schlaf auskommen. Den größten Teil des Tages schlendern Giraffen gemütlich umher, können aber bei Bedarf auch Geschwindigkeiten von bis zu 55 Stundenkilometern erreichen! Manche Giraffen leben in Herden von bis zu fünfzehn Tieren, aber die soziale Struktur ändert sich </description_long>
+                <fun_fact>Giraffen brauchen ein riesiges Herz, das das Blut bis hinauf zum Kopf pumpt. Außerdem haben sie eine 50cm lange, blaugraue Greifzunge.</fun_fact>
                 <scientific_name>Giraffa camelopardalis</scientific_name>
             </locale>
         </locales>
@@ -220,13 +220,13 @@
                 <scientific_name>Panthera leo</scientific_name>
             </locale>
             <locale id="en_US">
-                <name>Lion young</name>
+                <name>Löwenjunges</name>
                 <image>2015_72_RGB_14364.jpg</image>
                 <main_color>brown</main_color>
-                <other_colors>blue, black</other_colors>
-                <description>Lions are the largest big cats of Africa. Their fur is mostly sand-colored and adult males have a dark mane.</description>
-                <description_long>Lions roam the African savannah in families called prides. They families consist a single male with related females and children. When a male reaches adulthood, it is expelled from the pack and has to go seek his own group. Female lions hunt as a team. Together they can overpower large prey like zebras, buffalo, giraffes, hippos and even young elephants overwhelm, but you despise not the remains of meals of other animals. Lions sleep up to twenty hours a day and both males and females defend their pride from any intruders. The roar of a lion is very loud and audible at a distance of up to eight kilometers. Lions roar to communicate with each other and to warn off intruders. Males and females have light tan coats. Males have thick brown manes that are in their lives longer and darker.</description_long>
-                <fun_fact>Lions live in a pack, which is led by a strong male. Most females hunt together wildebeest or antelope.</fun_fact>
+                <other_colors>blau, schwarz</other_colors>
+                <description>Löwen sind die größten Raubkatzen Afrikas. Ihr Fell ist meist sandfarben und erwachsene Männchen haben eine dunkle Mähne.</description>
+                <description_long>Löwen durchstreifen die afrikanische Savanne in Rudeln, die aus miteinander verwandten Weibchen, deren Jungen und einem einzelnen Männchen bestehen. Wenn ein Männchen das Erwachsenenalter erreicht, wird es aus dem Rudel verstoßen und muss sich eine eigene Gruppe suchen. Löwinnen jagen im Team. Gemeinsam können sie große Beutetiere wie Zebras, Büffel, Giraffen, Flusspferde und sogar junge Elefanten überwältigen, aber sie verschmähen auch die Reste von Mahlzeiten anderer Tiere nicht. Löwen schlafen bis zu zwanzig Stunden pro Tag und sowohl Männchen als auch Weibchen verteidigen ihr Rudel gegen fremde Eindringlinge. Das Brüllen eines Löwen ist sehr laut und in einer Entfernung von bis zu acht Kilometern hörbar. Löwen brüllen, um miteinander zu kommunizieren und Eindringlinge abzuschrecken. Männchen und Weibchen haben hellbraunes Fell. Männchen haben dicke, braune Mähnen, die im Laufe ihres Lebens länger und dunkler werden.</description_long>
+                <fun_fact>Löwen leben im Rudel, das von einem starken Männchen angeführt wird. Meist jagen die Weibchen gemeinsam  Gnus oder Antilopen.</fun_fact>
                 <scientific_name>Panthera leo</scientific_name>
             </locale>
         </locales>
@@ -253,13 +253,13 @@
                 <scientific_name>Callorhinus ursinus</scientific_name>
             </locale>
             <locale id="en_US">
-                <name>Sea Lion</name>
+                <name>Seelöwe</name>
                 <image>2015_72_RGB_14365.jpg</image>
                 <main_color>red</main_color>
-                <other_colors>blue, black</other_colors>
-                <description>Thanks to their flippers and streamlined body, sea lions are graceful fast swimmers.</description>
-				<description_long> Sea lions have large, hairless flippers and because of that they can regulate their body temperature. The rest of the body is covered with dense fur, a mixture made of durable undercoat and longer guard hairs that grow back every year. Sea lions can dive up to 200 meters deep (much deeper than other seals) to hunt for fish such as herring, anchovies and squid. They stay primarily in the water, but during the mating season the popular beaches become quite crowded. Most of them strike out to the mating grounds in May, and the boys were born in June. The cops are polygamous, which means that they mate with several females. The males are much larger than females and are very powerful animals. They secure their own territory against other cops and defend their harem. Sea lions have a life expectancy of nearly thirty years.</description_long> 
-                <fun_fact>Sea lions are often presented in zoos and the circus with their feats.</fun_fact>
+                <other_colors>blau, schwarz</other_colors>
+                <description>Dank ihrer Flossen und des stromlinienförmigen Körpers sind Seelöwen anmutige, schnelle Schwimmer.</description>
+                <description_long>Seelöwen haben große, unbehaarte Flossen, mithilfe derer sie ihre Körpertemperatur regulieren können. Der restliche Körper ist mit dichtem Fell bedeckt, einer Mischung aus dauerhaftem Unterfell und längeren Deckhaaren, die jährlich nachwachsen. Seelöwen können bis zu 200 Meter tief (viel tiefer als andere Robben) tauchen, um nach Fischen wie Heringen, Sardellen und Tintenfischen zu jagen. Sie halten sich überwiegend im Wasser auf, aber während der Paarungszeit herrscht an den dazu aufgesuchten Stränden ein ziemliches Gedränge. Die meisten machen sich im Mai zu den Paarungsgründen auf, und die Jungen kommen im Juni zur Welt. Die Bullen sind polygam, das heißt, sie paaren sich mit mehreren Weibchen. Die Männchen sind deutlich größer als die Weibchen und sehr kraftvolle Tiere.Sie sichern ihr eigenes Territorium gegen andere Bullen und verteidigen ihren Harem. Seelöwen haben eine Lebenserwartung von fast dreißig Jahren.</description_long>
+                <fun_fact>Seelöwen werden gerne in Zoos und im Zirkus mit ihren Kunststücken vorgeführt.</fun_fact>
                 <scientific_name>Callorhinus ursinus</scientific_name>
             </locale>
         </locales>
@@ -286,13 +286,13 @@
                 <scientific_name>Equus quagga</scientific_name>
             </locale>
             <locale id="en_US">
-                <name>Zebra</name>
+                <name>Zebra Hengst</name>
                 <image>2015_72_RGB_14391.jpg</image>
                 <main_color>brown</main_color>
-                <other_colors>blue, black</other_colors>
-                <description>Zebras belong to african wild horses that are recognized by their distinctive black and white striped pattern. </description>
-				<description_long> This equine animals with shiny, striped fur live in the savannahs eastern and southern Africa, where they are most of the day busy to eat grass, leaves, bark, roots and stems. Each zebra has an individual pattern. The plains zebra has wide stripes (which continue to the undersides) and thinner 'shadow' stripes on their rump. Their excellent hearing and vision help him to escape predators. Zebras usually live in family groups that consist of one stallion and several mares but often form large herds of several hundred zebras. Once a year hundreds of thousands come to a walk together in order to search food and water. Sometimes these herds mingle with wildebeests, ostriches and antelopes. Zebras tend to be pretty skittish (what is given all the lions and hyenas in their vicinity can not blame them) and quite loud. They communicate by whinny, whine and bark together. They never wander too far from a water source and may be about thirty years old in the wild.</description_long>              
-				<fun_fact>Zebras have night vision which helps them to keep an eye on predators and to flee in time in case of danger.</fun_fact>
+                <other_colors>blau, schwarz</other_colors>
+                <description>Zebras sind eine afrikanische Wildpferdeart, die leichtan ihrem auffälligen schwarzweißen Streifenmuster zu erkennen ist. </description>
+                <description_long>Diese pferdeartigen Tiere mit glänzendem, gestreiftem Fell leben in den Savannen Ost- und Südafrikas, wo sie den größten Teil des Tages damit beschäftigt sind, Gras, Blätter, Rinde, Wurzeln und Stängel zu fressen. Jedes Zebra hat ein ganz individuelles Muster. Das Steppenzebra trägt breite Streifen (die sich am Bauch fortsetzen) sowie dünnere "Schattenstreifen" am Hinterteil. Sein ausgezeichnetes Gehör und seine scharfen Augen helfen ihm, Raubtieren zu entkommen. Zebras leben meist in Familiengruppen, die sich aus einem Hengst und mehreren Stuten zusammensetzen, bilden aber auch oft große Herden aus mehreren Hundert Zebras. Einmal im Jahr kommen Hunderttausende zu einer Wanderung auf der Suche nach Nahrung und Wasser zusammen. Manchmal vermischen sich diese Herden mit Gnus, Straußen und Antilopen. Zebras sind im Allgemeinen recht schreckhaft (was man ihnen angesichts all der Löwen und Hyänen in ihrer Nähe nicht verdenken kann) und ziemlich laut. Sie kommunizieren durch Wiehern, Jaulen und Bellen miteinander. Sie entfernen sich nie zu weit von einer Wasserquelle und können in freier Wildbahn etwa dreißig Jahre alt werden.</description_long>
+                <fun_fact>Zebras können nachts gut sehen, was ihnen hilft, Raubtiere im Auge zu behalten und bei Gefahr rechtzeitig zu flüchten.</fun_fact>
                 <scientific_name>Equus quagga</scientific_name>
             </locale>
         </locales>
@@ -319,10 +319,10 @@
                 <scientific_name>#NV</scientific_name>
             </locale>
             <locale id="en_US">
-                <name>Giant Tortoise</name>
+                <name>Riesenschildkröte</name>
                 <image>2015_72_RGB_14601.jpg</image>
                 <main_color>yellow</main_color>
-                <other_colors>blue, black</other_colors>
+                <other_colors>blau, schwarz</other_colors>
                 <description>#NV</description>
                 <description_long>#NV</description_long>
                 <fun_fact>#NV</fun_fact>
@@ -352,13 +352,13 @@
                 <scientific_name>Haliaeetus leucocephalus</scientific_name>
             </locale>
             <locale id="en_US">
-                <name>Bald Eagle</name>
+                <name>Weißkopfseeadler</name>
                 <image>2015_72_RGB_14634.jpg</image>
                 <main_color>red</main_color>
-                <other_colors>blue, black</other_colors>
-                <description>The Bald Eagle is a large bird of prey with dark brown plumage and a white head with a golden beak.</description>
-                <description_long>The eagle, the national bird of the United States of America, holds preferably near open bodies of water (due to the lush food supply) and ancient forests. His main source of food is fish. It nests preferably in high and old trees. This large bird can be a meter long, have a wingspan of 2.40 meters and weigh seven kilos. Interestingly, the females are generally considerably larger than the males. Eagles are usually about twenty years old and continue walking when the water freezes. These birds enter into a lifetime commitment to their partners and raise their young together.</description_long>
-                <fun_fact>The Bald Eagle is the heraldic animal of the USA.</fun_fact>
+                <other_colors>blau, schwarz</other_colors>
+                <description>Der Weißkopfseeadler ist ein großer Greifvogel mit dunkelbraunem Gefieder und weißem Kopf mit einem goldgelbem Schnabel.</description>
+                <description_long>Der Seeadler, der Nationalvogel der Vereinigten Staaten von Amerika, hält sich bevorzugt in der Nähe von offenen Gewässern (wegen des üppigen Nahrungsvorrats) und alten Wäldern auf. Seine wichtigste Nahrungsquelle sind Fische. Er nistet vorzugsweise in hohen, alten Bäumen. Dieser große Vogel kann einen Meter lang werden, eine Flügelspannweite von 2,40 Metern haben und sieben Kilo wiegen. Interessanterweise sind die Weibchen im Allgemeinen deutlich größer als die Männchen. Adler werden meist etwa zwanzig Jahre alt und wandern weiter, wenn das Wasser gefriert. Diese Vögel gehen eine lebenslange Bindung zu ihrem Partner ein und ziehen ihre Jungen gemeinsam auf.</description_long>
+                <fun_fact>Der Weißkopfseeadler ist das Wappentier der USA.</fun_fact>
                 <scientific_name>Haliaeetus leucocephalus</scientific_name>
             </locale>
         </locales>
@@ -385,10 +385,10 @@
                 <scientific_name>#NV</scientific_name>
             </locale>
             <locale id="en_US">
-                <name>Gorilla male</name>
+                <name>Gorilla Männchen</name>
                 <image>2015_72_RGB_14661.jpg</image>
                 <main_color>green</main_color>
-                <other_colors>blue, black</other_colors>
+                <other_colors>blau, schwarz</other_colors>
                 <description>#NV</description>
                 <description_long>#NV</description_long>
                 <fun_fact>#NV</fun_fact>
@@ -418,10 +418,10 @@
                 <scientific_name>#NV</scientific_name>
             </locale>
             <locale id="en_US">
-                <name>Gorilla female with baby</name>
+                <name>Gorilla Weibchen mit Baby</name>
                 <image>2015_72_RGB_14662.jpg</image>
                 <main_color>blue</main_color>
-                <other_colors>blue, black</other_colors>
+                <other_colors>blau, schwarz</other_colors>
                 <description>#NV</description>
                 <description_long>#NV</description_long>
                 <fun_fact>#NV</fun_fact>
@@ -451,13 +451,13 @@
                 <scientific_name>Phascolarctos cinereus</scientific_name>
             </locale>
             <locale id="en_US">
-                <name>Koala Bear with baby</name>
+                <name>Koalabärin mit Jungem</name>
                 <image>14677_v13_TP.jpg</image>
                 <main_color>red</main_color>
-                <other_colors>blue, black</other_colors>
-                <description>Koalas are very cute marsupials that are located exclusively in Australia. They grow up to 85cm tall and up to 14 kilograms. They are the role model for teddies and are considered a landmark of Australia. </description>
-                <description_long>Koala bears are marsupials that live only in Australia, because only there the adorable looking animals can find the food conditions that they need. Koalas are dependent on eucalyptus trees whose leaves slightly toxic they tolerated well. An adult koala males can grow up to 85cm tall and up to 14 kilograms. Originally there were anywhere Koalas in Australia. Due to strong hunting, today the large populations can only be found on the east coast. Koalas are with their brownish to silver-gray fur, her bushy ears and their beady eyes, the model for many cuddly toys and especially for teddy bears. Koalas are considered in addition to kangaroos of the landmark of Australia. </description_long>
-                <fun_fact>The bag of a female koala bear is open downwards.</fun_fact>
+                <other_colors>blau, schwarz</other_colors>
+                <description>Koalas sind sehr süße Beuteltiere, die ausschließlich in Australien beheimatet sind. Sie werden bis zu 85cm groß und bis zu 14 Kilogramm schwer. Sie sind das Vorbild für Teddys und gelten als ein Wahrzeichen Australiens. </description>
+                <description_long>Koalas sind Beuteltiere, die ausschließlich in Australien leben, denn nur dort finden die liebenswert aussehenden Tiere die Nahrungsbedingungen, die sie brauchen. Koalas sind abhängig von Eukalyptus-Bäumen, deren leicht giftige Blätter sie gut vertragen. Ein ausgewachsenes Koalamännchen kann bis zu 85cm groß und bis zu 14 Kilogramm schwer werden. Ursprünglich gab es überall in Australien Koalas, aufgrund starker Bejagung findet man heute nur noch an der Ostküste große Populationen. Koalas sind mit ihrem bräunlichen bis silbergrauen Fell, ihren buschigen Ohren und ihren Knopfaugen das Vorbild für viele Kuscheltiere und vor allem Teddybären. Koalas gelten neben den Kängurus als das Wahrzeichen Australiens. </description_long>
+                <fun_fact>Der Beutel der Koalabärin ist nach unten geöffnet.</fun_fact>
                 <scientific_name>Phascolarctos cinereus</scientific_name>
             </locale>
         </locales>
@@ -484,13 +484,13 @@
                 <scientific_name>Hippopotamus amphibius</scientific_name>
             </locale>
             <locale id="en_US">
-                <name>Hippo</name>
+                <name>Flusspferd</name>
                 <image>2015_72_RGB_14681.jpg</image>
                 <main_color>green</main_color>
-                <other_colors>blue, black</other_colors>
-                <description>Hippos live in african waters. Due to their aggressive behavior they belong to one of the most dangerous animals. Hippos live in the water and go ashoure to eat.</description>
-                <description_long>Although they are herbivores, hippos are due to their aggressive nature the wildest animals of Africa. On land they can reach an impressive speed of up to 50 kilometers per hour. They influence the course of rivers and swamps, by using the same paths every day and redirect the water in these channels. Hippos spend the day in the water and graze in the evening. Within just five hours, a hippo destroys more than 70kg food! In water, bulls are very eager to defend their territory, but on land, there are no rivalries. Although hippos can not swim, but they are struggling, sleep and mate in water. They live in herds, each about thirty animals. With a length of more than five meters and a weight of two tons include hippos among the largest land mammals. In addition, they are also quite old - often up to forty years.</description_long>
-                <fun_fact>The hippopotamus is one of the most dangerous animals in Africa.</fun_fact>
+                <other_colors>blau, schwarz</other_colors>
+                <description>Flusspferde leben in den Gewässern Afrikas. Sie gelten dort aufgrund ihres aggressiven Verhaltens als einer der gefährlichsten Tiere. Flusspferde leben im Wasser und gehen zum Fressen ans Land.</description>
+                <description_long>Obwohl sie Pflanzenfresser sind, gelten Flusspferde wegen ihres aggressiven Wesens als die wildesten Tiere Afrikas. An Land können sie eine beeindruckende Geschwindigkeit von bis zu 50 Stundenkilometern erreichen. Sie beeinflussen den Lauf von Flüssen und Sümpfen, indem sie jeden Tag dieselben Pfade benutzen und in diesen Rinnen das Wasser umleiten. Flusspferde halten sich tagsüber im Wasser auf und grasen am Abend. Innerhalb von nur fünf Stunden kann ein Flusspferd mehr als 70kg Nahrung vertilgen! Im Wasser sind die Bullen sehr darauf aus, ihr Territorium zu verteidigen, aber an Land gibt es keine Konkurrenzkämpfe. Flusspferde können zwar nicht schwimmen, aber sie kämpfen, schlafen und paaren sich im Wasser. Sie leben in Herden zu je etwa dreißig Tieren. Mit einer Länge von mehr als fünf Metern und einem Gewicht von zwei Tonnen gehören Flusspferde zu den größten Landsäugetieren. Außerdem werden sie auch ziemlich alt - häufig bis zu vierzig Jahre.</description_long>
+                <fun_fact>Das Flusspferd gilt als eines der gefährlichsten Tiere Afrikas.</fun_fact>
                 <scientific_name>Hippopotamus amphibius</scientific_name>
             </locale>
         </locales>
@@ -517,13 +517,13 @@
                 <scientific_name>Sciurus vulgaris</scientific_name>
             </locale>
             <locale id="en_US">
-                <name>Squirrels, eating</name>
+                <name>Eichhörnchen, fressend</name>
                 <image>2015_72_RGB_14684.jpg</image>
                 <main_color>blue</main_color>
-                <other_colors>blue, black</other_colors>
-                <description>Squirrels are small rodents with bushy tail, who spend their lives in the trees. Also in trees they also find their predominantly plant food. </description>
-                <description_long>Squirrels live alone or together in their nest, also called Kobel, and spend most of the day by looking for food. Except during a mid-morning nap are squirrels in search of leaves, grass, twigs and other objects for nesting as well as nuts and seeds as food. With her sharp eyes and sensitive whiskers, these rodents are always on the lookout for predators such as cats. Since squirrels create many different camp for their winter stores, they forget some of these places again. The diet of squirrels varies depending on the season. Among other things, they also eat insects and caterpillars.</description_long>
-                <fun_fact>Squirrels hide their inventories often so good that even themselves cannot find it anymore.</fun_fact>
+                <other_colors>blau, schwarz</other_colors>
+                <description>Eichhörnchen sind kleine Nagetiere mit buschigem Schwanz, die ihr Leben in den Bäumen verbringen. Dort finden sie auch ihre überwiegend pflanzliche Nahrung. </description>
+                <description_long>Eichhörnchen leben allein oder zu mehreren in ihrem Nest, auch Kobel genannt, und verbringen den größten Teil des Tages mit der Nahrungssuche. Außer während eines vormittäglichen Nickerchens sind Eichhörnchen auf der Suche nach Blättern, Gras, Zweigen und anderen Objekten für den Nestbau sowie nach Nüssen und Samen als Nahrung. Mit ihren scharfen Augen und empfindlichen Schnurrhaaren sind diese Nagetiere immer auf der Hut vor Raubtieren wie beispielsweise Katzen. Da Eichhörnchen viele verschiedene Lager für ihre Wintervorräte anlegen, vergessen sie manche dieser Plätze auch wieder. Die Nahrung der Eichhörnchen variiert je nach Jahreszeit. Unter anderem fressen sie auch Insekten und Raupen.</description_long>
+                <fun_fact>Eichhörnchen verstecken ihre Vorräte häufig so gut, dass sie sie selbst nicht mehr finden.</fun_fact>
                 <scientific_name>Sciurus vulgaris</scientific_name>
             </locale>
         </locales>
@@ -550,13 +550,13 @@
                 <scientific_name>Ursus arctos</scientific_name>
             </locale>
             <locale id="en_US">
-                <name>Grizzly Bear</name>
+                <name>Grizzlybärin</name>
                 <image>2015_72_RGB_14686.jpg</image>
                 <main_color>brown</main_color>
-                <other_colors>blue, black</other_colors>
-                <description>Grizzlies are in accordance with the polar bear, the largest bear on earth. Because of their size and their often aggressive behavior they are in their homeland North America as very dangerous.</description>
-                <description_long>Grizzlies are large, powerful animals - they reach (standing upright), a height of 2.40 meters and a weight of 450 kilos. They have a kind of hump on his back and very strong hind legs. Grizzly bears can reach speeds of 55 kilometers per hour. They live as a loner, and often behave aggressively. Sometimes they come together at the waters salmon fishing. As omnivores, they eat fish, plants and large mammals such as moose, deer and black bears. They are also known to steal food from wolves and humans.</description_long>
-                <fun_fact>Grizzlies are the largest bears in North America. </fun_fact>
+                <other_colors>blau, schwarz</other_colors>
+                <description>Grizzlys sind nach den Eisbären die größten Bären der Erde. Wegen ihrer Größe und ihres häufig aggressiven Verhaltens gelten sie in ihrer Heimat Nordamerika als sehr gefährlich.</description>
+                <description_long>Grizzlys sind große, kräftige Tiere -- sie erreichen (aufrecht stehend) eine Höhe von 2,40 Metern und ein Gewicht von 450 Kilo. Sie haben eine Art Höcker auf dem Rücken und sehr starke Hinterbeine. Grizzlybären können Geschwindigkeiten von 55 Stundenkilometern erreichen. Sie leben als Einzelgänger, und verhalten sich häufig aggressiv. Manchmal kommen sie zum Lachsfang an Gewässern zusammen. Als Allesfresser ernähren sich diese Bären von Fischen, Pflanzen und großen Säugetieren wie Elchen, Hirschen und Schwarzbären. Sie sind außerdem dafür bekannt, Nahrung von Wölfen und Menschen zu stehlen.</description_long>
+                <fun_fact>Grizzlys sind die größten Bären Nordamerikas. </fun_fact>
                 <scientific_name>Ursus arctos</scientific_name>
             </locale>
         </locales>
@@ -583,13 +583,13 @@
                 <scientific_name>Castoridae</scientific_name>
             </locale>
             <locale id="en_US">
-                <name>Beaver</name>
+                <name>Biber</name>
                 <image>2015_72_RGB_14693.jpg</image>
                 <main_color>yellow</main_color>
-                <other_colors>blue, black</other_colors>
-                <description>Beavers are large rodents that are perfectly matched by their physique, webbed and a flat tail rudder to life in the water. They cut down trees and build dams and beaver lodges.</description>
-                <description_long>Beavers are rodents that are perfectly adapted to their fusiform bodies, their webbed and their tails plates to life in water. These animals can be over a meter long and more than 30 kilograms. They also protect themselve with particularly thick coat against the cold and wet. Beavers fell trees and build dams and take such a massive impact on their natural environment. The entrance to a beaver lodge is always under water, so the animals are perfectly protected from predators, except of the man who has almost readicated them in Europe. Through the reintroduction stocks slowly recover.</description_long>
-                <fun_fact>Beavers have extremely strong, red orange incisors.</fun_fact>
+                <other_colors>blau, schwarz</other_colors>
+                <description>Biber sind große Nagetiere, die durch ihren Körperbau, Schwimmhäute und einem platten Ruderschwanz perfekt ans Leben im Wasser angepasst sind. Sie fällen Bäume und bauen Dämme und Biberburgen.</description>
+                <description_long>Biber sind Nagetiere, die mit ihren spindelförmigen Körpern, ihren Schwimmhäuten und ihren platten Schwänzen perfekt an ein Leben im Wasser angepasst sind. Diese Tiere können über einen Meter lang und mehr als 30 Kilogramm schwer werden. Außerdem schützt sie ihr besonders dichtes Fell vor Nässe und Kälte. Biber fällen Bäume und bauen Dämme und nehmen so massiven Einfluss auf ihre natürliche Umgebung. Der Eingang zu einer Biberburg liegt immer unter Wasser, so sind die Tiere perfekt vor Feinden geschützt, außer vor dem Menschen, der sie in Europa fast ausgerottet hat. Durch Auswilderung erholen sich die Bestände langsam wieder.</description_long>
+                <fun_fact>Biber haben extrem starke, rotorange Nagezähne.</fun_fact>
                 <scientific_name>Castoridae</scientific_name>
             </locale>
         </locales>
@@ -616,13 +616,13 @@
                 <scientific_name>Cheloniidae</scientific_name>
             </locale>
             <locale id="en_US">
-                <name>Sea Turtle</name>
+                <name>Meeresschildkröte</name>
                 <image>2015_72_RGB_14695.jpg</image>
                 <main_color>black</main_color>
-                <other_colors>blue, black</other_colors>
-                <description>Sea turtles are perfectly adapted to life in water. Their body is streamlined and the feet are formed into long paddles.</description>
-                <description_long>Sea turtles have adapted to life in water. Their feet are converted to long paddles and their bodies are more streamlined as their relatives on land. So they can be  move underwater cleverer. Their locomotion looks as if they were flying underwater. Sea turtles spend their entire live in the water of tropical and subtropical seas except in time of oviposition.There they hunt for cephalopods, crabs and jellyfish.</description_long>
-                <fun_fact>Sea turtles cannot withdraw into their protective armor because of its large head.</fun_fact>
+                <other_colors>blau, schwarz</other_colors>
+                <description>Meeresschildkröten sind perfekt an das Leben im Wasser angepasst. Ihr Körper ist stromlinienförmig und die Füße sind zu langen Paddeln geformt</description>
+                <description_long>Meeresschildkröten haben sich an das Leben im Wasser angepasst. Ihre Füße sind zu langen Paddeln umgeformt und ihre Körper sind stromlinienförmiger als die ihrer Verwandten an Land. So können sie sich geschickt unter Wasser fortbewegen. Ihre Fortbewegung sieht aus, als würden sie unter Wasser fliegen. Meeresschildkröten verbringen, bis auf die Zeit der Eiablage, ihr gesamtes Leben im Wasser tropischer und subtropischer Meere. Dort jagen sie nach Kopffüßern, Krebsen und Quallen.</description_long>
+                <fun_fact>Meeresschildkröten können ihren zu großen Kopf nicht in den schützenden Panzer zurückziehen.</fun_fact>
                 <scientific_name>Cheloniidae</scientific_name>
             </locale>
         </locales>
@@ -652,10 +652,10 @@
                 <name>Manta</name>
                 <image>2015_72_RGB_14698.jpg</image>
                 <main_color>red</main_color>
-                <other_colors>blue, black</other_colors>
-                <description>Mantas are up to nine meters long marine animals that move with elegant, flying movements. Despite its dangerous appearance, they are absolutely harmless to humans.</description>
-                <description_long>Mantas are among the Devil Rays, but are absolutely harmless to humans. You can be five to nine meters long and up to three tons. They are used in tropical and subtropical seas up to a depth of 150 meters in front worldwide. With its elegant locomotion, they look as though they would fly through the water.</description_long>
-                <fun_fact>Mantas have no teeth only in the lower jaw.</fun_fact>
+                <other_colors>blau, schwarz</other_colors>
+                <description>Mantas sind bis zu neun Meter lange Meerestiere, die mit eleganten, fliegenden Bewegungen fortbewegen. Trotz ihres gefährlichen Aussehens, sind sie für Menschen absolut harmlos.</description>
+                <description_long>Mantas gehören zu den Teufelsrochen, sind aber für den Menschen absolut harmlos. Sie können fünf bis neun Meter lang und bis zu drei Tonnen schwer werden. Sie kommen weltweit in tropischen und subtropischen Meeren bis zu einer Tiefe von 150 Metern vor. Mit ihrer eleganten Fortbewegungsweise sehen sie aus, als würden sie durchs Wasser fliegen.</description_long>
+                <fun_fact>Mantas haben nur im Unterkiefer kleine Zähne.</fun_fact>
                 <scientific_name>Manta</scientific_name>
             </locale>
         </locales>
@@ -682,13 +682,13 @@
                 <scientific_name>Carcharodon carcharias</scientific_name>
             </locale>
             <locale id="en_US">
-                <name>Great White Shark</name>
+                <name>Weißer Hai</name>
                 <image>2015_72_RGB_14700.jpg</image>
                 <main_color>red</main_color>
-                <other_colors>blue, black</other_colors>
-                <description>Great white sharks are the largest predatory sharks in the world's oceans. They grab their prey from the depths.</description>
-                <description_long>This deep-sea predator, which can weigh up to nine meters long and more than two tons, loves to eat fish, seals, octopus and sea turtles. Female White sharks are larger than males in general. As the biggest hunting sharks, they are also among the fastest fish in the ocean. They can reach speeds of up to 32 kilometers per hour with its streamlined body. When catching prey, these sharks engage precisely with its 50 triangular teeth. These sharks can gobble up 14 kilos of food with a single bite. Dulled older teeth are replaced by razor sharp. Great White Sharks live solitary. You can find more than 65 kilometers a day to travel and are over forty years old.</description_long>
-                <fun_fact>Great white sharks have a revolver dentition, simply regrow in the worn teeth.</fun_fact>
+                <other_colors>blau, schwarz</other_colors>
+                <description>Weiße Haie sind die größten, räuberischen Haie der Weltmeere. Sie greifen ihre Beute aus der Tiefe an.</description>
+                <description_long>Dieser Tiefseeräuber, der bis zu neun Meter lang und mehr als zwei Tonnen wiegen kann, frisst gerne Fische, Robben, Kraken und Meeresschildkröten. Weibliche Weißhaie sind im Allgemeinen größer als Männchen. Als größte jagende Haie gehören sie auch zu den schnellsten Fischen im Ozean, die mit ihrem stromlinienförmigen Körper Geschwindigkeiten von bis zu 32 Stundenkilometern erreichen. Beim Beutefang greifen diese Haie mit ihren ca. 50 dreieckigen Zähnen präzise zu. Diese Haie können mit einem einzigen Biss 14 Kilo Nahrung verschlingen. Stumpf gewordene ältere Zähne werden durch rasiermesserscharfe neue ersetzt. Weiße Haie leben einzelgängerisch. Sie können mehr als 65 Kilometer pro Tag zurücklegen und über vierzig Jahre alt werden.</description_long>
+                <fun_fact>Weiße Haie verfügen über ein Revolvergebiss, in dem abgenutzte Zähne einfach nachwachsen.</fun_fact>
                 <scientific_name>Carcharodon carcharias</scientific_name>
             </locale>
         </locales>
@@ -715,13 +715,13 @@
                 <scientific_name>Phoca vitulina</scientific_name>
             </locale>
             <locale id="en_US">
-                <name>Sea Dog</name>
+                <name>Seehund</name>
                 <image>2015_72_RGB_14702.jpg</image>
                 <main_color>red</main_color>
-                <other_colors>blue, black</other_colors>
-                <description>Seal dogs are a species of seal. They are very good swimmers and divers and feed almost exclusively on fish.</description>
-                <description_long>The seal is a common seal species in all north-temperate seas. Seals are small, slender animals and males are because of their length of 170 cm and their weight of 100 kg significantly larger than females. They occur in the northern hemisphere in the Pacific and Atlantic. Adult seals exclusively subsist on fish. They are intelligent and skillful swimmers. In some zoos you can watch their stunts in seal shows.</description_long>
-                <fun_fact>In bredding station young and motherless seals are reared. They are called "howler".</fun_fact>
+                <other_colors>blau, schwarz</other_colors>
+                <description>Seehunde sind eine Robbenart. Sie sind sehr gute Schwimmer und Taucher und ernähren sich fast ausschließlich von Fisch.</description>
+                <description_long>Der Seehund ist eine in allen nördlich-gemäßigten Meeren verbreitete Robbenart. Seehunde sind kleine, schlanke Tiere, bei denen die Männchen mit einer Länge von 170 cm und einem Gewicht von 100 Kilogramm deutlich größer als die Weibchen werden. Sie kommen auf der Nordhalbkugel im Pazifik und Atlantik vor. Erwachsene Seehunde ernähren sich ausschließlich von Fisch. Sie sind intelligente und geschickte Schwimmer. In manchen Zoos kann man sich ihre Kunststücke in Seehund-Shows ansehen.</description_long>
+                <fun_fact>In Aufzuchtstationen werden junge, mutterlose Robben aufgezogen. Man nennt sie "Heuler".</fun_fact>
                 <scientific_name>Phoca vitulina</scientific_name>
             </locale>
         </locales>
@@ -748,13 +748,13 @@
                 <scientific_name>Phoca vitulina</scientific_name>
             </locale>
             <locale id="en_US">
-                <name>See Dog Baby</name>
+                <name>Seehundjunges</name>
                 <image>2015_72_RGB_14703.jpg</image>
                 <main_color>red</main_color>
-                <other_colors>blue, black</other_colors>
-                <description>Seals are a species of seal. They are very good swimmers and divers and feed almost exclusively on fish.</description>
-                <description_long>The seal is a common seal species in all north-temperate seas. Seals are small, slender animals and males are because of their length of 170 cm and their weight of 100 kg significantly larger than females. They occur in the northern hemisphere in the Pacific and Atlantic. Adult seals exclusively subsist on fish. They are intelligent and skillful swimmers. In some zoos you can watch their stunts in seal shows.</description_long>
-                <fun_fact>In bredding station young and motherless seals are reared. They are called "howler".</fun_fact>
+                <other_colors>blau, schwarz</other_colors>
+                <description>Seehunde sind eine Robbenart. Sie sind sehr gute Schwimmer und Taucher und ernähren sich fast ausschließlich von Fisch.</description>
+                <description_long>Der Seehund ist eine in allen nördlich-gemäßigten Meeren verbreitete Robbenart. Es sind kleine, schlanke Tiere, bei denen die Männchen mit einer Länge von 170cm und einem Gewicht von 100Kilogramm deutlich größer als die Weibchen werden. Sie kommen auf der Nordhalbkugel im Pazifik und Atlantik vor. Erwachsene Seehunde ernähren sich ausschließlich von Fisch. Sie sind intelligente und geschickte Schwimmer. In manchen Zoos kann man sich ihre Kunststücke in Seehund-Shows ansehen.</description_long>
+                <fun_fact>In Aufzuchtstationen werden junge, mutterlose Robben aufgezogen. Man nennt sie "Heuler".</fun_fact>
                 <scientific_name>Phoca vitulina</scientific_name>
             </locale>
         </locales>
@@ -781,13 +781,13 @@
                 <scientific_name>Spheniscus demersus</scientific_name>
             </locale>
             <locale id="en_US">
-                <name>Black-footed Penguin</name>
+                <name>Brillenpinguin</name>
                 <image>2015_72_RGB_14705.jpg</image>
                 <main_color>red</main_color>
-                <other_colors>blue, black</other_colors>
-                <description>Black-footed penguins belongs to a small penguin species. They will not be greater than 70 cm and live on the southern coasts of Africa.</description>
-                <description_long>African Penguins are up to 70 cm large flightless birds and got their name from the characteristic black and white coloring of their plumage. From black bill goes to the eyes and around a pink spot, which gave them the name of Germany. African penguins are up to 20 years old. They are the only penguins in Africa; They are found on the west coast of Africa to the South African east coast.</description_long>
-                <fun_fact>African Penguins are the only species of penguin in Africa.</fun_fact>
+                <other_colors>blau, schwarz</other_colors>
+                <description>Brillenpinguine sind eine kleine Pinguinart. Sie werden nicht größer als 70 cm und leben an den südlichen Küsten Afrikas.</description>
+                <description_long>Brillenpinguine sind bis zu 70 cm große flugunfähige Vögel, die ihren Namen durch die charakteristische schwarz-weiße Färbung ihres Gefieders tragen. Vom schwarzen Schnabel geht zu den Augen und darum herum ein rosa Fleck, der ihnen den deutschen Namen gab. Brillenpinguine werden bis zu 20 Jahre alt. Sie sind die einzigen Pinguine Afrikas; man findet sie von der afrikanischen Westküste bis zur südafrikanischen Ostküste.</description_long>
+                <fun_fact>Brillenpinguine sind die einzige Pinguinart Afrikas.</fun_fact>
                 <scientific_name>Spheniscus demersus</scientific_name>
             </locale>
         </locales>
@@ -814,13 +814,13 @@
                 <scientific_name>Ailuropoda melanoleuca</scientific_name>
             </locale>
             <locale id="en_US">
-                <name>Giant Panda female</name>
+                <name>Große Pandabärin</name>
                 <image>2015_72_RGB_14706.jpg</image>
                 <main_color>red</main_color>
-                <other_colors>blue, black</other_colors>
-                <description>With its striking black and white coat color, the giant panda is one of the most beautiful animals in the world. Not least because of its strong risk, he became the heraldic animal of the conservation organization WWF.</description>
-                <description_long>The giant panda brings up to fourteen hours a day in order to resume its preferred food: bamboo! He has a kind of 'pseudo-thumb', which he uses to handle bamboo stems. This bear is usually 1.50 meters high and weighs 135 kilos. In the wild the panda may be twenty years of age, about ten years older in captivity. Pandas live in adulthood alone together, but in the first one or two years of their lives they live with their mother. After their time with their mother, they claim their turf for yourself. Since they are threatened with extinction in the wild, it is tried to breed them in various zoos around the world. So far with little success.</description_long>
-                <fun_fact>Pandas produce diverse sounds. They complain or bleating, barking and snarling.</fun_fact>
+                <other_colors>blau, schwarz</other_colors>
+                <description>Mit seiner auffällig schwarzweißen Fellfärbung ist der große Panda eines der schönsten Tiere der Welt. Nicht zuletzt wegen seiner starken Gefährdung wurde er zum Wappentier der Naturschutzorganisation WWF.</description>
+                <description_long>Der Große Panda bringt bis zu vierzehn Stunden am Tag damit zu, seine bevorzugte Nahrung aufzunehmen: Bambus! Er besitzt eine Art 'Pseudodaumen', den er zum Greifen nach Bambusstängeln einsetzt. Dieser Bär ist normalerweise 1,50 Meter hoch und wiegt 135 Kilo. In freier Wildbahn kann der Panda zwanzig Jahre alt werden, in Gefangenschaft etwa zehn Jahre älter. Pandas leben im Erwachsenenalter allein, aber in den ersten ein oder zwei Jahren ihres Lebens mit der Mutter zusammen, bevor sie ein eigenes Territorium für sich beanspruchen. Da sie in freier Wildbahn vom Aussterben bedroht sind, wird weltweit in verschiedenen Zoos versucht, sie nachzuzüchten. Bisher mit wenig Erfolg.</description_long>
+                <fun_fact>Pandas produzieren unterschiedlichste Geräusche. Sie meckern oder blöken, bellen und fauchen.</fun_fact>
                 <scientific_name>Ailuropoda melanoleuca</scientific_name>
             </locale>
         </locales>
@@ -847,13 +847,13 @@
                 <scientific_name>Odocoileus virginianus</scientific_name>
             </locale>
             <locale id="en_US">
-                <name>White-Tailed Deer</name>
+                <name>Weißwedelhirsch</name>
                 <image>2015_72_RGB_14709.jpg</image>
                 <main_color>red</main_color>
-                <other_colors>blue, black</other_colors>
-                <description>This small, widespread deer in North America got its name from its tail, of which underside is always white.</description>
-                <description_long>White-tailed deer graze mornings and evenings. As herbivores they feed on green plants and nuts. Deer live in small groups, usually only a mother and her calf. The males have splendid antlers and live in small groups of three or four animals. Both male deer and hinds have reddish brown coat in summer and gray brown in winter. Since they have hardly any natural enemies, deer populations sometimes grow to such an extent that they no longer find enough food. Deer are ruminants like cattle. That means they have four stomachs and half-digested food is chewed again. This complicated process allows deer, for example, to eat branches that cannot digest of most of the animals.</description_long>
-                <fun_fact>The white-tailed deer is the representation bull of nine US states and two Canadian provinces.</fun_fact>
+                <other_colors>blau, schwarz</other_colors>
+                <description>Diese kleinere, weit verbreitete Hirschart Nordamerikas hat ihren Namen von ihrem Schwanz(Wedel), dessen Unterseite immer weiß ist.</description>
+                <description_long>Weißwedelhirsche grasen morgens und abends. Als Pflanzenfresser ernähren sie sich von grünen Pflanzen und Nüssen. Hirsche leben in kleinen Gruppen, meist nur eine Mutter und ihre Kälber. Die Männchen haben herrliche Geweihe und leben in kleinen Gruppen von drei oder vier Tieren. Sowohl männliche Hirsche als auch Hirschkühe haben im Sommer rotbraunes und im Winter graubraunes Fell. Da sie kaum noch natürliche Feinde haben, wachsen Hirschpopulationen manchmal so stark an, dass sie nicht mehr genügend Nahrung finden. Hirsche sind Wiederkäuer wie Rinder. Das bedeutet, dass sie vier Mägen haben und halb verdaute Nahrung dann wiederkauen. Dieser komplizierte Vorgang ermöglicht es Hirschen, beispielsweise Zweige zu fressen, die die meisten Tiere nicht verdauen können.</description_long>
+                <fun_fact>Der Weißwedelhirsch ist das Repräsentationstier von neun Staaten der USA und zwei kanadischen Provinzen.</fun_fact>
                 <scientific_name>Odocoileus virginianus</scientific_name>
             </locale>
         </locales>
@@ -880,13 +880,13 @@
                 <scientific_name>Odocoileus virginianus</scientific_name>
             </locale>
             <locale id="en_US">
-                <name>White-Tailed Deer young</name>
+                <name>Weißwedelkalb</name>
                 <image>2015_72_RGB_14711.jpg</image>
                 <main_color>red</main_color>
-                <other_colors>blue, black</other_colors>
-                <description>This small, widespread deer in North America got its name from its tail, of which underside is always white.</description>
-                <description_long>White-tailed deer graze mornings and evenings. As herbivores they feed on green plants and nuts. Deer live in small groups, usually only a mother and her calf. The males have splendid antlers and live in small groups of three or four animals. Both male deer and hinds have reddish brown coat in summer and gray brown in winter. Since they have hardly any natural enemies, deer populations sometimes grow to such an extent that they no longer find enough food. Deer are ruminants like cattle. That means they have four stomachs and half-digested food is chewed again. This complicated process allows deer, for example, to eat branches that cannot digest of most of the animals.</description_long>
-                <fun_fact>The white-tailed deer is the representation bull of nine US states and two Canadian provinces.</fun_fact>
+                <other_colors>blau, schwarz</other_colors>
+                <description>Diese kleinere, weit verbreitete Hirschart Nordamerikas hat ihren Namen von ihrem Schwanz(Wedel), dessen Unterseite immer weiß ist.</description>
+                <description_long>Weißwedelhirsche grasen morgens und abends. Als Pflanzenfresser ernähren sie sich von grünen Pflanzen und Nüssen. Hirsche leben in kleinen Gruppen, meist nur eine Mutter und ihre Kälber. Die Männchen haben herrliche Geweihe und leben in kleinen Gruppen von drei oder vier Tieren. Sowohl männliche Hirsche als auch Hirschkühe haben im Sommer rotbraunes und im Winter graubraunes Fell. Da sie kaum noch natürliche Feinde haben, wachsen Hirschpopulationen manchmal so stark an, dass sie nicht mehr genügend Nahrung finden. Hirsche sind Wiederkäuer wie Rinder. Das bedeutet, dass sie vier Mägen haben und halb verdaute Nahrung dann wiederkauen. Dieser komplizierte Vorgang ermöglicht es Hirschen, beispielsweise Zweige zu fressen, die die meisten Tiere nicht verdauen können.</description_long>
+                <fun_fact>Der Weißwedelhirsch ist das Repräsentationstier von neun Staaten der USA und zwei kanadischen Provinzen.</fun_fact>
                 <scientific_name>Odocoileus virginianus</scientific_name>
             </locale>
         </locales>
@@ -913,13 +913,13 @@
                 <scientific_name>Erinaceus europaeus</scientific_name>
             </locale>
             <locale id="en_US">
-                <name>Hedgehog</name>
+                <name>Igel</name>
                 <image>2015_72_RGB_14713.jpg</image>
                 <main_color>red</main_color>
-                <other_colors>blue, black</other_colors>
-                <description>Hedgehogs are small animals with a pointed snout, whose coat consists of more than five thousand spines.</description>
-                <description_long>Hedgehogs are born deaf and blind and their spines grow even before they develop their senses. The spines are still soft hair at birth that they neither violate the hedgehog nor the mother. The main line of defense of a hedgehog is to set up his prickles which are controlled by tiny individual muscles and then roll up into a ball whereby the spines stick out in all directions. In this way, only one access opening remains the attacker, which is smaller than a fingertip. Hedgehogs are about 20 centimeters long and a few years old. Known as omnivorous animals they feed on insects, amphibians, birds' eggs, mushrooms, melons, berries and snakes. Thanks to its immunity to snake venom, which they owe an additional protein in their bodies, hedgehog can even hunt venomous snakes</description_long>
-                <fun_fact>In danger, hedgehogs roll together into a spiky ball and thus perfectly protected.</fun_fact>
+                <other_colors>blau, schwarz</other_colors>
+                <description>Igel sind kleine Tiere mit spitzer Schnauze, deren Fell aus über fünftausend Stacheln besteht.</description>
+                <description_long>Igel werden taub und blind geboren, und ihre Stacheln wachsen noch bevor sich ihre Sinne entwickeln. Die Stacheln sind bei der Geburt noch weiche Haare, dass sie weder den Igel noch das Muttertier verletzen. Die Hauptverteidigungsmaßnahme eines Igels besteht darin, seine Stacheln, die über winzige individuelle Muskeln gesteuert werden, aufzustellen und sich dann zu einer Kugel zusammenzurollen, wobei die Stacheln in alle Richtungen abstehen. Auf diese Weise bleibt dem Angreifer lediglich eine Zutrittsöffnung, die kleiner als eine Fingerspitze ist. Igel werden etwa 20 Zentimeter lang und einige Jahre alt. Die als Allesfresser bekannten Tiere ernähren sich von Insekten, Amphibien, Vogeleiern, Pilzen, Melonen, Beeren und Schlangen. Dank ihrer Immunität gegen Schlangengift, die sie einem zusätzlichen Protein in ihrem Körper verdanken, können Stacheligel sogar giftige Schlangen jagen</description_long>
+                <fun_fact>Bei Gefahr rollen sich Igel zu einer stacheligen Kugel zusammen und sind so perfekt geschützt.</fun_fact>
                 <scientific_name>Erinaceus europaeus</scientific_name>
             </locale>
         </locales>
@@ -946,13 +946,13 @@
                 <scientific_name>Hylobates lar</scientific_name>
             </locale>
             <locale id="en_US">
-                <name>Gibbon young</name>
+                <name>Gibbon Junges</name>
                 <image>2015_72_RGB_14718.jpg</image>
                 <main_color>red</main_color>
-                <other_colors>blue, black</other_colors>
-                <description>Gibbons are arboreal monkeys from the rainforests of Southeast Asia. With their long arms they pull themselves from branch to branch skillfully. Only very rarely the tailless primates dare to go down to the forest floor. Your home is the high tops of the trees.</description>
-                <description_long>Gibbons are arboreal monkeys of Southeast Asian jungle. With its strikingly long arms and the nearby accreting wrist thumb they have perfected their locomotion. This unique locomotion in the animal kingdom the tailless primates can swing incredibly quick and smart from branch to branch. Enormous distances have been overcome. Has a gibbon couple once found, the partners remain a lifetime together, while their family associations remain and keep defending their area against intruders. Gibbons feed mainly on plant foods, small animals rarely complement their diet.</description_long>
-                <fun_fact>Some gibbons have a throat pouch and can roar incredibly loud.</fun_fact>
+                <other_colors>blau, schwarz</other_colors>
+                <description>Gibbons sind baumbewohnende Affen aus den Regenwäldern Südostasiens. Mit ihren langen Armen hangeln sie sich geschickt von Ast zu Ast. Nur sehr selten wagen sich die schwanzlosen Primaten auf den Waldboden herunter. Ihre Heimat sind die hohen Wipfel der Bäume.</description>
+                <description_long>Gibbons sind baumbewohnende Affen der südostasiatischen Dschungel. Mit ihren auffällig langen Armen und den nahe am Handgelenk ansetzenden Daumen haben sie die Fortbewegung des "Schwinghangelns" perfektioniert. Mit dieser im Tierreich einmaligen Fortbewegungsart können die schwanzlosen Primaten unglaublich schnell und geschickt von Ast zu Ast schwingen. Dabei werden enorme Distanzen überwunden. Hat sich ein Gibbonpäärchen erst einmal gefunden, bleiben die Partner ein Leben lang zusammen, dabei bleiben Familienverbände ihrem Revier treu und verteidigen es gegen Eindringlinge. Gibbons ernähren sich hauptsächlich von pflanzlicher Kost, nur selten ergänzen Kleintiere den Speiseplan.</description_long>
+                <fun_fact>Einige Gibbonarten haben einen Kehlsack mit dem sie unglaublich laut brüllen. Einfach affenlaut!</fun_fact>
                 <scientific_name>Hylobates lar</scientific_name>
             </locale>
         </locales>
@@ -979,13 +979,13 @@
                 <scientific_name>Tamias striatus</scientific_name>
             </locale>
             <locale id="en_US">
-                <name>Chipmunks</name>
+                <name>Streifenhörnchen</name>
                 <image>2015_72_RGB_14722.jpg</image>
                 <main_color>red</main_color>
-                <other_colors>blue, black</other_colors>
-                <description>Chipmunks are small rodents that owe their name to the characteristic striped coat patterns. Their main circulation area is North America. Chipmunks live on the forest floor, where they create a long tunnel systems. In winter they keep extensive hibernation phase and live off their winter food gathered.</description>
-                <description_long>Chipmunks are a genus of squirrel. They owe their name to their characteristic striped coat patterns. The collective term chipmunks contains about 35 different types, of which main distribution area is North America. Chipmunks are forest dwellers. They create extensive tunnel systems that connect the different rooms and entrances to each other. Besides sleeping quarters and storerooms, there also exist storage rooms where the diurnal animals create inventories. In winter the little rodents keep their hibernate although milder temperatures interrupt their winter sleep severeal times.</description_long>
-                <fun_fact>Chipmunks are very clean. Leftovers and excrement are cleared away instantly from their den.</fun_fact>
+                <other_colors>blau, schwarz</other_colors>
+                <description>Streifenhörnchen sind kleine Nagetiere, die ihren Namen der charakteristischen gestreiften Fellzeichnung verdanken. Ihr Hauptverbreitungsgebiet ist Nordamerika. Streifenhörnchen wohnen am Waldboden, wo sie lange Tunnelsysteme anlegen. Im Winter halten sie ausgedehnte Winterruhe und leben von ihren gesammelten Wintervorräten. </description>
+                <description_long>Streifenhörnchen sind eine Gattung der Hörnchen. Ihren Namen verdanken sie ihrer charakteristischen gestreiften Fellzeichnung. Unter dem Sammelbegriff Streifenhörnchen werden circa 35 verschiedene Arten zusammengefasst, deren Hauptverbreitungsgebiet Nordamerika ist. Streifenhörnchen sind Waldbewohner. Sie legen ausgedehnte Tunnelsysteme an, die die verschiedenen Räume und Eingänge miteinander verbinden. So gibt es neben Schlafräumen auch Vorratsräume, in denen die tagaktiven Tiere Vorräte anlegen. Im Winter halten die kleinen Nager Winterruhe, die sie jedoch bei milderen Temperaturen mehrmals unterbrechen.</description_long>
+                <fun_fact>Streifenhörnchen sind sehr reinlich. Essensreste und Exkremente schaffen sie sofort aus ihrer Höhle.</fun_fact>
                 <scientific_name>Tamias striatus</scientific_name>
             </locale>
         </locales>
@@ -1012,13 +1012,13 @@
                 <scientific_name>Saimiri </scientific_name>
             </locale>
             <locale id="en_US">
-                <name>Squirrel Monkeys</name>
+                <name>Totenkopfäffchen</name>
                 <image>2015_72_RGB_14723.jpg</image>
                 <main_color>red</main_color>
-                <other_colors>blue, black</other_colors>
-                <description>Squirrel monkeys are small monkeys from the jungles of the Amazon. The name comes from the coat patterns of their faces. Squirrel monkeys are very skillful climbers.</description>
-                <description_long>Squirrel monkeys are a small species of monkey, which is common in the forests of the Amazon basin. They owe their name to the mask-like face markings and black muzzle. The body is covered with dense, short coat, which varies between gray and green tones. The hands often appear yellow-orange, while the belly is often white. Squirrel monkeys are skillful climbers who mainly feed on insects and fruits because of their long tail. An association of squirrel monkeys can contain up to hundred animals, at whose head is always the highest-ranking females.</description_long>
-                <fun_fact>The long tail of the squirrel monkeys is only in young animals to grab.</fun_fact>
+                <other_colors>blau, schwarz</other_colors>
+                <description>Totenkopfäffchen sind kleine Affen aus dem Dschungel des Amazonas. Der Name kommt von der Fellzeichnung ihrer Gesichter. Totenkopfäffchen sind sehr geschickte Kletterer.</description>
+                <description_long>Totenkopfäffchen sind eine kleine Affenart, die in den Wäldern des Amazonasbeckens verbreitet ist. Ihren Namen verdanken sie der maskenartigen Gesichtszeichnung und der schwarzen Schnauze. Der Körper ist mit dichtem, kurzen Fell bedeckt, das zwischen Grau- und Grüntönen variiert. Die Hände erscheinen häufig gelb-orange, während der Bauch oft weiß ist. Totenkopfäffchen sind wegen ihres langen Schwanzes geschickte Kletterer, die sich vornehmlich von Insekten und Früchten ernähren. Ein Verband von Totenkopfäffchen kann bis zu hundert Tieren umfassen, an deren Spitze immer das ranghöchste Weibchen steht. </description_long>
+                <fun_fact>Der lange Schwanz der Totenkopfäffchen dient nur bei Jungtieren zum greifen. </fun_fact>
                 <scientific_name>Saimiri </scientific_name>
             </locale>
         </locales>
@@ -1045,13 +1045,13 @@
                 <scientific_name>Hippocampus </scientific_name>
             </locale>
             <locale id="en_US">
-                <name>Sea horse</name>
+                <name>Seepferdchen</name>
                 <image>2015_72_RGB_14725.jpg</image>
                 <main_color>red</main_color>
-                <other_colors>blue, black</other_colors>
-                <description>Seahorse actually belong to the fish, and more specifically to shreds fish. They live mainly in tropical seas.</description>
-                <description_long>Although it is hard to see the seahorses, they still belong to the fish. Specifically to shreds fish. Seahorses live in tropical and temperate seas, especially in front of South Australia and New Zealand. With its winding tail they can cling to seaweed or conspecifics. Seahorses move using their transparent dorsal fin only very slowly. The tiny pectoral fins are used to control.</description_long>
-                <fun_fact>The seahorses males incubate the eggs. At birth, the young seahorses are shot out literally from the brood pouch of the male.</fun_fact>
+                <other_colors>blau, schwarz</other_colors>
+                <description>Seepferdchen gehören tatsächlich zu den Fischen, genauer gesagt zu den Fetzenfischen. Sie leben vor allem in tropischen Meeren.</description>
+                <description_long>Obwohl es den Seepferdchen kaum anzusehen ist, zählen sie dennoch zu den Fischen. Genauer gesagt zu den Fetzenfischen. Seepferdchen leben in tropischen und gemäßigten Meerren, vor allem vor Südaustralien und Neuseeland. Mit ihrem Wickelschwanz können sie sich an Seegras oder Artgenossen festhalten. Seepferdchen bewegen sich mithilfe ihrer durchsichtigen Rückenflosse nur sehr langsam fort. Die winzigen Brustflossen dienen zum Steuern.</description_long>
+                <fun_fact>Bei den Seepferdchen brüten die Männchen die Eier aus. Bei der Geburt werden die jungen Seepferdchen aus der Bruttasche des Männchens regelrecht herausgeschossen.</fun_fact>
                 <scientific_name>Hippocampus </scientific_name>
             </locale>
         </locales>
@@ -1078,13 +1078,13 @@
                 <scientific_name>Crocuta crocuta</scientific_name>
             </locale>
             <locale id="en_US">
-                <name>Hyena</name>
+                <name>Hyäne</name>
                 <image>2015_72_RGB_14735_v15_TP.jpg</image>
                 <main_color>red</main_color>
-                <other_colors>blue, black</other_colors>
-                <description>Spotted hyenas are not the nicest, but probably the most successful predators of the African savannah. They live together in groups of up to eighty animals and hunt at dusk.</description>
-                <description_long>See spotted hyenas from at first glance, thy look like oversized dog. Striking are their long necks, strong skull, the brown spots on yellowish-brown coat and the sloping topline. This hyenas always act as if they ducked. Their appearance helped these predators to their bad reputation. On human observer they often act threatening and insidious. Indeed spotted hyenas are the most successful hunters of the African savannas. At dusk, they prey upon larger ungulates, but also disdain not small animals, such as insects or reptiles. Sometimes they also take other predators, such as lions and leopards from their prey. Hyenas devour their prey completely, since they can even digest her bones. Only hairs are regurgitated again. Hyenas live in packs of up to 80 animals, at whose head is always the dominant female.</description_long>
-                <fun_fact>Hyenas can even chew bones and digest.</fun_fact>
+                <other_colors>blau, schwarz</other_colors>
+                <description>Tüpfelhyänen sind zwar nicht die schönsten, wohl aber die erfolgreichsten Raubtiere der afrikanischen Savanne. Sie leben in Gruppen von bis zu achzig Tieren zusammen und jagen in der Dämmerung.</description>
+                <description_long>Tüpfelhyänen sehen auf den ersten Blick aus, wie zu groß geratene Hunde. Auffällig sind ihre langen Hälse, kräftigen Schädel, die braunen Flecken auf gelblich-braunem Fell und die abfallende Rückenlinie. Dadurch wirken Hyänen immer so, als duckten sie sich. Ihr Aussehen verhalf diesen Raubtieren zu ihrem schlechten Ruf. Auf menschliche Beobachter wirken sie nicht selten bedrohlich und hinterlistig. Tatsächlich sind Tüpfelhyänendie erfolgreichsten  Jäger der afrikanischen Savannen. In der Dämmerung machen sie Jagd auf größere Huftiere, verschmähen aber auch Kleintiere, wie Insekten oder Reptilien nicht. Manchmal nehmen sie auch anderen Raubtieren, wie Löwen oder Leoparden deren Beute ab. Hyänen fressen ihre Beutetiere komplett auf, da sie sogar ihre Knochen verdauen können. Lediglich Haare werden wieder ausgewürgt. Hyänenie leben in Rudeln von bis zu 80 Tieren, an deren Spitze immer das dominante Weibchen steht.</description_long>
+                <fun_fact>Hyänen können sogar Knochen zerbeißen und verdauen.</fun_fact>
                 <scientific_name>Crocuta crocuta</scientific_name>
             </locale>
         </locales>

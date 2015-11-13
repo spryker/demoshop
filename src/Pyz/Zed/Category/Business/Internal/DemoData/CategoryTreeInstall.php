@@ -40,7 +40,7 @@ class CategoryTreeInstall extends AbstractInstaller
     protected $queryContainer;
 
     /**
-     * @var Local
+     * @var LocaleTransfer
      */
     protected $locale;
 
@@ -91,6 +91,7 @@ class CategoryTreeInstall extends AbstractInstaller
      */
     protected function getDemoTree()
     {
+        //@TODO it must come from config
         $xmlContent = file_get_contents(__DIR__ . '/demo-category-tree.xml');
         $xml = new \SimpleXMLElement($xmlContent);
 
