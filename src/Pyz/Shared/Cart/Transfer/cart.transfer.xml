@@ -1,0 +1,20 @@
+<?xml version="1.0"?>
+<transfers xmlns="http://xsd.spryker.com"
+           xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+           xsi:schemaLocation="http://xsd.spryker.com ../../src/Spryker/TransferObjectDefinitionSchema.xsd">
+
+    <transfer name="Change">
+        <property name="expenses" type="Expense[]" singular="expense" />
+        <property name="items" type="Item[]" singular="item" />
+        <property name="couponCode" type="string" />
+        <property name="cart" type="Cart" />
+        <property name="shipmentCountryId" type="int" />
+        <property name="order" type="Order" />
+        <property name="userId" type="string" />
+        <property name="cartHash" type="string" />
+        <property name="deleteReason" type="string" />
+        <property name="isMerged" type="string" />
+    </transfer>
+
+</transfers>
+
