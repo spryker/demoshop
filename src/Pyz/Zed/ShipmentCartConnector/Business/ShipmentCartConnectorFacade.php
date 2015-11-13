@@ -26,6 +26,6 @@ class ShipmentCartConnectorFacade extends AbstractFacade
      */
     public function getShipmentMethodAsCartExpense(SpyShipmentMethod $shipmentMethod)
     {
-        return $this->getDependencyContainer()->createShipmentFacade()->getShipmentMethodByCountryId($shipmentMethod);
+        return $this->getDependencyContainer()->createShipmentFacade()->getShipmentMethodAsCartExpense($shipmentMethod);
     }
 }
