@@ -8,6 +8,9 @@ use Orm\Zed\Shipment\Persistence\SpyShipmentMethod;
 
 class ShipmentMethodManager
 {
+    const TYPE_SHIPMENT_FEE = 'shipmentFee';
+    const NAME_SHIPMENT_FEE = 'Shipment fee';
+
     /**
      * @var ShipmentQueryContainer
      */
@@ -23,17 +26,28 @@ class ShipmentMethodManager
 
     /**
      * @param $countryId
-     * @return ExpenseTransfer
+     * @return SpyShipmentMethod
      */
     public function getShipmentMethod($countryId)
     {
         if ($this->isShipmentMethodForCountryId($countryId)) {
-             $shipmentMethod = $this->getShipmentMethodForCountryId($countryId);
-        } else {
-            $shipmentMethod = $this->getDefaultShipmentMethod();
+             return $this->getShipmentMethodForCountryId($countryId);
         }
+            return $this->getDefaultShipmentMethod();
+    }
 
-        return $this->getShipmentMethodAsCartExpenseTransfer($shipmentMethod);
+    /**
+     * @param SpyShipmentMethod $shipmentMethod
+     * @return ExpenseTransfer
+     */
+    public function getShipmentMethodAsCartExpenseTransfer(SpyShipmentMethod $shipmentMethod)
+    {
+        $expenseTransfer = new ExpenseTransfer();
+        $expenseTransfer->setType(self::TYPE_SHIPMENT_FEE)
+            ->setGrossPrice($shipmentMethod->getPrice())
+            ->setName(self::NAME_SHIPMENT_FEE);
+
+        return $expenseTransfer;
     }
 
     /**
@@ -65,21 +79,6 @@ class ShipmentMethodManager
     {
         return $this->queryContainer->queryShipmentMethodByCountryId($countryId)
             ->findOne();
-    }
-
-    /**
-     * @param SpyShipmentMethod $shipmentMethod
-     * @return ExpenseTransfer
-     */
-    public function getShipmentMethodAsCartExpenseTransfer(SpyShipmentMethod $shipmentMethod)
-    {
-        $expenseTransfer = new ExpenseTransfer();
-        $expenseTransfer->setType('shipmentFee')
-            ->setGrossPrice($shipmentMethod->getPrice())
-            ->setPriceToPay($shipmentMethod->getPrice())
-            ->setName('Shipment fee');
-
-        return $expenseTransfer;
     }
 
 }
