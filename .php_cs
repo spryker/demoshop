@@ -66,6 +66,7 @@ return Symfony\CS\Config\Config::create()
         ]
     )
     ->addCustomFixer(new \SprykerFeature\Zed\Maintenance\Business\CodeStyleFixer\EmptyEnclosingLinesFixer())
+    ->addCustomFixer(new \SprykerFeature\Zed\Maintenance\Business\CodeStyleFixer\FunctionSpacingFixer())
     ->addCustomFixer(new \SprykerFeature\Zed\Maintenance\Business\CodeStyleFixer\MethodArgumentDefaultValueFixer())
     ->addCustomFixer(new \SprykerFeature\Zed\Maintenance\Business\CodeStyleFixer\RemoveFunctionAliasFixer())
     ->addCustomFixer(new \SprykerFeature\Zed\Maintenance\Business\CodeStyleFixer\ShortCastFixer())

@@ -186,7 +186,7 @@ class YvesFilesystemLoader implements \Twig_LoaderInterface, \Twig_ExistsLoaderI
 
         $this->validateName($name);
 
-        if (isset($name[0]) && '@' === $name[0]) {
+        if (isset($name[0]) && $name[0] === '@') {
             $pos = strpos($name, '/');
             if ($pos === false) {
                 $this->cache[$name] = false;
@@ -217,7 +217,7 @@ class YvesFilesystemLoader implements \Twig_LoaderInterface, \Twig_ExistsLoaderI
      */
     protected function validateName($name)
     {
-        if (false !== strpos($name, "\0")) {
+        if (strpos($name, "\0") !== false) {
             throw new Twig_Error_Loader('A template name cannot contain NUL bytes.');
         }
 

@@ -50,12 +50,12 @@ class BatchedDataImportWriter extends DataImportWriter
      */
     protected function createOrUpdateOptionTypeTranslations(SpyProductOptionType $productOptionTypeEntity, array $localizedNames)
     {
-        if (null === $productOptionTypeEntity->getIdProductOptionType()) {
+        if ($productOptionTypeEntity->getIdProductOptionType() === null) {
             $productOptionTypeEntity->save();
         }
 
         foreach ($localizedNames as $localeName => $localizedOptionTypeName) {
-            if (false === $this->localeFacade->hasLocale($localeName)) {
+            if ($this->localeFacade->hasLocale($localeName) === false) {
                 continue;
             }
 
@@ -75,12 +75,12 @@ class BatchedDataImportWriter extends DataImportWriter
      */
     protected function createOrUpdateOptionValueTranslations(SpyProductOptionValue $productOptionValueEntity, array $localizedNames)
     {
-        if (null === $productOptionValueEntity->getIdProductOptionValue()) {
+        if ($productOptionValueEntity->getIdProductOptionValue() === null) {
             $productOptionValueEntity->save();
         }
 
         foreach ($localizedNames as $localeName => $localizedOptionValueName) {
-            if (false === $this->localeFacade->hasLocale($localeName)) {
+            if ($this->localeFacade->hasLocale($localeName) === false) {
                 continue;
             }
 

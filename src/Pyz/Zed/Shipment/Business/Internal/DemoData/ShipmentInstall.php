@@ -11,6 +11,7 @@ use SprykerFeature\Zed\Shipment\Persistence\ShipmentQueryContainerInterface;
 
 class ShipmentInstall extends AbstractInstaller
 {
+
     /**
      * @var ShipmentQueryContainerInterface
      */
