@@ -2,11 +2,9 @@
     <form>
         <div class="product-options__select">
             <label>Größe</label>
-            <select class="js-select">
-                <option>250g</option>
-                <option>500g</option>
-                <option>750g</option>
-            </select>
+
+            {{> "atoms.dropdown" options='["250g","500g","750g"]' id="weight" name="weight"}}
+
         </div>
         <div class="product-options__select">
             <label>Anzahl</label>

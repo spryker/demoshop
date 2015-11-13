@@ -36,4 +36,14 @@ module.exports.register = function(handlebars) {
 
         return parts.join('.');
     });
+
+    handlebars.registerHelper('parseJSON', function (a) {
+
+        if (typeof a !== 'undefined') {
+            return JSON.parse(a);
+        }
+
+        return [];
+    });
+
 };

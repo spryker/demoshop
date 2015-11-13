@@ -1,5 +1,11 @@
-<select class="js-select">
-    <option>250g</option>
-    <option>500g</option>
-    <option>750g</option>
-</select>
+<div class="dropdown">
+    {{#if label}}
+        <label class="input__label" for="{{id}}">{{label}}</label>
+    {{/if}}
+
+    <select class="js-select" id="{{id}}" name="{{name}}">
+        {{#each (parseJSON options)}}
+          <option value="{{@index}}">{{this}}</option>
+        {{/each}}
+    </select>
+</div>

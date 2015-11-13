@@ -9,9 +9,7 @@
     @include pageWidth;
 }
 
-.product-accordion-item__inner{
-    width: (100%  / 12 * 5);
-}
+
 
 .product-accordion-item--active{
     .product-accordion-item__title{
@@ -35,7 +33,7 @@
 
 .product-accordion-item__header{
     width: 100%;
-    padding: 30px 0 30px (100% / 12 * 3);
+    padding: 30px 0 30px 12px;
     border-bottom: 1px solid $_rgbSilver;
 
     text-align: left;
@@ -96,7 +94,7 @@
 
 .product-accordion-item__content{
     display: none;
-    padding: 30px 0 30px (100% / 12 * 3);
+    padding: 30px 0 30px 12px;
     border-bottom: 1px solid $_rgbSilver;
 
     font-size: 16px;
@@ -112,5 +110,20 @@
 
     li{
         margin-left: 30px;
+    }
+}
+
+@media (min-width: $_wMedium) {
+    .product-accordion-item__header {
+        padding: 30px 0 30px 25%;
+    }
+
+    .product-accordion-item__inner{
+        width: (100%  / 12 * 5);
+    }
+
+    .product-accordion-item__content{
+        display: none;
+        padding: 30px 0 30px (100% / 12 * 3);
     }
 }
