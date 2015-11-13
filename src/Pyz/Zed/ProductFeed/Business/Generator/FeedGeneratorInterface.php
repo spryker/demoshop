@@ -4,5 +4,7 @@ namespace Pyz\Zed\ProductFeed\Business\Generator;
 
 interface FeedGeneratorInterface
 {
-    public function generate(/* @TODO: dependencies */);
+    public function generateHtpasswd();
+    public function generateHtaccess();
+    public function generate();
 }
