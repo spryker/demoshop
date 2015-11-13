@@ -55,9 +55,9 @@ class CmsConfig extends SprykerCmsConfig
     public function getDemoDataFileNames()
     {
         return [
-            'page' => 'initial_pages_data.csv',
-            'redirect' => 'initial_redirects_data.csv',
-            'block' => 'initial_blocks_data.csv',
+            'page' => 'initial_pages_data.xml',
+            'redirect' => 'initial_redirects_data.xml',
+            'block' => 'initial_blocks_data.xml',
         ];
     }
 

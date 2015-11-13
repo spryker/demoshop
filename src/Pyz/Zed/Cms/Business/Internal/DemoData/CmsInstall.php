@@ -35,6 +35,7 @@ class CmsInstall extends AbstractInstaller
     const BLOCK_TYPE = 'type';
     const BLOCK_TYPE_VALUE = 'value';
     const CATEGORY = 'category';
+    const FILE_CONTAINS_INVALID_DATA = 'XML file contains invalid data.';
 
     /**
      * @var CmsToGlossaryInterface
@@ -301,7 +302,7 @@ class CmsInstall extends AbstractInstaller
             if (null !== $pageData[self::TEMPLATE]) {
                 $this->installPage($pageData[self::TEMPLATE], $pageData[self::URL], $pageData[self::PLACEHOLDER], $pageData[self::TRANSLATION]);
             } else {
-                $this->warning(sprintf('CSV file contains invalid data.'));
+                $this->warning(sprintf(self::FILE_CONTAINS_INVALID_DATA));
             }
         }
     }
@@ -316,7 +317,7 @@ class CmsInstall extends AbstractInstaller
             if (null !== $redirectData[self::FROM_URL]) {
                 $this->installRedirect($redirectData[self::FROM_URL], $redirectData[self::TO_URL], $redirectData[self::STATUS]);
             } else {
-                $this->warning(sprintf('CSV file contains invalid data.'));
+                $this->warning(sprintf(self::FILE_CONTAINS_INVALID_DATA));
             }
         }
     }
@@ -331,7 +332,7 @@ class CmsInstall extends AbstractInstaller
             if (null !== $blockData[self::BLOCK_NAME]) {
                 $this->installBlock($blockData[self::TEMPLATE], $blockData[self::BLOCK_NAME], $blockData[self::PLACEHOLDER], $blockData[self::TRANSLATION]);
             } else {
-                $this->warning(sprintf('CSV file contains invalid data.'));
+                $this->warning(sprintf(self::FILE_CONTAINS_INVALID_DATA));
             }
         }
     }
@@ -346,7 +347,22 @@ class CmsInstall extends AbstractInstaller
     {
         $file = $this->getFileName($filePath, $this->dataFileNames[$type]);
         $splFileInfo = new \SplFileInfo($file);
-        $dataArray = (new CsvReader())->getArrayFromFile($splFileInfo);
+
+        $xmlContent = file_get_contents($splFileInfo->getPath() . '/' . $splFileInfo->getBasename());
+        $xml = new \SimpleXMLElement($xmlContent);
+
+        $dataArray = [];
+        if ($xml === false || $xml->count() < 1) {
+            return $dataArray;
+        }
+
+        foreach ($xml->children() as $xmlItem) {
+            $item = [];
+            foreach ($xmlItem as $value) {
+                $item[$value->getName()] = $value->__toString();
+            }
+            $dataArray[] = $item;
+        }
 
         return $dataArray;
     }

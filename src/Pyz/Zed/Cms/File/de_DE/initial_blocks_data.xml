@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<pageBlocks>
+    <block>
+        <template>quote_block</template>
+        <blockName>quotes_1</blockName>
+        <placeholder>quote_reference</placeholder>
+        <translation>Wir sind alle Engel mit nur einem Flügel - um fliegen zu können; müssen wir uns umarmen._Luciano De Crescenzo</translation>
+    </block>
+    <block>
+        <template>quote_block</template>
+        <blockName>quotes_2</blockName>
+        <placeholder>quote_reference</placeholder>
+        <translation>Eine Hochzeit ist ein Ereignis; eine Ehe eine Leistung._Unbekannter Autor</translation>
+    </block>
+    <block>
+        <template>quote_block</template>
+        <blockName>quotes_3</blockName>
+        <placeholder>quote_reference</placeholder>
+        <translation>Gäbe es nicht das Herz; das du liebst; wärest du feiner Staub; den der Wind davonträgt._Khalil Gibran</translation>
+    </block>
+</pageBlocks>
