@@ -64,7 +64,7 @@ class AjaxController extends AbstractController
     public function getShipmentFeeAction(Request $request)
     {
         $countryTransfer = new CountryTransfer();
-        $countryTransfer->setIdCountry((int)$request->get('fkCountry'));
+        $countryTransfer->setIdCountry($request->get('fkCountry'));
 
         $cartClient = $this->getLocator()->cart()->client();
         $cartClient->addExpenseByCountryId($countryTransfer);
