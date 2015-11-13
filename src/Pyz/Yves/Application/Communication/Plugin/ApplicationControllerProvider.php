@@ -27,7 +27,7 @@ class ApplicationControllerProvider extends YvesControllerProvider
 
         $this->createGetController('/{root}', self::ROUTE_HOME, 'Application', 'Index')
             ->assert('root', $allowedLocalesPattern)
-            ->value('root','');
+            ->value('root', '');
 
         $this->createGetController(self::ROUTE_ERROR_404_PATH, self::ROUTE_ERROR_404, 'Application', 'Error404');
     }

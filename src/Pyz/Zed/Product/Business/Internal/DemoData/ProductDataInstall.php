@@ -194,12 +194,11 @@ class ProductDataInstall extends AbstractInstaller
 
         $locales = $this->localeFacade->getAvailableLocales();
 
-        foreach($locales as $locale){
-
+        foreach ($locales as $locale) {
             $localeAttributes = $product->xpath('locales/locale[@id="' . $locale . '"]');
             $localeAttributes = current($localeAttributes);
 
-            if($localeAttributes === false) {
+            if ($localeAttributes === false) {
                 continue;
             }
 
@@ -253,7 +252,7 @@ class ProductDataInstall extends AbstractInstaller
         $productUrl = trim($productUrl);
         $productUrl = str_replace($searchStrings, $replaceStrings, $productUrl);
 
-        return '/' . mb_substr($localizedAttributes->getLocale()->getLocaleName(), 0, 2) . '/' .$productUrl;
+        return '/' . mb_substr($localizedAttributes->getLocale()->getLocaleName(), 0, 2) . '/' . $productUrl;
     }
 
     /**
@@ -263,7 +262,7 @@ class ProductDataInstall extends AbstractInstaller
      */
     protected function buildProductImageUrl(\SimpleXMLElement $product)
     {
-        $productImageUrl = trim((string)$product->{'name'});
+        $productImageUrl = trim((string) $product->{'name'});
         $productImageUrl = str_replace(' ', '-', $productImageUrl);
         $productImageUrl = str_replace(',', '', $productImageUrl);
         $productImageUrl = strtolower($productImageUrl);

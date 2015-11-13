@@ -9,6 +9,7 @@ use SprykerEngine\Yves\Application\Communication\Plugin\YvesControllerProvider a
 
 abstract class YvesControllerProvider extends SprykerYvesControllerProvider
 {
+
     /**
      * @return string
      */
@@ -16,8 +17,9 @@ abstract class YvesControllerProvider extends SprykerYvesControllerProvider
     {
         $systemLocales = Store::getInstance()->getLocales();
         $implodedLocales = implode('|', array_keys($systemLocales));
-        $allowedLocalesPattern = '(' .$implodedLocales . ')\/';
+        $allowedLocalesPattern = '(' . $implodedLocales . ')\/';
 
         return  $allowedLocalesPattern;
     }
+
 }

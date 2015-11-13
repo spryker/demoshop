@@ -42,14 +42,14 @@ class CartControllerProvider extends YvesControllerProvider
 
         $this->createGetController('/{cart}/add/{sku}', self::ROUTE_CART_ADD, 'Cart', 'Cart', 'add')
             ->assert('cart', $allowedLocalesPattern . 'cart|cart')
-            ->value('cart','cart')
+            ->value('cart', 'cart')
             ->assert('sku', '[a-zA-Z0-9-_]+')
             ->convert('quantity', [$this, 'getQuantityFromRequest'])
         ;
 
         $this->createGetController('/{cart}/remove/{sku}/{groupKey}', self::ROUTE_CART_REMOVE, 'Cart', 'Cart', 'remove')
             ->assert('cart', $allowedLocalesPattern . 'cart|cart')
-            ->value('cart','cart')
+            ->value('cart', 'cart')
             ->assert('sku', '[a-zA-Z0-9-_]+')
             ->value('groupKey', '')
         ;
@@ -63,8 +63,7 @@ class CartControllerProvider extends YvesControllerProvider
 
         $this->createGetController('/{cart}/overlay', self::ROUTE_CART_OVERLAY, 'Cart', 'Ajax', 'index')
             ->assert('cart', $allowedLocalesPattern . 'cart|cart')
-            ->value('cart','cart');
-        ;
+            ->value('cart', 'cart');
 
         $this->createPostController('/{cart}/add/{sku}', self::ROUTE_CART_ADD_AJAX, 'Cart', 'Ajax', 'add', true)
             ->assert('sku', '[a-zA-Z0-9-_]+')

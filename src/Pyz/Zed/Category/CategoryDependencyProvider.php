@@ -10,6 +10,7 @@ use SprykerEngine\Zed\Kernel\Container;
 
 class CategoryDependencyProvider extends SprykerDependencyProvider
 {
+
     const QUERY_CONTAINER_LOCALE = 'locale query container';
 
     /**
@@ -31,4 +32,5 @@ class CategoryDependencyProvider extends SprykerDependencyProvider
 
         return $container;
     }
+
 }

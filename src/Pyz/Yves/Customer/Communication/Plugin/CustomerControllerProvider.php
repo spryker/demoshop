@@ -34,7 +34,7 @@ class CustomerControllerProvider extends YvesControllerProvider
         $this->createController('/register', self::ROUTE_REGISTER, 'Customer', 'AjaxSecurity', 'register');
         $this->createController('/{register}/confirm', self::ROUTE_CONFIRM_REGISTRATION, 'Customer', 'Security', 'confirmRegistration')
             ->assert('register', $allowedLocalesPattern . 'register|register')
-            ->value('register','register')
+            ->value('register', 'register')
         ;
         $this->createController('/logout', self::ROUTE_LOGOUT, 'Customer', 'Security', 'logout');
 

@@ -69,7 +69,7 @@ class StorageRouter extends AbstractRouter
         if ($pathinfo !== '/') {
             $urlDetails = $this->getUrlMatcher()->matchUrl($pathinfo, $this->getApplication()['locale']);
 
-            if($urlDetails === false) {
+            if ($urlDetails === false) {
                 $defaultLocalePrefix = '/' . mb_substr($this->getApplication()['locale'], 0, 2);
                 $urlDetails = $this->getUrlMatcher()->matchUrl($defaultLocalePrefix . $pathinfo, $this->getApplication()['locale']);
             }

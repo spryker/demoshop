@@ -8,12 +8,10 @@ namespace Pyz\Zed\Category\Business\Manager;
 
 use Generated\Shared\Transfer\LocaleTransfer;
 use Generated\Shared\Transfer\NodeTransfer;
-use Orm\Zed\Category\Persistence\Base\SpyCategoryAttributeQuery;
-use Orm\Zed\Locale\Persistence\SpyLocaleQuery;
 use SprykerEngine\Zed\Locale\Persistence\LocaleQueryContainer;
 use SprykerFeature\Shared\Category\CategoryConfig;
 use SprykerFeature\Zed\Category\Business\Generator\UrlPathGeneratorInterface;
-use \SprykerFeature\Zed\Category\Business\Manager\NodeUrlManager as SprykerNodeUrlManager;
+use SprykerFeature\Zed\Category\Business\Manager\NodeUrlManager as SprykerNodeUrlManager;
 use SprykerFeature\Zed\Category\Business\Tree\CategoryTreeReaderInterface;
 use SprykerFeature\Zed\Category\Dependency\Facade\CategoryToUrlInterface;
 use SprykerFeature\Zed\Category\Persistence\CategoryQueryContainer;
@@ -37,7 +35,7 @@ class NodeUrlManager extends SprykerNodeUrlManager
         CategoryToUrlInterface $urlFacade,
         CategoryQueryContainer $categoryQueryContainer,
         LocaleQueryContainer $localeQueryContainer
-    ){
+    ) {
         parent::__construct($categoryTreeReader, $urlPathGenerator, $urlFacade);
         $this->categoryQueryContainer = $categoryQueryContainer;
         $this->localeQueryContainer = $localeQueryContainer;
@@ -53,7 +51,7 @@ class NodeUrlManager extends SprykerNodeUrlManager
     {
         $categoryAttributes = $this->categoryQueryContainer->queryAttributeByCategoryId($categoryNodeTransfer->getFkCategory())->find();
 
-        foreach($categoryAttributes as $categoryAttribute) {
+        foreach ($categoryAttributes as $categoryAttribute) {
             $localeEntity = $this->localeQueryContainer->queryLocales()->filterByIdLocale($categoryAttribute->getFkLocale())->findOne();
             $localeTransfer = new LocaleTransfer();
             $localeTransfer->fromArray($localeEntity->toArray());
@@ -73,7 +71,8 @@ class NodeUrlManager extends SprykerNodeUrlManager
         $path = $this->categoryTreeReader->getPath($categoryNodeTransfer->getIdCategoryNode(), $localeTransfer);
         $categoryUrl = $this->generateUrlFromPathTokens($path);
         $idNode = $categoryNodeTransfer->getIdCategoryNode();
-        $url = $this->urlFacade->createUrl('/' . mb_substr($localeTransfer->getLocaleName(), 0, 2).$categoryUrl, $localeTransfer, CategoryConfig::RESOURCE_TYPE_CATEGORY_NODE, $idNode);
+        $url = $this->urlFacade->createUrl('/' . mb_substr($localeTransfer->getLocaleName(), 0, 2) . $categoryUrl, $localeTransfer, CategoryConfig::RESOURCE_TYPE_CATEGORY_NODE, $idNode);
         $this->urlFacade->touchUrlActive($url->getIdUrl());
     }
+
 }

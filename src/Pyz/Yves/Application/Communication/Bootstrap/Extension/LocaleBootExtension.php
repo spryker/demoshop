@@ -12,6 +12,7 @@ use SprykerFeature\Shared\Library\Application\Environment;
 
 class LocaleBootExtension implements AfterBootExtensionInterface
 {
+
     const REQUEST_URI = 'REQUEST_URI';
     const LOCALE = 'locale';
 
@@ -38,4 +39,5 @@ class LocaleBootExtension implements AfterBootExtensionInterface
             Environment::initializeLocale($store->getCurrentLocale());
         }
     }
+
 }

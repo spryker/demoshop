@@ -13,6 +13,7 @@ use SprykerFeature\Zed\Category\Persistence\CategoryQueryContainer;
  */
 class CategoryDependencyContainer extends SprykerCategoryDependencyContainer
 {
+
     /**
      * @param LoggerInterface $messenger
      *
@@ -45,4 +46,5 @@ class CategoryDependencyContainer extends SprykerCategoryDependencyContainer
             $this->getProvidedDependency(CategoryDependencyProvider::QUERY_CONTAINER_LOCALE)
         );
     }
+
 }

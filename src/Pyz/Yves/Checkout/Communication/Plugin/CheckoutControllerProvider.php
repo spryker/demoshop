@@ -18,7 +18,7 @@ class CheckoutControllerProvider extends YvesControllerProvider
 
         $this->createController('/{checkout}', self::ROUTE_CHECKOUT, 'Checkout', 'Checkout')->method('GET|POST')
             ->assert('checkout', $allowedLocalesPattern . 'checkout|checkout')
-            ->value('checkout','checkout')
+            ->value('checkout', 'checkout')
         ;
 
         $this->createGetController(
@@ -29,7 +29,7 @@ class CheckoutControllerProvider extends YvesControllerProvider
             'success'
         )
             ->assert('checkout', $allowedLocalesPattern . 'checkout|checkout')
-            ->value('checkout','checkout')
+            ->value('checkout', 'checkout')
         ;
         $this->createGetController(
             '/{checkout}/regular-redirect-payment-cancellation',
@@ -40,7 +40,7 @@ class CheckoutControllerProvider extends YvesControllerProvider
         )
         ->method('GET|POST')
         ->assert('checkout', $allowedLocalesPattern . 'checkout|checkout')
-        ->value('checkout','checkout')
+        ->value('checkout', 'checkout')
         ;
     }
 
