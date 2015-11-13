@@ -19,7 +19,6 @@ class CartDependencyContainer extends SpyCartDependencyContainer
                 $this->createStorageProvider(),
                 $this->createCartCalculator(),
                 $this->getItemGrouper()
-            //@todo messenger
             )
         );
     }
