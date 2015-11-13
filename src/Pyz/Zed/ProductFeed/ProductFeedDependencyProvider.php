@@ -9,7 +9,7 @@ class ProductFeedDependencyProvider extends AbstractBundleDependencyProvider
 {
     const PRODUCT_QUERY_CONTAINER = 'PRODUCT_QUERY_CONTAINER';
 
-    public function provideCommunicationLayerDependencies(Container $container)
+    public function provideBusinessLayerDependencies(Container $container)
     {
         $container[self::PRODUCT_QUERY_CONTAINER] = function(Container $container){
             return $container->getLocator()->product()->queryContainer();

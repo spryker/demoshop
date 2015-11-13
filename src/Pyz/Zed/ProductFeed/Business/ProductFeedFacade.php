@@ -4,7 +4,7 @@ namespace Pyz\Zed\ProductFeed\Business;
 
 use SprykerEngine\Zed\Kernel\Business\AbstractFacade;
 
-class FeedGeneratorFacade extends AbstractFacade
+class ProductFeedFacade extends AbstractFacade
 {
     public function generateProductFeed()
     {

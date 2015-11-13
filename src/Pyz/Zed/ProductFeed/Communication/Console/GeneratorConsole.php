@@ -5,8 +5,12 @@ namespace Pyz\Zed\ProductFeed\Communication\Console;
 use SprykerFeature\Zed\Console\Business\Model\Console;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
+use Pyz\Zed\ProductFeed\Business\FeedGeneratorFacade;
 
-class generatorConsole extends Console
+/**
+ * @method FeedGeneratorFacade getFacade()
+ */
+class GeneratorConsole extends Console
 {
     const COMMAND_NAME = 'product-feed:generate';
     const DESCRIPTION = '(re)generate product feed csv file';
