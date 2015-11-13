@@ -129,6 +129,7 @@ class Address extends AbstractType
                 'label' => false,
                 'property_path' => 'address3',
                 'attr' => [
+                    'class' => 'js-country',
                     'style' => 'width: 24%; float: left;',
                 ],
             ))
