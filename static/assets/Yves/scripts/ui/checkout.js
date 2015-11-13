@@ -102,8 +102,7 @@ var getShipmentPrice = function (event) {
             $cartSection.html(data);
             initValidation();
     }).fail(function(data) {
-            console.log('[ERROR] ');
-            console.log(data);
+            //@TODO think about error handling
         }
     );
 };
