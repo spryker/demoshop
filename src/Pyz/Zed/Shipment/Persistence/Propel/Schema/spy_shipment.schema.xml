@@ -7,6 +7,11 @@
         <foreign-key foreignTable="spy_country" phpName="SpyShipmentMethod" refPhpName="SpyCountry">
             <reference local="fk_country" foreign="id_country"/>
         </foreign-key>
+
+        <unique>
+            <unique-column name="fk_country"/>
+        </unique>
+
     </table>
 
 </database>
