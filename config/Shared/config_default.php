@@ -13,6 +13,7 @@ use SprykerEngine\Shared\Lumberjack\LumberjackConfig;
 use SprykerFeature\Shared\NewRelic\NewRelicConfig;
 use SprykerFeature\Shared\Session\SessionConfig;
 use SprykerFeature\Shared\SequenceNumber\SequenceNumberConstants as SequenceNumberConfig;
+use SprykerFeature\Shared\Log\Config\DefaultLoggerConfig;
 use SprykerFeature\Shared\Payolution\PayolutionConfigConstants;
 
 $config[SystemConfig::PROJECT_NAMESPACES] = [
@@ -100,9 +101,9 @@ $config[YvesConfig::YVES_SESSION_SAVE_HANDLER] = SessionConfig::SESSION_HANDLER_
 $config[YvesConfig::YVES_SESSION_NAME] = 'yves_session';
 $config[YvesConfig::YVES_SESSION_COOKIE_DOMAIN] = $config[SystemConfig::HOST_YVES];
 
-$config[YvesConfig::YVES_ERROR_PAGE]                  = APPLICATION_ROOT_DIR.'/static/public/Yves/errorpage/error.html';
-$config[YvesConfig::YVES_SHOW_EXCEPTION_STACK_TRACE]  = true;
-$config[SystemConfig::ZED_ERROR_PAGE]                 = APPLICATION_ROOT_DIR.'/static/public/Yves/errorpage/error.html';
+$config[YvesConfig::YVES_ERROR_PAGE] = APPLICATION_ROOT_DIR . '/static/public/Yves/errorpage/error.html';
+$config[YvesConfig::YVES_SHOW_EXCEPTION_STACK_TRACE] = true;
+$config[SystemConfig::ZED_ERROR_PAGE] = APPLICATION_ROOT_DIR . '/static/public/Yves/errorpage/error.html';
 $config[SystemConfig::ZED_SHOW_EXCEPTION_STACK_TRACE] = true;
 
 $config[CustomerConfig::CUSTOMER_SECURED_PATTERN] = '(^/login_check$|^/customer)';
@@ -159,7 +160,6 @@ $config[SystemConfig::CLOUD_OBJECT_STORAGE_DATA_CONTAINERS] = [
     'defaultImagesContainerName' => 'pyz-private',
 ];
 
-
 $config[SystemConfig::CLOUD_CDN_ENABLED] = false;
 
 $config[SystemConfig::CLOUD_CDN_STATIC_MEDIA_PREFIX] = 'media';
@@ -184,16 +184,16 @@ $config[MailConfig::MAIL_PROVIDER_MANDRILL] = [
     'from_name' => 'Demoshop',
 ];
 
-$config[CustomerConfig::SHOP_MAIL_FROM_EMAIL_NAME]    = '';
+$config[CustomerConfig::SHOP_MAIL_FROM_EMAIL_NAME] = '';
 $config[CustomerConfig::SHOP_MAIL_FROM_EMAIL_ADDRESS] = 'service@demoshop.de';
 
-$config[CustomerConfig::SHOP_MAIL_REGISTRATION_TOKEN]   = 'registration.token';
+$config[CustomerConfig::SHOP_MAIL_REGISTRATION_TOKEN] = 'registration.token';
 $config[CustomerConfig::SHOP_MAIL_REGISTRATION_SUBJECT] = 'registration.mail.subject';
 
-$config[CustomerConfig::SHOP_MAIL_PASSWORD_RESTORE_TOKEN]   = 'password.restore';
+$config[CustomerConfig::SHOP_MAIL_PASSWORD_RESTORE_TOKEN] = 'password.restore';
 $config[CustomerConfig::SHOP_MAIL_PASSWORD_RESTORE_SUBJECT] = 'password.restore.mail.subject';
 
-$config[CustomerConfig::SHOP_MAIL_PASSWORD_RESTORED_CONFIRMATION_TOKEN]   = 'password.change.confirmation';
+$config[CustomerConfig::SHOP_MAIL_PASSWORD_RESTORED_CONFIRMATION_TOKEN] = 'password.change.confirmation';
 $config[CustomerConfig::SHOP_MAIL_PASSWORD_RESTORED_CONFIRMATION_SUBJECT] = 'password.change.confirmation.mail.subject';
 
 $config[UserConfig::USER_SYSTEM_USERS] = [
@@ -334,3 +334,6 @@ $config[PayolutionConfigConstants::TRANSACTION_CHANNEL_PRE_CHECK] = '8a82941850c
 $config[PayolutionConfigConstants::DEFAULT_TIMEOUT] = 45;
 
 $config[NewRelicConfig::NEWRELIC_API_KEY] = null;
+
+$config[DefaultLoggerConfig::DEFAULT_LOG_FILE_PATH] = APPLICATION_ROOT_DIR . '/data/DE/logs/application.log';
+$config[DefaultLoggerConfig::DEFAULT_LOG_LEVEL] = Monolog\Logger::ERROR;
