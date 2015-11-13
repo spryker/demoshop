@@ -40,8 +40,6 @@ class AbstractProductDynamicWriter implements ProductWriterInterface
         if ($product->getType() !== ProductDynamicConfig::DYNAMIC_PRODUCT_TYPE_DYNAMIC) {
             return;
         }
-
-
     }
 
 

@@ -7,10 +7,11 @@ use Generated\Shared\Product\ConcreteProductInterface;
 use Generated\Shared\ProductDynamicImporter\PavProductDynamicImporterAbstractProductInterface;
 use Generated\Shared\ProductDynamicImporter\PavProductDynamicImporterConcreteProductInterface;
 use Generated\Shared\ProductDynamicImporter\PavProductDynamicImporterLocaleInterface;
+use Generated\Shared\ProductGroup\ProductGroupValueInterface;
 use Generated\Shared\Transfer\ConcreteProductTransfer;
 use Generated\Shared\Transfer\PriceProductTransfer;
 use Generated\Shared\Transfer\ProductGroupTransfer;
-use Generated\Shared\Transfer\ProductGroupValueTransfer;
+use Generated\Shared\Transfer\ProductProductGroupValueTransfer;
 use PavFeature\Zed\ProductGroup\Business\ProductGroupFacade;
 use Pyz\Zed\Locale\Business\LocaleFacade;
 use Pyz\Zed\Price\Business\PriceFacade;
@@ -90,8 +91,6 @@ class ConcreteProductWriter extends DefaultProductWriter
         $this->createProductPrices($concreteProductToImport, $concreteProductTransfer);
 
         $this->assignProductGroupValues($concreteProductToImport, $concreteProductTransfer);
-
-
     }
 
 
@@ -129,54 +128,57 @@ class ConcreteProductWriter extends DefaultProductWriter
         }
     }
 
-    protected function assignProductGroupValues(PavProductDynamicImporterConcreteProductInterface $concreteProductToImport, ConcreteProductInterface $concreteProductTransfer)
-    {
+    protected function assignProductGroupValues(
+        PavProductDynamicImporterConcreteProductInterface $concreteProductToImport,
+        ConcreteProductInterface $concreteProductTransfer
+    ) {
 
         $productGroupKeyValuesToBeAssigned = $concreteProductToImport->getProductGroupKeyValues();
 
         $assignedKeyValues = $this->productGroupFacade->getProductProductGroupValues($concreteProductTransfer);
+
+        /** @var ProductGroupValueInterface[] $assignedProductGroupValues */
         $assignedProductGroupValues = [];
         foreach ($assignedKeyValues as $productGroupValue) {
-            $productGroupTranfer = $this->productGroupFacade->getProductGroupById($productGroupValue->getFkProductGroup());
-            $assignedProductGroupValues[$productGroupTranfer->getKey()] = $productGroupValue;
-        }
-
-        /*
-        foreach($productGroupKeyValuesToBeAssigned as $key => $value) {
-            if (isset($assignedProductGroupValues[$productGroupValue->getKey]))
-
-
-
+            $productGroupTransfer = $this->productGroupFacade->getProductGroupById($productGroupValue->getFkProductGroup());
+            $assignedProductGroupValues[$productGroupTransfer->getKey()] = $productGroupValue;
         }
 
 
+        foreach ($productGroupKeyValuesToBeAssigned as $key => $value) {
+            // check if group and value are equal
+            if (
+                isset($assignedProductGroupValues[$key]) &&
+                $assignedProductGroupValues[$key]->getValue() === $value
+            ) {
+                unset($assignedProductGroupValues[$key]);
+                continue;
+            }
+            // get other values for key
+            $productGroupValues = $this->getProductGroupValues($key);
 
-
-
-
-
-
-
-
-
-
-        foreach ($productGroupKeyValuesToBeAssigned as $key) {
-            if (array_key_exists($key, $assignedProductGroupKeys)) {
-                unset($assignedProductGroupKeys[$key]);
-            } else {
-                $productGroupTransfer = new ProductGroupTransfer();
-                $productGroupTransfer->setKey($key);
-
-                $this->productGroupFacade->assignAbstractProductToGroup($productTransfer->getIdAbstractProduct(), $productGroupTransfer);
+            $productGroupProductGroupValue = new ProductProductGroupValueTransfer();
+            $productGroupProductGroupValue->setFkProduct($concreteProductTransfer->getIdConcreteProduct());
+            foreach ($productGroupValues as $productGroupValue) {
+                if ($value === $productGroupValue->getValue()) {
+                    $productGroupProductGroupValue->setFkProductGroupValue($productGroupValue->getIdProductGroupValue());
+                    $this->productGroupFacade->assignProductToProductGroupValue($productGroupProductGroupValue);
+                    unset($assignedProductGroupValues[$key]);
+                }
             }
         }
 
-        foreach ($assignedProductGroupKeys as $productGroupToDelete) {
-            $this->productGroupFacade->removeAbstractProductFromGroup($productTransfer->getIdAbstractProduct(), $productGroupToDelete);
+        foreach ($assignedProductGroupValues as $key => $value) {
+            $this->productGroupFacade->removeProductGroupValueFromProduct($value, $concreteProductTransfer->getIdConcreteProduct());
         }
-*/
 
     }
 
-
+    protected function getProductGroupValues($key)
+    {
+        $productGroupTransfer = new ProductGroupTransfer();
+        $productGroupTransfer->setKey($key);
+        // get other values for key
+        return $this->productGroupFacade->getProductGroupValues($productGroupTransfer);
+    }
 }
