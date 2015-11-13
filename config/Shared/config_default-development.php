@@ -9,6 +9,7 @@ use SprykerFeature\Shared\Yves\YvesConfig;
 use SprykerFeature\Shared\Application\ApplicationConfig;
 use SprykerFeature\Shared\Acl\AclConfig;
 use SprykerFeature\Shared\Session\SessionConfig;
+use SprykerFeature\Shared\Log\Config\DefaultLoggerConfig;
 use SprykerFeature\Shared\Payone\PayoneConfigConstants;
 
 $config[YvesConfig::YVES_SESSION_SAVE_HANDLER] = SessionConfig::SESSION_HANDLER_REDIS;
@@ -59,3 +60,6 @@ $config[ApplicationConfig::SET_REPEAT_DATA] = true;
 $config[ApplicationConfig::STORE_PREFIX] = 'DEV';
 
 $config[ApplicationConfig::ENABLE_WEB_PROFILER] = true;
+$config[ApplicationConfig::SHOW_SYMFONY_TOOLBAR] = true;
+
+$config[DefaultLoggerConfig::DEFAULT_LOG_LEVEL] = Monolog\Logger::INFO;
