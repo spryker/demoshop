@@ -2,7 +2,6 @@
 
 namespace Pyz\Zed\Shipment\Business\Model;
 
-use Generated\Shared\Transfer\CountryTransfer;
 use Generated\Shared\Transfer\ExpenseTransfer;
 use Pyz\Zed\Shipment\Persistence\ShipmentQueryContainer;
 use Orm\Zed\Shipment\Persistence\SpyShipmentMethod;
@@ -78,7 +77,7 @@ class ShipmentMethodManager
         $expenseTransfer->setType('shipmentFee')
             ->setGrossPrice($shipmentMethod->getPrice())
             ->setPriceToPay($shipmentMethod->getPrice())
-            ->setName('shipmentFee');
+            ->setName('Shipment fee');
 
         return $expenseTransfer;
     }
