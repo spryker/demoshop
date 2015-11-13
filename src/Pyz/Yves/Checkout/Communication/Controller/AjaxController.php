@@ -6,11 +6,13 @@ use Generated\Shared\Transfer\CountryTransfer;
 use SprykerEngine\Yves\Application\Communication\Controller\AbstractController;
 use Pyz\Yves\Checkout\Communication\Plugin\CheckoutControllerProvider;
 use Symfony\Component\HttpFoundation\Request;
+use Generated\Shared\Transfer\CartTransfer;
+use Symfony\Component\HttpFoundation\RedirectResponse;
 
 class AjaxController extends AbstractController
 {
     /**
-     * @return \Generated\Shared\Cart\CartInterface|\Generated\Shared\Transfer\CartTransfer
+     * @return CartTransfer
      */
     public function getCart()
     {
@@ -31,7 +33,7 @@ class AjaxController extends AbstractController
 
     /**
      * @param Request $request
-     * @return \Symfony\Component\HttpFoundation\RedirectResponse
+     * @return RedirectResponse
      */
     public function addCouponAction(Request $request)
     {
@@ -44,7 +46,7 @@ class AjaxController extends AbstractController
 
     /**
      * @param Request $request
-     * @return \Symfony\Component\HttpFoundation\RedirectResponse
+     * @return RedirectResponse
      */
     public function removeCouponAction(Request $request)
     {
@@ -57,7 +59,7 @@ class AjaxController extends AbstractController
 
     /**
      * @param Request $request
-     * @return \Symfony\Component\HttpFoundation\RedirectResponse
+     * @return RedirectResponse
      */
     public function getShipmentFeeAction(Request $request)
     {
