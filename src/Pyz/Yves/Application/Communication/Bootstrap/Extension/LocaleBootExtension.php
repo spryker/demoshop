@@ -18,6 +18,8 @@ class LocaleBootExtension implements AfterBootExtensionInterface
 
     /**
      * @param Application $app
+     *
+     * @return void
      */
     public function afterBoot(Application $app)
     {

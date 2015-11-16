@@ -19,7 +19,7 @@ abstract class YvesControllerProvider extends SprykerYvesControllerProvider
         $implodedLocales = implode('|', array_keys($systemLocales));
         $allowedLocalesPattern = '(' . $implodedLocales . ')\/';
 
-        return  $allowedLocalesPattern;
+        return $allowedLocalesPattern;
     }
 
 }
