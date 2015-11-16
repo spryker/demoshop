@@ -8,7 +8,7 @@ this file will be loaded last in minified file generated bu gulp
 
 # files loaded to be minimezed
 
-/Gui/scripts/jquery-2.1.1.js
+/Gui/scripts/jquery.js
 /Gui/scripts/bootstrap.min.js
 /Gui/scripts/plugins/metisMenu/jquery.metisMenu.js
 /Gui/scripts/plugins/footable/footable.all.min.js
