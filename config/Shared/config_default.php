@@ -14,6 +14,7 @@ use SprykerFeature\Shared\Session\SessionConfig;
 use SprykerFeature\Shared\SequenceNumber\SequenceNumberConstants as SequenceNumberConfig;
 use Pyz\Shared\OrderExporter\AfterbuyExportConstantInterface;
 use Pyz\Shared\Glossary\GlossaryConfig;
+use PavFeature\Shared\Adyen\AdyenConfigConstants;
 
 $config[SystemConfig::ZED_SHOW_EXCEPTION_STACK_TRACE] = true;
 
@@ -178,16 +179,16 @@ $config[SystemConfig::CLOUD_CDN_DELETE_LOCAL_PROCESSED_IMAGES] = false;
 $config[SystemConfig::CLOUD_CDN_DELETE_LOCAL_ORIGINAL_IMAGES] = false;
 
 $config[MailConfig::MAIL_PROVIDER_MANDRILL] = [
-    'api-key' => 'W-oNqoH_RPRodHpYgm3trg',
+    'api-key' => '5hGEFy0SpJXIft1GSULiVw',
     'host' => 'smtp.mandrillapp.com',
     'port' => '587',
-    'username' => 'office@petsdeli.de',
-    'from_mail' => 'office@petsdeli.de',
-    'from_name' => 'PETS DELI',
+    'username' => 'fabian.wesner@spryker.com',
+    'from_mail' => 'service@demoshop.de',
+    'from_name' => 'Demoshop',
 ];
 
-$config[CustomerConfig::SHOP_MAIL_FROM_EMAIL_NAME]    = 'PETS DELI';
-$config[CustomerConfig::SHOP_MAIL_FROM_EMAIL_ADDRESS] = 'office@petsdeli.de';
+$config[CustomerConfig::SHOP_MAIL_FROM_EMAIL_NAME]    = '';
+$config[CustomerConfig::SHOP_MAIL_FROM_EMAIL_ADDRESS] = 'service@demoshop.de';
 
 $config[CustomerConfig::SHOP_MAIL_REGISTRATION_TOKEN]   = 'registration.token';
 $config[CustomerConfig::SHOP_MAIL_REGISTRATION_SUBJECT] = 'registration.mail.subject';
@@ -339,4 +340,20 @@ $config[AfterbuyExportConstantInterface::AFTERBUY_CONNECTION_TIMEOUT] = 120;
 
 $config[GlossaryConfig::REMOTE_CSV_URL] = 'https://docs.google.com/spreadsheets/d/13InPAj1BWLFrvQX8h6uVIVJi-wNmTmUPd3cJXTfGp5U/pub?gid=0&single=true&output=csv';
 
+$config[AdyenConfigConstants::ADYEN_PAYMENT_PROVIDER] = [
+    AdyenConfigConstants::ADYEN_MODE => AdyenConfigConstants::ADYEN_MODE_TEST,
+
+    AdyenConfigConstants::ADYEN_CREDENTIALS_AUTHENTICATION_WS_USER => '',
+    AdyenConfigConstants::ADYEN_CREDENTIALS_AUTHENTICATION_WS_PASSWORD => '',
+    AdyenConfigConstants::ADYEN_CREDENTIALS_MERCHANT_ACCOUNT => '',
+    AdyenConfigConstants::ADYEN_CREDENTIALS_HMAC_KEY => '',
+    AdyenConfigConstants::ADYEN_CREDENTIALS_HMAC_ALGORITHM => '',
+    AdyenConfigConstants::ADYEN_CREDENTIALS_SKIN_CODE => '',
+
+    AdyenConfigConstants::ADYEN_CONFIGURATION_HPP_PAYMENT_RETURN_URI => '',
+    AdyenConfigConstants::ADYEN_CONFIGURATION_ARE_API_PAYMENT_METHODS_ENABLED => true,
+    AdyenConfigConstants::ADYEN_CONFIGURATION_ARE_HPP_PAYMENT_METHODS_ENABLED => true,
+    AdyenConfigConstants::ADYEN_CONFIGURATION_IS_PAYMENT_SELECTION_ON_HPP => false,
+    AdyenConfigConstants::ADYEN_CONFIGURATION_FETCH_HPP_PAYMENT_METHODS => true
+];
 $config[SystemConfig::ZED_SHOW_EXCEPTION_STACK_TRACE] = false;

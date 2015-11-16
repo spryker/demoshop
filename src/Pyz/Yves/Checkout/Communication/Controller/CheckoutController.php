@@ -42,7 +42,7 @@ class CheckoutController extends AbstractController
     {
         $container = $this->getDependencyContainer();
 
-/* TODO START HACK FETCH PAYMENT METHODS */
+/** TODO: START OF FETCH HACK PAYMENT METHOD */
         $adyenPaymentAvailabilityTransfer = new AdyenPaymentMethodAvailabilityTransfer();
         $adyenPaymentAvailabilityTransfer->setAmount(10000);
         $adyenPaymentAvailabilityTransfer->setCurrency('EUR');
@@ -51,7 +51,7 @@ class CheckoutController extends AbstractController
 
         $paymentMethodsTransfer = $container->createAdyenClient()
             ->getAvailablePaymentMethods($adyenPaymentAvailabilityTransfer);
-/* TODO END HACK FETCH PAYMENT METHODS */
+/** TODO: START OF FETCH HACK PAYMENT METHOD */
 
         $shipmentMethodAvailabilityTransfer = new ShipmentMethodAvailabilityTransfer();
         $shipmentMethodAvailabilityTransfer->setCart($this->getCart());
@@ -70,24 +70,27 @@ class CheckoutController extends AbstractController
                 /** @var CheckoutRequestTransfer $checkoutRequest */
                 $checkoutRequest = $form->getData();
 
-/* TODO START HACK SET PAYMENT METHOD */
+/** TODO: START OF HACK PAYMENT METHOD */
                 $adyenPaymentDetails = new AdyenPaymentDetailTransfer();
                 $adyenPaymentDetails->setAmount(6000);
-                $adyenPaymentDetails->setIban('DE87123456781234567890');
-                $adyenPaymentDetails->setBic('HUHUBIC');
-                $adyenPaymentDetails->setOwnerName('A. Schneider');
+                //$adyenPaymentDetails->setIban('DE87123456781234567890');
+                //$adyenPaymentDetails->setBic('HUHUBIC');
+                //$adyenPaymentDetails->setOwnerName('A. Schneider');
                 $adyenPaymentDetails->setCountry('DE');
                 $adyenPaymentDetails->setIp('127.0.0.1');
                 $adyenPaymentDetails->setCurrency('EUR');
+                $adyenPaymentDetails->setDateOfBirth('07071960');
+                $adyenPaymentDetails->setGender('male');
+                $adyenPaymentDetails->setPhoneNumber('01522113356');
 
                 $adyenPaymentTransfer = new AdyenPaymentTransfer();
-                $adyenPaymentTransfer->setPaymentMethod(AdyenPaymentMethodConstants::ADYEN_PAYMENT_METHOD_PAYPAL);
+                $adyenPaymentTransfer->setPaymentMethod(AdyenPaymentMethodConstants::ADYEN_PAYMENT_METHOD_OPEN_INVOICE_KLARNA);
                 $adyenPaymentTransfer->setPaymentDetail($adyenPaymentDetails);
                 $checkoutRequest->setAdyenPayment($adyenPaymentTransfer);
 
-                $checkoutRequest->setPaymentMethod(AdyenPaymentMethodConstants::ADYEN_PAYMENT_METHOD_PAYPAL);
+                $checkoutRequest->setPaymentMethod(AdyenPaymentMethodConstants::ADYEN_PAYMENT_METHOD_OPEN_INVOICE_KLARNA);
                 //$checkoutRequest->setPaymentMethod('prepayment');
-/* TODO END HACK SET PAYMENT METHOD */
+/** TODO: END OF HACK PAYMENT METHOD */
 
                 $checkoutRequest->setCart($this->getCart());
                 $checkoutRequest->setShippingAddress($checkoutRequest->getBillingAddress());
@@ -161,7 +164,10 @@ class CheckoutController extends AbstractController
         } else {
             $redirectUrl = CheckoutControllerProvider::ROUTE_CHECKOUT_SUCCESS;
         }
-
+/*
+        $redirectUrl = 'https://ca-test.adyen.com/ca/ca/skin/checkhmac.shtml?brandCode=paypal' .
+            '&' . http_build_query($checkoutResponseTransfer->getRedirectPayload(), null, '&');
+*/
         return new JsonResponse([
             'success' => true,
             'url' => $redirectUrl
