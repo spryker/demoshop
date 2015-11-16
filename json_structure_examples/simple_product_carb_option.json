@@ -56,7 +56,7 @@
           "name": "PETS DELI Menübox für Hunde Putenbrustfilet 250g mit Reis"
         }
       ],
-      "net_price": "2.00"
+      "price": "200"
     },
     {
       "sku": "concrete_menubox_dogs_chicken_500g_with_carbohydrates",
@@ -71,7 +71,7 @@
           "name": "PETS DELI Menübox für Hunde Putenbrustfilet 500g mit Reis"
         }
       ],
-      "price": "4.00"
+      "price": "400"
     },
     {
       "sku": "concrete_menubox_dogs_chicken_250g_without_carbohydrates",
@@ -86,7 +86,7 @@
           "name": "PETS DELI Menübox für Hunde Putenbrustfilet 250g ohne Reis"
         }
       ],
-      "net_price": "2.00"
+      "price": "200"
     },
     {
       "sku": "concrete_menubox_dogs_chicken_500g_without_carbohydrates",
@@ -101,7 +101,7 @@
           "name": "PETS DELI Menübox für Hunde Putenbrustfilet 500g ohne Reis"
         }
       ],
-      "price": "4.00"
+      "price": "400"
     }
   ]
 }

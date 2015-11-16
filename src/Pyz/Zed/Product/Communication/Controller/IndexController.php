@@ -2,13 +2,7 @@
 
 namespace Pyz\Zed\Product\Communication\Controller;
 
-use Orm\Zed\Product\Persistence\SpyAbstractProduct;
-use PavFeature\Zed\ProductDynamicImporter\Business\ProductDynamicImporterFacade;
-use Pyz\Zed\Product\Communication\ProductDependencyContainer;
-use Pyz\Zed\Product\Business\ProductFacade;
-use Pyz\Zed\Product\ProductDependencyProvider;
 use Generated\Shared\ProductDynamicImporter\PavProductDynamicImporterAbstractProductInterface;
-use Generated\Shared\Transfer\CategoryTransfer;
 use Generated\Shared\Transfer\PavProductDynamicImporterAbstractProductTransfer;
 use Generated\Shared\Transfer\PavProductDynamicImporterBundledProductTransfer;
 use Generated\Shared\Transfer\PavProductDynamicImporterConcreteProductTransfer;
@@ -16,15 +10,18 @@ use Generated\Shared\Transfer\PavProductDynamicImporterDynamicProductSettingProd
 use Generated\Shared\Transfer\PavProductDynamicImporterDynamicProductSettingsTransfer;
 use Generated\Shared\Transfer\PavProductDynamicImporterLocaleTransfer;
 use Orm\Zed\Price\Persistence\SpyPriceProduct;
+use Orm\Zed\Product\Persistence\SpyAbstractProduct;
 use Orm\Zed\Product\Persistence\SpyProduct;
+use Orm\Zed\ProductCategory\Persistence\SpyProductCategory;
 use Orm\Zed\Tax\Persistence\SpyTaxRate;
-use PavFeature\Shared\Library\Currency\CurrencyManager;
 use PavFeature\Zed\ProductDynamic\ProductDynamicConfig;
+use PavFeature\Zed\ProductDynamicImporter\Business\ProductDynamicImporterFacade;
+use Pyz\Zed\Product\Business\ProductFacade;
+use Pyz\Zed\Product\Communication\ProductDependencyContainer;
+use Pyz\Zed\Product\ProductDependencyProvider;
 use SprykerFeature\Zed\Product\Communication\Controller\IndexController as SprykerIndexController;
 use SprykerFeature\Zed\Product\Persistence\ProductQueryContainer;
 use Symfony\Component\HttpFoundation\Request;
-use Symfony\Component\HttpFoundation\Response;
-
 
 /**
  * @method ProductFacade getFacade()
@@ -97,7 +94,7 @@ class IndexController extends SprykerIndexController
             $this->getConcreteProducts($abstractProductEntity)
         );
         $productDynamicImporterAbstractProductTransfer->setCategories(
-            $this->getCategoryNames($abstractProductEntity)
+            $this->getCategoryIds($abstractProductEntity)
         );
 
         $productDynamicImporterAbstractProductTransfer->setProductGroupKeys(
@@ -150,6 +147,10 @@ class IndexController extends SprykerIndexController
                 }
                 $abstractProductLocaleTransfer->setAttributes($splittedAttributesArray);
                 $abstractProductLocaleTransfer->setMedia(new \ArrayObject($splittedAttributes->getMediaTransfers()));
+            }
+
+            if (empty($abstractProductLocaleTransfer->getName())) {
+                continue;
             }
 
             $productDynamicImporterAbstractProductTransfer->addLocale($abstractProductLocaleTransfer);
@@ -237,6 +238,10 @@ class IndexController extends SprykerIndexController
                 $productLocaleTransfer->setMedia(new \ArrayObject($mediaAttributes->getMediaTransfers()));
             }
 
+            if (empty($productLocaleTransfer->getName())) {
+                continue;
+            }
+
             $productDynamicImporterConcreteProductTransfer->addLocale($productLocaleTransfer);
         }
 
@@ -293,7 +298,7 @@ class IndexController extends SprykerIndexController
 
         $productGroupValueValues = [];
         foreach ($productProductGroupValueEntityCollection as $productProductGroupValueEntity) {
-            $productGroupValueValues[] = $productProductGroupValueEntity->getProductGroupValue()->getValue();
+            $productGroupValueValues[$productProductGroupValueEntity->getProductGroupValue()->getProductGroup()->getKey()] = $productProductGroupValueEntity->getProductGroupValue()->getValue();
         }
 
         return $productGroupValueValues;
@@ -332,21 +337,17 @@ class IndexController extends SprykerIndexController
      *
      * @return array
      */
-    protected function getCategoryNames(SpyAbstractProduct $abstractProductEntity)
+    protected function getCategoryIds(SpyAbstractProduct $abstractProductEntity)
     {
         $productCategoryTransferCollection = $this->getDependencyContainer()
             ->getProductCategoryFacade()
             ->getCategoriesByAbstractProduct($abstractProductEntity);
 
-        $categoryTransferCollection = $this->getDependencyContainer()
-            ->getCategoryFacade()
-            ->getCategoriesByProductCategories($productCategoryTransferCollection);
-
-        $extractNameFunction = function (CategoryTransfer $categoryTransfer) {
-            return $categoryTransfer->getName();
-        };
-
-        return array_map($extractNameFunction, iterator_to_array($categoryTransferCollection));
+        $return = [];
+        foreach ($productCategoryTransferCollection as $productCategory) {
+            $return[] = $productCategory->getFkCategory();
+        }
+        return $return;
     }
 
     /**
@@ -360,13 +361,7 @@ class IndexController extends SprykerIndexController
 
         /** @var SpyPriceProduct $productPriceEntity */
         $productPriceEntity = $productPricesCollection->getFirst(); // @TODO: why only first?
-
-        $priceStringFormatted = CurrencyManager::formatPrice($productPriceEntity->getPrice());
-
-        return sprintf('%s => %s',
-            $priceStringFormatted,
-            $productPriceEntity->getPriceType()->getName()
-        );
+        return sprintf('%d', $productPriceEntity->getPrice());
     }
 
     /**
@@ -377,15 +372,15 @@ class IndexController extends SprykerIndexController
     protected function getTaxString(SpyAbstractProduct $abstractProductEntity)
     {
         $taxSetEntity = $abstractProductEntity->getSpyTaxSet();
+        if (!$taxSetEntity) {
+            return '';
+        }
         $taxRateCollection = $taxSetEntity->getSpyTaxRates();
 
         /** @var SpyTaxRate $taxRateEntity */
         $taxRateEntity = $taxRateCollection->getFirst();  // @TODO: why only first?
 
-        return sprintf('%d => %s',
-            $taxRateEntity->getRate(),
-            $taxRateEntity->getName()
-        );
+        return sprintf('%01.2f', $taxRateEntity->getRate());
     }
 
     public function saveAction(Request $request)
@@ -403,13 +398,13 @@ class IndexController extends SprykerIndexController
 
         $productJson = $request->get('json');
 
-        $productJson = file_get_contents('../../../json_structure_examples/dynamic_product_starterpackage.json');
+        //$productJson = file_get_contents('../../../json_structure_examples/simple_product_carb_optionx.json');
 
         $abstractProduct = $dynamicProductFacade->convertJsonToProductImporterAbstractProduct($productJson);
         $dynamicProductFacade->persistProductImporterAbstractProduct($abstractProduct);
         $idAbstractProduct = $this->getFacade()->getAbstractProduct($abstractProduct->getSku())->getIdAbstractProduct();
 
-        return new Response("Save done");
+        $this->addSuccessMessage("Product was saved");
 
         return $this->redirectResponse('/product/index/view?id-abstract-product=' . $idAbstractProduct);
 
