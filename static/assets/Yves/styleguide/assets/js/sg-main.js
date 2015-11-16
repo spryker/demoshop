@@ -14,5 +14,9 @@ import './modules/productAccordion';
 import './modules/productSlider';
 
 import './modules/dropdown';
+import './modules/radio';
+import './modules/checkbox';
 import './modules/stepper';
 import './modules/passwordInput';
+
+import './modules/checkout';

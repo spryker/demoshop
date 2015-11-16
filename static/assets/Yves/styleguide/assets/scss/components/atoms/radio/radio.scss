@@ -1,0 +1,105 @@
+// Radio
+//
+// Markup: atoms.radio.hbs
+//
+// Styleguide: atoms.radio
+
+.radio{
+  text-align: left;
+}
+
+.radio--vorkasse{
+  .radio__image{
+    width: 88px;
+  }
+}
+
+.radio--rechnung{
+  .radio__image{
+    width: 98px;
+  }
+}
+
+.radio--sofort{
+  .radio__image{
+    width: 95px;
+  }
+}
+
+.radio--credit{
+  .radio__image{
+    width: 149px;
+  }
+}
+
+.radio--sepa{
+  .radio__image{
+    width: 79px;
+  }
+}
+
+.radio--paypal{
+  .radio__image{
+    width: 86px;
+  }
+}
+
+.radio__image{
+  @include responsiveImage;
+  display: inline-block;
+  margin-right: 15px;
+  vertical-align: bottom;
+}
+
+
+.radio__label{
+  display: inline-block;
+  position: relative;
+  padding-left: 48px;
+  cursor: pointer;
+
+  font-family: $_ffBrandonGrotesque-Bold;
+  font-size: 14px;
+  line-height: 31px;
+  color: $_rgbOsloGray;
+
+  &:before{
+    position: absolute;
+    top: 0;
+    left: 0;
+    content: '';
+    width: 31px;
+    height: 31px;
+    border-radius: 50%;
+    background: $_rgbWildSand;
+  }
+
+  &:after{
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
+    border: 8px solid $_rgbWildSand;
+    background: $_rgbBlack;
+    opacity: 0;
+    transition: opacity 0.1s ease-in-out;
+  }
+}
+
+.radio__input{
+  position: absolute;
+  visibility: hidden;
+
+  &:checked{
+
+    & + .radio__label{
+      &:after{
+        opacity: 1;
+      }
+    }
+
+  }
+}

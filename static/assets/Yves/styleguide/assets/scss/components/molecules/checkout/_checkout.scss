@@ -5,3 +5,91 @@
 // Styleguide: molecules.checkout
 //
 // Weight: -2
+
+.checkout{
+  background: $_rgbWhite;
+}
+
+.checkout__step{
+  text-align: center;
+  padding: 70px 0 28px;
+
+  border-bottom: 1px solid $_rgbDustyGray;
+}
+
+.checkout__step-headline{
+  position: relative;
+
+  font-family: $_ffBrandonGrotesque-Black;
+  font-size: 40px;
+  color: $_rgbApple;
+
+  &:after{
+    content: '';
+    width: 60px;
+    height: 2px;
+    position: absolute;
+    left: 50%;
+    bottom: 5px;
+    margin-left: -30px;
+    background: $_rgbApple;
+  }
+}
+
+.checkout__step-progress{
+  font-family: $_ffBrandonGrotesque-Bold;
+  font-size: 18px;
+  color: $_rgbApple;
+}
+
+
+.checkout__form{
+  max-width: 440px;
+  margin: 0 auto;
+  padding-bottom: 50px;
+
+  .radio--checked, .checkbox--checked{
+    & + .checkout__subform{
+      display: block;
+    }
+  }
+}
+
+.checkout__subform{
+  margin-top: 30px;
+  display: none;
+  padding: 18px 28px 28px;
+  @include clearfix;
+
+  border: 1px solid $_rgbDustyGray;
+  border-radius: $_defaultBorderRadius;
+}
+
+.checkout__edit{
+
+}
+
+.checkout__cart{
+  margin: 30px 0;
+}
+
+
+.checkout__summary{
+  display: none;
+}
+
+.checkout__summary-headline{
+
+}
+
+.checkout__summary-details{
+
+}
+
+
+
+.checkout__form--payment{
+  & > .radio{
+    margin-top: 35px;
+  }
+}

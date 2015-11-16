@@ -1,0 +1,47 @@
+<div class="checkout__step">
+
+  <div class="checkout__step-headline">Create your account</div>
+  <div class="checkout__step-progress">Step 1/3</div>
+
+  <div class="checkout__edit">
+      <div id="invoice-address" class="checkout__form">
+        {{> "atoms.input" label="E-Mail Adresse*" type="email" placeholder="z.B. yourname@youremail.com" additional="We will send the order confimation at this email address" id="email" name="email"}}
+
+        {{> "atoms.input" modifier_class="input--1-2" label="Vorname*" id="first_name" name="first_name"}}
+        {{> "atoms.input" modifier_class="input--1-2" label="Nachname*" id="last_name" name="last_name"}}
+
+        {{> "atoms.input" modifier_class="input--3-4" label="Straße*" id="street" name="street"}}
+        {{> "atoms.input" modifier_class="input--1-4" label="Nr*" id="street_number" name="street_number"}}
+
+        {{> "atoms.input" modifier_class="input--1-4" label="PLZ*" id="zipcode" name="zipcode"}}
+        {{> "atoms.input" modifier_class="input--3-4" label="Stadt*" id="city" name="city"}}
+
+        {{> "atoms.dropdown" label="Land*" options='["Deutschland","Österreich"]' placeholder="Bitte wählen Sie ihr Land" id="country" name="country"}}
+
+        {{> "atoms.checkbox" label="Abweichende Lieferadresse" id="different_address" name="different_address"}}
+
+        <div id="invoice-address" class="checkout__subform">
+          {{> "atoms.input" modifier_class="input--1-2" label="Vorname*" id="delivery_first_name" name="delivery_first_name"}}
+          {{> "atoms.input" modifier_class="input--1-2" label="Nachname*" id="delivery_last_name" name="delivery_last_name"}}
+
+          {{> "atoms.input" modifier_class="input--3-4" label="Straße*" id="delivery_street" name="delivery_street"}}
+          {{> "atoms.input" modifier_class="input--1-4" label="Nr*" id="delivery_street_number" name="delivery_street_number"}}
+
+          {{> "atoms.input" modifier_class="input--1-4" label="PLZ*" id="delivery_zipcode" name="delivery_zipcode"}}
+          {{> "atoms.input" modifier_class="input--3-4" label="Stadt*" id="delivery_city" name="delivery_city"}}
+
+          {{> "atoms.dropdown" label="Land*" options='["Deutschland","Österreich"]' placeholder="Bitte wählen Sie ihr Land" id="delivery_country" name="delivery_country"}}
+        </div>
+      </div>
+
+      {{> "atoms.button" modifier_class="button--cta" title="Continue payment"}}
+  </div>
+
+  <div class="checkout__summary">
+    <h2 class="checkout__summary-headline">Create your account</h2>
+    <div class="checkout__summary-details">Shipping Address: Some address 23, 10142 - Berlin Germany</div>
+
+    {{> "atoms.button" title="Edit"}}
+  </div>
+
+</div>

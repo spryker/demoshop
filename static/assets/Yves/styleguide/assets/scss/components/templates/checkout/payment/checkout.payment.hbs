@@ -1,0 +1,59 @@
+<div class="checkout__step">
+
+  <div class="checkout__step-headline">Payment method</div>
+  <div class="checkout__step-progress">Step 2/3</div>
+
+  <div class="checkout__edit">
+    <div class="checkout__form checkout__form--payment">
+        {{> "atoms.radio" modifier_class="radio--vorkasse" image="../images/checkout/vorkasse.jpg" label="Vorkasse" name="payment" value="vorkasse" id="vorkasse"}}
+
+        {{> "atoms.radio" modifier_class="radio--rechnung" image="../images/checkout/rechnung.jpg" label="Rechnung" name="payment" value="rechnung" id="rechnung"}}
+        <div id="form_rechnung" class="checkout__subform">
+          {{> "atoms.radio" label="M" name="gender" value="m" id="gender"}}
+          {{> "atoms.radio" label="W" name="gender" value="w" id="gender"}}
+
+          {{> "atoms.dateinput" label="Geburtsdatum*" name="birthdate" id="birthdate"}}
+
+          {{> "atoms.input" modifier_class="input--3-4" label="Telefonnummer*" id="phone_number" name="phone_number"}}
+        </div>
+
+        {{> "atoms.radio" modifier_class="radio--sofort" image="../images/checkout/sofort.jpg" label="Sofort" name="payment" value="sofort" id="sofort"}}
+
+        {{> "atoms.radio" modifier_class="radio--credit" image="../images/checkout/credit.jpg" label="Kreditkarte (Visa, Mastercard, American Express)" name="payment" value="credit" id="credit"}}
+        <div id="form_credit" class="checkout__subform">
+          {{> "atoms.input" modifier_class="input--3-4" label="Card Number*" id="card_number" name="card_number"}}
+          {{> "atoms.input" modifier_class="input--1-4" label="Security*" id="security" name="security"}}
+
+          {{> "atoms.input" modifier_class="input--1-2" label="Vorname*" id="first_name" name="first_name"}}
+          {{> "atoms.input" modifier_class="input--1-2" label="Nachname*" id="last_name" name="last_name"}}
+
+          {{> "atoms.dropdown" label="Gültigkeit" options='["1","2","3","4","5","6","7","8","9","10","11","12"]' id="valid_year" name="valid_year"}}
+          /
+          {{> "atoms.dropdown" label="Gültigkeit" options='["15","16","17","18","19","20"]' placeholder="Bitte wählen Sie ihr Land" id="delivery_country" name="delivery_country"}}
+        </div>
+
+        {{> "atoms.radio" modifier_class="radio--sepa" image="../images/checkout/sepa.jpg" label="SEPA" name="payment" value="sepa" id="sepa"}}
+        <div id="form_sepa" class="checkout__subform">
+          {{> "atoms.input" modifier_class="input--1-2" label="Vorname*" id="first_name" name="first_name"}}
+          {{> "atoms.input" modifier_class="input--1-2" label="Nachname*" id="last_name" name="last_name"}}
+
+          {{> "atoms.input" label="Kontonummer*" id="account_number" name="account_number"}}
+          {{> "atoms.input" label="Bankleitzahl*" id="bank_code" name="bank_code"}}
+
+          {{> "atoms.checkbox" modifier_class="checkbox--large" label="Ich stimme zu, dass der oben genannte <br> Betrag von meinem Konto eingezogen wird." id="agreement" name="agreement"}}
+        </div>
+
+        {{> "atoms.radio" modifier_class="radio--paypal" image="../images/checkout/paypal.jpg" label="Paypal" name="payment" value="paypal" id="paypal"}}
+    </div>
+  </div>
+
+  {{> "atoms.button" modifier_class="button--cta" title="Continue to confirm your order"}}
+
+  <div class="checkout__summary">
+    <h2 class="checkout__summary-headline">Payment method</h2>
+    <div class="checkout__summary-details">Mastercard ... 4124</div>
+
+    {{> "atoms.button" title="Edit"}}
+  </div>
+
+</div>
