@@ -18,9 +18,14 @@ var $nameInput,
     $checkoutRemoveCouponUrlInput,
     $cartCouponCodeInput,
     $addressElements,
-    $addressValidationResult;
+    $shippingCountry,
+    $addressValidationResult,
+    $addressCountry,
+    $shipmentFeeUrl,
+    $shipmentFee;
 
 var initValidation = function () {
+    $shipmentFee = $('.js-cart-shipping');
     $nameInput = $('.js-checkout-name');
     $emailInput = $('.js-checkout-email');
     $addressInput = $('.js-invoice-address');
@@ -29,6 +34,9 @@ var initValidation = function () {
     $addressButton = $('.js-address-button');
     $paymentButton = $('.js-payment-button');
     $shipmentButton = $('.js-shipment-button');
+    $addressCountry = $('.js-country');
+    $shippingCountry = $('#checkout_billing_address_country');
+    $shipmentFeeUrl = $('#addShipmentFee');
     $useCouponButton = $('.js-cart-use-coupon-button');
     $removeCouponLink = $('.js-cart__remove-coupon-link');
     $cartSection = $('.cart__final .cart__discount').parent();
@@ -56,8 +64,7 @@ var addCoupon = function (event) {
             $cartSection.html(data);
             initValidation();
             $useCouponButton.prop('disabled', false);
-            console.log(addCoupon);
-    }).fail(function(data) {
+        }).fail(function(data) {
             console.log('[ERROR] ');
             console.log(data);
         }
@@ -76,10 +83,26 @@ var removeCoupon = function (event) {
     ).done(function(data) {
             $cartSection.html(data);
             initValidation();
-            console.log(removeCoupon);
         }).fail(function(data) {
             console.log('[ERROR] ');
             console.log(data);
+        }
+    );
+};
+
+var getShipmentPrice = function (event) {
+    $.ajax(
+        {
+            url : $shipmentFeeUrl.val(),
+            method: "POST",
+            data: { "fkCountry" : $shippingCountry.val() },
+            dataType: "html"
+        }
+    ).done(function(data) {
+            $cartSection.html(data);
+            initValidation();
+    }).fail(function(data) {
+            //@TODO think about error handling
         }
     );
 };
@@ -137,10 +160,6 @@ module.exports = {
             $paymentButton.attr('disabled', $('input[name="checkout[payment_method]"]:checked').length != 1);
         });
 
-        $('input[name="checkout[id_shipment_method]"]').on('change', function () {
-            $shipmentButton.attr('disabled', $('input[name="checkout[id_shipment_method]"]:checked').length != 1);
-        });
-
         $addressCheckbox.on('change', function (e) {
             if ($addressCheckbox.is(':checked')) {
                 $('.js-delivery-address').show();
@@ -164,17 +183,12 @@ module.exports = {
             event.preventDefault();
             $('.js-checkout-address').addClass('js-checkout-collapsed js-checkout-completed');
             $('.js-checkout-payment').removeClass('js-checkout-collapsed');
+            getShipmentPrice(event);
         });
 
         $('.js-payment-button').click(function (event) {
             event.preventDefault();
             $('.js-checkout-payment').addClass('js-checkout-collapsed js-checkout-completed');
-            $('.js-checkout-shipment').removeClass('js-checkout-collapsed');
-        });
-
-        $('.js-shipment-button').click(function (event) {
-            event.preventDefault();
-            $('.js-checkout-shipment').addClass('js-checkout-collapsed js-checkout-completed');
             $('.js-checkout-confirm').removeClass('js-checkout-collapsed');
             $('.js-checkout-cart').hide();
         });

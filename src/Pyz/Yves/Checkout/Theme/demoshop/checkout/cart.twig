@@ -14,7 +14,6 @@
         {% endfor %}
     </div>
 
-
     {% block discounts %}
         {% if cart.totals.discount.discountItems is not empty %}
             <div class="cart__discount">
@@ -24,11 +23,11 @@
         {% endif %}
     {% endblock %}
 
+    {% for expense in cart.expenses %}
+        <div class="cart__shipping-label">{{ expense.name }}</div>
+        <div class="cart__shipping-price js-cart-shipping ">{{ expense.grossPrice|price }}</div>
+    {% endfor %}
 
-    <div class="cart__shipping">
-        <div class="cart__shipping-label" colspan="2">{{ 'cart.shipping'|trans }}</div>
-        <div class="cart__shipping-price js-cart-shipping"></div>
-    </div>
     {% if cart.totals is defined and cart.totals is not null %}
         <div class="cart__total">
             <div class="cart__total-label" colspan="2">{{ 'cart.total'|trans }}</div>

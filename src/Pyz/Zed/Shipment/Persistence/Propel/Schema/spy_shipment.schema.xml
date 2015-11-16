@@ -1,0 +1,17 @@
+<?xml version="1.0"?>
+<database xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" name="zed" namespace="Orm\Zed\Shipment\Persistence" namespaceAutoPackage="false" package="src.Orm.Zed.Shipment.Persistence" xsi:noNamespaceSchemaLocation="http://xsd.propelorm.org/1.6/database.xsd">
+
+    <table name="spy_shipment_method">
+        <column name="fk_country" required="false" type="INTEGER" />
+
+        <foreign-key foreignTable="spy_country" phpName="SpyShipmentMethod" refPhpName="SpyCountry">
+            <reference local="fk_country" foreign="id_country"/>
+        </foreign-key>
+
+        <unique>
+            <unique-column name="fk_country"/>
+        </unique>
+
+    </table>
+
+</database>

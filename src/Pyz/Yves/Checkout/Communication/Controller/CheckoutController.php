@@ -39,10 +39,7 @@ class CheckoutController extends AbstractController
         $shipmentMethodAvailabilityTransfer = new ShipmentMethodAvailabilityTransfer();
         $shipmentMethodAvailabilityTransfer->setCart($this->getCart());
 
-        $shipmentTransfer = $container->createShipmentClient()
-            ->getAvailableMethods($shipmentMethodAvailabilityTransfer)
-        ;
-        $checkoutForm = $container->createCheckoutForm($shipmentTransfer);
+        $checkoutForm = $container->createCheckoutForm();
         $checkoutTransfer = new CheckoutRequestTransfer();
         $checkoutTransfer->setIsGuest(false); // for now there is no guest checkout. When an order is performed the customer is saved
 
@@ -53,12 +50,6 @@ class CheckoutController extends AbstractController
                 $checkoutClient = $this->getLocator()->checkout()->client();
                 /** @var CheckoutRequestTransfer $checkoutRequest */
                 $checkoutRequest = $form->getData();
-
-                foreach($shipmentTransfer->getMethods() as $shipmentMethod) {
-                    if ($shipmentMethod->getIdShipmentMethod() === $checkoutRequest->getIdShipmentMethod()) {
-                        $checkoutRequest->setShipmentMethod($shipmentMethod);
-                    }
-                }
 
                 $checkoutRequest->setCart($this->getCart());
                 $checkoutRequest->setShippingAddress($checkoutRequest->getBillingAddress());

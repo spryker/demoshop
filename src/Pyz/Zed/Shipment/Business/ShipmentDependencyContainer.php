@@ -5,7 +5,7 @@ namespace Pyz\Zed\Shipment\Business;
 use Pyz\Zed\Shipment\Business\Internal\DemoData\ShipmentInstall;
 use SprykerEngine\Shared\Kernel\Messenger\MessengerInterface;
 use SprykerFeature\Zed\Shipment\Business\ShipmentDependencyContainer as SprykerShipmentDependencyContainer;
-use SprykerFeature\Zed\Shipment\Persistence\ShipmentQueryContainer;
+use Pyz\Zed\Shipment\Persistence\ShipmentQueryContainer;
 
 /**
  * @method ShipmentQueryContainer getQueryContainer()
@@ -28,5 +28,16 @@ class ShipmentDependencyContainer extends SprykerShipmentDependencyContainer
         $installer->setMessenger($messenger);
 
         return $installer;
+    }
+
+    /**
+     * @return Model\ShipmentMethodManager
+     */
+    public function createShipmentMethodManager()
+    {
+        return $this->getFactory()
+            ->createModelShipmentMethodManager(
+                $this->getQueryContainer()
+            );
     }
 }

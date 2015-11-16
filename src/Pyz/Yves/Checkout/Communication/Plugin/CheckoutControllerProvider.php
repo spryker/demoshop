@@ -14,10 +14,13 @@ class CheckoutControllerProvider extends YvesControllerProvider
     const ROUTE_CHECKOUT_AJAX_CART = 'checkout/ajax-cart';
     const ROUTE_ADD_COUPON_CODE = 'checkout/add-coupon';
     const ROUTE_REMOVE_COUPON_CODE = 'checkout/remove-coupon';
+    const ROUTE_CHECKOUT_AJAX_SHIPMENT_PRICE = 'checkout/get-shipment-fee';
+    const ROUTE_CHECKOUT_AJAX_EXPENSE = 'checkout/ajax-expense';
 
     protected function defineControllers(Application $app)
     {
         $this->createController('/checkout', self::ROUTE_CHECKOUT, 'Checkout', 'Checkout')->method('GET|POST');
+
         $this->createGetController(
             '/checkout/success',
             self::ROUTE_CHECKOUT_SUCCESS,
@@ -35,10 +38,19 @@ class CheckoutControllerProvider extends YvesControllerProvider
 
         $this->createController('/checkout/ajax-cart', self::ROUTE_CHECKOUT_AJAX_CART, 'Checkout', 'Ajax', 'cart')
              ->method('GET');
+
         $this->createController('checkout/add-coupon', self::ROUTE_ADD_COUPON_CODE, 'Checkout', 'Ajax', 'addCoupon')
             ->method('POST');
+
         $this->createController('checkout/remove-coupon', self::ROUTE_REMOVE_COUPON_CODE, 'Checkout', 'Ajax', 'removeCoupon')
             ->method('POST');
+
+        $this->createController('/checkout/get-shipment-fee',
+            self::ROUTE_CHECKOUT_AJAX_SHIPMENT_PRICE,
+            'Checkout',
+            'Ajax',
+            'getShipmentFee'
+        )->method('GET|POST');
     }
 
 }

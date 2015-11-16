@@ -121,6 +121,18 @@ class Address extends AbstractType
             ->add('iso2code', 'hidden', [
                 'data' => 'DE',
             ])
+            ->add('country', 'choice', array(
+                'choices' => array(
+                    60   => 'Germany',
+                    14 => 'Austria',
+                ),
+                'label' => false,
+                'property_path' => 'address3',
+                'attr' => [
+                    'class' => 'js-country',
+                    'style' => 'width: 24%; float: left;',
+                ],
+            ))
         ;
     }
 

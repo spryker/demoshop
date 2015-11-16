@@ -9,7 +9,6 @@ use Pyz\SprykerBugfixInterface;
 
 class InMemoryProvider extends SprykerInMemoryProvider implements SprykerBugfixInterface
 {
-
     /**
      * @param CartInterface $cart
      * @param ChangeInterface $change
@@ -20,7 +19,6 @@ class InMemoryProvider extends SprykerInMemoryProvider implements SprykerBugfixI
     {
         return $cart->addCouponCode($change->getCouponCode());
     }
-
     /**
      * @param CartInterface $cart
      * @param ChangeInterface $change
@@ -35,10 +33,8 @@ class InMemoryProvider extends SprykerInMemoryProvider implements SprykerBugfixI
                 $couponCodes[] = $couponCode;
             }
         }
-
         return $cart->setCouponCodes($couponCodes);
     }
-
     /**
      * @param CartInterface $cart
      *
@@ -48,4 +44,27 @@ class InMemoryProvider extends SprykerInMemoryProvider implements SprykerBugfixI
     {
         return $cart->setCouponCodes([]);
     }
+
+    /**
+     * @param CartInterface $cart
+     * @param ChangeInterface $change
+     *
+     * @return CartInterface
+     */
+    public function addExpense(CartInterface $cart, ChangeInterface $change)
+    {
+        $expenses = new \ArrayObject();
+        foreach ($change->getExpenses() as $expenseToAdd) {
+            foreach ($cart->getExpenses() as $cartExpense) {
+                if ($cartExpense->getName() != $expenseToAdd->getName()) {
+                    $expenses[] = $cartExpense;
+                }
+            }
+            $expenses[] = $expenseToAdd;
+            $cart->setExpenses($expenses);
+        }
+
+        return $cart;
+    }
+
 }
