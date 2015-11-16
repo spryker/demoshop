@@ -138,7 +138,7 @@ class CmsInstall extends AbstractInstaller
     public function installCmsData()
     {
         foreach ($this->localeFacade->getAvailableLocales() as $locale) {
-            $demoDataFile = $this->filePath . '/' . $locale;
+            $demoDataFile = $this->filePath . DIRECTORY_SEPARATOR . $locale;
             if ($this->checkPathExists($demoDataFile)) {
                 $this->installPageFromDemoDataFile($demoDataFile);
                 $this->installRedirectFromDemoDataFile($demoDataFile);
@@ -155,7 +155,7 @@ class CmsInstall extends AbstractInstaller
      */
     public function getFileName($localeStaticFilePath, $fileName)
     {
-        return $localeStaticFilePath . '/' . $fileName;
+        return $localeStaticFilePath . DIRECTORY_SEPARATOR . $fileName;
     }
 
     /**
@@ -348,7 +348,7 @@ class CmsInstall extends AbstractInstaller
         $file = $this->getFileName($filePath, $this->dataFileNames[$type]);
         $splFileInfo = new \SplFileInfo($file);
 
-        $xmlContent = file_get_contents($splFileInfo->getPath() . '/' . $splFileInfo->getBasename());
+        $xmlContent = file_get_contents($splFileInfo->getPath() . DIRECTORY_SEPARATOR . $splFileInfo->getBasename());
         $xml = new \SimpleXMLElement($xmlContent);
 
         $dataArray = [];
