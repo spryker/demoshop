@@ -21,4 +21,9 @@ class ProductFeedConfig extends AbstractBundleConfig
     {
         return $this->get(ProductFeedConfigInterface::PRODUCT_FEED_USERS);
     }
+
+    public function getProductFeedCsvParameters()
+    {
+        return $this->get(ProductFeedConfigInterface::PRODUCT_FEED_CSV_PARAMETERS);
+    }
 }

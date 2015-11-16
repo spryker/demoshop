@@ -59,11 +59,11 @@ $config[LumberjackConfig::WRITER_OPTIONS] = [
 
 $config[FileUploadConfig::STORAGE] = [
     'cms' => [
-            FileUploadConfig::CONFIG_TYPE => FileUploadConfig::ADAPTER_LOCAL,
-            FileUploadConfig::CONFIG_CONFIG => [
-                'path' => '/data/storage/development/static',
-                'mapping' => 'http://static.com.pets-deli.dev',
-            ],
+        FileUploadConfig::CONFIG_TYPE => FileUploadConfig::ADAPTER_LOCAL,
+        FileUploadConfig::CONFIG_CONFIG => [
+            'path' => '/data/storage/development/static',
+            'mapping' => 'http://static.com.pets-deli.dev',
+        ],
     ],
 ];
 
@@ -76,4 +76,9 @@ $config[NewsletterDoiMailQueueConnectorConfig::DOI_CONFIRMATION_URL] = $config[S
 
 $config[ProductFeedConfig::PRODUCT_FEED_FILE_LOCATION] = '/data/storage/development/static/feed/';
 $config[ProductFeedConfig::PRODUCT_FEED_FILE_NAME] = 'products.csv';
-$config[ProductFeedConfig::PRODUCT_FEED_USERS] = [['username' => 'test', 'password' => 'test']];
+
+$config[ProductFeedConfig::PRODUCT_FEED_CSV_PARAMETERS] = [
+    'delimiter' => ';',
+    'encoding' => 'UTF-8',
+    'enclosure' => '"'
+];

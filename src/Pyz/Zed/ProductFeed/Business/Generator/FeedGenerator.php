@@ -5,17 +5,14 @@ namespace Pyz\Zed\ProductFeed\Business\Generator;
 use League\Flysystem\Adapter\Local;
 use League\Flysystem\Filesystem;
 use Orm\Zed\Price\Persistence\Map\SpyPriceProductTableMap;
-use Orm\Zed\Price\Persistence\SpyPriceProduct;
-use Orm\Zed\Product\Persistence\Base\SpyAbstractProduct;
 use Orm\Zed\Product\Persistence\Map\SpyAbstractProductTableMap;
 use Orm\Zed\Product\Persistence\Map\SpyLocalizedProductAttributesTableMap;
 use Orm\Zed\Product\Persistence\Map\SpyProductTableMap;
-use Orm\Zed\Product\Persistence\SpyLocalizedProductAttributes;
 use Propel\Runtime\ActiveQuery\Criteria;
 use Pyz\Zed\ProductFeed\ProductFeedConfig;
 use SprykerFeature\Zed\Product\Persistence\ProductQueryContainer;
 use Pyz\Zed\ProductFeed\Business\Exception\InvalidProductFeedConfigException;
-use Orm\Zed\Product\Persistence\Base\SpyProduct;
+use League\Csv\Writer;
 
 class FeedGenerator implements FeedGeneratorInterface
 {
@@ -74,49 +71,75 @@ class FeedGenerator implements FeedGeneratorInterface
     }
 
     /**
-     * Creates the
+     * Creates the product feed csv file
      */
     public function generateFeed()
     {
-        $abstractProducts = $this->productQueryContainer->queryAbstractProducts();
+        $products = $this->productQueryContainer->queryAbstractProducts();
 
-
-
-        $abstractProducts->addJoin(
+        $products->addJoin(
             SpyAbstractProductTableMap::COL_ID_ABSTRACT_PRODUCT,
             SpyProductTableMap::COL_FK_ABSTRACT_PRODUCT,
             Criteria::RIGHT_JOIN
         );
 
-        $abstractProducts->addJoin(
+        $products->addJoin(
             SpyProductTableMap::COL_ID_PRODUCT,
             SpyPriceProductTableMap::COL_FK_PRODUCT,
             Criteria::LEFT_JOIN
         );
 
-        $abstractProducts->addJoin(
+        $products->addJoin(
             SpyProductTableMap::COL_ID_PRODUCT,
             SpyLocalizedProductAttributesTableMap::COL_FK_PRODUCT,
             Criteria::LEFT_JOIN
         );
 
-        $abstractProducts->withColumn(
-            SpyPriceProductTableMap::COL_PRICE
+        $products->withColumn(
+            SpyProductTableMap::COL_ATTRIBUTES,
+            'concreteAttributes'
         );
-        $abstractProducts->withColumn(
+        $products->withColumn(
+            SpyProductTableMap::COL_ID_PRODUCT,
+            'idProduct'
+        );
+        $products->withColumn(
+            SpyProductTableMap::COL_SKU,
+            'concreteSku'
+        );
+        $products->withColumn(
             SpyLocalizedProductAttributesTableMap::COL_NAME
         );
 
-        print_r($abstractProducts->find()->toArray());
+        $productList = $products->find()->getIterator();
 
-        /** @var SpyProduct $abstractProduct */
-        foreach($abstractProducts as $abstractProduct)
+        $csvWriter = Writer::createFromPath(
+            $this->productFeedConfig->getProductFeedFileLocation() .
+            $this->productFeedConfig->getProductFeedFileName(),
+            'w+');
+
+        $csvWriter->setDelimiter($this->productFeedConfig->getProductFeedCsvParameters()['delimiter']);
+        $csvWriter->setEncodingFrom($this->productFeedConfig->getProductFeedCsvParameters()['encoding']);
+        $csvWriter->setEnclosure($this->productFeedConfig->getProductFeedCsvParameters()['enclosure']);
+
+        $csvWriter->insertOne(['ID','SKU','price']);
+
+        while($product = $productList->getNext())
         {
-            //TODO
+            $productAttributes = json_decode($product->getConcreteAttributes(), true);
+            $row = [];
+            $row[] = $product->getIdProduct();
+            $row[] = $product->getConcreteSku();
+            $row[] = isset($productAttributes['price'])? $productAttributes['price'] : '';
 
+            $csvWriter->insertOne($row);
         }
     }
 
+    /**
+     * creates or updates a htpasswd, htpaccess and a product feed file
+     * @throws InvalidProductFeedConfigException
+     */
     public function generate()
     {
         $this->generateHtpasswd();
