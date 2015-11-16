@@ -820,9 +820,13 @@
                 "type": "git",
                 "url": "git@github.com:spryker/spryker.git",
 <<<<<<< HEAD
+<<<<<<< HEAD
                 "reference": "3dcf460b8f9d1cb69fe0eaba840665552168d78b"
 =======
                 "reference": "780d69b472ffe6685f3b46280bd5589a9c05c631"
+>>>>>>> CSN-59 update composer
+=======
+                "reference": "a7b346b7739be091f1c9c4a815fa66238548ccc7"
 >>>>>>> CSN-59 update composer
             },
             "require": {
@@ -913,9 +917,13 @@
                 }
             },
 <<<<<<< HEAD
+<<<<<<< HEAD
             "time": "2015-11-16 14:34:08"
 =======
             "time": "2015-11-13 14:21:22"
+>>>>>>> CSN-59 update composer
+=======
+            "time": "2015-11-16 06:39:10"
 >>>>>>> CSN-59 update composer
         },
         {
