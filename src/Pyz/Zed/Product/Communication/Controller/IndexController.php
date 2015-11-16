@@ -325,6 +325,7 @@ class IndexController extends SprykerIndexController
             $dynamicProductSettingsProductTransfer = new PavProductDynamicImporterDynamicProductSettingProductTransfer();
             $dynamicProductSettingsProductTransfer->setQuantity($productDynamicEntity->getQuantity());
             $dynamicProductSettingsProductTransfer->setSku($productDynamicEntity->getProduct()->getSku());
+            $dynamicProductSettingsProductTransfer->setSequence($productDynamicEntity->getSequence());
 
             $dynamicProductSettingsTransfer->addProduct($dynamicProductSettingsProductTransfer);
         }
@@ -401,6 +402,7 @@ class IndexController extends SprykerIndexController
         //$productJson = file_get_contents('../../../json_structure_examples/simple_product_carb_optionx.json');
 
         $abstractProduct = $dynamicProductFacade->convertJsonToProductImporterAbstractProduct($productJson);
+        $dynamicProductFacade->validateProductImporterAbstractProduct($abstractProduct);
         $dynamicProductFacade->persistProductImporterAbstractProduct($abstractProduct);
         $idAbstractProduct = $this->getFacade()->getAbstractProduct($abstractProduct->getSku())->getIdAbstractProduct();
 

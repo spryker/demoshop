@@ -2,12 +2,10 @@
   "sku": "sku of abstract product",
   "type": "type of the abstract product (simple|dynamic|bundle)",
   "tax": "19.00 => VAT",
-  "is_active": "0|1",
   "locales": [
     {
       "locale": "de_DE",
       "name": "german abstract product name",
-      "description": "german abstract product description",
       "url": "abstract product url in german frontend",
       "media": [
         {
@@ -27,7 +25,6 @@
     {
       "locale": "en_US",
       "name": "english abstract product name",
-      "description": "english abstract product description",
       "url": "abstract product url in english frontend",
       "media": [
         {
@@ -63,9 +60,9 @@
   "attributes": {
     "any_other_attribute_for_abstract_product": "Any other attribute that you want to have in the abstract product definition"
   },
-  "product_categories": [
-    "name of category 1 in default language",
-    "name of category 2 in default language"
+  "categories": [
+    "id of category",
+    "id of category"
   ],
   "concrete_products": [
     {
@@ -80,7 +77,6 @@
         {
           "locale": "de_DE",
           "name": "german concrete product name",
-          "description": "german concrete product description",
           "media": [
             {
               "url": "full url to media (e.g. http://petsdeli.de/images/image123.jpg",
@@ -99,7 +95,6 @@
         {
           "locale": "en_US",
           "name": "english concrete product name",
-          "description": "english concrete product description",
           "media": [
             {
               "url": "full url to media (e.g. http://petsdeli.de/images/image123.jpg",
@@ -116,7 +111,7 @@
           }
         }
       ],
-      "price": "120.00 => product price including VAT",
+      "price": "12000 => product price including VAT in cent",
       "attributes": {
         "any_other_general_attribute_for_concrete_product": "any other attribute that should be available in the concrete product"
       },

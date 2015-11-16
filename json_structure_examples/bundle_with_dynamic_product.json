@@ -1,4 +1,4 @@
-  {
+{
   "sku": "abstract_bundle_total_care_package_one_month",
   "type": "bundle",
   "tax": "7.00",
@@ -14,6 +14,9 @@
         "recommendation_description": "Die Empfehlung von Tierärztin Annika Brönner: „Das perfekte Monatspaket für jeden Hund. Damit ist Ihr Liebling ausreichend versorgt!\" Fütterung Wir empfehlen Ihnen mindestens zwei Portionen am Tag zu füttern. Die Tagesration in Gramm sollte ungefähr 2-4% des Körpergewichtes Ihres Hundes entsprechen. Ein 20kg schweres ..."
       }
     }
+  ],
+  "product_group_keys": [
+    "weight"
   ],
   "attributes": {
     "price_per_kilo_vat_included": "8.00"
@@ -100,7 +103,7 @@
           "name": "PETS DELI Rundum-Sorglos-Paket für Hunde (für einen Monat) 500g"
         }
       ],
-      "price": "129.00",
+      "price": "12900",
       "attributes": {
         "striked_price_net": "140.00"
       },
