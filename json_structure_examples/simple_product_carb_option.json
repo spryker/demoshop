@@ -48,7 +48,7 @@
       "active": "1",
       "product_group_key_values": {
         "weight": "250g",
-        "carbohydrates": "yes"
+        "carbs": "yes"
       },
       "locales": [
         {
@@ -63,7 +63,7 @@
       "active": "1",
       "product_group_key_values": {
         "weight": "500g",
-        "carbohydrates": "yes"
+        "carbs": "yes"
       },
       "locales": [
         {
@@ -78,7 +78,7 @@
       "active": "1",
       "product_group_key_values": {
         "weight": "250g",
-        "carbohydrates": "no"
+        "carbs": "no"
       },
       "locales": [
         {
@@ -93,7 +93,7 @@
       "active": "1",
       "product_group_key_values": {
         "weight": "500g",
-        "carbohydrates": "no"
+        "carbs": "no"
       },
       "locales": [
         {

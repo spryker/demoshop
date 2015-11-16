@@ -43,12 +43,11 @@ class AbstractProductDynamicWriter implements ProductWriterInterface
      */
     public function persist(PavProductDynamicImporterAbstractProductInterface $product)
     {
+        $abstractProductTransfer = $this->productFacade->getAbstractProduct($product->getSku());
         if ($product->getType() !== ProductDynamicConfig::DYNAMIC_PRODUCT_TYPE_DYNAMIC) {
-            // TODO: delete things left as the product could change from dynamic to simple
+            $this->productDynamicFacade->deleteProductDynamicByAbstractProductId($abstractProductTransfer->getIdAbstractProduct());
             return;
         }
-
-        $abstractProductTransfer = $this->productFacade->getAbstractProduct($product->getSku());
         $productDynamicTransfer = $this->persistDynamicProduct($abstractProductTransfer, $product);
         $this->assignConcreteProducts($productDynamicTransfer, $product);
     }
@@ -104,7 +103,7 @@ class AbstractProductDynamicWriter implements ProductWriterInterface
                 $importerObject = $productsToBeAssignedBySkuObject[$sku];
                 $transfer
                     ->setQuantity($quantity)
-                    ->setSequence($importerObject->getSequence())
+                    ->setSequence((int) $importerObject->getSequence())
                 ;
 
                 $this->productDynamicFacade->updateProductDynamic($transfer);
@@ -117,7 +116,7 @@ class AbstractProductDynamicWriter implements ProductWriterInterface
                 $transfer = new ProductDynamicTransfer();
                 $transfer
                     ->setQuantity($quantity)
-                    ->setSequence($importerObject->getSequence())
+                    ->setSequence((int) $importerObject->getSequence())
                     ->setFkProduct($concreteProductTransfer->getIdConcreteProduct())
                     ->setFkAbstractProductDynamic($abstractProductDynamicTransfer->getIdAbstractProductDynamic());
                 ;

@@ -75,40 +75,12 @@
     "total_quantity": "10",
     "products": [
       {
-        "sku": "concrete_foodbox_dogs_chicken_250g_with_carbs",
+        "sku": "concrete_menubox_dogs_chicken_250g_with_carbohydrates",
         "quantity": "2"
       },
       {
-        "sku": "concrete_foodbox_dogs_chicken_250g_without_carbs",
-        "quantity": "2"
-      },
-      {
-        "sku": "concrete_foodbox_dogs_chicken_500g_with_carbs",
-        "quantity": "2"
-      },
-      {
-        "sku": "concrete_foodbox_dogs_chicken_500g_without_carbs",
-        "quantity": "2"
-      },
-      {
-        "sku": "concrete_foodbox_dogs_beef_500g_with_carbs",
-        "quantity": "2"
-      },
-      {
-        "sku": "concrete_foodbox_dogs_beef_500g_without_carbs",
-        "quantity": "2"
-      },
-      {
-        "sku": "concrete_foodbox_dogs_beef_250g_with_carbs",
-        "quantity": "2"
-      },
-      {
-        "sku": "concrete_foodbox_dogs_beef_250g_without_carbs",
-        "quantity": "2"
-      },
-      {
-        "sku": "concrete_foodbox_dogs_fish_500g",
-        "quantity": "2"
+        "sku": "concrete_menubox_dogs_chicken_500g_with_carbohydrates",
+        "quantity": "20"
       }
     ]
   }

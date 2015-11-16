@@ -280,7 +280,7 @@ class ProductManager extends SprykerProductManager implements ProductManagerInte
     {
         $entity = $this->productQueryContainer->queryConcreteProductById($idConcreteProduct)->findOne();
         $transfer = new ConcreteProductTransfer();
-        $transfer->fromArray($entity->toArray());
+        $transfer->fromArray($entity->toArray(), true);
         return $transfer;
     }
 }
