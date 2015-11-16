@@ -75,4 +75,6 @@ return Symfony\CS\Config\Config::create()
     ->addCustomFixer(new \SprykerFeature\Zed\Maintenance\Business\CodeStyleFixer\NoIsNullFixer())
     ->addCustomFixer(new \SprykerFeature\Zed\Maintenance\Business\CodeStyleFixer\PhpSapiConstantFixer())
     ->addCustomFixer(new \SprykerFeature\Zed\Maintenance\Business\CodeStyleFixer\PhpdocParamsFixer())
+    ->addCustomFixer(new \SprykerFeature\Zed\Maintenance\Business\CodeStyleFixer\PhpdocReturnSelfFixer())
+    ->addCustomFixer(new \SprykerFeature\Zed\Maintenance\Business\CodeStyleFixer\WhitespaceAfterReturnFixer())
 ;
