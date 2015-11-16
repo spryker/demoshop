@@ -6,6 +6,7 @@ use Generated\Shared\Locale\LocaleInterface;
 use Generated\Shared\Product\AbstractProductInterface;
 use Generated\Shared\Product\ConcreteProductInterface;
 use Generated\Shared\Transfer\AbstractProductTransfer;
+use Generated\Shared\Transfer\ConcreteProductTransfer;
 use Generated\Shared\Transfer\LocaleTransfer;
 use Generated\Shared\Transfer\LocalizedAttributesTransfer;
 use Orm\Zed\Locale\Persistence\SpyLocale;
@@ -269,5 +270,17 @@ class ProductManager extends SprykerProductManager implements ProductManagerInte
             $locale->setIdLocale($dbLocale->getIdLocale());
         }
         return $locale;
+    }
+
+    /**
+     * @param $idConcreteProduct
+     * @return ConcreteProductInterface $concreteProductTransfer
+     */
+    public function getConcreteProductById($idConcreteProduct)
+    {
+        $entity = $this->productQueryContainer->queryConcreteProductById($idConcreteProduct)->findOne();
+        $transfer = new ConcreteProductTransfer();
+        $transfer->fromArray($entity->toArray());
+        return $transfer;
     }
 }

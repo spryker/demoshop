@@ -1,0 +1,115 @@
+{
+  "sku": "abstract_dogs_starterpackage_10_boxes",
+  "type": "dynamic",
+  "tax": "7.00",
+  "locales": [
+    {
+      "locale": "de_DE",
+      "name": "PETS DELI Starter-Paket für Hunde (10x Menüboxen)",
+      "url": "/hunde-nahrung/hochwertige-hundefutter-menues/starterpaket-hund.html",
+      "attributes": {
+        "default_description": "Unsere tiefgekühlten PETS DELI Menüboxen bieten Ihrem Hund die Grundlage für ein gesundes Hundefutter und einer gesunden und artgerechten Ernährung. Wir verwenden ausschließlich frische Zutaten in Lebensmittelqualität von ausgewählten Bezugsquellen und verzichten auf tierische Nebenerzeugnisse oder Zusätze in unserem Frischfutter. Unsere gesunden Menüboxen für Hunde bestehen aus 60% reinem Muskelfleisch und 40% aus frischem Obst....",
+        "extended_description": "Die PETS DELI Menüboxen sind grundsätzlich Alleinfuttermittel, sollten jedoch mit unseren Supplements sinnvoll und individuell ergänzt werden: Um den Nährstoffhaushalt Ihres Tieres vollständig abzudecken, empfehlen wir als Ergänzung den PETS ...",
+        "ingriedients_description": "ür die Herstellung des Frischfutters in Ihren PETS DELI Menüboxen verwenden wir ausschließlich frisches Muskelfleisch, püriertes Obst- und Gemüse und gekochte Kohlenhydrate. Unsere Menüs mit Huhn, Pute und Rind werden mit Herzmuskelfleisch vom jeweiligen Tier ergänzt und versorgen Ihren Hund mit wertvollem Taurin und mit Mineralien. Alle Zutaten haben Lebensmittelqualität und sind so frisch,  ...",
+        "recommendation_description": "Die Empfehlung von Tierärztin Annika Brönner: „Als Einstieg für jeden Hund gut geeignet. Finden Sie raus, welche Zutaten Ihrem Liebling schmecken!\" Fütterung Wir empfehlen Ihnen mindestens zwei Portionen am Tag zu füttern. Die Tagesration in Gramm sollte ungefähr 2-4% des Körpergewichtes Ihres Hundes entsprechen. Ein 20kg schweres ..."
+      }
+    }
+  ],
+  "attributes": {
+    "price_per_kilo_vat_included": "8.00"
+  },
+  "media": [
+    {
+      "url": "/media/product/10_hund_2.jpg",
+      "thumbnail_url": "/media/product/10_hund_2_thumb1.jpg",
+      "type": "picture",
+      "sequence": "1"
+    },
+    {
+      "url": "/media/product/10_hund_side_1.jpg",
+      "thumbnail_url": "/media/product/10_hund_side_1_thumb1.jpg",
+      "type": "picture",
+      "sequence": "2"
+    },
+    {
+      "url": "/media/product/02_1.jpg",
+      "thumbnail_url": "/media/product/02_1_thumb1.jpg",
+      "type": "picture",
+      "sequence": "3"
+    }
+  ],
+  "product_group_keys": [
+    "weight"
+  ],
+  "concrete_products": [
+    {
+      "sku": "concrete_dogs_starterpackage_10_boxes_250g",
+      "active": "1",
+      "product_group_key_values": {
+        "weight": "250g"
+      },
+      "locales": [
+        {
+          "locale": "de_DE",
+          "name": "PETS DELI Starter-Paket für Hunde (10x Menüboxen), 250g"
+        }
+      ],
+      "price": "2000"
+    },
+    {
+      "sku": "concrete_dogs_starterpackage_10_boxes_500g",
+      "active": "1",
+      "product_group_key_values": {
+        "weight": "500g"
+      },
+      "locales": [
+        {
+          "locale": "de_DE",
+          "name": "PETS DELI Starter-Paket für Hunde (10x Menüboxen), 500g"
+        }
+      ],
+      "price": "4000"
+    }
+  ],
+  "dynamic_product_settings": {
+    "total_quantity": "10",
+    "products": [
+      {
+        "sku": "concrete_foodbox_dogs_chicken_250g_with_carbs",
+        "quantity": "2"
+      },
+      {
+        "sku": "concrete_foodbox_dogs_chicken_250g_without_carbs",
+        "quantity": "2"
+      },
+      {
+        "sku": "concrete_foodbox_dogs_chicken_500g_with_carbs",
+        "quantity": "2"
+      },
+      {
+        "sku": "concrete_foodbox_dogs_chicken_500g_without_carbs",
+        "quantity": "2"
+      },
+      {
+        "sku": "concrete_foodbox_dogs_beef_500g_with_carbs",
+        "quantity": "2"
+      },
+      {
+        "sku": "concrete_foodbox_dogs_beef_500g_without_carbs",
+        "quantity": "2"
+      },
+      {
+        "sku": "concrete_foodbox_dogs_beef_250g_with_carbs",
+        "quantity": "2"
+      },
+      {
+        "sku": "concrete_foodbox_dogs_beef_250g_without_carbs",
+        "quantity": "2"
+      },
+      {
+        "sku": "concrete_foodbox_dogs_fish_500g",
+        "quantity": "2"
+      }
+    ]
+  }
+}

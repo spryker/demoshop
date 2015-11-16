@@ -309,6 +309,11 @@ class IndexController extends SprykerIndexController
         $abstractProductDynamicEntity = $abstractProductEntity->getAbstractProductDynamic();
 
         $dynamicProductSettingsTransfer = new PavProductDynamicImporterDynamicProductSettingsTransfer();
+
+        if (!$abstractProductDynamicEntity) {
+            return $dynamicProductSettingsTransfer;
+        }
+
         $dynamicProductSettingsTransfer->fromArray($abstractProductDynamicEntity->toArray(), true);
 
         foreach ($abstractProductDynamicEntity->getProductDynamicsJoinProduct() as $productDynamicEntity) {

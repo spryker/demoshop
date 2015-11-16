@@ -31,4 +31,10 @@ interface ProductManagerInterface extends SprykerProductManagerInterface
      */
     public function saveConcreteProduct(ConcreteProductInterface $concreteProductTransfer);
 
+    /**
+     * @param $idConcreteProduct
+     * @return ConcreteProductInterface $concreteProductTransfer
+     */
+    public function getConcreteProductById($idConcreteProduct);
+
 }

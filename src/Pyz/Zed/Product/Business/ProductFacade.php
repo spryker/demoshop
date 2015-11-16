@@ -102,4 +102,13 @@ class ProductFacade extends SprykerProductFacade implements
     {
         return $this->getDependencyContainer()->createMediaAttributeSplitter()->split($attributes);
     }
+
+    /**
+     * @param $idConcreteProduct
+     * @return ConcreteProductInterface
+     */
+    public function getConcreteProductById($idConcreteProduct)
+    {
+        return $this->getDependencyContainer()->createProductManager()->getConcreteProductById($idConcreteProduct);
+    }
 }

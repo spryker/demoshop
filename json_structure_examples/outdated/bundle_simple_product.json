@@ -1,0 +1,74 @@
+{
+  "sku": "abstract_bundle_additional_feedings",
+  "type": "bundle",
+  "tax": "7.00",
+  "locales": [
+    {
+      "locale": "de_DE",
+      "name": "PETS DELI Zusatzfutter-Paket für Hunde",
+      "url": "/hunde-nahrung/hochwertige-hundefutter-menues/zusatzfutter-paket.html",
+      "attributes": {
+        "default_description": "NEU: Das PETS DELI Zusatzfutter-Paket für Hunde, entwickelt von unseren Ernährungsberatern! Das Zusatzfutter-Paket bietet Ihnen als Kunde eine vollständig abgedeckte und...",
+        "extended_description": "Zusatzfutter-Paket für einen ganzen Monat - alle Menüboxen werden frisch & individuell für Sie produziert - 30x portionierte Menüboxen: Fertig zur Fütterung - 1x Mineral-Mix, 1x Gemüse-Kräuter-Flocken, 1x Leinöl - nur Zutaten in Lebensmittelqualität - ohne Zusätze und tierische Nebenerzeugnisse - maximaler Komfort: schnell, sauber, frisch - auch für allergische Hunde anpassbar - von Tierärzten empfohlen Die PETS DELI Menüboxen sind grundsätzlich Alleinfuttermittel, sollten jedoch mit unseren Supplements sinnvoll und individuell ergänzt werden: Um den Nährstoffhaushalt Ihres Tieres vollständig abzudecken, empfehlen wir al ...",
+      }
+    }
+  ],
+  "media": [
+    {
+      "url": "/media/product/rundumsorglospaket_hund_kopie.jpg",
+      "thumbnail_url": "/media/product/rundumsorglospaket_hund_kopie_thumb1.jpg",
+      "type": "picture",
+      "sequence": "1"
+    },
+    {
+      "url": "/media/product/mfd_1267_a_2.jpg",
+      "thumbnail_url": "/media/product/mfd_1267_a_2_thumb1.jpg",
+      "type": "picture",
+      "sequence": "3"
+    },
+    {
+      "url": "/media/product/gem_se-kr_uter-flocken_01.jpg",
+      "thumbnail_url": "/media/product/gem_se-kr_uter-flocken_01_thumb1.jpg",
+      "type": "picture",
+      "sequence": "4"
+    },
+    {
+      "url": "/media/product/mfd_1029_a_2.jpg",
+      "thumbnail_url": "/media/product/mfd_1029_a_2_thumb1.jpg",
+      "type": "picture",
+      "sequence": "5"
+    },
+    {
+      "url": "/media/product/02_1_2.jpg",
+      "thumbnail_url": "/media/product/02_1_2_thumb1.jpg",
+      "type": "picture",
+      "sequence": "6"
+    }
+  ],
+  "concrete_products": [
+    {
+      "sku": "concrete_bundle_additional_feedings",
+      "active": "1",
+      "locales": [
+        {
+          "locale": "de_DE",
+          "name": "PETS DELI Zusatzfutter-Paket für Hunde"
+        }
+      ],
+      "price": "69.90",
+      "attributes": {
+        "striked_price_net": "85.40"
+      },
+      "bundle_products": [
+        {
+          "sku": "concrete_linen_oil",
+          "quantity": "1"
+        },
+        {
+          "sku": "concrete_foodstick_bag",
+          "quantity": "2"
+        }
+      ]
+    }
+  ]
+}

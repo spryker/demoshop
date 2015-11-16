@@ -1,0 +1,95 @@
+{
+  "query": {
+    "filtered": {
+      "filter": {
+        "term": {
+          "category.all-parents": 14
+        }
+      }
+    }
+  },
+  "aggs": {
+    "string-facet": {
+      "nested": {
+        "path": "string-facet"
+      },
+      "aggs": {
+        "string-facet-name": {
+          "terms": {
+            "field": "string-facet.facet-name"
+          },
+          "aggs": {
+            "string-facet-value": {
+              "terms": {
+                "field": "string-facet.facet-value"
+              }
+            }
+          }
+        }
+      }
+    },
+    "integer-facet": {
+      "nested": {
+        "path": "integer-facet"
+      },
+      "aggs": {
+        "integer-facet-name": {
+          "terms": {
+            "field": "integer-facet.facet-name"
+          },
+          "aggs": {
+            "integer-facet-value": {
+              "terms": {
+                "field": "integer-facet.facet-value"
+              }
+            },
+            "integer-facet-min": {
+              "min": {
+                "field": "integer-facet.facet-value"
+              }
+            },
+            "integer-facet-max": {
+              "max": {
+                "field": "integer-facet.facet-value"
+              }
+            }
+          }
+        }
+      }
+    },
+    "float-facet": {
+      "nested": {
+        "path": "float-facet"
+      },
+      "aggs": {
+        "float-facet-name": {
+          "terms": {
+            "field": "float-facet.facet-name"
+          },
+          "aggs": {
+            "float-facet-value": {
+              "terms": {
+                "field": "float-facet.facet-value"
+              }
+            },
+            "float-facet-min": {
+              "min": {
+                "field": "float-facet.facet-value"
+              }
+            },
+            "float-facet-max": {
+              "max": {
+                "field": "float-facet.facet-value"
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "from": 0,
+  "size": 6,
+  "_source": [
+    "search-result-data"
+  ]
+}

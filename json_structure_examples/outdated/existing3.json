@@ -1,0 +1,15 @@
+{
+  "magento_id": 25,
+  "price": 60,
+  "price_type": "bundle",
+  "sku": "64286050",
+  "sku_type": "1",
+  "special_from_date": "2014-04-29 00:00:00",
+  "special_to_date": "2014-12-30 00:00:00",
+  "tax_class_id": 2,
+  "visibility": "4",
+  "base_price_base_unit": "G",
+  "base_price_unit": "G",
+  "pphundert": "0.80",
+  "salesprogramm": "NULL"
+}
