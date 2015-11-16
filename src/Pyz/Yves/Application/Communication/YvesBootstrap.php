@@ -5,6 +5,7 @@ namespace Pyz\Yves\Application\Communication;
 use Pyz\Yves\Application\Communication\Bootstrap\Extension\BeforeBootExtension;
 use Pyz\Yves\Application\Communication\Bootstrap\Extension\ControllerProviderExtension;
 use Pyz\Yves\Application\Communication\Bootstrap\Extension\GlobalTemplateVariablesExtension;
+use Pyz\Yves\Application\Communication\Bootstrap\Extension\LocaleBootExtension;
 use Pyz\Yves\Application\Communication\Bootstrap\Extension\RouterExtension;
 use Pyz\Yves\Application\Communication\Bootstrap\Extension\ServiceProviderExtension;
 use Pyz\Yves\Application\Communication\Bootstrap\Extension\TwigExtension;
@@ -26,6 +27,7 @@ class YvesBootstrap
         $sprykerBootstrap = new SprykerYvesBootstrap(new YvesApplication());
 
         $sprykerBootstrap->addBeforeBootExtension(new BeforeBootExtension());
+        $sprykerBootstrap->addAfterBootExtension(new LocaleBootExtension());
         $sprykerBootstrap->addAfterBootExtension(new AfterBootExtension());
         $sprykerBootstrap->addControllerProviderExtension(new ControllerProviderExtension());
         $sprykerBootstrap->addGlobalTemplateVariableExtension(new GlobalTemplateVariablesExtension());
