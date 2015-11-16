@@ -3,7 +3,7 @@
     "assets": {
         "templates": [],
         "js": [
-            "/js/jquery-2.1.1.js",
+            "/js/jquery.js",
             "/js/ramda.js",
             "/js/handlebars.js",
             "/js/bootstrap.js",
