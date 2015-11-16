@@ -22,23 +22,23 @@
       padding-right: 20px;
     }
   }
-  .header {
-    color: $cGrey3;
-    font-size: 12px;
-    border-bottom: 1px solid $cGrey1;
-    .column {
-      padding-top: 13px;
-      padding-bottom: 12px;
-      &.col3 {
-        span {
-          float: left;
-        }
-        strong {
-          float: right;
-        }
-      }
-    }
-  }
+  // .header {
+  //   color: $cGrey3;
+  //   font-size: 12px;
+  //   border-bottom: 1px solid $cGrey1;
+  //   .column {
+  //     padding-top: 13px;
+  //     padding-bottom: 12px;
+  //     &.col3 {
+  //       span {
+  //         float: left;
+  //       }
+  //       strong {
+  //         float: right;
+  //       }
+  //     }
+  //   }
+  // }
   .item-block {
     border-bottom: 1px solid $cGrey1;
     .col1 {

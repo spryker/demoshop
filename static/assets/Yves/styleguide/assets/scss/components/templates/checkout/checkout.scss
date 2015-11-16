@@ -5,3 +5,193 @@
 // Styleguide: checkout
 //
 // Weight: 908
+
+// TODO: move into component
+.checkout{
+
+}
+
+.checkout__step{
+  display: none;
+  text-align: center;
+
+  border-bottom: 1px solid $_rgbAlto;
+
+  &:first-child{
+      display: block;
+  }
+}
+
+.checkout__step--done, .checkout__step--current{
+    display: block;
+}
+
+.checkout__step--done{
+    cursor: pointer;
+
+    .checkout__edit{
+        display: none;
+    }
+
+    .checkout__summary{
+        display: block;
+    }
+}
+
+.checkout__step--current{
+    background: $_rgbWhite;
+}
+
+
+
+.checkout__step-headline{
+  position: relative;
+
+  font-family: $_ffBrandonGrotesque-Black;
+  font-size: 40px;
+  color: $_rgbApple;
+
+  @include decoratorStrip;
+
+    &:after{
+        bottom: 5px;
+    }
+}
+
+.checkout__step-progress{
+  font-family: $_ffBrandonGrotesque-Bold;
+  font-size: 18px;
+  color: $_rgbApple;
+}
+
+.checkout__step-button{
+    margin-top: 30px;
+}
+
+
+.checkout__form{
+    @include clearfix;
+  max-width: 450px;
+  margin: 0 auto;
+  padding-bottom: 50px;
+
+  .radio--checked, .checkbox--checked{
+    & + .checkout__subform{
+      display: block;
+    }
+  }
+
+  .checkbox{
+      margin-top: 30px;
+  }
+
+  .input__text{
+      background: $_rgbAlabaster;
+  }
+
+  .dropdown__button{
+      background: $_rgbAlabaster;
+  }
+
+}
+
+.checkout__subform{
+    position: relative;
+  margin-top: 30px;
+  display: none;
+  padding: 10px 28px 28px;
+  @include clearfix;
+
+  border: 1px solid $_rgbDustyGray;
+  border-radius: $_defaultBorderRadius;
+
+  text-align: left;
+}
+
+.checkout__subform--rechnung{
+    .checkout__lock{
+        position: absolute;
+        right: 28px;
+        top: 90px;
+    }
+}
+
+.checkout__subform--credit{
+    .checkout__lock{
+        position: absolute;
+        right: 28px;
+        bottom: 15px;
+    }
+}
+
+.checkout__subform--sepa{
+    .checkout__lock{
+        position: absolute;
+        right: 28px;
+        bottom: 15px;
+    }
+}
+
+
+.checkout__edit{
+    padding: 70px 0 28px;
+}
+
+.checkout__cart{
+  margin: 30px 0;
+}
+
+
+.checkout__summary{
+    padding: 28px 0;
+    display: none;
+}
+
+.checkout__summary-headline{
+    position: relative;
+    margin-bottom: 10px;
+
+    font-family: $_ffBrandonGrotesque-Black;
+    font-size: 24px;
+    color: $_rgbSilverChalice;
+
+    @include decoratorStrip($_rgbSilverChalice);
+
+    &:after{
+        bottom: 5px;
+    }
+}
+
+.checkout__summary-details{
+    font-family: $_ffBrandonGrotesque-Black;
+    font-size: 14px;
+    color: $_rgbOsloGray;
+}
+
+// TODO: into separate component
+.checkout__lock{
+    padding-top: 55px;
+    float: right;
+
+    font-family: $_ffBrandonGrotesque-Bold;
+    font-size: 14px;
+    color: $_rgbDustyGray;
+
+    @include pdif('lock', 45px);
+
+    &:before{
+        top: 0;
+        margin-top: 0;
+        transform: none;
+        width: 100%;
+        text-align: center;
+    }
+}
+
+
+.checkout__form--payment{
+  & > .radio{
+    margin-top: 35px;
+    display: block;
+  }
+}

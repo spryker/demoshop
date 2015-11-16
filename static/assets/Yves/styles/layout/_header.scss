@@ -1,17 +1,17 @@
 .header {
 
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  z-index: 10;
-  padding: $step*.25 $step*2;
-  background-color: $light-color;
-  color: $dark-color;
-
-  @include fixed-nav-shadow();
-
-  @include bounce-transition(.3s, padding);
+  // position: fixed;
+  // top: 0;
+  // left: 0;
+  // width: 100%;
+  // z-index: 10;
+  // padding: $step*.25 $step*2;
+  // background-color: $light-color;
+  // color: $dark-color;
+  //
+  // @include fixed-nav-shadow();
+  //
+  // @include bounce-transition(.3s, padding);
 
   .overlay-visible & {
     position: static;

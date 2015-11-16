@@ -1,0 +1,45 @@
+{% set data = {
+    breadcrumbs: [
+        {title: '#Dogs', url: ''},
+        {title: '#Package', url: ''}
+    ],
+    images: [
+        {
+            full: { src: 'http://placehold.it/340x470/123456', alt: 'Alt text' },
+            thumb: { src: 'http://placehold.it/100x100/123456', alt: 'Alt text' }
+        },
+        {
+            full: { src: 'http://placehold.it/340x470', alt: 'Alt text' },
+            thumb: { src: 'http://placehold.it/100x100', alt: 'Alt text' }
+        },
+        {
+            full: { src: 'http://placehold.it/340x470/654321', alt: 'Alt text' },
+            thumb: { src: 'http://placehold.it/100x100/654321', alt: 'Alt text' }
+        }
+    ]
+} %}
+
+
+<div class="product-gallery">
+    
+    <div class="product-gallery__breadcrumbs">
+        {% for breadcumb in data.breadcrumbs %}
+            <a class="product-gallery__breadcrumb" href="{{ breadcumb.url }}">{{ breadcumb.title }}</a>
+        {% endfor %}
+    </div>
+
+
+    <div class="product-gallery__image">
+        <img src="{{ data.images[0].full.src }}" alt="{{ data.images[0].full.alt }}" />
+    </div>
+
+
+    <div class="product-gallery__thumbnails">
+        {% for image in data.images %}
+        <div class="product-gallery__thumbnail">
+            <img src="{{ image.thumb.src }}" alt="{{ image.thumb.alt }}" data-src="{{ image.full.src }}" data-alt="{{ image.full.alt }}" />
+        </div>
+        {% endfor %}
+    </div>
+
+</div>

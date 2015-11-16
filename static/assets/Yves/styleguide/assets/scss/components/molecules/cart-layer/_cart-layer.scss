@@ -11,10 +11,6 @@
     width: 20%;
     float: left;
     @include sectionShadow;
-    //
-    // // #TODO:300 abstract header height to variable
-    // top: 135px;
-    // left: 0;
 
     &.js-processed{
         transition: margin-top $_tMedium ease-in-out;
@@ -54,15 +50,21 @@
 }
 
 .cart-layer__headline{
-    padding: 11px;
+    margin: 27px;
 
     font-family: $_ffBrandonGrotesque-Black;
     font-size: $_fsLarge;
-    line-height: $_lhLarge;
-    //letter-spacing: 2.18px;
-    color: $_rgbQuincy;
-    text-transform: uppercase;
+    line-height: 1em;
+    color: $_rgbApple;
     text-align: center;
+}
+
+.cart-layer__items{
+    @include pageWidth;
+    display: table;
+    width: 100%;
+
+    border-bottom: 1px solid $_rgbSilver;
 }
 
 .cart-layer__upsell{
@@ -78,10 +80,58 @@
 }
 
 .cart-layer__total{
-    padding-bottom: 50px;
+    padding-bottom: 30px;
 
-    font-family: $_ffHelveticaNeue;
-    font-size: 40px;
-    line-height: 47px;
+    font-family: $_ffBrandonGrotesque-Bold;
+    font-size: 30px;
     color: $_rgbQuincy;
+    text-transform: uppercase;
+    white-space: nowrap;
+
+    em{
+        padding-left: 25px;
+        font-style: normal;
+        font-size: 40px;
+    }
+}
+
+.cart-layer__empty{
+    @include pdif('cart-empty', 55px, 0);
+    width: 100%;
+    margin-bottom: 100px;
+    padding: 85px 0 20px 0;
+
+    font-size: 22px;
+    text-align: center;
+    color: $_rgbSilverChalice;
+
+    border-top: 1px solid $_rgbSilver;
+    border-bottom: 1px solid $_rgbSilver;
+
+    &:before{
+        position: absolute;
+        margin: 0 0 0-18px;
+        left: 50%;
+        top: 22px;
+    }
+}
+
+
+
+// TODO: invert
+
+@media (max-width: $_wLarge) {
+    .cart-layer__upsell{
+        display: none;
+    }
+
+    .cart-layer__amount{
+        width: 100%;
+    }
+}
+
+@media (max-width: $_wMedium) {
+    .cart-item__image{
+        display: none;
+    }
 }

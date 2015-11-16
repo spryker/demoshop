@@ -1,14 +1,11 @@
 <div class="product-options">
-    <form>
+    <form action="/cart/add/">
         <div class="product-options__select">
-            <label>Größe</label>
-
-            {{> "atoms.dropdown" options='["250g","500g","750g"]' id="weight" name="weight"}}
+            {{> "atoms.dropdown" label="Größe" options='["250g","500g","750g"]' id="weight" name="weight"}}
 
         </div>
         <div class="product-options__select">
-            <label>Anzahl</label>
-            <input class="js-stepper" type="number" value="1">
+            {{> "atoms.stepper" label="Anzahl" id="product_quantity" name="product_quantity"}}
         </div>
         <div class="product-options__pricing">
             <div class="product-options__total">€20.00</div>

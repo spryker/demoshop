@@ -2,44 +2,18 @@
 
   @include clearfix();
 
-  // make space for the header
-  margin-top: $step*2;
-
   padding: $step $step $step*3;
   background-color: $pale-color;
   color: $mid-color;
-
-  @include media-query('medium') {
-    margin-top: $step*2.5;
-    padding: $step*1.5 $step $step*4;
-  }
-
-  @include media-query('huge') {
-    padding: $step*2.5 $step $step*5;
-  }
 
   h1 {
     color: $mid-color;
   }
 }
 
-.catalog__section-title, .catalog__filter {
-
-  // @include media-query('medium') {
-  //   width: calc(50% - #{$step*2});
-  // }
-
-  @include media-query('medium') {
-    margin-right: $step;
-    float: left;
-    clear: left;
-    width: calc(25% - #{$step});
-  }
-}
 
 .catalog__section-title {
   font-size: $step*1.5;
-  margin-bottom: $step*1.5;
 }
 
 .catalog__search-term {

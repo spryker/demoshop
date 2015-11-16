@@ -36,7 +36,7 @@ $(document).ready(function () {
     });
 
 
-
+    // TODO: refine transition as for the configurator
     function show () {
         $offcanvas.addClass('offcanvas--open');
     }

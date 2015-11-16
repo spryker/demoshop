@@ -1,0 +1,12 @@
+<div class="menu-teaser-full">
+    <div class="menu-teaser-full__inner" style="background-image: url({{ image }});">
+
+        <h2 class="menu-teaser-full__headline">{{ headline }}</h2>
+
+        {% include '@application/layout/common/forms/button.twig' with {
+            title: button,
+            url: url
+        } %}
+        
+    </div>
+</div>

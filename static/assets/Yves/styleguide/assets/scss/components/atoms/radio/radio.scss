@@ -5,7 +5,17 @@
 // Styleguide: atoms.radio
 
 .radio{
+    margin-top: 18px;
   text-align: left;
+  display: inline-block;
+}
+
+.radio--focussed{
+    .radio__label{
+      &:before{
+          box-shadow: 0 0 2px 0 rgba($_rgbTundora, 0.5);
+      }
+  }
 }
 
 .radio--vorkasse{
@@ -55,7 +65,7 @@
 .radio__label{
   display: inline-block;
   position: relative;
-  padding-left: 48px;
+  padding-left: 53px;
   cursor: pointer;
 
   font-family: $_ffBrandonGrotesque-Bold;
@@ -66,7 +76,7 @@
   &:before{
     position: absolute;
     top: 0;
-    left: 0;
+    left: 5px;
     content: '';
     width: 31px;
     height: 31px;
@@ -78,7 +88,7 @@
     content: '';
     position: absolute;
     top: 0;
-    left: 0;
+    left: 5px;
     width: 15px;
     height: 15px;
     border-radius: 50%;
@@ -91,7 +101,8 @@
 
 .radio__input{
   position: absolute;
-  visibility: hidden;
+  opacity: 0;
+  left: -1000em;
 
   &:checked{
 

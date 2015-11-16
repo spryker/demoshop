@@ -16,7 +16,7 @@ PILLAR_BRANCH="master"
 
 # Hostnames to be managed
 HOSTS=[
-  "pets-deli-vagrant", 
+  "pets-deli-vagrant",
   "pets-deli.dev",
   "zed.de.pets-deli.dev",
   "zed.com.pets-deli.dev",
@@ -82,7 +82,7 @@ Vagrant.configure(2) do |config|
   config.vm.network "forwarded_port", guest: 10005,  host: 10005,  auto_correct: true   # Elasticsearch
   config.vm.network "forwarded_port", guest: 10007, host: 10007, auto_correct: true   # Jenkins (development)
   config.vm.network "forwarded_port", guest: 11007, host: 11007, auto_correct: true   # Jenkins (testing)
-
+  
 
   # bootstrap saltstack via salt repository
   config.vm.provision "shell", path: SALT_LOCAL_CONFIG_PATH + "/scripts/bootstrap_saltstack.sh"

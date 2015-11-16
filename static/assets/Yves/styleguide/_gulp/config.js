@@ -25,7 +25,7 @@ var config = {
         },
         copy: {
             folder: ASSETS_DIR + 'copy',
-            files: ASSETS_DIR + 'copy/**/*.{jpg,png,ttf,woff,woff2,eot}'
+            files: ASSETS_DIR + 'copy/**/*.{jpg,png,ttf,woff,woff2,eot,ico}'
         },
         images: ASSETS_DIR + 'images',
         iconfont: {

@@ -86,7 +86,7 @@
   function parseObject(object, $parent) {
 
     for (var i in Object.keys(object)) {
-      var key, value;
+      var key, content;
 
       // use keys to preserve order
       key = Object.keys(object)[i];

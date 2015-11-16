@@ -8,7 +8,7 @@
 .teaser{
     position: relative;
     height: 580px;
-    width: 50%;
+    width: 100%;
     float: left;
 }
 
@@ -51,4 +51,11 @@
     font-family: $_ffBrandonGrotesque-Black;
     text-align: center;
     color: $_rgbWhite;
+}
+
+
+@media (min-width: $_wMedium) {
+    .teaser{
+        width: 50%;
+    }
 }

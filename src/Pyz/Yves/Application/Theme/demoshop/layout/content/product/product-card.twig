@@ -1,0 +1,39 @@
+{# product.abstract_attributes.small_image #}
+
+<div class="product-card">
+    <div class="product-card__inner">
+        <div class="product-card__image">
+            <div class="product-card__label">#Most popular</div>
+            <img src="../images/product/small_1.jpg" />
+        </div>
+        <div class="product-card__content">
+            <div class="product-card__infos">
+                <div class="product-card__info">
+                    #Hunde
+                </div>
+                <div class="product-card__info">
+                    {{ product.abstract_name }}
+                </div>
+                <div class="product-card__info">
+                    #250g
+                </div>
+            </div>
+            <div class="product-card__footer">
+                <div class="product-card__pricing">
+                    <div class="product-card__price-total">
+                        {{ product.valid_price | price }}
+                    </div>
+                    <div class="product-card__price-relative">
+                        #250g (€1,4 / 100g)
+                    </div>
+                </div>
+                <div class="product-card__detail">
+                    {% include '@application/layout/common/forms/button.twig' with {
+                        title: 'Zum Produkt',
+                        url: product.url
+                    } %}
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

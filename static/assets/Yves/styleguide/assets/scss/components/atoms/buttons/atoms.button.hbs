@@ -1,7 +1,5 @@
-<a class="button {{modifier_class}}">
-   {{#if title}}
-       {{title}}
-   {{else}}
-       Button
-   {{/if}}
-</a>
+{{#if type}}
+    <button type="{{type}}" class="button {{modifier_class}}">{{default title "Button"}}</button>
+{{else}}
+    <a class="button {{modifier_class}}">{{default title "Button"}}</a>
+{{/if}}

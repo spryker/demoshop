@@ -25,6 +25,8 @@ $(document).ready(function () {
         $close.click(hideMenu);
 
         $trigger.click(function (e) {
+            e.preventDefault();
+
             var $target, index;
 
             $target = $(e.target).closest('.navbar__link');
@@ -67,7 +69,7 @@ $(document).ready(function () {
             }
         });
 
-
+        // TODO: refine transition as for the configurator
         function hideMenu (disableTransition) {
             if (typeof disableTransition === 'boolean' && disableTransition) {
                 $menu.removeClass('js-processed');
@@ -136,7 +138,5 @@ $(document).ready(function () {
             height = $menu.height();
         }
     });
-
-    // #TODO:440 dynamic cart count
 
 });

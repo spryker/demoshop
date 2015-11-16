@@ -22,6 +22,7 @@ class CartControllerProvider extends YvesControllerProvider
     const ROUTE_CART_OVERLAY = 'cart/overlay';
     const ROUTE_CART_ADD_AJAX = 'POST_cart/add';
     const ROUTE_CART_REMOVE_AJAX = 'POST_cart/remove';
+    const ROUTE_CART_CHANGE_AJAX = 'POST_cart/change';
     const ROUTE_CART_INCREASE_AJAX = 'POST_cart/increase';
     const ROUTE_CART_DECREASE_AJAX = 'POST_cart/decrease';
 
@@ -66,6 +67,12 @@ class CartControllerProvider extends YvesControllerProvider
 
         $this->createPostController('/cart/increase/{sku}/{groupKey}', self::ROUTE_CART_INCREASE_AJAX, 'Cart', 'Ajax', 'increase')
             ->assert('sku', '[a-zA-Z0-9-_]+')
+            ->value('groupKey', '')
+        ;
+
+        $this->createPostController('/cart/change/{sku}/{groupKey}', self::ROUTE_CART_CHANGE_AJAX, 'Cart', 'Ajax', 'change')
+            ->assert('sku', '[a-zA-Z0-9-_]+')
+            ->convert('quantity', [$this, 'getQuantityFromRequest'])
             ->value('groupKey', '')
         ;
 

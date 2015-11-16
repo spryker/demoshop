@@ -3,26 +3,19 @@
 .checkout {
   background-color: $pale-color;
 
-  padding-top: $step*6;
   padding-bottom: $step;
 
   .login-form {
     display: block;
   }
+
+  .checkout__form{
+      max-width: none;
+  }
 }
 
 .checkout__wrapper {
-  position: relative;
-  @include media-query('medium') {
-    width: 800px;
-    margin: 0 auto;
-  }
-  @include media-query('large') {
-    width: 1000px;
-  }
-  @include media-query('huge') {
-    width: 1200px;
-  }
+
 }
 
 .checkout__form-block, .checkout__cart {
@@ -44,13 +37,6 @@
   @include clearfix();
 
   position: relative;
-
-  @include media-query('large') {
-    margin-right: 300px;
-  }
-  @include media-query('huge') {
-    margin-right: 420px;
-  }
 }
 
 .js-checkout-collapsed {
@@ -94,15 +80,6 @@
 
 .checkout__cart {
   margin-top: 0;
-  @include media-query('large') {
-    position: absolute;
-    top: 0;
-    right: 0;
-    width: 300px - $step;
-  }
-  @include media-query('huge') {
-    width: 420px - $step;
-  }
 }
 
 .checkout {

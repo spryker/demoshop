@@ -16,15 +16,14 @@
 
     label{
         display: block;
+        padding-left: 0;
 
         font-family: $_ffBrandonGrotesque-Bold;
         font-size: $_fsSmall;
         line-height: $_lhSmall;
         color: $_rgbOsloGray3;
         text-align: center;
-    }
-
-    select{
+        text-transform: none;
     }
 }
 

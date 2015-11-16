@@ -9,6 +9,7 @@
     background: $_rgbWhite;
     padding: 48px 0 45px;
     @include cardShadow;
+    overflow: hidden;
 }
 
 .product__gallery{

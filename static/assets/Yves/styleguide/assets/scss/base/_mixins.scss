@@ -95,3 +95,16 @@
         box-shadow: 0 2px 10px 0 rgba(0,0,0,0.2);
     }
 }
+
+@mixin decoratorStrip ($_color: $_rgbApple) {
+    &:after{
+        content: '';
+        position: absolute;
+        bottom: -5px;
+        left: 50%;
+        margin-left: -30px;
+        height: 2px;
+        width: 60px;
+        background: $_color;
+    }
+}

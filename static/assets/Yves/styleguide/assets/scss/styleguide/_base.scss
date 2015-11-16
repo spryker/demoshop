@@ -8,7 +8,8 @@ $_fullScreenPages: (
     customer-returning,
     customer-login,
     checkout,
-    success
+    success,
+    formtest
 );
 
 body {
@@ -190,7 +191,7 @@ ul.styleguide-modifier {
 
 iframe {
     border: none;
-    max-height: calc(100vh - 35px) !important;
+    max-height: calc(100vh - 31px) !important;
     margin-bottom: -10px !important;
 }
 

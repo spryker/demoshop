@@ -5,7 +5,7 @@
 // Styleguide: organisms.communication
 
 .communication{
-    padding: 38px 0;
+    padding: 50px 0 0 0;
     @include sectionShadow;
 
     background: $_rgbApple;
@@ -19,7 +19,7 @@
 
 .communication__channel{
     width: 50%;
-    margin: 10px 0;
+    margin: 0 0 50px 0;
     padding-top: 53px;
     float: left;
     text-align: center;
@@ -52,7 +52,6 @@
     font-family: $_ffBrandonGrotesque-Bold;
     font-size: 16px;
     line-height: 23px;
-    //letter-spacing: 2.27px;
     text-transform: uppercase;
 }
 
@@ -60,7 +59,8 @@
     font-family: $_ffBrandonGrotesque-Bold;
     font-size: 16px;
     line-height: 23px;
-    //letter-spacing: 0.19px;
+    text-decoration: none;
+    color: $_rgbWhite
 }
 
 

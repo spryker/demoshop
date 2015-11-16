@@ -10,7 +10,18 @@
 .input{
     position: relative;
     padding: 0 5px;
-    margin-top: 10px;
+    margin-top: 18px;
+}
+
+.input--focussed{
+    .input__text{
+        border-color: $_rgbTundora;
+    }
+}
+
+.input--1-1{
+    float: left;
+    width: 100%;
 }
 
 .input--1-2{
@@ -42,10 +53,10 @@
 
 .input__text{
     width: 100%;
-    padding: 10px 22px 9px;
+    padding: 11px 22px 10px;
     border-radius: $_defaultBorderRadius;
     font-family: $_ffHelveticaNeue;
-    border: 2px solid $_rgbOsloGray;
+    border: 1px solid $_rgbSilverChalice;
     outline:0;
 
     appearance: none;
@@ -54,7 +65,12 @@
     background: transparent;
     color: $_rgbOsloGray;
 
+    overflow: hidden;
+    text-overflow: ellipsis;
+
     @include placeholderColor($_rgbOsloGray);
+
+    transition: border-color $_tShort ease-in-out;
 }
 
 .input--ghost{

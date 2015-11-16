@@ -1,13 +1,12 @@
 .header__cart {
 
-  position: absolute;
-  right: 0;
-  top: 0;
-
-  z-index: 20;
+    position: fixed;
+    right: 0;
+    bottom: 0;
+    z-index: 20;
+    height: 60px;
 
   // 100% of header height
-  height: 100%;
   width: $step*2;
 
   background-color: $darker-color;

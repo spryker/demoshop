@@ -7,7 +7,8 @@
 
 .hero{
     position: relative;
-    height: 390px;
+    height: calc(100vh - 118px);
+    overflow: hidden;
 }
 
 .hero__background{
@@ -22,7 +23,7 @@
 
 .hero__center{
     position: absolute;
-    top: 50%;
+    top: 45%;
     left: 0;
     width: 100%;
     transform: translate3d(0, -50%, 0);
@@ -35,12 +36,12 @@
 }
 
 .hero__headline{
-    margin-bottom: 15px;
+    margin-bottom: 25px;
 
     font-family: $_ffBrandonGrotesque-Black;
     font-size: 60px;
     line-height: 60px;
-    color: $_rgbApple;
+    color: $_rgbWhite;
 }
 
 .hero__description{
@@ -48,4 +49,35 @@
     font-size: 30px;
     line-height: 43px;
     color: $_rgbWhite;
+}
+
+.hero__scroll{
+    bottom: -48px;
+    left: 50%;
+    margin-left: -48px;
+
+    width: 96px;
+    height: 96px;
+    border-radius: 50%;
+
+    @include pdif('arrow-down', 19px, 11px);
+    position: absolute;
+    color: $_rgbWhite;
+    background: $_rgbApple;
+
+    cursor: pointer;
+
+    &:before{
+        width: 100%;
+        margin-top: -28px;
+        text-align: center;
+    }
+}
+
+
+
+@media (min-width: $_wLarge) {
+    .hero{
+        height: calc(100vh - 103px);
+    }
 }

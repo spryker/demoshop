@@ -1,0 +1,33 @@
+.product-grid{
+    @include pageWidth;
+    overflow: hidden;
+
+    .product-card{
+        float: left;
+    }
+}
+
+
+@media (min-width: $_wMedium) and (max-width: $_wLarge - 1px){
+    .product-grid{
+        .product-card{
+            width: 50%;
+
+            &:nth-child(2n+1){
+                clear: left;
+            }
+        }
+    }
+}
+
+@media (min-width: $_wLarge){
+    .product-grid{
+        .product-card{
+            width: 33.333%;
+
+            &:nth-child(3n+1){
+                clear: left;
+            }
+        }
+    }
+}

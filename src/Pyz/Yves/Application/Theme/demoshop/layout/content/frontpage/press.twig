@@ -1,0 +1,15 @@
+{% set data = {
+    keys: ['zdf', 'spiegel', 'bild', 'newyorktimes', 'bunte', 'ard']
+} %}
+
+
+
+<div class="press">
+    <div class="press__inner">
+
+        {% for key in data.keys %}
+        <div class="press__item press__item--{{ key }}"></div>
+        {% endfor %}
+
+    </div>
+</div>

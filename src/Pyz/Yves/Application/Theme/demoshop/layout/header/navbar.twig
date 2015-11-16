@@ -1,0 +1,83 @@
+{%
+    set data = {
+        wordmark: 'Pets Deli',
+        items: [
+            'Geld - zurück - Garantie',
+            'Kostenloser Tiefkühl-Versand',
+            'Hotline: 030 - 208 98 48 99'
+        ],
+        press: {
+            title: 'Bekannt aus',
+            references: ['bild', 'spiegel', 'ard']
+        },
+        logo: {
+            url: '/',
+            image: {
+                src: 'images/logo/logo_header.png',
+                alt: 'Pets Deli Logo'
+            }
+        },
+        links: [
+            { url: '/hunde', title: 'Hunde', menu: 'menu'},
+            { url: '/katzen', title: 'Katzen', menu: 'menu'},
+            { url: '/support', title: 'Warum?', modifier: 'support', menu: 'menu'},
+            { url: '/contact', title: 'Fragen?', modifier: 'contact', menu: 'menu'},
+            { url: '', title: 'Anmelden', modifier: 'login'},
+            { url: '/checkout', title: 'Warenkorb', modifier: 'cart', menu: 'cart'},
+        ]
+    }
+%}
+
+
+<nav class="navbar">
+    <div class="navbar__inner">
+
+        <div class="navbar__top">
+           <div class="navbar__center">
+                <div class="navbar__wordmark">{{ data.wordmark }}</div>
+
+                {% for item in data.items %}
+                    <div class="navbar__item">{{ item }}</div>
+                {% endfor %}
+
+                <div class="navbar__item">{{ data.press.title }}
+                    {% for reference in data.press.references %}
+                        <span class="navbar__press navbar__press--{{ reference }}"></span>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+
+        <div class="navbar__bottom">
+            <div class="navbar__center">
+                <a class="navbar__logo" href="{{ data.logo.url }}">
+                    <img src="{{ data.logo.image.src }}" alt="{{ data.logo.image.alt }}">
+                </a>
+
+                <ul class="navbar__links">
+
+                    {% for link in data.links %}
+                        <li {% if link.menu is defined %} data-menu="{{ link.menu }}" {% endif %} class="navbar__link {% if link.modifier is defined %} navbar__link--{{ link.modifier }} {% endif %}">
+                            <a {% if link.url is defined %} href="{{ link.url }}" {% endif %}>
+
+                                {% if link.menu is defined and link.menu not in ['menu'] %} <span> {% endif %}
+                                    {{ link.title }}
+                                {% if link.menu is defined and link.menu not in ['menu'] %} </span> {% endif %}
+
+                            </a>
+                        </li>
+                    {% endfor %}
+
+                    <li class="navbar__link navbar__link--more"><div>&nbsp;</div></li>
+
+                </ul>
+
+                <div class="navbar__marker"></div>
+            </div>
+        </div>
+    </div>
+
+    {% include '@application/layout/header/menu.twig' %}
+</nav>
+
+<div class="navbar__pusher"></div>

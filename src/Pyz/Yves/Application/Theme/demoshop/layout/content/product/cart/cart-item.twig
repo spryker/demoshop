@@ -1,0 +1,34 @@
+<div class="cart-item" data-sku={{ sku }} data-group-key={{ groupKey }}>
+    <div class="cart-item__left">
+
+        <div class="cart-item__image">
+            <img src="{{ image }}">
+        </div>
+
+        <div class="cart-item__details">
+
+            <a href="{{ url }}" class="cart-item__title">{{ title }}</a>
+
+            <div class="cart-item__content">
+                <div class="cart-item__weight">{{ weight }}</div>
+                <div class="cart-item__flag">#Customized</div>
+            </div>
+        </div>
+
+        <span class="cart-item__delete"></span>
+    </div>
+
+    <div class="cart-item__right">
+        {% include  '@application/layout/common/forms/stepper.twig' with {
+            modifier: 'cart-item__quantity',
+            label: 'Anzahl',
+            id: 'product_quantity',
+            name: 'product_quantity',
+            value: quantity
+        } %}
+
+        <span class="cart-item__price">
+            {{ (price * quantity) | price }}
+        </span>
+    </div>
+</div>

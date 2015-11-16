@@ -1,0 +1,33 @@
+{% set data = {
+    headline: 'Unsere Starter Packete',
+    description: 'Starten Sie jetzt die gesunde Ernährung Ihres Vierbeiners',
+    image: '/images/product/featured_background.png'
+} %}
+
+
+<div class="featured-products" style="background-image: url({{ data.image }});
+">
+    <div class="featured-products__inner">
+        <div class="featured-products__intro">
+            <h2 class="featured-products__headline">{{ data.headline }}</h2>
+            <p class="featured-products__description">{{ data.description }}</p>
+        </div>
+        <div class="featured-products__products">
+            {% include "@application/layout/content/product/product-card.twig" with {
+                product: {
+                    abstract_name: 'PETS DELI MIXFLOCKEN 250G',
+                    valid_price: 350,
+                    url: 'http://www.de.pets-deli.dev/pets-deli-mixflocken-250g'
+                }
+            } %}
+
+            {% include "@application/layout/content/product/product-card.twig" with {
+                product: {
+                    abstract_name: 'PETS DELI LEINÖL 250ML',
+                    valid_price: 700,
+                    url: 'http://www.de.pets-deli.dev/pets-deli-leinoel-250ml'
+                }
+            } %}
+        </div>
+    </div>
+</div>

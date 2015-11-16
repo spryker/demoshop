@@ -1,0 +1,9 @@
+<div class="product-grid">
+
+    {% for product in products %}
+        {% include "@application/layout/content/product/product-card.twig" with {
+            product: product
+        } %}
+    {% endfor %}
+    
+</div>

@@ -3,8 +3,8 @@
 var $ = require('jquery'),
     spinner = require('./ui/spinner'),
     search = require('./ui/search'),
-    cart = require('./ui/shopping-cart'),
-    overlay = require('./ui/overlay'),
+    //cart = require('./ui/shopping-cart'),
+    //overlay = require('./ui/overlay'),
     loginForm = require('./ui/login-form'),
     filter = require('./ui/catalog/filters'),
     pagination = require('./ui/catalog/pagination'),
@@ -23,15 +23,15 @@ $(function() {
   mainNav.init();
   spinner.init();
   search.init();
-  cart.init();
+  //cart.init();
   catalog.init();
-  overlay.init();
-  loginForm.init();
+  //overlay.init();
+  //loginForm.init();
   checkout.init();
 
   // TODO only call this on catalog page
-  filter.init();
-  pagination.init();
+  //filter.init();
+  //pagination.init();
 
   // TODO only call this on homepage
   homepage.init();
@@ -40,5 +40,5 @@ $(function() {
 
   // TODO remove, probably
   // it's only for in-browser debugging
-  window.$ = $;
+  //window.$ = $;
 });

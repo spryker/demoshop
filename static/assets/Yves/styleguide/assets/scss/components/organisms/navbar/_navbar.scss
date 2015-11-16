@@ -24,7 +24,7 @@
 }
 
 .navbar__pusher{
-    padding-top: 135px;
+    padding-top: 118px;
 }
 
 .navbar__top{
@@ -95,7 +95,7 @@
     display: none;
     float: left;
     width: 100px;
-    margin: 8px 0 -19px 0;
+    margin: 8px 0 -35px 0;
 
     img{
         @include responsiveImage;
@@ -122,8 +122,8 @@
 
         font-family: $_ffBrandonGrotesque-Bold;
         font-size: $_fsSmall;
-        line-height: 90px;
-        height: 90px;
+        line-height: 72px;
+        height: 72px;
         text-decoration: none;
         text-transform: uppercase;
         color: $_rgbQuincy;
@@ -162,12 +162,16 @@
 .navbar__link--cart{
     a{
         @include pdif('cart', 20px, 30px);
+    }
+}
 
+.navbar__link--bubble{
+    a{
         &:after{
             position: absolute;
-            top: 22px;
+            top: 15px;
             left: 10px;
-            content: attr(data-cartcount);
+            content: attr(data-count);
             background: $_rgbClementine;
             height: 21px;
             width: 21px;
@@ -192,7 +196,7 @@
 
 @media (min-width: $_wLarge) {
     .navbar__pusher{
-        padding-top: 120px;
+        padding-top: 103px;
     }
 
     .navbar__top--hidden{

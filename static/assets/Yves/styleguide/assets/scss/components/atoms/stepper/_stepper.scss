@@ -5,6 +5,8 @@
 // Styleguide: atoms.stepper
 
 .stepper{
+    // TODO: only in form context
+    margin-top: 18px;
     display: inline-block;
     position: relative;
 
@@ -15,7 +17,7 @@
         height: 50px;
         line-height: 50px;
         width: 135px;
-        border: 2px solid $_rgbOsloGray;
+        border: 1px solid $_rgbSilverChalice;
         border-radius: $_defaultBorderRadius;
 
         font-size: 18px;
@@ -35,9 +37,20 @@
     }
 }
 
+.stepper__label{
+    display: block;
+    margin-bottom: 10px;
+
+    font-family: $_ffBrandonGrotesque-Bold;
+    font-size: $_fsSmall;
+    line-height: $_lhSmall;
+    color: $_rgbOsloGray3;
+    text-align: center;
+}
+
 .stepper__button{
     position: absolute !important;
-    top: 0;
+    bottom: 0;
     cursor: pointer;
 
     width: 45px;
@@ -47,7 +60,7 @@
     background: $_rgbWhite;
     color: $_rgbOsloGray;
 
-    border: 2px solid $_rgbOsloGray;
+    border: 1px solid $_rgbSilverChalice;
 
     &:before{
         width: 100%;

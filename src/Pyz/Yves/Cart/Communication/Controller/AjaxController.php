@@ -25,6 +25,9 @@ class AjaxController extends AbstractController
             if (empty($item->getName())) {
                 $item->setName('Product ' . mt_rand(1, 99));
             }
+
+            // TODO: provide item url in template
+            //$product = $this->locator->catalog()->client()->createCatalogModel()->getProductDataById($item->getId());
         }
 
         $tracking = Tracking::getInstance();
@@ -122,6 +125,25 @@ class AjaxController extends AbstractController
         $itemTransfer->setGroupKey($groupKey);
 
         $cartClient->decreaseItemQuantity($itemTransfer);
+
+        return $this->redirectResponseInternal(CartControllerProvider::ROUTE_CART_OVERLAY);
+    }
+
+    /**
+     * @param string $sku
+     * @param int    $quantity
+     * @param string $groupKey
+     *
+     * @return RedirectResponse
+     */
+    public function changeAction($sku, $quantity, $groupKey = null)
+    {
+        $cartClient = $this->getLocator()->cart()->client();
+        $itemTransfer = new ItemTransfer();
+        $itemTransfer->setSku($sku);
+        $itemTransfer->setGroupKey($groupKey);
+
+        $cartClient->changeItemQuantity($itemTransfer, $quantity);
 
         return $this->redirectResponseInternal(CartControllerProvider::ROUTE_CART_OVERLAY);
     }

@@ -1,8 +1,0 @@
-<section class="filter js-filter filter__{{filterName}}" data-filter-name="{{filterName}}" data-filter-type="multivalue">
-    <h1 class="filter__title">{{ ('catalog.filter.' ~ filterName)|trans }}</h1>
-    <ul class="filter__{{filterName}}-list">
-        {% for facetValue, facetCount in facetValues %}
-            <li>{% include "@catalog/catalog/partials/filter-multivalue-value.twig" with {filterName:filterName, displayValue:facetValue, value:facetValue, quantity:facetCount} %}</li>
-        {% endfor %}
-    </ul>
-</section>

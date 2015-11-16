@@ -1,14 +1,13 @@
 <div class="checkout__step">
 
-  <div class="checkout__step-headline">Verification and purchase confirmation</div>
-  <div class="checkout__step-progress">Step 3/3</div>
+    <div class="checkout__edit">
+        <div class="checkout__step-headline">Verification and purchase confirmation</div>
+        <div class="checkout__step-progress">Step 3/3</div>
 
-  <div class="checkout__edit">
-    <div class="checkout__cart">
-      {{> "molecules.cart-item"}}
+        <div class="checkout__cart">
+            {{> "molecules.cart-item"}} {{> "atoms.button" type="submit" modifier_class="button--cta checkout__step-button" title="Pay now"}}
+        </div>
+
     </div>
-
-    {{> "atoms.button" modifier_class="button--cta" title="Pay now"}}
-  </div>
 
 </div>

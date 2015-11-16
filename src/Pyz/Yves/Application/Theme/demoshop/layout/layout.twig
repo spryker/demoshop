@@ -1,7 +1,34 @@
-{% include "@application/layout/partials/head.twig" %}
-{% include "@application/layout/partials/header.twig" %}
+{% spaceless %}
+    <!DOCTYPE html>
+    <html lang="de">
+        <head>
+            <meta charset="utf-8" />
+            <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+            <meta name="viewport" content="width=device-width,initial-scale=1.0, user-scalable=no">
 
-{% block content %}{% endblock %}
+            <title>{% block title %}Hundefutter und Katzenfutter online kaufen | PETS DELI{% endblock %}</title>
+            <meta name="description" content="Hundefutter und Katzenfutter hier online bestellen bei PETS DELI. Frisch ✓ Lebensmittelqualität ✓ Ohne Zusätze ✓ Fertig zubereitet ✓ Tierärztlich Empfohlen ✓">
+            <link rel="shortcut icon" href="/images/favicon/favicon.ico" type="image/x-icon">
 
-{% include "@application/layout/partials/footer.twig" %}
-{% include "@application/layout/partials/foot.twig" %}
+            <!-- TODO: remove old styles -->
+            <link rel="stylesheet" href="/css/main.css" />
+            <link rel="stylesheet" href="/css/styleguide.css" />
+
+            {% include "@application/layout/partials/tracking-base.twig" %}
+            {% include "@application/layout/partials/tracking.twig" %}
+        </head>
+
+        <body>
+
+            {% include "@application/layout/partials/header.twig" %}
+
+            {% block content %}{% endblock %}
+
+            {% include "@application/layout/partials/footer.twig" %}
+
+            <!-- TODO: remove old script -->
+            <script src="/js/main.js"></script>
+            <script src="/js/sg-main.js"></script>
+        </body>
+    </html>
+{% endspaceless %}

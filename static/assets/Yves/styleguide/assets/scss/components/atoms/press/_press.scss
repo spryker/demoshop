@@ -6,7 +6,7 @@
 
 .press{
     width: 100%;
-    padding-bottom: 100px;
+    padding-bottom: 60px;
     text-align: center;
     background: $_rgbWhite;
 }
@@ -16,9 +16,9 @@
 }
 
 .press__item{
-    height: 42px;
+    margin: 0 30px;
+    height: 70px;
     color: $_rgbSilverChalice;
-    margin: 0 10px;
 
     &:before{
         width: 100%;

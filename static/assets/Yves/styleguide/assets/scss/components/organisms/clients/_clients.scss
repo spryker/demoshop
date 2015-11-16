@@ -5,6 +5,7 @@
 // Styleguide: organisms.clients
 
 .clients{
+    clear: both;
     @include sectionShadow;
     background: $_rgbWhite;
 }
@@ -35,7 +36,7 @@
 
     font-family: $_ffBrandonGrotesque-Black;
     font-size: $_fsLarge;
-    line-height: $_lhLarge;
+    line-height: 1.1em;
     color: $_rgbApple;
 }
 
@@ -50,8 +51,12 @@
 
 .clients__item{
     padding: 0 25px;
+    width: 100%;
     float: left;
-    width: 50%;
+
+    & + .clients__item{
+        margin-top: 100px;
+    }
 
     .clients__item-image{
         @include responsiveImage;
@@ -72,6 +77,16 @@
         color: $_rgbSilverChalice;
         max-width: 300px;
         margin: 0 auto;
+    }
+}
+
+@media (min-width: $_wMedium) {
+    .clients__item{
+        width: 50%;
+
+        & + .clients__item{
+            margin-top: 0;
+        }
     }
 }
 
