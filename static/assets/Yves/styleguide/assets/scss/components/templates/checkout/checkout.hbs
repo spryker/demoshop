@@ -1,52 +1,10 @@
 {{> "organisms.navbar"}}
 
 
-<div class="user-boxes">
-    <div class="user-boxes__inner">
-
-        <div class="user-box">
-            <div class="user-box__inner">
-                <div class="user-box__headline">Registration</div>
-
-                <div class="form-section">
-                    {{> "atoms.input" label="E-Mail Adresse*" type="email" placeholder="z.B. yourname@youremail.com" additional="We will send the order confimation at this email address" id="email" name="email"}}
-
-                    {{> "atoms.input" modifier_class="input--1-2" label="Vorname*" id="first_name" name="first_name"}}
-                    {{> "atoms.input" modifier_class="input--1-2" label="Nachname*" id="last_name" name="last_name"}}
-
-                    {{> "atoms.input" modifier_class="input--1-4" label="Straße*" id="street" name="street"}}
-                    {{> "atoms.input" modifier_class="input--3-4" label="Hausnummer*" id="street_number" name="street_number"}}
-
-                    {{> "atoms.input" modifier_class="input--3-4" label="PLZ*" id="zipcode" name="zipcode"}}
-                    {{> "atoms.input" modifier_class="input--1-4" label="Stadt*" id="city" name="city"}}
-
-                    {{> "atoms.dropdown" label="Land*" options='["Deutschland","Österreich"]' placeholder="Bitte wählen Sie ihr Land" id="country" name="country"}}
-                </div>
-
-                <div class="user-box__divider"></div>
-
-                <div class="user-box__headline">Address</div>
-                <div class="user-box__description">In progress...</div>
-                <div class="user-box__divider"></div>
-
-                <div class="user-box__headline">Shipping</div>
-                <div class="user-box__description">In progress...</div>
-                <div class="user-box__divider"></div>
-
-                <div class="user-box__headline">Payment</div>
-                <div class="user-box__description">In progress...</div>
-                <div class="user-box__divider"></div>
-
-                <div class="user-box__headline">Cart</div>
-                <div class="user-box__description">In progress...</div>
-                <div class="user-box__divider"></div>
-
-                <div class="user-box__headline">Coupon</div>
-                <div class="user-box__description">In progress...</div>
-            </div>
-        </div>
-
-    </div>
+<div class="checkout">
+  {{> "checkout.account"}}
+  {{> "checkout.payment"}}
+  {{> "checkout.confirmation"}}
 </div>
 
 
