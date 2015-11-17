@@ -2,15 +2,18 @@
 
 namespace Pyz\Yves\Checkout\Communication\Controller;
 
+use Generated\Shared\Shipment\ShipmentInterface;
 use Generated\Shared\Transfer\CartTransfer;
 use Generated\Shared\Transfer\CheckoutErrorTransfer;
 use Generated\Shared\Transfer\CheckoutRequestTransfer;
 use Generated\Shared\Transfer\CheckoutResponseTransfer;
+use Generated\Shared\Transfer\ExpenseTransfer;
 use Generated\Shared\Transfer\ShipmentMethodAvailabilityTransfer;
 use Pyz\Yves\Checkout\Communication\Form\CheckoutType;
 use Pyz\Yves\Checkout\Communication\Plugin\CheckoutControllerProvider;
 use SprykerEngine\Yves\Application\Communication\Controller\AbstractController;
 use Pyz\Yves\Checkout\Communication\CheckoutDependencyContainer;
+use SprykerFeature\Shared\Shipment\ShipmentConstants;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\HttpFoundation\Request;
@@ -20,15 +23,6 @@ use Symfony\Component\HttpFoundation\Request;
  */
 class CheckoutController extends AbstractController
 {
-
-    /**
-     * @return CartTransfer
-     */
-    public function getCart()
-    {
-        return $this->getLocator()->cart()->client()->getCart();
-    }
-
     /**
      * @param Request $request
      *
@@ -36,44 +30,38 @@ class CheckoutController extends AbstractController
      */
     public function indexAction(Request $request)
     {
-        $container = $this->getDependencyContainer();
         $shipmentMethodAvailabilityTransfer = new ShipmentMethodAvailabilityTransfer();
-        $shipmentMethodAvailabilityTransfer->setCart($this->getCart());
+        $shipmentMethodAvailabilityTransfer->setCart($this->getCartTransfer());
 
-        $shipmentTransfer = $container->createShipmentClient()
+        $shipmentTransfer = $this->getDependencyContainer()->createShipmentClient()
             ->getAvailableMethods($shipmentMethodAvailabilityTransfer);
 
-        $checkoutForm = $container->createCheckoutForm($request, $shipmentTransfer);
+        $checkoutFormType = $this->getDependencyContainer()->createCheckoutForm($request, $shipmentTransfer);
 
         $checkoutTransfer = new CheckoutRequestTransfer();
-
-        $checkoutForm = $this->createForm($checkoutForm, $checkoutTransfer);
+        $checkoutForm = $this->createForm($checkoutFormType, $checkoutTransfer);
 
         if ($request->isMethod('POST')) {
             if ($checkoutForm->isValid()) {
-                $checkoutClient = $this->getLocator()->checkout()->client();
-                /** @var CheckoutRequestTransfer $checkoutRequest */
-                $checkoutRequest = $checkoutForm->getData();
+                /** @var CheckoutRequestTransfer $checkoutRequestTransfer */
+                $checkoutRequestTransfer = $checkoutForm->getData();
 
-                foreach ($shipmentTransfer->getMethods() as $shipmentMethod) {
-                    if ($shipmentMethod->getIdShipmentMethod() === $checkoutRequest->getIdShipmentMethod()) {
-                        $checkoutRequest->setShipmentMethod($shipmentMethod);
-                    }
-                }
+                $checkoutRequestTransfer->setCart($this->getCartTransfer());
+                $checkoutRequestTransfer->setShippingAddress($checkoutRequestTransfer->getBillingAddress());
 
-                $checkoutRequest->setCart($this->getCart());
-                $checkoutRequest->setShippingAddress($checkoutRequest->getBillingAddress());
+                $this->setShipping($shipmentTransfer, $checkoutRequestTransfer);
 
                 $createAccount = $checkoutForm[CheckoutType::FIELD_CREATE_ACCOUNT]->getData();
                 if ($createAccount) {
-                    $checkoutRequest->setCustomerPassword($checkoutForm[CheckoutType::FIELD_PASSWORD]->getData());
+                    $checkoutRequestTransfer->setCustomerPassword($checkoutForm[CheckoutType::FIELD_PASSWORD]->getData());
                 }
 
-                /** @var CheckoutResponseTransfer $checkoutResponseTransfer */
-                $checkoutResponseTransfer = $checkoutClient->requestCheckout($checkoutRequest);
+                $checkoutResponseTransfer = $this->getDependencyContainer()
+                    ->createCheckoutClient()
+                    ->requestCheckout($checkoutRequestTransfer);
 
                 if ($checkoutResponseTransfer->getIsSuccess()) {
-                    $this->getLocator()->cart()->client()->clearCart();
+                    $this->getDependencyContainer()->createCartClient()->clearCart();
 
                     return $this->redirect($checkoutResponseTransfer);
                 } else {
@@ -84,7 +72,7 @@ class CheckoutController extends AbstractController
 
         return [
             'form' => $checkoutForm->createView(),
-            'cart' => $this->getCart(),
+            'cart' => $this->getCartTransfer(),
         ];
     }
 
@@ -138,6 +126,58 @@ class CheckoutController extends AbstractController
             'success' => true,
             'url' => $redirectUrl,
         ]);
+    }
+
+
+    /**
+     * @return CartTransfer
+     */
+    public function getCartTransfer()
+    {
+        return $this->getDependencyContainer()->createCartClient()->getCart();
+    }
+
+
+    /**
+     * @param ShipmentInterface $shipmentTransfer
+     * @param CheckoutRequestTransfer $checkoutRequestTransfer
+     *
+     * @return void
+     */
+    protected function setShipping(
+        ShipmentInterface $shipmentTransfer,
+        CheckoutRequestTransfer $checkoutRequestTransfer
+    ) {
+        foreach ($shipmentTransfer->getMethods() as $shipmentMethodTransfer) {
+            if ($shipmentMethodTransfer->getIdShipmentMethod() === $checkoutRequestTransfer->getIdShipmentMethod()) {
+                $checkoutRequestTransfer->setShipmentMethod($shipmentMethodTransfer);
+
+                $shipmentExpenseTransfer = new ExpenseTransfer();
+                $shipmentExpenseTransfer->setType(ShipmentConstants::SHIPMENT_EXPENSE_TYPE);
+                $shipmentExpenseTransfer->setGrossPrice($shipmentMethodTransfer->getPrice());
+                $shipmentExpenseTransfer->setName($shipmentMethodTransfer->getName());
+
+                $this->replaceShipmentExpenseInCart($checkoutRequestTransfer->getCart(), $shipmentExpenseTransfer);
+            }
+        }
+    }
+
+    /**
+     * @param CartTransfer $cartTransfer
+     * @param ExpenseTransfer $expenseTransfer
+     *
+     * @return void
+     */
+    private function replaceShipmentExpenseInCart(CartTransfer $cartTransfer, ExpenseTransfer $expenseTransfer)
+    {
+        $otherExpenseCollection = new \ArrayObject();
+        foreach ($cartTransfer->getExpenses() as $expense) {
+            if ($expense->getType() !== ShipmentConstants::SHIPMENT_EXPENSE_TYPE) {
+                $otherExpenseCollection->append($expense);
+            }
+        }
+        $cartTransfer->setExpenses($otherExpenseCollection);
+        $cartTransfer->addExpense($expenseTransfer);
     }
 
 }

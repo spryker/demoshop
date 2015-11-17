@@ -3,17 +3,17 @@
         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
         xsi:noNamespaceSchemaLocation="process.xsd">
 
-    <process name="Invoice" main="true">
+    <process name="Invoice01" main="true">
         <states>
             <state name="new" reserved="true"/>
             <state name="invoice generated"/>
             <state name="invoice sent" />
-            <state name="exported order" />
+            <state name="order exported" />
             <state name="order shipped" />
             <state name="waiting for payment" />
             <state name="payment received" />
-            <state name="sent reminder I" />
-            <state name="sent reminder II" />
+            <state name="reminder I sent" />
+            <state name="reminder II sent" />
             <state name="dunning process started" />
             <state name="ready for return" />
             <state name="completed" />
@@ -34,12 +34,12 @@
 
             <transition>
                 <source>invoice sent</source>
-                <target>exported order</target>
+                <target>order exported</target>
                 <event>export order</event>
             </transition>
 
             <transition>
-                <source>exported order</source>
+                <source>order exported</source>
                 <target>order shipped</target>
                 <event>ship order</event>
             </transition>
@@ -52,7 +52,7 @@
 
             <transition>
                 <source>waiting for payment</source>
-                <target>sent reminder I</target>
+                <target>reminder I sent</target>
                 <event>payment not received</event>
             </transition>
 
@@ -63,25 +63,25 @@
             </transition>
 
             <transition>
-                <source>sent reminder I</source>
-                <target>sent reminder II</target>
+                <source>reminder I sent</source>
+                <target>reminder II sent</target>
                 <event>payment not received</event>
             </transition>
 
             <transition>
-                <source>sent reminder I</source>
+                <source>reminder I sent</source>
                 <target>payment received</target>
                 <event>payment received</event>
             </transition>
 
             <transition>
-                <source>sent reminder II</source>
+                <source>reminder II sent</source>
                 <target>dunning process started</target>
                 <event>payment not received</event>
             </transition>
 
             <transition>
-                <source>sent reminder II</source>
+                <source>reminder II sent</source>
                 <target>payment received</target>
                 <event>payment received</event>
             </transition>
