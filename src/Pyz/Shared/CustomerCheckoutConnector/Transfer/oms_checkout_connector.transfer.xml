@@ -1,0 +1,14 @@
+<?xml version="1.0"?>
+<transfers xmlns="http://xsd.spryker.com"
+           xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+           xsi:schemaLocation="http://xsd.spryker.com ../../src/Spryker/TransferObjectDefinitionSchema.xsd">
+
+    <transfer name="Order">
+        <property name="process" type="string" />
+    </transfer>
+
+    <transfer name="CheckoutRequest">
+        <property name="paymentMethod" type="string" />
+    </transfer>
+</transfers>
+

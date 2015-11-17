@@ -14,6 +14,10 @@ use SprykerFeature\Shared\Session\SessionConfig;
 use SprykerFeature\Shared\SequenceNumber\SequenceNumberConstants as SequenceNumberConfig;
 use Pyz\Shared\OrderExporter\AfterbuyExportConstantInterface;
 use Pyz\Shared\Glossary\GlossaryConfig;
+use PavFeature\Shared\Adyen\AdyenConfigConstants;
+
+$config[SystemConfig::ZED_SHOW_EXCEPTION_STACK_TRACE] = true;
+
 
 $config[SystemConfig::PROJECT_NAMESPACES] = [
     'Pyz',
@@ -336,4 +340,20 @@ $config[AfterbuyExportConstantInterface::AFTERBUY_CONNECTION_TIMEOUT] = 120;
 
 $config[GlossaryConfig::REMOTE_CSV_URL] = 'https://docs.google.com/spreadsheets/d/13InPAj1BWLFrvQX8h6uVIVJi-wNmTmUPd3cJXTfGp5U/pub?gid=0&single=true&output=csv';
 
+$config[AdyenConfigConstants::ADYEN_PAYMENT_PROVIDER] = [
+    AdyenConfigConstants::ADYEN_MODE => AdyenConfigConstants::ADYEN_MODE_TEST,
+
+    AdyenConfigConstants::ADYEN_CREDENTIALS_AUTHENTICATION_WS_USER => '',
+    AdyenConfigConstants::ADYEN_CREDENTIALS_AUTHENTICATION_WS_PASSWORD => '',
+    AdyenConfigConstants::ADYEN_CREDENTIALS_MERCHANT_ACCOUNT => '',
+    AdyenConfigConstants::ADYEN_CREDENTIALS_HMAC_KEY => '',
+    AdyenConfigConstants::ADYEN_CREDENTIALS_HMAC_ALGORITHM => '',
+    AdyenConfigConstants::ADYEN_CREDENTIALS_SKIN_CODE => '',
+
+    AdyenConfigConstants::ADYEN_CONFIGURATION_HPP_PAYMENT_RETURN_URI => '',
+    AdyenConfigConstants::ADYEN_CONFIGURATION_ARE_API_PAYMENT_METHODS_ENABLED => true,
+    AdyenConfigConstants::ADYEN_CONFIGURATION_ARE_HPP_PAYMENT_METHODS_ENABLED => true,
+    AdyenConfigConstants::ADYEN_CONFIGURATION_IS_PAYMENT_SELECTION_ON_HPP => false,
+    AdyenConfigConstants::ADYEN_CONFIGURATION_FETCH_HPP_PAYMENT_METHODS => true
+];
 $config[SystemConfig::ZED_SHOW_EXCEPTION_STACK_TRACE] = false;

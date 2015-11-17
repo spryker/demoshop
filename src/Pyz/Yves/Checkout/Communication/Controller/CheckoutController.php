@@ -2,14 +2,19 @@
 
 namespace Pyz\Yves\Checkout\Communication\Controller;
 
+use Generated\Shared\Transfer\AdyenPaymentDetailTransfer;
+use Generated\Shared\Transfer\AdyenPaymentMethodAvailabilityTransfer;
+use Generated\Shared\Transfer\AdyenPaymentTransfer;
 use Generated\Shared\Transfer\CartTransfer;
 use Generated\Shared\Transfer\CheckoutErrorTransfer;
 use Generated\Shared\Transfer\CheckoutRequestTransfer;
 use Generated\Shared\Transfer\CheckoutResponseTransfer;
 use Generated\Shared\Transfer\ShipmentMethodAvailabilityTransfer;
+use PavFeature\Shared\Adyen\AdyenPaymentMethodConstants;
 use Pyz\Yves\Checkout\Communication\Plugin\CheckoutControllerProvider;
 use SprykerEngine\Yves\Application\Communication\Controller\AbstractController;
 use Pyz\Yves\Checkout\Communication\CheckoutDependencyContainer;
+use SprykerFeature\Shared\Library\Log;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\HttpFoundation\Request;
@@ -36,14 +41,26 @@ class CheckoutController extends AbstractController
     public function indexAction(Request $request)
     {
         $container = $this->getDependencyContainer();
-        $shipmentMethodAvailabilityTransfer = new ShipmentMethodAvailabilityTransfer();
-        $shipmentMethodAvailabilityTransfer->setCart($this->getCart());
 
-        $checkoutForm = $container->createCheckoutForm();
+/** TODO: START OF HACK FETCH PAYMENT METHODs */
+
+        $adyenPaymentAvailabilityTransfer = new AdyenPaymentMethodAvailabilityTransfer();
+        $adyenPaymentAvailabilityTransfer->setAmount(10000);
+        $adyenPaymentAvailabilityTransfer->setCurrency('EUR');
+        $adyenPaymentAvailabilityTransfer->setCountry('DE');
+        $adyenPaymentAvailabilityTransfer->setSessionValidity(date("c", strtotime("+1 days")));
+
+        $paymentMethodsTransfer = $container->createAdyenClient()
+            ->getAvailablePaymentMethods($adyenPaymentAvailabilityTransfer);
+/** TODO: START OF HACK FETCH PAYMENT METHODs */
+
+
+        $checkoutForm = $container->createCheckoutForm($paymentMethodsTransfer);
         $checkoutTransfer = new CheckoutRequestTransfer();
         $checkoutTransfer->setIsGuest(false); // for now there is no guest checkout. When an order is performed the customer is saved
 
         $form = $this->createForm($checkoutForm, $checkoutTransfer);
+
 
         if ($request->isMethod('POST')) {
             if ($form->isValid()) {
@@ -51,8 +68,34 @@ class CheckoutController extends AbstractController
                 /** @var CheckoutRequestTransfer $checkoutRequest */
                 $checkoutRequest = $form->getData();
 
+/** TODO: START OF HACK PAYMENT METHOD */
+                $adyenPaymentDetails = new AdyenPaymentDetailTransfer();
+                $adyenPaymentDetails->setAmount(6000);
+
+                $adyenPaymentDetails->setIban('DE87123456781234567890');
+                $adyenPaymentDetails->setBic('HUHUBIC');
+                $adyenPaymentDetails->setOwnerName('A. Schneider');
+
+                $adyenPaymentDetails->setCountry('DE');
+                $adyenPaymentDetails->setIp('127.0.0.1');
+                $adyenPaymentDetails->setCurrency('EUR');
+                //$adyenPaymentDetails->setDateOfBirth('07071960');
+                //$adyenPaymentDetails->setGender('male');
+                //$adyenPaymentDetails->setPhoneNumber('01522113356');
+
+                $adyenPaymentTransfer = new AdyenPaymentTransfer();
+                $adyenPaymentTransfer->setPaymentMethod(AdyenPaymentMethodConstants::ADYEN_PAYMENT_METHOD_SEPA);
+                $adyenPaymentTransfer->setPaymentDetail($adyenPaymentDetails);
+                $checkoutRequest->setAdyenPayment($adyenPaymentTransfer);
+
+                $checkoutRequest->setPaymentMethod(AdyenPaymentMethodConstants::ADYEN_PAYMENT_METHOD_SEPA);
+
+                //$checkoutRequest->setPaymentMethod('prepayment');
+/** TODO: END OF HACK PAYMENT METHOD */
+
                 $checkoutRequest->setCart($this->getCart());
                 $checkoutRequest->setShippingAddress($checkoutRequest->getBillingAddress());
+
 
                 /** @var CheckoutResponseTransfer $checkoutResponseTransfer */
                 $checkoutResponseTransfer = $checkoutClient->requestCheckout($checkoutRequest);
@@ -115,13 +158,23 @@ class CheckoutController extends AbstractController
      */
     public function redirect(CheckoutResponseTransfer $checkoutResponseTransfer)
     {
-        $redirectUrl = $checkoutResponseTransfer->getIsExternalRedirect()
-            ? $checkoutResponseTransfer->getRedirectUrl()
-            : CheckoutControllerProvider::ROUTE_CHECKOUT_SUCCESS;
 
+        // TODO Building redirect url is not final !!!!
+
+        if ($checkoutResponseTransfer->getIsExternalRedirect()) {
+            $redirectUrl = $checkoutResponseTransfer->getRedirectUrl() .
+                '&' . http_build_query($checkoutResponseTransfer->getRedirectPayload(), null, '&');
+        } else {
+            $redirectUrl = CheckoutControllerProvider::ROUTE_CHECKOUT_SUCCESS;
+        }
+/*
+        // TODO can be use for testing hmac
+        $redirectUrl = 'https://ca-test.adyen.com/ca/ca/skin/checkhmac.shtml?brandCode=paypal' .
+            '&' . http_build_query($checkoutResponseTransfer->getRedirectPayload(), null, '&');
+*/
         return new JsonResponse([
             'success' => true,
-            'url' => $redirectUrl,
+            'url' => $redirectUrl
         ]);
     }
 

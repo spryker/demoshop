@@ -56,6 +56,7 @@ class CheckoutDependencyProvider extends SprykerCheckoutDependencyProvider
             $container->getLocator()->itemGrouperCheckoutConnector()->pluginOrderItemGroupingHydrationPlugin(),
             $container->getLocator()->omsCheckoutConnector()->pluginOrderOmsHydrationPlugin(),
             $container->getLocator()->discountCheckoutConnector()->pluginDiscountOrderHydrationPlugin(),
+            $container->getLocator()->adyen()->pluginCheckoutCheckoutOrderHydrationPlugin(),
             $container->getLocator()->shipmentCheckoutConnector()->pluginOrderShipmentMethodByCountryHydrationPlugin(),
         ];
     }
@@ -72,6 +73,7 @@ class CheckoutDependencyProvider extends SprykerCheckoutDependencyProvider
             $container->getLocator()->customerCheckoutConnector()->pluginOrderCustomerSavePlugin(),
             $container->getLocator()->salesCheckoutConnector()->pluginLinkCustomerToOrderPlugin(),
             $container->getLocator()->discountCheckoutConnector()->pluginDiscountOrderSavePlugin(),
+            $container->getLocator()->adyen()->pluginCheckoutCheckoutSaveOrderPlugin(),
         ];
     }
 
@@ -82,7 +84,10 @@ class CheckoutDependencyProvider extends SprykerCheckoutDependencyProvider
      */
     protected function getCheckoutPostHooks(Container $container)
     {
-        return parent::getCheckoutPostHooks($container);
+        $postSaveHooks = parent::getCheckoutPreHydrator($container);
+        $postSaveHooks[] = $container->getLocator()->adyen()->pluginCheckoutCheckoutPostSaveHookPlugin();
+
+        return $postSaveHooks;
     }
 
 }
