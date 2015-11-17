@@ -14,7 +14,7 @@ class OmsConfig extends SprykerOmsConfig
 
     const ORDER_PROCESS_PAYOLUTION_PAYMENT_01 = 'PayolutionPayment01';
 
-    const ORDER_PROCESS_INVOICE = 'Invoice';
+    const ORDER_PROCESS_INVOICE_01 = 'Invoice01';
 
     /**
      * @return string
@@ -51,7 +51,7 @@ class OmsConfig extends SprykerOmsConfig
             self::ORDER_PROCESS_NO_PAYMENT_01,
             self::ORDER_PROCESS_PREPAYMENT_01,
             self::ORDER_PROCESS_PAYOLUTION_PAYMENT_01,
-            self::ORDER_PROCESS_INVOICE,
+            self::ORDER_PROCESS_INVOICE_01,
         ];
     }
 

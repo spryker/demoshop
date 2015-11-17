@@ -13,7 +13,7 @@
         <state name="ready for return" />
         <state name="completed" />
         <state name="cancelled" />
-        <state name="send payment reminder" />
+        <state name="payment remined sent" />
         <state name="exported order" />
     </states>
 
@@ -44,7 +44,7 @@
 
         <transition>
             <source>waiting for payment</source>
-            <target>send payment reminder</target>
+            <target>payment remined sent</target>
             <event>payment not received</event>
         </transition>
 
@@ -55,13 +55,13 @@
         </transition>
 
         <transition>
-            <source>send payment reminder</source>
+            <source>payment remined sent</source>
             <target>cancelled</target>
             <event>cancel</event>
         </transition>
 
         <transition>
-            <source>send payment reminder</source>
+            <source>payment remined sent</source>
             <target>payment received</target>
             <event>payment received</event>
         </transition>
