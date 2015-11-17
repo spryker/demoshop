@@ -43,7 +43,6 @@ class CheckoutController extends AbstractController
         $container = $this->getDependencyContainer();
 
 /** TODO: START OF HACK FETCH PAYMENT METHODs */
-
         $adyenPaymentAvailabilityTransfer = new AdyenPaymentMethodAvailabilityTransfer();
         $adyenPaymentAvailabilityTransfer->setAmount(10000);
         $adyenPaymentAvailabilityTransfer->setCurrency('EUR');
@@ -68,13 +67,18 @@ class CheckoutController extends AbstractController
                 /** @var CheckoutRequestTransfer $checkoutRequest */
                 $checkoutRequest = $form->getData();
 
+
 /** TODO: START OF HACK PAYMENT METHOD */
+                $paymentMethod = $checkoutRequest->getPaymentMethod();
+
                 $adyenPaymentDetails = new AdyenPaymentDetailTransfer();
                 $adyenPaymentDetails->setAmount(6000);
 
-                $adyenPaymentDetails->setIban('DE87123456781234567890');
-                $adyenPaymentDetails->setBic('HUHUBIC');
-                $adyenPaymentDetails->setOwnerName('A. Schneider');
+                if ($paymentMethod == 'adyen.payment.method.sepa.directdebit') {
+                    $adyenPaymentDetails->setIban('DE87123456781234567890');
+                    $adyenPaymentDetails->setBic('HUHUBIC');
+                    $adyenPaymentDetails->setOwnerName('A. Schneider');
+                }
 
                 $adyenPaymentDetails->setCountry('DE');
                 $adyenPaymentDetails->setIp('127.0.0.1');
@@ -84,11 +88,10 @@ class CheckoutController extends AbstractController
                 //$adyenPaymentDetails->setPhoneNumber('01522113356');
 
                 $adyenPaymentTransfer = new AdyenPaymentTransfer();
-                $adyenPaymentTransfer->setPaymentMethod(AdyenPaymentMethodConstants::ADYEN_PAYMENT_METHOD_SEPA);
+                $adyenPaymentTransfer->setPaymentMethod($paymentMethod);
                 $adyenPaymentTransfer->setPaymentDetail($adyenPaymentDetails);
                 $checkoutRequest->setAdyenPayment($adyenPaymentTransfer);
 
-                $checkoutRequest->setPaymentMethod(AdyenPaymentMethodConstants::ADYEN_PAYMENT_METHOD_SEPA);
 
                 //$checkoutRequest->setPaymentMethod('prepayment');
 /** TODO: END OF HACK PAYMENT METHOD */
