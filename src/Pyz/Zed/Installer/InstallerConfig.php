@@ -17,9 +17,9 @@ class InstallerConfig extends SprykerInstallerConfig
 
         return [
             $locator->collector()->pluginInstaller(),
-            $locator->product()->pluginInstaller(),
-            $locator->price()->pluginInstaller(),
             $locator->locale()->pluginInstaller(),
+            $locator->tax()->pluginInstaller(),
+            $locator->product()->pluginInstaller(),
             $locator->country()->pluginInstaller(),
             $locator->user()->pluginInstaller(),
             $locator->acl()->pluginInstaller(),
@@ -37,11 +37,13 @@ class InstallerConfig extends SprykerInstallerConfig
             $locator->category()->pluginDemoDataInstaller(),
             $locator->glossary()->pluginDemoDataInstaller(),
             $locator->cms()->pluginDemoDataInstaller(),
-            $locator->product()->pluginDemoDataInstaller(),
-            $locator->productCategory()->pluginDemoDataInstaller(),
+            $locator->productGroup()->pluginDemoDataInstaller(),
             $locator->price()->pluginDemoDataInstaller(),
+            $locator->productCategory()->pluginDemoDataInstaller(),
+            $locator->product()->pluginDemoDataInstaller(),
+
             $locator->productSearch()->pluginDemoDataInstaller(),
-            $locator->stock()->pluginDemoDataInstaller(),
+            //$locator->stock()->pluginDemoDataInstaller(),
             $locator->shipment()->pluginDemoDataInstaller(),
         ];
     }

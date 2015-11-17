@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "a75abf4ee2fcbbeab085001c09526e01",
+    "hash": "2070a5501fc541d61b8316afb3a72d27",
     "packages": [
         {
             "name": "digital-canvas/zend-framework",
@@ -553,7 +553,7 @@
             "source": {
                 "type": "git",
                 "url": "git@github.com:project-a/adyen-payment-gateway.git",
-                "reference": "ca605aa17954b3ef5002b20580650165cbfe54f4"
+                "reference": "b7b41a8eccc3b3c8dcd72fb57925c2a766d2167f"
             },
             "require": {
                 "guzzle/http": "~3.7, <= 3.8",
@@ -581,15 +581,15 @@
                 "gateway",
                 "payment"
             ],
-            "time": "2015-11-05 17:51:35"
+            "time": "2015-11-17 18:13:16"
         },
         {
             "name": "project-a/spryker",
-            "version": "dev-feature/pd-16-adyen-payment-integration-2",
+            "version": "dev-develop",
             "source": {
                 "type": "git",
                 "url": "git@github.com:project-a/spryker.git",
-                "reference": "73581959e8daf1eb685152c975bfe58d1054a6c7"
+                "reference": "e2d3e5fb5288a675e78da1b44bd3d416a2b2a191"
             },
             "replace": {
                 "spryker/pav-console": "self.version"
@@ -607,7 +607,7 @@
                     "PavFeature\\Shared\\Library": "Bundles/Library/src/"
                 }
             },
-            "time": "2015-11-04 11:23:25"
+            "time": "2015-11-17 12:26:05"
         },
         {
             "name": "propel/propel",

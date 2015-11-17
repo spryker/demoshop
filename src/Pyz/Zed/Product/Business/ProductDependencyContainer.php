@@ -7,6 +7,7 @@ use Pyz\Zed\Locale\Business\LocaleFacade;
 use Pyz\Zed\Product\Business\Product\ProductManagerInterface;
 use Pyz\Zed\Product\Business\Attribute\AttributeConverterInterface;
 use Pyz\Zed\Product\Business\Attribute\MediaAttributeSplitter;
+use Pyz\Zed\Product\ProductDependencyProvider;
 use SprykerFeature\Zed\Product\Business\Builder\SimpleAttributeMergeBuilder;
 use SprykerFeature\Zed\Product\Business\ProductDependencyContainer as SprykerDependencyContainer;
 use Psr\Log\LoggerInterface;
@@ -38,10 +39,7 @@ class ProductDependencyContainer extends SprykerDependencyContainer
     public function createDemoDataInstaller(LoggerInterface $messenger)
     {
         $installer = $this->getFactory()->createInternalDemoDataProductDataInstall(
-            $this->createAttributeManager(),
-            $this->createProductManager(),
-            $this->getLocaleFacade(),
-            $this->createCSVReader(),
+            $this->getProvidedDependency(ProductDependencyProvider::FACADE_PRODUCT_DYNAMIC_IMPORTER),
             $this->getConfig()->getDemoDataPath()
         );
         $installer->setMessenger($messenger);

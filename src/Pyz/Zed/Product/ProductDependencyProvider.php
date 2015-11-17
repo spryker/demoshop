@@ -18,6 +18,24 @@ class ProductDependencyProvider extends SprykerProductDependencyProvider
      *
      * @return Container
      */
+    public function provideBusinessLayerDependencies(Container $container)
+    {
+
+        $container = parent::provideBusinessLayerDependencies($container);
+
+        $container[self::FACADE_PRODUCT_DYNAMIC_IMPORTER] = function (Container $container) {
+            return $container->getLocator()->productDynamicImporter()->facade();
+        };
+
+        return $container;
+    }
+
+
+    /**
+     * @param Container $container
+     *
+     * @return Container
+     */
     public function provideCommunicationLayerDependencies(Container $container)
     {
 
