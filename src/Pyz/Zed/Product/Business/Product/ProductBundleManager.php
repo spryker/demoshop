@@ -29,23 +29,46 @@ class ProductBundleManager implements ProductBundleManagerInterface, SprykerBugf
 
     /**
      * @param ProductToBundleRelationInterface $productToBundleRelation
-     * @return int
+     * @return SpyProductToBundle
      * @throws \Propel\Runtime\Exception\PropelException
      */
     public function saveBundleProduct(ProductToBundleRelationInterface $productToBundleRelation)
     {
-        $productTransfer = $productToBundleRelation->getProduct();
-        $productQuantity = $productToBundleRelation->getProductQuantity();
-        $bundleProductEntity = $this->getBundleProductEntity($productToBundleRelation->getBundle());
+        $bundleProduct = $productToBundleRelation->getBundle();
+        $bundledProduct = $productToBundleRelation->getProduct();
 
         $entity = new SpyProductToBundle();
         $entity
-            ->setBundleProduct($bundleProductEntity)
-            ->setFkProduct($productTransfer->getIdConcreteProduct())
-            ->setQuantity($productQuantity)
+            ->setFkProduct($bundleProduct->getIdConcreteProduct())
+            ->setFkRelatedProduct($bundledProduct->getIdConcreteProduct())
+            ->setQuantity($productToBundleRelation->getProductQuantity())
             ->save();
 
-        return $entity->getPrimaryKey();
+        return $entity;
+    }
+
+    /**
+     * @param ProductToBundleRelationInterface $productToBundleRelation
+     * @return SpyProductToBundle
+     * @throws \Propel\Runtime\Exception\PropelException
+     */
+    public function updateBundleProduct(ProductToBundleRelationInterface $productToBundleRelation)
+    {
+        $bundleProductEntity = $this->getProductToBundleEntity($productToBundleRelation);
+        $bundleProductEntity
+            ->setQuantity($productToBundleRelation->getProductQuantity())
+            ->save();
+
+        return $bundleProductEntity;
+    }
+
+    /**
+     * @param ProductToBundleRelationInterface $productToBundleRelation
+     */
+    public function deleteBundleProduct(ProductToBundleRelationInterface $productToBundleRelation)
+    {
+        $bundleProductEntity = $this->getProductToBundleEntity($productToBundleRelation);
+        $bundleProductEntity->delete();
     }
 
     /**
@@ -60,6 +83,18 @@ class ProductBundleManager implements ProductBundleManagerInterface, SprykerBugf
             ->find();
     }
 
+    /**
+     * @param ProductToBundleRelationInterface $bundleProduct
+     * @return SpyProductToBundle
+     */
+    protected function getProductToBundleEntity(ProductToBundleRelationInterface $bundleProduct)
+    {
+        $idBundleProduct = $bundleProduct->getBundle()->getIdConcreteProduct();
+        $idBundledProduct = $bundleProduct->getProduct()->getIdConcreteProduct();
+
+        return $this->productQueryContainer->queryBundleProductByBundleId($idBundleProduct, $idBundledProduct)
+            ->findOne();
+    }
 
     /**
      * @param ConcreteProductInterface $bundleProduct

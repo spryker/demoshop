@@ -10,9 +10,21 @@ interface ProductBundleManagerInterface
 {
     /**
      * @param ProductToBundleRelationInterface $productToBundleRelation
-     * @return int
+     * @return SpyProductToBundle
      */
     public function saveBundleProduct(ProductToBundleRelationInterface $productToBundleRelation);
+
+
+    /**
+     * @param ProductToBundleRelationInterface $productToBundleRelation
+     * @return SpyProductToBundle
+     */
+    public function updateBundleProduct(ProductToBundleRelationInterface $productToBundleRelation);
+
+    /**
+     * @param ProductToBundleRelationInterface $productToBundleRelation
+     */
+    public function deleteBundleProduct(ProductToBundleRelationInterface $productToBundleRelation);
 
     /**
      * @param ConcreteProductInterface $bundleProduct
