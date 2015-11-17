@@ -20,8 +20,8 @@ use Pyz\Zed\Product\Business\ProductFacade;
 use Pyz\Zed\Product\Communication\ProductDependencyContainer;
 use Pyz\Zed\Product\ProductDependencyProvider;
 use SprykerFeature\Zed\Product\Communication\Controller\IndexController as SprykerIndexController;
-use SprykerFeature\Zed\Product\Persistence\ProductQueryContainer;
 use Symfony\Component\HttpFoundation\Request;
+use Pyz\Zed\Product\Persistence\ProductQueryContainer;
 
 /**
  * @method ProductFacade getFacade()
@@ -257,12 +257,14 @@ class IndexController extends SprykerIndexController
     {
         $bundledProducts = new \ArrayObject();
         foreach ($productEntity->getSpyProductToBundlesRelatedByFkProduct() as $productToBundleEntity) {
+            $idBundledProduct = $productToBundleEntity->getFkRelatedProduct();
+            $bundledProduct = $this->getFacade()->getConcreteProductById($idBundledProduct);
             $bundledProductTransfer = new PavProductDynamicImporterBundledProductTransfer();
-            $bundledProductTransfer->setSku($productEntity->getSku());
+            $bundledProductTransfer->setSku($bundledProduct->getSku());
             $bundledProductTransfer->setQuantity($productToBundleEntity->getQuantity());
 
             $bundledProducts->append($bundledProductTransfer);
-        }
+            }
 
         return $bundledProducts;
     }
