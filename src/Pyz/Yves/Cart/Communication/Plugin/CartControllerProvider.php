@@ -52,7 +52,6 @@ class CartControllerProvider extends YvesControllerProvider
             ->value('cart', 'cart')
             ->assert('sku', '[a-zA-Z0-9-_]+')
             ->value('groupKey', '')
-            ->value('sku','')
         ;
 
         $this->createGetController('/{cart}/quantity/{sku}/{absolute}', self::ROUTE_CART_CHANGE_QUANTITY, 'Cart', 'Cart', 'change')

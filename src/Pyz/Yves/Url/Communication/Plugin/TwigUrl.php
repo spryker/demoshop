@@ -29,14 +29,14 @@ class TwigUrl extends AbstractPlugin implements TwigFunctionPluginInterface
 
                 if ($path !== '/') {
                     $url .= $currentLocale . $path;
-                    
+
                     return $url;
                 }
 
                 $url = $url . $currentLocale . '/' . $identifier;
 
                 return $url;
-            }),
+            }, ['needs_context' => true]),
         ];
     }
 
