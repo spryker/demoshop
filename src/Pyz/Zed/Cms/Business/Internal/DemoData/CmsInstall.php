@@ -35,6 +35,7 @@ class CmsInstall extends AbstractInstaller
     const BLOCK_TYPE_VALUE = 'value';
     const CATEGORY = 'category';
     const FILE_CONTAINS_INVALID_DATA = 'XML file contains invalid data.';
+    const LOCALE = 'locale';
 
     /**
      * @var CmsToGlossaryInterface
@@ -140,8 +141,8 @@ class CmsInstall extends AbstractInstaller
             $demoDataFile = $this->filePath . DIRECTORY_SEPARATOR . $locale;
             if ($this->checkPathExists($demoDataFile)) {
                 $this->installPageFromDemoDataFile($demoDataFile);
-                $this->installRedirectFromDemoDataFile($demoDataFile);
-                $this->installBlockFromDemoDataFile($demoDataFile);
+//                $this->installRedirectFromDemoDataFile($demoDataFile);
+//                $this->installBlockFromDemoDataFile($demoDataFile);
             }
         }
     }
@@ -258,10 +259,12 @@ class CmsInstall extends AbstractInstaller
     private function installBlock($template, $blockName, $placeholder, $translation)
     {
         if ($this->cmsQueryContainer->queryBlockByNameAndTypeValue($blockName, $this->blockDemoType, $this->blockDemoValue)->count() > 0) {
-            $this->warning(sprintf('Block with Name %s already exists. Skipping.', $blockName));
+            //$this->warning(sprintf('Block with Name %s already exists. Skipping.', $blockName));
 
-            return;
+            //return;
         }
+
+        dump($template);die;
 
         $placeholders = explode('_', $placeholder);
         $translations = explode('_', $translation);
@@ -297,9 +300,16 @@ class CmsInstall extends AbstractInstaller
     private function installPageFromDemoDataFile($localeStaticFilePath)
     {
         $pageDataArray = $this->getDataFromFileAsArray($localeStaticFilePath, self::PAGE);
-        foreach ($pageDataArray as $pageData) {
+        $pagesList = $this->formatCmsPagesImportArray($pageDataArray);
+        foreach ($pagesList as $pageData) {
             if ($pageData[self::TEMPLATE] !== null) {
-                $this->installPage($pageData[self::TEMPLATE], $pageData[self::URL], $pageData[self::PLACEHOLDER], $pageData[self::TRANSLATION]);
+                $this->installPage(
+                    $pageData[self::TEMPLATE],
+                    $pageData[self::URL],
+                    $pageData[self::PLACEHOLDER],
+                    $pageData[self::LOCALE],
+                    $pageData[self::TRANSLATION]
+                );
             } else {
                 $this->warning(sprintf(self::FILE_CONTAINS_INVALID_DATA));
             }
@@ -348,22 +358,9 @@ class CmsInstall extends AbstractInstaller
         $splFileInfo = new \SplFileInfo($file);
 
         $xmlContent = file_get_contents($splFileInfo->getPath() . DIRECTORY_SEPARATOR . $splFileInfo->getBasename());
-        $xml = new \SimpleXMLElement($xmlContent);
+        $cmsParser = new \SimpleXMLElement($xmlContent);
 
-        $dataArray = [];
-        if ($xml === false || $xml->count() < 1) {
-            return $dataArray;
-        }
-
-        foreach ($xml->children() as $xmlItem) {
-            $item = [];
-            foreach ($xmlItem as $value) {
-                $item[$value->getName()] = $value->__toString();
-            }
-            $dataArray[] = $item;
-        }
-
-        return $dataArray;
+        return $cmsParser;
     }
 
     /**
@@ -381,6 +378,28 @@ class CmsInstall extends AbstractInstaller
         $cmsBlockTransfer->setFkPage($pageTransfer->getIdCmsPage());
 
         return $cmsBlockTransfer;
+    }
+
+    /**
+     * @param array $dataArray
+     *
+     * @return array
+     */
+    protected function formatCmsPagesImportArray($dataArray)
+    {
+        $elementList = [];
+
+        foreach ($dataArray as $item) {
+            $elementList[] = [
+                self::TEMPLATE => (string) $item->{self::TEMPLATE},
+                self::URL => (string) $item->{self::URL},
+                self::PLACEHOLDER => (string) $item->{self::PLACEHOLDER},
+                self::LOCALE => (string) $item->{self::LOCALE},
+                self::TRANSLATION => (string) $item->{self::TRANSLATION},
+            ];
+        }
+
+        return $elementList;
     }
 
 }
