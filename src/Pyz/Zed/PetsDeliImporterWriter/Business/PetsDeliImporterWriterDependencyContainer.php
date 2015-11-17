@@ -22,7 +22,8 @@ class PetsDeliImporterWriterDependencyContainer extends AbstractBusinessDependen
         return $this->getFactory()->createWriterProviderPetsDeliWriterProvider(
             $this->getAbstractProductWriter(),
             $this->getConcreteProductWriter(),
-            $this->getAbstractProductDynamicWriter()
+            $this->getAbstractProductDynamicWriter(),
+            $this->getConcreteBundleProductWriter()
 
         );
     }
@@ -60,6 +61,18 @@ class PetsDeliImporterWriterDependencyContainer extends AbstractBusinessDependen
     protected function getAbstractProductDynamicWriter()
     {
         return $this->getFactory()->createWriterAbstractProductDynamicWriter(
+            $this->getProvidedDependency(PetsDeliImporterWriterDependencyProvider::PRODUCT_FACADE),
+            $this->getProvidedDependency(PetsDeliImporterWriterDependencyProvider::PRODUCT_DYNAMIC_FACADE)
+        );
+    }
+
+    /**
+     * @return Writer\ConcreteBundleProductWriter
+     * @throws \ErrorException
+     */
+    protected function getConcreteBundleProductWriter()
+    {
+        return $this->getFactory()->createWriterConcreteBundleProductWriter(
             $this->getProvidedDependency(PetsDeliImporterWriterDependencyProvider::PRODUCT_FACADE),
             $this->getProvidedDependency(PetsDeliImporterWriterDependencyProvider::PRODUCT_DYNAMIC_FACADE)
         );
