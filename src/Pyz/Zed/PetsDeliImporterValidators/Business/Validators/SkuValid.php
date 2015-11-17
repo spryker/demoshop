@@ -7,10 +7,8 @@ use Generated\Shared\ProductDynamicImporter\PavProductDynamicImporterAbstractPro
 use Pyz\Zed\PetsDeliImporterValidators\Business\ValidationErrors\ErrorResultCollection;
 use Pyz\Zed\PetsDeliImporterValidators\Business\ValidationErrors\ErrorResultElement;
 
-class PriceValid implements ValidationRuleInterface
+class SkuValid implements ValidationRuleInterface
 {
-    const PRICE_PATTERN = '#[0-9]{1,}#';
-
     private $product;
 
     /**
@@ -23,25 +21,25 @@ class PriceValid implements ValidationRuleInterface
 
     /**
      * @param string $sku
-     * @param int $price
      * @return ErrorResultCollection
      */
-    private function checkPrice($sku, $price)
+    private function checkSku($sku)
     {
         $validationErrorCollection = new ErrorResultCollection();
+        if((is_string($sku) || is_numeric($sku)) === false)
+        {
+            $validationErrorCollection->addResultElement(
+                new ErrorResultElement($sku, 'Sku has to be of type string or numeric')
+            );
+        }
 
-        if (empty($price) === true)
+        if(empty($sku))
         {
             $validationErrorCollection->addResultElement(
-                new ErrorResultElement($sku, 'price can not be empty')
+                new ErrorResultElement($sku, 'Sku can not be empty')
             );
         }
-        elseif (preg_match(self::PRICE_PATTERN, $price) === false)
-        {
-            $validationErrorCollection->addResultElement(
-                new ErrorResultElement($sku, 'price is not of correct format')
-            );
-        }
+
         return $validationErrorCollection;
     }
 
@@ -51,15 +49,9 @@ class PriceValid implements ValidationRuleInterface
     public function runRule()
     {
         $validationErrorCollection = new ErrorResultCollection();
-
-        // only concrete products needs to be checked, abstract products don't have a price property
-        foreach ($this->product->getConcreteProducts() as $concreteProduct)
-        {
-            $validationErrorCollection->addResultCollection(
-                $this->checkPrice($concreteProduct->getSku(), $concreteProduct->getPrice())
-            );
-        }
-
+        $validationErrorCollection->addResultCollection(
+            $this->checkSku($this->product->getSku())
+        );
         return $validationErrorCollection;
     }
 }

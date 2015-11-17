@@ -7,9 +7,9 @@ use Generated\Shared\ProductDynamicImporter\PavProductDynamicImporterAbstractPro
 use Pyz\Zed\PetsDeliImporterValidators\Business\ValidationErrors\ErrorResultCollection;
 use Pyz\Zed\PetsDeliImporterValidators\Business\ValidationErrors\ErrorResultElement;
 
-class PriceValid implements ValidationRuleInterface
+class AbstractProductTypeValid implements ValidationRuleInterface
 {
-    const PRICE_PATTERN = '#[0-9]{1,}#';
+    const ALLOWED_TYPES = ['simple','dynamic','bundle'];
 
     private $product;
 
@@ -23,23 +23,16 @@ class PriceValid implements ValidationRuleInterface
 
     /**
      * @param string $sku
-     * @param int $price
+     * @param string $type
      * @return ErrorResultCollection
      */
-    private function checkPrice($sku, $price)
+    public function checkType($sku, $type)
     {
         $validationErrorCollection = new ErrorResultCollection();
-
-        if (empty($price) === true)
+        if(in_array($type, self::ALLOWED_TYPES) === false)
         {
             $validationErrorCollection->addResultElement(
-                new ErrorResultElement($sku, 'price can not be empty')
-            );
-        }
-        elseif (preg_match(self::PRICE_PATTERN, $price) === false)
-        {
-            $validationErrorCollection->addResultElement(
-                new ErrorResultElement($sku, 'price is not of correct format')
+                new ErrorResultElement($sku, 'abstract product should be of type:' . implode(' or ', self::ALLOWED_TYPES))
             );
         }
         return $validationErrorCollection;
@@ -52,13 +45,9 @@ class PriceValid implements ValidationRuleInterface
     {
         $validationErrorCollection = new ErrorResultCollection();
 
-        // only concrete products needs to be checked, abstract products don't have a price property
-        foreach ($this->product->getConcreteProducts() as $concreteProduct)
-        {
-            $validationErrorCollection->addResultCollection(
-                $this->checkPrice($concreteProduct->getSku(), $concreteProduct->getPrice())
-            );
-        }
+        $validationErrorCollection->addResultCollection(
+            $this->checkType($this->product->getSku(), $this->product->getType())
+        );
 
         return $validationErrorCollection;
     }

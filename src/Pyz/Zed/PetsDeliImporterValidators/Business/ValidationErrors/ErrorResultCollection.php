@@ -1,6 +1,6 @@
 <?php
 
-namespace PavFeature\Zed\PetsDeliImporterValidators\Business\ValidationErrors;
+namespace Pyz\Zed\PetsDeliImporterValidators\Business\ValidationErrors;
 
 class ErrorResultCollection implements ErrorResultCollectionInterface
 {
