@@ -52,6 +52,7 @@ class CartControllerProvider extends YvesControllerProvider
             ->value('cart', 'cart')
             ->assert('sku', '[a-zA-Z0-9-_]+')
             ->value('groupKey', '')
+            ->value('sku','')
         ;
 
         $this->createGetController('/{cart}/quantity/{sku}/{absolute}', self::ROUTE_CART_CHANGE_QUANTITY, 'Cart', 'Cart', 'change')
@@ -74,6 +75,7 @@ class CartControllerProvider extends YvesControllerProvider
             ->assert('cart', $allowedLocalesPattern . 'cart|cart')
             ->assert('sku', '[a-zA-Z0-9-_]+')
             ->value('groupKey', '')
+            ->value('cart','cart')
         ;
 
         $this->createPostController('/{cart}/increase/{sku}/{groupKey}', self::ROUTE_CART_INCREASE_AJAX, 'Cart', 'Ajax', 'increase')
