@@ -389,8 +389,6 @@ class IndexController extends SprykerIndexController
     public function saveAction(Request $request)
     {
 
-        $idAbstractProduct = $request->query->getInt(self::ID_ABSTRACT_PRODUCT);
-
         if (!$request->isMethod(Request::METHOD_POST)) {
             return $this->redirectResponse('/product/index/view?id-abstract-product=' . $idAbstractProduct);
         }
@@ -409,12 +407,10 @@ class IndexController extends SprykerIndexController
 
         if($validationResult->hasErrors())
         {
-            $messages = [];
             foreach($validationResult->getElements() as $element)
             {
-                $messages[] = $element->getMessage();
+                $this->addErrorMessage($element->getMessage());
             }
-            $this->addErrorMessage(implode('<br/>', $messages));
 
             $viewData['idAbstractProduct'] = $idAbstractProduct;
             $viewData['json'] = $productJson;

@@ -9,7 +9,7 @@ use Pyz\Zed\PetsDeliImporterValidators\Business\ValidationErrors\ErrorResultElem
 
 class PriceValid implements ValidationRuleInterface
 {
-    const PRICE_PATTERN = '#[0-9]{1,}#';
+    const PRICE_PATTERN = '#^[0-9]{1,}$#';
 
     private $product;
 
@@ -36,7 +36,7 @@ class PriceValid implements ValidationRuleInterface
                 new ErrorResultElement($sku, 'price can not be empty')
             );
         }
-        elseif (preg_match(self::PRICE_PATTERN, $price) === false)
+        elseif ((bool)preg_match(self::PRICE_PATTERN, $price) === false)
         {
             $validationErrorCollection->addResultElement(
                 new ErrorResultElement($sku, 'price is not of correct format')

@@ -9,7 +9,7 @@ use Pyz\Zed\PetsDeliImporterValidators\Business\ValidationErrors\ErrorResultElem
 
 class LocaleValid implements ValidationRuleInterface
 {
-    const LOCALE_PATTERN = '#[a-z]{2}_[A-Z]{2}#';
+    const LOCALE_PATTERN = '#^[a-z]{2}_[A-Z]{2}$#';
 
     private $product;
 
@@ -46,7 +46,7 @@ class LocaleValid implements ValidationRuleInterface
         {
             foreach($locales as $locale)
             {
-                if(preg_match(self::LOCALE_PATTERN, $locale->getName()) === false)
+                if((bool)preg_match(self::LOCALE_PATTERN, $locale->getLocale()) === false)
                 {
                     $validationErrorCollection->addResultElement(
                         new ErrorResultElement($sku, 'Locale is not correctly formatted')

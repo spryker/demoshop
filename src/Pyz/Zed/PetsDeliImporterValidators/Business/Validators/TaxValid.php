@@ -9,7 +9,7 @@ use Pyz\Zed\PetsDeliImporterValidators\Business\ValidationErrors\ErrorResultElem
 
 class TaxValid implements ValidationRuleInterface
 {
-    const TAX_PATTERN = '#[0-9]{1,2}\.[0-9]{2}#';
+    const TAX_PATTERN = '#^[0-9]{1,2}\.[0-9]{2}$#';
 
     private $product;
 
@@ -37,7 +37,7 @@ class TaxValid implements ValidationRuleInterface
             );
         }
 
-        if(preg_match(self::TAX_PATTERN, $tax) === false)
+        if((bool)preg_match(self::TAX_PATTERN, $tax) === false)
         {
             $validationErrorCollection->addResultElement(
                 new ErrorResultElement($sku, 'Tax is not of correct format')
