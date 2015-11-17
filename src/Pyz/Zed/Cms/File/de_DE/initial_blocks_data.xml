@@ -3,12 +3,8 @@
     <block>
         <template>quote_block</template>
         <blockName>quotes_1</blockName>
-        <placeholder name="content">
-            <locales>
-                <locale name="de_DE">Wir sind alle Engel mit nur einem Flügel - um fliegen zu können; müssen wir uns umarmen._Luciano De Crescenzo</locale>
-                <locale name="en_US">english version</locale>
-            </locales>
-        </placeholder>
+        <placeholder>quote_reference</placeholder>
+        <translation>Wir sind alle Engel mit nur einem Flügel - um fliegen zu können; müssen wir uns umarmen._Luciano De Crescenzo</translation>
     </block>
     <block>
         <template>quote_block</template>

@@ -298,8 +298,7 @@ class CmsInstall extends AbstractInstaller
     private function installPageFromDemoDataFile($localeStaticFilePath)
     {
         $pageDataArray = $this->getDataFromFileAsArray($localeStaticFilePath, self::PAGE);
-        $pagesList = $this->formatCmsPagesImportArray($pageDataArray);
-        foreach ($pagesList as $pageData) {
+        foreach ($pageDataArray as $pageData) {
             if ($pageData[self::TEMPLATE] !== null) {
                 $this->installPage(
                     $pageData[self::TEMPLATE],
@@ -357,12 +356,26 @@ class CmsInstall extends AbstractInstaller
         $xmlContent = file_get_contents($splFileInfo->getPath() . DIRECTORY_SEPARATOR . $splFileInfo->getBasename());
         $xml = new \SimpleXMLElement($xmlContent);
 
-        return $xml;
+        if ($type === self::PAGE) {
+            return $this->createCmsPagesImportArray($xml->{$type});
+        }
+
+        if ($type === self::BLOCK) {
+            return $this->createCmsBlocksImportArray($xml->{$type});
+        }
+
+        if ($type === self::REDIRECT) {
+            return $this->createCmsRedirectsArray($xml->{$type});
+        }
+
+        return [];
     }
 
     /**
-     * @param $blockName
-     * @param $pageTransfer
+     * @param string $blockName
+     * @param string $blockType
+     * @param string $blockValue
+     * @param string $pageTransfer
      *
      * @return CmsBlockTransfer
      */
@@ -378,20 +391,61 @@ class CmsInstall extends AbstractInstaller
     }
 
     /**
-     * @param array $dataArray
+     * @param \SimpleXMLElement $xmlElement
      *
      * @return array
      */
-    protected function formatCmsPagesImportArray($dataArray)
+    protected function createCmsPagesImportArray(\SimpleXMLElement $xmlElement)
     {
         $elementList = [];
 
-        foreach ($dataArray as $item) {
+        foreach ($xmlElement as $item) {
             $elementList[] = [
                 self::TEMPLATE => (string) $item->{self::TEMPLATE},
                 self::URL => (string) $item->{self::URL},
                 self::PLACEHOLDER => (string) $item->{self::PLACEHOLDER},
                 self::TRANSLATION => (string) $item->{self::TRANSLATION},
+            ];
+        }
+
+        return $elementList;
+    }
+
+    /**
+     * @param \SimpleXMLElement $xmlElement
+     *
+     * @return array
+     */
+    protected function createCmsBlocksImportArray(\SimpleXMLElement $xmlElement)
+    {
+        $elementList = [];
+
+        foreach ($xmlElement as $item) {
+            $elementList[] = [
+                self::TEMPLATE => (string) $item->{self::TEMPLATE},
+                self::BLOCK_NAME => (string) $item->{self::BLOCK_NAME},
+                self::PLACEHOLDER => (string) $item->{self::PLACEHOLDER},
+                self::TRANSLATION => (string) $item->{self::TRANSLATION},
+            ];
+        }
+
+        return $elementList;
+    }
+
+    /**
+     * @param \SimpleXMLElement $xmlElement
+     *
+     * @return array
+     */
+    protected function createCmsRedirectsArray(\SimpleXMLElement $xmlElement)
+    {
+        $elementList = [];
+
+        foreach ($xmlElement as $item) {
+            $elementList[] = [
+                self::FROM_URL => (string) $item->{self::FROM_URL},
+                self::TO_URL => (string) $item->{self::TO_URL},
+                self::STATUS => (string) $item->{self::STATUS},
             ];
         }
 
