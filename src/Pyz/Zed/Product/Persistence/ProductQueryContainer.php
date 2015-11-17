@@ -1,15 +1,15 @@
 <?php
 
 namespace Pyz\Zed\Product\Persistence;
+
 use Orm\Zed\Product\Persistence\Base\SpyProductQuery;
 use Orm\Zed\Product\Persistence\SpyLocalizedAbstractProductAttributesQuery;
+use Orm\Zed\Product\Persistence\SpyProductToBundleQuery;
 use Pyz\SprykerBugfixInterface;
 use SprykerFeature\Zed\Product\Persistence\ProductQueryContainer as SprykerProductQueryContainer;
 
-
 class ProductQueryContainer extends SprykerProductQueryContainer implements SprykerBugfixInterface
 {
-
     /**
      * @param $idAbstractProduct
      * @return SpyLocalizedAbstractProductAttributesQuery
@@ -17,6 +17,7 @@ class ProductQueryContainer extends SprykerProductQueryContainer implements Spry
     public function queryAbstractProductLocalizedAttributeCollection($idAbstractProduct) {
         $query = SpyLocalizedAbstractProductAttributesQuery::create();
         $query->filterByFkAbstractProduct($idAbstractProduct);
+
         return $query;
     }
 
@@ -28,7 +29,18 @@ class ProductQueryContainer extends SprykerProductQueryContainer implements Spry
     {
         $query = SpyProductQuery::create();
         $query->filterByIdProduct($idConcreteProduct);
+
         return $query;
     }
 
+    /**
+     * @param int $idConcreteProduct
+     * @return SpyProductToBundleQuery
+     */
+    public function queryBundledProductsByConcreteProductId($idConcreteProduct)
+    {
+        return SpyProductToBundleQuery::create()
+            ->filterByFkRelatedProduct($idConcreteProduct)
+            ->joinBundleProduct();
+    }
 }
