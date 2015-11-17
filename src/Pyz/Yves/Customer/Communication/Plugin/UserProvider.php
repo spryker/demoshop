@@ -25,7 +25,7 @@ class UserProvider extends AbstractPlugin implements UserProviderInterface
     /**
      * @param CustomerClientInterface $customerClient
      *
-     * @return $this
+     * @return self
      */
     public function setCustomerClient(CustomerClientInterface $customerClient)
     {

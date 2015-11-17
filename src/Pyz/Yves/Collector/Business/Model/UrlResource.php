@@ -48,7 +48,7 @@ class UrlResource
     /**
      * @param array $data
      *
-     * @return $this
+     * @return self
      */
     public function fromArray(array $data)
     {

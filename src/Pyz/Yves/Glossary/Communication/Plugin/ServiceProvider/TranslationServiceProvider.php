@@ -25,7 +25,7 @@ class TranslationServiceProvider extends AbstractPlugin implements ServiceProvid
     /**
      * @param GlossaryClientInterface $glossaryClient
      *
-     * @return $this
+     * @return self
      */
     public function setGlossaryClient(GlossaryClientInterface $glossaryClient)
     {

@@ -77,7 +77,7 @@ class TwigTranslator implements TranslatorInterface
     /**
      * @param string $localeName
      *
-     * @return $this
+     * @return self
      */
     public function setLocale($localeName)
     {

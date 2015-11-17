@@ -15,7 +15,6 @@ use SprykerFeature\Zed\Cms\Dependency\Facade\CmsToGlossaryInterface;
 use SprykerFeature\Zed\Cms\Dependency\Facade\CmsToUrlInterface;
 use SprykerFeature\Zed\Cms\Persistence\CmsQueryContainerInterface;
 use SprykerFeature\Zed\Installer\Business\Model\AbstractInstaller;
-use SprykerFeature\Zed\Product\Business\Importer\Reader\File\CsvReader;
 
 class CmsInstall extends AbstractInstaller
 {
@@ -299,7 +298,7 @@ class CmsInstall extends AbstractInstaller
     {
         $pageDataArray = $this->getDataFromFileAsArray($localeStaticFilePath, self::PAGE);
         foreach ($pageDataArray as $pageData) {
-            if (null !== $pageData[self::TEMPLATE]) {
+            if ($pageData[self::TEMPLATE] !== null) {
                 $this->installPage($pageData[self::TEMPLATE], $pageData[self::URL], $pageData[self::PLACEHOLDER], $pageData[self::TRANSLATION]);
             } else {
                 $this->warning(sprintf(self::FILE_CONTAINS_INVALID_DATA));
@@ -314,7 +313,7 @@ class CmsInstall extends AbstractInstaller
     {
         $redirectDataArray = $this->getDataFromFileAsArray($filePath, self::REDIRECT);
         foreach ($redirectDataArray as $redirectData) {
-            if (null !== $redirectData[self::FROM_URL]) {
+            if ($redirectData[self::FROM_URL] !== null) {
                 $this->installRedirect($redirectData[self::FROM_URL], $redirectData[self::TO_URL], $redirectData[self::STATUS]);
             } else {
                 $this->warning(sprintf(self::FILE_CONTAINS_INVALID_DATA));
@@ -329,7 +328,7 @@ class CmsInstall extends AbstractInstaller
     {
         $blockDataArray = $this->getDataFromFileAsArray($filePath, self::BLOCK);
         foreach ($blockDataArray as $blockData) {
-            if (null !== $blockData[self::BLOCK_NAME]) {
+            if ($blockData[self::BLOCK_NAME] !== null) {
                 $this->installBlock($blockData[self::TEMPLATE], $blockData[self::BLOCK_NAME], $blockData[self::PLACEHOLDER], $blockData[self::TRANSLATION]);
             } else {
                 $this->warning(sprintf(self::FILE_CONTAINS_INVALID_DATA));

@@ -60,7 +60,7 @@ class TwigAsset extends AbstractPlugin implements TwigFunctionPluginInterface
     {
         $requestStack = $this->getRequestStack($application);
 
-        return  $requestStack->getCurrentRequest()->isSecure();
+        return $requestStack->getCurrentRequest()->isSecure();
     }
 
 }

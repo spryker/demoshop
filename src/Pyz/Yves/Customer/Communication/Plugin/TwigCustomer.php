@@ -23,7 +23,7 @@ class TwigCustomer extends AbstractPlugin implements TwigFunctionPluginInterface
     /**
      * @param CustomerClientInterface $customerClient
      *
-     * @return $this
+     * @return self
      */
     public function setCustomerClient(CustomerClientInterface $customerClient)
     {
