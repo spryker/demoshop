@@ -322,16 +322,28 @@ $config[LumberjackConfig::WRITER_OPTIONS] = [
     '\SprykerEngine\Shared\Lumberjack\Model\Writer\File' => ['log_path' => '/data/logs/development/DE/'],
 ];
 
-$config[PayolutionConfigConstants::GATEWAY_URL] = 'https://test.ctpe.net/frontend/payment.prc';
-$config[PayolutionConfigConstants::SECURITY_SENDER] = '8a82941850cd6ba60150cdba275b0201';
-$config[PayolutionConfigConstants::USER_LOGIN] = '8a82941850cd6ba60150cdba275c0205';
-$config[PayolutionConfigConstants::USER_PASSWORD] = 'EANPb8wg';
+$config[PayolutionConfigConstants::TRANSACTION_GATEWAY_URL] = 'https://test.ctpe.net/frontend/payment.prc';
+$config[PayolutionConfigConstants::CALCULATION_GATEWAY_URL] = 'https://test-payment.payolution.com/payolution-payment/rest/request/v2';
+
+$config[PayolutionConfigConstants::TRANSACTION_SECURITY_SENDER] = '8a82941850cd6ba60150cdba275b0201';
+$config[PayolutionConfigConstants::TRANSACTION_USER_LOGIN] = '8a82941850cd6ba60150cdba275c0205';
+$config[PayolutionConfigConstants::TRANSACTION_USER_PASSWORD] = 'EANPb8wg';
+$config[PayolutionConfigConstants::CALCULATION_SENDER] = 'SPY';
+$config[PayolutionConfigConstants::CALCULATION_USER_LOGIN] = 'spryker-installment';
+$config[PayolutionConfigConstants::CALCULATION_USER_PASSWORD] = '0mQzn5iqhr3idfZZjvsEPOrlDvT97Tg3M5d';
+
 $config[PayolutionConfigConstants::TRANSACTION_MODE] = 'CONNECTOR_TEST';
+$config[PayolutionConfigConstants::CALCULATION_MODE] = 'TEST';
+
+$config[PayolutionConfigConstants::TRANSACTION_CHANNEL_PRE_CHECK] = '8a82941850cd6ba60150cdc25e54028f';
 $config[PayolutionConfigConstants::TRANSACTION_CHANNEL_INVOICE] = '8a82941850cd6ba60150cdbf9af40280';
 $config[PayolutionConfigConstants::TRANSACTION_CHANNEL_INSTALLMENT] = '8a82941850cd6ba60150cdbf9af40280';
-$config[PayolutionConfigConstants::TRANSACTION_CHANNEL_SYNC] = '8a82941850cd6ba60150cdbf9af40280';
-$config[PayolutionConfigConstants::TRANSACTION_CHANNEL_PRE_CHECK] = '8a82941850cd6ba60150cdc25e54028f';
-$config[PayolutionConfigConstants::DEFAULT_TIMEOUT] = 45;
+$config[PayolutionConfigConstants::CALCULATION_CHANNEL] = 'spryker-installment';
+
+$config[PayolutionConfigConstants::MIN_ORDER_GRAND_TOTAL_INVOICE] = '2';
+$config[PayolutionConfigConstants::MAX_ORDER_GRAND_TOTAL_INVOICE] = '5000';
+$config[PayolutionConfigConstants::MIN_ORDER_GRAND_TOTAL_INSTALLMENT] = '2';
+$config[PayolutionConfigConstants::MAX_ORDER_GRAND_TOTAL_INSTALLMENT] = '5000';
 
 $config[NewRelicConfig::NEWRELIC_API_KEY] = null;
 

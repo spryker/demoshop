@@ -19,192 +19,215 @@ class FacadeTest extends AbstractFacadeTest
     public function testSaveOrderPayment()
     {
         $PayolutionFacade = $this->getFacade('SprykerFeature', 'Payolution');
+
+        $this->setPaymentInvoice();
+
         $orderTransfer = $this->getOrderTransfer();
         $PayolutionFacade->saveOrderPayment($orderTransfer);
     }
 
-    public function testPreCheckPayment()
+    public function testPreCheckPaymentInvoice()
     {
         $PayolutionFacade = $this->getFacade('SprykerFeature', 'Payolution');
 
-        $orderTransfer = $this->getOrderTransfer();
-        $PayolutionFacade->saveOrderPayment($orderTransfer);
+        $this->setPaymentInvoice();
 
         $checkoutRequestTransfer = $this->getCheckoutRequestTransfer();
-        $PayolutionFacade->preCheckPayment($checkoutRequestTransfer);
+        $response = $PayolutionFacade->preCheckPayment($checkoutRequestTransfer);
+        $this->assertEquals('ACK', $response->getProcessingResult(), $response->getProcessingReason());
     }
 
-    public function testPreAuthorizePayment()
+    public function testPreAuthorizePaymentInvoice()
     {
         $PayolutionFacade = $this->getFacade('SprykerFeature', 'Payolution');
 
+        $this->setPaymentInvoice();
+
         $orderTransfer = $this->getOrderTransfer();
-        $PayolutionFacade->saveOrderPayment($orderTransfer);
-
-        $checkoutRequestTransfer = $this->getCheckoutRequestTransfer();
-        $PayolutionFacade->preCheckPayment($checkoutRequestTransfer);
-
         $idPayment = $this->getPaymentEntity()->getIdPaymentPayolution();
-        $PayolutionFacade->preAuthorizePayment($idPayment);
+
+        $response = $PayolutionFacade->preAuthorizePayment($idPayment);
+        $this->assertEquals('ACK', $response->getProcessingResult(), $response->getProcessingReason());
+
+        $isPreAuthorized = $PayolutionFacade->isPreAuthorizationApproved($orderTransfer);
+        $this->assertTrue($isPreAuthorized);
     }
 
-    public function testReAuthorizePayment()
+    public function testReAuthorizePaymentInvoice()
     {
         $PayolutionFacade = $this->getFacade('SprykerFeature', 'Payolution');
 
+        $this->setPaymentInvoice();
+
         $orderTransfer = $this->getOrderTransfer();
-        $PayolutionFacade->saveOrderPayment($orderTransfer);
-
-        $checkoutRequestTransfer = $this->getCheckoutRequestTransfer();
-        $PayolutionFacade->preCheckPayment($checkoutRequestTransfer);
-
         $idPayment = $this->getPaymentEntity()->getIdPaymentPayolution();
-        $PayolutionFacade->preAuthorizePayment($idPayment);
 
-        $PayolutionFacade->reAuthorizePayment($idPayment);
+        $PayolutionFacade->preAuthorizePayment($idPayment);
+        $response = $PayolutionFacade->reAuthorizePayment($idPayment);
+        $this->assertEquals('ACK', $response->getProcessingResult(), $response->getProcessingReason());
+
+        $isReAuthorized = $PayolutionFacade->isReAuthorizationApproved($orderTransfer);
+        $this->assertTrue($isReAuthorized);
     }
 
-    public function testRevertPayment()
+    public function testRevertPaymentInvoice()
     {
         $PayolutionFacade = $this->getFacade('SprykerFeature', 'Payolution');
 
+        $this->setPaymentInvoice();
+
         $orderTransfer = $this->getOrderTransfer();
-        $PayolutionFacade->saveOrderPayment($orderTransfer);
-
-        $checkoutRequestTransfer = $this->getCheckoutRequestTransfer();
-        $PayolutionFacade->preCheckPayment($checkoutRequestTransfer);
-
         $idPayment = $this->getPaymentEntity()->getIdPaymentPayolution();
-        $PayolutionFacade->preAuthorizePayment($idPayment);
 
-        $PayolutionFacade->revertPayment($idPayment);
+        $PayolutionFacade->preAuthorizePayment($idPayment);
+        $response = $PayolutionFacade->revertPayment($idPayment);
+        $this->assertEquals('ACK', $response->getProcessingResult(), $response->getProcessingReason());
+
+        $isReverted = $PayolutionFacade->isReversalApproved($orderTransfer);
+        $this->assertTrue($isReverted);
     }
 
-    public function testCapturePayment()
+    public function testCapturePaymentInvoice()
     {
         $PayolutionFacade = $this->getFacade('SprykerFeature', 'Payolution');
 
+        $this->setPaymentInvoice();
+
         $orderTransfer = $this->getOrderTransfer();
-        $PayolutionFacade->saveOrderPayment($orderTransfer);
-
-        $checkoutRequestTransfer = $this->getCheckoutRequestTransfer();
-        $PayolutionFacade->preCheckPayment($checkoutRequestTransfer);
-
         $idPayment = $this->getPaymentEntity()->getIdPaymentPayolution();
-        $PayolutionFacade->preAuthorizePayment($idPayment);
 
+        $PayolutionFacade->preAuthorizePayment($idPayment);
+        $response = $PayolutionFacade->capturePayment($idPayment);
+        $this->assertEquals('ACK', $response->getProcessingResult(), $response->getProcessingReason());
+
+        $isCaptured = $PayolutionFacade->isCaptureApproved($orderTransfer);
+        $this->assertTrue($isCaptured);
+    }
+
+    public function testRefundPaymentInvoice()
+    {
+        $PayolutionFacade = $this->getFacade('SprykerFeature', 'Payolution');
+
+        $this->setPaymentInvoice();
+
+        $orderTransfer = $this->getOrderTransfer();
+        $idPayment = $this->getPaymentEntity()->getIdPaymentPayolution();
+
+        $PayolutionFacade->preAuthorizePayment($idPayment);
         $PayolutionFacade->capturePayment($idPayment);
+        $response = $PayolutionFacade->refundPayment($idPayment);
+        $this->assertEquals('ACK', $response->getProcessingResult(), $response->getProcessingReason());
+
+        $isRefunded = $PayolutionFacade->isRefundApproved($orderTransfer);
+        $this->assertTrue($isRefunded);
     }
 
-    public function testRefundPayment()
+    public function testCalculateInstallmentPayment()
     {
         $PayolutionFacade = $this->getFacade('SprykerFeature', 'Payolution');
 
-        $orderTransfer = $this->getOrderTransfer();
-        $PayolutionFacade->saveOrderPayment($orderTransfer);
+        $this->setPaymentInstallment();
 
         $checkoutRequestTransfer = $this->getCheckoutRequestTransfer();
-        $PayolutionFacade->preCheckPayment($checkoutRequestTransfer);
+        $response = $PayolutionFacade->calculateInstallmentPayments($checkoutRequestTransfer);
 
+        $this->assertEquals('OK', $response->getStatus());
+    }
+
+    public function testPreCheckPaymentInstallment()
+    {
+        $PayolutionFacade = $this->getFacade('SprykerFeature', 'Payolution');
+
+        $this->setPaymentInstallment();
+
+        $checkoutRequestTransfer = $this->getCheckoutRequestTransfer();
+        $response = $PayolutionFacade->preCheckPayment($checkoutRequestTransfer);
+        $this->assertEquals('ACK', $response->getProcessingResult(), $response->getProcessingReason());
+    }
+
+    public function testPreAuthorizePaymentInstallment()
+    {
+        $PayolutionFacade = $this->getFacade('SprykerFeature', 'Payolution');
+
+        $this->setPaymentInstallment();
+
+        $orderTransfer = $this->getOrderTransfer();
         $idPayment = $this->getPaymentEntity()->getIdPaymentPayolution();
-        $PayolutionFacade->preAuthorizePayment($idPayment);
 
+        $response = $PayolutionFacade->preAuthorizePayment($idPayment);
+        $this->assertEquals('ACK', $response->getProcessingResult(), $response->getProcessingReason());
+
+        $isPreAuthorized = $PayolutionFacade->isPreAuthorizationApproved($orderTransfer);
+        $this->assertTrue($isPreAuthorized);
+    }
+
+    public function testReAuthorizePaymentInstallment()
+    {
+        $PayolutionFacade = $this->getFacade('SprykerFeature', 'Payolution');
+
+        $this->setPaymentInstallment();
+
+        $orderTransfer = $this->getOrderTransfer();
+        $idPayment = $this->getPaymentEntity()->getIdPaymentPayolution();
+
+        $PayolutionFacade->preAuthorizePayment($idPayment);
+        $response = $PayolutionFacade->reAuthorizePayment($idPayment);
+        $this->assertEquals('ACK', $response->getProcessingResult(), $response->getProcessingReason());
+
+        $isReAuthorized = $PayolutionFacade->isReAuthorizationApproved($orderTransfer);
+        $this->assertTrue($isReAuthorized);
+    }
+
+    public function testRevertPaymentInstallment()
+    {
+        $PayolutionFacade = $this->getFacade('SprykerFeature', 'Payolution');
+
+        $this->setPaymentInstallment();
+
+        $orderTransfer = $this->getOrderTransfer();
+        $idPayment = $this->getPaymentEntity()->getIdPaymentPayolution();
+
+        $PayolutionFacade->preAuthorizePayment($idPayment);
+        $response = $PayolutionFacade->revertPayment($idPayment);
+        $this->assertEquals('ACK', $response->getProcessingResult(), $response->getProcessingReason());
+
+        $isReverted = $PayolutionFacade->isReversalApproved($orderTransfer);
+        $this->assertTrue($isReverted);
+    }
+
+    public function testCapturePaymentInstallment()
+    {
+        $PayolutionFacade = $this->getFacade('SprykerFeature', 'Payolution');
+
+        $this->setPaymentInstallment();
+
+        $orderTransfer = $this->getOrderTransfer();
+        $idPayment = $this->getPaymentEntity()->getIdPaymentPayolution();
+
+        $PayolutionFacade->preAuthorizePayment($idPayment);
+        $response = $PayolutionFacade->capturePayment($idPayment);
+        $this->assertEquals('ACK', $response->getProcessingResult(), $response->getProcessingReason());
+
+        $isCaptured = $PayolutionFacade->isCaptureApproved($orderTransfer);
+        $this->assertTrue($isCaptured);
+    }
+
+    public function testRefundPaymentInstallment()
+    {
+        $PayolutionFacade = $this->getFacade('SprykerFeature', 'Payolution');
+
+        $this->setPaymentInstallment();
+
+        $orderTransfer = $this->getOrderTransfer();
+        $idPayment = $this->getPaymentEntity()->getIdPaymentPayolution();
+
+        $PayolutionFacade->preAuthorizePayment($idPayment);
         $PayolutionFacade->capturePayment($idPayment);
-        $PayolutionFacade->refundPayment($idPayment);
-    }
+        $response = $PayolutionFacade->refundPayment($idPayment);
+        $this->assertEquals('ACK', $response->getProcessingResult(), $response->getProcessingReason());
 
-    public function testIsPreAuthorizationApproved()
-    {
-        $PayolutionFacade = $this->getFacade('SprykerFeature', 'Payolution');
-
-        $orderTransfer = $this->getOrderTransfer();
-        $PayolutionFacade->saveOrderPayment($orderTransfer);
-
-        $checkoutRequestTransfer = $this->getCheckoutRequestTransfer();
-        $PayolutionFacade->preCheckPayment($checkoutRequestTransfer);
-
-        $idPayment = $this->getPaymentEntity()->getIdPaymentPayolution();
-        $PayolutionFacade->preAuthorizePayment($idPayment);
-
-        $result = $PayolutionFacade->isPreAuthorizationApproved($orderTransfer);
-        $this->assertTrue($result);
-    }
-
-    public function testIsReAuthorizationApproved()
-    {
-        $PayolutionFacade = $this->getFacade('SprykerFeature', 'Payolution');
-
-        $orderTransfer = $this->getOrderTransfer();
-        $PayolutionFacade->saveOrderPayment($orderTransfer);
-
-        $checkoutRequestTransfer = $this->getCheckoutRequestTransfer();
-        $PayolutionFacade->preCheckPayment($checkoutRequestTransfer);
-
-        $idPayment = $this->getPaymentEntity()->getIdPaymentPayolution();
-        $PayolutionFacade->preAuthorizePayment($idPayment);
-
-        $PayolutionFacade->reAuthorizePayment($idPayment);
-
-        $result = $PayolutionFacade->isReAuthorizationApproved($orderTransfer);
-        $this->assertTrue($result);
-    }
-
-    public function testIsReversalApproved()
-    {
-        $PayolutionFacade = $this->getFacade('SprykerFeature', 'Payolution');
-
-        $orderTransfer = $this->getOrderTransfer();
-        $PayolutionFacade->saveOrderPayment($orderTransfer);
-
-        $checkoutRequestTransfer = $this->getCheckoutRequestTransfer();
-        $PayolutionFacade->preCheckPayment($checkoutRequestTransfer);
-
-        $idPayment = $this->getPaymentEntity()->getIdPaymentPayolution();
-        $PayolutionFacade->preAuthorizePayment($idPayment);
-
-        $PayolutionFacade->revertPayment($idPayment);
-
-        $result = $PayolutionFacade->isReversalApproved($orderTransfer);
-        $this->assertTrue($result);
-    }
-
-    public function testIsCaptureApproved()
-    {
-        $PayolutionFacade = $this->getFacade('SprykerFeature', 'Payolution');
-
-        $orderTransfer = $this->getOrderTransfer();
-        $PayolutionFacade->saveOrderPayment($orderTransfer);
-
-        $checkoutRequestTransfer = $this->getCheckoutRequestTransfer();
-        $PayolutionFacade->preCheckPayment($checkoutRequestTransfer);
-
-        $idPayment = $this->getPaymentEntity()->getIdPaymentPayolution();
-        $PayolutionFacade->preAuthorizePayment($idPayment);
-
-        $PayolutionFacade->capturePayment($idPayment);
-
-        $result = $PayolutionFacade->isCaptureApproved($orderTransfer);
-        $this->assertTrue($result);
-    }
-
-    public function testIsRefundApproved()
-    {
-        $PayolutionFacade = $this->getFacade('SprykerFeature', 'Payolution');
-
-        $orderTransfer = $this->getOrderTransfer();
-        $PayolutionFacade->saveOrderPayment($orderTransfer);
-
-        $checkoutRequestTransfer = $this->getCheckoutRequestTransfer();
-        $PayolutionFacade->preCheckPayment($checkoutRequestTransfer);
-
-        $idPayment = $this->getPaymentEntity()->getIdPaymentPayolution();
-        $PayolutionFacade->preAuthorizePayment($idPayment);
-
-        $PayolutionFacade->capturePayment($idPayment);
-        $PayolutionFacade->refundPayment($idPayment);
-
-        $result = $PayolutionFacade->isRefundApproved($orderTransfer);
-        $this->assertTrue($result);
+        $isRefunded = $PayolutionFacade->isRefundApproved($orderTransfer);
+        $this->assertTrue($isRefunded);
     }
 
 }
