@@ -5,14 +5,13 @@ namespace Pyz\Zed\PetsDeliImporterWriter\Business\Writer;
 use Generated\Shared\Product\ConcreteProductInterface;
 use Generated\Shared\ProductDynamicImporter\PavProductDynamicImporterAbstractProductInterface;
 use Generated\Shared\ProductDynamicImporter\PavProductDynamicImporterConcreteProductInterface;
-use Generated\Shared\ProductDynamicImporter\PavProductDynamicImporterLocaleInterface;
 use Generated\Shared\Transfer\ProductToBundleRelationTransfer;
 use PavFeature\Zed\ProductDynamic\Business\ProductDynamicFacade;
 use PavFeature\Zed\ProductDynamic\ProductDynamicConfig;
 use Pyz\Zed\Product\Business\ProductFacade;
 use Orm\Zed\Product\Persistence\SpyProductToBundle;
 
-class ConcreteBundleProductWriter extends DefaultProductWriter
+class ConcreteBundleProductWriter
 {
     /**
      * @var ProductFacade
@@ -155,15 +154,6 @@ class ConcreteBundleProductWriter extends DefaultProductWriter
         }
 
         return $bundledProductsToAssignBySku;
-    }
-
-    /**
-     * @param PavProductDynamicImporterLocaleInterface $importerLocale
-     * @return array
-     */
-    protected function getLocalizedAttributesToBeMerged(PavProductDynamicImporterLocaleInterface $importerLocale)
-    {
-        return [];
     }
 
 }
