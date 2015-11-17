@@ -37,7 +37,7 @@ class TaxValid implements ValidationRuleInterface
             );
         }
 
-        if(preg_match(self::TAX_PATTERN, $tax))
+        if(preg_match(self::TAX_PATTERN, $tax) === false)
         {
             $validationErrorCollection->addResultElement(
                 new ErrorResultElement($sku, 'Tax is not of correct format')

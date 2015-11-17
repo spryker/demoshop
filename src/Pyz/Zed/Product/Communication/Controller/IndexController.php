@@ -402,15 +402,33 @@ class IndexController extends SprykerIndexController
         $productJson = $request->get('json');
 
         $abstractProduct = $dynamicProductFacade->convertJsonToProductImporterAbstractProduct($productJson);
-        $dynamicProductFacade->validateProductImporterAbstractProduct($abstractProduct);
-        $dynamicProductFacade->persistProductImporterAbstractProduct($abstractProduct);
+
+        $validationResult = $dynamicProductFacade->validateProductImporterAbstractProduct($abstractProduct);
+
         $idAbstractProduct = $this->getFacade()->getAbstractProduct($abstractProduct->getSku())->getIdAbstractProduct();
 
-        $this->addSuccessMessage("Product was saved");
+        if($validationResult->hasErrors())
+        {
+            $messages = [];
+            foreach($validationResult->getElements() as $element)
+            {
+                $messages[] = $element->getMessage();
+            }
+            $this->addErrorMessage(implode('<br/>', $messages));
+
+            $viewData['idAbstractProduct'] = $idAbstractProduct;
+            $viewData['json'] = $productJson;
+
+            return $this->viewResponse($viewData);
+        }
+        else
+        {
+            $dynamicProductFacade->persistProductImporterAbstractProduct($abstractProduct);
+
+            $this->addSuccessMessage("Product was saved");
+        }
 
         return $this->redirectResponse('/product/index/view?id-abstract-product=' . $idAbstractProduct);
-
-
     }
 
     /**

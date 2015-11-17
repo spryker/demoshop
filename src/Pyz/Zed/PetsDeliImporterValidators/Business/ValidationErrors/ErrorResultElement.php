@@ -2,6 +2,8 @@
 
 namespace Pyz\Zed\PetsDeliImporterValidators\Business\ValidationErrors;
 
+use PavFeature\Zed\ProductDynamicImporter\Business\Model\Error\ErrorResultElementInterface;
+
 class ErrorResultElement implements ErrorResultElementInterface
 {
     private $message;

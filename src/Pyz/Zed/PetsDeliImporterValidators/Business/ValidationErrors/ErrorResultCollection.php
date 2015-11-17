@@ -2,6 +2,9 @@
 
 namespace Pyz\Zed\PetsDeliImporterValidators\Business\ValidationErrors;
 
+use PavFeature\Zed\ProductDynamicImporter\Business\Model\Error\ErrorResultCollectionInterface;
+use PavFeature\Zed\ProductDynamicImporter\Business\Model\Error\ErrorResultElementInterface;
+
 class ErrorResultCollection implements ErrorResultCollectionInterface
 {
 

@@ -30,7 +30,7 @@ class LocaleValid implements ValidationRuleInterface
     {
         $validationErrorCollection = new ErrorResultCollection();
 
-        if(is_array($locales) === false)
+        if((is_array($locales) || $locales instanceof \ArrayObject) === false)
         {
             $validationErrorCollection->addResultElement(
                 new ErrorResultElement($sku, 'locales must be of type array')

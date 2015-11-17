@@ -32,7 +32,7 @@ class AbstractProductTypeValid implements ValidationRuleInterface
         if(in_array($type, self::ALLOWED_TYPES) === false)
         {
             $validationErrorCollection->addResultElement(
-                new ErrorResultElement($sku, 'abstract product should be of type:' . implode(' or ', self::ALLOWED_TYPES))
+                new ErrorResultElement($sku, 'abstract product should be of one of these types:' . implode(', ', self::ALLOWED_TYPES))
             );
         }
         return $validationErrorCollection;
