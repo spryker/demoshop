@@ -141,8 +141,8 @@ class CmsInstall extends AbstractInstaller
             $demoDataFile = $this->filePath . DIRECTORY_SEPARATOR . $locale;
             if ($this->checkPathExists($demoDataFile)) {
                 $this->installPageFromDemoDataFile($demoDataFile);
-//                $this->installRedirectFromDemoDataFile($demoDataFile);
-//                $this->installBlockFromDemoDataFile($demoDataFile);
+                $this->installRedirectFromDemoDataFile($demoDataFile);
+                $this->installBlockFromDemoDataFile($demoDataFile);
             }
         }
     }
@@ -259,12 +259,10 @@ class CmsInstall extends AbstractInstaller
     private function installBlock($template, $blockName, $placeholder, $translation)
     {
         if ($this->cmsQueryContainer->queryBlockByNameAndTypeValue($blockName, $this->blockDemoType, $this->blockDemoValue)->count() > 0) {
-            //$this->warning(sprintf('Block with Name %s already exists. Skipping.', $blockName));
+            $this->warning(sprintf('Block with Name %s already exists. Skipping.', $blockName));
 
-            //return;
+            return;
         }
-
-        dump($template);die;
 
         $placeholders = explode('_', $placeholder);
         $translations = explode('_', $translation);
@@ -307,7 +305,6 @@ class CmsInstall extends AbstractInstaller
                     $pageData[self::TEMPLATE],
                     $pageData[self::URL],
                     $pageData[self::PLACEHOLDER],
-                    $pageData[self::LOCALE],
                     $pageData[self::TRANSLATION]
                 );
             } else {
@@ -358,9 +355,9 @@ class CmsInstall extends AbstractInstaller
         $splFileInfo = new \SplFileInfo($file);
 
         $xmlContent = file_get_contents($splFileInfo->getPath() . DIRECTORY_SEPARATOR . $splFileInfo->getBasename());
-        $cmsParser = new \SimpleXMLElement($xmlContent);
+        $xml = new \SimpleXMLElement($xmlContent);
 
-        return $cmsParser;
+        return $xml;
     }
 
     /**
@@ -394,7 +391,6 @@ class CmsInstall extends AbstractInstaller
                 self::TEMPLATE => (string) $item->{self::TEMPLATE},
                 self::URL => (string) $item->{self::URL},
                 self::PLACEHOLDER => (string) $item->{self::PLACEHOLDER},
-                self::LOCALE => (string) $item->{self::LOCALE},
                 self::TRANSLATION => (string) $item->{self::TRANSLATION},
             ];
         }
