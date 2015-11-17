@@ -64,7 +64,7 @@ class Checkout extends AbstractType
                 ],
             ])
             ->add('payment_method', 'choice', [
-                'choices' => ['adyen.payment.method.sepa.directdebit' => 'HardCoded SEPA (A. Schneider)'],
+                'choices' => ['adyen.payment.method.sepa.directdebit' => 'HardCoded SEPA (A. Schneider)', 'adyen.payment.method.paypal' => 'PayPal'],
                 'expanded' => true,
                 'multiple' => false,
                 'required' => false,
