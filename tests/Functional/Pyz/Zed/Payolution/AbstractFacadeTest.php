@@ -221,8 +221,8 @@ abstract class AbstractFacadeTest extends AbstractFunctionalTest
             ->setCurrencyIso3Code(self::CURRENCY_CODE)
             ->setEmail(self::EMAIL)
             ->setClientIp(self::CLIENT_IP)
-            ->setInstallmentAmount(170.50)
-            ->setInstallmentDuration(3)
+            ->setInstallmentAmount(self::INSTALLMENT_AMOUNT)
+            ->setInstallmentDuration(self::INSTALLMENT_DURATION)
             ->setBankAccountHolder(self::FIRST_NAME.' '.self::LAST_NAME)
             ->setBankAccountBic(self::BIC)
             ->setBankAccountIban(self::IBAN);
