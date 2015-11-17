@@ -1,0 +1,8 @@
+<?xml version="1.0"?>
+<database xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" name="zed" xsi:noNamespaceSchemaLocation="http://xsd.propelorm.org/1.6/database.xsd" namespace="SprykerFeature\Zed\Url\Persistence\Propel" package="vendor.spryker.spryker.Bundles.Url.src.SprykerFeature.Zed.Url.Persistence.Propel">
+
+    <table name="spy_abstract_product" idMethod="native" allowPkInsert="true" phpName="SpyAbstractProduct">
+        <column name="made_in" type="STRING"/>
+    </table>
+
+</database>

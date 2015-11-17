@@ -1,0 +1,10 @@
+<?php
+
+namespace Pyz\Zed\ProductChallenge\Persistence;
+
+use SprykerFeature\Zed\ProductChallenge\Persistence\ProductChallengeQueryContainerInterface as CoreProductChallengeQueryContainerInterface;
+
+interface ProductChallengeQueryContainerInterface extends CoreProductChallengeQueryContainerInterface
+{
+
+}

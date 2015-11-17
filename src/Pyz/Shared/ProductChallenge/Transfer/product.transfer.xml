@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+<transfers xmlns="http://xsd.spryker.com"
+           xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+           xsi:schemaLocation="http://xsd.spryker.com ../../src/Spryker/TransferObjectDefinitionSchema.xsd">
+
+    <transfer name="AbstractProduct">
+        <property name="idAbstractProduct" type="int" />
+        <property name="sku" type="string" />
+        <property name="attributes" type="array" singular="attribute" />
+        <property name="localizedAttributes" type="LocalizedAttributes[]" />
+        <property name="isActive" type="bool" />
+        <property name="madeIn" type="string" />
+    </transfer>
+
+</transfers>
