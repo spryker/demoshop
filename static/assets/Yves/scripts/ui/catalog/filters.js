@@ -62,7 +62,7 @@ var selectRequiredFilters = function() {
 };
 
 var updateActiveFilterList = function(changedFilter, silent) {
-  var $activeEl = $('.active-filter[data-filter-name="'+changedFilter.name+'"');
+  var $activeEl = $('.active-filter[data-filter-name="'+changedFilter.name+'"]');
   var filterValue = changedFilter.getSelectedValue(true);
 
   $activeEl.attr('data-filter-value', filterValue);
