@@ -8,6 +8,7 @@ use Generated\Shared\ProductDynamicImporter\PavProductDynamicImporterConcretePro
 use Generated\Shared\ProductDynamicImporter\PavProductDynamicImporterLocaleInterface;
 use Generated\Shared\Transfer\ProductToBundleRelationTransfer;
 use PavFeature\Zed\ProductDynamic\Business\ProductDynamicFacade;
+use PavFeature\Zed\ProductDynamic\ProductDynamicConfig;
 use Pyz\Zed\Product\Business\ProductFacade;
 use Orm\Zed\Product\Persistence\SpyProductToBundle;
 
@@ -41,7 +42,12 @@ class ConcreteBundleProductWriter extends DefaultProductWriter
      */
     public function persist(PavProductDynamicImporterAbstractProductInterface $product)
     {
-        // @TODO : add if type = blablabla
+        $abstractProductTransfer = $this->productFacade->getAbstractProduct($product->getSku());
+        if ($product->getType() !== ProductDynamicConfig::DYNAMIC_PRODUCT_TYPE_BUNDLE) {
+            $this->productDynamicFacade->deleteProductDynamicByAbstractProductId($abstractProductTransfer->getIdAbstractProduct());
+            return;
+        }
+
         foreach ($product->getConcreteProducts() as $concreteProduct) {
             $this->getConcreteBundleProduct($concreteProduct);
         }
@@ -56,7 +62,7 @@ class ConcreteBundleProductWriter extends DefaultProductWriter
             $concreteProductTransfer = $this->productFacade->getConcreteProduct($concreteProduct->getSku());
 
             $bundledProductsToAssignBySku = $this->getBundledProductsToAssign($concreteProduct);
-            $this->updateAssignedBundledProducts($concreteProductTransfer, $bundledProductsToAssignBySku);
+            $this->assignBundledProducts($concreteProductTransfer, $bundledProductsToAssignBySku);
         }
     }
     
@@ -64,23 +70,26 @@ class ConcreteBundleProductWriter extends DefaultProductWriter
      * @param ConcreteProductInterface $concreteProduct
      * @param array $bundledProductsToAssignBySku
      */
-    protected function updateAssignedBundledProducts(ConcreteProductInterface $concreteProduct, array $bundledProductsToAssignBySku)
+    protected function assignBundledProducts(ConcreteProductInterface $concreteProduct, array $bundledProductsToAssignBySku)
     {
         $currentAssignedProducts = $this->getAssignedBundledProduct($concreteProduct);
 
         foreach ($bundledProductsToAssignBySku as $skuToAssign => $quantityToAssign) {
 
-            $productToBundleRelation = new ProductToBundleRelationTransfer();
-            $productToBundleRelation
-                ->setBundle($concreteProduct)
-                ->setProduct($this->productFacade->getConcreteProduct($skuToAssign))
-                ->setProductQuantity($quantityToAssign);
+            if ($this->productFacade->hasConcreteProduct($skuToAssign)) {
 
-            if (isset($currentAssignedProducts[$skuToAssign])) {
-                $this->productFacade->updateBundleProduct($productToBundleRelation);
-                unset($currentAssignedProducts[$skuToAssign]);
-            } else {
-                $this->productFacade->saveBundleProduct($productToBundleRelation);
+                $productToBundleRelation = new ProductToBundleRelationTransfer();
+                $productToBundleRelation
+                    ->setBundle($concreteProduct)
+                    ->setProduct($this->productFacade->getConcreteProduct($skuToAssign))
+                    ->setProductQuantity($quantityToAssign);
+
+                if (isset($currentAssignedProducts[$skuToAssign])) {
+                    $this->productFacade->updateBundleProduct($productToBundleRelation);
+                    unset($currentAssignedProducts[$skuToAssign]);
+                } else {
+                    $this->productFacade->saveBundleProduct($productToBundleRelation);
+                }
             }
         }
         $this->deleteObsoleteProductToBundleRelations($concreteProduct, $currentAssignedProducts);
@@ -93,34 +102,16 @@ class ConcreteBundleProductWriter extends DefaultProductWriter
     protected function deleteObsoleteProductToBundleRelations(ConcreteProductInterface $bundleProduct, array $obsoleteBundledProducts)
     {
         foreach ($obsoleteBundledProducts as $sku => $quantity) {
-            $productToBundleRelation = new ProductToBundleRelationTransfer();
-            $productToBundleRelation->setProductQuantity($quantity)
-                ->setBundle($bundleProduct)
-                ->setProduct($this->productFacade->getConcreteProduct($sku));
+            if ($this->productFacade->hasConcreteProduct($sku)) {
+                $productToBundleRelation = new ProductToBundleRelationTransfer();
+                $productToBundleRelation->setProductQuantity($quantity)
+                    ->setBundle($bundleProduct)
+                    ->setProduct($this->productFacade->getConcreteProduct($sku));
 
-            $this->productFacade->deleteBundleProduct($productToBundleRelation);
+                $this->productFacade->deleteBundleProduct($productToBundleRelation);
+            }
         }
     }
-
-//    /**
-//     * @param ConcreteProductInterface $concreteProduct
-//     * @param PavProductDynamicImporterBundledProductInterface $bundledProductToImport
-//     */
-//    protected function persistBundledProduct(
-//        ConcreteProductInterface $concreteProduct,
-//        PavProductDynamicImporterBundledProductInterface $bundledProductToImport
-//    ) {
-//        if ($this->productFacade->hasConcreteProduct($bundledProductToImport->getSku())) { //@TODO need To verify??
-//            $productToBundleRelationTransfer = new ProductToBundleRelationTransfer();
-//            $concreteBundledProductTransfer = $this->productFacade->getConcreteProduct($bundledProductToImport->getSku());
-//            $productToBundleRelationTransfer
-//                ->setBundle($concreteProduct)
-//                ->setProduct($concreteBundledProductTransfer)
-//                ->setProductQuantity($bundledProductToImport->getQuantity());
-//
-//            $this->productFacade->saveBundleProduct($productToBundleRelationTransfer);
-//        }
-//    }
 
     /**
      * @param ConcreteProductInterface $concreteProduct
@@ -165,7 +156,6 @@ class ConcreteBundleProductWriter extends DefaultProductWriter
 
         return $bundledProductsToAssignBySku;
     }
-
 
     /**
      * @param PavProductDynamicImporterLocaleInterface $importerLocale
