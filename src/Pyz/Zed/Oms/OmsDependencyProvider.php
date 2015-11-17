@@ -41,7 +41,8 @@ class OmsDependencyProvider extends SprykerOmsDependencyProvider
             'Oms/SendPaymentRequest' => $container->getLocator()->oms()->pluginOmsCommandSendPaymentRequest(),
             'Oms/CreateInvoice' => $container->getLocator()->oms()->pluginOmsCommandCreateInvoice(),
             'Oms/SendInvoice' => $container->getLocator()->oms()->pluginOmsCommandSendInvoice(),
-            'Adyen/Authorise' => $container->getLocator()->adyen()->pluginCommandAuthorisePlugin()
+            'Adyen/Authorise' => $container->getLocator()->adyen()->pluginCommandAuthorisePlugin(),
+            'Adyen/AuthoriseCreditCard' => $container->getLocator()->adyen()->pluginCommandAuthoriseCreditCardPlugin()
         ];
     }
 
