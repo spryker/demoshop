@@ -34,13 +34,25 @@ class ProductQueryContainer extends SprykerProductQueryContainer implements Spry
     }
 
     /**
+     * @param int $idBundleProduct
+     * @param int $idBundledProduct
+     * @return SpyProductToBundleQuery
+     */
+    public function queryBundleProductByBundleId($idBundleProduct, $idBundledProduct)
+    {
+        return SpyProductToBundleQuery::create()
+            ->filterByFkProduct($idBundleProduct)
+            ->filterByFkRelatedProduct($idBundledProduct);
+    }
+
+    /**
      * @param int $idConcreteProduct
      * @return SpyProductToBundleQuery
      */
     public function queryBundledProductsByConcreteProductId($idConcreteProduct)
     {
         return SpyProductToBundleQuery::create()
-            ->filterByFkRelatedProduct($idConcreteProduct)
-            ->joinBundleProduct();
+            ->filterByFkProduct($idConcreteProduct)
+            ->joinSpyProductRelatedByFkProduct();
     }
 }
