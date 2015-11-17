@@ -3,15 +3,15 @@
 namespace Pyz\Zed\Collector\Business\Storage;
 
 use Generated\Shared\Transfer\LocaleTransfer;
+use Orm\Zed\Locale\Persistence\Map\SpyLocaleTableMap;
 use Propel\Runtime\ActiveQuery\Criteria;
 use SprykerEngine\Shared\Kernel\Store;
-use SprykerEngine\Zed\Touch\Persistence\Propel\Map\SpyTouchTableMap;
-use SprykerEngine\Zed\Touch\Persistence\Propel\SpyTouchQuery;
+use Orm\Zed\Touch\Persistence\Map\SpyTouchTableMap;
+use Orm\Zed\Touch\Persistence\SpyTouchQuery;
 use SprykerFeature\Shared\Collector\Code\KeyBuilder\KeyBuilderTrait;
 use SprykerFeature\Zed\Collector\Business\Exporter\AbstractPropelCollectorPlugin;
 use SprykerFeature\Zed\Collector\Business\Exporter\Writer\KeyValue\TouchUpdaterSet;
-use SprykerFeature\Zed\Url\Persistence\Propel\Map\SpyUrlTableMap;
-use SprykerFeature\Zed\Url\Persistence\Propel\ResourceAwareSpyUrlTableMap;
+use Orm\Zed\Url\Persistence\Map\SpyUrlTableMap;
 
 class UrlCollector extends AbstractPropelCollectorPlugin
 {
@@ -37,14 +37,47 @@ class UrlCollector extends AbstractPropelCollectorPlugin
             Criteria::INNER_JOIN
         );
 
-        foreach (ResourceAwareSpyUrlTableMap::getResourceColumnNames() as $constantName => $value) {
+        $baseQuery->addJoin(
+            SpyUrlTableMap::COL_FK_LOCALE,
+            SpyLocaleTableMap::COL_ID_LOCALE,
+            Criteria::INNER_JOIN
+        );
+
+        $baseQuery->addAnd(SpyLocaleTableMap::COL_LOCALE_NAME, $locale->getLocaleName(), Criteria::EQUAL);
+
+        foreach ($this->getResourceColumnNames() as $constantName => $value) {
             $alias = strstr($value, 'fk_resource');
-            $baseQuery->withColumn(ResourceAwareSpyUrlTableMap::getConstantValue($constantName), $alias);
+            $baseQuery->withColumn($this->getConstantValue($constantName), $alias);
         }
 
         $baseQuery->withColumn(SpyUrlTableMap::COL_URL, 'url');
 
         return $baseQuery;
+    }
+
+    /**
+     * @return array
+     */
+    public function getResourceColumnNames()
+    {
+        $reflection = new \ReflectionClass('Orm\Zed\Url\Persistence\Map\SpyUrlTableMap');
+        $constants = $reflection->getConstants();
+
+        return array_filter($constants, function ($constant) {
+            return strpos($constant, 'fk_resource');
+        });
+    }
+
+    /**
+     * @param string $constantName
+     *
+     * @return mixed
+     */
+    public function getConstantValue($constantName)
+    {
+        $reflection = new \ReflectionClass('Orm\Zed\Url\Persistence\Map\SpyUrlTableMap');
+
+        return $reflection->getConstant($constantName);
     }
 
     /**
@@ -76,7 +109,6 @@ class UrlCollector extends AbstractPropelCollectorPlugin
         return $processedResultSet;
     }
 
-
     /**
      * @param string $data
      *
@@ -106,7 +138,7 @@ class UrlCollector extends AbstractPropelCollectorPlugin
         $keyParts = [
             Store::getInstance()->getStoreName(),
             $localeName,
-           'resource',
+            'resource',
             $data['resourceType'] . '.' . $data['value'],
         ];
 

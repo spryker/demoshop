@@ -7,8 +7,10 @@ use Generated\Yves\Ide\FactoryAutoCompletion\CheckoutCommunication;
 use SprykerEngine\Yves\Kernel\Communication\AbstractCommunicationDependencyContainer;
 use SprykerFeature\Client\Cart\Service\CartClientInterface;
 use SprykerFeature\Client\Checkout\Service\CheckoutClient;
-use Pyz\Yves\Checkout\Communication\Form\Checkout;
+use Pyz\Yves\Checkout\Communication\Form\CheckoutType;
+use SprykerFeature\Client\Glossary\Service\GlossaryClientInterface;
 use SprykerFeature\Client\Shipment\Service\ShipmentClientInterface;
+use Symfony\Component\HttpFoundation\Request;
 
 /**
  * @method CheckoutCommunication getFactory()
@@ -41,15 +43,27 @@ class CheckoutDependencyContainer extends AbstractCommunicationDependencyContain
     }
 
     /**
+     * @return GlossaryClientInterface
+     */
+    public function createGlossaryClient()
+    {
+        return $this->getLocator()->glossary()->client();
+    }
+
+    /**
+     * @param Request $request
      * @param ShipmentInterface $shipmentTransfer
      *
-     * @return Checkout
+     * @return CheckoutType
      */
-    public function createCheckoutForm(ShipmentInterface $shipmentTransfer)
+    public function createCheckoutForm(Request $request, ShipmentInterface $shipmentTransfer)
     {
         return $this->getFactory()
-            ->createFormCheckout($shipmentTransfer)
-        ;
+            ->createFormCheckoutType(
+                $request,
+                $shipmentTransfer,
+                $this->createGlossaryClient()
+            );
     }
 
 }

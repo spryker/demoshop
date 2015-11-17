@@ -7,5 +7,4 @@ use SprykerFeature\Zed\SalesCheckoutConnector\Dependency\Facade\SalesCheckoutCon
 
 class SalesFacade extends SprykerSalesFacade implements SalesCheckoutConnectorToSalesInterface
 {
-
 }

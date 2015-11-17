@@ -15,4 +15,5 @@ class DemoDataInstaller extends AbstractInstallerPlugin
     {
         $this->getFacade()->installDemoData($this->messenger);
     }
+
 }

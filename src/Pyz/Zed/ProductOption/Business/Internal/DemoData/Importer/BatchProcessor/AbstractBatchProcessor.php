@@ -18,4 +18,5 @@ abstract class AbstractBatchProcessor
     abstract public function addValues($keyName, array $values);
 
     abstract public function flush();
+
 }

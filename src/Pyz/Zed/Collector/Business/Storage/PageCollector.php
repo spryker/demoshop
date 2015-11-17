@@ -4,17 +4,17 @@ namespace Pyz\Zed\Collector\Business\Storage;
 
 use Generated\Shared\Transfer\LocaleTransfer;
 use Propel\Runtime\ActiveQuery\Criteria;
-use SprykerEngine\Zed\Touch\Persistence\Propel\Map\SpyTouchTableMap;
-use SprykerEngine\Zed\Touch\Persistence\Propel\SpyTouchQuery;
+use Orm\Zed\Touch\Persistence\Map\SpyTouchTableMap;
+use Orm\Zed\Touch\Persistence\SpyTouchQuery;
 use SprykerFeature\Shared\Cms\CmsConfig;
 use SprykerFeature\Shared\Collector\Code\KeyBuilder\KeyBuilderTrait;
-use SprykerFeature\Zed\Cms\Persistence\Propel\Map\SpyCmsGlossaryKeyMappingTableMap;
-use SprykerFeature\Zed\Cms\Persistence\Propel\Map\SpyCmsPageTableMap;
-use SprykerFeature\Zed\Cms\Persistence\Propel\Map\SpyCmsTemplateTableMap;
+use Orm\Zed\Cms\Persistence\Map\SpyCmsGlossaryKeyMappingTableMap;
+use Orm\Zed\Cms\Persistence\Map\SpyCmsPageTableMap;
+use Orm\Zed\Cms\Persistence\Map\SpyCmsTemplateTableMap;
 use SprykerFeature\Zed\Collector\Business\Exporter\AbstractPropelCollectorPlugin;
 use SprykerFeature\Zed\Collector\Business\Exporter\Writer\KeyValue\TouchUpdaterSet;
-use SprykerFeature\Zed\Glossary\Persistence\Propel\Map\SpyGlossaryKeyTableMap;
-use SprykerFeature\Zed\Url\Persistence\Propel\Map\SpyUrlTableMap;
+use Orm\Zed\Glossary\Persistence\Map\SpyGlossaryKeyTableMap;
+use Orm\Zed\Url\Persistence\Map\SpyUrlTableMap;
 
 class PageCollector extends AbstractPropelCollectorPlugin
 {

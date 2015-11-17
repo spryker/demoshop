@@ -4,6 +4,9 @@ namespace Pyz\Zed\Cms\Business;
 
 use Pyz\Zed\Cms\Business\Internal\DemoData\CmsInstall;
 use Pyz\Zed\Cms\CmsDependencyProvider;
+use Pyz\Zed\Glossary\Business\GlossaryFacade;
+use Pyz\Zed\Locale\Business\LocaleFacade;
+use Pyz\Zed\Url\Business\UrlFacade;
 use SprykerEngine\Shared\Kernel\Messenger\MessengerInterface;
 use SprykerFeature\Zed\Cms\Business\CmsDependencyContainer as SprykerCmsDependencyContainer;
 
@@ -24,6 +27,8 @@ class CmsDependencyContainer extends SprykerCmsDependencyContainer
             $this->getTemplateManager(),
             $this->getPageManager(),
             $this->getGlossaryKeyMappingManager(),
+            $this->getBlockManager(),
+            $this->getCmsQueryContainer(),
             $this->getConfig()
         );
         $installer->setMessenger($messenger);

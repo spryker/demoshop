@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<statemachine
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:noNamespaceSchemaLocation="process.xsd"
+>
+    <process name="PayolutionPayment01" main="true">
+        <subprocesses>
+            <process>PayolutionInitiation</process>
+            <process>PayolutionCapture</process>
+            <process>PayolutionRefund</process>
+        </subprocesses>
+        <states>
+            <state name="new" reserved="true"/>
+            <state name="payolution initiation finished"/>
+            <state name="ready to be shipped"/>
+            <state name="shipped"/>
+            <state name="payolution capture finished"/>
+            <state name="paid"/>
+            <state name="returns received"/>
+            <state name="payolution refund finished"/>
+        </states>
+        <transitions>
+            <transition>
+                <source>new</source>
+                <target>ready for payolution initiation</target>
+                <event>start payolution initiation</event>
+            </transition>
+            <transition>
+                <source>payolution initiation finished</source>
+                <target>ready to be shipped</target>
+                <event>start shipment</event>
+            </transition>
+            <transition>
+                <source>ready to be shipped</source>
+                <target>shipped</target>
+                <event>ship</event>
+            </transition>
+            <transition>
+                <source>shipped</source>
+                <target>ready for payolution capture</target>
+                <event>start payolution capture</event>
+            </transition>
+            <transition>
+                <source>payolution capture finished</source>
+                <target>paid</target>
+                <event>receive payment</event>
+            </transition>
+            <transition>
+                <source>payolution capture finished</source>
+                <target>returns received</target>
+                <event>receive returns</event>
+            </transition>
+            <transition>
+                <source>paid</source>
+                <target>returns received</target>
+                <event>receive returns</event>
+            </transition>
+            <transition>
+                <source>returns received</source>
+                <target>ready for payolution refund</target>
+                <event>start payolution refund</event>
+            </transition>
+        </transitions>
+        <events>
+            <event name="start payolution initiation" onEnter="true"/>
+            <event name="start shipment" onEnter="true"/>
+            <event name="ship" manual="true"/>
+            <event name="start payolution capture" onEnter="true"/>
+            <event name="receive payment" manual="true"/>
+            <event name="receive returns" manual="true"/>
+            <event name="start payolution refund" onEnter="true" manual="true"/>
+        </events>
+    </process>
+    <process name="PayolutionInitiation" file="subprocesses/PayolutionInitiation.xml"/>
+    <process name="PayolutionCapture" file="subprocesses/PayolutionCapture.xml"/>
+    <process name="PayolutionRefund" file="subprocesses/PayolutionRefund.xml"/>
+</statemachine>

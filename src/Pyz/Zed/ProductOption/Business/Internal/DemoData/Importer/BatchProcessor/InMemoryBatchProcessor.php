@@ -2,9 +2,9 @@
 
 namespace Pyz\Zed\ProductOption\Business\Internal\DemoData\Importer\BatchProcessor;
 
-use SprykerFeature\Zed\ProductOption\Persistence\Propel\Map\SpyProductOptionTypeTranslationTableMap;
-use SprykerFeature\Zed\ProductOption\Persistence\Propel\Map\SpyProductOptionValueTranslationTableMap;
-use SprykerEngine\Zed\Touch\Persistence\Propel\Map\SpyTouchTableMap;
+use Orm\Zed\ProductOption\Persistence\Map\SpyProductOptionTypeTranslationTableMap;
+use Orm\Zed\ProductOption\Persistence\Map\SpyProductOptionValueTranslationTableMap;
+use Orm\Zed\Touch\Persistence\Map\SpyTouchTableMap;
 use Pyz\Zed\ProductOption\Business\Internal\DemoData\Importer\Db\BatchStorageProviderInterface;
 
 class InMemoryBatchProcessor extends AbstractBatchProcessor
@@ -54,7 +54,7 @@ class InMemoryBatchProcessor extends AbstractBatchProcessor
             [
                 SpyProductOptionTypeTranslationTableMap::COL_NAME,
                 SpyProductOptionTypeTranslationTableMap::COL_FK_LOCALE,
-                SpyProductOptionTypeTranslationTableMap::COL_FK_PRODUCT_OPTION_TYPE
+                SpyProductOptionTypeTranslationTableMap::COL_FK_PRODUCT_OPTION_TYPE,
             ]
         );
 
@@ -64,7 +64,7 @@ class InMemoryBatchProcessor extends AbstractBatchProcessor
             [
                 SpyProductOptionValueTranslationTableMap::COL_NAME,
                 SpyProductOptionValueTranslationTableMap::COL_FK_LOCALE,
-                SpyProductOptionValueTranslationTableMap::COL_FK_PRODUCT_OPTION_VALUE
+                SpyProductOptionValueTranslationTableMap::COL_FK_PRODUCT_OPTION_VALUE,
             ]
         );
 
@@ -92,7 +92,7 @@ class InMemoryBatchProcessor extends AbstractBatchProcessor
         self::$cache[$keyName] = [
             self::INTERNAL_KEY_TABLE => $table,
             self::INTERNAL_KEY_COLUMNS => $columns,
-            self::INTERNAL_KEY_VALUES => []
+            self::INTERNAL_KEY_VALUES => [],
         ];
     }
 
@@ -161,4 +161,5 @@ class InMemoryBatchProcessor extends AbstractBatchProcessor
 
         return $values;
     }
+
 }

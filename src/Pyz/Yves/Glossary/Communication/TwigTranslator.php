@@ -47,11 +47,11 @@ class TwigTranslator implements TranslatorInterface
      */
     public function trans($id, array $parameters = [], $domain = null, $locale = null)
     {
-        if (is_null($locale)) {
+        if ($locale === null) {
             $locale = $this->localeName;
         }
 
-        return $this->client->translate($id, $parameters, $locale);
+        return $this->client->translate($id, $locale, $parameters);
     }
 
     /**
@@ -77,7 +77,7 @@ class TwigTranslator implements TranslatorInterface
     /**
      * @param string $localeName
      *
-     * @return $this
+     * @return self
      */
     public function setLocale($localeName)
     {

@@ -1,0 +1,45 @@
+#!/bin/bash
+#
+# *** spryker deployment
+#
+# configure_host
+# This script is executed on all hosts, after unpacking release tarball.
+#
+# If application needs any commands to be executed before activating release, it should be put here
+# Examples: generate orm files, compile sass, setup java applications inside Tomcat
+#
+
+#Exit if a command exits with a non-zero status
+set -e
+
+#Exit if an uninitialised variable is used
+set -o nounset
+
+FILEPATH=`pwd`/$0
+BASEDIR=`dirname $FILEPATH`
+source "$BASEDIR/vars"
+source "$BASEDIR/functions"
+outfile=`mktemp /tmp/deploy-XXXXXX`
+
+### Generate propel files
+cd $destination_release_dir
+
+#vendor/bin/console setup:deploy:prepare_propel &> $outfile
+#return=$?
+#
+#if [ $return -ne 0 ]; then
+#  echo "FATAL ERROR occurred while configuring host:"
+#  cat $outfile
+#  exit $return
+#fi
+
+### Link public assets to shared static static (for relative URLs in minified stylesheets)
+if is_default_store; then
+  cd "$destination_release_dir/data/static"
+  for DIR in styles scripts images fonts; do
+    [ ! -e $DIR ] && ln -sf "$destination_current_dir/static/public/Yves/$DIR" "$DIR"
+  done
+fi
+
+rm -f "$outfile"
+exit 0

@@ -28,5 +28,4 @@ class LocaleFacade extends SprykerLocaleFacade implements
     ProductToLocaleInterface,
     UrlToLocaleInterface
 {
-
 }

@@ -1,0 +1,86 @@
+#
+# Utility functions for deployment
+# No project-specific logic should be implemented here!
+#
+
+#Exit if a command exits with a non-zero status
+set -e
+
+#Exit if an uninitialised variable is used
+set -o nounset
+
+# Match argument agains localhost, my hostname or my ip address (any)
+function match_hostname_or_ip() (
+  local my_names
+  my_names="127.0.0.1 localhost `hostname --short` `hostname --ip`"
+  for match in $1 ${1/.*/}; do
+    for name in $my_names; do
+      [ "$match" == "$name" ] && exit 0
+    done
+  done
+  exit 1
+)
+
+# Return true if this is admin host, false otherwise
+function is_admin_host() (
+  match_hostname_or_ip ${admin_host} && exit 0
+  exit 1
+)
+
+# Return true if this is DWH host, false otherwise
+function is_dwh_host() (
+  match_hostname_or_ip ${dwh_host} && exit 0
+  exit 1
+)
+
+# Return true if this host runs solr, false otherwise
+function is_solr_host() (
+  for host in $solr_hosts; do
+    match_hostname_or_ip $host && exit 0
+  done
+  exit 1
+)
+
+# Return true if this host runs jobs, false otherwise
+function is_jobs_host() (
+  for host in $jobs_hosts; do
+    match_hostname_or_ip $host && exit 0
+  done
+  exit 1
+)
+
+# Return true if this is default (first) store, false otherwise
+function is_default_store() (
+  if [ $IS_DEFAULT_STORE ]; then
+    exit 0
+  else
+    exit 1
+  fi
+)
+
+# Return true if environment is production, false otherwise
+function is_production() (
+  if [ "$environment" == "production" ]; then
+    exit 0
+  else
+    exit 1
+  fi
+)
+
+# Get list of cronjob roles running here for JenkinsController calls
+# Match is based on $admin_host and $dwh_host
+function get_cronjob_roles() (
+  if is_admin_host; then
+    if is_dwh_host; then
+      echo "admin,reporting"
+    else
+      echo "admin"
+    fi
+  else 
+    if is_dwh_host; then
+      echo "reporting"
+    fi
+  fi
+)
+
+

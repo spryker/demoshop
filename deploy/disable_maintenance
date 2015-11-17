@@ -1,0 +1,31 @@
+#!/bin/bash
+#
+# *** spryker deployment
+#
+# disable_maintenance
+# This script is executed on all frontend hosts in order to deactivate maintenance mode.
+#
+#
+
+#Exit if a command exits with a non-zero status
+set -e
+
+#Exit if an uninitialised variable is used
+set -o nounset
+
+FILEPATH=`pwd`/$0
+BASEDIR=`dirname $FILEPATH`
+source "$BASEDIR/vars"
+source "$BASEDIR/functions"
+outfile=`mktemp /tmp/deploy-XXXXXX`
+
+### Deactivate maintenance in new release dir
+if [ -d $destination_release_dir/static/public/Yves ]; then
+  cd "$destination_release_dir/static/public/Yves"
+  rm -f "maintenance.html"
+else
+  echo "WARNING - static/public/Yves not found in current release. That's fine if host is fresh."
+fi
+
+rm -f "$outfile"
+exit 0

@@ -11,5 +11,4 @@ use SprykerFeature\Zed\User\Business\UserFacade as SprykerUserFacade;
 
 class UserFacade extends SprykerUserFacade implements AclToUserInterface
 {
-
 }

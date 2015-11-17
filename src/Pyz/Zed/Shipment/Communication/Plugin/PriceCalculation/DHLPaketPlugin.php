@@ -6,7 +6,6 @@
 
 namespace Pyz\Zed\Shipment\Communication\Plugin\PriceCalculation;
 
-use Generated\Shared\Cart\CartInterface;
 use Generated\Shared\Shipment\ShipmentMethodAvailabilityInterface;
 use SprykerEngine\Zed\Kernel\Communication\AbstractPlugin;
 use SprykerFeature\Zed\Shipment\Communication\Plugin\ShipmentMethodPriceCalculationPluginInterface;

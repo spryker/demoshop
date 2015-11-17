@@ -10,8 +10,11 @@ use SprykerFeature\Shared\System\SystemConfig;
 use SprykerFeature\Shared\User\UserConfig;
 use SprykerFeature\Shared\Yves\YvesConfig;
 use SprykerEngine\Shared\Lumberjack\LumberjackConfig;
+use SprykerFeature\Shared\NewRelic\NewRelicConfig;
 use SprykerFeature\Shared\Session\SessionConfig;
 use SprykerFeature\Shared\SequenceNumber\SequenceNumberConstants as SequenceNumberConfig;
+use SprykerFeature\Shared\Log\Config\DefaultLoggerConfig;
+use SprykerFeature\Shared\Payolution\PayolutionConfigConstants;
 
 $config[SystemConfig::PROJECT_NAMESPACES] = [
     'Pyz',
@@ -97,7 +100,11 @@ $config[YvesConfig::YVES_SSL_EXCLUDED] = ['/monitoring/heartbeat'];
 $config[YvesConfig::YVES_SESSION_SAVE_HANDLER] = SessionConfig::SESSION_HANDLER_REDIS;
 $config[YvesConfig::YVES_SESSION_NAME] = 'yves_session';
 $config[YvesConfig::YVES_SESSION_COOKIE_DOMAIN] = $config[SystemConfig::HOST_YVES];
+
 $config[YvesConfig::YVES_ERROR_PAGE] = APPLICATION_ROOT_DIR . '/static/public/Yves/errorpage/error.html';
+$config[YvesConfig::YVES_SHOW_EXCEPTION_STACK_TRACE] = true;
+$config[SystemConfig::ZED_ERROR_PAGE] = APPLICATION_ROOT_DIR . '/static/public/Yves/errorpage/error.html';
+$config[SystemConfig::ZED_SHOW_EXCEPTION_STACK_TRACE] = true;
 
 $config[CustomerConfig::CUSTOMER_SECURED_PATTERN] = '(^/login_check$|^/customer)';
 $config[CustomerConfig::CUSTOMER_ANONYMOUS_PATTERN] = '^/.*';
@@ -131,17 +138,15 @@ $config[SystemConfig::PROPEL] = [
             'defaultKeyType' => 'fieldName',
             'builders' => [
                 'object' => '\SprykerEngine\Zed\Propel\Business\Builder\ObjectBuilder',
-                'tablemap' => '\SprykerEngine\Zed\Propel\Business\Builder\TableMapBuilder',
-                'query' => '\SprykerEngine\Zed\Propel\Business\Builder\QueryBuilder',
             ],
-        ],
+         ],
     ],
     'paths' => [
         'phpDir' => APPLICATION_ROOT_DIR,
-        'sqlDir' => APPLICATION_ROOT_DIR . '/src/Generated/Propel/' . $currentStore . '/Sql',
-        'migrationDir' => APPLICATION_ROOT_DIR . '/src/Generated/Propel/' . $currentStore . '/Migration',
-        'schemaDir' => APPLICATION_ROOT_DIR . '/src/Generated/Propel/' . $currentStore . '/Schema',
-        'phpConfDir' => APPLICATION_ROOT_DIR . '/src/Generated/Propel/' . $currentStore . '/Config',
+        'sqlDir' => APPLICATION_ROOT_DIR . '/src/Orm/Propel/' . $currentStore . '/Sql',
+        'migrationDir' => APPLICATION_ROOT_DIR . '/src/Orm/Propel/' . $currentStore . '/Migration',
+        'schemaDir' => APPLICATION_ROOT_DIR . '/src/Orm/Propel/' . $currentStore . '/Schema',
+        'phpConfDir' => APPLICATION_ROOT_DIR . '/src/Orm/Propel/' . $currentStore . '/Config',
     ],
 ];
 
@@ -154,7 +159,6 @@ $config[SystemConfig::CLOUD_OBJECT_STORAGE_DATA_CONTAINERS] = [
     'defaultPublicCdnContainerName' => 'pyz-cdn',
     'defaultImagesContainerName' => 'pyz-private',
 ];
-
 
 $config[SystemConfig::CLOUD_CDN_ENABLED] = false;
 
@@ -180,16 +184,16 @@ $config[MailConfig::MAIL_PROVIDER_MANDRILL] = [
     'from_name' => 'Demoshop',
 ];
 
-$config[CustomerConfig::SHOP_MAIL_FROM_EMAIL_NAME]    = '';
+$config[CustomerConfig::SHOP_MAIL_FROM_EMAIL_NAME] = '';
 $config[CustomerConfig::SHOP_MAIL_FROM_EMAIL_ADDRESS] = 'service@demoshop.de';
 
-$config[CustomerConfig::SHOP_MAIL_REGISTRATION_TOKEN]   = 'registration.token';
+$config[CustomerConfig::SHOP_MAIL_REGISTRATION_TOKEN] = 'registration.token';
 $config[CustomerConfig::SHOP_MAIL_REGISTRATION_SUBJECT] = 'registration.mail.subject';
 
-$config[CustomerConfig::SHOP_MAIL_PASSWORD_RESTORE_TOKEN]   = 'password.restore';
+$config[CustomerConfig::SHOP_MAIL_PASSWORD_RESTORE_TOKEN] = 'password.restore';
 $config[CustomerConfig::SHOP_MAIL_PASSWORD_RESTORE_SUBJECT] = 'password.restore.mail.subject';
 
-$config[CustomerConfig::SHOP_MAIL_PASSWORD_RESTORED_CONFIRMATION_TOKEN]   = 'password.change.confirmation';
+$config[CustomerConfig::SHOP_MAIL_PASSWORD_RESTORED_CONFIRMATION_TOKEN] = 'password.change.confirmation';
 $config[CustomerConfig::SHOP_MAIL_PASSWORD_RESTORED_CONFIRMATION_SUBJECT] = 'password.change.confirmation.mail.subject';
 
 $config[UserConfig::USER_SYSTEM_USERS] = [
@@ -310,8 +314,6 @@ $config[LumberjackConfig::COLLECTOR_OPTIONS] = [
     ],
 ];
 
-$config[YvesConfig::YVES_SHOW_EXCEPTION_STACK_TRACE] = true;
-
 $config[SystemConfig::PROPEL_DEBUG] = false;
 $config[ApplicationConfig::SHOW_SYMFONY_TOOLBAR] = false;
 $config[SequenceNumberConfig::ENVIRONMENT_PREFIX] = '';
@@ -319,3 +321,31 @@ $config[SequenceNumberConfig::ENVIRONMENT_PREFIX] = '';
 $config[LumberjackConfig::WRITER_OPTIONS] = [
     '\SprykerEngine\Shared\Lumberjack\Model\Writer\File' => ['log_path' => '/data/logs/development/DE/'],
 ];
+
+$config[PayolutionConfigConstants::TRANSACTION_GATEWAY_URL] = 'https://test.ctpe.net/frontend/payment.prc';
+$config[PayolutionConfigConstants::CALCULATION_GATEWAY_URL] = 'https://test-payment.payolution.com/payolution-payment/rest/request/v2';
+
+$config[PayolutionConfigConstants::TRANSACTION_SECURITY_SENDER] = '8a82941850cd6ba60150cdba275b0201';
+$config[PayolutionConfigConstants::TRANSACTION_USER_LOGIN] = '8a82941850cd6ba60150cdba275c0205';
+$config[PayolutionConfigConstants::TRANSACTION_USER_PASSWORD] = 'EANPb8wg';
+$config[PayolutionConfigConstants::CALCULATION_SENDER] = 'SPY';
+$config[PayolutionConfigConstants::CALCULATION_USER_LOGIN] = 'spryker-installment';
+$config[PayolutionConfigConstants::CALCULATION_USER_PASSWORD] = '0mQzn5iqhr3idfZZjvsEPOrlDvT97Tg3M5d';
+
+$config[PayolutionConfigConstants::TRANSACTION_MODE] = 'CONNECTOR_TEST';
+$config[PayolutionConfigConstants::CALCULATION_MODE] = 'TEST';
+
+$config[PayolutionConfigConstants::TRANSACTION_CHANNEL_PRE_CHECK] = '8a82941850cd6ba60150cdc25e54028f';
+$config[PayolutionConfigConstants::TRANSACTION_CHANNEL_INVOICE] = '8a82941850cd6ba60150cdbf9af40280';
+$config[PayolutionConfigConstants::TRANSACTION_CHANNEL_INSTALLMENT] = '8a82941850cd6ba60150cdbf9af40280';
+$config[PayolutionConfigConstants::CALCULATION_CHANNEL] = 'spryker-installment';
+
+$config[PayolutionConfigConstants::MIN_ORDER_GRAND_TOTAL_INVOICE] = '2';
+$config[PayolutionConfigConstants::MAX_ORDER_GRAND_TOTAL_INVOICE] = '5000';
+$config[PayolutionConfigConstants::MIN_ORDER_GRAND_TOTAL_INSTALLMENT] = '2';
+$config[PayolutionConfigConstants::MAX_ORDER_GRAND_TOTAL_INSTALLMENT] = '5000';
+
+$config[NewRelicConfig::NEWRELIC_API_KEY] = null;
+
+$config[DefaultLoggerConfig::DEFAULT_LOG_FILE_PATH] = APPLICATION_ROOT_DIR . '/data/DE/logs/application.log';
+$config[DefaultLoggerConfig::DEFAULT_LOG_LEVEL] = Monolog\Logger::ERROR;

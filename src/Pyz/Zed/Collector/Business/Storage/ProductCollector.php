@@ -6,29 +6,29 @@ use Generated\Shared\Transfer\LocaleTransfer;
 use Propel\Runtime\ActiveQuery\Criteria;
 use Propel\Runtime\ActiveQuery\Join;
 use Pyz\Zed\Price\Business\PriceFacade;
-use SprykerEngine\Zed\Locale\Persistence\Propel\Map\SpyLocaleTableMap;
-use SprykerEngine\Zed\Touch\Persistence\Propel\Map\SpyTouchTableMap;
-use SprykerEngine\Zed\Touch\Persistence\Propel\SpyTouchQuery;
+use Orm\Zed\Locale\Persistence\Map\SpyLocaleTableMap;
+use Orm\Zed\Touch\Persistence\Map\SpyTouchTableMap;
+use Orm\Zed\Touch\Persistence\SpyTouchQuery;
 use SprykerFeature\Shared\Collector\Code\KeyBuilder\KeyBuilderTrait;
 use SprykerFeature\Zed\Category\Persistence\CategoryQueryContainer;
-use SprykerFeature\Zed\Category\Persistence\Propel\Map\SpyCategoryAttributeTableMap;
-use SprykerFeature\Zed\Category\Persistence\Propel\Map\SpyCategoryNodeTableMap;
+use Orm\Zed\Category\Persistence\Map\SpyCategoryAttributeTableMap;
+use Orm\Zed\Category\Persistence\Map\SpyCategoryNodeTableMap;
 use SprykerFeature\Zed\Collector\Business\Exporter\AbstractPropelCollectorPlugin;
 use SprykerFeature\Zed\Collector\Business\Exporter\Writer\KeyValue\TouchUpdaterSet;
 use SprykerFeature\Zed\Price\Persistence\PriceQueryContainer;
-use SprykerFeature\Zed\Price\Persistence\Propel\Map\SpyPriceProductTableMap;
-use SprykerFeature\Zed\Price\Persistence\Propel\Map\SpyPriceTypeTableMap;
-use SprykerFeature\Zed\Product\Persistence\Propel\Map\SpyAbstractProductTableMap;
-use SprykerFeature\Zed\Product\Persistence\Propel\Map\SpyLocalizedAbstractProductAttributesTableMap;
-use SprykerFeature\Zed\Product\Persistence\Propel\Map\SpyLocalizedProductAttributesTableMap;
-use SprykerFeature\Zed\Product\Persistence\Propel\Map\SpyProductTableMap;
-use SprykerFeature\Zed\ProductCategory\Persistence\Propel\Map\SpyProductCategoryTableMap;
+use Orm\Zed\Price\Persistence\Map\SpyPriceProductTableMap;
+use Orm\Zed\Price\Persistence\Map\SpyPriceTypeTableMap;
+use Orm\Zed\Product\Persistence\Map\SpyAbstractProductTableMap;
+use Orm\Zed\Product\Persistence\Map\SpyLocalizedAbstractProductAttributesTableMap;
+use Orm\Zed\Product\Persistence\Map\SpyLocalizedProductAttributesTableMap;
+use Orm\Zed\Product\Persistence\Map\SpyProductTableMap;
+use Orm\Zed\ProductCategory\Persistence\Map\SpyProductCategoryTableMap;
 use SprykerFeature\Zed\ProductOptionExporter\Business\ProductOptionExporterFacade;
-use SprykerFeature\Zed\Stock\Persistence\Propel\Map\SpyStockProductTableMap;
-use SprykerFeature\Zed\Tax\Persistence\Propel\Map\SpyTaxRateTableMap;
-use SprykerFeature\Zed\Tax\Persistence\Propel\Map\SpyTaxSetTableMap;
-use SprykerFeature\Zed\Tax\Persistence\Propel\Map\SpyTaxSetTaxTableMap;
-use SprykerFeature\Zed\Url\Persistence\Propel\Map\SpyUrlTableMap;
+use Orm\Zed\Stock\Persistence\Map\SpyStockProductTableMap;
+use Orm\Zed\Tax\Persistence\Map\SpyTaxRateTableMap;
+use Orm\Zed\Tax\Persistence\Map\SpyTaxSetTableMap;
+use Orm\Zed\Tax\Persistence\Map\SpyTaxSetTaxTableMap;
+use Orm\Zed\Url\Persistence\Map\SpyUrlTableMap;
 
 class ProductCollector extends AbstractPropelCollectorPlugin
 {
@@ -213,7 +213,6 @@ class ProductCollector extends AbstractPropelCollectorPlugin
         $baseQuery->withColumn(SpyAbstractProductTableMap::COL_ID_ABSTRACT_PRODUCT, 'id_abstract_product');
         $baseQuery->groupBy('abstract_sku');
 
-
         // Product availability
         $baseQuery->addAsColumn(
             'quantity',
@@ -312,7 +311,6 @@ class ProductCollector extends AbstractPropelCollectorPlugin
                 'tax_rate_rates'
             )
         ;
-
 
         // Category
         $baseQuery->addJoin(
@@ -450,7 +448,6 @@ class ProductCollector extends AbstractPropelCollectorPlugin
         return $processedResultSet;
     }
 
-
     protected function buildKey($identifier)
     {
         return 'abstract_product.' . $identifier;
@@ -477,7 +474,6 @@ class ProductCollector extends AbstractPropelCollectorPlugin
 
         return array_combine($newKeys, $attributes);
     }
-
 
     /**
      * @param array $productData
@@ -582,6 +578,7 @@ class ProductCollector extends AbstractPropelCollectorPlugin
                 ];
             }
         }
+
         return $productsData;
     }
 

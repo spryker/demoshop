@@ -1,0 +1,25 @@
+#!/bin/bash
+#
+# *** spryker deployment
+#
+# send_notifications_before
+# This script is executed on tools host before deployment.
+#
+
+#Exit if a command exits with a non-zero status
+set -e
+
+#Exit if an uninitialised variable is used
+set -o nounset
+
+FILEPATH=`pwd`/$0; BASEDIR=`dirname $FILEPATH`; source $BASEDIR/vars; source $BASEDIR/functions
+outfile=`mktemp /tmp/deploy-XXXXXX`
+
+### Slack notifications
+
+#if [ "$environemt" == "production" ] && [ -n $slack_domain ] && [ -n $slack_token ]; then
+#curl -X GET "https://slack.com/api/chat.postMessage?token=$slack_token&channel=$slack_channel&text=Starting deployment of $scm_path to $environment ($revision: $deploy_user, `hostname`)"
+#fi
+
+rm -f "$outfile"
+exit 0

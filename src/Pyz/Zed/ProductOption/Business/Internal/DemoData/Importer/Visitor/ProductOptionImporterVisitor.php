@@ -32,7 +32,7 @@ class ProductOptionImporterVisitor implements OptionVisitorInterface
     {
         $this->productOptionsFacade = $productOptionsFacade;
 
-        $deferedCommand = new QueueableCommand(function() {
+        $deferedCommand = new QueueableCommand(function () {
             $this->productOptionsFacade->flushBuffer();
         }, QueueableCommand::TYPE_FLUSH_BUFFER);
 

@@ -2,12 +2,18 @@
 
 namespace Pyz\Yves\Catalog\Communication\Controller;
 
+use Pyz\Yves\Catalog\Communication\CatalogDependencyContainer;
 use SprykerEngine\Yves\Application\Communication\Controller\AbstractController;
 use SprykerFeature\Shared\Library\Currency\CurrencyManager;
 use Symfony\Component\HttpFoundation\Request;
 
+/**
+ * @method CatalogDependencyContainer getDependencyContainer()
+ */
 class CatalogController extends AbstractController
 {
+
+    const ITEMS_PER_PAGE = 6;
 
     /**
      * @param array $categoryNode
@@ -17,10 +23,18 @@ class CatalogController extends AbstractController
      */
     public function indexAction(array $categoryNode, Request $request)
     {
-        $search = $this->getLocator()->catalog()->client()->createFacetSearch($request, $categoryNode);
-        $search->setItemsPerPage(6);
+        $search = $this->getDependencyContainer()
+            ->createCatalogClient()
+            ->createFacetSearch($request, $categoryNode)
+        ;
 
-        $categoryTree = $this->getLocator()->categoryExporter()->client()->getTreeFromCategoryNode($categoryNode, $this->getLocale());
+        $search->setItemsPerPage(self::ITEMS_PER_PAGE);
+
+        $categoryTree = $this->getDependencyContainer()
+            ->createCategoryExporterClient()
+            ->getTreeFromCategoryNode($categoryNode, $this->getLocale())
+        ;
+
         $searchResults = array_merge($search->getResult(), ['category' => $categoryNode, 'categoryTree' => $categoryTree]);
 
         if ($request->isXmlHttpRequest()) {
@@ -40,11 +54,14 @@ class CatalogController extends AbstractController
      */
     public function fulltextSearchAction(Request $request)
     {
-        $search = $this->getLocator()->catalog()->client()->createFulltextSearch($request);
+        $search = $this->getDependencyContainer()
+            ->createCatalogClient()
+            ->createFulltextSearch($request)
+        ;
 
-        $search->setItemsPerPage(6);
+        $search->setItemsPerPage(self::ITEMS_PER_PAGE);
 
-        $searchResults = array_merge($search->getResult(), ['searchString' => $request->get('q')]);
+        $searchResults = array_merge($search->getResult(), ['searchString' => $request->query->get('q')]);
 
         if ($request->isXmlHttpRequest()) {
             return $this->jsonResponse($searchResults);
@@ -81,4 +98,5 @@ class CatalogController extends AbstractController
 
         return $products;
     }
+
 }

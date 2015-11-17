@@ -70,22 +70,8 @@
 .main-nav__categories, .main-nav__specials {
   display: inline-block;
   vertical-align: top;
-  padding: $step*5 0 0;
+  padding: $step*3 0 0;
   text-align: left;
-}
-
-.main-nav__categories {
-
-  @include media-query('small') {
-    margin-right: $step*3;
-  }
-
-  @include media-query('large') {
-    margin-right: $step*4;
-  }
-  @include media-query('huge') {
-    margin-right: $step*6;
-  }
 }
 
 .main-nav__heading {

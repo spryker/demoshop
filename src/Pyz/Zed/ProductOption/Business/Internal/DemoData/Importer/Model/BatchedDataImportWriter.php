@@ -3,8 +3,8 @@
 namespace Pyz\Zed\ProductOption\Business\Internal\DemoData\Importer\Model;
 
 use SprykerFeature\Zed\ProductOption\Persistence\ProductOptionQueryContainerInterface;
-use SprykerFeature\Zed\ProductOption\Persistence\Propel\SpyProductOptionType;
-use SprykerFeature\Zed\ProductOption\Persistence\Propel\SpyProductOptionValue;
+use Orm\Zed\ProductOption\Persistence\SpyProductOptionType;
+use Orm\Zed\ProductOption\Persistence\SpyProductOptionValue;
 use SprykerFeature\Zed\ProductOption\Dependency\Facade\ProductOptionToProductInterface;
 use SprykerFeature\Zed\ProductOption\Dependency\Facade\ProductOptionToLocaleInterface;
 use Pyz\Zed\ProductOption\Business\Internal\DemoData\Importer\BatchProcessor\AbstractBatchProcessor;
@@ -50,12 +50,12 @@ class BatchedDataImportWriter extends DataImportWriter
      */
     protected function createOrUpdateOptionTypeTranslations(SpyProductOptionType $productOptionTypeEntity, array $localizedNames)
     {
-        if (null === $productOptionTypeEntity->getIdProductOptionType()) {
+        if ($productOptionTypeEntity->getIdProductOptionType() === null) {
             $productOptionTypeEntity->save();
         }
 
         foreach ($localizedNames as $localeName => $localizedOptionTypeName) {
-            if (false === $this->localeFacade->hasLocale($localeName)) {
+            if ($this->localeFacade->hasLocale($localeName) === false) {
                 continue;
             }
 
@@ -75,12 +75,12 @@ class BatchedDataImportWriter extends DataImportWriter
      */
     protected function createOrUpdateOptionValueTranslations(SpyProductOptionValue $productOptionValueEntity, array $localizedNames)
     {
-        if (null === $productOptionValueEntity->getIdProductOptionValue()) {
+        if ($productOptionValueEntity->getIdProductOptionValue() === null) {
             $productOptionValueEntity->save();
         }
 
         foreach ($localizedNames as $localeName => $localizedOptionValueName) {
-            if (false === $this->localeFacade->hasLocale($localeName)) {
+            if ($this->localeFacade->hasLocale($localeName) === false) {
                 continue;
             }
 

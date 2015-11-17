@@ -2,7 +2,6 @@
 
 namespace Pyz\Yves\Application\Communication\Plugin;
 
-use SprykerEngine\Yves\Application\Communication\Plugin\YvesControllerProvider;
 use Silex\Application;
 
 class ApplicationControllerProvider extends YvesControllerProvider
@@ -19,9 +18,18 @@ class ApplicationControllerProvider extends YvesControllerProvider
     const ROUTE_CONTACT = 'contact';
     const ROUTE_FAQ = 'faq';
 
+    const ROUTE_ERROR_404 = 'error/404';
+    const ROUTE_ERROR_404_PATH = '/error/404';
+
     protected function defineControllers(Application $app)
     {
-        $this->createGetController('/', self::ROUTE_HOME, 'Application', 'Index');
+        $allowedLocalesPattern = $this->getAllowedLocalesPattern();
+
+        $this->createGetController('/{root}', self::ROUTE_HOME, 'Application', 'Index')
+            ->assert('root', $allowedLocalesPattern)
+            ->value('root', '');
+
+        $this->createGetController(self::ROUTE_ERROR_404_PATH, self::ROUTE_ERROR_404, 'Application', 'Error404');
     }
 
 }

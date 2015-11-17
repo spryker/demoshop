@@ -10,7 +10,6 @@ use Generated\Shared\Transfer\CustomerTransfer;
 use SprykerEngine\Yves\Kernel\Communication\AbstractPlugin;
 use SprykerFeature\Client\Customer\Service\CustomerClientInterface;
 use Symfony\Component\Security\Core\Exception\UnsupportedUserException;
-use Symfony\Component\Security\Core\Exception\UsernameNotFoundException;
 use Symfony\Component\Security\Core\User\User;
 use Symfony\Component\Security\Core\User\UserInterface;
 use Symfony\Component\Security\Core\User\UserProviderInterface;
@@ -26,7 +25,7 @@ class UserProvider extends AbstractPlugin implements UserProviderInterface
     /**
      * @param CustomerClientInterface $customerClient
      *
-     * @return $this
+     * @return self
      */
     public function setCustomerClient(CustomerClientInterface $customerClient)
     {

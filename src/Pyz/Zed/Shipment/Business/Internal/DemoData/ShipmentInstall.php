@@ -12,13 +12,6 @@ use SprykerFeature\Zed\Shipment\Persistence\ShipmentQueryContainerInterface;
 class ShipmentInstall extends AbstractInstaller
 {
 
-    const NAME_CARRIER = 'Default Carrier';
-    const NAME_GLOSSARY_KEY_CARRIER = 'shipment.defaultCarrier';
-    const NAME_SHIPMENT_METHOD = 'Default Shipment Method';
-    const NAME_GLOSSARY_KEY_SHIPMENT_METHOD  = 'shipment.defaultCarrier.defaultMethod.name';
-    const DESCRIPTION_GLOSSARY_KEY_SHIPMENT_METHOD = 'shipment.defaultCarrier.defaultMethod.description';
-    const PRICE_SHIPMENT_METHOD = 10;
-
     /**
      * @var ShipmentQueryContainerInterface
      */
@@ -55,6 +48,7 @@ class ShipmentInstall extends AbstractInstaller
 
         if ($this->queryContainer->queryMethods()->count() > 0) {
             $this->warning('Dummy Shipment data is already installed. Skipping.');
+
             return;
         }
 
@@ -68,8 +62,8 @@ class ShipmentInstall extends AbstractInstaller
     protected function createCarrier()
     {
         $shipmentCarrierTransfer = new ShipmentCarrierTransfer();
-        $shipmentCarrierTransfer->setName(self::NAME_CARRIER);
-        $shipmentCarrierTransfer->setGlossaryKeyName(self::NAME_GLOSSARY_KEY_CARRIER);
+        $shipmentCarrierTransfer->setName('International Parcel Service (IPS)');
+        $shipmentCarrierTransfer->setGlossaryKeyName('shipment.international.parcel.service');
         $shipmentCarrierTransfer->setIsActive(true);
 
         return $this->carrier->create($shipmentCarrierTransfer);
@@ -82,12 +76,23 @@ class ShipmentInstall extends AbstractInstaller
     {
         $shipmentMethodTransfer = new ShipmentMethodTransfer();
         $shipmentMethodTransfer->setFkShipmentCarrier($idCarrier);
-        $shipmentMethodTransfer->setName(self::NAME_SHIPMENT_METHOD);
-        $shipmentMethodTransfer->setGlossaryKeyName(self::NAME_GLOSSARY_KEY_SHIPMENT_METHOD);
-        $shipmentMethodTransfer->setGlossaryKeyDescription(self::DESCRIPTION_GLOSSARY_KEY_SHIPMENT_METHOD);
-        $shipmentMethodTransfer->setPrice(self::PRICE_SHIPMENT_METHOD);
+        $shipmentMethodTransfer->setName('Standart');
+        $shipmentMethodTransfer->setGlossaryKeyName('shipment.standart.name');
+        $shipmentMethodTransfer->setGlossaryKeyDescription('shipment.standart.description');
+        $shipmentMethodTransfer->setPrice(490);
+        $shipmentMethodTransfer->setIsActive(true);
+
+        $this->method->create($shipmentMethodTransfer);
+
+        $shipmentMethodTransfer = new ShipmentMethodTransfer();
+        $shipmentMethodTransfer->setFkShipmentCarrier($idCarrier);
+        $shipmentMethodTransfer->setName('Express');
+        $shipmentMethodTransfer->setGlossaryKeyName('shipment.express.name');
+        $shipmentMethodTransfer->setGlossaryKeyDescription('shipment.express.description');
+        $shipmentMethodTransfer->setPrice(590);
         $shipmentMethodTransfer->setIsActive(true);
 
         $this->method->create($shipmentMethodTransfer);
     }
+
 }

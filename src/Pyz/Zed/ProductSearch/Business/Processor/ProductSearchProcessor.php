@@ -18,19 +18,60 @@ class ProductSearchProcessor extends CoreProductSearchProcessor
     {
         $baseProduct = parent::buildBaseProduct($productData, $locale);
 
-        // @todo this is only a hack unless we have bundles to export product images and prices
+        $attributes = $this->getProductAttributes($productData);
+
+        $baseProduct['search-result-data']['image_url'] = $attributes['image_url'];
+        $baseProduct['search-result-data']['thumbnail_url'] = $attributes['thumbnail_url'];
+
+        $baseProduct['search-result-data']['price'] = $attributes['price'];
+        $baseProduct['integer-sort']['price'] = $attributes['price'];
+
+        return $baseProduct;
+    }
+
+    /**
+     * @param array $productData
+     *
+     * @return array
+     */
+    protected function getProductAttributes(array $productData)
+    {
+        $baseAttributes = $this->getBaseProductAttributes($productData);
+        $localizedAttributes = $this->getLocalizedProductAttributes($productData);
+
+        $attributes = array_merge($baseAttributes, $localizedAttributes);
+
+        return $attributes;
+    }
+
+    /**
+     * @param array $productData
+     *
+     * @return array
+     */
+    protected function getBaseProductAttributes(array $productData)
+    {
+        $productAttributes = $this->getEncodedData($productData['concrete_attributes']);
+        $abstractAttributes = $this->getEncodedData($productData['abstract_attributes']);
+
+        $attributes = array_merge($abstractAttributes, $productAttributes);
+
+        return $attributes;
+    }
+
+    /**
+     * @param array $productData
+     *
+     * @return array
+     */
+    protected function getLocalizedProductAttributes(array $productData)
+    {
         $productAttributes = $this->getEncodedData($productData['concrete_localized_attributes']);
         $abstractAttributes = $this->getEncodedData($productData['abstract_localized_attributes']);
 
         $attributes = array_merge($abstractAttributes, $productAttributes);
 
-        $baseProduct['search-result-data']['image_url'] = $attributes['image_url'];
-        $baseProduct['search-result-data']['thumbnail_url'] = $attributes['thumbnail_url'];
-        // @todo price should always set
-        $baseProduct['search-result-data']['price'] = (isset($attributes['price'])) ? $attributes['price'] : 0;
-        $baseProduct['integer-sort']['price'] = (isset($attributes['price'])) ? $attributes['price'] : 0;
-
-        return $baseProduct;
+        return $attributes;
     }
 
     /**

@@ -8,5 +8,4 @@ namespace Pyz\Yves\Assets\Communication\Model;
 
 class MediaUrlBuilder extends AbstractUrlBuilder implements MediaUrlBuilderInterface
 {
-
 }

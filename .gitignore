@@ -56,11 +56,18 @@ npm-debug.log
 !/tests/_log/.gitkeep
 /tests/_output/*
 !/tests/_output/.gitkeep
-mkmf.log
 
 # propel classes
-/src/*/Zed/*/Persistence/Propel/Base/*
-/src/*/Zed/*/Persistence/Propel/Map/*
+/src/Propel/Base/*
+/src/Propel/Map/*
+
+/src/Orm/Zed/*/Persistence/Base
+/src/Orm/Zed/*/Persistence/Map
+
+# propel config
+/src/Orm/Propel/*/Config
+/src/Orm/Propel/*/Schema
+/src/Orm/Propel/*/Sql
 
 # Factory Class Map
 .class_map

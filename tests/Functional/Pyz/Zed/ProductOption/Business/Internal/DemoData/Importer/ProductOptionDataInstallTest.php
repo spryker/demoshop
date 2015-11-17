@@ -4,10 +4,10 @@ namespace Functional\Pyz\Zed\ProductOption\Business\Internal\DemoData\Importer;
 
 use Pyz\Zed\ProductOption\Business\ProductOptionFacade;
 use SprykerEngine\Zed\Kernel\AbstractFunctionalTest;
-use SprykerFeature\Zed\Product\Persistence\Propel\SpyAbstractProduct;
-use SprykerFeature\Zed\Product\Persistence\Propel\SpyProduct;
-use SprykerFeature\Zed\Product\Persistence\Propel\SpyProductQuery;
-use SprykerFeature\Zed\Product\Persistence\Propel\SpyAbstractProductQuery;
+use Orm\Zed\Product\Persistence\SpyAbstractProduct;
+use Orm\Zed\Product\Persistence\SpyProduct;
+use Orm\Zed\Product\Persistence\SpyProductQuery;
+use Orm\Zed\Product\Persistence\SpyAbstractProductQuery;
 
 /**
  * @group Pyz

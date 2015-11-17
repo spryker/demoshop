@@ -40,8 +40,7 @@ class ProductReneController extends AbstractController
 
         $connection->commit();
         // add localized attributes
-        echo '<pre>' . PHP_EOL . \Symfony\Component\VarDumper\VarDumper::dump($idAbstractProduct) . PHP_EOL . 'Line: ' . __LINE__ . PHP_EOL . 'File: ' . __FILE__ . die();
-
+        echo '<pre>' . PHP_EOL . \Symfony\Component\VarDumper\VarDumper::dump($idAbstractProduct) . PHP_EOL . 'Line: ' . __LINE__ . PHP_EOL . 'File: ' . __FILE__ . exit();
     }
 
     /**
@@ -193,4 +192,5 @@ class ProductReneController extends AbstractController
 
         return $taxSetTransfer;
     }
+
 }

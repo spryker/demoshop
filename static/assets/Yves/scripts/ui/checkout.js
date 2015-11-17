@@ -9,8 +9,10 @@ var $nameInput,
     $deliveryAddressInput,
     $addressButton,
     $paymentButton,
+    $paymentPayolutionOption,
     $shipmentButton,
     $addressElements,
+    $createAccountCheckbox,
     $addressValidationResult;
 
 var initValidation = function () {
@@ -18,9 +20,11 @@ var initValidation = function () {
     $emailInput = $('.js-checkout-email');
     $addressInput = $('.js-invoice-address');
     $addressCheckbox = $('.js-delivery-address-checkbox');
+    $createAccountCheckbox = $('#checkout_create_account');
     $deliveryAddressInput = $('.js-delivery-address');
     $addressButton = $('.js-address-button');
     $paymentButton = $('.js-payment-button');
+    $paymentPayolutionOption = $('[name="checkout[payment_method]"][value="payolution-invoice"]');
     $shipmentButton = $('.js-shipment-button');
     $('.js-checkout-address input, .js-checkout-address textarea').keyup(validateAddressBlock);
     $addressCheckbox.click(validateAddressBlock);
@@ -75,8 +79,28 @@ module.exports = {
     init: function () {
         initValidation();
 
-        $('input[name="checkout[payment_method]"]').on('change', function () {
+        var billingInputs = [
+            'checkout_email',
+            'checkout_billing_address_first_name',
+            'checkout_billing_address_last_name',
+            'checkout_billing_address_street',
+            'checkout_billing_address_street_nr',
+            'checkout_billing_address_city',
+            'checkout_billing_address_zip_code',
+        ];
+
+        var shippingInputs = [
+            'checkout_shipping_address_first_name',
+            'checkout_shipping_address_last_name',
+            'checkout_shipping_address_street',
+            'checkout_shipping_address_street_nr',
+            'checkout_shipping_address_city',
+            'checkout_shipping_address_zip_code',
+        ];
+
+        $('input[name="checkout[payment_method]"]').on('change', function (event) {
             $paymentButton.attr('disabled', $('input[name="checkout[payment_method]"]:checked').length != 1);
+
         });
 
         $('input[name="checkout[id_shipment_method]"]').on('change', function () {
@@ -91,6 +115,15 @@ module.exports = {
             }
         });
 
+        $createAccountCheckbox.on('change', function (e) {
+            if ($createAccountCheckbox.is(':checked')) {
+                $('#create_account').show();
+            } else {
+                $('#create_account').hide();
+            }
+        });
+
+
         $('.login__skip').click(function () {
             $('.js-checkout-address').removeClass('js-checkout-collapsed');
             $('.js-checkout-login').addClass('js-checkout-collapsed');
@@ -104,8 +137,39 @@ module.exports = {
 
         $('.js-address-button').click(function (event) {
             event.preventDefault();
-            $('.js-checkout-address').addClass('js-checkout-collapsed js-checkout-completed');
+
+            var checkoutAddress = $(event.currentTarget).parents('.js-checkout-address');
+            if (checkoutAddress.length > 0) {
+                var summaryBilling = '';
+                var summaryShipping = '';
+                $('.js-checkout-address input').each(function (i, el) {
+                    if (!el.value) {
+                        return;
+                    }
+                    if (billingInputs.indexOf(el.id) != -1) {
+                        summaryBilling += el.placeholder + ': ' + el.value + '<br />';
+                    }
+                    if (shippingInputs.indexOf(el.id) != -1) {
+                        summaryShipping += el.placeholder + ': ' + el.value + '<br />';
+                    }
+                });
+
+                if (!summaryShipping) {
+                    summaryShipping = summaryBilling;
+                }
+
+                $('#summary-text').show();
+                $('#summary-text-shipping').html(summaryShipping);
+                $('#summary-text-billing').html(summaryBilling);
+                $('#address-fields').hide();
+                $(checkoutAddress).find('.form-block__edit').show();
+                $(event.currentTarget).hide();
+            } else {
+                $('.js-checkout-address').addClass('js-checkout-collapsed js-checkout-completed');
+            }
+
             $('.js-checkout-payment').removeClass('js-checkout-collapsed');
+
         });
 
         $('.js-payment-button').click(function (event) {
@@ -123,6 +187,11 @@ module.exports = {
 
         $('.js-edit-formblock').click(function (event) {
             event.preventDefault();
+            if ($(event.currentTarget).parents('.js-checkout-address').length > 0) {
+                $('#address-fields').show();
+                $('#summary-text').hide();
+                $('.js-address-button').show();
+            }
             $('.js-form-block').addClass('js-checkout-collapsed');
             $(event.currentTarget).parents('.js-form-block').removeClass('js-checkout-collapsed');
             $('.js-checkout-cart').show();

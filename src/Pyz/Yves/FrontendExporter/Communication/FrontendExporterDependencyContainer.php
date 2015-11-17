@@ -12,7 +12,6 @@ use SprykerFeature\Client\Catalog\Service\Model\FacetConfig;
 use SprykerFeature\Client\FrontendExporter\Service\Matcher\UrlMatcher;
 use Pyz\Yves\FrontendExporter\Communication\Creator\ResourceCreatorInterface;
 use Pyz\Yves\FrontendExporter\Communication\Mapper\UrlMapper;
-use SprykerFeature\Yves\FrontendExporter\Communication\Router\StorageRouter;
 use SprykerEngine\Yves\Kernel\Communication\AbstractCommunicationDependencyContainer;
 use Silex\Application;
 

@@ -3,7 +3,7 @@ var gulp = require('gulp');
 var del = require('del');
 
 gulp.task('clean-images', function(done) {
-    del([config.paths.dest.images + config.globs.images], done);
+    return del([config.paths.dest.images + config.globs.images], done);
 })
 
 gulp.task('images', ['clean-images'], function(done) {

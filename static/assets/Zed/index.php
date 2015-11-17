@@ -5,7 +5,6 @@ use SprykerFeature\Shared\Library\Application\TestEnvironment;
 use Pyz\Zed\Application\Communication\ZedBootstrap;
 
 define('ZED_START', microtime(true));
-define('IS_CLI', false);
 
 define('APPLICATION', 'ZED');
 defined('APPLICATION_ROOT_DIR') or define('APPLICATION_ROOT_DIR', realpath(__DIR__ . '/../../..'));

@@ -2,15 +2,11 @@
 
   @include clearfix();
 
-  // make space for the header
-  margin-top: $step*2;
-
   padding: $step $step $step*3;
   background-color: $pale-color;
   color: $mid-color;
 
   @include media-query('medium') {
-    margin-top: $step*2.5;
     padding: $step*1.5 $step $step*4;
   }
 
@@ -142,7 +138,7 @@
 }
 
 .catalog__products {
-  display: flex;
+  display: block;
   flex-wrap: wrap;
   transition: transform .5s;
   width: 100%;
@@ -212,6 +208,7 @@
 }
 
 .catalog__product {
+  float: left;
   position: relative;
   display: block;
   width: 100%;

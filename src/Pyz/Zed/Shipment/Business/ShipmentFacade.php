@@ -2,7 +2,6 @@
 
 namespace Pyz\Zed\Shipment\Business;
 
-use Pyz\Zed\Shipment\Business\ShipmentDependencyContainer;
 use SprykerEngine\Shared\Kernel\Messenger\MessengerInterface;
 use SprykerFeature\Zed\Shipment\Business\ShipmentFacade as SprykerShipmentFacade;
 
@@ -19,4 +18,5 @@ class ShipmentFacade extends SprykerShipmentFacade
     {
         $this->getDependencyContainer()->createDemoDataInstaller($messenger)->install();
     }
+
 }

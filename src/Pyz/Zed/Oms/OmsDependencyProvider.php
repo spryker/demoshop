@@ -15,13 +15,36 @@ class OmsDependencyProvider extends SprykerOmsDependencyProvider
 {
 
     /**
+     * Overwrite in project
+     *
      * @param Container $container
      *
      * @return ConditionInterface[]
      */
     protected function getConditionPlugins(Container $container)
     {
-        return [];
+        return [
+            'Payolution/PreAuthorizationIsApproved' => $container
+                ->getLocator()
+                ->payolution()
+                ->pluginOmsConditionPreAuthorizationIsApprovedPlugin(),
+            'Payolution/ReAuthorizationIsApproved' => $container
+                ->getLocator()
+                ->payolution()
+                ->pluginOmsConditionReAuthorizationIsApprovedPlugin(),
+            'Payolution/ReversalIsApproved' => $container
+                ->getLocator()
+                ->payolution()
+                ->pluginOmsConditionReversalIsApprovedPlugin(),
+            'Payolution/CaptureIsApproved' => $container
+                ->getLocator()
+                ->payolution()
+                ->pluginOmsConditionCaptureIsApprovedPlugin(),
+            'Payolution/RefundIsApproved' => $container
+                ->getLocator()
+                ->payolution()
+                ->pluginOmsConditionRefundIsApprovedPlugin(),
+        ];
     }
 
     /**
@@ -36,6 +59,26 @@ class OmsDependencyProvider extends SprykerOmsDependencyProvider
             'Oms/SendPaymentRequest' => $container->getLocator()->oms()->pluginOmsCommandSendPaymentRequest(),
             'Oms/CreateInvoice' => $container->getLocator()->oms()->pluginOmsCommandCreateInvoice(),
             'Oms/SendInvoice' => $container->getLocator()->oms()->pluginOmsCommandSendInvoice(),
+            'Payolution/PreAuthorize' => $container
+                ->getLocator()
+                ->payolution()
+                ->pluginOmsCommandPreAuthorizePlugin(),
+            'Payolution/ReAuthorize' => $container
+                ->getLocator()
+                ->payolution()
+                ->pluginOmsCommandReAuthorizePlugin(),
+            'Payolution/Revert' => $container
+                ->getLocator()
+                ->payolution()
+                ->pluginOmsCommandRevertPlugin(),
+            'Payolution/Capture' => $container
+                ->getLocator()
+                ->payolution()
+                ->pluginOmsCommandCapturePlugin(),
+            'Payolution/Refund' => $container
+                ->getLocator()
+                ->payolution()
+                ->pluginOmsCommandRefundPlugin(),
         ];
     }
 

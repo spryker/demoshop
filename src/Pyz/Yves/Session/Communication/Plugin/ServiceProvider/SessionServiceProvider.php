@@ -26,6 +26,8 @@ class SessionServiceProvider extends AbstractPlugin implements ServiceProviderIn
 
     /**
      * @param SessionClientInterface $client
+     *
+     * @return void
      */
     public function setClient(SessionClientInterface $client)
     {
@@ -34,6 +36,8 @@ class SessionServiceProvider extends AbstractPlugin implements ServiceProviderIn
 
     /**
      * @param Application $app
+     *
+     * @return mixed
      */
     public function register(Application $app)
     {
@@ -51,18 +55,19 @@ class SessionServiceProvider extends AbstractPlugin implements ServiceProviderIn
             'cookie_lifetime' => Config::get(SystemConfig::YVES_STORAGE_SESSION_TIME_TO_LIVE),
         ];
 
-        if (($name = Config::get(YvesConfig::YVES_SESSION_NAME))) {
+        $name = Config::get(YvesConfig::YVES_SESSION_NAME);
+        if ($name) {
             $sessionStorageOptions['name'] = $name;
         }
-        if (($cookie_domain = Config::get(YvesConfig::YVES_SESSION_COOKIE_DOMAIN))) {
-            $sessionStorageOptions['cookie_domain'] = $cookie_domain;
+        $cookieDomain = Config::get(YvesConfig::YVES_SESSION_COOKIE_DOMAIN);
+        if ($cookieDomain) {
+            $sessionStorageOptions['cookie_domain'] = $cookieDomain;
         }
         $app['session.storage.options'] = $sessionStorageOptions;
 
         $sessionHelper = new SessionFactory();
-        /*
-         * We manually register our own couchbase session handler, for all other handlers we use the generic one
-         */
+
+        // We manually register our own couchbase session handler, for all other handlers we use the generic one
         switch ($saveHandler) {
             case SessionConfig::SESSION_HANDLER_COUCHBASE:
                 $couchbaseSessionHandler = $sessionHelper->registerCouchbaseSessionHandler($this->getSavePath($saveHandler));
@@ -116,6 +121,8 @@ class SessionServiceProvider extends AbstractPlugin implements ServiceProviderIn
 
     /**
      * @param Application $app
+     *
+     * @return void
      */
     public function boot(Application $app)
     {
