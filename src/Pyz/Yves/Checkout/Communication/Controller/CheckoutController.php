@@ -42,7 +42,8 @@ class CheckoutController extends AbstractController
     {
         $container = $this->getDependencyContainer();
 
-/** TODO: START OF FETCH HACK PAYMENT METHOD */
+/** TODO: START OF HACK FETCH PAYMENT METHODs */
+
         $adyenPaymentAvailabilityTransfer = new AdyenPaymentMethodAvailabilityTransfer();
         $adyenPaymentAvailabilityTransfer->setAmount(10000);
         $adyenPaymentAvailabilityTransfer->setCurrency('EUR');
@@ -51,10 +52,7 @@ class CheckoutController extends AbstractController
 
         $paymentMethodsTransfer = $container->createAdyenClient()
             ->getAvailablePaymentMethods($adyenPaymentAvailabilityTransfer);
-/** TODO: START OF FETCH HACK PAYMENT METHOD */
-
-        $shipmentMethodAvailabilityTransfer = new ShipmentMethodAvailabilityTransfer();
-        $shipmentMethodAvailabilityTransfer->setCart($this->getCart());
+/** TODO: START OF HACK FETCH PAYMENT METHODs */
 
 
         $checkoutForm = $container->createCheckoutForm($paymentMethodsTransfer);
@@ -73,29 +71,31 @@ class CheckoutController extends AbstractController
 /** TODO: START OF HACK PAYMENT METHOD */
                 $adyenPaymentDetails = new AdyenPaymentDetailTransfer();
                 $adyenPaymentDetails->setAmount(6000);
-                //$adyenPaymentDetails->setIban('DE87123456781234567890');
-                //$adyenPaymentDetails->setBic('HUHUBIC');
-                //$adyenPaymentDetails->setOwnerName('A. Schneider');
+
+                $adyenPaymentDetails->setIban('DE87123456781234567890');
+                $adyenPaymentDetails->setBic('HUHUBIC');
+                $adyenPaymentDetails->setOwnerName('A. Schneider');
+
                 $adyenPaymentDetails->setCountry('DE');
                 $adyenPaymentDetails->setIp('127.0.0.1');
                 $adyenPaymentDetails->setCurrency('EUR');
-                $adyenPaymentDetails->setDateOfBirth('07071960');
-                $adyenPaymentDetails->setGender('male');
-                $adyenPaymentDetails->setPhoneNumber('01522113356');
+                //$adyenPaymentDetails->setDateOfBirth('07071960');
+                //$adyenPaymentDetails->setGender('male');
+                //$adyenPaymentDetails->setPhoneNumber('01522113356');
 
                 $adyenPaymentTransfer = new AdyenPaymentTransfer();
-                $adyenPaymentTransfer->setPaymentMethod(AdyenPaymentMethodConstants::ADYEN_PAYMENT_METHOD_OPEN_INVOICE_KLARNA);
+                $adyenPaymentTransfer->setPaymentMethod(AdyenPaymentMethodConstants::ADYEN_PAYMENT_METHOD_SEPA);
                 $adyenPaymentTransfer->setPaymentDetail($adyenPaymentDetails);
                 $checkoutRequest->setAdyenPayment($adyenPaymentTransfer);
 
-                $checkoutRequest->setPaymentMethod(AdyenPaymentMethodConstants::ADYEN_PAYMENT_METHOD_OPEN_INVOICE_KLARNA);
+                $checkoutRequest->setPaymentMethod(AdyenPaymentMethodConstants::ADYEN_PAYMENT_METHOD_SEPA);
+
                 //$checkoutRequest->setPaymentMethod('prepayment');
 /** TODO: END OF HACK PAYMENT METHOD */
 
                 $checkoutRequest->setCart($this->getCart());
                 $checkoutRequest->setShippingAddress($checkoutRequest->getBillingAddress());
 
-                //Log::logRaw($checkoutRequest, 'yhundnase.log');
 
                 /** @var CheckoutResponseTransfer $checkoutResponseTransfer */
                 $checkoutResponseTransfer = $checkoutClient->requestCheckout($checkoutRequest);
@@ -158,6 +158,9 @@ class CheckoutController extends AbstractController
      */
     public function redirect(CheckoutResponseTransfer $checkoutResponseTransfer)
     {
+
+        // TODO Building redirect url is not final !!!!
+
         if ($checkoutResponseTransfer->getIsExternalRedirect()) {
             $redirectUrl = $checkoutResponseTransfer->getRedirectUrl() .
                 '&' . http_build_query($checkoutResponseTransfer->getRedirectPayload(), null, '&');
@@ -165,6 +168,7 @@ class CheckoutController extends AbstractController
             $redirectUrl = CheckoutControllerProvider::ROUTE_CHECKOUT_SUCCESS;
         }
 /*
+        // TODO can be use for testing hmac
         $redirectUrl = 'https://ca-test.adyen.com/ca/ca/skin/checkhmac.shtml?brandCode=paypal' .
             '&' . http_build_query($checkoutResponseTransfer->getRedirectPayload(), null, '&');
 */
