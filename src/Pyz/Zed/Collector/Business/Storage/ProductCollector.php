@@ -404,6 +404,7 @@ class ProductCollector extends AbstractPropelCollectorPlugin
      */
     protected function processData($resultSet, LocaleTransfer $locale, TouchUpdaterSet $touchUpdaterSet)
     {
+
         $products = $this->buildProducts($resultSet);
 
         $processedResultSet = [];
@@ -440,8 +441,8 @@ class ProductCollector extends AbstractPropelCollectorPlugin
 
                     $processedResultSet[$index]['prices'] = $organizedPrices;
                 } else {
-                    unset($processedResultSet[$index]);
-                    continue;
+                    //unset($processedResultSet[$index]);
+                    //continue;
                 }
                 unset($processedResultSet[$index]['concrete_prices']);
                 unset($processedResultSet[$index]['price_types']);
