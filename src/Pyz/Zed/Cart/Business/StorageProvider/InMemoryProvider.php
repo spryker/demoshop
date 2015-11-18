@@ -6,6 +6,7 @@ use SprykerFeature\Zed\Cart\Business\StorageProvider\InMemoryProvider as Spryker
 use Generated\Shared\Cart\ChangeInterface;
 use Generated\Shared\Cart\CartInterface;
 use Pyz\SprykerBugfixInterface;
+use Pyz\Zed\Cart\Business\CouponMessageGenerator;
 
 class InMemoryProvider extends SprykerInMemoryProvider implements SprykerBugfixInterface
 {
@@ -17,7 +18,20 @@ class InMemoryProvider extends SprykerInMemoryProvider implements SprykerBugfixI
      */
     public function addCouponCode(CartInterface $cart, ChangeInterface $change)
     {
-        return $cart->addCouponCode($change->getCouponCode());
+        $oldCart = clone $cart;
+
+        $cart->addCouponCode($change->getCouponCode());
+
+        $couponMessageGenerator = new CouponMessageGenerator();
+
+        $cart->setCouponMessage(
+            $couponMessageGenerator->getMessage($oldCart, $cart)
+        );
+
+        return $cart;
+
+        // @Todo: replace with this once coupon error messages are fixed by Spryker
+        //return $cart->addCouponCode($change->getCouponCode());
     }
     /**
      * @param CartInterface $cart

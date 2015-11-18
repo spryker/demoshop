@@ -2,6 +2,9 @@
 
 {% block discounts %}
     <div class="cart__discount">
+
+        Message : {{ cart.couponMessage|trans }}
+
         <div class="cart__discount-header">{{ 'cart.discounts'|trans }}</div>
 
         {% include "@checkout/checkout/partials/discountList.twig" %}

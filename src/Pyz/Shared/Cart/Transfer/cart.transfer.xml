@@ -16,5 +16,9 @@
         <property name="isMerged" type="string" />
     </transfer>
 
+    <transfer name="Cart">
+        <property name="couponMessage" type="string" />
+    </transfer>
+
 </transfers>
 
