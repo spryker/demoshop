@@ -157,8 +157,8 @@ keys:
       en_US: '/images/homepage/pig.jpg'
   page.home.featured.bottom-right.left.url:
     translations:
-      de_DE: '/ferkel,-stehend'
-      en_US: '/pig,-standing'
+      de_DE: '/ferkel-stehend'
+      en_US: '/pig-standing'
 
   page.home.featured.bottom-right.right.width:
     translations:
