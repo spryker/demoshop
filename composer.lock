@@ -819,15 +819,7 @@
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/spryker.git",
-<<<<<<< HEAD
-<<<<<<< HEAD
-                "reference": "2e33d3652d4031fc6e929fe3cd05bae594e4b4f4"
-=======
-                "reference": "a2c36b304b8f3fae68d4878dd7bc55c5d9c6f35f"
->>>>>>> CSN-61 update composer
-=======
-                "reference": "38280c50c2b961420b50fe10ffdba4c90018a4c9"
->>>>>>> CSN-61 update composer
+                "reference": "eba94dbe00df2c48deed4f08f9245bbb61ce4221"
             },
             "require": {
                 "digital-canvas/zend-framework": ">=1.12.2"
@@ -916,15 +908,7 @@
                     "SprykerFeature\\Shared\\Library": "Bundles/Library/src/"
                 }
             },
-<<<<<<< HEAD
-<<<<<<< HEAD
-            "time": "2015-11-18 12:01:04"
-=======
-            "time": "2015-11-18 08:25:10"
->>>>>>> CSN-61 update composer
-=======
-            "time": "2015-11-18 09:46:58"
->>>>>>> CSN-61 update composer
+            "time": "2015-11-18 12:17:29"
         },
         {
             "name": "symfony-cmf/routing",
