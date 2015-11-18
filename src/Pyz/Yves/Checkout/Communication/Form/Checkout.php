@@ -65,10 +65,10 @@ class Checkout extends AbstractType
             ])
             ->add('payment_method', 'choice', [
                 'choices' => [
-                    'adyen.payment.method.sepa.directdebit' => 'HardCoded SEPA (A. Schneider)',
-                    'adyen.payment.method.paypal' => 'PayPal',
-                    'adyen.payment.method.creditcard.cse' => 'Los Cardos Credidos',
-                    'adyen.payment.method.german.bank.transfer' => 'Vorkassa'
+                    'adyen.payment.method.sepa.directdebit' => 'HardCoded SEPA A. Schneider (usable)',
+                    'adyen.payment.method.paypal' => 'PayPal (usable)',
+                    'adyen.payment.method.creditcard.cse' => 'Credit card (not usable - you need token)',
+                    'adyen.payment.method.german.bank.transfer' => 'Prepayment (usable)'
                 ],
                 'expanded' => true,
                 'multiple' => false,
