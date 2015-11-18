@@ -20,30 +20,6 @@ class SkuValid implements ValidationRuleInterface
     }
 
     /**
-     * @param string $sku
-     * @return ErrorResultCollection
-     */
-    private function checkSku($sku)
-    {
-        $validationErrorCollection = new ErrorResultCollection();
-        if((is_string($sku) || is_numeric($sku)) === false)
-        {
-            $validationErrorCollection->addResultElement(
-                new ErrorResultElement($sku, 'Sku has to be of type string or numeric')
-            );
-        }
-
-        if(empty($sku))
-        {
-            $validationErrorCollection->addResultElement(
-                new ErrorResultElement($sku, 'Sku can not be empty')
-            );
-        }
-
-        return $validationErrorCollection;
-    }
-
-    /**
      * @return ErrorResultCollection
      */
     public function runRule()
@@ -52,6 +28,28 @@ class SkuValid implements ValidationRuleInterface
         $validationErrorCollection->addResultCollection(
             $this->checkSku($this->product->getSku())
         );
+        return $validationErrorCollection;
+    }
+
+    /**
+     * @param string $sku
+     * @return ErrorResultCollection
+     */
+    private function checkSku($sku)
+    {
+        $validationErrorCollection = new ErrorResultCollection();
+        if ((is_string($sku) || is_numeric($sku)) === false) {
+            $validationErrorCollection->addResultElement(
+                new ErrorResultElement($sku, 'Sku has to be of type string or numeric')
+            );
+        }
+
+        if (empty($sku)) {
+            $validationErrorCollection->addResultElement(
+                new ErrorResultElement($sku, 'Sku can not be empty')
+            );
+        }
+
         return $validationErrorCollection;
     }
 }

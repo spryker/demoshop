@@ -2,6 +2,7 @@
 
 namespace Pyz\Zed\PetsDeliImporterValidators\Business\Validators;
 
+use Generated\Shared\ProductDynamicImporter\PavProductDynamicImporterLocaleInterface;
 use PavFeature\Zed\ProductDynamicImporter\Business\Validator\ValidationRules\ValidationRuleInterface;
 use Generated\Shared\ProductDynamicImporter\PavProductDynamicImporterAbstractProductInterface;
 use Pyz\Zed\PetsDeliImporterValidators\Business\ValidationErrors\ErrorResultCollection;
@@ -22,43 +23,6 @@ class LocaleValid implements ValidationRuleInterface
     }
 
     /**
-     * @param string $sku
-     * @param array $locales
-     * @return ErrorResultCollection
-     */
-    private function checkLocales($sku, $locales)
-    {
-        $validationErrorCollection = new ErrorResultCollection();
-
-        if((is_array($locales) || $locales instanceof \ArrayObject) === false)
-        {
-            $validationErrorCollection->addResultElement(
-                new ErrorResultElement($sku, 'locales must be of type array')
-            );
-        }
-        elseif (count($locales) <= 0)
-        {
-            $validationErrorCollection->addResultElement(
-                new ErrorResultElement($sku, 'At least one locale needs to be set')
-            );
-        }
-        else
-        {
-            foreach($locales as $locale)
-            {
-                if((bool)preg_match(self::LOCALE_PATTERN, $locale->getLocale()) === false)
-                {
-                    $validationErrorCollection->addResultElement(
-                        new ErrorResultElement($sku, 'Locale is not correctly formatted')
-                    );
-                }
-            }
-        }
-
-        return $validationErrorCollection;
-    }
-
-    /**
      * @return ErrorResultCollection
      */
     public function runRule()
@@ -71,11 +35,40 @@ class LocaleValid implements ValidationRuleInterface
         );
 
         // step 2: check locales for concrete product
-        foreach ($this->product->getConcreteProducts() as $concreteProduct)
-        {
+        foreach ($this->product->getConcreteProducts() as $concreteProduct) {
             $validationErrorCollection->addResultCollection(
                 $this->checkLocales($concreteProduct->getSku(), $concreteProduct->getLocales())
             );
+        }
+
+        return $validationErrorCollection;
+    }
+
+    /**
+     * @param string $sku
+     * @param PavProductDynamicImporterLocaleInterface[] $locales
+     * @return ErrorResultCollection
+     */
+    private function checkLocales($sku, $locales)
+    {
+        $validationErrorCollection = new ErrorResultCollection();
+
+        if ((is_array($locales) || $locales instanceof \ArrayObject) === false) {
+            $validationErrorCollection->addResultElement(
+                new ErrorResultElement($sku, 'locales must be of type array')
+            );
+        } elseif (count($locales) <= 0) {
+            $validationErrorCollection->addResultElement(
+                new ErrorResultElement($sku, 'At least one locale needs to be set')
+            );
+        } else {
+            foreach ($locales as $locale) {
+                if ((bool)preg_match(self::LOCALE_PATTERN, $locale->getLocale()) === false) {
+                    $validationErrorCollection->addResultElement(
+                        new ErrorResultElement($sku, 'Locale is not correctly formatted')
+                    );
+                }
+            }
         }
 
         return $validationErrorCollection;

@@ -22,32 +22,6 @@ class TaxValid implements ValidationRuleInterface
     }
 
     /**
-     * @param $sku
-     * @param $tax
-     * @return ErrorResultCollection
-     */
-    public function checkTax($sku, $tax)
-    {
-        $validationErrorCollection = new ErrorResultCollection();
-
-        if(empty($tax))
-        {
-            $validationErrorCollection->addResultElement(
-                new ErrorResultElement($sku, 'Tax can not be empty')
-            );
-        }
-
-        if((bool)preg_match(self::TAX_PATTERN, $tax) === false)
-        {
-            $validationErrorCollection->addResultElement(
-                new ErrorResultElement($sku, 'Tax is not of correct format')
-            );
-        }
-
-        return $validationErrorCollection;
-    }
-
-    /**
      * @return ErrorResultCollection
      */
     public function runRule()
@@ -57,6 +31,30 @@ class TaxValid implements ValidationRuleInterface
         $validationErrorCollection->addResultCollection(
             $this->checkTax($this->product->getSku(), $this->product->getTax())
         );
+
+        return $validationErrorCollection;
+    }
+
+    /**
+     * @param $sku
+     * @param $tax
+     * @return ErrorResultCollection
+     */
+    public function checkTax($sku, $tax)
+    {
+        $validationErrorCollection = new ErrorResultCollection();
+
+        if (empty($tax)) {
+            $validationErrorCollection->addResultElement(
+                new ErrorResultElement($sku, 'Tax can not be empty')
+            );
+        }
+
+        if ((bool)preg_match(self::TAX_PATTERN, $tax) === false) {
+            $validationErrorCollection->addResultElement(
+                new ErrorResultElement($sku, 'Tax is not of correct format')
+            );
+        }
 
         return $validationErrorCollection;
     }

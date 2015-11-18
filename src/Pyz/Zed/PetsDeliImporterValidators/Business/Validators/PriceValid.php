@@ -22,6 +22,23 @@ class PriceValid implements ValidationRuleInterface
     }
 
     /**
+     * @return ErrorResultCollection
+     */
+    public function runRule()
+    {
+        $validationErrorCollection = new ErrorResultCollection();
+
+        // only concrete products needs to be checked, abstract products don't have a price property
+        foreach ($this->product->getConcreteProducts() as $concreteProduct) {
+            $validationErrorCollection->addResultCollection(
+                $this->checkPrice($concreteProduct->getSku(), $concreteProduct->getPrice())
+            );
+        }
+
+        return $validationErrorCollection;
+    }
+
+    /**
      * @param string $sku
      * @param int $price
      * @return ErrorResultCollection
@@ -30,36 +47,15 @@ class PriceValid implements ValidationRuleInterface
     {
         $validationErrorCollection = new ErrorResultCollection();
 
-        if (empty($price) === true)
-        {
+        if (empty($price) === true) {
             $validationErrorCollection->addResultElement(
                 new ErrorResultElement($sku, 'price can not be empty')
             );
-        }
-        elseif ((bool)preg_match(self::PRICE_PATTERN, $price) === false)
-        {
+        } elseif ((bool)preg_match(self::PRICE_PATTERN, $price) === false) {
             $validationErrorCollection->addResultElement(
                 new ErrorResultElement($sku, 'price is not of correct format')
             );
         }
-        return $validationErrorCollection;
-    }
-
-    /**
-     * @return ErrorResultCollection
-     */
-    public function runRule()
-    {
-        $validationErrorCollection = new ErrorResultCollection();
-
-        // only concrete products needs to be checked, abstract products don't have a price property
-        foreach ($this->product->getConcreteProducts() as $concreteProduct)
-        {
-            $validationErrorCollection->addResultCollection(
-                $this->checkPrice($concreteProduct->getSku(), $concreteProduct->getPrice())
-            );
-        }
-
         return $validationErrorCollection;
     }
 }

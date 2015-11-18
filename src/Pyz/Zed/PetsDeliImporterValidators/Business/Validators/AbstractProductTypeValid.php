@@ -27,23 +27,6 @@ class AbstractProductTypeValid implements ValidationRuleInterface
     }
 
     /**
-     * @param string $sku
-     * @param string $type
-     * @return ErrorResultCollection
-     */
-    public function checkType($sku, $type)
-    {
-        $validationErrorCollection = new ErrorResultCollection();
-        if(in_array($type, self::ALLOWED_TYPES) === false)
-        {
-            $validationErrorCollection->addResultElement(
-                new ErrorResultElement($sku, 'abstract product should be of one of these types:' . implode(', ', self::ALLOWED_TYPES))
-            );
-        }
-        return $validationErrorCollection;
-    }
-
-    /**
      * @return ErrorResultCollection
      */
     public function runRule()
@@ -54,6 +37,22 @@ class AbstractProductTypeValid implements ValidationRuleInterface
             $this->checkType($this->product->getSku(), $this->product->getType())
         );
 
+        return $validationErrorCollection;
+    }
+
+    /**
+     * @param string $sku
+     * @param string $type
+     * @return ErrorResultCollection
+     */
+    public function checkType($sku, $type)
+    {
+        $validationErrorCollection = new ErrorResultCollection();
+        if (in_array($type, self::ALLOWED_TYPES) === false) {
+            $validationErrorCollection->addResultElement(
+                new ErrorResultElement($sku, 'abstract product should be of one of these types:' . implode(', ', self::ALLOWED_TYPES))
+            );
+        }
         return $validationErrorCollection;
     }
 }
