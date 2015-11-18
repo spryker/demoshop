@@ -47,9 +47,14 @@ class TwigSettings
             ->setCustomerClient($this->getLocator()->customer()->client())
         ;
 
+        $twigCmsBlock = $this->getLocator()->cms()->pluginTwigCmsBlock()
+            ->setCmsClient($this->getLocator()->cms()->client())
+        ;
+
         return [
             $this->getLocator()->price()->pluginTwigPrice(),
             $this->getLocator()->cms()->pluginTwigCms(),
+            $twigCmsBlock,
             $twigCustomer,
             $this->getLocator()->assets()->pluginTwigAsset(),
         ];

@@ -60,6 +60,7 @@ class CollectorDependencyProvider extends SprykerCollectorDependencyProvider
                 'navigation' => $container->getLocator()->collector()->pluginNavigationCollectorStoragePlugin(),
                 'translation' => $container->getLocator()->collector()->pluginTranslationCollectorStoragePlugin(),
                 'page' => $container->getLocator()->collector()->pluginPageCollectorStoragePlugin(),
+                'block' => $container->getLocator()->collector()->pluginBlockCollectorStoragePlugin(),
                 'redirect' => $container->getLocator()->collector()->pluginRedirectCollectorStoragePlugin(),
                 'url' => $container->getLocator()->collector()->pluginUrlCollectorStoragePlugin(),
             ];

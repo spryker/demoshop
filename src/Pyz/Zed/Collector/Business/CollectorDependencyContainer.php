@@ -3,6 +3,7 @@
 namespace Pyz\Zed\Collector\Business;
 
 use Pyz\Zed\Collector\Business\Search\ProductCollector as SearchProductCollector;
+use Pyz\Zed\Collector\Business\Storage\BlockCollector;
 use Pyz\Zed\Collector\Business\Storage\CategoryNodeCollector;
 use Pyz\Zed\Collector\Business\Storage\NavigationCollector;
 use Pyz\Zed\Collector\Business\Storage\PageCollector;
@@ -136,6 +137,17 @@ class CollectorDependencyContainer extends SprykerCollectorDependencyContainer
         );
 
         return $storageUrlCollector;
+    }
+
+    /**
+     * @return BlockCollector
+     */
+    public function createStorageBlockCollector()
+    {
+        $collector = $this->getFactory()->createStorageBlockCollector();
+        $collector->setTouchQueryContainer($this->getProvidedDependency(CollectorDependencyProvider::QUERY_CONTAINER_TOUCH));
+
+        return $collector;
     }
 
 }
