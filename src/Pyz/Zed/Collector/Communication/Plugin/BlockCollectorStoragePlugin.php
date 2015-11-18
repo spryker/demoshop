@@ -23,6 +23,8 @@ class BlockCollectorStoragePlugin extends AbstractPlugin implements CollectorPlu
      * @param BatchResultInterface $result
      * @param WriterInterface $dataWriter
      * @param TouchUpdaterInterface $touchUpdater
+     *
+     * @return void
      */
     public function run(SpyTouchQuery $baseQuery, LocaleTransfer $locale, BatchResultInterface $result, WriterInterface $dataWriter, TouchUpdaterInterface $touchUpdater)
     {
@@ -38,6 +40,8 @@ class BlockCollectorStoragePlugin extends AbstractPlugin implements CollectorPlu
      * @param BatchResultInterface $result
      * @param WriterInterface $dataWriter
      * @param TouchUpdaterInterface $touchUpdater
+     *
+     * @return void
      */
     public function postRun(SpyTouchQuery $baseQuery, LocaleTransfer $locale, BatchResultInterface $result, WriterInterface $dataWriter, TouchUpdaterInterface $touchUpdater)
     {

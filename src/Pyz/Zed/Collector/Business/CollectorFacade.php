@@ -21,6 +21,8 @@ class CollectorFacade extends SprykerCollectorFacade
      * @param BatchResultInterface $result
      * @param $dataWriter
      * @param TouchUpdaterInterface $touchUpdater
+     *
+     * @return void
      */
     public function runSearchProductCollector(SpyTouchQuery $baseQuery, LocaleTransfer $locale, BatchResultInterface $result, $dataWriter, TouchUpdaterInterface $touchUpdater)
     {
@@ -33,6 +35,8 @@ class CollectorFacade extends SprykerCollectorFacade
      * @param BatchResultInterface $result
      * @param $dataWriter
      * @param TouchUpdaterInterface $touchUpdater
+     *
+     * @return void
      */
     public function runStorageCategoryNodeCollector(SpyTouchQuery $baseQuery, LocaleTransfer $locale, BatchResultInterface $result, $dataWriter, TouchUpdaterInterface $touchUpdater)
     {
@@ -45,6 +49,8 @@ class CollectorFacade extends SprykerCollectorFacade
      * @param BatchResultInterface $result
      * @param $dataWriter
      * @param TouchUpdaterInterface $touchUpdater
+     *
+     * @return void
      */
     public function runStorageNavigationCollector(SpyTouchQuery $baseQuery, LocaleTransfer $locale, BatchResultInterface $result, $dataWriter, TouchUpdaterInterface $touchUpdater)
     {
@@ -57,6 +63,8 @@ class CollectorFacade extends SprykerCollectorFacade
      * @param BatchResultInterface $result
      * @param $dataWriter
      * @param TouchUpdaterInterface $touchUpdater
+     *
+     * @return void
      */
     public function runStoragePageCollector(SpyTouchQuery $baseQuery, LocaleTransfer $locale, BatchResultInterface $result, $dataWriter, TouchUpdaterInterface $touchUpdater)
     {
@@ -69,6 +77,8 @@ class CollectorFacade extends SprykerCollectorFacade
      * @param BatchResultInterface $result
      * @param $dataWriter
      * @param TouchUpdaterInterface $touchUpdater
+     *
+     * @return void
      */
     public function runStorageProductCollector(SpyTouchQuery $baseQuery, LocaleTransfer $locale, BatchResultInterface $result, $dataWriter, TouchUpdaterInterface $touchUpdater)
     {
@@ -81,6 +91,8 @@ class CollectorFacade extends SprykerCollectorFacade
      * @param BatchResultInterface $result
      * @param $dataWriter
      * @param TouchUpdaterInterface $touchUpdater
+     *
+     * @return void
      */
     public function runStorageRedirectCollector(SpyTouchQuery $baseQuery, LocaleTransfer $locale, BatchResultInterface $result, $dataWriter, TouchUpdaterInterface $touchUpdater)
     {
@@ -93,6 +105,8 @@ class CollectorFacade extends SprykerCollectorFacade
      * @param BatchResultInterface $result
      * @param $dataWriter
      * @param TouchUpdaterInterface $touchUpdater
+     *
+     * @return void
      */
     public function runStorageTranslationCollector(SpyTouchQuery $baseQuery, LocaleTransfer $locale, BatchResultInterface $result, $dataWriter, TouchUpdaterInterface $touchUpdater)
     {
@@ -105,6 +119,8 @@ class CollectorFacade extends SprykerCollectorFacade
      * @param BatchResultInterface $result
      * @param $dataWriter
      * @param TouchUpdaterInterface $touchUpdater
+     *
+     * @return void
      */
     public function runStorageUrlCollector(SpyTouchQuery $baseQuery, LocaleTransfer $locale, BatchResultInterface $result, $dataWriter, TouchUpdaterInterface $touchUpdater)
     {
@@ -117,6 +133,8 @@ class CollectorFacade extends SprykerCollectorFacade
      * @param BatchResultInterface $result
      * @param WriterInterface $dataWriter
      * @param TouchUpdaterInterface $touchUpdater
+     *
+     * @return void
      */
     public function runStorageBlockCollector(SpyTouchQuery $baseQuery, LocaleTransfer $locale, BatchResultInterface $result, WriterInterface $dataWriter, TouchUpdaterInterface $touchUpdater)
     {

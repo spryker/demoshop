@@ -59,8 +59,8 @@ class TwigCmsBlock extends AbstractPlugin implements TwigFunctionPluginInterface
      * @param \Twig_Environment $twig
      * @param array $context
      * @param string $blockName
-     * @param string $blockType
-     * @param string $blockValue
+     * @param string|null $blockType
+     * @param string|null $blockValue
      *
      * @return string
      */
