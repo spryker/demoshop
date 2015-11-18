@@ -4,6 +4,9 @@
 
 {% block content %}
 
+    {# TODO: replace this, when frontend is ready to change the concretes #}
+    {% set productConcrete = product.concreteProducts|first %}
+
     <article class="product product--justice-league">
         <section class="product__overview">
             {% if category is not null %}
@@ -19,8 +22,8 @@
             {% endfor %}
 
             {% include "@application/layout/partials/spinner.twig" with {class:"product__quantity", style:"caplet", name:"quantity", value:"1"} %}
-            <button class="product__add-button cta" data-sku="{{ product.abstractSku }}">{{ "page.detail.add-to-cart"|trans }}</button> <br />
-            <a href="{{ path('wishlist/add', { sku: product.abstractSku }) }}">Add to Wishlist</a>
+            <button class="product__add-button cta" data-sku="{{ productConcrete.sku }}">{{ "page.detail.add-to-cart"|trans }}</button> <br />
+            <a href="{{ path('wishlist/add', { sku: productConcrete.sku }) }}">Add to Wishlist</a>
         </section>
         <section class="product__main-image">
             <img src="{{ product.small_image}}" alt="" style="width: 100%;"/>
