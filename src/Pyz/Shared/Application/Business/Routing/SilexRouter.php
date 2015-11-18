@@ -15,6 +15,10 @@ use \SprykerFeature\Shared\Application\Business\Routing\SilexRouter as SprykerSi
  */
 class SilexRouter extends SprykerSilexRouter
 {
+    
+    /**
+     * {@inheritdoc}
+     */
     public function generate($name, $parameters = [], $referenceType = self::ABSOLUTE_PATH)
     {
         $generator = new UrlGenerator($this->getRouteCollection(), $this->getContext(), $this->logger);

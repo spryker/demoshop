@@ -23,8 +23,8 @@ keys:
       en_US: '/images/homepage/gorilla.jpg'
   page.home.featured.top-left.left.url:
     translations:
-      de_DE: '/gorilla-maennchen'
-      en_US: '/gorilla-male'
+      de_DE: '/de/gorilla-maennchen'
+      en_US: '/en/gorilla-male'
 
   page.home.featured.top-left.right.width:
     translations:
@@ -48,8 +48,8 @@ keys:
       en_US: '/images/homepage/penguin.jpg'
   page.home.featured.top-left.right.url:
     translations:
-      de_DE: '/brillenpinguin'
-      en_US: '/penguin'
+      de_DE: '/de/brillenpinguin'
+      en_US: '/en/penguin'
 
   page.home.featured.top-right.first.width:
     translations:
@@ -65,8 +65,8 @@ keys:
       en_US: '/images/homepage/wildlife.jpg'
   page.home.featured.top-right.first.url:
     translations:
-      de_DE: '/wilde-tiere'
-      en_US: '/wild-animals'
+      de_DE: '/de/wilde-tiere'
+      en_US: '/en/wild-animal'
 
   page.home.featured.top-right.second.width:
     translations:
@@ -82,8 +82,8 @@ keys:
       en_US: '/images/homepage/dragon.jpg'
   page.home.featured.top-right.second.url:
     translations:
-      de_DE: '/wilde-tiere'
-      en_US: '/wild-animals'
+      de_DE: '/de/wilde-tiere'
+      en_US: '/en/wild-animal'
 
   page.home.featured.bottom-left.top.width:
     translations:
@@ -96,19 +96,19 @@ keys:
   page.home.featured.bottom-left.top.name:
     translations:
       de_DE: 'Wald und Wiese'
-      en_US: 'Forest and grassland'
+      en_US: 'Forest and Meadow'
   page.home.featured.bottom-left.top.category:
     translations:
-      de_DE: '/wald-und-wiese'
-      en_US: '/forest-and-grassland'
+      de_DE: '/de/wald-und-wiese'
+      en_US: '/en/forest-and-meadow'
   page.home.featured.bottom-left.top.img:
     translations:
       de_DE: '/images/homepage/teaser-waldwiese.jpg'
-      en_US: '/images/homepage/teaser-grassland.jpg'
+      en_US: '/images/homepage/teaser-waldwiese.jpg'
   page.home.featured.bottom-left.top.url:
     translations:
-      de_DE: '/wald-und-wiese'
-      en_US: '/forest-and-grassland'
+      de_DE: '/de/wald-und-wiese'
+      en_US: '/en/forest-and-meadow'
 
   page.home.featured.bottom-left.bottom.width:
     translations:
@@ -124,16 +124,16 @@ keys:
       en_US: 'Seas'
   page.home.featured.bottom-left.bottom.category:
     translations:
-      de_DE: '/meere'
-      en_US: '/seas'
+      de_DE: '/de/meere'
+      en_US: '/en/seas'
   page.home.featured.bottom-left.bottom.img:
     translations:
       de_DE: '/images/homepage/sea.jpg'
       en_US: '/images/homepage/sea.jpg'
   page.home.featured.bottom-left.bottom.url:
     translations:
-      de_DE: '/meere'
-      en_US: '/seas'
+      de_DE: '/de/meere'
+      en_US: '/en/seas'
 
   page.home.featured.bottom-right.left.width:
     translations:
@@ -150,11 +150,11 @@ keys:
   page.home.featured.bottom-right.left.category:
     translations:
       de_DE: 'Wald und Wiese'
-      en_US: 'Forest and grassland'
+      en_US: 'Forest and Meadow'
   page.home.featured.bottom-right.left.img:
     translations:
       de_DE: '/images/homepage/ferkel.jpg'
-      en_US: '/images/homepage/pig.jpg'
+      en_US: '/images/homepage/ferkel.jpg'
   page.home.featured.bottom-right.left.url:
     translations:
       de_DE: '/ferkel-stehend'
@@ -179,11 +179,11 @@ keys:
   page.home.featured.bottom-right.right.img:
     translations:
       de_DE: '/images/homepage/flusspferd.jpg'
-      en_US: '/images/homepage/hippo.jpg'
+      en_US: '/images/homepage/flusspferd.jpg'
   page.home.featured.bottom-right.right.url:
     translations:
-      de_DE: '/flusspferd'
-      en_US: '/hippo'
+      de_DE: '/de/flusspferd'
+      en_US: '/en/hippo'
 
   cart.your-order:
     translations:

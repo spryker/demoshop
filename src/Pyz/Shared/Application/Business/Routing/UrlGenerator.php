@@ -7,6 +7,7 @@ namespace Pyz\Shared\Application\Business\Routing;
 
 use Symfony\Component\Routing\CompiledRoute;
 use Symfony\Component\Routing\Generator\UrlGenerator as SymfonyUrlGenerator;
+use Symfony\Component\Routing\Route;
 
 class UrlGenerator extends SymfonyUrlGenerator
 {
@@ -23,17 +24,18 @@ class UrlGenerator extends SymfonyUrlGenerator
         $route = $this->routes->get($name);
         $compiledRoute = $route->compile();
 
-        return $this->setVariablePath($name, $url, $compiledRoute);
+        return $this->setVariablePath($name, $url, $compiledRoute, $route);
     }
 
     /**
      * @param string $name
      * @param string $url
      * @param CompiledRoute $compiledRoute
+     * @param Route $route
      *
      * @return string
      */
-    protected function setVariablePath($name, $url, CompiledRoute $compiledRoute)
+    protected function setVariablePath($name, $url, CompiledRoute $compiledRoute, Route $route)
     {
         if ($compiledRoute->getStaticPrefix() === self::ERROR_PATH) {
             return $url;
@@ -42,9 +44,9 @@ class UrlGenerator extends SymfonyUrlGenerator
         $baseHost = $this->context->getScheme() . '://' . $this->context->getHost() . '/';
 
         if ($name !== self::HOME && $baseHost === $url) {
-            $url .= current($compiledRoute->getPathVariables());
+            $firstPathVariable = current($compiledRoute->getPathVariables());
+            $url .= $route->getDefault($firstPathVariable);
         }
-
         $url = $this->setLocalePath($url, $baseHost);
 
         return $url;
