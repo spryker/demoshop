@@ -9,4 +9,17 @@ use SprykerEngine\Zed\Kernel\Business\AbstractFacade;
  */
 class ProductCountryFacade extends AbstractFacade
 {
+
+    /**
+     * @param array $productCountryData
+     *
+     * @return void
+     */
+    public function importProductCountryData(array $productCountryData)
+    {
+        $this->getDependencyContainer()
+            ->createProductCountryManager()
+            ->importProductCountryData($productCountryData);
+    }
+
 }

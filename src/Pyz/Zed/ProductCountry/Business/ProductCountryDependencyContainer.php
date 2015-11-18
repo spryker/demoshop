@@ -3,9 +3,11 @@
 namespace Pyz\Zed\ProductCountry\Business;
 
 use Generated\Zed\Ide\FactoryAutoCompletion\ProductCountryBusiness;
+use Propel\Runtime\Connection\ConnectionInterface;
 use Pyz\Zed\ProductCountry\Business\Model\ProductCountryManagerInterface;
+use Pyz\Zed\ProductCountry\Dependency\ProductCountryToCountryInterface;
+use Pyz\Zed\ProductCountry\Dependency\ProductCountryToProductInterface;
 use Pyz\Zed\ProductCountry\ProductCountryDependencyProvider;
-use Pyz\Zed\Queue\Business\QueueFacade;
 use SprykerEngine\Zed\Kernel\Business\AbstractBusinessDependencyContainer;
 
 /**
@@ -21,14 +23,15 @@ class ProductCountryDependencyContainer extends AbstractBusinessDependencyContai
     {
         return $this->getFactory()->createModelProductCountryManager(
             $this->createProductFacade(),
-            $this->createCountryFacade()
+            $this->createCountryFacade(),
+            $this->createPropelConnection()
         );
     }
 
     /**
      * @throws \ErrorException
      *
-     * @return QueueFacade
+     * @return ProductCountryToCountryInterface
      */
     public function createCountryFacade()
     {
@@ -38,11 +41,21 @@ class ProductCountryDependencyContainer extends AbstractBusinessDependencyContai
     /**
      * @throws \ErrorException
      *
-     * @return ProductCountryFacade
+     * @return ProductCountryToProductInterface
      */
     public function createProductFacade()
     {
         return $this->getProvidedDependency(ProductCountryDependencyProvider::PRODUCT_FACADE);
+    }
+
+    /**
+     * @throws \ErrorException
+     *
+     * @return ConnectionInterface
+     */
+    public function createPropelConnection()
+    {
+        return $this->getProvidedDependency(ProductCountryDependencyProvider::PLUGIN_PROPEL_CONNECTION);
     }
 
 }

@@ -10,6 +10,7 @@ class ProductCountryDependencyProvider extends AbstractBundleDependencyProvider
 
     const COUNTRY_FACADE = 'county facade';
     const PRODUCT_FACADE = 'product facade';
+    const PLUGIN_PROPEL_CONNECTION = 'propel connection plugin';
 
     /**
      * @param Container $container
@@ -42,6 +43,10 @@ class ProductCountryDependencyProvider extends AbstractBundleDependencyProvider
 
         $container[self::PRODUCT_FACADE] = function (Container $container) {
             return $container->getLocator()->product()->facade();
+        };
+
+        $container[self::PLUGIN_PROPEL_CONNECTION] = function (Container $container) {
+            return $container->getLocator()->propel()->pluginConnection()->get();
         };
 
         return $container;

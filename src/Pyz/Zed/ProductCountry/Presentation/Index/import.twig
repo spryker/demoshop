@@ -1,0 +1,33 @@
+{% extends '@Gui/Layout/layout.twig' %}
+
+{% set widget_title = 'Import Product Countries' | trans %}
+{% block section_title %}{{ widget_title }}{% endblock %}
+
+{% block action %}
+    {{ backActionButton('/product-country', 'List Product Countries' | trans) }}
+{% endblock %}
+
+{% block content %}
+
+    {% embed '@Gui/Partials/widget.twig' %}
+
+        {% block widget_content %}
+
+            {{ form_start(form) }}
+            {{ form_widget(form) }}
+
+            <br/>
+            <br/>
+            <input type="submit" class="btn btn-primary" value="{{ 'Submit' | trans }}"/>
+            {{ form_end(form) }}
+
+        {% endblock %}
+
+    {% endembed %}
+
+{% endblock %}
+
+{% block head_css %}
+    {{ parent() }}
+{% endblock %}
+

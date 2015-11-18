@@ -1,0 +1,27 @@
+{% extends '@Gui/Layout/layout.twig' %}
+
+{% set widget_title = 'Product Coutries' | trans %}
+{% block section_title %}{{ widget_title }}{% endblock %}
+
+{% block action %}
+    {{ createActionButton('/product-country/index/import', 'Import' | trans) }}
+{% endblock %}
+
+{% block content %}
+
+    {% embed '@Gui/Partials/widget.twig' %}
+
+        {% block widget_content %}
+
+
+
+        {% endblock %}
+
+    {% endembed %}
+
+{% endblock %}
+
+{% block head_css %}
+    {{ parent() }}
+{% endblock %}
+
