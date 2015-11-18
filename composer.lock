@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "e51622c5d7842ec9fb736ce4fe302b11",
-    "content-hash": "e386c616546d385e42492bb729f8c3d0",
+    "hash": "8825b84fcbb49d3877d4f4c5c8cc8e5e",
+    "content-hash": "5c0bd06a6ce7b0d1310323b1b00fcc7b",
     "packages": [
         {
             "name": "digital-canvas/zend-framework",
@@ -815,11 +815,11 @@
         },
         {
             "name": "spryker/spryker",
-            "version": "dev-bugfix/CSN-61-Transfer-Interface-generation-not-working-correctly",
+            "version": "dev-develop",
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/spryker.git",
-                "reference": "6febfa59c24af78e659cca92fd962f57d470eec0"
+                "reference": "50376d75076eb74a609dcec32f85dcfdbafefeb1"
             },
             "require": {
                 "digital-canvas/zend-framework": ">=1.12.2"
@@ -908,7 +908,7 @@
                     "SprykerFeature\\Shared\\Library": "Bundles/Library/src/"
                 }
             },
-            "time": "2015-11-18 14:08:15"
+            "time": "2015-11-18 14:21:51"
         },
         {
             "name": "symfony-cmf/routing",
