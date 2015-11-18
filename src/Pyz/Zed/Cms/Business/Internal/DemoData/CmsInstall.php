@@ -35,6 +35,7 @@ class CmsInstall extends AbstractInstaller
     const BLOCK_TYPE_VALUE = 'value';
     const CATEGORY = 'category';
     const FILE_CONTAINS_INVALID_DATA = 'XML file contains invalid data.';
+    const LOCALE = 'locale';
 
     /**
      * @var CmsToGlossaryInterface
@@ -299,7 +300,12 @@ class CmsInstall extends AbstractInstaller
         $pageDataArray = $this->getDataFromFileAsArray($localeStaticFilePath, self::PAGE);
         foreach ($pageDataArray as $pageData) {
             if ($pageData[self::TEMPLATE] !== null) {
-                $this->installPage($pageData[self::TEMPLATE], $pageData[self::URL], $pageData[self::PLACEHOLDER], $pageData[self::TRANSLATION]);
+                $this->installPage(
+                    $pageData[self::TEMPLATE],
+                    $pageData[self::URL],
+                    $pageData[self::PLACEHOLDER],
+                    $pageData[self::TRANSLATION]
+                );
             } else {
                 $this->warning(sprintf(self::FILE_CONTAINS_INVALID_DATA));
             }
@@ -350,25 +356,26 @@ class CmsInstall extends AbstractInstaller
         $xmlContent = file_get_contents($splFileInfo->getPath() . DIRECTORY_SEPARATOR . $splFileInfo->getBasename());
         $xml = new \SimpleXMLElement($xmlContent);
 
-        $dataArray = [];
-        if ($xml === false || $xml->count() < 1) {
-            return $dataArray;
+        if ($type === self::PAGE) {
+            return $this->createCmsPagesImportArray($xml->{$type});
         }
 
-        foreach ($xml->children() as $xmlItem) {
-            $item = [];
-            foreach ($xmlItem as $value) {
-                $item[$value->getName()] = $value->__toString();
-            }
-            $dataArray[] = $item;
+        if ($type === self::BLOCK) {
+            return $this->createCmsBlocksImportArray($xml->{$type});
         }
 
-        return $dataArray;
+        if ($type === self::REDIRECT) {
+            return $this->createCmsRedirectsArray($xml->{$type});
+        }
+
+        return [];
     }
 
     /**
-     * @param $blockName
-     * @param $pageTransfer
+     * @param string $blockName
+     * @param string $blockType
+     * @param string $blockValue
+     * @param string $pageTransfer
      *
      * @return CmsBlockTransfer
      */
@@ -381,6 +388,68 @@ class CmsInstall extends AbstractInstaller
         $cmsBlockTransfer->setFkPage($pageTransfer->getIdCmsPage());
 
         return $cmsBlockTransfer;
+    }
+
+    /**
+     * @param \SimpleXMLElement $xmlElement
+     *
+     * @return array
+     */
+    protected function createCmsPagesImportArray(\SimpleXMLElement $xmlElement)
+    {
+        $elementList = [];
+
+        foreach ($xmlElement as $item) {
+            $elementList[] = [
+                self::TEMPLATE => (string) $item->{self::TEMPLATE},
+                self::URL => (string) $item->{self::URL},
+                self::PLACEHOLDER => (string) $item->{self::PLACEHOLDER},
+                self::TRANSLATION => (string) $item->{self::TRANSLATION},
+            ];
+        }
+
+        return $elementList;
+    }
+
+    /**
+     * @param \SimpleXMLElement $xmlElement
+     *
+     * @return array
+     */
+    protected function createCmsBlocksImportArray(\SimpleXMLElement $xmlElement)
+    {
+        $elementList = [];
+
+        foreach ($xmlElement as $item) {
+            $elementList[] = [
+                self::TEMPLATE => (string) $item->{self::TEMPLATE},
+                self::BLOCK_NAME => (string) $item->{self::BLOCK_NAME},
+                self::PLACEHOLDER => (string) $item->{self::PLACEHOLDER},
+                self::TRANSLATION => (string) $item->{self::TRANSLATION},
+            ];
+        }
+
+        return $elementList;
+    }
+
+    /**
+     * @param \SimpleXMLElement $xmlElement
+     *
+     * @return array
+     */
+    protected function createCmsRedirectsArray(\SimpleXMLElement $xmlElement)
+    {
+        $elementList = [];
+
+        foreach ($xmlElement as $item) {
+            $elementList[] = [
+                self::FROM_URL => (string) $item->{self::FROM_URL},
+                self::TO_URL => (string) $item->{self::TO_URL},
+                self::STATUS => (string) $item->{self::STATUS},
+            ];
+        }
+
+        return $elementList;
     }
 
 }

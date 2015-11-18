@@ -1,5 +1,5 @@
 <?xml version="1.0"?>
-<pageBlocks>
+<blocks>
     <block>
         <template>quote_block</template>
         <blockName>quotes_1</blockName>
@@ -18,4 +18,4 @@
         <placeholder>quote_reference</placeholder>
         <translation>Gäbe es nicht das Herz; das du liebst; wärest du feiner Staub; den der Wind davonträgt._Khalil Gibran</translation>
     </block>
-</pageBlocks>
+</blocks>
