@@ -1,5 +1,7 @@
 #!/bin/bash
 
+set -e
+sudo /etc/init.d/postgresql restart
 sudo dropdb DE_development_zed
 curl -XDELETE 'http://localhost:10005/_all'
 redis-cli -p 10009 flushdb

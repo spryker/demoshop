@@ -58,86 +58,22 @@ class StockInstall extends AbstractInstaller
         }
 
         $this->info('This will install a dummy set of stocks in the demo shop');
-        $demoStockProducts = $this->getDemoStockProducts();
-        $this->writeStockProduct($demoStockProducts);
-    }
-
-    /**
-     * @param array $demoStock
-     */
-    protected function writeStockProduct(array $demoStock)
-    {
-        foreach ($demoStock as $row) {
-            $this->addEntry($row);
-        }
-    }
-
-    /**
-     * @return array
-     */
-    protected function getDemoStockProducts()
-    {
-        $reader = new CsvFileReader();
-
-        return $reader->read(__DIR__ . '/pets-deli-product-stock.csv')->getData();
-    }
-
-    /**
-     * @param array $row
-     */
-    protected function addEntry(array $row)
-    {
-        $stockType = $this->createStockTypeTransfer($row);
+        $stockType = $this->createStockTypeTransfer();
         if (!$this->doesStockExist($stockType)) {
             $this->writer->createStockType($stockType);
         }
-        $stockProductTransfer = $this->createStockProductTransfer($row, $stockType);
-        $hasProduct = $this->reader->hasStockProduct(
-            $stockProductTransfer->getSku(),
-            $stockProductTransfer->getStockType()
-        );
-
-        if ($hasProduct) {
-            $idStockProduct = $this->reader->getIdStockProduct(
-                $stockProductTransfer->getSku(),
-                $stockProductTransfer->getStockType()
-            );
-            $stockProductTransfer->setIdStockProduct($idStockProduct);
-            $this->writer->updateStockProduct($stockProductTransfer);
-        } else {
-            $this->writer->createStockProduct($stockProductTransfer);
-        }
     }
 
+
     /**
-     * @param array $row
-     *
      * @return TypeTransfer
      */
-    protected function createStockTypeTransfer(array $row)
+    protected function createStockTypeTransfer()
     {
         $stockType = new TypeTransfer();
-        $stockType->setName($row[self::STOCK_TYPE]);
+        $stockType->setName("Warehouse1");
 
         return $stockType;
-    }
-
-    /**
-     * @param array $row
-     * @param TypeTransfer $stockType
-     *
-     * @return StockProductTransfer
-     */
-    protected function createStockProductTransfer(array $row, TypeTransfer $stockType)
-    {
-        $transferStockProduct = new StockProductTransfer();
-        $transferStockProduct->setSku($row[self::SKU])
-            ->setIsNeverOutOfStock($row[self::NEVER_OUT_OF_STOCK])
-            ->setQuantity($row[self::QUANTITY])
-            ->setStockType($stockType->getName())
-        ;
-
-        return $transferStockProduct;
     }
 
     /**
