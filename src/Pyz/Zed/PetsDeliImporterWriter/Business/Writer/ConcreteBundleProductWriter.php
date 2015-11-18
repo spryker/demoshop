@@ -48,14 +48,14 @@ class ConcreteBundleProductWriter
         }
 
         foreach ($product->getConcreteProducts() as $concreteProduct) {
-            $this->getConcreteBundleProduct($concreteProduct);
+            $this->assignConcreteBundleProduct($concreteProduct);
         }
     }
 
     /**
      * @param PavProductDynamicImporterConcreteProductInterface $concreteProduct
      */
-    protected function getConcreteBundleProduct(PavProductDynamicImporterConcreteProductInterface $concreteProduct)
+    protected function assignConcreteBundleProduct(PavProductDynamicImporterConcreteProductInterface $concreteProduct)
     {
         if ($this->productFacade->hasConcreteProduct($concreteProduct->getSku())) {
             $concreteProductTransfer = $this->productFacade->getConcreteProduct($concreteProduct->getSku());

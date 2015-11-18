@@ -19,20 +19,11 @@ class Reader extends SprykerReader implements ReaderInterface, SprykerBugfixInte
     public function getProductPriceIdBySku($sku, $priceTypeName = null)
     {
         $priceTypeName = $this->handleDefaultPriceType($priceTypeName);
-        $priceType = $this->getPriceTypeByName($priceTypeName);
+        $priceTypeEntity = $this->getPriceTypeByName($priceTypeName);
 
-        if ($this->hasPriceForConcreteProduct($sku, $priceType)) {
-            return $this->queryContainer
-                ->queryPriceEntityForConcreteProduct($sku, $priceType)
-                ->findOne()
-                ->getIdPriceProduct()
-            ;
-        } else {
-            return $this->queryContainer
-                ->queryPriceEntityForConcreteProduct($sku, $priceType)
-                ->findOne()
-                ->getIdPriceProduct()
-            ;
-        }
+        return $this->queryContainer
+            ->queryPriceEntityForConcreteProduct($sku, $priceTypeEntity)
+            ->findOne()
+            ->getIdPriceProduct();
     }
 }

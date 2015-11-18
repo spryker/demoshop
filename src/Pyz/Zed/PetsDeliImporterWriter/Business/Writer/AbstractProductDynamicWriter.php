@@ -17,9 +17,6 @@ use Pyz\Zed\Product\Business\ProductFacade;
 class AbstractProductDynamicWriter implements ProductWriterInterface
 {
 
-    /**
-     * @var ProductFacade
-     */
     protected $productFacade;
     protected $productDynamicFacade;
 

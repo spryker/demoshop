@@ -392,7 +392,7 @@ class IndexController extends SprykerIndexController
         $idAbstractProduct = $request->query->getInt(self::ID_ABSTRACT_PRODUCT);
 
         if (!$request->isMethod(Request::METHOD_POST)) {
-            //return $this->redirectResponse('/product/index/view?id-abstract-product=' . $idAbstractProduct);
+            return $this->redirectResponse('/product/index/view?id-abstract-product=' . $idAbstractProduct);
         }
 
 
@@ -400,8 +400,6 @@ class IndexController extends SprykerIndexController
         $dynamicProductFacade = $this->getDependencyContainer()->getProvidedDependency(ProductDependencyProvider::FACADE_PRODUCT_DYNAMIC_IMPORTER);
 
         $productJson = $request->get('json');
-
-        //$productJson = file_get_contents('../../../json_structure_examples/simple_product_carb_optionx.json');
 
         $abstractProduct = $dynamicProductFacade->convertJsonToProductImporterAbstractProduct($productJson);
         $dynamicProductFacade->validateProductImporterAbstractProduct($abstractProduct);

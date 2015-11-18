@@ -89,11 +89,7 @@ class ProductManager extends SprykerProductManager implements ProductManagerInte
     public function saveAbstractProduct(AbstractProductInterface $abstractProductTransfer)
     {
         $sku = $abstractProductTransfer->getSku();
-        if ($this->hasAbstractProduct($sku)) {
-            $entity = $this->productQueryContainer->queryAbstractProductBySku($sku)->findOne();
-        } else {
-            $entity = new SpyAbstractProduct();
-        }
+        $entity = $this->productQueryContainer->queryAbstractProductBySku($sku)->findOneOrCreate();
         $entity = $this->updateAbstractProductEntity($abstractProductTransfer, $entity);
         $entity->save();
 
