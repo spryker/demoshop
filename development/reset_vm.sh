@@ -15,8 +15,8 @@ rm -rf /data/shop/development/current/src/Generated/Propel/DE/Migration/
 /data/shop/development/current/vendor/bin/pav-console setup:generate-zed-ide-auto-completion 
 /data/shop/development/current/vendor/bin/pav-console setup:search 
 /data/shop/development/current/vendor/bin/pav-console setup:install-demo-data 
-#/data/shop/development/current/vendor/bin/pav-console collector:search:export 
-#/data/shop/development/current/vendor/bin/pav-console collector:storage:export 
+/data/shop/development/current/vendor/bin/pav-console collector:search:export
+/data/shop/development/current/vendor/bin/pav-console collector:storage:export
 
 
 

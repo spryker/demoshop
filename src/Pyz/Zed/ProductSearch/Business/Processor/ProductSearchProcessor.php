@@ -47,10 +47,15 @@ class ProductSearchProcessor extends CoreProductSearchProcessor
         $productAttributes = $this->getEncodedData($productData['concrete_localized_attributes']);
         $abstractAttributes = $this->getEncodedData($productData['abstract_localized_attributes']);
 
+
         $attributes = array_merge($abstractAttributes, $productAttributes);
 
-        $baseProduct['search-result-data']['image_url'] = $attributes['small_image'];
-        $baseProduct['search-result-data']['thumbnail_url'] = $attributes['thumbnail'];
+        if (isset($attributes['media']) && !empty($attributes['media'])) {
+            $firstMedia = current($attributes['media']);
+            $baseProduct['search-result-data']['image_url'] = $firstMedia['url'];
+            $baseProduct['search-result-data']['thumbnail_url'] = $firstMedia['thumbnail_url'];
+        }
+
         // @todo price should always set
         $baseProduct['search-result-data']['price'] = (isset($attributes['price'])) ? $attributes['price'] : 0;
         $baseProduct['integer-sort']['price'] = (isset($attributes['price'])) ? $attributes['price'] : 0;

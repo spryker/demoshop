@@ -29,12 +29,15 @@ abstract class DefaultProductWriter implements ProductWriterInterface
             $attributes = (array)$attributes;
         }
 
-        return $this->mergeAttributes(
-            $attributes,
-            [
-                'media' => $product->getMedia()
-            ]
-        );
+        if (count($product->getMedia()) > 0) {
+            $attributes = $this->mergeAttributes(
+                $attributes,
+                [
+                    'media' => $product->getMedia()
+                ]
+            );
+        }
+        return $attributes;
     }
 
     protected function mergeAttributes(array $attributes, array $toMerge)

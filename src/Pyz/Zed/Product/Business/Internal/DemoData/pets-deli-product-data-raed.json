@@ -10,7 +10,7 @@
       {
         "locale": "de_DE",
         "name": "PETS DELI Menübox für Hunde Hühnerbrustfilet",
-        "url": "/Hunde/Basisnahrung/menubox-huhn-hund.html",
+        "url": "Hunde/Basisnahrung/menubox-huhn-hund.html",
         "media": [
           {
             "url": "/h/u/huhn.jpg",
@@ -178,7 +178,7 @@
       {
         "locale": "de_DE",
         "name": "PETS DELI Menübox für Hunde Weißfischfilet",
-        "url": "/Hunde/Basisnahrung/menubox-fisch-hund-65.html",
+        "url": "Hunde/Basisnahrung/menubox-fisch-hund-65.html",
         "media": [
           {
             "url": "/r/o/rotbarsch.jpg",
@@ -346,7 +346,7 @@
       {
         "locale": "de_DE",
         "name": "PETS DELI Menübox für Hunde Känguru",
-        "url": "/Hunde/Basisnahrung/menubox-kaenguru-hund.html",
+        "url": "Hunde/Basisnahrung/menubox-kaenguru-hund.html",
         "media": [
           {
             "url": "/k/_/k_nguru_neu.jpg",
@@ -514,7 +514,7 @@
       {
         "locale": "de_DE",
         "name": "PETS DELI Menübox für Hunde Putenbrustfilet",
-        "url": "/Hunde/Basisnahrung/menubox-huhn-hund-146.html",
+        "url": "Hunde/Basisnahrung/menubox-huhn-hund-146.html",
         "media": [
           {
             "url": "/p/u/pute.jpg",
@@ -682,7 +682,7 @@
       {
         "locale": "de_DE",
         "name": "PETS DELI Menübox für Hunde Hirschfleisch",
-        "url": "/Hunde/Basisnahrung/menubox-hirsch-hund.html",
+        "url": "Hunde/Basisnahrung/menubox-hirsch-hund.html",
         "media": [
           {
             "url": "/w/i/wild.jpg",
@@ -850,7 +850,7 @@
       {
         "locale": "de_DE",
         "name": "PETS DELI Menübox für Hunde Rinderfilet",
-        "url": "/Hunde/Basisnahrung/menubox-rind-hund-116.html",
+        "url": "Hunde/Basisnahrung/menubox-rind-hund-116.html",
         "media": [
           {
             "url": "/r/i/rind.jpg",
@@ -1018,7 +1018,7 @@
       {
         "locale": "de_DE",
         "name": "PETS DELI Menübox für Hunde Känguru hypoallergen",
-        "url": "/Hunde/Basisnahrung/menubox-kaenguru-hund-getreidefrei.html",
+        "url": "Hunde/Basisnahrung/menubox-kaenguru-hund-getreidefrei.html",
         "media": [
           {
             "url": "/k/_/k_nguru_hypo.jpg",
@@ -1134,7 +1134,7 @@
       {
         "locale": "de_DE",
         "name": "PETS DELI Menübox für Hunde Hühnerbrustfilet Diät/Light",
-        "url": "/Hunde/Basisnahrung/menubox-huhn-hund-light.html",
+        "url": "Hunde/Basisnahrung/menubox-huhn-hund-light.html",
         "media": [
           {
             "url": "/h/u/huhn_light.jpg",

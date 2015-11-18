@@ -130,10 +130,14 @@ class AbstractProductWriter extends DefaultProductWriter implements ProductWrite
      */
     protected function getLocalizedAttributesToBeMerged(PavProductDynamicImporterLocaleInterface $importerLocale)
     {
-        return [
+        $return = [
             'url' => $importerLocale->getUrl(),
-            'media' => $importerLocale->getMedia()
         ];
+        $media = $importerLocale->getMedia();
+        if (!empty($media)) {
+            $return['media'] = $media;
+        }
+        return $return;
     }
 
     protected function assignProductGroups(AbstractProductInterface $productTransfer, PavProductDynamicImporterAbstractProductInterface $product)

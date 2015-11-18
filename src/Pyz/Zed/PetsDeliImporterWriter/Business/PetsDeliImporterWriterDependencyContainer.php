@@ -53,7 +53,8 @@ class PetsDeliImporterWriterDependencyContainer extends AbstractBusinessDependen
             $this->getProvidedDependency(PetsDeliImporterWriterDependencyProvider::PRODUCT_FACADE),
             $this->getProvidedDependency(PetsDeliImporterWriterDependencyProvider::LOCALE_FACADE),
             $this->getProvidedDependency(PetsDeliImporterWriterDependencyProvider::PRICE_FACADE),
-            $this->getProvidedDependency(PetsDeliImporterWriterDependencyProvider::PRODUCT_GROUP_FACADE)
+            $this->getProvidedDependency(PetsDeliImporterWriterDependencyProvider::PRODUCT_GROUP_FACADE),
+            $this->getProvidedDependency(PetsDeliImporterWriterDependencyProvider::STOCK_FACADE)
 
         );
     }
