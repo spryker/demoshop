@@ -7,8 +7,10 @@
         <states>
             <state name="new" reserved="true"/>
             <state name="invoice created"/>
+            <state name="invoice creation failed"/>
             <state name="invoice sent" />
             <state name="order exported" />
+            <state name="order exporting failed"/>
             <state name="order shipped" />
             <state name="waiting for payment" />
             <state name="payment received" />
@@ -20,21 +22,31 @@
         </states>
 
         <transitions>
-            <transition>
+            <transition condition="Oms/IsInvoiceCreated">
                 <source>new</source>
                 <target>invoice created</target>
                 <event>create invoice</event>
             </transition>
-            
+            <transition>
+                <source>new</source>
+                <target>invoice creation failed</target>
+                <event>create invoice</event>
+            </transition>
+
             <transition>
                 <source>invoice created</source>
                 <target>invoice sent</target>
                 <event>send invoice</event>
             </transition>
 
-            <transition>
+            <transition condition="Oms/IsOrderExported">
                 <source>invoice sent</source>
                 <target>order exported</target>
+                <event>export order</event>
+            </transition>
+            <transition>
+                <source>invoice sent</source>
+                <target>order exporting failed</target>
                 <event>export order</event>
             </transition>
 
@@ -107,9 +119,9 @@
         </transitions>
 
         <events>
-            <event name="create invoice" onEnter="true" />
-            <event name="send invoice" onEnter="true" />
-            <event name="export order" onEnter="true" />
+            <event name="create invoice" command="Oms/CreateInvoice" onEnter="true" />
+            <event name="send invoice" command="Oms/SendInvoice" onEnter="true" />
+            <event name="export order" command="Oms/ExportOrder" onEnter="true" />
             <event name="ship order" manual="true" />
             <event name="waiting for payment" onEnter="true" />
             <event name="payment not received" timeout="1hour" />
