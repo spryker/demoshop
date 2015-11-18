@@ -19,7 +19,10 @@ module.exports = {
   },
 
   getProducts: function(path, queryString) {
-    return $.get(path +'?'+ queryString);
+    return $.ajax({
+      url : path +'?'+ queryString,
+      cache : false
+    })
   }
 
 }
