@@ -1,6 +1,6 @@
 {
   "require": {
-    "spryker/spryker": "dev-develop",
+    "spryker/spryker": "dev-bugfix/CSN-61-Transfer-Interface-generation-not-working-correctly",
 
     "psr/log": "~1.0",
     "propel/propel": "~2.0@dev",
@@ -52,6 +52,7 @@
   "require-dev": {
     "silex/web-profiler": "~1.0.2",
     "pdepend/pdepend": "*",
+    "phpmd/phpmd": "*",
     "codeception/codeception": "2.1",
     "fabpot/php-cs-fixer": "^1.9"
   },
