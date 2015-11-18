@@ -10,10 +10,10 @@
         <state name="order shipped" />
         <state name="waiting for payment" />
         <state name="payment received" />
+        <state name="payment reminder sent" />
         <state name="ready for return" />
         <state name="completed" />
         <state name="cancelled" />
-        <state name="payment remined sent" />
         <state name="exported order" />
     </states>
 
