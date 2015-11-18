@@ -4,7 +4,6 @@ namespace Pyz\Zed\Cart\Business;
 
 use Pyz\SprykerBugfixInterface;
 use Generated\Shared\Cart\CartInterface;
-use Generated\Shared\Transfer\DiscountTransfer;
 
 /**
  * Class that generates success or error messages by comparing two cart transfers
@@ -26,8 +25,8 @@ class CouponMessageGenerator implements SprykerBugfixInterface
     {
         $message = self::COUPON_ERROR_MSG;
 
-        /** @var DiscountTransfer $discounts */
-        if(count($newCart->getDiscounts()) > count($oldCart->getDiscounts()))
+        if($newCart->getTotals()->getGrandTotalWithDiscounts()
+            < $oldCart->getTotals()->getGrandTotalWithDiscounts())
         {
             //a discount was added so the coupon should be valid
             $message = self::COUPON_SUCCESS_MSG;
