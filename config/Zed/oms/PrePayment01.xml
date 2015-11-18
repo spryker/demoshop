@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<statemachine
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="process.xsd">
+    <process name="PrePayment01" main="true">
+
+        <states>
+            <state name="new" reserved="true"/>
+            <state name="payment request sent"/>
+            <state name="waiting for authorisation notification"/>
+            <state name="invalid" reserved="false"/>
+            <state name="paid"/>
+        </states>
+        <transitions>
+
+            <transition>
+                <source>new</source>
+                <target>payment request sent</target>
+                <event>send payment request</event>
+            </transition>
+
+            <transition condition="Adyen/IsAuthoriseApproved">
+                <source>payment request sent</source>
+                <target>waiting for authorisation notification</target>
+                <event>check authorisation</event>
+            </transition>
+
+            <transition>
+                <source>payment request sent</source>
+                <target>invalid</target>
+                <event>check authorisation</event>
+            </transition>
+
+            <transition>
+                <source>waiting for authorisation notification</source>
+                <target>paid</target>
+                <event>adyen authorisation notification received</event>
+            </transition>
+
+        </transitions>
+
+        <events>
+            <event name="send payment request" onEnter="true" manual="true" command="Adyen/Authorise"/>
+            <event name="check authorisation" onEnter="false" manual="true"/>
+            <event name="adyen authorisation notification received" manual="true"/>
+        </events>
+
+    </process>
+
+</statemachine>

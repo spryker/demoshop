@@ -20,7 +20,7 @@ class OmsOrderHydrator implements OmsOrderHydratorInterface
     public function hydrateOrderTransfer(OrderInterface $order, CheckoutRequestInterface $request)
     {
         switch ($request->getPaymentMethod()) {
-            case 'prepayment' : // TODO remove later! hihi
+            case AdyenPaymentMethodConstants::ADYEN_PAYMENT_METHOD_GERMAN_BANK_TRANSFER :
                 $order->setProcess(OmsConstants::ORDER_PROCESS_PREPAYMENT_01);
                 break;
             case AdyenPaymentMethodConstants::ADYEN_PAYMENT_METHOD_SEPA;

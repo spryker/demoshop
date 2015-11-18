@@ -8,7 +8,8 @@ interface OmsConstants
 
     const ORDER_PROCESS_NO_PAYMENT_01 = 'Nopayment01';
 
-    const ORDER_PROCESS_PREPAYMENT_01 = 'Prepayment01';
+
+    const ORDER_PROCESS_PREPAYMENT_01 = 'PrePayment01';
 
     const ORDER_PROCESS_SEPA_DIRECT_DEBIT_01 = 'SepaDirectDebit01';
 
