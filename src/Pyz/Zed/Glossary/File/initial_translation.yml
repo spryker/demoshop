@@ -268,7 +268,14 @@ keys:
     translations:
       de_DE: 'Ich bin Neukunde'
       en_US: 'New Customer'
-
+  customer.password:
+    translations:
+      de_DE: 'Passwort'
+      en_US: 'Password'
+  password.confirm:
+    translations:
+      de_DE: 'Passwort bestätigen'
+      en_EN: 'Confirm passwort'
   page.checkout.address.heading:
     translations:
       de_DE: '1. Adressangaben'
@@ -318,6 +325,14 @@ keys:
     translations:
       de_DE: '3. Lieferart wählen'
       en_US: '3. Shipping Method'
+  page.checkout.summary.billing:
+    translations:
+      de_DE: 'Rechnungsadresse'
+      en_US: 'Invoice Address'
+  page.checkout.summary.shipping:
+    translations:
+      de_DE: 'Lieferadresse'
+      en_EN: 'Shipping Address'
   shipment.standart.name:
     translations:
       de_DE: 'Standard'

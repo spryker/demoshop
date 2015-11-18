@@ -28,7 +28,8 @@
 
                             {{ form_widget(form.create_account) }}{{ form_label(form.create_account) }}
                             <div id="create_account" style="display: none;">
-                                {{ form_widget(form.password) }}
+                                {{ form_widget(form.password.first, { 'attr': {'placeholder': 'customer.password'} })}}
+                                {{ form_widget(form.password.second, { 'attr': {'placeholder': 'password.confirm'} }) }}
                             </div>
 
 
