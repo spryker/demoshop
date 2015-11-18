@@ -1,0 +1,12 @@
+<?xml version="1.0"?>
+<transfers xmlns="http://xsd.spryker.com"
+           xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+           xsi:schemaLocation="http://xsd.spryker.com ../../src/Spryker/TransferObjectDefinitionSchema.xsd">
+
+    <transfer name="ProductToBundleRelation">
+        <property name="product" type="ConcreteProduct" />
+        <property name="bundle" type="ConcreteProduct" />
+        <property name="productQuantity" type="int" />
+    </transfer>
+
+</transfers>

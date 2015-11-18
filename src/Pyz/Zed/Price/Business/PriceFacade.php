@@ -19,4 +19,15 @@ class PriceFacade extends SprykerPriceFacade
         $this->getDependencyContainer()->getDemoDataInstaller($messenger)->install();
     }
 
+    /**
+     * @param string $sku
+     * @param null $priceType
+     *
+     * @return int
+     */
+    public function getIdPriceProduct($sku, $priceType = null)
+    {
+        return $this->getDependencyContainer()->getReaderModel()->getProductPriceIdBySku($sku, $priceType);
+    }
+
 }

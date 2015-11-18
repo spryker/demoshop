@@ -5,6 +5,7 @@ namespace Pyz\Zed\Collector\Business\Storage;
 use Generated\Shared\Transfer\LocaleTransfer;
 use PavFeature\Zed\ProductDynamic\Business\ProductDynamicFacade;
 use PavFeature\Zed\ProductDynamic\Persistence\ProductDynamicQueryContainer;
+use PavFeature\Zed\ProductDynamic\ProductDynamicConfig;
 use Propel\Runtime\ActiveQuery\Criteria;
 use Propel\Runtime\ActiveQuery\Join;
 use Pyz\Zed\Collector\Business\Exception\WrongJsonStringException;
@@ -47,6 +48,7 @@ class ProductCollector extends AbstractPropelCollectorPlugin
     const CONCRETE_SKUS = 'concrete_skus';
     const CONCRETE_NAMES = 'concrete_names';
     const CONCRETE_PRODUCTS = 'concrete_products';
+    const CONCRETE_PRODUCTS_DYNAMIC = 'concrete_products_dynamic';
     const NAME = 'name';
     const SKU = 'sku';
     const ATTRIBUTES = 'attributes';
@@ -227,7 +229,7 @@ class ProductCollector extends AbstractPropelCollectorPlugin
             'concrete_localized_attributes'
         );
         $baseQuery->withColumn(
-            'JSON_AGG(product_urls.url)',
+            'JSON_AGG(DISTINCT product_urls.url)',
             'product_urls'
         );
         $baseQuery->withColumn(
@@ -298,12 +300,12 @@ class ProductCollector extends AbstractPropelCollectorPlugin
         );
 
         $baseQuery->withColumn(
-            'JSON_AGG(concrete_price_table.price)',
+            'JSON_AGG(DISTINCT concrete_price_table.price)',
             'concrete_prices'
         );
 
         $baseQuery->withColumn(
-            'JSON_AGG(spy_price_type.name)',
+            'JSON_AGG(DISTINCT spy_price_type.name)',
             'price_types'
         );
         // Tax set
@@ -402,6 +404,7 @@ class ProductCollector extends AbstractPropelCollectorPlugin
      */
     protected function processData($resultSet, LocaleTransfer $locale, TouchUpdaterSet $touchUpdaterSet)
     {
+
         $products = $this->buildProducts($resultSet);
 
         $processedResultSet = [];
@@ -413,18 +416,15 @@ class ProductCollector extends AbstractPropelCollectorPlugin
             $processedResultSet[$productKey] = $this->filterProductData($productData);
         }
 
-        $keys = array_keys($processedResultSet);
-        $resultSet = array_combine($keys, $resultSet);
-
         $defaultPriceType = $this->getDefaultPriceType();
 
-        foreach ($resultSet as $index => $productRawData) {
+        foreach ($processedResultSet as $index => $productRawData) {
+
             if (isset($processedResultSet[$index])) {
                 // Product availability
                 $processedResultSet[$index]['type'] = $productRawData[ProductDynamicQueryContainer::PRODUCT_TYPE];
                 $processedResultSet[$index]['groups'] = $this->decodeData($productRawData['group_keys']);
                 $processedResultSet[$index]['available'] = ($productRawData['quantity'] > 0);
-                $processedResultSet[$index]['configurable_products'] =  $this->productDynamicFacade->extractConfigurableProductData($productRawData);
 
                 // Product price
                 $priceTypes = $this->decodeData($productRawData['price_types']);
@@ -444,6 +444,8 @@ class ProductCollector extends AbstractPropelCollectorPlugin
                     //unset($processedResultSet[$index]);
                     //continue;
                 }
+                unset($processedResultSet[$index]['concrete_prices']);
+                unset($processedResultSet[$index]['price_types']);
 
                 // Tax
                 if (isset($productRawData['tax_set_name'], $productRawData['tax_rate_names'], $productRawData['tax_rate_rates'])) {
@@ -468,7 +470,8 @@ class ProductCollector extends AbstractPropelCollectorPlugin
                     ];
                 } else {
                     // @TODO Uncomment as soon as there is a Tax GUI/Importer in Zed
-                    //unset($processedResultSet[$index]);
+//                    unset($processedResultSet[$index]);
+//                    continue;
                 }
 
                 // Category breadcrumb
@@ -478,11 +481,16 @@ class ProductCollector extends AbstractPropelCollectorPlugin
                     'category_parent_names',
                     'category_parent_urls'
                 );
+
+                unset($processedResultSet[$index]['category_parent_ids']);
+                unset($processedResultSet[$index]['category_parent_names']);
+                unset($processedResultSet[$index]['category_parent_urls']);
+
+                unset($processedResultSet[$index]['contained_product_group_values']);
+
+                $processedResultSet[$index]['group_keys'] = $this->decodeData($processedResultSet[$index]['group_keys']);
             }
         }
-
-        // @TODO: Do we really need productOptions? Currently they block from exporting
-        //$processedResultSet = $this->productOptionExporterFacade->processDataForExport($resultSet, $processedResultSet, $locale);
 
         return $processedResultSet;
     }
@@ -529,6 +537,15 @@ class ProductCollector extends AbstractPropelCollectorPlugin
             'abstract_name',
             'url',
             'concrete_products',
+            'product_type',
+            'group_keys',
+            'quantity',
+            'price_types',
+            'concrete_prices',
+            'category_parent_ids',
+            'category_parent_names',
+            'category_parent_urls',
+            'contained_product_group_values'
         ];
 
         return array_intersect_key($productData, array_flip($allowedFields));
@@ -620,11 +637,26 @@ class ProductCollector extends AbstractPropelCollectorPlugin
                     self::NAME => $concreteNames[$i],
                     self::SKU => $concreteSkus[$i],
                     self::ATTRIBUTES => $mergedAttributes,
+                    self::CONCRETE_PRODUCTS_DYNAMIC => $this->loadProductDynamicCollection($productData),
                 ];
             }
         }
         return $productsData;
-}
+    }
+
+    /**
+     * @param array $productsData
+     *
+     * @return array
+     */
+    protected function loadProductDynamicCollection(array $productsData)
+    {
+        if ($productsData[ProductDynamicQueryContainer::PRODUCT_TYPE] !== ProductDynamicConfig::DYNAMIC_PRODUCT_TYPE_DYNAMIC) {
+            return [];
+        }
+
+        return $this->productDynamicFacade->loadRelatedProductDynamicCollection($productsData);
+    }
 
     /**
      * @param string $data

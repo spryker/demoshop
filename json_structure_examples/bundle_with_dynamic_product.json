@@ -1,0 +1,126 @@
+{
+  "sku": "abstract_bundle_total_care_package_one_month",
+  "type": "bundle",
+  "tax": "7.00",
+  "locales": [
+    {
+      "locale": "de_DE",
+      "name": "PETS DELI Rundum-Sorglos-Paket für Hunde (für einen Monat)",
+      "url": "/hunde-nahrung/hochwertige-hundefutter-menues/rundumsorglospaket-hund.html",
+      "attributes": {
+        "default_description": "NEU: Das PETS DELI Rundum-Sorglos-Paket für Hunde, entwickelt von unseren Ernährungsberatern! Unsere tiefgekühlten PETS DELI Menüboxen stellen den grundlegenden Bestandteil der artgerechten Ernährung Ihres vierbeinigen Lieblings mit gesundem Hundefutter dar. Für das Frischfutter in unseren Menüboxen verwenden wir beste Zutaten in Lebensmittelqualität von ausgewählten Bezugsquellen und verzichten dabei komplett auf tierische Nebenerzeugnisse und jegliche Zusätze. Das Rundum-Sorglos-Paket bietet Ihnen als Kunde eine vollständig abgedeckte und...",
+        "extended_description": "Rundum-Sorglos-Paket für einen ganzen Monat - alle Menüboxen werden frisch & individuell für Sie produziert - 30x portionierte Menüboxen: Fertig zur Fütterung - 1x Mineral-Mix, 1x Gemüse-Kräuter-Flocken, 1x Leinöl - nur Zutaten in Lebensmittelqualität - ohne Zusätze und tierische Nebenerzeugnisse - maximaler Komfort: schnell, sauber, frisch - auch für allergische Hunde anpassbar - von Tierärzten empfohlen Die PETS DELI Menüboxen sind grundsätzlich Alleinfuttermittel, sollten jedoch mit unseren Supplements sinnvoll und individuell ergänzt werden: Um den Nährstoffhaushalt Ihres Tieres vollständig abzudecken, empfehlen wir al ...",
+        "ingriedients_description": "Für die Herstellung des Frischfutters in Ihren PETS DELI Menüboxen verwenden wir ausschließlich frisches Muskelfleisch, püriertes Obst- und Gemüse und gekochte Kohlenhydrate. Unsere Menüs mit Huhn, Pute und Rind werden mit Herzmuskelfleisch vom jeweiligen Tier ...",
+        "recommendation_description": "Die Empfehlung von Tierärztin Annika Brönner: „Das perfekte Monatspaket für jeden Hund. Damit ist Ihr Liebling ausreichend versorgt!\" Fütterung Wir empfehlen Ihnen mindestens zwei Portionen am Tag zu füttern. Die Tagesration in Gramm sollte ungefähr 2-4% des Körpergewichtes Ihres Hundes entsprechen. Ein 20kg schweres ..."
+      }
+    }
+  ],
+  "product_group_keys": [
+    "weight"
+  ],
+  "attributes": {
+    "price_per_kilo_vat_included": "8.00"
+  },
+  "media": [
+    {
+      "url": "/media/product/rundumsorglospaket_hund_kopie.jpg",
+      "thumbnail_url": "/media/product/rundumsorglospaket_hund_kopie_thumb1.jpg",
+      "type": "picture",
+      "sequence": "1"
+    },
+    {
+      "url": "/media/product/men_boxen_30x_250g_monatspaket.jpg",
+      "thumbnail_url": "/media/product/men_boxen_30x_250g_monatspaket_thumb1.jpg",
+      "type": "picture",
+      "sequence": "2"
+    },
+    {
+      "url": "/media/product/mfd_1267_a_2.jpg",
+      "thumbnail_url": "/media/product/mfd_1267_a_2_thumb1.jpg",
+      "type": "picture",
+      "sequence": "3"
+    },
+    {
+      "url": "/media/product/gem_se-kr_uter-flocken_01.jpg",
+      "thumbnail_url": "/media/product/gem_se-kr_uter-flocken_01_thumb1.jpg",
+      "type": "picture",
+      "sequence": "4"
+    },
+    {
+      "url": "/media/product/mfd_1029_a_2.jpg",
+      "thumbnail_url": "/media/product/mfd_1029_a_2_thumb1.jpg",
+      "type": "picture",
+      "sequence": "5"
+    },
+    {
+      "url": "/media/product/02_1_2.jpg",
+      "thumbnail_url": "/media/product/02_1_2_thumb1.jpg",
+      "type": "picture",
+      "sequence": "6"
+    }
+  ],
+  "concrete_products": [
+    {
+      "sku": "concrete_bundle_total_care_package_one_month_250g",
+      "active": "1",
+      "product_group_key_values": {
+        "weight": "250g"
+      },
+      "locales": [
+        {
+          "locale": "de_DE",
+          "name": "PETS DELI Rundum-Sorglos-Paket für Hunde (für einen Monat) 250g"
+        }
+      ],
+      "price": "6990",
+      "attributes": {
+        "striked_price_net": "79.813"
+      },
+      "bundle_products": [
+        {
+          "sku": "concrete_dogs_starterpackage_10_boxes_250g",
+          "quantity": "1"
+        },
+        {
+          "sku": "concrete_linen_oil",
+          "quantity": "1"
+        },
+        {
+          "sku": "concrete_foodstick_bag",
+          "quantity": "2"
+        }
+      ]
+    },
+    {
+      "sku": "concrete_bundle_total_care_package_one_month_500g",
+      "active": "1",
+      "product_group_key_values": {
+        "weight": "500g"
+      },
+      "locales": [
+        {
+          "locale": "de_DE",
+          "name": "PETS DELI Rundum-Sorglos-Paket für Hunde (für einen Monat) 500g"
+        }
+      ],
+      "price": "12900",
+      "attributes": {
+        "striked_price_net": "140.00"
+      },
+      "bundle_products": [
+        {
+          "sku": "concrete_dogs_starterpackage_10_boxes_500g",
+          "quantity": "1"
+        },
+        {
+          "sku": "concrete_linen_oil",
+          "quantity": "1"
+        },
+        {
+          "sku": "concrete_foodstick_bag",
+          "quantity": "2"
+        }
+      ]
+    }
+  ]
+}

@@ -1,9 +1,5 @@
 <?php
 
-/**
- * (c) Spryker Systems GmbH copyright protected
- */
-
 namespace Pyz\Yves\ProductExporter\Communication\Model;
 
 use SprykerFeature\Shared\Product\Model\AbstractProductInterface;

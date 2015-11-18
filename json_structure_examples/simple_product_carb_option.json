@@ -1,0 +1,107 @@
+{
+  "sku": "abstract_menubox_dogs_chicken",
+  "type": "simple",
+  "tax": "7.00",
+  "locales": [
+    {
+      "locale": "de_DE",
+      "name": "PETS DELI Menübox für Hunde Putenbrustfilet",
+      "url": "/hunde-nahrung/hochwertige-hundefutter-menues/menubox-huhn-hund-69.html",
+      "attributes": {
+        "default_description": "Das PETS DELI Rohfutter für Hunde mit feinstem Putenbrustfilet ist wegen seiner hervorragenden Bekömmlichkeit ein sehr beliebter Futter-Mix unserer vierbeinigen Kunden. Die Ernährung Ihres Hundes wird dank der enthaltenen erlesenen Zutaten sehr ausgewogen und nahrhaft, da in der tropischen Mango viele natürliche Vitamine enthalten sind, wie die besonders wichtigen Vitamine C und E. Des Weiteren ist die Mango eine säurearme Frucht, die in Verbindung mit dem Brokkoli in unseren Frischfutter- Boxen, sehr gut gegen Darmbeschwerden helfen kann....",
+        "extended_description": "Die PETS DELI Menüboxen sind grundsätzlich Alleinfuttermittel, sollten jedoch mit unseren Supplements sinnvoll und individuell ergänzt werden: Um den Nährstoffhaushalt Ihres Tieres vollständig abzudecken, empfehlen wir als Ergänzung den PETS ...",
+        "ingriedients_description": "Für die Herstellung des Hundefutters mit Känguru in Ihren PETS DELI Menüboxen verwenden wir ausschließlich frisches Muskelfleisch, püriertes Obst und Gemüse und gekochte Kohlenhydrate in form von Kartoffeln. Eiweiß bildet die Grundlage der artgerechten Ernährung für Hunde. Ausschlaggebend ist hier ...",
+        "recommendation_description": "Die Empfehlung von Tierärztin Annika Brönner: „Als Einstieg für jeden Hund gut geeignet. Finden Sie raus, welche Zutaten Ihrem Liebling schmecken!\" Fütterung Wir empfehlen Ihnen mindestens zwei Portionen am Tag zu füttern. Die Tagesration in Gramm sollte ungefähr 2-4% des Körpergewichtes Ihres Hundes entsprechen. Ein 20kg schweres ..."
+      }
+    }
+  ],
+  "attributes": {
+    "price_per_kilo_vat_included": "8.00"
+  },
+  "media": [
+    {
+      "url": "/media/product/pute.jpg",
+      "thumbnail_url": "/media/product/pute_thumb1.jpg",
+      "type": "picture",
+      "sequence": "1"
+    },
+    {
+      "url": "/media/product/hund_standard_side_5.jpg",
+      "thumbnail_url": "/media/product/hund_standard_side_5_thumb1.jpg",
+      "type": "picture",
+      "sequence": "2"
+    },
+    {
+      "url": "/media/product/pets_deli_barf_men_f_r_hunde_putenbrust_1.jpg",
+      "thumbnail_url": "/media/product/pets_deli_barf_men_f_r_hunde_putenbrust_1_thumb1.jpg",
+      "type": "picture",
+      "sequence": "3"
+    }
+  ],
+  "product_group_keys": [
+    "weight",
+    "carbs"
+  ],
+  "concrete_products": [
+    {
+      "sku": "concrete_menubox_dogs_chicken_250g_with_carbohydrates",
+      "active": "1",
+      "product_group_key_values": {
+        "weight": "250g",
+        "carbs": "yes"
+      },
+      "locales": [
+        {
+          "locale": "de_DE",
+          "name": "PETS DELI Menübox für Hunde Putenbrustfilet 250g mit Reis"
+        }
+      ],
+      "price": "200"
+    },
+    {
+      "sku": "concrete_menubox_dogs_chicken_500g_with_carbohydrates",
+      "active": "1",
+      "product_group_key_values": {
+        "weight": "500g",
+        "carbs": "yes"
+      },
+      "locales": [
+        {
+          "locale": "de_DE",
+          "name": "PETS DELI Menübox für Hunde Putenbrustfilet 500g mit Reis"
+        }
+      ],
+      "price": "400"
+    },
+    {
+      "sku": "concrete_menubox_dogs_chicken_250g_without_carbohydrates",
+      "active": "1",
+      "product_group_key_values": {
+        "weight": "250g",
+        "carbs": "no"
+      },
+      "locales": [
+        {
+          "locale": "de_DE",
+          "name": "PETS DELI Menübox für Hunde Putenbrustfilet 250g ohne Reis"
+        }
+      ],
+      "price": "200"
+    },
+    {
+      "sku": "concrete_menubox_dogs_chicken_500g_without_carbohydrates",
+      "active": "1",
+      "product_group_key_values": {
+        "weight": "500g",
+        "carbs": "no"
+      },
+      "locales": [
+        {
+          "locale": "de_DE",
+          "name": "PETS DELI Menübox für Hunde Putenbrustfilet 500g ohne Reis"
+        }
+      ],
+      "price": "400"
+    }
+  ]
+}

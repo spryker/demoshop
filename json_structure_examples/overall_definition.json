@@ -1,0 +1,135 @@
+{
+  "sku": "sku of abstract product",
+  "type": "type of the abstract product (simple|dynamic|bundle)",
+  "tax": "19.00 => VAT",
+  "locales": [
+    {
+      "locale": "de_DE",
+      "name": "german abstract product name",
+      "url": "abstract product url in german frontend",
+      "media": [
+        {
+          "url": "full url to media (e.g. http://petsdeli.de/images/image_with_german_text.jpg",
+          "thumbnail_url": "full url to locale thumbnail of the media",
+          "type": "type of the media (e.g. picture, video, pdf, ...)",
+          "sequence": "1...n (the first one should be taken as default product picture",
+          "attributes": {
+            "not yet defined": "any other media specific german localized attributes"
+          }
+        }
+      ],
+      "attributes": {
+        "not yet defined": "any other german localized attributes! Could think about inheriting these to concrete product too"
+      }
+    },
+    {
+      "locale": "en_US",
+      "name": "english abstract product name",
+      "url": "abstract product url in english frontend",
+      "media": [
+        {
+          "url": "full url to media (e.g. http://petsdeli.de/images/image_with_english_text.jpg",
+          "thumbnail_url": "full url to locale thumbnail of the media",
+          "type": "type of the media (e.g. picture, video, pdf, ...)",
+          "sequence": "1...n (the first one should be taken as default product picture",
+          "attributes": {
+            "not yet defined": "any other media specific english localized attributes"
+          }
+        }
+      ],
+      "attributes": {
+        "not yet defined": "any other english localized attributes the abstract product should have"
+      }
+    }
+  ],
+  "media": [
+    {
+      "url": "full url to locale independent media !If there is a locale media definition, this will be used instead of the general one! (e.g. http://petsdeli.de/images/general_abstract_product_image.jpg",
+      "thumbnail_url": "full url to locale independent thumbnail of the media",
+      "type": "type of the media (e.g. picture, video, pdf, ...)",
+      "sequence": "1...n (the first one should be taken as default product picture",
+      "attributes": {
+        "not yet defined": "any other media specific attributes"
+      }
+    }
+  ],
+  "product_group_keys": [
+    "group key 1 (e.g. weight)",
+    "group key 2 (e.g. has carbs)"
+  ],
+  "attributes": {
+    "any_other_attribute_for_abstract_product": "Any other attribute that you want to have in the abstract product definition"
+  },
+  "categories": [
+    "id of category",
+    "id of category"
+  ],
+  "concrete_products": [
+    {
+      "sku": "sku of product",
+      "active": "1 = is active |0 = is inactive",
+      "name": "locale independent name of the concrete product",
+      "product_group_key_values": {
+        "key 1 used for identifying concrete products when used in a dynamic product (e.g. weight)": "500g",
+        "key 2 used for identifying concrete products when used in a dynamic product (e.g. has carb)": "yes"
+      },
+      "locales": [
+        {
+          "locale": "de_DE",
+          "name": "german concrete product name",
+          "media": [
+            {
+              "url": "full url to media (e.g. http://petsdeli.de/images/image123.jpg",
+              "thumbnail_url": "full url to locale thumbnail of the media",
+              "type": "type of the media (e.g. picture, video, pdf, ...)",
+              "sequence": "1...n (the first one should be taken as default product picture",
+              "attributes": {
+                "not yet defined": "any other german localized attributes! Could think about inheriting these to concrete product too"
+              }
+            }
+          ],
+          "attributes": {
+            "any_other_locale_specific_attribute_for_concrete_product": "any other german localized attributes the concrete product should have"
+          }
+        },
+        {
+          "locale": "en_US",
+          "name": "english concrete product name",
+          "media": [
+            {
+              "url": "full url to media (e.g. http://petsdeli.de/images/image123.jpg",
+              "thumbnail_url": "full url to locale thumbnail of the media",
+              "type": "type of the media (e.g. picture, video, pdf, ...)",
+              "sequence": "1...n (the first one should be taken as default product picture",
+              "attributes": {
+                "not yet defined": "any other media specific english localized attributes"
+              }
+            }
+          ],
+          "attributes": {
+            "any_other_locale_specific_attribute_for_concrete_product": "any other english localized attributes the concrete product should have"
+          }
+        }
+      ],
+      "price": "12000 => product price including VAT in cent",
+      "attributes": {
+        "any_other_general_attribute_for_concrete_product": "any other attribute that should be available in the concrete product"
+      },
+      "bundle_products": [
+        {
+          "sku": "sku of a concrete product that is assigned to that bundle",
+          "quantity": "how many times should the concrete product be included in that bundle (>=1)"
+        }
+      ]
+    }
+  ],
+  "dynamic_product_settings": {
+    "total_quantity": "> 0 => total quantity of products the dynamic product consists of (e.g. 10 for the Starterpackage 10)",
+    "products": [
+      {
+        "sku": "sku of concrete product that is allowed to be part of the dynamic product !this sku MUST exist before it can be used!",
+        "quantity": "how often should that product be in the package (>= 0)"
+      }
+    ]
+  }
+}

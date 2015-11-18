@@ -117,7 +117,7 @@ class ProductCollector extends AbstractPropelCollectorPlugin
         );
 
         $baseQuery->withColumn(
-            'JSON_AGG(spy_product.sku)',
+            'JSON_AGG(DISTINCT spy_product.sku)',
             'concrete_skus'
         );
 
@@ -195,7 +195,7 @@ class ProductCollector extends AbstractPropelCollectorPlugin
         );
         // End of PostgreSQL specific code
         $baseQuery->withColumn(
-            'JSON_AGG(product_urls.url)',
+            'JSON_AGG(DISTINCT product_urls.url)',
             'product_urls'
         );
         $baseQuery->withColumn(
@@ -297,6 +297,7 @@ class ProductCollector extends AbstractPropelCollectorPlugin
      */
     protected function processData($resultSet, LocaleTransfer $locale, TouchUpdaterSet $touchUpdaterSet)
     {
+
         $processedResultSet = $this->buildProducts($resultSet, $locale);
         $processedResultSet = $this->productSearchFacade->enrichProductsWithSearchAttributes(
             $resultSet,
@@ -333,10 +334,9 @@ class ProductCollector extends AbstractPropelCollectorPlugin
      */
     protected function buildProducts(array &$resultSet, $locale)
     {
+
         $processedResultSet = [];
-
         $processedResultSet = $this->productSearchFacade->createSearchProducts($resultSet, $processedResultSet, $locale);
-
         $keys = array_keys($processedResultSet);
         $resultSet = array_combine($keys, $resultSet);
 
