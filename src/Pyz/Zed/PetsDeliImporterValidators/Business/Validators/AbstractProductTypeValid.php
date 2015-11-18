@@ -6,10 +6,15 @@ use PavFeature\Zed\ProductDynamicImporter\Business\Validator\ValidationRules\Val
 use Generated\Shared\ProductDynamicImporter\PavProductDynamicImporterAbstractProductInterface;
 use Pyz\Zed\PetsDeliImporterValidators\Business\ValidationErrors\ErrorResultCollection;
 use Pyz\Zed\PetsDeliImporterValidators\Business\ValidationErrors\ErrorResultElement;
+use PavFeature\Zed\ProductDynamic\ProductDynamicConfig;
 
 class AbstractProductTypeValid implements ValidationRuleInterface
 {
-    const ALLOWED_TYPES = ['simple','dynamic','bundle'];
+    const ALLOWED_TYPES = [
+        ProductDynamicConfig::DYNAMIC_PRODUCT_TYPE_SIMPLE,
+        ProductDynamicConfig::DYNAMIC_PRODUCT_TYPE_DYNAMIC,
+        ProductDynamicConfig::DYNAMIC_PRODUCT_TYPE_BUNDLE
+    ];
 
     private $product;
 
