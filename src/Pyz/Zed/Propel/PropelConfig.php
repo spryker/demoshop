@@ -2,15 +2,20 @@
 
 namespace Pyz\Zed\Propel;
 
-use SprykerEngine\Zed\Propel\PropelConfig as SprykerPropelConfig;
+use SprykerEngine\Zed\Propel\PropelConfig as CorePropelConfig;
 
-class PropelConfig extends SprykerPropelConfig
+class PropelConfig extends CorePropelConfig
 {
+
+    /**
+     * @return array
+     */
     public function getPropelSchemaPathPatterns()
     {
         return array_merge(
-            [APPLICATION_SOURCE_DIR.'/*/Zed/*/Persistence/Propel/Schema/'],
+            [APPLICATION_SOURCE_DIR . '/*/Zed/*/Persistence/Propel/Schema/'],
             parent::getPropelSchemaPathPatterns()
         );
     }
+
 }
