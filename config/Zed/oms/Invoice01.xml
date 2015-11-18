@@ -6,7 +6,7 @@
     <process name="Invoice01" main="true">
         <states>
             <state name="new" reserved="true"/>
-            <state name="invoice generated"/>
+            <state name="invoice created"/>
             <state name="invoice sent" />
             <state name="order exported" />
             <state name="order shipped" />
@@ -22,12 +22,12 @@
         <transitions>
             <transition>
                 <source>new</source>
-                <target>invoice generated</target>
+                <target>invoice created</target>
                 <event>create invoice</event>
             </transition>
             
             <transition>
-                <source>invoice generated</source>
+                <source>invoice created</source>
                 <target>invoice sent</target>
                 <event>send invoice</event>
             </transition>
