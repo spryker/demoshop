@@ -29,8 +29,11 @@ class OmsConfig extends SprykerOmsConfig
     {
         $selectedProcessName = null;
         switch ($orderTransfer->getAdyenPayment()->getPaymentMethod()) {
-            case 'prepayment':
+            case AdyenPaymentMethodConstants::ADYEN_PAYMENT_METHOD_GERMAN_BANK_TRANSFER:
                 $selectedProcessName = OmsConstants::ORDER_PROCESS_PREPAYMENT_01;
+                break;
+            case AdyenPaymentMethodConstants::ADYEN_PAYMENT_METHOD_CREDIT_CARD_CSE:
+                $selectedProcessName = OmsConstants::ORDER_PROCESS_CREDIT_CARD_01;
                 break;
             case AdyenPaymentMethodConstants::ADYEN_PAYMENT_METHOD_SEPA:
                 $selectedProcessName = OmsConstants::ORDER_PROCESS_SEPA_DIRECT_DEBIT_01;
@@ -58,10 +61,11 @@ class OmsConfig extends SprykerOmsConfig
     public function getActiveProcesses()
     {
         return [
-            OmsConstants::ORDER_PROCESS_NO_PAYMENT_01,
-            OmsConstants::ORDER_PROCESS_PREPAYMENT_01,
             OmsConstants::ORDER_PROCESS_SEPA_DIRECT_DEBIT_01,
-            OmsConstants::ORDER_PROCESS_PAYPAL_01
+            OmsConstants::ORDER_PROCESS_PAYPAL_01,
+            OmsConstants::ORDER_PROCESS_CREDIT_CARD_01,
+            OmsConstants::ORDER_PROCESS_SOFORTUEBERWEISUNG_01,
+            OmsConstants::ORDER_PROCESS_PREPAYMENT_01
         ];
     }
 

@@ -19,10 +19,8 @@ class OmsOrderHydrator implements OmsOrderHydratorInterface
      */
     public function hydrateOrderTransfer(OrderInterface $order, CheckoutRequestInterface $request)
     {
-        $paymentMethod = $request->getPaymentMethod();
-
-        switch ($paymentMethod) {
-            case 'prepayment' : // TODO remove later! hihi
+        switch ($request->getPaymentMethod()) {
+            case AdyenPaymentMethodConstants::ADYEN_PAYMENT_METHOD_GERMAN_BANK_TRANSFER :
                 $order->setProcess(OmsConstants::ORDER_PROCESS_PREPAYMENT_01);
                 break;
             case AdyenPaymentMethodConstants::ADYEN_PAYMENT_METHOD_SEPA;
@@ -33,6 +31,9 @@ class OmsOrderHydrator implements OmsOrderHydratorInterface
                 break;
             case AdyenPaymentMethodConstants::ADYEN_PAYMENT_METHOD_SOFORTUEBERWEISUNG;
                 $order->setProcess(OmsConstants::ORDER_PROCESS_SOFORTUEBERWEISUNG_01);
+                break;
+            case AdyenPaymentMethodConstants::ADYEN_PAYMENT_METHOD_CREDIT_CARD_CSE;
+                $order->setProcess(OmsConstants::ORDER_PROCESS_CREDIT_CARD_01);
                 break;
             default:
                 throw new NoStatemachineProcessException();

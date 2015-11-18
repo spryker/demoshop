@@ -80,6 +80,12 @@ class CheckoutController extends AbstractController
                     $adyenPaymentDetails->setOwnerName('A. Schneider');
                 }
 
+                if ($paymentMethod == 'adyen.payment.method.creditcard.cse') {
+                    $adyenPaymentDetails->setEncryptedCardData(
+                        'adyenjs_0_1_15...'
+                    );
+                }
+
                 $adyenPaymentDetails->setCountry('DE');
                 $adyenPaymentDetails->setIp('127.0.0.1');
                 $adyenPaymentDetails->setCurrency('EUR');

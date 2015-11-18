@@ -309,7 +309,7 @@ $config[LumberjackConfig::WRITERS]['ZED'] = [
 
 $config[LumberjackConfig::COLLECTOR_OPTIONS] = [
     '\SprykerEngine\Shared\Lumberjack\Model\Collector\RequestDataCollector' => [
-        'param_blacklist' => ['cc', 'password'],
+        'param_blacklist' => ['cc', 'password', 'encryptedCardData', 'encrypted_card_data'],
         'filtered_content' => '***FILTERED***',
     ],
 ];
