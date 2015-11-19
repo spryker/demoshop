@@ -12,4 +12,9 @@
         <property name="customerInfoTransfer" type="CustomerInfo" />
     </transfer>
 
+    <transfer name="Customer">
+        <property name="magentoPasswordHash" type="string" />
+    </transfer>
+
 </transfers>
+

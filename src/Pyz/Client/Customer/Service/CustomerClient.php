@@ -5,6 +5,8 @@ namespace Pyz\Client\Customer\Service;
 use Generated\Shared\Customer\CustomerInfoInterface;
 use Generated\Shared\Customer\CustomerLoginResultInterface;
 use SprykerFeature\Client\Customer\Service\CustomerClient as SprykerFeatureCustomerClient;
+use SprykerFeature\Client\Customer\Service\CustomerClient as SpyCustomerClient;
+use Pyz\Client\Customer\Service\Zed\CustomerStubInterface;
 
 /**
  * @method CustomerDependencyContainer getDependencyContainer()

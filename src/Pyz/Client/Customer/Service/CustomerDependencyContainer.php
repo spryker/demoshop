@@ -13,5 +13,17 @@ use SprykerFeature\Client\Customer\Service\CustomerDependencyContainer as Spryke
  */
 class CustomerDependencyContainer extends SprykerFeatureCustomerDependencyContainer
 {
+    /**
+     * @return CustomerStubInterface
+     */
+    public function createZedStub()
+    {
+        $zedStub = $this->getProvidedDependency(CustomerDependencyProvider::SERVICE_ZED);
+        $cartStub = $this->getFactory()->createZedCustomerStub(
+            $zedStub
+        );
+
+        return $cartStub;
+    }
 
 }

@@ -19,5 +19,12 @@ class CustomerStub extends SprykerFeatureCustomerStub implements CustomerStubInt
     {
         return $this->zedStub->call('/customer/gateway/customer-login-result', $customerLoginResultTransfer);
     }
-
+    /**
+     * @param ChangeTransfer $changeTransfer
+     * @return \SprykerEngine\Shared\Transfer\TransferInterface
+     */
+    public function migrateMagentoPassword(ChangeTransfer $changeTransfer)
+    {
+        return $this->zedStub->call('/customer/gateway/migrate-magento-password', $changeTransfer);
+    }
 }
