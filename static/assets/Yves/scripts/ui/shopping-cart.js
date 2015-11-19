@@ -42,10 +42,10 @@ var renderCart = function(data) {
 var loadCart = function() {
     // TODO we need a general solution for choosing a right locale in JS
     var url = window.location.pathname;
-    var res = url.substring(1, 3);
+    var locale = url.substring(1, 3);
     var localizedUrl = '/cart/overlay';
 
-    if (res === 'en' | res === 'de') {
+    if (locale === 'en' | locale === 'de') {
         localizedUrl = '/'+ res + localizedUrl;
     }
 
