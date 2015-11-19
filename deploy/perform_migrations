@@ -28,9 +28,6 @@ cd $BASEDIR
 cd ..
 
 vendor/bin/pav-console propel:config:convert
-vendor/bin/pav-console propel:database:create
-vendor/bin/pav-console propel:pg-sql-compat
-vendor/bin/pav-console propel:schema:copy
 vendor/bin/pav-console propel:model:build
 vendor/bin/pav-console propel:diff
 vendor/bin/pav-console propel:migrate
