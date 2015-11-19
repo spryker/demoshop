@@ -389,8 +389,6 @@ class IndexController extends SprykerIndexController
     public function saveAction(Request $request)
     {
 
-        $idAbstractProduct = $request->query->getInt(self::ID_ABSTRACT_PRODUCT);
-
         if (!$request->isMethod(Request::METHOD_POST)) {
             return $this->redirectResponse('/product/index/view?id-abstract-product=' . $idAbstractProduct);
         }
@@ -402,15 +400,31 @@ class IndexController extends SprykerIndexController
         $productJson = $request->get('json');
 
         $abstractProduct = $dynamicProductFacade->convertJsonToProductImporterAbstractProduct($productJson);
-        $dynamicProductFacade->validateProductImporterAbstractProduct($abstractProduct);
-        $dynamicProductFacade->persistProductImporterAbstractProduct($abstractProduct);
+
+        $validationResult = $dynamicProductFacade->validateProductImporterAbstractProduct($abstractProduct);
+
         $idAbstractProduct = $this->getFacade()->getAbstractProduct($abstractProduct->getSku())->getIdAbstractProduct();
 
-        $this->addSuccessMessage("Product was saved");
+        if($validationResult->hasErrors())
+        {
+            foreach($validationResult->getElements() as $element)
+            {
+                $this->addErrorMessage($element->getMessage());
+            }
+
+            $viewData['idAbstractProduct'] = $idAbstractProduct;
+            $viewData['json'] = $productJson;
+
+            return $this->viewResponse($viewData);
+        }
+        else
+        {
+            $dynamicProductFacade->persistProductImporterAbstractProduct($abstractProduct);
+
+            $this->addSuccessMessage("Product was saved");
+        }
 
         return $this->redirectResponse('/product/index/view?id-abstract-product=' . $idAbstractProduct);
-
-
     }
 
     /**
