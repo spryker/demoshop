@@ -6,6 +6,7 @@ use Generated\Shared\Adyen\AdyenPaymentMethodsInterface;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
+use Generated\Shared\Transfer\AdyenPaymentTransfer;
 
 class Checkout extends AbstractType
 {
@@ -63,24 +64,9 @@ class Checkout extends AbstractType
                     'class' => 'js-delivery-address',
                 ],
             ])
-            ->add('payment_method', 'choice', [
-                'choices' => [
-                    'adyen.payment.method.sepa.directdebit' => 'HardCoded SEPA A. Schneider (usable)',
-                    'adyen.payment.method.paypal' => 'PayPal (usable)',
-                    'adyen.payment.method.creditcard.cse' => 'Credit card (not usable - you need token)',
-                    'adyen.payment.method.german.bank.transfer' => 'Prepayment (usable)'
-                ],
-                'expanded' => true,
-                'multiple' => false,
-                'required' => false,
-                'empty_value' => false,
-                'attr' => [
-                    'style' => 'display: block;',
-                ],
-            ])
-            ->add('sepa_payment', new SepaPayment(), [
+            ->add('adyen_payment', new AdyenPayment(), [
+                'data_class' => 'Generated\Shared\Transfer\AdyenPaymentTransfer',
                 'error_bubbling' => true,
-                'mapped' => false,
                 'attr' => [
                     'class' => 'payment-options',
                     'style' => 'display: block;',

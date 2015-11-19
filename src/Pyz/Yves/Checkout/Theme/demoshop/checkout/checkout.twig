@@ -36,16 +36,16 @@
                     <section class="checkout__form-block js-form-block js-checkout-payment js-checkout-collapsed">
                         <h1 class="form-block__heading">{{ "page.checkout.payment.heading" | trans }}</h1>
 
-                        {% for payment_method in form.payment_method %}
+                        {% for payment_method in form.adyen_payment.payment_method %}
 
                             {{ form_widget(payment_method) }}
                             {{ form_label(payment_method) }}
                             {{ form_errors(payment_method) }}
 
                                 {% if payment_method.vars.value == 'adyen.payment.method.sepa.directdebit' %}
-                                    {{ form_widget(form.sepa_payment.iban) }}
-                                    {{ form_widget(form.sepa_payment.bic) }}
-                                    {{ form_widget(form.sepa_payment.ownerName) }}
+                                    {{ form_widget(form.adyen_payment.sepa_payment.iban) }}
+                                    {{ form_widget(form.adyen_payment.sepa_payment.bic) }}
+                                    {{ form_widget(form.adyen_payment.sepa_payment.ownerName) }}
 
                                 {% elseif payment_method.vars.value == 'adyen.payment.method.paypal' %}
 

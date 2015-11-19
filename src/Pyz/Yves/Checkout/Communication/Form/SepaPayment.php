@@ -24,7 +24,6 @@ class SepaPayment extends AbstractType
     {
         $builder
             ->add('iban', 'text', [
-                'mapped' => false,
                 'label' => false,
                 'required' => false,
                 'attr' => [
@@ -32,7 +31,6 @@ class SepaPayment extends AbstractType
                 ],
             ])
             ->add('bic', 'text', [
-                'mapped' => false,
                 'label' => false,
                 'required' => false,
                 'attr' => [
@@ -40,7 +38,6 @@ class SepaPayment extends AbstractType
                 ],
             ])
             ->add('ownerName', 'text', [
-                'mapped' => false,
                 'label' => false,
                 'required' => false,
                 'attr' => [
