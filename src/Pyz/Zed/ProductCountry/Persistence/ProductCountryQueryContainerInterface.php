@@ -21,4 +21,9 @@ interface ProductCountryQueryContainerInterface
      */
     public function queryCountryByProduct($idProduct);
 
+    /**
+     * @return SpyProductCountryQuery
+     */
+    public function queryProductsWithCountries();
+
 }
