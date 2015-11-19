@@ -66,11 +66,16 @@ class StorageRouter extends AbstractRouter
      */
     public function match($pathinfo)
     {
+        $defaultLocalePrefix = '/' . mb_substr($this->getApplication()['locale'], 0, 2);
+
+        if ($defaultLocalePrefix === $pathinfo || $defaultLocalePrefix . '/' === $pathinfo) {
+            throw new ResourceNotFoundException();
+        }
+
         if ($pathinfo !== '/') {
             $urlDetails = $this->getUrlMatcher()->matchUrl($pathinfo, $this->getApplication()['locale']);
 
             if ($urlDetails === false) {
-                $defaultLocalePrefix = '/' . mb_substr($this->getApplication()['locale'], 0, 2);
                 $urlDetails = $this->getUrlMatcher()->matchUrl($defaultLocalePrefix . $pathinfo, $this->getApplication()['locale']);
             }
 

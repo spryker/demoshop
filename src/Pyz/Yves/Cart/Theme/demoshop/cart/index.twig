@@ -7,7 +7,7 @@
     <section class="consumeHeight" id="cart">
             {#{% include "@application/partials/flash_bag.twig" %}#}
             {% if cartItems|length %}
-            <a class="continue" href="{{ url('checkout') }}">{{ 'cart.to.checkout'|trans }}</a>
+            <a class="continue" href="{{ url('checkout') }}">{{ 'cart.checkout'|trans }}</a>
             {% endif %}
             <h3>{{ 'cart.cart'|trans }}</h3>
             <table class="items">
@@ -82,7 +82,7 @@
                 </tfoot>
             </table>
             {% if cartItems|length %}
-            <a  class="continue" href="{{ url('checkout') }}">{{ 'cart.to.checkout'|trans }}</a>
+            <a  class="continue" href="{{ url('checkout') }}">{{ 'cart.checkout'|trans }}</a>
             {% endif %}
     </section>
 {% endblock %}

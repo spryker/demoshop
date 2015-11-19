@@ -40,7 +40,7 @@
                 <image_name>wildlife.jpg</image_name>
             </locale>
             <locale id="en_US">
-                <name>Wild Animal</name>
+                <name>Wild Animals</name>
                 <image_name>wildlife.jpg</image_name>
             </locale>
         </locales>
