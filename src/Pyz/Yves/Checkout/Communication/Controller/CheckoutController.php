@@ -14,7 +14,7 @@ use Pyz\Yves\Checkout\Communication\Plugin\CheckoutControllerProvider;
 use SprykerEngine\Yves\Application\Communication\Controller\AbstractController;
 use Pyz\Yves\Checkout\Communication\CheckoutDependencyContainer;
 use SprykerFeature\Shared\Shipment\ShipmentConstants;
-use Symfony\Component   \Form\FormInterface;
+use Symfony\Component\Form\FormInterface;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\HttpFoundation\Request;
