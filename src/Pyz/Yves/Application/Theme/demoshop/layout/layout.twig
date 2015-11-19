@@ -1,7 +1,26 @@
-{% include "@application/layout/partials/head.twig" %}
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="utf-8" />
+    <title>{{ page_title | default('Spryker Demoshop') | trans }}</title>
+    <meta name="description" content="{{ page_description | default('') | trans }}" />
+    <meta name="viewport" content="width=device-width, user-scalable=no" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    {% block page_meta %}{% endblock %}
+
+    <link href='http://fonts.googleapis.com/css?family=Fira+Sans:300,400,500' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="/css/main.css" />
+    {% block stylesheets %}{% endblock %}
+</head>
+<body>
 {% include "@application/layout/partials/header.twig" %}
 
 {% block content %}{% endblock %}
 
 {% include "@application/layout/partials/footer.twig" %}
-{% include "@application/layout/partials/foot.twig" %}
+{% include "@application/layout/partials/overlay.twig" %}
+
+<script src="/js/main.js"></script>
+{% block javascripts %}{% endblock %}
+</body>
+</html>
