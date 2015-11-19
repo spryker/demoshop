@@ -66,7 +66,7 @@ keys:
   page.home.featured.top-right.first.url:
     translations:
       de_DE: '/de/wilde-tiere'
-      en_US: '/en/wild-animal'
+      en_US: '/en/wild-animals'
 
   page.home.featured.top-right.second.width:
     translations:
@@ -83,7 +83,7 @@ keys:
   page.home.featured.top-right.second.url:
     translations:
       de_DE: '/de/wilde-tiere'
-      en_US: '/en/wild-animal'
+      en_US: '/en/wild-animals'
 
   page.home.featured.bottom-left.top.width:
     translations:
