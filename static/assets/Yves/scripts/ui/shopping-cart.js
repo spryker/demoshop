@@ -46,7 +46,7 @@ var loadCart = function() {
     var localizedUrl = '/cart/overlay';
 
     if (locale === 'en' | locale === 'de') {
-        localizedUrl = '/'+ res + localizedUrl;
+        localizedUrl = '/'+ locale + localizedUrl;
     }
 
     $.get(localizedUrl)
