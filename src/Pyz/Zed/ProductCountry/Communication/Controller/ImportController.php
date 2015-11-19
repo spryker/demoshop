@@ -47,7 +47,7 @@ class ImportController extends AbstractController
 
             $this->getFacade()->importProductCountryData($productCountryData);
 
-            $this->addSuccessMessage('The product countries were added successfully.');
+            $this->addSuccessMessage('The product countries were imported successfully.');
 
             return $this->redirectResponse('/product-country');
         }

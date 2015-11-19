@@ -4,9 +4,9 @@ namespace Pyz\Zed\ProductCountry\Business;
 
 use Generated\Zed\Ide\FactoryAutoCompletion\ProductCountryBusiness;
 use Propel\Runtime\Connection\ConnectionInterface;
+use Pyz\Zed\Country\Business\CountryFacade;
+use Pyz\Zed\Product\Business\ProductFacade;
 use Pyz\Zed\ProductCountry\Business\Model\ProductCountryManagerInterface;
-use Pyz\Zed\ProductCountry\Dependency\ProductCountryToCountryInterface;
-use Pyz\Zed\ProductCountry\Dependency\ProductCountryToProductInterface;
 use Pyz\Zed\ProductCountry\ProductCountryDependencyProvider;
 use SprykerEngine\Zed\Kernel\Business\AbstractBusinessDependencyContainer;
 
@@ -31,7 +31,7 @@ class ProductCountryDependencyContainer extends AbstractBusinessDependencyContai
     /**
      * @throws \ErrorException
      *
-     * @return ProductCountryToCountryInterface
+     * @return CountryFacade
      */
     public function createCountryFacade()
     {
@@ -41,7 +41,7 @@ class ProductCountryDependencyContainer extends AbstractBusinessDependencyContai
     /**
      * @throws \ErrorException
      *
-     * @return ProductCountryToProductInterface
+     * @return ProductFacade
      */
     public function createProductFacade()
     {

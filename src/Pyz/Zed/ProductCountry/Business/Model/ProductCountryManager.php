@@ -4,19 +4,19 @@ namespace Pyz\Zed\ProductCountry\Business\Model;
 
 use Orm\Zed\ProductCountry\Persistence\SpyProductCountry;
 use Propel\Runtime\Connection\ConnectionInterface;
-use Pyz\Zed\ProductCountry\Dependency\ProductCountryToCountryInterface;
-use Pyz\Zed\ProductCountry\Dependency\ProductCountryToProductInterface;
+use Pyz\Zed\Country\Business\CountryFacade;
+use Pyz\Zed\Product\Business\ProductFacade;
 
 class ProductCountryManager implements ProductCountryManagerInterface
 {
 
     /**
-     * @var ProductCountryToProductInterface
+     * @var ProductFacade
      */
     protected $productFacade;
 
     /**
-     * @var ProductCountryToCountryInterface
+     * @var CountryFacade
      */
     protected $countryFacade;
 
@@ -25,7 +25,12 @@ class ProductCountryManager implements ProductCountryManagerInterface
      */
     protected $connection;
 
-    public function __construct(ProductCountryToProductInterface $productFacade, ProductCountryToCountryInterface $countryFacade, ConnectionInterface $connection)
+    /**
+     * @param ProductFacade $productFacade
+     * @param CountryFacade $countryFacade
+     * @param ConnectionInterface $connection
+     */
+    public function __construct(ProductFacade $productFacade, CountryFacade $countryFacade, ConnectionInterface $connection)
     {
         $this->productFacade = $productFacade;
         $this->countryFacade = $countryFacade;
