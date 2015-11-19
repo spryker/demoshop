@@ -2,10 +2,10 @@
 
 /**
  * Data object containing the SQL and PHP code to migrate the database
- * up to version 1447765664.
- * Generated on 2015-11-17 13:07:44 by vagrant
+ * up to version 1447932335.
+ * Generated on 2015-11-19 11:25:35 by vagrant
  */
-class PropelMigration_1447765664
+class PropelMigration_1447932335
 {
     public $comment = '';
 
@@ -373,7 +373,7 @@ CREATE TABLE `spy_discount`
     `created_at` DATETIME,
     `updated_at` DATETIME,
     PRIMARY KEY (`id_discount`),
-    UNIQUE INDEX `spy_discount-fk_discount_voucher_pool` (`fk_discount_voucher_pool`),
+    UNIQUE INDEX `spy_discount-unique-fk_discount_voucher_pool` (`fk_discount_voucher_pool`),
     CONSTRAINT `spy_discount-fk_discount_voucher_pool`
         FOREIGN KEY (`fk_discount_voucher_pool`)
         REFERENCES `spy_discount_voucher_pool` (`id_discount_voucher_pool`)
@@ -509,7 +509,7 @@ CREATE TABLE `spy_glossary_translation`
     `value` TEXT NOT NULL,
     `is_active` TINYINT(1) DEFAULT 1 NOT NULL,
     PRIMARY KEY (`id_glossary_translation`),
-    UNIQUE INDEX `spy_glossary_translation-fk_glossary_key` (`fk_glossary_key`, `fk_locale`),
+    UNIQUE INDEX `spy_glossary_translation-unique-fk_glossary_key` (`fk_glossary_key`, `fk_locale`),
     INDEX `spy_glossary_translation-index-fk_locale` (`fk_locale`),
     INDEX `spy_glossary_translation-is_active` (`is_active`),
     CONSTRAINT `spy_glossary_translation-fk_glossary_key`
@@ -672,7 +672,7 @@ CREATE TABLE `spy_oms_event_timeout`
     `created_at` DATETIME,
     `updated_at` DATETIME,
     PRIMARY KEY (`id_oms_event_timeout`),
-    UNIQUE INDEX `spy_oms_event_timeout-fk_sales_order_item` (`fk_sales_order_item`, `fk_oms_order_item_state`),
+    UNIQUE INDEX `spy_oms_event_timeout-unique-fk_sales_order_item` (`fk_sales_order_item`, `fk_oms_order_item_state`),
     INDEX `spy_oms_event_timeout-timeout` (`timeout`),
     INDEX `spy_oms_event_timeout-fi_oms_order_item_state` (`fk_oms_order_item_state`),
     CONSTRAINT `spy_oms_event_timeout-fk_sales_order_item`
@@ -897,7 +897,7 @@ CREATE TABLE `spy_price_product`
     `fk_price_type` INTEGER NOT NULL,
     `fk_abstract_product` INTEGER,
     PRIMARY KEY (`id_price_product`),
-    UNIQUE INDEX `spy_price_product-fk_abstract_product` (`fk_abstract_product`, `fk_product`, `fk_price_type`),
+    UNIQUE INDEX `spy_price_product-unique-fk_abstract_product` (`fk_abstract_product`, `fk_product`, `fk_price_type`),
     INDEX `spy_price_product-fi_product` (`fk_product`),
     INDEX `spy_price_product-fi_price_type` (`fk_price_type`),
     CONSTRAINT `spy_price_product-fk_product`
@@ -945,7 +945,7 @@ CREATE TABLE `spy_abstract_product_localized_attributes`
     `created_at` DATETIME,
     `updated_at` DATETIME,
     PRIMARY KEY (`id_abstract_attributes`),
-    UNIQUE INDEX `spy_abstract_product_localized_attributes-fk_abstract_product` (`fk_abstract_product`, `fk_locale`),
+    UNIQUE INDEX `spy_abstract_product_localized_attributes-unique-fk_abstract_pro` (`fk_abstract_product`, `fk_locale`),
     INDEX `spy_abstract_product_localized_attributes-fi_locale` (`fk_locale`),
     CONSTRAINT `spy_abstract_product_localized_attributes-fk_abstract_product`
         FOREIGN KEY (`fk_abstract_product`)
@@ -985,7 +985,7 @@ CREATE TABLE `spy_product_localized_attributes`
     `created_at` DATETIME,
     `updated_at` DATETIME,
     PRIMARY KEY (`id_attributes`),
-    UNIQUE INDEX `spy_product_localized_attributes-fk_product` (`fk_product`, `fk_locale`),
+    UNIQUE INDEX `spy_product_localized_attributes-unique-fk_product` (`fk_product`, `fk_locale`),
     INDEX `spy_product_localized_attributes-fi_locale` (`fk_locale`),
     CONSTRAINT `spy_product_localized_attributes-fk_product`
         FOREIGN KEY (`fk_product`)
@@ -1045,7 +1045,7 @@ CREATE TABLE `spy_attribute_type_value`
     `value` VARCHAR(255) NOT NULL,
     `fk_locale` INTEGER,
     PRIMARY KEY (`id`),
-    UNIQUE INDEX `spy_attribute_type_value-fk_locale` (`fk_locale`, `fk_type`, `key`),
+    UNIQUE INDEX `spy_attribute_type_value-unique-fk_locale` (`fk_locale`, `fk_type`, `key`),
     CONSTRAINT `spy_attribute_type_value-fk_locale`
         FOREIGN KEY (`fk_locale`)
         REFERENCES `spy_locale` (`id_locale`)
@@ -1058,7 +1058,7 @@ CREATE TABLE `spy_product_category`
     `fk_category` INTEGER NOT NULL,
     `product_order` INTEGER DEFAULT 0,
     PRIMARY KEY (`id_product_category`),
-    UNIQUE INDEX `spy_product_category-fk_abstract_product` (`fk_abstract_product`, `fk_category`),
+    UNIQUE INDEX `spy_product_category-unique-fk_abstract_product` (`fk_abstract_product`, `fk_category`),
     INDEX `spy_product_category-fi_category` (`fk_category`),
     CONSTRAINT `spy_product_category-fk_category`
         FOREIGN KEY (`fk_category`)
@@ -1388,7 +1388,7 @@ CREATE TABLE `spy_sales_expense`
     `created_at` DATETIME,
     `updated_at` DATETIME,
     PRIMARY KEY (`id_sales_expense`),
-    UNIQUE INDEX `spy_sales_expense-fk_sales_order` (`fk_sales_order`, `type`),
+    UNIQUE INDEX `spy_sales_expense-unique-fk_sales_order` (`fk_sales_order`, `type`),
     INDEX `spy_sales_expense-fi_refund` (`fk_refund`),
     CONSTRAINT `spy_sales_expense-fk_refund`
         FOREIGN KEY (`fk_refund`)
@@ -1700,7 +1700,7 @@ CREATE TABLE `spy_stock_product`
     `quantity` INTEGER DEFAULT 0,
     `is_never_out_of_stock` TINYINT(1) DEFAULT 0,
     PRIMARY KEY (`id_stock_product`),
-    UNIQUE INDEX `spy_stock_product-fk_stock` (`fk_stock`, `fk_product`),
+    UNIQUE INDEX `spy_stock_product-unique-fk_stock` (`fk_stock`, `fk_product`),
     INDEX `spy_stock_product-fi_product` (`fk_product`),
     CONSTRAINT `spy_stock_product-fk_product`
         FOREIGN KEY (`fk_product`)
@@ -1762,7 +1762,7 @@ CREATE TABLE `spy_touch_storage`
     `fk_touch` INTEGER NOT NULL,
     `key` VARCHAR(255) NOT NULL,
     PRIMARY KEY (`id_touch_storage`),
-    UNIQUE INDEX `spy_touch_storage-fk_locale` (`fk_locale`, `key`),
+    UNIQUE INDEX `spy_touch_storage-unique-fk_locale` (`fk_locale`, `key`),
     INDEX `spy_touch_storage-index-key` (`key`),
     INDEX `spy_touch_storage-fi_touch` (`fk_touch`),
     CONSTRAINT `spy_touch_storage-fk_touch`
@@ -1858,7 +1858,7 @@ CREATE TABLE `spy_wishlist`
     `id_wishlist` INTEGER NOT NULL AUTO_INCREMENT,
     `fk_customer` INTEGER NOT NULL,
     PRIMARY KEY (`id_wishlist`),
-    UNIQUE INDEX `spy_wishlist-fk_customer` (`fk_customer`),
+    UNIQUE INDEX `spy_wishlist-unique-fk_customer` (`fk_customer`),
     CONSTRAINT `spy_wishlist-fk_customer`
         FOREIGN KEY (`fk_customer`)
         REFERENCES `spy_customer` (`id_customer`)
