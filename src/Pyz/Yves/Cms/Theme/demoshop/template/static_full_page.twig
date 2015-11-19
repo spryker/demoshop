@@ -1,12 +1,9 @@
 {% extends '@Cms/layout/full.twig' %}
 
 {% block content %}
-    <link rel="stylesheet" href="/css/static.min.css">
     <!-- CMS_PLACEHOLDER : "content" -->
-    <div style="padding-left: 100px">
+    <div class="cms-page">
         {{ spyCms('content') | raw }}
-        <p><br>
-        </p>
     </div>
 {% endblock %}
 
