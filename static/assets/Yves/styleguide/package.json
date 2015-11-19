@@ -38,7 +38,7 @@
     "gulp-watch": "4.3.5",
     "gutil": "1.6.4",
     "imagemin-jpeg-recompress": "4.3.0",
-    "kss": "2.1.0",
+    "kss": "git://github.com/RobLoach/kss-node.git#xdemo",
     "lodash": "3.10.1",
     "require-dir": "0.3.0",
     "vinyl-buffer": "1.0.0",
