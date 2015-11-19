@@ -23,6 +23,7 @@ $config[SystemConfig::PROJECT_NAMESPACES] = [
 $config[SystemConfig::CORE_NAMESPACES] = [
     'SprykerFeature',
     'SprykerEngine',
+    'PavEngine',
     'PavFeature'
 ];
 

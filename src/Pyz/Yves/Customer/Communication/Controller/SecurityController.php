@@ -40,6 +40,10 @@ class SecurityController extends AbstractController
         $customerTransfer->setEmail($this->getUsername());
         $this->getLocator()->customer()->client()->logout();
 
+        /** @var \Symfony\Component\Security\Core\SecurityContext $securityContext */
+        $securityContext = $this->getApplication()['security'];
+        $securityContext->setToken(null);
+
         return $this->redirectResponseInternal(CustomerControllerProvider::ROUTE_HOME);
     }
 
