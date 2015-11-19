@@ -2,7 +2,7 @@
 
 namespace Pyz\Zed\ProductCountry\Business\Model;
 
-use Orm\Zed\ProductCountry\Persistence\SpyProductCountry;
+use Orm\Zed\ProductCountry\Persistence\SpyProductCountryQuery;
 use Propel\Runtime\Connection\ConnectionInterface;
 use Pyz\Zed\Country\Business\CountryFacade;
 use Pyz\Zed\Product\Business\ProductFacade;
@@ -53,7 +53,12 @@ class ProductCountryManager implements ProductCountryManagerInterface
                     $idCountry = $this->countryFacade->getIdCountryByIso2Code($countryCode);
                     $idProduct = $this->productFacade->getAbstractProductIdBySku($productSku);
 
-                    $productCountry = new SpyProductCountry($idCountry);
+                    $query = SpyProductCountryQuery::create();
+                    $productCountry = $query
+                        ->filterByFkCountry($idCountry)
+                        ->filterByFkProduct($idProduct)
+                        ->findOneOrCreate();
+
                     $productCountry->setFkProduct($idProduct);
                     $productCountry->setFkCountry($idCountry);
 
