@@ -16,8 +16,8 @@ $config[SystemConfig::ZED_SESSION_SAVE_HANDLER] = SessionConfig::SESSION_HANDLER
 
 $config[SystemConfig::ZED_DB_USERNAME] = 'staging';
 $config[SystemConfig::ZED_DB_PASSWORD] = 'mate20mg';
-$config[SystemConfig::ZED_DB_HOST]     = '127.0.0.1';
-$config[SystemConfig::ZED_DB_PORT]     = 5432;
+$config[SystemConfig::ZED_DB_HOST] = '127.0.0.1';
+$config[SystemConfig::ZED_DB_PORT] = 5432;
 $config[SystemConfig::ZED_DB_DATABASE] = null;
 
 $config[SystemConfig::YVES_STORAGE_SESSION_REDIS_PROTOCOL] = 'tcp';
