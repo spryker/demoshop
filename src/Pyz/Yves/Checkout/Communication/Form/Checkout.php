@@ -78,6 +78,14 @@ class Checkout extends AbstractType
                     'style' => 'display: block;',
                 ],
             ])
+            ->add('sepa_payment', new SepaPayment(), [
+                'error_bubbling' => true,
+                'mapped' => false,
+                'attr' => [
+                    'class' => 'payment-options',
+                    'style' => 'display: block;',
+                ],
+            ])
             ->add('terms', 'checkbox', [
                 'required' => false,
                 'mapped' => false,
