@@ -134,6 +134,9 @@ vendor/bin/console collector:search:export -vvv
 labelText "collector:storage:export"
 vendor/bin/console collector:storage:export -vvv
 
+labelText "setup:jenkins:generate"
+vendor/bin/console setup:jenkins:generate -vvv
+
 successText "Installation finished"
 
 exit 0
