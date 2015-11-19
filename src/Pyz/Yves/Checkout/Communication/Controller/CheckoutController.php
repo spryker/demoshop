@@ -36,7 +36,7 @@ class CheckoutController extends AbstractController
      */
     public function getCart()
     {
-        return $this->getLocator()->cart()->client()->getCart();
+        return $this->getDependencyContainer()->getCart();
     }
 
     /**
@@ -57,6 +57,11 @@ class CheckoutController extends AbstractController
     public function indexAction(Request $request)
     {
         $container = $this->getDependencyContainer();
+
+        if (count($container->createCartClient()->getCart()->getItems()) < 1) {
+            $this->addInfoMessage('Your cart is empty.');
+            return $this->redirectResponseInternal(ApplicationControllerProvider::ROUTE_HOME);
+        }
 
 /** TODO: START OF HACK FETCH PAYMENT METHODs */
         $adyenPaymentAvailabilityTransfer = new AdyenPaymentMethodAvailabilityTransfer();
@@ -79,7 +84,7 @@ class CheckoutController extends AbstractController
 
         if ($request->isMethod('POST')) {
             if ($form->isValid()) {
-                $checkoutClient = $this->getLocator()->checkout()->client();
+                $checkoutClient = $this->getDependencyContainer()->createCheckoutClient();
                 /** @var CheckoutRequestTransfer $checkoutRequest */
                 $checkoutRequest = $form->getData();
 
@@ -126,7 +131,7 @@ class CheckoutController extends AbstractController
                 $checkoutResponseTransfer = $checkoutClient->requestCheckout($checkoutRequest);
 
                 if ($checkoutResponseTransfer->getIsSuccess()) {
-                    $this->getLocator()->cart()->client()->clearCart();
+                    $checkoutClient->setOrderSuccess($checkoutResponseTransfer->getOrder());
 
                     return $this->redirect($checkoutResponseTransfer);
                 } else {
@@ -135,9 +140,15 @@ class CheckoutController extends AbstractController
             }
         }
 
+        $trackingPurchase = CheckoutDataFormatter::formatPurchase(
+            null,
+            $this->getCart()->getTotals(),
+            $this->getCart()->getExpenses()
+        );
+
         Tracking::getInstance()->getPageDataContainer()
             ->setPageType(PageTypeConstants::PAGE_TYPE_CHECKOUT)
-            ->setByKey(CheckoutDataFormatter::PURCHASE, CheckoutDataFormatter::formatPurchase($this->getCart()))
+            ->setByKey(CheckoutDataFormatter::PURCHASE, $trackingPurchase)
             ->setByKey(CheckoutDataFormatter::PRODUCTS, CartDataFormatter::formatCartItems($this->getCart()->getItems()));
 
         return [
@@ -147,19 +158,39 @@ class CheckoutController extends AbstractController
     }
 
     /**
-     * @param Request $request
-     *
      * @return array
      */
-    public function successAction(Request $request)
+    public function successAction()
     {
-        Tracking::getInstance()->getPageDataContainer()
-            ->setPageType(PageTypeConstants::PAGE_TYPE_CHECKOUT_SUCCESS);
+        $checkoutClient = $this->getDependencyContainer()->createCheckoutClient();
+        $orderTransfer = $checkoutClient->getOrderSuccess();
 
-        //@todo copy look and feel from invision!
+        if ($orderTransfer === null) {
+            return $this->redirectResponseInternal(CheckoutControllerProvider::ROUTE_CHECKOUT);
+        }
+
+        $cartClient = $this->getDependencyContainer()->createCartClient();
+        $cartClient->clearCart();
+
+        $checkoutClient->clearOrderSuccess();
+
         //@todo add finish form?
 
-        return [];
+        $trackingPurchase = CheckoutDataFormatter::formatPurchase(
+            $orderTransfer->getIdSalesOrder(),
+            $orderTransfer->getTotals(),
+            $orderTransfer->getExpenses()
+        );
+
+        Tracking::getInstance()->getPageDataContainer()
+            ->setPageType(PageTypeConstants::PAGE_TYPE_CHECKOUT_SUCCESS)
+            ->setByKey(CheckoutDataFormatter::PURCHASE, $trackingPurchase)
+            ->setByKey(CheckoutDataFormatter::PRODUCTS, CartDataFormatter::formatCartItems($orderTransfer->getItems()))
+        ;
+
+        return [
+            'order' => $orderTransfer->toArray(true),
+        ];
     }
 
     /**

@@ -2,12 +2,9 @@
 
 namespace Pyz\Yves\Tracking\Business;
 
-use PavFeature\Yves\Tracking\Business\TrackingConstants as PavFeatureTrackingConstants;
-
-interface TrackingConstants extends PavFeatureTrackingConstants
+interface TrackingConstants
 {
 
     const VALUE_BRAND = 'Pets Deli';
-
 
 }

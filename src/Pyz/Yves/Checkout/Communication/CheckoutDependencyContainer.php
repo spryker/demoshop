@@ -3,10 +3,11 @@
 namespace Pyz\Yves\Checkout\Communication;
 
 use Generated\Shared\Adyen\AdyenPaymentMethodsInterface;
+use Generated\Shared\Transfer\CartTransfer;
 use Generated\Yves\Ide\FactoryAutoCompletion\CheckoutCommunication;
 use SprykerEngine\Yves\Kernel\Communication\AbstractCommunicationDependencyContainer;
 use SprykerFeature\Client\Cart\Service\CartClientInterface;
-use SprykerFeature\Client\Checkout\Service\CheckoutClient;
+use Pyz\Client\Checkout\Service\CheckoutClient;
 use Pyz\Yves\Checkout\Communication\Form\Checkout;
 use SprykerFeature\Client\Shipment\Service\ShipmentClientInterface;
 use PavFeature\Client\Adyen\Service\AdyenClientInterface;
@@ -16,6 +17,14 @@ use PavFeature\Client\Adyen\Service\AdyenClientInterface;
  */
 class CheckoutDependencyContainer extends AbstractCommunicationDependencyContainer
 {
+
+    /**
+     * @return CartTransfer
+     */
+    public function getCart()
+    {
+        return $this->getLocator()->cart()->client()->getCart();
+    }
 
     /**
      * @return CheckoutClient
@@ -53,12 +62,9 @@ class CheckoutDependencyContainer extends AbstractCommunicationDependencyContain
      * @param AdyenPaymentMethodsInterface $paymentMethodsTransfer
      * @return Checkout
      */
-    public function createCheckoutForm(
-        AdyenPaymentMethodsInterface $paymentMethodsTransfer
-    ){
-        return $this->getFactory()
-            ->createFormCheckout($paymentMethodsTransfer)
-        ;
+    public function createCheckoutForm(AdyenPaymentMethodsInterface $paymentMethodsTransfer)
+    {
+        return $this->getFactory()->createFormCheckout($paymentMethodsTransfer);
     }
 
 }
