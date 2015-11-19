@@ -4,6 +4,7 @@
  * This is the global runtime configuration for Yves and Generated_Yves_Zed in a staging environment.
  */
 
+use SprykerFeature\Shared\SequenceNumber\SequenceNumberConstants;
 use SprykerFeature\Shared\System\SystemConfig;
 use SprykerFeature\Shared\Yves\YvesConfig;
 use SprykerFeature\Shared\Application\ApplicationConfig;
@@ -15,8 +16,8 @@ $config[SystemConfig::ZED_SESSION_SAVE_HANDLER] = SessionConfig::SESSION_HANDLER
 
 $config[SystemConfig::ZED_DB_USERNAME] = 'staging';
 $config[SystemConfig::ZED_DB_PASSWORD] = 'mate20mg';
-$config[SystemConfig::ZED_DB_HOST]     = '127.0.0.1';
-$config[SystemConfig::ZED_DB_PORT]     = 5432;
+$config[SystemConfig::ZED_DB_HOST] = '127.0.0.1';
+$config[SystemConfig::ZED_DB_PORT] = 5432;
 $config[SystemConfig::ZED_DB_DATABASE] = null;
 
 $config[SystemConfig::YVES_STORAGE_SESSION_REDIS_PROTOCOL] = 'tcp';
@@ -52,3 +53,5 @@ $config[SystemConfig::CLOUD_CDN_ENABLED] = true;
 $config[ApplicationConfig::ENABLE_APPLICATION_DEBUG] = true;
 
 $config[SystemConfig::ZED_SHOW_EXCEPTION_STACK_TRACE] = true;
+
+$config[SequenceNumberConstants::ENVIRONMENT_PREFIX] = "S";
