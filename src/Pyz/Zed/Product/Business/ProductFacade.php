@@ -2,6 +2,7 @@
 
 namespace Pyz\Zed\Product\Business;
 
+use Pyz\Zed\ProductCountry\Dependency\ProductCountryToProductInterface;
 use SprykerFeature\Zed\Product\Business\ProductFacade as SprykerProductFacade;
 use SprykerFeature\Zed\ProductCategory\Dependency\Facade\ProductCategoryToProductInterface;
 use SprykerFeature\Zed\ProductSearch\Dependency\Facade\ProductSearchToProductInterface;
@@ -20,7 +21,8 @@ class ProductFacade extends SprykerProductFacade implements
     ProductCategoryToProductInterface,
     TaxProductConnectorToProductInterface,
     ProductOptionToProductInterface,
-    ProductOptionExporterToProductInterface
+    ProductOptionExporterToProductInterface,
+    ProductCountryToProductInterface
 {
 
     /**

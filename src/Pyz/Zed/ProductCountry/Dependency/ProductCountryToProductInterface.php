@@ -16,4 +16,9 @@ interface ProductCountryToProductInterface
      */
     public function getAbstractProductIdBySku($sku);
 
+    /**
+     * @param int $idAbstractProduct
+     */
+    public function touchProductActive($idAbstractProduct);
+
 }

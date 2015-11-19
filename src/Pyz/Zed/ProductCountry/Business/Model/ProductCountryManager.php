@@ -43,15 +43,19 @@ class ProductCountryManager implements ProductCountryManagerInterface
     {
         $this->connection->beginTransaction();
         try {
-            foreach ($productCountryData as $productSku => $countryCode) {
-                $idCountry = $this->countryFacade->getIdCountryByIso2Code($countryCode);
-                $idProduct = $this->productFacade->getAbstractProductIdBySku($productSku);
+            foreach ($productCountryData as $productSku => $countryCodeCollection) {
+                foreach ($countryCodeCollection as $countryCode) {
+                    $idCountry = $this->countryFacade->getIdCountryByIso2Code($countryCode);
+                    $idProduct = $this->productFacade->getAbstractProductIdBySku($productSku);
 
-                $productCountry = new SpyProductCountry($idCountry);
-                $productCountry->setFkProduct($idProduct);
-                $productCountry->setFkCountry($idCountry);
+                    $productCountry = new SpyProductCountry($idCountry);
+                    $productCountry->setFkProduct($idProduct);
+                    $productCountry->setFkCountry($idCountry);
 
-                $productCountry->save();
+                    $productCountry->save();
+
+                    $this->productFacade->touchProductActive($idProduct);
+                }
             }
             $this->connection->commit();
         } catch (\Exception $e) {
