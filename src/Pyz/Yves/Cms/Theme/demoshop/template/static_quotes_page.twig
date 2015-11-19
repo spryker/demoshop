@@ -1,14 +1,9 @@
 {% extends '@Cms/layout/full.twig' %}
 
-{% block styles %}
-    <link rel="stylesheet" href="/css/quotes.min.css">
-{% endblock %}
-
 {% block content %}
     <!-- CMS_PLACEHOLDER : "title" -->
-    <div style="padding-left: 200px">
+    <div class="cms-page">
         <h1>{{ spyCms('title') | raw }}</h1>
-        <p></p>
         {{ spyCmsBlock('quotes_2')}}
         {{ spyCmsBlock('quotes_1')}}
         {{ spyCmsBlock('quotes_3')}}
