@@ -24,6 +24,7 @@ use Symfony\Component\HttpFoundation\Request;
  */
 class CheckoutController extends AbstractController
 {
+
     /**
      * @param Request $request
      *
@@ -125,7 +126,6 @@ class CheckoutController extends AbstractController
         ]);
     }
 
-
     /**
      * @return CartTransfer
      */
@@ -133,7 +133,6 @@ class CheckoutController extends AbstractController
     {
         return $this->getDependencyContainer()->createCartClient()->getCart();
     }
-
 
     /**
      * @param ShipmentInterface $shipmentTransfer

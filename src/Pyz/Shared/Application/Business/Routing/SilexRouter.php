@@ -6,8 +6,7 @@
 
 namespace Pyz\Shared\Application\Business\Routing;
 
-use \SprykerFeature\Shared\Application\Business\Routing\SilexRouter as SprykerSilexRouter;
-
+use SprykerFeature\Shared\Application\Business\Routing\SilexRouter as SprykerSilexRouter;
 
 /**
  * The default router, which matches/generates all the routes
@@ -15,7 +14,7 @@ use \SprykerFeature\Shared\Application\Business\Routing\SilexRouter as SprykerSi
  */
 class SilexRouter extends SprykerSilexRouter
 {
-    
+
     /**
      * {@inheritdoc}
      */
@@ -24,7 +23,6 @@ class SilexRouter extends SprykerSilexRouter
         $generator = new UrlGenerator($this->getRouteCollection(), $this->getContext(), $this->logger);
 
         return $generator->generate($name, $parameters, $referenceType);
-
     }
 
 }

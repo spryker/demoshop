@@ -9,7 +9,6 @@ namespace Pyz\Yves\Application\Communication\Bootstrap\Extension;
 use Pyz\Shared\Application\Business\Routing\SilexRouter;
 use SprykerEngine\Shared\Application\Communication\Bootstrap\Extension\RouterExtensionInterface;
 use SprykerEngine\Shared\Application\Communication\Application;
-
 use Symfony\Component\Routing\RouterInterface;
 
 class RouterExtension extends LocatorAwareExtension implements RouterExtensionInterface

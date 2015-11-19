@@ -74,7 +74,7 @@ class CartControllerProvider extends YvesControllerProvider
             ->assert('cart', $allowedLocalesPattern . 'cart|cart')
             ->assert('sku', '[a-zA-Z0-9-_]+')
             ->value('groupKey', '')
-            ->value('cart','cart')
+            ->value('cart', 'cart')
         ;
 
         $this->createPostController('/{cart}/increase/{sku}/{groupKey}', self::ROUTE_CART_INCREASE_AJAX, 'Cart', 'Ajax', 'increase')

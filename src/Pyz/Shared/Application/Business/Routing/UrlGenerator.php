@@ -11,6 +11,7 @@ use Symfony\Component\Routing\Route;
 
 class UrlGenerator extends SymfonyUrlGenerator
 {
+
     const HOME = 'home';
     const ERROR_PATH = '/error/404';
 
