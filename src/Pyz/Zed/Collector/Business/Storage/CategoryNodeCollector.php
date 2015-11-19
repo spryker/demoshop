@@ -89,6 +89,10 @@ class CategoryNodeCollector extends AbstractPropelCollectorPlugin
             SpyCategoryNodeTableMap::COL_FK_CATEGORY,
             'category_id'
         );
+        $baseQuery->withColumn(
+            SpyTouchTableMap::COL_ID_TOUCH,
+            self::TOUCH_EXPORTER_ID
+        );
 
         $baseQuery->orderBy('depth', Criteria::DESC);
         $baseQuery->orderBy('descendant_id', Criteria::DESC);
@@ -111,6 +115,7 @@ class CategoryNodeCollector extends AbstractPropelCollectorPlugin
         foreach ($resultSet as $index => $categoryNode) {
             $categoryKey = $this->generateKey($categoryNode['node_id'], $locale->getLocaleName());
             $processedResultSet[$categoryKey] = $this->formatCategoryNode($categoryNode);
+            $touchUpdaterSet->add($categoryKey, $categoryNode[self::TOUCH_EXPORTER_ID]);
         }
 
         return $processedResultSet;
