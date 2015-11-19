@@ -20,7 +20,7 @@ class GlobalTemplateVariablesExtension extends LocatorAwareExtension implements 
      */
     public function getGlobalTemplateVariables(Application $app)
     {
-        return  [
+        return [
             'categories' => $this->getLocator()->categoryExporter()->client()->getNavigationCategories($app['locale']),
             'environment' => Environment::getEnvironment(),
             'registerForm' => $app['form.factory']->create($this->getLocator()->customer()->pluginRegisterForm()->createFormRegister())->createView(),
