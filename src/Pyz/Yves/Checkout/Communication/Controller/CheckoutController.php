@@ -14,6 +14,7 @@ use Pyz\Yves\Checkout\Communication\Plugin\CheckoutControllerProvider;
 use SprykerEngine\Yves\Application\Communication\Controller\AbstractController;
 use Pyz\Yves\Checkout\Communication\CheckoutDependencyContainer;
 use SprykerFeature\Shared\Shipment\ShipmentConstants;
+use Symfony\Component\Form\FormInterface;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\HttpFoundation\Request;
@@ -47,14 +48,10 @@ class CheckoutController extends AbstractController
                 $checkoutRequestTransfer = $checkoutForm->getData();
 
                 $checkoutRequestTransfer->setCart($this->getCartTransfer());
-                $checkoutRequestTransfer->setShippingAddress($checkoutRequestTransfer->getBillingAddress());
 
-                $this->setShipping($shipmentTransfer, $checkoutRequestTransfer);
-
-                $createAccount = $checkoutForm[CheckoutType::FIELD_CREATE_ACCOUNT]->getData();
-                if ($createAccount) {
-                    $checkoutRequestTransfer->setCustomerPassword($checkoutForm[CheckoutType::FIELD_PASSWORD]->getData());
-                }
+                $this->setShippingAddress($checkoutRequestTransfer);
+                $this->setShippingMethod($shipmentTransfer, $checkoutRequestTransfer);
+                $this->setCustomerPassword($checkoutForm, $checkoutRequestTransfer);
 
                 $checkoutResponseTransfer = $this->getDependencyContainer()
                     ->createCheckoutClient()
@@ -144,7 +141,7 @@ class CheckoutController extends AbstractController
      *
      * @return void
      */
-    protected function setShipping(
+    protected function setShippingMethod(
         ShipmentInterface $shipmentTransfer,
         CheckoutRequestTransfer $checkoutRequestTransfer
     ) {
@@ -168,7 +165,7 @@ class CheckoutController extends AbstractController
      *
      * @return void
      */
-    private function replaceShipmentExpenseInCart(CartTransfer $cartTransfer, ExpenseTransfer $expenseTransfer)
+    protected function replaceShipmentExpenseInCart(CartTransfer $cartTransfer, ExpenseTransfer $expenseTransfer)
     {
         $otherExpenseCollection = new \ArrayObject();
         foreach ($cartTransfer->getExpenses() as $expense) {
@@ -178,6 +175,33 @@ class CheckoutController extends AbstractController
         }
         $cartTransfer->setExpenses($otherExpenseCollection);
         $cartTransfer->addExpense($expenseTransfer);
+    }
+
+    /**
+     * @param CheckoutRequestTransfer $checkoutRequestTransfer
+     *
+     * @return void
+     */
+    protected function setShippingAddress(CheckoutRequestTransfer $checkoutRequestTransfer)
+    {
+        $shippingAddressTransfer = $checkoutRequestTransfer->getShippingAddress();
+        if ($shippingAddressTransfer->getAddress1() === null) {
+            $checkoutRequestTransfer->setShippingAddress($checkoutRequestTransfer->getBillingAddress());
+        }
+    }
+
+    /**
+     * @param FormInterface $checkoutForm
+     * @param CheckoutRequestTransfer $checkoutRequestTransfer
+     *
+     * @return void
+     */
+    protected function setCustomerPassword(FormInterface $checkoutForm, CheckoutRequestTransfer $checkoutRequestTransfer)
+    {
+        $createAccount = $checkoutForm[CheckoutType::FIELD_CREATE_ACCOUNT]->getData();
+        if ($createAccount) {
+            $checkoutRequestTransfer->setCustomerPassword($checkoutForm[CheckoutType::FIELD_PASSWORD]->getData());
+        }
     }
 
 }
