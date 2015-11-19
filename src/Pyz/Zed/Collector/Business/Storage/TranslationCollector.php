@@ -56,6 +56,10 @@ class TranslationCollector extends AbstractPropelCollectorPlugin
 
         $baseQuery->withColumn(SpyGlossaryTranslationTableMap::COL_VALUE, 'translation_value');
         $baseQuery->withColumn(SpyGlossaryKeyTableMap::COL_KEY, 'translation_key');
+        $baseQuery->withColumn(
+            SpyTouchTableMap::COL_ID_TOUCH,
+            self::TOUCH_EXPORTER_ID
+        );
 
         return $baseQuery;
     }
@@ -74,6 +78,7 @@ class TranslationCollector extends AbstractPropelCollectorPlugin
         foreach ($resultSet as $index => $translation) {
             $key = $this->generateKey($translation['translation_key'], $locale->getLocaleName());
             $processedResultSet[$key] = $translation['translation_value'];
+            $touchUpdaterSet->add($key, $translation[self::TOUCH_EXPORTER_ID]);
         }
 
         return $processedResultSet;

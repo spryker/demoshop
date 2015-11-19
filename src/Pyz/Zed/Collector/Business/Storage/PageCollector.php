@@ -70,6 +70,10 @@ class PageCollector extends AbstractPropelCollectorPlugin
         $baseQuery->withColumn(SpyCmsGlossaryKeyMappingTableMap::COL_PLACEHOLDER, 'placeholder');
         $baseQuery->withColumn(SpyCmsTemplateTableMap::COL_TEMPLATE_PATH, 'template_path');
         $baseQuery->withColumn(SpyGlossaryKeyTableMap::COL_KEY, 'translation_key');
+        $baseQuery->withColumn(
+            SpyTouchTableMap::COL_ID_TOUCH,
+            self::TOUCH_EXPORTER_ID
+        );
 
         return $baseQuery;
     }
@@ -94,6 +98,7 @@ class PageCollector extends AbstractPropelCollectorPlugin
             $processedResultSet[$pageKey]['template'] = $page['template_path'];
             $processedResultSet[$pageKey]['placeholders'] = isset($processedResultSet[$pageKey]['placeholders']) ? $processedResultSet[$pageKey]['placeholders'] : [];
             $processedResultSet[$pageKey]['placeholders'][$page['placeholder']] = $page['translation_key'];
+            $touchUpdaterSet->add($pageKey, $page[self::TOUCH_EXPORTER_ID]);
         }
 
         return $processedResultSet;

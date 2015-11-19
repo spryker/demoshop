@@ -259,6 +259,10 @@ class ProductCollector extends AbstractPropelCollectorPlugin
             SpyCategoryNodeTableMap::COL_FK_CATEGORY,
             'category_id'
         );
+        $baseQuery->withColumn(
+            SpyTouchTableMap::COL_ID_TOUCH,
+            self::TOUCH_EXPORTER_ID
+        );
         $baseQuery->orderBy('depth', Criteria::DESC);
         $baseQuery->orderBy('descendant_id', Criteria::DESC);
         $baseQuery->groupBy('abstract_sku');
@@ -298,6 +302,8 @@ class ProductCollector extends AbstractPropelCollectorPlugin
                     'direct-parents' => explode(',', $productRawData['node_id']),
                     'all-parents' => explode(',', $productRawData['category_parent_ids']),
                 ];
+
+                $touchUpdaterSet->add($index, $resultSet[$index][self::TOUCH_EXPORTER_ID]);
             }
         }
 
