@@ -350,7 +350,9 @@ $config[AdyenConfigConstants::ADYEN_PAYMENT_PROVIDER] = [
     AdyenConfigConstants::ADYEN_CREDENTIALS_HMAC_ALGORITHM => 'sha1',
     AdyenConfigConstants::ADYEN_CREDENTIALS_SKIN_CODE => 'KaYI8dwX',
 
-    AdyenConfigConstants::ADYEN_CONFIGURATION_HPP_PAYMENT_RETURN_URI => '/checkout/success',
+    AdyenConfigConstants::ADYEN_CONFIGURATION_HPP_PAYMENT_RETURN_URI => '/checkout/redirect-payment-return',
+    AdyenConfigConstants::ADYEN_CONFIGURATION_HPP_PAYMENT_SUCCESS_REDIRECT_URI => '/checkout/success',
+    AdyenConfigConstants::ADYEN_CONFIGURATION_HPP_PAYMENT_FAILURE_REDIRECT_URI => '/checkout/cart',
     AdyenConfigConstants::ADYEN_CONFIGURATION_ARE_API_PAYMENT_METHODS_ENABLED => true,
     AdyenConfigConstants::ADYEN_CONFIGURATION_ARE_HPP_PAYMENT_METHODS_ENABLED => true,
     AdyenConfigConstants::ADYEN_CONFIGURATION_IS_PAYMENT_SELECTION_ON_HPP => false,

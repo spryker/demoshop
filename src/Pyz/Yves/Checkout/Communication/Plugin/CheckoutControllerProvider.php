@@ -10,6 +10,7 @@ class CheckoutControllerProvider extends YvesControllerProvider
 
     const ROUTE_CHECKOUT = 'checkout';
     const ROUTE_CHECKOUT_SUCCESS = 'checkout/success';
+    const ROUTE_CHECKOUT_REDIRECT_PAYMENT_RETURN = 'checkout/redirect-payment-return';
     const ROUTE_CHECKOUT_REGULAR_REDIRECT_PAYMENT_CANCELLATION = 'checkout/regular-redirect-payment-cancellation';
     const ROUTE_CHECKOUT_AJAX_CART = 'checkout/ajax-cart';
     const ROUTE_ADD_COUPON_CODE = 'checkout/add-coupon';
@@ -28,6 +29,15 @@ class CheckoutControllerProvider extends YvesControllerProvider
             'Checkout',
             'success'
         );
+
+        $this->createGetController(
+            '/checkout/redirect-payment-return',
+            self::ROUTE_CHECKOUT_REDIRECT_PAYMENT_RETURN,
+            'Checkout',
+            'Checkout',
+            'redirectPaymentReturn'
+        );
+/*
         $this->createGetController(
             '/checkout/regular-redirect-payment-cancellation',
             self::ROUTE_CHECKOUT_REGULAR_REDIRECT_PAYMENT_CANCELLATION,
@@ -35,7 +45,7 @@ class CheckoutControllerProvider extends YvesControllerProvider
             'Checkout',
             'regularRedirectPaymentCancellation'
         )->method('GET|POST');
-
+*/
         $this->createController('/checkout/ajax-cart', self::ROUTE_CHECKOUT_AJAX_CART, 'Checkout', 'Ajax', 'cart')
              ->method('GET');
 
@@ -51,6 +61,7 @@ class CheckoutControllerProvider extends YvesControllerProvider
             'Ajax',
             'getShipmentFee'
         )->method('GET|POST');
+
     }
 
 }

@@ -196,4 +196,17 @@ class CheckoutController extends AbstractController
         ]);
     }
 
+
+    /**
+     * @param Request $request
+     * @return array
+     */
+    public function redirectPaymentReturnAction(Request $request)
+    {
+        $params = $request->query->all();
+        echo '<pre>' . print_r($params,false) . '</pre>';die;
+
+        return [];
+    }
+
 }
