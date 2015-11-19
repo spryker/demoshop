@@ -553,7 +553,7 @@
             "source": {
                 "type": "git",
                 "url": "git@github.com:project-a/adyen-payment-gateway.git",
-                "reference": "b7b41a8eccc3b3c8dcd72fb57925c2a766d2167f"
+                "reference": "abd679cc5560e5184e6e39a698c6bf1054c25efb"
             },
             "require": {
                 "guzzle/http": "~3.7, <= 3.8",
@@ -581,7 +581,7 @@
                 "gateway",
                 "payment"
             ],
-            "time": "2015-11-17 18:13:16"
+            "time": "2015-11-19 16:01:20"
         },
         {
             "name": "project-a/spryker",
@@ -589,7 +589,7 @@
             "source": {
                 "type": "git",
                 "url": "git@github.com:project-a/spryker.git",
-                "reference": "aa08883c2d56189026b3ca1432920e385597d94e"
+                "reference": "122a69d38790db6fa6c9a1bbc511aa97b2077e93"
             },
             "replace": {
                 "spryker/pav-console": "self.version"
@@ -607,7 +607,7 @@
                     "PavFeature\\Shared\\Library": "Bundles/Library/src/"
                 }
             },
-            "time": "2015-11-19 14:01:29"
+            "time": "2015-11-19 16:00:10"
         },
         {
             "name": "propel/propel",
