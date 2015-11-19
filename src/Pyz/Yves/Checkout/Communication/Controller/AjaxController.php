@@ -41,7 +41,12 @@ class AjaxController extends AbstractController
         $cartClient = $this->getLocator()->cart()->client();
         $cartClient->addCoupon($couponCode);
 
-        return $this->redirectResponseInternal(CheckoutControllerProvider::ROUTE_CHECKOUT_AJAX_CART);
+        return $this->viewResponse([
+            'cart' => $cartClient->getCart(),
+        ]);
+
+        // @Todo: replace with this once coupon error messages are fixed by Spryker
+        //return $this->redirectResponseInternal(CheckoutControllerProvider::ROUTE_CHECKOUT_AJAX_CART);
     }
 
     /**
