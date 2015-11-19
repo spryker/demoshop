@@ -13,8 +13,8 @@ use Generated\Shared\Cart\CartInterface;
  */
 class CouponMessageGenerator implements SprykerBugfixInterface
 {
-    const COUPON_ERROR_MSG = 'cart.error_msg';
-    const COUPON_SUCCESS_MSG = 'cart.success_msg';
+    const COUPON_ERROR_MSG = 'coupon.error_msg';
+    const COUPON_SUCCESS_MSG = 'coupon.success_msg';
 
     /**
      * @param CartInterface $oldCart
