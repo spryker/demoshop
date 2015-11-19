@@ -14,6 +14,8 @@ class ChallengeControllerProvider extends YvesControllerProvider
 
     /**
      * @param Application $app
+     *
+     * @return void
      */
     protected function defineControllers(Application $app)
     {
