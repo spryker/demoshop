@@ -1,6 +1,6 @@
 {
   "require": {
-    "spryker/spryker": "dev-develop#af325d422361de69aad5ce9f5452404658a56b29",
+    "spryker/spryker": "dev-develop#a8d4b83f77fb0974368e5f6fde10ca65bbe9343e",
     "project-a/spryker": "dev-develop",
     "project-a/adyen-payment-gateway": "dev-master",
 

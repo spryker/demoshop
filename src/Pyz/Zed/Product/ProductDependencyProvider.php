@@ -53,11 +53,11 @@ class ProductDependencyProvider extends SprykerProductDependencyProvider
             return $container->getLocator()->locale()->facade();
         };
 
-        $container[self::FACADE_PRODUCT_CATEGORIES] = function (Container $container) {
+        $container[self::FACADE_PRODUCT_CATEGORY] = function (Container $container) {
             return $container->getLocator()->productCategory()->facade();
         };
 
-        $container[self::FACADE_PRODUCT_OPTIONS] = function (Container $container) {
+        $container[self::FACADE_PRODUCT_OPTION] = function (Container $container) {
             return $container->getLocator()->productOption()->facade();
         };
 
