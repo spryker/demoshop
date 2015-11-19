@@ -1,17 +1,10 @@
 {% block content %}
     <!-- CMS_PLACEHOLDER : "quote" -->
     <!-- CMS_PLACEHOLDER : "reference" -->
-    <div class="quote-container">
-        <div class="quote">
-            "
-        </div>
-        <div class="quote-content">
-            {{ spyCms('quote') | raw }}
-            <br>"
-        </div>
-        <div class="quote-footer">
+    <blockquote>
+        {{ spyCms('quote') | raw }}
+        <footer>
             {{ spyCms('reference') | raw }}
-        </div>
-    </div>
+        </footer>
+    </blockquote>
 {% endblock %}
-
