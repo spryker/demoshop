@@ -1,0 +1,15 @@
+{% extends '@Cms/layout/full.twig' %}
+
+{% block content %}
+    <!-- CMS_PLACEHOLDER : "PlaceholderContactPageLeft" -->
+    <!-- CMS_PLACEHOLDER : "PlaceholderContactPageRight" -->
+
+    <div style="margin:100px 0 50px; padding: 0 90px; overflow:hidden;">
+        <div style="padding:0 10px;display:block;float:left; width:50%;">
+            {{ spyCms('PlaceholderContactPageLeft') | raw }}
+        </div>
+        <div style="padding:0 10px;display:block;float:left; width:50%;">
+            {{ spyCms('PlaceholderContactPageRight') | raw }}
+        </div>
+    </div>
+{% endblock %}
