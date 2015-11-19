@@ -6,6 +6,7 @@ use SprykerFeature\Shared\Application\ApplicationConfig;
 use SprykerFeature\Shared\Auth\AuthConfig;
 use SprykerFeature\Shared\Customer\CustomerConfig;
 use SprykerFeature\Shared\DbDump\DbDumpConfig;
+use SprykerFeature\Shared\SequenceNumber\SequenceNumberConstants;
 use SprykerFeature\Shared\System\SystemConfig;
 use SprykerFeature\Shared\User\UserConfig;
 use SprykerFeature\Shared\Yves\YvesConfig;
@@ -356,3 +357,5 @@ $config[AdyenConfigConstants::ADYEN_PAYMENT_PROVIDER] = [
 
 ];
 $config[SystemConfig::ZED_SHOW_EXCEPTION_STACK_TRACE] = false;
+
+$config[SequenceNumberConstants::ENVIRONMENT_PREFIX] = "D";

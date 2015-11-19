@@ -4,6 +4,7 @@
  * This is the global runtime configuration for Yves and Generated_Yves_Zed in a development environment.
  */
 
+use SprykerFeature\Shared\SequenceNumber\SequenceNumberConstants;
 use SprykerFeature\Shared\System\SystemConfig;
 use SprykerFeature\Shared\Yves\YvesConfig;
 use SprykerFeature\Shared\Application\ApplicationConfig;
@@ -62,3 +63,5 @@ $config[PyzZedRequestConfig::YVES_TO_ZED_CURL_LOG_ENABLED] = true;
 $config[PyzZedRequestConfig::YVES_TO_ZED_CURL_LOG_FILE_PATH] = '/tmp/yves_to_zed_curl.log';
 
 $config[SystemConfig::ZED_SHOW_EXCEPTION_STACK_TRACE] = true;
+
+$config[SequenceNumberConstants::ENVIRONMENT_PREFIX] = "D";

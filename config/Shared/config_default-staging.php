@@ -4,6 +4,7 @@
  * This is the global runtime configuration for Yves and Generated_Yves_Zed in a staging environment.
  */
 
+use SprykerFeature\Shared\SequenceNumber\SequenceNumberConstants;
 use SprykerFeature\Shared\System\SystemConfig;
 use SprykerFeature\Shared\Yves\YvesConfig;
 use SprykerFeature\Shared\Application\ApplicationConfig;
@@ -52,3 +53,5 @@ $config[SystemConfig::CLOUD_CDN_ENABLED] = true;
 $config[ApplicationConfig::ENABLE_APPLICATION_DEBUG] = true;
 
 $config[SystemConfig::ZED_SHOW_EXCEPTION_STACK_TRACE] = true;
+
+$config[SequenceNumberConstants::ENVIRONMENT_PREFIX] = "S";
