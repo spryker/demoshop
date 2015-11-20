@@ -6,7 +6,7 @@ use Generated\Zed\Ide\FactoryAutoCompletion\CustomerCommunication;
 use Pyz\Yves\Customer\Communication\Form\Address;
 use Pyz\Yves\Customer\Communication\Form\RegisterCustomer;
 use SprykerEngine\Yves\Kernel\Communication\AbstractCommunicationDependencyContainer;
-use SprykerFeature\Client\Customer\Service\CustomerClient;
+use Pyz\Client\Customer\Service\CustomerClient;
 
 /**
  * @method CustomerCommunication getFactory()
