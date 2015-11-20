@@ -2,7 +2,7 @@
 
 namespace Pyz\Client\Cart\Service;
 
-use PyZ\SprykerBugfixInterface;
+use Pyz\SprykerBugfixInterface;
 use Generated\Shared\Cart\ItemInterface;
 use Generated\Shared\Transfer\CountryTransfer;
 use SprykerFeature\Client\Cart\Service\CartClient as SpyCartClient;

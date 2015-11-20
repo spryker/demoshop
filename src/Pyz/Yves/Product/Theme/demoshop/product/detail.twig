@@ -4,10 +4,6 @@
 
 {% block content %}
 
-{# TODO: replace this, when frontend is ready to change the concretes #}
-{% set productConcrete = product.concreteProducts|first %}
-
-
 <div class="product">
     <div class="product__detail">
 
@@ -29,7 +25,7 @@
 
         <div class="column medium-4">
             {% include '@application/layout/content/product/details/product-options.twig' with {
-                product: productConcrete
+                product: product
             } %}
         </div>
 
@@ -47,7 +43,7 @@
     } %}
 
     {% include '@application/layout/content/product/details/product-configurator.twig' with {
-        product: productConcrete
+        product: product
     } %}
 </div>
 

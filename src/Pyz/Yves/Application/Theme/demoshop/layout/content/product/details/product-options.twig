@@ -1,3 +1,7 @@
+
+{# TODO: replace this, when frontend is ready to change the concretes #}
+{% set productConcrete = product.concreteProducts|first %}
+
 <div class="product-options">
     <form action="/cart/add/">
 
@@ -26,7 +30,7 @@
         <!-- TODO: remove product__add-button -->
         <button
             class="product-options__button button button--cta product__add-button"
-            data-sku="{{ product.abstractSku }}">
+            data-sku="{{ productConcrete.sku }}">
             In den Warenkorb
         </button>
 
