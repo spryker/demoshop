@@ -2,9 +2,8 @@
 
 namespace Pyz\Client\Customer\Service;
 
-use Generated\Shared\Customer\CustomerInfoInterface;
-use Generated\Shared\Customer\CustomerLoginResultInterface;
-use SprykerFeature\Client\Customer\Service\CustomerClient as SprykerFeatureCustomerClient;
+use Generated\Shared\Customer\CustomerInterface;
+use Generated\Shared\Customer\CustomerMagentoPasswordMigrationInterface;
 use SprykerFeature\Client\Customer\Service\CustomerClient as SpyCustomerClient;
 use Pyz\Client\Customer\Service\Zed\CustomerStubInterface;
 
@@ -13,6 +12,21 @@ use Pyz\Client\Customer\Service\Zed\CustomerStubInterface;
  */
 class CustomerClient extends SprykerFeatureCustomerClient implements CustomerClientInterface
 {
+    /**
+     * @param CustomerMagentoPasswordMigrationInterface $customerInterface
+     */
+    public function migrateMagentoPassword(CustomerMagentoPasswordMigrationInterface $customerInterface)
+    {
+        $cartTransfer = $this->getZedStub()->migrateMagentoPassword($customerInterface);
+    }
+
+    /**
+     * @return CustomerStubInterface
+     */
+    protected function getZedStub()
+    {
+        return $this->getDependencyContainer()->createZedStub();
+    }
 
     /**
      * @return CustomerInfoInterface
