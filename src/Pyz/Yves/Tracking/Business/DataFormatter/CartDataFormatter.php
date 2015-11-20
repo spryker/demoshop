@@ -43,12 +43,16 @@ class CartDataFormatter extends AbstractDataFormatter
     }
 
     /**
-     * @param \ArrayObject $coupons
+     * @param $coupons
      *
      * @return array
      */
     public static function formatCoupons($coupons)
     {
+        if(is_array($coupons))
+        {
+            return $coupons;
+        }
         // TODO
         return $coupons->getArrayCopy();
     }
