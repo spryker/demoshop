@@ -80,13 +80,14 @@ class CartController extends AbstractController
      */
     public function changeAction($sku, $quantity, $groupKey = null)
     {
+
         $cartClient = $this->getLocator()->cart()->client();
         $itemTransfer = new ItemTransfer();
-        $itemTransfer->setId($sku);
+        $itemTransfer->setSku($sku);
         $itemTransfer->setGroupKey($groupKey);
         $cartClient->changeItemQuantity($itemTransfer, $quantity);
 
-        return $this->redirectResponseInternal(CartControllerProvider::ROUTE_CART);
+        return $this->redirectResponseInternal(CartControllerProvider::ROUTE_CART_OVERLAY);
     }
 
 }

@@ -75,10 +75,8 @@ var addSku = function (e) {
 var changeQty = function (e, changeQty) {
     e.preventDefault();
 
-    changeQty = typeof changeQty !== 'undefined' ? changeQty : 1;
-
     var sku = $(e.target).parents('.cart-item').data('sku');
-    var qty = parseInt($(e.target).parents('.cart-item').find('.cart-quantity').val()) + changeQty;
+    var qty = parseInt($(e.target).parents('.cart-item').find('.cart-quantity').val());
 
     $.post('/cart/change/' + sku + '/' + qty)
         .done(function (data) {
