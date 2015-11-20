@@ -1,6 +1,6 @@
 {
   "require": {
-    "spryker/spryker": "dev-refactor/CSN-66-Make-private-static-function-protected-in-Library-Application",
+    "spryker/spryker": "dev-develop",
 
     "psr/log": "~1.0",
     "propel/propel": "~2.0@dev",
