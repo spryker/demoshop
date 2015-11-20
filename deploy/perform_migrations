@@ -27,11 +27,10 @@ fi
 cd $BASEDIR
 cd ..
 
-vendor/bin/pav-console setup:propel:database:create
-vendor/bin/pav-console setup:propel:diff
-vendor/bin/pav-console setup:propel:migrate
-
-
+vendor/bin/pav-console propel:config:convert
+vendor/bin/pav-console propel:model:build
+vendor/bin/pav-console propel:diff
+vendor/bin/pav-console propel:migrate
 
 rm -rf $outfile
 exit 0
