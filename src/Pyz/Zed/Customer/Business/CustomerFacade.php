@@ -6,6 +6,7 @@ use Generated\Shared\Transfer\CustomerTransfer;
 use Generated\Shared\Customer\CustomerLoginResultInterface;
 use Generated\Shared\Transfer\CustomerInfoTransfer;
 use Pyz\Zed\Customer\Business\Customer\Customer;
+use Generated\Shared\Customer\CustomerMagentoPasswordMigrationInterface;
 use SprykerFeature\Zed\Customer\Business\CustomerFacade as SprykerCustomerFacade;
 use SprykerFeature\Zed\CustomerCheckoutConnector\Dependency\Facade\CustomerCheckoutConnectorToCustomerInterface;
 
@@ -16,12 +17,20 @@ use SprykerFeature\Zed\CustomerCheckoutConnector\Dependency\Facade\CustomerCheck
 class CustomerFacade extends SprykerCustomerFacade implements CustomerCheckoutConnectorToCustomerInterface
 {
 
-    public function checkMagentoPassword(CustomerTransfer $customerTransfer)
+    /**
+     * @param CustomerMagentoPasswordMigrationInterface $customerTransfer
+     * @return bool
+     */
+    public function migratePassword(CustomerMagentoPasswordMigrationInterface $customerTransfer)
     {
-        $this->getDependencyContainer()->createMagentoPasswordManager()->checkMagentoPassword($customerTransfer);
+        $this->getDependencyContainer()->createMagentoPasswordManager()->migratePassword($customerTransfer);
     }
 
-    public function hasMagentoPassword(CustomerTransfer $customerTransfer)
+    /**
+     * @param CustomerMagentoPasswordMigrationInterface $customerTransfer
+     * @return bool
+     */
+    public function hasMagentoPassword(CustomerMagentoPasswordMigrationInterface $customerTransfer)
     {
         $this->getDependencyContainer()->createMagentoPasswordManager()->hasMagentoPassword($customerTransfer);
     }
