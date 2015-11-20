@@ -7,9 +7,17 @@ use Generated\Shared\Transfer\CustomerInfoTransfer;
 use Orm\Zed\Customer\Persistence\SpyCustomer;
 use SprykerFeature\Zed\Customer\Business\Customer\Customer as SprykerFeatureCustomer;
 
-class Customer extends SprykerFeatureCustomer
+class Customer extends SprykerFeatureCustomer implements CustomerModelInterface
 {
-
+    /**
+     * @param CustomerInterface $customerTransfer
+     * @return CustomerInterface
+     */
+    public function encryptPassword(CustomerInterface $customerTransfer)
+    {
+        return parent::encryptPassword($customerTransfer);
+    }
+    
     /**
      * @param CustomerLoginResultInterface $customerLoginResultTransfer
      *
