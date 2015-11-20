@@ -20,10 +20,10 @@ class ShipmentInstall extends AbstractInstaller
     const NAME_AUSTRIA_SHIPMENT_METHOD = 'Default Austria Shipment Method';
     const NAME_GLOSSARY_KEY_SHIPMENT_METHOD  = 'shipment.defaultCarrier.defaultMethod.name';
     const DESCRIPTION_GLOSSARY_KEY_SHIPMENT_METHOD = 'shipment.defaultCarrier.defaultMethod.description';
-    const PRICE_SHIPMENT_METHOD = 10;
+    const PRICE_SHIPMENT_METHOD = 0;
     const NAME_AUSTRIA_GLOSSARY_KEY_SHIPMENT_METHOD  = 'shipment.austriaDefaultCarrier.defaultMethod.name';
     const DESCRIPTION_AUSTRIA_GLOSSARY_KEY_SHIPMENT_METHOD = 'shipment.austriaDefaultCarrier.defaultMethod.description';
-    const PRICE_AUSTRIA_SHIPMENT_METHOD = 9.90;
+    const PRICE_AUSTRIA_SHIPMENT_METHOD = 990;
 
 
     /**
