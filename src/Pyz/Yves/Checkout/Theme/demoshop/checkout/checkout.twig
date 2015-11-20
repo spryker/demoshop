@@ -43,9 +43,9 @@
                             {{ form_errors(payment_method) }}
 
                                 {% if payment_method.vars.value == 'adyen.payment.method.sepa.directdebit' %}
-                                    {{ form_widget(form.adyen_payment.sepa_payment.iban) }}
-                                    {{ form_widget(form.adyen_payment.sepa_payment.bic) }}
-                                    {{ form_widget(form.adyen_payment.sepa_payment.ownerName) }}
+                                    {{ form_widget(form.adyen_payment.payment_detail.iban) }}
+                                    {{ form_widget(form.adyen_payment.payment_detail.bic) }}
+                                    {{ form_widget(form.adyen_payment.payment_detail.ownerName) }}
 
                                 {% elseif payment_method.vars.value == 'adyen.payment.method.paypal' %}
 

@@ -156,8 +156,8 @@ module.exports = {
     init: function () {
         initValidation();
 
-        $('input[name="checkout[payment_method]"]').on('change', function () {
-            $paymentButton.attr('disabled', $('input[name="checkout[payment_method]"]:checked').length != 1);
+        $('input[name="checkout[adyen_payment][payment_method]"]').on('change', function () {
+            $paymentButton.attr('disabled', $('input[name="checkout[adyen_payment][payment_method]"]:checked').length != 1);
         });
 
         $addressCheckbox.on('change', function (e) {

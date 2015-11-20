@@ -64,7 +64,7 @@ class Checkout extends AbstractType
                     'class' => 'js-delivery-address',
                 ],
             ])
-            ->add('adyen_payment', new AdyenPayment(), [
+            ->add('adyen_payment', new AdyenPayment($this->paymentMethodsTransfer), [
                 'data_class' => 'Generated\Shared\Transfer\AdyenPaymentTransfer',
                 'error_bubbling' => true,
                 'attr' => [

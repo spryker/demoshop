@@ -5,7 +5,7 @@ namespace Pyz\Yves\Checkout\Communication\Form;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 
-class SepaPayment extends AbstractType
+class PaymentDetail extends AbstractType
 {
 
     /**
