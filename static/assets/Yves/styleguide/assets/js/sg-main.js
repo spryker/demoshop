@@ -5,7 +5,7 @@ import './modules/faqCard';
 import './modules/faqSwitch';
 import './modules/formBackup';
 import './modules/headerMenu';
-import './modules/navBar';
+import './modules/navbar';
 import './modules/offcanvas';
 import './modules/productConfigurator';
 import './modules/productFilter';
