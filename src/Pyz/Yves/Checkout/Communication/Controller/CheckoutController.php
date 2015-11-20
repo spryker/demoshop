@@ -103,7 +103,8 @@ class CheckoutController extends AbstractController
 
                 /** TODO: START OF HACK PAYMENT METHOD */
 
-                $paymentMethod = $checkoutRequest->getPaymentMethod();
+
+                $paymentMethod = $checkoutRequest->getAdyenPayment()->getPaymentMethod();
 
                 $adyenPaymentTransfer = $checkoutRequest->getAdyenPayment();
                 $adyenPaymentDetails = $checkoutRequest->getAdyenPayment()->getPaymentDetail();
@@ -120,6 +121,9 @@ class CheckoutController extends AbstractController
                 $checkoutRequest->setAdyenPayment($adyenPaymentTransfer);
 
                 $checkoutRequest->setCart($this->getCart());
+
+                $checkoutRequest->setShippingAddress($checkoutRequest->getBillingAddress());
+                $checkoutRequest->setPaymentMethod($paymentMethod);
 
 
                 /** @var CheckoutResponseTransfer $checkoutResponseTransfer */
