@@ -14,11 +14,12 @@
 }
 
 .newsletter__headline{
-    font-family: $_ffBrandonGrotesque-Bold;
+    margin-bottom: 20px;
+
+    font-family: $_ffBrandonGrotesque-Black;
     color: $_rgbApple;
     font-size: 22px;
     line-height: 31px;
-    //letter-spacing: 0.24px;
     text-align: center;
 }
 
@@ -34,16 +35,20 @@
 .newsletter__form{
     display: flex;
     width: 100%;
-    max-width: 360px;
+    max-width: 480px;
     margin: 0 auto;
 
     .input{
         flex-grow: 1;
-        margin-right: 10px;
+        margin-right: 5px;
+    }
+
+    .input__text{
+        background: $_rgbWhite;
     }
 
     .button{
-
+        margin-top: 18px;
     }
 }
 

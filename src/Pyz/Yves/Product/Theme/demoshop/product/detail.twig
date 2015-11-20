@@ -1,53 +1,54 @@
 {% extends "@application/layout/layout.twig" %}
 
-{% block title %}{{ product.pageTitle }}{% endblock %}
+{% block title %}{{ product.abstract_name }}{% endblock %}
 
 {% block content %}
 
-    {# TODO: replace this, when frontend is ready to change the concretes #}
-    {% set productConcrete = product.concreteProducts|first %}
+{# TODO: replace this, when frontend is ready to change the concretes #}
+{% set productConcrete = product.concreteProducts|first %}
 
-    <article class="product product--justice-league">
-        <section class="product__overview">
-            {% if category is not null %}
-            <h2 class="product__category">{{ category.name }}</h2>
-            {% endif %}
 
-            <h1 class="product__name">{{ product.abstract_name }}</h1>
+<div class="product">
+    <div class="product__detail">
 
-            <p>{{ product.short_description }}</p>
+        <div class="product__gallery column medium-3">
+            {% include '@application/layout/content/product/details/product-gallery.twig' with {
+                product: product
+            } %}
+        </div>
 
-            {% for price in product.prices %}
-                <p class="product__price">{{ price.price|price }}</p>
-            {% endfor %}
+        <div class="column medium-5">
+            {% include '@application/layout/content/product/details/product-intro.twig' with {
+                product: product
+            } %}
 
-            {% include "@application/layout/partials/spinner.twig" with {class:"product__quantity", style:"caplet", name:"quantity", value:"1"} %}
-            <button class="product__add-button cta" data-sku="{{ productConcrete.sku }}">{{ "page.detail.add-to-cart"|trans }}</button> <br />
-            <a href="{{ path('wishlist/add', { sku: productConcrete.sku }) }}">Add to Wishlist</a>
-        </section>
-        <section class="product__main-image">
-            <img src="{{ product.small_image}}" alt="" style="width: 100%;"/>
-        </section>
-        <section class="product__details">
-            <p>{{ product.fun_fact }}</p>
+            {% include '@application/layout/content/product/details/product-content.twig' with {
+                product: product
+            } %}
+        </div>
 
-            <p>{{ product.description_long }}</p>
-            <dl class="product__specifications">
-                <dt>{{ "page.detail.dimensions"|trans }}</dt>
-                <dd>{{ product.width }}x{{ product.height }}x{{ product.depth }} cm</dd>
-                {% if product.material is not null %}
-                <dt>{{ "page.detail.material"|trans }}</dt>
-                <dd>{{ product.material }}</dd>
-                {% endif %}
-            </dl>
-        </section>
-        <section class="product__gallery">
-            {% for image in product.images_detail %}
-                <img src="{{ image }}" alt="">
-            {% endfor %}
-        </section>
-        <section class="product__warnings">
-            <p class="warning__under-3">{{ "page.detail.small-parts-warning"|trans }}</p>
-        </section>
-    </article>
+        <div class="column medium-4">
+            {% include '@application/layout/content/product/details/product-options.twig' with {
+                product: productConcrete
+            } %}
+        </div>
+
+        {% include '@application/layout/content/product/details/product-features.twig' with {
+            product: product
+        } %}
+    </div>
+
+    {% include '@application/layout/content/product/details/product-accordion.twig' with {
+        product: product
+    } %}
+
+    {% include '@application/layout/content/product/details/product-related.twig' with {
+        product: product
+    } %}
+
+    {% include '@application/layout/content/product/details/product-configurator.twig' with {
+        product: productConcrete
+    } %}
+</div>
+
 {% endblock %}

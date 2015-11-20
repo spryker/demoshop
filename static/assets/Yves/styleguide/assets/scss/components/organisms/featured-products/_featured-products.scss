@@ -15,18 +15,16 @@
 }
 
 .featured-products__intro{
-    float: right;
     width: 100%;
+    text-align: center;
 }
 
 .featured-products__headline{
-    margin-bottom: 20px;
+    margin-bottom: 10px;
 
     font-family: $_ffBrandonGrotesque-Black;
     color: $_rgbApple;
     font-size: $_fsLarge;
-    line-height: $_lhLarge;
-    //letter-spacing: 2.04px;
     text-align: center;
 }
 
@@ -41,30 +39,27 @@
 .featured-products__products{
     clear: both;
     overflow: hidden;
+    text-align: center;
 }
 
 
 @media (min-width: $_wMedium) {
-    .product-card{
-        float: right;
-        width: 50%;
+    .featured-products{
+        .product-card{
+            display: inline-block;
+            width: 50%;
+            min-width: 360px;
+        }
     }
 }
 
-
 @media (min-width: $_wLarge) {
     .featured-products{
-        background-image: url(../images/product/featured_background.png);
-        background-size: contain;
-        background-repeat: no-repeat;
-    }
+        background-size: contain !important;
+        background-repeat: no-repeat !important;
 
-    .featured-products__intro{
-        width: 66.666%;
-    }
-
-    .product-card{
-        float: right;
-        width: 33.333%;
+        .product-card{
+            width: 33.333%;
+        }
     }
 }

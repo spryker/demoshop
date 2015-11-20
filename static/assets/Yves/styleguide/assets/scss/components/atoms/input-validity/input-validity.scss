@@ -1,0 +1,21 @@
+// Input
+//
+// Markup: atoms.input-validity.hbs
+//
+// Styleguide: atoms.input-validity
+
+.input-validity{
+    margin-top: 18px;
+    float: left;
+
+    .dropdown{
+        margin-top: 0;
+        width: auto;
+    }
+}
+
+.input-validity__separator{
+    float: left;
+    margin: 0 8px;
+    line-height: 50px;
+}

@@ -1,0 +1,22 @@
+{% set data = {
+    headline: 'Gesunde Nahrung
+    für Hunde und Katzen',
+    description: '100% Lebensmittelqualitat.
+    100% Naturnah und artgerecht.
+    0% Tricks',
+    image: '/images/hero/background.jpg'
+} %}
+
+
+<div class="hero">
+    <div class="hero__background" style="background-image: url({{ data.image }});"></div>
+
+    <div class="hero__center">
+        <div class="hero__content">
+            <h1 class="hero__headline">{{ data.headline | nl2br}}</h1>
+            <p class="hero__description">{{ data.description | nl2br }}</p>
+        </div>
+    </div>
+
+    <div class="hero__scroll js-scroll-button" data-scroll-target="plus-section"></div>
+</div>

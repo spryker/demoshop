@@ -3,3 +3,39 @@
 // Markup: atoms.dateinput.hbs
 //
 // Styleguide: atoms.dateinput
+
+.dateinput{
+    margin-top: 18px;
+    width: 50%;
+
+    .input__field{
+
+        @include pdif('calendar', 18px);
+
+        &:before{
+            color: $_rgbOsloGray;
+            width: 45px;
+            text-align: center;
+            right: 0;
+            left: auto;
+        }
+
+        &:after{
+            content: '';
+            position: absolute;
+            top: 0;
+            left: auto;
+            right: 0;
+            height: 50px;
+            margin-top: 0;
+            line-height: 50px;
+            width: 45px;
+            text-align: center;
+            border-left: 1px solid $_rgbOsloGray;
+        }
+    }
+
+    .input__text{
+        padding-right: 67px;
+    }
+}

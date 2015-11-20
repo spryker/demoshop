@@ -1,0 +1,44 @@
+<div class="product-options">
+    <form action="/cart/add/">
+
+        <div class="product-options__select">
+            {% include  '@application/layout/common/forms/dropdown.twig' with {
+                label: 'Größe',
+                id: 'weight',
+                name: 'weight',
+                options: ['#250g', '#500g', '#750g']
+            } %}
+        </div>
+
+        <div class="product-options__select">
+            {% include  '@application/layout/common/forms/stepper.twig' with {
+                label: 'Anzahl',
+                id: 'quantity',
+                name: 'quantity'
+            } %}
+        </div>
+
+        <div class="product-options__pricing">
+            <div class="product-options__total">{{ product.valid_price | price }}</div>
+            <div class="product-options__relative">#250g (€1.40 / 100g)</div>
+        </div>
+
+        <!-- TODO: remove product__add-button -->
+        <button
+            class="product-options__button button button--cta product__add-button"
+            data-sku="{{ product.abstractSku }}">
+            In den Warenkorb
+        </button>
+
+    </form>
+
+    <div class="product-options__delivery">
+        <div class="product-options__delivery-status">
+            #Sofort verfügbar.
+        </div>
+
+        <div class="product-options__delivery-info">
+            Versand erfolgt für Bestellungen bis 12.00 Uhr Mo-Do <br> normalerweise am selben Tag.
+        </div>
+    </div>
+</div>

@@ -1,0 +1,39 @@
+{% set data = {
+    headline: 'Das sagen unsere Kunden',
+    clients: [
+        {
+            image: '/images/client/Gas.png',
+            name: 'Gas',
+            quote: 'Lorem ipsum dolor sit amet consectetur adipiscing elit. Sed mi libero, efficitur quis nulla non, luctus finibus tortor.',
+        },
+        {
+            image: '/images/client/Romeo.png',
+            name: 'Romeo',
+            quote: 'Lorem ipsum dolor sit amet consectetur adipiscing elit. Sed mi libero, efficitur quis nulla non, luctus finibus tortor.',
+        }
+    ]
+} %}
+
+<div class="clients">
+    <div class="clients__inner">
+
+        <div class="clients__testimonials">
+            <h2 class="clients__headline">{{ data.headline }}</h2>
+
+            <div class="clients__items">
+
+                {% for client in data.clients %}
+                <div class="clients__item">
+                    <img class="clients__item-image" src="{{ client.image }}">
+                    <h3 class="clients__item-name">{{ client.name }}</h3>
+                    <p class="clients__item-quote">{{ client.quote }}</p>
+                </div>
+                {% endfor %}
+
+            </div>
+        </div>
+
+        <div class="clients__image"></div>
+
+    </div>
+</div>

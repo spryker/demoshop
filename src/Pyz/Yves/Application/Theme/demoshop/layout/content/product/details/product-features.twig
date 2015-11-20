@@ -1,0 +1,46 @@
+{% set data = {
+    headline: 'Features',
+    features: [
+        {
+            title: '#Das bekommen Sie:',
+            bullets: [
+                '#Unkompliziert - 10 fertig portionierte Menüboxen',
+                '#Natur pur - ausschließlich 100% natürliche Zutaten',
+                '#Sicherheit - von Experten zusammengestellte und überprüfte Menüs'
+            ]
+        },
+        {
+            title: '#Was wir Ihnen bieten:',
+            bullets: [
+                '#100% Lebensmittelqualität',
+                '#Nur hochwertiges Muskelfleisch',
+                '#Tiefgefroren und fertig verpackt für maximale Frische'
+            ]
+        },
+        {
+            title: '#Was Sie niemals bei uns bekommen werden:',
+            bullets: [
+                '#Tierische Nebenerzeugnisse',
+                '#Künstliche Zusatzstoffe',
+                '#Minderwertige Qualität'
+            ]
+        }
+    ]
+} %}
+
+<div class="product-features">
+    <h2 class="product-features__title">{{ data.headline }}</h2>
+
+    {% for feature in data.features %}
+    <h3 class="product-features__category">{{ feature.title }}</h3>
+
+    <ul class="product-features__list">
+
+        {% for bullet in feature.bullets %}
+        <li class="product-features__item">{{ bullet }}</li>
+        {% endfor %}
+
+    </ul>
+    {% endfor %}
+
+</div>

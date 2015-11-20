@@ -5,11 +5,12 @@ import $ from 'jquery';
 
 $(document).ready(function () {
 
-    $('.js-select').each(function () {
+    $('.dropdown').each(function () {
 
-        var $select, $button;
+        var $dropdown, $select, $button;
 
-        $select = $(this);
+        $dropdown = $(this);
+        $select = $dropdown.find('select');
         $button = $(`<div class="dropdown__button"></div>`);
 
         $select.after($button);
@@ -20,6 +21,17 @@ $(document).ready(function () {
         function updateButton () {
             $button.text($select.find('option:selected').text());
         };
+
+        $select.bind('change', updateButton);
+
+
+        $select.bind('focus', function () {
+            $dropdown.addClass('dropdown--focussed');
+        });
+
+        $select.bind('blur', function () {
+            $dropdown.removeClass('dropdown--focussed');
+        });
     });
 
 });

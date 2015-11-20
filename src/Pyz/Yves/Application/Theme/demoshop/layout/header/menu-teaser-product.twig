@@ -1,0 +1,24 @@
+{% set product = {
+    label: 'Neu bei PETS DELI',
+    title: 'Starter Paket',
+    description: 'Probieren sie unser Starter-Paket',
+    price: '€20.00',
+    button: {
+        title: 'Zum Produkt',
+        url: '/pets-deli-mixflocken-250g'
+    },
+    image: '/images/menu/teaser_product.jpg'
+} %}
+
+
+
+<div class="menu-teaser-product" style="background: url({{ product.image }});">
+    <div class="menu-teaser-product__label">{{ product.label }}</div>
+
+    <div class="menu-teaser-product__content">
+        <div class="menu-teaser-product__description">{{ product.description }}</div>
+        <div class="menu-teaser-product__title">{{ product.title }}</div>
+        <div class="menu-teaser-product__price">{{ product.price }}</div>
+        <a href="{{ product.button.url }}" class="menu-teaser-product__button button">{{ product.button.title }}</a>
+    </div>
+</div>

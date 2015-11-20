@@ -1,0 +1,11 @@
+<div class="dropdown">
+    {% if label is defined %}
+        <label class="input__label" for="{{ id }}">{{ label }}</label>
+    {% endif %}
+
+    <select class="js-select" id="{{ id }}" name="{{ name }}">
+        {% for option in options %}
+            <option value="{{ loop.index }}">{{ option }}</option>
+        {% endfor %}
+    </select>
+</div>

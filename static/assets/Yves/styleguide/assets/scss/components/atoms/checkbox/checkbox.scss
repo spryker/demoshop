@@ -34,11 +34,20 @@
 
 .checkbox__input{
     position: absolute;
-    visibility: hidden;
+    opacity: 0;
+    left: -1000em;
 
     &:checked + .checkbox__label{
         &:after{
             color: $_rgbBlack;
+        }
+    }
+}
+
+.checkbox--focussed{
+    .checkbox__label{
+        &:before{
+            border-color: $_rgbTundora;
         }
     }
 }
@@ -68,6 +77,8 @@
         border: 2px solid $_rgbAlto;
         border-radius: $_defaultBorderRadius;
         background: $_rgbWildSand;
+
+        transition: border-color $_tShort ease-in-out;
     }
 
     &:after{

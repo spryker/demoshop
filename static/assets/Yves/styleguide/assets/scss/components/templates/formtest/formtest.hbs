@@ -1,0 +1,76 @@
+<form class="block-form">
+    <div class="block-form__blueprint" data-label="Blueprint">
+        <textarea name="blueprint">
+{
+    "type": "form",
+    "fields": {
+        "entries": {
+            "type": "form",
+            "multiple": true,
+            "fields": {
+                "question": {
+                    "type": "text"
+                },
+                "answer": {
+                    "type": "textarea"
+                },
+                "example": {
+                    "type": "form",
+                    "fields": {
+                        "title": {
+                            "type": "text"
+                        }
+                    }
+                },
+                "example2": {
+                    "type": "form",
+                    "multiple": true,
+                    "fields": {
+                        "title": {
+                            "type": "text"
+                        }
+                    }
+                }
+            }
+        },
+        "whatever": {
+            "type": "text"
+        }
+    }
+}
+        </textarea>
+    </div>
+
+    <div class="block-form__content" data-label="Content">
+        <textarea name="content">
+{
+    "entries": [
+        {
+            "question": "Some question",
+            "answer": "Some answer",
+            "example": {
+                "title": "Some title"
+            }
+        },
+        {
+            "question": "Some question2",
+            "answer": "Some answer2",
+            "title": "Some title2",
+            "example2": [
+                {
+                    "title": "Some title"
+                },
+                {
+                    "title": "Some title"
+                }
+            ]
+        }
+    ],
+    "whatever": "Some more text"
+}
+        </textarea>
+    </div>
+
+    <button class="block-form__submit button button--cta" type="submit" name="button">Save</button>
+
+</form>

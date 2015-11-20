@@ -22,5 +22,13 @@ $(document).ready(function () {
       }
 
     });
+
+    $input.bind('focus', function () {
+        $checkbox.addClass('checkbox--focussed');
+    });
+
+    $input.bind('blur', function () {
+        $checkbox.removeClass('checkbox--focussed');
+    });
   });
 });

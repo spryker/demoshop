@@ -4,6 +4,7 @@
 //
 // Styleguide: organisms.footer
 
+// TODO: cleanup
 .footer{
     padding: 57px 0 32px;
     background: $_rgbWhite;
@@ -23,17 +24,15 @@
 
     h2{
         color: $_rgbApple;
-        font-family: $_ffBrandonGrotesque-Bold;
+        font-family: $_ffBrandonGrotesque-Black;
         font-size: 22px;
         line-height: 31px;
-        //letter-spacing: 0.27px;
     }
 
     a{
         display: inline-block;
         margin-top: 10px;
 
-        font-family: $_ffBrandonGrotesque-Bold;
         color: $_rgbSilverChalice;
         text-decoration: none;
         font-size: 18px;
@@ -41,21 +40,15 @@
     }
 }
 
-.footer__row--top{
-    border-top: none;
-    padding-top: 20px;
-    white-space: nowrap;
+.footer__column{
+    width: 100%;
+    margin-bottom: 60px;
+    float: left;
+    text-align: left;
 }
 
 .footer__logo{
-    position: relative;
-    min-height: 1px;
-
     img{
-        position: absolute;
-        top: -20px;
-        left: 50%;
-        margin-left: -46px;
         @include responsiveImage;
         max-width: 93px;
         display: inline-block;
@@ -68,7 +61,6 @@
 
 .footer__copyright{
     color: $_rgbSilverChalice;
-    //letter-spacing: 1.79px;
     font-size: $_fsTiny;
     line-height: $_lhTiny;
     font-family: $_ffBrandonGrotesque-Bold;
@@ -112,8 +104,16 @@
     text-transform: uppercase;
 }
 
-@media (max-width: $_wLarge - 1px) {
-    .footer__social, .footer__payment{
-        display: none;
+
+@media (min-width: $_wMedium) {
+    .footer__column{
+        width: 50%;
+        text-align: center;
+    }
+}
+
+@media (min-width: $_wLarge) {
+    .footer__column{
+        width: 25%;
     }
 }

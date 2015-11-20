@@ -8,7 +8,7 @@
     position: relative;
     float: left;
     width: 100%;
-    margin-top: 30px;
+    margin-top: 18px;
     padding: 0 5px;
 
     color: $_rgbOsloGray;
@@ -25,10 +25,16 @@
     }
 }
 
+.dropdown--focussed{
+    .dropdown__button{
+        border-color: $_rgbTundora;
+    }
+}
+
 .dropdown__button{
     height: 50px;
     line-height: 50px;
-    border: 2px solid $_rgbOsloGray;
+    border: 1px solid $_rgbSilverChalice;
     border-radius: $_defaultBorderRadius;
 
     font-size: 18px;
@@ -39,9 +45,11 @@
     display: block;
     padding: 0 60px 0 12px;
 
+    transition: border-color $_tShort ease-in-out;
+
     &:before{
         position: absolute;
-        top: -2px;
+        top: -1px;
         left: auto;
         right: 0;
         height: 50px;

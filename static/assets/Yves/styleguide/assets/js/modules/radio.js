@@ -3,6 +3,11 @@ import $ from 'jquery';
 'use strict';
 
 
+const EVENTS = {
+    UNCHECK: 'UNCHECK'
+};
+
+
 $(document).ready(function () {
   var $radios = $('.radio');
 
@@ -13,12 +18,25 @@ $(document).ready(function () {
     $input = $radio.find('.radio__input');
 
     $input.bind('change', function () {
-      $radios.removeClass('radio--checked');
+        if ($input.prop('checked')) {
+            $radio.addClass('radio--checked');
+        }
 
-      if ($input.prop('checked')) {
-        $radio.addClass('radio--checked');
+        var $siblings = $radio.siblings('.radio');
+        $siblings.trigger(EVENTS.UNCHECK);
+    });
 
-      }
+    $radio.on(EVENTS.UNCHECK, function () {
+        $(this).removeClass('radio--checked');
+    });
+
+
+    $input.bind('focus', function () {
+        $radio.addClass('radio--focussed');
+    });
+
+    $input.bind('blur', function () {
+        $radio.removeClass('radio--focussed');
     });
   });
 });

@@ -84,23 +84,23 @@ var tasks = {
     js: function(mode) {
         // TODO: browserify or requriejs
 
-        rjs.optimize({
-            optimize: mode === 'development' ? 'none' : 'uglify2',
-            appDir: assetsPath + '/js',
-            baseUrl: './',
-            dir: publicPath + '/js',
-			modules: [
-				{name: 'schemes/category'},
-				{name: 'schemes/pdp'},
-				//{name: 'schemes/tips'},
-				{name: 'schemes/checkout'},
-				//{name: 'schemes/customer'},
-				//{name: 'schemes/cart'},
-				//{name: 'schemes/wishlist'},
-                //{name: 'schemes/home'},
-                //{name: 'schemes/cross-selling'}
-			]
-        });
+        // rjs.optimize({
+        //     optimize: mode === 'development' ? 'none' : 'uglify2',
+        //     appDir: assetsPath + '/js',
+        //     baseUrl: './',
+        //     dir: publicPath + '/js',
+		// 	modules: [
+		// 		{name: 'schemes/category'},
+		// 		{name: 'schemes/pdp'},
+		// 		//{name: 'schemes/tips'},
+		// 		{name: 'schemes/checkout'},
+		// 		//{name: 'schemes/customer'},
+		// 		//{name: 'schemes/cart'},
+		// 		//{name: 'schemes/wishlist'},
+        //         //{name: 'schemes/home'},
+        //         //{name: 'schemes/cross-selling'}
+		// 	]
+        // });
 
         var browserified = browserify(assetsPath + '/scripts/main.js')
             .bundle()

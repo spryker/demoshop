@@ -1,0 +1,125 @@
+{% set data = {
+    headline: 'Inhalt anpassen',
+    description: 'Wählen Sie die Zutaten ab, die Ihr Tier nicht verträgt. <br> Das Paket wird dennoch immer 10 Menüboxen enthalten.',
+    label: 'Wählen Sie Zutaten aus oder ab:',
+    button: 'Meine Auswahl speichern',
+    categories: [
+        {
+            title: 'Fleishsorten',
+            options: [
+                {
+                    id: 'meat_beef',
+                    name: 'meat.igredients[]',
+                    value: 'beef',
+                    label: 'Beef',
+                    image: '/images/product/meat_beef.jpg',
+                    image_bw: '/images/product/meat_beef_bw.jpg'
+                },
+                {
+                    id: 'meat_kanguru',
+                    name: 'meat.igredients[]',
+                    value: 'kanguru',
+                    label: 'Kanguru',
+                    image: '/images/product/meat_kanguru.jpg',
+                    image_bw: '/images/product/meat_kanguru_bw.jpg'
+                },
+                {
+                    id: 'meat_chicken',
+                    name: 'meat.igredients[]',
+                    value: 'chicken',
+                    label: 'Chicken',
+                    image: '/images/product/meat_chicken.jpg',
+                    image_bw: '/images/product/meat_chicken_bw.jpg'
+                },
+                {
+                    id: 'meat_deer',
+                    name: 'meat.igredients[]',
+                    value: 'deer',
+                    label: 'Deer',
+                    image: '/images/product/meat_deer.jpg',
+                    image_bw: '/images/product/meat_deer_bw.jpg'
+                },
+                {
+                    id: 'meat_turkey',
+                    name: 'meat.igredients[]',
+                    value: 'turkey',
+                    label: 'Turkey',
+                    image: '/images/product/meat_turkey.jpg',
+                    image_bw: '/images/product/meat_turkey_bw.jpg'
+                },
+                {
+                    id: 'meat_redfish',
+                    name: 'meat.igredients[]',
+                    value: 'redfish',
+                    label: 'Redfish',
+                    image: '/images/product/meat_redfish.jpg',
+                    image_bw: '/images/product/meat_redfish_bw.jpg'
+                }
+            ]
+        },
+        {
+            title: 'Kohlenhydrate',
+            options: [
+                {
+                    id: 'carbs_rice',
+                    name: 'carbs.igredients[]',
+                    value: 'rice',
+                    label: 'Rice',
+                    image: '/images/product/carbs_rice.jpg',
+                    image_bw: '/images/product/carbs_rice_bw.jpg'
+                },
+                {
+                    id: 'carbs_potatoes',
+                    name: 'carbs.igredients[]',
+                    value: 'potatoes',
+                    label: 'Potatoes',
+                    image: '/images/product/carbs_potatoes.jpg',
+                    image_bw: '/images/product/carbs_potatoes_bw.jpg'
+                }
+            ]
+        }
+    ]
+} %}
+
+
+
+<div class="product-configurator" data-trigger="js-product-customize">
+
+    {% include '@application/layout/common/close-button.twig' %}
+
+    <form class="product-configurator__inner">
+        <h2 class="product-configurator__headline">
+            {{ data.headline}}
+        </h2>
+
+        <div class="product-configurator__description">
+            {{ data.description }}
+        </div>
+
+        {% for categoriy in data.categories %}
+            <h3 class="product-configurator__subheadline">
+                {{ categoriy.title }}
+            </h3>
+
+            <div class="product-configurator__composition">
+                <div class="product-configurator__composition-label">
+                    {{ data.label }}
+                </div>
+
+                {% for option in categoriy.options %}
+                    {% include '@application/layout/content/product/configurator/image-checkbox.twig' with {
+                        checkbox: option
+                    } %}
+                {% endfor %}
+
+            </div>
+        {% endfor %}
+
+        <div class="product-configurator__save">
+            <button class="button" type="submit">
+                {{ data.button }}
+            </button>
+        </div>
+    </form>
+
+</div>

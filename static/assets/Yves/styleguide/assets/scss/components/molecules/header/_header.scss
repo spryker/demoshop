@@ -1,25 +1,107 @@
-// Header
+// category-Header
 //
-// Markup: molecules.header.hbs
+// Markup: molecules.category-header.hbs
 //
 // Styleguide: molecules.header
 
-.header{
-    position: relative;
-    height: 310px;
+.category-header{
+    width: 100%;
+    margin-bottom: 30px;
+    background: $_rgbWhite;
+    @include sectionShadow;
 
-    background-position: center !important;
-    background-size: cover !important;
+    text-align: center;
 }
 
-.header__inner{
+.category-header__hero{
+    position: relative;
+    height: 350px;
+}
+
+.category-header__hero-content{
     position: absolute;
     top: 50%;
     left: 0;
     width: 100%;
     transform: translate(0, -50%);
 
-    text-align: center;
-    color: #FFF;
+}
+
+.category-header__hero-headline{
+    padding-bottom: 20px;
+
+    color: $_rgbApple;
+    font-family: $_ffBrandonGrotesque-Black;
+    font-size: 60px;
+    letter-spacing: 3.17px;
+    line-height: 28px;
+
+    &:after{
+        content: '';
+        position: absolute;
+        bottom: 0;
+        left: 50%;
+        margin-left: -50px;
+        height: 4px;
+        width: 100px;
+        background: $_rgbApple;
+    }
+}
+
+.category-header__facts{
+    @include pageWidth;
+    overflow: hidden;
+}
+
+.category-header__fact{
+    width: 33.333%;
+    float: left;
+    padding: 30px 0 40px;
+
+    font-family: $_ffBrandonGrotesque-Bold;
+    font-size: 16px;
+    color: $_rgbApple;
+
+    @include pdif('paw', 19px, 0);
+
+    &:before{
+        position: absolute;
+        top: 0;
+        left: 50%;
+        margin: 0 0 0 -10px;
+    }
+}
+
+.category-header__categories{
+    overflow: hidden;
+
+    // TODO: variable
+    border-top: 1px solid #ECECEC;
+}
+
+.category-header__categories-inner{
+    @include pageWidth;
+}
+
+.category-header__category{
+    width: 33.333%;
+    float: left;
+}
+
+.category-header__category-link{
+    display: inline-block;
+    padding: 0 35px;
+
+    line-height: 47px;
+    font-size: 22px;
+    color: $_rgbSilverChalice;
+    text-decoration: none;
+}
+
+.category-header__category-link--active{
+    background: $_rgbApple;
+
+    font-family: $_ffBrandonGrotesque-Black;
+    color: $_rgbWhite;
 }
 

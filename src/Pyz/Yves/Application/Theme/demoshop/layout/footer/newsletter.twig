@@ -1,0 +1,32 @@
+{%
+    set data = {
+        headline: 'PETS DELI Newsletter',
+        description: 'Erhalten Sie wöchtlich wertvolle Tipps und Beratung rund um ihr Haustier, mit den Themen Gesundheit, Ernährung, Spaß & Spiel und vielem mehr.',
+        placeholder: 'Ihre E-Mail-Adresse...',
+        button: 'Abonnieren'
+    }
+%}
+
+
+
+<div class="newsletter">
+    <div class="newsletter__inner">
+
+        <h2 class="newsletter__headline">{{ data.headline }}</h2>
+        <p class="newsletter__description">{{ data.description }}</p>
+
+        <form class="newsletter__form" action="TODO">
+            {% include '@application/layout/common/forms/input.twig' with {
+                placeholder: data.placeholder,
+                type: 'email',
+                name: 'email'
+            } %}
+
+            {% include '@application/layout/common/forms/button.twig' with {
+                title: data.button,
+                modifier: 'cta',
+                type: 'submit'
+            } %}
+        </form>
+    </div>
+</div>

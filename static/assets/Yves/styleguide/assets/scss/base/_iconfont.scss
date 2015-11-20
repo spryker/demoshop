@@ -164,6 +164,18 @@
       content: '\E024';
     }
     
+    @if $name == 'lock' {
+      content: '\E025';
+    }
+    
+    @if $name == 'calendar' {
+      content: '\E026';
+    }
+    
+    @if $name == 'cart-empty' {
+      content: '\E027';
+    }
+    
   }
 }
 
@@ -330,6 +342,18 @@
     
     @if $name == 'eye' {
       content: '\E024';
+    }
+    
+    @if $name == 'lock' {
+      content: '\E025';
+    }
+    
+    @if $name == 'calendar' {
+      content: '\E026';
+    }
+    
+    @if $name == 'cart-empty' {
+      content: '\E027';
     }
     
   }

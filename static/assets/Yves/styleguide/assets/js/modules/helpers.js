@@ -80,6 +80,24 @@ function getFormData ($form) {
     return o;
 }
 
+function scrollTo ($target, velocity) {
+    if (typeof velocity === 'undefined') {
+        velocity = 1;
+    }
+
+    var $window, $navbar, $scrollable, current, target;
+
+    $window = $(window);
+    $scrollable = $('html, body');
+    current = $window.scrollTop();
+    target = $target.offset().top;
+    $navbar = $('.navbar .navbar__bottom');
+
+    $scrollable.animate({
+        scrollTop: target - $navbar.outerHeight()
+    }, Math.abs(current - target) * velocity);
+}
 
 
-export {getViewport, debounce, isIphone, isIpad, getFormData};
+
+export {getViewport, debounce, isIphone, isIpad, getFormData, scrollTo};

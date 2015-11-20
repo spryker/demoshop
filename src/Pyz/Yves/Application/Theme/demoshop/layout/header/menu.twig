@@ -1,0 +1,221 @@
+{%
+    set data = {
+        menus: [
+            {
+                main: {
+                    headline: 'Hundeprodukte',
+                    image: '../images/menu/dog.png',
+                    button: {
+                        title: 'Informationen zu Hundeprodukten',
+                        url: '/hunde'
+                    }
+                },
+                product: {
+                    sku: ''
+                },
+                teasers: [
+                    {
+                        type: 'small',
+                        modifier: 'half',
+                        title: 'Starter Paket',
+                        url: '/hunde'
+                    },
+                    {
+                        type: 'small',
+                        modifier: 'quarter',
+                        title: 'Einzelne Menüs',
+                        url: '/hunde'
+                    },
+                    {
+                        type: 'small',
+                        modifier: 'quarter',
+                        title: 'Beilagen',
+                        url: '/hunde'
+                    },
+                    {
+                        type: 'small',
+                        modifier: 'quarter',
+                        title: 'Snacks',
+                        url: '/hunde'
+                    },
+                    {
+                        type: 'small',
+                        modifier: 'quarter',
+                        title: 'Trockenfleisch',
+                        url: '/hunde'
+                    }
+                ]
+            },
+
+            {
+                main: {
+                    headline: 'Katzenprodukte',
+                    image: '../images/menu/cat.jpg',
+                    button: {
+                        title: 'Informationen zu Katzenprodukten',
+                        url: '/katzen'
+                    }
+                },
+                product: {
+                    sku: ''
+                },
+                teasers: [
+                    {
+                        type: 'small',
+                        modifier: 'half',
+                        title: 'Starter Paket',
+                        url: '/katzen'
+                    },
+                    {
+                        type: 'small',
+                        modifier: 'quarter',
+                        title: 'Einzelne Menüs',
+                        url: '/katzen'
+                    },
+                    {
+                        type: 'small',
+                        modifier: 'quarter',
+                        title: 'Beilagen',
+                        url: '/katzen'
+                    },
+                    {
+                        type: 'small',
+                        modifier: 'quarter',
+                        title: 'Snacks',
+                        url: '/katzen'
+                    },
+                    {
+                        type: 'small',
+                        modifier: 'quarter',
+                        title: 'Trockenfleisch',
+                        url: '/katzen'
+                    }
+                ]
+            },
+
+            {
+                main: {
+                    headline: 'Warum?',
+                    image: '../images/menu/support_girl.jpg',
+                    button: {
+                        title: 'Informationen zu Hundeprodukten',
+                        url: '/support'
+                    }
+                },
+                teasers: [
+                    {
+                        type: 'small',
+                        modifier: 'quarter',
+                        title: 'How it works',
+                        url: '/support'
+                    },
+                    {
+                        type: 'small',
+                        modifier: 'quarter',
+                        title: 'FAQ',
+                        url: '/support'
+                    },
+                    {
+                        type: 'small',
+                        modifier: 'quarter',
+                        title: 'How to feed your pet',
+                        url: '/support'
+                    },
+                    {
+                        type: 'small',
+                        modifier: 'quarter',
+                        title: 'Shipping',
+                        url: '/support'
+                    },
+                    {
+                        type: 'small',
+                        modifier: 'quarter',
+                        title: 'Retail Stores',
+                        url: '/support'
+                    },
+                    {
+                        type: 'small',
+                        modifier: 'quarter',
+                        title: 'Animal Moments',
+                        url: '/support'
+                    },
+                    {
+                        type: 'small',
+                        modifier: 'quarter',
+                        title: 'Press and TV',
+                        url: '/support'
+                    },
+                    {
+                        type: 'small',
+                        modifier: 'quarter',
+                        title: 'Jobs',
+                        url: '/support'
+                    }
+                ]
+            },
+
+            {
+                main: {
+                    headline: 'Fragen',
+                    image: '../images/menu/support_dog.jpg',
+                    button: {
+                        title: 'Support Bereich',
+                        url: '/support'
+                    }
+                },
+                teasers: [
+                    {
+                        type: 'small',
+                        modifier: 'half',
+                        title: 'Customer service',
+                        url: '/support'
+                    },
+                    {
+                        type: 'small',
+                        modifier: 'half',
+                        title: 'Retail store',
+                        url: '/support'
+                    }
+                ]
+            }
+        ]
+    }
+%}
+
+
+
+<div class="menu">
+
+    {% include '@application/layout/common/close-button.twig' %}
+
+    <div class="menu__slider">
+
+        {% for menu in data.menus %}
+            <div class="menu__inner">
+                {% include '@application/layout/header/menu-teaser-full.twig' with {
+                    headline: menu.main.headline,
+                    image: menu.main.image,
+                    button: menu.main.button.title,
+                    url: menu.main.button.url
+                } %}
+
+                <div class="menu__bottom">
+                    {% if menu.product.sku is defined %}
+                        {% include '@application/layout/header/menu-teaser-product.twig' %}
+                    {%  endif %}
+
+                    {% for teaser in menu.teasers %}
+                        {% include '@application/layout/header/menu-teaser-' ~ teaser.type ~ '.twig' with {
+                            modifier: teaser.modifier,
+                            title: teaser.title,
+                            url: teaser.url
+                        } %}
+                    {% endfor %}
+                </div>
+            </div>
+        {% endfor %}
+
+        {% include '@application/layout/header/cart-layer.twig' %}
+
+    </div>
+</div>

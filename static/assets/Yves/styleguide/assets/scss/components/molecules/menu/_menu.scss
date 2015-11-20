@@ -46,8 +46,10 @@
     width: 20%;
     float: left;
 
-    max-height: calc(100vh - 120px);
-    overflow: auto;
+    // TODO: into variable + breakpoint
+    max-height: calc(100vh - 103px);
+    overflow-y: auto;
+    overflow-x: hidden;
 }
 
 .menu--open{

@@ -1,0 +1,10 @@
+{% if type is defined %}
+    <button type="{{ type }}" class="button button--{{ modifier | default('') }}">
+        {{ title }}
+    </button>
+
+{% else %}
+
+    <a href="{{ url }}" class="button button--{{ modifier | default('') }}">{{ title }}</a>
+
+{% endif %}

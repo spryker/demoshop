@@ -1,0 +1,15 @@
+<div class="image-checkbox">
+    <label class="image-checkbox__inner" for="{{ checkbox.id }}" style="background: url({{ checkbox.image }});">
+
+        <input
+            class="image-checkbox__checkbox"
+            type="checkbox"
+            id="{{ checkbox.id }}"
+            name="{{ checkbox.name }}"
+            value="{{ checkbox.value }}"
+            checked>
+
+        <div class="image-checkbox__label">{{ checkbox.label }}</div>
+        <div class="image-checkbox__disabled" style="background: url({{ checkbox.image_bw }});"></div>
+    </label>
+</div>

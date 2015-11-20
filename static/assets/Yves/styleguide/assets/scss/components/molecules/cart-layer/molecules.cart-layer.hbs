@@ -1,17 +1,23 @@
 <div class="cart-layer">
    {{> atoms.close-button}}
+
    <div class="cart-layer__inner">
-       <h2 class="cart-layer__headline">Cart</h2>
+
+       <h2 class="cart-layer__headline">Warenkorb</h2>
+
        <div class="cart-layer__items">
-           {{> molecules.cart-item}}
-           {{> molecules.cart-item}}
+           {{> molecules.cart-item image="../images/cart/thumbnail.png" title="Starter Pack 10 Menu Boxes" weight="250g" price="20.00"}}
+           {{> molecules.cart-item image="../images/cart/thumbnail.png" title="Starter Pack 10 Menu Boxes" weight="250g" price="20.00"}}
        </div>
+
        <div class="cart-layer__upsell">
            {{> molecules.product-card-wide}}
        </div>
+
        <div class="cart-layer__amount">
-           <div class="cart-layer__total">Total €20.00</div>
-           <div>{{> "atoms.button" modifier_class="button--cta" title="Proceed to checkout"}}</div>
+           <div class="cart-layer__total">Gesamtbetrag <em>€20.00</em></div>
+           <div>{{> "atoms.button" modifier_class="button--cta" title="Weiter zur Kasse"}}</div>
        </div>
    </div>
+
 </div>

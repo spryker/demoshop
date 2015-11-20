@@ -1,0 +1,10 @@
+<div class="input-validity">
+    <label class="input__label" for="validity_month">{{label}}</label>
+
+    {{> "atoms.dropdown" label="" options='["1","2","3","4","5","6","7","8","9","10","11","12"]'
+    id="validity_month" name="validity_month" id="validity_month"}}
+
+    <span class="input-validity__separator">/</span>
+
+    {{> "atoms.dropdown" label="" options='["15","16","17","18","19","20"]' name="validity_year" id="validity_year"}}
+</div>

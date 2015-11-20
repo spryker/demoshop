@@ -1,0 +1,33 @@
+<div class="category-header">
+
+   <div class="category-header__hero">
+       <div class="category-header__hero-content">
+           <h1 class="category-header__hero-headline">{{category}}</h1>
+       </div>
+   </div>
+
+
+   <div class="category-header__facts">
+       {% for fact in facts %}
+       <div class="category-header__fact">
+           {{ fact | nl2br }}
+       </div>
+       {% endfor %}
+   </div>
+
+
+   <div class="category-header__categories">
+       <div class="category-header__categories-inner">
+
+           {% for category in categories %}
+           <div class="category-header__category">
+               <a href="{{ category.url }}" class="category-header__category-link {% if loop.first %} category-header__category-link--active {% endif %}">
+                   {{ category.title }}
+               </a>
+           </div>
+           {% endfor %}
+
+       </div>
+   </div>
+
+</div>

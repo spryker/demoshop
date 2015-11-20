@@ -14,11 +14,10 @@
 
 .payment__headline{
     margin-bottom: 23px;
-    font-family: $_ffBrandonGrotesque-Bold;
+    font-family: $_ffBrandonGrotesque-Black;
     color: $_rgbApple;
     font-size: 22px;
     line-height: 31px;
-    //letter-spacing: 0.24px;
     text-align: center;
 }
 
@@ -31,7 +30,10 @@
 }
 
 .payment__method{
-    display: table-cell !important;
+    display: block !important;
+    width: 33.333%;
+    float: left;
+
     vertical-align: middle;
     padding: 0 !important;
     text-align: center;
@@ -64,4 +66,13 @@
 
 .payment__method__sofort{
     @include pdif('sofort', 36px, 111px);
+}
+
+
+@media (min-width: $_wMedium){
+    .payment__method{
+        display: table-cell !important;
+        width: auto;
+        float: none;
+    }
 }
