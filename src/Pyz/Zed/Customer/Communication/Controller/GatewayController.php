@@ -7,6 +7,7 @@ use Generated\Shared\Transfer\CustomerInfoTransfer;
 use Pyz\Zed\Customer\Business\CustomerFacade;
 use Generated\Shared\Transfer\CustomerTransfer;
 use SprykerFeature\Zed\Customer\Communication\Controller\GatewayController as SpyGatewayController;
+use Pyz\Zed\Customer\Business\CustomerFacade;
 
 /**
  * @method CustomerFacade getFacade()
@@ -18,11 +19,13 @@ class GatewayController extends SpyGatewayController
      *
      * @return CustomerTransfer
      */
-    public function customerAction(CustomerTransfer $customerTransfer)
+    public function migrateMagentoPasswordAction(CustomerMagentoPasswordMigrationInterface $customerTransfer)
     {
-        // @TODO : do stuffs with magento password here!
-
-        parent::customerAction($customerTransfer);
+        if (!$this->getFacade()->hasMagentoPassword($customerTransfer)) {
+            return;
+        } else {
+            return $this->manageMagentoAccount($customerTransfer);
+        }
     }
 
     /**
@@ -36,4 +39,8 @@ class GatewayController extends SpyGatewayController
     }
 
 
+    protected function manageMagentoAccount(CustomerMagentoPasswordMigrationInterface $customerTransfer)
+    {
+        return $this->getFacade()->migratePassword($customerTransfer);
+    }
 }
