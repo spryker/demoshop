@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "8825b84fcbb49d3877d4f4c5c8cc8e5e",
-    "content-hash": "5c0bd06a6ce7b0d1310323b1b00fcc7b",
+    "hash": "1fbb607042bf937dec7cc54bb7695068",
+    "content-hash": "9f36112811cb8cc9539ed8da38684010",
     "packages": [
         {
             "name": "digital-canvas/zend-framework",
@@ -815,11 +815,15 @@
         },
         {
             "name": "spryker/spryker",
-            "version": "dev-develop",
+            "version": "dev-refactor/CSN-66-Make-private-static-function-protected-in-Library-Application",
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/spryker.git",
+<<<<<<< HEAD
                 "reference": "6b9389df737efc5ff0817cdb6d2c350645b901d6"
+=======
+                "reference": "438003ceec242b4539ee3b73e8ec961debc39118"
+>>>>>>> CSN-66 update composer
             },
             "require": {
                 "digital-canvas/zend-framework": ">=1.12.2"
@@ -908,7 +912,11 @@
                     "SprykerFeature\\Shared\\Library": "Bundles/Library/src/"
                 }
             },
+<<<<<<< HEAD
             "time": "2015-11-20 14:15:25"
+=======
+            "time": "2015-11-20 09:37:31"
+>>>>>>> CSN-66 update composer
         },
         {
             "name": "symfony-cmf/routing",
