@@ -26,4 +26,12 @@ interface ProductCountryQueryContainerInterface
      */
     public function queryProductsWithCountries();
 
+    /**
+     * @param int $idProduct
+     * @param int $idCountry
+     *
+     * @return SpyProductCountryQuery
+     */
+    public function queryProductCountry($idProduct, $idCountry);
+
 }

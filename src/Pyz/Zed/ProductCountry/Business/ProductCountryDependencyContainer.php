@@ -7,6 +7,7 @@ use Propel\Runtime\Connection\ConnectionInterface;
 use Pyz\Zed\Country\Business\CountryFacade;
 use Pyz\Zed\Product\Business\ProductFacade;
 use Pyz\Zed\ProductCountry\Business\Model\ProductCountryManagerInterface;
+use Pyz\Zed\ProductCountry\Persistence\ProductCountryQueryContainerInterface;
 use Pyz\Zed\ProductCountry\ProductCountryDependencyProvider;
 use SprykerEngine\Zed\Kernel\Business\AbstractBusinessDependencyContainer;
 
@@ -24,6 +25,7 @@ class ProductCountryDependencyContainer extends AbstractBusinessDependencyContai
         return $this->getFactory()->createModelProductCountryManager(
             $this->createProductFacade(),
             $this->createCountryFacade(),
+            $this->createProductCountryQueryContainer(),
             $this->createPropelConnection()
         );
     }
@@ -56,6 +58,14 @@ class ProductCountryDependencyContainer extends AbstractBusinessDependencyContai
     public function createPropelConnection()
     {
         return $this->getProvidedDependency(ProductCountryDependencyProvider::PLUGIN_PROPEL_CONNECTION);
+    }
+
+    /**
+     * @return ProductCountryQueryContainerInterface
+     */
+    public function createProductCountryQueryContainer()
+    {
+        return $this->getProvidedDependency(ProductCountryDependencyProvider::PRODUCT_COUNTRY_QUERY_CONTAINER);
     }
 
 }

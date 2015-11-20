@@ -2,10 +2,10 @@
 
 namespace Pyz\Zed\ProductCountry\Business\Model;
 
-use Orm\Zed\ProductCountry\Persistence\SpyProductCountryQuery;
 use Propel\Runtime\Connection\ConnectionInterface;
 use Pyz\Zed\Country\Business\CountryFacade;
 use Pyz\Zed\Product\Business\ProductFacade;
+use Pyz\Zed\ProductCountry\Persistence\ProductCountryQueryContainerInterface;
 
 class ProductCountryManager implements ProductCountryManagerInterface
 {
@@ -21,6 +21,11 @@ class ProductCountryManager implements ProductCountryManagerInterface
     protected $countryFacade;
 
     /**
+     * @var ProductCountryQueryContainerInterface
+     */
+    protected $productCountryQueryContainer;
+
+    /**
      * @var ConnectionInterface
      */
     protected $connection;
@@ -28,12 +33,18 @@ class ProductCountryManager implements ProductCountryManagerInterface
     /**
      * @param ProductFacade $productFacade
      * @param CountryFacade $countryFacade
+     * @param ProductCountryQueryContainerInterface $productCountryQueryContainerInterface
      * @param ConnectionInterface $connection
      */
-    public function __construct(ProductFacade $productFacade, CountryFacade $countryFacade, ConnectionInterface $connection)
+    public function __construct(
+        ProductFacade $productFacade,
+        CountryFacade $countryFacade,
+        ProductCountryQueryContainerInterface $productCountryQueryContainerInterface,
+        ConnectionInterface $connection)
     {
         $this->productFacade = $productFacade;
         $this->countryFacade = $countryFacade;
+        $this->productCountryQueryContainer = $productCountryQueryContainerInterface;
         $this->connection = $connection;
     }
 
@@ -53,15 +64,12 @@ class ProductCountryManager implements ProductCountryManagerInterface
                     $idCountry = $this->countryFacade->getIdCountryByIso2Code($countryCode);
                     $idProduct = $this->productFacade->getAbstractProductIdBySku($productSku);
 
-                    $query = SpyProductCountryQuery::create();
-                    $productCountry = $query
-                        ->filterByFkCountry($idCountry)
-                        ->filterByFkProduct($idProduct)
+                    $productCountry = $this->productCountryQueryContainer
+                        ->queryProductCountry($idProduct, $idCountry)
                         ->findOneOrCreate();
 
                     $productCountry->setFkProduct($idProduct);
                     $productCountry->setFkCountry($idCountry);
-
                     $productCountry->save();
 
                     $this->productFacade->touchProductActive($idProduct);

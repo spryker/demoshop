@@ -32,6 +32,10 @@ class ProductCountryDependencyProvider extends AbstractBundleDependencyProvider
             return $container->getLocator()->propel()->pluginConnection()->get();
         };
 
+        $container[self::PRODUCT_COUNTRY_QUERY_CONTAINER] = function (Container $container) {
+            return $container->getLocator()->productCountry()->queryContainer();
+        };
+
         return $container;
     }
 

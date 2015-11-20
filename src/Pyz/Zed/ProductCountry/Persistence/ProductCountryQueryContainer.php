@@ -54,4 +54,21 @@ class ProductCountryQueryContainer extends AbstractQueryContainer implements Pro
         return $query;
     }
 
+    /**
+     * @param int $idProduct
+     * @param int $idCountry
+     *
+     * @return SpyProductCountryQuery
+     */
+    public function queryProductCountry($idProduct, $idCountry)
+    {
+        $query = SpyProductCountryQuery::create();
+        $query
+            ->filterByFkProduct($idProduct)
+            ->filterByFkCountry($idCountry)
+        ;
+
+        return $query;
+    }
+
 }

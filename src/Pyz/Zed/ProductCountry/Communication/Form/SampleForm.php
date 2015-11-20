@@ -7,18 +7,12 @@ use SprykerFeature\Zed\Gui\Communication\Form\AbstractForm;
 class SampleForm extends AbstractForm
 {
 
-    const SAMPLE_DATA = 'sample_data';
-
     /**
      * @return self
      */
     protected function buildFormFields()
     {
-        return $this->addTextarea(self::SAMPLE_DATA, [
-            'constraints' => [
-                $this->getConstraints()->createConstraintNotBlank(),
-            ],
-        ]);
+        return [];
     }
 
     /**
@@ -26,9 +20,7 @@ class SampleForm extends AbstractForm
      */
     protected function populateFormFields()
     {
-        $fields = $this->getDefaultFormFields();
-
-        return $fields;
+        return $this->getDefaultFormFields();
     }
 
     /**
@@ -36,9 +28,7 @@ class SampleForm extends AbstractForm
      */
     protected function getDefaultFormFields()
     {
-        return [
-            self::SAMPLE_DATA => null,
-        ];
+        return [];
     }
 
 }
