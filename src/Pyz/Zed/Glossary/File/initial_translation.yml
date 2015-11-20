@@ -275,7 +275,7 @@ keys:
   password.confirm:
     translations:
       de_DE: 'Passwort bestätigen'
-      en_EN: 'Confirm passwort'
+      en_US: 'Confirm passwort'
   page.checkout.address.heading:
     translations:
       de_DE: '1. Adressangaben'
@@ -332,7 +332,7 @@ keys:
   page.checkout.summary.shipping:
     translations:
       de_DE: 'Lieferadresse'
-      en_EN: 'Shipping Address'
+      en_US: 'Shipping Address'
   shipment.standart.name:
     translations:
       de_DE: 'Standard'
