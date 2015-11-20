@@ -32,7 +32,7 @@
     <product>
         <label>Products</label>
         <title>Products</title>
-        <uri>/product/import</uri>
+        <uri>/product</uri>
         <icon>fa-database</icon>
     </product>
     <discount>
