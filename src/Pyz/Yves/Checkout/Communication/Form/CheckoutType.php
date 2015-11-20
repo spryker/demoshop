@@ -133,7 +133,6 @@ class CheckoutType extends AbstractType
                     'attr' => [
                         'tabindex' => 601,
                         'class' => 'padded js-checkout-password',
-                        'placeholder' => 'customer.password',
                     ],
                 ],
 
