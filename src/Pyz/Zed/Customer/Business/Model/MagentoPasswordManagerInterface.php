@@ -2,19 +2,19 @@
 
 namespace Pyz\Zed\Customer\Business\Model;
 
-use Generated\Shared\Transfer\CustomerTransfer;
+use Generated\Shared\Customer\CustomerMagentoPasswordMigrationInterface;
 
 interface MagentoPasswordManagerInterface
 {
     /**
-     * @param CustomerTransfer $customerTransfer
+     * @param CustomerMagentoPasswordMigrationInterface $customerTransfer
      * @return bool
      */
-    public function checkMagentoPassword(CustomerTransfer $customerTransfer);
+    public function migratePassword(CustomerMagentoPasswordMigrationInterface $customerTransfer);
 
     /**
-     * @param CustomerTransfer $customerTransfer
+     * @param CustomerMagentoPasswordMigrationInterface $customerTransfer
      * @return bool
      */
-    public function hasMagentoPassword(CustomerTransfer $customerTransfer);
+    public function hasMagentoPassword(CustomerMagentoPasswordMigrationInterface $customerTransfer);
 }
