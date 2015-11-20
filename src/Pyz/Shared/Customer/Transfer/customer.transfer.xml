@@ -16,5 +16,10 @@
         <property name="magentoPasswordHash" type="string" />
     </transfer>
 
+    <transfer name="CustomerMagentoPasswordMigration">
+        <property name="email" type="string" />
+        <property name="password" type="string" />
+    </transfer>
+
 </transfers>
 
