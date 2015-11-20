@@ -6,6 +6,7 @@
 
 namespace Pyz\Yves\Customer\Communication\Plugin\ServiceProvider;
 
+use Generated\Shared\Transfer\CustomerMagentoPasswordMigrationTransfer;
 use Silex\Application;
 use Silex\ServiceProviderInterface;
 use SprykerEngine\Shared\Config;
@@ -18,7 +19,11 @@ use Symfony\Component\Security\Core\Authentication\Token\TokenInterface;
 use Symfony\Component\Security\Core\Exception\AuthenticationException;
 use Symfony\Component\Security\Http\Authentication\AuthenticationFailureHandlerInterface;
 use Symfony\Component\Security\Http\Authentication\AuthenticationSuccessHandlerInterface;
+use Pyz\Yves\Customer\Communication\CustomerDependencyContainer;
 
+/**
+ * @method CustomerDependencyContainer getDependencyContainer()
+ */
 class SecurityServiceProvider extends AbstractPlugin implements
     ServiceProviderInterface,
     AuthenticationSuccessHandlerInterface,
@@ -122,6 +127,15 @@ class SecurityServiceProvider extends AbstractPlugin implements
      */
     public function onAuthenticationFailure(Request $request, AuthenticationException $exception)
     {
+        $customerTransfer = new CustomerMagentoPasswordMigrationTransfer();
+        $customerTransfer
+            ->setEmail('hanna.tamoudi+1@gmail.com')
+            ->setPassword('12345678');
+
+        $this->getDependencyContainer()->createCustomerClient()->migrateMagentoPassword($customerTransfer);
+
+//        // TODO: remove this debug output
+//        echo PHP_EOL.'<hr /><pre>'; var_dump($request); echo __CLASS__.' '.__FILE__ . ':'.__LINE__.''; echo '</pre><hr />'.PHP_EOL; exit();
         $array = ['success' => false, 'message' => $exception->getMessage()]; // data to return via JSON
         $response = new Response(json_encode($array));
         $response->headers->set('Content-Type', 'application/json');
