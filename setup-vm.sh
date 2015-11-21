@@ -45,17 +45,13 @@ else
     RESET=0
 fi
 
-# Clear Redis
-labelText "Clearing Redis"
-redis-cli -p 10009 flushdb &> /dev/null
-writeErrorMessage "Redis could not be cleaned"
-
-labelText "Delete all indices on elasticsearch"
-curl -XDELETE 'http://localhost:9200/_all' &> /dev/null
-writeErrorMessage "ElasticSearch could not be cleaned"
-
-
 if [[ $RESET == 1 ]]; then
+    labelText "Clearing Redis"
+    redis-cli -p 10009 flushdb &> /dev/null
+
+    labelText "Delete all indices on elasticsearch"
+    curl -XDELETE 'http://localhost:9200/_all' &> /dev/null
+
     labelText "Drop Database"
     mysql -u root -e "DROP DATABASE DE_development_zed;"
     writeErrorMessage "Could not delete Database"
@@ -140,3 +136,4 @@ vendor/bin/console setup:jenkins:generate -vvv
 successText "Installation finished"
 
 exit 0
+
