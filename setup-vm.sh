@@ -46,7 +46,6 @@ else
 fi
 
 if [[ $RESET == 1 ]]; then
-    # Clear Redis
     labelText "Clearing Redis"
     redis-cli -p 10009 flushdb &> /dev/null
 
@@ -137,3 +136,4 @@ vendor/bin/console setup:jenkins:generate -vvv
 successText "Installation finished"
 
 exit 0
+
