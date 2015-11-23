@@ -81,12 +81,7 @@ class UserProvider extends AbstractPlugin implements UserProviderInterface
             ->setPassword($password)
             ->setEmail($username);
 
-        $result = $this->customerClient->migrateMagentoPassword($customerPasswordMigrationTransfer);
-    }
-
-    public function resetPassword($password)
-    {
-    /** @TODO : implement */
+        $this->customerClient->migrateMagentoPassword($customerPasswordMigrationTransfer);
     }
 
     /**

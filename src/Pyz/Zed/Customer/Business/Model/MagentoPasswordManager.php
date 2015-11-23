@@ -32,29 +32,38 @@ class MagentoPasswordManager implements MagentoPasswordManagerInterface
         $this->queryContainer = $queryContainer;
     }
 
-    //TODO CHECK IF EMAIL / CUSTOMER EXIST BEFORE TO CHECK MAGENTO
-
     /**
      * @param CustomerMagentoPasswordMigrationInterface $customerTransfer
      * @return bool
      */
     public function migratePassword(CustomerMagentoPasswordMigrationInterface $customerTransfer)
     {
-        $customerEntity = $this->findCustomerByEmail($customerTransfer->getEmail());
+        if ($this->isValidEmail($customerTransfer->getEmail()) && $this->hasMagentoPassword($customerTransfer)) {
 
-        $password = $customerTransfer->getPassword();
-        $hash = $customerEntity->getMagentoPasswordHash();
+            $customerEntity = $this->findCustomerByEmail($customerTransfer->getEmail());
 
-        $isPasswordValid = $this->isPasswordValid($password, $hash);
+            $password = $customerTransfer->getPassword();
+            $hash = $customerEntity->getMagentoPasswordHash();
 
-        if ($isPasswordValid) {
-            $this->writeMagentoPasswordAsCustomerPassword($customerEntity, $password);
-            $this->deleteMagentoPassword($customerEntity);
+            $isPasswordValid = $this->isPasswordValid($password, $hash);
 
-            return true;
+            if ($isPasswordValid) {
+                $this->writeMagentoPasswordAsCustomerPassword($customerEntity, $password);
+                $this->deleteMagentoPassword($customerEntity);
+
+                return true;
+            }
         }
-
         return false;
+    }
+
+    /**
+     * @param string $email
+     * @return bool
+     */
+    protected function isValidEmail($email)
+    {
+        return (bool) ($this->findCustomerByEmail($email) != null);
     }
 
     /**
