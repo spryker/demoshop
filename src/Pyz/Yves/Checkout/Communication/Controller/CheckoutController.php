@@ -21,6 +21,7 @@ use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\HttpFoundation\Request;
 use PavFeature\Client\Adyen\Service\AdyenClientInterface;
 use PavFeature\Shared\Adyen\AdyenPaymentMethodConstants;
+use Pyz\Yves\Application\Communication\Plugin\ApplicationControllerProvider;
 
 /**
  * @method CheckoutDependencyContainer getDependencyContainer()
@@ -105,7 +106,7 @@ class CheckoutController extends AbstractController
 
                 $adyenPaymentTransfer = $checkoutRequest->getAdyenPayment();
                 $adyenPaymentDetails = $checkoutRequest->getAdyenPayment()->getPaymentDetail();
-                $adyenPaymentDetails->setAmount($this->getCart()->getTotals()->getGrandTotal());
+                $adyenPaymentDetails->setAmount($this->getCart()->getTotals()->getGrandTotalWithDiscounts());
 
                 if($paymentMethod === AdyenPaymentMethodConstants::ADYEN_PAYMENT_METHOD_CREDIT_CARD_CSE)
                 {
