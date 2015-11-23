@@ -2,11 +2,15 @@
 
 namespace Pyz\Zed\ProductCountry\Business\Model;
 
+use Generated\Shared\Transfer\ProductCountryTransfer;
+
 interface ProductCountryManagerInterface
 {
 
     /**
-     * @param array $productCountryCollection
+     * @param ProductCountryTransfer[] $productCountryCollection
+     *
+     * @throws \Exception
      *
      * @return int Number of imported product countries
      */
