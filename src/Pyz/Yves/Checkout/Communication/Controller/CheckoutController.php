@@ -2,6 +2,8 @@
 
 namespace Pyz\Yves\Checkout\Communication\Controller;
 
+use Generated\Shared\Adyen\AdyenHppPaymentReturnCheckResponseInterface;
+use Generated\Shared\Transfer\AdyenHppPaymentReturnCheckTransfer;
 use Generated\Shared\Transfer\AdyenPaymentDetailTransfer;
 use Generated\Shared\Transfer\AdyenPaymentMethodAvailabilityTransfer;
 use Generated\Shared\Transfer\AdyenPaymentTransfer;
@@ -10,15 +12,18 @@ use Generated\Shared\Transfer\CheckoutErrorTransfer;
 use Generated\Shared\Transfer\CheckoutRequestTransfer;
 use Generated\Shared\Transfer\CheckoutResponseTransfer;
 use PavFeature\Yves\Tracking\Business\PageTypeConstants;
+use Pyz\Yves\Application\Communication\Plugin\ApplicationControllerProvider;
 use Pyz\Yves\Tracking\Business\Tracking;
 use Pyz\Yves\Checkout\Communication\Plugin\CheckoutControllerProvider;
 use Pyz\Yves\Tracking\Business\DataFormatter\CartDataFormatter;
 use Pyz\Yves\Tracking\Business\DataFormatter\CheckoutDataFormatter;
 use SprykerEngine\Yves\Application\Communication\Controller\AbstractController;
 use Pyz\Yves\Checkout\Communication\CheckoutDependencyContainer;
+use SprykerFeature\Shared\Library\Log;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\HttpFoundation\Request;
+use PavFeature\Client\Adyen\Service\AdyenClientInterface;
 
 /**
  * @method CheckoutDependencyContainer getDependencyContainer()
@@ -32,6 +37,16 @@ class CheckoutController extends AbstractController
     public function getCart()
     {
         return $this->getLocator()->cart()->client()->getCart();
+    }
+
+    /**
+     * @return AdyenClientInterface
+     */
+    protected function getAdyenClient()
+    {
+        $container = $this->getDependencyContainer();
+
+        return $container->createAdyenClient();
     }
 
     /**
@@ -194,6 +209,40 @@ class CheckoutController extends AbstractController
             'success' => true,
             'url' => $redirectUrl
         ]);
+    }
+
+
+    /**
+     * @param Request $request
+     * @return array
+     */
+    public function redirectPaymentReturnAction(Request $request)
+    {
+        $params = $request->query->all();
+
+        $hppCheckPaymentReturnTransfer = new AdyenHppPaymentReturnCheckTransfer();
+        $hppCheckPaymentReturnTransfer->fromArray($params, true);
+
+        $adyenClient = $this->getAdyenClient();
+        $checkResponse = $adyenClient->checkHppPaymentReturn($hppCheckPaymentReturnTransfer);
+
+        $this->handleRedirectPaymentReturnCustomerMessage($checkResponse);
+        $redirectUrl = $checkResponse->getRedirectUrl();
+
+        return $this->redirectResponseInternal($redirectUrl);
+    }
+
+    /**
+     * @param AdyenHppPaymentReturnCheckResponseInterface $checkResponse
+     * @return void
+     */
+    protected function handleRedirectPaymentReturnCustomerMessage(AdyenHppPaymentReturnCheckResponseInterface $checkResponse)
+    {
+        if ($checkResponse->getIsSuccess()) {
+            $this->addSuccessMessage($checkResponse->getCustomerMessage());
+        } else {
+            $this->addErrorMessage($checkResponse->getCustomerMessage());
+        }
     }
 
 }
