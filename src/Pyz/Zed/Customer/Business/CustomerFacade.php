@@ -23,7 +23,7 @@ class CustomerFacade extends SprykerCustomerFacade implements CustomerCheckoutCo
      */
     public function migratePassword(CustomerMagentoPasswordMigrationInterface $customerTransfer)
     {
-        $this->getDependencyContainer()->createMagentoPasswordManager()->migratePassword($customerTransfer);
+        return $this->getDependencyContainer()->createMagentoPasswordManager()->migratePassword($customerTransfer);
     }
 
     /**
