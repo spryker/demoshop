@@ -147,4 +147,8 @@ class ProductFacade extends SprykerProductFacade implements
     {
        return $this->getDependencyContainer()->createProductBundleManager()->getAssignedBundledProducts($bundleProduct);
     }
+
+    public function deleteBundleProductsByAbstractProductId($idAbstractProduct) {
+        return $this->getDependencyContainer()->createProductBundleManager()->deleteBundleProductsByAbstractProductId($idAbstractProduct);
+    }
 }

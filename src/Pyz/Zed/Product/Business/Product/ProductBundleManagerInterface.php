@@ -31,4 +31,10 @@ interface ProductBundleManagerInterface
      * @return SpyProductToBundle[]
      */
     public function getAssignedBundledProducts(ConcreteProductInterface $bundleProduct);
+
+    /**
+     * @param $idAbstractProduct
+     * @return bool
+     */
+    public function deleteBundleProductsByAbstractProductId($idAbstractProduct);
 }

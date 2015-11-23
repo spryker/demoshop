@@ -1,0 +1,22 @@
+Index: vendor/spryker/spryker/Bundles/Tax/src/SprykerFeature/Zed/Tax/Business/Model/TaxReader.php
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- vendor/spryker/spryker/Bundles/Tax/src/SprykerFeature/Zed/Tax/Business/Model/TaxReader.php	(revision af325d422361de69aad5ce9f5452404658a56b29)
++++ vendor/spryker/spryker/Bundles/Tax/src/SprykerFeature/Zed/Tax/Business/Model/TaxReader.php	(revision )
+@@ -92,8 +92,14 @@
+         $propelCollection = $this->queryContainer->queryAllTaxsets()->find();
+ 
+         $transferCollection = new TaxSetCollectionTransfer();
++
+         foreach ($propelCollection as $taxSetEntity) {
+             $taxSetTransfer = (new TaxSetTransfer())->fromArray($taxSetEntity->toArray());
++            foreach ($taxSetEntity->getSpyTaxRates() as $taxRateEntity) {
++                $taxRateTransfer = new TaxRateTransfer();
++                $taxRateTransfer->fromArray($taxRateEntity->toArray());
++                $taxSetTransfer->addTaxRate($taxRateTransfer);
++            }
+             $transferCollection->addTaxSet($taxSetTransfer);
+         }
+ 

@@ -1,0 +1,15 @@
+Index: vendor/spryker/spryker/Bundles/Transfer/src/SprykerEngine/Zed/Transfer/Business/Model/Generator/TransferInterface/TransferInterfaceDefinitionBuilder.php
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- vendor/spryker/spryker/Bundles/Transfer/src/SprykerEngine/Zed/Transfer/Business/Model/Generator/TransferInterface/TransferInterfaceDefinitionBuilder.php	(revision af325d422361de69aad5ce9f5452404658a56b29)
++++ vendor/spryker/spryker/Bundles/Transfer/src/SprykerEngine/Zed/Transfer/Business/Model/Generator/TransferInterface/TransferInterfaceDefinitionBuilder.php	(revision )
+@@ -50,6 +50,7 @@
+     public function getDefinitions()
+     {
+         $definitions = $this->loader->getDefinitions();
++        $definitions = $this->merger->merge($definitions);
+ 
+         return $this->buildDefinitions($definitions, $this->interfaceDefinition);
+     }

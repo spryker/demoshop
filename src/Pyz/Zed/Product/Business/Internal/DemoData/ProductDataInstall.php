@@ -45,7 +45,6 @@ class ProductDataInstall extends AbstractInstaller
             $product = $this->productDynamicImporterFacade->convertJsonToProductImporterAbstractProduct(json_encode($one));
             $validationResult = $this->productDynamicImporterFacade->validateProductImporterAbstractProduct($product);
             if ($validationResult->hasErrors()) {
-                var_dump($validationResult);
                 throw new \Exception('Demodata for products were not valid');
             }
             $this->productDynamicImporterFacade->persistProductImporterAbstractProduct($product);

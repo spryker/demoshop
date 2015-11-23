@@ -1,0 +1,291 @@
+Index: composer.json
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- composer.json	(date 1447862036000)
++++ composer.json	(date 1447922594000)
+@@ -1,6 +1,6 @@
+ {
+   "require": {
+-    "spryker/spryker": "dev-develop#af325d422361de69aad5ce9f5452404658a56b29",
++    "spryker/spryker": "dev-develop#4ab38eadd23afa335bb9d2f31c70d991ebc1fb03",
+     "project-a/spryker": "dev-develop",
+     "project-a/adyen-payment-gateway": "dev-master",
+ 
+Index: development/reset_vm.sh
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- development/reset_vm.sh	(date 1447862036000)
++++ development/reset_vm.sh	(date 1447922594000)
+@@ -1,8 +1,8 @@
+ #!/bin/bash
+ 
+-set -e
+ sudo /etc/init.d/postgresql restart
+ sudo dropdb DE_development_zed
++set -e
+ curl -XDELETE 'http://localhost:10005/_all'
+ redis-cli -p 10009 flushdb
+ sudo /etc/init.d/elasticsearch-development restart
+@@ -12,7 +12,7 @@
+ /data/shop/development/current/vendor/bin/pav-console setup:remove-generated-directory 
+ /data/shop/development/current/vendor/bin/pav-console transfer:generate 
+ /data/shop/development/current/vendor/bin/build-multiple-core-class-map
+-/data/shop/development/current/vendor/bin/pav-console setup:propel 
++/data/shop/development/current/vendor/bin/pav-console propel:install
+ /data/shop/development/current/vendor/bin/pav-console setup:init-db 
+ /data/shop/development/current/vendor/bin/pav-console setup:generate-zed-ide-auto-completion 
+ /data/shop/development/current/vendor/bin/pav-console setup:search 
+Index: gulp/yves.js
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- gulp/yves.js	(date 1447862036000)
++++ gulp/yves.js	(date 1447922594000)
+@@ -129,7 +129,7 @@
+     tasks.fonts(mode);
+ 
+     console.log('[ BUILD  ] copying images...'.green);
+-    tasks.images(mode);
++    //tasks.images(mode);
+ 
+     console.log('[ BUILD  ] building scss and copying css...'.green);
+     tasks.css(mode);
+Index: src/Pyz/Yves/Application/Communication/Bootstrap/Extension/BeforeBootExtension.php
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- src/Pyz/Yves/Application/Communication/Bootstrap/Extension/BeforeBootExtension.php	(date 1447862036000)
++++ src/Pyz/Yves/Application/Communication/Bootstrap/Extension/BeforeBootExtension.php	(date 1447922594000)
+@@ -24,7 +24,7 @@
+      */
+     public function beforeBoot(Application $app)
+     {
+-        $app['locale'] = Store::getInstance()->getCurrentLocale();
++        //$app['locale'] = Store::getInstance()->getCurrentLocale();
+         if (Config::get(ApplicationConfig::ENABLE_WEB_PROFILER, false)) {
+             $app['profiler.cache_dir'] = DataDirectory::getLocalStoreSpecificPath('cache/profiler');
+         }
+Index: src/Pyz/Yves/Application/Communication/Bootstrap/Extension/GlobalTemplateVariablesExtension.php
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- src/Pyz/Yves/Application/Communication/Bootstrap/Extension/GlobalTemplateVariablesExtension.php	(date 1447862036000)
++++ src/Pyz/Yves/Application/Communication/Bootstrap/Extension/GlobalTemplateVariablesExtension.php	(date 1447922594000)
+@@ -20,7 +20,7 @@
+      */
+     public function getGlobalTemplateVariables(Application $app)
+     {
+-        return  [
++        return [
+             'categories' => $this->getLocator()->categoryExporter()->client()->getNavigationCategories($app['locale']),
+             'environment' => Environment::getEnvironment(),
+             'registerForm' => $app['form.factory']->create($this->getLocator()->customer()->pluginRegisterForm()->createFormRegister())->createView(),
+Index: src/Pyz/Yves/Application/Communication/Bootstrap/Extension/LocaleBootExtension.php
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- src/Pyz/Yves/Application/Communication/Bootstrap/Extension/LocaleBootExtension.php	(date 1447922594000)
++++ src/Pyz/Yves/Application/Communication/Bootstrap/Extension/LocaleBootExtension.php	(date 1447922594000)
+@@ -0,0 +1,45 @@
++<?php
++
++/**
++ * (c) Spryker Systems GmbH copyright protected.
++ */
++namespace Pyz\Yves\Application\Communication\Bootstrap\Extension;
++
++use SprykerEngine\Shared\Application\Communication\Bootstrap\Extension\AfterBootExtensionInterface;
++use SprykerEngine\Shared\Application\Communication\Application;
++use SprykerEngine\Shared\Kernel\Store;
++use SprykerFeature\Shared\Library\Application\Environment;
++
++class LocaleBootExtension implements AfterBootExtensionInterface
++{
++
++    const REQUEST_URI = 'REQUEST_URI';
++    const LOCALE = 'locale';
++
++    /**
++     * @param Application $app
++     *
++     * @return void
++     */
++    public function afterBoot(Application $app)
++    {
++        $store = Store::getInstance();
++        $store->setCurrentLocale(current($store->getLocales()));
++        $app[self::LOCALE] = $store->getCurrentLocale();
++
++        if (!array_key_exists(self::REQUEST_URI, $_SERVER)) {
++            return;
++        }
++
++        $requestUrI = $_SERVER[self::REQUEST_URI];
++        $identifier = mb_substr($requestUrI, 1, 2);
++
++        if ($identifier !== false && array_key_exists($identifier, $store->getLocales())) {
++            $store->setCurrentLocale($store->getLocales()[$identifier]);
++            $app[self::LOCALE] = $store->getCurrentLocale();
++
++            Environment::initializeLocale($store->getCurrentLocale());
++        }
++    }
++
++}
+Index: src/Pyz/Yves/Application/Communication/YvesBootstrap.php
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- src/Pyz/Yves/Application/Communication/YvesBootstrap.php	(date 1447862036000)
++++ src/Pyz/Yves/Application/Communication/YvesBootstrap.php	(date 1447922594000)
+@@ -5,6 +5,7 @@
+ use Pyz\Yves\Application\Communication\Bootstrap\Extension\BeforeBootExtension;
+ use Pyz\Yves\Application\Communication\Bootstrap\Extension\ControllerProviderExtension;
+ use Pyz\Yves\Application\Communication\Bootstrap\Extension\GlobalTemplateVariablesExtension;
++use Pyz\Yves\Application\Communication\Bootstrap\Extension\LocaleBootExtension;
+ use Pyz\Yves\Application\Communication\Bootstrap\Extension\RouterExtension;
+ use Pyz\Yves\Application\Communication\Bootstrap\Extension\ServiceProviderExtension;
+ use Pyz\Yves\Application\Communication\Bootstrap\Extension\TwigExtension;
+@@ -26,6 +27,7 @@
+         $sprykerBootstrap = new SprykerYvesBootstrap(new YvesApplication());
+ 
+         $sprykerBootstrap->addBeforeBootExtension(new BeforeBootExtension());
++        $sprykerBootstrap->addAfterBootExtension(new LocaleBootExtension());
+         $sprykerBootstrap->addAfterBootExtension(new AfterBootExtension());
+         $sprykerBootstrap->addControllerProviderExtension(new ControllerProviderExtension());
+         $sprykerBootstrap->addGlobalTemplateVariableExtension(new GlobalTemplateVariablesExtension());
+Index: src/Pyz/Zed/Category/Business/Internal/DemoData/CategoryTreeInstall.php
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- src/Pyz/Zed/Category/Business/Internal/DemoData/CategoryTreeInstall.php	(date 1447862036000)
++++ src/Pyz/Zed/Category/Business/Internal/DemoData/CategoryTreeInstall.php	(date 1447922594000)
+@@ -20,6 +20,7 @@
+     const CATEGORY_NAME = 'name';
+     const PARENT_NAME = 'parent_name';
+     const IMAGE_NAME = 'image_name';
++    const CATEGORY_KEY = 'category_key';
+ 
+     /**
+      * @var CategoryWriter
+@@ -154,6 +155,7 @@
+         $categoryTransfer = new CategoryTransfer();
+         $categoryTransfer->setName($rawNode[self::CATEGORY_NAME]);
+         $categoryTransfer->setImageName($rawNode[self::IMAGE_NAME]);
++        $categoryTransfer->setCategoryKey($rawNode[self::CATEGORY_KEY]);
+         $idCategory = $this->categoryWriter->create($categoryTransfer, $this->locale);
+ 
+         return $idCategory;
+Index: src/Pyz/Zed/Category/Business/Internal/DemoData/pets-deli-category-tree.csv
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- src/Pyz/Zed/Category/Business/Internal/DemoData/pets-deli-category-tree.csv	(date 1447862036000)
++++ src/Pyz/Zed/Category/Business/Internal/DemoData/pets-deli-category-tree.csv	(date 1447922594000)
+@@ -1,25 +1,25 @@
+-"is_root";"name";"parent_name";"image_name"
+-1;"Root";NULL;NULL
+-0;"Hunde";"Root";"alles-fuer-den-hund-und-die-katz.png"
+-0;"Basisnahrung";"Hunde";"Header_Basisnahrung_neu_2015.jpg"
+-0;"Snacks";"Hunde";"HeaderSnacksneuohnebio.jpg"
+-0;"Trockenfleisch";"Hunde";"HeaderTrockenfleischneu2015.jpg"
+-0;"Supplements";"Hunde";"Header_Supplements_neu_2015.jpg"
+-0;"Katzen";"Root";"alles-fuer-den-hund-und-die-katz_1.png"
+-0;"Basisnahrung";"Katzen";"Header_Basisnahrung_neu_2015_1.jpg"
+-0;"Snacks";"Katzen";"HeaderSnacksneuohnebio_1.jpg"
+-0;"Trockenfleisch";"Katzen";"HeaderTrockenfleischneu2015_1.jpg"
+-0;"Supplements";"Katzen";"Header_Supplements_neu_2015_1.jpg"
+-0;"Fisch & Fleisch";"Basisnahrung";NULL
+-0;"Obst & Gemüse";"Basisnahrung";NULL
+-0;"Kohlenhydrate";"Basisnahrung";NULL
+-0;"Supplements";"Basisnahrung";NULL
+-0;"Angebote";"Root";NULL
+-0;"Beratung";"Root";NULL
+-0;"So funktioniert's";"Beratung";NULL
+-0;"Kontakt";"Root";NULL
+-0;"Promotionen";"Beratung";NULL
+-0;"Futtermixer";"Hunde";"Header_Futtermixer_neu_2015.jpg"
+-0;"Futtermixer";"Katzen";"Header_Futtermixer_neu_2015_1.jpg"
+-0;"Über uns";"Beratung";NULL
+-0;"FAQ";"Beratung";NULL
++"is_root";"name";"parent_name";"image_name";"category_key"
++"1";"Root";"NULL";"NULL";"1"
++"0";"Hunde";"Root";"alles-fuer-den-hund-und-die-katz.png";"2"
++"0";"Basisnahrung";"Hunde";"Header_Basisnahrung_neu_2015.jpg";"3"
++"0";"Snacks";"Hunde";"HeaderSnacksneuohnebio.jpg";"4"
++"0";"Trockenfleisch";"Hunde";"HeaderTrockenfleischneu2015.jpg";"5"
++"0";"Supplements";"Hunde";"Header_Supplements_neu_2015.jpg";"6"
++"0";"Katzen";"Root";"alles-fuer-den-hund-und-die-katz_1.png";"7"
++"0";"Basisnahrung";"Katzen";"Header_Basisnahrung_neu_2015_1.jpg";"8"
++"0";"Snacks";"Katzen";"HeaderSnacksneuohnebio_1.jpg";"9"
++"0";"Trockenfleisch";"Katzen";"HeaderTrockenfleischneu2015_1.jpg";"10"
++"0";"Supplements";"Katzen";"Header_Supplements_neu_2015_1.jpg";"11"
++"0";"Fisch & Fleisch";"Basisnahrung";"NULL";"12"
++"0";"Obst & Gemüse";"Basisnahrung";"NULL";"13"
++"0";"Kohlenhydrate";"Basisnahrung";"NULL";"14"
++"0";"Supplements";"Basisnahrung";"NULL";"15"
++"0";"Angebote";"Root";"NULL";"16"
++"0";"Beratung";"Root";"NULL";"17"
++"0";"So funktioniert's";"Beratung";"NULL";"18"
++"0";"Kontakt";"Root";"NULL";"19"
++"0";"Promotionen";"Beratung";"NULL";"20"
++"0";"Futtermixer";"Hunde";"Header_Futtermixer_neu_2015.jpg";"21"
++"0";"Futtermixer";"Katzen";"Header_Futtermixer_neu_2015_1.jpg";"22"
++"0";"Über uns";"Beratung";"NULL";"23"
++"0";"FAQ";"Beratung";"NULL";"24"
+Index: src/Pyz/Zed/Console/ConsoleConfig.php
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- src/Pyz/Zed/Console/ConsoleConfig.php	(date 1447862036000)
++++ src/Pyz/Zed/Console/ConsoleConfig.php	(date 1447922594000)
+@@ -27,7 +27,7 @@
+             $this->getLocator()->maintenance()->consoleCodeStyleFixerConsole(),
+             $this->getLocator()->setup()->consoleRemoveGeneratedDirectoryConsole(),
+             $this->getLocator()->setup()->consoleInstallConsole(),
+-            $this->getLocator()->propel()->consolePropelConsole(),
++            $this->getLocator()->propel()->consolePropelInstallConsole(),
+             $this->getLocator()->propel()->consolePostgresqlCompatibilityConsole(),
+             $this->getLocator()->propel()->consoleBuildModelConsole(),
+             $this->getLocator()->propel()->consoleBuildSqlConsole(),
+@@ -50,6 +50,7 @@
+             $this->getLocator()->setup()->consoleDeployPreparePropelConsole(),
+             $this->getLocator()->transfer()->consoleGeneratorConsole(),
+             $this->getLocator()->cache()->consoleDeleteAllCachesConsole(),
++            $this->getLocator()->newRelic()->consoleRecordDeploymentConsole(),
+             $this->getLocator()->orderExporter()->consoleAfterbuyOrderItemExportConsole(),
+             $this->getLocator()->queue()->consoleQueueWorkerConsole(),
+         ];
+Index: src/Pyz/Zed/Product/ProductDependencyProvider.php
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- src/Pyz/Zed/Product/ProductDependencyProvider.php	(date 1447862036000)
++++ src/Pyz/Zed/Product/ProductDependencyProvider.php	(date 1447922594000)
+@@ -53,11 +53,11 @@
+             return $container->getLocator()->locale()->facade();
+         };
+ 
+-        $container[self::FACADE_PRODUCT_CATEGORIES] = function (Container $container) {
++        $container[self::FACADE_PRODUCT_CATEGORY] = function (Container $container) {
+             return $container->getLocator()->productCategory()->facade();
+         };
+ 
+-        $container[self::FACADE_PRODUCT_OPTIONS] = function (Container $container) {
++        $container[self::FACADE_PRODUCT_OPTION] = function (Container $container) {
+             return $container->getLocator()->productOption()->facade();
+         };
+ 

@@ -1,0 +1,16 @@
+Index: vendor/spryker/spryker/Bundles/Price/src/SprykerFeature/Zed/Price/Persistence/PriceQueryContainer.php
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- vendor/spryker/spryker/Bundles/Price/src/SprykerFeature/Zed/Price/Persistence/PriceQueryContainer.php	(revision a8d4b83f77fb0974368e5f6fde10ca65bbe9343e)
++++ vendor/spryker/spryker/Bundles/Price/src/SprykerFeature/Zed/Price/Persistence/PriceQueryContainer.php	(revision )
+@@ -85,7 +85,7 @@
+      */
+     public function addFilter($query, $idPriceProduct)
+     {
+-        return $query->filterByIdPriceProduct($idPriceProduct, Criteria::NOT_EQUAL);
++        return $query->filterByIdPriceProduct($idPriceProduct, Criteria::EQUAL);
+     }
+ 
+     /**

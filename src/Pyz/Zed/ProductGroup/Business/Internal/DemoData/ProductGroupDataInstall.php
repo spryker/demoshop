@@ -25,7 +25,17 @@ class ProductGroupDataInstall extends AbstractInstaller
         $this->installProductGroups();
     }
 
-    protected function installProductGroups() {
+    protected function installProductGroups()
+    {
+
+        $this->installWeights();
+        $this->installCarbs();
+        $this->installMeatTypes();
+    }
+
+    protected function installWeights()
+    {
+
         $productGroupTransfer = new ProductGroupTransfer();
         $productGroupTransfer->setKey('weight');
         $productGroupId = $this->productGroupFacade->saveProductGroup($productGroupTransfer);
@@ -35,8 +45,7 @@ class ProductGroupDataInstall extends AbstractInstaller
             ->setSequence(1)
             ->setFkProductGroup($productGroupId)
             ->setType('string')
-            ->setValue('250g')
-        ;
+            ->setValue('250g');
         $this->productGroupFacade->saveProductGroupValue($productGroupValue);
 
         $productGroupValue = new ProductGroupValueTransfer();
@@ -44,12 +53,14 @@ class ProductGroupDataInstall extends AbstractInstaller
             ->setSequence(2)
             ->setFkProductGroup($productGroupId)
             ->setType('string')
-            ->setValue('500g')
-        ;
+            ->setValue('500g');
         $this->productGroupFacade->saveProductGroupValue($productGroupValue);
 
 
+    }
 
+    protected function installCarbs()
+    {
         $productGroupTransfer = new ProductGroupTransfer();
         $productGroupTransfer->setKey('carbs');
         $productGroupId = $this->productGroupFacade->saveProductGroup($productGroupTransfer);
@@ -59,8 +70,7 @@ class ProductGroupDataInstall extends AbstractInstaller
             ->setSequence(1)
             ->setFkProductGroup($productGroupId)
             ->setType('string')
-            ->setValue('no')
-        ;
+            ->setValue('no');
         $this->productGroupFacade->saveProductGroupValue($productGroupValue);
 
         $productGroupValue = new ProductGroupValueTransfer();
@@ -68,8 +78,7 @@ class ProductGroupDataInstall extends AbstractInstaller
             ->setSequence(2)
             ->setFkProductGroup($productGroupId)
             ->setType('string')
-            ->setValue('rice')
-        ;
+            ->setValue('rice');
         $this->productGroupFacade->saveProductGroupValue($productGroupValue);
 
         $productGroupValue = new ProductGroupValueTransfer();
@@ -77,11 +86,36 @@ class ProductGroupDataInstall extends AbstractInstaller
             ->setSequence(2)
             ->setFkProductGroup($productGroupId)
             ->setType('string')
-            ->setValue('potatoes')
-        ;
+            ->setValue('potatoes');
         $this->productGroupFacade->saveProductGroupValue($productGroupValue);
     }
 
+    protected function installMeatTypes()
+    {
+        $productGroupTransfer = new ProductGroupTransfer();
+        $productGroupTransfer->setKey('meattype');
+        $productGroupId = $this->productGroupFacade->saveProductGroup($productGroupTransfer);
 
+
+        $productGroupValues = [
+            'chicken',
+            'turkey',
+            'beef',
+            'white_fish',
+            'kangaroo',
+            'venison'
+        ];
+
+        foreach ($productGroupValues as $index => $value) {
+            $sequence = $index +1;
+            $productGroupValue = new ProductGroupValueTransfer();
+            $productGroupValue
+                ->setSequence($sequence)
+                ->setFkProductGroup($productGroupId)
+                ->setType('string')
+                ->setValue($value);
+            $this->productGroupFacade->saveProductGroupValue($productGroupValue);
+        }
+    }
 
 }

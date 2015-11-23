@@ -58,7 +58,8 @@
     ],
     "product_group_keys": [
       "weight",
-      "carbs"
+      "carbs",
+      "meattype"
     ],
     "concrete_products": [
       {
@@ -90,7 +91,8 @@
         },
         "product_group_key_values": {
           "weight": "250g",
-          "carbs": "rice"
+          "carbs": "rice",
+          "meattype": "chicken"
         }
       },
       {
@@ -122,7 +124,8 @@
         },
         "product_group_key_values": {
           "weight": "250g",
-          "carbs": "no"
+          "carbs": "no",
+          "meattype": "chicken"
         }
       },
       {
@@ -154,7 +157,8 @@
         },
         "product_group_key_values": {
           "weight": "500g",
-          "carbs": "rice"
+          "carbs": "rice",
+          "meattype": "chicken"
         }
       },
       {
@@ -186,7 +190,8 @@
         },
         "product_group_key_values": {
           "weight": "500g",
-          "carbs": "no"
+          "carbs": "no",
+          "meattype": "chicken"
         }
       }
     ]
@@ -250,7 +255,8 @@
     ],
     "product_group_keys": [
       "weight",
-      "carbs"
+      "carbs",
+      "meattype"
     ],
     "concrete_products": [
       {
@@ -282,7 +288,8 @@
         },
         "product_group_key_values": {
           "weight": "250g",
-          "carbs": "rice"
+          "carbs": "rice",
+          "meattype": "white_fish"
         }
       },
       {
@@ -314,7 +321,8 @@
         },
         "product_group_key_values": {
           "weight": "250g",
-          "carbs": "rice"
+          "carbs": "rice",
+          "meattype": "white_fish"
         }
       },
       {
@@ -346,7 +354,8 @@
         },
         "product_group_key_values": {
           "weight": "500g",
-          "carbs": "rice"
+          "carbs": "rice",
+          "meattype": "white_fish"
         }
       },
       {
@@ -378,7 +387,8 @@
         },
         "product_group_key_values": {
           "weight": "500g",
-          "carbs": "rice"
+          "carbs": "rice",
+          "meattype": "white_fish"
         }
       }
     ]
@@ -442,7 +452,8 @@
     ],
     "product_group_keys": [
       "weight",
-      "carbs"
+      "carbs",
+      "meattype"
     ],
     "concrete_products": [
       {
@@ -474,7 +485,8 @@
         },
         "product_group_key_values": {
           "weight": "250g",
-          "carbs": "rice"
+          "carbs": "rice",
+          "meattype": "kangaroo"
         }
       },
       {
@@ -506,7 +518,8 @@
         },
         "product_group_key_values": {
           "weight": "250g",
-          "carbs": "no"
+          "carbs": "no",
+          "meattype": "kangaroo"
         }
       },
       {
@@ -538,7 +551,8 @@
         },
         "product_group_key_values": {
           "weight": "500g",
-          "carbs": "rice"
+          "carbs": "rice",
+          "meattype": "kangaroo"
         }
       },
       {
@@ -570,7 +584,8 @@
         },
         "product_group_key_values": {
           "weight": "500g",
-          "carbs": "no"
+          "carbs": "no",
+          "meattype": "kangaroo"
         }
       }
     ]
@@ -634,7 +649,8 @@
     ],
     "product_group_keys": [
       "weight",
-      "carbs"
+      "carbs",
+      "meattype"
     ],
     "concrete_products": [
       {
@@ -666,7 +682,8 @@
         },
         "product_group_key_values": {
           "weight": "250g",
-          "carbs": "rice"
+          "carbs": "rice",
+          "meattype": "turkey"
         }
       },
       {
@@ -698,7 +715,8 @@
         },
         "product_group_key_values": {
           "weight": "250g",
-          "carbs": "rice"
+          "carbs": "rice",
+          "meattype": "turkey"
         }
       },
       {
@@ -730,7 +748,8 @@
         },
         "product_group_key_values": {
           "weight": "500g",
-          "carbs": "rice"
+          "carbs": "rice",
+          "meattype": "turkey"
         }
       },
       {
@@ -762,7 +781,8 @@
         },
         "product_group_key_values": {
           "weight": "500g",
-          "carbs": "rice"
+          "carbs": "rice",
+          "meattype": "turkey"
         }
       }
     ]
@@ -826,7 +846,8 @@
     ],
     "product_group_keys": [
       "weight",
-      "carbs"
+      "carbs",
+      "meattype"
     ],
     "concrete_products": [
       {
@@ -858,7 +879,8 @@
         },
         "product_group_key_values": {
           "weight": "250g",
-          "carbs": "rice"
+          "carbs": "rice",
+          "meattype": "venison"
         }
       },
       {
@@ -890,7 +912,8 @@
         },
         "product_group_key_values": {
           "weight": "250g",
-          "carbs": "no"
+          "carbs": "no",
+          "meattype": "venison"
         }
       },
       {
@@ -922,7 +945,8 @@
         },
         "product_group_key_values": {
           "weight": "500g",
-          "carbs": "rice"
+          "carbs": "rice",
+          "meattype": "venison"
         }
       },
       {
@@ -954,7 +978,8 @@
         },
         "product_group_key_values": {
           "weight": "500g",
-          "carbs": "no"
+          "carbs": "no",
+          "meattype": "venison"
         }
       }
     ]
@@ -1018,7 +1043,8 @@
     ],
     "product_group_keys": [
       "weight",
-      "carbs"
+      "carbs",
+      "meattype"
     ],
     "concrete_products": [
       {
@@ -1050,7 +1076,8 @@
         },
         "product_group_key_values": {
           "weight": "250g",
-          "carbs": "rice"
+          "carbs": "rice",
+          "meattype": "beef"
         }
       },
       {
@@ -1082,7 +1109,8 @@
         },
         "product_group_key_values": {
           "weight": "250g",
-          "carbs": "no"
+          "carbs": "no",
+          "meattype": "beef"
         }
       },
       {
@@ -1114,7 +1142,8 @@
         },
         "product_group_key_values": {
           "weight": "500g",
-          "carbs": "rice"
+          "carbs": "rice",
+          "meattype": "beef"
         }
       },
       {
@@ -1146,7 +1175,8 @@
         },
         "product_group_key_values": {
           "weight": "500g",
-          "carbs": "no"
+          "carbs": "no",
+          "meattype": "beef"
         }
       }
     ]
@@ -1210,7 +1240,8 @@
     ],
     "product_group_keys": [
       "weight",
-      "carbs"
+      "carbs",
+      "meattype"
     ],
     "concrete_products": [
       {
@@ -1242,7 +1273,8 @@
         },
         "product_group_key_values": {
           "weight": "250g",
-          "carbs": "no"
+          "carbs": "no",
+          "meattype": "kangaroo"
         }
       },
       {
@@ -1274,7 +1306,8 @@
         },
         "product_group_key_values": {
           "weight": "500g",
-          "carbs": "no"
+          "carbs": "no",
+          "meattype": "kangaroo"
         }
       }
     ]
@@ -1338,7 +1371,8 @@
     ],
     "product_group_keys": [
       "weight",
-      "carbs"
+      "carbs",
+      "meattype"
     ],
     "concrete_products": [
       {
@@ -1370,7 +1404,8 @@
         },
         "product_group_key_values": {
           "weight": "250g",
-          "carbs": "no"
+          "carbs": "no",
+          "meattype": "chicken"
         }
       },
       {
@@ -1402,7 +1437,8 @@
         },
         "product_group_key_values": {
           "weight": "500g",
-          "carbs": "no"
+          "carbs": "no",
+          "meattype": "chicken"
         }
       }
     ]
@@ -1488,6 +1524,14 @@
       "products": [
         {
           "sku": "80000-2",
+          "quantity": "2"
+        },
+        {
+          "sku": "60000-1",
+          "quantity": "2"
+        },
+        {
+          "sku": "60000-2",
           "quantity": "2"
         },
         {

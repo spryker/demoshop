@@ -1,0 +1,97 @@
+Index: vendor/spryker/spryker/Bundles/Price/src/SprykerFeature/Zed/Price/Business/Model/ReaderInterface.php
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- vendor/spryker/spryker/Bundles/Price/src/SprykerFeature/Zed/Price/Business/Model/ReaderInterface.php	(revision af325d422361de69aad5ce9f5452404658a56b29)
++++ vendor/spryker/spryker/Bundles/Price/src/SprykerFeature/Zed/Price/Business/Model/ReaderInterface.php	(revision )
+@@ -78,6 +78,6 @@
+      *
+      * @return int
+      */
+-    public function getProductPriceIdBySku($sku, $priceTypeName);
++    public function getProductPriceIdBySku($sku, $priceTypeName = null);
+ 
+ }
+Index: vendor/spryker/spryker/Bundles/Price/src/SprykerFeature/Zed/Price/Business/PriceFacade.php
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- vendor/spryker/spryker/Bundles/Price/src/SprykerFeature/Zed/Price/Business/PriceFacade.php	(revision af325d422361de69aad5ce9f5452404658a56b29)
++++ vendor/spryker/spryker/Bundles/Price/src/SprykerFeature/Zed/Price/Business/PriceFacade.php	(revision )
+@@ -93,11 +93,11 @@
+ 
+     /**
+      * @param string $sku
+-     * @param string $priceType
++     * @param null $priceType
+      *
+      * @return int
+      */
+-    public function getIdPriceProduct($sku, $priceType)
++    public function getIdPriceProduct($sku, $priceType = null)
+     {
+         return $this->getDependencyContainer()->getReaderModel()->getProductPriceIdBySku($sku, $priceType);
+     }
+Index: vendor/spryker/spryker/Bundles/Price/src/SprykerFeature/Zed/Price/Business/Model/Reader.php
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- vendor/spryker/spryker/Bundles/Price/src/SprykerFeature/Zed/Price/Business/Model/Reader.php	(revision af325d422361de69aad5ce9f5452404658a56b29)
++++ vendor/spryker/spryker/Bundles/Price/src/SprykerFeature/Zed/Price/Business/Model/Reader.php	(revision )
+@@ -157,8 +157,9 @@
+      *
+      * @return int
+      */
+-    public function getProductPriceIdBySku($sku, $priceTypeName)
++    public function getProductPriceIdBySku($sku, $priceTypeName = null)
+     {
++        $priceTypeName = $this->handleDefaultPriceType($priceTypeName);
+         $priceType = $this->getPriceTypeByName($priceTypeName);
+ 
+         if ($this->hasPriceForConcreteProduct($sku, $priceType)) {
+Index: vendor/spryker/spryker/Bundles/Price/src/SprykerFeature/Zed/Price/Business/Model/Writer.php
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- vendor/spryker/spryker/Bundles/Price/src/SprykerFeature/Zed/Price/Business/Model/Writer.php	(revision af325d422361de69aad5ce9f5452404658a56b29)
++++ vendor/spryker/spryker/Bundles/Price/src/SprykerFeature/Zed/Price/Business/Model/Writer.php	(revision )
+@@ -123,8 +123,8 @@
+         $priceProductTransfer = $this->setPriceType($priceProductTransfer);
+ 
+         if (
+-            !$this->isPriceTypeExistingForConcreteProduct($priceProductTransfer)
+-            && !$this->isPriceTypeExistingForAbstractProduct($priceProductTransfer)
++            $this->isPriceTypeExistingForConcreteProduct($priceProductTransfer)
++            || $this->isPriceTypeExistingForAbstractProduct($priceProductTransfer)
+         ) {
+             $this->loadAbstractProductIdForPriceProductTransfer($priceProductTransfer);
+             $this->loadConcreteProductIdForPriceProductTransfer($priceProductTransfer);
+@@ -136,7 +136,7 @@
+                 $this->insertTouchRecord(self::TOUCH_PRODUCT, $priceProductTransfer->getIdProduct());
+             }
+         } else {
+-            throw new \Exception('This couple product price type is already set');
++            throw new \Exception('No price existing for the product');
+         }
+     }
+ 
+Index: vendor/spryker/spryker/Bundles/Price/src/SprykerFeature/Zed/Price/Persistence/PriceQueryContainer.php
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- vendor/spryker/spryker/Bundles/Price/src/SprykerFeature/Zed/Price/Persistence/PriceQueryContainer.php	(revision af325d422361de69aad5ce9f5452404658a56b29)
++++ vendor/spryker/spryker/Bundles/Price/src/SprykerFeature/Zed/Price/Persistence/PriceQueryContainer.php	(revision )
+@@ -85,7 +85,7 @@
+      */
+     public function addFilter($query, $idPriceProduct)
+     {
+-        return $query->filterByIdPriceProduct($idPriceProduct, Criteria::NOT_EQUAL);
++        return $query->filterByIdPriceProduct($idPriceProduct, Criteria::EQUAL);
+     }
+ 
+     /**

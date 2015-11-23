@@ -108,4 +108,19 @@ class ProductBundleManager implements ProductBundleManagerInterface, SprykerBugf
             ->findOne();
     }
 
+    /**
+     * @param $idAbstractProduct
+     * @return bool
+     */
+    public function deleteBundleProductsByAbstractProductId($idAbstractProduct)
+    {
+        $bundledProductsForAbstractProduct = $this->productQueryContainer
+            ->queryBundledProductsByAbstractProductId($idAbstractProduct)
+            ->find();
+
+        foreach ($bundledProductsForAbstractProduct as $entity) {
+            $entity->delete();
+        }
+        return true;
+    }
 }

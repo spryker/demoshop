@@ -1,0 +1,42 @@
+master: localhost
+file_client: local
+state_events: false
+id: pets-deli-vm
+environment: staging
+grains:
+  roles:
+    - app
+    - web
+    - cronjobs
+    - elasticsearch
+    - dev
+    - queue
+    - elk_kibana
+    - elk_elasticsearch
+    - redis
+    - postgresql
+file_roots:
+  base:
+    - /srv/salt/base
+  dev:
+    - /srv/salt/dev
+    - /srv/salt/base
+  staging:
+      - /srv/salt/staging
+      - /srv/salt/base
+  qa:
+    - /srv/salt/qa
+    - /srv/salt/base
+  prod:
+    - /srv/salt/prod
+    - /srv/salt/base
+
+pillar_roots:
+  prod:
+    - /srv/pillar/prod
+  staging:
+    - /srv/pillar/staging
+  qa:
+    - /srv/pillar/qa
+  dev:
+    - /srv/pillar/dev

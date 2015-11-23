@@ -1,0 +1,25 @@
+Index: vendor/spryker/spryker/Bundles/Library/src/SprykerFeature/Shared/Library/Application/Environment.php
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- vendor/spryker/spryker/Bundles/Library/src/SprykerFeature/Shared/Library/Application/Environment.php	(revision 4ab38eadd23afa335bb9d2f31c70d991ebc1fb03)
++++ vendor/spryker/spryker/Bundles/Library/src/SprykerFeature/Shared/Library/Application/Environment.php	(revision )
+@@ -106,7 +106,7 @@
+     /**
+      * @return void
+      */
+-    private static function defineEnvironment()
++    protected static function defineEnvironment()
+     {
+         if (!defined('APPLICATION_ENV')) {
+             $env = getenv('APPLICATION_ENV');
+@@ -126,7 +126,7 @@
+     /**
+      * @return void
+      */
+-    private static function defineStore()
++    protected static function defineStore()
+     {
+         if (!defined('APPLICATION_STORE')) {
+             $store = getenv('APPLICATION_STORE');

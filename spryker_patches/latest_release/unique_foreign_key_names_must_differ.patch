@@ -1,0 +1,178 @@
+Index: vendor/spryker/spryker/Bundles/Touch/src/SprykerEngine/Zed/Touch/Persistence/Propel/Schema/spy_touch.schema.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- vendor/spryker/spryker/Bundles/Touch/src/SprykerEngine/Zed/Touch/Persistence/Propel/Schema/spy_touch.schema.xml	(revision 4ab38eadd23afa335bb9d2f31c70d991ebc1fb03)
++++ vendor/spryker/spryker/Bundles/Touch/src/SprykerEngine/Zed/Touch/Persistence/Propel/Schema/spy_touch.schema.xml	(revision )
+@@ -35,7 +35,7 @@
+         <column name="fk_locale" type="INTEGER" required="true"/>
+         <column name="fk_touch" type="INTEGER" required="true"/>
+         <column name="key" type="VARCHAR" required="true"/>
+-        <unique name="spy_touch_storage-fk_locale">
++        <unique name="spy_touch_storage-fk_locale-unique">
+             <unique-column name="fk_locale"/>
+             <unique-column name="key"/>
+         </unique>
+Index: vendor/spryker/spryker/Bundles/Oms/src/SprykerFeature/Zed/Oms/Persistence/Propel/Schema/spy_oms.schema.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- vendor/spryker/spryker/Bundles/Oms/src/SprykerFeature/Zed/Oms/Persistence/Propel/Schema/spy_oms.schema.xml	(revision 4ab38eadd23afa335bb9d2f31c70d991ebc1fb03)
++++ vendor/spryker/spryker/Bundles/Oms/src/SprykerFeature/Zed/Oms/Persistence/Propel/Schema/spy_oms.schema.xml	(revision )
+@@ -96,7 +96,7 @@
+ 
+         <behavior name="timestampable"/>
+ 
+-        <unique name="spy_oms_event_timeout-fk_sales_order_item">
++        <unique name="spy_oms_event_timeout-fk_sales_order_item-unique">
+             <unique-column name="fk_sales_order_item"/>
+             <unique-column name="fk_oms_order_item_state"/>
+         </unique>
+Index: vendor/spryker/spryker/Bundles/Stock/src/SprykerFeature/Zed/Stock/Persistence/Propel/Schema/spy_stock.schema.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- vendor/spryker/spryker/Bundles/Stock/src/SprykerFeature/Zed/Stock/Persistence/Propel/Schema/spy_stock.schema.xml	(revision 4ab38eadd23afa335bb9d2f31c70d991ebc1fb03)
++++ vendor/spryker/spryker/Bundles/Stock/src/SprykerFeature/Zed/Stock/Persistence/Propel/Schema/spy_stock.schema.xml	(revision )
+@@ -26,7 +26,7 @@
+             <reference local="fk_stock" foreign="id_stock"/>
+         </foreign-key>
+ 
+-        <unique name="spy_stock_product-fk_stock">
++        <unique name="spy_stock_product-fk_stock-unique">
+             <unique-column name="fk_stock"/>
+             <unique-column name="fk_product"/>
+         </unique>
+Index: vendor/spryker/spryker/Bundles/Discount/src/SprykerFeature/Zed/Discount/Persistence/Propel/Schema/spy_discount.schema.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- vendor/spryker/spryker/Bundles/Discount/src/SprykerFeature/Zed/Discount/Persistence/Propel/Schema/spy_discount.schema.xml	(revision 4ab38eadd23afa335bb9d2f31c70d991ebc1fb03)
++++ vendor/spryker/spryker/Bundles/Discount/src/SprykerFeature/Zed/Discount/Persistence/Propel/Schema/spy_discount.schema.xml	(revision )
+@@ -20,7 +20,7 @@
+             <reference local="fk_discount_voucher_pool" foreign="id_discount_voucher_pool"/>
+         </foreign-key>
+ 
+-        <unique name="spy_discount-fk_discount_voucher_pool">
++        <unique name="spy_discount-fk_discount_voucher_pool-unique">
+             <unique-column name="fk_discount_voucher_pool" />
+         </unique>
+         <id-method-parameter value="spy_discount_pk_seq"/>
+Index: vendor/spryker/spryker/Bundles/Price/src/SprykerFeature/Zed/Price/Persistence/Propel/Schema/spy_price.schema.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- vendor/spryker/spryker/Bundles/Price/src/SprykerFeature/Zed/Price/Persistence/Propel/Schema/spy_price.schema.xml	(revision 4ab38eadd23afa335bb9d2f31c70d991ebc1fb03)
++++ vendor/spryker/spryker/Bundles/Price/src/SprykerFeature/Zed/Price/Persistence/Propel/Schema/spy_price.schema.xml	(revision )
+@@ -20,7 +20,7 @@
+             <reference local="fk_abstract_product" foreign="id_abstract_product"/>
+         </foreign-key>
+ 
+-        <unique name="spy_price_product-fk_abstract_product">
++        <unique name="spy_price_product-fk_abstract_product-unique">
+             <unique-column name="fk_abstract_product"/>
+             <unique-column name="fk_product"/>
+             <unique-column name="fk_price_type"/>
+Index: vendor/spryker/spryker/Bundles/ProductCategory/src/SprykerFeature/Zed/ProductCategory/Persistence/Propel/Schema/spy_product_category.schema.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- vendor/spryker/spryker/Bundles/ProductCategory/src/SprykerFeature/Zed/ProductCategory/Persistence/Propel/Schema/spy_product_category.schema.xml	(revision 4ab38eadd23afa335bb9d2f31c70d991ebc1fb03)
++++ vendor/spryker/spryker/Bundles/ProductCategory/src/SprykerFeature/Zed/ProductCategory/Persistence/Propel/Schema/spy_product_category.schema.xml	(revision )
+@@ -15,7 +15,7 @@
+             <reference foreign="id_abstract_product" local="fk_abstract_product"/>
+         </foreign-key>
+ 
+-        <unique name="spy_product_category-fk_abstract_product">
++        <unique name="spy_product_category-fk_abstract_product-unique">
+             <unique-column name="fk_abstract_product"/>
+             <unique-column name="fk_category"/>
+         </unique>
+Index: vendor/spryker/spryker/Bundles/Product/src/SprykerFeature/Zed/Product/Persistence/Propel/Schema/spy_product.schema.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- vendor/spryker/spryker/Bundles/Product/src/SprykerFeature/Zed/Product/Persistence/Propel/Schema/spy_product.schema.xml	(revision 4ab38eadd23afa335bb9d2f31c70d991ebc1fb03)
++++ vendor/spryker/spryker/Bundles/Product/src/SprykerFeature/Zed/Product/Persistence/Propel/Schema/spy_product.schema.xml	(revision )
+@@ -28,7 +28,7 @@
+         <foreign-key name="spy_abstract_product_localized_attributes-fk_locale" foreignTable="spy_locale" phpName="Locale">
+             <reference local="fk_locale" foreign="id_locale"/>
+         </foreign-key>
+-        <unique name="spy_abstract_product_localized_attributes-fk_abstract_product">
++        <unique name="spy_abstract_product_localized_attributes-fk_abstract_product-unique">
+             <unique-column name="fk_abstract_product"/>
+             <unique-column name="fk_locale"/>
+         </unique>
+@@ -65,7 +65,7 @@
+         <foreign-key name="spy_product_localized_attributes-fk_locale" foreignTable="spy_locale" phpName="Locale">
+             <reference local="fk_locale" foreign="id_locale"/>
+         </foreign-key>
+-        <unique name="spy_product_localized_attributes-fk_product">
++        <unique name="spy_product_localized_attributes-fk_product-unique">
+             <unique-column name="fk_product"/>
+             <unique-column name="fk_locale"/>
+         </unique>
+@@ -115,7 +115,7 @@
+         <foreign-key name="spy_attribute_type_value-fk_locale" foreignTable="spy_locale" phpName="Locale">
+             <reference local="fk_locale" foreign="id_locale"/>
+         </foreign-key>
+-        <unique name="spy_attribute_type_value-fk_locale">
++        <unique name="spy_attribute_type_value-fk_locale-unique">
+             <unique-column name="fk_locale"/>
+             <unique-column name="fk_type"/>
+             <unique-column name="key"/>
+Index: vendor/spryker/spryker/Bundles/Wishlist/src/SprykerFeature/Zed/Wishlist/Persistence/Propel/Schema/spy_wishlist.schema.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- vendor/spryker/spryker/Bundles/Wishlist/src/SprykerFeature/Zed/Wishlist/Persistence/Propel/Schema/spy_wishlist.schema.xml	(revision 4ab38eadd23afa335bb9d2f31c70d991ebc1fb03)
++++ vendor/spryker/spryker/Bundles/Wishlist/src/SprykerFeature/Zed/Wishlist/Persistence/Propel/Schema/spy_wishlist.schema.xml	(revision )
+@@ -4,7 +4,7 @@
+     <table name="spy_wishlist" phpName="SpyWishlist">
+         <column name="id_wishlist" required="true" type="INTEGER" autoIncrement="true" primaryKey="true"/>
+         <column name="fk_customer" required="true" type="INTEGER"/>
+-        <unique name="spy_wishlist-fk_customer">
++        <unique name="spy_wishlist-fk_customer-unique">
+             <unique-column name="fk_customer"/>
+         </unique>
+         <foreign-key name="spy_wishlist-fk_customer" foreignTable="spy_customer">
+Index: vendor/spryker/spryker/Bundles/Sales/src/SprykerFeature/Zed/Sales/Persistence/Propel/Schema/spy_sales.schema.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- vendor/spryker/spryker/Bundles/Sales/src/SprykerFeature/Zed/Sales/Persistence/Propel/Schema/spy_sales.schema.xml	(revision 4ab38eadd23afa335bb9d2f31c70d991ebc1fb03)
++++ vendor/spryker/spryker/Bundles/Sales/src/SprykerFeature/Zed/Sales/Persistence/Propel/Schema/spy_sales.schema.xml	(revision )
+@@ -199,7 +199,7 @@
+         <foreign-key name="spy_sales_expense-fk_sales_order" foreignTable="spy_sales_order" phpName="Order" refPhpName="Expense">
+             <reference local="fk_sales_order" foreign="id_sales_order"/>
+         </foreign-key>
+-        <unique name="spy_sales_expense-fk_sales_order">
++        <unique name="spy_sales_expense-fk_sales_order-unique">
+             <unique-column name="fk_sales_order"/>
+             <unique-column name="type"/>
+         </unique>
+Index: vendor/spryker/spryker/Bundles/Glossary/src/SprykerFeature/Zed/Glossary/Persistence/Propel/Schema/spy_glossary.schema.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- vendor/spryker/spryker/Bundles/Glossary/src/SprykerFeature/Zed/Glossary/Persistence/Propel/Schema/spy_glossary.schema.xml	(revision 4ab38eadd23afa335bb9d2f31c70d991ebc1fb03)
++++ vendor/spryker/spryker/Bundles/Glossary/src/SprykerFeature/Zed/Glossary/Persistence/Propel/Schema/spy_glossary.schema.xml	(revision )
+@@ -29,7 +29,7 @@
+         <foreign-key name="spy_glossary_translation-fk_locale" foreignTable="spy_locale" phpName="Locale" onDelete="CASCADE">
+             <reference foreign="id_locale" local="fk_locale"/>
+         </foreign-key>
+-        <unique name="spy_glossary_translation-fk_glossary_key">
++        <unique name="spy_glossary_translation-fk_glossary_key-unique">
+             <unique-column name="fk_glossary_key"/>
+             <unique-column name="fk_locale"/>
+         </unique>
