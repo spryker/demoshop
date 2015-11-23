@@ -15,17 +15,17 @@ use Pyz\Zed\Customer\Business\CustomerFacade;
 class GatewayController extends SpyGatewayController
 {
     /**
-     * @param CustomerTransfer $customerTransfer
+     * @param CustomerMagentoPasswordMigrationInterface $customerTransfer
      *
      * @return CustomerTransfer
      */
     public function migrateMagentoPasswordAction(CustomerMagentoPasswordMigrationInterface $customerTransfer)
     {
-        if (!$this->getFacade()->hasMagentoPassword($customerTransfer)) {
-            return;
-        } else {
+        if ($this->getFacade()->hasMagentoPassword($customerTransfer)) {
             return $this->manageMagentoAccount($customerTransfer);
         }
+
+        return false;
     }
 
     /**
@@ -38,7 +38,10 @@ class GatewayController extends SpyGatewayController
         return $this->getFacade()->getCustomerLoginResult($customerLoginResultTransfer);
     }
 
-
+    /**
+     * @param CustomerMagentoPasswordMigrationInterface $customerTransfer
+     * @return bool
+     */
     protected function manageMagentoAccount(CustomerMagentoPasswordMigrationInterface $customerTransfer)
     {
         return $this->getFacade()->migratePassword($customerTransfer);

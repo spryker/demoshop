@@ -18,7 +18,7 @@ interface CustomerStubInterface extends SprykerFeatureCustomerStubInterface
     public function getLoginResult(CustomerLoginResultInterface $customerLoginResultTransfer);
 
     /**
-     * @param CustomerInterface $customerInterface
+     * @param CustomerMagentoPasswordMigrationInterface $customerInterface
      */
     public function migrateMagentoPassword(CustomerMagentoPasswordMigrationInterface $customerInterface);
 }
