@@ -35,6 +35,10 @@
                 <dd>{{ product.material }}</dd>
                 {% endif %}
             </dl>
+
+            {% if product.country_name is not null %}
+                <p>Made in {{ product.country_name }}</p>
+            {% endif %}
         </section>
         <section class="product__gallery">
             {% for image in product.images_detail %}
