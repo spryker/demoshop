@@ -585,8 +585,12 @@ class ProductCollector extends AbstractPropelCollectorPlugin
         $ids = $this->decodeData($data[$idsField]);
         $names = $this->decodeData($data[$namesField]);
         $urls = $this->decodeData($data[$urlsField]);
-
         $nodes = [];
+
+        if ($ids === null) {
+            return [];
+        }
+
         foreach ($ids as $key => $id) {
             $nodes[$id]['node_id'] = $id;
             $nodes[$id]['name'] = $names[$key];
@@ -667,6 +671,10 @@ class ProductCollector extends AbstractPropelCollectorPlugin
     protected function decodeData($data)
     {
         $encodedData = json_decode($data, true);
+
+        if ($encodedData === [null]) {
+            return null;
+        }
 
         if (json_last_error()) {
             $message = json_last_error_msg() . ': ' . $data;
