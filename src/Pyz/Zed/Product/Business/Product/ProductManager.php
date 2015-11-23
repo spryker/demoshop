@@ -14,12 +14,15 @@ class ProductManager extends SprykerProductManager
      */
     public function getAbstractProducts()
     {
-        /**
-         * @todo
-         * get all abstract products from database with help of productQueryContainer
-         * create AbstractProductCollectionTransfer objects where to store all products from database
-         * and return it
-         */
-        return new AbstractProductCollectionTransfer();
+        $abstractProducts = $this->productQueryContainer->queryAbstractProducts()->find();
+
+        $productsCollectionTransfer = new AbstractProductCollectionTransfer();
+
+        foreach ($abstractProducts as $product) {
+            $abstractProductTransfer = (new AbstractProductTransfer())->fromArray($product->toArray(), true);
+            $productsCollectionTransfer->addProduct($abstractProductTransfer);
+        }
+
+        return $productsCollectionTransfer;
     }
 }

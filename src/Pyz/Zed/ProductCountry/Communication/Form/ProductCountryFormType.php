@@ -66,28 +66,28 @@ class ProductCountryFormType extends AbstractFormType
      */
     public function getCountryChoices()
     {
-        // @todo get available countries from country facade
+        $countries = $this->countryFacade->getAvailableCountries();
 
-        // @todo return an array like:
+        $countryChoices = [];
 
-        /*
-        $choices = [
-            // {country id} => {country name}
-            1 => 'Germany',
-            2 => 'France',
-            3 => 'Belgium',
-        ];
-        */
+        foreach ($countries->getCountries() as $country) {
+            $countryChoices[$country->getIdCountry()] = $country->getName();
+        }
+
+        return $countryChoices;
     }
 
     /**
-     * @return id
+     * @return string
      */
     public function getPreferredCountry()
     {
-        // @todo get preferred country from countryFacade
+        $preferredCountryTransfer = $this->countryFacade
+            ->getPreferedCountryByName(self::PREFERRED_COUNTRY)
+        ;
+        $preferredCountry = $preferredCountryTransfer->getIdCountry();
 
-        // @todo return preferred country id
+        return $preferredCountry;
     }
 
     /**
@@ -95,17 +95,14 @@ class ProductCountryFormType extends AbstractFormType
      */
     public function getAbstractProducts()
     {
-        // @todo get abstract products from productFacade
+        $products = $this->productFacade->getAbstractProducts();
 
-        // @todo return an array containing product id and sku
+        $choices = [];
+        foreach ($products->getProduct() as $product) {
+            $choices[$product->getIdAbstractProduct()] = $product->getSku();
+        }
 
-        /*
-        $products = [
-            // {idProduct} => {SKU}
-            1 => '231253',
-            2 => '434566'
-        ];
-        */
+        return $choices;
     }
 
     /**

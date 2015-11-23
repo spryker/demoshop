@@ -49,7 +49,7 @@ class ProductCountryForm extends AbstractForm
     protected function populateFormFields()
     {
         $sku = $this->getRequest()->query->get(self::SKU);
-        $idProduct = 0; // @todo get id abstract product by sku from product facade
+        $idProduct = $this->productFacade->getAbstractProductIdBySku($sku);
 
         $out = [
             ProductCountryFormType::FIELD_FK_ABSTRACT_PRODUCT => $idProduct,
@@ -66,8 +66,10 @@ class ProductCountryForm extends AbstractForm
      */
     protected function getCountryByIdProduct($idProduct)
     {
-        // @todo get country from productCountryQueryContainer by product
-        $country = null;
+        $country = $this->productCountryQueryContainer
+            ->queryCountryByProduct($idProduct)
+            ->findOne()
+        ;
 
         if ($country === null) {
             return null;

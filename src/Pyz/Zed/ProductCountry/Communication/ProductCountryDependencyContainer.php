@@ -47,12 +47,20 @@ class ProductCountryDependencyContainer extends AbstractCommunicationDependencyC
      */
     public function createProductCountryForm()
     {
-        // @todo use getFactory to create ProductCountryFormType and pass CountryFacade and ProductFacade as parameteres
-        $productCountryFormType = null;
+        $productCountryFormType = $this->getFactory()
+            ->createFormProductCountryFormType(
+                $this->getProvidedDependency(ProductCountryDependencyProvider::COUNTRY_FACADE),
+                $this->getProvidedDependency(ProductCountryDependencyProvider::PRODUCT_FACADE)
+            )
+        ;
 
-        // @todo use getFactory to create ProductCountryForm
-        // @todo and pass ProductCountryFormType, productFacade and ProductCountryQueryContainer as parameteres
-        $productCountryForm = null;
+        $productCountryForm = $this->getFactory()
+            ->createFormProductCountryForm(
+                $productCountryFormType,
+                $this->getProvidedDependency(ProductCountryDependencyProvider::PRODUCT_FACADE),
+                $this->getQueryContainer()
+            )
+        ;
 
         return $productCountryForm->create();
     }
