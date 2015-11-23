@@ -3,7 +3,6 @@
 namespace Pyz\Yves\Customer\Communication\Controller;
 
 use Generated\Shared\Transfer\CustomerAddressTransfer;
-use Generated\Shared\Transfer\CustomerTransfer;
 use Pyz\Yves\Customer\Communication\CustomerDependencyContainer;
 use Pyz\Yves\Customer\Communication\Plugin\CustomerControllerProvider;
 use SprykerFeature\Shared\Customer\Code\Messages;

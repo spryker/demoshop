@@ -2,15 +2,16 @@
 
 namespace Pyz\Client\Customer\Service;
 
-use Generated\Shared\Customer\CustomerInterface;
+use Generated\Shared\Customer\CustomerInfoInterface;
+use Generated\Shared\Customer\CustomerLoginResultInterface;
 use Generated\Shared\Customer\CustomerMagentoPasswordMigrationInterface;
-use SprykerFeature\Client\Customer\Service\CustomerClient as SpyCustomerClient;
 use Pyz\Client\Customer\Service\Zed\CustomerStubInterface;
+use SprykerFeature\Client\Customer\Service\CustomerClient as SprykerFeatureCustomerClient;
 
 /**
  * @method CustomerDependencyContainer getDependencyContainer()
  */
-class CustomerClient extends SprykerFeatureCustomerClient implements CustomerClientInterface
+class CustomerClient extends SprykerFeatureCustomerClient  implements CustomerClientInterface
 {
     /**
      * @param CustomerMagentoPasswordMigrationInterface $customerInterface

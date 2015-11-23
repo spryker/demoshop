@@ -5,15 +5,17 @@ namespace Pyz\Zed\Customer\Business\Customer;
 use Generated\Shared\Customer\CustomerLoginResultInterface;
 use Generated\Shared\Transfer\CustomerInfoTransfer;
 use Orm\Zed\Customer\Persistence\SpyCustomer;
+use Pyz\Zed\Customer\Business\Customer\CustomerInterface as CustomerModelInterface;
 use SprykerFeature\Zed\Customer\Business\Customer\Customer as SprykerFeatureCustomer;
+use Generated\Shared\Customer\CustomerInterface as CustomerTransferInterface;
 
 class Customer extends SprykerFeatureCustomer implements CustomerModelInterface
 {
     /**
-     * @param CustomerInterface $customerTransfer
-     * @return CustomerInterface
+     * @param CustomerTransferInterface $customerTransfer
+     * @return CustomerTransferInterface
      */
-    public function encryptPassword(CustomerInterface $customerTransfer)
+    public function encryptPassword(CustomerTransferInterface $customerTransfer)
     {
         return parent::encryptPassword($customerTransfer);
     }
