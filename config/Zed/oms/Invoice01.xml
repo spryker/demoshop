@@ -65,43 +65,43 @@
             <transition>
                 <source>waiting for payment</source>
                 <target>reminder I sent</target>
-                <event>payment not received</event>
+                <event>send reminder</event>
             </transition>
 
             <transition>
                 <source>waiting for payment</source>
                 <target>payment received</target>
-                <event>payment received</event>
+                <event>confirm payment</event>
             </transition>
 
             <transition>
                 <source>reminder I sent</source>
                 <target>reminder II sent</target>
-                <event>payment not received</event>
+                <event>send reminder</event>
             </transition>
 
             <transition>
                 <source>reminder I sent</source>
                 <target>payment received</target>
-                <event>payment received</event>
+                <event>confirm payment</event>
             </transition>
 
             <transition>
                 <source>reminder II sent</source>
                 <target>dunning process started</target>
-                <event>payment not received</event>
+                <event>send reminder</event>
             </transition>
 
             <transition>
                 <source>reminder II sent</source>
                 <target>payment received</target>
-                <event>payment received</event>
+                <event>confirm payment</event>
             </transition>
 
             <transition>
                 <source>dunning process started</source>
                 <target>payment received</target>
-                <event>payment received</event>
+                <event>confirm payment</event>
             </transition>
 
             <transition>
@@ -113,7 +113,7 @@
             <transition>
                 <source>ready for return</source>
                 <target>completed</target>
-                <event>item not returned</event>
+                <event>complete order</event>
             </transition>
 
         </transitions>
@@ -124,10 +124,10 @@
             <event name="export order" command="Oms/ExportOrder" onEnter="true" />
             <event name="ship order" manual="true" />
             <event name="waiting for payment" onEnter="true" />
-            <event name="payment not received" timeout="1hour" />
-            <event name="payment received" manual="true" />
+            <event name="send reminder" timeout="1hour" />
+            <event name="confirm payment" manual="true" />
             <event name="ready for return"  onEnter="true" />
-            <event name="item not returned" timeout="14days" />
+            <event name="complete order" timeout="14days" />
         </events>
     </process>
 
