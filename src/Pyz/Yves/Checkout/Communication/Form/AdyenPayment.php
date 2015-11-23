@@ -67,6 +67,7 @@ class AdyenPayment extends AbstractType
                 'multiple' => false,
                 'required' => false,
                 'empty_value' => false,
+                'label' => false,
                 'attr' => [
                     'style' => 'display: block;',
                 ],
@@ -75,6 +76,7 @@ class AdyenPayment extends AbstractType
                 'data_class' => 'Generated\Shared\Transfer\AdyenPaymentDetailTransfer',
                 'error_bubbling' => true,
                 'mapped' => true,
+                'label' => false,
                 'attr' => [
                     'class' => 'payment-options',
                     'style' => 'display: block;',

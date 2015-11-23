@@ -48,6 +48,12 @@
                                     {{ form_widget(form.adyen_payment.payment_detail.ownerName) }}
 
                                 {% elseif payment_method.vars.value == 'adyen.payment.method.paypal' %}
+                                    {{ form_widget(form.adyen_payment.payment_detail.adyen_encrypted_form_number) }}
+                                    {{ form_widget(form.adyen_payment.payment_detail.adyen_encrypted_form_cvc) }}
+                                    {{ form_widget(form.adyen_payment.payment_detail.adyen_encrypted_form_holder_name) }}
+                                    {{ form_widget(form.adyen_payment.payment_detail.adyen_encrypted_form_expiry_month) }}
+                                    {{ form_widget(form.adyen_payment.payment_detail.adyen_encrypted_form_expiry_month) }}
+                                    {{ form_widget(form.adyen_payment.payment_detail.adyen_encrypted_form_expiry_year) }}
 
                                 {% elseif payment_method.vars.value == 'adyen.payment.method.creditcard.cse' %}
 

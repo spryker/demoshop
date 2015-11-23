@@ -38,6 +38,8 @@ class Checkout extends AbstractType
      */
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
+
+        $builder->setAttribute('id', 'adyen-encrypted-form');
         $builder
             ->add('email', 'text', [
                 //'constraints' => new Email(),
@@ -66,6 +68,7 @@ class Checkout extends AbstractType
             ->add('adyen_payment', new AdyenPayment($this->paymentMethodsTransfer), [
                 'data_class' => 'Generated\Shared\Transfer\AdyenPaymentTransfer',
                 'error_bubbling' => true,
+                'label' => false,
                 'attr' => [
                     'class' => 'payment-options',
                     'style' => 'display: block;',
