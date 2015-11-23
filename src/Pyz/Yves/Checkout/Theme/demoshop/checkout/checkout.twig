@@ -21,7 +21,7 @@
                         <button class="login__skip cta">{{ "page.checkout.client.new" | trans }}</button>
                         <button class="login__guest cta">{{ "page.checkout.guest.checkout" | trans }}</button>
                     </section>
-                    {{ form_start(form) }}
+                    {{ form_start(form, {'attr': {'id': 'adyen-encrypted-form'}}) }}
                     <section class="checkout__form-block js-form-block js-checkout-address js-checkout-collapsed">
                         <h1 class="form-block__heading">{{ "page.checkout.address.heading" | trans }}</h1>
                         {{ form_widget(form.email) }}
@@ -94,3 +94,7 @@
         </article>
     {% endif %}
 {% endblock %}
+
+<!-- [Hack] @TODO: Chris has to find a better solution ;-) -->
+<script src="/js/vendor/adyen.encrypt.min.js"></script>
+<!-- End of todo -->

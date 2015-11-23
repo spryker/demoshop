@@ -39,7 +39,6 @@ class Checkout extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
 
-        $builder->setAttribute('id', 'adyen-encrypted-form');
         $builder
             ->add('email', 'text', [
                 //'constraints' => new Email(),

@@ -107,6 +107,11 @@ class CheckoutController extends AbstractController
                 $adyenPaymentDetails = $checkoutRequest->getAdyenPayment()->getPaymentDetail();
                 $adyenPaymentDetails->setAmount($this->getCart()->getTotals()->getGrandTotal());
 
+                if($paymentMethod === AdyenPaymentMethodConstants::ADYEN_PAYMENT_METHOD_CREDIT_CARD_CSE)
+                {
+                    $adyenPaymentDetails->setEncryptedCardData($request->get('adyen-encrypted-data'));
+                }
+
                 /** @TODO remove hardcoded values */
                 $adyenPaymentDetails->setCountry('DE');
                 $adyenPaymentDetails->setIp('127.0.0.1');

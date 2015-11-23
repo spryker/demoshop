@@ -84,9 +84,10 @@ class PaymentDetail extends AbstractType
             ])
 
             //CC fields
-            ->add('encrypted_card_data', 'hidden', [
+            ->add('adyen_encrypted_form_expiry_generationtime', 'hidden', [
                 'label' => false,
                 'required' => false,
+                'mapped' => false,
                 'attr' => [
                     'id' => 'adyen-encrypted-form-expiry-generationtime',
                     'data-encrypted-name' => 'generationtime',
@@ -97,6 +98,7 @@ class PaymentDetail extends AbstractType
             ->add('adyen_encrypted_form_number', 'text', [
                 'label' => false,
                 'required' => false,
+                'mapped' => false,
                 'attr' => [
                     'id' => 'adyen-encrypted-form-number',
                     'data-encrypted-name' => 'number',
@@ -107,6 +109,7 @@ class PaymentDetail extends AbstractType
             ->add('adyen_encrypted_form_cvc', 'text', [
                 'label' => false,
                 'required' => false,
+                'mapped' => false,
                 'attr' => [
                     'id' => 'adyen-encrypted-form-cvc',
                     'data-encrypted-name' => 'cvc',
@@ -117,6 +120,7 @@ class PaymentDetail extends AbstractType
             ->add('adyen_encrypted_form_holder_name', 'text', [
                 'label' => false,
                 'required' => false,
+                'mapped' => false,
                 'attr' => [
                     'id' => 'adyen-encrypted-form-holder-name',
                     'data-encrypted-name' => 'holderName',
@@ -127,6 +131,7 @@ class PaymentDetail extends AbstractType
             ->add('adyen_encrypted_form_expiry_month', 'choice', array(
                 'choices' => $this->getCcMonth(),
                 'label' => false,
+                'mapped' => false,
                 'attr' => [
                     'id' => 'adyen-encrypted-form-expiry-month',
                     'data-encrypted-name' => 'expiryMonth',
@@ -137,6 +142,7 @@ class PaymentDetail extends AbstractType
             ->add('adyen_encrypted_form_expiry_year', 'choice', array(
                 'choices' => $this->getCcYears(),
                 'label' => false,
+                'mapped' => false,
                 'attr' => [
                     'id' => 'adyen-encrypted-form-expiry-year',
                     'data-encrypted-name' => 'expiryYear',

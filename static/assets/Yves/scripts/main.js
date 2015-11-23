@@ -12,6 +12,7 @@ var $ = require('jquery'),
     catalog = require('./ui/catalog'),
     checkout = require('./ui/checkout'),
     mainNav = require('./ui/main-nav'),
+    //adyen = require('./vendor/adyen.encrypt.min'),
     slick = require('slick-carousel');
 
 $(function() {
