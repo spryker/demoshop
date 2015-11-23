@@ -2,6 +2,7 @@
 
 namespace Pyz\Zed\ProductCountry\Business;
 
+use Generated\Shared\Transfer\ProductCountryTransfer;
 use SprykerEngine\Zed\Kernel\Business\AbstractFacade;
 
 /**
@@ -11,15 +12,15 @@ class ProductCountryFacade extends AbstractFacade
 {
 
     /**
-     * @param array $productCountryData
+     * @param ProductCountryTransfer[] $productCountries
      *
-     * @return void
+     * @return int
      */
-    public function importProductCountryData(array $productCountryData)
+    public function importProductCountryData(array $productCountries)
     {
-        $this->getDependencyContainer()
+        return $this->getDependencyContainer()
             ->createProductCountryManager()
-            ->importProductCountryData($productCountryData);
+            ->importProductCountryData($productCountries);
     }
 
 }

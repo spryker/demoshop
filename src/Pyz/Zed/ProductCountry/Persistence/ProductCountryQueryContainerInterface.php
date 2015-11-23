@@ -3,6 +3,7 @@
 namespace Pyz\Zed\ProductCountry\Persistence;
 
 use Orm\Zed\ProductCountry\Persistence\SpyProductCountryQuery;
+use Propel\Runtime\Connection\ConnectionInterface;
 
 interface ProductCountryQueryContainerInterface
 {
@@ -33,5 +34,10 @@ interface ProductCountryQueryContainerInterface
      * @return SpyProductCountryQuery
      */
     public function queryProductCountry($idProduct, $idCountry);
+
+    /**
+     * @return ConnectionInterface
+     */
+    public function getConnection();
 
 }

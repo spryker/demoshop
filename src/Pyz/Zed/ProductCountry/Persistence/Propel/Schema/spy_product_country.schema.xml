@@ -7,7 +7,7 @@
 
     <table name="spy_product_country" idMethod="native" allowPkInsert="true" phpName="SpyProductCountry">
         <column name="id_product_country" required="true" type="INTEGER" autoIncrement="true" primaryKey="true"/>
-        <column name="fk_product" required="true" type="INTEGER"/>
+        <column name="fk_abstract_product" required="true" type="INTEGER"/>
         <column name="fk_country" required="true" type="INTEGER"/>
 
         <foreign-key foreignTable="spy_country" phpName="Country">
@@ -15,7 +15,7 @@
         </foreign-key>
 
         <foreign-key foreignTable="spy_abstract_product" phpName="SpyAbstractProduct">
-            <reference local="fk_product" foreign="id_abstract_product"/>
+            <reference local="fk_abstract_product" foreign="id_abstract_product"/>
         </foreign-key>
 
         <id-method-parameter value="spy_product_country_pk_seq"/>

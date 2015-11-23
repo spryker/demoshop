@@ -5,8 +5,8 @@
 
     <transfer name="ProductCountry">
         <property name="idProductCountry" type="int" />
-        <property name="countryName" type="string" />
-        <property name="productName" type="string" />
+        <property name="fkAbstractProduct" type="int" />
+        <property name="fkCountry" type="int" />
     </transfer>
 
 </transfers>

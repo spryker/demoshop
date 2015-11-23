@@ -2,7 +2,7 @@
 
 namespace Pyz\Zed\ProductCountry\Business\Model;
 
-use Propel\Runtime\Connection\ConnectionInterface;
+use Generated\Shared\Transfer\ProductCountryTransfer;
 use Pyz\Zed\Country\Business\CountryFacade;
 use Pyz\Zed\Product\Business\ProductFacade;
 use Pyz\Zed\ProductCountry\Persistence\ProductCountryQueryContainerInterface;
@@ -26,56 +26,55 @@ class ProductCountryManager implements ProductCountryManagerInterface
     protected $productCountryQueryContainer;
 
     /**
-     * @var ConnectionInterface
-     */
-    protected $connection;
-
-    /**
      * @param ProductFacade $productFacade
      * @param CountryFacade $countryFacade
      * @param ProductCountryQueryContainerInterface $productCountryQueryContainerInterface
-     * @param ConnectionInterface $connection
      */
     public function __construct(
         ProductFacade $productFacade,
         CountryFacade $countryFacade,
-        ProductCountryQueryContainerInterface $productCountryQueryContainerInterface,
-        ConnectionInterface $connection)
+        ProductCountryQueryContainerInterface $productCountryQueryContainerInterface)
     {
         $this->productFacade = $productFacade;
         $this->countryFacade = $countryFacade;
         $this->productCountryQueryContainer = $productCountryQueryContainerInterface;
-        $this->connection = $connection;
     }
 
     /**
-     * @param array $productCountryData Product SKU => Country ISO 2 Code
+     * @param ProductCountryTransfer[] $productCountryCollection
      *
      * @throws \Exception
      *
-     * @return void
+     * @return int Number of imported product countries
      */
-    public function importProductCountryData(array $productCountryData)
+    public function importProductCountryData(array $productCountryCollection)
     {
-        $this->connection->beginTransaction();
-        try {
-            foreach ($productCountryData as $productSku => $countryCode) {
-                $idCountry = $this->countryFacade->getIdCountryByIso2Code($countryCode);
-                $idProduct = $this->productFacade->getAbstractProductIdBySku($productSku);
+        $result = 0;
+        $this->productCountryQueryContainer->getConnection()->beginTransaction();
 
-                $productCountry = $this->productCountryQueryContainer
+        try {
+            foreach ($productCountryCollection as $productCountryTransfer) {
+                $idCountry = $this->countryFacade->getIdCountryByIso2Code($productCountryTransfer->getFkAbstractProduct());
+                $idProduct = $this->productFacade->getAbstractProductIdBySku($productCountryTransfer->getFkCountry());
+
+                $productCountryTransfer = $this->productCountryQueryContainer
                     ->queryProductCountry($idProduct, $idCountry)
                     ->findOneOrCreate();
 
-                $productCountry->setFkProduct($idProduct);
-                $productCountry->setFkCountry($idCountry);
-                $productCountry->save();
+                $productCountryTransfer->setFkProduct($idProduct);
+                $productCountryTransfer->setFkCountry($idCountry);
+                $productCountryTransfer->save();
 
                 $this->productFacade->touchProductActive($idProduct);
+
+                $result++;
             }
-            $this->connection->commit();
+
+            $this->productCountryQueryContainer->getConnection()->commit();
+            return $result;
+
         } catch (\Exception $e) {
-            $this->connection->rollBack();
+            $this->productCountryQueryContainer->getConnection()->rollBack();
             throw $e;
         }
     }

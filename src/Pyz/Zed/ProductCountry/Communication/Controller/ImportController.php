@@ -2,6 +2,7 @@
 
 namespace Pyz\Zed\ProductCountry\Communication\Controller;
 
+use Generated\Shared\Transfer\ProductCountryTransfer;
 use Pyz\Zed\ProductCountry\Business\ProductCountryFacade;
 use Pyz\Zed\ProductCountry\Communication\ProductCountryDependencyContainer;
 use SprykerFeature\Zed\Application\Communication\Controller\AbstractController;
@@ -20,7 +21,7 @@ class ImportController extends AbstractController
         $form->handleRequest();
 
         if ($form->isValid()) {
-            $productCountryData = [
+            $data = [
                 '136823' => 'US',
                 '137288' => 'DE',
                 '137455' => 'NL',
@@ -44,9 +45,19 @@ class ImportController extends AbstractController
                 '147003' => 'US',
             ];
 
-            $this->getFacade()->importProductCountryData($productCountryData);
+            $productCountries = [];
+            foreach ($data as $productCountryData) {
+                $productCountryTransfer = (new ProductCountryTransfer())
+                    ->fromArray($productCountryData);
 
-            $this->addSuccessMessage('The product countries were imported successfully.');
+                $productCountries[] = $productCountryTransfer;
+            }
+
+            $count = $this->getFacade()->importProductCountryData($productCountries);
+
+            $this->addSuccessMessage(
+                sprintf('%d product countries were imported successfully.', $count)
+            );
 
             return $this->redirectResponse('/product-country');
         }

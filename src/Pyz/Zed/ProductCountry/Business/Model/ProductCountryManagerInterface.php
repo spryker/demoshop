@@ -6,10 +6,10 @@ interface ProductCountryManagerInterface
 {
 
     /**
-     * @param array $productCountryData
+     * @param array $productCountryCollection
      *
-     * @return void
+     * @return int Number of imported product countries
      */
-    public function importProductCountryData(array $productCountryData);
+    public function importProductCountryData(array $productCountryCollection);
 
 }
