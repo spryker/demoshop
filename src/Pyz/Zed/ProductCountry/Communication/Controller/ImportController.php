@@ -45,18 +45,20 @@ class ImportController extends AbstractController
                 '147003' => 'US',
             ];
 
+            //implement facade call, use ProductCountryTransfer
             $productCountries = [];
-            foreach ($data as $productCountryData) {
+            foreach ($data as $abstractProductSku => $countryCode) {
                 $productCountryTransfer = (new ProductCountryTransfer())
-                    ->fromArray($productCountryData);
+                    ->setAbstractProductSku($abstractProductSku)
+                    ->setCountryCode($countryCode);
 
                 $productCountries[] = $productCountryTransfer;
             }
 
-            $count = $this->getFacade()->importProductCountryData($productCountries);
+            $importedProductCount = $this->getFacade()->importProductCountryData($productCountries);
 
             $this->addSuccessMessage(
-                sprintf('%d product countries were imported successfully.', $count)
+                sprintf('%d product countries were imported successfully.', $importedProductCount)
             );
 
             return $this->redirectResponse('/product-country');
