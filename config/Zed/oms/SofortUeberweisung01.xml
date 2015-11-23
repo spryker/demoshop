@@ -4,37 +4,79 @@
         xsi:noNamespaceSchemaLocation="process.xsd">
     <process name="SofortUeberweisung01" main="true">
 
+        <subprocesses>
+            <process>adyen capture</process>
+            <process>export afterbuy</process>
+        </subprocesses>
+
         <states>
             <state name="new" reserved="true"/>
             <state name="redirected"/>
-            <state name="waiting for authorisation notification"/>
+            <state name="authorisation notification received"/>
             <state name="invalid" reserved="false"/>
             <state name="paid"/>
         </states>
         <transitions>
 
-            <transition>
+            <transition happy="true">
                 <source>new</source>
                 <target>redirected</target>
                 <event>send payment request</event>
             </transition>
 
-            <transition condition="Adyen/IsAuthoriseApproved">
+            <transition>
+                <source>invalid</source>
+                <target>invalid</target>
+                <event>redeem voucher</event>
+            </transition>
+
+            <transition condition="Adyen/AuthoriseNotificationReceived" happy="true">
                 <source>redirected</source>
-                <target>waiting for authorisation notification</target>
-                <event>check authorisation</event>
+                <target>authorisation notification received</target>
+            </transition>
+
+            <transition happy="true" condition="Adyen/IsAuthoriseNotificationSuccess" >
+                <source>authorisation notification received</source>
+                <target>paid</target>
+                <event>check authorisation notification</event>
+            </transition>
+
+            <transition>
+                <source>authorisation notification received</source>
+                <target>invalid</target>
+                <event>check authorisation notification</event>
             </transition>
 
             <transition>
                 <source>redirected</source>
                 <target>invalid</target>
-                <event>check authorisation</event>
+                <event>adyen authorisation notification not received</event>
             </transition>
 
             <transition>
-                <source>waiting for authorisation notification</source>
-                <target>paid</target>
-                <event>adyen authorisation notification received</event>
+                <source>redirected</source>
+                <target>invalid</target>
+                <event>customer cancelled payment</event>
+            </transition>
+
+            <transition>
+                <source>redirected</source>
+                <target>invalid</target>
+                <event>payment return with error</event>
+            </transition>
+
+            <!-- SUBPROCESS CONNECTIONS -->
+
+            <transition>
+                <source>paid</source>
+                <target>init capture process</target>
+                <event>init capture</event>
+            </transition>
+
+            <transition>
+                <source>captured</source>
+                <target>init export to afterbuy</target>
+                <event>init afterbuy export</event>
             </transition>
 
         </transitions>
@@ -42,9 +84,21 @@
         <events>
             <event name="send payment request" onEnter="true" manual="true" command="Adyen/Authorise"/>
             <event name="check authorisation" onEnter="false" manual="true"/>
-            <event name="adyen authorisation notification received" manual="true"/>
+            <event name="redeem voucher" onEnter="true" command="TODO/RedeemVoucher"/>
+            <event name="adyen authorisation notification received" manual="true" onEnter="true"/>
+            <event name="check authorisation notification" manual="true" onEnter="true"/>
+            <event name="adyen authorisation notification not received" timeout="1hour"/>
+            <event name="customer cancelled payment" />
+            <event name="payment return with error" />
+
+            <!-- SUBPROCESS CONNECTIONS -->
+            <event name="init capture" onEnter="true"/>
+            <event name="init afterbuy export" onEnter="true"/>
         </events>
 
     </process>
+
+    <process name="adyen capture" file="subprocesses/Capture01.xml"/>
+    <process name="export afterbuy" file="subprocesses/ExportAfterBuy01.xml"/>
 
 </statemachine>

@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<statemachine
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="../process.xsd">
+
+    <process name="adyen capture">
+
+        <states>
+            <state name="init capture process"/>
+            <state name="capture request sent"/>
+            <state name="capture notification received"/>
+            <state name="capture failed"/>
+            <state name="captured"/>
+        </states>
+
+        <transitions>
+
+            <transition happy="true">
+                <source>init capture process</source>
+                <target>capture request sent</target>
+                <event>send capture request</event>
+            </transition>
+
+            <transition happy="true" condition="Adyen/CaptureNotificationReceived">
+                <source>capture request sent</source>
+                <target>capture notification received</target>
+            </transition>
+
+            <transition happy="true" condition="Adyen/IsCaptureNotificationSuccess">
+                <source>capture notification received</source>
+                <target>captured</target>
+                <event>check capture notification</event>
+            </transition>
+
+            <transition>
+                <source>capture notification received</source>
+                <target>capture failed</target>
+                <event>check capture notification</event>
+            </transition>
+
+            <transition>
+                <source>capture failed</source>
+                <target>init capture process</target>
+                <event>retry capture</event>
+            </transition>
+
+
+        </transitions>
+
+        <events>
+            <event name="send capture request" command="Adyen/Capture" onEnter="true"/>
+            <event name="check capture result"/>
+            <event name="retry capture" manual="true"/>
+            <event name="captured notification received"/>
+            <event name="capture failed notification received"/>
+            <event name="check capture notification" manual="true" onEnter="true"/>
+        </events>
+
+    </process>
+
+</statemachine>

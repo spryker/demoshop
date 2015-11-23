@@ -81,11 +81,12 @@
                         <xs:enumeration value="invoice creation"/>
                         <xs:enumeration value="fulfillment"/>
                         <xs:enumeration value="completion"/>
+                        <xs:enumeration value="adyen capture"/>
                         <xs:enumeration value="cancellation"/>
                         <xs:enumeration value="return shipment"/>
                         <xs:enumeration value="find merchant"/>
                         <xs:enumeration value="return debit note"/>
-                        <xs:enumeration value="dunning process"/>
+                        <xs:enumeration value="export afterbuy"/>
                         <xs:enumeration value="payone capture"/>
                         <xs:enumeration value="payone capture after fulfillment"/>
                         <xs:enumeration value="postal invoice delivery"/>
