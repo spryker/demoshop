@@ -40,7 +40,7 @@ class ProductCollector extends AbstractPropelCollectorPlugin
 
     use KeyBuilderTrait;
 
-    const PRODUCT_URLS = 'product_urls';
+    const PRODUCT_URL = 'product_url';
     const URL = 'url';
     const ABSTRACT_ATTRIBUTES = 'abstract_attributes';
     const CONCRETE_ATTRIBUTES = 'concrete_attributes';
@@ -551,7 +551,8 @@ class ProductCollector extends AbstractPropelCollectorPlugin
             'category_parent_urls',
             'group_key_values',
             'id_abstract_product',
-            'product_url'
+            'product_url',
+            'url'
         ];
 
         return array_intersect_key($productData, array_flip($allowedFields));
@@ -638,6 +639,7 @@ class ProductCollector extends AbstractPropelCollectorPlugin
 
         $abstractProductData[self::ABSTRACT_ATTRIBUTES] = $this->normalizeAttributes($mergedAttributes);
         $abstractProductData['group_keys'] = $oneConcreteProduct['group_keys'];
+        $abstractProductData[self::URL] = $oneConcreteProduct[self::PRODUCT_URL];
 
         $keysToTransfer = [
             'id_abstract_product',
