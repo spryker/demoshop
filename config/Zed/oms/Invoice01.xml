@@ -5,7 +5,7 @@
 
     <process name="Invoice01" main="true">
         <states>
-            <state name="new" reserved="true"/>
+            <state name="new"/>
             <state name="invoice created"/>
             <state name="invoice creation failed"/>
             <state name="invoice sent" />
