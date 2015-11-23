@@ -4,6 +4,9 @@ namespace Pyz\Yves\Customer\Communication\Plugin;
 
 use Generated\Shared\Transfer\CustomerInfoTransfer;
 use Generated\Shared\Transfer\CustomerLoginResultTransfer;
+use Generated\Shared\Customer\CustomerMagentoPasswordMigrationInterface;
+use Generated\Shared\CustomerCheckoutConnector\CustomerInterface;
+use Generated\Shared\Transfer\CustomerMagentoPasswordMigrationTransfer;
 use Generated\Shared\Transfer\CustomerTransfer;
 use Pyz\Client\Customer\Service\CustomerClientInterface;
 use SprykerEngine\Yves\Kernel\Communication\AbstractPlugin;
@@ -11,12 +14,13 @@ use Symfony\Component\Security\Core\Exception\UnsupportedUserException;
 use Symfony\Component\Security\Core\User\User;
 use Symfony\Component\Security\Core\User\UserInterface;
 use Symfony\Component\Security\Core\User\UserProviderInterface;
+use Pyz\Client\Customer\Service\CustomerClient;
 
 class UserProvider extends AbstractPlugin implements UserProviderInterface
 {
 
     /**
-     * @var CustomerClientInterface
+     * @var CustomerClient
      */
     private $customerClient;
 
@@ -63,6 +67,26 @@ class UserProvider extends AbstractPlugin implements UserProviderInterface
             $customerTransfer->getPassword(),
             ['ROLE_USER']
         );
+    }
+
+    /**
+     * @param string $username
+     * @param string $password
+     * @return bool
+     */
+    public function migrateMagentoPassword($username, $password)
+    {
+        $customerPasswordMigrationTransfer = new CustomerMagentoPasswordMigrationTransfer();
+        $customerPasswordMigrationTransfer
+            ->setPassword($password)
+            ->setEmail($username);
+
+        $result = $this->customerClient->migrateMagentoPassword($customerPasswordMigrationTransfer);
+    }
+
+    public function resetPassword($password)
+    {
+    /** @TODO : implement */
     }
 
     /**
