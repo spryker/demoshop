@@ -23,18 +23,18 @@ class PaymentDetail extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('iban', 'text', [
+            ->add('bank_account_number', 'text', [
                 'label' => false,
                 'required' => false,
                 'attr' => [
-                    'placeholder' => 'IBAN',
+                    'placeholder' => 'Bank account number',
                 ],
             ])
-            ->add('bic', 'text', [
+            ->add('bank_location_id', 'text', [
                 'label' => false,
                 'required' => false,
                 'attr' => [
-                    'placeholder' => 'BIC',
+                    'placeholder' => 'Bank location',
                 ],
             ])
             ->add('ownerName', 'text', [
