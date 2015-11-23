@@ -4,7 +4,6 @@ namespace Pyz\Zed\Customer\Communication\Controller;
 
 use Generated\Shared\Customer\CustomerLoginResultInterface;
 use Generated\Shared\Customer\CustomerMagentoPasswordMigrationInterface;
-use Generated\Shared\Transfer\CustomerTransfer;
 use SprykerFeature\Zed\Customer\Communication\Controller\GatewayController as SpyGatewayController;
 use Pyz\Zed\Customer\Business\CustomerFacade;
 
@@ -15,8 +14,7 @@ class GatewayController extends SpyGatewayController
 {
     /**
      * @param CustomerMagentoPasswordMigrationInterface $customerTransfer
-     *
-     * @return CustomerTransfer
+     * @return bool
      */
     public function migrateMagentoPasswordAction(CustomerMagentoPasswordMigrationInterface $customerTransfer)
     {

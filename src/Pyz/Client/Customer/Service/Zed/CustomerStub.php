@@ -5,6 +5,7 @@ namespace Pyz\Client\Customer\Service\Zed;
 use Generated\Shared\Customer\CustomerMagentoPasswordMigrationInterface;
 use Generated\Shared\Customer\CustomerLoginResultInterface;
 use SprykerFeature\Client\Customer\Service\Zed\CustomerStub as SprykerFeatureCustomerStub;
+use SprykerEngine\Shared\Transfer\TransferInterface;
 
 class CustomerStub extends SprykerFeatureCustomerStub implements CustomerStubInterface
 {
@@ -20,7 +21,7 @@ class CustomerStub extends SprykerFeatureCustomerStub implements CustomerStubInt
     }
     /**
      * @param CustomerMagentoPasswordMigrationInterface $customerInterface
-     * @return \SprykerEngine\Shared\Transfer\TransferInterface
+     * @return TransferInterface
      */
     public function migrateMagentoPassword(CustomerMagentoPasswordMigrationInterface $customerInterface)
     {

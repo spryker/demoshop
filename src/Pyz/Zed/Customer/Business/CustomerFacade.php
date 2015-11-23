@@ -2,9 +2,7 @@
 
 namespace Pyz\Zed\Customer\Business;
 
-use Generated\Shared\Transfer\CustomerTransfer;
 use Generated\Shared\Customer\CustomerLoginResultInterface;
-use Generated\Shared\Transfer\CustomerInfoTransfer;
 use Pyz\Zed\Customer\Business\Customer\Customer;
 use Generated\Shared\Customer\CustomerMagentoPasswordMigrationInterface;
 use SprykerFeature\Zed\Customer\Business\CustomerFacade as SprykerCustomerFacade;
