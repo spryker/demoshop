@@ -54,16 +54,16 @@ class ProductCountryManager implements ProductCountryManagerInterface
 
         try {
             foreach ($productCountryCollection as $productCountryTransfer) {
-                $idCountry = $this->countryFacade->getIdCountryByIso2Code($productCountryTransfer->getFkAbstractProduct());
-                $idProduct = $this->productFacade->getAbstractProductIdBySku($productCountryTransfer->getFkCountry());
+                $idCountry = $this->countryFacade->getIdCountryByIso2Code($productCountryTransfer->getCountryCode());
+                $idProduct = $this->productFacade->getAbstractProductIdBySku($productCountryTransfer->getAbstractProductSku());
 
-                $productCountryTransfer = $this->productCountryQueryContainer
+                $productCountryEntity = $this->productCountryQueryContainer
                     ->queryProductCountry($idProduct, $idCountry)
                     ->findOneOrCreate();
 
-                $productCountryTransfer->setFkProduct($idProduct);
-                $productCountryTransfer->setFkCountry($idCountry);
-                $productCountryTransfer->save();
+                $productCountryEntity->setFkAbstractProduct($idProduct);
+                $productCountryEntity->setFkCountry($idCountry);
+                $productCountryEntity->save();
 
                 $this->productFacade->touchProductActive($idProduct);
 
