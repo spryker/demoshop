@@ -19,7 +19,7 @@
                 <event>send payment request</event>
             </transition>
 
-            <transition condition="Adyen/IsAuthoriseApproved">
+            <transition condition="Adyen/IsAuthoriseResponseSuccess">
                 <source>redirected</source>
                 <target>waiting for authorisation notification</target>
                 <event>check authorisation</event>
@@ -29,6 +29,12 @@
                 <source>redirected</source>
                 <target>invalid</target>
                 <event>check authorisation</event>
+            </transition>
+
+            <transition>
+                <source>invalid</source>
+                <target>invalid</target>
+                <event>redeem voucher</event>
             </transition>
 
             <transition>
@@ -42,6 +48,7 @@
         <events>
             <event name="send payment request" onEnter="true" manual="true" command="Adyen/Authorise"/>
             <event name="check authorisation" onEnter="false" manual="true"/>
+            <event name="redeem voucher" onEnter="true" command="TODO/RedeemVoucher"/>
             <event name="adyen authorisation notification received" manual="true"/>
         </events>
 
