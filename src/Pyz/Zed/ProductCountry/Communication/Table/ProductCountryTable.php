@@ -74,7 +74,13 @@ class ProductCountryTable extends AbstractTable
                 SpyProductCountryTableMap::COL_FK_PRODUCT => $productCountry[SpyProductCountryTableMap::COL_FK_PRODUCT],
                 SpyAbstractProductTableMap::COL_SKU => $productCountry['sku'],
                 SpyCountryTableMap::COL_NAME => $productCountry['country'],
-                // @todo add edit button here using $this->generateEditButton({url}, {button text})
+                self::OPTIONS => $this->generateEditButton(
+                    sprintf(
+                        '/product-country/edit?sku=%s',
+                        $productCountry['sku']
+                    ),
+                    'Assign Country'
+                ),
             ];
         }
 

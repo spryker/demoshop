@@ -90,10 +90,14 @@ class ProductCountryManager implements ProductCountryManagerInterface
         $idCountry = $productCountryTransfer->getFkCountry();
         $idProduct = $productCountryTransfer->getFkAbstractProduct();
 
-        // @todo get connection from product_country table by id product
-        // @todo if does not exists, create it
+        $productCountry = $this->productCountryQueryContainer
+            ->queryCountryByProduct($idProduct)
+            ->findOneOrCreate()
+        ;
 
-        // @todo assign country and save it to database
+        $productCountry->setFkProduct($idProduct);
+        $productCountry->setFkCountry($idCountry);
+        $productCountry->save();
     }
 
 }
