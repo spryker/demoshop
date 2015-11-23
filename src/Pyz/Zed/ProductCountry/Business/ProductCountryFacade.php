@@ -23,4 +23,17 @@ class ProductCountryFacade extends AbstractFacade
             ->importProductCountryData($productCountries);
     }
 
+    /**
+     * @param ProductCountryTransfer $productCountryTransfer
+     *
+     * @return void
+     */
+    public function saveProductCountry(ProductCountryTransfer $productCountryTransfer)
+    {
+        $this->getDependencyContainer()
+            ->createProductCountryManager()
+            ->saveProductCountry($productCountryTransfer)
+        ;
+    }
+
 }
