@@ -18,6 +18,8 @@ use Pyz\Yves\Twig\Communication\Loader\YvesFilesystemLoader;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpKernel\Event\GetResponseForControllerResultEvent;
 use Symfony\Component\HttpKernel\KernelEvents;
+use Aptoma\Twig\Extension\MarkdownExtension;
+use Aptoma\Twig\Extension\MarkdownEngine;
 
 class TwigServiceProvider extends SilexTwigServiceProvider
 {
@@ -171,6 +173,9 @@ class TwigServiceProvider extends SilexTwigServiceProvider
                     foreach ($app['twig.global.variables'] as $name => $value) {
                         $twig->addGlobal($name, $value);
                     }
+
+                    $engine = new MarkdownEngine\MichelfMarkdownEngine();
+                    $twig->addExtension(new MarkdownExtension($engine));
 
                     return $twig;
                 }

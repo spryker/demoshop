@@ -25,6 +25,38 @@
     }
 }
 
+
+.dropdown--1-1{
+    float: left;
+    width: 100%;
+}
+
+.dropdown--1-2{
+    float: left;
+    width: 50%;
+}
+
+.dropdown--1-4{
+    float: left;
+    width: 25%;
+}
+
+.dropdown--3-4{
+    float: left;
+    width: 75%;
+}
+
+.dropdown--1-3{
+    float: left;
+    width: 33.333%;
+}
+
+.dropdown--2-3{
+    float: left;
+    width: 66.666%;
+}
+
+
 .dropdown--focussed{
     .dropdown__button{
         border-color: $_rgbTundora;
@@ -37,13 +69,13 @@
     border: 1px solid $_rgbSilverChalice;
     border-radius: $_defaultBorderRadius;
 
-    font-size: 18px;
+    font-size: 14px;
     font-family: $_ffBrandonGrotesque-Bold;
     text-align: left;
 
     @include pdif('arrow-down', 5px, 0);
     display: block;
-    padding: 0 60px 0 12px;
+    padding: 0 60px 0 22px;
 
     transition: border-color $_tShort ease-in-out;
 

@@ -1,45 +1,18 @@
 body{
-    position: relative;
     font-family: $_ffBrandonGrotesque-Regular;
     font-size: $_fsDefault;
-    height: 100%;
-    -webkit-tap-highlight-color: transparent;
-    margin: 0;
+    line-height: $_lhDefault;
 
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
 
-    overflow-x: hidden;
-
-    // #TODO:660 refactor
-
-    background: $_rgbAlabaster;
-
-    &.no-scrolling{
-        overflow: hidden;
-    }
-
     *{
-        box-sizing: border-box;
-
         font-family: inherit;
         font-size: inherit;
-        line-height: 1.5em;
+        line-height: inherit;
     }
 }
-
 
 h1, h2, h3, h4, h5, h6{
     font-weight: normal;
-}
-
-button{
-    border: none;
-    appearance: none;
-    background: none;
-    outline: none;
-}
-
-br{
-    line-height: 0;
 }

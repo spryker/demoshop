@@ -1,9 +1,9 @@
 import $ from 'jquery';
-import { debounce } from './helpers';
-import { ToastService } from './toast';
+import { debounce } from '../common/helpers';
+import { ToastService } from '../common/toast';
 
 import { EVENTS as NAVBAR_EVENTS } from './navbar';
-import { EVENTS as BODY_EVENTS } from './bodyScrolling';
+import { EVENTS as BODY_EVENTS } from '../common/bodyScrolling';
 
 'use strict';
 

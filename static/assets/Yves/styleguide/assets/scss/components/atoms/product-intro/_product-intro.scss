@@ -4,9 +4,9 @@
 //
 // Styleguide: atoms.product-intro
 
+
 .product-intro{
     padding: 0 0 25px;
-    border-bottom: 1px solid $_rgbSilver;
 }
 
 .product-info__title{
@@ -43,4 +43,10 @@
     font-family: $_ffBrandonGrotesque-Bold;
     font-size: 15px;
     color: $_rgbDoveGray;
+}
+
+@media (max-width: 1050px) {
+    .product-info__title, .product-info__subtitle{
+        display: none;
+    }
 }

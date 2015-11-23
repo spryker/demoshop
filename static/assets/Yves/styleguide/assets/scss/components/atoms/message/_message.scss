@@ -10,85 +10,108 @@
 // Weight: -1
 
 .messages{
+    position: fixed;
+    z-index: 999;
     @include pageWidth;
+    padding-left: 45px;
+    padding-right: 45px;
+    width: 100%;
+    top: 35px;
+    left: 0;
 }
 
 .message{
-    margin-top: 40px;
-    padding: 26px 30px 26px 30px;
-    background: $_rgbWhite;
+    display: block;
+    position: relative;
+    padding: 25px 25px 25px 80px;
+
+    border-radius: $_defaultBorderRadius;
     @include cardShadow;
 
-    border: 2px solid $_rgbWhite;
-    border-radius: $_defaultBorderRadius;
-
     font-size: 20px;
-    color: $_rgbSilverChalice;
+    color: $_rgbWhite;
+    cursor: pointer;
 
     a{
         text-decoration: none;
         font-family: $_ffBrandonGrotesque-Bold;
-        color: $_rgbSilverChalice;
+        color: $_rgbWhite;
     }
 
     &:after{
+        content: '';
         position: absolute;
         top: 50%;
-        left: 30px;
         margin-top: -12px;
-        content: '';
+
         width: 24px;
         height: 24px;
+
         border-radius: 50%;
+        border: 2px solid $_rgbWhite;
     }
 
     &:before{
         position: absolute;
+        top: 50%;
+        margin-top: -12px;
+
         z-index: 1;
-        left: 30px !important;
         width: 24px;
+
+        line-height: 24px;
         text-align: center;
-        color: $_rgbWhite !important;
+        color: $_rgbWhite;
+        font-family: $_ffPetsDeliIcons;
+    }
+
+    &:after, &:before{
+        left: 30px;
+    }
+
+    & + .message{
+        margin-top: 10px;
     }
 }
 
 .message--valid{
-    border-color: $_rgbApple;
+    background: $_rgbApple;
 
-    @include pdif('check', 8px, 80px);
-    display: block;
-
-    &:after{
-        background: $_rgbApple;
+    &:before{
+        content: '\E00F';
+        font-size: 8px;
     }
 }
 
 .message--invalid{
-    border-color: $_rgbCarnation;
+    background: $_rgbCarnation;
 
-    @include pdif('exclamation', 12px, 80px);
-    display: block;
-
-    &:after{
-        background: $_rgbCarnation;
+    &:before{
+        content: '\E010';
+        font-size: 12px;
     }
 }
 
 
 @media (min-width: $_wMedium) {
     .message{
-        padding: 26px 70px 26px 110px;
+        padding: 18px 30px 18px 80px;
 
         &:after{
-            left: 110px;
         }
 
         &:before{
-            left: 110px !important;
         }
     }
+}
 
-    .message--valid, .message--invalid{
-        padding-left: 150px;
+
+@media (min-width: $_wLarge) {
+    .message{
+        padding: 28px 70px 28px 150px;
+
+        &:after, &:before{
+            left: 105px;
+        }
     }
 }

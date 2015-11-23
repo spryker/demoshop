@@ -16,6 +16,15 @@
         <property name="isMerged" type="string" />
     </transfer>
 
+    <transfer name="Item">
+        <property name="configuration" type="ItemConfiguration[]" />
+    </transfer>
+
+    <transfer name="ItemConfiguration">
+        <property name="groupKey" type="string" />
+        <property name="groupValues" type="array" />
+    </transfer>
+
     <transfer name="Cart">
         <property name="couponMessage" type="string" />
     </transfer>

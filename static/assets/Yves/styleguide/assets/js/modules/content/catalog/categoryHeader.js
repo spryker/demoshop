@@ -1,5 +1,5 @@
 import $ from 'jquery';
-import { debounce } from './helpers';
+import { debounce } from '../../common/helpers';
 
 'use strict';
 

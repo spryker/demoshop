@@ -44,6 +44,14 @@ function init () {
             $input.val(Math.min(99, val + 1));
             $input.trigger('change');
         });
+
+        $input.focus(function () {
+            $stepper.addClass('stepper--focussed');
+        });
+
+        $input.blur(function () {
+            $stepper.removeClass('stepper--focussed');
+        });
     });
 }
 

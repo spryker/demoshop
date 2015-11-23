@@ -2,9 +2,32 @@
 
 
 <form class="checkout js-formbackup" data-formbackup="checkout">
-  {{> "checkout.account"}}
-  {{> "checkout.payment"}}
-  {{> "checkout.confirmation"}}
+
+    <div class="checkout__headline">
+        Kasse
+    </div>
+
+
+    <div class="checkout__navigations">
+        <div class="checkout__navigation">1 Adresse</div>
+        <div class="checkout__navigation">2 Zahlart</div>
+        <div class="checkout__navigation">3 Bestätigung</div>
+    </div>
+
+    <div class="checkout__contents">
+        <div class="checkout__content checkout__content--account">
+            {{> "checkout.account"}}
+        </div>
+
+        <div class="checkout__content checkout__content--payment">
+            {{> "checkout.payment"}}
+        </div>
+
+        <div class="checkout__content checkout__content--confirmation">
+            {{> "checkout.confirmation"}}
+        </div>
+    </div>
+
 </form>
 
 

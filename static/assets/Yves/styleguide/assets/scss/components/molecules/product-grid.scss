@@ -1,6 +1,10 @@
 .product-grid{
     @include pageWidth;
     overflow: hidden;
+    margin-bottom: 11px;
+
+    display: flex;
+    flex-wrap: wrap;
 
     .product-card{
         float: left;
@@ -8,7 +12,7 @@
 }
 
 
-@media (min-width: $_wMedium) and (max-width: $_wLarge - 1px){
+@media (min-width: 701px) and (max-width: 1050px){
     .product-grid{
         .product-card{
             width: 50%;
@@ -20,7 +24,7 @@
     }
 }
 
-@media (min-width: $_wLarge){
+@media (min-width: 1051px){
     .product-grid{
         .product-card{
             width: 33.333%;

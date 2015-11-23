@@ -1,4 +1,4 @@
-<div class="checkbox {{modifier_class}}">
+<div class="checkbox {{ modifier | default('') }}">
     <input class="checkbox__input" type="checkbox" id="{{id}}" name="{{name}}" value="{{value}}">
     <label class="checkbox__label" for="{{id}}">{{label}}</label>
 </div>

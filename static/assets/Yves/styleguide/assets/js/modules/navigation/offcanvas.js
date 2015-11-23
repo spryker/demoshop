@@ -1,5 +1,7 @@
 import $ from 'jquery';
 
+import { EVENTS as BODY_EVENTS } from '../common/bodyScrolling';
+
 'use strict';
 
 
@@ -39,10 +41,13 @@ $(document).ready(function () {
     // TODO: refine transition as for the configurator
     function show () {
         $offcanvas.addClass('offcanvas--open');
+        $(document).trigger(BODY_EVENTS.DISABLE_SCROLLING);
+
     }
 
     function hide () {
         $offcanvas.removeClass('offcanvas--open');
+        $(document).trigger(BODY_EVENTS.ENABLE_SCROLLING);
     }
 
 });

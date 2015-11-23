@@ -1,5 +1,5 @@
 import $ from 'jquery';
-import { debounce } from './helpers';
+import { debounce } from '../common/helpers';
 import { EVENTS as OFFCANVAS_EVENTS } from './offcanvas';
 
 'use strict';
@@ -23,6 +23,8 @@ $(document).ready(function () {
         $offcanvas = $('.offcanvas');
         $navbarTop = $('.navbar__top');
 
+        determineActive();
+
         updateMarker();
 
 
@@ -35,6 +37,20 @@ $(document).ready(function () {
         });
 
         $(window).scroll(checkTopBar);
+
+
+        function determineActive () {
+            var url = window.location.href.toLowerCase();
+
+            $trigger.each(function () {
+                var target = (window.location.host +  $(this).find('a').attr('href')).toLowerCase();
+
+                if (url.indexOf(target) > -1) {
+                    $(this).addClass('navbar__link--active');
+                    return false;
+                }
+            });
+        }
 
 
         function updateMarker () {

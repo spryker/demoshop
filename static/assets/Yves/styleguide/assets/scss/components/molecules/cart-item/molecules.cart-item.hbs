@@ -1,25 +1,26 @@
 <div class="cart-item">
     <div class="cart-item__left">
+
         <div class="cart-item__image">
             <img src="{{image}}">
         </div>
 
         <div class="cart-item__details">
-            <div class="cart-item__title">{{title}}</div>
-            <div class="cart-item__content">
-                <div class="cart-item__weight">{{weight}}</div>
-                <div class="cart-item__flag">Customized</div>
+            <div style="display: inline-block; vertical-align: middle; margin-right: 40px;">
+                <div class="cart-item__title">{{title}}</div>
+                <div class="cart-item__content">
+                    <div class="cart-item__weight">{{weight}}</div>
+                </div>
             </div>
+            <span class="cart-item__delete"></span>
         </div>
-
-        <span class="cart-item__delete"></span>
     </div>
 
     <div class="cart-item__right">
         {{> "atoms.stepper" modifier_class="cart-item__quantity" label="Anzahl" id="product_quantity" name="product_quantity"}}
 
         <span class="cart-item__price">
-            <span class="cart-item__unit">€</span>{{price}}
+            {{price}} <span class="cart-item__unit">€</span>
         </span>
     </div>
 </div>

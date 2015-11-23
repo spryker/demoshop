@@ -3,6 +3,8 @@ import $ from 'jquery';
 'use strict';
 
 
+// TODO: delete or add documentation
+
 let instance = null;
 
 

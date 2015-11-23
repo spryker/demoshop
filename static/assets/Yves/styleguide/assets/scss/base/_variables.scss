@@ -2,54 +2,51 @@
 //  COLORS
 // ================
 
-$_rgbWhite:         rgb(255, 255, 255); // #FFFFFF
-$_rgbAlabaster:     rgb(247, 247, 247); // #F7F7F7
-$_rgbSilverChalice: rgb(166, 166, 166); // #A6A6A6 bigger texts
-$_rgbOsloGray:      rgb(131, 140, 142); // #838C8E
-$_rgbTundora:       rgb( 64,  64,  64); // #404040
-$_rgbShark:         rgb( 46,  46,  48); // #2E2E30
-$_rgbBlack:         rgb(  0,   0,   0); // #000000
+$_rgbWhite:             rgb(255, 255, 255); // #FFFFFF
+$_rgbAlabaster:         rgb(247, 247, 247); // #F7F7F7
+$_rgbSilverChalice:     rgb(166, 166, 166); // #A6A6A6 bigger texts
+$_rgbOsloGray:          rgb(131, 140, 142); // #838C8E
+$_rgbTundora:           rgb( 64,  64,  64); // #404040
+$_rgbShark:             rgb( 46,  46,  48); // #2E2E30
+$_rgbBlack:             rgb(  0,   0,   0); // #000000
 
-//$_rgbBarberry:      rgb(237, 221,  19); // #EDDD13
-$_rgbFuelYellow:    rgb(230, 178,  34); // #E6B222
-$_rgbZest:          rgb(225, 134,  39); // #E18627
-$_rgbHotCinnamon:   rgb(220, 102,  30); // #DC661E
+$_rgbFuelYellow:        rgb(230, 178,  34); // #E6B222
+$_rgbZest:              rgb(225, 134,  39); // #E18627
+$_rgbHotCinnamon:       rgb(220, 102,  30); // #DC661E
 
-$_rgbApple:         rgb( 95, 182,  75); // #5FB64B
+$_rgbApple:             rgb( 95, 182,  75); // #5FB64B
 
-$_rgbAkaroa:        rgb(217, 187, 169); // #D9BBA9
-$_rgbTumbleweed:    rgb(220, 180, 131); // #DCB483
-$_rgbWhiskey:       rgb(216, 155, 107); // #D89B6B
-$_rgbJaponica:      rgb(213, 123,  97); // #D57B61
-$_rgbMediumCarmine: rgb(179,  66,  56); // #B34238
-$_rgbTotemPole:     rgb(140,  20,   4); // #8C1404
+$_rgbAkaroa:            rgb(217, 187, 169); // #D9BBA9
+$_rgbTumbleweed:        rgb(220, 180, 131); // #DCB483
+$_rgbWhiskey:           rgb(216, 155, 107); // #D89B6B
+$_rgbJaponica:          rgb(213, 123,  97); // #D57B61
+$_rgbMediumCarmine:     rgb(179,  66,  56); // #B34238
+$_rgbTotemPole:         rgb(140,  20,   4); // #8C1404
 
-$_rgbTaupeGray:     rgb(178, 168, 147); // #B2A893
-$_rgbPaleOyster:    rgb(148, 140, 121); // #948C79
-$_rgbRomanCoffee:   rgb(122,  91,  68); // #7A5B44
-$_rgbIrishCoffee:   rgb(102,  58,  42); // #663A2A
+$_rgbTaupeGray:         rgb(178, 168, 147); // #B2A893
+$_rgbPaleOyster:        rgb(148, 140, 121); // #948C79
+$_rgbRomanCoffee:       rgb(122,  91,  68); // #7A5B44
+$_rgbIrishCoffee:       rgb(102,  58,  42); // #663A2A
 
-$_rgbDoveGray:      rgb(106, 106, 106); // #6A6A6A text color
+$_rgbDoveGray:          rgb(106, 106, 106); // #6A6A6A text color
+$_rgbSilver:            rgb(188, 188, 188); // #BCBCBC
 
+$_rgbCarnation:         rgb(246,  78,  96); // #F64E60
+$_rgbWhiskey2:          rgb(215, 155, 111); // #D79B6F
+$_rgbChileanFire:       rgb(238, 114,   3); // #EE7203
+$_rgbQuincy:            rgb( 91,  53,  42); // #5B352A
+$_rgbShipGray:          rgb( 67,  67,  69); // #434345
+$_rgbSilverChalices2:   rgb(177, 177, 177); // #B1B1B1
+$_rgbAlto:              rgb(220, 220, 220); // #DCDCDC
+$_rgbSilver:            rgb(201, 201, 201); // #C9C9C9
+$_rgbClementine:        rgb(237, 114,   3); // #ED7203
+$_rgbOsloGray2:         rgb(130, 140, 142); // #828C8E
+$_rgbOsloGray3:         rgb(129, 140, 142); // #818C8E
+$_rgbDustyGray:         rgb(151, 151, 151); // #979797
+$_rgbWildSand:          rgb(244, 244, 244); // #F4F4F4
+$_rgbPaleSky:           rgb(102, 111, 130); // #666F82
 
-// ???
-$_rgbCarnation:     rgb(246,  78,  96); // #F64E60
-$_rgbWhiskey2:      rgb(215, 155, 111); // #D79B6F
-$_rgbChileanFire:   rgb(238, 114,   3); // #EE7203
-$_rgbQuincy:        rgb( 91,  53,  42); // #5B352A
-$_rgbShipGray:      rgb( 67,  67,  69); // #434345
-$_rgbSilverChalices2: rgb(177, 177, 177); // #B1B1B1
-$_rgbAlto:          rgb(220, 220, 220); // #DCDCDC
-$_rgbSilver:        rgb(201, 201, 201); // #C9C9C9
-$_rgbClementine:    rgb(237, 114,   3); // #ED7203
-$_rgbOsloGray2:     rgb(130, 140, 142); // #828C8E
-$_rgbOsloGray3:     rgb(129, 140, 142); // #818C8E
-$_rgbDustyGray:     rgb(151, 151, 151); //#979797
-$_rgbWildSand:      rgb(244, 244, 244); // #F4F4F4
-$_rgbPaleSky:       rgb(102, 111, 130); // #666F82
-
-
-$_rgbBlack70:       rgba(0, 0, 0, 0.8);
+$_rgbBlack70:           rgba(0, 0, 0, 0.8);
 
 
 
@@ -60,40 +57,28 @@ $_rgbBlack70:       rgba(0, 0, 0, 0.8);
 $_ffBrandonGrotesque-Bold: 'BrandonGrotesque-Bold';
 $_ffBrandonGrotesque-Black: 'BrandonGrotesque-Black';
 $_ffBrandonGrotesque-Regular: 'BrandonGrotesque-Regular';
-$_ffBeloved: 'Beloved';
 $_ffHelveticaNeue: 'Helvetica Neue', 'Helvetica', sans-serif;
 $_ffPetsDeliIcons: 'Petsdeli-Icons';
 
+
+// TODO: remove
 $_fsTiny: 12px;
-$_lhTiny: 1.5em; //18px;
-
 $_fsSmall: 14px;
-$_lhSmall: 1.5em; //20px;
-
 $_fsSmaller: 18px;
-$_lhSmaller: 1.5em; //26px;
-
 $_fsDefault: 20px;
-$_lhDefault: 1.5em; //28px;
-
+$_lhDefault: 1.5; //28px;
 $_fsMedium: 30px;
-$_lhMedium: 1.5em; //43px;
-
 $_fsLarge: 50px;
-$_lhLarge: 1.5em; //72px;
-
 $_fsLarger: 60px;
-$_lhLarger: 1.5em; //86px;
 
 $_defaultBorderRadius: 3px;
+
 
 
 // ================
 //  LAYOUT
 // ================
 
-$_xGutter  : 36px;
-$_yGutter  : 0;
 $_xSpacing : 24px;
 $_ySpacing : 18px;
 
@@ -104,6 +89,13 @@ $_wLarge     : 768px;
 $_wXLarge    : 1000px;
 
 $_maxPageWidth: 1300px;
+
+
+$_wGalleryBig    : 330px;
+$_wGallerySmall  : 250px;
+$_wOptions       : 425px;
+
+// TODO: zindex
 
 // ================
 //  Animation

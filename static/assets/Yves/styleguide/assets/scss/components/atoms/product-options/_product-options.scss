@@ -5,14 +5,18 @@
 // Styleguide: atoms.product-options
 
 .product-options{
+    position: absolute;
 
+    &.js-sticky{
+        position: fixed;
+    }
 }
 
 .product-options__select{
     display: inline-block;
     vertical-align: bottom;
     margin-bottom: 20px;
-    padding: 5px;
+    padding-right: 5px;
 
     label{
         display: block;
@@ -20,10 +24,25 @@
 
         font-family: $_ffBrandonGrotesque-Bold;
         font-size: $_fsSmall;
-        line-height: $_lhSmall;
         color: $_rgbOsloGray3;
         text-align: center;
         text-transform: none;
+    }
+
+    .dropdown, .stepper{
+        margin-top: 0;    
+    }
+
+    .dropdown{
+        padding-left: 0;
+    }
+
+    .dropdown__button{
+        border-width: 2px;
+
+        &:before{
+            top: -2px;
+        }
     }
 }
 
@@ -66,9 +85,17 @@
     font-family: $_ffBrandonGrotesque-Bold;
     color: $_rgbApple;
 
-    @include pdif('dot', 7px, 15px);
+    @include pdif('delivery', 24px, 47px);
 }
 
 .product-options__delivery-info{
+    max-width: 360px;
     color: $_rgbDoveGray;
+}
+
+
+@media (max-width: 1049px) {
+    .product-options{
+        position: static !important;
+    }
 }

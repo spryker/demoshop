@@ -5,8 +5,8 @@
 // Styleguide: atoms.product-content
 
 .product-content{
-    padding: 30px 0 0;
-    border-bottom: 1px solid $_rgbSilver;
+    overflow: hidden;
+    padding: 30px 0;
 }
 
 .product-content__title{
@@ -17,8 +17,11 @@
     color: $_rgbApple;
 }
 
-.product-content__description{
+.product-content__description,
+.product-content__customize{
+    position: relative;
     margin-bottom: 30px;
+
     font-size: 16px;
     color: $_rgbDoveGray;
 }
@@ -27,8 +30,26 @@
     font-family: $_ffBrandonGrotesque-Bold;
 }
 
-.product-content__customize{
-    float: right;
-    padding-left: 20px;
-    padding-right: 20px;
+.product-content__button{
+    padding-left: 38px;
+    padding-right: 38px;
+
+    display: block;
+    margin: 19px 0 0 0;
+}
+
+
+
+@media (min-width: 1250px) {
+
+    .product-content__customize{
+        padding-right: 204px;
+    }
+
+    .product-content__button{
+        position: absolute;
+        top: 0;
+        right: 0;
+        margin: 0;
+    }
 }

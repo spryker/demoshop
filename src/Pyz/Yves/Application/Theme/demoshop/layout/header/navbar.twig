@@ -60,9 +60,9 @@
                         <li {% if link.menu is defined %} data-menu="{{ link.menu }}" {% endif %} class="navbar__link {% if link.modifier is defined %} navbar__link--{{ link.modifier }} {% endif %}">
                             <a {% if link.url is defined %} href="{{ link.url }}" {% endif %}>
 
-                                {% if link.menu is defined and link.menu not in ['menu'] %} <span> {% endif %}
+                                {% if link.menu is not defined or link.menu != 'menu' %} <span> {% endif %}
                                     {{ link.title }}
-                                {% if link.menu is defined and link.menu not in ['menu'] %} </span> {% endif %}
+                                {% if link.menu is not defined or link.menu != 'menu' %} </span> {% endif %}
 
                             </a>
                         </li>
@@ -78,6 +78,13 @@
     </div>
 
     {% include '@application/layout/header/menu.twig' %}
+
+    {% if headerBlocks is defined %}
+        {% for headerBlock in headerBlocks %}
+            {{ include(headerBlock) }}
+        {% endfor %}
+    {% endif %}
+
 </nav>
 
 <div class="navbar__pusher"></div>

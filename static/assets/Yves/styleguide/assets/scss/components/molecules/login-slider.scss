@@ -1,0 +1,83 @@
+.login-slider{
+    //min-height: calc(100vh - 100px);
+    overflow: hidden;
+    background: $_rgbWhite;
+
+    &.js-animation{
+        .login-slider__inner{
+            transition: transform $_tMedium ease-in-out;
+        }
+    }
+}
+
+.slider__headline{
+    padding: 6px 0;
+
+    font-family: $_ffBrandonGrotesque-Black;
+    font-size: 30px;
+    color: $_rgbApple;
+    text-align: center;
+}
+
+.login-slider__navigations{
+    padding: 10px 0 22px;
+    border-top: 1px solid #ECECEC;
+    border-bottom: 1px solid #ECECEC;
+    white-space: nowrap;
+}
+
+.login-slider__navigation{
+    position: relative;
+    display: inline-block;
+    padding: 0 20px;
+
+    font-family: $_ffBrandonGrotesque-Black;
+    font-size: 30px;
+    color: $_rgbSilverChalice;
+
+    @include decoratorStrip($_rgbSilverChalice);
+
+    cursor: pointer;
+    transition: color $_tShort ease-in-out;
+}
+
+.login-slider__navigation--active{
+    color: $_rgbApple;
+
+    @include decoratorStrip($_rgbApple);
+}
+
+.login-slider__contents{
+    .login-slider__inner{
+        width: 200%;
+    }
+}
+
+.login-slider__content{
+    float: left;
+    width: 50%;
+    text-align: center;
+}
+
+.login-slider__form{
+    display: inline-block;
+    width: 100%;
+    max-width: 260px;
+    padding: 30px 0;
+
+    .button{
+        margin-top: 60px;
+    }
+}
+
+
+@media (min-width: $_wMedium) {
+    .slider__headline{
+        padding: 12px 0;
+    }
+
+    .login-slider__navigation{
+        padding: 0 45px;
+        font-size: 40px;
+    }
+}

@@ -1,5 +1,5 @@
 import $ from 'jquery';
-import { EVENTS as STEPPER_EVENTS } from './stepper';
+import { EVENTS as STEPPER_EVENTS } from '../../forms/stepper';
 
 'use strict';
 

@@ -1,19 +1,28 @@
 {% extends "@application/layout/layout.twig" %}
 
-{% block title %}{{ product.abstract_name }}{% endblock %}
+{% block meta_title %}{{ product.meta_title }}{% endblock %}
+{% block meta_description %}{{ product.meta_description }} {% endblock %}
+{% block meta_keywords %}{{ product.meta_description }}{% endblock %}
+
+
+{% set headerBlocks = [
+    '@application/layout/content/product/details/header-options-narrow.twig'
+] %}
+
 
 {% block content %}
 
 <div class="product">
+
     <div class="product__detail">
 
-        <div class="product__gallery column medium-3">
+        <div class="product__gallery">
             {% include '@application/layout/content/product/details/product-gallery.twig' with {
                 product: product
             } %}
         </div>
 
-        <div class="column medium-5">
+        <div class="product__info">
             {% include '@application/layout/content/product/details/product-intro.twig' with {
                 product: product
             } %}
@@ -23,12 +32,14 @@
             } %}
         </div>
 
-        <div class="column medium-4">
+        <div class="product__options">
             {% include '@application/layout/content/product/details/product-options.twig' with {
                 product: product
             } %}
         </div>
+    </div>
 
+    <div class="product__features">
         {% include '@application/layout/content/product/details/product-features.twig' with {
             product: product
         } %}
@@ -42,9 +53,10 @@
         product: product
     } %}
 
-    {% include '@application/layout/content/product/details/product-configurator.twig' with {
-        product: product
-    } %}
+
+    {% if options is not empty %}
+        {% include '@application/layout/content/product/details/product-configurator.twig' %}
+    {% endif %}
 </div>
 
 {% endblock %}

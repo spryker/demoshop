@@ -9,7 +9,14 @@
             value="{{ checkbox.value }}"
             checked>
 
-        <div class="image-checkbox__label">{{ checkbox.label }}</div>
+        <div class="image-checkbox__content">
+            <div class="image-checkbox__label">{{ checkbox.label }}</div>
+
+            {% if checkbox.sublabel is not empty %}
+                <div class="image-checkbox__sublabel">{{ checkbox.sublabel }}</div>
+            {% endif %}
+        </div>
+
         <div class="image-checkbox__disabled" style="background: url({{ checkbox.image_bw }});"></div>
     </label>
 </div>

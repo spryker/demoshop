@@ -4,11 +4,49 @@
     {% if error  %}
         <b>{{ error }}</b>
     {% endif %}
-    <h1>{{ "customer.login" | trans }}</h1>
-    <form action="{{ path('login_check') }}" method="post">
-        <input type="text" name="_username" />
-        <input type="password" name="_password" value="" />
-        <input type="submit" />
-    </form>
+
+
+    <div class="login-slider">
+
+        <div class="login-slider__navigations">
+            <div class="login-slider__inner">
+
+                <div class="login-slider__navigation">Login</div>
+
+            </div>
+        </div>
+
+
+        <div class="login-slider__contents">
+            <div class="login-slider__inner">
+
+                <div class="login-slider__content">
+                    <form class="login-slider__form" action="{{ path('login_check') }}" method="post">
+
+                        {% include   '@application/layout/common/forms/input.twig' with {
+                            label: 'Ihre E-Mail Adresse',
+                            name: '_username'
+                        } %}
+
+                        {% include   '@application/layout/common/forms/input-password.twig' with {
+                            label: 'Ihr Passwort',
+                            type: 'password',
+                            name: '_password'
+                        } %}
+
+                       {% include '@application/layout/common/forms/button.twig' with {
+                           title: 'Einloggen',
+                           modifier: 'cta',
+                           type: 'submit'
+                       } %}
+
+                    </form>
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+
 {% endblock %}
 

@@ -16,30 +16,37 @@
         <p class="newsletter__description">{{ data.description }}</p>
 
         <form class="newsletter__form" action="{{ url('NEWSLETTER_SUBSCRIPTION_ROUTE') }}" method="POST">
-            {% include '@application/layout/common/forms/input.twig' with {
-                placeholder: data.placeholder,
-                type: 'email',
-                name: 'email'
-            } %}
 
-            {% include '@application/layout/common/forms/button.twig' with {
-                title: data.button,
-                modifier: 'cta',
-                type: 'submit'
-            } %}
-            <!-- @TODO: enhanced by Chris -->
-            <div>
-                <input id="NewsletterTypeDogsCheckbox" name="NewsletterTypeDogs" type="checkbox" checked/>
-                <label for="NewsletterTypeDogsCheckbox">
-                    Für Hunde
-                </label>
+            <div class="newsletter__top">
+                {% include '@application/layout/common/forms/input.twig' with {
+                    placeholder: data.placeholder,
+                    type: 'email',
+                    name: 'email'
+                } %}
 
-                <input id="NewsletterTypeCatsCheckbox" name="NewsletterTypeCats" type="checkbox" checked/>
-                <label for="NewsletterTypeCatsCheckbox">
-                    Für Katzen
-                </label>
+                {% include '@application/layout/common/forms/button.twig' with {
+                    title: data.button,
+                    modifier: 'cta',
+                    type: 'submit'
+                } %}
             </div>
-            <!-- end of TODO -->
+
+            <div class="newsletter__bottom">
+                {% include '@application/layout/common/forms/checkbox.twig' with {
+                    id: 'NewsletterTypeDogsCheckbox',
+                    name: 'NewsletterTypeDogs',
+                    label: 'Für Hunde',
+                    value: 1
+                } %}
+
+                {% include '@application/layout/common/forms/checkbox.twig' with {
+                    id: 'NewsletterTypeCatsCheckbox',
+                    name: 'NewsletterTypeCats',
+                    label: 'Für Katzen',
+                    value: 1
+                } %}
+            </div>
+
         </form>
     </div>
 </div>

@@ -91,8 +91,10 @@
       // use keys to preserve order
       key = Object.keys(object)[i];
       // fallback for value null
-      content = object[key] || '';
+      content = object[key] !== null ? object[key] : '';
+
       // TODO chris check why 0 is not shown in form
+
       //content = object[key] !== 'undefined' ? object[key]: '';
 
       switch (typeof content) {

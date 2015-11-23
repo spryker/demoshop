@@ -1,3 +1,8 @@
 {#{{ dump(dynamicData) }}#}
 
-{% include "@catalog/catalog/catalog_product_grid.twig" with { products: dynamicData.products, numFound: dynamicData.numFound, maxPage: dynamicData.maxPage, category: dynamicData.category } %}
+{% include "@catalog/catalog/catalog_product_grid.twig" with {
+    products: dynamicData.products,
+    numFound: dynamicData.numFound,
+    maxPage: dynamicData.maxPage,
+    category: dynamicData.category
+} %}

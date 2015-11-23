@@ -20,13 +20,9 @@
 
   @include ripple;
 
-  input:checked + .image-checkbox__label{
+  input:checked + .image-checkbox__content{
     &:after{
-        color: $_rgbBlack;
-    }
-
-    &:before{
-        border-color: $_rgbApple;
+        color: $_rgbWhite;
     }
 
     & + .image-checkbox__disabled{
@@ -35,54 +31,52 @@
   }
 }
 
-.image-checkbox__label{
-  position: absolute;
-  z-index: 1;
-  top: 50%;
-  left: 0;
-  transform: translate(0, -50%);
-  width: 100%;
-  padding: 0 75px;
+.image-checkbox__content{
+    position: absolute;
+    z-index: 1;
+    top: 50%;
+    left: 0;
+    transform: translate(0, -50%);
+    width: 100%;
+    padding: 0 75px 0 20px;
 
-  text-align: center;
+    font-size: 24px;
+    line-height: 28px;
+    color: $_rgbWhite;
+    transition: color $_tShort ease-in-out;
+
+    &:before, &:after{
+        position: absolute;
+        right: 28px;
+        top: 50%;
+        width: 31px;
+        margin-top: -16px;
+    }
+
+    &:before{
+        content: '';
+
+        height: 31px;
+        border: 4px solid $_rgbWhite;
+        transition: border-color $_tShort ease-in-out;
+    }
+
+    &:after{
+        content: '\E00F';
+
+        font-family: $_ffPetsDeliIcons;
+        color: transparent;
+        font-size: 11px;
+        line-height: 31px;
+        text-align: center;
+    }
+}
+
+
+.image-checkbox__label{
   font-family: $_ffBrandonGrotesque-Black;
-  font-size: 24px;
-  line-height: 28px;
-  color: $_rgbWhite;
   text-transform: uppercase;
 
-  transition: color $_tShort ease-in-out;
-
-  &:before{
-    position: absolute;
-    right: 28px;
-    top: 50%;
-    margin-top: -16px;
-    content: '';
-    width: 23px;
-    height: 23px;
-    background: $_rgbWhite;
-    border: 4px solid $_rgbSilverChalice;
-    border-radius: $_defaultBorderRadius;
-
-    transition: border-color $_tShort ease-in-out;
-  }
-
-  &:after{
-    position: absolute;
-    right: 28px;
-    top: 50%;
-    width: 31px;
-    line-height: 31px;
-    margin-top: -16px;
-    content: '\E00F';
-    font-family: $_ffPetsDeliIcons;
-    color: transparent;
-    font-size: 11px;
-    text-align: center;
-
-    transition: color $_tShort ease-in-out;
-  }
 }
 
 .image-checkbox__disabled{
