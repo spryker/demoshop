@@ -359,7 +359,7 @@ $config[AdyenConfigConstants::ADYEN_PAYMENT_PROVIDER] = [
     AdyenConfigConstants::ADYEN_CONFIGURATION_ARE_API_PAYMENT_METHODS_ENABLED => true,
     AdyenConfigConstants::ADYEN_CONFIGURATION_ARE_HPP_PAYMENT_METHODS_ENABLED => true,
     AdyenConfigConstants::ADYEN_CONFIGURATION_IS_PAYMENT_SELECTION_ON_HPP => false,
-    AdyenConfigConstants::ADYEN_CONFIGURATION_FETCH_HPP_PAYMENT_METHODS => true,
+    AdyenConfigConstants::ADYEN_CONFIGURATION_FETCH_HPP_PAYMENT_METHODS => false,
 ];
 
 $config[SystemConfig::ZED_SHOW_EXCEPTION_STACK_TRACE] = false;
