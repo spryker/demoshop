@@ -17,7 +17,7 @@ class CustomerClient extends SprykerFeatureCustomerClient implements CustomerCli
      */
     public function migrateMagentoPassword(CustomerMagentoPasswordMigrationInterface $customerInterface)
     {
-        $cartTransfer = $this->getZedStub()->migrateMagentoPassword($customerInterface);
+        return $this->getZedStub()->migrateMagentoPassword($customerInterface);
     }
 
     /**
