@@ -3,6 +3,11 @@
 namespace Pyz\Zed\Collector\Business\Storage;
 
 use Generated\Shared\Transfer\LocaleTransfer;
+use Orm\Zed\Category\Persistence\SpyCategoryAttribute;
+use Orm\Zed\Category\Persistence\SpyCategoryAttributeQuery;
+use Orm\Zed\Category\Persistence\SpyCategoryNodeQuery;
+use Orm\Zed\ProductCategory\Persistence\SpyProductCategoryQuery;
+use Orm\Zed\Url\Persistence\SpyUrlQuery;
 use Propel\Runtime\ActiveQuery\Criteria;
 use Propel\Runtime\ActiveQuery\Join;
 use Pyz\Zed\Price\Business\PriceFacade;
@@ -339,9 +344,9 @@ class ProductCollector extends AbstractPropelCollectorPlugin
         $baseQuery = $this->categoryQueryContainer->joinLocalizedRelatedCategoryQueryWithAttributes($baseQuery, 'categoryChildren', 'child');
         $baseQuery = $this->categoryQueryContainer->joinRelatedCategoryQueryWithUrls($baseQuery, 'categoryChildren', 'child');
 
-        $baseQuery = $this->categoryQueryContainer->joinCategoryQueryWithParentCategories($baseQuery, $excludeDirectParent, $excludeRoot);
+     /*   $baseQuery = $this->categoryQueryContainer->joinCategoryQueryWithParentCategories($baseQuery, $excludeDirectParent, $excludeRoot);
         $baseQuery = $this->categoryQueryContainer->joinLocalizedRelatedCategoryQueryWithAttributes($baseQuery, 'categoryParents', 'parent');
-        $baseQuery = $this->categoryQueryContainer->joinRelatedCategoryQueryWithUrls($baseQuery, 'categoryParents', 'parent');
+        $baseQuery = $this->categoryQueryContainer->joinRelatedCategoryQueryWithUrls($baseQuery, 'categoryParents', 'parent');*/
 
         $baseQuery->withColumn(
             'GROUP_CONCAT(DISTINCT spy_category_node.id_category_node)',
@@ -355,8 +360,8 @@ class ProductCollector extends AbstractPropelCollectorPlugin
             SpyTouchTableMap::COL_ID_TOUCH,
             self::TOUCH_EXPORTER_ID
         );
-        $baseQuery->orderBy('depth', Criteria::DESC);
-        $baseQuery->orderBy('descendant_id', Criteria::DESC);
+        //$baseQuery->orderBy('depth', Criteria::DESC);
+        //$baseQuery->orderBy('descendant_id', Criteria::DESC);
         $baseQuery->groupBy('abstract_sku');
 
         return $baseQuery;
@@ -372,6 +377,7 @@ class ProductCollector extends AbstractPropelCollectorPlugin
     protected function processData($resultSet, LocaleTransfer $locale, TouchUpdaterSet $touchUpdaterSet)
     {
         $products = $this->buildProducts($resultSet);
+
 
         $processedResultSet = [];
         foreach ($products as $index => $productData) {
@@ -451,6 +457,9 @@ class ProductCollector extends AbstractPropelCollectorPlugin
 
         $processedResultSet = $this->productOptionExporterFacade->processDataForExport($resultSet, $processedResultSet, $locale);
 
+
+
+
         return $processedResultSet;
     }
 
@@ -526,28 +535,26 @@ class ProductCollector extends AbstractPropelCollectorPlugin
      */
     public function explodeGroupedNodes(array $data, $idsField, $namesField, $urlsField)
     {
-        if (!$data[$idsField]) {
-            return [];
-        }
+         $data = $this->getCategories($data);
 
-        $ids = explode(',', $data[$idsField]);
-        $names = explode(',', $data[$namesField]);
-        $urls = explode(',', $data[$urlsField]);
-        $nodes = [];
-        foreach ($ids as $key => $id) {
-            $nodes[$id]['node_id'] = $id;
-            $nodes[$id]['name'] = $names[$key];
-            $nodes[$id]['url'] = $urls[$key];
-        }
+         $ids = explode(',', $data[$idsField]);
+         $names = explode(',', $data[$namesField]);
+         $urls = explode(',', $data[$urlsField]);
+         $nodes = [];
+         foreach ($ids as $key => $id) {
+             $nodes[$id]['node_id'] = $id;
+             $nodes[$id]['name'] = $names[$key];
+             $nodes[$id]['url'] = $urls[$key];
+         }
 
-        return $nodes;
-    }
+         return $nodes;
+     }
 
-    /**
-     * @param array $productsData
-     *
-     * @return array
-     */
+     /**
+      * @param array $productsData
+      *
+      * @return array
+      */
     protected function buildProducts(array $productsData)
     {
         foreach ($productsData as &$productData) {
@@ -583,9 +590,41 @@ class ProductCollector extends AbstractPropelCollectorPlugin
                     self::ATTRIBUTES => $mergedAttributes,
                 ];
             }
+
         }
 
         return $productsData;
     }
+
+    /**
+     * @param array $data
+     *
+     * @return array
+     */
+    private function getCategories(array $data)
+    {
+        $categories = SpyProductCategoryQuery::create()
+            ->filterByFkAbstractProduct($data['id_abstract_product'])->find();
+
+        foreach ($categories as $category) {
+
+            $node = SpyCategoryNodeQuery::create()->filterByFkCategory($category->getFkCategory())->findOne();
+            $data['category_parent_ids'] = $node->getIdCategoryNode();
+
+            $attributes = SpyCategoryAttributeQuery::create()
+                ->filterByFkCategory($category->getFkCategory())
+                ->filterByFkLocale(46)->find();
+
+            foreach ($attributes as $attribute) {
+                $data['category_parent_names'] = $attribute->getName();
+            }
+
+            $url = SpyUrlQuery::create()->filterByFkLocale(46)->filterByFkResourceCategorynode($node->getIdCategoryNode())->findOne();
+
+            $data['category_parent_urls'] = $url->getUrl();
+        }
+        return $data;
+    }
+
 
 }
