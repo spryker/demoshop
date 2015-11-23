@@ -127,15 +127,6 @@ class SecurityServiceProvider extends AbstractPlugin implements
      */
     public function onAuthenticationFailure(Request $request, AuthenticationException $exception)
     {
-        $customerTransfer = new CustomerMagentoPasswordMigrationTransfer();
-        $customerTransfer
-            ->setEmail('hanna.tamoudi+1@gmail.com')
-            ->setPassword('12345678');
-
-        $this->getDependencyContainer()->createCustomerClient()->migrateMagentoPassword($customerTransfer);
-
-//        // TODO: remove this debug output
-//        echo PHP_EOL.'<hr /><pre>'; var_dump($request); echo __CLASS__.' '.__FILE__ . ':'.__LINE__.''; echo '</pre><hr />'.PHP_EOL; exit();
         $array = ['success' => false, 'message' => $exception->getMessage()]; // data to return via JSON
         $response = new Response(json_encode($array));
         $response->headers->set('Content-Type', 'application/json');

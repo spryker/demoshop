@@ -7,7 +7,6 @@ use Silex\Application;
 use Silex\ServiceProviderInterface;
 use Symfony\Component\HttpKernel\Event\GetResponseEvent;
 use Symfony\Component\HttpKernel\KernelEvents;
-use Symfony\Component\Security\Core\Encoder\PasswordEncoderInterface;
 
 class PasswordMigrationProvider implements ServiceProviderInterface
 {
@@ -55,22 +54,9 @@ class PasswordMigrationProvider implements ServiceProviderInterface
         $username = $request->get('_username');
         $password = $request->get('_password');
 
-        /** @var PasswordEncoderInterface $encoder */
-        $encoder = $this->app['security.encoder.digest'];
-
         if ($username != null && $password != null ){
-            $user = $this->userProvider->loadUserByUsername($username);
-
-            if($this->userProvider->migrateMagentoPassword($username, $password)) {
-                $this->userProvider->resetPassword($password);
-
-            }
-
-//            if ($encoder->isPasswordValid($user->getPassword(), $password, '')) {
-//                $newEncodedPassword = $encoder->encodePassword($password, '');
-//            }
+            $this->userProvider->migrateMagentoPassword($username, $password);
         }
-
     }
 
 }
