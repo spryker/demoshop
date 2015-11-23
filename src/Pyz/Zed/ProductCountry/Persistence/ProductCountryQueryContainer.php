@@ -33,7 +33,7 @@ class ProductCountryQueryContainer extends AbstractQueryContainer implements Pro
     {
         $query = SpyProductCountryQuery::create();
 
-        $query->filterByFkProduct($idProduct);
+        $query->filterByFkAbstractProduct($idProduct);
 
         return $query;
     }
@@ -64,10 +64,9 @@ class ProductCountryQueryContainer extends AbstractQueryContainer implements Pro
     {
         $query = SpyProductCountryQuery::create();
         $query
-            ->filterByFkProduct($idProduct)
+            ->filterByFkAbstractProduct($idProduct)
             ->filterByFkCountry($idCountry)
         ;
-
         return $query;
     }
 
