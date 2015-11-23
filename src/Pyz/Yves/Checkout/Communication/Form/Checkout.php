@@ -6,7 +6,6 @@ use Generated\Shared\Adyen\AdyenPaymentMethodsInterface;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
-use Generated\Shared\Transfer\AdyenPaymentTransfer;
 
 class Checkout extends AbstractType
 {
