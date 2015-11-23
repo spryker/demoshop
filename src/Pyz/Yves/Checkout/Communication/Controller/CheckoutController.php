@@ -72,6 +72,8 @@ class CheckoutController extends AbstractController
 
         $paymentMethodsTransfer = $container->createAdyenClient()
             ->getAvailablePaymentMethods($adyenPaymentAvailabilityTransfer);
+
+        echo '<pre>' . print_r($paymentMethodsTransfer,false) . '</pre>';die;
 /** TODO: START OF HACK FETCH PAYMENT METHODs */
 
 
