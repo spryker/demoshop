@@ -2,11 +2,11 @@
 <transfers xmlns="http://xsd.spryker.com"
            xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
            xsi:schemaLocation="http://xsd.spryker.com ../../src/Spryker/TransferObjectDefinitionSchema.xsd">
-
     <transfer name="ProductCountry">
         <property name="idProductCountry" type="int" />
         <property name="fkAbstractProduct" type="int" />
         <property name="fkCountry" type="int" />
+        <property name="abstractProductSku" type="string" />
+        <property name="countryCode" type="string" />
     </transfer>
-
 </transfers>
