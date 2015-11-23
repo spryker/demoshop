@@ -18,8 +18,6 @@ use League\Csv\Writer;
 
 class FeedGenerator implements FeedGeneratorInterface
 {
-    const htpasswdFileName = '.htpasswd';
-    const htaccessFileName = '.htaccess';
 
     private $productFeedConfig;
     private $productQueryContainer;
@@ -32,41 +30,6 @@ class FeedGenerator implements FeedGeneratorInterface
 
         $locale = new Local($this->productFeedConfig->getProductFeedFileLocation());
         $this->filesystem = new Filesystem($locale);
-    }
-
-    /**
-     * Creates or updates .htpasswd file
-     * @throws InvalidProductFeedConfigException
-     */
-    public function generateHtpasswd()
-    {
-        $users = $this->productFeedConfig->getProductFeedUsers();
-        if (is_array($users) === false) {
-            throw new InvalidProductFeedConfigException('Product feed users has to be of type array');
-        }
-        $htpasswdContent = '';
-
-        foreach ($users as $user) {
-            if (isset($user['username']) === false || isset($user['password']) === false) {
-                throw new InvalidProductFeedConfigException('User has to have a username and a password');
-            }
-            $htpasswdContent .= $user['username'] . ':' . crypt($user['password'], base64_encode($user['password']));
-        }
-        $this->filesystem->put(self::htpasswdFileName, $htpasswdContent);
-    }
-
-    /**
-     * Creates or updates .htaccess file
-     */
-    public function generateHtaccess()
-    {
-        $this->filesystem->put(self::htaccessFileName, '
-            AuthType Basic
-            AuthUserFile ' . self::htpasswdFileName . '
-            <Files "' . $this->productFeedConfig->getProductFeedFileName() . '">
-                require valid-user
-            </Files>
-        ');
     }
 
     /**
@@ -172,13 +135,11 @@ class FeedGenerator implements FeedGeneratorInterface
     }
 
     /**
-     * creates or updates a htpasswd, htpaccess and a product feed file
+     * creates or updates a product feed file
      * @throws InvalidProductFeedConfigException
      */
     public function generate()
     {
-        $this->generateHtpasswd();
-        $this->generateHtaccess();
         $this->generateFeed();
     }
 }
