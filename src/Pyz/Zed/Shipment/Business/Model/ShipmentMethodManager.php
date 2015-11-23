@@ -3,13 +3,12 @@
 namespace Pyz\Zed\Shipment\Business\Model;
 
 use Generated\Shared\Transfer\ExpenseTransfer;
+use Pyz\Shared\Shipment\Business\ShipmentMethodConstants;
 use Pyz\Zed\Shipment\Persistence\ShipmentQueryContainer;
 use Orm\Zed\Shipment\Persistence\SpyShipmentMethod;
 
 class ShipmentMethodManager
 {
-    const TYPE_SHIPMENT_FEE = 'shipmentFee';
-    const NAME_SHIPMENT_FEE = 'Shipment fee';
 
     /**
      * @var ShipmentQueryContainer
@@ -43,9 +42,9 @@ class ShipmentMethodManager
     public function getShipmentMethodAsCartExpenseTransfer(SpyShipmentMethod $shipmentMethod)
     {
         $expenseTransfer = new ExpenseTransfer();
-        $expenseTransfer->setType(self::TYPE_SHIPMENT_FEE)
+        $expenseTransfer->setType(ShipmentMethodConstants::TYPE_SHIPMENT_FEE)
             ->setGrossPrice($shipmentMethod->getPrice())
-            ->setName(self::NAME_SHIPMENT_FEE);
+            ->setName(ShipmentMethodConstants::NAME_SHIPMENT_FEE);
 
         return $expenseTransfer;
     }
