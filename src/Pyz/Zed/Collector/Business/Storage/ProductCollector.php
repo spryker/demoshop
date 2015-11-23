@@ -26,7 +26,7 @@ class ProductCollector extends BaseProductCollector
         $baseQuery->addJoinObject(
             (new Join(
                 SpyAbstractProductTableMap::COL_ID_ABSTRACT_PRODUCT,
-                SpyProductCountryTableMap::COL_FK_PRODUCT,
+                SpyProductCountryTableMap::COL_FK_ABSTRACT_PRODUCT,
                 Criteria::INNER_JOIN
             ))->setRightTableAlias('productsCountries'),
             'productsCountriesJoin'
