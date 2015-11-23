@@ -2,6 +2,7 @@
 
 namespace Pyz\Yves\Checkout\Communication\Controller;
 
+use Generated\Shared\Adyen\AdyenHppPaymentReturnCheckResponseInterface;
 use Generated\Shared\Transfer\AdyenHppPaymentReturnCheckTransfer;
 use Generated\Shared\Transfer\AdyenPaymentDetailTransfer;
 use Generated\Shared\Transfer\AdyenPaymentMethodAvailabilityTransfer;
@@ -225,11 +226,23 @@ class CheckoutController extends AbstractController
         $adyenClient = $this->getAdyenClient();
         $checkResponse = $adyenClient->checkHppPaymentReturn($hppCheckPaymentReturnTransfer);
 
-        //$this->getApplication()->getSession()->getFlashBag()->add('xx', $checkResponse->getCustomerMessage());
-
+        $this->handleRedirectPaymentReturnCustomerMessage($checkResponse);
         $redirectUrl = $checkResponse->getRedirectUrl();
 
         return $this->redirectResponseInternal($redirectUrl);
+    }
+
+    /**
+     * @param AdyenHppPaymentReturnCheckResponseInterface $checkResponse
+     * @return void
+     */
+    protected function handleRedirectPaymentReturnCustomerMessage(AdyenHppPaymentReturnCheckResponseInterface $checkResponse)
+    {
+        if ($checkResponse->getIsSuccess()) {
+            $this->addSuccessMessage($checkResponse->getCustomerMessage());
+        } else {
+            $this->addErrorMessage($checkResponse->getCustomerMessage());
+        }
     }
 
 }

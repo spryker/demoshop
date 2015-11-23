@@ -37,15 +37,7 @@ class CheckoutControllerProvider extends YvesControllerProvider
             'Checkout',
             'redirectPaymentReturn'
         );
-/*
-        $this->createGetController(
-            '/checkout/regular-redirect-payment-cancellation',
-            self::ROUTE_CHECKOUT_REGULAR_REDIRECT_PAYMENT_CANCELLATION,
-            'Checkout',
-            'Checkout',
-            'regularRedirectPaymentCancellation'
-        )->method('GET|POST');
-*/
+
         $this->createController('/checkout/ajax-cart', self::ROUTE_CHECKOUT_AJAX_CART, 'Checkout', 'Ajax', 'cart')
              ->method('GET');
 
