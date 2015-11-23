@@ -35,7 +35,7 @@ use Orm\Zed\Tax\Persistence\Map\SpyTaxSetTableMap;
 use Orm\Zed\Tax\Persistence\Map\SpyTaxSetTaxTableMap;
 use Orm\Zed\Url\Persistence\Map\SpyUrlTableMap;
 
-class ProductCollector extends AbstractPropelCollectorPlugin
+class BaseProductCollector extends AbstractPropelCollectorPlugin
 {
 
     use KeyBuilderTrait;
@@ -590,10 +590,6 @@ class ProductCollector extends AbstractPropelCollectorPlugin
                     self::ATTRIBUTES => $mergedAttributes,
                 ];
             }
-
-            $productData = $this->addCategoryData($productData);
-
-
         }
 
         return $productsData;
