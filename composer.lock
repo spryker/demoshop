@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "34c2b95f30607436361afd0f9394c926",
+    "hash": "1da92d495f728f47f7038661f2f55c17",
     "packages": [
         {
             "name": "digital-canvas/zend-framework",
@@ -138,6 +138,47 @@
                 "web service"
             ],
             "time": "2013-12-05 23:39:20"
+        },
+        {
+            "name": "hasbridge/json-schema-validator",
+            "version": "0.2.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/hasbridge/php-json-schema.git",
+                "reference": "62b2bb92fe05aca3f81e257cf721fe92dec5a167"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/hasbridge/php-json-schema/zipball/62b2bb92fe05aca3f81e257cf721fe92dec5a167",
+                "reference": "62b2bb92fe05aca3f81e257cf721fe92dec5a167",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3.2"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-0": {
+                    "Json": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Harold Asbridge",
+                    "email": "hasbridge@gmail.com"
+                }
+            ],
+            "description": "PHP 5.3 implementation of json schema validation",
+            "homepage": "https://github.com/hasbridge/php-json-schema",
+            "keywords": [
+                "json",
+                "schema"
+            ],
+            "time": "2012-02-27 14:25:05"
         },
         {
             "name": "league/csv",
@@ -589,7 +630,7 @@
             "source": {
                 "type": "git",
                 "url": "git@github.com:project-a/spryker.git",
-                "reference": "03c0b316cc35ebd439f1cbc2ee12dcc94921ebe4"
+                "reference": "999f26083a8fda32b489592366fa81b1cb9a020f"
             },
             "replace": {
                 "spryker/pav-console": "self.version"
@@ -607,7 +648,7 @@
                     "PavFeature\\Shared\\Library": "Bundles/Library/src/"
                 }
             },
-            "time": "2015-11-24 08:57:47"
+            "time": "2015-11-24 09:45:29"
         },
         {
             "name": "propel/propel",
