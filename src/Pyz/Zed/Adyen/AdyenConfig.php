@@ -28,7 +28,12 @@ class AdyenConfig extends CoreAdyenConfig
      */
     public function getActiveHppBrandCodes()
     {
-        return [];
+        return [
+            AdyenBrandCode::BRAND_CODE_PAYPAL,
+            AdyenBrandCode::BRAND_CODE_GERMAN_BANK_TRANSFER,
+            AdyenBrandCode::BRAND_CODE_SOFORTUEBERWEISUNG,
+            //AdyenBrandCode::BRAND_CODE_OPEN_INVOICE_KLARNA
+        ];
     }
 
     /**
