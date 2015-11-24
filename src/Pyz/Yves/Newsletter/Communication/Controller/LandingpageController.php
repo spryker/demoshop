@@ -7,6 +7,10 @@ use Generated\Shared\Transfer\NewsletterSubscriberTransfer;
 
 class LandingpageController extends AbstractController
 {
+    /**
+     * @param $subscriber_key
+     * @return array
+     */
     public function indexAction($subscriber_key)
     {
         $newsletterSubscriber = new NewsletterSubscriberTransfer();

@@ -13,6 +13,10 @@ use Symfony\Component\HttpFoundation\JsonResponse;
 
 class SubscriptionController extends AbstractController
 {
+    /**
+     * @param Request $request
+     * @return array|JsonResponse
+     */
     public function indexAction(Request $request)
     {
         $subscriptionRequest = new NewsletterSubscriptionRequestTransfer();
