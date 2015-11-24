@@ -13,7 +13,7 @@ class PaymentDetail extends AbstractType
      */
     public function getName()
     {
-        return 'sepaPaymentForm';
+        return 'paymentDetail';
     }
 
     /**
