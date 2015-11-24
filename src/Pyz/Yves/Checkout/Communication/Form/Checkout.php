@@ -54,7 +54,6 @@ class Checkout extends AbstractType
                 'error_bubbling' => true,
                 'attr' => [
                     'class' => 'js-invoice-address',
-                    'style' => 'display: block;',
                 ],
             ])
             ->add('shipping_address', new Address(300), [
@@ -70,7 +69,6 @@ class Checkout extends AbstractType
                 'label' => false,
                 'attr' => [
                     'class' => 'payment-options',
-                    'style' => 'display: block;',
                 ],
             ])
             ->add('terms', 'checkbox', [
