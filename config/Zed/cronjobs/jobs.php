@@ -59,3 +59,13 @@ $jobs[] = [
     'stores'   => $allStores,
 ];
 
+/* -- MAILCHIMP SYNCHRONIZATION -- */
+$jobs[] = [
+    'name'     => 'mailchimp-synchronization',
+    'command'  => '$PHP_BIN vendor/bin/pav-console mailchimp:synchronize',
+    'schedule' => '*/1 * * * *',
+    'enable'   => true,
+    'run_on_non_production' => true,
+    'stores'   => $allStores,
+];
+
