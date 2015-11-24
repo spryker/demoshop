@@ -14,14 +14,30 @@ class ProductCollector extends BaseProductCollector
 {
 
     /**
+     * Returns names of keys which will be exported to KeyValue Storage
+     *
+     * @return array
+     */
+    protected function collectKeys()
+    {
+        $filterKeys = parent::collectKeys();
+
+        return array_merge($filterKeys, [
+            'country_name',
+        ]);
+    }
+
+    /**
+     * Returns query which will be used to collect data
+     *
      * @param SpyTouchQuery $baseQuery
      * @param LocaleTransfer $locale
      *
      * @return SpyTouchQuery
      */
-    protected function createQuery(SpyTouchQuery $baseQuery, LocaleTransfer $locale)
+    protected function collectQuery(SpyTouchQuery $baseQuery, LocaleTransfer $locale)
     {
-        $baseQuery = parent::createQuery($baseQuery, $locale);
+        $baseQuery = parent::collectQuery($baseQuery, $locale);
 
         $baseQuery->addJoinObject(
             (new Join(
