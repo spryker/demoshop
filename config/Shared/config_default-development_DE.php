@@ -5,6 +5,8 @@ use SprykerFeature\Shared\System\SystemConfig;
 use SprykerFeature\Shared\Yves\YvesConfig;
 use SprykerEngine\Shared\Lumberjack\LumberjackConfig;
 use PavFeature\Shared\FileUpload\FileUploadConfig;
+use PavFeature\Shared\NewsletterDoiMailQueueConnector\NewsletterDoiMailQueueConnectorConfig;
+use PavFeature\Shared\MailchimpClient\MailchimpClientConfig;
 
 $config[SystemConfig::ZED_DB_USERNAME] = 'development';
 $config[SystemConfig::ZED_DB_PASSWORD] = 'mate20mg';
@@ -63,3 +65,10 @@ $config[FileUploadConfig::STORAGE] = [
             ],
     ],
 ];
+
+$config[MailchimpClientConfig::MAILCHIMP_API_KEY] = '49eccb87d7ba7432cf574df60e3d910d-us11';
+$config[MailchimpClientConfig::MAILCHIMP_SUBSCRIBER_LIST_ID] = 'fc2fd7191f';
+
+$config[NewsletterDoiMailQueueConnectorConfig::DOI_CONFIRMATION_TEMPLATE_NAME] = 'newsletter-doi-test-template';
+$config[NewsletterDoiMailQueueConnectorConfig::DOI_CONFIRMATION_EMAIL_SUBJECT] = 'DOI confirmation';
+$config[NewsletterDoiMailQueueConnectorConfig::DOI_CONFIRMATION_URL] = $config[SystemConfig::HOST_YVES] . '/newsletter/confirmation/';
