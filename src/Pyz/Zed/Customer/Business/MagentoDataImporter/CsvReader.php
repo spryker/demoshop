@@ -69,15 +69,7 @@ class CsvReader implements CsvReaderInterface
 
             if (!$this->findCustomerByEmail($customerTransfer->getEmail())) {
                 $customerEntity = $this->saveCustomer($customerTransfer);
-                $addressTransfer = new AddressTransfer();
-                if ($keyValues['countryiso'] != null) {
-                    $countryId = $this->countryFacade->getIdCountryByIso2Code($keyValues['countryiso']);
-                    $addressTransfer->setFkCountry($countryId);
-                }
-                $addressTransfer->fromArray($keyValues, true);
-                $addressTransfer->setFkCustomer($customerEntity->getIdCustomer());
-                $this->saveCustomerAddress($addressTransfer);
-
+                $this->hydrateAddressTransfer($customerEntity, $keyValues);
                 $customerImported ++;
             }
         }
@@ -102,6 +94,22 @@ class CsvReader implements CsvReaderInterface
     }
 
     /**
+     * @param SpyCustomer $customerEntity
+     * @param array $keyValues
+     */
+    protected function hydrateAddressTransfer(SpyCustomer $customerEntity, array $keyValues)
+    {
+        $addressTransfer = new AddressTransfer();
+        if ($keyValues['countryiso'] != null) {
+            $countryId = $this->countryFacade->getIdCountryByIso2Code($keyValues['countryiso']);
+            $addressTransfer->setFkCountry($countryId);
+        }
+        $addressTransfer->fromArray($keyValues, true);
+        $addressTransfer->setFkCustomer($customerEntity->getIdCustomer());
+        $this->saveCustomerAddress($addressTransfer);
+    }
+
+    /**
      * @param AddressTransfer $addressTransfer
      * @throws \Propel\Runtime\Exception\PropelException
      */
@@ -112,7 +120,7 @@ class CsvReader implements CsvReaderInterface
             $addressEntity->fromArray($addressTransfer->toArray());
             $addressEntity->save();
         } catch (\Exception $e) {
-
+            // don't save if fields missing
         }
     }
 
