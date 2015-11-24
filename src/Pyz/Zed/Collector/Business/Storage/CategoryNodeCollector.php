@@ -7,6 +7,7 @@ use Propel\Runtime\ActiveQuery\Criteria;
 use Orm\Zed\Locale\Persistence\Map\SpyLocaleTableMap;
 use Orm\Zed\Touch\Persistence\Map\SpyTouchTableMap;
 use Orm\Zed\Touch\Persistence\SpyTouchQuery;
+use Pyz\Zed\Collector\Business\Exception\WrongJsonStringException;
 use SprykerFeature\Shared\Category\CategoryConfig;
 use SprykerFeature\Shared\Collector\Code\KeyBuilder\KeyBuilderTrait;
 use SprykerFeature\Zed\Category\Persistence\CategoryQueryContainer;
@@ -182,14 +183,20 @@ class CategoryNodeCollector extends AbstractPropelCollectorPlugin
      */
     public function explodeGroupedNodes(array $data, $idsField, $namesField, $urlsField)
     {
+        $nodes = [];
+
         if (!$data[$idsField]) {
-            return [];
+            return $nodes;
         }
 
-        $ids = explode(',', $data[$idsField]);
-        $names = explode(',', $data[$namesField]);
-        $urls = explode(',', $data[$urlsField]);
-        $nodes = [];
+        $ids = $this->decodeData($data[$idsField]);
+        $names = $this->decodeData($data[$namesField]);
+        $urls = $this->decodeData($data[$urlsField]);
+
+        if ($ids === null) {
+            return $nodes;
+        }
+
         foreach ($ids as $key => $id) {
             $nodes[$id]['node_id'] = $id;
             $nodes[$id]['name'] = $names[$key];
@@ -197,6 +204,29 @@ class CategoryNodeCollector extends AbstractPropelCollectorPlugin
         }
 
         return $nodes;
+    }
+
+    /**
+     * @param string $data
+     *
+     * @throws WrongJsonStringException
+     * @return array
+     */
+    protected function decodeData($data)
+    {
+        $encodedData = json_decode($data, true);
+
+        if ($encodedData == [null]) {
+            return null;
+        }
+
+        if (json_last_error()) {
+            $message = json_last_error_msg() . ': ' . $data;
+
+            throw new WrongJsonStringException($message);
+        }
+
+        return $encodedData;
     }
 
 }

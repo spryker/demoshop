@@ -2,9 +2,9 @@
 
 namespace Pyz\Zed\Cms\Communication;
 
-use SprykerFeature\Zed\Cms\Communication\CmsDependencyContainer as SprykerCmsDependencyContainer;
+use PavFeature\Zed\Cms\Communication\CmsDependencyContainer as PavCmsDependencyContainer;
 
-class CmsDependencyContainer extends SprykerCmsDependencyContainer
+class CmsDependencyContainer extends PavCmsDependencyContainer
 {
 
 }

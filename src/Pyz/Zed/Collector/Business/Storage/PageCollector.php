@@ -3,6 +3,8 @@
 namespace Pyz\Zed\Collector\Business\Storage;
 
 use Generated\Shared\Transfer\LocaleTransfer;
+use PavFeature\Zed\CmsBlock\Business\CmsBlockFacade;
+use PavFeature\Zed\CmsBlock\Persistence\CmsBlockQueryContainer;
 use Propel\Runtime\ActiveQuery\Criteria;
 use Orm\Zed\Touch\Persistence\Map\SpyTouchTableMap;
 use Orm\Zed\Touch\Persistence\SpyTouchQuery;
@@ -21,6 +23,30 @@ class PageCollector extends AbstractPropelCollectorPlugin
 
     use KeyBuilderTrait;
 
+    /**
+     * @var CmsBlockQueryContainer
+     */
+    protected $cmsBlockQueryContainer;
+
+    /**
+     * @var CmsBlockFacade
+     */
+    protected $cmsBlockFacade;
+
+    /**
+     * PageCollector constructor.
+     * @param CmsBlockQueryContainer $cmsBlockQueryContainer
+     * @param CmsBlockFacade $cmsBlockFacade
+     */
+    public function __construct(CmsBlockQueryContainer $cmsBlockQueryContainer, CmsBlockFacade $cmsBlockFacade)
+    {
+        $this->cmsBlockQueryContainer = $cmsBlockQueryContainer;
+        $this->cmsBlockFacade = $cmsBlockFacade;
+    }
+
+    /**
+     * @return string
+     */
     protected function getTouchItemType()
     {
         return 'page';
@@ -65,7 +91,10 @@ class PageCollector extends AbstractPropelCollectorPlugin
         );
 
         $baseQuery->clearSelectColumns();
-        $baseQuery->withColumn(SpyCmsPageTableMap::COL_ID_CMS_PAGE, 'page_id');
+
+        $this->cmsBlockQueryContainer->joinPageBlocks($baseQuery, $locale);
+
+        $baseQuery->withColumn(SpyCmsPageTableMap::COL_FK_CATEGORY_NODE, 'id_category_node');
         $baseQuery->withColumn(SpyUrlTableMap::COL_URL, 'page_url');
         $baseQuery->withColumn(SpyCmsGlossaryKeyMappingTableMap::COL_PLACEHOLDER, 'placeholder');
         $baseQuery->withColumn(SpyCmsTemplateTableMap::COL_TEMPLATE_PATH, 'template_path');
@@ -91,9 +120,11 @@ class PageCollector extends AbstractPropelCollectorPlugin
             $processedResultSet[$pageKey] = isset($processedResultSet[$pageKey]) ? $processedResultSet[$pageKey] : [];
             $processedResultSet[$pageKey]['url'] = $page['page_url'];
             $processedResultSet[$pageKey]['id'] = $page['page_id'];
+            $processedResultSet[$pageKey]['id_category_node'] = $page['id_category_node'];
             $processedResultSet[$pageKey]['template'] = $page['template_path'];
             $processedResultSet[$pageKey]['placeholders'] = isset($processedResultSet[$pageKey]['placeholders']) ? $processedResultSet[$pageKey]['placeholders'] : [];
             $processedResultSet[$pageKey]['placeholders'][$page['placeholder']] = $page['translation_key'];
+            $processedResultSet[$pageKey]['blocks'] = $this->cmsBlockFacade->extractBlockData($page);
         }
 
         return $processedResultSet;

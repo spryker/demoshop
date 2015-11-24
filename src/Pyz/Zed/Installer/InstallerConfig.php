@@ -37,15 +37,14 @@ class InstallerConfig extends SprykerInstallerConfig
             $locator->category()->pluginDemoDataInstaller(),
             $locator->glossary()->pluginDemoDataInstaller(),
             $locator->cms()->pluginDemoDataInstaller(),
+            $locator->cmsBlock()->pluginDemoDataInstaller(),
+            $locator->categoryCmsConnector()->pluginDemoDataInstaller(),
             $locator->productGroup()->pluginDemoDataInstaller(),
             $locator->price()->pluginDemoDataInstaller(),
             $locator->productCategory()->pluginDemoDataInstaller(),
-
             $locator->stock()->pluginDemoDataInstaller(),
             $locator->product()->pluginDemoDataInstaller(),
-
             $locator->productSearch()->pluginDemoDataInstaller(),
-
             $locator->shipment()->pluginDemoDataInstaller(),
         ];
     }

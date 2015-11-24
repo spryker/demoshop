@@ -44,10 +44,11 @@ class CmsInstall extends AbstractInstaller
     /**
      * @var array
      */
-    protected $staticPages = [
+    protected $pages = [
         'imprint' => ['de_DE' => '/impressum'],
         'privacy' => ['de_DE' => '/datenschutz'],
         'terms' => ['de_DE' => '/agb'],
+        'catalog' => ['de_DE' => '/hunde'],
     ];
 
     /**
@@ -190,7 +191,7 @@ class CmsInstall extends AbstractInstaller
      */
     private function installStaticPagesFromPath($localeStaticFilePath, $locale)
     {
-        foreach ($this->staticPages as $pageKey => $localeConfig) {
+        foreach ($this->pages as $pageKey => $localeConfig) {
             $file = $this->getFileName($localeStaticFilePath, $pageKey);
             if ($fileContent = file_get_contents($file)) {
                 $this->installPage($fileContent, $localeConfig[$locale], $pageKey);

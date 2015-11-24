@@ -1,0 +1,22 @@
+<?xml version="1.0"?>
+<transfers xmlns="http://xsd.spryker.com"
+           xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+           xsi:schemaLocation="http://xsd.spryker.com ../../src/Spryker/TransferObjectDefinitionSchema.xsd">
+
+    <transfer name="CmsTemplate">
+        <property name="idCmsTemplate" type="int" />
+        <property name="templateName" type="string" />
+        <property name="templatePath" type="string" />
+    </transfer>
+
+    <transfer name="Page">
+        <property name="idCmsPage" type="int" />
+        <property name="fkTemplate" type="int" />
+        <property name="fkCategoryNode" type="int" />
+        <property name="validFrom" type="string" />
+        <property name="validTo" type="string" />
+        <property name="isActive" type="string" />
+    </transfer>
+
+</transfers>
+

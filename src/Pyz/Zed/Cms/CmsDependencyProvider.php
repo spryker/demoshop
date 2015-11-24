@@ -3,9 +3,9 @@
 namespace Pyz\Zed\Cms;
 
 use SprykerEngine\Zed\Kernel\Container;
-use SprykerFeature\Zed\Cms\CmsDependencyProvider as SprykerCmsDependencyProvider;
+use PavFeature\Zed\Cms\CmsDependencyProvider as PavCmsDependencyProvider;
 
-class CmsDependencyProvider extends SprykerCmsDependencyProvider
+class CmsDependencyProvider extends PavCmsDependencyProvider
 {
 
     const PLUGIN_DEMO_DATA_INSTALLER = 'demo data installer';
