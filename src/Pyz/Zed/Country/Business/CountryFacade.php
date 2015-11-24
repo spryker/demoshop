@@ -3,12 +3,14 @@
 namespace Pyz\Zed\Country\Business;
 
 use SprykerFeature\Zed\Country\Business\CountryFacade as SprykerCountryFacade;
-use SprykerFeature\Zed\Customer\Dependency\Facade\CustomerToCountryInterface;
+use SprykerFeature\Zed\Customer\Dependency\Facade\CustomerToCountryInterface as SpyCustomerToCountryInterface;
 use SprykerFeature\Zed\Sales\Dependency\Facade\SalesToCountryInterface;
+use Pyz\Zed\Customer\Dependency\Facade\CustomerToCountryInterface;
 
 class CountryFacade extends SprykerCountryFacade implements
-    CustomerToCountryInterface,
-    SalesToCountryInterface
+    SpyCustomerToCountryInterface,
+    SalesToCountryInterface,
+    CustomerToCountryInterface
 {
 
 }
