@@ -28,7 +28,7 @@ class AdyenPayment extends AbstractType
      */
     public function getName()
     {
-        return 'sepaPaymentForm';
+        return 'adyenPayment';
     }
 
     public function getAcceptedPayments()
