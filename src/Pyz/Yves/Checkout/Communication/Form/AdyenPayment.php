@@ -69,7 +69,6 @@ class AdyenPayment extends AbstractType
                 'empty_value' => false,
                 'label' => false,
                 'attr' => [
-                    'style' => 'display: block;',
                 ],
             ])
             ->add('payment_detail', new PaymentDetail(), [
@@ -79,7 +78,6 @@ class AdyenPayment extends AbstractType
                 'label' => false,
                 'attr' => [
                     'class' => 'payment-options',
-                    'style' => 'display: block;',
                 ],
             ])
             ;
