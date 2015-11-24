@@ -3,6 +3,7 @@
 namespace Pyz\Zed\ProductCountry\Business\Model;
 
 use Generated\Shared\Transfer\ProductCountryTransfer;
+use Propel\Runtime\Connection\ConnectionInterface;
 use Pyz\Zed\Country\Business\CountryFacade;
 use Pyz\Zed\Product\Business\ProductFacade;
 use Pyz\Zed\ProductCountry\Persistence\ProductCountryQueryContainerInterface;
@@ -77,6 +78,22 @@ class ProductCountryManager implements ProductCountryManagerInterface
             $this->productCountryQueryContainer->getConnection()->rollBack();
             throw $e;
         }
+    }
+
+    /**
+     * @param ProductCountryTransfer $productCountryTransfer
+     *
+     * @return void
+     */
+    public function saveProductCountry(ProductCountryTransfer $productCountryTransfer)
+    {
+        $idCountry = $productCountryTransfer->getFkCountry();
+        $idProduct = $productCountryTransfer->getFkAbstractProduct();
+
+        // @todo get connection from product_country table by id product
+        // @todo if does not exists, create it
+
+        // @todo assign country and save it to database
     }
 
 }
