@@ -1,7 +1,7 @@
 [
   {
-    "sku": "60000",
-    "type": "simple",
+    "sku": "4911188",
+    "type": "dynamic",
     "tax": "7.00",
     "categories": [
       "3"
@@ -9,46 +9,296 @@
     "locales": [
       {
         "locale": "de_DE",
-        "name": "PETS DELI Menübox für Hunde Hühnerbrustfilet",
-        "url": "/Hunde/Basisnahrung/menubox-huhn-hund.html",
-        "media": [
-          {
-            "url": "/h/u/huhn.jpg",
-            "thumbnail_url": "/h/u/huhn.jpg",
-            "type": "picture",
-            "sequence": "1",
-            "attributes": {
-              "not yet defined": "any other media specific german localized attributes"
+        "name": "PETS DELI Monatsbestellung für kleine Hunde (30 Menüboxen)",
+        "url": "/Hunde/Basisnahrung/monatsbestellung-hund-30.html",
+        "attributes": {
+          "short_description": {
+            "markdown": "Individuelle PETS DELI Menü&#039;s, perfekt angepasst an Ihr Tier."
+          },
+          "description": {
+            "markdown": "Unsere tiefgekühlten PETS DELI Menüboxen enthalten &lt;b&gt;gesundes und frisches Hundefutter&lt;/b&gt; und sorgen so für eine &lt;b&gt;durchweg artgerechte Ernährung Ihres Hundes&lt;/b&gt;. Dank der Verwendung hochwertiger und &lt;b&gt;ausschließlich natürlicher Zutaten&lt;/b&gt; aus ausgesuchten Bezugsquellen kommt Ihr geliebter Vierbeiner in den Genuss einer wahrhaft gesunden Ernährungsweise. Wir bieten bestes Hundefutter an, selbstverständlich komplett frei von jeglichen Zusätzen sowie tierischen Nebenerzeugnissen und jede Zutat besitzt Lebensmittelqualität, was es besonders bekömmlich und schmackhaft macht. Mit unserem Monatspaket erhält Ihr Liebling 30 frische, portionierte Menüs Ihrer Wahl mit frischem Hundefutter für den ganzen Monat. (zwei Größen wählbar: 250g und 500g). "
+          },
+          "why_pets_deli": "{{why.pets.deli}}",
+          "details": "",
+          "accordion": {
+            "shipment": {
+              "key": "{{shipment}}",
+              "order": 1
+            },
+            "storage": {
+              "key": "{{Storage}}",
+              "order": 2
+            },
+            "production_quality": {
+              "key": "{{production_quality}}",
+              "order": 3
+            },
+            "feeding_recommendation": {
+              "key": "{{feeding_recommendation}}",
+              "order": 4
+            },
+            "preparation": {
+              "key": "{{preparation}}",
+              "order": 5
+            },
+            "product_info": {
+              "key": "{{product_info}}",
+              "order": 6
+            },
+            "faq": {
+              "key": "{{faq}}",
+              "order": 7
             }
+          },
+          "meta_description": "Monatspaket 30 Menüboxen für kleine Hunde bestellen bei PETS DELI  ✓ Lebensmittelqualität ✓ Ohne Zusätze ✓ Fertig zubereitet ✓ Tierärztlich Empfohlen ✓",
+          "meta_keyword": "barfen für hunde, monatsration, frischfleisch für hunde",
+          "meta_title": "Monatspaket für kleine Hunde kaufen | PETS DELI",
+          "delivery_time": "Der Versand Ihrer Ware erfolgt üblicherweise von montags-donnerstags am selben Tag der Bestellung bis 12 Uhr mittags."
+        }
+      }
+    ],
+    "attributes": {
+      "ean": "",
+      "pet_type": "Hunde",
+      "sku_formatted": "49111-88",
+      "old_sku": "64286050",
+      "recommended_products": [
+        "sku1",
+        "sku2"
+      ],
+      "price_per_unit": "",
+      "base_price_unit": ""
+    },
+    "media": [
+      {
+        "url": "/h/u/hund_30_1.jpg",
+        "thumbnail_url": "/h/u/hund_30_1.jpg",
+        "type": "picture",
+        "sequence": "1",
+        "attributes": {
+          "not yet defined": "any other media specific german localized attributes"
+        }
+      }
+    ],
+    "product_group_keys": [
+      "weight"
+    ],
+    "concrete_products": [
+      {
+        "sku": "49111881",
+        "active": "1",
+        "product_group_key_values": {
+          "weight": "250"
+        },
+        "locales": [
+          {
+            "locale": "de_DE",
+            "name": "PETS DELI Monatsbestellung für kleine Hunde (30 Menüboxen)"
           }
         ],
+        "price": "6000.0",
         "attributes": {
-          "short_description": "Fertige Menübox mit Hühnerbrustfilet, Obst und Gemüse.",
-          "description": "Diese Sorte unseres gesunden PETS DELI Hundefutters &lt;b&gt;mit frischem Fleisch aus der Hühnerbrust&lt;/b&gt; ist eine bei unseren Kunden und deren Vierbeinern sehr beliebte Menübox. Durch die &lt;b&gt;Zugabe von gekochten Kartoffeln&lt;/b&gt; ist dieses Menü &lt;b&gt;sehr gut verdaulich und nahrhaft&lt;/b&gt; und liefert Ihrem Hund &lt;b&gt;zusätzliche Energie&lt;/b&gt;. Der Hauptbestandteil dieser Variante unserer gesunden Hundenahrung ist &lt;b&gt;frisches, zartes Hühnerbrustfilet sowie feine Hühnerherzen für zusätzliche Taurinversorgung&lt;/b&gt;. Pürierte Karotten bilden den Gemüsebestandteil und enthalten &lt;b&gt;wichtiges Beta-Carotin&lt;/b&gt;. Für zusätzliche Energie und als nahrhafte Quelle von Kohlenhydraten dienen Kartoffeln, natürlich gekocht und püriert für die optimale Verwertbarkeit. Alle Zutaten stehen dabei &lt;b&gt;in perfektem Verhältnis&lt;/b&gt; und Ihr Tier wird auf natürliche Weise bestens versorgt. &lt;b&gt;Auf künstliche Zusätze und andere unnatürliche Zutaten verzichten wir gänzlich&lt;/b&gt;, um Ihrem Tier eine artgerechte Ernährung bieten zu können. Unser Menü mit frischer Hühnerbrust ist ein sehr gutes natürliches Menü für den Einstieg in die gesunde Ernährung Ihres Hundes. Bei Hühnerbrustfilet handelt es sich um &lt;b&gt;sehr mageres Fleisch&lt;/b&gt;, sodass unser &lt;b&gt;Hundefutter fettarm und leicht&lt;/b&gt; ist und somit auch für Hunde geeignet ist, die ihr Idealgewicht noch nicht ganz erreicht haben. Der Fleischanteil liegt bei 60%.",
+          "weight": "",
+          "old_sku": "64286050",
+          "sku_formatted": "49111-88-1"
+        }
+      },
+      {
+        "sku": "49111882",
+        "active": "1",
+        "product_group_key_values": {
+          "weight": "250"
+        },
+        "locales": [
+          {
+            "locale": "de_DE",
+            "name": "PETS DELI Monatsbestellung für kleine Hunde (30 Menüboxen)"
+          }
+        ],
+        "price": "12000",
+        "attributes": {
+          "weight": "500mg",
+          "old_sku": "64286050",
+          "sku_formatted": "49111-88-2"
+        }
+      }
+    ],
+    "dynamic_product_settings": {
+      "total_quantity": "10",
+      "products": [
+        {
+          "sku": "49111011",
+          "quantity": "2"
+        },
+        {
+          "sku": "49111012",
+          "quantity": "0"
+        },
+        {
+          "sku": "49111013",
+          "quantity": "0"
+        },
+        {
+          "sku": "49111014",
+          "quantity": "0"
+        },
+        {
+          "sku": "49111021",
+          "quantity": "2"
+        },
+        {
+          "sku": "49111022",
+          "quantity": "0"
+        },
+        {
+          "sku": "49111023",
+          "quantity": "0"
+        },
+        {
+          "sku": "49111024",
+          "quantity": "0"
+        },
+        {
+          "sku": "49111031",
+          "quantity": "2"
+        },
+        {
+          "sku": "49111032",
+          "quantity": "0"
+        },
+        {
+          "sku": "49111033",
+          "quantity": "0"
+        },
+        {
+          "sku": "49111034",
+          "quantity": "0"
+        },
+        {
+          "sku": "49111041",
+          "quantity": "2"
+        },
+        {
+          "sku": "49111042",
+          "quantity": "0"
+        },
+        {
+          "sku": "49111043",
+          "quantity": "0"
+        },
+        {
+          "sku": "49111044",
+          "quantity": "0"
+        },
+        {
+          "sku": "49111051",
+          "quantity": "1"
+        },
+        {
+          "sku": "49111052",
+          "quantity": "0"
+        },
+        {
+          "sku": "49111053",
+          "quantity": "0"
+        },
+        {
+          "sku": "49111054",
+          "quantity": "0"
+        },
+        {
+          "sku": "49111061",
+          "quantity": "1"
+        },
+        {
+          "sku": "49111062",
+          "quantity": "0"
+        },
+        {
+          "sku": "49111063",
+          "quantity": "0"
+        },
+        {
+          "sku": "49111064",
+          "quantity": "0"
+        }
+      ]
+    }
+  },
+  {
+    "sku": "4911189",
+    "type": "dynamic",
+    "tax": "7.00",
+    "categories": [
+      "3"
+    ],
+    "locales": [
+      {
+        "locale": "de_DE",
+        "name": "PETS DELI Monatsbestellung für große Hunde (60 Menüboxen)",
+        "url": "/Hunde/Basisnahrung/monatsbestellung-hund-60.html",
+        "attributes": {
+          "short_description": {
+            "markdown": "Individuelle PETS DELI Menü&#039;s, perfekt angepasst an Ihr Tier."
+          },
+          "description": {
+            "markdown": "Mit unseren PETS DELI Menüboxen versorgen Sie Ihren Hund von Kopf bis Fuß mit gesundem Hundefutter, welches an Natur und Frische kaum zu überbieten ist. Dank ausgesuchter Zutaten erhält Ihr Vierbeiner durch die Nahrung &lt;b&gt;wertvolle natürliche Nährstoffe&lt;/b&gt; und kommt so in den Genuss einer wahrlich &lt;b&gt;artgerechten Ernährung&lt;/b&gt;. Hunde sind Carnivoren und somit bieten unsere frischen Menüs Hundefutter &lt;b&gt;mit hohem Fleischanteil, kombiniert mit vitaminreichen Obst- und Gemüsesorten und wahlweise gekochten Kohlenhydraten&lt;/b&gt;. Die Regionalität der Inhaltsstoffe liegt uns dabei besonders am Herzen. Selbstverständlich wird bei der Herstellung auf die Zugabe künstlicher Zusatzstoffe und auch tierischer Nebenerzeugnisse vollends verzichtet und so entsteht Hundefutter in seiner natürlichsten Form. In unserem Monatspaket erhalten Sie 60 portionierte Menüboxen für die gesunde Ernährung Ihres großen Hundes auf ganz natürliche Weise (zwei Größen wählbar: 250g und 500g)."
+          },
+          "why_pets_deli": "{{why.pets.deli}}",
           "details": "",
-          "ingriedients_description": "",
-          "recommendation_description": "",
-          "meta_description": "Menübox Hühnerbrustfilet für Hunde bestellen bei PETS DELI. Frisch ✓ Lebensmittelqualität ✓ Ohne Zusätze ✓ Fertig zubereitet ✓ Tierärztlich Empfohlen ",
+          "accordion": {
+            "shipment": {
+              "key": "{{shipment}}",
+              "order": 1
+            },
+            "storage": {
+              "key": "{{Storage}}",
+              "order": 2
+            },
+            "production_quality": {
+              "key": "{{production_quality}}",
+              "order": 3
+            },
+            "feeding_recommendation": {
+              "key": "{{feeding_recommendation}}",
+              "order": 4
+            },
+            "preparation": {
+              "key": "{{preparation}}",
+              "order": 5
+            },
+            "product_info": {
+              "key": "{{product_info}}",
+              "order": 6
+            },
+            "faq": {
+              "key": "{{faq}}",
+              "order": 7
+            }
+          },
+          "meta_description": "Monatspaket 60 Menüboxen für große Hunde bestellen bei PETS DELI  ✓ Lebensmittelqualität ✓ Ohne Zusätze ✓ Fertig zubereitet ✓ Tierärztlich Empfohlen ✓",
           "meta_keyword": "",
-          "meta_title": "Menübox Hühnerbrustfilet für Hunde online kaufen | PETS DELI",
-          "durability": "Mindestens 6 Monate haltbar. Siehe Verpackung.",
-          "storage": "Tiefgekühlt bei mindestens -18°C, bis zu 50 Menüs passen in ein normales Tiefkühlfach",
-          "delivery_time": "2-3 Tage"
+          "meta_title": "Monatspaket für große Hunde kaufen | PETS DELI",
+          "delivery_time": "Der Versand Ihrer Ware erfolgt üblicherweise von montags-donnerstags am selben Tag der Bestellung bis 12 Uhr mittags."
         }
       }
     ],
     "attributes": {
       "ean": "",
       "pet_type": "Hunde",
-      "old_sku": "",
-      "recommended_products": "oil,cereal",
-      "price_per_kilo_vat_included": "",
-      "base_price_unit": "Kilogramm (kg)"
+      "sku_formatted": "49111-89",
+      "old_sku": "64287320",
+      "recommended_products": [
+        "sku1",
+        "sku2"
+      ],
+      "price_per_unit": "",
+      "base_price_unit": ""
     },
     "media": [
       {
-        "url": "/h/u/huhn.jpg",
-        "thumbnail_url": "/h/u/huhn.jpg",
+        "url": "/6/0/60_hund_1.jpg",
+        "thumbnail_url": "/6/0/60_hund_1.jpg",
         "type": "picture",
         "sequence": "1",
         "attributes": {
@@ -57,1394 +307,152 @@
       }
     ],
     "product_group_keys": [
-      "weight",
-      "carbs",
-      "meattype"
+      "weight"
     ],
     "concrete_products": [
       {
-        "sku": "60000-1",
+        "sku": "49111891",
         "active": "1",
+        "product_group_key_values": {
+          "weight": "250"
+        },
         "locales": [
           {
             "locale": "de_DE",
-            "name": "PETS DELI Menübox für Hunde Hühnerbrustfilet",
-            "media": [
-              {
-                "url": "/h/u/huhn.jpg",
-                "thumbnail_url": "/h/u/huhn.jpg",
-                "type": "picture",
-                "sequence": "1",
-                "attributes": {
-                  "not yet defined": "any other media specific german localized attributes"
-                }
-              }
-            ],
-            "attributes": {
-              "some_local_att": ""
-            }
+            "name": "PETS DELI Monatsbestellung für große Hunde (60 Menüboxen)"
           }
         ],
-        "price": "200",
+        "price": "12000.0",
         "attributes": {
-          "weight": "250g"
-        },
-        "product_group_key_values": {
-          "weight": "250g",
-          "carbs": "rice",
-          "meattype": "chicken"
+          "weight": "",
+          "old_sku": "64287320",
+          "sku_formatted": "49111-89-1"
         }
       },
       {
-        "sku": "60000-2",
+        "sku": "49111892",
         "active": "1",
+        "product_group_key_values": {
+          "weight": "250"
+        },
         "locales": [
           {
             "locale": "de_DE",
-            "name": "PETS DELI Menübox für Hunde Hühnerbrustfilet",
-            "media": [
-              {
-                "url": "/h/u/huhn.jpg",
-                "thumbnail_url": "/h/u/huhn.jpg",
-                "type": "picture",
-                "sequence": "1",
-                "attributes": {
-                  "not yet defined": "any other media specific german localized attributes"
-                }
-              }
-            ],
-            "attributes": {
-              "some_local_att": ""
-            }
+            "name": "PETS DELI Monatsbestellung für große Hunde (60 Menüboxen)"
           }
         ],
-        "price": "200",
+        "price": "24000",
         "attributes": {
-          "weight": "250g"
-        },
-        "product_group_key_values": {
-          "weight": "250g",
-          "carbs": "no",
-          "meattype": "chicken"
-        }
-      },
-      {
-        "sku": "60000-3",
-        "active": "1",
-        "locales": [
-          {
-            "locale": "de_DE",
-            "name": "PETS DELI Menübox für Hunde Hühnerbrustfilet",
-            "media": [
-              {
-                "url": "/h/u/huhn.jpg",
-                "thumbnail_url": "/h/u/huhn.jpg",
-                "type": "picture",
-                "sequence": "1",
-                "attributes": {
-                  "not yet defined": "any other media specific german localized attributes"
-                }
-              }
-            ],
-            "attributes": {
-              "some_local_att": ""
-            }
-          }
-        ],
-        "price": "400",
-        "attributes": {
-          "weight": "500g"
-        },
-        "product_group_key_values": {
-          "weight": "500g",
-          "carbs": "rice",
-          "meattype": "chicken"
-        }
-      },
-      {
-        "sku": "60000-4",
-        "active": "1",
-        "locales": [
-          {
-            "locale": "de_DE",
-            "name": "PETS DELI Menübox für Hunde Hühnerbrustfilet",
-            "media": [
-              {
-                "url": "/h/u/huhn.jpg",
-                "thumbnail_url": "/h/u/huhn.jpg",
-                "type": "picture",
-                "sequence": "1",
-                "attributes": {
-                  "not yet defined": "any other media specific german localized attributes"
-                }
-              }
-            ],
-            "attributes": {
-              "some_local_att": ""
-            }
-          }
-        ],
-        "price": "400",
-        "attributes": {
-          "weight": "500g"
-        },
-        "product_group_key_values": {
-          "weight": "500g",
-          "carbs": "no",
-          "meattype": "chicken"
+          "weight": "500mg",
+          "old_sku": "64287320",
+          "sku_formatted": "49111-89-2"
         }
       }
-    ]
+    ],
+    "dynamic_product_settings": {
+      "total_quantity": "30",
+      "products": [
+        {
+          "sku": "49111011",
+          "quantity": "6"
+        },
+        {
+          "sku": "49111012",
+          "quantity": "0"
+        },
+        {
+          "sku": "49111013",
+          "quantity": "0"
+        },
+        {
+          "sku": "49111014",
+          "quantity": "0"
+        },
+        {
+          "sku": "49111021",
+          "quantity": "6"
+        },
+        {
+          "sku": "49111022",
+          "quantity": "0"
+        },
+        {
+          "sku": "49111023",
+          "quantity": "0"
+        },
+        {
+          "sku": "49111024",
+          "quantity": "0"
+        },
+        {
+          "sku": "49111031",
+          "quantity": "6"
+        },
+        {
+          "sku": "49111032",
+          "quantity": "0"
+        },
+        {
+          "sku": "49111033",
+          "quantity": "0"
+        },
+        {
+          "sku": "49111034",
+          "quantity": "0"
+        },
+        {
+          "sku": "49111041",
+          "quantity": "6"
+        },
+        {
+          "sku": "49111042",
+          "quantity": "0"
+        },
+        {
+          "sku": "49111043",
+          "quantity": "0"
+        },
+        {
+          "sku": "49111044",
+          "quantity": "0"
+        },
+        {
+          "sku": "49111051",
+          "quantity": "3"
+        },
+        {
+          "sku": "49111052",
+          "quantity": "0"
+        },
+        {
+          "sku": "49111053",
+          "quantity": "0"
+        },
+        {
+          "sku": "49111054",
+          "quantity": "0"
+        },
+        {
+          "sku": "49111061",
+          "quantity": "3"
+        },
+        {
+          "sku": "49111062",
+          "quantity": "0"
+        },
+        {
+          "sku": "49111063",
+          "quantity": "0"
+        },
+        {
+          "sku": "49111064",
+          "quantity": "0"
+        }
+      ]
+    }
   },
   {
-    "sku": "60010",
-    "type": "simple",
-    "tax": "7.00",
-    "categories": [
-      "3"
-    ],
-    "locales": [
-      {
-        "locale": "de_DE",
-        "name": "PETS DELI Menübox für Hunde Weißfischfilet",
-        "url": "/Hunde/Basisnahrung/menubox-fisch-hund-65.html",
-        "media": [
-          {
-            "url": "/r/o/rotbarsch.jpg",
-            "thumbnail_url": "/r/o/rotbarsch.jpg",
-            "type": "picture",
-            "sequence": "1",
-            "attributes": {
-              "not yet defined": "any other media specific german localized attributes"
-            }
-          }
-        ],
-        "attributes": {
-          "short_description": "Fertige Menübox mit Weißfischfilet, Karotten, Banane und Reis.",
-          "description": "Diese PETS DELI Menübox &lt;b&gt;mit feinem Weißfischfilet &lt;/b&gt; ist voller bester Zutaten und steht bei unseren vierbeinigen Kunden hoch im Kurs. Es muss ja nicht immer Fleisch sein. Hundefutter mit Fisch als Proteinbasis ist nicht nur besonders gut verdaulich und fettarm, sondern verschafft Ihrem Hund auch &lt;b&gt;willkommene Abwechslung im Napf&lt;/b&gt;. Der &lt;b&gt; Weißfischfilet ist ein wichtiger Eiweiß- Lieferant und stellt eine Alternative zu unseren Fleischsorten&lt;/b&gt; dar. Besonders &lt;b&gt;für leicht übergewichtige oder ältere Hunde ist dieses Menü eine gute Wahl&lt;/b&gt;, da der Weißfisch das &lt;b&gt;wertvolle Vitamin D und zusätzlich einen hohen Anteil an ungesättigten Fettsäuren enthält&lt;/b&gt; und sich somit die Ernährung mit diesem Hundefutter &lt;b&gt;artgerecht und natürlich&lt;/b&gt; gestalten lässt. Gerade durch die notwendigen ungesättigten Fettsäuren wird das Immunsystem Ihres Hundes gestärkt. Für die Zubereitung unseres artgerechten Hundefutters verwenden wir &lt;b&gt;frisches Weißfischfilet, pürierte Karotten, pürierte Banane und wahlweise gekochten Reis&lt;/b&gt;. Die Banane trägt dazu bei, dass Ihrem Hund extra Energie geliefert wird, während die pürierte Karotte den Magen beruhigt und dank enthaltenem &lt;b&gt;Beta-Carotin zusätzlich mit wichtigem Vitamin A &lt;/b&gt;versorgt. Wir achten stets darauf, dass &lt;b&gt;alle Zutaten in einem perfekten Verhältnis portioniert&lt;/b&gt; werden, um Ihren Hund rundum und ausgewogen zu versorgen. Unser Hundefutter mit Fisch ist ein sehr hochwertiges und gesundes Menü, das für alle Hunde, ob klein oder groß, geeignet ist. Der Fleischanteil liegt bei 60%.",
-          "details": "",
-          "ingriedients_description": "",
-          "recommendation_description": "",
-          "meta_description": "Menübox Rotbarsch für Hunde bestellen bei PETS DELI. Frisch ✓ Lebensmittelqualität ✓ Ohne Zusätze ✓ Fertig zubereitet ✓ Tierärztlich Empfohlen ",
-          "meta_keyword": "",
-          "meta_title": "Menübox Rotbarsch für Hunde online kaufen | PETS DELI",
-          "durability": "Mindestens 6 Monate haltbar. Siehe Verpackung.",
-          "storage": "Tiefgekühlt bei mindestens -18°C, bis zu 50 Menüs passen in ein normales Tiefkühlfach",
-          "delivery_time": "2-3 Tage"
-        }
-      }
-    ],
-    "attributes": {
-      "ean": "",
-      "pet_type": "Hunde",
-      "old_sku": "",
-      "recommended_products": "oil,cereal",
-      "price_per_kilo_vat_included": "",
-      "base_price_unit": "Kilogramm (kg)"
-    },
-    "media": [
-      {
-        "url": "/r/o/rotbarsch.jpg",
-        "thumbnail_url": "/r/o/rotbarsch.jpg",
-        "type": "picture",
-        "sequence": "1",
-        "attributes": {
-          "not yet defined": "any other media specific german localized attributes"
-        }
-      }
-    ],
-    "product_group_keys": [
-      "weight",
-      "carbs",
-      "meattype"
-    ],
-    "concrete_products": [
-      {
-        "sku": "60010-1",
-        "active": "1",
-        "locales": [
-          {
-            "locale": "de_DE",
-            "name": "PETS DELI Menübox für Hunde Weißfischfilet",
-            "media": [
-              {
-                "url": "/r/o/rotbarsch.jpg",
-                "thumbnail_url": "/r/o/rotbarsch.jpg",
-                "type": "picture",
-                "sequence": "1",
-                "attributes": {
-                  "not yet defined": "any other media specific german localized attributes"
-                }
-              }
-            ],
-            "attributes": {
-              "some_local_att": ""
-            }
-          }
-        ],
-        "price": "200",
-        "attributes": {
-          "weight": "250g"
-        },
-        "product_group_key_values": {
-          "weight": "250g",
-          "carbs": "rice",
-          "meattype": "white_fish"
-        }
-      },
-      {
-        "sku": "60010-2",
-        "active": "1",
-        "locales": [
-          {
-            "locale": "de_DE",
-            "name": "PETS DELI Menübox für Hunde Weißfischfilet",
-            "media": [
-              {
-                "url": "/r/o/rotbarsch.jpg",
-                "thumbnail_url": "/r/o/rotbarsch.jpg",
-                "type": "picture",
-                "sequence": "1",
-                "attributes": {
-                  "not yet defined": "any other media specific german localized attributes"
-                }
-              }
-            ],
-            "attributes": {
-              "some_local_att": ""
-            }
-          }
-        ],
-        "price": "200",
-        "attributes": {
-          "weight": "250g"
-        },
-        "product_group_key_values": {
-          "weight": "250g",
-          "carbs": "rice",
-          "meattype": "white_fish"
-        }
-      },
-      {
-        "sku": "60010-3",
-        "active": "1",
-        "locales": [
-          {
-            "locale": "de_DE",
-            "name": "PETS DELI Menübox für Hunde Weißfischfilet",
-            "media": [
-              {
-                "url": "/r/o/rotbarsch.jpg",
-                "thumbnail_url": "/r/o/rotbarsch.jpg",
-                "type": "picture",
-                "sequence": "1",
-                "attributes": {
-                  "not yet defined": "any other media specific german localized attributes"
-                }
-              }
-            ],
-            "attributes": {
-              "some_local_att": ""
-            }
-          }
-        ],
-        "price": "400",
-        "attributes": {
-          "weight": "500g"
-        },
-        "product_group_key_values": {
-          "weight": "500g",
-          "carbs": "rice",
-          "meattype": "white_fish"
-        }
-      },
-      {
-        "sku": "60010-4",
-        "active": "1",
-        "locales": [
-          {
-            "locale": "de_DE",
-            "name": "PETS DELI Menübox für Hunde Weißfischfilet",
-            "media": [
-              {
-                "url": "/r/o/rotbarsch.jpg",
-                "thumbnail_url": "/r/o/rotbarsch.jpg",
-                "type": "picture",
-                "sequence": "1",
-                "attributes": {
-                  "not yet defined": "any other media specific german localized attributes"
-                }
-              }
-            ],
-            "attributes": {
-              "some_local_att": ""
-            }
-          }
-        ],
-        "price": "400",
-        "attributes": {
-          "weight": "500g"
-        },
-        "product_group_key_values": {
-          "weight": "500g",
-          "carbs": "rice",
-          "meattype": "white_fish"
-        }
-      }
-    ]
-  },
-  {
-    "sku": "60004",
-    "type": "simple",
-    "tax": "7.00",
-    "categories": [
-      "3"
-    ],
-    "locales": [
-      {
-        "locale": "de_DE",
-        "name": "PETS DELI Menübox für Hunde Känguru",
-        "url": "/Hunde/Basisnahrung/menubox-kaenguru-hund.html",
-        "media": [
-          {
-            "url": "/k/_/k_nguru_neu.jpg",
-            "thumbnail_url": "/k/_/k_nguru_neu.jpg",
-            "type": "picture",
-            "sequence": "1",
-            "attributes": {
-              "not yet defined": "any other media specific german localized attributes"
-            }
-          }
-        ],
-        "attributes": {
-          "short_description": "Fertige Menübox mit bestem Fleisch vom Känguru, Brokkoli, Karotten und Kartoffeln.",
-          "description": "Die &lt;b&gt;Menübox mit reinem Muskelfleisch vom Känguru&lt;/b&gt; ist perfekt für die tägliche Ernährung Ihres geliebten Vierbeiners. Besonders &lt;b&gt;für empfindliche und allergische Hunde&lt;/b&gt; ist die Fleischsorte Känguru als Hundefutter zu empfehlen. Känguru &lt;b&gt;zählt zu den hypoallergenen Fleischsorten&lt;/b&gt; und so wird diese Menüsorte auch Tieren mit ernährungsspezifischen Besonderheiten und Bedürfnissen gerecht. Durch die &lt;b&gt;perfekte Kombination von frischem Muskelfleisch vom Känguru, pürierten Karotten und gekochten Kartoffeln&lt;/b&gt; bekommt Ihr Hund alles, was er benötigt. Auf natürlichem, schonenden Weg und &lt;b&gt;ohne jegliche künstliche Zusätze&lt;/b&gt; - Alles in perfektem Verhältnis. Somit ist dieses Menü für alle geeignet - ein Hundefutter &lt;b&gt;vom Junior bis zum Senior&lt;/b&gt;. Muskelfleisch vom Känguru gilt als &lt;b&gt;besonders mager und ist reich an hochwertigem Eiweiß&lt;/b&gt;. Der Karottenanteil versorgt den Hund mit Beta-Carotin, und einem Provitamin A. Gesunde Kohlenhydrate in Form von Kartoffeln machen dieses frische Hundefutter-Menü mit Känguru besonders nahrhaft - diese sind für die optimale Verwertbarkeit natürlich vorgekocht. Das Menü mit Kängurufleisch ist für den Einstieg in die natürlich gesunde Ernährung Ihres Vierbeiners &lt;b&gt;perfekt geeignet, besonders wenn Ihr Tier Unverträglichkeiten hat&lt;/b&gt;. Der Fleischanteil liegt bei mindestens 60%.",
-          "details": "",
-          "ingriedients_description": "",
-          "recommendation_description": "",
-          "meta_description": "Menübox Känguru für Hunde bestellen bei PETS DELI. Frisch ✓ Lebensmittelqualität ✓ Ohne Zusätze ✓ Fertig zubereitet ✓ Tierärztlich Empfohlen ",
-          "meta_keyword": "",
-          "meta_title": "Menübox Känguru für Hunde online kaufen | PETS DELI",
-          "durability": "Mindestens 6 Monate haltbar. Siehe Verpackung.",
-          "storage": "Tiefgekühlt bei mindestens -18°C, bis zu 50 Menüs passen in ein normales Tiefkühlfach",
-          "delivery_time": "2-3 Tage"
-        }
-      }
-    ],
-    "attributes": {
-      "ean": "",
-      "pet_type": "Hunde",
-      "old_sku": "",
-      "recommended_products": "oil,cereal",
-      "price_per_kilo_vat_included": "",
-      "base_price_unit": "Kilogramm (kg)"
-    },
-    "media": [
-      {
-        "url": "/k/_/k_nguru_neu.jpg",
-        "thumbnail_url": "/k/_/k_nguru_neu.jpg",
-        "type": "picture",
-        "sequence": "1",
-        "attributes": {
-          "not yet defined": "any other media specific german localized attributes"
-        }
-      }
-    ],
-    "product_group_keys": [
-      "weight",
-      "carbs",
-      "meattype"
-    ],
-    "concrete_products": [
-      {
-        "sku": "60004-1",
-        "active": "1",
-        "locales": [
-          {
-            "locale": "de_DE",
-            "name": "PETS DELI Menübox für Hunde Känguru",
-            "media": [
-              {
-                "url": "/k/_/k_nguru_neu.jpg",
-                "thumbnail_url": "/k/_/k_nguru_neu.jpg",
-                "type": "picture",
-                "sequence": "1",
-                "attributes": {
-                  "not yet defined": "any other media specific german localized attributes"
-                }
-              }
-            ],
-            "attributes": {
-              "some_local_att": ""
-            }
-          }
-        ],
-        "price": "200",
-        "attributes": {
-          "weight": "250g"
-        },
-        "product_group_key_values": {
-          "weight": "250g",
-          "carbs": "rice",
-          "meattype": "kangaroo"
-        }
-      },
-      {
-        "sku": "60004-2",
-        "active": "1",
-        "locales": [
-          {
-            "locale": "de_DE",
-            "name": "PETS DELI Menübox für Hunde Känguru",
-            "media": [
-              {
-                "url": "/k/_/k_nguru_neu.jpg",
-                "thumbnail_url": "/k/_/k_nguru_neu.jpg",
-                "type": "picture",
-                "sequence": "1",
-                "attributes": {
-                  "not yet defined": "any other media specific german localized attributes"
-                }
-              }
-            ],
-            "attributes": {
-              "some_local_att": ""
-            }
-          }
-        ],
-        "price": "200",
-        "attributes": {
-          "weight": "250g"
-        },
-        "product_group_key_values": {
-          "weight": "250g",
-          "carbs": "no",
-          "meattype": "kangaroo"
-        }
-      },
-      {
-        "sku": "60004-3",
-        "active": "1",
-        "locales": [
-          {
-            "locale": "de_DE",
-            "name": "PETS DELI Menübox für Hunde Känguru",
-            "media": [
-              {
-                "url": "/k/_/k_nguru_neu.jpg",
-                "thumbnail_url": "/k/_/k_nguru_neu.jpg",
-                "type": "picture",
-                "sequence": "1",
-                "attributes": {
-                  "not yet defined": "any other media specific german localized attributes"
-                }
-              }
-            ],
-            "attributes": {
-              "some_local_att": ""
-            }
-          }
-        ],
-        "price": "400",
-        "attributes": {
-          "weight": "500g"
-        },
-        "product_group_key_values": {
-          "weight": "500g",
-          "carbs": "rice",
-          "meattype": "kangaroo"
-        }
-      },
-      {
-        "sku": "60004-4",
-        "active": "1",
-        "locales": [
-          {
-            "locale": "de_DE",
-            "name": "PETS DELI Menübox für Hunde Känguru",
-            "media": [
-              {
-                "url": "/k/_/k_nguru_neu.jpg",
-                "thumbnail_url": "/k/_/k_nguru_neu.jpg",
-                "type": "picture",
-                "sequence": "1",
-                "attributes": {
-                  "not yet defined": "any other media specific german localized attributes"
-                }
-              }
-            ],
-            "attributes": {
-              "some_local_att": ""
-            }
-          }
-        ],
-        "price": "400",
-        "attributes": {
-          "weight": "500g"
-        },
-        "product_group_key_values": {
-          "weight": "500g",
-          "carbs": "no",
-          "meattype": "kangaroo"
-        }
-      }
-    ]
-  },
-  {
-    "sku": "60006",
-    "type": "simple",
-    "tax": "7.00",
-    "categories": [
-      "3"
-    ],
-    "locales": [
-      {
-        "locale": "de_DE",
-        "name": "PETS DELI Menübox für Hunde Putenbrustfilet",
-        "url": "/Hunde/Basisnahrung/menubox-huhn-hund-146.html",
-        "media": [
-          {
-            "url": "/p/u/pute.jpg",
-            "thumbnail_url": "/p/u/pute.jpg",
-            "type": "picture",
-            "sequence": "1",
-            "attributes": {
-              "not yet defined": "any other media specific german localized attributes"
-            }
-          }
-        ],
-        "attributes": {
-          "short_description": "Fertige Menübox mit Putenbrustfilet, pürierter Brokkoli, pürierte Mango und Reis.",
-          "description": "Das PETS DELI Rohfutter für Hunde mit feinstem Putenbrustfilet ist wegen seiner hervorragenden Bekömmlichkeit ein sehr beliebter Futter-Mix unserer vierbeinigen Kunden. Die Ernährung Ihres Hundes wird dank der enthaltenen erlesenen Zutaten sehr ausgewogen und nahrhaft, da in der tropischen Mango viele natürliche Vitamine enthalten sind, wie die besonders wichtigen Vitamine C und E. Des Weiteren ist die Mango eine säurearme Frucht, die in Verbindung mit dem Brokkoli in unseren Frischfutter- Boxen, sehr gut gegen Darmbeschwerden helfen kann. Auch sind diese beiden Gemüsesorten reich an Beta-Carotin, welches über Enzyme im Körper aufgespalten wird und den Körper so mit wichtigem Vitamin A versorgt. Dieses Vitamin unterstützt den Körper bei der Blutbildung und spielt eine zentrale Rolle beim Sehvorgang. Für die Zubereitung unserer frischen Menüs verwenden wir frisches, zartes Putenbrustfilet, pürierte Mango, Brokkoli und Reis. Wir portionieren die Frischfutter Menüboxen in einem ausgewogenen Verhältnis, so dass Ihr Liebling gesund bleibt und bestens versorgt ist. Selbstverständlich verzichten wir komplett auf die Zugabe künstlicher Zusätze, wie etwa Lock- und Konservierungsstoffe. Unser Hundefutter ist obendrein glutenfrei. Auf Kohlenhydrate muss dudurch aber nicht verzichtet werden. Gesunder Reis ist frei von Gluten und versorgt Ihren Liebling mit zusätzlicher Energie. Ein Fleischantei von 60%l in unserem Rohfutter-Menü mit Putenbrustfilet versorgt Ihren Hund mit hochwertigen Proteinen. Dieses gesunde Hundefutter eignet sich daher hervorragend für den Einstieg in die gesunde Ernährung Ihres Hundes.",
-          "details": "",
-          "ingriedients_description": "",
-          "recommendation_description": "",
-          "meta_description": "Menübox Putenbrustfilet für Hunde bestellen bei PETS DELI. Frisch ✓ Lebensmittelqualität ✓ Ohne Zusätze ✓ Fertig zubereitet ✓ Tierärztlich Empfohlen ",
-          "meta_keyword": "barf für Hunde, frische hundenahrung, lebensmittelqualität, premium hundefutter",
-          "meta_title": "Menübox Putenbrustfilet für Hunde online kaufen | PETS DELI",
-          "durability": "Mindestens 6 Monate haltbar. Siehe Verpackung.",
-          "storage": "Tiefgekühlt bei mindestens -18°C, bis zu 50 Menüs passen in ein normales Tiefkühlfach",
-          "delivery_time": "2-3 Tage"
-        }
-      }
-    ],
-    "attributes": {
-      "ean": "",
-      "pet_type": "Hunde",
-      "old_sku": "",
-      "recommended_products": "oil,cereal",
-      "price_per_kilo_vat_included": "",
-      "base_price_unit": "Kilogramm (kg)"
-    },
-    "media": [
-      {
-        "url": "/p/u/pute.jpg",
-        "thumbnail_url": "/p/u/pute.jpg",
-        "type": "picture",
-        "sequence": "1",
-        "attributes": {
-          "not yet defined": "any other media specific german localized attributes"
-        }
-      }
-    ],
-    "product_group_keys": [
-      "weight",
-      "carbs",
-      "meattype"
-    ],
-    "concrete_products": [
-      {
-        "sku": "60006-1",
-        "active": "1",
-        "locales": [
-          {
-            "locale": "de_DE",
-            "name": "PETS DELI Menübox für Hunde Putenbrustfilet",
-            "media": [
-              {
-                "url": "/p/u/pute.jpg",
-                "thumbnail_url": "/p/u/pute.jpg",
-                "type": "picture",
-                "sequence": "1",
-                "attributes": {
-                  "not yet defined": "any other media specific german localized attributes"
-                }
-              }
-            ],
-            "attributes": {
-              "some_local_att": ""
-            }
-          }
-        ],
-        "price": "200",
-        "attributes": {
-          "weight": "250g"
-        },
-        "product_group_key_values": {
-          "weight": "250g",
-          "carbs": "rice",
-          "meattype": "turkey"
-        }
-      },
-      {
-        "sku": "60006-2",
-        "active": "1",
-        "locales": [
-          {
-            "locale": "de_DE",
-            "name": "PETS DELI Menübox für Hunde Putenbrustfilet",
-            "media": [
-              {
-                "url": "/p/u/pute.jpg",
-                "thumbnail_url": "/p/u/pute.jpg",
-                "type": "picture",
-                "sequence": "1",
-                "attributes": {
-                  "not yet defined": "any other media specific german localized attributes"
-                }
-              }
-            ],
-            "attributes": {
-              "some_local_att": ""
-            }
-          }
-        ],
-        "price": "200",
-        "attributes": {
-          "weight": "250g"
-        },
-        "product_group_key_values": {
-          "weight": "250g",
-          "carbs": "rice",
-          "meattype": "turkey"
-        }
-      },
-      {
-        "sku": "60006-3",
-        "active": "1",
-        "locales": [
-          {
-            "locale": "de_DE",
-            "name": "PETS DELI Menübox für Hunde Putenbrustfilet",
-            "media": [
-              {
-                "url": "/p/u/pute.jpg",
-                "thumbnail_url": "/p/u/pute.jpg",
-                "type": "picture",
-                "sequence": "1",
-                "attributes": {
-                  "not yet defined": "any other media specific german localized attributes"
-                }
-              }
-            ],
-            "attributes": {
-              "some_local_att": ""
-            }
-          }
-        ],
-        "price": "400",
-        "attributes": {
-          "weight": "500g"
-        },
-        "product_group_key_values": {
-          "weight": "500g",
-          "carbs": "rice",
-          "meattype": "turkey"
-        }
-      },
-      {
-        "sku": "60006-4",
-        "active": "1",
-        "locales": [
-          {
-            "locale": "de_DE",
-            "name": "PETS DELI Menübox für Hunde Putenbrustfilet",
-            "media": [
-              {
-                "url": "/p/u/pute.jpg",
-                "thumbnail_url": "/p/u/pute.jpg",
-                "type": "picture",
-                "sequence": "1",
-                "attributes": {
-                  "not yet defined": "any other media specific german localized attributes"
-                }
-              }
-            ],
-            "attributes": {
-              "some_local_att": ""
-            }
-          }
-        ],
-        "price": "400",
-        "attributes": {
-          "weight": "500g"
-        },
-        "product_group_key_values": {
-          "weight": "500g",
-          "carbs": "rice",
-          "meattype": "turkey"
-        }
-      }
-    ]
-  },
-  {
-    "sku": "600011",
-    "type": "simple",
-    "tax": "7.00",
-    "categories": [
-      "3"
-    ],
-    "locales": [
-      {
-        "locale": "de_DE",
-        "name": "PETS DELI Menübox für Hunde Hirschfleisch",
-        "url": "/Hunde/Basisnahrung/menubox-hirsch-hund.html",
-        "media": [
-          {
-            "url": "/w/i/wild.jpg",
-            "thumbnail_url": "/w/i/wild.jpg",
-            "type": "picture",
-            "sequence": "1",
-            "attributes": {
-              "not yet defined": "any other media specific german localized attributes"
-            }
-          }
-        ],
-        "attributes": {
-          "short_description": "Fertige Menübox mit hochwertigem Hirschfleisch, pürierten Äpfeln, püriertem Kürbis und pürierten Kartoffeln.",
-          "description": "Diese besondere PETS DELI Menübox enthält &lt;b&gt;mit frischem Muskelfleisch vom Hirsch&lt;/b&gt; eine wahre Premiumzutat. Besonders macht dieses Menü vor Allem die &lt;b&gt;hypoallergene Eigenschaft von Wild&lt;/b&gt;, was dieses Hundefutter auch für Allergiker geeignet macht. Dazu ist es dank der erlesenen Inhaltsstoffe &lt;b&gt;gut verdaulich und auch fettarm&lt;/b&gt;. Neben dem Frostfleisch vom Hirsch bietet dieses Menü &lt;b&gt;wichtige Vitaminquellen&lt;/b&gt; für Ihren Hund in Form von &lt;b&gt;pürierten Äpfeln sowie püriertem Kürbis&lt;/b&gt;. Der &lt;b&gt;Apfel ist reich an den Vitaminen B1, B2, B6, E und C&lt;/b&gt; und enthält, wie auch der Kürbis, &lt;b&gt;Provitamin A&lt;/b&gt;. Die Pektine aus reifen Äpfeln wirken darüber hinaus entschlackend und helfen bei der Ausscheidung von Giften.  Als &lt;b&gt;Lieferant von Kohlenhydraten&lt;/b&gt; dienen in unserem Hundefutter mit Wild gekochte Kartoffeln. Kohlenhydrate sind wichtige Energielieferanten und sehr zu empfehlen bei sportlich aktiven Hunden. Wir achten stets darauf, dass bei der Herstellung unserer Menüs mit Frostfleisch für Hunde ein perfektes Verhältnis vorliegt, um Ihrem Vierbeiner &lt;b&gt;eine ausgewogene und nährstoffreiche Ernährung&lt;/b&gt; zu garantieren. Mit dieser gesunden Menübox liegen Sie bei jeder Art von Hund, ob jung oder alt, genau richtig, da es sich hier um ein &lt;b&gt;sehr hochwertiges und nährstoffreiches Hundefutter&lt;/b&gt; handelt, das &lt;b&gt;auch für Allergiker und empfindliche Tiere geeignet&lt;/b&gt; ist. Der Fleischanteil liegt hier bei 60%.",
-          "details": "",
-          "ingriedients_description": "",
-          "recommendation_description": "",
-          "meta_description": "Menübox Hirsch für Hund bestellen bei PETS DELI. Frisch ✓ Lebensmittelqualität ✓ Ohne Zusätze ✓ Fertig zubereitet ✓ Tierärztlich Empfohlen ",
-          "meta_keyword": "",
-          "meta_title": "Menübox Hirsch für Hund online kaufen | PETS DELI",
-          "durability": "Mindestens 6 Monate haltbar. Siehe Verpackung.",
-          "storage": "Tiefgekühlt bei mindestens -18°C, bis zu 50 Menüs passen in ein normales Tiefkühlfach",
-          "delivery_time": "2-3 Tage"
-        }
-      }
-    ],
-    "attributes": {
-      "ean": "",
-      "pet_type": "Hunde",
-      "old_sku": "",
-      "recommended_products": "oil,cereal",
-      "price_per_kilo_vat_included": "",
-      "base_price_unit": "Kilogramm (kg)"
-    },
-    "media": [
-      {
-        "url": "/w/i/wild.jpg",
-        "thumbnail_url": "/w/i/wild.jpg",
-        "type": "picture",
-        "sequence": "1",
-        "attributes": {
-          "not yet defined": "any other media specific german localized attributes"
-        }
-      }
-    ],
-    "product_group_keys": [
-      "weight",
-      "carbs",
-      "meattype"
-    ],
-    "concrete_products": [
-      {
-        "sku": "600011-1",
-        "active": "1",
-        "locales": [
-          {
-            "locale": "de_DE",
-            "name": "PETS DELI Menübox für Hunde Hirschfleisch",
-            "media": [
-              {
-                "url": "/w/i/wild.jpg",
-                "thumbnail_url": "/w/i/wild.jpg",
-                "type": "picture",
-                "sequence": "1",
-                "attributes": {
-                  "not yet defined": "any other media specific german localized attributes"
-                }
-              }
-            ],
-            "attributes": {
-              "some_local_att": ""
-            }
-          }
-        ],
-        "price": "200",
-        "attributes": {
-          "weight": "250g"
-        },
-        "product_group_key_values": {
-          "weight": "250g",
-          "carbs": "rice",
-          "meattype": "venison"
-        }
-      },
-      {
-        "sku": "600011-2",
-        "active": "1",
-        "locales": [
-          {
-            "locale": "de_DE",
-            "name": "PETS DELI Menübox für Hunde Hirschfleisch",
-            "media": [
-              {
-                "url": "/w/i/wild.jpg",
-                "thumbnail_url": "/w/i/wild.jpg",
-                "type": "picture",
-                "sequence": "1",
-                "attributes": {
-                  "not yet defined": "any other media specific german localized attributes"
-                }
-              }
-            ],
-            "attributes": {
-              "some_local_att": ""
-            }
-          }
-        ],
-        "price": "200",
-        "attributes": {
-          "weight": "250g"
-        },
-        "product_group_key_values": {
-          "weight": "250g",
-          "carbs": "no",
-          "meattype": "venison"
-        }
-      },
-      {
-        "sku": "600011-3",
-        "active": "1",
-        "locales": [
-          {
-            "locale": "de_DE",
-            "name": "PETS DELI Menübox für Hunde Hirschfleisch",
-            "media": [
-              {
-                "url": "/w/i/wild.jpg",
-                "thumbnail_url": "/w/i/wild.jpg",
-                "type": "picture",
-                "sequence": "1",
-                "attributes": {
-                  "not yet defined": "any other media specific german localized attributes"
-                }
-              }
-            ],
-            "attributes": {
-              "some_local_att": ""
-            }
-          }
-        ],
-        "price": "400",
-        "attributes": {
-          "weight": "500g"
-        },
-        "product_group_key_values": {
-          "weight": "500g",
-          "carbs": "rice",
-          "meattype": "venison"
-        }
-      },
-      {
-        "sku": "600011-4",
-        "active": "1",
-        "locales": [
-          {
-            "locale": "de_DE",
-            "name": "PETS DELI Menübox für Hunde Hirschfleisch",
-            "media": [
-              {
-                "url": "/w/i/wild.jpg",
-                "thumbnail_url": "/w/i/wild.jpg",
-                "type": "picture",
-                "sequence": "1",
-                "attributes": {
-                  "not yet defined": "any other media specific german localized attributes"
-                }
-              }
-            ],
-            "attributes": {
-              "some_local_att": ""
-            }
-          }
-        ],
-        "price": "400",
-        "attributes": {
-          "weight": "500g"
-        },
-        "product_group_key_values": {
-          "weight": "500g",
-          "carbs": "no",
-          "meattype": "venison"
-        }
-      }
-    ]
-  },
-  {
-    "sku": "60012",
-    "type": "simple",
-    "tax": "7.00",
-    "categories": [
-      "3"
-    ],
-    "locales": [
-      {
-        "locale": "de_DE",
-        "name": "PETS DELI Menübox für Hunde Rinderfilet",
-        "url": "/Hunde/Basisnahrung/menubox-rind-hund-116.html",
-        "media": [
-          {
-            "url": "/r/i/rind.jpg",
-            "thumbnail_url": "/r/i/rind.jpg",
-            "type": "picture",
-            "sequence": "1",
-            "attributes": {
-              "not yet defined": "any other media specific german localized attributes"
-            }
-          }
-        ],
-        "attributes": {
-          "short_description": "Fertige Menübox mit frischem Muskelfleisch vom Rind, püriertem Brokkoli, püriertem Kürbis und pürierten Kartoffeln.",
-          "description": "Unser Frostfutter-Menü für Hunde &lt;b&gt;mit Rinderfilet&lt;/b&gt; ist ein beliebter Mix von PETS DELI in Premiumqualität. Das frische Rinderfilet ist &lt;b&gt;reich an Rohprotein&lt;/b&gt; und macht diese Variante zu einem besonders guten Hundefutter, da es obendrein &lt;b&gt;leicht verdaulich und fettarm&lt;/b&gt; ist.  Für die Zubereitung verwenden wir &lt;b&gt;frisches, zartes Muskelfleisch vom Rind, pürierten Brokkoli, pürierten Kürbis und Kartoffeln&lt;/b&gt;, die natürlich gekocht und somit perfekt verträglich sind. Die Gemüsesorten sind so für unser Frostfutter ausgewählt, dass sie ihre gesundheitsfördernde Wirkung optimal entfalten. Sowohl Brokkoli als auch Kürbis enthalten für den Hund &lt;b&gt;wichtiges Beta-Carotin und Brokkoli darüber hinaus Sulforaphan&lt;/b&gt;, welches die Bildung von krebshemmenden Enzymen anregt. Wir portionieren das Frostfutter in einem perfekten Verhältnis für Ihren Hund, so dass eine vitaminreiche und ausgewogene Ernährung gesichert ist. Die gesunden Hundefutter- Menüboxen sind sehr hochwertig und &lt;b&gt;für alle Hunde, klein oder groß, eine gute Wahl&lt;/b&gt;. Hochwertiges Rohprotein ist ein wichtiger Bestandteil in gutem Hundefutter und reichhaltig in Muskelfleisch enthalten. In dieser Form ist es für den Hund gut verdaulich und verwertbar.  &lt;b&gt;Der Fleischanteil liegt hier bei 60%&lt;/b&gt;.",
-          "details": "",
-          "ingriedients_description": "",
-          "recommendation_description": "",
-          "meta_description": "Menübox für Hunde Rinderfilet bestellen bei PETS DELI. Frisch ✓ Lebensmittelqualität ✓ Ohne Zusätze ✓ Fertig zubereitet ✓ Tierärztlich Empfohlen ",
-          "meta_keyword": "",
-          "meta_title": "Menübox für Hunde Rinderfilet online kaufen | PETS DELI",
-          "durability": "Mindestens 6 Monate haltbar. Siehe Verpackung.",
-          "storage": "Tiefgekühlt bei mindestens -18°C, bis zu 50 Menüs passen in ein normales Tiefkühlfach",
-          "delivery_time": "2-3 Tage"
-        }
-      }
-    ],
-    "attributes": {
-      "ean": "",
-      "pet_type": "Hunde",
-      "old_sku": "",
-      "recommended_products": "oil,cereal",
-      "price_per_kilo_vat_included": "",
-      "base_price_unit": "Kilogramm (kg)"
-    },
-    "media": [
-      {
-        "url": "/r/i/rind.jpg",
-        "thumbnail_url": "/r/i/rind.jpg",
-        "type": "picture",
-        "sequence": "1",
-        "attributes": {
-          "not yet defined": "any other media specific german localized attributes"
-        }
-      }
-    ],
-    "product_group_keys": [
-      "weight",
-      "carbs",
-      "meattype"
-    ],
-    "concrete_products": [
-      {
-        "sku": "60012-1",
-        "active": "1",
-        "locales": [
-          {
-            "locale": "de_DE",
-            "name": "PETS DELI Menübox für Hunde Rinderfilet",
-            "media": [
-              {
-                "url": "/r/i/rind.jpg",
-                "thumbnail_url": "/r/i/rind.jpg",
-                "type": "picture",
-                "sequence": "1",
-                "attributes": {
-                  "not yet defined": "any other media specific german localized attributes"
-                }
-              }
-            ],
-            "attributes": {
-              "some_local_att": ""
-            }
-          }
-        ],
-        "price": "200",
-        "attributes": {
-          "weight": "250g"
-        },
-        "product_group_key_values": {
-          "weight": "250g",
-          "carbs": "rice",
-          "meattype": "beef"
-        }
-      },
-      {
-        "sku": "60012-2",
-        "active": "1",
-        "locales": [
-          {
-            "locale": "de_DE",
-            "name": "PETS DELI Menübox für Hunde Rinderfilet",
-            "media": [
-              {
-                "url": "/r/i/rind.jpg",
-                "thumbnail_url": "/r/i/rind.jpg",
-                "type": "picture",
-                "sequence": "1",
-                "attributes": {
-                  "not yet defined": "any other media specific german localized attributes"
-                }
-              }
-            ],
-            "attributes": {
-              "some_local_att": ""
-            }
-          }
-        ],
-        "price": "200",
-        "attributes": {
-          "weight": "250g"
-        },
-        "product_group_key_values": {
-          "weight": "250g",
-          "carbs": "no",
-          "meattype": "beef"
-        }
-      },
-      {
-        "sku": "60012-3",
-        "active": "1",
-        "locales": [
-          {
-            "locale": "de_DE",
-            "name": "PETS DELI Menübox für Hunde Rinderfilet",
-            "media": [
-              {
-                "url": "/r/i/rind.jpg",
-                "thumbnail_url": "/r/i/rind.jpg",
-                "type": "picture",
-                "sequence": "1",
-                "attributes": {
-                  "not yet defined": "any other media specific german localized attributes"
-                }
-              }
-            ],
-            "attributes": {
-              "some_local_att": ""
-            }
-          }
-        ],
-        "price": "400",
-        "attributes": {
-          "weight": "500g"
-        },
-        "product_group_key_values": {
-          "weight": "500g",
-          "carbs": "rice",
-          "meattype": "beef"
-        }
-      },
-      {
-        "sku": "60012-4",
-        "active": "1",
-        "locales": [
-          {
-            "locale": "de_DE",
-            "name": "PETS DELI Menübox für Hunde Rinderfilet",
-            "media": [
-              {
-                "url": "/r/i/rind.jpg",
-                "thumbnail_url": "/r/i/rind.jpg",
-                "type": "picture",
-                "sequence": "1",
-                "attributes": {
-                  "not yet defined": "any other media specific german localized attributes"
-                }
-              }
-            ],
-            "attributes": {
-              "some_local_att": ""
-            }
-          }
-        ],
-        "price": "400",
-        "attributes": {
-          "weight": "500g"
-        },
-        "product_group_key_values": {
-          "weight": "500g",
-          "carbs": "no",
-          "meattype": "beef"
-        }
-      }
-    ]
-  },
-  {
-    "sku": "80004",
-    "type": "simple",
-    "tax": "7.00",
-    "categories": [
-      "3"
-    ],
-    "locales": [
-      {
-        "locale": "de_DE",
-        "name": "PETS DELI Menübox für Hunde Känguru hypoallergen",
-        "url": "/Hunde/Basisnahrung/menubox-kaenguru-hund-getreidefrei.html",
-        "media": [
-          {
-            "url": "/k/_/k_nguru_hypo.jpg",
-            "thumbnail_url": "/k/_/k_nguru_hypo.jpg",
-            "type": "picture",
-            "sequence": "1",
-            "attributes": {
-              "not yet defined": "any other media specific german localized attributes"
-            }
-          }
-        ],
-        "attributes": {
-          "short_description": "Fertige Menübox mit bestem Fleisch vom Känguru mit pürierten Karotten.",
-          "description": "Die Menübox mit &lt;b&gt;frischem Premium Muskelfleisch vom Känguru&lt;/b&gt; ist &lt;b&gt;perfekt für die tägliche Ernährung Ihres Hundes&lt;/b&gt; und &lt;b&gt;frei von Kohlenhydraten&lt;/b&gt;. Besonders für empfindliche und allergisch reagierende Hunde ist dieses Spezialfutter zu empfehlen. Dieses Hundefutter &lt;b&gt;mit hohem Fleischanteil&lt;/b&gt; liefert Ihrem Hund die perfekte Kombination von frischem Muskelfleisch vom Känguru und pürierten Karotten, das natürlich und gleichzeitig &lt;b&gt;frei von jeglichen Zusätzen&lt;/b&gt; hergestellt wird. Dabei wird speziell darauf geachtet, dass das Frischfutter in einer perfekten Kombination angefertigt wird und Ihrem Hund somit &lt;b&gt;einen ausgewogenen Nährstoffgehalt bietet&lt;/b&gt;.  Für den Einstieg eignet sich die Menübox mit Känguru sehr gut für Ihren Vierbeiner, insbesondere dann, wenn Ihr Tier an Unverträglichkeiten leidet. Eine gesunde und ausgewogene Ernährung können Sie Ihrem Hund mit dem gesunden Hundefutter von Pets Deli gewähren. Der Fleischanteil bei dem Menü mit Känguru liegt bei 60%.",
-          "details": "",
-          "ingriedients_description": "",
-          "recommendation_description": "",
-          "meta_description": "Kängurufleisch hypoallergen für Hunde bestellen bei PETS DELI. Frisch ✓ Lebensmittelqualität ✓ Ohne Zusätze ✓ Fertig zubereitet ✓ Tierärztlich Empfohlen ✓",
-          "meta_keyword": "känguru menübox, menübox känguru hypoallergen, hypoallergen menübox känguru",
-          "meta_title": "Kängurufleisch für Hunde online kaufen | PETS DELI",
-          "durability": "Mindestens 6 Monate haltbar. Siehe Verpackung.",
-          "storage": "Tiefgekühlt bei mindestens -18°C, bis zu 50 Menüs passen in ein normales Tiefkühlfach",
-          "delivery_time": "2-3 Tage"
-        }
-      }
-    ],
-    "attributes": {
-      "ean": "",
-      "pet_type": "Hunde",
-      "old_sku": "",
-      "recommended_products": "oil,cereal",
-      "price_per_kilo_vat_included": "",
-      "base_price_unit": "Kilogramm (kg)"
-    },
-    "media": [
-      {
-        "url": "/k/_/k_nguru_hypo.jpg",
-        "thumbnail_url": "/k/_/k_nguru_hypo.jpg",
-        "type": "picture",
-        "sequence": "1",
-        "attributes": {
-          "not yet defined": "any other media specific german localized attributes"
-        }
-      }
-    ],
-    "product_group_keys": [
-      "weight",
-      "carbs",
-      "meattype"
-    ],
-    "concrete_products": [
-      {
-        "sku": "80004-1",
-        "active": "1",
-        "locales": [
-          {
-            "locale": "de_DE",
-            "name": "PETS DELI Menübox für Hunde Känguru hypoallergen",
-            "media": [
-              {
-                "url": "/k/_/k_nguru_hypo.jpg",
-                "thumbnail_url": "/k/_/k_nguru_hypo.jpg",
-                "type": "picture",
-                "sequence": "1",
-                "attributes": {
-                  "not yet defined": "any other media specific german localized attributes"
-                }
-              }
-            ],
-            "attributes": {
-              "some_local_att": ""
-            }
-          }
-        ],
-        "price": "200",
-        "attributes": {
-          "weight": "250g"
-        },
-        "product_group_key_values": {
-          "weight": "250g",
-          "carbs": "no",
-          "meattype": "kangaroo"
-        }
-      },
-      {
-        "sku": "80004-2",
-        "active": "1",
-        "locales": [
-          {
-            "locale": "de_DE",
-            "name": "PETS DELI Menübox für Hunde Känguru hypoallergen",
-            "media": [
-              {
-                "url": "/k/_/k_nguru_hypo.jpg",
-                "thumbnail_url": "/k/_/k_nguru_hypo.jpg",
-                "type": "picture",
-                "sequence": "1",
-                "attributes": {
-                  "not yet defined": "any other media specific german localized attributes"
-                }
-              }
-            ],
-            "attributes": {
-              "some_local_att": ""
-            }
-          }
-        ],
-        "price": "400",
-        "attributes": {
-          "weight": "500g"
-        },
-        "product_group_key_values": {
-          "weight": "500g",
-          "carbs": "no",
-          "meattype": "kangaroo"
-        }
-      }
-    ]
-  },
-  {
-    "sku": "80000",
-    "type": "simple",
-    "tax": "7.00",
-    "categories": [
-      "3"
-    ],
-    "locales": [
-      {
-        "locale": "de_DE",
-        "name": "PETS DELI Menübox für Hunde Hühnerbrustfilet Diät/Light",
-        "url": "/Hunde/Basisnahrung/menubox-huhn-hund-light.html",
-        "media": [
-          {
-            "url": "/h/u/huhn_light.jpg",
-            "thumbnail_url": "/h/u/huhn_light.jpg",
-            "type": "picture",
-            "sequence": "1",
-            "attributes": {
-              "not yet defined": "any other media specific german localized attributes"
-            }
-          }
-        ],
-        "attributes": {
-          "short_description": "Fertige Menübox mit Hühnerbrustfilet mit pürierten Karotten.",
-          "description": "Die Menübox &lt;b&gt;mit frischem Hühnerbrustfilet&lt;/b&gt; ist eine sehr beliebte Sorte unseres hochwertigen Hundefutters und für Kunden mit einem zu Übergewicht neigenden Hund sehr empfehlenswert. Dadurch, dass in der Menübox reines Natur-Futter und &lt;b&gt;keine Kohlenhydrate enthalten&lt;/b&gt; sind, kommt Ihr Vierbeiner in den Genuss einer nahrhaften, gut verdaulichen und leichten Ernährung. Für die Zubereitung unseres hochwertigen PETS DELI Futters verwenden wir &lt;b&gt;frisches, zartes Hühnerbrustfilet und pürierte Karotten&lt;/b&gt;. Wir legen sehr großen Wert darauf, dass die Inhaltsstoffe in einem für Ihren Vierbeiner idealen Verhältnis portioniert werden. Die Menüboxen mit Hühnerbrustfilet eigenen sich sehr gut für den Einstieg in die gesunde Ernährung Ihres Hundes. Der Fleischanteil des Natur-Hundefutters liegt bei 60%.",
-          "details": "",
-          "ingriedients_description": "",
-          "recommendation_description": "",
-          "meta_description": "Hühnerbrustfilet Menübox für Hunde online bestellen bei PETS DELI. Frisch ✓ Lebensmittelqualität ✓ Ohne Zusätze ✓ Fertig zubereitet ✓ Tierärztlich Empfohlen ✓",
-          "meta_keyword": "menüboxen für hunde, hunde menüboxen, hühnerbrustfilet für hunde, hunde hühnerbrustfilet",
-          "meta_title": "Hühnerbrustfilet Box für Hunde online kaufen | PETS DELI",
-          "durability": "Mindestens 6 Monate haltbar. Siehe Verpackung.",
-          "storage": "Tiefgekühlt bei mindestens -18°C, bis zu 50 Menüs passen in ein normales Tiefkühlfach",
-          "delivery_time": "2-3 Tage"
-        }
-      }
-    ],
-    "attributes": {
-      "ean": "",
-      "pet_type": "Hunde",
-      "old_sku": "",
-      "recommended_products": "oil,cereal",
-      "price_per_kilo_vat_included": "",
-      "base_price_unit": "Kilogramm (kg)"
-    },
-    "media": [
-      {
-        "url": "/h/u/huhn_light.jpg",
-        "thumbnail_url": "/h/u/huhn_light.jpg",
-        "type": "picture",
-        "sequence": "1",
-        "attributes": {
-          "not yet defined": "any other media specific german localized attributes"
-        }
-      }
-    ],
-    "product_group_keys": [
-      "weight",
-      "carbs",
-      "meattype"
-    ],
-    "concrete_products": [
-      {
-        "sku": "80000-1",
-        "active": "1",
-        "locales": [
-          {
-            "locale": "de_DE",
-            "name": "PETS DELI Menübox für Hunde Hühnerbrustfilet Diät/Light",
-            "media": [
-              {
-                "url": "/h/u/huhn_light.jpg",
-                "thumbnail_url": "/h/u/huhn_light.jpg",
-                "type": "picture",
-                "sequence": "1",
-                "attributes": {
-                  "not yet defined": "any other media specific german localized attributes"
-                }
-              }
-            ],
-            "attributes": {
-              "some_local_att": ""
-            }
-          }
-        ],
-        "price": "200",
-        "attributes": {
-          "weight": "250g"
-        },
-        "product_group_key_values": {
-          "weight": "250g",
-          "carbs": "no",
-          "meattype": "chicken"
-        }
-      },
-      {
-        "sku": "80000-2",
-        "active": "1",
-        "locales": [
-          {
-            "locale": "de_DE",
-            "name": "PETS DELI Menübox für Hunde Hühnerbrustfilet Diät/Light",
-            "media": [
-              {
-                "url": "/h/u/huhn_light.jpg",
-                "thumbnail_url": "/h/u/huhn_light.jpg",
-                "type": "picture",
-                "sequence": "1",
-                "attributes": {
-                  "not yet defined": "any other media specific german localized attributes"
-                }
-              }
-            ],
-            "attributes": {
-              "some_local_att": ""
-            }
-          }
-        ],
-        "price": "400",
-        "attributes": {
-          "weight": "500g"
-        },
-        "product_group_key_values": {
-          "weight": "500g",
-          "carbs": "no",
-          "meattype": "chicken"
-        }
-      }
-    ]
-  },
-  {
-    "sku": "abstract_dogs_starterpackage_10_boxes",
+    "sku": "4911190",
     "type": "dynamic",
     "tax": "7.00",
     "categories": [
@@ -1454,36 +462,74 @@
       {
         "locale": "de_DE",
         "name": "PETS DELI Starter-Paket für Hunde (10x Menüboxen)",
-        "url": "/hunde-nahrung/hochwertige-hundefutter-menues/starterpaket-hund.html",
+        "url": "/Hunde/Basisnahrung/starterpaket-hund-163.html",
         "attributes": {
-          "default_description": "Unsere tiefgekühlten PETS DELI Menüboxen bieten Ihrem Hund die Grundlage für ein gesundes Hundefutter und einer gesunden und artgerechten Ernährung. Wir verwenden ausschließlich frische Zutaten in Lebensmittelqualität von ausgewählten Bezugsquellen und verzichten auf tierische Nebenerzeugnisse oder Zusätze in unserem Frischfutter. Unsere gesunden Menüboxen für Hunde bestehen aus 60% reinem Muskelfleisch und 40% aus frischem Obst....",
-          "extended_description": "Die PETS DELI Menüboxen sind grundsätzlich Alleinfuttermittel, sollten jedoch mit unseren Supplements sinnvoll und individuell ergänzt werden: Um den Nährstoffhaushalt Ihres Tieres vollständig abzudecken, empfehlen wir als Ergänzung den PETS ...",
-          "ingriedients_description": "ür die Herstellung des Frischfutters in Ihren PETS DELI Menüboxen verwenden wir ausschließlich frisches Muskelfleisch, püriertes Obst- und Gemüse und gekochte Kohlenhydrate. Unsere Menüs mit Huhn, Pute und Rind werden mit Herzmuskelfleisch vom jeweiligen Tier ergänzt und versorgen Ihren Hund mit wertvollem Taurin und mit Mineralien. Alle Zutaten haben Lebensmittelqualität und sind so frisch,  ...",
-          "recommendation_description": "Die Empfehlung von Tierärztin Annika Brönner: „Als Einstieg für jeden Hund gut geeignet. Finden Sie raus, welche Zutaten Ihrem Liebling schmecken!\" Fütterung Wir empfehlen Ihnen mindestens zwei Portionen am Tag zu füttern. Die Tagesration in Gramm sollte ungefähr 2-4% des Körpergewichtes Ihres Hundes entsprechen. Ein 20kg schweres ..."
+          "short_description": {
+            "markdown": "Individuelle PETS DELI Menü&#039;s, perfekt angepasst an Ihr Tier."
+          },
+          "description": {
+            "markdown": "Unsere tiefgekühlten PETS DELI Menüboxen bieten Ihrem Hund die &lt;b&gt;Grundlage für ein gesundes Hundefutter&lt;/b&gt; und einer gesunden und artgerechten Ernährung. Wir verwenden &lt;b&gt;ausschließlich frische Zutaten&lt;/b&gt; in Lebensmittelqualität von ausgewählten Bezugsquellen und verzichten auf tierische Nebenerzeugnisse oder Zusätze in unserem Frischfutter. Unsere gesunden Menüboxen für Hunde bestehen aus 60% reinem Muskelfleisch und  40% aus frischem Obst, Gemüse und Kohlenhydraten. Das gesunde Hundefutter in unseren Menüboxen kann mit unseren Supplements verfeinert werden. In diesem Starterpaket erhalten Sie &lt;b&gt;10 portionierte Menüboxen&lt;/b&gt; mit Frischfutter (zwei Größen wählbar: 250g und 500g)."
+          },
+          "why_pets_deli": "{{why.pets.deli}}",
+          "details": "",
+          "accordion": {
+            "shipment": {
+              "key": "{{shipment}}",
+              "order": 1
+            },
+            "storage": {
+              "key": "{{Storage}}",
+              "order": 2
+            },
+            "production_quality": {
+              "key": "{{production_quality}}",
+              "order": 3
+            },
+            "feeding_recommendation": {
+              "key": "{{feeding_recommendation}}",
+              "order": 4
+            },
+            "preparation": {
+              "key": "{{preparation}}",
+              "order": 5
+            },
+            "product_info": {
+              "key": "{{product_info}}",
+              "order": 6
+            },
+            "faq": {
+              "key": "{{faq}}",
+              "order": 7
+            }
+          },
+          "meta_description": "Starterpaket 10 Menüboxen bestellen bei PETS DELI  ✓ Lebensmittelqualität ✓ Ohne Zusätze ✓ Fertig zubereitet ✓ Tierärztlich Empfohlen ✓",
+          "meta_keyword": "starter paket pets deli, barf menü hunde, getreidefreies Hundefutter, bio hundenahrung, hundefutter lebensmittelqualität",
+          "meta_title": "Starterpaket 10 Menüboxen für Hunde kaufen | PETS DELI",
+          "delivery_time": "Der Versand Ihrer Ware erfolgt üblicherweise von montags-donnerstags am selben Tag der Bestellung bis 12 Uhr mittags."
         }
       }
     ],
     "attributes": {
-      "price_per_kilo_vat_included": "8.00"
+      "ean": "",
+      "pet_type": "Hunde",
+      "sku_formatted": "49111-90",
+      "old_sku": "58188594",
+      "recommended_products": [
+        "sku1",
+        "sku2"
+      ],
+      "price_per_unit": "",
+      "base_price_unit": ""
     },
     "media": [
       {
-        "url": "/media/product/10_hund_2.jpg",
-        "thumbnail_url": "/media/product/10_hund_2_thumb1.jpg",
+        "url": "/1/0/10_hund_2.jpg",
+        "thumbnail_url": "/1/0/10_hund_2.jpg",
         "type": "picture",
-        "sequence": "1"
-      },
-      {
-        "url": "/media/product/10_hund_side_1.jpg",
-        "thumbnail_url": "/media/product/10_hund_side_1_thumb1.jpg",
-        "type": "picture",
-        "sequence": "2"
-      },
-      {
-        "url": "/media/product/02_1.jpg",
-        "thumbnail_url": "/media/product/02_1_thumb1.jpg",
-        "type": "picture",
-        "sequence": "3"
+        "sequence": "1",
+        "attributes": {
+          "not yet defined": "any other media specific german localized attributes"
+        }
       }
     ],
     "product_group_keys": [
@@ -1491,52 +537,142 @@
     ],
     "concrete_products": [
       {
-        "sku": "concrete_dogs_starterpackage_10_boxes_250g",
+        "sku": "49111901",
         "active": "1",
         "product_group_key_values": {
-          "weight": "250g"
+          "weight": "250"
         },
         "locales": [
           {
             "locale": "de_DE",
-            "name": "PETS DELI Starter-Paket für Hunde (10x Menüboxen), 250g"
+            "name": "PETS DELI Starter-Paket für Hunde (10x Menüboxen)"
           }
         ],
-        "price": "2000"
+        "price": "2000.0",
+        "attributes": {
+          "weight": "",
+          "old_sku": "58188594",
+          "sku_formatted": "49111-90-1"
+        }
       },
       {
-        "sku": "concrete_dogs_starterpackage_10_boxes_500g",
+        "sku": "49111902",
         "active": "1",
         "product_group_key_values": {
-          "weight": "500g"
+          "weight": "250"
         },
         "locales": [
           {
             "locale": "de_DE",
-            "name": "PETS DELI Starter-Paket für Hunde (10x Menüboxen), 500g"
+            "name": "PETS DELI Starter-Paket für Hunde (10x Menüboxen)"
           }
         ],
-        "price": "4000"
+        "price": "4000",
+        "attributes": {
+          "weight": "500mg",
+          "old_sku": "58188594",
+          "sku_formatted": "49111-90-2"
+        }
       }
     ],
     "dynamic_product_settings": {
-      "total_quantity": "10",
+      "total_quantity": "60",
       "products": [
         {
-          "sku": "80000-2",
-          "quantity": "2"
+          "sku": "49111011",
+          "quantity": "12"
         },
         {
-          "sku": "60000-1",
-          "quantity": "2"
+          "sku": "49111012",
+          "quantity": "0"
         },
         {
-          "sku": "60000-2",
-          "quantity": "2"
+          "sku": "49111013",
+          "quantity": "0"
         },
         {
-          "sku": "80000-1",
-          "quantity": "20"
+          "sku": "49111014",
+          "quantity": "0"
+        },
+        {
+          "sku": "49111021",
+          "quantity": "12"
+        },
+        {
+          "sku": "49111022",
+          "quantity": "0"
+        },
+        {
+          "sku": "49111023",
+          "quantity": "0"
+        },
+        {
+          "sku": "49111024",
+          "quantity": "0"
+        },
+        {
+          "sku": "49111031",
+          "quantity": "12"
+        },
+        {
+          "sku": "49111032",
+          "quantity": "0"
+        },
+        {
+          "sku": "49111033",
+          "quantity": "0"
+        },
+        {
+          "sku": "49111034",
+          "quantity": "0"
+        },
+        {
+          "sku": "49111041",
+          "quantity": "12"
+        },
+        {
+          "sku": "49111042",
+          "quantity": "0"
+        },
+        {
+          "sku": "49111043",
+          "quantity": "0"
+        },
+        {
+          "sku": "49111044",
+          "quantity": "0"
+        },
+        {
+          "sku": "49111051",
+          "quantity": "6"
+        },
+        {
+          "sku": "49111052",
+          "quantity": "0"
+        },
+        {
+          "sku": "49111053",
+          "quantity": "0"
+        },
+        {
+          "sku": "49111054",
+          "quantity": "0"
+        },
+        {
+          "sku": "49111061",
+          "quantity": "6"
+        },
+        {
+          "sku": "49111062",
+          "quantity": "0"
+        },
+        {
+          "sku": "49111063",
+          "quantity": "0"
+        },
+        {
+          "sku": "49111064",
+          "quantity": "0"
         }
       ]
     }

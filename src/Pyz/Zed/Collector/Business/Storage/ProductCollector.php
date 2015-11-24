@@ -381,8 +381,17 @@ class ProductCollector extends AbstractPropelCollectorPlugin
         $baseQuery->orderBy('descendant_id', Criteria::DESC);
         $baseQuery->groupBy('abstract_sku');
 
+        // TODO: remove limitation to product with
+        #$baseQuery->addAnd(
+        #    SpyAbstractProductTableMap::COL_ID_ABSTRACT_PRODUCT,
+        #    1,
+        #    Criteria::EQUAL
+        #);
 
         $baseQuery = $this->propelFacade->addAggregateToNotGroupedColumns($baseQuery);
+
+        #echo $baseQuery->toString();
+        #die;
         return $baseQuery;
     }
 
@@ -416,14 +425,11 @@ class ProductCollector extends AbstractPropelCollectorPlugin
 
             // Product availability
             $productRawData['type'] = $productRawData[ProductDynamicQueryContainer::PRODUCT_TYPE];
-            $productRawData['groups'] = $this->decodeData($productRawData['group_keys']);
+            $productRawData['groups'] = $productRawData['group_keys'];
 
 
             foreach ($productRawData['concrete_products'] as &$concreteProduct) {
                 $concreteProduct['available'] = (isset($concreteProduct['quantity']) && $concreteProduct['quantity'] > 0);
-
-                $concreteProduct['concrete_prices'] = $this->decodeData($concreteProduct['concrete_prices']);
-                $concreteProduct['price_types'] = $this->decodeData($concreteProduct['price_types']);
 
                 if (
                     $concreteProduct['concrete_prices'] !== null &&
@@ -448,8 +454,8 @@ class ProductCollector extends AbstractPropelCollectorPlugin
                 ) {
 
                     $taxRates = [];
-                    $taxRateNames = $this->decodeData($concreteProduct['tax_rate_names']);
-                    $taxRateRates = $this->decodeData($concreteProduct['tax_rate_rates']);
+                    $taxRateNames = $concreteProduct['tax_rate_names'];
+                    $taxRateRates = $concreteProduct['tax_rate_rates'];
 
                     $effectiveRate = 0;
 
@@ -468,12 +474,6 @@ class ProductCollector extends AbstractPropelCollectorPlugin
                     ];
 
                     unset($concreteProduct['tax_set_name'], $concreteProduct['tax_rate_names'], $concreteProduct['tax_rate_rates']);
-                }
-
-
-                // Product group values
-                if (isset($concreteProduct['product_group_values']) && isset($productRawData['groups'])) {
-                    $concreteProduct['product_group_values'] = array_combine($productRawData['groups'], $concreteProduct['product_group_values']);
                 }
             }
 
@@ -589,9 +589,10 @@ class ProductCollector extends AbstractPropelCollectorPlugin
             return [];
         }
 
-        $ids = $this->decodeData($data[$idsField]);
-        $names = $this->decodeData($data[$namesField]);
-        $urls = $this->decodeData($data[$urlsField]);
+        $ids = $data[$idsField];
+        $names = $data[$namesField];
+        $urls = $data[$urlsField];
+
         $nodes = [];
 
         if ($ids === null) {
@@ -618,6 +619,8 @@ class ProductCollector extends AbstractPropelCollectorPlugin
 
         $resultSet = [];
         foreach ($productsData as $oneConcreteProduct) {
+            $oneConcreteProduct = $this->prepareRawConcreteProduct($oneConcreteProduct);
+
             $idAbstractProduct = $oneConcreteProduct['id_abstract_product'];
             if (!isset($resultSet[$idAbstractProduct])) {
                 $resultSet[$idAbstractProduct] = $this->createAbstractProductData($oneConcreteProduct);
@@ -629,12 +632,71 @@ class ProductCollector extends AbstractPropelCollectorPlugin
         return $resultSet;
     }
 
+    /**
+     * @param array $oneConcreteProduct
+     * @return array
+     * @throws WrongJsonStringException
+     */
+    protected function prepareRawConcreteProduct(array $oneConcreteProduct)
+    {
+
+        $fieldsToBeDecoded = [
+            self::ABSTRACT_ATTRIBUTES,
+            self::ABSTRACT_LOCALIZED_ATTRIBUTES,
+            self::CONCRETE_ATTRIBUTES,
+            self::CONCRETE_LOCALIZED_ATTRIBUTES,
+            'group_keys',
+            'product_group_values',
+
+            'tax_rate_names',
+            'tax_rate_rates',
+
+            'concrete_prices',
+            'price_types',
+
+            'category_urls',
+
+            'category_child_ids',
+            'category_child_names',
+            'category_child_urls',
+
+            'category_parent_ids',
+            'category_parent_names',
+            'category_parent_urls',
+
+            'node_id',
+        ];
+
+        foreach ($fieldsToBeDecoded as $fieldName) {
+            $oneConcreteProduct[$fieldName] = $this->decodeData($oneConcreteProduct[$fieldName]);
+
+            // check for arrays containing only null values
+            if (is_array($oneConcreteProduct[$fieldName])) {
+                $hasNullValuesOnly = true;
+                foreach ($oneConcreteProduct[$fieldName] as $index => $value) {
+                    $hasNullValuesOnly = $hasNullValuesOnly && is_null($value);
+                }
+                if ($hasNullValuesOnly) {
+                    $oneConcreteProduct[$fieldName] = [];
+                }
+            }
+        }
+
+        if (!empty($oneConcreteProduct['group_keys'])) {
+            $oneConcreteProduct['group_keys'] = array_values(array_unique($oneConcreteProduct['group_keys']));
+            $oneConcreteProduct['product_group_values'] = array_values(array_unique($oneConcreteProduct['product_group_values']));
+        }
+
+        return $oneConcreteProduct;
+    }
+
+
     protected function createAbstractProductData(array $oneConcreteProduct)
     {
         $abstractProductData = [];
 
-        $decodedAttributes = $this->decodeData($oneConcreteProduct[self::ABSTRACT_ATTRIBUTES]);
-        $decodedLocalizedAttributes = $this->decodeData($oneConcreteProduct[self::ABSTRACT_LOCALIZED_ATTRIBUTES]);
+        $decodedAttributes = $oneConcreteProduct[self::ABSTRACT_ATTRIBUTES];
+        $decodedLocalizedAttributes = $oneConcreteProduct[self::ABSTRACT_LOCALIZED_ATTRIBUTES];
         $mergedAttributes = array_merge($decodedAttributes, $decodedLocalizedAttributes);
 
         $abstractProductData[self::ABSTRACT_ATTRIBUTES] = $this->normalizeAttributes($mergedAttributes);
@@ -668,13 +730,12 @@ class ProductCollector extends AbstractPropelCollectorPlugin
      */
     protected function createConcreteProductData(array $oneConcreteProduct)
     {
-        $concreteAttributes = $this->decodeData($oneConcreteProduct[self::CONCRETE_ATTRIBUTES]);
-        $concreteLocalizedAttributes = $this->decodeData($oneConcreteProduct[self::CONCRETE_LOCALIZED_ATTRIBUTES]);
+        $concreteAttributes = $oneConcreteProduct[self::CONCRETE_ATTRIBUTES];
+        $concreteLocalizedAttributes = $oneConcreteProduct[self::CONCRETE_LOCALIZED_ATTRIBUTES];
         $mergedAttributes = array_merge($concreteAttributes, $concreteLocalizedAttributes);
 
-        $oneConcreteProduct['group_keys'] = $this->decodeData($oneConcreteProduct['group_keys']);
-        $oneConcreteProduct['product_group_values'] = $this->decodeData($oneConcreteProduct['product_group_values']);
         $oneConcreteProduct['product_group_values'] = array_combine($oneConcreteProduct['group_keys'], $oneConcreteProduct['product_group_values']);
+        $oneConcreteProduct['group_keys'] = array_keys($oneConcreteProduct['product_group_values']);
 
 
         $concreteProductData = [
@@ -708,54 +769,6 @@ class ProductCollector extends AbstractPropelCollectorPlugin
 
         return $concreteProductData;
     }
-
-    /*
-
-    private function oldStuff()
-    {
-
-
-        foreach ($productsData as &$productData) {
-            $productUrls = $this->decodeData($productData[self::PRODUCT_URLS]);
-            $productData[self::URL] = $productUrls[0];
-
-            $decodedAttributes = $this->decodeData($productData[self::ABSTRACT_ATTRIBUTES]);
-            $decodedLocalizedAttributes = $this->decodeData($productData[self::ABSTRACT_LOCALIZED_ATTRIBUTES]);
-            $mergedAttributes = array_merge($decodedAttributes, $decodedLocalizedAttributes);
-
-            $productData[self::ABSTRACT_ATTRIBUTES] = $this->normalizeAttributes($mergedAttributes);
-
-            $concreteAttributes = $this->decodeData($productData[self::CONCRETE_ATTRIBUTES]);
-            $concreteLocalizedAttributes = $this->decodeData($productData[self::CONCRETE_LOCALIZED_ATTRIBUTES]);
-
-            $concreteSkus = $this->decodeData($productData[self::CONCRETE_SKUS]);
-            $concreteNames = $this->decodeData($productData[self::CONCRETE_NAMES]);
-            $productData[self::CONCRETE_PRODUCTS] = [];
-
-            $processedConcreteSkus = [];
-            for ($i = 0, $l = count($concreteSkus); $i < $l; $i++) {
-                if (isset($processedConcreteSkus[$concreteSkus[$i]])) {
-                    continue;
-                }
-
-                $mergedAttributes = array_merge(
-                    $this->decodeData($concreteAttributes[$i]),
-                    $this->decodeData($concreteLocalizedAttributes[$i])
-                );
-                $mergedAttributes = $this->normalizeAttributes($mergedAttributes);
-
-                $processedConcreteSkus[$concreteSkus[$i]] = true;
-                $productData[self::CONCRETE_PRODUCTS][] = [
-                    self::NAME => $concreteNames[$i],
-                    self::SKU => $concreteSkus[$i],
-                    self::ATTRIBUTES => $mergedAttributes,
-                    self::CONCRETE_PRODUCTS_DYNAMIC => $this->loadProductDynamicCollection($productData),
-                ];
-            }
-        }
-        return $productsData;
-    }
-*/
 
     /**
      * @param array $concreteProductData
