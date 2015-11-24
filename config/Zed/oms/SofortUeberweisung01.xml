@@ -30,7 +30,7 @@
                 <event>redeem voucher</event>
             </transition>
 
-            <transition condition="Adyen/AuthoriseNotificationReceived" happy="true">
+            <transition condition="Adyen/HasAuthoriseNotificationReceived" happy="true">
                 <source>redirected</source>
                 <target>authorisation notification received</target>
             </transition>

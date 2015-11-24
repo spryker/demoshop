@@ -21,7 +21,7 @@
                 <event>send capture request</event>
             </transition>
 
-            <transition happy="true" condition="Adyen/CaptureNotificationReceived">
+            <transition happy="true" condition="Adyen/HasCaptureNotificationReceived">
                 <source>capture request sent</source>
                 <target>capture notification received</target>
             </transition>

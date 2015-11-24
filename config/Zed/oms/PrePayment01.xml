@@ -19,7 +19,7 @@
                 <event>send payment request</event>
             </transition>
 
-            <transition condition="Adyen/IsAuthoriseApproved">
+            <transition condition="Adyen/HasAuthoriseNotificationReceived">
                 <source>payment request sent</source>
                 <target>waiting for authorisation notification</target>
                 <event>check authorisation</event>
