@@ -51,7 +51,9 @@
     "zendframework/zend-eventmanager": "2.3.9",
 
     "nesbot/carbon": "1.13.0",
-    "league/flysystem": "~1.0"
+    "league/flysystem": "~1.0",
+
+    "mailchimp/mailchimp": "~2.0.6"
   },
   "require-dev": {
     "silex/web-profiler": "~1.0.2",
