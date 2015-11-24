@@ -6,6 +6,7 @@
 
 namespace Pyz\Yves\Customer\Communication\Plugin\ServiceProvider;
 
+use Generated\Shared\Transfer\CustomerMagentoPasswordMigrationTransfer;
 use Silex\Application;
 use Silex\ServiceProviderInterface;
 use SprykerEngine\Shared\Config;
@@ -18,7 +19,11 @@ use Symfony\Component\Security\Core\Authentication\Token\TokenInterface;
 use Symfony\Component\Security\Core\Exception\AuthenticationException;
 use Symfony\Component\Security\Http\Authentication\AuthenticationFailureHandlerInterface;
 use Symfony\Component\Security\Http\Authentication\AuthenticationSuccessHandlerInterface;
+use Pyz\Yves\Customer\Communication\CustomerDependencyContainer;
 
+/**
+ * @method CustomerDependencyContainer getDependencyContainer()
+ */
 class SecurityServiceProvider extends AbstractPlugin implements
     ServiceProviderInterface,
     AuthenticationSuccessHandlerInterface,

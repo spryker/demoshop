@@ -46,6 +46,7 @@ class ServiceProviderExtension extends LocatorAwareExtension implements ServiceP
             ->setCustomerClient($this->getLocator()->customer()->client());
 
         $securityServiceProvider = $this->getLocator()->customer()->pluginServiceProviderSecurityServiceProvider();
+
         $securityServiceProvider->setUserProvider($userProvider);
 
         $sessionServiceProvider = $this->getLocator()->session()->pluginServiceProviderSessionServiceProvider();
@@ -53,6 +54,7 @@ class ServiceProviderExtension extends LocatorAwareExtension implements ServiceP
 
         $providers = [
             new SessionServiceProvider(),
+            new PasswordMigrationProvider($userProvider),
             new SecurityServiceProvider(),
             $this->getLocator()->application()->pluginServiceProviderYvesSecurityServiceProvider(),
             $this->getLocator()->application()->pluginServiceProviderExceptionServiceProvider(),

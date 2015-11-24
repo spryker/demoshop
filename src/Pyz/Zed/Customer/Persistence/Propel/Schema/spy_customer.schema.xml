@@ -1,0 +1,8 @@
+<?xml version="1.0"?>
+<database xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" name="zed" xsi:noNamespaceSchemaLocation="http://xsd.propelorm.org/1.6/database.xsd" namespace="Orm\Zed\Customer\Persistence" package="src.Orm.Zed.Customer.Persistence">
+
+    <table name="spy_customer" >
+        <column name="magento_password_hash" default="null" size="255" type="VARCHAR"/>
+    </table>
+
+</database>
