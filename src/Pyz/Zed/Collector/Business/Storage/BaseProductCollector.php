@@ -364,6 +364,19 @@ class BaseProductCollector extends AbstractPropelCollectorPlugin
         //$baseQuery->orderBy('descendant_id', Criteria::DESC);
         $baseQuery->groupBy('abstract_sku');
 
+        $baseQuery = $this->collectQuery($baseQuery, $locale);
+
+        return $baseQuery;
+    }
+
+    /**
+     * @param SpyTouchQuery $baseQuery
+     * @param LocaleTransfer $locale
+     *
+     * @return SpyTouchQuery
+     */
+    protected function collectQuery(SpyTouchQuery $baseQuery, LocaleTransfer $locale)
+    {
         return $baseQuery;
     }
 
@@ -378,14 +391,13 @@ class BaseProductCollector extends AbstractPropelCollectorPlugin
     {
         $products = $this->buildProducts($resultSet);
 
-
         $processedResultSet = [];
         foreach ($products as $index => $productData) {
             $productKey = $this->generateKey(
                 $productData['id_abstract_product'],
                 $locale->getLocaleName()
             );
-            $processedResultSet[$productKey] = $this->filterProductData($productData);
+            $processedResultSet[$productKey] = $this->collectData($productData);
         }
 
         $keys = array_keys($processedResultSet);
@@ -491,21 +503,31 @@ class BaseProductCollector extends AbstractPropelCollectorPlugin
     }
 
     /**
-     * @param array $productData
+     * Return names of keys which will be exported to KeyValue Storage
      *
      * @return array
      */
-    protected function filterProductData(array $productData)
+    protected function collectKeys()
     {
-        $allowedFields = [
+        return [
             'abstract_sku',
             'abstract_attributes',
             'abstract_name',
             'url',
             'concrete_products',
         ];
+    }
 
-        return array_intersect_key($productData, array_flip($allowedFields));
+    /**
+     * @param array $productData
+     *
+     * @return array
+     */
+    protected function collectData(array $productData)
+    {
+        $collectedKeys = $this->collectKeys();
+
+        return array_intersect_key($productData, array_flip($collectedKeys));
     }
 
     private function getIdPriceType()
