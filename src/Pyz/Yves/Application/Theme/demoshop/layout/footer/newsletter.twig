@@ -15,7 +15,7 @@
         <h2 class="newsletter__headline">{{ data.headline }}</h2>
         <p class="newsletter__description">{{ data.description }}</p>
 
-        <form class="newsletter__form" action="TODO">
+        <form class="newsletter__form" action="{{ url('NEWSLETTER_SUBSCRIPTION_ROUTE') }}" method="POST">
             {% include '@application/layout/common/forms/input.twig' with {
                 placeholder: data.placeholder,
                 type: 'email',
@@ -27,6 +27,19 @@
                 modifier: 'cta',
                 type: 'submit'
             } %}
+            <!-- @TODO: enhanced by Chris -->
+            <div>
+                <input id="NewsletterTypeDogsCheckbox" name="NewsletterTypeDogs" type="checkbox" checked/>
+                <label for="NewsletterTypeDogsCheckbox">
+                    Für Hunde
+                </label>
+
+                <input id="NewsletterTypeCatsCheckbox" name="NewsletterTypeCats" type="checkbox" checked/>
+                <label for="NewsletterTypeCatsCheckbox">
+                    Für Katzen
+                </label>
+            </div>
+            <!-- end of TODO -->
         </form>
     </div>
 </div>

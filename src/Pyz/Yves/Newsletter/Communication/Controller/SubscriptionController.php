@@ -9,6 +9,7 @@ use Generated\Shared\Transfer\NewsletterSubscriptionRequestTransfer;
 use Generated\Shared\Transfer\NewsletterTypeTransfer;
 use Generated\Shared\Transfer\NewsletterSubscriptionResponseTransfer;
 use Generated\Shared\Transfer\NewsletterSubscriptionResultTransfer;
+use Symfony\Component\HttpFoundation\JsonResponse;
 
 class SubscriptionController extends AbstractController
 {
@@ -50,6 +51,13 @@ class SubscriptionController extends AbstractController
             $subscriptionsResults[] = $subscriptionResult;
         }
 
-        return ['subscriptionsResults' => $subscriptionsResults];
+        if($request->isXmlHttpRequest())
+        {
+            return new JsonResponse(['subscriptionsResults' => $subscriptionsResults]);
+        }
+        else
+        {
+            return ['subscriptionsResults' => $subscriptionsResults];
+        }
     }
 }

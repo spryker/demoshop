@@ -24,10 +24,10 @@ class NewsletterControllerProvider extends YvesControllerProvider
         )->method('POST');
 
         $this->createPostController(
-            '/newsletter/confirmation',
+            '/newsletter/confirmation/{subscriber_key}',
             static::NEWSLETTER_LANDING_PAGE_ROUTE,
             'Newsletter',
             'Landingpage'
-        )->method('GET');
+        )->method('GET')->assert('subscriber_key', '[0-9A-Fa-f]+');
     }
 }
