@@ -27,7 +27,7 @@
                 <event>send payment request</event>
             </transition>
 
-            <transition happy="true" condition="Adyen/IsPaymentRequestValid">
+            <transition happy="true" condition="Adyen/IsAuthoriseTransactionSuccess">
                 <source>payment request sent</source>
                 <target>payment request valid</target>
                 <event>adyen check payment request</event>

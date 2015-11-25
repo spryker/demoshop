@@ -44,7 +44,6 @@
                 <event>retry capture</event>
             </transition>
 
-
         </transitions>
 
         <events>
