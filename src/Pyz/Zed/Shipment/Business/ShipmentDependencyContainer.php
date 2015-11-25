@@ -3,9 +3,11 @@
 namespace Pyz\Zed\Shipment\Business;
 
 use Pyz\Zed\Shipment\Business\Internal\DemoData\ShipmentInstall;
+use Pyz\Zed\Shipment\ShipmentDependencyProvider;
 use SprykerEngine\Shared\Kernel\Messenger\MessengerInterface;
 use SprykerFeature\Zed\Shipment\Business\ShipmentDependencyContainer as SprykerShipmentDependencyContainer;
 use Pyz\Zed\Shipment\Persistence\ShipmentQueryContainer;
+use Pyz\Zed\Shipment\Dependency\Facade\ShipmentToCountryInterface;
 
 /**
  * @method ShipmentQueryContainer getQueryContainer()
@@ -23,7 +25,8 @@ class ShipmentDependencyContainer extends SprykerShipmentDependencyContainer
         $installer = $this->getFactory()->createInternalDemoDataShipmentInstall(
             $this->getQueryContainer(),
             $this->createCarrier(),
-            $this->createMethod()
+            $this->createMethod(),
+            $this->getCountryFacade()
         );
         $installer->setMessenger($messenger);
 
@@ -40,4 +43,13 @@ class ShipmentDependencyContainer extends SprykerShipmentDependencyContainer
                 $this->getQueryContainer()
             );
     }
+
+    /**
+     * @return ShipmentToCountryInterface
+     */
+    protected function getCountryFacade()
+    {
+        return $this->getProvidedDependency(ShipmentDependencyProvider::FACADE_COUNTRY);
+    }
+
 }

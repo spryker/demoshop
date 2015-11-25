@@ -12,6 +12,8 @@ use SprykerEngine\Zed\Kernel\Container;
 class ShipmentDependencyProvider extends SprykerShipmentDependencyProvider
 {
 
+    const FACADE_COUNTRY = 'facade country';
+
     /**
      * @param Container $container
      *
@@ -41,6 +43,10 @@ class ShipmentDependencyProvider extends SprykerShipmentDependencyProvider
     public function provideBusinessLayerDependencies(Container $container)
     {
         parent::provideBusinessLayerDependencies($container);
+
+        $container[self::FACADE_COUNTRY] = function (Container $container) {
+            return $container->getLocator()->country()->facade();
+        };
 
         $container[self::PLUGINS] = function (Container $container) {
             return [
