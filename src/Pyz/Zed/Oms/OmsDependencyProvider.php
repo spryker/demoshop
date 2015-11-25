@@ -2,6 +2,7 @@
 
 namespace Pyz\Zed\Oms;
 
+use Pyz\Zed\Oms\Communication\Plugin\Oms\Command\DummySendOrderConfirmationMail;
 use SprykerEngine\Zed\Kernel\Container;
 use SprykerFeature\Zed\Oms\Communication\Plugin\Oms\Command\CommandInterface;
 use SprykerFeature\Zed\Oms\Communication\Plugin\Oms\Condition\ConditionInterface;
@@ -22,8 +23,12 @@ class OmsDependencyProvider extends SprykerOmsDependencyProvider
 
             'Adyen/HasAuthoriseNotificationReceived' => $container->getLocator()->adyen()->pluginConditionHasAuthoriseNotificationReceivedPlugin(),
             'Adyen/IsAuthoriseNotificationSuccess' => $container->getLocator()->adyen()->pluginConditionIsAuthoriseNotificationSuccessPlugin(),
+
             'Adyen/HasCaptureNotificationReceived' => $container->getLocator()->adyen()->pluginConditionHasCaptureNotificationReceivedPlugin(),
             'Adyen/IsCaptureNotificationSuccess' => $container->getLocator()->adyen()->pluginConditionIsCaptureNotificationSuccessPlugin(),
+
+            'Adyen/HasPendingNotificationReceived' => $container->getLocator()->adyen()->pluginConditionHasPendingNotificationReceivedPlugin(),
+            'Adyen/IsPendingNotificationSuccess' => $container->getLocator()->adyen()->pluginConditionIsPendingNotificationSuccessPlugin(),
 
             'Adyen/IsAuthoriseTransactionSuccess' => $container->getLocator()->adyen()->pluginConditionIsAuthoriseTransactionSuccessPlugin(),
             'Adyen/IsCaptureTransactionSuccess' => $container->getLocator()->adyen()->pluginConditionIsCaptureTransactionSuccessPlugin(),
@@ -43,7 +48,9 @@ class OmsDependencyProvider extends SprykerOmsDependencyProvider
             'Adyen/Authorise' => $container->getLocator()->adyen()->pluginCommandAuthorisePlugin(),
             'Adyen/Capture' => $container->getLocator()->adyen()->pluginCommandCapturePlugin(),
             'Adyen/Cancel' => $container->getLocator()->adyen()->pluginCommandCancelPlugin(),
-            'Adyen/AuthoriseCreditCard' => $container->getLocator()->adyen()->pluginCommandAuthoriseCreditCardPlugin()
+            'Adyen/AuthoriseCreditCard' => $container->getLocator()->adyen()->pluginCommandAuthoriseCreditCardPlugin(),
+
+            'TODO/DUMMY/DummySendOrderConfirmationMail' => new DummySendOrderConfirmationMail()
         ];
     }
 

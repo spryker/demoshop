@@ -27,7 +27,7 @@
             <transition happy="true">
                 <source>new</source>
                 <target>redirected</target>
-                <event>send payment request</event>
+                <event>create redirect request</event>
             </transition>
 
             <transition condition="Adyen/HasAuthoriseNotificationReceived" happy="true">
@@ -41,7 +41,7 @@
                 <event>adyen check authorise notification</event>
             </transition>
 
-            <transition>
+            <transition happy="true">
                 <source>ready to send confirmation mail</source>
                 <target>paid</target>
                 <event>send order confirmation mail</event>
@@ -117,7 +117,7 @@
         </transitions>
 
         <events>
-            <event name="send payment request" onEnter="true" manual="true" command="Adyen/Authorise"/>
+            <event name="create redirect request" onEnter="true" manual="true" command="Adyen/Authorise"/>
             <event name="check authorise" onEnter="false" manual="true"/>
             <event name="adyen authorise notification received" manual="true" onEnter="true"/>
             <event name="adyen check authorise notification" manual="true" onEnter="true"/>
@@ -129,7 +129,7 @@
             <event name="adyen invalidate timeout cancelled payment" onEnter="true" />
             <event name="adyen invalidate error payment" onEnter="true" />
             <event name="adyen timeout payment cancellation" command="Adyen/Cancel" timeout="2days"/>
-            <event name="send order confirmation mail" onEnter="true" command="TODO/Mail/SendOrderConfirmationMail"/>
+            <event name="send order confirmation mail" onEnter="true" command="TODO/DUMMY/DummySendOrderConfirmationMail"/>
 
             <!-- SUBPROCESS CONNECTIONS -->
             <event name="init capture" onEnter="true"/>

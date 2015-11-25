@@ -50,7 +50,7 @@
                 <event>adyen check authorise notification</event>
             </transition>
 
-            <transition>
+            <transition happy="true">
                 <source>ready to send confirmation mail</source>
                 <target>paid</target>
                 <event>send order confirmation mail</event>
@@ -83,7 +83,7 @@
             <event name="check authorise" onEnter="false" manual="true"/>
             <event name="adyen check authorise notification" onEnter="true"/>
             <event name="adyen check authorise request" onEnter="true" />
-            <event name="send order confirmation mail" onEnter="true" command="TODO/Mail/SendOrderConfirmationMail"/>
+            <event name="send order confirmation mail" onEnter="true" command="TODO/DUMMY/DummySendOrderConfirmationMail"/>
 
             <!-- SUBPROCESS CONNECTIONS -->
             <event name="init capture" onEnter="true"/>
