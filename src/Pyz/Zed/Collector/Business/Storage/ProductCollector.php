@@ -744,10 +744,6 @@ class ProductCollector extends AbstractPropelCollectorPlugin
         $concreteLocalizedAttributes = $oneConcreteProduct[self::CONCRETE_LOCALIZED_ATTRIBUTES];
         $mergedAttributes = array_merge($concreteAttributes, $concreteLocalizedAttributes);
 
-        if (count($oneConcreteProduct['group_keys']) != count($oneConcreteProduct['product_group_values'])) {
-            die("HIER");
-        }
-
         $oneConcreteProduct['product_group_values'] = array_combine($oneConcreteProduct['group_keys'], $oneConcreteProduct['product_group_values']);
         $oneConcreteProduct['group_keys'] = array_keys($oneConcreteProduct['product_group_values']);
 
