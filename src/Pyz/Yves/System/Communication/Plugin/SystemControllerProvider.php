@@ -5,6 +5,12 @@ namespace Pyz\Yves\System\Communication\Plugin;
 use SprykerEngine\Yves\Application\Communication\Plugin\YvesControllerProvider;
 use Silex\Application;
 
+/**
+ *
+ * Attention: the whole controller has NO ssl enabled (in ControllerProviderExtension)
+ *
+ *
+ */
 class SystemControllerProvider extends YvesControllerProvider
 {
 

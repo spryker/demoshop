@@ -72,18 +72,4 @@ $config[FileUploadConfig::STORAGE] = [
     ],
 ];
 
-$config[MailchimpClientConfig::MAILCHIMP_API_KEY] = '49eccb87d7ba7432cf574df60e3d910d-us11';
-$config[MailchimpClientConfig::MAILCHIMP_SUBSCRIBER_LIST_ID] = 'fc2fd7191f';
-
-$config[NewsletterDoiMailQueueConnectorConfig::DOI_CONFIRMATION_TEMPLATE_NAME] = 'newsletter-doi-test-template';
-$config[NewsletterDoiMailQueueConnectorConfig::DOI_CONFIRMATION_EMAIL_SUBJECT] = 'DOI confirmation';
-$config[NewsletterDoiMailQueueConnectorConfig::DOI_CONFIRMATION_URL] = $config[SystemConfig::HOST_YVES] . '/newsletter/confirmation/';
-
-$config[ProductFeedConfig::PRODUCT_FEED_FILE_LOCATION] = '/data/storage/development/static/feed/';
-$config[ProductFeedConfig::PRODUCT_FEED_FILE_NAME] = 'products.csv';
-
-$config[ProductFeedConfig::PRODUCT_FEED_CSV_PARAMETERS] = [
-    'delimiter' => ';',
-    'encoding' => 'UTF-8',
-    'enclosure' => '"'
-];
+$config[ProductFeedConfig::PRODUCT_FEED_FILE_LOCATION] = '/data/storage/staging/static/feed/DE/';

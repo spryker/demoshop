@@ -2,20 +2,20 @@
 
 namespace Pyz\Zed\Application\Communication;
 
-use SprykerEngine\Zed\Application\Communication\ZedBootstrap as SprykerZedBootstrap;
+use PavEngine\Zed\Application\Communication\ZedBootstrap as PavZedBootstrap;
 use SprykerEngine\Shared\Application\Communication\Application;
 
 class ZedBootstrap
 {
 
     /**
-     * @var SprykerZedBootstrap
+     * @var PavZedBootstrap
      */
     private $sprykerBootstrap;
 
     public function __construct()
     {
-        $sprykerBootstrap = new SprykerZedBootstrap();
+        $sprykerBootstrap = new PavZedBootstrap();
         $this->sprykerBootstrap = $sprykerBootstrap;
     }
 

@@ -1,9 +1,5 @@
 <?php
 
-/**
- * (c) Spryker Systems GmbH copyright protected
- */
-
 namespace Pyz\Yves\Application\Communication\Bootstrap\Extension;
 
 use Pyz\Yves\Application\Communication\Plugin\ApplicationControllerProvider;
@@ -32,13 +28,13 @@ class ControllerProviderExtension implements ControllerProviderExtensionInterfac
         $ssl = Config::get(YvesConfig::YVES_SSL_ENABLED);
 
         return [
-            new ApplicationControllerProvider(false),
+            new ApplicationControllerProvider($ssl),
             new CheckoutControllerProvider($ssl),
             new CustomerControllerProvider($ssl),
             new CartControllerProvider($ssl),
             new WishlistControllerProvider($ssl),
-            new SystemControllerProvider($ssl),
-            new NewsletterControllerProvider()
+            new SystemControllerProvider(false),
+            new NewsletterControllerProvider(false)
         ];
     }
 

@@ -70,5 +70,3 @@ mkmf.log
 # Factory Class Map
 .class_map
 
-#tools
-composer.phar

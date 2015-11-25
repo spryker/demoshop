@@ -1,6 +1,9 @@
 <?php
 
+use PavFeature\Shared\MailchimpClient\MailchimpClientConfig;
+use PavFeature\Shared\NewsletterDoiMailQueueConnector\NewsletterDoiMailQueueConnectorConfig;
 use Pyz\Shared\Mail\MailConfig;
+use Pyz\Shared\ProductFeed\ProductFeedConfig;
 use SprykerFeature\Shared\Acl\AclConfig;
 use SprykerFeature\Shared\Application\ApplicationConfig;
 use SprykerFeature\Shared\Auth\AuthConfig;
@@ -35,6 +38,7 @@ $config[SystemConfig::PROJECT_TIMEZONE] = 'UTC';
 $config[SystemConfig::PROJECT_NAMESPACE] = 'Pyz';
 
 $config[SystemConfig::ZED_DB_ENGINE] = 'pgsql';
+$config[SystemConfig::ZED_DB_PORT] = 5432;
 
 $config[DbDumpConfig::DB_DUMP_USERNAME] = '';
 $config[DbDumpConfig::DB_DUMP_PASSWORD] = '';
@@ -96,9 +100,10 @@ $config[SystemConfig::ZED_SSL_EXCLUDED] = ['system/heartbeat'];
 
 $config[YvesConfig::YVES_THEME] = 'demoshop';
 $config[YvesConfig::YVES_TRUSTED_PROXIES] = [];
-$config[YvesConfig::YVES_SSL_ENABLED] = false;
-$config[YvesConfig::YVES_COMPLETE_SSL_ENABLED] = false;
-$config[YvesConfig::YVES_SSL_EXCLUDED] = ['/monitoring/heartbeat'];
+$config[YvesConfig::YVES_SSL_ENABLED]
+    = $config[YvesConfig::YVES_COMPLETE_SSL_ENABLED]
+    = false;
+$config[YvesConfig::YVES_SSL_EXCLUDED] = ['/system/heartbeat'];
 
 $config[YvesConfig::YVES_SESSION_SAVE_HANDLER] = SessionConfig::SESSION_HANDLER_REDIS;
 $config[YvesConfig::YVES_SESSION_NAME] = 'yves_session';
@@ -376,4 +381,22 @@ $config[AdyenConfigConstants::ADYEN_PAYMENT_PROVIDER] = [
 
 $config[SystemConfig::ZED_SHOW_EXCEPTION_STACK_TRACE] = false;
 
+$config[SystemConfig::ZED_ERROR_PAGE] = APPLICATION_ROOT_DIR . '/static/public/Zed/errorpage/error.html';
+
 $config[SequenceNumberConstants::ENVIRONMENT_PREFIX] = "D";
+
+
+$config[MailchimpClientConfig::MAILCHIMP_API_KEY] = '49eccb87d7ba7432cf574df60e3d910d-us11';
+$config[MailchimpClientConfig::MAILCHIMP_SUBSCRIBER_LIST_ID] = 'fc2fd7191f';
+
+$config[NewsletterDoiMailQueueConnectorConfig::DOI_CONFIRMATION_TEMPLATE_NAME] = 'newsletter-doi-test-template';
+$config[NewsletterDoiMailQueueConnectorConfig::DOI_CONFIRMATION_EMAIL_SUBJECT] = 'DOI confirmation';
+$config[NewsletterDoiMailQueueConnectorConfig::DOI_CONFIRMATION_URL] = $config[SystemConfig::HOST_YVES] . '/newsletter/confirmation/';
+
+$config[ProductFeedConfig::PRODUCT_FEED_FILE_NAME] = 'products.csv';
+
+$config[ProductFeedConfig::PRODUCT_FEED_CSV_PARAMETERS] = [
+    'delimiter' => ';',
+    'encoding' => 'UTF-8',
+    'enclosure' => '"'
+];
