@@ -22,7 +22,7 @@ class ProductDependencyContainer extends SprykerProductDependencyContainer
      */
     public function getProductCategoryFacade()
     {
-        return $this->getProvidedDependency(ProductDependencyProvider::FACADE_PRODUCT_CATEGORIES);
+        return $this->getProvidedDependency(ProductDependencyProvider::FACADE_PRODUCT_CATEGORY);
     }
 
     /**

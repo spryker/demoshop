@@ -92,6 +92,8 @@
       key = Object.keys(object)[i];
       // fallback for value null
       content = object[key] || '';
+      // TODO chris check why 0 is not shown in form
+      //content = object[key] !== 'undefined' ? object[key]: '';
 
       switch (typeof content) {
         case 'string':

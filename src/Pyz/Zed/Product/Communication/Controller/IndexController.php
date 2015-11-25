@@ -3,6 +3,7 @@
 namespace Pyz\Zed\Product\Communication\Controller;
 
 use Generated\Shared\ProductDynamicImporter\PavProductDynamicImporterAbstractProductInterface;
+use Generated\Shared\Transfer\AbstractProductTransfer;
 use Generated\Shared\Transfer\PavProductDynamicImporterAbstractProductTransfer;
 use Generated\Shared\Transfer\PavProductDynamicImporterBundledProductTransfer;
 use Generated\Shared\Transfer\PavProductDynamicImporterConcreteProductTransfer;
@@ -342,9 +343,13 @@ class IndexController extends SprykerIndexController
      */
     protected function getCategoryIds(SpyAbstractProduct $abstractProductEntity)
     {
+
+        $abstractProductTransfer = new AbstractProductTransfer();
+        $abstractProductTransfer->fromArray($abstractProductEntity->toArray(), true);
+
         $productCategoryTransferCollection = $this->getDependencyContainer()
             ->getProductCategoryFacade()
-            ->getCategoriesByAbstractProduct($abstractProductEntity);
+            ->getCategoriesByAbstractProduct($abstractProductTransfer);
 
         $return = [];
         foreach ($productCategoryTransferCollection as $productCategory) {
