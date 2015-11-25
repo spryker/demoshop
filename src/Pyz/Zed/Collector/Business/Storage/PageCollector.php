@@ -67,6 +67,12 @@ class PageCollector extends AbstractPropelCollectorPlugin
         );
 
         $baseQuery->addJoin(
+            SpyCmsPageTableMap::COL_FK_TEMPLATE,
+            SpyCmsTemplateTableMap::COL_ID_CMS_TEMPLATE,
+            Criteria::INNER_JOIN
+        );
+
+        $baseQuery->addJoin(
             SpyCmsPageTableMap::COL_ID_CMS_PAGE,
             SpyUrlTableMap::COL_FK_RESOURCE_PAGE,
             Criteria::LEFT_JOIN
@@ -75,19 +81,13 @@ class PageCollector extends AbstractPropelCollectorPlugin
         $baseQuery->addJoin(
             SpyCmsPageTableMap::COL_ID_CMS_PAGE,
             SpyCmsGlossaryKeyMappingTableMap::COL_FK_PAGE,
-            Criteria::INNER_JOIN
-        );
-
-        $baseQuery->addJoin(
-            SpyCmsPageTableMap::COL_FK_TEMPLATE,
-            SpyCmsTemplateTableMap::COL_ID_CMS_TEMPLATE,
-            Criteria::INNER_JOIN
+            Criteria::LEFT_JOIN
         );
 
         $baseQuery->addJoin(
             SpyCmsGlossaryKeyMappingTableMap::COL_FK_GLOSSARY_KEY,
             SpyGlossaryKeyTableMap::COL_ID_GLOSSARY_KEY,
-            Criteria::INNER_JOIN
+            Criteria::LEFT_JOIN
         );
 
         $baseQuery->clearSelectColumns();
@@ -123,7 +123,10 @@ class PageCollector extends AbstractPropelCollectorPlugin
             $processedResultSet[$pageKey]['id_category_node'] = $page['id_category_node'];
             $processedResultSet[$pageKey]['template'] = $page['template_path'];
             $processedResultSet[$pageKey]['placeholders'] = isset($processedResultSet[$pageKey]['placeholders']) ? $processedResultSet[$pageKey]['placeholders'] : [];
-            $processedResultSet[$pageKey]['placeholders'][$page['placeholder']] = $page['translation_key'];
+            if ($page['translation_key']) {
+                $processedResultSet[$pageKey]['placeholders'][$page['placeholder']] = $page['translation_key'];
+            }
+
             $processedResultSet[$pageKey]['blocks'] = $this->cmsBlockFacade->extractBlockData($page);
         }
 

@@ -26,7 +26,7 @@ class CmsConfig extends SprykerCmsConfig
     /**
      * @return string
      */
-    public function getDemoDataTemplate()
+    public function getDemoDataTemplates()
     {
         return '@CmsBlock/template/default_block_page.twig';
     }

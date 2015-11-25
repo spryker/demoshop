@@ -15,4 +15,5 @@ class CmsBlockFacade extends PavFeatureCmsBlockFacade
     {
         $this->getDependencyContainer()->createCmsBlockInstaller($messenger)->install();
     }
+
 }

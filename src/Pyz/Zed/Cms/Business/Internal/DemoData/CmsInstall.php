@@ -48,7 +48,7 @@ class CmsInstall extends AbstractInstaller
         'imprint' => ['de_DE' => '/impressum'],
         'privacy' => ['de_DE' => '/datenschutz'],
         'terms' => ['de_DE' => '/agb'],
-        'catalog' => ['de_DE' => '/hunde'],
+        #'catalog' => ['de_DE' => '/hunde'],
     ];
 
     /**

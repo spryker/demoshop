@@ -2,17 +2,18 @@
 
 namespace Pyz\Zed\Category\Persistence;
 
-use Orm\Zed\Category\Persistence\SpyCategoryClosureTableQuery;
-use SprykerFeature\Zed\Category\Persistence\CategoryQueryContainer as SprykerCategoryQueryContainer;
 use Orm\Zed\Category\Persistence\Map\SpyCategoryAttributeTableMap;
 use Orm\Zed\Category\Persistence\Map\SpyCategoryClosureTableTableMap;
 use Orm\Zed\Category\Persistence\Map\SpyCategoryNodeTableMap;
-use Propel\Runtime\ActiveQuery\Criteria;
-use Propel\Runtime\Exception\PropelException;
-use Propel\Runtime\ActiveQuery\Join;
-use Propel\Runtime\ActiveQuery\ModelCriteria;
+use Orm\Zed\Category\Persistence\SpyCategoryClosureTableQuery;
+use Orm\Zed\Cms\Persistence\Map\SpyCmsPageTableMap;
 use Orm\Zed\Locale\Persistence\Map\SpyLocaleTableMap;
 use Orm\Zed\Url\Persistence\Map\SpyUrlTableMap;
+use Propel\Runtime\ActiveQuery\Criteria;
+use Propel\Runtime\ActiveQuery\Join;
+use Propel\Runtime\ActiveQuery\ModelCriteria;
+use Propel\Runtime\Exception\PropelException;
+use SprykerFeature\Zed\Category\Persistence\CategoryQueryContainer as SprykerCategoryQueryContainer;
 
 class CategoryQueryContainer extends SprykerCategoryQueryContainer
 {
@@ -29,8 +30,7 @@ class CategoryQueryContainer extends SprykerCategoryQueryContainer
         $rightTableAlias = 'categoryChildren',
         $fieldIdentifier = 'child',
         $leftTableAlias = SpyCategoryNodeTableMap::TABLE_NAME
-    )
-    {
+    ) {
         $expandableQuery
             ->addJoinObject(
                 (new Join(
@@ -67,8 +67,7 @@ class CategoryQueryContainer extends SprykerCategoryQueryContainer
         $leftTableAlias = SpyCategoryNodeTableMap::TABLE_NAME,
         $relationTableAlias = 'categoryParents',
         $fieldIdentifier = 'parent'
-    )
-    {
+    ) {
         $expandableQuery
             ->addJoinObject(
                 (new Join(
@@ -128,17 +127,25 @@ class CategoryQueryContainer extends SprykerCategoryQueryContainer
     public function joinCategoryQueryWithUrls(
         ModelCriteria $expandableQuery,
         $leftAlias = SpyCategoryNodeTableMap::TABLE_NAME
-    )
-    {
-        $expandableQuery
-            ->addJoinObject(
-                (new Join(
-                    $leftAlias . '.id_category_node',
-                    SpyUrlTableMap::COL_FK_RESOURCE_CATEGORYNODE,
-                    Criteria::LEFT_JOIN
-                ))->setRightTableAlias('categoryUrls'),
-                'categoryUrlJoin'
-            );
+    ) {
+
+        $expandableQuery->addJoinObject(
+            (new Join(
+                $leftAlias . '.id_category_node',
+                SpyCmsPageTableMap::COL_FK_CATEGORY_NODE,
+                Criteria::LEFT_JOIN
+            ))->setRightTableAlias('categoryPages'),
+            'CategoryPagesJoin'
+        );
+
+        $expandableQuery->addJoinObject(
+            (new Join(
+                'categoryPages.id_cms_page',
+                SpyUrlTableMap::COL_FK_RESOURCE_PAGE,
+                Criteria::LEFT_JOIN
+            ))->setRightTableAlias('categoryUrls'),
+            'categoryUrlJoin'
+        );
 
         $expandableQuery->addJoinCondition(
             'categoryUrlJoin',
@@ -165,8 +172,7 @@ class CategoryQueryContainer extends SprykerCategoryQueryContainer
         ModelCriteria $expandableQuery,
         $relationTableAlias,
         $fieldIdentifier
-    )
-    {
+    ) {
         $expandableQuery->addJoinObject(
             (new Join(
                 $relationTableAlias . '.fk_category',
@@ -203,12 +209,21 @@ class CategoryQueryContainer extends SprykerCategoryQueryContainer
         ModelCriteria $expandableQuery,
         $relationTableAlias,
         $fieldIdentifier
-    )
-    {
+    ) {
+
         $expandableQuery->addJoinObject(
             (new Join(
                 $relationTableAlias . '.id_category_node',
-                SpyUrlTableMap::COL_FK_RESOURCE_CATEGORYNODE,
+                SpyCmsPageTableMap::COL_FK_CATEGORY_NODE,
+                Criteria::LEFT_JOIN
+            ))->setRightTableAlias($relationTableAlias.'categoryPages'),
+            $relationTableAlias . 'CategoryPagesJoin'
+        );
+
+        $expandableQuery->addJoinObject(
+            (new Join(
+                $relationTableAlias.'categoryPages.id_cms_page',
+                SpyUrlTableMap::COL_FK_RESOURCE_PAGE,
                 Criteria::LEFT_JOIN
             ))->setRightTableAlias($relationTableAlias . 'Urls'),
             $relationTableAlias . 'UrlJoin'

@@ -15,7 +15,7 @@ use Orm\Zed\Locale\Persistence\Map\SpyLocaleTableMap;
 use Orm\Zed\Touch\Persistence\Map\SpyTouchTableMap;
 use Orm\Zed\Touch\Persistence\SpyTouchQuery;
 use SprykerFeature\Shared\Collector\Code\KeyBuilder\KeyBuilderTrait;
-use SprykerFeature\Zed\Category\Persistence\CategoryQueryContainer;
+use Pyz\Zed\Category\Persistence\CategoryQueryContainer;
 use Orm\Zed\Category\Persistence\Map\SpyCategoryAttributeTableMap;
 use Orm\Zed\Category\Persistence\Map\SpyCategoryNodeTableMap;
 use SprykerFeature\Zed\Collector\Business\Exporter\AbstractPropelCollectorPlugin;
@@ -355,6 +355,7 @@ class ProductCollector extends AbstractPropelCollectorPlugin
         $excludeRoot = true;
 
         $baseQuery = $this->categoryQueryContainer->joinCategoryQueryWithUrls($baseQuery);
+
         $baseQuery = $this->categoryQueryContainer->selectCategoryAttributeColumns($baseQuery);
 
         $baseQuery = $this->categoryQueryContainer->joinCategoryQueryWithChildrenCategories($baseQuery);
@@ -382,11 +383,13 @@ class ProductCollector extends AbstractPropelCollectorPlugin
         $baseQuery->groupBy('abstract_sku');
 
         // TODO: remove limitation to product with
-        #$baseQuery->addAnd(
-        #    SpyAbstractProductTableMap::COL_ID_ABSTRACT_PRODUCT,
-        #    1,
-        #    Criteria::EQUAL
-        #);
+        if (false) {
+            $baseQuery->addAnd(
+                SpyAbstractProductTableMap::COL_ID_ABSTRACT_PRODUCT,
+                79,
+                Criteria::EQUAL
+            );
+        }
 
         $baseQuery = $this->propelFacade->addAggregateToNotGroupedColumns($baseQuery);
 
@@ -602,8 +605,15 @@ class ProductCollector extends AbstractPropelCollectorPlugin
         foreach ($ids as $key => $id) {
             $nodes[$id]['node_id'] = $id;
             $nodes[$id]['name'] = $names[$key];
+
+            if (!isset($urls[$key])) {
+                die("HIER");
+            }
+
             $nodes[$id]['url'] = $urls[$key];
         }
+
+
 
         return $nodes;
     }
@@ -733,6 +743,10 @@ class ProductCollector extends AbstractPropelCollectorPlugin
         $concreteAttributes = $oneConcreteProduct[self::CONCRETE_ATTRIBUTES];
         $concreteLocalizedAttributes = $oneConcreteProduct[self::CONCRETE_LOCALIZED_ATTRIBUTES];
         $mergedAttributes = array_merge($concreteAttributes, $concreteLocalizedAttributes);
+
+        if (count($oneConcreteProduct['group_keys']) != count($oneConcreteProduct['product_group_values'])) {
+            die("HIER");
+        }
 
         $oneConcreteProduct['product_group_values'] = array_combine($oneConcreteProduct['group_keys'], $oneConcreteProduct['product_group_values']);
         $oneConcreteProduct['group_keys'] = array_keys($oneConcreteProduct['product_group_values']);

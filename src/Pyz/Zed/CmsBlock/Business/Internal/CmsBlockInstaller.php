@@ -73,6 +73,7 @@ class CmsBlockInstaller extends AbstractInstaller
     protected function getBlockData()
     {
         return [
+            /*
             [
                 self::PAGE_URLS => [
                     '/hunde',
@@ -90,6 +91,15 @@ class CmsBlockInstaller extends AbstractInstaller
                     ]
                 ]
             ]
+            */
+            [
+                self::PAGE_URLS => [],
+                self::NAME => 'catalog',
+                self::TEMPLATE_TYPE => 'catalog',
+                self::LOCALIZED_VALUES => [],
+            ]
+
+
         ];
     }
 

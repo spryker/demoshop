@@ -2,9 +2,12 @@
 
 namespace Pyz\Zed\Category\Business\Internal\DemoData;
 
+use Generated\Shared\Cms\CmsBlockInterface;
 use Generated\Shared\Transfer\CategoryTransfer;
 use Generated\Shared\Transfer\LocaleTransfer;
 use Generated\Shared\Transfer\NodeTransfer;
+use Pyz\Zed\Cms\Business\CmsFacade;
+use Pyz\Zed\CmsBlock\Business\CmsBlockFacade;
 use SprykerEngine\Zed\Locale\Business\LocaleFacade;
 use SprykerFeature\Zed\Category\Business\Model\CategoryWriter;
 use SprykerFeature\Zed\Category\Business\Model\CategoryWriterInterface;
@@ -42,22 +45,32 @@ class CategoryTreeInstall extends AbstractInstaller
      */
     protected $locale;
 
+    protected $cmsFacade;
+
+    protected $cmsBlockFacade;
+
     /**
      * @param CategoryWriterInterface $categoryWriter
      * @param CategoryTreeWriter $categoryTreeWriter
      * @param CategoryQueryContainer $categoryQueryContainer
      * @param LocaleFacade $localeFacade
+     * @param CmsFacade $cmsFacade
+     * @param CmsBlockFacade $cmsBlockFacade
      */
     public function __construct(
         CategoryWriterInterface $categoryWriter,
         CategoryTreeWriter $categoryTreeWriter,
         CategoryQueryContainer $categoryQueryContainer,
-        LocaleFacade $localeFacade
+        LocaleFacade $localeFacade,
+        CmsFacade $cmsFacade,
+        CmsBlockFacade $cmsBlockFacade
     ) {
         $this->categoryWriter = $categoryWriter;
         $this->categoryTreeWriter = $categoryTreeWriter;
         $this->queryContainer = $categoryQueryContainer;
         $this->locale = $localeFacade->getCurrentLocale();
+        $this->cmsFacade = $cmsFacade;
+        $this->cmsBlockFacade = $cmsBlockFacade;
     }
 
     public function install()
@@ -91,7 +104,7 @@ class CategoryTreeInstall extends AbstractInstaller
     protected function write(array $demoTree)
     {
         foreach ($demoTree as $row) {
-            if (1 === (int) $row[self::IS_ROOT]) {
+            if (1 === (int)$row[self::IS_ROOT]) {
                 $this->addRootNode($row);
             } else {
                 $this->addChild($row);
@@ -125,7 +138,21 @@ class CategoryTreeInstall extends AbstractInstaller
         $categoryNodeTransfer->setFkCategory($idCategory);
         $categoryNodeTransfer->setFkParentCategoryNode($this->getParentId($rawNode));
 
-        $this->categoryTreeWriter->createCategoryNode($categoryNodeTransfer, $this->locale, false);
+        $categoryId = $this->categoryTreeWriter->createCategoryNode($categoryNodeTransfer, $this->locale, true);
+        $categoryNodeTransfer->setIdCategoryNode($categoryId);
+
+        $cmsBlockTransfers = $this->cmsBlockFacade->getCmsBlocksByName('catalog');
+
+        if (count($cmsBlockTransfers) !== 1) {
+            throw new \InvalidArgumentException('cms blocks with name catalog must be one');
+        }
+        /** @var CmsBlockInterface $cmsBlockTransfer */
+        $cmsBlockTransfer = current($cmsBlockTransfers);
+
+        $pageTransfer = $this->cmsFacade->getPageByCategoryNode($categoryNodeTransfer);
+        $this->cmsBlockFacade->linkPageToBlock($pageTransfer->getIdCmsPage(),$cmsBlockTransfer->getIdCmsBlock());
+
+
     }
 
     /**

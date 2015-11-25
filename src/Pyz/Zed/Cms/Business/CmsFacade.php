@@ -2,6 +2,8 @@
 
 namespace Pyz\Zed\Cms\Business;
 
+use Generated\Shared\Category\NodeInterface;
+use Generated\Shared\Cms\PageInterface;
 use SprykerEngine\Shared\Kernel\Messenger\MessengerInterface;
 use SprykerFeature\Zed\Cms\Business\CmsFacade as SprykerCmsFacade;
 use SprykerFeature\Zed\ProductCategory\Dependency\Facade\CmsToCategoryInterface;
@@ -18,6 +20,14 @@ class CmsFacade extends SprykerCmsFacade implements CmsToCategoryInterface
     public function installDemoData(MessengerInterface $messenger)
     {
         $this->getDependencyContainer()->createDemoDataInstaller($messenger)->install();
+    }
+
+    /**
+     * @param NodeInterface $nodeTransfer
+     * @return PageInterface
+     */
+    public function getPageByCategoryNode(NodeInterface $nodeTransfer)  {
+        return $this->getDependencyContainer()->createPageCategoryManager()->getPageByCategoryNode($nodeTransfer);
     }
 
 }

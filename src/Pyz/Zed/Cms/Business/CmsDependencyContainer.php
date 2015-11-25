@@ -3,6 +3,7 @@
 namespace Pyz\Zed\Cms\Business;
 
 use Pyz\Zed\Cms\Business\Internal\DemoData\CmsInstall;
+use Pyz\Zed\Cms\Business\Manager\PageCategoryManager;
 use Pyz\Zed\Cms\CmsDependencyProvider;
 use SprykerEngine\Shared\Kernel\Messenger\MessengerInterface;
 use SprykerFeature\Zed\Cms\Business\CmsDependencyContainer as SprykerCmsDependencyContainer;
@@ -55,4 +56,10 @@ class CmsDependencyContainer extends SprykerCmsDependencyContainer
         return $this->getProvidedDependency(CmsDependencyProvider::FACADE_LOCALE);
     }
 
+    /**
+     * @return PageCategoryManager
+     */
+    public function createPageCategoryManager() {
+        return $this->getFactory()->createManagerPageCategoryManager($this->getCmsQueryContainer());
+    }
 }
