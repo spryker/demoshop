@@ -37,7 +37,7 @@ class CatalogBlockController extends AbstractPlugin implements BlockControllerIn
         $categoryNode = $categoryClient->getCategoryNodeById($idCategoryNode, $request->getLocale());
 
         $search = $categoryClient->createFacetSearch($request, $categoryNode);
-        $search->setItemsPerPage(6);
+        $search->setItemsPerPage(999);
 
         return array_merge(
             $search->getResult(),
