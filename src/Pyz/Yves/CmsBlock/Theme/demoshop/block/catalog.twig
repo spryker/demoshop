@@ -1,5 +1,3 @@
-{% for key, value in cmsValues %}
-    {{ key }} {{ value }}
-{% endfor %}
+{#{{ dump(dynamicData) }}#}
 
-{% include "@catalog/catalog/catalog.twig" with { products: dynamicData.products, numFound: dynamicData.numFound, maxPage: dynamicData.maxPage} %}
+{% include "@catalog/catalog/catalog_product_grid.twig" with { products: dynamicData.products, numFound: dynamicData.numFound, maxPage: dynamicData.maxPage, category: dynamicData.category } %}

@@ -19,21 +19,13 @@ class ConcreteBundleProductWriter
     protected $productFacade;
 
     /**
-     * @var ProductDynamicFacade
-     */
-    protected $productDynamicFacade;
-
-    /**
      * AbstractProductWriter constructor.
      * @param ProductFacade $productFacade
-     * @param ProductDynamicFacade $productDynamicFacade
      */
     public function __construct(
-        ProductFacade $productFacade,
-        ProductDynamicFacade $productDynamicFacade
+        ProductFacade $productFacade
     ) {
         $this->productFacade = $productFacade;
-        $this->productDynamicFacade = $productDynamicFacade;
     }
 
     /**
@@ -43,7 +35,7 @@ class ConcreteBundleProductWriter
     {
         $abstractProductTransfer = $this->productFacade->getAbstractProduct($product->getSku());
         if ($product->getType() !== ProductDynamicConfig::DYNAMIC_PRODUCT_TYPE_BUNDLE) {
-            $this->productDynamicFacade->deleteProductDynamicByAbstractProductId($abstractProductTransfer->getIdAbstractProduct());
+            $this->productFacade->deleteBundleProductsByAbstractProductId($abstractProductTransfer->getIdAbstractProduct());
             return;
         }
 

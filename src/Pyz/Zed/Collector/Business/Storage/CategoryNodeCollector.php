@@ -10,7 +10,7 @@ use Orm\Zed\Touch\Persistence\SpyTouchQuery;
 use Pyz\Zed\Collector\Business\Exception\WrongJsonStringException;
 use SprykerFeature\Shared\Category\CategoryConfig;
 use SprykerFeature\Shared\Collector\Code\KeyBuilder\KeyBuilderTrait;
-use SprykerFeature\Zed\Category\Persistence\CategoryQueryContainer;
+use Pyz\Zed\Category\Persistence\CategoryQueryContainer;
 use Orm\Zed\Category\Persistence\Map\SpyCategoryAttributeTableMap;
 use Orm\Zed\Category\Persistence\Map\SpyCategoryNodeTableMap;
 use SprykerFeature\Zed\Collector\Business\Exporter\AbstractPropelCollectorPlugin;

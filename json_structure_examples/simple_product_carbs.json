@@ -46,7 +46,8 @@
   ],
   "product_group_keys": [
     "weight",
-    "carbs"
+    "carbs",
+    "meat"
   ],
   "concrete_products": [
     {
@@ -83,7 +84,8 @@
       "active": "1",
       "product_group_key_values": {
         "weight": "250g",
-        "carbs": "no"
+        "carbs": "no",
+        "meat": "chicken"
       },
       "locales": [
         {
@@ -112,7 +114,8 @@
       "active": "1",
       "product_group_key_values": {
         "weight": "500g",
-        "carbs": "rice"
+        "carbs": "rice",
+        "meat": "chicken"
       },
       "locales": [
         {
@@ -141,7 +144,8 @@
       "active": "1",
       "product_group_key_values": {
         "weight": "250g",
-        "carbs": "no"
+        "carbs": "no",
+        "meat": "chicken"
       },
       "locales": [
         {

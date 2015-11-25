@@ -25,63 +25,89 @@ class ProductGroupDataInstall extends AbstractInstaller
         $this->installProductGroups();
     }
 
-    protected function installProductGroups() {
+    protected function installProductGroups()
+    {
+
+        $this->installWeights();
+        $this->installCarbs();
+        $this->installMeatTypes();
+    }
+
+    protected function installWeights()
+    {
+
         $productGroupTransfer = new ProductGroupTransfer();
         $productGroupTransfer->setKey('weight');
         $productGroupId = $this->productGroupFacade->saveProductGroup($productGroupTransfer);
 
-        $productGroupValue = new ProductGroupValueTransfer();
-        $productGroupValue
-            ->setSequence(1)
-            ->setFkProductGroup($productGroupId)
-            ->setType('string')
-            ->setValue('250g')
-        ;
-        $this->productGroupFacade->saveProductGroupValue($productGroupValue);
+        $productGroupValues = [
+            '150g',
+            '250g',
+            '500g',
+        ];
 
-        $productGroupValue = new ProductGroupValueTransfer();
-        $productGroupValue
-            ->setSequence(2)
-            ->setFkProductGroup($productGroupId)
-            ->setType('string')
-            ->setValue('500g')
-        ;
-        $this->productGroupFacade->saveProductGroupValue($productGroupValue);
+        foreach ($productGroupValues as $index => $value) {
+            $sequence = $index + 1;
+            $productGroupValue = new ProductGroupValueTransfer();
+            $productGroupValue
+                ->setSequence($sequence)
+                ->setFkProductGroup($productGroupId)
+                ->setType('string')
+                ->setValue($value);
+            $this->productGroupFacade->saveProductGroupValue($productGroupValue);
+        }
+    }
 
-
-
+    protected function installCarbs()
+    {
         $productGroupTransfer = new ProductGroupTransfer();
         $productGroupTransfer->setKey('carbs');
         $productGroupId = $this->productGroupFacade->saveProductGroup($productGroupTransfer);
 
-        $productGroupValue = new ProductGroupValueTransfer();
-        $productGroupValue
-            ->setSequence(1)
-            ->setFkProductGroup($productGroupId)
-            ->setType('string')
-            ->setValue('no')
-        ;
-        $this->productGroupFacade->saveProductGroupValue($productGroupValue);
+        $productGroupValues = [
+            'no',
+            'rice',
+            'potatoes',
+        ];
 
-        $productGroupValue = new ProductGroupValueTransfer();
-        $productGroupValue
-            ->setSequence(2)
-            ->setFkProductGroup($productGroupId)
-            ->setType('string')
-            ->setValue('rice')
-        ;
-        $this->productGroupFacade->saveProductGroupValue($productGroupValue);
-
-        $productGroupValue = new ProductGroupValueTransfer();
-        $productGroupValue
-            ->setSequence(2)
-            ->setFkProductGroup($productGroupId)
-            ->setType('string')
-            ->setValue('potatoes')
-        ;
-        $this->productGroupFacade->saveProductGroupValue($productGroupValue);
+        foreach ($productGroupValues as $index => $value) {
+            $sequence = $index + 1;
+            $productGroupValue = new ProductGroupValueTransfer();
+            $productGroupValue
+                ->setSequence($sequence)
+                ->setFkProductGroup($productGroupId)
+                ->setType('string')
+                ->setValue($value);
+            $this->productGroupFacade->saveProductGroupValue($productGroupValue);
+        }
     }
 
+    protected function installMeatTypes()
+    {
+        $productGroupTransfer = new ProductGroupTransfer();
+        $productGroupTransfer->setKey('meat');
+        $productGroupId = $this->productGroupFacade->saveProductGroup($productGroupTransfer);
 
+
+        $productGroupValues = [
+            'chicken',
+            'kangaroo',
+            'beef',
+            'deer',
+            'fish',
+            'turkey',
+        ];
+
+        foreach ($productGroupValues as $index => $value) {
+            $sequence = $index + 1;
+            $productGroupValue = new ProductGroupValueTransfer();
+            $productGroupValue
+                ->setSequence($sequence)
+                ->setFkProductGroup($productGroupId)
+                ->setType('string')
+                ->setValue($value);
+            $this->productGroupFacade->saveProductGroupValue($productGroupValue);
+        }
+    }
 
 }

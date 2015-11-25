@@ -74,8 +74,7 @@ class PetsDeliImporterWriterDependencyContainer extends AbstractBusinessDependen
     protected function getConcreteBundleProductWriter()
     {
         return $this->getFactory()->createWriterConcreteBundleProductWriter(
-            $this->getProvidedDependency(PetsDeliImporterWriterDependencyProvider::PRODUCT_FACADE),
-            $this->getProvidedDependency(PetsDeliImporterWriterDependencyProvider::PRODUCT_DYNAMIC_FACADE)
+            $this->getProvidedDependency(PetsDeliImporterWriterDependencyProvider::PRODUCT_FACADE)
         );
     }
 }
