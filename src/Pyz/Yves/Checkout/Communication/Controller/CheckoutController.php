@@ -170,7 +170,6 @@ class CheckoutController extends AbstractController
         }
     }
 
-
     /**
      * @return array
      */
