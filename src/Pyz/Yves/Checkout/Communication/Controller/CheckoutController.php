@@ -58,6 +58,7 @@ class CheckoutController extends AbstractController
     {
         $container = $this->getDependencyContainer();
 
+
         if (count($container->createCartClient()->getCart()->getItems()) < 1) {
             $this->addInfoMessage('Your cart is empty.');
             return $this->redirectResponseInternal(ApplicationControllerProvider::ROUTE_HOME);
@@ -87,7 +88,7 @@ class CheckoutController extends AbstractController
                 $checkoutClient = $this->getDependencyContainer()->createCheckoutClient();
                 /** @var CheckoutRequestTransfer $checkoutRequest */
                 $checkoutRequest = $form->getData();
-
+                $this->setShippingAddress($checkoutRequest);
 
 /** TODO: START OF HACK PAYMENT METHOD */
                 $paymentMethod = $checkoutRequest->getPaymentMethod();
@@ -124,7 +125,6 @@ class CheckoutController extends AbstractController
 /** TODO: END OF HACK PAYMENT METHOD */
 
                 $checkoutRequest->setCart($this->getCart());
-                $checkoutRequest->setShippingAddress($checkoutRequest->getBillingAddress());
 
 
                 /** @var CheckoutResponseTransfer $checkoutResponseTransfer */
@@ -156,6 +156,20 @@ class CheckoutController extends AbstractController
             'cart' => $this->getCart(),
         ];
     }
+
+    /**
+     * @param CheckoutRequestTransfer $checkoutRequestTransfer
+     *
+     * @return void
+     */
+    protected function setShippingAddress(CheckoutRequestTransfer $checkoutRequestTransfer)
+    {
+        $shippingAddressTransfer = $checkoutRequestTransfer->getShippingAddress();
+        if ($shippingAddressTransfer->getAddress2() === null) {
+            $checkoutRequestTransfer->setShippingAddress($checkoutRequestTransfer->getBillingAddress());
+        }
+    }
+
 
     /**
      * @return array
