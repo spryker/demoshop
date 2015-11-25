@@ -1,7 +1,0 @@
-Host pillar-dev.github.com
-        HostName github.com
-        IdentityFile ~/.ssh/pillar-staging.deploy.key
-
-Host saltstack-core.github.com
-        HostName github.com
-        IdentityFile ~/.ssh/saltstack-core-deploy.key
