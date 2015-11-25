@@ -10,59 +10,94 @@
         </subprocesses>
 
         <states>
-            <state name="new" reserved="true"/>
+            <state name="new"/>
             <state name="redirected"/>
-            <state name="authorisation notification received"/>
-            <state name="invalid" reserved="false"/>
+            <state name="authorise notification received"/>
+            <state name="invalid"/>
+            <state name="clarify redirect payment timeout"/>
+            <state name="customer cancelled payment" />
+            <state name="cancelled payment after timeout" />
+            <state name="ready to send confirmation mail" />
+            <state name="payment error" />
             <state name="paid"/>
         </states>
+
         <transitions>
 
             <transition happy="true">
                 <source>new</source>
                 <target>redirected</target>
-                <event>send payment request</event>
-            </transition>
-
-            <transition>
-                <source>invalid</source>
-                <target>invalid</target>
-                <event>redeem voucher</event>
+                <event>create redirect request</event>
             </transition>
 
             <transition condition="Adyen/HasAuthoriseNotificationReceived" happy="true">
                 <source>redirected</source>
-                <target>authorisation notification received</target>
+                <target>authorise notification received</target>
             </transition>
 
             <transition happy="true" condition="Adyen/IsAuthoriseNotificationSuccess" >
-                <source>authorisation notification received</source>
+                <source>authorise notification received</source>
+                <target>ready to send confirmation mail</target>
+                <event>adyen check authorise notification</event>
+            </transition>
+
+            <transition happy="true">
+                <source>ready to send confirmation mail</source>
                 <target>paid</target>
-                <event>check authorisation notification</event>
+                <event>send order confirmation mail</event>
             </transition>
 
             <transition>
-                <source>authorisation notification received</source>
+                <source>authorise notification received</source>
                 <target>invalid</target>
-                <event>check authorisation notification</event>
-            </transition>
-
-            <transition>
-                <source>redirected</source>
-                <target>invalid</target>
-                <event>adyen authorisation notification not received</event>
+                <event>adyen check authorise notification</event>
             </transition>
 
             <transition>
                 <source>redirected</source>
+                <target>clarify redirect payment timeout</target>
+                <event>adyen timeout authorise notification not received</event>
+            </transition>
+
+            <transition>
+                <source>clarify redirect payment timeout</source>
+                <target>cancelled payment after timeout</target>
+                <event>adyen timeout payment cancellation</event>
+            </transition>
+
+            <transition condition="Adyen/HasAuthoriseNotificationReceived">
+                <source>clarify redirect payment timeout</source>
+                <target>authorise notification received</target>
+            </transition>
+
+            <transition>
+                <source>cancelled payment after timeout</source>
                 <target>invalid</target>
-                <event>customer cancelled payment</event>
+                <event>adyen invalidate timeout cancelled payment</event>
             </transition>
 
             <transition>
                 <source>redirected</source>
+                <target>customer cancelled payment</target>
+                <event>adyen redirect payment cancelled</event>
+            </transition>
+
+            <transition>
+                <source>customer cancelled payment</source>
                 <target>invalid</target>
-                <event>payment return with error</event>
+                <event>adyen invalidate cancelled payment</event>
+            </transition>
+
+            <transition>
+                <source>redirected</source>
+                <target>payment error</target>
+                <event>adyen redirect payment error</event>
+            </transition>
+
+            <transition>
+                <source>payment error</source>
+                <target>invalid</target>
+                <event>adyen invalidate error payment</event>
             </transition>
 
             <!-- SUBPROCESS CONNECTIONS -->
@@ -82,14 +117,19 @@
         </transitions>
 
         <events>
-            <event name="send payment request" onEnter="true" manual="true" command="Adyen/Authorise"/>
-            <event name="check authorisation" onEnter="false" manual="true"/>
-            <event name="redeem voucher" onEnter="true"/><!--  command="TODO/RedeemVoucher" -->
-            <event name="adyen authorisation notification received" manual="true" onEnter="true"/>
-            <event name="check authorisation notification" manual="true" onEnter="true"/>
-            <event name="adyen authorisation notification not received" timeout="1hour"/>
-            <event name="customer cancelled payment" />
-            <event name="payment return with error" />
+            <event name="create redirect request" onEnter="true" manual="true" command="Adyen/Authorise"/>
+            <event name="check authorise" onEnter="false" manual="true"/>
+            <event name="adyen authorise notification received" manual="true" onEnter="true"/>
+            <event name="adyen check authorise notification" manual="true" onEnter="true"/>
+            <event name="adyen timeout authorise notification not received" timeout="1hour"/>
+            <event name="adyen timeout invalidate redirect payment" timeout="1week"/>
+            <event name="adyen redirect payment cancelled"/>
+            <event name="adyen redirect payment error"/>
+            <event name="adyen invalidate cancelled payment" onEnter="true" />
+            <event name="adyen invalidate timeout cancelled payment" onEnter="true" />
+            <event name="adyen invalidate error payment" onEnter="true" />
+            <event name="adyen timeout payment cancellation" command="Adyen/Cancel" timeout="2days"/>
+            <event name="send order confirmation mail" onEnter="true" command="TODO/DUMMY/DummySendOrderConfirmationMail"/>
 
             <!-- SUBPROCESS CONNECTIONS -->
             <event name="init capture" onEnter="true"/>

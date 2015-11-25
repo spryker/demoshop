@@ -9,7 +9,9 @@ use Generated\Shared\Transfer\CheckoutRequestTransfer;
 use Generated\Shared\Transfer\CheckoutResponseTransfer;
 use Generated\Shared\Transfer\OrderTransfer;
 use PavFeature\Shared\Adyen\AdyenConstants;
+use SprykerFeature\Shared\Library\Log;
 use SprykerFeature\Zed\Checkout\Business\Workflow\CheckoutWorkflow as SprykerCheckoutWorkflow;
+use Propel\Runtime\Propel;
 
 class CheckoutWorkflow extends SprykerCheckoutWorkflow
 {
@@ -40,11 +42,49 @@ class CheckoutWorkflow extends SprykerCheckoutWorkflow
                 $this->triggerStateMachineOverwritten($orderTransfer, $checkoutRequest);
                 $this->executePostHooksOverwritten($orderTransfer, $checkoutResponse);
 
-                $checkoutResponse->setIsSuccess(true);
+                $checkoutResponse->setIsSuccess(
+                    $this->hasErrorsOverwritten($checkoutResponse)
+                );
             }
         }
 
         return $checkoutResponse;
+    }
+
+    /**
+     * @param OrderTransfer $orderTransfer
+     * @param CheckoutResponseTransfer $checkoutResponse
+     *
+     * @return OrderInterface
+     */
+    protected function doSaveOrder(OrderTransfer $orderTransfer, CheckoutResponseTransfer $checkoutResponse)
+    {
+        Propel::getConnection()->beginTransaction();
+
+        try {
+            foreach ($this->saveOrderStack as $orderSaver) {
+                $orderSaver->saveOrder($orderTransfer, $checkoutResponse);
+            }
+
+            if (!$this->hasErrorsOverwritten($checkoutResponse)) {
+                Propel::getConnection()->commit();
+            } else {
+                Propel::getConnection()->rollBack();
+
+                return $orderTransfer;
+            }
+        } catch (\Exception $e) {
+            Propel::getConnection()->rollBack();
+
+            $error = $this->handleCheckoutError($e);
+
+            $checkoutResponse
+                ->addError($error)
+                ->setIsSuccess(false)
+            ;
+        }
+
+        return $orderTransfer;
     }
 
     /**
