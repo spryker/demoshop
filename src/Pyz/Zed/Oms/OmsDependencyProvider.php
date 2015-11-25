@@ -42,6 +42,7 @@ class OmsDependencyProvider extends SprykerOmsDependencyProvider
 
             'Adyen/Authorise' => $container->getLocator()->adyen()->pluginCommandAuthorisePlugin(),
             'Adyen/Capture' => $container->getLocator()->adyen()->pluginCommandCapturePlugin(),
+            'Adyen/Cancel' => $container->getLocator()->adyen()->pluginCommandCancelPlugin(),
             'Adyen/AuthoriseCreditCard' => $container->getLocator()->adyen()->pluginCommandAuthoriseCreditCardPlugin()
         ];
     }

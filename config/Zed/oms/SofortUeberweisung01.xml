@@ -84,7 +84,7 @@
         <events>
             <event name="send payment request" onEnter="true" manual="true" command="Adyen/Authorise"/>
             <event name="check authorisation" onEnter="false" manual="true"/>
-            <event name="redeem voucher" onEnter="true" command="TODO/RedeemVoucher"/>
+            <event name="redeem voucher" onEnter="true"/><!--  command="TODO/RedeemVoucher" -->
             <event name="adyen authorisation notification received" manual="true" onEnter="true"/>
             <event name="check authorisation notification" manual="true" onEnter="true"/>
             <event name="adyen authorisation notification not received" timeout="1hour"/>

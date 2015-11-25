@@ -8,6 +8,7 @@
         <states>
             <state name="init capture process"/>
             <state name="capture request sent"/>
+            <state name="capture request success"/>
             <state name="capture notification received"/>
             <state name="capture failed"/>
             <state name="captured"/>
@@ -21,8 +22,20 @@
                 <event>send capture request</event>
             </transition>
 
-            <transition happy="true" condition="Adyen/HasCaptureNotificationReceived">
+            <transition happy="true" condition="Adyen/IsCaptureTransactionSuccess">
                 <source>capture request sent</source>
+                <target>capture request success</target>
+                <event>check capture request</event>
+            </transition>
+
+            <transition>
+                <source>capture request sent</source>
+                <target>capture failed</target>
+                <event>check capture request</event>
+            </transition>
+
+            <transition happy="true" condition="Adyen/HasCaptureNotificationReceived">
+                <source>capture request success</source>
                 <target>capture notification received</target>
             </transition>
 
@@ -49,6 +62,7 @@
         <events>
             <event name="send capture request" command="Adyen/Capture" onEnter="true"/>
             <event name="check capture result"/>
+            <event name="check capture request" onEnter="true"/>
             <event name="retry capture" manual="true"/>
             <event name="captured notification received"/>
             <event name="capture failed notification received"/>

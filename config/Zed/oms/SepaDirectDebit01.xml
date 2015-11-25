@@ -11,10 +11,10 @@
 
         <states>
             <state name="new"/>
-            <state name="payment request sent"/>
-            <state name="payment request valid"/>
-            <state name="payment request invalid"/>
-            <state name="authorisation notification received"/>
+            <state name="authorise request sent"/>
+            <state name="authorise request success"/>
+            <state name="authorise notification received"/>
+            <state name="ready to send confirmation mail"/>
             <state name="invalid"/>
             <state name="paid"/>
         </states>
@@ -23,49 +23,43 @@
 
             <transition happy="true">
                 <source>new</source>
-                <target>payment request sent</target>
-                <event>send payment request</event>
+                <target>authorise request sent</target>
+                <event>send authorise request</event>
             </transition>
 
             <transition happy="true" condition="Adyen/IsAuthoriseTransactionSuccess">
-                <source>payment request sent</source>
-                <target>payment request valid</target>
-                <event>adyen check payment request</event>
+                <source>authorise request sent</source>
+                <target>authorise request success</target>
+                <event>adyen check authorise request</event>
             </transition>
 
             <transition>
-                <source>payment request sent</source>
-                <target>payment request invalid</target>
-                <event>adyen check payment request</event>
-            </transition>
-
-            <transition>
-                <source>payment request invalid</source>
+                <source>authorise request sent</source>
                 <target>invalid</target>
-                <event>invalidate order</event>
-            </transition>
-
-            <transition>
-                <source>invalid</source>
-                <target>invalid</target>
-                <event>redeem voucher</event>
+                <event>adyen check authorise request</event>
             </transition>
 
             <transition happy="true" condition="Adyen/IsAuthoriseNotificationSuccess">
-                <source>payment request valid</source>
-                <target>authorisation notification received</target>
+                <source>authorise request success</source>
+                <target>authorise notification received</target>
             </transition>
 
             <transition happy="true" condition="Adyen/IsAuthoriseNotificationSuccess">
-                <source>authorisation notification received</source>
+                <source>authorise notification received</source>
+                <target>ready to send confirmation mail</target>
+                <event>adyen check authorise notification</event>
+            </transition>
+
+            <transition>
+                <source>ready to send confirmation mail</source>
                 <target>paid</target>
-                <event>adyen check authorisation notification</event>
+                <event>send order confirmation mail</event>
             </transition>
 
             <transition>
-                <source>authorisation notification received</source>
+                <source>authorise notification received</source>
                 <target>invalid</target>
-                <event>adyen check authorisation notification</event>
+                <event>adyen check authorise notification</event>
             </transition>
 
             <!-- SUBPROCESS CONNECTIONS -->
@@ -85,12 +79,11 @@
         </transitions>
 
         <events>
-            <event name="send payment request" onEnter="true" manual="true" command="Adyen/Authorise"/>
-            <event name="check authorisation" onEnter="false" manual="true"/>
-            <event name="adyen check authorisation notification" onEnter="true"/>
-            <event name="adyen check payment request" onEnter="true" />
-            <event name="invalidate order" onEnter="true"/>
-            <event name="redeem voucher" onEnter="true" command="TODO/RedeemVoucher"/>
+            <event name="send authorise request" onEnter="true" manual="true" command="Adyen/Authorise"/>
+            <event name="check authorise" onEnter="false" manual="true"/>
+            <event name="adyen check authorise notification" onEnter="true"/>
+            <event name="adyen check authorise request" onEnter="true" />
+            <event name="send order confirmation mail" onEnter="true" command="TODO/Mail/SendOrderConfirmationMail"/>
 
             <!-- SUBPROCESS CONNECTIONS -->
             <event name="init capture" onEnter="true"/>
