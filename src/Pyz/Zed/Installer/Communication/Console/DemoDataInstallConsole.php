@@ -38,8 +38,9 @@ class DemoDataInstallConsole extends SprykerDemoDataInstallConsole
     {
         $installerPlugins = $this->getFacade()->getDemoDataInstaller();
 
-        if ($input->hasArgument(self::ARG_INSTALLER_FILTER)) {
-            $filter = $input->getArgument(self::ARG_INSTALLER_FILTER);
+        $filter = $input->hasArgument(self::ARG_INSTALLER_FILTER) ? $filter = $input->getArgument(self::ARG_INSTALLER_FILTER) : [];
+
+        if (!empty($filter)) {
             $installerPluginsFiltered = [];
             foreach ($filter as $ident) {
                 if (isset($installerPlugins[$ident])) {
