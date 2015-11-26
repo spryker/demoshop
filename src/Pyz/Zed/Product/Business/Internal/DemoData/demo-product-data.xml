@@ -258,7 +258,7 @@
                 <main_color>red</main_color>
                 <other_colors>blue, black</other_colors>
                 <description>Thanks to their flippers and streamlined body, sea lions are graceful fast swimmers.</description>
-				<description_long> Sea lions have large, hairless flippers and because of that they can regulate their body temperature. The rest of the body is covered with dense fur, a mixture made of durable undercoat and longer guard hairs that grow back every year. Sea lions can dive up to 200 meters deep (much deeper than other seals) to hunt for fish such as herring, anchovies and squid. They stay primarily in the water, but during the mating season the popular beaches become quite crowded. Most of them strike out to the mating grounds in May, and the boys were born in June. The cops are polygamous, which means that they mate with several females. The males are much larger than females and are very powerful animals. They secure their own territory against other cops and defend their harem. Sea lions have a life expectancy of nearly thirty years.</description_long> 
+                <description_long> Sea lions have large, hairless flippers and because of that they can regulate their body temperature. The rest of the body is covered with dense fur, a mixture made of durable undercoat and longer guard hairs that grow back every year. Sea lions can dive up to 200 meters deep (much deeper than other seals) to hunt for fish such as herring, anchovies and squid. They stay primarily in the water, but during the mating season the popular beaches become quite crowded. Most of them strike out to the mating grounds in May, and the boys were born in June. The cops are polygamous, which means that they mate with several females. The males are much larger than females and are very powerful animals. They secure their own territory against other cops and defend their harem. Sea lions have a life expectancy of nearly thirty years.</description_long>
                 <fun_fact>Sea lions are often presented in zoos and the circus with their feats.</fun_fact>
                 <scientific_name>Callorhinus ursinus</scientific_name>
             </locale>
@@ -291,8 +291,8 @@
                 <main_color>brown</main_color>
                 <other_colors>blue, black</other_colors>
                 <description>Zebras belong to african wild horses that are recognized by their distinctive black and white striped pattern. </description>
-				<description_long> This equine animals with shiny, striped fur live in the savannahs eastern and southern Africa, where they are most of the day busy to eat grass, leaves, bark, roots and stems. Each zebra has an individual pattern. The plains zebra has wide stripes (which continue to the undersides) and thinner 'shadow' stripes on their rump. Their excellent hearing and vision help him to escape predators. Zebras usually live in family groups that consist of one stallion and several mares but often form large herds of several hundred zebras. Once a year hundreds of thousands come to a walk together in order to search food and water. Sometimes these herds mingle with wildebeests, ostriches and antelopes. Zebras tend to be pretty skittish (what is given all the lions and hyenas in their vicinity can not blame them) and quite loud. They communicate by whinny, whine and bark together. They never wander too far from a water source and may be about thirty years old in the wild.</description_long>              
-				<fun_fact>Zebras have night vision which helps them to keep an eye on predators and to flee in time in case of danger.</fun_fact>
+                <description_long> This equine animals with shiny, striped fur live in the savannahs eastern and southern Africa, where they are most of the day busy to eat grass, leaves, bark, roots and stems. Each zebra has an individual pattern. The plains zebra has wide stripes (which continue to the undersides) and thinner 'shadow' stripes on their rump. Their excellent hearing and vision help him to escape predators. Zebras usually live in family groups that consist of one stallion and several mares but often form large herds of several hundred zebras. Once a year hundreds of thousands come to a walk together in order to search food and water. Sometimes these herds mingle with wildebeests, ostriches and antelopes. Zebras tend to be pretty skittish (what is given all the lions and hyenas in their vicinity can not blame them) and quite loud. They communicate by whinny, whine and bark together. They never wander too far from a water source and may be about thirty years old in the wild.</description_long>
+                <fun_fact>Zebras have night vision which helps them to keep an eye on predators and to flee in time in case of danger.</fun_fact>
                 <scientific_name>Equus quagga</scientific_name>
             </locale>
         </locales>
@@ -303,9 +303,9 @@
         <price>499</price>
         <tax>0.19</tax>
         <category>Wilde Tiere</category>
-        <height>#NV</height>
-        <width>#NV</width>
-        <depth>#NV</depth>
+        <height>V</height>
+        <width>V</width>
+        <depth>V</depth>
         <name>Riesenschildkröte</name>
         <locales>
             <locale id="de_DE">
@@ -313,20 +313,20 @@
                 <image>2015_72_RGB_14601.jpg</image>
                 <main_color>yellow</main_color>
                 <other_colors>blau, schwarz</other_colors>
-                <description>#NV</description>
-                <description_long>#NV</description_long>
-                <fun_fact>#NV</fun_fact>
-                <scientific_name>#NV</scientific_name>
+                <description></description>
+                <description_long></description_long>
+                <fun_fact></fun_fact>
+                <scientific_name></scientific_name>
             </locale>
             <locale id="en_US">
                 <name>Giant Tortoise</name>
                 <image>2015_72_RGB_14601.jpg</image>
                 <main_color>yellow</main_color>
                 <other_colors>blue, black</other_colors>
-                <description>#NV</description>
-                <description_long>#NV</description_long>
-                <fun_fact>#NV</fun_fact>
-                <scientific_name>#NV</scientific_name>
+                <description></description>
+                <description_long></description_long>
+                <fun_fact></fun_fact>
+                <scientific_name></scientific_name>
             </locale>
         </locales>
     </product>
@@ -369,9 +369,9 @@
         <price>679</price>
         <tax>0.19</tax>
         <category>Wilde Tiere</category>
-        <height>#NV</height>
-        <width>#NV</width>
-        <depth>#NV</depth>
+        <height>V</height>
+        <width>V</width>
+        <depth>V</depth>
         <name>Gorilla Männchen</name>
         <locales>
             <locale id="de_DE">
@@ -379,20 +379,20 @@
                 <image>2015_72_RGB_14661.jpg</image>
                 <main_color>green</main_color>
                 <other_colors>blau, schwarz</other_colors>
-                <description>#NV</description>
-                <description_long>#NV</description_long>
-                <fun_fact>#NV</fun_fact>
-                <scientific_name>#NV</scientific_name>
+                <description>V</description>
+                <description_long>V</description_long>
+                <fun_fact>V</fun_fact>
+                <scientific_name>V</scientific_name>
             </locale>
             <locale id="en_US">
                 <name>Gorilla male</name>
                 <image>2015_72_RGB_14661.jpg</image>
                 <main_color>green</main_color>
                 <other_colors>blue, black</other_colors>
-                <description>#NV</description>
-                <description_long>#NV</description_long>
-                <fun_fact>#NV</fun_fact>
-                <scientific_name>#NV</scientific_name>
+                <description></description>
+                <description_long></description_long>
+                <fun_fact></fun_fact>
+                <scientific_name></scientific_name>
             </locale>
         </locales>
     </product>
@@ -402,9 +402,9 @@
         <price>679</price>
         <tax>0.19</tax>
         <category>Wilde Tiere</category>
-        <height>#NV</height>
-        <width>#NV</width>
-        <depth>#NV</depth>
+        <height></height>
+        <width></width>
+        <depth></depth>
         <name>Gorilla Weibchen mit Baby</name>
         <locales>
             <locale id="de_DE">
@@ -412,20 +412,20 @@
                 <image>2015_72_RGB_14662.jpg</image>
                 <main_color>blue</main_color>
                 <other_colors>blau, schwarz</other_colors>
-                <description>#NV</description>
-                <description_long>#NV</description_long>
-                <fun_fact>#NV</fun_fact>
-                <scientific_name>#NV</scientific_name>
+                <description></description>
+                <description_long></description_long>
+                <fun_fact></fun_fact>
+                <scientific_name>V</scientific_name>
             </locale>
             <locale id="en_US">
                 <name>Gorilla female with baby</name>
                 <image>2015_72_RGB_14662.jpg</image>
                 <main_color>blue</main_color>
                 <other_colors>blue, black</other_colors>
-                <description>#NV</description>
-                <description_long>#NV</description_long>
-                <fun_fact>#NV</fun_fact>
-                <scientific_name>#NV</scientific_name>
+                <description></description>
+                <description_long></description_long>
+                <fun_fact></fun_fact>
+                <scientific_name></scientific_name>
             </locale>
         </locales>
     </product>
