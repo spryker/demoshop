@@ -10,6 +10,7 @@ use SprykerEngine\Shared\Lumberjack\LumberjackConfig;
 use PavFeature\Shared\FileUpload\FileUploadConfig;
 use PavFeature\Shared\NewsletterDoiMailQueueConnector\NewsletterDoiMailQueueConnectorConfig;
 use PavFeature\Shared\MailchimpClient\MailchimpClientConfig;
+use Pyz\Shared\ProductFeed\ProductFeedConfig;
 
 $config[SystemConfig::ZED_DB_USERNAME] = 'staging';
 $config[SystemConfig::ZED_DB_PASSWORD] = 'mate20mg';
