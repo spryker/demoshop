@@ -39,7 +39,14 @@
                 <event>adyen check authorise request</event>
             </transition>
 
-            <transition happy="true" condition="Adyen/IsAuthoriseNotificationSuccess">
+            <transition>
+                <source>authorise request success</source>
+                <target>authorise request success</target>
+                <event>send order received mail</event>
+            </transition>
+
+
+            <transition happy="true" condition="Adyen/HasAuthoriseNotificationReceived">
                 <source>authorise request success</source>
                 <target>authorise notification received</target>
             </transition>
@@ -67,13 +74,11 @@
             <transition>
                 <source>paid</source>
                 <target>init capture process</target>
-                <event>init capture</event>
             </transition>
 
             <transition>
                 <source>captured</source>
                 <target>init export to afterbuy</target>
-                <event>init afterbuy export</event>
             </transition>
 
         </transitions>
@@ -83,11 +88,8 @@
             <event name="check authorise" onEnter="false" manual="true"/>
             <event name="adyen check authorise notification" onEnter="true"/>
             <event name="adyen check authorise request" onEnter="true" />
-            <event name="send order confirmation mail" onEnter="true" command="TODO/DUMMY/DummySendOrderConfirmationMail"/>
-
-            <!-- SUBPROCESS CONNECTIONS -->
-            <event name="init capture" onEnter="true"/>
-            <event name="init afterbuy export" onEnter="true"/>
+            <event name="send order confirmation mail" onEnter="true" command="OmsMailQueueConnector/OrderConfirmationMail"/>
+            <event name="send order received mail" onEnter="true" command="TODO/DUMMY/ORDER-RECEIVED-MAIL"/>
         </events>
 
     </process>

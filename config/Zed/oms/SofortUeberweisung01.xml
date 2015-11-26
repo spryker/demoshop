@@ -105,13 +105,11 @@
             <transition>
                 <source>paid</source>
                 <target>init capture process</target>
-                <event>init capture</event>
             </transition>
 
             <transition>
                 <source>captured</source>
                 <target>init export to afterbuy</target>
-                <event>init afterbuy export</event>
             </transition>
 
         </transitions>
@@ -129,11 +127,7 @@
             <event name="adyen invalidate timeout cancelled payment" onEnter="true" />
             <event name="adyen invalidate error payment" onEnter="true" />
             <event name="adyen timeout payment cancellation" command="Adyen/Cancel" timeout="2days"/>
-            <event name="send order confirmation mail" onEnter="true" command="TODO/DUMMY/DummySendOrderConfirmationMail"/>
-
-            <!-- SUBPROCESS CONNECTIONS -->
-            <event name="init capture" onEnter="true"/>
-            <event name="init afterbuy export" onEnter="true"/>
+            <event name="send order confirmation mail" onEnter="true" command="OmsMailQueueConnector/OrderConfirmationMail"/>
         </events>
 
     </process>

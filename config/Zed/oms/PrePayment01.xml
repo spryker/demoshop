@@ -33,19 +33,7 @@
 
             <transition condition="Adyen/HasPendingNotificationReceived" happy="true">
                 <source>redirected</source>
-                <target>pending notification received</target>
-            </transition>
-
-            <transition happy="true" condition="Adyen/IsPendingNotificationSuccess" >
-                <source>pending notification received</source>
                 <target>waiting for authorise notification</target>
-                <event>adyen check pending notification</event>
-            </transition>
-
-            <transition>
-                <source>pending notification received</source>
-                <target>invalid</target>
-                <event>adyen check pending notification</event>
             </transition>
 
             <transition happy="true" condition="Adyen/IsAuthoriseNotificationSuccess" >
@@ -63,6 +51,12 @@
             <transition condition="Adyen/HasAuthoriseNotificationReceived" happy="true">
                 <source>waiting for authorise notification</source>
                 <target>authorise notification received</target>
+            </transition>
+
+            <transition>
+                <source>authorise notification received</source>
+                <target>authorise notification received</target>
+                <event>send order received mail</event>
             </transition>
 
             <transition>
@@ -123,7 +117,6 @@
             <transition>
                 <source>paid</source>
                 <target>init export to afterbuy</target>
-                <event>init afterbuy export</event>
             </transition>
 
         </transitions>
@@ -142,11 +135,8 @@
             <event name="adyen invalidate timeout cancelled payment" onEnter="true" />
             <event name="adyen invalidate error payment" onEnter="true" />
             <event name="adyen timeout payment cancellation" command="Adyen/Cancel" timeout="2days"/>
-            <event name="send order confirmation mail" onEnter="true" command="TODO/DUMMY/DummySendOrderConfirmationMail"/>
-
-            <!-- SUBPROCESS CONNECTIONS -->
-            <event name="init capture" onEnter="true"/>
-            <event name="init afterbuy export" onEnter="true"/>
+            <event name="send order confirmation mail" onEnter="true" command="OmsMailQueueConnector/OrderConfirmationMail"/>
+            <event name="send order received mail" onEnter="true" command="TODO/DUMMY/ORDER-RECEIVED-MAIL"/>
         </events>
 
     </process>

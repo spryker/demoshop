@@ -10,7 +10,7 @@
             <state name="capture request sent"/>
             <state name="capture request success"/>
             <state name="capture notification received"/>
-            <state name="capture failed"/>
+            <state name="clarify capture failed"/>
             <state name="captured"/>
         </states>
 
@@ -30,7 +30,7 @@
 
             <transition>
                 <source>capture request sent</source>
-                <target>capture failed</target>
+                <target>clarify capture failed</target>
                 <event>check capture request</event>
             </transition>
 
@@ -47,12 +47,12 @@
 
             <transition>
                 <source>capture notification received</source>
-                <target>capture failed</target>
+                <target>clarify capture failed</target>
                 <event>check capture notification</event>
             </transition>
 
             <transition>
-                <source>capture failed</source>
+                <source>clarify capture failed</source>
                 <target>init capture process</target>
                 <event>retry capture</event>
             </transition>
@@ -64,8 +64,7 @@
             <event name="check capture result"/>
             <event name="check capture request" onEnter="true"/>
             <event name="retry capture" manual="true"/>
-            <event name="captured notification received"/>
-            <event name="capture failed notification received"/>
+            <event name="no capture notification received" manual="true"/>
             <event name="check capture notification" manual="true" onEnter="true"/>
         </events>
 

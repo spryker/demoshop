@@ -3,6 +3,7 @@
 namespace Pyz\Zed\Oms;
 
 use Pyz\Zed\Oms\Communication\Plugin\Oms\Command\DummySendOrderConfirmationMail;
+use Pyz\Zed\Oms\Communication\Plugin\Oms\Command\DummySendOrderReceivedMail;
 use SprykerEngine\Zed\Kernel\Container;
 use SprykerFeature\Zed\Oms\Communication\Plugin\Oms\Command\CommandInterface;
 use SprykerFeature\Zed\Oms\Communication\Plugin\Oms\Condition\ConditionInterface;
@@ -46,11 +47,13 @@ class OmsDependencyProvider extends SprykerOmsDependencyProvider
             'OrderExporter/ExportOrderItems' => $container->getLocator()->omsOrderExporterConnector()->pluginCommandExportOrderItemsToAfterbuy(),
 
             'Adyen/Authorise' => $container->getLocator()->adyen()->pluginCommandAuthorisePlugin(),
+            'Adyen/AuthoriseCreditCard' => $container->getLocator()->adyen()->pluginCommandAuthoriseCreditCardPlugin(),
             'Adyen/Capture' => $container->getLocator()->adyen()->pluginCommandCapturePlugin(),
             'Adyen/Cancel' => $container->getLocator()->adyen()->pluginCommandCancelPlugin(),
-            'Adyen/AuthoriseCreditCard' => $container->getLocator()->adyen()->pluginCommandAuthoriseCreditCardPlugin(),
 
-            'TODO/DUMMY/DummySendOrderConfirmationMail' => new DummySendOrderConfirmationMail()
+            'OmsMailQueueConnector/OrderConfirmationMail' => $container->getLocator()->omsMailQueueConnector()->pluginCommandOrderConfirmationMail(),
+
+            'TODO/DUMMY/ORDER-RECEIVED-MAIL' => new DummySendOrderReceivedMail()
         ];
     }
 
