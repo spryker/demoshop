@@ -77,6 +77,7 @@ class CmsBlockInstaller extends AbstractInstaller
             "header_top",
             "navigation",
             "faq",
+            "catalog",
             "why_questions",
             "footer_communication",
             "footer_payment",
