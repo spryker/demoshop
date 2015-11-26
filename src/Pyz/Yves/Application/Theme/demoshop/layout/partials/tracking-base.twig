@@ -13,7 +13,7 @@
         Object.keys(data).forEach(function (key) {
           window.dataLayer.push(data[key]);
         });
-        //console.log(window.dataLayer);
+
         if (dataLayerManager.isNonProduction()) {
          // console.log('dataLayer:' , window.dataLayer);
           //console.log('dataLayer:' , JSON.stringify(window.dataLayer, true, 2));
