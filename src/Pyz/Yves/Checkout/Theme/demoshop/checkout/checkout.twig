@@ -21,7 +21,7 @@
                         <button class="login__skip cta">{{ "page.checkout.client.new" | trans }}</button>
                         <button class="login__guest cta">{{ "page.checkout.guest.checkout" | trans }}</button>
                     </section>
-                    {{ form_start(form) }}
+                    {{ form_start(form, {'attr': {'id': 'adyen-encrypted-form'}}) }}
                     <section class="checkout__form-block js-form-block js-checkout-address js-checkout-collapsed">
                         <h1 class="form-block__heading">{{ "page.checkout.address.heading" | trans }}</h1>
                         {{ form_widget(form.email) }}
@@ -35,7 +35,39 @@
                     </section>
                     <section class="checkout__form-block js-form-block js-checkout-payment js-checkout-collapsed">
                         <h1 class="form-block__heading">{{ "page.checkout.payment.heading" | trans }}</h1>
-                        {{ form_widget(form.payment_method) }}
+
+                        {% for payment_method in form.adyen_payment.payment_method %}
+
+                            {{ form_widget(payment_method) }}
+                            {{ form_label(payment_method) }}
+                            {{ form_errors(payment_method) }}
+
+                                {% if payment_method.vars.value == 'adyen.payment.method.sepa.directdebit' %}
+                                    
+                                    {{ form_widget(form.adyen_payment.payment_detail.bank_account_number) }}
+                                    {{ form_widget(form.adyen_payment.payment_detail.bank_location_id) }}
+                                    {{ form_widget(form.adyen_payment.payment_detail.ownerName) }}
+
+                                {% elseif payment_method.vars.value == 'adyen.payment.method.paypal' %}
+
+                                {% elseif payment_method.vars.value == 'adyen.payment.method.creditcard.cse' %}
+
+                                    {{ form_widget(form.adyen_payment.payment_detail.adyen_encrypted_form_number) }}
+                                    {{ form_widget(form.adyen_payment.payment_detail.adyen_encrypted_form_cvc) }}
+                                    {{ form_widget(form.adyen_payment.payment_detail.adyen_encrypted_form_holder_name) }}
+                                    {{ form_widget(form.adyen_payment.payment_detail.adyen_encrypted_form_expiry_month) }}
+                                    {{ form_widget(form.adyen_payment.payment_detail.adyen_encrypted_form_expiry_month) }}
+                                    {{ form_widget(form.adyen_payment.payment_detail.adyen_encrypted_form_expiry_year) }}
+
+                                {% elseif payment_method.vars.value == 'adyen.payment.method.german.bank.transfer' %}
+
+                                {% endif %}
+
+                        {% endfor %}
+
+
+
+
                         <button class="cta js-payment-button" disabled>{{ "page.checkout.payment.next-step" | trans }}</button>
                         <button class="js-edit-formblock form-block__edit">{{ "page.checkout.payment.edit" | trans }}</button>
                     </section>
@@ -64,3 +96,7 @@
         </article>
     {% endif %}
 {% endblock %}
+
+<!-- [Hack] @TODO: Chris has to find a better solution ;-) -->
+<script src="/js/vendor/adyen.encrypt.min.js"></script>
+<!-- End of todo -->

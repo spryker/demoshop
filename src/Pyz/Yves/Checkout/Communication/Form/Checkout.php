@@ -38,6 +38,7 @@ class Checkout extends AbstractType
      */
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
+
         $builder
             ->add('email', 'text', [
                 //'constraints' => new Email(),
@@ -53,7 +54,6 @@ class Checkout extends AbstractType
                 'error_bubbling' => true,
                 'attr' => [
                     'class' => 'js-invoice-address',
-                    'style' => 'display: block;',
                 ],
             ])
             ->add('shipping_address', new Address(300), [
@@ -63,19 +63,12 @@ class Checkout extends AbstractType
                     'class' => 'js-delivery-address',
                 ],
             ])
-            ->add('payment_method', 'choice', [
-                'choices' => [
-                    'adyen.payment.method.sepa.directdebit' => 'HardCoded SEPA A. Schneider (usable)',
-                    'adyen.payment.method.paypal' => 'PayPal (usable)',
-                    'adyen.payment.method.creditcard.cse' => 'Credit card (not usable - you need token)',
-                    'adyen.payment.method.german.bank.transfer' => 'Prepayment (usable)'
-                ],
-                'expanded' => true,
-                'multiple' => false,
-                'required' => false,
-                'empty_value' => false,
+            ->add('adyen_payment', new AdyenPayment($this->paymentMethodsTransfer), [
+                'data_class' => 'Generated\Shared\Transfer\AdyenPaymentTransfer',
+                'error_bubbling' => true,
+                'label' => false,
                 'attr' => [
-                    'style' => 'display: block;',
+                    'class' => 'payment-options',
                 ],
             ])
             ->add('terms', 'checkbox', [

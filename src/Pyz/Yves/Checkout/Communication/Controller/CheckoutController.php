@@ -4,26 +4,24 @@ namespace Pyz\Yves\Checkout\Communication\Controller;
 
 use Generated\Shared\Adyen\AdyenHppPaymentReturnCheckResponseInterface;
 use Generated\Shared\Transfer\AdyenHppPaymentReturnCheckTransfer;
-use Generated\Shared\Transfer\AdyenPaymentDetailTransfer;
-use Generated\Shared\Transfer\AdyenPaymentMethodAvailabilityTransfer;
-use Generated\Shared\Transfer\AdyenPaymentTransfer;
+use Generated\Shared\Transfer\AdyenPaymentMethodsTransfer;
 use Generated\Shared\Transfer\CartTransfer;
 use Generated\Shared\Transfer\CheckoutErrorTransfer;
 use Generated\Shared\Transfer\CheckoutRequestTransfer;
 use Generated\Shared\Transfer\CheckoutResponseTransfer;
 use PavFeature\Yves\Tracking\Business\PageTypeConstants;
-use Pyz\Yves\Application\Communication\Plugin\ApplicationControllerProvider;
 use Pyz\Yves\Tracking\Business\Tracking;
 use Pyz\Yves\Checkout\Communication\Plugin\CheckoutControllerProvider;
 use Pyz\Yves\Tracking\Business\DataFormatter\CartDataFormatter;
 use Pyz\Yves\Tracking\Business\DataFormatter\CheckoutDataFormatter;
 use SprykerEngine\Yves\Application\Communication\Controller\AbstractController;
 use Pyz\Yves\Checkout\Communication\CheckoutDependencyContainer;
-use SprykerFeature\Shared\Library\Log;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\HttpFoundation\Request;
 use PavFeature\Client\Adyen\Service\AdyenClientInterface;
+use PavFeature\Shared\Adyen\AdyenPaymentMethodConstants;
+use Pyz\Yves\Application\Communication\Plugin\ApplicationControllerProvider;
 
 /**
  * @method CheckoutDependencyContainer getDependencyContainer()
@@ -64,17 +62,27 @@ class CheckoutController extends AbstractController
             return $this->redirectResponseInternal(ApplicationControllerProvider::ROUTE_HOME);
         }
 
-/** TODO: START OF HACK FETCH PAYMENT METHODs */
-        $adyenPaymentAvailabilityTransfer = new AdyenPaymentMethodAvailabilityTransfer();
-        $adyenPaymentAvailabilityTransfer->setAmount(10000);
-        $adyenPaymentAvailabilityTransfer->setCurrency('EUR');
-        $adyenPaymentAvailabilityTransfer->setCountry('DE');
-        $adyenPaymentAvailabilityTransfer->setSessionValidity(date("c", strtotime("+1 days")));
+        $paymentMethodsTransfer = new AdyenPaymentMethodsTransfer();
 
-        $paymentMethodsTransfer = $container->createAdyenClient()
-            ->getAvailablePaymentMethods($adyenPaymentAvailabilityTransfer);
-/** TODO: START OF HACK FETCH PAYMENT METHODs */
+        // @TODO in future, discuss if this list should be retrieved from Adyen
+        $paymentMethodsTransfer->setPaymentMethods(new \ArrayObject([
+            AdyenPaymentMethodConstants::ADYEN_PAYMENT_METHOD_CREDIT_CARD_CSE,
+            AdyenPaymentMethodConstants::ADYEN_PAYMENT_METHOD_PAYPAL,
+            AdyenPaymentMethodConstants::ADYEN_PAYMENT_METHOD_OPEN_INVOICE_KLARNA,
+            AdyenPaymentMethodConstants::ADYEN_PAYMENT_METHOD_SOFORTUEBERWEISUNG,
+            AdyenPaymentMethodConstants::ADYEN_PAYMENT_METHOD_SEPA,
 
+            AdyenPaymentMethodConstants::ADYEN_PAYMENT_METHOD_BANCONTACT_MISTER_CASH,
+            AdyenPaymentMethodConstants::ADYEN_PAYMENT_METHOD_DISCOVER,
+            AdyenPaymentMethodConstants::ADYEN_PAYMENT_METHOD_DUTCH_BANK_TRANSFER,
+            AdyenPaymentMethodConstants::ADYEN_PAYMENT_METHOD_GERMAN_BANK_TRANSFER,
+            AdyenPaymentMethodConstants::ADYEN_PAYMENT_METHOD_GIROPAY,
+            AdyenPaymentMethodConstants::ADYEN_PAYMENT_METHOD_IDEAL,
+            AdyenPaymentMethodConstants::ADYEN_PAYMENT_METHOD_ELECTRONIC_DIRECT_DEBIT,
+            AdyenPaymentMethodConstants::ADYEN_PAYMENT_METHOD_DOTPAY,
+            AdyenPaymentMethodConstants::ADYEN_PAYMENT_METHOD_FINNISH_E_BANKING,
+            AdyenPaymentMethodConstants::ADYEN_PAYMENT_METHOD_INTERNATIONAL_BANK_TRANSFER_IBAN
+        ]));
 
         $checkoutForm = $container->createCheckoutForm($paymentMethodsTransfer);
         $checkoutTransfer = new CheckoutRequestTransfer();
@@ -88,43 +96,37 @@ class CheckoutController extends AbstractController
                 $checkoutClient = $this->getDependencyContainer()->createCheckoutClient();
                 /** @var CheckoutRequestTransfer $checkoutRequest */
                 $checkoutRequest = $form->getData();
+
                 $this->setShippingAddress($checkoutRequest);
 
-/** TODO: START OF HACK PAYMENT METHOD */
-                $paymentMethod = $checkoutRequest->getPaymentMethod();
+                /** TODO: START OF HACK PAYMENT METHOD */
 
-                $adyenPaymentDetails = new AdyenPaymentDetailTransfer();
-                $adyenPaymentDetails->setAmount(6000);
 
-                if ($paymentMethod == 'adyen.payment.method.sepa.directdebit') {
-                    $adyenPaymentDetails->setIban('DE87123456781234567890');
-                    $adyenPaymentDetails->setBic('HUHUBIC');
-                    $adyenPaymentDetails->setOwnerName('A. Schneider');
+                $paymentMethod = $checkoutRequest->getAdyenPayment()->getPaymentMethod();
+
+                $adyenPaymentTransfer = $checkoutRequest->getAdyenPayment();
+                $adyenPaymentDetails = $checkoutRequest->getAdyenPayment()->getPaymentDetail();
+                $adyenPaymentDetails->setAmount($this->getCart()->getTotals()->getGrandTotalWithDiscounts());
+
+                if($paymentMethod === AdyenPaymentMethodConstants::ADYEN_PAYMENT_METHOD_CREDIT_CARD_CSE)
+                {
+                    $adyenPaymentDetails->setEncryptedCardData($request->get('adyen-encrypted-data'));
                 }
 
-                if ($paymentMethod == 'adyen.payment.method.creditcard.cse') {
-                    $adyenPaymentDetails->setEncryptedCardData(
-                        'adyenjs_0_1_15...'
-                    );
-                }
-
+                /** @TODO remove hardcoded values */
                 $adyenPaymentDetails->setCountry('DE');
                 $adyenPaymentDetails->setIp('127.0.0.1');
                 $adyenPaymentDetails->setCurrency('EUR');
-                //$adyenPaymentDetails->setDateOfBirth('07071960');
-                //$adyenPaymentDetails->setGender('male');
-                //$adyenPaymentDetails->setPhoneNumber('01522113356');
+                /** End of TODO */
 
-                $adyenPaymentTransfer = new AdyenPaymentTransfer();
                 $adyenPaymentTransfer->setPaymentMethod($paymentMethod);
                 $adyenPaymentTransfer->setPaymentDetail($adyenPaymentDetails);
                 $checkoutRequest->setAdyenPayment($adyenPaymentTransfer);
 
-
-                //$checkoutRequest->setPaymentMethod('prepayment');
-/** TODO: END OF HACK PAYMENT METHOD */
-
                 $checkoutRequest->setCart($this->getCart());
+
+                $checkoutRequest->setShippingAddress($checkoutRequest->getBillingAddress());
+                $checkoutRequest->setPaymentMethod($paymentMethod);
 
 
                 /** @var CheckoutResponseTransfer $checkoutResponseTransfer */

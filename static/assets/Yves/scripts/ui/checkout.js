@@ -22,7 +22,8 @@ var $nameInput,
     $addressValidationResult,
     $addressCountry,
     $shipmentFeeUrl,
-    $shipmentFee;
+    $shipmentFee,
+    $adyenPaymentForm;
 
 var initValidation = function () {
     $shipmentFee = $('.js-cart-shipping');
@@ -39,6 +40,7 @@ var initValidation = function () {
     $shipmentFeeUrl = $('#addShipmentFee');
     $useCouponButton = $('.js-cart-use-coupon-button');
     $removeCouponLink = $('.js-cart__remove-coupon-link');
+    $adyenPaymentForm = $('#adyen-encrypted-form');
     $cartSection = $('.cart__final .cart__discount').parent();
     $checkoutAddCouponUrlInput = $('.cart__final #checkoutAddCouponUrl');
     $checkoutRemoveCouponUrlInput = $('.cart__final #checkoutRemoveCouponUrl');
@@ -47,6 +49,18 @@ var initValidation = function () {
     $addressCheckbox.click(validateAddressBlock);
     $useCouponButton.click(addCoupon);
     $removeCouponLink.click(removeCoupon);
+    registerAdyenPaymentForm();
+};
+
+var registerAdyenPaymentForm = function()
+{
+    if($adyenPaymentForm.length) // if form was found on the page
+    {
+        var form = $adyenPaymentForm[0];
+        var key = "10001|A335386FB3B6B5BB4AA6CDC8AD5764BB6F20FE1087C8BC5FF8CCA1D6974E3D48D5967FCFD829BF74A1B0E12FCFF07D60DB02AE5225C49F7F4B054A4D7FADE8BCA6B7D23FA2E763746609706552E4D53D57F14A4DC937C92214B660FB9C3332C96EAB068E8436A6428A9AED8DBB4D1A5B3B15BA97927963CD6229210439293EBCC8E00C022EE2746C8F7E1F9C44271C8DC376AF4BC2448507A2DBF60401BFCCAA9AEEE65A43671C74BFBA89ED136DD8E8414F17C1EF5CBD3158E9BDA27095A6656E9C4C4FAF61F1B7FF7FED8C5BC971D460E106AF5007F606898175BC30BBD9C7AFD1E54A86584CFB9B38AF3A63B39AE61485DAB8B60ADB94A399005192450B75";
+        var options = {};
+        adyen.encrypt.createEncryptedForm(form, key, options);
+    }
 };
 
 var addCoupon = function (event) {
@@ -156,8 +170,8 @@ module.exports = {
     init: function () {
         initValidation();
 
-        $('input[name="checkout[payment_method]"]').on('change', function () {
-            $paymentButton.attr('disabled', $('input[name="checkout[payment_method]"]:checked').length != 1);
+        $('input[name="checkout[adyen_payment][payment_method]"]').on('change', function () {
+            $paymentButton.attr('disabled', $('input[name="checkout[adyen_payment][payment_method]"]:checked').length != 1);
         });
 
         $addressCheckbox.on('change', function (e) {
