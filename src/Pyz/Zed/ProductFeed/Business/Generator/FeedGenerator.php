@@ -7,14 +7,17 @@ use League\Flysystem\Filesystem;
 use Orm\Zed\Category\Persistence\Map\SpyCategoryAttributeTableMap;
 use Orm\Zed\Price\Persistence\Map\SpyPriceProductTableMap;
 use Orm\Zed\Product\Persistence\Map\SpyAbstractProductTableMap;
+use Orm\Zed\Product\Persistence\Map\SpyLocalizedAbstractProductAttributesTableMap;
 use Orm\Zed\Product\Persistence\Map\SpyLocalizedProductAttributesTableMap;
 use Orm\Zed\Product\Persistence\Map\SpyProductTableMap;
 use Orm\Zed\ProductCategory\Persistence\Map\SpyProductCategoryTableMap;
+use Orm\Zed\Url\Persistence\Map\SpyUrlTableMap;
 use Propel\Runtime\ActiveQuery\Criteria;
 use Pyz\Zed\ProductFeed\ProductFeedConfig;
 use SprykerFeature\Zed\Product\Persistence\ProductQueryContainer;
 use Pyz\Zed\ProductFeed\Business\Exception\InvalidProductFeedConfigException;
 use League\Csv\Writer;
+use SprykerFeature\Shared\Library\Currency\CurrencyManager;
 
 class FeedGenerator implements FeedGeneratorInterface
 {
@@ -46,6 +49,12 @@ class FeedGenerator implements FeedGeneratorInterface
         );
 
         $products->addJoin(
+            SpyAbstractProductTableMap::COL_ID_ABSTRACT_PRODUCT,
+            SpyLocalizedAbstractProductAttributesTableMap::COL_FK_ABSTRACT_PRODUCT,
+            Criteria::LEFT_JOIN
+        );
+
+        $products->addJoin(
             SpyProductTableMap::COL_ID_PRODUCT,
             SpyPriceProductTableMap::COL_FK_PRODUCT,
             Criteria::LEFT_JOIN
@@ -54,6 +63,12 @@ class FeedGenerator implements FeedGeneratorInterface
         $products->addJoin(
             SpyProductTableMap::COL_ID_PRODUCT,
             SpyLocalizedProductAttributesTableMap::COL_FK_PRODUCT,
+            Criteria::LEFT_JOIN
+        );
+
+        $products->addJoin(
+            SpyProductTableMap::COL_ID_PRODUCT,
+            SpyPriceProductTableMap::COL_FK_PRODUCT,
             Criteria::LEFT_JOIN
         );
 
@@ -69,6 +84,16 @@ class FeedGenerator implements FeedGeneratorInterface
             Criteria::LEFT_JOIN
         );
 
+        $products->addJoin(
+            SpyAbstractProductTableMap::COL_ID_ABSTRACT_PRODUCT,
+            SpyUrlTableMap::COL_FK_RESOURCE_ABSTRACT_PRODUCT,
+            Criteria::LEFT_JOIN
+        );
+
+        $products->withColumn(
+            SpyAbstractProductTableMap::COL_ATTRIBUTES,
+            'abstractAttributes'
+        );
         $products->withColumn(
             SpyProductTableMap::COL_ATTRIBUTES,
             'concreteAttributes'
@@ -82,7 +107,8 @@ class FeedGenerator implements FeedGeneratorInterface
             'concreteSku'
         );
         $products->withColumn(
-            SpyLocalizedProductAttributesTableMap::COL_NAME
+            SpyLocalizedAbstractProductAttributesTableMap::COL_ATTRIBUTES,
+            'abstractLocalizedAttributes'
         );
         $products->withColumn(
             SpyLocalizedProductAttributesTableMap::COL_ATTRIBUTES,
@@ -92,13 +118,22 @@ class FeedGenerator implements FeedGeneratorInterface
             SpyCategoryAttributeTableMap::COL_NAME,
             'categoryName'
         );
+        $products->withColumn(
+            SpyUrlTableMap::COL_URL,
+            'abstractProductUrl'
+        );
+        $products->withColumn(
+            SpyPriceProductTableMap::COL_PRICE,
+            'productPrice'
+        );
 
         $productList = $products->find()->getIterator();
 
         $csvWriter = Writer::createFromPath(
             $this->productFeedConfig->getProductFeedFileLocation() .
             $this->productFeedConfig->getProductFeedFileName(),
-            'w+');
+            'w+'
+        );
 
         $csvWriter->setDelimiter($this->productFeedConfig->getProductFeedCsvParameters()['delimiter']);
         $csvWriter->setEncodingFrom($this->productFeedConfig->getProductFeedCsvParameters()['encoding']);
@@ -109,9 +144,11 @@ class FeedGenerator implements FeedGeneratorInterface
             'SKU',
             'price',
             'short_description',
+            'description',
             'thumb_url',
             'product_url',
             'weight',
+            'weight_unit',
             'delivery_time',
             'category'
         ]);
@@ -119,14 +156,18 @@ class FeedGenerator implements FeedGeneratorInterface
         while ($product = $productList->getNext()) {
             $productAttributes = json_decode($product->getConcreteAttributes(), true);
             $localizedAttributes = json_decode($product->getLocalizedAttributes(), true);
+            $abstractLocalizedAttributes = json_decode($product->getAbstractLocalizedAttributes(), true);
+
             $row = [];
             $row[] = $product->getIdProduct();
             $row[] = $product->getConcreteSku();
-            $row[] = isset($productAttributes['price']) ?$productAttributes['price'] : '';
-            $row[] = isset($localizedAttributes['short_description'])? $localizedAttributes['short_description'] : '';
-            $row[] = isset($localizedAttributes['thumbnail'])? $localizedAttributes['thumbnail'] : '';
-            $row[] = isset($localizedAttributes['url_path'])? $localizedAttributes['url_path'] : '';
-            $row[] = isset($localizedAttributes['weight'])? $localizedAttributes['weight'] : '';
+            $row[] = CurrencyManager::getInstance()->convertCentToDecimal($product->getProductPrice());
+            $row[] = isset($abstractLocalizedAttributes['short_description']['markdown'])? $abstractLocalizedAttributes['short_description']['markdown'] : '';
+            $row[] = isset($abstractLocalizedAttributes['description']['markdown'])? $abstractLocalizedAttributes['description']['markdown'] : '';
+            $row[] = isset($localizedAttributes['media'][0]['thumbnail_url'])? $localizedAttributes['media'][0]['thumbnail_url'] : '';
+            $row[] = $product->getAbstractProductUrl();
+            $row[] = isset($productAttributes['weight'])? $productAttributes['weight'] : '';
+            $row[] = isset($productAttributes['weight_unit'])? $productAttributes['weight_unit'] : '';
             $row[] = isset($localizedAttributes['delivery_time'])? $localizedAttributes['delivery_time'] : '';
             $row[] = $product->getCategoryName();
 
