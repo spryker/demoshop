@@ -31,7 +31,7 @@ function writeErrorMessage {
 COMPOSER_TIMESTAMP=$(stat -c %Y "composer.phar")
 CURRENT_TIMESTAMP=$(date +"%s")
 
-COMPOSER_FILE_AGE=$(($CURRENT_TIMESTAMP-$COMPOSER_TIMESTAMP))
+COMPOSER_FILE_AGE=$((${CURRENT_TIMESTAMP}-${COMPOSER_TIMESTAMP}))
 THIRTY_DAYS_AGE=$((60*60*24*30))
 
 if [[ ! -f "composer.phar" ]]; then

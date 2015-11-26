@@ -8,6 +8,7 @@ namespace Pyz\Yves\Application\Communication\Bootstrap\Extension;
 
 use Pyz\Yves\Application\Communication\Plugin\ApplicationControllerProvider;
 use Pyz\Yves\Cart\Communication\Plugin\CartControllerProvider;
+use Pyz\Yves\Challenge\Communication\Plugin\ChallengeControllerProvider;
 use Pyz\Yves\Checkout\Communication\Plugin\CheckoutControllerProvider;
 use Pyz\Yves\Customer\Communication\Plugin\CustomerControllerProvider;
 use Pyz\Yves\System\Communication\Plugin\SystemControllerProvider;
@@ -37,6 +38,7 @@ class ControllerProviderExtension implements ControllerProviderExtensionInterfac
             new CartControllerProvider($ssl),
             new WishlistControllerProvider($ssl),
             new SystemControllerProvider($ssl),
+            new ChallengeControllerProvider($ssl),
         ];
     }
 
