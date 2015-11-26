@@ -5,30 +5,22 @@
 // Styleguide: atoms.product-gallery
 
 
-.product-gallery{
-}
 
-.product-gallery__breadcrumbs{
-    text-align: center;
+.product-gallery__back{
+    @include pdif('arrow-left', 17px, 0);
+    margin-bottom: 20px;
+    padding: 7px 30px 4px 57px;
     background: $_rgbApple;
-}
 
-.product-gallery__breadcrumb{
-    display: inline-block;
-    padding: 7px 0;
-
+    text-align: center;
+    font-family: $_ffBrandonGrotesque-Black;
+    font-size: 16px;
     color: $_rgbWhite;
     text-transform: uppercase;
-    text-decoration: none;
-    font-size: 16px;
-    line-height: 23px;
-    font-family: $_ffBrandonGrotesque-Bold;
+    cursor: pointer;
 
-    & + .product-gallery__breadcrumb:before{
-        position: relative;
-        top: -2px;
-        content: '|';
-        margin: 0 5px 0 3px;
+    &:before{
+        left: 30px;
     }
 }
 

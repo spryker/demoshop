@@ -33,7 +33,6 @@
 }
 
 .newsletter__form{
-    display: flex;
     width: 100%;
     max-width: 480px;
     margin: 0 auto;
@@ -50,6 +49,15 @@
     .button{
         margin-top: 18px;
     }
+}
+
+.newsletter__top{
+    display: flex;
+}
+
+.newsletter__bottom{
+    margin-top: 15px;
+    text-align: left;
 }
 
 @media (min-width: $_wLarge) {

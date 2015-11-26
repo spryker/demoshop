@@ -1,5 +1,5 @@
 import $ from 'jquery';
-import { debounce, getViewport } from './helpers';
+import { debounce, getViewport } from '../../common/helpers';
 
 'use strict';
 

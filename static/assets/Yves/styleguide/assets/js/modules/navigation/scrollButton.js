@@ -1,5 +1,5 @@
 import $ from 'jquery';
-import { scrollTo } from './helpers';
+import { scrollTo } from '../common/helpers';
 
 'use strict';
 

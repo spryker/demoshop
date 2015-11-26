@@ -1,63 +1,54 @@
-<div class="checkout__step">
+<div class="checkout__step-headline">Zahlart</div>
 
-    <div class="checkout__edit">
-        <div class="checkout__step-headline">Payment method</div>
-        <div class="checkout__step-progress">Step 2/3</div>
+<div class="checkout__form checkout__form--payment">
 
-        <div class="checkout__form checkout__form--payment">
-
-            {{> "atoms.radio" modifier_class="radio--vorkasse" image="../images/checkout/vorkasse.jpg" label="Vorkasse" name="payment" value="vorkasse" id="vorkasse"}}
-             {{> "atoms.radio" modifier_class="radio--rechnung" image="../images/checkout/rechnung.jpg" label="Rechnung"
-            name="payment" value="rechnung" id="rechnung"}}
-            <div id="form_rechnung" class="checkout__subform checkout__subform--rechnung">
-
-                {{> "atoms.radio" label="M" name="gender" value="m" id="gender_m"}}
-                 {{> "atoms.radio" label="W" name="gender" value="w" id="gender_w"}}
-                  {{> "atoms.dateinput" label="Geburtsdatum*" name="birthdate" id="birthdate"}}
-                  <div class="checkout__lock">Secure Connection</div>
-                   {{> "atoms.input" modifier_class="input--3-4"
-                label="Telefonnummer*" id="phone_number" name="phone_number"}}
-            </div>
-
-
-            {{> "atoms.radio" modifier_class="radio--sofort" image="../images/checkout/sofort.jpg" label="Sofort" name="payment" value="sofort" id="sofort"}}
-             {{> "atoms.radio" modifier_class="radio--credit" image="../images/checkout/credit.jpg" label="Kreditkarte
-            (Visa, Mastercard, American Express)" name="payment" value="credit" id="credit"}}
-            <div id="form_credit" class="checkout__subform checkout__subform--credit">
-                {{> "atoms.input" modifier_class="input--3-4" label="Card Number*" id="card_number" name="card_number"}}
-                {{> "atoms.input" modifier_class="input--1-4" label="Security*" id="card_cvc" name="card_cvc"}}
-                {{> "atoms.input" modifier_class="input--1-2" label="Vorname*"
-                id="credit_first_name" name="credit_first_name"}}
-                {{> "atoms.input" modifier_class="input--1-2" label="Nachname*" id="creadit_last_name" name="creadit_last_name"}}
-
-                {{> "atoms.input-validity" label="Gültigkeit"}}
-                <div class="checkout__lock">Secure Connection</div>
-            </div>
-
-
-            {{> "atoms.radio" modifier_class="radio--sepa" image="../images/checkout/sepa.jpg" label="SEPA" name="payment" value="sepa" id="sepa"}}
-            <div id="form_sepa" class="checkout__subform checkout__subform--sepa">
-                {{> "atoms.input" modifier_class="input--1-2" label="Vorname*" id="sepa_first_name" name="sepa_first_name"}}
-                 {{> "atoms.input" modifier_class="input--1-2" label="Nachname*" id="sepa_last_name" name="sepa_last_name"}}
-                  {{> "atoms.input" modifier_class="input--1-1" label="Kontonummer*" id="account_number"
-                name="account_number"}}
-                 {{> "atoms.input" modifier_class="input--1-1" label="Bankleitzahl*" id="bank_code" name="bank_code"}}
-                  {{> "atoms.checkbox" modifier_class="checkbox--large" label="Ich stimme zu, dass der oben genannte
-                <br> Betrag von meinem Konto eingezogen wird." id="agreement" name="agreement"}}
-                <div class="checkout__lock">Secure Connection</div>
-            </div>
-
-
-            {{> "atoms.radio" modifier_class="radio--paypal" image="../images/checkout/paypal.jpg" label="Paypal" name="payment" value="paypal" id="paypal"}}
-             {{> "atoms.button" modifier_class="button--cta checkout__step-button" title="Continue to confirm your order"}}
+    {{> "atoms.radio" modifier_class="radio--vorkasse" image="../images/checkout/vorkasse.jpg" label="Vorkasse" name="payment" value="vorkasse" id="vorkasse"}}
+     {{> "atoms.radio" modifier_class="radio--rechnung" image="../images/checkout/rechnung.jpg" label="Rechnung"
+    name="payment" value="rechnung" id="rechnung"}}
+    <div id="form_rechnung" class="checkout__subform checkout__subform--rechnung">
+        <div class="checkout__subform-inner">
+            {{> "atoms.radio" label="M" name="gender" value="m" id="gender_m"}}
+             {{> "atoms.radio" label="W" name="gender" value="w" id="gender_w"}}
+              {{> "atoms.dateinput" label="Geburtsdatum*" name="birthdate" id="birthdate"}}
+              <div class="checkout__lock">Secure Connection</div>
+               {{> "atoms.input" modifier_class="input--3-4"
+            label="Telefonnummer*" id="phone_number" name="phone_number"}}
         </div>
-
     </div>
 
 
-    <div class="checkout__summary">
-        <h2 class="checkout__summary-headline">Payment method</h2>
-        <div class="checkout__summary-details">Mastercard ... 4124</div>
+    {{> "atoms.radio" modifier_class="radio--sofort" image="../images/checkout/sofort.jpg" label="Sofort" name="payment" value="sofort" id="sofort"}}
+     {{> "atoms.radio" modifier_class="radio--credit" image="../images/checkout/credit.jpg" label="Kreditkarte
+    (Visa, Mastercard, American Express)" name="payment" value="credit" id="credit"}}
+    <div id="form_credit" class="checkout__subform checkout__subform--credit">
+        <div class="checkout__subform-inner">
+            {{> "atoms.input" modifier_class="input--3-4" label="Card Number*" id="card_number" name="card_number"}}
+            {{> "atoms.input" modifier_class="input--1-4" label="Security*" id="card_cvc" name="card_cvc"}}
+            {{> "atoms.input" modifier_class="input--1-2" label="Vorname*"
+            id="credit_first_name" name="credit_first_name"}}
+            {{> "atoms.input" modifier_class="input--1-2" label="Nachname*" id="creadit_last_name" name="creadit_last_name"}}
+
+            {{> "atoms.input-validity" label="Gültigkeit"}}
+            <div class="checkout__lock">Secure Connection</div>
+        </div>
     </div>
 
+
+    {{> "atoms.radio" modifier_class="radio--sepa" image="../images/checkout/sepa.jpg" label="SEPA" name="payment" value="sepa" id="sepa"}}
+    <div id="form_sepa" class="checkout__subform checkout__subform--sepa">
+        <div class="checkout__subform-inner">
+            {{> "atoms.input" modifier_class="input--1-2" label="Vorname*" id="sepa_first_name" name="sepa_first_name"}}
+             {{> "atoms.input" modifier_class="input--1-2" label="Nachname*" id="sepa_last_name" name="sepa_last_name"}}
+              {{> "atoms.input" modifier_class="input--1-1" label="Kontonummer*" id="account_number"
+            name="account_number"}}
+             {{> "atoms.input" modifier_class="input--1-1" label="Bankleitzahl*" id="bank_code" name="bank_code"}}
+              {{> "atoms.checkbox" modifier_class="checkbox--large" label="Ich stimme zu, dass der oben genannte
+            <br> Betrag von meinem Konto eingezogen wird." id="agreement" name="agreement"}}
+            <div class="checkout__lock">Secure Connection</div>
+        </div>
+    </div>
+
+
+    {{> "atoms.radio" modifier_class="radio--paypal" image="../images/checkout/paypal.jpg" label="Paypal" name="payment" value="paypal" id="paypal"}}
+     {{> "atoms.button" modifier_class="button--cta checkout__step-button" title="Continue to confirm your order"}}
 </div>

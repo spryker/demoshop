@@ -1,18 +1,19 @@
-
-{# TODO: replace this, when frontend is ready to change the concretes #}
-{% set productConcrete = product.concreteProducts|first %}
+{% set productConcrete = product.concreteProducts | first %}
+{% set initial = (pricings | first) %}
 
 <div class="product-options">
-    <form action="/cart/add/">
+    <form action="/cart/add" method="POST">
 
-        <div class="product-options__select">
-            {% include  '@application/layout/common/forms/dropdown.twig' with {
-                label: 'Größe',
-                id: 'weight',
-                name: 'weight',
-                options: ['#250g', '#500g', '#750g']
-            } %}
-        </div>
+        {% if options is not empty %}
+            <div class="product-options__select">
+                {% include  '@application/layout/common/forms/dropdown.twig' with {
+                    label: 'Größe',
+                    id: 'weight',
+                    name: 'weight',
+                    options: options.weight
+                } %}
+            </div>
+        {% endif %}
 
         <div class="product-options__select">
             {% include  '@application/layout/common/forms/stepper.twig' with {
@@ -23,14 +24,15 @@
         </div>
 
         <div class="product-options__pricing">
-            <div class="product-options__total">{{ product.valid_price | price }}</div>
-            <div class="product-options__relative">#250g (€1.40 / 100g)</div>
+            {% set initial = (pricings | first ) %}
+
+            <div class="product-options__total">{{ initial.absolute | price}}</div>
+            <div class="product-options__relative">{{ initial.weight }}{{ initial.unit }} ({{ initial.relative | price }} / {{ initial.unit == 'ml' or initial.unit == 'g' ? 100 : 1 }}{{ initial.unit }})</div>
         </div>
 
-        <!-- TODO: remove product__add-button -->
+        <!-- TODO: strings into glossary -->
         <button
-            class="product-options__button button button--cta product__add-button"
-            data-sku="{{ productConcrete.sku }}">
+            class="product-options__button button button--cta" data-sku="{{ productConcrete.sku }}">
             In den Warenkorb
         </button>
 
@@ -38,11 +40,11 @@
 
     <div class="product-options__delivery">
         <div class="product-options__delivery-status">
-            #Sofort verfügbar.
+            Sofort verfügbar.
         </div>
 
         <div class="product-options__delivery-info">
-            Versand erfolgt für Bestellungen bis 12.00 Uhr Mo-Do <br> normalerweise am selben Tag.
+            Versand erfolgt für Bestellungen bis 12.00 Uhr Mo-Do normalerweise am selben Tag.
         </div>
     </div>
 </div>

@@ -1,0 +1,135 @@
+// Product options
+//
+// Markup: atoms.product-header.hbs
+//
+// Styleguide: atoms.product-header
+
+.product-header{
+    @include clearfix;
+    width: 100%;
+    padding: 0 ($_xSpacing / 2) 14px;
+    background: $_rgbWhite;
+    @include sectionShadow;
+
+    form{
+        display: flex;
+    }
+}
+
+.product-header__info{
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    font-family: $_ffBrandonGrotesque-Black;
+}
+
+.product-header__interaction{
+    margin-left: 20px;
+    white-space: nowrap;
+
+    .input__label, .stepper__label{
+        display: none;
+    }
+}
+
+.product-header__title{
+    font-size: 26px;
+    line-height: 33px;
+    color: $_rgbApple;
+}
+
+.product-header__weight{
+    font-size: 20px;
+    color: $_rgbDoveGray;
+}
+
+.product-header__delivery{
+    display: none;
+}
+
+
+
+.product-header__select{
+    display: inline-block;
+    vertical-align: bottom;
+    margin-bottom: 10px;
+    padding-right: 5px;
+
+    label{
+        display: block;
+        padding-left: 0;
+
+        font-family: $_ffBrandonGrotesque-Bold;
+        font-size: $_fsSmall;
+        color: $_rgbOsloGray3;
+        text-align: center;
+        text-transform: none;
+    }
+
+    .dropdown{
+        padding-left: 0;
+    }
+
+
+    .dropdown__button{
+        border-width: 2px;
+
+        &:before{
+            top: -2px;
+        }
+    }
+}
+
+.product-header__pricing{
+    display: inline-block;
+    vertical-align: bottom;
+    margin-bottom: 12px;
+    margin-left: 10px;
+    text-align: left;
+}
+
+.product-header__total{
+    font-family: $_ffHelveticaNeue;
+    font-size: 28px;
+    line-height: 33px;
+    color: $_rgbOsloGray;
+}
+
+.product-header__relative{
+    font-family: $_ffHelveticaNeue;
+    //letter-spacing: 0.18px;
+    font-size: 10px;
+    line-height: 14px;
+    color: $_rgbSilverChalices2;
+}
+
+.product-header__button{
+    display: block;
+    width: 100%;
+}
+
+.product-header__delivery{
+    padding: 28px 0 0 10px;
+    font-size: 14px;
+    line-height: 17px;
+}
+
+.product-header__delivery-status{
+    margin-bottom: 10px;
+    font-family: $_ffBrandonGrotesque-Bold;
+    color: $_rgbApple;
+
+    @include pdif('dot', 7px, 15px);
+}
+
+.product-header__delivery-info{
+    color: $_rgbDoveGray;
+}
+
+
+@media (min-width: 1051px) {
+
+    .product-header{
+        display: none;
+    }
+}

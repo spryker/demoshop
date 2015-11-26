@@ -1,31 +1,59 @@
 {{> "organisms.navbar"}}
-{{> "atoms.message" modifier_class="message--invalid"}}
 
-<div class="user-boxes">
-    <div class="user-boxes__inner">
-
-        <div class="user-box">
-            <div class="user-box__inner">
-                <h2 class="user-box__headline">Existing Customer</h2>
-                <p class="user-box__description">Insert your account credentials</p>
-                <form class="user-box__form">
-                   {{> "atoms.input" label="Your email" id="email" name="email" additional=""}}
-                   {{> "atoms.input-password" label="Your password" id="password" name="password"}}
-                   {{> "atoms.button" title="Login" modifier_class="button--cta"}}
-                </form>
-            </div>
-        </div>
-
-        <div class="user-box">
-            <div class="user-box__inner">
-                <h2 class="user-box__headline">New Customer</h2>
-                <form class="user-box__form">
-                   {{> "atoms.button" title="Continue" modifier_class="button--cta"}}
-                </form>
-            </div>
-        </div>
-
-    </div>
+<div class="messages">
+    {{> "atoms.message" modifier_class="message--invalid"}}
 </div>
+
+<div class="login-slider">
+    <div class="slider__headline">
+        Kasse
+    </div>
+
+
+    <div class="login-slider__navigations">
+        <div class="login-slider__inner">
+
+            <div class="login-slider__navigation">Wilkommen zurück!</div>
+            <div class="login-slider__navigation">Bestandskunde</div>
+            <div class="login-slider__navigation">Neukunde</div>
+
+        </div>
+    </div>
+
+
+    <div class="login-slider__contents">
+        <div class="login-slider__inner">
+
+            <div class="login-slider__content">
+                <form class="login-slider__form">
+                    <p class="user-box__description">
+                        francesco@provider.com
+                    </p>
+                    {{> "atoms.input-password" label="Your password" id="password" name="password"}}
+
+                    <a href="#" class="user-box__not">You are not Fancesco?</a>
+                    {{> "atoms.button" title="Login" modifier_class="button--cta"}}
+                </form>
+            </div>
+
+            <div class="login-slider__content">
+                <form class="login-slider__form">
+                   {{> "atoms.input" label="Ihre E-Mail Adresse" id="email" name="email" additional=""}}
+                   {{> "atoms.input-password" label="Ihr Passwort" id="password" name="password"}}
+                   {{> "atoms.button" title="Einloggen" modifier_class="button--cta"}}
+                </form>
+            </div>
+
+            <div class="login-slider__content">
+                <form class="login-slider__form">
+                   {{> "atoms.button" title="Weiter zur Kasse" modifier_class="button--cta"}}
+                </form>
+            </div>
+
+        </div>
+    </div>
+
+</div>
+
 
 {{> "organisms.footer"}}

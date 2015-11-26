@@ -53,7 +53,9 @@
     "nesbot/carbon": "1.13.0",
     "league/flysystem": "~1.0",
 
-    "mailchimp/mailchimp": "~2.0.6"
+    "mailchimp/mailchimp": "~2.0.6",
+    "aptoma/twig-markdown": "^2.0",
+    "michelf/php-markdown": "^1.5"
   },
   "require-dev": {
     "silex/web-profiler": "~1.0.2",

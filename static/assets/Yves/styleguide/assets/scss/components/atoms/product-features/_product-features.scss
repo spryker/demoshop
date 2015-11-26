@@ -39,11 +39,3 @@
     font-size: 16px;
     color: $_rgbDoveGray;
 }
-
-
-@media (min-width: $_wMedium){
-    .product-features{
-        width: (100%  / 12 * 5);
-        margin-left: (100%  / 12 * 3);
-    }
-}

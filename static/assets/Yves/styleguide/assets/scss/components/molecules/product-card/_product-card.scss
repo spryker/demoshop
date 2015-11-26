@@ -5,14 +5,23 @@
 // Styleguide: molecules.product-card
 
 .product-card{
+    position: relative;
     padding: 11px;
 
-    text-align: center;
+    &:after{
+        content: '';
+        position: absolute;
+        top: 11px;
+        left: 11px;
+        z-index: -1;
+        width: calc(100% - 22px);
+        height: calc(100% - 22px);
+        background: $_rgbWhite;
+        @include cardShadow;
+    }
 }
 
 .product-card__inner{
-    @include cardShadow;
-    background: $_rgbWhite;
 }
 
 .product-card__image{
@@ -33,48 +42,28 @@
     font-family: $_ffBrandonGrotesque-Bold;
     color: $_rgbWhite;
     font-size: $_fsTiny;
-    line-height: $_lhTiny;
     text-transform: uppercase;
-    //letter-spacing: 0.54px;
 }
 
 .product-card__content{
-    padding: 47px 30px 30px;
-}
-
-.product-card__breadcrumbs{
-    margin-bottom: 20px;
-
-    font-family: $_ffBrandonGrotesque-Bold;
-    font-size: $_fsTiny;
-    line-height: $_lhTiny;
-    color: $_rgbApple;
-    text-transform: uppercase;
-}
-
-.product-card__breadcrumb{
-    & + .product-card__breadcrumb{
-        &:before{
-            content: '|';
-            position: relative;
-            top: -2px;
-            margin: 0 6px 0 3px;
-        }
-    }
+    padding: 20px 30px 30px;
 }
 
 .product-card__infos{
-    margin-bottom: 50px;
+    margin-bottom: 100px;
 
     font-family: $_ffBrandonGrotesque-Black;
-    color: $_rgbQuincy;
-    font-size: 16px;
-    line-height: 23px;
-    text-transform: uppercase;
+    font-size: 24px;
+    color: $_rgbApple;
+    line-height: 34px;
 }
 
 .product-card__footer{
     @include clearfix;
+    position: absolute;
+    width: calc(100% - 82px);
+    bottom: 30px;
+    left: 41px;
 }
 
 
@@ -97,13 +86,11 @@
     font-family: $_ffHelveticaNeue;
     color: $_rgbOsloGray;
     font-size: $_fsDefault;
-    line-height: $_lhDefault;
 }
 
 .product-card__price-relative{
     color: $_rgbSilverChalice;
     font-size: $_fsSmall;
-    line-height: $_lhSmall;
 }
 
 .product-card__detail{

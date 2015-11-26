@@ -32,6 +32,19 @@
     }
 }
 
+.checkbox--right{
+    .checkbox__label{
+        padding-left: 0;
+        padding-right: 50px;
+        text-align: right;
+
+        &:before, &:after{
+            left: auto;
+            right: 0;
+        }
+    }
+}
+
 .checkbox__input{
     position: absolute;
     opacity: 0;
@@ -71,8 +84,8 @@
         left: 0;
         margin-top: -16px;
         content: '';
-        width: 27px;
-        height:27px;
+        width: 31px;
+        height: 31px;
         display: block;
         border: 2px solid $_rgbAlto;
         border-radius: $_defaultBorderRadius;

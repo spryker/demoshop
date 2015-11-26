@@ -19,6 +19,8 @@ $(document).ready(function () {
 
         $items.change(updateBackup);
 
+
+        // store form data by form key in localstorage
         function updateBackup () {
             var data = {};
 
@@ -30,6 +32,7 @@ $(document).ready(function () {
             storage.setItem(formKey, JSON.stringify(data));
         }
 
+        // populate form with data form localstorage
         function restoreFromBackup () {
             var raw = storage.getItem(formKey);
 

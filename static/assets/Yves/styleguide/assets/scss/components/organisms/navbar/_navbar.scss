@@ -1,4 +1,4 @@
-// #TODO:420 divide into molecules
+// #TODO: split up into multiple components
 
 // Navbar
 //
@@ -7,7 +7,6 @@
 // Styleguide: organisms.navbar
 //
 // Weight: 0
-
 
 .navbar{
     position: fixed;
@@ -28,12 +27,12 @@
 }
 
 .navbar__top{
-    padding: 7px 0 5px 0;
+    padding: 6px 0 6px 0;
     background: $_rgbApple;
 
     font-family: $_ffBrandonGrotesque-Bold;
     font-size: $_fsTiny;
-    line-height: $_lhTiny;
+    line-height: 18px;
     text-transform: uppercase;
     text-align: center;
     color: $_rgbWhite;
@@ -117,7 +116,6 @@
         position: relative;
         display: inline-block;
         margin-bottom: -8px;
-        padding: 0 10px;
         overflow: hidden;
 
         font-family: $_ffBrandonGrotesque-Bold;
@@ -133,6 +131,10 @@
 
     span{
         display: none;
+    }
+
+    a:before{
+        width: 100%;
     }
 }
 
@@ -154,23 +156,31 @@
 }
 
 .navbar__link--login{
+    border-left: 1px solid #ECECEC;
+
     a{
         @include pdif('user', 20px, 30px);
     }
 }
 
 .navbar__link--cart{
+    border-left: 1px solid #ECECEC;
+
     a{
-        @include pdif('cart', 20px, 30px);
+        @include pdif('cart', 20px, 34px);
     }
 }
 
 .navbar__link--bubble{
     a{
+        &:before{
+            margin-left: -2px;
+        }
+
         &:after{
             position: absolute;
             top: 15px;
-            left: 10px;
+            left: 12px;
             content: attr(data-count);
             background: $_rgbClementine;
             height: 21px;
@@ -187,6 +197,8 @@
 }
 
 .navbar__link--more{
+    border-left: 1px solid #ECECEC;
+
     div{
         @include pdif('more', 9px, 40px);
     }
@@ -194,13 +206,17 @@
 
 
 
-@media (min-width: $_wLarge) {
+@media (min-width: $_wMedium) {
     .navbar__pusher{
         padding-top: 103px;
     }
 
     .navbar__top--hidden{
         margin-top: -30px;
+    }
+
+    .navbar__bottom{
+        margin-right: -18px;
     }
 
     .navbar__center{
@@ -229,7 +245,6 @@
     }
 
     .navbar__links{
-        padding-left: 33px;
         width: calc(100% - 120px);
     }
 
@@ -242,10 +257,51 @@
     }
 }
 
-@media (min-width: 550px) {
+@media (min-width: 650px) {
     .navbar__link{
         span{
             display: inline;
+        }
+    }
+}
+
+@media (min-width: 650px) and (max-width: 830px) {
+    .navbar__link--login, .navbar__link--cart{
+        a{
+            padding: 13px 0 0 0;
+            font-size: 12px;
+
+            &:before{
+                top: 17px;
+                margin: 0;
+                width: 100%;
+                text-align: center;
+            }
+        }
+    }
+
+    .navbar__link--bubble a:after{
+        top: 7px;
+        left: 50%;
+    }
+}
+
+@media (min-width: 831px) {
+    .navbar__bottom{
+        margin-right: 0;
+    }
+
+    .navbar__link{
+        a:before{
+            width: auto;
+        }
+    }
+
+    .navbar__link--bubble{
+        a{
+            &:before{
+                margin-left: 0;
+            }
         }
     }
 }

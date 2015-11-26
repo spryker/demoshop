@@ -1,7 +1,6 @@
 import $ from 'jquery';
-import { getFormData } from './helpers';
 
-import { EVENTS as BODY_EVENTS } from './bodyScrolling';
+import { EVENTS as BODY_EVENTS } from '../../common/bodyScrolling';
 
 'use strict';
 
@@ -57,8 +56,6 @@ $(document).ready(function () {
             $status = $(`<div class="product-info__status"></div>`);
             $status.insertAfter($('.product-info__subtitle'));
         }
-
-        console.info(getFormData($form));
 
         var unchecked = [];
         $form.find('input:checkbox').each(function() {

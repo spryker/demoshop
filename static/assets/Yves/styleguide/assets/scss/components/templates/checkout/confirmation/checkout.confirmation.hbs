@@ -1,13 +1,49 @@
-<div class="checkout__step">
+<div class="checkout__step-headline">Bestätigung</div>
 
-    <div class="checkout__edit">
-        <div class="checkout__step-headline">Verification and purchase confirmation</div>
-        <div class="checkout__step-progress">Step 3/3</div>
+{{> "atoms.button" type="submit" modifier_class="button--cta checkout__step-button" title="Jetzt kaufen"}}
 
-        <div class="checkout__cart">
-            {{> "molecules.cart-item"}} {{> "atoms.button" type="submit" modifier_class="button--cta checkout__step-button" title="Pay now"}}
+<div class="checkout__cart">
+    {{> molecules.cart-item image="../images/cart/thumbnail.png" title="Starter Pack 10 Menu Boxes" weight="250g" price="20,00"}}
+    {{> molecules.cart-item image="../images/cart/thumbnail.png" title="Starter Pack 10 Menu Boxes" weight="250g" price="20,00"}}
+
+    <div class="cart-position">
+        <div class="cart-position__left"></div>
+        <div class="cart-position__right">
+            Versandkosten
+            <span class="cart-position__price">3,30 €</span>
         </div>
-
     </div>
 
+    <div class="cart-position">
+        <div class="cart-position__left"></div>
+        <div class="cart-position__right">
+            Inkl. MWST.
+            <span class="cart-position__price">4,50 €</span>
+        </div>
+    </div>
+
+    <div class="cart-position cart-position--total">
+        <div class="cart-position__left">
+            <div class="cart-position cart-position--voucher">
+                Gutschein einlösen
+            </div>
+        </div>
+        <div class="cart-position__right">
+            Gesamtbetrag
+            <span class="cart-position__price">20,00 €</span>
+        </div>
+    </div>
+</div>
+
+<div class="checkout__terms">
+    {{> "atoms.checkbox" label="<strong>Abonnieren Sie unseren Newsletter</strong> <br>
+Ja, ich möchte hilfreiche Tipps für mein Haustier erhalten und über Aktionen & Gutscheine per E-Mail informiert werden. Abmeldung jederzeit möglich." id="terms" name="terms" value="1" modifier_class="checkbox--large checkbox--right"}}
+</div>
+
+{{> "atoms.button" type="submit" modifier_class="button--cta checkout__step-button" title="Jetzt kaufen"}}
+
+<div class="checkout__terms-info">
+    Mit Ihrer Bestellung erklären Sie sich mit unseren AGB, Datenschutzbestimmungen und Widerrufsbestimmungen einverstanden. <br>
+    Als Kunde von PETS DELI erhalten Sie Produktempfehlungen per Mail. Sie können jederzeit unter office@petsdeli.de, unserer Hotline 030 - 208 98 48 99 oder dem Abmeldelink in jeder Produktempfehlungsmail widersprechen. <br>
+    Es entstehen Ihnen keine höheren Kosten als die nach den Basistarifen.
 </div>

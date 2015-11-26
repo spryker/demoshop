@@ -16,7 +16,8 @@ $(document).ready(function () {
             $input.attr('type', $input.attr('type') === 'password' ? 'text' : 'password');
             $password.toggleClass('password-input--visible');
 
-            $toggle.text($toggle.text() === 'Show password' ? 'Hide password' : 'Show password');
+            // TODO: extract translations into global varibale
+            $toggle.text($toggle.text() === 'Passwort anzeigen' ? 'Passwort verstecken' : 'Passwort anzeigen');
         });
     });
 

@@ -31,6 +31,7 @@ function getViewport () {
   return [viewPortWidth, viewPortHeight];
 }
 
+
 // limit invocation rate of the given function to once per given interval
 function debounce (interval, callback) {
   var debounceTimer;
@@ -54,16 +55,20 @@ function debounce (interval, callback) {
   };
 }
 
+
 // check user agent for iPod/iPhone device
 function isIphone () {
   return (/iPhone|iPod/.test(navigator.userAgent) && !window.MSStream);
 }
+
 
 // check user agent for iPad
 function isIpad () {
   return (/iPad/.test(navigator.userAgent) && !window.MSStream);
 }
 
+
+// convert formdata into object
 function getFormData ($form) {
     var o = {};
     var a = $form.serializeArray();
@@ -80,24 +85,47 @@ function getFormData ($form) {
     return o;
 }
 
-function scrollTo ($target, velocity) {
+
+// scroll to target jQuery object
+function scrollTo ($target, velocity, callback) {
     if (typeof velocity === 'undefined') {
         velocity = 1;
     }
 
-    var $window, $navbar, $scrollable, current, target;
+    if (typeof callback !== 'function') {
+        callback = function () {};
+    }
+
+    var $window, $navbarTop, $navbarBottom, $scrollable, current, target;
 
     $window = $(window);
     $scrollable = $('html, body');
     current = $window.scrollTop();
     target = $target.offset().top;
-    $navbar = $('.navbar .navbar__bottom');
 
+    $navbarTop = $('.navbar .navbar__top');
+    $navbarBottom = $('.navbar .navbar__bottom');
+
+    // TODO: header epsilon into shared variable
     $scrollable.animate({
-        scrollTop: target - $navbar.outerHeight()
-    }, Math.abs(current - target) * velocity);
+        scrollTop: target - $navbarBottom.outerHeight() - (target > 50 ? $navbarTop.outerHeight() : 0)
+    }, Math.abs(current - target) * velocity, callback);
 }
 
 
+// prefix provided rules (object)
+function prefixCss (rules) {
+    for (let key of Object.keys(rules)) {
+        var value = rules[key];
 
-export {getViewport, debounce, isIphone, isIpad, getFormData, scrollTo};
+        rules['-webkit-' + key] = value;
+        rules['-moz-' + key] = value;
+        rules['-ms-' + key] = value;
+    }
+
+    return rules;
+}
+
+
+// publications
+export {getViewport, debounce, isIphone, isIpad, getFormData, scrollTo, prefixCss};

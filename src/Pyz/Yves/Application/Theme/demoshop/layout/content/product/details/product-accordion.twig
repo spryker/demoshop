@@ -1,18 +1,9 @@
-{% set data = {
-    items: [
-        { title: '#Produkt Info' },
-        { title: '#Versand' },
-        { title: '#Lagerung' },
-        { title: '#Zubereitung' },
-        { title: '#Füterungsempfehlung' },
-        { title: '#Egänzung FAQ\'s' }
-    ]
-} %}
-
 <div class="product-accordion">
-    {% for item in data.items %}
+    {% for item in product.accordion %}
         {% include '@application/layout/content/product/details/product-accordion-item.twig' with {
-            item: item
+            item: {
+                title: item.key
+            }
         } %}
     {% endfor %}
 </div>

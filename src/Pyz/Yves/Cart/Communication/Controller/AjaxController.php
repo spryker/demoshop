@@ -2,6 +2,7 @@
 
 namespace Pyz\Yves\Cart\Communication\Controller;
 
+use Generated\Shared\Transfer\ItemConfigurationTransfer;
 use Pyz\Yves\Tracking\Business\DataFormatter\CartDataFormatter;
 use Pyz\Yves\Tracking\Business\Tracking;
 use Pyz\Yves\Application\Communication\Bootstrap\Extension\GlobalTemplateVariablesExtension;
@@ -53,7 +54,7 @@ class AjaxController extends AbstractController
      *
      * @return RedirectResponse
      */
-    public function addAction($sku, $quantity, $optionValueUsageIds = [])
+    public function addAction($sku, $quantity, $ingredients = null)
     {
         $cartClient = $this->getLocator()->cart()->client();
 
@@ -62,12 +63,22 @@ class AjaxController extends AbstractController
         $itemTransfer->setSku($sku);
         $itemTransfer->setQuantity($quantity);
 
-        foreach ($optionValueUsageIds as $idOptionValueUsage) {
-            $productOptionTransfer = new ProductOptionTransfer();
-            $productOptionTransfer->setIdOptionValueUsage($idOptionValueUsage)
-                ->setLocaleCode($this->getLocale());
-            $itemTransfer->addProductOption($productOptionTransfer);
+
+        if (is_array($ingredients)) {
+            $ingredientItems = [];
+
+            foreach ($ingredients as $groupKey => $groupKeyValues) {
+                $ingredientItem = new ItemConfigurationTransfer();
+
+                $ingredientItem->setGroupKey($groupKey);
+                $ingredientItem->setGroupValues($groupKeyValues);
+
+                $ingredientItems[] = $ingredientItem;
+            }
+
+            $itemTransfer->setConfiguration(new \ArrayObject($ingredientItems));
         }
+
 
         $cartClient->addItem($itemTransfer);
 

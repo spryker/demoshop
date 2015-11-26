@@ -31,16 +31,8 @@
 <div class="product-features">
     <h2 class="product-features__title">{{ data.headline }}</h2>
 
-    {% for feature in data.features %}
-    <h3 class="product-features__category">{{ feature.title }}</h3>
-
-    <ul class="product-features__list">
-
-        {% for bullet in feature.bullets %}
-        <li class="product-features__item">{{ bullet }}</li>
-        {% endfor %}
-
-    </ul>
-    {% endfor %}
+    <div class="product-features__list">
+        {{ product.why_pets_deli }}
+    </div>
 
 </div>

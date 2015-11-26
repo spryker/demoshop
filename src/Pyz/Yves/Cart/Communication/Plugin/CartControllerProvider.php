@@ -55,9 +55,10 @@ class CartControllerProvider extends YvesControllerProvider
 
         $this->createGetController('/cart/overlay', self::ROUTE_CART_OVERLAY, 'Cart', 'Ajax', 'index');
 
-        $this->createPostController('/cart/add/{sku}', self::ROUTE_CART_ADD_AJAX, 'Cart', 'Ajax', 'add', true)
-            ->assert('sku', '[a-zA-Z0-9-_]+')
+        $this->createPostController('/cart/add', self::ROUTE_CART_ADD_AJAX, 'Cart', 'Ajax', 'add', true)
+            ->convert('sku', [$this, 'getSkuFromRequest'])
             ->convert('quantity', [$this, 'getQuantityFromRequest'])
+            ->convert('ingredients', [$this, 'getIngredientsFromRequest'])
         ;
 
         $this->createPostController('/cart/remove/{sku}/{groupKey}', self::ROUTE_CART_REMOVE_AJAX, 'Cart', 'Ajax', 'remove', true)
@@ -108,6 +109,22 @@ class CartControllerProvider extends YvesControllerProvider
         }
 
         return (int) $request->query->get('quantity', 1);
+    }
+
+    public function getSkuFromRequest($unusedParameter, Request $request) {
+        if ($request->isMethod('POST')) {
+            return $request->request->get('sku');
+        }
+
+        return $request->query->get('sku');
+    }
+
+    public function getIngredientsFromRequest($unusedParameter, Request $request) {
+        if ($request->isMethod('POST')) {
+            return $request->request->get('ingredients');
+        }
+
+        return $request->query->get('ingredients');
     }
 
 }

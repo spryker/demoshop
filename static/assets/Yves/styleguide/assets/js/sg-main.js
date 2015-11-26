@@ -1,32 +1,41 @@
-// TODO: clean up this mess
+// common functionality
+import './modules/common/bodyScrolling';
+import './modules/common/formBackup';
+import './modules/common/messages';
 
-import './modules/bodyScrolling';
-import './modules/faqCard';
-import './modules/faqSwitch';
-import './modules/formBackup';
-import './modules/headerMenu';
-import './modules/navbar';
-import './modules/offcanvas';
-import './modules/productConfigurator';
-import './modules/productFilter';
-import './modules/productGallery';
-import './modules/productAccordion';
+// forms related
+import './modules/forms/dropdown';
+import './modules/forms/radio';
+import './modules/forms/checkbox';
+import './modules/forms/stepper';
+import './modules/forms/passwordInput';
+import './modules/forms/input';
 
-import './modules/dropdown';
-import './modules/radio';
-import './modules/checkbox';
-import './modules/stepper';
-import './modules/passwordInput';
-import './modules/input';
+// navigation related
+import './modules/navigation/headerMenu';
+import './modules/navigation/navbar';
+import './modules/navigation/offcanvas';
+import './modules/navigation/scrollButton';
 
-import './modules/cartLayer';
-import './modules/productOptions';
-import './modules/checkout';
+// catalog related
+import './modules/content/catalog/categoryHeader';
 
-import './modules/scrollButton';
-import './modules/formBuilder';
-import './modules/categoryHeader';
+// checkout/cart/user related
+import './modules/content/checkout/cartLayer';
+import './modules/content/checkout/checkout';
+import './modules/content/checkout/loginSlider';
 
+// faq related
+import './modules/content/faq/faqCard';
+import './modules/content/faq/faqSwitch';
 
-// not in use
-//import './modules/productSlider';
+// product related
+import './modules/content/product/productConfigurator';
+import './modules/content/product/productFilter';
+import './modules/content/product/productGallery';
+import './modules/content/product/productAccordion';
+import './modules/content/product/productOptions';
+// import './modules/productSlider'; (currently not in use)
+
+// temporarily included
+import './modules/zed/formBuilder';

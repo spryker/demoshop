@@ -1,16 +1,22 @@
 {% set data = {
-    description: '#Die verschiedenen Menüs enthalten Rind, Känguru, Huhn, Pute oder Rotbarschfilet. Als Beilagen sind vorgekochter und pürierter Brokkoli, Karotten, Kürbis, Kartoffeln oder gekochter Reis enthalten.
-    Als Beilagen sind vorgekochter und pürierter Brokkoli, Karotten, Kürbis, Kartoffeln oder gekochter Reis enthalten. Die Obstkomponenten bestehen aus pürierter Mango oder pürierter Banane.',
     customize: 'Falls Ihr Hund einige Zutaten schlecht verträgt, können Sie die Auswahl hier anpassen'
 } %}
 
 <div class="product-content">
     <h1 class="product-content__title">Inhalt</h1>
-    <div class="product-content__description">{{ data.description | nl2br}}</div>
 
-    <!-- TODO: condition -->
-    <button type="button" class="product-content__customize button js-product-customize">Inhalt anpassen</button>
+    {% if product.description.markdown is defined %}
+        <div class="product-content__description">
+            {% markdown %}
+                {{ product.description.markdown | nl2br}}
+            {% endmarkdown %}
+        </div>
+    {% endif %}
 
-
-    <div class="product-content__description">{{ data.customize }}</div>
+    {% if options is not empty %}
+        <div class="product-content__customize">
+            {{ data.customize }}
+            <button type="button" class="product-content__button button js-product-customize">Inhalt anpassen</button>
+        </div>
+    {% endif %}
 </div>
