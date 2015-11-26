@@ -37,85 +37,50 @@ class Address extends AbstractType
      */
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
+        // TODO: translations
         $builder
             ->add('first_name', 'text', [
-//                'constraints' => [
-//                    new Assert\NotBlank(),
-//                ],
-                'label' => false,
-                'required' => false,
+                'label' => 'Vorname',
+                'required' => true,
                 'attr' => [
-                    'tabindex' => 10 + $this->offset,
-                    'class' => 'padded js-checkout-name',
-                    'placeholder' => 'Vorname',
-                    'style' => 'width: 24%; float: left;',
+                    'class' => 'input--1-2'
                 ],
             ])
             ->add('last_name', 'text', [
-//                'constraints' => [
-//                    new Assert\NotBlank(),
-//                ],
-                'label' => false,
+                'label' => 'Nachname',
                 'required' => false,
                 'attr' => [
-                    'tabindex' => 20 + $this->offset,
-                    'class' => 'padded js-checkout-name',
-                    'placeholder' => 'Name',
-                    'style' => 'width: 24%; float: right; margin-right: 50%; clear: none',
-                ],
-            ])
-            ->add('street_nr', 'text', [
-//                'constraints' => [
-//                    new Assert\NotBlank()
-//                ],
-                'label' => false,
-                'required' => false,
-                'property_path' => 'address2',
-                'attr' => [
-                    'tabindex' => 40 + $this->offset,
-                    'class' => 'padded js-checkout-name',
-                    'placeholder' => 'Nummer',
-                    'style' => 'float: right; margin-right: 50%; width: 13%;',
+                    'class' => 'input--1-2'
                 ],
             ])
             ->add('street', 'text', [
-//                'constraints' => [
-//                    new Assert\NotBlank()
-//                ],
-                'label' => false,
-                'required' => false,
+                'label' => 'Straße',
+                'required' => true,
                 'property_path' => 'address1',
                 'attr' => [
-                    'tabindex' => 30 + $this->offset,
-                    'class' => 'padded js-checkout-name',
-                    'placeholder' => 'Straße',
-                    'style' => 'width: 35%; float: left;',
+                    'class' => 'input--3-4'
                 ],
             ])
-            ->add('city', 'text', [
-//                'constraints' => [
-//                    new Assert\NotBlank()
-//                ],
-                'label' => false,
-                'required' => false,
+            ->add('street_nr', 'text', [
+                'label' => 'Nr.',
+                'required' => true,
+                'property_path' => 'address2',
                 'attr' => [
-                    'tabindex' => 60 + $this->offset,
-                    'class' => 'padded js-checkout-name',
-                    'placeholder' => 'Stadt',
-                    'style' => 'width: 38%; float: right; margin-right: 50%;',
+                    'class' => 'input--1-4'
                 ],
             ])
             ->add('zip_code', 'text', [
-//                'constraints' => [
-//                    new Assert\NotBlank()
-//                ],
-                'label' => false,
-                'required' => false,
+                'label' => 'PLZ',
+                'required' => true,
                 'attr' => [
-                    'tabindex' => 50 + $this->offset,
-                    'class' => 'padded js-checkout-name',
-                    'placeholder' => 'PLZ',
-                    'style' => 'width: 10%;',
+                    'class' => 'input--1-4'
+                ],
+            ])
+            ->add('city', 'text', [
+                'label' => 'Stadt',
+                'required' => true,
+                'attr' => [
+                    'class' => 'input--3-4'
                 ],
             ])
             ->add('iso2code', 'hidden', [
@@ -126,12 +91,8 @@ class Address extends AbstractType
                     60   => 'Germany',
                     14 => 'Austria',
                 ),
-                'label' => false,
-                'property_path' => 'address3',
-                'attr' => [
-                    'class' => 'js-country',
-                    'style' => 'width: 24%; float: left;',
-                ],
+                'label' => 'Land',
+                'property_path' => 'address3'
             ))
         ;
     }

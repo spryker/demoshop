@@ -2,7 +2,8 @@
 
 <div class="product-intro">
     <h1 class="product-info__title">{{ product.abstract_name }}</h1>
-    <div class="product-info__subtitle">{{ initial.weight }}</div>
+    <div class="product-info__subtitle">
+        <span class="js-product-weight">{{ initial.weight }}</span>{{ ('unit.' ~ initial.unit | trim ) | trans }}</div>
 
     {% if product.short_description.markdown is defined %}
         <div class="product-info__description">

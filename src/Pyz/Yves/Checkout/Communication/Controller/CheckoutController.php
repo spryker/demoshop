@@ -142,6 +142,22 @@ class CheckoutController extends AbstractController
             }
         }
 
+        $products = [];
+        foreach ($this->getCart()->getItems() as $item) {
+            if (empty($item->getName())) {
+                $item->setName('Product ' . mt_rand(1, 99));
+            }
+
+            $sku = $item->getSku();
+            $product = $this->locator->catalog()->client()->createCatalogModel()->getProductDataById($item->getId());
+
+            $products[$sku] = [
+                'url' => $product['abstract_attributes']['url'],
+                'media' => $product['abstract_attributes']['media'],
+            ];
+        }
+
+
         $trackingPurchase = CheckoutDataFormatter::formatPurchase(
             null,
             $this->getCart()->getTotals(),
@@ -156,6 +172,7 @@ class CheckoutController extends AbstractController
         return [
             'form' => $form->createView(),
             'cart' => $this->getCart(),
+            'products' => $products,
         ];
     }
 

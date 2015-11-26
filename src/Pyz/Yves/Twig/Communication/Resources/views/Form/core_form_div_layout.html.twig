@@ -1,5 +1,128 @@
 {% extends 'form_div_layout.html.twig' %}
 
+
+
+{% block form_label %}{% endblock %}
+
+
+
+{% block form_widget_simple %}
+    <!-- TODO: reuse components -->
+    <!-- TODO: check/clean attributes -->
+
+    {% set type = type | default('text') %}
+
+
+    <div class="input {{ attr.class | default('') }}">
+
+        {% if label is defined %}
+        <label class="input__label" {% if id is defined %} for="{{ id }}" {% endif %}>
+            {{ label | trans }}
+        </label>
+        {% endif %}
+
+
+        <div class="input__field">
+            <input
+                class="input__text" autocorrect="off" autocapitalize="off" type="{{ type | default('text') }}"  {{ block('widget_attributes') }} {% if placeholder is defined %}placeholder="{{ placeholder }}"{% endif %} {% if value is defined %} value="{{value}}" {% endif %} {% if required is defined %} {% endif %}>
+        </div>
+
+        {% if additional is defined %}
+        <div class="input__additional">
+            {{additional}}
+        </div>
+        {% endif %}
+    </div>
+
+{% endblock form_widget_simple %}
+
+
+
+
+{% block password_widget %}
+    {% set type = type | default('password') %}
+
+    <div class="password-input">
+        <a class="password-input__forgot" href="/password/forgot">Vergessen?</a>
+
+        {{ block('form_widget_simple') }}
+
+        <button type="button" class="password-input__toggle">Passwort anzeigen</button>
+    </div>
+{% endblock password_widget %}
+
+
+
+
+{% block submit_widget %}
+    {%- set type = type|default('submit') -%}
+    {% include '@application/layout/common/forms/button.twig' with {
+        title: label,
+        modifier: 'cta'
+    } %}
+{% endblock submit_widget %}
+
+
+
+
+{% block radio_widget %}
+    <div class="radio">
+        <input class="radio__input" type="radio" {{ block('widget_attributes') }}{% if value is defined %} value="{{ value }}"{% endif %}{% if checked %} checked="checked"{% endif %} />
+
+        <label class="radio__label" for="{{id}}">
+            {% if image is defined %}
+                <img class="radio__image" src="{{ image }}" alt="{{ label }}" draggable="false" />
+            {% endif %}
+            {{ label | trans }}
+        </label>
+    </div>
+{% endblock radio_widget %}
+
+
+
+
+{% block checkbox_widget %}
+    <div class="checkbox {{ attr.class | default('') }}">
+        <input class="checkbox__input" type="checkbox" id="{{ id }}" {{ block('widget_attributes') }} value="{{ value }}">
+        <label class="checkbox__label" for="{{ id }}">{{ label | trans | nl2br | markdown }}</label>
+    </div>
+{% endblock checkbox_widget %}
+
+
+
+
+{%- block choice_widget_collapsed -%}
+    {%- if required and placeholder is none and not placeholder_in_choices and not multiple -%}
+        {% set required = false %}
+    {%- endif -%}
+
+
+
+    <div class="dropdown">
+        {% if label is defined %}
+            <label class="input__label" for="{{ id }}">{{ label }}</label>
+        {% endif %}
+
+        <select class="js-select" {{ block('widget_attributes') }}{% if multiple %} multiple="multiple"{% endif %}>
+            {%- if placeholder is not none -%}
+                <option value=""{% if required and value is empty %} selected="selected"{% endif %}>{{ placeholder != '' ? (translation_domain is same as(false) ? placeholder : placeholder|trans({}, translation_domain)) }}</option>
+            {%- endif -%}
+            {%- if preferred_choices|length > 0 -%}
+                {% set options = preferred_choices %}
+                {{- block('choice_widget_options') -}}
+                {%- if choices|length > 0 and separator is not none -%}
+                    <option disabled="disabled">{{ separator }}</option>
+                {%- endif -%}
+            {%- endif -%}
+            {%- set options = choices -%}
+            {{- block('choice_widget_options') -}}
+        </select>
+    </div>
+{%- endblock choice_widget_collapsed -%}
+
+
+
+
 {% block form_errors %}
     {% spaceless %}
         {% if errors|length > 0 %}

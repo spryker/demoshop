@@ -41,12 +41,10 @@ class Checkout extends AbstractType
 
         $builder
             ->add('email', 'text', [
-                //'constraints' => new Email(),
-                'required' => false,
+                'required' => true,
+                'label' => 'E-Mail-Adresse',
                 'attr' => [
-                    'tabindex' => 100,
-                    'class' => 'padded js-checkout-email',
-                    'placeholder' => 'Email-Adresse',
+                    'class' => 'input--1-1',
                 ],
             ])
             ->add('billing_address', new Address(200), [
@@ -71,12 +69,23 @@ class Checkout extends AbstractType
                     'class' => 'payment-options',
                 ],
             ])
-            ->add('terms', 'checkbox', [
+            ->add('newsletter', 'checkbox', [
+                'label' => '**Abonnieren Sie unseren Newsletter**
+                Ja, ich möchte hilfreiche Tipps für mein Haustier erhalten und über Aktionen & Gutscheine per E-Mail informiert werden. Abmeldung jederzeit möglich.',
                 'required' => false,
                 'mapped' => false,
                 'attr' => [
                     'tabindex' => 400,
-                    'class' => 'padded confirm__agb js-confirm-agb',
+                    'class' => 'checkbox--large checkbox--right',
+                ],
+            ])
+            ->add('terms', 'checkbox', [
+                'label' => 'Ich habe die Allgemeinen Geschäftsbedingungen gelesen und stimme diesen ausdrücklich zu',
+                'required' => false,
+                'mapped' => false,
+                'attr' => [
+                    'tabindex' => 400,
+                    'class' => 'checkbox--large checkbox--right',
                 ],
             ])
         ;

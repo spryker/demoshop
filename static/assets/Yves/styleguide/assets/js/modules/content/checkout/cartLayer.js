@@ -48,7 +48,7 @@ $(document).ready(function () {
     function setItemCount() {
         var $items, $trigger, itemCount;
 
-        $items = $('.cart-item');
+        $items = $('.cart-layer .cart-item');
         $trigger = $('.navbar__link--cart');
 
 

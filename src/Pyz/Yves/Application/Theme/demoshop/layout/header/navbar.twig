@@ -8,7 +8,7 @@
         ],
         press: {
             title: 'Bekannt aus',
-            references: ['bild', 'spiegel', 'ard']
+            references: ['bild', 'ard']
         },
         logo: {
             url: '/',
@@ -22,14 +22,19 @@
             { url: '/katzen/', title: 'Katzen', menu: 'menu'},
             { url: '/support/', title: 'Warum?', modifier: 'support', menu: 'menu'},
             { url: '/contact/', title: 'Fragen?', modifier: 'contact', menu: 'menu'},
-            { url: '', title: 'Anmelden', modifier: 'login'},
+            {
+                url: (app.user is not null ? '/logout/' : '/login/'),
+                title: (app.user is not null ? app.user.username : 'Anmelden'),
+                modifier: 'login'},
             { url: '/checkout/', title: 'Warenkorb', modifier: 'cart', menu: 'cart'},
         ]
     }
 %}
 
 
+
 <nav class="navbar">
+
     <div class="navbar__inner">
 
         <div class="navbar__top">

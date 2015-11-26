@@ -1,39 +1,36 @@
-{% set data = {
-    images: [
-        {
-            full: { src: 'http://placehold.it/340x470/123456', alt: 'Alt text' },
-            thumb: { src: 'http://placehold.it/100x100/123456', alt: 'Alt text' }
-        },
-        {
-            full: { src: 'http://placehold.it/340x470', alt: 'Alt text' },
-            thumb: { src: 'http://placehold.it/100x100', alt: 'Alt text' }
-        },
-        {
-            full: { src: 'http://placehold.it/340x470/654321', alt: 'Alt text' },
-            thumb: { src: 'http://placehold.it/100x100/654321', alt: 'Alt text' }
-        }
-    ]
-} %}
+{% if product.media is not empty %}
 
 
-<div class="product-gallery">
+    <div class="product-gallery">
 
-    <div class="product-gallery__back">
-        Basisnahrung
-    </div>
+        {% if product.category is not empty %}
+            {% set category = product.category | first %}
 
-    <div class="product-gallery__image">
-        <img src="{{ data.images[0].full.src }}" alt="{{ data.images[0].full.alt }}" />
-    </div>
+            <a class="product-gallery__back" href="{{ category.url }}">
+                {{ category.name }}
+            </a>
+        {% endif %}
 
-    {#
-    <div class="product-gallery__thumbnails">
-        {# for image in data.images %}
-        <div class="product-gallery__thumbnail">
-            <img src="{{ image.thumb.src }}" alt="{{ image.thumb.alt }}" data-src="{{ image.full.src }}" data-alt="{{ image.full.alt }}" />
+
+        <div class="product-gallery__image">
+            {% set image = product.media | first %}
+
+            {% if image.url is defined %}
+                <img width="403" height="403" src="/images/products/{{ image.url }}" alt="Produktabbildung" />
+            {% endif %}
         </div>
-        {# endfor %}
-    </div>
-    #}
 
-</div>
+
+        {% if product.media | length > 1 %}
+            <div class="product-gallery__thumbnails">
+                {% for image in product.media %}
+                    <div class="product-gallery__thumbnail">
+                        <img src="/images/products/{{ image.url }}" alt="Produktabbildung" data-src="/images/products/{{ image.url }}" data-alt="Produktabbildung" />
+                    </div>
+                {% endfor %}
+            </div>
+        {% endif %}
+    </div>
+
+
+{% endif %}

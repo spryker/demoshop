@@ -1,37 +1,64 @@
 {% spaceless %}
-    <div class="cart__labels">
-        <div class="cart__label--name">{{ 'cart.your-order'|trans }}</div>
-        <div class="cart__label--price">{{ 'cart.price'|trans }}</div>
-    </div>
     <div class="cart__items js-cart-items">
         {% for item in cart.items %}
-            {% if imageUrl is defined and imageUrl is not null %}
-                <img class="cart__item-image" src="{{ imageUrl }}">
-            {% endif %}
-            <div class="cart__item-quantity">{{ item.quantity }}</div>
-            <div class="cart__item-name">{{ item.name }}</div>
-            <div class="cart__item-price">{{ (item.grossPrice * item.quantity)|price }}</div>
+            {% include '@application/layout/content/product/cart/cart-item.twig' with {
+                title: item.name,
+                weight: '250g',
+                quantity: item.quantity,
+                price: item.grossPrice,
+                sku: item.sku,
+                groupKey: item.groupKey,
+                product: products[item.sku]
+            } %}
         {% endfor %}
-    </div>
 
-    {% block discounts %}
-        {% if cart.totals.discount.discountItems is not empty %}
-            <div class="cart__discount">
-                <div class="cart__discount-header">{{ 'cart.discounts'|trans }}</div>
-                {% include "@checkout/checkout/partials/discountList.twig" %}
+
+        {% for expense in cart.expenses %}
+            <div class="cart-position">
+                <div class="cart-position__left"></div>
+                <div class="cart-position__right">
+                    {{ expense.name }}
+                    <span class="cart-position__price">{{ expense.grossPrice | price }}<span>
+                </div>
             </div>
-        {% endif %}
-    {% endblock %}
+        {% endfor %}
 
-    {% for expense in cart.expenses %}
-        <div class="cart__shipping-label">{{ expense.name }}</div>
-        <div class="cart__shipping-price js-cart-shipping ">{{ expense.grossPrice|price }}</div>
-    {% endfor %}
 
-    {% if cart.totals is defined and cart.totals is not null %}
-        <div class="cart__total">
-            <div class="cart__total-label" colspan="2">{{ 'cart.total'|trans }}</div>
-            <div class="cart__total-price js-cart-total">{{ cart.totals.grandTotalWithDiscounts|price }}</div>
+        {% block discounts %}
+            {% include "@checkout/checkout/partials/discountList.twig" %}
+        {% endblock %}
+
+
+        <div class="cart-position cart-position--total">
+            <div class="cart-position__left">
+                <div class="js-voucher-form" style="display: none;">
+                    <input type="hidden" id="checkoutAddCouponUrl" value="{{ url('checkout/add-coupon') }}">
+                    <input type="hidden" id="checkoutRemoveCouponUrl" value="{{ url('checkout/remove-coupon') }}">
+
+                    {% include '@application/layout/common/forms/input.twig' with {
+                        id: 'cart__coupon-code',
+                        label: 'Gutschein'
+                    } %}
+
+                    {% include '@application/layout/common/forms/button.twig' with {
+                        modifier: 'cta js-cart-use-coupon-button-code',
+                        title: 'Gutschein einlösen',
+                        type: 'button'
+                    } %}
+                </div>
+
+                <div class="cart-position--voucher js-voucher-form-trigger">
+                    Gutschein einlösen
+                </div>
+            </div>
+            <div class="cart-position__right">
+                {% if cart.totals is defined and cart.totals is not null %}
+                    Gesamtbetrag
+                    <span class="cart-position__price">{{ cart.totals.grandTotalWithDiscounts | price }}</span>
+                {% endif %}
+            </div>
         </div>
-    {% endif %}
+
+
+    </div>
 {% endspaceless %}

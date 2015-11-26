@@ -40,14 +40,14 @@ $(document).ready(function () {
             $(document).trigger(NAVBAR_EVENTS.NAVSTATE_CHANGE);
         });
 
-        $('.navbar__link--login').click(function (e) {
-            e.preventDefault();
-
-            var toast = new ToastService();
-            toast.show({
-                message: 'Login layer'
-            });
-        });
+        // $('.navbar__link--login').click(function (e) {
+        //     e.preventDefault();
+        //
+        //     var toast = new ToastService();
+        //     toast.show({
+        //         message: 'Login layer'
+        //     });
+        // });
 
         $(window).resize(debounce(250, function () {
             updateHeight();

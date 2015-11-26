@@ -6,10 +6,10 @@
 
 .product-options{
     position: absolute;
+}
 
-    &.js-sticky{
-        position: fixed;
-    }
+.product-options--sticky{
+    position: fixed;
 }
 
 .product-options__select{
@@ -30,7 +30,7 @@
     }
 
     .dropdown, .stepper{
-        margin-top: 0;    
+        margin-top: 0;
     }
 
     .dropdown{

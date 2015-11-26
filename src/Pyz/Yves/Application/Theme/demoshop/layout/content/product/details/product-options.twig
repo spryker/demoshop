@@ -1,42 +1,46 @@
 {% set productConcrete = product.concreteProducts | first %}
 {% set initial = (pricings | first) %}
 
-<div class="product-options">
-    <form action="/cart/add/" method="POST">
+<form action="/cart/add/" method="POST" class="product-options js-product-options" data-sku="{{ productConcrete.sku }}">
 
-        {% if options is not empty %}
-            <div class="product-options__select">
-                {% include  '@application/layout/common/forms/dropdown.twig' with {
-                    label: 'Größe',
-                    id: 'weight',
-                    name: 'weight',
-                    options: options.weight
-                } %}
-            </div>
-        {% endif %}
-
-        <div class="product-options__select">
-            {% include  '@application/layout/common/forms/stepper.twig' with {
-                label: 'Anzahl',
-                id: 'quantity',
-                name: 'quantity'
+    {% if options is not empty %}
+        {% set option = options | first %}
+        <div class="product-options__select js-product-weight-select">
+            {% include  '@application/layout/common/forms/dropdown.twig' with {
+                label: 'Größe',
+                id: 'weight',
+                name: 'weight',
+                options: option.weight
             } %}
         </div>
+    {% endif %}
 
-        <div class="product-options__pricing">
-            {% set initial = (pricings | first ) %}
+    <div class="product-options__select">
+        {% include  '@application/layout/common/forms/stepper.twig' with {
+            label: 'Anzahl',
+            id: 'quantity',
+            name: 'quantity'
+        } %}
+    </div>
 
-            <div class="product-options__total">{{ initial.absolute | price}}</div>
-            <div class="product-options__relative">{{ initial.weight }}{{ initial.unit }} ({{ initial.relative | price }} / {{ initial.unit == 'ml' or initial.unit == 'g' ? 100 : 1 }}{{ initial.unit }})</div>
+    <div class="product-options__pricing">
+        {% set initial = (pricings | first ) %}
+
+        <div class="product-options__total">
+            {{ initial.absolute | price}}
         </div>
 
-        <!-- TODO: strings into glossary -->
-        <button
-            class="product-options__button button button--cta" data-sku="{{ productConcrete.sku }}">
-            In den Warenkorb
-        </button>
+        <div class="product-options__relative">
+            <span class="js-product-weight">{{ initial.weight }}</span>{{ ('unit.' ~ initial.unit | trim) | trans }} ({{ initial.relative | price }} / {{ initial.unit == 'ml' or initial.unit == 'g' ? 100 : 1 }}{{ initial.unit }})
+        </div>
+    </div>
 
-    </form>
+    <!-- TODO: strings into glossary -->
+    {% include '@application/layout/common/forms/button.twig' with {
+        type: 'submit',
+        title: 'In den Warenkorb',
+        modifier: 'cta product-options__button button'
+    } %}
 
     <div class="product-options__delivery">
         <div class="product-options__delivery-status">
@@ -47,4 +51,5 @@
             Versand erfolgt für Bestellungen bis 12.00 Uhr Mo-Do normalerweise am selben Tag.
         </div>
     </div>
-</div>
+
+</form>

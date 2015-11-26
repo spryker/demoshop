@@ -1,28 +1,16 @@
-{% extends "@application/layout/layout.twig" %}
+{% include "@application/layout/content/category/header.twig" with {
+    category: category.name,
+    image: '/images/category/header.jpg',
+    facts: [
+        'Fertige and Frische
+        Menüboxen',
+        'Bestes Muskelfleisch in
+        Lebensmittelqualität',
+        '100% naturliche Zutaten
+        ohne Zusätze'
+    ]
+} %}
 
-
-{% block content %}
-
-    {% include "@application/layout/content/category/header.twig" with {
-        category: category.name,
-        image: '/images/category/header.jpg',
-        facts: [
-            'Fertige and Frische
-            Menüboxen',
-            'Bestes Muskelfleisch in
-            Lebensmittelqualität',
-            '100% naturliche Zutaten
-            ohne Zusätze'
-        ],
-        categories: [
-            { title: 'Alle Größen', url: '/hunde/' },
-            { title: 'Kleine Hunde', url: '/hunde/' },
-            { title: 'Große Hunde', url: '/hunde/' },
-        ]
-    } %}
-
-    {% include "@application/layout/content/category/product-grid.twig" with {
-        products: products
-    } %}
-
-{% endblock %}
+{% include "@application/layout/content/category/product-grid.twig" with {
+    products: products
+} %}

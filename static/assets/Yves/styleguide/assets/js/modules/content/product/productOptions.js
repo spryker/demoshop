@@ -1,4 +1,5 @@
 import $ from 'jquery';
+import throttle from 'lodash/function/throttle';
 import { EVENTS } from '../checkout/cartLayer';
 import { getFormData } from '../../common/helpers';
 
@@ -8,37 +9,44 @@ import { getFormData } from '../../common/helpers';
 $(document).ready(function () {
 
     // TODO: js-class
-    $('.product-options').each(function () {
+
+    $('.js-product-options').each(function () {
 
         var $options, $stickyLimiter, optionsOffset, $configurator, $submit, $weightSelect, $weight, $totalPrice, $relativePrice, productConfig;
 
         $options = $(this);
-        $stickyLimiter = $('.product-accordion');
-        updateOffset();
 
-        $submit = $('.product-options__button');
-        $weightSelect = $('.product-options__select select');
-        $weight = $('.product-info__subtitle, .product-options__weight');
-        $totalPrice = $('.product-options__total');
-        $relativePrice = $('.product-options__relative');
-        $configurator = $('.product-configurator form');
+        $weightSelect = $options.find('.js-product-weight-select select');
+        $weight = $options.find('.js-product-weight');
+        $totalPrice = $options.find('.js-product-options__total');
+        $relativePrice = $options.find('.js-product-options__relative');
+        $configurator = $options.find('.js-product-configurator form');
 
         // TODO: submit
-        $submit.click(addProduct);
+        $options.submit(addProduct);
+
+        // TODO: update pricings and configurator
         $weightSelect.change(updateProductConfig);
 
         productConfig = {};
 
         // TODO: window/document variables
-        $(window).scroll(updateStickyPosition);
 
 
-        // TODO: debounce
-        $(window).resize(updateOffset);
+
+        // TODO: separate components: sticky / productoptions
+        $stickyLimiter = $options.find('.js-product-accordion');
+        if ($stickyLimiter.size()) {
+            updateOffset();
+            $(window).scroll(updateStickyPosition);
+            $(window).resize(throttle(updateOffset, 250));
+        }
+
+
 
 
         function updateOffset () {
-            $options.removeClass('js-sticky')
+            $options.removeClass('product-options--sticky')
             $options.css('top', 0);
 
             setTimeout(function () {
@@ -59,12 +67,11 @@ $(document).ready(function () {
         function addProduct (event) {
             event.preventDefault();
 
-            var $button, $form, sku, quantity
+            var $button, sku, quantity
 
             $button = $(this);
-            $form = $button.parents('form');
-            sku = $button.data('sku');
-            quantity = $form.find('[name=quantity]').val();
+            sku = $options.data('sku');
+            quantity = $options.find('[name=quantity]').val();
 
             var postData = getFormData($configurator);
             for (let i in Object.keys(postData)) {
@@ -76,7 +83,7 @@ $(document).ready(function () {
                 }
             }
 
-            $.post($form.attr('action'), {
+            $.post($options.attr('action'), {
                 sku: sku,
                 quantity: quantity,
                 weight: productConfig.weight,
@@ -97,14 +104,14 @@ $(document).ready(function () {
             scrollTop = $(window).scrollTop();
 
             if (scrollTop <= limit) {
-                if (!$options.hasClass('js-sticky')) {
-                    $options.addClass('js-sticky')
+                if (!$options.hasClass('product-options--sticky')) {
+                    $options.addClass('product-options--sticky')
                     $options.css('top', optionsOffset);
                 }
 
             } else {
-                if ($options.hasClass('js-sticky')) {
-                    $options.removeClass('js-sticky')
+                if ($options.hasClass('product-options--sticky')) {
+                    $options.removeClass('product-options--sticky')
                     $options.css('top', limit);
                 }
             }

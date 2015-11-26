@@ -1,11 +1,14 @@
 {% if product.concrete_products is defined %}
     {% set productConcrete = product.concrete_products | first %}
+    {% set image = productConcrete.attributes.media | first %}
 
     <div class="product-card">
-        <div class="product-card__inner">
+        <a class="product-card__inner" href="{{ product.abstract_attributes.url }}">
             <div class="product-card__image">
-                <div class="product-card__label">#Most popular</div>
-                <img src="../images/product/small_1.jpg" />
+                <!-- <div class="product-card__label"></div> -->
+                {% if image.url is defined %}
+                    <img width="403" height="403" src="/images/products/{{ image.url }}" alt="Produktabbildung" />
+                {% endif %}
             </div>
             <div class="product-card__content">
                 <div class="product-card__infos">
@@ -23,19 +26,25 @@
                             {% endif %}
                         </div>
                         <div class="product-card__price-relative">
-                            {% if productConcrete.attributes.weight is defined %}
-                                {{ productConcrete.attributes.weight }} (€1,4 / 100g)
+                            {% if productConcrete.attributes is defined %}
+                                {% set unit = (productConcrete.attributes.weight_unit | trim) %}
+                                {% set weight = productConcrete.attributes.weight %}
+                                {% set base = (unit == 'ml' or unit == 'g' ? 100 : 1) %}
+                                {% set absolute = productConcrete.prices.DEFAULT %}
+                                {% set relative = (absolute / weight * base) %}
+
+                                {{ weight }}{{ ('unit.' ~ unit) | trans }} ({{ relative | price }} / {{ base }}{{ ('unit.' ~ unit) | trans }})
                             {% endif %}
                         </div>
                     </div>
                     <div class="product-card__detail">
                         {% include '@application/layout/common/forms/button.twig' with {
                             title: 'Zum Produkt',
-                            url: product.abstract_attributes.url
+                            type: 'button'
                         } %}
                     </div>
                 </div>
             </div>
-        </div>
+        </a>
     </div>
 {% endif %}

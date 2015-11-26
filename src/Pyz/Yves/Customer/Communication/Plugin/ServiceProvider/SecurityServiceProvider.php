@@ -114,6 +114,7 @@ class SecurityServiceProvider extends AbstractPlugin implements
     {
         $array = ['success' => true];
         $response = new Response(json_encode($array));
+        $response->headers->set('Location', $request->headers->get('referer'));
         $response->headers->set('Content-Type', 'application/json');
 
         return $response;
@@ -129,6 +130,7 @@ class SecurityServiceProvider extends AbstractPlugin implements
     {
         $array = ['success' => false, 'message' => $exception->getMessage()]; // data to return via JSON
         $response = new Response(json_encode($array));
+        $response->headers->set('Location', $request->headers->get('referer'));
         $response->headers->set('Content-Type', 'application/json');
 
         return $response;

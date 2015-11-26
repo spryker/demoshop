@@ -22,12 +22,15 @@
 }
 
 .product-card__inner{
+    text-decoration: none;
 }
 
 .product-card__image{
     position: relative;
+    padding-bottom: 100%;
 
     img{
+        position: absolute;
         @include responsiveImage;
     }
 }
