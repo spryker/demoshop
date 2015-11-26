@@ -11,11 +11,13 @@
 
       add: function (data) {
         Object.keys(data).forEach(function (key) {
-          window.dataLayer.push(data[key]);
+          var trackingElement = {};
+          trackingElement[key] = data[key];
+          window.dataLayer.push(trackingElement);
         });
 
         if (dataLayerManager.isNonProduction()) {
-         // console.log('dataLayer:' , window.dataLayer);
+          //console.log('dataLayer:' , window.dataLayer);
           //console.log('dataLayer:' , JSON.stringify(window.dataLayer, true, 2));
         }
       }
