@@ -4,6 +4,7 @@ namespace Pyz\Zed\Shipment\Business\Internal\DemoData;
 
 use Generated\Shared\Transfer\ShipmentCarrierTransfer;
 use Generated\Shared\Transfer\ShipmentMethodTransfer;
+use Pyz\Zed\Shipment\Dependency\Facade\ShipmentToCountryInterface;
 use SprykerFeature\Zed\Installer\Business\Model\AbstractInstaller;
 use SprykerFeature\Zed\Shipment\Business\Model\Carrier;
 use SprykerFeature\Zed\Shipment\Business\Model\Method;
@@ -24,6 +25,7 @@ class ShipmentInstall extends AbstractInstaller
     const NAME_AUSTRIA_GLOSSARY_KEY_SHIPMENT_METHOD  = 'shipment.austriaDefaultCarrier.defaultMethod.name';
     const DESCRIPTION_AUSTRIA_GLOSSARY_KEY_SHIPMENT_METHOD = 'shipment.austriaDefaultCarrier.defaultMethod.description';
     const PRICE_AUSTRIA_SHIPMENT_METHOD = 990;
+    const AUSTRIA_ISO_CODE = 'AT';
 
 
     /**
@@ -42,18 +44,26 @@ class ShipmentInstall extends AbstractInstaller
     protected $carrier;
 
     /**
+     * @var ShipmentToCountryInterface
+     */
+    protected $countryFacade;
+
+    /**
      * @param ShipmentQueryContainerInterface $queryContainer
      * @param Carrier $carrier
      * @param Method $method
+     * @param ShipmentToCountryInterface $countryFacade
      */
     public function __construct(
         ShipmentQueryContainerInterface $queryContainer,
         Carrier $carrier,
-        Method $method
+        Method $method,
+        ShipmentToCountryInterface $countryFacade
     ) {
         $this->queryContainer = $queryContainer;
         $this->carrier = $carrier;
         $this->method = $method;
+        $this->countryFacade = $countryFacade;
     }
 
     public function install()
@@ -125,7 +135,17 @@ class ShipmentInstall extends AbstractInstaller
         $shipmentMethodTransfer->setGlossaryKeyDescription(self::DESCRIPTION_AUSTRIA_GLOSSARY_KEY_SHIPMENT_METHOD);
         $shipmentMethodTransfer->setPrice(self::PRICE_AUSTRIA_SHIPMENT_METHOD);
         $shipmentMethodTransfer->setIsActive(true);
+        $shipmentMethodTransfer->setFkCountry($this->getCountryIdByIsoCode(self::AUSTRIA_ISO_CODE));
 
         $this->method->create($shipmentMethodTransfer);
+    }
+
+    /**
+     * @param string $isoCode
+     * @return int
+     */
+    protected function getCountryIdByIsoCode($isoCode)
+    {
+        return $this->countryFacade->getIdCountryByIso2Code($isoCode);
     }
 }
