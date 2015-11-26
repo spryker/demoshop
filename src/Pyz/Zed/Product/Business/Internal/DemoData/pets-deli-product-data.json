@@ -4,7 +4,7 @@
     "type": "simple",
     "tax": "7.00",
     "categories": [
-      "5"
+        "dog"
     ],
     "locales": [
       {
@@ -131,7 +131,7 @@
     "type": "simple",
     "tax": "7.00",
     "categories": [
-      "5"
+"dog"
     ],
     "locales": [
       {
@@ -258,7 +258,7 @@
     "type": "simple",
     "tax": "7.00",
     "categories": [
-      "5"
+"dog"
     ],
     "locales": [
       {
@@ -385,7 +385,7 @@
     "type": "simple",
     "tax": "7.00",
     "categories": [
-      "5"
+"dog"
     ],
     "locales": [
       {
@@ -512,7 +512,7 @@
     "type": "simple",
     "tax": "7.00",
     "categories": [
-      "6"
+"dog"
     ],
     "locales": [
       {
@@ -639,7 +639,7 @@
     "type": "simple",
     "tax": "7.00",
     "categories": [
-      "6"
+"dog"
     ],
     "locales": [
       {
@@ -766,7 +766,7 @@
     "type": "simple",
     "tax": "7.00",
     "categories": [
-      "6"
+"dog"
     ],
     "locales": [
       {
@@ -893,7 +893,7 @@
     "type": "simple",
     "tax": "7.00",
     "categories": [
-      "6"
+"dog"
     ],
     "locales": [
       {
@@ -1020,7 +1020,7 @@
     "type": "simple",
     "tax": "7.00",
     "categories": [
-      "6"
+"dog"
     ],
     "locales": [
       {
@@ -1147,7 +1147,7 @@
     "type": "simple",
     "tax": "7.00",
     "categories": [
-      "4"
+"dog"
     ],
     "locales": [
       {
@@ -1274,7 +1274,7 @@
     "type": "simple",
     "tax": "7.00",
     "categories": [
-      "6"
+"dog"
     ],
     "locales": [
       {
@@ -1401,7 +1401,7 @@
     "type": "simple",
     "tax": "7.00",
     "categories": [
-      "4"
+"dog"
     ],
     "locales": [
       {
@@ -1528,7 +1528,7 @@
     "type": "simple",
     "tax": "7.00",
     "categories": [
-      "4"
+"dog"
     ],
     "locales": [
       {
@@ -1655,7 +1655,7 @@
     "type": "simple",
     "tax": "7.00",
     "categories": [
-      "4"
+"dog"
     ],
     "locales": [
       {
@@ -1782,7 +1782,7 @@
     "type": "simple",
     "tax": "7.00",
     "categories": [
-      "4"
+"dog"
     ],
     "locales": [
       {
@@ -1909,7 +1909,7 @@
     "type": "simple",
     "tax": "7.00",
     "categories": [
-      "4"
+"dog"
     ],
     "locales": [
       {
@@ -2036,7 +2036,7 @@
     "type": "simple",
     "tax": "7.00",
     "categories": [
-      "3"
+"dog"
     ],
     "locales": [
       {
@@ -2279,7 +2279,7 @@
     "type": "simple",
     "tax": "7.00",
     "categories": [
-      "3"
+"dog"
     ],
     "locales": [
       {
@@ -2522,7 +2522,7 @@
     "type": "simple",
     "tax": "7.00",
     "categories": [
-      "8"
+"dog"
     ],
     "locales": [
       {
@@ -2690,7 +2690,7 @@
     "type": "simple",
     "tax": "7.00",
     "categories": [
-      "3"
+"dog"
     ],
     "locales": [
       {
@@ -2933,7 +2933,7 @@
     "type": "simple",
     "tax": "7.00",
     "categories": [
-      "3"
+"dog"
     ],
     "locales": [
       {
@@ -3176,7 +3176,7 @@
     "type": "simple",
     "tax": "7.00",
     "categories": [
-      "8"
+"dog"
     ],
     "locales": [
       {
@@ -3344,7 +3344,7 @@
     "type": "simple",
     "tax": "7.00",
     "categories": [
-      "8"
+"dog"
     ],
     "locales": [
       {
@@ -3512,7 +3512,7 @@
     "type": "simple",
     "tax": "7.00",
     "categories": [
-      "8"
+"dog"
     ],
     "locales": [
       {
@@ -3680,7 +3680,7 @@
     "type": "simple",
     "tax": "7.00",
     "categories": [
-      "4"
+"dog"
     ],
     "locales": [
       {
@@ -3807,7 +3807,7 @@
     "type": "simple",
     "tax": "7.00",
     "categories": [
-      "4"
+"dog"
     ],
     "locales": [
       {
@@ -3934,7 +3934,7 @@
     "type": "simple",
     "tax": "7.00",
     "categories": [
-      "9"
+"dog"
     ],
     "locales": [
       {
@@ -4061,7 +4061,7 @@
     "type": "simple",
     "tax": "7.00",
     "categories": [
-      "9"
+"dog"
     ],
     "locales": [
       {
@@ -4188,7 +4188,7 @@
     "type": "simple",
     "tax": "7.00",
     "categories": [
-      "4"
+"dog"
     ],
     "locales": [
       {
@@ -4315,7 +4315,7 @@
     "type": "simple",
     "tax": "7.00",
     "categories": [
-      "4"
+"dog"
     ],
     "locales": [
       {
@@ -4442,7 +4442,7 @@
     "type": "simple",
     "tax": "7.00",
     "categories": [
-      "3"
+"dog"
     ],
     "locales": [
       {
@@ -4685,7 +4685,7 @@
     "type": "simple",
     "tax": "7.00",
     "categories": [
-      "3"
+"dog"
     ],
     "locales": [
       {
@@ -4928,7 +4928,7 @@
     "type": "simple",
     "tax": "7.00",
     "categories": [
-      "4"
+"dog"
     ],
     "locales": [
       {
@@ -5055,7 +5055,7 @@
     "type": "simple",
     "tax": "7.00",
     "categories": [
-      "4"
+"dog"
     ],
     "locales": [
       {
@@ -5182,7 +5182,7 @@
     "type": "simple",
     "tax": "7.00",
     "categories": [
-      "5"
+"dog"
     ],
     "locales": [
       {
@@ -5309,7 +5309,7 @@
     "type": "simple",
     "tax": "7.00",
     "categories": [
-      "5"
+"dog"
     ],
     "locales": [
       {
@@ -5436,7 +5436,7 @@
     "type": "simple",
     "tax": "7.00",
     "categories": [
-      "5"
+"dog"
     ],
     "locales": [
       {
@@ -5563,7 +5563,7 @@
     "type": "simple",
     "tax": "7.00",
     "categories": [
-      "5"
+"dog"
     ],
     "locales": [
       {
@@ -5690,7 +5690,7 @@
     "type": "simple",
     "tax": "7.00",
     "categories": [
-      "5"
+"dog"
     ],
     "locales": [
       {
@@ -5817,7 +5817,7 @@
     "type": "simple",
     "tax": "7.00",
     "categories": [
-      "4"
+"dog"
     ],
     "locales": [
       {
@@ -5944,7 +5944,7 @@
     "type": "simple",
     "tax": "7.00",
     "categories": [
-      "4"
+"dog"
     ],
     "locales": [
       {
@@ -6071,7 +6071,7 @@
     "type": "simple",
     "tax": "7.00",
     "categories": [
-      "4"
+"dog"
     ],
     "locales": [
       {
@@ -6198,7 +6198,7 @@
     "type": "simple",
     "tax": "7.00",
     "categories": [
-      "4"
+"dog"
     ],
     "locales": [
       {
@@ -6325,7 +6325,7 @@
     "type": "simple",
     "tax": "7.00",
     "categories": [
-      "4"
+"dog"
     ],
     "locales": [
       {
@@ -6452,7 +6452,7 @@
     "type": "simple",
     "tax": "7.00",
     "categories": [
-      "4"
+"dog"
     ],
     "locales": [
       {
@@ -6579,7 +6579,7 @@
     "type": "simple",
     "tax": "7.00",
     "categories": [
-      "4"
+"dog"
     ],
     "locales": [
       {
@@ -6706,7 +6706,7 @@
     "type": "simple",
     "tax": "7.00",
     "categories": [
-      "4"
+"dog"
     ],
     "locales": [
       {
@@ -6833,7 +6833,7 @@
     "type": "simple",
     "tax": "7.00",
     "categories": [
-      "4"
+"dog"
     ],
     "locales": [
       {
@@ -6960,7 +6960,7 @@
     "type": "simple",
     "tax": "7.00",
     "categories": [
-      "4"
+"dog"
     ],
     "locales": [
       {
@@ -7087,7 +7087,7 @@
     "type": "simple",
     "tax": "7.00",
     "categories": [
-      "4"
+"dog"
     ],
     "locales": [
       {
@@ -7214,7 +7214,7 @@
     "type": "simple",
     "tax": "7.00",
     "categories": [
-      "9"
+"dog"
     ],
     "locales": [
       {
@@ -7341,7 +7341,7 @@
     "type": "simple",
     "tax": "7.00",
     "categories": [
-      "5"
+"dog"
     ],
     "locales": [
       {
@@ -7468,7 +7468,7 @@
     "type": "simple",
     "tax": "7.00",
     "categories": [
-      "5"
+"dog"
     ],
     "locales": [
       {
@@ -7595,7 +7595,7 @@
     "type": "simple",
     "tax": "7.00",
     "categories": [
-      "9"
+"dog"
     ],
     "locales": [
       {
@@ -7722,7 +7722,7 @@
     "type": "simple",
     "tax": "7.00",
     "categories": [
-      "9"
+"dog"
     ],
     "locales": [
       {
@@ -7849,7 +7849,7 @@
     "type": "simple",
     "tax": "7.00",
     "categories": [
-      "9"
+"dog"
     ],
     "locales": [
       {
@@ -7976,7 +7976,7 @@
     "type": "simple",
     "tax": "7.00",
     "categories": [
-      "6"
+"dog"
     ],
     "locales": [
       {
@@ -8230,7 +8230,7 @@
     "type": "simple",
     "tax": "7.00",
     "categories": [
-      "6"
+"dog"
     ],
     "locales": [
       {
@@ -8357,7 +8357,7 @@
     "type": "simple",
     "tax": "7.00",
     "categories": [
-      "4"
+"dog"
     ],
     "locales": [
       {
@@ -8484,7 +8484,7 @@
     "type": "simple",
     "tax": "7.00",
     "categories": [
-      "9"
+"dog"
     ],
     "locales": [
       {
@@ -8611,7 +8611,7 @@
     "type": "simple",
     "tax": "7.00",
     "categories": [
-      "9"
+"dog"
     ],
     "locales": [
       {
@@ -8738,7 +8738,7 @@
     "type": "simple",
     "tax": "7.00",
     "categories": [
-      "5"
+"dog"
     ],
     "locales": [
       {
@@ -8865,7 +8865,7 @@
     "type": "simple",
     "tax": "7.00",
     "categories": [
-      "5"
+"dog"
     ],
     "locales": [
       {
@@ -8992,7 +8992,7 @@
     "type": "simple",
     "tax": "7.00",
     "categories": [
-      "6"
+"dog"
     ],
     "locales": [
       {
@@ -9119,7 +9119,7 @@
     "type": "simple",
     "tax": "7.00",
     "categories": [
-      "4"
+"dog"
     ],
     "locales": [
       {
@@ -9246,7 +9246,7 @@
     "type": "simple",
     "tax": "7.00",
     "categories": [
-      "4"
+"dog"
     ],
     "locales": [
       {
@@ -9373,7 +9373,7 @@
     "type": "simple",
     "tax": "7.00",
     "categories": [
-      "8"
+"dog"
     ],
     "locales": [
       {
@@ -9541,7 +9541,7 @@
     "type": "simple",
     "tax": "7.00",
     "categories": [
-      "8"
+"dog"
     ],
     "locales": [
       {
@@ -9709,7 +9709,7 @@
     "type": "simple",
     "tax": "7.00",
     "categories": [
-      "3"
+"dog"
     ],
     "locales": [
       {
@@ -9880,7 +9880,7 @@
     "type": "simple",
     "tax": "7.00",
     "categories": [
-      "3"
+"dog"
     ],
     "locales": [
       {
@@ -10051,7 +10051,7 @@
     "type": "simple",
     "tax": "7.00",
     "categories": [
-      "6"
+"dog"
     ],
     "locales": [
       {
@@ -11067,7 +11067,7 @@
     "type": "simple",
     "tax": "7.00",
     "categories": [
-      "9"
+"dog"
     ],
     "locales": [
       {
@@ -11194,7 +11194,7 @@
     "type": "simple",
     "tax": "7.00",
     "categories": [
-      "9"
+"dog"
     ],
     "locales": [
       {
@@ -11321,7 +11321,7 @@
     "type": "simple",
     "tax": "7.00",
     "categories": [
-      "9"
+"dog"
     ],
     "locales": [
       {
@@ -11956,7 +11956,7 @@
     "type": "simple",
     "tax": "7.00",
     "categories": [
-      "3"
+"dog"
     ],
     "locales": [
       {
@@ -12083,7 +12083,7 @@
     "type": "dynamic",
     "tax": "7.00",
     "categories": [
-      "3"
+"dog"
     ],
     "locales": [
       {
@@ -12311,7 +12311,7 @@
     "type": "dynamic",
     "tax": "7.00",
     "categories": [
-      "3"
+"dog"
     ],
     "locales": [
       {
@@ -12539,7 +12539,7 @@
     "type": "dynamic",
     "tax": "7.00",
     "categories": [
-      "3"
+"dog"
     ],
     "locales": [
       {

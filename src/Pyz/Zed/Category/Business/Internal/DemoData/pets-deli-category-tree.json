@@ -1,0 +1,198 @@
+{
+  "name": "root",
+  "url": "/",
+  "category_key": "root",
+  "cms_block_names": [
+    "header_top",
+    "navigation",
+    "start_page",
+    "footer_communication",
+    "footer_payment",
+    "footer_newsletter",
+    "footer_navigation"
+  ],
+  "children": [
+    {
+      "name": "Hunde",
+      "url": "/hunde-nahrung",
+      "category_key": "dog",
+      "cms_block_names": [
+        "header_top",
+        "navigation",
+        "catalog",
+        "footer_communication",
+        "footer_payment",
+        "footer_newsletter",
+        "footer_navigation"
+      ],
+      "children": [
+        {
+          "name": "Basisnahrung",
+          "url": "/hunde-nahrung/hochwertige-hundefutter-menues.html",
+          "category_key": "dog_basefood",
+          "cms_block_names": [
+            "header_top",
+            "navigation",
+            "catalog",
+            "footer_communication",
+            "footer_payment",
+            "footer_newsletter",
+            "footer_navigation"
+          ],
+          "children": []
+        },
+        {
+          "name": "Supplements",
+          "url": "/hunde-nahrung/nahrungsergaenzung-fuer-hunde.html",
+          "category_key": "dog_supplyments",
+          "cms_block_names": [
+            "header_top",
+            "navigation",
+            "catalog",
+            "footer_communication",
+            "footer_payment",
+            "footer_newsletter",
+            "footer_navigation"
+          ],
+          "children": []
+        },
+        {
+          "name": "Snacks",
+          "url": "/hunde-nahrung/hundekekse.html",
+          "category_key": "dog_snacks",
+          "cms_block_names": [
+            "header_top",
+            "navigation",
+            "catalog",
+            "footer_communication",
+            "footer_payment",
+            "footer_newsletter",
+            "footer_navigation"
+          ],
+          "children": []
+        },
+        {
+          "name": "Trockenfleisch",
+          "url": "/hunde-nahrung/trockenfleisch-fuer-hunde.html",
+          "category_key": "dog_dry_meat",
+          "cms_block_names": [
+            "header_top",
+            "navigation",
+            "catalog",
+            "footer_communication",
+            "footer_payment",
+            "footer_newsletter",
+            "footer_navigation"
+          ],
+          "children": []
+        }
+      ]
+    },
+    {
+      "name": "Katzen",
+      "url": "/katzen-nahrung",
+      "category_key": "cat",
+      "cms_block_names": [
+        "header_top",
+        "navigation",
+        "catalog",
+        "footer_communication",
+        "footer_payment",
+        "footer_newsletter",
+        "footer_navigation"
+      ],
+      "children": [
+        {
+          "name": "Basisnahrung",
+          "url": "/katzen-nahrung/hochwertige-katzenfutter-menues.html",
+          "category_key": "cat_basefood",
+          "cms_block_names": [
+            "header_top",
+            "navigation",
+            "catalog",
+            "footer_communication",
+            "footer_payment",
+            "footer_newsletter",
+            "footer_navigation"
+          ],
+          "children": []
+        },
+        {
+          "name": "Supplements",
+          "url": "/katzen-nahrung/supplements-fuer-katzen.html",
+          "category_key": "cat_supplements",
+          "cms_block_names": [
+            "header_top",
+            "navigation",
+            "catalog",
+            "footer_communication",
+            "footer_payment",
+            "footer_newsletter",
+            "footer_navigation"
+          ],
+          "children": []
+        },
+        {
+          "name": "Snacks",
+          "url": "/katzen-nahrung/katzensnacks.html",
+          "category_key": "cat_snacks",
+          "cms_block_names": [
+            "header_top",
+            "navigation",
+            "catalog",
+            "footer_communication",
+            "footer_payment",
+            "footer_newsletter",
+            "footer_navigation"
+          ],
+          "children": []
+        },
+        {
+          "name": "Trockenfleisch",
+          "url": "/katzen-nahrung/trockenfleisch-fuer-katzen.html",
+          "category_key": "cat_dry_meat",
+          "cms_block_names": [
+            "header_top",
+            "navigation",
+            "catalog",
+            "footer_communication",
+            "footer_payment",
+            "footer_newsletter",
+            "footer_navigation"
+          ],
+          "children": []
+        }
+      ]
+    },
+    {
+      "name": "FAQ",
+      "url": "/faq",
+      "category_key": "static_faq",
+      "cms_block_names": [
+        "header_top",
+        "navigation",
+        "faq",
+        "footer_communication",
+        "footer_payment",
+        "footer_newsletter",
+        "footer_navigation"
+      ],
+      "children": []
+    },
+    {
+      "name": "Warum",
+      "url": "/warum",
+      "category_key": "static_why_questions",
+      "cms_block_names": [
+        "header_top",
+        "navigation",
+        "why_questions",
+        "footer_communication",
+        "footer_payment",
+        "footer_newsletter",
+        "footer_navigation"
+      ],
+      "children": []
+    }
+  ]
+}

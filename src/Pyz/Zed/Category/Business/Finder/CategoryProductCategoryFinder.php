@@ -2,6 +2,7 @@
 
 namespace Pyz\Zed\Category\Business\Finder;
 
+use Generated\Shared\Category\CategoryInterface;
 use Generated\Shared\Transfer\CategoryTransfer;
 use Generated\Shared\Transfer\ProductCategoryTransfer;
 use Propel\Runtime\Collection\ArrayCollection;
@@ -22,6 +23,7 @@ class CategoryProductCategoryFinder
 
     /**
      * @param CategoryQueryContainer $categoryQueryContainer
+     * @param LocaleFacade $localeFacade
      */
     public function __construct(
         CategoryQueryContainer $categoryQueryContainer,
@@ -57,6 +59,23 @@ class CategoryProductCategoryFinder
         }
 
         return $categoryTransferCollection;
+    }
+
+    /**
+     * @param $idAbstractProduct
+     * @return CategoryInterface[]
+     */
+    public function getCategoriesByAbstractProductId($idAbstractProduct)
+    {
+        $query = $this->categoryQueryContainer->queryCategoryByAbstractProductId($idAbstractProduct);
+        $return = [];
+        foreach ($query->find() as $entity) {
+            $categoryTransfer = new CategoryTransfer();
+            $categoryTransfer->fromArray($entity->toArray());
+            $return[] = $categoryTransfer;
+        }
+
+        return $return;
     }
 
 }

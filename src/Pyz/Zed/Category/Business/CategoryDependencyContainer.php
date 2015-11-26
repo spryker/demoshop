@@ -2,6 +2,7 @@
 
 namespace Pyz\Zed\Category\Business;
 
+use Pyz\Zed\Category\Business\Finder\CategoryFinder;
 use Pyz\Zed\Category\Business\Finder\CategoryProductCategoryFinder;
 use Pyz\Zed\Category\Business\Manager\NodeUrlManager;
 use Pyz\Zed\Category\CategoryDependencyProvider;
@@ -45,6 +46,14 @@ class CategoryDependencyContainer extends SprykerCategoryDependencyContainer
             $this->getQueryContainer(),
             $this->getProvidedDependency(CategoryDependencyProvider::FACADE_LOCALE)
         );
+    }
+
+    /**
+     * @return CategoryFinder
+     */
+    public function createCategoryFinder()
+    {
+        return $this->getFactory()->createFinderCategoryFinder($this->getQueryContainer());
     }
 
     /**

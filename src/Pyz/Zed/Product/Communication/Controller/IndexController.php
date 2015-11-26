@@ -95,7 +95,7 @@ class IndexController extends SprykerIndexController
             $this->getConcreteProducts($abstractProductEntity)
         );
         $productDynamicImporterAbstractProductTransfer->setCategories(
-            $this->getCategoryIds($abstractProductEntity)
+            $this->getCategoryKeys($abstractProductEntity)
         );
 
         $productDynamicImporterAbstractProductTransfer->setProductGroupKeys(
@@ -341,21 +341,21 @@ class IndexController extends SprykerIndexController
      *
      * @return array
      */
-    protected function getCategoryIds(SpyAbstractProduct $abstractProductEntity)
+    protected function getCategoryKeys(SpyAbstractProduct $abstractProductEntity)
     {
 
         $abstractProductTransfer = new AbstractProductTransfer();
         $abstractProductTransfer->fromArray($abstractProductEntity->toArray(), true);
 
-        $productCategoryTransferCollection = $this->getDependencyContainer()
-            ->getProductCategoryFacade()
-            ->getCategoriesByAbstractProduct($abstractProductTransfer);
+        $categoryTransfers = $this->getDependencyContainer()
+            ->getCategoryFacade()
+            ->getCategoriesByAbstractProductId($abstractProductTransfer->getIdAbstractProduct());
 
-        $return = [];
-        foreach ($productCategoryTransferCollection as $productCategory) {
-            $return[] = $productCategory->getFkCategory();
+        $keys = [];
+        foreach ($categoryTransfers as $categoryTransfer) {
+            $keys[] = $categoryTransfer->getCategoryKey();
         }
-        return $return;
+        return $keys;
     }
 
     /**

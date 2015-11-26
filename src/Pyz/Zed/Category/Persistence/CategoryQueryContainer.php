@@ -6,8 +6,11 @@ use Orm\Zed\Category\Persistence\Map\SpyCategoryAttributeTableMap;
 use Orm\Zed\Category\Persistence\Map\SpyCategoryClosureTableTableMap;
 use Orm\Zed\Category\Persistence\Map\SpyCategoryNodeTableMap;
 use Orm\Zed\Category\Persistence\SpyCategoryClosureTableQuery;
+use Orm\Zed\Category\Persistence\SpyCategoryQuery;
 use Orm\Zed\Cms\Persistence\Map\SpyCmsPageTableMap;
 use Orm\Zed\Locale\Persistence\Map\SpyLocaleTableMap;
+use Orm\Zed\ProductCategory\Persistence\Map\SpyProductCategoryTableMap;
+use Orm\Zed\ProductCategory\Persistence\SpyProductCategory;
 use Orm\Zed\Url\Persistence\Map\SpyUrlTableMap;
 use Propel\Runtime\ActiveQuery\Criteria;
 use Propel\Runtime\ActiveQuery\Join;
@@ -270,6 +273,32 @@ class CategoryQueryContainer extends SprykerCategoryQueryContainer
             $query->where(SpyCategoryNodeTableMap::COL_IS_ROOT . ' = false');
         }
 
+        return $query;
+    }
+
+    /**
+     * @param $idAbstractProduct
+     * @return SpyCategoryQuery
+     */
+    public function queryCategoryByAbstractProductId($idAbstractProduct) {
+        $query = SpyCategoryQuery::create();
+
+        $query
+            ->joinSpyProductCategory()
+            ->where('SpyProductCategory.FkAbstractProduct = ?', $idAbstractProduct)
+            ->orderBy('SpyProductCategory.ProductOrder')
+        ;
+        return $query;
+    }
+
+    /**
+     * @param $keys
+     * @return SpyCategoryQuery
+     */
+    public function queryCategoryByKeys($keys)
+    {
+        $query = SpyCategoryQuery::create();
+        $query->filterByCategoryKey($keys);
         return $query;
     }
 }

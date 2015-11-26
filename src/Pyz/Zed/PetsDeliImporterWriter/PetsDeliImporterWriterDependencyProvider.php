@@ -16,6 +16,7 @@ class PetsDeliImporterWriterDependencyProvider extends AbstractBundleDependencyP
     const PRODUCT_CATEGORY_FACADE = 'PD_PRODUCT_CATEGORY_FACADE';
     const PRODUCT_GROUP_FACADE = 'PRODUCT GROUP FACADE';
     const STOCK_FACADE = 'STOCK FACADE';
+    const CATEGORY_FACADE = 'CATEGORY FACADE';
 
 
     /**
@@ -54,6 +55,10 @@ class PetsDeliImporterWriterDependencyProvider extends AbstractBundleDependencyP
 
         $container[self::STOCK_FACADE] = function (container $container) {
             return $container->getLocator()->stock()->facade();
+        };
+
+        $container[self::CATEGORY_FACADE] = function (container $container) {
+            return $container->getLocator()->category()->facade();
         };
         return $container;
     }
