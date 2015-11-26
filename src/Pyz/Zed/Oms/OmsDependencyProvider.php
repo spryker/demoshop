@@ -24,6 +24,8 @@ class OmsDependencyProvider extends SprykerOmsDependencyProvider
     protected function getConditionPlugins(Container $container)
     {
         return [
+            'Oms/IsInvoiceCreated' => $container->getLocator()->oms()->pluginOmsConditionIsInvoiceCreated(),
+            'Oms/IsOrderExported' => $container->getLocator()->oms()->pluginOmsConditionIsOrderExported(),
             'Payolution/PreAuthorizationIsApproved' => $container
                 ->getLocator()
                 ->payolution()
@@ -59,6 +61,7 @@ class OmsDependencyProvider extends SprykerOmsDependencyProvider
             'Oms/SendPaymentRequest' => $container->getLocator()->oms()->pluginOmsCommandSendPaymentRequest(),
             'Oms/CreateInvoice' => $container->getLocator()->oms()->pluginOmsCommandCreateInvoice(),
             'Oms/SendInvoice' => $container->getLocator()->oms()->pluginOmsCommandSendInvoice(),
+            'Oms/ExportOrder' => $container->getLocator()->oms()->pluginOmsCommandExportOrder(),
             'Payolution/PreAuthorize' => $container
                 ->getLocator()
                 ->payolution()
