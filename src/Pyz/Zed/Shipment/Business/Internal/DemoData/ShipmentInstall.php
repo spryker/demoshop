@@ -24,7 +24,7 @@ class ShipmentInstall extends AbstractInstaller
     const PRICE_SHIPMENT_METHOD = 0;
     const NAME_AUSTRIA_GLOSSARY_KEY_SHIPMENT_METHOD  = 'shipment.austriaDefaultCarrier.defaultMethod.name';
     const DESCRIPTION_AUSTRIA_GLOSSARY_KEY_SHIPMENT_METHOD = 'shipment.austriaDefaultCarrier.defaultMethod.description';
-    const PRICE_AUSTRIA_SHIPMENT_METHOD = 990;
+    const PRICE_AUSTRIA_SHIPMENT_METHOD = 690;
     const AUSTRIA_ISO_CODE = 'AT';
 
 
