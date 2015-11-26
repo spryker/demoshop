@@ -38,6 +38,7 @@ class CartControllerProvider extends YvesControllerProvider
 
         $this->createGetController('/{cart}', self::ROUTE_CART, 'Cart', 'Cart')
             ->assert('cart', $allowedLocalesPattern . 'cart|cart')
+            ->value('cart','cart')
         ;
 
         $this->createGetController('/{cart}/add/{sku}', self::ROUTE_CART_ADD, 'Cart', 'Cart', 'add')
@@ -54,11 +55,10 @@ class CartControllerProvider extends YvesControllerProvider
             ->value('groupKey', '')
         ;
 
-        $this->createGetController('/{cart}/quantity/{sku}/{absolute}', self::ROUTE_CART_CHANGE_QUANTITY, 'Cart', 'Cart', 'change')
+        $this->createGetController('/{cart}/change/{sku}/{quantity}', self::ROUTE_CART_CHANGE_QUANTITY, 'Cart', 'Cart', 'change')
             ->assert('cart', $allowedLocalesPattern . 'cart|cart')
             ->assert('sku', '[a-zA-Z0-9-_]+')
-            ->value('groupKey', '')
-            ->assert('absolute', '[0-1-_]+')
+            ->method('POST')
         ;
 
         $this->createGetController('/{cart}/overlay', self::ROUTE_CART_OVERLAY, 'Cart', 'Ajax', 'index')
