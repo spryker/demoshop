@@ -2,11 +2,7 @@
 {% autoescape false %}
   <script>
 
-    var dataLayer = [{
-      "global": {},
-      "page": {},
-      "cart": {}
-    }];
+    window.dataLayer = [];
 
     dataLayerManager = {
       isNonProduction: function () {
@@ -15,9 +11,9 @@
 
       add: function (data) {
         Object.keys(data).forEach(function (key) {
-          window.dataLayer[key] = data[key]; //@Todo: merge recursive?
+          window.dataLayer.push(data[key]);
         });
-
+        //console.log(window.dataLayer);
         if (dataLayerManager.isNonProduction()) {
          // console.log('dataLayer:' , window.dataLayer);
           //console.log('dataLayer:' , JSON.stringify(window.dataLayer, true, 2));
