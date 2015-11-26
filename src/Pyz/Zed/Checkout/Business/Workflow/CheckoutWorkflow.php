@@ -36,15 +36,14 @@ class CheckoutWorkflow extends SprykerCheckoutWorkflow
             $this->hydrateOrderOverwritten($orderTransfer, $checkoutRequest);
 
             $orderTransfer = $this->doSaveOrder($orderTransfer, $checkoutResponse);
-
             $checkoutResponse->setOrder($orderTransfer);
+
             if (!$this->hasErrorsOverwritten($checkoutResponse)) {
                 $this->triggerStateMachineOverwritten($orderTransfer, $checkoutRequest);
                 $this->executePostHooksOverwritten($orderTransfer, $checkoutResponse);
 
-                $checkoutResponse->setIsSuccess(
-                    $this->hasErrorsOverwritten($checkoutResponse)
-                );
+                $isSuccess = !$this->hasErrorsOverwritten($checkoutResponse);
+                $checkoutResponse->setIsSuccess($isSuccess);
             }
         }
 
