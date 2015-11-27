@@ -9,13 +9,11 @@
             <state name="pre-authorization succeed"/>
             <state name="pre-authorization failed"/>
             <state name="pre-authorization invalid"/>
-            <state name="ready for revert"/>
             <state name="revert succeed"/>
             <state name="revert failed"/>
             <state name="shipped"/>
             <state name="capture succeed"/>
             <state name="capture failed"/>
-            <state name="ready for refund"/>
             <state name="refund succeed"/>
             <state name="refund failed"/>
             <state name="closed"/>
@@ -27,78 +25,148 @@
                 <target>pre-authorization succeed</target>
                 <event>pre-authorize payment</event>
             </transition>
+
             <transition>
                 <source>new</source>
                 <target>pre-authorization failed</target>
                 <event>pre-authorize payment</event>
             </transition>
+
+            <transition happy="true" condition="Payolution/IsPreAuthorizationApproved">
+                <source>pre-authorization failed</source>
+                <target>pre-authorization succeed</target>
+                <event>retry pre-authorize payment</event>
+            </transition>
+
+            <transition>
+                <source>pre-authorization failed</source>
+                <target>pre-authorization failed</target>
+                <event>retry pre-authorize payment</event>
+            </transition>
+
             <transition>
                 <source>pre-authorization succeed</source>
                 <target>pre-authorization invalid</target>
                 <event>pre-authorize timeout</event>
             </transition>
-            <transition>
-                <source>pre-authorization succeed</source>
-                <target>ready for revert</target>
-                <event>start revert payment</event>
+
+            <transition happy="true" condition="Payolution/IsPreAuthorizationApproved">
+                <source>pre-authorization invalid</source>
+                <target>pre-authorization succeed</target>
+                <event>pre-authorize payment</event>
             </transition>
+
+            <transition>
+                <source>pre-authorization invalid</source>
+                <target>pre-authorization failed</target>
+                <event>pre-authorize payment</event>
+            </transition>
+
             <transition happy="true" condition="Payolution/IsReversalApproved">
-                <source>ready for revert</source>
+                <source>pre-authorization succeed</source>
                 <target>revert succeed</target>
                 <event>revert payment</event>
             </transition>
+
             <transition>
-                <source>ready for revert</source>
+                <source>pre-authorization succeed</source>
                 <target>revert failed</target>
                 <event>revert payment</event>
             </transition>
+
+            <transition happy="true" condition="Payolution/IsReversalApproved">
+                <source>revert failed</source>
+                <target>revert succeed</target>
+                <event>retry revert payment</event>
+            </transition>
+
+            <transition>
+                <source>revert failed</source>
+                <target>revert failed</target>
+                <event>retry revert payment</event>
+            </transition>
+
             <transition>
                 <source>pre-authorization succeed</source>
                 <target>shipped</target>
                 <event>ship</event>
             </transition>
+
             <transition happy="true" condition="Payolution/IsCaptureApproved">
                 <source>shipped</source>
                 <target>capture succeed</target>
                 <event>capture payment</event>
             </transition>
+
             <transition>
                 <source>shipped</source>
                 <target>capture failed</target>
                 <event>capture payment</event>
             </transition>
+
+            <transition happy="true" condition="Payolution/IsCaptureApproved">
+                <source>capture failed</source>
+                <target>capture succeed</target>
+                <event>retry capture payment</event>
+            </transition>
+
+            <transition>
+                <source>capture failed</source>
+                <target>capture failed</target>
+                <event>retry capture payment</event>
+            </transition>
+
             <transition>
                 <source>capture succeed</source>
-                <target>ready for refund</target>
-                <event>start refund payment</event>
+                <target>closed</target>
+                <event>close timeout</event>
             </transition>
+
             <transition happy="true" condition="Payolution/IsRefundApproved">
-                <source>ready for refund</source>
+                <source>capture succeed</source>
                 <target>refund succeed</target>
                 <event>refund payment</event>
             </transition>
+
             <transition>
-                <source>ready for refund</source>
+                <source>capture succeed</source>
                 <target>refund failed</target>
                 <event>refund payment</event>
             </transition>
+
+            <transition happy="true" condition="Payolution/IsRefundApproved">
+                <source>refund failed</source>
+                <target>refund succeed</target>
+                <event>retry refund payment</event>
+            </transition>
+
+            <transition>
+                <source>refund failed</source>
+                <target>refund failed</target>
+                <event>retry refund payment</event>
+            </transition>
+
             <transition>
                 <source>refund succeed</source>
                 <target>closed</target>
-                <event>done</event>
+                <event>close</event>
             </transition>
         </transitions>
 
         <events>
             <event name="pre-authorize payment" onEnter="true" command="Payolution/PreAuthorize"/>
-            <event name="pre-authorize timeout" timeout="21"/>
-            <event name="start revert payment" manual="true"/>
-            <event name="revert payment" onEnter="true" command="Payolution/Revert"/>
+            <event name="retry pre-authorize payment" manual="true" command="Payolution/PreAuthorize"/>
+            <event name="pre-authorize timeout" timeout="21days"/>
+            <event name="revert payment" manual="true" command="Payolution/Revert"/>
+            <event name="retry revert payment" manual="true" command="Payolution/Revert"/>
             <event name="ship" manual="true"/>
             <event name="capture payment" onEnter="true" command="Payolution/Capture"/>
+            <event name="retry capture payment" manual="true" command="Payolution/Capture"/>
             <event name="start refund payment" onEnter="true"/>
             <event name="refund payment" manual="true" command="Payolution/Refund"/>
-            <event name="done" onEnter="true"/>
+            <event name="retry refund payment" manual="true" command="Payolution/Refund"/>
+            <event name="close" onEnter="true"/>
+            <event name="close timeout" timeout="14days"/>
         </events>
     </process>
 </statemachine>

@@ -51,6 +51,14 @@ class CheckoutDependencyContainer extends AbstractCommunicationDependencyContain
     }
 
     /**
+     * @return PayolutionClientInterface
+     */
+    public function createPayolutionClient()
+    {
+        return $this->getLocator()->payolution()->client();
+    }
+
+    /**
      * @param Request $request
      * @param ShipmentTransfer $shipmentTransfer
      *

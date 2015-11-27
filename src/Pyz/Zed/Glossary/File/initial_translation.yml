@@ -560,6 +560,14 @@ keys:
     translations:
       de_DE: 'Rechnung'
       en_US: 'Invoice'
+  payment.payolution.invoice:
+    translations:
+      de_DE: 'Payolution Rechnung'
+      en_US: 'Payolution Invoice'
+    payment.payolution.installment:
+      translations:
+        de_DE: 'Payolution Ratenkauf'
+        en_US: 'Payolution Installment'
 
   address.street:
     translations:

@@ -13,6 +13,8 @@ use Pyz\Yves\Checkout\Communication\Form\CheckoutType;
 use Pyz\Yves\Checkout\Communication\Plugin\Provider\CheckoutControllerProvider;
 use SprykerEngine\Yves\Application\Communication\Controller\AbstractController;
 use Pyz\Yves\Checkout\Communication\CheckoutDependencyContainer;
+use SprykerFeature\Shared\Library\Currency\CurrencyManager;
+use SprykerFeature\Shared\Payolution\PayolutionApiConstants;
 use SprykerFeature\Shared\Shipment\ShipmentConstants;
 use Symfony\Component\Form\FormInterface;
 use Symfony\Component\HttpFoundation\JsonResponse;
@@ -24,6 +26,11 @@ use Symfony\Component\HttpFoundation\Request;
  */
 class CheckoutController extends AbstractController
 {
+
+    protected static $payolutionPaymentMethodMapper = [
+        'payolution_invoice' => PayolutionApiConstants::BRAND_INVOICE,
+        'payolution_installment' => PayolutionApiConstants::BRAND_INSTALLMENT,
+    ];
 
     /**
      * @param Request $request
@@ -53,6 +60,7 @@ class CheckoutController extends AbstractController
                 $this->setShippingAddress($checkoutRequestTransfer);
                 $this->setShippingMethod($shipmentTransfer, $checkoutRequestTransfer);
                 $this->setCustomerPassword($checkoutForm, $checkoutRequestTransfer);
+                $this->setPayolutionPayment($checkoutRequestTransfer, $request);
 
                 $checkoutResponseTransfer = $this->getDependencyContainer()
                     ->createCheckoutClient()
@@ -201,6 +209,22 @@ class CheckoutController extends AbstractController
         if ($createAccount) {
             $checkoutRequestTransfer->setCustomerPassword($checkoutForm[CheckoutType::FIELD_PASSWORD]->getData());
         }
+    }
+
+    /**
+     * @param CheckoutRequestTransfer $checkoutRequestTransfer
+     * @param Request $request
+     *
+     * @return void
+     */
+    protected function setPayolutionPayment(CheckoutRequestTransfer $checkoutRequestTransfer, Request $request)
+    {
+        $checkoutRequestTransfer->getPayolutionPayment()
+            ->setAccountBrand(self::$payolutionPaymentMethodMapper[$checkoutRequestTransfer->getPaymentMethod()])
+            ->setCurrencyIso3Code(CurrencyManager::getInstance()->getDefaultCurrency()->getIsoCode())
+            ->setLanguageIso2Code($checkoutRequestTransfer->getBillingAddress()->getIso2Code())
+            ->setGender('Male')
+            ->setClientIp($request->getClientIp());
     }
 
 }

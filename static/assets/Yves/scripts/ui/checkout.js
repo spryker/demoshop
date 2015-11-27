@@ -101,6 +101,12 @@ module.exports = {
         $('input[name="checkout[payment_method]"]').on('change', function (event) {
             $paymentButton.attr('disabled', $('input[name="checkout[payment_method]"]:checked').length != 1);
 
+            var $payolutionForm = $('.js-payolution-payment');
+            if ('payolution_invoice' === event.target.value && !!event.target.checked) {
+                $payolutionForm.show();
+            } else {
+                $payolutionForm.hide();
+            }
         });
 
         $('input[name="checkout[id_shipment_method]"]').on('change', function () {
@@ -137,6 +143,8 @@ module.exports = {
 
         $('.js-address-button').click(function (event) {
             event.preventDefault();
+
+            $('.js-checkout-address').addClass('js-checkout-collapsed js-checkout-completed');
 
             var checkoutAddress = $(event.currentTarget).parents('.js-checkout-address');
             if (checkoutAddress.length > 0) {

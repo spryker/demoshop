@@ -95,8 +95,10 @@ class CheckoutType extends AbstractType
             ])
             ->add(self::FIELD_PAYMENT_METHOD, 'choice', [
                 'choices' => [
-                    'prepay' => 'payment.prepay',
-                    'invoice' => 'payment.invoice',
+//                    'prepay' => 'payment.prepay',
+//                    'invoice' => 'payment.invoice',
+                    'payolution_invoice' => 'payment.payolution.invoice',
+                    'payolution_installment' => 'payment.payolution.installment',
                 ],
                 'expanded' => true,
                 'multiple' => false,
@@ -105,6 +107,13 @@ class CheckoutType extends AbstractType
                 'attr' => [
                     'style' => 'display: block;',
                 ],
+            ])
+            ->add(self::FIELD_PAYOLUTION_PAYMENT, new PayolutionType($this->request, 400), [
+                'data_class' => 'Generated\Shared\Transfer\PayolutionPaymentTransfer',
+                'error_bubbling' => true,
+                'attr' => [
+                    'class' => 'js-payolution-payment',
+                 ],
             ])
             ->add(self::FIELD_ID_SHIPMENT_METHOD, 'choice', [
                 'choices' => $this->prepareShipmentMethods(),

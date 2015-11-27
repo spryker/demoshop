@@ -15,6 +15,8 @@ class OmsOrderHydrator extends BaseOmsOrderHydrator
 {
 
     const PAYMENT_METHOD_INVOICE = 'invoice';
+    const PAYMENT_METHOD_PAYOLUTION_INVOICE = 'payolution_invoice';
+    const PAYMENT_METHOD_PAYOLUTION_INSTALLMENT = 'payolution_installment';
 
     /**
      * @param OrderTransfer $order
@@ -29,6 +31,12 @@ class OmsOrderHydrator extends BaseOmsOrderHydrator
         switch ($paymentMethod) {
             case self::PAYMENT_METHOD_INVOICE:
                 $order->setProcess(OmsConfig::ORDER_PROCESS_INVOICE_01);
+                break;
+            case self::PAYMENT_METHOD_PAYOLUTION_INVOICE:
+                $order->setProcess(OmsConfig::ORDER_PROCESS_PAYOLUTION_PAYMENT_01);
+                break;
+            case self::PAYMENT_METHOD_PAYOLUTION_INSTALLMENT:
+                $order->setProcess(OmsConfig::ORDER_PROCESS_PAYOLUTION_PAYMENT_01);
                 break;
             default:
                 parent::hydrateOrderTransfer($order, $request);

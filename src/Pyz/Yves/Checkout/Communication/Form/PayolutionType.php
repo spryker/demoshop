@@ -24,6 +24,9 @@ class PayolutionType extends AbstractType
     const FIELD_CURRENCY_CODE = 'currency_iso3_code';
     const FIELD_ACCOUNT_BRAND = 'account_brand';
     const FIELD_CLIENT_IP = 'client_ip';
+    const BANK_ACCOUNT_HOLDER = 'bank_account_holder';
+    const BANK_ACCOUNT_IBAN = 'bank_account_iban';
+    const BANK_ACCOUNT_BIC = 'bank_account_bic';
 
     /**
      * @var Request
@@ -88,6 +91,7 @@ class PayolutionType extends AbstractType
                 'attr' => [
                     'placeholder' => 'customer.birth_date',
                     'class' => 'padded js-checkout-payolution-payment-date-of-birth',
+                    'style' => 'width: 49%;',
                     'tabindex' => 160 + $this->tabIndexOffset,
                 ],
             ])
@@ -98,30 +102,70 @@ class PayolutionType extends AbstractType
                 'attr' => [
                     'placeholder' => 'customer.email',
                     'class' => 'padded js-checkout-payolution-payment-email',
+                    'style' => 'width: 49%;',
                     'tabindex' => 170 + $this->tabIndexOffset,
                 ],
             ])
             ->add(self::FIELD_PHONE, 'text', [
                 'label' => false,
-                'required' => true,
+                'required' => false,
                 'property_path' => 'address.phone',
                 'attr' => [
                     'placeholder' => 'customer.phone',
                     'class' => 'padded js-checkout-payolution-payment-phone',
+                    'style' => 'width: 49%;',
                     'tabindex' => 180 + $this->tabIndexOffset,
                 ],
             ])
-            ->add(self::FIELD_LANGUAGE_CODE, 'hidden', [
-                'data' => 'DE',
+            ->add(self::BANK_ACCOUNT_HOLDER, 'text', [
+                'label' => false,
+                'required' => false,
+                'attr' => [
+                    'placeholder' => 'Bank account holder',
+                    'class' => 'padded',
+                    'style' => 'width: 49%;',
+                    'tabindex' => 190 + $this->tabIndexOffset,
+                ],
             ])
-            ->add(self::FIELD_CURRENCY_CODE, 'hidden', [
-                'data' => 'EUR',
+            ->add(self::BANK_ACCOUNT_IBAN, 'text', [
+                'label' => false,
+                'required' => false,
+                'attr' => [
+                    'placeholder' => 'Bank account IBAN',
+                    'class' => 'padded',
+                    'style' => 'width: 49%;',
+                    'tabindex' => 200 + $this->tabIndexOffset,
+                ],
             ])
-            ->add(self::FIELD_ACCOUNT_BRAND, 'hidden', [
-                'data' => PayolutionApiConstants::BRAND_INVOICE,
+            ->add(self::BANK_ACCOUNT_BIC, 'text', [
+                'label' => false,
+                'required' => false,
+                'attr' => [
+                    'placeholder' => 'Bank account BIC',
+                    'class' => 'padded',
+                    'style' => 'width: 49%;',
+                    'tabindex' => 210 + $this->tabIndexOffset,
+                ],
             ])
-            ->add(self::FIELD_CLIENT_IP, 'hidden', [
-                'data' => $this->request->getClientIp(),
+            ->add('installmentAmount', 'text', [
+                'label' => false,
+                'required' => false,
+                'attr' => [
+                    'placeholder' => 'Amount',
+                    'class' => 'padded',
+                    'style' => 'width: 49%;',
+                    'tabindex' => 220 + $this->tabIndexOffset,
+                ],
+            ])
+            ->add('installmentDuration', 'text', [
+                'label' => false,
+                'required' => false,
+                'attr' => [
+                    'placeholder' => 'Duration',
+                    'class' => 'padded',
+                    'style' => 'width: 49%;',
+                    'tabindex' => 230 + $this->tabIndexOffset,
+                ],
             ]);
     }
 
