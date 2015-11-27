@@ -5,6 +5,7 @@
         "This file is @generated automatically"
     ],
     "hash": "c86a079fc9422a4335746f995046c005",
+    "content-hash": "0935e573dd153eea3fe5b2ef37dfe1b4",
     "packages": [
         {
             "name": "aptoma/twig-markdown",
@@ -784,7 +785,7 @@
             "source": {
                 "type": "git",
                 "url": "git@github.com:project-a/spryker.git",
-                "reference": "c93f0e89eacb8552b83eff4110ae304cc6d9b6e6"
+                "reference": "9abb34f5bc6b9f55a23437958efa896c99a05797"
             },
             "replace": {
                 "spryker/pav-console": "self.version"
@@ -802,7 +803,7 @@
                     "PavFeature\\Shared\\Library": "Bundles/Library/src/"
                 }
             },
-            "time": "2015-11-25 09:52:20"
+            "time": "2015-11-27 10:28:40"
         },
         {
             "name": "propel/propel",
