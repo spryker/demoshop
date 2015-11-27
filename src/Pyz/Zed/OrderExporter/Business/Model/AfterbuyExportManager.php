@@ -3,10 +3,12 @@
 namespace Pyz\Zed\OrderExporter\Business\Model;
 
 use Pyz\Zed\OrderExporter\AfterbuyConstants;
+use Pyz\Zed\OrderExporter\Dependency\Facade\OrderExporterToSalesInterface;
 use Pyz\Zed\OrderExporter\OrderExporterConfig;
 use Orm\Zed\Sales\Persistence\SpySalesOrderAddress;
 use Orm\Zed\Sales\Persistence\SpySalesOrderItem;
 use Orm\Zed\Sales\Persistence\SpySalesOrder;
+use Orm\Zed\Sales\Persistence\SpySalesDiscount;
 
 /**
  * @link https://confluence.project-a.com/display/PD/Afterbuy+Orders+export
@@ -14,6 +16,8 @@ use Orm\Zed\Sales\Persistence\SpySalesOrder;
 class AfterbuyExportManager
 {
     const AFTERBUY_NEW_ACTION = 'new';
+    const KEY_COUPON_NAME = 'name';
+    const KEY_COUPON_AMOUNT = 'amount';
 
     /** @var string */
     protected $userId;
@@ -34,16 +38,25 @@ class AfterbuyExportManager
      * @var OrderExporterConfig
      */
     protected $orderExporterConfig;
+    /**
+     * @var OrderExporterToSalesInterface
+     */
+    protected $salesFacade;
 
     /**
      * @param OrderExporterConfig $orderExporterConfig
      * @param AbstractAfterbuyConnector $connector
+     * @param OrderExporterToSalesInterface $salesFacade
      */
-    public function __construct(OrderExporterConfig $orderExporterConfig, AbstractAfterbuyConnector $connector)
-    {
+    public function __construct(
+        OrderExporterConfig $orderExporterConfig,
+        AbstractAfterbuyConnector $connector,
+        OrderExporterToSalesInterface $salesFacade
+    ) {
         $this->userId = $orderExporterConfig->getAfterbuyUserId();
         $this->partnerId = $orderExporterConfig->getAfterbuyPartnerId();
         $this->partnerPass = $orderExporterConfig->getAfterbuyPartnerPass();
+        $this->salesFacade = $salesFacade;
         $this->afterbuyConnector = $connector;
         $this->orderExporterConfig = $orderExporterConfig;
     }
@@ -147,29 +160,93 @@ class AfterbuyExportManager
     }
 
     /**
-     * @param array $items
+     * @param SpySalesOrderItem[] $items
      * @param array $postData
      * @return array
      */
     protected function addItemsInfo(array $items, array $postData)
     {
         $numberOfItems = 0;
-        /** @var SpySalesOrderItem $item */
+        $itemIds = [];
         foreach ($items as $item) {
             $numberOfItems ++;
+            $itemIds[$item->getIdSalesOrderItem()] = $item->getIdSalesOrderItem();
             $postData[AfterbuyConstants::ITEM_SKU . $numberOfItems] = $item->getSku();
             $postData[AfterbuyConstants::ITEM_NUMBER . $numberOfItems] = $item->getSku();
             $postData[AfterbuyConstants::ITEM_QUANTITY_ORDERED . $numberOfItems] = $item->getQuantity();
             $postData[AfterbuyConstants::ITEM_NAME . $numberOfItems] = $item->getName();
-            $postData[AfterbuyConstants::ITEM_TAX_PERCENTAGE . $numberOfItems] = (!null == $item->getTaxPercentage()) ? $item->getTaxPercentage() : 0;
+            $postData[AfterbuyConstants::ITEM_PRICE . $numberOfItems] = $item->getPriceToPay();
+            $postData[AfterbuyConstants::ITEM_TAX_PERCENTAGE . $numberOfItems] = $item->getTaxPercentage();
             $postData = $this->addItemDiscountInfo($item, $numberOfItems, $postData);
             $postData = $this->addProductAttributesInfo($item, $numberOfItems, $postData);
         }
-        $postData[AfterbuyConstants::ITEMS_NUMBER] = count($items);
+
+        $coupon = $this->createSubCoupon($itemIds, $postData[AfterbuyConstants::SALES_ORDER_ID]);
+
+        $postData = $this->addCouponInfo($postData, $coupon, $numberOfItems);
+
+        $postData[AfterbuyConstants::ITEMS_NUMBER] = count($items) + count($coupon);
 
         return $postData;
     }
 
+    /**
+     * @param array $postData
+     * @param array $coupons
+     * @param int $nbItem
+     * @return array
+     */
+    protected function addCouponInfo(array $postData, array $coupons, $nbItem)
+    {
+        foreach ($coupons as $coupon) {
+            $nbItem ++;
+            $postData[AfterbuyConstants::ITEM_NUMBER . $nbItem] = $coupon[self::KEY_COUPON_NAME];
+            $postData[AfterbuyConstants::ITEM_QUANTITY_ORDERED . $nbItem] = 1;
+            $postData[AfterbuyConstants::ITEM_NAME . $nbItem] = $coupon[self::KEY_COUPON_NAME];
+            $postData[AfterbuyConstants::ITEM_PRICE . $nbItem] = (-1) * $coupon[self::KEY_COUPON_AMOUNT];
+            $postData[AfterbuyConstants::ITEM_TAX_PERCENTAGE . $nbItem] = 19;
+        }
+
+        return $postData;
+    }
+
+    /**
+     * @param array $itemIds
+     * @param int $salesOrderId
+     * @return array
+     */
+    protected function createSubCoupon(array $itemIds, $salesOrderId)
+    {
+        $discountsToExport = [];
+        $salesDiscounts = $this->salesFacade->getSalesDiscountsByOrderId($salesOrderId);
+        foreach ($salesDiscounts as $salesDiscount) {
+            if (isset($itemIds[$salesDiscount->getFkSalesOrderItem()])) {
+                $discountsToExport[] = $salesDiscount;
+            }
+        }
+
+        return $this->aggregateCouponsIntoSubCoupons($discountsToExport);
+    }
+
+    /**
+     * @param SpySalesDiscount[] $discountsToExport
+     * @return array
+     */
+    protected function aggregateCouponsIntoSubCoupons(array $discountsToExport)
+    {
+        $coupons = [];
+        foreach ($discountsToExport as $discount) {
+            if (!isset($coupons[$discount->getDisplayName()])) {
+                $coupons[$discount->getDisplayName()][self::KEY_COUPON_AMOUNT] = $discount->getAmount();
+                $coupons[$discount->getDisplayName()][self::KEY_COUPON_NAME] = 'RABATT_' . $discount->getDisplayName() . '_' . $discount->getFkSalesOrder();
+            } else {
+                $coupons[$discount->getDisplayName()][self::KEY_COUPON_AMOUNT] += $discount->getAmount();
+            }
+        }
+
+        return $coupons;
+    }
+    
     /**
      * @param SpySalesOrderItem $item
      * @param $numberOfItems
@@ -197,6 +274,20 @@ class AfterbuyExportManager
         } else {
             $postData[AfterbuyConstants::ITEM_PRICE . $numberOfItems] = 0; // @TODO mandatory field for Afterbuy, update when prices are implemented
         }
+
+        return $postData;
+    }
+
+    /**
+     * @param SpySalesOrder $order
+     * @param array $postData
+     * @return array
+     */
+    protected function addShippingMethodInfo(SpySalesOrder $order, array $postData)
+    {
+        $shipmentMethod = $order->getShipmentMethod();
+        $postData[AfterbuyConstants::SHIPPING_SERVICE] = $shipmentMethod->getShipmentCarrier()->getName();
+        $postData[AfterbuyConstants::SHIPPING_COST] = $shipmentMethod->getPrice();
 
         return $postData;
     }
