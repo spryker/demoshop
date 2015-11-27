@@ -44,7 +44,7 @@
         {
           "name": "Supplements",
           "url": "/hunde-nahrung/nahrungsergaenzung-fuer-hunde.html",
-          "category_key": "dog_supplyments",
+          "category_key": "dog_supplements",
           "cms_block_names": [
             "header_top",
             "navigation",
