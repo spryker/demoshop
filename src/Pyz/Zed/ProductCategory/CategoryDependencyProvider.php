@@ -1,6 +1,6 @@
 <?php
 
-namespace Pyz\Zed\Category;
+namespace Pyz\Zed\ProductCategory;
 
 use SprykerFeature\Zed\Category\CategoryDependencyProvider as SprykerCategoryDependencyProvider;
 

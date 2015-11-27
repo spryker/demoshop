@@ -69,7 +69,8 @@ class CategoryDependencyContainer extends SprykerCategoryDependencyContainer
         );
     }
 
-    protected function createCmsFacade() {
+    protected function createCmsFacade()
+    {
         return $this->getProvidedDependency(CategoryDependencyProvider::FACADE_CMS);
     }
 
