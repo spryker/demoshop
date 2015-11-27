@@ -15,7 +15,7 @@ use Orm\Zed\OrderExporter\Persistence\PdSalesOrderItemAfterbuyExport;
 class OrderExporterFacade extends AbstractFacade
 {
     /**
-     * @param $salesOrderId
+     * @param int $salesOrderId
      * @return SpySalesOrder
      */
     public function getSalesOrderById($salesOrderId)
@@ -40,7 +40,7 @@ class OrderExporterFacade extends AbstractFacade
     }
 
     /**
-     * @param $orderItemId
+     * @param int $orderItemId
      * @return SpySalesOrderItem
      */
     public function getOrderItemById($orderItemId)
@@ -74,7 +74,7 @@ class OrderExporterFacade extends AbstractFacade
     }
 
     /**
-     * @param $salesOrderItemId
+     * @param int $salesOrderItemId
      * @return PdSalesOrderItemAfterbuyExport
      */
     public function findOrderItemAfterbuyExportByItemId($salesOrderItemId)
