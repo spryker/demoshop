@@ -14,6 +14,7 @@ include:
 - vendor/spryker/spryker/Bundles/Country
 - vendor/spryker/spryker/Bundles/Customer
 - vendor/spryker/spryker/Bundles/CustomerCheckoutConnector
+- vendor/spryker/spryker/Bundles/Development
 - vendor/spryker/spryker/Bundles/Discount
 - vendor/spryker/spryker/Bundles/DiscountCalculationConnector
 - vendor/spryker/spryker/Bundles/DiscountCheckoutConnector
