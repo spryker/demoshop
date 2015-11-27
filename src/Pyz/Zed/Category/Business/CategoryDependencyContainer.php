@@ -30,7 +30,8 @@ class CategoryDependencyContainer extends SprykerCategoryDependencyContainer
             $this->getQueryContainer(),
             $this->getProvidedDependency(CategoryDependencyProvider::FACADE_LOCALE),
             $this->getProvidedDependency(CategoryDependencyProvider::FACADE_CMS),
-            $this->getProvidedDependency(CategoryDependencyProvider::FACADE_CMS_BLOCK)
+            $this->getProvidedDependency(CategoryDependencyProvider::FACADE_CMS_BLOCK),
+            $this->getProvidedDependency(CategoryDependencyProvider::FACADE_URL)
         );
         $installer->setMessenger($messenger);
 

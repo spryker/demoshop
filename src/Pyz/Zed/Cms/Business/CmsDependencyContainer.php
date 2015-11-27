@@ -19,12 +19,7 @@ class CmsDependencyContainer extends SprykerCmsDependencyContainer
     public function createDemoDataInstaller(MessengerInterface $messenger)
     {
         $installer = $this->getFactory()->createInternalDemoDataCmsInstall(
-            $this->createGlossaryFacade(),
-            $this->createUrlFacade(),
-            $this->createLocaleFacade(),
             $this->getTemplateManager(),
-            $this->getPageManager(),
-            $this->getGlossaryKeyMappingManager(),
             $this->getConfig()
         );
         $installer->setMessenger($messenger);
