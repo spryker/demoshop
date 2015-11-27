@@ -34,18 +34,18 @@ class InstallerConfig extends SprykerInstallerConfig
         $locator = $this->getLocator();
 
         return [
-            $locator->glossary()->pluginDemoDataInstaller(),
-            $locator->cms()->pluginDemoDataInstaller(),
-            $locator->cmsBlock()->pluginDemoDataInstaller(),
-            $locator->categoryCmsConnector()->pluginDemoDataInstaller(),
-            $locator->category()->pluginDemoDataInstaller(),
-            $locator->productGroup()->pluginDemoDataInstaller(),
-            $locator->price()->pluginDemoDataInstaller(),
-            $locator->productCategory()->pluginDemoDataInstaller(),
-            $locator->stock()->pluginDemoDataInstaller(),
-            $locator->product()->pluginDemoDataInstaller(),
-            $locator->productSearch()->pluginDemoDataInstaller(),
-            $locator->shipment()->pluginDemoDataInstaller(),
+            'glossary' => $locator->glossary()->pluginDemoDataInstaller(),
+            'cms' => $locator->cms()->pluginDemoDataInstaller(),
+            'cmsBlock' => $locator->cmsBlock()->pluginDemoDataInstaller(),
+            'categoryCmsConnector' => $locator->categoryCmsConnector()->pluginDemoDataInstaller(),
+            'category' => $locator->category()->pluginDemoDataInstaller(),
+            'productGroup' => $locator->productGroup()->pluginDemoDataInstaller(),
+            'price' => $locator->price()->pluginDemoDataInstaller(),
+            'productCategory' => $locator->productCategory()->pluginDemoDataInstaller(),
+            'stock' => $locator->stock()->pluginDemoDataInstaller(),
+            'product' => $locator->product()->pluginDemoDataInstaller(),
+            'productSearch' => $locator->productSearch()->pluginDemoDataInstaller(),
+            'shipment' => $locator->shipment()->pluginDemoDataInstaller(),
         ];
     }
 

@@ -10,6 +10,7 @@ use Generated\Shared\Transfer\ProductGroupTransfer;
 use Generated\Shared\Transfer\TaxSetTransfer;
 use PavFeature\Zed\ProductDynamicImporter\Business\Writer\ProductWriterInterface;
 use PavFeature\Zed\ProductGroup\Business\ProductGroupFacade;
+use Pyz\Zed\Category\Business\CategoryFacade;
 use Pyz\Zed\Locale\Business\LocaleFacade;
 use Pyz\Zed\Product\Business\ProductFacade;
 use Pyz\Zed\ProductCategory\Business\ProductCategoryFacade;
@@ -25,6 +26,7 @@ class AbstractProductWriter extends DefaultProductWriter implements ProductWrite
     protected $taxFacade;
     protected $productCategoryFacade;
     protected $productGroupFacade;
+    protected $categoryFacade;
 
     /**
      * AbstractProductWriter constructor.
@@ -33,13 +35,15 @@ class AbstractProductWriter extends DefaultProductWriter implements ProductWrite
      * @param TaxFacade $taxFacade
      * @param ProductCategoryFacade $productCategoryFacade
      * @param ProductGroupFacade $productGroupFacade
+     * @param CategoryFacade $categoryFacade
      */
     public function __construct(
         ProductFacade $productFacade,
         LocaleFacade $localeFacade,
         TaxFacade $taxFacade,
         ProductCategoryFacade $productCategoryFacade,
-        ProductGroupFacade $productGroupFacade
+        ProductGroupFacade $productGroupFacade,
+        CategoryFacade $categoryFacade
 
     ) {
         $this->productFacade = $productFacade;
@@ -47,6 +51,7 @@ class AbstractProductWriter extends DefaultProductWriter implements ProductWrite
         $this->taxFacade = $taxFacade;
         $this->productCategoryFacade = $productCategoryFacade;
         $this->productGroupFacade = $productGroupFacade;
+        $this->categoryFacade = $categoryFacade;
 
     }
 
@@ -82,12 +87,18 @@ class AbstractProductWriter extends DefaultProductWriter implements ProductWrite
     }
 
     /**
-     * @param array $categoryIds
+     * @param array $categoryKeys
      * @param AbstractProductTransfer $product
      */
-    protected function handleProductCategories(array $categoryIds, AbstractProductTransfer $product)
+    protected function handleProductCategories(array $categoryKeys, AbstractProductTransfer $product)
     {
-        $categoryIds = array_flip($categoryIds);
+        $categoryTransfers = $this->categoryFacade->getCategoriesByCategoryKeys($categoryKeys);
+
+        $categoryIds = [];
+        foreach ($categoryTransfers as $categoryTransfer) {
+            $categoryIds[$categoryTransfer->getIdCategory()] = $categoryTransfer->getIdCategory();
+        }
+
         $currentProductCategories = $this->productCategoryFacade->getCategoriesByAbstractProductId($product->getIdAbstractProduct());
 
         foreach ($currentProductCategories as $productCategory) {

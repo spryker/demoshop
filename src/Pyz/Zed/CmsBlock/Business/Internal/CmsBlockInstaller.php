@@ -72,35 +72,29 @@ class CmsBlockInstaller extends AbstractInstaller
      */
     protected function getBlockData()
     {
-        return [
-            /*
-            [
-                self::PAGE_URLS => [
-                    '/hunde',
-                ],
-                self::NAME => 'catalog',
-                self::TEMPLATE_TYPE => 'catalog',
-                self::LOCALIZED_VALUES => [
-                    [
-                        self::LOCALE_NAME => 'de_DE',
-                        self::VALUES => [
-                            'test-string' => 'test',
-                            'test-bool' => false,
-                            'test-integer' => 12,
-                        ],
-                    ]
-                ]
-            ]
-            */
-            [
-                self::PAGE_URLS => [],
-                self::NAME => 'catalog',
-                self::TEMPLATE_TYPE => 'catalog',
-                self::LOCALIZED_VALUES => [],
-            ]
 
-
+        $blockList = [
+            "header_top",
+            "navigation",
+            "faq",
+            "catalog",
+            "why_questions",
+            "footer_communication",
+            "footer_payment",
+            "footer_newsletter",
+            "footer_navigation",
+            "start_page",
         ];
+        $return = [];
+        foreach ($blockList as $blockName) {
+            $return[] = [
+                self::PAGE_URLS => [],
+                self::NAME => $blockName,
+                self::TEMPLATE_TYPE => $blockName,
+                self::LOCALIZED_VALUES => [],
+            ];
+        }
+        return $return;
     }
 
     /**

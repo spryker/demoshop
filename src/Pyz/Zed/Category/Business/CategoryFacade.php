@@ -2,6 +2,7 @@
 
 namespace Pyz\Zed\Category\Business;
 
+use Generated\Shared\Category\CategoryInterface;
 use Generated\Shared\Transfer\CategoryTransfer;
 use Generated\Shared\Transfer\ProductCategoryTransfer;
 use Propel\Runtime\Collection\ArrayCollection;
@@ -33,6 +34,27 @@ class CategoryFacade extends SprykerCategoryFacade implements ProductCategoryToC
         return $this->getDependencyContainer()
             ->createCategoryProductCategoryFinder()
             ->getCategoriesByProductCategories($productCategoryTransferCollection);
+    }
+
+    /**
+     * @param $idAbstractProduct
+     * @return CategoryInterface[]|ArrayCollection
+     */
+    public function getCategoriesByAbstractProductId($idAbstractProduct)
+    {
+        return $this->getDependencyContainer()
+            ->createCategoryProductCategoryFinder()
+            ->getCategoriesByAbstractProductId($idAbstractProduct);
+    }
+
+    /**
+     * @param array $categoryKeys
+     * @return CategoryInterface[]
+     */
+    public function getCategoriesByCategoryKeys(array $categoryKeys)
+    {
+        return $this->getDependencyContainer()->createCategoryFinder()->getCategoriesByKeys($categoryKeys);
+
     }
 
 }

@@ -93,9 +93,8 @@ class CategoryTreeInstall extends AbstractInstaller
      */
     protected function getDemoTree()
     {
-        $reader = new CsvFileReader();
-
-        return $reader->read(__DIR__ . '/pets-deli-category-tree.csv')->getData();
+        $jsonData = file_get_contents(__DIR__ . '/pets-deli-category-tree.json');
+        return json_decode($jsonData, true);
     }
 
     /**
@@ -103,54 +102,54 @@ class CategoryTreeInstall extends AbstractInstaller
      */
     protected function write(array $demoTree)
     {
-        foreach ($demoTree as $row) {
-            if (1 === (int)$row[self::IS_ROOT]) {
-                $this->addRootNode($row);
-            } else {
-                $this->addChild($row);
-            }
+
+        $idRootNode = $this->addRootNode($demoTree);
+
+        foreach ($demoTree['children'] as $child) {
+            $this->addChild($child, $idRootNode);
         }
     }
 
     /**
      * @param array $rawNode
+     * @return int
      */
     protected function addRootNode(array $rawNode)
     {
         $idCategory = $this->createCategory($rawNode);
-
         $categoryNodeTransfer = new NodeTransfer();
         $categoryNodeTransfer->setIsRoot(true);
         $categoryNodeTransfer->setFkCategory($idCategory);
 
-        $this->categoryTreeWriter->createCategoryNode($categoryNodeTransfer, $this->locale, false);
+        return $this->categoryTreeWriter->createCategoryNode($categoryNodeTransfer, $this->locale, false);
     }
 
     /**
      * @param array $rawNode
+     * @param $idParentNode
      */
-    protected function addChild(array $rawNode)
+    protected function addChild(array $rawNode, $idParentNode)
     {
         $idCategory = $this->createCategory($rawNode);
 
         $categoryNodeTransfer = new NodeTransfer();
         $categoryNodeTransfer->setIsRoot(false);
         $categoryNodeTransfer->setFkCategory($idCategory);
-        $categoryNodeTransfer->setFkParentCategoryNode($this->getParentId($rawNode));
+        $categoryNodeTransfer->setFkParentCategoryNode($idParentNode);
 
-        $categoryId = $this->categoryTreeWriter->createCategoryNode($categoryNodeTransfer, $this->locale, true);
-        $categoryNodeTransfer->setIdCategoryNode($categoryId);
-
-        $cmsBlockTransfers = $this->cmsBlockFacade->getCmsBlocksByName('catalog');
-
-        if (count($cmsBlockTransfers) !== 1) {
-            throw new \InvalidArgumentException('cms blocks with name catalog must be one');
-        }
-        /** @var CmsBlockInterface $cmsBlockTransfer */
-        $cmsBlockTransfer = current($cmsBlockTransfers);
+        $idCategoryNode = $this->categoryTreeWriter->createCategoryNode($categoryNodeTransfer, $this->locale, true);
+        $categoryNodeTransfer->setIdCategoryNode($idCategoryNode);
 
         $pageTransfer = $this->cmsFacade->getPageByCategoryNode($categoryNodeTransfer);
-        $this->cmsBlockFacade->linkPageToBlock($pageTransfer->getIdCmsPage(),$cmsBlockTransfer->getIdCmsBlock());
+
+        foreach ($rawNode['cms_block_names'] as $cmsBlockName) {
+            $cmsBlockTransfer = $this->cmsBlockFacade->getCmsBlockByName($cmsBlockName);
+            $this->cmsBlockFacade->linkPageToBlock($pageTransfer->getIdCmsPage(), $cmsBlockTransfer->getIdCmsBlock());
+        }
+
+        foreach ($rawNode['children'] as $subNode) {
+            $this->addChild($subNode, $idCategoryNode);
+        }
 
 
     }
@@ -181,7 +180,6 @@ class CategoryTreeInstall extends AbstractInstaller
     {
         $categoryTransfer = new CategoryTransfer();
         $categoryTransfer->setName($rawNode[self::CATEGORY_NAME]);
-        $categoryTransfer->setImageName($rawNode[self::IMAGE_NAME]);
         $categoryTransfer->setCategoryKey($rawNode[self::CATEGORY_KEY]);
         $idCategory = $this->categoryWriter->create($categoryTransfer, $this->locale);
 
