@@ -2,6 +2,7 @@
 
 namespace Pyz\Zed\Console;
 
+use SprykerFeature\Shared\Library\Environment;
 use SprykerFeature\Zed\Console\ConsoleConfig as SprykerConsoleConfig;
 use Symfony\Component\Console\Command\Command;
 
@@ -24,7 +25,6 @@ class ConsoleConfig extends SprykerConsoleConfig
             $this->getLocator()->oms()->consoleCheckConditionConsole(),
             $this->getLocator()->oms()->consoleCheckTimeoutConsole(),
             $this->getLocator()->maintenance()->consoleFossMarkDownGeneratorConsole(),
-            $this->getLocator()->maintenance()->consoleCodeStyleFixerConsole(),
             $this->getLocator()->setup()->consoleRemoveGeneratedDirectoryConsole(),
             $this->getLocator()->setup()->consoleInstallConsole(),
             $this->getLocator()->propel()->consolePropelInstallConsole(),
@@ -54,6 +54,10 @@ class ConsoleConfig extends SprykerConsoleConfig
             $this->getLocator()->queue()->consoleQueueWorkerConsole(),
             $this->getLocator()->mailQueue()->consoleMailQueueConsole(),
         ];
+
+        if (Environment::isDevelopment()) {
+            $commands[] = $this->getLocator()->development()->consoleCodeStyleFixerConsole();
+        }
 
         $gitCommands = $this->getLocator()->git()->facade()->getConsoleCommands();
         $commands = array_merge($commands, $gitCommands);
