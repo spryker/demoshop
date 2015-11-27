@@ -8,3 +8,5 @@ use SprykerFeature\Shared\System\SystemConfig;
 
 $config[SystemConfig::ELASTICA_PARAMETER__INDEX_NAME] = 'de_development_catalog';
 $config[SystemConfig::ELASTICA_PARAMETER__DOCUMENT_TYPE] = 'page';
+
+//@TODO add configuration for feed generation

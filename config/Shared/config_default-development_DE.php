@@ -7,6 +7,7 @@ use SprykerEngine\Shared\Lumberjack\LumberjackConfig;
 use PavFeature\Shared\FileUpload\FileUploadConfig;
 use PavFeature\Shared\NewsletterDoiMailQueueConnector\NewsletterDoiMailQueueConnectorConfig;
 use PavFeature\Shared\MailchimpClient\MailchimpClientConfig;
+use Pyz\Shared\ProductFeed\ProductFeedConfig;
 
 $config[SystemConfig::ZED_DB_USERNAME] = 'development';
 $config[SystemConfig::ZED_DB_PASSWORD] = 'mate20mg';
@@ -58,11 +59,11 @@ $config[LumberjackConfig::WRITER_OPTIONS] = [
 
 $config[FileUploadConfig::STORAGE] = [
     'cms' => [
-            FileUploadConfig::CONFIG_TYPE => FileUploadConfig::ADAPTER_LOCAL,
-            FileUploadConfig::CONFIG_CONFIG => [
-                'path' => '/data/storage/development/static',
-                'mapping' => 'http://static.com.pets-deli.dev',
-            ],
+        FileUploadConfig::CONFIG_TYPE => FileUploadConfig::ADAPTER_LOCAL,
+        FileUploadConfig::CONFIG_CONFIG => [
+            'path' => '/data/storage/development/static',
+            'mapping' => 'http://static.com.pets-deli.dev',
+        ],
     ],
 ];
 
@@ -72,3 +73,12 @@ $config[MailchimpClientConfig::MAILCHIMP_SUBSCRIBER_LIST_ID] = 'fc2fd7191f';
 $config[NewsletterDoiMailQueueConnectorConfig::DOI_CONFIRMATION_TEMPLATE_NAME] = 'newsletter-doi-test-template';
 $config[NewsletterDoiMailQueueConnectorConfig::DOI_CONFIRMATION_EMAIL_SUBJECT] = 'DOI confirmation';
 $config[NewsletterDoiMailQueueConnectorConfig::DOI_CONFIRMATION_URL] = $config[SystemConfig::HOST_YVES] . '/newsletter/confirmation/';
+
+$config[ProductFeedConfig::PRODUCT_FEED_FILE_LOCATION] = '/data/storage/development/static/feed/';
+$config[ProductFeedConfig::PRODUCT_FEED_FILE_NAME] = 'products.csv';
+
+$config[ProductFeedConfig::PRODUCT_FEED_CSV_PARAMETERS] = [
+    'delimiter' => ';',
+    'encoding' => 'UTF-8',
+    'enclosure' => '"'
+];
