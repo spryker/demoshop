@@ -1,5 +1,5 @@
 <div class="product-accordion">
-    {% for item in product.accordion %}
+    {% for item in product.accordion.blocks %}
         {% include '@application/layout/content/product/details/product-accordion-item.twig' with {
             item: {
                 title: item.key
