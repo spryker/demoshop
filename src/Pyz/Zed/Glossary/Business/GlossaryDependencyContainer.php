@@ -23,10 +23,9 @@ class GlossaryDependencyContainer extends SprykerGlossaryDependencyContainer
      */
     public function createDemoDataInstaller(LoggerInterface $messenger)
     {
-        $installers = [
-            $this->getProvidedDependency(GlossaryDependencyProvider::PLUGIN_YML_INSTALLER),
-        ];
-        $installer = $this->getFactory()->createInternalDemoDataGlossaryInstall($installers);
+        $installer = $this->getFactory()->createInternalDemoDataGlossaryInstall(
+            $this->createImporter()
+        );
         $installer->setMessenger($messenger);
 
         return $installer;

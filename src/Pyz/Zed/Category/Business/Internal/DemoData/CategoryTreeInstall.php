@@ -8,6 +8,7 @@ use Generated\Shared\Transfer\LocaleTransfer;
 use Generated\Shared\Transfer\NodeTransfer;
 use Pyz\Zed\Cms\Business\CmsFacade;
 use Pyz\Zed\CmsBlock\Business\CmsBlockFacade;
+use Pyz\Zed\Url\Business\UrlFacade;
 use SprykerEngine\Zed\Locale\Business\LocaleFacade;
 use SprykerFeature\Zed\Category\Business\Model\CategoryWriter;
 use SprykerFeature\Zed\Category\Business\Model\CategoryWriterInterface;
@@ -49,6 +50,9 @@ class CategoryTreeInstall extends AbstractInstaller
 
     protected $cmsBlockFacade;
 
+    /** @var  UrlFacade */
+    protected $urlFacade;
+
     /**
      * @param CategoryWriterInterface $categoryWriter
      * @param CategoryTreeWriter $categoryTreeWriter
@@ -56,6 +60,7 @@ class CategoryTreeInstall extends AbstractInstaller
      * @param LocaleFacade $localeFacade
      * @param CmsFacade $cmsFacade
      * @param CmsBlockFacade $cmsBlockFacade
+     * @param UrlFacade $urlFacade
      */
     public function __construct(
         CategoryWriterInterface $categoryWriter,
@@ -63,7 +68,8 @@ class CategoryTreeInstall extends AbstractInstaller
         CategoryQueryContainer $categoryQueryContainer,
         LocaleFacade $localeFacade,
         CmsFacade $cmsFacade,
-        CmsBlockFacade $cmsBlockFacade
+        CmsBlockFacade $cmsBlockFacade,
+        UrlFacade $urlFacade
     ) {
         $this->categoryWriter = $categoryWriter;
         $this->categoryTreeWriter = $categoryTreeWriter;
@@ -71,6 +77,7 @@ class CategoryTreeInstall extends AbstractInstaller
         $this->locale = $localeFacade->getCurrentLocale();
         $this->cmsFacade = $cmsFacade;
         $this->cmsBlockFacade = $cmsBlockFacade;
+        $this->urlFacade = $urlFacade;
     }
 
     public function install()
@@ -141,6 +148,10 @@ class CategoryTreeInstall extends AbstractInstaller
         $categoryNodeTransfer->setIdCategoryNode($idCategoryNode);
 
         $pageTransfer = $this->cmsFacade->getPageByCategoryNode($categoryNodeTransfer);
+
+        $urlTransfer = $this->urlFacade->getUrlByIdPage($pageTransfer->getIdCmsPage());
+        $urlTransfer->setUrl($rawNode['url']);
+        $this->urlFacade->saveUrl($urlTransfer);
 
         foreach ($rawNode['cms_block_names'] as $cmsBlockName) {
             $cmsBlockTransfer = $this->cmsBlockFacade->getCmsBlockByName($cmsBlockName);
