@@ -27,19 +27,19 @@ class CustomerControllerProvider extends YvesControllerProvider
      */
     protected function defineControllers(Application $app)
     {
-        $this->createController('/login', self::ROUTE_LOGIN, 'Customer', 'Security', 'login');
-        $this->createController('/register', self::ROUTE_REGISTER, 'Customer', 'Security', 'register');
-        $this->createController('/register/confirm', self::ROUTE_CONFIRM_REGISTRATION, 'Customer', 'Security', 'confirmRegistration');
-        $this->createController('/logout', self::ROUTE_LOGOUT, 'Customer', 'Security', 'logout');
+        $this->createController('/login/', self::ROUTE_LOGIN, 'Customer', 'Security', 'login');
+        $this->createController('/register/', self::ROUTE_REGISTER, 'Customer', 'Security', 'register');
+        $this->createController('/register/confirm/', self::ROUTE_CONFIRM_REGISTRATION, 'Customer', 'Security', 'confirmRegistration');
+        $this->createController('/logout/', self::ROUTE_LOGOUT, 'Customer', 'Security', 'logout');
 
-        $this->createController('/password/forgot', self::ROUTE_PASSWORD_FORGOT, 'Customer', 'Customer', 'forgotPassword');
-        $this->createController('/password/restore', self::ROUTE_PASSWORD_RESTORE, 'Customer', 'Customer', 'restorePassword');
-        $this->createController('/customer/delete', self::ROUTE_DELETE, 'Customer', 'Customer', 'delete');
-        $this->createController('/customer/profile', self::ROUTE_CUSTOMER_PROFILE, 'Customer', 'Customer', 'profile');
+        $this->createController('/password/forgot/', self::ROUTE_PASSWORD_FORGOT, 'Customer', 'Customer', 'forgotPassword');
+        $this->createController('/password/restore/', self::ROUTE_PASSWORD_RESTORE, 'Customer', 'Customer', 'restorePassword');
+        $this->createController('/customer/delete/', self::ROUTE_DELETE, 'Customer', 'Customer', 'delete');
+        $this->createController('/customer/profile/', self::ROUTE_CUSTOMER_PROFILE, 'Customer', 'Customer', 'profile');
 
-        $this->createController('/customer/address', self::ROUTE_CUSTOMER_ADDRESS, 'Customer', 'Address', 'update');
-        $this->createController('/customer/address/new', self::ROUTE_CUSTOMER_NEW_ADDRESS, 'Customer', 'Address', 'create');
-        $this->createController('/customer/address/delete', self::ROUTE_CUSTOMER_DELETE_ADDRESS, 'Customer', 'Address', 'delete');
+        $this->createController('/customer/address/', self::ROUTE_CUSTOMER_ADDRESS, 'Customer', 'Address', 'update');
+        $this->createController('/customer/address/new/', self::ROUTE_CUSTOMER_NEW_ADDRESS, 'Customer', 'Address', 'create');
+        $this->createController('/customer/address/delete/', self::ROUTE_CUSTOMER_DELETE_ADDRESS, 'Customer', 'Address', 'delete');
     }
 
 }

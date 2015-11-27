@@ -17,14 +17,14 @@ class NewsletterControllerProvider extends YvesControllerProvider
     protected function defineControllers(Application $app)
     {
         $this->createPostController(
-            '/newsletter/subscribe',
+            '/newsletter/subscribe/',
             static::NEWSLETTER_SUBSCRIPTION_ROUTE,
             'Newsletter',
             'Subscription'
         )->method('POST');
 
         $this->createPostController(
-            '/newsletter/confirmation/{subscriber_key}',
+            '/newsletter/confirmation/{subscriber_key}', //please no trailing slash here
             static::NEWSLETTER_LANDING_PAGE_ROUTE,
             'Newsletter',
             'Landingpage'

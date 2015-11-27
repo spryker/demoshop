@@ -24,26 +24,26 @@ class WishlistControllerProvider extends YvesControllerProvider
      */
     protected function defineControllers(Application $app)
     {
-        $this->createGetController('/wishlist', static::ROUTE_WISHLIST, 'Wishlist', 'Wishlist');
+        $this->createGetController('/wishlist/', static::ROUTE_WISHLIST, 'Wishlist', 'Wishlist');
 
-        $this->createGetController('/wishlist/add/{sku}', static::ROUTE_ADD, 'Wishlist', 'Wishlist', 'add')
+        $this->createGetController('/wishlist/add/{sku}/', static::ROUTE_ADD, 'Wishlist', 'Wishlist', 'add')
             ->assert('sku', '[a-zA-Z0-9-_]+')
             ->convert('quantity', [$this, 'getQuantityFromRequest']);
 
-        $this->createGetController('/wishlist/remove/{sku}/{groupKey}', static::ROUTE_REMOVE, 'Wishlist', 'Wishlist', 'remove')
+        $this->createGetController('/wishlist/remove/{sku}/{groupKey}/', static::ROUTE_REMOVE, 'Wishlist', 'Wishlist', 'remove')
             ->assert('sku', '[a-zA-Z0-9-_]+')
             ->assert('groupKey', '[a-zA-Z0-9-_]+');
 
 
-        $this->createGetController('/wishlist/decrease/{sku}/{groupKey}', static::ROUTE_DECREASE, 'Wishlist', 'Wishlist', 'decrease')
+        $this->createGetController('/wishlist/decrease/{sku}/{groupKey}/', static::ROUTE_DECREASE, 'Wishlist', 'Wishlist', 'decrease')
             ->assert('sku', '[a-zA-Z0-9-_]+')
             ->assert('groupKey', '[a-zA-Z0-9-_]+');
 
-        $this->createGetController('/wishlist/increase/{sku}/{groupKey}', static::ROUTE_INCREASE, 'Wishlist', 'Wishlist', 'increase')
+        $this->createGetController('/wishlist/increase/{sku}/{groupKey}/', static::ROUTE_INCREASE, 'Wishlist', 'Wishlist', 'increase')
             ->assert('sku', '[a-zA-Z0-9-_]+')
             ->assert('groupKey', '[a-zA-Z0-9-_]+');
 
-        $this->createGetController('/wishlist/add-to-cart/{groupKey}', static::ROUTE_ADD_TO_GROUP, 'Wishlist', 'Wishlist', 'addToCart')
+        $this->createGetController('/wishlist/add-to-cart/{groupKey}/', static::ROUTE_ADD_TO_GROUP, 'Wishlist', 'Wishlist', 'addToCart')
             ->assert('groupKey', '[a-zA-Z0-9-_]+');
     }
 

@@ -48,7 +48,7 @@ class CategoryCmsInstaller extends AbstractInstaller
     {
         return [
             [
-                self::PAGE_URL => '/hunde',
+                self::PAGE_URL => '/hunde/',
                 self::CATEGORY_NAME => 'Hunde',
             ]
         ];

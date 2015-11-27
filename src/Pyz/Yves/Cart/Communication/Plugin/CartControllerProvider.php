@@ -35,33 +35,33 @@ class CartControllerProvider extends YvesControllerProvider
      */
     protected function defineControllers(Application $app)
     {
-        $this->createGetController('/cart', self::ROUTE_CART, 'Cart', 'Cart');
+        $this->createGetController('/cart/', self::ROUTE_CART, 'Cart', 'Cart');
 
-        $this->createGetController('/cart/add/{sku}', self::ROUTE_CART_ADD, 'Cart', 'Cart', 'add')
+        $this->createGetController('/cart/add/{sku}/', self::ROUTE_CART_ADD, 'Cart', 'Cart', 'add')
             ->assert('sku', '[a-zA-Z0-9-_]+')
             ->convert('quantity', [$this, 'getQuantityFromRequest'])
         ;
 
-        $this->createGetController('/cart/remove/{sku}/{groupKey}', self::ROUTE_CART_REMOVE, 'Cart', 'Cart', 'remove')
+        $this->createGetController('/cart/remove/{sku}/{groupKey}/', self::ROUTE_CART_REMOVE, 'Cart', 'Cart', 'remove')
             ->assert('sku', '[a-zA-Z0-9-_]+')
             ->value('groupKey', '')
         ;
 
-        $this->createGetController('/cart/quantity/{sku}/{absolute}', self::ROUTE_CART_CHANGE_QUANTITY, 'Cart', 'Cart', 'change')
+        $this->createGetController('/cart/quantity/{sku}/{absolute}/', self::ROUTE_CART_CHANGE_QUANTITY, 'Cart', 'Cart', 'change')
             ->assert('sku', '[a-zA-Z0-9-_]+')
             ->value('groupKey', '')
             ->assert('absolute', '[0-1-_]+')
         ;
 
-        $this->createGetController('/cart/overlay', self::ROUTE_CART_OVERLAY, 'Cart', 'Ajax', 'index');
+        $this->createGetController('/cart/overlay/', self::ROUTE_CART_OVERLAY, 'Cart', 'Ajax', 'index');
 
-        $this->createPostController('/cart/add', self::ROUTE_CART_ADD_AJAX, 'Cart', 'Ajax', 'add', true)
+        $this->createPostController('/cart/add/', self::ROUTE_CART_ADD_AJAX, 'Cart', 'Ajax', 'add', true)
             ->convert('sku', [$this, 'getSkuFromRequest'])
             ->convert('quantity', [$this, 'getQuantityFromRequest'])
             ->convert('ingredients', [$this, 'getIngredientsFromRequest'])
         ;
 
-        $this->createPostController('/cart/remove/{sku}/{groupKey}', self::ROUTE_CART_REMOVE_AJAX, 'Cart', 'Ajax', 'remove', true)
+        $this->createPostController('/cart/remove/{sku}/{groupKey}/', self::ROUTE_CART_REMOVE_AJAX, 'Cart', 'Ajax', 'remove', true)
             ->assert('sku', '[a-zA-Z0-9-_]+')
             ->value('groupKey', '')
         ;
