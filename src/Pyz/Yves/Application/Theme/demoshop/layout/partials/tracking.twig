@@ -1,7 +1,8 @@
 {% autoescape false %}
     {{ trackingContainer.createTrackingOutput }}
     <script>
-        if (dataLayerManager.isNonProduction()) {
+        if (dataLayerManager.isNonDevelopment()) {
+            alert(1);
             (function (w, d, s, l, i) {
                 w[l] = w[l] || [];
                 w[l].push({
