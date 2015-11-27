@@ -1,9 +1,9 @@
 {% if product is defined %}
 
-    {# TODO: separate partial that injects content #}
     {% set productConcrete = product.concreteProducts | first %}
     {% set initial = (pricings | first) %}
 
+    {# TODO: dry js data definition #}
     <script type="text/javascript">
         window.pricings = {
         {% for weight, pricing in pricings %}
@@ -15,49 +15,55 @@
         }
     </script>
 
-    <div class="product-header">
-        <form action="/cart/add/" method="POST">
+    <form action="/cart/add/" method="POST" data-sku="{{ productConcrete.sku }}" class="product-header js-product-options
 
-            <div class="product-header__info">
-                <h2 class="product-header__title">{{ product.abstract_name }}</h2>
-                <div class="product-header__weight">{{ initial.weight }}</div>
-            </div>
+        <div class="product-header__info">
+            <h2 class="product-header__title">{{ product.abstract_name }}</h2>
+            <div class="product-header__weight">{{ initial.weight }}</div>
+        </div>
 
-            <div class="product-header__interaction">
-                {% if options is not empty %}
+        <div class="product-header__interaction">
+            {% if options is not empty %}
+                {% set option = options | first %}
+                {% if option.weight is defined %}
                     <div class="product-header__select">
                         {% include  '@application/layout/common/forms/dropdown.twig' with {
                             label: 'Größe',
                             id: 'weight',
                             name: 'weight',
-                            options: options.weight
+                            options: option.weight
                         } %}
                     </div>
                 {% endif %}
+            {% endif %}
 
-                <div class="product-header__select">
-                    {% include  '@application/layout/common/forms/stepper.twig' with {
-                        label: 'Anzahl',
-                        id: 'quantity',
-                        name: 'quantity'
-                    } %}
-                </div>
-
-                <div class="product-header__pricing">
-                    {% set initial = (pricings | first ) %}
-
-                    <div class="product-header__total">{{ initial.absolute | price}}</div>
-                    <div class="product-header__relative">250g (€1.40 / 100g)</div>
-                </div>
-
-                <!-- TODO: strings into glossary -->
-                <button
-                    class="product-header__button button button--cta" data-sku="{{ productConcrete.sku }}">
-                    In den Warenkorb
-                </button>
+            <div class="product-header__select">
+                {% include  '@application/layout/common/forms/stepper.twig' with {
+                    label: 'Anzahl',
+                    id: 'quantity',
+                    name: 'quantity'
+                } %}
             </div>
 
-        </form>
+            <div class="product-header__pricing">
+                {% set initial = (pricings | first ) %}
+
+                <div class="product-header__total">
+                    {{ initial.absolute | price}}
+                </div>
+
+                <div class="product-header__relative">
+                    <span class="js-product-weight">{{ initial.weight }}</span>{{ ('unit.' ~ initial.unit | trim) | trans }} ({{ initial.relative | price }} / {{ initial.unit == 'ml' or initial.unit == 'g' ? 100 : 1 }}{{ initial.unit }})
+                </div>
+            </div>
+
+            {% include '@application/layout/common/forms/button.twig' with {
+                type: 'submit',
+                title: 'In den Warenkorb',
+                modifier: 'cta product-options__button button'
+            } %}
+        </div>
+
 
         <div class="product-header__delivery">
             <div class="product-header__delivery-status">
@@ -68,5 +74,5 @@
                 Versand erfolgt für Bestellungen bis 12.00 Uhr Mo-Do normalerweise am selben Tag.
             </div>
         </div>
-    </div>
+    </form>
 {% endif %}

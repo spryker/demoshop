@@ -26,8 +26,24 @@ class AjaxController extends AbstractController
     {
         $cart = $this->getCart();
 
+        $products = [];
+        foreach ($this->getCart()->getItems() as $item) {
+            if (empty($item->getName())) {
+                $item->setName('Product ' . mt_rand(1, 99));
+            }
+
+            $sku = $item->getSku();
+            $product = $this->locator->catalog()->client()->createCatalogModel()->getProductDataById($item->getId());
+
+            $products[$sku] = [
+                'url' => $product['abstract_attributes']['url'],
+                'media' => $product['abstract_attributes']['media'],
+            ];
+        }
+
         return $this->viewResponse([
             'cart' => $cart,
+            'products' => $products,
         ]);
     }
 
@@ -41,8 +57,24 @@ class AjaxController extends AbstractController
         $cartClient = $this->getLocator()->cart()->client();
         $cartClient->addCoupon($couponCode);
 
+        $products = [];
+        foreach ($this->getCart()->getItems() as $item) {
+            if (empty($item->getName())) {
+                $item->setName('Product ' . mt_rand(1, 99));
+            }
+
+            $sku = $item->getSku();
+            $product = $this->locator->catalog()->client()->createCatalogModel()->getProductDataById($item->getId());
+
+            $products[$sku] = [
+                'url' => $product['abstract_attributes']['url'],
+                'media' => $product['abstract_attributes']['media'],
+            ];
+        }
+
         return $this->viewResponse([
             'cart' => $cartClient->getCart(),
+            'products' => $products,
         ]);
 
         // @Todo: replace with this once coupon error messages are fixed by Spryker

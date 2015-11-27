@@ -3,19 +3,16 @@
 
 {% if cart.items | length > 0 %}
 
-
     <div class="cart-layer__items">
         {% for item in cart.items %}
-            {# item.thumbnail #}
             {% include '@application/layout/content/product/cart/cart-item.twig' with {
-                image: '/images/cart/thumbnail.png',
                 title: item.name,
                 weight: '250g',
                 quantity: item.quantity,
                 price: item.grossPrice,
                 sku: item.sku,
                 groupKey: item.groupKey,
-                url: (item.url | default(''))
+                product: products[item.sku]
             } %}
         {% endfor %}
     </div>

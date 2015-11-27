@@ -159,7 +159,7 @@
 
 .checkout__subform-inner{
     @include clearfix;
-    padding: 10px 28px 28px;
+    padding: 10px 0 28px;
 
     border-top: 1px solid $_rgbSilver;
     border-bottom: 1px solid $_rgbSilver;
@@ -304,7 +304,7 @@
     line-height: 20px;
     text-transform: uppercase;
     text-align: right;
-    height: 60px;
+    min-height: 60px;
     line-height: 60px;
 }
 
@@ -326,11 +326,18 @@
 
 .cart-position--voucher{
     display: inline-block;
-    height: 60px;
+    min-height: 60px;
     line-height: 60px;
 
     text-decoration: underline;
 }
+
+.cart-position--total{
+    .cart-position__left{
+        line-height: 1.5;
+    }
+}
+
 
 @media (max-width: $_wLarge) {
     .cart-position{

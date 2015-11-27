@@ -1,13 +1,18 @@
+
+
 <div class="cart-item" data-sku={{ sku }} data-group-key={{ groupKey }}>
     <div class="cart-item__left">
 
         <div class="cart-item__image">
-            <img src="{{ image }}">
+            {% if product.media is not empty %}
+                {% set image = product.media | first %}
+                <img src="/images/products/{{ image.url }}" alt="Produktabbildung">
+            {% endif %}
         </div>
 
         <div class="cart-item__details">
 
-            <a href="{{ url }}" class="cart-item__title">{{ title }}</a>
+            <a href="{{ product.url }}" class="cart-item__title">{{ title }}</a>
 
             <div class="cart-item__content">
                 <div class="cart-item__weight">{{ weight }}</div>

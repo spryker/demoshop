@@ -12,7 +12,7 @@
 
 
 
-<div class="product-configurator" data-trigger="js-product-customize">
+<div class="product-configurator js-product-configurator" data-trigger="js-product-customize">
 
     {% include '@application/layout/common/close-button.twig' %}
 
@@ -25,7 +25,8 @@
             {{ data.description | nl2br }}
         </div>
 
-        {% for category, categoryOptions in options %}
+        {% set option = options | first %}
+        {% for category, categoryOptions in option %}
             {% if category != 'weight' %}
 
                 {% if data.titles[category] is defined %}
@@ -39,20 +40,23 @@
                         {{ data.label }}
                     </div>
 
-                    {% for option in categoryOptions %}
-                        {% if option != 'no' %}
+                    {% for categoryOption in categoryOptions %}
+
+                        {# TODO: dynamic category dog/cat #}
+                        {% if categoryOption != 'no' %}
                             {% include '@application/layout/content/product/configurator/image-checkbox.twig' with {
                                 checkbox: {
-                                    id: category ~ '_' ~ option,
+                                    id: category ~ '_' ~ categoryOption,
                                     name: category,
-                                    value: option,
-                                    label: (option | capitalize),
-                                    sublabel: (category == 'meat' ? 'mit Brokkoli & Kurbis' : ''),
-                                    image: '/images/product/' ~ category ~ '_' ~ option ~ '.jpg',
-                                    image_bw: '/images/product/' ~ category ~ '_' ~ option ~ '_bw.jpg'
+                                    value: categoryOption,
+                                    label: (categoryOption | capitalize),
+                                    sublabel: (category == 'meat' ? (('configurator.fixings.' ~ pet ~ '.' ~ categoryOption | trim) | trans) : ''),
+                                    image: '/images/product/' ~ category ~ '_' ~ categoryOption ~ '.jpg',
+                                    image_bw: '/images/product/' ~ category ~ '_' ~ categoryOption ~ '_bw.jpg'
                                 }
                             } %}
                         {% endif %}
+
                     {% endfor %}
 
                 </div>

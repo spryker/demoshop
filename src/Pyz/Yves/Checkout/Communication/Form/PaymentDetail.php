@@ -59,27 +59,24 @@ class PaymentDetail extends AbstractType
         $builder
             //Sepa fields
             ->add('bank_account_number', 'text', [
-                'label' => false,
+                'label' => 'Kontonummer',
                 'required' => false,
                 'attr' => [
-                    'placeholder' => 'Bank account number',
-                    'autocomplete' => 'off'
-                ],
+                    'class' => 'input--1-1'
+                ]
             ])
             ->add('bank_location_id', 'text', [
-                'label' => false,
+                'label' => 'BLZ',
                 'required' => false,
                 'attr' => [
-                    'placeholder' => 'Bank location',
-                    'autocomplete' => 'off'
-                ],
+                    'class' => 'input--1-1'
+                ]
             ])
             ->add('ownerName', 'text', [
-                'label' => false,
+                'label' => 'Kontoinhaber',
                 'required' => false,
                 'attr' => [
-                    'placeholder' => 'Name',
-                    'autocomplete' => 'off'
+                    'class' => 'input--1-1'
                 ],
             ])
 
@@ -96,36 +93,36 @@ class PaymentDetail extends AbstractType
                 ],
             ])
             ->add('adyen_encrypted_form_number', 'text', [
-                'label' => false,
+                'label' => 'Kreditkartennummer',
                 'required' => false,
                 'mapped' => false,
                 'attr' => [
                     'id' => 'adyen-encrypted-form-number',
                     'data-encrypted-name' => 'number',
-                    'placeholder' => 'Card Number',
-                    'autocomplete' => 'off'
+                    'autocomplete' => 'off',
+                    'class' => 'input--3-4'
                 ],
             ])
             ->add('adyen_encrypted_form_cvc', 'text', [
-                'label' => false,
+                'label' => 'CVC',
                 'required' => false,
                 'mapped' => false,
                 'attr' => [
                     'id' => 'adyen-encrypted-form-cvc',
                     'data-encrypted-name' => 'cvc',
-                    'placeholder' => 'CVC',
-                    'autocomplete' => 'off'
+                    'autocomplete' => 'off',
+                    'class' => 'input--1-4'
                 ],
             ])
             ->add('adyen_encrypted_form_holder_name', 'text', [
-                'label' => false,
+                'label' => 'Karteninhaber',
                 'required' => false,
                 'mapped' => false,
                 'attr' => [
                     'id' => 'adyen-encrypted-form-holder-name',
                     'data-encrypted-name' => 'holderName',
-                    'placeholder' => 'Holder name',
-                    'autocomplete' => 'off'
+                    'autocomplete' => 'off',
+                    'class' => 'input--1-1'
                 ],
             ])
             ->add('adyen_encrypted_form_expiry_month', 'choice', array(

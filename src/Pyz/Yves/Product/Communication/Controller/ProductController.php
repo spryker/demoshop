@@ -27,10 +27,21 @@ class ProductController extends AbstractController
         $result = [
             'product' => $product,
             'category' => count($product->getCategory()) ? current($product->getCategory()) : null,
+
+            // TODO: unify options and pricings
+            'pet' => 'none',
             'options' => [],
             'pricings' => [],
         ];
 
+        foreach ($product->getCategory() as $category) {
+            if (isset($category['category_key'])) {
+                if (in_array($category['category_key'], ['dog', 'cat'])) {
+                    $result['pet'] = $category['category_key'];
+                    break;
+                }
+            }
+        }
 
         foreach ($product->getConcreteProducts() as $concrete) {
 
@@ -44,7 +55,7 @@ class ProductController extends AbstractController
                 'relative' => $concrete['prices']['DEFAULT'] / $weight * (in_array($unit, ['ml', 'g']) ? 100 : 1),
                 'unit' => $unit
             ];
-            
+
             // AGGREGATE CONFIGURATION OPTIONS
 
             // dynamic / bundle
@@ -53,9 +64,11 @@ class ProductController extends AbstractController
                 ProductDynamicConstants::PRODUCT_DYNAMIC_TYPE_BUNDLE
             ])) {
 
+                $result['options'][$weight] = [];
+
                 foreach ($concrete['concrete_products_dynamic'] AS $dynamic) {
                     foreach ($dynamic['groups'] AS $group) {
-                        $result['options'][$group['key']][] = $group['value'];
+                        $result['options'][$weight][$group['key']][] = $group['value'];
                     }
                 }
 
@@ -63,13 +76,15 @@ class ProductController extends AbstractController
             } else {
 
                 foreach ($concrete['product_group_values'] AS $key => $value) {
-                    $result['options'][$key][] = $value;
+                    $result['options'][$weight][$key][] = $value;
                 }
             }
         }
 
-        foreach ($result['options'] AS &$option) {
-            $option = array_unique($option);
+        foreach ($result['options'] AS &$options) {
+            foreach ($options AS &$option) {
+                $option = array_unique($option);
+            }
         }
 
 

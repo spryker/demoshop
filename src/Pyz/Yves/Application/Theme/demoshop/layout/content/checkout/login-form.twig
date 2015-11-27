@@ -1,0 +1,94 @@
+
+{# form_widget(registerForm._token) #}
+<!-- <input type="text" class="login__email padded" name="_username" placeholder="E-mail-Adresse">
+<input type="password" class="login__password padded" name="_password" placeholder="Passwort">
+<button class="login__forgot-password">Vergessen?</button>
+<label for="agb" class="login__agb"><input type="checkbox" name="agb"> Ich akzeptiere die AGB</label>
+<input type="submit" class="login__submit js-login-submit cta" value="Anmelden">
+<button class="login__switch js-login-form-switch">Ich bin Neukunde</button> -->
+
+
+
+<div class="login-slider">
+    <div class="slider__headline">
+        Kasse
+    </div>
+
+    <div class="login-slider__navigations">
+        <div class="login-slider__inner">
+
+            <!-- <div class="login-slider__navigation">Wilkommen zurück!</div> -->
+            <div class="login-slider__navigation">Bestandskunde</div>
+            <div class="login-slider__navigation">Neukunde</div>
+
+        </div>
+    </div>
+
+
+    <div class="login-slider__contents">
+        <div class="login-slider__inner">
+
+            <!-- <div class="login-slider__content">
+                <form class="login-slider__form">
+                    <p class="user-box__description">
+                        francesco@provider.com
+                    </p>
+
+                    {# include '@application/layout/common/forms/input.twig' with {
+                        type: 'hidden',
+                        id: 'known_email',
+                        name: '_username'
+                    } #}
+
+                    {# include '@application/layout/common/forms/input-password.twig' with {
+                        label: 'Ihr Passwort',
+                        id: 'known_password',
+                        name: '_password'
+                    } #}
+
+                    <a href="#" class="user-box__not">You are not Fancesco?</a>
+
+                    {# include '@application/layout/common/forms/button.twig' with {
+                        title: 'Einloggen',
+                        modifier: 'cta',
+                        type: 'submit'
+                    } #}
+                </form>
+            </div> -->
+
+            <div class="login-slider__content">
+                <form action="{{ path('login_check') }}" method="post" name="login" class="login-slider__form" data-register-url="{{ url('register') }}" data-login-url="{{ url('login_check') }}">
+                    {% include '@application/layout/common/forms/input.twig' with {
+                        label: 'Ihre E-Mail Adresse',
+                        id: 'user_email',
+                        name: '_username'
+                    } %}
+
+                    {% include '@application/layout/common/forms/input-password.twig' with {
+                        label: 'Ihr Passwort',
+                        id: 'user_password',
+                        name: '_password'
+                    } %}
+
+                    {% include '@application/layout/common/forms/button.twig' with {
+                        title: 'Einloggen',
+                        modifier: 'cta',
+                        type: 'submit'
+                    } %}
+                </form>
+            </div>
+
+            <div class="login-slider__content">
+                <form class="login-slider__form">
+                    {% include '@application/layout/common/forms/button.twig' with {
+                        title: 'Weiter zur Kasse',
+                        modifier: 'cta js-button-guestcheckout',
+                        type: 'button'
+                    } %}
+                </form>
+            </div>
+
+        </div>
+    </div>
+
+</div>

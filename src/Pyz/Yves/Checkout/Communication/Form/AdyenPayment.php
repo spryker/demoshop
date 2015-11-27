@@ -34,10 +34,10 @@ class AdyenPayment extends AbstractType
     public function getAcceptedPayments()
     {
         return [
-            AdyenPaymentMethodConstants::ADYEN_PAYMENT_METHOD_SEPA => AdyenPaymentMethodConstants::ADYEN_PAYMENT_METHOD_SEPA,
+            AdyenPaymentMethodConstants::ADYEN_PAYMENT_METHOD_GERMAN_BANK_TRANSFER => AdyenPaymentMethodConstants::ADYEN_PAYMENT_METHOD_GERMAN_BANK_TRANSFER,
             AdyenPaymentMethodConstants::ADYEN_PAYMENT_METHOD_PAYPAL => AdyenPaymentMethodConstants::ADYEN_PAYMENT_METHOD_PAYPAL,
+            AdyenPaymentMethodConstants::ADYEN_PAYMENT_METHOD_SEPA => AdyenPaymentMethodConstants::ADYEN_PAYMENT_METHOD_SEPA,
             AdyenPaymentMethodConstants::ADYEN_PAYMENT_METHOD_CREDIT_CARD_CSE => AdyenPaymentMethodConstants::ADYEN_PAYMENT_METHOD_CREDIT_CARD_CSE,
-            AdyenPaymentMethodConstants::ADYEN_PAYMENT_METHOD_GERMAN_BANK_TRANSFER => AdyenPaymentMethodConstants::ADYEN_PAYMENT_METHOD_GERMAN_BANK_TRANSFER
         ];
     }
 

@@ -159,6 +159,10 @@
     border-left: 1px solid #ECECEC;
 
     a{
+        max-width: 120px;
+        overflow: hidden;
+        text-overflow: ellipsis;
+
         @include pdif('user', 20px, 30px);
     }
 }

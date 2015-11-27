@@ -21,15 +21,22 @@ class AjaxController extends AbstractController
      */
     public function indexAction()
     {
+        // TODO: dry with CheckoutController
         $cartClient = $this->getLocator()->cart()->client();
         $cart = $cartClient->getCart();
+        $products = [];
         foreach ($cart->getItems() as $item) {
             if (empty($item->getName())) {
                 $item->setName('Product ' . mt_rand(1, 99));
             }
 
-            // TODO: provide item url in template
-            //$product = $this->locator->catalog()->client()->createCatalogModel()->getProductDataById($item->getId());
+            $sku = $item->getSku();
+            $product = $this->locator->catalog()->client()->createCatalogModel()->getProductDataById($item->getId());
+
+            $products[$sku] = [
+                'url' => $product['abstract_attributes']['url'],
+                'media' => $product['abstract_attributes']['media'],
+            ];
         }
 
         $tracking = Tracking::getInstance();
@@ -44,6 +51,7 @@ class AjaxController extends AbstractController
 
         return $this->viewResponse([
             'cart' => $cart,
+            'products' => $products,
             GlobalTemplateVariablesExtension::TWIG_TRACKING_CONTAINER => $tracking,
         ]);
     }

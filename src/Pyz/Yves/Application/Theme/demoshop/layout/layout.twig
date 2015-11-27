@@ -22,11 +22,15 @@
 
         <body>
 
-            {% include "@application/layout/partials/header.twig" %}
+            {% block header %}
+                {% include "@application/layout/partials/header.twig" %}
+            {% endblock %}
 
             {% block content %}{% endblock %}
 
-            {% include "@application/layout/partials/footer.twig" %}
+            {% block footer %}
+                {% include "@application/layout/partials/footer.twig" %}
+            {% endblock %}
 
             <!-- TODO: remove old script -->
             <script src="/js/main.js"></script>
