@@ -51,7 +51,7 @@ class OmsDependencyProvider extends SprykerOmsDependencyProvider
             'Adyen/Capture' => $container->getLocator()->adyen()->pluginCommandCapturePlugin(),
             'Adyen/Cancel' => $container->getLocator()->adyen()->pluginCommandCancelPlugin(),
 
-            'OmsMailQueueConnector/OrderConfirmationMail' => $container->getLocator()->omsMailQueueConnector()->pluginCommandOrderConfirmationMail(),
+            'TODO/DUMMY/ORDER-CONFIRMATION-MAIL' => new DummySendOrderConfirmationMail(),
 
             'TODO/DUMMY/ORDER-RECEIVED-MAIL' => new DummySendOrderReceivedMail()
         ];

@@ -88,7 +88,7 @@
             <event name="check authorise" onEnter="false" manual="true"/>
             <event name="adyen check authorise notification" onEnter="true"/>
             <event name="adyen check authorise request" onEnter="true" />
-            <event name="send order confirmation mail" onEnter="true" command="OmsMailQueueConnector/OrderConfirmationMail"/>
+            <event name="send order confirmation mail" onEnter="true" command="TODO/DUMMY/ORDER-CONFIRMATION-MAIL"/>
             <event name="send order received mail" onEnter="true" command="TODO/DUMMY/ORDER-RECEIVED-MAIL"/>
         </events>
 
