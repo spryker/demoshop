@@ -67,7 +67,14 @@ class StorageRouter extends AbstractRouter
     public function match($pathinfo)
     {
         if ($pathinfo !== '/') {
+
             $urlDetails = $this->getUrlMatcher()->matchUrl($pathinfo, $this->getApplication()['locale']);
+
+            if($urlDetails === false)
+            { // We try it again with a trailing slash. Ex: /hunde -> /hunde/
+                $urlDetails = $this->getUrlMatcher()->matchUrl($pathinfo . '/', $this->getApplication()['locale']);
+            }
+
             if ($urlDetails) {
                 foreach ($this->getResourceCreators() as $resourceCreator) {
                     if ($urlDetails['type'] === $resourceCreator->getType()) {
