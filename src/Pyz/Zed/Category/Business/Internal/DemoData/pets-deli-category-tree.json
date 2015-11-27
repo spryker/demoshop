@@ -1,6 +1,6 @@
 {
   "name": "root",
-  "url": "",
+  "url": "/",
   "category_key": "root",
   "cms_block_names": [
     "header_top",
