@@ -8,8 +8,9 @@
         <states>
             <state name="init capture process"/>
             <state name="capture request sent"/>
-            <state name="capture request success"/>
+            <state name="waiting for capture notification"/>
             <state name="capture notification received"/>
+            <state name="clarify capture notification not received"/>
             <state name="clarify capture failed"/>
             <state name="captured"/>
         </states>
@@ -24,7 +25,7 @@
 
             <transition happy="true" condition="Adyen/IsCaptureTransactionSuccess">
                 <source>capture request sent</source>
-                <target>capture request success</target>
+                <target>waiting for capture notification</target>
                 <event>check capture request</event>
             </transition>
 
@@ -35,7 +36,18 @@
             </transition>
 
             <transition happy="true" condition="Adyen/HasCaptureNotificationReceived">
-                <source>capture request success</source>
+                <source>waiting for capture notification</source>
+                <target>capture notification received</target>
+            </transition>
+
+            <transition>
+                <source>waiting for capture notification</source>
+                <target>clarify capture notification not received</target>
+                <event>timeout missing capture notification</event>
+            </transition>
+
+            <transition condition="Adyen/HasCaptureNotificationReceived">
+                <source>clarify capture notification not received</source>
                 <target>capture notification received</target>
             </transition>
 
@@ -66,6 +78,7 @@
             <event name="retry capture" manual="true"/>
             <event name="no capture notification received" manual="true"/>
             <event name="check capture notification" manual="true" onEnter="true"/>
+            <event name="timeout missing capture notification" timeout="1days"/>
         </events>
 
     </process>

@@ -12,10 +12,10 @@
             <state name="new"/>
             <state name="redirected"/>
             <state name="authorise notification received"/>
-            <state name="pending notification received"/>
             <state name="invalid"/>
             <state name="waiting for authorise notification"/>
-            <state name="clarify redirect payment timeout"/>
+            <state name="clarify authorise notification not received"/>
+            <state name="redirect payment timeout"/>
             <state name="customer cancelled payment" />
             <state name="cancelled payment after timeout" />
             <state name="ready to send confirmation mail" />
@@ -36,6 +36,12 @@
                 <target>waiting for authorise notification</target>
             </transition>
 
+            <transition>
+                <source>waiting for authorise notification</source>
+                <target>waiting for authorise notification</target>
+                <event>send order received mail</event>
+            </transition>
+
             <transition happy="true" condition="Adyen/IsAuthoriseNotificationSuccess" >
                 <source>authorise notification received</source>
                 <target>ready to send confirmation mail</target>
@@ -54,10 +60,16 @@
             </transition>
 
             <transition>
-                <source>authorise notification received</source>
-                <target>authorise notification received</target>
-                <event>send order received mail</event>
+                <source>waiting for authorise notification</source>
+                <target>clarify authorise notification not received</target>
+                <event>timeout missing authorise notification</event>
             </transition>
+
+            <transition condition="Adyen/HasAuthoriseNotificationReceived">
+                <source>clarify authorise notification not received</source>
+                <target>authorise notification received</target>
+            </transition>
+
 
             <transition>
                 <source>authorise notification received</source>
@@ -67,19 +79,19 @@
 
             <transition>
                 <source>redirected</source>
-                <target>clarify redirect payment timeout</target>
-                <event>adyen timeout authorise notification not received</event>
-            </transition>
-
-            <transition>
-                <source>clarify redirect payment timeout</source>
-                <target>cancelled payment after timeout</target>
-                <event>adyen timeout payment cancellation</event>
+                <target>redirect payment timeout</target>
+                <event>adyen timeout pending notification not received</event>
             </transition>
 
             <transition condition="Adyen/HasPendingNotificationReceived">
-                <source>clarify redirect payment timeout</source>
-                <target>pending notification received</target>
+                <source>redirect payment timeout</source>
+                <target>waiting for authorise notification</target>
+            </transition>
+
+            <transition>
+                <source>redirect payment timeout</source>
+                <target>cancelled payment after timeout</target>
+                <event>adyen timeout payment cancellation</event>
             </transition>
 
             <transition>
@@ -127,7 +139,7 @@
             <event name="adyen authorise notification received" manual="true" onEnter="true"/>
             <event name="adyen check authorise notification" manual="true" onEnter="true"/>
             <event name="adyen check pending notification" onEnter="true"/>
-            <event name="adyen timeout authorise notification not received" timeout="1hour"/>
+            <event name="adyen timeout pending notification not received" timeout="1hour"/>
             <event name="adyen timeout invalidate redirect payment" timeout="1week"/>
             <event name="adyen redirect payment cancelled"/>
             <event name="adyen redirect payment error"/>
@@ -137,6 +149,7 @@
             <event name="adyen timeout payment cancellation" command="Adyen/Cancel" timeout="2days"/>
             <event name="send order confirmation mail" onEnter="true" command="TODO/DUMMY/ORDER-CONFIRMATION-MAIL"/>
             <event name="send order received mail" onEnter="true" command="TODO/DUMMY/ORDER-RECEIVED-MAIL"/>
+            <event name="timeout missing authorise notification" timeout="1week"/>
         </events>
 
     </process>

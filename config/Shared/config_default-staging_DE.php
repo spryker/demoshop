@@ -28,7 +28,7 @@ $config[SystemConfig::ELASTICA_PARAMETER__DOCUMENT_TYPE] = 'page';
 
 $config[SystemConfig::ELASTICA_PARAMETER__PORT] = '13005';
 
-$yvesHost = 'www.de.staging2.pd-pa.de';
+$yvesHost = 'www.de.staging.pd-pa.de';
 $config[YvesConfig::YVES_SESSION_COOKIE_DOMAIN] = $yvesHost;
 $config[SystemConfig::HOST_YVES] = 'http://' . $yvesHost;
 $config[SystemConfig::HOST_STATIC_ASSETS] = $config[SystemConfig::HOST_STATIC_MEDIA] = $yvesHost;
@@ -36,7 +36,7 @@ $config[SystemConfig::HOST_STATIC_ASSETS] = $config[SystemConfig::HOST_STATIC_ME
 $config[SystemConfig::HOST_SSL_YVES] = 'https://' . $yvesHost;
 $config[SystemConfig::HOST_SSL_STATIC_ASSETS] = $config[SystemConfig::HOST_SSL_STATIC_MEDIA] = $yvesHost;
 
-$zedHost = 'zed.de.staging2.pd-pa.de';
+$zedHost = 'zed.de.staging.pd-pa.de';
 $config[SystemConfig::HOST_ZED_GUI]
     = 'http://' . $zedHost;
 $config[SystemConfig::HOST_ZED_API] = $zedHost;
@@ -44,8 +44,8 @@ $config[SystemConfig::HOST_SSL_ZED_GUI]
     = $config[SystemConfig::HOST_SSL_ZED_API]
     = 'https://' . $zedHost;
 
-$config[SystemConfig::CLOUD_CDN_STATIC_MEDIA_HTTP] = 'http://static.de.staging2.pd-pa.de';
-$config[SystemConfig::CLOUD_CDN_STATIC_MEDIA_HTTPS] = 'https://static.de.staging2.pd-pa.de';
+$config[SystemConfig::CLOUD_CDN_STATIC_MEDIA_HTTP] = 'http://static.de.staging.pd-pa.de';
+$config[SystemConfig::CLOUD_CDN_STATIC_MEDIA_HTTPS] = 'https://static.de.staging.pd-pa.de';
 
 $config[SystemConfig::JENKINS_BASE_URL] = 'http://localhost:13007/';
 $config[MailConfig::MAILCATCHER_GUI] = 'http://' . $config[SystemConfig::HOST_ZED_GUI] . ':1080';
@@ -67,7 +67,7 @@ $config[FileUploadConfig::STORAGE] = [
             FileUploadConfig::CONFIG_TYPE => FileUploadConfig::ADAPTER_LOCAL,
             FileUploadConfig::CONFIG_CONFIG => [
                 'path' => '/data/storage/staging/static',
-                'mapping' => 'http://static.com.staging2.pd-pa.de',
+                'mapping' => 'http://static.com.staging.pd-pa.de',
             ],
     ],
 ];

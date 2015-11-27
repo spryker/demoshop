@@ -14,12 +14,12 @@
             <state name="redirected"/>
             <state name="authorise notification received"/>
             <state name="invalid"/>
-            <state name="clarify redirect payment timeout"/>
+            <state name="redirect payment timeout"/>
             <state name="customer cancelled payment" />
             <state name="cancelled payment after timeout" />
             <state name="ready to send confirmation mail" />
             <state name="payment error" />
-            <state name="paid"/>
+            <state name="authorised"/>
         </states>
 
         <transitions>
@@ -43,7 +43,7 @@
 
             <transition happy="true">
                 <source>ready to send confirmation mail</source>
-                <target>paid</target>
+                <target>authorised</target>
                 <event>send order confirmation mail</event>
             </transition>
 
@@ -55,18 +55,18 @@
 
             <transition>
                 <source>redirected</source>
-                <target>clarify redirect payment timeout</target>
+                <target>redirect payment timeout</target>
                 <event>adyen timeout authorise notification not received</event>
             </transition>
 
             <transition>
-                <source>clarify redirect payment timeout</source>
+                <source>redirect payment timeout</source>
                 <target>cancelled payment after timeout</target>
                 <event>adyen timeout payment cancellation</event>
             </transition>
 
             <transition condition="Adyen/HasAuthoriseNotificationReceived">
-                <source>clarify redirect payment timeout</source>
+                <source>redirect payment timeout</source>
                 <target>authorise notification received</target>
             </transition>
 
@@ -103,7 +103,7 @@
             <!-- SUBPROCESS CONNECTIONS -->
 
             <transition>
-                <source>paid</source>
+                <source>authorised</source>
                 <target>init capture process</target>
             </transition>
 

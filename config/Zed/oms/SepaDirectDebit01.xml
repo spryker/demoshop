@@ -12,11 +12,12 @@
         <states>
             <state name="new"/>
             <state name="authorise request sent"/>
-            <state name="authorise request success"/>
+            <state name="waiting for authorise notification"/>
             <state name="authorise notification received"/>
+            <state name="clarify authorise notification not received"/>
             <state name="ready to send confirmation mail"/>
             <state name="invalid"/>
-            <state name="paid"/>
+            <state name="authorised"/>
         </states>
 
         <transitions>
@@ -29,7 +30,7 @@
 
             <transition happy="true" condition="Adyen/IsAuthoriseTransactionSuccess">
                 <source>authorise request sent</source>
-                <target>authorise request success</target>
+                <target>waiting for authorise notification</target>
                 <event>adyen check authorise request</event>
             </transition>
 
@@ -40,14 +41,24 @@
             </transition>
 
             <transition>
-                <source>authorise request success</source>
-                <target>authorise request success</target>
+                <source>waiting for authorise notification</source>
+                <target>waiting for authorise notification</target>
                 <event>send order received mail</event>
             </transition>
 
+            <transition>
+                <source>waiting for authorise notification</source>
+                <target>clarify authorise notification not received</target>
+                <event>timeout missing authorise notification</event>
+            </transition>
+
+            <transition condition="Adyen/HasAuthoriseNotificationReceived">
+                <source>clarify authorise notification not received</source>
+                <target>authorise notification received</target>
+            </transition>
 
             <transition happy="true" condition="Adyen/HasAuthoriseNotificationReceived">
-                <source>authorise request success</source>
+                <source>waiting for authorise notification</source>
                 <target>authorise notification received</target>
             </transition>
 
@@ -59,7 +70,7 @@
 
             <transition happy="true">
                 <source>ready to send confirmation mail</source>
-                <target>paid</target>
+                <target>authorised</target>
                 <event>send order confirmation mail</event>
             </transition>
 
@@ -72,7 +83,7 @@
             <!-- SUBPROCESS CONNECTIONS -->
 
             <transition>
-                <source>paid</source>
+                <source>authorised</source>
                 <target>init capture process</target>
             </transition>
 
@@ -90,6 +101,7 @@
             <event name="adyen check authorise request" onEnter="true" />
             <event name="send order confirmation mail" onEnter="true" command="TODO/DUMMY/ORDER-CONFIRMATION-MAIL"/>
             <event name="send order received mail" onEnter="true" command="TODO/DUMMY/ORDER-RECEIVED-MAIL"/>
+            <event name="timeout missing authorise notification" timeout="3days"/>
         </events>
 
     </process>
