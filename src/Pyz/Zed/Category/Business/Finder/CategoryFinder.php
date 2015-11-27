@@ -10,6 +10,10 @@ class CategoryFinder
 {
     protected $queryContainer;
 
+    /**
+     * CategoryFinder constructor.
+     * @param CategoryQueryContainer $categoryQueryContainer
+     */
     public function __construct(CategoryQueryContainer $categoryQueryContainer)
     {
         $this->queryContainer = $categoryQueryContainer;
