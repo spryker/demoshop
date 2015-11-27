@@ -16,11 +16,12 @@ class UrlPathGenerator extends SprykerUrlPathGenerator
      */
     public function generate(array $categoryPath)
     {
-        if((bool)preg_match('#[.]{0,}/$#', $categoryPath) === false)
+        $path = parent::generate($categoryPath);
+        if((bool)preg_match('#[.]{0,}/$#', $path) === false)
         { // add trailing slash to categories if there is no
-            return parent::generate($categoryPath) . '/';
+            return $path . '/';
         }
-        return parent::generate($categoryPath);
+        return $path;
     }
 
 }
