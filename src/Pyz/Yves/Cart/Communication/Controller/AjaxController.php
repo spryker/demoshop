@@ -2,6 +2,7 @@
 
 namespace Pyz\Yves\Cart\Communication\Controller;
 
+use Generated\Shared\Transfer\CartItemConfigurationTransfer;
 use Generated\Shared\Transfer\ItemConfigurationTransfer;
 use Pyz\Yves\Tracking\Business\DataFormatter\CartDataFormatter;
 use Pyz\Yves\Tracking\Business\Tracking;
@@ -50,9 +51,9 @@ class AjaxController extends AbstractController
     /**
      * @param string $sku
      * @param int $quantity
-     * @param array $optionValueUsageIds
-     *
+     * @param null $ingredients
      * @return RedirectResponse
+     *
      */
     public function addAction($sku, $quantity, $ingredients = null)
     {
@@ -76,7 +77,7 @@ class AjaxController extends AbstractController
                 $ingredientItems[] = $ingredientItem;
             }
 
-            $itemTransfer->setConfiguration(new \ArrayObject($ingredientItems));
+            $itemTransfer->setItemConfiguration(new \ArrayObject($ingredientItems));
         }
 
 

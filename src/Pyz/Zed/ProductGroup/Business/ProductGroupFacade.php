@@ -2,6 +2,8 @@
 
 namespace Pyz\Zed\ProductGroup\Business;
 
+use Generated\Shared\Discount\OrderInterface;
+use Generated\Shared\Payolution\CheckoutRequestInterface;
 use PavFeature\Zed\ProductGroup\Business\ProductGroupFacade as PavProductGroupFacade;
 use Psr\Log\LoggerInterface;
 

@@ -72,6 +72,8 @@ class CheckoutDependencyProvider extends SprykerCheckoutDependencyProvider
             $container->getLocator()->salesCheckoutConnector()->pluginSalesOrderSaverPlugin(),
             $container->getLocator()->customerCheckoutConnector()->pluginOrderCustomerSavePlugin(),
             $container->getLocator()->salesCheckoutConnector()->pluginLinkCustomerToOrderPlugin(),
+            $container->getLocator()->productGroupCheckoutConnector()->pluginOrderProductGroupSavePlugin(),
+
             $container->getLocator()->discountCheckoutConnector()->pluginDiscountOrderSavePlugin(),
             $container->getLocator()->adyen()->pluginCheckoutCheckoutSaveOrderPlugin(),
         ];

@@ -605,11 +605,6 @@ class ProductCollector extends AbstractPropelCollectorPlugin
         foreach ($ids as $key => $id) {
             $nodes[$id]['node_id'] = $id;
             $nodes[$id]['name'] = $names[$key];
-
-            if (!isset($urls[$key])) {
-                die("HIER");
-            }
-
             $nodes[$id]['url'] = $urls[$key];
         }
 

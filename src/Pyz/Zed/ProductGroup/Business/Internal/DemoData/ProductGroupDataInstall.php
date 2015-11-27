@@ -38,6 +38,7 @@ class ProductGroupDataInstall extends AbstractInstaller
 
         $productGroupTransfer = new ProductGroupTransfer();
         $productGroupTransfer->setKey('weight');
+        $productGroupTransfer->setGlossaryKey('product-group.key.weight');
         $productGroupId = $this->productGroupFacade->saveProductGroup($productGroupTransfer);
 
         $productGroupValues = [
@@ -62,22 +63,25 @@ class ProductGroupDataInstall extends AbstractInstaller
     {
         $productGroupTransfer = new ProductGroupTransfer();
         $productGroupTransfer->setKey('carbs');
+        $productGroupTransfer->setGlossaryKey('product-group.key.carbs');
         $productGroupId = $this->productGroupFacade->saveProductGroup($productGroupTransfer);
 
         $productGroupValues = [
-            'no',
-            'rice',
-            'potatoes',
+            'no' => 'product-group.carbs.value.no',
+            'rice' => 'product-group.carbs.value.rice',
+            'potatoes' => 'product-group.carbs.value.potatoes',
         ];
 
-        foreach ($productGroupValues as $index => $value) {
-            $sequence = $index + 1;
+        $sequence = 0;
+        foreach ($productGroupValues as $value => $glossaryKey) {
+            $sequence++;
             $productGroupValue = new ProductGroupValueTransfer();
             $productGroupValue
                 ->setSequence($sequence)
                 ->setFkProductGroup($productGroupId)
                 ->setType('string')
-                ->setValue($value);
+                ->setValue($value)
+                ->setGlossaryKey($glossaryKey);
             $this->productGroupFacade->saveProductGroupValue($productGroupValue);
         }
     }
@@ -86,25 +90,28 @@ class ProductGroupDataInstall extends AbstractInstaller
     {
         $productGroupTransfer = new ProductGroupTransfer();
         $productGroupTransfer->setKey('meat');
+        $productGroupTransfer->setGlossaryKey('product-group.key.meat');
         $productGroupId = $this->productGroupFacade->saveProductGroup($productGroupTransfer);
 
 
         $productGroupValues = [
-            'chicken',
-            'kangaroo',
-            'beef',
-            'deer',
-            'fish',
-            'turkey',
+            'chicken' => 'product-group.meat.chicken',
+            'kangaroo' => 'product-group.meat.kangaroo',
+            'beef' => 'product-group.meat.beef',
+            'deer' => 'product-group.meat.deer',
+            'fish' => 'product-group.meat.fish',
+            'turkey' => 'product-group.meat.turkey',
         ];
 
-        foreach ($productGroupValues as $index => $value) {
-            $sequence = $index + 1;
+        $sequence = 0;
+        foreach ($productGroupValues as $value => $glossaryKey) {
+            $sequence++;
             $productGroupValue = new ProductGroupValueTransfer();
             $productGroupValue
                 ->setSequence($sequence)
                 ->setFkProductGroup($productGroupId)
                 ->setType('string')
+                ->setGlossaryKey($glossaryKey)
                 ->setValue($value);
             $this->productGroupFacade->saveProductGroupValue($productGroupValue);
         }

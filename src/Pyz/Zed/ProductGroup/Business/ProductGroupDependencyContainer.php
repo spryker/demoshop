@@ -27,5 +27,4 @@ class ProductGroupDependencyContainer extends PavProductGroupDependencyContainer
 
         return $installer;
     }
-
 }

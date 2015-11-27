@@ -1,0 +1,20 @@
+<?xml version="1.0"?>
+<database xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" name="zed" xsi:noNamespaceSchemaLocation="http://xsd.propelorm.org/1.6/database.xsd" namespace="Orm\Zed\Sales\Persistence" package="src.Orm.Zed.Sales.Persistence">
+
+    <table name="pav_sales_order_item_configuration" phpName="PavSalesOrderItemConfiguration">
+        <column name="id_sales_order_item_configuration" required="true" type="INTEGER" autoIncrement="true" primaryKey="true"/>
+        <column name="fk_sales_order_item" required="true" type="INTEGER"/>
+        <column name="group_key" type="VARCHAR" size="255" required="true"/>
+        <column name="group_key_localized" type="VARCHAR" size="255" />
+        <column name="group_value" type="VARCHAR" size="255" required="true"/>
+        <column name="group_value_localized" type="VARCHAR" size="255"/>
+        <foreign-key name="pav_sales_order_item_configuration-fk_sales_order_item"
+                     foreignTable="spy_sales_order_item"
+                     phpName="SalesOrderItem"
+                     refPhpName="SalesOrderItemConfiguration">
+            <reference local="fk_sales_order_item" foreign="id_sales_order_item"/>
+        </foreign-key>
+        <id-method-parameter value="pav_sales_order_item_configuration_pk_seq"/>
+    </table>
+
+</database>
