@@ -35,7 +35,7 @@ $(document).ready(function () {
 
 
         // TODO: separate components: sticky / productoptions
-        $stickyLimiter = $options.find('.js-product-accordion');
+        $stickyLimiter = $($options.data('sticky-limit'));
         if ($stickyLimiter.size()) {
             updateOffset();
             $(window).scroll(updateStickyPosition);
@@ -47,7 +47,7 @@ $(document).ready(function () {
 
         function updateOffset () {
             $options.removeClass('product-options--sticky')
-            $options.css('top', 0);
+            $options.css('top', 'none');
 
             setTimeout(function () {
                 optionsOffset = $options.offset().top;

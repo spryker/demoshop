@@ -25,14 +25,16 @@
         <div class="product-header__interaction">
             {% if options is not empty %}
                 {% set option = options | first %}
-                <div class="product-header__select">
-                    {% include  '@application/layout/common/forms/dropdown.twig' with {
-                        label: 'Größe',
-                        id: 'weight',
-                        name: 'weight',
-                        options: option.weight
-                    } %}
-                </div>
+                {% if option.weight is defined %}
+                    <div class="product-header__select">
+                        {% include  '@application/layout/common/forms/dropdown.twig' with {
+                            label: 'Größe',
+                            id: 'weight',
+                            name: 'weight',
+                            options: option.weight
+                        } %}
+                    </div>
+                {% endif %}
             {% endif %}
 
             <div class="product-header__select">
