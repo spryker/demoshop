@@ -5,6 +5,16 @@
 
     <transfer name="SalesOrderItem">
         <property name="orderItemId" type="int" />
+        <property name="salesItemConfiguration" type="SalesItemConfiguration[]" />
+    </transfer>
+
+    <transfer name="SalesItemConfiguration">
+        <property name="idSalesOrderItemConfiguration" type="int" />
+        <property name="fkOrderItem" type="int" />
+        <property name="groupKey" type="string" />
+        <property name="groupKeyLocalized" type="string" />
+        <property name="groupValue" type="string" />
+        <property name="groupValueLocalized" type="string" />
     </transfer>
 
 </transfers>

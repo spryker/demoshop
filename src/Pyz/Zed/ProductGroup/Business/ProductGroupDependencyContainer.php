@@ -6,6 +6,7 @@ use Generated\Zed\Ide\FactoryAutoCompletion\ProductGroupBusiness;
 use PavFeature\Zed\ProductGroup\Business\ProductGroupDependencyContainer as PavProductGroupDependencyContainer;
 use Psr\Log\LoggerInterface;
 use Pyz\Zed\ProductGroup\Business\Internal\DemoData\ProductGroupDataInstall;
+use Pyz\Zed\ProductGroup\Business\Order\ProductGroupHydrator;
 use Pyz\Zed\ProductGroup\ProductGroupDependencyProvider;
 
 /**
@@ -26,6 +27,17 @@ class ProductGroupDependencyContainer extends PavProductGroupDependencyContainer
         $installer->setMessenger($messenger);
 
         return $installer;
+    }
+
+    /**
+     * @return ProductGroupHydrator
+     */
+    public function createOrderProductGroupHydrator() {
+        return $this->getFactory()->createOrderProductGroupHydrator(
+            $this->getProvidedDependency(ProductGroupDependencyProvider::FACADE_PRODUCT_GROUP),
+            $this->getProvidedDependency(ProductGroupDependencyProvider::FACADE_LOCALE)
+
+        );
     }
 
 }

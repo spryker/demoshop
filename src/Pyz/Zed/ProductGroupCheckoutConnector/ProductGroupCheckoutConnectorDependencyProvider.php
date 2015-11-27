@@ -1,12 +1,13 @@
 <?php
 
-namespace Pyz\Zed\ProductGroup;
-use PavFeature\Zed\ProductGroup\ProductGroupDependencyProvider as PavProductGroupDependencyProvider;
+namespace Pyz\Zed\ProductGroupCheckoutConnector;
+
+
+use SprykerEngine\Zed\Kernel\AbstractBundleDependencyProvider;
 use SprykerEngine\Zed\Kernel\Container;
 
-class ProductGroupDependencyProvider extends PavProductGroupDependencyProvider
+class ProductGroupCheckoutConnectorDependencyProvider extends AbstractBundleDependencyProvider
 {
-
     const FACADE_PRODUCT_GROUP = 'facade product group';
     const FACADE_GLOSSARY = 'facade glossary';
     const FACADE_LOCALE = 'facade locale';
@@ -29,4 +30,6 @@ class ProductGroupDependencyProvider extends PavProductGroupDependencyProvider
 
         return $container;
     }
+
+
 }

@@ -68,6 +68,7 @@ class ProductCategoryMappingInstall extends AbstractInstaller
         $this->categoryFacade = $categoryFacade;
     }
 
+    // TODO: Check if this is really needed
     public function install()
     {
         $currentLocale = $this->localeFacade->getCurrentLocale();
