@@ -20,7 +20,7 @@ class RemoveTransferInterfaces extends AbstractRefactor
      *
      * @throws RefactorException
      *
-     * @return bool
+     * @return void
      */
     public function refactor(Refactor $refactor)
     {
@@ -57,10 +57,11 @@ class RemoveTransferInterfaces extends AbstractRefactor
      * @param string $content
      * @param SplFileInfo $phpFile
      *
-     * @throws \Exception
-     * @return mixed
+     * @throws RefactorException
+     *
+     * @return void
      */
-    protected function replaceInterfaceUsages($transferName, $content, SplFileInfo $phpFile)
+    protected function replaceInterfaceUsages($transferName, &$content, SplFileInfo $phpFile)
     {
         $interfaceUsagePattern = '/use Generated\\\\Shared\\\\.*\\\\' . $transferName . 'Interface;\n/';
         $transferUsagePattern = '/use Generated\\\\Shared\\\\Transfer\\\\' . $transferName . 'Transfer;\n/';
@@ -71,7 +72,7 @@ class RemoveTransferInterfaces extends AbstractRefactor
         }
 
         if ($content === null) {
-            throw new \Exception(sprintf(
+            throw new RefactorException(sprintf(
                 'Could not replace %s usage in file %s',
                 $transferName,
                 $phpFile->getRealPath()
@@ -84,7 +85,8 @@ class RemoveTransferInterfaces extends AbstractRefactor
      * @param string $content
      * @param SplFileInfo $phpFile
      *
-     * @throws \Exception
+     * @throws RefactorException
+     *
      * @return mixed
      */
     protected function replaceInterfaceTypeHints($transferName, &$content, SplFileInfo $phpFile)
@@ -92,7 +94,7 @@ class RemoveTransferInterfaces extends AbstractRefactor
         $content = preg_replace('/\b' . $transferName . 'Interface\b/', $transferName . 'Transfer', $content);
 
         if ($content === null) {
-            throw new \Exception(sprintf(
+            throw new RefactorException(sprintf(
                 'Could not replace %sInterface to %sTransfer in file %s',
                 $transferName,
                 $transferName,

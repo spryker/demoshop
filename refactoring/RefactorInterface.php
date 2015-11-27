@@ -10,7 +10,7 @@ interface RefactorInterface
      *
      * @throws RefactorException
      *
-     * @return bool
+     * @return void
      */
     public function refactor(Refactor $refactor);
 
