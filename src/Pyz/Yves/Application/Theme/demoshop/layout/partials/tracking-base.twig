@@ -8,6 +8,9 @@
       isNonProduction: function () {
           return ('{{  environment }}' !== 'production');
       },
+      isNonDevelopment: function () {
+          return ('{{  environment }}' !== 'development');
+      },
 
       add: function (data) {
         Object.keys(data).forEach(function (key) {
