@@ -62,9 +62,9 @@ class CheckoutController extends AbstractController
                     $this->getDependencyContainer()->createCartClient()->clearCart();
 
                     return $this->redirect($checkoutResponseTransfer);
-                } else {
-                    return $this->errors($checkoutResponseTransfer->getErrors());
                 }
+
+                return $this->errors($checkoutResponseTransfer->getErrors());
             }
         }
 
