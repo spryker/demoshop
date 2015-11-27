@@ -1,7 +1,7 @@
 {
   "require": {
     "spryker/spryker": "dev-develop#a8d4b83f77fb0974368e5f6fde10ca65bbe9343e",
-    "project-a/spryker": "dev-feature/PD-50-statemachines",
+    "project-a/spryker": "dev-develop",
     "project-a/adyen-payment-gateway": "dev-master",
 
     "psr/log": "~1.0",
