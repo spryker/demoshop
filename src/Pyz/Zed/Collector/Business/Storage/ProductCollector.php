@@ -386,7 +386,7 @@ class ProductCollector extends AbstractPropelCollectorPlugin
         if (false) {
             $baseQuery->addAnd(
                 SpyAbstractProductTableMap::COL_ID_ABSTRACT_PRODUCT,
-                79,
+                88,
                 Criteria::EQUAL
             );
         }
@@ -652,6 +652,7 @@ class ProductCollector extends AbstractPropelCollectorPlugin
             self::CONCRETE_LOCALIZED_ATTRIBUTES,
             'group_keys',
             'product_group_values',
+            'product_group_values_glossary_keys',
 
             'tax_rate_names',
             'tax_rate_rates',
@@ -690,6 +691,7 @@ class ProductCollector extends AbstractPropelCollectorPlugin
         if (!empty($oneConcreteProduct['group_keys'])) {
             $oneConcreteProduct['group_keys'] = array_values(array_unique($oneConcreteProduct['group_keys']));
             $oneConcreteProduct['product_group_values'] = array_values(array_unique($oneConcreteProduct['product_group_values']));
+            $oneConcreteProduct['product_group_values_glossary_keys'] = array_values(array_unique($oneConcreteProduct['product_group_values_glossary_keys']));
         }
 
         return $oneConcreteProduct;
@@ -740,6 +742,7 @@ class ProductCollector extends AbstractPropelCollectorPlugin
         $mergedAttributes = array_merge($concreteAttributes, $concreteLocalizedAttributes);
 
         $oneConcreteProduct['product_group_values'] = array_combine($oneConcreteProduct['group_keys'], $oneConcreteProduct['product_group_values']);
+        $oneConcreteProduct['product_group_values_glossary_keys'] = array_combine($oneConcreteProduct['group_keys'], $oneConcreteProduct['product_group_values_glossary_keys']);
         $oneConcreteProduct['group_keys'] = array_keys($oneConcreteProduct['product_group_values']);
 
 
@@ -762,7 +765,7 @@ class ProductCollector extends AbstractPropelCollectorPlugin
             'category_parent_urls',
             'product_group_values',
             'product_type',
-
+            'product_group_values_glossary_keys',
         ];
 
         foreach ($keysToTransfer as $key) {

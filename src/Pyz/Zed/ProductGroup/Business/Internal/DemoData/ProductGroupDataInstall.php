@@ -42,19 +42,21 @@ class ProductGroupDataInstall extends AbstractInstaller
         $productGroupId = $this->productGroupFacade->saveProductGroup($productGroupTransfer);
 
         $productGroupValues = [
-            '150g',
-            '250g',
-            '500g',
+            '150g' => 'product-group.weight.value.150g',
+            '250g' => 'product-group.weight.value.250g',
+            '500g' => 'product-group.weight.value.500g',
         ];
 
-        foreach ($productGroupValues as $index => $value) {
-            $sequence = $index + 1;
+        $sequence = 0;
+        foreach ($productGroupValues as $value => $glossaryKey) {
+            $sequence++;
             $productGroupValue = new ProductGroupValueTransfer();
             $productGroupValue
                 ->setSequence($sequence)
                 ->setFkProductGroup($productGroupId)
                 ->setType('string')
-                ->setValue($value);
+                ->setValue($value)
+                ->setGlossaryKey($glossaryKey);
             $this->productGroupFacade->saveProductGroupValue($productGroupValue);
         }
     }
