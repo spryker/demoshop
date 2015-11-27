@@ -15,6 +15,12 @@ class ProductGroupManager
     protected $glossaryFacade;
     protected $currentLocale;
 
+    /**
+     * ProductGroupManager constructor.
+     * @param ProductGroupFacade $productGroupFacade
+     * @param GlossaryFacade $glossaryFacade
+     * @param LocaleFacade $localeFacade
+     */
     public function __construct(
         ProductGroupFacade $productGroupFacade,
         GlossaryFacade $glossaryFacade,
@@ -25,6 +31,10 @@ class ProductGroupManager
         $this->currentLocale = $localeFacade->getCurrentLocale();
     }
 
+    /**
+     * @param OrderTransfer $orderTransfer
+     * @throws \Propel\Runtime\Exception\PropelException
+     */
     public function saveOrderProductGroups(OrderTransfer $orderTransfer)
     {
         $orderItems = $orderTransfer->getItems();
