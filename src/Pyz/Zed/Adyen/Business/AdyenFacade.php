@@ -3,8 +3,7 @@
 namespace Pyz\Zed\Adyen\Business;
 
 use PavFeature\Zed\Adyen\Business\AdyenFacade as PavAdyenFacade;
-use Pyz\Zed\Adyen\Business\AdyenDependencyContainer;
-use Orm\Zed\Payone\Persistence\SpyPaymentPayone;
+use Orm\Zed\Adyen\Persistence\PavPaymentAdyen;
 use Pyz\Zed\OrderExporter\Dependency\Facade\OrderExporterToAdyenFacade;
 
 /**
@@ -14,7 +13,7 @@ class AdyenFacade extends PavAdyenFacade implements OrderExporterToAdyenFacade
 {
     /**
      * @param int $salesOrderId
-     * @return SpyPaymentPayone
+     * @return PavPaymentAdyen
      */
     public function getPaymentBySalesOrderId($salesOrderId)
     {

@@ -2,8 +2,8 @@
 
 namespace Pyz\Zed\Adyen\Business\Model;
 
-use PavFeature\Zed\Adyen\Persistence\AdyenQueryContainerInterface;
-use Orm\Zed\Payone\Persistence\SpyPaymentPayone;
+use Orm\Zed\Adyen\Persistence\PavPaymentAdyen;
+use Pyz\Zed\Adyen\Persistence\AdyenQueryContainerInterface;
 
 class PaymentReader implements PaymentReaderInterface
 {
@@ -22,11 +22,11 @@ class PaymentReader implements PaymentReaderInterface
 
     /**
      * @param $salesOrderId
-     * @return SpyPaymentPayone
+     * @return PavPaymentAdyen
      */
     public function getPaymentBySalesOrderId($salesOrderId)
     {
-        return $this->queryContainer->getPaymentByOrderId($salesOrderId)
+        return $this->queryContainer->queryPaymentBySalesOrderId($salesOrderId)
             ->find()
             ->getFirst();
     }

@@ -2,13 +2,13 @@
 
 namespace Pyz\Zed\Adyen\Business\Model;
 
-use Orm\Zed\Payone\Persistence\SpyPaymentPayone;
+use Orm\Zed\Adyen\Persistence\PavPaymentAdyen;
 
 interface PaymentReaderInterface
 {
     /**
      * @param $salesOrderId
-     * @return SpyPaymentPayone
+     * @return PavPaymentAdyen
      */
     public function getPaymentBySalesOrderId($salesOrderId);
 }
