@@ -16,8 +16,9 @@
     padding-left: 45px;
     padding-right: 45px;
     width: 100%;
-    top: 35px;
+    top: 50px;
     left: 0;
+    text-align: center;
 }
 
 .message{
@@ -31,6 +32,7 @@
     font-size: 20px;
     color: $_rgbWhite;
     cursor: pointer;
+    text-align: left;
 
     a{
         text-decoration: none;
@@ -93,15 +95,29 @@
 }
 
 
+.message--cart{
+    display: inline-block;
+    padding-left: 40px;
+
+    &:before{
+        content: '\E003';
+        left: 20px;
+        font-size: 20px;
+    }
+
+    &:after{
+        content: none;
+    }
+}
+
+
 @media (min-width: $_wMedium) {
     .message{
         padding: 18px 30px 18px 80px;
+    }
 
-        &:after{
-        }
-
-        &:before{
-        }
+    .message--cart{
+        padding-left: 60px;
     }
 }
 
@@ -111,7 +127,15 @@
         padding: 28px 70px 28px 150px;
 
         &:after, &:before{
-            left: 105px;
+            left: 75px;
+        }
+    }
+
+    .message--cart{
+        padding-left: 120px;
+
+        &:before{
+            left: 75px;
         }
     }
 }

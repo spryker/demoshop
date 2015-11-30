@@ -8,9 +8,9 @@ let instance = null;
 
 // hide message (fadeout and remove)
 function hide ($message) {
-    $message.fadeOut(function () {
-        $message.remove();
-    });
+    // $message.fadeOut(function () {
+    //     $message.remove();
+    // });
 }
 
 function show ($message, delay) {

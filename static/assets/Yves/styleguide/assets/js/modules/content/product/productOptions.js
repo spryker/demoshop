@@ -1,7 +1,9 @@
 import $ from 'jquery';
 import throttle from 'lodash/function/throttle';
-import { EVENTS } from '../checkout/cartLayer';
+import { MessageService } from '../../common/messages';
 import { getFormData } from '../../common/helpers';
+
+import { EVENTS } from '../checkout/cartLayer';
 
 'use strict';
 
@@ -12,7 +14,9 @@ $(document).ready(function () {
 
     $('.js-product-options').each(function () {
 
-        var $options, $stickyLimiter, optionsOffset, $configurator, $submit, $weightSelect, $weight, $totalPrice, $relativePrice, productConfig;
+        var $options, $stickyLimiter, optionsOffset, $configurator, $submit, $weightSelect, $weight, $totalPrice, $relativePrice, productConfig, messageService;
+
+        messageService = new MessageService();
 
         $options = $(this);
 
@@ -92,7 +96,11 @@ $(document).ready(function () {
                 ingredients: postData
             })
             .done(function (data) {
+                messageService.add({ type: 'valid message--cart', message: quantity + ' Produkt zum Warenkorb hinzugefügt.' });
                 $(document).trigger(EVENTS.UPDATE_CART);
+            })
+            .error(function () {
+                messageService.add({ type: 'invalid message--cart', message: 'Das Produkt konnte nicht rum Warenkorb hinzugefügt werden.' });
             })
             .always(function () {
                 $form.find('button').prop('disabled', false);

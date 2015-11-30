@@ -7,10 +7,6 @@
     <!-- TODO: split up huge file -->
     {% if cart.items|length > 0 %}
 
-        <section id="backend-errors-section" class="checkout__form-block" style="display:none;">
-            <h1 class="form-block__heading">{{ "page.checkout.errors" | trans }}</h1>
-            <div id="backend-errors"></div>
-        </section>
 
         <section class="checkout__form-block checkout__form-block--login js-checkout-login">
             {% if app.user is null %}
@@ -22,12 +18,10 @@
 
 
 
-
-
         <form class="checkout js-formbackup" method="post" data-formbackup="checkout" {% if app.user is null %}style="display: none;"{% endif %}>
 
             <div class="checkout__headline">
-                Kasse
+                {{ 'page.checkout.headline' | trans}}
             </div>
 
             <div class="checkout__navigations">
