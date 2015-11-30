@@ -123,4 +123,5 @@ class ProductBundleManager implements ProductBundleManagerInterface, SprykerBugf
         }
         return true;
     }
+
 }
