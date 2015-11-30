@@ -2,7 +2,6 @@
 
 namespace Pyz\Yves\Heartbeat\Communication\Plugin;
 
-use Generated\Shared\Heartbeat\HealthReportInterface;
 use Generated\Shared\Transfer\HealthReportTransfer;
 use SprykerEngine\Yves\Kernel\Communication\AbstractPlugin;
 use SprykerFeature\Shared\Heartbeat\Code\HealthIndicatorInterface;
@@ -11,7 +10,7 @@ class Doctor extends AbstractPlugin
 {
 
     /**
-     * @var HealthReportInterface
+     * @var HealthReportTransfer
      */
     protected $healthReport;
 
@@ -52,7 +51,7 @@ class Doctor extends AbstractPlugin
     }
 
     /**
-     * @return HealthReportInterface
+     * @return HealthReportTransfer
      */
     public function getReport()
     {

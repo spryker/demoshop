@@ -2,9 +2,6 @@
 
 namespace Pyz\Zed\Product\Business\Internal\DemoData;
 
-use Generated\Shared\Locale\LocaleInterface;
-use Generated\Shared\Product\AbstractProductInterface;
-use Generated\Shared\Product\LocalizedAttributesInterface;
 use Generated\Shared\Transfer\AbstractProductTransfer;
 use Generated\Shared\Transfer\ConcreteProductTransfer;
 use Generated\Shared\Transfer\LocaleTransfer;
@@ -97,7 +94,7 @@ class ProductDataInstall extends AbstractInstaller
     {
         $currentLocale = $this->localeFacade->getCurrentLocale();
         foreach ($this->getProductsFromFile($currentLocale) as $currentProduct) {
-            /* @var AbstractProductInterface $abstractProduct */
+            /* @var AbstractProductTransfer $abstractProduct */
             $abstractProduct = $currentProduct[self::ABSTRACT_PRODUCT];
             $concreteProducts = $currentProduct[self::CONCRETE_PRODUCTS];
 
@@ -174,11 +171,11 @@ class ProductDataInstall extends AbstractInstaller
 
     /**
      * @param \SimpleXMLElement $product
-     * @param LocaleInterface $currentLocale
+     * @param LocaleTransfer $currentLocale
      *
      * @return array
      */
-    protected function formatProduct(\SimpleXMLElement $product, LocaleInterface $currentLocale)
+    protected function formatProduct(\SimpleXMLElement $product, LocaleTransfer $currentLocale)
     {
         $productImageUrl = $this->buildProductImageUrl($product);
 
@@ -239,11 +236,11 @@ class ProductDataInstall extends AbstractInstaller
     }
 
     /**
-     * @param LocalizedAttributesInterface $localizedAttributes
+     * @param LocalizedAttributesTransfer $localizedAttributes
      *
      * @return string
      */
-    protected function buildProductUrl(LocalizedAttributesInterface $localizedAttributes)
+    protected function buildProductUrl(LocalizedAttributesTransfer $localizedAttributes)
     {
         $searchStrings = array_keys($this->urlReplacements);
         $replaceStrings = array_values($this->urlReplacements);
@@ -271,14 +268,14 @@ class ProductDataInstall extends AbstractInstaller
     }
 
     /**
-     * @param AbstractProductInterface $abstractProduct
+     * @param AbstractProductTransfer $abstractProduct
      * @param $idAbstractProduct
-     * @param LocaleInterface $currentLocale
+     * @param LocaleTransfer $currentLocale
      */
     protected function createAndTouchProductUrls(
-        AbstractProductInterface $abstractProduct,
+        AbstractProductTransfer $abstractProduct,
         $idAbstractProduct,
-        LocaleInterface $currentLocale
+        LocaleTransfer $currentLocale
     ) {
         foreach ($abstractProduct->getLocalizedAttributes() as $localizedAttributes) {
             $abstractProductUrl = $this->buildProductUrl($localizedAttributes);

@@ -2,7 +2,7 @@
 
 namespace Pyz\Yves\Checkout\Communication\Form;
 
-use Generated\Shared\Shipment\ShipmentInterface;
+use Generated\Shared\Transfer\ShipmentTransfer;
 use SprykerFeature\Client\Glossary\Service\GlossaryClientInterface;
 use SprykerFeature\Shared\Library\Currency\CurrencyManager;
 use Symfony\Component\Form\AbstractType;
@@ -29,7 +29,7 @@ class CheckoutType extends AbstractType
     protected $request;
 
     /**
-     * @var ShipmentInterface
+     * @var ShipmentTransfer
      */
     protected $shipmentTransfer;
 
@@ -40,12 +40,12 @@ class CheckoutType extends AbstractType
 
     /**
      * @param Request $request
-     * @param ShipmentInterface $shipmentTransfer
+     * @param ShipmentTransfer $shipmentTransfer
      * @param GlossaryClientInterface $glossaryClient
      */
     public function __construct(
         Request $request,
-        ShipmentInterface $shipmentTransfer,
+        ShipmentTransfer $shipmentTransfer,
         GlossaryClientInterface $glossaryClient
     ) {
         $this->request = $request;

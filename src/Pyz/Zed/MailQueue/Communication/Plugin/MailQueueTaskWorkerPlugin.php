@@ -2,7 +2,7 @@
 
 namespace Pyz\Zed\MailQueue\Communication\Plugin;
 
-use Generated\Shared\Queue\QueueMessageInterface;
+use Generated\Shared\Transfer\QueueMessageTransfer;
 use Pyz\Zed\MailQueue\Communication\MailQueueDependencyContainer;
 use Pyz\Zed\MailQueue\Business\MailQueueFacade;
 use SprykerEngine\Zed\Kernel\Communication\AbstractPlugin;
@@ -33,9 +33,9 @@ class MailQueueTaskWorkerPlugin extends AbstractPlugin implements
     }
 
     /**
-     * @param QueueMessageInterface $queueMessage
+     * @param QueueMessageTransfer $queueMessage
      */
-    public function run(QueueMessageInterface $queueMessage)
+    public function run(QueueMessageTransfer $queueMessage)
     {
         $this->getFacade()->processEmailMessage($queueMessage);
     }

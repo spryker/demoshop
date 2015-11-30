@@ -2,7 +2,7 @@
 
 namespace Pyz\Yves\Heartbeat\Communication\Plugin;
 
-use Generated\Shared\Heartbeat\HealthReportInterface;
+use Generated\Shared\Transfer\HealthReportTransfer;
 use Generated\Shared\Transfer\HealthDetailTransfer;
 use Generated\Shared\Transfer\HealthIndicatorReportTransfer;
 use SprykerEngine\Yves\Kernel\Communication\AbstractPlugin;
@@ -12,14 +12,14 @@ abstract class AbstractHealthIndicatorPlugin extends AbstractPlugin implements H
 {
 
     /**
-     * @var HealthReportInterface
+     * @var HealthReportTransfer
      */
     private $healthIndicatorReport;
 
     /**
-     * @param HealthReportInterface $healthReport
+     * @param HealthReportTransfer $healthReport
      */
-    public function writeHealthReport(HealthReportInterface $healthReport)
+    public function writeHealthReport(HealthReportTransfer $healthReport)
     {
         $healthReport->addHealthIndicatorReport($this->getHealthIndicatorReport());
     }
