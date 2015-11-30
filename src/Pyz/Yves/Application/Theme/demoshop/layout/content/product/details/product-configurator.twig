@@ -42,6 +42,8 @@
 
                     {% for categoryOption in categoryOptions %}
 
+                        {% set pet = ('hunde' in  app.request.attributes.get('_route')) ? 'dog' : 'cat' %}
+
                         {# TODO: dynamic category dog/cat #}
                         {% if categoryOption != 'no' %}
                             {% include '@application/layout/content/product/configurator/image-checkbox.twig' with {

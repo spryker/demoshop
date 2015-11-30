@@ -2,7 +2,6 @@ import $ from 'jquery';
 import { prefixCss, scrollTo } from '../../common/helpers';
 import { MessageService } from '../../common/messages';
 import { EVENTS as STEPPER_EVENTS } from '../../forms/stepper';
-import { EVENTS as CARTLAYER_EVENTS } from './cartLayer';
 
 
 'use strict';
@@ -112,6 +111,11 @@ $(document).ready(function () {
         }
 
 
+        $(document).on(EVENTS.UPDATE_CART, function () {
+            console.info('update');
+        });
+
+
 
         $(document).on('click', '.js-voucher-form-trigger', function () {
             $(this).hide();
@@ -159,6 +163,8 @@ $(document).ready(function () {
 
 
 
+
+
         var $shippingCountry = $('#checkout_billing_address_country');
         $shippingCountry.change(getShipmentPrice);
 
@@ -182,8 +188,6 @@ $(document).ready(function () {
         function renderCart (data) {
             $('.checkout .cart__items').html(data);
             $(document).trigger(STEPPER_EVENTS.INITIALIZE_STEPPERS);
-
-            $(document).trigger(CARTLAYER_EVENTS.UPDATE_CART);
         }
 
     });

@@ -1,5 +1,6 @@
 import $ from 'jquery';
 import { EVENTS as STEPPER_EVENTS } from '../../forms/stepper';
+import { EVENTS as CHECKOUT_EVENTS } from './checkout';
 
 'use strict';
 
@@ -23,7 +24,7 @@ $(document).ready(function () {
 
     $(document).on(EVENTS.UPDATE_CART, loadCart);
 
-    $cartLayer
+    $(document)
         .on('click', '.cart-item__delete', removeSku)
         .on('change', '[name="product_quantity"]', changeQty)
 
@@ -39,6 +40,8 @@ $(document).ready(function () {
 
     function renderCart (data) {
         $cartLayer.html(data);
+
+        //$(document).trigger(CHECKOUT_EVENTS.UPDATE_CART);
         $(document).trigger(STEPPER_EVENTS.INITIALIZE_STEPPERS);
     };
 
