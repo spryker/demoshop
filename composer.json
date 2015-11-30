@@ -47,7 +47,8 @@
     "zendframework/zend-servicemanager": "~2.3.0",
     "zendframework/zend-eventmanager": "2.3.9",
 
-    "nesbot/carbon": "1.13.0"
+    "nesbot/carbon": "1.13.0",
+    "h4cc/phpqatools": "~1.2"
   },
   "require-dev": {
     "silex/web-profiler": "~1.0.2",
