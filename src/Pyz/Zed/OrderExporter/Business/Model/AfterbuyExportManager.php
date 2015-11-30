@@ -2,6 +2,7 @@
 
 namespace Pyz\Zed\OrderExporter\Business\Model;
 
+use Orm\Zed\Product\Persistence\SpyProduct;
 use Pyz\Zed\OrderExporter\AfterbuyConstants;
 use Pyz\Zed\OrderExporter\Dependency\Facade\OrderExporterToAdyenFacade;
 use Pyz\Zed\OrderExporter\Dependency\Facade\OrderExporterToProductFacade;
@@ -20,8 +21,10 @@ class AfterbuyExportManager
 {
     const AFTERBUY_NEW_ACTION = 'new';
     const KEY_COUPON_NAME = 'name';
+    const KEY_ATTRIBUTE_WEIGHT = 'weight';
     const KEY_COUPON_AMOUNT = 'amount';
     const VALUE_COUPON_NAME = 'RABATT';
+    const CONVERSION_MG_TO_KG = 100;
 
     /** @var string */
     protected $afterbuyUrl;
@@ -228,7 +231,6 @@ class AfterbuyExportManager
             $postData[AfterbuyConstants::ITEM_NAME . $numberOfItems] = $item->getName();
             $postData[AfterbuyConstants::ITEM_PRICE . $numberOfItems] = $item->getPriceToPay();
             $postData[AfterbuyConstants::ITEM_TAX_PERCENTAGE . $numberOfItems] = $item->getTaxPercentage();
-            $postData = $this->addItemDiscountInfo($item, $numberOfItems, $postData);
             $postData = $this->addProductAttributesInfo($item, $numberOfItems, $postData);
         }
 
@@ -312,29 +314,46 @@ class AfterbuyExportManager
         $postData[AfterbuyConstants::ITEM_ATTRIBUTE . $numberOfItems] = implode('|', $attributes);
 
         $abstractProductId = $this->productFacade->getAbstractProductIdByConcreteSku($item->getSku());
+        $concreteProduct = $this->productFacade->getConcreteProduct($item->getSku());
         $productUrl = $this->urlFacade->getUrlByAbstractProductId($abstractProductId);
         $postData[AfterbuyConstants::ITEM_LINK . $numberOfItems] = $this->orderExporterConfig->getYvesHost() . $productUrl->getUrl();
+        $postData[AfterbuyConstants::ITEM_WEIGHT . $numberOfItems] = $this->getProductWeight($concreteProduct);
 
-        // @TODO add product weight (const ITEM_WEIGHT)
         return $postData;
     }
 
     /**
-     * @param SpySalesOrderItem $item
-     * @param $numberOfItems
-     * @param array $postData
-     * @return array
+     * @param SpyProduct $product
+     * @return float
      */
-    protected function addItemDiscountInfo(SpySalesOrderItem $item, $numberOfItems, array $postData)
+    protected function getProductWeight(SpyProduct $product)
     {
-        if (!null == $item->getDiscounts()->getData()) {
-            // @TODO calculate Discounts information (const PAYMENT_CHARGE or ITEM_PRICE)
-        } else {
-            $postData[AfterbuyConstants::ITEM_PRICE . $numberOfItems] = 0; // @TODO mandatory field for Afterbuy, update when prices are implemented
+        $productAttributes = json_decode($product->getAttributes());
+
+        if (isset($productAttributes[self::KEY_ATTRIBUTE_WEIGHT])) {
+            return $productAttributes[self::KEY_ATTRIBUTE_WEIGHT] / self::CONVERSION_MG_TO_KG;
         }
 
-        return $postData;
+        return 0.00;
     }
+
+
+//    /**
+//     * @param SpySalesOrderItem $item
+//     * @param $numberOfItems
+//     * @param array $postData
+//     * @return array
+//     */
+//    protected function addItemDiscountInfo(SpySalesOrderItem $item, $numberOfItems, array $postData)
+//    {
+//        if (!null == $item->getDiscounts()->getData()) {
+//            // @TODO calculate Discounts information (const PAYMENT_CHARGE or ITEM_PRICE)
+//        } else {
+//            $postData[AfterbuyConstants::ITEM_PRICE . $numberOfItems] = 0; // @TODO mandatory field for Afterbuy, update when prices are implemented
+//        }
+//
+//        return $postData;
+//    }
 
     /**
      * @param SpySalesOrder $order
