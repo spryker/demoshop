@@ -321,7 +321,7 @@ class RemoveFactoryUse extends AbstractRefactor
     {
         foreach ($this->dependencyContainerCollection as $dependencyContainerKey => $dependencyContainer) {
             $this->replaceFactoryUsages($dependencyContainer, $dependencyContainerKey);
-            $this->addUseStatements($dependencyContainerKey);
+//            $this->addUseStatements($dependencyContainerKey);
             $this->addMethods($dependencyContainerKey);
         }
     }
