@@ -2,7 +2,7 @@
 
 namespace Pyz\Yves\Checkout\Communication\Controller;
 
-use Generated\Shared\Shipment\ShipmentInterface;
+use Generated\Shared\Transfer\ShipmentTransfer;
 use Generated\Shared\Transfer\CartTransfer;
 use Generated\Shared\Transfer\CheckoutErrorTransfer;
 use Generated\Shared\Transfer\CheckoutRequestTransfer;
@@ -135,13 +135,13 @@ class CheckoutController extends AbstractController
     }
 
     /**
-     * @param ShipmentInterface $shipmentTransfer
+     * @param ShipmentTransfer $shipmentTransfer
      * @param CheckoutRequestTransfer $checkoutRequestTransfer
      *
      * @return void
      */
     protected function setShippingMethod(
-        ShipmentInterface $shipmentTransfer,
+        ShipmentTransfer $shipmentTransfer,
         CheckoutRequestTransfer $checkoutRequestTransfer
     ) {
         foreach ($shipmentTransfer->getMethods() as $shipmentMethodTransfer) {

@@ -6,7 +6,7 @@
 
 namespace Pyz\Zed\Shipment\Communication\Plugin\DeliveryTime;
 
-use Generated\Shared\Shipment\ShipmentMethodAvailabilityInterface;
+use Generated\Shared\Transfer\ShipmentMethodAvailabilityTransfer;
 use SprykerEngine\Zed\Kernel\Communication\AbstractPlugin;
 use SprykerFeature\Zed\Shipment\Communication\Plugin\ShipmentMethodDeliveryTimePluginInterface;
 
@@ -16,11 +16,11 @@ class DHLExpressPlugin extends AbstractPlugin implements ShipmentMethodDeliveryT
     const HALF_DAY_IN_SECONDS = 43200;
 
     /**
-     * @param ShipmentMethodAvailabilityInterface $shipmentMethodAvailability
+     * @param ShipmentMethodAvailabilityTransfer $shipmentMethodAvailability
      *
      * @return int
      */
-    public function getTime(ShipmentMethodAvailabilityInterface $shipmentMethodAvailability)
+    public function getTime(ShipmentMethodAvailabilityTransfer $shipmentMethodAvailability)
     {
         $count = 0;
         foreach ($shipmentMethodAvailability->getCart()->getItems() as $item) {

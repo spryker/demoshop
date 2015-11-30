@@ -6,7 +6,7 @@
 
 namespace Pyz\Zed\Shipment\Communication\Plugin\PriceCalculation;
 
-use Generated\Shared\Shipment\ShipmentMethodAvailabilityInterface;
+use Generated\Shared\Transfer\ShipmentMethodAvailabilityTransfer;
 use SprykerEngine\Zed\Kernel\Communication\AbstractPlugin;
 use SprykerFeature\Zed\Shipment\Communication\Plugin\ShipmentMethodPriceCalculationPluginInterface;
 
@@ -16,11 +16,11 @@ class DHLExpressPlugin extends AbstractPlugin implements ShipmentMethodPriceCalc
     const DHL_EXPRESS_ITEM_PRICE = 4;
 
     /**
-     * @param ShipmentMethodAvailabilityInterface $shipmentMethodAvailability
+     * @param ShipmentMethodAvailabilityTransfer $shipmentMethodAvailability
      *
      * @return int
      */
-    public function getPrice(ShipmentMethodAvailabilityInterface $shipmentMethodAvailability)
+    public function getPrice(ShipmentMethodAvailabilityTransfer $shipmentMethodAvailability)
     {
         $count = 0;
         foreach ($shipmentMethodAvailability->getCart()->getItems() as $item) {
