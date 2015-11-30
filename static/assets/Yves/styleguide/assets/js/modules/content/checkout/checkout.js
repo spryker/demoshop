@@ -68,7 +68,10 @@ $(document).ready(function () {
 
         $guestButton.click(function () {
             $checkout.show();
-            scrollTo($('.checkout__headline'));
+            scrollTo($('.checkout__headline'), 1, function () {
+                $('.login-slider').remove();
+                $(window).scrollTop(0);
+            });
         });
 
 

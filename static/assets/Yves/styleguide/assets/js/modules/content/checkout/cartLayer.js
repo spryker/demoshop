@@ -70,12 +70,14 @@ $(document).ready(function () {
     function changeQty (e) {
         e.preventDefault();
 
-        var $input = $(this);
-        var $item = $input.parents('.cart-item');
+        var $input, $item, sku, groupKey, qty;
 
-        var sku = $item.data('sku');
-        var groupKey = $item.data('group-key');
-        var qty = parseInt($input.val(), 10);
+        $input = $(this);
+        $item = $input.parents('.cart-item');
+
+        sku = $item.data('sku');
+        groupKey = $item.data('group-key');
+        qty = parseInt($input.val(), 10);
 
         $.post('/cart/change/' + sku + '/' + groupKey + '/', {
             quantity: qty
@@ -88,12 +90,15 @@ $(document).ready(function () {
     function removeSku (e) {
         e.preventDefault();
 
-        var $input = $(this);
-        var $item = $input.parents('.cart-item');
+        var $input, $item, sku, groupKey;
 
-        var sku = $item.data('sku');
+        $input = $(this);
+        $item = $input.parents('.cart-item');
 
-        $.post('/cart/remove/' + sku + '/')
+        sku = $item.data('sku');
+        groupKey = $item.data('group-key');
+
+        $.post('/cart/remove/' + sku + '/' + groupKey + '/')
             .done(function (data) {
                 renderCart(data);
             }).always(function () {
