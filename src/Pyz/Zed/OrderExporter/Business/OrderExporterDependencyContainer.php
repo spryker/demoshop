@@ -5,10 +5,12 @@ namespace Pyz\Zed\OrderExporter\Business;
 use Pyz\Zed\OrderExporter\OrderExporterDependencyProvider;
 use SprykerEngine\Zed\Kernel\Business\AbstractBusinessDependencyContainer;
 use Generated\Zed\Ide\FactoryAutoCompletion\OrderExporterBusiness;
-use Pyz\Zed\OrderExporter\Dependency\Facade\OrderExporterToSalesInterface;
+use Pyz\Zed\OrderExporter\Dependency\Facade\OrderExporterToSalesFacade;
 use Pyz\Zed\OrderExporter\OrderExporterConfig;
 use Pyz\Zed\OrderExporter\Business\Model\MailSenderInterface;
 use Pyz\Zed\OrderExporter\Business\Model\AbstractAfterbuyResponseWriter;
+use Pyz\Zed\OrderExporter\Dependency\Facade\OrderExporterToUrlFacade;
+use Pyz\Zed\OrderExporter\Dependency\Facade\OrderExporterToProductFacade;
 
 /**
  * @method OrderExporterConfig getConfig()
@@ -18,7 +20,7 @@ class OrderExporterDependencyContainer extends AbstractBusinessDependencyContain
 {
 
     /**
-     * @return OrderExporterToSalesInterface
+     * @return OrderExporterToSalesFacade
      * @throws \ErrorException
      */
     public function getSalesFacade()
@@ -44,7 +46,9 @@ class OrderExporterDependencyContainer extends AbstractBusinessDependencyContain
         return $this->getFactory()->createModelAfterbuyExportManager(
             $this->getConfig(),
             $this->getAfterbuyConnector(),
-            $this->getSalesFacade()
+            $this->getSalesFacade(),
+            $this->getUrlFacade(),
+            $this->getProductFacade()
         );
     }
 
@@ -109,4 +113,23 @@ class OrderExporterDependencyContainer extends AbstractBusinessDependencyContain
 
         return $this->createAfterbuyConnector();
     }
+
+    /**
+     * @return OrderExporterToUrlFacade
+     * @throws \ErrorException
+     */
+    protected function getUrlFacade()
+    {
+        return $this->getProvidedDependency(OrderExporterDependencyProvider::FACADE_URL);
+    }
+
+    /**
+     * @return OrderExporterToProductFacade
+     * @throws \ErrorException
+     */
+    protected function getProductFacade()
+    {
+        return $this->getProvidedDependency(OrderExporterDependencyProvider::FACADE_PRODUCT);
+    }
+
 }
