@@ -1,13 +1,15 @@
 <?php
 
-namespace Spryker\Refactor;
-
-use Spryker\Refactor\Transfer\RemoveTransferInterfaces;
+use SprykerFeature\Zed\Development\Business\Refactor\RefactorRunner;
+use SprykerFeature\Zed\Development\Business\Refactor\Transfer\RemoveTransferInterfaces;
 
 include_once __DIR__ . '/../vendor/autoload.php';
 
-$refactorer = new Refactor();
+$refactorer = new RefactorRunner();
 
-$refactorer->addRefactorer(new RemoveTransferInterfaces());
+$refactorer->addRefactorer(new RemoveTransferInterfaces([
+    __DIR__ . '/../src/Pyz/',
+    __DIR__ . '/../vendor/spryker/spryker/Bundles/',
+]));
 
 $refactorer->run();

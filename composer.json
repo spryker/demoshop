@@ -62,9 +62,6 @@
       "Unit": "tests",
       "YvesUnit": "tests",
       "Functional": "tests"
-    },
-    "psr-4": {
-      "Spryker\\Refactor\\": "refactoring"
     }
   },
   "minimum-stability": "stable",
