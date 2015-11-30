@@ -71,7 +71,7 @@ $(document).ready(function () {
         function addProduct (event) {
             event.preventDefault();
 
-            var $form, sku, quantity
+            var $form, sku, quantity, quantityString
 
             $form = $(this);
             sku = $options.data('sku');
@@ -96,11 +96,14 @@ $(document).ready(function () {
                 ingredients: postData
             })
             .done(function (data) {
-                messageService.add({ type: 'valid message--cart', message: quantity + ' Produkt zum Warenkorb hinzugefügt.' });
+                quantityString = (quantity > 1) ? 'Produkte' : 'Produkt';
+                messageService.add({ type: 'valid message--cart', message: `${quantity} ${quantityString} zum Warenkorb hinzugefügt.` });
+
                 $(document).trigger(EVENTS.UPDATE_CART);
             })
             .error(function () {
-                messageService.add({ type: 'invalid message--cart', message: 'Das Produkt konnte nicht rum Warenkorb hinzugefügt werden.' });
+                quantityString = (quantity > 1) ? 'Die Produkte konnten' : 'Das Produkt konnte';
+                messageService.add({ type: 'invalid message--cart', message: `${quantityString} nicht zum Warenkorb hinzugefügt werden.` });
             })
             .always(function () {
                 $form.find('button').prop('disabled', false);
