@@ -7,42 +7,47 @@
                     image: '/images/menu/dog.png',
                     button: {
                         title: 'Informationen zu Hundeprodukten',
-                        url: '/hunde/'
+                        url: '/hunde'
                     }
                 },
                 product: {
-                    sku: ''
+                    url: '/hunde-nahrung/nahrungsergaenzung-fuer-hunde/starterpaket-hund-163.html',
+                    image: '/images/menu/teaser_product.jpg',
+                    label: 'Neu bei PETS DELI',
+                    title: 'Starter Paket',
+                    description: 'Probieren sie unser Starter-Paket',
+                    price: '2000'
                 },
                 teasers: [
                     {
                         type: 'small',
                         modifier: 'half',
                         title: 'Starter Paket',
-                        url: '/hunde/'
+                        url: '/hunde'
                     },
                     {
                         type: 'small',
                         modifier: 'quarter',
                         title: 'Einzelne Menüs',
-                        url: '/hunde/'
+                        url: '/hunde'
                     },
                     {
                         type: 'small',
                         modifier: 'quarter',
                         title: 'Beilagen',
-                        url: '/hunde/'
+                        url: '/hunde'
                     },
                     {
                         type: 'small',
                         modifier: 'quarter',
                         title: 'Snacks',
-                        url: '/hunde/'
+                        url: '/hunde'
                     },
                     {
                         type: 'small',
                         modifier: 'quarter',
                         title: 'Trockenfleisch',
-                        url: '/hunde/'
+                        url: '/hunde'
                     }
                 ]
             },
@@ -53,42 +58,47 @@
                     image: '/images/menu/cat.jpg',
                     button: {
                         title: 'Informationen zu Katzenprodukten',
-                        url: '/katzen/'
+                        url: '/katzen'
                     }
                 },
                 product: {
-                    sku: ''
+                    url: '/katzen-nahrung/supplements-fuer-katzen/starterpaket-katze.html',
+                    image: '/images/menu/teaser_product.jpg',
+                    label: 'Neu bei PETS DELI',
+                    title: 'Starter Paket',
+                    description: 'Probieren sie unser Starter-Paket',
+                    price: '1500'
                 },
                 teasers: [
                     {
                         type: 'small',
                         modifier: 'half',
                         title: 'Starter Paket',
-                        url: '/katzen/'
+                        url: '/katzen'
                     },
                     {
                         type: 'small',
                         modifier: 'quarter',
                         title: 'Einzelne Menüs',
-                        url: '/katzen/'
+                        url: '/katzen'
                     },
                     {
                         type: 'small',
                         modifier: 'quarter',
                         title: 'Beilagen',
-                        url: '/katzen/'
+                        url: '/katzen'
                     },
                     {
                         type: 'small',
                         modifier: 'quarter',
                         title: 'Snacks',
-                        url: '/katzen/'
+                        url: '/katzen'
                     },
                     {
                         type: 'small',
                         modifier: 'quarter',
                         title: 'Trockenfleisch',
-                        url: '/katzen/'
+                        url: '/katzen'
                     }
                 ]
             },
@@ -99,7 +109,7 @@
                     image: '/images/menu/support_girl.jpg',
                     button: {
                         title: 'Informationen zu Hundeprodukten',
-                        url: '/support/'
+                        url: '/hunde'
                     }
                 },
                 teasers: [
@@ -107,49 +117,49 @@
                         type: 'small',
                         modifier: 'quarter',
                         title: 'How it works',
-                        url: '/support/'
+                        url: '/hunde'
                     },
                     {
                         type: 'small',
                         modifier: 'quarter',
                         title: 'FAQ',
-                        url: '/support/'
+                        url: '/hunde'
                     },
                     {
                         type: 'small',
                         modifier: 'quarter',
                         title: 'How to feed your pet',
-                        url: '/support/'
+                        url: '/hunde'
                     },
                     {
                         type: 'small',
                         modifier: 'quarter',
                         title: 'Shipping',
-                        url: '/support/'
+                        url: '/hunde'
                     },
                     {
                         type: 'small',
                         modifier: 'quarter',
                         title: 'Retail Stores',
-                        url: '/support/'
+                        url: '/hunde'
                     },
                     {
                         type: 'small',
                         modifier: 'quarter',
                         title: 'Animal Moments',
-                        url: '/support/'
+                        url: '/hunde'
                     },
                     {
                         type: 'small',
                         modifier: 'quarter',
                         title: 'Press and TV',
-                        url: '/support/'
+                        url: '/hunde'
                     },
                     {
                         type: 'small',
                         modifier: 'quarter',
                         title: 'Jobs',
-                        url: '/support/'
+                        url: '/hunde'
                     }
                 ]
             },
@@ -160,7 +170,7 @@
                     image: '/images/menu/support_dog.jpg',
                     button: {
                         title: 'Support Bereich',
-                        url: '/support'
+                        url: '/hunde'
                     }
                 },
                 teasers: [
@@ -168,13 +178,13 @@
                         type: 'small',
                         modifier: 'half',
                         title: 'Customer service',
-                        url: '/support'
+                        url: '/hunde'
                     },
                     {
                         type: 'small',
                         modifier: 'half',
                         title: 'Retail store',
-                        url: '/support'
+                        url: '/hunde'
                     }
                 ]
             }
@@ -185,7 +195,6 @@
 
 
 <div class="menu">
-
     {% include '@application/layout/common/close-button.twig' %}
 
     <div class="menu__slider">
@@ -200,8 +209,8 @@
                 } %}
 
                 <div class="menu__bottom">
-                    {% if menu.product.sku is defined %}
-                        {% include '@application/layout/header/menu-teaser-product.twig' %}
+                    {% if menu.product is defined %}
+                        {% include '@application/layout/header/menu-teaser-product.twig' with { product: menu.product } %}
                     {%  endif %}
 
                     {% for teaser in menu.teasers %}
@@ -215,7 +224,9 @@
             </div>
         {% endfor %}
 
-        {% include '@application/layout/header/cart-layer.twig' %}
+        {% if app.request.attributes.get('_route') != 'checkout' %}
+            {% include '@application/layout/header/cart-layer.twig' %}
+        {% endif %}
 
     </div>
 </div>

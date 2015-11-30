@@ -2,6 +2,7 @@
 import './modules/common/bodyScrolling';
 import './modules/common/formBackup';
 import './modules/common/messages';
+import './modules/common/lazyImages';
 
 // forms related
 import './modules/forms/dropdown';
@@ -18,7 +19,7 @@ import './modules/navigation/offcanvas';
 import './modules/navigation/scrollButton';
 
 // catalog related
-import './modules/content/catalog/categoryHeader';
+//import './modules/content/catalog/categoryHeader';
 
 // checkout/cart/user related
 import './modules/content/checkout/cartLayer';

@@ -1,0 +1,34 @@
+.voucher-input{
+    width: 100%;
+    display: inline-block;
+    max-width: 450px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.voucher-input__inner{
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.voucher-input__text{
+    margin: 0;
+    flex-grow: 1;
+}
+
+.voucher-input__button{
+    flex-shrink: 0;
+}
+
+
+@media (max-width: 480px) {
+
+    .voucher-input__text{
+        padding: 0;
+        margin: 0 0 10px 0;
+    }
+
+    .voucher-input__text, .voucher-input__button{
+        width: 100%;
+    }
+}

@@ -1,6 +1,5 @@
 import $ from 'jquery';
-import { debounce } from '../common/helpers';
-import { ToastService } from '../common/toast';
+import throttle from 'lodash/function/throttle';
 
 import { EVENTS as NAVBAR_EVENTS } from './navbar';
 import { EVENTS as BODY_EVENTS } from '../common/bodyScrolling';
@@ -40,16 +39,8 @@ $(document).ready(function () {
             $(document).trigger(NAVBAR_EVENTS.NAVSTATE_CHANGE);
         });
 
-        // $('.navbar__link--login').click(function (e) {
-        //     e.preventDefault();
-        //
-        //     var toast = new ToastService();
-        //     toast.show({
-        //         message: 'Login layer'
-        //     });
-        // });
 
-        $(window).resize(debounce(250, function () {
+        $(window).resize(throttle(function () {
             updateHeight();
 
             if (closed) {
@@ -58,7 +49,7 @@ $(document).ready(function () {
             } else {
                 showMenu(index, true);
             }
-        }));
+        }, 250));
 
         $menu.click(function (e) {
             var $target = $(e.target);

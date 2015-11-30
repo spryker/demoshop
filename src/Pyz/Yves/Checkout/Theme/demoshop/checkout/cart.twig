@@ -3,7 +3,7 @@
         {% for item in cart.items %}
             {% include '@application/layout/content/product/cart/cart-item.twig' with {
                 title: item.name,
-                weight: '250g',
+                weight: '',
                 quantity: item.quantity,
                 price: item.grossPrice,
                 sku: item.sku,
@@ -31,20 +31,22 @@
 
         <div class="cart-position cart-position--total">
             <div class="cart-position__left">
-                <div class="js-voucher-form" style="display: none;">
-                    <input type="hidden" id="checkoutAddCouponUrl" value="{{ url('checkout/add-coupon') }}">
-                    <input type="hidden" id="checkoutRemoveCouponUrl" value="{{ url('checkout/remove-coupon') }}">
+                <div class="voucher-input js-voucher-form" style="display: none;">
+                    <div class="voucher-input__inner">
+                        <input type="hidden" id="checkoutAddCouponUrl" value="{{ url('checkout/add-coupon') }}">
+                        <input class="voucher-input__button" type="hidden" id="checkoutRemoveCouponUrl" value="{{ url('checkout/remove-coupon') }}">
 
-                    {% include '@application/layout/common/forms/input.twig' with {
-                        id: 'cart__coupon-code',
-                        label: 'Gutschein'
-                    } %}
+                        {% include '@application/layout/common/forms/input.twig' with {
+                            id: 'cart__coupon-code',
+                            modifier: ' voucher-input__text'
+                        } %}
 
-                    {% include '@application/layout/common/forms/button.twig' with {
-                        modifier: 'cta js-cart-use-coupon-button-code',
-                        title: 'Gutschein einlösen',
-                        type: 'button'
-                    } %}
+                        {% include '@application/layout/common/forms/button.twig' with {
+                            modifier: ' js-cart-use-coupon-button-code  voucher-input__button',
+                            title: 'Gutschein einlösen',
+                            type: 'button'
+                        } %}
+                    </div>
                 </div>
 
                 <div class="cart-position--voucher js-voucher-form-trigger">

@@ -32,23 +32,21 @@ $(document).ready(function () {
         $.get(ENDPOINTS.CART)
             .done(function (data) {
                 renderCart(data)
-            })
-            .always(function () {
-                setItemCount();
+                setItemCount(data);
             });
     };
 
 
-    function renderCart(data) {
+    function renderCart (data) {
         $cartLayer.html(data);
         $(document).trigger(STEPPER_EVENTS.INITIALIZE_STEPPERS);
     };
 
 
-    function setItemCount() {
+    function setItemCount (data) {
         var $items, $trigger, itemCount;
 
-        $items = $('.cart-layer .cart-item');
+        $items = $(data).find('.cart-item');
         $trigger = $('.navbar__link--cart');
 
 
@@ -83,8 +81,7 @@ $(document).ready(function () {
             quantity: qty
         }).done(function (data) {
             renderCart(data);
-        }).always(function () {
-            setItemCount();
+            setItemCount(data);
         });
     };
 

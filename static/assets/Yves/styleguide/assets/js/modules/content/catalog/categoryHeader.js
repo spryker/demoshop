@@ -1,5 +1,5 @@
 import $ from 'jquery';
-import { debounce } from '../../common/helpers';
+import throttle from 'lodash/function/throttle';
 
 'use strict';
 
@@ -16,7 +16,7 @@ $(document).ready(function () {
         $successor = $('.product-grid');
 
         updateDimensions();
-        $(window).resize(debounce(200, updateDimensions));
+        $(window).resize(throttle(updateDimensions, 200));
 
         $(window).scroll(checkTopBar);
 

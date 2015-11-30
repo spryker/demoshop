@@ -12,7 +12,6 @@
 
     {% set type = type | default('text') %}
 
-
     <div class="input {{ attr.class | default('') }}">
 
         {% if label is defined %}
@@ -24,7 +23,7 @@
 
         <div class="input__field">
             <input
-                class="input__text" autocorrect="off" autocapitalize="off" type="{{ type | default('text') }}"  {{ block('widget_attributes') }} {% if placeholder is defined %}placeholder="{{ placeholder }}"{% endif %} {% if value is defined %} value="{{value}}" {% endif %} {% if required is defined %} {% endif %}>
+                class="input__text" autocorrect="off" autocapitalize="off" type="{{ type }}"  {{ block('widget_attributes') }} {% if placeholder is defined %}placeholder="{{ placeholder }}"{% endif %} {% if value is defined %} value="{{value}}" {% endif %} {% if required is defined %} {% endif %}>
         </div>
 
         {% if additional is defined %}
@@ -45,7 +44,7 @@
     <div class="password-input">
         <a class="password-input__forgot" href="/password/forgot">Vergessen?</a>
 
-        {{ block('form_widget_simple') }}
+        {{ block('form_widget_simple', {type: 'password'}) }}
 
         <button type="button" class="password-input__toggle">Passwort anzeigen</button>
     </div>
@@ -64,9 +63,33 @@
 
 
 
+{%- block choice_widget_expanded -%}
+    <div {{ block('widget_container_attributes') }}>
+    {%- for child in form %}
+        {{- form_widget(child, {attr: {class: 'test'}}) -}}
+        {{- form_label(child, null, {translation_domain: choice_translation_domain}) -}}
+    {% endfor -%}
+    </div>
+{%- endblock choice_widget_expanded -%}
+
+
 
 {% block radio_widget %}
-    <div class="radio">
+    <!-- TODO: move to checkout theme file -->
+
+    {% set modifier = 'radio--' ~ value | replace({'.': '-'}) %}
+
+    {% if modifier == 'radio--adyen-payment-method-german-bank-transfer' %}
+        {% set image = '/images/checkout/vorkasse.jpg' %}
+    {% elseif modifier == 'radio--adyen-payment-method-creditcard-cse' %}
+        {% set image = '/images/checkout/credit.jpg' %}
+    {% elseif modifier == 'radio--adyen-payment-method-sepa-directdebit' %}
+        {% set image = '/images/checkout/sepa.jpg' %}
+    {% elseif modifier == 'radio--adyen-payment-method-paypal' %}
+        {% set image = '/images/checkout/paypal.jpg' %}
+    {% endif %}
+
+    <div class="radio {{modifier}}">
         <input class="radio__input" type="radio" {{ block('widget_attributes') }}{% if value is defined %} value="{{ value }}"{% endif %}{% if checked %} checked="checked"{% endif %} />
 
         <label class="radio__label" for="{{id}}">

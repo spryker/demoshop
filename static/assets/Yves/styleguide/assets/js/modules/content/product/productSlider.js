@@ -1,5 +1,6 @@
 import $ from 'jquery';
-import { debounce, getViewport } from '../../common/helpers';
+import { getViewport } from '../../common/helpers';
+import throttle from 'lodash/function/throttle';
 
 'use strict';
 
@@ -36,11 +37,11 @@ $(document).ready(function () {
 
 
 
-        $(window).resize(debounce(250, function () {
+        $(window).resize(throttle(function () {
             updateVisible();
             createBullets();
             slide();
-        }));
+        }, 250));
 
 
 

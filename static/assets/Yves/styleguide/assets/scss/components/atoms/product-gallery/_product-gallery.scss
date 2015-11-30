@@ -26,7 +26,11 @@
 }
 
 .product-gallery__image{
+    position: relative;
+    padding-bottom: 100%;
+
     img{
+        position: absolute;
         @include responsiveImage;
     }
 }

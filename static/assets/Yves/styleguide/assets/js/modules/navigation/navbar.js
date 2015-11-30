@@ -1,5 +1,5 @@
 import $ from 'jquery';
-import { debounce } from '../common/helpers';
+import throttle from 'lodash/function/throttle';
 import { EVENTS as OFFCANVAS_EVENTS } from './offcanvas';
 
 'use strict';
@@ -23,12 +23,12 @@ $(document).ready(function () {
         $offcanvas = $('.offcanvas');
         $navbarTop = $('.navbar__top');
 
-        determineActive();
+        //determineActive();
 
         updateMarker();
 
 
-        $(window).resize(debounce(250, updateMarker));
+        $(window).resize(throttle(updateMarker, 250));
 
         $(document).on(EVENTS.NAVSTATE_CHANGE, updateMarker);
 
