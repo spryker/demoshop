@@ -11,6 +11,7 @@ use Pyz\Zed\OrderExporter\Business\Model\MailSenderInterface;
 use Pyz\Zed\OrderExporter\Business\Model\AbstractAfterbuyResponseWriter;
 use Pyz\Zed\OrderExporter\Dependency\Facade\OrderExporterToUrlFacade;
 use Pyz\Zed\OrderExporter\Dependency\Facade\OrderExporterToProductFacade;
+use Pyz\Zed\OrderExporter\Dependency\Facade\OrderExporterToAdyenFacade;
 
 /**
  * @method OrderExporterConfig getConfig()
@@ -48,7 +49,8 @@ class OrderExporterDependencyContainer extends AbstractBusinessDependencyContain
             $this->getAfterbuyConnector(),
             $this->getSalesFacade(),
             $this->getUrlFacade(),
-            $this->getProductFacade()
+            $this->getProductFacade(),
+            $this->getAdyenFacade()
         );
     }
 
@@ -130,6 +132,15 @@ class OrderExporterDependencyContainer extends AbstractBusinessDependencyContain
     protected function getProductFacade()
     {
         return $this->getProvidedDependency(OrderExporterDependencyProvider::FACADE_PRODUCT);
+    }
+
+    /**
+     * @return OrderExporterToAdyenFacade
+     * @throws \ErrorException
+     */
+    protected function getAdyenFacade()
+    {
+        return $this->getProvidedDependency(OrderExporterDependencyProvider::FACADE_ADYEN);
     }
 
 }
