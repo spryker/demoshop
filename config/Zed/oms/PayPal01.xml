@@ -127,7 +127,7 @@
             <event name="adyen invalidate timeout cancelled payment" onEnter="true" />
             <event name="adyen invalidate error payment" onEnter="true" />
             <event name="adyen timeout payment cancellation" command="Adyen/Cancel" timeout="2days"/>
-            <event name="send order confirmation mail" onEnter="true" command="TODO/DUMMY/ORDER-CONFIRMATION-MAIL"/>
+            <event name="send order confirmation mail" onEnter="true" command="OmsMailQueueConnector/OrderConfirmationMail"/>
         </events>
 
     </process>

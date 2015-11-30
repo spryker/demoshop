@@ -50,8 +50,7 @@ class OmsDependencyProvider extends SprykerOmsDependencyProvider
             'Adyen/AuthoriseCreditCard' => $container->getLocator()->adyen()->pluginCommandAuthoriseCreditCardPlugin(),
             'Adyen/Capture' => $container->getLocator()->adyen()->pluginCommandCapturePlugin(),
             'Adyen/Cancel' => $container->getLocator()->adyen()->pluginCommandCancelPlugin(),
-
-            'TODO/DUMMY/ORDER-CONFIRMATION-MAIL' => new DummySendOrderConfirmationMail(),
+            'OmsMailQueueConnector/OrderConfirmationMail' => $container->getLocator()->omsMailQueueConnector()->pluginCommandOrderConfirmationMail(),
 
             'TODO/DUMMY/ORDER-RECEIVED-MAIL' => new DummySendOrderReceivedMail()
         ];
