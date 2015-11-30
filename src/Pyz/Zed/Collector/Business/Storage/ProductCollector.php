@@ -386,7 +386,7 @@ class ProductCollector extends AbstractPropelCollectorPlugin
         if (false) {
             $baseQuery->addAnd(
                 SpyAbstractProductTableMap::COL_ID_ABSTRACT_PRODUCT,
-                79,
+                88,
                 Criteria::EQUAL
             );
         }
@@ -762,7 +762,6 @@ class ProductCollector extends AbstractPropelCollectorPlugin
             'category_parent_urls',
             'product_group_values',
             'product_type',
-
         ];
 
         foreach ($keysToTransfer as $key) {
