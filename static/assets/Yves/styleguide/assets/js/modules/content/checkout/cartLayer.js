@@ -79,7 +79,7 @@ $(document).ready(function () {
         var groupKey = $item.data('group-key');
         var qty = parseInt($input.val(), 10);
 
-        $.post('/cart/change/' + sku + '/' + groupKey, {
+        $.post('/cart/change/' + sku + '/' + groupKey + '/', {
             quantity: qty
         }).done(function (data) {
             renderCart(data);
@@ -96,7 +96,7 @@ $(document).ready(function () {
 
         var sku = $item.data('sku');
 
-        $.post('/cart/remove/' + sku)
+        $.post('/cart/remove/' + sku + '/')
             .done(function (data) {
                 renderCart(data);
             }).always(function () {

@@ -66,23 +66,23 @@ class CartControllerProvider extends YvesControllerProvider
             ->value('groupKey', '')
         ;
 
-        $this->createPostController('/cart/increase/{sku}/{groupKey}', self::ROUTE_CART_INCREASE_AJAX, 'Cart', 'Ajax', 'increase')
+        $this->createPostController('/cart/increase/{sku}/{groupKey}/', self::ROUTE_CART_INCREASE_AJAX, 'Cart', 'Ajax', 'increase')
             ->assert('sku', '[a-zA-Z0-9-_]+')
             ->value('groupKey', '')
         ;
 
-        $this->createPostController('/cart/change/{sku}/{groupKey}', self::ROUTE_CART_CHANGE_AJAX, 'Cart', 'Ajax', 'change')
+        $this->createPostController('/cart/change/{sku}/{groupKey}/', self::ROUTE_CART_CHANGE_AJAX, 'Cart', 'Ajax', 'change')
             ->assert('sku', '[a-zA-Z0-9-_]+')
             ->convert('quantity', [$this, 'getQuantityFromRequest'])
             ->value('groupKey', '')
         ;
 
-        $this->createPostController('/cart/decrease/{sku}/{groupKey}', self::ROUTE_CART_DECREASE_AJAX, 'Cart', 'Ajax', 'decrease')
+        $this->createPostController('/cart/decrease/{sku}/{groupKey}/', self::ROUTE_CART_DECREASE_AJAX, 'Cart', 'Ajax', 'decrease')
             ->assert('sku', '[a-zA-Z0-9-_]+')
             ->value('groupKey', '')
         ;
 
-        $this->createGetController('/cart/coupon/add', self::ROUTE_CART_COUPON_ADD, 'Cart', 'Coupon', 'add')
+        $this->createGetController('/cart/coupon/add/', self::ROUTE_CART_COUPON_ADD, 'Cart', 'Coupon', 'add')
             ->convert(
                 'couponCode',
                 function ($unused, Request $request) {
@@ -91,9 +91,9 @@ class CartControllerProvider extends YvesControllerProvider
             )
         ;
 
-        $this->createGetController('/cart/coupon/remove/{couponCode}', self::ROUTE_CART_COUPON_REMOVE, 'Cart', 'Coupon', 'remove');
+        $this->createGetController('/cart/coupon/remove/{couponCode}/', self::ROUTE_CART_COUPON_REMOVE, 'Cart', 'Coupon', 'remove');
 
-        $this->createGetController('/cart/coupon/clear', self::ROUTE_CART_COUPON_CLEAR, 'Cart', 'Coupon', 'clear');
+        $this->createGetController('/cart/coupon/clear/', self::ROUTE_CART_COUPON_CLEAR, 'Cart', 'Coupon', 'clear');
     }
 
     /**
