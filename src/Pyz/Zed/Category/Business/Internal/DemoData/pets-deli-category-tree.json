@@ -14,7 +14,7 @@
   "children": [
     {
       "name": "Hunde",
-      "url": "/hunde-nahrung",
+      "url": "/hunde-nahrung/",
       "category_key": "dog",
       "cms_block_names": [
         "header_top",
@@ -90,7 +90,7 @@
     },
     {
       "name": "Katzen",
-      "url": "/katzen-nahrung",
+      "url": "/katzen-nahrung/",
       "category_key": "cat",
       "cms_block_names": [
         "header_top",
@@ -166,7 +166,7 @@
     },
     {
       "name": "FAQ",
-      "url": "/faq",
+      "url": "/faq/",
       "category_key": "static_faq",
       "cms_block_names": [
         "header_top",
@@ -181,7 +181,7 @@
     },
     {
       "name": "Warum",
-      "url": "/warum",
+      "url": "/warum/",
       "category_key": "static_why_questions",
       "cms_block_names": [
         "header_top",
