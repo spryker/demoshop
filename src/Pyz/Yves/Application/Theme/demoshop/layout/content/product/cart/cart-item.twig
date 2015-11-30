@@ -2,25 +2,28 @@
 
 <div class="cart-item" data-sku={{ sku }} data-group-key={{ groupKey }}>
     <div class="cart-item__left">
-
-        <div class="cart-item__image">
-            {% if product.media is not empty %}
-                {% set image = product.media | first %}
-                <img src="/images/products/{{ image.url }}" alt="Produktabbildung">
-            {% endif %}
-        </div>
-
-        <div class="cart-item__details">
-
-            <a href="{{ product.url }}" class="cart-item__title">{{ title }}</a>
-
-            <div class="cart-item__content">
-                <div class="cart-item__weight">{{ weight }}</div>
-                <div class="cart-item__flag">#Customized</div>
+        <div class="cart-item__left-inner">
+            <div class="cart-item__image">
+                {% if product.media is not empty %}
+                    {% set image = product.media | first %}
+                    <img src="/images/products/{{ image.url }}" alt="Produktabbildung">
+                {% endif %}
             </div>
-        </div>
 
-        <span class="cart-item__delete"></span>
+            <div class="cart-item__details">
+
+                <a href="{{ product.url }}" class="cart-item__title">{{ title }}</a>
+
+                {% if weight is not empty %}
+                    <div class="cart-item__content">
+                        <div class="cart-item__weight">{{ weight }}</div>
+                        <!-- <div class="cart-item__flag">Customized</div> -->
+                    </div>
+                {% endif %}
+            </div>
+
+            <span class="cart-item__delete"></span>
+        </div>
     </div>
 
     <div class="cart-item__right">

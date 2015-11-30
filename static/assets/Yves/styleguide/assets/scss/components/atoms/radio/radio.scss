@@ -18,7 +18,7 @@
   }
 }
 
-.radio--vorkasse{
+.radio--vorkasse, .radio--adyen-payment-method-german-bank-transfer{
   .radio__image{
     width: 88px;
   }
@@ -36,19 +36,19 @@
   }
 }
 
-.radio--credit{
+.radio--credit, .radio--adyen-payment-method-creditcard-cse{
   .radio__image{
     width: 149px;
   }
 }
 
-.radio--sepa{
+.radio--sepa, .radio--adyen-payment-method-sepa-directdebit{
   .radio__image{
     width: 79px;
   }
 }
 
-.radio--paypal{
+.radio--paypal, .radio--adyen-payment-method-paypal{
   .radio__image{
     width: 86px;
   }

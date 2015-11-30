@@ -18,23 +18,21 @@
             }
         },
         links: [
-            { url: '/hunde/', title: 'Hunde', menu: 'menu'},
-            { url: '/katzen/', title: 'Katzen', menu: 'menu'},
-            { url: '/support/', title: 'Warum?', modifier: 'support', menu: 'menu'},
-            { url: '/contact/', title: 'Fragen?', modifier: 'contact', menu: 'menu'},
+            { url: '/hunde-nahrung/', title: 'Hunde', menu: 'menu'},
+            { url: '/katzen-nahrung/', title: 'Katzen', menu: 'menu'},
+            { url: '/katzen-nahrung/', title: 'Warum?', modifier: 'support', menu: 'menu'},
+            { url: '/katzen-nahrung/', title: 'Fragen?', modifier: 'contact', menu: 'menu'},
             {
-                url: (app.user is not null ? '/logout/' : '/login/'),
+                url: (app.user is not null ? 'logout' : 'login'),
                 title: (app.user is not null ? app.user.username : 'Anmelden'),
                 modifier: 'login'},
-            { url: '/checkout/', title: 'Warenkorb', modifier: 'cart', menu: 'cart'},
+            { url: 'checkout', title: 'Warenkorb', modifier: 'cart', menu: app.request.attributes.get('_route') != 'checkout' ? 'cart' : ''},
         ]
     }
 %}
 
 
-
 <nav class="navbar">
-
     <div class="navbar__inner">
 
         <div class="navbar__top">
@@ -62,8 +60,29 @@
                 <ul class="navbar__links">
 
                     {% for link in data.links %}
-                        <li {% if link.menu is defined %} data-menu="{{ link.menu }}" {% endif %} class="navbar__link {% if link.modifier is defined %} navbar__link--{{ link.modifier }} {% endif %}">
-                            <a {% if link.url is defined %} href="{{ link.url }}" {% endif %}>
+
+                        {% set active = (app.request.uri == url(link.url)) %}
+
+                        <li
+                            {% if link.menu is defined and link.menu is not empty %}
+                                data-menu="{{ link.menu }}"
+                            {% endif %}
+
+                            class="navbar__link
+                            {% if link.modifier is defined %}
+                                navbar__link--{{ link.modifier }}
+                            {% endif %}
+
+
+                            {% if active %}
+                                navbar__link--active
+                            {% endif %}
+                            ">
+
+                            <a
+                                {% if link.url is defined and not active %}
+                                    href="{{ url(link.url) }}"
+                                {% endif %}>
 
                                 {% if link.menu is not defined or link.menu != 'menu' %} <span> {% endif %}
                                     {{ link.title }}
@@ -71,6 +90,7 @@
 
                             </a>
                         </li>
+
                     {% endfor %}
 
                     <li class="navbar__link navbar__link--more"><div>&nbsp;</div></li>

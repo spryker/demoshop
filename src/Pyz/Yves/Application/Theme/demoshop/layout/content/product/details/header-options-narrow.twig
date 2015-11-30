@@ -3,23 +3,12 @@
     {% set productConcrete = product.concreteProducts | first %}
     {% set initial = (pricings | first) %}
 
-    {# TODO: dry js data definition #}
-    <script type="text/javascript">
-        window.pricings = {
-        {% for weight, pricing in pricings %}
-            '{{ weight }}' : {
-                absolute: '{{ pricing.absolute | price}}',
-                relative: '250g (€1.40 / 100g)'
-            }{% if loop.last != true %},{% endif %}
-        {% endfor %}
-        }
-    </script>
 
-    <form action="/cart/add/" method="POST" data-sku="{{ productConcrete.sku }}" class="product-header js-product-options
+    <form action="/cart/add/" method="POST" data-sku="{{ productConcrete.sku }}" class="product-header js-product-options">
 
         <div class="product-header__info">
             <h2 class="product-header__title">{{ product.abstract_name }}</h2>
-            <div class="product-header__weight">{{ initial.weight }}</div>
+            <div class="product-header__weight">{{ initial.weight }}{{ ('unit.' ~ initial.unit | trim) | trans }}</div>
         </div>
 
         <div class="product-header__interaction">

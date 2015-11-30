@@ -32,30 +32,6 @@ function getViewport () {
 }
 
 
-// limit invocation rate of the given function to once per given interval
-function debounce (interval, callback) {
-  var debounceTimer;
-
-  return function () {
-    // check lock
-    if (!debounceTimer) {
-
-      // invoke at beginning of interval
-      callback();
-
-      debounceTimer = setTimeout(function () {
-
-        // invoke at end of interval
-        callback();
-
-        // remove lock
-        debounceTimer = null;
-      }, interval);
-    }
-  };
-}
-
-
 // check user agent for iPod/iPhone device
 function isIphone () {
   return (/iPhone|iPod/.test(navigator.userAgent) && !window.MSStream);
@@ -128,4 +104,4 @@ function prefixCss (rules) {
 
 
 // publications
-export {getViewport, debounce, isIphone, isIpad, getFormData, scrollTo, prefixCss};
+export {getViewport, isIphone, isIpad, getFormData, scrollTo, prefixCss};

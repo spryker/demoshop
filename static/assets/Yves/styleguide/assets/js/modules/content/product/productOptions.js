@@ -22,7 +22,6 @@ $(document).ready(function () {
         $relativePrice = $options.find('.js-product-options__relative');
         $configurator = $options.find('.js-product-configurator form');
 
-        // TODO: submit
         $options.submit(addProduct);
 
         // TODO: update pricings and configurator
@@ -36,6 +35,7 @@ $(document).ready(function () {
 
         // TODO: separate components: sticky / productoptions
         $stickyLimiter = $($options.data('sticky-limit'));
+
         if ($stickyLimiter.size()) {
             updateOffset();
             $(window).scroll(updateStickyPosition);
@@ -47,7 +47,7 @@ $(document).ready(function () {
 
         function updateOffset () {
             $options.removeClass('product-options--sticky')
-            $options.css('top', 'none');
+            $options.css('top', 0);
 
             setTimeout(function () {
                 optionsOffset = $options.offset().top;
@@ -67,9 +67,9 @@ $(document).ready(function () {
         function addProduct (event) {
             event.preventDefault();
 
-            var $button, sku, quantity
+            var $form, sku, quantity
 
-            $button = $(this);
+            $form = $(this);
             sku = $options.data('sku');
             quantity = $options.find('[name=quantity]').val();
 
@@ -83,14 +83,19 @@ $(document).ready(function () {
                 }
             }
 
+            $form.find('button').prop('disabled', true);
+
             $.post($options.attr('action'), {
                 sku: sku,
                 quantity: quantity,
                 weight: productConfig.weight,
                 ingredients: postData
-
-            }).done(function (data) {
+            })
+            .done(function (data) {
                 $(document).trigger(EVENTS.UPDATE_CART);
+            })
+            .always(function () {
+                $form.find('button').prop('disabled', false);
             });
         };
 

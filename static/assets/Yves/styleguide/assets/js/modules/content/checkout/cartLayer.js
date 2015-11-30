@@ -32,23 +32,21 @@ $(document).ready(function () {
         $.get(ENDPOINTS.CART)
             .done(function (data) {
                 renderCart(data)
-            })
-            .always(function () {
-                setItemCount();
+                setItemCount(data);
             });
     };
 
 
-    function renderCart(data) {
+    function renderCart (data) {
         $cartLayer.html(data);
         $(document).trigger(STEPPER_EVENTS.INITIALIZE_STEPPERS);
     };
 
 
-    function setItemCount() {
+    function setItemCount (data) {
         var $items, $trigger, itemCount;
 
-        $items = $('.cart-layer .cart-item');
+        $items = $(data).find('.cart-item');
         $trigger = $('.navbar__link--cart');
 
 
@@ -72,31 +70,35 @@ $(document).ready(function () {
     function changeQty (e) {
         e.preventDefault();
 
-        var $input = $(this);
-        var $item = $input.parents('.cart-item');
+        var $input, $item, sku, groupKey, qty;
 
-        var sku = $item.data('sku');
-        var groupKey = $item.data('group-key');
-        var qty = parseInt($input.val(), 10);
+        $input = $(this);
+        $item = $input.parents('.cart-item');
+
+        sku = $item.data('sku');
+        groupKey = $item.data('group-key');
+        qty = parseInt($input.val(), 10);
 
         $.post('/cart/change/' + sku + '/' + groupKey + '/', {
             quantity: qty
         }).done(function (data) {
             renderCart(data);
-        }).always(function () {
-            setItemCount();
+            setItemCount(data);
         });
     };
 
     function removeSku (e) {
         e.preventDefault();
 
-        var $input = $(this);
-        var $item = $input.parents('.cart-item');
+        var $input, $item, sku, groupKey;
 
-        var sku = $item.data('sku');
+        $input = $(this);
+        $item = $input.parents('.cart-item');
 
-        $.post('/cart/remove/' + sku + '/')
+        sku = $item.data('sku');
+        groupKey = $item.data('group-key');
+
+        $.post('/cart/remove/' + sku + '/' + groupKey + '/')
             .done(function (data) {
                 renderCart(data);
             }).always(function () {

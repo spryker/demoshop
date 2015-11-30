@@ -5,6 +5,7 @@
 // Styleguide: atoms.product-header
 
 .product-header{
+    display: flex;
     @include clearfix;
     width: 100%;
     padding: 0 ($_xSpacing / 2) 14px;

@@ -16,7 +16,10 @@
             {% set image = product.media | first %}
 
             {% if image.url is defined %}
-                <img width="403" height="403" src="/images/products/{{ image.url }}" alt="Produktabbildung" />
+                <noscript>
+                    <img src="/images/products/{{ image.url }}" alt="Produktabbildung" />
+                </noscript>
+                <img class="js-lazy-image" data-image-src="/images/products/{{ image.url }}" alt="Produktabbildung" />
             {% endif %}
         </div>
 

@@ -1,7 +1,18 @@
 {% set productConcrete = product.concreteProducts | first %}
 {% set initial = (pricings | first) %}
 
-<form action="/cart/add/" method="POST" class="product-options js-product-options" data-sku="{{ productConcrete.sku }}">
+<script type="text/javascript">
+    window.pricings = {
+    {% for weight, pricing in pricings %}
+        '{{ weight }}' : {
+            absolute: '{{ pricing.absolute | price}}',
+            relative: '250g (€1.40 / 100g)'
+        }{% if loop.last != true %},{% endif %}
+    {% endfor %}
+    }
+</script>
+
+<form action="/cart/add/" method="POST" class="product-options js-product-options" data-sku="{{ productConcrete.sku }}" data-sticky-limit=".js-product-accordion">
 
     {% if options is not empty %}
         {% set option = options | first %}

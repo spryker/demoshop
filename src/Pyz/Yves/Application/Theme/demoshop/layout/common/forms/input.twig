@@ -7,7 +7,7 @@
     {% endif %}
 
     <div class="input__field">
-        <input {% if id is defined %} id="{{ id }} {% endif %}"
+        <input {% if id is defined %} id="{{ id }}{% endif %}"
             class="input__text" type="{{ type | default('text') }}"
             {% if placeholder is defined %}placeholder="{{ placeholder }}"{% endif %} {% if name is defined %}name="{{ name }}"{% endif %}
             autocorrect="off" autocapitalize="off"

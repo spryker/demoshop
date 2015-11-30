@@ -25,6 +25,11 @@
     text-align: left;
 }
 
+.cart-item__left-inner{
+    display: flex;
+    align-items: center;
+}
+
 .cart-item__right{
     border-left: 1px solid $_rgbSilver;
     width: 1%;
@@ -92,10 +97,12 @@
 
 
 .cart-item__delete{
+    flex-grow: 1;
     margin-right: 40px;
     display: inline-block;
     color: $_rgbOsloGray;
     vertical-align: middle;
+    text-align: right;
 
     cursor: pointer;
 

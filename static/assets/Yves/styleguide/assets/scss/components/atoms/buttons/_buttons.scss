@@ -33,6 +33,13 @@
         background: $_rgbOsloGray;
         color: $_rgbWhite;
     }
+
+    &:disabled{
+        color: $_rgbWhite !important;
+        background: $_rgbSilverChalices2 !important;
+        border-color: $_rgbSilverChalices2 !important;
+        cursor: default;
+    }
 }
 
 

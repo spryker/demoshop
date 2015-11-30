@@ -32,6 +32,8 @@
     img{
         position: absolute;
         @include responsiveImage;
+
+        transition: opacity $_tShort ease-in-out;
     }
 }
 
