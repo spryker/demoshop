@@ -6,7 +6,7 @@ use SprykerEngine\Zed\Kernel\Container;
 use SprykerFeature\Zed\Checkout\CheckoutDependencyProvider as SprykerCheckoutDependencyProvider;
 use SprykerFeature\Zed\Checkout\Dependency\Plugin\CheckoutOrderHydrationInterface;
 use SprykerFeature\Zed\Checkout\Dependency\Plugin\CheckoutPostSaveHookInterface;
-use SprykerFeature\Zed\Checkout\Dependency\Plugin\CheckoutPreconditionInterface;
+use SprykerFeature\Zed\Checkout\Dependency\Plugin\CheckoutPreConditionInterface;
 use SprykerFeature\Zed\Checkout\Dependency\Plugin\CheckoutPreHydrationInterface;
 use SprykerFeature\Zed\Checkout\Dependency\Plugin\CheckoutSaveOrderInterface;
 
@@ -16,7 +16,7 @@ class CheckoutDependencyProvider extends SprykerCheckoutDependencyProvider
     /**
      * @param Container $container
      *
-     * @return CheckoutPreconditionInterface[]
+     * @return CheckoutPreConditionInterface[]
      */
     protected function getCheckoutPreconditions(Container $container)
     {
