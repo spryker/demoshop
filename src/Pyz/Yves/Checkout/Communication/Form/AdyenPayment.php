@@ -5,11 +5,14 @@ namespace Pyz\Yves\Checkout\Communication\Form;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Generated\Shared\Adyen\AdyenPaymentMethodsInterface;
-use PavFeature\Shared\Adyen\AdyenPaymentMethodConstants;
+use Generated\Shared\Adyen\AdyenPaymentMethodInterface;
 
 class AdyenPayment extends AbstractType
 {
 
+    /**
+     * @var AdyenPaymentMethodsInterface[]
+     */
     private $availablePaymentMethods = [];
 
     /**
@@ -17,10 +20,15 @@ class AdyenPayment extends AbstractType
      */
     public function __construct(AdyenPaymentMethodsInterface $paymentMethodsTransfer)
     {
-        foreach ($paymentMethodsTransfer->getPaymentMethods() as $paymentMethod)
-        {
-            $this->availablePaymentMethods[] = $paymentMethod;
-        }
+        $this->availablePaymentMethods = $paymentMethodsTransfer;
+    }
+
+    /**
+     * @return AdyenPaymentMethodInterface[]
+     */
+    protected function getAvailablePaymentMethods()
+    {
+        return $this->availablePaymentMethods->getPaymentMethods();
     }
 
     /**
@@ -31,29 +39,6 @@ class AdyenPayment extends AbstractType
         return 'adyenPayment';
     }
 
-    public function getAcceptedPayments()
-    {
-        return [
-            AdyenPaymentMethodConstants::ADYEN_PAYMENT_METHOD_GERMAN_BANK_TRANSFER => AdyenPaymentMethodConstants::ADYEN_PAYMENT_METHOD_GERMAN_BANK_TRANSFER,
-            AdyenPaymentMethodConstants::ADYEN_PAYMENT_METHOD_PAYPAL => AdyenPaymentMethodConstants::ADYEN_PAYMENT_METHOD_PAYPAL,
-            AdyenPaymentMethodConstants::ADYEN_PAYMENT_METHOD_SEPA => AdyenPaymentMethodConstants::ADYEN_PAYMENT_METHOD_SEPA,
-            AdyenPaymentMethodConstants::ADYEN_PAYMENT_METHOD_CREDIT_CARD_CSE => AdyenPaymentMethodConstants::ADYEN_PAYMENT_METHOD_CREDIT_CARD_CSE,
-        ];
-    }
-
-    public function getPaymentMethods()
-    {
-        $paymentMethods = [];
-        foreach($this->getAcceptedPayments() as $paymentMethod)
-        {
-            if(in_array($paymentMethod, $this->availablePaymentMethods))
-            {
-                $paymentMethods[] = [$paymentMethod => $paymentMethod];
-            }
-        }
-        return $paymentMethods;
-    }
-
     /**
      * @param FormBuilderInterface $builder
      * @param array $options
@@ -62,7 +47,7 @@ class AdyenPayment extends AbstractType
     {
         $builder
             ->add('payment_method', 'choice', [
-                'choices' => $this->getPaymentMethods(),
+                'choices' => $this->extractPaymentMethods(),
                 'expanded' => true,
                 'multiple' => false,
                 'required' => false,
@@ -82,4 +67,18 @@ class AdyenPayment extends AbstractType
             ])
             ;
     }
+
+    /**
+     * @return array
+     */
+    public function extractPaymentMethods()
+    {
+        $paymentMethods = [];
+        foreach($this->getAvailablePaymentMethods() as $paymentMethodTransfer) {
+            $key = $paymentMethodTransfer->getKey();
+            $paymentMethods[] = [$key => $key];
+        }
+        return $paymentMethods;
+    }
+
 }

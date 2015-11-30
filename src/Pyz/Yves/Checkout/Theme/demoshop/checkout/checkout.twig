@@ -24,10 +24,10 @@
 
 
 
-        <form class="checkout js-formbackup" data-formbackup="checkout" method="POST" {% if app.user is null %}style="display: none;"{% endif %}>
+        <form class="checkout js-formbackup" data-formbackup="checkout" {% if app.user is null %}style="display: none;"{% endif %}>
 
             <div class="checkout__headline">
-                Bestellung abschließen
+                Kasse
             </div>
 
             <div class="checkout__navigations">
@@ -63,13 +63,12 @@
                                 {{ form_widget(form.shipping_address) }}
                             </div>
                         </div>
-
-                        <button type="button" class="button button--cta checkout__step-button">
-                            {{ 'Weiter zu Zahlarten' }}
-                        </button>
-
                     </div>
 
+
+                    <button type="button" class="button button--cta checkout__step-button">
+                        {{ "page.checkout.address.next-step" | trans }}
+                    </button>
                 </section>
 
 
@@ -122,12 +121,11 @@
                                 {% endif %}
 
                         {% endfor %}
-
-                        <button type="button" class="button button--cta checkout__step-button">
-                            {{ 'Weiter zur Bestellbestätigung' }}
-                        </button>
-
                     </div>
+
+                    <button type="button" class="button button--cta checkout__step-button">
+                        {{ "page.checkout.payment.next-step" | trans }}
+                    </button>
                 </section>
 
 
@@ -145,7 +143,7 @@
                     </div>
 
                     <button type="submit" class="button button--cta checkout__step-button">
-                        {{ 'Jetzt kaufen' }}
+                        {{ 'page.checkout.finalize.buy-now'|trans }}
                     </button>
 
                     <div class="checkout__terms-info">

@@ -4,6 +4,7 @@ namespace Pyz\Yves\Checkout\Communication\Controller;
 
 use Generated\Shared\Adyen\AdyenHppPaymentReturnCheckResponseInterface;
 use Generated\Shared\Transfer\AdyenHppPaymentReturnCheckTransfer;
+use Generated\Shared\Transfer\AdyenPaymentMethodAvailabilityTransfer;
 use Generated\Shared\Transfer\AdyenPaymentMethodsTransfer;
 use Generated\Shared\Transfer\CartTransfer;
 use Generated\Shared\Transfer\CheckoutErrorTransfer;
@@ -62,34 +63,13 @@ class CheckoutController extends AbstractController
             return $this->redirectResponseInternal(ApplicationControllerProvider::ROUTE_HOME);
         }
 
-        $paymentMethodsTransfer = new AdyenPaymentMethodsTransfer();
-
-        // @TODO in future, discuss if this list should be retrieved from Adyen
-        $paymentMethodsTransfer->setPaymentMethods(new \ArrayObject([
-            AdyenPaymentMethodConstants::ADYEN_PAYMENT_METHOD_CREDIT_CARD_CSE,
-            AdyenPaymentMethodConstants::ADYEN_PAYMENT_METHOD_PAYPAL,
-            AdyenPaymentMethodConstants::ADYEN_PAYMENT_METHOD_OPEN_INVOICE_KLARNA,
-            AdyenPaymentMethodConstants::ADYEN_PAYMENT_METHOD_SOFORTUEBERWEISUNG,
-            AdyenPaymentMethodConstants::ADYEN_PAYMENT_METHOD_SEPA,
-
-            AdyenPaymentMethodConstants::ADYEN_PAYMENT_METHOD_BANCONTACT_MISTER_CASH,
-            AdyenPaymentMethodConstants::ADYEN_PAYMENT_METHOD_DISCOVER,
-            AdyenPaymentMethodConstants::ADYEN_PAYMENT_METHOD_DUTCH_BANK_TRANSFER,
-            AdyenPaymentMethodConstants::ADYEN_PAYMENT_METHOD_GERMAN_BANK_TRANSFER,
-            AdyenPaymentMethodConstants::ADYEN_PAYMENT_METHOD_GIROPAY,
-            AdyenPaymentMethodConstants::ADYEN_PAYMENT_METHOD_IDEAL,
-            AdyenPaymentMethodConstants::ADYEN_PAYMENT_METHOD_ELECTRONIC_DIRECT_DEBIT,
-            AdyenPaymentMethodConstants::ADYEN_PAYMENT_METHOD_DOTPAY,
-            AdyenPaymentMethodConstants::ADYEN_PAYMENT_METHOD_FINNISH_E_BANKING,
-            AdyenPaymentMethodConstants::ADYEN_PAYMENT_METHOD_INTERNATIONAL_BANK_TRANSFER_IBAN
-        ]));
+        $paymentMethodsTransfer = $this->getPaymentMethods();
 
         $checkoutForm = $container->createCheckoutForm($paymentMethodsTransfer);
         $checkoutTransfer = new CheckoutRequestTransfer();
         $checkoutTransfer->setIsGuest(false); // for now there is no guest checkout. When an order is performed the customer is saved
 
         $form = $this->createForm($checkoutForm, $checkoutTransfer);
-
 
         if ($request->isMethod('POST')) {
             if ($form->isValid()) {
@@ -105,11 +85,10 @@ class CheckoutController extends AbstractController
                 $paymentMethod = $checkoutRequest->getAdyenPayment()->getPaymentMethod();
 
                 $adyenPaymentTransfer = $checkoutRequest->getAdyenPayment();
-                $adyenPaymentDetails = $checkoutRequest->getAdyenPayment()->getPaymentDetail();
+                $adyenPaymentDetails = $adyenPaymentTransfer->getPaymentDetail();
                 $adyenPaymentDetails->setAmount($this->getCart()->getTotals()->getGrandTotalWithDiscounts());
 
-                if($paymentMethod === AdyenPaymentMethodConstants::ADYEN_PAYMENT_METHOD_CREDIT_CARD_CSE)
-                {
+                if($paymentMethod === AdyenPaymentMethodConstants::ADYEN_PAYMENT_METHOD_CREDIT_CARD_CSE) {
                     $adyenPaymentDetails->setEncryptedCardData($request->get('adyen-encrypted-data'));
                 }
 
@@ -127,7 +106,6 @@ class CheckoutController extends AbstractController
 
                 $checkoutRequest->setShippingAddress($checkoutRequest->getBillingAddress());
                 $checkoutRequest->setPaymentMethod($paymentMethod);
-
 
                 /** @var CheckoutResponseTransfer $checkoutResponseTransfer */
                 $checkoutResponseTransfer = $checkoutClient->requestCheckout($checkoutRequest);
@@ -174,6 +152,18 @@ class CheckoutController extends AbstractController
             'cart' => $this->getCart(),
             'products' => $products,
         ];
+    }
+
+    /**
+     * @return \Generated\Shared\Adyen\AdyenPaymentMethodsInterface
+     */
+    protected function getPaymentMethods()
+    {
+        $adyenClient = $this->getAdyenClient();
+
+        return $adyenClient->getAvailablePaymentMethods(
+            new AdyenPaymentMethodAvailabilityTransfer()
+        );
     }
 
     /**
