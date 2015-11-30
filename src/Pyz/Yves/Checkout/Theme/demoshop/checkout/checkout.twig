@@ -24,7 +24,7 @@
 
 
 
-        <form class="checkout js-formbackup" data-formbackup="checkout" {% if app.user is null %}style="display: none;"{% endif %}>
+        <form class="checkout js-formbackup" data-formbackup="checkout" method="POST" {% if app.user is null %}style="display: none;"{% endif %}>
 
             <div class="checkout__headline">
                 Bestellung abschließen
