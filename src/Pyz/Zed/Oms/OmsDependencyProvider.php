@@ -49,7 +49,8 @@ class OmsDependencyProvider extends SprykerOmsDependencyProvider
             'Adyen/Capture' => $container->getLocator()->adyen()->pluginCommandCapturePlugin(),
             'Adyen/Cancel' => $container->getLocator()->adyen()->pluginCommandCancelPlugin(),
             'OmsMailQueueConnector/OrderConfirmationMail' => $container->getLocator()->omsMailQueueConnector()->pluginCommandOrderConfirmationMail(),
-            'OmsMailQueueConnector/SepaOrderReceivedMail' => $container->getLocator()->omsMailQueueConnector()->pluginCommandSepaOrderReceivedMail()
+            'OmsMailQueueConnector/SepaOrderReceivedMail' => $container->getLocator()->omsMailQueueConnector()->pluginCommandSepaOrderReceivedMail(),
+            'OmsMailQueueConnector/PrePaymentOrderReceivedMail' => $container->getLocator()->omsMailQueueConnector()->pluginCommandPrePaymentOrderReceivedMail()
         ];
     }
 
