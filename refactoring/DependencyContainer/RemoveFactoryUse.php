@@ -94,7 +94,7 @@ class RemoveFactoryUse extends AbstractRefactor
     }
 
     /**
-     * @param $dependencyContainerKey
+     * @param string $dependencyContainerKey
      *
      * @return void
      */
@@ -115,32 +115,33 @@ class RemoveFactoryUse extends AbstractRefactor
                 foreach ($factoryUsages[1] as $position => $createName) {
                     if ($dependencyContainerMeta[self::KEY_IS_PROJECT]) {
                         $fullyQualifiedClassName = $this->findClassByCreateNameAndDependencyContainer($createName, $dependencyContainer);
-                        $className = $this->getClassNameFromFullQualifiedClassName($fullyQualifiedClassName);
+//                        $className = $this->getClassNameFromFullQualifiedClassName($fullyQualifiedClassName);
                     } else {
                         $fullyQualifiedClassName = $this->findCoreClassByCreateNameAndDependencyContainer($createName, $dependencyContainer);
-                        $className = $this->getClassNameFromFullQualifiedClassName($fullyQualifiedClassName);
+//                        $className = $this->getClassNameFromFullQualifiedClassName($fullyQualifiedClassName);
                         try {
                             $projectDependencyContainerKey = $this->getProjectDependencyContainerKeyFromCoreKey($dependencyContainerKey);
-                            if (array_key_exists($projectDependencyContainerKey, $this->dependencyContainerCollection)) {
-                                $projectFullyQualifiedClassName = $this->findClassByCreateNameAndDependencyContainer($createName, $dependencyContainer, true);
 
-                                $projectMethodBody = str_replace($factoryUsages[0][$position], 'new ' . $className . '(', $methodBody);
+                            if (array_key_exists($projectDependencyContainerKey, $this->dependencyContainerCollection)) {
+
+                                $projectMethodBody = str_replace($factoryUsages[0][$position], 'new \\' . $fullyQualifiedClassName . '(', $methodBody);
                                 $projectMethods = $this->dependencyContainerCollection[$projectDependencyContainerKey][self::KEY_METHODS];
                                 $methodCopy = $method;
                                 $methodCopy->setBody($projectMethodBody);
                                 $projectMethods[$method->getName()] = $methodCopy;
                                 $this->dependencyContainerCollection[$projectDependencyContainerKey][self::KEY_METHODS] = $projectMethods;
 
-                                $projectUses = $this->dependencyContainerCollection[$projectDependencyContainerKey][self::KEY_USES];
-                                if (!in_array($projectFullyQualifiedClassName, $projectUses)) {
-                                    $projectUses[] = $projectFullyQualifiedClassName;
-                                    $this->dependencyContainerCollection[$projectDependencyContainerKey][self::KEY_USES] = $projectUses;
-                                }
+//                                $projectFullyQualifiedClassName = $this->findClassByCreateNameAndDependencyContainer($createName, $dependencyContainer, true);
+//                                $projectUses = $this->dependencyContainerCollection[$projectDependencyContainerKey][self::KEY_USES];
+//                                if (!in_array($projectFullyQualifiedClassName, $projectUses)) {
+//                                    $projectUses[] = $projectFullyQualifiedClassName;
+//                                    $this->dependencyContainerCollection[$projectDependencyContainerKey][self::KEY_USES] = $projectUses;
+//                                }
                             }
                         } catch (NoFileFoundException $exception) {
                         }
                     }
-                    $dependencyContainerMeta[self::KEY_SEARCH_AND_REPLACE][$factoryUsages[0][$position]] = 'new ' . $className . '(';
+                    $dependencyContainerMeta[self::KEY_SEARCH_AND_REPLACE][$factoryUsages[0][$position]] = 'new \\' . $fullyQualifiedClassName . '(';
                     $dependencyContainerMeta[self::KEY_USES][] = $fullyQualifiedClassName;
                 }
             }
