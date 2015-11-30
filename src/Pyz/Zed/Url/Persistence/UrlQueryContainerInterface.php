@@ -9,7 +9,7 @@ use Orm\Zed\Url\Persistence\SpyUrlQuery;
 interface UrlQueryContainerInterface extends SprykerUrlQueryContainerInterface
 {
     /**
-     * @param $idPage
+     * @param int $idPage
      * @return SpyUrlQuery
      */
     public function queryUrlByIdPage($idPage);
@@ -20,4 +20,10 @@ interface UrlQueryContainerInterface extends SprykerUrlQueryContainerInterface
      * @return SpyUrlQuery
      */
     public function queryUrlByIdPageAndLocale($idPage, $idLocale);
+
+    /**
+     * @param int $abstractProductId
+     * @return SpyUrlQuery
+     */
+    public function queryUrlByAbstractProductId($abstractProductId);
 }

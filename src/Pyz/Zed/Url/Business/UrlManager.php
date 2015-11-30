@@ -5,6 +5,7 @@ namespace Pyz\Zed\Url\Business;
 use Generated\Shared\Url\UrlInterface;
 use Pyz\Zed\Url\Persistence\UrlQueryContainerInterface;
 use SprykerFeature\Zed\Url\Business\UrlManager as SprykerUrlManager;
+use Orm\Zed\Url\Persistence\Base\SpyUrl;
 
 class UrlManager extends SprykerUrlManager
 {
@@ -30,5 +31,15 @@ class UrlManager extends SprykerUrlManager
     public function getOrCreateUrlByIdPage($idPage, $idLocale) {
         $urlEntity = $this->urlQueryContainer->queryUrlByIdPageAndLocale($idPage,$idLocale)->findOneOrCreate();
         return $this->convertUrlEntityToTransfer($urlEntity);
+    }
+
+    /**
+     * @param $abstractProductId
+     * @return SpyUrl
+     */
+    public function getUrlByAbstractProductId($abstractProductId)
+    {
+        return $this->urlQueryContainer->queryUrlByAbstractProductId($abstractProductId)
+            ->findOne();
     }
 }
