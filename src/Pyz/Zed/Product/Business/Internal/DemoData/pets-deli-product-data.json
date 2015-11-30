@@ -13605,7 +13605,7 @@
           "old_sku": "120071485",
           "sku_formatted": "4911-193-1"
         },
-        "bundle_products": [
+        "bundled_products": [
           {
             "sku": "49111881",
             "quantity": "1"
@@ -13771,7 +13771,7 @@
           "old_sku": "120071488",
           "sku_formatted": "4921-194-1"
         },
-        "bundle_products": [
+        "bundled_products": [
           {
             "sku": "49211921",
             "quantity": "1"
