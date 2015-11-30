@@ -2,8 +2,6 @@
 
 namespace Pyz\Zed\Oms;
 
-use Pyz\Zed\Oms\Communication\Plugin\Oms\Command\DummySendOrderConfirmationMail;
-use Pyz\Zed\Oms\Communication\Plugin\Oms\Command\DummySendOrderReceivedMail;
 use SprykerEngine\Zed\Kernel\Container;
 use SprykerFeature\Zed\Oms\Communication\Plugin\Oms\Command\CommandInterface;
 use SprykerFeature\Zed\Oms\Communication\Plugin\Oms\Condition\ConditionInterface;
@@ -51,8 +49,7 @@ class OmsDependencyProvider extends SprykerOmsDependencyProvider
             'Adyen/Capture' => $container->getLocator()->adyen()->pluginCommandCapturePlugin(),
             'Adyen/Cancel' => $container->getLocator()->adyen()->pluginCommandCancelPlugin(),
             'OmsMailQueueConnector/OrderConfirmationMail' => $container->getLocator()->omsMailQueueConnector()->pluginCommandOrderConfirmationMail(),
-
-            'TODO/DUMMY/ORDER-RECEIVED-MAIL' => new DummySendOrderReceivedMail()
+            'OmsMailQueueConnector/SepaOrderReceivedMail' => $container->getLocator()->omsMailQueueConnector()->pluginCommandSepaOrderReceivedMail()
         ];
     }
 

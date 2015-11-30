@@ -403,3 +403,6 @@ $config[CalculationCheckoutConnectorConfig::MINIMUM_CHECKOUT_CART_VALUE] = 1500;
 
 $config[OmsMailQueueConnectorConfig::ORDER_SEPA_RECEIVED_TEMPLATE_NAME] = 'sepa-order-received-test-template';
 $config[OmsMailQueueConnectorConfig::ORDER_SEPA_RECEIVED_EMAIL_SUBJECT] = 'Order received';
+
+$config[OmsMailQueueConnectorConfig::ORDER_VORKASSE_RECEIVED_TEMPLATE_NAME] = 'vorkasse-order-received-test-template';
+$config[OmsMailQueueConnectorConfig::ORDER_VORKASSE_RECEIVED_EMAIL_SUBJECT] = 'Order received';
