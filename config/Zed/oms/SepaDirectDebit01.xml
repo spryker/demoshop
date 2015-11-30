@@ -4,47 +4,110 @@
         xsi:noNamespaceSchemaLocation="process.xsd">
     <process name="SepaDirectDebit01" main="true">
 
+        <subprocesses>
+            <process>adyen capture</process>
+            <process>export afterbuy</process>
+        </subprocesses>
+
         <states>
-            <state name="new" reserved="true"/>
-            <state name="payment request sent"/>
-            <state name="waiting for authorisation notification"/>
-            <state name="invalid" reserved="false"/>
-            <state name="paid"/>
+            <state name="new"/>
+            <state name="authorise request sent"/>
+            <state name="waiting for authorise notification"/>
+            <state name="authorise notification received"/>
+            <state name="clarify authorise notification not received"/>
+            <state name="ready to send confirmation mail"/>
+            <state name="invalid"/>
+            <state name="authorised"/>
         </states>
+
         <transitions>
 
-            <transition>
+            <transition happy="true">
                 <source>new</source>
-                <target>payment request sent</target>
-                <event>send payment request</event>
+                <target>authorise request sent</target>
+                <event>send authorise request</event>
             </transition>
 
-            <transition condition="Adyen/IsAuthoriseApproved">
-                <source>payment request sent</source>
-                <target>waiting for authorisation notification</target>
-                <event>check authorisation</event>
+            <transition happy="true" condition="Adyen/IsAuthoriseTransactionSuccess">
+                <source>authorise request sent</source>
+                <target>waiting for authorise notification</target>
+                <event>adyen check authorise request</event>
             </transition>
 
             <transition>
-                <source>payment request sent</source>
+                <source>authorise request sent</source>
                 <target>invalid</target>
-                <event>check authorisation</event>
+                <event>adyen check authorise request</event>
             </transition>
 
             <transition>
-                <source>waiting for authorisation notification</source>
-                <target>paid</target>
-                <event>adyen authorisation notification received</event>
+                <source>waiting for authorise notification</source>
+                <target>waiting for authorise notification</target>
+                <event>send order received mail</event>
+            </transition>
+
+            <transition>
+                <source>waiting for authorise notification</source>
+                <target>clarify authorise notification not received</target>
+                <event>timeout missing authorise notification</event>
+            </transition>
+
+            <transition condition="Adyen/HasAuthoriseNotificationReceived">
+                <source>clarify authorise notification not received</source>
+                <target>authorise notification received</target>
+            </transition>
+
+            <transition happy="true" condition="Adyen/HasAuthoriseNotificationReceived">
+                <source>waiting for authorise notification</source>
+                <target>authorise notification received</target>
+            </transition>
+
+            <transition happy="true" condition="Adyen/IsAuthoriseNotificationSuccess">
+                <source>authorise notification received</source>
+                <target>ready to send confirmation mail</target>
+                <event>adyen check authorise notification</event>
+            </transition>
+
+            <transition happy="true">
+                <source>ready to send confirmation mail</source>
+                <target>authorised</target>
+                <event>send order confirmation mail</event>
+            </transition>
+
+            <transition>
+                <source>authorise notification received</source>
+                <target>invalid</target>
+                <event>adyen check authorise notification</event>
+            </transition>
+
+            <!-- SUBPROCESS CONNECTIONS -->
+
+            <transition>
+                <source>authorised</source>
+                <target>init capture process</target>
+            </transition>
+
+            <transition>
+                <source>captured</source>
+                <target>init export to afterbuy</target>
             </transition>
 
         </transitions>
 
         <events>
-            <event name="send payment request" onEnter="true" manual="true" command="Adyen/Authorise"/>
-            <event name="check authorisation" onEnter="false" manual="true"/>
-            <event name="adyen authorisation notification received" manual="true"/>
+            <event name="send authorise request" onEnter="true" manual="true" command="Adyen/Authorise"/>
+            <event name="check authorise" onEnter="false" manual="true"/>
+            <event name="adyen check authorise notification" onEnter="true"/>
+            <event name="adyen check authorise request" onEnter="true" />
+            <event name="send order confirmation mail" onEnter="true" command="TODO/DUMMY/ORDER-CONFIRMATION-MAIL"/>
+            <event name="send order received mail" onEnter="true" command="TODO/DUMMY/ORDER-RECEIVED-MAIL"/>
+            <event name="timeout missing authorise notification" timeout="3days"/>
         </events>
 
     </process>
+
+
+    <process name="adyen capture" file="subprocesses/Capture01.xml"/>
+    <process name="export afterbuy" file="subprocesses/ExportAfterBuy01.xml"/>
 
 </statemachine>

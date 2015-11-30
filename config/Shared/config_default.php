@@ -252,6 +252,12 @@ $config[AclConfig::ACL_DEFAULT_RULES] = [
         'action' => 'index',
         'type' => 'allow',
     ],
+    [
+        'bundle' => 'adyen',
+        'controller' => 'notification',
+        'action' => '*',
+        'type' => 'allow',
+    ]
 ];
 
 $config[AclConfig::ACL_USER_RULE_WHITELIST] = [
@@ -273,6 +279,12 @@ $config[AclConfig::ACL_USER_RULE_WHITELIST] = [
         'action' => 'index',
         'type' => 'allow',
     ],
+    [
+        'bundle' => 'adyen',
+        'controller' => 'notification',
+        'action' => '*',
+        'type' => 'allow',
+    ]
 ];
 
 $config[AclConfig::ACL_DEFAULT_CREDENTIALS] = [

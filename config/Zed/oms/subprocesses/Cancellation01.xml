@@ -4,7 +4,7 @@
         xsi:noNamespaceSchemaLocation="../process.xsd">
     <process name="cancellation">
         <states>
-            <state name="cancellation initiated"/>
+            <state name="init cancellation"/>
             <state name="clarify refundable voucher code"/>
             <state name="clarify refund money"/>
             <state name="refunded"/>
@@ -12,22 +12,26 @@
 
         <transitions>
             <transition>
-                <source>cancellation initiated</source>
+                <source>init cancellation</source>
                 <target>clarify refundable voucher code</target>
-                <event>refund money</event>
+                <event>start refund checks</event>
             </transition>
             <transition>
                 <source>clarify refundable voucher code</source>
                 <target>clarify refund money</target>
+                <event>voucher checked</event>
             </transition>
             <transition>
                 <source>clarify refund money</source>
                 <target>refunded</target>
+                <event>refund done</event>
             </transition>
         </transitions>
 
         <events>
-            <event name="refund money" manual="true"/>
+            <event name="start refund checks" manual="true"/>
+            <event name="voucher checked" manual="true"/>
+            <event name="refund done" manual="true"/>
         </events>
     </process>
 </statemachine>
