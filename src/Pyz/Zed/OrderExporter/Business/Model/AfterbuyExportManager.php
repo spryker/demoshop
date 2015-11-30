@@ -24,15 +24,6 @@ class AfterbuyExportManager
     const VALUE_COUPON_NAME = 'RABATT';
 
     /** @var string */
-    protected $userId;
-
-    /** @var int */
-    protected $partnerId;
-
-    /** @var string */
-    protected $partnerPass;
-
-    /** @var string */
     protected $afterbuyUrl;
     /**
      * @var AbstractAfterbuyConnector
@@ -75,9 +66,6 @@ class AfterbuyExportManager
         OrderExporterToProductFacade $productFacade,
         OrderExporterToAdyenFacade $adyenFacade
     ) {
-        $this->userId = $orderExporterConfig->getAfterbuyUserId();
-        $this->partnerId = $orderExporterConfig->getAfterbuyPartnerId();
-        $this->partnerPass = $orderExporterConfig->getAfterbuyPartnerPass();
         $this->salesFacade = $salesFacade;
         $this->afterbuyConnector = $connector;
         $this->orderExporterConfig = $orderExporterConfig;
@@ -128,9 +116,9 @@ class AfterbuyExportManager
     {
         $postData = array();
         $postData[AfterbuyConstants::AFTERBUY_ACTION] = self::AFTERBUY_NEW_ACTION;
-        $postData[AfterbuyConstants::AFTERBUY_PARTNER_ID] = $this->partnerId;
-        $postData[AfterbuyConstants::AFTERBUY_PARTNER_PASS] = $this->partnerPass;
-        $postData[AfterbuyConstants::AFTERBUY_USER_ID] = $this->userId;
+        $postData[AfterbuyConstants::AFTERBUY_PARTNER_ID] = $this->orderExporterConfig->getAfterbuyPartnerId();
+        $postData[AfterbuyConstants::AFTERBUY_PARTNER_PASS] = $this->orderExporterConfig->getAfterbuyPartnerPass();
+        $postData[AfterbuyConstants::AFTERBUY_USER_ID] = $this->orderExporterConfig->getAfterbuyUserId();;
 
         return $postData;
     }
@@ -188,26 +176,26 @@ class AfterbuyExportManager
 
         switch ($payment->getPaymentMethod()) {
             case 'adyen.payment.method.creditcard.cse':
-                $paymentMethodName = 'CreditCard';
+                $paymentMethodName = AfterbuyConstants::PAYMENT_METHOD_CREDITCARD;
                 break;
             case 'adyen.payment.method.paypal':
-                $paymentMethodName = 'PayPal';
+                $paymentMethodName = AfterbuyConstants::PAYMENT_METHOD_PAYPAL;
                 break;
             case 'adyen.payment.method.sofortueberweisung':
-                $paymentMethodName = 'Sofortueberweisung';
+                $paymentMethodName = AfterbuyConstants::PAYMENT_METHOD_SOFORTUEBERWEISUNG;
                 break;
             case 'adyen.payment.method.sepa.directdebit':
-                $paymentMethodName = 'Sepa Direct Debit';
+                $paymentMethodName = AfterbuyConstants::PAYMENT_METHOD_SEPA;
                 $postData[AfterbuyConstants::PAYMENT_BANK_ACCOUNT_NUMBER] = $payment->getPavPaymentAdyenDetail()->getBankAccountNumber();
                 $postData[AfterbuyConstants::PAYMENT_BANK_ACCOUNT_OWNER] = $payment->getPavPaymentAdyenDetail()->getOwnerName();
                 $postData[AfterbuyConstants::PAYMENT_BANK_CODE] = $payment->getPavPaymentAdyenDetail()->getBankLocationId();
                 $setPay = false;
                 break;
             case 'adyen.payment.method.german.bank.transfer':
-                $paymentMethodName = 'PrePayment';
+                $paymentMethodName = AfterbuyConstants::PAYMENT_METHOD_PREPAYMENT;
                 break;
             case 'adyen.payment.method.openinvoice.klarna':
-                $paymentMethodName = 'Invoice';
+                $paymentMethodName = AfterbuyConstants::PAYMENT_METHOD_INVOICE;
                 $setPay = false;
                 break;
             default:
@@ -221,28 +209,6 @@ class AfterbuyExportManager
 
         return $postData;
     }
-
-
-    protected function mapPaymentKeyToName($paymentMethod)
-    {
-        switch ($paymentMethod) {
-            case 'adyen.payment.method.creditcard.cse':
-                return 'CreditCard';
-            case 'adyen.payment.method.paypal':
-                return 'PayPal';
-            case 'adyen.payment.method.sofortueberweisung':
-                return 'Sofortueberweisung';
-            case 'adyen.payment.method.sepa.directdebit':
-                return 'Sepa Direct Debit';
-            case 'adyen.payment.method.german.bank.transfer':
-                return 'PrePayment';
-            case 'adyen.payment.method.openinvoice.klarna':
-                return 'Invoice';
-            default:
-                return $paymentMethod;
-        }
-    }
-
 
     /**
      * @param SpySalesOrderItem[] $items
@@ -438,11 +404,11 @@ class AfterbuyExportManager
     /**
      * @param $postVariables
      * @param array $orderItems
-     * @param $orderid
+     * @param int $orderId
      */
-    protected function sendOrderInfoToAfterbuy($postVariables, array $orderItems, $orderid)
+    protected function sendOrderInfoToAfterbuy($postVariables, array $orderItems, $orderId)
     {
-        $this->afterbuyConnector->sendToAfterbuy($postVariables, $orderItems, $orderid);
+        $this->afterbuyConnector->sendToAfterbuy($postVariables, $orderItems, $orderId);
     }
 
 }

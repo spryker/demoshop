@@ -71,4 +71,11 @@ interface AfterbuyConstants
     const PAYMENT_METHOD = 'Zahlart';
     const PAYMENT_ID = 'ZFunktionsID';
     const PAYMENT_STATUS = 'SetPay';
+
+    const PAYMENT_METHOD_CREDITCARD = 'Kreditkarte';
+    const PAYMENT_METHOD_PAYPAL = 'Paypal';
+    const PAYMENT_METHOD_SOFORTUEBERWEISUNG = 'Sofortueberweisung';
+    const PAYMENT_METHOD_SEPA = 'Sepa Lastschrift';
+    const PAYMENT_METHOD_PREPAYMENT = 'Vorkasse';
+    const PAYMENT_METHOD_INVOICE = 'Rechnungskauf';
 }
