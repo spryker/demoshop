@@ -25,6 +25,20 @@ class RemoveFactoryUse extends AbstractRefactor
     protected $dependencyContainerCollection = [];
 
     /**
+     * @return string
+     */
+    protected function getClassHeader()
+    {
+        return '<?php
+
+/**
+ * (c) Spryker Systems GmbH copyright protected
+ */
+
+';
+    }
+
+    /**
      * @return void
      */
     public function refactor()
@@ -360,7 +374,7 @@ class RemoveFactoryUse extends AbstractRefactor
             }
 
             $filesystem = new Filesystem();
-            $filesystem->dumpFile($dependencyContainer->getPathname(), $reflectionClass->generate());
+            $filesystem->dumpFile($dependencyContainer->getPathname(), $this->getClassHeader() . $reflectionClass->generate());
         }
     }
 
@@ -389,7 +403,7 @@ class RemoveFactoryUse extends AbstractRefactor
             }
 
             $filesystem = new Filesystem();
-            $filesystem->dumpFile($dependencyContainer->getPathname(), $reflectionClass->generate());
+            $filesystem->dumpFile($dependencyContainer->getPathname(), $this->getClassHeader() . $reflectionClass->generate());
         }
     }
 
