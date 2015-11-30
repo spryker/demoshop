@@ -365,16 +365,15 @@ class RemoveFactoryUse extends AbstractRefactor
         if (count($newUses) > 0) {
             $uses = array_unique(array_merge($givenUses, $newUses));
             foreach ($uses as $use) {
-                if (preg_match('/as/', $use)) {
-                    list($use, $alias) = explode('as', $use);
+                if (preg_match('/\sas\s/', $use)) {
+                    list($use, $alias) = explode(' as ', $use);
                     $reflectionClass->addUse(trim($use), trim($alias));
                 } else {
                     $reflectionClass->addUse(trim($use));
                 }
             }
 
-            $filesystem = new Filesystem();
-            $filesystem->dumpFile($dependencyContainer->getPathname(), $this->getClassHeader() . $reflectionClass->generate());
+            $this->saveReflectionChanges($dependencyContainer, $reflectionClass);
         }
     }
 
@@ -402,9 +401,26 @@ class RemoveFactoryUse extends AbstractRefactor
                 }
             }
 
-            $filesystem = new Filesystem();
-            $filesystem->dumpFile($dependencyContainer->getPathname(), $this->getClassHeader() . $reflectionClass->generate());
+            $this->saveReflectionChanges($dependencyContainer, $reflectionClass);
         }
+    }
+
+    /**
+     * @param SplFileInfo $dependencyContainer
+     * @param ClassGenerator $reflectionClass
+     *
+     * @return void
+     */
+    private function saveReflectionChanges(SplFileInfo $dependencyContainer, ClassGenerator $reflectionClass)
+    {
+        $filesystem = new Filesystem();
+        $extendedClass = $reflectionClass->getExtendedClass();
+        if ($extendedClass) {
+            $extendedClassParts = explode('\\', $extendedClass);
+            $extendedClass = array_pop($extendedClassParts);
+            $reflectionClass->setExtendedClass($extendedClass);
+        }
+        $filesystem->dumpFile($dependencyContainer->getPathname(), $this->getClassHeader() . $reflectionClass->generate());
     }
 
 }
