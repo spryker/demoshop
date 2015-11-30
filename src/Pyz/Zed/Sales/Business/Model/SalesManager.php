@@ -10,6 +10,7 @@ use SprykerFeature\Zed\Sales\Dependency\Facade\SalesToOmsInterface;
 use Orm\Zed\Sales\Persistence\SpySalesOrder;
 use Orm\Zed\Sales\Persistence\SpySalesOrderItem;
 use Orm\Zed\Sales\Persistence\SpySalesDiscount;
+use Orm\Zed\Sales\Persistence\Base\PavSalesOrderItemConfiguration;
 
 class SalesManager extends SprykerOrderManager
 {
@@ -79,6 +80,16 @@ class SalesManager extends SprykerOrderManager
     public function getSalesDiscountsByOrderId($salesOrderId)
     {
         return $this->queryContainer->querySalesDiscountByOrderId($salesOrderId)
+            ->find();
+    }
+
+    /**
+     * @param int $salesOrderItemId
+     * @return PavSalesOrderItemConfiguration[]
+     */
+    public function getSalesOrderItemConfigurationByItemId($salesOrderItemId)
+    {
+        return $this->queryContainer->querySalesOrderItemConfigurationByItemId($salesOrderItemId)
             ->find();
     }
 }
