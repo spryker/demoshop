@@ -5,7 +5,6 @@
     <process name="SofortUeberweisung01" main="true">
 
         <subprocesses>
-            <process>adyen capture</process>
             <process>export afterbuy</process>
         </subprocesses>
 
@@ -104,11 +103,6 @@
 
             <transition>
                 <source>authorised</source>
-                <target>init capture process</target>
-            </transition>
-
-            <transition>
-                <source>captured</source>
                 <target>init export to afterbuy</target>
             </transition>
 
@@ -132,7 +126,6 @@
 
     </process>
 
-    <process name="adyen capture" file="subprocesses/Capture01.xml"/>
     <process name="export afterbuy" file="subprocesses/ExportAfterBuy01.xml"/>
 
 </statemachine>
