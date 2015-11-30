@@ -5,7 +5,7 @@ import { EVENTS as STEPPER_EVENTS } from '../../forms/stepper';
 
 
 const ENDPOINTS = {
-    CART: '/cart/overlay'
+    CART: '/cart/overlay/'
 };
 
 

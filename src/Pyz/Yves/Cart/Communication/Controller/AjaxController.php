@@ -25,13 +25,14 @@ class AjaxController extends AbstractController
         $cartClient = $this->getLocator()->cart()->client();
         $cart = $cartClient->getCart();
         $products = [];
+
         foreach ($cart->getItems() as $item) {
             if (empty($item->getName())) {
                 $item->setName('Product ' . mt_rand(1, 99));
             }
 
             $sku = $item->getSku();
-            $product = $this->locator->catalog()->client()->createCatalogModel()->getProductDataById($item->getId());
+            $product = $this->locator->catalog()->client()->createCatalogModel()->getProductDataById($item->getIdAbstractProduct());
 
             $products[$sku] = [
                 'url' => $product['abstract_attributes']['url'],

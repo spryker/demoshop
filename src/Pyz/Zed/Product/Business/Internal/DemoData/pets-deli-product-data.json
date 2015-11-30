@@ -13644,7 +13644,7 @@
           "old_sku": "120071485",
           "sku_formatted": "4911-193-2"
         },
-        "bundle_products": [
+        "bundled_products": [
           {
             "sku": "49111882",
             "quantity": "1"
@@ -13677,7 +13677,7 @@
       {
         "locale": "de_DE",
         "name": "PETS DELI Rundum-Sorglos-Paket für Katzen (für einen Monat)",
-        "url": "katzen-nahrung/hochwertige-katzenfutter-menues/rundumsorglospaket-katze.html",
+        "url": "/katzen-nahrung/hochwertige-katzenfutter-menues/rundumsorglospaket-katze.html",
         "attributes": {
           "why_pets_deli": "why_pets_deli",
           "accordion": {
