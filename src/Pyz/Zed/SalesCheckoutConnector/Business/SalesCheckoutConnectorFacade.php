@@ -4,12 +4,12 @@ namespace Pyz\Zed\SalesCheckoutConnector\Business;
 
 use Generated\Shared\Transfer\CheckoutResponseTransfer;
 use Generated\Shared\Transfer\OrderTransfer;
-use SprykerFeature\Zed\SalesCheckoutConnector\Business\SalesCheckoutConnectorFacade as SpySalesCheckoutConnectorFacade;
+use PavFeature\Zed\SalesCheckoutConnector\Business\SalesCheckoutConnectorFacade as PavFeatureSalesCheckoutConnectorFacade;
 
 /**
  * @method SalesCheckoutConnectorDependencyContainer getDependencyContainer()
  */
-class SalesCheckoutConnectorFacade extends SpySalesCheckoutConnectorFacade
+class SalesCheckoutConnectorFacade extends PavFeatureSalesCheckoutConnectorFacade
 {
     /**
      * @param OrderTransfer $order

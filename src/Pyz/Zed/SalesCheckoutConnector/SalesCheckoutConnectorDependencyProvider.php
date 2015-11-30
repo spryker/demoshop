@@ -3,9 +3,9 @@
 namespace Pyz\Zed\SalesCheckoutConnector;
 
 use SprykerEngine\Zed\Kernel\Container;
-use SprykerFeature\Zed\SalesCheckoutConnector\SalesCheckoutConnectorDependencyProvider as SpySalesCheckoutConnectorDependencyProvider;
+use PavFeature\Zed\SalesCheckoutConnector\SalesCheckoutConnectorDependencyProvider as PavFeatureSalesCheckoutConnectorDependencyProvider;
 
-class SalesCheckoutConnectorDependencyProvider extends SpySalesCheckoutConnectorDependencyProvider
+class SalesCheckoutConnectorDependencyProvider extends PavFeatureSalesCheckoutConnectorDependencyProvider
 {
     const FACADE_SALES = 'sales facade';
 
