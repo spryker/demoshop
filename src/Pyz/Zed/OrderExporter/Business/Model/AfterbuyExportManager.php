@@ -3,7 +3,9 @@
 namespace Pyz\Zed\OrderExporter\Business\Model;
 
 use Pyz\Zed\OrderExporter\AfterbuyConstants;
-use Pyz\Zed\OrderExporter\Dependency\Facade\OrderExporterToSalesInterface;
+use Pyz\Zed\OrderExporter\Dependency\Facade\OrderExporterToProductFacade;
+use Pyz\Zed\OrderExporter\Dependency\Facade\OrderExporterToSalesFacade;
+use Pyz\Zed\OrderExporter\Dependency\Facade\OrderExporterToUrlFacade;
 use Pyz\Zed\OrderExporter\OrderExporterConfig;
 use Orm\Zed\Sales\Persistence\SpySalesOrderAddress;
 use Orm\Zed\Sales\Persistence\SpySalesOrderItem;
@@ -18,6 +20,7 @@ class AfterbuyExportManager
     const AFTERBUY_NEW_ACTION = 'new';
     const KEY_COUPON_NAME = 'name';
     const KEY_COUPON_AMOUNT = 'amount';
+    const VALUE_COUPON_NAME = 'RABATT';
 
     /** @var string */
     protected $userId;
@@ -39,19 +42,31 @@ class AfterbuyExportManager
      */
     protected $orderExporterConfig;
     /**
-     * @var OrderExporterToSalesInterface
+     * @var OrderExporterToSalesFacade
      */
     protected $salesFacade;
+    /**
+     * @var OrderExporterToUrlFacade
+     */
+    protected $urlFacade;
+    /**
+     * @var OrderExporterToProductFacade
+     */
+    protected $productFacade;
 
     /**
      * @param OrderExporterConfig $orderExporterConfig
      * @param AbstractAfterbuyConnector $connector
-     * @param OrderExporterToSalesInterface $salesFacade
+     * @param OrderExporterToSalesFacade $salesFacade
+     * @param OrderExporterToUrlFacade $urlFacade
+     * @param OrderExporterToProductFacade $productFacade
      */
     public function __construct(
         OrderExporterConfig $orderExporterConfig,
         AbstractAfterbuyConnector $connector,
-        OrderExporterToSalesInterface $salesFacade
+        OrderExporterToSalesFacade $salesFacade,
+        OrderExporterToUrlFacade $urlFacade,
+        OrderExporterToProductFacade $productFacade
     ) {
         $this->userId = $orderExporterConfig->getAfterbuyUserId();
         $this->partnerId = $orderExporterConfig->getAfterbuyPartnerId();
@@ -59,6 +74,8 @@ class AfterbuyExportManager
         $this->salesFacade = $salesFacade;
         $this->afterbuyConnector = $connector;
         $this->orderExporterConfig = $orderExporterConfig;
+        $this->urlFacade = $urlFacade;
+        $this->productFacade = $productFacade;
     }
 
     /**
@@ -182,7 +199,6 @@ class AfterbuyExportManager
         }
 
         $coupon = $this->createSubCoupon($itemIds, $postData[AfterbuyConstants::SALES_ORDER_ID]);
-
         $postData = $this->addCouponInfo($postData, $coupon, $numberOfItems);
 
         $postData[AfterbuyConstants::ITEMS_NUMBER] = count($items) + count($coupon);
@@ -224,7 +240,6 @@ class AfterbuyExportManager
                 $discountsToExport[] = $salesDiscount;
             }
         }
-
         return $this->aggregateCouponsIntoSubCoupons($discountsToExport);
     }
 
@@ -238,7 +253,7 @@ class AfterbuyExportManager
         foreach ($discountsToExport as $discount) {
             if (!isset($coupons[$discount->getDisplayName()])) {
                 $coupons[$discount->getDisplayName()][self::KEY_COUPON_AMOUNT] = $discount->getAmount();
-                $coupons[$discount->getDisplayName()][self::KEY_COUPON_NAME] = 'RABATT_' . $discount->getDisplayName() . '_' . $discount->getFkSalesOrder();
+                $coupons[$discount->getDisplayName()][self::KEY_COUPON_NAME] = self::VALUE_COUPON_NAME . '_' . $discount->getDisplayName() . '_' . $discount->getFkSalesOrder();
             } else {
                 $coupons[$discount->getDisplayName()][self::KEY_COUPON_AMOUNT] += $discount->getAmount();
             }
@@ -255,8 +270,17 @@ class AfterbuyExportManager
      */
     protected function addProductAttributesInfo(SpySalesOrderItem $item, $numberOfItems, array $postData)
     {
-        // @TODO add product attributes (e.g: "Kartoffel, Size...") (const ITEM_ATTRIBUTE) as String "label:value|label2:value2|label3:value3"
-        // @TODO add product URL (const ITEM_LINK)
+        $itemConfigurations = $this->salesFacade->getSalesOrderItemConfigurationByItemId($item->getIdSalesOrderItem());
+        $attributes = [];
+        foreach ($itemConfigurations as $itemConfiguration) {
+            $attributes[] = $itemConfiguration->getGroupKeyLocalized() . ':' . $itemConfiguration->getGroupValueLocalized();
+        }
+        $postData[AfterbuyConstants::ITEM_ATTRIBUTE . $numberOfItems] = implode('|', $attributes);
+
+        $abstractProductId = $this->productFacade->getAbstractProductIdByConcreteSku($item->getSku());
+        $productUrl = $this->urlFacade->getUrlByAbstractProductId($abstractProductId);
+        $postData[AfterbuyConstants::ITEM_LINK . $numberOfItems] = $this->orderExporterConfig->getYvesHost() . $productUrl->getUrl();
+
         // @TODO add product weight (const ITEM_WEIGHT)
         return $postData;
     }
