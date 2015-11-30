@@ -18,11 +18,11 @@ class CheckoutDependencyProvider extends SprykerCheckoutDependencyProvider
      *
      * @return CheckoutPreConditionInterface[]
      */
-    protected function getCheckoutPreconditions(Container $container)
+    protected function getCheckoutPreConditions(Container $container)
     {
         return [
-            $container->getLocator()->customerCheckoutConnector()->pluginCustomerPreconditionCheckerPlugin(),
-            $container->getLocator()->availabilityCheckoutConnector()->pluginProductsAvailablePreconditionPlugin(),
+            $container->getLocator()->customerCheckoutConnector()->pluginCustomerPreConditionCheckerPlugin(),
+            $container->getLocator()->availabilityCheckoutConnector()->pluginProductsAvailablePreConditionPlugin(),
         ];
     }
 
