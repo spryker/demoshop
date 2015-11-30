@@ -12,6 +12,10 @@ class OrderExporterDependencyProvider extends AbstractBundleDependencyProvider
 
     const FACADE_SALES = 'sales facade';
 
+    const FACADE_URL = 'url facade';
+
+    const FACADE_PRODUCT = 'product facade';
+
 
     protected function getCommandPlugins(Container $container)
     {
@@ -27,6 +31,14 @@ class OrderExporterDependencyProvider extends AbstractBundleDependencyProvider
     {
         $container[OrderExporterDependencyProvider::FACADE_SALES] = function (Container $container) {
             return $container->getLocator()->sales()->facade();
+        };
+
+        $container[OrderExporterDependencyProvider::FACADE_URL] = function (Container $container) {
+            return $container->getLocator()->url()->facade();
+        };
+
+        $container[OrderExporterDependencyProvider::FACADE_PRODUCT] = function (Container $container) {
+            return $container->getLocator()->product()->facade();
         };
 
         return $container;
