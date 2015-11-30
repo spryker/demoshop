@@ -388,6 +388,7 @@ class RemoveFactoryUse extends AbstractRefactor
 
         $dependencyContainer = $this->getDependencyContainerFromCollection($dependencyContainerKey);
         $dependencyContainerClassName = $this->getClassNameFromFileInfo($dependencyContainer);
+        echo $dependencyContainer->getFilename() . PHP_EOL;
         $reflectionClass = ClassGenerator::fromReflection(
             new ClassReflection($dependencyContainerClassName)
         );
@@ -416,8 +417,14 @@ class RemoveFactoryUse extends AbstractRefactor
         $filesystem = new Filesystem();
         $extendedClass = $reflectionClass->getExtendedClass();
         if ($extendedClass) {
+
             $extendedClassParts = explode('\\', $extendedClass);
             $extendedClass = array_pop($extendedClassParts);
+
+            if (preg_match('/' . $extendedClass . ' as (.*?);/', $dependencyContainer->getContents(), $matches)) {
+                $extendedClass = trim($matches[1]);
+            }
+
             $reflectionClass->setExtendedClass($extendedClass);
         }
         $filesystem->dumpFile($dependencyContainer->getPathname(), $this->getClassHeader() . $reflectionClass->generate());
