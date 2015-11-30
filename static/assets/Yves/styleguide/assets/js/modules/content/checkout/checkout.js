@@ -2,7 +2,6 @@ import $ from 'jquery';
 import { prefixCss, scrollTo } from '../../common/helpers';
 import { MessageService } from '../../common/messages';
 import { EVENTS as STEPPER_EVENTS } from '../../forms/stepper';
-import { EVENTS as CARTLAYER_EVENTS } from './cartLayer';
 
 
 'use strict';
@@ -13,7 +12,7 @@ import { EVENTS as CARTLAYER_EVENTS } from './cartLayer';
 
 
 const EVENTS = {
-    UPDATE_CART: 'UPDATE_CART'
+    UPDATE_CART: 'CHECKOUT_UPDATE_CART'
 };
 
 const ADYEN_KEY = '10001|A335386FB3B6B5BB4AA6CDC8AD5764BB6F20FE1087C8BC5FF8CCA1D6974E3D48D5967FCFD829BF74A1B0E12FCFF07D60DB02AE5225C49F7F4B054A4D7FADE8BCA6B7D23FA2E763746609706552E4D53D57F14A4DC937C92214B660FB9C3332C96EAB068E8436A6428A9AED8DBB4D1A5B3B15BA97927963CD6229210439293EBCC8E00C022EE2746C8F7E1F9C44271C8DC376AF4BC2448507A2DBF60401BFCCAA9AEEE65A43671C74BFBA89ED136DD8E8414F17C1EF5CBD3158E9BDA27095A6656E9C4C4FAF61F1B7FF7FED8C5BC971D460E106AF5007F606898175BC30BBD9C7AFD1E54A86584CFB9B38AF3A63B39AE61485DAB8B60ADB94A399005192450B75';
@@ -53,7 +52,7 @@ $(document).ready(function () {
 
 
         $contents.find('.checkout__step-button').click(function () {
-            if (validate()) {
+            if (validate() && index < $contents.size() - 1) {
                 index++;
                 updateStep();
             }
@@ -112,6 +111,58 @@ $(document).ready(function () {
         }
 
 
+        $checkout.submit(function (event) {
+            event.preventDefault();
+
+            postForm($(this), function (response) {
+                if (response.success) {
+                    window.location = response.url;
+                } else if (response.errors) {
+
+                    $('#backend-errors').empty();
+
+                    $.each(response.errors, function (index, value) {
+                        console.info(value.errorCode, value.message);
+                    });
+
+                    $("html, body").animate({scrollTop: 0}, "slow");
+                } else {
+                    console.info('Es ist ein Fehler aufgetreten! Leider konnte Ihre Bestelung nicht aufgebeben werden!');
+                }
+            });
+        });
+
+
+        function postForm($form, callback) {
+            var values = {};
+            $.each($form.serializeArray(), function (i, field) {
+                values[field.name] = field.value;
+            });
+
+            $.post($form.attr('action'), values)
+            .done(function (data) {
+                callback(data);
+            })
+            .fail(function () {
+                console.info('Es ist ein Fehler aufgetreten! Leider konnte Ihre Bestelung nicht aufgebeben werden!');
+            });
+        }
+
+
+        $(document).on(EVENTS.UPDATE_CART, function () {
+            $.ajax({
+                url : '/checkout/ajax-cart',
+                method: 'GET',
+                dataType: 'html'
+            })
+            .done(renderCart)
+            .fail(function(data) {
+                console.log('[ERROR] ');
+                console.log(data);
+            });
+        });
+
+
 
         $(document).on('click', '.js-voucher-form-trigger', function () {
             $(this).hide();
@@ -159,6 +210,8 @@ $(document).ready(function () {
 
 
 
+
+
         var $shippingCountry = $('#checkout_billing_address_country');
         $shippingCountry.change(getShipmentPrice);
 
@@ -182,8 +235,6 @@ $(document).ready(function () {
         function renderCart (data) {
             $('.checkout .cart__items').html(data);
             $(document).trigger(STEPPER_EVENTS.INITIALIZE_STEPPERS);
-
-            $(document).trigger(CARTLAYER_EVENTS.UPDATE_CART);
         }
 
     });

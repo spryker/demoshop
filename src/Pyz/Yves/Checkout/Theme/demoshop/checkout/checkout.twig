@@ -24,7 +24,7 @@
 
 
 
-        <form class="checkout js-formbackup" data-formbackup="checkout" {% if app.user is null %}style="display: none;"{% endif %}>
+        <form class="checkout js-formbackup" method="post" data-formbackup="checkout" {% if app.user is null %}style="display: none;"{% endif %}>
 
             <div class="checkout__headline">
                 Kasse
@@ -46,7 +46,12 @@
                     <div class="checkout__step-headline">Adresse</div>
 
                     <div id="invoice-address" class="checkout__form">
-                        {{ form_widget(form.email) }}
+                        {% if app.user is null %}
+                            {{ form_widget(form.email) }}
+                        {% else %}
+                            {% do form.email.setRendered %}
+                        {% endif %}
+
                         {{ form_widget(form.billing_address) }}
 
                         <input type="hidden" id="addShipmentFee" value="{{ url('checkout/get-shipment-fee') }}">

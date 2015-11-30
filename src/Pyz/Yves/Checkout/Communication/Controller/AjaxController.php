@@ -33,7 +33,7 @@ class AjaxController extends AbstractController
             }
 
             $sku = $item->getSku();
-            $product = $this->locator->catalog()->client()->createCatalogModel()->getProductDataById($item->getId());
+            $product = $this->locator->catalog()->client()->createCatalogModel()->getProductDataById($item->getIdAbstractProduct());
 
             $products[$sku] = [
                 'url' => $product['abstract_attributes']['url'],
@@ -64,7 +64,7 @@ class AjaxController extends AbstractController
             }
 
             $sku = $item->getSku();
-            $product = $this->locator->catalog()->client()->createCatalogModel()->getProductDataById($item->getId());
+            $product = $this->locator->catalog()->client()->createCatalogModel()->getProductDataById($item->getIdAbstractProduct());
 
             $products[$sku] = [
                 'url' => $product['abstract_attributes']['url'],
