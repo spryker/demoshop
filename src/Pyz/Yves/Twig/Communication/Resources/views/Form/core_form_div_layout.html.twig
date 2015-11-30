@@ -87,7 +87,10 @@
         {% set image = '/images/checkout/sepa.jpg' %}
     {% elseif modifier == 'radio--adyen-payment-method-paypal' %}
         {% set image = '/images/checkout/paypal.jpg' %}
+    {% elseif modifier == 'radio--adyen-payment-method-sofortueberweisung' %}
+        {% set image = '/images/checkout/sofort.jpg' %}
     {% endif %}
+
 
     <div class="radio {{modifier}}">
         <input class="radio__input" type="radio" {{ block('widget_attributes') }}{% if value is defined %} value="{{ value }}"{% endif %}{% if checked %} checked="checked"{% endif %} />
