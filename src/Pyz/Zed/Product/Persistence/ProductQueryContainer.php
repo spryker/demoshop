@@ -75,4 +75,5 @@ class ProductQueryContainer extends SprykerProductQueryContainer implements Spry
             ->addAnd(SpyProductTableMap::COL_FK_ABSTRACT_PRODUCT, $idAbstractProduct, Criteria::EQUAL)
             ;
     }
+
 }
