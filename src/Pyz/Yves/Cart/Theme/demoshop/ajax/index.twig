@@ -7,7 +7,7 @@
         {% for item in cart.items %}
             {% include '@application/layout/content/product/cart/cart-item.twig' with {
                 title: item.name,
-                weight: '250g',
+                weight: '',
                 quantity: item.quantity,
                 price: item.grossPrice,
                 sku: item.sku,
