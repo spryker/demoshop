@@ -24,9 +24,26 @@
                     <div class="message message--invalid">
                         {{ 'notification.js.required' | trans }}
                     </div>
-
                 </div>
             </noscript>
+
+            <script type="text/javascript">
+                window.translator = new (function () {
+                    var store = {};
+
+                    this.addTranslation = function (key, translation) {
+                        store[key] = translation;
+                    };
+
+                    this.getTranslation = function (key) {
+                        if (!!store[key]) {
+                            return store[key];
+                        } else {
+                            return key;
+                        }
+                    };
+                })();
+            </script>
 
             {% block header %}
                 {% include "@application/layout/partials/header.twig" %}

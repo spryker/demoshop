@@ -22,6 +22,9 @@ import './modules/navigation/navbar';
 import './modules/navigation/offcanvas';
 import './modules/navigation/scrollButton';
 
+// footer related
+import './modules/content/footer/newsletter';
+
 // catalog related
 //import './modules/content/catalog/categoryHeader';
 
