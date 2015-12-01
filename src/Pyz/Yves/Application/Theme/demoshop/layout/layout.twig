@@ -12,15 +12,21 @@
 
             <link rel="shortcut icon" href="/images/favicon/favicon.ico" type="image/x-icon">
 
-            <!-- TODO: remove old styles -->
-            <!-- <link rel="stylesheet" href="/css/main.css" /> -->
             <link rel="stylesheet" href="/css/styleguide.css" />
 
             {% include "@application/layout/partials/tracking-base.twig" %}
             {% include "@application/layout/partials/tracking.twig" %}
         </head>
 
-        <body>
+        <body class="no-js">
+            <noscript>
+                <div class="messages">
+                    <div class="message message--invalid">
+                        {{ 'notification.js.required' | trans }}
+                    </div>
+
+                </div>
+            </noscript>
 
             {% block header %}
                 {% include "@application/layout/partials/header.twig" %}
@@ -32,9 +38,11 @@
                 {% include "@application/layout/partials/footer.twig" %}
             {% endblock %}
 
-            <!-- TODO: remove old script -->
-            <!-- <script src="/js/main.js"></script> -->
             <script src="/js/sg-main.js"></script>
+
+            <script type="text/javascript">
+                document.body.className = '';
+            </script>
         </body>
     </html>
 {% endspaceless %}

@@ -8,6 +8,11 @@ use Symfony\Component\Form\FormBuilderInterface;
 class PaymentDetail extends AbstractType
 {
 
+    public function __construct($encryptionKey)
+    {
+        $this->encryptionKey = $encryptionKey;
+    }
+
     /**
      * @return string
      */
@@ -89,6 +94,13 @@ class PaymentDetail extends AbstractType
                 ],
             ])
 
+            ->add('adyen_encryption_key', 'hidden', [
+                'attr' => [
+                    'disabled' => true,
+                    'value' => $this->encryptionKey
+                ]
+            ])
+
             //CC fields
             ->add('adyen_encrypted_form_expiry_generationtime', 'hidden', [
                 'label' => false,
@@ -141,7 +153,9 @@ class PaymentDetail extends AbstractType
                     'data-encrypted-name' => 'holderName',
                     'autocomplete' => 'off',
                     'class' => 'input--1-1',
-                    'data-required' => true
+                    'data-required' => true,
+                    'data-depending-field' => 'checkout[adyen_payment][payment_method]',
+                    'data-depending-value' => 'adyen.payment.method.creditcard.cse'
                 ],
             ])
             ->add('adyen_encrypted_form_expiry_month', 'choice', array(

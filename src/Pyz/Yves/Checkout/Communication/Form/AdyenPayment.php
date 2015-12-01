@@ -21,6 +21,8 @@ class AdyenPayment extends AbstractType
     public function __construct(AdyenPaymentMethodsInterface $paymentMethodsTransfer)
     {
         $this->availablePaymentMethods = $paymentMethodsTransfer;
+        $this->encryptionKey = $paymentMethodsTransfer->getClientSideEncryptionPublicKey();
+
     }
 
     /**
@@ -56,7 +58,7 @@ class AdyenPayment extends AbstractType
                 'attr' => [
                 ],
             ])
-            ->add('payment_detail', new PaymentDetail(), [
+            ->add('payment_detail', new PaymentDetail($this->encryptionKey), [
                 'data_class' => 'Generated\Shared\Transfer\AdyenPaymentDetailTransfer',
                 'error_bubbling' => true,
                 'mapped' => true,

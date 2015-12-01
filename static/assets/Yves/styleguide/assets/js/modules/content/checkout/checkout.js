@@ -1,11 +1,15 @@
 import $ from 'jquery';
 import { prefixCss, scrollTo } from '../../common/helpers';
 import { MessageService } from '../../common/messages';
+
 import { EVENTS as STEPPER_EVENTS } from '../../forms/stepper';
+import { EVENTS as INPUT_EVENTS } from '../../forms/input';
+import { EVENTS as RADIO_EVENTS } from '../../forms/radio';
+import { EVENTS as CHECKBOX_EVENTS } from '../../forms/checkbox';
 
 import { validateForm } from '../../forms/validator';
 
-import adyen from 'node-adyen-cse';
+import 'node-adyen-cse';
 
 
 'use strict';
@@ -16,28 +20,20 @@ import adyen from 'node-adyen-cse';
 
 
 const EVENTS = {
-    UPDATE_CART: 'CHECKOUT_UPDATE_CART'
+    UPDATE_CART: 'CHECKOUT_UPDATE_CART',
+    VALIDATE: 'CHECKOUT_VALIDATE'
 };
 
-const ADYEN_KEY = '10001|A335386FB3B6B5BB4AA6CDC8AD5764BB6F20FE1087C8BC5FF8CCA1D6974E3D48D5967FCFD829BF74A1B0E12FCFF07D60DB02AE5225C49F7F4B054A4D7FADE8BCA6B7D23FA2E763746609706552E4D53D57F14A4DC937C92214B660FB9C3332C96EAB068E8436A6428A9AED8DBB4D1A5B3B15BA97927963CD6229210439293EBCC8E00C022EE2746C8F7E1F9C44271C8DC376AF4BC2448507A2DBF60401BFCCAA9AEEE65A43671C74BFBA89ED136DD8E8414F17C1EF5CBD3158E9BDA27095A6656E9C4C4FAF61F1B7FF7FED8C5BC971D460E106AF5007F606898175BC30BBD9C7AFD1E54A86584CFB9B38AF3A63B39AE61485DAB8B60ADB94A399005192450B75';
+const ADYEN_KEY = $('#checkout_adyen_payment_payment_detail_adyen_encryption_key').val();
 
 
 $(document).ready(function () {
 
     $('.checkout').each(function () {
 
-        var $guestButton,
-            $checkout,
-            $navigations,
-            $contentContainer,
-            $contents,
-
-            index,
-            messageService;
-
+        var $guestButton, $checkout, $navigations, $contentContainer, $contents, index, messageService;
 
         initAdyenPaymentForm();
-
 
         $guestButton = $('.js-button-guestcheckout');
         $checkout = $(this);
@@ -51,20 +47,24 @@ $(document).ready(function () {
         messageService = new MessageService();
 
         index = 0;
+
+        validateCheckout();
         updateStep();
 
 
 
         $contents.find('.checkout__step-button').click(function () {
-            if (validate() && index < $contents.size() - 1) {
+            if (validateStep(index).valid && index < $contents.size() - 1) {
                 index++;
                 updateStep();
             }
         });
 
         $navigations.click(function () {
-            if (validate()) {
-                index = $navigations.index($(this));
+            var newIndex = $navigations.index($(this));
+
+            if (newIndex < index || validateStep(index).valid) {
+                index = newIndex;
                 updateStep();
             }
         });
@@ -95,9 +95,38 @@ $(document).ready(function () {
         }
 
 
-        function validate () {
-            //messageService.add({ type: 'invalid', message: 'Not valid' });
-            return true;
+        function validateStep (index) {
+            var validationResult = validateForm($contents.eq(index));
+
+            if (validationResult.valid) {
+                $contents.eq(index).find('.checkout__step-button').prop('disabled', false);
+            } else {
+                $contents.eq(index).find('.checkout__step-button').prop('disabled', true);
+            }
+
+            return validationResult;
+        }
+
+
+        $(document).on([
+            INPUT_EVENTS.VALIDATION_UPDATED,
+            RADIO_EVENTS.VALIDATION_UPDATED,
+            CHECKBOX_EVENTS.VALIDATION_UPDATED
+        ].join(' '), validateCheckout);
+        function validateCheckout () {
+            var result = {
+                valid: true,
+                messages: []
+            };
+
+            for (let i = 0; i < $contents.size(); i++) {
+                var validationResult = validateStep(i);
+
+                result.valid = result.valid && validationResult.valid;
+                result.messages = [].concat(result.messages, validationResult.messages);
+            }
+
+            return result;
         }
 
 
@@ -164,6 +193,12 @@ $(document).ready(function () {
 
 
 
+        $(document).on(EVENTS.VALIDATE, function () {
+
+        });
+
+
+
         $(document).on('click', '.js-voucher-form-trigger', function () {
             $(this).hide();
 
@@ -207,8 +242,6 @@ $(document).ready(function () {
                 console.log('[ERROR] ', data);
             });
         };
-
-
 
 
 
