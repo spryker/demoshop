@@ -1,7 +1,9 @@
 import $ from 'jquery';
 import throttle from 'lodash/function/throttle';
-import { EVENTS } from '../checkout/cartLayer';
+import { MessageService } from '../../common/messages';
 import { getFormData } from '../../common/helpers';
+
+import { EVENTS } from '../checkout/cartLayer';
 
 'use strict';
 
@@ -12,7 +14,9 @@ $(document).ready(function () {
 
     $('.js-product-options').each(function () {
 
-        var $options, $stickyLimiter, optionsOffset, $configurator, $submit, $weightSelect, $weight, $totalPrice, $relativePrice, productConfig;
+        var $options, $stickyLimiter, optionsOffset, $configurator, $submit, $weightSelect, $weight, $totalPrice, $relativePrice, productConfig, messageService;
+
+        messageService = new MessageService();
 
         $options = $(this);
 
@@ -20,7 +24,7 @@ $(document).ready(function () {
         $weight = $options.find('.js-product-weight');
         $totalPrice = $options.find('.js-product-options__total');
         $relativePrice = $options.find('.js-product-options__relative');
-        $configurator = $options.find('.js-product-configurator form');
+        $configurator = $('.js-product-configurator form');
 
         $options.submit(addProduct);
 
@@ -67,13 +71,14 @@ $(document).ready(function () {
         function addProduct (event) {
             event.preventDefault();
 
-            var $form, sku, quantity
+            var $form, sku, quantity, quantityString
 
             $form = $(this);
             sku = $options.data('sku');
             quantity = $options.find('[name=quantity]').val();
 
             var postData = getFormData($configurator);
+
             for (let i in Object.keys(postData)) {
                 var key = Object.keys(postData)[i];
 
@@ -92,7 +97,14 @@ $(document).ready(function () {
                 ingredients: postData
             })
             .done(function (data) {
+                quantityString = (quantity > 1) ? 'Produkte' : 'Produkt';
+                messageService.add({ type: 'valid message--cart', message: `${quantity} ${quantityString} zum Warenkorb hinzugefügt.` });
+
                 $(document).trigger(EVENTS.UPDATE_CART);
+            })
+            .error(function () {
+                quantityString = (quantity > 1) ? 'Die Produkte konnten' : 'Das Produkt konnte';
+                messageService.add({ type: 'invalid message--cart', message: `${quantityString} nicht zum Warenkorb hinzugefügt werden.` });
             })
             .always(function () {
                 $form.find('button').prop('disabled', false);

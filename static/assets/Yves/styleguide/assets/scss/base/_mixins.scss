@@ -34,8 +34,8 @@
   }
 }
 
-@mixin responsiveImage{
-  display: block;
+@mixin responsiveImage($display: block){
+  display: $display;
   width: 100%;
   height: auto;
 }

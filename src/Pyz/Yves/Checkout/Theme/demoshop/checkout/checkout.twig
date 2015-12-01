@@ -7,10 +7,6 @@
     <!-- TODO: split up huge file -->
     {% if cart.items|length > 0 %}
 
-        <section id="backend-errors-section" class="checkout__form-block" style="display:none;">
-            <h1 class="form-block__heading">{{ "page.checkout.errors" | trans }}</h1>
-            <div id="backend-errors"></div>
-        </section>
 
         <section class="checkout__form-block checkout__form-block--login js-checkout-login">
             {% if app.user is null %}
@@ -22,12 +18,10 @@
 
 
 
-
-
         <form class="checkout js-formbackup" method="post" data-formbackup="checkout" {% if app.user is null %}style="display: none;"{% endif %}>
 
             <div class="checkout__headline">
-                Kasse
+                {{ 'page.checkout.headline' | trans}}
             </div>
 
             <div class="checkout__navigations">
@@ -68,12 +62,12 @@
                                 {{ form_widget(form.shipping_address) }}
                             </div>
                         </div>
+
+                        <button type="button" class="button button--cta checkout__step-button">
+                            {{ "page.checkout.address.next-step" | trans }}
+                        </button>
                     </div>
 
-
-                    <button type="button" class="button button--cta checkout__step-button">
-                        {{ "page.checkout.address.next-step" | trans }}
-                    </button>
                 </section>
 
 
@@ -126,11 +120,13 @@
                                 {% endif %}
 
                         {% endfor %}
+
+                        <button type="button" class="button button--cta checkout__step-button">
+                            {{ "page.checkout.payment.next-step" | trans }}
+                        </button>
+
                     </div>
 
-                    <button type="button" class="button button--cta checkout__step-button">
-                        {{ "page.checkout.payment.next-step" | trans }}
-                    </button>
                 </section>
 
 
@@ -140,22 +136,23 @@
 
                     <div class="checkout__cart">
                         {% include "@checkout/checkout/cartWithCouponTextfield.twig" %}
+
+                        <div class="checkout__terms">
+                            {{ form_widget(form.newsletter) }}
+                            {{ form_widget(form.terms) }}
+                        </div>
+
+                        <button type="submit" class="button button--cta checkout__step-button">
+                            {{ 'page.checkout.finalize.buy-now' | trans }}
+                        </button>
+
+                        <div class="checkout__terms-info">
+                            Mit Ihrer Bestellung erklären Sie sich mit unseren AGB, Datenschutzbestimmungen und Widerrufsbestimmungen einverstanden. <br>
+                            Als Kunde von PETS DELI erhalten Sie Produktempfehlungen per Mail. Sie können jederzeit unter office@petsdeli.de, unserer Hotline 030 - 208 98 48 99 oder dem Abmeldelink in jeder Produktempfehlungsmail widersprechen. <br>
+                            Es entstehen Ihnen keine höheren Kosten als die nach den Basistarifen.
+                        </div>
                     </div>
 
-                    <div class="checkout__terms">
-                        {{ form_widget(form.newsletter) }}
-                        {{ form_widget(form.terms) }}
-                    </div>
-
-                    <button type="submit" class="button button--cta checkout__step-button">
-                        {{ 'page.checkout.finalize.buy-now'|trans }}
-                    </button>
-
-                    <div class="checkout__terms-info">
-                        Mit Ihrer Bestellung erklären Sie sich mit unseren AGB, Datenschutzbestimmungen und Widerrufsbestimmungen einverstanden. <br>
-                        Als Kunde von PETS DELI erhalten Sie Produktempfehlungen per Mail. Sie können jederzeit unter office@petsdeli.de, unserer Hotline 030 - 208 98 48 99 oder dem Abmeldelink in jeder Produktempfehlungsmail widersprechen. <br>
-                        Es entstehen Ihnen keine höheren Kosten als die nach den Basistarifen.
-                    </div>
                 </section>
 
                 {{ form_end(form) }}
@@ -169,14 +166,10 @@
 
         <article class="product product--justice-league">
             <section class="product__overview">
-                <h2 class="product__name">{{ 'cart.empty'|trans }}</h2>
+                <h2 class="product__name">{{ 'cart.empty' | trans }}</h2>
             </section>
         </article>
 
     {% endif %}
 
 {% endblock %}
-
-<!-- [Hack] @TODO: Chris has to find a better solution ;-) -->
-<script src="/js/vendor/adyen.encrypt.min.js"></script>
-<!-- End of todo -->

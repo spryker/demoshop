@@ -4,6 +4,8 @@
 //
 // Styleguide: atoms.radio
 
+// TODO: extract payment specific styling
+
 .radio{
     margin-top: 18px;
   text-align: left;
@@ -30,7 +32,7 @@
   }
 }
 
-.radio--sofort{
+.radio--sofort, .radio--adyen-payment-method-sofortueberweisung{
   .radio__image{
     width: 95px;
   }
@@ -55,10 +57,9 @@
 }
 
 .radio__image{
-  @include responsiveImage;
-  display: inline-block;
+  @include responsiveImage(inline-block);
   margin-right: 15px;
-  vertical-align: bottom;
+  vertical-align: middle;
 }
 
 

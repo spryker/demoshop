@@ -10,7 +10,8 @@
   "license": "ISC",
   "dependencies": {
     "jquery": "2.1.4",
-    "lodash": "^3.10.1"
+    "lodash": "^3.10.1",
+    "node-adyen-cse": "^0.1.2"
   },
   "devDependencies": {
     "babelify": "6.4.0",

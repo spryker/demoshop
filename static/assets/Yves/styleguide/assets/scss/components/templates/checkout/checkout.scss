@@ -233,7 +233,6 @@
 
 
 .checkout__cart{
-    float: left;
     @include pageWidth(0);
     margin-top: 30px;
     border-bottom: 1px solid $_rgbSilver;

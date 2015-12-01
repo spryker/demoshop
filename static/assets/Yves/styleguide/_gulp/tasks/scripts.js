@@ -51,7 +51,7 @@ gulp.task('scripts:build', function () {
         .pipe(source('sg-main.js'))
         .pipe(buffer())
         // .pipe(sourcemaps.init())
-        // .pipe(uglify())
+        .pipe(uglify())
         // .pipe(sourcemaps.write('./'))
         .pipe(gulp.dest(paths.dest.scripts))
         .pipe(_if(development, notify('Task "scripts" completed')));

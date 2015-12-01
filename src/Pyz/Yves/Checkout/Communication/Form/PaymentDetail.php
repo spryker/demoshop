@@ -62,21 +62,30 @@ class PaymentDetail extends AbstractType
                 'label' => 'Kontonummer',
                 'required' => false,
                 'attr' => [
-                    'class' => 'input--1-1'
+                    'class' => 'input--1-1',
+                    'data-required' => true,
+                    'data-depending-field' => 'checkout[adyen_payment][payment_method]',
+                    'data-depending-value' => 'adyen.payment.method.sepa.directdebit'
                 ]
             ])
             ->add('bank_location_id', 'text', [
                 'label' => 'BLZ',
                 'required' => false,
                 'attr' => [
-                    'class' => 'input--1-1'
+                    'class' => 'input--1-1',
+                    'data-required' => true,
+                    'data-depending-field' => 'checkout[adyen_payment][payment_method]',
+                    'data-depending-value' => 'adyen.payment.method.sepa.directdebit',
                 ]
             ])
             ->add('ownerName', 'text', [
                 'label' => 'Kontoinhaber',
                 'required' => false,
                 'attr' => [
-                    'class' => 'input--1-1'
+                    'class' => 'input--1-1',
+                    'data-required' => true,
+                    'data-depending-field' => 'checkout[adyen_payment][payment_method]',
+                    'data-depending-value' => 'adyen.payment.method.sepa.directdebit',
                 ],
             ])
 
@@ -89,7 +98,10 @@ class PaymentDetail extends AbstractType
                     'id' => 'adyen-encrypted-form-expiry-generationtime',
                     'data-encrypted-name' => 'generationtime',
                     'value' => date('c'),
-                    'autocomplete' => 'off'
+                    'autocomplete' => 'off',
+                    'data-required' => true,
+                    'data-depending-field' => 'checkout[adyen_payment][payment_method]',
+                    'data-depending-value' => 'adyen.payment.method.creditcard.cse'
                 ],
             ])
             ->add('adyen_encrypted_form_number', 'text', [
@@ -100,7 +112,10 @@ class PaymentDetail extends AbstractType
                     'id' => 'adyen-encrypted-form-number',
                     'data-encrypted-name' => 'number',
                     'autocomplete' => 'off',
-                    'class' => 'input--3-4'
+                    'class' => 'input--3-4',
+                    'data-required' => true,
+                    'data-depending-field' => 'checkout[adyen_payment][payment_method]',
+                    'data-depending-value' => 'adyen.payment.method.creditcard.cse'
                 ],
             ])
             ->add('adyen_encrypted_form_cvc', 'text', [
@@ -111,7 +126,10 @@ class PaymentDetail extends AbstractType
                     'id' => 'adyen-encrypted-form-cvc',
                     'data-encrypted-name' => 'cvc',
                     'autocomplete' => 'off',
-                    'class' => 'input--1-4'
+                    'class' => 'input--1-4',
+                    'data-required' => true,
+                    'data-depending-field' => 'checkout[adyen_payment][payment_method]',
+                    'data-depending-value' => 'adyen.payment.method.creditcard.cse'
                 ],
             ])
             ->add('adyen_encrypted_form_holder_name', 'text', [
@@ -122,7 +140,8 @@ class PaymentDetail extends AbstractType
                     'id' => 'adyen-encrypted-form-holder-name',
                     'data-encrypted-name' => 'holderName',
                     'autocomplete' => 'off',
-                    'class' => 'input--1-1'
+                    'class' => 'input--1-1',
+                    'data-required' => true
                 ],
             ])
             ->add('adyen_encrypted_form_expiry_month', 'choice', array(
@@ -133,7 +152,8 @@ class PaymentDetail extends AbstractType
                     'id' => 'adyen-encrypted-form-expiry-month',
                     'data-encrypted-name' => 'expiryMonth',
                     'placeholder' => 'MM',
-                    'autocomplete' => 'off'
+                    'autocomplete' => 'off',
+                    'data-required' => true
                 ],
             ))
             ->add('adyen_encrypted_form_expiry_year', 'choice', array(
@@ -144,7 +164,8 @@ class PaymentDetail extends AbstractType
                     'id' => 'adyen-encrypted-form-expiry-year',
                     'data-encrypted-name' => 'expiryYear',
                     'placeholder' => 'YYYY',
-                    'autocomplete' => 'off'
+                    'autocomplete' => 'off',
+                    'data-required' => true
                 ],
             ))
         ;

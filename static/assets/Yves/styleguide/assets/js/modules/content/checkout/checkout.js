@@ -3,6 +3,10 @@ import { prefixCss, scrollTo } from '../../common/helpers';
 import { MessageService } from '../../common/messages';
 import { EVENTS as STEPPER_EVENTS } from '../../forms/stepper';
 
+import { validateForm } from '../../forms/validator';
+
+import adyen from 'node-adyen-cse';
+
 
 'use strict';
 
@@ -92,7 +96,7 @@ $(document).ready(function () {
 
 
         function validate () {
-            //messageService.show({ type: 'invalid', message: 'Not valid' });
+            //messageService.add({ type: 'invalid', message: 'Not valid' });
             return true;
         }
 
@@ -114,39 +118,35 @@ $(document).ready(function () {
         $checkout.submit(function (event) {
             event.preventDefault();
 
-            postForm($(this), function (response) {
-                if (response.success) {
-                    window.location = response.url;
-                } else if (response.errors) {
-
-                    $('#backend-errors').empty();
-
-                    $.each(response.errors, function (index, value) {
-                        console.info(value.errorCode, value.message);
-                    });
-
-                    $("html, body").animate({scrollTop: 0}, "slow");
-                } else {
-                    console.info('Es ist ein Fehler aufgetreten! Leider konnte Ihre Bestelung nicht aufgebeben werden!');
-                }
-            });
-        });
-
-
-        function postForm($form, callback) {
             var values = {};
-            $.each($form.serializeArray(), function (i, field) {
+            $.each($checkout.serializeArray(), function (i, field) {
                 values[field.name] = field.value;
             });
 
-            $.post($form.attr('action'), values)
-            .done(function (data) {
-                callback(data);
+            $.post($checkout.attr('action'), values)
+            .done(function (response) {
+                if (response.success) {
+                    window.location = response.url;
+
+                } else if (response.errors) {
+
+                    $.each(response.errors, function (index, value) {
+                        messageService.add({ type: 'invalid', message: value.message + ' (' + value.errorCode + ')' });
+                    });
+
+                } else {
+
+                    messageService.add({ type: 'invalid', message: 'Es ist ein Fehler aufgetreten. Leider konnte Ihre Bestelung nicht aufgebeben werden.' });
+                }
             })
             .fail(function () {
-                console.info('Es ist ein Fehler aufgetreten! Leider konnte Ihre Bestelung nicht aufgebeben werden!');
+                messageService.add({ type: 'invalid', message: 'Es ist ein Fehler aufgetreten. Leider konnte Ihre Bestelung nicht aufgebeben werden.' });
+            })
+            .always(function () {
+                $('html, body').animate({scrollTop: 0}, 'slow');
             });
-        }
+        });
+
 
 
         $(document).on(EVENTS.UPDATE_CART, function () {

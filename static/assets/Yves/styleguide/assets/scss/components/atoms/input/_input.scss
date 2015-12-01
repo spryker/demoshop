@@ -31,12 +31,12 @@
 
 .input--1-4{
     float: left;
-    width: 25%;
+    width: 30%;
 }
 
 .input--3-4{
     float: left;
-    width: 75%;
+    width: 70%;
 }
 
 .input--1-3{
@@ -147,25 +147,24 @@
 .input__error{
     display: none;
     position: absolute;
-    right: 0%;
-    top: 0;
+    z-index: 2;
+    right: 0;
+    bottom: -60px;
     height: 50px;
     line-height: 50px;
     padding: 0 20px;
-    margin-right: -20px;
-    transform: translate(100%, 0);
 
     background: $_rgbCarnation;
     color: $_rgbWhite;
+    white-space: nowrap;
 
     &:before{
         content: '';
         position: absolute;
-        left: -14px;
-        top: 50%;
-        margin-top: -7px;
+        right: 21px;
+        top: -14px;
         border: 7px solid transparent;
-        border-right-color: $_rgbCarnation;
+        border-bottom-color: $_rgbCarnation;
     }
 }
 
@@ -189,5 +188,26 @@
 .section-input{
     .styleguide-modifier-name + .input{
         margin-top: 34px;
+    }
+}
+
+
+
+@media (min-width: $_wLarge) {
+    .input__error{
+        right: 0;
+        top: 0;
+        bottom: auto;
+        margin-right: -20px;
+        transform: translate(100%, 0);
+
+        &:before{
+            left: -14px;
+            right: auto;
+            top: 50%;
+            margin-top: -7px;
+            border-color: transparent;
+            border-right-color: $_rgbCarnation;
+        }
     }
 }
