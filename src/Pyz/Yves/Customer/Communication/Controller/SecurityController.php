@@ -5,6 +5,7 @@ namespace Pyz\Yves\Customer\Communication\Controller;
 use Pyz\Yves\Customer\Communication\CustomerDependencyContainer;
 use Pyz\Yves\Customer\Communication\Plugin\CustomerControllerProvider;
 use SprykerEngine\Yves\Application\Communication\Controller\AbstractController;
+use SprykerFeature\Client\Customer\Service\CustomerClientInterface;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\RedirectResponse;
 use SprykerFeature\Shared\Customer\Code\Messages;
@@ -12,6 +13,7 @@ use Generated\Shared\Transfer\CustomerTransfer;
 
 /**
  * @method CustomerDependencyContainer getDependencyContainer()
+ * @method CustomerClientInterface getClient()
  */
 class SecurityController extends AbstractController
 {
@@ -41,7 +43,7 @@ class SecurityController extends AbstractController
     {
         $customerTransfer = new CustomerTransfer();
         $customerTransfer->setEmail($this->getUsername());
-        $this->getLocator()->customer()->client()->logout($customerTransfer);
+        $this->getClient()->logout($customerTransfer);
 
         return $this->redirectResponseInternal(CustomerControllerProvider::ROUTE_HOME);
     }
@@ -56,7 +58,7 @@ class SecurityController extends AbstractController
         if ($form->isValid()) {
             $customerTransfer = new CustomerTransfer();
             $customerTransfer->fromArray($form->getData());
-            $customerTransfer = $this->getLocator()->customer()->client()->registerCustomer($customerTransfer);
+            $customerTransfer = $this->getClient()->registerCustomer($customerTransfer);
             if ($customerTransfer->getRegistrationKey()) {
                 $this->addMessageWarning(Messages::CUSTOMER_REGISTRATION_SUCCESS);
 
@@ -76,7 +78,7 @@ class SecurityController extends AbstractController
     {
         $customerTransfer = new CustomerTransfer();
         $customerTransfer->setRegistrationKey($request->query->get('token'));
-        $customerTransfer = $this->getLocator()->customer()->client()->confirmRegistration($customerTransfer);
+        $customerTransfer = $this->getClient()->confirmRegistration($customerTransfer);
         if ($customerTransfer->getRegistered()) {
             $this->addMessageSuccess(Messages::CUSTOMER_REGISTRATION_CONFIRMED);
 

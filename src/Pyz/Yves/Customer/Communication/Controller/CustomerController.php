@@ -6,12 +6,14 @@ use Generated\Shared\Transfer\CustomerTransfer;
 use Pyz\Yves\Customer\Communication\CustomerDependencyContainer;
 use Pyz\Yves\Customer\Communication\Plugin\CustomerControllerProvider;
 use SprykerEngine\Yves\Application\Communication\Controller\AbstractController;
+use SprykerFeature\Client\Customer\Service\CustomerClientInterface;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\RedirectResponse;
 use SprykerFeature\Shared\Customer\Code\Messages;
 
 /**
  * @method CustomerDependencyContainer getDependencyContainer()
+ * @method CustomerClientInterface getClient()
  */
 class CustomerController extends AbstractController
 {
@@ -26,8 +28,8 @@ class CustomerController extends AbstractController
         if ($form->isValid()) {
             $customerTransfer = new CustomerTransfer();
             $customerTransfer->fromArray($form->getData());
-            $this->getLocator()->customer()->client()->forgotPassword($customerTransfer);
-            $this->addMessageSuccess(Messages::CUSTOMER_PASSWORD_RECOVERY_MAIL_SENT);
+            $this->getClient()->forgotPassword($customerTransfer);
+            $this->addSuccessMessage(Messages::CUSTOMER_PASSWORD_RECOVERY_MAIL_SENT);
 
             return $this->redirectResponseInternal('home');
         }
@@ -48,8 +50,8 @@ class CustomerController extends AbstractController
             $customerTransfer = new CustomerTransfer();
             $customerTransfer->setUsername($this->getUsername());
             $customerTransfer->setRestorePasswordKey($request->query->get('token'));
-            $this->getLocator()->customer()->client()->restorePassword($customerTransfer);
-            $this->getLocator()->customer()->client()->logout($customerTransfer);
+            $this->getClient()->restorePassword($customerTransfer);
+            $this->getClient()->logout($customerTransfer);
 
             return $this->redirectResponseInternal(CustomerControllerProvider::ROUTE_LOGIN);
         }
@@ -69,8 +71,8 @@ class CustomerController extends AbstractController
         if ($form->isValid()) {
             $customerTransfer = new CustomerTransfer();
             $customerTransfer->setEmail($this->getUsername());
-            if ($this->getLocator()->customer()->client()->deleteCustomer($customerTransfer)) {
-                $this->getLocator()->customer()->client()->logout($customerTransfer);
+            if ($this->getClient()->deleteCustomer($customerTransfer)) {
+                $this->getClient()->logout($customerTransfer);
 
                 return $this->redirectResponseInternal('home');
             } else {
@@ -93,7 +95,7 @@ class CustomerController extends AbstractController
         if ($form->isValid()) {
             $customerTransfer->fromArray($form->getData());
             $customerTransfer->setEmail($this->getUsername());
-            $customerTransfer = $this->getLocator()->customer()->client()->updateCustomer($customerTransfer);
+            $customerTransfer = $this->getClient()->updateCustomer($customerTransfer);
 
             return $this->redirectResponseInternal(CustomerControllerProvider::ROUTE_CUSTOMER_PROFILE);
         }

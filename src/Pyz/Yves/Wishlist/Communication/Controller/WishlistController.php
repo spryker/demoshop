@@ -9,8 +9,12 @@ use Generated\Shared\Transfer\ItemTransfer;
 use Generated\Shared\Transfer\ProductOptionTransfer;
 use Pyz\Yves\Wishlist\Communication\Plugin\WishlistControllerProvider;
 use SprykerEngine\Yves\Application\Communication\Controller\AbstractController;
+use SprykerFeature\Client\Wishlist\Service\WishlistClientInterface;
 use Symfony\Component\HttpFoundation\RedirectResponse;
 
+/**
+ * @method WishlistClientInterface getClient()
+ */
 class WishlistController extends AbstractController
 {
 
@@ -19,7 +23,7 @@ class WishlistController extends AbstractController
      */
     public function indexAction()
     {
-        $wishlistClient = $this->getLocator()->wishlist()->client();
+        $wishlistClient = $this->getClient();
 
         return [
           'customerWishlist' => $wishlistClient->getWishlist(),
@@ -35,7 +39,7 @@ class WishlistController extends AbstractController
      */
     public function addAction($sku, $quantity = 1, $optionValueUsageIds = [])
     {
-        $wishlistClient = $this->getLocator()->wishlist()->client();
+        $wishlistClient = $this->getClient();
 
         $itemTransfer = new ItemTransfer();
         $itemTransfer->setSku($sku)->setQuantity($quantity);
@@ -60,7 +64,7 @@ class WishlistController extends AbstractController
      */
     public function removeAction($sku, $groupKey)
     {
-        $wishlistClient = $this->getLocator()->wishlist()->client();
+        $wishlistClient = $this->getClient();
 
         $itemTransfer = new ItemTransfer();
         $itemTransfer->setSku($sku)->setGroupKey($groupKey)->setQuantity(0);
@@ -78,7 +82,7 @@ class WishlistController extends AbstractController
      */
     public function increaseAction($sku, $groupKey)
     {
-        $wishlistClient = $this->getLocator()->wishlist()->client();
+        $wishlistClient = $this->getClient();
 
         $itemTransfer = new ItemTransfer();
         $itemTransfer->setSku($sku)->setGroupKey($groupKey)->setQuantity(1);
@@ -96,7 +100,7 @@ class WishlistController extends AbstractController
      */
     public function decreaseAction($sku, $groupKey)
     {
-        $wishlistClient = $this->getLocator()->wishlist()->client();
+        $wishlistClient = $this->getClient();
 
         $itemTransfer = new ItemTransfer();
         $itemTransfer->setSku($sku)->setGroupKey($groupKey)->setQuantity(1);
@@ -113,7 +117,7 @@ class WishlistController extends AbstractController
      */
     public function addToCartAction($groupKey)
     {
-        $wishlistClient = $this->getLocator()->wishlist()->client();
+        $wishlistClient = $this->getClient();
 
         $wishlistItems = $wishlistClient->getWishlist();
         $wishlistItem = null;

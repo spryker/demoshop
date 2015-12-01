@@ -4,10 +4,14 @@ namespace Pyz\Yves\Cart\Communication\Controller;
 
 use SprykerEngine\Yves\Application\Communication\Controller\AbstractController;
 use Pyz\Yves\Cart\Communication\Plugin\CartControllerProvider;
+use SprykerFeature\Client\Cart\Service\CartClientInterface;
 use Symfony\Component\HttpFoundation\RedirectResponse;
 use Generated\Shared\Transfer\ItemTransfer;
 use Generated\Shared\Transfer\ProductOptionTransfer;
 
+/**
+ * @method CartClientInterface getClient()
+ */
 class CartController extends AbstractController
 {
 
@@ -16,7 +20,7 @@ class CartController extends AbstractController
      */
     public function indexAction()
     {
-        $cartClient = $this->getLocator()->cart()->client();
+        $cartClient = $this->getClient();
         $cartItems = $cartClient->getCart()->getItems();
 
         return $this->viewResponse([
@@ -34,7 +38,7 @@ class CartController extends AbstractController
      */
     public function addAction($sku, $quantity, $optionValueUsageIds = [])
     {
-        $cartClient = $this->getLocator()->cart()->client();
+        $cartClient = $this->getClient();
 
         $itemTransfer = new ItemTransfer();
 
@@ -61,7 +65,7 @@ class CartController extends AbstractController
      */
     public function removeAction($sku, $groupKey = null)
     {
-        $cartClient = $this->getLocator()->cart()->client();
+        $cartClient = $this->getClient();
         $itemTransfer = new ItemTransfer();
         $itemTransfer->setId($sku);
         $itemTransfer->setGroupKey($groupKey);
@@ -81,7 +85,7 @@ class CartController extends AbstractController
     public function changeAction($sku, $quantity, $groupKey = null)
     {
 
-        $cartClient = $this->getLocator()->cart()->client();
+        $cartClient = $this->getClient();
         $itemTransfer = new ItemTransfer();
         $itemTransfer->setSku($sku);
         $itemTransfer->setGroupKey($groupKey);
