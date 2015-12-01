@@ -3,6 +3,7 @@
 namespace Pyz\Zed\Product\Business;
 
 use Generated\Zed\Ide\FactoryAutoCompletion\ProductBusiness;
+use Pyz\Zed\Cms\Business\CmsFacade;
 use Pyz\Zed\Locale\Business\LocaleFacade;
 use Pyz\Zed\Product\Business\Product\ProductManagerInterface;
 use Pyz\Zed\Product\Business\Attribute\AttributeConverterInterface;
@@ -62,7 +63,17 @@ class ProductDependencyContainer extends SprykerDependencyContainer
      */
     public function createProductManager()
     {
-        return parent::createProductManager();
+        if ($this->productManager === null) {
+            $this->productManager = $this->getFactory()->createProductProductManager(
+                $this->getQueryContainer(),
+                $this->getTouchFacade(),
+                $this->getUrlFacade(),
+                $this->getLocaleFacade(),
+                $this->getCmsFacade()
+            );
+        }
+
+        return $this->productManager;
     }
 
     /**
@@ -70,7 +81,14 @@ class ProductDependencyContainer extends SprykerDependencyContainer
      */
     protected function getLocaleFacade()
     {
-        return $this->getProvidedDependency(SprykerProductDependencyProvider::FACADE_LOCALE);
+        return $this->getProvidedDependency(ProductDependencyProvider::FACADE_LOCALE);
+    }
+    /**
+     * @return CmsFacade
+     */
+    protected function getCmsFacade()
+    {
+        return $this->getProvidedDependency(ProductDependencyProvider::FACADE_CMS);
     }
 
     /**
@@ -90,5 +108,4 @@ class ProductDependencyContainer extends SprykerDependencyContainer
             $this->createAttributeConverter()
         );
     }
-
 }

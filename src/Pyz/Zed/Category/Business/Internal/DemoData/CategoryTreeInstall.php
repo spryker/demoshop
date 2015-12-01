@@ -149,7 +149,8 @@ class CategoryTreeInstall extends AbstractInstaller
 
         $pageTransfer = $this->cmsFacade->getPageByCategoryNode($categoryNodeTransfer);
 
-        $urlTransfer = $this->urlFacade->getUrlByIdPage($pageTransfer->getIdCmsPage());
+        // TODO: resolve 46 to correct locale
+        $urlTransfer = $this->urlFacade->getUrlByIdPage($pageTransfer->getIdCmsPage(), 46);
         $urlTransfer->setUrl($rawNode['url']);
         $this->urlFacade->saveUrl($urlTransfer);
 

@@ -13,6 +13,7 @@
         <property name="idCmsPage" type="int" />
         <property name="fkTemplate" type="int" />
         <property name="fkCategoryNode" type="int" />
+        <property name="fkAbstractProduct" type="int" />
         <property name="validFrom" type="string" />
         <property name="validTo" type="string" />
         <property name="isActive" type="string" />
