@@ -64,4 +64,17 @@ class PageManager extends SprykerPageManager
         return $pageTransfer;
     }
 
+    /**
+     * @param AbstractProductInterface $abstractProductTransfer
+     * @return PageTransfer
+     */
+    public function getPageByAbstractProduct(AbstractProductInterface $abstractProductTransfer)
+    {
+        $query = $this->cmsQueryContainer->queryPageByAbstractProductId($abstractProductTransfer->getIdAbstractProduct());
+
+        $pageEntity = $query->findOne();
+        $pageTransfer = $this->convertPageEntityToTransfer($pageEntity);
+        return $pageTransfer;
+    }
+
 }

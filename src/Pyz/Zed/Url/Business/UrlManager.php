@@ -27,7 +27,7 @@ class UrlManager extends SprykerUrlManager
      * @param $idLocale
      * @return UrlInterface
      */
-    public function getOrCrateUrlByIdPage($idPage, $idLocale) {
+    public function getOrCreateUrlByIdPage($idPage, $idLocale) {
         $urlEntity = $this->urlQueryContainer->queryUrlByIdPageAndLocale($idPage,$idLocale)->findOneOrCreate();
         return $this->convertUrlEntityToTransfer($urlEntity);
     }

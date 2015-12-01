@@ -4,6 +4,7 @@ namespace Pyz\Zed\PetsDeliImporterWriter\Business\WriterProvider;
 
 use PavFeature\Zed\ProductDynamicImporter\Business\Writer\ProductWriterInterface;
 use PavFeature\Zed\ProductDynamicImporter\Business\Writer\ProductWriterProviderInterface;
+use Pyz\Zed\PetsDeliImporterWriter\Business\Writer\AbstractProductCmsBlockWriter;
 use Pyz\Zed\PetsDeliImporterWriter\Business\Writer\AbstractProductCmsWriter;
 use Pyz\Zed\PetsDeliImporterWriter\Business\Writer\AbstractProductDynamicWriter;
 use Pyz\Zed\PetsDeliImporterWriter\Business\Writer\AbstractProductWriter;
@@ -30,9 +31,9 @@ class PetsDeliWriterProvider implements ProductWriterProviderInterface
     protected $concreteBundleProductWriter;
 
     /**
-     * @var AbstractProductCmsWriter
+     * @var AbstractProductCmsBlockWriter
      */
-    protected $abstractProductCmsWriter;
+    protected $abstractProductCmsBlockWriter;
 
 
     public function __construct(
@@ -40,13 +41,13 @@ class PetsDeliWriterProvider implements ProductWriterProviderInterface
         ConcreteProductWriter $concreteProductWriter,
         AbstractProductDynamicWriter $abstractProductDynamicWriter,
         ConcreteBundleProductWriter $concreteBundleProductWriter,
-        AbstractProductCmsWriter $abstractProductCmsWriter
+        AbstractProductCmsBlockWriter $abstractProductCmsBlockWriter
     ) {
         $this->abstractProductWriter = $abstractProductWriter;
         $this->concreteProductWriter = $concreteProductWriter;
         $this->abstractProductDynamicWriter = $abstractProductDynamicWriter;
         $this->concreteBundleProductWriter = $concreteBundleProductWriter;
-        $this->abstractProductCmsWriter = $abstractProductCmsWriter;
+        $this->abstractProductCmsBlockWriter = $abstractProductCmsBlockWriter;
     }
 
     /**
@@ -59,7 +60,7 @@ class PetsDeliWriterProvider implements ProductWriterProviderInterface
             $this->concreteProductWriter,
             $this->abstractProductDynamicWriter,
             $this->concreteBundleProductWriter,
-            //$this->abstractProductCmsWriter,
+            $this->abstractProductCmsBlockWriter,
         ];
     }
 }

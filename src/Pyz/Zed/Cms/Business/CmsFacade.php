@@ -38,4 +38,14 @@ class CmsFacade extends SprykerCmsFacade implements CmsToCategoryInterface
     public function getOrCreatePageByAbstractProduct(AbstractProductInterface $abstractProductTransfer)  {
         return $this->getDependencyContainer()->getPageManager()->getOrCreatePageByAbstractProduct($abstractProductTransfer);
     }
+
+    /**
+     * @param AbstractProductInterface $abstractProductTransfer
+     * @return PageInterface
+     */
+    public function getPageByAbstractProduct(AbstractProductInterface $abstractProductTransfer)  {
+    {
+        return $this->getDependencyContainer()->getPageManager()->getPageByAbstractProduct($abstractProductTransfer);
+    }
+    }
 }
