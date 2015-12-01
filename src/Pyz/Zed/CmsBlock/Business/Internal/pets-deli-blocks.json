@@ -84,35 +84,7 @@
 
   },
   {
-    "name": "pdp_shipment",
-    "template_type": "pdp_accordion",
-    "localized_values": [],
-    "page_urls": []
-
-  },
-  {
-    "name": "pdp_storage",
-    "template_type": "pdp_accordion",
-    "localized_values": [],
-    "page_urls": []
-
-  },
-  {
-    "name": "pdp_production_quality",
-    "template_type": "pdp_accordion",
-    "localized_values": [],
-    "page_urls": []
-
-  },
-  {
-    "name": "pdp_feeding_recommendation",
-    "template_type": "pdp_accordion",
-    "localized_values": [],
-    "page_urls": []
-
-  },
-  {
-    "name": "pdp_preparation",
+    "name": "pdp_default_accordion",
     "template_type": "pdp_accordion",
     "localized_values": [],
     "page_urls": []

@@ -27,38 +27,12 @@
           "why_pets_deli": {
             "block": "pdp_why_pets_deli"
           },
-          "accordion": [
-            {
-              "shipment": {
-                "block": "pdp_shipment"
-              }
-            },
-            {
-              "storage": {
-                "block": "pdp_storage"
-              }
-            },
-            {
-              "roduction_quality": {
-                "block": "pdp_production_quality"
-              }
-            },
-            {
-              "feeding_recommendation": {
-                "block": "pdp_feeding_recommendation"
-              }
-            },
-            {
-              "preparation": {
-                "block": "pdp_preparation"
-              }
-            },
-            {
-              "product_info": {
-                "markdown": "product_info"
-              }
-            }
-          ],
+          "accordion": {
+            "block": "pdp_default_accordion"
+          },
+          "product_info": {
+            "markdown": "product_info"
+          },
           "delivery_time": {
             "glossary": "pdp.delivery.time"
           },
@@ -168,38 +142,12 @@
           "why_pets_deli": {
             "block": "pdp_why_pets_deli"
           },
-          "accordion": [
-            {
-              "shipment": {
-                "block": "pdp_shipment"
-              }
-            },
-            {
-              "storage": {
-                "block": "pdp_storage"
-              }
-            },
-            {
-              "roduction_quality": {
-                "block": "pdp_production_quality"
-              }
-            },
-            {
-              "feeding_recommendation": {
-                "block": "pdp_feeding_recommendation"
-              }
-            },
-            {
-              "preparation": {
-                "block": "pdp_preparation"
-              }
-            },
-            {
-              "product_info": {
-                "markdown": "product_info"
-              }
-            }
-          ],
+          "accordion": {
+            "block": "pdp_default_accordion"
+          },
+          "product_info": {
+            "markdown": "product_info"
+          },
           "delivery_time": {
             "glossary": "pdp.delivery.time"
           },
@@ -309,38 +257,12 @@
           "why_pets_deli": {
             "block": "pdp_why_pets_deli"
           },
-          "accordion": [
-            {
-              "shipment": {
-                "block": "pdp_shipment"
-              }
-            },
-            {
-              "storage": {
-                "block": "pdp_storage"
-              }
-            },
-            {
-              "roduction_quality": {
-                "block": "pdp_production_quality"
-              }
-            },
-            {
-              "feeding_recommendation": {
-                "block": "pdp_feeding_recommendation"
-              }
-            },
-            {
-              "preparation": {
-                "block": "pdp_preparation"
-              }
-            },
-            {
-              "product_info": {
-                "markdown": "product_info"
-              }
-            }
-          ],
+          "accordion": {
+            "block": "pdp_default_accordion"
+          },
+          "product_info": {
+            "markdown": "product_info"
+          },
           "delivery_time": {
             "glossary": "pdp.delivery.time"
           },
@@ -450,38 +372,12 @@
           "why_pets_deli": {
             "block": "pdp_why_pets_deli"
           },
-          "accordion": [
-            {
-              "shipment": {
-                "block": "pdp_shipment"
-              }
-            },
-            {
-              "storage": {
-                "block": "pdp_storage"
-              }
-            },
-            {
-              "roduction_quality": {
-                "block": "pdp_production_quality"
-              }
-            },
-            {
-              "feeding_recommendation": {
-                "block": "pdp_feeding_recommendation"
-              }
-            },
-            {
-              "preparation": {
-                "block": "pdp_preparation"
-              }
-            },
-            {
-              "product_info": {
-                "markdown": "product_info"
-              }
-            }
-          ],
+          "accordion": {
+            "block": "pdp_default_accordion"
+          },
+          "product_info": {
+            "markdown": "product_info"
+          },
           "delivery_time": {
             "glossary": "pdp.delivery.time"
           },
@@ -591,38 +487,12 @@
           "why_pets_deli": {
             "block": "pdp_why_pets_deli"
           },
-          "accordion": [
-            {
-              "shipment": {
-                "block": "pdp_shipment"
-              }
-            },
-            {
-              "storage": {
-                "block": "pdp_storage"
-              }
-            },
-            {
-              "roduction_quality": {
-                "block": "pdp_production_quality"
-              }
-            },
-            {
-              "feeding_recommendation": {
-                "block": "pdp_feeding_recommendation"
-              }
-            },
-            {
-              "preparation": {
-                "block": "pdp_preparation"
-              }
-            },
-            {
-              "product_info": {
-                "markdown": "product_info"
-              }
-            }
-          ],
+          "accordion": {
+            "block": "pdp_default_accordion"
+          },
+          "product_info": {
+            "markdown": "product_info"
+          },
           "delivery_time": {
             "glossary": "pdp.delivery.time"
           },
@@ -732,38 +602,12 @@
           "why_pets_deli": {
             "block": "pdp_why_pets_deli"
           },
-          "accordion": [
-            {
-              "shipment": {
-                "block": "pdp_shipment"
-              }
-            },
-            {
-              "storage": {
-                "block": "pdp_storage"
-              }
-            },
-            {
-              "roduction_quality": {
-                "block": "pdp_production_quality"
-              }
-            },
-            {
-              "feeding_recommendation": {
-                "block": "pdp_feeding_recommendation"
-              }
-            },
-            {
-              "preparation": {
-                "block": "pdp_preparation"
-              }
-            },
-            {
-              "product_info": {
-                "markdown": "product_info"
-              }
-            }
-          ],
+          "accordion": {
+            "block": "pdp_default_accordion"
+          },
+          "product_info": {
+            "markdown": "product_info"
+          },
           "delivery_time": {
             "glossary": "pdp.delivery.time"
           },
@@ -873,38 +717,12 @@
           "why_pets_deli": {
             "block": "pdp_why_pets_deli"
           },
-          "accordion": [
-            {
-              "shipment": {
-                "block": "pdp_shipment"
-              }
-            },
-            {
-              "storage": {
-                "block": "pdp_storage"
-              }
-            },
-            {
-              "roduction_quality": {
-                "block": "pdp_production_quality"
-              }
-            },
-            {
-              "feeding_recommendation": {
-                "block": "pdp_feeding_recommendation"
-              }
-            },
-            {
-              "preparation": {
-                "block": "pdp_preparation"
-              }
-            },
-            {
-              "product_info": {
-                "markdown": "product_info"
-              }
-            }
-          ],
+          "accordion": {
+            "block": "pdp_default_accordion"
+          },
+          "product_info": {
+            "markdown": "product_info"
+          },
           "delivery_time": {
             "glossary": "pdp.delivery.time"
           },
@@ -1014,38 +832,12 @@
           "why_pets_deli": {
             "block": "pdp_why_pets_deli"
           },
-          "accordion": [
-            {
-              "shipment": {
-                "block": "pdp_shipment"
-              }
-            },
-            {
-              "storage": {
-                "block": "pdp_storage"
-              }
-            },
-            {
-              "roduction_quality": {
-                "block": "pdp_production_quality"
-              }
-            },
-            {
-              "feeding_recommendation": {
-                "block": "pdp_feeding_recommendation"
-              }
-            },
-            {
-              "preparation": {
-                "block": "pdp_preparation"
-              }
-            },
-            {
-              "product_info": {
-                "markdown": "product_info"
-              }
-            }
-          ],
+          "accordion": {
+            "block": "pdp_default_accordion"
+          },
+          "product_info": {
+            "markdown": "product_info"
+          },
           "delivery_time": {
             "glossary": "pdp.delivery.time"
           },
@@ -1155,38 +947,12 @@
           "why_pets_deli": {
             "block": "pdp_why_pets_deli"
           },
-          "accordion": [
-            {
-              "shipment": {
-                "block": "pdp_shipment"
-              }
-            },
-            {
-              "storage": {
-                "block": "pdp_storage"
-              }
-            },
-            {
-              "roduction_quality": {
-                "block": "pdp_production_quality"
-              }
-            },
-            {
-              "feeding_recommendation": {
-                "block": "pdp_feeding_recommendation"
-              }
-            },
-            {
-              "preparation": {
-                "block": "pdp_preparation"
-              }
-            },
-            {
-              "product_info": {
-                "markdown": "product_info"
-              }
-            }
-          ],
+          "accordion": {
+            "block": "pdp_default_accordion"
+          },
+          "product_info": {
+            "markdown": "product_info"
+          },
           "delivery_time": {
             "glossary": "pdp.delivery.time"
           },
@@ -1296,38 +1062,12 @@
           "why_pets_deli": {
             "block": "pdp_why_pets_deli"
           },
-          "accordion": [
-            {
-              "shipment": {
-                "block": "pdp_shipment"
-              }
-            },
-            {
-              "storage": {
-                "block": "pdp_storage"
-              }
-            },
-            {
-              "roduction_quality": {
-                "block": "pdp_production_quality"
-              }
-            },
-            {
-              "feeding_recommendation": {
-                "block": "pdp_feeding_recommendation"
-              }
-            },
-            {
-              "preparation": {
-                "block": "pdp_preparation"
-              }
-            },
-            {
-              "product_info": {
-                "markdown": "product_info"
-              }
-            }
-          ],
+          "accordion": {
+            "block": "pdp_default_accordion"
+          },
+          "product_info": {
+            "markdown": "product_info"
+          },
           "delivery_time": {
             "glossary": "pdp.delivery.time"
           },
@@ -1437,38 +1177,12 @@
           "why_pets_deli": {
             "block": "pdp_why_pets_deli"
           },
-          "accordion": [
-            {
-              "shipment": {
-                "block": "pdp_shipment"
-              }
-            },
-            {
-              "storage": {
-                "block": "pdp_storage"
-              }
-            },
-            {
-              "roduction_quality": {
-                "block": "pdp_production_quality"
-              }
-            },
-            {
-              "feeding_recommendation": {
-                "block": "pdp_feeding_recommendation"
-              }
-            },
-            {
-              "preparation": {
-                "block": "pdp_preparation"
-              }
-            },
-            {
-              "product_info": {
-                "markdown": "product_info"
-              }
-            }
-          ],
+          "accordion": {
+            "block": "pdp_default_accordion"
+          },
+          "product_info": {
+            "markdown": "product_info"
+          },
           "delivery_time": {
             "glossary": "pdp.delivery.time"
           },
@@ -1578,38 +1292,12 @@
           "why_pets_deli": {
             "block": "pdp_why_pets_deli"
           },
-          "accordion": [
-            {
-              "shipment": {
-                "block": "pdp_shipment"
-              }
-            },
-            {
-              "storage": {
-                "block": "pdp_storage"
-              }
-            },
-            {
-              "roduction_quality": {
-                "block": "pdp_production_quality"
-              }
-            },
-            {
-              "feeding_recommendation": {
-                "block": "pdp_feeding_recommendation"
-              }
-            },
-            {
-              "preparation": {
-                "block": "pdp_preparation"
-              }
-            },
-            {
-              "product_info": {
-                "markdown": "product_info"
-              }
-            }
-          ],
+          "accordion": {
+            "block": "pdp_default_accordion"
+          },
+          "product_info": {
+            "markdown": "product_info"
+          },
           "delivery_time": {
             "glossary": "pdp.delivery.time"
           },
@@ -1719,38 +1407,12 @@
           "why_pets_deli": {
             "block": "pdp_why_pets_deli"
           },
-          "accordion": [
-            {
-              "shipment": {
-                "block": "pdp_shipment"
-              }
-            },
-            {
-              "storage": {
-                "block": "pdp_storage"
-              }
-            },
-            {
-              "roduction_quality": {
-                "block": "pdp_production_quality"
-              }
-            },
-            {
-              "feeding_recommendation": {
-                "block": "pdp_feeding_recommendation"
-              }
-            },
-            {
-              "preparation": {
-                "block": "pdp_preparation"
-              }
-            },
-            {
-              "product_info": {
-                "markdown": "product_info"
-              }
-            }
-          ],
+          "accordion": {
+            "block": "pdp_default_accordion"
+          },
+          "product_info": {
+            "markdown": "product_info"
+          },
           "delivery_time": {
             "glossary": "pdp.delivery.time"
           },
@@ -1860,38 +1522,12 @@
           "why_pets_deli": {
             "block": "pdp_why_pets_deli"
           },
-          "accordion": [
-            {
-              "shipment": {
-                "block": "pdp_shipment"
-              }
-            },
-            {
-              "storage": {
-                "block": "pdp_storage"
-              }
-            },
-            {
-              "roduction_quality": {
-                "block": "pdp_production_quality"
-              }
-            },
-            {
-              "feeding_recommendation": {
-                "block": "pdp_feeding_recommendation"
-              }
-            },
-            {
-              "preparation": {
-                "block": "pdp_preparation"
-              }
-            },
-            {
-              "product_info": {
-                "markdown": "product_info"
-              }
-            }
-          ],
+          "accordion": {
+            "block": "pdp_default_accordion"
+          },
+          "product_info": {
+            "markdown": "product_info"
+          },
           "delivery_time": {
             "glossary": "pdp.delivery.time"
           },
@@ -2001,38 +1637,12 @@
           "why_pets_deli": {
             "block": "pdp_why_pets_deli"
           },
-          "accordion": [
-            {
-              "shipment": {
-                "block": "pdp_shipment"
-              }
-            },
-            {
-              "storage": {
-                "block": "pdp_storage"
-              }
-            },
-            {
-              "roduction_quality": {
-                "block": "pdp_production_quality"
-              }
-            },
-            {
-              "feeding_recommendation": {
-                "block": "pdp_feeding_recommendation"
-              }
-            },
-            {
-              "preparation": {
-                "block": "pdp_preparation"
-              }
-            },
-            {
-              "product_info": {
-                "markdown": "product_info"
-              }
-            }
-          ],
+          "accordion": {
+            "block": "pdp_default_accordion"
+          },
+          "product_info": {
+            "markdown": "product_info"
+          },
           "delivery_time": {
             "glossary": "pdp.delivery.time"
           },
@@ -2142,38 +1752,12 @@
           "why_pets_deli": {
             "block": "pdp_why_pets_deli"
           },
-          "accordion": [
-            {
-              "shipment": {
-                "block": "pdp_shipment"
-              }
-            },
-            {
-              "storage": {
-                "block": "pdp_storage"
-              }
-            },
-            {
-              "roduction_quality": {
-                "block": "pdp_production_quality"
-              }
-            },
-            {
-              "feeding_recommendation": {
-                "block": "pdp_feeding_recommendation"
-              }
-            },
-            {
-              "preparation": {
-                "block": "pdp_preparation"
-              }
-            },
-            {
-              "product_info": {
-                "markdown": "product_info"
-              }
-            }
-          ],
+          "accordion": {
+            "block": "pdp_default_accordion"
+          },
+          "product_info": {
+            "markdown": "product_info"
+          },
           "delivery_time": {
             "glossary": "pdp.delivery.time"
           },
@@ -2283,38 +1867,12 @@
           "why_pets_deli": {
             "block": "pdp_why_pets_deli"
           },
-          "accordion": [
-            {
-              "shipment": {
-                "block": "pdp_shipment"
-              }
-            },
-            {
-              "storage": {
-                "block": "pdp_storage"
-              }
-            },
-            {
-              "roduction_quality": {
-                "block": "pdp_production_quality"
-              }
-            },
-            {
-              "feeding_recommendation": {
-                "block": "pdp_feeding_recommendation"
-              }
-            },
-            {
-              "preparation": {
-                "block": "pdp_preparation"
-              }
-            },
-            {
-              "product_info": {
-                "markdown": "product_info"
-              }
-            }
-          ],
+          "accordion": {
+            "block": "pdp_default_accordion"
+          },
+          "product_info": {
+            "markdown": "product_info"
+          },
           "delivery_time": {
             "glossary": "pdp.delivery.time"
           },
@@ -2538,38 +2096,12 @@
           "why_pets_deli": {
             "block": "pdp_why_pets_deli"
           },
-          "accordion": [
-            {
-              "shipment": {
-                "block": "pdp_shipment"
-              }
-            },
-            {
-              "storage": {
-                "block": "pdp_storage"
-              }
-            },
-            {
-              "roduction_quality": {
-                "block": "pdp_production_quality"
-              }
-            },
-            {
-              "feeding_recommendation": {
-                "block": "pdp_feeding_recommendation"
-              }
-            },
-            {
-              "preparation": {
-                "block": "pdp_preparation"
-              }
-            },
-            {
-              "product_info": {
-                "markdown": "product_info"
-              }
-            }
-          ],
+          "accordion": {
+            "block": "pdp_default_accordion"
+          },
+          "product_info": {
+            "markdown": "product_info"
+          },
           "delivery_time": {
             "glossary": "pdp.delivery.time"
           },
@@ -2793,38 +2325,12 @@
           "why_pets_deli": {
             "block": "pdp_why_pets_deli"
           },
-          "accordion": [
-            {
-              "shipment": {
-                "block": "pdp_shipment"
-              }
-            },
-            {
-              "storage": {
-                "block": "pdp_storage"
-              }
-            },
-            {
-              "roduction_quality": {
-                "block": "pdp_production_quality"
-              }
-            },
-            {
-              "feeding_recommendation": {
-                "block": "pdp_feeding_recommendation"
-              }
-            },
-            {
-              "preparation": {
-                "block": "pdp_preparation"
-              }
-            },
-            {
-              "product_info": {
-                "markdown": "product_info"
-              }
-            }
-          ],
+          "accordion": {
+            "block": "pdp_default_accordion"
+          },
+          "product_info": {
+            "markdown": "product_info"
+          },
           "delivery_time": {
             "glossary": "pdp.delivery.time"
           },
@@ -2973,38 +2479,12 @@
           "why_pets_deli": {
             "block": "pdp_why_pets_deli"
           },
-          "accordion": [
-            {
-              "shipment": {
-                "block": "pdp_shipment"
-              }
-            },
-            {
-              "storage": {
-                "block": "pdp_storage"
-              }
-            },
-            {
-              "roduction_quality": {
-                "block": "pdp_production_quality"
-              }
-            },
-            {
-              "feeding_recommendation": {
-                "block": "pdp_feeding_recommendation"
-              }
-            },
-            {
-              "preparation": {
-                "block": "pdp_preparation"
-              }
-            },
-            {
-              "product_info": {
-                "markdown": "product_info"
-              }
-            }
-          ],
+          "accordion": {
+            "block": "pdp_default_accordion"
+          },
+          "product_info": {
+            "markdown": "product_info"
+          },
           "delivery_time": {
             "glossary": "pdp.delivery.time"
           },
@@ -3228,38 +2708,12 @@
           "why_pets_deli": {
             "block": "pdp_why_pets_deli"
           },
-          "accordion": [
-            {
-              "shipment": {
-                "block": "pdp_shipment"
-              }
-            },
-            {
-              "storage": {
-                "block": "pdp_storage"
-              }
-            },
-            {
-              "roduction_quality": {
-                "block": "pdp_production_quality"
-              }
-            },
-            {
-              "feeding_recommendation": {
-                "block": "pdp_feeding_recommendation"
-              }
-            },
-            {
-              "preparation": {
-                "block": "pdp_preparation"
-              }
-            },
-            {
-              "product_info": {
-                "markdown": "product_info"
-              }
-            }
-          ],
+          "accordion": {
+            "block": "pdp_default_accordion"
+          },
+          "product_info": {
+            "markdown": "product_info"
+          },
           "delivery_time": {
             "glossary": "pdp.delivery.time"
           },
@@ -3483,38 +2937,12 @@
           "why_pets_deli": {
             "block": "pdp_why_pets_deli"
           },
-          "accordion": [
-            {
-              "shipment": {
-                "block": "pdp_shipment"
-              }
-            },
-            {
-              "storage": {
-                "block": "pdp_storage"
-              }
-            },
-            {
-              "roduction_quality": {
-                "block": "pdp_production_quality"
-              }
-            },
-            {
-              "feeding_recommendation": {
-                "block": "pdp_feeding_recommendation"
-              }
-            },
-            {
-              "preparation": {
-                "block": "pdp_preparation"
-              }
-            },
-            {
-              "product_info": {
-                "markdown": "product_info"
-              }
-            }
-          ],
+          "accordion": {
+            "block": "pdp_default_accordion"
+          },
+          "product_info": {
+            "markdown": "product_info"
+          },
           "delivery_time": {
             "glossary": "pdp.delivery.time"
           },
@@ -3663,38 +3091,12 @@
           "why_pets_deli": {
             "block": "pdp_why_pets_deli"
           },
-          "accordion": [
-            {
-              "shipment": {
-                "block": "pdp_shipment"
-              }
-            },
-            {
-              "storage": {
-                "block": "pdp_storage"
-              }
-            },
-            {
-              "roduction_quality": {
-                "block": "pdp_production_quality"
-              }
-            },
-            {
-              "feeding_recommendation": {
-                "block": "pdp_feeding_recommendation"
-              }
-            },
-            {
-              "preparation": {
-                "block": "pdp_preparation"
-              }
-            },
-            {
-              "product_info": {
-                "markdown": "product_info"
-              }
-            }
-          ],
+          "accordion": {
+            "block": "pdp_default_accordion"
+          },
+          "product_info": {
+            "markdown": "product_info"
+          },
           "delivery_time": {
             "glossary": "pdp.delivery.time"
           },
@@ -3843,38 +3245,12 @@
           "why_pets_deli": {
             "block": "pdp_why_pets_deli"
           },
-          "accordion": [
-            {
-              "shipment": {
-                "block": "pdp_shipment"
-              }
-            },
-            {
-              "storage": {
-                "block": "pdp_storage"
-              }
-            },
-            {
-              "roduction_quality": {
-                "block": "pdp_production_quality"
-              }
-            },
-            {
-              "feeding_recommendation": {
-                "block": "pdp_feeding_recommendation"
-              }
-            },
-            {
-              "preparation": {
-                "block": "pdp_preparation"
-              }
-            },
-            {
-              "product_info": {
-                "markdown": "product_info"
-              }
-            }
-          ],
+          "accordion": {
+            "block": "pdp_default_accordion"
+          },
+          "product_info": {
+            "markdown": "product_info"
+          },
           "delivery_time": {
             "glossary": "pdp.delivery.time"
           },
@@ -4023,38 +3399,12 @@
           "why_pets_deli": {
             "block": "pdp_why_pets_deli"
           },
-          "accordion": [
-            {
-              "shipment": {
-                "block": "pdp_shipment"
-              }
-            },
-            {
-              "storage": {
-                "block": "pdp_storage"
-              }
-            },
-            {
-              "roduction_quality": {
-                "block": "pdp_production_quality"
-              }
-            },
-            {
-              "feeding_recommendation": {
-                "block": "pdp_feeding_recommendation"
-              }
-            },
-            {
-              "preparation": {
-                "block": "pdp_preparation"
-              }
-            },
-            {
-              "product_info": {
-                "markdown": "product_info"
-              }
-            }
-          ],
+          "accordion": {
+            "block": "pdp_default_accordion"
+          },
+          "product_info": {
+            "markdown": "product_info"
+          },
           "delivery_time": {
             "glossary": "pdp.delivery.time"
           },
@@ -4164,38 +3514,12 @@
           "why_pets_deli": {
             "block": "pdp_why_pets_deli"
           },
-          "accordion": [
-            {
-              "shipment": {
-                "block": "pdp_shipment"
-              }
-            },
-            {
-              "storage": {
-                "block": "pdp_storage"
-              }
-            },
-            {
-              "roduction_quality": {
-                "block": "pdp_production_quality"
-              }
-            },
-            {
-              "feeding_recommendation": {
-                "block": "pdp_feeding_recommendation"
-              }
-            },
-            {
-              "preparation": {
-                "block": "pdp_preparation"
-              }
-            },
-            {
-              "product_info": {
-                "markdown": "product_info"
-              }
-            }
-          ],
+          "accordion": {
+            "block": "pdp_default_accordion"
+          },
+          "product_info": {
+            "markdown": "product_info"
+          },
           "delivery_time": {
             "glossary": "pdp.delivery.time"
           },
@@ -4305,38 +3629,12 @@
           "why_pets_deli": {
             "block": "pdp_why_pets_deli"
           },
-          "accordion": [
-            {
-              "shipment": {
-                "block": "pdp_shipment"
-              }
-            },
-            {
-              "storage": {
-                "block": "pdp_storage"
-              }
-            },
-            {
-              "roduction_quality": {
-                "block": "pdp_production_quality"
-              }
-            },
-            {
-              "feeding_recommendation": {
-                "block": "pdp_feeding_recommendation"
-              }
-            },
-            {
-              "preparation": {
-                "block": "pdp_preparation"
-              }
-            },
-            {
-              "product_info": {
-                "markdown": "product_info"
-              }
-            }
-          ],
+          "accordion": {
+            "block": "pdp_default_accordion"
+          },
+          "product_info": {
+            "markdown": "product_info"
+          },
           "delivery_time": {
             "glossary": "pdp.delivery.time"
           },
@@ -4446,38 +3744,12 @@
           "why_pets_deli": {
             "block": "pdp_why_pets_deli"
           },
-          "accordion": [
-            {
-              "shipment": {
-                "block": "pdp_shipment"
-              }
-            },
-            {
-              "storage": {
-                "block": "pdp_storage"
-              }
-            },
-            {
-              "roduction_quality": {
-                "block": "pdp_production_quality"
-              }
-            },
-            {
-              "feeding_recommendation": {
-                "block": "pdp_feeding_recommendation"
-              }
-            },
-            {
-              "preparation": {
-                "block": "pdp_preparation"
-              }
-            },
-            {
-              "product_info": {
-                "markdown": "product_info"
-              }
-            }
-          ],
+          "accordion": {
+            "block": "pdp_default_accordion"
+          },
+          "product_info": {
+            "markdown": "product_info"
+          },
           "delivery_time": {
             "glossary": "pdp.delivery.time"
           },
@@ -4587,38 +3859,12 @@
           "why_pets_deli": {
             "block": "pdp_why_pets_deli"
           },
-          "accordion": [
-            {
-              "shipment": {
-                "block": "pdp_shipment"
-              }
-            },
-            {
-              "storage": {
-                "block": "pdp_storage"
-              }
-            },
-            {
-              "roduction_quality": {
-                "block": "pdp_production_quality"
-              }
-            },
-            {
-              "feeding_recommendation": {
-                "block": "pdp_feeding_recommendation"
-              }
-            },
-            {
-              "preparation": {
-                "block": "pdp_preparation"
-              }
-            },
-            {
-              "product_info": {
-                "markdown": "product_info"
-              }
-            }
-          ],
+          "accordion": {
+            "block": "pdp_default_accordion"
+          },
+          "product_info": {
+            "markdown": "product_info"
+          },
           "delivery_time": {
             "glossary": "pdp.delivery.time"
           },
@@ -4728,38 +3974,12 @@
           "why_pets_deli": {
             "block": "pdp_why_pets_deli"
           },
-          "accordion": [
-            {
-              "shipment": {
-                "block": "pdp_shipment"
-              }
-            },
-            {
-              "storage": {
-                "block": "pdp_storage"
-              }
-            },
-            {
-              "roduction_quality": {
-                "block": "pdp_production_quality"
-              }
-            },
-            {
-              "feeding_recommendation": {
-                "block": "pdp_feeding_recommendation"
-              }
-            },
-            {
-              "preparation": {
-                "block": "pdp_preparation"
-              }
-            },
-            {
-              "product_info": {
-                "markdown": "product_info"
-              }
-            }
-          ],
+          "accordion": {
+            "block": "pdp_default_accordion"
+          },
+          "product_info": {
+            "markdown": "product_info"
+          },
           "delivery_time": {
             "glossary": "pdp.delivery.time"
           },
@@ -4869,38 +4089,12 @@
           "why_pets_deli": {
             "block": "pdp_why_pets_deli"
           },
-          "accordion": [
-            {
-              "shipment": {
-                "block": "pdp_shipment"
-              }
-            },
-            {
-              "storage": {
-                "block": "pdp_storage"
-              }
-            },
-            {
-              "roduction_quality": {
-                "block": "pdp_production_quality"
-              }
-            },
-            {
-              "feeding_recommendation": {
-                "block": "pdp_feeding_recommendation"
-              }
-            },
-            {
-              "preparation": {
-                "block": "pdp_preparation"
-              }
-            },
-            {
-              "product_info": {
-                "markdown": "product_info"
-              }
-            }
-          ],
+          "accordion": {
+            "block": "pdp_default_accordion"
+          },
+          "product_info": {
+            "markdown": "product_info"
+          },
           "delivery_time": {
             "glossary": "pdp.delivery.time"
           },
@@ -5124,38 +4318,12 @@
           "why_pets_deli": {
             "block": "pdp_why_pets_deli"
           },
-          "accordion": [
-            {
-              "shipment": {
-                "block": "pdp_shipment"
-              }
-            },
-            {
-              "storage": {
-                "block": "pdp_storage"
-              }
-            },
-            {
-              "roduction_quality": {
-                "block": "pdp_production_quality"
-              }
-            },
-            {
-              "feeding_recommendation": {
-                "block": "pdp_feeding_recommendation"
-              }
-            },
-            {
-              "preparation": {
-                "block": "pdp_preparation"
-              }
-            },
-            {
-              "product_info": {
-                "markdown": "product_info"
-              }
-            }
-          ],
+          "accordion": {
+            "block": "pdp_default_accordion"
+          },
+          "product_info": {
+            "markdown": "product_info"
+          },
           "delivery_time": {
             "glossary": "pdp.delivery.time"
           },
@@ -5379,38 +4547,12 @@
           "why_pets_deli": {
             "block": "pdp_why_pets_deli"
           },
-          "accordion": [
-            {
-              "shipment": {
-                "block": "pdp_shipment"
-              }
-            },
-            {
-              "storage": {
-                "block": "pdp_storage"
-              }
-            },
-            {
-              "roduction_quality": {
-                "block": "pdp_production_quality"
-              }
-            },
-            {
-              "feeding_recommendation": {
-                "block": "pdp_feeding_recommendation"
-              }
-            },
-            {
-              "preparation": {
-                "block": "pdp_preparation"
-              }
-            },
-            {
-              "product_info": {
-                "markdown": "product_info"
-              }
-            }
-          ],
+          "accordion": {
+            "block": "pdp_default_accordion"
+          },
+          "product_info": {
+            "markdown": "product_info"
+          },
           "delivery_time": {
             "glossary": "pdp.delivery.time"
           },
@@ -5520,38 +4662,12 @@
           "why_pets_deli": {
             "block": "pdp_why_pets_deli"
           },
-          "accordion": [
-            {
-              "shipment": {
-                "block": "pdp_shipment"
-              }
-            },
-            {
-              "storage": {
-                "block": "pdp_storage"
-              }
-            },
-            {
-              "roduction_quality": {
-                "block": "pdp_production_quality"
-              }
-            },
-            {
-              "feeding_recommendation": {
-                "block": "pdp_feeding_recommendation"
-              }
-            },
-            {
-              "preparation": {
-                "block": "pdp_preparation"
-              }
-            },
-            {
-              "product_info": {
-                "markdown": "product_info"
-              }
-            }
-          ],
+          "accordion": {
+            "block": "pdp_default_accordion"
+          },
+          "product_info": {
+            "markdown": "product_info"
+          },
           "delivery_time": {
             "glossary": "pdp.delivery.time"
           },
@@ -5661,38 +4777,12 @@
           "why_pets_deli": {
             "block": "pdp_why_pets_deli"
           },
-          "accordion": [
-            {
-              "shipment": {
-                "block": "pdp_shipment"
-              }
-            },
-            {
-              "storage": {
-                "block": "pdp_storage"
-              }
-            },
-            {
-              "roduction_quality": {
-                "block": "pdp_production_quality"
-              }
-            },
-            {
-              "feeding_recommendation": {
-                "block": "pdp_feeding_recommendation"
-              }
-            },
-            {
-              "preparation": {
-                "block": "pdp_preparation"
-              }
-            },
-            {
-              "product_info": {
-                "markdown": "product_info"
-              }
-            }
-          ],
+          "accordion": {
+            "block": "pdp_default_accordion"
+          },
+          "product_info": {
+            "markdown": "product_info"
+          },
           "delivery_time": {
             "glossary": "pdp.delivery.time"
           },
@@ -5802,38 +4892,12 @@
           "why_pets_deli": {
             "block": "pdp_why_pets_deli"
           },
-          "accordion": [
-            {
-              "shipment": {
-                "block": "pdp_shipment"
-              }
-            },
-            {
-              "storage": {
-                "block": "pdp_storage"
-              }
-            },
-            {
-              "roduction_quality": {
-                "block": "pdp_production_quality"
-              }
-            },
-            {
-              "feeding_recommendation": {
-                "block": "pdp_feeding_recommendation"
-              }
-            },
-            {
-              "preparation": {
-                "block": "pdp_preparation"
-              }
-            },
-            {
-              "product_info": {
-                "markdown": "product_info"
-              }
-            }
-          ],
+          "accordion": {
+            "block": "pdp_default_accordion"
+          },
+          "product_info": {
+            "markdown": "product_info"
+          },
           "delivery_time": {
             "glossary": "pdp.delivery.time"
           },
@@ -5943,38 +5007,12 @@
           "why_pets_deli": {
             "block": "pdp_why_pets_deli"
           },
-          "accordion": [
-            {
-              "shipment": {
-                "block": "pdp_shipment"
-              }
-            },
-            {
-              "storage": {
-                "block": "pdp_storage"
-              }
-            },
-            {
-              "roduction_quality": {
-                "block": "pdp_production_quality"
-              }
-            },
-            {
-              "feeding_recommendation": {
-                "block": "pdp_feeding_recommendation"
-              }
-            },
-            {
-              "preparation": {
-                "block": "pdp_preparation"
-              }
-            },
-            {
-              "product_info": {
-                "markdown": "product_info"
-              }
-            }
-          ],
+          "accordion": {
+            "block": "pdp_default_accordion"
+          },
+          "product_info": {
+            "markdown": "product_info"
+          },
           "delivery_time": {
             "glossary": "pdp.delivery.time"
           },
@@ -6084,38 +5122,12 @@
           "why_pets_deli": {
             "block": "pdp_why_pets_deli"
           },
-          "accordion": [
-            {
-              "shipment": {
-                "block": "pdp_shipment"
-              }
-            },
-            {
-              "storage": {
-                "block": "pdp_storage"
-              }
-            },
-            {
-              "roduction_quality": {
-                "block": "pdp_production_quality"
-              }
-            },
-            {
-              "feeding_recommendation": {
-                "block": "pdp_feeding_recommendation"
-              }
-            },
-            {
-              "preparation": {
-                "block": "pdp_preparation"
-              }
-            },
-            {
-              "product_info": {
-                "markdown": "product_info"
-              }
-            }
-          ],
+          "accordion": {
+            "block": "pdp_default_accordion"
+          },
+          "product_info": {
+            "markdown": "product_info"
+          },
           "delivery_time": {
             "glossary": "pdp.delivery.time"
           },
@@ -6225,38 +5237,12 @@
           "why_pets_deli": {
             "block": "pdp_why_pets_deli"
           },
-          "accordion": [
-            {
-              "shipment": {
-                "block": "pdp_shipment"
-              }
-            },
-            {
-              "storage": {
-                "block": "pdp_storage"
-              }
-            },
-            {
-              "roduction_quality": {
-                "block": "pdp_production_quality"
-              }
-            },
-            {
-              "feeding_recommendation": {
-                "block": "pdp_feeding_recommendation"
-              }
-            },
-            {
-              "preparation": {
-                "block": "pdp_preparation"
-              }
-            },
-            {
-              "product_info": {
-                "markdown": "product_info"
-              }
-            }
-          ],
+          "accordion": {
+            "block": "pdp_default_accordion"
+          },
+          "product_info": {
+            "markdown": "product_info"
+          },
           "delivery_time": {
             "glossary": "pdp.delivery.time"
           },
@@ -6366,38 +5352,12 @@
           "why_pets_deli": {
             "block": "pdp_why_pets_deli"
           },
-          "accordion": [
-            {
-              "shipment": {
-                "block": "pdp_shipment"
-              }
-            },
-            {
-              "storage": {
-                "block": "pdp_storage"
-              }
-            },
-            {
-              "roduction_quality": {
-                "block": "pdp_production_quality"
-              }
-            },
-            {
-              "feeding_recommendation": {
-                "block": "pdp_feeding_recommendation"
-              }
-            },
-            {
-              "preparation": {
-                "block": "pdp_preparation"
-              }
-            },
-            {
-              "product_info": {
-                "markdown": "product_info"
-              }
-            }
-          ],
+          "accordion": {
+            "block": "pdp_default_accordion"
+          },
+          "product_info": {
+            "markdown": "product_info"
+          },
           "delivery_time": {
             "glossary": "pdp.delivery.time"
           },
@@ -6507,38 +5467,12 @@
           "why_pets_deli": {
             "block": "pdp_why_pets_deli"
           },
-          "accordion": [
-            {
-              "shipment": {
-                "block": "pdp_shipment"
-              }
-            },
-            {
-              "storage": {
-                "block": "pdp_storage"
-              }
-            },
-            {
-              "roduction_quality": {
-                "block": "pdp_production_quality"
-              }
-            },
-            {
-              "feeding_recommendation": {
-                "block": "pdp_feeding_recommendation"
-              }
-            },
-            {
-              "preparation": {
-                "block": "pdp_preparation"
-              }
-            },
-            {
-              "product_info": {
-                "markdown": "product_info"
-              }
-            }
-          ],
+          "accordion": {
+            "block": "pdp_default_accordion"
+          },
+          "product_info": {
+            "markdown": "product_info"
+          },
           "delivery_time": {
             "glossary": "pdp.delivery.time"
           },
@@ -6648,38 +5582,12 @@
           "why_pets_deli": {
             "block": "pdp_why_pets_deli"
           },
-          "accordion": [
-            {
-              "shipment": {
-                "block": "pdp_shipment"
-              }
-            },
-            {
-              "storage": {
-                "block": "pdp_storage"
-              }
-            },
-            {
-              "roduction_quality": {
-                "block": "pdp_production_quality"
-              }
-            },
-            {
-              "feeding_recommendation": {
-                "block": "pdp_feeding_recommendation"
-              }
-            },
-            {
-              "preparation": {
-                "block": "pdp_preparation"
-              }
-            },
-            {
-              "product_info": {
-                "markdown": "product_info"
-              }
-            }
-          ],
+          "accordion": {
+            "block": "pdp_default_accordion"
+          },
+          "product_info": {
+            "markdown": "product_info"
+          },
           "delivery_time": {
             "glossary": "pdp.delivery.time"
           },
@@ -6789,38 +5697,12 @@
           "why_pets_deli": {
             "block": "pdp_why_pets_deli"
           },
-          "accordion": [
-            {
-              "shipment": {
-                "block": "pdp_shipment"
-              }
-            },
-            {
-              "storage": {
-                "block": "pdp_storage"
-              }
-            },
-            {
-              "roduction_quality": {
-                "block": "pdp_production_quality"
-              }
-            },
-            {
-              "feeding_recommendation": {
-                "block": "pdp_feeding_recommendation"
-              }
-            },
-            {
-              "preparation": {
-                "block": "pdp_preparation"
-              }
-            },
-            {
-              "product_info": {
-                "markdown": "product_info"
-              }
-            }
-          ],
+          "accordion": {
+            "block": "pdp_default_accordion"
+          },
+          "product_info": {
+            "markdown": "product_info"
+          },
           "delivery_time": {
             "glossary": "pdp.delivery.time"
           },
@@ -6930,38 +5812,12 @@
           "why_pets_deli": {
             "block": "pdp_why_pets_deli"
           },
-          "accordion": [
-            {
-              "shipment": {
-                "block": "pdp_shipment"
-              }
-            },
-            {
-              "storage": {
-                "block": "pdp_storage"
-              }
-            },
-            {
-              "roduction_quality": {
-                "block": "pdp_production_quality"
-              }
-            },
-            {
-              "feeding_recommendation": {
-                "block": "pdp_feeding_recommendation"
-              }
-            },
-            {
-              "preparation": {
-                "block": "pdp_preparation"
-              }
-            },
-            {
-              "product_info": {
-                "markdown": "product_info"
-              }
-            }
-          ],
+          "accordion": {
+            "block": "pdp_default_accordion"
+          },
+          "product_info": {
+            "markdown": "product_info"
+          },
           "delivery_time": {
             "glossary": "pdp.delivery.time"
           },
@@ -7071,38 +5927,12 @@
           "why_pets_deli": {
             "block": "pdp_why_pets_deli"
           },
-          "accordion": [
-            {
-              "shipment": {
-                "block": "pdp_shipment"
-              }
-            },
-            {
-              "storage": {
-                "block": "pdp_storage"
-              }
-            },
-            {
-              "roduction_quality": {
-                "block": "pdp_production_quality"
-              }
-            },
-            {
-              "feeding_recommendation": {
-                "block": "pdp_feeding_recommendation"
-              }
-            },
-            {
-              "preparation": {
-                "block": "pdp_preparation"
-              }
-            },
-            {
-              "product_info": {
-                "markdown": "product_info"
-              }
-            }
-          ],
+          "accordion": {
+            "block": "pdp_default_accordion"
+          },
+          "product_info": {
+            "markdown": "product_info"
+          },
           "delivery_time": {
             "glossary": "pdp.delivery.time"
           },
@@ -7212,38 +6042,12 @@
           "why_pets_deli": {
             "block": "pdp_why_pets_deli"
           },
-          "accordion": [
-            {
-              "shipment": {
-                "block": "pdp_shipment"
-              }
-            },
-            {
-              "storage": {
-                "block": "pdp_storage"
-              }
-            },
-            {
-              "roduction_quality": {
-                "block": "pdp_production_quality"
-              }
-            },
-            {
-              "feeding_recommendation": {
-                "block": "pdp_feeding_recommendation"
-              }
-            },
-            {
-              "preparation": {
-                "block": "pdp_preparation"
-              }
-            },
-            {
-              "product_info": {
-                "markdown": "product_info"
-              }
-            }
-          ],
+          "accordion": {
+            "block": "pdp_default_accordion"
+          },
+          "product_info": {
+            "markdown": "product_info"
+          },
           "delivery_time": {
             "glossary": "pdp.delivery.time"
           },
@@ -7353,38 +6157,12 @@
           "why_pets_deli": {
             "block": "pdp_why_pets_deli"
           },
-          "accordion": [
-            {
-              "shipment": {
-                "block": "pdp_shipment"
-              }
-            },
-            {
-              "storage": {
-                "block": "pdp_storage"
-              }
-            },
-            {
-              "roduction_quality": {
-                "block": "pdp_production_quality"
-              }
-            },
-            {
-              "feeding_recommendation": {
-                "block": "pdp_feeding_recommendation"
-              }
-            },
-            {
-              "preparation": {
-                "block": "pdp_preparation"
-              }
-            },
-            {
-              "product_info": {
-                "markdown": "product_info"
-              }
-            }
-          ],
+          "accordion": {
+            "block": "pdp_default_accordion"
+          },
+          "product_info": {
+            "markdown": "product_info"
+          },
           "delivery_time": {
             "glossary": "pdp.delivery.time"
           },
@@ -7494,38 +6272,12 @@
           "why_pets_deli": {
             "block": "pdp_why_pets_deli"
           },
-          "accordion": [
-            {
-              "shipment": {
-                "block": "pdp_shipment"
-              }
-            },
-            {
-              "storage": {
-                "block": "pdp_storage"
-              }
-            },
-            {
-              "roduction_quality": {
-                "block": "pdp_production_quality"
-              }
-            },
-            {
-              "feeding_recommendation": {
-                "block": "pdp_feeding_recommendation"
-              }
-            },
-            {
-              "preparation": {
-                "block": "pdp_preparation"
-              }
-            },
-            {
-              "product_info": {
-                "markdown": "product_info"
-              }
-            }
-          ],
+          "accordion": {
+            "block": "pdp_default_accordion"
+          },
+          "product_info": {
+            "markdown": "product_info"
+          },
           "delivery_time": {
             "glossary": "pdp.delivery.time"
           },
@@ -7635,38 +6387,12 @@
           "why_pets_deli": {
             "block": "pdp_why_pets_deli"
           },
-          "accordion": [
-            {
-              "shipment": {
-                "block": "pdp_shipment"
-              }
-            },
-            {
-              "storage": {
-                "block": "pdp_storage"
-              }
-            },
-            {
-              "roduction_quality": {
-                "block": "pdp_production_quality"
-              }
-            },
-            {
-              "feeding_recommendation": {
-                "block": "pdp_feeding_recommendation"
-              }
-            },
-            {
-              "preparation": {
-                "block": "pdp_preparation"
-              }
-            },
-            {
-              "product_info": {
-                "markdown": "product_info"
-              }
-            }
-          ],
+          "accordion": {
+            "block": "pdp_default_accordion"
+          },
+          "product_info": {
+            "markdown": "product_info"
+          },
           "delivery_time": {
             "glossary": "pdp.delivery.time"
           },
@@ -7776,38 +6502,12 @@
           "why_pets_deli": {
             "block": "pdp_why_pets_deli"
           },
-          "accordion": [
-            {
-              "shipment": {
-                "block": "pdp_shipment"
-              }
-            },
-            {
-              "storage": {
-                "block": "pdp_storage"
-              }
-            },
-            {
-              "roduction_quality": {
-                "block": "pdp_production_quality"
-              }
-            },
-            {
-              "feeding_recommendation": {
-                "block": "pdp_feeding_recommendation"
-              }
-            },
-            {
-              "preparation": {
-                "block": "pdp_preparation"
-              }
-            },
-            {
-              "product_info": {
-                "markdown": "product_info"
-              }
-            }
-          ],
+          "accordion": {
+            "block": "pdp_default_accordion"
+          },
+          "product_info": {
+            "markdown": "product_info"
+          },
           "delivery_time": {
             "glossary": "pdp.delivery.time"
           },
@@ -7917,38 +6617,12 @@
           "why_pets_deli": {
             "block": "pdp_why_pets_deli"
           },
-          "accordion": [
-            {
-              "shipment": {
-                "block": "pdp_shipment"
-              }
-            },
-            {
-              "storage": {
-                "block": "pdp_storage"
-              }
-            },
-            {
-              "roduction_quality": {
-                "block": "pdp_production_quality"
-              }
-            },
-            {
-              "feeding_recommendation": {
-                "block": "pdp_feeding_recommendation"
-              }
-            },
-            {
-              "preparation": {
-                "block": "pdp_preparation"
-              }
-            },
-            {
-              "product_info": {
-                "markdown": "product_info"
-              }
-            }
-          ],
+          "accordion": {
+            "block": "pdp_default_accordion"
+          },
+          "product_info": {
+            "markdown": "product_info"
+          },
           "delivery_time": {
             "glossary": "pdp.delivery.time"
           },
@@ -8058,38 +6732,12 @@
           "why_pets_deli": {
             "block": "pdp_why_pets_deli"
           },
-          "accordion": [
-            {
-              "shipment": {
-                "block": "pdp_shipment"
-              }
-            },
-            {
-              "storage": {
-                "block": "pdp_storage"
-              }
-            },
-            {
-              "roduction_quality": {
-                "block": "pdp_production_quality"
-              }
-            },
-            {
-              "feeding_recommendation": {
-                "block": "pdp_feeding_recommendation"
-              }
-            },
-            {
-              "preparation": {
-                "block": "pdp_preparation"
-              }
-            },
-            {
-              "product_info": {
-                "markdown": "product_info"
-              }
-            }
-          ],
+          "accordion": {
+            "block": "pdp_default_accordion"
+          },
+          "product_info": {
+            "markdown": "product_info"
+          },
           "delivery_time": {
             "glossary": "pdp.delivery.time"
           },
@@ -8199,38 +6847,12 @@
           "why_pets_deli": {
             "block": "pdp_why_pets_deli"
           },
-          "accordion": [
-            {
-              "shipment": {
-                "block": "pdp_shipment"
-              }
-            },
-            {
-              "storage": {
-                "block": "pdp_storage"
-              }
-            },
-            {
-              "roduction_quality": {
-                "block": "pdp_production_quality"
-              }
-            },
-            {
-              "feeding_recommendation": {
-                "block": "pdp_feeding_recommendation"
-              }
-            },
-            {
-              "preparation": {
-                "block": "pdp_preparation"
-              }
-            },
-            {
-              "product_info": {
-                "markdown": "product_info"
-              }
-            }
-          ],
+          "accordion": {
+            "block": "pdp_default_accordion"
+          },
+          "product_info": {
+            "markdown": "product_info"
+          },
           "delivery_time": {
             "glossary": "pdp.delivery.time"
           },
@@ -8340,38 +6962,12 @@
           "why_pets_deli": {
             "block": "pdp_why_pets_deli"
           },
-          "accordion": [
-            {
-              "shipment": {
-                "block": "pdp_shipment"
-              }
-            },
-            {
-              "storage": {
-                "block": "pdp_storage"
-              }
-            },
-            {
-              "roduction_quality": {
-                "block": "pdp_production_quality"
-              }
-            },
-            {
-              "feeding_recommendation": {
-                "block": "pdp_feeding_recommendation"
-              }
-            },
-            {
-              "preparation": {
-                "block": "pdp_preparation"
-              }
-            },
-            {
-              "product_info": {
-                "markdown": "product_info"
-              }
-            }
-          ],
+          "accordion": {
+            "block": "pdp_default_accordion"
+          },
+          "product_info": {
+            "markdown": "product_info"
+          },
           "delivery_time": {
             "glossary": "pdp.delivery.time"
           },
@@ -8481,38 +7077,12 @@
           "why_pets_deli": {
             "block": "pdp_why_pets_deli"
           },
-          "accordion": [
-            {
-              "shipment": {
-                "block": "pdp_shipment"
-              }
-            },
-            {
-              "storage": {
-                "block": "pdp_storage"
-              }
-            },
-            {
-              "roduction_quality": {
-                "block": "pdp_production_quality"
-              }
-            },
-            {
-              "feeding_recommendation": {
-                "block": "pdp_feeding_recommendation"
-              }
-            },
-            {
-              "preparation": {
-                "block": "pdp_preparation"
-              }
-            },
-            {
-              "product_info": {
-                "markdown": "product_info"
-              }
-            }
-          ],
+          "accordion": {
+            "block": "pdp_default_accordion"
+          },
+          "product_info": {
+            "markdown": "product_info"
+          },
           "delivery_time": {
             "glossary": "pdp.delivery.time"
           },
@@ -8622,38 +7192,12 @@
           "why_pets_deli": {
             "block": "pdp_why_pets_deli"
           },
-          "accordion": [
-            {
-              "shipment": {
-                "block": "pdp_shipment"
-              }
-            },
-            {
-              "storage": {
-                "block": "pdp_storage"
-              }
-            },
-            {
-              "roduction_quality": {
-                "block": "pdp_production_quality"
-              }
-            },
-            {
-              "feeding_recommendation": {
-                "block": "pdp_feeding_recommendation"
-              }
-            },
-            {
-              "preparation": {
-                "block": "pdp_preparation"
-              }
-            },
-            {
-              "product_info": {
-                "markdown": "product_info"
-              }
-            }
-          ],
+          "accordion": {
+            "block": "pdp_default_accordion"
+          },
+          "product_info": {
+            "markdown": "product_info"
+          },
           "delivery_time": {
             "glossary": "pdp.delivery.time"
           },
@@ -8763,38 +7307,12 @@
           "why_pets_deli": {
             "block": "pdp_why_pets_deli"
           },
-          "accordion": [
-            {
-              "shipment": {
-                "block": "pdp_shipment"
-              }
-            },
-            {
-              "storage": {
-                "block": "pdp_storage"
-              }
-            },
-            {
-              "roduction_quality": {
-                "block": "pdp_production_quality"
-              }
-            },
-            {
-              "feeding_recommendation": {
-                "block": "pdp_feeding_recommendation"
-              }
-            },
-            {
-              "preparation": {
-                "block": "pdp_preparation"
-              }
-            },
-            {
-              "product_info": {
-                "markdown": "product_info"
-              }
-            }
-          ],
+          "accordion": {
+            "block": "pdp_default_accordion"
+          },
+          "product_info": {
+            "markdown": "product_info"
+          },
           "delivery_time": {
             "glossary": "pdp.delivery.time"
           },
@@ -8904,38 +7422,12 @@
           "why_pets_deli": {
             "block": "pdp_why_pets_deli"
           },
-          "accordion": [
-            {
-              "shipment": {
-                "block": "pdp_shipment"
-              }
-            },
-            {
-              "storage": {
-                "block": "pdp_storage"
-              }
-            },
-            {
-              "roduction_quality": {
-                "block": "pdp_production_quality"
-              }
-            },
-            {
-              "feeding_recommendation": {
-                "block": "pdp_feeding_recommendation"
-              }
-            },
-            {
-              "preparation": {
-                "block": "pdp_preparation"
-              }
-            },
-            {
-              "product_info": {
-                "markdown": "product_info"
-              }
-            }
-          ],
+          "accordion": {
+            "block": "pdp_default_accordion"
+          },
+          "product_info": {
+            "markdown": "product_info"
+          },
           "delivery_time": {
             "glossary": "pdp.delivery.time"
           },
@@ -9045,38 +7537,12 @@
           "why_pets_deli": {
             "block": "pdp_why_pets_deli"
           },
-          "accordion": [
-            {
-              "shipment": {
-                "block": "pdp_shipment"
-              }
-            },
-            {
-              "storage": {
-                "block": "pdp_storage"
-              }
-            },
-            {
-              "roduction_quality": {
-                "block": "pdp_production_quality"
-              }
-            },
-            {
-              "feeding_recommendation": {
-                "block": "pdp_feeding_recommendation"
-              }
-            },
-            {
-              "preparation": {
-                "block": "pdp_preparation"
-              }
-            },
-            {
-              "product_info": {
-                "markdown": "product_info"
-              }
-            }
-          ],
+          "accordion": {
+            "block": "pdp_default_accordion"
+          },
+          "product_info": {
+            "markdown": "product_info"
+          },
           "delivery_time": {
             "glossary": "pdp.delivery.time"
           },
@@ -9186,38 +7652,12 @@
           "why_pets_deli": {
             "block": "pdp_why_pets_deli"
           },
-          "accordion": [
-            {
-              "shipment": {
-                "block": "pdp_shipment"
-              }
-            },
-            {
-              "storage": {
-                "block": "pdp_storage"
-              }
-            },
-            {
-              "roduction_quality": {
-                "block": "pdp_production_quality"
-              }
-            },
-            {
-              "feeding_recommendation": {
-                "block": "pdp_feeding_recommendation"
-              }
-            },
-            {
-              "preparation": {
-                "block": "pdp_preparation"
-              }
-            },
-            {
-              "product_info": {
-                "markdown": "product_info"
-              }
-            }
-          ],
+          "accordion": {
+            "block": "pdp_default_accordion"
+          },
+          "product_info": {
+            "markdown": "product_info"
+          },
           "delivery_time": {
             "glossary": "pdp.delivery.time"
           },
@@ -9327,38 +7767,12 @@
           "why_pets_deli": {
             "block": "pdp_why_pets_deli"
           },
-          "accordion": [
-            {
-              "shipment": {
-                "block": "pdp_shipment"
-              }
-            },
-            {
-              "storage": {
-                "block": "pdp_storage"
-              }
-            },
-            {
-              "roduction_quality": {
-                "block": "pdp_production_quality"
-              }
-            },
-            {
-              "feeding_recommendation": {
-                "block": "pdp_feeding_recommendation"
-              }
-            },
-            {
-              "preparation": {
-                "block": "pdp_preparation"
-              }
-            },
-            {
-              "product_info": {
-                "markdown": "product_info"
-              }
-            }
-          ],
+          "accordion": {
+            "block": "pdp_default_accordion"
+          },
+          "product_info": {
+            "markdown": "product_info"
+          },
           "delivery_time": {
             "glossary": "pdp.delivery.time"
           },
@@ -9468,38 +7882,12 @@
           "why_pets_deli": {
             "block": "pdp_why_pets_deli"
           },
-          "accordion": [
-            {
-              "shipment": {
-                "block": "pdp_shipment"
-              }
-            },
-            {
-              "storage": {
-                "block": "pdp_storage"
-              }
-            },
-            {
-              "roduction_quality": {
-                "block": "pdp_production_quality"
-              }
-            },
-            {
-              "feeding_recommendation": {
-                "block": "pdp_feeding_recommendation"
-              }
-            },
-            {
-              "preparation": {
-                "block": "pdp_preparation"
-              }
-            },
-            {
-              "product_info": {
-                "markdown": "product_info"
-              }
-            }
-          ],
+          "accordion": {
+            "block": "pdp_default_accordion"
+          },
+          "product_info": {
+            "markdown": "product_info"
+          },
           "delivery_time": {
             "glossary": "pdp.delivery.time"
           },
@@ -9609,38 +7997,12 @@
           "why_pets_deli": {
             "block": "pdp_why_pets_deli"
           },
-          "accordion": [
-            {
-              "shipment": {
-                "block": "pdp_shipment"
-              }
-            },
-            {
-              "storage": {
-                "block": "pdp_storage"
-              }
-            },
-            {
-              "roduction_quality": {
-                "block": "pdp_production_quality"
-              }
-            },
-            {
-              "feeding_recommendation": {
-                "block": "pdp_feeding_recommendation"
-              }
-            },
-            {
-              "preparation": {
-                "block": "pdp_preparation"
-              }
-            },
-            {
-              "product_info": {
-                "markdown": "product_info"
-              }
-            }
-          ],
+          "accordion": {
+            "block": "pdp_default_accordion"
+          },
+          "product_info": {
+            "markdown": "product_info"
+          },
           "delivery_time": {
             "glossary": "pdp.delivery.time"
           },
@@ -9750,38 +8112,12 @@
           "why_pets_deli": {
             "block": "pdp_why_pets_deli"
           },
-          "accordion": [
-            {
-              "shipment": {
-                "block": "pdp_shipment"
-              }
-            },
-            {
-              "storage": {
-                "block": "pdp_storage"
-              }
-            },
-            {
-              "roduction_quality": {
-                "block": "pdp_production_quality"
-              }
-            },
-            {
-              "feeding_recommendation": {
-                "block": "pdp_feeding_recommendation"
-              }
-            },
-            {
-              "preparation": {
-                "block": "pdp_preparation"
-              }
-            },
-            {
-              "product_info": {
-                "markdown": "product_info"
-              }
-            }
-          ],
+          "accordion": {
+            "block": "pdp_default_accordion"
+          },
+          "product_info": {
+            "markdown": "product_info"
+          },
           "delivery_time": {
             "glossary": "pdp.delivery.time"
           },
@@ -9891,38 +8227,12 @@
           "why_pets_deli": {
             "block": "pdp_why_pets_deli"
           },
-          "accordion": [
-            {
-              "shipment": {
-                "block": "pdp_shipment"
-              }
-            },
-            {
-              "storage": {
-                "block": "pdp_storage"
-              }
-            },
-            {
-              "roduction_quality": {
-                "block": "pdp_production_quality"
-              }
-            },
-            {
-              "feeding_recommendation": {
-                "block": "pdp_feeding_recommendation"
-              }
-            },
-            {
-              "preparation": {
-                "block": "pdp_preparation"
-              }
-            },
-            {
-              "product_info": {
-                "markdown": "product_info"
-              }
-            }
-          ],
+          "accordion": {
+            "block": "pdp_default_accordion"
+          },
+          "product_info": {
+            "markdown": "product_info"
+          },
           "delivery_time": {
             "glossary": "pdp.delivery.time"
           },
@@ -10032,38 +8342,12 @@
           "why_pets_deli": {
             "block": "pdp_why_pets_deli"
           },
-          "accordion": [
-            {
-              "shipment": {
-                "block": "pdp_shipment"
-              }
-            },
-            {
-              "storage": {
-                "block": "pdp_storage"
-              }
-            },
-            {
-              "roduction_quality": {
-                "block": "pdp_production_quality"
-              }
-            },
-            {
-              "feeding_recommendation": {
-                "block": "pdp_feeding_recommendation"
-              }
-            },
-            {
-              "preparation": {
-                "block": "pdp_preparation"
-              }
-            },
-            {
-              "product_info": {
-                "markdown": "product_info"
-              }
-            }
-          ],
+          "accordion": {
+            "block": "pdp_default_accordion"
+          },
+          "product_info": {
+            "markdown": "product_info"
+          },
           "delivery_time": {
             "glossary": "pdp.delivery.time"
           },
@@ -10173,38 +8457,12 @@
           "why_pets_deli": {
             "block": "pdp_why_pets_deli"
           },
-          "accordion": [
-            {
-              "shipment": {
-                "block": "pdp_shipment"
-              }
-            },
-            {
-              "storage": {
-                "block": "pdp_storage"
-              }
-            },
-            {
-              "roduction_quality": {
-                "block": "pdp_production_quality"
-              }
-            },
-            {
-              "feeding_recommendation": {
-                "block": "pdp_feeding_recommendation"
-              }
-            },
-            {
-              "preparation": {
-                "block": "pdp_preparation"
-              }
-            },
-            {
-              "product_info": {
-                "markdown": "product_info"
-              }
-            }
-          ],
+          "accordion": {
+            "block": "pdp_default_accordion"
+          },
+          "product_info": {
+            "markdown": "product_info"
+          },
           "delivery_time": {
             "glossary": "pdp.delivery.time"
           },
@@ -10314,38 +8572,12 @@
           "why_pets_deli": {
             "block": "pdp_why_pets_deli"
           },
-          "accordion": [
-            {
-              "shipment": {
-                "block": "pdp_shipment"
-              }
-            },
-            {
-              "storage": {
-                "block": "pdp_storage"
-              }
-            },
-            {
-              "roduction_quality": {
-                "block": "pdp_production_quality"
-              }
-            },
-            {
-              "feeding_recommendation": {
-                "block": "pdp_feeding_recommendation"
-              }
-            },
-            {
-              "preparation": {
-                "block": "pdp_preparation"
-              }
-            },
-            {
-              "product_info": {
-                "markdown": "product_info"
-              }
-            }
-          ],
+          "accordion": {
+            "block": "pdp_default_accordion"
+          },
+          "product_info": {
+            "markdown": "product_info"
+          },
           "delivery_time": {
             "glossary": "pdp.delivery.time"
           },
@@ -10494,38 +8726,12 @@
           "why_pets_deli": {
             "block": "pdp_why_pets_deli"
           },
-          "accordion": [
-            {
-              "shipment": {
-                "block": "pdp_shipment"
-              }
-            },
-            {
-              "storage": {
-                "block": "pdp_storage"
-              }
-            },
-            {
-              "roduction_quality": {
-                "block": "pdp_production_quality"
-              }
-            },
-            {
-              "feeding_recommendation": {
-                "block": "pdp_feeding_recommendation"
-              }
-            },
-            {
-              "preparation": {
-                "block": "pdp_preparation"
-              }
-            },
-            {
-              "product_info": {
-                "markdown": "product_info"
-              }
-            }
-          ],
+          "accordion": {
+            "block": "pdp_default_accordion"
+          },
+          "product_info": {
+            "markdown": "product_info"
+          },
           "delivery_time": {
             "glossary": "pdp.delivery.time"
           },
@@ -10674,38 +8880,12 @@
           "why_pets_deli": {
             "block": "pdp_why_pets_deli"
           },
-          "accordion": [
-            {
-              "shipment": {
-                "block": "pdp_shipment"
-              }
-            },
-            {
-              "storage": {
-                "block": "pdp_storage"
-              }
-            },
-            {
-              "roduction_quality": {
-                "block": "pdp_production_quality"
-              }
-            },
-            {
-              "feeding_recommendation": {
-                "block": "pdp_feeding_recommendation"
-              }
-            },
-            {
-              "preparation": {
-                "block": "pdp_preparation"
-              }
-            },
-            {
-              "product_info": {
-                "markdown": "product_info"
-              }
-            }
-          ],
+          "accordion": {
+            "block": "pdp_default_accordion"
+          },
+          "product_info": {
+            "markdown": "product_info"
+          },
           "delivery_time": {
             "glossary": "pdp.delivery.time"
           },
@@ -10857,38 +9037,12 @@
           "why_pets_deli": {
             "block": "pdp_why_pets_deli"
           },
-          "accordion": [
-            {
-              "shipment": {
-                "block": "pdp_shipment"
-              }
-            },
-            {
-              "storage": {
-                "block": "pdp_storage"
-              }
-            },
-            {
-              "roduction_quality": {
-                "block": "pdp_production_quality"
-              }
-            },
-            {
-              "feeding_recommendation": {
-                "block": "pdp_feeding_recommendation"
-              }
-            },
-            {
-              "preparation": {
-                "block": "pdp_preparation"
-              }
-            },
-            {
-              "product_info": {
-                "markdown": "product_info"
-              }
-            }
-          ],
+          "accordion": {
+            "block": "pdp_default_accordion"
+          },
+          "product_info": {
+            "markdown": "product_info"
+          },
           "delivery_time": {
             "glossary": "pdp.delivery.time"
           },
@@ -11040,38 +9194,12 @@
           "why_pets_deli": {
             "block": "pdp_why_pets_deli"
           },
-          "accordion": [
-            {
-              "shipment": {
-                "block": "pdp_shipment"
-              }
-            },
-            {
-              "storage": {
-                "block": "pdp_storage"
-              }
-            },
-            {
-              "roduction_quality": {
-                "block": "pdp_production_quality"
-              }
-            },
-            {
-              "feeding_recommendation": {
-                "block": "pdp_feeding_recommendation"
-              }
-            },
-            {
-              "preparation": {
-                "block": "pdp_preparation"
-              }
-            },
-            {
-              "product_info": {
-                "markdown": "product_info"
-              }
-            }
-          ],
+          "accordion": {
+            "block": "pdp_default_accordion"
+          },
+          "product_info": {
+            "markdown": "product_info"
+          },
           "delivery_time": {
             "glossary": "pdp.delivery.time"
           },
@@ -11181,38 +9309,12 @@
           "why_pets_deli": {
             "block": "pdp_why_pets_deli"
           },
-          "accordion": [
-            {
-              "shipment": {
-                "block": "pdp_shipment"
-              }
-            },
-            {
-              "storage": {
-                "block": "pdp_storage"
-              }
-            },
-            {
-              "roduction_quality": {
-                "block": "pdp_production_quality"
-              }
-            },
-            {
-              "feeding_recommendation": {
-                "block": "pdp_feeding_recommendation"
-              }
-            },
-            {
-              "preparation": {
-                "block": "pdp_preparation"
-              }
-            },
-            {
-              "product_info": {
-                "markdown": "product_info"
-              }
-            }
-          ],
+          "accordion": {
+            "block": "pdp_default_accordion"
+          },
+          "product_info": {
+            "markdown": "product_info"
+          },
           "delivery_time": {
             "glossary": "pdp.delivery.time"
           },
@@ -11322,38 +9424,12 @@
           "why_pets_deli": {
             "block": "pdp_why_pets_deli"
           },
-          "accordion": [
-            {
-              "shipment": {
-                "block": "pdp_shipment"
-              }
-            },
-            {
-              "storage": {
-                "block": "pdp_storage"
-              }
-            },
-            {
-              "roduction_quality": {
-                "block": "pdp_production_quality"
-              }
-            },
-            {
-              "feeding_recommendation": {
-                "block": "pdp_feeding_recommendation"
-              }
-            },
-            {
-              "preparation": {
-                "block": "pdp_preparation"
-              }
-            },
-            {
-              "product_info": {
-                "markdown": "product_info"
-              }
-            }
-          ],
+          "accordion": {
+            "block": "pdp_default_accordion"
+          },
+          "product_info": {
+            "markdown": "product_info"
+          },
           "delivery_time": {
             "glossary": "pdp.delivery.time"
           },
@@ -11463,38 +9539,12 @@
           "why_pets_deli": {
             "block": "pdp_why_pets_deli"
           },
-          "accordion": [
-            {
-              "shipment": {
-                "block": "pdp_shipment"
-              }
-            },
-            {
-              "storage": {
-                "block": "pdp_storage"
-              }
-            },
-            {
-              "roduction_quality": {
-                "block": "pdp_production_quality"
-              }
-            },
-            {
-              "feeding_recommendation": {
-                "block": "pdp_feeding_recommendation"
-              }
-            },
-            {
-              "preparation": {
-                "block": "pdp_preparation"
-              }
-            },
-            {
-              "product_info": {
-                "markdown": "product_info"
-              }
-            }
-          ],
+          "accordion": {
+            "block": "pdp_default_accordion"
+          },
+          "product_info": {
+            "markdown": "product_info"
+          },
           "delivery_time": {
             "glossary": "pdp.delivery.time"
           },
@@ -11604,38 +9654,12 @@
           "why_pets_deli": {
             "block": "pdp_why_pets_deli"
           },
-          "accordion": [
-            {
-              "shipment": {
-                "block": "pdp_shipment"
-              }
-            },
-            {
-              "storage": {
-                "block": "pdp_storage"
-              }
-            },
-            {
-              "roduction_quality": {
-                "block": "pdp_production_quality"
-              }
-            },
-            {
-              "feeding_recommendation": {
-                "block": "pdp_feeding_recommendation"
-              }
-            },
-            {
-              "preparation": {
-                "block": "pdp_preparation"
-              }
-            },
-            {
-              "product_info": {
-                "markdown": "product_info"
-              }
-            }
-          ],
+          "accordion": {
+            "block": "pdp_default_accordion"
+          },
+          "product_info": {
+            "markdown": "product_info"
+          },
           "delivery_time": {
             "glossary": "pdp.delivery.time"
           },
@@ -11745,38 +9769,12 @@
           "why_pets_deli": {
             "block": "pdp_why_pets_deli"
           },
-          "accordion": [
-            {
-              "shipment": {
-                "block": "pdp_shipment"
-              }
-            },
-            {
-              "storage": {
-                "block": "pdp_storage"
-              }
-            },
-            {
-              "roduction_quality": {
-                "block": "pdp_production_quality"
-              }
-            },
-            {
-              "feeding_recommendation": {
-                "block": "pdp_feeding_recommendation"
-              }
-            },
-            {
-              "preparation": {
-                "block": "pdp_preparation"
-              }
-            },
-            {
-              "product_info": {
-                "markdown": "product_info"
-              }
-            }
-          ],
+          "accordion": {
+            "block": "pdp_default_accordion"
+          },
+          "product_info": {
+            "markdown": "product_info"
+          },
           "delivery_time": {
             "glossary": "pdp.delivery.time"
           },
@@ -11886,38 +9884,12 @@
           "why_pets_deli": {
             "block": "pdp_why_pets_deli"
           },
-          "accordion": [
-            {
-              "shipment": {
-                "block": "pdp_shipment"
-              }
-            },
-            {
-              "storage": {
-                "block": "pdp_storage"
-              }
-            },
-            {
-              "roduction_quality": {
-                "block": "pdp_production_quality"
-              }
-            },
-            {
-              "feeding_recommendation": {
-                "block": "pdp_feeding_recommendation"
-              }
-            },
-            {
-              "preparation": {
-                "block": "pdp_preparation"
-              }
-            },
-            {
-              "product_info": {
-                "markdown": "product_info"
-              }
-            }
-          ],
+          "accordion": {
+            "block": "pdp_default_accordion"
+          },
+          "product_info": {
+            "markdown": "product_info"
+          },
           "delivery_time": {
             "glossary": "pdp.delivery.time"
           },
@@ -12027,38 +9999,12 @@
           "why_pets_deli": {
             "block": "pdp_why_pets_deli"
           },
-          "accordion": [
-            {
-              "shipment": {
-                "block": "pdp_shipment"
-              }
-            },
-            {
-              "storage": {
-                "block": "pdp_storage"
-              }
-            },
-            {
-              "roduction_quality": {
-                "block": "pdp_production_quality"
-              }
-            },
-            {
-              "feeding_recommendation": {
-                "block": "pdp_feeding_recommendation"
-              }
-            },
-            {
-              "preparation": {
-                "block": "pdp_preparation"
-              }
-            },
-            {
-              "product_info": {
-                "markdown": "product_info"
-              }
-            }
-          ],
+          "accordion": {
+            "block": "pdp_default_accordion"
+          },
+          "product_info": {
+            "markdown": "product_info"
+          },
           "delivery_time": {
             "glossary": "pdp.delivery.time"
           },
@@ -12168,38 +10114,12 @@
           "why_pets_deli": {
             "block": "pdp_why_pets_deli"
           },
-          "accordion": [
-            {
-              "shipment": {
-                "block": "pdp_shipment"
-              }
-            },
-            {
-              "storage": {
-                "block": "pdp_storage"
-              }
-            },
-            {
-              "roduction_quality": {
-                "block": "pdp_production_quality"
-              }
-            },
-            {
-              "feeding_recommendation": {
-                "block": "pdp_feeding_recommendation"
-              }
-            },
-            {
-              "preparation": {
-                "block": "pdp_preparation"
-              }
-            },
-            {
-              "product_info": {
-                "markdown": "product_info"
-              }
-            }
-          ],
+          "accordion": {
+            "block": "pdp_default_accordion"
+          },
+          "product_info": {
+            "markdown": "product_info"
+          },
           "delivery_time": {
             "glossary": "pdp.delivery.time"
           },
@@ -12309,38 +10229,12 @@
           "why_pets_deli": {
             "block": "pdp_why_pets_deli"
           },
-          "accordion": [
-            {
-              "shipment": {
-                "block": "pdp_shipment"
-              }
-            },
-            {
-              "storage": {
-                "block": "pdp_storage"
-              }
-            },
-            {
-              "roduction_quality": {
-                "block": "pdp_production_quality"
-              }
-            },
-            {
-              "feeding_recommendation": {
-                "block": "pdp_feeding_recommendation"
-              }
-            },
-            {
-              "preparation": {
-                "block": "pdp_preparation"
-              }
-            },
-            {
-              "product_info": {
-                "markdown": "product_info"
-              }
-            }
-          ],
+          "accordion": {
+            "block": "pdp_default_accordion"
+          },
+          "product_info": {
+            "markdown": "product_info"
+          },
           "delivery_time": {
             "glossary": "pdp.delivery.time"
           },
@@ -12450,38 +10344,12 @@
           "why_pets_deli": {
             "block": "pdp_why_pets_deli"
           },
-          "accordion": [
-            {
-              "shipment": {
-                "block": "pdp_shipment"
-              }
-            },
-            {
-              "storage": {
-                "block": "pdp_storage"
-              }
-            },
-            {
-              "roduction_quality": {
-                "block": "pdp_production_quality"
-              }
-            },
-            {
-              "feeding_recommendation": {
-                "block": "pdp_feeding_recommendation"
-              }
-            },
-            {
-              "preparation": {
-                "block": "pdp_preparation"
-              }
-            },
-            {
-              "product_info": {
-                "markdown": "product_info"
-              }
-            }
-          ],
+          "accordion": {
+            "block": "pdp_default_accordion"
+          },
+          "product_info": {
+            "markdown": "product_info"
+          },
           "delivery_time": {
             "glossary": "pdp.delivery.time"
           },
@@ -12591,38 +10459,12 @@
           "why_pets_deli": {
             "block": "pdp_why_pets_deli"
           },
-          "accordion": [
-            {
-              "shipment": {
-                "block": "pdp_shipment"
-              }
-            },
-            {
-              "storage": {
-                "block": "pdp_storage"
-              }
-            },
-            {
-              "roduction_quality": {
-                "block": "pdp_production_quality"
-              }
-            },
-            {
-              "feeding_recommendation": {
-                "block": "pdp_feeding_recommendation"
-              }
-            },
-            {
-              "preparation": {
-                "block": "pdp_preparation"
-              }
-            },
-            {
-              "product_info": {
-                "markdown": "product_info"
-              }
-            }
-          ],
+          "accordion": {
+            "block": "pdp_default_accordion"
+          },
+          "product_info": {
+            "markdown": "product_info"
+          },
           "delivery_time": {
             "glossary": "pdp.delivery.time"
           },
@@ -12732,38 +10574,12 @@
           "why_pets_deli": {
             "block": "pdp_why_pets_deli"
           },
-          "accordion": [
-            {
-              "shipment": {
-                "block": "pdp_shipment"
-              }
-            },
-            {
-              "storage": {
-                "block": "pdp_storage"
-              }
-            },
-            {
-              "roduction_quality": {
-                "block": "pdp_production_quality"
-              }
-            },
-            {
-              "feeding_recommendation": {
-                "block": "pdp_feeding_recommendation"
-              }
-            },
-            {
-              "preparation": {
-                "block": "pdp_preparation"
-              }
-            },
-            {
-              "product_info": {
-                "markdown": "product_info"
-              }
-            }
-          ],
+          "accordion": {
+            "block": "pdp_default_accordion"
+          },
+          "product_info": {
+            "markdown": "product_info"
+          },
           "delivery_time": {
             "glossary": "pdp.delivery.time"
           },
@@ -12873,38 +10689,12 @@
           "why_pets_deli": {
             "block": "pdp_why_pets_deli"
           },
-          "accordion": [
-            {
-              "shipment": {
-                "block": "pdp_shipment"
-              }
-            },
-            {
-              "storage": {
-                "block": "pdp_storage"
-              }
-            },
-            {
-              "roduction_quality": {
-                "block": "pdp_production_quality"
-              }
-            },
-            {
-              "feeding_recommendation": {
-                "block": "pdp_feeding_recommendation"
-              }
-            },
-            {
-              "preparation": {
-                "block": "pdp_preparation"
-              }
-            },
-            {
-              "product_info": {
-                "markdown": "product_info"
-              }
-            }
-          ],
+          "accordion": {
+            "block": "pdp_default_accordion"
+          },
+          "product_info": {
+            "markdown": "product_info"
+          },
           "delivery_time": {
             "glossary": "pdp.delivery.time"
           },
@@ -13014,38 +10804,12 @@
           "why_pets_deli": {
             "block": "pdp_why_pets_deli"
           },
-          "accordion": [
-            {
-              "shipment": {
-                "block": "pdp_shipment"
-              }
-            },
-            {
-              "storage": {
-                "block": "pdp_storage"
-              }
-            },
-            {
-              "roduction_quality": {
-                "block": "pdp_production_quality"
-              }
-            },
-            {
-              "feeding_recommendation": {
-                "block": "pdp_feeding_recommendation"
-              }
-            },
-            {
-              "preparation": {
-                "block": "pdp_preparation"
-              }
-            },
-            {
-              "product_info": {
-                "markdown": "product_info"
-              }
-            }
-          ],
+          "accordion": {
+            "block": "pdp_default_accordion"
+          },
+          "product_info": {
+            "markdown": "product_info"
+          },
           "delivery_time": {
             "glossary": "pdp.delivery.time"
           },
@@ -13155,38 +10919,12 @@
           "why_pets_deli": {
             "block": "pdp_why_pets_deli"
           },
-          "accordion": [
-            {
-              "shipment": {
-                "block": "pdp_shipment"
-              }
-            },
-            {
-              "storage": {
-                "block": "pdp_storage"
-              }
-            },
-            {
-              "roduction_quality": {
-                "block": "pdp_production_quality"
-              }
-            },
-            {
-              "feeding_recommendation": {
-                "block": "pdp_feeding_recommendation"
-              }
-            },
-            {
-              "preparation": {
-                "block": "pdp_preparation"
-              }
-            },
-            {
-              "product_info": {
-                "markdown": "product_info"
-              }
-            }
-          ],
+          "accordion": {
+            "block": "pdp_default_accordion"
+          },
+          "product_info": {
+            "markdown": "product_info"
+          },
           "delivery_time": {
             "glossary": "pdp.delivery.time"
           },
@@ -13285,38 +11023,12 @@
           "why_pets_deli": {
             "block": "pdp_why_pets_deli"
           },
-          "accordion": [
-            {
-              "shipment": {
-                "block": "pdp_shipment"
-              }
-            },
-            {
-              "storage": {
-                "block": "pdp_storage"
-              }
-            },
-            {
-              "roduction_quality": {
-                "block": "pdp_production_quality"
-              }
-            },
-            {
-              "feeding_recommendation": {
-                "block": "pdp_feeding_recommendation"
-              }
-            },
-            {
-              "preparation": {
-                "block": "pdp_preparation"
-              }
-            },
-            {
-              "product_info": {
-                "markdown": "product_info"
-              }
-            }
-          ],
+          "accordion": {
+            "block": "pdp_default_accordion"
+          },
+          "product_info": {
+            "markdown": "product_info"
+          },
           "delivery_time": {
             "glossary": "pdp.delivery.time"
           },
@@ -13524,38 +11236,12 @@
           "why_pets_deli": {
             "block": "pdp_why_pets_deli"
           },
-          "accordion": [
-            {
-              "shipment": {
-                "block": "pdp_shipment"
-              }
-            },
-            {
-              "storage": {
-                "block": "pdp_storage"
-              }
-            },
-            {
-              "roduction_quality": {
-                "block": "pdp_production_quality"
-              }
-            },
-            {
-              "feeding_recommendation": {
-                "block": "pdp_feeding_recommendation"
-              }
-            },
-            {
-              "preparation": {
-                "block": "pdp_preparation"
-              }
-            },
-            {
-              "product_info": {
-                "markdown": "product_info"
-              }
-            }
-          ],
+          "accordion": {
+            "block": "pdp_default_accordion"
+          },
+          "product_info": {
+            "markdown": "product_info"
+          },
           "delivery_time": {
             "glossary": "pdp.delivery.time"
           },
@@ -13763,38 +11449,12 @@
           "why_pets_deli": {
             "block": "pdp_why_pets_deli"
           },
-          "accordion": [
-            {
-              "shipment": {
-                "block": "pdp_shipment"
-              }
-            },
-            {
-              "storage": {
-                "block": "pdp_storage"
-              }
-            },
-            {
-              "roduction_quality": {
-                "block": "pdp_production_quality"
-              }
-            },
-            {
-              "feeding_recommendation": {
-                "block": "pdp_feeding_recommendation"
-              }
-            },
-            {
-              "preparation": {
-                "block": "pdp_preparation"
-              }
-            },
-            {
-              "product_info": {
-                "markdown": "product_info"
-              }
-            }
-          ],
+          "accordion": {
+            "block": "pdp_default_accordion"
+          },
+          "product_info": {
+            "markdown": "product_info"
+          },
           "delivery_time": {
             "glossary": "pdp.delivery.time"
           },
@@ -14002,38 +11662,12 @@
           "why_pets_deli": {
             "block": "pdp_why_pets_deli"
           },
-          "accordion": [
-            {
-              "shipment": {
-                "block": "pdp_shipment"
-              }
-            },
-            {
-              "storage": {
-                "block": "pdp_storage"
-              }
-            },
-            {
-              "roduction_quality": {
-                "block": "pdp_production_quality"
-              }
-            },
-            {
-              "feeding_recommendation": {
-                "block": "pdp_feeding_recommendation"
-              }
-            },
-            {
-              "preparation": {
-                "block": "pdp_preparation"
-              }
-            },
-            {
-              "product_info": {
-                "markdown": "product_info"
-              }
-            }
-          ],
+          "accordion": {
+            "block": "pdp_default_accordion"
+          },
+          "product_info": {
+            "markdown": "product_info"
+          },
           "delivery_time": {
             "glossary": "pdp.delivery.time"
           },
@@ -14173,38 +11807,12 @@
           "why_pets_deli": {
             "block": "pdp_why_pets_deli"
           },
-          "accordion": [
-            {
-              "shipment": {
-                "block": "pdp_shipment"
-              }
-            },
-            {
-              "storage": {
-                "block": "pdp_storage"
-              }
-            },
-            {
-              "roduction_quality": {
-                "block": "pdp_production_quality"
-              }
-            },
-            {
-              "feeding_recommendation": {
-                "block": "pdp_feeding_recommendation"
-              }
-            },
-            {
-              "preparation": {
-                "block": "pdp_preparation"
-              }
-            },
-            {
-              "product_info": {
-                "markdown": "product_info"
-              }
-            }
-          ],
+          "accordion": {
+            "block": "pdp_default_accordion"
+          },
+          "product_info": {
+            "markdown": "product_info"
+          },
           "delivery_time": {
             "glossary": "pdp.delivery.time"
           },
@@ -14344,38 +11952,12 @@
           "why_pets_deli": {
             "block": "pdp_why_pets_deli"
           },
-          "accordion": [
-            {
-              "shipment": {
-                "block": "pdp_shipment"
-              }
-            },
-            {
-              "storage": {
-                "block": "pdp_storage"
-              }
-            },
-            {
-              "roduction_quality": {
-                "block": "pdp_production_quality"
-              }
-            },
-            {
-              "feeding_recommendation": {
-                "block": "pdp_feeding_recommendation"
-              }
-            },
-            {
-              "preparation": {
-                "block": "pdp_preparation"
-              }
-            },
-            {
-              "product_info": {
-                "markdown": ""
-              }
-            }
-          ],
+          "accordion": {
+            "block": "pdp_default_accordion"
+          },
+          "product_info": {
+            "markdown": ""
+          },
           "delivery_time": {
             "glossary": "pdp.delivery.time"
           },
@@ -14519,38 +12101,12 @@
           "why_pets_deli": {
             "block": "pdp_why_pets_deli"
           },
-          "accordion": [
-            {
-              "shipment": {
-                "block": "pdp_shipment"
-              }
-            },
-            {
-              "storage": {
-                "block": "pdp_storage"
-              }
-            },
-            {
-              "roduction_quality": {
-                "block": "pdp_production_quality"
-              }
-            },
-            {
-              "feeding_recommendation": {
-                "block": "pdp_feeding_recommendation"
-              }
-            },
-            {
-              "preparation": {
-                "block": "pdp_preparation"
-              }
-            },
-            {
-              "product_info": {
-                "markdown": ""
-              }
-            }
-          ],
+          "accordion": {
+            "block": "pdp_default_accordion"
+          },
+          "product_info": {
+            "markdown": ""
+          },
           "delivery_time": {
             "glossary": "pdp.delivery.time"
           },
