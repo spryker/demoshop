@@ -76,6 +76,18 @@ function validateInput ($element) {
         }
     }
 
+    var regepx = $input.data('regexp');
+    if (!!regepx) {
+        var match = value.match(new RegExp(regepx));
+
+        if (!match) {
+            result.valid = result.valid && false;
+            result.messages.push(`${label} ist ungültig.`);
+        } else {
+            result.valid = result.valid && true;
+        }
+    }
+
     return result;
 }
 
