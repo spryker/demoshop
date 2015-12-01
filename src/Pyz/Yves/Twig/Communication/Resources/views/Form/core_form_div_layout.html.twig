@@ -23,7 +23,7 @@
 
         <div class="input__field">
             <input
-                class="input__text" autocorrect="off" autocapitalize="off" type="{{ type }}"  {{ block('widget_attributes') }} {% if placeholder is defined %}placeholder="{{ placeholder }}"{% endif %} {% if value is defined %} value="{{value}}" {% endif %} {% if required is defined %} {% endif %}>
+                class="input__text" autocorrect="off" autocapitalize="off" type="{{ type }}" {{ block('widget_attributes') }} {% if placeholder is defined %}placeholder="{{ placeholder }}"{% endif %} {% if value is defined %} value="{{value}}" {% endif %} {% if required is defined %} {% endif %}>
         </div>
 
         {% if additional is defined %}

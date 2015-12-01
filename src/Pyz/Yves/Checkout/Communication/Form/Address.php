@@ -48,7 +48,7 @@ class Address extends AbstractType
             ])
             ->add('last_name', 'text', [
                 'label' => 'Nachname',
-                'required' => false,
+                'required' => true,
                 'attr' => [
                     'class' => 'input--1-2'
                 ],
@@ -87,6 +87,7 @@ class Address extends AbstractType
                 'data' => 'DE',
             ])
             ->add('country', 'choice', array(
+                'required' => true,
                 'choices' => array(
                     60   => 'Germany',
                     14 => 'Austria',

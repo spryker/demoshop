@@ -3,6 +3,10 @@ import { prefixCss, scrollTo } from '../../common/helpers';
 import { MessageService } from '../../common/messages';
 import { EVENTS as STEPPER_EVENTS } from '../../forms/stepper';
 
+import { validateForm } from '../../forms/validator';
+
+import adyen from 'node-adyen-cse';
+
 
 'use strict';
 

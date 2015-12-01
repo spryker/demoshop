@@ -50,7 +50,7 @@ class AdyenPayment extends AbstractType
                 'choices' => $this->extractPaymentMethods(),
                 'expanded' => true,
                 'multiple' => false,
-                'required' => false,
+                'required' => true,
                 'empty_value' => false,
                 'label' => false,
                 'attr' => [

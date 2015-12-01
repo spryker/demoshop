@@ -1,4 +1,6 @@
 import $ from 'jquery';
+import { EVENTS as INPUT_EVENTS } from '../forms/input';
+
 
 'use strict';
 
@@ -9,7 +11,7 @@ $(document).ready(function () {
         var $form, $items, namespace, formKey, storage;
 
         $form = $(this);
-        $items = $form.find('input, textarea');
+        $items = $form.find('input, textarea').not('[autocomplete="off"]');
 
         formKey = 'pd.' + $form.data('formbackup');
         storage = window.localStorage;
@@ -42,11 +44,13 @@ $(document).ready(function () {
                     $form.find('[name="' + itemKey + '"]').each(function () {
                         var $item = $(this);
 
-                        if (!$item.val()) {
+                        if (!$item.val() && !!data[itemKey]) {
                             $item.val(data[itemKey]);
                         }
                     });
                 }
+
+                $(document).trigger(INPUT_EVENTS.VALIDATE);
             }
         }
     });
