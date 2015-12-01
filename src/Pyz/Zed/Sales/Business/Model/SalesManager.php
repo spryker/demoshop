@@ -2,6 +2,7 @@
 
 namespace Pyz\Zed\Sales\Business\Model;
 
+use Orm\Zed\Sales\Persistence\SpySalesDiscountCode;
 use Pyz\Zed\Sales\Persistence\SalesQueryContainerInterface;
 use SprykerFeature\Zed\Sales\Business\Model\OrderManager as SprykerOrderManager;
 use SprykerFeature\Zed\Sales\Business\Model\OrderReferenceGeneratorInterface;
@@ -91,5 +92,15 @@ class SalesManager extends SprykerOrderManager
     {
         return $this->queryContainer->querySalesOrderItemConfigurationByItemId($salesOrderItemId)
             ->find();
+    }
+
+    /**
+     * @param $salesDiscountId
+     * @return SpySalesDiscountCode
+     */
+    public function getSalesDiscountCodeBySalesDiscountId($salesDiscountId)
+    {
+        return $this->queryContainer->querySalesDiscountCodeBySalesDiscountId($salesDiscountId)
+            ->findOne();
     }
 }

@@ -3,6 +3,7 @@
 namespace Pyz\Zed\Sales\Persistence;
 
 use Orm\Zed\Sales\Persistence\Base\SpySalesOrderQuery;
+use Orm\Zed\Sales\Persistence\SpySalesDiscountCodeQuery;
 use Orm\Zed\Sales\Persistence\SpySalesOrderItemQuery;
 use Orm\Zed\Sales\Persistence\SpySalesDiscountQuery;
 use Orm\Zed\Sales\Persistence\Base\PavSalesOrderItemConfigurationQuery;
@@ -32,4 +33,10 @@ interface SalesQueryContainerInterface
      * @return PavSalesOrderItemConfigurationQuery
      */
     public function querySalesOrderItemConfigurationByItemId($salesOrderItemId);
+
+    /**
+     * @param int $salesDiscountId
+     * @return SpySalesDiscountCodeQuery
+     */
+    public function querySalesDiscountCodeBySalesDiscountId($salesDiscountId);
 }

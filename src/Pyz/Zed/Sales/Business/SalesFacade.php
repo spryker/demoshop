@@ -2,6 +2,7 @@
 
 namespace Pyz\Zed\Sales\Business;
 
+use Orm\Zed\Sales\Persistence\SpySalesDiscountCode;
 use Pyz\Zed\OrderExporter\Dependency\Facade\OrderExporterToSalesFacade;
 use SprykerFeature\Zed\Sales\Business\SalesFacade as SprykerSalesFacade;
 use SprykerFeature\Zed\SalesCheckoutConnector\Dependency\Facade\SalesCheckoutConnectorToSalesInterface as SpySalesCheckoutConnectorToSalesInterface;
@@ -58,6 +59,17 @@ class SalesFacade extends SprykerSalesFacade implements SpySalesCheckoutConnecto
         return $this->getDependencyContainer()
             ->createSalesManager()
             ->getSalesOrderItemConfigurationByItemId($salesOrderItemId);
+    }
+
+    /**
+     * @param $salesDiscountId
+     * @return SpySalesDiscountCode
+     */
+    public function getSalesDiscountCodeBySalesDiscountId($salesDiscountId)
+    {
+        return $this->getDependencyContainer()
+            ->createSalesManager()
+            ->getSalesDiscountCodeBySalesDiscountId($salesDiscountId);
     }
 
 }

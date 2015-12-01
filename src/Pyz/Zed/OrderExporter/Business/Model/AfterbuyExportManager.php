@@ -3,6 +3,7 @@
 namespace Pyz\Zed\OrderExporter\Business\Model;
 
 use Orm\Zed\Product\Persistence\SpyProduct;
+use Orm\Zed\Sales\Persistence\SpySalesDiscountCode;
 use Pyz\Zed\OrderExporter\AfterbuyConstants;
 use Pyz\Zed\OrderExporter\Dependency\Facade\OrderExporterToAdyenFacade;
 use Pyz\Zed\OrderExporter\Dependency\Facade\OrderExporterToProductFacade;
@@ -289,13 +290,47 @@ class AfterbuyExportManager
         foreach ($discountsToExport as $discount) {
             if (!isset($coupons[$discount->getDisplayName()])) {
                 $coupons[$discount->getDisplayName()][self::KEY_COUPON_AMOUNT] = $discount->getAmount();
-                $coupons[$discount->getDisplayName()][self::KEY_COUPON_NAME] = self::VALUE_COUPON_NAME . '_' . $discount->getDisplayName() . '_' . $discount->getFkSalesOrder();
+                $couponName = self::VALUE_COUPON_NAME . '_' . $discount->getDisplayName() . '_' . $discount->getFkSalesOrder();
+                $coupons[$discount->getDisplayName()][self::KEY_COUPON_NAME] = $this->addDiscountCodeToCouponName($discount->getIdSalesDiscount(), $couponName);
             } else {
                 $coupons[$discount->getDisplayName()][self::KEY_COUPON_AMOUNT] += $discount->getAmount();
             }
         }
 
         return $coupons;
+    }
+
+    /**
+     * @param int $salesDiscountId
+     * @param string $couponName
+     * @return string
+     */
+    protected function addDiscountCodeToCouponName($salesDiscountId, $couponName)
+    {
+        if ($this->discountHasCode($salesDiscountId)) {
+            $couponCode = $this->getSalesDiscountCodeByDiscountId($salesDiscountId)->getCode();
+            $couponName .= '|' . $couponCode;
+        }
+
+        return $couponName;
+    }
+
+    /**
+     * @param int $salesDiscountId
+     * @return bool
+     */
+    protected function discountHasCode($salesDiscountId)
+    {
+        return (bool) (!$this->salesFacade->getSalesDiscountCodeBySalesDiscountId($salesDiscountId) == null);
+    }
+
+    /**
+     * @param $salesDiscountId
+     * @return SpySalesDiscountCode
+     */
+    protected function getSalesDiscountCodeByDiscountId($salesDiscountId)
+    {
+        return $this->salesFacade->getSalesDiscountCodeBySalesDiscountId($salesDiscountId);
     }
     
     /**
