@@ -230,7 +230,7 @@ class AfterbuyExportManager
             $postData[AfterbuyConstants::ITEM_QUANTITY_ORDERED . $numberOfItems] = $item->getQuantity();
             $postData[AfterbuyConstants::ITEM_NAME . $numberOfItems] = $item->getName();
             $postData[AfterbuyConstants::ITEM_PRICE . $numberOfItems] = $this->convertPriceInCentToEuro($item->getGrossPrice());
-            $postData[AfterbuyConstants::ITEM_TAX_PERCENTAGE . $numberOfItems] = $this->convertPercentIntoDecimal($item->getTaxPercentage());
+            $postData[AfterbuyConstants::ITEM_TAX_PERCENTAGE . $numberOfItems] = $this->convertDecimalDotToDecimalComma($item->getTaxPercentage());
             $postData = $this->addProductAttributesInfo($item, $numberOfItems, $postData);
         }
 
@@ -417,7 +417,18 @@ class AfterbuyExportManager
      */
     protected function convertPriceInCentToEuro($price)
     {
-        return $price / self::CONVERSION_CENT_TO_EUROS;
+        $euroPrice = $price / self::CONVERSION_CENT_TO_EUROS;
+
+        return $this->convertDecimalDotToDecimalComma($euroPrice);
+    }
+
+    /**
+     * @param float $number
+     * @return string
+     */
+    protected function convertDecimalDotToDecimalComma($number)
+    {
+        return number_format($number, 2, ',', '.');
     }
 
     /**
@@ -435,13 +446,4 @@ class AfterbuyExportManager
         return $postData;
     }
 
-    /**
-     * @param int $percent
-     * @return float
-     */
-    protected function convertPercentIntoDecimal($percent)
-    {
-        return $percent / self::CONVERSION_PERCENTAGE;
-    }
-    
 }
