@@ -2,6 +2,7 @@
 
 namespace Pyz\Yves\Checkout\Communication;
 
+use Generated\Shared\Transfer\PayolutionCalculationResponseTransfer;
 use Generated\Shared\Transfer\ShipmentTransfer;
 use Generated\Yves\Ide\FactoryAutoCompletion\CheckoutCommunication;
 use SprykerEngine\Yves\Kernel\Communication\AbstractCommunicationDependencyContainer;
@@ -9,6 +10,7 @@ use SprykerFeature\Client\Cart\Service\CartClientInterface;
 use SprykerFeature\Client\Checkout\Service\CheckoutClient;
 use Pyz\Yves\Checkout\Communication\Form\CheckoutType;
 use SprykerFeature\Client\Glossary\Service\GlossaryClientInterface;
+use SprykerFeature\Client\Payolution\Service\PayolutionClientInterface;
 use SprykerFeature\Client\Shipment\Service\ShipmentClientInterface;
 use Symfony\Component\HttpFoundation\Request;
 
@@ -61,15 +63,20 @@ class CheckoutDependencyContainer extends AbstractCommunicationDependencyContain
     /**
      * @param Request $request
      * @param ShipmentTransfer $shipmentTransfer
+     * @param PayolutionCalculationResponseTransfer $payolutionCalculationResponseTransfer
      *
      * @return CheckoutType
      */
-    public function createCheckoutForm(Request $request, ShipmentTransfer $shipmentTransfer)
+    public function createCheckoutForm(
+        Request $request,
+        ShipmentTransfer $shipmentTransfer,
+        PayolutionCalculationResponseTransfer $payolutionCalculationResponseTransfer)
     {
         return new CheckoutType(
                 $request,
                 $shipmentTransfer,
-                $this->createGlossaryClient()
+                $this->createGlossaryClient(),
+                $payolutionCalculationResponseTransfer
             );
     }
 

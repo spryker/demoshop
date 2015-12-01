@@ -2,6 +2,10 @@
 
 namespace Pyz\Yves\Checkout\Communication\Controller;
 
+use Generated\Shared\Transfer\AddressesTransfer;
+use Generated\Shared\Transfer\AddressTransfer;
+use Generated\Shared\Transfer\PayolutionCalculationResponseTransfer;
+use Generated\Shared\Transfer\PayolutionPaymentTransfer;
 use Generated\Shared\Transfer\ShipmentTransfer;
 use Generated\Shared\Transfer\CartTransfer;
 use Generated\Shared\Transfer\CheckoutErrorTransfer;
@@ -39,41 +43,46 @@ class CheckoutController extends AbstractController
      */
     public function indexAction(Request $request)
     {
+        $cartTransfer = $this->getCartTransfer();
         $shipmentMethodAvailabilityTransfer = new ShipmentMethodAvailabilityTransfer();
-        $shipmentMethodAvailabilityTransfer->setCart($this->getCartTransfer());
-
-        $shipmentTransfer = $this->getDependencyContainer()->createShipmentClient()
+        $shipmentMethodAvailabilityTransfer->setCart($cartTransfer);
+        $shipmentTransfer = $this
+            ->getDependencyContainer()
+            ->createShipmentClient()
             ->getAvailableMethods($shipmentMethodAvailabilityTransfer);
 
-        $checkoutFormType = $this->getDependencyContainer()->createCheckoutForm($request, $shipmentTransfer);
-
         $checkoutTransfer = new CheckoutRequestTransfer();
+
+        $payolutionCalculationResponseTransfer = $this->getPayolutionInstallmentPayments($checkoutTransfer);
+
+        $checkoutFormType = $this
+            ->getDependencyContainer()
+            ->createCheckoutForm($request, $shipmentTransfer, $payolutionCalculationResponseTransfer);
         $checkoutForm = $this->createForm($checkoutFormType, $checkoutTransfer);
 
-        if ($request->isMethod('POST')) {
-            if ($checkoutForm->isValid()) {
-                /** @var CheckoutRequestTransfer $checkoutRequestTransfer */
-                $checkoutRequestTransfer = $checkoutForm->getData();
+        if ($checkoutForm->isValid()) {
+            /** @var CheckoutRequestTransfer $checkoutRequestTransfer */
+            $checkoutRequestTransfer = $checkoutForm->getData();
 
-                $checkoutRequestTransfer->setCart($this->getCartTransfer());
+            $checkoutRequestTransfer->setCart($cartTransfer);
 
-                $this->setShippingAddress($checkoutRequestTransfer);
-                $this->setShippingMethod($shipmentTransfer, $checkoutRequestTransfer);
-                $this->setCustomerPassword($checkoutForm, $checkoutRequestTransfer);
-                $this->setPayolutionPayment($checkoutRequestTransfer, $request);
+            $this->setShippingAddress($checkoutRequestTransfer);
+            $this->setShippingMethod($shipmentTransfer, $checkoutRequestTransfer);
+            $this->setCustomerPassword($checkoutForm, $checkoutRequestTransfer);
 
-                $checkoutResponseTransfer = $this->getDependencyContainer()
-                    ->createCheckoutClient()
-                    ->requestCheckout($checkoutRequestTransfer);
+            $this->setPayolutionPayment($checkoutRequestTransfer, $payolutionCalculationResponseTransfer, $request);
 
-                if ($checkoutResponseTransfer->getIsSuccess()) {
-                    $this->getDependencyContainer()->createCartClient()->clearCart();
+            $checkoutResponseTransfer = $this->getDependencyContainer()
+                ->createCheckoutClient()
+                ->requestCheckout($checkoutRequestTransfer);
 
-                    return $this->redirect($checkoutResponseTransfer);
-                }
+            if ($checkoutResponseTransfer->getIsSuccess()) {
+                $this->getDependencyContainer()->createCartClient()->clearCart();
 
-                return $this->errors($checkoutResponseTransfer->getErrors());
+                return $this->redirect($checkoutResponseTransfer);
             }
+
+            return $this->errors($checkoutResponseTransfer->getErrors());
         }
 
         return [
@@ -91,8 +100,6 @@ class CheckoutController extends AbstractController
     {
         //@todo copy look and feel from invision!
         //@todo add finish form?
-
-        return [];
     }
 
     /**
@@ -213,18 +220,49 @@ class CheckoutController extends AbstractController
 
     /**
      * @param CheckoutRequestTransfer $checkoutRequestTransfer
+     * @param PayolutionCalculationResponseTransfer $payolutionCalculationResponseTransfer
      * @param Request $request
      *
-     * @return void
      */
-    protected function setPayolutionPayment(CheckoutRequestTransfer $checkoutRequestTransfer, Request $request)
+    protected function setPayolutionPayment(
+        CheckoutRequestTransfer $checkoutRequestTransfer,
+        PayolutionCalculationResponseTransfer $payolutionCalculationResponseTransfer,
+        Request $request)
     {
+        $installmentPaymentDetail = $payolutionCalculationResponseTransfer
+            ->getPaymentDetails()[$checkoutRequestTransfer->getPayolutionPayment()->getInstallmentPaymentDetailIndex()];
+        $installmentAmount = $installmentPaymentDetail->getInstallments()[0]->getAmount() / 100;
+        $installmentDuration = $installmentPaymentDetail->getDuration();
+
         $checkoutRequestTransfer->getPayolutionPayment()
             ->setAccountBrand(self::$payolutionPaymentMethodMapper[$checkoutRequestTransfer->getPaymentMethod()])
             ->setCurrencyIso3Code(CurrencyManager::getInstance()->getDefaultCurrency()->getIsoCode())
             ->setLanguageIso2Code($checkoutRequestTransfer->getBillingAddress()->getIso2Code())
             ->setGender('Male')
-            ->setClientIp($request->getClientIp());
+            ->setClientIp($request->getClientIp())
+            ->setInstallmentAmount($installmentAmount)
+            ->setInstallmentDuration($installmentDuration);
+    }
+
+    /**
+     * @param CheckoutRequestTransfer $checkoutRequestTransfer
+     *
+     * @return PayolutionCalculationResponseTransfer
+     */
+    protected function getPayolutionInstallmentPayments(CheckoutRequestTransfer $checkoutRequestTransfer)
+    {
+        $addressTransfer = (new AddressTransfer())->setIso2Code('DE');
+        $payolutionPaymentTransfer = (new PayolutionPaymentTransfer())
+            ->setAddress($addressTransfer)
+            ->setCurrencyIso3Code(CurrencyManager::getInstance()->getDefaultCurrency()->getIsoCode());
+        $checkoutRequestTransfer
+            ->setCart($this->getCartTransfer())
+            ->setPayolutionPayment($payolutionPaymentTransfer);
+
+        return $this
+            ->getDependencyContainer()
+            ->createPayolutionClient()
+            ->calculateInstallmentPayments($checkoutRequestTransfer);
     }
 
 }

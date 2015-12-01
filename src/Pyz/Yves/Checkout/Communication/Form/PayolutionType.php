@@ -6,6 +6,7 @@
 
 namespace Pyz\Yves\Checkout\Communication\Form;
 
+use Generated\Shared\Transfer\PayolutionCalculationResponseTransfer;
 use SprykerFeature\Shared\Payolution\PayolutionApiConstants;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
@@ -24,9 +25,10 @@ class PayolutionType extends AbstractType
     const FIELD_CURRENCY_CODE = 'currency_iso3_code';
     const FIELD_ACCOUNT_BRAND = 'account_brand';
     const FIELD_CLIENT_IP = 'client_ip';
-    const BANK_ACCOUNT_HOLDER = 'bank_account_holder';
-    const BANK_ACCOUNT_IBAN = 'bank_account_iban';
-    const BANK_ACCOUNT_BIC = 'bank_account_bic';
+    const FIELD_INSTALLMENT_PAYMENT_DETAIL_INDEX = 'installment_payment_detail_index';
+    const FIELD_BANK_ACCOUNT_HOLDER = 'bank_account_holder';
+    const FIELD_BANK_ACCOUNT_IBAN = 'bank_account_iban';
+    const FIELD_BANK_ACCOUNT_BIC = 'bank_account_bic';
 
     /**
      * @var Request
@@ -39,13 +41,28 @@ class PayolutionType extends AbstractType
     private $tabIndexOffset = 0;
 
     /**
+     * @var PayolutionCalculationResponseTransfer
+     */
+    private $payolutionCalculationResponseTransfer;
+
+    public $choices = [
+        '0' => 'hi',
+        '1' => 'hello',
+    ];
+
+    /**
      * @param Request $request
+     * @param PayolutionCalculationResponseTransfer $payolutionCalculationResponseTransfer
      * @param int $tabIndexOffset
      */
-    public function __construct(Request $request, $tabIndexOffset = 0)
+    public function __construct(
+        Request $request,
+        PayolutionCalculationResponseTransfer $payolutionCalculationResponseTransfer,
+        $tabIndexOffset = 0)
     {
         $this->request = $request;
         $this->tabIndexOffset = $tabIndexOffset;
+        $this->payolutionCalculationResponseTransfer = $payolutionCalculationResponseTransfer;
     }
 
     /**
@@ -117,7 +134,18 @@ class PayolutionType extends AbstractType
                     'tabindex' => 180 + $this->tabIndexOffset,
                 ],
             ])
-            ->add(self::BANK_ACCOUNT_HOLDER, 'text', [
+            ->add(self::FIELD_INSTALLMENT_PAYMENT_DETAIL_INDEX, 'choice', [
+                'choices' => $this->getInstallmentPayments(),
+                'label' => false,
+                'required' => true,
+                'expanded' => true,
+                'multiple' => false,
+                'empty_value' => false,
+                'attr' => [
+                    'style' => 'display: block;',
+                ],
+            ])
+            ->add(self::FIELD_BANK_ACCOUNT_HOLDER, 'text', [
                 'label' => false,
                 'required' => false,
                 'attr' => [
@@ -127,7 +155,7 @@ class PayolutionType extends AbstractType
                     'tabindex' => 190 + $this->tabIndexOffset,
                 ],
             ])
-            ->add(self::BANK_ACCOUNT_IBAN, 'text', [
+            ->add(self::FIELD_BANK_ACCOUNT_IBAN, 'text', [
                 'label' => false,
                 'required' => false,
                 'attr' => [
@@ -137,7 +165,7 @@ class PayolutionType extends AbstractType
                     'tabindex' => 200 + $this->tabIndexOffset,
                 ],
             ])
-            ->add(self::BANK_ACCOUNT_BIC, 'text', [
+            ->add(self::FIELD_BANK_ACCOUNT_BIC, 'text', [
                 'label' => false,
                 'required' => false,
                 'attr' => [
@@ -145,26 +173,6 @@ class PayolutionType extends AbstractType
                     'class' => 'padded',
                     'style' => 'width: 49%;',
                     'tabindex' => 210 + $this->tabIndexOffset,
-                ],
-            ])
-            ->add('installmentAmount', 'text', [
-                'label' => false,
-                'required' => false,
-                'attr' => [
-                    'placeholder' => 'Amount',
-                    'class' => 'padded',
-                    'style' => 'width: 49%;',
-                    'tabindex' => 220 + $this->tabIndexOffset,
-                ],
-            ])
-            ->add('installmentDuration', 'text', [
-                'label' => false,
-                'required' => false,
-                'attr' => [
-                    'placeholder' => 'Duration',
-                    'class' => 'padded',
-                    'style' => 'width: 49%;',
-                    'tabindex' => 230 + $this->tabIndexOffset,
                 ],
             ]);
     }
@@ -177,6 +185,25 @@ class PayolutionType extends AbstractType
         $resolver->setDefaults([
             'data_class' => 'Generated\Shared\Transfer\PayolutionPaymentTransfer',
         ]);
+    }
+
+    /**
+     * @return array
+     */
+    public function getInstallmentPayments()
+    {
+        $paymentDetails = $this->payolutionCalculationResponseTransfer->getPaymentDetails();
+        $choices = [];
+
+        foreach ($paymentDetails as $paymentDetail) {
+            $choices[] = $paymentDetail->getInstallments()[0]->getAmount() / 100
+                .' Euros for '.
+                $paymentDetail->getDuration()
+                .' months ';
+            ;
+        }
+
+        return $choices;
     }
 
 }

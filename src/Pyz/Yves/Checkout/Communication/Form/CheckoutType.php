@@ -2,6 +2,7 @@
 
 namespace Pyz\Yves\Checkout\Communication\Form;
 
+use Generated\Shared\Transfer\PayolutionCalculationResponseTransfer;
 use Generated\Shared\Transfer\ShipmentTransfer;
 use SprykerFeature\Client\Glossary\Service\GlossaryClientInterface;
 use SprykerFeature\Shared\Library\Currency\CurrencyManager;
@@ -39,18 +40,26 @@ class CheckoutType extends AbstractType
     private $glossaryClient;
 
     /**
+     * @var PayolutionCalculationResponseTransfer
+     */
+    private $payolutionCalculationResponseTransfer;
+
+    /**
      * @param Request $request
      * @param ShipmentTransfer $shipmentTransfer
      * @param GlossaryClientInterface $glossaryClient
+     * @param PayolutionCalculationResponseTransfer $payolutionCalculationResponseTransfer
      */
     public function __construct(
         Request $request,
         ShipmentTransfer $shipmentTransfer,
-        GlossaryClientInterface $glossaryClient
+        GlossaryClientInterface $glossaryClient,
+        PayolutionCalculationResponseTransfer $payolutionCalculationResponseTransfer
     ) {
         $this->request = $request;
         $this->shipmentTransfer = $shipmentTransfer;
         $this->glossaryClient = $glossaryClient;
+        $this->payolutionCalculationResponseTransfer = $payolutionCalculationResponseTransfer;
     }
 
     /**
@@ -108,7 +117,14 @@ class CheckoutType extends AbstractType
                     'style' => 'display: block;',
                 ],
             ])
-            ->add(self::FIELD_PAYOLUTION_PAYMENT, new PayolutionType($this->request, 400), [
+            ->add(
+                self::FIELD_PAYOLUTION_PAYMENT,
+                new PayolutionType(
+                    $this->request,
+                    $this->payolutionCalculationResponseTransfer,
+                    400
+                ),
+                [
                 'data_class' => 'Generated\Shared\Transfer\PayolutionPaymentTransfer',
                 'error_bubbling' => true,
                 'attr' => [
