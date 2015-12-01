@@ -98,6 +98,7 @@ class PaymentDetail extends AbstractType
             ])
 
             ->add('adyen_encryption_key', 'hidden', [
+                'mapped' => false,
                 'attr' => [
                     'disabled' => true,
                     'value' => $this->encryptionKey
