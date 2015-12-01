@@ -8,6 +8,7 @@ use Symfony\Component\Filesystem\Filesystem;
 use Symfony\Component\Finder\Finder;
 use Symfony\Component\Finder\SplFileInfo;
 use Zend\Code\Generator\ClassGenerator;
+use Zend\Code\Generator\MethodGenerator;
 use Zend\Code\Reflection\ClassReflection;
 
 class RemoveFactoryUse extends AbstractRefactor
@@ -19,6 +20,7 @@ class RemoveFactoryUse extends AbstractRefactor
     const KEY_USES = 'uses';
     const KEY_METHODS = 'methods';
     const KEY_SEPARATOR = '-';
+    const LAST_CURLY_BRACE_PATTERN = '/}(?!.*})/s';
 
     /**
      * @var array
@@ -98,6 +100,7 @@ class RemoveFactoryUse extends AbstractRefactor
         foreach ($reflectionClass->getMethods() as $method) {
             $methodBody = $method->getBody();
             if ($this->hasFactoryUsages($methodBody)) {
+                echo $dependencyContainerClassName . ' has factory calls.' . PHP_EOL;
                 $factoryUsages = $this->getFactoryUsages($methodBody);
                 foreach ($factoryUsages[1] as $position => $createName) {
                     if ($dependencyContainerMeta[self::KEY_IS_PROJECT]) {
@@ -220,7 +223,7 @@ class RemoveFactoryUse extends AbstractRefactor
      */
     private function hasFactoryUsages($methodBody)
     {
-        return preg_match('/getFactory\(\)->create/', $methodBody);
+        return preg_match('/getFactory\(\)->create/s', $methodBody);
     }
 
     /**
@@ -230,7 +233,7 @@ class RemoveFactoryUse extends AbstractRefactor
      */
     private function getFactoryUsages($methodBody)
     {
-        preg_match_all('/\$this->getFactory\(\)->create(.*?)\(/', $methodBody, $matches);
+        preg_match_all('/\$this->getFactory\(\)->create(.*?)\(/s', $methodBody, $matches);
 
         return $matches;
     }
@@ -327,11 +330,9 @@ class RemoveFactoryUse extends AbstractRefactor
         $content = $dependencyContainer->getContents();
 
         $givenMethods = $reflectionClass->getMethods();
-        $newMethods = $dependencyContainerMeta[self::KEY_METHODS];
+        $newMethods = $this->getMethodsFromDependencyContainerMeta($dependencyContainerMeta);
         if (count($newMethods) > 0) {
-            $content = preg_replace('/}(?!.*})/s', '', $content);
-
-            /* @var $method \Zend\Code\Generator\MethodGenerator */
+            $content = preg_replace(self::LAST_CURLY_BRACE_PATTERN, '', $content);
             foreach ($newMethods as $methodName => $method) {
                 if (!array_key_exists(strtolower($methodName), $givenMethods)) {
                     $content .= $method->generate() . PHP_EOL;
@@ -341,6 +342,18 @@ class RemoveFactoryUse extends AbstractRefactor
             $filesystem = new Filesystem();
             $filesystem->dumpFile($dependencyContainer->getPathname(), $content);
         }
+    }
+
+    /**
+     * @param array $dependencyContainerMeta
+     *
+     * @return MethodGenerator[]
+     */
+    protected function getMethodsFromDependencyContainerMeta(array $dependencyContainerMeta)
+    {
+        $methods = $dependencyContainerMeta[self::KEY_METHODS];
+
+        return $methods;
     }
 
 }
