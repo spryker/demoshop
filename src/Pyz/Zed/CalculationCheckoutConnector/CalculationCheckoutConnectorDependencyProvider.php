@@ -8,22 +8,4 @@ use SprykerFeature\Zed\CalculationCheckoutConnector\CalculationCheckoutConnector
 class CalculationCheckoutConnectorDependencyProvider extends SprykerCalculationCheckoutConnectorDependencyProvider
 {
 
-    const FACADE_GLOSSARY = 'glossary facade';
-
-    /**
-     * @param Container $container
-     *
-     * @return Container
-     */
-    public function provideBusinessLayerDependencies(Container $container)
-    {
-        $container = parent::provideBusinessLayerDependencies($container);
-
-        $container[self::FACADE_GLOSSARY] = function (Container $container) {
-            return $container->getLocator()->glossary()->facade();
-        };
-
-        return $container;
-    }
-
 }

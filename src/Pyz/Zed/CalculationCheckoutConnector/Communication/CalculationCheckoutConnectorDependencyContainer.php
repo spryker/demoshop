@@ -1,7 +1,7 @@
 <?php
 
 
-namespace Pyz\Zed\CalculationCheckoutConnector\Business;
+namespace Pyz\Zed\CalculationCheckoutConnector\Communication;
 
 use SprykerFeature\Zed\CalculationCheckoutConnector\Business\CalculationCheckoutConnectorDependencyContainer as SprykerCalculationCheckoutConnectorDependencyContainer;
 use Pyz\Zed\CalculationCheckoutConnector\CalculationCheckoutConnectorDependencyProvider;
