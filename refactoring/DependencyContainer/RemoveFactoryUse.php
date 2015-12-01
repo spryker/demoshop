@@ -238,7 +238,7 @@ class RemoveFactoryUse extends AbstractRefactor
 //        preg_match_all('/\$this->getFactory\(\)->create(.*?)\(/s', $methodBody, $matches);
 //        preg_match_all('/\$this->getFactory\(\)(?:.*)(?:->create)(.*?)\(/s', $methodBody, $matches);
 //        preg_match_all('/\$this->getFactory\(\)(?:.*?)(?:->create)(.*?)\(/s', $methodBody, $matches);
-        preg_match_all('/\$this(.*?)->getFactory\(\)(?:.*?)(?:->create)(.*?)\(/s', $methodBody, $matches);
+        preg_match_all('/\$this(?:.*?)->getFactory\(\)(?:.*?)(?:->create)(.*?)\(/s', $methodBody, $matches);
 
         return $matches;
     }
