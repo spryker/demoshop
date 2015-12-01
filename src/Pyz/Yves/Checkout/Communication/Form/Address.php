@@ -115,14 +115,11 @@ class Address extends AbstractType
                     'data-depending-value' => $dataDependingValue
                 ],
             ])
-            ->add('iso2code', 'hidden', [
-                'data' => 'DE',
-            ])
-            ->add('country', 'choice', array(
+            ->add('iso2code', 'choice', array(
                 'required' => true,
                 'choices' => array(
-                    60   => 'Germany',
-                    14 => 'Austria',
+                    'DE' => 'Germany',
+                    'AT' => 'Austria',
                 ),
                 'label' => 'Land'
             ))
