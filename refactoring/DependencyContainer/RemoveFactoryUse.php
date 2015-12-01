@@ -3,6 +3,7 @@
 namespace Spryker\Refactor\DependencyContainer;
 
 use SprykerFeature\Zed\Development\Business\Refactor\AbstractRefactor;
+use SprykerFeature\Zed\Development\Business\Refactor\RefactorException;
 use Symfony\Component\Filesystem\Filesystem;
 use Symfony\Component\Finder\Finder;
 use Symfony\Component\Finder\SplFileInfo;
@@ -23,20 +24,6 @@ class RemoveFactoryUse extends AbstractRefactor
      * @var array
      */
     protected $dependencyContainerCollection = [];
-
-    /**
-     * @return string
-     */
-    protected function getClassHeader()
-    {
-        return '<?php
-
-/**
- * (c) Spryker Systems GmbH copyright protected
- */
-
-';
-    }
 
     /**
      * @return void
@@ -115,28 +102,17 @@ class RemoveFactoryUse extends AbstractRefactor
                 foreach ($factoryUsages[1] as $position => $createName) {
                     if ($dependencyContainerMeta[self::KEY_IS_PROJECT]) {
                         $fullyQualifiedClassName = $this->findClassByCreateNameAndDependencyContainer($createName, $dependencyContainer);
-//                        $className = $this->getClassNameFromFullQualifiedClassName($fullyQualifiedClassName);
                     } else {
                         $fullyQualifiedClassName = $this->findCoreClassByCreateNameAndDependencyContainer($createName, $dependencyContainer);
-//                        $className = $this->getClassNameFromFullQualifiedClassName($fullyQualifiedClassName);
                         try {
                             $projectDependencyContainerKey = $this->getProjectDependencyContainerKeyFromCoreKey($dependencyContainerKey);
-
                             if (array_key_exists($projectDependencyContainerKey, $this->dependencyContainerCollection)) {
-
                                 $projectMethodBody = str_replace($factoryUsages[0][$position], 'new \\' . $fullyQualifiedClassName . '(', $methodBody);
                                 $projectMethods = $this->dependencyContainerCollection[$projectDependencyContainerKey][self::KEY_METHODS];
                                 $methodCopy = $method;
                                 $methodCopy->setBody($projectMethodBody);
                                 $projectMethods[$method->getName()] = $methodCopy;
                                 $this->dependencyContainerCollection[$projectDependencyContainerKey][self::KEY_METHODS] = $projectMethods;
-
-//                                $projectFullyQualifiedClassName = $this->findClassByCreateNameAndDependencyContainer($createName, $dependencyContainer, true);
-//                                $projectUses = $this->dependencyContainerCollection[$projectDependencyContainerKey][self::KEY_USES];
-//                                if (!in_array($projectFullyQualifiedClassName, $projectUses)) {
-//                                    $projectUses[] = $projectFullyQualifiedClassName;
-//                                    $this->dependencyContainerCollection[$projectDependencyContainerKey][self::KEY_USES] = $projectUses;
-//                                }
                             }
                         } catch (NoFileFoundException $exception) {
                         }
@@ -260,18 +236,6 @@ class RemoveFactoryUse extends AbstractRefactor
     }
 
     /**
-     * @param SplFileInfo $dependencyContainer
-     *
-     * @return array
-     */
-    private function getUseStatements(SplFileInfo $dependencyContainer)
-    {
-        preg_match_all('/use (.*);/', $dependencyContainer->getContents(), $uses);
-
-        return $uses[1];
-    }
-
-    /**
      * @param string $directory
      * @param string $createName
      *
@@ -321,7 +285,6 @@ class RemoveFactoryUse extends AbstractRefactor
     {
         foreach ($this->dependencyContainerCollection as $dependencyContainerKey => $dependencyContainer) {
             $this->replaceFactoryUsages($dependencyContainer, $dependencyContainerKey);
-//            $this->addUseStatements($dependencyContainerKey);
             $this->addMethods($dependencyContainerKey);
         }
     }
@@ -351,84 +314,33 @@ class RemoveFactoryUse extends AbstractRefactor
      *
      * @return void
      */
-    private function addUseStatements($dependencyContainerKey)
-    {
-        $dependencyContainerMeta = $this->dependencyContainerCollection[$dependencyContainerKey];
-
-        $dependencyContainer = $this->getDependencyContainerFromCollection($dependencyContainerKey);
-        $dependencyContainerClassName = $this->getClassNameFromFileInfo($dependencyContainer);
-        $reflectionClass = ClassGenerator::fromReflection(
-            new ClassReflection($dependencyContainerClassName)
-        );
-
-        $givenUses = $this->getUseStatements($dependencyContainer);
-        $newUses = $dependencyContainerMeta[self::KEY_USES];
-        if (count($newUses) > 0) {
-            $uses = array_unique(array_merge($givenUses, $newUses));
-            foreach ($uses as $use) {
-                if (preg_match('/\sas\s/', $use)) {
-                    list($use, $alias) = explode(' as ', $use);
-                    $reflectionClass->addUse(trim($use), trim($alias));
-                } else {
-                    $reflectionClass->addUse(trim($use));
-                }
-            }
-
-            $this->saveReflectionChanges($dependencyContainer, $reflectionClass);
-        }
-    }
-
-    /**
-     * @param string $dependencyContainerKey
-     *
-     * @return void
-     */
     private function addMethods($dependencyContainerKey)
     {
         $dependencyContainerMeta = $this->dependencyContainerCollection[$dependencyContainerKey];
 
         $dependencyContainer = $this->getDependencyContainerFromCollection($dependencyContainerKey);
         $dependencyContainerClassName = $this->getClassNameFromFileInfo($dependencyContainer);
-        echo $dependencyContainer->getFilename() . PHP_EOL;
         $reflectionClass = ClassGenerator::fromReflection(
             new ClassReflection($dependencyContainerClassName)
         );
 
+        $content = $dependencyContainer->getContents();
+
         $givenMethods = $reflectionClass->getMethods();
         $newMethods = $dependencyContainerMeta[self::KEY_METHODS];
         if (count($newMethods) > 0) {
+            $content = preg_replace('/}(?!.*})/s', '', $content);
+
+            /* @var $method \Zend\Code\Generator\MethodGenerator */
             foreach ($newMethods as $methodName => $method) {
                 if (!array_key_exists(strtolower($methodName), $givenMethods)) {
-                    $reflectionClass->addMethodFromGenerator($method);
+                    $content .= $method->generate() . PHP_EOL;
                 }
             }
-
-            $this->saveReflectionChanges($dependencyContainer, $reflectionClass);
+            $content .= '}';
+            $filesystem = new Filesystem();
+            $filesystem->dumpFile($dependencyContainer->getPathname(), $content);
         }
-    }
-
-    /**
-     * @param SplFileInfo $dependencyContainer
-     * @param ClassGenerator $reflectionClass
-     *
-     * @return void
-     */
-    private function saveReflectionChanges(SplFileInfo $dependencyContainer, ClassGenerator $reflectionClass)
-    {
-        $filesystem = new Filesystem();
-        $extendedClass = $reflectionClass->getExtendedClass();
-        if ($extendedClass) {
-
-            $extendedClassParts = explode('\\', $extendedClass);
-            $extendedClass = array_pop($extendedClassParts);
-
-            if (preg_match('/' . $extendedClass . ' as (.*?);/', $dependencyContainer->getContents(), $matches)) {
-                $extendedClass = trim($matches[1]);
-            }
-
-            $reflectionClass->setExtendedClass($extendedClass);
-        }
-        $filesystem->dumpFile($dependencyContainer->getPathname(), $this->getClassHeader() . $reflectionClass->generate());
     }
 
 }
