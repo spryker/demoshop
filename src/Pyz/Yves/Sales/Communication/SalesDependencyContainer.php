@@ -1,6 +1,6 @@
 <?php
 
-namespace Pyz\Yves\Sales;
+namespace Pyz\Yves\Sales\Communication;
 
 use Pyz\Yves\Sales\Communication\Form\BillingAddress;
 use Pyz\Yves\Sales\Communication\Form\ShippingAddress;

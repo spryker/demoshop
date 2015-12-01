@@ -57,8 +57,10 @@ class RemoveFactoryUse extends AbstractRefactor
     private function getDependencyContainerCollection()
     {
         $directories = [
-            __DIR__ . '/../../src/Pyz/Zed/*/*/',
-            __DIR__ . '/../../vendor/spryker/spryker/Bundles/*/src/*/Zed/*/*/',
+//            __DIR__ . '/../../src/Pyz/Zed/*/*/',
+            __DIR__ . '/../../src/Pyz/Yves/*/*/',
+//            __DIR__ . '/../../vendor/spryker/spryker/Bundles/*/src/*/Zed/*/*/',
+//            __DIR__ . '/../../vendor/spryker/spryker/Bundles/*/src/*/Yves/*/*/',
         ];
 
         $dependencyContainer = $this->getFiles($directories, '*DependencyContainer.php');
@@ -141,7 +143,7 @@ class RemoveFactoryUse extends AbstractRefactor
      */
     protected function findClassByCreateNameAndDependencyContainer($createName, SplFileInfo $dependencyContainer, $searchOnlyInProject = false)
     {
-        $directory = $this->getPathToBundleLayer('/../../src/Pyz/Zed/%s/%s/', $dependencyContainer);
+        $directory = $this->getPathToBundleLayer('/../../src/Pyz/%s/%s/%s/', $dependencyContainer);
 
         try {
             $file = $this->getFileByCreateName($directory, $createName);
@@ -168,7 +170,7 @@ class RemoveFactoryUse extends AbstractRefactor
      */
     protected function findCoreClassByCreateNameAndDependencyContainer($createName, SplFileInfo $dependencyContainer)
     {
-        $directory = $this->getPathToBundleLayer('/../../vendor/spryker/spryker/Bundles/*/src/*/Zed/%s/%s/', $dependencyContainer);
+        $directory = $this->getPathToBundleLayer('/../../vendor/spryker/spryker/Bundles/*/src/*/%s/%s/%s/', $dependencyContainer);
         $file = $this->getFileByCreateName($directory, $createName);
 
         return $this->getClassNameFromFileInfo($file);
@@ -196,6 +198,7 @@ class RemoveFactoryUse extends AbstractRefactor
     protected function getPathToBundleLayer($basePath, SplFileInfo $dependencyContainer)
     {
         $directory = __DIR__ . sprintf($basePath,
+            $this->getApplicationFromFileInfo($dependencyContainer),
             $this->getBundleFromFileInfo($dependencyContainer),
             $this->getLayerFromFileInfo($dependencyContainer)
         );
@@ -223,8 +226,6 @@ class RemoveFactoryUse extends AbstractRefactor
      */
     private function hasFactoryUsages($methodBody)
     {
-//        return preg_match('/getFactory\(\)->create/s', $methodBody);
-//        return preg_match('/getFactory\(\)(?:.*)->create/s', $methodBody);
         return preg_match('/(?<=getFactory\(\))(?:.*?)->create/s', $methodBody);
     }
 
@@ -235,8 +236,6 @@ class RemoveFactoryUse extends AbstractRefactor
      */
     private function getFactoryUsages($methodBody)
     {
-//        preg_match_all('/\$this->getFactory\(\)->create(.*?)\(/s', $methodBody, $matches);
-//        preg_match_all('/\$this->getFactory\(\)(?:.*)(?:->create)(.*?)\(/s', $methodBody, $matches);
         preg_match_all('/\$this->getFactory\(\)(?:.*?)(?:->create)(.*?)\(/s', $methodBody, $matches);
 
         return $matches;
@@ -254,7 +253,15 @@ class RemoveFactoryUse extends AbstractRefactor
      */
     private function getFileByCreateName($directory, $createName)
     {
-        $files = $this->getFiles([$directory]);
+        try {
+            $files = $this->getFiles([$directory]);
+        } catch (RefactorException $exception) {
+            $message = $exception->getMessage()
+                . PHP_EOL . 'Current path: ' . $directory
+                . PHP_EOL . 'Current create name: ' . $createName
+            ;
+            throw new RefactorException($message);
+        }
         $foundFiles = [];
         foreach ($files as $file) {
             $pathForCheck = str_replace(DIRECTORY_SEPARATOR, '', $file->getPathname());

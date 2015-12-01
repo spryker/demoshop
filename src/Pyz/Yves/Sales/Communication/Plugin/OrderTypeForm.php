@@ -2,7 +2,7 @@
 
 namespace Pyz\Yves\Sales\Communication\Plugin;
 
-use Pyz\Yves\Sales\SalesDependencyContainer;
+use Pyz\Yves\Sales\Communication\SalesDependencyContainer;
 use SprykerEngine\Yves\Kernel\Communication\AbstractPlugin;
 
 /**
