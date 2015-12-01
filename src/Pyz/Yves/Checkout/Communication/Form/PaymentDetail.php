@@ -70,7 +70,8 @@ class PaymentDetail extends AbstractType
                     'class' => 'input--1-1',
                     'data-required' => true,
                     'data-depending-field' => 'checkout[adyen_payment][payment_method]',
-                    'data-depending-value' => 'adyen.payment.method.sepa.directdebit'
+                    'data-depending-value' => 'adyen.payment.method.sepa.directdebit',
+                    'data-regexp' => '^[0-9]{1,11}$'
                 ]
             ])
             ->add('bank_location_id', 'text', [
@@ -81,6 +82,8 @@ class PaymentDetail extends AbstractType
                     'data-required' => true,
                     'data-depending-field' => 'checkout[adyen_payment][payment_method]',
                     'data-depending-value' => 'adyen.payment.method.sepa.directdebit',
+                    'data-regexp' => '^[1-9]{1}[0-9]{3,7}$'
+
                 ]
             ])
             ->add('ownerName', 'text', [
