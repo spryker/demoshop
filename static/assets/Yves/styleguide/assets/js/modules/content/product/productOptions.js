@@ -24,7 +24,7 @@ $(document).ready(function () {
         $weight = $options.find('.js-product-weight');
         $totalPrice = $options.find('.js-product-options__total');
         $relativePrice = $options.find('.js-product-options__relative');
-        $configurator = $options.find('.js-product-configurator form');
+        $configurator = $('.js-product-configurator form');
 
         $options.submit(addProduct);
 
@@ -78,6 +78,9 @@ $(document).ready(function () {
             quantity = $options.find('[name=quantity]').val();
 
             var postData = getFormData($configurator);
+            console.info($configurator, postData);
+
+
             for (let i in Object.keys(postData)) {
                 var key = Object.keys(postData)[i];
 
