@@ -101,6 +101,7 @@ class CategoryTreeInstall extends AbstractInstaller
     protected function getDemoTree()
     {
         $jsonData = file_get_contents(__DIR__ . '/pets-deli-category-tree.json');
+
         return json_decode($jsonData, true);
     }
 

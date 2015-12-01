@@ -12,23 +12,23 @@ class ProductDataFormatter extends AbstractDataFormatter
     const PRODUCT = 'product';
 
     /**
-     * @param AbstractProductInterface $product
+     * @param array $product
      *
      * @return array
      */
-    public static function formatProduct(AbstractProductInterface $product)
+    public static function formatProduct(array $product)
     {
         $productData = [];
 
         try {
-            $productAttributes = $product->getAbstractAttributes();
+            $productAttributes = $product['abstract_attributes'];
 
             $currencyManager = CurrencyManager::getInstance();
 
             $priceAbstract = $currencyManager->convertCentToDecimal($productAttributes['valid_price']);
 
             $productData = [
-                'id' => $product->getAbstractSku(),
+                'id' => $product['abstract_sku'],
                 'name' => $productAttributes['abstract_name'],
                 'brand' => TrackingConstants::VALUE_BRAND,
                 'category' => [],
@@ -36,11 +36,11 @@ class ProductDataFormatter extends AbstractDataFormatter
                 'price' => $priceAbstract,
             ];
 
-            foreach ($product->getCategory() as $category) {
+            foreach ($product['category'] as $category) {
                 $productData['category'][] = $category['name'];
             }
 
-            foreach ($product->getConcreteProducts() as $concreteProduct) {
+            foreach ($product['concrete_products'] as $concreteProduct) {
 
                 $priceConcrete = (isset($concreteProduct['price'])) ? $concreteProduct['price'] : $priceAbstract;
 

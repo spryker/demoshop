@@ -95,6 +95,7 @@ class PageCollector extends AbstractPropelCollectorPlugin
         $this->cmsBlockQueryContainer->joinPageBlocks($baseQuery, $locale);
 
         $baseQuery->withColumn(SpyCmsPageTableMap::COL_FK_CATEGORY_NODE, 'id_category_node');
+        $baseQuery->withColumn(SpyCmsPageTableMap::COL_FK_ABSTRACT_PRODUCT, 'id_product');
         $baseQuery->withColumn(SpyUrlTableMap::COL_URL, 'page_url');
         $baseQuery->withColumn(SpyCmsGlossaryKeyMappingTableMap::COL_PLACEHOLDER, 'placeholder');
         $baseQuery->withColumn(SpyCmsTemplateTableMap::COL_TEMPLATE_PATH, 'template_path');
@@ -121,6 +122,7 @@ class PageCollector extends AbstractPropelCollectorPlugin
             $processedResultSet[$pageKey]['url'] = $page['page_url'];
             $processedResultSet[$pageKey]['id'] = $page['page_id'];
             $processedResultSet[$pageKey]['id_category_node'] = $page['id_category_node'];
+            $processedResultSet[$pageKey]['id_product'] = $page['id_product'];
             $processedResultSet[$pageKey]['template'] = $page['template_path'];
             $processedResultSet[$pageKey]['placeholders'] = isset($processedResultSet[$pageKey]['placeholders']) ? $processedResultSet[$pageKey]['placeholders'] : [];
             if ($page['translation_key']) {

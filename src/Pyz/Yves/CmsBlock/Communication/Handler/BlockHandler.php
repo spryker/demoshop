@@ -16,6 +16,7 @@ class BlockHandler implements BlockHandlerInterface
     const NAME = 'name';
     const DYNAMIC_DATA = 'dynamicData';
     const CMS_VALUES = 'cmsValues';
+    const ID_PRODUCT = 'id_product';
 
     /**
      * @var BlockControllerInterface[]
@@ -79,7 +80,8 @@ class BlockHandler implements BlockHandlerInterface
     protected function extractPageAttributes(array $pageData)
     {
         return [
-            self::ID_CATEGORY_NODE => $pageData[self::ID_CATEGORY_NODE]
+            self::ID_CATEGORY_NODE => $pageData[self::ID_CATEGORY_NODE],
+            self::ID_PRODUCT => $pageData[self::ID_PRODUCT],
         ];
     }
 
