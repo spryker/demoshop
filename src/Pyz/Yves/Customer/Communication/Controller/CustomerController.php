@@ -61,6 +61,30 @@ class CustomerController extends AbstractController
      *
      * @return array|RedirectResponse
      */
+    public function createPasswordAction(Request $request)
+    {
+        $form = $this->createForm(
+            $this->getDependencyContainer()->createFormCreatePassword(),
+            [ 'restore_key' => $request->query->get('restore_key') ]
+        );
+
+        if ($form->isValid()) {
+            $customerTransfer = new CustomerTransfer();
+            $customerTransfer->setRestorePasswordKey($request->query->get('restore_key'));
+            $this->getLocator()->customer()->client()->restorePassword($customerTransfer);
+            $this->getLocator()->customer()->client()->logout();
+
+            return $this->redirectResponseInternal(CustomerControllerProvider::ROUTE_LOGIN);
+        }
+
+        return ['form' => $form->createView()];
+    }
+
+    /**
+     * @param Request $request
+     *
+     * @return array|RedirectResponse
+     */
     public function deleteAction(Request $request)
     {
         $form = $this->createForm($this->getDependencyContainer()->createFormDelete());

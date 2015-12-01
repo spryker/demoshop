@@ -34,6 +34,7 @@ class CustomerControllerProvider extends YvesControllerProvider
 
         $this->createController('/password/forgot/', self::ROUTE_PASSWORD_FORGOT, 'Customer', 'Customer', 'forgotPassword');
         $this->createController('/password/restore/', self::ROUTE_PASSWORD_RESTORE, 'Customer', 'Customer', 'restorePassword');
+        $this->createController('/password/create/', self::ROUTE_PASSWORD_RESTORE, 'Customer', 'Customer', 'createPassword');
         $this->createController('/customer/delete/', self::ROUTE_DELETE, 'Customer', 'Customer', 'delete');
         $this->createController('/customer/profile/', self::ROUTE_CUSTOMER_PROFILE, 'Customer', 'Customer', 'profile');
 

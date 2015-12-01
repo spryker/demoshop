@@ -197,6 +197,7 @@ class CheckoutController extends AbstractController
 
         $checkoutClient->clearOrderSuccess();
 
+
         //@todo add finish form?
 
         $trackingPurchase = CheckoutDataFormatter::formatPurchase(
@@ -211,9 +212,20 @@ class CheckoutController extends AbstractController
             ->setByKey(CheckoutDataFormatter::PRODUCTS, CartDataFormatter::formatCartItems($orderTransfer->getItems()))
         ;
 
-        return [
+        $result = [
             'order' => $orderTransfer->toArray(true),
         ];
+
+        $customer = $orderTransfer->getCustomer();
+
+        if ($customer->getIdCustomer()) {
+            $result['form'] = $this->createForm(
+                $this->getLocator()->customer()->pluginCreatePasswordForm(),
+                [ 'restore_key' => $customer->getRestorePasswordKey() ]
+            );
+        }
+
+        return $result;
     }
 
     /**
