@@ -406,3 +406,6 @@ $config[OmsMailQueueConnectorConfig::ORDER_SEPA_RECEIVED_EMAIL_SUBJECT] = 'Order
 
 $config[OmsMailQueueConnectorConfig::ORDER_PREPAYMENT_RECEIVED_TEMPLATE_NAME] = 'prepayment-order-received-test-template';
 $config[OmsMailQueueConnectorConfig::ORDER_PREPAYMENT_RECEIVED_EMAIL_SUBJECT] = 'Order received';
+
+$config[OmsMailQueueConnectorConfig::ORDER_CONFIRMATION_TEMPLATE_NAME] = 'order-confirmation';
+$config[OmsMailQueueConnectorConfig::ORDER_CONFIRMATION_EMAIL_SUBJECT] = 'Order confirmation';

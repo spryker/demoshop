@@ -8,7 +8,6 @@ use PavFeature\Shared\FileUpload\FileUploadConfig;
 use PavFeature\Shared\NewsletterDoiMailQueueConnector\NewsletterDoiMailQueueConnectorConfig;
 use PavFeature\Shared\MailchimpClient\MailchimpClientConfig;
 use Pyz\Shared\ProductFeed\ProductFeedConfig;
-use PavFeature\Shared\OmsMailQueueConnector\OmsMailQueueConnectorConfig;
 
 $config[SystemConfig::ZED_DB_USERNAME] = 'development';
 $config[SystemConfig::ZED_DB_PASSWORD] = 'mate20mg';
