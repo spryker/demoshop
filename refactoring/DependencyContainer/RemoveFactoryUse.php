@@ -224,7 +224,8 @@ class RemoveFactoryUse extends AbstractRefactor
     private function hasFactoryUsages($methodBody)
     {
 //        return preg_match('/getFactory\(\)->create/s', $methodBody);
-        return preg_match('/getFactory\(\)(?:.*)->create/s', $methodBody);
+//        return preg_match('/getFactory\(\)(?:.*)->create/s', $methodBody);
+        return preg_match('/(?<=getFactory\(\))(?:.*?)->create/s', $methodBody);
     }
 
     /**
@@ -235,7 +236,8 @@ class RemoveFactoryUse extends AbstractRefactor
     private function getFactoryUsages($methodBody)
     {
 //        preg_match_all('/\$this->getFactory\(\)->create(.*?)\(/s', $methodBody, $matches);
-        preg_match_all('/\$this->getFactory\(\)(?:.*)(?:->create)(.*?)\(/s', $methodBody, $matches);
+//        preg_match_all('/\$this->getFactory\(\)(?:.*)(?:->create)(.*?)\(/s', $methodBody, $matches);
+        preg_match_all('/\$this->getFactory\(\)(?:.*?)(?:->create)(.*?)\(/s', $methodBody, $matches);
 
         return $matches;
     }
