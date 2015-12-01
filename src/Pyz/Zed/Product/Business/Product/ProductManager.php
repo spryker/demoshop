@@ -318,4 +318,13 @@ class ProductManager extends SprykerProductManager implements ProductManagerInte
         $transfer->fromArray($entity->toArray(), true);
         return $transfer;
     }
+
+    /**
+     * @param string $concreteSku
+     * @return SpyProduct
+     */
+    public function getConcreteProductByConcreteSku($concreteSku)
+    {
+        return $this->productQueryContainer->queryConcreteProductByConcreteSku($concreteSku)->findOne();
+    }
 }

@@ -2,11 +2,10 @@
 
 namespace Pyz\Zed\OrderExporter\Dependency\Facade;
 
-use Orm\Zed\Product\Persistence\SpyProduct;
+use Generated\Shared\Product\ConcreteProductInterface;
 
 interface OrderExporterToProductFacade
 {
-
     /**
      * @param string $sku
      * @return int
@@ -15,7 +14,7 @@ interface OrderExporterToProductFacade
 
     /**
      * @param string $concreteSku
-     * @return SpyProduct
+     * @return ConcreteProductInterface
      */
-    public function getConcreteProduct($concreteSku);
+    public function getConcreteProductByConcreteSku($concreteSku);
 }

@@ -5,6 +5,7 @@ namespace Pyz\Zed\Product\Business;
 use Generated\Shared\Product\AbstractProductInterface;
 use Generated\Shared\Product\ConcreteProductInterface;
 use Generated\Shared\Product\ProductToBundleRelationInterface;
+use Orm\Zed\Product\Persistence\SpyProduct;
 use Pyz\SprykerBugfixInterface;
 use Pyz\Zed\OrderExporter\Dependency\Facade\OrderExporterToProductFacade;
 use Pyz\Zed\Product\Business\Attribute\MediaAttributes;
@@ -158,4 +159,12 @@ class ProductFacade extends SprykerProductFacade implements
         return $this->getDependencyContainer()->createProductBundleManager()->deleteBundleProductsByAbstractProductId($idAbstractProduct);
     }
 
+    /**
+     * @param string $concreteSku
+     * @return SpyProduct
+     */
+    public function getConcreteProductByConcreteSku($concreteSku)
+    {
+        return $this->getDependencyContainer()->createProductManager()->getConcreteProductByConcreteSku($concreteSku);
+    }
 }

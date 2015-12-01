@@ -2,6 +2,7 @@
 
 namespace Pyz\Zed\Product\Business\Product;
 
+use Orm\Zed\Product\Persistence\SpyProduct;
 use SprykerFeature\Zed\Product\Business\Product\ProductManagerInterface as SprykerProductManagerInterface;
 use Generated\Shared\Product\AbstractProductInterface;
 use Generated\Shared\Product\ConcreteProductInterface;
@@ -36,5 +37,11 @@ interface ProductManagerInterface extends SprykerProductManagerInterface
      * @return ConcreteProductInterface $concreteProductTransfer
      */
     public function getConcreteProductById($idConcreteProduct);
+
+    /**
+     * @param string $concreteSku
+     * @return SpyProduct
+     */
+    public function getConcreteProductByConcreteSku($concreteSku);
 
 }
