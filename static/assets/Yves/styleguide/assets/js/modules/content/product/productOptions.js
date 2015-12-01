@@ -78,8 +78,6 @@ $(document).ready(function () {
             quantity = $options.find('[name=quantity]').val();
 
             var postData = getFormData($configurator);
-            console.info($configurator, postData);
-
 
             for (let i in Object.keys(postData)) {
                 var key = Object.keys(postData)[i];
