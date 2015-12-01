@@ -54,7 +54,7 @@
                             name: 'different-delivery-address',
                             id: 'different-delivery-address',
                             label: ('page.checkout.address.billing-isnt-shipping-address' | trans),
-                            value: ''
+                            value: '1'
                         } %}
 
                         <div class="checkout__subform">
@@ -100,6 +100,7 @@
                                             {{ form_widget(form.adyen_payment.payment_detail.adyen_encrypted_form_number) }}
                                             {{ form_widget(form.adyen_payment.payment_detail.adyen_encrypted_form_cvc) }}
                                             {{ form_widget(form.adyen_payment.payment_detail.adyen_encrypted_form_holder_name) }}
+                                            {{ form_widget(form.adyen_payment.payment_detail.adyen_encryption_key) }}
 
                                             <div class="input-validity">
                                                 <label class="input__label" for="validity_month">Gültigkeit</label>
@@ -138,7 +139,7 @@
                         {% include "@checkout/checkout/cartWithCouponTextfield.twig" %}
 
                         <div class="checkout__terms">
-                            {{ form_widget(form.newsletter) }}
+                            {#{ form_widget(form.newsletter) }#}
                             {{ form_widget(form.terms) }}
                         </div>
 

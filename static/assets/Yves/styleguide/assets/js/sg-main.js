@@ -1,3 +1,7 @@
+import $ from 'jquery';
+window.$ = $;
+
+
 // common functionality
 import './modules/common/bodyScrolling';
 import './modules/common/formBackup';

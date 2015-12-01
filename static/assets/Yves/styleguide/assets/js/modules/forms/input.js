@@ -5,7 +5,8 @@ import { validateInput } from './validator';
 
 
 const EVENTS = {
-    VALIDATE: 'INPUT_VALIDATE'
+    VALIDATE: 'INPUT_VALIDATE',
+    VALIDATION_UPDATED: 'INPUT_VALIDATION_UPDATED'
 };
 
 
@@ -26,9 +27,10 @@ $(document).ready(function () {
                 $input.addClass('input--focussed');
             });
 
-            $text.bind('blur', function () {
+            $text.bind('blur change', function () {
                 $input.removeClass('input--focussed');
 
+                validateInstant();
                 validateAfter();
             });
 
@@ -55,6 +57,8 @@ $(document).ready(function () {
                     $inputField.append($(`<div class="input__error">${validationResult.messages[0]}</div>`));
                 }
             }
+
+            $(document).trigger(EVENTS.VALIDATION_UPDATED);
         }
 
         function validateAfter () {

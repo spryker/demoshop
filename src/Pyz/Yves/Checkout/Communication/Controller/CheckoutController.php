@@ -64,6 +64,7 @@ class CheckoutController extends AbstractController
         }
 
         $paymentMethodsTransfer = $this->getPaymentMethods();
+        $paymentMethodsTransfer->getClientSideEncryptionPublicKey();
 
         $checkoutForm = $container->createCheckoutForm($paymentMethodsTransfer);
         $checkoutTransfer = new CheckoutRequestTransfer();

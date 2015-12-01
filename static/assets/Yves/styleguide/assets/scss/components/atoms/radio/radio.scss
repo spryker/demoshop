@@ -20,6 +20,14 @@
   }
 }
 
+.radio--invalid{
+    .radio__label{
+        &:before{
+            box-shadow: 0 0 1px 0 rgba($_rgbCarnation, 1);
+        }
+    }
+}
+
 .radio--vorkasse, .radio--adyen-payment-method-german-bank-transfer{
   .radio__image{
     width: 88px;

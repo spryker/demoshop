@@ -18,9 +18,10 @@ class Address extends AbstractType
     /**
      * @param int $offset
      */
-    public function __construct($offset = 0)
+    public function __construct($offset = 0, $dependingField = NULL)
     {
         $this->offset = $offset;
+        $this->dependingField = $dependingField;
     }
 
     /**
@@ -37,20 +38,31 @@ class Address extends AbstractType
      */
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
+
+        $dataRequired = is_null($this->dependingField) ? false : 'true';
+        $dataDependingField = is_null($this->dependingField) ? false : $this->dependingField;
+        $dataDependingValue = is_null($this->dependingField) ? false : 1;
+
         // TODO: translations
         $builder
             ->add('first_name', 'text', [
                 'label' => 'Vorname',
                 'required' => true,
                 'attr' => [
-                    'class' => 'input--1-2'
+                    'class' => 'input--1-2',
+                    'data-required' => $dataRequired,
+                    'data-depending-field' => $dataDependingField,
+                    'data-depending-value' => $dataDependingValue
                 ],
             ])
             ->add('last_name', 'text', [
                 'label' => 'Nachname',
                 'required' => true,
                 'attr' => [
-                    'class' => 'input--1-2'
+                    'class' => 'input--1-2',
+                    'data-required' => $dataRequired,
+                    'data-depending-field' => $dataDependingField,
+                    'data-depending-value' => $dataDependingValue
                 ],
             ])
             ->add('street', 'text', [
@@ -58,7 +70,10 @@ class Address extends AbstractType
                 'required' => true,
                 'property_path' => 'address1',
                 'attr' => [
-                    'class' => 'input--3-4'
+                    'class' => 'input--3-4',
+                    'data-required' => $dataRequired,
+                    'data-depending-field' => $dataDependingField,
+                    'data-depending-value' => $dataDependingValue
                 ],
             ])
             ->add('street_nr', 'text', [
@@ -66,21 +81,30 @@ class Address extends AbstractType
                 'required' => true,
                 'property_path' => 'address2',
                 'attr' => [
-                    'class' => 'input--1-4'
+                    'class' => 'input--1-4',
+                    'data-required' => $dataRequired,
+                    'data-depending-field' => $dataDependingField,
+                    'data-depending-value' => $dataDependingValue
                 ],
             ])
             ->add('zip_code', 'text', [
                 'label' => 'PLZ',
                 'required' => true,
                 'attr' => [
-                    'class' => 'input--1-4'
+                    'class' => 'input--1-4',
+                    'data-required' => $dataRequired,
+                    'data-depending-field' => $dataDependingField,
+                    'data-depending-value' => $dataDependingValue
                 ],
             ])
             ->add('city', 'text', [
                 'label' => 'Stadt',
                 'required' => true,
                 'attr' => [
-                    'class' => 'input--3-4'
+                    'class' => 'input--3-4',
+                    'data-required' => $dataRequired,
+                    'data-depending-field' => $dataDependingField,
+                    'data-depending-value' => $dataDependingValue
                 ],
             ])
             ->add('iso2code', 'hidden', [

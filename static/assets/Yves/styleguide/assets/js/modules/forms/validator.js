@@ -1,36 +1,50 @@
 import $ from 'jquery';
-
 'use strict'
 
 
 function validateForm ($element) {
 
-    var $inputs, $select, result;
+    var $inputs, $radios, $checkboxes, result;
 
-    valid = true;
+result = {
+        valid: true,
+        messages: []
+    };
 
-    $inputs = $element.find('input');
-    $selects = $element.find('select');
-
+    $inputs = $element.find('.input');
     $inputs.each(function () {
-        var $input = $(this);
+        var $input, validationResult;
 
-        console.info(this);
+        $input = $(this);
+        validationResult = validateInput($input);
 
-        valid = valid && validateInput().valid;
+        result.valid = result.valid && validationResult.valid;
+        result.messages = [].concat(result.messages, validationResult.messages);
     });
 
-    $selects.each(function () {
-        var $select = $(this);
+    $radios = $element.find('.radio');
+    $radios.each(function () {
+        var $radio, validationResult;
 
-        console.info(this);
+        $radio = $(this);
+        validationResult = validateRadio($radio);
 
-        valid = valid && true;
+        result.valid = result.valid && validationResult.valid;
+        result.messages = [].concat(result.messages, validationResult.messages);
     });
 
-    console.info(valid);
+    $checkboxes = $element.find('.checkbox');
+    $checkboxes.each(function () {
+        var $checkbox, validationResult;
 
-    return valid;
+        $checkbox = $(this);
+        validationResult = validateCheckbox($checkbox);
+
+        result.valid = result.valid && validationResult.valid;
+        result.messages = [].concat(result.messages, validationResult.messages);
+    });
+
+    return result;
 }
 
 
@@ -49,7 +63,8 @@ function validateInput ($element) {
     $input = $element.find('.input__text');
     value = $input.val();
 
-    dataRequired = $input.data('required') && $('[name="' + $input.data('depending-field') + '"]').filter(':checked').val() === $input.data('depending-value');
+    var $dependingField = $('[name="' + $input.data('depending-field') + '"]').filter(':checked');
+    dataRequired = $input.data('required') && $dependingField.val() == $input.data('depending-value');
     required = $input.prop('required') || dataRequired;
 
     if (required) {
@@ -67,7 +82,6 @@ function validateInput ($element) {
 
 function validateRadio ($element) {
 
-
     var $radio, $radios, name, required, result;
 
     result = {
@@ -77,11 +91,11 @@ function validateRadio ($element) {
 
     $radio = $element.find('input[type="radio"]');
     name = $radio.attr('name');
-    $radios = $element.siblings('.radio').andSelf().find(`input[type="radio"][name="${name}"]`);
-    required = $input.prop('required');
+    $radios = $element.siblings('.radio').andSelf().find(`input[type="radio"][name="${name}"]:checked`);
+    required = $radio.prop('required');
 
     if (required) {
-        if (!$radios.val().length) {
+        if (!$radios.size()) {
             result.valid = result.valid && false;
         }
     }
@@ -90,4 +104,28 @@ function validateRadio ($element) {
 }
 
 
-export { validateInput, validateForm }
+function validateCheckbox ($element) {
+    var $checkbox, required, result;
+
+    result = {
+        valid: true,
+        messages: []
+    };
+
+    $checkbox = $element.find('input[type="checkbox"]');
+    required = $checkbox.prop('required');
+
+    if (required) {
+        if ($checkbox.is(':checked')) {
+            result.valid = result.valid && true;
+
+        } else {
+            result.valid = result.valid && false;
+        }
+    }
+
+    return result;
+}
+
+
+export { validateInput, validateRadio, validateCheckbox, validateForm }
