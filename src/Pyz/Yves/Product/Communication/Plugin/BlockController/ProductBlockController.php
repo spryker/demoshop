@@ -18,7 +18,7 @@ use Symfony\Component\HttpFoundation\Request;
 class ProductBlockController extends AbstractPlugin implements BlockControllerInterface
 {
 
-    const PRODUCT = 'product';
+    const PRODUCT = 'product_detail';
 
     /**
      * @return string

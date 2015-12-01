@@ -27,12 +27,7 @@ class CmsBlockSettings
     {
         return [
             $this->locator->catalog()->pluginBlockControllerCatalogBlockController(),
-            $this->locator->cmsBlock()->pluginBlockControllerHeaderTopBlockController(),
-            $this->locator->cmsBlock()->pluginBlockControllerFooterNavigationBlockController(),
-            $this->locator->cmsBlock()->pluginBlockControllerFooterNewsletterBlockController(),
-            $this->locator->cmsBlock()->pluginBlockControllerFooterPaymentBlockController(),
-            $this->locator->cmsBlock()->pluginBlockControllerFooterCommunicationBlockController(),
-            $this->locator->cmsBlock()->pluginBlockControllerNavigationBlockController(),
+            $this->locator->product()->pluginBlockControllerProductBlockController(),
         ];
     }
 }
