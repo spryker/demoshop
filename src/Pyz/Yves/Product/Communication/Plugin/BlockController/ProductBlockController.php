@@ -71,10 +71,9 @@ class ProductBlockController extends AbstractPlugin implements BlockControllerIn
                 'unit' => $unit
             ];
 
-            // AGGREGATE CONFIGURATION OPTIONS
+            $productType = $product['product_type'];
 
-            // dynamic / bundle
-            if (in_array($product['abstract_attributes']['product_type'], [
+            if (in_array($productType, [
                 ProductDynamicConstants::PRODUCT_DYNAMIC_TYPE_DYNAMIC,
                 ProductDynamicConstants::PRODUCT_DYNAMIC_TYPE_BUNDLE
             ])) {
