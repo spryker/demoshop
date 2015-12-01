@@ -5,7 +5,6 @@ namespace Pyz\Zed\PetsDeliImporterWriter\Business\WriterProvider;
 use PavFeature\Zed\ProductDynamicImporter\Business\Writer\ProductWriterInterface;
 use PavFeature\Zed\ProductDynamicImporter\Business\Writer\ProductWriterProviderInterface;
 use Pyz\Zed\PetsDeliImporterWriter\Business\Writer\AbstractProductCmsBlockWriter;
-use Pyz\Zed\PetsDeliImporterWriter\Business\Writer\AbstractProductCmsWriter;
 use Pyz\Zed\PetsDeliImporterWriter\Business\Writer\AbstractProductDynamicWriter;
 use Pyz\Zed\PetsDeliImporterWriter\Business\Writer\AbstractProductWriter;
 use Pyz\Zed\PetsDeliImporterWriter\Business\Writer\ConcreteBundleProductWriter;
