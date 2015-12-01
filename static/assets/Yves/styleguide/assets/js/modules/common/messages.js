@@ -57,10 +57,12 @@ export class MessageService {
     // public: add new message (type, content) with
     add (options) {
 
+        var message = window.translator.getTranslation(options.message);
+
         // create dom object
         var $message = $(`
             <div class="message message--${options.type}">
-                ${options.message}
+                ${message}
             </div>
         `);
 
