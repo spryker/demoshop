@@ -26,6 +26,7 @@ class AfterbuyExportManager
     const VALUE_COUPON_NAME = 'RABATT';
     const CONVERSION_MG_TO_KG = 1000;
     const CONVERSION_CENT_TO_EUROS = 100;
+    const CONVERSION_PERCENTAGE = 100;
 
     /** @var string */
     protected $afterbuyUrl;
@@ -151,10 +152,6 @@ class AfterbuyExportManager
         $postData[AfterbuyConstants::CUSTOMER_EMAIL] = $email;
         $postData[AfterbuyConstants::SALES_ORDER_ID] = $order->getIdSalesOrder();
 
-        if (!null == $order->getShipmentMethod()) {
-            $postData[AfterbuyConstants::SHIPPING_METHOD] = $order->getShipmentMethod()->getName();
-        }
-
         $postData = $this->addShippingAddressInfo($shippingAddress, $postData);
 
         if ($billingAddress == $shippingAddress) {
@@ -233,7 +230,7 @@ class AfterbuyExportManager
             $postData[AfterbuyConstants::ITEM_QUANTITY_ORDERED . $numberOfItems] = $item->getQuantity();
             $postData[AfterbuyConstants::ITEM_NAME . $numberOfItems] = $item->getName();
             $postData[AfterbuyConstants::ITEM_PRICE . $numberOfItems] = $this->convertPriceInCentToEuro($item->getGrossPrice());
-            $postData[AfterbuyConstants::ITEM_TAX_PERCENTAGE . $numberOfItems] = $item->getTaxPercentage();
+            $postData[AfterbuyConstants::ITEM_TAX_PERCENTAGE . $numberOfItems] = $this->convertPercentIntoDecimal($item->getTaxPercentage());
             $postData = $this->addProductAttributesInfo($item, $numberOfItems, $postData);
         }
 
@@ -369,7 +366,7 @@ class AfterbuyExportManager
         $postData[AfterbuyConstants::SHIPPING_ZIP_CODE] = $shippingAddress->getZipCode();
         $postData[AfterbuyConstants::SHIPPING_CITY] = $shippingAddress->getCity();
         $postData[AfterbuyConstants::SHIPPING_PHONE] = $shippingAddress->getPhone();
-        $postData[AfterbuyConstants::SHIPPING_COUNTRY_ID] = $shippingAddress->getFkCountry();
+        $postData[AfterbuyConstants::SHIPPING_COUNTRY_ID] = $shippingAddress->getCountry()->getIso2Code();
 
         return $postData;
     }
@@ -390,7 +387,7 @@ class AfterbuyExportManager
         $postData[AfterbuyConstants::BILLING_ZIP_CODE] = $billingAddress->getZipCode();
         $postData[AfterbuyConstants::BILLING_CITY] = $billingAddress->getCity();
         $postData[AfterbuyConstants::BILLING_PHONE] = $billingAddress->getPhone();
-        $postData[AfterbuyConstants::BILLING_COUNTRY_ID] = $billingAddress->getFkCountry();
+        $postData[AfterbuyConstants::BILLING_COUNTRY_ID] = $billingAddress->getCountry()->getIso2Code();
 
         return $postData;
     }
@@ -434,8 +431,17 @@ class AfterbuyExportManager
                 $postData[$key] = utf8_decode($value);
             }
         }
-
+        
         return $postData;
     }
 
+    /**
+     * @param int $percent
+     * @return float
+     */
+    protected function convertPercentIntoDecimal($percent)
+    {
+        return $percent / self::CONVERSION_PERCENTAGE;
+    }
+    
 }
