@@ -47,7 +47,7 @@ class ProductBlockController extends AbstractPlugin implements BlockControllerIn
             ->setByKey(ProductDataFormatter::PRODUCT, ProductDataFormatter::formatProduct($product))
         ;
 
-        // TODO Remove Hack
+        // TODO: Remove Hack
         $product = array_merge($product, $product['abstract_attributes']);
 
         $result = [
@@ -65,7 +65,6 @@ class ProductBlockController extends AbstractPlugin implements BlockControllerIn
 
             $weight = $concrete['attributes']['weight'];
             $unit = $concrete['attributes']['weight_unit'];
-
 
             $result['pricings'][$weight] = [
                 'weight' => $weight,

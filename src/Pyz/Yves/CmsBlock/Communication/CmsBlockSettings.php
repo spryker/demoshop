@@ -28,6 +28,7 @@ class CmsBlockSettings
         return [
             $this->locator->catalog()->pluginBlockControllerCatalogBlockController(),
             $this->locator->product()->pluginBlockControllerProductBlockController(),
+            $this->locator->product()->pluginBlockControllerAccordionBlockController(),
         ];
     }
 }
